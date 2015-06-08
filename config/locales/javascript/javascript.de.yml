@@ -30,10 +30,18 @@ de:
       deselect_all: "Auswahl aufheben"
       no_aspects: "Keine Aspekte ausgewählt"
       select_all: "Alle auswählen"
+    aspects:
+      create:
+        add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
+        failure: "Fehler beim Erstellen des Aspekts."
+        success: "Dein neuer Aspekt <%= name %> wurde erstellt."
+      make_aspect_list_visible: "Kontakte aus diesem Aspekt gegenseitig sichtbar machen?"
+      name: "Name"
     bookmarklet:
       post_something: "Erstelle einen Beitrag in diaspora*"
       post_submit: "Beitrag einreichen..."
       post_success: "Gepostet! Popup-Fenster wird geschlossen..."
+    cancel: "Abbrechen"
     comma: ","
     comments:
       hide: "Kommentare verbergen"
@@ -51,6 +59,7 @@ de:
       search_no_results: "Keine Kontakte gefunden"
     conversation:
       participants: "Teilnehmer"
+    create: "Erstellen"
     delete: "Löschen"
     edit: "Bearbeiten"
     failed_to_like: "Gefällt mir fehlgeschlagen!"

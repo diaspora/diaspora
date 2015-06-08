@@ -28,10 +28,18 @@ cs:
       deselect_all: "Odznačit vše"
       no_aspects: "Nebyl vybrán žádný aspekt"
       select_all: "Vybrat vše"
+    aspects:
+      create:
+        add_a_new_aspect: "Přidat nový aspekt"
+        failure: "Vytvoření aspektu selhalo."
+        success: "Váš nový aspekt <%= name %> byl vytvořen"
+      make_aspect_list_visible: "umožnit kontaktům v tomto aspektu se vzájemně vidět?"
+      name: "Název"
     bookmarklet:
       post_something: "Dát příspěvek na diaspora*"
       post_submit: "Odesílám příspěvek ..."
       post_success: "Odesláno. Uzavírám vyskakovací okno..."
+    cancel: "Zrušit"
     comma: ","
     comments:
       hide: "skrýt komentáře"
@@ -49,6 +57,7 @@ cs:
       search_no_results: "Nenalezeny žádné kontakty"
     conversation:
       participants: "Účastníci"
+    create: "Vytvořit"
     delete: "Odstranit"
     edit: "Upravit"
     failed_to_like: "Oblíbení se nezdařilo!"
@@ -187,8 +196,11 @@ cs:
       show_nsfw_posts: "Zobrazit vše"
       tags:
         follow: "Sledovat #<%= tag %>"
+        follow_error: "Není možné sledovat štítek <%= tag %> :("
         following: "Sledujete #<%= tag %>"
         stop_following: "Přestat sledovat #<%= tag %>"
+        stop_following_confirm: "Ukončit sledování <%= tag %>"
+        stop_following_error: "Není možné přestat sledovat štítek <%= tag %> :("
       unfollow: "Přestat sledovat"
       unlike: "To se mi nelíbí"
       via: "skrze <%= provider %>"

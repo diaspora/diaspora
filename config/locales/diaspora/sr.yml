@@ -392,13 +392,9 @@ sr:
     finder:
       no_friends: "Фејсбук пријатељи нису пронађени."
     index:
-      connect_to_facebook: "Повежи са Фејсбуком"
-      connect_to_tumblr: "Повежи са Тумблр"
-      connect_to_twitter: "Повежи са Твитером"
       disconnect: "Прекини везу"
       edit_services: "Уреди сервисе"
       logged_in_as: "Пријављен као"
-      no_services: "Нисте још повезали нити један сервис."
     inviter:
       click_link_to_accept_invitation: "Следи ову везу да прихватиш своју позивницу"
       join_me_on_diaspora: "Придружи ми се на diaspora*"

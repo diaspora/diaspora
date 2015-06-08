@@ -170,6 +170,7 @@ cs:
     destroy:
       failure: "%{name} není prázdný a nemůže být odstraněn."
       success: "%{name} byl úspěšně odebrán."
+      success_auto_follow_back: "%{name} byl úspěšně odstraněn. Tento aspekt jste používal k automatickémy zařazení uživatelů, které receipročně sledujete. Zkrontrolujte své uživatelské nastavení a vyberte pro reciproční sledování jiný aspekt."
     edit:
       aspect_chat_is_enabled: "Kontakty v tomto aspektu s Vámi mohou chatovat."
       aspect_chat_is_not_enabled: "Kontakty v tomto aspektu s Vámi nemohou chatovat."
@@ -610,16 +611,16 @@ cs:
       back_to_top: "Nahoru"
       powered_by: "BĚŽÍ NA SÍTI diaspora*"
       public_feed: "Veřejný proud Diaspory pro %{name}"
-      source_package: "stáhnout balík se zdrojovým kódem"
-      toggle: "přepnout na plnou verzi"
-      whats_new: "co je nového?"
+      source_package: "Stáhnout balík se zdrojovým kódem"
+      toggle: "Přepnout mobilní / plnou verzi"
+      whats_new: "Co je nového?"
       your_aspects: "vaše aspekty"
     header:
       admin: "správce"
       blog: "blog"
       code: "kód"
       help: "Nápověda"
-      login: "přihlásit"
+      login: "Přihlásit"
       logout: "Odhlásit se"
       profile: "Profil"
       recent_notifications: "Nejnovější oznámení"
@@ -736,8 +737,11 @@ cs:
     a_post_you_shared: "příspěvek."
     a_private_message: "Máte v diaspora* novou soukromou zprávu."
     accept_invite: "Přijměte vaši pozvánku do Diaspory*!"
+    also_commented:
+      limited_subject: "Na příspěvku, který jste komentoval, byl přidán další komentář."
     click_here: "klikněte zde"
     comment_on_post:
+      limited_subject: "U příspěvku, který jste okomentoval, je další komentář."
       reply: "Zobrazit příspěvek od %{name} nebo na něj odpovědět »"
     confirm_email:
       click_link: "K aktivaci vaší nové e-mailové adresy %{unconfirmed_email} použijte prosím tento odkaz:"
@@ -801,8 +805,10 @@ cs:
     invited_you: "%{name} vás pozvali do Diaspory*"
     liked:
       liked: "%{name} si oblíbil(a) váš příspěvek"
+      limited_post: "%{name} se líbí Váš neveřejný příspěvek."
       view_post: "Zobrazit příspěvek »"
     mentioned:
+      limited_post: "Byl jste zmíněn v neveřejném příspěvku."
       mentioned: "vás zmínil(a) v příspěvku:"
       subject: "%{name} vás zmínil(a) na Diaspoře*"
     private_message:
@@ -1093,19 +1099,22 @@ cs:
       no_friends: "Žádní přátelé na Facebooku nenalezeni."
       service_friends: "Přátelé na %{service}"
     index:
-      connect_to_facebook: "Připojit na Facebook"
-      connect_to_tumblr: "Připojit na Tumblr"
-      connect_to_twitter: "Připojit na Twitter"
-      connect_to_wordpress: "Spojit s wordpressem"
+      connect: "Připojit"
       disconnect: "odpojit"
       edit_services: "Upravit služby"
       logged_in_as: "přihlášen jako"
-      no_services: "Nemáte připojenou žádnou službu."
+      no_services_available: "Na tomto podu nejsou k dispozici žádné služby."
+      not_logged_in: "Momentálně nepřihlášen."
       really_disconnect: "odpojit %{service}?"
       services_explanation: "Připojování se k službám vám dá možnost na nich publikovat své příspěvky hned co je napíšete na diaspoře*."
     inviter:
       click_link_to_accept_invitation: "Klikněte na tento odkaz, pokud chcete přijmout pozvání"
       join_me_on_diaspora: "Připojte se ke mě na DIASPORU*"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     remote_friend:
       invite: "pozvat"
       not_on_diaspora: "Ještě není na Diaspoře"
@@ -1284,6 +1293,9 @@ cs:
     destroy:
       failure: "Nepodařilo se ukončit odebírání #%{name}. Možná jste jej již přestali odebírát?"
       success: "Jak chcete! Štítek #%{name} již neodebíráte."
+    manage:
+      no_tags: "Nesledujete žádné štítky"
+      title: "Správa sledovaných štítků"
   tags:
     name_too_long: "Ujistěte se, že název tagu má méně než %{count} znaků. Teď jich má %{current_length}."
     show:
@@ -1331,7 +1343,7 @@ cs:
       current_password_expl: "to, s kterým se přihlašuješ..."
       download_export: "Stáhnout můj profil"
       download_export_photos: "Stáhnout moje fotky"
-      download_photos: "stáhnout moje fotky"
+      download_photos: "Stáhnout moje fotky"
       edit_account: "Upravit účet"
       email_awaiting_confirmation: "Na adresu %{unconfirmed_email} byl zaslán aktivační odkaz. Dokud tento odkaz neotevřete a svou novou adresu neaktivujete, budeme vás kontaktovat na vaší staré adrese %{email}."
       export_data: "Exportovat data"

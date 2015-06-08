@@ -629,13 +629,9 @@ zh-CN:
       no_friends: "没有 Facebook 好友"
       service_friends: "%{service} 好友"
     index:
-      connect_to_facebook: "与 Facebook 连接"
-      connect_to_tumblr: "与 Tumblr 连接"
-      connect_to_twitter: "与 Twitter 连接"
       disconnect: "断开连接"
       edit_services: "编辑服务"
       logged_in_as: "登录为"
-      no_services: "您尚未和任何服务连接"
       really_disconnect: "切断与 %{service} 的连接？"
     inviter:
       click_link_to_accept_invitation: "点击这个链接以接受邀请"

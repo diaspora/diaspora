@@ -12,6 +12,8 @@ pl:
       all_aspects: "Wszystkie aspekty"
       error: "Nie można zacząć dzielić się z <%= name %>. Może go/ją ignorujesz?"
       error_remove: "Nie można usunąć <%= name %> z aspektu :("
+      mobile_row_checked: "<%= name %> (usuń)"
+      mobile_row_unchecked: "<%= name %> (dodaj)"
       select_aspects: "Wybierz aspekty"
       started_sharing_with: "Od teraz dzielisz się z <%= name %>!"
       stopped_sharing_with: "Nie dzielisz się już z <%= name %>."
@@ -22,15 +24,24 @@ pl:
         other: "W <%= count %> aspektach"
         two: "W <%= count %> aspektach"
         zero: "Wybierz aspekty"
+      updating: "pobieram..."
     aspect_navigation:
       add_an_aspect: "+ Dodaj aspekt"
       deselect_all: "Odznacz wszystkie"
       no_aspects: "Nie wybrano aspektów"
       select_all: "Zaznacz wszystkie"
+    aspects:
+      create:
+        add_a_new_aspect: "Dodaj aspekt"
+        failure: "Nie udało się utworzyć aspektu."
+        success: "Nowy aspekt o nazwie <%= name %> został utworzony"
+      make_aspect_list_visible: "Sprawić aby kontakty w tym aspekcie widziały się wzajemnie?"
+      name: "Nazwa"
     bookmarklet:
       post_something: "Udostępnij na diasporze*"
       post_submit: "Wysyłanie wpisu..."
       post_success: "Wysłano! Zamykam okno..."
+    cancel: "Anuluj"
     comma: ","
     comments:
       hide: "ukryj komentarze"
@@ -45,13 +56,16 @@ pl:
       error_add: "Nie udało się dodać <%= name %> do aspektu :("
       error_remove: "Nie udało się usunąć <%= name %> z aspektu :("
       remove_contact: "Usuń kontakt"
+      search_no_results: "Nie znaleziono użytkowników"
     conversation:
       participants: "Uczestnicy"
+    create: "Utwórz"
     delete: "Usuń"
     edit: "Edycja"
     failed_to_like: "Nie udało się pulubić!"
     failed_to_post_message: "Nie można wysłać wiadomości!"
     failed_to_remove: "Nie udało się usunąć wartości!"
+    failed_to_reshare: "Nie udało się przekazać dalej!"
     getting_started:
       alright_ill_wait: "Dobrze, poczekam."
       hey: "Hej, <%= name %>!"
@@ -72,6 +86,8 @@ pl:
       search: "Szukaj"
       settings: "Ustawienia"
       view_all: "Wyświetl wszystko"
+    hide_post: "Ukryj wpis?"
+    hide_post_failed: "Nie można ukryć tego wpisu"
     ignore: "Ignoruj"
     ignore_failed: "Nie można zignorować tego użytkownika"
     ignore_user: "Zignorować tego użytkownika?"
@@ -122,7 +138,7 @@ pl:
       edit: "zmień"
       gender: "Płeć"
       ignoring: "Ignorujesz wszystkie wpisy od <%= name %>."
-      location: "Miejscowość"
+      location: "Miejsce"
       photos: "Zdjęcia"
       posts: "Wpisy"
       you_have_no_tags: "nie masz tagów!"
@@ -134,6 +150,7 @@ pl:
       option: "Odpowiedź"
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
       question: "Pytanie"
+    remove_post: "Usunąć ten wpis?"
     report:
       name: "Zgłoś"
       prompt: "Proszę podaj powód:"
@@ -149,6 +166,8 @@ pl:
     show_more: "wyświetl więcej"
     stream:
       comment: "Skomentuj"
+      disable_post_notifications: "Wyłącz powiadomienia do tego wpisu"
+      enable_post_notifications: "Włącz powiadomienia do tego wpisu"
       follow: "Obserwuj"
       followed_tag:
         add_a_tag: "Dodaj znacznik"
@@ -184,8 +203,11 @@ pl:
       show_nsfw_posts: "Wyświetl wszystko"
       tags:
         follow: "Obserwuj #<%= tag %>"
+        follow_error: "Obserwacja #<%= tag %> nie powiodła się :("
         following: "Obserwowanie #<%= tag %>"
         stop_following: "Przestań obserwować #<%= tag %>"
+        stop_following_confirm: "Przestań obserwować #<%= tag %>"
+        stop_following_error: "Nie udało się przestać obserwować #<%= tag %> :("
       unfollow: "Nie obserwuj"
       unlike: "Nie lubię"
       via: "przez <%= provider %>"

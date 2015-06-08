@@ -828,14 +828,9 @@ sk:
       no_friends: "Žiadni priatelia z Facebooku sa nenašli."
       service_friends: "Priatelia zo siete %{service}"
     index:
-      connect_to_facebook: "Pripojiť sa na Facebook"
-      connect_to_tumblr: "Pripojiť sa na Tumblr"
-      connect_to_twitter: "Pripojiť sa na Twitter"
-      connect_to_wordpress: "Prihlásiť sa na Wordpress"
       disconnect: "Odhlásiť sa"
       edit_services: "Upraviť pripojenie na služby"
       logged_in_as: "prihlásil(a) si sa ako"
-      no_services: "Ešte si svoj účet nepripojil(a) na žiadne ďalšie služby."
       really_disconnect: "Chceš sa odhlásiť zo služby %{service}?"
       services_explanation: "Pripojenie k službám Ti umožňuje publikovať na nich príspevky, len čo ich napíšeš na Diasporu*."
     inviter:

@@ -30,10 +30,18 @@ da:
       deselect_all: "Fravælg alle"
       no_aspects: "Ingen valgte aspekter"
       select_all: "Vælg alle"
+    aspects:
+      create:
+        add_a_new_aspect: "Tilføj et nyt aspekt"
+        failure: "Fejl under oprettelse af aspektet."
+        success: "Aspektet <%= name %> er blevet oprettet"
+      make_aspect_list_visible: "Skal kontakter i dette aspekt være synlige for hinanden?"
+      name: "Navn"
     bookmarklet:
       post_something: "Lav et indlæg på Diaspora"
       post_submit: "Indsender indlæg ..."
       post_success: "Det er indsendt! lukker popup vinduet ..."
+    cancel: "Annuller"
     comma: ","
     comments:
       hide: "Skjul kommentarer"
@@ -51,6 +59,7 @@ da:
       search_no_results: "Ingen kontakter fundet"
     conversation:
       participants: "Deltagere"
+    create: "Opret"
     delete: "Slet"
     edit: "Rediger"
     failed_to_like: "Kunne ikke synes om!"
@@ -194,8 +203,11 @@ da:
       show_nsfw_posts: "Vis alle"
       tags:
         follow: "Følg #<%= tag %>"
+        follow_error: "Kunne ikke følge #<%= tag %>"
         following: "Følger #<%= tag %>"
         stop_following: "Hold op med at følge #<%= tag %>"
+        stop_following_confirm: "Ophør med at følge #<%= tag %>"
+        stop_following_error: "Kunne ikke ophøre med at følge #<%= tag %>"
       unfollow: "Følg ikke"
       unlike: "Synes ikke om"
       via: "via <%= provider %>"

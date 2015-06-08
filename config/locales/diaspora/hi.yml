@@ -6,17 +6,28 @@
 
 hi:
   _photos: "तस्वीरें"
+  _services: "सेवाएं"
   account: "खाता"
+  ago: "%{time} पूर्व"
   application:
     helper:
       unknown_person: "अजनबी"
+  are_you_sure: "क्या आपको यकीन है?"
   aspects:
     index:
       help:
         tag_question: "प्रश्न"
   cancel: "रद्द करें"
+  delete: "मिटाओ"
   email: "ईमेल"
+  hide: "छुपाएँ"
+  ok: "ठीक"
   or: "अथवा"
+  privacy: "गोपनीयता"
+  privacy_policy: "गोपनीयता नीति"
   profile: "प्रोफ़ाइल"
+  settings: "विन्यास"
   terms_and_conditions: "नियम और शर्तें"
+  undo: "पूर्ववत?"
+  username: "उपयोगकर्ता नाम"
   welcome: "आपका स्वागत है!"

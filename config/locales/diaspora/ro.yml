@@ -386,12 +386,14 @@ ro:
     a_post_you_shared: "o publicatie."
     click_here: "clic aici"
     comment_on_post:
+      limited_subject: "Există un nou comentariu la un post pe care dumneavoastra l-ati comentat anterior!"
       reply: "Răspunde sau uita-te la publicaţia lui %{name} >"
     hello: "Bună, %{name}!"
     liked:
       liked: "lui %{name} i-a plăcut publicaţia ta"
       view_post: "Vezi publicaţia >"
     mentioned:
+      limited_post: "Ai fost menționat într-o postare limitata"
       mentioned: "te-a menţionat într-o publicaţie:"
       subject: "%{name} te-a menţionat pe diaspora*"
     private_message:
@@ -596,9 +598,6 @@ ro:
     finder:
       service_friends: "%{service} Prieteni"
     index:
-      connect_to_facebook: "Conectează-te cu Facebook"
-      connect_to_tumblr: "Conectarea la Tumblr"
-      connect_to_twitter: "Conectează-te cu Twitter"
       disconnect: "desconectează"
       edit_services: "Editează servicii"
       logged_in_as: "conectat ca"
@@ -705,6 +704,9 @@ ro:
     destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
+    manage:
+      no_tags: "Nu urmăreşti nici o etichetă"
+      title: "Gestionează etichetele urmărite"
   tags:
     show:
       follow: "Urmeaza #%{tag}"

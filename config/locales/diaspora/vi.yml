@@ -665,13 +665,9 @@ vi:
       no_friends: "Không tìm thấy bạn Facebook."
       service_friends: "Bạn bè %{service}"
     index:
-      connect_to_facebook: "Kết nối với Facebook"
-      connect_to_tumblr: "Kết nối với Tumblr"
-      connect_to_twitter: "Kết nối với Twitter"
       disconnect: "ngắt kết nối"
       edit_services: "Chỉnh sửa dịch vụ"
       logged_in_as: "đã đăng nhập với tên"
-      no_services: "Bạn chưa kết nối đến dịch vụ nào."
       really_disconnect: "ngắt kết nối với %{service}?"
       services_explanation: "Kết nối các dịch vụ để có thể đăng tin lên chúng thông qua Diaspora."
     inviter:

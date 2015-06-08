@@ -180,8 +180,10 @@ br:
   back: "Distreiñ"
   blocks:
     create:
+      failure: "N'hallan ket ober van eus an implijer-mañ"
       success: "Mat eo, ne vo ket diskouezet an implijer-mañ war ho red en-dro. #silencio"
     destroy:
+      failure: "N'hallan ket paouez d'ober van eus an implijer-mañ"
       success: "Sellomp petra ho deus da lavarout ! #lardemat"
   bookmarklet:
     explanation: "Postit traoù war diaspora* adalek forzh pelec'h dre lakaat ur sined d'al liamm-mañ => %{link}."
@@ -706,14 +708,9 @@ br:
       no_friends: "Mignoned Facebook ebet kavet"
       service_friends: "Mignoned %{service}"
     index:
-      connect_to_facebook: "Kevreañ ouzh Facebook"
-      connect_to_tumblr: "Kevreañ ouzh Tumblr"
-      connect_to_twitter: "Kevreañ ouzh Twitter"
-      connect_to_wordpress: "Kevreañ ouzh Wordpress"
       disconnect: "digevreañ"
       edit_services: "Kemmañ ar servijoù"
       logged_in_as: "kevreet evel"
-      no_services: "N'ho peus kennasket servij ebet evit ar mare"
       really_disconnect: "digevreañ diouzh %{service} ?"
     inviter:
       click_link_to_accept_invitation: "Klikañ war al liamm-mañ evit asantiñ d'ar bedadenn"
@@ -799,6 +796,8 @@ br:
       currently_unavailable: "n'eus ket tu lakaat evezhiadennoù evit ar mare"
       dislike: "Displijus"
       hide_and_mute: "Kuzhat ha lakaat da devel"
+      ignore_user: "Ober van eus %{name}"
+      ignore_user_description: "Ober van ha dilemel an implijer eus an holl strolladoù ?"
       like: "Plijus"
       nsfw: "An embannadenn-mañ a zo bet merket NSFW gant e aozer. %{link}"
       shared_with: "Rannet gant: %{aspect_names}"
