@@ -330,7 +330,7 @@ GEM
     guard-jshintrb (1.1.1)
       guard (~> 2.0)
       jshintrb
-    guard-rspec (4.5.0)
+    guard-rspec (4.5.2)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -777,7 +777,7 @@ DEPENDENCIES
   guard (= 2.12.5)
   guard-cucumber (= 1.5.4)
   guard-jshintrb (= 1.1.1)
-  guard-rspec (= 4.5.0)
+  guard-rspec (= 4.5.2)
   guard-rubocop (= 1.2.0)
   haml (= 4.0.6)
   handlebars_assets (= 0.20.1)

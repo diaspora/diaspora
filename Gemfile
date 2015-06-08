@@ -226,7 +226,7 @@ group :development do
   # Automatic test runs
   gem "guard-cucumber", "1.5.4"
   gem "guard-jshintrb", "1.1.1"
-  gem "guard-rspec",    "4.5.0"
+  gem "guard-rspec",    "4.5.2"
   gem "guard-rubocop",  "1.2.0"
   gem "guard",          "2.12.5", require: false
   gem "rb-fsevent",     "0.9.4", require: false
