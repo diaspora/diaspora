@@ -38,7 +38,7 @@ GEM
       activemodel (= 4.2.2)
       activesupport (= 4.2.2)
       arel (~> 6.0)
-    activerecord-import (0.7.0)
+    activerecord-import (0.8.0)
       activerecord (>= 3.0)
     activesupport (4.2.2)
       i18n (~> 0.7)
@@ -746,7 +746,7 @@ DEPENDENCIES
   actionpack-action_caching
   actionpack-page_caching
   active_model_serializers (= 0.9.3)
-  activerecord-import (= 0.7.0)
+  activerecord-import (= 0.8.0)
   acts-as-taggable-on (= 3.5.0)
   acts_as_api (= 0.4.2)
   addressable (= 2.3.8)
