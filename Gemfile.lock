@@ -344,7 +344,7 @@ GEM
       multi_json (~> 1.0)
       sprockets (>= 2.0.0, < 4.0)
       tilt (~> 1.2)
-    hashie (3.4.1)
+    hashie (3.4.2)
     hike (1.2.3)
     hiredis (0.5.2)
     hitimes (1.2.2)
