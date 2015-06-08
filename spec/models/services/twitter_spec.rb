@@ -12,11 +12,11 @@ describe Services::Twitter, :type => :model do
   describe '#post' do
 
     before do
-      allow_any_instance_of(Twitter::Client).to receive(:update) { Twitter::Tweet.new(id: "1234") }
+      allow_any_instance_of(Twitter::REST::Client).to receive(:update) { Twitter::Tweet.new(id: "1234") }
     end
 
     it 'posts a status message to twitter' do
-      expect_any_instance_of(Twitter::Client).to receive(:update).with(instance_of(String))
+      expect_any_instance_of(Twitter::REST::Client).to receive(:update).with(instance_of(String))
       @service.post(@post)
     end
 
@@ -27,7 +27,7 @@ describe Services::Twitter, :type => :model do
 
     it 'swallows exception raised by twitter always being down' do
       skip
-      expect_any_instance_of(Twitter::Client).to receive(:update).and_raise(StandardError)
+      expect_any_instance_of(Twitter::REST::Client).to receive(:update).and_raise(StandardError)
       @service.post(@post)
     end
 
@@ -141,7 +141,7 @@ describe Services::Twitter, :type => :model do
     it 'returns the original profile photo url' do
       user_double = double
       expect(user_double).to receive(:profile_image_url_https).with("original").and_return("http://a2.twimg.com/profile_images/uid/avatar.png")
-      expect_any_instance_of(Twitter::Client).to receive(:user).with("joindiaspora").and_return(user_double)
+      expect_any_instance_of(Twitter::REST::Client).to receive(:user).with("joindiaspora").and_return(user_double)
 
       @service.nickname = "joindiaspora"
       expect(@service.profile_photo_url).to eq("http://a2.twimg.com/profile_images/uid/avatar.png")
