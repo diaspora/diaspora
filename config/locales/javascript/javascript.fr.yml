@@ -27,10 +27,18 @@ fr:
       deselect_all: "Désélectionner tout"
       no_aspects: "Aucun aspect sélectionnée"
       select_all: "Sélectionner tout"
+    aspects:
+      create:
+        add_a_new_aspect: "Ajouter un nouvel aspect"
+        failure: "La création de l'aspect a échoué."
+        success: "Votre nouvel aspect <%= name %> a été créé"
+      make_aspect_list_visible: "Permettre aux contacts de cet aspect de se voir entre eux ?"
+      name: "Nom"
     bookmarklet:
       post_something: "Publier sur diaspora*"
       post_submit: "Message en cours de publication ..."
       post_success: "Publié ! Fermeture de la fenêtre popup ..."
+    cancel: "Annuler"
     comma: ","
     comments:
       hide: "Masquer les commentaires"
@@ -48,6 +56,7 @@ fr:
       search_no_results: "Aucun contact trouvé"
     conversation:
       participants: "Participants"
+    create: "Créer"
     delete: "Effacer"
     edit: "Éditer"
     failed_to_like: "Impossible d'aimer !"
@@ -188,8 +197,11 @@ fr:
       show_nsfw_posts: "Tout montrer"
       tags:
         follow: "Suivre #<%= tag %>"
+        follow_error: "Impossible de suivre <%= tag %> :("
         following: "Suivant #<%= tag %>"
         stop_following: "Arrêter de suivre #<%= tag %>"
+        stop_following_confirm: "Arrêter de suivre <%= tag %> ?"
+        stop_following_error: "Impossible d'arrêter de suivre <%= tag %> :("
       unfollow: "Ne plus suivre"
       unlike: "Je n'aime plus"
       via: "via <%= provider %>"

@@ -111,6 +111,7 @@ ro:
       show_nsfw_posts: "Arată tot"
       tags:
         following: "Urmărind #<%= tag %>"
+        stop_following_confirm: "Să nu mai urmăresc #<%= tag %>?"
       unfollow: "Nu mai urmări"
       unlike: "Nu ȋmi place"
     tags:

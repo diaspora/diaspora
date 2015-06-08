@@ -1072,14 +1072,9 @@ uk:
       no_friends: "Не знайдено друзів з Facebook."
       service_friends: "Друзі з %{service}"
     index:
-      connect_to_facebook: "Підключення до Facebook"
-      connect_to_tumblr: "Підключення до Tumblr"
-      connect_to_twitter: "Підключення до Twitter"
-      connect_to_wordpress: "Підключити Wordpress"
       disconnect: "роз'єднати"
       edit_services: "Редагувати сервіси"
       logged_in_as: "Ви увійшли як"
-      no_services: "Ви ще не підключили жодної служби."
       really_disconnect: "відключити %{service}?"
       services_explanation: "З'єднання з сторонніми сервісами дає вам можливість публікувати ваші пости в тому вигляді, у якому ви написали їх у Діаспорі*."
     inviter:

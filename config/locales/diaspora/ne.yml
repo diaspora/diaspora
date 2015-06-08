@@ -61,9 +61,6 @@ ne:
   services:
     finder:
       service_friends: "%{service}का साथीहरु"
-    index:
-      connect_to_facebook: "फेसबुक सँग जोड्नुहोस्"
-      connect_to_twitter: "ट्विटर सँग जोड्नुहोस्"
     remote_friend:
       invite: "निम्तो पठाउनुहोस्"
       resend: "पुनः पठाउनुहोस्"

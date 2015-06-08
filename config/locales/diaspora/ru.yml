@@ -1101,14 +1101,9 @@ ru:
       no_friends: "Не найдено друзей из Facebook."
       service_friends: "Друзья из %{service}"
     index:
-      connect_to_facebook: "Подключение к Facebook"
-      connect_to_tumblr: "Подключение к Tumblr"
-      connect_to_twitter: "Подключение к Twitter"
-      connect_to_wordpress: "Подключить Wordpress"
       disconnect: "отключить"
       edit_services: "Редактировать сервисы"
       logged_in_as: "Вы вошли как"
-      no_services: "Вы ещё не подключили ни одного сервиса."
       really_disconnect: "отключить %{service}?"
       services_explanation: "Подключение сервисов позволяет публиковать на них записи написанные в Диаспоре."
     inviter:

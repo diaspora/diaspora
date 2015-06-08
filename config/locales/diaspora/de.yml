@@ -163,6 +163,7 @@ de:
     destroy:
       failure: "%{name} ist nicht leer und konnte nicht entfernt werden."
       success: "%{name} wurde erfolgreich entfernt."
+      success_auto_follow_back: "%{name} wurde erfolgreich entfernt. Du hast diesen Aspekt benutzt um Nutzern automatisch zu folgen. Überprüfe deine Einstellungen um einen neuen Aspekt hierfür festzulegen."
     edit:
       aspect_chat_is_enabled: "Kontakte in diesem Aspekt können mit dir chatten."
       aspect_chat_is_not_enabled: "Kontakte in diesem Aspekt können nicht mit dir chatten."
@@ -751,6 +752,7 @@ de:
     accept_invite: "Bestätige deine diaspora* Einladung!"
     click_here: "Hier klicken"
     comment_on_post:
+      limited_subject: "Es gibt einen neuen Kommentar in einem von dir kommentierten Beitrag."
       reply: "Antworte oder schau dir %{name}s Beitrag an >"
     confirm_email:
       click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicke bitte auf diesen Link:"
@@ -816,8 +818,10 @@ de:
     invited_you: "%{name} hat dich zu diaspora* eingeladen"
     liked:
       liked: "%{name} gefällt dein Beitrag"
+      limited_post: "%{name} gefällt dein begrenzter Beitrag."
       view_post: "Beitrag betrachten >"
     mentioned:
+      limited_post: "Du wurdest in einem begrenzten Beitrag erwähnt."
       mentioned: "hat dich in einem Beitrag erwähnt:"
       subject: "%{name} hat dich auf diaspora* erwähnt"
     private_message:
@@ -1114,19 +1118,22 @@ de:
       no_friends: "Keine Facebook-Freunde gefunden."
       service_friends: "%{service}-Freunde"
     index:
-      connect_to_facebook: "Mit Facebook verbinden"
-      connect_to_tumblr: "Mit Tumblr verbinden"
-      connect_to_twitter: "Mit Twitter verbinden"
-      connect_to_wordpress: "Mit Wordpress verbinden"
+      connect: "Verbinde"
       disconnect: "Verbindung entfernen"
       edit_services: "Dienste bearbeiten"
       logged_in_as: "angemeldet als"
-      no_services: "Du hast noch keine Dienste verbunden."
+      no_services_available: "Auf diesem Pod stehen keine Dienste zur Verfügung."
+      not_logged_in: "Du bist momentan nicht angemeldet."
       really_disconnect: "Verbindung mit %{service} entfernen?"
       services_explanation: "Das Verbinden zu anderen Diensten gibt dir die Möglichkeit, Beiträge, die du in diaspora* schreibst, auch dort zu veröffentlichen."
     inviter:
       click_link_to_accept_invitation: "Öffne diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folge mir auf diaspora*"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     remote_friend:
       invite: "Einladen"
       not_on_diaspora: "Noch nicht auf diaspora*"

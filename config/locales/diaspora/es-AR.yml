@@ -1083,14 +1083,9 @@ es-AR:
       no_friends: "No se han encontrado contactos de Facebook."
       service_friends: "diaspora* se está llenando de tus amigos de %{service}, por favor regresa en unos minutos."
     index:
-      connect_to_facebook: "Conectar a Facebook"
-      connect_to_tumblr: "Conectar con Tumblr"
-      connect_to_twitter: "Conectar a Twitter"
-      connect_to_wordpress: "Conectarse a WordPress"
       disconnect: "Desconectar"
       edit_services: "Editar servicios"
       logged_in_as: "Conectado como"
-      no_services: "No conectaste ningún servicio todavía."
       really_disconnect: "¿Querés desconectarte de %{service}?"
       services_explanation: "Conectar con otros servicios te ofrece la posibilidad de publicar tus publicaciones a medida que las escribes en diaspora*."
     inviter:

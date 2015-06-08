@@ -161,8 +161,9 @@ nl:
       failure: "Aanmaken van aspect is mislukt."
       success: "Je nieuwe aspect %{name} is aangemaakt"
     destroy:
-      failure: "%{name} is niet leeg en kan niet verwijderd worden."
+      failure: "%{name} kon niet worden verwijderd."
       success: "%{name} is met succes verwijderd."
+      success_auto_follow_back: "%{name} is succesvol verwijderd. Je gebruikte dit aspect voor automatisch teruggevolgde gebruikers. Selecteer in je instellingen een nieuw aspect waarin je automatisch teruggevolgde gebruikers kunt plaatsen."
     edit:
       aspect_chat_is_enabled: "Contacten binnen dit aspect kunnen met jou chatten."
       aspect_chat_is_not_enabled: "Contacten binnen dit aspect kunnen niet met jou chatten."
@@ -445,7 +446,7 @@ nl:
       embed_multimedia_a: "Je kunt gewoon de URL (bijv. http://www.youtube.com/watch?v=nnnnnnnnn) in een bericht plakken en de video of audio wordt automatisch ingebed. Sites die worden ondersteund zijn bijvoorbeeld YouTube, Vimeo, SoundCloud, Flickr en nog een paar. diaspora* gebruikt oEmbed voor deze mogelijkheid. We blijven nieuwe formaten toevoegen. Let erop om altijd de enkelvoudige, volledige, niet verkorte links te plaatsen. Zet ook geen andere commando's achter de URL en heb even geduld voordat je de pagina ververst om een voorbeeld te zien."
       embed_multimedia_q: "Hoe plaats ik video-, audio- of multimediabestanden in een bericht?"
       format_text_a: "Je kunt een eenvoudige methode gebruiken die %{markdown} heet. Je vindt de volledige syntax %{here}. De voorbeeld-knop is handig, want daardoor kun je zien hoe het bericht eruit gaat zien als je het later plaatst."
-      format_text_q: "Hoe kan ik de tekst in mij berichten opmaken (vet, schuin etc.)?"
+      format_text_q: "Hoe kan ik de tekst in mijn berichten opmaken (vet, schuin etc.)?"
       hide_posts_a: "Als je met de muis aan de bovenkant van een bericht staat, verschijnt er een X rechts ervan. Klik daarop om het bericht te verbergen en om notificaties erover te onderdrukken. Je kunt het bericht nog wel zien op de profielpagina van de persoon die het geplaatst had."
       hide_posts_q: "Hoe verberg ik een bericht?"
       image_text: "afbeeldingstekst"
@@ -726,8 +727,11 @@ nl:
     a_post_you_shared: "een bericht."
     a_private_message: "Er is een nieuw privébericht voor jou in diaspora*."
     accept_invite: "Accepteer je diaspora* uitnodiging!"
+    also_commented:
+      limited_subject: "Er is een nieuwe reactie bij een bericht waar je eerder op reageerde"
     click_here: "Klik hier"
     comment_on_post:
+      limited_subject: "Er is een nieuwe reactie bij één van jouw berichten."
       reply: "Reageer of bekijk %{name}'s bericht >"
     confirm_email:
       click_link: "Om je nieuwe e-mailadres te activeren %{unconfirmed_email}, klik op deze link:"
@@ -790,12 +794,17 @@ nl:
 
           De diaspora* e-mailrobot!
 
+          PS: als je (nog) niet weet wat diaspora* is, [dit][2] is het antwoord!
+
           [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
     invited_you: "%{name} heeft je uitgenodigd voor diaspora*"
     liked:
       liked: "%{name} vindt jouw bericht leuk"
+      limited_post: "%{name} vond je beperkt geplaatste bericht leuk"
       view_post: "Bekijk bericht >"
     mentioned:
+      limited_post: "Je werd vermeld in een beperkt geplaatst bericht"
       mentioned: "heeft jou vermeld in een bericht:"
       subject: "%{name} heeft jou vermeld op diaspora*"
     private_message:
@@ -1082,19 +1091,22 @@ nl:
       no_friends: "Geen Facebook vrienden gevonden."
       service_friends: "%{service} vrienden"
     index:
-      connect_to_facebook: "Verbind met Facebook"
-      connect_to_tumblr: "Verbind met Tumblr"
-      connect_to_twitter: "Verbind met Twitter"
-      connect_to_wordpress: "Verbinden met Wordpress"
+      connect: "Verbinden"
       disconnect: "Loskoppelen"
       edit_services: "Bewerk services"
-      logged_in_as: "Ingelogd als"
-      no_services: "Je hebt nog geen services verbonden."
+      logged_in_as: "Ingelogd als %{nickname}."
+      no_services_available: "Er zijn geen services beschikbaar op deze pod."
+      not_logged_in: "Momenteel niet ingelogd."
       really_disconnect: "Verbreek verbinding met %{service}?"
       services_explanation: "Verbinden met andere diensten biedt je de mogelijkheid om je diaspora* berichten ook daar te plaatsen"
     inviter:
       click_link_to_accept_invitation: "Klik op deze link om de uitnodiging te accepteren"
       join_me_on_diaspora: "Volg me op diaspora*"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     remote_friend:
       invite: "Uitnodigen"
       not_on_diaspora: "Nog niet op diaspora*"
@@ -1277,6 +1289,9 @@ nl:
     destroy:
       failure: "Het is niet gelukt om te stoppen met het volgen van #%{name}. Misschien ben je al succesvol gestopt met volgen?"
       success: "Jammer! Je bent gestopt met het volgen van #%{name}."
+    manage:
+      no_tags: "Je volgt geen tags."
+      title: "Beheren van gevolgde tags"
   tags:
     name_too_long: "Zorg ervoor dat je tagnaam korter is dan %{count} tekens. Nu is dat %{current_length} tekens."
     show:

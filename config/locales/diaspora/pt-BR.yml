@@ -1040,14 +1040,9 @@ pt-BR:
       no_friends: "Nenhum amigo do Facebook foi encontrado."
       service_friends: "%{service} Amigos"
     index:
-      connect_to_facebook: "Conectar-se ao Facebook"
-      connect_to_tumblr: "Conectar-se ao Tumblr"
-      connect_to_twitter: "Conectar-se ao Twitter"
-      connect_to_wordpress: "Conectar-se ao Wordpress"
       disconnect: "desconectar"
       edit_services: "Editar serviços"
       logged_in_as: "logado(a) como"
-      no_services: "Você ainda não tem serviços conectados na sua conta."
       really_disconnect: "Desconectar %{service}?"
       services_explanation: "A conexão com serviços externos permite que você faça suas publicações em serviços conectados ao mesmo tempo em que você as escreve em diaspora*."
     inviter:

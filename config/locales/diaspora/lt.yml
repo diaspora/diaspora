@@ -508,8 +508,6 @@ lt:
     destroy:
       success: "Atjungimas sėkmingas."
     index:
-      connect_to_facebook: "Prijungti facebook"
-      connect_to_twitter: "Prijungti twitter"
       disconnect: "atjungti"
       logged_in_as: "sujungta su"
       really_disconnect: "atjungti %{service}?"

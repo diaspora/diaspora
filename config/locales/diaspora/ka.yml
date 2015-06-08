@@ -619,13 +619,9 @@ ka:
       no_friends: "ვერცერთი ფეისბუქის მეგობარი ვერ იქნა ნაპოვნი"
       service_friends: "%{service} მეგობრები"
     index:
-      connect_to_facebook: "დაუკავშირდი ფეისბუქს"
-      connect_to_tumblr: "დაუკავშირდი ტამბლერს"
-      connect_to_twitter: "დაუკავშირდი ტვიტერს"
       disconnect: "გამოსვლა"
       edit_services: "სერვისის დამატება"
       logged_in_as: "შესული ხარ როგორც"
-      no_services: "ჯერ არ ხარ დაკავშირებული არცერთ სერვისთან."
       really_disconnect: "გამოვიდე %{service} ?"
     inviter:
       click_link_to_accept_invitation: "მიყევით ბმულს რომ დათანხმდეთ მოწვევას"

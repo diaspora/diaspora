@@ -835,13 +835,9 @@ ml:
       no_friends: "No Facebook friends found."
       service_friends: "%{service} Friends"
     index:
-      connect_to_facebook: "ഫേസ്ബുക്കുമായി ബന്ധിപ്പിക്കു"
-      connect_to_tumblr: "Connect to Tumblr"
-      connect_to_twitter: "ട്വിറ്ററുമായി ബന്ധിപ്പിക്കു"
       disconnect: "വിച്ഛേദിക്കു"
       edit_services: "സേവനങ്ങളില്‍ മാറ്റം വരുത്തുക"
       logged_in_as: "ആയി പ്രവേശിച്ചിരിക്കുന്നു"
-      no_services: "You have not connected any services yet."
       really_disconnect: "%{service} വിച്ഛേദിക്കണോ?"
       services_explanation: "സേവനങ്ങളുമായി ബന്ധിപ്പിക്കുന്നതിലൂടെ താങ്കള്‍ ഡയസ്പോറയിലെഴുതുന്ന മുറക്ക് കുറിപ്പുകള്‍ അവയിലേക്ക് പ്രസിദ്ധീകരിക്കുവാനുള്ള കഴിവ് താങ്കള്‍ക്ക് ലഭിക്കുന്നു."
     inviter:

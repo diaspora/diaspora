@@ -116,7 +116,7 @@ hu:
     helper:
       unknown_person: "ismeretlen személy"
       video_title:
-        unknown: "Ismeretlen videó cím"
+        unknown: "ismeretlen videó cím"
   are_you_sure: "Biztos vagy benne?"
   are_you_sure_delete_account: "Biztos, hogy törölni akarod a fiókodat?"
   aspect_memberships:
@@ -195,7 +195,7 @@ hu:
       post_a_message: "üzenet küldése >>"
       services:
         content: "A következő szolgáltatásokhoz tudsz kapcsolódni:"
-        heading: "Összekapcsolt szolgáltatások"
+        heading: "szolgáltatások összekapcsolása"
       unfollow_tag: "Követés leállítása #%{tag}"
       welcome_to_diaspora: "Üdv a diaspora* közösségi oldalon, %{name}!"
     new:
@@ -343,7 +343,7 @@ hu:
       what_is_an_aspect_a: "A csoport (vagy eredetileg \"aspektus\") az a mód, ahogy a kapcsolataidat rendszerezed a diaspora-n. Különböző arcaidat, oldalaidat különbözőképpen mutathatod meg például a munkatársaid, a családod, netán meghatározott közösséghez tartozó barátaid számára."
       what_is_an_aspect_q: "Mit jelent a \"csoport\"?"
       who_sees_post_q: "Amikor bejegyzést írok egy csoportba, ki láthatja azt?"
-    foundation_website: "Diaspora alapítvány"
+    foundation_website: "a diaspora* alapítvány honlapja"
     getting_help:
       get_support_a_hashtag: "kérdezz magyarul a közösségi hálón, nyilvános bejegyzésben a %{question} címke használatával"
       get_support_a_irc: "Kapcsolódj %{irc}-en (élő csevegés)"
@@ -493,11 +493,11 @@ hu:
   layouts:
     application:
       back_to_top: "Vissza az elejére"
-      powered_by: "DIASPORA* fordította ADAMEX & danielwine"
+      powered_by: "diaspora* - fordította adamex & danielwine"
       public_feed: "%{name} nyilvános diaspora* hírfolyama"
       source_package: "forráskódcsomag letöltése"
       toggle: "mobil változat"
-      whats_new: "belépés"
+      whats_new: "Mik az újdonságok?"
       your_aspects: "csoportjaid"
     header:
       admin: "rendszergazda"
@@ -834,7 +834,7 @@ hu:
       your_private_profile: "Személyes adatlapod"
       your_public_profile: "Nyilvános adatlapod"
       your_tags: "5 tulajdonság (#címke) rólad:"
-      your_tags_placeholder: "pl: #film #túra #pécs #kutatás #fényképész"
+      your_tags_placeholder: "pl: #film #kultúra #utazás #fényképezés"
     update:
       failed: "Adatlap frissítése sikertelen"
       updated: "Adatlap frissítve"
@@ -849,7 +849,7 @@ hu:
     edit:
       cancel_my_account: "Fiókom törlése"
       edit: "%{name} szerkesztése"
-      leave_blank: "(Hagyd üresen, ha nem akarod megváltoztatni)"
+      leave_blank: "(hagyd üresen, ha nem akarod megváltoztatni)"
       password_to_confirm: "(Szükségünk van a jelenlegi jelszavadra, hogy jóváhagyd a változást)"
       unhappy: "Elégedetlen vagy?"
       update: "Frissítés"
@@ -863,10 +863,12 @@ hu:
       enter_username: "Válassz egy felhasználónevet (csak angol betű, szám és aláhúzás megengedett)"
       join_the_movement: "Csatlakozz!"
       password: "JELSZÓ"
-      password_confirmation: "JELSZÓ MEGERŐSÍTÉS"
-      sign_up: "Iratkozz fel!"
+      password_confirmation: "Jelszó megerősítése"
+      sign_up: "Feliratkozás"
       sign_up_message: "Közösségi Hálózat <3"
       submitting: "Feldolgozás folyamatban..."
+      terms: "A fiók létrehozásával elfogadod a %{terms_link}."
+      terms_link: "felhasználási feltételeket"
       username: "AZONOSÍTÓ"
   report:
     comment_label: "<b>Hozzászólás</b>:<br>%{data}"
@@ -931,20 +933,15 @@ hu:
     destroy:
       success: "Sikeresen megszakítottad a kapcsolódást."
     failure:
-      error: "Hiba történt a szolgáltatáshoz kapcsolódás közben"
+      error: "Hiba történt a szolgáltatáshoz való kapcsolódás során"
     finder:
       fetching_contacts: "A diaspora* keresi a %{service} ismerőseidet, nézz vissza néhány perc múlva."
       no_friends: "Nincs Facebook ismerősöd"
       service_friends: "%{service} ismerősök"
     index:
-      connect_to_facebook: "Kapcsolódás a Facebook-hoz"
-      connect_to_tumblr: "Kapcsolódás a Tumblr-hez"
-      connect_to_twitter: "Kapcsolódás a Twitter-hez"
-      connect_to_wordpress: "Kapcsolódás a Wordpress-hez"
       disconnect: "megszakít"
       edit_services: "Szolgáltatások szerkesztése"
       logged_in_as: "- bejelentkeztél ezen a néven:"
-      no_services: "Még nem kapcsolódtál egy szolgáltatáshoz sem."
       really_disconnect: "Megszakítod a kapcsolatot ezzel: %{service}?"
       services_explanation: "Ha kapcsolódsz más szolgáltatásokhoz, lehetőséged lesz bejegyzéseket küldeni a felületükre, amint azokat a diaspora* rendszerén belül megírod."
     inviter:
@@ -1055,7 +1052,7 @@ hu:
       default: "A titkos jel nem egyezett a képpel"
       failed: "Ellenőrzés sikertelen"
       user: "A titkos kép és jel különbözőek voltak"
-    placeholder: "Írd ide a képen látható számot"
+    placeholder: "Írd ide a látott számot"
   status_messages:
     create:
       success: "Megemlítetted: %{names}"
@@ -1092,7 +1089,7 @@ hu:
       contacts_title: "Emberek, akiket ugyanezek a címkék érdekelnek"
       follow: "Követ"
       title: "#követett címkék"
-    followed_tags_stream: "#Követett címkék"
+    followed_tags_stream: "#követett címkék"
     like_stream:
       contacts_title: "Ismerősök, akiknek kedveled a bejegyzéseit"
       title: "Kedveled"
@@ -1171,7 +1168,7 @@ hu:
       receive_email_notifications: "Szeretnél értesítést kapni levélben, ha:"
       request_export_photos_update: "Képeim frissítése"
       reshared: "valaki újraosztotta a bejegyzésedet?"
-      show_community_spotlight: "A \"figyelem középpontjában\" szereplő tartalmak megjelenítése a hírfolyamban"
+      show_community_spotlight: "A \"figyelem középpontjában\" lévő tartalmak megjelenítése a hírfolyamban"
       show_getting_started: "\"Kezdő lépések\" újra engedélyezése"
       someone_reported: "valaki jelentést küldött"
       started_sharing: "valaki elkezd megosztani veled?"

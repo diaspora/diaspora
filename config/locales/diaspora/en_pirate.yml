@@ -550,11 +550,6 @@ en_pirate:
       fetching_contacts: "diaspora* is populatin' yer %{service} mates, come back in a bit mate."
       no_friends: "Couldnt find any Facebook mateys."
       service_friends: "%{service} Mateys"
-    index:
-      connect_to_facebook: "Connect 't Facebook"
-      connect_to_tumblr: "Connect 't Tumblr"
-      connect_to_twitter: "Connect 't Twitter"
-      no_services: "Ye have not connected any services yet."
     inviter:
       click_link_to_accept_invitation: "Click this link t' accept yer invitation"
   settings: "Settin's"

@@ -789,13 +789,9 @@ bs:
       no_friends: "Ni jedan Facebook prijatelj nije pronađen."
       service_friends: "%{service} Prijatelji"
     index:
-      connect_to_facebook: "Poveži na Facebook"
-      connect_to_tumblr: "Poveži na Tumblr"
-      connect_to_twitter: "Poveži na Twitter"
       disconnect: "isključi"
       edit_services: "Uredi servise"
       logged_in_as: "prijavljeni kao"
-      no_services: "Još se niste povezali ni na jedan servis."
       really_disconnect: "isključiti %{service}?"
       services_explanation: "Povezivanje na servise daje vam mogućnost da objavljujete objave na njih kao što ih pišete i na Diaspori."
     inviter:

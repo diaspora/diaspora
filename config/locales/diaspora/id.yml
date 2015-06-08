@@ -559,8 +559,6 @@ id:
     destroy:
       success: "Successfully destroyed authentication."
     index:
-      connect_to_facebook: "Connect to facebook"
-      connect_to_twitter: "Connect to twitter"
       logged_in_as: "telah masuk sebagai"
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"

@@ -587,13 +587,9 @@ en_1337:
       no_friends: "N0 FB N00B5 F0UND!"
       service_friends: "%{service} N00B5"
     index:
-      connect_to_facebook: "C0NN3C7 2 FB"
-      connect_to_tumblr: "C0NN3C7 2 7UMBLR"
-      connect_to_twitter: "C0NN3C7 2 7W1773R"
       disconnect: "D15C0NN3C7"
       edit_services: "3D17 53RV1C35!"
       logged_in_as: "L0GG3D 1N 45"
-      no_services: "U H4V3 N07 C0NN3C73D 4NY 53RV1C35 Y37!"
       really_disconnect: "D15C0NN3C7 %{service}?"
     inviter:
       click_link_to_accept_invitation: "F0LL0W 7H15 L1NK 2 4CC3P7 Y0UR 1NV174710N!"

@@ -51,7 +51,6 @@ az:
       failure: ""
       success: ""
     destroy:
-      failure: ""
       success: ""
     edit:
       aspect_list_is_not_visible: ""

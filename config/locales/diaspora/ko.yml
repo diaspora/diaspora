@@ -735,13 +735,9 @@ ko:
       no_friends: "페이스북 친구를 찾을 수 없습니다."
       service_friends: "%{service} 친구"
     index:
-      connect_to_facebook: "페이스북에 연결하기"
-      connect_to_tumblr: "Tumblr에 연결하기"
-      connect_to_twitter: "트위터에 연결하기"
       disconnect: "끊기"
       edit_services: "서비스 설정"
       logged_in_as: "로그인 중: "
-      no_services: "아직 연결한 서비스가 없습니다."
       really_disconnect: "%{service} 서비스를 끊으시겠습니까?"
       services_explanation: "서비스 연결로 디아스포라에 내 게시물을 남기면서 해당 서비스에도 같이 게시할 수 있습니다."
     inviter:

@@ -745,6 +745,7 @@ de_formal:
     accept_invite: "Bestätigen Sie Ihre diaspora* Einladung!"
     click_here: "Hier klicken"
     comment_on_post:
+      limited_subject: "Es gibt einen neuen Kommentar in einem von Ihnen kommentierten Beitrag."
       reply: "Antworten Sie oder schauen Sie sich %{name}s Beitrag an >"
     confirm_email:
       click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicken Sie bitte auf diesen Link:"
@@ -808,8 +809,10 @@ de_formal:
     invited_you: "%{name} hat Sie zu diaspora* eingeladen"
     liked:
       liked: "%{name} gefällt Ihr Beitrag"
+      limited_post: "%{name} gefällt Ihr begrenzter Beitrag."
       view_post: "Beitrag betrachten >"
     mentioned:
+      limited_post: "Sie wurden in einem begrenzten Beitrag erwähnt."
       mentioned: "hat Sie in einem Beitrag erwähnt:"
       subject: "%{name} hat Sie auf diaspora* erwähnt"
     private_message:
@@ -1097,19 +1100,20 @@ de_formal:
       no_friends: "Keine Facebook-Freunde gefunden."
       service_friends: "%{service}-Freunde"
     index:
-      connect_to_facebook: "Mit Facebook verbinden"
-      connect_to_tumblr: "Mit Tumblr verbinden"
-      connect_to_twitter: "Mit Twitter verbinden"
-      connect_to_wordpress: "Mit Wordpress verbinden"
       disconnect: "Verbindung entfernen"
       edit_services: "Dienste bearbeiten"
       logged_in_as: "angemeldet als"
-      no_services: "Sie haben noch keine Dienste verbunden."
+      not_logged_in: "Sie sind momentan nicht angemeldet."
       really_disconnect: "Verbindung mit %{service} entfernen?"
       services_explanation: "Wenn Sie sich mit anderen Diensten verbinden, erhalten Sie die Möglichkeit ihre Beiträge auch dort zu veröffentlichen, indem Sie in diaspora* schreiben."
     inviter:
       click_link_to_accept_invitation: "Öffnen Sie diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folgen Sie mir auf diaspora*"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     remote_friend:
       invite: "Einladen"
       not_on_diaspora: "Noch nicht auf diaspora*"

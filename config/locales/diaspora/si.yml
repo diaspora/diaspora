@@ -231,9 +231,6 @@ si:
       no_friends: "Facebook යහළුවන් සොයා ගත නොහැක."
       service_friends: "%{service} යහළුවන්"
     index:
-      connect_to_facebook: "Facebook සමග සම්බන්ධ කරන්න."
-      connect_to_tumblr: "Tumblr සමග සම්බන්ධ කරන්න."
-      connect_to_twitter: "Twitter සමග සම්බන්ධ කරන්න."
       disconnect: "විසන්ධි කරන්න"
       edit_services: "සේවාවන් නැවත සකසන්න"
       really_disconnect: "%{service} විසන්ධි කරන්නද?"
