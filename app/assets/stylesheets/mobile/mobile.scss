@@ -8,6 +8,7 @@
 
 @import "header";
 @import "mobile/tags";
+@import "mobile/conversations";
 
 a {
   color: #2489ce;
@@ -292,12 +293,15 @@ h3 {  margin-top: 0; }
   right: 5%;
 }
 
-#author_info {
+.header-full-width {
   margin: -10px;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
   padding-top: 5px;
   background-color: #fff;
   border-bottom: 1px solid #aaa;
+}
+
+#author_info {
   word-wrap: break-word;
 
   img {
@@ -627,23 +631,6 @@ select {
   font-size: 10px;
   line-height: 12px;
 
-}
-
-.conversation_participants img.avatar {
-  height:35px;
-  width:35px;
-  margin: 5px 0 5px 2px;
-}
-
-.conversations {
-  img.avatar {
-    margin: 10px;
-    float: left;
-  }
-  .no-messages {
-    text-align: center;
-    margin-top: 40px;
-  }
 }
 
 .unread_message_count {
