@@ -416,7 +416,7 @@ GEM
     messagebus_ruby_api (1.0.3)
     method_source (0.8.2)
     mime-types (2.6.1)
-    mini_magick (4.2.3)
+    mini_magick (4.2.7)
     mini_portile (0.6.2)
     minitest (5.7.0)
     mobile-fu (1.3.1)
@@ -794,7 +794,7 @@ DEPENDENCIES
   logging-rails (= 0.5.0)
   markerb (= 1.0.2)
   messagebus_ruby_api (= 1.0.3)
-  mini_magick (= 4.2.3)
+  mini_magick (= 4.2.7)
   minitest
   mobile-fu (= 1.3.1)
   mysql2 (= 0.3.18)
