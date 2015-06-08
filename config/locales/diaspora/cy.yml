@@ -369,9 +369,6 @@ cy:
       no_friends: "Dim ffrindiau Facebook wedi darganfod."
       service_friends: "Ffrindiau %{service}"
     index:
-      connect_to_facebook: "Cysylltiad gyda Facebook"
-      connect_to_tumblr: "Cysylltiad gyda Tumblr"
-      connect_to_twitter: "Cysylltiad gyda Twitter"
       disconnect: "datgysylltu"
       logged_in_as: "mewngofnodi fel"
       really_disconnect: "datgysylltu %{service}?"

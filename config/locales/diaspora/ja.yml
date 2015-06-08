@@ -647,13 +647,9 @@ ja:
       no_friends: "Facebookの友達は見つかりませんでした。"
       service_friends: "%{service}の友だち"
     index:
-      connect_to_facebook: "Facebookに接続する"
-      connect_to_tumblr: "Tumblrに接続する"
-      connect_to_twitter: "ツイッターに接続する"
       disconnect: "切断"
       edit_services: "サービスを編集する"
       logged_in_as: "ログイン済みユーザ名："
-      no_services: "どのサービスにも連携していません"
       really_disconnect: "%{service}から切断しますか。"
     inviter:
       click_link_to_accept_invitation: "招待を承諾するにはこのリンクにクリックしてください。"

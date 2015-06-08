@@ -867,14 +867,9 @@ zh-TW:
       no_friends: "沒有 Facebook 朋友。"
       service_friends: "%{service} 朋友"
     index:
-      connect_to_facebook: "與 Facebook 連結"
-      connect_to_tumblr: "與 Tumblr 連結"
-      connect_to_twitter: "與 Twitter 連結"
-      connect_to_wordpress: "與 Wordpress 連結"
       disconnect: "切斷連結"
       edit_services: "編輯服務"
       logged_in_as: "已經登入為"
-      no_services: "你還沒有任何連結了的服務。"
       really_disconnect: "切斷與 %{service} 的連結？"
       services_explanation: "和其他服務連結可以將你在 diaspora* 的貼文同時發表在其他服務上"
     inviter:

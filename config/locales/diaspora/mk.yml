@@ -447,8 +447,6 @@ mk:
     destroy:
       success: "Успешно уништена автентификација."
     index:
-      connect_to_facebook: "Конектирај се со facebook"
-      connect_to_twitter: "Конектирај се со twitter"
       disconnect: "прекини"
       logged_in_as: "најавен како"
       really_disconnect: "прекини %{service}?"

@@ -705,14 +705,9 @@ te:
       no_friends: "ఎటువంటి ఫేస్‌బుక్ మిత్రులు కనపడలేదు."
       service_friends: "%{service} మిత్రులు"
     index:
-      connect_to_facebook: "ఫేస్‌బుక్‌కు అనుసంధానించండి"
-      connect_to_tumblr: "టంబ్లర్​కు అనుసంధానించండి"
-      connect_to_twitter: "ట్విట్టర్‍కు అనుసంధానించండి"
-      connect_to_wordpress: "వర్డ్‌ప్రెస్‌కు అనుసంధానమవ్వండి"
       disconnect: "నిరనుసంధానించు"
       edit_services: "సేవలను సవరించండి"
       logged_in_as: "వలె ప్రవేశించారు"
-      no_services: "మీరు ఇంకా ఎటువంటి సేవలకు అనుసంధానం కాలేదు."
       really_disconnect: "%{service} నిరనుసంధానించాలా?"
     inviter:
       click_link_to_accept_invitation: "మీ ఆహ్వానాన్ని అంగీకరించుటకు ఈ లంకెను అనుసరించండి"

@@ -835,13 +835,9 @@ tr:
       no_friends: "Hiç Facebook arkadaşı bulunamadı."
       service_friends: "%{service} Arkadaşları"
     index:
-      connect_to_facebook: "Facebook'a bağlan"
-      connect_to_tumblr: "Tumblr'e bağlan"
-      connect_to_twitter: "Twitter'e bağlan"
       disconnect: "bağlantıyı kes"
       edit_services: "Servisleri düzenle"
       logged_in_as: "olarak bağlandınız"
-      no_services: "Henüz bir servis ile bağlantı kurmadın."
       really_disconnect: "%{service} ile bağlantı kesilsin mi?"
       services_explanation: "Hizmetlere bağlanmak, gönderilerinizi Diaspora'da yazdığınız sırada yayınlama olanağı verir."
     inviter:

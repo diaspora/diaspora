@@ -1005,14 +1005,9 @@ nb:
       no_friends: "Ingen Facebook-venner ble funnet."
       service_friends: "%{service}-venner"
     index:
-      connect_to_facebook: "Koble til facebook"
-      connect_to_tumblr: "Koble til Tumblr"
-      connect_to_twitter: "Koble til twitter"
-      connect_to_wordpress: "Koble til Wordpress"
       disconnect: "koble fra"
       edit_services: "Rediger tjenester"
       logged_in_as: "logget inn som"
-      no_services: "Du har ikke koblet til noen tjenester ennå."
       really_disconnect: "koble fra %{service}?"
       services_explanation: "Ved å koble til andre sosiale tjenester, får du muligheten å publisere til disse tjenestene idet du poster til diaspora*."
     inviter:

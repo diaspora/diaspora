@@ -162,6 +162,7 @@ es:
     destroy:
       failure: "El aspecto %{name} no está vacío y no pudo ser borrado."
       success: "%{name} fue eliminado con éxito."
+      success_auto_follow_back: "Se borró correctamente %{name}. Este aspecto se usaba para seguir automáticamente a los usuarios, revisa tu configuración para seleccionar un nuevo aspecto de autoseguimiento."
     edit:
       aspect_chat_is_enabled: "Los contactos de este grupo pueden chatear contigo."
       aspect_chat_is_not_enabled: "Los contactos de este grupo no pueden chatear contigo."
@@ -706,8 +707,11 @@ es:
     a_post_you_shared: "una publicación."
     a_private_message: "Hay un nuevo mensaje privado en diaspora* para que lo consultes."
     accept_invite: "¡Acepta tu invitación a diaspora*!"
+    also_commented:
+      limited_subject: "Hay un nuevo comentario en una publicación que comentaste"
     click_here: "Pulsa aquí"
     comment_on_post:
+      limited_subject: "Hay un nuevo comentario en una publicación que comentaste"
       reply: "Responder o ver las publicaciones de %{name} >"
     confirm_email:
       click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, sigue este enlace:"
@@ -775,8 +779,10 @@ es:
     invited_you: "¡%{name} te ha invitado a diaspora*!"
     liked:
       liked: "A %{name} le gustó tu publicación"
+      limited_post: "A %{name} le gustó tu publicación privada"
       view_post: "Ver comentario >"
     mentioned:
+      limited_post: "Se te mencionó en un post privado."
       mentioned: "te mencionó en una publicación:"
       subject: "%{name} te mencionó en diaspora*"
     private_message:
@@ -1062,19 +1068,22 @@ es:
       no_friends: "No se han encontrados contactos en Facebook."
       service_friends: "Contactos de %{service}"
     index:
-      connect_to_facebook: "Conectar a Facebook"
-      connect_to_tumblr: "Conecta con Tumblr"
-      connect_to_twitter: "Conecta con Twitter"
-      connect_to_wordpress: "Conectarse a Wordpress"
+      connect: "Conectar"
       disconnect: "Desconectar"
       edit_services: "Editar servicios"
       logged_in_as: "Conectado como"
-      no_services: "Aún no has conectado ningún servicio."
+      no_services_available: "No hay servicios disponibles en este pod."
+      not_logged_in: "Usuario no identificado."
       really_disconnect: "¿Desconectar %{service}?"
       services_explanation: "Conectar con servicios te da la posibilidad de publicar tus mensajes en ellos a medida que los escribes en diaspora."
     inviter:
       click_link_to_accept_invitation: "Sigue este enlace para aceptar tu invitación"
       join_me_on_diaspora: "Nos vemos en diaspora*."
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     remote_friend:
       invite: "Invitar"
       not_on_diaspora: "Aún no está en Diaspora"
@@ -1251,6 +1260,9 @@ es:
     destroy:
       failure: "Error al dejar de seguir #%{name}. ¿Tal vez ya lo hiciste?"
       success: "¡Ay! Ya no estás siguiendo #%{name}."
+    manage:
+      no_tags: "No estás suscrito a ninguna etiqueta."
+      title: "Administra las etiquetas suscritas"
   tags:
     name_too_long: "Por favor haz que tu mensaje de estado tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
     show:

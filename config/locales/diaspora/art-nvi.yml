@@ -178,11 +178,6 @@ art-nvi:
     new_request_to_person:
       sent: "fpìme'!"
   search: "Fwew"
-  services:
-    index:
-      connect_to_facebook: "'awstengyem Facebookur"
-      connect_to_tumblr: "'awstengyem Tumblrur"
-      connect_to_twitter: "'awstengyem Twitterur"
   settings: "Sìfkeytok"
   shared:
     invitations:
