@@ -18,7 +18,7 @@ gem "unicorn", "4.9.0", require: false
 # API and JSON
 
 gem "acts_as_api", "0.4.2"
-gem "json",        "1.8.2"
+gem "json",        "1.8.3"
 
 # Authentication
 
