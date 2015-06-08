@@ -369,7 +369,7 @@ GEM
       phantomjs
       rack (>= 1.2.1)
       rake
-    jasmine-core (2.3.0)
+    jasmine-core (2.3.4)
     jasmine-jquery-rails (2.0.3)
     jquery-rails (4.0.4)
       rails-dom-testing (~> 1.0)
