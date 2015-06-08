@@ -73,11 +73,6 @@ class StatusMessagesController < ApplicationController
 
       current_user.dispatch_post(@status_message, :url => short_post_url(@status_message.guid), :service_types => receiving_services)
 
-      #this is done implicitly, somewhere else, but it doesnt work, says max. :'(
-      @status_message.photos.each do |photo|
-        current_user.dispatch_post(photo)
-      end
-
       current_user.participate!(@status_message)
 
       if coming_from_profile_page? && !own_profile_page? # if this is a post coming from a profile page

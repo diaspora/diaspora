@@ -9,30 +9,28 @@ class Postzord::Receiver::Private < Postzord::Receiver
     @user_person = @user.person
     @salmon_xml = opts[:salmon_xml]
 
-    @sender = opts[:person] || Webfinger.new(self.salmon.author_id).fetch
-    @author = @sender
+    @author = opts[:person] || Webfinger.new(salmon.author_id).fetch
 
     @object = opts[:object]
   end
 
   def receive!
-    if @sender && self.salmon.verified_for_key?(@sender.public_key)
+    if @author && salmon.verified_for_key?(@author.public_key)
       parse_and_receive(salmon.parsed_data)
     else
       logger.error "event=receive status=abort reason='not_verified for key' " \
                    "recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id}"
     end
   rescue => e
-    logger.error "failed to receive #{@object.class} from sender:#{@sender.id} for user:#{@user.id}: #{e.message}\n" \
+    logger.error "failed to receive #{@object.class} from sender:#{@author.id} for user:#{@user.id}: #{e.message}\n" \
                  "#{@object.inspect}"
     raise e
   end
 
   def parse_and_receive(xml)
     @object ||= Diaspora::Parser.from_xml(xml)
-    return if @object.nil?
 
-    logger.info "user:#{@user.id} starting private receive from person:#{@sender.guid}"
+    logger.info "user:#{@user.id} starting private receive from person:#{@author.guid}"
 
     validate_object
     set_author!
@@ -43,25 +41,15 @@ class Postzord::Receiver::Private < Postzord::Receiver
   def receive_object
     obj = @object.receive(@user, @author)
     Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
-    logger.info "user:#{@user.id} successfully received #{@object.class} from person #{@sender.guid}" \
+    logger.info "user:#{@user.id} successfully received #{@object.class} from person #{@author.guid}" \
                 "#{": #{@object.guid}" if @object.respond_to?(:guid)}"
     logger.debug "received: #{@object.inspect}"
   end
 
   protected
+
   def salmon
     @salmon ||= Salmon::EncryptedSlap.from_xml(@salmon_xml, @user)
-  end
-
-  def validate_object
-    raise Diaspora::ContactRequiredUnlessRequest if contact_required_unless_request
-    raise Diaspora::RelayableObjectWithoutParent if relayable_without_parent?
-
-    assign_sender_handle_if_request
-
-    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
-
-    @object
   end
 
   def xml_author
@@ -84,19 +72,22 @@ class Postzord::Receiver::Private < Postzord::Receiver
 
   private
 
-  #validations
-  def relayable_without_parent?
-    if @object.respond_to?(:relayable?) && @object.parent.nil?
-      logger.error "event=receive status=abort reason='no corresponding post' type=#{@object.class} " \
-                   "recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}"
-      return true
-    end
+  # validations
+
+  def validate_object
+    raise Diaspora::XMLNotParseable if @object.nil?
+    raise Diaspora::ContactRequiredUnlessRequest if contact_required_unless_request
+    raise Diaspora::RelayableObjectWithoutParent if relayable_without_parent?
+
+    assign_sender_handle_if_request
+
+    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
   end
 
   def contact_required_unless_request
-    unless @object.is_a?(Request) || @user.contact_for(@sender)
+    unless @object.is_a?(Request) || @user.contact_for(@author)
       logger.error "event=receive status=abort reason='sender not connected to recipient' type=#{@object.class} " \
-                   "recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}"
+                   "recipient=#{@user_person.diaspora_handle} sender=#{@author.diaspora_handle}"
       return true
     end
   end
@@ -104,7 +95,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
   def assign_sender_handle_if_request
     #special casey
     if @object.is_a?(Request)
-      @object.sender_handle = @sender.diaspora_handle
+      @object.sender_handle = @author.diaspora_handle
     end
   end
 end
