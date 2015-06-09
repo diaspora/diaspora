@@ -35,6 +35,9 @@ defaults:
       logrotate:
         enable: true
         days: 7
+      debug:
+        sql: false
+        federation: false
   server:
     port:
     listen: '0.0.0.0:3000'
