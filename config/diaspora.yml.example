@@ -149,6 +149,17 @@ configuration: ## Section
         ## The number of days to keep (default=7)
         #days: 7
 
+      ## Debug logging
+      debug: ## Section
+
+        ## Enables the debug-logging for SQL (default=false)
+        ## This logs every SQL-statement!
+        #sql: true
+
+        ## Enables the federation-debug-log (default=false)
+        ## This logs all XMLs that are used for the federation
+        #federation: true
+
   ## Settings affecting how ./script/server behaves.
   server: ## Section
     ## Where the appserver should listen to (default=unix:tmp/diaspora.sock)

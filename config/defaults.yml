@@ -35,6 +35,9 @@ defaults:
       logrotate:
         enable: true
         days: 7
+      debug:
+        sql: false
+        federation: false
   server:
     listen: '0.0.0.0:3000'
     rails_environment: 'development'

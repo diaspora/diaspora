@@ -40,8 +40,12 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 
 # 0.5.2.0
 
-# Refactor
+## Refactor
 * Update perfect-scrollbar [#6085](https://github.com/diaspora/diaspora/pull/6085)
+
+## Features
+* Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
+
 
 # 0.5.1.0
 
