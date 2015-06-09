@@ -19,6 +19,13 @@ If you set the DB environment variable anywhere, that's no longer necessary.
 This release recommends using Ruby 2.2, while retaining Ruby 2.1 as an officially supported version.
 Ruby 2.0 is no longer officially supported.
 
+## Configuration changes
+
+Please note that the default listen parameter for production setups got
+changed. diaspora\* will no longer listen on `0.0.0.0:3000` as it will now
+bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
+`diaspora.yml` if necessary.
+
 ## Refactor
 * Improve bookmarklet [#5904](https://github.com/diaspora/diaspora/pull/5904)
 * Update listen configuration to listen on unix sockets by default [#5974](https://github.com/diaspora/diaspora/pull/5974)
@@ -37,13 +44,6 @@ Ruby 2.0 is no longer officially supported.
 * Update perfect-scrollbar [#6085](https://github.com/diaspora/diaspora/pull/6085)
 
 # 0.5.1.0
-
-## Configuration changes
-
-Please note that the default listen parameter for production setups got
-changed. diaspora\* will no longer listen on `0.0.0.0:3000` as it will now
-bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
-`diaspora.yml` if necessary.
 
 ## Refactor
 * Use Bootstrap modal for new aspect pane [#5850](https://github.com/diaspora/diaspora/pull/5850)
