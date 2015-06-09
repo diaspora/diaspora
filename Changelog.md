@@ -1,12 +1,5 @@
 # 0.5.1.0
 
-## Configuration changes
-
-Please note that the default listen parameter for production setups got
-changed. diaspora\* will no longer listen on `0.0.0.0:3000` as it will now
-bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
-`diaspora.yml` if necessary.
-
 ## Refactor
 * Use Bootstrap modal for new aspect pane [#5850](https://github.com/diaspora/diaspora/pull/5850)
 * Use asset helper instead of .css.erb [#5886](https://github.com/diaspora/diaspora/pull/5886)
