@@ -46,7 +46,6 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
 
-
 # 0.5.1.0
 
 ## Refactor
