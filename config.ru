@@ -10,7 +10,7 @@ require ::File.expand_path('../lib/rack/chrome_frame',  __FILE__)
 
 # Kill unicorn workers really agressively (at 300mb)
 if defined?(Unicorn)
-  use UnicornKiller::Oom, 300 * 1024
+  use UnicornKiller::Oom, 500 * 1024
 end
 use Rack::Deflater
 use Rack::ChromeFrame, :minimum => 8
