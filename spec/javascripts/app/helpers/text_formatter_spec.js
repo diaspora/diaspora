@@ -147,6 +147,16 @@ describe("app.helpers.textFormatter", function(){
       expect(wrapper.find('code').text()).toEqual('<unknown tag>');
     });
 
+    it("adds 'img-responsive' to the image class", function() {
+      var content = "![alt](http://google.com)]";
+      var wrapper = $("<div>").html(this.formatter(content));
+      expect(wrapper.find("img")).toHaveClass("img-responsive");
+
+      content = "<img src=\"http://google.com\">";
+      wrapper = $("<div>").html(this.formatter(content));
+      expect(wrapper.find("img")).toHaveClass("img-responsive");
+    });
+
     context("symbol conversion", function() {
       beforeEach(function() {
         this.input_strings = [
