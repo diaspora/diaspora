@@ -29,6 +29,10 @@
       tokens[idx].attrPush([ "target", "_blank" ]);
     });
 
+    md.use(inlinePlugin, "responsive_images", "image", function (tokens, idx) {
+      tokens[idx].attrPush([ "class", "img-responsive" ]);
+    });
+
     var hashtagPlugin = window.markdownitHashtag;
     md.use(hashtagPlugin, {
       // compare tag_text_regexp in app/models/acts_as_taggable_on-tag.rb
@@ -49,7 +53,7 @@
     var supPlugin = window.markdownitSup;
     md.use(supPlugin);
     var sanitizerPlugin = window.markdownitSanitizer;
-    md.use(sanitizerPlugin);
+    md.use(sanitizerPlugin, {imageClass: "img-responsive"});
 
     var hljs = window.hljs;
     md.set({
@@ -76,7 +80,6 @@
 
     // Bootstrap table markup
     md.renderer.rules.table_open = function () { return "<table class=\"table table-striped\">\n"; };
-
     return md.render(text);
   };
 })();
