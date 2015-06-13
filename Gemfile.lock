@@ -16,10 +16,6 @@ GEM
       rack-test (~> 0.6.2)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionpack-action_caching (1.1.1)
-      actionpack (>= 4.0.0, < 5.0)
-    actionpack-page_caching (1.0.2)
-      actionpack (>= 4.0.0, < 5)
     actionview (4.2.3)
       activesupport (= 4.2.3)
       builder (~> 3.1)
@@ -157,6 +153,11 @@ GEM
       eventmachine (>= 1.0.5, < 1.1)
       http_parser.rb (~> 0.6)
       nokogiri (~> 1.6)
+    diaspora_federation (0.0.2)
+      nokogiri (~> 1.6, >= 1.6.6)
+    diaspora_federation-rails (0.0.2)
+      diaspora_federation (= 0.0.2)
+      rails (~> 4.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
     domain_name (0.5.24)
@@ -743,8 +744,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack-action_caching
-  actionpack-page_caching
   active_model_serializers (= 0.9.3)
   activerecord-import (= 0.8.0)
   acts-as-taggable-on (= 3.5.0)
@@ -765,6 +764,7 @@ DEPENDENCIES
   devise_lastseenable (= 0.0.4)
   diaspora-vines (~> 0.1.27)
   entypo-rails (= 2.2.3)
+  diaspora_federation-rails (= 0.0.2)
   eye (= 0.7.pre)
   facebox-rails (= 0.2.0)
   factory_girl_rails (= 4.5.0)

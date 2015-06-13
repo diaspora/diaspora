@@ -28,7 +28,7 @@ class Person < ActiveRecord::Base
   xml_attr :profile, :as => Profile
   xml_attr :exported_key
 
-  has_one :profile, :dependent => :destroy
+  has_one :profile, dependent: :destroy
   delegate :last_name, :image_url, :tag_string, :bio, :location,
            :gender, :birthday, :formatted_birthday, :tags, :searchable,
            to: :profile
@@ -222,7 +222,7 @@ class Person < ActiveRecord::Base
   end
 
   def public_key_hash
-    Base64.encode64(OpenSSL::Digest::SHA256.new(self.exported_key).to_s)
+    Base64.encode64(OpenSSL::Digest::SHA256.new(serialized_public_key).to_s)
   end
 
   def public_key
@@ -238,15 +238,18 @@ class Person < ActiveRecord::Base
     serialized_public_key = new_key
   end
 
-  #database calls
+  # database calls
   def self.by_account_identifier(identifier)
-    identifier = identifier.strip.downcase.gsub('acct:', '')
-    self.where(:diaspora_handle => identifier).first
+    identifier = identifier.strip.downcase.sub("acct:", "")
+    find_by(diaspora_handle: identifier)
   end
 
-  def self.local_by_account_identifier(identifier)
-    person = self.by_account_identifier(identifier)
-   (person.nil? || person.remote?) ? nil : person
+  def self.find_local_by_diaspora_handle(handle)
+    where(diaspora_handle: handle, closed_account: false).where.not(owner: nil).take
+  end
+
+  def self.find_local_by_guid(guid)
+    where(guid: guid, closed_account: false).where.not(owner: nil).take
   end
 
   def self.create_from_webfinger(profile, hcard)

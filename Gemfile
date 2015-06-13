@@ -3,17 +3,16 @@ source "https://rubygems.org"
 gem "rails", "4.2.3"
 
 # Legacy Rails features, remove me!
-
-# caches_page
-gem "actionpack-action_caching"
-gem "actionpack-page_caching"
-
 # responders (class level)
 gem "responders", "2.1.0"
 
 # Appserver
 
 gem "unicorn", "4.9.0", require: false
+
+# Federation
+
+gem "diaspora_federation-rails", "0.0.2"
 
 # API and JSON
 
