@@ -25,11 +25,7 @@ describe StatisticsPresenter do
         "network"            => "Diaspora",
         "version"            => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations?,
-        "services"           => ["facebook"],
-        "facebook"           => true,
-        "tumblr"             => false,
-        "twitter"            => false,
-        "wordpress"          => false
+        "services"           => ["facebook"]
       )
     end
 
@@ -55,11 +51,7 @@ describe StatisticsPresenter do
           "network"            => "Diaspora",
           "version"            => AppConfig.version_string,
           "registrations_open" => AppConfig.settings.enable_registrations?,
-          "services"           => %w(twitter facebook),
-          "facebook"           => true,
-          "twitter"            => true,
-          "tumblr"             => false,
-          "wordpress"          => false
+          "services"           => %w(twitter facebook)
         )
       end
     end
@@ -89,11 +81,7 @@ describe StatisticsPresenter do
           "network"            => "Diaspora",
           "version"            => AppConfig.version_string,
           "registrations_open" => AppConfig.settings.enable_registrations?,
-          "services"           => ["twitter"],
-          "facebook"           => false,
-          "twitter"            => true,
-          "tumblr"             => false,
-          "wordpress"          => false
+          "services"           => ["twitter"]
         )
       end
     end
@@ -116,11 +104,7 @@ describe StatisticsPresenter do
           "active_users_monthly"  => User.monthly_actives.count,
           "local_posts"           => @presenter.local_posts,
           "local_comments"        => @presenter.local_comments,
-          "services"              => ["facebook"],
-          "facebook"              => true,
-          "twitter"               => false,
-          "tumblr"                => false,
-          "wordpress"             => false
+          "services"              => ["facebook"]
         )
       end
     end
