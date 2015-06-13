@@ -3,10 +3,9 @@
 -#   the COPYRIGHT file.
 
 #no_contacts.empty_message
-  = t('.you_should_add_some_more_contacts')
-  %br
-  %br
-  = t('.try_adding_some_more_contacts')
-  - if AppConfig.settings.community_spotlight.enable?
-    != t('.or_spotlight', :link => link_to(t(".community_spotlight") , community_spotlight_path))
-
+  %p.lead
+    = t('.you_should_add_some_more_contacts')
+  %p
+    != t('.try_adding_some_more_contacts', search_link: link_to(t(".search_link_text"), search_path), invite_link: link_to(t(".invite_link_text"), new_user_invitation_path))
+    - if AppConfig.settings.community_spotlight.enable?
+      != t('.or_spotlight', :link => link_to(t(".community_spotlight") , community_spotlight_path))
