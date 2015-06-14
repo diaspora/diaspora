@@ -185,7 +185,7 @@ sv:
       donate: "Donera"
       handle_explanation: "Detta är ditt Diaspora*-id. Det är det här du ska ge till dina vänner, om du vill att de ska lägga till dig på Diaspora*."
       help:
-        any_problem: "Har du problem?"
+        any_problem: "Har du något problem?"
         contact_podmin: "Kontakta din pods administratör."
         do_you: "Har du:"
         email_feedback: "%{link}a din respons, om du föredrar det"
@@ -339,13 +339,13 @@ sv:
   find_people: "Hitta personer eller #taggar"
   help:
     account_and_data_management:
-      close_account_a: "Längst ner på sidan för inställningar finns knappen \"Stäng kontot\"."
+      close_account_a: "Längst ner på sidan för inställningar finns knappen \"Stäng kontot\". För att avsluta kontot, måste du bekräfta med det med ditt lösenord. Du ska veta att du <strong>aldrig</strong> kommer att kunna registrera dig med samma användarnamn på podden igen."
       close_account_q: "Hur tar jag bort mitt frö (konto)?"
-      data_other_podmins_a: "När du delar med dig med till någon på en annan pod, kommer alla inlägg du delar med till dem samt en kopia av din profil att sparas tillfälligt på deras pod. Då kan också dess podadministratör komma åt din data. När du tar bort ett inlägg eller tar bort hela din profil, försvinner den också från dem podar där den tidigare sparats."
+      data_other_podmins_a: "När du delar med dig med till någon på en annan pod, kommer alla inlägg du delar med till dem samt en kopia av din profil att tillfälligt sparas på deras pod. Då kan också dess administratör komma åt din data. När du tar bort ett inlägg eller tar bort hela din profil, försvinner den också från de poddar där den tidigare sparats. Dina bilder sparas däremot aldrig på någon annan pod än den du är registrerad på; de länkas endast till andra poddar."
       data_other_podmins_q: "Kan adminstratörer av andra pods se min information?"
       data_visible_to_podmin_a: "Kommunikationen mellan podar är alltid krypterad, både med SSL och Diasporas egna krypteringssystem. Informationen i varje pod är dock inte krypterad. Podarnas administratörer kan komma åt all din profildata och alla dina inlägg. (Precis administratörer för andra webbplatser kommer åt datan de hanterar.) Om du vill vara mer säker kan du administrera din egen pod, eftersom du då kontrollerar åtkomsten till databasen."
       data_visible_to_podmin_q: "Hur mycket av min personliga information kan min pod-administratör se?"
-      download_data_a: "Ja. Längst ned på kontofliken, i inställningsmenyn, finns två knappar för att ladda ner din data."
+      download_data_a: "Ja. Längst ned på kontofliken, i inställningsmenyn, finns en knapp för att ladda ner din data och en för dina bilder."
       download_data_q: "Kan jag ladda ner en kopia av all data på mitt frö (konto)?"
       move_pods_a: "I framtiden kommer du att kunna exportera ditt frö från en pod och importera det till en annan. Just nu är detta dock inte möjligt. Du kan däremot skapa ett nytt konto och lägga till dina kontakter på ett nytt frö och sedan be dem att lägga till dig på nytt."
       move_pods_q: "Hur flyttar jag mitt frö (konto) från en pod till en annan?"
@@ -355,15 +355,15 @@ sv:
       change_aspect_of_post_q: "Kan jag byta vilka aspekter som ser ett inlägg efter att jag har gjort inlägget?"
       contacts_know_aspect_a: "Nej. De kan inte se namnet på aspekten under några omständigheter."
       contacts_know_aspect_q: "Vet mina kontakter i vilken aspekt jag har sorterat in dem?"
-      contacts_visible_a: "Om du har kryssat i alternativet, kommer alla kontakter från den aspekten att kunna se vilka andra som finns i samma aspekt på din profilsida. Det är bra om du bara väljer detta alternativt om alla i aspekten känner varandra. Oavsett, kommer de inte att se vad aspekten heter."
-      contacts_visible_q: "Vad menar ni med frågan \"ska kontakterna i denna aspekt vara synliga för varandra\"?"
+      contacts_visible_a: "Om du har kryssat i alternativet, kommer alla kontakter från den aspekten att kunna se vilka andra som finns i samma aspekt, på din profilsida. Det är bra om du bara väljer detta alternativt om alla i aspekten känner varandra. Oavsett hur du gör, kommer de inte att se vad aspekten heter."
+      contacts_visible_q: "Vad menar ni med \"gör kontakterna i denna aspekt synlig för varandra\"?"
       delete_aspect_a: "Välj den aspekt du vill ta bort i listan med alla dina aspekter i den vänstra panellisten. Välj pennan som dyker upp och tryck på ta-bort-knappen som syns."
       delete_aspect_q: "Hur tar jag bort en aspekt?"
-      person_multiple_aspects_a: "Ja. Det finns flera sätt att göra det på. Navigera till sidan med dina kontakter. Där kan du för varje kontakt använda menyn till höger för att lägga till dem till eller ta bort dem från en aspekt. Du kan också lägga till och ta bort dem på deras respektive profilsida. Till sista, kan du göra det genom att flytta muspekaren över personens namn i en ström och använda menyn som då dyker upp."
+      person_multiple_aspects_a: "Ja. Det finns flera sätt att göra det på. Navigera till sidan med dina kontakter. Där kan du för varje kontakt använda menyn till höger för att lägga till dem till eller ta bort dem från en aspekt. Du kan också lägga till och ta bort dem på deras respektive profilsida. Till sista, kan du göra det genom att flytta muspekaren över personens namn i en ström och använda menyn som då dyker upp. Där kan du ändra vilka aspekter de ska ligga i."
       person_multiple_aspects_q: "Kan jag lägga till en person i flera olika aspekter?"
-      post_multiple_aspects_a: "Ja. När du gör ett inlägg, använd aspektväljarknappen för att välja eller ta bort aspekter. Ditt inlägg kommer att bli synligt för alla aspekter som du valt. I sidopanelen kan du också välja vilka aspekter du vill skicka inlägg till. När du gör inlägget kommer aspekterna du valt i panelen att automatiskt vara valda när du börjar göra ditt inlägg."
+      post_multiple_aspects_a: "Ja. När du gör ett inlägg, använd aspektväljarknappen för att välja eller ta bort aspekter. Att visa för samtliga aspekter är förinställt. Dina inlägg kommer att bli synliga för alla aspekter som du valt. I sidopanelen kan du också välja vilka aspekter du vill skicka inlägg till. När du skriver inlägget kommer aspekterna du valt i panelen att automatiskt vara valda när du börjar göra ditt inlägg."
       post_multiple_aspects_q: "Kan jag göra inlägg till flera aspekter på en gång?"
-      remove_notification_a: "Nej. De får inte någon notifikation  om att du lägger till dem i fler än en aspekt, även om du redan delar med dig åt dem."
+      remove_notification_a: "Nej. De får inte någon notifikation om att du lägger till dem i fler än en aspekt, även om du redan delar med dig åt dem."
       remove_notification_q: "Kommer mina kontakter få en notifiering om jag tar bort dem från aspekter?"
       rename_aspect_a: "I din aspektlista, till vänster på huvudsidan, kan du döpa om en aspekt genom att föra muspekaren över aspektens namn, trycka på den penna som dyker upp och där välj att döpa om aspekten."
       rename_aspect_q: "Hur döper jag om en aspekt?"
@@ -382,7 +382,7 @@ sv:
     faq: "Vanliga frågor"
     foundation_website: "Diaspora*-föreningens hemsida"
     getting_help:
-      get_support_a_faq: "Läs vår %{faq}-sida på wikin."
+      get_support_a_faq: "Läs vår sida med %{faq} på wikin."
       get_support_a_hashtag: "Fråga med ett publikt inlägg på Diaspora* och använd taggen %{question}"
       get_support_a_irc: "Ta kontakt med oss på %{irc} (chatt)"
       get_support_a_tutorials: "Spana in våra %{tutorials}"
@@ -416,7 +416,7 @@ sv:
       see_mentions_a: "Ja. Tryck på \"Omnämnanden\" i vänstra kolonnen på din sida."
       see_mentions_q: "Är det möjligt för mig att se inlägg jag nämnts i?"
       title: "Omnämnanden"
-      what_is_a_mention_a: "Ett omnämnande är en länk till en profilsidan till en person nämns i inlägg. När någon är omnämnd, blir personen notifierad om inlägget."
+      what_is_a_mention_a: "Ett omnämnande är en länk till en profilsid till en person nämns i inlägg. När någon är omnämnd, blir personen notifierad om inlägget."
       what_is_a_mention_q: "Vad är ett omnämnande?"
     miscellaneous:
       back_to_top_a: "Ja. När du skrollat ned på en sida kan du trycka på den gråa pilen som dyker upp nere vid det högre hörnet på ditt webbläsarfönster."
@@ -437,8 +437,8 @@ sv:
       what_is_a_pod_a: "En pod är en server som använder Diaspora*'s mjukvara och är ansluten till nätverket med andra sådana servrar. \"Pod\" är engelska för \"frökapsel\". En pod ses som en sådan kapsel som innehåller flera frön, som att en server har flera konton. Det finns många olika podar och du kan kommunicera med vänner från andra podar. (Du kan se Diaspora* som en e-post-leverantör. Det finns publika podar, privata podar och du kan till och med bli din egna.)"
       what_is_a_pod_q: "Vad är en pod?"
     posts_and_posting:
-      char_limit_services_a: "I dem fallen kommer dina inlägg vara begränsade till ett färre antal tecken (140 för Twitter och 1 000 för Tumblr). Hur många tecken du har kvar att använda , syns när tjänstens ikon är upplyst. Du kan fortfarande göra inlägg till dessa tjänster som är längre än deras begränsningar, men de kommer att bli avhuggna."
-      char_limit_services_q: "Vad är har inlägg som delats genom liknande tjänster med lägre teckenbegräsning för teckenbegräsning?"
+      char_limit_services_a: "I de fallen kommer dina inlägg vara begränsade till ett färre antal tecken (140 för Twitter och 1 000 för Tumblr). Hur många tecken du har kvar att använda, syns när tjänstens ikon är lyser upp. Du kan fortfarande göra inlägg till dessa tjänster som är längre än deras begränsningar, men de kommer att bli avhuggna."
+      char_limit_services_q: "Vad händer med inlägg som delats genom liknande tjänster med lägre teckenbegräsning?"
       character_limit_a: "65 535 tecken. Det är 65 395 tecken fler än vad Twitter tillåter! ;-)"
       character_limit_q: "Vad är teckenbegränsning för inlägg?"
       embed_multimedia_a: "Det ska räcka med att bara klistra in länken till vad du vill bifoga i inlägget. Några av de sidor som stöds är: YouTube, Vimeo, SoundCloud och Flickr. Diaspora* använder oEmbed för den här egenskapen. Vi lägger till stöd för andra sidor hela tiden. Kom ihåg att göra enkla inlägg och bara använda fullständiga länkar, inga URL-förkortare. Inga operatorer efter länken och vänta ett slag efter att du klistrat in inlägget innan du laddar om sidan efter att inlägget gjorts."
@@ -446,18 +446,18 @@ sv:
       format_text_a: "Du kan använda %{markdown}-systemet. Du kan se systemets syntax %{here}. Använd knappen för att förhandsgranska inlägget så att du ser att det blir som du hade tänkt dig."
       format_text_q: "Hur kan jag formatera texten i mina inlägg? (Fet stil, kursivera, etcetera.)"
       hide_posts_a: "Om du pekar muspekaren överst på ett inlägg kommer ett kryss att dyka upp till höger. Tryck på det för att dölja inlägget och avsluta notifieringarna berörande det. Du kommer fortfarande kunna se inlägget om du besöker författarens profilsida."
-      hide_posts_q: "Hur döljer jag ett inlägg? Hur avprenumererar jag på ett inlägg jag kommenterat i, för att inte få notifieringar om det?"
+      hide_posts_q: "Hur döljer jag ett inlägg?"
       image_text: "bildtext"
       image_url: "bild-url"
       insert_images_a: "Tryck på den lilla kameraikonen för att bifoga en bild till inlägget. Tryck på ikonen igen för att lägga till fler foton. Du kan välja fler att ladda upp flera bilder samtidigt"
-      insert_images_comments_a1: "Följande kodrad"
+      insert_images_comments_a1: "Du kan inte ha bilder i kommentarer, men med följande kodrad"
       insert_images_comments_a2: "används för att lägga till bilder från en webbplats till både kommentarer och inlägg."
       insert_images_comments_q: "Kan jag lägga till bilder i kommentarer?"
       insert_images_q: "Hur lägger jag in bilder till mitt inlägg?"
       post_location_a: "Tryck på knappnålsikonen bredvid kameran där du laddar upp bilder. Det här kommer att lägga till din plats från OpenStreetMap.org. Du själv kan ändra platsen, för att bara ange staden du befinner dig i och inte den exakta adressen."
       post_location_q: "Hur anknyter jag min plats till ett inlägg?"
       post_notification_a: "Du finner en bjällerikon bredvid X:et i inlägget övre, högra hörn. Tryck på den för att slå på eller av notifikationer om det inlägget."
-      post_notification_q: "Hur skulle jag göra för att ändra mina notifikationsinställningar för ett inlägg?"
+      post_notification_q: "Hur gör jag för att ändra mina notifikationsinställningar för ett inlägg?"
       post_poll_a: "Tryck på grafikonen för att skapa en omröstning. Skriv in din fråga och åtminstone två alternativ. Glöm inte att göra inlägget publikt om du vill att alla ska kunna delta."
       post_poll_q: "Hur lägger jag till en omröstning till mitt inlägg?"
       post_report_a: "Tryck på varningstriangeln i inläggets övre, högra hörn för att anmäla det till din podadminstratör. Ange sedan, noggrant, varför du valt att anmäla inlägget."
@@ -526,7 +526,7 @@ sv:
       add_to_aspect_li5: "Skulle Bengt besöka Annas profilsida skulle han se de privata inläggen hon har gjort till den aspekt hon har lagt honom i. Givetvis ser Bengt också Annas publika inlägg på hennes profilsida."
       add_to_aspect_li6: "Bengt kommer att kunna se Annas publika profil med biografi, position, kön och födelsedag."
       add_to_aspect_li7: "Anna kommer synas under \"Delar enbart med mig\" på Bengts kontaktsida."
-      add_to_aspect_li8: "Amalia kommer också kunna @nämna Benjamin i ett inlägg."
+      add_to_aspect_li8: "Amalia kommer också kunna @-nämna Benjamin i ett inlägg."
       add_to_aspect_q: "Vad händer när jag lägger till en person i en aspekt och när någon lägger till mig till en av deras aspekter?"
       list_not_sharing_a: "Nej. Du kan däremot besöka personers profilsidor för att se om de delar med sig till dig. Om de gör det, kommer listen under deras profilbild att vara grön; annars vore den grå. Du borde få en notifiering varje gång börjar dela med sig till dig."
       list_not_sharing_q: "Finns det någon lista med personer vilka jag har lagt till aspekter, men som inte har mig i någon av deras?"
@@ -568,7 +568,7 @@ sv:
       empty: "Var snäll och ange minst en e-postadress."
       no_more: "Du har inga fler inbjudningar."
       note_already_sent: "Inbjudningar har redan skickats till: %{emails}"
-      own_address: "Du kan inte skicka en inbjudan till din egen adress."
+      own_address: "Du kan inte skicka inbjudan till din egen adress."
       rejected: "Det är problem med följande e-postadresser: "
       sent: "Inbjudningarna har skickats till: %{emails}"
     edit:
@@ -714,6 +714,8 @@ sv:
     a_post_you_shared: "ett inlägg."
     a_private_message: "Du har fått ett nytt privat meddelande på Diaspora*."
     accept_invite: "Acceptera din Diaspora*-inbjudan!"
+    also_commented:
+      limited_subject: "Du har fått en kommentar kommenterad"
     click_here: "Klicka här"
     comment_on_post:
       limited_subject: "En ny kommentar finns i ett inlägg du har kommenterat."
@@ -771,7 +773,7 @@ sv:
 
           Du har fått en inbjudan till Diaspora*!
 
-          Tryck på länken nedanför för att börja
+          Använd på länken nedanför för att börja
 
           [%{invite_url}][1]
 
@@ -780,7 +782,10 @@ sv:
 
           Diasporas e-postrobot!
 
+          PS. Om du inte (ännu) vet vad Diaspora* är, kan du läsa om det [här][2]!
+
           [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
     invited_you: "%{name} har bjudt in dig till Diaspora*."
     liked:
       liked: "%{name} gillar ditt inlägg "
@@ -1079,7 +1084,7 @@ sv:
       connect: "Anslut"
       disconnect: "Koppla från"
       edit_services: "Ändra tjänster"
-      logged_in_as: "Inloggad som"
+      logged_in_as: "Inloggad som %{nickname}"
       no_services_available: "Det finns inga tjänster tillgängliga på denna pod."
       not_logged_in: "För nuvarande inte inloggad."
       really_disconnect: "Vill du koppla från %{service}?"
@@ -1274,6 +1279,9 @@ sv:
     destroy:
       failure: "Misslyckades att sluta följa #%{name}. Du kanske redan slutat följa det."
       success: "Sådär! Du följer inte längre #%{name}."
+    manage:
+      no_tags: "Du följer inga taggar."
+      title: "Administrera taggar"
   tags:
     name_too_long: "Använd taggar med namn kortare än %{count} tecken. Just nu är den %{current_length} lång."
     show:
@@ -1345,6 +1353,7 @@ sv:
       started_sharing: "någon börjar dela med sig till dig"
       stream_preferences: "Ströminställningar"
       your_email: "Din e-post"
+      your_email_private: "Din e-postadress kommer inte visas för andra användare"
       your_handle: "Ditt Diaspora*-id"
     getting_started:
       awesome_take_me_to_diaspora: "Häftigt! Ta mig till Diaspora*"

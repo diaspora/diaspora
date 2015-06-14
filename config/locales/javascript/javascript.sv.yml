@@ -147,7 +147,7 @@ sv:
       option: "Alternativ"
       public: "Publikt - ditt inlägg visas för alla och i söktjänster"
       question: "Fråga"
-    remove_post: "Vi du ta bort detta inlägg?"
+    remove_post: "Vill du ta bort detta inlägg?"
     report:
       name: "Anmälan"
       prompt: "Var god ange orsak:"
@@ -194,8 +194,11 @@ sv:
       show_nsfw_posts: "Visa alla"
       tags:
         follow: "Följ #<%= tag %>"
+        follow_error: "Kunde inte följa #<%= tag %> :-("
         following: "Följer #<%= tag %>"
         stop_following: "Sluta följa #<%= tag %>"
+        stop_following_confirm: "Vill du sluta följa #<%= tag %>?"
+        stop_following_error: "Kunde inte sluta följa #<%= tag %> :-("
       unfollow: "Sluta följ"
       unlike: "Sluta gilla"
       via: "via <%= provider %>"

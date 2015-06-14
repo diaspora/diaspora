@@ -1363,6 +1363,7 @@ nl:
       started_sharing: "iemand met je begint te delen"
       stream_preferences: "Stream voorkeuren"
       your_email: "Jouw e-mail"
+      your_email_private: "Je emailadres is nooit zichtbaar voor andere gebruikers"
       your_handle: "Jouw diaspora* ID"
     getting_started:
       awesome_take_me_to_diaspora: "Super! Neem me naar diaspora*"

@@ -1355,6 +1355,7 @@ fr:
       started_sharing: "…quelqu'un commence à partager avec vous."
       stream_preferences: "Préférences du flux"
       your_email: "Votre adresse électronique"
+      your_email_private: "Votre email ne sera jamais vu par d'autres utilisateurs"
       your_handle: "Votre identifiant diaspora*"
     getting_started:
       awesome_take_me_to_diaspora: "Impressionnant ! Guidez-moi vers diaspora*"
