@@ -4,22 +4,15 @@ class TokenEndpoint
 
   def initialize
     @app = Rack::OAuth2::Server::Token.new do |req, res|
-      client = Client.find_by_identifier(req.client_id) || req.invalid_client!
-      client.secret == req.client_secret || req.invalid_client!
       case req.grant_type
-        when :client_credentials
-          res.access_token = client.access_tokens.create!.to_bearer_token
-        when :authorization_code
-          authorization = client.authorizations.valid.find_by_code(req.code)
-          req.invalid_grant! if authorization.blank? || !authorization.valid_redirect_uri?(req.redirect_uri)
-          access_token = authorization.access_token
-          res.access_token = access_token.to_bearer_token
-          if access_token.accessible?(Scope::OPENID)
-            res.id_token = access_token.account.id_tokens.create!(
-                client: access_token.client,
-                nonce: authorization.nonce,
-                request_object: authorization.request_object
-            ).to_response_object.to_jwt IdToken.config[:private_key]
+        when :password
+          # If the grant type is password, the application does not have to be known
+          # If it does not exist, insert into DB
+          user = User.find_for_database_authentication(username: req.username)
+          o_auth_app = OAuthApplication.find_by_client_id req.client_id
+          o_auth_app ||= OAuthApplication.create!(client_id: req.client_id, client_secret: req.client_secret)
+          if user.valid_password? req.password
+            res.access_token = o_auth_app.tokens.create!.bearer_token
           end
         else
           req.unsupported_grant_type!
