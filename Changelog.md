@@ -31,6 +31,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Update listen configuration to listen on unix sockets by default [#5974](https://github.com/diaspora/diaspora/pull/5974)
 * Port to Bootstrap 3 [#6015](https://github.com/diaspora/diaspora/pull/6015)
 * Use a fixed width for the mobile drawer [#6057](https://github.com/diaspora/diaspora/pull/6057)
+* Replace jquery.autoresize with autosize [#6104](https://github.com/diaspora/diaspora/pull/6104)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

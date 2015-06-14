@@ -30,8 +30,8 @@ app.views.CommentStream = app.views.Base.extend({
     this.model.comments.each(this.appendComment, this);
 
     // add autoexpanders to new comment textarea
-    this.$("textarea").autoResize({'extraSpace' : 10});
-    this.$('textarea').val(this.textareaValue);
+    this.$("textarea").val(this.textareaValue);
+    autosize(this.$("textarea"));
   },
 
   presenter: function(){
@@ -44,7 +44,7 @@ app.views.CommentStream = app.views.Base.extend({
 
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
-    
+
     var commentText = $.trim(this.$('.comment_box').val());
     this.$(".comment_box").val("");
     this.$(".comment_box").css("height", "");
@@ -62,7 +62,7 @@ app.views.CommentStream = app.views.Base.extend({
       return false;
     }
   },
-  
+
   appendComment: function(comment) {
     // Set the post as the comment's parent, so we can check
     // on post ownership in the Comment view.

@@ -38,6 +38,7 @@
 
   "predef": [
     "_",
+    "autosize",
     "Backbone",
     "gon",
     "Handlebars",

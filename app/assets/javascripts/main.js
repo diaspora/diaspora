@@ -8,7 +8,7 @@
 //= require backbone
 //= require jquery.hotkeys
 //= require jquery.remotipart
-//= require jquery.autoresize
+//= require autosize
 //= require jquery.charcount
 //= require jquery-placeholder
 //= require rails-timeago

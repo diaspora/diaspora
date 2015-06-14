@@ -44,9 +44,6 @@ app.views.Publisher = Backbone.View.extend({
     // init mentions plugin
     Mentions.initialize(this.inputEl);
 
-    // init autoresize plugin
-    this.inputEl.autoResize({ "extraSpace" : 10, "maxHeight" : Infinity });
-
     // if there is data in the publisher we ask for a confirmation
     // before the user is able to leave the page
     $(window).on("beforeunload", _.bind(this._beforeUnload, this));
@@ -96,6 +93,9 @@ app.views.Publisher = Backbone.View.extend({
     this.on("publisher:sync", function() {
       this.viewPollCreator.render();
     });
+
+    // init autosize plugin
+    autosize(this.inputEl);
 
     this.initSubviews();
     this.checkSubmitAvailability();
@@ -147,6 +147,7 @@ app.views.Publisher = Backbone.View.extend({
     this.prefillText = txt;
 
     this.inputEl.trigger("input");
+    autosize.update(this.inputEl);
     this.handleTextchange();
   },
 
@@ -373,6 +374,7 @@ app.views.Publisher = Backbone.View.extend({
     this.hiddenInputEl.val("");
     this.inputEl.trigger("keyup")
                  .trigger("keydown");
+    autosize.update(this.inputEl);
 
     // remove mentions
     this.inputEl.mentionsInput("reset");
@@ -429,6 +431,7 @@ app.views.Publisher = Backbone.View.extend({
     // visually 'open' the publisher
     this.$el.removeClass("closed");
     this.wrapperEl.addClass("active");
+    autosize.update(this.inputEl);
 
     // fetch contacts for mentioning
     Mentions.fetchContacts();

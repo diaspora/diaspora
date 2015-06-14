@@ -22,10 +22,10 @@ describe("app.views.CommentStream", function(){
     });
 
     it("autoResizes the new comment textarea", function(){
-      spyOn($.fn, "autoResize");
+      spyOn(window, "autosize");
       this.view.postRenderTemplate();
-      expect($.fn.autoResize).toHaveBeenCalled();
-      expect($.fn.autoResize.calls.mostRecent().object.selector).toBe("textarea");
+      expect(window.autosize).toHaveBeenCalled();
+      expect(window.autosize.calls.mostRecent().args[0].selector).toBe("textarea");
     });
   });
 
