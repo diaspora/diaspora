@@ -42,8 +42,6 @@ var customMatchers = {
 
 
 beforeEach(function() {
-  $('#jasmine_content').html(spec.readFixture("underscore_templates"));
-
   jasmine.clock().install();
   jasmine.Ajax.install();
 
@@ -64,6 +62,18 @@ beforeEach(function() {
 
   // add custom matchers for flash messages
   jasmine.addMatchers(customMatchers);
+
+  // PhantomJS 1.9.8 doesn't support bind yet
+  // See https://github.com/ariya/phantomjs/issues/10522
+  // and https://github.com/colszowka/phantomjs-gem
+  /* jshint -W121 */
+  Function.prototype.bind = Function.prototype.bind || function (thisp) {
+    var fn = this;
+    return function () {
+      return fn.apply(thisp, arguments);
+    };
+  };
+  /* jshint +W121 */
 });
 
 afterEach(function() {

@@ -40,6 +40,7 @@
   .comment_box {
     width: 95%;
     height: 35px;
+    resize: none;
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
