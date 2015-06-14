@@ -16,7 +16,7 @@ class DiscoveryController < ApplicationController
     jrd = {
       links: [{
         rel: OpenIDConnect::Discovery::Provider::Issuer::REL_VALUE,
-        href: "http://0.0.0.0:3000"
+        href: root_path
       }]
     }
     jrd[:subject] = params[:resource] if params[:resource].present?
@@ -25,12 +25,12 @@ class DiscoveryController < ApplicationController
 
   def openid_configuration
     config = OpenIDConnect::Discovery::Provider::Config::Response.new(
-      issuer: "http://0.0.0.0:3000",
+      issuer: root_path,
       authorization_endpoint: "#{authorizations_url}/new",
       token_endpoint: access_tokens_url,
       userinfo_endpoint: user_info_url,
       jwks_uri: "#{authorizations_url}/jwks.json",
-      registration_endpoint: "http://0.0.0.0:3000/connect",
+      registration_endpoint: "#{root_path}/connect",
       scopes_supported: "iss",
       response_types_supported: "Client.available_response_types",
       grant_types_supported: "Client.available_grant_types",
