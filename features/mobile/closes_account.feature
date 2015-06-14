@@ -7,7 +7,9 @@ Feature: Close account
   Scenario: user closes account
     Given I am signed in
     When I go to the users edit page
-    And I put in my password in "close_account_password"
+    And I click on selector "#close_account"
+    Then I should see "Hey, please don’t go!" within "#closeAccountModal"
+    When I put in my password in "close_account_password"
     And I press "close_account_confirm"
     And I confirm the alert
 
