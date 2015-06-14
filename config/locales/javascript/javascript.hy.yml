@@ -36,7 +36,7 @@ hy:
       name: "Անուն"
     bookmarklet:
       post_something: "Գրառել դիասպորա*յում"
-      post_submit: "Գրառվում է"
+      post_submit: "Գրառվում է..."
       post_success: "Գրառվե՜ց։ Փակում եմ պատուհանը։"
     cancel: "Չեղարկել"
     comma: ","
@@ -52,7 +52,7 @@ hy:
       aspect_list_is_visible: "Այս խմբի մարդիկ կարող են տեսնել միմյանց։"
       error_add: "Չստացվեց <%= name %>ին ավելացնել խմբում։ Ափսո՜ս։"
       error_remove: "Չստացվեց հեռացնել <%= name %>ին խմբից։ Ստիպված ես էլի դիմանալ։ ։Չ"
-      remove_contact: "Ջնջել ընկերոջը"
+      remove_contact: "Հեռացնել"
       search_no_results: "Ոչ մեկ չգտնվեց"
     conversation:
       participants: "Մասնակիցներ"
@@ -108,7 +108,7 @@ hy:
       not_found: "... և ոչ ոք չգտնվեց"
       stop_ignoring: "Դադարել արհամարհել"
     photo_uploader:
-      completed: "<%= file %> ավարտված է"
+      completed: "<%= file %> պատրաստ է"
       empty: "{file}-ը դատարկ է, կրկին ընտրիր ֆայլերը առանց դրա։"
       error: "Խնդիրներ առաջացան <%= file %> նիշքը վերբեռնելու ժամանակ"
       invalid_ext: "{file}-ը անհամապատասխան ընդլայնման է։ Միայն {extensions} են թույլատրվում։"
@@ -188,7 +188,7 @@ hy:
         other: "<%= count %> հոգի տարածել են"
         zero: "Ոչ ոք չի տարածել"
       show_nsfw_post: "Ցուցադրել գրառումը"
-      show_nsfw_posts: "Ցուցադրել ամբողջը"
+      show_nsfw_posts: "Ցուցադրել բոլորը"
       tags:
         follow: "Հետևել #<%= tag %>"
         follow_error: "Չստացվեց հետևել #<%= tag %>"
@@ -229,5 +229,5 @@ hy:
       like: "Հավանել"
       reshare: "Տարածել"
       reshared: "Տարածվել է"
-      stop_following_post: "Դադարեցնել գրառմանը հետևելը"
+      stop_following_post: "Դադարեցնել հետևել գրառմանը"
       unlike: "Ապահավանել"

@@ -807,7 +807,7 @@ fi:
   password_confirmation: "Salasanan vahvistus"
   people:
     add_contact:
-      invited_by: "sinut kutsui"
+      invited_by: "Sinut kutsui"
     add_contact_small:
       add_contact_from_tag: "Lisää kontakti tagista"
     aspect_list:
@@ -1035,12 +1035,17 @@ fi:
     index:
       disconnect: "Katkaise yhteys"
       edit_services: "Muokkaa palveluita"
-      logged_in_as: "Kirjauduttu käyttäjänä"
+      logged_in_as: "Kirjauduttu käyttäjänä %{nickname}."
       really_disconnect: "Katkaistaanko yhteys palveluun %{service}?"
       services_explanation: "Palveluihin yhdistäminen antaa sinulle mahdollisuuden julkaista Diasporaan lähettämäsi julkaisut myös niissä."
     inviter:
       click_link_to_accept_invitation: "Paina tätä linkkiä hyväksyäksesi kutsun"
       join_me_on_diaspora: "Liity seuraani Diasporaan*"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     remote_friend:
       invite: "Kutsu"
       not_on_diaspora: "Ei vielä Diasporassa"
@@ -1154,7 +1159,8 @@ fi:
     local_posts: "Paikalliset julkaisut"
     name: "Nimi"
     network: "Verkko"
-    open: "Avaa"
+    open: "Avoinna"
+    registrations: "Rekisteröityminen"
     services: "Palvelut"
     total_users: "Käyttäjiä yhteensä"
     version: "Versio"
@@ -1279,6 +1285,7 @@ fi:
       private_message: "saat yksityisviestin"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun:"
       request_export: "Pyydä profiilidataani"
+      request_export_photos: "Pyydä kuviani"
       request_export_photos_update: "Päivitä kuvani"
       request_export_update: "Päivitä profiilidatani"
       reshared: "joku jakaa julkaisusi uudelleen"
@@ -1288,6 +1295,7 @@ fi:
       started_sharing: "joku alkaa jakaa kanssasi"
       stream_preferences: "Virran asetukset"
       your_email: "Sähköpostiosoitteesi"
+      your_email_private: "Sähköpostiosoiteesi ei ole milloinkaan näkyvissä muille käyttäjille"
       your_handle: "Diaspora-tunnuksesi"
     getting_started:
       awesome_take_me_to_diaspora: "Loistavaa! Mennään Diasporaan"
@@ -1303,7 +1311,7 @@ fi:
     privacy_settings:
       ignored_users: "Sivuutetut käyttäjät"
       no_user_ignored_message: "Et sivuuta tällä hetkellä yhtäkään käyttäjää"
-      stop_ignoring: "Lopeta sivuuttaminen"
+      stop_ignoring: "lopeta sivuuttaminen"
       strip_exif: "Poista ladatuista kuvatiedostoista metadata, kuten sijainti, tekijä ja kameran malli (suositeltu)"
       title: "Yksityisyysasetukset"
     public:

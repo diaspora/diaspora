@@ -298,7 +298,7 @@ cs:
       participants: "Účastníci"
     create:
       fail: "Neplatná zpráva"
-      no_contact: "Hej, musíte nejdřív kontakt přidat!"
+      no_contact: "Hej, musíte kontakt nejdřív přidat!"
       sent: "Zpráva byla odeslána"
     destroy:
       delete_success: "Konverzace byla úspěšně smazána"
@@ -350,7 +350,7 @@ cs:
   help:
     account_and_data_management:
       close_account_a: "Přejděte na dolní část vaší stránky nastavení a klikněte na tlačítko „Uzavřít účet“."
-      close_account_q: "Jak vymažu svůj ůčet"
+      close_account_q: "Jak vymažu svůj ůčet?"
       data_other_podmins_a: "Když začnete sdílet s někým na jiném podu, všechny příspěvky, které s ní(m) sdílíte a kopie dat na vašem profilu jsou uchovávány (kešovány) na jejím/jeho podu a přísupné administrátorovi tohoto podu. Když smažete příspěvek nebo data z profilu, jsou smazány z vašeho podu a z kterýchkoli dalších podů, kde byly v minulosti uchovávány."
       data_other_podmins_q: "Mohou administrátoři jiných podů vidět mé informace?"
       data_visible_to_podmin_a: "Komunikace *mezi* pody je šifrovaná (použitím SSL a vlastního šifrování diaspory*), ale skladování dat na podech není šifrované. Administrátoři databáze vašeho podu (většinou osoby provozující pod) mají přístup ke všem datům na vašem profilu a ke všem vašim příspěvkům (podobně jako u věťšiny stránek, které uchovávají data). Provozování vlastního podu poskytuje větší soukromí, neboť poté jen vy řídíte přístup k databázi."
@@ -364,7 +364,7 @@ cs:
       change_aspect_of_post_a: "Ne, ale vždy můžete vytvořit nový příspěvek se stejným obsahem a sdílet ho s jiným aspektem."
       change_aspect_of_post_q: "Poté, co jsem něco odeslal, můžu změnit aspekty, které to vidí?"
       contacts_know_aspect_a: "Ne. V žádném případě nemohou vidět název aspektu."
-      contacts_know_aspect_q: "Vědí mé kontakty do kterých aspektů jsem je zařadil(a)?"
+      contacts_know_aspect_q: "Vědí mé kontakty, do kterých aspektů jsem je zařadil(a)?"
       contacts_visible_a: "Pokud vyberete tuto možnost, tak kontakty z toho aspektu budou moci vidět, kdo jiný v aspektu je, na vašem profilu pod vaší fotkou. Je nejlepší vybrat tuto možnost jen pokud se kontakty v tom aspektu znají. Stále neuvidí název aspektu."
       contacts_visible_q: "Co znamená „umožnit kontaktům v tomto aspektu se vzájemně vidět“?"
       delete_aspect_a: "Ve Vašem seznamu aspektů na levé straně hlavní stránky najeďte myší na aspekt, který chcete smazat. Klikněte na malou tužku, která se objeví napravo. V rámečku, který se objeví, zvolte Smazat."
@@ -403,7 +403,7 @@ cs:
       get_support_q: "Co když moje otázka není zodpovězena v těchto Častých dotazech? Kde jinde můžu sehnat pomoc?"
       getting_started_a: "Máte štěstí. Vyzkoušejte %{tutorial_series} na stránce našeho projektu. Provede vás krok po kroku registrací a naučí vás všechny základní věci, co potřebujete o diaspoře* vědět."
       getting_started_q: "Pomoc! Potřebuji základní pomoc, abych mohl začít!"
-      title: "Nacházení pomoci"
+      title: "Jak získat pomoc ?"
     getting_started_tutorial: "Tutoriály pro nováčky"
     here: "zde"
     irc: "IRC"
@@ -457,7 +457,7 @@ cs:
       embed_multimedia_q: "Jak vložím video, zvukovou nahrávku či jiný multimediální obsah do příspěvku ?"
       format_text_a: "Použitím zjednodušeného jazyku %{markdown}. Můžete najít plný syntax Markdownu %{here}. Tlačítko pro náhled je v tomto případě opravdu užitečné, neboť uvidíte, jak bude vaše zpráva vypadat předtím, než ji nasdílíte."
       format_text_q: "Jak mohu formátovat text ve svých příspěvcích (tučný text, kurzíva apod.)?"
-      hide_posts_a: "Najedete-li myší na něčí příspěvek, objeví se vpravo nahoře malý křížek podobný písmenu x. Kliknutím na křížek příspěvek skryjete a zamezíte i e-mailovým upozorněním na něj. Při návštěvě profilové stránky autora tohot příspěvku však příspěvek stále uvidíte."
+      hide_posts_a: "Najedete-li myší na něčí příspěvek, objeví se vpravo nahoře malý křížek podobný písmenu x. Kliknutím na křížek příspěvek skryjete a zamezíte i e-mailovým upozorněním na něj. Při návštěvě profilové stránky autora tohoto příspěvku však příspěvek stále uvidíte."
       hide_posts_q: "Jak skrýt příspěvek ? / Jak vypnout zasílání upozornění o příspěvcích, které jsem okomentoval(a) ?"
       image_text: "text k obrázku"
       image_url: "url obrázku"
@@ -551,13 +551,13 @@ cs:
       title: "Sdílení"
     tags:
       filter_tags_a: "Toto zatím není dostupné přes diasporu*, ale existují některé %{third_party_tools}, co toto mohou poskytnout."
-      filter_tags_q: "Jak můžu filtrovat/vyloučit některé štítky z mého proudu."
+      filter_tags_q: "Jak můžu filtrovat/vyloučit některé štítky z mého proudu?"
       followed_tags_a: "Po vyhledání štítků můžete začít \"sledovat\" tento štítek kliknutím na tlačítko nahoře na stránce štítku. Štítek se tím objeví ve Vašem seznamu sledovaných štítků vlevo. Kliknutím na jeden z Vašich sledovaných štítků se dostanete na stránku tohoto štítku a uvidíte seznam nedávných příspěvků, které byly tímto štítkem označeny. Klikněte na #Odebírané štítky a uvidíte seznam příspěvků, které obsahují alespoň jeden z Vámi odebíraných štítků. "
       followed_tags_q: "Co jsou „#Odebírané štítky“ a jak můžu odebírat štítek?"
       people_tag_page_a: "Jsou to lidé, co použili tento štítek ve svém popisu na svém veřejném profilu."
-      people_tag_page_q: "Kdo jsou ti uvedení na levé straně stránky štítku?"
+      people_tag_page_q: "Kdo jsou lidé uvedení na levé straně stránky štítku?"
       tags_in_comments_a: "Štítek přidaný do komentáře bude fungovat jako link na stránku tohoto štítku. Komentář (ani jím komentovaný příspěvek) se však na stránce štítku neobjeví. Pouze příspěvky se štítkem se objevují na stránce štítku."
-      tags_in_comments_q: "Smím používat označení i v komentářích nebo jen v příspěvcích ?"
+      tags_in_comments_q: "Smím používat štítky i v komentářích nebo jen v příspěvcích ?"
       title: "Štítky"
       what_are_tags_for_a: "Štítky slouží ke kategorizaci příspěvků, typicky podle tématu. Vyhledáváním podle štítku dostanete všechny Vám viditelné příspěvky (jak veřejné, tak soukromé), které tento štítek mají. Takto mohou lidé, kteří mají o nějaké téma zájem, hledat veřejné příspěvky o něm."
       what_are_tags_for_q: "K čemu jsou štítky?"
@@ -1088,7 +1088,7 @@ cs:
     create:
       already_authorized: "Uživatel s Diaspora ID %{diaspora_id} již spojení s účtem na %{service_name} autorizoval."
       failure: "Ověření selhalo."
-      read_only_access: "Míra přístupu je pouze pro čtení, zkuste se prosím znovu autorizovat později"
+      read_only_access: "Úroveň přístupu je pouze pro čtení, zkuste se prosím znovu autorizovat později"
       success: "Ověření úspěšné."
     destroy:
       success: "Autorizace úspěšně odstraněna."
@@ -1368,6 +1368,7 @@ cs:
       started_sharing: "…někdo začne sdílet s vámi?"
       stream_preferences: "Předvolby proudu"
       your_email: "Váš e-mail"
+      your_email_private: "Vaší emailovou adresu nikdy neuvidí jiní uživatelé."
       your_handle: "Vaše Diaspora ID"
     getting_started:
       awesome_take_me_to_diaspora: "Úžasné! Vezměte mě na diasporu*"
