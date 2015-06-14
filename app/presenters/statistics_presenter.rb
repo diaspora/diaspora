@@ -8,8 +8,6 @@ class StatisticsPresenter
     base_data.merge(user_counts)
              .merge(post_counts)
              .merge(comment_counts)
-             .merge(all_services)
-             .merge(legacy_services) # Remove in 0.6
   end
 
   def base_data
@@ -95,28 +93,10 @@ class StatisticsPresenter
                                .count
   end
 
-  def all_services_helper
-    result = {}
-    Configuration::KNOWN_SERVICES.each {|service, options|
-      result[service.to_s] = AppConfig.show_service?(service, nil)
-    }
-    result
-  end
-
-  def all_services
-    @all_services ||= all_services_helper
-  end
-
   def available_services
     Configuration::KNOWN_SERVICES.select {|service|
       AppConfig.show_service?(service, nil)
     }.map(&:to_s)
-  end
-
-  def legacy_services
-    Configuration::KNOWN_SERVICES.each_with_object({}) {|service, result|
-      result[service.to_s] = AppConfig.show_service?(service, nil)
-    }
   end
 
 end
