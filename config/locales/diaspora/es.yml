@@ -20,7 +20,7 @@ es:
         contact:
           attributes:
             person_id:
-              taken: "debe ser único entre los contactos de la persona."
+              taken: "debe ser único entre los contactos del usuario."
         person:
           attributes:
             diaspora_handle:
@@ -40,7 +40,7 @@ es:
         reshare:
           attributes:
             root_guid:
-              taken: "Es buena, ¿eh? ¡Ya habías compartido esa publicación!"
+              taken: "Es buena, ¿eh?  ¡Ya habías compartido esa publicación!"
         user:
           attributes:
             email:
@@ -139,7 +139,7 @@ es:
   aspect_memberships:
     destroy:
       failure: "No se pudo quitar a la persona del aspecto."
-      no_membership: "No se pudo encontrar a la persona seleccionada en ese aspecto"
+      no_membership: "No se pudo encontrar a la persona seleccionada en ese aspecto."
       success: "Se ha quitado correctamente a la persona del aspecto"
   aspects:
     add_to_aspect:
@@ -160,7 +160,7 @@ es:
       failure: "Error creando el aspecto."
       success: "Se ha credo tu nuevo aspecto %{name}."
     destroy:
-      failure: "El aspecto %{name} no está vacío y no pudo ser borrado."
+      failure: "%{name} no pudo ser borrado."
       success: "%{name} fue eliminado con éxito."
       success_auto_follow_back: "Se borró correctamente %{name}. Este aspecto se usaba para seguir automáticamente a los usuarios, revisa tu configuración para seleccionar un nuevo aspecto de autoseguimiento."
     edit:
@@ -170,7 +170,7 @@ es:
       aspect_list_is_visible: "Los contactos en este aspecto son capaces de verse entre sí."
       confirm_remove_aspect: "¿Seguro que quieres eliminar este aspecto?"
       grant_contacts_chat_privilege: "¿conceder privilegio a los contactos de este aspecto para poder chatear?"
-      make_aspect_list_visible: "Permitir que estos contactos puedan ver quien más hay en este aspecto."
+      make_aspect_list_visible: "Permitir que los contactos de este aspecto puedan verse entre ellos?"
       remove_aspect: "Eliminar este aspecto"
       rename: "Renombrar"
       set_visibility: "Configurar Visibilidad"
@@ -193,7 +193,7 @@ es:
         find_a_bug: "... encuentras algún %{link}?"
         have_a_question: "... tienes %{link}?"
         here_to_help: "¡La comunidad Diaspora* está aquí!"
-        mail_podmin: "Correo del podmin (administrador de pod)"
+        mail_podmin: "Correo del administrador"
         need_help: "¿Necesitas ayuda?"
         tag_bug: "error"
         tag_feature: "idea"
@@ -305,7 +305,7 @@ es:
       create_a_new_conversation: "Empieza una nueva conversación"
       inbox: "Bandeja de entrada"
       new_conversation: "Nueva conversación"
-      no_conversation_selected: "ninguna conversación seleccionada"
+      no_conversation_selected: "Ninguna conversación seleccionada"
       no_messages: "Ningún mensaje"
     new:
       abandon_changes: "¿Descartar los cambios?"
@@ -355,7 +355,7 @@ es:
       contacts_know_aspect_a: "No. Tus contactos no pueden ver el nombre del aspecto bajo ninguna circunstancia."
       contacts_know_aspect_q: "¿Mis contactos pueden saber en que aspecto los he situado?"
       contacts_visible_a: "Si marcas esta opción entonces los contactos de ese aspecto estarán habilitados para ver quien mas está en el, en tu pagina de perfil, bajo tu foto. Es mejor seleccionar esta opción solo si todos los contactos en ese aspecto se conocen. Ellos aún asi no podrán ver como se llama el aspecto."
-      contacts_visible_q: "¿Que significa \"Hacer los contactos en este aspecto visibles entre sí\" ?"
+      contacts_visible_q: "¿Que significa \"Hacer los contactos en este aspecto visibles entre sí\"?"
       delete_aspect_a: "En tu lista de aspectos en el lado izquierdo de la pagina principal, apunta tu mouse al aspecto que quieras eliminar. Haz click en el pequeño lapiz \"editar\" que aparezca en la derecha. Haz click en el boton eliminar en la caja que aparecera."
       delete_aspect_q: "¿Cómo borro un aspecto?"
       person_multiple_aspects_a: "Sí. Ve a la página de tus contactos y haz click en \"mis contactos\". Para cada contacto puedes usar el menu de la derecha para agregarlos a (o remover de) cuantos aspectos quieras. O puedes agregarlos (o removerlos) a un nuevo aspecto al hacer click en el boton de selección de aspecto en su pagina de perfil. O puedes incluso mover el puntero sobre su nombre cuando los veas en el flujo, y una carta flotante aparecera. Puedes cambiar los aspectos en los cuales están directamente de ahí."
@@ -365,13 +365,13 @@ es:
       remove_notification_a: "No."
       remove_notification_q: "Si yo elimino alguien de un aspecto, o de todos mis aspectos, ellos son notificados de esto?"
       rename_aspect_a: "Sí. En tu lista de aspectos en el lado izquierdo de la pagina principal, apunta tu mouse hacia el aspecto que quieres renombrar. Haz click en el pequeño lapiz \"editar\" que aparece en la derecha. Haz click en la caja \"renombrar\" que aparece."
-      rename_aspect_q: "¿Puedo renombrar un aspecto?"
+      rename_aspect_q: "¿Cómo renombro un aspecto?"
       restrict_posts_i_see_a: "Sí. Pinche en \"Mis Aspectos\" en la barra lateral, allí podrá marcar o desmarcar cada uno de los aspectos de la lista para incluirlos o no. Sólo las publicaciones de las personas en los aspectos seleccionados aparecerán en su entrada."
-      restrict_posts_i_see_q: "¿Puedo restringir las publicaciones que veo, a solo aquellas de ciertos aspectos?"
+      restrict_posts_i_see_q: "¿Puedo restringir las publicaciones que veo a las de los aspectos que yo escoja?"
       title: "Aspectos"
       what_is_an_aspect_a: "Los aspectos son la forma en que agrupas tus contactos en diaspora*. Un aspecto es una faceta que le muestras al mundo. Puede ser quien eres al trabajo, quien eres con tu familia, o quien eres con tus amigos, en el club que pertenezcas."
       what_is_an_aspect_q: "¿Qué es un aspecto?"
-      who_sees_post_a: "Si haces una publicación limitada, solo será visible para las personas que hayas puesto en ese especto (o los aspectos, si está hecho para múltiples aspectos). Los contactos que tengas que no estén en el aspecto, no tienen forma de ver la publicación, a menos que la hayas hecho pública. Solo las publicaciones públicas serán visibles alguna ves por alguien que no hayas incluido en alguno de tus aspectos."
+      who_sees_post_a: "Si haces una publicación limitada, solo será visible para las personas que hayas puesto en ese especto (o los aspectos, si está hecho para múltiples aspectos). Los contactos que tengas que no estén en el aspecto, no tienen forma de ver la publicación, a menos que la hayas hecho pública. Solo las publicaciones públicas serán visibles alguna vez por alguien que no hayas incluido en alguno de tus aspectos."
       who_sees_post_q: "Cuando publico en un aspecto, ¿Quienes pueden verlo?"
     chat:
       add_contact_roster_a: "En primer lugar, necesitas activar el chat para uno de los aspectos en los que está esa persona. Para hacerlo, ve a la %{contacts_page}, selecciona el aspecto que quieras y pulsa sobre el icono del chat para activar el chat en ese aspecto. %{toggle_privilege} Si lo prefieres, podrías crear un aspecto especial llamado \"Chat\" y añadir a la persona con la que quieras chatear en ese aspecto. Ona vez que hayas hecho esto, abre la ventana de chat y selecciona la persona con la que quieras hablar."
@@ -392,7 +392,7 @@ es:
       getting_started_q: "¡Ayuda! ¡Necesito conocer lo básico para empezar!"
       title: "Obteniendo ayuda"
     getting_started_tutorial: "Tutoriales de la serie 'Empezando'"
-    here: "Aquí"
+    here: "aquí"
     irc: "IRC"
     keyboard_shortcuts:
       keyboard_shortcuts_a1: "En la vista principal puedes usar los siguientes atajos de teclado:"
@@ -412,7 +412,7 @@ es:
       how_to_mention_q: "¿Cómo puedo mencionar a alguien cuando hago una publicación?"
       mention_in_comment_a: "No, de momento no."
       mention_in_comment_q: "¿Puedo mencionar a alguien en un comentario?"
-      see_mentions_a: "Sí, haz click en \"menciones\" en la columna izquierda en tu pagina principal."
+      see_mentions_a: "Sí, pulsa en \"@menciones\" en la columna izquierda de tu pagina principal."
       see_mentions_q: "¿Hay alguna forma de ver las publicaciones en las cuales he sido mencionado?"
       title: "Menciones"
       what_is_a_mention_a: "Una mención es un enlace a el perfil de una persona que aparece en una publicación. Cuando alguien es mencionado, recibirá una notificación que llama su atención a la publicación."
@@ -445,7 +445,7 @@ es:
       format_text_a: "Al usar un sistema simplificado llamado %{markdown}. Puedes encontrar la sintaxis completa de marcado %{here}. El boton de previsualización es realmente útil aquí, ya que puedes ver como tu mensage se verá antes de que lo compartas."
       format_text_q: "¿Cómo puedo formatear el texto en mis publicaciones (negrita, italica, etc.)?"
       hide_posts_a: "Si apuntas tu mouse a la parte superior de una publicación, una X aparecerá en la derecha. Hazle click para ocultar la publicación y silenciar las notificaciones relacionadas. Puedes aún asi ver la publicación si visitas la pagina de perfil de la persona que le publico."
-      hide_posts_q: "¿Cómo oculto una publicación? / ¿Cómo puedo parar de recibir notificaciones de una publicación en la cual he comentado?"
+      hide_posts_q: "¿Cómo oculto una publicación?"
       image_text: "texto de la imagen"
       image_url: "url de la imagen"
       insert_images_a: "Haz click en el pequeño ícono de la camara para insertar una imagen en una publicación. Presiona la foto otra ves para agregar otra foto, o puedes seleccionar multipes fotos para subir de una vez."
@@ -513,12 +513,12 @@ es:
       reshare_private_post_aspects_a: "No es posible volver a compartir una publicación privada. Es por respeto a las intenciones del publicador original de solo compartirla con un grupo determinado de personas."
       reshare_private_post_aspects_q: "¿Puedo volver a compartir una publicación privada solo con ciertos aspectos?"
       reshare_public_post_aspects_a: "No, cuando vuelves a compartir una publicación pública automáticamente se convierte en una de tus publicaciones públicas. Para compartirla con ciertos aspectos, copia y pega el contenido en una nueva publicación."
-      reshare_public_post_aspects_q: "¿Puedo compartir una publicación pública solo con ciertos aspectos?"
+      reshare_public_post_aspects_q: "¿Puedo compartir una publicación pública sólo con algunos aspectos?"
       title: "Compartir publicaciones"
     sharing:
       add_to_aspect_a1: "Digamos que Amy agrega a Ben a un aspecto, pero Ben (aún) no ha agregado a Amy a un aspecto:"
       add_to_aspect_a2: "Esto es conocido como compartición asimétrica. Si Ben también agrega a Amy a sus aspectos entonces pasaría a ser una compartición mutua, con las publicaciones públicas de Amy y Ben y las publicaciones privadas importantes apareciendo en las entradas de ambos, etc. "
-      add_to_aspect_li1: "Ben recibe una notificación de que Amy \"comenzó a compartir\" con Ben."
+      add_to_aspect_li1: "Ben recibirá una notificación de que Amy \"comenzó a compartir\" con Ben."
       add_to_aspect_li2: "Amy comenzará a ver las publicaciones públicas de Ben en su Entrada."
       add_to_aspect_li3: "Amy no podrá ver ninguna de las publicaciones privadas de Ben."
       add_to_aspect_li4: "Ben no verá las publicaciones públicas o privadas de Amy en su Entrada."
@@ -598,7 +598,7 @@ es:
       powered_by: "Impulsado por Diaspora*"
       public_feed: "Canal público de %{name} "
       source_package: "Descargar el paquete del código fuente"
-      toggle: "Interfaz móvil"
+      toggle: "Cambiar a interfaz móvil"
       whats_new: "Novedades"
       your_aspects: "Tus aspectos"
     header:
@@ -893,11 +893,11 @@ es:
       start_sharing: "Empezar a compartir"
       to_accept_or_ignore: "aceptar o ignorar"
     sub_header:
-      add_some: "añadir algunos"
+      add_some: "Añadir algunos"
       edit: "Editar"
       you_have_no_tags: "¡No tienes etiquetas!"
     webfinger:
-      fail: "Perdona, no pudimos encontrar %{handle}"
+      fail: "Perdona, no pudimos encontrar %{handle}."
     zero: "0 personas"
   photos:
     comment_email_subject: "Fotografía de %{name}"
@@ -968,7 +968,7 @@ es:
       your_private_profile: "Perfil privado"
       your_public_profile: "Perfil público"
       your_tags: "Descríbete en 5 palabras"
-      your_tags_placeholder: "como #películas #viajes #gatitos #profesora #alburquerque"
+      your_tags_placeholder: "Como #películas #gatitos #viajes #profesor #madrid"
     update:
       failed: "Error actualizando el perfil"
       updated: "Perfil actualizado"
@@ -976,7 +976,7 @@ es:
   reactions:
     one: "1 reacción"
     other: "%{count} reacciones"
-    zero: "0 reacciones"
+    zero: "Sin reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diaspora."
     create:
@@ -1050,7 +1050,7 @@ es:
         zero: "Compartir"
       reshare_confirmation: "¿Compartir la publicación de %{author}?"
       reshare_original: "Compartir original"
-      reshared_via: "compartido vía"
+      reshared_via: "Compartido a través de"
       show_original: "Mostrar el original"
   search: "Buscar"
   services:
@@ -1071,7 +1071,7 @@ es:
       connect: "Conectar"
       disconnect: "Desconectar"
       edit_services: "Editar servicios"
-      logged_in_as: "Conectado como"
+      logged_in_as: "Conectado como %{nickname}."
       no_services_available: "No hay servicios disponibles en este pod."
       not_logged_in: "Usuario no identificado."
       really_disconnect: "¿Desconectar %{service}?"
@@ -1112,7 +1112,7 @@ es:
     contact_list:
       all_contacts: "Todos los contactos"
     footer:
-      logged_in_as: "accediste como %{name}"
+      logged_in_as: "Conectado como %{name}"
       your_aspects: "Tus aspectos"
     invitations:
       by_email: "Por correo electrónico"
@@ -1162,7 +1162,7 @@ es:
       share: "Compartir"
       share_with: "Compartir con"
       upload_photos: "Subir fotos"
-      whats_on_your_mind: "¿Qué andas pensando?"
+      whats_on_your_mind: "¿Qué estás pensando?"
     reshare:
       reshare: "Compartir"
     stream_element:
@@ -1334,12 +1334,13 @@ es:
       started_sharing: "alguien empieza a compartir contigo"
       stream_preferences: "Preferencias de la portada"
       your_email: "Tu correo"
+      your_email_private: "Tu email nunca será visible para otros usuarios"
       your_handle: "Tu ID de Diaspora*"
     getting_started:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a diaspora*"
       community_welcome: "¡La comunidad de Diaspora está feliz de tenerte a bordo!"
       connect_to_facebook: "Podemos acelerar un poquito las cosas al %{link} a Diaspora. Esto permitirá usar tu mismo nombre y foto, además de habilitar la publicación cruzada."
-      connect_to_facebook_link: "conectando con tu cuenta de Facebook"
+      connect_to_facebook_link: "Conectando tu cuenta de Facebook"
       hashtag_explanation: "Las etiquetas te permiten hablar sobre tus intereses así como seguirlos. Además es una forma genial de encontrar gente nueva en Diaspora. "
       hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #activismo, #libros, etc."
       saved: "¡Guardado!"

@@ -30,6 +30,9 @@ fi:
       deselect_all: "Poista valinnat"
       no_aspects: "Näkymiä ei ole valittu"
       select_all: "Valitse kaikki"
+    aspects:
+      make_aspect_list_visible: "Salli tämän näkymän kontaktien nähdä toisensa?"
+      name: "Nimi"
     bookmarklet:
       post_something: "Lähetä julkaisu Diasporaan"
       post_submit: "Lähettää julkaisua..."
@@ -51,6 +54,7 @@ fi:
       search_no_results: "Kontakteja ei löytynyt"
     conversation:
       participants: "Osallistujat"
+    create: "Luo"
     delete: "Poista"
     edit: "Muokkaa"
     failed_to_like: "Tykkääminen epäonnistui!"
@@ -113,6 +117,7 @@ fi:
       count:
         one: "<%=count%> ääni tähän mennessä"
         other: "<%=count%> ääntä tähän mennessä"
+      original_post: "alkuperäinen julkaisu"
       result: "Tulos"
       show_result: "Näytä tulokset"
       vote: "Äänestä"
@@ -194,6 +199,7 @@ fi:
         follow: "Seuraa #<%= tag %>"
         following: "Seurataan tagia #<%= tag %>"
         stop_following: "Lopeta tagin #<%= tag %> seuraaminen"
+        stop_following_confirm: "Lopetetaanko tagin #<%= tag %> seuraaminen?"
       unfollow: "Lopeta seuraaminen"
       unlike: "Peru tykkäys"
       via: "<%= provider %> kautta"

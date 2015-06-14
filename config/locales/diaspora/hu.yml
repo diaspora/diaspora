@@ -118,7 +118,7 @@ hu:
       video_title:
         unknown: "ismeretlen videó cím"
   are_you_sure: "Biztos vagy benne?"
-  are_you_sure_delete_account: "Biztos, hogy törölni akarod a fiókodat?"
+  are_you_sure_delete_account: "Biztos, hogy törölni akarod a fiókodat? A törlés nem vonható vissza!"
   aspect_memberships:
     destroy:
       failure: "Személy törlése a csoportból sikertelen"
@@ -612,7 +612,7 @@ hu:
       zero: "%{actors} mostantól megoszt veled."
   notifier:
     a_post_you_shared: "egy bejegyzés."
-    accept_invite: "Fogadd el a Diaspora* meghívódat!"
+    accept_invite: "Fogadd el a diaspora* meghívódat!"
     click_here: "kattints ide"
     comment_on_post:
       reply: "Válaszolok vagy megnézem %{name} bejegyzését >"
@@ -801,7 +801,7 @@ hu:
       title: "%{name} bejegyzése"
     show:
       destroy: "Töröl"
-      not_found: "Bocsi, de nem találjuk a bejegyzést."
+      not_found: "Ez a bejegyzés sajnos nem található."
       permalink: "permalink"
       photos_by:
         few: "%{count} fénykép tőle: %{author}"

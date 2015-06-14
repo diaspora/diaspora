@@ -1400,6 +1400,7 @@ pl:
       started_sharing: "...ktoś zaczął mi udostępniać wpisy"
       stream_preferences: "Ustawienia Strumienia"
       your_email: "Adres e-mail"
+      your_email_private: "Twój email zawsze pozostanie niewidoczny dla innych użytkowników"
       your_handle: "Twój Identyfikator Diaspory"
     getting_started:
       awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie na diasporę*"
