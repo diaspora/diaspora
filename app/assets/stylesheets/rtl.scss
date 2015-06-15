@@ -82,7 +82,7 @@ footer ul#footer_nav {
   left: auto;
 }
 
-#publisher_textarea_wrapper #file-upload, #publisher_textarea_wrapper #hide_publisher, #facebox .close {
+#publisher_textarea_wrapper #file-upload, #publisher_textarea_wrapper #hide_publisher {
   right: auto;
   left: 0;
   margin-left: 3px;
@@ -202,10 +202,6 @@ form p.checkbox_select label {
   margin-right: 10px;
 }
 
-#facebox_header h3, #facebox_header h4 {
-  text-align: right;
-}
-
 textarea.comment_box {
   left: auto;
   right: -9999px;
@@ -279,10 +275,6 @@ ul.comments li form p, ul.show_comments li form p, div.likes li form p, div.disl
 .share_with .add_aspect p {
   padding-right: 1em;
   padding-left: 0;
-}
-
-#facebox {
-  text-align: right;
 }
 
 .stream_element.conversation .message_count {

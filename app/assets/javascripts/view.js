@@ -32,18 +32,9 @@ var View = {
 
     $(document.body).click(this.dropdowns.removeFocus);
 
-    $('a[rel*=facebox]').facebox();
-    $(document).bind('reveal.facebox', function() {
-      Diaspora.page.directionDetector.updateBinds();
-    });
-
-
     $("a.new_aspect").click(function(){
       $("input#aspect_name").focus();
     });
-
-    /* facebox 'done' buttons */
-    $(document).on('click', "*[rel*=close]", function(){ $.facebox.close(); });
 
     /* notification routing */
     $("#notification").delegate('.hard_object_link', 'click', function(evt){

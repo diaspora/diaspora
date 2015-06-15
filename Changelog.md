@@ -33,6 +33,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Use a fixed width for the mobile drawer [#6057](https://github.com/diaspora/diaspora/pull/6057)
 * Replace jquery.autoresize with autosize [#6104](https://github.com/diaspora/diaspora/pull/6104)
 * Improve mobile conversation design [#6087](https://github.com/diaspora/diaspora/pull/6087)
+* Replace remaining faceboxes with Bootstrap modals [#6106](https://github.com/diaspora/diaspora/pull/6106)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
