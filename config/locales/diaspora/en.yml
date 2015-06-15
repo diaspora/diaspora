@@ -1100,6 +1100,7 @@ en:
       twitter: "Twitter"
       wordpress: "WordPress"
     index:
+      title: "Manage connected services"
       connect: "Connect"
       disconnect: "Disconnect"
       logged_in_as: "Logged in as %{nickname}."

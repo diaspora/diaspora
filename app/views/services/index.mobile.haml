@@ -8,8 +8,11 @@
 
   = render 'shared/settings_nav'
 
-  .col-md-12
-    = render 'add_remove_services'
+  .container-fluid
+    .row
+      .col-md-12
+        = render 'add_remove_services'
 
-  .col-md-12.services_explanation
-    = t('.services_explanation')
+    .row
+      .col-md-12.services_explanation
+        = t('.services_explanation')
