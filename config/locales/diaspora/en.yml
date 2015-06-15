@@ -346,6 +346,7 @@ en:
       replying: "Replying..."
       hide: "Hide and mute conversation"
       delete: "Delete conversation"
+      last_message: "Last message received %{timeago}"
     new:
       to: "To"
       subject: "Subject"

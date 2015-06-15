@@ -2,16 +2,21 @@
 -# licensed under the Affero General Public License version 3 or later. See
 -# the COPYRIGHT file.
 
-.conversation_participants
-  .right
-    = link_to(raw("<i class='entypo trash'></i>"), conversation_visibility_path(conversation),
-            method: 'delete', data: { confirm: "#{t('.delete')}?" }, class: "remove")
+.conversation
+  .conversation_participants.header-full-width
+    .delete_conversation.pull-right
+      = link_to(raw("<i class='entypo trash'></i>"), conversation_visibility_path(conversation),
+              method: 'delete', data: { confirm: "#{t('.delete')}?" }, class: "remove")
 
-  %h3{ class: direction_for(conversation.subject) }
-    = conversation.subject
+    %h3
+      = conversation.subject
+    .last_message_timeago
+      != t('.last_message', timeago: timeago(conversation.updated_at))
 
-  - for participant in conversation.participants
-    = person_image_link(participant, size: :thumb_small)
+    .avatars
+      - for participant in conversation.participants
+        .avatar
+          = person_image_link(participant, size: :thumb_small)
+    .clear
 
-.span-15.last
   = render partial: 'messages', locals: { conversation: conversation }

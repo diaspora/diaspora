@@ -1,0 +1,58 @@
+.conversation {
+
+  .conversation_participants {
+    padding: 1rem 1.2rem;
+
+    h3 {
+      margin: 0px;
+    }
+
+    .delete_conversation {
+      font-size: 2rem;
+
+      .entypo {
+        color: $link-grey;
+      }
+    }
+
+    .avatars {
+      margin: 0 -0.15rem;
+      .avatar {
+        margin: 0.15rem;
+        float: left;
+
+        img {
+          height: 50px;
+          width: 50px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  .stream .stream_element .timeago,
+  .conversation_participants .last_message_timeago {
+    display: block;
+    font-style: italic;
+    color: $text-grey;
+  }
+
+  .stream .stream_element {
+    padding: 0.5rem;
+
+    .ltr {
+      padding-left: 0px;
+    }
+  }
+}
+
+.conversations {
+  img.avatar {
+    margin: 10px;
+    float: left;
+  }
+  .no-messages {
+    text-align: center;
+    margin-top: 40px;
+  }
+}
