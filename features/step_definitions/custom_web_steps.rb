@@ -127,12 +127,6 @@ And /^I reject the alert$/ do
   page.driver.browser.switch_to.alert.dismiss
 end
 
-When /^(.*) in the modal window$/ do |action|
-  within('#facebox') do
-    step action
-  end
-end
-
 When /^(.*) in the mention modal$/ do |action|
   within('#mentionModal') do
     step action

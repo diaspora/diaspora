@@ -31,9 +31,6 @@ app.views.Contact = app.views.Base.extend({
     $.get(href, function(resp) {
       dropdownEl.html(resp);
       new app.views.AspectMembership({el: $('.aspect_dropdown',dropdownEl)});
-
-      // UGLY (re-)attach the facebox
-      self.$('a[rel*=facebox]').facebox();
     });
   },
 

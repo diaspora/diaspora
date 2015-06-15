@@ -46,7 +46,6 @@ var app = {
     app.router = new app.Router();
 
     this.setupDummyPreloads();
-    this.setupFacebox();
     this.setupUser();
     this.setupHeader();
     this.setupBackboneLinks();
@@ -88,12 +87,6 @@ var app = {
       $("header").prepend(app.header.el);
       app.header.render();
     }
-  },
-
-  setupFacebox: function() {
-    $.facebox.settings.closeImage = ImagePaths.get('facebox/closelabel.png');
-    $.facebox.settings.loadingImage = ImagePaths.get('facebox/loading.gif');
-    $.facebox.settings.opacity = 0.75;
   },
 
   setupBackboneLinks: function() {

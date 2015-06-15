@@ -60,7 +60,9 @@
               - if current_user.services
                 - for service in current_user.services
                   = service_button(service)
-              %a.btn.btn-link{ href: "#question_mark_pane", class: 'question_mark', rel: 'facebox', title: t('shared.public_explain.manage') }
+              .btn.btn-link{ class: "question_mark",
+                             title: t("shared.public_explain.manage"),
+                             data:  {toggle: "modal", target: "#publicExplainModal"}}
                 %i.entypo.cog
 
             = render partial: "publisher/aspect_dropdown", locals: { :selected_aspects => selected_aspects }
@@ -73,10 +75,8 @@
               %span.text
                 = t('shared.publisher.share')
 
-          .facebox_content
-            #question_mark_pane
-              = render 'shared/public_explain'
     = link_to '', contacts_path(:aspect_ids => aspect_ids), class: 'selected_contacts_link hidden'
 
-
     #publisher_photo_upload
+
+= render 'shared/public_explain'

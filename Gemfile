@@ -115,8 +115,6 @@ source "https://rails-assets.org" do
   gem "rails-assets-autosize",                      "3.0.6"
 end
 
-gem "facebox-rails", "0.2.0"
-
 # Localization
 
 gem "http_accept_language", "2.0.5"
