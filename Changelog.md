@@ -3,6 +3,9 @@
 ## Refactor
 * Update perfect-scrollbar [#6085](https://github.com/diaspora/diaspora/pull/6085)
 
+## Bug fixes
+* Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)
+
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
 
