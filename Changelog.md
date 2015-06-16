@@ -1,3 +1,12 @@
+# 0.5.1.1
+
+Update rails to 4.2.2, rack to 1.6.2 and jquery-rails to 4.0.4. This fixes
+
+* [CVE-2015-3226](https://groups.google.com/d/msg/rubyonrails-security/7VlB_pck3hU/3QZrGIaQW6cJ)
+* [CVE-2015-3227](https://groups.google.com/d/msg/rubyonrails-security/bahr2JLnxvk/x4EocXnHPp8J)
+* [CVE-2015-1840](https://groups.google.com/d/msg/rubyonrails-security/XIZPbobuwaY/fqnzzpuOlA4J)
+* [CVE-2015-3225](https://groups.google.com/d/msg/rubyonrails-security/gcUbICUmKMc/qiCotVZwXrMJ)
+
 # 0.5.1.0
 
 ## Refactor
