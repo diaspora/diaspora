@@ -6,6 +6,7 @@
 
 ## Bug fixes
 * Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)
+* Fix wrong closing a-tag [#6111](https://github.com/diaspora/diaspora/pull/6111)
 
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
