@@ -21,6 +21,7 @@
             = link_to '&times;'.html_safe, getting_started_completed_path, id: "gs-skip-x", class: "close"
 
 %div.container-fluid
+  #right-sidebar-fixed-background.col-md-3.hidden-sm.hidden-xs
   .row
     .col-md-offset-1.col-md-2#leftNavBar
       #home_user_badge
@@ -44,9 +45,9 @@
       #aspect_stream_container.stream_container
         = render 'aspects/aspect_stream', stream: @stream
 
-    .col-md-2.rightBar
+    .col-md-3.rightBar
       #selected_aspect_contacts.section
-        .title.no_icon
+        .title
           %h5.stream_title
             = @stream.title
         .content

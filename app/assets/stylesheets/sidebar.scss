@@ -1,21 +1,28 @@
+#right-sidebar-fixed-background {
+  height: 100%;
+  background: $right-sidebar-background;
+  position: fixed;
+  right: 0;
+}
 .rightBar {
   padding-top: 20px;
+  background: $right-sidebar-background;
 
   .section {
     margin-bottom: 20px;
 
     > .title {
       border-bottom: 1px solid $border-grey;
-      padding-bottom: 2px;
+      padding-bottom: 5px;
 
       &.no_icon { padding-left: 8px; }
 
       h5 {
         color: $text-dark-grey;
-        font-weight: bold;
+        font-weight: normal;
         font-size: $font-size-base;
         margin: 0;
-        &.title-header { margin-left: 5px; }
+        text-transform: uppercase;
       }
     }
 
@@ -23,7 +30,7 @@
       color: $text-grey;
       font-size: $font-size-small;
       line-height: 18px;
-      padding: 5px;
+      padding: 10px 0;
 
       p, ul { margin: 0; }
 
