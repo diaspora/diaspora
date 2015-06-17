@@ -22,6 +22,7 @@
 
 %div.container-fluid
   .row
+    #left-navbar-fixed-background.col-md-offset-1.col-md-2.hidden-sm.hidden-xs
     .col-md-offset-1.col-md-2#leftNavBar
       #home_user_badge
         = owner_image_link
@@ -37,7 +38,7 @@
           = link_to t('streams.mentions.title'), mentioned_stream_path, rel: 'backbone'
         %li.all_aspects
           = render 'aspects/aspect_listings', stream: @stream
-        %li
+        %li.followed_tags_sidebar
           = render 'tags/followed_tags_listings'
 
     .col-md-6
