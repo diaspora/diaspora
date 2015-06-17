@@ -34,7 +34,7 @@
     }
   }
 
-  .all_aspects a.hoverable.selected {
+  .all_aspects a.hoverable.selected, .followed_tags_sidebar a.hoverable.selected {
     color: white;
     background: #666;
   }
