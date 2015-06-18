@@ -9,6 +9,7 @@
 @import "header";
 @import "mobile/tags";
 @import "mobile/conversations";
+@import "mobile/settings";
 
 a {
   color: #2489ce;
@@ -137,6 +138,7 @@ h3 {  margin-top: 0; }
   }
 }
 
+.settings_container,
 .stream_element,
 #login_form {
   border-radius: 5px;
@@ -149,15 +151,37 @@ h3 {  margin-top: 0; }
   border-bottom-color: #aaa;
 }
 
-.stream_element div.img img.avatar {
-  margin: 10px;
-}
+.stream_element {
+  padding: 0px;
 
-.stream_element .bd {
-  padding-top: 10px;
-}
+  div.img img.avatar {
+    margin: 10px;
+  }
 
-.stream_element .media { padding: 0; }
+  .bd {
+    padding-top: 10px;
+  }
+
+  .media {
+    padding: 0;
+  }
+
+  .photo_attachments {
+    border-radius: 3px 3px 0 0;
+
+    border: {
+      bottom: 1px solid #ccc;
+    }
+
+    img.big-stream-photo {
+      border-radius: 3px 3px 0 0;
+      width: 100%;
+    }
+    a {
+      padding: 0; }
+    margin-top: 0;
+  }
+}
 
 .photo_attachments {
   position: relative;
@@ -430,22 +454,7 @@ h3 {  margin-top: 0; }
 }
 
 .floater {
-  float: right; }
-
-.stream_element .photo_attachments {
-  border-radius: 3px 3px 0 0;
-
-  border: {
-    bottom: 1px solid #ccc;
-  }
-
-  img.big-stream-photo {
-    border-radius: 3px 3px 0 0;
-    width: 100%;
-  }
-  a {
-    padding: 0; }
-  margin-top: 0;
+  float: right;
 }
 
 .photo_area {
@@ -602,7 +611,6 @@ select {
   overflow: hidden;
 }
 
-.stream_element { padding: 0; }
 
 .notifications {
   list-style: none;
@@ -879,20 +887,6 @@ form p.checkbox_select {
     color: #505050;
     text-decoration: none;
     border: 1px solid;
-  }
-}
-
-#settings_nav {
-  font-size: 1em;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-
-  li {
-    display: inline;
   }
 }
 

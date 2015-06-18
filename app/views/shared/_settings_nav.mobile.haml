@@ -1,8 +1,8 @@
-%h2.container-fluid.col-md-offset-2= t('settings')
-#span-24
-  %h3
-    #settings_nav
-      %ul
-        %li= link_to_unless_current t('profile'), edit_profile_path
-        |
-        %li= link_to_unless_current t('account'), edit_user_path
+#settings_nav.container-fluid
+  %h2= t('settings')
+  %nav
+    %ul
+      %li= link_to_unless_current t('profile'), edit_profile_path
+      %li= link_to_unless_current t('account'), edit_user_path
+      %li= link_to_unless_current t('privacy'), privacy_settings_path
+      %li= link_to_unless_current t('_services'), services_path

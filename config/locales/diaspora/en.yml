@@ -1100,14 +1100,15 @@ en:
       twitter: "Twitter"
       wordpress: "WordPress"
     index:
+      title: "Manage connected services"
       connect: "Connect"
       disconnect: "Disconnect"
       logged_in_as: "Logged in as %{nickname}."
-      no_services_available: "There are no services on this pod available."
+      no_services_available: "There are no services available on this pod."
       not_logged_in: "Currently not logged in."
       really_disconnect: "Disconnect %{service}?"
       edit_services: "Edit services"
-      services_explanation: "Connecting to services gives you the ability to publish your posts to them as you write them in diaspora*."
+      services_explanation: "Connecting to third-party sharing services gives you the ability to publish your posts to them as you write them in diaspora*."
     create:
       success: "Authentication successful."
       failure: "Authentication failed."

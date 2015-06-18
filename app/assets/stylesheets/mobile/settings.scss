@@ -1,0 +1,31 @@
+#settings_nav {
+  border-bottom: 1px solid $border-grey;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+
+  ul {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  li {
+    display: inline;
+    font-size: 1.7rem;
+    padding: 0px 0.3rem;
+
+    &:first-child { padding-left: 0px; }
+    &:last-child { padding-right: 0px; }
+  }
+}
+
+.services_page {
+  h3 {
+    margin: 1rem 0px;
+  }
+
+  .services_explanation {
+    border-top: 1px solid $border-grey;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+}

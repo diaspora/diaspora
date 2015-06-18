@@ -40,6 +40,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
+* Add mobile services and privacy settings pages [#6086](https://github.com/diaspora/diaspora/pull/6086)
 
 # 0.5.2.0
 
