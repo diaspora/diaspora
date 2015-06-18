@@ -645,6 +645,7 @@ en:
     application:
       powered_by: "Powered by diaspora*"
       whats_new: "What’s new?"
+      statistics_link: "Pod statistics"
       toggle: "Toggle mobile"
       public_feed: "Public diaspora* feed for %{name}"
       your_aspects: "Your aspects"
