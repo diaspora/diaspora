@@ -58,9 +58,9 @@
   }
 
   #home_user_badge {
-    min-height: 50px;
-    padding-bottom: 20px;
-    padding-left: 4px;
+    min-height: 90px;
+    padding: 20px;
+    margin: 0 -15px;
 
     .avatar {
       float: left;
@@ -69,12 +69,15 @@
     }
 
     h4 {
-      margin-left: 60px;
-      padding-top: 15px;
+      margin: 0 0 0 60px;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 25px;
 
-      a { color: $black; }
+      a { 
+        color: $black; 
+        font-weight: normal;
+      }
     }
   }
 
