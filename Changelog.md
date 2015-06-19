@@ -47,6 +47,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 ## Refactor
 * Update perfect-scrollbar [#6085](https://github.com/diaspora/diaspora/pull/6085)
 * Remove top margin for first heading in a post [#6110](https://github.com/diaspora/diaspora/pull/6110)
+* Add link to pod statistics in right navigation [#6117](https://github.com/diaspora/diaspora/pull/6117)
 
 ## Bug fixes
 * Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)
