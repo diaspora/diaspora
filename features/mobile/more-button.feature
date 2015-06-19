@@ -1,5 +1,5 @@
 @javascript @mobile
-Feature: posting from the mobile main page
+Feature: using the more button on mobile stream
     As a mobile user
     I want to navigate the stream
     And I want to test the text of the more-button in different environments
@@ -23,21 +23,8 @@ Feature: posting from the mobile main page
 
     Scenario: There are 15 posts
       Given I am on the home page
+      Given there are 15 public posts from "bob@bob.bob"
       And "bob@bob.bob" has a public post with text "post 1"
-      And "bob@bob.bob" has a public post with text "post 2"
-      And "bob@bob.bob" has a public post with text "post 3"
-      And "bob@bob.bob" has a public post with text "post 4"
-      And "bob@bob.bob" has a public post with text "post 5"
-      And "bob@bob.bob" has a public post with text "post 6"
-      And "bob@bob.bob" has a public post with text "post 7"
-      And "bob@bob.bob" has a public post with text "post 8"
-      And "bob@bob.bob" has a public post with text "post 9"
-      And "bob@bob.bob" has a public post with text "post 10"
-      And "bob@bob.bob" has a public post with text "post 11"
-      And "bob@bob.bob" has a public post with text "post 12"
-      And "bob@bob.bob" has a public post with text "post 13"
-      And "bob@bob.bob" has a public post with text "post 14"
-      And "bob@bob.bob" has a public post with text "post 15"
 
       When I go to the stream page
       Then I should see "More"
@@ -47,22 +34,7 @@ Feature: posting from the mobile main page
 
     Scenario: There are 15 +1 posts
       Given I am on the home page
-      And "bob@bob.bob" has a public post with text "post 1"
-      And "bob@bob.bob" has a public post with text "post 2"
-      And "bob@bob.bob" has a public post with text "post 3"
-      And "bob@bob.bob" has a public post with text "post 4"
-      And "bob@bob.bob" has a public post with text "post 5"
-      And "bob@bob.bob" has a public post with text "post 6"
-      And "bob@bob.bob" has a public post with text "post 7"
-      And "bob@bob.bob" has a public post with text "post 8"
-      And "bob@bob.bob" has a public post with text "post 9"
-      And "bob@bob.bob" has a public post with text "post 10"
-      And "bob@bob.bob" has a public post with text "post 11"
-      And "bob@bob.bob" has a public post with text "post 12"
-      And "bob@bob.bob" has a public post with text "post 13"
-      And "bob@bob.bob" has a public post with text "post 14"
-      And "bob@bob.bob" has a public post with text "post 15"
-      And "bob@bob.bob" has a public post with text "post 16"
+      Given there are 16 public posts from "bob@bob.bob"
 
       When I go to the stream page
       Then I should see "More"
