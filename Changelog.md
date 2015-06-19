@@ -26,6 +26,10 @@ changed. diaspora\* will no longer listen on `0.0.0.0:3000` as it will now
 bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 `diaspora.yml` if necessary.
 
+## Terms of Use design changes
+
+With the port to Bootstrap 3, the app/views/terms/default.haml file changed. If you edited the terms by adding a terms.erb file, you probably want to backup these changes in it
+
 ## Refactor
 * Improve bookmarklet [#5904](https://github.com/diaspora/diaspora/pull/5904)
 * Update listen configuration to listen on unix sockets by default [#5974](https://github.com/diaspora/diaspora/pull/5974)
