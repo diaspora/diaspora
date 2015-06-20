@@ -85,7 +85,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
   end
 
   def contact_required_unless_request
-    unless @object.is_a?(Request) || @user.contact_for(@author)
+    unless @object.is_a?(Request) || @user.contact_for(@author) || (@author.owner && @author.owner.podmin_account?)
       logger.error "event=receive status=abort reason='sender not connected to recipient' type=#{@object.class} " \
                    "recipient=#{@user_person.diaspora_handle} sender=#{@author.diaspora_handle}"
       return true

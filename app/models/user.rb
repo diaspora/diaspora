@@ -468,12 +468,29 @@ class User < ActiveRecord::Base
     aq
   end
 
+  def send_welcome_message
+    return unless AppConfig.settings.welcome_message.enabled? && AppConfig.admins.account?
+    sender_username = AppConfig.admins.account.get
+    sender = User.find_by(username: sender_username)
+    conversation = sender.build_conversation(
+      participant_ids: [sender.person.id, person.id],
+      subject:         AppConfig.settings.welcome_message.subject.get,
+      message:         {text: AppConfig.settings.welcome_message.text.get % {username: username}})
+    if conversation.save
+      Postzord::Dispatcher.build(sender, conversation).post
+    end
+  end
+
   def encryption_key
     OpenSSL::PKey::RSA.new(serialized_private_key)
   end
 
   def admin?
     Role.is_admin?(self.person)
+  end
+
+  def podmin_account?
+    username == AppConfig.admins.account
   end
 
   def mine?(target)
