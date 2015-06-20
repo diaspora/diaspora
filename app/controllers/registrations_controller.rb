@@ -14,6 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.sign_up
       flash[:notice] = I18n.t 'registrations.create.success'
       @user.seed_aspects
+      @user.send_welcome_message
       sign_in_and_redirect(:user, @user)
       logger.info "event=registration status=successful user=#{@user.diaspora_handle}"
     else

@@ -134,19 +134,41 @@ describe Conversation, :type => :model do
     end
   end
 
-  describe '#invalid parameters' do
-    before do
-      @invalid_hash = {
-        :author => peter.person,
-        :participant_ids => [peter.person.id, @user1.person.id],
-        :subject => "cool stuff",
-        :messages_attributes => [ {:author => peter.person, :text => 'hey'} ]
-      }
+  describe "#invalid parameters" do
+    context "local author" do
+      before do
+        @invalid_hash = {
+          author:              peter.person,
+          participant_ids:     [peter.person.id, @user1.person.id],
+          subject:             "cool stuff",
+          messages_attributes: [{author: peter.person, text: "hey"}]
+        }
+      end
+
+      it "is invalid with invalid recipient" do
+        conversation = Conversation.create(@invalid_hash)
+        expect(conversation).to be_invalid
+      end
     end
 
-    it 'with invalid recipient' do
-      conversation = Conversation.create(@invalid_hash)
-      expect(conversation).to be_invalid
+    context "remote author" do
+      before do
+        @remote_person = remote_raphael
+        @local_user = alice
+        @participant_ids = [@remote_person.id, @local_user.person.id]
+
+        @invalid_hash_remote = {
+          author:              @remote_person,
+          participant_ids:     @participant_ids,
+          subject:             "cool stuff",
+          messages_attributes: [{author: @remote_person, text: "hey"}]
+        }
+      end
+
+      it "is invalid with invalid recipient" do
+        conversation = Conversation.create(@invalid_hash_remote)
+        expect(conversation).to be_invalid
+      end
     end
   end
 end
