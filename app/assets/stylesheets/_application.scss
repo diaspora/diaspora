@@ -18,6 +18,7 @@
 @import 'new_styles/interactions';
 @import 'new_styles/spinner';
 @import 'lightbox';
+@import 'timeago';
 @import 'vendor/fileuploader';
 @import 'vendor/autoSuggest';
 
@@ -38,7 +39,6 @@
 /* new SPV */
 @import 'header';
 @import 'footer';
-@import 'bootstrap-headerfix';
 @import 'opengraph';
 @import 'single-post-view';
 @import 'new_styles/poll';

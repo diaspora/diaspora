@@ -21,22 +21,22 @@ describe("app.views.Conversations", function(){
       });
 
       it("decreases the unread message count in the header", function() {
-        var badge = "<div id=\"conversations_badge\"><div class=\"badge_count\">3</div></div>";
+        var badge = "<div id=\"conversations-link\"><div class=\"badge\">3</div></div>";
         $("header").append(badge);
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("3");
+        expect($("#conversations-link .badge").text().trim()).toEqual("3");
         expect($(".conversation-wrapper > .conversation .unread_message_count").text().trim()).toEqual("1");
         new app.views.Conversations();
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("2");
+        expect($("#conversations-link .badge").text().trim()).toEqual("2");
       });
 
-      it("removes the badge_count in the header if there are no unread messages left", function() {
-        var badge = "<div id=\"conversations_badge\"><div class=\"badge_count\">1</div></div>";
+      it("removes the badge in the header if there are no unread messages left", function() {
+        var badge = "<div id=\"conversations-link\"><div class=\"badge\">1</div></div>";
         $("header").append(badge);
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("1");
+        expect($("#conversations-link .badge").text().trim()).toEqual("1");
         expect($(".conversation-wrapper > .conversation.selected .unread_message_count").text().trim()).toEqual("1");
         new app.views.Conversations();
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("0");
-        expect($("#conversations_badge .badge_count")).toHaveClass("hidden");
+        expect($("#conversations-link .badge").text().trim()).toEqual("0");
+        expect($("#conversations-link .badge")).toHaveClass("hidden");
       });
     });
 
@@ -45,12 +45,12 @@ describe("app.views.Conversations", function(){
         spec.loadFixture("conversations_read");
       });
 
-      it("does not change the badge_count in the header", function() {
-        var badge = "<div id=\"conversations_badge\"><div class=\"badge_count\">3</div></div>";
+      it("does not change the badge in the header", function() {
+        var badge = "<div id=\"conversations-link\"><div class=\"badge\">3</div></div>";
         $("header").append(badge);
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("3");
+        expect($("#conversations-link .badge").text().trim()).toEqual("3");
         new app.views.Conversations();
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("3");
+        expect($("#conversations-link .badge").text().trim()).toEqual("3");
       });
     });
   });

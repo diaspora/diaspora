@@ -16,8 +16,8 @@
 // $gray-light:             lighten($gray-base, 46.7%) // #777
 // $gray-lighter:           lighten($gray-base, 93.5%) // #eee
 
-$brand-primary: darken(#0097FF,5%); // darker creation-blue
-$brand-success: #8EDE3D;
+$brand-primary: darken(#0097FF,5%) !default; // darker creation-blue
+$brand-success: #8EDE3D !default;
 // $brand-info:            #5bc0de
 // $brand-warning:         #f0ad4e
 // $brand-danger:          #d9534f
@@ -33,7 +33,7 @@ $brand-success: #8EDE3D;
 // $text-color:            $gray-dark
 
 //** Global textual link color.
-$link-color: rgb(42,156,235);
+$link-color: rgb(42,156,235) !default;
 //** Link hover color set via `darken()` function.
 // $link-hover-color:      darken($link-color, 15%)
 //** Link hover decoration.
@@ -50,9 +50,9 @@ $link-color: rgb(42,156,235);
 // $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace
 // $font-family-base:        $font-family-sans-serif
 
-$font-size-base: 13px;
+$font-size-base: 13px !default;
 // $font-size-large:         ceil(($font-size-base * 1.25)) // ~18px
-$font-size-small: 11px;
+$font-size-small: 11px !default;
 
 // $font-size-h1:            floor(($font-size-base * 2.6)) // ~36px
 // $font-size-h2:            floor(($font-size-base * 2.15)) // ~30px
@@ -158,7 +158,7 @@ $font-size-small: 11px;
 // $btn-primary-bg:                 $brand-primary
 // $btn-primary-border:             darken($btn-primary-bg, 5%)
 
-$btn-success-color: #333;
+$btn-success-color: #333 !default;
 // $btn-success-bg:                 $brand-success
 // $btn-success-border:             darken($btn-success-bg, 5%)
 
@@ -328,7 +328,7 @@ $btn-success-color: #333;
 // $grid-gutter-width:         30px
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-// $grid-float-breakpoint:     $screen-sm-min
+$grid-float-breakpoint: 992px !default; // $screen-md-min
 //** Point at which the navbar begins collapsing.
 // $grid-float-breakpoint-max: ($grid-float-breakpoint - 1)
 
@@ -856,7 +856,7 @@ $btn-success-color: #333;
 //** Blockquote small color
 // $blockquote-small-color:      $gray-light
 //** Blockquote font size
-$blockquote-font-size: $font-size-base;
+$blockquote-font-size: $font-size-base !default;
 //** Blockquote border color
 // $blockquote-border-color:     $gray-lighter
 //** Page header border color

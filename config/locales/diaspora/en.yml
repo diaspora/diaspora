@@ -642,6 +642,7 @@ en:
       admin: "Admin"
       view_all: "View all"
       recent_notifications: "Recent notifications"
+      toggle_navigation: "Toggle navigation"
     application:
       powered_by: "Powered by diaspora*"
       whats_new: "What’s new?"

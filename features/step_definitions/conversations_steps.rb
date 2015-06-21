@@ -5,7 +5,7 @@ Then /^"([^"]*)" should be part of active conversation$/ do |name|
 end
 
 Then /^I should have (\d+) unread private messages?$/ do |n_unread|
-  find("header #conversations_badge .badge_count").should have_content(n_unread)
+  expect(find("header #conversations-link .badge")).to have_content(n_unread)
 end
 
 Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|

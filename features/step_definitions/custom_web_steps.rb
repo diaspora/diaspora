@@ -201,7 +201,7 @@ end
 
 
 Then /^the notification dropdown should be visible$/ do
-  find(:css, "#notification_dropdown").should be_visible
+  expect(find(:css, "#notification-dropdown")).to be_visible
 end
 
 Then /^the notification dropdown scrollbar should be visible$/ do

@@ -210,7 +210,7 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 
   chatEnabled: function(){
-    return gon.chatEnabled;
+    return gon.appConfig.chat.enabled;
   },
 
   getChatIcons: function(){
