@@ -36,15 +36,8 @@
     var hashtagPlugin = window.markdownitHashtag;
     md.use(hashtagPlugin, {
       // compare tag_text_regexp in app/models/acts_as_taggable_on-tag.rb
-      hashtagRegExp: "[" + PosixBracketExpressions.alnum
-							// Armenian punctuation
-							+ "\u055b"
-							+ "\u055c"
-							+ "\u055e"
-							+ "\u058a"
-							// Malayalam virama
-							+ "\u0d4d"
-							+ "_\\-]+|<3",
+      hashtagRegExp: "[" + PosixBracketExpressions.word +
+							"\u055b\u055c\u055e_\\-]+|<3",
       // compare tag_strings in lib/diaspora/taggabe.rb
       preceding: "^|\\s"
     });
