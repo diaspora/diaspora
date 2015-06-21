@@ -99,6 +99,10 @@ defaults:
     enable_registrations: true
     autofollow_on_join: true
     autofollow_on_join_user: 'diasporahq@joindiaspora.com'
+    welcome_message:
+      enabled: false
+      subject: 'Welcome Message'
+      text: 'Hello %{username}, welcome to diaspora*.'
     invitations:
       open: true
       count: 25
