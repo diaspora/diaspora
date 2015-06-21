@@ -177,7 +177,10 @@ body > header {
           }
 
           .media-body {
-            word-break: break-all;
+            a {
+              display: inline-block;
+              word-break: break-all;
+            }
           }
 
           .pull-right > .aspect_membership_dropdown { display: none; }
