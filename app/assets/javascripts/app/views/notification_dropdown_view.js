@@ -34,6 +34,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.resetParams();
     this.ajaxLoader.show();
     this.dropdown.addClass("dropdown-open");
+    this.updateScrollbar();
     this.dropdownNotifications.addClass("loading");
     this.getNotifications();
   },
@@ -43,10 +44,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
     var inHovercard = $.contains(app.hovercard.el, evt.target);
     if(!inDropdown && !inHovercard && this.dropdownShowing()){
       this.dropdown.removeClass("dropdown-open");
-      if(this.perfectScrollbarInitialized) {
-        this.dropdownNotifications.perfectScrollbar("destroy");
-        this.perfectScrollbarInitialized = false;
-      }
+      this.destroyScrollbar();
     }
   },
 
@@ -111,15 +109,27 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
     app.helpers.timeago(this.dropdownNotifications);
 
-    if(this.perfectScrollbarInitialized) {
-      this.dropdownNotifications.perfectScrollbar("destroy");
-    }
-    this.dropdownNotifications.perfectScrollbar();
-    this.perfectScrollbarInitialized = true;
+    this.updateScrollbar();
     this.dropdownNotifications.removeClass("loading");
     this.dropdownNotifications.scroll(function(){
       self.dropdownScroll();
     });
+  },
+
+  updateScrollbar: function() {
+    if(this.perfectScrollbarInitialized) {
+      this.dropdownNotifications.perfectScrollbar("update");
+    } else {
+      this.dropdownNotifications.perfectScrollbar();
+      this.perfectScrollbarInitialized = true;
+    }
+  },
+
+  destroyScrollbar: function() {
+    if(this.perfectScrollbarInitialized) {
+      this.dropdownNotifications.perfectScrollbar("destroy");
+      this.perfectScrollbarInitialized = false;
+    }
   }
 });
 // @license-end
