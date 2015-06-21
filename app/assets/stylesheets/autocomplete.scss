@@ -19,6 +19,7 @@
 }
 
 .ac_results li {
+  color: white;
   margin: 0px;
   padding: 2px 5px {
     left: 50px;
@@ -47,16 +48,15 @@
 }
 
 .ac_odd {
-  background-color: #fafafa;
+  background-color: $navbar-inverse-bg;
 }
 
 .ac_even {
-  background-color: #fff;
+  background-color: darken($navbar-inverse-bg, 3%);
 }
 
 .ac_over {
-  background-color: #3F8FBA;
-  color: white;
+  background-color: $brand-primary;
 }
 
 .ac_results {

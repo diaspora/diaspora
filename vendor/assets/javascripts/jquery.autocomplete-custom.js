@@ -571,7 +571,7 @@ $.Autocompleter.Select = function (options, input, select, config) {
 		element = $("<div/>")
 		.hide()
 		.addClass(options.resultsClass)
-		.css("position", "absolute")
+		.css("position", "fixed")
 		.appendTo(document.body);
 
 		list = $("<ul/>").appendTo(element).mouseover( function(event) {
