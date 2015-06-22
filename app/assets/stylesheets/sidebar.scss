@@ -4,8 +4,14 @@
   position: fixed;
   right: 0;
 }
+#right-sidebar-fixed-sub-background {
+  height: 100%;
+  background: $right-sidebar-sub-background;
+  position: fixed;
+  right: 0;
+}
 .right-sidebar-padder {
-  max-width: 300px;
+  max-width: 400px;
 }
 .rightBar {
   padding-top: 20px;
@@ -76,5 +82,11 @@
         img{ margin: 1px; }
       }
     }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #right-sidebar-fixed-background {
+    margin-right: 8.33333%; /* Only for LARGE screens, same as lg-offset-1 class, BS3 does not provide right side offsetting */
   }
 }
