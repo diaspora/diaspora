@@ -36,3 +36,4 @@ $sand : rgb(245, 239, 237);
 
 $left-navbar-background: #f0f0f0;
 $left-navbar-drawer-background: darken($left-navbar-background, 6%);
+$left-navbar-sub-background: darken($left-navbar-background, 12%); /* Only visible in large screens (BS3: visible-lg) */
