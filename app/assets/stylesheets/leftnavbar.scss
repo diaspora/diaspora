@@ -45,9 +45,9 @@
     font-weight: normal;
     color: $link-grey;
     border-bottom: 1px solid #ddd;
-    &:hover { 
-      background-color: $background-blue;
-      color: $black;
+    &:hover, &:hover .entypo.check, &:hover + .action .entypo { 
+      background-color: $blue;
+      color: $white;
     }
   }
 
