@@ -19,6 +19,7 @@ describe("app.helpers.textFormatter", function(){
         "ինչո՞ւ",
         "այո՜ո",
         "գժանո՛ց",
+        "սեւ֊սպիտակ",
         
         // from issue #5765
         "മലയാണ്മ"
