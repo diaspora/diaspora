@@ -13,7 +13,15 @@ describe("app.helpers.textFormatter", function(){
         "tag",
         "diaspora",
         "PARTIES",
-        "<3"
+        "<3",
+        
+        // from issue #5815
+        "ինչո՞ւ",
+        "այո՜ո",
+        "գժանո՛ց",
+        
+        // from issue #5765
+        "മലയാണ്മ"
       ];
     });
 
@@ -24,6 +32,8 @@ describe("app.helpers.textFormatter", function(){
         expect(formattedText).toContain(link);
       });
     });
+    
+    
   });
 
   // Some basic specs. For more detailed specs see
