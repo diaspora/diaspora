@@ -14,7 +14,7 @@ shared_examples_for "it is taggable" do
 
   describe '.format_tags' do
     before do
-      @str = '#what #hey #vöglein'
+      @str = '#what #hey #vöglein #ինչո՞ւ #այո՜ո #սեւ֊սպիտակ #գժանո՛ց #മലയാണ്മ'
       @object.send(@object.class.field_with_tags_setter, @str)
       @object.build_tags
       @object.save!
@@ -22,6 +22,11 @@ shared_examples_for "it is taggable" do
 
     it "supports non-ascii characters" do
       expect(@object.tags(true).map(&:name)).to include('vöglein')
+      expect(@object.tags(true).map(&:name)).to include('ինչո՞ւ')
+      expect(@object.tags(true).map(&:name)).to include('այո՜ո')
+      expect(@object.tags(true).map(&:name)).to include('սեւ֊սպիտակ')
+      expect(@object.tags(true).map(&:name)).to include('գժանո՛ց')
+      expect(@object.tags(true).map(&:name)).to include('മലയാണ്മ')
     end
 
     it 'links each tag' do
@@ -29,6 +34,11 @@ shared_examples_for "it is taggable" do
       expect(formatted_string).to include(tag_link('what'))
       expect(formatted_string).to include(tag_link('hey'))
       expect(formatted_string).to include(tag_link('vöglein'))
+      expect(formatted_string).to include(tag_link('ինչո՞ւ'))
+      expect(formatted_string).to include(tag_link('այո՜ո'))
+      expect(formatted_string).to include(tag_link('սեւ֊սպիտակ'))
+      expect(formatted_string).to include(tag_link('գժանո՛ց'))
+      expect(formatted_string).to include(tag_link('മലയാണ്മ'))
     end
 
     it 'responds to plain_text' do

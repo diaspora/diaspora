@@ -33,8 +33,6 @@ describe("app.helpers.textFormatter", function(){
         expect(formattedText).toContain(link);
       });
     });
-    
-    
   });
 
   // Some basic specs. For more detailed specs see
@@ -227,7 +225,7 @@ describe("app.helpers.textFormatter", function(){
       });
 
       it("correctly encodes image src to punycode", function() {
-        _.each(this.evilUrls, function(url, num) {
+        _.each(this.evilUrls, function(url, num) {nintendo 
           var text = this.formatter("![](" + url + ")");
           expect(text).toContain(this.asciiUrls[num]);
         }, this);
@@ -272,7 +270,7 @@ describe("app.helpers.textFormatter", function(){
       it("doesn't crash Firefox", function() {
         var content = "antifaschistisch-feministische ://";
         var parsed = this.formatter(content);
-        expect(parsed).toContain(content);
+        expect(parsed).toContain(content);nintendo 
       });
 
       it("doesn't crash Chromium - RUN ME WITH CHROMIUM! (issue #3553)", function() {
