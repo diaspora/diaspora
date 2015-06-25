@@ -14,7 +14,7 @@ shared_examples_for "it is taggable" do
 
   describe '.format_tags' do
     before do
-      @str = '#what #hey #vöglein #ինչո՞ւ #այո՜ո #սեւ֊սպիտակ #գժանո՛ց #മലയാണ്മ'
+      @str = "#what #hey #vöglein #ինչո՞ւ #այո՜ո #սեւ֊սպիտակ #գժանո՛ց #മലയാണ്മ"
       @object.send(@object.class.field_with_tags_setter, @str)
       @object.build_tags
       @object.save!
