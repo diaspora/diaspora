@@ -149,12 +149,12 @@ shared_examples_for "it is taggable" do
         '#-initialhyphen'        => '-initialhyphen',
         '#-initialhyphen tag'    => '-initialhyphen',
         '#-initial-hyphen'       => '-initial-hyphen',
-        "\u202a#\u200eUSA\u202c" => 'USA',
-        "test #ինչո՞ւ test"		 => "ինչո՞ւ",
-        "test #այո՜ո test"		 => "այո՜ո",
-        "test #սեւ֊սպիտակ test"	 => "սեւ֊սպիտակ",
-        "test #գժանո՛ց test"	 => "գժանո՛ց",
-        "test #മലയാണ്മ test"		 => "മലയാണ്മ"
+        "\u202a#\u200eUSA\u202c" => "USA",
+        "test #ինչո՞ւ test"      => "ինչո՞ւ",
+        "test #այո՜ո test"       => "այո՜ո",
+        "test #սեւ֊սպիտակ test"  => "սեւ֊սպիտակ",
+        "test #գժանո՛ց test"     => "գժանո՛ց",
+        "test #മലയാണ്മ test"      => "മലയാണ്മ"
       }
 
       expected.each do |text,hashtag|
