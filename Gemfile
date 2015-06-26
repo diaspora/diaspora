@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.2"
+gem "rails", "4.2.3"
 
 # Legacy Rails features, remove me!
 
