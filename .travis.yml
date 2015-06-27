@@ -31,3 +31,5 @@ notifications:
   irc:
     channels:
       - "irc.freenode.org:6667#diaspora-dev"
+    template:
+      - "%{repository_slug}#%{commit} (%{branch} - %{commit_message}): %{message} %{build_url}"
