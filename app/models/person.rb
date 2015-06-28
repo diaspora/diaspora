@@ -195,33 +195,34 @@ class Person < ActiveRecord::Base
               end
   end
 
+  def username
+    @username ||= owner ? owner.username : diaspora_handle.split("@")[0]
+  end
+
   def owns?(obj)
     self.id == obj.author_id
   end
 
   def url
-    begin
-      uri = URI.parse(self[:url])
-      url = "#{uri.scheme}://#{uri.host}"
-      url += ":#{uri.port}" unless ["80", "443"].include?(uri.port.to_s)
-      url += "/"
-    rescue => e
-      url = self[:url]
-    end
+    uri = URI.parse(self[:url])
+    url = "#{uri.scheme}://#{uri.host}"
+    url += ":#{uri.port}" unless %w(80 443).include?(uri.port.to_s)
+    url += "/"
     url
+  rescue
+    self[:url]
+  end
+
+  def profile_url
+    "#{url}u/#{username}"
+  end
+
+  def atom_url
+    "#{url}public/#{username}.atom"
   end
 
   def receive_url
-    "#{url}receive/users/#{self.guid}/"
-  end
-
-  def public_url
-    if self.owner
-      username = self.owner.username
-    else
-      username = self.diaspora_handle.split("@")[0]
-    end
-    "#{url}public/#{username}"
+    "#{url}receive/users/#{guid}"
   end
 
   def public_key_hash

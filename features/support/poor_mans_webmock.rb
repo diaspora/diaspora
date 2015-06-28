@@ -4,7 +4,7 @@
 
 module Workers
   class PublishToHub < Base
-    def perform(sender_public_url)
+    def perform(sender_atom_url)
       # don't publish to pubsubhubbub in cucumber
     end
   end

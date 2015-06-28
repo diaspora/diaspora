@@ -278,7 +278,7 @@ describe Postzord::Dispatcher do
 
       it 'queues a job to notify the hub' do
         allow(Workers::PostToService).to receive(:perform_async).with(anything, anything, anything)
-        expect(Workers::PublishToHub).to receive(:perform_async).with(alice.public_url)
+        expect(Workers::PublishToHub).to receive(:perform_async).with(alice.atom_url)
         @zord.send(:deliver_to_services, nil, [])
       end
 
