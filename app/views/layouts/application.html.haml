@@ -40,7 +40,7 @@
     = current_user_atom_tag
 
     = yield(:head)
-    - if AppConfig.chat.enabled?
+    - if AppConfig.chat.enabled? && user_signed_in?
       = javascript_include_tag :jsxc, id: 'jsxc',
         data: { endpoint: get_bosh_endpoint }
 
