@@ -108,19 +108,54 @@ describe Person, :type => :model do
   end
 
   describe "valid url" do
-    it 'should allow for https urls' do
-      person = FactoryGirl.build(:person, :url => "https://example.com")
-      expect(person).to be_valid
+    context "https urls" do
+      let(:person) { FactoryGirl.build(:person, url: "https://example.com") }
+
+      it "should add trailing slash" do
+        expect(person.url).to eq("https://example.com/")
+      end
+
+      it "should return the receive url" do
+        expect(person.receive_url).to eq("https://example.com/receive/users/#{person.guid}")
+      end
+
+      it "should return the atom url" do
+        expect(person.atom_url).to eq("https://example.com/public/#{person.username}.atom")
+      end
+
+      it "should return the profile url" do
+        expect(person.profile_url).to eq("https://example.com/u/#{person.username}")
+      end
     end
 
-    it 'should always return the correct receive url' do
-      person = FactoryGirl.build(:person, :url => "https://example.com/a/bit/messed/up")
-      expect(person.receive_url).to eq("https://example.com/receive/users/#{person.guid}/")
+    context "messed up urls" do
+      let(:person) { FactoryGirl.build(:person, url: "https://example.com/a/bit/messed/up") }
+
+      it "should return the correct url" do
+        expect(person.url).to eq("https://example.com/")
+      end
+
+      it "should return the correct receive url" do
+        expect(person.receive_url).to eq("https://example.com/receive/users/#{person.guid}")
+      end
+
+      it "should return the correct atom url" do
+        expect(person.atom_url).to eq("https://example.com/public/#{person.username}.atom")
+      end
+
+      it "should return the correct profile url" do
+        expect(person.profile_url).to eq("https://example.com/u/#{person.username}")
+      end
     end
 
-    it 'should allow ports in the url' do
-      person = FactoryGirl.build(:person, :url => "https://example.com:3000/")
+    it "should allow ports in the url" do
+      person = FactoryGirl.build(:person, url: "https://example.com:3000/")
       expect(person.url).to eq("https://example.com:3000/")
+    end
+
+    it "should remove https port in the url" do
+      person = FactoryGirl.build(:person, url: "https://example.com:443/")
+      expect(person.url).to eq("https://example.com/")
     end
   end
 

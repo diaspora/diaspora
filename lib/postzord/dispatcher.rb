@@ -143,7 +143,7 @@ class Postzord::Dispatcher
 
   def deliver_to_hub
     logger.debug "event=post_to_service type=pubsub sender_handle=#{@sender.diaspora_handle}"
-    Workers::PublishToHub.perform_async(@sender.public_url)
+    Workers::PublishToHub.perform_async(@sender.atom_url)
   end
 
   # @param url [String]
