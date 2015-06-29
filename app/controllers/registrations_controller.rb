@@ -20,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
     else
       @user.errors.delete(:person)
 
-      flash[:error] = @user.errors.full_messages.join(" - ")
+      flash.now[:error] = @user.errors.full_messages.join(" - ")
       logger.info "event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'"
       render :action => 'new', :layout => 'with_header'
     end

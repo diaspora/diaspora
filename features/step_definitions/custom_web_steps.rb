@@ -255,6 +255,10 @@ Then /^I should see a flash message indicating failure$/ do
   flash_message_failure?.should be true
 end
 
+Then /^I should not see a flash message indicating failure$/ do
+  expect { flash_message_failure?.should }.to raise_error(Capybara::ElementNotFound)
+end
+
 Then /^I should see a flash message with a warning$/ do
   flash_message_alert?.should be true
 end

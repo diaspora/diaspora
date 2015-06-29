@@ -206,7 +206,7 @@ Given /^I visit alice's invitation code url$/ do
   visit invite_code_path(invite_code)
 end
 
-When /^I fill in the new user form$/ do
+When /^I fill in the new user form/ do
   fill_in_new_user_form
 end
 
@@ -214,4 +214,8 @@ And /^I should be able to friend Alice$/ do
   alice = User.find_by_username 'alice'
   step 'I should see "Add contact"'
   step "I should see \"#{alice.name}\""
+end
+
+When /^I click the sign in button$/ do
+  click_link "Sign in"
 end
