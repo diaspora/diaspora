@@ -264,7 +264,6 @@ class Person < ActiveRecord::Base
     #hcard_profile = HCard.find profile.hcard.first[:href]
     ::Logging::Logger[self].info "event=webfinger_marshal valid=#{new_person.valid?} " \
                                  "target=#{new_person.diaspora_handle}"
-    new_person.url = hcard[:url]
     new_person.assign_new_profile_from_hcard(hcard)
     new_person.save!
     new_person.profile.save!
