@@ -356,18 +356,19 @@ describe Profile, :type => :model do
       profile = FactoryGirl.build :profile
       expect(profile.send(:clearable_fields).sort).to eq(
       ["diaspora_handle",
-      "first_name",
-      "last_name",
-      "image_url",
-      "image_url_small",
-      "image_url_medium",
-      "birthday",
-      "gender",
-      "bio",
-      "searchable",
-      "nsfw",
-      "location",
-      "full_name"].sort
+       "first_name",
+       "last_name",
+       "image_url",
+       "image_url_small",
+       "image_url_medium",
+       "birthday",
+       "gender",
+       "bio",
+       "searchable",
+       "nsfw",
+       "location",
+       "public_details",
+       "full_name"].sort
       )
     end
   end

@@ -2,6 +2,7 @@
 app.pages.Settings = Backbone.View.extend({
   initialize: function() {
     $(".settings_visibility").tooltip({placement: "top"});
+    $("[name='profile[public_details]']").bootstrapSwitch();
   }
 });
 // @license-end

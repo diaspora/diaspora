@@ -168,6 +168,15 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |
   end
 end
 
+Then /^the "([^"]*)" bootstrap-switch should be (on|off)$/ do |label, state|
+  result = execute_script("return $('#{label}').bootstrapSwitch('state')")
+  result.should state == "on" ? be_truthy : be_falsey
+end
+
+Then /^I toggle the "([^"]*)" bootstrap-switch$/ do |label|
+  execute_script("return $('#{label}').bootstrapSwitch('toggleState')")
+end
+
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   confirm_on_page(page_name)
 end

@@ -148,3 +148,9 @@
     &:last-of-type{ float: right; }
   }
 }
+
+#update_profile_form {
+  .visibility-hint-icon {
+    cursor: pointer;
+  }
+}

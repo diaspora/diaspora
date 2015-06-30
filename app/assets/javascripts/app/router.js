@@ -9,6 +9,7 @@ app.Router = Backbone.Router.extend({
     "conversations": "conversations",
     "user/edit": "settings",
     "users/sign_up": "registration",
+    "profile/edit": "settings",
 
     //new hotness
     "posts/:id": "singlePost",

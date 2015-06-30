@@ -46,3 +46,4 @@
 //= require mentions
 //= require bootstrap
 //= require osmlocator
+//= require bootstrap-switch

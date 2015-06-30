@@ -31,13 +31,16 @@ Feature: editing your profile
     And the "profile_date_day" field should be filled with "30"
     And the "profile_location" field should be filled with "Kamino"
     And I should see "#starwars" within "ul#as-selections-tags"
+    And the "#profile_public_details" bootstrap-switch should be off
 
     When I fill in "profile[tag_string]" with "#kamino"
     And I press the first ".as-result-item" within ".as-results"
+    And I toggle the "#profile_public_details" bootstrap-switch
 
     And I press "update_profile"
     Then I should see "#kamino" within "ul#as-selections-tags"
     And I should see "#starwars" within "ul#as-selections-tags"
+    And the "#profile_public_details" bootstrap-switch should be on
 
     When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
     And I confirm the alert
