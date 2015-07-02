@@ -16,12 +16,12 @@ describe PersonPresenter do
       let(:presenter){ PersonPresenter.new(person, current_user) }
 
       it "doesn't share private information when the users aren't connected" do
-        expect(presenter.as_json).not_to have_key(:location)
+        expect(presenter.full_hash_with_profile[:profile]).not_to have_key(:location)
       end
 
       it "has private information when the person is sharing with the current user" do
         expect(person).to receive(:shares_with).with(current_user).and_return(true)
-        expect(presenter.as_json).to have_key(:location)
+        expect(presenter.full_hash_with_profile[:profile]).to have_key(:location)
       end
 
       it "returns the user's private information if a user is logged in as herself" do
