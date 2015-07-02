@@ -1,3 +1,9 @@
+# 0.5.1.2
+
+diaspora\* versions prior 0.5.1.2 leaked potentially private profile data (namely the bio, birthday, gender and location fields) to
+unauthorized users. While the frontend properly hid them, the backend missed a check to not include them in responses.
+Thanks to @cmrd-senya for finding and reporting the issue.
+
 # 0.5.1.1
 
 Update rails to 4.2.2, rack to 1.6.2 and jquery-rails to 4.0.4. This fixes
