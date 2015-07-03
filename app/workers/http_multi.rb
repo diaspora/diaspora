@@ -13,7 +13,7 @@ module Workers
                       ]
     def perform(user_id, encoded_object_xml, person_ids, dispatcher_class_as_string, retry_count=0)
       user = User.find(user_id)
-      people = Person.where(:id => person_ids)
+      people = Person.where(id: person_ids)
 
       dispatcher = dispatcher_class_as_string.constantize
       hydra = HydraWrapper.new(user, people, encoded_object_xml, dispatcher)

@@ -45,7 +45,7 @@ class Stream::Base
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
     people_ids = self.stream_posts.map{|x| x.author_id}
-    Person.where(:id => people_ids).
+    Person.where(id: people_ids).
       includes(:profile)
   end
 
@@ -94,7 +94,7 @@ class Stream::Base
   def like_posts_for_stream!(posts)
     return posts unless @user
 
-    likes = Like.where(:author_id => @user.person_id, :target_id => posts.map(&:id), :target_type => "Post")
+    likes = Like.where(author_id: @user.person_id, target_id: posts.map(&:id), target_type: "Post")
 
     like_hash = likes.inject({}) do |hash, like|
       hash[like.target_id] = like
@@ -115,7 +115,7 @@ class Stream::Base
   #
   # @return [Array<Contact>]
   def contacts_in_stream
-    @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map(&:id)).load
+    @contacts_in_stream ||= Contact.where(user_id: user.id, person_id: people.map(&:id)).load
   end
 
   # @param post [Post]

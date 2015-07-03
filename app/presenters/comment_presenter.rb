@@ -5,11 +5,11 @@ class CommentPresenter < BasePresenter
 
   def as_json(opts={})
     {
-      :id => @comment.id,
-      :guid => @comment.guid,
-      :text  => @comment.message.plain_text_for_json,
-      :author => @comment.author.as_api_response(:backbone),
-      :created_at => @comment.created_at
+      id: @comment.id,
+      guid: @comment.guid,
+      text: @comment.message.plain_text_for_json,
+      author: @comment.author.as_api_response(:backbone),
+      created_at: @comment.created_at
     }
   end
 end

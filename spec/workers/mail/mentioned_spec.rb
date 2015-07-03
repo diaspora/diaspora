@@ -9,7 +9,7 @@ describe Workers::Mail::Mentioned do
     it 'should call .deliver on the notifier object' do
       user = alice
       sm = FactoryGirl.build(:status_message)
-      m = Mention.new(:person => user.person, :post=> sm)
+      m = Mention.new(person: user.person, post: sm)
 
       mail_double = double()
       expect(mail_double).to receive(:deliver_now)

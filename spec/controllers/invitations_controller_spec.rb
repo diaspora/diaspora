@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe InvitationsController, :type => :controller do
+describe InvitationsController, type: :controller do
 
   before do
     AppConfig.settings.invitations.open = true
@@ -48,7 +48,7 @@ describe InvitationsController, :type => :controller do
       end
 
       it 'creates an InviteEmail worker'  do
-        inviter = double(:emails => [@emails], :send! => true)
+        inviter = double(emails: [@emails], :send! => true)
         expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(@invite['email_inviter']['emails'], @user.id, @invite['email_inviter'])
         post :create,  @invite
       end
@@ -60,7 +60,7 @@ describe InvitationsController, :type => :controller do
 
       it 'flashes a notice' do
         post :create, @invite
-        expected =  I18n.t('invitations.create.sent', :emails => @emails.split(',').join(', '))
+        expected =  I18n.t('invitations.create.sent', emails: @emails.split(',').join(', '))
         expect(flash[:notice]).to eq(expected)
       end
     end
@@ -98,7 +98,7 @@ describe InvitationsController, :type => :controller do
       end
 
       it 'creates an InviteEmail worker'  do
-        inviter = double(:emails => [@emails], :send! => true)
+        inviter = double(emails: [@emails], :send! => true)
         expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(@valid_emails, @user.id, @invite['email_inviter'])
         post :create,  @invite
       end
@@ -110,7 +110,7 @@ describe InvitationsController, :type => :controller do
 
       it 'flashes a notice' do
         post :create, @invite
-        expected =  I18n.t('invitations.create.sent', :emails =>
+        expected =  I18n.t('invitations.create.sent', emails:
                           @valid_emails.split(',').join(', ')) +
                           '. ' + I18n.t('invitations.create.rejected') +
                           @invalid_emails.split(',').join(', ')
@@ -129,13 +129,13 @@ describe InvitationsController, :type => :controller do
   describe '#email' do
 
     it 'succeeds' do
-      get :email, :invitation_code => "anycode"
+      get :email, invitation_code: "anycode"
       expect(response).to be_success
     end
 
     context 'legacy invite tokens' do
       def get_email
-        get :email, :invitation_token => @invitation_token
+        get :email, invitation_token: @invitation_token
       end
 
       context 'invalid token' do

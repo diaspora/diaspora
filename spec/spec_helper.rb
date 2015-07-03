@@ -70,7 +70,7 @@ support_files.each {|f| require f }
 require fixture_builder_file
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, type: :controller
   config.mock_with :rspec
 
   config.render_views

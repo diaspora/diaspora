@@ -20,7 +20,7 @@ module User::SocialActions
 
   def reshare!(target, opts={})
     update_or_create_participation!(target)
-    reshare = build_post(:reshare, :root_guid => target.guid)
+    reshare = build_post(:reshare, root_guid: target.guid)
     reshare.save!
     Postzord::Dispatcher.defer_build_and_post(self, reshare)
     reshare

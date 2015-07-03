@@ -29,7 +29,7 @@ class Services::Tumblr < Service
   end
 
   def build_tumblr_post(post, url)
-    { :type => 'text', :format => "markdown", :body => tumblr_template(post, url)  }
+    { type: 'text', format: "markdown", body: tumblr_template(post, url)  }
   end
 
   def tumblr_template(post, url)
@@ -57,7 +57,7 @@ class Services::Tumblr < Service
 
   private
   def client
-    @consumer ||= OAuth::Consumer.new(consumer_key, consumer_secret, :site => 'http://api.tumblr.com')
+    @consumer ||= OAuth::Consumer.new(consumer_key, consumer_secret, site: 'http://api.tumblr.com')
     @client ||= OAuth::AccessToken.new(@consumer, self.access_token, self.access_secret)
   end
 end

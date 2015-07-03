@@ -4,17 +4,17 @@
 
 require 'spec_helper'
 
-describe Conversation, :type => :model do
+describe Conversation, type: :model do
   before do
     @user1 = alice
     @user2 = bob
     @participant_ids = [@user1.contacts.first.person.id, @user1.person.id]
 
     @create_hash = {
-      :author => @user1.person,
-      :participant_ids => @participant_ids,
-      :subject => "cool stuff",
-      :messages_attributes => [ {:author => @user1.person, :text => 'hey'} ]
+      author: @user1.person,
+      participant_ids: @participant_ids,
+      subject: "cool stuff",
+      messages_attributes: [ {author: @user1.person, text: 'hey'} ]
     }
   end
 
@@ -27,7 +27,7 @@ describe Conversation, :type => :model do
   describe '#last_author' do
     it 'returns the last author to a conversation' do
       cnv = Conversation.create(@create_hash)
-      Message.create(:author => @user2.person, :created_at => Time.now + 100, :text => "last", :conversation_id => cnv.id)
+      Message.create(author: @user2.person, created_at: Time.now + 100, text: "last", conversation_id: cnv.id)
       expect(cnv.reload.last_author.id).to eq(@user2.person.id)
     end
   end
@@ -44,7 +44,7 @@ describe Conversation, :type => :model do
   describe '#first_unread_message' do
     before do
       @cnv = Conversation.create(@create_hash)
-      @message = Message.create(:author => @user2.person, :created_at => Time.now + 100, :text => "last", :conversation_id => @cnv.id)
+      @message = Message.create(author: @user2.person, created_at: Time.now + 100, text: "last", conversation_id: @cnv.id)
       @message.increase_unread(@user1)
     end
 
@@ -53,7 +53,7 @@ describe Conversation, :type => :model do
     end
 
     it 'returns nil if there are no unread messages in a conversation' do
-      @cnv.conversation_visibilities.where(:person_id => @user1.person.id).first.tap { |cv| cv.unread = 0 }.save
+      @cnv.conversation_visibilities.where(person_id: @user1.person.id).first.tap { |cv| cv.unread = 0 }.save
       expect(@cnv.first_unread_message(@user1)).to be_nil
     end
   end
@@ -61,16 +61,16 @@ describe Conversation, :type => :model do
   describe '#set_read' do
     before do
       @cnv = Conversation.create(@create_hash)
-      Message.create(:author => @user2.person, :created_at => Time.now + 100, :text => "first", :conversation_id => @cnv.id)
+      Message.create(author: @user2.person, created_at: Time.now + 100, text: "first", conversation_id: @cnv.id)
              .increase_unread(@user1)
-      Message.create(:author => @user2.person, :created_at => Time.now + 200, :text => "last", :conversation_id => @cnv.id)
+      Message.create(author: @user2.person, created_at: Time.now + 200, text: "last", conversation_id: @cnv.id)
              .increase_unread(@user1)
     end
 
     it 'sets the unread counter to 0' do
-      expect(@cnv.conversation_visibilities.where(:person_id => @user1.person.id).first.unread).to eq(2)
+      expect(@cnv.conversation_visibilities.where(person_id: @user1.person.id).first.unread).to eq(2)
       @cnv.set_read(@user1)
-      expect(@cnv.conversation_visibilities.where(:person_id => @user1.person.id).first.unread).to eq(0)
+      expect(@cnv.conversation_visibilities.where(person_id: @user1.person.id).first.unread).to eq(0)
     end
   end
 

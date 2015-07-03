@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def timeago(time, options={})
-    timeago_tag(time, options.merge(:class => 'timeago', :title => time.iso8601, :force => true)) if time
+    timeago_tag(time, options.merge(class: 'timeago', title: time.iso8601, force: true)) if time
   end
 
   def bookmarklet_code(height=400, width=620)
@@ -44,7 +44,7 @@ module ApplicationHelper
   end
 
   def popover_with_close_html(without_close_html)
-    without_close_html + link_to('&times;'.html_safe, "#", :class => 'close')
+    without_close_html + link_to('&times;'.html_safe, "#", class: 'close')
   end
 
   # Require jQuery from CDN if possible, falling back to vendored copy, and require

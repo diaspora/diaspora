@@ -23,7 +23,7 @@ describe Stream::Aspect do
     end
 
     it 'filters aspects given a user' do
-      alice = double(:aspects => [double(:id => 1)])
+      alice = double(aspects: [double(id: 1)])
       allow(alice.aspects).to receive(:where).and_return(alice.aspects)
       stream = Stream::Aspect.new(alice, [1,2,3])
 
@@ -57,25 +57,25 @@ describe Stream::Aspect do
     end
 
     it 'is called with 2 types' do
-      stream = Stream::Aspect.new(@alice, [1,2], :order => 'created_at')
-      expect(@alice).to receive(:visible_shareables).with(Post, hash_including(:type=> ['StatusMessage', 'Reshare'])).and_return(double.as_null_object)
+      stream = Stream::Aspect.new(@alice, [1,2], order: 'created_at')
+      expect(@alice).to receive(:visible_shareables).with(Post, hash_including(type: ['StatusMessage', 'Reshare'])).and_return(double.as_null_object)
       stream.posts
     end
 
     it 'respects ordering' do
-      stream = Stream::Aspect.new(@alice, [1,2], :order => 'created_at')
-      expect(@alice).to receive(:visible_shareables).with(Post, hash_including(:order => 'created_at DESC')).and_return(double.as_null_object)
+      stream = Stream::Aspect.new(@alice, [1,2], order: 'created_at')
+      expect(@alice).to receive(:visible_shareables).with(Post, hash_including(order: 'created_at DESC')).and_return(double.as_null_object)
       stream.posts
     end
 
     it 'respects max_time' do
-      stream = Stream::Aspect.new(@alice, [1,2], :max_time => 123)
-      expect(@alice).to receive(:visible_shareables).with(Post, hash_including(:max_time => instance_of(Time))).and_return(double.as_null_object)
+      stream = Stream::Aspect.new(@alice, [1,2], max_time: 123)
+      expect(@alice).to receive(:visible_shareables).with(Post, hash_including(max_time: instance_of(Time))).and_return(double.as_null_object)
       stream.posts
     end
 
     it 'passes for_all_aspects to visible posts' do
-      stream = Stream::Aspect.new(@alice, [1,2], :max_time => 123)
+      stream = Stream::Aspect.new(@alice, [1,2], max_time: 123)
       all_aspects = double
       allow(stream).to receive(:for_all_aspects?).and_return(all_aspects)
       expect(@alice).to receive(:visible_shareables).with(Post, hash_including(:all_aspects? => all_aspects)).and_return(double.as_null_object)
@@ -92,7 +92,7 @@ describe Stream::Aspect do
       stream = Stream::Aspect.new(alice, [])
 
       allow(stream).to receive(:aspect_ids).and_return(aspect_ids)
-      expect(Person).to receive(:unique_from_aspects).with(stream.aspect_ids, alice).and_return(double(:includes => :profile))
+      expect(Person).to receive(:unique_from_aspects).with(stream.aspect_ids, alice).and_return(double(includes: :profile))
       stream.people
     end
   end

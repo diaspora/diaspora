@@ -66,7 +66,7 @@ class ConversationsController < ApplicationController
   def show
     respond_to do |format|
       format.html do
-        redirect_to conversations_path(:conversation_id => params[:id])
+        redirect_to conversations_path(conversation_id: params[:id])
         return
       end
 
@@ -75,7 +75,7 @@ class ConversationsController < ApplicationController
         @conversation.set_read(current_user)
 
         format.js
-        format.json { render :json => @conversation, :status => 200 }
+        format.json { render json: @conversation, status: 200 }
       else
         redirect_to conversations_path
       end
@@ -97,9 +97,9 @@ class ConversationsController < ApplicationController
       @contact_ids = current_user.aspects.find(params[:aspect_id]).contacts.map{|c| c.id}.join(',')
     end
     if session[:mobile_view] == true && request.format.html?
-      render :layout => true
+      render layout: true
     else
-      render :layout => false
+      render layout: false
     end
   end
 

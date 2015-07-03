@@ -19,7 +19,7 @@ module EvilQuery
     end
 
     def posts
-      Post.joins(:participations).where(:participations => {:author_id => @user.person.id}).order("posts.interacted_at DESC")
+      Post.joins(:participations).where(participations: {author_id: @user.person.id}).order("posts.interacted_at DESC")
     end
   end
 
@@ -56,12 +56,12 @@ module EvilQuery
       logger.debug("[EVIL-QUERY] make_relation!")
       post_ids = aspects_post_ids! + ids!(followed_tags_posts!) + ids!(mentioned_posts)
       post_ids += ids!(community_spotlight_posts!) if @include_spotlight
-      Post.where(:id => post_ids)
+      Post.where(id: post_ids)
     end
 
     def aspects_post_ids!
       logger.debug("[EVIL-QUERY] aspect_post_ids!")
-      @user.visible_shareable_ids(Post, :limit => 15, :order => "#{@order} DESC", :max_time => @max_time, :all_aspects? => true, :by_members_of => @user.aspect_ids)
+      @user.visible_shareable_ids(Post, limit: 15, order: "#{@order} DESC", max_time: @max_time, :all_aspects? => true, by_members_of: @user.aspect_ids)
     end
 
     def followed_tags_posts!
@@ -75,7 +75,7 @@ module EvilQuery
     end
 
     def community_spotlight_posts!
-      Post.all_public.where(:author_id => fetch_ids!(Person.community_spotlight, 'people.id'))
+      Post.all_public.where(author_id: fetch_ids!(Person.community_spotlight, 'people.id'))
     end
 
     def ids!(query)
@@ -100,15 +100,15 @@ module EvilQuery
     protected
 
     def querent_is_contact
-      @class.where(@key => @id).joins(:contacts).where(:contacts => {:user_id => @querent.id}).where(@conditions).select(@class.table_name+".*")
+      @class.where(@key => @id).joins(:contacts).where(contacts: {user_id: @querent.id}).where(@conditions).select(@class.table_name+".*")
     end
 
     def querent_is_author
-      @class.where(@key => @id, :author_id => @querent.person.id).where(@conditions)
+      @class.where(@key => @id, author_id: @querent.person.id).where(@conditions)
     end
 
     def public_post
-      @class.where(@key => @id, :public => true).where(@conditions)
+      @class.where(@key => @id, public: true).where(@conditions)
     end
   end
 
@@ -129,7 +129,7 @@ module EvilQuery
       shareable_ids = contact.present? ? fetch_ids!(persons_private_visibilities, "share_visibilities.shareable_id") : []
       shareable_ids += fetch_ids!(persons_public_posts, table_name + ".id")
 
-      @class.where(:id => shareable_ids, :pending => false).
+      @class.where(id: shareable_ids, pending: false).
           select('DISTINCT '+table_name+'.*').
           order(table_name+".created_at DESC")
     end
@@ -145,15 +145,15 @@ module EvilQuery
     end
 
     def querents_posts
-      @querent.person.send(table_name).where(:pending => false).order("#{table_name}.created_at DESC")
+      @querent.person.send(table_name).where(pending: false).order("#{table_name}.created_at DESC")
     end
 
     def persons_private_visibilities
-      contact.share_visibilities.where(:hidden => false, :shareable_type => @class.to_s)
+      contact.share_visibilities.where(hidden: false, shareable_type: @class.to_s)
     end
 
     def persons_public_posts
-      @person.send(table_name).where(:public => true).select(table_name+'.id')
+      @person.send(table_name).where(public: true).select(table_name+'.id')
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ConversationsHelper, :type => :helper do
+describe ConversationsHelper, type: :helper do
   before do
     @conversation = FactoryGirl.create(:conversation)
   end

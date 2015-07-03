@@ -5,18 +5,18 @@
 module StreamHelper
   def next_page_path(opts ={})
     if controller.instance_of?(TagsController)
-      tag_path(:name => @stream.tag_name, :max_time => time_for_scroll(@stream))
+      tag_path(name: @stream.tag_name, max_time: time_for_scroll(@stream))
     elsif controller.instance_of?(PeopleController)
-      local_or_remote_person_path(@person, :max_time => time_for_scroll(@stream))
+      local_or_remote_person_path(@person, max_time: time_for_scroll(@stream))
     elsif controller.instance_of?(PostsController)
-      public_stream_path(:max_time => time_for_scroll(@stream))
+      public_stream_path(max_time: time_for_scroll(@stream))
     elsif controller.instance_of?(StreamsController)
       if current_page?(:stream)
-        stream_path(:max_time => time_for_scroll(@stream))
+        stream_path(max_time: time_for_scroll(@stream))
       elsif current_page?(:aspects_stream)
-        aspects_stream_path(:max_time => time_for_scroll(@stream), :a_ids => session[:a_ids])
+        aspects_stream_path(max_time: time_for_scroll(@stream), a_ids: session[:a_ids])
       else
-        activity_stream_path(:max_time => time_for_scroll(@stream))
+        activity_stream_path(max_time: time_for_scroll(@stream))
       end
     else
       raise 'in order to use pagination for this new controller, update next_page_path in stream helper'

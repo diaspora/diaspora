@@ -153,7 +153,7 @@ end
 
 Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    current_scope.should have_no_css(selector, :visible => true)
+    current_scope.should have_no_css(selector, visible: true)
   end
 end
 
@@ -166,7 +166,7 @@ When /^I have turned off jQuery effects$/ do
 end
 
 When /^I search for "([^\"]*)"$/ do |search_term|
-  fill_in "q", :with => search_term
+  fill_in "q", with: search_term
   find_field("q").native.send_key(:enter)
   have_content(search_term)
 end
@@ -181,7 +181,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
-  has_css?("#people_stream .stream_element", :count => n_posts.to_i).should be true
+  has_css?("#people_stream .stream_element", count: n_posts.to_i).should be true
 end
 
 And /^I scroll down$/ do

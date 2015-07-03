@@ -16,17 +16,17 @@ class InvitationCode < ActiveRecord::Base
   end
 
   def add_invites!
-    self.update_attributes(:count => self.count+100)
+    self.update_attributes(count: self.count+100)
   end
 
   def use!
-    self.update_attributes(:count => self.count-1)
+    self.update_attributes(count: self.count-1)
   end
 
   def generate_token
     begin
       self.token = SecureRandom.hex(6)
-    end while InvitationCode.exists?(:token => self[:token])
+    end while InvitationCode.exists?(token: self[:token])
   end
 
   def self.default_inviter_or(user)

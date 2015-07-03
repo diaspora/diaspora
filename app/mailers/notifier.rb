@@ -26,9 +26,9 @@ class Notifier < ActionMailer::Base
       subject = I18n.t('notifier.single_admin.subject')
     end
 
-    default_opts = {:to => @receiver.email,
-         :from => AppConfig.mail.sender_address,
-         :subject => subject, :host => AppConfig.pod_uri.host}
+    default_opts = {to: @receiver.email,
+         from: AppConfig.mail.sender_address,
+         subject: subject, host: AppConfig.pod_uri.host}
     default_opts.merge!(opts)
 
     mail(default_opts) do |format|
@@ -44,13 +44,13 @@ class Notifier < ActionMailer::Base
     @invitation_code = invitation_code
 
     I18n.with_locale(locale) do
-      mail_opts = {:to => email, :from => AppConfig.mail.sender_address,
-                 :subject => I18n.t('notifier.invited_you', :name => @inviter.name),
-                 :host => AppConfig.pod_uri.host}
+      mail_opts = {to: email, from: AppConfig.mail.sender_address,
+                 subject: I18n.t('notifier.invited_you', name: @inviter.name),
+                 host: AppConfig.pod_uri.host}
 
       mail(mail_opts) do |format|
-        format.text { render :layout => nil }
-        format.html { render :layout => nil }
+        format.text { render layout: nil }
+        format.html { render layout: nil }
       end
     end
   end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Postzord::Receiver::LocalBatch do
   before do
-    @object = FactoryGirl.create(:status_message, :author => alice.person)
+    @object = FactoryGirl.create(:status_message, author: alice.person)
     @ids = [bob.id.to_s]
   end
 
@@ -43,8 +43,8 @@ describe Postzord::Receiver::LocalBatch do
   describe '#notify_mentioned_users' do
     it 'calls notify person for a mentioned person' do
       sm = FactoryGirl.create(:status_message,
-                   :author => alice.person,
-                   :text => "Hey @{Bob; #{bob.diaspora_handle}}")
+                   author: alice.person,
+                   text: "Hey @{Bob; #{bob.diaspora_handle}}")
 
       receiver2 = Postzord::Receiver::LocalBatch.new(sm, @ids)
       expect(Notification).to receive(:notify).with(bob, anything, alice.person)
@@ -66,7 +66,7 @@ describe Postzord::Receiver::LocalBatch do
     end
 
     it 'calls notify for posts with notification type' do
-      sm = FactoryGirl.create(:status_message, :author => alice.person)
+      sm = FactoryGirl.create(:status_message, author: alice.person)
       receiver = Postzord::Receiver::LocalBatch.new(sm, @ids)
       expect(Notification).not_to receive(:notify)
       receiver.notify_users
@@ -75,8 +75,8 @@ describe Postzord::Receiver::LocalBatch do
 
   context 'integrates with a comment' do
     before do
-      sm = FactoryGirl.create(:status_message, :author => alice.person)
-      @object = FactoryGirl.create(:comment, :author => bob.person, :post => sm)
+      sm = FactoryGirl.create(:status_message, author: alice.person)
+      @object = FactoryGirl.create(:comment, author: bob.person, post: sm)
     end
 
     it 'calls notify_users' do

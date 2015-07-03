@@ -6,16 +6,16 @@ require 'spec_helper'
 
 describe Postzord::Receiver::Public do
   before do
-    @post = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
+    @post = FactoryGirl.build(:status_message, author: alice.person, public: true)
     @created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
     @xml = @created_salmon.xml_for(nil)
   end
 
   context 'round trips works with' do
     it 'a comment' do
-      sm = FactoryGirl.create(:status_message, :author => alice.person)
+      sm = FactoryGirl.create(:status_message, author: alice.person)
 
-      comment = bob.build_comment(:text => 'yo', :post => sm)
+      comment = bob.build_comment(text: 'yo', post: sm)
       comment.save
       #bob signs his comment, and then sends it up
       xml = Salmon::Slap.create_by_user_and_activity(bob, comment.to_diaspora_xml).xml_for(nil)
@@ -85,7 +85,7 @@ describe Postzord::Receiver::Public do
 
   describe '#recipient_user_ids' do
     it 'calls User.all_sharing_with_person' do
-      expect(User).to receive(:all_sharing_with_person).and_return(double(:pluck => []))
+      expect(User).to receive(:all_sharing_with_person).and_return(double(pluck: []))
       receiver = Postzord::Receiver::Public.new(@xml)
       receiver.perform!
     end
@@ -93,7 +93,7 @@ describe Postzord::Receiver::Public do
 
   describe '#receive_relayable' do
     before do
-      @comment = bob.build_comment(:text => 'yo', :post => FactoryGirl.create(:status_message))
+      @comment = bob.build_comment(text: 'yo', post: FactoryGirl.create(:status_message))
       @comment.save
       created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @comment.to_diaspora_xml)
       xml = created_salmon.xml_for(nil)

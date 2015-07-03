@@ -46,7 +46,7 @@ class AspectsController < ApplicationController
   end
 
   def show
-    if @aspect = current_user.aspects.where(:id => params[:id]).first
+    if @aspect = current_user.aspects.where(id: params[:id]).first
       redirect_to aspects_path('a_ids[]' => @aspect.id)
     else
       redirect_to aspects_path
@@ -54,14 +54,14 @@ class AspectsController < ApplicationController
   end
 
   def update
-    @aspect = current_user.aspects.where(:id => params[:id]).first
+    @aspect = current_user.aspects.where(id: params[:id]).first
 
     if @aspect.update_attributes!(aspect_params)
-      flash[:notice] = I18n.t 'aspects.update.success', :name => @aspect.name
+      flash[:notice] = I18n.t 'aspects.update.success', name: @aspect.name
     else
-      flash[:error] = I18n.t 'aspects.update.failure', :name => @aspect.name
+      flash[:error] = I18n.t 'aspects.update.failure', name: @aspect.name
     end
-    render :json => { :id => @aspect.id, :name => @aspect.name }
+    render json: { id: @aspect.id, name: @aspect.name }
   end
 
   def update_order
@@ -72,15 +72,15 @@ class AspectsController < ApplicationController
   end
 
   def toggle_chat_privilege
-    @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
+    @aspect = current_user.aspects.where(id: params[:aspect_id]).first
 
     @aspect.chat_enabled = !@aspect.chat_enabled
     @aspect.save
-    render :nothing => true
+    render nothing: true
   end
 
   def toggle_contact_visibility
-    @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
+    @aspect = current_user.aspects.where(id: params[:aspect_id]).first
 
     if @aspect.contacts_visible?
       @aspect.contacts_visible = false
@@ -88,7 +88,7 @@ class AspectsController < ApplicationController
       @aspect.contacts_visible = true
     end
     @aspect.save
-    render :nothing => true
+    render nothing: true
   end
 
   private

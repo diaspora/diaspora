@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ReportHelper, :type => :helper do
+describe ReportHelper, type: :helper do
   before do
     @comment = FactoryGirl.create(:comment)
     @post = @comment.post

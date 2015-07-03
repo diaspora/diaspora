@@ -4,14 +4,14 @@
 
 class CommentsController < ApplicationController
   include ApplicationHelper
-  before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, except: [:index]
 
   respond_to :html,
              :mobile,
              :json
 
   rescue_from ActiveRecord::RecordNotFound do
-    render :nothing => true, :status => 404
+    render nothing: true, status: 404
   end
 
   def create
@@ -20,12 +20,12 @@ class CommentsController < ApplicationController
 
     if @comment
       respond_to do |format|
-        format.json{ render :json => CommentPresenter.new(@comment), :status => 201 }
-        format.html{ render :nothing => true, :status => 201 }
-        format.mobile{ render :partial => 'comment', :locals => {:post => @comment.post, :comment => @comment} }
+        format.json{ render json: CommentPresenter.new(@comment), status: 201 }
+        format.html{ render nothing: true, status: 201 }
+        format.mobile{ render partial: 'comment', locals: {post: @comment.post, comment: @comment} }
       end
     else
-      render :nothing => true, :status => 422
+      render nothing: true, status: 422
     end
   end
 
@@ -34,21 +34,21 @@ class CommentsController < ApplicationController
     if current_user.owns?(@comment) || current_user.owns?(@comment.parent)
       current_user.retract(@comment)
       respond_to do |format|
-        format.js { render :nothing => true, :status => 204 }
-        format.json { render :nothing => true, :status => 204 }
+        format.js { render nothing: true, status: 204 }
+        format.json { render nothing: true, status: 204 }
         format.mobile{ redirect_to :back }
       end
     else
       respond_to do |format|
         format.mobile { redirect_to :back }
-        format.any(:js, :json) {render :nothing => true, :status => 403}
+        format.any(:js, :json) {render nothing: true, status: 403}
       end
     end
   end
 
   def new
     respond_to do |format|
-      format.mobile { render :layout => false }
+      format.mobile { render layout: false }
     end
   end
 
@@ -58,8 +58,8 @@ class CommentsController < ApplicationController
 
     @comments = @post.comments.for_a_stream
     respond_with do |format|
-      format.json  { render :json => CommentPresenter.as_collection(@comments), :status => 200 }
-      format.mobile{render :layout => false}
+      format.json  { render json: CommentPresenter.as_collection(@comments), status: 200 }
+      format.mobile{render layout: false}
     end
   end
 

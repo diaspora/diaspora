@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe OpenGraphHelper, :type => :helper do
+describe OpenGraphHelper, type: :helper do
   describe 'og_page_post_tags' do
     it 'handles a reshare of a deleted post' do
       reshare = FactoryGirl.build(:reshare, root: nil, id: 123)
@@ -28,7 +28,7 @@ describe OpenGraphHelper, :type => :helper do
 
     scenarios.each do |type, data|
       specify 'for type "'+type+'"' do
-        cache =  OpenGraphCache.new(:url => data['url'])
+        cache =  OpenGraphCache.new(url: data['url'])
         cache.ob_type = type
         cache.image = data['image']
         cache.title = data['title']

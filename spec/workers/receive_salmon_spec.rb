@@ -16,7 +16,7 @@ describe Workers::ReceiveEncryptedSalmon do
     zord = double
 
     expect(zord).to receive(:perform!)
-    expect(Postzord::Receiver::Private).to receive(:new).with(@user, hash_including(:salmon_xml => @xml)).and_return(zord)
+    expect(Postzord::Receiver::Private).to receive(:new).with(@user, hash_including(salmon_xml: @xml)).and_return(zord)
 
     Workers::ReceiveEncryptedSalmon.new.perform(@user.id, @xml)
   end

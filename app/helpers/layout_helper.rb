@@ -32,7 +32,7 @@ module LayoutHelper
 
   def current_user_atom_tag
     return unless @person.present?
-    content_tag(:link, '', :rel => 'alternate', :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => t('.public_feed', :name => @person.name))
+    content_tag(:link, '', rel: 'alternate', href: "#{@person.public_url}.atom", type: "application/atom+xml", title: t('.public_feed', name: @person.name))
   end
 
   def translation_missing_warnings
@@ -66,8 +66,8 @@ module LayoutHelper
 
   def flash_messages
     flash.map do |name, msg|
-      content_tag(:div, :id => "flash_#{name}") do
-        content_tag(:div, msg, :class => 'message')
+      content_tag(:div, id: "flash_#{name}") do
+        content_tag(:div, msg, class: 'message')
       end
     end.join(' ').html_safe
   end

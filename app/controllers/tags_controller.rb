@@ -4,14 +4,14 @@
 
 class TagsController < ApplicationController
   skip_before_action :set_grammatical_gender
-  before_action :ensure_page, :only => :show
+  before_action :ensure_page, only: :show
 
   helper_method :tag_followed?
 
   layout proc { request.format == :mobile ? "application" : "with_header" }, only: :show
 
-  respond_to :html, :only => [:show]
-  respond_to :json, :only => [:index, :show]
+  respond_to :html, only: [:show]
+  respond_to :json, only: [:index, :show]
 
   def index
     if params[:q] && params[:q].length > 1
@@ -21,25 +21,25 @@ class TagsController < ApplicationController
       prep_tags_for_javascript
 
       respond_to do |format|
-        format.json{ render(:json => @tags.to_json, :status => 200) }
+        format.json{ render(json: @tags.to_json, status: 200) }
       end
     else
       respond_to do |format|
-        format.json{ render :nothing => true, :status => 422 }
+        format.json{ render nothing: true, status: 422 }
         format.html{ redirect_to tag_path('partytimeexcellent') }
       end
     end
   end
 
   def show
-    redirect_to(:action => :show, :name => downcased_tag_name) && return if tag_has_capitals?
+    redirect_to(action: :show, name: downcased_tag_name) && return if tag_has_capitals?
 
     if user_signed_in?
       gon.preloads[:tagFollowings] = tags
     end
-    @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
+    @stream = Stream::Tag.new(current_user, params[:name], max_time: max_time, page: params[:page])
     respond_with do |format|
-      format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
+      format.json { render json: @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end
 
@@ -60,10 +60,10 @@ class TagsController < ApplicationController
 
   def prep_tags_for_javascript
     @tags = @tags.map {|tag|
-      { :name  => ("#" + tag.name) }
+      { name: ("#" + tag.name) }
     }
 
-    @tags << { :name  => ('#' + params[:q]) }
+    @tags << { name: ('#' + params[:q]) }
     @tags.uniq!
   end
 end

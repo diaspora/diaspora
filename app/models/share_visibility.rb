@@ -4,14 +4,14 @@
 
 class ShareVisibility < ActiveRecord::Base
   belongs_to :contact
-  belongs_to :shareable, :polymorphic => :true
+  belongs_to :shareable, polymorphic: :true
 
   scope :for_a_users_contacts, ->(user) {
-    where(:contact_id => user.contacts.map {|c| c.id})
+    where(contact_id: user.contacts.map {|c| c.id})
   }
 
   scope :for_contacts_of_a_person, ->(person) {
-    where(:contact_id => person.contacts.map {|c| c.id})
+    where(contact_id: person.contacts.map {|c| c.id})
   }
 
   validate :not_public
@@ -22,7 +22,7 @@ class ShareVisibility < ActiveRecord::Base
   # @param share [Shareable]
   # @return [void]
   def self.batch_import(contact_ids, share)
-    return false unless ShareVisibility.new(:shareable_id => share.id, :shareable_type => share.class.to_s).valid?
+    return false unless ShareVisibility.new(shareable_id: share.id, shareable_type: share.class.to_s).valid?
 
     if AppConfig.postgres?
       contact_ids.each do |contact_id|

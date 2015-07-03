@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ExportMailer, :type => :mailer do
+describe ExportMailer, type: :mailer do
   describe '#export_complete_for' do
     it "should deliver successfully" do
       expect { ExportMailer.export_complete_for(alice).deliver_now }.to_not raise_error

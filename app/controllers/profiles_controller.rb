@@ -3,10 +3,10 @@
 #   the COPYRIGHT file.
 
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, :except => ['show']
+  before_action :authenticate_user!, except: ['show']
 
-  respond_to :html, :except => [:show]
-  respond_to :js, :only => :update
+  respond_to :html, except: [:show]
+  respond_to :js, only: :update
 
   # this is terrible because we're actually serving up the associated person here;
   # however, this is the effect that we want for now
@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
     @person = Person.find_by_guid!(params[:id])
 
     respond_to do |format|
-      format.json { render :json => PersonPresenter.new(@person, current_user) }
+      format.json { render json: PersonPresenter.new(@person, current_user) }
     end
   end
 
@@ -26,8 +26,8 @@ class ProfilesController < ApplicationController
     @tags = @profile.tags
     @tags_array = []
     @tags.each do |obj|
-      @tags_array << { :name => ("#"+obj.name),
-        :value => ("#"+obj.name)}
+      @tags_array << { name: ("#"+obj.name),
+        value: ("#"+obj.name)}
       end
   end
 
@@ -42,7 +42,7 @@ class ProfilesController < ApplicationController
     @profile_attrs[:nsfw] ||= false
 
     if params[:photo_id]
-      @profile_attrs[:photo] = Photo.where(:author_id => current_user.person_id, :id => params[:photo_id]).first
+      @profile_attrs[:photo] = Photo.where(author_id: current_user.person_id, id: params[:photo_id]).first
     end
 
     if current_user.update_profile(@profile_attrs)
@@ -52,7 +52,7 @@ class ProfilesController < ApplicationController
     end
 
     respond_to do |format|
-      format.js { render :nothing => true, :status => 200 }
+      format.js { render nothing: true, status: 200 }
       format.any {
         if current_user.getting_started?
           redirect_to getting_started_path
@@ -79,6 +79,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :gender, :bio, :location, :searchable, :tag_string, :nsfw, :date => [:year, :month, :day]) || {}
+    params.require(:profile).permit(:first_name, :last_name, :gender, :bio, :location, :searchable, :tag_string, :nsfw, date: [:year, :month, :day]) || {}
   end
 end

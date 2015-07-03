@@ -4,20 +4,20 @@
 
 require 'spec_helper'
 
-describe Post, :type => :model do
+describe Post, type: :model do
   before do
     @user = alice
-    @aspect = @user.aspects.create(:name => "winners")
+    @aspect = @user.aspects.create(name: "winners")
   end
 
   describe 'scopes' do
     describe '.owned_or_visible_by_user' do
       before do
         @you = bob
-        @public_post = FactoryGirl.create(:status_message, :public => true)
-        @your_post = FactoryGirl.create(:status_message, :author => @you.person)
-        @post_from_contact = eve.post(:status_message, :text => 'wooo', :to => eve.aspects.where(:name => 'generic').first)
-        @post_from_stranger = FactoryGirl.create(:status_message, :public => false)
+        @public_post = FactoryGirl.create(:status_message, public: true)
+        @your_post = FactoryGirl.create(:status_message, author: @you.person)
+        @post_from_contact = eve.post(:status_message, text: 'wooo', to: eve.aspects.where(name: 'generic').first)
+        @post_from_stranger = FactoryGirl.create(:status_message, public: false)
       end
 
       it 'returns post from your contacts' do
@@ -33,7 +33,7 @@ describe Post, :type => :model do
       end
 
       it 'returns public post from your contact' do
-        sm = FactoryGirl.create(:status_message, :author => eve.person, :public => true)
+        sm = FactoryGirl.create(:status_message, author: eve.person, public: true)
 
         expect(StatusMessage.owned_or_visible_by_user(@you)).to include(sm)
       end
@@ -68,10 +68,10 @@ describe Post, :type => :model do
 
     describe '.excluding_blocks' do
       before do
-        @post = FactoryGirl.create(:status_message, :author => alice.person)
-        @other_post = FactoryGirl.create(:status_message, :author => eve.person)
+        @post = FactoryGirl.create(:status_message, author: alice.person)
+        @other_post = FactoryGirl.create(:status_message, author: eve.person)
 
-        bob.blocks.create(:person => alice.person)
+        bob.blocks.create(person: alice.person)
       end
 
       it 'does not included blocked users posts' do
@@ -89,8 +89,8 @@ describe Post, :type => :model do
 
     describe '.excluding_hidden_shareables' do
       before do
-        @post = FactoryGirl.create(:status_message, :author => alice.person)
-        @other_post = FactoryGirl.create(:status_message, :author => eve.person)
+        @post = FactoryGirl.create(:status_message, author: alice.person)
+        @other_post = FactoryGirl.create(:status_message, author: eve.person)
         bob.toggle_hidden_shareable(@post)
       end
       it 'excludes posts the user has hidden' do
@@ -114,8 +114,8 @@ describe Post, :type => :model do
         time_interval = 1000
         time_past = 1000000
         @posts = (1..5).map do |n|
-          aspect_to_post = alice.aspects.where(:name => "generic").first
-          post = alice.post :status_message, :text => "#{alice.username} - #{n}", :to => aspect_to_post.id
+          aspect_to_post = alice.aspects.where(name: "generic").first
+          post = alice.post :status_message, text: "#{alice.username} - #{n}", to: aspect_to_post.id
           post.created_at = (post.created_at-time_past) - time_interval
           post.updated_at = (post.updated_at-time_past) + time_interval
           post.save
@@ -155,7 +155,7 @@ describe Post, :type => :model do
   describe 'validations' do
     it 'validates uniqueness of guid and does not throw a db error' do
       message = FactoryGirl.create(:status_message)
-      expect(FactoryGirl.build(:status_message, :guid => message.guid)).not_to be_valid
+      expect(FactoryGirl.build(:status_message, guid: message.guid)).not_to be_valid
     end
   end
 
@@ -168,17 +168,17 @@ describe Post, :type => :model do
 
   describe 'deletion' do
     it 'should delete a posts comments on delete' do
-      post = FactoryGirl.create(:status_message, :author => @user.person)
+      post = FactoryGirl.create(:status_message, author: @user.person)
       @user.comment!(post, "hey")
       post.destroy
-      expect(Post.where(:id => post.id).empty?).to eq(true)
-      expect(Comment.where(:text => "hey").empty?).to eq(true)
+      expect(Post.where(id: post.id).empty?).to eq(true)
+      expect(Comment.where(text: "hey").empty?).to eq(true)
     end
   end
 
   describe 'serialization' do
     it 'should serialize the handle and not the sender' do
-      post = @user.post :status_message, :text => "hello", :to => @aspect.id
+      post = @user.post :status_message, text: "hello", to: @aspect.id
       xml = post.to_diaspora_xml
 
       expect(xml.include?("person_id")).to be false
@@ -188,27 +188,27 @@ describe Post, :type => :model do
 
   describe '.diaspora_initialize' do
     it 'takes provider_display_name' do
-      sm = FactoryGirl.create(:status_message, :provider_display_name => 'mobile')
-      expect(StatusMessage.diaspora_initialize(sm.attributes.merge(:author => bob.person)).provider_display_name).to eq('mobile')
+      sm = FactoryGirl.create(:status_message, provider_display_name: 'mobile')
+      expect(StatusMessage.diaspora_initialize(sm.attributes.merge(author: bob.person)).provider_display_name).to eq('mobile')
     end
   end
 
   describe '#mutable?' do
     it 'should be false by default' do
-      post = @user.post :status_message, :text => "hello", :to => @aspect.id
+      post = @user.post :status_message, text: "hello", to: @aspect.id
       expect(post.mutable?).to eq(false)
     end
   end
 
   describe '#subscribers' do
     it 'returns the people contained in the aspects the post appears in' do
-      post = @user.post :status_message, :text => "hello", :to => @aspect.id
+      post = @user.post :status_message, text: "hello", to: @aspect.id
 
       expect(post.subscribers(@user)).to eq([])
     end
 
     it 'returns all a users contacts if the post is public' do
-      post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
+      post = @user.post :status_message, text: "hello", to: @aspect.id, public: true
 
       expect(post.subscribers(@user).to_set).to eq(@user.contact_people.to_set)
     end
@@ -216,12 +216,12 @@ describe Post, :type => :model do
 
   describe 'Likeable#update_likes_counter' do
     before do
-      @post = bob.post :status_message, :text => "hello", :to => 'all'
+      @post = bob.post :status_message, text: "hello", to: 'all'
       bob.like!(@post)
     end
     it 'does not update updated_at' do
       old_time = Time.zone.now - 10000
-      Post.where(:id => @post.id).update_all(:updated_at => old_time)
+      Post.where(id: @post.id).update_all(updated_at: old_time)
       expect(@post.reload.updated_at.to_i).to eq(old_time.to_i)
       @post.update_likes_counter
       expect(@post.reload.updated_at.to_i).to eq(old_time.to_i)
@@ -354,7 +354,7 @@ describe Post, :type => :model do
 
   describe '#reshares_count' do
     before :each do
-      @post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
+      @post = @user.post :status_message, text: "hello", to: @aspect.id, public: true
       expect(@post.reshares.size).to eq(0)
     end
 
@@ -367,7 +367,7 @@ describe Post, :type => :model do
     describe 'when post has been reshared exactly 1 time' do
       before :each do
         expect(@post.reshares.size).to eq(0)
-        @reshare = FactoryGirl.create(:reshare, :root => @post)
+        @reshare = FactoryGirl.create(:reshare, root: @post)
         @post.reload
         expect(@post.reshares.size).to eq(1)
       end
@@ -380,9 +380,9 @@ describe Post, :type => :model do
     describe 'when post has been reshared more than once' do
       before :each do
         expect(@post.reshares.size).to eq(0)
-        FactoryGirl.create(:reshare, :root => @post)
-        FactoryGirl.create(:reshare, :root => @post)
-        FactoryGirl.create(:reshare, :root => @post)
+        FactoryGirl.create(:reshare, root: @post)
+        FactoryGirl.create(:reshare, root: @post)
+        FactoryGirl.create(:reshare, root: @post)
         @post.reload
         expect(@post.reshares.size).to eq(3)
       end

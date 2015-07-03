@@ -36,7 +36,7 @@ class Retraction
   end
 
   def target
-    @target ||= self.type.constantize.where(:guid => post_guid).first
+    @target ||= self.type.constantize.where(guid: post_guid).first
   end
 
   def perform receiving_user

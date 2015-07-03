@@ -6,6 +6,6 @@ module ServicesHelper
   private
 
   def contact_proxy_template
-    @@contact_proxy ||= Contact.new(:aspects => [])
+    @@contact_proxy ||= Contact.new(aspects: [])
   end
 end

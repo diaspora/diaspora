@@ -15,20 +15,20 @@ class Person < ActiveRecord::Base
     t.add :name
     t.add lambda { |person|
       person.diaspora_handle
-    }, :as => :diaspora_id
+    }, as: :diaspora_id
     t.add lambda { |person|
-      {:small => person.profile.image_url(:thumb_small),
-       :medium => person.profile.image_url(:thumb_medium),
-       :large => person.profile.image_url(:thumb_large) }
-    }, :as => :avatar
+      {small: person.profile.image_url(:thumb_small),
+       medium: person.profile.image_url(:thumb_medium),
+       large: person.profile.image_url(:thumb_large) }
+    }, as: :avatar
   end
 
   xml_attr :diaspora_handle
   xml_attr :url
-  xml_attr :profile, :as => Profile
+  xml_attr :profile, as: Profile
   xml_attr :exported_key
 
-  has_one :profile, :dependent => :destroy
+  has_one :profile, dependent: :destroy
   delegate :last_name, :image_url, :tag_string, :bio, :location,
            :gender, :birthday, :formatted_birthday, :tags, :searchable,
            to: :profile
@@ -40,30 +40,30 @@ class Person < ActiveRecord::Base
     diaspora_handle.downcase! unless diaspora_handle.blank?
   end
 
-  has_many :contacts, :dependent => :destroy # Other people's contacts for this person
-  has_many :posts, :foreign_key => :author_id, :dependent => :destroy # This person's own posts
-  has_many :photos, :foreign_key => :author_id, :dependent => :destroy # This person's own photos
-  has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
-  has_many :participations, :foreign_key => :author_id, :dependent => :destroy
+  has_many :contacts, dependent: :destroy # Other people's contacts for this person
+  has_many :posts, foreign_key: :author_id, dependent: :destroy # This person's own posts
+  has_many :photos, foreign_key: :author_id, dependent: :destroy # This person's own photos
+  has_many :comments, foreign_key: :author_id, dependent: :destroy # This person's own comments
+  has_many :participations, foreign_key: :author_id, dependent: :destroy
   has_many :conversation_visibilities
 
   has_many :roles
 
-  belongs_to :owner, :class_name => 'User'
+  belongs_to :owner, class_name: 'User'
 
   has_many :notification_actors
-  has_many :notifications, :through => :notification_actors
+  has_many :notifications, through: :notification_actors
 
-  has_many :mentions, :dependent => :destroy
+  has_many :mentions, dependent: :destroy
 
   before_validation :clean_url
 
-  validates :url, :presence => true
-  validates :profile, :presence => true
-  validates :serialized_public_key, :presence => true
-  validates :diaspora_handle, :uniqueness => true
+  validates :url, presence: true
+  validates :profile, presence: true
+  validates :serialized_public_key, presence: true
+  validates :diaspora_handle, uniqueness: true
 
-  scope :searchable, -> { joins(:profile).where(:profiles => {:searchable => true}) }
+  scope :searchable, -> { joins(:profile).where(profiles: {searchable: true}) }
   scope :remote, -> { where('people.owner_id IS NULL') }
   scope :local, -> { where('people.owner_id IS NOT NULL') }
   scope :for_json, -> {
@@ -73,9 +73,9 @@ class Person < ActiveRecord::Base
 
   # @note user is passed in here defensively
   scope :all_from_aspects, ->(aspect_ids, user) {
-    joins(:contacts => :aspect_memberships).
-         where(:contacts => {:user_id => user.id}).
-         where(:aspect_memberships => {:aspect_id => aspect_ids})
+    joins(contacts: :aspect_memberships).
+         where(contacts: {user_id: user.id}).
+         where(aspect_memberships: {aspect_id: aspect_ids})
   }
 
   scope :unique_from_aspects, ->(aspect_ids, user) {
@@ -84,27 +84,27 @@ class Person < ActiveRecord::Base
 
   #not defensive
   scope :in_aspects, ->(aspect_ids) {
-    joins(:contacts => :aspect_memberships).
-        where(:aspect_memberships => {:aspect_id => aspect_ids})
+    joins(contacts: :aspect_memberships).
+        where(aspect_memberships: {aspect_id: aspect_ids})
   }
 
   scope :profile_tagged_with, ->(tag_name) {
-    joins(:profile => :tags)
-      .where(:tags => {:name => tag_name})
+    joins(profile: :tags)
+      .where(tags: {name: tag_name})
       .where('profiles.searchable IS TRUE')
   }
 
   scope :who_have_reshared_a_users_posts, ->(user) {
     joins(:posts)
-      .where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
+      .where(posts: {root_guid: StatusMessage.guids_for_author(user.person), type: 'Reshare'} )
   }
 
   def self.community_spotlight
-    Person.joins(:roles).where(:roles => {:name => 'spotlight'})
+    Person.joins(:roles).where(roles: {name: 'spotlight'})
   end
 
   # Set a default of an empty profile when a new Person record is instantiated.
-  # Passing :profile => nil to Person.new will instantiate a person with no profile.
+  # Passing profile: nil to Person.new will instantiate a person with no profile.
   # Calling Person.new with a block:
   #   Person.new do |p|
   #     p.profile = nil
@@ -119,7 +119,7 @@ class Person < ActiveRecord::Base
 
   def self.find_from_guid_or_username(params)
     p = if params[:id].present?
-          Person.where(:guid => params[:id]).first
+          Person.where(guid: params[:id]).first
         elsif params[:username].present? && u = User.find_by_username(params[:username])
           u.person
         else
@@ -244,7 +244,7 @@ class Person < ActiveRecord::Base
   #database calls
   def self.by_account_identifier(identifier)
     identifier = identifier.strip.downcase.gsub('acct:', '')
-    self.where(:diaspora_handle => identifier).first
+    self.where(diaspora_handle: identifier).first
   end
 
   def self.local_by_account_identifier(identifier)
@@ -271,12 +271,12 @@ class Person < ActiveRecord::Base
   end
 
   def assign_new_profile_from_hcard(hcard)
-    self.profile = Profile.new(:first_name => hcard[:given_name],
-                              :last_name  => hcard[:family_name],
-                              :image_url  => hcard[:photo],
-                              :image_url_medium  => hcard[:photo_medium],
-                              :image_url_small  => hcard[:photo_small],
-                              :searchable => hcard[:searchable])
+    self.profile = Profile.new(first_name: hcard[:given_name],
+                              last_name: hcard[:family_name],
+                              image_url: hcard[:photo],
+                              image_url_medium: hcard[:photo_medium],
+                              image_url_small: hcard[:photo_small],
+                              searchable: hcard[:searchable])
   end
 
   def remote?
@@ -293,14 +293,14 @@ class Person < ActiveRecord::Base
   def as_json( opts = {} )
     opts ||= {}
     json = {
-      :id => self.id,
-      :guid => self.guid,
-      :name => self.name,
-      :avatar => self.profile.image_url(:thumb_medium),
-      :handle => self.diaspora_handle,
-      :url => Rails.application.routes.url_helpers.person_path(self),
+      id: self.id,
+      guid: self.guid,
+      name: self.name,
+      avatar: self.profile.image_url(:thumb_medium),
+      handle: self.diaspora_handle,
+      url: Rails.application.routes.url_helpers.person_path(self),
     }
-    json.merge!(:tags => self.profile.tags.map{|t| "##{t.name}"}) if opts[:includes] == "tags"
+    json.merge!(tags: self.profile.tags.map{|t| "##{t.name}"}) if opts[:includes] == "tags"
     json
   end
 
@@ -315,7 +315,7 @@ class Person < ActiveRecord::Base
 
   #gross method pulled out from controller, not exactly sure how it should be used.
   def shares_with(user)
-    user.contacts.receiving.where(:person_id => self.id).first if user
+    user.contacts.receiving.where(person_id: self.id).first if user
   end
 
   # @param person [Person]
@@ -325,7 +325,7 @@ class Person < ActiveRecord::Base
     newuri = "#{location.scheme}://#{location.host}"
     newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
     newuri += "/"
-    self.update_attributes(:url => newuri)
+    self.update_attributes(url: newuri)
   end
 
   def lock_access!

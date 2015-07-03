@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TagsHelper, :type => :helper do
+describe TagsHelper, type: :helper do
   describe '#looking_for_tag_link' do
     it 'returns nil if there is a @ in the query' do
       allow(helper).to receive(:search_query).and_return('foo@bar.com')

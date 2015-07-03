@@ -1,9 +1,9 @@
 require "spec_helper"
 
-describe User::SocialActions, :type => :model do
+describe User::SocialActions, type: :model do
   before do
-    @bobs_aspect = bob.aspects.where(:name => "generic").first
-    @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
+    @bobs_aspect = bob.aspects.where(name: "generic").first
+    @status = bob.post(:status_message, text: "hello", to: @bobs_aspect.id)
   end
 
   describe 'User#comment!' do
@@ -48,8 +48,8 @@ describe User::SocialActions, :type => :model do
 
   describe 'User#like!' do
     before do
-      @bobs_aspect = bob.aspects.where(:name => "generic").first
-      @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
+      @bobs_aspect = bob.aspects.where(name: "generic").first
+      @status = bob.post(:status_message, text: "hello", to: @bobs_aspect.id)
     end
 
     it "creates a participation" do
@@ -87,9 +87,9 @@ describe User::SocialActions, :type => :model do
 
   describe 'User#participate_in_poll!' do
     before do
-      @bobs_aspect = bob.aspects.where(:name => "generic").first
-      @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
-      @poll = FactoryGirl.create(:poll, :status_message => @status)
+      @bobs_aspect = bob.aspects.where(name: "generic").first
+      @status = bob.post(:status_message, text: "hello", to: @bobs_aspect.id)
+      @poll = FactoryGirl.create(:poll, status_message: @status)
       @answer = @poll.poll_answers.first
     end
 

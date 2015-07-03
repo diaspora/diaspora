@@ -1,6 +1,6 @@
 class OEmbedCache < ActiveRecord::Base
   serialize :data
-  validates :data, :presence => true
+  validates :data, presence: true
 
   has_many :posts
 
@@ -19,7 +19,7 @@ class OEmbedCache < ActiveRecord::Base
 
   def fetch_and_save_oembed_data!
     begin
-      response = OEmbed::Providers.get(self.url, {:maxwidth => 420, :maxheight => 420, :frame => 1, :iframe => 1})
+      response = OEmbed::Providers.get(self.url, {maxwidth: 420, maxheight: 420, frame: 1, iframe: 1})
     rescue => e
       # noop
     else
@@ -40,9 +40,9 @@ class OEmbedCache < ActiveRecord::Base
   def options_hash(prefix = 'thumbnail_')
     return nil unless self.data.has_key?(prefix + 'url')
     {
-      :height => self.data.fetch(prefix + 'height', ''),
-      :width => self.data.fetch(prefix + 'width', ''),
-      :alt => self.data.fetch('title', ''),
+      height: self.data.fetch(prefix + 'height', ''),
+      width: self.data.fetch(prefix + 'width', ''),
+      alt: self.data.fetch('title', ''),
     }
   end
 end

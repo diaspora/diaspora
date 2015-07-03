@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ConversationsController, :type => :controller do
+describe ConversationsController, type: :controller do
   before do
     sign_in :user, alice
   end
@@ -18,31 +18,31 @@ describe ConversationsController, :type => :controller do
 
   describe '#new modal' do
     it 'succeeds' do
-      get :new, :modal => true
+      get :new, modal: true
       expect(response).to be_success
     end
 
     it "assigns a json list of contacts that are sharing with the person" do
-      get :new, :modal => true
-      expect(assigns(:contacts_json)).to include(alice.contacts.where(:sharing => true).first.person.name)
-      alice.contacts << Contact.new(:person_id => eve.person.id, :user_id => alice.id, :sharing => false, :receiving => true)
-      expect(assigns(:contacts_json)).not_to include(alice.contacts.where(:sharing => false).first.person.name)
+      get :new, modal: true
+      expect(assigns(:contacts_json)).to include(alice.contacts.where(sharing: true).first.person.name)
+      alice.contacts << Contact.new(person_id: eve.person.id, user_id: alice.id, sharing: false, receiving: true)
+      expect(assigns(:contacts_json)).not_to include(alice.contacts.where(sharing: false).first.person.name)
     end
 
     it "assigns a contact if passed a contact id" do
-      get :new, :contact_id => alice.contacts.first.id, :modal => true
+      get :new, contact_id: alice.contacts.first.id, modal: true
       expect(assigns(:contact_ids)).to eq(alice.contacts.first.id)
     end
 
     it "assigns a set of contacts if passed an aspect id" do
-      get :new, :aspect_id => alice.aspects.first.id, :modal => true
+      get :new, aspect_id: alice.aspects.first.id, modal: true
       expect(assigns(:contact_ids)).to eq(alice.aspects.first.contacts.map(&:id).join(','))
     end
 
     it "does not allow XSS via the name parameter" do
       ["</script><script>alert(1);</script>",
        '"}]});alert(1);(function f() {var foo = [{b:"'].each do |xss|
-        get :new, :modal => true, name: xss
+        get :new, modal: true, name: xss
         expect(response.body).not_to include xss
       end
     end
@@ -51,7 +51,7 @@ describe ConversationsController, :type => :controller do
       xss = "<script>alert(0);</script>"
       contact = alice.contacts.first
       contact.person.profile.update_attribute(:first_name, xss)
-      get :new, :modal => true
+      get :new, modal: true
       json = JSON.parse(assigns(:contacts_json)).first
       expect(json['value'].to_s).to eq(contact.id.to_s)
       expect(json['name']).to_not include(xss)
@@ -108,12 +108,12 @@ describe ConversationsController, :type => :controller do
     context 'with a valid conversation' do
       before do
         @hash = {
-          :format => :js,
-          :conversation => {
-            :subject => "secret stuff",
-            :text => 'text debug'
+          format: :js,
+          conversation: {
+            subject: "secret stuff",
+            text: 'text debug'
           },
-          :contact_ids => [alice.contacts.first.id]
+          contact_ids: [alice.contacts.first.id]
         }
       end
 
@@ -146,10 +146,10 @@ describe ConversationsController, :type => :controller do
       it 'dispatches the conversation' do
         cnv = Conversation.create(
           {
-            :author => alice.person,
-            :participant_ids => [alice.contacts.first.person.id, alice.person.id],
-            :subject => 'not spam',
-            :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+            author: alice.person,
+            participant_ids: [alice.contacts.first.person.id, alice.person.id],
+            subject: 'not spam',
+            messages_attributes: [ {author: alice.person, text: 'cool stuff'} ]
           }
         )
 
@@ -163,12 +163,12 @@ describe ConversationsController, :type => :controller do
     context 'with empty subject' do
       before do
         @hash = {
-          :format => :js,
-          :conversation => {
-            :subject => ' ',
-            :text => 'text debug'
+          format: :js,
+          conversation: {
+            subject: ' ',
+            text: 'text debug'
           },
-          :contact_ids => [alice.contacts.first.id]
+          contact_ids: [alice.contacts.first.id]
         }
       end
 
@@ -195,12 +195,12 @@ describe ConversationsController, :type => :controller do
     context 'with empty text' do
       before do
         @hash = {
-          :format => :js,
-          :conversation => {
-            :subject => 'secret stuff',
-            :text => '  '
+          format: :js,
+          conversation: {
+            subject: 'secret stuff',
+            text: '  '
           },
-          :contact_ids => [alice.contacts.first.id]
+          contact_ids: [alice.contacts.first.id]
         }
       end
 
@@ -226,12 +226,12 @@ describe ConversationsController, :type => :controller do
     context 'with empty contact' do
       before do
         @hash = {
-          :format => :js,
-          :conversation => {
-            :subject => 'secret stuff',
-            :text => 'text debug'
+          format: :js,
+          conversation: {
+            subject: 'secret stuff',
+            text: 'text debug'
           },
-          :contact_ids => ' '
+          contact_ids: ' '
         }
       end
 
@@ -257,12 +257,12 @@ describe ConversationsController, :type => :controller do
     context 'with nil contact' do
       before do
         @hash = {
-          :format => :js,
-          :conversation => {
-            :subject => 'secret stuff',
-            :text => 'text debug'
+          format: :js,
+          conversation: {
+            subject: 'secret stuff',
+            text: 'text debug'
           },
-          :contact_ids => nil
+          contact_ids: nil
         }
       end
 
@@ -283,30 +283,30 @@ describe ConversationsController, :type => :controller do
   describe '#show' do
     before do
       hash = {
-        :author => alice.person,
-        :participant_ids => [alice.contacts.first.person.id, alice.person.id],
-        :subject => 'not spam',
-        :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+        author: alice.person,
+        participant_ids: [alice.contacts.first.person.id, alice.person.id],
+        subject: 'not spam',
+        messages_attributes: [ {author: alice.person, text: 'cool stuff'} ]
       }
       @conversation = Conversation.create(hash)
     end
 
     it 'succeeds with js' do
-      xhr :get, :show, :id => @conversation.id, :format => :js
+      xhr :get, :show, id: @conversation.id, format: :js
       expect(response).to be_success
       expect(assigns[:conversation]).to eq(@conversation)
     end
 
     it 'succeeds with json' do
-      get :show, :id => @conversation.id, :format => :json
+      get :show, id: @conversation.id, format: :json
       expect(response).to be_success
       expect(assigns[:conversation]).to eq(@conversation)
       expect(response.body).to include @conversation.guid
     end
 
     it 'redirects to index' do
-      get :show, :id => @conversation.id
-      expect(response).to redirect_to(conversations_path(:conversation_id => @conversation.id))
+      get :show, id: @conversation.id
+      expect(response).to redirect_to(conversations_path(conversation_id: @conversation.id))
     end
   end
 end

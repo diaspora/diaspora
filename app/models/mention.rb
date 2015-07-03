@@ -7,8 +7,8 @@ class Mention < ActiveRecord::Base
 
   belongs_to :post
   belongs_to :person
-  validates :post, :presence => true
-  validates :person, :presence => true
+  validates :post, presence: true
+  validates :person, presence: true
 
   after_destroy :delete_notification
 
@@ -22,6 +22,6 @@ class Mention < ActiveRecord::Base
   end
 
   def delete_notification
-    Notification.where(:target_type => self.class.name, :target_id => self.id).destroy_all
+    Notification.where(target_type: self.class.name, target_id: self.id).destroy_all
   end
 end

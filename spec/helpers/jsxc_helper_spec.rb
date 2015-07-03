@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe JsxcHelper, :type => :helper do
+describe JsxcHelper, type: :helper do
   before do
     AppConfig.chat.server.bosh.proxy = false
     AppConfig.chat.server.bosh.port = 1234

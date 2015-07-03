@@ -32,10 +32,10 @@ describe PersonPresenter do
 
   describe "#full_hash" do
     let(:current_user) { FactoryGirl.create(:user) }
-    let(:mutual_contact) { double(:id => 1, :mutual? => true,  :sharing? => true,  :receiving? => true ) }
-    let(:receiving_contact) { double(:id => 1, :mutual? => false, :sharing? => false, :receiving? => true)  }
-    let(:sharing_contact) { double(:id => 1, :mutual? => false, :sharing? => true,  :receiving? => false) }
-    let(:non_contact) { double(:id => 1, :mutual? => false, :sharing? => false, :receiving? => false) }
+    let(:mutual_contact) { double(id: 1, :mutual? => true,  :sharing? => true,  :receiving? => true ) }
+    let(:receiving_contact) { double(id: 1, :mutual? => false, :sharing? => false, :receiving? => true)  }
+    let(:sharing_contact) { double(id: 1, :mutual? => false, :sharing? => true,  :receiving? => false) }
+    let(:non_contact) { double(id: 1, :mutual? => false, :sharing? => false, :receiving? => false) }
 
     before do
       @p = PersonPresenter.new(person, current_user)

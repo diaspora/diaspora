@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Contact, :type => :model do
+describe Contact, type: :model do
   describe 'aspect_memberships' do
     it 'deletes dependent aspect memberships' do
       expect{
@@ -37,7 +37,7 @@ describe Contact, :type => :model do
     it 'validates uniqueness' do
       person = FactoryGirl.create(:person)
 
-      contact2 = alice.contacts.create(:person=>person)
+      contact2 = alice.contacts.create(person:person)
       expect(contact2).to be_valid
 
       contact.user = alice
@@ -46,9 +46,9 @@ describe Contact, :type => :model do
     end
 
     it "validates that the person's account is not closed" do
-      person = FactoryGirl.create(:person, :closed_account => true)
+      person = FactoryGirl.create(:person, closed_account: true)
 
-      contact = alice.contacts.new(:person=>person)
+      contact = alice.contacts.new(person:person)
 
       expect(contact).not_to be_valid
       expect(contact.errors.full_messages).to include "Cannot be in contact with a closed account"
@@ -59,8 +59,8 @@ describe Contact, :type => :model do
     describe 'sharing' do
       it 'returns contacts with sharing true' do
         expect {
-          alice.contacts.create!(:sharing => true, :person => FactoryGirl.create(:person))
-          alice.contacts.create!(:sharing => false, :person => FactoryGirl.create(:person))
+          alice.contacts.create!(sharing: true, person: FactoryGirl.create(:person))
+          alice.contacts.create!(sharing: false, person: FactoryGirl.create(:person))
         }.to change{
           Contact.sharing.count
         }.by(1)
@@ -70,8 +70,8 @@ describe Contact, :type => :model do
     describe 'receiving' do
       it 'returns contacts with sharing true' do
         expect {
-          alice.contacts.create!(:receiving => true, :person => FactoryGirl.build(:person))
-          alice.contacts.create!(:receiving => false, :person => FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: false, person: FactoryGirl.build(:person))
         }.to change{
           Contact.receiving.count
         }.by(1)
@@ -81,10 +81,10 @@ describe Contact, :type => :model do
     describe 'only_sharing' do
       it 'returns contacts with sharing true and receiving false' do
         expect {
-          alice.contacts.create!(:receiving => true, :sharing => true, :person => FactoryGirl.build(:person))
-          alice.contacts.create!(:receiving => false, :sharing => true, :person => FactoryGirl.build(:person))
-          alice.contacts.create!(:receiving => false, :sharing => true, :person => FactoryGirl.build(:person))
-          alice.contacts.create!(:receiving => true, :sharing => false, :person => FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: true, sharing: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: true, sharing: false, person: FactoryGirl.build(:person))
         }.to change{
           Contact.receiving.count
         }.by(2)
@@ -94,7 +94,7 @@ describe Contact, :type => :model do
     describe "all_contacts_of_person" do
       it 'returns all contacts where the person is the passed in person' do
         person = FactoryGirl.create(:person)
-        contact1 = FactoryGirl.create(:contact, :person => person)
+        contact1 = FactoryGirl.create(:contact, person: person)
         contact2 = FactoryGirl.create(:contact)
         contacts = Contact.all_contacts_of_person(person)
         expect(contacts).to eq([contact1])
@@ -107,23 +107,23 @@ describe Contact, :type => :model do
       @alice = alice
       @bob = bob
       @eve = eve
-      @bob.aspects.create(:name => 'next')
+      @bob.aspects.create(name: 'next')
       @bob.aspects(true)
 
-      @original_aspect = @bob.aspects.where(:name => "generic").first
-      @new_aspect = @bob.aspects.where(:name => "next").first
+      @original_aspect = @bob.aspects.where(name: "generic").first
+      @new_aspect = @bob.aspects.where(name: "next").first
 
       @people1 = []
       @people2 = []
 
       1.upto(5) do
         person = FactoryGirl.build(:person)
-        @bob.contacts.create(:person => person, :aspects => [@original_aspect])
+        @bob.contacts.create(person: person, aspects: [@original_aspect])
         @people1 << person
       end
       1.upto(5) do
         person = FactoryGirl.build(:person)
-        @bob.contacts.create(:person => person, :aspects => [@new_aspect])
+        @bob.contacts.create(person: person, aspects: [@new_aspect])
         @people2 << person
       end
     #eve <-> bob <-> alice
@@ -206,8 +206,8 @@ describe Contact, :type => :model do
 
     it "adds to errors if potential contact is blocked by user" do
       person = eve.person
-      block = alice.blocks.create(:person => person)
-      bad_contact = alice.contacts.create(:person => person)
+      block = alice.blocks.create(person: person)
+      bad_contact = alice.contacts.create(person: person)
 
       expect(bad_contact.send(:not_blocked_user)).to be false
     end

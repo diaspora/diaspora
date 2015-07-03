@@ -7,8 +7,8 @@ class ConversationVisibilitiesController < ApplicationController
   before_action :authenticate_user!
 
   def destroy
-    @vis = ConversationVisibility.where(:person_id => current_user.person.id,
-                                        :conversation_id => params[:conversation_id]).first
+    @vis = ConversationVisibility.where(person_id: current_user.person.id,
+                                        conversation_id: params[:conversation_id]).first
     if @vis
       participants = @vis.conversation.participants.count
       if @vis.destroy

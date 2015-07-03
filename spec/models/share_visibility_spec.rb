@@ -4,10 +4,10 @@
 
 require 'spec_helper'
 
-describe ShareVisibility, :type => :model do
+describe ShareVisibility, type: :model do
   describe '.batch_import' do
     before do
-      @post = FactoryGirl.create(:status_message, :author => alice.person)
+      @post = FactoryGirl.create(:status_message, author: alice.person)
       @contact = bob.contact_for(alice.person)
     end
 
@@ -21,12 +21,12 @@ describe ShareVisibility, :type => :model do
       expect {
         ShareVisibility.batch_import([@contact.id], @post)
       }.to change {
-        ShareVisibility.exists?(:contact_id => @contact.id, :shareable_id => @post.id, :shareable_type => 'Post')
+        ShareVisibility.exists?(contact_id: @contact.id, shareable_id: @post.id, shareable_type: 'Post')
       }.from(false).to(true)
     end
 
     it 'does not raise if a visibility already exists' do
-      ShareVisibility.create!(:contact_id => @contact.id, :shareable_id => @post.id, :shareable_type => 'Post')
+      ShareVisibility.create!(contact_id: @contact.id, shareable_id: @post.id, shareable_type: 'Post')
       expect {
         ShareVisibility.batch_import([@contact.id], @post)
       }.not_to raise_error
@@ -35,12 +35,12 @@ describe ShareVisibility, :type => :model do
     context "scopes" do
       describe '.for_a_users_contacts' do
         before do
-          alice.post(:status_message, :text => "Hey", :to => alice.aspects.first)
+          alice.post(:status_message, text: "Hey", to: alice.aspects.first)
         end
 
         it 'searches for share visibilies for all users contacts' do
           contact_ids = alice.contacts.map(&:id)
-          expect(ShareVisibility.for_a_users_contacts(alice)).to eq(ShareVisibility.where(:contact_id => contact_ids).to_a)
+          expect(ShareVisibility.for_a_users_contacts(alice)).to eq(ShareVisibility.where(contact_id: contact_ids).to_a)
         end
       end
 
@@ -49,7 +49,7 @@ describe ShareVisibility, :type => :model do
 
           contact_ids = alice.person.contacts.map(&:id)
 
-          ShareVisibility.for_contacts_of_a_person(alice.person) == ShareVisibility.where(:contact_id => contact_ids).to_a
+          ShareVisibility.for_contacts_of_a_person(alice.person) == ShareVisibility.where(contact_id: contact_ids).to_a
 
         end
       end

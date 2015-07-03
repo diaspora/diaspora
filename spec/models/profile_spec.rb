@@ -4,27 +4,27 @@
 
 require 'spec_helper'
 
-describe Profile, :type => :model do
+describe Profile, type: :model do
   describe 'validation' do
     describe "of first_name" do
       it "strips leading and trailing whitespace" do
-        profile = FactoryGirl.build(:profile, :first_name => "     Shelly    ")
+        profile = FactoryGirl.build(:profile, first_name: "     Shelly    ")
         expect(profile).to be_valid
         expect(profile.first_name).to eq("Shelly")
       end
 
       it "can be 32 characters long" do
-        profile = FactoryGirl.build(:profile, :first_name => "Hexagoooooooooooooooooooooooooon")
+        profile = FactoryGirl.build(:profile, first_name: "Hexagoooooooooooooooooooooooooon")
         expect(profile).to be_valid
       end
 
       it "cannot be 33 characters" do
-        profile = FactoryGirl.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
+        profile = FactoryGirl.build(:profile, first_name: "Hexagooooooooooooooooooooooooooon")
         expect(profile).not_to be_valid
       end
 
       it 'cannot have ;' do
-        profile = FactoryGirl.build(:profile, :first_name => "Hex;agon")
+        profile = FactoryGirl.build(:profile, first_name: "Hex;agon")
         expect(profile).not_to be_valid
       end
     end
@@ -40,7 +40,7 @@ describe Profile, :type => :model do
       end
 
       it 'does not overwrite any exsisting profile fields' do
-        profile = Profile.new(:first_name => 'maxwell')
+        profile = Profile.new(first_name: 'maxwell')
         expect(profile.from_omniauth_hash(@from_omniauth)['first_name']).to eq('maxwell')
       end
 
@@ -86,27 +86,27 @@ describe Profile, :type => :model do
 
     describe "of last_name" do
       it "strips leading and trailing whitespace" do
-        profile = FactoryGirl.build(:profile, :last_name => "     Ohba    ")
+        profile = FactoryGirl.build(:profile, last_name: "     Ohba    ")
         expect(profile).to be_valid
         expect(profile.last_name).to eq("Ohba")
       end
 
       it "can be 32 characters long" do
-        profile = FactoryGirl.build(:profile, :last_name => "Hexagoooooooooooooooooooooooooon")
+        profile = FactoryGirl.build(:profile, last_name: "Hexagoooooooooooooooooooooooooon")
         expect(profile).to be_valid
       end
 
       it "cannot be 33 characters" do
-        profile = FactoryGirl.build(:profile, :last_name => "Hexagooooooooooooooooooooooooooon")
+        profile = FactoryGirl.build(:profile, last_name: "Hexagooooooooooooooooooooooooooon")
         expect(profile).not_to be_valid
       end
 
       it 'cannot have ;' do
-        profile = FactoryGirl.build(:profile, :last_name => "Hex;agon")
+        profile = FactoryGirl.build(:profile, last_name: "Hex;agon")
         expect(profile).not_to be_valid
       end
       it 'disallows ; with a newline in the string' do
-        profile = FactoryGirl.build(:profile, :last_name => "H\nex;agon")
+        profile = FactoryGirl.build(:profile, last_name: "H\nex;agon")
         expect(profile).not_to be_valid
       end
     end
@@ -114,12 +114,12 @@ describe Profile, :type => :model do
 
   describe "of location" do
     it "can be 255 characters long" do
-      profile = FactoryGirl.build(:profile, :location => "a"*255)
+      profile = FactoryGirl.build(:profile, location: "a"*255)
       expect(profile).to be_valid
     end
 
     it "cannot be 256 characters" do
-      profile = FactoryGirl.build(:profile, :location => "a"*256)
+      profile = FactoryGirl.build(:profile, location: "a"*256)
       expect(profile).not_to be_valid
     end
   end
@@ -174,7 +174,7 @@ describe Profile, :type => :model do
   end
 
   describe 'serialization' do
-    let(:person) {FactoryGirl.build(:person,:diaspora_handle => "foobar" )}
+    let(:person) {FactoryGirl.build(:person,diaspora_handle: "foobar" )}
 
     it 'should include persons diaspora handle' do
       xml = person.profile.to_diaspora_xml

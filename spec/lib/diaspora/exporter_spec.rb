@@ -17,7 +17,7 @@ describe Diaspora::Exporter do
     @user1.person.profile.save
 
     @aspect  =  @user1.aspects.first
-    @aspect1 =  @user1.aspects.create(:name => "Work", :contacts_visible => false)
+    @aspect1 =  @user1.aspects.create(name: "Work", contacts_visible: false)
     @aspect.name = "<script>"
     @aspect.save
   end

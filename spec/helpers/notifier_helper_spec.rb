@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe NotifierHelper, :type => :helper do
+describe NotifierHelper, type: :helper do
   describe '#post_message' do
     before do
       # post for markdown test

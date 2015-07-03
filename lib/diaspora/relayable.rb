@@ -14,13 +14,13 @@ module Diaspora
         xml_attr :author_signature
 
         validates_associated :parent
-        validates :author, :presence => true
+        validates :author, presence: true
         validate :author_is_not_ignored
 
         delegate :public?, to: :parent
         delegate :author, :diaspora_handle, to: :parent, prefix: true
 
-        after_commit :on => :create do
+        after_commit on: :create do
           parent.touch(:interacted_at) if parent.respond_to?(:interacted_at)
         end
 

@@ -13,7 +13,7 @@ module User::Querying
   def visible_shareables(klass, opts={})
     opts = prep_opts(klass, opts)
     shareable_ids = visible_shareable_ids(klass, opts)
-    klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table]).order(klass.table_name+".id DESC")
+    klass.where(id: shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table]).order(klass.table_name+".id DESC")
   end
 
   def visible_shareable_ids(klass, opts={})
@@ -50,9 +50,9 @@ module User::Querying
 
   def construct_shareable_from_others_query(opts)
     conditions = {
-        :pending => false,
-        :share_visibilities => {:hidden => opts[:hidden]},
-        :contacts => {:user_id => self.id, :receiving => true}
+        pending: false,
+        share_visibilities: {hidden: opts[:hidden]},
+        contacts: {user_id: self.id, receiving: true}
     }
 
     conditions[:type] = opts[:type] if opts.has_key?(:type)
@@ -60,8 +60,8 @@ module User::Querying
     query = opts[:klass].joins(:contacts).where(conditions)
 
     if opts[:by_members_of]
-      query = query.joins(:contacts => :aspect_memberships).where(
-        :aspect_memberships => {:aspect_id => opts[:by_members_of]})
+      query = query.joins(contacts: :aspect_memberships).where(
+        aspect_memberships: {aspect_id: opts[:by_members_of]})
     end
 
     ugly_select_clause(query, opts)
@@ -73,27 +73,27 @@ module User::Querying
     # For PostgreSQL and MySQL/MariaDB we use a different query
     # see issue: https://github.com/diaspora/diaspora/issues/5014
     if AppConfig.postgres?
-      query = opts[:klass].where(:author_id => Person.in_aspects(opts[:by_members_of]).select("people.id"), :public => true, :pending => false)
+      query = opts[:klass].where(author_id: Person.in_aspects(opts[:by_members_of]).select("people.id"), public: true, pending: false)
     else
-      aspects = Aspect.where(:id => opts[:by_members_of])
+      aspects = Aspect.where(id: opts[:by_members_of])
       person_ids = Person.connection.select_values(people_in_aspects(aspects).select("people.id").to_sql)
-      query = opts[:klass].where(:author_id => person_ids, :public => true, :pending => false)
+      query = opts[:klass].where(author_id: person_ids, public: true, pending: false)
     end
 
     unless(opts[:klass] == Photo)
-      query = query.where(:type => opts[:type])
+      query = query.where(type: opts[:type])
     end
 
     ugly_select_clause(query, opts)
   end
 
   def construct_shareable_from_self_query(opts)
-    conditions = {:pending => false, :author_id => self.person_id }
+    conditions = {pending: false, author_id: self.person_id }
     conditions[:type] = opts[:type] if opts.has_key?(:type)
     query = opts[:klass].where(conditions)
 
     if opts[:by_members_of]
-      query = query.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
+      query = query.joins(:aspect_visibilities).where(aspect_visibilities: {aspect_id: opts[:by_members_of]})
     end
 
     ugly_select_clause(query, opts)
@@ -112,17 +112,17 @@ module User::Querying
   def aspects_with_shareable(base_class_name_or_class, shareable_id)
     base_class_name = base_class_name_or_class
     base_class_name = base_class_name_or_class.base_class.to_s if base_class_name_or_class.is_a?(Class)
-    self.aspects.joins(:aspect_visibilities).where(:aspect_visibilities => {:shareable_id => shareable_id, :shareable_type => base_class_name})
+    self.aspects.joins(:aspect_visibilities).where(aspect_visibilities: {shareable_id: shareable_id, shareable_type: base_class_name})
   end
 
   def contact_for_person_id(person_id)
-    Contact.where(:user_id => self.id, :person_id => person_id).includes(:person => :profile).first
+    Contact.where(user_id: self.id, person_id: person_id).includes(person: :profile).first
   end
 
   # @param [Person] person
   # @return [Boolean] whether person is a contact of this user
   def has_contact_for?(person)
-    Contact.exists?(:user_id => self.id, :person_id => person.id)
+    Contact.exists?(user_id: self.id, person_id: person.id)
   end
 
   def people_in_aspects(requested_aspects, opts={})
@@ -132,7 +132,7 @@ module User::Querying
     people = Person.in_aspects(aspect_ids)
 
     if opts[:type] == 'remote'
-      people = people.where(:owner_id => nil)
+      people = people.where(owner_id: nil)
     elsif opts[:type] == 'local'
       people = people.where('people.owner_id IS NOT NULL')
     end
@@ -159,9 +159,9 @@ module User::Querying
   # @return [Hash]
   def prep_opts(klass, opts)
     defaults = {
-        :order => 'created_at DESC',
-        :limit => 15,
-        :hidden => false
+        order: 'created_at DESC',
+        limit: 15,
+        hidden: false
     }
     defaults[:type] = Stream::Base::TYPES_OF_POST_IN_STREAM if klass == Post
     opts = defaults.merge(opts)

@@ -7,13 +7,13 @@ class PublicsController < ApplicationController
 
   skip_before_action :set_header_data
   skip_before_action :set_grammatical_gender
-  before_action :check_for_xml, :only => [:receive, :receive_public]
-  before_action :authenticate_user!, :only => [:index]
+  before_action :check_for_xml, only: [:receive, :receive_public]
+  before_action :authenticate_user!, only: [:index]
 
   respond_to :html
-  respond_to :xml, :only => :post
+  respond_to :xml, only: :post
 
-  caches_page :host_meta, :if => Proc.new{ Rails.env == 'production'}
+  caches_page :host_meta, if: Proc.new{ Rails.env == 'production'}
 
   layout false
 
@@ -23,34 +23,34 @@ class PublicsController < ApplicationController
     if @person.present? && @person.local?
       render 'publics/hcard'
     else
-      render :nothing => true, :status => 404
+      render nothing: true, status: 404
     end
   end
 
   def host_meta
-    render 'host_meta', :content_type => 'application/xrd+xml'
+    render 'host_meta', content_type: 'application/xrd+xml'
   end
 
   def webfinger
     @person = Person.local_by_account_identifier(params[:q]) if params[:q]
 
     if @person.nil? || @person.closed_account?
-      render :nothing => true, :status => 404
+      render nothing: true, status: 404
       return
     end
 
     logger.info "webfinger profile request for: #{@person.id}"
-    render 'webfinger', :content_type => 'application/xrd+xml'
+    render 'webfinger', content_type: 'application/xrd+xml'
   end
 
   def hub
-    render :text => params['hub.challenge'], :status => 202, :layout => false
+    render text: params['hub.challenge'], status: 202, layout: false
   end
 
   def receive_public
     logger.info "received a public message"
     Workers::ReceiveUnencryptedSalmon.perform_async(CGI::unescape(params[:xml]))
-    render :nothing => true, :status => :ok
+    render nothing: true, status: :ok
   end
 
   def receive
@@ -58,7 +58,7 @@ class PublicsController < ApplicationController
 
     if person.nil? || person.owner_id.nil?
       logger.error "Received post for nonexistent person #{params[:guid]}"
-      render :nothing => true, :status => 404
+      render nothing: true, status: 404
       return
     end
 
@@ -67,14 +67,14 @@ class PublicsController < ApplicationController
     logger.info "received a private message for user: #{@user.id}"
     Workers::ReceiveEncryptedSalmon.perform_async(@user.id, CGI::unescape(params[:xml]))
 
-    render :nothing => true, :status => 202
+    render nothing: true, status: 202
   end
 
   private
 
   def check_for_xml
     if params[:xml].nil?
-      render :nothing => true, :status => 422
+      render nothing: true, status: 422
       return
     end
   end

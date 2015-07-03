@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Workers::FetchProfilePhoto do
   before do
    @user = alice
-   @service = FactoryGirl.build(:service, :user => alice)
+   @service = FactoryGirl.build(:service, user: alice)
 
    @url = "https://service.com/user/profile_image"
 
@@ -20,7 +20,7 @@ describe Workers::FetchProfilePhoto do
 
   it 'saves the profile image' do
     expect(@photo_double).to receive(:save!).and_return(true)
-    expect(Photo).to receive(:diaspora_initialize).with(hash_including(:author => @user.person, :image_url => @url, :pending => true)).and_return(@photo_double)
+    expect(Photo).to receive(:diaspora_initialize).with(hash_including(author: @user.person, image_url: @url, pending: true)).and_return(@photo_double)
 
     Workers::FetchProfilePhoto.new.perform(@user.id, @service.id)
   end
@@ -36,7 +36,7 @@ describe Workers::FetchProfilePhoto do
     it "fetches fallback if it's provided" do
       expect(@photo_double).to receive(:save!).and_return(true)
       allow(@service).to receive(:profile_photo_url).and_return(nil)
-      expect(Photo).to receive(:diaspora_initialize).with(hash_including(:author => @user.person, :image_url => "https://service.com/fallback_lowres.jpg", :pending => true)).and_return(@photo_double)
+      expect(Photo).to receive(:diaspora_initialize).with(hash_including(author: @user.person, image_url: "https://service.com/fallback_lowres.jpg", pending: true)).and_return(@photo_double)
 
       Workers::FetchProfilePhoto.new.perform(@user.id, @service.id, "https://service.com/fallback_lowres.jpg")
     end
@@ -48,9 +48,9 @@ describe Workers::FetchProfilePhoto do
 
     expect(Photo).to receive(:diaspora_initialize).and_return(@photo_double)
     expect(@user).to receive(:update_profile).with(hash_including({
-                                               :image_url => "large.jpg",
-                                               :image_url_medium => "medium.jpg",
-                                               :image_url_small  => "small.jpg"
+                                               image_url: "large.jpg",
+                                               image_url_medium: "medium.jpg",
+                                               image_url_small: "small.jpg"
                                             }))
 
     Workers::FetchProfilePhoto.new.perform(@user.id, @service.id)

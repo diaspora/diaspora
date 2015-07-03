@@ -3,7 +3,7 @@ require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Multi do
   before do
-    @stream = Stream::Multi.new(alice, :max_time => Time.now, :order => 'updated_at')
+    @stream = Stream::Multi.new(alice, max_time: Time.now, order: 'updated_at')
   end
 
   describe 'shared behaviors' do
@@ -26,9 +26,9 @@ describe Stream::Multi do
       prefill_text = "sup?"
       allow(@stream).to receive(:welcome?).and_return(true)
       allow(@stream).to receive(:publisher_prefill).and_return(prefill_text)
-      expect(@stream.send(:publisher_opts)).to eq({:open => true,
-                                               :prefill => prefill_text,
-                                               :public => true})
+      expect(@stream.send(:publisher_opts)).to eq({open: true,
+                                               prefill: prefill_text,
+                                               public: true})
     end
 
     it 'provides no opts if welcome? is not set' do
@@ -41,7 +41,7 @@ describe Stream::Multi do
   describe "#publisher_prefill" do
     before do
       @tag = ActsAsTaggableOn::Tag.find_or_create_by(name: "cats")
-      @tag_following = alice.tag_followings.create(:tag_id => @tag.id)
+      @tag_following = alice.tag_followings.create(tag_id: @tag.id)
 
       @stream = Stream::Multi.new(alice)
     end
@@ -56,7 +56,7 @@ describe Stream::Multi do
 
     context 'when invited by another user' do
       before do
-        @user = FactoryGirl.create(:user, :invited_by => alice)
+        @user = FactoryGirl.create(:user, invited_by: alice)
         @inviter = alice.person
 
         @stream = Stream::Multi.new(@user)

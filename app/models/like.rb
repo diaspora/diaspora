@@ -9,11 +9,11 @@ class Like < Federated::Relayable
     end
 
     def relayable_options
-      {:target => @target, :positive => true}
+      {target: @target, positive: true}
     end
   end
 
-  after_commit :on => :create do
+  after_commit on: :create do
     self.parent.update_likes_counter
   end
 

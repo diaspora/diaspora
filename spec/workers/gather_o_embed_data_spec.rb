@@ -25,8 +25,8 @@ describe Workers::GatherOEmbedData do
 
     @status_message = FactoryGirl.create(:status_message)
 
-    stub_request(:get, @flickr_oembed_get_request).to_return(:status => 200, :body => @flickr_oembed_data.to_json)
-    stub_request(:get, @no_oembed_url).to_return(:status => 200, :body => '<html><body>hello there</body></html>')
+    stub_request(:get, @flickr_oembed_get_request).to_return(status: 200, body: @flickr_oembed_data.to_json)
+    stub_request(:get, @no_oembed_url).to_return(status: 200, body: '<html><body>hello there</body></html>')
   end
 
   describe '.perform' do

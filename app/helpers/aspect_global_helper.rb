@@ -25,12 +25,12 @@ module AspectGlobalHelper
       end
 
     render "aspect_memberships/aspect_membership_dropdown",
-      :selected_aspects => selected_aspects,
-      :aspect_membership_ids => aspect_membership_ids,
-      :person => person,
-      :hang => hang,
-      :dropdown_class => "aspect_membership",
-      :button_class => button_class
+      selected_aspects: selected_aspects,
+      aspect_membership_ids: aspect_membership_ids,
+      person: person,
+      hang: hang,
+      dropdown_class: "aspect_membership",
+      button_class: button_class
   end
 
   def aspect_dropdown_list_item(aspect, am_id=nil)

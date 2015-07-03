@@ -1,5 +1,5 @@
 class Maintenance < ActionMailer::Base
-  default :from => AppConfig.mail.sender_address
+  default from: AppConfig.mail.sender_address
 
   def account_removal_warning(user)
     @user = user

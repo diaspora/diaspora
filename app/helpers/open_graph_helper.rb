@@ -56,7 +56,7 @@ module OpenGraphHelper
       tags.concat [
         *tags,
         og_type("#{og_namespace}:frame"),
-        og_title(post_page_title(post, :length => 140)),
+        og_title(post_page_title(post, length: 140)),
         og_url(post_url(post)),
         og_image(post),
         og_description(post.message.plain_text_without_markdown truncate: 1000)
@@ -71,7 +71,7 @@ module OpenGraphHelper
   end
 
   def meta_tag_with_property(name, content)
-    tag(:meta, :property => name, :content => content)
+    tag(:meta, property: name, content: content)
   end
 
   def og_html(cache)
@@ -85,7 +85,7 @@ module OpenGraphHelper
   end
 
   def link_to_oembed_image(cache, prefix = 'thumbnail_')
-    link_to(oembed_image_tag(cache, prefix), cache.url, :target => '_blank')
+    link_to(oembed_image_tag(cache, prefix), cache.url, target: '_blank')
   end
 
   def oembed_image_tag(cache, prefix)

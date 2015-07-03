@@ -5,9 +5,9 @@
 class PostsController < ApplicationController
   include PostsHelper
 
-  before_action :authenticate_user!, :except => [:show, :iframe, :oembed, :interactions]
-  before_action :set_format_if_malformed_from_status_net, :only => :show
-  before_action :find_post, :only => [:show, :interactions]
+  before_action :authenticate_user!, except: [:show, :iframe, :oembed, :interactions]
+  before_action :set_format_if_malformed_from_status_net, only: :show
+  before_action :find_post, only: [:show, :interactions]
 
   respond_to :html,
              :mobile,
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
   rescue_from Diaspora::NonPublic do |exception|
     respond_to do |format|
-      format.all { render :template=>'errors/not_public', :status=>404, :layout => "application"}
+      format.all { render template:'errors/not_public', status:404, layout: "application"}
     end
   end
 
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def iframe
-    render :text => post_iframe_url(params[:id]), :layout => false
+    render text: post_iframe_url(params[:id]), layout: false
   end
 
   def oembed
@@ -43,9 +43,9 @@ class PostsController < ApplicationController
     post = Post.find_by_guid_or_id_with_user(post_id, current_user)
     if post.present?
       oembed = OEmbedPresenter.new(post, params.slice(:format, :maxheight, :minheight))
-      render :json => oembed
+      render json: oembed
     else
-      render :nothing => true, :status => 404
+      render nothing: true, status: 404
     end
   end
 
@@ -58,8 +58,8 @@ class PostsController < ApplicationController
     current_user.retract(@post)
 
     respond_to do |format|
-      format.js { render 'destroy',:layout => false, :format => :js }
-      format.json { render :nothing => true, :status => 204 }
+      format.js { render 'destroy',layout: false, format: :js }
+      format.json { render nothing: true, status: 204 }
       format.any { redirect_to stream_path }
     end
   end
@@ -68,7 +68,7 @@ class PostsController < ApplicationController
     find_current_user_post(params[:id])
     @post.favorite = !@post.favorite
     @post.save
-    render :nothing => true, :status => 202
+    render nothing: true, status: 202
   end
 
   protected

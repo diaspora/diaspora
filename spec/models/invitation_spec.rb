@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Invitation, :type => :model do
+describe Invitation, type: :model do
   let(:user) { alice }
 
   before do
@@ -13,7 +13,7 @@ describe Invitation, :type => :model do
   end
   describe 'validations' do
     before do
-      @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => nil, :aspect => user.aspects.first, :language => "de")
+      @invitation = FactoryGirl.build(:invitation, sender: user, recipient: nil, aspect: user.aspects.first, language: "de")
     end
 
     it 'is valid' do
@@ -32,18 +32,18 @@ describe Invitation, :type => :model do
 
   describe '#language' do  
     it 'returns the correct language if the language is set' do
-      @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => "de")
+      @invitation = FactoryGirl.build(:invitation, sender: user, recipient: eve, aspect: user.aspects.first, language: "de")
       expect(@invitation.language).to eq("de")
     end  
 
     it 'returns en if no language is set' do
-      @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first)
+      @invitation = FactoryGirl.build(:invitation, sender: user, recipient: eve, aspect: user.aspects.first)
       expect(@invitation.language).to eq("en")
     end
   end
 
   it 'has a message' do
-    @invitation = FactoryGirl.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => user.language)
+    @invitation = FactoryGirl.build(:invitation, sender: user, recipient: eve, aspect: user.aspects.first, language: user.language)
     @invitation.message = "!"
     expect(@invitation.message).to eq("!")
   end
@@ -52,7 +52,7 @@ describe Invitation, :type => :model do
   describe '.batch_invite' do
     before do
       @emails = ['max@foo.com', 'bob@mom.com']
-      @opts = {:aspect => eve.aspects.first, :sender => eve, :service => 'email', :language => eve.language}
+      @opts = {aspect: eve.aspects.first, sender: eve, service: 'email', language: eve.language}
     end
 
     it 'returns an array of invites based on the emails passed in' do
@@ -62,7 +62,7 @@ describe Invitation, :type => :model do
     end
 
     it 'shares with people who are already on the pod' do
-      FactoryGirl.create(:user, :email => @emails.first)
+      FactoryGirl.create(:user, email: @emails.first)
       invites = nil
       expect{
         invites = Invitation.batch_invite(@emails, @opts)

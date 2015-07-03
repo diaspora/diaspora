@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Salmon::EncryptedSlap do
   before do
-    @post = alice.post(:status_message, :text => "hi", :to => alice.aspects.create(:name => "abcd").id)
+    @post = alice.post(:status_message, text: "hi", to: alice.aspects.create(name: "abcd").id)
     @created_salmon = Salmon::EncryptedSlap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
   end
 

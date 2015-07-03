@@ -12,6 +12,6 @@ class Notifications::AlsoCommented < Notification
   end
 
   def linked_object
-    Post.where(:id => self.target_id).first
+    Post.where(id: self.target_id).first
   end
 end

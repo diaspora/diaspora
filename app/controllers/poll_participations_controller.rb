@@ -8,13 +8,13 @@ class PollParticipationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
-      format.json { render json: poll_participation, :status => 201 }
+      format.json { render json: poll_participation, status: 201 }
     end
   rescue ActiveRecord::RecordInvalid
     respond_to do |format|
       format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
-      format.json { render :nothing => true, :status => 403 }
+      format.json { render nothing: true, status: 403 }
     end
   end
 

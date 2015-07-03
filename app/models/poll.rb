@@ -7,7 +7,7 @@ class Poll < ActiveRecord::Base
   has_many :poll_participations
 
   xml_attr :question
-  xml_attr :poll_answers, :as => [PollAnswer]
+  xml_attr :poll_answers, as: [PollAnswer]
 
   #forward some requests to status message, because a poll is just attached to a status message and is not sharable itself
   delegate :author, :author_id, :diaspora_handle, :public?, :subscribers, to: :status_message
@@ -23,11 +23,11 @@ class Poll < ActiveRecord::Base
 
   def as_json(options={})
     {
-      :poll_id => self.id,
-      :post_id => self.status_message.id,
-      :question => self.question,
-      :poll_answers => self.poll_answers,
-      :participation_count => self.participation_count,
+      poll_id: self.id,
+      post_id: self.status_message.id,
+      question: self.question,
+      poll_answers: self.poll_answers,
+      participation_count: self.participation_count,
     }
   end
 
@@ -36,6 +36,6 @@ class Poll < ActiveRecord::Base
   end
 
   def already_participated?(user)
-    poll_participations.where(:author_id => user.person.id).present?
+    poll_participations.where(author_id: user.person.id).present?
   end
 end

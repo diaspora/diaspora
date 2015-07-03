@@ -26,7 +26,7 @@ module MentioningSpecHelpers
 end
 
 
-describe 'mentioning', :type => :request do
+describe 'mentioning', type: :request do
   include MentioningSpecHelpers
 
   before do

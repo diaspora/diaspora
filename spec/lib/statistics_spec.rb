@@ -25,14 +25,14 @@ describe Statistics do
 
   describe '#posts_count_sql' do
     it "pulls back an array of post counts and ids" do
-      FactoryGirl.create(:status_message, :author => bob.person)
+      FactoryGirl.create(:status_message, author: bob.person)
       result_should_equal User.connection.select_all(@stats.posts_count_sql)
     end
   end
 
   describe '#comments_count_sql' do
     it "pulls back an array of post counts and ids" do
-      status_message = FactoryGirl.create(:status_message, :author => alice.person)
+      status_message = FactoryGirl.create(:status_message, author: alice.person)
       bob.comment!(status_message, "sup")
       result_should_equal User.connection.select_all(@stats.comments_count_sql)
     end
@@ -41,22 +41,22 @@ describe Statistics do
 
   describe '#invites_sent_count_sql' do
     it "pulls back an array of invite counts and ids" do
-      Invitation.batch_invite(["a@a.com"], :sender => bob, :aspect => bob.aspects.first, :service => 'email')
+      Invitation.batch_invite(["a@a.com"], sender: bob, aspect: bob.aspects.first, service: 'email')
       result_should_equal User.connection.select_all(@stats.invites_sent_count_sql)
     end
   end
 
   describe '#tags_followed_count_sql' do
     it "pulls back an array of tag following counts and ids" do
-      TagFollowing.create!(:user => bob, :tag_id => 1)
+      TagFollowing.create!(user: bob, tag_id: 1)
       result_should_equal User.connection.select_all(@stats.tags_followed_count_sql)
     end
   end
 
   describe '#mentions_count_sql' do
     it "pulls back an array of mentions following counts and ids" do
-      post = FactoryGirl.create(:status_message, :author => bob.person)
-      Mention.create(:post => post, :person => bob.person)
+      post = FactoryGirl.create(:status_message, author: bob.person)
+      Mention.create(post: post, person: bob.person)
       result_should_equal User.connection.select_all(@stats.mentions_count_sql)
     end
   end
@@ -87,10 +87,10 @@ describe Statistics do
   describe "#fb_connected_distribution_sql" do
     it "pulls back an array of sign_in_counts, connected, uids" do
       bob.sign_in_count = 1
-      bob.services << FactoryGirl.create(:service, :type => "Services::Facebook", :user => bob)
+      bob.services << FactoryGirl.create(:service, type: "Services::Facebook", user: bob)
       bob.save!
 
-      eve.services << FactoryGirl.create(:service, :type => "Services::Facebook", :user => eve)
+      eve.services << FactoryGirl.create(:service, type: "Services::Facebook", user: eve)
       eve.save!
 
 
@@ -133,7 +133,7 @@ describe Statistics do
   describe "#generate_correlations" do
     it 'returns the post count (and sign_in_count) correlation' do
       bob.sign_in_count = 1
-      bob.post(:status_message, :text => "here is a message")
+      bob.post(:status_message, text: "here is a message")
       bob.save!
 
       c = expect(@stats.generate_correlations[:posts_count].round(1)).to eq(1.0)

@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Aspect, :type => :model do
+describe Aspect, type: :model do
   describe 'creation' do
     before do
       @name = alice.aspects.first.name
@@ -12,27 +12,27 @@ describe Aspect, :type => :model do
 
     it 'does not allow duplicate names' do
       expect {
-        invalid_aspect = alice.aspects.create(:name => @name)
+        invalid_aspect = alice.aspects.create(name: @name)
       }.not_to change(Aspect, :count)
     end
 
     it 'validates case insensitiveness on names' do
       expect {
-        invalid_aspect = alice.aspects.create(:name => @name.titleize)
+        invalid_aspect = alice.aspects.create(name: @name.titleize)
       }.not_to change(Aspect, :count)
     end
 
     it 'has a 20 character limit on names' do
-      aspect = Aspect.new(:name => "this name is really too too too too too long")
+      aspect = Aspect.new(name: "this name is really too too too too too long")
       expect(aspect.valid?).to eq(false)
     end
 
     it 'is able to have other users as contacts' do
-      aspect = alice.aspects.create(:name => 'losers')
+      aspect = alice.aspects.create(name: 'losers')
 
-      Contact.create(:user => alice, :person => eve.person, :aspects => [aspect])
-      expect(aspect.contacts.where(:person_id => alice.person.id)).to be_empty
-      expect(aspect.contacts.where(:person_id => eve.person.id)).not_to be_empty
+      Contact.create(user: alice, person: eve.person, aspects: [aspect])
+      expect(aspect.contacts.where(person_id: alice.person.id)).to be_empty
+      expect(aspect.contacts.where(person_id: eve.person.id)).not_to be_empty
       expect(aspect.contacts.size).to eq(1)
     end
 
@@ -50,8 +50,8 @@ describe Aspect, :type => :model do
 
   describe 'validation' do
     it 'has no uniqueness of name between users' do
-      aspect = alice.aspects.create(:name => "New Aspect")
-      aspect2 = eve.aspects.create(:name => aspect.name)
+      aspect = alice.aspects.create(name: "New Aspect")
+      aspect2 = eve.aspects.create(name: aspect.name)
       expect(aspect2).to be_valid
     end
   end

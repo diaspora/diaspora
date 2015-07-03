@@ -3,15 +3,15 @@
 #   the COPYRIGHT file.
 #
 class Notification < ActiveRecord::Base
-  belongs_to :recipient, :class_name => 'User'
-  has_many :notification_actors, :dependent => :destroy
-  has_many :actors, :class_name => 'Person', :through => :notification_actors, :source => :person
-  belongs_to :target, :polymorphic => true
+  belongs_to :recipient, class_name: 'User'
+  has_many :notification_actors, dependent: :destroy
+  has_many :actors, class_name: 'Person', through: :notification_actors, source: :person
+  belongs_to :target, polymorphic: true
 
   attr_accessor :note_html
  
   def self.for(recipient, opts={})
-    self.where(opts.merge!(:recipient_id => recipient.id)).order('updated_at desc')
+    self.where(opts.merge!(recipient_id: recipient.id)).order('updated_at desc')
   end
 
   def self.notify(recipient, target, actor)
@@ -33,7 +33,7 @@ class Notification < ActiveRecord::Base
   end
 
   def as_json(opts={})
-    super(opts.merge(:methods => :note_html))
+    super(opts.merge(methods: :note_html))
   end
 
   def email_the_user(target, actor)
@@ -41,7 +41,7 @@ class Notification < ActiveRecord::Base
   end
 
   def set_read_state( read_state )
-    self.update_attributes( :unread => !read_state )
+    self.update_attributes( unread: !read_state )
   end
 
   def mail_job
@@ -56,10 +56,10 @@ private
   def self.concatenate_or_create(recipient, target, actor, notification_type)
     return nil if suppress_notification?(recipient, target)
 
-    if n = notification_type.where(:target_id => target.id,
-                                   :target_type => target.class.base_class,
-                                   :recipient_id => recipient.id,
-                                   :unread => true).first
+    if n = notification_type.where(target_id: target.id,
+                                   target_type: target.class.base_class,
+                                   recipient_id: recipient.id,
+                                   unread: true).first
 
       begin
         n.actors = n.actors | [actor]
@@ -77,8 +77,8 @@ private
 
   def self.make_notification(recipient, target, actor, notification_type)
     return nil if suppress_notification?(recipient, target)
-    n = notification_type.new(:target => target,
-                              :recipient_id => recipient.id)
+    n = notification_type.new(target: target,
+                              recipient_id: recipient.id)
     n.actors = n.actors | [actor]
     n.unread = false if target.is_a? Request
     n.save!

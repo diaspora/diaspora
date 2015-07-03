@@ -17,9 +17,9 @@ module PeopleHelper
 
   def birthday_format(bday)
     if bday.year == 1000
-      I18n.l bday, :format => I18n.t('date.formats.birthday')
+      I18n.l bday, format: I18n.t('date.formats.birthday')
     else
-      I18n.l bday, :format => I18n.t('date.formats.birthday_with_year')
+      I18n.l bday, format: I18n.t('date.formats.birthday_with_year')
     end
   end
 
@@ -57,13 +57,13 @@ module PeopleHelper
 
   # Rails.application.routes.url_helpers is needed since this is indirectly called from a model
   def local_or_remote_person_path(person, opts={})
-    opts.merge!(:protocol => AppConfig.pod_uri.scheme, :host => AppConfig.pod_uri.authority)
+    opts.merge!(protocol: AppConfig.pod_uri.scheme, host: AppConfig.pod_uri.authority)
     absolute = opts.delete(:absolute)
 
     if person.local?
       username = person.diaspora_handle.split('@')[0]
       unless username.include?('.')
-        opts.merge!(:username => username)
+        opts.merge!(username: username)
         if absolute
           return Rails.application.routes.url_helpers.user_profile_url(opts)
         else

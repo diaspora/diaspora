@@ -19,8 +19,8 @@ describe Diaspora::Parser do
 
   describe "parsing compliant XML object" do
     it 'should be able to correctly parse comment fields' do
-      post = @user1.post :status_message, :text => "hello", :to => @aspect1.id
-      comment = FactoryGirl.create(:comment, :post => post, :author => @person, :diaspora_handle => @person.diaspora_handle, :text => "Freedom!")
+      post = @user1.post :status_message, text: "hello", to: @aspect1.id
+      comment = FactoryGirl.create(:comment, post: post, author: @person, diaspora_handle: @person.diaspora_handle, text: "Freedom!")
       comment.delete
       xml = comment.to_diaspora_xml
       comment_from_xml = Diaspora::Parser.from_xml(xml)

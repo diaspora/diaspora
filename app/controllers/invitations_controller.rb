@@ -4,7 +4,7 @@
 
 class InvitationsController < ApplicationController
 
-  before_action :authenticate_user!, :only => [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def new
     @invite_code = current_user.invitation_code
@@ -41,7 +41,7 @@ class InvitationsController < ApplicationController
       end
 
     if @invitation_code.present?
-      render 'notifier/invite', :layout => false
+      render 'notifier/invite', layout: false
     else
       flash[:error] = t('invitations.check_token.not_found')
 
@@ -66,11 +66,11 @@ class InvitationsController < ApplicationController
     if emails.empty?
       flash[:error] = t('invitations.create.empty')
     elsif invalid_emails.empty?
-      flash[:notice] =  t('invitations.create.sent', :emails => valid_emails.join(', '))
+      flash[:notice] =  t('invitations.create.sent', emails: valid_emails.join(', '))
     elsif valid_emails.empty?
       flash[:error] = t('invitations.create.rejected') +  invalid_emails.join(', ')
     else
-      flash[:error] = t('invitations.create.sent', :emails => valid_emails.join(', '))
+      flash[:error] = t('invitations.create.sent', emails: valid_emails.join(', '))
       flash[:error] << '. '
       flash[:error] << t('invitations.create.rejected') +  invalid_emails.join(', ')
     end

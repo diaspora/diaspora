@@ -35,7 +35,7 @@ class SignedRetraction
   end
 
   def sender_handle= new_sender_handle
-    @sender = Person.where(:diaspora_handle => new_sender_handle).first
+    @sender = Person.where(diaspora_handle: new_sender_handle).first
   end
 
   def sender_handle
@@ -59,7 +59,7 @@ class SignedRetraction
   end
 
   def target
-    @target ||= self.target_type.constantize.where(:guid => target_guid).first
+    @target ||= self.target_type.constantize.where(guid: target_guid).first
   end
 
   def guid
@@ -73,7 +73,7 @@ class SignedRetraction
 
   def perform receiving_user
     logger.debug "Performing retraction for #{target_guid}"
-    if reshare = Reshare.where(:author_id => receiving_user.person.id, :root_guid => target_guid).first
+    if reshare = Reshare.where(author_id: receiving_user.person.id, root_guid: target_guid).first
       onward_retraction = self.dup
       onward_retraction.sender = receiving_user.person
       Postzord::Dispatcher.build(receiving_user, onward_retraction).post

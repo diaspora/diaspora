@@ -11,8 +11,8 @@ describe Workers::Mail::PrivateMessage do
       user2 = bob
       participant_ids = [user1.contacts.first.person.id, user1.person.id]
 
-      create_hash = { :author => user1.person, :participant_ids => participant_ids ,
-                       :subject => "cool stuff", :messages_attributes => [{:text => 'hey'}]}
+      create_hash = { author: user1.person, participant_ids: participant_ids ,
+                       subject: "cool stuff", messages_attributes: [{text: 'hey'}]}
 
       cnv = Conversation.create(create_hash)
       message = cnv.messages.first

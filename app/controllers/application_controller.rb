@@ -5,7 +5,7 @@
 class ApplicationController < ActionController::Base
   before_action :force_tablet_html
   has_mobile_fu
-  protect_from_forgery :except => :receive
+  protect_from_forgery except: :receive
 
   before_action :ensure_http_referer_is_set
   before_action :set_locale
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   before_action :gon_set_appconfig
   before_action :gon_set_preloads
 
-  inflection_method :grammatical_gender => :gender
+  inflection_method grammatical_gender: :gender
 
   helper_method :all_aspects,
                 :all_contacts_count,
@@ -92,7 +92,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_admin
     unless current_user.admin?
-      redirect_to stream_url, :notice => 'you need to be an admin to do that'
+      redirect_to stream_url, notice: 'you need to be an admin to do that'
       return
     end
   end
@@ -154,7 +154,7 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
     a_ids = session[:a_ids] || []
     user = UserPresenter.new(current_user, a_ids)
-    gon.push({:user => user})
+    gon.push({user: user})
   end
 
   def gon_set_preloads

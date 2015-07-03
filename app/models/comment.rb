@@ -19,18 +19,18 @@ class Comment < ActiveRecord::Base
   xml_attr :text
   xml_attr :diaspora_handle
 
-  belongs_to :commentable, :touch => true, :polymorphic => true
+  belongs_to :commentable, touch: true, polymorphic: true
   alias_attribute :post, :commentable
-  belongs_to :author, :class_name => 'Person'
+  belongs_to :author, class_name: 'Person'
 
   delegate :name, to: :author, prefix: true
   delegate :comment_email_subject, to: :parent
   delegate :author_name, to: :parent, prefix: true
 
-  validates :text, :presence => true, :length => {:maximum => 65535}
-  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
+  validates :text, presence: true, length: {maximum: 65535}
+  validates :parent, presence: true #should be in relayable (pending on fixing Message)
 
-  scope :including_author, -> { includes(:author => :profile) }
+  scope :including_author, -> { includes(author: :profile) }
   scope :for_a_stream,  -> { including_author.merge(order('created_at ASC')) }
 
   before_save do
@@ -41,7 +41,7 @@ class Comment < ActiveRecord::Base
     self.post.touch
   end
 
-  after_commit :on => :create do
+  after_commit on: :create do
     self.parent.update_comments_counter
   end
 
@@ -62,7 +62,7 @@ class Comment < ActiveRecord::Base
   def notification_type(user, person)
     if self.post.author == user.person
       return Notifications::CommentOnPost
-    elsif user.participations.where(:target_id => self.post).exists? && self.author_id != user.person.id
+    elsif user.participations.where(target_id: self.post).exists? && self.author_id != user.person.id
       return Notifications::AlsoCommented
     else
       return false
@@ -100,7 +100,7 @@ class Comment < ActiveRecord::Base
     end
 
     def relayable_options
-      {:post => @target, :text => @text}
+      {post: @target, text: @text}
     end
   end
 end

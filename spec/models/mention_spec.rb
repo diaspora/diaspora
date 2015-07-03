@@ -4,23 +4,23 @@
 
 require 'spec_helper'
 
-describe Mention, :type => :model do
+describe Mention, type: :model do
   describe "#notify_recipient" do
     before do
       @user = alice
-      @aspect1 = @user.aspects.create(:name => 'second_aspect')
+      @aspect1 = @user.aspects.create(name: 'second_aspect')
 
     end
 
     it 'notifies the person being mentioned' do
-      sm = @user.build_post(:status_message, :text => "hi @{#{bob.name}; #{bob.diaspora_handle}}", :to => @user.aspects.first)
+      sm = @user.build_post(:status_message, text: "hi @{#{bob.name}; #{bob.diaspora_handle}}", to: @user.aspects.first)
       expect(Notification).to receive(:notify).with(bob, anything(), sm.author)
       sm.receive(bob, alice.person)
     end
 
     it 'should not notify a user if they do not see the message' do
       expect(Notification).not_to receive(:notify).with(alice, anything(), bob.person)
-      sm2 = bob.build_post(:status_message, :text => "stuff @{#{alice.name}; #{alice.diaspora_handle}}", :to => bob.aspects.first)
+      sm2 = bob.build_post(:status_message, text: "stuff @{#{alice.name}; #{alice.diaspora_handle}}", to: bob.aspects.first)
       sm2.receive(eve, bob.person)
     end
   end
@@ -36,8 +36,8 @@ describe Mention, :type => :model do
       @user = alice
       @mentioned_user = bob
 
-      @sm =  @user.post(:status_message, :text => "hi", :to => @user.aspects.first)
-      @m  = Mention.create!(:person => @mentioned_user.person, :post => @sm)
+      @sm =  @user.post(:status_message, text: "hi", to: @user.aspects.first)
+      @m  = Mention.create!(person: @mentioned_user.person, post: @sm)
       @m.notify_recipient
 
       expect{

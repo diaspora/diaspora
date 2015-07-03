@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PeopleHelper, :type => :helper do
+describe PeopleHelper, type: :helper do
  before do
     @user = alice
     @person = FactoryGirl.create(:person)
@@ -66,7 +66,7 @@ describe PeopleHelper, :type => :helper do
 
   describe "#person_href" do
     it "calls local_or_remote_person_path and passes through the options" do
-      opts = {:absolute => true}
+      opts = {absolute: true}
 
       expect(self).to receive(:local_or_remote_person_path).with(@person, opts).exactly(1).times
 
@@ -85,7 +85,7 @@ describe PeopleHelper, :type => :helper do
 
     it "links by id if there is a period in the user's username" do
       @user.username = "invalid.username"
-      expect(@user.save(:validate => false)).to eq(true)
+      expect(@user.save(validate: false)).to eq(true)
       person = @user.person
       person.diaspora_handle = "#{@user.username}@#{AppConfig.pod_uri.authority}"
       person.save!
@@ -94,7 +94,7 @@ describe PeopleHelper, :type => :helper do
     end
 
     it 'links by username for a local user' do
-      expect(local_or_remote_person_path(@user.person)).to eq(user_profile_path(:username => @user.username))
+      expect(local_or_remote_person_path(@user.person)).to eq(user_profile_path(username: @user.username))
     end
 
     it 'links by id for a remote person' do

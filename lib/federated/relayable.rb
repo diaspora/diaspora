@@ -12,12 +12,12 @@ module Federated
 
     xml_attr :diaspora_handle
 
-    belongs_to :target, :polymorphic => true
-    belongs_to :author, :class_name => 'Person'
+    belongs_to :target, polymorphic: true
+    belongs_to :author, class_name: 'Person'
     #end crazy ordering issues
 
-    validates_uniqueness_of :target_id, :scope => [:target_type, :author_id]
-    validates :parent, :presence => true #should be in relayable (pending on fixing Message)
+    validates_uniqueness_of :target_id, scope: [:target_type, :author_id]
+    validates :parent, presence: true #should be in relayable (pending on fixing Message)
 
     def diaspora_handle
       self.author.diaspora_handle

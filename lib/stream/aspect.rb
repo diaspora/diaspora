@@ -23,7 +23,7 @@ class Stream::Aspect < Stream::Base
   def aspects
     @aspects ||= lambda do
       a = user.aspects
-      a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.any?
+      a = a.where(id: @inputted_aspect_ids) if @inputted_aspect_ids.any?
       a
     end.call
   end
@@ -39,10 +39,10 @@ class Stream::Aspect < Stream::Base
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_shareables
     @posts ||= user.visible_shareables(Post, :all_aspects? => for_all_aspects?,
-                                             :by_members_of => aspect_ids,
-                                             :type => TYPES_OF_POST_IN_STREAM,
-                                             :order => "#{order} DESC",
-                                             :max_time => max_time
+                                             by_members_of: aspect_ids,
+                                             type: TYPES_OF_POST_IN_STREAM,
+                                             order: "#{order} DESC",
+                                             max_time: max_time
                    )
   end
 
@@ -104,7 +104,7 @@ class Stream::Aspect < Stream::Base
     if for_all_aspects? || aspect_ids.size > 1
       Rails.application.routes.url_helpers.contacts_path
     else
-      Rails.application.routes.url_helpers.contacts_path(:a_id => aspect.id)
+      Rails.application.routes.url_helpers.contacts_path(a_id: aspect.id)
     end
   end
 

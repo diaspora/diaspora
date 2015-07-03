@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe CommentsController, :type => :controller do
+describe CommentsController, type: :controller do
   before do
     allow(@controller).to receive(:current_user).and_return(alice)
     sign_in :user, alice
@@ -12,32 +12,32 @@ describe CommentsController, :type => :controller do
 
   describe '#create' do
     let(:comment_hash) {
-      {:text    =>"facebook, is that you?",
-       :post_id =>"#{@post.id}"}
+      {text:"facebook, is that you?",
+       post_id:"#{@post.id}"}
     }
 
     context "on my own post" do
       before do
-        aspect_to_post = alice.aspects.where(:name => "generic").first
-        @post = alice.post :status_message, :text => 'GIANTS', :to => aspect_to_post
+        aspect_to_post = alice.aspects.where(name: "generic").first
+        @post = alice.post :status_message, text: 'GIANTS', to: aspect_to_post
       end
 
       it 'responds to format json' do
-        post :create, comment_hash.merge(:format => 'json')
+        post :create, comment_hash.merge(format: 'json')
         expect(response.code).to eq('201')
         expect(response.body).to match comment_hash[:text]
       end
 
       it 'responds to format mobile' do
-        post :create, comment_hash.merge(:format => 'mobile')
+        post :create, comment_hash.merge(format: 'mobile')
         expect(response).to be_success
       end
     end
 
     context "on a post from a contact" do
       before do
-        aspect_to_post = bob.aspects.where(:name => "generic").first
-        @post = bob.post :status_message, :text => 'GIANTS', :to => aspect_to_post
+        aspect_to_post = bob.aspects.where(name: "generic").first
+        @post = bob.post :status_message, text: 'GIANTS', to: aspect_to_post
       end
 
       it 'comments' do
@@ -61,8 +61,8 @@ describe CommentsController, :type => :controller do
     end
 
     it 'posts no comment on a post from a stranger' do
-      aspect_to_post = eve.aspects.where(:name => "generic").first
-      @post = eve.post :status_message, :text => 'GIANTS', :to => aspect_to_post
+      aspect_to_post = eve.aspects.where(name: "generic").first
+      @post = eve.post :status_message, text: 'GIANTS', to: aspect_to_post
 
       expect(alice).not_to receive(:comment)
       post :create, comment_hash
@@ -72,8 +72,8 @@ describe CommentsController, :type => :controller do
 
   describe '#destroy' do
     before do
-      aspect_to_post = bob.aspects.where(:name => "generic").first
-      @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post)
+      aspect_to_post = bob.aspects.where(name: "generic").first
+      @message = bob.post(:status_message, text: "hey", to: aspect_to_post)
     end
 
     context 'your post' do
@@ -86,7 +86,7 @@ describe CommentsController, :type => :controller do
         comment = bob.comment!(@message, "hey")
 
         expect(bob).to receive(:retract).with(comment)
-        delete :destroy, :format => "js", :post_id => 1, :id => comment.id
+        delete :destroy, format: "js", post_id: 1, id: comment.id
         expect(response.status).to eq(204)
       end
 
@@ -94,7 +94,7 @@ describe CommentsController, :type => :controller do
         comment = alice.comment!(@message, "hey")
 
         expect(bob).to receive(:retract).with(comment)
-        delete :destroy, :format => "js", :post_id => 1, :id => comment.id
+        delete :destroy, format: "js", post_id: 1, id: comment.id
         expect(response.status).to eq(204)
       end
     end
@@ -104,7 +104,7 @@ describe CommentsController, :type => :controller do
         comment = alice.comment!(@message, "hey")
 
         expect(alice).to receive(:retract).with(comment)
-        delete :destroy, :format => "js", :post_id => 1,  :id => comment.id
+        delete :destroy, format: "js", post_id: 1,  id: comment.id
         expect(response.status).to eq(204)
       end
 
@@ -113,13 +113,13 @@ describe CommentsController, :type => :controller do
         comment2 = eve.comment!(@message, "hey")
 
         expect(alice).not_to receive(:retract).with(comment1)
-        delete :destroy, :format => "js", :post_id => 1,  :id => comment2.id
+        delete :destroy, format: "js", post_id: 1,  id: comment2.id
         expect(response.status).to eq(403)
       end
     end
 
     it 'renders nothing and 404 on a nonexistent comment' do
-      delete :destroy, :post_id => 1, :id => 343415
+      delete :destroy, post_id: 1, id: 343415
       expect(response.status).to eq(404)
       expect(response.body.strip).to be_empty
     end
@@ -127,32 +127,32 @@ describe CommentsController, :type => :controller do
 
   describe '#index' do
     before do
-      aspect_to_post = bob.aspects.where(:name => "generic").first
-      @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post.id)
+      aspect_to_post = bob.aspects.where(name: "generic").first
+      @message = bob.post(:status_message, text: "hey", to: aspect_to_post.id)
     end
 
     it 'works for mobile' do
-      get :index, :post_id => @message.id, :format => 'mobile'
+      get :index, post_id: @message.id, format: 'mobile'
       expect(response).to be_success
     end
 
     it 'returns all the comments for a post' do
       comments = [alice, bob, eve].map{ |u| u.comment!(@message, "hey") }
 
-      get :index, :post_id => @message.id, :format => :json
+      get :index, post_id: @message.id, format: :json
       expect(assigns[:comments].map(&:id)).to match_array(comments.map(&:id))
     end
 
     it 'returns a 404 on a nonexistent post' do
-      get :index, :post_id => 235236, :format => :json
+      get :index, post_id: 235236, format: :json
       expect(response.status).to eq(404)
     end
 
     it 'returns a 404 on a post that is not visible to the signed in user' do
-      aspect_to_post = eve.aspects.where(:name => "generic").first
-      message = eve.post(:status_message, :text => "hey", :to => aspect_to_post.id)
+      aspect_to_post = eve.aspects.where(name: "generic").first
+      message = eve.post(:status_message, text: "hey", to: aspect_to_post.id)
       bob.comment!(@message, "hey")
-      get :index, :post_id => message.id, :format => :json
+      get :index, post_id: message.id, format: :json
       expect(response.status).to eq(404)
     end
   end

@@ -7,8 +7,8 @@ require 'spec_helper'
 describe Workers::Mail::Reshared do
   describe '#perfom' do
     it 'should call .deliver on the notifier object' do
-      sm = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
-      reshare = FactoryGirl.build(:reshare, :author => alice.person, :root=> sm)
+      sm = FactoryGirl.build(:status_message, author: bob.person, public: true)
+      reshare = FactoryGirl.build(:reshare, author: alice.person, root: sm)
 
       mail_double = double()
       expect(mail_double).to receive(:deliver_now)

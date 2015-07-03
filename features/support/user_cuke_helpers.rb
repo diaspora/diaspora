@@ -5,9 +5,9 @@ module UserCukeHelpers
   # and returns it
   def create_user(overrides={})
     default_attrs = {
-        :password => 'password',
-        :password_confirmation => 'password',
-        :getting_started => false
+        password: 'password',
+        password_confirmation: 'password',
+        getting_started: false
     }
 
     user = FactoryGirl.create(:user, default_attrs.merge(overrides))
@@ -17,22 +17,22 @@ module UserCukeHelpers
 
   # create the default testing aspects for a given user
   def add_standard_aspects(user)
-    user.aspects.create(:name => "Besties")
-    user.aspects.create(:name => "Unicorns")
+    user.aspects.create(name: "Besties")
+    user.aspects.create(name: "Unicorns")
   end
 
   # fill out the fields on the sign_in page and press submit
   def login_as(user, pass)
-    fill_in 'user_username', :with=>user
-    fill_in 'user_password', :with=>pass
+    fill_in 'user_username', with:user
+    fill_in 'user_password', with:pass
     click_button "Sign in"
   end
 
   # create a new @me user, if not present, and log in using the
   # integration_sessions controller (automatic)
   def automatic_login
-    @me ||= FactoryGirl.create(:user_with_aspect, :getting_started => false)
-    visit(new_integration_sessions_path(:user_id => @me.id))
+    @me ||= FactoryGirl.create(:user_with_aspect, getting_started: false)
+    visit(new_integration_sessions_path(user_id: @me.id))
     click_button "Login"
   end
 
@@ -78,14 +78,14 @@ module UserCukeHelpers
 
   # fill change password section on the user edit page
   def fill_change_password_section(cur_pass, new_pass, confirm_pass)
-    fill_in 'user_current_password', :with => cur_pass
-    fill_in 'user_password', :with => new_pass
-    fill_in 'user_password_confirmation', :with => confirm_pass
+    fill_in 'user_current_password', with: cur_pass
+    fill_in 'user_password', with: new_pass
+    fill_in 'user_password_confirmation', with: confirm_pass
   end
 
   # fill forgot password form to get reset password link
   def fill_forgot_password_form(email)
-    fill_in 'user_email', :with => email
+    fill_in 'user_email', with: email
   end
 
   # submit forgot password form to get reset password link
@@ -95,8 +95,8 @@ module UserCukeHelpers
 
   # fill the reset password form
   def fill_reset_password_form(new_pass, confirm_pass)
-    fill_in 'user_password', :with => new_pass
-    fill_in 'user_password_confirmation', :with => confirm_pass
+    fill_in 'user_password', with: new_pass
+    fill_in 'user_password_confirmation', with: confirm_pass
   end
 
   # submit reset password form

@@ -12,12 +12,12 @@ class HovercardPresenter
   # returns the json representation of the Person object for use with the
   # hovercard UI
   def to_json(options={})
-    {  :id => person.id,
-       :avatar => avatar('medium'),
-       :url => profile_url,
-       :name => person.name,
-       :handle => person.diaspora_handle,
-       :tags => person.tags.map { |t| "#"+t.name }
+    {  id: person.id,
+       avatar: avatar('medium'),
+       url: profile_url,
+       name: person.name,
+       handle: person.diaspora_handle,
+       tags: person.tags.map { |t| "#"+t.name }
     }.to_json(options)
   end
 

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe UsersHelper, :type => :helper do
+describe UsersHelper, type: :helper do
   include Devise::TestHelpers
 
   describe "#current_color_theme" do

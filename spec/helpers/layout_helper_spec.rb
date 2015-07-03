@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe LayoutHelper, :type => :helper do
+describe LayoutHelper, type: :helper do
   describe "#page_title" do
     context "passed blank text" do
       it "returns Diaspora*" do
