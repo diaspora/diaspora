@@ -10,7 +10,7 @@
     .delete_conversation {
       font-size: 2rem;
 
-      .entypo {
+      [class^="entypo-"], [class*="entypo-"] {
         color: $link-grey;
       }
     }

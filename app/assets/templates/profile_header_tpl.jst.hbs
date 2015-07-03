@@ -23,7 +23,7 @@
   {{#if loggedIn}}
     {{#if has_tags}}
       <div class="description">
-        <i class="entypo tag"></i>
+        <i class="entypo-tag"></i>
         {{fmtTags profile.tags}}
       </div>
     {{else}}
@@ -53,14 +53,14 @@
         {{#if is_mutual}}
           {{!-- create private conversation with person --}}
           <span class="profile_button">
-            <i id="message_button" class="entypo profile-header-icon mail" title="{{t 'people.message'}}" data-placement="bottom" data-toggle="modal"></i>
+            <i id="message_button" class="entypo-mail profile-header-icon" title="{{t 'people.message'}}" data-placement="bottom" data-toggle="modal"></i>
           </span>
         {{/if}}
 
         {{#unless is_blocked}}
           {{!-- ignore the person --}}
           <a href="#" class="profile_button" rel="nofollow">
-            <i id="block_user_button" class="entypo profile-header-icon block block_user" title="{{t 'ignore'}}" data-placement="bottom"></i>
+            <i id="block_user_button" class="entypo-block profile-header-icon block_user" title="{{t 'ignore'}}" data-placement="bottom"></i>
           </a>
         {{/unless}}
       </div>
@@ -69,14 +69,14 @@
     <ul id="profile_nav">
       <li {{#isCurrentProfilePage guid diaspora_id}} class="active" {{/isCurrentProfilePage}}>
         <a href="{{urlTo 'person' guid}}" id="posts_link">
-          <i class="entypo docs"></i>
+          <i class="entypo-docs"></i>
           {{t 'profile.posts'}}
         </a>
       </li>
       {{#if show_photos}}
         <li {{#isCurrentPage 'personPhotos' guid}} class="active" {{/isCurrentPage}}>
           <a href="{{urlTo 'personPhotos' guid}}" id="photos_link">
-            <i class="entypo picture"></i>
+            <i class="entypo-picture"></i>
             {{t 'profile.photos'}}
             <div class="badge badge-default">{{photos.count}}</div>
           </a>
@@ -86,13 +86,13 @@
         <li {{#isCurrentPage 'personContacts' guid}} class="active" {{/isCurrentPage}}>
           {{#if is_own_profile}}
             <a href="{{urlTo 'contacts'}}" id="contacts_link">
-              <i class="entypo users"></i>
+              <i class="entypo-users"></i>
               {{t 'profile.contacts'}}
               <div class="badge badge-default">{{contacts.count}}</div>
             </a>
           {{else}}
             <a href="{{urlTo 'personContacts' guid}}" id="contacts_link">
-              <i class="entypo users"></i>
+              <i class="entypo-users"></i>
               {{t 'profile.contacts'}}
               <div class="badge badge-default">{{contacts.count}}</div>
             </a>

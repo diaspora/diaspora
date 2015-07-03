@@ -5,19 +5,19 @@
 .conversation_participants
   .control-icons.pull-right
     - if conversation.participants.count > 1
-      = link_to(content_tag(:i, nil, :class => 'entypo cross'),
+      = link_to content_tag(:i, nil, class: "entypo-cross"),
                 conversation_visibility_path(conversation),
-                :method => 'delete',
-                :data => { :confirm => "#{t('.hide')}?" },
-                :title => t('.hide'),
-                :class => 'hide_conversation')
+                method: "delete",
+                data:   {confirm: "#{t('.hide')}?"},
+                title:  t(".hide"),
+                class:  "hide_conversation"
     - else
-      = link_to(content_tag(:i, nil, :class => 'entypo trash'),
+      = link_to content_tag(:i, nil, class: "entypo-trash"),
                 conversation_visibility_path(conversation),
-                :method => 'delete',
-                :data => { :confirm => "#{t('.delete')}?" },
-                :title => t('.delete'),
-                :class => 'delete_conversation')
+                method: "delete",
+                data:   {confirm: "#{t('.delete')}?"},
+                title:  t(".delete"),
+                class:  "delete_conversation"
 
   %h3{ :class => direction_for(conversation.subject) }
     = conversation.subject

@@ -52,7 +52,7 @@
   }
 
   .list-group .list-group-item {
-    .entypo, .mentionIcon { margin-right: 5px; }
+    [class^="entypo-"], [class*="entypo-"], .mentionIcon { margin-right: 5px; }
     .mentionIcon { font-weight: bold; }
   }
 }
@@ -69,7 +69,7 @@
       background-color: $background-grey;
       .unread-toggle {
         opacity: 1 !important;
-        .entypo { color: $black; }
+        .entypo-eye { color: $black; }
       }
     }
 
@@ -84,7 +84,7 @@
 
     .unread-toggle {
       padding: 9px 5px;
-      .entypo {
+      .entypo-eye {
         cursor: pointer;
         color: lighten($black,75%);
         font-size: 17px;

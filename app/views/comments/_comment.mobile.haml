@@ -16,7 +16,7 @@
         .remove_comment
           .pull-right
             - if user_signed_in? && comment.author == current_user.person
-              = link_to(raw("<i class='entypo trash'></i>"), comment_path(comment), method: :delete,
+              = link_to(raw("<i class='entypo-trash'></i>"), comment_path(comment), method: :delete,
                           data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
 
     %div{class: direction_for(comment.text)}

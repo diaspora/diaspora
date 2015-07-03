@@ -27,7 +27,7 @@
       #chat_privilege_toggle > .enabled {
         color: #000;
       }
-      .entypo.contacts-header-icon {
+      .contacts-header-icon {
         font-size: 24.5px;
         line-height: 40px;
         color: lighten($black,75%);
@@ -42,7 +42,7 @@
         cursor: pointer;
         font-size: 20px;
         line-height: 50px;
-        margin: 10px;
+        margin: 0 10px;
         color: lighten($black,75%);
         &:hover { color: $black; }
       }

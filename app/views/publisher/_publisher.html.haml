@@ -29,13 +29,13 @@
           #button_container
             #publisher-images.pull-right
               #poll_creator.btn.btn-link{title: t('shared.publisher.poll.add_a_poll')}
-                %i.entypo.bar-graph
+                %i.entypo-bar-graph
               #file-upload.btn.btn-link{title: t('shared.publisher.upload_photos')}
-                %i.entypo.camera.publisher_image
+                %i.entypo-camera.publisher_image
               #locator.btn.btn-link{title: t('shared.publisher.get_location')}
-                %i.entypo.location.publisher_image
+                %i.entypo-location.publisher_image
               #hide_location.btn.btn-link{title: t('shared.publisher.remove_location')}
-                %i.entypo.cross.publisher_image
+                %i.entypo-cross.publisher_image
             %span.markdownIndications
               != t('shared.publisher.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
 
@@ -63,7 +63,7 @@
               .btn.btn-link{ class: "question_mark",
                              title: t("shared.public_explain.manage"),
                              data:  {toggle: "modal", target: "#publicExplainModal"}}
-                %i.entypo.cog
+                %i.entypo-cog
 
             = render partial: "publisher/aspect_dropdown", locals: { :selected_aspects => selected_aspects }
 

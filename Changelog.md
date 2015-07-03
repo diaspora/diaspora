@@ -35,6 +35,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Improve mobile conversation design [#6087](https://github.com/diaspora/diaspora/pull/6087)
 * Replace remaining faceboxes with Bootstrap modals [#6106](https://github.com/diaspora/diaspora/pull/6106)
 * Rewrite header using Bootstrap 3 [#6109](https://github.com/diaspora/diaspora/pull/6109) [#6130](https://github.com/diaspora/diaspora/pull/6130) [#6132](https://github.com/diaspora/diaspora/pull/6132)
+* Use upstream CSS mappings for Entypo [#6158](https://github.com/diaspora/diaspora/pull/6158)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

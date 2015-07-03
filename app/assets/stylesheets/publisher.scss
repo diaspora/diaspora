@@ -31,12 +31,12 @@
       padding: 10px 0 ;
       #publisher_service_icons {
         .btn-link{ text-decoration: none; }
-        .btn-link.question_mark .entypo {
+        .btn-link.question_mark .entypo-cog {
           color: $text-grey;
           font-size: 16px;
           line-height: $line-height-computed;
         }
-        .btn-link.question_mark:hover.entypo { color: $black; }
+        .btn-link.question_mark:hover.entypo-cog { color: $black; }
         .btn-link.service_icon {
           padding-left: 5px;
           padding-right: 5px;
@@ -94,7 +94,7 @@
         border-top: 1px dashed $border-grey;
         padding:4px 6px 4px 6px;
         box-sizing: border-box;
-        .remove-answer.entypo.cross {
+        .remove-answer.entypo-cross {
           display: none;
           color: lighten($black,75%);
           &.active { display: block; }
@@ -189,7 +189,7 @@
           text-decoration: none !important;
           font-size: 16px;
           line-height: $line-height-computed;
-          padding: 4px 5px;
+          padding: 4px 2px;
           i {
             color: $text-grey;
           }

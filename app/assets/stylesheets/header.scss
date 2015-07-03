@@ -76,7 +76,7 @@ header > .dark-header > nav {
         }
       }
     }
-    .entypo {
+    [class^="entypo-"], [class*="entypo-"] {
       color: inherit;
       font-size: $font-size-h3;
       vertical-align: middle;
@@ -86,7 +86,7 @@ header > .dark-header > nav {
       .badge {
         background-color: $brand-danger;
         position: absolute;
-        right: 5px;
+        right: 10px;
         top: 10px;
       }
     }

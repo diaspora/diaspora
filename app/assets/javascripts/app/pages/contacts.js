@@ -12,11 +12,11 @@ app.pages.Contacts = Backbone.View.extend({
   },
 
   initialize: function(opts) {
-    this.visibility_toggle = $("#contacts_visibility_toggle .entypo");
-    this.chat_toggle = $("#chat_privilege_toggle .entypo");
+    this.visibilityToggle = $("#contacts_visibility_toggle i");
+    this.chatToggle = $("#chat_privilege_toggle i");
     this.stream = opts.stream;
     this.stream.render();
-    $("#people_stream.contacts .header .entypo").tooltip({"placement": "bottom"});
+    $("#people_stream.contacts .header i").tooltip({"placement": "bottom"});
     $(document).on("ajax:success", "form.edit_aspect", this.updateAspectName);
     app.events.on("aspect:create", function(){ window.location.reload() });
 
@@ -27,14 +27,14 @@ app.pages.Contacts = Backbone.View.extend({
   },
 
   toggleChatPrivilege: function() {
-    if (this.chat_toggle.hasClass("enabled")) {
-      this.chat_toggle.tooltip("destroy")
+    if (this.chatToggle.hasClass("enabled")) {
+      this.chatToggle.tooltip("destroy")
                       .removeClass("enabled")
                       .removeAttr("data-original-title")
                       .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_not_enabled"))
                       .tooltip({"placement": "bottom"});
     } else {
-      this.chat_toggle.tooltip("destroy")
+      this.chatToggle.tooltip("destroy")
                       .addClass("enabled")
                       .removeAttr("data-original-title")
                       .attr("title", Diaspora.I18n.t("contacts.aspect_chat_is_enabled"))
@@ -43,17 +43,17 @@ app.pages.Contacts = Backbone.View.extend({
   },
 
   toggleContactVisibility: function() {
-    if (this.visibility_toggle.hasClass("lock-open")) {
-      this.visibility_toggle.removeClass("lock-open")
-                            .addClass("lock")
+    if (this.visibilityToggle.hasClass("entypo-lock-open")) {
+      this.visibilityToggle.removeClass("entypo-lock-open")
+                            .addClass("entypo-lock")
                             .tooltip("destroy")
                             .removeAttr("data-original-title")
                             .attr("title", Diaspora.I18n.t("contacts.aspect_list_is_not_visible"))
                             .tooltip({"placement": "bottom"});
     }
     else {
-      this.visibility_toggle.removeClass("lock")
-                            .addClass("lock-open")
+      this.visibilityToggle.removeClass("entypo-lock")
+                            .addClass("entypo-lock-open")
                             .tooltip("destroy")
                             .removeAttr("data-original-title")
                             .attr("title", Diaspora.I18n.t("contacts.aspect_list_is_visible"))

@@ -97,10 +97,10 @@ ul#help_nav {
         font-size: 50px;
         line-height: 70px;
 
-        i.entypo{
+        [class^="entypo-"], [class*="entypo-"] {
           color: #bfbfbf;
 
-          &.chat{ color: #000000; }
+          &.entypo-chat{ color: #000000; }
         }
       }
     }

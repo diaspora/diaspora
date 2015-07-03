@@ -30,12 +30,12 @@
     }
     #reshare-info {
       line-height: 15px;
-      i.retweet {
+      i.entypo-reshare {
         color: $text-dark-grey;
         font-size: 28px;
         line-height: 30px;
-        margin-left: 8px;
-        margin-right: 8px;
+        margin-left: 7px;
+        margin-right: 7px;
       }
       .post-context {
         font-size: 12px;
@@ -63,19 +63,19 @@
         font-size: 28px;
         line-height: 30px;
       }
-      i.comment:hover {
+      i.entypo-comment:hover {
         color: #424242;
       }
       .post_report i.gray:hover {
         color: $red;
       }
-      i.heart.gray:hover {
+      i.entypo-heart.gray:hover {
         color: $red;
       }
-      i.heart.red:hover {
+      i.entypo-heart.red:hover {
         color: #f55f5a;
       }
-      i.retweet:hover {
+      i.entypo-reshare:hover {
         color: #3f8fba;
       }
       time {

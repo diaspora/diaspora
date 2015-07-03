@@ -14,16 +14,16 @@
               = count
             - case key
               - when 'also_commented', 'comment_on_post'
-                %i.entypo.comment
+                %i.entypo-comment
               - when 'liked'
-                %i.entypo.heart
+                %i.entypo-heart
               - when 'mentioned'
                 %span.mentionIcon
                   @
               - when 'reshared'
-                %i.entypo.retweet
+                %i.entypo-reshare
               - when 'started_sharing'
-                %i.entypo.add-user
+                %i.entypo-add-user
             = t('.'+key)
 
     .col-md-9.stream.notifications

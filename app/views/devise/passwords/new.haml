@@ -16,7 +16,7 @@
       %fieldset
         %label{for: "user_email"}
           = t('devise.passwords.new.email')
-        %i.entypo.mail
+        %i.entypo-mail
         = f.text_field :email, class: "input-block-level form-control", required: true, autocapitalize: "off", placeholder: t('devise.passwords.new.email'), autocorrect: "off", autofocus: true
       = f.submit t('devise.passwords.new.send_password_instructions'), class: "btn btn-block btn-default"
 

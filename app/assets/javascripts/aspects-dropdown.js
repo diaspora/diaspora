@@ -39,13 +39,13 @@ var AspectsDropdown = {
 
     // if we are in the publisher, we add the visibility icon
     if (isInPublisher) {
-      var icon = $('#visibility-icon');      
-      if (replacement.trim() === Diaspora.I18n.t('stream.public')) {
-        icon.removeClass('lock');
-        icon.addClass('globe');
+      var icon = $("#visibility-icon");
+      if (replacement.trim() === Diaspora.I18n.t("stream.public")) {
+        icon.removeClass("entypo-lock");
+        icon.addClass("entypo-globe");
       } else {
-        icon.removeClass('globe');
-        icon.addClass('lock');
+        icon.removeClass("entypo-globe");
+        icon.addClass("entypo-lock");
       }
       button.find('.text').text(replacement);
     } else {
