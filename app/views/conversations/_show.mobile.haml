@@ -5,7 +5,7 @@
 .conversation
   .conversation_participants.header-full-width
     .delete_conversation.pull-right
-      = link_to(raw("<i class='entypo trash'></i>"), conversation_visibility_path(conversation),
+      = link_to(raw("<i class='entypo-trash'></i>"), conversation_visibility_path(conversation),
               method: 'delete', data: { confirm: "#{t('.delete')}?" }, class: "remove")
 
     %h3

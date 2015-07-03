@@ -64,11 +64,11 @@ app.views.AspectsList = app.views.Base.extend({
 
   updateAspectList: function() {
     this.collection.each(function(aspect) {
-      var element = this.$("li[data-aspect_id="+aspect.get('id')+"]");
-      if (aspect.get('selected')) {
-        element.find('.entypo.check').addClass('selected');
+      var element = this.$("li[data-aspect_id="+aspect.get("id")+"]");
+      if (aspect.get("selected")) {
+        element.find(".entypo-check").addClass("selected");
       } else {
-        element.find('.entypo.check').removeClass('selected');
+        element.find(".entypo-check").removeClass("selected");
       }
     });
   },

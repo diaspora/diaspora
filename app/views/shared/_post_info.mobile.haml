@@ -11,7 +11,7 @@
 
     .remove_post.pull-right
       - if user_signed_in? && post.author == current_user.person
-        = link_to(raw("<i class='entypo trash'></i>"), post_path(post), method: :delete,
+        = link_to(raw("<i class='entypo-trash'></i>"), post_path(post), method: :delete,
                 data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
     .clearfix
 

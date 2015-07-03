@@ -315,26 +315,26 @@ describe("app.views.Publisher", function() {
     });
 
     it("initializes with 'all_aspects'", function(){
-      expect($("#publisher #visibility-icon")).not.toHaveClass("globe");
-      expect($("#publisher #visibility-icon")).toHaveClass("lock");
+      expect($("#publisher #visibility-icon")).not.toHaveClass("entypo-globe");
+      expect($("#publisher #visibility-icon")).toHaveClass("entypo-lock");
     });
 
     describe("toggles the selected entry visually", function(){
       it("click on the first aspect", function(){
         this.view.$(".aspect_dropdown li.aspect_selector:first").click();
-        expect($("#publisher #visibility-icon")).not.toHaveClass("globe");
-        expect($("#publisher #visibility-icon")).toHaveClass("lock");
+        expect($("#publisher #visibility-icon")).not.toHaveClass("entypo-globe");
+        expect($("#publisher #visibility-icon")).toHaveClass("entypo-lock");
       });
 
       it("click on public", function(){
         this.view.$(".aspect_dropdown li.public").click();
-        expect($("#publisher #visibility-icon")).toHaveClass("globe");
-        expect($("#publisher #visibility-icon")).not.toHaveClass("lock");
+        expect($("#publisher #visibility-icon")).toHaveClass("entypo-globe");
+        expect($("#publisher #visibility-icon")).not.toHaveClass("entypo-lock");
       });
 
       it("click on 'all aspects'", function(){
-        expect($("#publisher #visibility-icon")).not.toHaveClass("globe");
-        expect($("#publisher #visibility-icon")).toHaveClass("lock");
+        expect($("#publisher #visibility-icon")).not.toHaveClass("entypo-globe");
+        expect($("#publisher #visibility-icon")).toHaveClass("entypo-lock");
       });
     });
 

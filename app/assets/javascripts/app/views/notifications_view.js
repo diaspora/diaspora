@@ -8,7 +8,7 @@ app.views.Notifications = Backbone.View.extend({
   },
 
   initialize: function() {
-    $(".unread-toggle .entypo").tooltip();
+    $(".unread-toggle .entypo-eye").tooltip();
     app.helpers.timeago($(document));
   },
 
@@ -62,7 +62,7 @@ app.views.Notifications = Backbone.View.extend({
     if(unread){ note.removeClass("read").addClass("unread"); }
     else { note.removeClass("unread").addClass("read"); }
 
-    $(".unread-toggle .entypo", note)
+    $(".unread-toggle .entypo-eye", note)
         .tooltip("destroy")
         .removeAttr("data-original-title")
         .attr("title",Diaspora.I18n.t(translationKey))

@@ -1,11 +1,11 @@
 .btn-group.aspect_dropdown
   %button.btn.btn-default.dropdown-toggle{ ! current_user.getting_started? ? {'data-toggle' => 'dropdown'} : {'data-toggle' => 'dropdown', title: popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}"), 'data-content'=> t('shared.public_explain.visibility_dropdown')} }
     - if publisher_public
-      %i#visibility-icon.entypo.small.globe
+      %i#visibility-icon.entypo-globe.small
       %span.text
         = t('public')
     - else
-      %i#visibility-icon.entypo.small.lock
+      %i#visibility-icon.entypo-lock.small
       %span.text
         - if all_aspects_selected?(selected_aspects)
           = t('all_aspects')

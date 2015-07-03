@@ -7,7 +7,7 @@
   .section
     .title
       %h5.title-header
-        %i.entypo.plus
+        %i.entypo-plus
         = t('shared.invitations.invite_your_friends')
     .content
       = render "shared/invitations"
@@ -15,7 +15,7 @@
 .section
   .title
     %h5.title-header
-      %i.entypo.users
+      %i.entypo-users
       = t('aspects.index.new_here.title')
   .content
     != t('aspects.index.new_here.follow', link: link_to("#"+t('shared.publisher.new_user_prefill.newhere'), tag_path(name: t('shared.publisher.new_user_prefill.newhere'))))
@@ -25,7 +25,7 @@
 .section
   .title
     %h5.title-header
-      %i.entypo.circled-help
+      %i.entypo-circled-help
       = t('aspects.index.help.need_help')
   .content
     %p
@@ -49,7 +49,7 @@
   .section
     .title
       %h5.title-header
-        %i.entypo.cog
+        %i.entypo-cog
         = t('aspects.index.services.heading')
     .content
       %div
@@ -64,7 +64,7 @@
 .section
   .title
     %h5.title-header
-      %i.entypo.bookmark
+      %i.entypo-bookmark
       = t('bookmarklet.heading')
   .content
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.post_something'), bookmarklet_code))
@@ -73,7 +73,7 @@
   .section
     .title
       %h5.title-header
-        %i.entypo.heart
+        %i.entypo-heart
         = t('aspects.index.donate')
     .content
       %p
@@ -84,7 +84,7 @@
   .section
     .title
       %h5.title-header
-        %i.entypo.mail
+        %i.entypo-mail
         = t('aspects.index.help.any_problem')
     .content
       %p

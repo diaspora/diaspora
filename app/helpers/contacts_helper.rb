@@ -10,7 +10,11 @@ module ContactsHelper
     conv_opts = { class: "conversation_button contacts_button"}
 
     content_tag :span, conv_opts do
-      content_tag(:i, nil, :class => 'entypo mail contacts-header-icon', :title => t('contacts.index.start_a_conversation'), 'data-toggle' => 'modal', 'data-target' => '#conversationModal')
+      content_tag :i,
+                  nil,
+                  class: "entypo-mail contacts-header-icon",
+                  title: t("contacts.index.start_a_conversation"),
+                  data:  {toggle: "modal", target: "#conversationModal"}
     end
   end
 end

@@ -1,9 +1,8 @@
 .control-icons {
   a {
-    margin-right: 5px;
     &:hover { text-decoration: none; }
 
-    i.entypo {
+    [class^="entypo-"], [class*="entypo-"] {
       color: $text-grey;
       font-size: $font-size-base;
       line-height: $line-height-base;

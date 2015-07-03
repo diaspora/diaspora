@@ -20,7 +20,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   toggleDropdown: function(evt){
     evt.stopPropagation();
-    if (!$("#notifications-link .entypo.bell:visible").length) { return true; }
+    if (!$("#notifications-link .entypo-bell:visible").length) { return true; }
     evt.preventDefault();
     if(this.dropdownShowing()){ this.hideDropdown(evt); }
     else{ this.showDropdown(); }
@@ -100,7 +100,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
       $.each(notifications, function(index, notification){
         if($.inArray(notification, notifications) === -1){
           var node = self.dropdownNotifications.append(notification.note_html);
-          $(node).find(".unread-toggle .entypo").tooltip("destroy").tooltip();
+          $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
         }
       });
     });

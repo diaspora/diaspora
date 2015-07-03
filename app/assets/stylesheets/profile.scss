@@ -32,7 +32,7 @@
           color: $text-grey;
           &:before { content: '\26aa'; }
         }
-        &.entypo.check { color: darken($brand-success,20%); }
+        &.entypo-check { color: darken($brand-success,20%); }
       }
       .description {
         margin-bottom: 20px;
@@ -40,10 +40,10 @@
           background-color: transparent;
           font-size: $font-size-base;
         }
-        .tag:not(.entypo) {
+        .tag {
           font-weight: 700;
         }
-        .entypo.tag {
+        .entypo-tag {
           margin: 0 5px;
           font-weight: normal;
           &:hover {text-decoration: none;}
@@ -62,7 +62,7 @@
           text-decoration: none;
           cursor: pointer;
           margin-right: 25px;
-          .entypo.profile-header-icon, .profile-header-icon {
+          .profile-header-icon {
             font-size: 24.5px;
             line-height: 30px;
             color: lighten($black,75%);
@@ -82,7 +82,7 @@
             border-bottom: 3px solid $brand-primary;
             a {
               color: $black;
-              .entypo { color: $black; }
+              [class^="entypo-"], [class*="entypo-"] { color: $black; }
             }
           }
           a {
@@ -90,13 +90,13 @@
             font-size: 16px;
             line-height: 46px;
             color: lighten($black,50%);
-            .entypo {
+            [class^="entypo-"], [class*="entypo-"] {
               color: lighten($black,50%);
               margin-right: 2px;
             }
             &:hover {
               color: $black;
-              .entypo { color: $black; }
+              [class^="entypo-"], [class*="entypo-"] { color: $black; }
               text-decoration: none;
             }
           }

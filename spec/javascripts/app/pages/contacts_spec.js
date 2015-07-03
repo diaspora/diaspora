@@ -18,53 +18,53 @@ describe("app.pages.Contacts", function(){
 
   context('toggle chat privilege', function() {
     beforeEach(function() {
-      this.chat_toggle = $("#chat_privilege_toggle");
-      this.chat_icon = $("#chat_privilege_toggle .entypo");
+      this.chatToggle = $("#chat_privilege_toggle");
+      this.chatIcon = $("#chat_privilege_toggle i");
     });
 
     it('updates the title for the tooltip', function() {
-      expect(this.chat_icon.attr('data-original-title')).toBe(
+      expect(this.chatIcon.attr("data-original-title")).toBe(
         Diaspora.I18n.t("contacts.aspect_chat_is_not_enabled")
       );
-      this.chat_toggle.trigger('click');
-      expect(this.chat_icon.attr('data-original-title')).toBe(
+      this.chatToggle.trigger("click");
+      expect(this.chatIcon.attr("data-original-title")).toBe(
         Diaspora.I18n.t("contacts.aspect_chat_is_enabled")
       );
     });
 
-    it('toggles the chat icon', function() {
-      expect(this.chat_icon.hasClass('enabled')).toBeFalsy();
-      this.chat_toggle.trigger('click');
-      expect(this.chat_icon.hasClass('enabled')).toBeTruthy();
+    it("toggles the chat icon", function() {
+      expect(this.chatIcon.hasClass("enabled")).toBeFalsy();
+      this.chatToggle.trigger("click");
+      expect(this.chatIcon.hasClass("enabled")).toBeTruthy();
     });
   });
 
   context('toggle contacts visibility', function() {
     beforeEach(function() {
-      this.visibility_toggle = $("#contacts_visibility_toggle");
-      this.lock_icon = $("#contacts_visibility_toggle .entypo");
+      this.visibilityToggle = $("#contacts_visibility_toggle");
+      this.lockIcon = $("#contacts_visibility_toggle i");
     });
 
-    it('updates the title for the tooltip', function() {
-      expect(this.lock_icon.attr('data-original-title')).toBe(
+    it("updates the title for the tooltip", function() {
+      expect(this.lockIcon.attr("data-original-title")).toBe(
         Diaspora.I18n.t("contacts.aspect_list_is_visible")
       );
 
-      this.visibility_toggle.trigger('click');
+      this.visibilityToggle.trigger("click");
 
-      expect(this.lock_icon.attr('data-original-title')).toBe(
+      expect(this.lockIcon.attr("data-original-title")).toBe(
         Diaspora.I18n.t("contacts.aspect_list_is_not_visible")
       );
     });
 
-    it('toggles the lock icon', function() {
-      expect(this.lock_icon.hasClass('lock-open')).toBeTruthy();
-      expect(this.lock_icon.hasClass('lock')).toBeFalsy();
+    it("toggles the lock icon", function() {
+      expect(this.lockIcon.hasClass("entypo-lock-open")).toBeTruthy();
+      expect(this.lockIcon.hasClass("entypo-lock")).toBeFalsy();
 
-      this.visibility_toggle.trigger('click');
+      this.visibilityToggle.trigger("click");
 
-      expect(this.lock_icon.hasClass('lock')).toBeTruthy();
-      expect(this.lock_icon.hasClass('lock-open')).toBeFalsy();
+      expect(this.lockIcon.hasClass("entypo-lock")).toBeTruthy();
+      expect(this.lockIcon.hasClass("entypo-lock-open")).toBeFalsy();
     });
   });
 

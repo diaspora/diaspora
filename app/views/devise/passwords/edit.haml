@@ -14,14 +14,14 @@
       %fieldset.form
         %label{for: "user_password"}
           = t('devise.passwords.edit.new_password')
-        %i.entypo.lock
+        %i.entypo-lock
         = f.password_field :password, class: "input-block-level form-control", required: true, placeholder: t('devise.passwords.edit.new_password'), autocapitalize: "none", autocorrect: "off", autofocus: true
 
         = f.hidden_field :reset_password_token
 
         %label{for: "user_password_confirmation"}
           = t('devise.passwords.edit.confirm_password')
-        %i.entypo.lock
+        %i.entypo-lock
         = f.password_field :password_confirmation, class: "input-block-level form-control", required: true, placeholder: t('devise.passwords.edit.confirm_password'), autocapitalize: "none", autocorrect: "off"
 
       = hidden_field(:user, :remember_me, value: 1)

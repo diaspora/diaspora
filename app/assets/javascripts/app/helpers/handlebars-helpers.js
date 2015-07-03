@@ -47,7 +47,7 @@ Handlebars.registerHelper('sharingMessage', function(person) {
   var icon = "circle";
   if( person.is_sharing ) {
     i18n_scope = 'people.helper.is_sharing';
-    icon = "entypo check";
+    icon = "entypo-check";
   }
 
   var title = Diaspora.I18n.t(i18n_scope, {name: person.name});
@@ -118,7 +118,7 @@ Handlebars.registerHelper("isCurrentProfilePage", function(id, diasporaHandle, o
 Handlebars.registerHelper('aspectMembershipIndicator', function(contact,in_aspect) {
   if(!app.aspect || !app.aspect.get('id')) return '<div class="aspect_membership_dropdown placeholder"></div>';
 
-  var html = '<i class="entypo ';
+  var html = "<i class=\"entypo-";
   if( in_aspect === 'in_aspect' ) {
     html += 'circled-cross contact_remove-from-aspect" ';
     html += 'title="' + Diaspora.I18n.t('contacts.remove_contact') + '" ';
