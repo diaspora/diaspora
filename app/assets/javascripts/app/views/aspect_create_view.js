@@ -4,7 +4,8 @@ app.views.AspectCreate = app.views.Base.extend({
   templateName: "aspect_create_modal",
 
   events: {
-    "click .btn.btn-primary": "createAspect"
+    "click .btn.btn-primary": "createAspect",
+    "keypress input#aspect_name": "inputKeypress"
   },
 
   initialize: function(opts) {
@@ -28,6 +29,13 @@ app.views.AspectCreate = app.views.Base.extend({
 
   _name: function() {
     return this.$("#aspect_name").val();
+  },
+
+  inputKeypress: function(evt) {
+    if(evt.which === 13) {
+      evt.preventDefault();
+      this.createAspect();
+    }
   },
 
   createAspect: function() {

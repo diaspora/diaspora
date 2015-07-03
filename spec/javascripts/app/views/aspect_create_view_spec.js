@@ -40,6 +40,24 @@ describe("app.views.AspectCreate", function() {
       });
     });
 
+    describe("#inputKeypress", function() {
+      beforeEach(function() {
+        this.view.render();
+        spyOn(this.view, "createAspect");
+      });
+
+      it("should call createAspect if the enter key was pressed", function() {
+        var e = $.Event("keypress", { which: 13 });
+        this.view.inputKeypress(e);
+        expect(this.view.createAspect).toHaveBeenCalled();
+      });
+
+      it("shouldn't call createAspect if another key was pressed", function() {
+        var e = $.Event("keypress", { which: 42 });
+        this.view.inputKeypress(e);
+        expect(this.view.createAspect).not.toHaveBeenCalled();
+      });
+    });
 
     describe("#createAspect", function() {
       beforeEach(function() {
