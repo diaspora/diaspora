@@ -61,6 +61,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
 * Send new users a welcome message from the podmin [#6128](https://github.com/diaspora/diaspora/pull/6128)
+* Cleanup temporary upload files daily [#6147](https://github.com/diaspora/diaspora/pull/6147)
 
 # 0.5.1.2
 
