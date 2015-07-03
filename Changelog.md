@@ -55,6 +55,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)
 * Fix wrong closing a-tag [#6111](https://github.com/diaspora/diaspora/pull/6111)
 * Fix mobile more-button wording when there are less than 15 posts [#6118](https://github.com/diaspora/diaspora/pull/6118)
+* Fix reappearing flash boxes during sign-in [#6146](https://github.com/diaspora/diaspora/pull/6146)
 
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
