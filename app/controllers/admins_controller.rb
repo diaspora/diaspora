@@ -23,7 +23,7 @@ class AdminsController < Admin::AdminController
     else
       flash[:notice]= "error sending invite to #{email}"
     end
-    redirect_to user_search_path, :notice => flash[:notice]
+    redirect_to user_search_path, notice: flash[:notice]
   end
 
   def add_invites
@@ -62,7 +62,7 @@ class AdminsController < Admin::AdminController
     end
 
     [Post, Comment, AspectMembership, User].each do |model|
-      create_hash(model, :range => range)
+      create_hash(model, range: range)
     end
 
     @posts_per_day = Post.where("created_at >= ?", Date.today - 21.days).group("DATE(created_at)").order("DATE(created_at) ASC").count
@@ -70,8 +70,8 @@ class AdminsController < Admin::AdminController
 
     @user_count = User.count
 
-    #@posts[:new_public] = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
-    #                                 :public => true).order('created_at DESC').limit(15).all
+    #@posts[:new_public] = Post.where(type: ['StatusMessage','ActivityStreams::Photo'],
+    #                                 public: true).order('created_at DESC').limit(15).all
 
   end
 
@@ -90,8 +90,8 @@ class AdminsController < Admin::AdminController
     plural = model.to_s.underscore.pluralize
     eval(<<DATA
       @#{plural} = {
-        :day_before => #{model}.where(:created_at => ((Time.now.midnight - #{opts[:range]*2})..Time.now.midnight - #{opts[:range]})).count,
-        :yesterday => #{model}.where(:created_at => ((Time.now.midnight - #{opts[:range]})..Time.now.midnight)).count
+        day_before: #{model}.where(created_at: ((Time.now.midnight - #{opts[:range]*2})..Time.now.midnight - #{opts[:range]})).count,
+        yesterday: #{model}.where(created_at: ((Time.now.midnight - #{opts[:range]})..Time.now.midnight)).count
       }
       @#{plural}[:change] = percent_change(@#{plural}[:yesterday], @#{plural}[:day_before])
 DATA

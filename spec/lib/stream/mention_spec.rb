@@ -3,7 +3,7 @@ require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Mention do
   before do
-    @stream = Stream::Mention.new(alice, :max_time => Time.now, :order => 'updated_at')
+    @stream = Stream::Mention.new(alice, max_time: Time.now, order: 'updated_at')
   end
 
   describe 'shared behaviors' do

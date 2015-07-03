@@ -5,7 +5,7 @@ class Participation < Federated::Relayable
     end
 
     def relayable_options
-      {:target => @target}
+      {target: @target}
     end
   end
 

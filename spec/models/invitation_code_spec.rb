@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe InvitationCode, :type => :model do
+describe InvitationCode, type: :model do
   it 'has a valid factory' do
     expect(FactoryGirl.build(:invitation_code)).to be_valid
   end

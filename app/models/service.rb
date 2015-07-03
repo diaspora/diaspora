@@ -6,7 +6,7 @@ class Service < ActiveRecord::Base
   attr_accessor :provider, :info, :access_level
 
   belongs_to :user
-  validates_uniqueness_of :uid, :scope => :type
+  validates_uniqueness_of :uid, scope: :type
 
   def profile_photo_url
     nil

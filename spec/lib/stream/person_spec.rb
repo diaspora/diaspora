@@ -3,7 +3,7 @@ require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Person do
   before do
-    @stream = Stream::Person.new(alice, bob.person, :max_time => Time.now, :order => 'updated_at')
+    @stream = Stream::Person.new(alice, bob.person, max_time: Time.now, order: 'updated_at')
   end
 
   describe 'shared behaviors' do

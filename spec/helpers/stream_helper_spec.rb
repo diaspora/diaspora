@@ -4,13 +4,13 @@
 
 require 'spec_helper'
 
-describe StreamHelper, :type => :helper do
+describe StreamHelper, type: :helper do
   describe "next_page_path" do
     def build_controller controller_class
       controller_class.new.tap {|c| c.request = controller.request }
     end
     before do
-      @stream = Stream::Base.new(alice, :max_time => Time.now)
+      @stream = Stream::Base.new(alice, max_time: Time.now)
     end
 
     it 'works for public page' do

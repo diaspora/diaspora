@@ -54,7 +54,7 @@ describe Webfinger do
     it 'makes a request and grabs the body' do
       url ="https://bar.com/.well-known/host-meta"
       stub_request(:get, url).
-        to_return(:status => 200, :body => host_meta_xrd)
+        to_return(status: 200, body: host_meta_xrd)
 
       expect(finger.get(url)).to eq(host_meta_xrd)
     end
@@ -63,10 +63,10 @@ describe Webfinger do
       redirect_url = "http://whereami.whatisthis/host-meta"
 
       stub_request(:get, "https://bar.com/.well-known/host-meta").
-        to_return(:status => 302, :headers => { 'Location' => redirect_url })
+        to_return(status: 302, headers: { 'Location' => redirect_url })
 
       stub_request(:get, redirect_url).
-        to_return(:status => 200, :body => host_meta_xrd)
+        to_return(status: 200, body: host_meta_xrd)
 
       finger.host_meta_xrd
 
@@ -76,7 +76,7 @@ describe Webfinger do
     it 'raises on 404' do
       url ="https://bar.com/.well-known/host-meta"
       stub_request(:get, url).
-        to_return(:status => 404, :body => nil)
+        to_return(status: 404, body: nil)
 
       expect {
         expect(finger.get(url)).to eq(false)

@@ -15,14 +15,14 @@ class Photo < ActiveRecord::Base
     t.add :created_at
     t.add :author
     t.add lambda { |photo|
-      { :small => photo.url(:thumb_small),
-        :medium => photo.url(:thumb_medium),
-        :large => photo.url(:scaled_full) }
-    }, :as => :sizes
+      { small: photo.url(:thumb_small),
+        medium: photo.url(:thumb_medium),
+        large: photo.url(:scaled_full) }
+    }, as: :sizes
     t.add lambda { |photo|
-      { :height => photo.height,
-        :width => photo.width }
-    }, :as => :dimensions
+      { height: photo.height,
+        width: photo.width }
+    }, as: :dimensions
   end
 
   mount_uploader :processed_image, ProcessedImage
@@ -37,7 +37,7 @@ class Photo < ActiveRecord::Base
   xml_attr :height
   xml_attr :width
 
-  belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
+  belongs_to :status_message, foreign_key: :status_message_guid, primary_key: :guid
   validates_associated :status_message
   delegate :author_name, to: :status_message, prefix: true
 
@@ -46,13 +46,13 @@ class Photo < ActiveRecord::Base
   before_destroy :ensure_user_picture
   after_destroy :clear_empty_status_message
 
-  after_commit :on => :create do
+  after_commit on: :create do
     queue_processing_job if self.author.local?
 
   end
 
   scope :on_statuses, ->(post_guids) {
-    where(:status_message_guid => post_guids)
+    where(status_message_guid: post_guids)
   }
 
   def clear_empty_status_message
@@ -131,7 +131,7 @@ class Photo < ActiveRecord::Base
   end
 
   def ensure_user_picture
-    profiles = Profile.where(:image_url => url(:thumb_large))
+    profiles = Profile.where(image_url: url(:thumb_large))
     profiles.each { |profile|
       profile.image_url = nil
       profile.save

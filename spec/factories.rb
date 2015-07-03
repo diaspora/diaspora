@@ -20,7 +20,7 @@ FactoryGirl.define do
     birthday Date.today
   end
 
-  factory :profile_with_image_url, :parent => :profile do
+  factory :profile_with_image_url, parent: :profile do
     image_url "http://example.com/image.jpg"
     image_url_medium "http://example.com/image_mid.jpg"
     image_url_small "http://example.com/image_small.jpg"
@@ -47,15 +47,15 @@ FactoryGirl.define do
     end
   end
 
-  factory :searchable_person, :parent => :person do
+  factory :searchable_person, parent: :person do
     after(:build) do |person|
-      person.profile = FactoryGirl.build(:profile, :person => person, :searchable => true)
+      person.profile = FactoryGirl.build(:profile, person: person, searchable: true)
     end
   end
 
   factory :like do
-    association :author, :factory => :person
-    association :target, :factory => :status_message
+    association :author, factory: :person
+    association :target, factory: :status_message
   end
 
   factory :user do
@@ -66,10 +66,10 @@ FactoryGirl.define do
     password_confirmation { |u| u.password }
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
     after(:build) do |u|
-      u.person = FactoryGirl.build(:person, :profile => FactoryGirl.build(:profile),
-                                  :owner_id => u.id,
-                                  :serialized_public_key => u.encryption_key.public_key.export,
-                                  :diaspora_handle => "#{u.username}#{User.diaspora_id_host}")
+      u.person = FactoryGirl.build(:person, profile: FactoryGirl.build(:profile),
+                                  owner_id: u.id,
+                                  serialized_public_key: u.encryption_key.public_key.export,
+                                  diaspora_handle: "#{u.username}#{User.diaspora_id_host}")
     end
     after(:create) do |u|
       u.person.save
@@ -77,8 +77,8 @@ FactoryGirl.define do
     end
   end
 
-  factory :user_with_aspect, :parent => :user do
-    after(:create) { |u|  FactoryGirl.create(:aspect, :user => u) }
+  factory :user_with_aspect, parent: :user do
+    after(:create) { |u|  FactoryGirl.create(:aspect, user: u) }
   end
 
   factory :aspect do
@@ -152,30 +152,30 @@ FactoryGirl.define do
 
   factory(:photo) do
     sequence(:random_string) {|n| SecureRandom.hex(10) }
-    association :author, :factory => :person
+    association :author, factory: :person
     after(:build) do |p|
       p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
       p.update_remote_path
     end
   end
 
-  factory(:remote_photo, :parent => :photo) do
+  factory(:remote_photo, parent: :photo) do
     remote_photo_path 'https://photo.com/images/'
     remote_photo_name 'kittehs.jpg'
-    association :author,:factory => :person
+    association :author,factory: :person
     processed_image nil
     unprocessed_image nil
   end
 
   factory :reshare do
-    association(:root, :public => true, :factory => :status_message)
-    association(:author, :factory => :person)
+    association(:root, public: true, factory: :status_message)
+    association(:author, factory: :person)
   end
 
   factory :invitation do
     service "email"
     identifier "bob.smith@smith.com"
-    association :sender, :factory => :user_with_aspect
+    association :sender, factory: :user_with_aspect
     after(:build) do |i|
       i.aspect = i.sender.aspects.first
     end
@@ -205,13 +205,13 @@ FactoryGirl.define do
 
   factory(:comment) do
     sequence(:text) {|n| "#{n} cats"}
-    association(:author, :factory => :person)
-    association(:post, :factory => :status_message)
+    association(:author, factory: :person)
+    association(:post, factory: :status_message)
   end
 
   factory(:notification) do
-    association :recipient, :factory => :user
-    association :target, :factory => :comment
+    association :recipient, factory: :user
+    association :target, factory: :comment
     type 'Notifications::AlsoCommented'
 
     after(:build) do |note|
@@ -219,7 +219,7 @@ FactoryGirl.define do
     end
   end
 
-  factory(:tag, :class => ActsAsTaggableOn::Tag) do
+  factory(:tag, class: ActsAsTaggableOn::Tag) do
     name "partytimeexcellent"
   end
 
@@ -237,18 +237,18 @@ FactoryGirl.define do
   end
 
   factory(:tag_following) do
-    association(:tag, :factory => :tag)
-    association(:user, :factory => :user)
+    association(:tag, factory: :tag)
+    association(:user, factory: :user)
   end
 
   factory(:contact) do
-    association(:person, :factory => :person)
-    association(:user, :factory => :user)
+    association(:person, factory: :person)
+    association(:user, factory: :user)
   end
 
   factory(:mention) do
-    association(:person, :factory => :person)
-    association(:post, :factory => :status_message)
+    association(:person, factory: :person)
+    association(:post, factory: :status_message)
   end
 
   factory(:conversation) do
@@ -283,15 +283,15 @@ FactoryGirl.define do
   end
 
   #templates
-  factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
+  factory(:status_with_photo_backdrop, parent: :status_message_with_photo)
 
-  factory(:photo_backdrop, :parent => :status_message_with_photo) do
+  factory(:photo_backdrop, parent: :status_message_with_photo) do
     text ""
   end
 
-  factory(:note, :parent => :status_message) do
+  factory(:note, parent: :status_message) do
     text SecureRandom.hex(1000)
   end
 
-  factory(:status, :parent => :status_message)
+  factory(:status, parent: :status_message)
 end

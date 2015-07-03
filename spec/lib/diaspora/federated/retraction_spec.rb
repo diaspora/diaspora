@@ -7,8 +7,8 @@ require 'spec_helper'
 describe Retraction do
   before do
     @aspect = alice.aspects.first
-    alice.contacts.create(:person => eve.person, :aspects => [@aspect])
-    @post = alice.post(:status_message, :public => true, :text => "Destroy!", :to => @aspect.id)
+    alice.contacts.create(person: eve.person, aspects: [@aspect])
+    @post = alice.post(:status_message, public: true, text: "Destroy!", to: @aspect.id)
   end
 
   describe 'serialization' do
@@ -32,7 +32,7 @@ describe Retraction do
       end
 
       it 'does not return the authors of reshares' do
-        @post.reshares << FactoryGirl.build(:reshare, :root => @post, :author => bob.person)
+        @post.reshares << FactoryGirl.build(:reshare, root: @post, author: bob.person)
         @post.save!
 
         @wanted_subscribers -= [bob.person]

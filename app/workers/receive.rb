@@ -11,7 +11,7 @@ module Workers
       suppress_annoying_errors do
         user = User.find(user_id)
         salmon_author = Person.find(salmon_author_id)
-        zord = Postzord::Receiver::Private.new(user, :person => salmon_author)
+        zord = Postzord::Receiver::Private.new(user, person: salmon_author)
         zord.parse_and_receive(xml)
       end
     end

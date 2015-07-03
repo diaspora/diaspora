@@ -12,13 +12,13 @@ describe Publisher do
     end
 
     it 'is settable' do
-      expect(Publisher.new(alice, :prefill => "party!").prefill).to eq("party!")
+      expect(Publisher.new(alice, prefill: "party!").prefill).to eq("party!")
     end
   end
 
   describe '#text' do
     it 'is a formatted version of the prefill' do
-      p = Publisher.new(alice, :prefill => "@{alice; alice@pod.com}")
+      p = Publisher.new(alice, prefill: "@{alice; alice@pod.com}")
       expect(p.text).to eq("alice")
     end
   end

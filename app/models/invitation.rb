@@ -5,21 +5,21 @@
 #TODO: kill me
 class Invitation < ActiveRecord::Base
 
-  belongs_to :sender, :class_name => 'User'
-  belongs_to :recipient, :class_name => 'User'
+  belongs_to :sender, class_name: 'User'
+  belongs_to :recipient, class_name: 'User'
   belongs_to :aspect
 
   before_validation :set_email_as_default_service
 
- # before_create :share_with_exsisting_user, :if => :recipient_id?
-  validates :identifier, :presence => true
-  validates :service, :presence => true
+ # before_create :share_with_exsisting_user, if: :recipient_id?
+  validates :identifier, presence: true
+  validates :service, presence: true
   validate :valid_identifier?
   validate :recipient_not_on_pod?
-  validates_presence_of :sender, :aspect, :unless => :admin?
-  validate :ensure_not_inviting_self, :on => :create, :unless => :admin?
-  validate :sender_owns_aspect?, :unless => :admin?
-  validates_uniqueness_of :sender_id, :scope => [:identifier, :service], :unless => :admin?
+  validates_presence_of :sender, :aspect, unless: :admin?
+  validate :ensure_not_inviting_self, on: :create, unless: :admin?
+  validate :sender_owns_aspect?, unless: :admin?
+  validates_uniqueness_of :sender_id, scope: [:identifier, :service], unless: :admin?
 
 
   # @note options hash is passed through to [Invitation.new]
@@ -33,14 +33,14 @@ class Invitation < ActiveRecord::Base
   #   the valid optsnes are saved, and the invalid ones are not.
   def self.batch_invite(emails, opts)
 
-    users_on_pod = User.where(:email => emails, :invitation_token => nil)
+    users_on_pod = User.where(email: emails, invitation_token: nil)
 
     #share with anyone whose email you entered who is on the pod
     users_on_pod.each{|u| opts[:sender].share_with(u.person, opts[:aspect])}
 
     emails.map! do |e|
       user = users_on_pod.find{|u| u.email == e}
-      Invitation.create(opts.merge(:identifier => e, :recipient => user))
+      Invitation.create(opts.merge(identifier: e, recipient: user))
     end
     emails
   end

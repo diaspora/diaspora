@@ -18,7 +18,7 @@ module Federated
 
     def build(options={})
       options.merge!(relayable_options)
-      relayable = self.class.federated_class.new(options.merge(:author_id => @user.person.id))
+      relayable = self.class.federated_class.new(options.merge(author_id: @user.person.id))
       relayable.set_guid
       relayable.initialize_signatures
       relayable

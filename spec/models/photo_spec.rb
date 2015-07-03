@@ -11,7 +11,7 @@ def with_carrierwave_processing(&block)
   val
 end
 
-describe Photo, :type => :model do
+describe Photo, type: :model do
   before do
     @user = alice
     @aspect = @user.aspects.first
@@ -20,9 +20,9 @@ describe Photo, :type => :model do
     @fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo  = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-    @photo2 = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-    @saved_photo = @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
+    @photo  = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
+    @photo2 = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
+    @saved_photo = @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
     @saved_photo.save
   end
 
@@ -46,7 +46,7 @@ describe Photo, :type => :model do
     before do
       @image = File.open(@fixture_name)
       @photo = Photo.diaspora_initialize(
-                :author => @user.person, :user_file => @image)
+                author: @user.person, user_file: @image)
     end
 
     it 'sets the persons diaspora handle' do
@@ -59,7 +59,7 @@ describe Photo, :type => :model do
       allow(Photo).to receive(:new).and_return(photo_double)
 
       Photo.diaspora_initialize(
-        :author => @user.person, :user_file => @image)
+        author: @user.person, user_file: @image)
     end
 
     context "with user file" do
@@ -78,7 +78,7 @@ describe Photo, :type => :model do
         allow(Photo).to receive(:new).and_return(photo_double)
 
         Photo.diaspora_initialize(
-                :author => @user.person, :image_url => url)
+                author: @user.person, image_url: url)
       end
     end
   end
@@ -87,7 +87,7 @@ describe Photo, :type => :model do
     before do
       image = File.open(@fixture_name)
       @photo = Photo.diaspora_initialize(
-                :author => @user.person, :user_file => image)
+                author: @user.person, user_file: image)
       @photo.processed_image.store!(@photo.unprocessed_image)
       @photo.save!
     end
@@ -147,7 +147,7 @@ describe Photo, :type => :model do
     end
 
     it 'should contain EXIF data if user prefer' do
-      @alice_photo  = alice.build_post(:photo, :user_file => File.open(@exif_name), :to => alice.aspects.first.id)
+      @alice_photo  = alice.build_post(:photo, user_file: File.open(@exif_name), to: alice.aspects.first.id)
 
       with_carrierwave_processing do
         @alice_photo.unprocessed_image.store! File.open(@exif_name)
@@ -160,7 +160,7 @@ describe Photo, :type => :model do
     end
 
     it 'should not contain EXIF data if user prefer' do
-      @bob_photo  = bob.build_post(:photo, :user_file => File.open(@exif_name), :to => @aspect.id)
+      @bob_photo  = bob.build_post(:photo, user_file: File.open(@exif_name), to: @aspect.id)
 
       with_carrierwave_processing do
         @bob_photo.unprocessed_image.store! File.open(@exif_name)
@@ -186,7 +186,7 @@ describe Photo, :type => :model do
   describe 'serialization' do
     before do
       @saved_photo = with_carrierwave_processing do
-         @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
+         @user.build_post(:photo, user_file: File.open(@fixture_name), to: @aspect.id)
       end
       @xml = @saved_photo.to_xml.to_s
     end
@@ -214,7 +214,7 @@ describe Photo, :type => :model do
 
     it 'should set the remote_photo on marshalling' do
       user2 = FactoryGirl.create(:user)
-      aspect2 = user2.aspects.create(:name => "foobars")
+      aspect2 = user2.aspects.create(name: "foobars")
       connect_users(@user, @aspect, user2, aspect2)
 
       url = @saved_photo.url
@@ -223,10 +223,10 @@ describe Photo, :type => :model do
       xml = @saved_photo.to_diaspora_xml
 
       @saved_photo.destroy
-      zord = Postzord::Receiver::Private.new(user2, :person => @photo.author)
+      zord = Postzord::Receiver::Private.new(user2, person: @photo.author)
       zord.parse_and_receive(xml)
 
-      new_photo = Photo.where(:guid => @saved_photo.guid).first
+      new_photo = Photo.where(guid: @saved_photo.guid).first
       expect(new_photo.url.nil?).to be false
       expect(new_photo.url.include?(url)).to be true
       expect(new_photo.url(:thumb_medium).include?(thumb_url)).to be true
@@ -248,7 +248,7 @@ describe Photo, :type => :model do
 
   context "deletion" do
     before do
-      @status_message = @user.build_post(:status_message, :text => "", :to => @aspect.id)
+      @status_message = @user.build_post(:status_message, text: "", to: @aspect.id)
       @status_message.photos << @photo2
       @status_message.save
       @status_message.reload

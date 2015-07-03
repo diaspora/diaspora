@@ -4,16 +4,16 @@
 
 require 'spec_helper'
 
-describe ConversationVisibility, :type => :model do
+describe ConversationVisibility, type: :model do
   before do
     @user1 = alice
     @participant_ids = [@user1.contacts.first.person.id, @user1.person.id]
 
     @create_hash = {
-      :author => @user1.person,
-      :participant_ids => @participant_ids,
-      :subject => "cool stuff",
-      :messages_attributes => [ {:author => @user1.person, :text => 'hey'} ]
+      author: @user1.person,
+      participant_ids: @participant_ids,
+      subject: "cool stuff",
+      messages_attributes: [ {author: @user1.person, text: 'hey'} ]
     }
     @conversation = Conversation.create(@create_hash)
   end

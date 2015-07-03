@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe ActsAsTaggableOn::Tag, :type => :model do
+describe ActsAsTaggableOn::Tag, type: :model do
   describe '.autocomplete' do
     before do
-      @tag = ActsAsTaggableOn::Tag.create(:name => "cats")
+      @tag = ActsAsTaggableOn::Tag.create(name: "cats")
     end
     it 'downcases the tag name' do
       expect(ActsAsTaggableOn::Tag.autocomplete("CATS")).to eq([@tag])

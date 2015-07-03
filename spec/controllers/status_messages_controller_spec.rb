@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe StatusMessagesController, :type => :controller do
+describe StatusMessagesController, type: :controller do
   before do
     @aspect1 = alice.aspects.first
 
@@ -38,7 +38,7 @@ describe StatusMessagesController, :type => :controller do
 
   describe '#new' do
     it 'succeeds' do
-      get :new, :person_id => bob.person.id
+      get :new, person_id: bob.person.id
       expect(response).to be_success
     end
 
@@ -50,11 +50,11 @@ describe StatusMessagesController, :type => :controller do
 
   describe '#create' do
     let(:status_message_hash) {
-      { :status_message => {
-        :public  => "true",
-        :text => "facebook, is that you?",
+      { status_message: {
+        public: "true",
+        text: "facebook, is that you?",
       },
-      :aspect_ids => [@aspect1.id.to_s] }
+      aspect_ids: [@aspect1.id.to_s] }
     }
 
     it 'creates with valid html' do
@@ -64,29 +64,29 @@ describe StatusMessagesController, :type => :controller do
     end
 
     it 'creates with invalid html' do
-      post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 })
+      post :create, status_message_hash.merge(status_message: { text: "0123456789" * 7000 })
       expect(response.status).to eq(302)
       expect(response).to be_redirect
     end
 
     it 'creates with valid json' do
-      post :create, status_message_hash.merge(:format => 'json')
+      post :create, status_message_hash.merge(format: 'json')
       expect(response.status).to eq(201)
     end
 
     it 'creates with invalid json' do
-      post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 }, :format => 'json')
+      post :create, status_message_hash.merge(status_message: { text: "0123456789" * 7000 }, format: 'json')
       expect(response.status).to eq(403)
     end
 
     it 'creates with valid mobile' do
-      post :create, status_message_hash.merge(:format => 'mobile')
+      post :create, status_message_hash.merge(format: 'mobile')
       expect(response.status).to eq(302)
       expect(response).to be_redirect
     end
 
     it 'creates with invalid mobile' do
-      post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 }, :format => 'mobile')
+      post :create, status_message_hash.merge(status_message: { text: "0123456789" * 7000 }, format: 'mobile')
       expect(response.status).to eq(302)
       expect(response).to be_redirect
     end
@@ -97,12 +97,12 @@ describe StatusMessagesController, :type => :controller do
     end
 
     it 'takes public in aspect ids' do
-      post :create, status_message_hash.merge(:aspect_ids => ['public'])
+      post :create, status_message_hash.merge(aspect_ids: ['public'])
       expect(response.status).to eq(302)
     end
 
     it 'takes all_aspects in aspect ids' do
-      post :create, status_message_hash.merge(:aspect_ids => ['all_aspects'])
+      post :create, status_message_hash.merge(aspect_ids: ['all_aspects'])
       expect(response.status).to eq(302)
     end
 
@@ -112,7 +112,7 @@ describe StatusMessagesController, :type => :controller do
       alice.services << Services::Twitter.new
       status_message_hash[:services] = ['facebook']
       service_types = Service.titles(status_message_hash[:services])
-      expect(alice).to receive(:dispatch_post).with(anything(), hash_including(:service_types => service_types))
+      expect(alice).to receive(:dispatch_post).with(anything(), hash_including(service_types: service_types))
       post :create, status_message_hash
     end
 
@@ -120,7 +120,7 @@ describe StatusMessagesController, :type => :controller do
       s1 = Services::Facebook.new
       alice.services << s1
       status_message_hash[:services] = "facebook"
-      expect(alice).to receive(:dispatch_post).with(anything(), hash_including(:service_types => ["Services::Facebook"]))
+      expect(alice).to receive(:dispatch_post).with(anything(), hash_including(service_types: ["Services::Facebook"]))
       post :create, status_message_hash
     end
 
@@ -132,7 +132,7 @@ describe StatusMessagesController, :type => :controller do
     end
 
     it "doesn't overwrite id" do
-      old_status_message = alice.post(:status_message, :text => "hello", :to => @aspect1.id)
+      old_status_message = alice.post(:status_message, text: "hello", to: @aspect1.id)
       status_message_hash[:status_message][:id] = old_status_message.id
       post :create, status_message_hash
       expect(old_status_message.reload.text).to eq('hello')
@@ -146,15 +146,15 @@ describe StatusMessagesController, :type => :controller do
     end
 
     it 'respsects provider_display_name' do
-      status_message_hash.merge!(:aspect_ids => ['public'])
-      status_message_hash[:status_message].merge!(:provider_display_name => "mobile")
+      status_message_hash.merge!(aspect_ids: ['public'])
+      status_message_hash[:status_message].merge!(provider_display_name: "mobile")
       post :create, status_message_hash
       expect(StatusMessage.first.provider_display_name).to eq('mobile')
     end
 
 # disabled to fix federation
 #    it 'sends the errors in the body on js' do
-#      post :create, status_message_hash.merge!(:format => 'js', :status_message => {:text => ''})
+#      post :create, status_message_hash.merge!(format: 'js', status_message: {text: ''})
 #      response.body.should include('Status message requires a message or at least one photo')
 #    end
 
@@ -167,8 +167,8 @@ describe StatusMessagesController, :type => :controller do
 
     context 'with photos' do
       before do
-        @photo1 = alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => @aspect1.id)
-        @photo2 = alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => @aspect1.id)
+        @photo1 = alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name), to: @aspect1.id)
+        @photo2 = alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name), to: @aspect1.id)
 
         @photo1.save!
         @photo2.save!

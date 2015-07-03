@@ -4,11 +4,11 @@
 
 require 'spec_helper'
 
-describe Maintenance, :type => :mailer do
+describe Maintenance, type: :mailer do
   describe 'create warning' do
     before do
       @removal_timestamp = Time.now + 3.days
-      @user = FactoryGirl.create(:user_with_aspect, :username => "local", :remove_after => @removal_timestamp)
+      @user = FactoryGirl.create(:user_with_aspect, username: "local", remove_after: @removal_timestamp)
     end
 
     it "#should deliver successfully" do

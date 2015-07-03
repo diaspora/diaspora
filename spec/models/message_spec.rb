@@ -5,13 +5,13 @@
 require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
 
-describe Message, :type => :model do
+describe Message, type: :model do
   before do
     @create_hash = {
-      :author => bob.person,
-      :participant_ids => [bob.person.id, alice.person.id],
-      :subject => "cool stuff",
-      :messages_attributes => [ {:author => bob.person, :text => 'stuff'} ]
+      author: bob.person,
+      participant_ids: [bob.person.id, alice.person.id],
+      subject: "cool stuff",
+      messages_attributes: [ {author: bob.person, text: 'stuff'} ]
     }
 
     @conversation = Conversation.create!(@create_hash)
@@ -20,7 +20,7 @@ describe Message, :type => :model do
   end
 
   it 'validates that the author is a participant in the conversation' do
-    message = Message.new(:text => 'yo', :author => eve.person, :conversation_id => @conversation.id)
+    message = Message.new(text: 'yo', author: eve.person, conversation_id: @conversation.id)
     expect(message).not_to be_valid
   end
 
@@ -67,10 +67,10 @@ describe Message, :type => :model do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
 
       cnv_hash = {
-        :author => @remote_raphael,
-        :participant_ids => [@local_luke.person, @local_leia.person, @remote_raphael].map(&:id),
-        :subject => 'cool story, bro',
-        :messages_attributes => [ {:author => @remote_raphael, :text => 'hey'} ]
+        author: @remote_raphael,
+        participant_ids: [@local_luke.person, @local_leia.person, @remote_raphael].map(&:id),
+        subject: 'cool story, bro',
+        messages_attributes: [ {author: @remote_raphael, text: 'hey'} ]
       }
 
       @remote_parent = Conversation.create(cnv_hash.dup)
@@ -78,7 +78,7 @@ describe Message, :type => :model do
       cnv_hash[:author] = @local_luke.person
       @local_parent = Conversation.create(cnv_hash)
 
-      msg_hash = {:author => @local_luke.person, :text => 'yo', :conversation => @local_parent}
+      msg_hash = {author: @local_luke.person, text: 'yo', conversation: @local_parent}
       @object_by_parent_author = Message.create(msg_hash.dup)
       Postzord::Dispatcher.build(@local_luke, @object_by_parent_author).post
 
@@ -93,17 +93,17 @@ describe Message, :type => :model do
       Postzord::Dispatcher.build(@local_luke, @object_on_remote_parent).post
     end
 
-    let(:build_object) { Message.new(:author => @alice.person, :text => "ohai!", :conversation => @conversation) }
+    let(:build_object) { Message.new(author: @alice.person, text: "ohai!", conversation: @conversation) }
     it_should_behave_like 'it is relayable'
 
     describe '#increase_unread' do
       it 'increments the conversation visiblity for the conversation' do
-       expect(ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
-                                                     :person_id => @local_luke.person.id).first.unread).to eq(0)
+       expect(ConversationVisibility.where(conversation_id: @object_by_recipient.reload.conversation.id,
+                                                     person_id: @local_luke.person.id).first.unread).to eq(0)
 
         @object_by_recipient.increase_unread(@local_luke)
-        expect(ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
-                                                     :person_id => @local_luke.person.id).first.unread).to eq(1)
+        expect(ConversationVisibility.where(conversation_id: @object_by_recipient.reload.conversation.id,
+                                                     person_id: @local_luke.person.id).first.unread).to eq(1)
       end
     end
   end

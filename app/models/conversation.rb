@@ -4,15 +4,15 @@ class Conversation < ActiveRecord::Base
 
   xml_attr :subject
   xml_attr :created_at
-  xml_attr :messages, :as => [Message]
+  xml_attr :messages, as: [Message]
   xml_reader :diaspora_handle
   xml_reader :participant_handles
 
-  has_many :conversation_visibilities, :dependent => :destroy
-  has_many :participants, :class_name => 'Person', :through => :conversation_visibilities, :source => :person
+  has_many :conversation_visibilities, dependent: :destroy
+  has_many :participants, class_name: 'Person', through: :conversation_visibilities, source: :person
   has_many :messages, -> { order('created_at ASC') }
 
-  belongs_to :author, :class_name => 'Person'
+  belongs_to :author, class_name: 'Person'
 
   validate :max_participants
   validate :local_recipients
@@ -47,13 +47,13 @@ class Conversation < ActiveRecord::Base
   end
 
   def first_unread_message(user)
-    if visibility = self.conversation_visibilities.where(:person_id => user.person.id).where('unread > 0').first
+    if visibility = self.conversation_visibilities.where(person_id: user.person.id).where('unread > 0').first
       self.messages.to_a[-visibility.unread]
     end
   end
 
   def set_read(user)
-    if visibility = self.conversation_visibilities.where(:person_id => user.person.id).first
+    if visibility = self.conversation_visibilities.where(person_id: user.person.id).first
       visibility.unread = 0
       visibility.save
     end

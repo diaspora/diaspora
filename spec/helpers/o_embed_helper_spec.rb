@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe OEmbedHelper, :type => :helper do
+describe OEmbedHelper, type: :helper do
   describe 'o_embed_html' do
     scenarios = {
       "photo" => {
@@ -107,7 +107,7 @@ describe OEmbedHelper, :type => :helper do
     scenarios.each do |type, data|
       specify 'for type "'+type+'"' do
         real_data = data['oembed_data']
-        cache =  OEmbedCache.new(:url => data['link_url'])
+        cache =  OEmbedCache.new(url: data['link_url'])
         cache.data = real_data
         formatted = o_embed_html(cache).gsub('https://', 'http://')
         case type

@@ -4,10 +4,10 @@
 
 class Reshare < Post
 
-  belongs_to :root, :class_name => 'Post', :foreign_key => :root_guid, :primary_key => :guid
+  belongs_to :root, class_name: 'Post', foreign_key: :root_guid, primary_key: :guid
   validate :root_must_be_public
-  validates_presence_of :root, :on => :create
-  validates_uniqueness_of :root_guid, :scope => :author_id
+  validates_presence_of :root, on: :create
+  validates_uniqueness_of :root_guid, scope: :author_id
   delegate :author, to: :root, prefix: true
 
   xml_attr :root_diaspora_id
@@ -17,7 +17,7 @@ class Reshare < Post
     self.public = true
   end
 
-  after_commit :on => :create do
+  after_commit on: :create do
     self.root.update_reshares_counter if self.root.present?
   end
 
@@ -54,7 +54,7 @@ class Reshare < Post
   end
 
   def receive(recipient, sender)
-    local_reshare = Reshare.where(:guid => self.guid).first
+    local_reshare = Reshare.where(guid: self.guid).first
     if local_reshare && local_reshare.root.author_id == recipient.person.id
       return unless recipient.has_contact_for?(sender)
     end
@@ -62,7 +62,7 @@ class Reshare < Post
   end
 
   def comment_email_subject
-    I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author_name)
+    I18n.t('reshares.comment_email_subject', resharer: author.name, author: root.author_name)
   end
 
   def notification_type(user, person)

@@ -98,7 +98,7 @@ class Postzord::Dispatcher
   def fetch_local_users(people)
     return [] if people.blank?
     user_ids = people.map{|x| x.owner_id }
-    User.where(:id => user_ids)
+    User.where(id: user_ids)
   end
 
   # @param remote_people [Array<Person>] Recipients of the post on other pods

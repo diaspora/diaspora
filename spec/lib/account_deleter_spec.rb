@@ -151,7 +151,7 @@ describe AccountDeleter do
      describe "#remove_conversation_visibilities" do
       it "removes the conversation visibility for the deleted user" do
         vis = double
-        expect(ConversationVisibility).to receive(:where).with(hash_including(:person_id => bob.person.id)).and_return(vis)
+        expect(ConversationVisibility).to receive(:where).with(hash_including(person_id: bob.person.id)).and_return(vis)
         expect(vis).to receive(:destroy_all)
         @account_deletion.remove_conversation_visibilities
       end

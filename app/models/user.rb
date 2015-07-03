@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   include Querying
   include SocialActions
 
-  apply_simple_captcha :message => I18n.t('simple_captcha.message.failed'), :add_to_base => true
+  apply_simple_captcha message: I18n.t('simple_captcha.message.failed'), add_to_base: true
 
   scope :logged_in_since, ->(time) { where('last_seen > ?', time) }
   scope :monthly_actives, ->(time = Time.now) { logged_in_since(time - 1.month) }
@@ -19,27 +19,27 @@ class User < ActiveRecord::Base
 
   devise :token_authenticatable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
+         :lockable, :lastseenable, lock_strategy: :none, unlock_strategy: :none
 
   before_validation :strip_and_downcase_username
-  before_validation :set_current_language, :on => :create
+  before_validation :set_current_language, on: :create
   before_validation :set_default_color_theme, on: :create
 
-  validates :username, :presence => true, :uniqueness => true
-  validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
-  validates_length_of :username, :maximum => 32
-  validates_exclusion_of :username, :in => AppConfig.settings.username_blacklist
-  validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+  validates :username, presence: true, uniqueness: true
+  validates_format_of :username, with: /\A[A-Za-z0-9_]+\z/
+  validates_length_of :username, maximum: 32
+  validates_exclusion_of :username, in: AppConfig.settings.username_blacklist
+  validates_inclusion_of :language, in: AVAILABLE_LANGUAGE_CODES
   validates :color_theme, inclusion: {in: AVAILABLE_COLOR_THEME_CODES}, allow_blank: true
-  validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
+  validates_format_of :unconfirmed_email, with: Devise.email_regexp, allow_blank: true
 
-  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
+  validates_presence_of :person, unless: proc {|user| user.invitation_token.present?}
   validates_associated :person
   validate :no_person_with_same_username
 
   serialize :hidden_shareables, Hash
 
-  has_one :person, :foreign_key => :owner_id
+  has_one :person, foreign_key: :owner_id
   has_one :profile, through: :person
 
   delegate :guid, :public_key, :posts, :photos, :owns?, :image_url,
@@ -47,32 +47,32 @@ class User < ActiveRecord::Base
            :first_name, :last_name, :gender, :participations, to: :person
   delegate :id, :guid, to: :person, prefix: true
 
-  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
-  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
+  has_many :invitations_from_me, class_name: 'Invitation', foreign_key: :sender_id
+  has_many :invitations_to_me, class_name: 'Invitation', foreign_key: :recipient_id
   has_many :aspects, -> { order('order_id ASC') }
 
-  belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
-  belongs_to :invited_by, :class_name => 'User'
+  belongs_to  :auto_follow_back_aspect, class_name: 'Aspect'
+  belongs_to :invited_by, class_name: 'User'
 
-  has_many :aspect_memberships, :through => :aspects
+  has_many :aspect_memberships, through: :aspects
 
   has_many :contacts
-  has_many :contact_people, :through => :contacts, :source => :person
+  has_many :contact_people, through: :contacts, source: :person
 
   has_many :services
 
   has_many :user_preferences
 
   has_many :tag_followings
-  has_many :followed_tags, -> { order('tags.name') }, :through => :tag_followings, :source => :tag
+  has_many :followed_tags, -> { order('tags.name') }, through: :tag_followings, source: :tag
 
   has_many :blocks
-  has_many :ignored_people, :through => :blocks, :source => :person
+  has_many :ignored_people, through: :blocks, source: :person
 
   has_many :conversation_visibilities, through: :person
   has_many :conversations, through: :conversation_visibilities
 
-  has_many :notifications, :foreign_key => :recipient_id
+  has_many :notifications, foreign_key: :recipient_id
 
   has_many :reports
 
@@ -80,11 +80,11 @@ class User < ActiveRecord::Base
               :save_person!
 
   def self.all_sharing_with_person(person)
-    User.joins(:contacts).where(:contacts => {:person_id => person.id})
+    User.joins(:contacts).where(contacts: {person_id: person.id})
   end
 
   def unread_notifications
-    notifications.where(:unread => true)
+    notifications.where(unread: true)
   end
 
   def unread_message_count
@@ -177,7 +177,7 @@ class User < ActiveRecord::Base
       if pref_hash[key] == 'true'
         self.user_preferences.find_or_create_by(email_type: key)
       else
-        block = self.user_preferences.where(:email_type => key).first
+        block = self.user_preferences.where(email_type: key).first
         if block
           block.destroy
         end
@@ -224,8 +224,8 @@ class User < ActiveRecord::Base
 
   ######### Aspects ######################
   def add_contact_to_aspect(contact, aspect)
-    return true if AspectMembership.exists?(:contact_id => contact.id, :aspect_id => aspect.id)
-    contact.aspect_memberships.create!(:aspect => aspect)
+    return true if AspectMembership.exists?(contact_id: contact.id, aspect_id: aspect.id)
+    contact.aspect_memberships.create!(aspect: aspect)
   end
 
   ######## Posting ########
@@ -265,7 +265,7 @@ class User < ActiveRecord::Base
     if aspect_ids == "all" || aspect_ids == :all
       self.aspects
     else
-      aspects.where(:id => aspect_ids).to_a
+      aspects.where(id: aspect_ids).to_a
     end
   end
 
@@ -283,7 +283,7 @@ class User < ActiveRecord::Base
         return false
       end
     else
-      Like.exists?(:author_id => self.person.id, :target_type => target.class.base_class.to_s, :target_id => target.id)
+      Like.exists?(author_id: self.person.id, target_type: target.class.base_class.to_s, target_id: target.id)
     end
   end
 
@@ -294,7 +294,7 @@ class User < ActiveRecord::Base
     if target.likes.loaded?
       return target.likes.detect{ |like| like.author_id == self.person.id }
     else
-      return Like.where(:author_id => self.person.id, :target_type => target.class.base_class.to_s, :target_id => target.id).first
+      return Like.where(author_id: self.person.id, target_type: target.class.base_class.to_s, target_id: target.id).first
     end
   end
 
@@ -362,7 +362,7 @@ class User < ActiveRecord::Base
   ######### Mailer #######################
   def mail(job, *args)
     pref = job.to_s.gsub('Workers::Mail::', '').underscore
-    if(self.disable_mail == false && !self.user_preferences.exists?(:email_type => pref))
+    if(self.disable_mail == false && !self.user_preferences.exists?(email_type: pref))
       job.perform_async(*args)
     end
   end
@@ -398,7 +398,7 @@ class User < ActiveRecord::Base
   ########### Profile ######################
   def update_profile(params)
     if photo = params.delete(:photo)
-      photo.update_attributes(:pending => false) if photo.pending
+      photo.update_attributes(pending: false) if photo.pending
       params[:image_url] = photo.url(:thumb_large)
       params[:image_url_medium] = photo.url(:thumb_medium)
       params[:image_url_small] = photo.url(:thumb_small)
@@ -456,10 +456,10 @@ class User < ActiveRecord::Base
   end
 
   def seed_aspects
-    self.aspects.create(:name => I18n.t('aspects.seed.family'))
-    self.aspects.create(:name => I18n.t('aspects.seed.friends'))
-    self.aspects.create(:name => I18n.t('aspects.seed.work'))
-    aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
+    self.aspects.create(name: I18n.t('aspects.seed.family'))
+    self.aspects.create(name: I18n.t('aspects.seed.friends'))
+    self.aspects.create(name: I18n.t('aspects.seed.work'))
+    aq = self.aspects.create(name: I18n.t('aspects.seed.acquaintances'))
 
     if AppConfig.settings.autofollow_on_join?
       default_account = Webfinger.new(AppConfig.settings.autofollow_on_join_user).fetch
@@ -533,7 +533,7 @@ class User < ActiveRecord::Base
 
   def no_person_with_same_username
     diaspora_id = "#{self.username}#{User.diaspora_id_host}"
-    if self.username_changed? && Person.exists?(:diaspora_handle => diaspora_id)
+    if self.username_changed? && Person.exists?(diaspora_handle: diaspora_id)
       errors[:base] << 'That username has already been taken'
     end
   end
@@ -541,7 +541,7 @@ class User < ActiveRecord::Base
   def close_account!
     self.person.lock_access!
     self.lock_access!
-    AccountDeletion.create(:person => self.person)
+    AccountDeletion.create(person: self.person)
   end
 
   def closed_account?
@@ -563,7 +563,7 @@ class User < ActiveRecord::Base
     random_password = SecureRandom.hex(20)
     self.password = random_password
     self.password_confirmation = random_password
-    self.save(:validate => false)
+    self.save(validate: false)
   end
 
   def sign_up

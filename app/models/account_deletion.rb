@@ -8,7 +8,7 @@ class AccountDeletion < ActiveRecord::Base
   scope :uncompleted, -> { where('completed_at is null') }
 
   belongs_to :person
-  after_commit :queue_delete_account, :on => :create
+  after_commit :queue_delete_account, on: :create
 
   xml_name :account_deletion
   xml_attr :diaspora_handle

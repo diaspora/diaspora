@@ -8,7 +8,7 @@ class CreateChatContacts < ActiveRecord::Migration
       t.string :ask,          limit: 128, null: true
       t.string :subscription, limit: 128, null: false
     end
-    add_index :chat_contacts, [:user_id, :jid], unique: true, :length => {:jid => 190}
+    add_index :chat_contacts, [:user_id, :jid], unique: true, length: {jid: 190}
   end
 
   def down

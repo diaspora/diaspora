@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PollAnswer, :type => :model do
+describe PollAnswer, type: :model do
   before do
     @status = FactoryGirl.create(:status_message_with_poll)
     @user = alice

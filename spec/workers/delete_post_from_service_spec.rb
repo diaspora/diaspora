@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Workers::DeletePostFromService do
   before do
     @user = alice
-    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :public =>true, :facebook_id => "23456" )
+    @post = @user.post(:status_message, text: "hello", to:@user.aspects.first.id, public:true, facebook_id: "23456" )
   end
 
   it 'calls service#delete_post with given service' do

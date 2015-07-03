@@ -17,10 +17,10 @@ class Post < ActiveRecord::Base
 
   xml_attr :provider_display_name
 
-  has_many :mentions, :dependent => :destroy
+  has_many :mentions, dependent: :destroy
 
-  has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
-  has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
+  has_many :reshares, class_name: "Reshare", foreign_key: :root_guid, primary_key: :guid
+  has_many :resharers, class_name: 'Person', through: :reshares, source: :author
 
   belongs_to :o_embed_cache
   belongs_to :open_graph_cache
@@ -37,8 +37,8 @@ class Post < ActiveRecord::Base
   scope :includes_for_a_stream, -> {
     includes(:o_embed_cache,
              :open_graph_cache,
-             {:author => :profile},
-             :mentions => {:person => :profile}
+             {author: :profile},
+             mentions: {person: :profile}
     ) #note should include root and photos, but i think those are both on status_message
   }
 
@@ -46,11 +46,11 @@ class Post < ActiveRecord::Base
   scope :commented_by, ->(person)  {
     select('DISTINCT posts.*')
       .joins(:comments)
-      .where(:comments => {:author_id => person.id})
+      .where(comments: {author_id: person.id})
   }
 
   scope :liked_by, ->(person) {
-    joins(:likes).where(:likes => {:author_id => person.id})
+    joins(:likes).where(likes: {author_id: person.id})
   }
 
   def self.visible_from_author(author, current_user=nil)
@@ -112,12 +112,12 @@ class Post < ActiveRecord::Base
 
   def reshare_for(user)
     return unless user
-    reshares.where(:author_id => user.person.id).first
+    reshares.where(author_id: user.person.id).first
   end
 
   def like_for(user)
     return unless user
-    likes.where(:author_id => user.person.id).first
+    likes.where(author_id: user.person.id).first
   end
 
   #############
@@ -151,9 +151,9 @@ class Post < ActiveRecord::Base
   def self.find_by_guid_or_id_with_user(id, user=nil)
     key = id.to_s.length <= 8 ? :id : :guid
     post = if user
-             user.find_visible_shareable_by_id(Post, id, :key => key)
+             user.find_visible_shareable_by_id(Post, id, key: key)
            else
-             Post.where(key => id).includes(:author, :comments => :author).first
+             Post.where(key => id).includes(:author, comments: :author).first
            end
 
     # is that a private post?

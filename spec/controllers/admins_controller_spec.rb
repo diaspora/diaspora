@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe AdminsController, :type => :controller do
+describe AdminsController, type: :controller do
   before do
     @user = FactoryGirl.create :user
     sign_in :user, @user
@@ -75,14 +75,14 @@ describe AdminsController, :type => :controller do
       end
 
       it 'does not die if you do it twice' do
-        get :admin_inviter, :identifier => 'bob@moms.com'
-        get :admin_inviter, :identifier => 'bob@moms.com'
+        get :admin_inviter, identifier: 'bob@moms.com'
+        get :admin_inviter, identifier: 'bob@moms.com'
         expect(response).to be_redirect
       end
 
       it 'invites a new user' do
         expect(EmailInviter).to receive(:new).and_return(double.as_null_object)
-        get :admin_inviter, :identifier => 'bob@moms.com'
+        get :admin_inviter, identifier: 'bob@moms.com'
         expect(response).to redirect_to user_search_path
         expect(flash.notice).to include("invitation sent")
       end

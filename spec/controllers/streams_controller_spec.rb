@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe StreamsController, :type => :controller do
+describe StreamsController, type: :controller do
   before do
     sign_in alice
   end
@@ -29,16 +29,16 @@ describe StreamsController, :type => :controller do
     end
 
     it 'succeeds on mobile' do
-      get :multi, :format => :mobile
+      get :multi, format: :mobile
       expect(response).to be_success
     end
   end
 
   streams = {
-      :liked => Stream::Likes,
-      :mentioned => Stream::Mention,
-      :followed_tags => Stream::FollowedTag,
-      :activity => Stream::Activity
+      liked: Stream::Likes,
+      mentioned: Stream::Mention,
+      followed_tags: Stream::FollowedTag,
+      activity: Stream::Activity
   }
 
   streams.each do |stream_path, stream_class|

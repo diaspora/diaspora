@@ -4,16 +4,16 @@
 
 require 'spec_helper'
 
-describe RegistrationsController, :type => :controller do
+describe RegistrationsController, type: :controller do
   include Devise::TestHelpers
 
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
-    @valid_params = {:user => {
-      :username => "jdoe",
-      :email    => "jdoe@example.com",
-      :password => "password",
-      :password_confirmation => "password"
+    @valid_params = {user: {
+      username: "jdoe",
+      email: "jdoe@example.com",
+      password: "password",
+      password_confirmation: "password"
       }
     }
     allow(Webfinger).to receive_message_chain(:new, :fetch).and_return(FactoryGirl.create(:person))
@@ -37,13 +37,13 @@ describe RegistrationsController, :type => :controller do
     end
 
     it 'does not redirect if there is a valid invite token' do
-      i = InvitationCode.create(:user => bob)
-      get :new, :invite => {:token => i.token}
+      i = InvitationCode.create(user: bob)
+      get :new, invite: {token: i.token}
       expect(response).not_to be_redirect
     end
 
     it 'does redirect if there is an  invalid invite token' do
-      get :new, :invite => {:token => 'fssdfsd'}
+      get :new, invite: {token: 'fssdfsd'}
       expect(response).to be_redirect
     end
   end

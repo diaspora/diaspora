@@ -13,16 +13,16 @@ describe Diaspora::Fetcher::Public do
     # the guid of the person is "7445f9a0a6c28ebb"
     @fixture = File.open(Rails.root.join('spec', 'fixtures', 'public_posts.json')).read
     @fetcher = Diaspora::Fetcher::Public.new
-    @person = FactoryGirl.create(:person, {:guid => "7445f9a0a6c28ebb",
-                                :url => "https://remote-testpod.net",
-                                :diaspora_handle => "testuser@remote-testpod.net"})
+    @person = FactoryGirl.create(:person, {guid: "7445f9a0a6c28ebb",
+                                url: "https://remote-testpod.net",
+                                diaspora_handle: "testuser@remote-testpod.net"})
 
     stub_request(:get, /remote-testpod.net\/people\/.*\/stream/)
       .with(headers: {
             'Accept'=>'application/json',
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
             'User-Agent'=>'diaspora-fetcher'
-      }).to_return(:body => @fixture)
+      }).to_return(body: @fixture)
   end
 
   describe "#queue_for" do
@@ -155,7 +155,7 @@ describe Diaspora::Fetcher::Public do
 
       it 'returns false if the person is unfetchable' do
         expect(public_fetcher.instance_eval {
-          @person = FactoryGirl.create(:person, {:fetch_status => Diaspora::Fetcher::Public::Status_Unfetchable})
+          @person = FactoryGirl.create(:person, {fetch_status: Diaspora::Fetcher::Public::Status_Unfetchable})
           qualifies_for_fetching?
         }).to be false
       end
@@ -180,7 +180,7 @@ describe Diaspora::Fetcher::Public do
       end
 
       it "returns true, if the user is remote and hasn't been fetched" do
-        person = FactoryGirl.create(:person, {:diaspora_handle => 'neo@theone.net'})
+        person = FactoryGirl.create(:person, {diaspora_handle: 'neo@theone.net'})
         expect(public_fetcher.instance_eval {
           @person = person
           qualifies_for_fetching?

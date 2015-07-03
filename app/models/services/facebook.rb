@@ -40,7 +40,7 @@ class Services::Facebook < Service
   def delete_post(post)
     if post.present? && post.facebook_id.present?
       logger.debug "event=delete_from_service type=facebook sender_id=#{user_id} post=#{post.guid}"
-      delete_from_facebook("https://graph.facebook.com/#{post.facebook_id}/", {:access_token => self.access_token})
+      delete_from_facebook("https://graph.facebook.com/#{post.facebook_id}/", {access_token: self.access_token})
     end
   end
 

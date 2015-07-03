@@ -18,7 +18,7 @@ class AccountDeleter
   attr_accessor :person, :user
 
   def initialize(diaspora_handle)
-    self.person = Person.where(:diaspora_handle => diaspora_handle).first
+    self.person = Person.where(diaspora_handle: diaspora_handle).first
     self.user = self.person.owner
   end
 
@@ -90,7 +90,7 @@ class AccountDeleter
   end
 
   def remove_conversation_visibilities
-    ConversationVisibility.where(:person_id => person.id).destroy_all
+    ConversationVisibility.where(person_id: person.id).destroy_all
   end
 
   def tombstone_person_and_profile
@@ -115,6 +115,6 @@ class AccountDeleter
   end
 
   def mark_account_deletion_complete
-    AccountDeletion.where(:diaspora_handle => self.person.diaspora_handle).where(:person_id => self.person.id).update_all(["completed_at = ?", Time.now])
+    AccountDeletion.where(diaspora_handle: self.person.diaspora_handle).where(person_id: self.person.id).update_all(["completed_at = ?", Time.now])
   end
 end

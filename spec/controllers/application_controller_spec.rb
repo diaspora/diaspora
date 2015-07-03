@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ApplicationController, :type => :controller do
+describe ApplicationController, type: :controller do
   controller do
     def index
       head :ok
@@ -52,21 +52,21 @@ describe ApplicationController, :type => :controller do
     end
 
     it "doesn't mess up other formats, like json" do
-      get :index, :format => 'json'
+      get :index, format: 'json'
       expect(request.format.json?).to be true
     end
 
     it "doesn't mess up other formats, like xml, even with :mobile session" do
       session[:mobile_view] = true
-      get :index, :format => 'xml'
+      get :index, format: 'xml'
       expect(request.format.xml?).to be true
     end
   end
 
   describe '#tags' do
     before do
-      @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
-      TagFollowing.create!(:tag => @tag, :user => alice)
+      @tag = ActsAsTaggableOn::Tag.create!(name: "partytimeexcellent")
+      TagFollowing.create!(tag: @tag, user: alice)
     end
 
     it 'queries current_users tag if there are tag_followings' do

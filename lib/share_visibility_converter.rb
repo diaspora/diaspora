@@ -1,7 +1,7 @@
 #we dont have the environment, and it is not carring over from the migration
 unless defined?(Person)
   class Person < ActiveRecord::Base
-    belongs_to :owner, :class_name => 'User'
+    belongs_to :owner, class_name: 'User'
   end
 end
 
@@ -26,7 +26,7 @@ end
 class ShareVisibilityConverter
   RECENT = 2 # number of weeks to do in the migration
   def self.copy_hidden_share_visibilities_to_users(only_recent = false)
-    query = ShareVisibility.where(:hidden => true).includes(:contact => :user)
+    query = ShareVisibility.where(hidden: true).includes(contact: :user)
     query = query.where('share_visibilities.updated_at > ?', RECENT.weeks.ago) if only_recent
     count = query.count 
     puts "Updating #{count} records in batches of 1000..."
@@ -43,7 +43,7 @@ class ShareVisibilityConverter
           u.hidden_shareables ||= {}
           u.hidden_shareables[type] ||= []
           u.hidden_shareables[type] << id unless u.hidden_shareables[type].include?(id)
-          u.save!(:validate => false)
+          u.save!(validate: false)
         rescue => e
           puts "ERROR: #{e.message} skipping pv with id: #{visibility.id}"
         end

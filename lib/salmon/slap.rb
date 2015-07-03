@@ -7,7 +7,7 @@ module Salmon
     attr_accessor :magic_sig, :author, :author_id, :parsed_data
     attr_accessor :aes_key, :iv
 
-    delegate :sig, :data_type, :to => :magic_sig
+    delegate :sig, :data_type, to: :magic_sig
 
     # @param user [User]
     # @param activity [String] A decoded string

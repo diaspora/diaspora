@@ -3,7 +3,7 @@ module OEmbedHelper
     data = cache.data
     data = {} if data.blank?
     title = data.fetch('title', cache.url)
-    html = link_to(title, cache.url, :target => '_blank') 
+    html = link_to(title, cache.url, target: '_blank') 
     return html unless data.has_key?('type')
     case data['type']
     when 'video', 'rich'
@@ -24,7 +24,7 @@ module OEmbedHelper
   end
 
   def link_to_oembed_image(cache, prefix = 'thumbnail_')
-    link_to(oembed_image_tag(cache, prefix), cache.url, :target => '_blank')
+    link_to(oembed_image_tag(cache, prefix), cache.url, target: '_blank')
   end
   
   def oembed_image_tag(cache, prefix)

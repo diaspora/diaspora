@@ -10,18 +10,18 @@ class StatusMessage < Post
   acts_as_taggable_on :tags
   extract_tags_from :raw_message
 
-  validates_length_of :text, :maximum => 65535, :message => proc {|p, v| I18n.t('status_messages.too_long', :count => 65535, :current_length => v[:value].length)}
+  validates_length_of :text, maximum: 65535, message: proc {|p, v| I18n.t('status_messages.too_long', count: 65535, current_length: v[:value].length)}
 
   # don't allow creation of empty status messages
   validate :presence_of_content, on: :create, if: proc {|sm| sm.author && sm.author.local? }
 
   xml_name :status_message
   xml_attr :raw_message
-  xml_attr :photos, :as => [Photo]
-  xml_attr :location, :as => Location
-  xml_attr :poll, :as => Poll
+  xml_attr :photos, as: [Photo]
+  xml_attr :location, as: Location
+  xml_attr :poll, as: Poll
 
-  has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
+  has_many :photos, dependent: :destroy, foreign_key: :status_message_guid, primary_key: :guid
 
   has_one :location
   has_one :poll, autosave: true
@@ -36,16 +36,16 @@ class StatusMessage < Post
 
   before_create :filter_mentions
   after_create :create_mentions
-  after_commit :queue_gather_oembed_data, :on => :create, :if => :contains_oembed_url_in_text?
-  after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
+  after_commit :queue_gather_oembed_data, on: :create, if: :contains_oembed_url_in_text?
+  after_commit :queue_gather_open_graph_data, on: :create, if: :contains_open_graph_url_in_text?
 
   #scopes
   scope :where_person_is_mentioned, ->(person) {
-    joins(:mentions).where(:mentions => {:person_id => person.id})
+    joins(:mentions).where(mentions: {person_id: person.id})
   }
 
   def self.guids_for_author(person)
-    Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
+    Post.connection.select_values(Post.where(author_id: person.id).select('posts.guid').to_sql)
   end
 
   def self.user_tag_stream(user, tag_ids)
@@ -68,7 +68,7 @@ class StatusMessage < Post
 
   def attach_photos_by_ids(photo_ids)
     return [] unless photo_ids.present?
-    self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id)
+    self.photos << Photo.where(id: photo_ids, author_id: self.author_id)
   end
 
   def nsfw
@@ -82,7 +82,7 @@ class StatusMessage < Post
   def mentioned_people
     if self.persisted?
       create_mentions if self.mentions.empty?
-      self.mentions.includes(:person => :profile).map{ |mention| mention.person }
+      self.mentions.includes(person: :profile).map{ |mention| mention.person }
     else
       Diaspora::Mentionable.people_from_string(self.raw_message)
     end
@@ -107,7 +107,7 @@ class StatusMessage < Post
   end
 
   def notify_person(person)
-    self.mentions.where(:person_id => person.id).first.try(:notify_recipient)
+    self.mentions.where(person_id: person.id).first.try(:notify_recipient)
   end
 
   def after_dispatch(sender)
@@ -117,14 +117,14 @@ class StatusMessage < Post
   def update_and_dispatch_attached_photos(sender)
     if self.photos.any?
       logger.info "dispatch photos for StatusMessage:#{guid}"
-      Photo.where(status_message_guid: guid).update_all(:public => self.public)
+      Photo.where(status_message_guid: guid).update_all(public: self.public)
       self.photos.each do |photo|
         if photo.pending
           sender.add_to_streams(photo, self.aspects)
           sender.dispatch_post(photo)
         end
       end
-      Photo.where(status_message_guid: guid).update_all(:pending => false)
+      Photo.where(status_message_guid: guid).update_all(pending: false)
     end
   end
 

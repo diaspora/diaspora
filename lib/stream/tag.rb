@@ -21,7 +21,7 @@ class Stream::Tag < Stream::Base
   end
 
   def tagged_people
-    @people ||= ::Person.profile_tagged_with(tag_name).paginate(:page => people_page, :per_page => people_per_page)
+    @people ||= ::Person.profile_tagged_with(tag_name).paginate(page: people_page, per_page: people_per_page)
   end
 
   def tagged_people_count
@@ -40,7 +40,7 @@ class Stream::Tag < Stream::Base
 
   # @return [Hash]
   def publisher_opts
-    {:open => true}
+    {open: true}
   end
 
   def construct_post_query
@@ -50,6 +50,6 @@ class Stream::Tag < Stream::Base
     else
       posts = posts.all_public
     end
-    posts.tagged_with(tag_name, :any => true)
+    posts.tagged_with(tag_name, any: true)
   end
 end

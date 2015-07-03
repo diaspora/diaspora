@@ -1,23 +1,23 @@
 require 'spec_helper'
 
-describe Reshare, :type => :model do
+describe Reshare, type: :model do
   it 'has a valid Factory' do
     expect(FactoryGirl.build(:reshare)).to be_valid
   end
 
   it 'requires root' do
-    reshare = FactoryGirl.build(:reshare, :root => nil)
+    reshare = FactoryGirl.build(:reshare, root: nil)
     expect(reshare).not_to be_valid
   end
 
   it 'require public root' do
-    reshare = FactoryGirl.build(:reshare, :root => FactoryGirl.create(:status_message, :public => false))
+    reshare = FactoryGirl.build(:reshare, root: FactoryGirl.create(:status_message, public: false))
     expect(reshare).not_to be_valid
     expect(reshare.errors[:base]).to include('Only posts which are public may be reshared.')
   end
 
   it 'forces public' do
-    expect(FactoryGirl.create(:reshare, :public => false).public).to be true
+    expect(FactoryGirl.create(:reshare, public: false).public).to be true
   end
 
   describe "#root_diaspora_id" do
@@ -37,7 +37,7 @@ describe Reshare, :type => :model do
     let(:receive_reshare) { @reshare.receive(@root.author.owner, @reshare.author) }
 
     before do
-      @reshare = FactoryGirl.create(:reshare, :root => FactoryGirl.build(:status_message, :author => bob.person, :public => true))
+      @reshare = FactoryGirl.create(:reshare, root: FactoryGirl.build(:status_message, author: bob.person, public: true))
       @root = @reshare.root
     end
 
@@ -62,10 +62,10 @@ describe Reshare, :type => :model do
 
   describe '#nsfw' do
     before do
-      sfw  = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
-      nsfw = FactoryGirl.build(:status_message, :author => alice.person, :public => true, :text => "This is #nsfw")
-      @sfw_reshare = FactoryGirl.build(:reshare, :root => sfw)
-      @nsfw_reshare = FactoryGirl.build(:reshare, :root => nsfw)
+      sfw  = FactoryGirl.build(:status_message, author: alice.person, public: true)
+      nsfw = FactoryGirl.build(:status_message, author: alice.person, public: true, text: "This is #nsfw")
+      @sfw_reshare = FactoryGirl.build(:reshare, root: sfw)
+      @nsfw_reshare = FactoryGirl.build(:reshare, root: nsfw)
     end
 
     it 'deletates #nsfw to the root post' do
@@ -87,8 +87,8 @@ describe Reshare, :type => :model do
 
   describe '#notification_type' do
     before do
-      sm = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
-      @reshare = FactoryGirl.build(:reshare, :root => sm)
+      sm = FactoryGirl.build(:status_message, author: alice.person, public: true)
+      @reshare = FactoryGirl.build(:reshare, root: sm)
     end
     it 'does not return anything for non-author of the original post' do
       expect(@reshare.notification_type(bob, @reshare.author)).to be_nil
@@ -108,14 +108,14 @@ describe Reshare, :type => :model do
 
   describe '#absolute_root' do
     before do
-      @sm = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
-      rs1 = FactoryGirl.build(:reshare, :root=>@sm)
-      rs2 = FactoryGirl.build(:reshare, :root=>rs1)
-      @rs3 = FactoryGirl.build(:reshare, :root=>rs2)
+      @sm = FactoryGirl.build(:status_message, author: alice.person, public: true)
+      rs1 = FactoryGirl.build(:reshare, root:@sm)
+      rs2 = FactoryGirl.build(:reshare, root:rs1)
+      @rs3 = FactoryGirl.build(:reshare, root:rs2)
 
-     sm = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
-     rs1 = FactoryGirl.create(:reshare, :root => sm)
-     @of_deleted = FactoryGirl.build(:reshare, :root => rs1)
+     sm = FactoryGirl.create(:status_message, author: alice.person, public: true)
+     rs1 = FactoryGirl.create(:reshare, root: sm)
+     @of_deleted = FactoryGirl.build(:reshare, root: rs1)
      sm.destroy
      rs1.reload
     end

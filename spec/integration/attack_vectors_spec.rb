@@ -9,7 +9,7 @@ def receive_post(post, opts)
   sender = opts.fetch(:from)
   receiver = opts.fetch(:by)
   salmon_xml = sender.salmon(post).xml_for(receiver.person)
-  zord = Postzord::Receiver::Private.new(receiver, :salmon_xml => salmon_xml)
+  zord = Postzord::Receiver::Private.new(receiver, salmon_xml: salmon_xml)
   zord.perform!
 end
 
@@ -29,7 +29,7 @@ def temporary_user(&block)
 end
 
 def temporary_post(user, &block)
-  temp_post = user.post(:status_message, :text => 'hi')
+  temp_post = user.post(:status_message, text: 'hi')
   block_return_value = yield temp_post
   temp_post.delete
   block_return_value
@@ -53,16 +53,16 @@ def bogus_retraction(&block)
 end
 
 def user_should_not_see_guid(user, guid)
- expect(user.reload.visible_shareables(Post).where(:guid => guid)).to be_blank
+ expect(user.reload.visible_shareables(Post).where(guid: guid)).to be_blank
 end
     #returns the message
 def legit_post_from_user1_to_user2(user1, user2)
-  original_message = user1.post(:status_message, :text => 'store this!', :to => user1.aspects.find_by_name("generic").id)
-  receive_post(original_message, :from => user1, :by => user2)
+  original_message = user1.post(:status_message, text: 'store this!', to: user1.aspects.find_by_name("generic").id)
+  receive_post(original_message, from: user1, by: user2)
   original_message
 end
 
-describe "attack vectors", :type => :request do
+describe "attack vectors", type: :request do
 
   let(:eves_aspect) { eve.aspects.find_by_name("generic") }
   let(:alices_aspect) { alice.aspects.find_by_name("generic") }
@@ -82,7 +82,7 @@ describe "attack vectors", :type => :request do
           end
         end
 
-        zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(bob, salmon_xml: salmon_xml)
 
         expect {
           expect {
@@ -100,15 +100,15 @@ describe "attack vectors", :type => :request do
         #(meaning alice can not see the old post, but it exists in the DB)
         # bob takes eves message, changes the post author to himself
         # bob trys to send a message to alice
-        original_message = eve.post(:status_message, :text => 'store this!', :to => eves_aspect.id)
+        original_message = eve.post(:status_message, text: 'store this!', to: eves_aspect.id)
         original_message.diaspora_handle = bob.diaspora_handle
 
-        alice.contacts.create(:person => eve.person, :aspects => [alice.aspects.first])
+        alice.contacts.create(person: eve.person, aspects: [alice.aspects.first])
 
         salmon_xml = bob.salmon(original_message).xml_for(alice.person)
 
         #bob sends it to himself?????
-        zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(bob, salmon_xml: salmon_xml)
 
         expect {
           zord.perform!
@@ -126,7 +126,7 @@ describe "attack vectors", :type => :request do
 
         expect {
           expect {
-            receive_post(profile, :from => alice, :by => bob)
+            receive_post(profile, from: alice, by: bob)
           }.to raise_error Diaspora::AuthorXMLAuthorMismatch
         }.to_not change(eve.profile, :first_name)
       end
@@ -134,9 +134,9 @@ describe "attack vectors", :type => :request do
 
 
     it 'public stuff should not be spoofed from another author' do
-      post = FactoryGirl.build(:status_message, :public => true, :author => eve.person)
+      post = FactoryGirl.build(:status_message, public: true, author: eve.person)
       expect {
-        receive_public(post, :from => alice)
+        receive_public(post, from: alice)
       }.to raise_error Diaspora::AuthorXMLAuthorMismatch
     end
   end
@@ -150,10 +150,10 @@ describe "attack vectors", :type => :request do
         original_message = legit_post_from_user1_to_user2(eve, bob)
 
         #someone else tries to make a message with the same guid
-        malicious_message = FactoryGirl.build(:status_message, :id => original_message.id, :guid => original_message.guid, :author => alice.person)
+        malicious_message = FactoryGirl.build(:status_message, id: original_message.id, guid: original_message.guid, author: alice.person)
 
         expect{
-          receive_post(malicious_message, :from => alice, :by => bob)
+          receive_post(malicious_message, from: alice, by: bob)
         }.to_not change(original_message, :author_id)
       end
 
@@ -163,10 +163,10 @@ describe "attack vectors", :type => :request do
         original_message = legit_post_from_user1_to_user2(eve, bob)
 
         #eve tries to send me another message with the same ID
-        malicious_message = FactoryGirl.build( :status_message, :id => original_message.id, :text => 'BAD!!!', :author => eve.person)
+        malicious_message = FactoryGirl.build( :status_message, id: original_message.id, text: 'BAD!!!', author: eve.person)
 
         expect {
-          receive_post(malicious_message, :from => eve, :by => bob)
+          receive_post(malicious_message, from: eve, by: bob)
         }.to_not change(original_message, :text)
       end
     end
@@ -182,7 +182,7 @@ describe "attack vectors", :type => :request do
       end
 
       expect {
-        receive_post(ret, :from => alice, :by => bob)
+        receive_post(ret, from: alice, by: bob)
       }.to_not change(StatusMessage, :count)
     end
 
@@ -195,7 +195,7 @@ describe "attack vectors", :type => :request do
                             end
                           end
        expect{
-        receive_post(bogus_retraction, :from => alice, :by => bob)
+        receive_post(bogus_retraction, from: alice, by: bob)
       }.to_not raise_error
     end
 
@@ -210,7 +210,7 @@ describe "attack vectors", :type => :request do
 
       expect {
         expect {
-          receive_post(retraction, :from => alice, :by => bob)
+          receive_post(retraction, from: alice, by: bob)
         }.to raise_error Diaspora::AuthorXMLAuthorMismatch
       }.to_not change { bob.visible_shareables(Post).count(:all) }
 
@@ -227,7 +227,7 @@ describe "attack vectors", :type => :request do
       end
 
       expect{
-        receive_post(retraction, :from => alice, :by => bob)
+        receive_post(retraction, from: alice, by: bob)
       }.to_not change{bob.reload.contacts.count}
     end
 
@@ -240,14 +240,14 @@ describe "attack vectors", :type => :request do
 
       expect{
         expect {
-          receive_post(retraction, :from => alice, :by => bob)
+          receive_post(retraction, from: alice, by: bob)
         }.to raise_error Diaspora::AuthorXMLAuthorMismatch
       }.to_not change(bob.contacts, :count)
     end
 
     it 'does not let another user update other persons post' do
-      original_message = eve.post(:photo, :user_file => uploaded_photo, :text => "store this!", :to => eves_aspect.id)
-      receive_post(original_message, :from => eve, :by => bob)
+      original_message = eve.post(:photo, user_file: uploaded_photo, text: "store this!", to: eves_aspect.id)
+      receive_post(original_message, from: eve, by: bob)
 
       #is this testing two things?
       new_message = original_message.dup
@@ -255,7 +255,7 @@ describe "attack vectors", :type => :request do
       new_message.text = "bad bad bad"
 
       expect{
-        receive_post(new_message, :from => alice, :by => bob)
+        receive_post(new_message, from: alice, by: bob)
        }.to_not change(original_message, :text)
     end
   end

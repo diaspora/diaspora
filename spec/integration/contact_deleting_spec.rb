@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe 'disconnecting a contact', :type => :request do
+describe 'disconnecting a contact', type: :request do
   it 'removes the aspect membership' do
     @user = alice
     @user2 = bob

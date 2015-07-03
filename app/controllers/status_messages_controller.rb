@@ -5,7 +5,7 @@
 class StatusMessagesController < ApplicationController
   before_action :authenticate_user!
 
-  before_action :remove_getting_started, :only => [:create]
+  before_action :remove_getting_started, only: [:create]
 
   respond_to :html,
              :mobile,
@@ -16,7 +16,7 @@ class StatusMessagesController < ApplicationController
   # Called when a user clicks "Mention" on a profile page
   # @param person_id [Integer] The id of the person to be mentioned
   def new
-    if params[:person_id] && @person = Person.where(:id => params[:person_id]).first
+    if params[:person_id] && @person = Person.where(id: params[:person_id]).first
       @aspect = :profile
       @contact = current_user.contact_for(@person)
       @aspects_with_person = []
@@ -25,7 +25,7 @@ class StatusMessagesController < ApplicationController
         @aspect_ids = @aspects_with_person.map{|x| x.id}
         gon.aspect_ids = @aspect_ids
         @contacts_of_contact = @contact.contacts
-        render :layout => nil
+        render layout: nil
       end
     elsif(request.format == :mobile)
       @aspect = :all
@@ -55,11 +55,11 @@ class StatusMessagesController < ApplicationController
     services = [*params[:services]].compact
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
-    @status_message.build_location(:address => params[:location_address], :coordinates => params[:location_coords]) if params[:location_address].present?
+    @status_message.build_location(address: params[:location_address], coordinates: params[:location_coords]) if params[:location_address].present?
     if params[:poll_question].present?
-      @status_message.build_poll(:question => params[:poll_question])
+      @status_message.build_poll(question: params[:poll_question])
       [*params[:poll_answers]].each do |poll_answer|
-        @status_message.poll.poll_answers.build(:answer => poll_answer)
+        @status_message.poll.poll_answers.build(answer: poll_answer)
       end
     end
 
@@ -71,7 +71,7 @@ class StatusMessagesController < ApplicationController
       current_user.add_to_streams(@status_message, aspects)
       receiving_services = Service.titles(services)
 
-      current_user.dispatch_post(@status_message, :url => short_post_url(@status_message.guid), :service_types => receiving_services)
+      current_user.dispatch_post(@status_message, url: short_post_url(@status_message.guid), service_types: receiving_services)
 
       current_user.participate!(@status_message)
 
@@ -82,14 +82,14 @@ class StatusMessagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to :back }
         format.mobile { redirect_to stream_path }
-        format.json { render :json => PostPresenter.new(@status_message, current_user), :status => 201 }
+        format.json { render json: PostPresenter.new(@status_message, current_user), status: 201 }
       end
     else
       respond_to do |format|
         format.html { redirect_to :back }
         format.mobile { redirect_to stream_path }
         #there are some errors, so we report the first one to the user
-        format.json { render :text => @status_message.errors.messages.values.first.to_sentence, :status => 403 }
+        format.json { render text: @status_message.errors.messages.values.first.to_sentence, status: 403 }
       end
     end
   end
@@ -105,7 +105,7 @@ class StatusMessagesController < ApplicationController
   end
 
   def successful_mention_message
-    t('status_messages.create.success', :names => @status_message.mentioned_people_names)
+    t('status_messages.create.success', names: @status_message.mentioned_people_names)
   end
 
   def coming_from_profile_page?

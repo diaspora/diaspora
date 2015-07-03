@@ -4,11 +4,11 @@
 
 require 'spec_helper'
 
-describe Notifications::Reshared, :type => :model do
+describe Notifications::Reshared, type: :model do
   before do
-    @sm = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
-    @reshare1 = FactoryGirl.build(:reshare, :root => @sm)
-    @reshare2 = FactoryGirl.build(:reshare, :root => @sm)
+    @sm = FactoryGirl.build(:status_message, author: alice.person, public: true)
+    @reshare1 = FactoryGirl.build(:reshare, root: @sm)
+    @reshare2 = FactoryGirl.build(:reshare, root: @sm)
   end
 
   describe 'Notification.notify' do

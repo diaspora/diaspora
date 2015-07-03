@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe MobileHelper, :type => :helper do
+describe MobileHelper, type: :helper do
   
   describe "#aspect_select_options" do
     it "adds an all option to the list of aspects" do

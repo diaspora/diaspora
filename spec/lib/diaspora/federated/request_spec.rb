@@ -11,7 +11,7 @@ describe Request do
 
   describe 'validations' do
     before do
-      @request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      @request = described_class.diaspora_initialize(from: alice.person, to: eve.person, into: @aspect)
     end
 
     it 'is valid' do
@@ -37,12 +37,12 @@ describe Request do
     end
 
     it 'is not from an existing friend' do
-      Contact.create(:user => eve, :person => alice.person, :aspects => [eve.aspects.first])
+      Contact.create(user: eve, person: alice.person, aspects: [eve.aspects.first])
       expect(@request).not_to be_valid
     end
 
     it 'is not to yourself' do
-      @request = described_class.diaspora_initialize(:from => alice.person, :to => alice.person, :into => @aspect)
+      @request = described_class.diaspora_initialize(from: alice.person, to: alice.person, into: @aspect)
       expect(@request).not_to be_valid
     end
   end
@@ -51,8 +51,8 @@ describe Request do
     it 'returns request_accepted' do
       person = FactoryGirl.build:person
 
-      request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
-      alice.contacts.create(:person_id => person.id)
+      request = described_class.diaspora_initialize(from: alice.person, to: eve.person, into: @aspect)
+      alice.contacts.create(person_id: person.id)
 
       expect(request.notification_type(alice, person)).to eq(Notifications::StartedSharing)
     end
@@ -60,14 +60,14 @@ describe Request do
 
   describe '#subscribers' do
     it 'returns an array with to field on a request' do
-      request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      request = described_class.diaspora_initialize(from: alice.person, to: eve.person, into: @aspect)
       expect(request.subscribers(alice)).to match_array([eve.person])
     end
   end
 
   describe '#receive' do
     it 'creates a contact' do
-      request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      request = described_class.diaspora_initialize(from: alice.person, to: eve.person, into: @aspect)
       expect{
         request.receive(eve, alice.person)
       }.to change{
@@ -79,8 +79,8 @@ describe Request do
       alice.share_with(eve.person, alice.aspects.first)
 
       expect {
-        described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                    :into => eve.aspects.first).receive(alice, eve.person)
+        described_class.diaspora_initialize(from: eve.person, to: alice.person,
+                                    into: eve.aspects.first).receive(alice, eve.person)
       }.to change {
         alice.contacts.find_by_person_id(eve.person.id).mutual?
       }.from(false).to(true)
@@ -88,8 +88,8 @@ describe Request do
     end
 
     it 'sets sharing' do
-      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                  :into => eve.aspects.first).receive(alice, eve.person)
+      described_class.diaspora_initialize(from: eve.person, to: alice.person,
+                                  into: eve.aspects.first).receive(alice, eve.person)
       expect(alice.contact_for(eve.person)).to be_sharing
     end
 
@@ -98,8 +98,8 @@ describe Request do
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
 
-      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                          :into => eve.aspects.first).receive(alice, eve.person)
+      described_class.diaspora_initialize(from: eve.person, to: alice.person,
+                                          into: eve.aspects.first).receive(alice, eve.person)
 
       expect(eve.contact_for( alice.person )).to be_sharing
     end
@@ -109,8 +109,8 @@ describe Request do
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
 
-      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                  :into => eve.aspects.first).receive(alice, eve.person)
+      described_class.diaspora_initialize(from: eve.person, to: alice.person,
+                                  into: eve.aspects.first).receive(alice, eve.person)
 
       expect(eve.contact_for(alice.person)).to be_nil
     end
@@ -120,14 +120,14 @@ describe Request do
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
 
-      contact = FactoryGirl.build:contact, :user => alice, :person => eve.person,
-                                  :receiving => true, :sharing => false
+      contact = FactoryGirl.build:contact, user: alice, person: eve.person,
+                                  receiving: true, sharing: false
       contact.save
 
       expect(alice).not_to receive(:share_with)
 
-      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                  :into => eve.aspects.first).receive(alice, eve.person)
+      described_class.diaspora_initialize(from: eve.person, to: alice.person,
+                                  into: eve.aspects.first).receive(alice, eve.person)
     end
 
     it "queue a job to fetch public posts" do
@@ -140,7 +140,7 @@ describe Request do
 
   context 'xml' do
     before do
-      @request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
+      @request = described_class.diaspora_initialize(from: alice.person, to: eve.person, into: @aspect)
       @xml = @request.to_xml.to_s
     end
 

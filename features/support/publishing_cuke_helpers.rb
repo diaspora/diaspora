@@ -125,7 +125,7 @@ module PublishingCukeHelpers
   end
 
   def make_comment(text, elem="text")
-    fill_in elem, :with => text
+    fill_in elem, with: text
     click_button "Comment"
   end
 

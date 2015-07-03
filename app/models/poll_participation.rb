@@ -6,7 +6,7 @@ class PollParticipation < ActiveRecord::Base
   include Diaspora::Relayable
   belongs_to :poll
   belongs_to :poll_answer, counter_cache: :vote_count
-  belongs_to :author, :class_name => 'Person', :foreign_key => :author_id
+  belongs_to :author, class_name: 'Person', foreign_key: :author_id
   xml_attr :diaspora_handle
   xml_attr :poll_answer_guid
   xml_convention :underscore
@@ -25,7 +25,7 @@ class PollParticipation < ActiveRecord::Base
   end
 
   def poll_answer_guid= new_poll_answer_guid
-    self.poll_answer = PollAnswer.where(:guid => new_poll_answer_guid).first
+    self.poll_answer = PollAnswer.where(guid: new_poll_answer_guid).first
   end
 
   def parent= parent
@@ -60,7 +60,7 @@ class PollParticipation < ActiveRecord::Base
     end
 
     def relayable_options
-      {:poll => @target.poll, :poll_answer => @poll_answer}
+      {poll: @target.poll, poll_answer: @poll_answer}
     end
   end
 end

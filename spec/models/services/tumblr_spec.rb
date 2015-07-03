@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Services::Tumblr, :type => :model do
+describe Services::Tumblr, type: :model do
 
   before do
     @user = alice
-    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id)
-    @service = Services::Tumblr.new(:access_token => "yeah", :access_secret => "foobar")
+    @post = @user.post(:status_message, text: "hello", to:@user.aspects.first.id)
+    @service = Services::Tumblr.new(access_token: "yeah", access_secret: "foobar")
     @user.services << @service
   end
 
@@ -30,7 +30,7 @@ describe Services::Tumblr, :type => :model do
   describe '#delete_post' do
     it 'removes posts from tumblr' do
       stub_request(:post, "http://api.tumblr.com/v2/blog/foodbar.tumblr.com/post/delete").
-        to_return(:status => 200)
+        to_return(status: 200)
 
       @service.delete_post(@post)
     end

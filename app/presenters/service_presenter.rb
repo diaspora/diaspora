@@ -5,7 +5,7 @@ class ServicePresenter < BasePresenter
 
   def as_json
     {
-      :provider => @service.provider
+      provider: @service.provider
     }
   end
 

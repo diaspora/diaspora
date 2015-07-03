@@ -90,9 +90,9 @@ STR
 
   describe '#filter_for_aspects' do
     before do
-      @user_A = FactoryGirl.create(:user_with_aspect, :username => "user_a")
-      @user_B = FactoryGirl.create(:user, :username => "user_b")
-      @user_C = FactoryGirl.create(:user, :username => "user_c")
+      @user_A = FactoryGirl.create(:user_with_aspect, username: "user_a")
+      @user_B = FactoryGirl.create(:user, username: "user_b")
+      @user_C = FactoryGirl.create(:user, username: "user_c")
 
       @user_A.aspects.create!(name: 'second')
 

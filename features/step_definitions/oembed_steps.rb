@@ -115,7 +115,7 @@ Given /^I have several oEmbed data in cache$/ do
     unless type=='unsupported'
       url = data['oembed_get_request'].split('?')[0]
       store_data = data['oembed_data'].merge('trusted_endpoint_url' => url)
-      oembed = OEmbedCache.new(:url => data['link_url']);
+      oembed = OEmbedCache.new(url: data['link_url']);
       oembed.data = store_data
       oembed.save!
     end

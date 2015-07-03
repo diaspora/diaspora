@@ -21,15 +21,15 @@ describe UserPresenter do
 
   describe '#services' do
     it 'provides an array of jsonifed services' do
-      fakebook = double(:provider => 'fakebook')
+      fakebook = double(provider: 'fakebook')
       allow(bob).to receive(:services).and_return([fakebook])
-      expect(@presenter.services).to include(:provider => 'fakebook')
+      expect(@presenter.services).to include(provider: 'fakebook')
     end
   end
 
   describe '#configured_services' do
     it 'displays a list of the users configured services' do
-      fakebook = double(:provider => 'fakebook')
+      fakebook = double(provider: 'fakebook')
       allow(bob).to receive(:services).and_return([fakebook])
       expect(@presenter.configured_services).to include("fakebook")
     end

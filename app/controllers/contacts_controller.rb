@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
       format.json {
         aspect_ids = params[:aspect_ids] || current_user.aspects.map(&:id)
         @people = Person.all_from_aspects(aspect_ids, current_user).for_json
-        render :json => @people.to_json
+        render json: @people.to_json
       }
     end
   end
@@ -71,7 +71,7 @@ class ContactsController < ApplicationController
           current_user.contacts.receiving
         end
     end
-    @contacts = @contacts.for_a_stream.paginate(:page => params[:page], :per_page => 25)
+    @contacts = @contacts.for_a_stream.paginate(page: params[:page], per_page: 25)
     @contacts_size = @contacts.length
   end
 end

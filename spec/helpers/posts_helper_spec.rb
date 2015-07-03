@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PostsHelper, :type => :helper do
+describe PostsHelper, type: :helper do
 
   describe '#post_page_title' do
     before do

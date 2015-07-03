@@ -16,8 +16,8 @@ begin
   Diaspora::Application.routes_reloader.paths.each{ |path| load(path) }
   _routes.draw do
     # here you can add any route you want
-    post 'integration_sessions' => 'integration_sessions#create', :as => 'integration_sessions'
-    get 'integration_sessions' => 'integration_sessions#new', :as => 'new_integration_sessions'
+    post 'integration_sessions' => 'integration_sessions#create', as: 'integration_sessions'
+    get 'integration_sessions' => 'integration_sessions#new', as: 'new_integration_sessions'
   end
   ActiveSupport.on_load(:action_controller) { _routes.finalize! }
 ensure

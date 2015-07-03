@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe EmailInviter do
   before do
-    @user = double(:invitation_code => 'coolcodebro', :present? => true, 
-                 :email => 'foo@bar.com')
+    @user = double(invitation_code: 'coolcodebro', :present? => true, 
+                 email: 'foo@bar.com')
     @emails = "mbs333@gmail.com, foo1@bar.com maxwell@dude.com"
   end
 
@@ -24,7 +24,7 @@ describe EmailInviter do
 
   it 'can have a message' do
     message = "you guys suck hard"
-    inviter = EmailInviter.new("emails", @user, :message =>  message)
+    inviter = EmailInviter.new("emails", @user, message:  message)
     expect(inviter.message).to eq(message) 
   end
 
@@ -47,7 +47,7 @@ describe EmailInviter do
     end
 
     it 'listens to the langauge option' do
-      inviter = EmailInviter.new(@emails, @user, :locale => 'es')
+      inviter = EmailInviter.new(@emails, @user, locale: 'es')
       expect(inviter.locale).to eq('es')
     end
   end

@@ -21,12 +21,12 @@ class LikesController < ApplicationController
 
     if @like
       respond_to do |format|
-        format.html { render :nothing => true, :status => 201 }
+        format.html { render nothing: true, status: 201 }
         format.mobile { redirect_to post_path(@like.post_id) }
-        format.json { render :json => @like.as_api_response(:backbone), :status => 201 }
+        format.json { render json: @like.as_api_response(:backbone), status: 201 }
       end
     else
-      render :nothing => true, :status => 422
+      render nothing: true, status: 422
     end
   end
 
@@ -35,18 +35,18 @@ class LikesController < ApplicationController
 
     current_user.retract(@like)
     respond_to do |format|
-      format.json { render :nothing => true, :status => 204 }
+      format.json { render nothing: true, status: 204 }
     end
   end
 
   #I can go when the old stream goes.
   def index
-    @likes = target.likes.includes(:author => :profile)
+    @likes = target.likes.includes(author: :profile)
     @people = @likes.map(&:author)
 
     respond_to do |format|
-      format.all { render :layout => false }
-      format.json { render :json => @likes.as_api_response(:backbone) }
+      format.all { render layout: false }
+      format.json { render json: @likes.as_api_response(:backbone) }
     end
   end
 

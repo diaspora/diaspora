@@ -5,10 +5,10 @@
 require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
 
-describe Comment, :type => :model do
+describe Comment, type: :model do
   before do
     @alices_aspect = alice.aspects.first
-    @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
+    @status = bob.post(:status_message, text: "hello", to: bob.aspects.first.id)
   end
 
   describe "#destroy" do
@@ -98,9 +98,9 @@ describe Comment, :type => :model do
   describe 'xml' do
     before do
       @commenter = FactoryGirl.create(:user)
-      @commenter_aspect = @commenter.aspects.create(:name => "bruisers")
+      @commenter_aspect = @commenter.aspects.create(name: "bruisers")
       connect_users(alice, @alices_aspect, @commenter, @commenter_aspect)
-      @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
+      @post = alice.post :status_message, text: "hello", to: @alices_aspect.id
       @comment = @commenter.comment!(@post, "Fool!")
       @xml = @comment.to_xml.to_s
     end
@@ -138,17 +138,17 @@ describe Comment, :type => :model do
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
-      @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
+      @remote_parent = FactoryGirl.build(:status_message, author: @remote_raphael)
+      @local_parent = @local_luke.post :status_message, text: "hi", to: @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.comment!(@local_parent, "yo")
-      @object_by_recipient = @local_leia.build_comment(:text => "yo", :post => @local_parent)
+      @object_by_recipient = @local_leia.build_comment(text: "yo", post: @local_parent)
       @dup_object_by_parent_author = @object_by_parent_author.dup
 
       @object_on_remote_parent = @local_luke.comment!(@remote_parent, "Yeah, it was great")
     end
 
-    let(:build_object) { alice.build_comment(:post => @status, :text => "why so formal?") }
+    let(:build_object) { alice.build_comment(post: @status, text: "why so formal?") }
     it_should_behave_like 'it is relayable'
   end
 

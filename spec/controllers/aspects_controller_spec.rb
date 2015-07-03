@@ -4,13 +4,13 @@
 
 require 'spec_helper'
 
-describe AspectsController, :type => :controller do
+describe AspectsController, type: :controller do
   before do
     alice.getting_started = false
     alice.save
     sign_in :user, alice
-    @alices_aspect_1 = alice.aspects.where(:name => "generic").first
-    @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
+    @alices_aspect_1 = alice.aspects.where(name: "generic").first
+    @alices_aspect_2 = alice.aspects.create(name: "another aspect")
 
     allow(@controller).to receive(:current_user).and_return(alice)
     request.env["HTTP_REFERER"] = 'http://' + request.host
@@ -78,21 +78,21 @@ describe AspectsController, :type => :controller do
 
   describe "#update" do
     before do
-      @alices_aspect_1 = alice.aspects.create(:name => "Bruisers")
+      @alices_aspect_1 = alice.aspects.create(name: "Bruisers")
     end
 
     it "doesn't overwrite random attributes" do
       new_user = FactoryGirl.create :user
       params = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
-      put('update', :id => @alices_aspect_1.id, "aspect" => params)
+      put('update', id: @alices_aspect_1.id, "aspect" => params)
       expect(Aspect.find(@alices_aspect_1.id).user_id).to eq(alice.id)
     end
 
     it "should return the name and id of the updated item" do
       params = {"name" => "Bruisers"}
-      put('update', :id => @alices_aspect_1.id, "aspect" => params)
-      expect(response.body).to eq({ :id => @alices_aspect_1.id, :name => "Bruisers" }.to_json)
+      put('update', id: @alices_aspect_1.id, "aspect" => params)
+      expect(response.body).to eq({ id: @alices_aspect_1.id, name: "Bruisers" }.to_json)
     end
   end
 
@@ -162,7 +162,7 @@ describe AspectsController, :type => :controller do
       @alices_aspect_1.contacts_visible = false
       @alices_aspect_1.save
 
-      xhr :get, :toggle_contact_visibility, :aspect_id => @alices_aspect_1.id
+      xhr :get, :toggle_contact_visibility, aspect_id: @alices_aspect_1.id
       expect(@alices_aspect_1.reload.contacts_visible).to be true
     end
 
@@ -170,7 +170,7 @@ describe AspectsController, :type => :controller do
       @alices_aspect_1.contacts_visible = true
       @alices_aspect_1.save
 
-      xhr :get, :toggle_contact_visibility, :aspect_id => @alices_aspect_1.id
+      xhr :get, :toggle_contact_visibility, aspect_id: @alices_aspect_1.id
       expect(@alices_aspect_1.reload.contacts_visible).to be false
     end
   end

@@ -1,16 +1,16 @@
 require 'spec_helper'
 
 
-describe NotificationsHelper, :type => :helper do
+describe NotificationsHelper, type: :helper do
   include ApplicationHelper
 
   before do
     @user = FactoryGirl.create(:user)
     @person = FactoryGirl.create(:person)
-    @post = FactoryGirl.create(:status_message, :author => @user.person)
+    @post = FactoryGirl.create(:status_message, author: @user.person)
     @person2 = FactoryGirl.create(:person)
-    @notification = Notification.notify(@user, FactoryGirl.create(:like, :author => @person, :target => @post), @person)
-    @notification =  Notification.notify(@user, FactoryGirl.create(:like, :author => @person2, :target => @post), @person2)
+    @notification = Notification.notify(@user, FactoryGirl.create(:like, author: @person, target: @post), @person)
+    @notification =  Notification.notify(@user, FactoryGirl.create(:like, author: @person2, target: @post), @person2)
   end
 
   describe '#notification_people_link' do
@@ -75,9 +75,9 @@ describe NotificationsHelper, :type => :helper do
       it 'includes the boilerplate translation' do
         output = object_link(@notification, notification_people_link(@notification))
         expect(output).to include I18n.t("#{@notification.popup_translation_key}",
-                                     :actors => notification_people_link(@notification),
-                                     :count => @notification.actors.count,
-                                     :post_link => link_to(post_page_title(@post), post_path(@post), 'data-ref' => @post.id, :class => 'hard_object_link').html_safe)
+                                     actors: notification_people_link(@notification),
+                                     count: @notification.actors.count,
+                                     post_link: link_to(post_page_title(@post), post_path(@post), 'data-ref' => @post.id, class: 'hard_object_link').html_safe)
       end
 
       context 'when post is deleted' do
@@ -88,7 +88,7 @@ describe NotificationsHelper, :type => :helper do
 
         it 'displays that the post was deleted' do
           @post.destroy
-          expect(object_link(@notification,  notification_people_link(@notification))).to eq(t('notifications.liked_post_deleted.one', :actors => notification_people_link(@notification)))
+          expect(object_link(@notification,  notification_people_link(@notification))).to eq(t('notifications.liked_post_deleted.one', actors: notification_people_link(@notification)))
         end
       end
     end

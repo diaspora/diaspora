@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   respond_to :html, :mobile
-  respond_to :json, :only => :show
+  respond_to :json, only: :show
 
   def create
     conversation = Conversation.find(params[:conversation_id])
@@ -21,6 +21,6 @@ class MessagesController < ApplicationController
     else
       flash[:error] = I18n.t('conversations.new_conversation.fail')
     end
-    redirect_to conversations_path(:conversation_id => conversation.id)
+    redirect_to conversations_path(conversation_id: conversation.id)
   end
 end

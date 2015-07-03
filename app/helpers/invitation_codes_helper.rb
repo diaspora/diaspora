@@ -13,7 +13,7 @@ module InvitationCodesHelper
     inviter = current_user.invited_by
     if inviter.present?
       contact = current_user.contact_for(inviter.person) || Contact.new
-      render :partial => 'people/add_contact', :locals => {:inviter => inviter.person, :contact => contact}
+      render partial: 'people/add_contact', locals: {inviter: inviter.person, contact: contact}
     end
   end
 end

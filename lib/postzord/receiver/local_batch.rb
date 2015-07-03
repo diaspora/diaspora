@@ -9,7 +9,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   def initialize(object, recipient_user_ids)
     @object = object
     @recipient_user_ids = recipient_user_ids
-    @users = User.where(:id => @recipient_user_ids)
+    @users = User.where(id: @recipient_user_ids)
 
   end
 
@@ -41,7 +41,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   # @note performs a bulk insert into mySQL
   # @return [void]
   def create_share_visibilities
-    contacts_ids = Contact.connection.select_values(Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id).select("id").to_sql)
+    contacts_ids = Contact.connection.select_values(Contact.where(user_id: @recipient_user_ids, person_id: @object.author_id).select("id").to_sql)
     ShareVisibility.batch_import(contacts_ids, object)
   end
 

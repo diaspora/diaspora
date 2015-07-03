@@ -4,13 +4,13 @@
 
 require 'spec_helper'
 
-describe User::Connecting, :type => :model do
+describe User::Connecting, type: :model do
 
   let(:aspect) { alice.aspects.first }
-  let(:aspect1) { alice.aspects.create(:name => 'other') }
+  let(:aspect1) { alice.aspects.create(name: 'other') }
   let(:person) { FactoryGirl.create(:person) }
 
-  let(:aspect2) { eve.aspects.create(:name => "aspect two") }
+  let(:aspect2) { eve.aspects.create(name: "aspect two") }
 
   let(:person_one) { FactoryGirl.create :person }
   let(:person_two) { FactoryGirl.create :person }
@@ -36,7 +36,7 @@ describe User::Connecting, :type => :model do
 
     describe '#disconnected_by' do
       it 'calls remove contact' do
-        expect(bob).to receive(:remove_contact).with(bob.contact_for(alice.person), :retracted => true)
+        expect(bob).to receive(:remove_contact).with(bob.contact_for(alice.person), retracted: true)
         bob.disconnected_by(alice.person)
       end
 
@@ -48,9 +48,9 @@ describe User::Connecting, :type => :model do
 
       it 'removes notitications' do
         alice.share_with(eve.person, alice.aspects.first)
-        expect(Notifications::StartedSharing.where(:recipient_id => eve.id).first).not_to be_nil
+        expect(Notifications::StartedSharing.where(recipient_id: eve.id).first).not_to be_nil
         eve.disconnected_by(alice.person)
-        expect(Notifications::StartedSharing.where(:recipient_id => eve.id).first).to be_nil
+        expect(Notifications::StartedSharing.where(recipient_id: eve.id).first).to be_nil
       end
     end
 
@@ -72,7 +72,7 @@ describe User::Connecting, :type => :model do
 
       it 'should remove the contact from all aspects they are in' do
         contact = alice.contact_for(bob.person)
-        new_aspect = alice.aspects.create(:name => 'new')
+        new_aspect = alice.aspects.create(name: 'new')
         alice.add_contact_to_aspect(contact, new_aspect)
 
         expect {
@@ -85,7 +85,7 @@ describe User::Connecting, :type => :model do
   describe '#register_share_visibilities' do
     it 'creates post visibilites for up to 100 posts' do
       allow(Post).to receive_message_chain(:where, :limit).and_return([FactoryGirl.create(:status_message)])
-      c = Contact.create!(:user_id => alice.id, :person_id => eve.person.id)
+      c = Contact.create!(user_id: alice.id, person_id: eve.person.id)
       expect{
         alice.register_share_visibilities(c)
       }.to change(ShareVisibility, :count).by(1)
@@ -112,7 +112,7 @@ describe User::Connecting, :type => :model do
     end
 
     it 'adds a contact to an aspect' do
-      contact = alice.contacts.create(:person => eve.person)
+      contact = alice.contacts.create(person: eve.person)
       allow(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
       expect {
@@ -127,7 +127,7 @@ describe User::Connecting, :type => :model do
 
     context 'dispatching' do
       it 'dispatches a request on initial request' do
-        contact = alice.contacts.new(:person => eve.person)
+        contact = alice.contacts.new(person: eve.person)
         allow(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
         expect(contact).to receive(:dispatch_request)
@@ -145,9 +145,9 @@ describe User::Connecting, :type => :model do
       end
 
       it 'does not dispatch a request if contact already marked as receiving' do
-        a2 = alice.aspects.create(:name => "two")
+        a2 = alice.aspects.create(name: "two")
 
-        contact = alice.contacts.create(:person => eve.person, :receiving => true)
+        contact = alice.contacts.create(person: eve.person, receiving: true)
         allow(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
         expect(contact).not_to receive(:dispatch_request)
@@ -168,11 +168,11 @@ describe User::Connecting, :type => :model do
     end
 
     it "should mark the corresponding notification as 'read'" do
-      notification = FactoryGirl.create(:notification, :target => eve.person)
+      notification = FactoryGirl.create(:notification, target: eve.person)
 
-      expect(Notification.where(:target_id => eve.person.id).first.unread).to be true
+      expect(Notification.where(target_id: eve.person.id).first.unread).to be true
       alice.share_with(eve.person, aspect)
-      expect(Notification.where(:target_id => eve.person.id).first.unread).to be false
+      expect(Notification.where(target_id: eve.person.id).first.unread).to be false
     end
   end
 end

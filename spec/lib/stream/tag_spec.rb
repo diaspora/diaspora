@@ -9,36 +9,36 @@ describe Stream::Tag do
   context 'with a user' do
     before do
       @stream = Stream::Tag.new(alice, "what")
-      bob.post(:status_message, :text => "#not_what", :to => 'all')
+      bob.post(:status_message, text: "#not_what", to: 'all')
     end
 
    it 'displays your own post' do
-     my_post = alice.post(:status_message, :text => "#what", :to => 'all')
+     my_post = alice.post(:status_message, text: "#what", to: 'all')
      expect(@stream.posts).to eq([my_post])
    end
 
    it "displays a friend's post" do
-     other_post = bob.post(:status_message, :text => "#what", :to => 'all')
+     other_post = bob.post(:status_message, text: "#what", to: 'all')
      expect(@stream.posts).to eq([other_post])
    end
 
    it 'displays a public post' do
-     other_post = eve.post(:status_message, :text => "#what", :public => true, :to => 'all')
+     other_post = eve.post(:status_message, text: "#what", public: true, to: 'all')
      expect(@stream.posts).to eq([other_post])
    end
 
    it 'displays a public post that was sent to no one' do
      stranger = FactoryGirl.create(:user_with_aspect)
-     stranger_post = stranger.post(:status_message, :text => "#what", :public => true, :to => 'all')
+     stranger_post = stranger.post(:status_message, text: "#what", public: true, to: 'all')
      expect(@stream.posts).to eq([stranger_post])
    end
   end
 
   context 'without a user' do
     before do
-      @post = alice.post(:status_message, :text => "#what", :public => true, :to => 'all')
-      alice.post(:status_message, :text => "#tagwhat", :public => true, :to => 'all')
-      alice.post(:status_message, :text => "#what", :public => false, :to => 'all')
+      @post = alice.post(:status_message, text: "#what", public: true, to: 'all')
+      alice.post(:status_message, text: "#tagwhat", public: true, to: 'all')
+      alice.post(:status_message, text: "#what", public: false, to: 'all')
     end
 
     it "displays only public posts with the tag" do
@@ -49,7 +49,7 @@ describe Stream::Tag do
 
   describe "people" do
     it "assigns the set of people who authored a post containing the tag" do
-      alice.post(:status_message, :text => "#what", :public => true, :to => 'all')
+      alice.post(:status_message, text: "#what", public: true, to: 'all')
       stream = Stream::Tag.new(nil, "what")
       expect(stream.people).to eq([alice.person])
     end
@@ -67,9 +67,9 @@ describe Stream::Tag do
 
   describe 'case insensitivity' do
     before do
-      @post_lc = alice.post(:status_message, :text => '#newhere', :public => true, :to => 'all')
-      @post_uc = alice.post(:status_message, :text => '#NewHere', :public => true, :to => 'all')
-      @post_cp = alice.post(:status_message, :text => '#NEWHERE', :public => true, :to => 'all')
+      @post_lc = alice.post(:status_message, text: '#newhere', public: true, to: 'all')
+      @post_uc = alice.post(:status_message, text: '#NewHere', public: true, to: 'all')
+      @post_cp = alice.post(:status_message, text: '#NEWHERE', public: true, to: 'all')
     end
 
     it 'returns posts regardless of the tag case' do

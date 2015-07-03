@@ -4,8 +4,8 @@ class Block < ActiveRecord::Base
 
   delegate :name, to: :person, prefix: true
 
-  validates :user_id, :presence => true
-  validates :person_id, :presence => true, :uniqueness => { :scope => :user_id }
+  validates :user_id, presence: true
+  validates :person_id, presence: true, uniqueness: { scope: :user_id }
 
   validate :not_blocking_yourself
 

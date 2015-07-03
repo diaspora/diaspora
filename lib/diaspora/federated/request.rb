@@ -12,8 +12,8 @@ class Request
   xml_accessor :sender_handle
   xml_accessor :recipient_handle
 
-  validates :sender, :presence => true
-  validates :recipient, :presence => true
+  validates :sender, presence: true
+  validates :recipient, presence: true
 
   validate :not_already_connected
   validate :not_friending_yourself
@@ -41,7 +41,7 @@ class Request
     sender.diaspora_handle
   end
   def sender_handle= sender_handle
-    self.sender = Person.where(:diaspora_handle => sender_handle).first
+    self.sender = Person.where(diaspora_handle: sender_handle).first
   end
 
   # @note Used for XML marshalling
@@ -50,7 +50,7 @@ class Request
     recipient.diaspora_handle
   end
   def recipient_handle= recipient_handle
-    self.recipient = Person.where(:diaspora_handle => recipient_handle).first
+    self.recipient = Person.where(diaspora_handle: recipient_handle).first
   end
 
   # Defines the abstract interface used in sending a corresponding [Notification] given the [Request]
@@ -91,7 +91,7 @@ class Request
 
   # Checks if a [Contact] does not already exist between the requesting [User] and receiving [Person]
   def not_already_connected
-    if sender && recipient && Contact.where(:user_id => self.recipient.owner_id, :person_id => self.sender.id).exists?
+    if sender && recipient && Contact.where(user_id: self.recipient.owner_id, person_id: self.sender.id).exists?
       errors[:base] << 'You have already connected to this person'
     end
   end

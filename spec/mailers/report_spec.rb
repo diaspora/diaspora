@@ -4,11 +4,11 @@
 
 require 'spec_helper'
 
-describe Report, :type => :mailer do
+describe Report, type: :mailer do
   describe '#make_notification' do
     before do
-      @remote = FactoryGirl.create(:person, :diaspora_handle => "remote@remote.net")
-      @user = FactoryGirl.create(:user_with_aspect, :username => "local") 
+      @remote = FactoryGirl.create(:person, diaspora_handle: "remote@remote.net")
+      @user = FactoryGirl.create(:user_with_aspect, username: "local") 
       Role.add_admin(@user.person)
     end
     

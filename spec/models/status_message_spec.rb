@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe StatusMessage, :type => :model do
+describe StatusMessage, type: :model do
   include PeopleHelper
 
   before do
@@ -18,8 +18,8 @@ describe StatusMessage, :type => :model do
         @bo = bob.person
         @test_string = "@{Daniel; #{@bo.diaspora_handle}} can mention people like Raph"
 
-       FactoryGirl.create(:status_message, :text => @test_string )
-       FactoryGirl.create(:status_message, :text => @test_string )
+       FactoryGirl.create(:status_message, text: @test_string )
+       FactoryGirl.create(:status_message, text: @test_string )
        FactoryGirl.create(:status_message)
 
        expect(StatusMessage.where_person_is_mentioned(@bo).count).to eq(2)
@@ -28,12 +28,12 @@ describe StatusMessage, :type => :model do
 
     context "tag_streams" do
       before do
-        @sm1 = FactoryGirl.create(:status_message, :text => "#hashtag" , :public => true)
-        @sm2 = FactoryGirl.create(:status_message, :text => "#hashtag" )
-        @sm3 = FactoryGirl.create(:status_message, :text => "hashtags are #awesome", :public => true )
-        @sm4 = FactoryGirl.create(:status_message, :text => "hashtags are #awesome" )
+        @sm1 = FactoryGirl.create(:status_message, text: "#hashtag" , public: true)
+        @sm2 = FactoryGirl.create(:status_message, text: "#hashtag" )
+        @sm3 = FactoryGirl.create(:status_message, text: "hashtags are #awesome", public: true )
+        @sm4 = FactoryGirl.create(:status_message, text: "hashtags are #awesome" )
 
-        @tag_id = ActsAsTaggableOn::Tag.where(:name => "hashtag").first.id
+        @tag_id = ActsAsTaggableOn::Tag.where(name: "hashtag").first.id
       end
 
       describe '.tag_steam' do
@@ -64,8 +64,8 @@ describe StatusMessage, :type => :model do
 
   describe ".guids_for_author" do
     it 'returns an array of the status_message guids' do
-      sm1 = FactoryGirl.create(:status_message, :author => alice.person)
-      sm2 = FactoryGirl.create(:status_message, :author => bob.person)
+      sm1 = FactoryGirl.create(:status_message, author: alice.person)
+      sm2 = FactoryGirl.create(:status_message, author: bob.person)
       guids = StatusMessage.guids_for_author(alice.person)
       expect(guids).to eq([sm1.guid])
     end
@@ -104,7 +104,7 @@ describe StatusMessage, :type => :model do
   describe '#diaspora_handle=' do
     it 'sets #author' do
       person = FactoryGirl.create(:person)
-      post = FactoryGirl.build(:status_message, :author => @user.person)
+      post = FactoryGirl.build(:status_message, author: @user.person)
       post.diaspora_handle = person.diaspora_handle
       expect(post.author).to eq(person)
     end
@@ -112,7 +112,7 @@ describe StatusMessage, :type => :model do
 
   context "emptyness" do
     it "needs either a message or at least one photo" do
-      n = @user.build_post(:status_message, :text => nil)
+      n = @user.build_post(:status_message, text: nil)
       expect(n).not_to be_valid
 
       n.text = ""
@@ -122,7 +122,7 @@ describe StatusMessage, :type => :model do
       expect(n).to be_valid
       n.text = nil
 
-      photo = @user.build_post(:photo, :user_file => uploaded_photo, :to => @aspect.id)
+      photo = @user.build_post(:photo, user_file: uploaded_photo, to: @aspect.id)
       photo.save!
 
       n.photos << photo
@@ -138,14 +138,14 @@ describe StatusMessage, :type => :model do
 
   it 'should be postable through the user' do
     message = "Users do things"
-    status = @user.post(:status_message, :text => message, :to => @aspect.id)
+    status = @user.post(:status_message, text: message, to: @aspect.id)
     db_status = StatusMessage.find(status.id)
     expect(db_status.text).to eq(message)
   end
 
   it 'should require status messages not be more than 65535 characters long' do
     message = 'a' * (65535+1)
-    status_message = FactoryGirl.build(:status_message, :text => message)
+    status_message = FactoryGirl.build(:status_message, text: message)
     expect(status_message).not_to be_valid
   end
 
@@ -156,7 +156,7 @@ describe StatusMessage, :type => :model do
 @{Raphael; #{@people[0].diaspora_handle}} can mention people like Raphael @{Ilya; #{@people[1].diaspora_handle}}
 can mention people like Raphaellike Raphael @{Daniel; #{@people[2].diaspora_handle}} can mention people like Raph
 STR
-      @sm = FactoryGirl.create(:status_message, :text => @test_string )
+      @sm = FactoryGirl.create(:status_message, text: @test_string )
     end
 
     describe '#create_mentions' do
@@ -234,12 +234,12 @@ STR
 
   describe "#nsfw" do
     it 'returns MatchObject (true) if the post contains #nsfw (however capitalised)' do
-      status  = FactoryGirl.build(:status_message, :text => "This message is #nSFw")
+      status  = FactoryGirl.build(:status_message, text: "This message is #nSFw")
       expect(status.nsfw).to be_truthy
     end
 
     it 'returns nil (false) if the post does not contain #nsfw' do
-      status  = FactoryGirl.build(:status_message, :text => "This message is #sFW")
+      status  = FactoryGirl.build(:status_message, text: "This message is #sFW")
       expect(status.nsfw).to be false
     end
   end
@@ -253,9 +253,9 @@ STR
     it 'associates different-case tags to the same tag entry' do
       assert_equal ActsAsTaggableOn.force_lowercase, true
 
-      msg_lc = FactoryGirl.build(:status_message, :text => '#newhere')
-      msg_uc = FactoryGirl.build(:status_message, :text => '#NewHere')
-      msg_cp = FactoryGirl.build(:status_message, :text => '#NEWHERE')
+      msg_lc = FactoryGirl.build(:status_message, text: '#newhere')
+      msg_uc = FactoryGirl.build(:status_message, text: '#NewHere')
+      msg_cp = FactoryGirl.build(:status_message, text: '#NEWHERE')
 
       msg_lc.save; msg_uc.save; msg_cp.save
 
@@ -266,7 +266,7 @@ STR
 
     it 'should require tag name not be more than 255 characters long' do
       message = "##{'a' * (255+1)}"
-      status_message = FactoryGirl.build(:status_message, :text => message)
+      status_message = FactoryGirl.build(:status_message, text: message)
       expect(status_message).not_to be_valid
     end
   end
@@ -374,12 +374,12 @@ STR
 
   describe '#after_dispatch' do
     before do
-      @photos = [alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name)),
-                 alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name))]
+      @photos = [alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name)),
+                 alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name))]
 
       @photos.each(&:save!)
 
-      @status_message = alice.build_post(:status_message, :text => "the best pebble.")
+      @status_message = alice.build_post(:status_message, text: "the best pebble.")
         @status_message.photos << @photos
 
       @status_message.save!
@@ -402,14 +402,14 @@ STR
     end
 
     it 'should queue a GatherOembedData if it includes a link' do
-      sm = FactoryGirl.build(:status_message, :text => @message_text)
+      sm = FactoryGirl.build(:status_message, text: @message_text)
       expect(Workers::GatherOEmbedData).to receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
       sm.save
     end
 
     describe '#contains_oembed_url_in_text?' do
       it 'returns the oembed urls found in the raw message' do
-        sm = FactoryGirl.build(:status_message, :text => @message_text)
+        sm = FactoryGirl.build(:status_message, text: @message_text)
         expect(sm.contains_oembed_url_in_text?).not_to be_nil
         expect(sm.oembed_url).to eq(@youtube_url)
       end
@@ -425,19 +425,19 @@ STR
     end
 
     it 'should queue a GatherOpenGraphData if it includes a link' do
-      sm = FactoryGirl.build(:status_message, :text => @message_text)
+      sm = FactoryGirl.build(:status_message, text: @message_text)
       expect(Workers::GatherOpenGraphData).to receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
       sm.save
     end
 
     describe '#contains_open_graph_url_in_text?' do
       it 'returns the opengraph urls found in the raw message' do
-        sm = FactoryGirl.build(:status_message, :text => @message_text)
+        sm = FactoryGirl.build(:status_message, text: @message_text)
         expect(sm.contains_open_graph_url_in_text?).not_to be_nil
         expect(sm.open_graph_url).to eq(@ninegag_url)
       end
       it 'returns nil if the link is from trusted oembed provider' do
-        sm = FactoryGirl.build(:status_message, :text => @oemessage_text)
+        sm = FactoryGirl.build(:status_message, text: @oemessage_text)
         expect(sm.contains_open_graph_url_in_text?).to be_nil
         expect(sm.open_graph_url).to be_nil
       end

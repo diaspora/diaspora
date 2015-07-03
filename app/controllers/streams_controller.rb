@@ -4,8 +4,8 @@
 
 class StreamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :save_selected_aspects, :only => :aspects
-  before_action :redirect_unless_admin, :only => :public
+  before_action :save_selected_aspects, only: :aspects
+  before_action :redirect_unless_admin, only: :public
 
   layout proc { request.format == :mobile ? "application" : "with_header" }
 
@@ -16,7 +16,7 @@ class StreamsController < ApplicationController
   def aspects
     aspect_ids = (session[:a_ids] || [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
-                                 :max_time => max_time)
+                                 max_time: max_time)
     stream_responder
   end
 
@@ -54,13 +54,13 @@ class StreamsController < ApplicationController
   def stream_responder(stream_klass=nil)
 
     if stream_klass.present?
-      @stream ||= stream_klass.new(current_user, :max_time => max_time)
+      @stream ||= stream_klass.new(current_user, max_time: max_time)
     end
 
     respond_with do |format|
       format.html { render 'streams/main_stream' }
       format.mobile { render 'streams/main_stream' }
-      format.json { render :json => @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
+      format.json { render json: @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end
 

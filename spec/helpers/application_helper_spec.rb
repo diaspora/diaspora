@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe ApplicationHelper, :type => :helper do
+describe ApplicationHelper, type: :helper do
   before do
     @user = alice
     @person = FactoryGirl.create(:person)

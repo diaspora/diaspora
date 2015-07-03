@@ -3,40 +3,40 @@ require Rails.root.join("spec", "support", "inlined_jobs")
 
 module HelperMethods
   def connect_users_with_aspects(u1, u2)
-    aspect1 = u1.aspects.length == 1 ? u1.aspects.first : u1.aspects.where(:name => "Besties").first
-    aspect2 = u2.aspects.length == 1 ? u2.aspects.first : u2.aspects.where(:name => "Besties").first
+    aspect1 = u1.aspects.length == 1 ? u1.aspects.first : u1.aspects.where(name: "Besties").first
+    aspect2 = u2.aspects.length == 1 ? u2.aspects.first : u2.aspects.where(name: "Besties").first
     connect_users(u1, aspect1, u2, aspect2)
   end
   def connect_users(user1, aspect1, user2, aspect2)
-    user1.contacts.create!(:person => user2.person,
-                           :aspects => [aspect1],
-                           :sharing => true,
-                           :receiving => true)
+    user1.contacts.create!(person: user2.person,
+                           aspects: [aspect1],
+                           sharing: true,
+                           receiving: true)
 
-    user2.contacts.create!(:person => user1.person,
-                           :aspects => [aspect2],
-                           :sharing => true,
-                           :receiving => true)
+    user2.contacts.create!(person: user1.person,
+                           aspects: [aspect2],
+                           sharing: true,
+                           receiving: true)
   end
 
   def stub_success(address = 'abc@example.com', opts = {})
     host = address.split('@')[1]
-    stub_request(:get, "https://#{host}/.well-known/host-meta").to_return(:status => 200, :body => host_xrd)
-    stub_request(:get, "http://#{host}/.well-known/host-meta").to_return(:status => 200, :body => host_xrd)
+    stub_request(:get, "https://#{host}/.well-known/host-meta").to_return(status: 200, body: host_xrd)
+    stub_request(:get, "http://#{host}/.well-known/host-meta").to_return(status: 200, body: host_xrd)
     if opts[:diaspora] || host.include?("diaspora")
-      stub_request(:get, /webfinger\/\?q=#{address}/).to_return(:status => 200, :body => finger_xrd)
-      stub_request(:get, "http://#{host}/hcard/users/4c8eccce34b7da59ff000002").to_return(:status => 200, :body => hcard_response)
+      stub_request(:get, /webfinger\/\?q=#{address}/).to_return(status: 200, body: finger_xrd)
+      stub_request(:get, "http://#{host}/hcard/users/4c8eccce34b7da59ff000002").to_return(status: 200, body: hcard_response)
     else
-      stub_request(:get, /webfinger\/\?q=#{address}/).to_return(:status => 200, :body => nonseed_finger_xrd)
-      stub_request(:get, 'http://evan.status.net/hcard').to_return(:status => 200, :body => evan_hcard)
+      stub_request(:get, /webfinger\/\?q=#{address}/).to_return(status: 200, body: nonseed_finger_xrd)
+      stub_request(:get, 'http://evan.status.net/hcard').to_return(status: 200, body: evan_hcard)
     end
   end
 
   def stub_failure(address = 'abc@example.com')
     host = address.split('@')[1]
-    stub_request(:get, "https://#{host}/.well-known/host-meta").to_return(:status => 200, :body => host_xrd)
-    stub_request(:get, "http://#{host}/.well-known/host-meta").to_return(:status => 200, :body => host_xrd)
-    stub_request(:get, /webfinger\/\?q=#{address}/).to_return(:status => 500)
+    stub_request(:get, "https://#{host}/.well-known/host-meta").to_return(status: 200, body: host_xrd)
+    stub_request(:get, "http://#{host}/.well-known/host-meta").to_return(status: 200, body: host_xrd)
+    stub_request(:get, /webfinger\/\?q=#{address}/).to_return(status: 500)
   end
 
   def host_xrd
@@ -67,10 +67,10 @@ module HelperMethods
 
   def create_conversation_with_message(sender, recipient_person, subject, text)
     create_hash = {
-      :author => sender.person,
-      :participant_ids => [sender.person.id, recipient_person.id],
-      :subject => subject,
-      :messages_attributes => [ {:author => sender.person, :text => text} ]
+      author: sender.person,
+      participant_ids: [sender.person.id, recipient_person.id],
+      subject: subject,
+      messages_attributes: [ {author: sender.person, text: text} ]
     }
 
     Conversation.create!(create_hash)

@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe Services::Facebook, :type => :model do
+describe Services::Facebook, type: :model do
 
   before do
     @user = alice
-    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :public =>true, :photos => [])
-    @service = Services::Facebook.new(:access_token => "yeah")
+    @post = @user.post(:status_message, text: "hello", to:@user.aspects.first.id, public:true, photos: [])
+    @service = Services::Facebook.new(access_token: "yeah")
     @user.services << @service
   end
 
   describe '#post' do
     it 'posts a status message to facebook' do
       stub_request(:post, "https://graph.facebook.com/me/feed").
-          to_return(:status => 200, :body => '{"id": "12345"}', :headers => {})
+          to_return(status: 200, body: '{"id": "12345"}', headers: {})
       @service.post(@post)
     end
 
@@ -40,7 +40,7 @@ describe Services::Facebook, :type => :model do
 
     it 'sets facebook id on post' do
       stub_request(:post, "https://graph.facebook.com/me/feed").
-	to_return(:status => 200, :body => '{"id": "12345"}', :headers => {})
+	to_return(status: 200, body: '{"id": "12345"}', headers: {})
       @service.post(@post)
       expect(@post.facebook_id).to match "12345"
     end
@@ -49,12 +49,12 @@ describe Services::Facebook, :type => :model do
 
   describe "with photo" do
     before do
-      @photos = [alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name)),
-                 alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name))]
+      @photos = [alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name)),
+                 alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name))]
 
       @photos.each(&:save!)
 
-      @status_message = alice.build_post(:status_message, :text => "the best pebble.")
+      @status_message = alice.build_post(:status_message, text: "the best pebble.")
         @status_message.photos << @photos
 
       @status_message.save!
@@ -82,7 +82,7 @@ describe Services::Facebook, :type => :model do
     it 'removes a post from facebook' do
       @post.facebook_id = "2345"
       url="https://graph.facebook.com/#{@post.facebook_id}/"
-      stub_request(:delete, "#{url}?access_token=#{@service.access_token}").to_return(:status => 200)
+      stub_request(:delete, "#{url}?access_token=#{@service.access_token}").to_return(status: 200)
       expect(@service).to receive(:delete_from_facebook).with(url, {access_token: @service.access_token})
 
       @service.delete_post(@post)

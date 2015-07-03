@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe Service, :type => :model do
+describe Service, type: :model do
 
   before do
-    @post = alice.post(:status_message, :text => "hello", :to => alice.aspects.first.id)
-    @service = Services::Facebook.new(:access_token => "yeah", :uid => 1)
+    @post = alice.post(:status_message, text: "hello", to: alice.aspects.first.id)
+    @service = Services::Facebook.new(access_token: "yeah", uid: 1)
     alice.services << @service
   end
 
   it 'is unique to a user by service type and uid' do
     @service.save
 
-    second_service = Services::Facebook.new(:access_token => "yeah", :uid => 1)
+    second_service = Services::Facebook.new(access_token: "yeah", uid: 1)
 
     alice.services << second_service
     alice.services.last.save

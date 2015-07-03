@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PublicsController, :type => :controller do
+describe PublicsController, type: :controller do
   let(:fixture_path) { Rails.root.join('spec', 'fixtures') }
   before do
     @user = alice
@@ -12,7 +12,7 @@ describe PublicsController, :type => :controller do
   end
 
   describe '#host_meta' do
-    it 'succeeds', :fixture => true do
+    it 'succeeds', fixture: true do
       get :host_meta
       expect(response).to be_success
       expect(response.body).to match(/webfinger/)
@@ -22,7 +22,7 @@ describe PublicsController, :type => :controller do
 
   describe '#receive_public' do
     it 'succeeds' do
-      post :receive_public, :xml => "<stuff/>"
+      post :receive_public, xml: "<stuff/>"
       expect(response).to be_success
     end
 
@@ -34,7 +34,7 @@ describe PublicsController, :type => :controller do
     it 'enqueues a ReceiveUnencryptedSalmon job' do
       xml = "stuff"
       expect(Workers::ReceiveUnencryptedSalmon).to receive(:perform_async).with(xml)
-      post :receive_public, :xml => xml
+      post :receive_public, xml: xml
     end
   end
 
@@ -52,8 +52,8 @@ describe PublicsController, :type => :controller do
     end
 
     it 'unescapes the xml before sending it to receive_salmon' do
-      aspect = @user.aspects.create(:name => 'foo')
-      post1 = @user.post(:status_message, :text => 'moms', :to => [aspect.id])
+      aspect = @user.aspects.create(name: 'foo')
+      post1 = @user.post(:status_message, text: 'moms', to: [aspect.id])
       xml2 = post1.to_diaspora_xml
       user2 = FactoryGirl.create(:user)
 
@@ -74,13 +74,13 @@ describe PublicsController, :type => :controller do
       expect(response).to be_not_found
     end
     it 'returns a 404 if no person is found' do
-      post :receive, :guid => '2398rq3948yftn', :xml => xml
+      post :receive, guid: '2398rq3948yftn', xml: xml
       expect(response).to be_not_found
     end
   end
 
   describe '#hcard' do
-    it "succeeds", :fixture => true do
+    it "succeeds", fixture: true do
       post :hcard, "guid" => @user.person.guid.to_s
       expect(response).to be_success
       save_fixture(response.body, "hcard", fixture_path)
@@ -98,14 +98,14 @@ describe PublicsController, :type => :controller do
     end
 
     it 'finds nothing for closed accounts' do
-      @user.person.update_attributes(:closed_account => true)
-      get :hcard, :guid => @user.person.guid.to_s
+      @user.person.update_attributes(closed_account: true)
+      get :hcard, guid: @user.person.guid.to_s
       expect(response).to be_not_found
     end
   end
 
   describe '#webfinger' do
-    it "succeeds when the person and user exist locally", :fixture => true do
+    it "succeeds when the person and user exist locally", fixture: true do
       post :webfinger, 'q' => @user.person.diaspora_handle
       expect(response).to be_success
       save_fixture(response.body, "webfinger", fixture_path)
@@ -129,13 +129,13 @@ describe PublicsController, :type => :controller do
     end
 
     it 'has the users profile href' do
-      get :webfinger, :q => @user.diaspora_handle
+      get :webfinger, q: @user.diaspora_handle
       expect(response.body).to include "http://webfinger.net/rel/profile-page"
     end
 
     it 'finds nothing for closed accounts' do
-      @user.person.update_attributes(:closed_account => true)
-      get :webfinger, :q => @user.diaspora_handle
+      @user.person.update_attributes(closed_account: true)
+      get :webfinger, q: @user.diaspora_handle
       expect(response).to be_not_found
     end
   end

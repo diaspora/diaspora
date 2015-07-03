@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Services::Twitter, :type => :model do
+describe Services::Twitter, type: :model do
 
   before do
     @user = alice
-    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :photos => [])
-    @service = Services::Twitter.new(:access_token => "yeah", :access_secret => "foobar")
+    @post = @user.post(:status_message, text: "hello", to:@user.aspects.first.id, photos: [])
+    @service = Services::Twitter.new(access_token: "yeah", access_secret: "foobar")
     @user.services << @service
   end
 
@@ -118,12 +118,12 @@ describe Services::Twitter, :type => :model do
 
   describe "with photo" do
     before do
-      @photos = [alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name)),
-                 alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name))]
+      @photos = [alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name)),
+                 alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name))]
 
       @photos.each(&:save!)
 
-      @status_message = alice.build_post(:status_message, :text => "the best pebble.")
+      @status_message = alice.build_post(:status_message, text: "the best pebble.")
         @status_message.photos << @photos
 
       @status_message.save!

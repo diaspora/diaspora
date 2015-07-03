@@ -9,7 +9,7 @@ shared_examples_for "it is taggable" do
   include ActionView::Helpers::UrlHelper
 
   def tag_link(s)
-    link_to  "##{s}", "/tags/#{s}", :class => 'tag'
+    link_to  "##{s}", "/tags/#{s}", class: 'tag'
   end
 
   describe '.format_tags' do
@@ -32,7 +32,7 @@ shared_examples_for "it is taggable" do
     end
 
     it 'responds to plain_text' do
-      expect(Diaspora::Taggable.format_tags(@str, :plain_text => true)).to eq(@str)
+      expect(Diaspora::Taggable.format_tags(@str, plain_text: true)).to eq(@str)
     end
 
     it "doesn't mangle text when tags are involved" do

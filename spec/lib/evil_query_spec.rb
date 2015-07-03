@@ -11,7 +11,7 @@ end
 
 describe EvilQuery::Participation do
   before do
-    @status_message = FactoryGirl.create(:status_message, :author => bob.person)
+    @status_message = FactoryGirl.create(:status_message, author: bob.person)
     # done in StatusMessagesController#create
     bob.participate!(@status_message)
   end
@@ -32,10 +32,10 @@ describe EvilQuery::Participation do
 
   describe "ordering" do
     before do
-      @status_messageA = FactoryGirl.create(:status_message, :author => bob.person)
-      @status_messageB = FactoryGirl.create(:status_message, :author => bob.person)
-      @status_messageD = FactoryGirl.create(:status_message, :author => bob.person)
-      @status_messageE = FactoryGirl.create(:status_message, :author => bob.person)
+      @status_messageA = FactoryGirl.create(:status_message, author: bob.person)
+      @status_messageB = FactoryGirl.create(:status_message, author: bob.person)
+      @status_messageD = FactoryGirl.create(:status_message, author: bob.person)
+      @status_messageE = FactoryGirl.create(:status_message, author: bob.person)
 
       time = Time.now
 

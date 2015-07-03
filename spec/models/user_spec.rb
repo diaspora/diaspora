@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe User, :type => :model do
+describe User, type: :model do
   context "relations" do
     context "#conversations" do
       it "doesn't find anything when there is nothing to find" do
@@ -36,7 +36,7 @@ describe User, :type => :model do
     end
 
     it 'marshalls the key to and from the db correctly' do
-      user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
+      user = User.build(username: 'max', email: 'foo@bar.com', password: 'password', password_confirmation: 'password')
 
       user.save!
       expect(user.serialized_private_key).to be_present
@@ -199,19 +199,19 @@ describe User, :type => :model do
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
       expect {
-        new_user = FactoryGirl.create(:user, :id => alice.id)
+        new_user = FactoryGirl.create(:user, id: alice.id)
       }.to raise_error ActiveRecord::StatementInvalid
     end
 
     it 'does not overwrite old users with create' do
-          params = {:username => "ohai",
-                    :email => "ohai@example.com",
-                    :password => "password",
-                    :password_confirmation => "password",
-                    :person =>
-                      {:profile =>
-                        {:first_name => "O",
-                         :last_name => "Hai"}
+          params = {username: "ohai",
+                    email: "ohai@example.com",
+                    password: "password",
+                    password_confirmation: "password",
+                    person:
+                      {profile:
+                        {first_name: "O",
+                         last_name: "Hai"}
                       }
           }
           params[:id] = alice.id
@@ -249,14 +249,14 @@ describe User, :type => :model do
       end
 
       it 'requires uniqueness also amount Person objects with diaspora handle' do
-        p = FactoryGirl.create(:person, :diaspora_handle => "jimmy#{User.diaspora_id_host}")
+        p = FactoryGirl.create(:person, diaspora_handle: "jimmy#{User.diaspora_id_host}")
         alice.username = 'jimmy'
         expect(alice).not_to be_valid
 
       end
 
       it "downcases username" do
-        user = FactoryGirl.build(:user, :username => "WeIrDcAsE")
+        user = FactoryGirl.build(:user, username: "WeIrDcAsE")
         expect(user).to be_valid
         expect(user.username).to eq("weirdcase")
       end
@@ -267,7 +267,7 @@ describe User, :type => :model do
       end
 
       it "strips leading and trailing whitespace" do
-        user = FactoryGirl.build(:user, :username => "      janie   ")
+        user = FactoryGirl.build(:user, username: "      janie   ")
         expect(user).to be_valid
         expect(user.username).to eq("janie")
       end
@@ -354,13 +354,13 @@ describe User, :type => :model do
 
       it "should save with current language if blank" do
         I18n.locale = :fr
-        user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
+        user = User.build(username: 'max', email: 'foo@bar.com', password: 'password', password_confirmation: 'password')
         expect(user.language).to eq('fr')
       end
 
       it "should save with language what is set" do
         I18n.locale = :fr
-        user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password', :language => 'de')
+        user = User.build(username: 'max', email: 'foo@bar.com', password: 'password', password_confirmation: 'password', language: 'de')
         expect(user.language).to eq('de')
       end
     end
@@ -377,14 +377,14 @@ describe User, :type => :model do
   describe ".build" do
     context 'with valid params' do
       before do
-        params = {:username => "ohai",
-                  :email => "ohai@example.com",
-                  :password => "password",
-                  :password_confirmation => "password",
-                  :person =>
-                    {:profile =>
-                      {:first_name => "O",
-                       :last_name => "Hai"}
+        params = {username: "ohai",
+                  email: "ohai@example.com",
+                  password: "password",
+                  password_confirmation: "password",
+                  person:
+                    {profile:
+                      {first_name: "O",
+                       last_name: "Hai"}
                     }
         }
         @user = User.build(params)
@@ -408,11 +408,11 @@ describe User, :type => :model do
     describe "with invalid params" do
       before do
         @invalid_params = {
-          :username => "ohai",
-          :email => "ohai@example.com",
-          :password => "password",
-          :password_confirmation => "wrongpasswordz",
-          :person => {:profile => {:first_name => "", :last_name => ""}}}
+          username: "ohai",
+          email: "ohai@example.com",
+          password: "password",
+          password_confirmation: "wrongpasswordz",
+          person: {profile: {first_name: "", last_name: ""}}}
       end
 
       it "raises no error" do
@@ -436,15 +436,15 @@ describe User, :type => :model do
     describe "with malicious params" do
       let(:person) {FactoryGirl.create :person}
       before do
-        @invalid_params = {:username => "ohai",
-                  :email => "ohai@example.com",
-                  :password => "password",
-                  :password_confirmation => "password",
-                  :person =>
-                    {:id => person.id,
-                      :profile =>
-                      {:first_name => "O",
-                       :last_name => "Hai"}
+        @invalid_params = {username: "ohai",
+                  email: "ohai@example.com",
+                  password: "password",
+                  password_confirmation: "password",
+                  person:
+                    {id: person.id,
+                      profile:
+                      {first_name: "O",
+                       last_name: "Hai"}
                     }
         }
       end
@@ -457,7 +457,7 @@ describe User, :type => :model do
 
   describe '#process_invite_acceptence' do
     it 'sets the inviter on user' do
-      inv = InvitationCode.create(:user => bob)
+      inv = InvitationCode.create(user: bob)
       user = FactoryGirl.build(:user)
       user.process_invite_acceptence(inv)
       expect(user.invited_by_id).to eq(bob.id)
@@ -487,15 +487,15 @@ describe User, :type => :model do
 
   describe ".find_for_database_authentication" do
     it 'finds a user' do
-      expect(User.find_for_database_authentication(:username => alice.username)).to eq(alice)
+      expect(User.find_for_database_authentication(username: alice.username)).to eq(alice)
     end
 
     it 'finds a user by email' do
-      expect(User.find_for_database_authentication(:username => alice.email)).to eq(alice)
+      expect(User.find_for_database_authentication(username: alice.email)).to eq(alice)
     end
 
     it "does not preserve case" do
-      expect(User.find_for_database_authentication(:username => alice.username.upcase)).to eq(alice)
+      expect(User.find_for_database_authentication(username: alice.username.upcase)).to eq(alice)
     end
 
     it 'errors out when passed a non-hash' do
@@ -508,13 +508,13 @@ describe User, :type => :model do
   describe '#update_profile' do
     before do
       @params = {
-        :first_name => 'bob',
-        :last_name => 'billytown',
+        first_name: 'bob',
+        last_name: 'billytown',
       }
     end
 
     it 'dispatches the profile when tags are set' do
-      @params = {:tag_string => '#what #hey'}
+      @params = {tag_string: '#what #hey'}
       mailman = Postzord::Dispatcher.build(alice, Profile.new)
       expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
       expect(alice.update_profile(@params)).to be true
@@ -532,7 +532,7 @@ describe User, :type => :model do
     end
 
     it 'updates image_url' do
-      params = {:image_url => "http://clown.com"}
+      params = {image_url: "http://clown.com"}
 
       expect(alice.update_profile(params)).to be true
       expect(alice.reload.profile.image_url).to eq("http://clown.com")
@@ -543,9 +543,9 @@ describe User, :type => :model do
         fixture_filename  = 'button.png'
         fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
         image = File.open(fixture_name)
-        @photo = Photo.diaspora_initialize(:author => alice.person, :user_file => image)
+        @photo = Photo.diaspora_initialize(author: alice.person, user_file: image)
         @photo.save!
-        @params = {:photo => @photo}
+        @params = {photo: @photo}
       end
 
       it 'updates image_url' do
@@ -569,15 +569,15 @@ describe User, :type => :model do
 
   describe '#update_post' do
     it 'should dispatch post' do
-      photo = alice.build_post(:photo, :user_file => uploaded_photo, :text => "hello", :to => alice.aspects.first.id)
+      photo = alice.build_post(:photo, user_file: uploaded_photo, text: "hello", to: alice.aspects.first.id)
       expect(alice).to receive(:dispatch_post).with(photo)
-      alice.update_post(photo, :text => 'hellp')
+      alice.update_post(photo, text: 'hellp')
     end
   end
 
   describe '#notify_if_mentioned' do
     before do
-      @post = FactoryGirl.build(:status_message, :author => bob.person)
+      @post = FactoryGirl.build(:status_message, author: bob.person)
     end
 
     it 'notifies the user if the incoming post mentions them' do
@@ -595,7 +595,7 @@ describe User, :type => :model do
     end
 
     it 'does not notify the user if the post author is not a contact' do
-      @post = FactoryGirl.build(:status_message, :author => eve.person)
+      @post = FactoryGirl.build(:status_message, author: eve.person)
       allow(@post).to receive(:mentions?).and_return(true)
       expect(@post).not_to receive(:notify_person)
 
@@ -606,21 +606,21 @@ describe User, :type => :model do
   describe 'account deletion' do
     describe '#destroy' do
       it 'removes invitations from the user' do
-        FactoryGirl.create(:invitation, :sender => alice)
+        FactoryGirl.create(:invitation, sender: alice)
         expect {
           alice.destroy
         }.to change {alice.invitations_from_me(true).count }.by(-1)
       end
 
       it 'removes invitations to the user' do
-        Invitation.new(:sender => eve, :recipient => alice, :identifier => alice.email, :aspect => eve.aspects.first).save(:validate => false)
+        Invitation.new(sender: eve, recipient: alice, identifier: alice.email, aspect: eve.aspects.first).save(validate: false)
         expect {
           alice.destroy
         }.to change {alice.invitations_to_me(true).count }.by(-1)
       end
 
       it 'removes all service connections' do
-        Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
+        Services::Facebook.create(access_token: 'what', user_id: alice.id)
         expect {
           alice.destroy
         }.to change {
@@ -640,7 +640,7 @@ describe User, :type => :model do
     end
 
     it 'does not enqueue a mail job if the correct corresponding job has a preference entry' do
-      alice.user_preferences.create(:email_type => 'started_sharing')
+      alice.user_preferences.create(email_type: 'started_sharing')
       expect(Workers::Mail::StartedSharing).not_to receive(:perform_async)
       alice.mail(Workers::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
@@ -657,8 +657,8 @@ describe User, :type => :model do
   context "aspect management" do
     before do
       @contact = alice.contact_for(bob.person)
-      @original_aspect = alice.aspects.where(:name => "generic").first
-      @new_aspect = alice.aspects.create(:name => 'two')
+      @original_aspect = alice.aspects.where(name: "generic").first
+      @new_aspect = alice.aspects.create(name: 'two')
     end
 
     describe "#add_contact_to_aspect" do
@@ -676,10 +676,10 @@ describe User, :type => :model do
 
   context 'likes' do
     before do
-      alices_aspect = alice.aspects.where(:name => "generic").first
-      @bobs_aspect = bob.aspects.where(:name => "generic").first
-      @message = alice.post(:status_message, :text => "cool", :to => alices_aspect)
-      @message2 = bob.post(:status_message, :text => "uncool", :to => @bobs_aspect)
+      alices_aspect = alice.aspects.where(name: "generic").first
+      @bobs_aspect = bob.aspects.where(name: "generic").first
+      @message = alice.post(:status_message, text: "cool", to: alices_aspect)
+      @message2 = bob.post(:status_message, text: "uncool", to: @bobs_aspect)
       @like = alice.like!(@message)
       @like2 = bob.like!(@message)
     end
@@ -849,7 +849,7 @@ describe User, :type => :model do
   describe '#retract' do
     before do
       @retraction = double
-      @post = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
+      @post = FactoryGirl.build(:status_message, author: bob.person, public: true)
     end
 
     context "posts" do
@@ -868,11 +868,11 @@ describe User, :type => :model do
 
       it 'adds resharers of target post as additional subsctibers' do
         person = FactoryGirl.create(:person)
-        reshare = FactoryGirl.create(:reshare, :root => @post, :author => person)
+        reshare = FactoryGirl.create(:reshare, root: @post, author: person)
         @post.reshares << reshare
 
         dispatcher = double
-        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
+        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, {additional_subscribers: [person], services: anything}).and_return(dispatcher)
         expect(dispatcher).to receive(:post)
 
         bob.retract(@post)
@@ -1111,7 +1111,7 @@ describe User, :type => :model do
       @user = alice
       filename  = 'button.png'
       image = File.join(File.dirname(__FILE__), '..', 'fixtures', filename)
-      @saved_image = @user.build_post(:photo, :user_file => File.open(image), :to => alice.aspects.first.id)
+      @saved_image = @user.build_post(:photo, user_file: File.open(image), to: alice.aspects.first.id)
       @saved_image.save!
     end
 
@@ -1134,16 +1134,16 @@ describe User, :type => :model do
 
   describe "sign up" do
     before do
-      params = {:username => "ohai",
-                :email => "ohai@example.com",
-                :password => "password",
-                :password_confirmation => "password",
-                :captcha => "12345",
+      params = {username: "ohai",
+                email: "ohai@example.com",
+                password: "password",
+                password_confirmation: "password",
+                captcha: "12345",
 
-                :person =>
-                  {:profile =>
-                    {:first_name => "O",
-                     :last_name => "Hai"}
+                person:
+                  {profile:
+                    {first_name: "O",
+                     last_name: "Hai"}
                   }
       }
       @user = User.build(params)

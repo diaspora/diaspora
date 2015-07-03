@@ -19,36 +19,36 @@ class PostPresenter
       @post.raw_message
     end
     {
-        :id => @post.id,
-        :guid => @post.guid,
-        :text => text,
-        :public => @post.public,
-        :created_at => @post.created_at,
-        :interacted_at => @post.interacted_at,
-        :provider_display_name => @post.provider_display_name,
-        :post_type => @post.post_type,
-        :image_url => @post.image_url,
-        :object_url => @post.object_url,
-        :favorite => @post.favorite,
-        :nsfw => @post.nsfw,
-        :author => @post.author.as_api_response(:backbone),
-        :o_embed_cache => @post.o_embed_cache.try(:as_api_response, :backbone),
-        :open_graph_cache => @post.open_graph_cache.try(:as_api_response, :backbone),
-        :mentioned_people => @post.mentioned_people.as_api_response(:backbone),
-        :photos => @post.photos.map {|p| p.as_api_response(:backbone)},
-        :root => root,
-        :title => title,
-        :address => @post.address,
-        :poll => @post.poll(),
-        :already_participated_in_poll => already_participated_in_poll,
-        :participation => participate?,
+        id: @post.id,
+        guid: @post.guid,
+        text: text,
+        public: @post.public,
+        created_at: @post.created_at,
+        interacted_at: @post.interacted_at,
+        provider_display_name: @post.provider_display_name,
+        post_type: @post.post_type,
+        image_url: @post.image_url,
+        object_url: @post.object_url,
+        favorite: @post.favorite,
+        nsfw: @post.nsfw,
+        author: @post.author.as_api_response(:backbone),
+        o_embed_cache: @post.o_embed_cache.try(:as_api_response, :backbone),
+        open_graph_cache: @post.open_graph_cache.try(:as_api_response, :backbone),
+        mentioned_people: @post.mentioned_people.as_api_response(:backbone),
+        photos: @post.photos.map {|p| p.as_api_response(:backbone)},
+        root: root,
+        title: title,
+        address: @post.address,
+        poll: @post.poll(),
+        already_participated_in_poll: already_participated_in_poll,
+        participation: participate?,
 
-        :interactions => {
-            :likes => [user_like].compact,
-            :reshares => [user_reshare].compact,
-            :comments_count => @post.comments_count,
-            :likes_count => @post.likes_count,
-            :reshares_count => @post.reshares_count
+        interactions: {
+            likes: [user_like].compact,
+            reshares: [user_reshare].compact,
+            comments_count: @post.comments_count,
+            likes_count: @post.likes_count,
+            reshares_count: @post.reshares_count
         }
     }
   end
@@ -88,7 +88,7 @@ class PostPresenter
   end
 
   def participate?
-    user_signed_in? && @current_user.participations.where(:target_id => @post).exists?
+    user_signed_in? && @current_user.participations.where(target_id: @post).exists?
   end
 
 end

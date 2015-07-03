@@ -41,13 +41,13 @@ end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
   with_scope(selector) do
-    fill_in(field, :with => value)
+    fill_in(field, with: value)
   end
 end
 
 When /^(?:|I )fill in "([^"]*)" for "([^"]*)"(?: within "([^"]*)")?$/ do |value, field, selector|
   with_scope(selector) do
-    fill_in(field, :with => value)
+    fill_in(field, with: value)
   end
 end
 
@@ -72,7 +72,7 @@ end
 
 When /^(?:|I )select "([^"]*)" from "([^"]*)"(?: within "([^"]*)")?$/ do |value, field, selector|
   with_scope(selector) do
-    select(value, :from => field)
+    select(value, from: field)
   end
 end
 
@@ -119,7 +119,7 @@ end
 Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
-    page.should have_xpath('//*', :text => regexp)
+    page.should have_xpath('//*', text: regexp)
   end
 end
 
@@ -134,7 +134,7 @@ end
 Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
-    page.should have_no_xpath('//*', :text => regexp)
+    page.should have_no_xpath('//*', text: regexp)
   end
 end
 

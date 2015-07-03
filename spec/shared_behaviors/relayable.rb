@@ -22,7 +22,7 @@ shared_examples_for "it is relayable" do
     describe 'on :author_id' do
       context "the author is on the parent object author's ignore list when object is created" do
         before do
-          bob.blocks.create(:person => alice.person)
+          bob.blocks.create(person: alice.person)
           @relayable = build_object
         end
 
@@ -48,7 +48,7 @@ shared_examples_for "it is relayable" do
         it "is valid" do
           relayable = build_object
           relayable.save!
-          bob.blocks.create(:person => alice.person)
+          bob.blocks.create(person: alice.person)
           expect(relayable).to be_valid
         end
       end

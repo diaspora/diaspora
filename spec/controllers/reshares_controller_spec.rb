@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe ResharesController, :type => :controller do
+describe ResharesController, type: :controller do
   describe '#create' do
     let(:post_request!) {
-      post :create, :format => :json, :root_guid => @post_guid
+      post :create, format: :json, root_guid: @post_guid
     }
 
     before do
-      @post = FactoryGirl.create(:status_message, :public => true)
+      @post = FactoryGirl.create(:status_message, public: true)
       @post_guid = @post.guid
     end
 
@@ -45,7 +45,7 @@ describe ResharesController, :type => :controller do
 
       context 'resharing a reshared post' do
         before do
-          FactoryGirl.create(:reshare, :root => @post, :author => bob.person)
+          FactoryGirl.create(:reshare, root: @post, author: bob.person)
         end
 
         it 'doesn\'t allow the user to reshare the post again' do
@@ -58,7 +58,7 @@ describe ResharesController, :type => :controller do
       context 'resharing another user\'s reshare' do
         before do
           @root = @post
-          @post = FactoryGirl.create(:reshare, :root => @root, :author => alice.person)
+          @post = FactoryGirl.create(:reshare, root: @root, author: alice.person)
         end
 
         it 'reshares the absolute root' do

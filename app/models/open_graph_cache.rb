@@ -1,8 +1,8 @@
 class OpenGraphCache < ActiveRecord::Base
-  validates :title, :presence => true
-  validates :ob_type, :presence => true
-  validates :image, :presence => true
-  validates :url, :presence => true
+  validates :title, presence: true
+  validates :ob_type, presence: true
+  validates :image, presence: true
+  validates :url, presence: true
 
   has_many :posts
 

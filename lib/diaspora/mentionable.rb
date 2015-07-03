@@ -67,7 +67,7 @@ module Diaspora::Mentionable
 
     mentioned_ppl = people_from_string(msg_text)
     aspects_ppl = AspectMembership.where(aspect_id: aspect_ids)
-                                  .includes(:contact => :person)
+                                  .includes(contact: :person)
                                   .map(&:person)
 
     msg_text.to_s.gsub(REGEX) {|match_str|

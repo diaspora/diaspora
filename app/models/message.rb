@@ -9,12 +9,12 @@ class Message < ActiveRecord::Base
   xml_reader :diaspora_handle
   xml_reader :conversation_guid
 
-  belongs_to :author, :class_name => 'Person'
-  belongs_to :conversation, :touch => true
+  belongs_to :author, class_name: 'Person'
+  belongs_to :conversation, touch: true
 
   delegate :name, to: :author, prefix: true
 
-  validates :text, :presence => true
+  validates :text, presence: true
   validate :participant_of_parent_conversation
 
   after_create do  # don't use 'after_commit' here since there is a call to 'save!'
@@ -61,7 +61,7 @@ class Message < ActiveRecord::Base
   end
 
   def increase_unread(user)
-    if vis = ConversationVisibility.where(:conversation_id => self.conversation_id, :person_id => user.person.id).first
+    if vis = ConversationVisibility.where(conversation_id: self.conversation_id, person_id: user.person.id).first
       vis.unread += 1
       vis.save
     end
