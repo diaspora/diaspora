@@ -204,25 +204,21 @@ class Person < ActiveRecord::Base
   end
 
   def url
-    uri = URI.parse(self[:url])
-    url = "#{uri.scheme}://#{uri.host}"
-    url += ":#{uri.port}" unless %w(80 443).include?(uri.port.to_s)
-    url += "/"
-    url
+    url_to "/"
   rescue
     self[:url]
   end
 
   def profile_url
-    "#{url}u/#{username}"
+    url_to "/u/#{username}"
   end
 
   def atom_url
-    "#{url}public/#{username}.atom"
+    url_to "/public/#{username}.atom"
   end
 
   def receive_url
-    "#{url}receive/users/#{guid}"
+    url_to "/receive/users/#{guid}"
   end
 
   def public_key_hash
@@ -321,11 +317,9 @@ class Person < ActiveRecord::Base
   # @param person [Person]
   # @param url [String]
   def update_url(url)
-    location = URI.parse(url)
-    newuri = "#{location.scheme}://#{location.host}"
-    newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
-    newuri += "/"
-    self.update_attributes(:url => newuri)
+    @uri = URI.parse(url)
+    @uri.path = "/"
+    update_attributes(:url => @uri.to_s)
   end
 
   def lock_access!
@@ -348,6 +342,18 @@ class Person < ActiveRecord::Base
   end
 
   private
+
+  # @return [URI]
+  def uri
+    @uri ||= URI.parse(self[:url])
+    @uri.dup
+  end
+
+  # @param path [String]
+  # @return [String]
+  def url_to(path)
+    uri.tap {|uri| uri.path = path }.to_s
+  end
 
   def fix_profile
     Webfinger.new(self.diaspora_handle).fetch
