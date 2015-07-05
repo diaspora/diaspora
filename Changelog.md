@@ -51,6 +51,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Remove top margin for first heading in a post [#6110](https://github.com/diaspora/diaspora/pull/6110)
 * Add link to pod statistics in right navigation [#6117](https://github.com/diaspora/diaspora/pull/6117)
 * Update to Rails 4.2.3 [#6140](https://github.com/diaspora/diaspora/pull/6140)
+* Refactor person related URL generation [#6168](https://github.com/diaspora/diaspora/pull/6168)
 
 ## Bug fixes
 * Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)

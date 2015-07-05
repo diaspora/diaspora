@@ -16,7 +16,7 @@
           = t(".title")
       .modal-body
         %p=t('.outside')
-        %p= link_to t('.atom_feed'), "#{current_user.public_url}.atom"
+        %p= link_to t(".atom_feed"), current_user.atom_url
         - if current_user.services
           - for service in current_user.services
             %p= t('.logged_in', :service => service.provider)

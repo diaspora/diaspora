@@ -4,25 +4,19 @@
 
 module Workers
   class PublishToHub < Base
-    def perform(sender_public_url)
+    def perform(_sender_atom_url)
       # don't publish to pubsubhubbub in cucumber
     end
   end
 
   class HttpMulti < Base
-    def perform(user_id, enc_object_xml, person_ids, retry_count=0)
+    def perform(_user_id, _enc_object_xml, _person_ids, _retry_count=0)
       # don't federate in cucumber
     end
   end
 
-  class HttpPost < Base
-    def perform(url, body, tries_remaining = NUM_TRIES)
-      # don't post to outside services in cucumber
-    end
-  end
-
   class PostToService < Base
-    def perform(service_id, post_id, url)
+    def perform(_service_id, _post_id, _url)
       # don't post to services in cucumber
     end
   end
