@@ -1,5 +1,5 @@
 class CreateTokens < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :tokens do |t|
       t.belongs_to :o_auth_application
       t.string :token
