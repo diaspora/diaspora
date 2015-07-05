@@ -226,7 +226,7 @@ describe 'a user receives a post', :type => :request do
         remote_person.attributes.delete(:id) # leaving a nil id causes it to try to save with id set to NULL in postgres
 
         m = double()
-        expect(Webfinger).to receive(:new).twice.with(eve.person.diaspora_handle).and_return(m)
+        expect(Diaspora::Webfinger).to receive(:new).twice.with(eve.person.diaspora_handle).and_return(m)
         remote_person.save(:validate => false)
         remote_person.profile = FactoryGirl.create(:profile, :person => remote_person)
         expect(m).to receive(:fetch).twice.and_return(remote_person)

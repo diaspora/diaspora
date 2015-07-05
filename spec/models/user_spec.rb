@@ -916,7 +916,7 @@ describe User, :type => :model do
 
           wf_double = double
           expect(wf_double).to receive(:fetch)
-          expect(Webfinger).to receive(:new).with('one').and_return(wf_double)
+          expect(Diaspora::Webfinger).to receive(:new).with('one').and_return(wf_double)
 
           user.seed_aspects
         end
@@ -926,7 +926,7 @@ describe User, :type => :model do
         it "should not start sharing with the diasporahq account" do
           AppConfig.settings.autofollow_on_join = false
 
-          expect(Webfinger).not_to receive(:new)
+          expect(Diaspora::Webfinger).not_to receive(:new)
 
           user.seed_aspects
         end
