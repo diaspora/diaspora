@@ -237,11 +237,14 @@ ActiveRecord::Schema.define(version: 20150724152052) do
   add_index "notifications", ["target_type", "target_id"], name: "index_notifications_on_target_type_and_target_id", length: {"target_type"=>190, "target_id"=>nil}, using: :btree
 
   create_table "o_auth_applications", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
     t.string   "client_id",     limit: 255
     t.string   "client_secret", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  add_index "o_auth_applications", ["user_id"], name: "index_o_auth_applications_on_user_id", using: :btree
 
   create_table "o_embed_caches", force: :cascade do |t|
     t.string "url",  limit: 1024,  null: false
@@ -531,6 +534,8 @@ ActiveRecord::Schema.define(version: 20150724152052) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
+
+  add_index "tokens", ["o_auth_application_id"], name: "index_tokens_on_o_auth_application_id", using: :btree
 
   create_table "user_preferences", force: :cascade do |t|
     t.string   "email_type", limit: 255

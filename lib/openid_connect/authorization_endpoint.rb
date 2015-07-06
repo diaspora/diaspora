@@ -1,4 +1,4 @@
-module Openid
+module OpenidConnect
   class AuthorizationEndpoint
     attr_accessor :app, :account, :client, :redirect_uri, :response_type, :scopes, :_request_, :request_uri, :request_object
     delegate :call, to: :app
