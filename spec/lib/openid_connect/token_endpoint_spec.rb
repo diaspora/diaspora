@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Token Endpoint", type: :request do
+describe OpenidConnect::TokenEndpoint, type: :request do
   describe "password grant type" do
     context "when the username field is missing" do
       it "should return an invalid request error" do

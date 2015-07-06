@@ -1,4 +1,4 @@
-module Openid
+module OpenidConnect
   module Authentication
 
     def self.included(klass)
@@ -22,9 +22,9 @@ module Openid
       end
     end
 
-    # Scopes should be implemented here
+    # TODO: Scopes should be implemented here
     def required_scopes
-      nil # as default
+      nil
     end
   end
 end

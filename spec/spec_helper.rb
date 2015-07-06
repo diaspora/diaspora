@@ -59,6 +59,14 @@ def photo_fixture_name
   @photo_fixture_name = File.join(File.dirname(__FILE__), "fixtures", "button.png")
 end
 
+def retrieveAccessToken(user)
+  o_auth_app = OAuthApplication.create!(client_id: 4, client_secret: "azerty")
+  user = User.find_for_database_authentication(username: user.username)
+  if o_auth_app && user && user.valid_password?("bluepin7") # Hard coded password for bob
+    o_auth_app.tokens.create!.bearer_token.to_s
+  end
+end
+
 # Force fixture rebuild
 FileUtils.rm_f(Rails.root.join("tmp", "fixture_builder.yml"))
 

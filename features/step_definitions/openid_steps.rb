@@ -10,13 +10,13 @@ end
 
 When /^I use received valid bearer tokens to access user info via URI query parameter$/ do
   accessTokenJson = JSON.parse(last_response.body)
-  userInfoEndPointURL = "/openid/user_info/"
+  userInfoEndPointURL = "/api/v2/user/"
   userInfoEndPointURLQuery = "?access_token=" + accessTokenJson["access_token"]
   visit userInfoEndPointURL + userInfoEndPointURLQuery
 end
 
 When /^I use invalid bearer tokens to access user info via URI query parameter$/ do
-  userInfoEndPointURL = "/openid/user_info/"
+  userInfoEndPointURL = "/api/v2/user/"
   userInfoEndPointURLQuery = "?access_token=" + SecureRandom.hex(32)
   visit userInfoEndPointURL + userInfoEndPointURLQuery
 end
