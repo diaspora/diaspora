@@ -58,6 +58,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Fix wrong closing a-tag [#6111](https://github.com/diaspora/diaspora/pull/6111)
 * Fix mobile more-button wording when there are less than 15 posts [#6118](https://github.com/diaspora/diaspora/pull/6118)
 * Fix reappearing flash boxes during sign-in [#6146](https://github.com/diaspora/diaspora/pull/6146)
+* Fix the kittens posioin on 404 pages [#6169](https://github.com/diaspora/diaspora/pull/6169)
 
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
