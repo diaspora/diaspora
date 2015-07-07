@@ -207,15 +207,7 @@ Diaspora::Application.routes.draw do
     end
   end
 
-  scope 'api/v0', :controller => :apis do
-    get :me
-  end
-
   namespace :api do
-    namespace :v0 do
-      get "/users/:username" => 'users#show', :as => 'user'
-      get "/tags/:name" => 'tags#show', :as => 'tag'
-    end
     namespace :v1 do
       resources :tokens, :only => [:create, :destroy]
     end
@@ -257,7 +249,7 @@ Diaspora::Application.routes.draw do
     post 'access_tokens', to: proc { |env| OpenidConnect::TokenEndpoint.new.call(env) }
   end
 
-  api_version(:module => "Api::V2", path: {value: "api/v2"}, default: true) do
+  api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
     match 'user', to: 'users#show', via: :get
   end
 end
