@@ -1,4 +1,4 @@
-class Api::V2::UsersController < Api::V2::BaseController
+class Api::V0::UsersController < Api::V0::BaseController
 
   def show
     render json: user
