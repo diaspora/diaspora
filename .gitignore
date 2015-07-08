@@ -1,12 +1,11 @@
-# xmpp certificates, keys and user data
+# XMPP certificates, keys and user data
 config/vines/*.crt
 config/vines/*.key
 
-#trademark sillyness
+# Trademark sillyness
 app/views/home/_show.*
 app/views/terms/terms.*
 app/assets/images/custom/
-
 
 # Configuration files
 config/diaspora.yml
@@ -22,7 +21,7 @@ config/database.yml
 .rvmrc_custom
 .rvmrc.local
 
-#Mailing list stuff
+# Mailing list stuff
 config/email_offset
 config/mailing_list.csv
 
@@ -44,7 +43,7 @@ app/assets/images/branding/logos-*.png
 app/assets/images/icons-*.png
 app/assets/images/social_media_logos-*.png
 
-#Documentation
+# Documentation
 .yardoc/
 doc/
 
@@ -69,15 +68,18 @@ tmp/
 *.swp
 *~
 *#
+*.bak
+*.save
+*.autosave
 nbproject
 patches-*
 capybara-*.html
 dump.rdb
 
-#Rubinius's JIT
+# Rubinius's JIT
 *.rbc
 
-#IDE
+# IDE
 diaspora.iml
 
 # Dolphin's directory's preferences files
