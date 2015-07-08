@@ -242,14 +242,13 @@ Diaspora::Application.routes.draw do
   root :to => 'home#show'
 
   #OpenID Connect & OAuth
-  resource :openid do
+  namespace :openid_connect do
+    resources :clients, only: :create
     resources :authorizations, only: [:new, :create]
-    match 'connect', to: 'connect#show', via: [:get, :post]
-    match '.well-known/:id', to: 'discovery#show' , via: [:get, :post]
     post 'access_tokens', to: proc { |env| OpenidConnect::TokenEndpoint.new.call(env) }
   end
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
-    match 'user', to: 'users#show', via: :get
+    match 'user', to: 'users#show', via: [:get, :post]
   end
 end
