@@ -36,4 +36,3 @@
   Diaspora.Widgets.FlashMessages = FlashMessages;
 })();
 // @license-end
-

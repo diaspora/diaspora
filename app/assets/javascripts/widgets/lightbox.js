@@ -190,4 +190,3 @@ jQuery.fn.center = (function() {
   Diaspora.Widgets.Lightbox = Lightbox;
 })();
 // @license-end
-

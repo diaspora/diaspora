@@ -26,6 +26,7 @@ $(document).ready(function() {
       showComments(toggleReactionsLink);
     }
   }
+
   function hideComments(toggleReactionsLink) {
     var bottomBar = toggleReactionsLink.closest(".bottom_bar").first(),
         commentsContainer = commentsContainerLazy(bottomBar),
@@ -33,6 +34,7 @@ $(document).ready(function() {
     existingCommentsContainer.hide();
     toggleReactionsLink.removeClass("active");
   }
+
   function showComments(toggleReactionsLink) {
     var bottomBar = toggleReactionsLink.closest(".bottom_bar").first(),
         commentsContainer = commentsContainerLazy(bottomBar),
@@ -44,12 +46,14 @@ $(document).ready(function() {
       showUnloadedComments(toggleReactionsLink, bottomBar, commentActionLink);
     }
   }
+
   function showLoadedComments(toggleReactionsLink, existingCommentsContainer, commentActionLink) {
     existingCommentsContainer.show();
     showCommentBox(commentActionLink);
     toggleReactionsLink.addClass("active");
     existingCommentsContainer.find("time.timeago").timeago();
   }
+
   function showUnloadedComments(toggleReactionsLink, bottomBar, commentActionLink) {
     var commentsContainer = commentsContainerLazy(bottomBar);
     $.ajax({
@@ -62,6 +66,7 @@ $(document).ready(function() {
       }
     });
   }
+
   function commentsContainerLazy(bottomBar) {
     return function() {
       return bottomBar.find(".comment_container").first();
@@ -140,6 +145,7 @@ $(document).ready(function() {
       return parseInt(match) + 1;
     }));
   }
+
   // Fix for no reactions
   function updateReactionCount(bottomBar) {
     var toggleReactionsLink = bottomBar.find(".show_comments").first();
