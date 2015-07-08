@@ -240,6 +240,8 @@ ActiveRecord::Schema.define(version: 20150724152052) do
     t.integer  "user_id",       limit: 4
     t.string   "client_id",     limit: 255
     t.string   "client_secret", limit: 255
+    t.string   "name",          limit: 255
+    t.string   "redirect_uris", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -528,14 +530,14 @@ ActiveRecord::Schema.define(version: 20150724152052) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, length: {"name"=>191}, using: :btree
 
   create_table "tokens", force: :cascade do |t|
-    t.integer  "o_auth_application_id", limit: 4
-    t.string   "token",                 limit: 255
+    t.integer  "user_id",    limit: 4
+    t.string   "token",      limit: 255
     t.datetime "expires_at"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "tokens", ["o_auth_application_id"], name: "index_tokens_on_o_auth_application_id", using: :btree
+  add_index "tokens", ["user_id"], name: "index_tokens_on_user_id", using: :btree
 
   create_table "user_preferences", force: :cascade do |t|
     t.string   "email_type", limit: 255

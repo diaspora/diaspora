@@ -1,5 +1,5 @@
 class Token < ActiveRecord::Base
-  belongs_to :o_auth_application
+  belongs_to :user
 
   before_validation :setup, on: :create
 
