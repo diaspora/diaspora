@@ -77,6 +77,7 @@ class User < ActiveRecord::Base
   has_many :reports
 
   has_many :o_auth_applications
+  has_many :tokens
 
   before_save :guard_unconfirmed_email,
               :save_person!

@@ -4,6 +4,8 @@ class CreateOAuthApplications < ActiveRecord::Migration
       t.belongs_to :user, index: true
       t.string :client_id
       t.string :client_secret
+      t.string :name
+      t.string :redirect_uris
 
       t.timestamps null: false
     end
