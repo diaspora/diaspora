@@ -1,8 +1,8 @@
 module OpenidConnect
-  module Authentication
+  module ProtectedResourceEndpoint
 
     def self.included(klass)
-      klass.send :include, Authentication::Helper
+      klass.send :include, ProtectedResourceEndpoint::Helper
     end
 
     module Helper

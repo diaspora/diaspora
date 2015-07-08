@@ -18,7 +18,7 @@ class AuthorizationsController < ApplicationController
   private
 
   def call_authorization_endpoint(is_create = false, approved = false)
-    endpoint = AuthorizationEndpoint.new current_user, is_create, approved
+    endpoint = AuthorizationEndpoint.new is_create, approved
     rack_response = *endpoint.call(request.env)
     @client, @response_type, @redirect_uri, @scopes, @_request_, @request_uri, @request_object = *[
         endpoint.client, endpoint.response_type, endpoint.redirect_uri, endpoint.scopes, endpoint._request_, endpoint.request_uri, endpoint.request_object
