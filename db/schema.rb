@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724152052) do
+ActiveRecord::Schema.define(version: 20150708155747) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -54,6 +54,24 @@ ActiveRecord::Schema.define(version: 20150724152052) do
 
   add_index "aspects", ["user_id", "contacts_visible"], name: "index_aspects_on_user_id_and_contacts_visible", using: :btree
   add_index "aspects", ["user_id"], name: "index_aspects_on_user_id", using: :btree
+
+  create_table "authorizations", force: :cascade do |t|
+    t.integer  "user_id",               limit: 4
+    t.integer  "o_auth_application_id", limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "authorizations", ["o_auth_application_id"], name: "index_authorizations_on_o_auth_application_id", using: :btree
+  add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
+
+  create_table "authorizations_scopes", id: false, force: :cascade do |t|
+    t.integer "authorization_id", limit: 4
+    t.integer "scope_id",         limit: 4
+  end
+
+  add_index "authorizations_scopes", ["authorization_id"], name: "index_authorizations_scopes_on_authorization_id", using: :btree
+  add_index "authorizations_scopes", ["scope_id"], name: "index_authorizations_scopes_on_scope_id", using: :btree
 
   create_table "blocks", force: :cascade do |t|
     t.integer "user_id",   limit: 4
@@ -420,7 +438,7 @@ ActiveRecord::Schema.define(version: 20150724152052) do
     t.string   "location",         limit: 255
     t.string   "full_name",        limit: 70
     t.boolean  "nsfw",                           default: false
-    t.boolean  "public_details",                 default: false
+    t.boolean  "public_details",               default: false
   end
 
   add_index "profiles", ["full_name", "searchable"], name: "index_profiles_on_full_name_and_searchable", using: :btree
@@ -458,6 +476,20 @@ ActiveRecord::Schema.define(version: 20150724152052) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "scopes", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "scopes_tokens", id: false, force: :cascade do |t|
+    t.integer "scope_id", limit: 4
+    t.integer "token_id", limit: 4
+  end
+
+  add_index "scopes_tokens", ["scope_id"], name: "index_scopes_tokens_on_scope_id", using: :btree
+  add_index "scopes_tokens", ["token_id"], name: "index_scopes_tokens_on_token_id", using: :btree
 
   create_table "services", force: :cascade do |t|
     t.string   "type",          limit: 127, null: false

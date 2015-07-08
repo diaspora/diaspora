@@ -1,6 +1,8 @@
 class OAuthApplication < ActiveRecord::Base
   belongs_to :user
 
+  has_many :authorizations
+
   validates :client_id, presence: true, uniqueness: true
   validates :client_secret, presence: true
 

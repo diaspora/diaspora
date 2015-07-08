@@ -1,5 +1,6 @@
 class Token < ActiveRecord::Base
   belongs_to :user
+  has_and_belongs_to_many :scopes
 
   before_validation :setup, on: :create
 
