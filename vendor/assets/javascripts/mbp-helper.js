@@ -151,7 +151,7 @@ MBP.autogrow = function (element, lh) {
         var newHeight = this.scrollHeight,
             currentHeight = this.clientHeight;
         if (newHeight > currentHeight) {
-            this.style.height = newHeight + 3 * textLineHeight + "px";
+            this.style.height = (newHeight + 3 * textLineHeight) + "px";
         }
     }
 
@@ -168,4 +168,3 @@ MBP.autogrow = function (element, lh) {
 };
 
 })(document);
-

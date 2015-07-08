@@ -104,14 +104,10 @@ BACKSLASH : 220,
 CLOSEBRACKET : 221,
 SINGLEQUOTE : 222,
 isInsertion : function(keyCode){
-  if(keyCode <= 46 && keyCode != this.RETURN && keyCode != this.SPACEBAR){
-    return false;
-  }else if(keyCode > 90 && keyCode < 96){
-    return false;
-  }else if(keyCode >= 112 && keyCode <= 145){
-    return false;
-  }else {
-    return true;
-  }
+ return !(
+     (keyCode <= 46 && keyCode != this.RETURN && keyCode != this.SPACEBAR) ||
+     (keyCode > 90 && keyCode < 96) ||
+     (keyCode >= 112 && keyCode <= 145)
+ );
 }
 };
