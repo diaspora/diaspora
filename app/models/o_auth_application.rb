@@ -6,6 +6,8 @@ class OAuthApplication < ActiveRecord::Base
   validates :client_id, presence: true, uniqueness: true
   validates :client_secret, presence: true
 
+  serialize :redirect_uris, JSON
+
   before_validation :setup, on: :create
   def setup
     self.client_id = SecureRandom.hex(16)
@@ -13,6 +15,10 @@ class OAuthApplication < ActiveRecord::Base
   end
 
   class << self
+    def available_response_types
+      ["id_token"]
+    end
+
     def register!(registrarHash)
       registrarHash.validate!
       buildClientApplication(registrarHash)
