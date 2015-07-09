@@ -37,7 +37,6 @@ app.pages.SinglePostViewer = app.views.Base.extend({
       //... and converts html to plain text
       document.title = $('<div>').html(html_title).text();
     }
-  },
-
+  }
 });
 // @license-end

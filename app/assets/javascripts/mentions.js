@@ -46,4 +46,3 @@ var Mentions = {
   }
 };
 // @license-end
-

@@ -150,7 +150,6 @@ app.views.Base = Backbone.View.extend({
 });
 
 app.views.StaticContentView = app.views.Base.extend({
-
   initialize : function(options) {
     this.templateName = options.templateName;
     this.data = options.data;

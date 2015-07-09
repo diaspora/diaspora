@@ -5,4 +5,3 @@ app.collections.Reshares = Backbone.Collection.extend({
   url : "/reshares"
 });
 // @license-end
-

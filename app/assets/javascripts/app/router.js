@@ -170,9 +170,11 @@ app.Router = Backbone.Router.extend({
   },
 
   profile: function() {
-    this.renderPage(function() { return new app.pages.Profile({
-      el: $("body > #profile_container")
-    }); });
+    this.renderPage(function() {
+      return new app.pages.Profile({
+        el: $("body > #profile_container")
+      });
+    });
   }
 });
 // @license-end
