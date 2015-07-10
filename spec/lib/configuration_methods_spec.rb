@@ -21,7 +21,7 @@ describe Configuration::Methods do
       expect(@settings.pod_uri.host).to eq("example.org")
     end
 
-     it "adds a trailing slash if there isn't one" do
+    it "adds a trailing slash if there isn't one" do
       @settings.environment.url = "http://example.org"
       expect(@settings.pod_uri.to_s).to eq("http://example.org/")
     end
@@ -40,6 +40,12 @@ describe Configuration::Methods do
       @settings.environment.url = "https://example.org/"
       expect(@settings.pod_uri.to_s).to eq("https://example.org/")
     end
+
+    it "returns another instance everytime" do
+      @settings.environment.url = "https://example.org/"
+      uri = @settings.pod_uri
+      expect(@settings.pod_uri).not_to be(uri)
+    end
   end
 
   describe "#bare_pod_uri" do
@@ -48,6 +54,21 @@ describe Configuration::Methods do
       allow(@settings).to receive(:pod_uri).and_return(pod_uri)
       expect(pod_uri).to receive(:authority).and_return("www.example.org")
       expect(@settings.bare_pod_uri).to eq('example.org')
+    end
+  end
+
+  describe "#url_to" do
+    before do
+      @settings.environment.url = "https://example.org"
+      @settings.instance_variable_set(:@pod_uri, nil)
+    end
+
+    it "appends the path to the pod url" do
+      expect(@settings.url_to("/any/path")).to eq("https://example.org/any/path")
+    end
+
+    it "does not add double slash" do
+      expect(@settings.url_to("/any/path")).to eq("https://example.org/any/path")
     end
   end
 
