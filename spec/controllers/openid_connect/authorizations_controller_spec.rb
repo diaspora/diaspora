@@ -12,18 +12,35 @@ describe OpenidConnect::AuthorizationsController, type: :controller do
   describe "#new" do
     render_views
     context "when valid parameters are passed" do
-      it "should return a form page" do
-        get :new,
-             {
-               client_id: client.client_id,
-               redirect_uri: "http://localhost:3000/",
-               response_type: "id_token",
-               scope: "openid",
-               nonce: SecureRandom.hex(16),
-               state: SecureRandom.hex(16)
-             }
-        expect(response.body).to match("Approve")
-        expect(response.body).to match("Deny")
+      context "as GET request" do
+        it "should return a form page" do
+          get :new,
+              {
+                client_id: client.client_id,
+                redirect_uri: "http://localhost:3000/",
+                response_type: "id_token",
+                scope: "openid",
+                nonce: SecureRandom.hex(16),
+                state: SecureRandom.hex(16)
+              }
+          expect(response.body).to match("Approve")
+          expect(response.body).to match("Deny")
+        end
+      end
+      context "as POST request" do
+        it "should return a form page" do
+          post :new,
+              {
+                client_id: client.client_id,
+                redirect_uri: "http://localhost:3000/",
+                response_type: "id_token",
+                scope: "openid",
+                nonce: SecureRandom.hex(16),
+                state: SecureRandom.hex(16)
+              }
+          expect(response.body).to match("Approve")
+          expect(response.body).to match("Deny")
+        end
       end
     end
     # TODO: Implement tests for missing/invalid parameters

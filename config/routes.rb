@@ -244,8 +244,11 @@ Diaspora::Application.routes.draw do
   #OpenID Connect & OAuth
   namespace :openid_connect do
     resources :clients, only: :create
-    resources :authorizations, only: [:new, :create]
     post 'access_tokens', to: proc { |env| OpenidConnect::TokenEndpoint.new.call(env) }
+
+    # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint (see http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation).
+    resources :authorizations, only: [:new, :create]
+    post 'authorizations/new', to: 'authorizations#new'
   end
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
