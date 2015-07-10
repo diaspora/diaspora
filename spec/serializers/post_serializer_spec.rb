@@ -3,7 +3,6 @@ require "spec_helper"
 describe Export::PostSerializer do
   let(:post) { create(:status_message_with_photo) }
   subject(:json_output) { Export::PostSerializer.new(post).to_json }
-  subject(:json_output) { Export::PostSerializer.new(post).to_json }
 
   it { is_expected.to include("\"guid\":\"#{post.guid}\"") }
   it { is_expected.to include("\"text\":\"#{post.text}\"") }
