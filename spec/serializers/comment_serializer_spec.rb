@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Export::CommentSerializer do
-  let(:comment) { FactoryGirl.create(:comment) }
+  let(:comment) { create(:comment) }
   subject(:json_output) { Export::CommentSerializer.new(comment).to_json }
 
   it { is_expected.to include("\"guid\":\"#{comment.guid}\"") }
