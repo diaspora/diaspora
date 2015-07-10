@@ -20,7 +20,7 @@ module OpenidConnect
       end
       def buildScopes(req)
         @scopes = req.scope.inject([]) do |_scopes_, scope|
-          _scopes_ << Scope.find_by_name(scope) or req.invalid_scope! "Unknown scope: #{scope}"
+          _scopes_ << (Scope.find_by_name(scope) or req.invalid_scope! "Unknown scope: #{scope}")
         end
       end
     end
