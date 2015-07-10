@@ -16,6 +16,7 @@
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
 * Send new users a welcome message from the podmin [#6128](https://github.com/diaspora/diaspora/pull/6128)
 * Cleanup temporary upload files daily [#6147](https://github.com/diaspora/diaspora/pull/6147)
+* Add guid to posts and comments in the user export [#6185](https://github.com/diaspora/diaspora/pull/6185)
 
 # 0.5.1.2
 
