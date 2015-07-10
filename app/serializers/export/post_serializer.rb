@@ -1,6 +1,7 @@
 module Export
   class PostSerializer < ActiveModel::Serializer
-    attributes :text,
+    attributes :guid,
+               :text,
                :public,
                :diaspora_handle,
                :type,
