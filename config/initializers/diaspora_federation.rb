@@ -9,8 +9,8 @@ DiasporaFederation.configure do |config|
       if person
         DiasporaFederation::WebFinger::WebFinger.new(
           acct_uri:    "acct:#{person.diaspora_handle}",
-          alias_url:   url_to("/people/#{person.guid}"),
-          hcard_url:   url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
+          alias_url:   AppConfig.url_to("/people/#{person.guid}"),
+          hcard_url:   AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
           seed_url:    AppConfig.pod_uri,
           profile_url: person.profile_url,
           atom_url:    person.atom_url,
@@ -39,9 +39,5 @@ DiasporaFederation.configure do |config|
         )
       end
     end
-  end
-
-  def url_to(path)
-    AppConfig.pod_uri.tap {|uri| uri.path = path }.to_s
   end
 end
