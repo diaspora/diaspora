@@ -1008,8 +1008,14 @@ en:
 
   profiles:
     edit:
-      your_public_profile: "Your public profile"
-      your_private_profile: "Your private profile"
+      basic: "My basic profile"
+      extended: "My extended profile"
+      settings: "Profile settings"
+      extended_visibility_text: "Visibility of your extended profile:"
+      public: "Public"
+      limited: "Limited"
+      basic_hint: "Every item in your profile is optional. Your basic profile will always be publicly visible."
+      extended_hint: "Click the switch to set your extended profile data visibility. Public means it is visible to the internet, limited means only people who you share with will see this information."
       your_name: "Your name"
       first_name: "First name"
       last_name: "Last name"

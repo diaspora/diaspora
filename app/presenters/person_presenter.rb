@@ -10,41 +10,16 @@ class PersonPresenter < BasePresenter
 
   def full_hash
     base_hash.merge(
-      relationship:   relationship,
-      block:          is_blocked? ? BlockPresenter.new(current_user_person_block).base_hash : false,
-      contact:        (!own_profile? && has_contact?) ? {id: current_user_person_contact.id} : false,
-      is_own_profile: own_profile?
+      relationship:      relationship,
+      block:             is_blocked? ? BlockPresenter.new(current_user_person_block).base_hash : false,
+      contact:           (!own_profile? && has_contact?) ? {id: current_user_person_contact.id} : false,
+      is_own_profile:    own_profile?,
+      show_profile_info: public_details? || own_profile? || person_is_following_current_user
     )
   end
 
-  def full_hash_with_avatar
-    full_hash.merge(avatar: AvatarPresenter.new(profile).base_hash)
-  end
-
-  def full_hash_with_profile
-    attrs = full_hash
-
-    if own_profile? || person_is_following_current_user
-      attrs.merge!(profile: ProfilePresenter.new(profile).private_hash)
-    else
-      attrs.merge!(profile: ProfilePresenter.new(profile).public_hash)
-    end
-
-    attrs
-  end
-
   def as_json(_options={})
-    attrs = full_hash_with_avatar
-
-    if own_profile? || person_is_following_current_user
-      attrs.merge!(
-        location: @presentable.location,
-        birthday: @presentable.formatted_birthday,
-        bio:      @presentable.bio
-      )
-    end
-
-    attrs
+    full_hash_with_profile
   end
 
   protected
@@ -67,6 +42,18 @@ class PersonPresenter < BasePresenter
 
   def person_is_following_current_user
     @presentable.shares_with(current_user)
+  end
+
+  def full_hash_with_profile
+    attrs = full_hash
+
+    if attrs[:show_profile_info]
+      attrs.merge!(profile: ProfilePresenter.new(profile).private_hash)
+    else
+      attrs.merge!(profile: ProfilePresenter.new(profile).public_hash)
+    end
+
+    attrs
   end
 
   private

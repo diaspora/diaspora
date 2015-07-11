@@ -75,7 +75,7 @@ class PeopleController < ApplicationController
   def show
     mark_corresponding_notifications_read if user_signed_in?
 
-    @person_json = PersonPresenter.new(@person, current_user).full_hash_with_profile
+    @person_json = PersonPresenter.new(@person, current_user).as_json
 
     respond_to do |format|
       format.all do
@@ -144,7 +144,7 @@ class PeopleController < ApplicationController
         if @person
           @contact = current_user.contact_for(@person)
           @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
-          gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
+          gon.preloads[:person] = PersonPresenter.new(@person, current_user).as_json
           gon.preloads[:photos] = {
             count: photos_from(@person, :all).count(:all)
           }

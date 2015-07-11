@@ -25,7 +25,7 @@ class PhotosController < ApplicationController
       @posts = current_user.photos_from(@person, max_time: max_time).order('created_at desc')
       respond_to do |format|
         format.all do
-          gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
+          gon.preloads[:person] = PersonPresenter.new(@person, current_user).as_json
           gon.preloads[:photos] = {
             count: current_user.photos_from(@person, limit: :all).count(:all)
           }
