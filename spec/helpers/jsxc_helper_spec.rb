@@ -6,6 +6,7 @@ describe JsxcHelper, :type => :helper do
     AppConfig.chat.server.bosh.port = 1234
     AppConfig.chat.server.bosh.bind = '/bind'
     AppConfig.environment.url = "https://localhost/"
+    AppConfig.instance_variable_set(:@pod_uri, nil)
   end
 
   describe "#get_bosh_endpoint" do
