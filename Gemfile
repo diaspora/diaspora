@@ -234,8 +234,11 @@ group :development do
   gem "rb-inotify",     "0.9.5", require: false
 
   # Linters
-  gem "jshintrb", "0.3.0"
-  gem "rubocop",  "0.32.0"
+  gem "jshintrb",       "0.3.0"
+  gem "rubocop",        "0.32.0"
+  gem "pronto",         "0.4.2"
+  gem "pronto-jshint",  "0.4.2"
+  gem "pronto-rubocop", "0.4.4"
 
   # Preloading environment
 
