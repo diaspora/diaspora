@@ -276,11 +276,6 @@ group :test do
   gem "cucumber-api-steps", "0.13", require: false
   gem "json_spec", "1.1.4"
 
-  source "https://rails-assets.org" do
-    gem "rails-assets-jquery-simulate",     "1.0.1"
-    gem "rails-assets-jquery-simulate-ext", "1.3.0"
-  end
-
   # General helpers
 
   gem "factory_girl_rails", "4.5.0"

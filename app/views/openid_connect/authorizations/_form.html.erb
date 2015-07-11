@@ -1,9 +1,0 @@
-<%= form_tag openid_connect_authorizations_path, class: action do %>
-  <% if action == :approve %>
-    <%= submit_tag "Approve" %>
-    <%= hidden_field_tag :approve, true %>
-  <% else %>
-    <%= submit_tag "Deny" %>
-    <%= hidden_field_tag :approve, false %>
-  <% end %>
-<% end %>
