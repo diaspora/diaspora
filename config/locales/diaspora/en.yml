@@ -881,6 +881,15 @@ en:
         Hoping to see you again,
 
         The diaspora* email robot!
+  openid_connect:
+    authorizations:
+      new:
+        will_be_redirected: "You will be redirected to"
+        with_id_token: "with an id token if approved or an error if denied"
+        requested_objects: "Request Objects (Currently not supported)"
+      form:
+        approve: "Approve"
+        deny: "Deny"
   people:
     zero: "No people"
     one: "1 person"

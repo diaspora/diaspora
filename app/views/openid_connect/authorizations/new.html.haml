@@ -1,0 +1,14 @@
+%h2= @client.name
+%p= t(".will_be_redirected")
+= @redirect_uri
+= t(".with_id_token")
+%ul
+  - @scopes.each do |scope|
+    %li= scope.name
+  - if @request_object
+    %li= t(".requested_objects")
+    %ul
+      %pre= JSON.pretty_generate @request_object.as_json
+
+= render 'openid_connect/authorizations/form', action: :approve
+= render 'openid_connect/authorizations/form', action: :deny

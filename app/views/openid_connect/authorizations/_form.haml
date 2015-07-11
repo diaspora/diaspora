@@ -1,0 +1,7 @@
+= form_tag openid_connect_authorizations_path, class: action do
+  - if action == :approve
+    = submit_tag t(".approve")
+    = hidden_field_tag :approve, true
+  - else
+    = submit_tag t(".deny")
+    = hidden_field_tag :approve, false
