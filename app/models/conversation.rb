@@ -68,7 +68,7 @@ class Conversation < ActiveRecord::Base
   end
   def participant_handles= handles
     handles.split(';').each do |handle|
-      self.participants << Diaspora::Webfinger.new(handle).fetch
+      participants << Diaspora::Webfinger.new(handle).fetch
     end
   end
 

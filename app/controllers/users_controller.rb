@@ -3,8 +3,7 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-
-  before_action :authenticate_user!, except: [:new, :create, :public, :user_photo]
+  before_action :authenticate_user!, except: %i(new create public user_photo)
   respond_to :html
 
   def edit

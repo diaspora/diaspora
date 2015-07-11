@@ -15,7 +15,6 @@ module Diaspora
       self.ssl = true
     end
 
-
     def fetch
       return person if existing_person_with_profile?
       create_or_update_person_from_webfinger_profile!
@@ -25,9 +24,9 @@ module Diaspora
       Workers::FetchWebfinger.perform_async(account)
     end
 
-    #everything below should be private I guess
+    # everything below should be private I guess
     def account=(str)
-      @account = str.strip.gsub('acct:','').to_s.downcase
+      @account = str.strip.gsub("acct:", "").to_s.downcase
     end
 
     def get(url)
@@ -57,8 +56,8 @@ module Diaspora
 
     def create_or_update_person_from_webfinger_profile!
       logger.info "webfingering #{account}, it is not known or needs updating"
-      if person #update my profile please
-        person.assign_new_profile_from_hcard(self.hcard)
+      if person # update my profile please
+        person.assign_new_profile_from_hcard(hcard)
       else
         person = make_person_from_webfinger
       end
@@ -66,20 +65,17 @@ module Diaspora
       person
     end
 
-    #this tries the xrl url with https first, then falls back to http
+    # this tries the xrl url with https first, then falls back to http
     def host_meta_xrd
-      begin
-        get(host_meta_url)
-      rescue => e
-        if self.ssl
-          self.ssl = false
-          retry
-        else
-          raise "there was an error getting the xrd from account #{@account}: #{e.message}"
-        end
+      get(host_meta_url)
+    rescue => e
+      if ssl
+        self.ssl = false
+        retry
+      else
+        raise "there was an error getting the xrd from account #{@account}: #{e.message}"
       end
     end
-
 
     def hcard
       @hcard ||= HCard.build(hcard_xrd)
@@ -90,13 +86,13 @@ module Diaspora
     end
 
     def hcard_url
-      self.webfinger_profile.hcard
+      webfinger_profile.hcard
     end
 
     def webfinger_profile_url
-      doc = Nokogiri::XML(self.host_meta_xrd)
+      doc = Nokogiri::XML(host_meta_xrd)
       return nil if doc.namespaces["xmlns"] != "http://docs.oasis-open.org/ns/xri/xrd-1.0"
-      swizzle doc.search('Link').find{|x| x['rel']=='lrdd'}['template']
+      swizzle doc.search("Link").find {|x| x["rel"] == "lrdd" }["template"]
     end
 
     def webfinger_profile_xrd
@@ -114,12 +110,12 @@ module Diaspora
     end
 
     def host_meta_url
-      domain = account.split('@')[1]
-      "http#{'s' if self.ssl}://#{domain}/.well-known/host-meta"
+      domain = account.split("@")[1]
+      "http#{'s' if ssl}://#{domain}/.well-known/host-meta"
     end
 
     def swizzle(template)
-      template.gsub('{uri}', account)
+      template.gsub("{uri}", account)
     end
   end
 end

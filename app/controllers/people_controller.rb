@@ -127,7 +127,7 @@ class PeopleController < ApplicationController
 
   def retrieve_remote
     if params[:diaspora_handle]
-      Diaspora::Webfinger.in_background(params[:diaspora_handle], :single_aspect_form => true)
+      Diaspora::Webfinger.in_background(params[:diaspora_handle], single_aspect_form: true)
       render :nothing => true
     else
       render :nothing => true, :status => 422

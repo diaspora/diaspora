@@ -1,6 +1,6 @@
 class Scope < ActiveRecord::Base
-  has_and_belongs_to_many :tokens
-  has_and_belongs_to_many :authorizations
+  has_many :tokens, through: :scope_tokens
+  has_many :authorizations, through: :authorization_scopes
 
   validates :name, presence: true, uniqueness: true
 

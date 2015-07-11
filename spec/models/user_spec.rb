@@ -912,11 +912,11 @@ describe User, :type => :model do
       context "with autofollow sharing enabled" do
         it "should start sharing with autofollow account" do
           AppConfig.settings.autofollow_on_join = true
-          AppConfig.settings.autofollow_on_join_user = 'one'
+          AppConfig.settings.autofollow_on_join_user = "one"
 
           wf_double = double
           expect(wf_double).to receive(:fetch)
-          expect(Diaspora::Webfinger).to receive(:new).with('one').and_return(wf_double)
+          expect(Diaspora::Webfinger).to receive(:new).with("one").and_return(wf_double)
 
           user.seed_aspects
         end

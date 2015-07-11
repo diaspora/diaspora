@@ -1,21 +1,21 @@
 module OpenidConnect
   module Authorization
     class EndpointConfirmationPoint < Endpoint
-      def initialize(current_user, approved = false)
+      def initialize(current_user, approved=false)
         super(current_user)
         @approved = approved
       end
 
-      def buildAttributes(req, res)
+      def build_attributes(req, res)
         super(req, res)
         # TODO: buildResponseType(req)
       end
 
-      def handleResponseType(req, res)
-        handleApproval(@approved, req, res)
+      def handle_response_type(req, res)
+        handle_approval(@approved, req, res)
       end
 
-      def handleApproval(approved, req, res)
+      def handle_approval(approved, req, res)
         if approved
           approved!(req, res)
         else
