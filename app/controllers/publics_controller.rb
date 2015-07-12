@@ -13,35 +13,7 @@ class PublicsController < ApplicationController
   respond_to :html
   respond_to :xml, :only => :post
 
-  caches_page :host_meta, :if => Proc.new{ Rails.env == 'production'}
-
   layout false
-
-  def hcard
-    @person = Person.find_by_guid_and_closed_account(params[:guid], false)
-
-    if @person.present? && @person.local?
-      render 'publics/hcard'
-    else
-      render :nothing => true, :status => 404
-    end
-  end
-
-  def host_meta
-    render 'host_meta', :content_type => 'application/xrd+xml'
-  end
-
-  def webfinger
-    @person = Person.local_by_account_identifier(params[:q]) if params[:q]
-
-    if @person.nil? || @person.closed_account?
-      render :nothing => true, :status => 404
-      return
-    end
-
-    logger.info "webfinger profile request for: #{@person.id}"
-    render 'webfinger', :content_type => 'application/xrd+xml'
-  end
 
   def hub
     render :text => params['hub.challenge'], :status => 202, :layout => false

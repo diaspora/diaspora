@@ -457,27 +457,45 @@ describe Person, :type => :model do
         f = Person.by_account_identifier("tom@tom.joindiaspora.com")
         expect(f).to be nil
       end
-
-
     end
 
-    describe '.local_by_account_identifier' do
-      it 'should find local users people' do
-        p = Person.local_by_account_identifier(user.diaspora_handle)
-        expect(p).to eq(user.person)
+    describe ".find_local_by_diaspora_handle" do
+      it "should find local users person" do
+        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
+        expect(person).to eq(user.person)
       end
 
-      it 'should not find a remote person' do
-        p = Person.local_by_account_identifier(@person.diaspora_handle)
-        expect(p).to be nil
+      it "should not find a remote person" do
+        person = Person.find_local_by_diaspora_handle(@person.diaspora_handle)
+        expect(person).to be nil
       end
 
-      it 'should call .by_account_identifier' do
-        expect(Person).to receive(:by_account_identifier)
-        Person.local_by_account_identifier(@person.diaspora_handle)
+      it "should not find a person with closed account" do
+        user.person.lock_access!
+        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
+        expect(person).to be nil
+      end
+    end
+
+    describe ".find_local_by_guid" do
+      it "should find local users person" do
+        person = Person.find_local_by_guid(user.guid)
+        expect(person).to eq(user.person)
+      end
+
+      it "should not find a remote person" do
+        person = Person.find_local_by_guid(@person.guid)
+        expect(person).to be nil
+      end
+
+      it "should not find a person with closed account" do
+        user.person.lock_access!
+        person = Person.find_local_by_guid(user.guid)
+        expect(person).to be nil
       end
     end
   end
+
   describe '#has_photos?' do
     it 'returns false if the user has no photos' do
       expect(alice.person.has_photos?).to be false

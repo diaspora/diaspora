@@ -36,6 +36,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Replace remaining faceboxes with Bootstrap modals [#6106](https://github.com/diaspora/diaspora/pull/6106) [#6161](https://github.com/diaspora/diaspora/pull/6161)
 * Rewrite header using Bootstrap 3 [#6109](https://github.com/diaspora/diaspora/pull/6109) [#6130](https://github.com/diaspora/diaspora/pull/6130) [#6132](https://github.com/diaspora/diaspora/pull/6132)
 * Use upstream CSS mappings for Entypo [#6158](https://github.com/diaspora/diaspora/pull/6158)
+* Move webfinger and HCard generation out of the core and embed the `diaspora_federation-rails` gem [#6151](https://github.com/diaspora/diaspora/pull/6151/)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
