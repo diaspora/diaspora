@@ -6,13 +6,11 @@ require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
 
 describe Comment, :type => :model do
-
     let(:alices_aspect) { alice.aspects.first }
-    let(:status_bob)  { bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id) }
+    let(:status_bob)    { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
     let(:comment_alice) { alice.comment!(status_bob, "why so formal?") }
 
   describe 'comment#notification_type' do
-
     it "returns 'comment_on_post' if the comment is on a post you own" do
       expect(comment_alice.notification_type(bob, alice.person)).to eq(Notifications::CommentOnPost)
     end
