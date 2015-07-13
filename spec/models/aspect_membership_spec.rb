@@ -7,9 +7,9 @@ require 'spec_helper'
 describe AspectMembership, :type => :model do
 
   describe '#before_destroy' do
-    let(:aspect) { alice.aspects.create(:name => "two") }
+    let(:aspect)  { alice.aspects.create(name: "two") }
     let(:contact) { alice.contact_for(bob.person) }
-    let(:am) { alice.aspects.where(:name => "generic").first.aspect_memberships.first }
+    let(:am)      { alice.aspects.where(name: "generic").first.aspect_memberships.first }
 
     before do
       allow(am).to receive(:user).and_return(alice)

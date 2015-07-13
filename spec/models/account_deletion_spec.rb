@@ -5,8 +5,8 @@
 require 'spec_helper'
 
 describe AccountDeletion, :type => :model do
-  let(:ad_new) { AccountDeletion.new(:person => alice.person) }
-  let(:ad_create) { AccountDeletion.create(:person => alice.person) }
+  let(:ad_new)    { AccountDeletion.new(person: alice.person) }
+  let(:ad_create) { AccountDeletion.create(person: alice.person) }
 
   it 'assigns the diaspora_handle from the person object' do
     expect(ad_new.diaspora_handle).to eq(alice.person.diaspora_handle)
@@ -18,9 +18,8 @@ describe AccountDeletion, :type => :model do
   end
 
   describe "#perform!" do
-
     it 'creates a deleter' do
-      expect(AccountDeleter).to receive(:new).with(alice.person.diaspora_handle).and_return(double(:perform! => true))
+      expect(AccountDeleter).to receive(:new).with(alice.person.diaspora_handle).and_return(double(perform!: true))
       ad_new.perform!
     end
 
@@ -30,7 +29,7 @@ describe AccountDeletion, :type => :model do
     end
 
     it 'does not dispatch an account deletion for non-local people' do
-      deletion = AccountDeletion.new(:person => remote_raphael)
+      deletion = AccountDeletion.new(person: remote_raphael)
       expect(deletion).not_to receive(:dispatch)
       deletion.perform!
     end
@@ -60,9 +59,9 @@ describe AccountDeletion, :type => :model do
     end
 
     it 'includes remote resharers' do
-      sm = FactoryGirl.create( :status_message, :public => true, :author => alice.person)
-      FactoryGirl.create( :reshare, :author => remote_raphael, :root => sm)
-      FactoryGirl.create( :reshare, :author => local_luke.person, :root => sm)
+      sm = FactoryGirl.create( :status_message, public: true, author: alice.person)
+      FactoryGirl.create( :reshare, author: remote_raphael, root: sm)
+      FactoryGirl.create( :reshare, author: local_luke.person, root: sm)
 
       expect(ad_new.subscribers(alice)).to eq([remote_raphael])
     end
