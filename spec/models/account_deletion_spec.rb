@@ -5,30 +5,28 @@
 require 'spec_helper'
 
 describe AccountDeletion, :type => :model do
+  let(:ad_new) { AccountDeletion.new(:person => alice.person) }
+  let(:ad_create) { AccountDeletion.create(:person => alice.person) }
+
   it 'assigns the diaspora_handle from the person object' do
-    a = AccountDeletion.new(:person => alice.person)
-    expect(a.diaspora_handle).to eq(alice.person.diaspora_handle)
+    expect(ad_new.diaspora_handle).to eq(alice.person.diaspora_handle)
   end
 
   it 'fires a job after creation'do
     expect(Workers::DeleteAccount).to receive(:perform_async).with(anything)
-
-    AccountDeletion.create(:person => alice.person)
+    ad_create
   end
 
   describe "#perform!" do
-    before do
-      @ad = AccountDeletion.new(:person => alice.person)
-    end
 
     it 'creates a deleter' do
       expect(AccountDeleter).to receive(:new).with(alice.person.diaspora_handle).and_return(double(:perform! => true))
-      @ad.perform!
+      ad_new.perform!
     end
-    
+
     it 'dispatches the account deletion if the user exists' do
-      expect(@ad).to receive(:dispatch)
-      @ad.perform!
+      expect(ad_new).to receive(:dispatch)
+      ad_new.perform!
     end
 
     it 'does not dispatch an account deletion for non-local people' do
@@ -38,55 +36,47 @@ describe AccountDeletion, :type => :model do
     end
 
     it 'marks an AccountDeletion as completed when successful' do
-      ad = AccountDeletion.create(:person => alice.person)
-      ad.perform!
-      expect(ad.reload.completed_at).not_to be_nil
+      ad_create.perform!
+      expect(ad_create.reload.completed_at).not_to be_nil
     end
   end
 
   describe '#dispatch' do
     it "sends the account deletion xml" do
-      @ad = AccountDeletion.new(:person => alice.person)
-      @ad.send(:dispatch)
+      ad_new.send(:dispatch)
     end
 
     it 'creates a public postzord' do
       expect(Postzord::Dispatcher::Public).to receive(:new).and_return(double.as_null_object)
-      @ad = AccountDeletion.new(:person => alice.person)
-      @ad.send(:dispatch)
+      ad_new.send(:dispatch)
     end
   end
 
   describe "#subscribers" do
     it 'includes all remote contacts' do
-      @ad = AccountDeletion.new(:person => alice.person)
       alice.share_with(remote_raphael, alice.aspects.first)
 
-      expect(@ad.subscribers(alice)).to eq([remote_raphael])
+      expect(ad_new.subscribers(alice)).to eq([remote_raphael])
     end
 
     it 'includes remote resharers' do
-      @ad = AccountDeletion.new(:person => alice.person)
       sm = FactoryGirl.create( :status_message, :public => true, :author => alice.person)
-      r1 = FactoryGirl.create( :reshare, :author => remote_raphael, :root => sm)
-      r2 = FactoryGirl.create( :reshare, :author => local_luke.person, :root => sm)
+      FactoryGirl.create( :reshare, :author => remote_raphael, :root => sm)
+      FactoryGirl.create( :reshare, :author => local_luke.person, :root => sm)
 
-      expect(@ad.subscribers(alice)).to eq([remote_raphael])
+      expect(ad_new.subscribers(alice)).to eq([remote_raphael])
     end
   end
 
   describe 'serialization' do
-    before do
-      account_deletion = AccountDeletion.new(:person => alice.person)
-      @xml = account_deletion.to_xml.to_s
-    end
+    let(:xml) { ad_new.to_xml.to_s }
 
     it 'should have a diaspora_handle' do
-      expect(@xml.include?(alice.person.diaspora_handle)).to eq(true)
+      expect(xml.include?(alice.person.diaspora_handle)).to eq(true)
     end
-    
+
     it 'marshals the xml' do
-      expect(AccountDeletion.from_xml(@xml)).to be_valid
+      expect(AccountDeletion.from_xml(xml)).to be_valid
     end
   end
 end
