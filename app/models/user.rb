@@ -76,9 +76,9 @@ class User < ActiveRecord::Base
 
   has_many :reports
 
-  has_many :o_auth_applications
-  has_many :authorizations
-  has_many :tokens
+  has_many :authorizations, class_name: 'OpenidConnect::Authorization'
+  has_many :o_auth_applications, through: :authorizations, class_name: 'OpenidConnect::OAuthApplication'
+  has_many :o_auth_access_tokens, through: :authorizations, class_name: 'OpenidConnect::OAuthAccessToken'
 
   before_save :guard_unconfirmed_email,
               :save_person!
@@ -594,15 +594,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  def find_authorization_by_client_id(client_id)
+    OpenidConnect::Authorization.find_by_client_id_and_user client_id, self
+  end
+
   private
 
   def clearable_fields
-    self.attributes.keys - ["id", "username", "encrypted_password",
-                            "created_at", "updated_at", "locked_at",
-                            "serialized_private_key", "getting_started",
-                            "disable_mail", "show_community_spotlight_in_stream",
-                            "strip_exif", "email", "remove_after",
-                            "export", "exporting", "exported_at",
-                            "exported_photos_file", "exporting_photos", "exported_photos_at"]
+    self.attributes.keys - %w(id username encrypted_password created_at updated_at locked_at
+                            serialized_private_key getting_started
+                            disable_mail show_community_spotlight_in_stream
+                            strip_exif email remove_after export exporting exported_at
+                            exported_photos_file exporting_photos exported_photos_at)
   end
 end

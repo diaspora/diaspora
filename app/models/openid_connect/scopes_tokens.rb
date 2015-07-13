@@ -1,4 +1,4 @@
-class ScopeToken < ActiveRecord::Base
+class OpenidConnect::ScopeToken < ActiveRecord::Base
   belongs_to :scope
   belongs_to :token
 

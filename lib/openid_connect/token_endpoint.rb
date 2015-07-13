@@ -29,7 +29,8 @@ module OpenidConnect
       user = User.find_for_database_authentication(username: req.username)
       if user
         if user.valid_password?(req.password)
-          res.access_token = token! user
+          auth = OpenidConnect::Authorization.find_or_create(req.client_id, user)
+          res.access_token = auth.create_token
         else
           req.invalid_grant!
         end
@@ -39,24 +40,21 @@ module OpenidConnect
     end
 
     def handle_refresh_flow(req, res)
-      user = OAuthApplication.find_by_client_id(req.client_id).user
-      if RefreshToken.valid?(req.refresh_token)
-        res.access_token = token! user
+      auth = OpenidConnect::Authorization.find_by_client_id req.client_id
+      if OpenidConnect::Authorization.valid? req.refresh_token
+        res.access_token = auth.create_token
       else
         req.invalid_grant!
       end
     end
 
     def retrieve_client(req)
-      OAuthApplication.find_by_client_id req.client_id
+      OpenidConnect::OAuthApplication.find_by client_id: req.client_id
     end
 
     def app_valid?(o_auth_app, req)
       o_auth_app.client_secret == req.client_secret
     end
 
-    def token!(user)
-      user.tokens.create!.bearer_token
-    end
   end
 end

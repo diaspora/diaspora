@@ -109,7 +109,7 @@ module Diaspora
     config.action_mailer.asset_host = AppConfig.pod_uri.to_s
 
     config.middleware.use Rack::OAuth2::Server::Resource::Bearer, "OpenID Connect" do |req|
-      Token.valid(Time.now.utc).find_by(token: req.access_token) || req.invalid_token!
+      OpenidConnect::OAuthAccessToken.valid(Time.now.utc).find_by(token: req.access_token) || req.invalid_token!
     end
   end
 end

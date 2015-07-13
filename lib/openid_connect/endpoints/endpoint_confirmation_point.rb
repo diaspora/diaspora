@@ -1,5 +1,5 @@
 module OpenidConnect
-  module Authorization
+  module Endpoints
     class EndpointConfirmationPoint < Endpoint
       def initialize(current_user, approved=false)
         super(current_user)

@@ -9,7 +9,7 @@ class OpenidConnect::ClientsController < ApplicationController
 
   def create
     registrar = OpenIDConnect::Client::Registrar.new(request.url, params)
-    client = OAuthApplication.register! registrar
+    client = OpenidConnect::OAuthApplication.register! registrar
     render json: client
   end
 

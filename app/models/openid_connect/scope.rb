@@ -1,4 +1,4 @@
-class Scope < ActiveRecord::Base
+class OpenidConnect::Scope < ActiveRecord::Base
   has_many :tokens, through: :scope_tokens
   has_many :authorizations, through: :authorization_scopes
 

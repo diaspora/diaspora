@@ -58,8 +58,9 @@ ActiveRecord::Schema.define(version: 20150708155747) do
   create_table "authorizations", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
     t.integer  "o_auth_application_id", limit: 4
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "refresh_token",         limit: 255
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "authorizations", ["o_auth_application_id"], name: "index_authorizations_on_o_auth_application_id", using: :btree
@@ -253,6 +254,17 @@ ActiveRecord::Schema.define(version: 20150708155747) do
   add_index "notifications", ["recipient_id"], name: "index_notifications_on_recipient_id", using: :btree
   add_index "notifications", ["target_id"], name: "index_notifications_on_target_id", using: :btree
   add_index "notifications", ["target_type", "target_id"], name: "index_notifications_on_target_type_and_target_id", length: {"target_type"=>190, "target_id"=>nil}, using: :btree
+
+  create_table "o_auth_access_tokens", force: :cascade do |t|
+    t.integer  "user_id",          limit: 4
+    t.integer  "authorization_id", limit: 4
+    t.string   "token",            limit: 255
+    t.datetime "expires_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "o_auth_access_tokens", ["user_id"], name: "index_o_auth_access_tokens_on_user_id", using: :btree
 
   create_table "o_auth_applications", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
@@ -484,12 +496,12 @@ ActiveRecord::Schema.define(version: 20150708155747) do
   end
 
   create_table "scopes_tokens", id: false, force: :cascade do |t|
-    t.integer "scope_id", limit: 4
-    t.integer "token_id", limit: 4
+    t.integer "scope_id",               limit: 4
+    t.integer "o_auth_access_token_id", limit: 4
   end
 
+  add_index "scopes_tokens", ["o_auth_access_token_id"], name: "index_scopes_tokens_on_o_auth_access_token_id", using: :btree
   add_index "scopes_tokens", ["scope_id"], name: "index_scopes_tokens_on_scope_id", using: :btree
-  add_index "scopes_tokens", ["token_id"], name: "index_scopes_tokens_on_token_id", using: :btree
 
   create_table "services", force: :cascade do |t|
     t.string   "type",          limit: 127, null: false
@@ -560,16 +572,6 @@ ActiveRecord::Schema.define(version: 20150708155747) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, length: {"name"=>191}, using: :btree
-
-  create_table "tokens", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.string   "token",      limit: 255
-    t.datetime "expires_at"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "tokens", ["user_id"], name: "index_tokens_on_user_id", using: :btree
 
   create_table "user_preferences", force: :cascade do |t|
     t.string   "email_type", limit: 255
