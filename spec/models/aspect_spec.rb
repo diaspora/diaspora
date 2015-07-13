@@ -6,20 +6,14 @@ require 'spec_helper'
 
 describe Aspect, :type => :model do
   describe 'creation' do
-    before do
-      @name = alice.aspects.first.name
-    end
+    let(:name) { alice.aspects.first.name }
 
     it 'does not allow duplicate names' do
-      expect {
-        invalid_aspect = alice.aspects.create(:name => @name)
-      }.not_to change(Aspect, :count)
+      expect { alice.aspects.create(:name => name) }.not_to change(Aspect, :count)
     end
 
     it 'validates case insensitiveness on names' do
-      expect {
-        invalid_aspect = alice.aspects.create(:name => @name.titleize)
-      }.not_to change(Aspect, :count)
+      expect { alice.aspects.create(:name => name.titleize) }.not_to change(Aspect, :count)
     end
 
     it 'has a 20 character limit on names' do
