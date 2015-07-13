@@ -36,7 +36,6 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Replace remaining faceboxes with Bootstrap modals [#6106](https://github.com/diaspora/diaspora/pull/6106) [#6161](https://github.com/diaspora/diaspora/pull/6161)
 * Rewrite header using Bootstrap 3 [#6109](https://github.com/diaspora/diaspora/pull/6109) [#6130](https://github.com/diaspora/diaspora/pull/6130) [#6132](https://github.com/diaspora/diaspora/pull/6132)
 * Use upstream CSS mappings for Entypo [#6158](https://github.com/diaspora/diaspora/pull/6158)
-* Move webfinger and HCard generation out of the core and embed the `diaspora_federation-rails` gem [#6151](https://github.com/diaspora/diaspora/pull/6151/)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
@@ -54,6 +53,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Add link to pod statistics in right navigation [#6117](https://github.com/diaspora/diaspora/pull/6117)
 * Update to Rails 4.2.3 [#6140](https://github.com/diaspora/diaspora/pull/6140)
 * Refactor person related URL generation [#6168](https://github.com/diaspora/diaspora/pull/6168)
+* Move webfinger and HCard generation out of the core and embed the `diaspora_federation-rails` gem [#6151](https://github.com/diaspora/diaspora/pull/6151/)
 
 ## Bug fixes
 * Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)
