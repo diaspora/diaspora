@@ -131,23 +131,20 @@ describe Comment, :type => :model do
 
   #Andy fragen - shared behaviour
   describe 'it is relayable' do
-    let(:remote_parent)               { build(:status_message, author: @remote_raphael) }
-    let(:local_parent)                { @local_luke.post :status_message, text: "hi", to: @local_luke.aspects.first }
-    let(:object_by_parent_author)     { @local_luke.comment!(text: "yo!", post: local_parent) }
-    let(:object_by_recipient)         { @local_leia.build_comment(text: "yo", post: local_parent) }
+    let(:remote_parent)               { build(:status_message, author: remote_raphael) }
+    let(:local_parent)                { local_luke.post :status_message, text: "hi", to: local_luke.aspects.first }
+    let(:object_by_parent_author)     { local_luke.comment!(local_parent, "yo!") }
+    let(:object_by_recipient)         { local_leia.build_comment(text: "yo", post: local_parent) }
     let(:dup_object_by_parent_author) { object_by_parent_author.dup }
-    let(:object_on_remote_parent)     { @local_luke.comment!(remote_parent, "Yeah, it was great") }
+    let(:object_on_remote_parent)     { local_luke.comment!(remote_parent, "Yeah, it was great") }
 
     before do
-      local_luke, @local_leia, @remote_raphael = set_up_friends
-      # @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
-      # @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
-
-      # @object_by_parent_author = @local_luke.comment!(@local_parent, "yo")
-      # @object_by_recipient = @local_leia.build_comment(:text => "yo", :post => @local_parent)
-      # @dup_object_by_parent_author = @object_by_parent_author.dup
-
-      # @object_on_remote_parent = @local_luke.comment!(@remote_parent, "Yeah, it was great")
+      # shared_behaviors/relayable.rb is still using instance variables, so we need to define them here.
+      # Suggestion: refactor all specs using shared_behaviors/relayable.rb to use 'let'
+      @object_by_parent_author = object_by_parent_author
+      @object_by_recipient = object_by_recipient
+      @dup_object_by_parent_author = dup_object_by_parent_author
+      @object_on_remote_parent = object_on_remote_parent
     end
 
     let(:build_object) { alice.build_comment(:post => status_bob, :text => "why so formal?") }
@@ -157,9 +154,11 @@ describe Comment, :type => :model do
   describe 'tags' do
     let(:object) { build(:comment) }
 
-    # before do
-    #   @object = FactoryGirl.build(:comment)
-    # end
+    before do
+      # shared_behaviors/taggable.rb is still using instance variables, so we need to define them here.
+      # Suggestion: refactor all specs using shared_behaviors/taggable.rb to use 'let'
+      @object = object
+    end
     it_should_behave_like 'it is taggable'
   end
 
