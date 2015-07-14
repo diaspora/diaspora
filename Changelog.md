@@ -28,7 +28,7 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 
 ## Terms of Use design changes
 
-With the port to Bootstrap 3, the app/views/terms/default.haml file changed. If you edited the terms by adding a terms.erb file, you probably want to backup these changes in it
+With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. If you have created a customised app/views/terms/terms.haml or app/views/terms/terms.erb file, you will need to edit those files to base your customisations on the new default.haml file.
 
 ## Refactor
 * Improve bookmarklet [#5904](https://github.com/diaspora/diaspora/pull/5904)
