@@ -41,10 +41,6 @@ describe AccountDeletion, :type => :model do
   end
 
   describe '#dispatch' do
-    it "sends the account deletion xml" do
-      ad_new.dispatch
-    end
-
     it 'creates a public postzord' do
       expect(Postzord::Dispatcher::Public).to receive(:new).and_return(double.as_null_object)
       ad_new.dispatch
