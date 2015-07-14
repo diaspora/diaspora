@@ -129,7 +129,6 @@ describe Comment, :type => :model do
     end
   end
 
-  #Andy fragen - shared behaviour
   describe 'it is relayable' do
     let(:remote_parent)               { build(:status_message, author: remote_raphael) }
     let(:local_parent)                { local_luke.post :status_message, text: "hi", to: local_luke.aspects.first }
@@ -147,7 +146,7 @@ describe Comment, :type => :model do
       @object_on_remote_parent = object_on_remote_parent
     end
 
-    let(:build_object) { alice.build_comment(:post => status_bob, :text => "why so formal?") }
+    let(:build_object) { alice.build_comment(post: status_bob, text: "why so formal?") }
     it_should_behave_like 'it is relayable'
   end
 
