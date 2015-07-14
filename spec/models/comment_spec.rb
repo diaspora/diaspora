@@ -69,59 +69,65 @@ describe Comment, :type => :model do
     end
   end
 
-# hier weiter
-
   describe 'xml' do
+    let(:commenter)        { create(:user) }
+    let(:commenter_aspect) { commenter.aspects.create(name: "bruisers") }
+    let(:post)             { alice.post :status_message, text: "hello", to: alices_aspect.id }
+    let(:comment)          { commenter.comment!(post, "Fool!") }
+    let(:xml)              { comment.to_xml.to_s }
+
     before do
-      @commenter = FactoryGirl.create(:user)
-      @commenter_aspect = @commenter.aspects.create(:name => "bruisers")
-      connect_users(alice, alices_aspect, @commenter, @commenter_aspect)
-      @post = alice.post :status_message, :text => "hello", :to => alices_aspect.id
-      @comment = @commenter.comment!(@post, "Fool!")
-      @xml = @comment.to_xml.to_s
+      connect_users(alice, alices_aspect, commenter, commenter_aspect)
     end
 
     it 'serializes the sender handle' do
-      expect(@xml.include?(@commenter.diaspora_handle)).to be true
+      expect(xml.include?(commenter.diaspora_handle)).to be true
     end
 
     it 'serializes the post_guid' do
-      expect(@xml).to include(@post.guid)
+      expect(xml).to include(post.guid)
     end
 
     describe 'marshalling' do
-      before do
-        @marshalled_comment = Comment.from_xml(@xml)
-      end
+      let(:marshalled_comment) { Comment.from_xml(xml) }
 
       it 'marshals the author' do
-        expect(@marshalled_comment.author).to eq(@commenter.person)
+        expect(marshalled_comment.author).to eq(commenter.person)
       end
 
       it 'marshals the post' do
-        expect(@marshalled_comment.post).to eq(@post)
+        expect(marshalled_comment.post).to eq(post)
       end
 
       it 'tries to fetch a missing parent' do
-        guid = @post.guid
-        @post.destroy
+        guid = post.guid
+        marshalled_comment
+        post.destroy
         expect_any_instance_of(Comment).to receive(:fetch_parent).with(guid).and_return(nil)
-        Comment.from_xml(@xml)
+        Comment.from_xml(xml)
       end
     end
   end
 
+  #Andy fragen - shared behaviour
   describe 'it is relayable' do
+    let(:remote_parent)               { build(:status_message, author: @remote_raphael) }
+    let(:local_parent)                { @local_luke.post :status_message, text: "hi", to: @local_luke.aspects.first }
+    let(:object_by_parent_author)     { @local_luke.comment!(text: "yo!", post: local_parent) }
+    let(:object_by_recipient)         { @local_leia.build_comment(text: "yo", post: local_parent) }
+    let(:dup_object_by_parent_author) { object_by_parent_author.dup }
+    let(:object_on_remote_parent)     { @local_luke.comment!(remote_parent, "Yeah, it was great") }
+
     before do
-      @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
-      @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
+      local_luke, @local_leia, @remote_raphael = set_up_friends
+      # @remote_parent = FactoryGirl.build(:status_message, :author => @remote_raphael)
+      # @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
 
-      @object_by_parent_author = @local_luke.comment!(@local_parent, "yo")
-      @object_by_recipient = @local_leia.build_comment(:text => "yo", :post => @local_parent)
-      @dup_object_by_parent_author = @object_by_parent_author.dup
+      # @object_by_parent_author = @local_luke.comment!(@local_parent, "yo")
+      # @object_by_recipient = @local_leia.build_comment(:text => "yo", :post => @local_parent)
+      # @dup_object_by_parent_author = @object_by_parent_author.dup
 
-      @object_on_remote_parent = @local_luke.comment!(@remote_parent, "Yeah, it was great")
+      # @object_on_remote_parent = @local_luke.comment!(@remote_parent, "Yeah, it was great")
     end
 
     let(:build_object) { alice.build_comment(:post => status_bob, :text => "why so formal?") }
@@ -129,9 +135,11 @@ describe Comment, :type => :model do
   end
 
   describe 'tags' do
-    before do
-      @object = FactoryGirl.build(:comment)
-    end
+    let(:object) { build(:comment) }
+
+    # before do
+    #   @object = FactoryGirl.build(:comment)
+    # end
     it_should_behave_like 'it is taggable'
   end
 
