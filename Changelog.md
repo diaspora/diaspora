@@ -64,6 +64,7 @@ With the port to Bootstrap 3, the app/views/terms/default.haml file changed. If 
 * Fix wrong closing a-tag [#6111](https://github.com/diaspora/diaspora/pull/6111)
 * Fix mobile more-button wording when there are less than 15 posts [#6118](https://github.com/diaspora/diaspora/pull/6118)
 * Fix reappearing flash boxes during sign-in [#6146](https://github.com/diaspora/diaspora/pull/6146)
+* Capitalize Wiki link [#6193](https://github.com/diaspora/diaspora/pull/6193)
 
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
