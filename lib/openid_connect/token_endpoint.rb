@@ -30,7 +30,7 @@ module OpenidConnect
       if user
         if user.valid_password?(req.password)
           auth = OpenidConnect::Authorization.find_or_create(req.client_id, user)
-          res.access_token = auth.create_token
+          res.access_token = auth.create_access_token
         else
           req.invalid_grant!
         end
@@ -40,9 +40,9 @@ module OpenidConnect
     end
 
     def handle_refresh_flow(req, res)
-      auth = OpenidConnect::Authorization.find_by_client_id req.client_id
-      if OpenidConnect::Authorization.valid? req.refresh_token
-        res.access_token = auth.create_token
+      auth = OpenidConnect::Authorization.where(client_id: req.client_id).where(refresh_token: req.refresh_token).first
+      if auth
+        res.access_token = auth.create_access_token
       else
         req.invalid_grant!
       end

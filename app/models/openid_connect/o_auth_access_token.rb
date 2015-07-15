@@ -1,11 +1,11 @@
 class OpenidConnect::OAuthAccessToken < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :authorization
+  belongs_to :authorization, dependent: :delete
   has_many :scopes, through: :scope_tokens
 
   before_validation :setup, on: :create
 
   validates :token, presence: true, uniqueness: true
+  validates :authorization, presence: true, uniqueness: true
 
   scope :valid, ->(time) { where("expires_at >= ?", time) }
 

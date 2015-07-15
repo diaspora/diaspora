@@ -6,6 +6,6 @@ class Api::V0::UsersController < Api::V0::BaseController
   private
 
   def user
-    current_token.user
+    authorization.user
   end
 end
