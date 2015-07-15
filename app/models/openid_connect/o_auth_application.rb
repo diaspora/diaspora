@@ -1,6 +1,4 @@
 class OpenidConnect::OAuthApplication < ActiveRecord::Base
-  belongs_to :user
-
   has_many :authorizations
   has_many :user, through: :authorizations
 

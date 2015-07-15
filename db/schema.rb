@@ -256,7 +256,6 @@ ActiveRecord::Schema.define(version: 20150708155747) do
   add_index "notifications", ["target_type", "target_id"], name: "index_notifications_on_target_type_and_target_id", length: {"target_type"=>190, "target_id"=>nil}, using: :btree
 
   create_table "o_auth_access_tokens", force: :cascade do |t|
-    t.integer  "user_id",          limit: 4
     t.integer  "authorization_id", limit: 4
     t.string   "token",            limit: 255
     t.datetime "expires_at"
@@ -264,7 +263,7 @@ ActiveRecord::Schema.define(version: 20150708155747) do
     t.datetime "updated_at",                   null: false
   end
 
-  add_index "o_auth_access_tokens", ["user_id"], name: "index_o_auth_access_tokens_on_user_id", using: :btree
+  add_index "o_auth_access_tokens", ["authorization_id"], name: "index_o_auth_access_tokens_on_authorization_id", using: :btree
 
   create_table "o_auth_applications", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
