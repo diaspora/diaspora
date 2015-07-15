@@ -2,26 +2,26 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
+require "spec_helper"
 
 describe Aspect, :type => :model do
-  describe 'creation' do
+  describe "creation" do
     let(:name) { alice.aspects.first.name }
 
-    it 'does not allow duplicate names' do
+    it "does not allow duplicate names" do
       expect { alice.aspects.create(name: name) }.not_to change(Aspect, :count)
     end
 
-    it 'validates case insensitiveness on names' do
+    it "validates case insensitiveness on names" do
       expect { alice.aspects.create(name: name.titleize) }.not_to change(Aspect, :count)
     end
 
-    it 'has a 20 character limit on names' do
+    it "has a 20 character limit on names" do
       aspect = Aspect.new(name: "this name is really too too too too too long")
       expect(aspect.valid?).to eq(false)
     end
 
-    it 'is able to have other users as contacts' do
+    it "is able to have other users as contacts" do
       aspect = alice.aspects.create(name: "losers")
       Contact.create(user: alice, person: eve.person, aspects: [aspect])
 
@@ -30,7 +30,7 @@ describe Aspect, :type => :model do
       expect(aspect.contacts.size).to eq(1)
     end
 
-    it 'has a contacts_visible? method' do
+    it "has a contacts_visible? method" do
       expect(alice.aspects.first.contacts_visible?).to be true
     end
 
@@ -42,8 +42,8 @@ describe Aspect, :type => :model do
     end
   end
 
-  describe 'validation' do
-    it 'has no uniqueness of name between users' do
+  describe "validation" do
+    it "has no uniqueness of name between users" do
       aspect = alice.aspects.create(name: "New Aspect")
       aspect2 = eve.aspects.create(name: aspect.name)
       expect(aspect2).to be_valid
