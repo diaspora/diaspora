@@ -89,7 +89,7 @@ describe OpenidConnect::AuthorizationsController, type: :controller do
       end
     end
     context "when already authorized" do
-      let!(:auth) { OpenidConnect::Authorization.find_or_create(client.client_id, alice) }
+      let!(:auth) { OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: alice) }
 
       context "when valid parameters are passed" do
         before do
@@ -113,41 +113,73 @@ describe OpenidConnect::AuthorizationsController, type: :controller do
   end
 
   describe "#create" do
-    before do
-      get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token",
-          scope: "openid", nonce: 418_093_098_3, state: 418_093_098_3
-    end
 
-    context "when authorization is approved" do
+    context "when id_token token" do
       before do
-        post :create, approve: "true"
+        get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token token",
+            scope: "openid", nonce: 418_093_098_3, state: 418_093_098_3
       end
 
-      it "should return the id token in a fragment" do
-        expect(response.location).to have_content("id_token=")
-        encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
-        decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token, OpenidConnect::IdTokenConfig.public_key
-        expect(decoded_token.nonce).to eq("4180930983")
-        expect(decoded_token.exp).to be > Time.now.utc.to_i
-      end
+      context "when authorization is approved" do
+        before do
+          post :create, approve: "true"
+        end
 
-      it "should return the passed in state" do
-        expect(response.location).to have_content("state=4180930983")
+        it "should return the id token in a fragment" do
+          encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
+          decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token, OpenidConnect::IdTokenConfig.public_key
+          expect(decoded_token.nonce).to eq("4180930983")
+          expect(decoded_token.exp).to be > Time.now.utc.to_i
+        end
+
+        it "should return a valid access token in a fragment" do
+          encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
+          decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token, OpenidConnect::IdTokenConfig.public_key
+          access_token = response.location[/(?<=access_token=)[^&]+/]
+          access_token_check_num = UrlSafeBase64.encode64(OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8])
+          expect(decoded_token.at_hash).to eq(access_token_check_num)
+        end
       end
     end
 
-    context "when authorization is denied" do
+    context "when id_token" do
       before do
-        post :create, approve: "false"
+        get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token",
+            scope: "openid", nonce: 418_093_098_3, state: 418_093_098_3
       end
 
-      it "should return an error in the fragment" do
-        expect(response.location).to have_content("error=")
+      context "when authorization is approved" do
+        before do
+          post :create, approve: "true"
+        end
+
+        it "should return the id token in a fragment" do
+          expect(response.location).to have_content("id_token=")
+          encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
+          decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token, OpenidConnect::IdTokenConfig.public_key
+          expect(decoded_token.nonce).to eq("4180930983")
+          expect(decoded_token.exp).to be > Time.now.utc.to_i
+        end
+
+        it "should return the passed in state" do
+          expect(response.location).to have_content("state=4180930983")
+        end
       end
 
-      it "should NOT contain a id token in the fragment" do
-        expect(response.location).to_not have_content("id_token=")
+      context "when authorization is denied" do
+        before do
+          post :create, approve: "false"
+        end
+
+        it "should return an error in the fragment" do
+          expect(response.location).to have_content("error=")
+        end
+
+        it "should NOT contain a id token in the fragment" do
+          expect(response.location).to_not have_content("id_token=")
+        end
       end
     end
+
   end
 end

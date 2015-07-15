@@ -18,14 +18,17 @@ module OpenidConnect
         end
       end
 
+      # TODO: Add support for request object and auth code
       def approved!(req, res)
-        auth = OpenidConnect::Authorization.find_or_create(req.client_id, @user)
+        auth = OpenidConnect::Authorization.find_or_create_by(o_auth_application: @o_auth_application, user: @user)
         response_types = Array(req.response_type)
+        if response_types.include?(:token)
+          res.access_token = auth.create_access_token
+        end
         if response_types.include?(:id_token)
-          id_token = auth.id_tokens.create!(nonce: req.nonce)
-          options = %i(code access_token).map{|option| ["res.#{option}", res.respond_to?(option) ? res.option : nil]}.to_h
-          res.id_token = id_token.to_jwt(options)
-          # TODO: Add support for request object
+          id_token = auth.create_id_token(req.nonce)
+          access_token_value = res.respond_to?(:access_token) ? res.access_token : nil
+          res.id_token = id_token.to_jwt(code: nil, access_token: access_token_value)
         end
         res.approve!
       end
