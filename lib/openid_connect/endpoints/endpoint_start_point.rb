@@ -1,10 +1,6 @@
 module OpenidConnect
   module Endpoints
     class EndpointStartPoint < Endpoint
-      def initialize(current_user)
-        super(current_user)
-      end
-
       def handle_response_type(req, res)
         @response_type = req.response_type
       end

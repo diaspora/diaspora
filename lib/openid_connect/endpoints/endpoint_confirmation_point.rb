@@ -26,7 +26,10 @@ module OpenidConnect
       def approved!(req, res)
         response_types = Array(req.response_type)
         if response_types.include?(:id_token)
-          res.id_token = SecureRandom.hex(16) # TODO: Replace with real ID token
+          id_token = @user.id_tokens.create!(o_auth_application: o_auth_application, nonce: @nonce)
+          options = %i(code access_token).map{|option| ["res.#{option}", res.respond_to?(option) ? res.option : nil]}.to_h
+          res.id_token = id_token.to_jwt(options)
+          # TODO: Add support for request object
         end
         res.approve!
       end

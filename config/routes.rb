@@ -245,6 +245,7 @@ Diaspora::Application.routes.draw do
 
     get ".well-known/webfinger", to: "discovery#webfinger"
     get ".well-known/openid-configuration", to: "discovery#configuration"
+    get "jwks.json", to: "id_tokens#jwks"
   end
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do

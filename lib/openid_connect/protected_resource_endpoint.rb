@@ -1,14 +1,6 @@
 module OpenidConnect
   module ProtectedResourceEndpoint
-    def self.included(klass)
-      klass.send :include, ProtectedResourceEndpoint::Helper
-    end
-
-    module Helper
-      def current_token
-        @current_token
-      end
-    end
+    attr_reader :current_token
 
     def require_access_token
       @current_token = request.env[Rack::OAuth2::Server::Resource::ACCESS_TOKEN]
