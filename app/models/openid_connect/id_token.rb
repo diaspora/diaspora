@@ -1,11 +1,7 @@
-class IdToken < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :o_auth_application
+class OpenidConnect::IdToken < ActiveRecord::Base
+  belongs_to :authorization
 
   before_validation :setup, on: :create
-
-  validates :user, presence: true
-  validates :o_auth_application, presence: true
 
   default_scope -> { where("expires_at >= ?", Time.now.utc) }
 
@@ -20,11 +16,11 @@ class IdToken < ActiveRecord::Base
   def to_response_object(options = {})
     claims = {
       iss: AppConfig.environment.url,
-      sub: AppConfig.environment.url + o_auth_application.client_id.to_s + user.id.to_s, # TODO: Convert to proper PPID
-      aud: o_auth_application.client_id,
+      sub: AppConfig.environment.url + authorization.o_auth_application.client_id.to_s + authorization.user.id.to_s, # TODO: Convert to proper PPID
+      aud: authorization.o_auth_application.client_id,
       exp: expires_at.to_i,
       iat: created_at.to_i,
-      auth_time: user.current_sign_in_at.to_i,
+      auth_time: authorization.user.current_sign_in_at.to_i,
       nonce: nonce,
       acr: 0 # TODO: Adjust ?
     }

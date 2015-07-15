@@ -11,31 +11,31 @@ class OpenidConnect::AuthorizationsController < ApplicationController
   end
 
   def create
+    restore_request_parameters
     process_authorization_consent(params[:approve])
   end
 
   private
 
-  def request_authorization_consent_form
-    endpoint = OpenidConnect::Authorization::EndpointStartPoint.new(current_user)
-    handle_startpoint_response(endpoint)
+  def request_authorization_consent_form # TODO: Add support for prompt params
+    if OpenidConnect::Authorization.find_by_client_id_and_user(params[:client_id], current_user)
+      process_authorization_consent("true")
+    else
+      endpoint = OpenidConnect::AuthorizationPoint::EndpointStartPoint.new(current_user)
+      handle_start_point_response(endpoint)
+    end
   end
 
-  def handle_startpoint_response(endpoint)
+  def handle_start_point_response(endpoint)
     _status, header, response = *endpoint.call(request.env)
     if response.redirect?
       redirect_to header["Location"]
     else
-      saveParamsAndRenderConsentForm(endpoint)
+      save_params_and_render_consent_form(endpoint)
     end
   end
 
-  def process_authorization_consent(approvedString)
-    endpoint = OpenidConnect::Authorization::EndpointConfirmationPoint.new(current_user, to_boolean(approvedString))
-    handle_confirmation_endpoint_response(endpoint)
-  end
-
-  def saveParamsAndRenderConsentForm(endpoint)
+  def save_params_and_render_consent_form(endpoint)
     @o_auth_application, @response_type, @redirect_uri, @scopes, @request_object = *[
       endpoint.o_auth_application, endpoint.response_type, endpoint.redirect_uri, endpoint.scopes, endpoint.request_object
     ]
@@ -43,20 +43,20 @@ class OpenidConnect::AuthorizationsController < ApplicationController
     render :new
   end
 
+  def save_request_parameters
+    session[:client_id], session[:response_type], session[:redirect_uri], session[:scopes], session[:request_object], session[:nonce] =
+      @o_auth_application.client_id, @response_type, @redirect_uri, @scopes.map(&:name), @request_object, params[:nonce]
+  end
+
+  def process_authorization_consent(approvedString)
+    endpoint = OpenidConnect::AuthorizationPoint::EndpointConfirmationPoint.new(current_user, to_boolean(approvedString))
+    handle_confirmation_endpoint_response(endpoint)
+  end
+
   def handle_confirmation_endpoint_response(endpoint)
-    restore_request_parameters(endpoint)
     _status, header, _response = *endpoint.call(request.env)
     delete_authorization_session_variables
     redirect_to header["Location"]
-  end
-
-  def restore_request_parameters(endpoint)
-    req = Rack::Request.new(request.env)
-    req.update_param("client_id", session[:client_id])
-    req.update_param("redirect_uri", session[:redirect_uri])
-    req.update_param("response_type", session[:response_type])
-    endpoint.scopes, endpoint.request_object, endpoint.nonce =
-      session[:scopes].map {|scope| Scope.find_by_name(scope) }, session[:request_object], session[:nonce]
   end
 
   def delete_authorization_session_variables
@@ -68,12 +68,17 @@ class OpenidConnect::AuthorizationsController < ApplicationController
     session.delete(:nonce)
   end
 
-  def save_request_parameters
-    session[:client_id], session[:response_type], session[:redirect_uri], session[:scopes], session[:request_object], session[:nonce] =
-      @o_auth_application.client_id, @response_type, @redirect_uri, @scopes.map(&:name), @request_object, params[:nonce]
-  end
-
   def to_boolean(str)
     str.downcase == "true"
+  end
+
+  def restore_request_parameters
+    req = Rack::Request.new(request.env)
+    req.update_param("client_id", session[:client_id])
+    req.update_param("redirect_uri", session[:redirect_uri])
+    req.update_param("response_type", session[:response_type])
+    req.update_param("scopes", session[:scopes])
+    req.update_param("request_object", session[:request_object])
+    req.update_param("nonce", session[:nonce])
   end
 end

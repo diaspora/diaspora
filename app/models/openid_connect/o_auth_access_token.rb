@@ -1,5 +1,5 @@
 class OpenidConnect::OAuthAccessToken < ActiveRecord::Base
-  belongs_to :authorization, dependent: :delete
+  belongs_to :authorization
   has_many :scopes, through: :scope_tokens
 
   before_validation :setup, on: :create
@@ -17,7 +17,7 @@ class OpenidConnect::OAuthAccessToken < ActiveRecord::Base
   def bearer_token
     @bearer_token ||= Rack::OAuth2::AccessToken::Bearer.new(
       access_token: token,
-      expires_in:   (expires_at - Time.now.utc).to_i
+      expires_in: (expires_at - Time.now.utc).to_i
     )
   end
 
