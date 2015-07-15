@@ -2,31 +2,31 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
+require "spec_helper"
 
 describe Contact, :type => :model do
-  describe 'aspect_memberships' do
-    it 'deletes dependent aspect memberships' do
+  describe "aspect_memberships" do
+    it "deletes dependent aspect memberships" do
       expect {
         alice.contact_for(bob.person).destroy
       }.to change(AspectMembership, :count).by(-1)
     end
   end
 
-  context 'validations' do
+  context "validations" do
     let(:contact) { Contact.new }
 
-    it 'requires a user' do
+    it "requires a user" do
       contact.valid?
       expect(contact.errors.full_messages).to include "User can't be blank"
     end
 
-    it 'requires a person' do
+    it "requires a person" do
       contact.valid?
       expect(contact.errors.full_messages).to include "Person can't be blank"
     end
 
-    it 'ensures user is not making a contact for himself' do
+    it "ensures user is not making a contact for himself" do
       contact.person = alice.person
       contact.user = alice
 
@@ -34,7 +34,7 @@ describe Contact, :type => :model do
       expect(contact.errors.full_messages).to include "Cannot create self-contact"
     end
 
-    it 'validates uniqueness' do
+    it "validates uniqueness" do
       person = FactoryGirl.create(:person)
 
       contact2 = alice.contacts.create(person: person)
@@ -54,9 +54,9 @@ describe Contact, :type => :model do
     end
   end
 
-  context 'scope' do
-    describe 'sharing' do
-      it 'returns contacts with sharing true' do
+  context "scope" do
+    describe "sharing" do
+      it "returns contacts with sharing true" do
         expect {
           alice.contacts.create!(sharing: true, person: FactoryGirl.create(:person))
           alice.contacts.create!(sharing: false, person: FactoryGirl.create(:person))
@@ -66,8 +66,8 @@ describe Contact, :type => :model do
       end
     end
 
-    describe 'receiving' do
-      it 'returns contacts with sharing true' do
+    describe "receiving" do
+      it "returns contacts with sharing true" do
         expect {
           alice.contacts.create!(receiving: true, person: FactoryGirl.build(:person))
           alice.contacts.create!(receiving: false, person: FactoryGirl.build(:person))
@@ -77,8 +77,8 @@ describe Contact, :type => :model do
       end
     end
 
-    describe 'only_sharing' do
-      it 'returns contacts with sharing true and receiving false' do
+    describe "only_sharing" do
+      it "returns contacts with sharing true and receiving false" do
         expect {
           alice.contacts.create!(receiving: true, sharing: true, person: FactoryGirl.build(:person))
           alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
@@ -91,7 +91,7 @@ describe Contact, :type => :model do
     end
 
     describe "all_contacts_of_person" do
-      it 'returns all contacts where the person is the passed in person' do
+      it "returns all contacts where the person is the passed in person" do
         person = FactoryGirl.create(:person)
         contact1 = FactoryGirl.create(:contact, person: person)
         contact2 = FactoryGirl.create(:contact)
@@ -101,7 +101,7 @@ describe Contact, :type => :model do
     end
   end
 
-  describe '#contacts' do
+  describe "#contacts" do
     before do
       bob.aspects.create(name: "next")
       bob.aspects(true)
@@ -125,7 +125,7 @@ describe Contact, :type => :model do
     #eve <-> bob <-> alice
     end
 
-    context 'on a contact for a local user' do
+    context "on a contact for a local user" do
       before do
         alice.reload
         alice.aspects.reload
@@ -136,35 +136,35 @@ describe Contact, :type => :model do
         expect(@contact.contacts.map(&:id)).to match_array([eve.person].concat(@people1).map(&:id))
       end
 
-      it 'returns nothing if contacts_visible is false in that aspect' do
+      it "returns nothing if contacts_visible is false in that aspect" do
         @original_aspect.contacts_visible = false
         @original_aspect.save
         expect(@contact.contacts).to eq([])
       end
 
-      it 'returns no duplicate contacts' do
+      it "returns no duplicate contacts" do
         [alice, eve].each {|c| bob.add_contact_to_aspect(bob.contact_for(c.person), bob.aspects.last) }
         contact_ids = @contact.contacts.map(&:id)
         expect(contact_ids.uniq).to eq(contact_ids)
       end
     end
 
-    context 'on a contact for a remote user' do
+    context "on a contact for a remote user" do
       let(:contact) { bob.contact_for @people1.first }
 
-      it 'returns an empty array' do
+      it "returns an empty array" do
         expect(contact.contacts).to eq([])
       end
     end
   end
 
-  context 'requesting' do
+  context "requesting" do
     let(:contact) { Contact.new user: user, person: person }
     let(:user) { build(:user) }
     let(:person) { build(:person) }
 
-    describe '#generate_request' do
-      it 'makes a request' do
+    describe "#generate_request" do
+      it "makes a request" do
         allow(contact).to receive(:user).and_return(user)
         request = contact.generate_request
 
@@ -173,8 +173,8 @@ describe Contact, :type => :model do
       end
     end
 
-    describe '#dispatch_request' do
-      it 'pushes to people' do
+    describe "#dispatch_request" do
+      it "pushes to people" do
         allow(contact).to receive(:user).and_return(user)
         m = double()
         expect(m).to receive(:post)

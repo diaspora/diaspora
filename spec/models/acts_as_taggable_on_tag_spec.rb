@@ -1,16 +1,16 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ActsAsTaggableOn::Tag, :type => :model do
   subject(:tag) { ActsAsTaggableOn::Tag }
 
-  describe '.autocomplete' do
+  describe ".autocomplete" do
     let!(:tag_cats) { tag.create(name: "cats") }
 
-    it 'downcases the tag name' do
+    it "downcases the tag name" do
       expect(tag.autocomplete("CATS")).to eq([tag_cats])
     end
 
-    it 'does an end where on tags' do
+    it "does an end where on tags" do
       expect(tag.autocomplete("CAT")).to eq([tag_cats])
     end
   end
@@ -37,7 +37,7 @@ describe ActsAsTaggableOn::Tag, :type => :model do
       end
     end
 
-    it 'allows for love' do
+    it "allows for love" do
       expect(tag.normalize("<3")).to eq("<3")
       expect(tag.normalize("#<3")).to eq("<3")
     end
