@@ -6,9 +6,9 @@ require 'spec_helper'
 require Rails.root.join("spec", "shared_behaviors", "relayable")
 
 describe Comment, :type => :model do
-    let(:alices_aspect) { alice.aspects.first }
-    let(:status_bob)    { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
-    let(:comment_alice) { alice.comment!(status_bob, "why so formal?") }
+  let(:alices_aspect) { alice.aspects.first }
+  let(:status_bob) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
+  let(:comment_alice) { alice.comment!(status_bob, "why so formal?") }
 
   describe "#destroy" do
     it "should delete a participation" do
@@ -90,11 +90,11 @@ describe Comment, :type => :model do
   end
 
   describe 'xml' do
-    let(:commenter)        { create(:user) }
+    let(:commenter) { create(:user) }
     let(:commenter_aspect) { commenter.aspects.create(name: "bruisers") }
-    let(:post)             { alice.post :status_message, text: "hello", to: alices_aspect.id }
-    let(:comment)          { commenter.comment!(post, "Fool!") }
-    let(:xml)              { comment.to_xml.to_s }
+    let(:post) { alice.post :status_message, text: "hello", to: alices_aspect.id }
+    let(:comment) { commenter.comment!(post, "Fool!") }
+    let(:xml) { comment.to_xml.to_s }
 
     before do
       connect_users(alice, alices_aspect, commenter, commenter_aspect)
@@ -130,12 +130,12 @@ describe Comment, :type => :model do
   end
 
   describe 'it is relayable' do
-    let(:remote_parent)               { build(:status_message, author: remote_raphael) }
-    let(:local_parent)                { local_luke.post :status_message, text: "hi", to: local_luke.aspects.first }
-    let(:object_by_parent_author)     { local_luke.comment!(local_parent, "yo!") }
-    let(:object_by_recipient)         { local_leia.build_comment(text: "yo", post: local_parent) }
+    let(:remote_parent) { build(:status_message, author: remote_raphael) }
+    let(:local_parent) { local_luke.post :status_message, text: "hi", to: local_luke.aspects.first }
+    let(:object_by_parent_author) { local_luke.comment!(local_parent, "yo!") }
+    let(:object_by_recipient) { local_leia.build_comment(text: "yo", post: local_parent) }
     let(:dup_object_by_parent_author) { object_by_parent_author.dup }
-    let(:object_on_remote_parent)     { local_luke.comment!(remote_parent, "Yeah, it was great") }
+    let(:object_on_remote_parent) { local_luke.comment!(remote_parent, "Yeah, it was great") }
 
     before do
       # shared_behaviors/relayable.rb is still using instance variables, so we need to define them here.
@@ -160,5 +160,4 @@ describe Comment, :type => :model do
     end
     it_should_behave_like 'it is taggable'
   end
-
 end

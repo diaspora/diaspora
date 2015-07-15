@@ -22,16 +22,16 @@ describe ActsAsTaggableOn::Tag, :type => :model do
 
     it "removes punctuation and whitespace" do
       {
-        'node.js'                           => 'nodejs',
-        '.dotatstart'                       => 'dotatstart',
-        'you,inside'                        => 'youinside',
-        'iam(parenthetical)'                => 'iamparenthetical',
-        'imeanit?maybe'                     => 'imeanitmaybe',
-        'imeanit!'                          => 'imeanit',
-        'how about spaces'                  => 'howaboutspaces',
-        "other\twhitespace\n"               => 'otherwhitespace',
-        'hash#inside'                       => 'hashinside',
-        'f!u@n#k$y%-<c>^h&a*r(a)c{t}e[r]s'  => 'funky-characters'
+        "node.js"                          => "nodejs",
+        ".dotatstart"                      => "dotatstart",
+        "you,inside"                       => "youinside",
+        "iam(parenthetical)"               => "iamparenthetical",
+        "imeanit?maybe"                    => "imeanitmaybe",
+        "imeanit!"                         => "imeanit",
+        "how about spaces"                 => "howaboutspaces",
+        "other\twhitespace\n"              => "otherwhitespace",
+        "hash#inside"                      => "hashinside",
+        "f!u@n#k$y%-<c>^h&a*r(a)c{t}e[r]s" => "funky-characters"
       }.each do |invalid, normalized|
         expect(tag.normalize(invalid)).to eq(normalized)
       end
