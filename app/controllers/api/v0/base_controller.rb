@@ -3,7 +3,4 @@ class Api::V0::BaseController < ApplicationController
 
   before_filter :require_access_token
 
-  def authorization
-    current_token.authorization
-  end
 end

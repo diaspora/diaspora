@@ -35,16 +35,38 @@ describe OpenidConnect::ProtectedResourceEndpoint, type: :request do
     end
 
     context "when an invalid access token is provided" do
-      it "should respond with a 401 Unauthorized response" do
+      before do
         get "/api/v0/user/", access_token: invalid_token
+      end
+
+      it "should respond with a 401 Unauthorized response" do
         expect(response.status).to be(401)
       end
+
       it "should have an auth-scheme value of Bearer" do
-        get "/api/v0/user/", access_token: invalid_token
         expect(response.headers["WWW-Authenticate"]).to include("Bearer")
       end
+
       it "should contain an invalid_token error" do
-        get "/api/v0/user/", access_token: invalid_token
+        expect(response.body).to include("invalid_token")
+      end
+    end
+
+    context "when authorization has been destroyed" do
+      before do
+        auth.destroy
+        get "/api/v0/user/", access_token: access_token
+      end
+
+      it "should respond with a 401 Unauthorized response" do
+        expect(response.status).to be(401)
+      end
+
+      it "should have an auth-scheme value of Bearer" do
+        expect(response.headers["WWW-Authenticate"]).to include("Bearer")
+      end
+
+      it "should contain an invalid_token error" do
         expect(response.body).to include("invalid_token")
       end
     end
