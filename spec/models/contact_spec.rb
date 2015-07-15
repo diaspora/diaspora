@@ -47,7 +47,6 @@ describe Contact, :type => :model do
 
     it "validates that the person's account is not closed" do
       person = FactoryGirl.create(:person, :closed_account => true)
-
       contact = alice.contacts.new(person: person)
 
       expect(contact).not_to be_valid
@@ -104,26 +103,23 @@ describe Contact, :type => :model do
 
   describe '#contacts' do
     before do
-      @alice = alice
-      @bob = bob
-      @eve = eve
-      @bob.aspects.create(name: 'next')
-      @bob.aspects(true)
+      bob.aspects.create(name: 'next')
+      bob.aspects(true)
 
-      @original_aspect = @bob.aspects.where(name: "generic").first
-      @new_aspect = @bob.aspects.where(name: "next").first
+      @original_aspect = bob.aspects.where(name: "generic").first
+      @new_aspect = bob.aspects.where(name: "next").first
 
       @people1 = []
       @people2 = []
 
       1.upto(5) do
         person = FactoryGirl.build(:person)
-        @bob.contacts.create(person: person, aspects: [@original_aspect])
+        bob.contacts.create(person: person, aspects: [@original_aspect])
         @people1 << person
       end
       1.upto(5) do
         person = FactoryGirl.build(:person)
-        @bob.contacts.create(person: person, aspects: [@new_aspect])
+        bob.contacts.create(person: person, aspects: [@new_aspect])
         @people2 << person
       end
     #eve <-> bob <-> alice
@@ -131,13 +127,13 @@ describe Contact, :type => :model do
 
     context 'on a contact for a local user' do
       before do
-        @alice.reload
-        @alice.aspects.reload
-        @contact = @alice.contact_for(@bob.person)
+        alice.reload
+        alice.aspects.reload
+        @contact = alice.contact_for(bob.person)
       end
 
       it "returns the target local user's contacts that are in the same aspect" do
-        expect(@contact.contacts.map{|p| p.id}).to match_array([@eve.person].concat(@people1).map{|p| p.id})
+        expect(@contact.contacts.map{|p| p.id}).to match_array([eve.person].concat(@people1).map{|p| p.id})
       end
 
       it 'returns nothing if contacts_visible is false in that aspect' do
@@ -147,14 +143,14 @@ describe Contact, :type => :model do
       end
 
       it 'returns no duplicate contacts' do
-        [@alice, @eve].each {|c| @bob.add_contact_to_aspect(@bob.contact_for(c.person), @bob.aspects.last)}
+        [alice, eve].each {|c| bob.add_contact_to_aspect(bob.contact_for(c.person), bob.aspects.last)}
         contact_ids = @contact.contacts.map{|p| p.id}
         expect(contact_ids.uniq).to eq(contact_ids)
       end
     end
 
     context 'on a contact for a remote user' do
-      let(:contact) { @bob.contact_for @people1.first }
+      let(:contact) { bob.contact_for @people1.first }
 
       it 'returns an empty array' do
         expect(contact.contacts).to eq([])
@@ -164,8 +160,8 @@ describe Contact, :type => :model do
 
   context 'requesting' do
     let(:contact) { Contact.new }
-    let(:user) { build(:user) }
-    let(:person) { build(:person) }
+    let(:user)    { build(:user) }
+    let(:person)  { build(:person) }
 
     before do
       contact.user = user
@@ -203,7 +199,7 @@ describe Contact, :type => :model do
 
     it "adds to errors if potential contact is blocked by user" do
       person = eve.person
-      block = alice.blocks.create(person: person)
+      alice.blocks.create(person: person)
       bad_contact = alice.contacts.create(person: person)
 
       expect(bad_contact.send(:not_blocked_user)).to be false
