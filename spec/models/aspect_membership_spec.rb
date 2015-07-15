@@ -5,28 +5,26 @@
 require 'spec_helper'
 
 describe AspectMembership, :type => :model do
-
   describe '#before_destroy' do
-    let(:aspect)  { alice.aspects.create(name: "two") }
+    let(:aspect) { alice.aspects.create(name: "two") }
     let(:contact) { alice.contact_for(bob.person) }
-    let(:am)      { alice.aspects.where(name: "generic").first.aspect_memberships.first }
+    let(:aspect_membership) { alice.aspects.where(name: "generic").first.aspect_memberships.first }
 
     before do
-      allow(am).to receive(:user).and_return(alice)
+      allow(aspect_membership).to receive(:user).and_return(alice)
     end
 
     it 'calls disconnect if its the last aspect for the contact' do
       expect(alice).to receive(:disconnect).with(contact)
 
-      am.destroy
+      aspect_membership.destroy
     end
 
     it 'does not call disconnect if its not the last aspect for the contact' do
       expect(alice).not_to receive(:disconnect)
 
       alice.add_contact_to_aspect(contact, aspect)
-      am.destroy
+      aspect_membership.destroy
     end
   end
-
 end

@@ -5,23 +5,19 @@
 require 'spec_helper'
 
 describe Conversation, :type => :model do
-  let(:user1)           { alice }
-  let(:user2)           { bob }
+  let(:user1) { alice }
+  let(:user2) { bob }
   let(:participant_ids) { [user1.contacts.first.person.id, user1.person.id] }
-  let(:create_hash) do
-      {
-        author: user1.person,
-        participant_ids: participant_ids,
-        subject: "cool stuff",
-        messages_attributes: [ {author: user1.person, text: "hey"} ]
-      }
-    end
-  let(:conversation)    { Conversation.create(create_hash) }
-  let(:message_last)    { Message.create(author: user2.person, created_at: Time.now + 100, text: "last", conversation_id: conversation.id) }
-  let(:message_first)   { Message.create(author: user2.person, created_at: Time.now + 100, text: "first", conversation_id: conversation.id) }
+  let(:create_hash) {{author: user1.person, participant_ids: participant_ids,
+      subject: "cool stuff", messages_attributes: [{author: user1.person, text: "hey"}]}}
+  let(:conversation) { Conversation.create(create_hash) }
+  let(:message_last) { Message.create(author: user2.person, created_at: Time.now + 100,
+      text: "last", conversation_id: conversation.id) }
+  let(:message_first) { Message.create(author: user2.person, created_at: Time.now + 100,
+      text: "first", conversation_id: conversation.id) }
 
   it 'creates a message on create' do
-    expect{ conversation }.to change(Message, :count).by(1)
+    expect { conversation }.to change(Message, :count).by(1)
   end
 
   describe '#last_author' do
@@ -49,13 +45,12 @@ describe Conversation, :type => :model do
     end
 
     it 'returns nil if there are no unread messages in a conversation' do
-      conversation.conversation_visibilities.where(person_id: user1.person.id).first.tap { |cv| cv.unread = 0 }.save
+      conversation.conversation_visibilities.where(person_id: user1.person.id).first.tap {|cv| cv.unread = 0 }.save
       expect(conversation.first_unread_message(user1)).to be_nil
     end
   end
 
   describe '#set_read' do
-
     before do
       conversation
       message_first.increase_unread(user1)
@@ -71,7 +66,7 @@ describe Conversation, :type => :model do
 
   context 'transport' do
     let(:conversation_message) { conversation.messages.first }
-    let(:xml)                  { conversation.to_diaspora_xml }
+    let(:xml) { conversation.to_diaspora_xml }
 
     before do
       conversation
@@ -79,13 +74,13 @@ describe Conversation, :type => :model do
 
     describe 'serialization' do
       it 'serializes the message' do
-        expect(xml.gsub(/\s/, '')).to include(conversation_message.to_xml.to_s.gsub(/\s/, ''))
+        expect(xml.gsub(/\s/, "")).to include(conversation_message.to_xml.to_s.gsub(/\s/, ""))
       end
 
       it 'serializes the participants' do
-        create_hash[:participant_ids].each{ |id|
+        create_hash[:participant_ids].each do |id|
           expect(xml).to include(Person.find(id).diaspora_handle)
-        }
+        end
       end
 
       it 'serializes the created_at time' do
@@ -95,7 +90,7 @@ describe Conversation, :type => :model do
 
     describe '#subscribers' do
       it 'returns the recipients for the post owner' do
-        expect(conversation.subscribers(user1)).to eq(user1.contacts.map{|c| c.person})
+        expect(conversation.subscribers(user1)).to eq(user1.contacts.map(&:person))
       end
     end
 
@@ -106,17 +101,17 @@ describe Conversation, :type => :model do
       end
 
       it 'creates a message' do
-        expect{
+        expect {
           Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
         }.to change(Message, :count).by(1)
       end
       it 'creates a conversation' do
-        expect{
+        expect {
           Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
         }.to change(Conversation, :count).by(1)
       end
       it 'creates appropriate visibilities' do
-        expect{
+        expect {
           Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
         }.to change(ConversationVisibility, :count).by(participant_ids.size)
       end
@@ -132,13 +127,9 @@ describe Conversation, :type => :model do
 
   describe "#invalid parameters" do
     context "local author" do
-      let(:invalid_hash) do
-        {
-          author: peter.person,
-          participant_ids: [peter.person.id, user1.person.id],
-          subject: "cool stuff", messages_attributes: [{author: peter.person, text: "hey"}]
-        }
-      end
+      let(:invalid_hash) {{author: peter.person, participant_ids: [peter.person.id, user1.person.id],
+          subject: "cool stuff", messages_attributes: [{author: peter.person, text: "hey"}]}}
+
       it "is invalid with invalid recipient" do
         invalid_conversation = Conversation.create(invalid_hash)
         expect(invalid_conversation).to be_invalid
@@ -146,16 +137,12 @@ describe Conversation, :type => :model do
     end
 
     context "remote author" do
-      let(:remote_person)       { remote_raphael }
-      let(:local_user)          { alice }
-      let(:participant_ids)     { [remote_person.id, local_user.person.id] }
-      let(:invalid_hash_remote) do
-        {
-          author: remote_person,
-          participant_ids: participant_ids,
-          subject: "cool stuff", messages_attributes: [{author: remote_person, text: "hey"}]
-        }
-      end
+      let(:remote_person) { remote_raphael }
+      let(:local_user) { alice }
+      let(:participant_ids) { [remote_person.id, local_user.person.id] }
+      let(:invalid_hash_remote) {{author: remote_person, participant_ids: participant_ids,
+          subject: "cool stuff", messages_attributes: [{author: remote_person, text: "hey"}]}}
+
       it "is invalid with invalid recipient" do
         invalid_conversation_remote = Conversation.create(invalid_hash_remote)
         expect(invalid_conversation_remote).to be_invalid

@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Contact, :type => :model do
   describe 'aspect_memberships' do
     it 'deletes dependent aspect memberships' do
-      expect{
+      expect {
         alice.contact_for(bob.person).destroy
       }.to change(AspectMembership, :count).by(-1)
     end
@@ -103,7 +103,7 @@ describe Contact, :type => :model do
 
   describe '#contacts' do
     before do
-      bob.aspects.create(name: 'next')
+      bob.aspects.create(name: "next")
       bob.aspects(true)
 
       @original_aspect = bob.aspects.where(name: "generic").first
@@ -133,7 +133,7 @@ describe Contact, :type => :model do
       end
 
       it "returns the target local user's contacts that are in the same aspect" do
-        expect(@contact.contacts.map{|p| p.id}).to match_array([eve.person].concat(@people1).map{|p| p.id})
+        expect(@contact.contacts.map(&:id)).to match_array([eve.person].concat(@people1).map(&:id))
       end
 
       it 'returns nothing if contacts_visible is false in that aspect' do
@@ -143,8 +143,8 @@ describe Contact, :type => :model do
       end
 
       it 'returns no duplicate contacts' do
-        [alice, eve].each {|c| bob.add_contact_to_aspect(bob.contact_for(c.person), bob.aspects.last)}
-        contact_ids = @contact.contacts.map{|p| p.id}
+        [alice, eve].each {|c| bob.add_contact_to_aspect(bob.contact_for(c.person), bob.aspects.last) }
+        contact_ids = @contact.contacts.map(&:id)
         expect(contact_ids.uniq).to eq(contact_ids)
       end
     end
@@ -159,14 +159,9 @@ describe Contact, :type => :model do
   end
 
   context 'requesting' do
-    let(:contact) { Contact.new }
-    let(:user)    { build(:user) }
-    let(:person)  { build(:person) }
-
-    before do
-      contact.user = user
-      contact.person = person
-    end
+    let(:contact) { Contact.new user: user, person: person }
+    let(:user) { build(:user) }
+    let(:person) { build(:person) }
 
     describe '#generate_request' do
       it 'makes a request' do

@@ -22,7 +22,7 @@ describe Aspect, :type => :model do
     end
 
     it 'is able to have other users as contacts' do
-      aspect = alice.aspects.create(name: 'losers')
+      aspect = alice.aspects.create(name: "losers")
       Contact.create(user: alice, person: eve.person, aspects: [aspect])
 
       expect(aspect.contacts.where(person_id: alice.person.id)).to be_empty
