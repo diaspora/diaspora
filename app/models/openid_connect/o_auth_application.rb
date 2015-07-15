@@ -16,7 +16,7 @@ class OpenidConnect::OAuthApplication < ActiveRecord::Base
 
   class << self
     def available_response_types
-      ["id_token"]
+      ["id_token", "id_token token"]
     end
 
     def register!(registrar)
