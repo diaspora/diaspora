@@ -58,6 +58,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Update to Rails 4.2.3 [#6140](https://github.com/diaspora/diaspora/pull/6140)
 * Refactor person related URL generation [#6168](https://github.com/diaspora/diaspora/pull/6168)
 * Move webfinger and HCard generation out of the core and embed the `diaspora_federation-rails` gem [#6151](https://github.com/diaspora/diaspora/pull/6151/)
+* Refactor rspec tests to to use `let` instead of before blocks [#6199](https://github.com/diaspora/diaspora/pull/6199)
 
 ## Bug fixes
 * Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)
