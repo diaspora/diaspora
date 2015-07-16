@@ -1,7 +1,7 @@
 class OpenidConnect::AuthorizationsController < ApplicationController
   rescue_from Rack::OAuth2::Server::Authorize::BadRequest do |e|
-    logger.info e.backtrace[0,10].join("\n")
-    render json: { error: e.message || :error, status: e.status }
+    logger.info e.backtrace[0, 10].join("\n")
+    render json: {error: e.message || :error, status: e.status}
   end
 
   before_action :authenticate_user!
@@ -44,8 +44,12 @@ class OpenidConnect::AuthorizationsController < ApplicationController
   end
 
   def save_request_parameters
-    session[:client_id], session[:response_type], session[:redirect_uri], session[:scopes], session[:request_object], session[:nonce] =
-      @o_auth_application.client_id, @response_type, @redirect_uri, @scopes.map(&:name), @request_object, params[:nonce]
+    session[:client_id] = @o_auth_application.client_id
+    session[:response_type] = @response_type
+    session[:redirect_uri] = @redirect_uri
+    session[:scopes] = @scopes.map(&:name)
+    session[:request_object] = @request_object
+    session[:nonce] = params[:nonce]
   end
 
   def process_authorization_consent(approvedString)

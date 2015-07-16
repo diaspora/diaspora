@@ -9,20 +9,20 @@ class OpenidConnect::IdToken < ActiveRecord::Base
     self.expires_at = 30.minutes.from_now
   end
 
-  def to_jwt(options = {})
+  def to_jwt(options={})
     to_response_object(options).to_jwt OpenidConnect::IdTokenConfig.private_key
   end
 
-  def to_response_object(options = {})
+  def to_response_object(options={})
     claims = {
-      iss: AppConfig.environment.url,
-      sub: AppConfig.environment.url + authorization.o_auth_application.client_id.to_s + authorization.user.id.to_s, # TODO: Convert to proper PPID
-      aud: authorization.o_auth_application.client_id,
-      exp: expires_at.to_i,
-      iat: created_at.to_i,
+      iss:       AppConfig.environment.url,
+      sub:       AppConfig.environment.url + authorization.o_auth_application.client_id.to_s + authorization.user.id.to_s, # TODO: Convert to proper PPID
+      aud:       authorization.o_auth_application.client_id,
+      exp:       expires_at.to_i,
+      iat:       created_at.to_i,
       auth_time: authorization.user.current_sign_in_at.to_i,
-      nonce: nonce,
-      acr: 0 # TODO: Adjust ?
+      nonce:     nonce,
+      acr:       0 # TODO: Adjust ?
     }
     id_token = OpenIDConnect::ResponseObject::IdToken.new(claims)
     id_token.code = options[:code] if options[:code]

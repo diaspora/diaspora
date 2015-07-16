@@ -24,7 +24,7 @@ module OpenidConnect
         build_scopes(req)
       end
 
-      def handle_response_type(req, res)
+      def handle_response_type(_req, _res)
         # Implemented by subclass
       end
 
