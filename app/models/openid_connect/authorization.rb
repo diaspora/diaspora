@@ -4,6 +4,7 @@ class OpenidConnect::Authorization < ActiveRecord::Base
 
   validates :user, presence: true
   validates :o_auth_application, presence: true
+  validates :user, uniqueness: {scope: :o_auth_application}
 
   has_many :scopes, through: :authorization_scopes
   has_many :o_auth_access_tokens, dependent: :destroy

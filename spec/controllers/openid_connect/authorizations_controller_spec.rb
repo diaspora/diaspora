@@ -7,6 +7,8 @@ describe OpenidConnect::AuthorizationsController, type: :controller do
       name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/", "http://localhost/"])
   end
 
+  # TODO: jhass - "Might want to setup some factories in spec/factories.rb, see factory_girl's docs."
+
   before do
     sign_in :user, alice
     allow(@controller).to receive(:current_user).and_return(alice)

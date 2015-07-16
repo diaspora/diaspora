@@ -594,10 +594,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def find_authorization_by_client_id(client_id)
-    OpenidConnect::Authorization.find_by_client_id_and_user client_id, self
-  end
-
   private
 
   def clearable_fields

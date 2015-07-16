@@ -1,9 +1,9 @@
 When /^I register a new client$/ do
   client_registration_url = "/openid_connect/clients"
-  post client_registration_url, redirect_uris: ["http://localhost:3000"] # Not actually used
+  post client_registration_url, redirect_uris: ["http://localhost:3000"]
 end
 
-Given /^I send a post request from that client to the token endpoint using "([^\"]*)"'s credentials$/ do |username|
+Given /^I send a post request from that client to the password flow token endpoint using "([^\"]*)"'s credentials$/ do |username|
   client_json = JSON.parse(last_response.body)
   user = User.find_by(username: username)
   token_endpoint_url = "/openid_connect/access_tokens"
@@ -13,7 +13,7 @@ Given /^I send a post request from that client to the token endpoint using "([^\
       client_secret: client_json["o_auth_application"]["client_secret"]
 end
 
-Given /^I send a post request from that client to the token endpoint using invalid credentials$/ do
+Given /^I send a post request from that client to the password flow token endpoint using invalid credentials$/ do
   client_json = JSON.parse(last_response.body)
   token_endpoint_url = "/openid_connect/access_tokens"
   post token_endpoint_url, grant_type: "password", username: "bob", password: "wrongpassword",
