@@ -7,17 +7,17 @@ module OpenidConnect
       @app = Rack::OAuth2::Server::Token.new do |req, res|
         o_auth_app = retrieve_client(req)
         if app_valid?(o_auth_app, req)
-          handle_flows(req, res)
+          handle_flows(o_auth_app, req, res)
         else
           req.invalid_client!
         end
       end
     end
 
-    def handle_flows(req, res)
+    def handle_flows(o_auth_app, req, res)
       case req.grant_type
       when :password
-        handle_password_flow(req, res)
+        handle_password_flow(o_auth_app, req, res)
       when :refresh_token
         handle_refresh_flow(req, res)
       else
@@ -25,11 +25,11 @@ module OpenidConnect
       end
     end
 
-    def handle_password_flow(req, res)
+    def handle_password_flow(o_auth_app, req, res)
       user = User.find_for_database_authentication(username: req.username)
       if user
         if user.valid_password?(req.password)
-          auth = OpenidConnect::Authorization.find_or_create(req.client_id, user)
+          auth = OpenidConnect::Authorization.find_or_create_by(o_auth_application: o_auth_app, user: user)
           res.access_token = auth.create_access_token
         else
           req.invalid_grant!

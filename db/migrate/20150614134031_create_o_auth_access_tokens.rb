@@ -1,5 +1,5 @@
 class CreateOAuthAccessTokens < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :o_auth_access_tokens do |t|
       t.belongs_to :authorization, index: true
       t.string :token

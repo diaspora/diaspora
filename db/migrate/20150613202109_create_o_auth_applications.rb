@@ -10,8 +10,4 @@ class CreateOAuthApplications < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
-
-  def self.down
-    drop_table :o_auth_applications
-  end
 end
