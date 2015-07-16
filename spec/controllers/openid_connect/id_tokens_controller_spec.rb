@@ -9,7 +9,7 @@ describe OpenidConnect::IdTokensController, type: :controller do
     it "should contain a public key that matches the internal private key" do
       json = JSON.parse(response.body).with_indifferent_access
       jwks = JSON::JWK::Set.new json[:keys]
-      public_keys = jwks.collect do |jwk|
+      public_keys = jwks.map do |jwk|
         JSON::JWK.decode jwk
       end
       public_key = public_keys.first

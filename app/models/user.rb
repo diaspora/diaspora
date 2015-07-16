@@ -597,10 +597,10 @@ class User < ActiveRecord::Base
   private
 
   def clearable_fields
-    self.attributes.keys - %w(id username encrypted_password created_at updated_at locked_at
-                            serialized_private_key getting_started
-                            disable_mail show_community_spotlight_in_stream
-                            strip_exif email remove_after export exporting exported_at
-                            exported_photos_file exporting_photos exported_photos_at)
+    attributes.keys - %w(id username encrypted_password created_at updated_at locked_at
+                         serialized_private_key getting_started
+                         disable_mail show_community_spotlight_in_stream
+                         strip_exif email remove_after export exporting exported_at
+                         exported_photos_file exporting_photos exported_photos_at)
   end
 end

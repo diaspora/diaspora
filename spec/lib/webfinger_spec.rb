@@ -47,14 +47,13 @@ describe Diaspora::Webfinger do
       expect(person).to be_valid
       expect(person).to be_a Person
     end
-
   end
 
   describe "#get" do
     it "makes a request and grabs the body" do
-      url ="https://bar.com/.well-known/host-meta"
-      stub_request(:get, url).
-        to_return(:status => 200, :body => host_meta_xrd)
+      url = "https://bar.com/.well-known/host-meta"
+      stub_request(:get, url)
+        .to_return(status: 200, body: host_meta_xrd)
 
       expect(finger.get(url)).to eq(host_meta_xrd)
     end
@@ -62,11 +61,11 @@ describe Diaspora::Webfinger do
     it "follows redirects" do
       redirect_url = "http://whereami.whatisthis/host-meta"
 
-      stub_request(:get, "https://bar.com/.well-known/host-meta").
-        to_return(:status => 302, :headers => { "Location" => redirect_url })
+      stub_request(:get, "https://bar.com/.well-known/host-meta")
+        .to_return(status: 302, headers: {"Location" => redirect_url})
 
-      stub_request(:get, redirect_url).
-        to_return(:status => 200, :body => host_meta_xrd)
+      stub_request(:get, redirect_url)
+        .to_return(status: 200, body: host_meta_xrd)
 
       finger.host_meta_xrd
 
@@ -74,9 +73,9 @@ describe Diaspora::Webfinger do
     end
 
     it "raises on 404" do
-      url ="https://bar.com/.well-known/host-meta"
-      stub_request(:get, url).
-        to_return(:status => 404, :body => nil)
+      url = "https://bar.com/.well-known/host-meta"
+      stub_request(:get, url)
+        .to_return(status: 404, body: nil)
 
       expect {
         expect(finger.get(url)).to eq(false)
@@ -111,7 +110,6 @@ describe Diaspora::Webfinger do
       expect(finger.person).to eq(person)
     end
   end
-
 
   describe "create_or_update_person_from_webfinger_profile!" do
     context "with a cached_person" do
@@ -198,8 +196,6 @@ describe Diaspora::Webfinger do
       finger.make_person_from_webfinger
     end
   end
-
-
 
   describe "#host_meta_url" do
     it "should return canonical host-meta url for http" do
