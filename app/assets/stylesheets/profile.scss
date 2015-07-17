@@ -150,7 +150,6 @@
 }
 
 #update_profile_form {
-  .visibility-hint-icon {
-    cursor: pointer;
-  }
+  .profile-visibility-hint { margin-left: 10px; }
+  .visibility-hint-icon { cursor: default; }
 }

@@ -7,8 +7,8 @@
   = t("profiles.edit.extended")
 = t("profiles.edit.extended_visibility_text")
 = check_box_tag "profile[public_details]", true, profile.public_details, {"data-size" => "mini", "data-on-text" => t("profiles.edit.public"), "data-off-text" => t("profiles.edit.limited")}
-%span{ :title => t("profiles.edit.extended_hint") }
-  %i.entypo.circled-help.visibility-hint-icon
+%span.profile-visibility-hint{ title: t("profiles.edit.extended_hint") }
+  %i.entypo-circled-help.visibility-hint-icon
 .small-horizontal-spacer
 
 %h4= t('profiles.edit.your_bio')
