@@ -244,6 +244,9 @@ Diaspora::Application.routes.draw do
     get 'terms' => 'terms#index'
   end
 
+  # Relay
+  get ".well-known/x-social-relay" => "social_relay#well_known"
+
   # Startpage
   root :to => 'home#show'
 end
