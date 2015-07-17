@@ -24,5 +24,11 @@ describe("app.views.Content", function(){
       this.post.set({post_type : "Reshare"});
       expect(this.view.presenter().isReshare).toBeTruthy();
     });
+
+    // it("provides coordinates", function(){
+    //   this.post.location;
+    //   console.log(this.view.presenter());
+    //   console.log(this.post.location);
+    // });
   });
 });

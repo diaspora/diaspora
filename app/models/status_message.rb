@@ -162,6 +162,10 @@ class StatusMessage < Post
     location.try(:address)
   end
 
+  def coordinates
+    {lat: location.try(:lat), lng: location.try(:lng)}
+  end
+
   protected
   def presence_of_content
     if text_and_photos_blank?

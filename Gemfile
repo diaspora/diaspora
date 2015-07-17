@@ -128,6 +128,9 @@ gem "rails-i18n",           "4.0.4"
 gem "markerb",             "1.0.2"
 gem "messagebus_ruby_api", "1.0.3"
 
+# Map
+gem "leaflet-rails",       "0.7.4"
+
 # Parsing
 
 gem "nokogiri",          "1.6.6.2"

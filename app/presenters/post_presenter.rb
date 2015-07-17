@@ -32,6 +32,7 @@ class PostPresenter < BasePresenter
       root:                         root,
       title:                        title,
       address:                      @post.address,
+      coordinates:                  @post.coordinates,
       poll:                         @post.poll,
       already_participated_in_poll: already_participated_in_poll,
       participation:                participate?,
