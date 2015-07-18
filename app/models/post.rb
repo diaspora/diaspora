@@ -148,17 +148,18 @@ class Post < ActiveRecord::Base
     self.author.profile.nsfw?
   end
 
-  def self.find_by_guid_or_id_with_user(id, user=nil)
-    key = id.to_s.length <= 8 ? :id : :guid
-    post = if user
-             user.find_visible_shareable_by_id(Post, id, :key => key)
-           else
-             Post.where(key => id).includes(:author, :comments => :author).first
-           end
-
-    # is that a private post?
-    raise(Diaspora::NonPublic) unless user || post.try(:public?)
-
+  def self.find_public(id)
+    post = Post.where(Post.key_sym(id) => id).includes(:author, comments: :author).first
+    post.try(:public?) || raise(Diaspora::NonPublic)
     post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
+  end
+
+  def self.find_non_public_by_guid_or_id_with_user(id, user)
+    post = user.find_visible_shareable_by_id(Post, id, key: Post.key_sym(id))
+    post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
+  end
+
+  def self.key_sym(id)
+    id.to_s.length <= 8 ? :id : :guid
   end
 end
