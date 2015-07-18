@@ -26,7 +26,6 @@ header > .dark-header > nav {
       margin-left: 20px;
       & > li { height: 50px; }
       .nav-badge:focus:not(:hover){ color:#9d9d9d;}
-      .dropdown > a:focus { outline: 0px none; }
       .dropdown-open {
         background-color: $dropdown-bg;
         & > a { color: $dropdown-link-color; }
