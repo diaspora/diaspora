@@ -25,11 +25,6 @@ describe PostsController, :type => :controller do
         expect(response).to be_success
       end
 
-      it 'succeeds on mobile' do
-        get :show, "id" => @message.id
-        expect(response).to be_success
-      end
-
       it 'succeeds after removing a mention when closing the mentioned user\'s account' do
         user = FactoryGirl.create(:user, :username => "user")
         alice.share_with(user.person, alice.aspects.first)
