@@ -112,7 +112,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jquery-textchange",             "0.2.3"
   gem "rails-assets-perfect-scrollbar",             "0.6.3"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
-  gem "rails-assets-autosize",                      "3.0.6"
+  gem "rails-assets-autosize",                      "3.0.8"
 end
 
 # Localization
