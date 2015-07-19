@@ -49,6 +49,14 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Add mobile services and privacy settings pages [#6086](https://github.com/diaspora/diaspora/pull/6086)
 * Optionally make your extended profile details public [#6162](https://github.com/diaspora/diaspora/pull/6162)
 
+# 0.5.3.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.5.2.0
 
 ## Refactor
