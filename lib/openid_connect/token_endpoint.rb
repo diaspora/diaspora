@@ -40,7 +40,7 @@ module OpenidConnect
     end
 
     def handle_refresh_flow(req, res)
-      auth = OpenidConnect::Authorization.where(client_id: req.client_id).where(refresh_token: req.refresh_token).first
+      auth = OpenidConnect::Authorization.find_by_refresh_token req.client_id, req.refresh_token
       if auth
         res.access_token = auth.create_access_token
       else

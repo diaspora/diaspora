@@ -10,7 +10,9 @@ class OpenidConnect::Authorization < ActiveRecord::Base
   has_many :o_auth_access_tokens, dependent: :destroy
   has_many :id_tokens, dependent: :destroy
 
-  def generate_refresh_token
+  before_validation :setup, on: :create
+
+  def setup
     self.refresh_token = SecureRandom.hex(32)
   end
 
@@ -26,6 +28,11 @@ class OpenidConnect::Authorization < ActiveRecord::Base
   def self.find_by_client_id_and_user(client_id, user)
     app = OpenidConnect::OAuthApplication.find_by(client_id: client_id)
     find_by(o_auth_application: app, user: user)
+  end
+
+  def self.find_by_refresh_token(client_id, refresh_token)
+    OpenidConnect::Authorization.joins(:o_auth_application).where(
+      o_auth_applications: {client_id: client_id}, refresh_token: refresh_token).first
   end
 
   # TODO: Consider splitting into subclasses by flow type
