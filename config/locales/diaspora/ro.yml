@@ -283,7 +283,7 @@ ro:
         zero: "no likes"
   limited: "Limitat"
   more: "Mai mult"
-  next: "următorul"
+  next: "Următorul"
   no_results: "Niciun Rezultat Găsit"
   notifications:
     also_commented:
@@ -508,7 +508,7 @@ ro:
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
       reshare_by: "Partajat de către %{author}"
-  previous: "anterioare"
+  previous: "Precedentul"
   privacy: "Confidențialitate"
   privacy_policy: "Politica de confidenţialitate"
   profile: "Profil"

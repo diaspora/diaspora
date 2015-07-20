@@ -1030,7 +1030,7 @@ ia:
       get_location: "Localisar te"
       make_public: "render public"
       new_user_prefill:
-        hello: "Salute, io es un %{new_user_tag}. "
+        hello: "Salute, io es #%{new_user_tag}. "
         i_like: "Io me interessa in %{tags}. "
         invited_by: "Gratias pro le invitation, "
         newhere: "NewHere"
