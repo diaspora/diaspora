@@ -27,6 +27,13 @@ de_formal:
       deselect_all: "Auswahl aufheben"
       no_aspects: "Keine Aspekte ausgewählt"
       select_all: "Alle auswählen"
+    aspects:
+      create:
+        add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
+        failure: "Fehler beim Erstellen des Aspekts."
+        success: "Ihr neuer Aspekt <%= name %> wurde erstellt"
+      make_aspect_list_visible: "Kontakte aus diesem Aspekt gegenseitig sichtbar machen?"
+      name: "Name"
     bookmarklet:
       post_something: "Erstellen Sie einen Beitrag in diaspora*"
       post_submit: "Beitrag einreichen..."
@@ -63,7 +70,7 @@ de_formal:
       preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
     header:
       admin: "Administration"
-      close: "schließen"
+      close: "Schließen"
       contacts: "Kontakte"
       conversations: "Konversationen"
       help: "Hilfe"
@@ -98,7 +105,7 @@ de_formal:
         is_sharing: "<%= name %> teilt mit Ihnen"
       mention: "Erwähnen"
       message: "Nachricht"
-      not_found: "niemand wurde gefunden..."
+      not_found: "... und niemand wurde gefunden"
       stop_ignoring: "Ignorieren beenden"
     photo_uploader:
       completed: "<%= file %> hochgeladen"
@@ -122,7 +129,7 @@ de_formal:
       bio: "Beschreibung"
       born: "Geburtstag"
       contacts: "Kontakte"
-      edit: "bearbeiten"
+      edit: "Bearbeiten"
       gender: "Geschlecht"
       ignoring: "Sie ignorieren sämtliche Beiträge von <%= name %>."
       location: "Ort"
@@ -141,7 +148,7 @@ de_formal:
     report:
       name: "Meldung"
       prompt: "Bitte geben Sie einen Grund an:"
-      prompt_default: "anstößiger Inhalt"
+      prompt_default: "z.B. anstößiger Inhalt"
       status:
         created: "Die Meldung wurde erfolgreich erstellt"
         exists: "Die Meldung existiert bereits"
@@ -184,8 +191,11 @@ de_formal:
       show_nsfw_posts: "Zeige alle"
       tags:
         follow: "#<%= tag %> folgen"
+        follow_error: "Konnte #<%= tag %> nicht folgen :("
         following: "Sie folgen #<%= tag %>"
         stop_following: "Aufhören #<%= tag %> zu folgen"
+        stop_following_confirm: "Aufhören, #<%= tag %> zu folgen?"
+        stop_following_error: "<%= tag %> konnte nicht entfolgt werden :("
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
       via: "via <%= provider %>"

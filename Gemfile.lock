@@ -816,7 +816,6 @@ DEPENDENCIES
   rack-rewrite (= 1.5.1)
   rack-ssl (= 1.4.1)
   rails (= 4.2.3)
-  rails-assets-autosize (= 3.0.6)!
   rails-assets-diaspora_jsxc (~> 0.1.1)!
   rails-assets-highlightjs (= 8.6.0)!
   rails-assets-jakobmattsson--jquery-elastic (= 1.6.11)!

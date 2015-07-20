@@ -598,6 +598,7 @@ es:
       powered_by: "Impulsado por Diaspora*"
       public_feed: "Canal público de %{name} "
       source_package: "Descargar el paquete del código fuente"
+      statistics_link: "Estadísticas del pod"
       toggle: "Cambiar a interfaz móvil"
       whats_new: "Novedades"
       your_aspects: "Tus aspectos"

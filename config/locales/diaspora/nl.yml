@@ -313,6 +313,7 @@ nl:
       send: "Verstuur"
       sending: "Verzenden..."
       subject: "Onderwerp"
+      subject_default: "Geen onderwerp"
       to: "Aan"
     new_conversation:
       fail: "Ongeldig bericht"
@@ -603,6 +604,7 @@ nl:
       powered_by: "Powered by diaspora*"
       public_feed: "Publieke diaspora* kanaal van %{name}"
       source_package: "Download het broncode pakket"
+      statistics_link: "Pod statistieken"
       toggle: "Switch mobiele versie"
       whats_new: "Wat is nieuw op Diaspora?"
       your_aspects: "Jouw aspecten"
@@ -696,12 +698,9 @@ nl:
       other: "%{actors} hebben je vermeld in een %{post_link}."
       zero: "%{actors} hebben je vermeld in een %{post_link}."
     mentioned_deleted:
-      few: "%{actors} hebben jouw genoemd in een verwijderde post."
-      many: "%{actors} hebben jou genoemd in een verwijderde post."
-      one: "%{actors} heeft jou genoemd in een verwijderde post."
-      other: "%{actors} hebben jou genoemd in een verwijderde post."
-      two: "%{actors} hebben je genoemd in een verwijderde post."
-      zero: "%{actors} heeft jou genoemd in een verwijderde post."
+      one: "%{actors} heeft jou vermeld in een verwijderde post."
+      other: "%{actors} hebben jou vermeld in een verwijderde post."
+      zero: "%{actors} heeft jou vermeld in een verwijderde post."
     post: "bericht"
     private_message:
       one: "%{actors} heeft je een bericht gestuurd."
@@ -1230,7 +1229,7 @@ nl:
     version: "Versie"
   status_messages:
     create:
-      success: "Succesvol genoemd: %{names}"
+      success: "Succesvol vermeld: %{names}"
     destroy:
       failure: "Verwijderen van post mislukt"
     helper:
@@ -1270,7 +1269,7 @@ nl:
       title: "Interessante stream"
     mentioned_stream: "@Vermeldingen"
     mentions:
-      contacts_title: "Mensen die jou hebben genoemd"
+      contacts_title: "Mensen die jou hebben vermeld"
       title: "@Mij"
     multi:
       contacts_title: "Mensen in je stream"
@@ -1348,7 +1347,7 @@ nl:
       getting_started: "Nieuwe gebruikersvoorkeuren"
       last_exported_at: "(Laatst bijgewerkt op %{timestamp})"
       liked: "iemand je bericht leuk vindt"
-      mentioned: "je genoemd wordt in een bericht"
+      mentioned: "je vermeld wordt in een bericht"
       new_password: "Nieuw wachtwoord"
       private_message: "je een privébericht ontvangt"
       receive_email_notifications: "Ontvang e-mail notificaties wanneer:"
