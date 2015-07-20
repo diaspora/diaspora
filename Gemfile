@@ -95,24 +95,23 @@ gem "js-routes",         "1.0.1"
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "1.11.2" # Should be kept in sync with jquery-rails
 
-  gem "rails-assets-markdown-it",                         "4.3.0"
+  gem "rails-assets-markdown-it",                         "4.4.0"
   gem "rails-assets-markdown-it-hashtag",                 "0.3.1"
   gem "rails-assets-markdown-it-diaspora-mention",        "0.3.0"
   gem "rails-assets-markdown-it-sanitizer",               "0.3.2"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "8.5.0"
+  gem "rails-assets-highlightjs",                         "8.6.0"
 
   # jQuery plugins
 
   gem "rails-assets-jeresig--jquery.hotkeys",       "0.2.0"
-  gem "rails-assets-jquery-idletimer",              "1.0.1"
-  gem "rails-assets-jquery-placeholder",            "2.1.1"
+  gem "rails-assets-jquery-placeholder",            "2.1.2"
   gem "rails-assets-jquery-textchange",             "0.2.3"
-  gem "rails-assets-perfect-scrollbar",             "0.6.2"
+  gem "rails-assets-perfect-scrollbar",             "0.6.3"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
-  gem "rails-assets-autosize",                      "3.0.6"
+  gem "rails-assets-autosize",                      "3.0.8"
 end
 
 # Localization
@@ -286,7 +285,7 @@ group :development, :test do
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "2.3.0"
   gem "jasmine-jquery-rails",      "2.0.3"
-  gem "rails-assets-jasmine-ajax", "3.1.1", source: "https://rails-assets.org"
+  gem "rails-assets-jasmine-ajax", "3.2.0", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.15.0"
 
   # silence assets
