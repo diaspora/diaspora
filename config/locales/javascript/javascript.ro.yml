@@ -62,6 +62,8 @@ ro:
       invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
       looking_good: "WOW, arati super!"
       size_error: "{file} este prea mare, mărimea maximă a unui fişier este {sizeLimit}."
+    profile:
+      posts: "Postări"
     publisher:
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
       limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
@@ -109,6 +111,7 @@ ro:
       show_nsfw_posts: "Arată tot"
       tags:
         following: "Urmărind #<%= tag %>"
+        stop_following_confirm: "Să nu mai urmăresc #<%= tag %>?"
       unfollow: "Nu mai urmări"
       unlike: "Nu ȋmi place"
     tags:

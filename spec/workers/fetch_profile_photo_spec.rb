@@ -7,36 +7,36 @@ describe Workers::FetchProfilePhoto do
 
    @url = "https://service.com/user/profile_image"
 
-   @service.stub(:profile_photo_url).and_return(@url)
-   @user.stub(:update_profile)
+   allow(@service).to receive(:profile_photo_url).and_return(@url)
+   allow(@user).to receive(:update_profile)
 
-   User.stub(:find).and_return(@user)
-   Service.stub(:find).and_return(@service)
+   allow(User).to receive(:find).and_return(@user)
+   allow(Service).to receive(:find).and_return(@service)
 
     @photo_double = double
-    @photo_double.stub(:save!).and_return(true)
-    @photo_double.stub(:url).and_return("image.jpg")
+    allow(@photo_double).to receive(:save!).and_return(true)
+    allow(@photo_double).to receive(:url).and_return("image.jpg")
   end
 
   it 'saves the profile image' do
-    @photo_double.should_receive(:save!).and_return(true)
-    Photo.should_receive(:diaspora_initialize).with(hash_including(:author => @user.person, :image_url => @url, :pending => true)).and_return(@photo_double)
+    expect(@photo_double).to receive(:save!).and_return(true)
+    expect(Photo).to receive(:diaspora_initialize).with(hash_including(:author => @user.person, :image_url => @url, :pending => true)).and_return(@photo_double)
 
     Workers::FetchProfilePhoto.new.perform(@user.id, @service.id)
   end
 
   context "service does not have a profile_photo_url" do
     it "does nothing without fallback" do
-      @service.stub(:profile_photo_url).and_return(nil)
-      Photo.should_not_receive(:diaspora_initialize)
+      allow(@service).to receive(:profile_photo_url).and_return(nil)
+      expect(Photo).not_to receive(:diaspora_initialize)
 
       Workers::FetchProfilePhoto.new.perform(@user.id, @service.id)
     end
 
     it "fetches fallback if it's provided" do
-      @photo_double.should_receive(:save!).and_return(true)
-      @service.stub(:profile_photo_url).and_return(nil)
-      Photo.should_receive(:diaspora_initialize).with(hash_including(:author => @user.person, :image_url => "https://service.com/fallback_lowres.jpg", :pending => true)).and_return(@photo_double)
+      expect(@photo_double).to receive(:save!).and_return(true)
+      allow(@service).to receive(:profile_photo_url).and_return(nil)
+      expect(Photo).to receive(:diaspora_initialize).with(hash_including(:author => @user.person, :image_url => "https://service.com/fallback_lowres.jpg", :pending => true)).and_return(@photo_double)
 
       Workers::FetchProfilePhoto.new.perform(@user.id, @service.id, "https://service.com/fallback_lowres.jpg")
     end
@@ -44,10 +44,10 @@ describe Workers::FetchProfilePhoto do
 
 
   it 'updates the profile' do
-    @photo_double.stub(:url).and_return("large.jpg", "medium.jpg", "small.jpg")
+    allow(@photo_double).to receive(:url).and_return("large.jpg", "medium.jpg", "small.jpg")
 
-    Photo.should_receive(:diaspora_initialize).and_return(@photo_double)
-    @user.should_receive(:update_profile).with(hash_including({
+    expect(Photo).to receive(:diaspora_initialize).and_return(@photo_double)
+    expect(@user).to receive(:update_profile).with(hash_including({
                                                :image_url => "large.jpg",
                                                :image_url_medium => "medium.jpg",
                                                :image_url_small  => "small.jpg"

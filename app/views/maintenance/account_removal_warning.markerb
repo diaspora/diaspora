@@ -1,0 +1,2 @@
+<%= t('notifier.remove_old_user.body', pod_url: @pod_url, login_url: @login_url, after_days: @after_days, remove_after: @remove_after) %>
+

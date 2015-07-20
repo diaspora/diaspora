@@ -48,7 +48,12 @@ class Photo < ActiveRecord::Base
 
   after_commit :on => :create do
     queue_processing_job if self.author.local?
+
   end
+
+  scope :on_statuses, ->(post_guids) {
+    where(:status_message_guid => post_guids)
+  }
 
   def clear_empty_status_message
     if self.status_message && self.status_message.text_and_photos_blank?
@@ -76,10 +81,13 @@ class Photo < ActiveRecord::Base
 
     photo.random_string = SecureRandom.hex(10)
 
+    if photo.author.local?
+      photo.unprocessed_image.strip_exif = photo.author.owner.strip_exif
+    end
+
     if params[:user_file]
       image_file = params.delete(:user_file)
       photo.unprocessed_image.store! image_file
-
     elsif params[:image_url]
       photo.remote_unprocessed_image_url = params[:image_url]
       photo.unprocessed_image.store!
@@ -109,7 +117,12 @@ class Photo < ActiveRecord::Base
   def url(name = nil)
     if remote_photo_path
       name = name.to_s + '_' if name
-      remote_photo_path + name.to_s + remote_photo_name
+      image_url = remote_photo_path + name.to_s + remote_photo_name
+      if AppConfig.privacy.camo.proxy_remote_pod_images?
+        Diaspora::Camo.image_url(image_url)
+      else
+        image_url
+      end
     elsif processed?
       processed_image.url(name)
     else
@@ -132,8 +145,4 @@ class Photo < ActiveRecord::Base
   def mutable?
     true
   end
-
-  scope :on_statuses, lambda { |post_guids|
-    where(:status_message_guid => post_guids)
-  }
 end

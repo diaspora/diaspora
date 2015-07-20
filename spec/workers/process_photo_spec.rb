@@ -12,14 +12,14 @@ describe Workers::ProcessPhoto do
   end
 
   it 'saves the processed image' do
-    @saved_photo.processed_image.path.should be_nil
+    expect(@saved_photo.processed_image.path).to be_nil
 
     result = Workers::ProcessPhoto.new.perform(@saved_photo.id)
 
     @saved_photo.reload
 
-    @saved_photo.processed_image.path.should_not be_nil
-    result.should be true
+    expect(@saved_photo.processed_image.path).not_to be_nil
+    expect(result).to be true
   end
 
   context 'when trying to process a photo that has already been processed' do
@@ -35,8 +35,8 @@ describe Workers::ProcessPhoto do
 
       @saved_photo.reload
 
-      @saved_photo.processed_image.path.should == processed_image_path
-      result.should be false
+      expect(@saved_photo.processed_image.path).to eq(processed_image_path)
+      expect(result).to be false
     end
   end
 
@@ -50,8 +50,8 @@ describe Workers::ProcessPhoto do
     it 'does not process the gif' do
       result = Workers::ProcessPhoto.new.perform(@saved_gif.id)
 
-      @saved_gif.reload.processed_image.path.should be_nil
-      result.should be false
+      expect(@saved_gif.reload.processed_image.path).to be_nil
+      expect(result).to be false
     end
   end
 
@@ -61,6 +61,12 @@ describe Workers::ProcessPhoto do
     expect{
       result = Workers::ProcessPhoto.new.perform(p.id)
     }.to_not raise_error
-    
+
+  end
+
+  it 'handles already deleted photos gracefully' do
+    expect {
+      Workers::ProcessPhoto.new.perform(0)
+    }.to_not raise_error
   end
 end

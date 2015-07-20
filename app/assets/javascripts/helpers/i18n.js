@@ -1,10 +1,12 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 Diaspora.I18n = {
   language: "en",
   locale: {
     pluralizationKey: function(n) { return this.fallback.pluralizationKey(n); },
     data: {},
     fallback: {
-      pluralizationKey: function(n) { return n == 1 ? "one" : "other"; },
+      pluralizationKey: function(n) { return n === 1 ? "one" : "other"; },
       data: {}
     }
   },
@@ -18,9 +20,12 @@ Diaspora.I18n = {
   updateLocale: function(locale, data) {
     locale.data = $.extend(locale.data, data);
 
-    rule = this._resolve(locale, ['pluralization_rule']);
+    var rule = this._resolve(locale, ['pluralization_rule']);
     if (rule !== "") {
+      /* jshint evil:true */
+      // TODO change this to `locale.pluralizationKey = rule`?
       eval("locale.pluralizationKey = "+rule);
+      /* jshint evil:false */
     }
   },
 
@@ -35,7 +40,7 @@ Diaspora.I18n = {
   _resolve: function(locale, items) {
     var translatedMessage, nextNamespace, originalItems = items.slice();
 
-    while(nextNamespace = items.shift()) {
+    while( (nextNamespace = items.shift()) ) {
       translatedMessage = (translatedMessage)
         ? translatedMessage[nextNamespace]
         : locale.data[nextNamespace];
@@ -48,7 +53,7 @@ Diaspora.I18n = {
         }
       }
     }
-   
+
     return translatedMessage;
   },
 
@@ -60,7 +65,7 @@ Diaspora.I18n = {
     }
 
     try {
-      return _.template(this._resolve(locale, items), views || {});
+      return _.template(this._resolve(locale, items))(views || {});
     } catch (e) {
       if (typeof locale.fallback === "undefined") {
         return "";
@@ -77,3 +82,5 @@ Diaspora.I18n = {
       this.locale.data = arguments[0];
   }
 };
+// @license-end
+

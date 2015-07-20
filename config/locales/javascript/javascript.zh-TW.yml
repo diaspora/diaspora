@@ -12,23 +12,39 @@ zh-TW:
       all_aspects: "所有面向"
       error: "無法開始和 <%= name %> 分享。你還在忽視他們嗎？"
       error_remove: "無法把 <%= name %> 從面向中移除 :("
+      mobile_row_checked: "<%= name %> (移除)"
+      mobile_row_unchecked: "<%= name %> (新增)"
       select_aspects: "選面向"
       started_sharing_with: "你開始和 <%= name %> 分享了！"
       stopped_sharing_with: "停止和 <%= name %> 分享了。"
       toggle:
         other: "在<%= count %>個面向中"
         zero: "選面向"
+      updating: "正在更新..."
     aspect_navigation:
       add_an_aspect: "+ 新增面向"
       deselect_all: "全不選"
       no_aspects: "沒選任何一個面向"
       select_all: "全選"
+    bookmarklet:
+      post_something: "貼到 diaspora*"
+      post_submit: "傳送貼文中..."
+      post_success: "貼好了！彈出視窗關閉中..."
     comma: "，"
     comments:
       hide: "隱藏意見"
       no_comments: "目前還沒有任何意見。"
       show: "顯示所有意見"
     confirm_dialog: "你確定嗎？"
+    confirm_unload: "請確定要離開這一頁 - 你目前所輸入的資料不會保留。"
+    contacts:
+      add_contact: "加聯絡人"
+      aspect_list_is_not_visible: "在這個面向中的連絡人沒辦法看見有哪些人在同一個面向中。"
+      aspect_list_is_visible: "在這個面向中的連絡人可以互相看見他們在同一個面向中。"
+      error_add: "沒辦法把 <%= name %> 加到這個面向 :("
+      error_remove: "沒辦法把 <%= name %> 從這個面向中移除 :("
+      remove_contact: "刪聯絡人"
+      search_no_results: "沒找到聯絡人"
     conversation:
       participants: "參加人員"
     delete: "刪除"
@@ -36,6 +52,7 @@ zh-TW:
     failed_to_like: "說讚失敗！"
     failed_to_post_message: "貼文失敗！"
     failed_to_remove: "刪掉這個項目的動作失敗了！"
+    failed_to_reshare: "轉貼失敗！"
     getting_started:
       alright_ill_wait: "好，再說吧。"
       hey: "嗨，<%= name %>！"
@@ -45,6 +62,7 @@ zh-TW:
       admin: "管理"
       close: "關閉"
       contacts: "連絡人"
+      conversations: "交談"
       help: "說明"
       home: "我家"
       log_out: "登出"
@@ -55,7 +73,10 @@ zh-TW:
       search: "搜尋"
       settings: "設定"
       view_all: "看全部"
+    hide_post: "要隱藏貼文嗎？"
+    hide_post_failed: "沒辦法隱藏貼文"
     ignore: "忽視"
+    ignore_failed: "沒辦法忽視這個使用者"
     ignore_user: "要忽視這個使用者嗎？"
     infinite_scroll:
       no_more: "沒有貼文了。"
@@ -63,8 +84,19 @@ zh-TW:
     my_activity: "我的活動"
     my_aspects: "我的面向"
     my_stream: "流水帳"
+    no_results: "結果什麽都找不到"
+    notifications:
+      mark_read: "標示為看過了"
+      mark_unread: "標示為沒看過"
     people:
+      edit_my_profile: "編輯自己的個人檔案"
+      helper:
+        is_not_sharing: "<%= name %> 沒有跟你分享"
+        is_sharing: "<%= name %> 正在跟你分享中"
+      mention: "指指點點"
+      message: "送訊息"
       not_found: "找不到任何人..."
+      stop_ignoring: "停止忽視"
     photo_uploader:
       completed: "檔案 <%= file %> 完成了"
       empty: "檔案 {file} 是空的，請不要選它再重選一次。"
@@ -72,11 +104,43 @@ zh-TW:
       invalid_ext: "檔案 {file} 的副檔名不合格。僅接受 {extensions}。"
       looking_good: "天啊，你看起來真帥！"
       size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
+    poll:
+      close_result: "隱藏結果"
+      count:
+        other: "到目前有 <%=count%> 張票"
+      go_to_original_post: "你可以在 <%= original_post_link %> 參與這次票選。"
+      original_post: "原貼文"
+      result: "結果"
+      show_result: "顯示結果"
+      vote: "投票"
+    profile:
+      add_some: "加入一些"
+      bio: "自我介紹"
+      born: "生日"
+      contacts: "聯絡資訊"
+      edit: "編輯"
+      gender: "性別"
+      ignoring: "你目前會忽視 <%= name %> 的所有貼文。"
+      location: "地點"
+      photos: "相片"
+      posts: "貼文"
+      you_have_no_tags: "你沒有任何標籤！"
     publisher:
+      add_option: "增加答案"
       at_least_one_aspect: "發表時請至少選擇一個面向"
       limited: "有限 - 只有你想分享的人才看得到你的貼文"
       near_from: "貼文地點：<%= location %>"
+      option: "答案"
       public: "公開 - 所有人都能看到你的貼文，包括搜尋引擎"
+      question: "問題"
+    remove_post: "要移除貼文嗎？"
+    report:
+      name: "回報"
+      prompt: "請輸入回報的理由:"
+      prompt_default: "內容有攻擊性"
+      status:
+        created: "成功產生回報了"
+        exists: "已經有這筆回報了"
     reshares:
       duplicate: "很棒對吧？你已經轉貼過該篇貼文了！"
       post: "要轉貼 <%= name %> 的貼文嗎？"
@@ -85,6 +149,8 @@ zh-TW:
     show_more: "顯示更多"
     stream:
       comment: "意見"
+      disable_post_notifications: "關閉貼文的最新通知"
+      enable_post_notifications: "開啟貼文的最新通知"
       follow: "追蹤"
       followed_tag:
         add_a_tag: "新增標籤"
@@ -115,6 +181,7 @@ zh-TW:
         stop_following: "停止追蹤 #<%= tag %>"
       unfollow: "取消追蹤"
       unlike: "收回讚"
+      via: "經由<%= provider %>"
     tags:
       wasnt_that_interesting: "OK，我想 #<%= tagName %> 大概沒那麼有趣..."
     timeago:
@@ -133,6 +200,7 @@ zh-TW:
       suffixFromNow: "前"
       year: "約一年"
       years: "%d年"
+    unblock_failed: "取消封鎖這個使用者失敗了"
     videos:
       unknown: "不明的影片類別"
       watch: "從 <%= provider %> 看這部影片"

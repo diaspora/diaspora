@@ -3,11 +3,9 @@
 #   the COPYRIGHT file.
 
 class StatusMessagesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
-  before_filter :remove_getting_started, :only => [:create]
-
-  use_bootstrap_for :bookmarklet
+  before_action :remove_getting_started, :only => [:create]
 
   respond_to :html,
              :mobile,
@@ -75,11 +73,6 @@ class StatusMessagesController < ApplicationController
 
       current_user.dispatch_post(@status_message, :url => short_post_url(@status_message.guid), :service_types => receiving_services)
 
-      #this is done implicitly, somewhere else, but it doesnt work, says max. :'(
-      @status_message.photos.each do |photo|
-        current_user.dispatch_post(photo)
-      end
-
       current_user.participate!(@status_message)
 
       if coming_from_profile_page? && !own_profile_page? # if this is a post coming from a profile page
@@ -95,7 +88,8 @@ class StatusMessagesController < ApplicationController
       respond_to do |format|
         format.html { redirect_to :back }
         format.mobile { redirect_to stream_path }
-        format.json { render :nothing => true, :status => 403 }
+        #there are some errors, so we report the first one to the user
+        format.json { render :text => @status_message.errors.messages.values.first.to_sentence, :status => 403 }
       end
     end
   end

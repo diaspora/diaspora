@@ -53,8 +53,6 @@ es-BO:
     add_to_aspect:
       failure: "Error al añadir el contacto al aspecto."
       success: "Contacto añadido exitosamente al aspecto."
-    aspect_contacts:
-      done_editing: "editado"
     aspect_listings:
       add_an_aspect: "+ Añadir un aspecto"
       deselect_all: "Anular selección"
@@ -69,21 +67,14 @@ es-BO:
       failure: "%{name} no esta vacio y no pudo ser eliminado."
       success: "%{name} ha sido eliminado con éxito."
     edit:
-      add_existing: "Añade un contacto existente"
       aspect_list_is_not_visible: "la lista de aspectos está oculta a otros en este aspecto"
       aspect_list_is_visible: "la lista de contactos del aspecto es visible"
       confirm_remove_aspect: "¿Estás seguro de que quieres eliminar este aspecto?"
-      done: "Hecho"
       make_aspect_list_visible: "¿hacer que los contactos en este aspecto puedan verse entre ellos?"
       remove_aspect: "Eliminar este aspecto"
       rename: "Cambiar nombre"
       update: "actualizar"
       updating: "actualizando"
-    few: "%{count} aspectos"
-    helper:
-      are_you_sure: "¿Estás seguro de querer borrar este aspecto?"
-      aspect_not_empty: "El aspecto no está vacío"
-      remove: "eliminar"
     index:
       donate: "Donar"
       handle_explanation: "Esta es tu dirección de Diaspora. Como una dirección de correo electrónico, puedes dársela a la gente para que te encuentre."
@@ -93,10 +84,6 @@ es-BO:
       post_a_message: "publica un mensaje >>"
       unfollow_tag: "Dejar de seguir #%{tag}"
       welcome_to_diaspora: "Bienvenido a Diaspora, %{name}!"
-    many: "%{count} aspectos"
-    move_contact:
-      error: "Error moviendo contacto: %{inspect}"
-      success: "La persona fue movida al nuevo aspecto"
     new:
       create: "Crear"
       name: "Nombre (solo es visible para tí)"
@@ -114,14 +101,6 @@ es-BO:
       family: "Familia"
       friends: "Amigos"
       work: "Trabajo"
-    selected_contacts:
-      manage_your_aspects: "Administra tus aspectos"
-      no_contacts: "Todavía no tienes ningún contacto aquí."
-      view_all_community_spotlight: "Ver lo más destacado de la comunidad"
-      view_all_contacts: "Ver todos los contactos"
-    show:
-      edit_aspect: "editar aspecto"
-    two: "%{count} aspectos"
     update:
       failure: "Tu aspecto, %{name}, tiene un nombre muy largo para ser guardado."
       success: "Tu aspecto %{name}, ha sido editado con éxito."

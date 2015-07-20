@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PostsController do
+describe PostsController, :type => :controller do
   before do
     aspect = alice.aspects.first
     @message = alice.build_post :status_message, :text => "ohai", :to => aspect.id
@@ -17,27 +17,38 @@ describe PostsController do
   describe '#show' do
     context 'user signed in' do
       before do
-        sign_in alice
+        sign_in :user, alice
       end
 
       it 'succeeds' do
         get :show, "id" => @message.id
-        response.should be_success
+        expect(response).to be_success
       end
 
       it 'succeeds on mobile' do
         get :show, "id" => @message.id
-        response.should be_success
+        expect(response).to be_success
+      end
+
+      it 'succeeds after removing a mention when closing the mentioned user\'s account' do
+        user = FactoryGirl.create(:user, :username => "user")
+        alice.share_with(user.person, alice.aspects.first)
+        msg = alice.build_post :status_message, text: "Mention @{User ; #{user.diaspora_handle}}", :public => true, :to => 'all'
+        msg.save!
+        expect(msg.mentioned_people.count).to eq(1)
+        user.destroy
+        get :show, "id" => msg.id
+        expect(response).to be_success
       end
 
       it 'renders the application layout on mobile' do
         get :show, :id => @message.id, :format => :mobile
-        response.should render_template('layouts/application')
+        expect(response).to render_template('layouts/application')
       end
 
       it 'succeeds on mobile with a reshare' do
         get :show, "id" => FactoryGirl.create(:reshare, :author => alice.person).id, :format => :mobile
-        response.should be_success
+        expect(response).to be_success
       end
 
       it 'marks a corresponding notifications as read' do
@@ -76,25 +87,25 @@ describe PostsController do
 
         it 'shows a public post' do
           get :show, :id => @status.id
-          response.status.should == 200
+          expect(response.status).to eq(200)
         end
 
         it 'succeeds for statusnet' do
           @request.env["HTTP_ACCEPT"] = "application/html+xml,text/html"
           get :show, :id => @status.id
-          response.should be_success
+          expect(response).to be_success
         end
 
         it 'responds with diaspora xml if format is xml' do
           get :show, :id => @status.guid, :format => :xml
-          response.body.should == @status.to_diaspora_xml
+          expect(response.body).to eq(@status.to_diaspora_xml)
         end
       end
 
       it 'does not show a private post' do
         status = alice.post(:status_message, :text => "hello", :public => false, :to => 'all')
         get :show, :id => status.id
-        response.status.should == 404
+        expect(response.status).to eq(404)
       end
 
       # We want to be using guids from now on for this post route, but do not want to break
@@ -107,20 +118,20 @@ describe PostsController do
 
         it 'assumes guids less than 8 chars are ids and not guids' do
           p = Post.where(:id => @status.id.to_s)
-          Post.should_receive(:where)
+          expect(Post).to receive(:where)
               .with(hash_including(:id => @status.id.to_s))
               .and_return(p)
           get :show, :id => @status.id
-          response.should be_success
+          expect(response).to be_success
         end
 
         it 'assumes guids more than (or equal to) 8 chars are actually guids' do
           p = Post.where(:guid => @status.guid)
-          Post.should_receive(:where)
+          expect(Post).to receive(:where)
               .with(hash_including(:guid => @status.guid))
               .and_return(p)
           get :show, :id => @status.guid
-          response.should be_success
+          expect(response).to be_success
         end
       end
     end
@@ -129,7 +140,7 @@ describe PostsController do
   describe 'iframe' do
     it 'contains an iframe' do
       get :iframe, :id => @message.id
-      response.body.should match /iframe/
+      expect(response.body).to match /iframe/
     end
   end
 
@@ -137,12 +148,12 @@ describe PostsController do
     it 'works when you can see it' do
       sign_in alice
       get :oembed, :url => "/posts/#{@message.id}"
-      response.body.should match /iframe/
+      expect(response.body).to match /iframe/
     end
 
     it 'returns a 404 response when the post is not found' do
       get :oembed, :url => "/posts/#{@message.id}"
-      response.status.should == 404
+      expect(response.status).to eq(404)
     end
   end
 
@@ -154,28 +165,28 @@ describe PostsController do
     it 'let a user delete his message' do
       message = alice.post(:status_message, :text => "hey", :to => alice.aspects.first.id)
       delete :destroy, :format => :js, :id => message.id
-      response.should be_success
-      StatusMessage.find_by_id(message.id).should be_nil
+      expect(response).to be_success
+      expect(StatusMessage.find_by_id(message.id)).to be_nil
     end
 
     it 'sends a retraction on delete' do
-      controller.stub(:current_user).and_return alice
+      allow(controller).to receive(:current_user).and_return alice
       message = alice.post(:status_message, :text => "hey", :to => alice.aspects.first.id)
-      alice.should_receive(:retract).with(message)
+      expect(alice).to receive(:retract).with(message)
       delete :destroy, :format => :js, :id => message.id
-      response.should be_success
+      expect(response).to be_success
     end
 
     it 'will not let you destroy posts visible to you' do
       message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
       expect { delete :destroy, :format => :js, :id => message.id }.to raise_error(ActiveRecord::RecordNotFound)
-      StatusMessage.exists?(message.id).should be_true
+      expect(StatusMessage.exists?(message.id)).to be true
     end
 
     it 'will not let you destory posts you do not own' do
       message = eve.post(:status_message, :text => "hey", :to => eve.aspects.first.id)
       expect { delete :destroy, :format => :js, :id => message.id }.to raise_error(ActiveRecord::RecordNotFound)
-      StatusMessage.exists?(message.id).should be_true
+      expect(StatusMessage.exists?(message.id)).to be true
     end
   end
 end

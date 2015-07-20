@@ -2,58 +2,56 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :head do
-  = javascript_include_tag :home
+  - if AppConfig.chat.enabled?
+    = javascript_include_tag :jsxc, :id => 'jsxc',
+      :data => { :endpoint => get_bosh_endpoint }
 
 - if current_user.getting_started?
   #welcome-to-diaspora
-    .container{:style => "position: relative;"}
-      .right
-        = link_to image_tag('close_label.png'), getting_started_completed_path, :id => "gs-skip-x"
-      .span-23
-        %h1
-          = t('aspects.index.welcome_to_diaspora', :name => current_user.first_name)
-        %h3
-          = t('aspects.index.introduce_yourself')
-  %br
-  %br
-  %br
-  %br
-  %br
+    .container-fluid
+      .row-fluid
+        .span8.offset1
+          %h1
+            = t('aspects.index.welcome_to_diaspora', :name => current_user.first_name)
+          %h3
+            = t('aspects.index.introduce_yourself')
+        .span2
+          .pull-right
+            = link_to '&times;'.html_safe, getting_started_completed_path, :id => "gs-skip-x", :class => "close"
 
-.span-5#leftNavBar
-  #home_user_badge
-    = owner_image_link
-    %h4
-      = link_to current_user.first_name, local_or_remote_person_path(current_user.person)
+.container-fluid
+  .row-fluid
+    .offset1.span2#leftNavBar
+      #home_user_badge
+        = owner_image_link
+        %h4
+          = link_to current_user.first_name, local_or_remote_person_path(current_user.person)
 
-  %ul#stream_selection
-    %li.hoverable{:data => {:stream => 'stream'}}
-      = link_to t("streams.multi.title"), stream_path, :rel => 'backbone'
-    %li.hoverable{:data => {:stream => 'activity'}}
-      = link_to t("streams.activity.title"), activity_stream_path, :rel => 'backbone'
-    %li.hoverable{:data => {:stream => 'mentions'}}
-      = link_to t('streams.mentions.title'), mentioned_stream_path, :rel => 'backbone'
-    %li.all_aspects
-      = render 'aspects/aspect_listings', :stream => @stream
-    %li
-      = render 'tags/followed_tags_listings'
+      %ul#stream_selection
+        %li.hoverable{:data => {:stream => 'stream'}}
+          = link_to t("streams.multi.title"), stream_path, :rel => 'backbone'
+        %li.hoverable{:data => {:stream => 'activity'}}
+          = link_to t("streams.activity.title"), activity_stream_path, :rel => 'backbone'
+        %li.hoverable{:data => {:stream => 'mentions'}}
+          = link_to t('streams.mentions.title'), mentioned_stream_path, :rel => 'backbone'
+        %li.all_aspects
+          = render 'aspects/aspect_listings', :stream => @stream
+        %li
+          = render 'tags/followed_tags_listings'
 
+    .span6
+      #aspect_stream_container.stream_container
+        = render 'aspects/aspect_stream', :stream => @stream
 
+    .span2.rightBar
+      #selected_aspect_contacts.section
+        .title.no_icon
+          %h5.stream_title
+            = @stream.title
+        .content
 
-.span-13.append-1
-  #aspect_stream_container.stream_container
-    = render 'aspects/aspect_stream', :stream => @stream
+      = render 'shared/right_sections'
 
-.span-5.rightBar.last
-  #selected_aspect_contacts.section
-    .title.no_icon
-      %h5.stream_title
-        = @stream.title
-    .content
-
-  = render 'shared/right_sections'
-
-  %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
-    &#8679;
+      %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
+        &#8679;

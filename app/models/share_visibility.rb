@@ -6,10 +6,11 @@ class ShareVisibility < ActiveRecord::Base
   belongs_to :contact
   belongs_to :shareable, :polymorphic => :true
 
-  scope :for_a_users_contacts, lambda { |user|
+  scope :for_a_users_contacts, ->(user) {
     where(:contact_id => user.contacts.map {|c| c.id})
   }
-  scope :for_contacts_of_a_person, lambda { |person|
+
+  scope :for_contacts_of_a_person, ->(person) {
     where(:contact_id => person.contacts.map {|c| c.id})
   }
 
@@ -25,7 +26,11 @@ class ShareVisibility < ActiveRecord::Base
 
     if AppConfig.postgres?
       contact_ids.each do |contact_id|
-        ShareVisibility.find_or_create_by_contact_id_and_shareable_id_and_shareable_type(contact_id, share.id, share.class.base_class.to_s)
+        ShareVisibility.find_or_create_by(
+          contact_id: contact_id,
+          shareable_id: share.id,
+          shareable_type: share.class.base_class.to_s
+        )
       end
     else
        new_share_visibilities_data = contact_ids.map do |contact_id|

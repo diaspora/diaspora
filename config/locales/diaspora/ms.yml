@@ -48,25 +48,41 @@ ms:
       video_title:
         unknown: "Tajuk Wayang Tidak Diketahui"
   are_you_sure: "Anda yakin?"
+  are_you_sure_delete_account: "Adakah anda pasti anda mahu menutup akaun anda? Ini tidak boleh diundur!"
   aspect_memberships:
     destroy:
       failure: "Gagal mengeluarkan individu daripada aspek"
+      no_membership: "Tidak dapat mencari orang yang dipilih dalam aspek itu"
+      success: "Orang berjaya dikeluarkan dari aspek"
   aspects:
+    add_to_aspect:
+      failure: "Gagal untuk menambah kenalan kepada aspek."
+      success: "Berjaya menambah kenalan kepada aspek."
+    aspect_listings:
+      add_an_aspect: "+ Tambah sebuah aspek"
+      deselect_all: "Nyahpilih semua"
+      edit_aspect: "Edit %{name}"
+      select_all: "Pilih semua"
+    aspect_stream:
+      stay_updated: "Kekal Dikemaskini"
+      stay_updated_explanation: "Aliran utama anda dipenuhi dengan semua kenalan anda, tag anda ikuti, dan catatan dari beberapa ahli kreatif komuniti."
+    contacts_not_visible: "Kenalan dalam aspek ini tidak akan dapat melihat satu sama lain."
+    contacts_visible: "Kenalan dalam aspek ini akan dapat melihat satu sama lain."
+    create:
+      failure: "Penciptaan aspek gagal."
+      success: "Aspek baru anda %{name} telah dibuat"
     destroy:
+      failure: "%{name} tidak kosong dan tidak boleh dikeluarkan."
       success: "%{name} telah berjaya dikeluarkan."
     edit:
-      add_existing: "Tambah kenalan yang sedia ada"
+      aspect_list_is_not_visible: "Kenalan dalam aspek ini tidak dapat melihat satu sama lain."
+      aspect_list_is_visible: "Kenalan dalam aspek ini dapat melihat satu sama lain."
       confirm_remove_aspect: "Adakah anda pasti anda mahu memadam aspek ini?"
-      done: "Selesai"
-      make_aspect_list_visible: "membuat kenalan dalam aspek ini dapat dilihat antara satu sama lain?"
+      make_aspect_list_visible: "Buat kenalan dalam aspek ini dapat dilihat antara satu sama lain?"
       remove_aspect: "Padam aspek ini"
+      rename: "namakan semula"
       update: "kemas kini"
       updating: "mengemas kini"
-    few: "%{count} aspek"
-    helper:
-      are_you_sure: "Adakah anda pasti anda mahu memadam aspek ini?"
-      aspect_not_empty: "Aspek tidak kosong"
-      remove: "buang"
     index:
       diaspora_id:
         content_1: "ID Diaspora anda adalah:"
@@ -76,16 +92,29 @@ ms:
       handle_explanation: "Ini adalah diaspora id anda. Seperti alamat e-mel, anda boleh memberikan orang-orang ini untuk mencapai anda."
       help:
         do_you: "Adakah anda:"
+        email_feedback: "%{link} maklumbalas anda, jika anda inginkan"
+        feature_suggestion: "... punyai %{link} cadangan?"
+        find_a_bug: "... mencari %{link}?"
+        have_a_question: "... punyai %{link}?"
+        here_to_help: "Komuniti diaspora* disini!"
+        need_help: "Perlukan Bantuan?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+      introduce_yourself: "Ini adalah aliran anda. Sertai dan kenalkan diri anda."
+      new_here:
+        follow: "Ikuti %{link} dan selamat datang pengguna baru ke diaspora *!"
+        learn_more: "Ketahui lebih lanjut"
+        title: "Alukan Pengguna Baru"
+      no_contacts: "Tiada kenalan"
+      no_tags: "+ Cari tag untuk diikuti"
+      people_sharing_with_you: "Orang berkongsi dengan anda"
+      post_a_message: "hantar mesej"
+      services:
+        content: "Anda boleh menyambung perkhidmatan berikut kepada diaspora*:"
+        heading: "Khidmat Perhubungan"
       unfollow_tag: "berhenti mengikut #%{tag}"
       welcome_to_diaspora: "Selamat datang ke Diaspora, %{name}!"
-    many: "%{count} aspek"
-    move_contact:
-      error: "Ralat memindah kenalan: %{inspect}"
-      failure: "tidak berfungsi %{inspect}"
-      success: "Orang berpindah kepada aspek baru"
     new:
       create: "Cipta"
       name: "Nama (hanya boleh dilihat oleh anda)"
@@ -103,32 +132,41 @@ ms:
       family: "Famili"
       friends: "Rakan"
       work: "Kerja"
-    two: "%{count} aspects"
+    update:
+      failure: "Aspek anda, %{name}, mempunyai nama terlalu panjang untuk disimpan."
+      success: "Aspek anda, %{name}, telah berjaya diedit."
     zero: "no aspects"
+  back: "Undur"
   bookmarklet:
+    explanation: "Pos kepada diaspora * dari mana-mana sahaja dengan bookmark link ini => %{link}."
+    heading: "Bookmarklet"
+    post_something: "Pos kepada diaspora*"
     post_success: "Telah Di Pos! Tutup!"
   cancel: "Batal"
   comments:
-    few: "%{count} komen"
-    many: "%{count} komen"
     new_comment:
       comment: "Komen"
       commenting: "Mengulas..."
     one: "1 komen"
     other: "%{count} komen"
-    two: "%{count} komen"
     zero: "tiada komen"
   contacts:
     create:
       failure: "Gagal untuk membuat kenalan"
-    few: "%{count} kenalan"
     index:
       add_a_new_aspect: "Tambah aspek baru"
       add_to_aspect: "menambah kenalan ke %{name}"
       all_contacts: "Semua Kenalan"
-      many_people_are_you_sure: "Adakah anda pasti anda mahu untuk memulakan perbualan peribadi dengan lebih daripada% {suggested_limit} kenalan? Posting ke aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
       my_contacts: "Kenalan Saya"
       only_sharing_with_me: "Hanya berkongsi dengan saya"
+      start_a_conversation: "Mulakan perbualan"
+      title: "Kenalan-kenalan"
+      your_contacts: "Kenalan Anda"
+    one: "1 kenalan"
+    other: "%{count} kenalan-kenalan"
+    sharing:
+      people_sharing: "Orang berkongsi dengan anda:"
+    zero: "kenalan-kenalan"
   conversations:
     helper:
       new_messages:
@@ -153,6 +191,14 @@ ms:
       reply: "balas"
       replying: "Membalas..."
   delete: "Padam"
+  email: "Emel"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Betulkan kesilapan-kesilapan berikut dan cuba lagi."
+      invalid_fields: "bidang tidak sah"
+  fill_me_out: "Isi"
+  find_people: "Cari orang atau #tag"
+  hide: "Sembunyikan"
   invitations:
     create:
       already_contacts: "Anda telah disambungkan dengan orang ini"
@@ -306,6 +352,8 @@ ms:
     a_post_you_shared: "pos."
     click_here: "klik di sini"
     to_change_your_notification_settings: "untuk menukar tetapan pemberitahuan anda"
+  nsfw: "NSFW"
+  ok: "Baiklah"
   or: "atau"
   password: "kata laluan"
   password_confirmation: "pengesahan kata laluan"
@@ -314,14 +362,12 @@ ms:
       add_contact_from_tag: "menambah kenalan dari tag"
     aspect_list:
       edit_membership: "mengedit keahlian aspek"
-    few: "%{count} orang"
     helper:
       results_for: "keputusan untuk %{params}"
     index:
       no_one_found: "...dan tiada orang yang dijumpai."
       no_results: "Hey! Anda perlu mencari sesuatu."
       results_for: "hasil carian untuk"
-    many: "%{count} orang"
     one: "1 orang"
     other: "%{count} orang"
     person:
@@ -337,7 +383,6 @@ ms:
       add_some: "menambah beberapa"
       edit: "mengedit"
       you_have_no_tags: "anda tiada tag!"
-    two: "%{count} orang"
     webfinger:
       fail: "Maaf, kami tidak dapat menemui %{handle}."
     zero: "tiada orang"
@@ -355,13 +400,14 @@ ms:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+  previous: "Terdahulu"
+  privacy: "Privasi"
+  privacy_policy: "Polisi Privasi"
+  profile: "Profil"
+  public: "Awam"
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
     other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
+    zero: "0 reaksi"
   requests:
     helper:
       new_requests:
@@ -380,6 +426,8 @@ ms:
         other: "%{count} reshares"
         two: "%{count} reshares"
         zero: "Reshare"
+  search: "Cari"
+  settings: "Tetapan"
   shared:
     aspect_dropdown:
       toggle:
@@ -390,13 +438,7 @@ ms:
         two: "In %{count} aspects"
         zero: "Add contact"
   status_messages:
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     show_comments:
       few: "Show %{count} more comments"
@@ -408,8 +450,12 @@ ms:
   streams:
     aspects:
       title: "Your Aspects"
+  terms_and_conditions: "Terma dan Syarat"
+  undo: "Batalkan?"
+  username: "Nama Pengguna"
   users:
     edit:
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       your_handle: "Your diaspora id"
+  welcome: "Selamat datang!"

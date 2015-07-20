@@ -2,22 +2,29 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
+require "spec_helper"
 
-describe StatisticsController do
-
-  describe '#statistics' do
-    
-    it 'responds to format json' do
-      get :statistics, :format => 'json'
-      response.code.should == '200'
+describe StatisticsController, type: :controller do
+  describe "#statistics" do
+    it "responds to format json" do
+      get :statistics, format: "json"
+      expect(response.code).to eq("200")
     end
-    
-    it 'contains json' do
-      get :statistics, :format => 'json'
+
+    it "contains json" do
+      get :statistics, format: "json"
       json = JSON.parse(response.body)
-      json['name'].should be_present
+      expect(json["name"]).to be_present
+    end
+
+    it "responds to html" do
+      get :statistics, format: "html"
+      expect(response.code).to eq("200")
+    end
+
+    it "responds to mobile" do
+      get :statistics, format: "mobile"
+      expect(response.code).to eq("200")
     end
   end
-
 end

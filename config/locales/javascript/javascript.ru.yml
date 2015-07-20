@@ -12,6 +12,8 @@ ru:
       all_aspects: "Все аспекты"
       error: "Невозможно добавить пользователя <%= name %>.  Возможно, вы его заблокировали?"
       error_remove: "Невозможно удалить <%= name %> из аспекта :("
+      mobile_row_checked: "<%= name %> (переместить)"
+      mobile_row_unchecked: "<%= name %> (добавить)"
       select_aspects: "Выбрать аспекты"
       started_sharing_with: "Вы добавили <%= name %>!"
       stopped_sharing_with: "Вы удалили <%= name %>."
@@ -22,6 +24,7 @@ ru:
         other: "В <%= count %> аспектах"
         two: "В <%= count %> аспектах"
         zero: "Выбрать аспекты"
+      updating: "обновление..."
     aspect_navigation:
       add_an_aspect: "+ Добавить аспект"
       deselect_all: "Снять выделение"
@@ -37,6 +40,15 @@ ru:
       no_comments: "Комментариев ещё нет."
       show: "Показать все комментарии"
     confirm_dialog: "Вы уверены?"
+    confirm_unload: "Пожалуйста, подтвердите, что хотите покинуть страницу — введённые вами данные не будут сохранены."
+    contacts:
+      add_contact: "Добавить контакт"
+      aspect_list_is_not_visible: "Контакты в этом аспекте не могут видеть друг друга."
+      aspect_list_is_visible: "Контакты в этом аспекте могут видеть друг друга."
+      error_add: "Невозможно добавить <%= name %> в аспект :("
+      error_remove: "Невозможно удалить <%= name %> из аспекта :("
+      remove_contact: "Удалить контакт"
+      search_no_results: "Контакты не найдены"
     conversation:
       participants: "Участники"
     delete: "Удалить"
@@ -44,6 +56,7 @@ ru:
     failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
     failed_to_remove: "Удаление не завершено!"
+    failed_to_reshare: "Не удалось поделиться!"
     getting_started:
       alright_ill_wait: "Хорошо, я подожду."
       hey: "Привет, <%= name %>!"
@@ -64,7 +77,10 @@ ru:
       search: "Поиск"
       settings: "Настройки"
       view_all: "Посмотреть всё"
+    hide_post: "Скрыть эту запись?"
+    hide_post_failed: "Невозможно скрыть запись"
     ignore: "Блокировать"
+    ignore_failed: "Невозможно игнорировать этого пользователя"
     ignore_user: "Игнорировать этого пользователя?"
     infinite_scroll:
       no_more: "Больше записей нет."
@@ -72,11 +88,19 @@ ru:
     my_activity: "Моя активность"
     my_aspects: "Мои аспекты"
     my_stream: "Поток"
+    no_results: "Ничего не найдено."
     notifications:
       mark_read: "Пометить как прочитанное"
       mark_unread: "Пометить как непрочитанное"
     people:
+      edit_my_profile: "Редактировать профиль"
+      helper:
+        is_not_sharing: "<%= name %> не делится с вами"
+        is_sharing: "<%= name %> делится с вами"
+      mention: "Упоминание"
+      message: "Сообщение"
       not_found: "никого не найдено..."
+      stop_ignoring: "Отменить игнорирование"
     photo_uploader:
       completed: "<%= file %> готово"
       empty: "{file} пуст, выберите пожалуйста файл повторно."
@@ -92,9 +116,23 @@ ru:
         one: "<%=count%> человек проголосовал"
         other: "<%=count%> людей проголосовало"
         zero: "Никто ещё не проголосовал"
+      go_to_original_post: "Вы можете принять участие в этом опросе, перейдя к <%= original_post_link %>"
+      original_post: "оригиналу записи"
       result: "Результаты"
       show_result: "Показать результаты"
       vote: "Голосовать"
+    profile:
+      add_some: "добавить"
+      bio: "О себе"
+      born: "Дата рождения"
+      contacts: "Контакты"
+      edit: "Редактировать"
+      gender: "Пол"
+      ignoring: "Вы игнорируете все записи пользователя  <%= name %>."
+      location: "Местоположение"
+      photos: "Фотографии"
+      posts: "Записи"
+      you_have_no_tags: "у вас нет меток!"
     publisher:
       add_option: "Добавить вариант"
       at_least_one_aspect: "Вам надо создать как минимум один аспект"
@@ -103,6 +141,7 @@ ru:
       option: "Вариант <%= nr %>"
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
       question: "Вопрос"
+    remove_post: "Переместить запись?"
     report:
       name: "Пожаловаться"
       prompt: "Пожалуйста, укажите причину:"
@@ -111,13 +150,15 @@ ru:
         created: "Донос успешно отправлен"
         exists: "Донос уже отправлен"
     reshares:
-      duplicate: "Настолько здорово, да? Вы уже поделились этой записью!"
+      duplicate: "Здорово, да? Вы уже поделились этой записью!"
       post: "Поделиться записью пользователя <%= name %>?"
       successful: "Вы успешно поделились записью!"
     search_for: "Искать <%= name %>"
     show_more: "показать больше"
     stream:
       comment: "Комментировать"
+      disable_post_notifications: "Отключить уведомления на эту запись"
+      enable_post_notifications: "Включить уведомления на эту запись"
       follow: "Следить"
       followed_tag:
         add_a_tag: "Добавить метку"
@@ -178,6 +219,7 @@ ru:
       wordSeparator: " "
       year: "около года"
       years: "%d лет"
+    unblock_failed: "Разблокировка пользователя не удалась"
     videos:
       unknown: "Неизвестный тип видео"
       watch: "Смотреть этот ролик на <%= provider %>"

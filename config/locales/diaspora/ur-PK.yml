@@ -57,8 +57,6 @@ ur-PK:
     add_to_aspect:
       failure: "رابطہ پہلو میں شامل کرنے میں ناکام رہے۔"
       success: "رابطہ کامیابی سے پہلو میں شامل کر دیا گیا ہے۔"
-    aspect_contacts:
-      done_editing: "ترمیم کر دی گئ"
     aspect_listings:
       add_an_aspect: "ایک پہلو شامل کریں +"
     contacts_not_visible: "اس پہلو میں رابطے ایک دوسرے کو دیکھ نہیں سکیں گے۔"
@@ -70,21 +68,14 @@ ur-PK:
       failure: "%{name} .خالی نہیں ہے اور اسے ختم نہیں کیا جا سکتا"
       success: "%{name} کامیابی سے ہٹا دیا گیا۔"
     edit:
-      add_existing: "پہلے سے موجود رابطہ شامل کریں"
       aspect_list_is_not_visible: "پہلو کی فہرست' پہلو میں دوسروں سے چھپی ہوئ ہے'"
       aspect_list_is_visible: "پہلو کی فہرست' پہلو میں دوسروں کو دکھائی دے رہی ہے'"
       confirm_remove_aspect: "کیا آپکو یقین ہے کہ آپ اس پہلو کو خذف کرنا چاہتے ہیں؟"
-      done: "ہو گیا"
       make_aspect_list_visible: "کیا پہلو کی فہرست نظر آۓ؟"
       remove_aspect: "پہلو حذف کریں"
       rename: "نام تبدیل کریں"
       update: "تازہ"
       updating: "تازہ کیا جا رھا ہے"
-    few: "%{count} پہلو"
-    helper:
-      are_you_sure: "کیا آپکو یقین ہے کہ آپ اس پہلو کو خذف کرنا چاہتے ہیں؟"
-      aspect_not_empty: "پہلو خالی نہیں ہے"
-      remove: "ہٹائیے"
     index:
       diaspora_id:
         content_1: "آپکی ڈایسپورا شناخت"
@@ -105,11 +96,6 @@ ur-PK:
         content: "آپ ڈایسپورا کے لئے مندرجہ ذیل خدمات شامل کر سکتے ہیں :"
         heading: "خدمات کو جوڑیے"
       unfollow_tag: "پیروی بند کیجیے #%{tag}"
-    many: "%{count} پہلو"
-    move_contact:
-      error: "رابطہ منتقلی میں خرابی: %{inspect}"
-      failure: "صحیح نہیں %{inspect}"
-      success: "شخص نۓ رابطے میں منتقل ہو گیا"
     new:
       create: "بنایۓ"
       name: "نام"
@@ -125,20 +111,12 @@ ur-PK:
       family: "خاندان"
       friends: "دوست"
       work: "کام"
-    selected_contacts:
-      manage_your_aspects: "اپنے پہلوؤں کا انتظام کریں۔"
-      no_contacts: "ابھی تک یہاں آپکا کوئی رابطہ نہیں ہے۔"
-      view_all_contacts: "تمام رابطے"
-    show:
-      edit_aspect: "پہلو میں ترمیم"
-    two: "%{count} پہلو"
     update:
       failure: "آپکے پہلو کا نام, %{name}, محفوظ کرنے کی حد سے لمبا ہے۔"
       success: "آپکے پہلو, %{name}, میں ترمیم ہو گئ ہے۔"
     zero: "کوئ پہلو نہیں"
   back: "واپس"
   contacts:
-    few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
@@ -339,13 +317,7 @@ ur-PK:
     stream_element:
       hide_and_mute: "Hide and Mute"
   status_messages:
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
   stream_helper:
     show_comments:
       few: "Show %{count} more comments"

@@ -24,10 +24,10 @@ describe Diaspora::Parser do
       comment.delete
       xml = comment.to_diaspora_xml
       comment_from_xml = Diaspora::Parser.from_xml(xml)
-      comment_from_xml.diaspora_handle.should ==  @person.diaspora_handle
-      comment_from_xml.post.should == post
-      comment_from_xml.text.should == "Freedom!"
-      comment_from_xml.should_not be comment
+      expect(comment_from_xml.diaspora_handle).to eq(@person.diaspora_handle)
+      expect(comment_from_xml.post).to eq(post)
+      expect(comment_from_xml.text).to eq("Freedom!")
+      expect(comment_from_xml).not_to be comment
     end
   end
 end

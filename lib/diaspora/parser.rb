@@ -5,15 +5,16 @@
 module Diaspora
   module Parser
     def self.from_xml(xml)
-      doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
+      doc = Nokogiri::XML(xml) {|cfg| cfg.noblanks }
       return unless body = doc.xpath("/XML/post").children.first
-      class_name = body.name.gsub('-', '/')
+      class_name = body.name.gsub("-", "/")
+      ::Logging::Logger["XMLLogger"].debug "from_xml: #{body}"
       begin
         class_name.camelize.constantize.from_xml body.to_s
       rescue NameError => e
         # A pods is trying to federate an object we don't recognize.
-        # i.e. their codebase is different from ours.  Quietly discard
-        # so that no job failure is created
+        # i.e. their codebase is different from ours.
+        ::Logging::Logger[self].warn("Error while parsing the xml: #{e.message}")
         nil
       end
     end

@@ -1,18 +1,51 @@
-// Add custom matchers here, in a beforeEach block. Example:
-//beforeEach(function() {
-//  this.addMatchers({
-//    toBePlaying: function(expectedSong) {
-//      var player = this.actual;
-//      return player.currentlyPlayingSong === expectedSong
-//          && player.isPlaying;
-//    }
-//  })
-//});
+// for docs, see http://jasmine.github.io
+
+var realXMLHttpRequest = window.XMLHttpRequest;
+
+// matches flash messages with success/error and contained text
+var flashMatcher = function(flash, id, text) {
+  var textContained = true;
+  if( text ) {
+    textContained = (flash.text().indexOf(text) !== -1);
+  }
+
+  return flash.is(id) &&
+          flash.hasClass('expose') &&
+          textContained;
+};
+
+// information for jshint
+/* exported context */
+var context = describe;
+
+var spec = {};
+var customMatchers = {
+  toBeSuccessFlashMessage: function() {
+    return {
+      compare: function(actual, expected) {
+        var result = {};
+        result.pass = flashMatcher(actual, '#flash_notice', expected);
+        return result;
+      }
+    };
+  },
+  toBeErrorFlashMessage: function() {
+    return {
+      compare: function(actual, expected) {
+        var result = {};
+        result.pass = flashMatcher(actual, '#flash_error', expected);
+        return result;
+      }
+    };
+  }
+};
+
 
 beforeEach(function() {
   $('#jasmine_content').html(spec.readFixture("underscore_templates"));
-  jasmine.Clock.useMock();
 
+  jasmine.clock().install();
+  jasmine.Ajax.install();
 
   Diaspora.Pages.TestPage = function() {
     var self = this;
@@ -29,63 +62,43 @@ beforeEach(function() {
   Diaspora.page = new Page();
   Diaspora.page.publish("page/ready", [$(document.body)]);
 
-
-  // matches flash messages with success/error and contained text
-  var flashMatcher = function(flash, id, text) {
-    textContained = true;
-    if( text ) {
-      textContained = (flash.text().indexOf(text) !== -1);
-    }
-
-    return flash.is(id) &&
-           flash.hasClass('expose') &&
-           textContained;
-  };
-
   // add custom matchers for flash messages
-  this.addMatchers({
-    toBeSuccessFlashMessage: function(containedText) {
-      var flash = this.actual;
-      return flashMatcher(flash, '#flash_notice', containedText);
-    },
-
-    toBeErrorFlashMessage: function(containedText) {
-      var flash = this.actual;
-      return flashMatcher(flash, '#flash_error', containedText);
-    }
-  });
-
+  jasmine.addMatchers(customMatchers);
 });
 
 afterEach(function() {
   //spec.clearLiveEventBindings();
-  $("#jasmine_content").empty()
+
+  jasmine.clock().uninstall();
+  jasmine.Ajax.uninstall();
+
+  $("#jasmine_content").empty();
   expect(spec.loadFixtureCount).toBeLessThan(2);
   spec.loadFixtureCount = 0;
 });
 
-var context = describe;
-var spec = {};
 
 window.stubView = function stubView(text){
   var stubClass = Backbone.View.extend({
     render : function(){
       $(this.el).html(text);
-      return this
+      return this;
     }
-  })
+  });
 
-  return new stubClass
-}
+  return new stubClass();
+};
 
 window.loginAs = function loginAs(attrs){
-  return app.currentUser = app.user(factory.userAttrs(attrs))
-}
+  app.currentUser = app.user(factory.userAttrs(attrs));
+  return app.currentUser;
+};
 
 window.logout = function logout(){
-  this.app._user = undefined
-  return app.currentUser = new app.models.User()
-}
+  this.app._user = undefined;
+  app.currentUser = new app.models.User();
+  return app.currentUser;
+};
 
 window.hipsterIpsumFourParagraphs = "Mcsweeney's mumblecore irony fugiat, ex iphone brunch helvetica eiusmod retro" +
   " sustainable mlkshk. Pop-up gentrify velit readymade ad exercitation 3 wolf moon. Vinyl aute laboris artisan irony, " +
@@ -112,12 +125,14 @@ window.hipsterIpsumFourParagraphs = "Mcsweeney's mumblecore irony fugiat, ex iph
   "mlkshk assumenda. Typewriter terry richardson pork belly, cupidatat tempor craft beer tofu sunt qui gentrify eiusmod " +
   "id. Letterpress pitchfork wayfarers, eu sunt lomo helvetica pickled dreamcatcher bicycle rights. Aliqua banksy " +
   "cliche, sapiente anim chambray williamsburg vinyl cardigan. Pork belly mcsweeney's anim aliqua. DIY vice portland " +
-  "thundercats est vegan etsy, gastropub helvetica aliqua. Artisan jean shorts american apparel duis esse trust fund."
+  "thundercats est vegan etsy, gastropub helvetica aliqua. Artisan jean shorts american apparel duis esse trust fund.";
 
 spec.clearLiveEventBindings = function() {
   var events = jQuery.data(document, "events");
-  for (prop in events) {
-    delete events[prop];
+  for (var prop in events) {
+    if(events.hasOwnProperty(prop)) {
+      delete events[prop];
+    }
   }
 };
 
@@ -159,7 +174,7 @@ spec.retrieveFixture = function(fixtureName) {
 
   // retrieve the fixture markup via xhr request to jasmine server
   try {
-    xhr = new jasmine.XmlHttpRequest();
+    xhr = new realXMLHttpRequest();
     xhr.open("GET", path, false);
     xhr.send(null);
   } catch(e) {

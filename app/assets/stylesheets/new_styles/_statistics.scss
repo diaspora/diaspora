@@ -1,0 +1,28 @@
+.page-statistics {
+  h1{ text-align: center; }
+
+  h3{
+    margin: 0px;
+    padding: 10px;
+    background-color: $green;
+  }
+
+  .span-3 { 
+    width: 30%;
+    height: 150px;
+    text-align: center;
+    border: 1px solid $border-grey;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    .data{
+      word-wrap: break-word;
+      overflow: hidden;
+      margin-top: 25px;
+      font-size: 25px;
+      line-height: 30px;
+    }
+    .serv-disabled{
+      background-color: $background-grey;
+    }
+  }
+}

@@ -15,6 +15,7 @@ available:
   en_1337: "3n6l15h (English 1337)"
   en_pirate: "English (Pirate)"
   en_shaw: "𐑦𐑙𐑤𐑦𐑖"
+  en_valspeak: "English (Valley Girl)"
   eo: "Esperanto"
   es: "Castellano"
   es-AR: "Castellano - Argentina"
@@ -45,6 +46,7 @@ available:
   ml: "മലയാളം"
   ms: "بهاس ملايو‎"
   nb: "Norske"
+  nds: "Niederdeutsch"
   nl: "Nederlands"
   nn: "Nynorsk"
   pa: "ਪੰਜਾਬੀ"
@@ -86,6 +88,10 @@ fallbacks:
     - "en"
     - "en-GB"
     - "en-US"
+  en_valspeak:
+    - "en"
+    - "en-GB"
+    - "en-US"
   sv:
     - "sv-SE"
   he:
@@ -108,6 +114,8 @@ fallbacks:
   ur-PK:
     - "ur"
   de_formal:
+    - "de"
+  nds:
     - "de"
   art_nvi:
     - "art-nvi"

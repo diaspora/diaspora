@@ -1,9 +1,0 @@
-- if @css_framework == :bootstrap
-  - content_for :container_content do
-    = yield
-- else
-  - content_for :container_content do
-    .span-24.last
-      = yield
-
-= render template: "layouts/with_header_with_footer"

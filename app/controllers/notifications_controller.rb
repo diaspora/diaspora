@@ -3,10 +3,7 @@
 #   the COPYRIGHT file.
 
 class NotificationsController < ApplicationController
-  before_filter :authenticate_user!
-
-  layout ->(c) { request.format == :mobile ? "application" : "with_header_with_footer" }
-  use_bootstrap_for :index
+  before_action :authenticate_user!
 
   def update
     note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
@@ -33,20 +30,18 @@ class NotificationsController < ApplicationController
     page = params[:page] || 1
     per_page = params[:per_page] || 25
     @notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
-      result = Notification.find(:all,
-                                 :conditions => conditions,
-                                 :order => 'created_at desc',
-                                 :include => [:target, {:actors => :profile}],
-                                 :limit => pager.per_page,
-                                 :offset => pager.offset
-                                )
+      result = Notification.where(conditions)
+                           .includes(:target, :actors => :profile)
+                           .order('created_at desc')
+                           .limit(pager.per_page)
+                           .offset(pager.offset)
 
       pager.replace(result)
     end
-    @notifications.each do |n|
-      n.note_html = render_to_string( :partial => 'notify_popup_item', :locals => { :n => n } )
+    @notifications.each do |note|
+      note.note_html = render_to_string( :partial => 'notification', :locals => { :note => note } )
     end
-    @group_days = @notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
+    @group_days = @notifications.group_by{|note| note.created_at.strftime('%Y-%m-%d')}
 
     @unread_notification_count = current_user.unread_notifications.count
 

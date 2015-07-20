@@ -11,8 +11,7 @@ class Post < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
-
-  has_many :participations, :dependent => :delete_all, :as => :target
+  has_many :participations, dependent: :delete_all, as: :target, inverse_of: :target
 
   attr_accessor :user_like
 
@@ -26,29 +25,33 @@ class Post < ActiveRecord::Base
   belongs_to :o_embed_cache
   belongs_to :open_graph_cache
 
-  after_commit :on => :create do
+  validates_uniqueness_of :id
+
+  validates :author, presence: true
+
+  after_create do
     self.touch(:interacted_at)
   end
 
   #scopes
-  scope :includes_for_a_stream, includes(:o_embed_cache, :open_graph_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
-
-
-  scope :commented_by, lambda { |person|
-    select('DISTINCT posts.*').joins(:comments).where(:comments => {:author_id => person.id})
+  scope :includes_for_a_stream, -> {
+    includes(:o_embed_cache,
+             :open_graph_cache,
+             {:author => :profile},
+             :mentions => {:person => :profile}
+    ) #note should include root and photos, but i think those are both on status_message
   }
 
-  scope :liked_by, lambda { |person|
+
+  scope :commented_by, ->(person)  {
+    select('DISTINCT posts.*')
+      .joins(:comments)
+      .where(:comments => {:author_id => person.id})
+  }
+
+  scope :liked_by, ->(person) {
     joins(:likes).where(:likes => {:author_id => person.id})
   }
-
-  def self.newer(post)
-    where("posts.created_at > ?", post.created_at).reorder('posts.created_at ASC').first
-  end
-
-  def self.older(post)
-    where("posts.created_at < ?", post.created_at).reorder('posts.created_at DESC').first
-  end
 
   def self.visible_from_author(author, current_user=nil)
     if current_user.present?
@@ -77,7 +80,7 @@ class Post < ActiveRecord::Base
 
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}
-    scope = scoped
+    scope = all
 
     if people.any?
       scope = scope.where("posts.author_id NOT IN (?)", people)
@@ -87,7 +90,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.excluding_hidden_shareables(user)
-    scope = scoped
+    scope = all
     if user.has_hidden_shareables_of_type?
       scope = scope.where('posts.id NOT IN (?)', user.hidden_shareables["#{self.base_class}"])
     end

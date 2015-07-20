@@ -44,8 +44,6 @@ io:
   are_you_sure: "Ka vu esas certa?"
   are_you_sure_delete_account: "Ka vu certe volas klozar vua konto? To ne povas esar desfacota."
   aspects:
-    aspect_contacts:
-      done_editing: "finis redaktar"
     aspect_listings:
       add_an_aspect: "+ Adjuntez aspekto"
       deselect_all: "Des-selektez omna"
@@ -59,17 +57,14 @@ io:
     destroy:
       success: "%{name} sucesoze efacesis."
     edit:
-      add_existing: "Adjuntez existanta konocato"
       aspect_list_is_not_visible: "Konocati en ita aspekto ne povas vidar l'una l'altra."
       aspect_list_is_visible: "Konocati en ita aspekto povas vidar l'una l'altra."
       confirm_remove_aspect: "Ka vu certe volas efacar ita aspekto?"
-      done: "Finis"
       make_aspect_list_visible: "igar konocati en ita aspekto videbla a l'una l'altra?"
       remove_aspect: "Efacez ita aspekto"
       rename: "ri-nomizez"
       update: "aktualigez"
       updating: "aktualigas"
-    few: "%{count} aspekti"
     index:
       donate: "Donacar"
       help:
@@ -79,7 +74,6 @@ io:
       new_here:
         learn_more: "Lektez pluse"
         title: "Bonvenez Nova Uzanti"
-    many: "%{count} aspekti"
     new:
       create: "Kreez"
       name: "Nomo (nur videbla da tu)"
@@ -94,13 +88,6 @@ io:
       acquaintances: "Konocati"
       family: "Familio"
       friends: "Amiki"
-    selected_contacts:
-      manage_your_aspects: "Direktar tua aspekti."
-      no_contacts: "Tu ankore ne havas konocati hike"
-      view_all_contacts: "Regardez omna konocati"
-    show:
-      edit_aspect: "redaktez aspekto"
-    two: "%{count} aspekti"
   back: "Retro-irar"
   cancel: "Anular"
   contacts:
@@ -159,7 +146,6 @@ io:
   public: "Publika"
   registrations:
     new:
-      continue: "Durar"
       password: "PASOVORTO"
   search: "Serchar"
   services:

@@ -24,6 +24,12 @@
         - unless user.person.closed_account
           %li= link_to t('admins.user_search.close_account'), admin_close_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure') }, class: 'btn btn-danger btn-mini'
 
+        - unless user.closed_account?
+          - unless user.access_locked?
+            %li= link_to t('admins.user_search.lock_account'), admin_lock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_lock_account') }, class: 'btn btn-danger btn-mini'
+          - else
+            %li= link_to t('admins.user_search.unlock_account'), admin_unlock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_unlock_account') }, class: 'btn btn-danger btn-mini'
+	  
     %div.row
       %div.span5
         %dl.dl-horizontal

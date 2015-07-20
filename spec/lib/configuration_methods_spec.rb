@@ -8,138 +8,171 @@ describe Configuration::Methods do
       extend Configuration::Methods
     end
   end
-  
+
   describe "#pod_uri" do
     before do
       @settings.environment.url = nil
       @settings.instance_variable_set(:@pod_uri, nil)
     end
-    
+
     it "properly parses the pod url" do
       @settings.environment.url = "http://example.org/"
-      @settings.pod_uri.scheme.should == "http"
-      @settings.pod_uri.host.should == "example.org"
+      expect(@settings.pod_uri.scheme).to eq("http")
+      expect(@settings.pod_uri.host).to eq("example.org")
     end
-    
+
      it "adds a trailing slash if there isn't one" do
       @settings.environment.url = "http://example.org"
-      @settings.pod_uri.to_s.should == "http://example.org/"
+      expect(@settings.pod_uri.to_s).to eq("http://example.org/")
     end
-    
+
     it "does not add an extra trailing slash" do
       @settings.environment.url = "http://example.org/"
-      @settings.pod_uri.to_s.should == "http://example.org/"
+      expect(@settings.pod_uri.to_s).to eq("http://example.org/")
     end
-    
+
     it "adds http:// on the front if it's missing" do
       @settings.environment.url = "example.org/"
-      @settings.pod_uri.to_s.should == "http://example.org/"
+      expect(@settings.pod_uri.to_s).to eq("http://example.org/")
     end
-    
+
     it "does not add a prefix if there already is https:// on the front" do
       @settings.environment.url = "https://example.org/"
-      @settings.pod_uri.to_s.should == "https://example.org/"
+      expect(@settings.pod_uri.to_s).to eq("https://example.org/")
     end
   end
-  
+
   describe "#bare_pod_uri" do
     it 'is #pod_uri.authority stripping www.' do
       pod_uri = double
-      @settings.stub(:pod_uri).and_return(pod_uri)
-      pod_uri.should_receive(:authority).and_return("www.example.org")
-      @settings.bare_pod_uri.should == 'example.org'
+      allow(@settings).to receive(:pod_uri).and_return(pod_uri)
+      expect(pod_uri).to receive(:authority).and_return("www.example.org")
+      expect(@settings.bare_pod_uri).to eq('example.org')
     end
   end
-  
+
   describe "#configured_services" do
     it "includes the enabled services only" do
       services = double
       enabled = double
-      enabled.stub(:enable?).and_return(true)
+      allow(enabled).to receive(:enable?).and_return(true)
       disabled = double
-      disabled.stub(:enable?).and_return(false)
-      services.stub(:twitter).and_return(enabled)
-      services.stub(:tumblr).and_return(enabled)
-      services.stub(:facebook).and_return(disabled)
-      services.stub(:wordpress).and_return(disabled)
-      @settings.stub(:services).and_return(services)
-      @settings.configured_services.should include :twitter
-      @settings.configured_services.should include :tumblr
-      @settings.configured_services.should_not include :facebook
-      @settings.configured_services.should_not include :wordpress
+      allow(disabled).to receive(:enable?).and_return(false)
+      allow(services).to receive(:twitter).and_return(enabled)
+      allow(services).to receive(:tumblr).and_return(enabled)
+      allow(services).to receive(:facebook).and_return(disabled)
+      allow(services).to receive(:wordpress).and_return(disabled)
+      allow(@settings).to receive(:services).and_return(services)
+      expect(@settings.configured_services).to include :twitter
+      expect(@settings.configured_services).to include :tumblr
+      expect(@settings.configured_services).not_to include :facebook
+      expect(@settings.configured_services).not_to include :wordpress
     end
   end
-  
+
+  describe "#show_service" do
+    before do
+      AppConfig.services.twitter.authorized = true
+      AppConfig.services.twitter.enable = true
+      AppConfig.services.facebook.authorized = true
+      AppConfig.services.facebook.enable = true
+      AppConfig.services.wordpress.authorized = false
+      AppConfig.services.wordpress.enable = true
+      AppConfig.services.tumblr.authorized = "alice"
+      AppConfig.services.tumblr.enable = true
+    end
+
+    it "shows service with no authorized key" do
+      expect(AppConfig.show_service?("twitter", bob)).to be_truthy
+    end
+
+    it "shows service with authorized key true" do
+      expect(AppConfig.show_service?("facebook", bob)).to be_truthy
+    end
+
+    it "doesn't show service with authorized key false" do
+      expect(AppConfig.show_service?("wordpress", bob)).to be_falsey
+    end
+
+    it "doesn't show service with authorized key not equal to username" do
+      expect(AppConfig.show_service?("tumblr", bob)).to be_falsey
+    end
+
+    it "shows service with authorized key equal to username" do
+      expect(AppConfig.show_service?("tumblr", alice)).to be_truthy
+    end
+  end
+
   describe "#version_string" do
     before do
       @version = double
-      @version.stub(:number).and_return("0.0.0.0")
-      @version.stub(:release?).and_return(true)
-      @settings.stub(:version).and_return(@version)
-      @settings.stub(:git_available?).and_return(false)
+      allow(@version).to receive(:number).and_return("0.0.0.0")
+      allow(@version).to receive(:release?).and_return(true)
+      allow(@settings).to receive(:version).and_return(@version)
+      allow(@settings).to receive(:git_available?).and_return(false)
       @settings.instance_variable_set(:@version_string, nil)
     end
 
     it "includes the version" do
-      @settings.version_string.should include @version.number
+      expect(@settings.version_string).to include @version.number
     end
-    
+
     context "with git available" do
       before do
-        @settings.stub(:git_available?).and_return(true)
-        @settings.stub(:git_revision).and_return("1234567890")
+        allow(@settings).to receive(:git_available?).and_return(true)
+        allow(@settings).to receive(:git_revision).and_return("1234567890")
       end
-      
+
       it "includes the 'patchlevel'" do
-        @settings.version_string.should include "-p#{@settings.git_revision[0..7]}"
-        @settings.version_string.should_not include @settings.git_revision[0..8]
+        expect(@settings.version_string).to include "-p#{@settings.git_revision[0..7]}"
+        expect(@settings.version_string).not_to include @settings.git_revision[0..8]
       end
     end
   end
-  
+
   describe "#get_redis_options" do
     context "with REDISTOGO_URL set" do
       before do
         ENV["REDISTOGO_URL"] = "redis://myserver"
       end
-      
+
       it "uses that" do
-        @settings.get_redis_options[:url].should match "myserver"
+        expect(@settings.get_redis_options[:url]).to match "myserver"
       end
     end
-    
+
     context "with REDIS_URL set" do
       before do
         ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = "redis://yourserver"
       end
-      
+
       it "uses that" do
-        @settings.get_redis_options[:url].should match "yourserver"
+        expect(@settings.get_redis_options[:url]).to match "yourserver"
       end
     end
-    
+
     context "with redis set" do
       before do
         ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = nil
         @settings.environment.redis = "redis://ourserver"
       end
-      
+
       it "uses that" do
-        @settings.get_redis_options[:url].should match "ourserver"
+        expect(@settings.get_redis_options[:url]).to match "ourserver"
       end
     end
-    
+
     context "with a unix socket set" do
       before do
         ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = nil
         @settings.environment.redis = "unix:///tmp/redis.sock"
       end
-      
+
       it "uses that" do
-        @settings.get_redis_options[:url].should match "/tmp/redis.sock"
+        expect(@settings.get_redis_options[:url]).to match "/tmp/redis.sock"
       end
     end
   end
@@ -148,9 +181,9 @@ describe Configuration::Methods do
     context "with a relative log set" do
       it "joins that with Rails.root" do
         path = "/some/path/"
-        Rails.stub(:root).and_return(double(join: path))
+        allow(Rails).to receive(:root).and_return(double(join: path))
         @settings.environment.sidekiq.log = "relative_path"
-        @settings.sidekiq_log.should match path
+        expect(@settings.sidekiq_log).to match path
       end
     end
 
@@ -158,7 +191,7 @@ describe Configuration::Methods do
       it "just returns that" do
         path = "/foobar.log"
         @settings.environment.sidekiq.log = path
-        @settings.sidekiq_log.should == path
+        expect(@settings.sidekiq_log).to eq(path)
       end
     end
   end

@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe RegistrationsController do
+describe RegistrationsController, :type => :controller do
   include Devise::TestHelpers
 
   before do
@@ -16,7 +16,7 @@ describe RegistrationsController do
       :password_confirmation => "password"
       }
     }
-    Webfinger.stub_chain(:new, :fetch).and_return(FactoryGirl.create(:person))
+    allow(Webfinger).to receive_message_chain(:new, :fetch).and_return(FactoryGirl.create(:person))
   end
 
   describe '#check_registrations_open!' do
@@ -24,64 +24,60 @@ describe RegistrationsController do
       AppConfig.settings.enable_registrations = false
     end
 
-    after do
-      AppConfig.settings.enable_registrations = true
-    end
-
     it 'redirects #new to the login page' do
       get :new
-      flash[:error].should == I18n.t('registrations.closed')
-      response.should redirect_to new_user_session_path
+      expect(flash[:error]).to eq(I18n.t('registrations.closed'))
+      expect(response).to redirect_to new_user_session_path
     end
 
     it 'redirects #create to the login page' do
       post :create, @valid_params
-      flash[:error].should == I18n.t('registrations.closed')
-      response.should redirect_to new_user_session_path
+      expect(flash[:error]).to eq(I18n.t('registrations.closed'))
+      expect(response).to redirect_to new_user_session_path
     end
 
     it 'does not redirect if there is a valid invite token' do
       i = InvitationCode.create(:user => bob)
       get :new, :invite => {:token => i.token}
-      response.should_not be_redirect
+      expect(response).not_to be_redirect
     end
 
     it 'does redirect if there is an  invalid invite token' do
       get :new, :invite => {:token => 'fssdfsd'}
-      response.should be_redirect
+      expect(response).to be_redirect
     end
   end
 
   describe "#create" do
     render_views
-    
+
     context "with valid parameters" do
       before do
         AppConfig.settings.enable_registrations = true
         user = FactoryGirl.build(:user)
-        User.stub(:build).and_return(user)
+        allow(User).to receive(:build).and_return(user)
       end
 
       it "creates a user" do
-        lambda {
+        expect {
           get :create, @valid_params
-        }.should change(User, :count).by(1)
+        }.to change(User, :count).by(1)
       end
 
       it "assigns @user" do
         get :create, @valid_params
-        assigns(:user).should be_true
+        expect(assigns(:user)).to be_truthy
       end
 
       it "sets the flash" do
         get :create, @valid_params
-        flash[:notice].should_not be_blank
+        expect(flash[:notice]).not_to be_blank
       end
 
       it "redirects to the home path" do
         get :create, @valid_params
-        response.should be_redirect
-        response.location.should match /^#{stream_url}\??$/
+        expect(response).to be_redirect
+        expect(response.location).to match /^#{stream_url}\??$/
       end
     end
 
@@ -92,28 +88,28 @@ describe RegistrationsController do
       end
 
       it "does not create a user" do
-        lambda { get :create, @invalid_params }.should_not change(User, :count)
+        expect { get :create, @invalid_params }.not_to change(User, :count)
       end
 
       it "does not create a person" do
-        lambda { get :create, @invalid_params }.should_not change(Person, :count)
+        expect { get :create, @invalid_params }.not_to change(Person, :count)
       end
 
       it "assigns @user" do
         get :create, @invalid_params
-        assigns(:user).should_not be_nil
+        expect(assigns(:user)).not_to be_nil
       end
 
       it "sets the flash error" do
         get :create, @invalid_params
-        flash[:error].should_not be_blank
+        expect(flash[:error]).not_to be_blank
       end
 
       it "renders new" do
         get :create, @invalid_params
         expect(response).to render_template("registrations/new")
       end
-      
+
       it "keeps invalid params in form" do
         get :create, @invalid_params
         expect(response.body).to match /jdoe@example.com/m

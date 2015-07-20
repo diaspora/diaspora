@@ -1,0 +1,127 @@
+#leftNavBar {
+  a {
+    color: $link-grey;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+
+  .selected { color: $black; }
+  .selected a { color: $black; }
+
+  .hoverable {
+    display: block;
+    margin-right: 6px;
+    padding: 4px;
+    &:hover { background-color: $background-blue; }
+  }
+
+  .selectable {
+    display: block;
+    margin-left: 21px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #home_user_badge {
+    border-bottom: 1px dashed $border-grey;
+    margin-bottom: 10px;
+    min-height: 50px;
+    padding-bottom: 10px;
+    padding-left: 4px;
+
+    .avatar {
+      float: left;
+      height: 50px;
+      width: 50px;
+    }
+
+    h4 {
+      margin-left: 60px;
+      padding-top: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      a { color: $black; }
+    }
+  }
+
+  #stream_selection {
+    & > li {
+      margin-bottom: 5px;
+    }
+  }
+
+  #aspects_list, #tags_list {
+    .hoverable > .action {
+      visibility: hidden;
+      margin: 0 3px;
+    }
+    .hoverable:hover  > .action {
+      visibility: visible;
+    }
+  }
+
+  #aspects_list {
+    .entypo.check {
+      float: left;
+      visibility: hidden;
+      &.selected { visibility: visible; }
+    }
+    .selected + a {
+      color: #333333;
+    }
+  }
+
+  #tags_list {
+    .delete_tag_following {
+      font-size: 20px;
+      line-height: 15px;
+    }
+
+    #new_tag_following {
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+
+    /* ---- override app/stylesheets/vendor/autoSuggest.css ---- */
+    ul.as-selections { padding: 1px 5px 4px 5px; }
+    .tag_input {
+      line-height: $font-size-text;
+      vertical-align: top;
+      width: 100%;
+    }
+
+    .as-result {
+      margin-top: -1px;
+      margin-left: 1px;
+    }
+
+    .as-list {
+      em {
+        background-color: #aabbcc;
+        color: black;
+        padding: 0px;
+      }
+
+      color: black;
+      position: static; /* override absolute */
+      margin: 0px;
+      border-radius: 0px 0px 3px 3px;
+      box-shadow: 0px 1px 1px #666;
+    }
+
+    .as-result-item.active {
+      color: black;
+      text-shadow: none;
+      background-color: $background-blue;
+      border-color: $background-blue;
+    }
+    /* ---- end override app/stylesheets/vendor/autoSuggest.css ---- */
+  }
+}

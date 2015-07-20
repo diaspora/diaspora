@@ -9,65 +9,47 @@ class Postzord::Receiver::Private < Postzord::Receiver
     @user_person = @user.person
     @salmon_xml = opts[:salmon_xml]
 
-    @sender = opts[:person] || Webfinger.new(self.salmon.author_id).fetch
-    @author = @sender
+    @author = opts[:person] || Webfinger.new(salmon.author_id).fetch
 
     @object = opts[:object]
   end
 
   def receive!
-    begin 
-      if @sender && self.salmon.verified_for_key?(@sender.public_key)
-        parse_and_receive(salmon.parsed_data)
-      else
-        FEDERATION_LOGGER.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id} reason='not_verified for key'")
-        false
-      end
-    rescue => e
-      #this sucks
-      FEDERATION_LOGGER.error("Failure to receive #{@object.class} from sender:#{@sender.id} for user:#{@user.id}: #{e.message}\n#{@object.inspect}")
-      raise e
+    if @author && salmon.verified_for_key?(@author.public_key)
+      parse_and_receive(salmon.parsed_data)
+    else
+      logger.error "event=receive status=abort reason='not_verified for key' " \
+                   "recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id}"
     end
+  rescue => e
+    logger.error "failed to receive #{@object.class} from sender:#{@author.id} for user:#{@user.id}: #{e.message}\n" \
+                 "#{@object.inspect}"
+    raise e
   end
 
   def parse_and_receive(xml)
     @object ||= Diaspora::Parser.from_xml(xml)
-    return  if @object.nil?
 
-    FEDERATION_LOGGER.info("user:#{@user.id} starting private receive from person:#{@sender.guid}")
+    logger.info "user:#{@user.id} starting private receive from person:#{@author.guid}"
 
-    if self.validate_object
-      set_author!
-      receive_object
-      FEDERATION_LOGGER.info("object received: [#{@object.class}#{@object.respond_to?(:text) ? ":'#{@object.text}'" : ''}]")
-    else
-      FEDERATION_LOGGER.error("failed to receive object from #{@object.author}: #{@object.inspect}")
-      raise "not a valid object:#{@object.inspect}"
-    end
+    validate_object
+    set_author!
+    receive_object
   end
 
-  # @return [Object]
+  # @return [void]
   def receive_object
     obj = @object.receive(@user, @author)
     Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
-    FEDERATION_LOGGER.info("user:#{@user.id} successfully received private post from person #{@sender.guid}: #{@object.inspect}")
-    obj
+    logger.info "user:#{@user.id} successfully received #{@object.class} from person #{@author.guid}" \
+                "#{": #{@object.guid}" if @object.respond_to?(:guid)}"
+    logger.debug "received: #{@object.inspect}"
   end
 
   protected
+
   def salmon
     @salmon ||= Salmon::EncryptedSlap.from_xml(@salmon_xml, @user)
-  end
-
-  def validate_object
-    raise Diaspora::ContactRequiredUnlessRequest if contact_required_unless_request
-    raise Diaspora::RelayableObjectWithoutParent if relayable_without_parent?
-
-    assign_sender_handle_if_request
-
-    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
-
-    @object
   end
 
   def xml_author
@@ -90,25 +72,30 @@ class Postzord::Receiver::Private < Postzord::Receiver
 
   private
 
-  #validations
-  def relayable_without_parent?
-    if @object.respond_to?(:relayable?) && @object.parent.nil?
-      FEDERATION_LOGGER.error("event=receive status=abort reason='received a comment but no corresponding post' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{@object.class})")
-      return true
-    end
+  # validations
+
+  def validate_object
+    raise Diaspora::XMLNotParseable if @object.nil?
+    raise Diaspora::ContactRequiredUnlessRequest if contact_required_unless_request
+    raise Diaspora::RelayableObjectWithoutParent if relayable_without_parent?
+
+    assign_sender_handle_if_request
+
+    raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
   end
 
   def contact_required_unless_request
-    unless @object.is_a?(Request) || @user.contact_for(@sender)
-      FEDERATION_LOGGER.error("event=receive status=abort reason='sender not connected to recipient' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
-      return true 
+    unless @object.is_a?(Request) || @user.contact_for(@author)
+      logger.error "event=receive status=abort reason='sender not connected to recipient' type=#{@object.class} " \
+                   "recipient=#{@user_person.diaspora_handle} sender=#{@author.diaspora_handle}"
+      return true
     end
   end
 
   def assign_sender_handle_if_request
     #special casey
     if @object.is_a?(Request)
-      @object.sender_handle = @sender.diaspora_handle
+      @object.sender_handle = @author.diaspora_handle
     end
   end
 end

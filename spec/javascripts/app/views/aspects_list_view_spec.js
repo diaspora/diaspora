@@ -24,8 +24,8 @@ describe("app.views.AspectsList", function(){
     });
 
     it('should show all the aspects', function(){
-      var aspect_selectors = this.view.$('.icons-check_yes_ok + a.selectable');
-      expect(aspect_selectors.length).toBe(3)
+      var aspect_selectors = this.view.$('.entypo.check + a.selectable');
+      expect(aspect_selectors.length).toBe(3);
       expect(aspect_selectors[0].text).toMatch('Work');
       expect(aspect_selectors[1].text).toMatch('Friends');
       expect(aspect_selectors[2].text).toMatch('Acquaintances');
@@ -40,15 +40,14 @@ describe("app.views.AspectsList", function(){
         beforeEach(function(){
           app.router = new app.Router();
           spyOn(app.router, 'aspects_stream');
-          spyOn(this.view, 'toggleAll').andCallThrough();
-          spyOn(this.view, 'toggleSelector').andCallThrough();
+          spyOn(this.view, 'toggleAll').and.callThrough();
+          spyOn(this.view, 'toggleSelector').and.callThrough();
           this.view.delegateEvents();
           this.view.$('.toggle_selector').click();
         });
 
         it('should show all the aspects selected', function(){
           expect(this.view.toggleAll).toHaveBeenCalled();
-          expect(this.view.$('.selected').length).toBe(3);
         });
 
         it('should show \'Deselect all\' link', function(){

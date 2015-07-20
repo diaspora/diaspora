@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 describe Diaspora::MessageRenderer do
-  def message text, opts={}
+  MESSAGE_NORMALIZTIONS = {
+    "\u202a#\u200eUSA\u202c" => "#USA",
+    "ള്‍"                     => "ള്‍"
+  }
+
+  def message(text, opts={})
     Diaspora::MessageRenderer.new(text, opts)
   end
 
@@ -9,7 +14,7 @@ describe Diaspora::MessageRenderer do
     context 'when :length is passed in parameters' do
       it 'returns string of size less or equal to :length' do
         string_size = 12
-        title = message("## My title\n Post content...").title(length: string_size)
+        title = message("## This is a really, really, really long title\n Post content").title(length: string_size)
         expect(title.size).to be <= string_size
       end
     end
@@ -24,11 +29,16 @@ describe Diaspora::MessageRenderer do
         it 'returns setext style header' do
           expect(message("My title \n======\n Post content...").title).to eq "My title"
         end
+
+        it 'returns header without markdown' do
+          expect(message("## **[My title](http://diasporafoundation.org)**\n Post content...").title).to eq "My title (http://diasporafoundation.org)"
+        end
       end
 
-      context 'without a Markdown header of less than 200 characters on first line ' do
-        it 'truncates posts to the 20 first characters' do
-          expect(message("Very, very, very long post").title).to eq "Very, very, very ..."
+      context "without a Markdown header of less than 200 characters on first line" do
+        it "truncates posts to the 70 first characters" do
+          text = "Chillwave heirloom small batch semiotics, brunch cliche yr gluten-free whatever bitters selfies."
+          expect(message(text).title).to eq "Chillwave heirloom small batch semiotics, brunch cliche yr gluten-f..."
         end
       end
     end
@@ -48,6 +58,12 @@ describe Diaspora::MessageRenderer do
     it 'should leave HTML entities intact' do
       entities = '&amp; &szlig; &#x27; &#39; &quot;'
       expect(message(entities).html).to eq entities
+    end
+
+    it 'normalizes' do
+      expect(
+        message("\u202a#\u200eUSA\u202c").markdownified
+      ).to eq %(<p><a class="tag" href="/tags/USA">#USA</a></p>\n)
     end
 
     context 'with mentions' do
@@ -107,25 +123,31 @@ describe Diaspora::MessageRenderer do
 
     it 'autolinks standard url links' do
       expect(
-        message("http://joindiaspora.com/"
-      ).markdownified).to include 'href="http://joindiaspora.com/"'
+        message("http://joindiaspora.com/").markdownified
+      ).to include 'href="http://joindiaspora.com/"'
+    end
+
+    it "normalizes" do
+      MESSAGE_NORMALIZTIONS.each do |input, output|
+        expect(message(input).plain_text_for_json).to eq output
+      end
     end
 
     context 'when formatting status messages' do
       it "should leave tags intact" do
         expect(
           message("I love #markdown").markdownified
-        ).to match %r{<a href="/tags/markdown" class="tag">#markdown</a>}
+        ).to match %r{<a class="tag" href="/tags/markdown">#markdown</a>}
       end
 
       it 'should leave multi-underscore tags intact' do
         expect(
           message("Here is a #multi_word tag").markdownified
-        ).to match  %r{Here is a <a href="/tags/multi_word" class="tag">#multi_word</a> tag}
+        ).to match  %r{Here is a <a class="tag" href="/tags/multi_word">#multi_word</a> tag}
 
         expect(
           message("Here is a #multi_word_tag yo").markdownified
-        ).to match %r{Here is a <a href="/tags/multi_word_tag" class="tag">#multi_word_tag</a> yo}
+        ).to match %r{Here is a <a class="tag" href="/tags/multi_word_tag">#multi_word_tag</a> yo}
       end
 
       it "should leave mentions intact" do
@@ -147,7 +169,7 @@ describe Diaspora::MessageRenderer do
       it 'should process text with both a hashtag and a link' do
         expect(
           message("Test #tag?\nhttps://joindiaspora.com\n").markdownified
-        ).to eq %{<p>Test <a href="/tags/tag" class="tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
+        ).to eq %{<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" rel="nofollow" target="_blank">https://joindiaspora.com</a></p>\n}
       end
 
       it 'should process text with a header' do
@@ -170,6 +192,41 @@ describe Diaspora::MessageRenderer do
     it 'does not destroy hashtag that starts a line' do
       text = "#hashtag message"
       expect(message(text).plain_text_without_markdown).to eq text
+    end
+  end
+
+  describe "#urls" do
+    it "extracts the urls from the raw message" do
+      text = "[Perdu](http://perdu.com/) and [DuckDuckGo](https://duckduckgo.com/) can help you"
+      expect(message(text).urls).to eql ["http://perdu.com/", "https://duckduckgo.com/"]
+    end
+
+    it "extracts urls from continous markdown correctly" do
+      text = "[![Image](https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt)](https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C)"
+      expect(message(text).urls).to eq ["https://www.antifainfoblatt.de/sites/default/files/public/styles/front_full/public/jockpalfreeman.png?itok=OPjHKpmt", "https://www.antifainfoblatt.de/artikel/%E2%80%9Eschlie%C3%9Flich-waren-es-zu-viele%E2%80%9C"]
+    end
+
+    it "encodes extracted urls" do
+      url = "http://www.example.com/url/with/umlauts/ä/index.html"
+      expect(message(url).urls).to eq ["http://www.example.com/url/with/umlauts/%C3%A4/index.html"]
+    end
+
+    it "not double encodes an already encoded url" do
+      encoded_url = "http://www.example.com/url/with/umlauts/%C3%A4/index.html"
+      expect(message(encoded_url).urls).to eq [encoded_url]
+    end
+
+    it "parses IDN correctly" do
+      url = "http://www.hören.at/"
+      expect(message(url).urls).to eq ["http://www.xn--hren-5qa.at/"]
+    end
+  end
+
+  describe "#plain_text_for_json" do
+    it "normalizes" do
+      MESSAGE_NORMALIZTIONS.each do |input, output|
+        expect(message(input).plain_text_for_json).to eq output
+      end
     end
   end
 end

@@ -12,7 +12,8 @@
       - if !post.activity_streams?
         = render 'status_messages/status_message', :post => post, :photos => post.photos
   - else
-    = t('.deleted')
+    .content
+      = t('.deleted')
 
   .reshare_via
     %span

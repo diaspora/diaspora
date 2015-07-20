@@ -1,0 +1,107 @@
+@import 'colors';
+@import 'mixins';
+
+#big-number {
+  font-family: Roboto-BoldCondensed, Helvetica, Arial, sans-serif;
+  font-size: 250px;
+  line-height: 1em;
+  text-align: center;
+  padding-top: 100px;
+  text-shadow: 0 2px 0 #fff, 0 -1px 0 #999;
+  color: #ddd;
+}
+.transparent {
+  opacity: 0.8;
+}
+#content {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  font-size: 1.25em;
+  line-height: 1.5em;
+  color: $text-dark-grey;
+  position: absolute;
+  left: 0; right: 0;
+}
+
+#error_404 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom:0px;
+  margin: 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  color: #666;
+  background: image-url("peeping-tom.png") no-repeat bottom;
+
+  #big-number {
+    font-family: Roboto-BoldCondensed, Helvetica, Arial, sans-serif;
+    font-size: 250px;
+    text-shadow: 0 2px 0 #fff, 0 -1px 0 #999;
+    color: #ddd;
+  }
+
+  a {
+    text-decoration : none;
+    color : rgb(42,156,235);
+  }
+
+  a:hover {
+    text-decoration : underline;
+  }
+
+  .transparent {
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+  }
+}
+
+#error_422 {
+  background-color: #fff;
+  color: #666;
+  text-align: center;
+  font-family: arial, sans-serif;
+
+  div.dialog {
+    width: 25em;
+    padding: 0 4em;
+    margin: 4em auto 0 auto;
+    border: 1px solid #ccc;
+    border-right-color: #999;
+    border-bottom-color: #999;
+  }
+
+  h1 {
+    font-size: 100%;
+    color: #f00;
+    line-height: 1.5em;
+  }
+}
+
+#error_500 {
+  text-align: center;
+  background-color: rgb(252,252,252);
+  color: #444;
+  font-family: 'helvetica neue', 'helvetica', 'arial', sans-serif;
+  margin: 0;
+  padding: 1em;
+
+  header {
+    height: 100px;
+    background-color: #333;
+    position:relative;
+  }
+
+  #diaspora_logo {
+    position: relative;
+    margin-top: 50px;
+  }
+
+  h1 {
+    font-size: 100%;
+    color: #444;
+    line-height: 1.5em;
+  }
+}

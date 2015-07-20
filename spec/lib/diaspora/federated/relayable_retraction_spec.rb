@@ -20,14 +20,14 @@ describe RelayableRetraction do
 
     describe "#parent" do
       it "delegates to to target" do
-        @retraction.target.should_receive(:parent)
+        expect(@retraction.target).to receive(:parent)
         @retraction.parent
       end
     end
 
     describe "#parent_author" do
       it "delegates to target" do
-        @retraction.target.should_receive(:parent_author)
+        expect(@retraction.target).to receive(:parent_author)
         @retraction.parent_author
       end
     end
@@ -35,7 +35,7 @@ describe RelayableRetraction do
     describe '#subscribers' do
       it 'delegates it to target' do
         arg = double()
-        @retraction.target.should_receive(:subscribers).with(arg)
+        expect(@retraction.target).to receive(:subscribers).with(arg)
         @retraction.subscribers(arg)
       end
     end
@@ -48,7 +48,7 @@ describe RelayableRetraction do
 
       @retraction.instance_variable_set(:@target, nil)
       @retraction.target_guid = '135245'
-      @retraction.should_not_receive(:perform)
+      expect(@retraction).not_to receive(:perform)
       @retraction.receive(@local_luke, @remote_raphael)
     end
 
@@ -60,21 +60,21 @@ describe RelayableRetraction do
       end
 
       it 'signs' do
-        @retraction.should_receive(:sign_with_key) do |key|
-          key.to_s.should ==  @recipient.encryption_key.to_s
+        expect(@retraction).to receive(:sign_with_key) do |key|
+          expect(key.to_s).to eq(@recipient.encryption_key.to_s)
         end
         @retraction.receive(@recipient, @comment.author)
       end
 
       it 'dispatches' do
         zord = double()
-        zord.should_receive(:post)
-        Postzord::Dispatcher.should_receive(:build).with(@local_luke, @retraction).and_return zord
+        expect(zord).to receive(:post)
+        expect(Postzord::Dispatcher).to receive(:build).with(@local_luke, @retraction).and_return zord
         @retraction.receive(@recipient, @comment.author)
       end
 
       it 'performs' do
-        @retraction.should_receive(:perform).with(@local_luke)
+        expect(@retraction).to receive(:perform).with(@local_luke)
         @retraction.receive(@recipient, @comment.author)
       end
     end
@@ -85,18 +85,25 @@ describe RelayableRetraction do
         @retraction = described_class.allocate
         @retraction.sender = @remote_raphael
         @retraction.target = @comment
-        @retraction.stub(:parent_author_signature_valid?).and_return(true)
+        allow(@retraction).to receive(:parent_author_signature_valid?).and_return(true)
         @recipient = @local_luke
       end
 
       it 'performs' do
-        @retraction.should_receive(:perform).with(@recipient)
+        expect(@retraction).to receive(:perform).with(@recipient)
         @retraction.receive(@recipient, @remote_raphael)
       end
 
       it 'does not dispatch' do
-        Postzord::Dispatcher.should_not_receive(:build)
+        expect(Postzord::Dispatcher).not_to receive(:build)
         @retraction.receive(@recipient, @remote_raphael)
+      end
+
+      it 'performs through postzord' do
+        xml = Salmon::Slap.create_by_user_and_activity(@local_luke, @retraction.to_diaspora_xml).xml_for(nil)
+        expect {
+          Postzord::Receiver::Public.new(xml).perform!
+        }.to change(Comment, :count).by(-1)
       end
     end
   end
@@ -112,20 +119,20 @@ describe RelayableRetraction do
 
     describe '#to_xml' do
       it 'serializes target_guid' do
-        @xml.should include(@comment.guid)
+        expect(@xml).to include(@comment.guid)
       end
 
       it 'serializes target_type' do
-        @xml.should include(@comment.class.to_s)
+        expect(@xml).to include(@comment.class.to_s)
       end
 
       it 'serializes sender_handle' do
-        @xml.should include(@local_leia.diaspora_handle)
+        expect(@xml).to include(@local_leia.diaspora_handle)
       end
 
       it 'serializes signatures' do
-        @xml.should include('TARGETSIGNATURE')
-        @xml.should include('PARENTSIGNATURE')
+        expect(@xml).to include('TARGETSIGNATURE')
+        expect(@xml).to include('PARENTSIGNATURE')
       end
     end
 
@@ -135,16 +142,16 @@ describe RelayableRetraction do
       end
 
       it 'marshals the target' do
-        @marshalled.target.should == @comment
+        expect(@marshalled.target).to eq(@comment)
       end
 
       it 'marshals the sender' do
-        @marshalled.sender.should == @local_leia.person
+        expect(@marshalled.sender).to eq(@local_leia.person)
       end
 
       it 'marshals the signature' do
-        @marshalled.target_author_signature.should == 'TARGETSIGNATURE'
-        @marshalled.parent_author_signature.should == 'PARENTSIGNATURE'
+        expect(@marshalled.target_author_signature).to eq('TARGETSIGNATURE')
+        expect(@marshalled.parent_author_signature).to eq('PARENTSIGNATURE')
       end
     end
   end

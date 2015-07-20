@@ -1,0 +1,25 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- if AppConfig.configured_services.count > 0
+  - AppConfig.configured_services.each do |provider|
+    - if AppConfig.show_service?(provider, current_user)
+      %h3= t("services.provider.#{provider}")
+      - services_for_provider = @services.select{|x| x.provider == provider.to_s}
+      - if services_for_provider.count > 0
+        - services_for_provider.each do |service|
+          != t("services.index.logged_in_as", nickname: content_tag(:strong, service.nickname ))
+          = link_to t("services.index.disconnect"),
+                    service_path(service),
+                    data: { confirm: t("services.index.really_disconnect", service: t("services.provider.#{provider}")) },
+                    method: :delete
+
+      - else
+        = t("services.index.not_logged_in")
+        = link_to(t("services.index.connect"), "/auth/#{provider}")
+
+- else
+  .well
+    %h4
+      = t("services.index.no_services_available")

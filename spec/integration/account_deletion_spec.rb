@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'deleteing your account' do
+describe 'deleteing your account', :type => :request do
   context "user" do
     before do
       @bob2 = bob
@@ -23,8 +23,8 @@ describe 'deleteing your account' do
       create_conversation_with_message(alice, @bob2.person, "Subject", "Hey @bob2")
 
       #join tables
-      @users_sv = ShareVisibility.where(:contact_id => @bobs_contact_ids).all
-      @persons_sv = ShareVisibility.where(:contact_id => bob.person.contacts.map(&:id)).all
+      @users_sv = ShareVisibility.where(:contact_id => @bobs_contact_ids).load
+      @persons_sv = ShareVisibility.where(:contact_id => bob.person.contacts.map(&:id)).load
 
       #user associated objects
       @prefs = []
@@ -54,42 +54,42 @@ describe 'deleteing your account' do
     end
 
     it "deletes all of the user's preferences" do
-      UserPreference.where(:id => @prefs.map{|pref| pref.id}).should be_empty
+      expect(UserPreference.where(:id => @prefs.map{|pref| pref.id})).to be_empty
     end
 
     it "deletes all of the user's notifications" do
-      Notification.where(:id => @notifications.map{|n| n.id}).should be_empty
+      expect(Notification.where(:id => @notifications.map{|n| n.id})).to be_empty
     end
 
     it "deletes all of the users's blocked users" do
-      Block.where(:id => @block.id).should be_empty
+      expect(Block.where(:id => @block.id)).to be_empty
     end
 
     it "deletes all of the user's services" do
-      Service.where(:id => @services.map{|s| s.id}).should be_empty
+      expect(Service.where(:id => @services.map{|s| s.id})).to be_empty
     end
 
     it 'deletes all of @bob2s share visiblites' do
-      ShareVisibility.where(:id => @users_sv.map{|sv| sv.id}).should be_empty
-      ShareVisibility.where(:id => @persons_sv.map{|sv| sv.id}).should be_empty
+      expect(ShareVisibility.where(:id => @users_sv.map{|sv| sv.id})).to be_empty
+      expect(ShareVisibility.where(:id => @persons_sv.map{|sv| sv.id})).to be_empty
     end
 
     it 'deletes all of @bob2s aspect visiblites' do
-      AspectVisibility.where(:id => @aspect_vis.map(&:id)).should be_empty
+      expect(AspectVisibility.where(:id => @aspect_vis.map(&:id))).to be_empty
     end
 
     it 'deletes all aspects' do
-      @bob2.aspects.should be_empty
+      expect(@bob2.aspects).to be_empty
     end
 
     it 'deletes all user contacts' do
-      @bob2.contacts.should be_empty
+      expect(@bob2.contacts).to be_empty
     end
 
-    
-    it "clears the account fields" do 
+
+    it "clears the account fields" do
       @bob2.send(:clearable_fields).each do |field|
-        @bob2.reload[field].should be_blank
+        expect(@bob2.reload[field]).to be_blank
       end
     end
 
@@ -99,7 +99,7 @@ describe 'deleteing your account' do
   context 'remote person' do
     before do
       @person = remote_raphael
-      
+
       #contacts
       @contacts = @person.contacts
 

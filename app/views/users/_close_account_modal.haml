@@ -1,0 +1,41 @@
+.modal.hide.fade{ id: "closeAccountModal", tabindex: "-1", role: "dialog", aria: { labelledby: "closeAccountModalLabel", hidden: "true" }}
+  .modal-header
+    %button.close{type: "button", data: {dismiss: "modal"}, aria: {hidden: "true" }}
+      &times;
+    %h3{ id:"closeAccountModalLabel"}
+      = t("users.edit.close_account.dont_go")
+  .modal-body
+    .row-fluid
+      .text-center
+        = image_tag "sadcat.jpg"
+        %h4
+          %strong
+            = t("users.edit.close_account.mr_wiggles")
+
+    .small-horizontal-spacer
+
+    .row-fluid
+      .span12
+        = t("users.edit.close_account.make_diaspora_better")
+
+        .small-horizontal-spacer
+
+        %ul
+          %li
+            = t("users.edit.close_account.what_we_delete")
+          %li
+            = t("users.edit.close_account.locked_out")
+          %li
+            = t("users.edit.close_account.lock_username")
+        %p
+          %strong
+            = t("users.edit.close_account.no_turning_back")
+
+        = form_for "user", url: user_path, html: { method: :delete } do |f|
+          = f.error_messages
+
+          %p
+            = f.label :close_account_password, t("users.edit.current_password"), for: :close_account_password
+            = f.password_field :current_password, id: :close_account_password
+          %p
+            = f.submit t('users.edit.close_account_text'), class: "btn btn-danger", id: "close_account_confirm", data: { confirm: t("are_you_sure_delete_account") }

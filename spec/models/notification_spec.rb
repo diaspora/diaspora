@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Notification do
+describe Notification, :type => :model do
   before do
     @sm = FactoryGirl.create(:status_message)
     @person = FactoryGirl.create(:person)
@@ -21,7 +21,7 @@ describe Notification do
 
   it 'destoys the associated notification_actor' do
     @note.save
-    lambda{@note.destroy}.should change(NotificationActor, :count).by(-1)
+    expect{@note.destroy}.to change(NotificationActor, :count).by(-1)
   end
 
   describe '.for' do
@@ -34,7 +34,7 @@ describe Notification do
       @opts.delete(:recipient_id)
       Notification.create(@opts.merge(:recipient_id => user2.id))
 
-      Notification.for(@user).count.should == 4
+      expect(Notification.for(@user).count).to eq(4)
     end
   end
 
@@ -42,12 +42,12 @@ describe Notification do
     it "should set an unread notification to read" do
       @note.unread = true
       @note.set_read_state( true )
-      @note.unread.should == false
+      expect(@note.unread).to eq(false)
     end
     it "should set an read notification to unread" do
       @note.unread = false
       @note.set_read_state( false )
-      @note.unread.should == true
+      expect(@note.unread).to eq(true)
     end
 
   end
@@ -57,9 +57,9 @@ describe Notification do
     it 'creates a new notificiation if the notification does not exist, or if it is unread' do
       @note.unread = false
       @note.save
-      Notification.count.should == 1
+      expect(Notification.count).to eq(1)
       Notification.concatenate_or_create(@note.recipient, @note.target, @note.actors.first, Notifications::CommentOnPost)
-      Notification.count.should == 2
+      expect(Notification.count).to eq(2)
     end
   end
   describe '.notify' do
@@ -69,7 +69,7 @@ describe Notification do
       end
 
       it 'calls Notification.create if the object has a notification_type' do
-        Notification.should_receive(:make_notification).once
+        expect(Notification).to receive(:make_notification).once
         Notification.notify(@user, @request, @person)
       end
 
@@ -80,9 +80,9 @@ describe Notification do
             :recipient_id => @user.id}
 
             n = Notifications::StartedSharing.new(opts)
-            n.stub(:recipient).and_return @user
+            allow(n).to receive(:recipient).and_return @user
 
-            @user.should_receive(:mail)
+            expect(@user).to receive(:mail)
             n.email_the_user(@request, @person)
         end
       end
@@ -93,7 +93,7 @@ describe Notification do
           person2 = FactoryGirl.build(:person)
           notification = Notification.notify(@user, FactoryGirl.build(:like, :author => @person, :target => p), @person)
           notification2 =  Notification.notify(@user, FactoryGirl.build(:like, :author => person2, :target => p), person2)
-          notification.id.should == notification2.id
+          expect(notification.id).to eq(notification2.id)
         end
       end
 
@@ -103,7 +103,7 @@ describe Notification do
           person2 = FactoryGirl.build(:person)
           notification = Notification.notify(@user, FactoryGirl.build(:comment, :author => @person, :post => p), @person)
           notification2 =  Notification.notify(@user, FactoryGirl.build(:comment, :author => person2, :post => p), person2)
-          notification.id.should == notification2.id
+          expect(notification.id).to eq(notification2.id)
         end
       end
 
@@ -116,12 +116,12 @@ describe Notification do
         end
 
         it "updates the notification with a more people if one already exists" do
-          Notification.where(:recipient_id => @user3.id, :target_type => @sm.class.base_class, :target_id => @sm.id).first.actors.count.should == 2
+          expect(Notification.where(:recipient_id => @user3.id, :target_type => @sm.class.base_class, :target_id => @sm.id).first.actors.count).to eq(2)
         end
 
         it 'handles double comments from the same person without raising' do
           Postzord::Receiver::Private.new(@user3, :person => @user2.person, :object => @user2.comment!(@sm, "hey")).receive_object
-          Notification.where(:recipient_id => @user3.id, :target_type => @sm.class.base_class, :target_id => @sm.id).first.actors.count.should == 2
+          expect(Notification.where(:recipient_id => @user3.id, :target_type => @sm.class.base_class, :target_id => @sm.id).first.actors.count).to eq(2)
         end
       end
     end

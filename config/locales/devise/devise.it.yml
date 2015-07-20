@@ -33,7 +33,7 @@ it:
       inviter:
         accept_at: "su %{url}, puoi accettare dal link qua sotto."
         has_invited_you: "%{name} ti ha invitato ad entrare in Diaspora"
-        have_invited_you: "%{names} ti hanno invitato ad entrare in Diaspora"
+        have_invited_you: "%{names} ti hanno invitato ad entrare in diaspora*"
       reset_password_instructions:
         change: "Cambia la mia password"
         ignore: "Se non hai effettuato la richiesta, per favore ignora questa email."
@@ -54,7 +54,7 @@ it:
       new:
         email: "Indirizzo e-mail"
         forgot_password: "Hai dimenticato la password?"
-        no_account: "Non esiste un account per questo indirizzo email. Se sei in attesa di un invito, considera che li stiamo spedendo il più velocemente possibile."
+        no_account: "Non esiste un account con questo indirizzo email"
         reset_password: "Resetta password"
         send_password_instructions: "Inviami le istruzioni per reimpostare la password."
       send_instructions: "Tra pochi minuti riceverai una email con le istruzioni su come cambiare la tua password."

@@ -1,40 +1,6 @@
-/*   Copyright (c) 2010-2011, Diaspora Inc.  This file is
- *   licensed under the Affero General Public License version 3 or later.  See
- *   the COPYRIGHT file.
- */
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 var List = {
-  initialize: function() {
-    $(document).on("keyup", ".contact_list_search", function(e) {
-      var search = $(this);
-      var list   = $(".contacts", ".searchable");
-      var query  = new RegExp(search.val(),'i');
-
-      $("> .contact", list).each( function(idx, element) {
-        element = $(element);
-        if( !element.find(".name").text().match(query) ) {
-          element.addClass('hidden');
-        } else {
-          element.removeClass('hidden');
-        }
-      });
-    });
-  },
-
-  disconnectUser: function(contact_id){
-    $.ajax({
-        url: "/contacts/" + contact_id,
-        type: "DELETE",
-        success: function(){
-          if( $('.searchable').length == 1){
-              $('.searchable .contact[data-contact_id='+contact_id+']').fadeOut(200);
-          } else if($('#aspects_list').length == 1) {
-            $.facebox.close();
-          };
-        }
-    });
-  },
-
   runDelayedSearch: function( searchTerm ) {
     $.getJSON('/people/refresh_search',
       { q: searchTerm },
@@ -49,34 +15,14 @@ var List = {
       });
 
     streamEl.html(string);
+    $('.aspect_membership_dropdown').each(function(){
+      new app.views.AspectMembership({el: this});
+    });
   },
 
   startSearchDelay: function (theSearch) {
     setTimeout( "List.runDelayedSearch('" + theSearch + "')", 10000);
   }
-
 };
+// @license-end
 
-$(document).ready(function() {
-  $('.added').bind('ajax:loading', function() {
-    var $this = $(this);
-
-    $this.addClass('disabled');
-    $this.fadeTo(200,0.4);
-  });
-
-  $('.added').bind('hover',
-    function() {
-      var $this = $(this)
-      $this.addClass("remove");
-      $this.children("img").attr("src","/images/icons/monotone_close_exit_delete.png");
-    },
-
-    function() {
-      var $this = $(this)
-      $this.removeClass("remove");
-      $this.children("img").attr("src","/images/icons/monotone_check_yes.png");
-  });
-
-  List.initialize();
-});

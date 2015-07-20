@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe User::Connecting do
+describe User::Connecting, :type => :model do
 
   let(:aspect) { alice.aspects.first }
   let(:aspect1) { alice.aspects.create(:name => 'other') }
@@ -20,37 +20,37 @@ describe User::Connecting do
     describe '#remove_contact' do
       it 'removed non mutual contacts' do
         alice.share_with(eve.person, alice.aspects.first)
-        lambda {
+        expect {
           alice.remove_contact alice.contact_for(eve.person)
-        }.should change {
+        }.to change {
           alice.contacts(true).count
         }.by(-1)
       end
 
       it 'removes a contacts receiving flag' do
-        bob.contacts.find_by_person_id(alice.person.id).should be_receiving
+        expect(bob.contacts.find_by_person_id(alice.person.id)).to be_receiving
         bob.remove_contact(bob.contact_for(alice.person))
-        bob.contacts(true).find_by_person_id(alice.person.id).should_not be_receiving
+        expect(bob.contacts(true).find_by_person_id(alice.person.id)).not_to be_receiving
       end
     end
 
     describe '#disconnected_by' do
       it 'calls remove contact' do
-        bob.should_receive(:remove_contact).with(bob.contact_for(alice.person), :retracted => true)
+        expect(bob).to receive(:remove_contact).with(bob.contact_for(alice.person), :retracted => true)
         bob.disconnected_by(alice.person)
       end
 
       it 'removes contact sharing flag' do
-        bob.contacts.find_by_person_id(alice.person.id).should be_sharing
+        expect(bob.contacts.find_by_person_id(alice.person.id)).to be_sharing
         bob.disconnected_by(alice.person)
-        bob.contacts.find_by_person_id(alice.person.id).should_not be_sharing
+        expect(bob.contacts.find_by_person_id(alice.person.id)).not_to be_sharing
       end
 
       it 'removes notitications' do
         alice.share_with(eve.person, alice.aspects.first)
-        Notifications::StartedSharing.where(:recipient_id => eve.id).first.should_not be_nil
+        expect(Notifications::StartedSharing.where(:recipient_id => eve.id).first).not_to be_nil
         eve.disconnected_by(alice.person)
-        Notifications::StartedSharing.where(:recipient_id => eve.id).first.should be_nil
+        expect(Notifications::StartedSharing.where(:recipient_id => eve.id).first).to be_nil
       end
     end
 
@@ -58,14 +58,14 @@ describe User::Connecting do
       it 'calls remove contact' do
         contact = bob.contact_for(alice.person)
 
-        bob.should_receive(:remove_contact).with(contact, {})
+        expect(bob).to receive(:remove_contact).with(contact, {})
         bob.disconnect(contact)
       end
 
       it 'dispatches a retraction' do
         p = double()
-        Postzord::Dispatcher.should_receive(:build).and_return(p)
-        p.should_receive(:post)
+        expect(Postzord::Dispatcher).to receive(:build).and_return(p)
+        expect(p).to receive(:post)
 
         bob.disconnect bob.contact_for(eve.person)
       end
@@ -75,16 +75,16 @@ describe User::Connecting do
         new_aspect = alice.aspects.create(:name => 'new')
         alice.add_contact_to_aspect(contact, new_aspect)
 
-        lambda {
+        expect {
           alice.disconnect(contact)
-        }.should change(contact.aspects(true), :count).from(2).to(0)
+        }.to change(contact.aspects(true), :count).from(2).to(0)
       end
     end
   end
 
   describe '#register_share_visibilities' do
     it 'creates post visibilites for up to 100 posts' do
-      Post.stub_chain(:where, :limit).and_return([FactoryGirl.create(:status_message)])
+      allow(Post).to receive_message_chain(:where, :limit).and_return([FactoryGirl.create(:status_message)])
       c = Contact.create!(:user_id => alice.id, :person_id => eve.person.id)
       expect{
         alice.register_share_visibilities(c)
@@ -94,43 +94,43 @@ describe User::Connecting do
 
   describe '#share_with' do
     it 'finds or creates a contact' do
-      lambda {
+      expect {
         alice.share_with(eve.person, alice.aspects.first)
-      }.should change(alice.contacts, :count).by(1)
+      }.to change(alice.contacts, :count).by(1)
     end
 
     it 'does not set mutual on intial share request' do
       alice.share_with(eve.person, alice.aspects.first)
-      alice.contacts.find_by_person_id(eve.person.id).should_not be_mutual
+      expect(alice.contacts.find_by_person_id(eve.person.id)).not_to be_mutual
     end
 
     it 'does set mutual on share-back request' do
       eve.share_with(alice.person, eve.aspects.first)
       alice.share_with(eve.person, alice.aspects.first)
 
-      alice.contacts.find_by_person_id(eve.person.id).should be_mutual
+      expect(alice.contacts.find_by_person_id(eve.person.id)).to be_mutual
     end
 
     it 'adds a contact to an aspect' do
       contact = alice.contacts.create(:person => eve.person)
-      alice.contacts.stub(:find_or_initialize_by_person_id).and_return(contact)
+      allow(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
-      lambda {
+      expect {
         alice.share_with(eve.person, alice.aspects.first)
-      }.should change(contact.aspects, :count).by(1)
+      }.to change(contact.aspects, :count).by(1)
     end
 
     it 'calls #register_share_visibilities with a contact' do
-      eve.should_receive(:register_share_visibilities)
+      expect(eve).to receive(:register_share_visibilities)
       eve.share_with(alice.person, eve.aspects.first)
     end
 
     context 'dispatching' do
       it 'dispatches a request on initial request' do
         contact = alice.contacts.new(:person => eve.person)
-        alice.contacts.stub(:find_or_initialize_by_person_id).and_return(contact)
+        allow(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
-        contact.should_receive(:dispatch_request)
+        expect(contact).to receive(:dispatch_request)
         alice.share_with(eve.person, alice.aspects.first)
       end
 
@@ -138,9 +138,9 @@ describe User::Connecting do
         eve.share_with(alice.person, eve.aspects.first)
 
         contact = alice.contact_for(eve.person)
-        alice.contacts.stub(:find_or_initialize_by_person_id).and_return(contact)
+        allow(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
-        contact.should_receive(:dispatch_request)
+        expect(contact).to receive(:dispatch_request)
         alice.share_with(eve.person, alice.aspects.first)
       end
 
@@ -148,31 +148,31 @@ describe User::Connecting do
         a2 = alice.aspects.create(:name => "two")
 
         contact = alice.contacts.create(:person => eve.person, :receiving => true)
-        alice.contacts.stub(:find_or_initialize_by_person_id).and_return(contact)
+        allow(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
-        contact.should_not_receive(:dispatch_request)
+        expect(contact).not_to receive(:dispatch_request)
         alice.share_with(eve.person, a2)
       end
 
       it 'posts profile' do
         m = double()
-        Postzord::Dispatcher.should_receive(:build).twice.and_return(m)
-        m.should_receive(:post).twice
+        expect(Postzord::Dispatcher).to receive(:build).twice.and_return(m)
+        expect(m).to receive(:post).twice
         alice.share_with(eve.person, alice.aspects.first)
       end
     end
 
     it 'sets receiving' do
       alice.share_with(eve.person, alice.aspects.first)
-      alice.contact_for(eve.person).should be_receiving
+      expect(alice.contact_for(eve.person)).to be_receiving
     end
 
     it "should mark the corresponding notification as 'read'" do
       notification = FactoryGirl.create(:notification, :target => eve.person)
 
-      Notification.where(:target_id => eve.person.id).first.unread.should be_true
+      expect(Notification.where(:target_id => eve.person.id).first.unread).to be true
       alice.share_with(eve.person, aspect)
-      Notification.where(:target_id => eve.person.id).first.unread.should be_false
+      expect(Notification.where(:target_id => eve.person.id).first.unread).to be false
     end
   end
 end

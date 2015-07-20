@@ -10,7 +10,7 @@ module Workers
       person = Webfinger.new(account).fetch
 
       # also, schedule to fetch a few public posts from that person
-      Workers::FetchPublicPosts.perform_async(person.diaspora_handle) unless person.nil?
+      Diaspora::Fetcher::Public.queue_for(person) unless person.nil?
     end
   end
 end

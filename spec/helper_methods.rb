@@ -1,3 +1,6 @@
+
+require Rails.root.join("spec", "support", "inlined_jobs")
+
 module HelperMethods
   def connect_users_with_aspects(u1, u2)
     aspect1 = u1.aspects.length == 1 ? u1.aspects.first : u1.aspects.where(:name => "Besties").first

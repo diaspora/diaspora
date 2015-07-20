@@ -1,224 +1,60 @@
-@import '../mixins';
-
-#post-info {
-  text-align: center;
-  z-index: 10;
-
-  margin-top: -33px;
-
-  #post-info-container {
-    @include info-container();
-  }
-
-  .well {
-    -webkit-box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
-    -moz-box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
-    box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
-
-    margin: 5px;
-    padding: 5px;
-    text-align: left;
-
-    max-height: 20px;
-    overflow: hidden;
-
-    background: {
-      color: #222;
-      color: rgba(0,0,0,0.2);
-    }
-
-    border: {
-      left: 1px solid #444;
-      right: 1px solid #444;
-      bottom: 1px solid #555;
-      top: 1px solid #111;
-    }
-
-    .img {
-      margin-right: 5px;
-    }
-
-    i {
-      margin-top: 1px;
-    }
-
-    .avatar {
-      @include border-radius();
-      margin-right: 0;
-    }
-  }
-
-  #post-comments {
-    text-align: left;
-    padding-top: 0;
-  }
-
-  #new-post-comment-container {
-    position: relative;
-
-    padding: 10px;
-
-    textarea{
-      height: 18px;
-      width: 318px;
-      padding: 4px;
-    }
-
-    form {
-      margin-bottom: 0;
-    }
-
-    .btn {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      font-size: 11px; 
-      line-height: 16px; 
-      padding: 5px 9px;
-    }
-  }
-}
-
-.comment-content h1, .comment-content h2, .comment-content h3, .comment-content h4, .comment-content h5, .comment-content h6 {
-  color: white;
-  text-shadow: 1px 1px black;
-  text-rendering: optimizelegibility;
-}
-
-.post-comment {
-  -moz-box-shadow: 0 1px 2px -2px #999;
-  -webkit-box-shadow: 0 1px 2px -2px #999;
-  box-shadow: 0 1px 2px -2px #999;
-
-  border-bottom: 1px solid #333;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-
-  &:last-child {
-    box-shadow: none;
-    border-bottom: none;
-  }
-
-  padding: 10px;
-  padding-right: 40px;
-  margin: 0px;
-
-  .avatar {
-    @include border-radius();
-
-    border: {
-      top: 1px solid #222;
-      right: 1px solid #444;
-      left: 1px solid #444;
-      bottom: 1px solid $text-dark-grey;
-    }
-  }
-
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-
-  a:hover {
-    color: #99CCFF
-  }
-
-  time {
-    color: $text-dark-grey;
-    font-size: smaller;
-  }
-
-  .controls {
-    @include transition(opacity);
-    @include opacity(0);
-
-    float: right;
-    margin-right: -40px;
-
-    a {
-      padding: 3px 5px;
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-
-  &:hover {
-    .controls {
-      @include opacity(0.4);
-
-      &:hover {
-        @include opacity(1);
-      }
-    }
-  }
-}
-
-.permalink-wrapper,
-#user-controls {
-  height: 30px;
-
-  .avatar {
-    vertical-align: top;
-    height: 27px;
-    width: 27px;
-  }
-
+.control-icons {
   a {
-    @include opacity(0.6);
-    @include transition(opacity, 0.3s);
-
-    position: relative;
-
-    z-index: 20;
-
-    padding: 1px 4px 0;
     margin-right: 5px;
-    line-height: 24px;
+    &:hover { text-decoration: none; }
 
-    i {
-      padding: 0;
-      margin: 0;
+    i.entypo {
+      color: $text-grey;
+      font-size: $font-size-text;
+      line-height: $line-height;
+      vertical-align: middle;
+      &:hover { color: $text; }
+      &.cross { font-size: $line-height; }
     }
 
-    color: #fff;
-
-    &.label {
-      @include box-shadow(0, 0, 2px, rgba(255,255,255,0.9));
-      background-color: #000;
+    &.hide_conversation i {
+      font-size: $line-height*1.5;
     }
 
-    &.comment {
-      padding-right: 5px;
-      margin-right: 0;
+    &.delete_conversation i {
+      font-size: $font-size-text*1.5;
     }
 
-    &:hover {
-      @include opacity(1);
+    &.destroy_participation i {
+      color: $black;
+      &:hover { color: $text-dark-grey; }
+    }
+  }
+}
+
+.stream_container, #single-post-interactions {
+  .control-icons {
+    z-index: 6;
+    float: right;
+
+    .block_user,
+    .comment_report,
+    .create_participation,
+    .delete,
+    .destroy_participation,
+    .post_report {
+      display: inline-block;
+    }
+
+    & > a:hover {
       text-decoration: none;
     }
   }
-}
 
-/* stream specific wrapper */
-#stream-interactions {
-  position : fixed;
-  top : 0;
-  bottom : 0;
-  overflow-y : auto;
+  .stream_element, .comment, .photo, .stream_element:hover .comment {
+    .control-icons > a {
+      @include transition(opacity);
+      opacity: 0;
+    }
 
-  #post-info {
-    text-align : left;
-    margin-top : 10px;
+    &:hover .control-icons {
+      & > a { opacity: 0.8; }
+      & > a:hover { opacity: 1; }
+    }
   }
-
-  #user-controls {
-    padding : 7px;
-  }
-}
-
-.permalink-wrapper {
-  float : right;
-  margin-top : 9px;
-  margin-right : -5px;
-  margin-left : 4px;
 }

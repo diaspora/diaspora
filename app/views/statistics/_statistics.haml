@@ -1,0 +1,23 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.row-fluid
+  %h1
+    = t('_statistics')
+  = render 'statistics/statistic', name: t('statistics.name'), value: @statistics.name, activated: "serv-enabled"
+  = render 'statistics/statistic', name: t('statistics.version'), value: @statistics.version, activated: "serv-enabled"
+  = render 'statistics/statistic', name: t('statistics.registrations'), value: registrations_status(@statistics), activated: registrations_status_class(@statistics)
+  - if @statistics.expose_user_counts?
+    = render 'statistics/statistic', name: t('statistics.total_users'), value: @statistics.total_users, activated: "serv-enabled"
+    = render 'statistics/statistic', name: t('statistics.active_users_halfyear'), value: @statistics.halfyear_users, activated: "serv-enabled"
+    = render 'statistics/statistic', name: t('statistics.active_users_monthly'), value: @statistics.monthly_users, activated: "serv-enabled"
+  - if @statistics.expose_posts_counts?
+    = render 'statistics/statistic', name: t('statistics.local_posts'), value: @statistics.local_posts, activated: "serv-enabled"
+  - if @statistics.expose_comment_counts?
+    = render 'statistics/statistic', name: t('statistics.local_comments'), value: @statistics.local_comments, activated: "serv-enabled"
+.row-fluid
+  %h1
+    = t('statistics.services')
+  - Configuration::KNOWN_SERVICES.each do |service|
+    = render 'statistics/statistic', name: "#{service.capitalize}", value: service_status(service, @statistics.available_services), activated: service_class(service, @statistics.available_services)

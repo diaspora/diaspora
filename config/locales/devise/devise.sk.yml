@@ -37,7 +37,7 @@ sk:
       reset_password_instructions:
         change: "Zmeniť si heslo"
         ignore: "Ak si o to nežiadal(a), tento e-mail, prosím, ignoruj."
-        someone_requested: "Nieko požiadal o zmenu tvojho hesla. Ak si to bol(a) ty, môžeš to urobiť kliknutím na tento odkaz."
+        someone_requested: "Niekto požiadal o odkaz na zmenu tvojho hesla. Ak si to bol(a) ty, môžeš to urobiť kliknutím na tento odkaz."
         subject: "Pokyny na zmenu hesla"
         wont_change: "Tvoje heslo sa nezmení, kým neklikneš na odkaz, ktorý je napísaný vyššie, a nevytvoríš si nové."
       unlock_instructions:

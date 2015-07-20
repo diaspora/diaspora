@@ -8,13 +8,23 @@ module NotificationsHelper
 
     if note.instance_of?(Notifications::Mentioned)
       if post = note.linked_object
-        translation(target_type, :actors => actors, :count => actors_count, :post_link => link_to(post_page_title(post), post_path(post)).html_safe)
+        translation(target_type,
+                    actors:    actors,
+                    count:     actors_count,
+                    post_link: link_to(post_page_title(post), post_path(post)).html_safe)
       else
         t(note.deleted_translation_key, :actors => actors, :count => actors_count).html_safe
       end
     elsif note.instance_of?(Notifications::CommentOnPost) || note.instance_of?(Notifications::AlsoCommented) || note.instance_of?(Notifications::Reshared) || note.instance_of?(Notifications::Liked)
       if post = note.linked_object
-        translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author_name), :post_link => link_to(post_page_title(post), post_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
+        translation(target_type,
+                    actors:      actors,
+                    count:       actors_count,
+                    post_author: h(post.author_name),
+                    post_link:   link_to(post_page_title(post),
+                                         post_path(post),
+                                         data:  {ref: post.id},
+                                         class: "hard_object_link").html_safe)
       else
         t(note.deleted_translation_key, :actors => actors, :count => actors_count).html_safe
       end
@@ -55,12 +65,27 @@ module NotificationsHelper
     object_link(note, notification_people_link(note))
   end
 
-  def the_day(i18n)
-    i18n[0].match(/\d/) ? i18n[0].gsub('.', '') : i18n[1].gsub('.', '')
+  def the_day(date)
+    date.split('-')[2].to_i
   end
 
-  def the_month(i18n)
-    i18n[0].match(/\d/) ? i18n[1] : i18n[0]
+  def the_month(date)
+    I18n.l(Date.strptime(date, '%Y-%m-%d'), :format => '%B')
+  end
+
+  def the_year(date)
+    date.split('-')[0].to_i
+  end
+
+  def locale_date(date)
+    I18n.l(Date.strptime(date, '%Y-%m-%d'), :format => I18n.t('date.formats.fullmonth_day'))
+  end
+
+  def display_year?(year, date)
+    unless year
+      Date.current.year != the_year(date)
+    else
+      year != the_year(date)
+    end
   end
 end
-

@@ -61,7 +61,7 @@
         = text_field_tag 'profile[first_name]', current_user.first_name
         = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
         %span.saved{:class => "hidden"}
-          = image_tag 'icons/check_yes_ok.png'
+          = image_tag "mobile/check_yes_ok.png"
           = t(".saved")
 
         = label_tag :your_photo, t('profiles.edit.your_photo'), :class => "bootstrapped"
@@ -77,7 +77,7 @@
       %fieldset
         = label_tag 'follow_tags', t('.hashtag_suggestions'), :class => "bootstrapped"
         = text_field_tag 'follow_tags', nil, :class => "nostrap"
-    
+
     .center
       = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, :id => "awesome_button", :class => "button creation"
 

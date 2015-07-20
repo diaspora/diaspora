@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe InvitationCode do
+describe InvitationCode, :type => :model do
   it 'has a valid factory' do
-    FactoryGirl.build(:invitation_code).should be_valid
+    expect(FactoryGirl.build(:invitation_code)).to be_valid
   end
 
   it 'sets the count to a default value' do
     code = FactoryGirl.create(:invitation_code)
-    code.count.should > 0 
+    expect(code.count).to be > 0
   end
 
   describe '#use!' do
@@ -21,22 +21,14 @@ describe InvitationCode do
   end
 
   describe '.default_inviter_or' do
-    before do
-      @old_account = AppConfig.admins.account.get
-      AppConfig.admins.account = 'bob'
-    end
-
-    after do
-      AppConfig.admins.account = @old_account
-    end
-
     it 'grabs the set admin account for the pod...' do
-      InvitationCode.default_inviter_or(alice).username.should == 'bob'
+      AppConfig.admins.account = 'bob'
+      expect(InvitationCode.default_inviter_or(alice).username).to eq('bob')
     end
 
     it '..or the given user' do
       AppConfig.admins.account = ''
-      InvitationCode.default_inviter_or(alice).username.should == 'alice'
+      expect(InvitationCode.default_inviter_or(alice).username).to eq('alice')
     end
   end
 end

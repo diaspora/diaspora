@@ -3,10 +3,9 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :check_registrations_open_or_valid_invite!, :check_valid_invite!
+  before_action :check_registrations_open_or_valid_invite!, :check_valid_invite!
 
   layout ->(c) { request.format == :mobile ? "application" : "with_header" }, :only => [:new]
-  before_filter -> { @css_framework = :bootstrap }, only: [:new, :create]
 
   def create
     @user = User.build(user_params)
@@ -16,12 +15,12 @@ class RegistrationsController < Devise::RegistrationsController
       flash[:notice] = I18n.t 'registrations.create.success'
       @user.seed_aspects
       sign_in_and_redirect(:user, @user)
-      Rails.logger.info("event=registration status=successful user=#{@user.diaspora_handle}")
+      logger.info "event=registration status=successful user=#{@user.diaspora_handle}"
     else
       @user.errors.delete(:person)
 
       flash[:error] = @user.errors.full_messages.join(" - ")
-      Rails.logger.info("event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'")
+      logger.info "event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'"
       render :action => 'new', :layout => 'with_header'
     end
   end

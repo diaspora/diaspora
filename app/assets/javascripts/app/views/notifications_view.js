@@ -1,40 +1,35 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.views.Notifications = Backbone.View.extend({
 
   events: {
-    "click .unread-toggle" : "toggleUnread"
+    "click .unread-toggle" : "toggleUnread",
+    "click #mark_all_read_link": "markAllRead"
   },
 
   initialize: function() {
-    Diaspora.page.header.notifications.setUpNotificationPage(this);
     $(".unread-toggle .entypo").tooltip();
+    app.helpers.timeago($(document));
   },
 
   toggleUnread: function(evt) {
-    note = $(evt.target).closest(".stream_element");
-    unread = note.hasClass("unread");
+    var note = $(evt.target).closest(".stream_element");
+    var unread = note.hasClass("unread");
 
-    if (unread) {
-      this.setRead(note.data("guid"));
-    }
-    else {
-      this.setUnread(note.data("guid"));
-    }
+    if (unread){ this.setRead(note.data("guid")); }
+    else { this.setUnread(note.data("guid")); }
   },
 
-  setRead: function(guid) {
-    $.ajax({
-      url: "/notifications/" + guid,
-      data: { set_unread: false },
-      type: "PUT",
-      context: this,
-      success: this.clickSuccess
-    });
-  },
+  getAllUnread: function(){ return $('.media.stream_element.unread'); },
 
-  setUnread: function(guid) {
+  setRead: function(guid) { this.setUnreadStatus(guid, false); },
+
+  setUnread: function(guid){ this.setUnreadStatus(guid, true); },
+
+  setUnreadStatus: function(guid, state){
     $.ajax({
       url: "/notifications/" + guid,
-      data: { set_unread: true },
+      data: { set_unread: state },
       type: "PUT",
       context: this,
       success: this.clickSuccess
@@ -42,51 +37,58 @@ app.views.Notifications = Backbone.View.extend({
   },
 
   clickSuccess: function(data) {
-    type = $('.stream_element[data-guid=' + data["guid"] + ']').data('type');
+    var type = $('.stream_element[data-guid=' + data["guid"] + ']').data('type');
     this.updateView(data["guid"], type, data["unread"]);
   },
 
+  markAllRead: function(evt){
+    if(evt) { evt.preventDefault(); }
+    var self = this;
+    this.getAllUnread().each(function(i, el){
+      self.setRead($(el).data("guid"));
+    });
+  },
+
   updateView: function(guid, type, unread) {
-    change = unread ? 1 : -1;
-    all_notes = $('ul.nav > li:eq(0) .badge');
-    type_notes = $('ul.nav > li[data-type=' + type + '] .badge');
-    header_badge = $('#notification_badge .badge_count');
+    var change = unread ? 1 : -1,
+        all_notes = $('ul.nav > li:eq(0) .badge'),
+        type_notes = $('ul.nav > li[data-type=' + type + '] .badge'),
+        header_badge = $('#notification_badge .badge_count'),
+        note = $('.stream_element[data-guid=' + guid + ']'),
+        markAllReadLink = $('a#mark_all_read_link'),
+        translationKey = unread ? 'notifications.mark_read' : 'notifications.mark_unread';
 
-    note = $('.stream_element[data-guid=' + guid + ']');
-    if(unread) {
-      note.removeClass("read").addClass("unread");
-      $(".unread-toggle .entypo", note)
+    if(unread){ note.removeClass("read").addClass("unread"); }
+    else { note.removeClass("unread").addClass("read"); }
+
+    $(".unread-toggle .entypo", note)
         .tooltip('destroy')
         .removeAttr("data-original-title")
-        .attr('title',Diaspora.I18n.t('notifications.mark_read'))
+        .attr('title',Diaspora.I18n.t(translationKey))
         .tooltip();
-    }
-    else {
-      note.removeClass("unread").addClass("read");
-      $(".unread-toggle .entypo", note)
-        .tooltip('destroy')
-        .removeAttr("data-original-title")
-        .attr('title',Diaspora.I18n.t('notifications.mark_unread'))
-        .tooltip();
-    }
 
-    all_notes.text( function(i,text) { return parseInt(text) + change });
-    type_notes.text( function(i,text) { return parseInt(text) + change });
-    header_badge.text( function(i,text) { return parseInt(text) + change });
-    if(all_notes.text()>0){
-      all_notes.addClass('badge-important').removeClass('badge-default');
-    } else {
-      all_notes.removeClass('badge-important').addClass('badge-default');
-    }
-    if(type_notes.text()>0){
-      type_notes.addClass('badge-important').removeClass('badge-default');
-    } else {
-      type_notes.removeClass('badge-important').addClass('badge-default');
-    }
-    if(header_badge.text()>0){
+    [all_notes, type_notes, header_badge].forEach(function(element){
+      element.text(function(i, text){
+        return parseInt(text) + change });
+    });
+
+    [all_notes, type_notes].forEach(function(badge) {
+      if(badge.text() > 0) {
+        badge.addClass('badge-important').removeClass('badge-default');
+      }
+      else {
+        badge.removeClass('badge-important').addClass('badge-default');
+      }
+    });
+
+    if(header_badge.text() > 0){
       header_badge.removeClass('hidden');
-    } else {
+      markAllReadLink.removeClass('disabled');
+    }
+    else{
       header_badge.addClass('hidden');
+      markAllReadLink.addClass('disabled');
     }
   }
 });
+// @license-end

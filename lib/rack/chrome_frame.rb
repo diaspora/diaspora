@@ -60,12 +60,12 @@ module Rack
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
       HEAD
 
-      body.gsub!('<head>', "<head>\n" + head )
+      body.gsub!(/<head(.*)>/, "<head\\1>\n" + head )
       body
     end
 
     def ie_version(ua_string)
-      ua_string.match(/MSIE (\S+)/)[1].to_f
+      ua_string.match(/MSIE ?(\S+)/)[1].to_f
     end
   end
 end

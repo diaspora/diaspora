@@ -73,13 +73,16 @@ class Request
   # @note A [Contact] may already exist if the [Request]'s recipient is sharing with the sender
   # @return [Request]
   def receive(user, person)
-    Rails.logger.info("event=receive payload_type=request sender=#{self.sender} to=#{self.recipient}")
+    logger.info("event=receive payload_type=request sender=#{sender} to=#{recipient}")
 
-    contact = user.contacts.find_or_initialize_by_person_id(self.sender.id)
+    contact = user.contacts.find_or_initialize_by(person_id: self.sender.id)
     contact.sharing = true
     contact.save
-    
+
     user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !contact.receiving
+
+    # also, schedule to fetch a few public posts from that person
+    Diaspora::Fetcher::Public.queue_for(person)
 
     self
   end

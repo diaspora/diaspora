@@ -11,7 +11,9 @@
 
 module Diaspora
   module Federated
-    module Base 
+    module Base
+      include Diaspora::Logging
+
       def self.included(model)
         model.instance_eval do
           include ROXML
@@ -21,11 +23,13 @@ module Diaspora
 
       module InstanceMethods
         def to_diaspora_xml
+          xml = to_xml
+          ::Logging::Logger["XMLLogger"].debug "to_xml: #{xml}"
           <<-XML
           <XML>
-          <post>#{to_xml.to_s}</post>
+            <post>#{xml}</post>
           </XML>
-    XML
+          XML
         end
 
         def x(input)

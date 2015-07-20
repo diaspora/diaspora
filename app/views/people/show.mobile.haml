@@ -10,6 +10,12 @@
         = @person.name
       %span.description
         = @person.diaspora_handle
+      - if user_signed_in? && @person != current_user.person
+        = render 'aspect_memberships/aspect_membership_dropdown'
+      .clear
+    .bottom_bar
+      - if !@person.tag_string.blank? && user_signed_in?
+        = Diaspora::Taggable.format_tags(@person.tag_string)
 
 .span12.profile_stream
   - if @stream.stream_posts.length > 0
@@ -18,13 +24,11 @@
     - else
       #main_stream.stream
         = render 'shared/stream', :posts => @stream.stream_posts
-        #pagination
-          %a.more-link.paginate{:href => next_page_path}
-            %h1
-              = t("more")
+        = render 'shared/stream_more_button'
   - else
     #main_stream
       .dull
-      - if user_signed_in? && (current_user.person != @person)
+      - if @block.present?
+        = t('.ignoring', :name => @person.first_name)
+      - elsif user_signed_in? && (current_user.person != @person)
         = t('.has_not_shared_with_you_yet', :name => @person.first_name)
-

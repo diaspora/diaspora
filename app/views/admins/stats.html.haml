@@ -1,56 +1,56 @@
+.container
+  %div
+    = render :partial => 'admins/admin_bar'
 
-%div
-  = render :partial => 'admins/admin_bar'
+  %h1
+    = t('.usage_statistic')
 
-%h1
-  = t('.usage_statistic')
+  %div.pull-right
+    = form_tag('/admins/stats', :method => 'get', class: 'form-inline') do
+      %select{:name => 'range'}
+        %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
+          = t('.daily')
+        %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
+          = t('.week')
+        %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
+          = t('.2weeks')
+        %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
+          = t('.month')
 
-%div.pull-right
-  = form_tag('/admins/stats', :method => 'get', class: 'form-inline') do
-    %select{:name => 'range'}
-      %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
-        = t('.daily')
-      %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
-        = t('.week')
-      %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
-        = t('.2weeks')
-      %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
-        = t('.month')
+      = submit_tag t('.go'), class: 'btn btn-primary'
 
-    = submit_tag t('.go'), class: 'btn btn-primary'
+  %h3
+    != t('.display_results', :segment => @segment)
 
-%h3
-  != t('.display_results', :segment => @segment)
+  %div.row
+    - [:posts, :comments, :aspect_memberships, :users].each do |name|
+      - model = eval("@#{name.to_s}")
+      - if name == :aspect_memberships
+        - name = t('.shares', :count => model[:yesterday])
+      - if name == :posts
+        - name = t('.posts', :count => model[:yesterday])
+      - if name == :comments
+        - name = t('.comments', :count => model[:yesterday])
+      - if name == :users
+        - name = t('.users', :count => model[:yesterday])
 
-%div.row
-  - [:posts, :comments, :aspect_memberships, :users].each do |name|
-    - model = eval("@#{name.to_s}")
-    - if name == :aspect_memberships
-      - name = t('.shares', :count => model[:yesterday])
-    - if name == :posts
-      - name = t('.posts', :count => model[:yesterday])
-    - if name == :comments
-      - name = t('.comments', :count => model[:yesterday])
-    - if name == :users
-      - name = t('.users', :count => model[:yesterday])
+      .span3
+        %h2{:style => 'font-weight:bold;'}
+          = name.to_s
+        %h4
+          = model[:day_before]
+          %span.percent_change{:class => (model[:change] > 0 ? "green" : "red")}
+            = "(#{model[:change]}%)"
 
-    .span3
-      %h2{:style => 'font-weight:bold;'}
-        = name.to_s
-      %h4
-        = model[:day_before]
-        %span.percent_change{:class => (model[:change] > 0 ? "green" : "red")}
-          = "(#{model[:change]}%)"
+  %div.row
+    %div.span12
+      %p.alert.alert-info.text-center
+        != t('.current_segment', :post_yest => @posts[:yesterday]/@user_count.to_f, :post_day => @posts[:day_before]/@user_count.to_f)
 
-%div.row
-  %div.span12
-    %p.alert.alert-info.text-center
-      != t('.current_segment', :post_yest => @posts[:yesterday]/@user_count.to_f, :post_day => @posts[:day_before]/@user_count.to_f)
-
-%div.row
-  %div.span12
-    %h3= t('.50_most')
-    %ul
-    - @popular_tags.each do |name,count|
-      %li
-        != t('.tag_name', :name_tag => name, :count_tag => count)
+  %div.row
+    %div.span12
+      %h3= t('.50_most')
+      %ul
+      - @popular_tags.each do |name,count|
+        %li
+          != t('.tag_name', :name_tag => name, :count_tag => count)

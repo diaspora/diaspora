@@ -1,0 +1,1 @@
+<%= t('notifier.export_photos_email.body', url: download_photos_user_url, name: @user.first_name) %>

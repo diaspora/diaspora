@@ -39,6 +39,8 @@ class AccountDeleter
         disconnect_contacts
         tombstone_user
       end
+
+      mark_account_deletion_complete
     end
   end
 
@@ -48,7 +50,7 @@ class AccountDeleter
   end
 
   def special_ar_user_associations
-    [:invitations_from_me, :person, :contacts, :auto_follow_back_aspect]
+    [:invitations_from_me, :person, :profile, :contacts, :auto_follow_back_aspect]
   end
 
   def ignored_ar_user_associations
@@ -110,5 +112,9 @@ class AccountDeleter
 
   def ignored_or_special_ar_person_associations
     [:comments, :contacts, :notification_actors, :notifications, :owner, :profile, :conversation_visibilities]
+  end
+
+  def mark_account_deletion_complete
+    AccountDeletion.where(:diaspora_handle => self.person.diaspora_handle).where(:person_id => self.person.id).update_all(["completed_at = ?", Time.now])
   end
 end

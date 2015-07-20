@@ -1,16 +1,23 @@
+module Admin
+  class UsersController < AdminController
 
-class Admin::UsersController < Admin::AdminController
+    def close_account
+      u = User.find(params[:id])
+      u.close_account!
+      redirect_to user_search_path, notice: t("admins.user_search.account_closing_scheduled", name: u.username)
+    end
 
-  def close_account
-    u = User.find(close_account_params)
-    u.close_account!
-    redirect_to user_search_path, notice: t('admins.user_search.account_closing_scheduled', name: u.username)
+    def lock_account
+      u = User.find(params[:id])
+      u.lock_access!
+      redirect_to user_search_path, notice: t("admins.user_search.account_locking_scheduled", name: u.username)
+    end
+
+    def unlock_account
+      u = User.find(params[:id])
+      u.unlock_access!
+      redirect_to user_search_path, notice: t("admins.user_search.account_unlocking_scheduled", name: u.username)
+    end
+
   end
-
-  private
-
-  def close_account_params
-    params.require(:id)
-  end
-
 end

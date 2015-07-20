@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PostsHelper do
+describe PostsHelper, :type => :helper do
 
   describe '#post_page_title' do
     before do
@@ -14,7 +14,7 @@ describe PostsHelper do
     context 'with posts with text' do
       it "delegates to message.title" do
         message = double
-        message.should_receive(:title)
+        expect(message).to receive(:title)
         post = double(message: message)
         post_page_title(post)
       end
@@ -28,11 +28,11 @@ describe PostsHelper do
     end
 
     it "returns an iframe tag" do
-      post_iframe_url(@post.id).should include "iframe"
+      expect(post_iframe_url(@post.id)).to include "iframe"
     end
 
     it "returns an iframe containing the post" do
-      post_iframe_url(@post.id).should include "src='http://localhost:9887#{post_path(@post)}'"
+      expect(post_iframe_url(@post.id)).to include "src='http://localhost:9887#{post_path(@post)}'"
     end
   end
 end

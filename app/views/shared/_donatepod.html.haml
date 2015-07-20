@@ -1,12 +1,14 @@
-- if AppConfig.settings.paypal_hosted_button_id.present?
+- if AppConfig.settings.paypal_donations.enable?
   PayPal:
-  %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post"}
-    %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}
-    %input{:name => "encrypted", :type => "hidden", :value => AppConfig.settings.paypal_hosted_button_id}
-    %input{:name => "currency_code", :type => "hidden", :value => "EUR"}
-    %input{:name => "submit", :type => "submit", :value => t('aspects.index.donate')}
+  %form{action: "https://www.paypal.com/cgi-bin/webscr", method: "post", target: "_blank"}
+    %input{name: "cmd", type: "hidden", value: "_s-xclick"}
+    - if AppConfig.settings.paypal_donations.paypal_hosted_button_id.present?
+      %input{name: "hosted_button_id", type: "hidden", value: AppConfig.settings.paypal_donations.paypal_hosted_button_id}
+    -if AppConfig.settings.paypal_donations.paypal_unhosted_button_encrypted.present?
+      %input{name: "encrypted", type: "hidden", value: AppConfig.settings.paypal_donations.paypal_unhosted_button_encrypted}
+    %input{name: "currency_code", type: "hidden", value: AppConfig.settings.paypal_donations.currency}
+    %input{name: "submit", type: "submit", value: t("aspects.index.donate"), class: "btn btn-default"}
+
 - if AppConfig.bitcoin_donation_address
-  %p
-    Bitcoin:
-    %label
-      = AppConfig.bitcoin_donation_address
+  Bitcoin:
+  %input{type: "text", id: "bitcoin_address", value: AppConfig.bitcoin_donation_address, readonly: true}

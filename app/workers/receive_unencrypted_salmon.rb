@@ -8,13 +8,8 @@ module Workers
 
     def perform(xml)
       suppress_annoying_errors do
-        begin
-          receiver = Postzord::Receiver::Public.new(xml)
-          receiver.perform!
-        rescue => e
-          FEDERATION_LOGGER.info(e.message)
-          raise e
-        end
+        receiver = Postzord::Receiver::Public.new(xml)
+        receiver.perform!
       end
     end
   end

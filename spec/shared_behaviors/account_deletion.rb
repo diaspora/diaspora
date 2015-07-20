@@ -6,34 +6,34 @@ require 'spec_helper'
 
 shared_examples_for 'it removes the person associations' do
   it "removes all of the person's posts" do
-    Post.where(:author_id => @person.id).count.should == 0
+    expect(Post.where(:author_id => @person.id).count).to eq(0)
   end
 
   it 'deletes all person contacts' do
-    Contact.where(:person_id => @person.id).should be_empty
+    expect(Contact.where(:person_id => @person.id)).to be_empty
   end
 
   it 'deletes all mentions' do
-    @person.mentions.should be_empty
+    expect(@person.mentions).to be_empty
   end
 
   it "removes all of the person's photos" do
-    Photo.where(:author_id => @person.id).should be_empty
+    expect(Photo.where(:author_id => @person.id)).to be_empty
   end
 
   it 'sets the person object as closed and the profile is cleared' do
-    @person.reload.closed_account.should  be_true
+    expect(@person.reload.closed_account).to  be true
 
-    @person.profile.reload.first_name.should  be_blank
-    @person.profile.reload.last_name.should  be_blank
+    expect(@person.profile.reload.first_name).to  be_blank
+    expect(@person.profile.reload.last_name).to  be_blank
   end
 
   it 'deletes only the converersation visibility for the deleted user' do
-    ConversationVisibility.where(:person_id => alice.person.id).should_not be_empty
-    ConversationVisibility.where(:person_id => @person.id).should be_empty
+    expect(ConversationVisibility.where(:person_id => alice.person.id)).not_to be_empty
+    expect(ConversationVisibility.where(:person_id => @person.id)).to be_empty
   end
 
   it "deletes the share visibilities on the person's posts" do
-    ShareVisibility.for_contacts_of_a_person(@person).should be_empty
+    expect(ShareVisibility.for_contacts_of_a_person(@person)).to be_empty
   end
 end

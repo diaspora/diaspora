@@ -20,11 +20,12 @@
                 - when 'liked'
                   %i.entypo.heart
                 - when 'mentioned'
-                  %i.entypo.pencil
+                  %span.mentionIcon
+                    @
                 - when 'reshared'
                   %i.entypo.retweet
                 - when 'started_sharing'
-                  %i.entypo.users
+                  %i.entypo.add-user
               = t('.'+key)
 
     .span9.stream.notifications
@@ -41,17 +42,29 @@
                 = t('.mark_all_shown_as_read')
               -else
                 = t('.mark_all_as_read')
-      - @group_days.each do |day, notes|
-        .day_group.row-fluid
-          .date.span2
-            .day= the_day(day.split(' '))
-            .month= the_month(day.split(' '))
+      - if @group_days.length > 0
+        - year = nil
+        - @group_days.each do |date, notes|
+          - if display_year?(year, date)
+            - year = the_year(date)
+            .row-fluid.year_container
+              .span4.offset4.year= year
 
-          .notifications_for_day.span10
-            - notes.each do |note|
-              = render :partial => 'notifications/notification', :locals => { :note => note }
+          .day_group.row-fluid
+            .date.span2
+              .day= the_day(date)
+              .month= the_month(date)
 
-      = will_paginate @notifications, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+            .notifications_for_day.span10
+              - notes.each do |note|
+                = render :partial => 'notifications/notification', :locals => { :note => note }
+
+        = will_paginate @notifications, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+
+      - else
+        .no_notifications.well
+          %h4
+            = t('.no_notifications')
 
 :javascript
   $(document).ready(function(){

@@ -1,5 +1,5 @@
 # From http://jfire.io/blog/2012/04/30/how-to-securely-bootstrap-json-in-a-rails-view/
-# Review on Rails 4 update, might be built in by then!
+# Remove on Rails 4.1 update
 
 class ActionView::Base
   def json_escape(s)

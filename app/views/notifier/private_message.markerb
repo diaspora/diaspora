@@ -1,4 +1,4 @@
-<%= post_message(@notification.message, :process_newlines => true, :length => 2000) %>
+<%= t('notifier.a_private_message') %>
 
 [<%= t('.reply_to_or_view') %>][1]
 

@@ -1,4 +1,6 @@
 class WebfingerProfile
+  include Diaspora::Logging
+
   attr_accessor :webfinger_profile, :account, :links, :hcard, :guid, :public_key, :seed_location
 
   def initialize(account, webfinger_profile)
@@ -20,7 +22,7 @@ class WebfingerProfile
     doc.remove_namespaces!
 
     account_string = doc.css('Subject').text.gsub('acct:', '').strip
-    
+
     raise "account in profile(#{account_string}) and account requested (#{@account}) do not match" if account_string != @account
 
     doc.css('Link').each do |l|
@@ -41,7 +43,7 @@ class WebfingerProfile
       pubkey = text_of_attribute( doc.at('Link[rel=diaspora-public-key]'), 'href')
       @public_key = Base64.decode64 pubkey
     rescue => e
-      Rails.logger.info("event => :invalid_profile, :identifier => #{@account}")
+      logger.warn "event=invalid_profile identifier=#{@account}"
     end
   end
 

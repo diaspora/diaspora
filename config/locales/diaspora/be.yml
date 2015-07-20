@@ -52,8 +52,6 @@ be:
     add_to_aspect:
       failure: "Памылка пры спробе дадаць кантакты да аспекта."
       success: "Кантакты паспяхова дададзены ў аспект."
-    aspect_contacts:
-      done_editing: "падцвердзіць змены"
     aspect_listings:
       add_an_aspect: "+ дадаць катыгорыю"
       deselect_all: "Ачысціць выбранае"
@@ -68,21 +66,14 @@ be:
       failure: "%{name} не пустая і не можа быць выдалена."
       success: "%{name} паспяхова выдалена"
     edit:
-      add_existing: "дадаць існуючы кантакт"
       aspect_list_is_not_visible: "спіс катыгорый не бачны для ўсіх"
       aspect_list_is_visible: "спіс катыгорый бачны для ўсіх"
       confirm_remove_aspect: "ты сапраўды жадаешь выдаліць гэтую катыгорыю?"
-      done: "гатова"
       make_aspect_list_visible: "зрабіць катакты ў гэтай катыгорыі адкрытымі?"
       remove_aspect: "выдаліць катыгорыю"
       rename: "перайменаваць"
       update: "абнавіць"
       updating: "абнаўляю ..."
-    few: "%{count} катыгорыі"
-    helper:
-      are_you_sure: "Сапраўды выдаліць гэты аспект?"
-      aspect_not_empty: "Аспект не пусты."
-      remove: "Выдаліць"
     index:
       diaspora_id:
         content_1: "твой Diaspora ID:"
@@ -103,11 +94,6 @@ be:
       post_a_message: "напісаць паведамленне >>"
       unfollow_tag: "больш не сачыць за #%{tag}"
       welcome_to_diaspora: "Вітаем ў Diaspora, %{name}!"
-    many: "%{count} катыгорыі"
-    move_contact:
-      error: "Памылка пры пераносе кантакта: %{inspect}"
-      failure: "не магчыма %{inspect}"
-      success: "Кантакт перанесены да новага аспекта."
     new:
       create: "Стварыць"
       name: "імя (бачна толькі табе)"
@@ -125,13 +111,6 @@ be:
       family: "сям'я"
       friends: "сябры"
       work: "праца"
-    selected_contacts:
-      manage_your_aspects: "упраўленне катыгорыямі"
-      no_contacts: "У цябе тут няма кантактаў."
-      view_all_contacts: "паказаць ўсе кантакты"
-    show:
-      edit_aspect: "змяніць катыгорыі"
-    two: "%{count} катыгорыі"
     update:
       failure: "не магчыма захаваць катыгорыю %{name}, занадта дліная назва."
       success: "катыгорыя %{name} была паспяхова выдалена"
@@ -139,10 +118,7 @@ be:
   back: "назад"
   cancel: "адмяніць"
   comments:
-    few: "%{count} каментароў"
-    many: "%{count} каментароў"
     one: "1 каментар"
-    two: "%{count} каментары"
     zero: "каментароў няма"
   contacts:
     index:

@@ -10,7 +10,7 @@ class Services::Twitter < Service
   end
 
   def post post, url=''
-    Rails.logger.debug "event=post_to_service type=twitter sender_id=#{self.user_id}"
+    logger.debug "event=post_to_service type=twitter sender_id=#{user_id} post=#{post.guid}"
     tweet = attempt_post post
     post.tweet_id = tweet.id
     post.save
@@ -22,7 +22,7 @@ class Services::Twitter < Service
 
   def delete_post post
     if post.present? && post.tweet_id.present?
-      Rails.logger.debug "event=delete_from_service type=twitter sender_id=#{self.user_id}"
+      logger.debug "event=delete_from_service type=twitter sender_id=#{user_id} post=#{post.guid}"
       delete_from_twitter post.tweet_id
     end
   end
@@ -30,10 +30,12 @@ class Services::Twitter < Service
   private
 
   def client
-    @client ||= Twitter::Client.new(
-      oauth_token: self.access_token,
-      oauth_token_secret: self.access_secret
-    )
+    @client ||= Twitter::REST::Client.new do |config|
+      config.consumer_key = AppConfig.services.twitter.key
+      config.consumer_secret = AppConfig.services.twitter.secret
+      config.access_token = access_token
+      config.access_token_secret = access_secret
+    end
   end
 
   def attempt_post post, retry_count=0

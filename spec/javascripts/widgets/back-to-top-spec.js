@@ -33,13 +33,13 @@ describe("Diaspora.Widgets.BackToTop", function() {
 
   describe("toggleVisibility", function() {
     it("adds a visibility class to the button", function() {
-      var spy = spyOn(backToTop.body, "scrollTop").andReturn(999);
+      var spy = spyOn(backToTop.body, "scrollTop").and.returnValue(999);
 
       backToTop.toggleVisibility();
 
       expect(backToTop.button.hasClass("visible")).toBe(false);
 
-      spy.andReturn(1001);
+      spy.and.returnValue(1001);
 
       backToTop.toggleVisibility();
 

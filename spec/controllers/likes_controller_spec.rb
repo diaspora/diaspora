@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe LikesController do
+describe LikesController, :type => :controller do
   before do
     @alices_aspect = alice.aspects.where(:name => "generic").first
     @bobs_aspect = bob.aspects.where(:name => "generic").first
@@ -33,7 +33,7 @@ describe LikesController do
             @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
             @target = alice.comment!(@target, "hey") if class_const == Comment
             post :create, like_hash.merge(:format => :json)
-            response.code.should == '201'
+            expect(response.code).to eq('201')
           end
         end
 
@@ -45,18 +45,18 @@ describe LikesController do
 
           it 'likes' do
             post :create, like_hash
-            response.code.should == '201'
+            expect(response.code).to eq('201')
           end
 
           it 'dislikes' do
             post :create, dislike_hash
-            response.code.should == '201'
+            expect(response.code).to eq('201')
           end
 
           it "doesn't post multiple times" do
             alice.like!(@target)
             post :create, dislike_hash
-            response.code.should == '422'
+            expect(response.code).to eq('422')
           end
         end
 
@@ -67,9 +67,30 @@ describe LikesController do
           end
 
           it "doesn't post" do
-            alice.should_not_receive(:like!)
+            expect(alice).not_to receive(:like!)
             post :create, like_hash
-            response.code.should == '422'
+            expect(response.code).to eq('422')
+          end
+        end
+
+        context "when an the exception is raised" do
+          before do
+            @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
+            @target = alice.comment!(@target, "hey") if class_const == Comment
+          end
+
+          it "should be catched when it means that the target is not found" do
+            params = like_hash.merge(format: :json, id_field => -1)
+            post :create, params
+            expect(response.code).to eq('422')
+          end
+
+          it "should not be catched when it is unexpected" do
+            @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
+            @target = alice.comment!(@target, "hey") if class_const == Comment
+            allow(alice).to receive(:like!).and_raise("something")
+            allow(@controller).to receive(:current_user).and_return(alice)
+            expect { post :create, like_hash.merge(:format => :json) }.to raise_error("something")
           end
         end
       end
@@ -94,12 +115,12 @@ describe LikesController do
         it 'returns an array of likes for a post' do
           like = bob.like!(@message)
           get :index, id_field => @message.id
-          assigns[:likes].map(&:id).should == @message.likes.map(&:id)
+          expect(assigns[:likes].map(&:id)).to eq(@message.likes.map(&:id))
         end
 
         it 'returns an empty array for a post with no likes' do
           get :index, id_field => @message.id
-          assigns[:likes].should == []
+          expect(assigns[:likes]).to eq([])
         end
       end
 
@@ -112,10 +133,10 @@ describe LikesController do
 
         it 'lets a user destroy their like' do
           current_user = controller.send(:current_user)
-          current_user.should_receive(:retract).with(@like)
+          expect(current_user).to receive(:retract).with(@like)
 
           delete :destroy, :format => :json, id_field => @like.target_id, :id => @like.id
-          response.status.should == 204
+          expect(response.status).to eq(204)
         end
 
         it 'does not let a user destroy other likes' do
@@ -126,7 +147,7 @@ describe LikesController do
             delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
           }.to raise_error(ActiveRecord::RecordNotFound)
 
-          Like.count.should == like_count
+          expect(Like.count).to eq(like_count)
 
         end
       end
