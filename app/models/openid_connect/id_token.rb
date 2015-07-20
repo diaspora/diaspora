@@ -14,9 +14,17 @@ class OpenidConnect::IdToken < ActiveRecord::Base
   end
 
   def to_response_object(options={})
-    claims = {
+    id_token = OpenIDConnect::ResponseObject::IdToken.new(claims)
+    id_token.code = options[:code] if options[:code]
+    id_token.access_token = options[:access_token] if options[:access_token]
+    id_token
+  end
+
+  def claims
+    @claims ||= {
       iss:       AppConfig.environment.url,
-      sub:       AppConfig.environment.url + authorization.o_auth_application.client_id.to_s + authorization.user.id.to_s, # TODO: Convert to proper PPID
+      # TODO: Convert to proper PPID
+      sub:       "#{AppConfig.environment.url}#{authorization.o_auth_application.client_id}#{authorization.user.id}",
       aud:       authorization.o_auth_application.client_id,
       exp:       expires_at.to_i,
       iat:       created_at.to_i,
@@ -24,10 +32,6 @@ class OpenidConnect::IdToken < ActiveRecord::Base
       nonce:     nonce,
       acr:       0 # TODO: Adjust ?
     }
-    id_token = OpenIDConnect::ResponseObject::IdToken.new(claims)
-    id_token.code = options[:code] if options[:code]
-    id_token.access_token = options[:access_token] if options[:access_token]
-    id_token
   end
 
   # TODO: Add support for request objects

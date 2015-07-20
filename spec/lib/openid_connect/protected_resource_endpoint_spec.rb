@@ -5,7 +5,7 @@ describe OpenidConnect::ProtectedResourceEndpoint, type: :request do
     let!(:client) do
       OpenidConnect::OAuthApplication.create!(name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/"])
     end
-    let!(:auth) { OpenidConnect::Authorization.find_or_create(client.client_id, bob) }
+    let!(:auth) { OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: bob) }
     let!(:access_token) { auth.create_access_token.to_s }
     let!(:invalid_token) { SecureRandom.hex(32).to_s }
     # TODO: Add tests for expired access tokens
