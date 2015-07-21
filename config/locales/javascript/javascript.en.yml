@@ -34,7 +34,7 @@ en:
         up_to_date: "Your pod is up to date!"
         outdated: "Your pod is outdated."
         compare_versions: "The latest diaspora* release is <%= latestVersion %>, your pod is running <%= podVersion %>."
-        error: "Error fetching the latest diaspora* version."
+        error: "Unable to determine latest diaspora* version."
 
     aspects:
       make_aspect_list_visible: "Make contacts in this aspect visible to each other?"
