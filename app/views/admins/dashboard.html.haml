@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-3
+      = render partial: "admins/admin_bar"
+    .col-md-9
+      #pod-status
+        %h2
+          = t(".pod_status")
+        .alert.alert-info{role: "alert"}
+          = t(".fetching_diaspora_version")

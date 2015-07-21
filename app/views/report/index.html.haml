@@ -1,22 +1,21 @@
 .container
-  %div
-    = render :partial => 'admins/admin_bar'
-
-  %div.row
-    %div.col-md-12
+  .row
+    .col-md-3
+      = render partial: "admins/admin_bar"
+    .col-md-9
       %h1
         = t('report.title')
-      %div#reports
+      #reports
         - @reports.each do |r|
           - username = User.find_by_id(r.user_id).username
-          %div.content
+          .content
             %span.text
               = report_content(r.item_id, r.item_type)
             %span
               = raw t('report.reported_label', person: link_to(username, user_profile_path(username)))
             %span
               = t('report.reason_label', text: r.text)
-          %div.options.text-right
+          .options.text-right
             %span
               = button_to t('report.review_link'), report_path(r.id, :type => r.item_type),
                 :class => "btn btn-info btn-small",
@@ -26,4 +25,4 @@
                 :data => { :confirm => t('report.confirm_deletion') },
                 :class => "btn btn-danger btn-small",
                 method: :delete
-          %div.clear
+          .clear

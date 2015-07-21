@@ -1,4 +1,9 @@
 class AdminsController < Admin::AdminController
+  include ApplicationHelper
+
+  def dashboard
+    gon.push(pod_version: pod_version)
+  end
 
   def user_search
     if params[:admins_controller_user_search]
