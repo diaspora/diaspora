@@ -75,10 +75,6 @@ class AdminsController < Admin::AdminController
 
   end
 
-  def correlations
-    @correlations_hash = Statistics.new.generate_correlations
-  end
-
   private
 
   def percent_change(today, yesterday)

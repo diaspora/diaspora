@@ -1,6 +1,7 @@
 # 0.5.3.0
 
 ## Refactor
+* Drop broken correlations from the admin pages [#6223](https://github.com/diaspora/diaspora/pull/6223)
 
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
