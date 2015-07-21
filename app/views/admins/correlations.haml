@@ -1,9 +1,8 @@
 .container
-  %div
-    = render :partial => 'admins/admin_bar'
-
-  %div.row
-    %div.col-md-12
+  .row
+    .col-md-3
+      = render partial: "admins/admin_bar"
+    .col-md-9
       %h1
         = t('.correlations_count')
       %ul

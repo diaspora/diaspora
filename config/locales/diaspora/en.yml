@@ -98,12 +98,16 @@ en:
   admins:
     admin_bar:
       pages: "Pages"
+      dashboard: "Dashboard"
       user_search: "User search"
       weekly_user_stats: "Weekly user stats"
       pod_stats: "Pod stats"
       report: "Reports"
       correlations: "Correlations"
       sidekiq_monitor: "Sidekiq monitor"
+    dashboard:
+      pod_status: "Pod status"
+      fetching_diaspora_version: "Fetching current diaspora* version..."
     correlations:
       correlations_count: "Correlations with sign-in count:"
     user_search:

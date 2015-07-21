@@ -141,13 +141,14 @@ Diaspora::Application.routes.draw do
 
   # Admin backend routes
 
-  scope 'admins', :controller => :admins do
+  scope "admins", controller: :admins do
     match :user_search, via: [:get, :post]
-    get   :admin_inviter
-    get   :weekly_user_stats
-    get   :correlations
-    get   :stats, :as => 'pod_stats'
-    get   "add_invites/:invite_code_id" => 'admins#add_invites', :as => 'add_invites'
+    get :admin_inviter
+    get :weekly_user_stats
+    get :correlations
+    get :stats, as: "pod_stats"
+    get :dashboard, as: "admin_dashboard"
+    get "add_invites/:invite_code_id" => "admins#add_invites", :as => "add_invites"
   end
 
   namespace :admin do
