@@ -22,11 +22,11 @@ header > .dark-header > nav {
       }
     }
     .navbar-nav:not(.nav-badges) > li > a { font-weight: bold; }
+    .navbar-nav > li > a { color:$navbar-inverse-link-color; }
     .nav-badges {
       margin-left: 20px;
       & > li { height: 50px; }
       .dropdown > a:focus { outline: 0px none; }
-      .nav-badge:focus:not(:hover){color:$navbar-inverse-link-color;}
       .dropdown-open {
         background-color: $dropdown-bg;
         & > a { color: $dropdown-link-color; }
