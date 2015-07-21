@@ -107,7 +107,7 @@ en:
       sidekiq_monitor: "Sidekiq monitor"
     dashboard:
       pod_status: "Pod status"
-      fetching_diaspora_version: "Fetching current diaspora* version..."
+      fetching_diaspora_version: "Determining latest diaspora* version..."
     correlations:
       correlations_count: "Correlations with sign-in count:"
     user_search:

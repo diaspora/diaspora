@@ -11,7 +11,7 @@ describe("app.pages.AdminDashboard", function(){
           up_to_date: "Your pod is up to date!",
           outdated: "Your pod is outdated.",
           compare_versions: "Latest d* release is <%= latestVersion%>, your pod is running <%= podVersion %>.",
-          error: "Error fetching the latest diaspora* version."
+          error: "Unable to determine latest diaspora* version."
         }
       }
     });
@@ -173,7 +173,7 @@ describe("app.pages.AdminDashboard", function(){
     it("adds a 'warning' alert", function() {
       this.view.updatePodStatusFail();
       expect($("#pod-status .alert")).toHaveClass("alert-warning");
-      expect($("#pod-status .alert").text()).toContain("Error");
+      expect($("#pod-status .alert").text()).toContain("Unable to determine");
     });
   });
 });
