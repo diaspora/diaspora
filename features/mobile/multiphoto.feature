@@ -15,7 +15,8 @@ Feature: viewing photos on the mobile main page
     When I press "Share"
     And I click on selector "img.stream-photo"
     Then I should see a "img" within "#show_content"
-    And I should not see a "#right" within "#main"
+    And I should not see a "#arrow-right" within "#main"
+    And I should not see a "#arrow-left" within "#main"
 
   Scenario: view multiphoto post
     Given I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
@@ -25,8 +26,9 @@ Feature: viewing photos on the mobile main page
     Then I should see "+ 1" within ".additional_photo_count"
 
     When I click on selector "img.stream-photo"
-    Then I should see a "#right" within "tbody"
+    Then I should see a "#arrow-right" within "#main"
+    And I should not see a "#arrow-left" within "#main"
 
-    When I click on selector "img#arrow-right"
-    And I should see a "#left" within "tbody"
-    And I should not see a "#right" within "tbody"
+    When I click on selector "#arrow-right"
+    Then I should see a "#arrow-left" within "#main"
+    And I should not see a "#arrow-right" within "#main"
