@@ -251,20 +251,13 @@ app.views.Publisher = Backbone.View.extend({
       return false;
   },
 
-  createPostPreview : function(evt) {
-    if(evt){ evt.preventDefault(); }
-
-    //add missing mentions at end of post:
-    this.handleTextchange();
-
-    var serializedForm = $(evt.target).closest("form").serializeObject();
-
+  getUploadedPhotos: function() {
     var photos = [];
-    $("li.publisher_photo img").each(function(){
+    $("li.publisher_photo img").each(function() {
       var file = $(this).attr("src").substring("/uploads/images/".length);
       photos.push(
         {
-          "sizes":{
+          "sizes": {
             "small" : "/uploads/images/thumb_small_" + file,
             "medium" : "/uploads/images/thumb_medium_" + file,
             "large" : "/uploads/images/scaled_full_" + file
@@ -272,33 +265,36 @@ app.views.Publisher = Backbone.View.extend({
         }
       );
     });
+    return photos;
+  },
 
-    var mentioned_people = [],
-        regexp = new RegExp("@{\(\[\^\;\]\+\); \(\[\^\}\]\+\)}", "g"),
+  getMentionedPeople: function(serializedForm) {
+    var mentionedPeople = [],
+        regexp = /@{([^;]+); ([^}]+)}/g,
         user;
-
     var getMentionedUser = function(handle) {
       return Mentions.contacts.filter(function(user) {
         return user.handle === handle;
       })[0];
     };
 
-    while( (user = regexp.exec(serializedForm["status_message[text]"])) ){
+    while( (user = regexp.exec(serializedForm["status_message[text]"])) ) {
       // user[1]: name, user[2]: handle
-      var mentioned_user = getMentionedUser(user[2]);
-      if(mentioned_user){
-        mentioned_people.push({
-          "id":mentioned_user["id"],
-          "guid":mentioned_user["guid"],
-          "name":user[1],
-          "diaspora_id":user[2],
-          "avatar":mentioned_user["avatar"]
+      var mentionedUser = getMentionedUser(user[2]);
+      if(mentionedUser){
+        mentionedPeople.push({
+          "id": mentionedUser.id,
+          "guid": mentionedUser.guid,
+          "name": user[1],
+          "diaspora_id": user[2],
+          "avatar": mentionedUser.avatar
         });
       }
     }
+    return mentionedPeople;
+  },
 
-    var date = (new Date()).toISOString();
-
+  getPollData: function(serializedForm) {
     var poll;
     var pollQuestion = serializedForm.poll_question;
     var pollAnswersArray = _.flatten([serializedForm["poll_answers[]"]]);
@@ -316,6 +312,21 @@ app.views.Publisher = Backbone.View.extend({
         "participation_count": "0"
       };
     }
+    return poll;
+  },
+
+  createPostPreview : function(evt) {
+    if(evt){ evt.preventDefault(); }
+    if(!app.stream) { return; }
+
+    //add missing mentions at end of post:
+    this.handleTextchange();
+
+    var serializedForm = $(evt.target).closest("form").serializeObject();
+    var photos = this.getUploadedPhotos();
+    var mentionedPeople = this.getMentionedPeople(serializedForm);
+    var date = (new Date()).toISOString();
+    var poll = this.getPollData(serializedForm);
 
     var previewMessage = {
       "id" : 0,
@@ -325,7 +336,7 @@ app.views.Publisher = Backbone.View.extend({
       "interacted_at" : date,
       "post_type" : "StatusMessage",
       "author" : app.currentUser ? app.currentUser.attributes : {},
-      "mentioned_people" : mentioned_people,
+      "mentioned_people" : mentionedPeople,
       "photos" : photos,
       "frame_name" : "status",
       "title" : serializedForm["status_message[text]"],
@@ -333,12 +344,11 @@ app.views.Publisher = Backbone.View.extend({
       "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
       "poll": poll
     };
-    if(app.stream) {
-      this.removePostPreview();
-      app.stream.addNow(previewMessage);
-      this.recentPreview=previewMessage;
-      this.modifyPostPreview($(".stream_element:first",$(".stream_container")));
-    }
+
+    this.removePostPreview();
+    app.stream.addNow(previewMessage);
+    this.recentPreview=previewMessage;
+    this.modifyPostPreview($(".stream_element:first",$(".stream_container")));
   },
 
   modifyPostPreview : function(post) {
@@ -346,17 +356,17 @@ app.views.Publisher = Backbone.View.extend({
     $(".collapsible",post).removeClass("collapsed").addClass("opened");
     $("a.delete.remove_post",post).hide();
     $("a.like, a.focus_comment_textarea",post).removeAttr("href");
-    $("a.like",post).addClass("like_preview");
-    $("a.like",post).removeClass("like");
-    $("a.focus_comment_textarea",post).addClass("focus_comment_textarea_preview");
-    $("a.focus_comment_textarea",post).removeClass("focus_comment_textarea");
+    $("a.like",post).addClass("like_preview")
+                    .removeClass("like");
+    $("a.focus_comment_textarea",post).addClass("focus_comment_textarea_preview")
+                                      .removeClass("focus_comment_textarea");
     $("a",$("span.details.grey",post)).removeAttr("href");
   },
 
   removePostPreview : function() {
     if(app.stream && this.recentPreview) {
-        app.stream.items.remove(this.recentPreview);
-        delete this.recentPreview;
+      app.stream.items.remove(this.recentPreview);
+      delete this.recentPreview;
     }
   },
 
