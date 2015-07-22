@@ -29,6 +29,7 @@ app.views.ConversationsForm = Backbone.View.extend({
       emptyText: Diaspora.I18n.t("no_results"),
       preFill: this.prefill
     }).focus();
+    $("#contact_ids").attr("aria-labelledby", "toLabel");
   },
 
   keyDown : function(evt) {
