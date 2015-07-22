@@ -58,6 +58,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
+* Bring peeping Tom on the 404 page back [#6226](https://github.com/diaspora/diaspora/pull/6226)
 
 ## Features
 
