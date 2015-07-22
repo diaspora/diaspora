@@ -1,14 +1,22 @@
 .container-fluid
   = form_for Conversation.new, html: {class: "form-horizontal form_do_not_clear"}, remote: true do |conversation|
     .form-group
-      %label{ for: 'contact_ids' }
-        = t('.to')
+      %label#toLabel{for: "contact_ids"}
+        = t(".to")
       = text_field_tag "contact_autocomplete", nil, class: "form-control"
     .form-group
-      %label{ for: 'conversation_subject' }
-        = t('.subject')
-      = conversation.text_field :subject, class: 'input-block-level form-control'
+      %label#subjectLabel{for: "conversation_subject"}
+        = t(".subject")
+      = conversation.text_field :subject,
+                                class: "input-block-level form-control",
+                                aria:  {labelledby: "subjectLabel"}
     .form-group
-      = text_area_tag "conversation[text]", '', rows: 5, class: 'input-block-level form-control'
+      %label#messageLabel.sr-only{for: "conversation_text"}
+        = t(".message")
+      = text_area_tag "conversation[text]",
+                      "",
+                      rows:  5,
+                      class: "input-block-level form-control",
+                      aria:  {labelledby: "messageLabel"}
     .form-group
       = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), class: 'btn btn-primary pull-right'

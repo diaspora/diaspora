@@ -352,6 +352,7 @@ en:
       to: "To"
       subject: "Subject"
       subject_default: "No subject"
+      message: "Message"
       send: "Send"
       sending: "Sending..."
       abandon_changes: "Abandon changes?"

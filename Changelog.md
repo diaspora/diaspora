@@ -44,6 +44,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
+* Improve accessibility of a couple pages [#6227](https://github.com/diaspora/diaspora/pull/6227)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
