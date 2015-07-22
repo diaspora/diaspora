@@ -62,22 +62,16 @@ Feature: Navigate between pages using the header menu and the drawer
 
   Scenario: navigate to the followed tags page
     Given "bob@bob.bob" has a public post with text "bob is da #boss"
-    And I toggle the mobile view
-    And I search for "#boss"
-    And I press "Follow #boss"
-    And I toggle the mobile view
     When I open the drawer
+    And I search for "#boss"
+    And I click on selector ".tag_following_action"
+    # Loading another page to refresh the drawer and make the now followed tag appears
+    And I click on selector "#compose_badge"
+    And I open the drawer
     And I follow "#Followed tags"
     Then I should see "#boss" within "#followed_tags + li > ul"
     And I follow "#boss"
     Then I should see "bob is da #boss" within "#main_stream"
-
-  Scenario: navigate to the manage followed tags page
-    Given "bob@bob.bob" has a public post with text "bob is da #boss"
-    And I toggle the mobile view
-    And I search for "#boss"
-    And I press "Follow #boss"
-    And I toggle the mobile view
     When I open the drawer
     And I follow "#Followed tags"
     Then I should see "Manage followed tags" within "#followed_tags + li > ul"

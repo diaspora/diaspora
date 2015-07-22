@@ -38,21 +38,21 @@ $(document).ready(function(){
   };
 
   /* Drawer menu */
-  $('#menu_badge').bind("tap click", function(evt){
+  $("#menu_badge").bind("tap click", function(evt){
     evt.preventDefault();
-    $("#app").toggleClass('draw');
+    $("#app").toggleClass("draw");
   });
 
   /* Show / hide aspects in the drawer */
-  $('#all_aspects').bind("tap click", function(evt){
+  $("#all_aspects").bind("tap click", function(evt){
     evt.preventDefault();
-    $("#all_aspects + li").toggleClass('hide');
+    $("#all_aspects + li").toggleClass("hide");
   });
 
   /* Show / hide followed tags in the drawer */
-  $('#followed_tags').bind("tap click", function(evt){
+  $("#followed_tags > a").bind("tap click", function(evt){
     evt.preventDefault();
-    $("#followed_tags + li").toggleClass('hide');
+    $("#followed_tags + li").toggleClass("hide");
   });
 
   /* Heart toggle */
