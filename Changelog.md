@@ -41,6 +41,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Rewrite header using Bootstrap 3 [#6109](https://github.com/diaspora/diaspora/pull/6109) [#6130](https://github.com/diaspora/diaspora/pull/6130) [#6132](https://github.com/diaspora/diaspora/pull/6132)
 * Use upstream CSS mappings for Entypo [#6158](https://github.com/diaspora/diaspora/pull/6158)
 * Replace some mobile icons with Entypo [#6218](https://github.com/diaspora/diaspora/pull/6218)
+* Refactor publisher backbone view [#6228](https://github.com/diaspora/diaspora/pull/6228)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

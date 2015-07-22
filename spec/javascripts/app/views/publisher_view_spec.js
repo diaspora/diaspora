@@ -152,6 +152,42 @@ describe("app.views.Publisher", function() {
       });
     });
 
+    describe("createPostPreview", function(){
+      beforeEach(function() {
+        app.stream = { addNow: $.noop };
+      });
+
+      it("calls handleTextchange to complete missing mentions", function(){
+        spyOn(this.view, "handleTextchange");
+        this.view.createPostPreview($.Event());
+        expect(this.view.handleTextchange).toHaveBeenCalled();
+      });
+
+      it("calls removePostPreview to remove the last preview", function(){
+        spyOn(this.view, "removePostPreview");
+        this.view.createPostPreview($.Event());
+        expect(this.view.removePostPreview).toHaveBeenCalled();
+      });
+
+      it("adds the status message to the stream", function() {
+        spyOn(app.stream, "addNow");
+        this.view.createPostPreview($.Event());
+        expect(app.stream.addNow).toHaveBeenCalled();
+      });
+
+      it("sets recentPreview", function(){
+        expect(this.view.recentPreview).toBeUndefined();
+        this.view.createPostPreview($.Event());
+        expect(this.view.recentPreview).toBeDefined();
+      });
+
+      it("calls modifyPostPreview to apply the preview style to the post", function(){
+        spyOn(this.view, "modifyPostPreview");
+        this.view.createPostPreview($.Event());
+        expect(this.view.modifyPostPreview).toHaveBeenCalled();
+      });
+    });
+
     describe('#setText', function() {
       it("sets the content text", function() {
         this.view.setText("FOO bar");
