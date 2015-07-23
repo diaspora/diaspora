@@ -112,7 +112,7 @@ describe NodeInfoPresenter do
         AppConfig.settings.enable_registrations = false
       end
 
-      it "should mark openRegistrations to be false" do
+      it "should mark open_registrations to be false" do
         expect(presenter.open_registrations?).to be false
       end
     end
