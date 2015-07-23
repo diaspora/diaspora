@@ -52,6 +52,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Add mobile services and privacy settings pages [#6086](https://github.com/diaspora/diaspora/pull/6086)
 * Optionally make your extended profile details public [#6162](https://github.com/diaspora/diaspora/pull/6162)
 * Add admin dashboard showing latest diaspora\* version [#6216](https://github.com/diaspora/diaspora/pull/6216)
+* Display poll & location on mobile [#6238](https://github.com/diaspora/diaspora/pull/6238)
 
 # 0.5.3.0
 

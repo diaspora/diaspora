@@ -975,10 +975,17 @@ en:
       or_select_one_existing: "or select one from your already existing %{photos}"
     comment_email_subject: "%{name}’s photo"
 
+  polls:
+    votes:
+      zero: "%{count} votes so far"
+      one: "%{count} vote so far"
+      other: "%{count} votes so far"
+
   posts:
     presenter:
       title: "A post from %{name}"
     show:
+      location: "Posted from: %{location}"
       destroy: "Delete"
       permalink: "Permalink"
       not_found: "Sorry, we couldn’t find that post."

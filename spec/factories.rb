@@ -99,6 +99,12 @@ FactoryGirl.define do
       end
     end
 
+    factory(:status_message_with_location) do
+      after(:build) do |sm|
+        FactoryGirl.create(:location, status_message: sm)
+      end
+    end
+
     factory(:status_message_with_photo) do
       sequence(:text) {|n| "There are #{n} ninjas in this photo." }
       after(:build) do |sm|
@@ -134,6 +140,7 @@ FactoryGirl.define do
   end
 
   factory(:location) do
+    address "unicorn city"
     lat 1
     lng 2
   end

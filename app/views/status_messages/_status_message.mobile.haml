@@ -16,8 +16,10 @@
 
 %div{:class => direction_for(post.text)}
   != post.message.markdownified
+  - if post.poll
+    = render "status_messages/poll", poll: post.poll
   - if post.o_embed_cache
     != o_embed_html post.o_embed_cache
-  -if post.open_graph_cache
+  - if post.open_graph_cache
     .opengraph
       != og_html post.open_graph_cache
