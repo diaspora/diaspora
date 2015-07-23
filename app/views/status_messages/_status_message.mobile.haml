@@ -17,31 +17,7 @@
 %div{:class => direction_for(post.text)}
   != post.message.markdownified
   - if post.poll
-    .poll
-      .poll-head
-        .poll-stats.pull-right
-          = t("polls.votes", count: post.poll.participation_count)
-        .question
-          = post.poll.question
-      .poll-content
-        - post.poll.poll_answers.each do |answer|
-          .result-row
-            .result-head
-              - percentage = 0
-              - if post.poll.participation_count > 0
-                - percentage = (answer.vote_count / post.poll.participation_count * 100).round
-              .percentage.pull-right
-                = "#{percentage}%"
-              .answer
-                = answer.answer
-            .progress
-              .progress-bar{role:  "progressbar",
-                            aria:  {valuenow: "#{percentage}",
-                                    valuemin: "0",
-                                    valuemax: "100"},
-                            style: "width: #{percentage}%;"}
-                %span.sr-only
-                  = "#{percentage}%"
+    = render "status_messages/poll", poll: post.poll
   - if post.o_embed_cache
     != o_embed_html post.o_embed_cache
   - if post.open_graph_cache

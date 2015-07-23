@@ -985,6 +985,7 @@ en:
     presenter:
       title: "A post from %{name}"
     show:
+      location: "Posted from: %{location}"
       destroy: "Delete"
       permalink: "Permalink"
       not_found: "Sorry, we couldn’t find that post."
