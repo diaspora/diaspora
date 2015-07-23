@@ -21,6 +21,7 @@ class NodeInfoPresenter
     doc.services             = available_services
     doc.open_registrations   = open_registrations?
     doc.metadata["nodeName"] = name
+    doc.metadata["xmppChat"] = chat_enabled?
   end
 
   def add_static_data(doc)
@@ -64,6 +65,10 @@ class NodeInfoPresenter
 
   def open_registrations?
     AppConfig.settings.enable_registrations?
+  end
+
+  def chat_enabled?
+    AppConfig.chat.enabled?
   end
 
   def available_services

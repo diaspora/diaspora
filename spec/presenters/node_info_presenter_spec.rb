@@ -35,7 +35,8 @@ describe NodeInfoPresenter do
           "users" => {}
         },
         "metadata"          => {
-          "nodeName" => AppConfig.settings.pod_name
+          "nodeName" => AppConfig.settings.pod_name,
+          "xmppChat" => AppConfig.chat.enabled?
         }
       )
     end
@@ -114,6 +115,16 @@ describe NodeInfoPresenter do
 
       it "should mark open_registrations to be false" do
         expect(presenter.open_registrations?).to be false
+      end
+    end
+
+    context "when chat is enabled" do
+      before do
+        AppConfig.chat.enabled = true
+      end
+
+      it "should mark the xmppChat metadata as true" do
+        expect(hash).to include "metadata" => include("xmppChat" => true)
       end
     end
   end
