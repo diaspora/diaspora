@@ -239,9 +239,7 @@ Diaspora::Application.routes.draw do
   # NodeInfo
   get ".well-known/nodeinfo", to: "node_info#jrd"
   get "nodeinfo/:version",    to: "node_info#document", as: "node_info", constraints: {version: /\d+\.\d+/}
-
-  #Statistics
-  get :statistics, controller: :statistics
+  get "statistics",           to: "node_info#statistics"
 
   # Terms
   if AppConfig.settings.terms.enable?
