@@ -236,6 +236,10 @@ Diaspora::Application.routes.draw do
   #Protocol Url
   get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")
 
+  # NodeInfo
+  get ".well-known/nodeinfo", to: "node_info#jrd"
+  get "nodeinfo/:version",    to: "node_info#document", as: "node_info", constraints: {version: /\d+\.\d+/}
+
   #Statistics
   get :statistics, controller: :statistics
 
