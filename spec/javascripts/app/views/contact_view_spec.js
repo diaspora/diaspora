@@ -36,8 +36,8 @@ describe("app.views.Contact", function(){
       this.view.render();
       this.button = this.view.$el.find('.contact_add-to-aspect');
       this.contact = this.view.$el.find('.stream_element.contact');
-      this.aspect_membership = {id: 42, aspect: app.aspect.toJSON()};
-      this.response = JSON.stringify(this.aspect_membership);
+      this.aspectMembership = {id: 42, aspect: app.aspect.toJSON()};
+      this.response = JSON.stringify(this.aspectMembership);
     });
 
     it('sends a correct ajax request', function() {
@@ -48,13 +48,26 @@ describe("app.views.Contact", function(){
     });
 
     it('adds a aspect_membership to the contact', function() {
-      expect(this.model.aspect_memberships.length).toBe(1);
+      expect(this.model.aspectMemberships.length).toBe(1);
       $('.contact_add-to-aspect',this.contact).trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200, // success
         responseText: this.response
       });
-      expect(this.model.aspect_memberships.length).toBe(2);
+      expect(this.model.aspectMemberships.length).toBe(2);
+    });
+
+    it("triggers aspect_membership:create", function() {
+      spyOn(app.events, "trigger");
+      $(".contact_add-to-aspect", this.contact).trigger("click");
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200, // success
+        responseText: this.response
+      });
+      expect(app.events.trigger).toHaveBeenCalledWith("aspect_membership:create", {
+        membership: {aspectId: app.aspect.get("id"), personId: this.model.get("person_id")},
+        startSharing: false
+      });
     });
 
     it('calls render', function() {
@@ -88,25 +101,38 @@ describe("app.views.Contact", function(){
       this.view.render();
       this.button = this.view.$el.find('.contact_remove-from-aspect');
       this.contact = this.view.$el.find('.stream_element.contact');
-      this.aspect_membership = this.model.aspect_memberships.first().toJSON();
-      this.response = JSON.stringify(this.aspect_membership);
+      this.aspectMembership = this.model.aspectMemberships.first().toJSON();
+      this.response = JSON.stringify(this.aspectMembership);
     });
 
     it('sends a correct ajax request', function() {
       $('.contact_remove-from-aspect',this.contact).trigger('click');
       expect(jasmine.Ajax.requests.mostRecent().url).toBe(
-        "/aspect_memberships/"+this.aspect_membership.id
+        "/aspect_memberships/"+this.aspectMembership.id
       );
     });
 
     it('removes the aspect_membership from the contact', function() {
-      expect(this.model.aspect_memberships.length).toBe(1);
+      expect(this.model.aspectMemberships.length).toBe(1);
       $('.contact_remove-from-aspect',this.contact).trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200, // success
         responseText: this.response
       });
-      expect(this.model.aspect_memberships.length).toBe(0);
+      expect(this.model.aspectMemberships.length).toBe(0);
+    });
+
+    it("triggers aspect_membership:destroy", function() {
+      spyOn(app.events, "trigger");
+      $(".contact_remove-from-aspect", this.contact).trigger("click");
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200, // success
+        responseText: this.response
+      });
+      expect(app.events.trigger).toHaveBeenCalledWith("aspect_membership:destroy", {
+        membership: {aspectId: app.aspect.get("id"), personId: this.model.get("person_id")},
+        stopSharing: true
+      });
     });
 
     it('calls render', function() {
