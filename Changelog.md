@@ -65,6 +65,8 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 
 ## Features
 
+* Implement NodeInfo [#6239](https://github.com/diaspora/diaspora/pull/6239)
+
 # 0.5.2.0
 
 ## Refactor
