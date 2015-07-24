@@ -12,6 +12,7 @@ class StatisticsPresenter < NodeInfoPresenter
     base_data.merge(user_counts)
              .merge(post_counts)
              .merge(comment_counts)
+             .merge(legacy_services)
   end
 
   def base_data
@@ -44,6 +45,12 @@ class StatisticsPresenter < NodeInfoPresenter
     return {} unless expose_comment_counts?
     {
       "local_comments" => local_comments
+    }
+  end
+
+  def legacy_services
+    Configuration::KNOWN_SERVICES.each_with_object({}) {|service, result|
+      result[service.to_s] = AppConfig.show_service?(service, nil)
     }
   end
 end
