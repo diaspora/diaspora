@@ -29,7 +29,7 @@ describe PostsController, type: :request do
       get "/posts/#{sm.id}", format: :mobile
 
       expect(response.status).to eq(200)
-      expect(response.body).to match(/div class='location'/)
+      expect(response.body).to match(/'location nsfw-hidden'/)
       expect(response.body).to match(/#{I18n.t("posts.show.location", location: sm.location.address)}/)
     end
   end

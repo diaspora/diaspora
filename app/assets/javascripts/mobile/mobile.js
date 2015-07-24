@@ -25,7 +25,7 @@
 $(document).ready(function(){
 
   $('.shield a').click(function(){
-    $(this).parents('.shield_wrapper').remove();
+    $(this).parents(".stream_element").removeClass("shield-active");
     return false;
   });
   var showLoader = function(link){

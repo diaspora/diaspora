@@ -2,26 +2,24 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.stream_element{data: {guid: post.id}}
-  - if post.respond_to?(:nsfw) && post.nsfw
-    .shield_wrapper
-      .shield
-        %strong #NSFW 
-        | 
-        = link_to t("javascripts.stream.show_nsfw_post"), "#"
-  
+.stream_element{data: {guid: post.id}, class: post.respond_to?(:nsfw) && post.nsfw ? "shield-active" : ""}
   - if post.is_a?(Reshare)
     = render "reshares/reshare", reshare: post, post: post.absolute_root
 
-  = render "shared/photo_area", post: post
+  .nsfw-hidden
+    = render "shared/photo_area", post: post
 
   .content
     = render "shared/post_info", post: post
 
+  - unless post.is_a?(Reshare)
+    = render "shared/nsfw_shield", post: post
+
+  .nsfw-hidden
     - if post.is_a?(StatusMessage)
       = render "status_messages/status_message", post: post, photos: post.photos
 
-  .bottom_bar
+  .bottom_bar.nsfw-hidden
     .floater
       = mobile_reshare_icon(post)
       = mobile_comment_icon(post)
@@ -31,4 +29,3 @@
 
     - if defined?(expanded_info) && expanded_info
       = render partial: "shared/post_stats", locals: {post: @post}
-
