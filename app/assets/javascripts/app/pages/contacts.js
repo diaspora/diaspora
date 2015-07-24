@@ -99,24 +99,49 @@ app.pages.Contacts = Backbone.View.extend({
     });
   },
 
-  updateAspectMembershipCount: function(id, change) {
-    var count = parseInt($("#aspect_nav [data-aspect-id='" + id + "'] .badge").text(), 10);
-    $("#aspect_nav [data-aspect-id='" + id + "'] .badge").text(count + change);
-  },
-
-  updateContactCount: function(change) {
-    var count = parseInt($("#aspect_nav .all_aspects .badge").text(), 10);
-    $("#aspect_nav .all_aspects .badge").text(count + change);
+  updateBadgeCount: function(selector, change) {
+    var count = parseInt($("#aspect_nav " + selector + " .badge").text(), 10);
+    $("#aspect_nav " + selector + " .badge").text(count + change);
   },
 
   addAspectMembership: function(data) {
-    if(data.startSharing) { this.updateContactCount(1); }
-    this.updateAspectMembershipCount(data.membership.aspectId, 1);
+    if(data.startSharing) {
+      this.updateBadgeCount(".all_aspects", 1);
+
+      var contact = this.stream.collection.find(function(c) {
+        return c.get("person").id === data.membership.personId;
+      });
+
+      if(contact && contact.person.get("relationship") === "sharing") {
+        contact.person.set({relationship: "mutual"});
+        this.updateBadgeCount(".only_sharing", -1);
+      }
+      else if(contact && contact.person.get("relationship") === "not_sharing") {
+        contact.person.set({relationship: "receiving"});
+        this.updateBadgeCount(".all_contacts", 1);
+      }
+    }
+    this.updateBadgeCount("[data-aspect-id='" + data.membership.aspectId + "']", 1);
   },
 
   removeAspectMembership: function(data) {
-    if(data.stopSharing) { this.updateContactCount(-1); }
-    this.updateAspectMembershipCount(data.membership.aspectId, -1);
+    if(data.stopSharing) {
+      this.updateBadgeCount(".all_aspects", -1);
+
+      var contact = this.stream.collection.find(function(c) {
+        return c.get("person").id === data.membership.personId;
+      });
+
+      if(contact && contact.person.get("relationship") === "mutual") {
+        contact.person.set({relationship: "sharing"});
+        this.updateBadgeCount(".only_sharing", 1);
+      }
+      else if(contact && contact.person.get("relationship") === "receiving") {
+        contact.person.set({relationship: "not_sharing"});
+        this.updateBadgeCount(".all_contacts", -1);
+      }
+    }
+    this.updateBadgeCount("[data-aspect-id='" + data.membership.aspectId + "']", -1);
   }
 });
 // @license-end

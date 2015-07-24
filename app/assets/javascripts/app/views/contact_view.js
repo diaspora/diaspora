@@ -37,8 +37,8 @@ app.views.Contact = app.views.Base.extend({
   addContactToAspect: function(){
     var self = this;
     // do we create the first aspect membership for this person?
-    var startSharing = this.model.get("aspect_memberships").length === 0;
-    this.model.aspect_memberships.create({
+    var startSharing = this.model.aspectMemberships.length === 0;
+    this.model.aspectMemberships.create({
       "person_id": this.model.get("person_id"),
       "aspect_id": app.aspect.get("id")
     },{
@@ -62,8 +62,8 @@ app.views.Contact = app.views.Base.extend({
   removeContactFromAspect: function(){
     var self = this;
     // do we destroy the last aspect membership for this person?
-    var stopSharing = this.model.get("aspect_memberships").length <= 1;
-    this.model.aspect_memberships
+    var stopSharing = this.model.aspectMemberships.length <= 1;
+    this.model.aspectMemberships
       .find(function(membership){ return membership.get("aspect").id === app.aspect.id; })
       .destroy({
         success: function(){
