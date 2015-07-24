@@ -57,6 +57,19 @@ describe("app.views.Contact", function(){
       expect(this.model.aspect_memberships.length).toBe(2);
     });
 
+    it("triggers aspect_membership:create", function() {
+      spyOn(app.events, "trigger");
+      $(".contact_add-to-aspect", this.contact).trigger("click");
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200, // success
+        responseText: this.response
+      });
+      expect(app.events.trigger).toHaveBeenCalledWith("aspect_membership:create", {
+        membership: {aspectId: app.aspect.get("id"), personId: this.model.get("person_id")},
+        startSharing: false
+      });
+    });
+
     it('calls render', function() {
       spyOn(this.view, 'render');
       $('.contact_add-to-aspect',this.contact).trigger('click');
@@ -107,6 +120,19 @@ describe("app.views.Contact", function(){
         responseText: this.response
       });
       expect(this.model.aspect_memberships.length).toBe(0);
+    });
+
+    it("triggers aspect_membership:destroy", function() {
+      spyOn(app.events, "trigger");
+      $(".contact_remove-from-aspect", this.contact).trigger("click");
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200, // success
+        responseText: this.response
+      });
+      expect(app.events.trigger).toHaveBeenCalledWith("aspect_membership:destroy", {
+        membership: {aspectId: app.aspect.get("id"), personId: this.model.get("person_id")},
+        stopSharing: true
+      });
     });
 
     it('calls render', function() {

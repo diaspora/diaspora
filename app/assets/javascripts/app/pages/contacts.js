@@ -20,6 +20,8 @@ app.pages.Contacts = Backbone.View.extend({
     $("#people_stream.contacts .header i").tooltip({"placement": "bottom"});
     $(document).on("ajax:success", "form.edit_aspect", this.updateAspectName);
     app.events.on("aspect:create", function(){ window.location.reload() });
+    app.events.on("aspect_membership:create", this.addAspectMembership, this);
+    app.events.on("aspect_membership:destroy", this.removeAspectMembership, this);
 
     this.aspectCreateView = new app.views.AspectCreate({ el: $("#newAspectContainer") });
     this.aspectCreateView.render();
@@ -95,6 +97,26 @@ app.pages.Contacts = Backbone.View.extend({
       revert: true,
       helper: "clone"
     });
+  },
+
+  updateAspectMembershipCount: function(id, change) {
+    var count = parseInt($("#aspect_nav [data-aspect-id='" + id + "'] .badge").text(), 10);
+    $("#aspect_nav [data-aspect-id='" + id + "'] .badge").text(count + change);
+  },
+
+  updateContactCount: function(change) {
+    var count = parseInt($("#aspect_nav .all_aspects .badge").text(), 10);
+    $("#aspect_nav .all_aspects .badge").text(count + change);
+  },
+
+  addAspectMembership: function(data) {
+    if(data.startSharing) { this.updateContactCount(1); }
+    this.updateAspectMembershipCount(data.membership.aspectId, 1);
+  },
+
+  removeAspectMembership: function(data) {
+    if(data.stopSharing) { this.updateContactCount(-1); }
+    this.updateAspectMembershipCount(data.membership.aspectId, -1);
   }
 });
 // @license-end
