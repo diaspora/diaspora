@@ -459,7 +459,11 @@ h3 {  margin-top: 0; }
   height: 20px;
   width: 20px;
   padding: 0;
-  margin-left: 5px;
+  margin-left: 15px;
+  
+  &:last-child{
+    margin-right: 5px;
+  }
 
   &.loading {
     background-image: image-url("mobile-spinner.gif");
