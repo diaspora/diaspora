@@ -1,9 +1,12 @@
 describe("app.pages.Contacts", function(){
   beforeEach(function() {
     spec.loadFixture("aspects_manage");
+    var contactsData = spec.readFixture("aspects_manage_contacts_json");
+    app.contacts = new app.collections.Contacts(JSON.parse(contactsData));
     this.view = new app.pages.Contacts({
       stream: {
-        render: function(){}
+        render: function(){},
+        collection: app.contacts
       }
     });
     Diaspora.I18n.load({
@@ -96,6 +99,196 @@ describe("app.pages.Contacts", function(){
       this.searchinput.val("Username");
       this.searchinput.trigger('keyup');
       expect(this.view.stream.search).toHaveBeenCalledWith("Username");
+    });
+  });
+
+  describe("updateBadgeCount", function() {
+    it("increases the badge count of an aspect", function() {
+      var aspect = $("#aspect_nav .aspect").eq(0);
+      $(".badge", aspect).text("15");
+      this.view.updateBadgeCount("[data-aspect-id='" + aspect.data("aspect-id") + "']", 27);
+      expect($(".badge", aspect).text()).toBe("42");
+    });
+
+    it("decreases the badge count of an aspect", function() {
+      var aspect = $("#aspect_nav .aspect").eq(1);
+      $(".badge", aspect).text("42");
+      this.view.updateBadgeCount("[data-aspect-id='" + aspect.data("aspect-id") + "']", -15);
+      expect($(".badge", aspect).text()).toBe("27");
+    });
+
+    it("increases the badge count of 'my aspects'", function() {
+      $("#aspect_nav .all_aspects .badge").text("15");
+      this.view.updateBadgeCount(".all_aspects", 27);
+      expect($("#aspect_nav .all_aspects .badge").text()).toBe("42");
+    });
+
+    it("decreases the badge count of 'my aspects'", function() {
+      $("#aspect_nav .all_aspects .badge").text("42");
+      this.view.updateBadgeCount(".all_aspects", -15);
+      expect($("#aspect_nav .all_aspects .badge").text()).toBe("27");
+    });
+  });
+
+  describe("addAspectMembership", function() {
+    context("when the user starts sharing", function() {
+      beforeEach(function() {
+        this.contact = app.contacts.first();
+        this.data = {
+          membership: {
+            aspectId: $("#aspect_nav .aspect").eq(1).data("aspect-id"),
+            personId: this.contact.person.id
+          },
+          startSharing: true
+        };
+        spyOn(this.view, "updateBadgeCount").and.callThrough();
+      });
+
+      it("is called on aspect_membership:create", function() {
+        spyOn(app.pages.Contacts.prototype, "addAspectMembership");
+        this.view = new app.pages.Contacts({stream: {render: function(){}, collection: app.contacts}});
+        app.events.trigger("aspect_membership:create", this.data);
+        expect(app.pages.Contacts.prototype.addAspectMembership).toHaveBeenCalledWith(this.data);
+      });
+
+      it("calls updateContactCount for 'all aspects'", function() {
+        this.view.addAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(".all_aspects", 1);
+      });
+
+      it("calls updateBadgeCount for the aspect", function() {
+        this.view.addAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(
+          "[data-aspect-id='" + this.data.membership.aspectId + "']", 1
+        );
+      });
+
+      it("calls updateContactCount for 'all contacts' if there was no relationship before", function() {
+        this.contact.person.set({relationship: "not_sharing"});
+        this.view.addAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(".all_contacts", 1);
+        expect(this.contact.person.get("relationship")).toBe("receiving");
+      });
+
+      it("calls updateContactCount for 'only sharing' if the relationship was 'sharing'", function() {
+        this.contact.person.set({relationship: "sharing"});
+        this.view.addAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(".only_sharing", -1);
+        expect(this.contact.person.get("relationship")).toBe("mutual");
+      });
+    });
+
+    context("when the user doesn't start sharing", function() {
+      beforeEach(function() {
+        this.data = {
+          membership: {
+            aspectId: $("#aspect_nav .aspect").eq(1).data("aspect-id"),
+            personId: app.contacts.first().person.id
+          },
+          startSharing: false
+        };
+        spyOn(this.view, "updateBadgeCount").and.callThrough();
+      });
+
+      it("is called on aspect_membership:create", function() {
+        spyOn(app.pages.Contacts.prototype, "addAspectMembership");
+        this.view = new app.pages.Contacts({stream: {render: function(){}, collection: app.contacts}});
+        app.events.trigger("aspect_membership:create", this.data);
+        expect(app.pages.Contacts.prototype.addAspectMembership).toHaveBeenCalledWith(this.data);
+      });
+
+      it("doesn't call updateBadgeCount for 'all aspects'", function() {
+        this.view.addAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).not.toHaveBeenCalledWith(".all_aspects", 1);
+      });
+
+      it("calls updateBadgeCount for the aspect", function() {
+        this.view.addAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(
+          "[data-aspect-id='" + this.data.membership.aspectId + "']", 1
+        );
+      });
+    });
+  });
+
+  describe("removeAspectMembership", function() {
+    context("when the user stops sharing", function() {
+      beforeEach(function() {
+        this.contact = app.contacts.first();
+        this.data = {
+          membership: {
+            aspectId: $("#aspect_nav .aspect").eq(0).data("aspect-id"),
+            personId: this.contact.person.id
+          },
+          stopSharing: true
+        };
+        spyOn(this.view, "updateBadgeCount").and.callThrough();
+      });
+
+      it("is called on aspect_membership:destroy", function() {
+        spyOn(app.pages.Contacts.prototype, "removeAspectMembership");
+        this.view = new app.pages.Contacts({stream: {render: function(){}, collection: app.contacts}});
+        app.events.trigger("aspect_membership:destroy", this.data);
+        expect(app.pages.Contacts.prototype.removeAspectMembership).toHaveBeenCalledWith(this.data);
+      });
+
+      it("calls updateContactCount for 'all aspects'", function() {
+        this.view.removeAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(".all_aspects", -1);
+      });
+
+      it("calls updateBadgeCount for the aspect", function() {
+        this.view.removeAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(
+          "[data-aspect-id='" + this.data.membership.aspectId + "']", -1
+        );
+      });
+
+      it("calls updateContactCount for 'all contacts' if the relationship was 'receiving'", function() {
+        this.contact.person.set({relationship: "receiving"});
+        this.view.removeAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(".all_contacts", -1);
+        expect(this.contact.person.get("relationship")).toBe("not_sharing");
+      });
+
+      it("calls updateContactCount for 'only sharing' if the relationship was 'mutual'", function() {
+        this.contact.person.set({relationship: "mutual"});
+        this.view.removeAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(".only_sharing", 1);
+        expect(this.contact.person.get("relationship")).toBe("sharing");
+      });
+    });
+
+    context("when the user doesn't stop sharing", function() {
+      beforeEach(function() {
+        this.data = {
+          membership: {
+            aspectId: $("#aspect_nav .aspect").eq(0).data("aspect-id"),
+            personId: app.contacts.first().person.id
+          },
+          stopSharing: false
+        };
+        spyOn(this.view, "updateBadgeCount").and.callThrough();
+      });
+
+      it("is called on aspect_membership:destroy", function() {
+        spyOn(app.pages.Contacts.prototype, "removeAspectMembership");
+        this.view = new app.pages.Contacts({stream: {render: function(){}, collection: app.contacts}});
+        app.events.trigger("aspect_membership:destroy", this.data);
+        expect(app.pages.Contacts.prototype.removeAspectMembership).toHaveBeenCalledWith(this.data);
+      });
+
+      it("doesn't call updateBadgeCount for 'all aspects'", function() {
+        this.view.removeAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).not.toHaveBeenCalledWith(".all_aspects", -1);
+      });
+
+      it("calls updateBadgeCount for the aspect", function() {
+        this.view.removeAspectMembership(this.data);
+        expect(this.view.updateBadgeCount).toHaveBeenCalledWith(
+          "[data-aspect-id='" + this.data.membership.aspectId + "']", -1
+        );
+      });
     });
   });
 });

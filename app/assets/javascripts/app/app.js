@@ -63,7 +63,7 @@ var app = {
   },
 
   parsePreload : function(prop) {
-      if(!app.hasPreload(prop)) { return }
+      if(!app.hasPreload(prop)) { return; }
 
       var preload = window.gon.preloads[prop];
       delete window.gon.preloads[prop]; //prevent dirty state across navigates
@@ -112,7 +112,7 @@ var app = {
 
   /* mixpanel wrapper function */
   instrument : function(type, name, object, callback) {
-    if(!window.mixpanel) { return }
+    if(!window.mixpanel) { return; }
     window.mixpanel[type](name, object, callback);
   },
 

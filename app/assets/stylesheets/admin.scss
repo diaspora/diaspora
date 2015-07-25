@@ -1,30 +1,6 @@
 @import 'colors';
 
 /** ADMIN STYlES **/
-
-body > div.container {
-  margin-top: 40px;
-  padding-top: 1em;
-}
-
-#admin_nav {
-  font-size: 1em;
-  border-bottom: 2px solid #777;
-  margin-bottom: 20px;
-
-  ul {
-    display: inline;
-  }
-
-  li {
-    font-size: 0.8em;
-    display: inline;
-    margin-right: 0.5em;
-
-    a { color: $blue; }
-  }
-}
-
 /** user search **/
 
 .users {

@@ -1,4 +1,9 @@
 class AdminsController < Admin::AdminController
+  include ApplicationHelper
+
+  def dashboard
+    gon.push(pod_version: pod_version)
+  end
 
   def user_search
     if params[:admins_controller_user_search]
@@ -73,10 +78,6 @@ class AdminsController < Admin::AdminController
     #@posts[:new_public] = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
     #                                 :public => true).order('created_at DESC').limit(15).all
 
-  end
-
-  def correlations
-    @correlations_hash = Statistics.new.generate_correlations
   end
 
   private

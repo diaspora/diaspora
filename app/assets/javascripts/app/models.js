@@ -5,7 +5,6 @@
 //  Requires:
 //    this = model with "created_at" attribute
 app.models.formatDateMixin = {
-
   timeOf: function(field) {
     return app.helpers.dateFormatter.parse(this.get(field)) / 1000;
   },
@@ -13,7 +12,5 @@ app.models.formatDateMixin = {
   createdAt: function() {
     return this.timeOf("created_at");
   }
-
 };
 // @license-end
-

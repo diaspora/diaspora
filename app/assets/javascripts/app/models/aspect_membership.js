@@ -8,4 +8,3 @@ app.models.AspectMembership = Backbone.Model.extend({
   urlRoot: "/aspect_memberships"
 });
 // @license-end
-

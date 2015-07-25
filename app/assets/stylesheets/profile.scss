@@ -148,3 +148,8 @@
     &:last-of-type{ float: right; }
   }
 }
+
+#update_profile_form {
+  .profile-visibility-hint { margin-left: 10px; }
+  .visibility-hint-icon { cursor: default; }
+}

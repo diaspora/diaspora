@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   has_one :profile, through: :person
 
   delegate :guid, :public_key, :posts, :photos, :owns?, :image_url,
-           :diaspora_handle, :name, :public_url, :profile, :url,
+           :diaspora_handle, :name, :atom_url, :profile_url, :profile, :url,
            :first_name, :last_name, :gender, :participations, to: :person
   delegate :id, :guid, to: :person, prefix: true
 

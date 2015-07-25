@@ -3,7 +3,13 @@
 -#   the COPYRIGHT file.
 
 %hr
-%h3= t('profiles.edit.your_private_profile')
+%h3.inline
+  = t("profiles.edit.extended")
+= t("profiles.edit.extended_visibility_text")
+= check_box_tag "profile[public_details]", true, profile.public_details, {"data-size" => "mini", "data-on-text" => t("profiles.edit.public"), "data-off-text" => t("profiles.edit.limited")}
+%span.profile-visibility-hint{ title: t("profiles.edit.extended_hint") }
+  %i.entypo-circled-help.visibility-hint-icon
+.small-horizontal-spacer
 
 %h4= t('profiles.edit.your_bio')
 
@@ -27,6 +33,12 @@
   = select_date profile.birthday, { prompt: true, default: true, order: t('date.order'),
       start_year: upper_limit_date_of_birth, end_year: lower_limit_date_of_birth, prefix: 'profile[date]' },
       { class: 'form-control'}
+
+.small-horizontal-spacer
+
+%hr
+%h3.inline
+  = t('profiles.edit.settings')
 
 .small-horizontal-spacer
 

@@ -48,7 +48,7 @@ describe("app.views.Base", function(){
         this.view = new viewClass().render();
       });
 
-      it("repsects the respects the template rendered with the presenter", function(){
+      it("respects the template rendered with the presenter", function(){
         expect(this.view.$('.text').text().trim()).toBe("this comes through on the original render");
       });
 

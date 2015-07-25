@@ -98,14 +98,15 @@ en:
   admins:
     admin_bar:
       pages: "Pages"
+      dashboard: "Dashboard"
       user_search: "User search"
       weekly_user_stats: "Weekly user stats"
       pod_stats: "Pod stats"
       report: "Reports"
-      correlations: "Correlations"
       sidekiq_monitor: "Sidekiq monitor"
-    correlations:
-      correlations_count: "Correlations with sign-in count:"
+    dashboard:
+      pod_status: "Pod status"
+      fetching_diaspora_version: "Determining latest diaspora* version..."
     user_search:
       you_currently:
         zero: "You currently have no invites left %{link}"
@@ -350,6 +351,8 @@ en:
     new:
       to: "To"
       subject: "Subject"
+      subject_default: "No subject"
+      message: "Message"
       send: "Send"
       sending: "Sending..."
       abandon_changes: "Abandon changes?"
@@ -972,10 +975,17 @@ en:
       or_select_one_existing: "or select one from your already existing %{photos}"
     comment_email_subject: "%{name}’s photo"
 
+  polls:
+    votes:
+      zero: "%{count} votes so far"
+      one: "%{count} vote so far"
+      other: "%{count} votes so far"
+
   posts:
     presenter:
       title: "A post from %{name}"
     show:
+      location: "Posted from: %{location}"
       destroy: "Delete"
       permalink: "Permalink"
       not_found: "Sorry, we couldn’t find that post."
@@ -1008,8 +1018,14 @@ en:
 
   profiles:
     edit:
-      your_public_profile: "Your public profile"
-      your_private_profile: "Your private profile"
+      basic: "My basic profile"
+      extended: "My extended profile"
+      settings: "Profile settings"
+      extended_visibility_text: "Visibility of your extended profile:"
+      public: "Public"
+      limited: "Limited"
+      basic_hint: "Every item in your profile is optional. Your basic profile will always be publicly visible."
+      extended_hint: "Click the switch to set your extended profile data visibility. Public means it is visible to the internet, limited means only people who you share with will see this information."
       your_name: "Your name"
       first_name: "First name"
       last_name: "Last name"
@@ -1039,7 +1055,7 @@ en:
       join_the_movement: "Join the movement!"
       sign_up_message: "Social networking with a ♥"
 
-      enter_email: "Enter an email"
+      enter_email: "Enter your email address"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       enter_password: "Enter a password (six character minimum)"
       enter_password_again: "Enter the same password as before"

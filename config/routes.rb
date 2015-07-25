@@ -18,6 +18,8 @@ Diaspora::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq', :as => 'sidekiq'
   end
 
+  mount DiasporaFederation::Engine => "/"
+
   get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
 
   get 'oembed' => 'posts#oembed', :as => 'oembed'
@@ -139,13 +141,13 @@ Diaspora::Application.routes.draw do
 
   # Admin backend routes
 
-  scope 'admins', :controller => :admins do
+  scope "admins", controller: :admins do
     match :user_search, via: [:get, :post]
-    get   :admin_inviter
-    get   :weekly_user_stats
-    get   :correlations
-    get   :stats, :as => 'pod_stats'
-    get   "add_invites/:invite_code_id" => 'admins#add_invites', :as => 'add_invites'
+    get :admin_inviter
+    get :weekly_user_stats
+    get :stats, as: "pod_stats"
+    get :dashboard, as: "admin_dashboard"
+    get "add_invites/:invite_code_id" => "admins#add_invites", :as => "add_invites"
   end
 
   namespace :admin do
@@ -191,9 +193,6 @@ Diaspora::Application.routes.draw do
   # Federation
 
   controller :publics do
-    get 'webfinger'             => :webfinger
-    get 'hcard/users/:guid'     => :hcard
-    get '.well-known/host-meta' => :host_meta
     post 'receive/users/:guid'  => :receive
     post 'receive/public'       => :receive_public
     get 'hub'                   => :hub
@@ -237,8 +236,10 @@ Diaspora::Application.routes.draw do
   #Protocol Url
   get 'protocol' => redirect("http://wiki.diasporafoundation.org/Federation_Protocol_Overview")
 
-  #Statistics
-  get :statistics, controller: :statistics
+  # NodeInfo
+  get ".well-known/nodeinfo", to: "node_info#jrd"
+  get "nodeinfo/:version",    to: "node_info#document", as: "node_info", constraints: {version: /\d+\.\d+/}
+  get "statistics",           to: "node_info#statistics"
 
   # Terms
   if AppConfig.settings.terms.enable?

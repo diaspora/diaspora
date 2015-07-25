@@ -48,7 +48,7 @@ de:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
-    confirm_unload: "Bitte bestätige dass du diese Seite verlassen willst - Daten welche du eingegeben hast würden nicht gespeichert werden."
+    confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst - Daten, welche du eingegeben hast würden nicht gespeichert werden."
     contacts:
       add_contact: "Kontakt hinzufügen"
       aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
@@ -73,7 +73,7 @@ de:
       preparing_your_stream: "Dein persönlicher Stream wird zusammengestellt …"
     header:
       admin: "Admin"
-      close: "schließen"
+      close: "Schließen"
       contacts: "Kontakte"
       conversations: "Konversationen"
       help: "Hilfe"
@@ -132,7 +132,7 @@ de:
       bio: "Bio"
       born: "Geburtstag"
       contacts: "Kontakte"
-      edit: "bearbeite"
+      edit: "Bearbeiten"
       gender: "Geschlecht"
       ignoring: "Du ignorierst sämtliche Beiträge von <%= name %>."
       location: "Ort"
@@ -151,7 +151,7 @@ de:
     report:
       name: "Meldung"
       prompt: "Bitte gib einen Grund an:"
-      prompt_default: "anstößiger Inhalt"
+      prompt_default: "z.B. anstößiger Inhalt"
       status:
         created: "Die Meldung wurde erfolgreich erstellt"
         exists: "Die Meldung existiert bereits"
@@ -200,8 +200,11 @@ de:
       show_nsfw_posts: "Alle zeigen"
       tags:
         follow: "#<%= tag %> folgen"
+        follow_error: "Konnte #<%= tag %> nicht folgen :("
         following: "Du folgst #<%=tag%>"
         stop_following: "Aufhören #<%= tag %> zu folgen"
+        stop_following_confirm: "Aufhören #<%= tag %> zu folgen?"
+        stop_following_error: "<%= tag %> konnte nicht entfolgt werden :("
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
       via: "via <%= provider %>"
@@ -231,7 +234,7 @@ de:
     viewer:
       comment: "Kommentieren"
       follow_post: "Diesen Beitrag verfolgen"
-      home: "START"
+      home: "Start"
       like: "Gefällt mir"
       reshare: "Weitersagen"
       reshared: "Weitergesagt"

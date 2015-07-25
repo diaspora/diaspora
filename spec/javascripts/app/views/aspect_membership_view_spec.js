@@ -1,13 +1,13 @@
 describe("app.views.AspectMembership", function(){
-  var resp_success = {status: 200, responseText: '{}'};
+  var success = {status: 200, responseText: "{}"};
   var resp_fail = {status: 400};
 
   beforeEach(function() {
     // mock a dummy aspect dropdown
     spec.loadFixture("aspect_membership_dropdown");
     this.view = new app.views.AspectMembership({el: $('.aspect_membership_dropdown')});
-    this.person_id = $('.dropdown-menu').data('person_id');
-    this.person_name = $('.dropdown-menu').data('person-short-name');
+    this.personId = $(".dropdown-menu").data("person_id");
+    this.personName = $(".dropdown-menu").data("person-short-name");
     Diaspora.I18n.load({
       aspect_dropdown: {
         started_sharing_with: 'you started sharing with <%= name %>',
@@ -26,7 +26,7 @@ describe("app.views.AspectMembership", function(){
 
     it('marks the aspect as selected', function() {
       this.newAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().respondWith(resp_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(success);
 
       expect(this.newAspect.attr('class')).toContain('selected');
     });
@@ -34,11 +34,22 @@ describe("app.views.AspectMembership", function(){
     it('displays flash message when added to first aspect', function() {
       spec.content().find('li').removeClass('selected');
       this.newAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().respondWith(resp_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(success);
 
       expect($('[id^="flash"]')).toBeSuccessFlashMessage(
-        Diaspora.I18n.t('aspect_dropdown.started_sharing_with', {name: this.person_name})
+        Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: this.personName})
       );
+    });
+
+    it("triggers aspect_membership:create", function() {
+      spyOn(app.events, "trigger");
+      spec.content().find("li").removeClass("selected");
+      this.newAspect.trigger("click");
+      jasmine.Ajax.requests.mostRecent().respondWith(success);
+      expect(app.events.trigger).toHaveBeenCalledWith("aspect_membership:create", {
+        membership: {aspectId: this.newAspectId, personId: this.personId},
+        startSharing: true
+      });
     });
 
     it('displays an error when it fails', function() {
@@ -46,7 +57,7 @@ describe("app.views.AspectMembership", function(){
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
       expect($('[id^="flash"]')).toBeErrorFlashMessage(
-        Diaspora.I18n.t('aspect_dropdown.error', {name: this.person_name})
+        Diaspora.I18n.t("aspect_dropdown.error", {name: this.personName})
       );
     });
   });
@@ -59,7 +70,7 @@ describe("app.views.AspectMembership", function(){
 
     it('marks the aspect as unselected', function(){
       this.oldAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().respondWith(resp_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(success);
 
       expect(this.oldAspect.attr('class')).not.toContain('selected');
     });
@@ -67,11 +78,22 @@ describe("app.views.AspectMembership", function(){
     it('displays a flash message when removed from last aspect', function() {
       spec.content().find('li.selected:last').removeClass('selected');
       this.oldAspect.trigger('click');
-      jasmine.Ajax.requests.mostRecent().respondWith(resp_success);
+      jasmine.Ajax.requests.mostRecent().respondWith(success);
 
       expect($('[id^="flash"]')).toBeSuccessFlashMessage(
-        Diaspora.I18n.t('aspect_dropdown.stopped_sharing_with', {name: this.person_name})
+        Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: this.personName})
       );
+    });
+
+    it("triggers aspect_membership:destroy", function() {
+      spyOn(app.events, "trigger");
+      spec.content().find("li.selected:last").removeClass("selected");
+      this.oldAspect.trigger("click");
+      jasmine.Ajax.requests.mostRecent().respondWith(success);
+      expect(app.events.trigger).toHaveBeenCalledWith("aspect_membership:destroy", {
+        membership: {aspectId: this.oldAspect.data("aspect_id"), personId: this.personId},
+        stopSharing: true
+      });
     });
 
     it('displays an error when it fails', function() {
@@ -79,7 +101,7 @@ describe("app.views.AspectMembership", function(){
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
       expect($('[id^="flash"]')).toBeErrorFlashMessage(
-        Diaspora.I18n.t('aspect_dropdown.error_remove', {name: this.person_name})
+        Diaspora.I18n.t("aspect_dropdown.error_remove", {name: this.personName})
       );
     });
   });

@@ -38,7 +38,11 @@
     .stream
       %p{:class => "conversation_#{name}"}= msg
 
-%h3= t('profiles.edit.your_public_profile')
+%h3.inline
+  = t("profiles.edit.basic")
+  %span{ :title => t("profiles.edit.basic_hint") }
+    %i.entypo.circled-help.visibility-hint-icon
+.small-horizontal-spacer
 
 = error_messages_for profile
 

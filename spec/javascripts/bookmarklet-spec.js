@@ -1,4 +1,3 @@
-
 describe("bookmarklet", function(){
   var fakeUrl = "http://pod.example.com/bookmarklet";
 

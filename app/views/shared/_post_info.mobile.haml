@@ -30,3 +30,6 @@
           = t('public')
         - else
           = t('limited')
+    - if !post.is_a?(Reshare) and post.location
+      .location
+        = t("posts.show.location", location: post.location.address)

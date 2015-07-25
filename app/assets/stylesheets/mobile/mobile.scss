@@ -6,10 +6,11 @@
 @import 'entypo';
 @import 'icons';
 
-@import "header";
+@import "mobile/header";
 @import "mobile/tags";
 @import "mobile/conversations";
 @import "mobile/settings";
+@import "mobile/stream_element";
 
 a {
   color: #2489ce;
@@ -292,29 +293,22 @@ h3 {  margin-top: 0; }
 }
 
 #photo_controls {
-  margin-bottom: 5px;
-}
-
-.arrow {
-  color: white !important;
-  font-size: 26pt;
-  text: {
-    shadow: 0 1px 2px #333;
-    decoration: none; };
-  padding: 0;
-  position: fixed;
-  bottom: 10%;
-  z-index: 1;
-  height: 50px;
-  width: 50px;
-}
-
-#left.arrow {
-  left: 5%;
-}
-
-#right.arrow{
-  right: 5%;
+  .arrow {
+    font-size: 10em;
+    text-decoration: none;
+    text-shadow: 0 0 3px $white;
+    position: fixed;
+    bottom: -0.2em;
+    z-index: 1;
+    &.left {
+      left: -0.2em;
+    }
+    &.right {
+      right: -0.2em;
+      text-align: right;
+    }
+    .entypo-chevron-left, .entypo-chevron-right { margin-right: 0; }
+  }
 }
 
 .header-full-width {
@@ -931,10 +925,7 @@ select#aspect_ids_ {
   float: left;
   padding: 3px 12px;
   cursor: pointer;
-
-  &:hover img {
-      opacity: 0.4;
-  }
+  .entypo-camera { margin-right: 0; }
 }
 
 #publisher_textarea_wrapper {

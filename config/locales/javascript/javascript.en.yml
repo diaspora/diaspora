@@ -29,6 +29,13 @@ en:
     edit: "Edit"
     no_results: "No results found"
 
+    admins:
+      dashboard:
+        up_to_date: "Your pod is up to date!"
+        outdated: "Your pod is outdated."
+        compare_versions: "The latest diaspora* release is <%= latestVersion %>, your pod is running <%= podVersion %>."
+        error: "Unable to determine latest diaspora* version."
+
     aspects:
       make_aspect_list_visible: "Make contacts in this aspect visible to each other?"
       name: "Name"

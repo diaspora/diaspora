@@ -5,4 +5,3 @@ app.collections.Posts = Backbone.Collection.extend({
   url : "/posts"
 });
 // @license-end
-

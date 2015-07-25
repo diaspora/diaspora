@@ -32,7 +32,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   likesCount : function(){
-    return (this.get("fetched") ? this.likes.models.length : this.get("likes_count") );
+    return this.get("fetched") ? this.likes.models.length : this.get("likes_count");
   },
 
   resharesCount : function(){
@@ -44,12 +44,15 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   userLike : function(){
-    return this.likes.select(function(like){ return like.get("author").guid === app.currentUser.get("guid")})[0];
+    return this.likes.select(function(like){
+      return like.get("author").guid === app.currentUser.get("guid");
+    })[0];
   },
 
   userReshare : function(){
     return this.reshares.select(function(reshare){
-      return reshare.get("author") &&  reshare.get("author").guid === app.currentUser.get("guid")})[0];
+      return reshare.get("author") && reshare.get("author").guid === app.currentUser.get("guid");
+    })[0];
   },
 
   toggleLike : function() {

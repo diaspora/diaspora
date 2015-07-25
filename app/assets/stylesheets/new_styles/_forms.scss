@@ -27,13 +27,6 @@ input:-webkit-autofill{
 form.block-form {
   margin: 20px auto;
 
-  label {
-    color : $text-dark-grey;
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
   fieldset {
     margin-bottom: 1em;
     background-color: #fff;

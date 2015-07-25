@@ -27,10 +27,16 @@ es-AR:
       deselect_all: "Deseleccionar todo"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Seleccionar todo"
+    aspects:
+      create:
+        add_a_new_aspect: "Agregar un nuevo aspecto"
+        failure: "Error al crear el aspecto."
+      name: "Nombre"
     bookmarklet:
       post_something: "Publicar en diaspora*"
       post_submit: "En proceso..."
       post_success: "¡Publicado! Cerrando ventana emergente..."
+    cancel: "Cancelar"
     comma: ","
     comments:
       hide: "Ocultar comentarios"
@@ -48,6 +54,7 @@ es-AR:
       search_no_results: "No se han encontrado contactos con ese nombre."
     conversation:
       participants: "Participantes"
+    create: "Crear"
     delete: "Borrar"
     edit: "Editar"
     failed_to_like: "¡No pudo marcarse como 'Me gusta'!"

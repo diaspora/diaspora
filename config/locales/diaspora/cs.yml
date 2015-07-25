@@ -323,6 +323,7 @@ cs:
       send: "Poslat"
       sending: "Posílám..."
       subject: "předmět"
+      subject_default: "Žádný předmět"
       to: "pro"
     new_conversation:
       fail: "Neplatná zpráva"
@@ -612,6 +613,7 @@ cs:
       powered_by: "BĚŽÍ NA SÍTI diaspora*"
       public_feed: "Veřejný proud Diaspory pro %{name}"
       source_package: "Stáhnout balík se zdrojovým kódem"
+      statistics_link: "Statistiky podu"
       toggle: "Přepnout mobilní / plnou verzi"
       whats_new: "Co je nového?"
       your_aspects: "vaše aspekty"

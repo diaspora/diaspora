@@ -1,6 +1,7 @@
 module Export
   class CommentSerializer < ActiveModel::Serializer
-    attributes :text,
+    attributes :guid,
+               :text,
                :post_guid
 
     def post_guid
