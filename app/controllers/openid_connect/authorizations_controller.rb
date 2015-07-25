@@ -53,7 +53,8 @@ class OpenidConnect::AuthorizationsController < ApplicationController
   end
 
   def process_authorization_consent(approvedString)
-    endpoint = OpenidConnect::AuthorizationPoint::EndpointConfirmationPoint.new(current_user, to_boolean(approvedString))
+    endpoint = OpenidConnect::AuthorizationPoint::EndpointConfirmationPoint.new(
+      current_user, to_boolean(approvedString))
     handle_confirmation_endpoint_response(endpoint)
   end
 
@@ -80,7 +81,9 @@ class OpenidConnect::AuthorizationsController < ApplicationController
     req = Rack::Request.new(request.env)
     req.update_param("client_id", session[:client_id])
     req.update_param("redirect_uri", session[:redirect_uri])
-    req.update_param("response_type", session[:response_type].respond_to?(:map) ? session[:response_type].map(&:to_s).join(" ") : session[:response_type])
+    req.update_param("response_type", session[:response_type].respond_to?(:map) ?
+                                      session[:response_type].map(&:to_s).join(" ") :
+                                      session[:response_type])
     req.update_param("scopes", session[:scopes])
     req.update_param("request_object", session[:request_object])
     req.update_param("nonce", session[:nonce])

@@ -276,13 +276,21 @@ ActiveRecord::Schema.define(version: 20150724152052) do
   add_index "o_auth_access_tokens", ["authorization_id"], name: "index_o_auth_access_tokens_on_authorization_id", using: :btree
 
   create_table "o_auth_applications", force: :cascade do |t|
-    t.integer  "user_id",       limit: 4
-    t.string   "client_id",     limit: 255
-    t.string   "client_secret", limit: 255
-    t.string   "name",          limit: 255
-    t.string   "redirect_uris", limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "user_id",          limit: 4
+    t.string   "client_id",        limit: 255
+    t.string   "client_secret",    limit: 255
+    t.string   "client_name",      limit: 255
+    t.string   "redirect_uris",    limit: 255
+    t.string   "response_types",   limit: 255
+    t.string   "grant_types",      limit: 255
+    t.string   "application_type", limit: 255
+    t.string   "contacts",         limit: 255
+    t.string   "logo_uri",         limit: 255
+    t.string   "client_uri",       limit: 255
+    t.string   "policy_uri",       limit: 255
+    t.string   "tos_uri",          limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "o_auth_applications", ["user_id"], name: "index_o_auth_applications_on_user_id", using: :btree

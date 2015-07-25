@@ -1,6 +1,6 @@
 When /^I register a new client$/ do
   client_registration_url = "/openid_connect/clients"
-  post client_registration_url, redirect_uris: ["http://localhost:3000"]
+  post client_registration_url, redirect_uris: ["http://localhost:3000"], client_name: "diaspora client"
 end
 
 Given /^I send a post request from that client to the password flow token endpoint using "([^\"]*)"'s credentials$/ do |username|

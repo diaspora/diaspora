@@ -3,7 +3,7 @@ class OpenidConnect::ClientsController < ApplicationController
     http_error_page_as_json(e)
   end
 
-  rescue_from OpenIDConnect::ValidationFailed do |e|
+  rescue_from OpenIDConnect::ValidationFailed, ActiveRecord::RecordInvalid do |e|
     validation_fail_as_json(e)
   end
 

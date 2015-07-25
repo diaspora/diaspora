@@ -2,11 +2,12 @@ require "spec_helper"
 
 describe OpenidConnect::AuthorizationsController, type: :controller do
   let!(:client) do
-    OpenidConnect::OAuthApplication.create!(name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/"])
+    OpenidConnect::OAuthApplication.create!(
+      client_name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/"])
   end
   let!(:client_with_multiple_redirects) do
     OpenidConnect::OAuthApplication.create!(
-      name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/", "http://localhost/"])
+      client_name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/", "http://localhost/"])
   end
 
   # TODO: jhass - "Might want to setup some factories in spec/factories.rb, see factory_girl's docs."

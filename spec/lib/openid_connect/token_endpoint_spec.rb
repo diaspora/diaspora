@@ -1,7 +1,10 @@
 require "spec_helper"
 
 describe OpenidConnect::TokenEndpoint, type: :request do
-  let!(:client) { OpenidConnect::OAuthApplication.create!(redirect_uris: ["http://localhost"]) }
+  let!(:client) do
+    OpenidConnect::OAuthApplication.create!(
+      redirect_uris: ["http://localhost"], client_name: "diaspora client")
+  end
   let!(:auth) { OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: bob) }
 
   describe "the password grant type" do
