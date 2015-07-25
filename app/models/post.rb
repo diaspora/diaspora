@@ -149,17 +149,19 @@ class Post < ActiveRecord::Base
   end
 
   def self.find_public(id)
-    post = Post.where(Post.key_sym(id) => id).includes(:author, comments: :author).first
-    post.try(:public?) || raise(Diaspora::NonPublic)
-    post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
+    where(post_key(id) => id).includes(:author, comments: :author).first.tap do |post|
+      raise ActiveRecord::RecordNotFound.new("could not find a post with id #{id}") unless post
+      raise Diaspora::NonPublic unless post.public?
+    end
   end
 
   def self.find_non_public_by_guid_or_id_with_user(id, user)
-    post = user.find_visible_shareable_by_id(Post, id, key: Post.key_sym(id))
-    post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
+    user.find_visible_shareable_by_id(Post, id, key: post_key(id)).tap do |post|
+      raise ActiveRecord::RecordNotFound.new("could not find a post with id #{id}") unless post
+    end
   end
 
-  def self.key_sym(id)
+  def self.post_key(id)
     id.to_s.length <= 8 ? :id : :guid
   end
 end

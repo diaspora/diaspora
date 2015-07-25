@@ -4,7 +4,16 @@ class PostService
   def initialize(params)
     @id = params[:id]
     @user = params[:user]
-    @oembed = params[:oembed]
+    @oembed = params[:oembed] || {}
+    assign_post
+  end
+
+  def assign_post
+    if user
+      @post = Post.find_non_public_by_guid_or_id_with_user(id, user)
+    else
+      @post = Post.find_public(id)
+    end
   end
 
   def present_json
@@ -19,21 +28,12 @@ class PostService
     OEmbedPresenter.new(post, oembed)
   end
 
-  def assign_post_and_mark_notifications
-    assign_post
+  def mark_user_notifications
     mark_corresponding_notifications_read if user
   end
 
-  def assign_post
-    if user
-      @post = Post.find_non_public_by_guid_or_id_with_user(id, user)
-    else
-      @post = Post.find_public(id)
-    end
-  end
-
   def retract_post
-    find_user_post
+    raise Diaspora::NotMine unless user_owns_post?
     user.retract(@post)
   end
 
@@ -41,8 +41,8 @@ class PostService
 
   attr_reader :user, :id, :oembed
 
-  def find_user_post
-    @post = user.posts.find(id)
+  def user_owns_post?
+    post.author == user.person
   end
 
   def mark_corresponding_notifications_read
