@@ -10,7 +10,7 @@
         .result-head
           - percentage = 0
           - if poll.participation_count > 0
-            - percentage = (answer.vote_count / poll.participation_count * 100).round
+            - percentage = (answer.vote_count.to_f / poll.participation_count * 100).round
           .percentage.pull-right
             = "#{percentage}%"
           .answer
