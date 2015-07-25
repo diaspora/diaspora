@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630221004) do
+ActiveRecord::Schema.define(version: 20150724152052) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -375,7 +375,6 @@ ActiveRecord::Schema.define(version: 20150630221004) do
     t.integer  "reshares_count",        limit: 4,     default: 0
     t.datetime "interacted_at"
     t.string   "frame_name",            limit: 255
-    t.boolean  "favorite",                            default: false
     t.string   "facebook_id",           limit: 255
     t.string   "tweet_id",              limit: 255
     t.integer  "open_graph_cache_id",   limit: 4
@@ -409,7 +408,7 @@ ActiveRecord::Schema.define(version: 20150630221004) do
     t.string   "location",         limit: 255
     t.string   "full_name",        limit: 70
     t.boolean  "nsfw",                           default: false
-    t.boolean  "public_details",               default: false
+    t.boolean  "public_details",                 default: false
   end
 
   add_index "profiles", ["full_name", "searchable"], name: "index_profiles_on_full_name_and_searchable", using: :btree

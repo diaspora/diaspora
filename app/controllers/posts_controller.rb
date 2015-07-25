@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   respond_to :html, :mobile, :json, :xml
 
-  rescue_from Diaspora::NonPublic do |_exception|
+  rescue_from Diaspora::NonPublic do
     respond_to do |format|
       format.all { render template: "errors/not_public", status: 404, layout: "application" }
     end
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 
   def show
     post_service = PostService.new(id: params[:id], user: current_user)
-    post_service.assign_post_and_mark_notifications
+    post_service.mark_user_notifications
     @post = post_service.post
     respond_to do |format|
       format.html { gon.post = post_service.present_json }
@@ -35,14 +35,12 @@ class PostsController < ApplicationController
     post_id = OEmbedPresenter.id_from_url(params.delete(:url))
     post_service = PostService.new(id: post_id, user: current_user,
                                     oembed: params.slice(:format, :maxheight, :minheight))
-    post_service.assign_post
     render json: post_service.present_oembed
   end
 
   def interactions
     post_service = PostService.new(id: params[:id], user: current_user)
-    post_service.assign_post
-    respond_with(post_service.present_interactions_json)
+    respond_with post_service.present_interactions_json
   end
 
   def destroy

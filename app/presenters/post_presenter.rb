@@ -29,7 +29,6 @@ class PostPresenter
         :post_type => @post.post_type,
         :image_url => @post.image_url,
         :object_url => @post.object_url,
-        :favorite => @post.favorite,
         :nsfw => @post.nsfw,
         :author => @post.author.as_api_response(:backbone),
         :o_embed_cache => @post.o_embed_cache.try(:as_api_response, :backbone),
