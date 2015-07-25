@@ -193,6 +193,15 @@ defaults:
   admins:
     account:
     podmin_email:
+  relay:
+    outbound:
+      send: false
+      handle: 'relay@relay.iliketoast.net'
+    inbound:
+      subscribe: false
+      scope: tags
+      include_user_tags: false
+      pod_tags:
   # List valid environment variables
   redistogo_url:
 

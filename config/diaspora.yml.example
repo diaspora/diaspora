@@ -679,6 +679,38 @@ configuration: ## Section
     ## E-mail address to contact the administrator.
     #podmin_email: 'podmin@example.org'
 
+  ## Settings related to relays
+  relay: ## Section
+
+    ## Relays are applications that exist to push public posts around to
+    ## pods which want to subscribe to them but would not otherwise
+    ## receive them due to not having direct contact with the remote pods.
+    ##
+    ## See more regarding relays: https://wiki.diasporafoundation.org/Relay_servers_for_public_posts
+
+    outbound: ## Section
+      ## Enable this setting to send out public posts from this pod to a relay
+      #send: false
+      ## Change default remote relay handle used for sending out here
+      #handle: 'relay@relay.iliketoast.net'
+
+    inbound: ## Section
+      ## Enable this to receive public posts from relays
+      #subscribe: false
+
+      ## Scope is either 'all' or 'tags' (default).
+      ## - 'all', means this pod wants to receive all public posts from a relay
+      ## - 'tags', means this pod wants only posts tagged with certain tags
+      #scope: tags
+
+      ## If scope is 'tags', should we include tags that users on this pod follow?
+      ## These are added in addition to 'pod_tags', if set.
+      #include_user_tags: false
+
+      ## If scope is 'tags', a comma separated list of tags here can be set.
+      ## For example "linux,diaspora", to receive posts related to these tags
+      #pod_tags:
+
 ## Here you can override settings defined above if you need
 ## to have them different in different environments.
 production: ## Section
