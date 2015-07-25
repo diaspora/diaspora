@@ -144,6 +144,9 @@ gem "omniauth-twitter",   "1.2.0"
 gem "twitter",            "5.14.0"
 gem "omniauth-wordpress", "0.2.2"
 
+# OpenID Connect
+gem "openid_connect"
+
 # Serializers
 
 gem "active_model_serializers", "0.9.3"

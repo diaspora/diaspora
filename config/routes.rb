@@ -248,4 +248,13 @@ Diaspora::Application.routes.draw do
 
   # Startpage
   root :to => 'home#show'
+
+  #OpenID Connect & OAuth
+  resource :openid do
+    resources :authorizations, only: [:new, :create]
+    match 'connect', to: 'connect#show', via: [:get, :post]
+    match '.well-known/:id', to: 'discovery#show' , :via => [:get, :post]
+    match 'user_info',       to: 'user#show', :via => [:get, :post]
+    post 'access_tokens', to: proc { |env| TokenEndpoint.new.call(env) }
+  end
 end
