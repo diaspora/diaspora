@@ -11,6 +11,15 @@ describe PostsController, type: :request do
       expect(response.body).to match(/div class='poll'/)
       expect(response.body).to match(/#{sm.poll.poll_answers.first.answer}/)
     end
+
+    it "displays the correct percentage for the answers" do
+      alice.participate_in_poll!(sm, sm.poll.poll_answers.first)
+      bob.participate_in_poll!(sm, sm.poll.poll_answers.last)
+      get "/posts/#{sm.id}", format: :mobile
+
+      expect(response.status).to eq(200)
+      expect(response.body).to match(/div class='percentage pull-right'>\n50%/)
+    end
   end
 
   context "with a location" do
