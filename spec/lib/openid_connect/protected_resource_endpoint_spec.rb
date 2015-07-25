@@ -3,7 +3,8 @@ require "spec_helper"
 describe OpenidConnect::ProtectedResourceEndpoint, type: :request do
   describe "getting the user info" do
     let!(:client) do
-      OpenidConnect::OAuthApplication.create!(name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/"])
+      OpenidConnect::OAuthApplication.create!(
+        client_name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/"])
     end
     let!(:auth) { OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: bob) }
     let!(:access_token) { auth.create_access_token.to_s }
