@@ -54,6 +54,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Add admin dashboard showing latest diaspora\* version [#6216](https://github.com/diaspora/diaspora/pull/6216)
 * Display poll & location on mobile [#6238](https://github.com/diaspora/diaspora/pull/6238)
 * Update counts on contacts page dynamically [#6240](https://github.com/diaspora/diaspora/pull/6240)
+* Add support for relay based public post federation [#6207](https://github.com/diaspora/diaspora/pull/6207)
 
 # 0.5.3.0
 
