@@ -408,7 +408,7 @@ ActiveRecord::Schema.define(version: 20150724152052) do
     t.string   "location",         limit: 255
     t.string   "full_name",        limit: 70
     t.boolean  "nsfw",                           default: false
-    t.boolean  "public_details",               default: false
+    t.boolean  "public_details",                 default: false
   end
 
   add_index "profiles", ["full_name", "searchable"], name: "index_profiles_on_full_name_and_searchable", using: :btree
