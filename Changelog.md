@@ -60,6 +60,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 
 ## Refactor
 * Drop broken correlations from the admin pages [#6223](https://github.com/diaspora/diaspora/pull/6223)
+* Extract PostService from PostsController [#6208](https://github.com/diaspora/diaspora/pull/6208)
 
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
