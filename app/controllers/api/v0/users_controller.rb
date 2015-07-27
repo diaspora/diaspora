@@ -1,11 +1,9 @@
 class Api::V0::UsersController < Api::V0::BaseController
-  def show
-    render json: user
+  before_filter do
+    require_access_token OpenidConnect::Scope.find_by(name: "read")
   end
 
-  private
-
-  def user
-    current_token.authorization.user
+  def show
+    render json: user
   end
 end

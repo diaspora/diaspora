@@ -1,6 +1,5 @@
 class OpenidConnect::OAuthAccessToken < ActiveRecord::Base
   belongs_to :authorization
-  has_many :scopes, through: :scope_tokens
 
   before_validation :setup, on: :create
 
@@ -19,9 +18,5 @@ class OpenidConnect::OAuthAccessToken < ActiveRecord::Base
       access_token: token,
       expires_in:   (expires_at - Time.now.utc).to_i
     )
-  end
-
-  def accessible?(_scopes_or_claims_=nil)
-    true # TODO: For now don't support scopes
   end
 end

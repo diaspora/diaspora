@@ -29,7 +29,13 @@ module OpenidConnect
       user = User.find_for_database_authentication(username: req.username)
       if user
         if user.valid_password?(req.password)
+          scope_list = req.scope.map { |scope_name|
+            OpenidConnect::Scope.find_by(name: scope_name).tap do |scope|
+              req.invalid_scope! "Unknown scope: #{scope}" unless scope
+            end
+          } # TODO: Check client scope permissions
           auth = OpenidConnect::Authorization.find_or_create_by(o_auth_application: o_auth_app, user: user)
+          auth.scopes << scope_list
           res.access_token = auth.create_access_token
         else
           req.invalid_grant!
@@ -40,6 +46,8 @@ module OpenidConnect
     end
 
     def handle_refresh_flow(req, res)
+      # Handle as if scope request was omitted even if provided.
+      # See https://tools.ietf.org/html/rfc6749#section-6 for handling
       auth = OpenidConnect::Authorization.find_by_refresh_token req.client_id, req.refresh_token
       if auth
         res.access_token = auth.create_access_token

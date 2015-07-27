@@ -44,7 +44,7 @@ class OpenidConnect::OAuthApplication < ActiveRecord::Base
 
     def supported_metadata
       %i(client_name response_types grant_types application_type
-         contacts logo_uri client_uri policy_uri tos_uri)
+         contacts logo_uri client_uri policy_uri tos_uri redirect_uris)
     end
 
     def registrar_attributes(registrar)

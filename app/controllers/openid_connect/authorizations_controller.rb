@@ -47,7 +47,7 @@ class OpenidConnect::AuthorizationsController < ApplicationController
     session[:client_id] = @o_auth_application.client_id
     session[:response_type] = @response_type
     session[:redirect_uri] = @redirect_uri
-    session[:scopes] = @scopes.map(&:name)
+    session[:scopes] = @scopes.map(&:name).join(" ")
     session[:request_object] = @request_object
     session[:nonce] = params[:nonce]
   end
@@ -84,7 +84,7 @@ class OpenidConnect::AuthorizationsController < ApplicationController
     req.update_param("response_type", session[:response_type].respond_to?(:map) ?
                                       session[:response_type].map(&:to_s).join(" ") :
                                       session[:response_type])
-    req.update_param("scopes", session[:scopes])
+    req.update_param("scope", session[:scopes])
     req.update_param("request_object", session[:request_object])
     req.update_param("nonce", session[:nonce])
   end

@@ -2,7 +2,7 @@
 Feature: Access protected resources using implicit flow
   Background:
     Given a user with username "kent"
-    And the OpenID scope exists
+    And all scopes exist
 
   Scenario: Invalid client id to auth endpoint
     When I register a new client

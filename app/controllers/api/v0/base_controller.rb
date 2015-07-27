@@ -1,6 +1,7 @@
 class Api::V0::BaseController < ApplicationController
   include OpenidConnect::ProtectedResourceEndpoint
 
-  before_filter :require_access_token
-
+  def user
+    current_token ? current_token.authorization.user : nil
+  end
 end
