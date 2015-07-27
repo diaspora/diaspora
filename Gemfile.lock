@@ -397,7 +397,7 @@ GEM
     json (1.8.3)
     json-schema (2.5.1)
       addressable (~> 2.3.7)
-    jwt (1.5.0)
+    jwt (1.5.1)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
