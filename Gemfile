@@ -232,7 +232,7 @@ group :development do
 
   # Linters
   gem "jshintrb", "0.3.0"
-  gem "rubocop",  "0.32.0"
+  gem "rubocop",  "0.32.1"
 
   # Preloading environment
 
