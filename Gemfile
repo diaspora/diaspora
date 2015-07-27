@@ -23,7 +23,7 @@ gem "json-schema", "2.5.1"
 # Authentication
 
 gem "devise", "3.5.1"
-gem "devise_lastseenable", "0.0.4"
+gem "devise_lastseenable", "0.0.6"
 gem "devise-token_authenticatable", "~> 0.4.0"
 
 # Captcha
