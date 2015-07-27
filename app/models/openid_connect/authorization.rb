@@ -6,6 +6,7 @@ class OpenidConnect::Authorization < ActiveRecord::Base
   validates :o_auth_application, presence: true
   validates :user, uniqueness: {scope: :o_auth_application}
 
+  has_many :authorization_scopes
   has_many :scopes, through: :authorization_scopes
   has_many :o_auth_access_tokens, dependent: :destroy
   has_many :id_tokens, dependent: :destroy
@@ -14,6 +15,12 @@ class OpenidConnect::Authorization < ActiveRecord::Base
 
   def setup
     self.refresh_token = SecureRandom.hex(32)
+  end
+
+  def accessible?(required_scopes=nil)
+    Array(required_scopes).all? do |required_scope|
+      scopes.include? required_scope
+    end
   end
 
   def create_access_token

@@ -1,6 +1,7 @@
 Feature: Access protected resources using password flow
   Background:
     Given a user with username "kent"
+    And all scopes exist
 
   Scenario: Invalid credentials to token endpoint
     When I register a new client

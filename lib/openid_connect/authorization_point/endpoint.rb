@@ -45,8 +45,8 @@ module OpenidConnect
       end
 
       def build_scopes(req)
-        @scopes = req.scope.map {|scope|
-          OpenidConnect::Scope.where(name: scope).first.tap do |scope|
+        @scopes = req.scope.map {|scope_name|
+          OpenidConnect::Scope.where(name: scope_name).first.tap do |scope|
             req.invalid_scope! "Unknown scope: #{scope}" unless scope
           end
         }

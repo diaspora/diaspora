@@ -21,6 +21,7 @@ module OpenidConnect
       # TODO: Add support for request object and auth code
       def approved!(req, res)
         auth = OpenidConnect::Authorization.find_or_create_by(o_auth_application: @o_auth_application, user: @user)
+        auth.scopes << @scopes
         response_types = Array(req.response_type)
         if response_types.include?(:token)
           res.access_token = auth.create_access_token

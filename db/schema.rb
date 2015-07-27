@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20150724152052) do
   add_index "aspects", ["user_id", "contacts_visible"], name: "index_aspects_on_user_id_and_contacts_visible", using: :btree
   add_index "aspects", ["user_id"], name: "index_aspects_on_user_id", using: :btree
 
+  create_table "authorization_scopes", id: false, force: :cascade do |t|
+    t.integer "authorization_id", limit: 4
+    t.integer "scope_id",         limit: 4
+  end
+
+  add_index "authorization_scopes", ["authorization_id"], name: "index_authorization_scopes_on_authorization_id", using: :btree
+  add_index "authorization_scopes", ["scope_id"], name: "index_authorization_scopes_on_scope_id", using: :btree
+
   create_table "authorizations", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
     t.integer  "o_auth_application_id", limit: 4
@@ -65,14 +73,6 @@ ActiveRecord::Schema.define(version: 20150724152052) do
 
   add_index "authorizations", ["o_auth_application_id"], name: "index_authorizations_on_o_auth_application_id", using: :btree
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
-
-  create_table "authorizations_scopes", id: false, force: :cascade do |t|
-    t.integer "authorization_id", limit: 4
-    t.integer "scope_id",         limit: 4
-  end
-
-  add_index "authorizations_scopes", ["authorization_id"], name: "index_authorizations_scopes_on_authorization_id", using: :btree
-  add_index "authorizations_scopes", ["scope_id"], name: "index_authorizations_scopes_on_scope_id", using: :btree
 
   create_table "blocks", force: :cascade do |t|
     t.integer "user_id",   limit: 4
@@ -522,14 +522,6 @@ ActiveRecord::Schema.define(version: 20150724152052) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
-  create_table "scopes_tokens", id: false, force: :cascade do |t|
-    t.integer "scope_id",               limit: 4
-    t.integer "o_auth_access_token_id", limit: 4
-  end
-
-  add_index "scopes_tokens", ["o_auth_access_token_id"], name: "index_scopes_tokens_on_o_auth_access_token_id", using: :btree
-  add_index "scopes_tokens", ["scope_id"], name: "index_scopes_tokens_on_scope_id", using: :btree
 
   create_table "services", force: :cascade do |t|
     t.string   "type",          limit: 127, null: false
