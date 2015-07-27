@@ -7,6 +7,7 @@
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
 * Bring peeping Tom on the 404 page back [#6226](https://github.com/diaspora/diaspora/pull/6226)
+* Fix mobile photos index page [#6243](https://github.com/diaspora/diaspora/pull/6243)
 
 ## Features
 
@@ -29,7 +30,6 @@
 * Fix mobile more-button wording when there are less than 15 posts [#6118](https://github.com/diaspora/diaspora/pull/6118)
 * Fix reappearing flash boxes during sign-in [#6146](https://github.com/diaspora/diaspora/pull/6146)
 * Capitalize Wiki link [#6193](https://github.com/diaspora/diaspora/pull/6193)
-* Fix mobile photos index page [#6243](https://github.com/diaspora/diaspora/pull/6243)
 
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
