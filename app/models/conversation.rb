@@ -24,7 +24,8 @@ class Conversation < ActiveRecord::Base
   def local_recipients
     recipients.each do |recipient|
       if recipient.local?
-        if recipient.owner.contacts.where(:person_id => self.author.id).count == 0
+        unless recipient.owner.contacts.where(person_id: author.id).any? ||
+            (author.owner && author.owner.podmin_account?)
           errors.add(:all_recipients, "recipient not allowed")
         end
       end
@@ -82,7 +83,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def subject
-    self[:subject].blank? ? "no subject" : self[:subject]
+    self[:subject].blank? ? I18n.t("conversations.new.subject_default") : self[:subject]
   end
 
   def subscribers(user)

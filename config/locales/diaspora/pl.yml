@@ -329,6 +329,7 @@ pl:
       send: "Wyślij"
       sending: "Wysyłanie..."
       subject: "Temat"
+      subject_default: "Bez tematu"
       to: "Do"
     new_conversation:
       fail: "Nieprawidłowa wiadomość"
@@ -617,6 +618,7 @@ pl:
       powered_by: "Działa na oprogramowaniu diaspora*"
       public_feed: "Publiczny kanał diaspory* użytkownika %{name}"
       source_package: "Pobierz archiwum z kodem źródłowym"
+      statistics_link: "Statystyki poda"
       toggle: "Przełącz widok mobilny"
       whats_new: "Co nowego?"
       your_aspects: "Twoje aspekty"

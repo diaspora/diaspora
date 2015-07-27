@@ -3,7 +3,7 @@
     %a.more-link.paginate{:href => next_page_path}
       %h1
         = t("more")
--elsif params[:max_time].present?
+-elsif params[:max_time].present? || @stream.stream_posts.length > 0
   #pagination
     %div.no-more-posts
       %h2

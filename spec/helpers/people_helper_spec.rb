@@ -5,12 +5,12 @@
 require 'spec_helper'
 
 describe PeopleHelper, :type => :helper do
- before do
+  before do
     @user = alice
     @person = FactoryGirl.create(:person)
   end
 
- describe "#person_image_link" do
+  describe "#person_image_link" do
     it "returns an empty string if person is nil" do
       expect(person_image_link(nil)).to eq("")
     end
@@ -58,23 +58,9 @@ describe PeopleHelper, :type => :helper do
       @person.profile.last_name = "I'm <h1>Evil"
       expect(person_link(@person)).not_to include("<h1>")
     end
-    
+
     it 'links by id for a local user' do
       expect(person_link(@user.person)).to include "href='#{person_path(@user.person)}'"
-    end
-  end
-
-  describe "#person_href" do
-    it "calls local_or_remote_person_path and passes through the options" do
-      opts = {:absolute => true}
-
-      expect(self).to receive(:local_or_remote_person_path).with(@person, opts).exactly(1).times
-
-      person_href(@person, opts)
-    end
-
-    it "returns a href attribute" do
-      expect(person_href(@person)).to include "href="
     end
   end
 

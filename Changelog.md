@@ -1,3 +1,27 @@
+# 0.5.2.0
+
+## Refactor
+* Update perfect-scrollbar [#6085](https://github.com/diaspora/diaspora/pull/6085)
+* Remove top margin for first heading in a post [#6110](https://github.com/diaspora/diaspora/pull/6110)
+* Add link to pod statistics in right navigation [#6117](https://github.com/diaspora/diaspora/pull/6117)
+* Refactor person related URL generation [#6168](https://github.com/diaspora/diaspora/pull/6168)
+* Move webfinger and HCard generation out of the core and embed the `diaspora_federation-rails` gem [#6151](https://github.com/diaspora/diaspora/pull/6151/)
+* Refactor rspec tests to to use `let` instead of before blocks [#6199](https://github.com/diaspora/diaspora/pull/6199)
+* Refactor tests for EXIF stripping [#6183](https://github.com/diaspora/diaspora/pull/6183)
+
+## Bug fixes
+* Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)
+* Fix wrong closing a-tag [#6111](https://github.com/diaspora/diaspora/pull/6111)
+* Fix mobile more-button wording when there are less than 15 posts [#6118](https://github.com/diaspora/diaspora/pull/6118)
+* Fix reappearing flash boxes during sign-in [#6146](https://github.com/diaspora/diaspora/pull/6146)
+* Capitalize Wiki link [#6193](https://github.com/diaspora/diaspora/pull/6193)
+
+## Features
+* Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
+* Send new users a welcome message from the podmin [#6128](https://github.com/diaspora/diaspora/pull/6128)
+* Cleanup temporary upload files daily [#6147](https://github.com/diaspora/diaspora/pull/6147)
+* Add guid to posts and comments in the user export [#6185](https://github.com/diaspora/diaspora/pull/6185)
+
 # 0.5.1.2
 
 diaspora\* versions prior 0.5.1.2 leaked potentially private profile data (namely the bio, birthday, gender and location fields) to

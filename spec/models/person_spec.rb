@@ -108,19 +108,54 @@ describe Person, :type => :model do
   end
 
   describe "valid url" do
-    it 'should allow for https urls' do
-      person = FactoryGirl.build(:person, :url => "https://example.com")
-      expect(person).to be_valid
+    context "https urls" do
+      let(:person) { FactoryGirl.build(:person, url: "https://example.com") }
+
+      it "should add trailing slash" do
+        expect(person.url).to eq("https://example.com/")
+      end
+
+      it "should return the receive url" do
+        expect(person.receive_url).to eq("https://example.com/receive/users/#{person.guid}")
+      end
+
+      it "should return the atom url" do
+        expect(person.atom_url).to eq("https://example.com/public/#{person.username}.atom")
+      end
+
+      it "should return the profile url" do
+        expect(person.profile_url).to eq("https://example.com/u/#{person.username}")
+      end
     end
 
-    it 'should always return the correct receive url' do
-      person = FactoryGirl.build(:person, :url => "https://example.com/a/bit/messed/up")
-      expect(person.receive_url).to eq("https://example.com/receive/users/#{person.guid}/")
+    context "messed up urls" do
+      let(:person) { FactoryGirl.build(:person, url: "https://example.com/a/bit/messed/up") }
+
+      it "should return the correct url" do
+        expect(person.url).to eq("https://example.com/")
+      end
+
+      it "should return the correct receive url" do
+        expect(person.receive_url).to eq("https://example.com/receive/users/#{person.guid}")
+      end
+
+      it "should return the correct atom url" do
+        expect(person.atom_url).to eq("https://example.com/public/#{person.username}.atom")
+      end
+
+      it "should return the correct profile url" do
+        expect(person.profile_url).to eq("https://example.com/u/#{person.username}")
+      end
     end
 
-    it 'should allow ports in the url' do
-      person = FactoryGirl.build(:person, :url => "https://example.com:3000/")
+    it "should allow ports in the url" do
+      person = FactoryGirl.build(:person, url: "https://example.com:3000/")
       expect(person.url).to eq("https://example.com:3000/")
+    end
+
+    it "should remove https port in the url" do
+      person = FactoryGirl.build(:person, url: "https://example.com:443/")
+      expect(person.url).to eq("https://example.com/")
     end
   end
 
@@ -422,27 +457,45 @@ describe Person, :type => :model do
         f = Person.by_account_identifier("tom@tom.joindiaspora.com")
         expect(f).to be nil
       end
-
-
     end
 
-    describe '.local_by_account_identifier' do
-      it 'should find local users people' do
-        p = Person.local_by_account_identifier(user.diaspora_handle)
-        expect(p).to eq(user.person)
+    describe ".find_local_by_diaspora_handle" do
+      it "should find local users person" do
+        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
+        expect(person).to eq(user.person)
       end
 
-      it 'should not find a remote person' do
-        p = Person.local_by_account_identifier(@person.diaspora_handle)
-        expect(p).to be nil
+      it "should not find a remote person" do
+        person = Person.find_local_by_diaspora_handle(@person.diaspora_handle)
+        expect(person).to be nil
       end
 
-      it 'should call .by_account_identifier' do
-        expect(Person).to receive(:by_account_identifier)
-        Person.local_by_account_identifier(@person.diaspora_handle)
+      it "should not find a person with closed account" do
+        user.person.lock_access!
+        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
+        expect(person).to be nil
+      end
+    end
+
+    describe ".find_local_by_guid" do
+      it "should find local users person" do
+        person = Person.find_local_by_guid(user.guid)
+        expect(person).to eq(user.person)
+      end
+
+      it "should not find a remote person" do
+        person = Person.find_local_by_guid(@person.guid)
+        expect(person).to be nil
+      end
+
+      it "should not find a person with closed account" do
+        user.person.lock_access!
+        person = Person.find_local_by_guid(user.guid)
+        expect(person).to be nil
       end
     end
   end
+
   describe '#has_photos?' do
     it 'returns false if the user has no photos' do
       expect(alice.person.has_photos?).to be false

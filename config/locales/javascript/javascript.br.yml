@@ -52,7 +52,7 @@ br:
       log_out: "Digevreañ"
       mark_all_as_read: "Merkit pep tra evel lennet"
       notifications: "Kemennoù"
-      profile: "Profil"
+      profile: "Aelad"
       recent_notifications: "Kemennoù nevez"
       search: "Kavout tud pe #tikedennoù"
       settings: "Arventennoù"
@@ -69,6 +69,7 @@ br:
       mark_read: "Merkañ evel lennet"
       mark_unread: "Merkañ evel da lenn"
     people:
+      edit_my_profile: "Embann ma aelad"
       not_found: "ha n'eus ket bet kavet hini ebet..."
     photo_uploader:
       completed: "<%= file %> kaset da benn"
@@ -85,6 +86,18 @@ br:
       result: "Disoc'h"
       show_result: "Diskouez an disoc'h"
       vote: "Vot"
+    profile:
+      add_some: "Ouzhpennañ"
+      bio: "Buhez"
+      born: "Deiziad ganedigezh"
+      contacts: "Darempredoù"
+      edit: "Embann"
+      gender: "Jener"
+      ignoring: "Ne rit ket van eus an holl postoù gant <%= name %>"
+      location: "Lec'hiadur"
+      photos: "Skeudennoù"
+      posts: "Postoù"
+      you_have_no_tags: "N'ho peus tiked ebet !"
     publisher:
       add_option: "Ouzhpennañ un dibarzh"
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"

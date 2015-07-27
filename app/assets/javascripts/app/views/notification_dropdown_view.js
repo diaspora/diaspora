@@ -15,6 +15,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.dropdown = $('#notification_dropdown');
     this.dropdownNotifications = this.dropdown.find('.notifications');
     this.ajaxLoader = this.dropdown.find('.ajax_loader');
+    this.perfectScrollbarInitialized = false;
   },
 
   toggleDropdown: function(evt){
@@ -43,7 +44,10 @@ app.views.NotificationDropdown = app.views.Base.extend({
     if(!inDropdown && !inHovercard && this.dropdownShowing()){
       this.badge.removeClass('active');
       this.dropdown.css('display', 'none');
-      this.dropdownNotifications.perfectScrollbar('destroy');
+      if(this.perfectScrollbarInitialized) {
+        this.dropdownNotifications.perfectScrollbar("destroy");
+        this.perfectScrollbarInitialized = false;
+      }
     }
   },
 
@@ -108,8 +112,12 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
     app.helpers.timeago(this.dropdownNotifications);
 
-    this.dropdownNotifications.perfectScrollbar('destroy').perfectScrollbar();
-    this.dropdownNotifications.removeClass('loading');
+    if(this.perfectScrollbarInitialized) {
+      this.dropdownNotifications.perfectScrollbar("destroy");
+    }
+    this.dropdownNotifications.perfectScrollbar();
+    this.perfectScrollbarInitialized = true;
+    this.dropdownNotifications.removeClass("loading");
     this.dropdownNotifications.scroll(function(){
       self.dropdownScroll();
     });
