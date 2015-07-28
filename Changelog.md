@@ -3,6 +3,7 @@
 ## Refactor
 * Drop broken correlations from the admin pages [#6223](https://github.com/diaspora/diaspora/pull/6223)
 * Extract PostService from PostsController [#6208](https://github.com/diaspora/diaspora/pull/6208)
+* Drop outdated/unused mbp-respond.min.js and mbp-modernizr-custom.js [#6257](https://github.com/diaspora/diaspora/pull/6257)
 
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
