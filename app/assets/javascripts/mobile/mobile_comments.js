@@ -112,7 +112,7 @@ $(document).ready(function() {
     var bottomBar = link.closest(".bottom_bar").first();
     bottomBar.append(data);
     var textArea = bottomBar.find("textarea.comment_box").first()[0];
-    MBP.autogrow(textArea);
+    autosize(textArea);
   }
 
   $(".stream").on("submit", ".new_comment", function(evt) {

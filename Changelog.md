@@ -42,6 +42,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Use upstream CSS mappings for Entypo [#6158](https://github.com/diaspora/diaspora/pull/6158)
 * Replace some mobile icons with Entypo [#6218](https://github.com/diaspora/diaspora/pull/6218)
 * Refactor publisher backbone view [#6228](https://github.com/diaspora/diaspora/pull/6228)
+* Replace MBP.autogrow with autosize on mobile [#6261](https://github.com/diaspora/diaspora/pull/6261)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
@@ -56,6 +57,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Display poll & location on mobile [#6238](https://github.com/diaspora/diaspora/pull/6238)
 * Update counts on contacts page dynamically [#6240](https://github.com/diaspora/diaspora/pull/6240)
 * Add support for relay based public post federation [#6207](https://github.com/diaspora/diaspora/pull/6207)
+* Bigger mobile publisher [#6261](https://github.com/diaspora/diaspora/pull/6261)
 
 # 0.5.3.0
 
