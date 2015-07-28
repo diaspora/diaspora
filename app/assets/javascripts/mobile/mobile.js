@@ -6,8 +6,6 @@
  */
 //= require jquery.charcount
 //= require js-routes
-//= require mbp-modernizr-custom
-//= require mbp-respond.min
 //= require mbp-helper
 //= require jquery.autoSuggest.custom
 //= require fileuploader-custom
