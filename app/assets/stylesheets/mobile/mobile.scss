@@ -459,7 +459,7 @@ h3 {  margin-top: 0; }
   width: 20px;
   padding: 0;
   margin-left: 15px;
-  
+
   &:last-child{
     margin-right: 5px;
   }
@@ -688,18 +688,6 @@ form#new_conversation.new_conversation {
     font-weight: normal;
     line-height: 20px;
   }
-  .span-10 {
-    margin: 5px;
-  }
-}
-
-.span-2 {
-   margin: 5px 5px;
-   text-transform: uppercase;
-}
-
-.span-10 {
-  width: 100%;
 }
 
 textarea#conversation_text {
