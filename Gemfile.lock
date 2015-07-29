@@ -66,9 +66,9 @@ GEM
       jquery-rails
       railties
     bcrypt (3.1.10)
-    bootstrap-sass (3.3.5)
+    bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
+      sass (>= 3.3.0)
     bootstrap-switch-rails (3.3.3)
     buftok (0.2.0)
     builder (3.2.2)
@@ -773,7 +773,7 @@ DEPENDENCIES
   asset_sync (= 1.1.0)
   autoprefixer-rails (= 5.2.1.1)
   backbone-on-rails (= 1.2.0.0)
-  bootstrap-sass (= 3.3.5)
+  bootstrap-sass (= 3.3.5.1)
   bootstrap-switch-rails (= 3.3.3)
   capybara (= 2.4.4)
   carrierwave (= 0.10.0)
