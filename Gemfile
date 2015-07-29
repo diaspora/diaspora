@@ -164,7 +164,7 @@ gem "typhoeus",           "0.7.2"
 
 # Views
 
-gem "gon",                     "5.2.3"
+gem "gon",                     "6.0.1"
 gem "haml",                    "4.0.6"
 gem "mobile-fu",               "1.3.1"
 gem "will_paginate",           "3.0.7"

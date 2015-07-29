@@ -310,11 +310,11 @@ GEM
       multi_json (~> 1.3)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    gon (5.2.3)
-      actionpack (>= 2.3.0)
+    gon (6.0.1)
+      actionpack (>= 3.0)
       json
       multi_json
-      request_store (>= 1.0.5)
+      request_store (>= 1.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -773,7 +773,7 @@ DEPENDENCIES
   fixture_builder (= 0.4.1)
   fog (= 1.32.0)
   fuubar (= 2.0.0)
-  gon (= 5.2.3)
+  gon (= 6.0.1)
   guard (= 2.13.0)
   guard-cucumber (= 1.5.4)
   guard-jshintrb (= 1.1.1)
