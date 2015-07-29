@@ -11,6 +11,7 @@
 * Bring peeping Tom on the 404 page back [#6226](https://github.com/diaspora/diaspora/pull/6226)
 * Fix mobile photos index page [#6243](https://github.com/diaspora/diaspora/pull/6243)
 * Fix conversations view with no contacts [#6266](https://github.com/diaspora/diaspora/pull/6266)
+* Links in the left sidebar are now clickable on full width [#6267](https://github.com/diaspora/diaspora/pull/6267)
 
 ## Features
 
