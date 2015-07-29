@@ -14,6 +14,10 @@ When /^I toggle nsfw posts$/ do
   find(".toggle_nsfw_state", match: :first).click
 end
 
+When /^I toggle all nsfw posts$/ do
+  all("a.toggle_nsfw_state").each &:click
+end
+
 Then /^I should have (\d+) nsfw posts$/ do |num_posts|
   page.should have_css(".nsfw-shield", count: num_posts.to_i)
 end

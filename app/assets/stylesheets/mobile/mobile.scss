@@ -77,18 +77,26 @@ h3 {  margin-top: 0; }
   .photo_attachments{ margin-top: 6px; }
   .timeago{ font-weight: normal; }
 }
+
 .shield{
   padding: 10px;
   font-size: larger;
 }
 
-.shield_wrapper{
+.nsfw-shield{
     height: 100%;
     width: 100%;
     background-color: LightGrey;
-    position: absolute;
-    border-radius: 5px;
+    border-radius: 0;
     z-index: 2;
+}
+
+.stream_element:not(.shield-active) .shield{
+  display: none;
+}
+
+.stream_element.shield-active .nsfw-hidden{
+  display: none;
 }
 
 .new_comment {
@@ -571,10 +579,10 @@ select {
   .reshare_via {
     width: 100%;
     position: absolute;
-    bottom: -7px;
+    bottom: -10px;
     text-align: center;
     span {
-      padding: 2px 10px;
+      padding: 0 10px;
       font-weight: bold;
       color: $text-grey;
       background: {
