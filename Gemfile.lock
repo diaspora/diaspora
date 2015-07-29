@@ -60,7 +60,7 @@ GEM
     autoprefixer-rails (5.2.1)
       execjs
       json
-    backbone-on-rails (1.1.2.1)
+    backbone-on-rails (1.2.0.0)
       eco
       ejs
       jquery-rails
@@ -774,7 +774,7 @@ DEPENDENCIES
   addressable (= 2.3.8)
   asset_sync (= 1.1.0)
   autoprefixer-rails (= 5.2.1)
-  backbone-on-rails (= 1.1.2.1)
+  backbone-on-rails (= 1.2.0.0)
   bootstrap-sass (= 3.3.5)
   bootstrap-switch-rails (= 3.3.3)
   capybara (= 2.4.4)
