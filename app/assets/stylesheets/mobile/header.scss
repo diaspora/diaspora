@@ -65,26 +65,19 @@ header {
   bottom: 0;
   width: $drawer-width;
   @media (max-width: $drawer-width-offset) {
-    width: 100%;
-    .avatar{ display: none; }
+    width: 80%;
   }
   left: 100%;
   background-color: #444;
   box-shadow: none;
 
   header {
-    position: static;
-    left: 100%;
-    right: -80%;
+    width: 100%;
+    position: absolute;
 
     #global_search {
-      position: relative;
-      @media (max-width: $drawer-width-offset) { width: 80%; }
 
       form {
-        position: absolute;
-        left: 0;
-        right: 22%;
         padding: 0 15px;
         width: 100%;
 
@@ -92,12 +85,10 @@ header {
         input {
           box-shadow: 0 1px 1px #444;
           border-radius: 15px;
-          width: 100%;
           margin-top: 5px;
           background-color: #444;
           border: 1px solid #222;
           font-size: 13px;
-          padding: 6px;
           color: black;
 
           &.active {
@@ -123,7 +114,7 @@ header {
     width: 100%;
 
     li {
-      font-size: 25px;
+      font-size: 1.8rem;
       line-height: 25px;
       font-weight: bold;
       color: $light-grey;
@@ -174,8 +165,24 @@ header {
   }
 }
 
+#main_nav,
+#drawer {
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
 /* This class is added when the user open the drawer */
-#app.draw > * {
-  transform: translateX(-$drawer-width);
-  @media (max-width: $drawer-width-offset) { transform: translateX(-80%); }
+#app.draw {
+  #main_nav,
+  #drawer {
+    transform: translateX(-$drawer-width);
+  }
+  @media (max-width: $drawer-width-offset) {
+    #main_nav {
+      transform: translateX(-80%);
+    }
+    #drawer {
+      transform: translateX(-100%);
+    }
+  }
 }
