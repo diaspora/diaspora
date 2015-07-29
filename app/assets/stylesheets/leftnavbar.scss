@@ -1,14 +1,32 @@
+/* Fixed backgrounds are a common practice to avoid height issues */
+#left-navbar-fixed-sub-background {
+  background: $left-navbar-sub-background;
+  position: fixed;
+  height: 100%;
+}
+
+#left-navbar-fixed-background {
+  background: $left-navbar-background;
+  position: fixed;
+  height: 100%;
+}
+
 #leftNavBar {
+  background: $left-navbar-background;
   a {
     color: $link-grey;
     font-weight: bold;
     text-decoration: none;
+    outline: 0;
   }
 
   ul {
     margin: 0px;
     padding: 0px;
     list-style: none;
+    &#stream_selection {
+      margin: 0px -15px; /* -15px overrides Bootstrap's default gutter width */
+    }
   }
 
   .selected { color: $black; }
@@ -16,24 +34,39 @@
 
   .hoverable {
     display: block;
-    margin-right: 6px;
-    padding: 4px;
-    &:hover { background-color: $background-blue; }
+    &.selected a, &.selected a:hover {
+      color: white;
+      background: #666;
+    }
+  }
+
+  .all_aspects a.hoverable.selected, .followed_tags_sidebar a.hoverable.selected {
+    color: white;
+    background: #666;
+  }
+
+  .hoverable a, .all_aspects a.hoverable, .followed_tags_sidebar a.hoverable {
+    padding: 10px 20px;
+    display: block;
+    font-weight: normal;
+    color: $link-grey;
+    border-bottom: 1px solid #ddd;
+    &:hover, &:hover .entypo.check, &:hover + .action .entypo { 
+      background-color: $blue;
+      color: $white;
+    }
   }
 
   .selectable {
     display: block;
-    margin-left: 21px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   #home_user_badge {
-    border-bottom: 1px dashed $border-grey;
-    margin-bottom: 10px;
-    min-height: 50px;
-    padding-bottom: 20px;
-    padding-left: 4px;
+    min-height: 90px;
+    padding: 20px;
+    margin: 0 -15px;
 
     .avatar {
       float: left;
@@ -42,36 +75,59 @@
     }
 
     h4 {
-      margin-left: 60px;
-      padding-top: 15px;
+      margin: 0 0 0 60px;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 25px;
 
-      a { color: $black; }
-    }
-  }
-
-  #stream_selection {
-    & > li {
-      margin-bottom: 5px;
-    }
-  }
-
-  #aspects_list, #tags_list {
-    .hoverable > .action {
-      visibility: hidden;
-      margin: 0 3px;
-    }
-    .hoverable:hover  > .action {
-      visibility: visible;
+      a { 
+        color: $black; 
+        font-weight: normal;
+      }
     }
   }
 
   #aspects_list {
-    .entypo-check {
-      float: left;
+    .hoverable {
+      position: relative;
+    }
+    .selectable {
+      padding-left: 40px;
+    }
+  }
+
+  #aspects_list, #tags_list {
+    background: $left-navbar-drawer-background;
+    .hoverable > .action {
       visibility: hidden;
-      &.selected { visibility: visible; }
+      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 200;
+      padding: 10px 15px;
+      border: none;
+    }
+    .hoverable:hover > .action {
+      visibility: visible;
+      background: none;
+    }
+  }
+
+  #aspects_list {
+    .selectable {
+      padding-right: 40px;
+    }
+    .entypo.check {
+      visibility: hidden;
+      margin: 0;
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      z-index: 200;
+      &.selected { 
+        visibility: visible; 
+      }
     }
     .selected + a {
       color: #333333;
@@ -79,14 +135,23 @@
   }
 
   #tags_list {
+
+    li {
+      position: relative;
+    }
+
+    .selectable {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
     .delete_tag_following {
       font-size: 20px;
       line-height: 15px;
     }
 
     #new_tag_following {
-      margin-left: 20px;
-      margin-top: 5px;
+      padding: 10px 20px 10px 30px;
     }
 
     /* ---- override app/stylesheets/vendor/autoSuggest.css ---- */
