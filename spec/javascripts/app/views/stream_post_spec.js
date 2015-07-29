@@ -144,7 +144,7 @@ describe("app.views.StreamPost", function(){
         this.view = new this.PostViewClass({model : this.statusMessage}).render();
 
         this.hiddenPosts = function(){
-          return this.view.$(".nsfw-shield");
+          return this.view.$(".media.shield-active .nsfw-shield");
         };
       });
 
