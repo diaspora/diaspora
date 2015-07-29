@@ -216,6 +216,11 @@
 #conversation_new {
   label { font-weight: bold; }
 
+  .well {
+    font-weight: bold;
+    margin-top: 25px;
+  }
+
   #new_conversation #conversation_text{
     width: 100%;
     max-width: 100%;
