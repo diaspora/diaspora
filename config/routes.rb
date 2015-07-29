@@ -258,5 +258,6 @@ Diaspora::Application.routes.draw do
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
     match "user", to: "users#show", via: %i(get post)
+    resources :posts, only: %i(show destroy)
   end
 end
