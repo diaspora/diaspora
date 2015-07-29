@@ -241,23 +241,24 @@ Diaspora::Application.routes.draw do
   # Startpage
   root :to => 'home#show'
 
-  # OpenID Connect & OAuth
-  namespace :openid_connect do
-    resources :clients, only: :create
-    post "access_tokens", to: proc {|env| OpenidConnect::TokenEndpoint.new.call(env) }
-
-    # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint
-    # See http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation
-    resources :authorizations, only: %i(new create)
-    post "authorizations/new", to: "authorizations#new"
-
-    get ".well-known/webfinger", to: "discovery#webfinger"
-    get ".well-known/openid-configuration", to: "discovery#configuration"
-    get "jwks.json", to: "id_tokens#jwks"
-  end
-
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
     match "user", to: "users#show", via: %i(get post)
     resources :posts, only: %i(show destroy)
+  end
+
+  namespace :api do
+    namespace :openid_connect do
+      resources :clients, only: :create
+      post "access_tokens", to: proc {|env| Api::OpenidConnect::TokenEndpoint.new.call(env) }
+
+      # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint
+      # See http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation
+      resources :authorizations, only: %i(new create)
+      post "authorizations/new", to: "authorizations#new"
+
+      get ".well-known/webfinger", to: "discovery#webfinger"
+      get ".well-known/openid-configuration", to: "discovery#configuration"
+      get "jwks.json", to: "id_tokens#jwks"
+    end
   end
 end

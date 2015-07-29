@@ -3,12 +3,12 @@ require "spec_helper"
 describe Api::V0::PostsController do
   # TODO: Replace with factory
   let!(:client) do
-    OpenidConnect::OAuthApplication.create!(
+    Api::OpenidConnect::OAuthApplication.create!(
       client_name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/"])
   end
   let(:auth_with_read) do
-    auth = OpenidConnect::Authorization.create!(o_auth_application: client, user: alice)
-    auth.scopes << [OpenidConnect::Scope.find_or_create_by(name: "read")]
+    auth = Api::OpenidConnect::Authorization.create!(o_auth_application: client, user: alice)
+    auth.scopes << [Api::OpenidConnect::Scope.find_or_create_by(name: "read")]
     auth
   end
   let!(:access_token_with_read) { auth_with_read.create_access_token.to_s }

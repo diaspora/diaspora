@@ -2,11 +2,11 @@ class Api::V0::PostsController < Api::V0::BaseController
   include PostsHelper
 
   before_action only: :show do
-    require_access_token OpenidConnect::Scope.find_by(name: "read")
+    require_access_token Api::OpenidConnect::Scope.find_by(name: "read")
   end
 
   before_action only: :destroy do
-    require_access_token OpenidConnect::Scope.find_by(name: "read"), OpenidConnect::Scope.find_by(name: "write")
+    require_access_token Api::OpenidConnect::Scope.find_by(name: "read"), Api::OpenidConnect::Scope.find_by(name: "write")
   end
 
   def show
