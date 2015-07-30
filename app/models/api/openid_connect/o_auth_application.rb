@@ -30,7 +30,7 @@ module Api
 
       class << self
         def available_response_types
-          ["id_token", "id_token token"]
+          ["id_token", "id_token token", "code"]
         end
 
         def register!(registrar)

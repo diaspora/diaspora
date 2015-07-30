@@ -21,6 +21,14 @@ module Api
           handle_password_flow(o_auth_app, req, res)
         when :refresh_token
           handle_refresh_flow(req, res)
+        when :authorization_code
+          auth = Api::OpenidConnect::Authorization.with_redirect_uri(req.redirect_uri).use_code(req.code)
+          req.invalid_grant! if auth.blank?
+          res.access_token = auth.create_access_token
+          if auth.accessible?(Api::OpenidConnect::Scope.find_by(name: "openid"))
+            id_token = auth.create_id_token
+            res.id_token = id_token.to_jwt(access_token: res.access_token)
+          end
         else
           req.unsupported_grant_type!
         end
