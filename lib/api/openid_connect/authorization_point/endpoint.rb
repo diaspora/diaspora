@@ -40,9 +40,7 @@ module Api
         end
 
         def verify_nonce(req, res)
-          if res.protocol_params_location == :fragment && req.nonce.blank?
-            req.invalid_request! "nonce required"
-          end
+          req.invalid_request! "nonce required" if res.protocol_params_location == :fragment && req.nonce.blank?
         end
 
         def build_scopes(req)

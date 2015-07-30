@@ -40,8 +40,8 @@ module Api
       end
 
       def self.find_by_refresh_token(client_id, refresh_token)
-        Api::OpenidConnect::Authorization.joins(:o_auth_application).where(
-          o_auth_applications: {client_id: client_id}, refresh_token: refresh_token).first
+        Api::OpenidConnect::Authorization.joins(:o_auth_application).find_by(
+          o_auth_applications: {client_id: client_id}, refresh_token: refresh_token)
       end
 
       # TODO: Consider splitting into subclasses by flow type

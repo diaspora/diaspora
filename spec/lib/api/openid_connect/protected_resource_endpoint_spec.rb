@@ -32,7 +32,6 @@ describe Api::OpenidConnect::ProtectedResourceEndpoint, type: :request do
     end
 
     it "should respond with a 401 Unauthorized response" do
-      pp response.body
       expect(response.status).to be(401)
     end
     it "should have an auth-scheme value of Bearer" do

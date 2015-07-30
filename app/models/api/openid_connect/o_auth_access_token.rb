@@ -18,7 +18,7 @@ module Api
       def bearer_token
         @bearer_token ||= Rack::OAuth2::AccessToken::Bearer.new(
           access_token: token,
-          expires_in:   (expires_at - Time.now.utc).to_i
+          expires_in:   (expires_at - Time.zone.now.utc).to_i
         )
       end
     end

@@ -51,9 +51,7 @@ module Api
 
         def registrar_attributes(registrar)
           supported_metadata.each_with_object({}) do |key, attr|
-            if registrar.public_send(key)
-              attr[key] = registrar.public_send(key)
-            end
+            attr[key] = registrar.public_send(key) if registrar.public_send(key)
           end
         end
       end

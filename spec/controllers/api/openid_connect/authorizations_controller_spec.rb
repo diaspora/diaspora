@@ -108,7 +108,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
                                                                         Api::OpenidConnect::IdTokenConfig.public_key
           expect(decoded_token.nonce).to eq("4130930983")
-          expect(decoded_token.exp).to be > Time.now.utc.to_i
+          expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
         end
 
         it "should return the passed in state" do
@@ -135,7 +135,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
                                                                         Api::OpenidConnect::IdTokenConfig.public_key
           expect(decoded_token.nonce).to eq("4180930983")
-          expect(decoded_token.exp).to be > Time.now.utc.to_i
+          expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
         end
 
         it "should return a valid access token in a fragment" do
@@ -166,7 +166,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
                                                                         Api::OpenidConnect::IdTokenConfig.public_key
           expect(decoded_token.nonce).to eq("4180930983")
-          expect(decoded_token.exp).to be > Time.now.utc.to_i
+          expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
         end
 
         it "should return the passed in state" do

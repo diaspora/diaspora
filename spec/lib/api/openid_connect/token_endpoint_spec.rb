@@ -66,7 +66,8 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
     context "when there are duplicate fields" do
       it "should return an invalid request error" do
         post api_openid_connect_access_tokens_path, grant_type: "password", username: "bob", password: "bluepin7",
-             username: "bob", password: "bluepin6", client_id: client.client_id, client_secret: client.client_secret, scope: "read"
+             username: "bob", password: "bluepin6", client_id: client.client_id, client_secret: client.client_secret,
+             scope: "read"
         expect(response.body).to include "invalid_grant"
       end
     end
@@ -74,7 +75,8 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
     context "when the client is unregistered" do
       it "should return an error" do
         post api_openid_connect_access_tokens_path, grant_type: "password", username: "bob",
-             password: "bluepin7", client_id: SecureRandom.hex(16).to_s, client_secret: client.client_secret, scope: "read"
+             password: "bluepin7", client_id: SecureRandom.hex(16).to_s, client_secret: client.client_secret,
+             scope: "read"
         expect(response.body).to include "invalid_client"
       end
     end

@@ -5,7 +5,7 @@ module Api
 
       before_validation :setup, on: :create
 
-      default_scope -> { where("expires_at >= ?", Time.now.utc) }
+      default_scope { where("expires_at >= ?", Time.zone.now.utc) }
 
       def setup
         self.expires_at = 30.minutes.from_now

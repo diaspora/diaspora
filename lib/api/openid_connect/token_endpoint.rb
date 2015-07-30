@@ -30,20 +30,24 @@ module Api
         user = User.find_for_database_authentication(username: req.username)
         if user
           if user.valid_password?(req.password)
-            scope_list = req.scope.map { |scope_name|
-              OpenidConnect::Scope.find_by(name: scope_name).tap do |scope|
-                req.invalid_scope! "Unknown scope: #{scope}" unless scope
-              end
-            } # TODO: Check client scope permissions
             auth = OpenidConnect::Authorization.find_or_create_by(o_auth_application: o_auth_app, user: user)
-            auth.scopes << scope_list
-            res.access_token = auth.create_access_token
+            build_auth_and_access_token(auth, req, res)
           else
             req.invalid_grant!
           end
         else
           req.invalid_grant! # TODO: Change to user login: Perhaps redirect_to login_path?
         end
+      end
+
+      def build_auth_and_access_token(auth, req, res)
+        scope_list = req.scope.map { |scope_name|
+          OpenidConnect::Scope.find_by(name: scope_name).tap do |scope|
+            req.invalid_scope! "Unknown scope: #{scope}" unless scope
+          end
+        } # TODO: Check client scope permissions
+        auth.scopes << scope_list
+        res.access_token = auth.create_access_token
       end
 
       def handle_refresh_flow(req, res)

@@ -39,7 +39,8 @@ module Api
 
       def save_params_and_render_consent_form(endpoint)
         @o_auth_application, @response_type, @redirect_uri, @scopes, @request_object = *[
-          endpoint.o_auth_application, endpoint.response_type, endpoint.redirect_uri, endpoint.scopes, endpoint.request_object
+          endpoint.o_auth_application, endpoint.response_type,
+          endpoint.redirect_uri, endpoint.scopes, endpoint.request_object
         ]
         save_request_parameters
         render :new
@@ -49,9 +50,13 @@ module Api
         session[:client_id] = @o_auth_application.client_id
         session[:response_type] = @response_type
         session[:redirect_uri] = @redirect_uri
-        session[:scopes] = @scopes.map(&:name).join(" ")
+        session[:scopes] = scopes_as_space_seperated_values
         session[:request_object] = @request_object
         session[:nonce] = params[:nonce]
+      end
+
+      def scopes_as_space_seperated_values
+        @scopes.map(&:name).join(" ")
       end
 
       def process_authorization_consent(approvedString)
@@ -83,12 +88,18 @@ module Api
         req = Rack::Request.new(request.env)
         req.update_param("client_id", session[:client_id])
         req.update_param("redirect_uri", session[:redirect_uri])
-        req.update_param("response_type", session[:response_type].respond_to?(:map) ?
-                                          session[:response_type].map(&:to_s).join(" ") :
-                                          session[:response_type])
+        req.update_param("response_type", response_type_as_space_seperated_values)
         req.update_param("scope", session[:scopes])
         req.update_param("request_object", session[:request_object])
         req.update_param("nonce", session[:nonce])
+      end
+
+      def response_type_as_space_seperated_values
+        if session[:response_type].respond_to?(:map)
+          session[:response_type].map(&:to_s).join(" ")
+        else
+          session[:response_type]
+        end
       end
     end
   end

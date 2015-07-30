@@ -20,7 +20,7 @@ module Diaspora
       create_or_update_person_from_webfinger_profile!
     end
 
-    def self.in_background(account, opts={})
+    def self.in_background(account, _opts={})
       Workers::FetchWebfinger.perform_async(account)
     end
 
@@ -33,9 +33,7 @@ module Diaspora
       logger.info "Getting: #{url} for #{account}"
       begin
         res = Faraday.get(url)
-        unless res.success?
-          raise "Failed to fetch #{url}: #{res.status}"
-        end
+        raise "Failed to fetch #{url}: #{res.status}" unless res.success?
         res.body
       rescue OpenSSL::SSL::SSLError => e
         logger.error "Failed to fetch #{url}: SSL setup invalid"

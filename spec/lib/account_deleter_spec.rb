@@ -16,19 +16,17 @@ describe AccountDeleter do
   end
 
   describe "#perform" do
-
-
     user_removal_methods = [:delete_standard_user_associations,
-     :disassociate_invitations,
-     :remove_share_visibilities_on_contacts_posts,
-     :disconnect_contacts,
-     :tombstone_user]
+                            :disassociate_invitations,
+                            :remove_share_visibilities_on_contacts_posts,
+                            :disconnect_contacts,
+                            :tombstone_user]
 
     person_removal_methods = [:delete_contacts_of_me,
-     :delete_standard_person_associations,
-     :tombstone_person_and_profile,
-     :remove_share_visibilities_on_persons_posts,
-     :remove_conversation_visibilities]
+                              :delete_standard_person_associations,
+                              :tombstone_person_and_profile,
+                              :remove_share_visibilities_on_persons_posts,
+                              :remove_conversation_visibilities]
 
     context "user deletion" do
       after do
@@ -36,8 +34,7 @@ describe AccountDeleter do
       end
 
       (user_removal_methods + person_removal_methods).each do |method|
-
-        it "calls ##{method.to_s}" do
+        it "calls ##{method}" do
           expect(@account_deletion).to receive(method)
         end
       end
@@ -55,7 +52,6 @@ describe AccountDeleter do
         expect(@profile.last_name).to be_blank
         expect(@profile.searchable).to be_falsey
       end
-
     end
 
     context "person deletion" do
@@ -68,20 +64,17 @@ describe AccountDeleter do
       end
 
       (user_removal_methods).each do |method|
-
-        it "does not call ##{method.to_s}" do
+        it "does not call ##{method}" do
           expect(@person_deletion).not_to receive(method)
         end
       end
 
       (person_removal_methods).each do |method|
-
-        it "calls ##{method.to_s}" do
+        it "calls ##{method}" do
           expect(@person_deletion).to receive(method)
         end
       end
     end
-
   end
 
   describe "#delete_standard_user_associations" do
@@ -148,10 +141,10 @@ describe AccountDeleter do
         @account_deletion.tombstone_person_and_profile
       end
     end
-     describe "#remove_conversation_visibilities" do
+    describe "#remove_conversation_visibilities" do
       it "removes the conversation visibility for the deleted user" do
         vis = double
-        expect(ConversationVisibility).to receive(:where).with(hash_including(:person_id => bob.person.id)).and_return(vis)
+        expect(ConversationVisibility).to receive(:where).with(hash_including(person_id: bob.person.id)).and_return(vis)
         expect(vis).to receive(:destroy_all)
         @account_deletion.remove_conversation_visibilities
       end
@@ -190,18 +183,17 @@ describe AccountDeleter do
                 @account_deletion.special_ar_user_associations +
                 @account_deletion.ignored_ar_user_associations
     expect(all_keys
-             .sort{|x, y| x.to_s <=> y.to_s})
+             .sort {|x, y| x.to_s <=> y.to_s })
       .to eq(User.reflections.keys
-             .sort{|x, y| x.to_s <=> y.to_s}.map(&:to_sym))
+             .sort {|x, y| x.to_s <=> y.to_s }.map(&:to_sym))
   end
 
   it "has all person association keys accounted for" do
     all_keys = @account_deletion.normal_ar_person_associates_to_delete +
                 @account_deletion.ignored_or_special_ar_person_associations
     expect(all_keys
-             .sort{|x, y| x.to_s <=> y.to_s})
+             .sort {|x, y| x.to_s <=> y.to_s })
       .to eq(Person.reflections.keys
-             .sort{|x, y| x.to_s <=> y.to_s}.map(&:to_sym))
+             .sort {|x, y| x.to_s <=> y.to_s }.map(&:to_sym))
   end
 end
-
