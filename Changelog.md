@@ -79,6 +79,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 ## Features
 
 * Implement NodeInfo [#6239](https://github.com/diaspora/diaspora/pull/6239)
+* Display original author on reshares of NSFW posts [#6270](https://github.com/diaspora/diaspora/pull/6270)
 
 # 0.5.2.0
 
