@@ -13,6 +13,10 @@ Metrics/MethodLength:
 # The guiding principle of classes is SRP, SRP can't be accurately measured by LoC
 Metrics/ClassLength:
   Max: 1500
+  
+# Raise AbcSize from 15 to 20
+Metrics/AbcSize:
+  Max: 20
 
 # No space makes the method definition shorter and differentiates
 # from a regular assignment.
