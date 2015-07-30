@@ -23,7 +23,7 @@ gem "json-schema", "2.5.1"
 # Authentication
 
 gem "devise", "3.5.1"
-gem "devise_lastseenable", "0.0.4"
+gem "devise_lastseenable", "0.0.6"
 gem "devise-token_authenticatable", "~> 0.4.0"
 
 # Captcha
@@ -32,7 +32,7 @@ gem "simple_captcha2", "0.3.4", require: "simple_captcha"
 
 # Background processing
 
-gem "sidekiq", "3.4.1"
+gem "sidekiq", "3.4.2"
 gem "sinatra", "1.4.6"
 
 # Scheduled processing
@@ -56,7 +56,7 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 gem "bootstrap-sass", "3.3.5"
 gem "compass-rails",  "2.0.4"
 gem "sass-rails",     "5.0.1"
-gem "autoprefixer-rails", "5.2.1"
+gem "autoprefixer-rails", "5.2.1.1"
 gem "bootstrap-switch-rails", "3.3.3"
 
 # Database
@@ -68,12 +68,12 @@ group :postgresql, optional: true do
   gem "pg",     "0.18.1"
 end
 
-gem "activerecord-import", "0.8.0"
+gem "activerecord-import", "0.10.0"
 
 # File uploading
 
 gem "carrierwave", "0.10.0"
-gem "fog",         "1.31.0"
+gem "fog",         "1.32.0"
 gem "mini_magick", "4.2.7"
 gem "remotipart",  "1.2.1"
 
@@ -110,7 +110,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jeresig--jquery.hotkeys",       "0.2.0"
   gem "rails-assets-jquery-placeholder",            "2.1.2"
   gem "rails-assets-jquery-textchange",             "0.2.3"
-  gem "rails-assets-perfect-scrollbar",             "0.6.3"
+  gem "rails-assets-perfect-scrollbar",             "0.6.4"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
   gem "rails-assets-autosize",                      "3.0.8"
 end
@@ -160,13 +160,13 @@ gem "acts-as-taggable-on", "3.5.0"
 
 gem "addressable",        "2.3.8", require: "addressable/uri"
 gem "faraday",            "0.9.1"
-gem "faraday_middleware", "0.9.1"
+gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"
 gem "typhoeus",           "0.7.2"
 
 # Views
 
-gem "gon",                     "5.2.3"
+gem "gon",                     "6.0.1"
 gem "haml",                    "4.0.6"
 gem "mobile-fu",               "1.3.1"
 gem "will_paginate",           "3.0.7"
@@ -226,15 +226,15 @@ group :development do
   # Automatic test runs
   gem "guard-cucumber", "1.5.4"
   gem "guard-jshintrb", "1.1.1"
-  gem "guard-rspec",    "4.5.2"
+  gem "guard-rspec",    "4.6.3"
   gem "guard-rubocop",  "1.2.0"
-  gem "guard",          "2.12.5", require: false
+  gem "guard",          "2.13.0", require: false
   gem "rb-fsevent",     "0.9.5", require: false
   gem "rb-inotify",     "0.9.5", require: false
 
   # Linters
   gem "jshintrb",       "0.3.0"
-  gem "rubocop",        "0.32.0"
+  gem "rubocop",        "0.32.1"
   gem "pronto",         "0.4.2"
   gem "pronto-jshint",  "0.4.2"
   gem "pronto-rubocop", "0.4.4"
@@ -266,19 +266,19 @@ group :test do
 
   gem "capybara",           "2.4.4"
   gem "database_cleaner" ,  "1.4.1"
-  gem "selenium-webdriver", "2.45.0"
+  gem "selenium-webdriver", "2.46.2"
 
   # General helpers
 
   gem "factory_girl_rails", "4.5.0"
-  gem "timecop",            "0.7.4"
+  gem "timecop",            "0.8.0"
   gem "webmock",            "1.21.0", require: false
   gem "shoulda-matchers",   "2.8.0", require: false
 end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails",     "3.3.2"
+  gem "rspec-rails",     "3.3.3"
 
   # Cucumber (integration tests)
   gem "cucumber-rails",     "1.4.2", require: false
