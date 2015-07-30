@@ -49,7 +49,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
 
       context "when redirect uri is missing" do
         context "when only one redirect URL is pre-registered" do
-          it "should return a form pager" do
+          it "should return a form page" do
             # Note this intentionally behavior diverts from OIDC spec http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
             # When client has only one redirect uri registered, only that redirect uri can be used. Hence,
             # we should implicitly assume the client wants to use that registered URI.
@@ -94,7 +94,8 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
       end
     end
     context "when already authorized" do
-      let!(:auth) { Api::OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: alice) }
+      let!(:auth) { Api::OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: alice,
+                                                                        redirect_uri: "http://localhost:3000/") }
 
       context "when valid parameters are passed" do
         before do
@@ -185,6 +186,41 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
 
         it "should NOT contain a id token in the fragment" do
           expect(response.location).to_not have_content("id_token=")
+        end
+      end
+    end
+
+    context "when code" do
+      before do
+        get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "code",
+            scope: "openid", nonce: 418_093_098_3, state: 418_093_098_3
+      end
+
+      context "when authorization is approved" do
+        before do
+          post :create, approve: "true"
+        end
+
+        it "should return the code" do
+          expect(response.location).to have_content("code")
+        end
+
+        it "should return the passed in state" do
+          expect(response.location).to have_content("state=4180930983")
+        end
+      end
+
+      context "when authorization is denied" do
+        before do
+          post :create, approve: "false"
+        end
+
+        it "should return an error" do
+          expect(response.location).to have_content("error")
+        end
+
+        it "should NOT contain code" do
+          expect(response.location).to_not have_content("code")
         end
       end
     end

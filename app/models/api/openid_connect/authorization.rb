@@ -15,6 +15,8 @@ module Api
 
       before_validation :setup, on: :create
 
+      scope :with_redirect_uri, ->(given_uri) { where redirect_uri: given_uri }
+
       def setup
         self.refresh_token = SecureRandom.hex(32)
       end
@@ -25,12 +27,18 @@ module Api
         end
       end
 
+      def create_code
+        self.code = SecureRandom.hex(32)
+        save
+        self.code
+      end
+
       def create_access_token
         o_auth_access_tokens.create!.bearer_token
         # TODO: Add support for request object
       end
 
-      def create_id_token(nonce)
+      def create_id_token(nonce=nil)
         id_tokens.create!(nonce: nonce)
       end
 
@@ -44,6 +52,11 @@ module Api
           o_auth_applications: {client_id: client_id}, refresh_token: refresh_token)
       end
 
+      def self.use_code(code)
+        auth = find_by(code: code)
+        auth.code = nil if auth # Remove auth code if found so it can't be reused
+        auth
+      end
       # TODO: Consider splitting into subclasses by flow type
     end
   end

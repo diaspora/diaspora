@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20150724152052) do
     t.integer  "user_id",               limit: 4
     t.integer  "o_auth_application_id", limit: 4
     t.string   "refresh_token",         limit: 255
+    t.string   "code",                  limit: 255
+    t.string   "redirect_uri",          limit: 255
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end

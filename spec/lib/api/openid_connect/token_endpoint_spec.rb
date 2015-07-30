@@ -3,12 +3,76 @@ require "spec_helper"
 describe Api::OpenidConnect::TokenEndpoint, type: :request do
   let!(:client) do
     Api::OpenidConnect::OAuthApplication.create!(
-      redirect_uris: ["http://localhost"], client_name: "diaspora client")
+      redirect_uris: ["http://localhost:3000/"], client_name: "diaspora client")
   end
-  let(:auth) { Api::OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: bob) }
+  let!(:auth) {
+    Api::OpenidConnect::Authorization.find_or_create_by(
+      o_auth_application: client, user: bob, redirect_uri: "http://localhost:3000/")
+  }
+  let!(:code) { auth.create_code }
 
   before do
     Api::OpenidConnect::Scope.find_or_create_by(name: "read")
+  end
+
+  describe "the authorization code grant type" do
+    context "when the authorization code is valid" do
+      before do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             client_id: client.client_id, client_secret: client.client_secret,
+             redirect_uri: "http://localhost:3000/", code: code
+      end
+
+      it "should return a valid id token" do
+        json = JSON.parse(response.body)
+        encoded_id_token = json["id_token"]
+        decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
+                                                                      Api::OpenidConnect::IdTokenConfig.public_key
+        expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
+      end
+
+      it "should return a valid access token" do
+        json = JSON.parse(response.body)
+        encoded_id_token = json["id_token"]
+        decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
+                                                                      Api::OpenidConnect::IdTokenConfig.public_key
+        access_token = json["access_token"]
+        access_token_check_num = UrlSafeBase64.encode64(OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8])
+        expect(decoded_token.at_hash).to eq(access_token_check_num)
+      end
+    end
+
+    context "when the authorization code is not valid" do
+      it "should return an invalid grant error" do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             client_id: client.client_id, client_secret: client.client_secret, code: "123456"
+        expect(response.body).to include "invalid_grant"
+      end
+    end
+
+    context "when the client is unregistered" do
+      it "should return an error" do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code", code: auth.refresh_token,
+             client_id: SecureRandom.hex(16).to_s, client_secret: client.client_secret
+        expect(response.body).to include "invalid_client"
+      end
+    end
+
+    context "when the code field is missing" do
+      it "should return an invalid request error" do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             client_id: client.client_id, client_secret: client.client_secret
+        expect(response.body).to include "invalid_request"
+      end
+    end
+
+    context "when the client_secret doesn't match" do
+      it "should return an invalid client error" do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code", code: auth.refresh_token,
+             client_id: client.client_id, client_secret: "client.client_secret"
+        expect(response.body).to include "invalid_client"
+      end
+    end
   end
 
   describe "the password grant type" do
@@ -92,7 +156,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
     end
   end
 
-  describe "the refresh token flow" do
+  describe "the refresh token grant type" do
     context "when the refresh token is valid" do
       it "should return an access token" do
         post api_openid_connect_access_tokens_path, grant_type: "refresh_token",
