@@ -28,5 +28,5 @@ end
 When /^I parse the tokens and use it obtain user info$/ do
   client_json = JSON.parse(last_response.body)
   access_token = client_json["access_token"]
-  get api_v0_user_path, access_token: access_token
+  get api_openid_connect_user_info_path, access_token: access_token
 end

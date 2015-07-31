@@ -94,8 +94,10 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
       end
     end
     context "when already authorized" do
-      let!(:auth) { Api::OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: alice,
-                                                                        redirect_uri: "http://localhost:3000/") }
+      let!(:auth) {
+        Api::OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: alice,
+                                                                        redirect_uri: "http://localhost:3000/")
+      }
 
       context "when valid parameters are passed" do
         before do
