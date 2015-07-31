@@ -33,7 +33,7 @@ end
 
 When /^I parse the bearer tokens and use it to access user info$/ do
   access_token = current_url[/(?<=access_token=)[^&]+/]
-  get api_v0_user_path, access_token: access_token
+  get api_openid_connect_user_info_path, access_token: access_token
 end
 
 Then /^I should see an "([^\"]*)" error$/ do |error_message|

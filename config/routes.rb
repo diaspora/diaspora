@@ -259,6 +259,8 @@ Diaspora::Application.routes.draw do
       get ".well-known/webfinger", to: "discovery#webfinger"
       get ".well-known/openid-configuration", to: "discovery#configuration"
       get "jwks.json", to: "id_tokens#jwks"
+
+      get "user_info", to: "user_info#show"
     end
   end
 end
