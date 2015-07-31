@@ -24,6 +24,7 @@
     #fileInfo { display: none !important; }
 
     #publisher_spinner {
+      margin: 20px;
       text-align: center;
     }
 
@@ -105,12 +106,20 @@
         }
       }
 
+      &.with_location .loader {
+        height: 20px;
+        width: 20px;
+      }
       &.with_location #location_container {
         height: 30px;
+        margin-bottom: 0;
         border-top: 1px dashed $border-grey;
         input[type='text'] {
-          margin-bottom: 0;
+          border: none;
           color: $text-grey;
+          height: 20px;
+          margin-bottom: 0;
+          padding: 0;
         }
       }
       &.active #button_container {

@@ -10,10 +10,6 @@ ul.as-selections {
   padding: 0;
 }
 
-ul.as-selections.loading {
-  background: asset_path("ajax-loader2.gif") right center no-repeat;
-}
-
 ul.as-selections li {
   float: left;
   margin: 1px 4px 1px 0;

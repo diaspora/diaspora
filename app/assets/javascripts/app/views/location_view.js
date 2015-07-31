@@ -9,8 +9,8 @@ app.views.Location = Backbone.View.extend({
     this.getLocation();
   },
 
-  render: function(){
-    $("<img/>", { alt: "ajax-loader", src:  ImagePaths.get("ajax-loader2.gif") }).appendTo(this.el);
+  render: function() {
+    $("<div class=\"loader\"><div class=\"spinner\"></div></div>").appendTo(this.el);
   },
 
   getLocation: function(){

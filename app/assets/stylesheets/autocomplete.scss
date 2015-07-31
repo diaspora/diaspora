@@ -42,9 +42,18 @@
   text-overflow: ellipsis;
 }
 
-.ac_loading {
-  background: white image-url('ajax-loader2.gif') right 5px center no-repeat;
-  background-size: 18px;
+.ac_input + .spinner {
+  display: none;
+}
+
+.ac_input.ac_loading + .spinner {
+  display: inline-block;
+  height: 18px;
+  margin-left: -26px;
+  margin-right: 8px;
+  margin-top: 7px;
+  position: absolute;
+  width: 18px;
 }
 
 .ac_odd {

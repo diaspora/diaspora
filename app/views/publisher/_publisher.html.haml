@@ -48,7 +48,8 @@
           = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       #publisher_spinner{class: 'hidden'}
-        = image_tag 'ajax-loader2.gif'
+        .loader
+          .spinner
       .options_and_submit.col-sm-12
         .public_toggle
           .btn.btn-default.pull-left#hide_publisher{title: t('shared.publisher.discard_post')}

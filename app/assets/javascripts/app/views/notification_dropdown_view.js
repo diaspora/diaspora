@@ -14,7 +14,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.badge = this.$el;
     this.dropdown = $("#notification-dropdown");
     this.dropdownNotifications = this.dropdown.find(".notifications");
-    this.ajaxLoader = this.dropdown.find(".ajax_loader");
+    this.ajaxLoader = this.dropdown.find(".ajax-loader");
     this.perfectScrollbarInitialized = false;
   },
 
@@ -86,9 +86,9 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   hideAjaxLoader: function(){
     var self = this;
-    this.ajaxLoader.find("img").fadeTo(200, 0, function(){
+    this.ajaxLoader.find(".spinner").fadeTo(200, 0, function(){
       self.ajaxLoader.hide(200, function(){
-        self.ajaxLoader.find("img").css("opacity", 1);
+        self.ajaxLoader.find(".spinner").css("opacity", 1);
       });
     });
   },
