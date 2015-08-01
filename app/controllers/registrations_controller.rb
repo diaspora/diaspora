@@ -14,12 +14,13 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.sign_up
       flash[:notice] = I18n.t 'registrations.create.success'
       @user.seed_aspects
+      @user.send_welcome_message
       sign_in_and_redirect(:user, @user)
       logger.info "event=registration status=successful user=#{@user.diaspora_handle}"
     else
       @user.errors.delete(:person)
 
-      flash[:error] = @user.errors.full_messages.join(" - ")
+      flash.now[:error] = @user.errors.full_messages.join(" - ")
       logger.info "event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'"
       render :action => 'new', :layout => 'with_header'
     end

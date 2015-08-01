@@ -1083,6 +1083,7 @@ es-AR:
       no_friends: "No se han encontrado contactos de Facebook."
       service_friends: "diaspora* se está llenando de tus amigos de %{service}, por favor regresa en unos minutos."
     index:
+      connect: "Conectar"
       disconnect: "Desconectar"
       edit_services: "Editar servicios"
       logged_in_as: "Conectado como"
@@ -1091,6 +1092,11 @@ es-AR:
     inviter:
       click_link_to_accept_invitation: "Seguí este enlace para aceptar la invitación"
       join_me_on_diaspora: "Unite, nos vemos en diaspora*"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
     remote_friend:
       invite: "Invitar"
       not_on_diaspora: "Todavía no está en diaspora*"
@@ -1270,6 +1276,8 @@ es-AR:
     destroy:
       failure: "No has podido dejar de seguir a: #%{name}. Tal vez ya lo hiciste..."
       success: "¡Epa! Dejaste de seguir a #%{name}."
+    manage:
+      title: "Administrar las etiquetas que sigues"
   tags:
     name_too_long: "Por favor haz que el nombre de la etiqueta tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
     show:

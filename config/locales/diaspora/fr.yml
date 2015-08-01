@@ -316,6 +316,7 @@ fr:
       send: "Envoyer"
       sending: "Envoi…"
       subject: "Sujet"
+      subject_default: "Pas d'objet"
       to: "Pour"
     new_conversation:
       fail: "Message invalide"
@@ -360,9 +361,9 @@ fr:
       contacts_know_aspect_q: "Est-ce que mes contacts savent dans quels aspects je les ai mis ?"
       contacts_visible_a: "Si vous cochez cette option, les contacts de cet aspect pourront voir qui d'autre est présent dedans, dans la rubrique \"Contacts\" de votre page de profil. Il est préférable de choisir cette option uniquement si les contacts de cet aspect se connaissent mutuellement. Ils ne pourront toutefois pas voir le nom de l'aspect."
       contacts_visible_q: "Que signifie « rendre les contacts dans cet aspect visibles entre eux » ?"
-      delete_aspect_a: "Dans la liste des aspects sur le côté gauche de la page principale, pointez votre souris sur l aspect que vous désirez supprimer. Cliquez sur le petit crayon d'édition qui apparaît sur la droite. Clique sur le bouton de suppression dans la boîte qui apparaît."
+      delete_aspect_a: "Dans la liste des aspects sur le côté gauche de la page principale, pointez votre souris sur l aspect que vous désirez supprimer. Cliquez sur le petit crayon d'édition qui apparaît sur la droite. Cliquez sur le bouton de suppression dans la boîte qui apparaît."
       delete_aspect_q: "Comment puis-je supprimer une aspect ?"
-      person_multiple_aspects_a: "Oui. Allez sur votre page de contacts et cliquez sur Mes contacts. Pour chaque contact, vous pouvez utiliser le menu sur la droite pour l'ajouter (ou le retirer) d'autant de aspects que vous le souhaitez. Ou, vous pouvez l'ajouter à un nouvel aspect (ou le retirer d'un aspect) en cliquant sur le bouton de sélection des aspects sur sa page de profil. Ou encore, vous pouvez même juste passer le pointeur de votre souris sur son nom là où vous le voyez dans le flux et un « carte de visite » va apparaître. Vous pouvez changer les aspects auxquels ils appartiennent directement dedans."
+      person_multiple_aspects_a: "Oui. Allez sur votre page de contacts et cliquez sur ”Mes contacts”. Pour chaque contact, vous pouvez utiliser le menu sur la droite pour l'ajouter (ou le retirer) d'autant d’aspects que vous le souhaitez. Ou bien, vous pouvez l'ajouter à un nouvel aspect (ou le retirer d'un aspect) en cliquant sur le bouton de sélection des aspects sur sa page de profil. Ou encore, vous pouvez même juste passer le pointeur de votre souris sur son nom là où vous le voyez dans le flux et une « carte de visite » va apparaître. Vous pouvez changer les aspects auxquels ils appartiennent directement dedans."
       person_multiple_aspects_q: "Puis-je ajouter une personne à plusieurs aspects ?"
       post_multiple_aspects_a: "Oui. Quand vous écrivez un message, utilisez le bouton de sélection des aspects pour sélectionner ou désélectionner des aspects (\"Tous les aspects\" est le réglage par défaut). Votre message sera visible par tous les aspects que vous sélectionnez. Vous pouvez aussi sélectionner les aspects avec lesquels vous voulez partager dans le panneau latéral. Lorsque vous postez, le(s) aspect(s) que vous avez sélectionné(s) dans la liste sur la gauche seront automatiquement sélectionnés dans le sélectionneur d'aspects quand vous écrivez un nouveau message."
       post_multiple_aspects_q: "Puis-je envoyer un message à plusieurs aspects à la fois ?"
@@ -434,15 +435,15 @@ fr:
       subscribe_feed_q: "Puis-je m'inscrire aux messages publics d'une personne avec un lecteur de flux ?"
       title: "Divers"
     pods:
-      find_people_a: "Invitez vos amis en utilisant le lien de courriel dans la barre latérale. Suivez des #tags pour découvrir d'autres gens partageants vos intérêts, et ajoutez ceux qui publient des choses qui vous intéressent dans un aspect. Annoncez que vous être #nouveauici dans un message public."
+      find_people_a: "Pour inviter vos amis à rejoindre diaspora*, utilisez le lien d'invitation ou le lien par courriel dans la barre latérale. Suivez des #tags pour découvrir des personnes qui partagent vos centres d'intérêt, et ajoutez celles qui publient du contenu qui vous intéresse dans un aspect. Annoncez que vous êtes #nouveauici par un message public."
       find_people_q: "Je viens de rejoindre un pod, comment puis-je trouver des personnes pour partager avec elles ?"
       title: "Pods"
       use_search_box_a: "Si vous connaissez leur identifiant diaspora* complet (p. ex. : nomdutilisateur@nomdupod.org), vous pouvez les trouver par ce biais. Si vous êtes sur le même pod vous pouvez les retrouver juste avec leur nom d'utilisateur. Une alternative est de les rechercher par leur nom de profil (le nom que vous voyez à l'écran). Si une recherche ne donne rien la première fois, réessayez un peu plus tard."
       use_search_box_q: "Comment dois-je utiliser le champ de recherche pour trouver quelqu'un en particulier ?"
-      what_is_a_pod_a: "Un pod est un serveur faisant tourner le logiciel diaspora* et connecté au réseau diaspora*. \"Pod\" désigne en anglais les cosses de certaines plantes, chaque compte utilisateur étant métaphoriquement une graine dans la cosse. Il y a beaucoup de pods différents. Vous pouvez communiquer avec vos amis de la même manière, peu importe le pod où ils sont. Vous pouvez comparer un pod diaspora* à un fournisseur d'adresses courriel : il y a les pods publics, les pods privés, et avec quelques efforts vous pouvez même installer le vôtre."
+      what_is_a_pod_a: "Un pod est un serveur faisant tourner le logiciel diaspora*, il est connecté au réseau diaspora*. \"Pod\" désigne en anglais les cosses de certaines plantes, chaque compte utilisateur étant métaphoriquement une graine dans la cosse. Il y a beaucoup de pods différents. Vous pouvez communiquer avec vos amis de la même manière, peu importe le pod où ils sont. Une seule installation est suffisante. Vous pouvez comparer un pod diaspora* à un fournisseur d'adresses courriel : il y a les pods publics, les pods privés, et avec quelques efforts vous pouvez même installer le vôtre."
       what_is_a_pod_q: "Qu'est-ce qu'un pod ?"
     posts_and_posting:
-      char_limit_services_a: "Dans ce cas votre publication est limitée au nombre minimum de caractères (140 pour Twitter; 1000 pour Tumblr), et le nombre de caractères restant est affiché lorsque l'icône de ce service est sélectionnée. Vous pouvez toujours poster sur ces services si votre publication est plus longue que la limite, mais le texte sera tronqué sur ces services."
+      char_limit_services_a: "Dans ce cas votre publication est limitée au nombre minimum de caractères (140 pour Twitter; 1000 pour Tumblr), et le nombre de caractères restant est affiché lorsque l'icône de ce service est sélectionnée. Vous pouvez toujours poster sur ces services si votre publication est plus longue que la limite, mais le texte sera tronqué sur ces services avec un lien vers diaspora*."
       char_limit_services_q: "Quelle est la limite de caractères pour les messages partagés avec un service connecté qui a une limite de caractères plus petite ?"
       character_limit_a: "65,535 caractères. C'est 65,395 caractères de plus que Twitter ! ;)"
       character_limit_q: "Quelle est la limite de caractères pour un message ?"
@@ -604,6 +605,7 @@ fr:
       powered_by: "Propulsé par diaspora*"
       public_feed: "Flux diaspora* public de %{name}"
       source_package: "Téléchargez le code source"
+      statistics_link: "Statistiques du pod"
       toggle: "Activer/désactiver la version mobile"
       whats_new: "Quoi de neuf ?"
       your_aspects: "Vos aspects"
@@ -783,13 +785,17 @@ fr:
 
           Cliquez sur ce lien pour vous lancer dans l'aventure :
 
-          %{invite_url}
+          [%{invite_url}][1]
+
 
           Bien le bonjour chez vous,
 
           Le messager automatique de diaspora*
 
+          PS : Au cas où vous ne sauriez pas (encore) ce qu'est diaspora*, la réponse est [ici][2] !
+
           [1] : %{invite_url}
+          [2]: %{diasporafoundation_url}
     invited_you: "%{name} vous a invité(e) sur diaspora*"
     liked:
       liked: "%{name} a aimé votre message"
@@ -989,12 +995,9 @@ fr:
       updated: "Profil mis à jour"
   public: "Public"
   reactions:
-    few: "%{count} réactions"
-    many: "%{count} réactions"
     one: "1 réaction"
     other: "%{count} réactions"
-    two: "%{count} réactions"
-    zero: "0 réaction"
+    zero: "0 réaction\n"
   registrations:
     closed: "Les inscriptions sont fermées sur ce pod diaspora*."
     create:
@@ -1165,7 +1168,7 @@ fr:
       get_location: "Ajouter votre emplacement"
       make_public: "Rendre public"
       new_user_prefill:
-        hello: "Bonjour tout le monde, je m'appelle #%{new_user_tag}. "
+        hello: "Bonjour tout le monde, je suis #%{new_user_tag}. "
         i_like: "Je m'intéresse à %{tags}. "
         invited_by: "Merci pour l'invitation, "
         newhere: "nouveauici"

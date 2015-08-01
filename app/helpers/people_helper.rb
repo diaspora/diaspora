@@ -50,10 +50,6 @@ module PeopleHelper
     end
   end
 
-  def person_href(person, opts={})
-    "href=\"#{local_or_remote_person_path(person, opts)}\"".html_safe
-  end
-
   # Rails.application.routes.url_helpers is needed since this is indirectly called from a model
   def local_or_remote_person_path(person, opts={})
     opts.merge!(:protocol => AppConfig.pod_uri.scheme, :host => AppConfig.pod_uri.authority)

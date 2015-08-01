@@ -89,6 +89,9 @@ module Diaspora
       mobile/mobile.css
       rtl.css
       home.css
+
+      # images from facebox gem
+      facebox/*
     }
 
     # Version of your assets, change this if you want to expire all your assets

@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.5.1.2" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.5.2.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -35,6 +35,9 @@ defaults:
       logrotate:
         enable: true
         days: 7
+      debug:
+        sql: false
+        federation: false
   server:
     port:
     listen: '0.0.0.0:3000'
@@ -97,6 +100,10 @@ defaults:
     enable_registrations: true
     autofollow_on_join: true
     autofollow_on_join_user: 'diasporahq@joindiaspora.com'
+    welcome_message:
+      enabled: false
+      subject: 'Welcome Message'
+      text: 'Hello %{username}, welcome to diaspora*.'
     invitations:
       open: true
       count: 25

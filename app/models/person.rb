@@ -28,7 +28,7 @@ class Person < ActiveRecord::Base
   xml_attr :profile, :as => Profile
   xml_attr :exported_key
 
-  has_one :profile, :dependent => :destroy
+  has_one :profile, dependent: :destroy
   delegate :last_name, :image_url, :tag_string, :bio, :location,
            :gender, :birthday, :formatted_birthday, :tags, :searchable,
            to: :profile
@@ -195,37 +195,34 @@ class Person < ActiveRecord::Base
               end
   end
 
+  def username
+    @username ||= owner ? owner.username : diaspora_handle.split("@")[0]
+  end
+
   def owns?(obj)
     self.id == obj.author_id
   end
 
   def url
-    begin
-      uri = URI.parse(self[:url])
-      url = "#{uri.scheme}://#{uri.host}"
-      url += ":#{uri.port}" unless ["80", "443"].include?(uri.port.to_s)
-      url += "/"
-    rescue => e
-      url = self[:url]
-    end
-    url
+    url_to "/"
+  rescue
+    self[:url]
+  end
+
+  def profile_url
+    url_to "/u/#{username}"
+  end
+
+  def atom_url
+    url_to "/public/#{username}.atom"
   end
 
   def receive_url
-    "#{url}receive/users/#{self.guid}/"
-  end
-
-  def public_url
-    if self.owner
-      username = self.owner.username
-    else
-      username = self.diaspora_handle.split("@")[0]
-    end
-    "#{url}public/#{username}"
+    url_to "/receive/users/#{guid}"
   end
 
   def public_key_hash
-    Base64.encode64(OpenSSL::Digest::SHA256.new(self.exported_key).to_s)
+    Base64.encode64(OpenSSL::Digest::SHA256.new(serialized_public_key).to_s)
   end
 
   def public_key
@@ -241,15 +238,18 @@ class Person < ActiveRecord::Base
     serialized_public_key = new_key
   end
 
-  #database calls
+  # database calls
   def self.by_account_identifier(identifier)
-    identifier = identifier.strip.downcase.gsub('acct:', '')
-    self.where(:diaspora_handle => identifier).first
+    identifier = identifier.strip.downcase.sub("acct:", "")
+    find_by(diaspora_handle: identifier)
   end
 
-  def self.local_by_account_identifier(identifier)
-    person = self.by_account_identifier(identifier)
-   (person.nil? || person.remote?) ? nil : person
+  def self.find_local_by_diaspora_handle(handle)
+    where(diaspora_handle: handle, closed_account: false).where.not(owner: nil).take
+  end
+
+  def self.find_local_by_guid(guid)
+    where(guid: guid, closed_account: false).where.not(owner: nil).take
   end
 
   def self.create_from_webfinger(profile, hcard)
@@ -263,7 +263,6 @@ class Person < ActiveRecord::Base
     #hcard_profile = HCard.find profile.hcard.first[:href]
     ::Logging::Logger[self].info "event=webfinger_marshal valid=#{new_person.valid?} " \
                                  "target=#{new_person.diaspora_handle}"
-    new_person.url = hcard[:url]
     new_person.assign_new_profile_from_hcard(hcard)
     new_person.save!
     new_person.profile.save!
@@ -321,11 +320,9 @@ class Person < ActiveRecord::Base
   # @param person [Person]
   # @param url [String]
   def update_url(url)
-    location = URI.parse(url)
-    newuri = "#{location.scheme}://#{location.host}"
-    newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
-    newuri += "/"
-    self.update_attributes(:url => newuri)
+    @uri = URI.parse(url)
+    @uri.path = "/"
+    update_attributes(:url => @uri.to_s)
   end
 
   def lock_access!
@@ -348,6 +345,18 @@ class Person < ActiveRecord::Base
   end
 
   private
+
+  # @return [URI]
+  def uri
+    @uri ||= URI.parse(self[:url])
+    @uri.dup
+  end
+
+  # @param path [String]
+  # @return [String]
+  def url_to(path)
+    uri.tap {|uri| uri.path = path }.to_s
+  end
 
   def fix_profile
     Webfinger.new(self.diaspora_handle).fetch

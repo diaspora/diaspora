@@ -266,9 +266,9 @@ hy:
       add_a_new_aspect: "Նոր խումբ ավելացնել"
       add_contact: "Ավելացնել"
       add_to_aspect: "Ավելացնել %{name} խումբ"
-      all_contacts: "Բոլոր ընկերները"
+      all_contacts: "Բոլոր մարդիկ"
       community_spotlight: "Համայնքի նորությունները"
-      my_contacts: "Իմ ընկերները"
+      my_contacts: "Իմ կապերը"
       no_contacts: "Երևում է՝ նոր ընկերների կարիք ունես։"
       no_contacts_in_aspect: "Այս խմբում դեռ ոչ մեկին չես ավելացրել։ Ներքևում այս պահի քո բոլոր ընկերների ցուցակն է, ում կարող ես ավելացնել այս խմբին։"
       no_contacts_message: "Ստուգել %{community_spotlight}"
@@ -306,10 +306,10 @@ hy:
       create_a_new_conversation: "Նոր զրույց սկսել"
       inbox: "Մուտքային"
       new_conversation: "Նոր զրույց"
-      no_conversation_selected: "Որևէ խոսակցություն չի ընտրվել"
+      no_conversation_selected: "Որևէ զրույց չի ընտրվել"
       no_messages: "հաղորդագրություն չկա, դեռ ;Ճ"
     new:
-      abandon_changes: "Փոփոխությունները չեղյա՞լ համարել։"
+      abandon_changes: "Չեղարկե՞լ փոփոխությունները։"
       send: "Ուղարկել"
       sending: "Ուղարկվում է․․․"
       subject: "Թեմա"
@@ -384,7 +384,7 @@ hy:
     getting_help:
       get_support_a_faq: "կարդա մեր %{faq}-ն վիքիում"
       get_support_a_hashtag: "հարցրու դիասպորա*յում հրապարակային գրառմամբ` օգտագործելով %{question} պիտակը"
-      get_support_a_irc: "միացիր մեզ %{irc}-ում (կենդանի չաթ/խոսակցություն)"
+      get_support_a_irc: "միացիր մեզ %{irc}-ում (կենդանի չաթ)"
       get_support_a_tutorials: "աչքի անցկացրու մեր %{tutorials}"
       get_support_a_website: "այցելիր մեր` %{link}"
       get_support_a_wiki: "փորփրիր %{link}ն"
@@ -601,6 +601,7 @@ hy:
       powered_by: "Գործում է դիասպորա*յի օգնությամբ"
       public_feed: "%{name}-ի` դիասպորա*յի հրապարակային հոսքը"
       source_package: "Ներբեռնել սկզբնական կոդի փաթեթը"
+      statistics_link: "Հանգույցի վիճակագրություն"
       toggle: "Մոբայլ տարբերակը"
       whats_new: "Ի՞նչ կա"
       your_aspects: "Քո խմբերը"
@@ -618,9 +619,9 @@ hy:
   likes:
     likes:
       people_dislike_this:
-        one: "%{count} չհավանում"
-        other: "%{count} չհավանում"
-        zero: "ոչ մի չհավանում"
+        one: "%{count} հոգի չի հավանում"
+        other: "%{count} հոգի չի հավանում"
+        zero: "չհավանող չկա"
       people_like_this:
         one: "%{count} հոգի հավանել է"
         other: "%{count} հոգի հավանել են"
@@ -855,7 +856,7 @@ hy:
       looking_for: "%{tag_link} պիտակով գրառումնե՞ր ես փնտրում։"
       no_one_found: "...և ոչ ոք չգտնվեց։"
       no_results: "Հե՛յ, պետք է կոնկրետ մի բան փնտրես։"
-      results_for: "որոնման արդյունքները"
+      results_for: "%{search_term} որոնմանը համապատասխանող մարդիկ"
       search_handle: "Օգտագործիր նրանց դիասպորա*յի ԱյԴի-ն (username@pod.am), որ հաստատ գտնես ընկերներիդ։"
       searching: "Փնտրվում է, խնդրում ենք լինել համբերատար..."
       send_invite: "Դեռ ոչի՞նչ։ Հրավեր ուղարկի՛ր։"
@@ -871,7 +872,7 @@ hy:
       born: "Ծննդյան ամսաթիվ"
       edit_my_profile: "Խմբագրել իմ էջը"
       gender: "Սեռ"
-      in_aspects: "խմբերում"
+      in_aspects: "Խմբերում"
       location: "Տեղակայություն"
       photos: "Նկարներ"
       remove_contact: "Հեռացնել"
@@ -896,7 +897,7 @@ hy:
       edit: "Խմբագրել"
       you_have_no_tags: "Որևէ պիտակով չես նշել քեզ։"
     webfinger:
-      fail: "Կներես, մենք չկարողացանք գտնել %{handle}։"
+      fail: "Կներես, չկարողացանք գտնել %{handle}։"
     zero: "Մարդ չկա"
   photos:
     comment_email_subject: "%{name}-ի նկարը"
@@ -911,7 +912,7 @@ hy:
     new:
       back_to_list: "Հետ՝ ցուցակին"
       new_photo: "Նոր նկար"
-      post_it: "Հրապարակի՛ր սա"
+      post_it: "Հրապարակել"
     new_photo:
       empty: "{file}-ը դատարկ է, կրկին ընտրիր ֆայլերը առանց դրա։"
       invalid_ext: "{file}-ը անհամապատասխան ընդլայնման է։ Միայն {extensions} են թույլատրվում։"
@@ -922,7 +923,7 @@ hy:
     photo:
       view_all: "Դիտել %{name}-ի բոլոր նկարները"
     show:
-      collection_permalink: "հավաքածուի սկզբնաղբյուրը"
+      collection_permalink: "հավաքածուի հղումը"
       delete_photo: "Ջնջել նկարը"
       edit: "Խմբագրել"
       edit_delete_photo: "Փոխել նկարի նկարագրությունը կամ ջնջել այն"
@@ -943,7 +944,7 @@ hy:
         one: "Մեկ նկար %{author}-ից"
         other: "%{count} նկար %{author}-ից"
         zero: "%{author}-ը ոչ մի նկար չունի"
-      reshare_by: "տարածվել է %{author}-ից"
+      reshare_by: "%{author}-ի տարածածը"
   previous: "Նախորդ"
   privacy: "Գաղտնիություն"
   privacy_policy: "Գաղտնիության քաղաքականություն"
@@ -1036,7 +1037,7 @@ hy:
         zero: "Ոչ մի նոր հայտ"
     manage_aspect_contacts:
       existing: "Գոյություն ունեցող ընկերները"
-      manage_within: "Կարգավորել կոնտակտներդ"
+      manage_within: "Կարգավորել կապերդ"
     new_request_to_person:
       sent: "Ուղարկվեց"
   reshares:
@@ -1096,7 +1097,7 @@ hy:
       see_it_on_their_profile: "Եթե ուզում ես այս գրառման թարմացումները տեսնել, այցելիր %{name}-ի էջը։"
   shared:
     add_contact:
-      add_new_contact: "Նոր կոնտակտ ավելացնել"
+      add_new_contact: "Նոր մարդ ավելացնել"
       create_request: "Գտնել դիասպորա*յի ԱյԴի-ի միջոցով"
       diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Մուտքագրիր դիասպորա*յի օգտանուն"
@@ -1111,7 +1112,7 @@ hy:
         other: "%{count} խումբ"
         zero: "Ավելացնել "
     contact_list:
-      all_contacts: "Բոլոր ընկերները"
+      all_contacts: "Բոլոր կապերը"
     footer:
       logged_in_as: "Համակարգում ես որպես %{name}"
       your_aspects: "Քո խմբերը"
@@ -1129,19 +1130,19 @@ hy:
       new: "Նոր %{type} %{from}-ից"
     public_explain:
       atom_feed: "Ատոմ հոսքը"
-      control_your_audience: "Ղեկավարի՛ր քո լսարանը"
+      control_your_audience: "Վերահսկի՛ր լսարանդ"
       logged_in: "Մուտք է գործված %{service}"
       manage: "Կարգավորել միացված ծառայությունները"
       new_user_welcome_message: "Օգտագործիր #պիտակներ գրառումներդ դասակարգելու և հետաքրքրություններդ կիսող մարդկանց գտնելու համար։  Ներառիր մարդկանց գրառումներիդ մեջ` @Նշելով նրանց։"
       outside: "Հրապարակային գրառումները տեսանելի կլինեն դիասպորա*յից դուրս։"
       share: "Կիսվի՛ր"
       title: "Կարգավորել միացված ծառայությունները"
-      visibility_dropdown: "Այստեղ կարող ես քո գրառման տեսանելիությունը ընտրել։  (Խորհուրդ կտանք՝ այս առաջինը հրապարակային նշես։)"
+      visibility_dropdown: "Այստեղ կարող ես քո գրառման տեսանելիությունը ընտրել։  (խորհուրդ կտանք՝ այս առաջինը հրապարակային նշես)"
     publisher:
       all: "Բոլորը"
-      all_contacts: "բոլոր կոնտակտները"
+      all_contacts: "բոլոր մարդիկ"
       discard_post: "Չեղարկել գրառումը"
-      formatWithMarkdown: "Կարող ես օգտագործել %{markdown_link}-ը , որպեսզի ձևավորես քո գրառումը"
+      formatWithMarkdown: "Կարող ես օգտագործել %{markdown_link}` գրառումդ ձևավորելու համար"
       get_location: "Պարզել քո տեղակայությունը"
       make_public: "Դարձնել հրապարակային"
       new_user_prefill:
@@ -1168,7 +1169,7 @@ hy:
       reshare: "Տարածել"
     stream_element:
       connect_to_comment: "Ընկերացիր այս օգտատիրոջ հետ, որ մեկնաբանես նրա գրառումները"
-      currently_unavailable: "մեկնաբանումները այս պահին հասանելի չեն"
+      currently_unavailable: "մեկնաբանումը այս պահին հասանելի չի"
       dislike: "Չհավանել"
       hide_and_mute: "Թաքցնել և անջատել գրառումը"
       ignore_user: "Արհամարհել %{name}-ին"
@@ -1372,6 +1373,10 @@ hy:
     fetch_failed: "չստացվեց ստանալ(fetch) webfinger profile֊ը %{profile_url}ի համար։"
     hcard_fetch_failed: "%{account} հաշվի hcard֊ը միացնելիս(fetching) խնդիրներ առաջացան"
     no_person_constructed: "Անհնար եղավ այս hcard֊ից մարդ ձևավորել։"
+    not_enabled: |-
+        Webfinger does not seem to be enabled for %{account}’s host
+
+        անթարգմանելի ։Ճ
     xrd_fetch_failed: "%{account} հաշվից xrd ստանալիս սխալ եղավ"
   welcome: "Բարի գալու՜ստ"
   will_paginate:

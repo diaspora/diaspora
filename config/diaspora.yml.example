@@ -149,6 +149,17 @@ configuration: ## Section
         ## The number of days to keep (default=7)
         #days: 7
 
+      ## Debug logging
+      debug: ## Section
+
+        ## Enables the debug-logging for SQL (default=false)
+        ## This logs every SQL-statement!
+        #sql: true
+
+        ## Enables the federation-debug-log (default=false)
+        ## This logs all XMLs that are used for the federation
+        #federation: true
+
   ## Settings affecting how ./script/server behaves.
   server: ## Section
     ## Where the appserver should listen to (default=0.0.0.0:3000)
@@ -402,6 +413,26 @@ configuration: ## Section
     ## If you set another auto-follow account (for example your podmin account),
     ## please consider resharing diaspora* HQ's posts for your pod's users!
     #autofollow_on_join_user: 'diasporahq@joindiaspora.com'
+
+    ## Welcome Message settings
+    welcome_message: ##Section
+
+      ## Welcome Message on registration (default=false)
+      ## Send a message to new users after registration
+      ## to tell them about your pod and how things
+      ## are handled on it.
+      #enabled: false
+
+      ## Welcome Message subject (default='Welcome Message')
+      ## The subject of the conversation that is started
+      ## by your welcome message.
+      #subject: "Welcome Message"
+
+      ## Welcome Message text (default='Hello %{username}, welcome to diaspora.')
+      ## The content of your welcome message.
+      ## The placeholder "%{username}" will be replaced by the username
+      ## of the new user.
+      #text: "Hello %{username}, welcome to diaspora."
 
     ## Invitation settings
     invitations: ## Section
