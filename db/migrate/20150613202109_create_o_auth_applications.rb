@@ -5,15 +5,18 @@ class CreateOAuthApplications < ActiveRecord::Migration
       t.string :client_id
       t.string :client_secret
       t.string :client_name
+
       t.string :redirect_uris
       t.string :response_types
       t.string :grant_types
-      t.string :application_type
+      t.string :application_type, default: "web"
       t.string :contacts
       t.string :logo_uri
       t.string :client_uri
       t.string :policy_uri
       t.string :tos_uri
+      t.string :sector_identifier_uri
+      t.boolean :ppid, default: false
 
       t.timestamps null: false
     end

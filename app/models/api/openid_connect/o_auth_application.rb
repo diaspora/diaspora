@@ -8,24 +8,15 @@ module Api
       validates :client_secret, presence: true
       validates :client_name, presence: true
 
-      serialize :redirect_uris, JSON
-      serialize :response_types, JSON
-      serialize :grant_types, JSON
-      serialize :contacts, JSON
+      %i(redirect_uris response_types grant_types contacts).each do |serializable|
+        serialize serializable, JSON
+      end
 
       before_validation :setup, on: :create
 
       def setup
         self.client_id = SecureRandom.hex(16)
         self.client_secret = SecureRandom.hex(32)
-        self.response_types = []
-        self.grant_types = []
-        self.application_type = "web"
-        self.contacts = []
-        self.logo_uri = ""
-        self.client_uri = ""
-        self.policy_uri = ""
-        self.tos_uri = ""
       end
 
       class << self
@@ -46,12 +37,19 @@ module Api
 
         def supported_metadata
           %i(client_name response_types grant_types application_type
-             contacts logo_uri client_uri policy_uri tos_uri redirect_uris)
+             contacts logo_uri client_uri policy_uri tos_uri redirect_uris
+             sector_identifier_uri subject_type)
         end
 
         def registrar_attributes(registrar)
           supported_metadata.each_with_object({}) do |key, attr|
-            attr[key] = registrar.public_send(key) if registrar.public_send(key)
+            value = registrar.public_send(key)
+            next unless value
+            if key == :subject_type
+              attr[:ppid] = (value == "pairwise")
+            else
+              attr[key] = value
+            end
           end
         end
       end
