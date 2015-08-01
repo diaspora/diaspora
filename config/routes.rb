@@ -253,7 +253,7 @@ Diaspora::Application.routes.draw do
 
       # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint
       # See http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation
-      resources :authorizations, only: %i(new create)
+      resources :authorizations, only: %i(new create destroy)
       post "authorizations/new", to: "authorizations#new"
 
       get ".well-known/webfinger", to: "discovery#webfinger"

@@ -1,0 +1,14 @@
+.settings_container.applications-page
+  - content_for :page_title do
+    = t('.edit_applications')
+
+  = render 'shared/settings_nav'
+
+  .container-fluid
+    .row
+      .col-md-12
+        = t('.applications_explanation')
+      .small-horizontal-spacer
+      .col-md-12
+        = render 'add_remove_applications'
+
