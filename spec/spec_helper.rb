@@ -84,6 +84,7 @@ RSpec.configure do |config|
     $process_queue = false
     allow_any_instance_of(Postzord::Dispatcher::Public).to receive(:deliver_to_remote)
     allow_any_instance_of(Postzord::Dispatcher::Private).to receive(:deliver_to_remote)
+    load "#{Rails.root}/db/seeds.rb"
   end
 
   config.expect_with :rspec do |expect_config|

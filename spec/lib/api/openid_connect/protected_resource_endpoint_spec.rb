@@ -8,8 +8,8 @@ describe Api::OpenidConnect::ProtectedResourceEndpoint, type: :request do
   end
   let(:auth_with_read) do
     auth = Api::OpenidConnect::Authorization.create!(o_auth_application: client, user: alice)
-    auth.scopes << [Api::OpenidConnect::Scope.find_or_create_by(name: "openid"),
-                    Api::OpenidConnect::Scope.find_or_create_by(name: "read")]
+    auth.scopes << [Api::OpenidConnect::Scope.find_by!(name: "openid"),
+                    Api::OpenidConnect::Scope.find_by!(name: "read")]
     auth
   end
   let!(:access_token_with_read) { auth_with_read.create_access_token.to_s }

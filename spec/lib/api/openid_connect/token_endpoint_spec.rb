@@ -1,20 +1,17 @@
 require "spec_helper"
-
 describe Api::OpenidConnect::TokenEndpoint, type: :request do
   let!(:client) do
     Api::OpenidConnect::OAuthApplication.create!(
       redirect_uris: ["http://localhost:3000/"], client_name: "diaspora client",
       ppid: true, sector_identifier_uri: "https://example.com/uri")
   end
-  let!(:auth) {
-    Api::OpenidConnect::Authorization.find_or_create_by(
+  let!(:auth) do
+    auth = Api::OpenidConnect::Authorization.find_or_create_by(
       o_auth_application: client, user: bob, redirect_uri: "http://localhost:3000/")
-  }
-  let!(:code) { auth.create_code }
-
-  before do
-    Api::OpenidConnect::Scope.find_or_create_by(name: "read")
+    auth.scopes << [Api::OpenidConnect::Scope.find_by!(name: "openid")]
+    auth
   end
+  let!(:code) { auth.create_code }
 
   describe "the authorization code grant type" do
     context "when the authorization code is valid" do
