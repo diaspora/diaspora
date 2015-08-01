@@ -8,7 +8,7 @@ module Api
       end
 
       def show
-        render json: current_user, serializer: UserInfoSerializer
+        render json: current_user, serializer: UserInfoSerializer, authorization: current_token.authorization
       end
 
       def current_user

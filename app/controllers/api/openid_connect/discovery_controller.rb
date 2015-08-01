@@ -18,7 +18,7 @@ module Api
           registration_endpoint:                       api_openid_connect_clients_url,
           authorization_endpoint:                      new_api_openid_connect_authorization_url,
           token_endpoint:                              api_openid_connect_access_tokens_url,
-          userinfo_endpoint:                           api_v0_user_url,
+          userinfo_endpoint:                           api_openid_connect_user_info_url,
           jwks_uri:                                    File.join(root_url, "api", "openid_connect", "jwks.json"),
           scopes_supported:                            Api::OpenidConnect::Scope.pluck(:name),
           response_types_supported:                    Api::OpenidConnect::OAuthApplication.available_response_types,

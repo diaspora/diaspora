@@ -2,7 +2,15 @@ class UserInfoSerializer < ActiveModel::Serializer
   attributes :sub, :nickname, :profile, :picture, :zoneinfo
 
   def sub
-    object.diaspora_handle # TODO: Change to proper sub
+    auth = serialization_options[:authorization]
+    if auth.o_auth_application.ppid?
+      sector_identifier = auth.o_auth_application.sector_identifier_uri
+      pairwise_pseudonymous_identifier =
+        object.pairwise_pseudonymous_identifiers.find_or_create_by(sector_identifier: sector_identifier)
+      pairwise_pseudonymous_identifier.guid
+    else
+      object.diaspora_handle
+    end
   end
 
   def nickname

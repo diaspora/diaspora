@@ -3,7 +3,8 @@ require "spec_helper"
 describe Api::OpenidConnect::TokenEndpoint, type: :request do
   let!(:client) do
     Api::OpenidConnect::OAuthApplication.create!(
-      redirect_uris: ["http://localhost:3000/"], client_name: "diaspora client")
+      redirect_uris: ["http://localhost:3000/"], client_name: "diaspora client",
+      ppid: true, sector_identifier_uri: "https://example.com/uri")
   end
   let!(:auth) {
     Api::OpenidConnect::Authorization.find_or_create_by(
@@ -28,6 +29,8 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         encoded_id_token = json["id_token"]
         decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
                                                                       Api::OpenidConnect::IdTokenConfig.public_key
+        expected_guid = bob.pairwise_pseudonymous_identifiers.find_by(sector_identifier: "https://example.com/uri").guid
+        expect(decoded_token.sub).to eq(expected_guid)
         expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
       end
 

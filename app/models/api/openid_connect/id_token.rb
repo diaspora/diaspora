@@ -23,17 +23,27 @@ module Api
       end
 
       def claims
+        sub = build_sub
         @claims ||= {
           iss:       AppConfig.environment.url,
-          # TODO: Convert to proper PPID
-          sub:       "#{AppConfig.environment.url}#{authorization.o_auth_application.client_id}#{authorization.user.id}",
+          sub:       sub,
           aud:       authorization.o_auth_application.client_id,
           exp:       expires_at.to_i,
           iat:       created_at.to_i,
           auth_time: authorization.user.current_sign_in_at.to_i,
-          nonce:     nonce,
-          acr:       0 # TODO: Adjust ?
+          nonce:     nonce
         }
+      end
+
+      def build_sub
+        if authorization.o_auth_application.ppid?
+          sector_identifier = authorization.o_auth_application.sector_identifier_uri
+          pairwise_pseudonymous_identifier =
+            authorization.user.pairwise_pseudonymous_identifiers.find_or_create_by(sector_identifier: sector_identifier)
+          pairwise_pseudonymous_identifier.guid
+        else
+          authorization.user.diaspora_handle
+        end
       end
 
       # TODO: Add support for request objects

@@ -47,7 +47,7 @@ class AccountDeleter
   #user deletions
   def normal_ar_user_associates_to_delete
     %i(tag_followings invitations_to_me services aspects user_preferences
-       notifications blocks authorizations o_auth_applications)
+       notifications blocks authorizations o_auth_applications pairwise_pseudonymous_identifiers)
   end
 
   def special_ar_user_associations
