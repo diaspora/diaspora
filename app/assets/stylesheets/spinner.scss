@@ -1,0 +1,28 @@
+#paginate, #infscr-loading {
+  margin-top: 10px;
+  padding: 8px 0;
+  text-align: center;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.loader {
+  display: inline-block;
+  width : 32px;
+  height: 32px;
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: $border-dark-grey transparent $border-dark-grey $border-dark-grey;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: spinner;
+  animation-timing-function: linear;
+}

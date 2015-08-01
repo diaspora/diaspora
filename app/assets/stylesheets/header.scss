@@ -58,9 +58,13 @@ header > .dark-header > nav {
           }
           & > .pull-right > .aspect_membership_dropdown { display: none; }
         }
-        .ajax_loader {
+        .ajax-loader {
           border-bottom: 1px solid $border-grey;
           padding: 10px;
+          .spinner {
+            height: 30px;
+            width: 30px;
+          }
         }
         .view_all {
           background-color: $link-color;
