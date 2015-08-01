@@ -10,8 +10,8 @@ describe Api::OpenidConnect::ClientsController, type: :controller do
              policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos",
              sector_identifier_uri: "http://example.com/uris", subject_type: "pairwise"
         client_json = JSON.parse(response.body)
-        expect(client_json["o_auth_application"]["client_id"].length).to eq(32)
-        expect(client_json["o_auth_application"]["ppid"]).to eq(true)
+        expect(client_json["client_id"].length).to eq(32)
+        expect(client_json["ppid"]).to eq(true)
       end
     end
     context "when redirect uri is missing" do
