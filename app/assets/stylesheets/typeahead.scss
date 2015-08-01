@@ -1,0 +1,30 @@
+.tt-menu {
+  width: 300px;
+  margin-top: 11px;
+  background-color: $navbar-inverse-bg;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  border-top: 1px solid $gray-dark;
+  color: $white;
+  cursor: pointer;
+  line-height: 20px;
+  &.tt-cursor {
+    background-color: $brand-primary;
+  }
+
+  &.search-suggestion-person {
+    padding: 8px;
+    .avatar {
+      height: 40px;
+      margin-right: 8px;
+      width: 40px;
+    }
+    .diaspora-id { font-size: $font-size-small; }
+  }
+  &.search-suggestion-hashtag {
+    padding: 8px 20px;
+    .name { line-height: 25px; }
+  }
+}

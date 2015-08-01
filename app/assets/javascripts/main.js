@@ -17,7 +17,6 @@
 //= require jakobmattsson-jquery-elastic
 //= require jquery.mentionsInput
 //= require jquery.infinitescroll-custom
-//= require jquery.autocomplete-custom
 //= require jquery-ui/core
 //= require jquery-ui/widget
 //= require jquery-ui/mouse
@@ -35,6 +34,7 @@
 //= require markdown-it-sup
 //= require highlightjs
 //= require clear-form
+//= require typeahead.js
 //= require app/app
 //= require diaspora
 //= require_tree ./helpers

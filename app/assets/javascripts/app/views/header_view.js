@@ -6,11 +6,6 @@ app.views.Header = app.views.Base.extend({
 
   className: "dark-header",
 
-  events: {
-    "focusin #q": "toggleSearchActive",
-    "focusout #q": "toggleSearchActive"
-  },
-
   presenter: function() {
     return _.extend({}, this.defaultPresenter(), {
       podname: gon.appConfig.settings.podname
@@ -24,13 +19,5 @@ app.views.Header = app.views.Base.extend({
   },
 
   menuElement: function(){ return this.$("ul.dropdown"); },
-
-  toggleSearchActive: function(evt){
-    // jQuery produces two events for focus/blur (for bubbling)
-    // don't rely on which event arrives first, by allowing for both variants
-    var isActive = (_.indexOf(["focus","focusin"], evt.type) !== -1);
-    $(evt.target).toggleClass("active", isActive);
-    return false;
-  }
 });
 // @license-end
