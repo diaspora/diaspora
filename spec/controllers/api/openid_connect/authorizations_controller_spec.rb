@@ -15,7 +15,6 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
   before do
     sign_in :user, alice
     allow(@controller).to receive(:current_user).and_return(alice)
-    Api::OpenidConnect::Scope.create!(name: "openid")
   end
 
   describe "#new" do
