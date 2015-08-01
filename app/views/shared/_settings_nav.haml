@@ -1,10 +1,12 @@
 .container-fluid
-  .col-lg-10.col-lg-offset-1
-    #section_header
-      %h2
-        = t('settings')
-      %ul.nav.nav-tabs#settings_nav
-        %li{class: current_page?(edit_profile_path) && 'active'}= link_to t('profile'), edit_profile_path
-        %li{class: current_page?(edit_user_path) && 'active'}= link_to t('account'), edit_user_path
-        %li{class: current_page?(privacy_settings_path) && 'active'}= link_to t('privacy'), privacy_settings_path
-        %li{class: current_page?(services_path) && 'active'}= link_to t('_services'), services_path
+  .row
+    .col-lg-10.col-lg-offset-1
+      #section_header
+        %h2
+          = t('settings')
+        %ul.nav.nav-tabs#settings_nav
+          %li{class: current_page?(edit_profile_path) && 'active'}= link_to t('profile'), edit_profile_path
+          %li{class: current_page?(edit_user_path) && 'active'}= link_to t('account'), edit_user_path
+          %li{class: current_page?(privacy_settings_path) && 'active'}= link_to t('privacy'), privacy_settings_path
+          %li{class: current_page?(services_path) && 'active'}= link_to t('_services'), services_path
+          %li{class: current_page?(user_applications_path) && 'active'}= link_to t('_applications'), user_applications_path

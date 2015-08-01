@@ -263,4 +263,6 @@ Diaspora::Application.routes.draw do
       get "user_info", to: "user_info#show"
     end
   end
+
+  resource :user_applications, only: [:show]
 end
