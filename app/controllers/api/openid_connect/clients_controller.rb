@@ -12,7 +12,7 @@ module Api
       def create
         registrar = OpenIDConnect::Client::Registrar.new(request.url, params)
         client = Api::OpenidConnect::OAuthApplication.register! registrar
-        render json: client
+        render json: client.as_json(root: false)
       end
 
       private
