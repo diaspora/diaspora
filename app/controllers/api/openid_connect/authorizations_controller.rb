@@ -17,6 +17,16 @@ module Api
         process_authorization_consent(params[:approve])
       end
 
+      def destroy
+        # TODO: Specs
+        begin
+          Api::OpenidConnect::Authorization.find_by(id: params[:id]).destroy
+        rescue
+          # TODO: Log something here?
+        end
+        redirect_to user_applications_url
+      end
+
       private
 
       def request_authorization_consent_form # TODO: Add support for prompt params
