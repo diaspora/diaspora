@@ -1,0 +1,21 @@
+- if @user_apps.applications?
+  %ul.list-group
+    - @user_apps.user_applications.each do |app|
+      %li.list-group-item
+        .row
+          .col-xs-2
+            = image_tag app[:image], class: "img-responsive"
+          .col-xs-10
+            - if app[:autorizations].count > 0
+              %h4="#{app[:name]} #{t("user_applications.show.access")}"
+              %ul
+                - app[:autorizations].each do |autorization|
+                  %li=autorization.name
+            - else
+              .well
+                =t("user_applications.show.no_requirement")
+
+- else
+  .well
+    %h4
+      = t("user_applications.show.no_applications")
