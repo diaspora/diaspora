@@ -9,7 +9,7 @@ o_auth_query_params = %i(
 Given /^I send a post request from that client to the implicit flow authorization endpoint$/ do
   client_json = JSON.parse(last_response.body)
   visit new_api_openid_connect_authorization_path +
-          "?client_id=#{client_json["client_id"]}&#{o_auth_query_params}"
+          "?client_id=#{client_json['client_id']}&#{o_auth_query_params}"
 end
 
 Given /^I send a post request from that client to the implicit flow authorization endpoint using a invalid client id/ do

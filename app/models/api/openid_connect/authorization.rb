@@ -30,7 +30,7 @@ module Api
       def create_code
         self.code = SecureRandom.hex(32)
         save
-        self.code
+        code
       end
 
       def create_access_token

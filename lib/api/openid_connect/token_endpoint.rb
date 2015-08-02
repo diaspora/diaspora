@@ -8,14 +8,14 @@ module Api
         @app = Rack::OAuth2::Server::Token.new do |req, res|
           o_auth_app = retrieve_client(req)
           if app_valid?(o_auth_app, req)
-            handle_flows(o_auth_app, req, res)
+            handle_flows(req, res)
           else
             req.invalid_client!
           end
         end
       end
 
-      def handle_flows(o_auth_app, req, res)
+      def handle_flows(req, res)
         case req.grant_type
         when :refresh_token
           handle_refresh_flow(req, res)

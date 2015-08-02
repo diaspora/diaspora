@@ -1,2 +1,6 @@
-class Api::V0::BasePresenter
+module Api
+  module V0
+    class BasePresenter
+    end
+  end
 end
