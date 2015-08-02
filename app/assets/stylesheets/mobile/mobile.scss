@@ -13,6 +13,8 @@
 @import "mobile/stream_element";
 @import "mobile/comments";
 
+@import "new_styles/typography";
+
 a {
   color: #2489ce;
   text-decoration: none;
@@ -34,10 +36,14 @@ body {
 
 h3 {  margin-top: 0; }
 .clear { clear: both; }
-#main { padding: 55px 10px 0 10px; }
+#main { padding: 56px 10px 0 10px; }
 
 .message {
   padding-left: 2px;
+}
+
+.avatar {
+  border-radius: 4px;
 }
 
 .stream_element,
@@ -52,7 +58,6 @@ h3 {  margin-top: 0; }
   * { max-width: 100%; }
 
   .avatar {
-    border-radius: 4px;
     float: left;
     margin-top: 0;
     max-width: 35px;

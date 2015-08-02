@@ -38,7 +38,7 @@ $(document).ready(function(){
   };
 
   /* Drawer menu */
-  $("#menu_badge").bind("tap click", function(evt){
+  $("#menu-badge").bind("tap click", function(evt){
     evt.preventDefault();
     $("#app").toggleClass("draw");
   });

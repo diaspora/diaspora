@@ -1,17 +1,17 @@
 When /^I toggle the mobile view$/ do
-  visit('/mobile/toggle')
+  visit("/mobile/toggle")
 end
 
 Given /^I visit the mobile publisher page$/ do
-  visit('/status_messages/new.mobile')
+  visit("/status_messages/new.mobile")
 end
 
 When /^I visit the mobile search page$/ do
-  visit('/people.mobile')
+  visit("/people.mobile")
 end
 
 When /^I open the drawer$/ do
-  find('#menu_badge').click
+  find("#menu-badge").click
 end
 
 Then /^the aspect dropdown within "([^"]*)" should be labeled "([^"]*)"/ do |selector, label|

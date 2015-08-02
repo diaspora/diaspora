@@ -16,3 +16,30 @@
   src : image-url('fonts/Roboto-Light.ttf');
   weight : normal;
 }
+
+/* diaspora custom icons font */
+@font-face {
+  font-family: "diaspora-custom";
+  src: image-url("fonts/diaspora-custom.ttf");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[class^="diaspora-custom-"]:before,
+[class*=" diaspora-custom-"]:before {
+  font-family: "diaspora-custom" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.diaspora-custom-compose:before {
+  content: "a";
+}
+.diaspora-custom-mail:before {
+  content: "b";
+}

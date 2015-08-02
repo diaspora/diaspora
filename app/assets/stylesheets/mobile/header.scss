@@ -2,56 +2,76 @@
 
 $drawer-width: 400px;
 $drawer-width-offset: $drawer-width + 50px;
+$mobile-navbar-height: 46px;
 
-header {
-  position: fixed;
-  height: 45px;
-  top: 0px;
-  z-index: 10;
-  @include header-gradient($header-background-color);
-  box-shadow: 0 1px 2px #333;
-  border-bottom: 1px solid darken($header-background-color, 8%);
-}
-
-#main_nav {
+#main-nav.navbar-fixed-top {
   width: 100%;
+  height: $mobile-navbar-height !important;
+  min-height: $mobile-navbar-height !important;
+  max-height: $mobile-navbar-height !important;
 
-  #header_title {
-    display: inline-block;
-    width: 45px;
-    height: 100%;
-    padding: 7px;
+  .navbar {
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-height: $mobile-navbar-height;
   }
 
-  #nav_badges {
+  #header-title {
+    padding: 7px 15px;
+    margin: 0 0 0 -15px;
+    height: $mobile-navbar-height;
+  }
+
+  #nav-badges {
     float: right;
-    margin: 7px 0;
-    display: inline-block;
+    margin: 0 -15px;
+    display: inline-flex;
+
+    li > a, li > button {
+      background-color: transparent;
+
+      &.badge-link {
+        font-size: 26px;
+        padding: 14px 6px;
+        text-align: center;
+        width: $mobile-navbar-height;
+        height: $mobile-navbar-height;
+
+        [class^="entypo-"], [class^="diaspora-custom-"] {
+          color: $white;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+
+          &.entypo-bell, &.diaspora-custom-compose {
+            text-align: center;
+            font-size: 22px;
+
+            &:before {
+              position: relative;
+              top: -2px;
+            }
+          }
+        }
+      }
+    }
+
+    .navbar-toggle {
+      display: unset;
+      margin: 6px 15px;
+    }
 
     .badge {
-      display: inline;
-      margin: 0 4px;
-      padding: 10px 6px;
-      font-weight: bold;
-      font-size: smaller;
-      background-color: transparent;
-    }
-
-    .badge_count {
-      border-radius: 2px;
       z-index: 3;
+      top: 6px;
+      right: 6px;
+      padding: 2px 6px;
       position: absolute;
-      top: 3px;
-      padding: 1px 3px;
       background-color: $red;
-      margin-left: -8px;
-    }
-
-    #conversation_icon {
-      height: 18px;
     }
   }
-  #nav_badges, #header_title{
+  #header-title{
     img {
       height: 30px;
       width: 30px;
@@ -74,25 +94,23 @@ header {
   header {
     width: 100%;
     position: absolute;
+    height: $mobile-navbar-height;
+    background-color: $navbar-inverse-bg;
+    border-bottom: solid $navbar-inverse-border 1px;
 
-    #global_search {
-
+    #global-search {
       form {
         padding: 0 15px;
         width: 100%;
 
-
         input {
-          box-shadow: 0 1px 1px #444;
-          border-radius: 15px;
-          margin-top: 5px;
-          background-color: #444;
-          border: 1px solid #222;
+          margin-top: 7px;
+          background-color: $navbar-inverse-bg;
           font-size: 13px;
           color: black;
 
           &.active {
-            background-color: rgba(160,160,160,0.6);
+            background-color: $white;
           }
 
           &:focus {
@@ -108,26 +126,25 @@ header {
 
   nav {
     position: absolute;
-    top: 45px;
-    bottom: 0px;
+    top: $mobile-navbar-height;
+    bottom: 0;
     overflow: auto;
     width: 100%;
 
     li {
       font-size: 1.8rem;
       line-height: 25px;
-      font-weight: bold;
       color: $light-grey;
-      border-bottom: solid rgb(53, 53, 53) 2px;
+      border-bottom: solid $navbar-inverse-border 1px;
     }
 
     li:hover {
       background-color: $link-grey;
     }
 
-    .no_border {
-      padding: 0px;
-      border-bottom: 0px;
+    .no-border {
+      padding: 0;
+      border-bottom: 0;
 
       &:hover {
         background-color: transparent;
@@ -165,20 +182,18 @@ header {
   }
 }
 
-#main_nav,
-#drawer {
+#main-nav, #drawer {
   transition: all 0.25s ease;
   z-index: 10;
 }
 
 /* This class is added when the user open the drawer */
 #app.draw {
-  #main_nav,
-  #drawer {
+  #main-nav, #drawer {
     transform: translateX(-$drawer-width);
   }
   @media (max-width: $drawer-width-offset) {
-    #main_nav {
+    #main-nav {
       transform: translateX(-80%);
     }
     #drawer {
