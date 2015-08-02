@@ -68,6 +68,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Extract PostService from PostsController [#6208](https://github.com/diaspora/diaspora/pull/6208)
 * Drop outdated/unused mbp-respond.min.js and mbp-modernizr-custom.js [#6257](https://github.com/diaspora/diaspora/pull/6257)
 * Refactor ApplicationController#after\_sign\_out\_path\_for [#6258](https://github.com/diaspora/diaspora/pull/6258)
+* Extract StatusMessageService from StatusMessagesController [#6280](https://github.com/diaspora/diaspora/pull/6280)
 
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
