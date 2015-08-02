@@ -255,5 +255,5 @@ Diaspora::Application.routes.draw do
     end
   end
 
-  resource :user_applications, only: [:show]
+  get "user_applications", to: "user_applications#index"
 end

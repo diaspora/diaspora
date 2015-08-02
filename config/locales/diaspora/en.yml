@@ -1478,11 +1478,25 @@ en:
     closed: "Closed"
     
   user_applications:
-    show:
+    index:
       edit_applications: "Applications"
-      title: "Your installed applications"
+      title: "Your authorized applications"
       access: "is authorized to access to:"
       no_requirement: "This application requires no autorizations"
       applications_explanation: "Here are listed the applications to which you autorized the access to your profile informations"
     no_applications: "You have no authorized application for now"
     revoke_autorization: "Revoke autorization"
+    scopes:
+      openid:
+        name: "basic profile"
+        description: "This allows the application to read informations of your basic profile"
+      extended:
+        name: "extended profile"
+        description: "This allows the application to read informations of your extended profile"
+      read:
+        name: "read profile, stream and conversations"
+        description: "This allows the application to read your stream, your conversations and your complete profile"
+      write:
+        name: "send post, conversations and likes"
+        description: "This allows the application to send new posts, start conversations or send a new messages in an existant conversation and send likes"
+    
