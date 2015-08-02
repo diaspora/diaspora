@@ -3,7 +3,10 @@
     - @user_apps.user_applications.each do |app|
       %li.list-group-item
         .application-img
-          = image_tag app[:image], class: "img-responsive"
+          - if app[:image]
+            = image_tag app[:image], class: "img-responsive"
+          - else
+            %i.entypo-browser
         .application-authorizations
           - if app[:authorizations].count > 0
             %h4="#{app[:name]} #{t("user_applications.index.access")}"

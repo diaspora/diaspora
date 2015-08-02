@@ -1,12 +1,27 @@
 .applications-page {
+  .applications-explenation {
+    margin-bottom: 15px;
+  }
+
   .application-img {
     display: inline;
+    padding: 9px 0;
     float: left;
+    text-align: center;
 
-    img {
+    &, img {
       width: 70px;
       max-height: 70px;
-      margin: 9px 0;
+    }
+
+    [class^="entypo-"] {
+      font-size: 60px;
+      height: 0;
+      width: 100%;
+      &::before {
+        position: relative;
+        top: -15px;
+      }
     }
   }
 
