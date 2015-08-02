@@ -307,6 +307,12 @@ FactoryGirl.define do
     redirect_uris ["http://localhost:3000/"]
   end
 
+  factory :o_auth_application_with_image, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris ["http://localhost:3000/"]
+    logo_uri "/assets/user/default.png"
+  end
+
   factory :o_auth_application_with_ppid, class: Api::OpenidConnect::OAuthApplication do
     client_name "Diaspora Test Client"
     redirect_uris ["http://localhost:3000/"]

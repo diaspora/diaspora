@@ -3,6 +3,17 @@ Given(/^all scopes exist$/) do
   Api::OpenidConnect::Scope.find_or_create_by(name: "read")
 end
 
+Given /^a client with a provided picture exists for user "([^\"]*)"$/ do |email|
+  app = FactoryGirl.create(:o_auth_application_with_image)
+  user = User.find_by(email: email)
+  FactoryGirl.create(:auth_with_read, user: user, o_auth_application: app)
+end
+
+Given /^a client exists for user "([^\"]*)"$/ do |email|
+  user = User.find_by(email: email)
+  FactoryGirl.create(:auth_with_read, user: user)
+end
+
 When /^I register a new client$/ do
   post api_openid_connect_clients_path, redirect_uris: ["http://localhost:3000"], client_name: "diaspora client"
 end
