@@ -19,10 +19,6 @@ module Api
         self.client_secret = SecureRandom.hex(32)
       end
 
-      def image_uri
-        logo_uri ? logo_uri : "branding/logos/asterisk.png"
-      end
-
       class << self
         def available_response_types
           ["id_token", "id_token token", "code"]
