@@ -14,6 +14,7 @@
 * Fix mobile photos index page [#6243](https://github.com/diaspora/diaspora/pull/6243)
 * Fix conversations view with no contacts [#6266](https://github.com/diaspora/diaspora/pull/6266)
 * Links in the left sidebar are now clickable on full width [#6267](https://github.com/diaspora/diaspora/pull/6267)
+* Guard against passing nil into person\_image\_tag [#6286](https://github.com/diaspora/diaspora/pull/6286)
 
 ## Features
 
