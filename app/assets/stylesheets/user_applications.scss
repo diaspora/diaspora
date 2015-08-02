@@ -1,0 +1,19 @@
+.applications-page {
+  .application-img {
+    display: inline;
+    float: left;
+
+    img {
+      width: 70px;
+      max-height: 70px;
+      margin: 9px 0;
+    }
+  }
+
+  .application-authorizations {
+    width: calc(100% - 70px);
+    padding: 0 0 15px 15px;
+    display: inline-block;
+    float: right;
+  }
+}
