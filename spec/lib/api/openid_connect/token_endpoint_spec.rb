@@ -1,10 +1,6 @@
 require "spec_helper"
 describe Api::OpenidConnect::TokenEndpoint, type: :request do
-  let!(:client) do
-    Api::OpenidConnect::OAuthApplication.create!(
-      redirect_uris: ["http://localhost:3000/"], client_name: "diaspora client",
-      ppid: true, sector_identifier_uri: "https://example.com/uri")
-  end
+  let!(:client) { FactoryGirl.create(:o_auth_application_with_ppid) }
   let!(:auth) do
     auth = Api::OpenidConnect::Authorization.find_or_create_by(
       o_auth_application: client, user: bob, redirect_uri: "http://localhost:3000/")

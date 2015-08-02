@@ -310,6 +310,54 @@ FactoryGirl.define do
 
   factory(:status, :parent => :status_message)
 
+  factory :o_auth_application, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris ["http://localhost:3000/"]
+  end
+
+  factory :o_auth_application_with_ppid, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris ["http://localhost:3000/"]
+    ppid true
+    sector_identifier_uri "https://example.com/uri"
+  end
+
+  factory :o_auth_application_with_multiple_redirects, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris ["http://localhost:3000/", "http://localhost/"]
+  end
+
+  factory :auth_with_read, class: Api::OpenidConnect::Authorization do
+    o_auth_application
+    user
+
+    after(:create) do |auth_with_read|
+      auth_with_read.scopes << [Api::OpenidConnect::Scope.find_or_create_by(name: "openid"),
+                                Api::OpenidConnect::Scope.find_or_create_by(name: "read")]
+    end
+  end
+
+  factory :auth_with_read_and_ppid, class: Api::OpenidConnect::Authorization do
+    association :o_auth_application, factory: :o_auth_application_with_ppid
+    user
+
+    after(:create) do |auth_with_read|
+      auth_with_read.scopes << [Api::OpenidConnect::Scope.find_or_create_by(name: "openid"),
+                                Api::OpenidConnect::Scope.find_or_create_by(name: "read")]
+    end
+  end
+
+  factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
+    o_auth_application
+    user
+
+    after(:create) do |auth_with_read|
+      auth_with_read.scopes << [Api::OpenidConnect::Scope.find_or_create_by(name: "openid"),
+                                Api::OpenidConnect::Scope.find_or_create_by(name: "read"),
+                                Api::OpenidConnect::Scope.find_or_create_by(name: "write")]
+    end
+  end
+
   # Factories for the DiasporaFederation-gem
 
   factory(:federation_person_from_webfinger, class: DiasporaFederation::Entities::Person) do
