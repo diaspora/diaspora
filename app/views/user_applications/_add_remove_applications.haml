@@ -2,25 +2,22 @@
   %ul.list-group
     - @user_apps.user_applications.each do |app|
       %li.list-group-item
-        .row
-          .col-xs-2.application-img
-            = image_tag app[:image], class: "img-responsive"
-          .col-xs-10
-            - if app[:authorizations].count > 0
-              %h4="#{app[:name]} #{t("user_applications.index.access")}"
-              %ul
-                - app[:authorizations].each do |authorization|
-                  %li
-                    %b= t("user_applications.scopes.#{authorization}.name")
-                    %p= t("user_applications.scopes.#{authorization}.description")
-            - else
-              .well
-                =t("user_applications.show.no_requirement")
-        .small-horizontal-spacer
-        .row
-          = form_for "application", url: "#{api_openid_connect_authorizations_path}/#{app[:id]}",
-              html: { method: :delete, class: "form-horizontal col-xs-12"} do |f|
-            .clearfix= f.submit t("user_applications.revoke_autorization"), class: "btn btn-primary pull-right"
+        .application-img
+          = image_tag app[:image], class: "img-responsive"
+        .application-authorizations
+          - if app[:authorizations].count > 0
+            %h4="#{app[:name]} #{t("user_applications.index.access")}"
+            %ul
+              - app[:authorizations].each do |authorization|
+                %li
+                  %b= t("user_applications.scopes.#{authorization}.name")
+                  %p= t("user_applications.scopes.#{authorization}.description")
+          - else
+            .well
+              =t("user_applications.show.no_requirement")
+        = form_for "application", url: "#{api_openid_connect_authorizations_path}/#{app[:id]}",
+            html: { method: :delete, class: "form-horizontal"} do |f|
+          .clearfix= f.submit t("user_applications.revoke_autorization"), class: "btn btn-primary pull-right"
 
 - else
   .well
