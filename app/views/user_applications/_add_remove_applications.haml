@@ -6,11 +6,13 @@
           .col-xs-2.application-img
             = image_tag app[:image], class: "img-responsive"
           .col-xs-10
-            - if app[:autorizations].count > 0
-              %h4="#{app[:name]} #{t("user_applications.show.access")}"
+            - if app[:authorizations].count > 0
+              %h4="#{app[:name]} #{t("user_applications.index.access")}"
               %ul
-                - app[:autorizations].each do |autorization|
-                  %li=autorization.name
+                - app[:authorizations].each do |authorization|
+                  %li
+                    %b= t("user_applications.scopes.#{authorization}.name")
+                    %p= t("user_applications.scopes.#{authorization}.description")
             - else
               .well
                 =t("user_applications.show.no_requirement")

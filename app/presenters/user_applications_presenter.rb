@@ -21,16 +21,17 @@ class UserApplicationsPresenter
 
   def app_as_json(application)
     {
-      id:            find_id(application),
-      name:          application.client_name,
-      image:         application.image_uri,
-      autorizations: find_scopes(application)
+      id:             find_id(application),
+      name:           application.client_name,
+      image:          application.image_uri,
+      authorizations: find_scopes(application)
     }
   end
 
   def find_scopes(application)
-    Api::OpenidConnect::Authorization.find_by_client_id_and_user(
+    scopes = Api::OpenidConnect::Authorization.find_by_client_id_and_user(
       application.client_id, @current_user).scopes
+    scopes.each_with_object([]){|scope, array| array << scope.name }
   end
 
   def find_id(application)
