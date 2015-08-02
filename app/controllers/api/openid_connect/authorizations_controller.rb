@@ -22,7 +22,7 @@ module Api
         begin
           Api::OpenidConnect::Authorization.find_by(id: params[:id]).destroy
         rescue
-          # TODO: Log something here?
+          logger.error "Error while trying revoke inexistant authorization #{params[:id]}"
         end
         redirect_to user_applications_url
       end

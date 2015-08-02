@@ -36,6 +36,8 @@ module NavigationHelpers
       edit_user_path
     when /^forgot password page$/
       new_user_password_path
+    when /^user applications page$/
+      user_applications_path
     when %r{^"(/.*)"}
       Regexp.last_match(1)
     else

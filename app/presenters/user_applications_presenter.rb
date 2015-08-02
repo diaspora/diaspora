@@ -23,7 +23,7 @@ class UserApplicationsPresenter
     {
       id:             find_id(application),
       name:           application.client_name,
-      image:          application.logo_uri,
+      image:          application.image_uri,
       authorizations: find_scopes(application)
     }
   end

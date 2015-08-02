@@ -19,6 +19,10 @@ module Api
         self.client_secret = SecureRandom.hex(32)
       end
 
+      def image_uri
+        logo_uri ? Diaspora::Camo.image_url(logo_uri) : nil
+      end
+
       class << self
         def available_response_types
           ["id_token", "id_token token", "code"]
