@@ -95,13 +95,17 @@ module Api
       end
 
       def restore_request_parameters
-        req = Rack::Request.new(request.env)
+        req = build_rack_request
         req.update_param("client_id", session[:client_id])
         req.update_param("redirect_uri", session[:redirect_uri])
         req.update_param("response_type", response_type_as_space_seperated_values)
         req.update_param("scope", session[:scopes])
         req.update_param("request_object", session[:request_object])
         req.update_param("nonce", session[:nonce])
+      end
+
+      def build_rack_request
+        Rack::Request.new(request.env)
       end
 
       def response_type_as_space_seperated_values

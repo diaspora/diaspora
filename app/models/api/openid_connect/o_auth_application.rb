@@ -20,7 +20,7 @@ module Api
       end
 
       def image_uri
-        self.logo_uri ? self.logo_uri : "branding/logos/asterisk.png"
+        logo_uri ? logo_uri : "branding/logos/asterisk.png"
       end
 
       class << self
