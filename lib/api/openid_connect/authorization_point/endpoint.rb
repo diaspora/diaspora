@@ -50,8 +50,6 @@ module Api
             end
           }
         end
-
-        # TODO: buildResponseType(req)
       end
     end
   end

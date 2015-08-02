@@ -57,7 +57,6 @@ module Api
         auth.code = nil if auth # Remove auth code if found so it can't be reused
         auth
       end
-      # TODO: Consider splitting into subclasses by flow type
     end
   end
 end
