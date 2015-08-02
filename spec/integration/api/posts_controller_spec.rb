@@ -23,6 +23,34 @@ describe Api::V0::PostsController do
     end
   end
 
+  describe "#create" do
+    context "when given read-write access token" do
+      it "creates a public post" do
+        post api_v0_posts_path, access_token: access_token_with_read_and_write,
+             status_message: {text: "Hello this is a public post!"}, aspect_ids: "public"
+        expect(Post.find_by(text: "Hello this is a public post!").public).to eq(true)
+      end
+
+      it "creates a private post" do
+        post api_v0_posts_path, access_token: access_token_with_read_and_write,
+             status_message: {text: "Hello this is a post!"}, aspect_ids: "1"
+        expect(Post.find_by(text: "Hello this is a post!").public).to eq(false)
+      end
+    end
+
+    context "when given read only access token" do
+      before do
+        post api_v0_posts_path, access_token: access_token_with_read,
+             status_message: {text: "Hello this is a post!"}, aspect_ids: "public"
+      end
+
+      it "doesn't create the post" do
+        json_body = JSON.parse(response.body)
+        expect(json_body["error"]).to eq("insufficient_scope")
+      end
+    end
+  end
+
   describe "#destroy" do
     context "when given read-write access token" do
       it "attempts to destroy the post" do

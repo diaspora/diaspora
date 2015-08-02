@@ -7,7 +7,7 @@ module Api
         require_access_token Api::OpenidConnect::Scope.find_by(name: "read")
       end
 
-      before_action only: :destroy do
+      before_action only: %i(create destroy) do
         require_access_token Api::OpenidConnect::Scope.find_by(name: "read"),
                              Api::OpenidConnect::Scope.find_by(name: "write")
       end
@@ -16,6 +16,11 @@ module Api
         posts_services = PostService.new(id: params[:id], user: current_user)
         posts_services.mark_user_notifications
         render json: posts_services.present_json
+      end
+
+      def create
+        @status_message = StatusMessageCreationService.new(params, current_user).status_message
+        render json: PostPresenter.new(@status_message, current_user)
       end
 
       def destroy
