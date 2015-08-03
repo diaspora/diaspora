@@ -197,16 +197,8 @@
               if(input.val() == ''){
                 break;
               }
-						case 13: case 188: // return, comma
-							tab_press = false;
-							var active = $("li.active:first", results_holder);
-							if(active.length > 0){
-								active.click();
-								results_holder.hide();
-							}
-							if(opts.neverSubmit || active.length > 0){
-								e.preventDefault();
-							}
+						case 13: // return
+              submit(e);
 							break;
 						default:
 							if(opts.showResultList){
@@ -220,7 +212,25 @@
 							}
 							break;
 					}
-				});
+				}).keypress(function(e) {
+          switch(e.which) {
+            case 44: // comma
+              submit(e);
+              break;
+          }
+        });
+
+        function submit(e) {
+          tab_press = false;
+          var active = $("li.active:first", results_holder);
+          if(active.length > 0) {
+            active.click();
+            results_holder.hide();
+          }
+          if(opts.neverSubmit || active.length > 0) {
+            e.preventDefault();
+          }
+        }
 
 				function keyChange() {
 					// ignore if the following keys are pressed: [del] [shift] [capslock]
