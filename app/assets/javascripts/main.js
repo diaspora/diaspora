@@ -12,7 +12,6 @@
 //= require jquery.charcount
 //= require jquery-placeholder
 //= require rails-timeago
-//= require browser_detection
 //= require jquery.events.input
 //= require jakobmattsson-jquery-elastic
 //= require jquery.mentionsInput

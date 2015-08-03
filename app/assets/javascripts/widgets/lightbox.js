@@ -116,12 +116,6 @@ jQuery.fn.center = (function() {
         images = selectedImage.parents(self.options.imageParent).find(self.options.imageSelector),
         imageThumb;
 
-      if( $.browser.msie ) {
-        /* No fancy schmancy lightbox for IE, because it doesn't work in IE */
-        window.open(imageUrl);
-        return;
-      }
-
       self.imageset.html("");
       images.each(function(index, image) {
         image = $(image);
