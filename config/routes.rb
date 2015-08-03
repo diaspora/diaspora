@@ -148,6 +148,10 @@ Diaspora::Application.routes.draw do
   end
 
   namespace :admin do
+    resources :pods, only: :index do
+      post :recheck
+    end
+
     post 'users/:id/close_account' => 'users#close_account', :as => 'close_account'
     post 'users/:id/lock_account' => 'users#lock_account', :as => 'lock_account'
     post 'users/:id/unlock_account' => 'users#unlock_account', :as => 'unlock_account'

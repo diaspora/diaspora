@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724152052) do
+ActiveRecord::Schema.define(version: 20150731123114) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -306,11 +306,21 @@ ActiveRecord::Schema.define(version: 20150724152052) do
   add_index "photos", ["status_message_guid"], name: "index_photos_on_status_message_guid", length: {"status_message_guid"=>191}, using: :btree
 
   create_table "pods", force: :cascade do |t|
-    t.string   "host",       limit: 255
+    t.string   "host",          limit: 255
     t.boolean  "ssl"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
+    t.integer  "status",        limit: 4,   default: 0
+    t.datetime "checked_at",                default: '1970-01-01 00:00:00'
+    t.datetime "offline_since"
+    t.integer  "response_time", limit: 4,   default: -1
+    t.string   "software",      limit: 255
+    t.string   "error",         limit: 255
   end
+
+  add_index "pods", ["checked_at"], name: "index_pods_on_checked_at", using: :btree
+  add_index "pods", ["offline_since"], name: "index_pods_on_offline_since", using: :btree
+  add_index "pods", ["status"], name: "index_pods_on_status", using: :btree
 
   create_table "poll_answers", force: :cascade do |t|
     t.string  "answer",     limit: 255,             null: false

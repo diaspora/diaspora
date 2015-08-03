@@ -5,15 +5,17 @@
 
 %ul#admin_nav.nav.nav-pills.nav-stacked
   %li{role: "presentation", class: current_page?(admin_dashboard_path) && "active"}
-    = link_to t('.dashboard'), admin_dashboard_path
+    = link_to t(".dashboard"), admin_dashboard_path
   %li{role: "presentation", class: current_page?(user_search_path) && "active"}
-    = link_to t('.user_search'), user_search_path
+    = link_to t(".user_search"), user_search_path
   %li{role: "presentation", class: current_page?(weekly_user_stats_path) && "active"}
-    = link_to t('.weekly_user_stats'), weekly_user_stats_path
+    = link_to t(".weekly_user_stats"), weekly_user_stats_path
   %li{role: "presentation", class: current_page?(pod_stats_path) && "active"}
-    = link_to t('.pod_stats'), pod_stats_path
+    = link_to t(".pod_stats"), pod_stats_path
   %li{role: "presentation", class: current_page?(report_index_path) && "active"}
-    = link_to t('.report'), report_index_path
+    = link_to t(".report"), report_index_path
+  %li{role: "presentation", class: current_page?(admin_pods_path) && "active"}
+    = link_to t(".pod_network"), admin_pods_path
   %li{role: "presentation", class: current_page?(sidekiq_path) && "active"}
-    = link_to t('.sidekiq_monitor'), sidekiq_path
+    = link_to t(".sidekiq_monitor"), sidekiq_path
 

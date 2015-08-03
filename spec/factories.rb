@@ -210,6 +210,11 @@ FactoryGirl.define do
     photo_url "/assets/user/adams.jpg"
   end
 
+  factory :pod do
+    host "pod.example.com"
+    ssl true
+  end
+
   factory(:comment) do
     sequence(:text) {|n| "#{n} cats"}
     association(:author, :factory => :person)

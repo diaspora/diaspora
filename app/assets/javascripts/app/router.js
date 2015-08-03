@@ -11,6 +11,7 @@ app.Router = Backbone.Router.extend({
     "users/sign_up": "registration",
     "profile/edit": "settings",
     "admins/dashboard": "adminDashboard",
+    "admin/pods": "adminPods",
 
     //new hotness
     "posts/:id": "singlePost",
@@ -50,6 +51,14 @@ app.Router = Backbone.Router.extend({
 
   adminDashboard: function() {
     app.page = new app.pages.AdminDashboard();
+  },
+
+  adminPods: function() {
+    this.renderPage(function() {
+      return new app.pages.AdminPods({
+        el: $("#pod-list")
+      });
+    });
   },
 
   contacts: function() {
