@@ -39,7 +39,7 @@ $(document).ready(function() {
     var bottomBar = toggleReactionsLink.closest(".bottom_bar").first(),
         commentsContainer = commentsContainerLazy(bottomBar),
         existingCommentsContainer = commentsContainer(),
-        commentActionLink = bottomBar.find("a.comment_action");
+        commentActionLink = bottomBar.find("a.comment-action");
     if (existingCommentsContainer.length > 0) {
       showLoadedComments(toggleReactionsLink, existingCommentsContainer, commentActionLink);
     } else {
@@ -73,7 +73,7 @@ $(document).ready(function() {
     };
   }
 
-  $(".stream").on("tap click", "a.comment_action", function(evt) {
+  $(".stream").on("tap click", "a.comment-action", function(evt) {
     evt.preventDefault();
     showCommentBox(this);
     var bottomBar = $(this).closest(".bottom_bar").first();
@@ -157,7 +157,7 @@ $(document).ready(function() {
   function handleCommentShowing(form, bottomBar) {
     var formContainer = form.parent();
     formContainer.remove();
-    var commentActionLink = bottomBar.find("a.comment_action").first();
+    var commentActionLink = bottomBar.find("a.comment-action").first();
     commentActionLink.addClass("inactive");
     var toggleReactionsLink = bottomBar.find(".show_comments").first();
     showComments(toggleReactionsLink);

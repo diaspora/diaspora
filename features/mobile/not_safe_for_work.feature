@@ -45,7 +45,7 @@ Feature: Not safe for work
     And I toggle all nsfw posts
     And I follow "Reshare"
     And I confirm the alert
-    Then I should see a "a.image_link.reshare_action.active"
+    Then I should see a "a.reshare-action.active"
 
     When I go to the home page
     Then I should not see "Sexy Senators Gone Wild!"
@@ -59,7 +59,7 @@ Feature: Not safe for work
     And I toggle all nsfw posts
     And I follow "Reshare"
     And I confirm the alert
-    Then I should see a "a.image_link.reshare_action.active"
+    Then I should see a "a.reshare-action.active"
 
     When I go to the home page
     Then I should not see "Sexy Senators Gone Wild!"
@@ -73,7 +73,7 @@ Feature: Not safe for work
     And I toggle all nsfw posts
     And I follow "Reshare"
     And I confirm the alert
-    Then I should see a "a.image_link.reshare_action.active"
+    Then I should see a "a.reshare-action.active"
 
     When I go to the home page
     Then I should not see "Sexy Senators Gone Wild!"

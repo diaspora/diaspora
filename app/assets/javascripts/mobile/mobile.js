@@ -56,7 +56,7 @@ $(document).ready(function(){
   });
 
   /* Heart toggle */
-  $(".like_action", ".stream").bind("tap click", function(evt){
+  $(".like-action", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
     var link = $(this),
         likeCounter = $(this).closest(".stream_element").find("like_count"),
@@ -99,7 +99,7 @@ $(document).ready(function(){
   });
 
   /* Reshare */
-  $(".reshare_action", ".stream").bind("tap click", function(evt){
+  $(".reshare-action", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
 
     var link = $(this),

@@ -16,15 +16,15 @@ Feature: reactions mobile post
   Scenario: like on a mobile post
     When I should see "No reactions" within ".show_comments"
     And I click on selector "span.show_comments"
-    And I click on selector "a.image_link.like_action.inactive"
-    Then I should see a "a.image_link.like_action.active"
+    And I click on selector "a.like-action.inactive"
+    Then I should see a "a.like-action.active"
     When I go to the stream page
     And I should see "1 reaction" within ".show_comments"
     And I click on selector "a.show_comments"
     Then I should see "1" within ".like_count"
 
   Scenario: comment and delete a mobile post
-    When I click on selector "a.image_link.comment_action.inactive"
+    When I click on selector "a.comment-action.inactive"
     And I fill in the following:
         | text            | is that a poodle?    |
     And I press "Comment"
@@ -33,7 +33,7 @@ Feature: reactions mobile post
     And I should see "1 reaction" within ".show_comments"
     And I click on selector "a.show_comments"
     And I should see "1" within ".comment_count"
-    When I click on selector "a.image_link.comment_action"
+    When I click on selector "a.comment-action"
     And I click on selector "a.remove"
     And I confirm the alert
     Then I should not see "1 reaction" within ".show_comments"

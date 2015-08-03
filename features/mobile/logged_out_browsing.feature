@@ -8,7 +8,7 @@ Feature: Browsing Diaspora as a logged out user mobile
       Given a user named "Bob Jones" with email "bob@bob.bob"
       And "bob@bob.bob" has a public post with text "public stuff"
       And I sign in as "bob@bob.bob"
-      And I click on selector "a.image_link.comment_action.inactive"
+      And I click on selector "a.comment-action.inactive"
       And I fill in the following:
           | text            | this also    |
       And I press "Comment"
