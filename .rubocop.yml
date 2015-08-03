@@ -1,5 +1,7 @@
 AllCops:
   RunRailsCops: true
+  Exclude:
+    - 'db/schema.rb'
 
 # Commonly used screens these days easily fit more than 80 characters.
 Metrics/LineLength:
