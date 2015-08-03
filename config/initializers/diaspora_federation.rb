@@ -3,11 +3,13 @@ DiasporaFederation.configure do |config|
   # the pod url
   config.server_uri = AppConfig.pod_uri
 
+  config.certificate_authorities = AppConfig.environment.certificate_authorities.get
+
   config.define_callbacks do
-    on :person_webfinger_fetch do |handle|
+    on :fetch_person_for_webfinger do |handle|
       person = Person.find_local_by_diaspora_handle(handle)
       if person
-        DiasporaFederation::WebFinger::WebFinger.new(
+        DiasporaFederation::Discovery::WebFinger.new(
           acct_uri:    "acct:#{person.diaspora_handle}",
           alias_url:   AppConfig.url_to("/people/#{person.guid}"),
           hcard_url:   AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
@@ -21,10 +23,10 @@ DiasporaFederation.configure do |config|
       end
     end
 
-    on :person_hcard_fetch do |guid|
+    on :fetch_person_for_hcard do |guid|
       person = Person.find_local_by_guid(guid)
       if person
-        DiasporaFederation::WebFinger::HCard.new(
+        DiasporaFederation::Discovery::HCard.new(
           guid:             person.guid,
           nickname:         person.username,
           full_name:        "#{person.profile.first_name} #{person.profile.last_name}".strip,
