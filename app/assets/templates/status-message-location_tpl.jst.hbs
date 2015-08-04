@@ -1,5 +1,5 @@
-{{#if location}}
+{{#if location.address}}
   <div class='near-from'>
-    <a href="/posts/{{id}}">{{ t "publisher.near_from" location=location}}</a>
+    <a href="/posts/{{id}}">{{ t "publisher.near_from" location=location.address}}</a>
   </div>
 {{/if}}

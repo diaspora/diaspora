@@ -4,12 +4,12 @@ app.views.LocationMap = app.views.Content.extend({
   templateName: "status-message-map",
 
   map: function() {
-      var coordinates = this.model.get("coordinates");
+      var location = this.model.get("location");
 
       // if (coordinates != "" && tileserver.enable) {  // for when the tileserver is set via the diaspora.yml
-      if (coordinates.lat) {
+      if (location.lat) {
         var tileLayerSource = "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}";
-        var map = L.map("map").setView([coordinates.lat, coordinates.lng], 16);
+        var map = L.map("map").setView([location.lat, location.lng], 16);
         var attribution = "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
                           "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
                           "Imagery © <a href='http://mapbox.com'>Mapbox</a>";
@@ -21,7 +21,7 @@ app.views.LocationMap = app.views.Content.extend({
           accessToken: "pk.eyJ1IjoiemF6aWVtbyIsImEiOiI3ODVjMzVjNmM2ZTU3YWM3YTE5YWYwMTRhODljM2M1MSJ9.-nVgyS4PLnV4m9YkvMB5wA"
         }).addTo(map);
 
-        var markerOnMap = L.marker(coordinates).addTo(map);
+        var markerOnMap = L.marker(location).addTo(map);
 
         return map;
       }

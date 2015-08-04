@@ -158,12 +158,12 @@ class StatusMessage < Post
     self.open_graph_url = self.message.urls[0]
   end
 
-  def address
-    location.try(:address)
-  end
-
-  def coordinates
-    {lat: location.try(:lat), lng: location.try(:lng)}
+  def post_location
+    {
+      address: location.try(:address),
+      lat:     location.try(:lat),
+      lng:     location.try(:lng)
+    }
   end
 
   protected

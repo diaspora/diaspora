@@ -444,22 +444,23 @@ describe StatusMessage, type: :model do
     end
   end
 
-  describe ".coordinates" do
+  describe "#coordinates" do
     let(:status_message) { build(:status_message, text: @message_text) }
 
     context "with location" do
       let(:location) { build(:location) }
 
-      it "should deliver coordinates" do
+      it "should deliver address and coordinates" do
         status_message.location = location
-        expect(status_message.coordinates).to include(lat: location.lat, lng: location.lng)
+        expect(status_message.post_location).to include(address: location.address, lat: location.lat, lng: location.lng)
       end
     end
 
     context "without location" do
-      it "should deliver empty coordinates" do
-        expect(status_message.coordinates[:lat]).to be_nil
-        expect(status_message.coordinates[:lng]).to be_nil
+      it "should deliver empty address and coordinates" do
+        expect(status_message.post_location[:address]).to be_nil
+        expect(status_message.post_location[:lat]).to be_nil
+        expect(status_message.post_location[:lng]).to be_nil
       end
     end
   end

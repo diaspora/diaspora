@@ -39,8 +39,8 @@ app.views.Content = app.views.Base.extend({
   },
 
   location: function(){
-    var address = this.model.get('address')? this.model.get('address') : '';
-    return address;
+    var location = this.model.get("location")? this.model.get("location") : "";
+    return location;
   },
 
   collapseOversized : function() {

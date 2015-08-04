@@ -44,12 +44,12 @@ class Reshare < Post
     absolute_root.try(:photos) || super
   end
 
-  def address
-    absolute_root.try(:location).try(:address)
-  end
-
-  def coordinates
-    {lat: absolute_root.try(:location).try(:lat), lng: absolute_root.try(:location).try(:lng)}
+  def post_location
+    {
+      address: absolute_root.try(:location).try(:address),
+      lat:     absolute_root.try(:location).try(:lat),
+      lng:     absolute_root.try(:location).try(:lng)
+    }
   end
 
   def poll
