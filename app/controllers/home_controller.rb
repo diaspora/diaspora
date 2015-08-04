@@ -26,13 +26,7 @@ class HomeController < ApplicationController
   end
 
   def toggle_mobile
-    if session[:mobile_view].nil?
-      # we're most probably not on mobile, but user wants it anyway
-      session[:mobile_view] = true
-    else
-      # switch from mobile to normal html
-      session[:mobile_view] = !session[:mobile_view]
-    end
+    session[:mobile_view] = session[:mobile_view].nil? ? true : !session[:mobile_view]
 
     redirect_to :back
   end
