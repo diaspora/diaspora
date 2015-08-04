@@ -20,7 +20,6 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   setupBindings: function() {
-    this.model.comments.bind('add', this.appendComment, this);
     this.model.bind("commentsExpanded", this.storeTextareaValue, this);
     this.model.bind("commentsExpanded", this.render, this);
   },
@@ -49,6 +48,7 @@ app.views.CommentStream = app.views.Base.extend({
     this.$(".comment_box").val("");
     this.$(".comment_box").css("height", "");
     if(commentText) {
+      this.model.comments.bind("add", this.appendComment, this);
       this.model.comment(commentText);
       return this;
     } else {
@@ -66,6 +66,7 @@ app.views.CommentStream = app.views.Base.extend({
   appendComment: function(comment) {
     // Set the post as the comment's parent, so we can check
     // on post ownership in the Comment view.
+    this.model.comments.unbind("add", this.appendComment);
     comment.set({parent : this.model.toJSON()});
 
     this.$(".comments").append(new app.views.Comment({
