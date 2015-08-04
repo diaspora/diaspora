@@ -1479,22 +1479,22 @@ en:
     index:
       edit_applications: "Applications"
       title: "Your authorized applications"
-      access: "is authorized to access to:"
-      no_requirement: "This application requires no autorizations"
-      applications_explanation: "Here are listed the applications to which you autorized the access to your profile informations"
-    no_applications: "You have no authorized application for now"
-    revoke_autorization: "Revoke autorization"
+      access: "is authorized access to:"
+      no_requirement: "This application requires no permissions"
+      applications_explanation: "Here is a list of applications that you to which have authorized your profile information"
+    no_applications: "You have no authorized applications for now"
+    revoke_autorization: "Revoke"
     scopes:
       openid:
         name: "basic profile"
-        description: "This allows the application to read informations of your basic profile"
+        description: "This allows the application to read your basic profile"
       extended:
         name: "extended profile"
-        description: "This allows the application to read informations of your extended profile"
+        description: "This allows the application to read your extended profile"
       read:
         name: "read profile, stream and conversations"
         description: "This allows the application to read your stream, your conversations and your complete profile"
       write:
-        name: "send post, conversations and likes"
-        description: "This allows the application to send new posts, start conversations or send a new messages in an existant conversation and send likes"
+        name: "send posts, conversations and reactions"
+        description: "This allows the application to send new posts, write conversations, and send reactions"
     
