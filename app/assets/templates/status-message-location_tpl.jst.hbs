@@ -1,5 +1,8 @@
 {{#if location.address}}
   <div class='near-from'>
-    <a href="/posts/{{id}}">{{ t "publisher.near_from" location=location.address}}</a>
+    {{t "publisher.near_from" location=location.address}}
+  </div>
+  <div>
+    <div class="mapContainer empty"></div>
   </div>
 {{/if}}

@@ -57,7 +57,6 @@
                 {{t "stream.via" provider=provider_display_name}}
               {{/if}}
             {{/if}}
-            <div class="status-message-location" />
           </div>
           {{#unless root}}
             <div id="single-post-moderation" />
@@ -67,6 +66,9 @@
       {{#unless root}}
         <div id="single-post-actions" class="col-md-4" />
       {{/unless}}
+    </div>
+    <div class="row">
+      <div class="status-message-location" />
     </div>
     {{#if root}}
       <div class="row reshare">
@@ -99,5 +101,4 @@
 <div id="body" class="row">
   <div id="real-post-content" class="post-content col-md-12">
   </div>
-  <div class="map col-md-12"></div>
 </div>

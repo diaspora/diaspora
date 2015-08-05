@@ -1,7 +1,11 @@
-#map {
-  height: 180px;
+.map {
   position: relative;
   overflow: hidden;
+}
+
+.near-from:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .leaflet-bottom .leaflet-control {

@@ -25,10 +25,9 @@ describe("app.views.Content", function(){
       expect(this.view.presenter().isReshare).toBeTruthy();
     });
 
-    // it("provides coordinates", function(){
-    //   this.post.location;
-    //   console.log(this.view.presenter());
-    //   console.log(this.post.location);
-    // });
+    it("provides location", function(){
+      this.post.set({location : factory.location()});
+      expect(this.view.presenter().location).toEqual(factory.location());
+    });
   });
 });

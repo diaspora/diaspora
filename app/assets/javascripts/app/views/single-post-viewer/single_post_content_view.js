@@ -11,7 +11,6 @@ app.views.SinglePostContent = app.views.Base.extend({
     ".oembed" : "oEmbedView",
     ".opengraph" : "openGraphView",
     ".status-message-location" : "postLocationStreamView",
-    ".map" : "postMapView",
     '.poll': 'pollView',
   },
 
@@ -21,7 +20,6 @@ app.views.SinglePostContent = app.views.Base.extend({
     this.oEmbedView = new app.views.OEmbed({model : this.model});
     this.openGraphView = new app.views.SPVOpenGraph({model : this.model});
     this.postContentView = new app.views.ExpandedStatusMessage({model: this.model});
-    this.postMapView = new app.views.LocationMap({model: this.model});
     this.pollView = new app.views.Poll({ model: this.model });
   },
 
