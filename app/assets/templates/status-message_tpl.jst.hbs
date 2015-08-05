@@ -24,15 +24,15 @@
 
 {{#if largePhoto}}
   <div class="photo_attachments nsfw-hidden">
-    <a href="#" class="stream-photo-link">
-      {{#with largePhoto}}
-        <img src="{{sizes.large}}" class="stream-photo big_stream_photo" data-small-photo="{{sizes.small}}" data-full-photo="{{sizes.large}}" rel="lightbox">
-      {{/with}}
-    </a>
+    {{#with largePhoto}}
+      <a href="{{sizes.large}}" class="stream-photo-link gallery-picture">
+        <img src="{{sizes.large}}" class="stream-photo big_stream_photo">
+      </a>
+    {{/with}}
 
     {{#each smallPhotos}}
-      <a href="#" class="stream-photo-link">
-        <img src="{{sizes.small}}" class="stream-photo thumb_small" data-small-photo="{{sizes.small}}" data-full-photo="{{sizes.large}}" rel="lightbox">
+      <a href="{{sizes.large}}" class="stream-photo-link gallery-picture">
+        <img src="{{sizes.small}}" class="stream-photo thumb_small">
       </a>
     {{/each}}
   </div>

@@ -73,6 +73,10 @@ app.views.Content = app.views.Base.extend({
 
   postRenderTemplate : function(){
     _.defer(_.bind(this.collapseOversized, this));
+    var photoAttachments = this.$(".photo_attachments");
+    if(photoAttachments.length > 0) {
+      new app.views.Gallery({ el: photoAttachments });
+    }
   }
 });
 
@@ -82,6 +86,10 @@ app.views.StatusMessage = app.views.Content.extend({
 
 app.views.ExpandedStatusMessage = app.views.StatusMessage.extend({
   postRenderTemplate : function(){
+    var photoAttachments = this.$(".photo_attachments");
+    if(photoAttachments.length > 0) {
+      new app.views.Gallery({ el: photoAttachments });
+    }
   }
 });
 

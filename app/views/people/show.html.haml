@@ -26,7 +26,7 @@
         -if user_signed_in? && current_page?(person_path(current_user.person))
           = render 'publisher/publisher', publisher_aspects_for(nil)
 
-        #main_stream.stream
+        .stream.clearfix#main_stream
           -# JS
 
         #paginate

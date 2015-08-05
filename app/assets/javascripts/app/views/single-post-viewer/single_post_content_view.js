@@ -1,17 +1,17 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.SinglePostContent = app.views.Base.extend({
-  templateName: 'single-post-viewer/single-post-content',
+  templateName: "single-post-viewer/single-post-content",
   tooltipSelector: "time, .post_scope",
 
   subviews : {
     "#single-post-actions" : "singlePostActionsView",
-    '#single-post-moderation': "singlePostModerationView",
-    '#real-post-content' : 'postContentView',
+    "#single-post-moderation": "singlePostModerationView",
+    "#real-post-content" : "postContentView",
     ".oembed" : "oEmbedView",
     ".opengraph" : "openGraphView",
     ".status-message-location" : "postLocationStreamView",
-    '.poll': 'pollView',
+    ".poll": "pollView"
   },
 
   initialize : function() {
