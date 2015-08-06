@@ -7,13 +7,33 @@ o_auth_query_params = %i(
   prompt=login
 ).join("&")
 
-Given /^I send a post request from that client to the implicit flow authorization endpoint$/ do
+o_auth_query_params_with_max_age = %i(
+  redirect_uri=http://localhost:3000
+  response_type=id_token%20token
+  scope=openid%20read
+  nonce=hello
+  state=hi
+  prompt=login
+  max_age=30
+).join("&")
+
+Given /^I send a post request from that client to the authorization endpoint$/ do
   client_json = JSON.parse(last_response.body)
   visit new_api_openid_connect_authorization_path +
           "?client_id=#{client_json['client_id']}&#{o_auth_query_params}"
 end
 
-Given /^I send a post request from that client to the implicit flow authorization endpoint using a invalid client id/ do
+Given /^I pass time$/ do
+  Timecop.travel(Time.zone.now + 1.minute)
+end
+
+Given /^I send a post request from that client to the authorization endpoint with max age$/ do
+  client_json = JSON.parse(last_response.body)
+  visit new_api_openid_connect_authorization_path +
+          "?client_id=#{client_json['client_id']}&#{o_auth_query_params_with_max_age}"
+end
+
+Given /^I send a post request from that client to the authorization endpoint using a invalid client id$/ do
   visit new_api_openid_connect_authorization_path + "?client_id=randomid&#{o_auth_query_params}"
 end
 

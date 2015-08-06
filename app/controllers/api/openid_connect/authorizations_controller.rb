@@ -10,7 +10,9 @@ module Api
 
       def new
         auth = Api::OpenidConnect::Authorization.find_by_client_id_and_user(params[:client_id], current_user)
-        if params[:prompt]
+        if logged_in_before?(params[:max_age])
+          reauthenticate
+        elsif params[:prompt]
           prompt = params[:prompt].split(" ")
           handle_prompt(prompt, auth)
         else
@@ -41,14 +43,20 @@ module Api
                                      "There is no support for choosing among multiple accounts")
         elsif prompt.include? "none"
           handle_prompt_none(prompt, auth)
-        elsif prompt.include?("login") && logged_in_more_than_5_minutes_ago?
-          handle_prompt_params_error("login_required",
-                                     "There is no support for re-authenticating already authenticated users")
+        elsif prompt.include?("login") && logged_in_before?(60)
+          reauthenticate
         elsif prompt.include? "consent"
           request_authorization_consent_form
         else
           handle_authorization_form(auth)
         end
+      end
+
+      def reauthenticate
+        sign_out current_user
+        params_as_get_query = params.map {|key, value| key.to_s + "=" + value }.join("&")
+        authorization_path_with_query = new_api_openid_connect_authorization_path + "?" + params_as_get_query
+        redirect_to authorization_path_with_query
       end
 
       def handle_authorization_form(auth)
@@ -64,8 +72,12 @@ module Api
         handle_start_point_response(endpoint)
       end
 
-      def logged_in_more_than_5_minutes_ago?
-        (current_user.current_sign_in_at.to_i - Time.zone.now.to_i) > 300
+      def logged_in_before?(seconds)
+        if seconds.nil?
+          false
+        else
+          (Time.zone.now.utc.to_i - current_user.current_sign_in_at.to_i) > seconds.to_i
+        end
       end
 
       def handle_prompt_none(prompt, auth)
