@@ -301,7 +301,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
 
     context "with non-existent authorization" do
       it "raises an error" do
-        expect{ delete :destroy, id: 123456789 }.to raise_error(ArgumentError)
+        expect { delete :destroy, id: 123_456_789 }.to raise_error(ArgumentError)
       end
     end
   end
