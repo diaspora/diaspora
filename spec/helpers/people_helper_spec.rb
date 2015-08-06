@@ -23,6 +23,9 @@ describe PeopleHelper, :type => :helper do
   end
 
   describe "#person_image_tag" do
+    it "returns an empty string if person is nil" do
+      expect(person_image_tag(nil)).to eq("")
+    end
     it "should not allow basic XSS/HTML" do
       @person.profile.first_name = "I'm <h1>Evil"
       @person.profile.last_name = "I'm <h1>Evil"
