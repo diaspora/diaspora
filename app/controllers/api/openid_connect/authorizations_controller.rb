@@ -9,7 +9,13 @@ module Api
       before_action :authenticate_user!
 
       def new
-        request_authorization_consent_form
+        auth = Api::OpenidConnect::Authorization.find_by_client_id_and_user(params[:client_id], current_user)
+        if params[:prompt]
+          prompt = params[:prompt].split(" ")
+          handle_prompt(prompt, auth)
+        else
+          handle_authorization_form(auth)
+        end
       end
 
       def create
@@ -29,12 +35,50 @@ module Api
 
       private
 
-      def request_authorization_consent_form # TODO: Add support for prompt params
-        if Api::OpenidConnect::Authorization.find_by_client_id_and_user(params[:client_id], current_user)
+      def handle_prompt(prompt, auth)
+        if prompt.include? "select_account"
+          handle_prompt_params_error("account_selection_required",
+                                     "There is no support for choosing among multiple accounts")
+        elsif prompt.include? "none"
+          handle_prompt_none(prompt, auth)
+        elsif prompt.include?("login") && logged_in_more_than_5_minutes_ago?
+          handle_prompt_params_error("login_required",
+                                     "There is no support for re-authenticating already authenticated users")
+        elsif prompt.include? "consent"
+          request_authorization_consent_form
+        else
+          handle_authorization_form(auth)
+        end
+      end
+
+      def handle_authorization_form(auth)
+        if auth
           process_authorization_consent("true")
         else
-          endpoint = Api::OpenidConnect::AuthorizationPoint::EndpointStartPoint.new(current_user)
-          handle_start_point_response(endpoint)
+          request_authorization_consent_form
+        end
+      end
+
+      def request_authorization_consent_form
+        endpoint = Api::OpenidConnect::AuthorizationPoint::EndpointStartPoint.new(current_user)
+        handle_start_point_response(endpoint)
+      end
+
+      def logged_in_more_than_5_minutes_ago?
+        (current_user.current_sign_in_at.to_i - Time.zone.now.to_i) > 300
+      end
+
+      def handle_prompt_none(prompt, auth)
+        if prompt == ["none"]
+          if auth
+            process_authorization_consent("true")
+          else
+            handle_prompt_params_error("interaction_required",
+                                       "The Authentication Request cannot be completed without end-user interaction")
+          end
+        else
+          handle_prompt_params_error("invalid_request",
+                                     "The 'none' value cannot be used with any other prompt value")
         end
       end
 
@@ -114,6 +158,26 @@ module Api
         else
           session[:response_type]
         end
+      end
+
+      def handle_prompt_params_error(error, error_description)
+        if params[:client_id] && params[:redirect_uri]
+          app = Api::OpenidConnect::OAuthApplication.find_by(client_id: params[:client_id])
+          if app && app.redirect_uris.include?(params[:redirect_uri])
+            redirect_prompt_error_display(error, error_description)
+          else
+            render json: {error:       "bad_request",
+                          description: "No client with client_id " + params[:client_id] + " found"}
+          end
+        else
+          render json: {error: "bad_request", description: "Missing client id or redirect URI"}
+        end
+      end
+
+      def redirect_prompt_error_display(error, error_description)
+        redirect_params_hash = {error: error, error_description: error_description, state: params[:state]}
+        redirect_fragment = redirect_params_hash.compact.map {|key, value| key.to_s + "=" + value }.join("&")
+        redirect_to params[:redirect_uri] + "#" + redirect_fragment
       end
     end
   end

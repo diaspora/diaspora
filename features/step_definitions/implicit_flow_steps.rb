@@ -4,6 +4,7 @@ o_auth_query_params = %i(
   scope=openid%20read
   nonce=hello
   state=hi
+  prompt=login
 ).join("&")
 
 Given /^I send a post request from that client to the implicit flow authorization endpoint$/ do
