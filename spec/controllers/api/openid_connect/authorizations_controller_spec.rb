@@ -3,6 +3,7 @@ require "spec_helper"
 describe Api::OpenidConnect::AuthorizationsController, type: :controller do
   let!(:client) { FactoryGirl.create(:o_auth_application) }
   let!(:client_with_multiple_redirects) { FactoryGirl.create(:o_auth_application_with_multiple_redirects) }
+  let!(:auth_with_read) { FactoryGirl.create(:auth_with_read) }
 
   before do
     sign_in :user, alice
@@ -215,6 +216,24 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should NOT contain code" do
           expect(response.location).to_not have_content("code")
         end
+      end
+    end
+  end
+
+  describe "#destroy" do
+    context "with existent authorization" do
+      before do
+        delete :destroy, id: auth_with_read.id
+      end
+
+      it "removes the authorization" do
+        expect(Api::OpenidConnect::Authorization.find_by(id: auth_with_read.id)).to be_nil
+      end
+    end
+
+    context "with non-existent authorization" do
+      it "raises an error" do
+        expect{ delete :destroy, id: 123456789 }.to raise_error(ArgumentError)
       end
     end
   end

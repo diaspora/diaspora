@@ -18,11 +18,11 @@ module Api
       end
 
       def destroy
-        # TODO: Specs
-        begin
-          Api::OpenidConnect::Authorization.find_by(id: params[:id]).destroy
-        rescue
-          logger.error "Error while trying revoke inexistant authorization #{params[:id]}"
+        authorization = Api::OpenidConnect::Authorization.find_by(id: params[:id])
+        if authorization
+          authorization.destroy
+        else
+          raise ArgumentError, "Error while trying revoke non-existent authorization with ID #{params[:id]}"
         end
         redirect_to user_applications_url
       end
