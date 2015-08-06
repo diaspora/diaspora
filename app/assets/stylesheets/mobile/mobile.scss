@@ -11,6 +11,7 @@
 @import "mobile/conversations";
 @import "mobile/settings";
 @import "mobile/stream_element";
+@import "mobile/comments";
 
 a {
   color: #2489ce;
@@ -369,87 +370,6 @@ h3 {  margin-top: 0; }
   float: right;
 }
 
-.bottom_bar {
-  border-radius: 0 0 5px 5px;
-  z-index: 3;
-  display: block;
-  position: relative;
-  padding: 10px;
-  padding-top: 8px;
-  background: $background-grey;
-
-  margin: {
-    top: 10px; };
-
-  border: {
-    top: 1px solid $border-grey;
-  };
-
-  min-height: 22px;
-
-  > a,
-  .show_comments {
-    @include transition(color);
-    color: $text-grey;
-    font-weight: bold;
-  }
-
-  .show_comments {
-    position: relative;
-    top: 3px;
-    color: #ccc;
-  }
-
-  a.show_comments {
-    color: $text-grey;
-
-    &.active:not(.bottom_collapse) {
-      color: #444;
-      padding: {
-        right: 14px;
-      }
-      background: {
-        image: image-url("mobile/arrow_down_small.png");
-        position: center right;
-        repeat: no-repeat;
-      }
-    }
-  }
-
-  #bottom_bar_tabs {
-    display: table;
-    width: 100%;
-    text: {
-      align: center;
-    }
-    border: {
-      bottom: 1px solid #ccc;
-    }
-    font: {
-      size: 28px;
-    }
-    color: #ccc;
-
-    .tab {
-      display: table-cell;
-      position:relative;
-      top: -5px;
-
-      border: {
-        right: 1px solid #ccc;
-      }
-
-      &:last-child {
-        border: none;
-      }
-    }
-  }
-}
-
-.floater {
-  float: right;
-}
-
 .photo_area {
   border-radius: 3px;
   text-align: center; }
@@ -473,27 +393,6 @@ h3 {  margin-top: 0; }
 
   &.loading {
     background-image: image-url("mobile-spinner.gif");
-  }
-}
-
-.reshare_action {
-  background-image: image-url("mobile/reshare_mobile.png");
-  &.active {
-    background-image: image-url("mobile/reshare_mobile_active.png");
-  }
-}
-
-.like_action {
-  background-image: image-url("mobile/heart_mobile_grey.png");
-  &.active {
-    background-image: image-url("mobile/heart_mobile_red.png");
-  }
-}
-
-.comment_action.image_link {
-  background-image: image-url("mobile/pencil_mobile_grey_active.png");
-  &.inactive {
-    background-image: image-url("mobile/pencil_mobile_grey.png");
   }
 }
 

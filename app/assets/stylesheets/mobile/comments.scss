@@ -1,0 +1,51 @@
+.bottom_bar {
+  border-radius: 0 0 5px 5px;
+  z-index: 3;
+  display: block;
+  position: relative;
+  padding: 8px 10px 10px;
+  background: $background-grey;
+  margin-top: 10px;
+  border-top: 1px solid $border-grey;
+  min-height: 22px;
+
+  > a, .show_comments {
+    @include transition(color);
+    color: $text-grey;
+    font-weight: bold;
+  }
+
+  .show_comments {
+    position: relative;
+    top: 3px;
+  }
+
+  a.show_comments.active:not(.bottom_collapse) {
+    color: $text;
+    padding-right: 14px;
+    background: {
+      image: image-url("mobile/arrow_down_small.png");
+      position: center right;
+      repeat: no-repeat;
+    }
+  }
+
+  .floater {
+    top: -5px;
+    float: right;
+    height: 28px;
+    overflow: hidden;
+    position: relative;
+
+    [class^="entypo"] {
+      height: 90%;
+      margin: 0 4px;
+      color: $text-grey;
+      font-size: 24px;
+      &:hover, &:active, &:focus{ text-decoration: none; }
+      &:last-child { margin-right: 1px; }
+      &.entypo-reshare.active { color: $blue; }
+      &.entypo-heart.active { color: $red; }
+    }
+  }
+}

@@ -45,6 +45,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Replace MBP.autogrow with autosize on mobile [#6261](https://github.com/diaspora/diaspora/pull/6261)
 * Improve mobile drawer transition [#6233](https://github.com/diaspora/diaspora/pull/6233)
 * Remove unused header icons and an unused favicon  [#6283](https://github.com/diaspora/diaspora/pull/6283)
+* Replace mobile icons for post interactions with Entypo icons [#6291](https://github.com/diaspora/diaspora/pull/6291)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

@@ -16,7 +16,7 @@ Feature: Viewing my activity on the steam mobile page
     And I should not see "Hello! I am #newhere"
 
   Scenario: Show post on my activity
-    When I click on selector "a.image_link.like_action.inactive"
+    When I click on selector "a.like-action.inactive"
     And I open the drawer
     And I follow "My activity"
     Then I should see "My activity"
