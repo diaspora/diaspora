@@ -31,7 +31,7 @@ class UserApplicationsPresenter
   def find_scopes(application)
     scopes = Api::OpenidConnect::Authorization.find_by_client_id_and_user(
       application.client_id, @current_user).scopes
-    scopes.each_with_object([]){|scope, array| array << scope.name }
+    scopes.each_with_object([]) {|scope, array| array << scope.name }
   end
 
   def find_id(application)

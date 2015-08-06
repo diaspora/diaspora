@@ -84,6 +84,51 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           expect(response.location).to match("error=invalid_request")
         end
       end
+
+      context "when prompt is none" do
+        it "should return an interaction required error" do
+          post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
+               response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
+          expect(response.location).to match("error=interaction_required")
+          expect(response.location).to match("state=1234")
+        end
+      end
+
+      context "when prompt is none and consent" do
+        it "should return an interaction required error" do
+          post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
+               response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none consent"
+          expect(response.location).to match("error=invalid_request")
+          expect(response.location).to match("state=1234")
+        end
+      end
+
+      context "when prompt is select_account" do
+        it "should return an account_selection_required error" do
+          post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
+               response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "select_account"
+          expect(response.location).to match("error=account_selection_required")
+          expect(response.location).to match("state=1234")
+        end
+      end
+
+      context "when prompt is none and client ID is invalid" do
+        it "should return an account_selection_required error" do
+          post :new, client_id: "random", redirect_uri: "http://localhost:3000/",
+               response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
+          json_body = JSON.parse(response.body)
+          expect(json_body["error"]).to match("bad_request")
+        end
+      end
+
+      context "when prompt is none and redirect URI does not match pre-registered URIs" do
+        it "should return an account_selection_required error" do
+          post :new, client_id: client.client_id, redirect_uri: "http://randomuri:3000/",
+               response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
+          json_body = JSON.parse(response.body)
+          expect(json_body["error"]).to match("bad_request")
+        end
+      end
     end
     context "when already authorized" do
       let!(:auth) {
@@ -108,6 +153,29 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
 
         it "should return the passed in state" do
           expect(response.location).to have_content("state=4130930983")
+        end
+      end
+
+      context "when prompt is none" do
+        it "should return the id token in a fragment" do
+          post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
+               response_type: "id_token", scope: "openid", nonce: 413_093_098_3, state: 413_093_098_3,
+               display: "page", prompt: "none"
+          expect(response.location).to have_content("id_token=")
+          encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
+          decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
+                                                                        Api::OpenidConnect::IdTokenConfig.public_key
+          expect(decoded_token.nonce).to eq("4130930983")
+          expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
+        end
+      end
+
+      context "when prompt contains consent" do
+        it "should return a consent form page" do
+          get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
+              response_type: "id_token", scope: "openid", nonce: 413_093_098_3, state: 413_093_098_3,
+              display: "page", prompt: "consent"
+          expect(response.body).to match("Diaspora Test Client")
         end
       end
     end
