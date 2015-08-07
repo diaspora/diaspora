@@ -146,7 +146,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           expect(response.location).to have_content("id_token=")
           encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
-                                                                        Api::OpenidConnect::IdTokenConfig.public_key
+                                                                        Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
           expect(decoded_token.nonce).to eq("4130930983")
           expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
         end
@@ -164,7 +164,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           expect(response.location).to have_content("id_token=")
           encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
-                                                                        Api::OpenidConnect::IdTokenConfig.public_key
+                                                                        Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
           expect(decoded_token.nonce).to eq("4130930983")
           expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
         end
@@ -196,7 +196,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return the id token in a fragment" do
           encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
-                                                                        Api::OpenidConnect::IdTokenConfig.public_key
+                                                                        Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
           expect(decoded_token.nonce).to eq("4180930983")
           expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
         end
@@ -204,7 +204,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return a valid access token in a fragment" do
           encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
-                                                                        Api::OpenidConnect::IdTokenConfig.public_key
+                                                                        Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
           access_token = response.location[/(?<=access_token=)[^&]+/]
           access_token_check_num = UrlSafeBase64.encode64(OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8])
           expect(decoded_token.at_hash).to eq(access_token_check_num)
@@ -227,7 +227,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           expect(response.location).to have_content("id_token=")
           encoded_id_token = response.location[/(?<=id_token=)[^&]+/]
           decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
-                                                                        Api::OpenidConnect::IdTokenConfig.public_key
+                                                                        Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
           expect(decoded_token.nonce).to eq("4180930983")
           expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
         end

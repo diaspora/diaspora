@@ -21,7 +21,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         json = JSON.parse(response.body)
         encoded_id_token = json["id_token"]
         decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
-                                                                      Api::OpenidConnect::IdTokenConfig.public_key
+                                                                      Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
         expected_guid = bob.pairwise_pseudonymous_identifiers.find_by(sector_identifier: "https://example.com/uri").guid
         expect(decoded_token.sub).to eq(expected_guid)
         expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
@@ -31,7 +31,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         json = JSON.parse(response.body)
         encoded_id_token = json["id_token"]
         decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
-                                                                      Api::OpenidConnect::IdTokenConfig.public_key
+                                                                      Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
         access_token = json["access_token"]
         access_token_check_num = UrlSafeBase64.encode64(OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8])
         expect(decoded_token.at_hash).to eq(access_token_check_num)
