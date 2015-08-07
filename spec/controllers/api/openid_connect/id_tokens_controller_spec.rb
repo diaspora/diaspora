@@ -13,7 +13,7 @@ describe Api::OpenidConnect::IdTokensController, type: :controller do
         JSON::JWK.decode jwk
       end
       public_key = public_keys.first
-      expect(Api::OpenidConnect::IdTokenConfig.private_key.public_key.to_s).to eq(public_key.to_s)
+      expect(Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY.to_s).to eq(public_key.to_s)
     end
   end
 end

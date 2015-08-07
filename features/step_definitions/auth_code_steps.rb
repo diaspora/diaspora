@@ -30,7 +30,7 @@ When /^I parse the tokens and use it obtain user info$/ do
   access_token = client_json["access_token"]
   encoded_id_token = client_json["id_token"]
   decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
-                                                                Api::OpenidConnect::IdTokenConfig.public_key
+                                                                Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
   expect(decoded_token.sub).to eq(@me.diaspora_handle)
   get api_openid_connect_user_info_path, access_token: access_token
 end

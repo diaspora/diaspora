@@ -12,7 +12,7 @@ module Api
       end
 
       def to_jwt(options={})
-        to_response_object(options).to_jwt OpenidConnect::IdTokenConfig.private_key
+        to_response_object(options).to_jwt OpenidConnect::IdTokenConfig::PRIVATE_KEY
       end
 
       def to_response_object(options={})

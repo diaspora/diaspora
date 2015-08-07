@@ -20,6 +20,7 @@ vendor/cache/
 config/database.yml
 .rvmrc_custom
 .rvmrc.local
+oidc_key.pem
 
 # Mailing list stuff
 config/email_offset
