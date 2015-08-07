@@ -1,7 +1,7 @@
 module Api
   module OpenidConnect
     class OAuthApplication < ActiveRecord::Base
-      has_many :authorizations
+      has_many :authorizations, dependent: :destroy
       has_many :user, through: :authorizations
 
       validates :client_id, presence: true, uniqueness: true
