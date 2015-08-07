@@ -1,5 +1,5 @@
 class UserInfoSerializer < ActiveModel::Serializer
-  attributes :sub, :nickname, :profile, :picture, :zoneinfo
+  attributes :sub, :nickname, :profile, :picture
 
   def sub
     auth = serialization_options[:authorization]
@@ -23,9 +23,5 @@ class UserInfoSerializer < ActiveModel::Serializer
 
   def picture
     File.join(AppConfig.environment.url, object.image_url).to_s
-  end
-
-  def zoneinfo
-    object.language
   end
 end
