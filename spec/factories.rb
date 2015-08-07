@@ -294,4 +294,33 @@ FactoryGirl.define do
   end
 
   factory(:status, :parent => :status_message)
+
+  # Factories for the DiasporaFederation-gem
+
+  factory(:federation_person_from_webfinger, class: DiasporaFederation::Entities::Person) do
+    sequence(:guid) { UUID.generate :compact }
+    sequence(:diaspora_id) {|n| "bob-person-#{n}#{r_str}@example.net" }
+    url AppConfig.pod_uri.to_s
+    exported_key OpenSSL::PKey::RSA.generate(1024).public_key.export
+    profile {
+      DiasporaFederation::Entities::Profile.new(
+        FactoryGirl.attributes_for(:federation_profile_from_hcard, diaspora_id: diaspora_id))
+    }
+  end
+
+  factory(:federation_profile_from_hcard, class: DiasporaFederation::Entities::Profile) do
+    sequence(:diaspora_id) {|n| "bob-person-#{n}#{r_str}@example.net" }
+    sequence(:first_name) {|n| "My Name#{n}#{r_str}" }
+    last_name nil
+    image_url "/assets/user/default.png"
+    image_url_medium "/assets/user/default.png"
+    image_url_small "/assets/user/default.png"
+    searchable true
+  end
+
+  factory :federation_profile_from_hcard_with_image_url, parent: :federation_profile_from_hcard do
+    image_url "http://example.com/image.jpg"
+    image_url_medium "http://example.com/image_mid.jpg"
+    image_url_small "http://example.com/image_small.jpg"
+  end
 end
