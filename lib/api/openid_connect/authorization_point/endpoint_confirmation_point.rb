@@ -24,7 +24,7 @@ module Api
           auth = OpenidConnect::Authorization.find_or_create_by(
             o_auth_application: @o_auth_application, user: @user, redirect_uri: @redirect_uri)
           auth.nonce = req.nonce
-          auth.scopes << @scopes
+          auth.scopes << @scopes unless auth.scopes == @scopes
           handle_approved_response_type(auth, req, res)
           res.approve!
         end
