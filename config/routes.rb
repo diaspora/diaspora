@@ -256,13 +256,13 @@ Diaspora::Application.routes.draw do
       resources :authorizations, only: %i(new create destroy)
       post "authorizations/new", to: "authorizations#new"
 
-      get ".well-known/webfinger", to: "discovery#webfinger"
-      get ".well-known/openid-configuration", to: "discovery#configuration"
       get "jwks.json", to: "id_tokens#jwks"
 
       get "user_info", to: "user_info#show"
     end
   end
 
+  get ".well-known/webfinger", to: "api/openid_connect/discovery#webfinger"
+  get ".well-known/openid-configuration", to: "api/openid_connect/discovery#configuration"
   get "user_applications", to: "user_applications#index"
 end
