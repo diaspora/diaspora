@@ -38,7 +38,7 @@ module Api
         # TODO: Add support for request object
       end
 
-      def create_id_token(nonce=nil)
+      def create_id_token
         id_tokens.create!(nonce: nonce)
       end
 

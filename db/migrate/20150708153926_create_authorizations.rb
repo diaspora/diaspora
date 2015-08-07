@@ -6,6 +6,7 @@ class CreateAuthorizations < ActiveRecord::Migration
       t.string :refresh_token
       t.string :code
       t.string :redirect_uri
+      t.string :nonce
 
       t.timestamps null: false
     end
