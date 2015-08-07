@@ -5,7 +5,7 @@ module Api
         jrd = {
           links: [{
             rel:  OpenIDConnect::Discovery::Provider::Issuer::REL_VALUE,
-            href: File.join(root_url, "api", "openid_connect")
+            href: root_url
           }]
         }
         jrd[:subject] = params[:resource] if params[:resource].present?

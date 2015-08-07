@@ -8,7 +8,7 @@ describe Api::OpenidConnect::DiscoveryController, type: :controller do
 
     it "should return a url to the openid-configuration" do
       json_body = JSON.parse(response.body)
-      expect(json_body["links"].first["href"]).to eq("http://test.host/api/openid_connect")
+      expect(json_body["links"].first["href"]).to eq("http://test.host/")
     end
 
     it "should return the resource in the subject" do
