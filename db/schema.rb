@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150801074555) do
     t.string   "refresh_token",         limit: 255
     t.string   "code",                  limit: 255
     t.string   "redirect_uri",          limit: 255
+    t.string   "nonce",                 limit: 255
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
