@@ -41,5 +41,25 @@ DiasporaFederation.configure do |config|
         )
       end
     end
+
+    on :save_person_after_webfinger do |person|
+      # find existing person or create a new one
+      person_entity = Person.find_by(diaspora_handle: person.diaspora_id) ||
+        Person.new(diaspora_handle: person.diaspora_id, guid: person.guid,
+                   serialized_public_key: person.exported_key, url: person.url)
+
+      profile = person.profile
+      profile_entity = person_entity.profile ||= Profile.new
+
+      # fill or update profile
+      profile_entity.first_name = profile.first_name
+      profile_entity.last_name = profile.last_name
+      profile_entity.image_url = profile.image_url
+      profile_entity.image_url_medium = profile.image_url_medium
+      profile_entity.image_url_small = profile.image_url_small
+      profile_entity.searchable = profile.searchable
+
+      person_entity.save!
+    end
   end
 end
