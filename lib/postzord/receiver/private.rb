@@ -9,7 +9,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
     @user_person = @user.person
     @salmon_xml = opts[:salmon_xml]
 
-    @author = opts[:person] || Webfinger.new(salmon.author_id).fetch
+    @author = opts[:person] || Person.find_or_fetch_by_identifier(salmon.author_id)
 
     @object = opts[:object]
   end
@@ -56,7 +56,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
     if @object.respond_to?(:relayable?)
       #if A and B are friends, and A sends B a comment from C, we delegate the validation to the owner of the post being commented on
       xml_author = @user.owns?(@object.parent) ? @object.diaspora_handle : @object.parent_author.diaspora_handle
-      @author = Webfinger.new(@object.diaspora_handle).fetch if @object.author
+      @author = Person.find_or_fetch_by_identifier(@object.diaspora_handle) if @object.author
     else
       xml_author = @object.diaspora_handle
     end

@@ -212,9 +212,7 @@ describe Reshare, :type => :model do
 
           @original_author.profile = @original_profile
 
-          wf_prof_double = double
-          expect(wf_prof_double).to receive(:fetch).and_return(@original_author)
-          expect(Webfinger).to receive(:new).and_return(wf_prof_double)
+          expect(Person).to receive(:find_or_fetch_by_identifier).and_return(@original_author)
 
           allow(@response).to receive(:body).and_return(@root_object.to_diaspora_xml)
 
@@ -287,10 +285,7 @@ describe Reshare, :type => :model do
             @xml = @reshare.to_xml.to_s
 
             different_person = FactoryGirl.build(:person)
-
-            wf_prof_double = double
-            expect(wf_prof_double).to receive(:fetch).and_return(different_person)
-            expect(Webfinger).to receive(:new).and_return(wf_prof_double)
+            expect(Person).to receive(:find_or_fetch_by_identifier).and_return(different_person)
 
             allow(different_person).to receive(:url).and_return(@original_author.url)
 

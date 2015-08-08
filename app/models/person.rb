@@ -238,6 +238,19 @@ class Person < ActiveRecord::Base
     serialized_public_key = new_key
   end
 
+  # discovery (webfinger)
+  def self.find_or_fetch_by_identifier(account)
+    # exiting person?
+    person = by_account_identifier(account)
+    return person if person.present? && person.profile.present?
+
+    # create or update person from webfinger
+    logger.info "webfingering #{account}, it is not known or needs updating"
+    DiasporaFederation::Discovery::Discovery.new(account).fetch_and_save
+
+    by_account_identifier(account)
+  end
+
   # database calls
   def self.by_account_identifier(identifier)
     identifier = identifier.strip.downcase.sub("acct:", "")
@@ -359,7 +372,8 @@ class Person < ActiveRecord::Base
   end
 
   def fix_profile
-    Webfinger.new(self.diaspora_handle).fetch
-    self.reload
+    logger.info "fix profile for account: #{diaspora_handle}"
+    DiasporaFederation::Discovery::Discovery.new(diaspora_handle).fetch_and_save
+    reload
   end
 end
