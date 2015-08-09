@@ -12,18 +12,17 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = CommentCreationService
-                 .new(post_id: params[:post_id], text: params[:text], user: current_user).create_comment
+    @comment = CommentService.new(post_id: params[:post_id], text: params[:text], user: current_user).create_comment
     if @comment
       respond_create_success
     else
-      render nothing: true, status: 422
+      render nothing: true, status: 404
     end
   end
 
   def destroy
-    deletion_service = CommentDeletionService.new(comment_id: params[:id], user: current_user)
-    if deletion_service.destroy_comment
+    service = CommentService.new(comment_id: params[:id], user: current_user)
+    if service.destroy_comment
       respond_destroy_success
     else
       respond_destroy_error
@@ -37,7 +36,7 @@ class CommentsController < ApplicationController
   end
 
   def index
-    service = CommentIndexService.new(post_id: params[:post_id], user: current_user)
+    service = CommentService.new(post_id: params[:post_id], user: current_user)
     @post = service.post
     @comments = service.comments
     respond_with do |format|
