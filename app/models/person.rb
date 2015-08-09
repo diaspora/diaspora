@@ -265,32 +265,6 @@ class Person < ActiveRecord::Base
     where(guid: guid, closed_account: false).where.not(owner: nil).take
   end
 
-  def self.create_from_webfinger(profile, hcard)
-    return nil if profile.nil? || !profile.valid_diaspora_profile?
-    new_person = Person.new
-    new_person.serialized_public_key = profile.public_key
-    new_person.guid = profile.guid
-    new_person.diaspora_handle = profile.account
-    new_person.url = profile.seed_location
-
-    #hcard_profile = HCard.find profile.hcard.first[:href]
-    ::Logging::Logger[self].info "event=webfinger_marshal valid=#{new_person.valid?} " \
-                                 "target=#{new_person.diaspora_handle}"
-    new_person.assign_new_profile_from_hcard(hcard)
-    new_person.save!
-    new_person.profile.save!
-    new_person
-  end
-
-  def assign_new_profile_from_hcard(hcard)
-    self.profile = Profile.new(:first_name => hcard[:given_name],
-                              :last_name  => hcard[:family_name],
-                              :image_url  => hcard[:photo],
-                              :image_url_medium  => hcard[:photo_medium],
-                              :image_url_small  => hcard[:photo_small],
-                              :searchable => hcard[:searchable])
-  end
-
   def remote?
     owner_id.nil?
   end
