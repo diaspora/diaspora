@@ -9,7 +9,7 @@ app.views.TagFollowing = app.views.Base.extend({
   tagName: "li",
 
   events : {
-    "click .delete_tag_following": "destroyModel"
+    "click .delete-tag-following": "destroyModel"
   },
 
   initialize : function(){
@@ -31,6 +31,6 @@ app.views.TagFollowing = app.views.Base.extend({
       tag : this.model
     });
   }
-  
+
 });
 // @license-end
