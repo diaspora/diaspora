@@ -287,6 +287,12 @@ en:
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
+    create:
+      fail: "Comment creation has failed"
+    destroy:
+      success: "Comment %{id} has been successfully deleted"
+      fail: "Comment deletion has failed"
+    not_found: "Post or comment not found"
 
   contacts:
     index:

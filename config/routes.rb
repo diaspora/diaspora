@@ -223,8 +223,10 @@ Rails.application.routes.draw do
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
     match "user", to: "users#show", via: %i(get post)
-    resources :posts, only: %i(show create destroy)
+    resources :posts, only: %i(show create destroy) do
+      resources :comments, only: %i(create destroy index)
     end
+  end
 
   namespace :api do
     namespace :openid_connect do
