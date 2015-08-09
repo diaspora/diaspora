@@ -25,7 +25,7 @@ describe SocialRelayPresenter do
 
     describe "pod tags" do
       before do
-        AppConfig.relay.inbound.pod_tags = "foo,bar"
+        AppConfig.relay.inbound.pod_tags = "foo, bar"
         AppConfig.relay.inbound.include_user_tags = false
       end
 
@@ -61,7 +61,7 @@ describe SocialRelayPresenter do
 
     describe "pod tags combined with user tags" do
       before do
-        AppConfig.relay.inbound.pod_tags = "foo,bar"
+        AppConfig.relay.inbound.pod_tags = "foo, bar"
         AppConfig.relay.inbound.include_user_tags = true
         ceetag = FactoryGirl.create(:tag, name: "cee")
         lootag = FactoryGirl.create(:tag, name: "loo")

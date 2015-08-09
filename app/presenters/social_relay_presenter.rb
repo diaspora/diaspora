@@ -9,7 +9,7 @@ class SocialRelayPresenter
 
   def tags
     return [] unless AppConfig.relay.inbound.scope == "tags"
-    tags = AppConfig.relay.inbound.pod_tags.present? ? AppConfig.relay.inbound.pod_tags.split(",") : []
+    tags = AppConfig.relay.inbound.pod_tags.present? ? AppConfig.relay.inbound.pod_tags.split(",").map(&:strip) : []
     add_user_tags(tags)
     tags.uniq
   end
