@@ -30,16 +30,13 @@ Diaspora::Application.routes.draw do
 
   resources :posts do
     member do
-      get :next
-      get :previous
       get :interactions
     end
 
-    resources :poll_participations, :only => [:create]
-
-    resources :likes, :only => [:create, :destroy, :index ]
-    resource :participation, :only => [:create, :destroy]
-    resources :comments, :only => [:new, :create, :destroy, :index]
+    resource :participation, only: %i(create destroy)
+    resources :poll_participations, only: :create
+    resources :likes, only: %i(create destroy index)
+    resources :comments, only: %i(new create destroy index)
   end
 
 
