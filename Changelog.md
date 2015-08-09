@@ -72,6 +72,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Refactor ApplicationController#after\_sign\_out\_path\_for [#6258](https://github.com/diaspora/diaspora/pull/6258)
 * Extract StatusMessageService from StatusMessagesController [#6280](https://github.com/diaspora/diaspora/pull/6280)
 * Refactor HomeController#toggle\_mobile [#6260](https://github.com/diaspora/diaspora/pull/6260)
+* Extract CommentService from CommentsController [#6307](https://github.com/diaspora/diaspora/pull/6307)
 
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)

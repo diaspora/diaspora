@@ -66,7 +66,7 @@ describe CommentsController, :type => :controller do
 
       expect(alice).not_to receive(:comment)
       post :create, comment_hash
-      expect(response.code).to eq('422')
+      expect(response.code).to eq("404")
     end
   end
 
