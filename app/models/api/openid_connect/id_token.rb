@@ -16,10 +16,10 @@ module Api
       end
 
       def to_response_object(options={})
-        id_token = OpenIDConnect::ResponseObject::IdToken.new(claims)
-        id_token.code = options[:code] if options[:code]
-        id_token.access_token = options[:access_token] if options[:access_token]
-        id_token
+        OpenIDConnect::ResponseObject::IdToken.new(claims).tap do |id_token|
+          id_token.code = options[:code] if options[:code]
+          id_token.access_token = options[:access_token] if options[:access_token]
+        end
       end
 
       def claims
@@ -45,8 +45,6 @@ module Api
           authorization.user.diaspora_handle
         end
       end
-
-      # TODO: Add support for request objects
     end
   end
 end

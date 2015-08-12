@@ -56,9 +56,7 @@ module Api
         def handle_approved_id_token(auth, res, response_types)
           return unless response_types.include?(:id_token)
           id_token = auth.create_id_token
-          auth_code_value = res.respond_to?(:code) ? res.code : nil
-          access_token_value = res.respond_to?(:access_token) ? res.access_token : nil
-          res.id_token = id_token.to_jwt(code: auth_code_value, access_token: access_token_value)
+          res.id_token = id_token.to_jwt(code: res.try(:code), access_token: res.try(:access_token))
         end
       end
     end

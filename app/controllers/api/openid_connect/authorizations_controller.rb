@@ -30,7 +30,7 @@ module Api
         if authorization
           authorization.destroy
         else
-          raise ArgumentError, "Error while trying revoke non-existent authorization with ID #{params[:id]}"
+          flash[:error] = I18n.t("api.openid_connect.authorizations.destroy.fail", id: params[:id])
         end
         redirect_to user_applications_url
       end
@@ -54,9 +54,7 @@ module Api
 
       def reauthenticate
         sign_out current_user
-        params_as_get_query = params.map {|key, value| key.to_s + "=" + value }.join("&")
-        authorization_path_with_query = new_api_openid_connect_authorization_path + "?" + params_as_get_query
-        redirect_to authorization_path_with_query
+        redirect_to new_api_openid_connect_authorization_path(params)
       end
 
       def handle_authorization_form(auth)
@@ -125,9 +123,9 @@ module Api
         @scopes.join(" ")
       end
 
-      def process_authorization_consent(approvedString)
+      def process_authorization_consent(approved_string)
         endpoint = Api::OpenidConnect::AuthorizationPoint::EndpointConfirmationPoint.new(
-          current_user, to_boolean(approvedString))
+          current_user, to_boolean(approved_string))
         handle_confirmation_endpoint_response(endpoint)
       end
 
@@ -166,7 +164,7 @@ module Api
 
       def response_type_as_space_seperated_values
         if session[:response_type].respond_to?(:map)
-          session[:response_type].map(&:to_s).join(" ")
+          session[:response_type].join(" ")
         else
           session[:response_type]
         end
@@ -189,7 +187,7 @@ module Api
       def redirect_prompt_error_display(error, error_description)
         redirect_params_hash = {error: error, error_description: error_description, state: params[:state]}
         redirect_fragment = redirect_params_hash.compact.map {|key, value| key.to_s + "=" + value }.join("&")
-        redirect_to params[:redirect_uri] + "#" + redirect_fragment
+        redirect_to "#{params[:redirect_uri]}##{redirect_fragment}"
       end
     end
   end

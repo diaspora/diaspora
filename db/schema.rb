@@ -270,6 +270,7 @@ ActiveRecord::Schema.define(version: 20150801074555) do
   end
 
   add_index "o_auth_access_tokens", ["authorization_id"], name: "index_o_auth_access_tokens_on_authorization_id", using: :btree
+  add_index "o_auth_access_tokens", ["token"], name: "index_o_auth_access_tokens_on_token", unique: true, length: {"token"=>191}, using: :btree
 
   create_table "o_auth_applications", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
@@ -291,6 +292,7 @@ ActiveRecord::Schema.define(version: 20150801074555) do
     t.datetime "updated_at",                                        null: false
   end
 
+  add_index "o_auth_applications", ["client_id"], name: "index_o_auth_applications_on_client_id", unique: true, length: {"client_id"=>191}, using: :btree
   add_index "o_auth_applications", ["user_id"], name: "index_o_auth_applications_on_user_id", using: :btree
 
   create_table "o_embed_caches", force: :cascade do |t|
@@ -656,18 +658,25 @@ ActiveRecord::Schema.define(version: 20150801074555) do
   add_foreign_key "aspect_memberships", "aspects", name: "aspect_memberships_aspect_id_fk", on_delete: :cascade
   add_foreign_key "aspect_memberships", "contacts", name: "aspect_memberships_contact_id_fk", on_delete: :cascade
   add_foreign_key "aspect_visibilities", "aspects", name: "aspect_visibilities_aspect_id_fk", on_delete: :cascade
+  add_foreign_key "authorizations", "o_auth_applications"
+  add_foreign_key "authorizations", "users"
   add_foreign_key "comments", "people", column: "author_id", name: "comments_author_id_fk", on_delete: :cascade
   add_foreign_key "contacts", "people", name: "contacts_person_id_fk", on_delete: :cascade
   add_foreign_key "conversation_visibilities", "conversations", name: "conversation_visibilities_conversation_id_fk", on_delete: :cascade
   add_foreign_key "conversation_visibilities", "people", name: "conversation_visibilities_person_id_fk", on_delete: :cascade
   add_foreign_key "conversations", "people", column: "author_id", name: "conversations_author_id_fk", on_delete: :cascade
+  add_foreign_key "id_tokens", "authorizations"
   add_foreign_key "invitations", "users", column: "recipient_id", name: "invitations_recipient_id_fk", on_delete: :cascade
   add_foreign_key "invitations", "users", column: "sender_id", name: "invitations_sender_id_fk", on_delete: :cascade
   add_foreign_key "likes", "people", column: "author_id", name: "likes_author_id_fk", on_delete: :cascade
   add_foreign_key "messages", "conversations", name: "messages_conversation_id_fk", on_delete: :cascade
   add_foreign_key "messages", "people", column: "author_id", name: "messages_author_id_fk", on_delete: :cascade
   add_foreign_key "notification_actors", "notifications", name: "notification_actors_notification_id_fk", on_delete: :cascade
+  add_foreign_key "o_auth_access_tokens", "authorizations"
+  add_foreign_key "o_auth_applications", "users"
   add_foreign_key "posts", "people", column: "author_id", name: "posts_author_id_fk", on_delete: :cascade
+  add_foreign_key "ppid", "o_auth_applications"
+  add_foreign_key "ppid", "users"
   add_foreign_key "profiles", "people", name: "profiles_person_id_fk", on_delete: :cascade
   add_foreign_key "services", "users", name: "services_user_id_fk", on_delete: :cascade
   add_foreign_key "share_visibilities", "contacts", name: "post_visibilities_contact_id_fk", on_delete: :cascade

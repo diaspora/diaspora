@@ -6,8 +6,8 @@ module Api
                       :scopes, :_request_, :request_uri, :request_object, :nonce
         delegate :call, to: :app
 
-        def initialize(current_user)
-          @user = current_user
+        def initialize(user)
+          @user = user
           @app = Rack::OAuth2::Server::Authorize.new do |req, res|
             build_attributes(req, res)
             if OAuthApplication.available_response_types.include? Array(req.response_type).map(&:to_s).join(" ")
@@ -26,7 +26,7 @@ module Api
         end
 
         def handle_response_type(_req, _res)
-          # Implemented by subclass
+          raise NotImplementedError # Implemented by subclass
         end
 
         private

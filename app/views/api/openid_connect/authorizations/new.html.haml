@@ -1,7 +1,5 @@
 %h2= @o_auth_application.client_name
-%p= t(".will_be_redirected")
-= @redirect_uri
-= t(".with_id_token")
+%p= t(".redirection_message", redirect_uri: @redirect_uri)
 %ul
   - @scopes.each do |scope|
     %li= scope

@@ -15,6 +15,15 @@ module Api
         render json: client.as_json(root: false)
       end
 
+      def find
+        client = Api::OpenidConnect::OAuthApplication.find_by(client_name: params[:client_name])
+        if client
+          render json: {client_id: client.client_id}
+        else
+          render json: {error: "Client with name #{params[:client_name]} does not exist"}
+        end
+      end
+
       private
 
       def http_error_page_as_json(e)

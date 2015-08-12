@@ -1,4 +1,5 @@
 require "spec_helper"
+
 describe Api::OpenidConnect::TokenEndpoint, type: :request do
   let!(:client) { FactoryGirl.create(:o_auth_application_with_ppid) }
   let!(:auth) {
@@ -33,6 +34,22 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         access_token = json["access_token"]
         access_token_check_num = UrlSafeBase64.encode64(OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8])
         expect(decoded_token.at_hash).to eq(access_token_check_num)
+      end
+
+      it "should not allow code to be reused" do
+        auth.reload
+        expect(auth.code).to eq(nil)
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             client_id: client.client_id, client_secret: client.client_secret,
+             redirect_uri: "http://localhost:3000/", code: code
+        expect(JSON.parse(response.body)["error"]).to eq("invalid_grant")
+      end
+
+      it "should not allow a nil code" do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             client_id: client.client_id, client_secret: client.client_secret,
+             redirect_uri: "http://localhost:3000/", code: nil
+        expect(JSON.parse(response.body)["error"]).to eq("invalid_request")
       end
     end
 

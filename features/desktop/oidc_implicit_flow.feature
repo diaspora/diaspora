@@ -27,7 +27,7 @@ Feature: Access protected resources using implicit flow
   Scenario: Application is authorized and uses small value for the max_age parameter
     When I register a new client
     And I sign in as "kent@kent.kent"
-    And I pass time
+    And I have signed in 5 minutes ago
     And I send a post request from that client to the authorization endpoint with max age
     And I sign in as "kent@kent.kent"
     And I give my consent and authorize the client

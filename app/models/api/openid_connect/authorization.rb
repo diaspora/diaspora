@@ -62,7 +62,7 @@ module Api
       def self.use_code(code)
         return unless code
         find_by(code: code).tap do |auth|
-          return unless auth
+          next unless auth
           auth.code = nil
           auth.save
         end

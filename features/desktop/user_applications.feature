@@ -4,7 +4,6 @@ Feature: managing authorized applications
     Given following users exist:
       | username    | email                 |
       | Augier      | augier@example.org    |
-    And all scopes exist
     And a client with a provided picture exists for user "augier@example.org"
     And a client exists for user "augier@example.org"
 

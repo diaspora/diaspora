@@ -11,5 +11,7 @@ class CreateAuthorizations < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_foreign_key :authorizations, :users
+    add_foreign_key :authorizations, :o_auth_applications
   end
 end

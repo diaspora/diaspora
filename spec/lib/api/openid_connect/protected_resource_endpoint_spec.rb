@@ -1,4 +1,5 @@
 require "spec_helper"
+
 describe Api::OpenidConnect::ProtectedResourceEndpoint, type: :request do
   let(:auth_with_read) { FactoryGirl.create(:auth_with_read) }
   let!(:access_token_with_read) { auth_with_read.create_access_token.to_s }

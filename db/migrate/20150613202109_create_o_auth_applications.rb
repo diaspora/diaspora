@@ -2,7 +2,7 @@ class CreateOAuthApplications < ActiveRecord::Migration
   def change
     create_table :o_auth_applications do |t|
       t.belongs_to :user, index: true
-      t.string :client_id
+      t.string :client_id, index: {unique: true, length: 191}
       t.string :client_secret
       t.string :client_name
 
@@ -20,5 +20,6 @@ class CreateOAuthApplications < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_foreign_key :o_auth_applications, :users
   end
 end

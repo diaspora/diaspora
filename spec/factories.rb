@@ -312,43 +312,43 @@ FactoryGirl.define do
 
   factory :o_auth_application, class: Api::OpenidConnect::OAuthApplication do
     client_name "Diaspora Test Client"
-    redirect_uris ["http://localhost:3000/"]
+    redirect_uris %w(http://localhost:3000/)
   end
 
   factory :o_auth_application_with_image, class: Api::OpenidConnect::OAuthApplication do
     client_name "Diaspora Test Client"
-    redirect_uris ["http://localhost:3000/"]
+    redirect_uris %w(http://localhost:3000/)
     logo_uri "/assets/user/default.png"
   end
 
   factory :o_auth_application_with_ppid, class: Api::OpenidConnect::OAuthApplication do
     client_name "Diaspora Test Client"
-    redirect_uris ["http://localhost:3000/"]
+    redirect_uris %w(http://localhost:3000/)
     ppid true
     sector_identifier_uri "https://example.com/uri"
   end
 
   factory :o_auth_application_with_multiple_redirects, class: Api::OpenidConnect::OAuthApplication do
     client_name "Diaspora Test Client"
-    redirect_uris ["http://localhost:3000/", "http://localhost/"]
+    redirect_uris %w(http://localhost:3000/ http://localhost/)
   end
 
   factory :auth_with_read, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
-    scopes ["openid","read"]
+    scopes %w(openid read)
   end
 
   factory :auth_with_read_and_ppid, class: Api::OpenidConnect::Authorization do
     association :o_auth_application, factory: :o_auth_application_with_ppid
     user
-    scopes ["openid","read"]
+    scopes %w(openid read)
   end
 
   factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
-    scopes ["openid","read","write"]
+    scopes %w(openid read write)
   end
 
   # Factories for the DiasporaFederation-gem

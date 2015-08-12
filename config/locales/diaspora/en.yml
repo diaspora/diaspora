@@ -885,12 +885,12 @@ en:
     openid_connect:
       authorizations:
         new:
-          will_be_redirected: "You will be redirected to"
-          with_id_token: "with an id token if approved or an error if denied"
-          requested_objects: "Request Objects (Currently not supported)"
+          redirection_message: "Are you sure you want to give access to %{redirect_uri}?"
         form:
           approve: "Approve"
           deny: "Deny"
+        destroy:
+          fail: "The attempt to revoke the authorization with ID %{id} has failed"
   people:
     zero: "No people"
     one: "1 person"
@@ -1480,11 +1480,11 @@ en:
   user_applications:
     index:
       edit_applications: "Applications"
-      title: "Your authorized applications"
-      access: "is authorized access to:"
+      title: "Authorized applications"
+      access: "%{name} is authorized access to:"
       no_requirement: "This application requires no permissions"
-      applications_explanation: "Here is a list of applications that you to which have authorized your profile information"
-    no_applications: "You have no authorized applications for now"
+      applications_explanation: "Here is a list of applications to which you have authorized access"
+    no_applications: "You have no authorized applications"
     revoke_autorization: "Revoke"
     scopes:
       openid:

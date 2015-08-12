@@ -1,13 +1,10 @@
 class UserApplicationsPresenter
   def initialize(user)
-    @current_user = user
+    @user = user
   end
 
   def user_applications
-    # TODO: Fix and add tests
-    @applications ||= @current_user.o_auth_applications.each_with_object([]) do |app, array|
-      array << app_as_json(app)
-    end
+    @applications ||= @user.o_auth_applications.map {|app| app_as_json(app) }
   end
 
   def applications_count
@@ -30,12 +27,14 @@ class UserApplicationsPresenter
   end
 
   def find_scopes(application)
-    Api::OpenidConnect::Authorization.find_by_client_id_and_user(
-      application.client_id, @current_user).scopes
+    find_auth(application).scopes
   end
 
   def find_id(application)
-    Api::OpenidConnect::Authorization.find_by_client_id_and_user(
-      application.client_id, @current_user).id
+    find_auth(application).id
+  end
+
+  def find_auth(application)
+    Api::OpenidConnect::Authorization.find_by_client_id_and_user(application.client_id, @user)
   end
 end

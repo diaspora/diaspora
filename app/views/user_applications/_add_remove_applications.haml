@@ -9,7 +9,7 @@
             %i.entypo-browser
         .application-authorizations
           - if app[:authorizations].count > 0
-            %h4="#{app[:name]} #{t("user_applications.index.access")}"
+            %h4=t("user_applications.index.access", name: app[:name])
             %ul
               - app[:authorizations].each do |authorization|
                 %li
