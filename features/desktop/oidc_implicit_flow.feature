@@ -2,7 +2,6 @@
 Feature: Access protected resources using implicit flow
   Background:
     Given a user with username "kent"
-    And all scopes exist
 
   Scenario: Invalid client id to auth endpoint
     When I register a new client

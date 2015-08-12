@@ -133,7 +133,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
     context "when already authorized" do
       let!(:auth) {
         Api::OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: alice,
-                                                                        redirect_uri: "http://localhost:3000/")
+                                                            redirect_uri: "http://localhost:3000/", scopes: ["openid"])
       }
 
       context "when valid parameters are passed" do

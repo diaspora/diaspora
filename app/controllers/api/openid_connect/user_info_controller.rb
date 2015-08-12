@@ -4,7 +4,7 @@ module Api
       include Api::OpenidConnect::ProtectedResourceEndpoint
 
       before_action do
-        require_access_token Api::OpenidConnect::Scope.find_by(name: "openid")
+        require_access_token ["openid"]
       end
 
       def show

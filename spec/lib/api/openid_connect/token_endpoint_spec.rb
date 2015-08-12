@@ -1,12 +1,10 @@
 require "spec_helper"
 describe Api::OpenidConnect::TokenEndpoint, type: :request do
   let!(:client) { FactoryGirl.create(:o_auth_application_with_ppid) }
-  let!(:auth) do
-    auth = Api::OpenidConnect::Authorization.find_or_create_by(
-      o_auth_application: client, user: bob, redirect_uri: "http://localhost:3000/")
-    auth.scopes << [Api::OpenidConnect::Scope.find_by!(name: "openid")]
-    auth
-  end
+  let!(:auth) {
+    Api::OpenidConnect::Authorization.find_or_create_by(
+      o_auth_application: client, user: bob, redirect_uri: "http://localhost:3000/", scopes: ["openid"])
+  }
   let!(:code) { auth.create_code }
 
   describe "the authorization code grant type" do

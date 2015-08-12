@@ -122,7 +122,7 @@ module Api
       end
 
       def scopes_as_space_seperated_values
-        @scopes.map(&:name).join(" ")
+        @scopes.join(" ")
       end
 
       def process_authorization_consent(approvedString)

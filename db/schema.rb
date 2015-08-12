@@ -55,14 +55,6 @@ ActiveRecord::Schema.define(version: 20150801074555) do
   add_index "aspects", ["user_id", "contacts_visible"], name: "index_aspects_on_user_id_and_contacts_visible", using: :btree
   add_index "aspects", ["user_id"], name: "index_aspects_on_user_id", using: :btree
 
-  create_table "authorization_scopes", id: false, force: :cascade do |t|
-    t.integer "authorization_id", limit: 4
-    t.integer "scope_id",         limit: 4
-  end
-
-  add_index "authorization_scopes", ["authorization_id"], name: "index_authorization_scopes_on_authorization_id", using: :btree
-  add_index "authorization_scopes", ["scope_id"], name: "index_authorization_scopes_on_scope_id", using: :btree
-
   create_table "authorizations", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
     t.integer  "o_auth_application_id", limit: 4
@@ -70,6 +62,7 @@ ActiveRecord::Schema.define(version: 20150801074555) do
     t.string   "code",                  limit: 255
     t.string   "redirect_uri",          limit: 255
     t.string   "nonce",                 limit: 255
+    t.string   "scopes",                limit: 255
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
@@ -527,12 +520,6 @@ ActiveRecord::Schema.define(version: 20150801074555) do
 
   create_table "roles", force: :cascade do |t|
     t.integer  "person_id",  limit: 4
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "scopes", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false

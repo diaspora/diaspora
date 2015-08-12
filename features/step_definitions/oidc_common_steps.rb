@@ -1,8 +1,3 @@
-Given(/^all scopes exist$/) do
-  Api::OpenidConnect::Scope.find_or_create_by(name: "openid")
-  Api::OpenidConnect::Scope.find_or_create_by(name: "read")
-end
-
 Given /^a client with a provided picture exists for user "([^\"]*)"$/ do |email|
   app = FactoryGirl.create(:o_auth_application_with_image)
   user = User.find_by(email: email)

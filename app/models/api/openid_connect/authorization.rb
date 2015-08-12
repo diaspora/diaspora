@@ -7,9 +7,9 @@ module Api
       validates :user, presence: true
       validates :o_auth_application, presence: true
       validates :user, uniqueness: {scope: :o_auth_application}
+      validate :validate_scope_names
+      serialize :scopes, JSON
 
-      has_many :authorization_scopes
-      has_many :scopes, through: :authorization_scopes
       has_many :o_auth_access_tokens, dependent: :destroy
       has_many :id_tokens, dependent: :destroy
 
@@ -21,21 +21,28 @@ module Api
         self.refresh_token = SecureRandom.hex(32)
       end
 
-      def accessible?(required_scopes=nil)
-        Array(required_scopes).all? do |required_scope|
-          scopes.include? required_scope
+      def validate_scope_names
+        return unless scopes
+        scopes.each do |scope|
+          errors.add(:scope, "is not a valid scope name") unless %w(openid read write).include? scope
         end
       end
 
+      def accessible?(required_scopes=nil)
+        Array(required_scopes).all? { |required_scope|
+          scopes.include? required_scope
+        }
+      end
+
       def create_code
-        self.code = SecureRandom.hex(32)
-        save
-        code
+        SecureRandom.hex(32).tap do |code|
+          self.code = code
+          save
+        end
       end
 
       def create_access_token
         o_auth_access_tokens.create!.bearer_token
-        # TODO: Add support for request object
       end
 
       def create_id_token
@@ -53,9 +60,12 @@ module Api
       end
 
       def self.use_code(code)
-        auth = find_by(code: code)
-        auth.code = nil if auth # Remove auth code if found so it can't be reused
-        auth
+        return unless code
+        find_by(code: code).tap do |auth|
+          return unless auth
+          auth.code = nil
+          auth.save
+        end
       end
     end
   end

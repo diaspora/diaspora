@@ -4,7 +4,7 @@
 = t(".with_id_token")
 %ul
   - @scopes.each do |scope|
-    %li= scope.name
+    %li= scope
   - if @request_object
     %li= t(".requested_objects")
     %ul

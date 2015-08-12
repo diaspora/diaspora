@@ -19,14 +19,21 @@ module Api
           end
         end
 
-        # TODO: Add support for request object
+        private
+
         def approved!(req, res)
-          auth = OpenidConnect::Authorization.find_or_create_by(
-            o_auth_application: @o_auth_application, user: @user, redirect_uri: @redirect_uri)
-          auth.nonce = req.nonce
-          auth.scopes << @scopes unless auth.scopes == @scopes
+          auth = find_or_build_auth(req)
           handle_approved_response_type(auth, req, res)
           res.approve!
+        end
+
+        def find_or_build_auth(req)
+          OpenidConnect::Authorization.find_or_create_by!(
+            o_auth_application: @o_auth_application, user: @user, redirect_uri: @redirect_uri).tap do |auth|
+            auth.nonce = req.nonce
+            auth.scopes = @scopes
+            auth.save
+          end
         end
 
         def handle_approved_response_type(auth, req, res)

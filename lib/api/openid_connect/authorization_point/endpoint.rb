@@ -44,9 +44,10 @@ module Api
         end
 
         def build_scopes(req)
-          @scopes = req.scope.map {|scope_name|
-            OpenidConnect::Scope.where(name: scope_name).first.tap do |scope|
-              req.invalid_scope! "Unknown scope: #{scope}" unless scope
+          @scopes = req.scope.map {|scope|
+            scope.tap do |scope_name|
+              # TODO: Use enum
+              req.invalid_scope! "Unknown scope: #{scope_name}" unless %w(openid read write).include? scope_name
             end
           }
         end

@@ -336,32 +336,19 @@ FactoryGirl.define do
   factory :auth_with_read, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
-
-    after(:create) do |auth_with_read|
-      auth_with_read.scopes << [Api::OpenidConnect::Scope.find_or_create_by(name: "openid"),
-                                Api::OpenidConnect::Scope.find_or_create_by(name: "read")]
-    end
+    scopes ["openid","read"]
   end
 
   factory :auth_with_read_and_ppid, class: Api::OpenidConnect::Authorization do
     association :o_auth_application, factory: :o_auth_application_with_ppid
     user
-
-    after(:create) do |auth_with_read|
-      auth_with_read.scopes << [Api::OpenidConnect::Scope.find_or_create_by(name: "openid"),
-                                Api::OpenidConnect::Scope.find_or_create_by(name: "read")]
-    end
+    scopes ["openid","read"]
   end
 
   factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
-
-    after(:create) do |auth_with_read|
-      auth_with_read.scopes << [Api::OpenidConnect::Scope.find_or_create_by(name: "openid"),
-                                Api::OpenidConnect::Scope.find_or_create_by(name: "read"),
-                                Api::OpenidConnect::Scope.find_or_create_by(name: "write")]
-    end
+    scopes ["openid","read","write"]
   end
 
   # Factories for the DiasporaFederation-gem
