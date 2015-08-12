@@ -7,14 +7,6 @@ var View = {
     /* label placeholders */
     $("input, textarea").placeholder();
 
-    /* "Toggling" the search input */
-    $(this.search.selector)
-      .blur(this.search.blur)
-      .focus(this.search.focus)
-
-    /* Submit the form when the user hits enter */
-      .keypress(this.search.keyPress);
-
     /* Dropdowns */
     $(document)
       .on('click', this.dropdowns.selector, this.dropdowns.click)
@@ -46,16 +38,6 @@ var View = {
         $('html, body').animate({scrollTop: parseInt(lastComment.offset().top)-80 }, 'fast');
       }
     });
-  },
-
-  search: {
-    blur: function() {
-      $(this).removeClass("active");
-    },
-    focus: function() {
-      $(this).addClass("active");
-    },
-    selector: "#q"
   },
 
   dropdowns: {

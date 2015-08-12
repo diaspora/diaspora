@@ -1,0 +1,13 @@
+{{#if person}}
+  <div class="search-suggestion-person">
+    {{#if avatar}}
+      <img src="{{ avatar }}" class="avatar pull-left">
+    {{/if}}
+    <div class="name">{{ name }}</div>
+    <div class="diaspora-id">{{ handle }}</div>
+  </div>
+{{else}}{{#if hashtag}}
+  <div class="search-suggestion-hashtag">
+    <div class="name">{{ name }}</div>
+  </div>
+{{/if}}{{/if}}
