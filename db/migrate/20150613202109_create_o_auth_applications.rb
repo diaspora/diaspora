@@ -1,5 +1,5 @@
 class CreateOAuthApplications < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :o_auth_applications do |t|
       t.belongs_to :user, index: true
       t.string :client_id

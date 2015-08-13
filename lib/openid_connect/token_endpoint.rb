@@ -5,25 +5,25 @@ module OpenidConnect
 
     def initialize
       @app = Rack::OAuth2::Server::Token.new do |req, res|
-        o_auth_app = retrieveClient(req)
-        if isAppValid(o_auth_app, req)
-          handleFlows(req, res)
+        o_auth_app = retrieve_client(req)
+        if app_valid?(o_auth_app, req)
+          handle_flows(req, res)
         else
           req.invalid_client!
         end
       end
     end
 
-    def handleFlows(req, res)
+    def handle_flows(req, res)
       case req.grant_type
-        when :password
-          handlePasswordFlow(req, res)
-        else
-          req.unsupported_grant_type!
+      when :password
+        handle_password_flow(req, res)
+      else
+        req.unsupported_grant_type!
       end
     end
 
-    def handlePasswordFlow(req, res)
+    def handle_password_flow(req, res)
       user = User.find_for_database_authentication(username: req.username)
       if user
         if user.valid_password?(req.password)
@@ -36,11 +36,11 @@ module OpenidConnect
       end
     end
 
-    def retrieveClient(req)
+    def retrieve_client(req)
       OAuthApplication.find_by_client_id req.client_id
     end
 
-    def isAppValid(o_auth_app, req)
+    def app_valid?(o_auth_app, req)
       o_auth_app.client_secret == req.client_secret
     end
   end

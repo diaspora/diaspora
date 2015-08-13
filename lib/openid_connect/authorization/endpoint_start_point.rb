@@ -4,24 +4,30 @@ module OpenidConnect
       def initialize(current_user)
         super(current_user)
       end
-      def handleResponseType(req, res)
+
+      def handle_response_type(req, res)
         @response_type = req.response_type
       end
-      def buildAttributes(req, res)
+
+      def build_attributes(req, res)
         super(req, res)
-        verifyNonce(req, res)
-        buildScopes(req)
+        verify_nonce(req, res)
+        build_scopes(req)
         # TODO: buildRequestObject(req)
       end
-      def verifyNonce(req, res)
+
+      def verify_nonce(req, res)
         if res.protocol_params_location == :fragment && req.nonce.blank?
           req.invalid_request! "nonce required"
         end
       end
-      def buildScopes(req)
-        @scopes = req.scope.inject([]) do |_scopes_, scope|
-          _scopes_ << (Scope.find_by_name(scope) or req.invalid_scope! "Unknown scope: #{scope}")
-        end
+
+      def build_scopes(req)
+        @scopes = req.scope.map {|scope|
+          Scope.where(name: scope).first.tap do |scope|
+            req.invalid_scope! "Unknown scope: #{scope}" unless scope
+          end
+        }
       end
     end
   end

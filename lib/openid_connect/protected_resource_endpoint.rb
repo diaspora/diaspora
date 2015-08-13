@@ -1,6 +1,5 @@
 module OpenidConnect
   module ProtectedResourceEndpoint
-
     def self.included(klass)
       klass.send :include, ProtectedResourceEndpoint::Helper
     end

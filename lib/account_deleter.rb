@@ -46,7 +46,8 @@ class AccountDeleter
 
   #user deletions
   def normal_ar_user_associates_to_delete
-    [:tag_followings, :invitations_to_me, :services, :aspects, :user_preferences, :notifications, :blocks]
+    %i(tag_followings invitations_to_me services aspects user_preferences
+       notifications blocks authorizations o_auth_applications tokens)
   end
 
   def special_ar_user_associations

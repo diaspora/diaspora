@@ -233,17 +233,17 @@ Diaspora::Application.routes.draw do
   # Startpage
   root :to => 'home#show'
 
-  #OpenID Connect & OAuth
+  # OpenID Connect & OAuth
   namespace :openid_connect do
     resources :clients, only: :create
-    post 'access_tokens', to: proc { |env| OpenidConnect::TokenEndpoint.new.call(env) }
+    post "access_tokens", to: proc {|env| OpenidConnect::TokenEndpoint.new.call(env) }
 
     # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint (see http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation).
-    resources :authorizations, only: [:new, :create]
-    post 'authorizations/new', to: 'authorizations#new'
+    resources :authorizations, only: %i(new create)
+    post "authorizations/new", to: "authorizations#new"
   end
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
-    match 'user', to: 'users#show', via: [:get, :post]
+    match "user", to: "users#show", via: [:get, :post]
   end
 end

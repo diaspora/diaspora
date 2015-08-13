@@ -1,6 +1,6 @@
 class Token < ActiveRecord::Base
   belongs_to :user
-  has_and_belongs_to_many :scopes
+  has_many :scopes, through: :scope_tokens
 
   before_validation :setup, on: :create
 
@@ -16,11 +16,11 @@ class Token < ActiveRecord::Base
   def bearer_token
     @bearer_token ||= Rack::OAuth2::AccessToken::Bearer.new(
       access_token: token,
-      expires_in: (expires_at - Time.now.utc).to_i
+      expires_in:   (expires_at - Time.now.utc).to_i
     )
   end
 
-  def accessible?(_scopes_or_claims_ = nil)
+  def accessible?(_scopes_or_claims_=nil)
     true # TODO: For now don't support scopes
   end
 end

@@ -19,25 +19,13 @@ class OAuthApplication < ActiveRecord::Base
       ["id_token"]
     end
 
-    def register!(registrarHash)
-      registrarHash.validate!
-      buildClientApplication(registrarHash)
+    def register!(registrar)
+      registrar.validate!
+      build_client_application(registrar)
     end
 
-    def buildClientApplication(registrarHash)
-      client = OAuthApplication.create!
-      client.attributes = filterNilValues(registrarHash)
-      client.save!
-      client
-    end
-
-    def filterNilValues(registrarHash)
-      {
-        name: registrarHash.client_name,
-        redirect_uris: registrarHash.redirect_uris
-      }.delete_if do |key, value|
-        value.nil?
-      end
+    def build_client_application(registrar)
+      create! redirect_uris: registrar.redirect_uris
     end
   end
 end

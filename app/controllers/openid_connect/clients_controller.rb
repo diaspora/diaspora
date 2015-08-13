@@ -1,10 +1,10 @@
 class OpenidConnect::ClientsController < ApplicationController
-
   rescue_from OpenIDConnect::HttpError do |e|
-    rewriteHTTPErrorPageAsJSON(e)
+    http_error_page_as_json(e)
   end
+
   rescue_from OpenIDConnect::ValidationFailed do |e|
-    rewriteValidationFailErrorPageAsJSON(e)
+    validation_fail_as_json(e)
   end
 
   def create
@@ -13,18 +13,21 @@ class OpenidConnect::ClientsController < ApplicationController
     render json: client
   end
 
-private
+  private
 
-  def rewriteHTTPErrorPageAsJSON(e)
-    render json: {
-             error: :invalid_request,
-             error_description: e.message
-           }, status: 400
+  def http_error_page_as_json(e)
+    render json:
+    {
+      error:             :invalid_request,
+      error_description: e.message
+    }, status: 400
   end
-  def rewriteValidationFailErrorPageAsJSON(e)
-    render json: {
-             error: :invalid_client_metadata,
-             error_description: e.message
-           }, status: 400
+
+  def validation_fail_as_json(e)
+    render json:
+    {
+      error:             :invalid_client_metadata,
+      error_description: e.message
+    }, status: 400
   end
 end
