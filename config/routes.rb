@@ -235,6 +235,14 @@ Diaspora::Application.routes.draw do
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
     match "user", to: "users#show", via: %i(get post)
+    jsonapi_resources :posts, only: %i(show create) do
+      jsonapi_link :author, only: %i(show)
+      jsonapi_related_resource :author, only: %i(show)
+    end
+    jsonapi_resources :people, only: %i(show) do
+      jsonapi_links :posts, only: %i(show)
+      jsonapi_related_resources :posts, only: %i(show)
+    end
   end
 
   namespace :api do

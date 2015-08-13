@@ -19,6 +19,7 @@ gem "diaspora_federation-rails", "0.0.11"
 gem "acts_as_api", "0.4.2"
 gem "json",        "1.8.3"
 gem "json-schema", "2.5.2"
+gem "jsonapi-resources"
 
 # Authentication
 

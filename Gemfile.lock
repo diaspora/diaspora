@@ -441,6 +441,8 @@ GEM
     json_spec (1.1.4)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
+    jsonapi-resources (0.7.0)
+      rails (>= 4.0)
     jsonpath (0.5.7)
       multi_json
     jwt (1.5.2)
@@ -927,6 +929,7 @@ DEPENDENCIES
   json (= 1.8.3)
   json-schema (= 2.5.2)
   json_spec (= 1.1.4)
+  jsonapi-resources
   leaflet-rails (= 0.7.4)
   logging-rails (= 0.5.0)
   markerb (= 1.1.0)
