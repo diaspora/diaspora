@@ -8,11 +8,12 @@ o_auth_query_params = %i(
 
 Given /^I send a post request from that client to the implicit flow authorization endpoint$/ do
   client_json = JSON.parse(last_response.body)
-  visit new_openid_connect_authorization_path + "?client_id=#{client_json["o_auth_application"]["client_id"]}&#{o_auth_query_params}"
+  visit new_api_openid_connect_authorization_path +
+          "?client_id=#{client_json['o_auth_application']['client_id']}&#{o_auth_query_params}"
 end
 
 Given /^I send a post request from that client to the implicit flow authorization endpoint using a invalid client id/ do
-  visit new_openid_connect_authorization_path + "?client_id=randomid&#{o_auth_query_params}"
+  visit new_api_openid_connect_authorization_path + "?client_id=randomid&#{o_auth_query_params}"
 end
 
 When /^I give my consent and authorize the client$/ do

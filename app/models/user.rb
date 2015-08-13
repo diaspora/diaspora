@@ -76,8 +76,8 @@ class User < ActiveRecord::Base
 
   has_many :reports
 
-  has_many :authorizations, class_name: "OpenidConnect::Authorization"
-  has_many :o_auth_applications, through: :authorizations, class_name: "OpenidConnect::OAuthApplication"
+  has_many :authorizations, class_name: "Api::OpenidConnect::Authorization"
+  has_many :o_auth_applications, through: :authorizations, class_name: "Api::OpenidConnect::OAuthApplication"
 
   before_save :guard_unconfirmed_email,
               :save_person!
