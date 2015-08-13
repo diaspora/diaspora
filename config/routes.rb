@@ -235,7 +235,8 @@ Diaspora::Application.routes.draw do
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
     match "user", to: "users#show", via: %i(get post)
-  end
+    resources :posts, only: %i(show create destroy)
+    end
 
   namespace :api do
     namespace :openid_connect do
