@@ -221,6 +221,11 @@ Rails.application.routes.draw do
   root :to => 'home#show'
   get "podmin", to: "home#podmin"
 
+  api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
+    match "user", to: "users#show", via: %i(get post)
+    resources :posts, only: %i(show create destroy)
+    end
+
   namespace :api do
     namespace :openid_connect do
       resources :clients, only: :create
