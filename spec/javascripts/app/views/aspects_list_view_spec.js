@@ -18,9 +18,9 @@ describe("app.views.AspectsList", function(){
       this.view.render();
     });
 
-    it('should show the corresponding aspects selected', function(){
-      expect(this.view.$('.selected').length).toBe(1);
-      expect(this.view.$('.selected').parent().text()).toMatch('Work');
+    it("should show the corresponding aspects selected", function(){
+      expect(this.view.$(".selected").length).toBe(1);
+      expect(this.view.$(".selected").parent().text()).toMatch("Work");
     });
 
     it("should show all the aspects", function(){

@@ -25,8 +25,9 @@ $red: #A80000;
 $blue: #3F8FBA;
 $dark-blue: darken(#0984C8,10%);
 
-$right-sidebar-background: #f0f0f0;
-$right-sidebar-sub-background: darken($right-sidebar-background, 12%);
+$sidebars-background: #f0f0f0;
+$sidebars-sub-background: darken($sidebars-background, 12%);
+$left-navbar-drawer-background: darken($sidebars-background, 6%);
 
 /* colors : http://www.colourlovers.com/palette/2134203/Awezome_in_argyle */
 $cyan : rgb(8,204,249);
@@ -36,7 +37,3 @@ $lime-green : rgb(143, 199,10);
 $orange : rgb(237, 165, 13);
 $turquoise : rgb(8, 224, 173);
 $sand : rgb(245, 239, 237);
-
-$left-navbar-background: #f0f0f0;
-$left-navbar-drawer-background: darken($left-navbar-background, 6%);
-$left-navbar-sub-background: darken($left-navbar-background, 12%); /* Only visible in large screens (BS3: visible-lg) */

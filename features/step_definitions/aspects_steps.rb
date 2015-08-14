@@ -42,10 +42,10 @@ When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
 end
 
 When /^I select only "([^"]*)" aspect$/ do |aspect_name|
-  click_link 'My aspects'
-  within('#aspects_list') do
-    click_link 'Deselect all'
-    current_scope.should have_no_css '.selected'
+  click_link "My aspects"
+  within("#aspects_list") do
+    all(".selected").each {|node| node.find(:xpath, "..").click }
+    expect(current_scope).to have_no_css ".selected"
   end
   step %Q(I select "#{aspect_name}" aspect as well)
 end
