@@ -91,6 +91,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   remove : function() {
     $(this.el).slideUp(400, _.bind(function(){this.$el.remove()}, this));
+    app.stream.remove(this.model);
     return this;
   },
 
