@@ -83,6 +83,10 @@ app.models.Stream = Backbone.Collection.extend({
     this.trigger("fetched");
   },
 
+  remove : function(models) {
+    this.items.remove(models);
+  },
+
   preloadOrFetch : function(){ //hai, plz test me THNX
     return $.when(app.hasPreload("stream") ? this.preload() : this.fetch());
   },

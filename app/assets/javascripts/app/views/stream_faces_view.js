@@ -11,6 +11,7 @@ app.views.StreamFaces = app.views.Base.extend({
   initialize : function(){
     this.updatePeople();
     app.stream.items.bind("add", this.updatePeople, this);
+    app.stream.items.bind("remove", this.updatePeople, this);
   },
 
   presenter : function() {
