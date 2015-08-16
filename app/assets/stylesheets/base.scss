@@ -68,26 +68,45 @@ pre { word-wrap: break-word; }
 }
 
 .back-to-top {
-  background-color: $border-dark-grey;
-  border-radius: 10px;
-  bottom: 20px;
-  color: $white;
   display: block;
-  font-size: 2.9em;
-  line-height: 1.5;
-  opacity: 0;
-  padding: 0 12px;
+  color: $white;
+  width: 50px;
+  height: 50px;
   position: fixed;
-  right: 54px;
   z-index: 49;
+  right: 54px;
+  bottom: 20px;
+  opacity: 0;
+  font-size: 2.9em;
+  background-color: $border-dark-grey;
+  border-radius: 0;
+  box-shadow: $card-shadow;
+  line-height: 1.5;
+  transition: box-shadow .3s, background-color .3s;
 
-  &:hover,
-  &.visible:hover {
-    color: $white;
+  &:hover {
+    background-color: lighten($border-dark-grey, 5%);
+    box-shadow: $card-shadow-hover;
+  }
+
+  &.visible,
+  &:hover {
     opacity: .85;
   }
 
-  &.visible { opacity: .5; }
+  &:before {
+    border-style: solid;
+    border-width: .25em .25em 0 0;
+    color: $white;
+    content: '';
+    display: inline-block;
+    height: 25px;
+    margin: 0 12px;
+    position: relative;
+    transform: rotate(-45deg);
+    vertical-align: middle;
+    width: 25px;
+  }
 }
 
 // general purpose classes
