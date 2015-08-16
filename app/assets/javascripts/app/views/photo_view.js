@@ -4,7 +4,7 @@ app.views.Photo = app.views.Base.extend({
 
   templateName: "photo",
 
-  className : "photo loaded col-md-4 clearfix",
+  className : "photo loaded col-md-4 col-sm-6 clearfix",
 
   events: {
     "click .remove_post": "destroyModel"

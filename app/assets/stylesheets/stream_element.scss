@@ -24,25 +24,25 @@
         top: 1px;
       }
     }
-    &:hover > .bd > .control-icons { background: #fff; }
+    &:hover > .bd > .control-icons { background: $white; }
   }
   .thumbnail {
     padding: 10px;
-    margin: 0 5px 10px;
-    text-align: center;
-    line-height: 200px;
-    border: 1px solid $border-grey;
-    background: #fefefe;
-    box-shadow: 3px 3px 2px #eee;
-    img {
-      &.big_photo { max-height: 200px; }
-    }
+    margin: 0 0 15px;
+    background: $white;
+    border-radius: 0;
+    box-shadow: $card-shadow;
+    img.big_photo { max-height: 200px; }
   }
 }
 
 #main_stream .stream_element {
-  border-bottom: 1px solid $border-grey;
   padding: 10px;
+  margin-bottom: 20px;
+  background-color: $white;
+  border: 1px solid $light-grey;
+  box-shadow: $card-shadow;
+
   & > .media {
     &.shield-active .nsfw-hidden { display: none; }
     &:not(.shield-active) .nsfw-shield { display: none; }
