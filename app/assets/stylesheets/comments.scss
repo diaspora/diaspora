@@ -1,7 +1,7 @@
 .comment_stream {
   .show_comments {
     margin-top: 5px;
-    border-top: 1px solid $border-grey;
+    /*border-top: 1px solid $border-grey;*/
     a {
       color: $text-grey;
       font-size: 13px;
@@ -9,13 +9,33 @@
     .media { margin-top: 10px; }
   }
   .comments > .comment, .comment.new_comment_form_wrapper {
+    &:before{
+      content: "";
+      display: block;
+      position: relative;
+      width: 0;
+      height: 0;
+      left: 34px;
+      top: 20px;
+
+      border-right: 11px solid $light-grey;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+
+    }
     .avatar {
       height: 35px;
       width: 35px;
     }
     margin: 0;
-    border-top: 1px dotted $border-grey;
+    /*border-top: 1px dotted $border-grey;*/
     padding: 10px 0;
+
+    .bd {
+      margin-right: 10px;
+      padding: 5px;
+      box-shadow: 0px 1px 1px 1px $light-grey;/*rgba(0, 0, 0, 0.16);*/
+    }
 
     .info {
       margin-top: 5px;
