@@ -7,7 +7,7 @@
 
       .pull-right
         = form_tag('/admins/stats', :method => 'get', class: 'form-inline') do
-          %select{:name => 'range'}
+          %select.form-control{name: "range"}
             %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
               = t('.daily')
             %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
