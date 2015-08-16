@@ -37,7 +37,7 @@ module NavigationHelpers
     when /^forgot password page$/
       new_user_password_path
     when /^user applications page$/
-      user_applications_path
+      api_openid_connect_user_applications_path
     when %r{^"(/.*)"}
       Regexp.last_match(1)
     else

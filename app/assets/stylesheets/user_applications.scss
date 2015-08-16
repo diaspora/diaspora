@@ -1,32 +1,28 @@
-.applications-page {
-  .applications-explenation {
-    margin-bottom: 15px;
-  }
+.application-img {
+  margin: 9px 0;
+  float: left;
+  width: 60px;
+  max-height: 60px;
+  text-align: center;
 
-  .application-img {
-    margin: 9px 0;
-    float: left;
-    width: 60px;
-    max-height: 60px;
-    text-align: center;
-
-    [class^="entypo-"] {
-      font-size: 60px;
-      height: 60px;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      &::before {
-        position: relative;
-        top: -15px;
-      }
+  [class^="entypo-"] {
+    font-size: 60px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    &::before {
+      position: relative;
+      top: -15px;
     }
   }
-
-  .application-authorizations {
-    width: calc(100% - 60px);
-    padding: 0 0 15px 15px;
-    display: inline-block;
-    float: right;
-  }
 }
+
+.application-authorizations {
+  width: calc(100% - 60px);
+  padding: 0 0 15px 15px;
+  display: inline-block;
+  float: right;
+}
+
+.user-consent { margin-top: 20px; }

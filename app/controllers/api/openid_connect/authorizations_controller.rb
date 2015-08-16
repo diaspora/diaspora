@@ -32,7 +32,7 @@ module Api
         else
           flash[:error] = I18n.t("api.openid_connect.authorizations.destroy.fail", id: params[:id])
         end
-        redirect_to user_applications_url
+        redirect_to api_openid_connect_user_applications_url
       end
 
       private
@@ -107,6 +107,13 @@ module Api
           endpoint.redirect_uri, endpoint.scopes, endpoint.request_object
         ]
         save_request_parameters
+
+        @app = {
+          name:           @o_auth_application.client_name,
+          image:          @o_auth_application.image_uri,
+          authorizations: @scopes
+        }
+
         render :new
       end
 

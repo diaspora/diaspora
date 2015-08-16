@@ -302,7 +302,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
     context "with non-existent authorization" do
       it "raises an error" do
         delete :destroy, id: 123_456_789
-        expect(response).to redirect_to(user_applications_url)
+        expect(response).to redirect_to(api_openid_connect_user_applications_url)
         expect(flash[:error]).to eq("The attempt to revoke the authorization with ID 123456789 has failed")
       end
     end

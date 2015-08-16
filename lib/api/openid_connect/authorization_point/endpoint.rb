@@ -10,7 +10,7 @@ module Api
           @user = user
           @app = Rack::OAuth2::Server::Authorize.new do |req, res|
             build_attributes(req, res)
-            if OAuthApplication.available_response_types.include? Array(req.response_type).map(&:to_s).join(" ")
+            if OAuthApplication.available_response_types.include? Array(req.response_type).join(" ")
               handle_response_type(req, res)
             else
               req.unsupported_response_type!
@@ -46,10 +46,13 @@ module Api
         def build_scopes(req)
           @scopes = req.scope.map {|scope|
             scope.tap do |scope_name|
-              # TODO: Use enum
-              req.invalid_scope! "Unknown scope: #{scope_name}" unless %w(openid read write).include? scope_name
+              req.invalid_scope! "Unknown scope: #{scope_name}" unless scopes.include? scope_name
             end
           }
+        end
+
+        def scopes
+          Api::OpenidConnect::Authorization.scopes
         end
       end
     end

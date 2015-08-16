@@ -1,0 +1,16 @@
+.application-img
+  - if app[:image]
+    = image_tag app[:image], class: "img-responsive"
+  - else
+    %i.entypo-browser
+.application-authorizations
+  - if app[:authorizations].count > 0
+    %h4=t("api.openid_connect.user_applications.index.access", name: app[:name])
+    %ul
+      - app[:authorizations].each do |authorization|
+        %li
+          %b= t("api.openid_connect.scopes.#{authorization}.name")
+          %p= t("api.openid_connect.scopes.#{authorization}.description")
+  - else
+    .well
+      =t("api.openid_connect.user_applications.index.no_requirement",name: app[:name])

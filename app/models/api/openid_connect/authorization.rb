@@ -21,10 +21,11 @@ module Api
         self.refresh_token = SecureRandom.hex(32)
       end
 
+
       def validate_scope_names
         return unless scopes
         scopes.each do |scope|
-          errors.add(:scope, "is not a valid scope name") unless %w(openid read write).include? scope
+          errors.add(:scope, "is not a valid scope name") unless scopes.include? scope
         end
       end
 
@@ -56,9 +57,13 @@ module Api
 
       def self.find_by_refresh_token(client_id, refresh_token)
         Api::OpenidConnect::Authorization.joins(:o_auth_application).find_by(
-          o_auth_applications: {client_id: client_id}, refresh_token: refresh_token)
+        o_auth_applications: {client_id: client_id}, refresh_token: refresh_token)
       end
 
+      def self.scopes
+        %w(openid read write)
+      end
+      
       def self.use_code(code)
         return unless code
         find_by(code: code).tap do |auth|

@@ -886,11 +886,35 @@ en:
       authorizations:
         new:
           redirection_message: "Are you sure you want to give access to %{redirect_uri}?"
-        form:
+          access: "%{name} requires access to:"
+          no_requirement: "%{name} requires no permissions"
           approve: "Approve"
           deny: "Deny"
         destroy:
           fail: "The attempt to revoke the authorization with ID %{id} has failed"
+      user_applications:
+        index:
+          edit_applications: "Applications"
+          title: "Authorized applications"
+          access: "%{name} has access to:"
+          no_requirement: "%{name} requires no permissions"
+          applications_explanation: "Here is a list of applications to which you have authorized"
+        no_applications: "You have no authorized applications"
+        revoke_autorization: "Revoke"
+      scopes:
+        openid:
+          name: "basic profile"
+          description: "This allows the application to read your basic profile"
+        extended:
+          name: "extended profile"
+          description: "This allows the application to read your extended profile"
+        read:
+          name: "read profile, stream and conversations"
+          description: "This allows the application to read your stream, your conversations and your complete profile"
+        write:
+          name: "send posts, conversations and reactions"
+          description: "This allows the application to send new posts, write conversations, and send reactions"
+
   people:
     zero: "No people"
     one: "1 person"
@@ -1476,27 +1500,3 @@ en:
     disabled: "Not available"
     open: "Open"
     closed: "Closed"
-    
-  user_applications:
-    index:
-      edit_applications: "Applications"
-      title: "Authorized applications"
-      access: "%{name} is authorized access to:"
-      no_requirement: "This application requires no permissions"
-      applications_explanation: "Here is a list of applications to which you have authorized access"
-    no_applications: "You have no authorized applications"
-    revoke_autorization: "Revoke"
-    scopes:
-      openid:
-        name: "basic profile"
-        description: "This allows the application to read your basic profile"
-      extended:
-        name: "extended profile"
-        description: "This allows the application to read your extended profile"
-      read:
-        name: "read profile, stream and conversations"
-        description: "This allows the application to read your stream, your conversations and your complete profile"
-      write:
-        name: "send posts, conversations and reactions"
-        description: "This allows the application to send new posts, write conversations, and send reactions"
-    
