@@ -9,7 +9,7 @@
     .media { margin-top: 10px; }
   }
   .comments > .comment, .comment.new_comment_form_wrapper {
-    /*&:before{
+    &:before{
       content: "";
       display: block;
       position: relative;
@@ -22,7 +22,7 @@
       border-top: 10px solid transparent;
       border-bottom: 10px solid transparent;
 
-    }*/
+    }
     .avatar {
       height: 35px;
       width: 35px;
