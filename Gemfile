@@ -147,7 +147,7 @@ gem "omniauth-wordpress", "0.2.2"
 gem "active_model_serializers", "0.9.3"
 
 # XMPP chat dependencies
-gem "diaspora-vines",             "~> 0.1.27"
+gem "diaspora-vines",             "~> 0.1.28"
 gem "rails-assets-diaspora_jsxc", "~> 0.1.1", source: "https://rails-assets.org"
 
 # Tags
