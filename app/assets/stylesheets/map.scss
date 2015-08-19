@@ -1,4 +1,4 @@
-.map {
+.mapContainer {
   position: relative;
   overflow: hidden;
 }
@@ -6,6 +6,10 @@
 .near-from:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.leaflet-control-zoom {
+  display: none;
 }
 
 .leaflet-bottom .leaflet-control {
