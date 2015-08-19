@@ -1,3 +1,7 @@
+//= require jquery.slimscroll
+//= require colorbox
+//= require favico.js
+//= require jquery-fullscreen-plugin
 //= require diaspora_jsxc
 
 // initialize jsxc xmpp client
@@ -8,7 +12,6 @@ $(document).ready(function() {
         var jid = app.currentUser.get('diaspora_id');
         jsxc.init({
           root: '/assets/diaspora_jsxc',
-          logoutElement: $('.user-menu-item [data-method=delete]'),
           rosterAppend: 'body',
           otr: {
             debug: true,
