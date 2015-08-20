@@ -45,6 +45,13 @@ describe Role do
     end
   end
 
+  describe ".add_moderator" do
+    it "creates the moderator role" do
+      Role.add_moderator(person)
+      expect(person.roles.where(name: "moderator")).to exist
+    end
+  end
+
   describe ".add_spotlight" do
     it "creates the spotlight role" do
       Role.add_spotlight(person)
