@@ -1,11 +1,11 @@
-#NOTE add the person object you want to attach role to...
+# NOTE add the person object you want to attach role to...
 
 class Role < ActiveRecord::Base
   belongs_to :person
 
   validates :person, presence: true
   validates :name, uniqueness: {scope: :person_id}
-  validates :name, inclusion: {in: %w(admin spotlight)}
+  validates :name, inclusion: {in: %w(admin moderator spotlight)}
 
   scope :admins, -> { where(name: "admin") }
 
@@ -15,6 +15,10 @@ class Role < ActiveRecord::Base
 
   def self.add_admin(person)
     find_or_create_by(person_id: person.id, name: "admin")
+  end
+
+  def self.add_moderator(person)
+    find_or_create_by(person_id: person.id, name: "moderator")
   end
 
   def self.add_spotlight(person)
