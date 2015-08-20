@@ -18,10 +18,20 @@ describe ReportController, :type => :controller do
         expect(response).to redirect_to stream_path
       end
     end
-    
+
     context 'admin signed in' do
       before do
         Role.add_admin(alice.person)
+      end
+      it 'succeeds and renders index' do
+        get :index
+        expect(response).to render_template('index')
+      end
+    end
+
+    context 'moderator signed in' do
+      before do
+        Role.add_moderator(alice.person)
       end
       it 'succeeds and renders index' do
         get :index

@@ -92,6 +92,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_unless_moderator
+    unless current_user.moderator? || current_user.admin?
+      redirect_to stream_url, :notice => 'you need to be an admin or moderator to do that'
+      return
+    end
+  end
+
   def set_grammatical_gender
     if (user_signed_in? && I18n.inflector.inflected_locale?)
       gender = current_user.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
