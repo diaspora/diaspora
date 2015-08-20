@@ -7,35 +7,37 @@ app.views.LocationStream = app.views.Content.extend({
   templateName: "status-message-location",
 
   toggleMap: function () {
-    var mapContainer = this.$el.find(".mapContainer");
+    if (gon.appConfig.map.enabled){
+      var mapContainer = this.$el.find(".mapContainer");
 
-    if (mapContainer.hasClass("empty")) {
-      var location = this.model.get("location");
-      mapContainer.css("height", "150px");
+      if (mapContainer.hasClass("empty")) {
+        var location = this.model.get("location");
+        mapContainer.css("height", "150px");
 
-      if (location.lat) {
-        var tileLayerSource = "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}";
-        var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 16);
-        var attribution = "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
-                          "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
-                          "Imagery © <a href='http://mapbox.com'>Mapbox</a>";
+        if (location.lat) {
+          var tileLayerSource = "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}";
+          var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 16);
+          var attribution = "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
+                            "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
+                            "Imagery © <a href='http://mapbox.com'>Mapbox</a>";
 
-        L.tileLayer(tileLayerSource, {
-          attribution:  attribution,
-          maxZoom: 18,
-          id: "zaziemo.mpn66kn8",
-          accessToken: "pk.eyJ1IjoiemF6aWVtbyIsImEiOiI3ODVjMzVjNmM2ZTU3YWM3YTE5YWYwMTRhODljM2M1MSJ9.-nVgyS4PLnV4m9YkvMB5wA"
-        }).addTo(map);
+          L.tileLayer(tileLayerSource, {
+            attribution:  attribution,
+            maxZoom: 18,
+            id: gon.appConfig.map.mapbox.id,
+            accessToken: gon.appConfig.map.mapbox.accessToken
+          }).addTo(map);
 
-        var markerOnMap = L.marker(location).addTo(map);
-        mapContainer.removeClass("empty");
-        return map;
-      }
-    } else {
-        if (mapContainer.css("display") === "none") {
-        mapContainer.css("display", "block");
-        } else {
-          mapContainer.css("display", "none");
+          var markerOnMap = L.marker(location).addTo(map);
+          mapContainer.removeClass("empty");
+          return map;
+        }
+      } else {
+          if (mapContainer.css("display") === "none") {
+          mapContainer.css("display", "block");
+          } else {
+            mapContainer.css("display", "none");
+          }
         }
       }
     }

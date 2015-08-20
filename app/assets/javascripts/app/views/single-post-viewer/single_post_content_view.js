@@ -27,7 +27,7 @@ app.views.SinglePostContent = app.views.Base.extend({
   },
 
   map : function(){
-    if (this.$el.find(".mapContainer")){
+    if (this.$el.find(".mapContainer")&&gon.appConfig.map.enabled){
 
       // find and set height of mapContainer to max size of the container
       // which is necessary to have all necessary tiles prerendered
@@ -45,8 +45,8 @@ app.views.SinglePostContent = app.views.Base.extend({
       L.tileLayer(tileLayerSource, {
         attribution:  attribution,
         maxZoom: 18,
-        id: "zaziemo.mpn66kn8",
-        accessToken: "pk.eyJ1IjoiemF6aWVtbyIsImEiOiI3ODVjMzVjNmM2ZTU3YWM3YTE5YWYwMTRhODljM2M1MSJ9.-nVgyS4PLnV4m9YkvMB5wA"
+        id: gon.appConfig.map.mapbox.id,
+        accessToken: gon.appConfig.map.mapbox.accessToken
       }).addTo(map);
 
       // set mapContainer size to a smaller preview size
@@ -56,16 +56,18 @@ app.views.SinglePostContent = app.views.Base.extend({
       // put marker on map
       var markerOnMap = L.marker(location).addTo(map);
       return map;
-    };
+      };
   },
 
   toggleMap: function () {
-    if (this.$el.find(".mapContainer").css("height") === "75px") {
-      this.$el.find(".mapContainer").css("height", "200px");
-      this.$el.find(".leaflet-control-zoom").css("display", "block");
-    } else {
-        this.$el.find(".mapContainer").css("height", "75px");
-        this.$el.find(".leaflet-control-zoom").css("display", "none");
+    if (gon.appConfig.map.enabled){
+      if (this.$el.find(".mapContainer").css("height") === "75px") {
+        this.$el.find(".mapContainer").css("height", "200px");
+        this.$el.find(".leaflet-control-zoom").css("display", "block");
+      } else {
+          this.$el.find(".mapContainer").css("height", "75px");
+          this.$el.find(".leaflet-control-zoom").css("display", "none");
+      }
     }
   },
 

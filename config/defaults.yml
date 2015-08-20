@@ -75,6 +75,11 @@ defaults:
       log:
         file: 'log/vines.log'
         level: 'info'
+  map:
+    enabled: true
+    mapbox:
+      id: 'zaziemo.mpn66kn8'
+      accessToken: 'pk.eyJ1IjoiemF6aWVtbyIsImEiOiI3ODVjMzVjNmM2ZTU3YWM3YTE5YWYwMTRhODljM2M1MSJ9.-nVgyS4PLnV4m9YkvMB5wA'
   privacy:
     jquery_cdn: false
     google_analytics_key:

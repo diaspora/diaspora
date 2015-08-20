@@ -324,6 +324,17 @@ configuration: ## Section
         ## The debug level logs all XML sent and received by the server.
         #level: 'info'
 
+  ## Displaying location of posts in a map. We are using the map tiles of
+  ## https://www.mapbox.com. There you have to create a account to get and ID
+  ## and an access token. If you want to use this feature you can write an email
+  ## to team@diasporafoundation.org and you'll get an unlimited and free account.
+  map: ##Section
+
+  # enable: true
+  # mapbox:
+    # id: 'your.id'
+    # accessToken: 'youraccesstoken'
+
   ## Settings potentially affecting the privacy of your users.
   privacy: ## Section
 
