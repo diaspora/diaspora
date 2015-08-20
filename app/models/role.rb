@@ -17,6 +17,10 @@ class Role < ActiveRecord::Base
     find_or_create_by(person_id: person.id, name: "admin")
   end
 
+  def self.moderator?(person)
+    exists?(person_id: person.id, name: "moderator")
+  end
+
   def self.add_moderator(person)
     find_or_create_by(person_id: person.id, name: "moderator")
   end
