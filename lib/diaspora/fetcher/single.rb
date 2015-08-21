@@ -14,7 +14,7 @@ module Diaspora
         post = Post.where(guid: guid).first
         return post if post
 
-        post_author = Webfinger.new(author_id).fetch
+        post_author = Person.find_or_fetch_by_identifier(author_id)
         post_author.save! unless post_author.persisted?
 
         if fetched_post = fetch_post(post_author, guid)

@@ -13,7 +13,7 @@ describe Postzord::Receiver::Private do
 
   describe '.initialize' do
     it 'valid for local' do
-      expect(Webfinger).not_to receive(:new)
+      expect(Person).not_to receive(:find_or_fetch_by_identifier)
       expect(Salmon::EncryptedSlap).not_to receive(:from_xml)
 
       zord = Postzord::Receiver::Private.new(bob, :person => alice.person, :object => @alices_post)
@@ -24,11 +24,9 @@ describe Postzord::Receiver::Private do
 
     it 'valid for remote' do
       salmon_double = double()
-      web_double = double()
-      expect(web_double).to receive(:fetch).and_return true
       expect(salmon_double).to receive(:author_id).and_return(true)
       expect(Salmon::EncryptedSlap).to receive(:from_xml).with(@salmon_xml, bob).and_return(salmon_double)
-      expect(Webfinger).to receive(:new).and_return(web_double)
+      expect(Person).to receive(:find_or_fetch_by_identifier).and_return(true)
 
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => @salmon_xml)
       expect(zord.instance_variable_get(:@user)).not_to be_nil

@@ -74,6 +74,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Extract StatusMessageService from StatusMessagesController [#6280](https://github.com/diaspora/diaspora/pull/6280)
 * Refactor HomeController#toggle\_mobile [#6260](https://github.com/diaspora/diaspora/pull/6260)
 * Extract CommentService from CommentsController [#6307](https://github.com/diaspora/diaspora/pull/6307)
+* Extract user/profile discovery into the diaspora\_federation-rails gem [#6310](https://github.com/diaspora/diaspora/pull/6310)
 
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
