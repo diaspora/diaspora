@@ -11,6 +11,7 @@ class UserPresenter
       { :notifications_count => notifications_count,
         :unread_messages_count => unread_messages_count,
         :admin => admin,
+        :moderator => moderator,
         :aspects => aspects,
         :services => services,
         :following_count => self.user.contacts.receiving.count,
@@ -45,5 +46,9 @@ class UserPresenter
 
   def admin
     user.admin?
+  end
+
+  def moderator
+    user.moderator?
   end
 end
