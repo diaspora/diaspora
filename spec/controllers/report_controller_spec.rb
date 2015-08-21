@@ -71,7 +71,7 @@ describe ReportController, type: :controller do
       end
     end
     context "mark comment report as user" do
-      it "is behind redirect_unless_admin" do
+      it "is behind redirect_unless_admin_or_moderator" do
         put :update, id: @comment.id, type: "comment"
         expect(response).to redirect_to stream_path
         expect(Report.where(reviewed: false, item_id: @comment.id, item_type: "comment")).to be_truthy
@@ -98,18 +98,39 @@ describe ReportController, type: :controller do
         expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "comment")).to be_truthy
       end
     end
+
+    context "mark post report as moderator" do
+      before do
+        Role.add_moderator(alice.person)
+      end
+      it "succeeds" do
+        put :update, id: @message.id, type: "post"
+        expect(response.status).to eq(302)
+        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "post")).to be_truthy
+      end
+    end
+    context "mark comment report as moderator" do
+      before do
+        Role.add_moderator(alice.person)
+      end
+      it "succeeds" do
+        put :update, id: @comment.id, type: "comment"
+        expect(response.status).to eq(302)
+        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "comment")).to be_truthy
+      end
+    end
   end
 
   describe "#destroy" do
     context "destroy post as user" do
-      it "is behind redirect_unless_admin" do
+      it "is behind redirect_unless_admin_or_moderator" do
         delete :destroy, id: @message.id, type: "post"
         expect(response).to redirect_to stream_path
         expect(Report.where(reviewed: false, item_id: @message.id, item_type: "post")).to be_truthy
       end
     end
     context "destroy comment as user" do
-      it "is behind redirect_unless_admin" do
+      it "is behind redirect_unless_admin_or_moderator" do
         delete :destroy, id: @comment.id, type: "comment"
         expect(response).to redirect_to stream_path
         expect(Report.where(reviewed: false, item_id: @comment.id, item_type: "comment")).to be_truthy
@@ -129,6 +150,27 @@ describe ReportController, type: :controller do
     context "destroy comment as admin" do
       before do
         Role.add_admin(alice.person)
+      end
+      it "succeeds" do
+        delete :destroy, id: @comment.id, type: "comment"
+        expect(response.status).to eq(302)
+        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "comment")).to be_truthy
+      end
+    end
+
+    context "destroy post as moderator" do
+      before do
+        Role.add_moderator(alice.person)
+      end
+      it "succeeds" do
+        delete :destroy, id: @message.id, type: "post"
+        expect(response.status).to eq(302)
+        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "post")).to be_truthy
+      end
+    end
+    context "destroy comment as moderator" do
+      before do
+        Role.add_moderator(alice.person)
       end
       it "succeeds" do
         delete :destroy, id: @comment.id, type: "comment"
