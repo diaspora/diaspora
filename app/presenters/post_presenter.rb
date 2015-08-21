@@ -1,15 +1,11 @@
-class PostPresenter
+class PostPresenter < BasePresenter
   include PostsHelper
 
-  attr_accessor :post, :current_user
+  attr_accessor :post
 
   def initialize(post, current_user=nil)
     @post = post
     @current_user = current_user
-  end
-
-  def self.collection_json(collection, current_user)
-    collection.map {|post| PostPresenter.new(post, current_user) }
   end
 
   def as_json(_options={})
