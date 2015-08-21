@@ -8,7 +8,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   def initialize(xml)
     @salmon = Salmon::Slap.from_xml(xml)
-    @author = Webfinger.new(@salmon.author_id).fetch
+    @author = Diaspora::Webfinger.new(@salmon.author_id).fetch
   end
 
   # @return [Boolean]

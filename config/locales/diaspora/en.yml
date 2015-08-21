@@ -298,6 +298,12 @@ en:
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
+    create:
+      fail: "Comment creation has failed"
+    destroy:
+      success: "Comment %{id} has been successfully deleted"
+      fail: "Comment deletion has failed"
+    not_found: "Post or comment not found"
 
   reactions:
     zero: "No reactions"
@@ -880,6 +886,16 @@ en:
         Hoping to see you again,
 
         The diaspora* email robot!
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          will_be_redirected: "You will be redirected to"
+          with_id_token: "with an id token if approved or an error if denied"
+          requested_objects: "Request Objects (Currently not supported)"
+        form:
+          approve: "Approve"
+          deny: "Deny"
   people:
     zero: "No people"
     one: "1 person"
@@ -1464,3 +1480,27 @@ en:
     disabled: "Not available"
     open: "Open"
     closed: "Closed"
+    
+  user_applications:
+    index:
+      edit_applications: "Applications"
+      title: "Your authorized applications"
+      access: "is authorized access to:"
+      no_requirement: "This application requires no permissions"
+      applications_explanation: "Here is a list of applications that you to which have authorized your profile information"
+    no_applications: "You have no authorized applications for now"
+    revoke_autorization: "Revoke"
+    scopes:
+      openid:
+        name: "basic profile"
+        description: "This allows the application to read your basic profile"
+      extended:
+        name: "extended profile"
+        description: "This allows the application to read your extended profile"
+      read:
+        name: "read profile, stream and conversations"
+        description: "This allows the application to read your stream, your conversations and your complete profile"
+      write:
+        name: "send posts, conversations and reactions"
+        description: "This allows the application to send new posts, write conversations, and send reactions"
+    

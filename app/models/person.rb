@@ -359,7 +359,7 @@ class Person < ActiveRecord::Base
   end
 
   def fix_profile
-    Webfinger.new(self.diaspora_handle).fetch
+    Diaspora::Webfinger.new(diaspora_handle).fetch
     self.reload
   end
 end

@@ -1,7 +1,7 @@
 class PollParticipation < ActiveRecord::Base
 
   include Diaspora::Federated::Base
-  
+
   include Diaspora::Guid
   include Diaspora::Relayable
   belongs_to :poll
@@ -37,7 +37,7 @@ class PollParticipation < ActiveRecord::Base
   end
 
   def diaspora_handle= nh
-    self.author = Webfinger.new(nh).fetch
+    self.author = Diaspora::Webfinger.new(nh).fetch
   end
 
   def not_already_participated

@@ -207,15 +207,7 @@ Diaspora::Application.routes.draw do
     end
   end
 
-  scope 'api/v0', :controller => :apis do
-    get :me
-  end
-
   namespace :api do
-    namespace :v0 do
-      get "/users/:username" => 'users#show', :as => 'user'
-      get "/tags/:name" => 'tags#show', :as => 'tag'
-    end
     namespace :v1 do
       resources :tokens, :only => [:create, :destroy]
     end
@@ -248,4 +240,31 @@ Diaspora::Application.routes.draw do
 
   # Startpage
   root :to => 'home#show'
+
+  api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
+    match "user", to: "users#show", via: %i(get post)
+    resources :posts, only: %i(show create destroy) do
+      resources :comments, only: %i(create destroy index)
+    end
+  end
+
+  namespace :api do
+    namespace :openid_connect do
+      resources :clients, only: :create
+      post "access_tokens", to: proc {|env| Api::OpenidConnect::TokenEndpoint.new.call(env) }
+
+      # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint
+      # See http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation
+      resources :authorizations, only: %i(new create destroy)
+      post "authorizations/new", to: "authorizations#new"
+
+      get "jwks.json", to: "id_tokens#jwks"
+
+      get "user_info", to: "user_info#show"
+    end
+  end
+
+  get ".well-known/webfinger", to: "api/openid_connect/discovery#webfinger"
+  get ".well-known/openid-configuration", to: "api/openid_connect/discovery#configuration"
+  get "user_applications", to: "user_applications#index"
 end
