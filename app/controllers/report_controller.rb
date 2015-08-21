@@ -4,7 +4,7 @@
 
 class ReportController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :redirect_unless_moderator, :except => [:create]
+  before_filter :redirect_unless_admin_or_moderator, :except => [:create]
 
   def index
     @reports = Report.where(reviewed: false)

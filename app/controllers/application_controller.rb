@@ -92,7 +92,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def redirect_unless_moderator
+  def redirect_unless_admin_or_moderator
     unless current_user.moderator? || current_user.admin?
       redirect_to stream_url, :notice => 'you need to be an admin or moderator to do that'
       return
