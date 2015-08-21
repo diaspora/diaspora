@@ -1,6 +1,7 @@
 .container
   %div
-    = render :partial => 'admins/admin_bar'
+    - if current_user.admin?
+      = render :partial => 'admins/admin_bar'
 
   %div.row
     %div.span12
