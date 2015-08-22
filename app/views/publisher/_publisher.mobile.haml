@@ -8,7 +8,7 @@
     = status.text_area :text, placeholder: t('shared.publisher.whats_on_your_mind'), rows: 4, autofocus: "autofocus", class: "form-control"
 
   .form-group
-    %span#publisher_service_icons
+    %span#publisher-service-icons
       - if current_user.services
         - for service in current_user.services
           = image_tag "social_media_logos/#{service.provider}-32x32.png", title: service.provider.titleize, class: "service_icon dim", id:"#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"

@@ -29,24 +29,45 @@
     }
 
     .options_and_submit {
-      padding: 10px 0 ;
-      #publisher_service_icons {
-        .btn-link{ text-decoration: none; }
-        .btn-link.question_mark .entypo-cog {
+      padding: 10px 0;
+      #publisher-service-icons {
+        text-decoration: none;
+
+        .entypo-cog, .service_icon {
           color: $text-grey;
           font-size: 16px;
-          line-height: $line-height-computed;
+          line-height: 16px;
         }
-        .btn-link.question_mark:hover.entypo-cog { color: $black; }
-        .btn-link.service_icon {
-          padding-left: 5px;
-          padding-right: 5px;
-        }
+        .service_icon { padding: 6px 5px; }
+        .btn.btn-link.question_mark:hover .entypo-cog { color: $black; }
         .dim { opacity: 0.3; }
         .social_media_logos-wordpress-16x16 {
           display: inline-block;
           height: 16px;
           width: 16px;
+        }
+      }
+
+      $sm-xs-average: ($screen-sm + $screen-xs) / 2;
+      @media(max-width: $sm-xs-average) {
+        #hide_publisher {
+          display: block;
+          width: 100%;
+          margin-bottom: 5px;
+        }
+      }
+
+      @media(max-width: $screen-xs) {
+        .btn-toolbar {
+          width: 100%;
+          display: flex;
+          .btn, .aspect_dropdown{ flex-grow: 1; }
+          .aspect_dropdown .btn { width: 100%; }
+        }
+        .btn-group:first-child { margin: 0; }
+        .dropdown-menu.pull-right {
+          left: 0;
+          right: auto;
         }
       }
     }
@@ -59,7 +80,7 @@
       input[type='text']#status_message_text {
         border: none;
         box-shadow: none;
-        margin: none;
+        margin: 0;
       }
 
       textarea {
@@ -153,7 +174,7 @@
             color: black;
             font-size: 50px;
             line-height: 50px;
-            font-style: bold;
+            font-weight: bold;
             position: absolute;
             z-index: 2;
             opacity: 0.85;
@@ -183,7 +204,7 @@
 
       #upload_error {
         color: white;
-        font-style: bold;
+        font-weight: bold;
         border-top: 1px solid white;
         background-color: $red;
         text-align: center;
