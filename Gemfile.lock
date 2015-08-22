@@ -147,7 +147,7 @@ GEM
     devise_lastseenable (0.0.6)
       devise
       rails (>= 3.0.4)
-    diaspora-vines (0.1.28)
+    diaspora-vines (0.2.0.develop.1)
       activerecord (~> 4.1)
       bcrypt (~> 3.1)
       em-hiredis (~> 0.3.0)
@@ -793,7 +793,7 @@ DEPENDENCIES
   devise (= 3.5.1)
   devise-token_authenticatable (~> 0.4.0)
   devise_lastseenable (= 0.0.6)
-  diaspora-vines (~> 0.1.28)
+  diaspora-vines (~> 0.2.0.develop)
   diaspora_federation-rails (= 0.0.6)
   entypo-rails (= 3.0.0.pre.rc2)
   eye (= 0.7.pre)
