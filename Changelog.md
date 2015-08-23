@@ -83,6 +83,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Fix conversations view with no contacts [#6266](https://github.com/diaspora/diaspora/pull/6266)
 * Links in the left sidebar are now clickable on full width [#6267](https://github.com/diaspora/diaspora/pull/6267)
 * Guard against passing nil into person\_image\_tag [#6286](https://github.com/diaspora/diaspora/pull/6286)
+* Prevent Handlebars from messing up indentation of pre tags [#6339](https://github.com/diaspora/diaspora/pull/6339)
 
 ## Features
 
