@@ -18,7 +18,7 @@ class NodeInfoPresenter
 
   def add_configuration(doc)
     doc.software.version     = version
-    doc.services             = available_services
+    doc.services.outbound    = available_services
     doc.open_registrations   = open_registrations?
     doc.metadata["nodeName"] = name
     doc.metadata["xmppChat"] = chat_enabled?

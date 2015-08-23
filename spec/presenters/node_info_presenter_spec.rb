@@ -29,7 +29,10 @@ describe NodeInfoPresenter do
           "inbound"  => ["diaspora"],
           "outbound" => ["diaspora"]
         },
-        "services"          => ["facebook"],
+        "services"          => {
+          "inbound"  => [],
+          "outbound" => ["facebook"]
+        },
         "openRegistrations" => AppConfig.settings.enable_registrations?,
         "usage"             => {
           "users" => {}
@@ -58,7 +61,7 @@ describe NodeInfoPresenter do
       end
 
       it "provides services" do
-        expect(hash).to include "services" => %w(twitter facebook)
+        expect(hash).to include "services" => include("outbound" => %w(twitter facebook))
       end
     end
 
@@ -82,7 +85,7 @@ describe NodeInfoPresenter do
       end
 
       it "it doesn't list those" do
-        expect(hash).to include "services" => ["twitter"]
+        expect(hash).to include "services" => include("outbound" => ["twitter"])
       end
     end
 

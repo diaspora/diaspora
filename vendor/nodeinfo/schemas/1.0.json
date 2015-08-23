@@ -8,6 +8,7 @@
     "version",
     "software",
     "protocols",
+    "services",
     "openRegistrations",
     "usage",
     "metadata"
@@ -92,38 +93,61 @@
       }
     },
     "services": {
-      "description": "The third party sites this servers allows to publish messages to.",
-      "type": "array",
-      "minItems": 0,
-      "items": {
-        "enum": [
-          "appnet",
-          "blogger",
-          "buddycloud",
-          "diaspora",
-          "dreamwidth",
-          "drupal",
-          "facebook",
-          "friendica",
-          "gnusocial",
-          "google",
-          "insanejournal",
-          "libertree",
-          "linkedin",
-          "livejournal",
-          "mediagoblin",
-          "myspace",
-          "pinterest",
-          "posterous",
-          "pumpio",
-          "redmatrix",
-          "smtp",
-          "tent",
-          "tumblr",
-          "twitter",
-          "wordpress",
-          "xmpp"
-        ]
+      "description": "The third party sites this server can connect to via their application API.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inbound",
+        "outbound"
+      ],
+      "properties": {
+        "inbound": {
+          "description": "The third party sites this server can retrieve messages from for combined display with regular traffic.",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "enum": [
+              "appnet",
+              "gnusocial",
+              "pumpio"
+            ]
+          }
+        },
+        "outbound": {
+          "description": "The third party sites this server can publish messages to on the behalf of a user.",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "enum": [
+              "appnet",
+              "blogger",
+              "buddycloud",
+              "diaspora",
+              "dreamwidth",
+              "drupal",
+              "facebook",
+              "friendica",
+              "gnusocial",
+              "google",
+              "insanejournal",
+              "libertree",
+              "linkedin",
+              "livejournal",
+              "mediagoblin",
+              "myspace",
+              "pinterest",
+              "posterous",
+              "pumpio",
+              "redmatrix",
+              "smtp",
+              "tent",
+              "tumblr",
+              "twitter",
+              "wordpress",
+              "xmpp"
+            ]
+          }
+        }
       }
     },
     "openRegistrations": {
