@@ -1,0 +1,140 @@
+/* Fixed backgrounds are a common practice to avoid height issues */
+#left-navbar-fixed-sub-background {
+  background: $sidebars-sub-background;
+  position: fixed;
+  height: 100%;
+}
+
+#left-navbar-fixed-background {
+  background: $sidebars-background;
+  border-right: 1px solid $light-grey;
+  position: fixed;
+  height: 100%;
+}
+
+#left-navbar {
+  background: $sidebars-background;
+  border-right: 1px solid $light-grey;
+  a {
+    color: $link-grey;
+    font-weight: bold;
+    text-decoration: none;
+    outline: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &#stream_selection {
+      margin: 0px -15px; /* -15px overrides Bootstrap's default gutter width */
+    }
+  }
+
+  .selected, .selected a { color: $black; }
+
+  .hoverable {
+    display: block;
+    &.selected a, &.selected a:hover,
+    .followed-tags-sidebar a.hoverable.selected {
+      color: white;
+      background: #666;
+    }
+  }
+
+  a.hoverable, li.hoverable {
+    padding: 10px 20px;
+    display: block;
+    font-weight: normal;
+    color: $link-grey;
+    border-bottom: 1px solid #ddd;
+    &:hover, &:hover a,
+    &:hover .entypo-check{
+      background-color: $blue;
+      color: $white;
+    }
+    &:not(:hover) [class^="entypo"] { visibility: hidden; }
+    .entypo-check.selected { visibility: visible; }
+  }
+
+  #aspects_list, #tags_list {
+    background: $left-navbar-drawer-background;
+    li { padding: 0; }
+    .selectable {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 10px 20px 10px 40px;
+    }
+    .action.modify_aspect, .action.delete-tag-following {
+      position: relative;
+      bottom: 30px;
+      right: 20px;
+    }
+  }
+
+  #home_user_badge {
+    min-height: 90px;
+    padding: 20px;
+    margin: 0 -15px;
+
+    .avatar {
+      float: left;
+      height: 50px;
+      width: 50px;
+    }
+
+    h4 {
+      margin: 0 0 0 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 25px;
+
+      a {
+        color: $black;
+        font-weight: normal;
+      }
+    }
+  }
+
+  #tags_list {
+    #new_tag_following {
+      padding: 10px 20px 10px 30px;
+    }
+
+    /* ---- override app/stylesheets/vendor/autoSuggest.css ---- */
+    .as-original{ width: 100%; }
+    .tag_input {
+      line-height: $font-size-base;
+      vertical-align: top;
+      width: 100%;
+    }
+
+    .as-result {
+      margin-top: -1px;
+      margin-left: 1px;
+    }
+
+    .as-list {
+      em {
+        background-color: #aabbcc;
+        color: black;
+        padding: 0px;
+      }
+
+      color: black;
+      position: static; /* override absolute */
+      margin: 0px;
+      border-radius: 0px 0px 3px 3px;
+      box-shadow: 0px 1px 1px #666;
+    }
+
+    .as-result-item.active {
+      color: black;
+      text-shadow: none;
+      background-color: $background-blue;
+      border-color: $background-blue;
+    }
+    /* ---- end override app/stylesheets/vendor/autoSuggest.css ---- */
+  }
+}

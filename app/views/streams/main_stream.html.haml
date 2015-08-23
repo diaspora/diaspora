@@ -22,7 +22,9 @@
 
 %div.container-fluid
   .row
-    .col-md-offset-1.col-md-2#leftNavBar
+    #left-navbar-fixed-sub-background.col-lg-1.visible-lg
+    #left-navbar-fixed-background.col-lg-offset-1.col-lg-2.col-md-3.hidden-sm.hidden-xs
+    #left-navbar.col-lg-offset-1.col-lg-2.col-md-3
       #home_user_badge
         = owner_image_link
         %h4
@@ -37,16 +39,18 @@
           = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
         %li.all_aspects
           = render "aspects/aspect_listings", stream: @stream
-        %li
+        %li.followed-tags-sidebar
           = render "tags/followed_tags_listings"
 
     .col-md-6
       #aspect_stream_container.stream_container
         = render 'aspects/aspect_stream', stream: @stream
 
-    .col-md-2.rightBar
+    #right-sidebar-fixed-sub-background.col-lg-3.visible-lg
+    #right-sidebar-fixed-background.col-md-3.col-lg-2.hidden-sm.hidden-xs
+    .col-md-3.col-lg-2.hidden-xs.hidden-sm.rightbar
       #selected_aspect_contacts.section
-        .title.no_icon
+        .title
           %h5.stream_title
             = @stream.title
         .content

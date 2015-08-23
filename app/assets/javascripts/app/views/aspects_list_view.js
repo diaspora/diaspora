@@ -31,7 +31,7 @@ app.views.AspectsList = app.views.Base.extend({
   },
 
   appendAspect: function(aspect) {
-    $("#aspects_list > *:last").before(new app.views.Aspect({
+    $("#aspects_list > .hoverable:last").before(new app.views.Aspect({
       model: aspect, attributes: {'data-aspect_id': aspect.get('id')}
     }).render().el);
   },

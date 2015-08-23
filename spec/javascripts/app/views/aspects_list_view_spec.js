@@ -18,13 +18,13 @@ describe("app.views.AspectsList", function(){
       this.view.render();
     });
 
-    it('should show the corresponding aspects selected', function(){
-      expect(this.view.$('.selected').length).toBe(1);
-      expect(this.view.$('.selected + a.selectable').text()).toMatch('Work');
+    it("should show the corresponding aspects selected", function(){
+      expect(this.view.$(".selected").length).toBe(1);
+      expect(this.view.$(".selected").parent().text()).toMatch("Work");
     });
 
     it("should show all the aspects", function(){
-      var aspectSelectors = this.view.$(".entypo-check + a.selectable");
+      var aspectSelectors = this.view.$(".entypo-check").parent();
       expect(aspectSelectors.length).toBe(3);
       expect(aspectSelectors[0].text).toMatch("Work");
       expect(aspectSelectors[1].text).toMatch("Friends");

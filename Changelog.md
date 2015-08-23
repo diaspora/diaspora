@@ -47,6 +47,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Remove unused header icons and an unused favicon  [#6283](https://github.com/diaspora/diaspora/pull/6283)
 * Replace mobile icons for post interactions with Entypo icons [#6291](https://github.com/diaspora/diaspora/pull/6291)
 * Replace jquery.autocomplete with typeahead.js [#6293](https://github.com/diaspora/diaspora/pull/6293)
+* Redesign sidebars on stream pages [#6309](https://github.com/diaspora/diaspora/pull/6309)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

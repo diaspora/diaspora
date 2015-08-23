@@ -1,21 +1,39 @@
-.rightBar {
+#right-sidebar-fixed-background {
+  height: 100%;
+  border-left: 1px solid $light-grey;
+  background: $sidebars-background;
+  position: fixed;
+  right: 0;
+}
+#right-sidebar-fixed-sub-background {
+  height: 100%;
+  background: $sidebars-sub-background;
+  position: fixed;
+  right: 0;
+}
+
+.right-sidebar-padder {
+  max-width: 400px;
+}
+.rightbar {
   padding-top: 20px;
+  border-left: 1px solid $light-grey;
+  background: $sidebars-background;
 
   .section {
     margin-bottom: 20px;
 
     > .title {
       border-bottom: 1px solid $border-grey;
-      padding-bottom: 2px;
+      padding-bottom: 5px;
 
       &.no_icon { padding-left: 8px; }
 
       h5 {
         color: $text-dark-grey;
-        font-weight: bold;
+        font-weight: normal;
         font-size: $font-size-base;
         margin: 0;
-        &.title-header { margin-left: 5px; }
       }
     }
 
@@ -23,7 +41,7 @@
       color: $text-grey;
       font-size: $font-size-small;
       line-height: 18px;
-      padding: 5px;
+      padding: 10px 0;
 
       p, ul { margin: 0; }
 
@@ -67,5 +85,11 @@
         img{ margin: 1px; }
       }
     }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #right-sidebar-fixed-background {
+    margin-right: 8.33333%; /* Only for LARGE screens, same as lg-offset-1 class, BS3 does not provide right side offsetting */
   }
 }
