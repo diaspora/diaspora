@@ -33,6 +33,19 @@ module NodeInfo
       end
     end
 
+    Services = Struct.new(:inbound, :outbound) do
+      def initialize(inbound=[], outbound=[])
+        super(inbound, outbound)
+      end
+
+      def version_10_hash
+        {
+          "inbound"  => inbound,
+          "outbound" => outbound
+        }
+      end
+    end
+
     Usage = Struct.new(:users, :local_posts, :local_comments) do
       Users = Struct.new(:total, :active_halfyear, :active_month) do
         def initialize(total=nil, active_halfyear=nil, active_month=nil)
@@ -68,8 +81,8 @@ module NodeInfo
       end
     end
 
-    def initialize(version=nil, services=[], open_registrations=nil, metadata={})
-      super(version, Software.new, Protocols.new, services, open_registrations, Usage.new, metadata)
+    def initialize(version=nil, open_registrations=nil, metadata={})
+      super(version, Software.new, Protocols.new, Services.new, open_registrations, Usage.new, metadata)
     end
 
     def as_json(_options={})
@@ -103,7 +116,7 @@ module NodeInfo
         "version"           => "1.0",
         "software"          => software.version_10_hash,
         "protocols"         => protocols.version_10_hash,
-        "services"          => services.empty? ? nil : services,
+        "services"          => services.version_10_hash,
         "openRegistrations" => open_registrations,
         "usage"             => usage.version_10_hash,
         "metadata"          => metadata
