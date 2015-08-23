@@ -34,43 +34,43 @@
   .selected, .selected a { color: $black; }
 
   .hoverable {
-    display: block;
-    &.selected a, &.selected a:hover,
-    .followed-tags-sidebar a.hoverable.selected {
-      color: white;
-      background: #666;
-    }
-  }
-
-  a.hoverable, li.hoverable {
-    padding: 10px 20px;
+    border-bottom: 1px solid $border-grey;
+    color: $link-grey;
     display: block;
     font-weight: normal;
-    color: $link-grey;
-    border-bottom: 1px solid #ddd;
-    &:hover, &:hover a,
-    &:hover .entypo-check{
+    padding: 10px 20px;
+
+    &:hover, &:hover a, &:hover [class^="entypo"] {
       background-color: $blue;
       color: $white;
     }
-    &:not(:hover) [class^="entypo"] { visibility: hidden; }
-    .entypo-check.selected { visibility: visible; }
+  }
+
+  .all_aspects a.hoverable.selected,
+  .followed-tags-sidebar a.hoverable.selected,
+  li.selected > a.hoverable {
+    color: $white;
+    background: $gray;
   }
 
   #aspects_list, #tags_list {
     background: $left-navbar-drawer-background;
     li { padding: 0; }
+    .entypo-check { visibility: hidden; }
+    .entypo-check.selected { visibility: visible; }
     .selectable {
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
       padding: 10px 20px 10px 40px;
     }
-    .action.modify_aspect, .action.delete-tag-following {
+    .hoverable > .action {
       position: relative;
       bottom: 30px;
       right: 20px;
+      visibility: hidden;
     }
+    .hoverable:hover > .action { visibility: visible; }
   }
 
   #home_user_badge {
