@@ -36,17 +36,24 @@ app.views.SinglePostContent = app.views.Base.extend({
 
       // get location data and render map
       var location = this.model.get("location");
-      var tileLayerSource = "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}";
-      var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);
+
+      // If the mapbox option is enabled in the defaults the mapbox tiles with the podmin's credentials are used.
+      // If mapbox is not enabled the OpenMapSurfer tiles are used, which don't need credentials.
+      var mapsource = gon.appConfig.map.mapbox.enabled ? gon.appConfig.map.mapbox : "";
+      var tileLayerSource = mapsource ? "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
+                                      : "http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
+      var tileAttribution = mapsource ? "<a href='https://www.mapbox.com'>Mapbox</a>"
+                                      : "<a href='http://korona.geog.uni-heidelberg.de/contact.html'>OpenMapSurfer</a>";
       var attribution = "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
                         "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
-                        "Imagery © <a href='http://mapbox.com'>Mapbox</a>";
+                        "Imagery © "+ tileAttribution;
 
+      var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);
       L.tileLayer(tileLayerSource, {
+        id: mapsource.id,
+        accessToken: mapsource.access_token,
         attribution:  attribution,
         maxZoom: 18,
-        id: gon.appConfig.map.mapbox.id,
-        accessToken: gon.appConfig.map.mapbox.accessToken
       }).addTo(map);
 
       // set mapContainer size to a smaller preview size
@@ -56,18 +63,14 @@ app.views.SinglePostContent = app.views.Base.extend({
       // put marker on map
       var markerOnMap = L.marker(location).addTo(map);
       return map;
-      };
+      }
   },
 
   toggleMap: function () {
     if (gon.appConfig.map.enabled){
-      if (this.$el.find(".mapContainer").css("height") === "75px") {
-        this.$el.find(".mapContainer").css("height", "200px");
-        this.$el.find(".leaflet-control-zoom").css("display", "block");
-      } else {
-          this.$el.find(".mapContainer").css("height", "75px");
-          this.$el.find(".leaflet-control-zoom").css("display", "none");
-      }
+      $(".mapContainer").height($(".small-map")[0] ? 200 : 50);
+      $(".leaflet-control-zoom").css("display", $(".small-map")[0] ? "block" : "none");
+      $(".mapContainer").toggleClass("small-map");
     }
   },
 

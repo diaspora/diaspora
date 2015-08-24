@@ -292,24 +292,24 @@ describe Reshare, type: :model do
   end
 
   describe "#post_location" do
-    let(:status_message) { build(:status_message, text: "This is a status_message", author: bob.person, public: true) }
-    let(:reshare) { create(:reshare, root: status_message) }
+      let(:status_message) { build(:status_message, text: "This is a status_message", author: bob.person, public: true) }
+      let(:reshare) { create(:reshare, root: status_message) }
 
-    context "with location" do
-      let(:location) { build(:location) }
+      context "with location" do
+        let(:location) { build(:location) }
 
-      it "should deliver address and coordinates" do
-        status_message.location = location
-        expect(reshare.post_location).to include(address: location.address, lat: location.lat, lng: location.lng)
+        it "should deliver address and coordinates" do
+          status_message.location = location
+          expect(reshare.post_location).to include(address: location.address, lat: location.lat, lng: location.lng)
+        end
       end
-    end
 
-    context "without location" do
-      it "should deliver empty address and coordinates" do
-        expect(reshare.post_location[:address]).to be_nil
-        expect(reshare.post_location[:lat]).to be_nil
-        expect(reshare.post_location[:lng]).to be_nil
+      context "without location" do
+        it "should deliver empty address and coordinates" do
+          expect(reshare.post_location[:address]).to be_nil
+          expect(reshare.post_location[:lat]).to be_nil
+          expect(reshare.post_location[:lng]).to be_nil
+        end
       end
     end
   end
-end

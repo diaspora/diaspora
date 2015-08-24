@@ -1,8 +1,8 @@
-describe("app.views.LocationStream", function() {
+describe("app.views.SinglePostContent", function() {
   beforeEach(function(){
     this.post = factory.post();
-    this.view = new app.views.LocationStream({model : this.post});
-    gon.appConfig = { map: {enabled: true, mapbox: {enabled: true, id: "yourID", access_token: "yourAccessToken" }} };
+    this.view = new app.views.SinglePostContent({model : this.post});
+    gon.appConfig = { map: {enabled: true, mapbox: {enabled: true, id: "yourID", accessToken: "yourAccessToken" }} };
   });
 
   describe("toggleMap", function() {
@@ -16,17 +16,24 @@ describe("app.views.LocationStream", function() {
         expect(spec.content()).toContainElement(".mapContainer");
       });
 
-      it("should initialize map", function() {
-        expect($(".mapContainer")).toHaveClass("empty");
-        this.view.toggleMap();
-        expect($(".mapContainer")).not.toHaveClass("empty");
+      it("should provide a small map", function() {
+        expect($(".mapContainer")).toHaveClass("small-map");
+        expect($(".mapContainer").height() < 100).toBeTruthy();
+        expect($(".mapContainer")).toBeVisible();
       });
 
-      it("should change display status on every click", function() {
+      it("should toggle class small-map on every click", function(){
         this.view.toggleMap();
-        expect($(".mapContainer")).toHaveCss({display: "block"});
+        expect($(".mapContainer")).not.toHaveClass("small-map");
         this.view.toggleMap();
-        expect($(".mapContainer")).toHaveCss({display: "none"});
+        expect($(".mapContainer")).toHaveClass("small-map");
+      });
+
+      it("should change height on every click", function() {
+        this.view.toggleMap();
+        expect($(".mapContainer").height() > 100).toBeTruthy();
+        this.view.toggleMap();
+        expect($(".mapContainer").height() < 100).toBeTruthy();
       });
     }),
 

@@ -15,17 +15,23 @@ app.views.LocationStream = app.views.Content.extend({
         mapContainer.css("height", "150px");
 
         if (location.lat) {
-          var tileLayerSource = "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}";
-          var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 16);
+          // If the mapbox option is enabled in the defaults the mapbox tiles with the podmin's credentials are used.
+          // If mapbox is not enabled the OpenMapSurfer tiles are used, which don't need credentials.
+          var mapsource = gon.appConfig.map.mapbox.enabled ? gon.appConfig.map.mapbox : "";
+          var tileLayerSource = mapsource ? "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
+                                          : "http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
+          var tileAttribution = mapsource ? "<a href='https://www.mapbox.com'>Mapbox</a>"
+                                          : "<a href='http://korona.geog.uni-heidelberg.de/contact.html'>OpenMapSurfer</a>";
           var attribution = "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
                             "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
-                            "Imagery © <a href='http://mapbox.com'>Mapbox</a>";
+                            "Imagery © "+ tileAttribution;
 
+          var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);
           L.tileLayer(tileLayerSource, {
+            id: mapsource.id,
+            accessToken: mapsource.access_token,
             attribution:  attribution,
             maxZoom: 18,
-            id: gon.appConfig.map.mapbox.id,
-            accessToken: gon.appConfig.map.mapbox.accessToken
           }).addTo(map);
 
           var markerOnMap = L.marker(location).addTo(map);
@@ -33,11 +39,7 @@ app.views.LocationStream = app.views.Content.extend({
           return map;
         }
       } else {
-          if (mapContainer.css("display") === "none") {
-          mapContainer.css("display", "block");
-          } else {
-            mapContainer.css("display", "none");
-          }
+          mapContainer.toggle();
         }
       }
     }
