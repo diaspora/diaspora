@@ -79,12 +79,13 @@
 @import 'oembed';
 @import 'post-content';
 
-/* right bar */
+/* nav bar */
+@import 'layout';
+@import 'navbar_left';
 @import 'navbar_right';
 
 /* contacts */
 @import 'contacts';
-@import 'navbar_left';
 
 /* code */
 @import 'new_styles/code';
