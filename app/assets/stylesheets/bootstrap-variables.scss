@@ -9,10 +9,10 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-// $gray-base:              #000
+$gray-base:              #000;
 // $gray-darker:            lighten($gray-base, 13.5%) // #222
 // $gray-dark:              lighten($gray-base, 20%)   // #333
-// $gray:                   lighten($gray-base, 33.5%) // #555
+$gray:                   lighten($gray-base, 33.5%); // #555
 // $gray-light:             lighten($gray-base, 46.7%) // #777
 // $gray-lighter:           lighten($gray-base, 93.5%) // #eee
 
@@ -667,24 +667,23 @@ $navbar-collapse-max-height: 480px;
 //== List group
 //
 //##
-
 //** Background color on `.list-group-item`
-// $list-group-bg:                 #fff
+$list-group-bg: $sidebars-background;
 //** `.list-group-item` border color
-// $list-group-border:             #ddd
+$list-group-border: $border-grey;
 //** List group border radius
-// $list-group-border-radius:      $border-radius-base
+$list-group-border-radius: 0;
 
 //** Background color of single list items on hover
-// $list-group-hover-bg:           #f5f5f5
+$list-group-hover-bg: $blue;
 //** Text color of active list items
-// $list-group-active-color:       $component-active-color
+$list-group-active-color: $white;
 //** Background color of active list items
-// $list-group-active-bg:          $component-active-bg
+$list-group-active-bg: $gray;
 //** Border color of active list elements
 // $list-group-active-border:      $list-group-active-bg
 //** Text color for content within active list items
-// $list-group-active-text-color:  lighten($list-group-active-bg, 40%)
+$list-group-active-text-color: $white;
 
 //** Text color of disabled list items
 // $list-group-disabled-color:      $gray-light
@@ -694,7 +693,7 @@ $navbar-collapse-max-height: 480px;
 // $list-group-disabled-text-color: $list-group-disabled-color
 
 // $list-group-link-color:         #555
-// $list-group-link-hover-color:   $list-group-link-color
+$list-group-link-hover-color: $white;
 // $list-group-link-heading-color: #333
 
 
