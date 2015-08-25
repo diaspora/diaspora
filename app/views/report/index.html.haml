@@ -1,8 +1,11 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
 .container
   .row
     .col-md-3
       - if @current_user.admin?
-        = render partial: "admins/admin_bar"
+        = render "admins/admin_bar"
     .col-md-9
       %h1
         = t('report.title')

@@ -4,9 +4,8 @@ module Workers
       sidekiq_options queue: :mail
 
       def perform(type, id)
-        ReportMailer.new_report(type, id).deliver_now
+        ReportMailer.new_report(type, id).each(&:deliver_now)
       end
     end
   end
 end
-

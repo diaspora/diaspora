@@ -1,3 +1,4 @@
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -103,12 +104,14 @@ describe ReportController, type: :controller do
       before do
         Role.add_moderator(alice.person)
       end
+
       it "succeeds" do
         put :update, id: @message.id, type: "post"
         expect(response.status).to eq(302)
         expect(Report.where(reviewed: true, item_id: @message.id, item_type: "post")).to be_truthy
       end
     end
+
     context "mark comment report as moderator" do
       before do
         Role.add_moderator(alice.person)

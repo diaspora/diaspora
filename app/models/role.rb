@@ -8,6 +8,7 @@ class Role < ActiveRecord::Base
   validates :name, inclusion: {in: %w(admin moderator spotlight)}
 
   scope :admins, -> { where(name: "admin") }
+  scope :moderators, -> { where(name: %w(moderator admin)) }
 
   def self.is_admin?(person)
     exists?(person_id: person.id, name: "admin")
