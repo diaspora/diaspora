@@ -18,7 +18,7 @@
                   = t('.strip_exif')
                 = f.submit t('users.edit.change'), class: 'btn btn-primary pull-right'
       %hr
-      
+
       .row
         .col-md-12
           %h3
@@ -27,9 +27,7 @@
           - if @blocks.length.zero?
             %p
               = t('.no_user_ignored_message')
-
-          - @blocks.each do |block|
-            = block.person_name
-            \-
-            = link_to t('.stop_ignoring'), block_path(block),
-              method: :delete
+          - else
+            #blocked_people
+              - @blocks.each do |block|
+                = render partial: "blocked_person", locals: {block: block, person: block.person}
