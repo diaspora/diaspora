@@ -219,6 +219,7 @@ en:
       settings: "Settings"
       help: "Help"
       admin: "Admin"
+      moderator: "Moderator"
       log_out: "Log out"
 
       notifications: "Notifications"

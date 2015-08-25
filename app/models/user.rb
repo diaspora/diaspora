@@ -482,7 +482,7 @@ class User < ActiveRecord::Base
   end
 
   def moderator?
-    Role.moderator?(self.person)
+    Role.moderator?(person)
   end
 
   def podmin_account?
