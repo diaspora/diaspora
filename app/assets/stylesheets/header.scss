@@ -22,6 +22,7 @@ header > .dark-header > nav {
       }
     }
     .navbar-nav:not(.nav-badges) > li > a { font-weight: bold; }
+    .navbar-nav > li > a:focus:not(:hover) { color:$navbar-inverse-link-color; }
     .nav-badges {
       margin-left: 20px;
       & > li { height: 50px; }
