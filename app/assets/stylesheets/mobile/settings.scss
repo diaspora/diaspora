@@ -29,3 +29,12 @@
     padding: 1rem;
   }
 }
+
+#blocked_people {
+  .blocked_person {
+    border-bottom: 1px solid $border-grey;
+    margin-top: 0;
+    .avatar { max-width: 35px; }
+    .info { color: $text; }
+  }
+}

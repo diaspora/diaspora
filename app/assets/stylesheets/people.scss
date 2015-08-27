@@ -28,3 +28,19 @@
     .info { font-size: $font-size-small; }
   }
 }
+#blocked_people {
+  .blocked_person {
+    border-bottom: 1px solid $border-grey;
+    padding: 10px;
+    margin: 0px;
+    font-size: 13px;
+    line-height: 16px;
+    min-height: 50px;
+    .avatar {
+      width: 50px;
+      height: 50px;
+    }
+    .info { font-size: $font-size-small; }
+    .btn-danger { margin-top: 9px; }
+  }
+}
