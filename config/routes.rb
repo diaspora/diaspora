@@ -229,6 +229,7 @@ Diaspora::Application.routes.draw do
   # Mobile site
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
+  get "/m", to: "home#force_mobile", as: "force_mobile"
 
   # Help
   get 'help' => 'help#faq', :as => 'help'

@@ -30,4 +30,10 @@ class HomeController < ApplicationController
 
     redirect_to :back
   end
+
+  def force_mobile
+    session[:mobile_view] = true
+
+    redirect_to stream_path
+  end
 end

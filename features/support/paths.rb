@@ -5,6 +5,8 @@ module NavigationHelpers
       person_photos_path(@me.person)
     when /^the home(?: )?page$/
       stream_path
+    when /^the mobile path$/
+      force_mobile_path
     when /^the tag page for "([^\"]*)"$/
       tag_path(Regexp.last_match(1))
     when /^its ([\w ]+) page$/
