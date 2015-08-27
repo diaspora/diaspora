@@ -5,6 +5,8 @@ module NavigationHelpers
          person_photos_path(@me.person)
       when /^the home(?: )?page$/
         stream_path
+      when /^the mobile path$/
+        force_mobile_path
       when /^step (\d)$/
         if $1.to_i == 1
           getting_started_path

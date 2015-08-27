@@ -27,6 +27,7 @@
 * Display original author on reshares of NSFW posts [#6270](https://github.com/diaspora/diaspora/pull/6270)
 * Use avatars in hovercards as links to the profile [#6297](https://github.com/diaspora/diaspora/pull/6297)
 * Remove avatars of ignored users from stream faces [#6320](https://github.com/diaspora/diaspora/pull/6320)
+* New /m route to force the mobile view [#6354](https://github.com/diaspora/diaspora/pull/6354)
 
 # 0.5.2.0
 
