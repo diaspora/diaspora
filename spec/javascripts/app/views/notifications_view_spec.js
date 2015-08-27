@@ -87,14 +87,21 @@ describe("app.views.Notifications", function(){
       });
 
       it("changes the header notifications count", function() {
-        var badge = $("#notifications-link .badge");
-        var count = parseInt(badge.text(), 10);
+        var badge1 = $(".notifications-link:eq(0) .badge");
+        var badge2 = $(".notifications-link:eq(1) .badge");
+        var count = parseInt(badge1.text(), 10);
 
         this.view.updateView(this.guid, this.type, true);
-        expect(parseInt(badge.text(), 10)).toBe(count + 1);
+        expect(parseInt(badge1.text(), 10)).toBe(count + 1);
 
         this.view.updateView(this.guid, this.type, false);
-        expect(parseInt(badge.text(), 10)).toBe(count);
+        expect(parseInt(badge1.text(), 10)).toBe(count);
+
+        this.view.updateView(this.guid, this.type, true);
+        expect(parseInt(badge2.text(), 10)).toBe(count + 1);
+
+        this.view.updateView(this.guid, this.type, false);
+        expect(parseInt(badge2.text(), 10)).toBe(count);
       });
 
       context("markAllRead", function() {

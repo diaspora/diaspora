@@ -14,14 +14,14 @@ describe("app.views.Header", function() {
       it("displays a count when the current user has a notification", function(){
         loginAs(_.extend(this.userAttrs, {notifications_count : 1}));
         this.view.render();
-        expect(this.view.$("#notifications-link .badge").hasClass("hidden")).toBe(false);
-        expect(this.view.$("#notifications-link .badge").text()).toContain("1");
+        expect(this.view.$(".notifications-link .badge").hasClass("hidden")).toBe(false);
+        expect(this.view.$(".notifications-link .badge").text()).toContain("1");
       });
 
       it("does not display a count when the current user has a notification", function(){
         loginAs(_.extend(this.userAttrs, {notifications_count : 0}));
         this.view.render();
-        expect(this.view.$("#notifications-link .badge").hasClass("hidden")).toBe(true);
+        expect(this.view.$(".notifications-link .badge").hasClass("hidden")).toBe(true);
       });
     });
 

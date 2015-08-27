@@ -268,6 +268,7 @@ en:
       admin: "Admin"
       log_out: "Log out"
       toggle_navigation: "Toggle navigation"
+      toggle_mobile: "Toggle mobile"
 
       notifications: "Notifications"
       conversations: "Conversations"
