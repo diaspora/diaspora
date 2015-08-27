@@ -52,6 +52,7 @@
     "parse_url",
     "punycode",
     "qq",
+    "blueimp",
 
     "loginAs",
     "logout",

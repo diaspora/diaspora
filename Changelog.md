@@ -49,6 +49,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Replace jquery.autocomplete with typeahead.js [#6293](https://github.com/diaspora/diaspora/pull/6293)
 * Redesign sidebars on stream pages [#6309](https://github.com/diaspora/diaspora/pull/6309)
 * Improve ignored users styling [#6349](https://github.com/diaspora/diaspora/pull/6349)
+* Use Blueimp image gallery instead of lightbox [#6301](https://github.com/diaspora/diaspora/6301)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

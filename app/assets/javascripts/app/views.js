@@ -53,7 +53,7 @@ app.views.Base = Backbone.View.extend({
     this.postRenderTemplate();
   },
 
-  postRenderTemplate : $.noop, //hella callbax yo
+  postRenderTemplate: $.noop, //hella callbax yo
 
   renderSubviews : function(){
     var self = this;

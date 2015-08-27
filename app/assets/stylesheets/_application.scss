@@ -16,7 +16,6 @@
 @import 'new_styles/base';
 @import 'new_styles/interactions';
 @import 'spinner';
-@import 'lightbox';
 @import 'timeago';
 @import 'vendor/fileuploader';
 @import 'vendor/autoSuggest';
@@ -94,4 +93,6 @@
 /* statistics */
 @import 'statistics';
 
-@import "bootstrap3-switch";
+/* gallery */
+@import "blueimp-gallery";
+@import "gallery";

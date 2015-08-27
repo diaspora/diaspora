@@ -28,10 +28,6 @@ app.views.InfScroll = app.views.Base.extend({
     this.prependedPosts = document.createDocumentFragment();
   },
 
-  postRenderTemplate : function() {
-    if(this.stream.isFetching()) { this.showLoader() }
-  },
-
   createPostView : function(post){
     var postView = new this.postClass({ model: post, stream: this.stream });
     if (this.collection.at(0).id === post.id) {
@@ -85,6 +81,7 @@ app.views.InfScroll = app.views.Base.extend({
     this.$el.prepend(this.prependedPosts);
     this.$el.append(this.appendedPosts);
     this._resetPostFragments();
+    this.postRenderTemplate();
   },
 
   finishedLoading: function() {
