@@ -104,6 +104,7 @@ en:
       pod_stats: "Pod stats"
       report: "Reports"
       sidekiq_monitor: "Sidekiq monitor"
+      pod_network: "Pod network"
     dashboard:
       pod_status: "Pod status"
       fetching_diaspora_version: "Determining latest diaspora* version..."
@@ -173,6 +174,8 @@ en:
       current_segment: "The current segment is averaging <b>%{post_yest}</b> posts per user, from <b>%{post_day}</b>"
       50_most: "50 most popular tags"
       tag_name: "Tag name: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
+    pods:
+      pod_network: "Pod network"
   application:
     helper:
       unknown_person: "Unknown person"

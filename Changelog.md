@@ -65,6 +65,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Update counts on contacts page dynamically [#6240](https://github.com/diaspora/diaspora/pull/6240)
 * Add support for relay based public post federation [#6207](https://github.com/diaspora/diaspora/pull/6207)
 * Bigger mobile publisher [#6261](https://github.com/diaspora/diaspora/pull/6261)
+* Backend information panel & health checks for known pods [#6290](https://github.com/diaspora/diaspora/pull/6290)
 
 # 0.5.3.0
 

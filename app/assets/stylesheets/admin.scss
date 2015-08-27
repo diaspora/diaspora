@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'new_styles/animations';
 
 /** ADMIN STYlES **/
 /** user search **/
@@ -33,3 +34,33 @@
 /** reported posts **/
 
 @import 'report';
+
+/** pod list **/
+
+#pod-list {
+  th.added,
+  td.added,
+  td.actions { white-space: nowrap; }
+
+  tr.deleting {
+    opacity: .5;
+  }
+
+  tr.checking .recheck i {
+    animation-duration: .4s;
+    animation-name: pulsate;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  td.actions {
+    text-align: right;
+
+    a { color: inherit; }
+  }
+
+  pre.details {
+    margin-top: 1em;
+    white-space: normal;
+  }
+}

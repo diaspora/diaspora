@@ -11,3 +11,12 @@
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@keyframes pulsate {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: .1;
+  }
+}
