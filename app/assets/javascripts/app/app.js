@@ -108,6 +108,7 @@ var app = {
       new app.views.AspectMembership({el: this});
     });
     app.sidebar = new app.views.Sidebar();
+    app.backToTop = new app.views.BackToTop();
   },
 
   /* mixpanel wrapper function */

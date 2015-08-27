@@ -21,7 +21,6 @@ app.views.Hovercard = app.views.Base.extend({
     // cache some element references
     this.avatar = this.$('.avatar');
     this.avatarLink = this.$("a.person_avatar");
-    this.dropdown = this.$('.dropdown_list');
     this.dropdown_container = this.$('#hovercard_dropdown_container');
     this.hashtags = this.$('.hashtags');
     this.person_link = this.$('a.person');
@@ -120,7 +119,6 @@ app.views.Hovercard = app.views.Base.extend({
     this.person_link.attr('href', person.url);
     this.person_link.text(person.name);
     this.person_handle.text(person.handle);
-    this.dropdown.attr('data-person-id', person.id);
 
     // set hashtags
     this.hashtags.empty();
