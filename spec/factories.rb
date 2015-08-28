@@ -211,7 +211,7 @@ FactoryGirl.define do
   end
 
   factory :pod do
-    host "pod.example.com"
+    sequence(:host) {|n| "pod#{n}.example#{r_str}.com" }
     ssl true
   end
 

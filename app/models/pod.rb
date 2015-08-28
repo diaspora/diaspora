@@ -44,7 +44,7 @@ class Pod < ActiveRecord::Base
     end
 
     def check_all!
-      Pod.find_in_batches(batch_size: 20).each(&:test_connection!)
+      Pod.find_in_batches(batch_size: 20) {|batch| batch.each(&:test_connection!) }
     end
   end
 

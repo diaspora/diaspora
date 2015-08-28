@@ -10,6 +10,8 @@ app.views.PodEntry = app.views.Base.extend({
     "click .recheck": "recheckPod"
   },
 
+  tooltipSelector: ".ssl-status i, .actions i",
+
   className: function() {
     if( this.model.get("offline") ) { return "bg-danger"; }
     if( this.model.get("status")==="version_failed" ) { return "bg-warning"; }
