@@ -4,7 +4,7 @@
       %li.list-group-item.authorized-application
         = render "grants_list", app: app
         = form_for "application", url: "#{api_openid_connect_authorizations_path}/#{app[:id]}",
-            html: { method: :delete, class: "form-horizontal"} do |f|
+            html: {method: :delete, class: "form-horizontal"} do |f|
           .clearfix= f.submit t("api.openid_connect.user_applications.revoke_autorization"),
             class: "btn btn-danger pull-right app-revoke"
 

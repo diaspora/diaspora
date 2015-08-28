@@ -6,8 +6,7 @@ module Api
 
       validates :client_id, presence: true, uniqueness: true
       validates :client_secret, presence: true
-      validates :client_name, presence: true
-      validates_uniqueness_of :client_name, scope: :redirect_uris
+      validates :client_name, presence: true, uniqueness: {scope: :redirect_uris}
 
       %i(redirect_uris response_types grant_types contacts).each do |serializable|
         serialize serializable, JSON

@@ -5,7 +5,7 @@
     %i.entypo-browser
 .application-authorizations
   - if app[:authorizations].count > 0
-    %h4=t("api.openid_connect.user_applications.index.access", name: app[:name])
+    %h4= t("api.openid_connect.user_applications.index.access", name: app[:name])
     %ul
       - app[:authorizations].each do |authorization|
         %li
@@ -13,4 +13,4 @@
           %p= t("api.openid_connect.scopes.#{authorization}.description")
   - else
     .well
-      =t("api.openid_connect.user_applications.index.no_requirement",name: app[:name])
+      = t("api.openid_connect.user_applications.index.no_requirement", name: app[:name])

@@ -1,4 +1,4 @@
-O_AUTH_QUERY_PARAMS = {
+O_AUTH_QUERY_PARAMS_WITH_CODE = {
   redirect_uri:  "http://localhost:3000",
   response_type: "code",
   scope:         "openid read",
@@ -10,12 +10,12 @@ Given /^I send a post request from that client to the code flow authorization en
   client_json = JSON.parse(last_response.body)
   @client_id = client_json["client_id"]
   @client_secret = client_json["client_secret"]
-  params = O_AUTH_QUERY_PARAMS.merge(client_id: @client_id)
+  params = O_AUTH_QUERY_PARAMS_WITH_CODE.merge(client_id: @client_id)
   visit new_api_openid_connect_authorization_path(params)
 end
 
 Given /^I send a post request from that client to the code flow authorization endpoint using a invalid client id/ do
-  params = O_AUTH_QUERY_PARAMS.merge(client_id: "randomid")
+  params = O_AUTH_QUERY_PARAMS_WITH_CODE.merge(client_id: "randomid")
   visit new_api_openid_connect_authorization_path(params)
 end
 
