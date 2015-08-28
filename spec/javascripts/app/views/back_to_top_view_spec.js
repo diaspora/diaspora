@@ -1,7 +1,16 @@
 describe("app.views.BackToTop", function() {
   beforeEach(function() {
     spec.loadFixture("aspects_index");
-    this.view = new app.views.BackToTop();
+    this.view = new app.views.BackToTop({el: $(document)});
+  });
+
+  describe("events hash", function() {
+    it("calls backToTop when clicking the back-to-top button", function() {
+      spyOn(this.view, "backToTop");
+      this.view.delegateEvents();
+      this.view.$("#back-to-top").click();
+      expect(this.view.backToTop).toHaveBeenCalled();
+    });
   });
 
   describe("backToTop", function() {
