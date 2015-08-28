@@ -50,6 +50,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Redesign sidebars on stream pages [#6309](https://github.com/diaspora/diaspora/pull/6309)
 * Improve ignored users styling [#6349](https://github.com/diaspora/diaspora/pull/6349)
 * Use Blueimp image gallery instead of lightbox [#6301](https://github.com/diaspora/diaspora/6301)
+* Unify mobile and desktop header design [#6285](https://github.com/diaspora/diaspora/6285)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

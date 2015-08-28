@@ -7,7 +7,7 @@ Feature: viewing photos on the mobile main page
   Background:
     Given a user with username "bob"
     When I sign in as "bob@bob.bob" on the mobile website
-    And I click on selector "#compose_badge"
+    And I click on selector "#compose-badge"
 
   Scenario: view full size image
     Given I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"

@@ -15,19 +15,19 @@ Feature: Navigate between pages using the header menu and the drawer
   Scenario: navigate to the stream page
     When I open the drawer
     And I follow "My activity"
-    And I click on selector "#header_title"
+    And I click on selector "#header-title"
     Then I should see "There are no posts yet." within "#main_stream"
 
   Scenario: navigate to the notification page
-    When I click on selector "#notification_badge"
+    When I click on selector "#notification-badge"
     Then I should see "Notifications" within "#main"
 
   Scenario: navigate to the conversation page
-    When I click on selector "#conversations_badge"
+    When I click on selector "#conversations-badge"
     Then I should see "Inbox" within "#main"
 
   Scenario: navigate to the publisher page
-    When I click on selector "#compose_badge"
+    When I click on selector "#compose-badge"
     Then I should see "All aspects" within "#new_status_message"
 
   Scenario: search a user
@@ -66,7 +66,7 @@ Feature: Navigate between pages using the header menu and the drawer
     And I search for "#boss"
     And I click on selector ".tag_following_action"
     # Loading another page to refresh the drawer and make the now followed tag appears
-    And I click on selector "#compose_badge"
+    And I click on selector "#compose-badge"
     And I open the drawer
     And I follow "#Followed tags"
     Then I should see "#boss" within "#followed_tags + li > ul"
