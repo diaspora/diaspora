@@ -245,6 +245,7 @@ group :development do
   gem "pronto-jshint",  "0.4.2"
   gem "pronto-rubocop", "0.4.6"
   gem "pronto-haml",    "0.4.4"
+  gem "pronto-scss",    "0.4.7"
 
   # Preloading environment
 

@@ -514,6 +514,9 @@ GEM
     pronto-rubocop (0.4.6)
       pronto (~> 0.4.0)
       rubocop (~> 0.34.0)
+    pronto-scss (0.4.7)
+      pronto (~> 0.4.0)
+      scss_lint (~> 0.41.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -688,6 +691,9 @@ GEM
     sawyer (0.6.0)
       addressable (~> 2.3.5)
       faraday (~> 0.8, < 0.10)
+    scss_lint (0.41.0)
+      rainbow (~> 2.0)
+      sass (~> 3.4.15)
     selenium-webdriver (2.47.1)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -862,6 +868,7 @@ DEPENDENCIES
   pronto-haml (= 0.4.4)
   pronto-jshint (= 0.4.2)
   pronto-rubocop (= 0.4.6)
+  pronto-scss (= 0.4.7)
   pry
   pry-byebug
   pry-debundle
