@@ -29,6 +29,14 @@
     .col-md-9.stream.notifications
       .row.header
         .col-md-12
+          .btn-toolbar.pull-left
+            .pull-left.per-page-label= t(".per_page")
+            %a.btn.btn-default.disabled{href: notifications_path(per_page: 10)}
+              10
+            %a.btn.btn-default{href: notifications_path(per_page: 100)}
+              100
+            %a.btn.btn-default{href: notifications_path(per_page: 200)}
+              200
           .btn-toolbar.pull-right
             .btn-group
               %a.btn.btn-default{class: ('active' unless params[:show] == 'unread'), href: '/notifications' + (params[:type] ? '?type=' + params[:type] : '') }
