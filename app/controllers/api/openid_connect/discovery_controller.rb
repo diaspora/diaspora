@@ -20,7 +20,7 @@ module Api
           token_endpoint:                              api_openid_connect_access_tokens_url,
           userinfo_endpoint:                           api_openid_connect_user_info_url,
           jwks_uri:                                    api_openid_connect_url,
-          scopes_supported:                            %w(openid read write),
+          scopes_supported:                            Api::OpenidConnect::Authorization::SCOPES,
           response_types_supported:                    Api::OpenidConnect::OAuthApplication.available_response_types,
           request_object_signing_alg_values_supported: %i(HS256 HS384 HS512),
           subject_types_supported:                     %w(public pairwise),

@@ -3,11 +3,11 @@
     %li.list-group-item.authorized-application
       = render "grants_list", app: @app
 
-      .clearfix
-        = form_tag api_openid_connect_authorizations_path, class: "pull-right"  do
-          %span
-            = submit_tag t(".deny"), class: "btn btn-danger"
-            = hidden_field_tag :deny, false
-          %span
-            = submit_tag t(".approve"),  class: "btn btn-primary"
-            = hidden_field_tag :approve, true
+      .clearfix.pull-right
+        = form_tag api_openid_connect_authorizations_path, class: "approval-button" do
+          = submit_tag t(".deny"), class: "btn btn-danger"
+          = hidden_field_tag :approve, false
+
+        = form_tag api_openid_connect_authorizations_path, class: "approval-button"do
+          = submit_tag t(".approve"),  class: "btn btn-primary"
+          = hidden_field_tag :approve, true

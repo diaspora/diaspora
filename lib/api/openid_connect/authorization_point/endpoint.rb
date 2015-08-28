@@ -29,6 +29,10 @@ module Api
           raise NotImplementedError # Implemented by subclass
         end
 
+        def scopes
+          Api::OpenidConnect::Authorization::SCOPES
+        end
+
         private
 
         def build_client(req)
@@ -49,10 +53,6 @@ module Api
               req.invalid_scope! "Unknown scope: #{scope_name}" unless scopes.include? scope_name
             end
           }
-        end
-
-        def scopes
-          Api::OpenidConnect::Authorization.scopes
         end
       end
     end

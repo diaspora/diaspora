@@ -7,6 +7,8 @@ module NavigationHelpers
       stream_path
     when /^the mobile path$/
       force_mobile_path
+    when /^the user applications page$/
+      api_openid_connect_user_applications_path
     when /^the tag page for "([^\"]*)"$/
       tag_path(Regexp.last_match(1))
     when /^its ([\w ]+) page$/
@@ -36,8 +38,6 @@ module NavigationHelpers
       edit_user_path
     when /^forgot password page$/
       new_user_password_path
-    when /^user applications page$/
-      api_openid_connect_user_applications_path
     when %r{^"(/.*)"}
       Regexp.last_match(1)
     else

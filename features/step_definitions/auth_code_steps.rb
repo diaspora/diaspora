@@ -1,21 +1,22 @@
-o_auth_query_params = %i(
-  redirect_uri=http://localhost:3000
-  response_type=code
-  scope=openid%20read
-  nonce=hello
-  state=hi
-).join("&")
+O_AUTH_QUERY_PARAMS = {
+  redirect_uri:  "http://localhost:3000",
+  response_type: "code",
+  scope:         "openid read",
+  nonce:         "hello",
+  state:         "hi"
+}
 
 Given /^I send a post request from that client to the code flow authorization endpoint$/ do
   client_json = JSON.parse(last_response.body)
   @client_id = client_json["client_id"]
   @client_secret = client_json["client_secret"]
-  visit new_api_openid_connect_authorization_path +
-          "?client_id=#{@client_id}&#{o_auth_query_params}"
+  params = O_AUTH_QUERY_PARAMS.merge(client_id: @client_id)
+  visit new_api_openid_connect_authorization_path(params)
 end
 
 Given /^I send a post request from that client to the code flow authorization endpoint using a invalid client id/ do
-  visit new_api_openid_connect_authorization_path + "?client_id=randomid&#{o_auth_query_params}"
+  params = O_AUTH_QUERY_PARAMS.merge(client_id: "randomid")
+  visit new_api_openid_connect_authorization_path(params)
 end
 
 When /^I parse the auth code and create a request to the token endpoint$/ do

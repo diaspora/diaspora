@@ -7,12 +7,16 @@ module Api
       validates :client_id, presence: true, uniqueness: true
       validates :client_secret, presence: true
       validates :client_name, presence: true
+      validates_uniqueness_of :client_name, scope: :redirect_uris
 
       %i(redirect_uris response_types grant_types contacts).each do |serializable|
         serialize serializable, JSON
       end
 
       before_validation :setup, on: :create
+      before_validation do
+        redirect_uris.sort!
+      end
 
       def setup
         self.client_id = SecureRandom.hex(16)
