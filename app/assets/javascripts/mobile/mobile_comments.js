@@ -24,7 +24,7 @@
 
       $(".stream").on("tap click", "a.comment-action", function(evt) {
         evt.preventDefault();
-        self.showCommentBox(this);
+        self.showCommentBox($(this));
         var bottomBar = $(this).closest(".bottom_bar").first();
         var commentContainer = bottomBar.find(".comment_container").first();
         self.scrollToOffset(commentContainer);
@@ -110,20 +110,21 @@
     },
 
     showCommentBox: function(link){
-      var commentActionLink = $(link);
+      if(!link.hasClass("inactive") || link.hasClass("loading")) { return; }
       var self = this;
-      if(commentActionLink.hasClass("inactive")) {
-        $.ajax({
-          url: commentActionLink.attr("href"),
-          beforeSend: function(){
-            commentActionLink.addClass("loading");
-          },
-          context: commentActionLink,
-          success: function(data){
-            self.appendCommentBox.call(this, commentActionLink, data);
-          }
-        });
-      }
+      $.ajax({
+        url: link.attr("href"),
+        beforeSend: function(){
+          link.addClass("loading");
+        },
+        context: link,
+        success: function(data) {
+          self.appendCommentBox.call(this, link, data);
+        },
+        error: function() {
+          link.removeClass("loading");
+        }
+      });
     },
 
     appendCommentBox: function(link, data) {
