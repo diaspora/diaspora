@@ -19,14 +19,14 @@ Feature: posting from own profile page
 
       And I press "Share"
 
-      Then I should see "I want to understand people"
+      Then "I want to understand people" should be post 1
 
       When I go to the home page
-      Then I should see "I want to understand people"
+      Then "I want to understand people" should be post 1
 
       When I am on the aspects page
       And I select only "Family" aspect
-      Then I should see "I want to understand people"
+      Then "I want to understand people" should be post 1
 
       When I select all aspects
       And I select only "Work" aspect
