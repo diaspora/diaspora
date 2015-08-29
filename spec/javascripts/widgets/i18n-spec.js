@@ -90,6 +90,7 @@ describe("Diaspora.I18n", function() {
       Diaspora.I18n.load(locale, "en", locale);
       Diaspora.I18n.reset();
       expect(Diaspora.I18n.locale.data).toEqual({});
+      expect(Diaspora.I18n.locale.fallback.data).toEqual({});
     });
 
     it("sets the locale to only a specific value", function() {
@@ -97,6 +98,7 @@ describe("Diaspora.I18n", function() {
       Diaspora.I18n.load(locale, "en", locale);
       Diaspora.I18n.reset(data);
       expect(Diaspora.I18n.locale.data).toEqual(data);
+      expect(Diaspora.I18n.locale.fallback.data).toEqual(data);
     });
   });
 });

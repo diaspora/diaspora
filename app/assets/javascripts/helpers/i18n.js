@@ -77,9 +77,12 @@ Diaspora.I18n = {
 
   reset: function() {
     this.locale.data = {};
+    this.locale.fallback.data = {};
 
-    if( arguments.length > 0 && !(_.isEmpty(arguments[0])) )
+    if(arguments.length > 0 && !(_.isEmpty(arguments[0]))) {
       this.locale.data = arguments[0];
+      this.locale.fallback.data = arguments[0];
+    }
   }
 };
 // @license-end
