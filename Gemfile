@@ -261,12 +261,7 @@ group :test do
 
   gem "capybara",           "2.4.4"
   gem "database_cleaner" ,  "1.4.1"
-  gem "selenium-webdriver", "2.46.2"
-
-  source "https://rails-assets.org" do
-    gem "rails-assets-jquery-simulate",     "1.0.1"
-    gem "rails-assets-jquery-simulate-ext", "1.3.0"
-  end
+  gem "selenium-webdriver", "2.47.1"
 
   # General helpers
 
