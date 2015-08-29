@@ -81,11 +81,11 @@ app.pages.Contacts = Backbone.View.extend({
     $("#aspect_nav .nav").sortable({
       items: "li.aspect[data-aspect-id]",
       update: function() {
-        $("#aspect_nav .ui-sortable").removeClass("synced");
+        $("#aspect_nav .ui-sortable").addClass("syncing");
         var data = JSON.stringify({ ordered_aspect_ids: $(this).sortable("toArray", { attribute: "data-aspect-id" }) });
         $.ajax(Routes.orderAspects(),
           { type: "put", dataType: "text", contentType: "application/json", data: data })
-          .done(function() { $("#aspect_nav .ui-sortable").addClass("synced"); });
+          .done(function() { $("#aspect_nav .ui-sortable").removeClass("syncing"); });
       },
       revert: true,
       helper: "clone"
