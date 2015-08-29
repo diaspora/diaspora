@@ -93,9 +93,16 @@ When /^I drag "([^"]*)" (up|down)$/ do |aspect_name, direction|
   aspect = find(:xpath, "//div[@id='aspect_nav']/ul/a[@data-aspect-id='#{aspect_id}']")
   target = direction == "up" ? aspect.all(:xpath, "./preceding-sibling::a").last :
                                aspect.all(:xpath, "./following-sibling::a").first
-  aspect.drag_to(target)
+  browser = aspect.base.driver.browser
+  mouse = browser.mouse
+  native_aspect = aspect.base.native
+  native_target = target.base.native
+  mouse.down native_aspect
+  mouse.move_to native_target, native_target.size.width / 2, 0
+  sleep 1
+  mouse.up
   expect(page).to have_no_css "#aspect_nav .ui-sortable.syncing"
-end
+ end
 
 And /^I toggle the aspect "([^"]*)"$/ do |name|
   toggle_aspect(name)
