@@ -8,6 +8,9 @@
     }
     .media { margin-top: 10px; }
   }
+
+  .comment.new_comment_form_wrapper .bd .comment_box{ border: none;}
+
   .comments > .comment, .comment.new_comment_form_wrapper {
     &:before{
       content: "";
