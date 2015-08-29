@@ -20,6 +20,7 @@ $(document).ready(function() {
   });
 
   function toggleComments(toggleReactionsLink) {
+    if(toggleReactionsLink.hasClass("loading")) { return; }
     if (toggleReactionsLink.hasClass("active")) {
       hideComments(toggleReactionsLink);
     } else {
@@ -48,21 +49,25 @@ $(document).ready(function() {
   }
 
   function showLoadedComments(toggleReactionsLink, existingCommentsContainer, commentActionLink) {
+    toggleReactionsLink.addClass("active");
     existingCommentsContainer.show();
     showCommentBox(commentActionLink);
-    toggleReactionsLink.addClass("active");
     existingCommentsContainer.find("time.timeago").timeago();
   }
 
   function showUnloadedComments(toggleReactionsLink, bottomBar, commentActionLink) {
+    toggleReactionsLink.addClass("loading");
     var commentsContainer = commentsContainerLazy(bottomBar);
     $.ajax({
       url: toggleReactionsLink.attr("href"),
       success: function (data) {
+        toggleReactionsLink.addClass("active").removeClass("loading");
         $(data).insertAfter(bottomBar.children(".show_comments").first());
         showCommentBox(commentActionLink);
-        toggleReactionsLink.addClass("active");
         commentsContainer().find("time.timeago").timeago();
+      },
+      error: function() {
+        toggleReactionsLink.removeClass("loading");
       }
     });
   }
