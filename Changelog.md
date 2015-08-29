@@ -92,6 +92,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Links in the left sidebar are now clickable on full width [#6267](https://github.com/diaspora/diaspora/pull/6267)
 * Guard against passing nil into person\_image\_tag [#6286](https://github.com/diaspora/diaspora/pull/6286)
 * Prevent Handlebars from messing up indentation of pre tags [#6339](https://github.com/diaspora/diaspora/pull/6339)
+* Fix pagination design on notifications page [#6364](https://github.com/diaspora/diaspora/pull/6364)
 
 ## Features
 
