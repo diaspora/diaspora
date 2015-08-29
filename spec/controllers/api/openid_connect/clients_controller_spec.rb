@@ -24,17 +24,6 @@ describe Api::OpenidConnect::ClientsController, type: :controller do
         expect(client_json["error"]).to have_content("invalid_client_metadata")
       end
     end
-
-    context "when redirect client_name is missing" do
-      it "should return a invalid_client_metadata error" do
-        post :create, redirect_uris: ["http://localhost"], response_types: [], grant_types: [],
-             application_type: "web", contacts: [], logo_uri: "http://example.com/logo.png",
-             client_uri: "http://example.com/client", policy_uri: "http://example.com/policy",
-             tos_uri: "http://example.com/tos"
-        client_json = JSON.parse(response.body)
-        expect(client_json["error"]).to have_content("invalid_client_metadata")
-      end
-    end
   end
 
   describe "#find" do
