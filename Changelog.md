@@ -82,7 +82,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Extract CommentService from CommentsController [#6307](https://github.com/diaspora/diaspora/pull/6307)
 * Extract user/profile discovery into the diaspora\_federation-rails gem [#6310](https://github.com/diaspora/diaspora/pull/6310)
 * Refactor PostPresenter [#6315](https://github.com/diaspora/diaspora/pull/6315)
-* Convert BackToTop to a backbone view [#6279](https://github.com/diaspora/diaspora/pull/6279)
+* Convert BackToTop to a backbone view [#6279](https://github.com/diaspora/diaspora/pull/6279) and [#6360](https://github.com/diaspora/diaspora/pull/6360)
 
 ## Bug fixes
 * Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
