@@ -404,11 +404,11 @@ configuration: ## Section
     ## follow an account upon creation.
     #autofollow_on_join: true
 
-    ## Auto-follow account (default='diasporahq@joindiaspora.com')
+    ## Auto-follow account (default='hq@pod.diaspora.software')
     ## The diaspora* HQ account keeps users up to date with news about Diaspora.
     ## If you set another auto-follow account (for example your podmin account),
     ## please consider resharing diaspora* HQ's posts for your pod's users!
-    #autofollow_on_join_user: 'diasporahq@joindiaspora.com'
+    #autofollow_on_join_user: 'hq@pod.diaspora.software'
 
     ## Welcome Message settings
     welcome_message: ##Section
