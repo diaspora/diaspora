@@ -20,7 +20,7 @@ describe Pod, type: :model do
           expect(pod).to receive(:test_connection!)
         end
       end
-      allow(Pod).to receive(:find_in_batches) { @pods }
+      allow(Pod).to receive(:find_in_batches).and_yield(@pods)
     end
 
     it "calls #test_connection! on every pod" do

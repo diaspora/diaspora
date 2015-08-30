@@ -3,6 +3,8 @@
 app.pages.AdminPods = app.views.Base.extend({
   templateName: "pod_table",
 
+  tooltipSelector: "th i",
+
   initialize: function() {
     this.pods = new app.collections.Pods(app.parsePreload("pods"));
     this.rows = []; // contains the table row views
