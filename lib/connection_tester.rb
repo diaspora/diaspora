@@ -72,8 +72,12 @@ class ConnectionTester
           "invalid protocol: '#{@uri.scheme.upcase}'" unless http_uri?(@uri)
 
     result.hostname = @uri.host
+  rescue AddressFailure => e
+    raise e
   rescue URI::InvalidURIError => e
     raise AddressFailure, e.message
+  rescue StandardError => e
+    raise Failure, e.inspect
   end
 
   # Perform the DNS query, the IP address will be stored in the result
@@ -85,6 +89,8 @@ class ConnectionTester
     end
   rescue Resolv::ResolvError, Resolv::ResolvTimeout => e
     raise DNSFailure, "'#{@uri.host}' - #{e.message}"
+  rescue StandardError => e
+    raise Failure, e.inspect
   end
 
   # Perform a HTTP GET request to determine the following information
@@ -108,6 +114,8 @@ class ConnectionTester
     raise SSLFailure, e.message
   rescue ArgumentError, FaradayMiddleware::RedirectLimitReached, Faraday::ClientError => e
     raise HTTPFailure, e.message
+  rescue StandardError => e
+    raise Failure, e.inspect
   end
 
   # Try to find out the version of the other servers software.
@@ -121,8 +129,10 @@ class ConnectionTester
       nd_resp = http.get(find_nodeinfo_url(ni_resp.body))
       find_software_version(nd_resp.body)
     end
-  rescue Faraday::ResourceNotFound, KeyError, JSON::JSONError => e
-    raise NodeInfoFailure, e.message
+  rescue Faraday::ResourceNotFound, JSON::JSONError => e
+    raise NodeInfoFailure, e.message[0..255]
+  rescue StandardError => e
+    raise Failure, e.inspect
   end
 
   private
