@@ -108,6 +108,8 @@ class ConnectionTester
       response = capture_response_time { http.get("/") }
       handle_http_response(response)
     end
+  rescue HTTPFailure => e
+    raise e
   rescue Faraday::ConnectionFailed, Faraday::TimeoutError => e
     raise NetFailure, e.message
   rescue Faraday::SSLError => e
