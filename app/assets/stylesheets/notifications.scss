@@ -4,6 +4,9 @@
       border-bottom: 1px solid $border-grey;
       .btn-toolbar { margin: 11px 0; }
       margin-bottom: 10px;
+      .per-page-label {
+        margin: $padding-base-vertical $padding-base-horizontal;
+      }
     }
 
     .year_container { margin-top: 40px; }

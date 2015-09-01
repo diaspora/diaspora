@@ -722,6 +722,7 @@ en:
       other: "%{actors} mentioned you in a deleted post."
     index:
       notifications: "Notifications"
+      per_page: "Notifications per page:"
       mark_all_as_read: "Mark all as read"
       mark_all_shown_as_read: "Mark all shown as read"
       mark_read: "Mark read"
