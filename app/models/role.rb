@@ -19,7 +19,7 @@ class Role < ActiveRecord::Base
   end
 
   def self.moderator?(person)
-    exists?(person_id: person.id, name: "moderator")
+    moderators.exists?(person_id: person.id)
   end
 
   def self.add_moderator(person)
