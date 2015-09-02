@@ -6,6 +6,7 @@
 
 ## Features
 * Show spinner on initial stream load [#6384](https://github.com/diaspora/diaspora/pull/6384)
+* Add new moderator role. Moderators can view and act on reported posts [#6351](https://github.com/diaspora/diaspora/pull/6351)
 
 # 0.5.3.0
 

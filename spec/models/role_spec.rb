@@ -1,7 +1,11 @@
 require "spec_helper"
 
 describe Role do
-  let(:person) { create(:person) }
+  let!(:person) { create(:person) }
+  let!(:admin) { create(:person) }
+  let!(:admin_role) { admin.roles.create(name: "admin") }
+  let!(:moderator) { create(:person) }
+  let!(:moderator_role) { moderator.roles.create(name: "moderator") }
 
   describe "validations" do
     it { should validate_presence_of(:person) }
@@ -14,10 +18,6 @@ describe Role do
   end
 
   describe "scopes" do
-    let!(:admin_role) { person.roles.create(name: "admin") }
-    let!(:moderator_role) { person.roles.create(name: "moderator") }
-    let!(:spotlight_role) { person.roles.create(name: "spotlight") }
-
     describe ".admins" do
       it "includes admin roles" do
         expect(Role.admins).to match_array([admin_role])
@@ -32,10 +32,6 @@ describe Role do
       it "should include moderators" do
         expect(Role.moderators).to include(moderator_role)
       end
-
-      it "should not include normal users" do
-        expect(Role.moderators).to_not include(person)
-      end
     end
   end
 
@@ -45,10 +41,32 @@ describe Role do
     end
 
     context "when the person is an admin" do
-      before { person.roles.create(name: "admin") }
-
       it "is true" do
-        expect(Role.is_admin?(person)).to be true
+        expect(Role.is_admin?(admin)).to be true
+      end
+    end
+
+    context "when the person is a moderator" do
+      it "is false" do
+        expect(Role.is_admin?(moderator)).to be false
+      end
+    end
+  end
+
+  describe ".moderator?" do
+    it "defaults to false" do
+      expect(Role.moderator?(person)).to be false
+    end
+
+    context "when the person is a moderator" do
+      it "is true" do
+        expect(Role.moderator?(moderator)).to be true
+      end
+    end
+
+    context "when the person is an admin" do
+      it "is true" do
+        expect(Role.moderator?(admin)).to be true
       end
     end
   end
