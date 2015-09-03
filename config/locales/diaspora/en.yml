@@ -1006,6 +1006,7 @@ en:
     reason_label: "Reason: %{text}"
     review_link: "Mark as reviewed"
     delete_link: "Delete item"
+    reported_user_details: "Details on reported user"
     confirm_deletion: "Are you sure to delete the item?"
     not_found: "<u>The post/comment was not found. It seems that it was deleted by the user!</u>"
     status:
