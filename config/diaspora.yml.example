@@ -202,13 +202,13 @@ configuration: ## Section
   ## The internal XMPP server does not support https
   ## and even if we implement it, we would ran into certificate issues.
   ## The problem with mixed-content is described here:
-  ## https://github.com/Zauberstuhl/diaspora/issues/6
+  ## https://wiki.diasporafoundation.org/Vines#Browser_blocks_mixed-content
   ##
   ## The easiest way of avoiding certificate and mixed-content issues
   ## is to use a proxy, e.g.:
   ##
-  ## Apache: https://gist.github.com/Zauberstuhl/2d09330961614b12b642
-  ## Nginx: https://gist.github.com/Zauberstuhl/ee95e1eacefa6ddbec6e
+  ## Apache: https://wiki.diasporafoundation.org/Vines#Apache2
+  ## Nginx: https://wiki.diasporafoundation.org/Vines#Nginx
   ##
   ## If you configured your proxy correctly, you should adjust
   ## the configuration in the BOSH section.
@@ -224,8 +224,11 @@ configuration: ## Section
       ## In case you want to run your own server, you should disable it.
       #enabled: false
 
-      ## Set the directory in which to look for virtual hosts'
-      ## TLS certificates.
+      ## Set the directory in which to look for virtual hosts TLS certificates.
+      ## Check documentation on how to generate or configure your existing
+      ## certficates correctly:
+      ##
+      ## https://wiki.diasporafoundation.org/Vines#Certificates
       #certs: 'config/vines'
 
       ## The server accepts by default only valid certificates.
@@ -250,6 +253,10 @@ configuration: ## Section
         #address: '0.0.0.0'
 
         ## Configure the client-to-server port.
+        ## If your server is behind a router or firewall
+        ## check documentation on how to forward ports:
+        ##
+        ## https://wiki.diasporafoundation.org/Vines#Firewall_Ports
         #port: 5222
 
         ## The maximum we'd like to allow for stanza size.
@@ -266,6 +273,10 @@ configuration: ## Section
         #address: '0.0.0.0'
 
         ## Configure the server-to-server port.
+        ## If your server is behind a router or firewall
+        ## check documentation on how to forward ports:
+        ##
+        ## https://wiki.diasporafoundation.org/Vines#Firewall_Ports
         #port: 5269
 
         ## The max_stanza_size attribute should be
