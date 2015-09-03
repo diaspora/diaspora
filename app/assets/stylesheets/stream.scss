@@ -1,10 +1,60 @@
+body {
+  background: $sidebars-sub-background;
+}
+
 .stream_container {
-	padding-left: 10px;
-	padding-top: 20px;
-	margin-left: -10px;
-	margin-top: -20px;
+  padding-left: 10px;
+  padding-top: 20px;
+  margin-left: -10px;
+  margin-top: -20px;
   #publisher {
     margin-bottom: 15px;
   }
   .well#ignore-info { text-align: center; }
+}
+
+.main_layer_one {
+  float: left;
+  width: 100%;
+  background: $sidebars-sub-background;
+  overflow: hidden;
+  position: relative;
+
+  .main_layer_two {
+    float: left;
+    width: 100%;
+    background: $white;
+    position: relative;
+    right: 25%;
+
+    .main_layer_three {
+      float: left;
+      width: 100%;
+      background: $sidebars-sub-background;
+      position: relative;
+      right: 50%;
+
+      .column_left {
+        float: left;
+        position: relative;
+        left: 75%;
+        overflow: hidden;
+      }
+
+      .column_middle {
+        float: left;
+        width: 45%;
+        position: relative;
+        left: 77%;
+        overflow: hidden;
+      }
+
+      .column_right {
+        float: left;
+        position: relative;
+        left: 80%;
+        overflow: hidden;
+      }
+    }
+  }
 }
