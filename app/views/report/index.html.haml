@@ -10,27 +10,24 @@
       #reports
         %h1
           = t("report.title")
-        - @reports.each do |r|
+        - @reports.each do |report|
           .panel.panel-default
-            - username = User.find_by_id(r.user_id).username
+            - username = report.user.username
             .panel-heading
               .reporter.pull-right
                 = raw t("report.reported_label", person: link_to(username, user_profile_path(username)))
               .title
-                = report_content(r.item_id, r.item_type)
+                = report_content(report)
             .panel-body
               .reason
-                = t("report.reason_label", text: r.text)
+                = t("report.reason_label", text: report.text)
 
               = button_to t("report.reported_user_details"),
-                user_search_path(admins_controller_user_search: {guid: get_reported_guid(r.item_id,
-                r.item_type)}), class: "btn pull-left btn-info btn-small",
-                method: :post
-              = button_to t("report.review_link"), report_path(r.id, type: r.item_type),
-                class: "btn pull-left btn-info btn-small",
-                method: :put
-              = button_to t("report.delete_link"), report_path(r.id, type: r.item_type),
+                user_search_path(admins_controller_user_search: {guid: report.reported_author.guid}),
+                class: "btn pull-left btn-info btn-small", method: :post
+              = button_to t("report.review_link"), report_path(report.id, type: report.item_type),
+                class: "btn pull-left btn-info btn-small", method: :put
+              = button_to t("report.delete_link"), report_path(report.id, type: report.item_type),
                 data: {confirm: t("report.confirm_deletion")},
-                class: "btn pull-right btn-danger btn-small",
-                method: :delete
+                class: "btn pull-right btn-danger btn-small", method: :delete
 

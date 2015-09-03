@@ -1,4 +1,6 @@
 class Report < ActiveRecord::Base
+  POST, COMMENT = %w(post comment).map(&:freeze)
+
   validates :user_id, presence: true
   validates :item_id, presence: true
   validates :item_type, presence: true, :inclusion => { :in => %w(post comment),
@@ -14,6 +16,18 @@ class Report < ActiveRecord::Base
 
   after_commit :send_report_notification, :on => :create
 
+  def item
+    if item_type == POST
+      Post.find_by(id: item_id)
+    elsif item_type == COMMENT
+      Comment.find_by(id: item_id)
+    end
+  end
+
+  def reported_author
+    item.author unless item.nil?
+  end
+
   def entry_does_not_exist
     if Report.where(item_id: item_id, item_type: item_type).exists?(user_id: user_id)
       errors[:base] << 'You cannot report the same post twice.'
@@ -27,34 +41,23 @@ class Report < ActiveRecord::Base
   end
 
   def destroy_reported_item
-    if item_type == 'post'
-      delete_post
-    elsif item_type == 'comment'
-      delete_comment
+    case item
+    when Post
+      if item.author.local?
+        item.author.owner.retract(item)
+      else
+        item.destroy
+      end
+    when Comment
+      if item.author.local?
+        item.author.owner.retract(comment)
+      elsif item.parent.author.local?
+        item.parent.author.owner.retract(comment)
+      else
+        item.destroy
+      end
     end
     mark_as_reviewed
-  end
- 
-  def delete_post
-    if post = Post.where(id: item_id).first
-      if post.author.local?
-        post.author.owner.retract(post)
-      else
-        post.destroy
-      end
-    end
-  end
-   
-  def delete_comment
-    if comment = Comment.where(id: item_id).first
-      if comment.author.local?
-        comment.author.owner.retract(comment)
-      elsif comment.parent.author.local?
-        comment.parent.author.owner.retract(comment)
-      else
-        comment.destroy
-      end
-    end
   end
 
   def mark_as_reviewed

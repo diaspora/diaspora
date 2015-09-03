@@ -3,22 +3,15 @@
 #   the COPYRIGHT file.
 
 module ReportHelper
-  def get_reported_guid(id, type)
-    if type == "post"
-      Post.where(id: id).first.author.guid
-    elsif type == "comment"
-      Comment.where(id: id).first.author.guid
-    end
-  end
-
-  def report_content(id, type)
-    if type == "post" && !(post = Post.find_by_id(id)).nil?
-      raw t("report.post_label", title: link_to(post_page_title(post), post_path(id)))
-    elsif type == "comment" && !(comment = Comment.find_by_id(id)).nil?
-      # comment_message is not html_safe. To prevent
-      # cross-site-scripting we have to escape html
+  def report_content(report)
+    case (item = report.item)
+    when Post
+      raw t("report.post_label", title: link_to(post_page_title(item), post_path(item.id)))
+    when Comment
       raw t("report.comment_label", data: link_to(
-        h(comment_message(comment)), post_path(comment.post.id, anchor: comment.guid)))
+        h(comment_message(item)),
+        post_path(item.post.id, anchor: item.guid)
+      ))
     else
       raw t("report.not_found")
     end
