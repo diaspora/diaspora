@@ -1,11 +1,9 @@
+.conversations-title { margin: 0 0 20px 0; }
 .conversation {
-
   .conversation_participants {
     padding: 1rem 1.2rem;
 
-    h3 {
-      margin: 0px;
-    }
+    h3 { margin: 0; }
 
     .delete_conversation {
       font-size: 2rem;
@@ -56,3 +54,7 @@
     margin-top: 40px;
   }
 }
+
+.subject { padding: 0 10px; }
+
+.message-count, .unread-message-count { margin: 10px 2px; }

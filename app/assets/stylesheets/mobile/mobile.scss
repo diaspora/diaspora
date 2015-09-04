@@ -46,6 +46,8 @@ h3 {  margin-top: 0; }
   border-radius: 4px;
 }
 
+.badge-important { background-color: $red; }
+
 .stream_element,
 .comments {
   overflow: auto;
@@ -527,31 +529,6 @@ select {
 
 .notification_day_header {
   margin-bottom: 5px;
-}
-
-.message_count {
-  border-radius: 2px 2px 2px 2px;
-  float: right;
-  margin: 10px 10px 1px 5px;
-  padding: 0 2px 1px;
-  position: relative;
-  background-color: #999;
-  color: #eee;
-  font-size: 10px;
-  line-height: 12px;
-
-}
-
-.unread_message_count {
-  border-radius: 2px 2px 2px 2px;
-  float: right;
-  margin: 10px 2px 1px 5px;
-  padding: 0 2px 1px;
-  position: relative;
-  background-color: #B11;
-  color: #EEE;
-  font-size: 10px;
-  line-height: 12px;
 }
 
 .last_author {
