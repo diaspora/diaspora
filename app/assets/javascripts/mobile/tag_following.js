@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".tag_following_action").bind("tap click", function(evt){
+  $(".tag_following_action").bind("vmousedown", function(evt){
     evt.preventDefault();
     var tagFollowing,
         button = $(this),

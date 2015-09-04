@@ -9,7 +9,7 @@
   Diaspora.Mobile.Comments = {
     initialize: function() {
       var self = this;
-      $(".stream").on("tap click", "a.back_to_stream_element_top", function() {
+      $(".stream").on("vmousedown click", "a.back_to_stream_element_top", function() {
         var bottomBar = $(this).closest(".bottom_bar").first();
         var streamElement = bottomBar.parent();
         $("html, body").animate({
@@ -17,12 +17,12 @@
         }, 1000);
       });
 
-      $(".stream").on("tap click", "a.show_comments", function(evt){
+      $(".stream").on("vmousedown click", "a.show_comments", function(evt){
         evt.preventDefault();
         self.toggleComments($(this));
       });
 
-      $(".stream").on("tap click", "a.comment-action", function(evt) {
+      $(".stream").on("vmousedown click", "a.comment-action", function(evt) {
         evt.preventDefault();
         self.showCommentBox($(this));
         var bottomBar = $(this).closest(".bottom_bar").first();

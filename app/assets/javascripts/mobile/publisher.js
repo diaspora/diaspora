@@ -2,7 +2,7 @@ $(document).ready(function(){
   // no publisher available
   if($("#new_status_message").length === 0) { return; }
 
-  $(".service_icon").bind("tap click", function() {
+  $(".service_icon").bind("vmousedown", function() {
     var service = $(this).toggleClass("dim"),
       selectedServices = $("#new_status_message .service_icon:not(.dim)"),
       provider = service.attr("id"),
@@ -34,7 +34,7 @@ $(document).ready(function(){
     }
   });
 
-  $("#submit_new_message").bind("tap click", function(evt){
+  $("#submit_new_message").bind("vmousedown", function(evt){
     evt.preventDefault();
     $("#new_status_message").submit();
   });
