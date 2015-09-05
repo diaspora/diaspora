@@ -11,17 +11,19 @@ describe Services::Tumblr, :type => :model do
 
   describe '#post' do
     it 'posts a status message to tumblr and saves the returned ids' do
-      response = double(body: '{"response": {"user": {"blogs": [{"url": "http://foo.tumblr.com"}]}}}')
+      response = double(body: '{"response": {"user": {"blogs":
+       [{"primary": false, "url": "http://foo.tumblr.com"},
+        {"primary": true, "url": "http://bar.tumblr.com"}]}}}')
       expect_any_instance_of(OAuth::AccessToken).to receive(:get)
       .with("/v2/user/info")
       .and_return(response)
 
       response = double(code: "201", body: '{"response": {"id": "bla"}}')
       expect_any_instance_of(OAuth::AccessToken).to receive(:post)
-      .with("/v2/blog/foo.tumblr.com/post", @service.build_tumblr_post(@post, ''))
+      .with("/v2/blog/bar.tumblr.com/post", @service.build_tumblr_post(@post, ""))
       .and_return(response)
 
-      expect(@post).to receive(:tumblr_ids=).with({"foo.tumblr.com" => "bla"}.to_json)
+      expect(@post).to receive(:tumblr_ids=).with({"bar.tumblr.com" => "bla"}.to_json)
 
       @service.post(@post)
     end
