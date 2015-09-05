@@ -13,6 +13,7 @@ app.views.InfScroll = app.views.Base.extend({
     this.postViews = this.postViews || [];
     this._resetPostFragments();
 
+    this.showLoader();
     this.bind("loadMore", this.fetchAndshowLoader, this);
     this.stream.bind("fetched", this.finishedLoading, this);
     this.stream.bind("allItemsLoaded", this.unbindInfScroll, this);

@@ -1,3 +1,12 @@
+# 0.5.4.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+* Show spinner on initial stream load [#6384](https://github.com/diaspora/diaspora/pull/6384)
+
 # 0.5.3.0
 
 ## Refactor
