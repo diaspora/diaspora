@@ -42,13 +42,10 @@ zh-CN:
               taken: "已被注册。"
   admins:
     admin_bar:
-      correlations: "关联"
       pages: "分页"
       pod_stats: "Pod 统计资料"
       user_search: "搜索用户"
       weekly_user_stats: "用户统计周报"
-    correlations:
-      correlations_count: "与登入次数的关系"
     stats:
       2weeks: "两周"
       50_most: "50个最流行的标签"

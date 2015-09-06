@@ -43,14 +43,11 @@ te:
               taken: "ఇప్పటికే తిసుకోబడినది"
   admins:
     admin_bar:
-      correlations: "సహసంబంధాలు"
       pages: "పుటలు"
       pod_stats: "పాడ్ గణాంకాలు"
       report: "నివేదికలు"
       user_search: "వాడుకరి శోధన"
       weekly_user_stats: "వారపు వాడుకరి గణాంకాలు"
-    correlations:
-      correlations_count: "ప్రవేశ సంఖ్యతో సహసంబంధాలు"
     stats:
       2weeks: "2 వారాలు"
       50_most: "50 ప్రజాదరణ పొందిన కొసలు"

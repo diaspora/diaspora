@@ -53,15 +53,12 @@ fi:
               taken: "on jo varattu."
   admins:
     admin_bar:
-      correlations: "Vastaavuudet"
       pages: "Sivut"
       pod_stats: "Podin tilastot"
       report: "Raportit"
       sidekiq_monitor: "Sidekiq tarkkailija"
       user_search: "Käyttäjähaku"
       weekly_user_stats: "Viikottaiset käyttäjätilastot"
-    correlations:
-      correlations_count: "Korrelaatio sisäänkirjautumismäärän kanssa"
     stats:
       2weeks: "2 viikkoa"
       50_most: "50 suosituinta tagia"
@@ -957,7 +954,7 @@ fi:
     new:
       create_my_account: "Luo käyttäjätili!"
       email: "Sähköposti"
-      enter_email: "Syötä sähköpostiosoite"
+      enter_email: "Syötä sähköpostiosoitteesi"
       enter_password: "Syötä salasana (vähintään kuusi merkkiä)"
       enter_password_again: "Syötä sama salasana kuin edellä"
       enter_username: "Valitse käyttäjänimi (vain kirjaimet, numerot ja alaviivat sallittuja)"
@@ -1033,6 +1030,7 @@ fi:
       no_friends: "Facebook-kavereita ei löytynyt."
       service_friends: "%{service}-kaverit"
     index:
+      connect: "Yhdistä"
       disconnect: "Katkaise yhteys"
       edit_services: "Muokkaa palveluita"
       logged_in_as: "Kirjauduttu käyttäjänä %{nickname}."

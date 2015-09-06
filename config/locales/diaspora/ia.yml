@@ -53,15 +53,12 @@ ia:
               taken: "es jam in uso."
   admins:
     admin_bar:
-      correlations: "Correlationes"
       pages: "Paginas"
       pod_stats: "Statisticas de pod"
       report: "Reportos"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Recerca de usatores"
       weekly_user_stats: "Statisticas septimanal de usatores"
-    correlations:
-      correlations_count: "Correlationes con le numero de aperturas de session:"
     stats:
       2weeks: "2 Septimana"
       50_most: "Le 50 etiquettas le plus popular"

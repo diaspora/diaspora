@@ -19,7 +19,7 @@ hy:
       stopped_sharing_with: "Դու այլևս չես կիսվում <%= name %>-ի հետ։"
       toggle:
         one: "<%= count %> խմբում"
-        other: "<%= count %> խմբերում"
+        other: "<%= count %> խմբում"
         zero: "Ընտրել խմբերը"
       updating: "թարմացվում է․․․"
     aspect_navigation:
@@ -53,8 +53,10 @@ hy:
       error_add: "Չստացվեց <%= name %>ին ավելացնել խմբում։ Ափսո՜ս։"
       error_remove: "Չստացվեց հեռացնել <%= name %>ին խմբից։ Ստիպված ես էլի դիմանալ։ ։Չ"
       remove_contact: "Հեռացնել"
-      search_no_results: "Ոչ մեկ չգտնվեց"
+      search_no_results: "Ոչ ոք չգտնվեց"
     conversation:
+      new:
+        no_contacts: "Նախքան զրույց սկսելը պետք է գոնե մեկին ավելացնես։"
       participants: "Մասնակիցներ"
     create: "Ստեղծել"
     delete: "Ջնջել"
@@ -64,14 +66,14 @@ hy:
     failed_to_remove: "Չստացվեց ջնջել մուտքագրածը։"
     failed_to_reshare: "Չստացվեց տարածել"
     getting_started:
-      alright_ill_wait: "Լավ, ես կսպասեմ։"
+      alright_ill_wait: "Դե լավ, ես կսպասեմ։"
       hey: "Հե՜յ, <%= name %>։"
-      no_tags: "Հե՜յ, հետևելու ոչ մի պիտակ չնշեցիր։  Շարունակե՞լ։"
+      no_tags: "Հե՜յ, ոչ մի պիտակ չնշեցիր։  Շարունակե՞նք ամեն դեպքում։"
       preparing_your_stream: "Նախապատրաստում ենք քո անհատական լրահոսը..."
     header:
       admin: "Ադմին"
       close: "Փակել"
-      contacts: "Կոնտակտներ"
+      contacts: "Կապեր"
       conversations: "Զրույցներ"
       help: "Օգնություն"
       home: "Գլխավոր էջ"
@@ -82,7 +84,7 @@ hy:
       recent_notifications: "Վերջին ծանուցումները"
       search: "Որոնում"
       settings: "Կարգավորումներ"
-      view_all: "Ցույցադրել ամբողջը"
+      view_all: "Ցուցադրել ամբողջը"
     hide_post: "Թաքցնե՞լ այս գրառումը։"
     hide_post_failed: "Չստացվեց թաքցնել այս գրառումը"
     ignore: "Արհամարհել"
@@ -90,7 +92,7 @@ hy:
     ignore_user: "Արհամարհե՞լ այս օգտատիրոջը։"
     infinite_scroll:
       no_more: "Գրառումներ էլ չկան։"
-      no_more_contacts: "Էլ ընկերներ չկան։"
+      no_more_contacts: "Էլ մարդ չկա։"
     my_activity: "Իմ գործունեությունը"
     my_aspects: "Իմ խմբերը"
     my_stream: "Լրահոս"
@@ -128,7 +130,7 @@ hy:
       add_some: "Ավելացնե՞լ"
       bio: "Մասին"
       born: "Ծննդյան ամսաթիվ"
-      contacts: "Ընկերներ"
+      contacts: "Կապեր"
       edit: "Փոփոխել"
       gender: "Սեռ"
       ignoring: "Դու արհամարհում ես <%= name %>-ի բոլոր գրառումները։"

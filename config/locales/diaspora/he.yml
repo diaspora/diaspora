@@ -51,14 +51,11 @@ he:
               taken: "כבר תפוס."
   admins:
     admin_bar:
-      correlations: "התאמות"
       pages: "עמודים"
       pod_stats: "סטטיסטיקה של הפוד"
       sidekiq_monitor: "מעקב Sidekiq"
       user_search: "חיפוש משתמש"
       weekly_user_stats: "סטטיסטיקת חברים שבועית"
-    correlations:
-      correlations_count: "התאמות עם ספירת ההתחברויות:"
     stats:
       2weeks: "שבועיים"
       50_most: "50 התגים הפופולאריים ביותר"

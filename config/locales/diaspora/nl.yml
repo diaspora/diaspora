@@ -53,15 +53,12 @@ nl:
               taken: "is al in gebruik."
   admins:
     admin_bar:
-      correlations: "Correlaties"
       pages: "Pagina's"
       pod_stats: "Pod Statistieken"
       report: "Meldingen"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Gebruiker Zoeken"
       weekly_user_stats: "Wekelijkse Gebruikersstatistieken"
-    correlations:
-      correlations_count: "Correlaties met inlogtelling:"
     stats:
       2weeks: "2 weken"
       50_most: "50 meest populaire tags"

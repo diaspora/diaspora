@@ -53,15 +53,12 @@ pl:
               taken: "jest już zajęta."
   admins:
     admin_bar:
-      correlations: "Korelacje"
       pages: "Strony"
       pod_stats: "Statystyki Poda"
       report: "Zgłoszenia"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Wyszukiwanie użytkowników"
       weekly_user_stats: "Tygodniowe statystyki użytkowników"
-    correlations:
-      correlations_count: "Korelacje z liczbą logowań:"
     stats:
       2weeks: "2 tygodnie"
       50_most: "50 najpopularniejszych znaczników"
