@@ -71,7 +71,7 @@ nb:
         remember_me: "Husk meg"
         sign_in: "Logg inn"
         username: "Brukernavn"
-      signed_in: "Innlogginga var vellykka."
+      signed_in: "Innloggingen var vellykket."
       signed_out: "Utlogginga var vellykka."
     shared:
       links:

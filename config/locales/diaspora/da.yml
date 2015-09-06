@@ -53,15 +53,12 @@ da:
               taken: "er allerede taget."
   admins:
     admin_bar:
-      correlations: "Korrelationer"
       pages: "Sider"
       pod_stats: "Statistik for Pod"
       report: "Rapporter"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Søg efter brugere"
       weekly_user_stats: "Ugentlig bruger-statistik"
-    correlations:
-      correlations_count: "Correlationer med indmeld i antallet."
     stats:
       2weeks: "2 uger"
       50_most: "50 mest populære tags"
@@ -316,6 +313,7 @@ da:
       send: "Send"
       sending: "Sender..."
       subject: "Emne"
+      subject_default: "Intet emne"
       to: "Til"
     new_conversation:
       fail: "Ugyldig meddelelse"
@@ -602,6 +600,7 @@ da:
       powered_by: "Kører på Diaspora"
       public_feed: "Offentligt Diaspora-nyhedsfeed for %{name}"
       source_package: "Download kildekoden"
+      statistics_link: "Pod statistik"
       toggle: "Slå mobil side til/fra"
       whats_new: "Hvad er nyt?"
       your_aspects: "Dine aspekter"
@@ -1026,7 +1025,7 @@ da:
     new:
       create_my_account: "Opret min konto!"
       email: "E-mail"
-      enter_email: "Indtast e-mail"
+      enter_email: "Indtast din e-mailadresse"
       enter_password: "Indtast en adgangskode (mindst seks tegn)"
       enter_password_again: "Indtast den samme adgangskode som før"
       enter_username: "Vælg et brugernavn (kun bogstaver, tal og understreg)"

@@ -53,15 +53,12 @@ cs:
               taken: "je již obsazeno."
   admins:
     admin_bar:
-      correlations: "Korelace"
       pages: "Stránky"
       pod_stats: "Statistiky podu"
       report: "Nahlášení"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Hledat uživatele"
       weekly_user_stats: "Týdenní uživatelské statistiky"
-    correlations:
-      correlations_count: "Korelace s počtem přihlášených:"
     stats:
       2weeks: "Dvoutýdenní"
       50_most: "50 nejoblíbenějších štítků"

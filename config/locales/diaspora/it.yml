@@ -43,14 +43,11 @@ it:
               taken: "è già stato preso."
   admins:
     admin_bar:
-      correlations: "Correlazioni"
       pages: "Pagine"
       pod_stats: "Statistiche pod"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Cerca utente"
       weekly_user_stats: "Statistiche settimanali utenti"
-    correlations:
-      correlations_count: "Correlazioni con il numero di login"
     stats:
       2weeks: "2 settimane"
       50_most: "I 50 tag più popolari"

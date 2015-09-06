@@ -43,12 +43,9 @@ vi:
               taken: "đã được thực hiện."
   admins:
     admin_bar:
-      correlations: "Tương quan"
       pages: "Trang"
       user_search: "Tìm người dùng"
       weekly_user_stats: "Thống kê người dùng hàng tuần"
-    correlations:
-      correlations_count: "Tương quan với số lần đăng nhập"
     stats:
       2weeks: "2 tuần"
       50_most: "50 thẻ phổ biến nhất"

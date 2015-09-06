@@ -43,14 +43,11 @@ ml:
               taken: "മുൻപേ ഉപയോഗത്തിലുണ്ട്."
   admins:
     admin_bar:
-      correlations: "പരസ്പരബന്ധം"
       pages: "താളുകൾ"
       pod_stats: "പോഡിന്റെ അവസ്ഥ"
       sidekiq_monitor: "സൈഡ്കിക്ക് നിരീക്ഷകൻ"
       user_search: "ഉപയോക്താക്കളെ തിരയുക"
       weekly_user_stats: "ആഴ്ചതോറുമുള്ള അവസ്ഥ"
-    correlations:
-      correlations_count: "സൈൻ ഇൻ എണ്ണവുമായുള്ള പരസ്പരബന്ധം"
     stats:
       2weeks: "2 ആഴ്ച"
       50_most: "ഏറ്റവും പ്രശസ്തമായ 50 ടാഗുകൾ"

@@ -9,7 +9,7 @@ az:
   _comments: ""
   _contacts: ""
   _home: ""
-  _photos: "Şəkil"
+  _photos: "Şəkillər"
   _services: "Servis"
   account: "Akkaunt"
   activerecord:
@@ -33,7 +33,17 @@ az:
               invalid: ""
               taken: ""
   ago: "%{time}%{time}"
+  all_aspects: "Bütün tərəflər"
+  application:
+    helper:
+      unknown_person: "bilinməyən səxs"
+      video_title:
+        unknown: "bilinmeyen video basligi"
   are_you_sure: ""
+  are_you_sure_delete_account: "İstifadəçiliyini bağlamaq isteyində əminsən? bu tamamlanmayıb"
+  aspect_memberships:
+    destroy:
+      no_membership: "bu yöndə isare etdiyiniz heç bir şəxs tapılmadı"
   aspects:
     add_to_aspect:
       failure: ""
@@ -44,6 +54,7 @@ az:
       edit_aspect: ""
       select_all: ""
     aspect_stream:
+      stay_updated: "Səyfədə qal"
       stay_updated_explanation: ""
     contacts_not_visible: ""
     contacts_visible: ""
@@ -57,6 +68,9 @@ az:
       aspect_list_is_visible: ""
       confirm_remove_aspect: ""
       remove_aspect: ""
+      rename: "yenidən adlandırmaq"
+      update: "yeniləmək"
+      updating: "yenilənir"
     index:
       diaspora_id:
         content_1: ""
@@ -70,6 +84,7 @@ az:
         find_a_bug: ""
         have_a_question: ""
         here_to_help: ""
+        need_help: "köməyə ehtiyac var?"
         tag_bug: ""
         tag_feature: ""
         tag_question: ""
@@ -77,17 +92,23 @@ az:
       new_here:
         follow: ""
         learn_more: ""
+        title: "Xoş gəlmisiniz,yeni istifadəçilərmiz"
       no_contacts: ""
       no_tags: ""
       people_sharing_with_you: ""
+      post_a_message: "Divarda mesaj yerləşdir!"
       services:
         content: ""
+        heading: "Vericiyə Bağlan"
       unfollow_tag: ""
       welcome_to_diaspora: ""
     new:
       create: ""
       name: ""
     no_contacts_message:
+      community_spotlight: |-
+          Bank icma xidməti.
+          Bank icmaya xidmət etmir.
       or_spotlight: ""
       try_adding_some_more_contacts: ""
       you_should_add_some_more_contacts: ""
@@ -103,6 +124,7 @@ az:
     update:
       failure: ""
       success: ""
+    zero: "hec bir aspekt yoxdu"
   back: ""
   bookmarklet:
     explanation: ""
@@ -116,15 +138,18 @@ az:
       commenting: ""
     one: ""
     other: ""
+    zero: "Heç şərh yoxdu"
   contacts:
     create:
       failure: ""
     index:
+      add_to_aspect: "şəxs əlavə edin %{name}"
       start_a_conversation: ""
     one: ""
     other: ""
     sharing:
       people_sharing: ""
+    zero: "Əlaqələr tapılmadı"
   delete: "Poz"
   email: ""
   error_messages:
@@ -132,14 +157,19 @@ az:
       correct_the_following_errors_and_try_again: ""
   fill_me_out: ""
   find_people: ""
-  hide: "Öldür"
+  hide: "Mətni gizlət."
   limited: ""
   more: ""
+  next: "sonraki"
+  no_results: "Heç bir nəticə tapılmadı"
   nsfw: ""
   ok: "OK"
   or: "və"
   password: ""
   password_confirmation: ""
+  people:
+    zero: "Verilmiş parametrlərə uyğun nəfər tapılmadı. <br/> Xahiş olunur axtarış parametirlərini dəyişdirəsiniz."
+  previous: "əvvəlki"
   privacy: "Gaga"
   privacy_policy: "gAG"
   profile: "Profil"

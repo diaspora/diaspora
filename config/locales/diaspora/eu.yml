@@ -42,13 +42,10 @@ eu:
               taken: "erabilpenean dago jada."
   admins:
     admin_bar:
-      correlations: "Korrelazioak"
       pages: "Orrialdeak"
       pod_stats: "Hornitzailearen Estatistikak"
       user_search: "Erabiltzaile Bilaketa"
       weekly_user_stats: "Asteko Erabiltzaile Estatistikak"
-    correlations:
-      correlations_count: "Korrelazioak Sarpen Zenbakiekin:"
     stats:
       2weeks: "2 aste"
       50_most: "50 Etiketa Erabilienak"

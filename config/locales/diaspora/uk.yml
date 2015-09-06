@@ -53,15 +53,12 @@ uk:
               taken: "вже зайнято."
   admins:
     admin_bar:
-      correlations: "Кореляція"
       pages: "Сторінки"
       pod_stats: "Статистика сервера"
       report: "Доноси"
       sidekiq_monitor: "Монітор Sidekiq"
       user_search: "Пошук користувачів"
       weekly_user_stats: "Щотижнева статистика користувачів"
-    correlations:
-      correlations_count: "Зв'язок з числом входів:"
     stats:
       2weeks: "2 тижні"
       50_most: "50 найпопулярніших міток"
