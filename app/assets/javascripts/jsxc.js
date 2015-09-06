@@ -19,7 +19,6 @@ $(document).ready(function() {
             SEND_WHITESPACE_TAG: true,
             WHITESPACE_START_AKE: true
           },
-          autoLang: true,
           priority: {
             online: 1,
             chat: 1
