@@ -58,6 +58,8 @@ nl:
       remove_contact: "Verwijder contact"
       search_no_results: "geen contactpersonen gevonden"
     conversation:
+      new:
+        no_contacts: "Je moet een paar contactpersonen opgeven om een conversatie te kunnen starten."
       participants: "Deelnemers"
     create: "Creëren"
     delete: "Verwijder"

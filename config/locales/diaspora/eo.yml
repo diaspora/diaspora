@@ -43,13 +43,10 @@ eo:
               taken: "estas jam prenita."
   admins:
     admin_bar:
-      correlations: "Korelacio"
       pages: "Paĝoj"
       pod_stats: "Statistiko de 'pod' (Diaspora-servilo)"
       user_search: "Serĉo de uzanto"
       weekly_user_stats: "Semajna statistiko de uzanto"
-    correlations:
-      correlations_count: "Korelacio kun la nombrado de ensalutoj:"
     stats:
       2weeks: "2 semajnoj"
       50_most: "50 plej popularaj etikedoj"

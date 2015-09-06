@@ -43,14 +43,11 @@ pt-PT:
               taken: "já foi escolhido."
   admins:
     admin_bar:
-      correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Estatísticas do Pod"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Procurar Utilizador"
       weekly_user_stats: "Estatísticas Semanais de Utilizador"
-    correlations:
-      correlations_count: "Correlações com Contagem do Iniciar Sessão"
     stats:
       2weeks: "2 Semanas"
       50_most: "50 Etiquetas Mais Populares"

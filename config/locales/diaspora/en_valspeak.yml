@@ -52,15 +52,12 @@ en_valspeak:
               taken: "some1 like, already bought those shoez. sry bout that :\\"
   admins:
     admin_bar:
-      correlations: "Correlationz"
       pages: "Pagies!"
       pod_stats: "Pod statsss <3"
       report: "Reportz"
       sidekiq_monitor: "Technical thingy called Sidekiq monitor... wasnt that like... a phone once? OMG! IT WAS! :DD"
       user_search: "Ppl search"
       weekly_user_stats: "Weekly ppl stats"
-    correlations:
-      correlations_count: "Correlationz wit sign in count:"
     stats:
       2weeks: "2 weekz"
       50_most: "ZOMG THE 50 MOST POPULAR TAGZ!!!"

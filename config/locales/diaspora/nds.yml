@@ -43,13 +43,10 @@ nds:
               taken: "is schon vergeven."
   admins:
     admin_bar:
-      correlations: "Korrelationen"
       pages: "Sieten"
       pod_stats: "Podstatistiken"
       user_search: "Brukersök"
       weekly_user_stats: "Weekentliche Brukerstatistiken"
-    correlations:
-      correlations_count: "Korrelationen mit Amelldungstohl:"
     stats:
       2weeks: "Twee Weken"
       50_most: "De 50 an meisten benutzten Tags"
@@ -136,7 +133,7 @@ nds:
       failure: "Kunn Aspekt nich anleggen."
       success: "Dien nee’en Aspekt %{name} is anleggt worrn."
     destroy:
-      failure: "%{name} is nich leer un kunn nich wegmakt warrn."
+      failure: "%{name} kunn nich wegmakt warrn."
       success: "%{name} is erfolgriek wegmakt worrn."
     edit:
       aspect_list_is_not_visible: "Kontakte in dissen Aspekt künnt sick nich gegensiedich seihn."
@@ -497,9 +494,9 @@ nds:
   notifier:
     a_post_you_shared: "een Bidrag."
     accept_invite: "Nimm diene diaspora*-Inladung an!"
-    click_here: "klick hier"
+    click_here: "Klick hier"
     comment_on_post:
-      reply: "%{name}s Bidrag antwoorden or ankieken >"
+      reply: "Op %{name}s Bidrag antwoorden oder em ankieken >"
     confirm_email:
       click_link: "Bidde folg dissen Link, üm diene nee’e E-Mail-Adress %{unconfirmed_email} in gang to setten:"
       subject: "Bidde set diene nee’e E-Mail-Adress %{unconfirmed_email} in gang"
@@ -602,7 +599,7 @@ nds:
       you_have_no_tags: "du hest keene Tags!"
     webfinger:
       fail: "Deit mi leed, wi kunnen %{handle} nich finnen."
-    zero: "keene Lüü"
+    zero: "Keene Lüü"
   photos:
     comment_email_subject: "%{name}s Bild"
     create:

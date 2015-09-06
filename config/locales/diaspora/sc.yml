@@ -41,7 +41,7 @@ sc:
               invalid: "no est bàlidu. Est possìbile impreare petzi lìteras, nùmeros, e underscores."
               taken: "est giai istadu pigadu."
   ago: "%{time} fàghet"
-  all_aspects: "Totu sos aspetos"
+  all_aspects: "Totu sas caras"
   application:
     helper:
       unknown_person: "Pessone disconnota"
@@ -50,8 +50,22 @@ sc:
   are_you_sure: "Seguru ses?"
   are_you_sure_delete_account: "Seguru ses de bòlere serrare su contu tuo? Custu non podet èssere annuddadu!"
   aspects:
+    add_to_aspect:
+      failure: "Annanghidura de su cuntatu a sa cara faddida."
+      success: "Annanghidura de su cuntatu a sa cara resissida."
+    aspect_listings:
+      add_an_aspect: "+ Annanghe una cara"
+      deselect_all: "Disischerta totu"
+      edit_aspect: "Modìfica %{name}"
+      select_all: "Ischerta totu"
     contacts_not_visible: "Sos cuntatos de custa cara non s'ant a pòdere bìdere intre issos."
     contacts_visible: "Sos cuntatos de custa cara s'ant a pòdere bìdere intre issos."
+    create:
+      failure: "Creatzione de sa cara non resissida."
+      success: "Sa cara tua noa %{name} est istada creada"
+    destroy:
+      failure: "No est istadu possìbile bogare %{name}."
+      success: "%{name} est istada bogada."
     edit:
       aspect_list_is_not_visible: "Sos cuntatos de custa cara non si podent bìdere intre issos."
       aspect_list_is_visible: "Sos cuntatos de custa cara si podent bìdere intre issos."
@@ -61,8 +75,31 @@ sc:
       rename: "Càmbia nùmene"
       update: "Agiorna"
       updating: "Agiornande"
+    index:
+      donate: "Dona"
+      handle_explanation: "Custu est s'ID diaspora* tuo. Comente un'indiritzu de posta eletrònica, lu podes dare a sa gente pro ti fàghere agatare."
+      no_tags: "+ Agata un'eticheta de sighire"
+      unfollow_tag: "Non sighire prus %{tag}"
+    new:
+      create: "Crea"
+      name: "Nùmene (lu podes bìere petzi tue)"
+    no_contacts_message:
+      community_spotlight: "Prus de importu in sa comunidade"
+      or_spotlight: "O podes cumpartzire cun %{link}"
+      try_adding_some_more_contacts: "Podes chircare o invitare àteros cuntatos."
+      you_should_add_some_more_contacts: "Dias dèpere annànghere carchi cuntatu in prus!"
+    no_posts_message:
+      start_talking: "Perunu at galu naradu nudda!"
     one: "1 cara"
     other: "%{count} caras"
+    seed:
+      acquaintances: "Connoschentes"
+      family: "Famìlia"
+      friends: "Amigos"
+      work: "Traballu"
+    update:
+      failure: "Sa cara tua, %{name}, tenet unu nùmene tropu longu pro èssere sarbada."
+      success: "Sa cara tua, %{name}, est istada modificada."
     zero: "Peruna cara"
   back: "In dae segus"
   cancel: "Annudda"
@@ -96,7 +133,7 @@ sc:
   previous: "Antepostu"
   privacy: "Privadesa"
   privacy_policy: "Normativa pro sa privadesa"
-  profile: "Perfilu"
+  profile: "Profilu"
   public: "Pùblicu"
   search: "Chirca"
   settings: "Impostaduras"

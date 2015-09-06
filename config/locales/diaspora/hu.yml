@@ -51,15 +51,12 @@ hu:
               taken: "már foglalt."
   admins:
     admin_bar:
-      correlations: "Korrelációk"
       pages: "Oldalak"
       pod_stats: "Kiszolgáló statisztika"
       report: "Jelentések"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Felhasználó keresés"
       weekly_user_stats: "Heti statisztika"
-    correlations:
-      correlations_count: "Belépések számával való korrelációk:"
     stats:
       2weeks: "2 hét"
       50_most: "50 legnépszerűbb címke"

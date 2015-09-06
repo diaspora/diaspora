@@ -58,6 +58,8 @@ pl:
       remove_contact: "Usuń kontakt"
       search_no_results: "Nie znaleziono użytkowników"
     conversation:
+      new:
+        no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kontakty"
       participants: "Uczestnicy"
     create: "Utwórz"
     delete: "Usuń"

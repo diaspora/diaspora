@@ -53,15 +53,12 @@ ru:
               taken: "уже занято."
   admins:
     admin_bar:
-      correlations: "Корреляции"
       pages: "Страницы"
       pod_stats: "Статистика пода"
       report: "Доносы"
       sidekiq_monitor: "Монитор Sidekiq"
       user_search: "Поиск пользователей"
       weekly_user_stats: "Еженедельная пользовательская статистика"
-    correlations:
-      correlations_count: "Связь с числом входов:"
     stats:
       2weeks: "2 недели"
       50_most: "50 самых популярных меток"
