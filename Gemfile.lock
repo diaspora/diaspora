@@ -437,7 +437,7 @@ GEM
     multi_test (0.1.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mysql2 (0.3.18)
+    mysql2 (0.3.20)
     naught (1.0.0)
     nenv (0.2.0)
     nested_form (0.3.2)
@@ -806,7 +806,7 @@ DEPENDENCIES
   mini_magick (= 4.3.3)
   minitest
   mobile-fu (= 1.3.1)
-  mysql2 (= 0.3.18)
+  mysql2 (= 0.3.20)
   nokogiri (= 1.6.6.2)
   omniauth (= 1.2.2)
   omniauth-facebook (= 2.0.1)
