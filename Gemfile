@@ -237,11 +237,11 @@ group :development do
   # Linters
   gem "jshintrb",       "0.3.0"
   gem "rubocop",        "0.32.1"
-  gem "haml_lint",      "0.13.0"
+  gem "haml_lint",      "0.15.2"
   gem "pronto",         "0.4.3"
   gem "pronto-jshint",  "0.4.2"
   gem "pronto-rubocop", "0.4.4"
-  gem "pronto-haml",    "0.4.3"
+  gem "pronto-haml",    "0.4.4"
 
   # Preloading environment
 
