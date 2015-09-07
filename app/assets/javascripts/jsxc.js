@@ -1,3 +1,7 @@
+//= require jquery.slimscroll
+//= require colorbox
+//= require favico.js
+//= require jquery-fullscreen-plugin
 //= require diaspora_jsxc
 
 // initialize jsxc xmpp client

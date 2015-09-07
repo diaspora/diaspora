@@ -49,6 +49,8 @@ uk:
       remove_contact: "Видалити контакт"
       search_no_results: "Контакти не знайдено"
     conversation:
+      new:
+        no_contacts: "Перш ніж розпочати розмову, треба мати хоча б один контакт."
       participants: "Учасники"
     delete: "Вилучити"
     edit: "Змінити"
@@ -199,18 +201,18 @@ uk:
     timeago:
       day: "день"
       days: "%d днів[-я]"
-      hour: "біля години"
-      hours: "біля %d годин"
-      minute: "біля хвилини"
+      hour: "близько години"
+      hours: "близько %d годин"
+      minute: "близько хвилини"
       minutes: "%d хвилин[-и]"
-      month: "біля місяця"
+      month: "близько місяця"
       months: "%d місяця[-ів]"
       prefixAgo: ""
       prefixFromNow: "через"
       seconds: "декілька секунд"
       suffixAgo: "тому"
       suffixFromNow: "з цієї миті"
-      year: "біля року"
+      year: "близько року"
       years: "%d років"
     unblock_failed: "Не вдалось розблокувати цього користувача"
     videos:

@@ -43,14 +43,11 @@ es-MX:
               taken: "ya está ocupado."
   admins:
     admin_bar:
-      correlations: "Correlaciones"
       pages: "Páginas"
       pod_stats: "Estadísticas del servidor"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Búsqueda de usuario"
       weekly_user_stats: "Estadísticas semanales de usuario"
-    correlations:
-      correlations_count: "Correlaciones con el conteo de inicio de sesión:"
     stats:
       2weeks: "Bisemanal"
       50_most: "Las 50 etiquetas más populares"

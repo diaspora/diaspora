@@ -44,14 +44,11 @@ tr:
               taken: "önceden alınmış."
   admins:
     admin_bar:
-      correlations: "Bağıntılar"
       pages: "Sayfalar"
       pod_stats: "Pod İstatistikleri"
       sidekiq_monitor: "Sidekiq göstergesi"
       user_search: "Kullanıcı Arama"
       weekly_user_stats: "Haftalık Kullanıcı İstatistikleri"
-    correlations:
-      correlations_count: "Giriş Sayısı ile Bağıntılar:"
     stats:
       2weeks: "2 Hafta"
       50_most: "En popüler 50 etiket"

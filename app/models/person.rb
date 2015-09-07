@@ -238,6 +238,19 @@ class Person < ActiveRecord::Base
     serialized_public_key = new_key
   end
 
+  # discovery (webfinger)
+  def self.find_or_fetch_by_identifier(account)
+    # exiting person?
+    person = by_account_identifier(account)
+    return person if person.present? && person.profile.present?
+
+    # create or update person from webfinger
+    logger.info "webfingering #{account}, it is not known or needs updating"
+    DiasporaFederation::Discovery::Discovery.new(account).fetch_and_save
+
+    by_account_identifier(account)
+  end
+
   # database calls
   def self.by_account_identifier(identifier)
     identifier = identifier.strip.downcase.sub("acct:", "")
@@ -250,32 +263,6 @@ class Person < ActiveRecord::Base
 
   def self.find_local_by_guid(guid)
     where(guid: guid, closed_account: false).where.not(owner: nil).take
-  end
-
-  def self.create_from_webfinger(profile, hcard)
-    return nil if profile.nil? || !profile.valid_diaspora_profile?
-    new_person = Person.new
-    new_person.serialized_public_key = profile.public_key
-    new_person.guid = profile.guid
-    new_person.diaspora_handle = profile.account
-    new_person.url = profile.seed_location
-
-    #hcard_profile = HCard.find profile.hcard.first[:href]
-    ::Logging::Logger[self].info "event=webfinger_marshal valid=#{new_person.valid?} " \
-                                 "target=#{new_person.diaspora_handle}"
-    new_person.assign_new_profile_from_hcard(hcard)
-    new_person.save!
-    new_person.profile.save!
-    new_person
-  end
-
-  def assign_new_profile_from_hcard(hcard)
-    self.profile = Profile.new(:first_name => hcard[:given_name],
-                              :last_name  => hcard[:family_name],
-                              :image_url  => hcard[:photo],
-                              :image_url_medium  => hcard[:photo_medium],
-                              :image_url_small  => hcard[:photo_small],
-                              :searchable => hcard[:searchable])
   end
 
   def remote?
@@ -359,7 +346,8 @@ class Person < ActiveRecord::Base
   end
 
   def fix_profile
-    Webfinger.new(self.diaspora_handle).fetch
-    self.reload
+    logger.info "fix profile for account: #{diaspora_handle}"
+    DiasporaFederation::Discovery::Discovery.new(diaspora_handle).fetch_and_save
+    reload
   end
 end

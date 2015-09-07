@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.3"
+gem "rails", "4.2.4"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -12,17 +12,18 @@ gem "unicorn", "4.9.0", require: false
 
 # Federation
 
-gem "diaspora_federation-rails", "0.0.3"
+gem "diaspora_federation-rails", "0.0.6"
 
 # API and JSON
 
 gem "acts_as_api", "0.4.2"
 gem "json",        "1.8.3"
+gem "json-schema", "2.5.1"
 
 # Authentication
 
 gem "devise", "3.5.1"
-gem "devise_lastseenable", "0.0.4"
+gem "devise_lastseenable", "0.0.6"
 gem "devise-token_authenticatable", "~> 0.4.0"
 
 # Captcha
@@ -31,7 +32,7 @@ gem "simple_captcha2", "0.3.4", require: "simple_captcha"
 
 # Background processing
 
-gem "sidekiq", "3.4.1"
+gem "sidekiq", "3.4.2"
 gem "sinatra", "1.4.6"
 
 # Scheduled processing
@@ -40,7 +41,7 @@ gem "sidetiq", "0.6.3"
 
 # Compression
 
-gem "uglifier", "2.7.1"
+gem "uglifier", "2.7.2"
 
 # Configuration
 
@@ -55,7 +56,7 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 gem "bootstrap-sass", "2.3.2.2"
 gem "compass-rails",  "2.0.4"
 gem "sass-rails",     "5.0.1"
-gem "autoprefixer-rails", "5.2.1"
+gem "autoprefixer-rails", "5.2.1.1"
 
 # Database
 
@@ -64,12 +65,12 @@ ENV["DB"] ||= "mysql"
 gem "mysql2", "0.3.18" if ENV["DB"] == "all" || ENV["DB"] == "mysql"
 gem "pg",     "0.18.2" if ENV["DB"] == "all" || ENV["DB"] == "postgres"
 
-gem "activerecord-import", "0.8.0"
+gem "activerecord-import", "0.10.0"
 
 # File uploading
 
 gem "carrierwave", "0.10.0"
-gem "fog",         "1.31.0"
+gem "fog",         "1.32.0"
 gem "mini_magick", "4.2.7"
 gem "remotipart",  "1.2.1"
 
@@ -82,7 +83,7 @@ gem "entypo-rails", "2.2.3"
 
 # JavaScript
 
-gem "backbone-on-rails", "1.1.2.1"
+gem "backbone-on-rails", "1.2.0.0"
 gem "handlebars_assets", "0.20.2"
 gem "jquery-rails",      "4.0.4"
 gem "jquery-ui-rails",   "5.0.5"
@@ -106,7 +107,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jeresig--jquery.hotkeys",       "0.2.0"
   gem "rails-assets-jquery-placeholder",            "2.1.2"
   gem "rails-assets-jquery-textchange",             "0.2.3"
-  gem "rails-assets-perfect-scrollbar",             "0.6.3"
+  gem "rails-assets-perfect-scrollbar",             "0.6.4"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
 end
 
@@ -146,8 +147,8 @@ gem "omniauth-wordpress", "0.2.2"
 gem "active_model_serializers", "0.9.3"
 
 # XMPP chat dependencies
-gem "diaspora-vines",             "~> 0.1.27"
-gem "rails-assets-diaspora_jsxc", "~> 0.1.1", source: "https://rails-assets.org"
+gem "diaspora-vines",             "~> 0.2.0.develop"
+gem "rails-assets-diaspora_jsxc", "~> 0.1.4.alpha", "< 0.1.4.develop", source: "https://rails-assets.org"
 
 # Tags
 
@@ -157,13 +158,13 @@ gem "acts-as-taggable-on", "3.5.0"
 
 gem "addressable",        "2.3.8", require: "addressable/uri"
 gem "faraday",            "0.9.1"
-gem "faraday_middleware", "0.9.1"
+gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"
 gem "typhoeus",           "0.7.2"
 
 # Views
 
-gem "gon",                     "5.2.3"
+gem "gon",                     "6.0.1"
 gem "haml",                    "4.0.6"
 gem "mobile-fu",               "1.3.1"
 gem "will_paginate",           "3.0.7"
@@ -194,7 +195,7 @@ gem "minitest"
 group :production do # we don"t install these on travis to speed up test runs
   # Administration
 
-  gem "rails_admin", "0.6.8"
+  gem "rails_admin", "0.7.0"
 
   # Analytics
 
@@ -223,15 +224,15 @@ group :development do
   # Automatic test runs
   gem "guard-cucumber", "1.5.4"
   gem "guard-jshintrb", "1.1.1"
-  gem "guard-rspec",    "4.5.2"
+  gem "guard-rspec",    "4.6.3"
   gem "guard-rubocop",  "1.2.0"
-  gem "guard",          "2.12.5", require: false
+  gem "guard",          "2.13.0", require: false
   gem "rb-fsevent",     "0.9.5", require: false
   gem "rb-inotify",     "0.9.5", require: false
 
   # Linters
   gem "jshintrb", "0.3.0"
-  gem "rubocop",  "0.32.0"
+  gem "rubocop",  "0.32.1"
 
   # Preloading environment
 
@@ -260,24 +261,19 @@ group :test do
 
   gem "capybara",           "2.4.4"
   gem "database_cleaner" ,  "1.4.1"
-  gem "selenium-webdriver", "2.45.0"
-
-  source "https://rails-assets.org" do
-    gem "rails-assets-jquery-simulate",     "1.0.1"
-    gem "rails-assets-jquery-simulate-ext", "1.3.0"
-  end
+  gem "selenium-webdriver", "2.47.1"
 
   # General helpers
 
   gem "factory_girl_rails", "4.5.0"
-  gem "timecop",            "0.7.4"
+  gem "timecop",            "0.8.0"
   gem "webmock",            "1.21.0", require: false
   gem "shoulda-matchers",   "2.8.0", require: false
 end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails",     "3.3.2"
+  gem "rspec-rails",     "3.3.3"
 
   # Cucumber (integration tests)
   gem "cucumber-rails",     "1.4.2", require: false

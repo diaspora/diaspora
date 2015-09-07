@@ -31,6 +31,8 @@ es-AR:
       create:
         add_a_new_aspect: "Agregar un nuevo aspecto"
         failure: "Error al crear el aspecto."
+        success: "Tu nuevo aspecto <%= name %> fue creado"
+      make_aspect_list_visible: "¿Hacer visible los contactos de este aspecto entre ellos?"
       name: "Nombre"
     bookmarklet:
       post_something: "Publicar en diaspora*"
@@ -53,6 +55,8 @@ es-AR:
       remove_contact: "Eliminar contacto"
       search_no_results: "No se han encontrado contactos con ese nombre."
     conversation:
+      new:
+        no_contacts: "Necesitas agregar algunos contactos antes de iniciar una conversación."
       participants: "Participantes"
     create: "Crear"
     delete: "Borrar"
@@ -189,8 +193,11 @@ es-AR:
       show_nsfw_posts: "Mostrar todo"
       tags:
         follow: "Seguir #<%= tag %>"
+        follow_error: "No se pudo seguir la etiqueta #<%= tag %> :("
         following: "Siguiendo #<%= tag %>"
         stop_following: "Dejar de seguir #<%= tag %>"
+        stop_following_confirm: "¿Dejar de seguir la etiqueta #<%= tag %>?"
+        stop_following_error: "No se pudo dejar de seguir la etiqueta #<%= tag %> :("
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
       via: "via <%= provider %>"

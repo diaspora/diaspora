@@ -1,3 +1,36 @@
+# 0.5.3.0
+
+## Refactor
+* Drop broken correlations from the admin pages [#6223](https://github.com/diaspora/diaspora/pull/6223)
+* Extract PostService from PostsController [#6208](https://github.com/diaspora/diaspora/pull/6208)
+* Drop outdated/unused mbp-respond.min.js and mbp-modernizr-custom.js [#6257](https://github.com/diaspora/diaspora/pull/6257)
+* Refactor ApplicationController#after\_sign\_out\_path\_for [#6258](https://github.com/diaspora/diaspora/pull/6258)
+* Extract StatusMessageService from StatusMessagesController [#6280](https://github.com/diaspora/diaspora/pull/6280)
+* Refactor HomeController#toggle\_mobile [#6260](https://github.com/diaspora/diaspora/pull/6260)
+* Extract CommentService from CommentsController [#6307](https://github.com/diaspora/diaspora/pull/6307)
+* Extract user/profile discovery into the diaspora\_federation-rails gem [#6310](https://github.com/diaspora/diaspora/pull/6310)
+* Refactor PostPresenter [#6315](https://github.com/diaspora/diaspora/pull/6315)
+* Convert BackToTop to a backbone view [#6279](https://github.com/diaspora/diaspora/pull/6279) and [#6360](https://github.com/diaspora/diaspora/pull/6360)
+* Automatically follow the new HQ-Account [#6369](https://github.com/diaspora/diaspora/pull/6369)
+
+## Bug fixes
+* Fix indentation and a link title on the default home page [#6212](https://github.com/diaspora/diaspora/pull/6212)
+* Bring peeping Tom on the 404 page back [#6226](https://github.com/diaspora/diaspora/pull/6226)
+* Fix mobile photos index page [#6243](https://github.com/diaspora/diaspora/pull/6243)
+* Fix conversations view with no contacts [#6266](https://github.com/diaspora/diaspora/pull/6266)
+* Links in the left sidebar are now clickable on full width [#6267](https://github.com/diaspora/diaspora/pull/6267)
+* Guard against passing nil into person\_image\_tag [#6286](https://github.com/diaspora/diaspora/pull/6286)
+* Prevent Handlebars from messing up indentation of pre tags [#6339](https://github.com/diaspora/diaspora/pull/6339)
+* Fix pagination design on notifications page [#6364](https://github.com/diaspora/diaspora/pull/6364)
+
+## Features
+
+* Implement NodeInfo [#6239](https://github.com/diaspora/diaspora/pull/6239)
+* Display original author on reshares of NSFW posts [#6270](https://github.com/diaspora/diaspora/pull/6270)
+* Use avatars in hovercards as links to the profile [#6297](https://github.com/diaspora/diaspora/pull/6297)
+* Remove avatars of ignored users from stream faces [#6320](https://github.com/diaspora/diaspora/pull/6320)
+* New /m route to force the mobile view [#6354](https://github.com/diaspora/diaspora/pull/6354)
+
 # 0.5.2.0
 
 ## Refactor

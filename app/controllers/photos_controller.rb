@@ -34,6 +34,7 @@ class PhotosController < ApplicationController
           }
           render "people/show", layout: "with_header"
         end
+        format.mobile { render "people/show" }
         format.json{ render_for_api :backbone, :json => @posts, :root => :photos }
       end
     else

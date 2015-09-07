@@ -53,15 +53,12 @@ es-AR:
               taken: "ya está ocupado."
   admins:
     admin_bar:
-      correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del Pod (servidor)"
       report: "Reportes"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Búsqueda de usuarios"
       weekly_user_stats: "Estadísticas semanales de usuario"
-    correlations:
-      correlations_count: "Correlaciones con el conteo de inicio de sesión:"
     stats:
       2weeks: "2 semanas"
       50_most: "Las 50 etiquetas más populares"
@@ -163,6 +160,7 @@ es-AR:
     destroy:
       failure: "%{name} no está vacío y no puede ser eliminado."
       success: "%{name} se eliminó con éxito."
+      success_auto_follow_back: "Se borró correctamente %{name}. Este aspecto se usaba para seguir automáticamente a los usuarios, revisa tu configuración para seleccionar un nuevo aspecto de autoseguimiento."
     edit:
       aspect_chat_is_enabled: "Los contactos de este aspecto pueden chatear con vos."
       aspect_chat_is_not_enabled: "Los contactos de este aspecto no pueden chatear con vos."
@@ -315,6 +313,7 @@ es-AR:
       send: "Enviar"
       sending: "Enviando..."
       subject: "Asunto"
+      subject_default: "Sin asunto"
       to: "Para"
     new_conversation:
       fail: "Mensaje inválido"
@@ -341,13 +340,13 @@ es-AR:
   find_people: "Encontrá gente o #etiquetas"
   help:
     account_and_data_management:
-      close_account_a: "Ve a la parte inferior de la página de Configuración y haz clic en el botón \"Cerrar Cuenta\"."
+      close_account_a: "Ve a la parte inferior de la página de Configuración y haz clic en el botón \"Cerrar Cuenta\". Se te pedirá tu contraseña para completar el proceso. Recuerda que, si cierras tu cuenta, nunca podrás registrarte nuevamente en ese pod con el mismo nombre de usuario."
       close_account_q: "¿Cómo puedo borrar mi semilla (cuenta)?"
-      data_other_podmins_a: "Cuando estás compartiendo con alguien que tiene cuenta en otro servidor, de cualquier publicación que compartas con esa persona se guardará una copia (cache) en su servidor, y ésta será accesible al administrador de la base de datos de ese servidor. Cuando borras una publicación o un dato de perfil, esta información es borrada de tu servidor y de cualquier otro servidor en el que previamente hubiera estado alojada."
+      data_other_podmins_a: "Cuando estás compartiendo con alguien que tiene cuenta en otro servidor, de cualquier publicación que compartas con esa persona se guardará una copia (cache) en su servidor, y ésta será accesible al administrador de la base de datos de ese servidor. Cuando borras una publicación o un dato de perfil, esta información es borrada de tu servidor y de cualquier otro servidor en el que previamente hubiera estado alojada. Tus fotos nunca son almacenadas en otros pods, sólo en el tuyo."
       data_other_podmins_q: "¿Pueden los administradores de otros pods ver mi información?"
-      data_visible_to_podmin_a: "La comunicación *entre* pods siempre está encriptada (usando tanto SSL como el propio cifrado de diaspora*), pero el almacenamiento de los datos en los servidores no está encriptado. Si quisiera, el administrador de la base de datos de tu servidor (usualmente la persona que gerencia el servidor) puede acceder a todos los datos de tu perfil y a todo lo que has publicado (este es el caso para la mayoría de los sitios web que almacenan datos del usuario). Instalar tu propio pod te provee más privacidad al poder controlar el acceso a la base de datos."
+      data_visible_to_podmin_a: "La comunicación entre pods siempre está encriptada (usando tanto SSL como el propio cifrado de diaspora*), pero el almacenamiento de los datos en los servidores no está encriptado. Si quisiera, el administrador de la base de datos de tu servidor (usualmente la persona que gerencia el servidor) puede acceder a todos los datos de tu perfil y a todo lo que has publicado (este es el caso para la mayoría de los sitios web que almacenan datos del usuario). Instalar tu propio pod te permite tener más privacidad al poder controlar el acceso a la base de datos."
       data_visible_to_podmin_q: "¿Qué cantidad de mi información puede ver el administrador de mi pod?"
-      download_data_a: "Sí. En la parte inferior de la página de Configuración de Cuenta hay dos botones para la descarga de los datos."
+      download_data_a: "Sí. En la parte inferior de la página de Configuración de Cuenta hay dos botones, uno para la descarga de los datos de tu perfil y otro para la descarga de tus fotos."
       download_data_q: "¿Puedo descargar una copia de todos los datos contenidos en mi cuenta?"
       move_pods_a: "En el futuro serás capaz de exportar tu cuenta de una vaina e importarla a otra, pero actualmente esto no es posible. Igualmente siempre podrás abrir una nueva cuenta y agregar a tus contactos a ella, y pedirles a ellos que agreguen tu nueva cuenta a las suyas."
       move_pods_q: "¿Cómo puedo mover mi cuenta de un pod a otro?"
@@ -357,24 +356,24 @@ es-AR:
       change_aspect_of_post_q: "Una vez que publiqué algo, ¿puedo cambiar el o los aspectos que pueden verlo?"
       contacts_know_aspect_a: "No. Tus contactos no pueden ver el nombre del aspecto bajo ninguna circunstancia."
       contacts_know_aspect_q: "¿Mis contactos pueden saber a cuáles aspectos los he agregado?"
-      contacts_visible_a: "Si marcas esta opción entonces los contactos de este aspecto serán capaces de ver quiénes más están en él, bajo tu foto en tu página de perfil. Es mejor seleccionar esta opción solo si los contactos en este aspecto se conocen unos a otros. Ellos igualmente no serán capaces de ver cómo se llama este aspecto."
+      contacts_visible_a: "Si marcas esta opción entonces los contactos de este aspecto serán capaces de ver quiénes más están en él, bajo tu foto en la página de perfil. Es mejor seleccionar esta opción solo si los contactos en este aspecto se conocen unos a otros. Ellos igualmente no serán capaces de ver cómo se llama el aspecto."
       contacts_visible_q: "¿Qué significa \"hacer visibles entre ellos a los contactos de este aspecto\"?"
-      delete_aspect_a: "En tu lista de aspectos en el lado izquierdo de la página principal, pasá el puntero sobre el aspecto que deseas borrar. Haz clic en el pequeño lápiz de \"Editar\" que aparece en la derecha. Haz clic en el botón\"Borrar\" en la caja de texto que aparece."
+      delete_aspect_a: "En tu lista de aspectos en el lado izquierdo de la página principal, pasa el puntero del ratón sobre el aspecto que deseas borrar. Haz clic en el pequeño lápiz de \"Editar\" que aparece en la derecha y luego elige el botón \"Borrar\" en la caja de texto que aparece. O bien ve a la página de Contactos y selecciona el aspecto, luego haz clic en el icono de borrar en la parte superior derecha de la página."
       delete_aspect_q: "¿Cómo hago para borrar un aspecto?"
-      person_multiple_aspects_a: "Sí. Ve a la lista de contactos y haz clic en \"Mis contactos\". Para cada contacto puedes usar el menú en la derecha para agregarlos (o borrarlos) a la cantidad de aspectos que desees. O puedes agregarlos a un nuevo aspecto (o borrarlos de un aspecto) haciendo clic en el botón selector de aspectos en su página de perfil. O siempre puedes solo mover el puntero sobre su nombre cuando lo veas en la Entrada, y una \"tarjeta suspendida\" aparecerá. Puedes cambiar los aspectos que están allí."
+      person_multiple_aspects_a: "Sí. Ve a la lista de contactos y haz clic en \"Mis contactos\". Para cada contacto puedes usar el menú en la derecha para agregarlos (o borrarlos) a la cantidad de aspectos que desees. O puedes agregarlos a un nuevo aspecto (o borrarlos de un aspecto) haciendo clic en el botón selector de aspectos en su página de perfil. O siempre puedes mover el puntero del ratón sobre su nombre cuando lo veas en la Entrada y una \"tarjeta suspendida\" aparecerá. Puedes cambiar los aspectos desde allí."
       person_multiple_aspects_q: "¿Puedo agregar a una persona a varios aspectos?"
-      post_multiple_aspects_a: "Sí. Cuando estas realizando una publicación, usa el botón de seleccionar aspectos para incluir o excluir aspectos. Tú publicación será visible a todos los que pertenecen a los aspectos que has seleccionado. También puedes seleccionar los aspectos a los que deseas enviarles la publicación en la barra lateral. Cuando publicas, el/los aspecto/s  que has seleccionado en la lista de la izquierda automáticamente serán seleccionado en el selector de aspectos cuando comiences a realizar una nueva publicación."
+      post_multiple_aspects_a: "Sí. Cuando estas realizando una publicación, usa el botón de seleccionar aspectos para incluir o excluir aspectos. Tu publicación será visible para todos los aspectos que has seleccionado. También puedes seleccionar los aspectos a los que deseas enviarles la publicación en la barra lateral. Cuando publicas, el o los aspectos que has seleccionado en la lista de la izquierda, automáticamente serán seleccionados en el selector de aspectos cuando comiences a realizar una nueva publicación."
       post_multiple_aspects_q: "¿Puedo publicar contenido en varios aspectos a la vez?"
-      remove_notification_a: "No."
+      remove_notification_a: "No. Incluso no serán notificados si los agregas a otros aspectos cuando ya has comenzado a compartir con ellos."
       remove_notification_q: "Si elimino a alguien de un aspecto, o de todos mis aspectos, ¿le llegará una notificación de eso?"
-      rename_aspect_a: "Sí. En tu lista de aspectos en el costado izquierdo del menú, apunta tu ratón al aspecto para renombrarlo. Haz clic en el pequeño lápiz de \"editar\" que se muestra a la derecha. Haz clic en \"renombrar\" e ingresa el nombre en la caja de texto que aparece desplegada."
+      rename_aspect_a: "Sí. Haz clic en \"Mis aspectos\" en el costado izquierdo de tu Entrada y luego apunta tu ratón al icono del lápiz en el aspecto que quieras renombrar, o bien ve a la páginas de Contactos y selecciona el aspecto que desees. Haz clic en el icono de \"editar\" que se muestra a la derecha del nombre del aspecto, ingresa el nombre en la caja de texto que aparece desplegada y presiona \"Actualizar\"."
       rename_aspect_q: "¿Puedo renombrar un aspecto?"
       restrict_posts_i_see_a: "Sí. Haz clic en \"Mis aspectos\" en la barra lateral y entonces marca o desmarca a cada uno de los aspectos de la lista para incluirlos o no. Solo las publicaciones de las personas en los aspectos seleccionados aparecerán en tu Entrada."
       restrict_posts_i_see_q: "¿Puedo restringir las publicaciones que veo sólo a ciertos aspectos?"
       title: "Aspectos"
       what_is_an_aspect_a: "Los aspectos son la forma de mostrar tus grupos de contactos en diaspora*. Un aspecto es una de las caras que le muestras al mundo. Esta puede mostrar como eres en el trabajo, como eres en tu familia, o como eres con tus amigos en el club al que perteneces."
       what_is_an_aspect_q: "¿Qué es un aspecto?"
-      who_sees_post_a: "Si haces una publicación restringida (limitada), ésta solo será visible para las personas que hayas incluido en ese aspecto (o esos aspectos, si la hiciste para varios aspectos). Los contactos que no pertenecen al aspecto no tendrán forma de ver la publicación, a menos que la hagas publica. Solo las publicaciones públicas serán visibles para cualquiera que no hayas incluido en uno de tus aspectos."
+      who_sees_post_a: "Si haces una publicación restringida (limitada, privada), ésta solo será visible para las personas que hayas incluido en ese aspecto (o esos aspectos, si la hiciste para varios aspectos). Los contactos que no pertenecen a ese o esos aspectos no tendrán forma de ver la publicación, a menos que la hagas pública. Solo las publicaciones públicas serán visibles para cualquiera que no hayas incluido en uno o varios de tus aspectos."
       who_sees_post_q: "Cuando publico en un aspecto, ¿quienes pueden verlo?"
     chat:
       add_contact_roster_a: "Primero, necesitas activar el chat para uno de los aspectos en donde está el usuario. Para hacer eso, ve a la %{contacts_page}, selecciona el aspecto que quieras y haz clic en el icono de chat para activar el chat en ese aspecto. %{toggle_privilege} Si lo prefieres, puedes crear un aspecto especial llamado 'Chat' y agregar allí a los usuarios con los que quieres chatear. Una vez que hayas hecho esto, abre la interface de chat y selecciona al usuario con quien quieres chatear."
@@ -395,7 +394,7 @@ es-AR:
       getting_started_q: "¡Ayuda! ¡Necesito conocer lo básico para empezar!"
       title: "Obtener ayuda"
     getting_started_tutorial: "Serie de tutoriales \"Primeros pasos\""
-    here: "Aquí"
+    here: "aquí"
     irc: "IRC"
     keyboard_shortcuts:
       keyboard_shortcuts_a1: "En la \"Entrada\" puedes utilizar los siguientes atajos de teclado:"
@@ -411,7 +410,7 @@ es-AR:
       title: "Atajos de teclado"
     markdown: "Markdown"
     mentions:
-      how_to_mention_a: "Tipeé el signo \"@\" y comience a escribir el nombre. Un menú desplegable con opciones aparecerá para seleccionarlo más fácilmente. Sólo es posible mencionar a las personas que tienes agregadas en el aspecto."
+      how_to_mention_a: "Escribe el signo \"@\" y comience a escribir el nombre. Un menú desplegable con opciones aparecerá para seleccionarlo más fácilmente. Sólo es posible mencionar a las personas que tienes agregadas a uno o varios aspectos."
       how_to_mention_q: "¿Cómo puedo mencionar a alguien cuando hago una publicación?"
       mention_in_comment_a: "No, no por el momento."
       mention_in_comment_q: "¿Puedo mencionar a alguien en un comentario?"
@@ -456,6 +455,14 @@ es-AR:
       insert_images_comments_a2: "puede ser utilizada para insertar imágenes desde la web en los comentarios y también en las publicaciones."
       insert_images_comments_q: "¿Puedo insertar imágenes en los comentarios?"
       insert_images_q: "¿Cómo puedo insertar imágenes en las publicaciones?"
+      post_location_a: "Pulsa el icono de localización al lado de la cámara en el publicador (el cuadro de publicación). Ello insertará tu localización desde OpenStreetMap. Puedes editar tu localización y escoger publicar sólo el nombre de la ciudad en la que estás en lugar de tu dirección exacta."
+      post_location_q: "¿Cómo agrego mi localización a una publicación?"
+      post_notification_a: "Encontrarás una campana al lado de la \"X\" en la esquina superior derecha de cada publicación. Pulsando sobre ella activarás o desactivarás las notificaciones de esa publicación."
+      post_notification_q: "¿Cómo activo o desactivo las notificaciones de una publicación?"
+      post_poll_a: "Pulsa el icono de la gráfica para crear una encuesta. Escribe una pregunta y al menos dos respuestas. No olvides hacer pública la publicación si quieres que todo el mundo pueda participar en ella."
+      post_poll_q: "¿Cómo agrego una encuesta a mi publicación?"
+      post_report_a: "Pulsa en el icono de alerta en la esquina superior derecha de la publicación para denunciarla al administrador. Escribe una razón para denunciar la publicación en el cuadro de texto."
+      post_report_q: "¿Cómo denuncio una publicación ofensiva?"
       size_of_images_a: "No. El tamaño de las imágenes automáticamente se ajusta a la Entrada. Markdown no tiene un código para especificar el tamaño de una imagen."
       size_of_images_q: "¿Puedo modificar el tamaño de las imágenes en las publicaciones o comentarios?"
       stream_full_of_posts_a1: "Tu Entrada está compuesta por tres tipos de publicaciones:"
@@ -520,6 +527,7 @@ es-AR:
       add_to_aspect_li5: "Pero si Ben va a la página de perfil de Amy, entonces él podrá ver las publicaciones privadas que ella ha enviado a sus aspectos en los cuales él está incluido (así como sus publicaciones públicas que cualquiera puede ver allí)."
       add_to_aspect_li6: "Ben podrá ver el perfil privado de Amy (biografía, ubicación, género y fecha de nacimiento)."
       add_to_aspect_li7: "Amy aparecerá como \"Compartiendo solo conmigo\" en la página de contactos de Ben."
+      add_to_aspect_li8: "Amy también será capaz de @mencionar a Ben en una publicación."
       add_to_aspect_q: "¿Qué sucede cuando agrego a alguien a uno de mis aspectos?, ¿o cuando alguien me agrega a uno de sus aspectos?"
       list_not_sharing_a: "No, pero puedes ver si alguien esta compartiendo contigo visitando su página de perfil. Si es así, la barra bajo su foto de perfil aparecerá de color verde; si no, será gris. Deberías recibir una notificación cada vez que alguien comienza a compartir contigo."
       list_not_sharing_q: "¿Hay una lista de las personas a las que he agregado a uno de mis aspectos, pero ellos a mí no?"
@@ -527,6 +535,8 @@ es-AR:
       only_sharing_q: "¿Quienes son las personas que figuran en mi lista de contactos como \"Compartiendo solo conmigo\"?"
       see_old_posts_a: "No. Ellos no podrán ver nuevas publicaciones de ese aspecto. Ellos (y cualquier otra persona) podrán ver tus publicaciones públicas viejas en tú página de perfil, y también podrán verlas en sus entradas."
       see_old_posts_q: "Cuando agrego a alguien a un aspecto, ¿puede ver lo que he publicado anteriormente en ese aspecto?"
+      sharing_notification_a: "Deberías recibir una notificación cada vez que alguien empieza a compartir contigo."
+      sharing_notification_q: "¿Cómo sé que alguien ha empezado a compartir conmigo?"
       title: "Compartir"
     tags:
       filter_tags_a: "Esta opción aún no está disponible directamente mediante diaspora*, pero algunos colaboradores %{third_party_tools} han escrito algo que permite hacerlo."
@@ -590,6 +600,7 @@ es-AR:
       powered_by: "Impulsado por diaspora*"
       public_feed: "Canal público para %{name}"
       source_package: "Descargar el paquete con el código fuente"
+      statistics_link: "Estadísticas del pod"
       toggle: "Cambiar a celular"
       whats_new: "¿Qué hay de nuevo?"
       your_aspects: "Tus aspectos"
@@ -720,8 +731,11 @@ es-AR:
     a_post_you_shared: "una publicación."
     a_private_message: "Hay un nuevo mensaje privado para vos en diaspora*"
     accept_invite: "¡Aceptá tu invitación a diaspora*!"
+    also_commented:
+      limited_subject: "Hay un nuevo comentario en una publicación que comentaste"
     click_here: "Haz clic aquí"
     comment_on_post:
+      limited_subject: "Hay un nuevo comentario en una de tus publicaciones"
       reply: "Responder o ver la publicación de %{name} >"
     confirm_email:
       click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, por favor seguí este enlace::"
@@ -785,12 +799,17 @@ es-AR:
 
           ¡El generador de correo automático de diaspora*!
 
+          P.D.: Por si acaso no sabes qué es diaspora*, en el enlace [2] está la respuesta!
+
           [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
     invited_you: "¡%{name} te ha invitado a diaspora*!"
     liked:
       liked: "A  %{name} le gustó tu publicación"
+      limited_post: "A %{name} le gustó tu publicación privada"
       view_post: "Ver publicación >"
     mentioned:
+      limited_post: "Se te mencionó en una publicación privada."
       mentioned: "te mencionó en una publicación:"
       subject: "%{name} te mencionó en diaspora*"
     private_message:
@@ -1004,7 +1023,7 @@ es-AR:
     new:
       create_my_account: "¡Crear mi cuenta!"
       email: "Correo electrónico"
-      enter_email: "Ingresá un correo electrónico"
+      enter_email: "Ingresá tu correo electrónico"
       enter_password: "Ingresa una contraseña (seis caracteres mínimo)"
       enter_password_again: "Repetí la misma contraseña"
       enter_username: "Elegí un nombre de usuario (sólo letras, números y guión bajo)"
@@ -1086,7 +1105,9 @@ es-AR:
       connect: "Conectar"
       disconnect: "Desconectar"
       edit_services: "Editar servicios"
-      logged_in_as: "Conectado como"
+      logged_in_as: "Conectado como %{nickname}"
+      no_services_available: "No hay servicios disponibles en este pod."
+      not_logged_in: "Actualmente no conectado."
       really_disconnect: "¿Querés desconectarte de %{service}?"
       services_explanation: "Conectar con otros servicios te ofrece la posibilidad de publicar tus publicaciones a medida que las escribes en diaspora*."
     inviter:
@@ -1277,6 +1298,7 @@ es-AR:
       failure: "No has podido dejar de seguir a: #%{name}. Tal vez ya lo hiciste..."
       success: "¡Epa! Dejaste de seguir a #%{name}."
     manage:
+      no_tags: "No estás siguiendo ninguna etiqueta."
       title: "Administrar las etiquetas que sigues"
   tags:
     name_too_long: "Por favor haz que el nombre de la etiqueta tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
@@ -1349,6 +1371,7 @@ es-AR:
       started_sharing: "...alguien comienza a compartir con vos?"
       stream_preferences: "Preferencias de la Entrada"
       your_email: "Tu correo electrónico"
+      your_email_private: "Tu e-mail nunca será visible para otros usuarios"
       your_handle: "Tu ID de diaspora*"
     getting_started:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a diaspora*"

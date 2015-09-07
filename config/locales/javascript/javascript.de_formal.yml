@@ -55,6 +55,8 @@ de_formal:
       remove_contact: "Kontakt entfernen"
       search_no_results: "Keine Kontakte gefunden"
     conversation:
+      new:
+        no_contacts: "Sie müssen einige Kontakte hinzufügen, bevor Sie eine Konversation anfangen können."
       participants: "Teilnehmer"
     create: "Erstellen"
     delete: "Löschen"

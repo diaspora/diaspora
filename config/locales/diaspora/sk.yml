@@ -43,14 +43,11 @@ sk:
               taken: "sa už používa."
   admins:
     admin_bar:
-      correlations: "Závislosti"
       pages: "Stránky"
       pod_stats: "Štatistiky servera"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Používateľské vyhľadávanie"
       weekly_user_stats: "Štatistiky používateľa za týždeň"
-    correlations:
-      correlations_count: "Závislosti s počtom prihlásených:"
     stats:
       2weeks: "2. týždeň"
       50_most: "50 najpopulárnejších značiek"

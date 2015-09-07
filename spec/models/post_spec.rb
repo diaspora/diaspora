@@ -400,43 +400,55 @@ describe Post, :type => :model do
     end
   end
 
-  describe "#find_by_guid_or_id_with_user" do
+  describe "#find_public" do
     it "succeeds with an id" do
       post = FactoryGirl.create :status_message, public: true
-      expect(Post.find_by_guid_or_id_with_user(post.id)).to eq(post)
+      expect(Post.find_public post.id).to eq(post)
     end
 
     it "succeeds with an guid" do
       post = FactoryGirl.create :status_message, public: true
-      expect(Post.find_by_guid_or_id_with_user(post.guid)).to eq(post)
+      expect(Post.find_public post.guid).to eq(post)
+    end
+
+    it "raises ActiveRecord::RecordNotFound for a non-existing id without a user" do
+      allow(Post).to receive_messages where: double(includes: double(first: nil))
+      expect {
+        Post.find_public 123
+      }.to raise_error ActiveRecord::RecordNotFound
+    end
+
+    it "raises Diaspora::NonPublic for a private post without a user" do
+      post = FactoryGirl.create :status_message
+      expect {
+        Post.find_public post.id
+      }.to raise_error Diaspora::NonPublic
+    end
+  end
+
+  describe "#find_non_public_by_guid_or_id_with_user" do
+    it "succeeds with an id" do
+      post = FactoryGirl.create :status_message_in_aspect
+      expect(Post.find_non_public_by_guid_or_id_with_user(post.id, post.author.owner)).to eq(post)
+    end
+
+    it "succeeds with an guid" do
+      post = FactoryGirl.create :status_message_in_aspect
+      expect(Post.find_non_public_by_guid_or_id_with_user(post.guid, post.author.owner)).to eq(post)
     end
 
     it "looks up on the passed user object if it's non-nil" do
       post = FactoryGirl.create :status_message
       user = double
       expect(user).to receive(:find_visible_shareable_by_id).with(Post, post.id, key: :id).and_return(post)
-      Post.find_by_guid_or_id_with_user post.id, user
+      Post.find_non_public_by_guid_or_id_with_user(post.id, user)
     end
 
     it "raises ActiveRecord::RecordNotFound with a non-existing id and a user" do
       user = double(find_visible_shareable_by_id: nil)
       expect {
-        Post.find_by_guid_or_id_with_user 123, user
+        Post.find_non_public_by_guid_or_id_with_user(123, user)
       }.to raise_error ActiveRecord::RecordNotFound
-    end
-
-    it "raises Diaspora::NonPublic for a non-existing id without a user" do
-      allow(Post).to receive_messages where: double(includes: double(first: nil))
-      expect {
-        Post.find_by_guid_or_id_with_user 123
-      }.to raise_error Diaspora::NonPublic
-    end
-
-    it "raises Diaspora::NonPublic for a private post without a user" do
-      post = FactoryGirl.create :status_message
-      expect {
-        Post.find_by_guid_or_id_with_user post.id
-      }.to raise_error Diaspora::NonPublic
     end
   end
 end

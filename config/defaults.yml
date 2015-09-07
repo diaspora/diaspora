@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.5.2.0" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.5.3.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -99,7 +99,7 @@ defaults:
     pod_name: 'diaspora*'
     enable_registrations: true
     autofollow_on_join: true
-    autofollow_on_join_user: 'diasporahq@joindiaspora.com'
+    autofollow_on_join_user: 'hq@pod.diaspora.software'
     welcome_message:
       enabled: false
       subject: 'Welcome Message'

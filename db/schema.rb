@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607143809) do
+ActiveRecord::Schema.define(version: 20150724152052) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -374,7 +374,6 @@ ActiveRecord::Schema.define(version: 20150607143809) do
     t.integer  "reshares_count",        limit: 4,     default: 0
     t.datetime "interacted_at"
     t.string   "frame_name",            limit: 255
-    t.boolean  "favorite",                            default: false
     t.string   "facebook_id",           limit: 255
     t.string   "tweet_id",              limit: 255
     t.integer  "open_graph_cache_id",   limit: 4

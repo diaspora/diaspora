@@ -43,15 +43,12 @@ ko:
               taken: ": 이미 쓰이고 있습니다."
   admins:
     admin_bar:
-      correlations: "상관 관계"
       pages: "페이지"
       pod_stats: "팟 통계"
       report: "보고서"
       sidekiq_monitor: "사이드킥 모니터"
       user_search: "사용자 찾기"
       weekly_user_stats: "주간 사용자 통계"
-    correlations:
-      correlations_count: "로그인 횟수와의 상관 관계"
     stats:
       2weeks: "두 주"
       50_most: "가장 인기있는 태그 50개"

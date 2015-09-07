@@ -8,6 +8,10 @@ app.views.ConversationsForm = Backbone.View.extend({
 
   initialize: function(opts) {
     this.contacts = _.has(opts, "contacts") ? opts.contacts : null;
+    if(!this.contacts || this.contacts.length === 0) {
+      this.displayNoContactsMessage();
+      return;
+    }
     this.prefill = [];
     if (_.has(opts, "prefillName") && _.has(opts, "prefillValue")) {
       this.prefill = [{name : opts.prefillName,
@@ -29,6 +33,12 @@ app.views.ConversationsForm = Backbone.View.extend({
       emptyText: Diaspora.I18n.t("no_results"),
       preFill: this.prefill
     }).focus();
+  },
+
+  displayNoContactsMessage: function() {
+    $("form#new_conversation").replaceWith(
+      "<div class=\"well text-center\">" + Diaspora.I18n.t("conversation.new.no_contacts") + "</div>"
+    );
   },
 
   keyDown : function(evt) {

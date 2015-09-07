@@ -13,7 +13,7 @@ sv:
   _photos: "Bilder"
   _services: "Tjänster"
   _statistics: "Statistik"
-  _terms: "användningsvillkor"
+  _terms: "Användningsvillkor"
   account: "Konto"
   activerecord:
     errors:
@@ -53,15 +53,12 @@ sv:
               taken: "används redan."
   admins:
     admin_bar:
-      correlations: "Korrelationer"
       pages: "Sidor"
       pod_stats: "Podstatistik"
       report: "Anmälningar"
       sidekiq_monitor: "Sidekiq-övervakare"
       user_search: "Användarsökning"
       weekly_user_stats: "Veckovis användarstatistik"
-    correlations:
-      correlations_count: "Korrelationer med antalet inloggningar:"
     stats:
       2weeks: "Två veckor"
       50_most: "De 50 populäraste taggarna"
@@ -90,18 +87,18 @@ sv:
         zero: "Ingen användare"
       week: "Vecka"
     user_entry:
-      account_closed: "konto borttaget"
-      diaspora_handle: "Diasporahandtag"
+      account_closed: "Konto borttaget"
+      diaspora_handle: "Diaspora*-id"
       email: "E-post"
       guid: "Globalt identifieringsnummer (GUID)"
       id: "id"
-      last_seen: "sedd senast"
+      last_seen: "Sedd senast"
       ? "no"
-      : nej
+      : Nej
       nsfw: "#nsfw"
-      unknown: "okänd"
+      unknown: "Okänd"
       ? "yes"
-      : ja
+      : Ja
     user_search:
       account_closing_scheduled: "Kontot för %{name} är låst och kommer att raderas om en stund."
       account_locking_scheduled: "Kontot för användaren %{name} är schemalagt för att låsas. Det kommer ske om en liten stund..."
@@ -110,14 +107,14 @@ sv:
       are_you_sure: "Är du säker på att du vill ta bort ditt konto?"
       are_you_sure_lock_account: "Är du säker på att du vill låsa detta konto?"
       are_you_sure_unlock_account: "Är du säker på att du vill låsa upp detta konta?"
-      close_account: "ta bort konto"
+      close_account: "Ta bort konto"
       email_to: "Skicka ett e-brev för att bjuda in"
       under_13: "Visa användare som är yngre än 13 år"
       users:
         one: "En användare hittades"
         other: "%{count} användare hittades"
         zero: "Inga användare hittades"
-      view_profile: "visa profil"
+      view_profile: "Visa profil"
       you_currently:
         one: "Du har bara en invit kvar %{link}"
         other: "Du har nu bara %{count} inviter kvar %{link}"
@@ -170,7 +167,7 @@ sv:
       aspect_list_is_not_visible: "Aspektens kontakter kan inte se vilka som hör till aspekten."
       aspect_list_is_visible: "Kontakter i denna aspekt är synliga för varandra."
       confirm_remove_aspect: "Är du säker på att du vill ta bort aspekten?"
-      grant_contacts_chat_privilege: "vill du ge kontakter i aspekten chatprivilegier?"
+      grant_contacts_chat_privilege: "Vill du ge kontakter i aspekten chatprivilegier?"
       make_aspect_list_visible: "Ska kontakterna i denna aspekt vara synliga för varandra?"
       remove_aspect: "Ta bort den här aspekten"
       rename: "Byt namn"
@@ -209,7 +206,7 @@ sv:
         learn_more: "Läs mer"
         title: "Välkomna nya användare"
       no_contacts: "Inga kontakter"
-      no_tags: "+ Hitta en tag att följa"
+      no_tags: "+ Hitta en tagg att följa"
       people_sharing_with_you: "Personer som delar med dig"
       post_a_message: "Skriv ett inlägg >>"
       services:
@@ -303,7 +300,7 @@ sv:
         zero: "Inga nya meddelanden"
     index:
       conversations_inbox: "Konversationer – Inkorg"
-      create_a_new_conversation: "påbörja en ny konversation"
+      create_a_new_conversation: "Påbörja en ny konversation"
       inbox: "Inkorg"
       new_conversation: "Ny konversation"
       no_conversation_selected: "Ingen konversation vald"
@@ -319,7 +316,7 @@ sv:
       fail: "Ogiltigt meddelande"
     show:
       delete: "Ta bort konversationen"
-      hide: "dölj och tysta konversation"
+      hide: "Dölj och tysta konversation"
       reply: "Besvara"
       replying: "Svarar..."
   date:
@@ -376,7 +373,7 @@ sv:
       who_sees_post_a: "Om du skulle göra ett inlägg med begränsad spridning, kommer det bara vara synligt för dem du har i just den aspekten (eller de aspekterna, om det skickas till flertalet aspekter). Kontakter som inte finns i aspekten kommer inte att kunna se inlägget. Bara offentliga inlägg kommer att bli synliga för dina kontakter som inte ligger i någon aspekt."
       who_sees_post_q: "Vem ser det inlägg jag gjort i en aspekt?"
     chat:
-      add_contact_roster_a: "Först av allt måste du tillåta chatt i aspekter med dem du vill chatta med. Du gör genom att gå till %{contacts_page} och väljer aspekterna du vill tillåta chatt i. %{toggle_privilege} Om du hellre vill, kan du skapa en egen aspekt speciellt för dem du vill chatta med. När du har aspekt med chattar tillåtna, är det bara att öppna chatten och välj den du vill chatta med."
+      add_contact_roster_a: "Först av allt måste du tillåta chatt i aspekter med dem du vill chatta med. Du gör genom att gå till %{contacts_page} och väljer aspekten du vill tillåta chatt i. %{toggle_privilege} Om du hellre vill, kan du skapa en egen aspekt speciellt för dem du vill chatta med. När du har aspekt med chattar tillåtna, är det bara att öppna chatten och välj den du vill chatta med."
       add_contact_roster_q: "Hur chattar jag med någon på Diaspora?"
       contacts_page: "kontaktsida"
       title: "Chatt"
@@ -398,14 +395,14 @@ sv:
     irc: "IRC"
     keyboard_shortcuts:
       keyboard_shortcuts_a1: "I din ström kan du använda dig av dessa tangantbordsgenvägar:"
-      keyboard_shortcuts_li1: "j - hoppa till nästa inlägg"
-      keyboard_shortcuts_li2: "k - hoppa till föregående inlägg"
-      keyboard_shortcuts_li3: "c - kommentera inlägget"
-      keyboard_shortcuts_li4: "l - gilla inlägget"
-      keyboard_shortcuts_li5: "r - Dela vidare inlägget"
-      keyboard_shortcuts_li6: "m - Fäll ut inlägget"
-      keyboard_shortcuts_li7: "o - Öppna den först förekommande länken i inlägget"
-      keyboard_shortcuts_li8: "ctr + enter - Skicka meddelande"
+      keyboard_shortcuts_li1: "j – Skutta till nästa inlägg"
+      keyboard_shortcuts_li2: "k – Skutta till föregående inlägg"
+      keyboard_shortcuts_li3: "c – Kommentera inlägget"
+      keyboard_shortcuts_li4: "l – Gilla inlägget"
+      keyboard_shortcuts_li5: "r – Dela vidare inlägget"
+      keyboard_shortcuts_li6: "m – Fäll ut inlägget"
+      keyboard_shortcuts_li7: "o – Öppna den först förekommande länken i inlägget"
+      keyboard_shortcuts_li8: "Ctrl+Retur – Skicka meddelande"
       keyboard_shortcuts_q: "Vilka tangentbordsgenvägar finns att tillgå?"
       title: "Tangentbordsgenvägar"
     markdown: "Markdown"
@@ -426,7 +423,7 @@ sv:
       diaspora_app_q: "Finns det någon Diaspora*-applikation till Android och Ios?"
       photo_albums_a: "Nej, inte än. Du kan däremot titta på ett flöde med någons upplagda bilder från bildsektionen, på höger sida på profilsidan."
       photo_albums_q: "Finns det foto- och videoalbum?"
-      subscribe_feed_a: "Ja. Det är möjligt men funktionen är inte färdigpolerad. Du kan gärna pröva funktionen ändå genom att besöka personens profilsida och trycka på flödesikonen i din webbläsare. Du kan också komma åt flödet genom att skriva in profilens adress direkt i din flödesläsare. Den resulterande adressen kommer att se ut som https://joindiaspora.com/public/användare.atom. (Diaspora* använder Atom snarare än RSS.)"
+      subscribe_feed_a: "Ja. Det är möjligt men funktionen är inte färdigpolerad. Du kan gärna pröva funktionen ändå genom att besöka personens profilsida och trycka på flödesikonen i din webbläsare. Du kan också komma åt flödet genom att skriva in profilens adress direkt i din flödesläsare. Den resulterande adressen kommer att se ut som https://podnamn.com/public/användarnamn.atom – Diaspora* använder Atom snarare än RSS."
       subscribe_feed_q: "Är det möjligt att prenumerera på en persons offentliga inlägg med min flödesläsare?"
       title: "Diverse"
     pods:
@@ -496,7 +493,7 @@ sv:
       deselect_aspect_posting_q: "Vad händer när jag tar väljer bort aspekter när jag ska göra ett offentligt inlägg?"
       find_public_post_a: "Dina publika inlägg kommer att dyka upp i de strömmar som följer dig. Om du har #-taggar i dina publika inlägg kommer alla som följer taggen att se inlägget i strömmen. Varje publikt inlägg ges en specifik webbadress så att vem som helst kan komma åt det, även om de inte är inloggade. Publika inlägg kan alltså länkas till direkt från till exempel Twitter och bloggar. De publika inläggen kan då också bli indexerade av sökmotorer."
       find_public_post_q: "Hur hittar man mina publika inlägg?"
-      see_comment_reshare_like_a: "Alla inloggade på Diaspora* och vem som helst på Internet skulle kunna göra det. Deras kommentarer, gillanden och vidaredelningar av de publika inläggen kommer också att vara publika."
+      see_comment_reshare_like_a: "Kommentarer, gillanden och vidaredelningar av publika inlägg kommer att vara publika. Alla inloggade på Diaspora* och vem som helst på Internet skulle dina interaktioner med ett publikt inlägg."
       see_comment_reshare_like_q: "Vilka ser när jag kommenterar, delar eller gillar ett publikt inlägg?"
       title: "Publika inlägg"
       who_sees_post_a: "Vem som helst med Internetuppkoppling kan potentiellt se dina publika inlägg. Var därför noga med att du verkligen vill att dina publika inlägg skall vara publika. Det är bra sätt komma i kontakt med resten av världen."
@@ -512,14 +509,14 @@ sv:
       who_sees_updates_a: "Alla kan se ändringarna du gör, givet att de besöker din sida."
       who_sees_updates_q: "Vilka ser uppdateringar av min offentliga profilsida?"
     resharing_posts:
-      reshare_private_post_aspects_a: "Nej. Det är inte möjligt att dela vidare privata inlägg. Med respekt för upphovspersonen kan inlägget bara ses av dem personen själv vill."
+      reshare_private_post_aspects_a: "Nej, det är inte möjligt att dela vidare privata inlägg. Med hänsyn för upphovspersonen, kan inlägget bara ses av dem personen själv vill."
       reshare_private_post_aspects_q: "Kan jag dela vidare privata inlägg till specifika aspekter?"
       reshare_public_post_aspects_a: "Nej. När du delar med dig av publika inlägg kommer de automatiskt att bli ett av dina inlägg. För att bara dela med dig till särskilda aspekter kan du kopiera inläggets innehåll och göra ett eget nytt inlägg."
       reshare_public_post_aspects_q: "Kan jag dela vidare ett publikt inlägg till specifika aspekter?"
       title: "Vidaredelning av inlägg"
     sharing:
       add_to_aspect_a1: "Låt oss säga att Anna lägger till Bengt till en aspekt, men Bengt har ännu inte lagt till Anna till en aspekt:"
-      add_to_aspect_a2: "Detta kallas för asymmetrisk delning. Om Bengt skulle lägga till Anna i en av hans aspekter, skulle det vara ömsesidigt delning. Då ser de båda varandras  alla publika och berörda privata inlägg i sina flöden. "
+      add_to_aspect_a2: "Detta kallas för asymmetrisk delning. Om Bengt skulle lägga till Anna i en av hans aspekter, skulle det vara ömsesidigt delning. Då ser de båda varandras alla publika och berörda privata inlägg i sina flöden. De får även sända varandra privata meddelanden."
       add_to_aspect_li1: "Bengt kommer att få en notifiering om att Anna har börjat dela inlägg till honom."
       add_to_aspect_li2: "Anna kommer att se Bengts publika inlägg i hennes flöde."
       add_to_aspect_li3: "Anna kommer inte att få se några av Bengts privata inlägg."
@@ -529,10 +526,10 @@ sv:
       add_to_aspect_li7: "Anna kommer synas under \"Delar enbart med mig\" på Bengts kontaktsida."
       add_to_aspect_li8: "Amalia kommer också kunna @-nämna Benjamin i ett inlägg."
       add_to_aspect_q: "Vad händer när jag lägger till en person i en aspekt och när någon lägger till mig till en av deras aspekter?"
-      list_not_sharing_a: "Nej. Du kan däremot besöka personers profilsidor för att se om de delar med sig till dig. Om de gör det, kommer listen under deras profilbild att vara grön; annars vore den grå. Du borde få en notifiering varje gång börjar dela med sig till dig."
+      list_not_sharing_a: "Nej. Du kan däremot besöka personers profilsidor för att se om de delar med sig till dig. Om de gör det, kommer listen under deras profilbild att vara grön; annars vore den grå."
       list_not_sharing_q: "Finns det någon lista med personer vilka jag har lagt till aspekter, men som inte har mig i någon av deras?"
       only_sharing_a: "Det är personer som har lagt till dig i deras aspekter men som du inte än har lagt till i någon av dina aspekter. Med andra ord, delar de med sig till dig med du inte med dem (asymmetrisk delning). Skulle du lägga till någon i en aspekt, skulle den personen synas i sin aspekt och inte i \"Delar enbart med mig\". Se ovan."
-      only_sharing_q: "Vilka personer syns i \"Delar enbart med mig\" på min kontaktsida?"
+      only_sharing_q: "Vilka personer syns under \"Delar enbart med mig\" på min kontaktsida?"
       see_old_posts_a: "Nej. De kommer bara att kunna se de nya inläggen du gör. De kan givetvis se dina gamla offentliga inlägg, precis som alla andra."
       see_old_posts_q: "Kan personer jag lägg till i mina aspekter se de äldre inläggen jag gjort till aspekten?"
       sharing_notification_a: "Du borde få en notifikation varje gång någon delar med sig åt dig."
@@ -541,14 +538,14 @@ sv:
     tags:
       filter_tags_a: "Det är inte ännu inte möjligt att utföra i Diaspora*. Men något %{third_party_tools} kan finnas som stödjer denna funktion."
       filter_tags_q: "Hur filtrerar jag bort några av taggarna från mitt flöde?"
-      followed_tags_a: "När du sökt en tag kan du trycka på knappen överst på taggens sida för att följa taggen. Då kommer då synas till vänster med andra taggar du följer. Trycker du på någon tag i listan hamnar du på taggens sida och kommer att se de senaste inläggen med taggen. Tryck \"#Följda taggar\" för att se ett flöde med alla taggar du följer. "
-      followed_tags_q: "Vad är \"#Följda taggar\" och hur följer man en tag?"
+      followed_tags_a: "När du sökt en tagg kan du trycka på knappen överst på taggens sida för att följa taggen. Då kommer då synas till vänster med andra taggar du följer. Trycker du på någon tagg i listan hamnar du på taggens sida och kommer att se de senaste inläggen med taggen. Tryck \"#Följda taggar\" för att se ett flöde med alla taggar du följer."
+      followed_tags_q: "Vad är \"#Följda taggar\" och hur följer man en tagg?"
       people_tag_page_a: "Det är personer som lagt till taggen i sin beskrivning på sin publika profilsida."
       people_tag_page_q: "Vilka är personerna till vänster på taggens sida?"
-      tags_in_comments_a: "En tag på en kommentar kommer att synas som en länk till taggens sida, men det får varken kommentaren eller inlägget i sig att synas på taggens sida. Bara inläggstaggar syns på taggarnas sidor."
+      tags_in_comments_a: "En fyrkantstagg på en kommentar kommer att synas som en länk till taggens sida, men det får varken kommentaren eller inlägget i sig att synas på taggens sida. Bara taggar i inlägg syns på taggens sida."
       tags_in_comments_q: "Kan jag sätta taggar på kommentarer eller går det bara i inlägg?"
       title: "Taggar"
-      what_are_tags_for_a: "Taggarna är ett sätt att kategorisera inlägg efter ämne. Genom att söka på en särskild tag kommer alla inlägg med den taggen att visas, både de publika och de privata till dig. På så vis kan man hitta inlägg som intresserar en."
+      what_are_tags_for_a: "Taggarna är ett sätt att kategorisera inlägg efter ämne. Genom att söka på en särskild tagg kommer alla inlägg med den taggen att visas, både de publika och de privata till dig. På så vis kan man hitta inlägg som intresserar en."
       what_are_tags_for_q: "Vad är taggarna till för?"
     third_party_tools: "Tredjepartsverktyg"
     title_header: "Hjälp"
@@ -675,8 +672,8 @@ sv:
       no_notifications: "Du har inga notifikationer ännu."
       notifications: "Notiser"
       reshared: "Återdelad"
-      show_all: "visa alla"
-      show_unread: "visa olästa"
+      show_all: "Visa alla"
+      show_unread: "Visa olästa"
       started_sharing: "Började dela"
     liked:
       one: "%{actors} gillar din %{post_link}."
@@ -712,7 +709,7 @@ sv:
       other: "%{actors} har börjat att dela med dig."
       zero: "ingen delar ännu något med dig."
   notifier:
-    a_limited_post_comment: "Du har en ny kommentar till ett begränsat inlägg på Diaspora* att spana in."
+    a_limited_post_comment: "Du har en ny kommentar till ett begränsat inlägg på Diaspora*."
     a_post_you_shared: "ett inlägg."
     a_private_message: "Du har fått ett nytt privat meddelande på Diaspora*."
     accept_invite: "Acceptera din Diaspora*-inbjudan!"
@@ -741,11 +738,11 @@ sv:
           Hej %{name}
 
           Vi har stött på ett problem medan vi behandlade din personliga data för nedladdning.
-          Var god försök igen!
+          Var god försök igen.
 
           Tack och hej,
 
-          Diasporas e-postbot!    
+          Diasporas mejlrobot!
       subject: "Förlåt oss, det dök upp ett problem med din data, %{name}"
     export_photos_email:
       body: |-
@@ -801,11 +798,11 @@ sv:
       reply_to_or_view: "Svara på eller läs denna konversation >"
     remove_old_user:
       body: |-
-          Hej,
+          Hej.
 
-          På grund av inaktivitet i ditt Diaspora*-konto på %{pod_url} vill vi meddela att ditt konto automatiskt har blivit märkt för borttagning. Detta sker automatiskt när ett konto har varit inaktivt i %{after_days} dagar.
+          På grund av inaktivitet på ditt Diaspora*-konto på podden %{pod_url} vill vi meddela att ditt konto automatiskt har blivit märkts för borttagning. Detta sker automatiskt när ett konto har varit inaktivt i %{after_days} dagar.
 
-          Vi ser gärna att du förblir en del av Diaspora*-gemenskapen och behåller ditt konto.
+          Vi ser gärna att du förblir en del av Diaspora*-gemenskapen och behåller ditt konto vid liv.
 
           Du kan undvika dataförluster genom att logga in på kontot innan det automatiskt tas bort %{remove_after}. Ta gärna en ordentlig titt på Diaspora* nu, för mycket har ändrats sedan du senast loggade in. Vi hoppas att du kommer att gilla de ändringar vi har gjort. Följ några #taggar för att intressant material.
 
@@ -813,7 +810,7 @@ sv:
 
           Hoppas att vi kan ses igen,
 
-          Diaspora*'s mejlrobot!
+          Diasporas mejlrobot!
       subject: "Ditt Diaspora*-konto har blivit märkt för att tas bort på grund av passivitet."
     report_email:
       body: |-
@@ -971,7 +968,7 @@ sv:
       first_name: "Förnamn"
       last_name: "Efternamn"
       nsfw_check: "Markera allting som jag delar som olämpligt för arbetsplatser (NSFW)"
-      nsfw_explanation: "NSFW (\"not safe for work\", inte arbetsplatslämpat) är Diasporas självständiga samfund för innehåll som kanske inte passar sig på arbetsplatser. Om du har planer på att ofta dela med dig av material som är av denna natur, var god och använd inställningen så att dina inlägg döljs i personers strömmar, tills de själva väljer att se inläggen."
+      nsfw_explanation: "NSFW (\"not safe for work\", inte arbetsplatslämpligt) är Diasporas självständiga samfund för innehåll som kanske inte passar sig på arbetsplatser. Om du har planer på att ofta dela med dig av material som är av denna natur, var god och använd inställningen så att dina inlägg döljs i personers strömmar, tills de själva väljer att se inläggen."
       nsfw_explanation2: "Om du inte använder inställningen, var god och använd taggen #nsfw när du delar sådant material."
       update_profile: "Uppdatera profil"
       your_bio: "Din biografi"
@@ -1176,7 +1173,7 @@ sv:
       posting: "Skickar..."
       preview: "Förhandsgranska"
       publishing_to: "Publiceras på: "
-      remove_location: "Borttag plats"
+      remove_location: "Ta bort platsen"
       share: "Dela"
       share_with: "Dela med"
       upload_photos: "Ladda upp foton"

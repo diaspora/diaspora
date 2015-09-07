@@ -18,17 +18,17 @@
         = Diaspora::Taggable.format_tags(@person.tag_string)
 
 .span12.profile_stream
-  - if @stream.stream_posts.length > 0
-    - if @post_type == :photos
-      = render 'photos/index', :photos => @stream.stream_posts
-    - else
-      #main_stream.stream
-        = render 'shared/stream', :posts => @stream.stream_posts
-        = render 'shared/stream_more_button'
+  - if @post_type == :photos
+    = render "photos/index", photos: @posts
   - else
-    #main_stream
-      .dull
-      - if @block.present?
-        = t('.ignoring', :name => @person.first_name)
-      - elsif user_signed_in? && (current_user.person != @person)
-        = t('.has_not_shared_with_you_yet', :name => @person.first_name)
+    - if @stream.stream_posts.length > 0
+      #main_stream.stream
+        = render "shared/stream", posts: @stream.stream_posts
+        = render "shared/stream_more_button"
+    - else
+      #main_stream
+        .dull
+        - if @block.present?
+          = t(".ignoring", name: @person.first_name)
+        - elsif user_signed_in? && (current_user.person != @person)
+          = t(".has_not_shared_with_you_yet", name: @person.first_name)

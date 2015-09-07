@@ -849,7 +849,7 @@ form#new_user.new_user input.btn {
   text-shadow: 1px 1px 20px rgb(126, 240, 77);
 }
 
-#conversation_inbox {
+#conversation_inbox, .notifications {
   .pagination {
     margin-left: auto;
     margin-right: auto;
@@ -941,37 +941,6 @@ form p.checkbox_select {
     }
   }
   padding-left: 120px;
-}
-
-#file-upload.button {
-  @include button-gradient($light-grey);
-  border-radius: 3px;
-  box-shadow: 0 1px 1px #cfcfcf;
-  @include transition(border);
-
-  display: inline-block;
-
-  font {
-    style: normal;
-    size: 12px;
-  }
-  color: #505050;
-
-  padding: 4px 9px;
-
-  min-height: 10px;
-
-  border: 1px solid;
-
-  cursor: pointer;
-  white-space: normal;
-
-  &:hover {
-    @include button-gradient-hover-no-saturation($light-grey);
-    color: #505050;
-    text-decoration: none;
-    border: 1px solid;
-  }
 }
 
 #settings_nav {

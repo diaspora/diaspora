@@ -1,5 +1,5 @@
-# diaspora* 
-### a privacy-aware, distributed, open source social network
+# diaspora*
+### A privacy-aware, distributed, open source social network
 
 **master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.png?branch=master)](http://travis-ci.org/diaspora/diaspora)
 **stable:** [![Build Status stable](https://secure.travis-ci.org/diaspora/diaspora.png?branch=stable)](http://travis-ci.org/diaspora/diaspora) |
@@ -31,6 +31,8 @@ Still haven't found an answer? Talk to us! Read [how we communicate](https://wik
 ## Contribute
 
 To keep diaspora*  growing and improving we need all help we can get. Whether you can contribute [code](https://wiki.diasporafoundation.org/Getting_started_with_contributing), [ideas](https://wiki.diasporafoundation.org/How_we_communicate#Loomio), [translations](https://wiki.diasporafoundation.org/Contribute_translations), [bug reports](https://wiki.diasporafoundation.org/How_to_report_a_bug) or simply extend the community as a [helpful user](https://wiki.diasporafoundation.org/Welcoming_committee) or [pod administrator](https://wiki.diasporafoundation.org/Installation), your help is welcome!
+
+Everyone interacting in diaspora’s codebases, issue trackers, chat rooms, mailing lists, the wiki, and the Loomio group is expected to follow the diaspora\* [code of conduct](/CODE_OF_CONDUCT.md).
 
 ## Security
 

@@ -45,6 +45,9 @@
   border-bottom: 1px solid $border-grey;
   padding: 10px;
   & > .media {
+    &.shield-active .nsfw-hidden { display: none; }
+    &:not(.shield-active) .nsfw-shield { display: none; }
+    &:not(.shield-off) .nsfw-off { display: none; }
     & > .img > .avatar {
       margin-top: 5px;
       &.small {

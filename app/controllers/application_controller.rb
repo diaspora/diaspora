@@ -39,11 +39,7 @@ class ApplicationController < ActionController::Base
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    if is_mobile_device?
-      root_path
-    else
-      new_user_session_path
-    end
+    is_mobile_device? ? root_path : new_user_session_path
   end
 
   def all_aspects

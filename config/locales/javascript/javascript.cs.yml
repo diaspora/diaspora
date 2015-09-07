@@ -56,6 +56,8 @@ cs:
       remove_contact: "Odstraň kontakt"
       search_no_results: "Nenalezeny žádné kontakty"
     conversation:
+      new:
+        no_contacts: "Musíte si přidat nějaké kontakty, než budete moci začít konveraci."
       participants: "Účastníci"
     create: "Vytvořit"
     delete: "Odstranit"

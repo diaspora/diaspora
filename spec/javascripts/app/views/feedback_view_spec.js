@@ -60,13 +60,19 @@ describe("app.views.Feedback", function(){
         });
 
         it("allows for unliking a just-liked post", function(){
-          var responseText = JSON.stringify({"author": this.userAttrs});
-          var ajax_success = { status: 201, responseText: responseText };
           expect(this.link().text()).toContain(Diaspora.I18n.t("stream.like"));
           this.link().click();
-          jasmine.Ajax.requests.mostRecent().respondWith(ajax_success);
+          jasmine.Ajax.requests.mostRecent().respondWith({
+            status: 201,
+            responseText: JSON.stringify({
+              id: 42,
+              guid: 42,
+              author: this.userAttrs
+            })
+          });
           expect(this.link().text()).toContain(Diaspora.I18n.t("stream.unlike"));
           this.link().click();
+          jasmine.Ajax.requests.mostRecent().respondWith({status: 204});
           expect(this.link().text()).toContain(Diaspora.I18n.t("stream.like"));
         });
       });

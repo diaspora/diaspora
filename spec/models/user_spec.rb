@@ -905,11 +905,9 @@ describe User, :type => :model do
       context "with autofollow sharing enabled" do
         it "should start sharing with autofollow account" do
           AppConfig.settings.autofollow_on_join = true
-          AppConfig.settings.autofollow_on_join_user = 'one'
+          AppConfig.settings.autofollow_on_join_user = "one"
 
-          wf_double = double
-          expect(wf_double).to receive(:fetch)
-          expect(Webfinger).to receive(:new).with('one').and_return(wf_double)
+          expect(Person).to receive(:find_or_fetch_by_identifier).with("one")
 
           user.seed_aspects
         end
@@ -919,7 +917,7 @@ describe User, :type => :model do
         it "should not start sharing with the diasporahq account" do
           AppConfig.settings.autofollow_on_join = false
 
-          expect(Webfinger).not_to receive(:new)
+          expect(Person).not_to receive(:find_or_fetch_by_identifier)
 
           user.seed_aspects
         end

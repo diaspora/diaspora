@@ -43,7 +43,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def diaspora_handle= nh
-    self.author = Webfinger.new(nh).fetch
+    self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
   def first_unread_message(user)
@@ -68,7 +68,7 @@ class Conversation < ActiveRecord::Base
   end
   def participant_handles= handles
     handles.split(';').each do |handle|
-      self.participants << Webfinger.new(handle).fetch
+      participants << Person.find_or_fetch_by_identifier(handle)
     end
   end
 
