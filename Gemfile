@@ -125,7 +125,7 @@ gem "rails-i18n",           "4.0.4"
 
 # Mail
 
-gem "markerb",             "1.0.2"
+gem "markerb",             "1.1.0"
 gem "messagebus_ruby_api", "1.0.3"
 
 # Parsing
