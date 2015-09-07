@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 
 class ReportController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :redirect_unless_admin, :except => [:create]
+  before_action :authenticate_user!
+  before_action :redirect_unless_moderator, except: [:create]
 
   def index
     @reports = Report.where(reviewed: false)
@@ -19,19 +19,19 @@ class ReportController < ApplicationController
 
   def destroy
     if (report = Report.where(id: params[:id]).first) && report.destroy_reported_item
-      flash[:notice] = I18n.t 'report.status.destroyed'
+      flash[:notice] = I18n.t "report.status.destroyed"
     else
-      flash[:error] = I18n.t 'report.status.failed'
+      flash[:error] = I18n.t "report.status.failed"
     end
-    redirect_to :action => :index
+    redirect_to action: :index
   end
 
   def create
     report = current_user.reports.new(report_params)
     if report.save
-      render :json => true, :status => 200
+      render json: true, status: 200
     else
-      render :nothing => true, :status => 409
+      render nothing: true, status: 409
     end
   end
 

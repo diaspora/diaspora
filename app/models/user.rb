@@ -489,6 +489,10 @@ class User < ActiveRecord::Base
     Role.is_admin?(self.person)
   end
 
+  def moderator?
+    Role.moderator?(person)
+  end
+
   def podmin_account?
     username == AppConfig.admins.account
   end

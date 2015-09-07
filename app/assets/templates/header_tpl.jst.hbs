@@ -100,6 +100,8 @@
                 <li><a href="/help">{{t "header.help"}}</a></li>
                 {{#if current_user.admin}}
                   <li><a href="/admins/dashboard">{{t "header.admin"}}</a></li>
+                {{else if current_user.moderator}}
+                   <li><a href="/report">{{t "header.moderator"}}</a></li>
                 {{/if}}
                 <li><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
               </ul>
@@ -113,6 +115,7 @@
             <input name="utf8" type="hidden" value="✓">
           </form>
         </div>
+      </div>
       </div>
     </div>
   </div>
