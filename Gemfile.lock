@@ -412,7 +412,7 @@ GEM
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    little-plugger (1.1.3)
+    little-plugger (1.1.4)
     logging (2.0.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
