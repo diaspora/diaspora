@@ -709,7 +709,7 @@ GEM
     thread_safe (0.3.5)
     tilt (1.4.1)
     timecop (0.8.0)
-    timers (4.0.1)
+    timers (4.0.4)
       hitimes
     twitter (5.15.0)
       addressable (~> 2.3)
