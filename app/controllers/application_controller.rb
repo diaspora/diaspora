@@ -5,7 +5,7 @@
 class ApplicationController < ActionController::Base
   before_action :force_tablet_html
   has_mobile_fu
-  protect_from_forgery :except => :receive
+  protect_from_forgery except: :receive
 
   before_action :ensure_http_referer_is_set
   before_action :set_locale
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   before_action :gon_set_appconfig
   before_action :gon_set_preloads
 
-  inflection_method :grammatical_gender => :gender
+  inflection_method grammatical_gender: :gender
 
   helper_method :all_aspects,
                 :all_contacts_count,
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_http_referer_is_set
-    request.env['HTTP_REFERER'] ||= '/'
+    request.env["HTTP_REFERER"] ||= "/"
   end
 
   # Overwriting the sign_out redirect path method
@@ -68,11 +68,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_diaspora_header
-    headers['X-Diaspora-Version'] = AppConfig.version_string
+    headers["X-Diaspora-Version"] = AppConfig.version_string
 
     if AppConfig.git_available?
-      headers['X-Git-Update'] = AppConfig.git_update if AppConfig.git_update.present?
-      headers['X-Git-Revision'] = AppConfig.git_revision if AppConfig.git_revision.present?
+      headers["X-Git-Update"] = AppConfig.git_update if AppConfig.git_update.present?
+      headers["X-Git-Revision"] = AppConfig.git_revision if AppConfig.git_revision.present?
     end
   end
 
@@ -87,10 +87,13 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_unless_admin
-    unless current_user.admin?
-      redirect_to stream_url, :notice => 'you need to be an admin to do that'
-      return
-    end
+    return if current_user.admin?
+    redirect_to stream_url, notice: "you need to be an admin to do that"
+  end
+
+  def redirect_unless_moderator
+    return if current_user.moderator?
+    redirect_to stream_url, notice: "you need to be an admin or moderator to do that"
   end
 
   def set_grammatical_gender
@@ -98,7 +101,7 @@ class ApplicationController < ActionController::Base
       gender = current_user.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
       unless gender.empty?
         i_langs = I18n.inflector.inflected_locales(:gender)
-        i_langs.delete  I18n.locale
+        i_langs.delete I18n.locale
         i_langs.unshift I18n.locale
         i_langs.each do |lang|
           token = I18n.inflector.true_token(gender, :gender, lang)
@@ -150,7 +153,7 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
     a_ids = session[:a_ids] || []
     user = UserPresenter.new(current_user, a_ids)
-    gon.push({:user => user})
+    gon.push(user: user)
   end
 
   def gon_set_preloads

@@ -266,6 +266,7 @@ en:
       settings: "Settings"
       help: "Help"
       admin: "Admin"
+      moderator: "Moderator"
       log_out: "Log out"
       toggle_navigation: "Toggle navigation"
       toggle_mobile: "Toggle mobile"
