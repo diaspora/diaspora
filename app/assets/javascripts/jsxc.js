@@ -18,7 +18,7 @@ $(document).ready(function() {
             SEND_WHITESPACE_TAG: true,
             WHITESPACE_START_AKE: true
           },
-          autoLang: true,
+          onlineHelp: "/help/chat",
           priority: {
             online: 1,
             chat: 1
