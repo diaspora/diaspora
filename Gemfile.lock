@@ -506,9 +506,9 @@ GEM
     pronto-jshint (0.4.2)
       jshintrb (~> 0.3.0)
       pronto (~> 0.4.0)
-    pronto-rubocop (0.4.4)
+    pronto-rubocop (0.4.6)
       pronto (~> 0.4.0)
-      rubocop (~> 0.32.0)
+      rubocop (~> 0.34.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -662,7 +662,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    rubocop (0.32.1)
+    rubocop (0.34.1)
       astrolabe (~> 1.3)
       parser (>= 2.2.2.5, < 3.0)
       powerpack (~> 0.1)
@@ -855,7 +855,7 @@ DEPENDENCIES
   pronto (= 0.4.3)
   pronto-haml (= 0.4.4)
   pronto-jshint (= 0.4.2)
-  pronto-rubocop (= 0.4.4)
+  pronto-rubocop (= 0.4.6)
   pry
   pry-byebug
   pry-debundle
@@ -897,7 +897,7 @@ DEPENDENCIES
   roxml (= 3.1.6)
   rspec-instafail (= 0.2.6)
   rspec-rails (= 3.3.3)
-  rubocop (= 0.32.1)
+  rubocop (= 0.34.1)
   ruby-oembed (= 0.8.14)
   rubyzip (= 1.1.7)
   sass-rails (= 5.0.4)
