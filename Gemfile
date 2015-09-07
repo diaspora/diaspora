@@ -254,7 +254,7 @@ group :test do
 
   gem "fixture_builder",   "0.4.1"
   gem "fuubar",            "2.0.0"
-  gem "rspec-instafail",   "0.2.6", require: false
+  gem "rspec-instafail",   "0.4.0", require: false
   gem "test_after_commit", "0.4.1"
 
   # Cucumber (integration tests)

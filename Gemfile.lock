@@ -618,7 +618,7 @@ GEM
     rspec-expectations (3.3.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
-    rspec-instafail (0.2.6)
+    rspec-instafail (0.4.0)
       rspec
     rspec-mocks (3.3.2)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -850,7 +850,7 @@ DEPENDENCIES
   remotipart (= 1.2.1)
   responders (= 2.1.0)
   roxml (= 3.1.6)
-  rspec-instafail (= 0.2.6)
+  rspec-instafail (= 0.4.0)
   rspec-rails (= 3.3.3)
   rubocop (= 0.32.1)
   ruby-oembed (= 0.8.14)
