@@ -2,7 +2,8 @@ require "spec_helper"
 
 describe Services::Tumblr, type: :model do
   let(:user) { alice }
-  let(:post) { user.post(:status_message, text: "hello", to: user.aspects.first.id) }
+  let(:test_string) { "@{#{bob.name}; #{bob.diaspora_handle}} can mention people like a pro #ilike" }
+  let(:post) { user.post(:status_message, text: test_string, to: user.aspects.first.id) }
   let(:service) { Services::Tumblr.new(access_token: "yeah", access_secret: "foobar") }
   let(:post_id) { "bla" }
 
@@ -46,6 +47,18 @@ describe Services::Tumblr, type: :model do
 
         expect(stub).to have_been_requested
       end
+    end
+  end
+
+  describe "#tumblr_template" do
+    let(:tumblr_export) { service.tumblr_template(post, AppConfig.pod_uri) }
+
+    it "properly links mentions to the person's profile" do
+      expect(tumblr_export).to include("[#{bob.name}](#{bob.url}people/#{bob.guid})")
+    end
+
+    it "properly links tags to the pod's tag site" do
+      expect(tumblr_export).to include("[#ilike](#{AppConfig.pod_uri}tags/ilike)")
     end
   end
 
