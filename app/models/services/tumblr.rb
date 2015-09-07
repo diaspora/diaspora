@@ -16,16 +16,18 @@ class Services::Tumblr < Service
   def post(post, url='')
     body = build_tumblr_post(post, url)
     user_info = JSON.parse(client.get("/v2/user/info").body)
-    blogs = user_info["response"]["user"]["blogs"].map { |blog| URI.parse(blog['url']) }
+    blogs = user_info["response"]["user"]["blogs"]
+    primaryblog = blogs.find {|blog| blog["primary"] } || blogs[0]
     tumblr_ids = {}
-    blogs.each do |blog|
-      resp = client.post("/v2/blog/#{blog.host}/post", body)
-      if resp.code == "201"
-        tumblr_ids[blog.host.to_s] = JSON.parse(resp.body)["response"]["id"]
-      end
+
+    blogurl = URI.parse(primaryblog["url"])
+    resp = client.post("/v2/blog/#{blogurl.host}/post", body)
+    if resp.code == "201"
+      tumblr_ids[blogurl.host.to_s] = JSON.parse(resp.body)["response"]["id"]
+    end
+
     post.tumblr_ids = tumblr_ids.to_json
     post.save
-    end
   end
 
   def build_tumblr_post(post, url)
