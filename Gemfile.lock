@@ -740,7 +740,7 @@ GEM
       raindrops (~> 0.7)
     uuid (2.3.8)
       macaddr (~> 1.0)
-    valid (1.0.0)
+    valid (1.0.2)
     warden (1.2.3)
       rack (>= 1.0)
     webmock (1.21.0)
