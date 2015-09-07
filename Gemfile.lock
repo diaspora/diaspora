@@ -348,7 +348,7 @@ GEM
     guard-rubocop (1.2.0)
       guard (~> 2.0)
       rubocop (~> 0.20)
-    haml (4.0.6)
+    haml (4.0.7)
       tilt
     handlebars_assets (0.20.2)
       execjs (~> 2.0)
@@ -788,7 +788,7 @@ DEPENDENCIES
   guard-jshintrb (= 1.1.1)
   guard-rspec (= 4.6.4)
   guard-rubocop (= 1.2.0)
-  haml (= 4.0.6)
+  haml (= 4.0.7)
   handlebars_assets (= 0.20.2)
   http_accept_language (= 2.0.5)
   i18n-inflector-rails (= 1.0.7)
