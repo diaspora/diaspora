@@ -164,7 +164,7 @@ gem "addressable",        "2.3.8", require: "addressable/uri"
 gem "faraday",            "0.9.1"
 gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"
-gem "typhoeus",           "0.7.2"
+gem "typhoeus",           "0.7.3"
 
 # Views
 
