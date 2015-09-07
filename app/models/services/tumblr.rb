@@ -17,7 +17,7 @@ class Services::Tumblr < Service
     body = build_tumblr_post(post, url)
     user_info = JSON.parse(client.get("/v2/user/info").body)
     blogs = user_info["response"]["user"]["blogs"]
-    primaryblog = blogs.find(blogs[0]) {|blog| blog["primary"] }
+    primaryblog = blogs.find {|blog| blog["primary"] } || blogs[0]
     tumblr_ids = {}
 
     blogurl = URI.parse(primaryblog["url"])
