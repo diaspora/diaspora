@@ -421,8 +421,7 @@ GEM
       systemu (~> 2.6.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    markerb (1.0.2)
-      redcarpet (>= 2.0)
+    markerb (1.1.0)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     messagebus_ruby_api (1.0.3)
@@ -802,7 +801,7 @@ DEPENDENCIES
   json (= 1.8.3)
   json-schema (= 2.5.1)
   logging-rails (= 0.5.0)
-  markerb (= 1.0.2)
+  markerb (= 1.1.0)
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 4.2.7)
   minitest
