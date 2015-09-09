@@ -76,7 +76,6 @@ defaults:
         file: 'log/vines.log'
         level: 'info'
   map:
-    enabled: true
     mapbox:
       enabled: false
       id:

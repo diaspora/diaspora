@@ -2,7 +2,7 @@ describe("app.views.LocationStream", function() {
   beforeEach(function(){
     this.post = factory.post();
     this.view = new app.views.LocationStream({model : this.post});
-    gon.appConfig = { map: {enabled: true, mapbox: {enabled: true, id: "yourID", access_token: "yourAccessToken" }} };
+    gon.appConfig = {map: { mapbox: {enabled: true, id: "yourID", access_token: "yourAccessToken" }}};
   });
 
   describe("toggleMap", function() {
