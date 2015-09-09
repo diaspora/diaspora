@@ -334,9 +334,9 @@ configuration: ## Section
   ## and access_token.
   map: ##Section
 
-  # enable: false
+  # enabled: true
   # mapbox:
-    # enable: false
+    # enabled: false
     # id: 'your.id'
     # access_token: 'youraccesstoken'
 

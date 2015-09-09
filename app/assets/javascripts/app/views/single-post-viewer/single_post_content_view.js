@@ -5,7 +5,7 @@ app.views.SinglePostContent = app.views.Base.extend({
     "click .near-from": "toggleMap"
   },
 
-  templateName: 'single-post-viewer/single-post-content',
+  templateName: "single-post-viewer/single-post-content",
   tooltipSelector: "time, .post_scope",
 
   subviews : {
@@ -14,7 +14,7 @@ app.views.SinglePostContent = app.views.Base.extend({
     "#real-post-content" : "postContentView",
     ".oembed" : "oEmbedView",
     ".opengraph" : "openGraphView",
-    '.poll': 'pollView',
+    ".poll": "pollView",
   },
 
   initialize : function() {
@@ -37,16 +37,17 @@ app.views.SinglePostContent = app.views.Base.extend({
       // get location data and render map
       var location = this.model.get("location");
 
-      // If the mapbox option is enabled in the defaults the mapbox tiles with the podmin's credentials are used.
-      // If mapbox is not enabled the OpenMapSurfer tiles are used, which don't need credentials.
+      // If the mapbox option is enabled in the diaspora.yml, the mapbox tiles with the podmin's credentials are used.
+      // If mapbox is not enabled the Maptiles from the Heidelberg University are used, which don't need credentials.
       var mapsource = gon.appConfig.map.mapbox.enabled ? gon.appConfig.map.mapbox : "";
       var tileLayerSource = mapsource ? "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
                                       : "http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}";
-      var tileAttribution = mapsource ? "<a href='https://www.mapbox.com'>Mapbox</a>"
-                                      : "<a href='http://korona.geog.uni-heidelberg.de/contact.html'>OpenMapSurfer</a>";
+      var tileAttribution = mapsource ? "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
+                                        "Imagery © <a href='https://www.mapbox.com'>Mapbox</a>"
+                                      : "rendering <a href='http://giscience.uni-hd.de/'>" +
+                                        "GIScience Research Group @ Heidelberg University</a>";
       var attribution = "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
-                        "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
-                        "Imagery © "+ tileAttribution;
+                        tileAttribution;
 
       var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);
       L.tileLayer(tileLayerSource, {
