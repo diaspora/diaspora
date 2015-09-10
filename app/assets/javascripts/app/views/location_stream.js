@@ -23,7 +23,7 @@ app.views.LocationStream = app.views.Content.extend({
                         "rendering <a href='http://giscience.uni-hd.de/'>" +
                         "GIScience Research Group @ Heidelberg University</a>",
           maxZoom: 18,
-          });
+        });
 
         // If the mapbox option is enabled in the diaspora.yml, the mapbox tiles with the podmin's credentials are used.
         if (gon.appConfig.map.mapbox.enabled) {
@@ -46,7 +46,7 @@ app.views.LocationStream = app.views.Content.extend({
       }
     } else {
         mapContainer.toggle();
-      }
+    }
   }
 });
 // @license-end

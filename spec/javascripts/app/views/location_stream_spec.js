@@ -28,7 +28,7 @@ describe("app.views.LocationStream", function() {
         this.view.toggleMap();
         expect($(".mapContainer")).toHaveCss({display: "none"});
       });
-    }),
+    });
 
     context("without location provided", function() {
       beforeEach(function(){

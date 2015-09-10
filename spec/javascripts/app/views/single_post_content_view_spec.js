@@ -35,7 +35,7 @@ describe("app.views.SinglePostContent", function() {
         this.view.toggleMap();
         expect($(".mapContainer").height() < 100).toBeTruthy();
       });
-    }),
+    });
 
     context("without location provided", function() {
       beforeEach(function(){

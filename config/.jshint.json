@@ -46,6 +46,7 @@
     "HandlebarsTemplates",
     "ImagePaths",
     "jsxc",
+    "L",
     "MBP",
     "Routes",
     "OSM",
@@ -53,7 +54,7 @@
     "punycode",
     "qq",
     "blueimp",
-    "L",
+
     "loginAs",
     "logout",
     "spec",

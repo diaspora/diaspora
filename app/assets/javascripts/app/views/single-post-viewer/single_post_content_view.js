@@ -46,7 +46,7 @@ app.views.SinglePostContent = app.views.Base.extend({
                       "rendering <a href='http://giscience.uni-hd.de/'>" +
                       "GIScience Research Group @ Heidelberg University</a>",
         maxZoom: 18,
-        });
+      });
 
       // If the mapbox option is enabled in the diaspora.yml, the mapbox tiles with the podmin's credentials are used.
       if (gon.appConfig.map.mapbox.enabled) {
@@ -70,13 +70,13 @@ app.views.SinglePostContent = app.views.Base.extend({
       // put marker on map
       var markerOnMap = L.marker(location).addTo(map);
       return map;
-      }
+    }
   },
 
   toggleMap: function () {
-      $(".mapContainer").height($(".small-map")[0] ? 200 : 50);
-      $(".leaflet-control-zoom").css("display", $(".small-map")[0] ? "block" : "none");
-      $(".mapContainer").toggleClass("small-map");
+    $(".mapContainer").height($(".small-map")[0] ? 200 : 50);
+    $(".leaflet-control-zoom").css("display", $(".small-map")[0] ? "block" : "none");
+    $(".mapContainer").toggleClass("small-map");
   },
 
   presenter : function() {
