@@ -54,6 +54,10 @@
   .list-group .list-group-item {
     [class^="entypo-"], [class*="entypo-"], .mentionIcon { margin-right: 5px; }
     .mentionIcon { font-weight: bold; }
+
+    &.active {
+      [class^="entypo-"], [class*="entypo-"], .mentionIcon { color: $component-active-color; }
+    }
   }
 }
 
