@@ -63,7 +63,7 @@ describe StatusMessage, type: :model do
   describe ".guids_for_author" do
     it "returns an array of the status_message guids" do
       status_message_1 = FactoryGirl.create(:status_message, author: alice.person)
-      status_message_2 = FactoryGirl.create(:status_message, author: bob.person)
+      FactoryGirl.create(:status_message, author: bob.person)
       guids = StatusMessage.guids_for_author(alice.person)
       expect(guids).to eq([status_message_1.guid])
     end

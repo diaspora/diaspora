@@ -150,7 +150,7 @@ var factory = {
 
   location : function() {
     return {
-      address: "Starco Mart, Mission Street, West SoMa, San Francisco, San Francisco City and County, Kalifornien, 94103, Vereinigte Staaten von Amerika",
+      address: "Starco Mart, Mission Street, San Francisco, Kalifornien, 94103, Vereinigte Staaten von Amerika",
       lat: 37.78,
       lng: -122.41
     };

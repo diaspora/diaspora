@@ -87,6 +87,9 @@
       font-size: $font-size-small;
       color: $text-grey;
     }
+    .leaflet-control-zoom {
+      display: block;
+    }
     .grey { color: $text-grey; }
     .post-content p:last-of-type { margin-bottom: 0; }
     .nsfw-shield {

@@ -140,10 +140,9 @@ FactoryGirl.define do
   end
 
   factory(:location) do
-    address "Starco Mart, Mission Street, West SoMa, San Francisco, San Francisco "\
-            "City and County, Kalifornien, 94103, Vereinigte Staaten von Amerika"
-    lat 37.78
-    lng -122.41
+    address "Fernsehturm Berlin, Berlin, Germany"
+    lat 52.520645
+    lng 13.409779
   end
 
   factory(:poll) do

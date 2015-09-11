@@ -1,6 +1,5 @@
 describe("app.views.Location", function(){
   beforeEach(function(){
-    OSM = {};
     OSM.Locator = function(){return { getAddress:function(){}}};
 
     this.view = new app.views.Location();

@@ -30,7 +30,9 @@ app.views.LocationStream = app.views.Content.extend({
 
           tiles = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
             id: gon.appConfig.map.mapbox.id,
+            /* jshint camelcase: false */
             accessToken: gon.appConfig.map.mapbox.access_token,
+            /* jshint camelcase: true */
             attribution: "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
                          "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
                          "Imagery © <a href='https://www.mapbox.com'>Mapbox</a>",
@@ -40,7 +42,7 @@ app.views.LocationStream = app.views.Content.extend({
 
         tiles.addTo(map);
 
-        var markerOnMap = L.marker(location).addTo(map);
+        L.marker(location).addTo(map);
         mapContainer.removeClass("empty");
         return map;
       }
