@@ -19,7 +19,6 @@ app.views.Contact = app.views.Base.extend({
   },
 
   postRenderTemplate: function() {
-    var self = this;
     var dropdownEl = this.$('.aspect_membership_dropdown.placeholder');
     if( dropdownEl.length === 0 ) {
       return;
@@ -54,7 +53,7 @@ app.views.Contact = app.views.Base.extend({
       },
       error: function(){
         var msg = Diaspora.I18n.t("contacts.error_add", { "name": self.model.get("person").name });
-        Diaspora.page.flashMessages.render({ "success": false, "notice": msg });
+        app.flashMessages.error(msg);
       }
     });
   },
@@ -78,7 +77,7 @@ app.views.Contact = app.views.Base.extend({
         },
         error: function(){
           var msg = Diaspora.I18n.t("contacts.error_remove", { "name": self.model.get("person").name });
-          Diaspora.page.flashMessages.render({ "success": false, "notice": msg });
+          app.flashMessages.error(msg);
         }
       });
   }

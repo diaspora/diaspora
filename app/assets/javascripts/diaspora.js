@@ -70,7 +70,6 @@
     $.extend(this, {
       directionDetector: this.instantiate("DirectionDetector"),
       events: function() { return Diaspora.page.eventsContainer.data("events"); },
-      flashMessages: this.instantiate("FlashMessages"),
       header: this.instantiate("Header", body.find("header")),
       timeAgo: this.instantiate("TimeAgo")
     });

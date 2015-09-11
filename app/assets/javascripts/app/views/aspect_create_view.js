@@ -52,18 +52,12 @@ app.views.AspectCreate = app.views.Base.extend({
 
       self.modal.modal("hide");
       app.events.trigger("aspect:create", aspectId);
-      Diaspora.page.flashMessages.render({
-        "success": true,
-        "notice": Diaspora.I18n.t("aspects.create.success", {"name": aspectName})
-      });
+      app.flashMessages.success(Diaspora.I18n.t("aspects.create.success", {"name": aspectName}));
     });
 
     aspect.on("error", function() {
       self.modal.modal("hide");
-      Diaspora.page.flashMessages.render({
-        "success": false,
-        "notice": Diaspora.I18n.t("aspects.create.failure")
-      });
+      app.flashMessages.error(Diaspora.I18n.t("aspects.create.failure"));
     });
     return aspect.save();
   }

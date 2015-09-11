@@ -52,22 +52,15 @@ app.views.PodEntry = app.views.Base.extend({
   },
 
   recheckPod: function() {
-    var self  = this,
-        flash = new Diaspora.Widgets.FlashMessages();
+    var self  = this;
     this.$el.addClass("checking");
 
     this.model.recheck()
       .done(function(){
-        flash.render({
-          success: true,
-          notice: Diaspora.I18n.t("admin.pods.recheck.success")
-        });
+        app.flashMessages.success(Diaspora.I18n.t("admin.pods.recheck.success"));
       })
       .fail(function(){
-        flash.render({
-          success: false,
-          notice: Diaspora.I18n.t("admin.pods.recheck.failure")
-        });
+        app.flashMessages.error(Diaspora.I18n.t("admin.pods.recheck.failure"));
       })
       .always(function(){
         self.$el

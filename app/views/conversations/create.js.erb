@@ -2,7 +2,7 @@ var response = <%= raw @response.to_json %>;
 <% if session[:mobile_view] %>
   window.location.href = "<%= conversations_path(conversation_id: @conversation.id) %>";
 <% else %>
-  Diaspora.page.flashMessages.render({ 'success':response.success, 'notice':response.message });
+  app.flashMessages._flash(response.message, response.success);
   if(response.success){
     $("#new_conversation").removeClass('form_do_not_clear').clearForm();
     window.location.href = "<%= conversations_path(conversation_id: @conversation.id) %>";

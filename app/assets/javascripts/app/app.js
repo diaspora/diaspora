@@ -123,6 +123,7 @@ var app = {
     });
     app.sidebar = new app.views.Sidebar();
     app.backToTop = new app.views.BackToTop({el: $(document)});
+    app.flashMessages = new app.views.FlashMessages({el: $("#flash-container")});
   },
 
   /* mixpanel wrapper function */
