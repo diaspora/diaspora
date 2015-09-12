@@ -84,3 +84,8 @@ a.tag { word-break: break-all; }
     padding : 0;
   }
 }
+
+/* badge color */
+.badge-important {
+  background-color: $red;
+}

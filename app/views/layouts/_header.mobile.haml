@@ -10,7 +10,7 @@
           = link_to notifications_path, class: "badge-link", id: "notification-badge" do
             %i.entypo-bell
             - if current_user.unread_notifications.size > 0
-              %span.badge{id: "notification"}
+              %span.badge.badge-important#notification
                 = current_user.unread_notifications.size
 
         -# Conversations
@@ -18,7 +18,7 @@
           = link_to conversations_path, class: "badge-link", id: "conversations-badge" do
             %i.diaspora-custom-mail
             - if current_user.unread_message_count > 0
-              %span.badge{id: "conversation"}
+              %span.badge.badge-important#conversation
                 = current_user.unread_message_count
 
         -# Publisher

@@ -74,9 +74,8 @@
     }
     .last_author { color: $text-dark-grey; }
 
-    .message_count, .unread_message_count {
+    .message-count, .unread-message-count {
       margin-left: 3px;
-      float: right;
       font-size: 12px;
       font-weight: normal;
     }
@@ -250,8 +249,4 @@
   ul.as-selections { width: 100% !important; }
   input#contact_ids { box-shadow: none; }
   label { font-weight: bold; }
-}
-
-.badge-important {
-  background-color: $brand-danger;
 }

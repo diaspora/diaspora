@@ -15,16 +15,16 @@ describe("app.views.Conversations", function(){
       });
 
       it("removes the unread message counter from the conversation", function() {
-        expect($(".conversation-wrapper > .conversation.selected .unread_message_count").length).toEqual(1);
+        expect($(".conversation-wrapper > .conversation.selected .unread-message-count").length).toEqual(1);
         new app.views.Conversations();
-        expect($(".conversation-wrapper > .conversation.selected .unread_message_count").length).toEqual(0);
+        expect($(".conversation-wrapper > .conversation.selected .unread-message-count").length).toEqual(0);
       });
 
       it("decreases the unread message count in the header", function() {
         var badge = "<div id=\"conversations-link\"><div class=\"badge\">3</div></div>";
         $("header").append(badge);
         expect($("#conversations-link .badge").text().trim()).toEqual("3");
-        expect($(".conversation-wrapper > .conversation .unread_message_count").text().trim()).toEqual("1");
+        expect($(".conversation-wrapper > .conversation .unread-message-count").text().trim()).toEqual("1");
         new app.views.Conversations();
         expect($("#conversations-link .badge").text().trim()).toEqual("2");
       });
@@ -33,7 +33,7 @@ describe("app.views.Conversations", function(){
         var badge = "<div id=\"conversations-link\"><div class=\"badge\">1</div></div>";
         $("header").append(badge);
         expect($("#conversations-link .badge").text().trim()).toEqual("1");
-        expect($(".conversation-wrapper > .conversation.selected .unread_message_count").text().trim()).toEqual("1");
+        expect($(".conversation-wrapper > .conversation.selected .unread-message-count").text().trim()).toEqual("1");
         new app.views.Conversations();
         expect($("#conversations-link .badge").text().trim()).toEqual("0");
         expect($("#conversations-link .badge")).toHaveClass("hidden");

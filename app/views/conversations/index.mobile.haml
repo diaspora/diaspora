@@ -2,17 +2,15 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.right
-  = link_to t('.new_conversation'), new_conversation_path, class: 'btn btn-default'
+.clearfix.conversations-title
+  %h3= t(".inbox")
+  = link_to t(".new_conversation"), new_conversation_path, class: "btn btn-default pull-right"
 
 - flash.each do |name, msg|
   %div{ id: "flash_#{name}",  class: "expose" }
     .message= msg
   .stream
     %p{ class: "conversation_#{name}" }= msg
-
-%h3
-  = t('.inbox')
 
 #conversation_inbox
   .stream.conversations
@@ -21,7 +19,7 @@
     - else
       .no-messages
         %i
-          = t('.no_messages')
+          = t(".no_messages")
 
   = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;", inner_window: 1, outer_window: 0,
       renderer: WillPaginate::ActionView::BootstrapLinkRenderer
