@@ -146,9 +146,11 @@
     },
 
     addNewComments: function(bottomBar, data) {
-      var commentsContainer = bottomBar.find(".comment_container").first();
-      var comments = commentsContainer.find(".comments").first();
-      comments.append(data);
+      if ($(".comment_container", bottomBar).length === 0) {
+        $(".show_comments", bottomBar).after($("<div/>", {"class": "comment_container"}));
+        $(".comment_container", bottomBar).append($("<ul/>", {"class": "comments"}));
+      }
+      $(".comment_container .comments", bottomBar).append(data);
     },
 
     // Fix for no comments
