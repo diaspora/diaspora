@@ -1,4 +1,7 @@
-.conversations-title { margin: 0 0 20px 0; }
+.conversations-title {
+  margin: 0 0 20px 0;
+  h3 { display: inline; }
+}
 .conversation {
   .conversation_participants {
     padding: 1rem 1.2rem;
