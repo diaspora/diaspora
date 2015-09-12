@@ -28,7 +28,7 @@ Feature: reactions mobile post
     And I fill in the following:
         | text            | is that a poodle?    |
     And I press "Comment"
-    Then I should see "is that a poodle?"
+    Then I should see "is that a poodle?" within ".comment_container"
     When I go to the stream page
     And I should see "1 reaction" within ".show_comments"
     And I click on selector "a.show_comments"
