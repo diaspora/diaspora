@@ -1,7 +1,7 @@
-class Token < ActiveRecord::Base
+class OpenidConnect::OAuthAccessToken < ActiveRecord::Base
   belongs_to :user
+  belongs_to :authorization
   has_many :scopes, through: :scope_tokens
-  has_one :refresh_token
 
   before_validation :setup, on: :create
 
@@ -11,7 +11,6 @@ class Token < ActiveRecord::Base
 
   def setup
     self.token = SecureRandom.hex(32)
-    self.refresh_token = RefreshToken.create!
     self.expires_at = 24.hours.from_now
   end
 

@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe OpenidConnect::TokenEndpoint, type: :request do
-  let!(:client) { OAuthApplication.create!(redirect_uris: ["http://localhost"]) }
+  let!(:client) { OpenidConnect::OAuthApplication.create!(redirect_uris: ["http://localhost"]) }
   describe "the password grant type" do
     context "when the username field is missing" do
       it "should return an invalid request error" do

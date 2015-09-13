@@ -17,7 +17,7 @@ class OpenidConnect::AuthorizationsController < ApplicationController
   private
 
   def request_authorization_consent_form
-    endpoint = OpenidConnect::Authorization::EndpointStartPoint.new(current_user)
+    endpoint = OpenidConnect::Endpoints::EndpointStartPoint.new(current_user)
     handle_startpoint_response(endpoint)
   end
 
@@ -35,7 +35,7 @@ class OpenidConnect::AuthorizationsController < ApplicationController
   end
 
   def process_authorization_consent(approvedString)
-    endpoint = OpenidConnect::Authorization::EndpointConfirmationPoint.new(current_user, to_boolean(approvedString))
+    endpoint = OpenidConnect::Endpoints::EndpointConfirmationPoint.new(current_user, to_boolean(approvedString))
     restore_request_parameters(endpoint)
     handle_confirmation_endpoint_response(endpoint)
   end
@@ -56,7 +56,7 @@ class OpenidConnect::AuthorizationsController < ApplicationController
     req.update_param("redirect_uri", session[:redirect_uri])
     req.update_param("response_type", session[:response_type])
     endpoint.scopes, endpoint.request_object =
-      session[:scopes].map {|scope| Scope.find_by_name(scope) }, session[:request_object]
+      session[:scopes].map {|scope| OpenidConnect::Scope.find_by_name(scope) }, session[:request_object]
   end
 
   def to_boolean(str)

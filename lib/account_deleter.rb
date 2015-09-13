@@ -47,15 +47,16 @@ class AccountDeleter
   #user deletions
   def normal_ar_user_associates_to_delete
     %i(tag_followings invitations_to_me services aspects user_preferences
-       notifications blocks authorizations o_auth_applications tokens)
+       notifications blocks authorizations o_auth_applications o_auth_access_tokens)
   end
 
   def special_ar_user_associations
-    [:invitations_from_me, :person, :profile, :contacts, :auto_follow_back_aspect]
+    %i(invitations_from_me person profile contacts auto_follow_back_aspect)
   end
 
   def ignored_ar_user_associations
-    [:followed_tags, :invited_by, :contact_people, :aspect_memberships, :ignored_people, :conversation_visibilities, :conversations, :reports]
+    %i(followed_tags invited_by contact_people aspect_memberships
+       ignored_people conversation_visibilities conversations reports)
   end
 
   def delete_standard_user_associations

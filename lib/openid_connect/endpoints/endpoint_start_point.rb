@@ -1,5 +1,5 @@
 module OpenidConnect
-  module Authorization
+  module Endpoints
     class EndpointStartPoint < Endpoint
       def initialize(current_user)
         super(current_user)
@@ -24,7 +24,7 @@ module OpenidConnect
 
       def build_scopes(req)
         @scopes = req.scope.map {|scope|
-          Scope.where(name: scope).first.tap do |scope|
+          OpenidConnect::Scope.where(name: scope).first.tap do |scope|
             req.invalid_scope! "Unknown scope: #{scope}" unless scope
           end
         }

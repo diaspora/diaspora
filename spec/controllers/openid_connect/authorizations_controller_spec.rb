@@ -1,16 +1,16 @@
 require "spec_helper"
 
 describe OpenidConnect::AuthorizationsController, type: :controller do
-  let!(:client) { OAuthApplication.create!(name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/"]) }
+  let!(:client) { OpenidConnect::OAuthApplication.create!(name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/"]) }
   let!(:client_with_multiple_redirects) do
-    OAuthApplication.create!(
+    OpenidConnect::OAuthApplication.create!(
       name: "Diaspora Test Client", redirect_uris: ["http://localhost:3000/", "http://localhost/"])
   end
 
   before do
     sign_in :user, alice
     allow(@controller).to receive(:current_user).and_return(alice)
-    Scope.create!(name: "openid")
+    OpenidConnect::Scope.create!(name: "openid")
   end
 
   describe "#new" do
