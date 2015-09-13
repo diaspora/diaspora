@@ -451,7 +451,7 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.20)
-    naught (1.0.0)
+    naught (1.1.0)
     nenv (0.2.0)
     nested_form (0.3.2)
     net-scp (1.2.1)
