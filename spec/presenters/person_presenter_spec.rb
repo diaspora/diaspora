@@ -4,6 +4,11 @@ describe PersonPresenter do
   let(:profile_user) { FactoryGirl.create(:user_with_aspect) }
   let(:person) { profile_user.person }
 
+  let(:mutual_contact) { double(id: 1, mutual?: true,  sharing?: true,  receiving?: true) }
+  let(:receiving_contact) { double(id: 1, mutual?: false, sharing?: false, receiving?: true)  }
+  let(:sharing_contact) { double(id: 1, mutual?: false, sharing?: true,  receiving?: false) }
+  let(:non_contact) { double(id: 1, mutual?: false, sharing?: false, receiving?: false) }
+
   describe "#as_json" do
     context "with no current_user" do
       it "returns the user's public information if a user is not logged in" do
@@ -16,11 +21,22 @@ describe PersonPresenter do
       let(:presenter){ PersonPresenter.new(person, current_user) }
 
       it "doesn't share private information when the users aren't connected" do
+        allow(current_user).to receive(:contact_for) { non_contact }
+        expect(presenter.full_hash_with_profile[:profile]).not_to have_key(:location)
+      end
+
+      it "doesn't share private information when the current user is sharing with the person" do
+        allow(current_user).to receive(:contact_for) { receiving_contact }
         expect(presenter.full_hash_with_profile[:profile]).not_to have_key(:location)
       end
 
       it "has private information when the person is sharing with the current user" do
-        expect(person).to receive(:shares_with).with(current_user).and_return(true)
+        allow(current_user).to receive(:contact_for) { sharing_contact }
+        expect(presenter.full_hash_with_profile[:profile]).to have_key(:location)
+      end
+
+      it "has private information when the relationship is mutual" do
+        allow(current_user).to receive(:contact_for) { mutual_contact }
         expect(presenter.full_hash_with_profile[:profile]).to have_key(:location)
       end
 
@@ -32,10 +48,6 @@ describe PersonPresenter do
 
   describe "#full_hash" do
     let(:current_user) { FactoryGirl.create(:user) }
-    let(:mutual_contact) { double(:id => 1, :mutual? => true,  :sharing? => true,  :receiving? => true ) }
-    let(:receiving_contact) { double(:id => 1, :mutual? => false, :sharing? => false, :receiving? => true)  }
-    let(:sharing_contact) { double(:id => 1, :mutual? => false, :sharing? => true,  :receiving? => false) }
-    let(:non_contact) { double(:id => 1, :mutual? => false, :sharing? => false, :receiving? => false) }
 
     before do
       @p = PersonPresenter.new(person, current_user)
