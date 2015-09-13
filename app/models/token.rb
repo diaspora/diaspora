@@ -5,8 +5,10 @@ class Token < ActiveRecord::Base
 
   validates :token, presence: true, uniqueness: true
 
+  scope :valid, ->(time) { where("expires_at >= ?", time) }
+
   def setup
-    self.token      = SecureRandom.hex(32)
+    self.token = SecureRandom.hex(32)
     self.expires_at = 24.hours.from_now
   end
 
@@ -15,5 +17,9 @@ class Token < ActiveRecord::Base
       access_token: token,
       expires_in: (expires_at - Time.now.utc).to_i
     )
+  end
+
+  def accessible?(_scopes_or_claims_ = nil)
+    true # TODO: For now don't support scopes
   end
 end

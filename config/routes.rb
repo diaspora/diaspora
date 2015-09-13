@@ -246,7 +246,7 @@ Diaspora::Application.routes.draw do
     resources :authorizations, only: [:new, :create]
     match 'connect', to: 'connect#show', via: [:get, :post]
     match '.well-known/:id', to: 'discovery#show' , :via => [:get, :post]
-    match 'user_info',       to: 'user#show', :via => [:get, :post]
-    post 'access_tokens', to: proc { |env| TokenEndpoint.new.call(env) }
+    post 'access_tokens', to: proc { |env| Openid::TokenEndpoint.new.call(env) }
+    match 'user_info', to: 'users#show', :via => [:get, :post]
   end
 end

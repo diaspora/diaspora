@@ -279,6 +279,9 @@ group :test do
   gem "database_cleaner" ,  "1.5.1"
   gem "selenium-webdriver", "2.47.1"
 
+  gem "cucumber-api-steps", "0.13", require: false
+  gem "json_spec", "1.1.4"
+
   # General helpers
 
   gem "factory_girl_rails", "4.5.0"

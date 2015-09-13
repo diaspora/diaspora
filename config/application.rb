@@ -31,7 +31,7 @@ module Diaspora
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths      += %W{#{config.root}/app}
     config.autoload_once_paths += %W{#{config.root}/lib}
-    config.autoload_paths += %W{#{config.root}/lib/openid_connect}
+    config.autoload_paths += %W{#{config.root}/lib/openid}
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -108,5 +108,9 @@ module Diaspora
       host:     AppConfig.pod_uri.authority
     }
     config.action_mailer.asset_host = AppConfig.pod_uri.to_s
+
+    config.middleware.use Rack::OAuth2::Server::Resource::Bearer, 'OpenID Connect' do |req|
+      Token.valid(Time.now.utc).find_by(token: req.access_token) || req.invalid_token!
+    end
   end
 end
