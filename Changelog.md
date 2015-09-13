@@ -1,3 +1,8 @@
+# 0.5.3.1
+
+Fix a leak of potentially private profile data to unauthorized users who were sharing with the person
+and on a pod that received that data.
+
 # 0.5.3.0
 
 ## Refactor
