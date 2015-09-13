@@ -5,31 +5,31 @@ class AuthorizationsController < ApplicationController
     render :error, status: e.status
   end
 
+  before_action :authenticate_user!
+
   def new
     call_authorization_endpoint
   end
 
   def create
-    call_authorization_endpoint :allow_approval, params[:approve]
+    call_authorization_endpoint :is_create, params[:approve]
   end
 
   private
 
-  def call_authorization_endpoint(allow_approval = false, approved = false)
-    endpoint = AuthorizationEndpoint.new allow_approval, approved
+  def call_authorization_endpoint(is_create = false, approved = false)
+    endpoint = AuthorizationEndpoint.new current_user, is_create, approved
     rack_response = *endpoint.call(request.env)
     @client, @response_type, @redirect_uri, @scopes, @_request_, @request_uri, @request_object = *[
         endpoint.client, endpoint.response_type, endpoint.redirect_uri, endpoint.scopes, endpoint._request_, endpoint.request_uri, endpoint.request_object
     ]
-    require_authentication
     if (
-    !allow_approval &&
+    !is_create &&
         (max_age = @request_object.try(:id_token).try(:max_age)) &&
         current_account.last_logged_in_at < max_age.seconds.ago
     )
       flash[:notice] = 'Exceeded Max Age, Login Again'
       unauthenticate!
-      require_authentication
     end
     respond_as_rack_app *rack_response
   end
