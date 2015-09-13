@@ -465,6 +465,7 @@ ActiveRecord::Schema.define(version: 20150828132451) do
     t.integer "o_auth_application_id", limit: 4
     t.integer "user_id",               limit: 4
     t.string  "guid",                  limit: 32
+    t.string  "string",                limit: 32
     t.string  "sector_identifier",     limit: 255
   end
 
