@@ -298,4 +298,20 @@ describe Photo, :type => :model do
       @photo.receive_public
     end
   end
+
+  describe "#visible" do
+    context "with a current user" do
+      it "calls photos_from" do
+        expect(@user).to receive(:photos_from).with(@user.person, limit: :all, max_time: nil).and_call_original
+        Photo.visible(@user, @user.person)
+      end
+    end
+
+    context "without a current user" do
+      it "returns all public photos" do
+        expect(Photo).to receive(:where).with(author_id: @user.person.id, public: true).and_call_original
+        Photo.visible(nil, @user.person)
+      end
+    end
+  end
 end

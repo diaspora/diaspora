@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PhotosController < ApplicationController
-  before_action :authenticate_user!, :except => :show
+  before_action :authenticate_user!, except: %i(show index)
   respond_to :html, :json
 
   def show
@@ -19,15 +19,16 @@ class PhotosController < ApplicationController
   def index
     @post_type = :photos
     @person = Person.find_by_guid(params[:person_id])
+    authenticate_user! if @person.try(:remote?) && !user_signed_in?
 
     if @person
-      @contact = current_user.contact_for(@person)
-      @posts = current_user.photos_from(@person, max_time: max_time).order('created_at desc')
+      @contact = current_user.contact_for(@person) if user_signed_in?
+      @posts = Photo.visible(current_user, @person, :all, max_time)
       respond_to do |format|
         format.all do
           gon.preloads[:person] = PersonPresenter.new(@person, current_user).as_json
           gon.preloads[:photos] = {
-            count: current_user.photos_from(@person, limit: :all).count(:all)
+            count: Photo.visible(current_user, @person).count(:all)
           }
           gon.preloads[:contacts] = {
             count: Contact.contact_contacts_for(current_user, @person).count(:all),
