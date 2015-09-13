@@ -81,6 +81,11 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Add new moderator role. Moderators can view and act on reported posts [#6351](https://github.com/diaspora/diaspora/pull/6351)
 * Only post to the primary tumblr blog [#6386](https://github.com/diaspora/diaspora/pull/6386)
 
+# 0.5.3.1
+
+Fix a leak of potentially private profile data to unauthorized users who were sharing with the person
+and on a pod that received that data.
+
 # 0.5.3.0
 
 ## Refactor
