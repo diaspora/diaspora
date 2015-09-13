@@ -41,7 +41,9 @@ class PersonPresenter < BasePresenter
   end
 
   def person_is_following_current_user
-    @presentable.shares_with(current_user)
+    return false unless current_user
+    contact = current_user_person_contact
+    contact && contact.sharing?
   end
 
   def full_hash_with_profile
