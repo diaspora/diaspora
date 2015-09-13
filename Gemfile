@@ -195,6 +195,8 @@ gem "rubyzip", "1.1.7"
 # https://github.com/discourse/discourse/pull/238
 gem "minitest"
 
+gem "versionist", "1.4.1"
+
 # Windows and OSX have an execjs compatible runtime built-in, Linux users should
 # install Node.js or use "therubyracer".
 #

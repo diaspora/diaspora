@@ -3,16 +3,9 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  include Openid::Authentication
 
   before_action :authenticate_user!, except: [:new, :create, :public, :user_photo]
-  before_filter :require_access_token, only: [:show]
   respond_to :html
-
-  # TODO: Adjust so that it sends back only required elements, e.g, should not send hashed password (serialized_private_key) back
-  def show
-    render json: current_user
-  end
 
   def edit
     @aspect = :user_edit
