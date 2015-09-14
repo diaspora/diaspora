@@ -32,7 +32,7 @@ gem "simple_captcha2", "0.3.4", require: "simple_captcha"
 
 # Background processing
 
-gem "sidekiq", "3.4.2"
+gem "sidekiq", "3.5.0"
 gem "sinatra", "1.4.6"
 
 # Scheduled processing
@@ -208,7 +208,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Process management
 
-  gem "eye", "0.7.pre"
+  gem "eye", "0.8.pre"
 
   # Redirects
 
