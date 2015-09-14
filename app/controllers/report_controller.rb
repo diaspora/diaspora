@@ -7,7 +7,10 @@ class ReportController < ApplicationController
   before_action :redirect_unless_moderator, except: [:create]
 
   def index
-    @reports = Report.where(reviewed: false)
+    @reports ||= []
+    Report.where(reviewed: false).each do |report|
+      @reports << report unless report.item.nil?
+    end
   end
 
   def update
