@@ -1,0 +1,23 @@
+/* Raw CSS */
+body {
+  #left-navbar .hoverable { border-bottom: none; }
+
+  #left-navbar-fixed-sub-background { background: $sidebars-background; }
+  #left-navbar-fixed-background {
+    background: $sidebars-background;
+    border-right: 1px solid $sidebars-background;
+  }
+  #left-navbar {
+    background: $sidebars-background;
+    border-right: 1px solid $sidebars-background;
+  }
+  #right-sidebar-fixed-sub-background { background: $sidebars-background; }
+  #right-sidebar-fixed-background {
+    background: $sidebars-background;
+    border-left: 1px solid $sidebars-background;
+  }
+  .rightbar {
+    background: $sidebars-background;
+    border-left: 1px solid $sidebars-background;
+  }
+}
