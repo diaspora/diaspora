@@ -84,7 +84,7 @@ class PeopleController < ApplicationController
         end
         gon.preloads[:person] = @person_json
         gon.preloads[:photos] = {
-          count: photos_from(@person, :all).count(:all)
+          count: Photo.visible(current_user, @person).count(:all)
         }
         gon.preloads[:contacts] = {
           count: Contact.contact_contacts_for(current_user, @person).count(:all),
@@ -146,7 +146,7 @@ class PeopleController < ApplicationController
           @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
           gon.preloads[:person] = PersonPresenter.new(@person, current_user).as_json
           gon.preloads[:photos] = {
-            count: photos_from(@person, :all).count(:all)
+            count: Photo.visible(current_user, @person).count(:all)
           }
           gon.preloads[:contacts] = {
             count: @contacts_of_contact.count(:all),
@@ -222,14 +222,6 @@ class PeopleController < ApplicationController
 
   def remote_profile_with_no_user_session?
     @person.try(:remote?) && !user_signed_in?
-  end
-
-  def photos_from(person, limit)
-    @photos ||= if user_signed_in?
-      current_user.photos_from(person, limit: limit)
-    else
-      Photo.where(author_id: person.id, public: true)
-    end.order('created_at desc')
   end
 
   def mark_corresponding_notifications_read

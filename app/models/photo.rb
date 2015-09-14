@@ -145,4 +145,13 @@ class Photo < ActiveRecord::Base
   def mutable?
     true
   end
+
+  def self.visible(current_user, person, limit=:all, max_time=nil)
+    photos = if current_user
+               current_user.photos_from(person, limit: limit, max_time: max_time)
+             else
+               Photo.where(author_id: person.id, public: true)
+             end
+    photos.order("created_at desc")
+  end
 end

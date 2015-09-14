@@ -205,19 +205,6 @@ describe PeopleController, :type => :controller do
       expect(response.body).not_to include(profile.first_name)
     end
 
-    it "doesn't leak photos in the sidebar" do
-      private_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: false)
-      public_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: true)
-      allow(@user.person).to receive(:remote?) { false }
-
-      sign_out :user
-      get :show, id: @user.person.to_param
-
-      expect(response).to be_success
-      expect(assigns(:photos)).not_to include private_photo
-      expect(assigns(:photos)).to include public_photo
-    end
-
     it "displays the correct number of photos" do
       16.times do |i|
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
