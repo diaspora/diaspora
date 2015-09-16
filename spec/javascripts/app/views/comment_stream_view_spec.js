@@ -5,20 +5,11 @@ describe("app.views.CommentStream", function(){
   });
 
   describe("binds", function() {
-    it("re-renders on a commentsExpanded trigger", function(){
-      spyOn(this.view, "render");
+    it("calls appendComment on insertion to the comments collection", function() {
+      spyOn(this.view, "appendComment");
       this.view.setupBindings();
-      this.view.model.trigger("commentsExpanded");
-      expect(this.view.render).toHaveBeenCalled();
-    });
-  });
-
-  describe("postRenderTemplate", function(){
-    it("autoResizes the new comment textarea", function(){
-      spyOn(window.autosize, "update");
-      this.view.postRenderTemplate();
-      expect(window.autosize.update).toHaveBeenCalled();
-      expect(window.autosize.update.calls.mostRecent().args[0].selector).toBe("textarea");
+      this.view.model.comments.push(factory.comment());
+      expect(this.view.appendComment).toHaveBeenCalled();
     });
   });
 
@@ -79,10 +70,23 @@ describe("app.views.CommentStream", function(){
       this.view.appendComment(comment);
       expect(comment.set).toHaveBeenCalled();
     });
+
+    it("sorts comments in the right order", function() {
+      this.view.render();
+      this.view.appendComment(factory.comment({"created_at": new Date(2000).toJSON(), "text": "2"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(4000).toJSON(), "text": "4"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(5000).toJSON(), "text": "5"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(6000).toJSON(), "text": "6"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(1000).toJSON(), "text": "1"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(3000).toJSON(), "text": "3"}));
+
+      expect(this.view.$(".comments div.comment.media").length).toEqual(6);
+      expect(this.view.$(".comments div.comment.media div.comment-content p").text()).toEqual("123456");
+    });
   });
 
   describe("expandComments", function() {
-    it("refills the comment textbox on success", function() {
+    it("doesn't drop the comment textbox value on success", function() {
       this.view.render();
       this.view.$("textarea").val("great post!");
       this.view.expandComments();
