@@ -1,6 +1,6 @@
 .comment_stream {
   .show_comments {
-    margin-top: 5px;
+    /*margin-top: 5px;*/
     /*border-top: 1px solid $border-grey;*/
     a {
       color: $text-grey;
@@ -11,6 +11,17 @@
 
   .comment.new_comment_form_wrapper .bd .comment_box{ border: none;}
 
+  .comments > .comment {
+    margin: -13px 0px;
+    /*border-top: 1px dotted $border-grey;*/
+    padding: 3px 0;
+  }
+
+  .comment.new_comment_form_wrapper {
+    padding-bottom: 10px;
+    margin: 0px;
+  }
+
   .comments > .comment, .comment.new_comment_form_wrapper {
     &:before{
       content: "";
@@ -18,7 +29,7 @@
       position: relative;
       width: 0;
       height: 0;
-      left: 34px;
+      left: 44px;
       top: 20px;
 
       border-right: 11px solid $light-grey;
@@ -29,16 +40,13 @@
     .avatar {
       height: 35px;
       width: 35px;
+      margin-right: 10px;
     }
-    margin: 0;
-    /*border-top: 1px dotted $border-grey;*/
-    padding: 10px 0;
 
     .bd {
       margin-right: 10px;
       padding: 5px;
       box-shadow: 0px 1px 1px 1px $light-grey;/*rgba(0, 0, 0, 0.16);*/
-      border-top: 1px solid $light-grey;
     }
 
     .info {
