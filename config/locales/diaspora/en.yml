@@ -102,10 +102,7 @@ en:
       weekly_user_stats: "Weekly user stats"
       pod_stats: "Pod stats"
       report: "Reports"
-      correlations: "Correlations"
       sidekiq_monitor: "Sidekiq monitor"
-    correlations:
-      correlations_count: "Correlations with sign-in count:"
     user_search:
       you_currently:
         zero: "You currently have no invites left %{link}"

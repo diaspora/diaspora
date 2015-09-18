@@ -21,11 +21,15 @@ describe("app.views.StreamFaces", function(){
     expect(this.view.people.length).toBe(5);
   });
 
-  it("findsPeople when the collection changes", function(){
+  it("Finds people that were added to the collection", function() {
     this.posts.add(factory.post({author : factory.author({name : "Harriet Tubman"})}));
     expect(this.view.people.length).toBe(6);
   });
 
+  it("Finds people that were removed from the collection", function() {
+    this.posts.remove([this.post2, this.post3]);
+    expect(this.view.people.length).toBe(3);
+  });
 
   describe(".render", function(){
     beforeEach(function(){

@@ -38,13 +38,6 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
              .done(function(){ app.events.trigger('person:block:'+personId); });
   },
 
-  toggleFavorite : function(options){
-    this.set({favorite : !this.get("favorite")});
-
-    /* guard against attempting to save a model that a user doesn't own */
-    if(options.save){ this.save() }
-  },
-
   headline : function() {
     var headline = this.get("text").trim()
       , newlineIdx = headline.indexOf("\n");

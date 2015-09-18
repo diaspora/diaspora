@@ -1,5 +1,5 @@
 #aspect_nav
-  %ul.nav.nav-tabs.nav-stacked.synced
+  %ul.nav.nav-tabs.nav-stacked.ui-sortable
     %li.all_contacts{:class => ("active" if params["set"] == "all")}
       %a{:href => contacts_path(:set => "all")}
         = t('contacts.index.all_contacts')

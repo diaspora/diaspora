@@ -158,6 +158,8 @@ en:
 
     conversation:
       participants: "Participants"
+      new:
+        no_contacts: "You need to add some contacts before you can start a conversation."
 
     notifications:
       mark_read: "Mark read"
@@ -217,6 +219,7 @@ en:
       settings: "Settings"
       help: "Help"
       admin: "Admin"
+      moderator: "Moderator"
       log_out: "Log out"
 
       notifications: "Notifications"

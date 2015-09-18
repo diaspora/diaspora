@@ -225,11 +225,10 @@ describe 'a user receives a post', :type => :request do
         Profile.where(:person_id => remote_person.id).delete_all
         remote_person.attributes.delete(:id) # leaving a nil id causes it to try to save with id set to NULL in postgres
 
-        m = double()
-        expect(Webfinger).to receive(:new).twice.with(eve.person.diaspora_handle).and_return(m)
         remote_person.save(:validate => false)
         remote_person.profile = FactoryGirl.create(:profile, :person => remote_person)
-        expect(m).to receive(:fetch).twice.and_return(remote_person)
+        expect(Person).to receive(:find_or_fetch_by_identifier).twice.with(eve.person.diaspora_handle)
+                            .and_return(remote_person)
 
         expect(bob.reload.visible_shareables(Post).size).to eq(1)
         post_in_db = StatusMessage.find(@post.id)

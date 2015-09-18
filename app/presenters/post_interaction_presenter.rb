@@ -7,7 +7,7 @@ class PostInteractionPresenter
   def as_json(_options={})
     {
       likes:          as_api(@post.likes),
-      reshares:       PostPresenter.collection_json(@post.reshares, @current_user),
+      reshares:       PostPresenter.as_collection(@post.reshares, :as_json, @current_user),
       comments:       CommentPresenter.as_collection(@post.comments.order("created_at ASC")),
       participations: as_api(participations),
       comments_count: @post.comments_count,
@@ -15,6 +15,8 @@ class PostInteractionPresenter
       reshares_count: @post.reshares_count
     }
   end
+
+  private
 
   def participations
     return @post.participations.none unless @current_user

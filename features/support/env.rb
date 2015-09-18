@@ -68,9 +68,6 @@ require Rails.root.join('spec', 'support', 'inlined_jobs')
 require Rails.root.join('spec', 'support', 'user_methods')
 include HelperMethods
 
-# require 'webmock/cucumber'
-# WebMock.disable_net_connect!(:allow_localhost => true)
-
 Before do
   Devise.mailer.deliveries = []
 end

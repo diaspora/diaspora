@@ -117,6 +117,24 @@ describe NotificationsController, :type => :controller do
         expect(assigns[:notifications].count).to eq(1)
       end
     end
+
+    context "after deleting a person" do
+      before do
+        user = FactoryGirl.create(:user_with_aspect)
+        user.share_with(alice.person, user.aspects.first)
+        user.person.delete
+      end
+
+      it "succeeds" do
+        get :index
+        expect(response).to be_success
+      end
+
+      it "succeeds on mobile" do
+        get :index, format: :mobile
+        expect(response).to be_success
+      end
+    end
   end
 
   describe "#read_all" do

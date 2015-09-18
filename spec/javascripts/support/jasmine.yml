@@ -77,3 +77,6 @@ src_dir:
 # spec_dir: spec/javascripts
 #
 spec_dir: spec/javascripts
+
+rack_options:
+  Host: '0.0.0.0'

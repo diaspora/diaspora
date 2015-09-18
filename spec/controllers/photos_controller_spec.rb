@@ -82,6 +82,16 @@ describe PhotosController, :type => :controller do
       expect(response).to be_success
     end
 
+    it "succeeds on mobile devices without any available pictures" do
+      get :index, format: :mobile, person_id: FactoryGirl.create(:person).guid.to_s
+      expect(response).to be_success
+    end
+
+    it "succeeds on mobile devices with available pictures" do
+      get :index, format: :mobile, person_id: bob.person.guid.to_s
+      expect(response).to be_success
+    end
+
     it "displays the logged in user's pictures" do
       get :index, :person_id => alice.person.guid.to_s
       expect(assigns[:person]).to eq(alice.person)
@@ -119,6 +129,49 @@ describe PhotosController, :type => :controller do
                   max_time: max_time.to_i
 
       expect(assigns[:posts]).to be_empty
+    end
+
+    context "with no user signed in" do
+      before do
+        sign_out :user
+        @person = bob.person
+      end
+
+      it "succeeds" do
+        get :index, person_id: @person.to_param
+        expect(response.status).to eq(200)
+      end
+
+      it "succeeds on the mobile site" do
+        get :index, person_id: @person.to_param, format: :mobile
+        expect(response).to be_success
+      end
+
+      it "forces to sign in if the person is remote" do
+        p = FactoryGirl.create(:person)
+
+        get :index, person_id: p.to_param
+        expect(response).to be_redirect
+        expect(response).to redirect_to new_user_session_path
+      end
+
+      it "displays the correct number of photos" do
+        16.times do
+          eve.post(:photo, user_file: uploaded_photo, to: eve.aspects.first.id, public: true)
+        end
+        get :index, person_id: eve.person.to_param
+        expect(response.body).to include '"photos":{"count":16}'
+
+        eve.post(:photo, user_file: uploaded_photo, to: eve.aspects.first.id, public: false)
+        get :index, person_id: eve.person.to_param
+        expect(response.body).to include '"photos":{"count":16}'
+      end
+
+      it "displays a person's pictures" do
+        get :index, person_id: bob.person.guid.to_s
+        expect(assigns[:person]).to eq(bob.person)
+        expect(assigns[:posts]).to eq([@bobs_photo])
+      end
     end
   end
 

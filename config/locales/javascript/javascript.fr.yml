@@ -55,6 +55,8 @@ fr:
       remove_contact: "Retirer ce contact"
       search_no_results: "Aucun contact trouvé"
     conversation:
+      new:
+        no_contacts: "Vous devez ajouter des contacts avant de pouvoir démarrer une conversation."
       participants: "Participants"
     create: "Créer"
     delete: "Effacer"

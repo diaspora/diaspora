@@ -53,15 +53,12 @@ zh-TW:
               taken: "已經有人使用。"
   admins:
     admin_bar:
-      correlations: "關聯性"
       pages: "分頁"
       pod_stats: "豆莢統計資料"
       report: "回報"
       sidekiq_monitor: "Sidekiq 監視器"
       user_search: "使用者搜尋"
       weekly_user_stats: "使用者統計週報"
-    correlations:
-      correlations_count: "與登入次數間的關聯"
     stats:
       2weeks: "兩個禮拜"
       50_most: "最夯的50個標籤"

@@ -53,15 +53,12 @@ pt-BR:
               taken: "já foi escolhido."
   admins:
     admin_bar:
-      correlations: "Correlações"
       pages: "Páginas"
       pod_stats: "Status do Servidor"
       report: "Relatos"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Busca de Usuários"
       weekly_user_stats: "Estatísticas Semanais"
-    correlations:
-      correlations_count: "Contas similares:"
     stats:
       2weeks: "2 Semanas"
       50_most: "50 Tags Mais Populares"
@@ -768,6 +765,20 @@ pt-BR:
     private_message:
       reply_to_or_view: "Responder ou visualizar esta conversa >"
     remove_old_user:
+      body: |-
+          Olá,
+
+          Parece que você não quer mais sua conta em %{pod_url} , pois você não têm ultilizado por %{after_days} dias. Para garantir que nossos usuários ativos obtenham o melhor desempenho nesse servidor diáspora*, nós gostaríamos de remover contas indesejadas de nosso banco de dados.
+
+          Gostaríamos muito que fique e continue a fazer parte da comunidade Diaspora*, voce está convidado a manter a sua conta ativa, se desejar.
+
+          Se quiser manter sua conta ativa, tudo que precisa fazer é entrar em sua conta antes de %{remove_after}. Quando você entrar, reserve um momento para dar uma olhada em diáspora *. Ele mudou muito desde a última vez que eu o vi, e acho que você vai gostar das melhorias que fizemos. Siga algumas #tags para encontrar o conteúdo que você gosta.
+
+          Entre por aqui:  %{login_url} . Se você esqueceu seus dados de login, você pode recupera-los nesta página.
+
+          Esperamos vê-lo em breve,
+
+          E-mail robô de Diaspora*!
       subject: "A sua conta no diaspora* foi marcada para a remoção devido a inatividade"
     report_email:
       body: |-

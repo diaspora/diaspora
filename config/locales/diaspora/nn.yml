@@ -43,14 +43,11 @@ nn:
               taken: "er allereie i bruk."
   admins:
     admin_bar:
-      correlations: "Korrelasjonar"
       pages: "Sidar"
       pod_stats: "Pod-statistikk"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Brukarsøk"
       weekly_user_stats: "Brukarstatistikk per veke"
-    correlations:
-      correlations_count: "Correlations with Sign In Count:"
     stats:
       2weeks: "2 veker"
       50_most: "50 mest populære tags"

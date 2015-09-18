@@ -1,6 +1,10 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
 .container
   %div
-    = render :partial => 'admins/admin_bar'
+    - if current_user.admin?
+      = render :partial => 'admins/admin_bar'
 
   %div.row
     %div.span12

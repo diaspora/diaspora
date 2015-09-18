@@ -1,39 +1,63 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe Services::Tumblr, :type => :model do
+describe Services::Tumblr, type: :model do
+  let(:user) { alice }
+  let(:post) { user.post(:status_message, text: "hello", to: user.aspects.first.id) }
+  let(:service) { Services::Tumblr.new(access_token: "yeah", access_secret: "foobar") }
+  let(:post_id) { "bla" }
 
-  before do
-    @user = alice
-    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id)
-    @service = Services::Tumblr.new(:access_token => "yeah", :access_secret => "foobar")
-    @user.services << @service
-  end
+  describe "#post" do
+    let(:post_request) { {body: service.build_tumblr_post(post, "")} }
+    let(:post_response) { {status: 201, body: {response: {id: post_id}}.to_json} }
 
-  describe '#post' do
-    it 'posts a status message to tumblr and saves the returned ids' do
-      response = double(body: '{"response": {"user": {"blogs": [{"url": "http://foo.tumblr.com"}]}}}')
-      expect_any_instance_of(OAuth::AccessToken).to receive(:get)
-      .with("/v2/user/info")
-      .and_return(response)
+    before do
+      user.services << service
+      stub_request(:get, "http://api.tumblr.com/v2/user/info").to_return(status: 200, body: user_info)
+    end
 
-      response = double(code: "201", body: '{"response": {"id": "bla"}}')
-      expect_any_instance_of(OAuth::AccessToken).to receive(:post)
-      .with("/v2/blog/foo.tumblr.com/post", @service.build_tumblr_post(@post, ''))
-      .and_return(response)
+    context "with multiple blogs" do
+      let(:user_info) {
+        {response: {user: {blogs: [
+          {primary: false, url: "http://foo.tumblr.com"},
+          {primary: true, url: "http://bar.tumblr.com"}
+        ]}}}.to_json
+      }
 
-      expect(@post).to receive(:tumblr_ids=).with({"foo.tumblr.com" => "bla"}.to_json)
+      it "posts a status message to the primary blog and stores the id" do
+        stub = stub_request(:post, "http://api.tumblr.com/v2/blog/bar.tumblr.com/post")
+         .with(post_request).to_return(post_response)
 
-      @service.post(@post)
+        expect(post).to receive(:tumblr_ids=).with({"bar.tumblr.com" => post_id}.to_json)
+
+        service.post(post)
+
+        expect(stub).to have_been_requested
+      end
+    end
+
+    context "with a single blog" do
+      let(:user_info) { {response: {user: {blogs: [{url: "http://foo.tumblr.com"}]}}}.to_json }
+
+      it "posts a status message to the returned blog" do
+        stub = stub_request(:post, "http://api.tumblr.com/v2/blog/foo.tumblr.com/post")
+         .with(post_request).to_return(post_response)
+
+        service.post(post)
+
+        expect(stub).to have_been_requested
+      end
     end
   end
 
-  describe '#delete_post' do
-    it 'removes posts from tumblr' do
-      stub_request(:post, "http://api.tumblr.com/v2/blog/foodbar.tumblr.com/post/delete").
-        to_return(:status => 200)
+  describe "#delete_post" do
+    it "removes posts from tumblr" do
+      post.tumblr_ids = {"foodbar.tumblr.com" => post_id}.to_json
+      stub = stub_request(:post, "http://api.tumblr.com/v2/blog/foodbar.tumblr.com/post/delete")
+        .with(body: {"id" => post_id}).to_return(status: 200)
 
-      @service.delete_post(@post)
+      service.delete_post(post)
+
+      expect(stub).to have_been_requested
     end
   end
 end
-

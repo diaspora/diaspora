@@ -53,15 +53,12 @@ de_formal:
               taken: "wird schon benutzt."
   admins:
     admin_bar:
-      correlations: "Korrelationen"
       pages: "Seiten"
       pod_stats: "Pod-Statistiken"
       report: "Meldungen"
       sidekiq_monitor: "Sidekiq-Monitor"
       user_search: "Benutzersuche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
-    correlations:
-      correlations_count: "Korrelationen mit der Anzahl der Anmeldungen:"
     stats:
       2weeks: "2 Wochen"
       50_most: "Die 50 populärsten Tags"

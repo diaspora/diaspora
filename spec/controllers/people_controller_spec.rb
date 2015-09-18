@@ -205,19 +205,6 @@ describe PeopleController, :type => :controller do
       expect(response.body).not_to include(profile.first_name)
     end
 
-    it "doesn't leak photos in the sidebar" do
-      private_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: false)
-      public_photo = @user.post(:photo, user_file: uploaded_photo, to: @aspect.id, public: true)
-      allow(@user.person).to receive(:remote?) { false }
-
-      sign_out :user
-      get :show, id: @user.person.to_param
-
-      expect(response).to be_success
-      expect(assigns(:photos)).not_to include private_photo
-      expect(assigns(:photos)).to include public_photo
-    end
-
     it "displays the correct number of photos" do
       16.times do |i|
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
@@ -270,6 +257,11 @@ describe PeopleController, :type => :controller do
         expect(response).to be_redirect
         expect(response).to redirect_to new_user_session_path
       end
+
+      it "leaks no private profile info" do
+        get :show, id: @person.to_param
+        expect(response.body).not_to include(@person.profile.bio)
+      end
     end
 
     context "when the person is a contact of the current user" do
@@ -295,6 +287,11 @@ describe PeopleController, :type => :controller do
           note.reload
         }.to change(Notification.where(:unread => true), :count).by(-1)
       end
+
+      it "includes private profile info" do
+        get :show, id: @person.to_param
+        expect(response.body).to include(@person.profile.bio)
+      end
     end
 
     context "when the person is not a contact of the current user" do
@@ -310,6 +307,24 @@ describe PeopleController, :type => :controller do
       it 'succeeds on the mobile site' do
         get :show, :id => @person.to_param, :format => :mobile
         expect(response).to be_success
+      end
+
+      it "leaks no private profile info" do
+        get :show, id: @person.to_param
+        expect(response.body).not_to include(@person.profile.bio)
+      end
+    end
+
+    context "when the user is following the person" do
+      before do
+        sign_out :user
+        sign_in :user, peter
+        @person = alice.person
+      end
+
+      it "leaks no private profile info" do
+        get :show, id: @person.to_param
+        expect(response.body).not_to include(@person.profile.bio)
       end
     end
   end

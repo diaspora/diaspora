@@ -124,15 +124,5 @@ describe StatisticsPresenter do
         )
       end
     end
-
-    context "when registrations are closed" do
-      before do
-        AppConfig.settings.enable_registrations = false
-      end
-
-      it "should mark open_registrations to be false" do
-        expect(@presenter.open_registrations?).to be false
-      end
-    end
   end
 end

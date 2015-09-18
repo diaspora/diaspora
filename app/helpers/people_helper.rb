@@ -32,6 +32,7 @@ module PeopleHelper
   end
 
   def person_image_tag(person, size = :thumb_small)
+    return "" if person.nil? || person.profile.nil?
     image_tag(person.profile.image_url(size), :alt => person.name, :class => 'avatar', :title => person.name, 'data-person_id' => person.id)
   end
 

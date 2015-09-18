@@ -43,14 +43,11 @@ sl:
               taken: "je že zaseden."
   admins:
     admin_bar:
-      correlations: "Korelacije"
       pages: "Strani"
       pod_stats: "Statistika Poda"
       sidekiq_monitor: "Sidekiq zaslon"
       user_search: "Iskanje uporabnikov"
       weekly_user_stats: "Tedenska statistika uporabnikov"
-    correlations:
-      correlations_count: "Korelacija s prijavami:"
     stats:
       2weeks: "2 tedna"
       50_most: "50 najbolj priljubljenih oznak"

@@ -52,15 +52,12 @@ es:
               taken: "está en uso."
   admins:
     admin_bar:
-      correlations: "Similitudes"
       pages: "Páginas"
       pod_stats: "Estadísticas del servidor"
       report: "Informes"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Buscar usuario"
       weekly_user_stats: "Estadísticas Semanales del Usuario"
-    correlations:
-      correlations_count: "Cuentas similares:"
     stats:
       2weeks: "2 semanas"
       50_most: "Las 50 etiquetas más leídas."
@@ -312,6 +309,7 @@ es:
       send: "Enviar"
       sending: "Enviando..."
       subject: "Asunto"
+      subject_default: "Sin asunto"
       to: "Para"
     new_conversation:
       fail: "Mensaje no válido"

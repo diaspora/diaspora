@@ -58,6 +58,8 @@ da:
       remove_contact: "Fjern kontakt"
       search_no_results: "Ingen kontakter fundet"
     conversation:
+      new:
+        no_contacts: "Du skal tilføje en eller flere kontakter før du kan starte en samtale."
       participants: "Deltagere"
     create: "Opret"
     delete: "Slet"

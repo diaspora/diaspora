@@ -21,4 +21,9 @@
               .time_notif
                 = timeago(note.created_at)
 
-  = will_paginate @notifications, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+  = will_paginate @notifications,
+    previous_label: "&laquo;",
+    next_label: "&raquo;",
+    inner_window: 1,
+    outer_window: 0,
+    renderer: WillPaginate::ActionView::BootstrapLinkRenderer

@@ -90,7 +90,7 @@ module UserCukeHelpers
 
   # submit forgot password form to get reset password link
   def submit_forgot_password_form
-    find("#new_user input.button").click
+    find("#new_user input.btn").click
   end
 
   # fill the reset password form
@@ -101,7 +101,7 @@ module UserCukeHelpers
 
   # submit reset password form
   def submit_reset_password_form
-    find(".button").click
+    find(".btn").click
   end
 
   def confirm_not_signed_up

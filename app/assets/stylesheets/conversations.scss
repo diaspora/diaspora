@@ -202,6 +202,11 @@
 
 #conversation_new {
   label { font-weight: bold; }
+
+  .well {
+    font-weight: bold;
+    margin-top: 25px;
+  }
 }
 
 #no_conversations,
