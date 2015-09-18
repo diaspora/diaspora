@@ -22,7 +22,7 @@ Feature: show contacts
     And I sign out
     And I sign in as "alice@alice.alice"
     And I am on "robert@grimm.grimm"'s page
-    Then I should see "Contacts" within "#profile_horizontal_bar"
+    Then I should see "Contacts" within "#profile-horizontal-bar"
 
     When I press the first "#contacts_link"
     And I press the first "a" within "#people_stream .media-body"
@@ -38,4 +38,4 @@ Feature: show contacts
 
     And I sign in as "alice@alice.alice"
     And I am on "robert@grimm.grimm"'s page
-    Then I should not see "Contacts" within "#profile_horizontal_bar"
+    Then I should not see "Contacts" within "#profile-horizontal-bar"

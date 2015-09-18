@@ -25,7 +25,7 @@ Feature: show photos
     Scenario: I cannot see photos of people who don't share with me
       When I sign in as "alice@alice.alice"
       And I am on "robert@grimm.grimm"'s page
-      Then I should not see "Photos" within "#profile_horizontal_bar"
+      Then I should not see "Photos" within "#profile-horizontal-bar"
 
     Scenario: I delete a photo
       When I am on "robert@grimm.grimm"'s photos page
@@ -33,4 +33,4 @@ Feature: show photos
       And I confirm the alert
       Then I should not see a ".stream"
       When I am on "robert@grimm.grimm"'s page
-      Then I should not see "Photos" within "#profile_horizontal_bar"
+      Then I should not see "Photos" within "#profile-horizontal-bar"

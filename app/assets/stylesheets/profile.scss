@@ -1,15 +1,19 @@
+body.page-people.action-show, body.page-people.action-contacts {
+  background-color: $sidebars-background;
+}
+
 #profile_container {
   .profile_header {
-    margin-bottom: 20px;
-    border-left: 1px solid #dddddd;
+    margin-bottom: 15px;
+    background-color: $white;
     padding-left: 10px;
+    padding-right: 10px;
     padding-top: 20px;
-    margin-left: -10px;
     margin-top: -20px;
+    box-shadow: $card-shadow;
 
     #edit_profile, #unblock_user_button, .aspect_dropdown {
-      margin-top: 5px;
-      margin-right: 10px;
+      margin-top: 15px;
     }
 
     #author_info {
@@ -51,9 +55,8 @@
       }
     }
 
-    #profile_horizontal_bar {
+    #profile-horizontal-bar {
       border-top: 1px dashed $border-grey;
-      border-bottom: 1px solid $border-grey;
       min-height: 50px;
       margin-top: 10px;
       #profile_buttons {
@@ -106,15 +109,20 @@
   }
 
   #profile {
-    padding: 10px 20px;
+    background-color: $white;
+    padding: 20px;
+    margin-top: -10px;
+    margin-bottom: 35px;
+    box-shadow: $card-shadow;
+
     #profile_photo {
       margin-top: 10px;
       padding-bottom: 10px;
-      border-bottom: 1px dashed $border-grey;
       text-align: center;
     }
 
     ul#profile_information {
+      border-top: 1px dashed $border-grey;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -129,6 +137,11 @@
   }
 
   .stream_container > .pagination { text-align: center; }
+
+  #people_stream {
+    background-color: $white;
+    box-shadow: $card-shadow;
+  }
 }
 
 #email-form{

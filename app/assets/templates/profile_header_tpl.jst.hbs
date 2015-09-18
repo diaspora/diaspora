@@ -1,43 +1,46 @@
-{{#if loggedIn}}
-  <div class="pull-right">
-    {{#if is_own_profile}}
-      {{!-- can't block myself, so don't check it here --}}
-      <a href="{{urlTo 'editProfile'}}" id="edit_profile" class="btn btn-primary">{{t 'people.edit_my_profile'}}</a>
-    {{else}} {{#if is_blocked}}
-      <a href="#" id="unblock_user_button" class="btn btn-danger">{{t 'people.stop_ignoring'}}</a>
-    {{else}}
-      <div class="placeholder aspect_membership_dropdown"></div>
-    {{/if}}{{/if}}
-  </div>
-{{/if}}
+<div id="author_info" class="row">
+  <div class="col-sm-10">
+    <h2>
+      <span id="name">{{name}}</span>
+      <span id="diaspora_handle">{{diaspora_id}}</span>
+      {{#if show_profile_btns}}
+        {{{sharingMessage this}}}
+      {{/if}}
+    </h2>
 
-<div id="author_info">
-  <h2>
-    <span id="name">{{name}}</span>
-    <span id="diaspora_handle">{{diaspora_id}}</span>
-    {{#if show_profile_btns}}
-      {{{sharingMessage this}}}
-    {{/if}}
-  </h2>
-
-  {{#if has_tags}}
-    <div class="description">
-      <i class="entypo-tag"></i>
-      {{fmtTags profile.tags}}
-    </div>
-  {{else}}
-    {{#if is_own_profile}}
+    {{#if has_tags}}
       <div class="description">
-        <i>{{t 'profile.you_have_no_tags'}}</i>
-        <span class="add_tags">
-          <a href="{{urlTo 'editProfile'}}">{{t 'profile.add_some'}}</a>
-        </span>
+        <i class="entypo-tag"></i>
+        {{fmtTags profile.tags}}
+      </div>
+    {{else}}
+      {{#if is_own_profile}}
+        <div class="description">
+          <i>{{t 'profile.you_have_no_tags'}}</i>
+          <span class="add_tags">
+            <a href="{{urlTo 'editProfile'}}">{{t 'profile.add_some'}}</a>
+          </span>
+        </div>
+      {{/if}}
+    {{/if}}
+  </div>
+  <div class="clearfix col-sm-2">
+    {{#if loggedIn}}
+      <div class="pull-right">
+        {{#if is_own_profile}}
+        {{!-- can't block myself, so don't check it here --}}
+          <a href="{{urlTo 'editProfile'}}" id="edit_profile" class="btn btn-primary">{{t 'people.edit_my_profile'}}</a>
+        {{else}} {{#if is_blocked}}
+          <a href="#" id="unblock_user_button" class="btn btn-danger">{{t 'people.stop_ignoring'}}</a>
+        {{else}}
+          <div class="placeholder aspect_membership_dropdown"></div>
+        {{/if}}{{/if}}
       </div>
     {{/if}}
-  {{/if}}
+  </div>
 </div>
 
-<div id="profile_horizontal_bar">
+<div id="profile-horizontal-bar">
   {{#if show_profile_btns}}
     <div id="profile_buttons" class="pull-right">
       {{#if is_receiving}}
