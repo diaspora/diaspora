@@ -21,41 +21,39 @@
             = link_to '&times;'.html_safe, getting_started_completed_path, id: "gs-skip-x", class: "close"
 
 %div.container-fluid
-  .row
-    #left-navbar-fixed-sub-background.col-lg-1.visible-lg
-    #left-navbar-fixed-background.col-lg-offset-1.col-lg-2.col-md-3.hidden-sm.hidden-xs
-    #left-navbar.col-lg-offset-1.col-lg-2.col-md-3
-      #home_user_badge
-        = owner_image_link
-        %h4
-          = link_to current_user.first_name, local_or_remote_person_path(current_user.person)
+  .row.main_layer_one
+    .main_layer_two
+      .main_layer_three
+        #left-navbar.column_left.col-lg-offset-1.col-lg-2.col-md-3
+          #home_user_badge
+            = owner_image_link
+            %h4
+              = link_to current_user.first_name, local_or_remote_person_path(current_user.person)
 
-      %ul#stream_selection
-        %li{data: {stream: "stream"}}
-          = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
-        %li{data: {stream: "activity"}}
-          = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
-        %li{data: {stream: "mentions"}}
-          = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
-        %li.all_aspects
-          = render "aspects/aspect_listings", stream: @stream
-        %li.followed-tags-sidebar
-          = render "tags/followed_tags_listings"
+          %ul#stream_selection
+            %li{data: {stream: "stream"}}
+              = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
+            %li{data: {stream: "activity"}}
+              = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
+            %li{data: {stream: "mentions"}}
+              = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
+            %li.all_aspects
+              = render "aspects/aspect_listings", stream: @stream
+            %li.followed-tags-sidebar
+              = render "tags/followed_tags_listings"
 
-    .col-md-6
-      #aspect_stream_container.stream_container
-        = render 'aspects/aspect_stream', stream: @stream
+        .column_middle.col-md-6
+          #aspect_stream_container.stream_container
+            = render 'aspects/aspect_stream', stream: @stream
 
-    #right-sidebar-fixed-sub-background.col-lg-3.visible-lg
-    #right-sidebar-fixed-background.col-md-3.col-lg-2.hidden-sm.hidden-xs
-    .col-md-3.col-lg-2.hidden-xs.hidden-sm.rightbar
-      #selected_aspect_contacts.section
-        .title
-          %h5.stream_title
-            = @stream.title
-        .content
+        .column_right.col-md-3.col-lg-2.hidden-xs.hidden-sm.rightbar
+          #selected_aspect_contacts.section
+            .title
+              %h5.stream_title
+                = @stream.title
+            .content
 
-      = render 'shared/right_sections'
+          = render 'shared/right_sections'
 
-      %a{id:"back-to-top", title:"#{t('layouts.application.back_to_top')}", href:"#"}
-        &#8679;
+          %a{id:"back-to-top", title:"#{t('layouts.application.back_to_top')}", href:"#"}
+            &#8679;

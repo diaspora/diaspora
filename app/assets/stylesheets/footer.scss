@@ -1,9 +1,12 @@
 html {
   min-height: 100%;
   position: relative;
+  height: 100vh;
 }
 
-body { margin-bottom: 150px; }
+body {
+  height: 100vh;
+}
 
 footer.footer {
   background-color: $background-grey;
