@@ -12,7 +12,7 @@ gem "unicorn", "4.9.0", require: false
 
 # Federation
 
-gem "diaspora_federation-rails", "0.0.6"
+gem "diaspora_federation-rails", "0.0.7"
 
 # API and JSON
 
