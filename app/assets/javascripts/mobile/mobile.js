@@ -20,6 +20,7 @@
 //= require mobile/tag_following
 //= require mobile/publisher
 //= require mobile/mobile_comments
+//= require jquery-mobile-events/jquery-mobile-events.js
 
 $(document).ready(function(){
 
@@ -38,26 +39,43 @@ $(document).ready(function(){
   };
 
   /* Drawer menu */
-  $("#menu-badge").bind("tap click", function(evt){
+  $("#menu-badge").bind("vmousedown", function(evt){
     evt.preventDefault();
     $("#app").toggleClass("draw");
   });
 
+  $(window).on("swipeleft", function(evt){
+    evt.preventDefault();
+    var drawer = $("#app");
+    if(!drawer.hasClass("draw")){
+      drawer.addClass("draw");
+    }
+  });
+
+  $(window).on("swiperight", function(evt){
+    evt.preventDefault();
+    var drawer = $("#app");
+    if(drawer.hasClass("draw")){
+      drawer.removeClass("draw");
+    }
+  });
+
   /* Show / hide aspects in the drawer */
-  $("#all_aspects").bind("tap click", function(evt){
+  $("#all_aspects").bind("vmousedown", function(evt){
     evt.preventDefault();
     $("#all_aspects + li").toggleClass("hide");
   });
 
   /* Show / hide followed tags in the drawer */
-  $("#followed_tags > a").bind("tap click", function(evt){
+  $("#followed_tags > a").bind("vmousedown", function(evt){
     evt.preventDefault();
     $("#followed_tags + li").toggleClass("hide");
   });
 
   /* Heart toggle */
-  $(".like-action", ".stream").bind("tap click", function(evt){
+  $(".like-action", ".stream").bind("vmousedown click", function(evt){
     evt.preventDefault();
+
     var link = $(this),
         likeCounter = $(this).closest(".stream_element").find("like_count"),
         href = link.attr("href");
@@ -99,7 +117,7 @@ $(document).ready(function(){
   });
 
   /* Reshare */
-  $(".reshare-action", ".stream").bind("tap click", function(evt){
+  $(".reshare-action", ".stream").bind("vmousedown click", function(evt){
     evt.preventDefault();
 
     var link = $(this),

@@ -567,6 +567,7 @@ GEM
       rails-assets-jquery (>= 1.4.2)
     rails-assets-jquery (1.11.2)
     rails-assets-jquery-fullscreen-plugin (0.5.0)
+    rails-assets-jquery-mobile-events (1.4.0)
     rails-assets-jquery-placeholder (2.1.2)
       rails-assets-jquery (>= 1.6)
     rails-assets-jquery-textchange (0.2.3)
@@ -871,6 +872,7 @@ DEPENDENCIES
   rails-assets-jasmine-ajax (= 3.2.0)!
   rails-assets-jeresig--jquery.hotkeys (= 0.2.0)!
   rails-assets-jquery (= 1.11.2)!
+  rails-assets-jquery-mobile-events (= 1.4.0)!
   rails-assets-jquery-placeholder (= 2.1.2)!
   rails-assets-jquery-textchange (= 0.2.3)!
   rails-assets-markdown-it (= 4.4.0)!
