@@ -424,8 +424,8 @@ GEM
     ice_cube (0.11.1)
     inflecto (0.0.2)
     ipaddress (0.8.0)
-    jasmine (2.2.0)
-      jasmine-core (~> 2.2)
+    jasmine (2.3.1)
+      jasmine-core (~> 2.3)
       phantomjs
       rack (>= 1.2.1)
       rake
@@ -841,7 +841,7 @@ DEPENDENCIES
   handlebars_assets (= 0.20.2)
   http_accept_language (= 2.0.5)
   i18n-inflector-rails (= 1.0.7)
-  jasmine (= 2.2.0)
+  jasmine (= 2.3.1)
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 4.0.5)
   jquery-ui-rails (= 5.0.5)
