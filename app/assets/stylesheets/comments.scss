@@ -1,12 +1,11 @@
 .comment_stream {
   .show_comments {
-    margin-top: 5px;
     border-top: 1px solid $border-grey;
+    padding: 10px;
     a {
       color: $text-grey;
       font-size: 13px;
     }
-    .media { margin-top: 10px; }
   }
   .comments > .comment, .comment.new_comment_form_wrapper {
     .avatar {
@@ -34,11 +33,9 @@
       float: right;
     }
     padding-left: 12px;
-    width: 95%;
     display: none;
   }
   .comment_box {
-    width: 95%;
     height: 35px;
     resize: none;
   }
