@@ -171,6 +171,9 @@ configuration: ## Section
     ## Note: this setting is deprecated, use listen instead.
     #port: 3000
 
+    ## Set the path for the PID file of the unicorn master process (default=none)
+    #pid: '/run/diaspora/diaspora.pid'
+
     ## Rails environment (default='development').
     ## The environment in which the server should be started by default.
     ## Change this to 'production' if you wish to run a production environment.

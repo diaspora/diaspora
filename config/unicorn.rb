@@ -4,6 +4,7 @@ port = ENV["PORT"]
 port = port && !port.empty? ? port.to_i : nil
 
 listen port || AppConfig.server.listen.get unless RACKUP[:set_listener]
+pid AppConfig.server.pid.get if AppConfig.server.pid?
 worker_processes AppConfig.server.unicorn_worker.to_i
 timeout AppConfig.server.unicorn_timeout.to_i
 stderr_path AppConfig.server.stderr_log.get if AppConfig.server.stderr_log?
