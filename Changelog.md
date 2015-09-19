@@ -9,6 +9,7 @@
 * Add new moderator role. Moderators can view and act on reported posts [#6351](https://github.com/diaspora/diaspora/pull/6351)
 * Only post to the primary tumblr blog [#6386](https://github.com/diaspora/diaspora/pull/6386)
 * Always show public photos on profile page [#6398](https://github.com/diaspora/diaspora/pull/6398)
+* Expose Unicorn's pid option to our configuration system [#6411](https://github.com/diaspora/diaspora/pull/6411)
 
 # 0.5.3.1
 
