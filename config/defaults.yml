@@ -41,6 +41,7 @@ defaults:
   server:
     listen: '0.0.0.0:3000'
     rails_environment: 'development'
+    pid:
     stderr_log:
     stdout_log:
     unicorn_worker: 2
