@@ -1,6 +1,22 @@
+body.page-streams, body.page-photos {
+  background-color: $sidebars-sub-background;
+}
+
 .stream_container {
-  #publisher {
-    margin-bottom: 15px;
+  .stream-title {
+    margin: 12px 0;
   }
-  .well#ignore-info { text-align: center; }
+}
+
+.main-stream-publisher {
+  padding: 0;
+
+  .avatar {
+    height: 50px;
+    width: 50px;
+  }
+
+  #publisher {
+    margin-left: 65px;
+  }
 }

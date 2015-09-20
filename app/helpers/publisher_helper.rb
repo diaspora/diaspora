@@ -19,7 +19,7 @@ module PublisherHelper
                 maxchar: "#{service.class::MAX_CHARACTERS}",
                 data:    {toggle: "tooltip", placement: "bottom"} do
       if service.provider == "wordpress"
-        content_tag(:span, "", class: "social_media_logos-wordpress-16x16")
+        content_tag(:span, "", class: "social-media-logos-wordpress-16x16")
       else
         content_tag(:i, "", class: "entypo-social-#{ service.provider } small")
       end

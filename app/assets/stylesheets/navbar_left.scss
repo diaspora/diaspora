@@ -40,6 +40,7 @@
 
     &:hover, &:hover a, &:hover [class^="entypo"] {
       background-color: $blue;
+      border-color: $blue;
       color: $white;
     }
   }
@@ -49,9 +50,11 @@
   li.selected > a.hoverable {
     color: $white;
     background: $gray;
+    border-color: $gray;
   }
 
-  #aspects_list, #tags_list {
+  #aspects_list,
+  #tags_list {
     background: $left-navbar-drawer-background;
     li { padding: 0; }
     .entypo-check { visibility: hidden; }
@@ -69,30 +72,6 @@
       visibility: hidden;
     }
     .hoverable:hover > .action { visibility: visible; }
-  }
-
-  #home_user_badge {
-    min-height: 90px;
-    padding: 20px;
-    margin: 0 -15px;
-
-    .avatar {
-      float: left;
-      height: 50px;
-      width: 50px;
-    }
-
-    h4 {
-      margin: 0 0 0 60px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 25px;
-
-      a {
-        color: $black;
-        font-weight: normal;
-      }
-    }
   }
 
   #tags_list {
@@ -134,5 +113,79 @@
       border-color: $background-blue;
     }
     /* ---- end override app/stylesheets/vendor/autoSuggest.css ---- */
+  }
+
+  .info-bar {
+    margin-top: 25px;
+
+    .section {
+      margin-bottom: 20px;
+
+      > .title {
+        border-bottom: 1px solid $border-grey;
+        padding-bottom: 5px;
+
+        h5 {
+          color: $text-dark-grey;
+          font-size: $font-size-base;
+          margin: 0;
+        }
+      }
+
+      .content {
+        color: $text-grey;
+        font-size: $font-size-small;
+        line-height: 18px;
+        padding: 10px 0;
+
+        p,
+        ul {
+          margin: 0;
+        }
+
+        ul {
+          margin-bottom: 5px;
+          padding-left: 0;
+          li { list-style: none; }
+        }
+
+        .btn-link {
+          font-size: $font-size-small;
+          padding-left: 0;
+        }
+
+        > #invite_code {
+          box-sizing: border-box;
+          font-size: $font-size-small;
+          height: 30px;
+          width: 100%;
+        }
+
+        > .right-service-icons {
+          padding: 10px {
+            bottom: 0;
+          }
+          text-align: center;
+
+          .social-media-logos-facebook-24x24,
+          .social-media-logos-twitter-24x24,
+          .social-media-logos-tumblr-24x24,
+          .social-media-logos-wordpress-24x24 {
+            height: 24px;
+            width: 24px;
+          }
+
+          a {
+            display: inline-block;
+          }
+        }
+
+        .stream-faces {
+          display: flex;
+          flex-flow: row wrap;
+          img { margin: 1px; }
+        }
+      }
+    }
   }
 }
