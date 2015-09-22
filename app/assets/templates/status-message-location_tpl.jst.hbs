@@ -1,5 +1,8 @@
-{{#if location}}
+{{#if location.address}}
   <div class='near-from'>
-    {{ t "publisher.near_from" location=location}}
+    {{t "publisher.near_from" location=location.address}}
+  </div>
+  <div>
+    <div class="mapContainer empty"></div>
   </div>
 {{/if}}

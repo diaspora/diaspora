@@ -23,6 +23,14 @@
         padding-left: 10px;
       }
     }
+    .near-from {
+      color: $text-grey;
+      font-size: 12px;
+      margin: 10px 20px 0px 15px;
+    }
+    .mapContainer {
+      margin: 10px 20px 0px 15px;
+    }
     .row.reshare {
       border-top: 1px solid lighten($border-grey,5%);
       padding-top: 10px;

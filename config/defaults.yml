@@ -76,6 +76,11 @@ defaults:
       log:
         file: 'log/vines.log'
         level: 'info'
+  map:
+    mapbox:
+      enabled: false
+      id:
+      access_token:
   privacy:
     jquery_cdn: false
     google_analytics_key:

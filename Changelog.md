@@ -71,6 +71,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Add support for relay based public post federation [#6207](https://github.com/diaspora/diaspora/pull/6207)
 * Bigger mobile publisher [#6261](https://github.com/diaspora/diaspora/pull/6261)
 * Backend information panel & health checks for known pods [#6290](https://github.com/diaspora/diaspora/pull/6290)
+* Allow users to view a posts locations on an OpenStreetMap [#6256](https://github.com/diaspora/diaspora/pull/6256)
 
 # 0.5.4.0
 

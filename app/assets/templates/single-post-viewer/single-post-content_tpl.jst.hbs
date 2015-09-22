@@ -57,7 +57,6 @@
                 {{t "stream.via" provider=provider_display_name}}
               {{/if}}
             {{/if}}
-            <div class="status-message-location" />
           </div>
           {{#unless root}}
             <div id="single-post-moderation" />
@@ -68,6 +67,14 @@
         <div id="single-post-actions" class="col-md-4" />
       {{/unless}}
     </div>
+    {{#if location.lat}}
+    <div class="row">
+      <div class='near-from'>
+        {{t "publisher.near_from" location=location.address}}
+      </div>
+      <div class="mapContainer small-map"></div>
+    </div>
+    {{/if}}
     {{#if root}}
       <div class="row reshare">
         <div class="col-md-8" id="reshare-info">

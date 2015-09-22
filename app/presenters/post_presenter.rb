@@ -31,7 +31,7 @@ class PostPresenter < BasePresenter
       photos:                       build_photos_json,
       root:                         root,
       title:                        title,
-      address:                      @post.address,
+      location:                     @post.post_location,
       poll:                         @post.poll,
       already_participated_in_poll: already_participated_in_poll,
       participation:                participate?,

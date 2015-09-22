@@ -148,6 +148,14 @@ var factory = {
     }, overrides);
   },
 
+  location : function() {
+    return {
+      address: "Starco Mart, Mission Street, San Francisco, Kalifornien, 94103, Vereinigte Staaten von Amerika",
+      lat: 37.78,
+      lng: -122.41
+    };
+  },
+
   post :  function(overrides) {
     var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));

@@ -83,9 +83,12 @@
       float: left;
       margin-top: 6px;
     }
-    .status-message-location .near-from {
+    .status-message-location {
       font-size: $font-size-small;
       color: $text-grey;
+    }
+    .leaflet-control-zoom {
+      display: block;
     }
     .grey { color: $text-grey; }
     .post-content p:last-of-type { margin-bottom: 0; }

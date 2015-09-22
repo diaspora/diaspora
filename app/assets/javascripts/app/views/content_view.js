@@ -29,7 +29,6 @@ app.views.Content = app.views.Base.extend({
     return photos;
   },
 
-
   expandPost: function(evt) {
     var el = $(this.el).find('.collapsible');
     el.removeClass('collapsed').addClass('opened');
@@ -40,8 +39,8 @@ app.views.Content = app.views.Base.extend({
   },
 
   location: function(){
-    var address = this.model.get('address')? this.model.get('address') : '';
-    return address;
+    var location = this.model.get("location")? this.model.get("location") : "";
+    return location;
   },
 
   collapseOversized : function() {
@@ -155,4 +154,5 @@ app.views.SPVOpenGraph = app.views.OpenGraph.extend({
     // override with nothing
   }
 });
+
 // @license-end

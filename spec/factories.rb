@@ -140,9 +140,9 @@ FactoryGirl.define do
   end
 
   factory(:location) do
-    address "unicorn city"
-    lat 1
-    lng 2
+    address "Fernsehturm Berlin, Berlin, Germany"
+    lat 52.520645
+    lng 13.409779
   end
 
   factory(:poll) do

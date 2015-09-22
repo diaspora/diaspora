@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Reshare < Post
-
   belongs_to :root, :class_name => 'Post', :foreign_key => :root_guid, :primary_key => :guid
   validate :root_must_be_public
   validates_presence_of :root, :on => :create
@@ -45,8 +44,12 @@ class Reshare < Post
     absolute_root.try(:photos) || super
   end
 
-  def address
-    absolute_root.try(:location).try(:address)
+  def post_location
+    {
+      address: absolute_root.try(:location).try(:address),
+      lat:     absolute_root.try(:location).try(:lat),
+      lng:     absolute_root.try(:location).try(:lng)
+    }
   end
 
   def poll
