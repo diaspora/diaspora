@@ -2,67 +2,65 @@
   <div class="col-md-12">
     <div class="row">
       <div id="post-info" class="col-md-8">
-        <div class="media">
-          <div class="media-object media-left">
+        <div class="img pull-left">
+          {{#if root}}
+            {{#linkToAuthor root.author}}
+              {{{personImage this "medium"}}}
+            {{/linkToAuthor}}
+          {{else}}
+            {{#linkToAuthor author}}
+              {{{personImage this "medium"}}}
+            {{/linkToAuthor}}
+          {{/if}}
+        </div>
+
+        <div class="bd">
+          <span class="author">
             {{#if root}}
               {{#linkToAuthor root.author}}
-                {{{personImage this "medium"}}}
+                {{name}}
               {{/linkToAuthor}}
             {{else}}
               {{#linkToAuthor author}}
-                {{{personImage this "medium"}}}
+                {{name}}
               {{/linkToAuthor}}
             {{/if}}
-          </div>
+          </span>
 
-          <div class="media-body">
-            <span class="author">
+          <div class="info">
+            {{#if public}}
+              <span class="post_scope" title="{{t "stream.public"}}">
+                <i class="entypo-globe small"></i>
+              </span>
+            {{else}}
+              <span class="post_scope" title="{{t "stream.limited"}}">
+                <i class="entypo-lock small"></i>
+              </span>
+            {{/if}}
+            <span class="post-time">
               {{#if root}}
-                {{#linkToAuthor root.author}}
-                  {{name}}
-                {{/linkToAuthor}}
+                <a href="/posts/{{root.id}}">
+                  <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
+                </a>
               {{else}}
-                {{#linkToAuthor author}}
-                  {{name}}
-                {{/linkToAuthor}}
+                <a href="/posts/{{id}}">
+                  <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+                </a>
               {{/if}}
             </span>
-
-            <div class="info">
-              {{#if public}}
-                <span class="post_scope" title="{{t "stream.public"}}">
-                  <i class="entypo-globe small"></i>
-                </span>
-              {{else}}
-                <span class="post_scope" title="{{t "stream.limited"}}">
-                  <i class="entypo-lock small"></i>
-                </span>
+            {{#if root}}
+              {{#if root.provider_display_name}}
+                {{t "stream.via" provider=root.provider_display_name}}
               {{/if}}
-              <span class="post-time">
-                {{#if root}}
-                  <a href="/posts/{{root.id}}">
-                    <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
-                  </a>
-                {{else}}
-                  <a href="/posts/{{id}}">
-                    <time datetime="{{created_at}}" title="{{localTime created_at}}" />
-                  </a>
-                {{/if}}
-              </span>
-              {{#if root}}
-                {{#if root.provider_display_name}}
-                  {{t "stream.via" provider=root.provider_display_name}}
-                {{/if}}
-              {{else}}
-                {{#if provider_display_name}}
-                  {{t "stream.via" provider=provider_display_name}}
-                {{/if}}
+            {{else}}
+              {{#if provider_display_name}}
+                {{t "stream.via" provider=provider_display_name}}
               {{/if}}
-            </div>
-            {{#unless root}}
-              <div id="single-post-moderation" />
-            {{/unless}}
+            {{/if}}
           </div>
+          {{#unless root}}
+            <div id="single-post-moderation" />
+          {{/unless}}
         </div>
       </div>
       {{#unless root}}

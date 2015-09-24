@@ -1,23 +1,23 @@
 {{#if likesCount}}
-  <div class="media">
-    <div class="media-object media-left">
+  <div class="comment">
+    <div class="media">
       <i class="entypo-heart"></i>
-    </div>
 
-    <div class="media-body">
-      {{#unless likes_fetched}}
-        <a href="#" class="expand_likes grey">
-          {{t "stream.likes" count=likesCount}}
-        </a>
+      <div class="bd">
+        {{#unless likes_fetched}}
+          <a href="#" class="expand_likes grey">
+            {{t "stream.likes" count=likesCount}}
+          </a>
 
-      {{else}}
+        {{else}}
 
-        {{#each likes}}
-          {{#linkToAuthor author}}
-            {{{personImage this 'small' 'micro'}}}
-          {{/linkToAuthor}}
-        {{/each}}
-      {{/unless}}
+          {{#each likes}}
+            {{#linkToAuthor author}}
+              {{{personImage this 'small' 'micro'}}}
+            {{/linkToAuthor}}
+          {{/each}}
+        {{/unless}}
+      </div>
     </div>
   </div>
 {{/if}}

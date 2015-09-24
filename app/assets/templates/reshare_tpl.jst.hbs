@@ -2,13 +2,11 @@
   <div class="media">
     {{#if root}}
       {{#with root}}
-        <div class="media-object media-left">
-          <a href="/people/{{author.guid}}" class="{{{hovercardable this}}}">
-            {{{personImage author 'small'}}}
-          </a>
-        </div>
+        <a href="/people/{{author.guid}}" class="img {{{hovercardable this}}}">
+          {{{personImage author 'small'}}}
+        </a>
 
-        <div class="media-body">
+        <div class="bd">
           <div>
             {{#linkToAuthor author}}
               {{name}}
