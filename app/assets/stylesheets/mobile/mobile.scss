@@ -406,15 +406,11 @@ h3 {  margin-top: 0; }
 #new_status_message {
   margin: 0;
 
-  fieldset {
-    padding: 10px;
+  .service_icon {
+    cursor: pointer;
 
-    .service_icon {
-      cursor: pointer;
-
-      &.dim {
-        opacity: 0.6;
-      }
+    &.dim {
+      opacity: .6;
     }
   }
 

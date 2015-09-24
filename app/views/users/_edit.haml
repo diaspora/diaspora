@@ -3,202 +3,216 @@
 -#   the COPYRIGHT file.
 
 - content_for :page_title do
-  = t('.edit_account')
+  = t(".edit_account")
 
-= render 'shared/settings_nav'
+.row
+  .col-lg-10.col-lg-offset-1
+    = render "shared/settings_nav"
 
-.container-fluid
-  .row
-    .col-lg-8.col-lg-offset-2
-      .row
-        .col-md-6
-          %h3= t('.your_handle')
+.row
+  .col-lg-8.col-lg-offset-2
+    .row
+      .col-md-6
+        %h3= t(".your_handle")
 
-          %p
-            %b= current_user.diaspora_handle
-        .col-md-6
-          %h3
-            = t(".your_email")
-            %i.entypo-lock.gray.settings_visibility{title: t("users.edit.your_email_private")}
-
-
-          = form_for 'user', url: user_path, html: { method: :put, class: "form-horizontal col-md-12" , id: "email-form"} do |f|
-            = f.error_messages
-            .form-group
-              = f.text_field :email, value: @user.unconfirmed_email || @user.email, class: "col-md-7 form-control"
-            .clearfix= f.submit t('.change_email'), class: "btn btn-primary pull-right"
-          - if @user.unconfirmed_email.present?
-            %div= t('.email_awaiting_confirmation', email: @user.email, :unconfirmed_email => @user.unconfirmed_email)
-      %hr
-
-      .row
-        .col-md-12
-          %h3= t('.change_password')
-          = form_for @user, url: user_path, html: { method: :put, class: "form-horizontal" } do |f|
-            - if (@user.errors.keys & [:password, :password_confirmation, :current_password]).present?
-              = f.error_messages
-            .form-group
-              = f.label :current_password, t('.current_password'), class: "col-sm-6 control-label"
-              .col-sm-6
-                = f.password_field :current_password, placeholder: t('.current_password_expl'), class: "form-control"
-            .form-group
-              = f.label :password, t('.new_password'), class: "col-sm-6 control-label"
-              %div.col-sm-6
-                = f.password_field :password, placeholder: t('.character_minimum_expl'), class: "form-control"
-            .form-group
-              = f.label :password_confirmation, t('password_confirmation'), class: "col-sm-6 control-label"
-              .col-sm-6
-                = f.password_field :password_confirmation, placeholder: t('.character_minimum_expl'), class: "form-control"
-
-            .clearfix
-              = f.submit t('.change_password'), class: "btn btn-primary pull-right", name: 'change_password'
-      %hr
-
-      .row
-        .col-md-12
-          %h3= t('.change_language')
-          = form_for 'user', url: user_path, html: { method: :put} do |f|
-            .form-inline.clearfix
-              = f.select :language, available_language_options, {}, { class: 'form-control form-group' }
-              = f.submit t('.change_language'), class: "btn btn-primary pull-right"
-      %hr
-
-      .row
-        .col-md-12
-          %h3= t(".change_color_theme")
-          = form_for "user", url: user_path, html: {method: :put} do |f|
-            .form-inline.clearfix
-              = f.select :color_theme, available_color_themes, {}, {class: "form-control form-group"}
-              = f.submit t(".change_color_theme"), class: "btn btn-primary pull-right"
-      %hr
-
-      .row
-        .col-md-12
-          %h3#stream-preferences
-            = t('.stream_preferences')
-          = form_for current_user, url: user_path, html: { method: :put } do |f|
-
-            = f.fields_for :stream_preferences do |type|
-              #stream_prefs
-                - if AppConfig.settings.community_spotlight.enable?
-                  = f.label :show_community_spotlight_in_stream, class: "checkbox-inline" do
-                    = f.check_box :show_community_spotlight_in_stream
-                    = t('.show_community_spotlight')
-
-                = f.label :getting_started, class: "checkbox-inline" do
-                  = f.check_box :getting_started
-                  = t('.show_getting_started')
-
-              .clearfix= f.submit t('.change'), class: 'btn btn-primary pull-right'
-      %hr
-
-      .row
-        .col-md-12
-          %h3#auto-follow-back-preferences
-            = t('.following')
-          = form_for current_user, url: user_path, html: { method: :put, class: "form-horizontal"} do |f|
-            = f.label :auto_follow_back, class: "checkbox-inline" do
-              = f.check_box :auto_follow_back
-              = t('.auto_follow_back')
-            .small-horizontal-spacer
-            .form-group.row
-              %label.col-sm-6.control-label= t('.auto_follow_aspect')
-              .col-sm-6
-                = f.select :auto_follow_back_aspect_id, aspect_options_for_select(current_user.aspects), {}, { class: 'form-control' }
-
-            .small-horizontal-spacer
-            .clearfix= f.submit t('.change'), class: 'btn btn-primary pull-right'
-      %hr
+        %p
+          %b= current_user.diaspora_handle
+      .col-md-6
+        %h3
+          = t(".your_email")
+          %i.entypo-lock.gray.settings_visibility{title: t("users.edit.your_email_private")}
 
 
-      .row
-        .col-md-12
-          %h3
-            = t('.receive_email_notifications')
-          = form_for 'user', url: user_path, html: { method: :put } do |f|
-            = f.fields_for :email_preferences do |type|
-              #email_prefs
-                - if current_user.admin?
-                  = type.label :someone_reported, class: "checkbox-inline" do
-                    = type.check_box :someone_reported, {checked:  @email_prefs['someone_reported']}, false, true
-                    = t('.someone_reported')
-
-                .small-horizontal-spacer
-
-                = type.label :started_sharing, class: "checkbox-inline" do
-                  = type.check_box :started_sharing, {checked:  @email_prefs['started_sharing']}, false, true
-                  = t('.started_sharing')
-                .small-horizontal-spacer
-
-                = type.label :mentioned, class: "checkbox-inline" do
-                  = type.check_box :mentioned, {checked:  @email_prefs['mentioned']}, false, true
-                  = t('.mentioned')
-                .small-horizontal-spacer
-
-                = type.label :liked, class: "checkbox-inline" do
-                  = type.check_box :liked, {checked:  @email_prefs['liked']}, false, true
-                  = t('.liked')
-                .small-horizontal-spacer
-
-                = type.label :reshared, class: "checkbox-inline" do
-                  = type.check_box :reshared, {checked:  @email_prefs['reshared']}, false, true
-                  = t('.reshared')
-                .small-horizontal-spacer
-
-                = type.label :comment_on_post, class: "checkbox-inline" do
-                  = type.check_box :comment_on_post, {checked:  @email_prefs['comment_on_post']}, false, true
-                  = t('.comment_on_post')
-                .small-horizontal-spacer
-
-                = type.label :also_commented, class: "checkbox-inline" do
-                  = type.check_box :also_commented, {checked:  @email_prefs['also_commented']}, false, true
-                  = t('.also_commented')
-                .small-horizontal-spacer
-
-                = type.label :private_message, class: "checkbox-inline" do
-                  = type.check_box :private_message, {checked:  @email_prefs['private_message']}, false, true
-                  = t('.private_message')
-
-            .small-horizontal-spacer
-
-            .clearfix= f.submit t('.change'), class: 'btn btn-primary pull-right', id: "change_email_preferences"
-      %hr
-
-      .row
-        #account_data.col-lg-7
-          .row
-            .col-md-6
-              %h3= t('.export_data')
-              .form-group
-                - if current_user.exporting
-                  .export-in-progress= t('.export_in_progress')
-                - elsif current_user.export.present?
-                  = link_to t('.request_export_update'), export_profile_user_path, method: :post, class: "btn btn-default btn-block"
-                  .small-horizontal-spacer
-                  = link_to t('.download_export'), download_profile_user_path, class: "btn btn-success btn-block"
-                  .small-horizontal-spacer
-                  %h6
-                    = t('.last_exported_at', timestamp: current_user.exported_at)
-                - else
-                  = link_to t('.request_export'), export_profile_user_path, method: :post, class: "btn btn-default btn-block"
-
-              .form-group
-                - if current_user.exporting_photos
-                  .export-in-progress= t('.export_photos_in_progress')
-                - elsif current_user.exported_photos_file.present?
-                  = link_to t('.request_export_photos_update'), export_photos_user_path, class: "btn btn-default btn-block"
-                  .small-horizontal-spacer
-                  = link_to t('.download_export_photos'), download_photos_user_path, method: :post, class: "btn  btn-success btn-block"
-                  .small-horizontal-spacer
-                  %h6
-                    = t('.last_exported_at', timestamp: current_user.exported_photos_at)
-                - else
-                  = link_to t('.request_export_photos'), export_photos_user_path, method: :post, class: "btn btn-default btn-block"
-
-        .col-lg-5
-          %h3
-            = t('.close_account_text')
+        = form_for "user", url: user_path,
+          html: {method: :put, class: "form-horizontal col-md-12", id: "email-form"} do |f|
+          = f.error_messages
           .form-group
-            .btn.btn-danger{ id: "close_account", data: {toggle: "modal", target: "#closeAccountModal"}}
-              = t(".close_account_text")
-            = render "close_account_modal"
+            = f.text_field :email, value: @user.unconfirmed_email || @user.email, class: "col-md-7 form-control"
+          .clearfix= f.submit t(".change_email"), class: "btn btn-primary pull-right"
+        - if @user.unconfirmed_email.present?
+          %div= t(".email_awaiting_confirmation", email: @user.email, unconfirmed_email: @user.unconfirmed_email)
+    %hr
+
+    .row
+      .col-md-12
+        %h3= t(".change_password")
+        = form_for @user, url: user_path, html: {method: :put, class: "form-horizontal"} do |f|
+          - if (@user.errors.keys & %i(password password_confirmation current_password)).present?
+            = f.error_messages
+          .form-group
+            = f.label :current_password, t(".current_password"), class: "col-sm-6 control-label"
+            .col-sm-6
+              = f.password_field :current_password, placeholder: t(".current_password_expl"),
+                class: "form-control"
+          .form-group
+            = f.label :password, t(".new_password"), class: "col-sm-6 control-label"
+            .col-sm-6
+              = f.password_field :password, placeholder: t(".character_minimum_expl"),
+                class: "form-control"
+          .form-group
+            = f.label :password_confirmation, t("password_confirmation"), class: "col-sm-6 control-label"
+            .col-sm-6
+              = f.password_field :password_confirmation, placeholder: t(".character_minimum_expl"),
+                class: "form-control"
+
+          .clearfix
+            = f.submit t(".change_password"), class: "btn btn-primary pull-right", name: "change_password"
+    %hr
+
+    .row
+      .col-md-12
+        %h3= t(".change_language")
+        = form_for "user", url: user_path, html: {method: :put} do |f|
+          .form-inline.clearfix
+            = f.select :language, available_language_options, {}, class: "form-control form-group"
+            = f.submit t(".change_language"), class: "btn btn-primary pull-right"
+    %hr
+
+    .row
+      .col-md-12
+        %h3= t(".change_color_theme")
+        = form_for "user", url: user_path, html: {method: :put} do |f|
+          .form-inline.clearfix
+            = f.select :color_theme, available_color_themes, {}, class: "form-control form-group"
+            = f.submit t(".change_color_theme"), class: "btn btn-primary pull-right"
+    %hr
+
+    .row
+      .col-md-12
+        %h3#stream-preferences
+          = t(".stream_preferences")
+        = form_for current_user, url: user_path, html: {method: :put} do |f|
+
+          = f.fields_for :stream_preferences do
+            #stream_prefs
+              - if AppConfig.settings.community_spotlight.enable?
+                = f.label :show_community_spotlight_in_stream, class: "checkbox-inline" do
+                  = f.check_box :show_community_spotlight_in_stream
+                  = t(".show_community_spotlight")
+
+              = f.label :getting_started, class: "checkbox-inline" do
+                = f.check_box :getting_started
+                = t(".show_getting_started")
+
+            .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right"
+    %hr
+
+    .row
+      .col-md-12
+        %h3#auto-follow-back-preferences
+          = t(".following")
+        = form_for current_user, url: user_path, html: {method: :put, class: "form-horizontal"} do |f|
+          = f.label :auto_follow_back, class: "checkbox-inline" do
+            = f.check_box :auto_follow_back
+            = t(".auto_follow_back")
+          .small-horizontal-spacer
+          .form-group.row
+            %label.col-sm-6.control-label= t(".auto_follow_aspect")
+            .col-sm-6
+              = f.select :auto_follow_back_aspect_id,
+                aspect_options_for_select(current_user.aspects),
+                {},
+                class: "form-control"
+
+          .small-horizontal-spacer
+          .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right"
+    %hr
+
+
+    .row
+      .col-md-12
+        %h3
+          = t(".receive_email_notifications")
+        = form_for "user", url: user_path, html: {method: :put} do |f|
+          = f.fields_for :email_preferences do |type|
+            #email_prefs
+              - if current_user.admin?
+                = type.label :someone_reported, class: "checkbox-inline" do
+                  = type.check_box :someone_reported, {checked: @email_prefs["someone_reported"]}, false, true
+                  = t(".someone_reported")
+
+              .small-horizontal-spacer
+
+              = type.label :started_sharing, class: "checkbox-inline" do
+                = type.check_box :started_sharing, {checked: @email_prefs["started_sharing"]}, false, true
+                = t(".started_sharing")
+              .small-horizontal-spacer
+
+              = type.label :mentioned, class: "checkbox-inline" do
+                = type.check_box :mentioned, {checked: @email_prefs["mentioned"]}, false, true
+                = t(".mentioned")
+              .small-horizontal-spacer
+
+              = type.label :liked, class: "checkbox-inline" do
+                = type.check_box :liked, {checked: @email_prefs["liked"]}, false, true
+                = t(".liked")
+              .small-horizontal-spacer
+
+              = type.label :reshared, class: "checkbox-inline" do
+                = type.check_box :reshared, {checked: @email_prefs["reshared"]}, false, true
+                = t(".reshared")
+              .small-horizontal-spacer
+
+              = type.label :comment_on_post, class: "checkbox-inline" do
+                = type.check_box :comment_on_post, {checked: @email_prefs["comment_on_post"]}, false, true
+                = t(".comment_on_post")
+              .small-horizontal-spacer
+
+              = type.label :also_commented, class: "checkbox-inline" do
+                = type.check_box :also_commented, {checked: @email_prefs["also_commented"]}, false, true
+                = t(".also_commented")
+              .small-horizontal-spacer
+
+              = type.label :private_message, class: "checkbox-inline" do
+                = type.check_box :private_message, {checked: @email_prefs["private_message"]}, false, true
+                = t(".private_message")
+
+          .small-horizontal-spacer
+
+          .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right", id: "change_email_preferences"
+    %hr
+
+    .row
+      .col-lg-7#account_data
+        .row
+          .col-md-6
+            %h3= t(".export_data")
+            .form-group
+              - if current_user.exporting
+                .export-in-progress= t(".export_in_progress")
+              - elsif current_user.export.present?
+                = link_to t(".request_export_update"), export_profile_user_path, method: :post,
+                  class: "btn btn-default btn-block"
+                .small-horizontal-spacer
+                = link_to t(".download_export"), download_profile_user_path,
+                  class: "btn btn-success btn-block"
+                .small-horizontal-spacer
+                %h6
+                  = t(".last_exported_at", timestamp: current_user.exported_at)
+              - else
+                = link_to t(".request_export"), export_profile_user_path, method: :post,
+                  class: "btn btn-default btn-block"
+
+            .form-group
+              - if current_user.exporting_photos
+                .export-in-progress= t(".export_photos_in_progress")
+              - elsif current_user.exported_photos_file.present?
+                = link_to t(".request_export_photos_update"), export_photos_user_path,
+                  class: "btn btn-default btn-block"
+                .small-horizontal-spacer
+                = link_to t(".download_export_photos"), download_photos_user_path, method: :post,
+                  class: "btn btn-success btn-block"
+                .small-horizontal-spacer
+                %h6
+                  = t(".last_exported_at", timestamp: current_user.exported_photos_at)
+              - else
+                = link_to t(".request_export_photos"), export_photos_user_path, method: :post,
+                  class: "btn btn-default btn-block"
+
+      .col-lg-5
+        %h3
+          = t(".close_account_text")
+        .form-group
+          .btn.btn-danger{id: "close_account", data: {toggle: "modal", target: "#closeAccountModal"}}
+            = t(".close_account_text")
+          = render "close_account_modal"

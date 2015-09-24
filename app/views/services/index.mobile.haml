@@ -2,17 +2,19 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.settings_container.services_page
-  - content_for :page_title do
-    = t('.edit_services')
+- content_for :page_title do
+  = t(".edit_services")
 
-  = render 'shared/settings_nav'
+.settings_container.services_page.container-fluid
+  .row
+    .col-lg-10.col-lg-offset-1
+      = render "shared/settings_nav"
 
-  .container-fluid
-    .row
-      .col-md-12
-        = render 'add_remove_services'
+  .row
+    .col-lg-8.col-lg-offset-2
+      = render "add_remove_services"
 
-    .row
-      .col-md-12.services_explanation
-        = t('.services_explanation')
+  .row
+    .col-lg-8.col-lg-offset-2
+      .services_explanation
+        = t(".services_explanation")
