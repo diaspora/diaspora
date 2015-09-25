@@ -53,6 +53,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Unify mobile and desktop header design [#6285](https://github.com/diaspora/diaspora/6285)
 * Add white background and box-shadow to stream elements [#6324](https://github.com/diaspora/diaspora/6324)
 * Override Bootstrap list group design [#6345](https://github.com/diaspora/diaspora/6345)
+* Clean up publisher code [#6336](https://github.com/diaspora/diaspora/6336)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
