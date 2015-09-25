@@ -39,7 +39,30 @@ module Api
         private
 
         def build_client_application(registrar)
-          create! registrar_attributes(registrar)
+          attributes = registrar_attributes(registrar)
+          check_sector_identifier_uri(attributes)
+          check_redirect_uris(attributes)
+          create! attributes
+        end
+
+        def check_sector_identifier_uri(attributes)
+          sector_identifier_uri = attributes[:sector_identifier_uri]
+          return unless sector_identifier_uri
+          uri = URI.parse(sector_identifier_uri)
+          response = Net::HTTP.get_response(uri)
+          sector_identifier_uri_json = JSON.parse(response.body)
+          redirect_uris = attributes[:redirect_uris]
+          sector_identifier_uri_includes_redirect_uris = (redirect_uris - sector_identifier_uri_json).empty?
+          return if sector_identifier_uri_includes_redirect_uris
+          raise Api::OpenidConnect::Exception::InvalidSectorIdentifierUri.new
+        end
+
+        def check_redirect_uris(attributes)
+          redirect_uris = attributes[:redirect_uris]
+          uri_array = redirect_uris.map {|uri| URI(uri) }
+          any_uri_contains_fragment = uri_array.any? {|uri| !uri.fragment.nil? }
+          return unless any_uri_contains_fragment
+          raise Api::OpenidConnect::Exception::InvalidRedirectUri.new
         end
 
         def supported_metadata

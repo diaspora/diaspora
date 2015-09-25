@@ -5,8 +5,13 @@ module Api
         http_error_page_as_json(e)
       end
 
-      rescue_from OpenIDConnect::ValidationFailed, ActiveRecord::RecordInvalid do |e|
+      rescue_from OpenIDConnect::ValidationFailed,
+                  ActiveRecord::RecordInvalid, Api::OpenidConnect::Exception::InvalidSectorIdentifierUri do |e|
         validation_fail_as_json(e)
+      end
+
+      rescue_from Api::OpenidConnect::Exception::InvalidRedirectUri do |e|
+        validation_fail_redirect_uri(e)
       end
 
       def create
@@ -27,19 +32,15 @@ module Api
       private
 
       def http_error_page_as_json(e)
-        render json:
-                 {
-                   error:             :invalid_request,
-                   error_description: e.message
-                 }, status: 400
+        render json: { error: :invalid_request, error_description: e.message}, status: 400
       end
 
       def validation_fail_as_json(e)
-        render json:
-                 {
-                   error:             :invalid_client_metadata,
-                   error_description: e.message
-                 }, status: 400
+        render json: {error: :invalid_client_metadata, error_description: e.message}, status: 400
+      end
+
+      def validation_fail_redirect_uri(e)
+        render json: {error: :invalid_redirect_uri, error_description: e.message}, status: 400
       end
     end
   end

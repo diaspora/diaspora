@@ -4,6 +4,10 @@ describe Api::OpenidConnect::ClientsController, type: :controller do
   describe "#create" do
     context "when valid parameters are passed" do
       it "should return a client id" do
+        stub_request(:get, "http://example.com/uris")
+          .with(headers: {"Accept" => "*/*", "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+                          "Host" => "example.com", "User-Agent" => "Ruby"})
+          .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
         post :create, redirect_uris: ["http://localhost"], client_name: "diaspora client",
              response_types: [], grant_types: [], application_type: "web", contacts: [],
              logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
