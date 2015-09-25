@@ -250,7 +250,7 @@ Diaspora::Application.routes.draw do
       post "authorizations/new", to: "authorizations#new"
       get "user_applications", to: "user_applications#index"
       get "jwks.json", to: "id_tokens#jwks"
-      get "user_info", to: "user_info#show"
+      match "user_info", to: "user_info#show", via: %i(get post)
     end
   end
 
