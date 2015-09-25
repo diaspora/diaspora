@@ -21,7 +21,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         encoded_id_token = json["id_token"]
         decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
                                                                       Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
-        expected_guid = bob.pairwise_pseudonymous_identifiers.find_by(sector_identifier: "https://example.com/uri").guid
+        expected_guid = bob.pairwise_pseudonymous_identifiers.find_by(identifier: "https://example.com/uri").guid
         expect(decoded_token.sub).to eq(expected_guid)
         expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
       end

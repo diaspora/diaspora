@@ -1,3 +1,5 @@
+require "uri"
+
 module Api
   module OpenidConnect
     class IdToken < ActiveRecord::Base
@@ -36,14 +38,7 @@ module Api
       end
 
       def build_sub
-        if authorization.o_auth_application.ppid?
-          sector_identifier = authorization.o_auth_application.sector_identifier_uri
-          pairwise_pseudonymous_identifier =
-            authorization.user.pairwise_pseudonymous_identifiers.find_or_create_by(sector_identifier: sector_identifier)
-          pairwise_pseudonymous_identifier.guid
-        else
-          authorization.user.diaspora_handle
-        end
+        Api::OpenidConnect::SubjectIdentifierCreator.createSub(authorization)
       end
     end
   end

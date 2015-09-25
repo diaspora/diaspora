@@ -7,7 +7,7 @@ module Api
       belongs_to :user
 
       validates :user, presence: true
-      validates :sector_identifier, presence: true, uniqueness: {scope: :user}
+      validates :identifier, presence: true, uniqueness: {scope: :user}
       validates :guid, presence: true, uniqueness: true
 
       before_validation :setup, on: :create

@@ -5,7 +5,7 @@ class CreatePairwisePseudonymousIdentifiers < ActiveRecord::Migration
       t.belongs_to :user, index: true
 
       t.string :guid, :string, limit: 32
-      t.string :sector_identifier
+      t.string :identifier
     end
     add_foreign_key :ppid, :o_auth_applications
     add_foreign_key :ppid, :users
