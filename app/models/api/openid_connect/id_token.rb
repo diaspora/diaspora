@@ -33,7 +33,8 @@ module Api
           exp:       expires_at.to_i,
           iat:       created_at.to_i,
           auth_time: authorization.user.current_sign_in_at.to_i,
-          nonce:     nonce
+          nonce:     nonce,
+          acr:       0
         }
       end
 
