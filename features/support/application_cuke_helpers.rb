@@ -8,7 +8,7 @@ module ApplicationCukeHelpers
   end
 
   def flash_message_alert?
-    flash_message(selector: "warning").visible?
+    flash_message(selector: "danger").visible?
   end
 
   def flash_message_containing?(text)
@@ -18,7 +18,7 @@ module ApplicationCukeHelpers
   def flash_message(opts={})
     selector = opts.delete(:selector)
     selector &&= ".alert-#{selector}"
-    find(selector || "#flash-message", {match: :first}.merge(opts))
+    find(selector || ".flash-message", {match: :first}.merge(opts))
   end
 
   def confirm_form_validation_error(element)

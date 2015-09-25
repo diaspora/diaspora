@@ -72,13 +72,13 @@ describe("app.views.PodEntry", function() {
     it("renders a success flash message", function() {
       this.view.recheckPod();
       jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
-      expect(this.view.$("#flash-message")).toBeSuccessFlashMessage();
+      expect(this.view.$(".flash-message")).toBeSuccessFlashMessage();
     });
 
     it("renders an error flash message", function() {
       this.view.recheckPod();
       jasmine.Ajax.requests.mostRecent().respondWith(ajaxFail);
-      expect(this.view.$("#flash-message")).toBeErrorFlashMessage();
+      expect(this.view.$(".flash-message")).toBeErrorFlashMessage();
     });
 
     it("sets the appropriate CSS class", function() {

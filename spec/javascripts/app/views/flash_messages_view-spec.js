@@ -13,21 +13,21 @@ describe("app.views.FlashMessages", function(){
 
   describe("render", function(){
     beforeEach(function(){
-      spec.content().html("<div id='flash-container'/>");
-      flashMessages = new app.views.FlashMessages({ el: $("#flash-container") });
+      spec.content().html("<div class='flash-container'/>");
+      flashMessages = new app.views.FlashMessages({ el: $(".flash-container") });
     });
 
     it("renders a success message", function(){
       flashMessages.success("success!");
-      expect(flashMessages.$("#flash-body")).toHaveClass("expose");
-      expect($("#flash-message")).toHaveClass("alert-success");
-      expect($("#flash-message").text().trim()).toBe("success!");
+      expect(flashMessages.$(".flash-body")).toHaveClass("expose");
+      expect($(".flash-message")).toHaveClass("alert-success");
+      expect($(".flash-message").text().trim()).toBe("success!");
     });
     it("renders an error message", function(){
       flashMessages.error("error!");
-      expect(flashMessages.$("#flash-body")).toHaveClass("expose");
-      expect($("#flash-message")).toHaveClass("alert-danger");
-      expect($("#flash-message").text().trim()).toBe("error!");
+      expect(flashMessages.$(".flash-body")).toHaveClass("expose");
+      expect($(".flash-message")).toHaveClass("alert-danger");
+      expect($(".flash-message").text().trim()).toBe("error!");
     });
   });
 });

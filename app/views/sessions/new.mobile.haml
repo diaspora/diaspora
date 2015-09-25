@@ -10,7 +10,7 @@
   #main_stream.stream
     - flash.each do |name, msg|
       .expose#flash-container
-        #flash-message{class: "message alert alert-#{flash_class name}"}
+        .flash-message{class: "message alert alert-#{flash_class name}"}
           = msg
 
     #login_form

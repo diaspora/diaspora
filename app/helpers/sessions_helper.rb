@@ -17,6 +17,6 @@ module SessionsHelper
   end
 
   def flash_class(name)
-    {notice: "success", alert: "warning", error: "danger"}[name.to_sym]
+    {notice: "success", alert: "danger", error: "danger"}[name.to_sym]
   end
 end

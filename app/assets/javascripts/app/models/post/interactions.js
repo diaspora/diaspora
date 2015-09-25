@@ -102,7 +102,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
 
     this.post.reshare().save()
       .done(function(reshare) {
-          app.flashMessages.success(Diaspora.I18n.t("reshares.successful"));
+        app.flashMessages.success(Diaspora.I18n.t("reshares.successful"));
         interactions.reshares.add(reshare);
         if (app.stream && /^\/(?:stream|activity|aspects)/.test(app.stream.basePath())) {
           app.stream.addNow(reshare);

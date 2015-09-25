@@ -1,4 +1,4 @@
-#flash-body {
+.flash-body {
   left: 0;
   position: fixed;
   text-align: center;
@@ -7,9 +7,9 @@
   width: 100%;
   &.expose {  @include animation(expose, 10s) }
 
-  #flash-message {
+  .flash-message {
     border-radius: 0;
-    box-shadow: $card-shadow;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.8);
     display: inline-block;
     font-weight: bold;
     max-width: 800px;

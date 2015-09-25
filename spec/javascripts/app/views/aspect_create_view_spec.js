@@ -117,7 +117,7 @@ describe("app.views.AspectCreate", function() {
         it("should display a flash message", function() {
           this.view.createAspect();
           jasmine.Ajax.requests.mostRecent().respondWith(this.response);
-          expect(this.view.$("#flash-message")).toBeSuccessFlashMessage(
+          expect(this.view.$(".flash-message")).toBeSuccessFlashMessage(
             Diaspora.I18n.t("aspects.create.success", {name: "new name"})
           );
         });
@@ -140,7 +140,7 @@ describe("app.views.AspectCreate", function() {
         it("should display a flash message", function() {
           this.view.createAspect();
           jasmine.Ajax.requests.mostRecent().respondWith(this.response);
-          expect(this.view.$("#flash-message")).toBeErrorFlashMessage(
+          expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
             Diaspora.I18n.t("aspects.create.failure")
           );
         });

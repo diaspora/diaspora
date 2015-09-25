@@ -88,7 +88,7 @@ describe("app.views.Contact", function(){
       jasmine.Ajax.requests.mostRecent().respondWith({
         status: 400 // fail
       });
-      expect(this.view.$("#flash-message")).toBeErrorFlashMessage(
+      expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
         Diaspora.I18n.t( "contacts.error_add", {name: this.model.get("person").name} )
       );
     });
@@ -151,7 +151,7 @@ describe("app.views.Contact", function(){
       jasmine.Ajax.requests.mostRecent().respondWith({
         status: 400 // fail
       });
-      expect(this.view.$("#flash-message")).toBeErrorFlashMessage(
+      expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
         Diaspora.I18n.t( "contacts.error_remove", {name: this.model.get("person").name})
       );
     });

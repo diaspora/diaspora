@@ -61,7 +61,7 @@ describe("app.views.CommentStream", function(){
         this.request.respondWith({status: 500});
 
         expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");
-        expect(this.view.$("#flash-message")).toBeErrorFlashMessage("posting failed!");
+        expect(this.view.$(".flash-message")).toBeErrorFlashMessage("posting failed!");
       });
     });
 

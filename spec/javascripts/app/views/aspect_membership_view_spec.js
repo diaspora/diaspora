@@ -38,7 +38,7 @@ describe("app.views.AspectMembership", function(){
       this.newAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(success);
 
-      expect(this.view.$("#flash-message")).toBeSuccessFlashMessage(
+      expect(this.view.$(".flash-message")).toBeSuccessFlashMessage(
         Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: this.personName})
       );
     });
@@ -58,7 +58,7 @@ describe("app.views.AspectMembership", function(){
       this.newAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
-      expect(this.view.$("#flash-message")).toBeErrorFlashMessage(
+      expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
         Diaspora.I18n.t("aspect_dropdown.error", {name: this.personName})
       );
     });
@@ -82,7 +82,7 @@ describe("app.views.AspectMembership", function(){
       this.oldAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(success);
 
-      expect(this.view.$("#flash-message")).toBeSuccessFlashMessage(
+      expect(this.view.$(".flash-message")).toBeSuccessFlashMessage(
         Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: this.personName})
       );
     });
@@ -102,7 +102,7 @@ describe("app.views.AspectMembership", function(){
       this.oldAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
-      expect(this.view.$("#flash-message")).toBeErrorFlashMessage(
+      expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
         Diaspora.I18n.t("aspect_dropdown.error_remove", {name: this.personName})
       );
     });
