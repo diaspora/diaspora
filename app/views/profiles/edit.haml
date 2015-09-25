@@ -3,15 +3,16 @@
 -#   the COPYRIGHT file.
 
 .container-fluid
-  = render "shared/settings_nav"
+  .row
+    .col-lg-10.col-lg-offset-1
+      = render "shared/settings_nav"
 
-  .container-fluid
-    .row
-      .col-lg-8.col-lg-offset-2
-        - content_for :submit_block do
-          = link_to t("cancel"), local_or_remote_person_path(current_user.person), class: "btn btn-default"
-          = submit_tag t(".update_profile"), class: "btn btn-primary pull-right", id: "update_profile"
+  .row
+    .col-lg-8.col-lg-offset-2
+      - content_for :submit_block do
+        = link_to t("cancel"), local_or_remote_person_path(current_user.person), class: "btn btn-default"
+        = submit_tag t(".update_profile"), class: "btn btn-primary pull-right", id: "update_profile"
 
-        = form_tag profile_path, method: :put, multipart: true, id: "update_profile_form" do
-          = render "edit_public", profile: @profile, aspect: @aspect, person: @person, mobile: false
-          = render "edit_private", person: @person, profile: @profile, aspect: @aspect, step: @step
+      = form_tag profile_path, method: :put, multipart: true, id: "update_profile_form" do
+        = render "edit_public", profile: @profile, aspect: @aspect, person: @person, mobile: false
+        = render "edit_private", person: @person, profile: @profile, aspect: @aspect, step: @step

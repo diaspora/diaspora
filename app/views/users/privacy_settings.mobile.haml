@@ -2,8 +2,8 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.settings_container
-  - content_for :page_title do
-    = t('.title')
+- content_for :page_title do
+  = t(".title")
 
+.settings_container.container-fluid
   = render "privacy_settings"

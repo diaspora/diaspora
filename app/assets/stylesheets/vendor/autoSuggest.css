@@ -156,20 +156,6 @@ li.as-result-item.active em {
   color: #fff;
 }
 
-/* Webkit Hacks  */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  ul.as-selections li.as-selection-item {
-    padding-top: 6px;
-    padding-bottom: 6px;
-  }
-  ul.as-selections li.as-selection-item a.as-close {
-    margin-top: -1px;
-  }
-  ul.as-selections li.as-original input {
-    height: 20px;
-  }
-}
-
 /* Opera Hacks  */
 @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
   ul.as-list {
