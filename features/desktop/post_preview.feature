@@ -85,3 +85,17 @@ Feature: preview posts in the stream
       Then I should see a ".poll_form" within ".stream_element"
       And I should see a "form" within ".stream_element"
       And I close the publisher
+
+    Scenario: preview a post with location
+      Given I expand the publisher
+      When I fill in the following:
+          | status_message_fake_text    | I am eating yogurt    |
+      And I allow geolocation
+      And I click on selector "#locator"
+      When I fill in the following:
+          | status_message_fake_text    | I am eating yogurt |
+          | location_address            | Some cool place |
+      And I press "Preview"
+      Then I should see a ".near-from" within ".stream_element"
+      And I should see "Some cool place" within ".stream_element .near-from"
+      And I close the publisher
