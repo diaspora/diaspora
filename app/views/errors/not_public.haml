@@ -2,13 +2,9 @@
 -# licensed under the Affero General Public License version 3 or later. See
 -# the COPYRIGHT file.
 
-- content_for :head do
-  = stylesheet_link_tag :error_pages, :media => 'all'
-
-#big-number.transparent
+.transparent.big-number
   404
-
-#content
-  = t('error_messages.post_not_public_or_not_exist')
-  %br
-  = t('error_messages.login_try_again', :login_link => new_user_session_path).html_safe
+%h3
+  = t("error_messages.post_not_public_or_not_exist")
+%p
+  = t("error_messages.login_try_again", login_link: new_user_session_path).html_safe
