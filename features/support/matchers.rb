@@ -27,9 +27,9 @@ end
 
 
 def await_condition &condition
-  start_time = Time.now
+  start_time = Time.zone.now
   until condition.call
-    return false if (Time.now-start_time) > Capybara.default_wait_time
+    return false if (Time.zone.now - start_time) > Capybara.default_max_wait_time
     sleep 0.05
   end
   true
