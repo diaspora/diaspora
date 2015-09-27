@@ -61,6 +61,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Capitalize "Powered by diaspora" [#6254](https://github.com/diaspora/diaspora/pull/6254)
 * Display username and avatar for NSFW posts in mobile view [#6245](https://github.com/diaspora/diaspora/6245)
 * Prevent multiple comment boxes on mobile [#6363](https://github.com/diaspora/diaspora/pull/6363)
+* Correctly display location in post preview [#6429](https://github.com/diaspora/diaspora/pull/6429)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)

@@ -327,6 +327,17 @@ app.views.Publisher = Backbone.View.extend({
     var mentionedPeople = this.getMentionedPeople(serializedForm);
     var date = (new Date()).toISOString();
     var poll = this.getPollData(serializedForm);
+    var locationCoords = serializedForm["location[coords]"];
+    if(!locationCoords || locationCoords === "") {
+      locationCoords = ["", ""];
+    } else {
+      locationCoords = locationCoords.split(",");
+    }
+    var location = {
+      "address": $("#location_address").val(),
+      "lat": locationCoords[0],
+      "lng": locationCoords[1]
+    };
 
     var previewMessage = {
       "id" : 0,
@@ -340,7 +351,7 @@ app.views.Publisher = Backbone.View.extend({
       "photos" : photos,
       "frame_name" : "status",
       "title" : serializedForm["status_message[text]"],
-      "address" : $("#location_address").val(),
+      "location" : location,
       "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
       "poll": poll
     };
