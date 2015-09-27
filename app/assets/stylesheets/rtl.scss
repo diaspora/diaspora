@@ -272,11 +272,6 @@ ul.left_nav .item_count, ul.left_nav .edit {
   float: left;
 }
 
-.conversation_participants .right, .stream .new_message .right {
-  right: auto;
-  left: 0;
-}
-
 .prepend-9 {
   padding-left: 0;
   padding-right: 361px;
@@ -285,11 +280,6 @@ ul.left_nav .item_count, ul.left_nav .edit {
 .stream_container {
   border-left: 0;
   border-right: 1px solid $border-grey;
-}
-
-.stream .new_message .right input[type=reset] {
-  float: left;
-  margin-right: 10px;
 }
 
 div.content span.rtl {

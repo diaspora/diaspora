@@ -3,7 +3,7 @@
   h3 { display: inline; }
 }
 .conversation {
-  .conversation_participants {
+  .conversation-participants {
     padding: 1rem 1.2rem;
 
     h3 { margin: 0; }
@@ -32,7 +32,7 @@
   }
 
   .stream .stream_element .timeago,
-  .conversation_participants .last_message_timeago {
+  .conversation-participants .last-message-timeago {
     display: block;
     font-style: italic;
     color: $text-grey;

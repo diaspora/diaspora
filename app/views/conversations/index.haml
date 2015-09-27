@@ -7,8 +7,8 @@
 .container-fluid#conversations_container
   .row
     .col-md-4
-      #left_pane
-        #left_pane_header
+      .left-pane#left_pane
+        .left-pane-header#left_pane_header
           %h3
             .pull-right{ class: ("hidden" unless @visibilities)}
               = link_to t('.new_conversation'), conversations_path, class: 'btn btn-default'
@@ -19,10 +19,11 @@
             - if @visibilities.count > 0
               = render partial: "conversations/conversation", collection: @visibilities, as: :visibility
             - else
-              #no_conversations
+              .no-conversations
                 = t('.no_messages')
-            = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;",inner_window: 1,
-                renderer: WillPaginate::ActionView::BootstrapLinkRenderer
+            .pagination-container
+              = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;", inner_window: 1,
+                  renderer: WillPaginate::ActionView::BootstrapLinkRenderer
 
 
     .col-md-8
@@ -33,8 +34,9 @@
       - else
         .stream_container.hidden
           #conversation_show
-        #conversation_new
-          %h3.text-center
-            = t('conversations.index.new_conversation')
+        .row#conversation_new
           .col-md-10.col-md-offset-1
-            = render 'conversations/new'
+            .new-conversation
+              %h3.text-center
+                = t("conversations.index.new_conversation")
+              = render "conversations/new"
