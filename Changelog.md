@@ -54,6 +54,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Add white background and box-shadow to stream elements [#6324](https://github.com/diaspora/diaspora/6324)
 * Override Bootstrap list group design [#6345](https://github.com/diaspora/diaspora/6345)
 * Clean up publisher code [#6336](https://github.com/diaspora/diaspora/6336)
+* Port conversations to new design [#6431](https://github.com/diaspora/diaspora/pull/6431)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

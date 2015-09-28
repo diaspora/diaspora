@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.stream_element{:data=>{:guid=>message.id}, :id => ('first_unread' if @first_unread_message_id == message.id)}
+.stream_element.message{data: {guid: message.id}, id: ("first_unread" if @first_unread_message_id == message.id)}
   .media
     .media-left
       = person_image_link(message.author, size: :thumb_small, class: "media-object")
