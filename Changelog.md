@@ -55,6 +55,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Override Bootstrap list group design [#6345](https://github.com/diaspora/diaspora/6345)
 * Clean up publisher code [#6336](https://github.com/diaspora/diaspora/6336)
 * Port conversations to new design [#6431](https://github.com/diaspora/diaspora/pull/6431)
+* Hide cancel button in publisher on small screens [#6435](https://github.com/diaspora/diaspora/pull/6435)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
