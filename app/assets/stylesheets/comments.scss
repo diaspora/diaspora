@@ -41,6 +41,8 @@
       box-shadow: 0 0 1px 1px $light-grey;
       margin-right: 10px;
       padding: 5px;
+
+      .collapsible { width: 100%;}
     }
 
     .info {
@@ -69,7 +71,7 @@
     resize: none;
     border: 0;
   }
-  
+
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-bottom: 1px solid $border-grey;
     border-radius: 0;
