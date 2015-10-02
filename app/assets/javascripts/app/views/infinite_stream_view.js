@@ -95,12 +95,11 @@ app.views.InfScroll = app.views.Base.extend({
   },
 
   infScroll : function() {
-    var $window = $(window)
-      , distFromTop = $window.height() + $window.scrollTop()
-      , distFromBottom = $(document).height() - distFromTop
-      , bufferPx = 500;
+    var $window = $(window),
+        distFromBottom = $(document).height() - $window.height() - $window.scrollTop(),
+        elementDistance = this.$el.children().last().offset().top - $window.scrollTop() - 500;
 
-    if(distFromBottom < bufferPx) {
+    if(elementDistance <= 0 || distFromBottom < 500) {
       this.trigger("loadMore");
     }
   }
