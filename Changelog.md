@@ -82,6 +82,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 # 0.5.4.0
 
 ## Refactor
+*  Improve infinite scroll triggering [#6451](https://github.com/diaspora/diaspora/pull/6451)
 
 ## Bug fixes
 
