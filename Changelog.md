@@ -1,6 +1,7 @@
 # 0.5.4.0
 
 ## Refactor
+*  Improve infinite scroll triggering [#6451](https://github.com/diaspora/diaspora/pull/6451)
 
 ## Bug fixes
 
