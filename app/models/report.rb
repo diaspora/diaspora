@@ -1,10 +1,8 @@
 class Report < ActiveRecord::Base
-  POST, COMMENT = %w(post comment).map(&:freeze)
-
   validates :user_id, presence: true
   validates :item_id, presence: true
-  validates :item_type, presence: true, :inclusion => { :in => %w(post comment),
-    :message => 'Type should match `post` or `comment`!'}
+  validates :item_type, presence: true, inclusion: {
+    in: %w(Post Comment), message: "Type should match `Post` or `Comment`!"}
   validates :text, presence: true
 
   validate :entry_does_not_exist, :on => :create
@@ -13,16 +11,9 @@ class Report < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
   belongs_to :comment
+  belongs_to :item, polymorphic: true
 
   after_commit :send_report_notification, :on => :create
-
-  def item
-    if item_type == POST
-      Post.find_by(id: item_id)
-    elsif item_type == COMMENT
-      Comment.find_by(id: item_id)
-    end
-  end
 
   def reported_author
     item.author if item
