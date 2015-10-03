@@ -17,6 +17,8 @@ class Post < ActiveRecord::Base
 
   xml_attr :provider_display_name
 
+  has_many :reports, as: :item
+
   has_many :mentions, :dependent => :destroy
 
   has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
