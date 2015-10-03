@@ -10,7 +10,7 @@ module ReportHelper
     when Comment
       raw t("report.comment_label", data: link_to(
         h(comment_message(item)),
-        post_path(item.post.id, anchor: item.guid)
+        post_path(item.post.id, anchor: item.author.guid)
       ))
     else
       raw t("report.not_found")

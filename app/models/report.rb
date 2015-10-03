@@ -25,7 +25,7 @@ class Report < ActiveRecord::Base
   end
 
   def reported_author
-    item.author unless item.nil?
+    item.author if item
   end
 
   def entry_does_not_exist
@@ -50,9 +50,9 @@ class Report < ActiveRecord::Base
       end
     when Comment
       if item.author.local?
-        item.author.owner.retract(comment)
+        item.author.owner.retract(item)
       elsif item.parent.author.local?
-        item.parent.author.owner.retract(comment)
+        item.parent.author.owner.retract(item)
       else
         item.destroy
       end
