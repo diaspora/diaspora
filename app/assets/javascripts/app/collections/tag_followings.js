@@ -12,7 +12,7 @@ app.collections.TagFollowings = Backbone.Collection.extend({
     var name = model.name || model.get("name");
     if(!this.any(
         function(tagFollowing){
-          return tagFollowing.get("name") === name; 
+          return tagFollowing.get("name") === name;
         })) {
       Backbone.Collection.prototype.create.apply(this, arguments);
     }
