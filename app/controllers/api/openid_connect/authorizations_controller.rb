@@ -194,7 +194,7 @@ module Api
       def redirect_prompt_error_display(error, error_description)
         redirect_params_hash = {error: error, error_description: error_description, state: params[:state]}
         redirect_fragment = redirect_params_hash.compact.map {|key, value| key.to_s + "=" + value }.join("&")
-        redirect_to "#{params[:redirect_uri]}##{redirect_fragment}"
+        redirect_to params[:redirect_uri] + "?" + redirect_fragment
       end
     end
   end
