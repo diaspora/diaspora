@@ -63,8 +63,9 @@ ActiveRecord::Schema.define(version: 20150828132451) do
     t.string   "redirect_uri",          limit: 255
     t.string   "nonce",                 limit: 255
     t.string   "scopes",                limit: 255
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.boolean  "code_used",                         default: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   add_index "authorizations", ["o_auth_application_id"], name: "index_authorizations_on_o_auth_application_id", using: :btree

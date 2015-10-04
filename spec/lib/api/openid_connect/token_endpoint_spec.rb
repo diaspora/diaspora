@@ -48,7 +48,6 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
       it "should not allow code to be reused" do
         auth.reload
-        expect(auth.code).to eq(nil)
         post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
              client_id: client.client_id, client_secret: client.client_secret,
              redirect_uri: "http://localhost:3000/", code: code
@@ -93,7 +92,6 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
       it "should not allow code to be reused" do
         auth_with_specific_id.reload
-        expect(auth_with_specific_id.code).to eq(nil)
         post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
              client_id: client.client_id, client_secret: client.client_secret,
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id

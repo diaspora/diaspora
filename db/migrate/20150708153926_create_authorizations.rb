@@ -8,6 +8,7 @@ class CreateAuthorizations < ActiveRecord::Migration
       t.string :redirect_uri
       t.string :nonce
       t.string :scopes
+      t.boolean :code_used, default: false
 
       t.timestamps null: false
     end
