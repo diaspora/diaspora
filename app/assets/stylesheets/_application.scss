@@ -1,6 +1,6 @@
 @import 'perfect-scrollbar';
 
-@import "colors";
+@import 'color-variables';
 @import "bootstrap-complete.scss";
 @import 'mixins';
 
@@ -21,6 +21,7 @@
 @import 'vendor/fileuploader';
 @import 'vendor/autoSuggest';
 @import 'typeahead';
+@import 'colors';
 
 /* font overrides */
 @import 'typography';

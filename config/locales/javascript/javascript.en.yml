@@ -228,6 +228,7 @@ en:
       unfollow: "Unfollow"
       enable_post_notifications: "Enable notifications for this post"
       disable_post_notifications: "Disable notifications for this post"
+      permalink: "Permalink"
       via: "via <%= provider %>"
 
       likes:
