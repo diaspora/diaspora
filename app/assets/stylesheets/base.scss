@@ -1,0 +1,76 @@
+body {
+  margin-top: $navbar-height;
+  padding: none;
+}
+
+// Overflow
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+code,
+pre { word-wrap: break-word; }
+
+.tag { word-break: break-all; }
+
+.avatar {
+  border-radius: 4px;
+
+  &.micro {
+    height: 20px;
+    width: 20px;
+  }
+
+  &.small {
+    height: 35px;
+    width: 35px;
+  }
+
+  &.medium {
+    height: auto;
+    max-width: 75px;
+    width: auto;
+  }
+}
+
+.author-name {
+  color: inherit;
+}
+
+.back-to-top {
+  background-color: $border-dark-grey;
+  border-radius: 10px;
+  bottom: 20px;
+  color: $white;
+  display: block;
+  font-size: 2.9em;
+  line-height: 1.5;
+  opacity: 0;
+  padding: 0 12px;
+  position: fixed;
+  right: 54px;
+  z-index: 49;
+
+  &:hover,
+  &.visible:hover {
+    color: $white;
+    opacity: .85;
+  }
+
+  &.visible { opacity: .5; }
+}
+
+// general purpose classes
+
+.small-horizontal-spacer {
+  min-height: 20px;
+}
+
+// badge color
+.badge-important {
+  background-color: $red;
+}
