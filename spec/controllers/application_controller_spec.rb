@@ -20,7 +20,7 @@ describe ApplicationController, :type => :controller do
       get :index
       expect(response.headers['X-Diaspora-Version']).to include AppConfig.version.number.get
     end
-    
+
     context 'with git info' do
       before do
         allow(AppConfig).to receive(:git_available?).and_return(true)
@@ -86,8 +86,34 @@ describe ApplicationController, :type => :controller do
         alice.update_attribute(:getting_started, true)
       end
 
-      it "redirects to getting started if the user has getting started set to true" do
+      it "redirects to getting started if the user has getting started set to true and a blank profile" do
         expect(@controller.send(:after_sign_in_path_for, alice)).to eq(getting_started_path)
+      end
+    end
+
+    context "getting started true and one tag present on user" do
+      before do
+        alice.update_attribute(:getting_started, true)
+        @tag = ActsAsTaggableOn::Tag.create!(name: "partytimeexcellent")
+        allow(@controller).to receive(:current_user).and_return(alice)
+        TagFollowing.create!(tag: @tag, user: alice)
+      end
+
+      it "redirects to stream if the user has getting started set to true and has already added tags" do
+        expect(@controller.send(:after_sign_in_path_for, alice)).to eq(stream_path)
+      end
+    end
+
+    context "getting started true and user image present on user" do
+      before do
+        alice.update_attribute(:getting_started, true)
+        # Just set the image url...
+        alice.profile.image_url = "something not nil"
+        allow(@controller).to receive(:current_user).and_return(alice)
+      end
+
+      it "redirects to stream if the user has getting started set to true and has already added a photo" do
+        expect(@controller.send(:after_sign_in_path_for, alice)).to eq(stream_path)
       end
     end
   end

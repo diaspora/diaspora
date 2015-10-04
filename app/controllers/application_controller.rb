@@ -139,7 +139,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_redirect_path
-    current_user.getting_started? ? getting_started_path : stream_path
+    # If getting started is active AND the user has not completed the getting_started page
+    if current_user.getting_started? && !current_user.basic_profile_present?
+      getting_started_path
+    else
+      stream_path
+    end
   end
 
   def gon_set_appconfig
