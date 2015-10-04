@@ -1,3 +1,5 @@
+require "digest"
+
 module Api
   module OpenidConnect
     class OAuthApplication < ActiveRecord::Base
@@ -68,7 +70,7 @@ module Api
         def supported_metadata
           %i(client_name response_types grant_types application_type
              contacts logo_uri client_uri policy_uri tos_uri redirect_uris
-             sector_identifier_uri subject_type)
+             sector_identifier_uri subject_type token_endpoint_auth_method jwks jwks_uri)
         end
 
         def registrar_attributes(registrar)
@@ -77,10 +79,29 @@ module Api
             next unless value
             if key == :subject_type
               attr[:ppid] = (value == "pairwise")
+            elsif key == :jwks_uri
+              uri = URI.parse(value)
+              response = Net::HTTP.get_response(uri)
+              file_name = create_file_path(response.body)
+              attr[:jwks_file] = file_name + ".json"
+              attr[:jwks_uri] = value
+            elsif key == :jwks
+              file_name = create_file_path(value.to_json)
+              attr[:jwks_file] = file_name + ".json"
             else
               attr[key] = value
             end
           end
+        end
+
+        def create_file_path(content)
+          file_name = Base64.urlsafe_encode64(Digest::SHA256.base64digest(content))
+          directory_name = File.join(Rails.root, "config", "jwks")
+          Dir.mkdir(directory_name) unless File.exist?(directory_name)
+          jwk_file_path = File.join(Rails.root, "config", "jwks", file_name + ".json")
+          File.write jwk_file_path, content
+          File.chmod(0600, jwk_file_path)
+          file_name
         end
       end
     end

@@ -32,7 +32,7 @@ module Api
       private
 
       def http_error_page_as_json(e)
-        render json: { error: :invalid_request, error_description: e.message}, status: 400
+        render json: {error: :invalid_request, error_description: e.message}, status: 400
       end
 
       def validation_fail_as_json(e)

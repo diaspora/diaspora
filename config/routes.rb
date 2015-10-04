@@ -242,7 +242,7 @@ Diaspora::Application.routes.draw do
       resources :clients, only: :create
       get "clients/find", to: "clients#find"
 
-      post "access_tokens", to: proc {|env| Api::OpenidConnect::TokenEndpoint.new.call(env) }
+      post "access_tokens", to: "token_endpoint#create"
 
       # Authorization Servers MUST support the use of the HTTP GET and POST methods at the Authorization Endpoint
       # See http://openid.net/specs/openid-connect-core-1_0.html#AuthResponseValidation

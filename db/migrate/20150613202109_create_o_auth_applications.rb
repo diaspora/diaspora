@@ -16,6 +16,10 @@ class CreateOAuthApplications < ActiveRecord::Migration
       t.string :policy_uri
       t.string :tos_uri
       t.string :sector_identifier_uri
+      t.string :token_endpoint_auth_method
+      t.string :jwks_uri
+      t.string :jwks_file
+
       t.boolean :ppid, default: false
 
       t.timestamps null: false

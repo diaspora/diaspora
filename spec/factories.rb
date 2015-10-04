@@ -328,6 +328,13 @@ FactoryGirl.define do
     sector_identifier_uri "https://example.com/uri"
   end
 
+  factory :o_auth_application_with_ppid_with_specific_id, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris %w(http://localhost:3000/)
+    ppid true
+    sector_identifier_uri "https://example.com/uri"
+  end
+
   factory :o_auth_application_with_multiple_redirects, class: Api::OpenidConnect::OAuthApplication do
     client_name "Diaspora Test Client"
     redirect_uris %w(http://localhost:3000/ http://localhost/)

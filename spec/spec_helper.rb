@@ -59,6 +59,10 @@ def photo_fixture_name
   @photo_fixture_name = File.join(File.dirname(__FILE__), "fixtures", "button.png")
 end
 
+def jwks_file_path
+  @jwks_file = "../../spec/fixtures/jwks.json"
+end
+
 # Force fixture rebuild
 FileUtils.rm_f(Rails.root.join("tmp", "fixture_builder.yml"))
 

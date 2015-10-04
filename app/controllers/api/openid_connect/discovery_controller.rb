@@ -25,7 +25,7 @@ module Api
           request_object_signing_alg_values_supported: %i(HS256 HS384 HS512),
           subject_types_supported:                     %w(public pairwise),
           id_token_signing_alg_values_supported:       %i(RS256),
-          token_endpoint_auth_methods_supported:       %w(client_secret_basic client_secret_post),
+          token_endpoint_auth_methods_supported:       %w(client_secret_basic client_secret_post private_key_jwt),
           claims_supported:                            %w(sub nickname profile picture)
         )
       end

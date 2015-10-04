@@ -7,6 +7,16 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
       o_auth_application: client, user: bob, redirect_uri: "http://localhost:3000/", scopes: ["openid"])
   }
   let!(:code) { auth.create_code }
+  let!(:client_with_specific_id) { FactoryGirl.create(:o_auth_application_with_ppid_with_specific_id) }
+  let!(:auth_with_specific_id) do
+    client_with_specific_id.client_id = "14d692cd53d9c1a9f46fd69e0e57443e"
+    client_with_specific_id.jwks_file = jwks_file_path
+    client_with_specific_id.save!
+    Api::OpenidConnect::Authorization.find_or_create_by(
+      o_auth_application: client_with_specific_id,
+      user: bob, redirect_uri: "http://localhost:3000/", scopes: ["openid"])
+  end
+  let!(:code_with_specific_id) { auth_with_specific_id.create_code }
 
   describe "the authorization code grant type" do
     context "when the authorization code is valid" do
@@ -53,6 +63,44 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
       end
     end
 
+    context "when the authorization code is valid with jwt bearer" do
+      before do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
+             client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+             client_assertion: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImExIn0.eyJhdWQiOiBbImh0dHBzOi8va2VudHNoaWthbWEuY29tL2FwaS9vcGVuaWRfY29ubmVjdC9hY2Nlc3NfdG9rZW5zIl0sICJpc3MiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UiLCAianRpIjogIjBtY3JyZVlIIiwgImV4cCI6IDE0NDMxNzA4OTEuMzk3NDU2LCAiaWF0IjogMTQ0MzE3MDI5MS4zOTc0NTYsICJzdWIiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UifQ.QJUR3SYFrEIlbfOKjO0NYInddklytbJ2LSWNpkQ1aNThgneDCVCjIYGCaL2C9Sw-GR8j7QSUsKOwBbjZMUmVPFTjsfB4wdgObbxVt1QAXwDjAXc5w1smOerRsoahZ4yKI1an6PTaFxMwnoXUQcBZTsOS6RgXOCPPPoxibxohxoehPLieM0l7LYcF5DQKg7fTxZYOpmtiP--nibJxomXdVQNLSnZuQwnyWtlp_gYmqrYMMN1LPSmNCgZMZZZIYttaaAIA96SylglqubowJRShtDO9rSvUz_sgeCo7qo5Bfb0B5n9_PtIlr1CZSVoHyYj2lVqQldx7fnGuqqQJCfDQog"
+      end
+
+      it "should return a valid id token" do
+        json = JSON.parse(response.body)
+        encoded_id_token = json["id_token"]
+        decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
+                                                                      Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
+        expected_guid = bob.pairwise_pseudonymous_identifiers.find_by(identifier: "https://example.com/uri").guid
+        expect(decoded_token.sub).to eq(expected_guid)
+        expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
+      end
+
+      it "should return a valid access token" do
+        json = JSON.parse(response.body)
+        encoded_id_token = json["id_token"]
+        decoded_token = OpenIDConnect::ResponseObject::IdToken.decode encoded_id_token,
+                                                                      Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY
+        access_token = json["access_token"]
+        access_token_check_num = UrlSafeBase64.encode64(OpenSSL::Digest::SHA256.digest(access_token)[0, 128 / 8])
+        expect(decoded_token.at_hash).to eq(access_token_check_num)
+      end
+
+      it "should not allow code to be reused" do
+        auth_with_specific_id.reload
+        expect(auth_with_specific_id.code).to eq(nil)
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             client_id: client.client_id, client_secret: client.client_secret,
+             redirect_uri: "http://localhost:3000/", code: code_with_specific_id
+        expect(JSON.parse(response.body)["error"]).to eq("invalid_grant")
+      end
+    end
+
     context "when the authorization code is not valid" do
       it "should return an invalid grant error" do
         post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
@@ -61,11 +109,63 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
       end
     end
 
+    context "when the client assertion is in an invalid format" do
+      before do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
+             client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+             client_assertion: "invalid_client_assertion.random"
+      end
+
+      it "should return an error" do
+        expect(response.body).to include "invalid_request"
+      end
+    end
+
+    context "when the client assertion is not matching with jwks keys" do
+      before do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
+             client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+             client_assertion: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImExIn0.eyJhdWQiOiBbImh0dHBzOi8va2VudHNoaWthbWEuY29tL2FwaS9vcGVuaWRfY29ubmVjdC9hY2Nlc3NfdG9rZW5zIl0sICJpc3MiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UiLCAianRpIjogIjBtY3JyZVlIIiwgImV4cCI6IDE0NDMxNzA4OTEuMzk3NDU2LCAiaWF0IjogMTQ0MzE3MDI5MS4zOTc0NTYsICJzdWIiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UifQ.QJUR3SYFrEIlbfOKjO0NYInddklytbJ2LSWNpkQ1aNThgneDCVCjIYGCaL2C9Sw-GR8j7QSUsKOwBbjZMUmVPFTjsfB4wdgObbxVt1QAXwDjAXc5w1smOerRsoahZ4yKI1an6PTaFxMwnoXUQcBZTsOS6RgXOCPPPoxibxohxoehPLieM0l7LYcF5DQKg7fTxZYOpmtiP--nibJxomXdVQNLSnZuQwnyWtlp_gYmqrYMMN1LPSmNCgZMZZZIYttaaAIA96SylglqubowJRShtDO9rSvUz_sgeCo7qo5Bfb0B5n9_PtIlr1CZSVoHyYj2lVqQldx7fnGuqqQJCfDQoe"
+      end
+
+      it "should return an error" do
+        expect(response.body).to include "invalid_grant"
+      end
+    end
+
+    context "when kid doesn't exist in jwks keys" do
+      before do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
+             client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+             client_assertion: "ewogIGFsZzogUlMyNTYsCiAga2lkOiBpbnZhbGlkX2tpZAp9Cg.eyJhdWQiOiBbImh0dHBzOi8va2VudHNoaWthbWEuY29tL2FwaS9vcGVuaWRfY29ubmVjdC9hY2Nlc3NfdG9rZW5zIl0sICJpc3MiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UiLCAianRpIjogIjBtY3JyZVlIIiwgImV4cCI6IDE0NDMxNzA4OTEuMzk3NDU2LCAiaWF0IjogMTQ0MzE3MDI5MS4zOTc0NTYsICJzdWIiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UifQ."
+      end
+
+      it "should return an error" do
+        expect(response.body).to include "invalid_request"
+      end
+    end
+
     context "when the client is unregistered" do
       it "should return an error" do
         post api_openid_connect_access_tokens_path, grant_type: "authorization_code", code: auth.refresh_token,
              client_id: SecureRandom.hex(16).to_s, client_secret: client.client_secret
         expect(response.body).to include "invalid_client"
+      end
+    end
+
+    context "when the client is unregistered with jwks keys" do
+      before do
+        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+             redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
+             client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+             client_assertion: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImExIn0.ewogIGF1ZDogWwogICAgaHR0cHM6Ly9rZW50c2hpa2FtYS5jb20vYXBpL29wZW5pZF9jb25uZWN0L2FjY2Vzc190b2tlbnMKICBdLAogIGlzczogMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2QsCiAganRpOiAwbWNycmVZSCwKICBleHA6IDE0NDMxNzA4OTEuMzk3NDU2LAogIGlhdDogMTQ0MzE3MDI5MS4zOTc0NTYsCiAgc3ViOiAxNGQ2OTJjZDUzZDljMWE5ZjQ2ZmQ2OWUwZTU3NDQzZAp9Cg.QJUR3SYFrEIlbfOKjO0NYInddklytbJ2LSWNpkQ1aNThgneDCVCjIYGCaL2C9Sw-GR8j7QSUsKOwBbjZMUmVPFTjsfB4wdgObbxVt1QAXwDjAXc5w1smOerRsoahZ4yKI1an6PTaFxMwnoXUQcBZTsOS6RgXOCPPPoxibxohxoehPLieM0l7LYcF5DQKg7fTxZYOpmtiP--nibJxomXdVQNLSnZuQwnyWtlp_gYmqrYMMN1LPSmNCgZMZZZIYttaaAIA96SylglqubowJRShtDO9rSvUz_sgeCo7qo5Bfb0B5n9_PtIlr1CZSVoHyYj2lVqQldx7fnGuqqQJCfDQog"
+      end
+
+      it "should return an error" do
+        expect(response.body).to include "invalid_request"
       end
     end
 
