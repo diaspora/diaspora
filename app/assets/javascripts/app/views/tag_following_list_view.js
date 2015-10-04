@@ -21,7 +21,12 @@ app.views.TagFollowingList = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.collection.each(this.appendTagFollowing, this);
+    // add the whole sorted collection without handling each item separately
+    this.collection.each(function(tag) {
+      this.$el.prepend(new app.views.TagFollowing({
+        model: tag
+      }).render().el);
+    }, this);
   },
 
   setupAutoSuggest : function() {
@@ -63,12 +68,33 @@ app.views.TagFollowingList = app.views.Base.extend({
   createTagFollowing: function(evt) {
     if(evt){ evt.preventDefault(); }
 
-    this.collection.create({"name":this.$(".tag_input").val()});
+    var name = this.$(".tag_input").val();
+    // compare tag_text_regexp in app/models/acts_as_taggable_on-tag.rb
+    var normalizedName = (name === "<3" ? name : name.replace(
+        new RegExp("[^" + PosixBracketExpressions.alnum + "_\\-]+", "gi"), "").toLowerCase());
+
+    this.collection.create({"name":normalizedName});
+
     this.$(".tag_input").val("");
     return this;
   },
 
   appendTagFollowing: function(tag) {
+    // insert new tag in the order of the collection
+    var modelIndex = this.collection.indexOf(tag);
+    var prevModel = this.collection.at(modelIndex + 1); // prev in alphabet, +1 (next) in reverse sorted list
+
+    if (prevModel) {
+      var prevModelDom = this.$("#tag-following-" + prevModel.get("name"));
+      if (prevModelDom.length > 0) {
+        prevModelDom.after(new app.views.TagFollowing({
+          model: tag
+        }).render().el);
+        return;
+      }
+    }
+
+    // we have no previous Model and no View, so just prepend to the list
     this.$el.prepend(new app.views.TagFollowing({
       model: tag
     }).render().el);
