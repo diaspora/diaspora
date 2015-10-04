@@ -4,6 +4,7 @@
 *  Improve infinite scroll triggering [#6451](https://github.com/diaspora/diaspora/pull/6451)
 
 ## Bug fixes
+* Skip first getting started step if it looks done already [#6456](https://github.com/diaspora/diaspora/pull/6456)
 
 ## Features
 * Show spinner on initial stream load [#6384](https://github.com/diaspora/diaspora/pull/6384)
