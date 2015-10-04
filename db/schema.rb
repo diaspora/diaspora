@@ -281,7 +281,7 @@ ActiveRecord::Schema.define(version: 20150828132451) do
     t.string   "redirect_uris",              limit: 255
     t.string   "response_types",             limit: 255
     t.string   "grant_types",                limit: 255
-    t.string   "application_type",           limit: 255, default: "web"
+    t.string   "application_type",           limit: 255,   default: "web"
     t.string   "contacts",                   limit: 255
     t.string   "logo_uri",                   limit: 255
     t.string   "client_uri",                 limit: 255
@@ -289,11 +289,11 @@ ActiveRecord::Schema.define(version: 20150828132451) do
     t.string   "tos_uri",                    limit: 255
     t.string   "sector_identifier_uri",      limit: 255
     t.string   "token_endpoint_auth_method", limit: 255
+    t.text     "jwks",                       limit: 65535
     t.string   "jwks_uri",                   limit: 255
-    t.string   "jwks_file",                  limit: 255
-    t.boolean  "ppid",                                   default: false
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
+    t.boolean  "ppid",                                     default: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
   end
 
   add_index "o_auth_applications", ["client_id"], name: "index_o_auth_applications_on_client_id", unique: true, length: {"client_id"=>191}, using: :btree

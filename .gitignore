@@ -21,7 +21,6 @@ config/database.yml
 .rvmrc_custom
 .rvmrc.local
 config/oidc_key.pem
-config/jwks/
 
 # Mailing list stuff
 config/email_offset

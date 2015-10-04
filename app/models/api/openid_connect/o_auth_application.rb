@@ -10,7 +10,7 @@ module Api
       validates :client_secret, presence: true
       validates :client_name, uniqueness: {scope: :redirect_uris}
 
-      %i(redirect_uris response_types grant_types contacts).each do |serializable|
+      %i(redirect_uris response_types grant_types contacts jwks).each do |serializable|
         serialize serializable, JSON
       end
 
@@ -82,26 +82,14 @@ module Api
             elsif key == :jwks_uri
               uri = URI.parse(value)
               response = Net::HTTP.get_response(uri)
-              file_name = create_file_path(response.body)
-              attr[:jwks_file] = file_name + ".json"
+              attr[:jwks] = response.body
               attr[:jwks_uri] = value
             elsif key == :jwks
-              file_name = create_file_path(value.to_json)
-              attr[:jwks_file] = file_name + ".json"
+              attr[:jwks] = value.to_json
             else
               attr[key] = value
             end
           end
-        end
-
-        def create_file_path(content)
-          file_name = Base64.urlsafe_encode64(Digest::SHA256.base64digest(content))
-          directory_name = File.join(Rails.root, "config", "jwks")
-          Dir.mkdir(directory_name) unless File.exist?(directory_name)
-          jwk_file_path = File.join(Rails.root, "config", "jwks", file_name + ".json")
-          File.write jwk_file_path, content
-          File.chmod(0600, jwk_file_path)
-          file_name
         end
       end
     end

@@ -10,12 +10,7 @@ module Api
 
       def new
         auth = Api::OpenidConnect::Authorization.find_by_client_id_and_user(params[:client_id], current_user)
-        if auth
-          auth.o_auth_access_tokens.destroy_all
-          auth.id_tokens.destroy_all
-          auth.code_used = false
-          auth.save
-        end
+        reset_auth(auth)
         if logged_in_before?(params[:max_age])
           reauthenticate
         elsif params[:prompt]
@@ -42,6 +37,14 @@ module Api
       end
 
       private
+
+      def reset_auth(auth)
+        return unless auth
+        auth.o_auth_access_tokens.destroy_all
+        auth.id_tokens.destroy_all
+        auth.code_used = false
+        auth.save
+      end
 
       def handle_prompt(prompt, auth)
         if prompt.include? "select_account"

@@ -6,7 +6,7 @@ module Api
         if req["client_assertion_type"] == "urn:ietf:params:oauth:client-assertion-type:jwt-bearer"
           handle_jwt_bearer(req)
         end
-        self.status, self.response.headers, self.response_body = Api::OpenidConnect::TokenEndpoint.new.call(request.env)
+        self.status, response.headers, self.response_body = Api::OpenidConnect::TokenEndpoint.new.call(request.env)
         nil
       end
 
@@ -24,12 +24,10 @@ module Api
       end
 
       def fetch_public_key(o_auth_app, jwt)
-        jwks_file_path = File.join(Rails.root, "config", "jwks", o_auth_app.jwks_file)
-        public_key = fetch_public_key_from_json(File.read(jwks_file_path), jwt)
+        public_key = fetch_public_key_from_json(o_auth_app.jwks, jwt)
         if public_key.empty? && o_auth_app.jwks_uri
           uri = URI.parse(o_auth_app.jwks_uri)
           response = Net::HTTP.get_response(uri)
-          File.write jwks_file_path, response.body
           public_key = fetch_public_key_from_json(response.body, jwt)
         end
         raise Rack::OAuth2::Server::Authorize::BadRequest(:unauthorized_client) if public_key.empty?

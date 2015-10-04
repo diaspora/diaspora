@@ -10,7 +10,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
   let!(:client_with_specific_id) { FactoryGirl.create(:o_auth_application_with_ppid_with_specific_id) }
   let!(:auth_with_specific_id) do
     client_with_specific_id.client_id = "14d692cd53d9c1a9f46fd69e0e57443e"
-    client_with_specific_id.jwks_file = jwks_file_path
+    client_with_specific_id.jwks = File.read(jwks_file_path)
     client_with_specific_id.save!
     Api::OpenidConnect::Authorization.find_or_create_by(
       o_auth_application: client_with_specific_id,
@@ -67,7 +67,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImExIn0.eyJhdWQiOiBbImh0dHBzOi8va2VudHNoaWthbWEuY29tL2FwaS9vcGVuaWRfY29ubmVjdC9hY2Nlc3NfdG9rZW5zIl0sICJpc3MiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UiLCAianRpIjogIjBtY3JyZVlIIiwgImV4cCI6IDE0NDMxNzA4OTEuMzk3NDU2LCAiaWF0IjogMTQ0MzE3MDI5MS4zOTc0NTYsICJzdWIiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UifQ.QJUR3SYFrEIlbfOKjO0NYInddklytbJ2LSWNpkQ1aNThgneDCVCjIYGCaL2C9Sw-GR8j7QSUsKOwBbjZMUmVPFTjsfB4wdgObbxVt1QAXwDjAXc5w1smOerRsoahZ4yKI1an6PTaFxMwnoXUQcBZTsOS6RgXOCPPPoxibxohxoehPLieM0l7LYcF5DQKg7fTxZYOpmtiP--nibJxomXdVQNLSnZuQwnyWtlp_gYmqrYMMN1LPSmNCgZMZZZIYttaaAIA96SylglqubowJRShtDO9rSvUz_sgeCo7qo5Bfb0B5n9_PtIlr1CZSVoHyYj2lVqQldx7fnGuqqQJCfDQog"
+             client_assertion: File.read(valid_client_assertion_path)
       end
 
       it "should return a valid id token" do
@@ -125,7 +125,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImExIn0.eyJhdWQiOiBbImh0dHBzOi8va2VudHNoaWthbWEuY29tL2FwaS9vcGVuaWRfY29ubmVjdC9hY2Nlc3NfdG9rZW5zIl0sICJpc3MiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UiLCAianRpIjogIjBtY3JyZVlIIiwgImV4cCI6IDE0NDMxNzA4OTEuMzk3NDU2LCAiaWF0IjogMTQ0MzE3MDI5MS4zOTc0NTYsICJzdWIiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UifQ.QJUR3SYFrEIlbfOKjO0NYInddklytbJ2LSWNpkQ1aNThgneDCVCjIYGCaL2C9Sw-GR8j7QSUsKOwBbjZMUmVPFTjsfB4wdgObbxVt1QAXwDjAXc5w1smOerRsoahZ4yKI1an6PTaFxMwnoXUQcBZTsOS6RgXOCPPPoxibxohxoehPLieM0l7LYcF5DQKg7fTxZYOpmtiP--nibJxomXdVQNLSnZuQwnyWtlp_gYmqrYMMN1LPSmNCgZMZZZIYttaaAIA96SylglqubowJRShtDO9rSvUz_sgeCo7qo5Bfb0B5n9_PtIlr1CZSVoHyYj2lVqQldx7fnGuqqQJCfDQoe"
+             client_assertion: File.read(client_assertion_with_tampered_sig_path)
       end
 
       it "should return an error" do
@@ -138,7 +138,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: "ewogIGFsZzogUlMyNTYsCiAga2lkOiBpbnZhbGlkX2tpZAp9Cg.eyJhdWQiOiBbImh0dHBzOi8va2VudHNoaWthbWEuY29tL2FwaS9vcGVuaWRfY29ubmVjdC9hY2Nlc3NfdG9rZW5zIl0sICJpc3MiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UiLCAianRpIjogIjBtY3JyZVlIIiwgImV4cCI6IDE0NDMxNzA4OTEuMzk3NDU2LCAiaWF0IjogMTQ0MzE3MDI5MS4zOTc0NTYsICJzdWIiOiAiMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2UifQ."
+             client_assertion: File.read(client_assertion_with_nonexistent_kid_path)
       end
 
       it "should return an error" do
@@ -159,7 +159,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImExIn0.ewogIGF1ZDogWwogICAgaHR0cHM6Ly9rZW50c2hpa2FtYS5jb20vYXBpL29wZW5pZF9jb25uZWN0L2FjY2Vzc190b2tlbnMKICBdLAogIGlzczogMTRkNjkyY2Q1M2Q5YzFhOWY0NmZkNjllMGU1NzQ0M2QsCiAganRpOiAwbWNycmVZSCwKICBleHA6IDE0NDMxNzA4OTEuMzk3NDU2LAogIGlhdDogMTQ0MzE3MDI5MS4zOTc0NTYsCiAgc3ViOiAxNGQ2OTJjZDUzZDljMWE5ZjQ2ZmQ2OWUwZTU3NDQzZAp9Cg.QJUR3SYFrEIlbfOKjO0NYInddklytbJ2LSWNpkQ1aNThgneDCVCjIYGCaL2C9Sw-GR8j7QSUsKOwBbjZMUmVPFTjsfB4wdgObbxVt1QAXwDjAXc5w1smOerRsoahZ4yKI1an6PTaFxMwnoXUQcBZTsOS6RgXOCPPPoxibxohxoehPLieM0l7LYcF5DQKg7fTxZYOpmtiP--nibJxomXdVQNLSnZuQwnyWtlp_gYmqrYMMN1LPSmNCgZMZZZIYttaaAIA96SylglqubowJRShtDO9rSvUz_sgeCo7qo5Bfb0B5n9_PtIlr1CZSVoHyYj2lVqQldx7fnGuqqQJCfDQog"
+             client_assertion: File.read(client_assertion_with_nonexistent_client_id_path)
       end
 
       it "should return an error" do
