@@ -1,9 +1,6 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-//= require ./stream/shortcuts
-
-app.views.Stream = app.views.InfScroll.extend(_.extend(
-  app.views.StreamShortcuts, {
+app.views.Stream = app.views.InfScroll.extend({
 
   initialize: function() {
     this.stream = this.model;
@@ -13,7 +10,6 @@ app.views.Stream = app.views.InfScroll.extend(_.extend(
 
     this.setupNSFW();
     this.setupInfiniteScroll();
-    this.setupShortcuts();
     this.markNavSelected();
   },
 
@@ -32,5 +28,5 @@ app.views.Stream = app.views.InfScroll.extend(_.extend(
     streamSelection.find("[data-stream]").removeClass("selected");
     streamSelection.find("[data-stream='" + activeStream + "']").addClass("selected");
   }
-}));
+});
 // @license-end
