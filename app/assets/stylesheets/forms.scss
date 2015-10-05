@@ -1,0 +1,96 @@
+// We need these to reset Bootstrap styles
+// scss-lint:disable QualifyingElement
+input,
+input[type=email],
+input[type=text],
+input[type=password],
+textarea {
+  &,
+  &:active,
+  &:invalid,
+  &:invalid:required,
+  &:focus,
+  &:active:focus,
+  &:invalid:focus,
+  &:invalid:required:focus {
+    border-color: $border-grey;
+    box-shadow: none;
+    color: $text-dark-grey;
+  }
+}
+// scss-lint:enable QualifyingElement
+
+// Forms described here are only used on the public pages at the moment
+.block-form {
+  margin: 20px auto;
+
+  fieldset {
+    background-color: $white;
+    margin-bottom: 1em;
+    position: relative; // To correctly place the entypo icon
+
+    input {
+      border-bottom-width: 0;
+      border-radius: 0;
+      color: $text-dark-grey;
+      margin: 0;
+    }
+
+    .form-control {
+      font-size: 16px;
+      height: 40px;
+      padding: 10px;
+      padding-left: 40px;
+    }
+
+    .form-control:first-of-type,
+    .form-control:first-of-type:focus,
+    .form-control:first-of-type:invalid,
+    .form-control:first-of-type:invalid:focus,
+    .form-control:first-of-type:invalid:required,
+    .form-control:first-of-type:invalid:required:focus {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .form-control:last-of-type,
+    .form-control:last-of-type:focus,
+    .form-control:last-of-type:invalid,
+    .form-control:last-of-type:invalid:focus,
+    .form-control:last-of-type:invalid:required,
+    .form-control:last-of-type:invalid:required:focus {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom-width: 1px;
+    }
+
+    [class^="entypo-"],
+    [class*="entypo-"] {
+      color: $text-grey;
+      font-size: 20px;
+      left: 10px;
+      line-height: 20px;
+      position: absolute;
+      text-align: center;
+      top: 10px;
+      width: 20px;
+    }
+
+    [class^="entypo-"]:nth-of-type(2),
+    [class*="entypo-"]:nth-of-type(2) {
+      top: 50px;
+    }
+
+    [class^="entypo-"]:nth-of-type(3),
+    [class*="entypo-"]:nth-of-type(3) {
+      top: 90px;
+    }
+
+    [class^="entypo-"]:nth-of-type(4),
+    [class*="entypo-"]:nth-of-type(4) {
+      top: 130px;
+    }
+
+    ::placeholder { text-transform: uppercase; }
+  }
+}
