@@ -14,6 +14,7 @@
 * Only post to the primary tumblr blog [#6386](https://github.com/diaspora/diaspora/pull/6386)
 * Always show public photos on profile page [#6398](https://github.com/diaspora/diaspora/pull/6398)
 * Expose Unicorn's pid option to our configuration system [#6411](https://github.com/diaspora/diaspora/pull/6411)
+* Add stream of all public posts [#6465](https://github.com/diaspora/diaspora/pull/6465)
 
 # 0.5.3.1
 
