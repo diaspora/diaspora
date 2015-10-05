@@ -41,6 +41,7 @@ and on a pod that received that data.
 * Guard against passing nil into person\_image\_tag [#6286](https://github.com/diaspora/diaspora/pull/6286)
 * Prevent Handlebars from messing up indentation of pre tags [#6339](https://github.com/diaspora/diaspora/pull/6339)
 * Fix pagination design on notifications page [#6364](https://github.com/diaspora/diaspora/pull/6364)
+* Improve handling of j/k hotkeys [#6462](https://github.com/diaspora/diaspora/pull/6462)
 
 ## Features
 
