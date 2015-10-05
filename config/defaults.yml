@@ -217,6 +217,9 @@ development:
       serve: true
     single_process_mode: true
     require_ssl: false
+    logging:
+      debug:
+        sql: true
   server:
     unicorn_worker: 1
   settings:
