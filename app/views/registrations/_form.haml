@@ -46,12 +46,15 @@
                        aria:        {labelledby: "passwordConfirmationLabel"}
 
     - if AppConfig.settings.captcha.enable?
-      = show_simple_captcha object: 'user', :code_type => 'numeric', input_html: {class: "form-control"}
+      = show_simple_captcha object: "user",
+                            code_type: "numeric",
+                            class: "simple-captcha-image",
+                            input_html: {class: "form-control captcha-input"}
 
     = invite_hidden_tag(invite)
 
   - if AppConfig.settings.terms.enable?
-    %p#terms.text-center
+    %p.terms.text-center#terms
       = t('registrations.new.terms', terms_link: link_to(t('registrations.new.terms_link'), terms_path, target: "_blank")).html_safe
 
   = f.submit t('registrations.new.sign_up'), class: "btn btn-block btn-large btn-default", data: {disable_with: t('registrations.new.submitting')}
