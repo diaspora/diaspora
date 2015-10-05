@@ -9,4 +9,5 @@ module Stream
   require 'stream/person'
   require 'stream/public'
   require 'stream/tag'
+  require 'stream/favor'
 end

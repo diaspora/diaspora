@@ -48,6 +48,10 @@ class StreamsController < ApplicationController
     stream_responder(Stream::FollowedTag)
   end
 
+  def favors
+    stream_responder(Stream::Favor)
+  end
+
   private
 
   def stream_responder(stream_klass=nil)

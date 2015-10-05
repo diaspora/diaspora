@@ -91,6 +91,27 @@ app.views.Base = Backbone.View.extend({
     this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}));
   },
 
+  add_favorite: function(evt) {
+    if(evt) { evt.preventDefault(); }
+
+    new app.models.Favorite({
+      post_id: this.model.id, type: 'POST'
+    }).save({}, {
+      success: function() {
+        Diaspora.page.flashMessages.render({
+          success: true,
+          notice: Diaspora.I18n.t('favorite.status.success')
+        });
+      },
+      error: function() {
+        Diaspora.page.flashMessages.render({
+          success: false,
+          notice: Diaspora.I18n.t('favorite.status.error')
+        });
+      }
+    });
+  },
+
   report: function(evt) {
     if(evt) { evt.preventDefault(); }
     var msg = prompt(Diaspora.I18n.t('report.prompt'), Diaspora.I18n.t('report.prompt_default'));

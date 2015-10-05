@@ -37,6 +37,7 @@ Diaspora::Application.routes.draw do
     resources :poll_participations, only: :create
     resources :likes, only: %i(create destroy index)
     resources :comments, only: %i(new create destroy index)
+    resource :favorite, only: %i(create)
   end
 
 
@@ -58,6 +59,7 @@ Diaspora::Application.routes.draw do
   get "liked" => "streams#liked", :as => "liked_stream"
   get "commented" => "streams#commented", :as => "commented_stream"
   get "aspects" => "streams#aspects", :as => "aspects_stream"
+  get "favors" => "streams#favors", :as => "favors_stream"
 
   resources :aspects do
     put :toggle_contact_visibility

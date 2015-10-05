@@ -75,6 +75,7 @@ class User < ActiveRecord::Base
   has_many :notifications, :foreign_key => :recipient_id
 
   has_many :reports
+  has_many :favorites
 
   before_save :guard_unconfirmed_email,
               :save_person!
