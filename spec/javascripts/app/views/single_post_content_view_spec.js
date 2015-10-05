@@ -5,6 +5,34 @@ describe("app.views.SinglePostContent", function() {
     gon.appConfig = { map: {mapbox: {enabled: true, id: "yourID", accessToken: "yourAccessToken" }}};
   });
 
+  describe("map", function() {
+    context("with location provided", function() {
+      beforeEach(function(){
+        this.post.set({location : factory.location()});
+        spec.content().html(this.view.render().el);
+        gon.appConfig = { map: {mapbox: {enabled: false }}};
+      });
+
+      it("initializes the leaflet map", function() {
+        spyOn(L, "map").and.callThrough();
+        this.view.map();
+        expect(L.map).toHaveBeenCalled();
+      });
+    });
+
+    context("without location provided", function() {
+      beforeEach(function(){
+        spec.content().html(this.view.render().el);
+      });
+
+      it("doesn't initialize the leaflet map", function() {
+        spyOn(L, "map");
+        this.view.map();
+        expect(L.map).not.toHaveBeenCalled();
+      });
+    });
+  });
+
   describe("toggleMap", function() {
     context("with location provided", function() {
       beforeEach(function(){
