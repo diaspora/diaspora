@@ -27,6 +27,7 @@ app.Router = Backbone.Router.extend({
     "commented": "stream",
     "liked": "stream",
     "mentions": "stream",
+    "public": "stream",
     "followed_tags": "followed_tags",
     "tags/:name": "followed_tags",
     "people/:id/photos": "photos",

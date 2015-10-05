@@ -41,6 +41,8 @@
           = render "aspects/aspect_listings", stream: @stream
         %li.followed-tags-sidebar
           = render "tags/followed_tags_listings"
+        %li{data: {stream: "public"}}
+          = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
 
     .col-md-6
       #aspect_stream_container.stream_container

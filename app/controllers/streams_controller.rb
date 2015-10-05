@@ -5,7 +5,6 @@
 class StreamsController < ApplicationController
   before_action :authenticate_user!
   before_action :save_selected_aspects, :only => :aspects
-  before_action :redirect_unless_admin, :only => :public
 
   layout proc { request.format == :mobile ? "application" : "with_header" }
 
