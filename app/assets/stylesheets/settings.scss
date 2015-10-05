@@ -1,0 +1,22 @@
+// Specific styles for the settings pages (profile, user account, privacy, services)
+.enclosed-checkbox label {
+  margin-bottom: 0;
+}
+
+.profile-photo-upload {
+  text-align: center;
+
+  .avatar {
+    height: auto;
+    margin-bottom: 20px;
+    max-width: 200px;
+    width: auto;
+  }
+}
+
+.settings-visibility { margin-left: 10px; }
+
+.page-profiles.action-edit textarea {
+  max-width: 100%;
+  min-width: 100%;
+}
