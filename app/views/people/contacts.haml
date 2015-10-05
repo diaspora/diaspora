@@ -23,7 +23,7 @@
             = render partial: 'people/person', locals: hash
         = will_paginate @contacts_of_contact, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
 
-      %a{id:"back-to-top", title:"#{t('layouts.application.back_to_top')}", href:"#"}
+      %a.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}
         &#8679;
 
 -if user_signed_in? && @person

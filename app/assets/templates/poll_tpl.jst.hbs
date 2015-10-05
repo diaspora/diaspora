@@ -6,7 +6,7 @@
         {{t "poll.count" count=poll.participation_count}}
       </div>
     </div>
-    <div class="poll_content">
+    <div class="poll-content">
       {{#if show_form}}
         <form action="/posts/{{poll.post_id}}/poll_participations" method="POST">
           {{#poll.poll_answers}}
@@ -21,7 +21,7 @@
               </label>
             </div>
           {{/poll.poll_answers}}
-          <div class="toggle_result_wrapper">
+          <div class="toggle-result-wrapper">
             <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
           </div>
           <input type="submit" class="submit pull-right btn btn-default" value="{{t "poll.vote"}}"/>

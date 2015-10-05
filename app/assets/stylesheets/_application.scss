@@ -10,10 +10,11 @@
 @import 'entypo';
 @import 'icons';
 @import 'mentions';
+@import 'animations';
 @import 'flash_messages';
 @import 'sprites';
 @import 'hovercard';
-@import 'new_styles/base';
+@import 'base';
 @import 'new_styles/interactions';
 @import 'spinner';
 @import 'timeago';
@@ -22,7 +23,7 @@
 @import 'typeahead';
 
 /* font overrides */
-@import 'new_styles/typography';
+@import 'typography';
 
 /* login */
 @import 'new_styles/login';
@@ -40,7 +41,7 @@
 @import 'footer';
 @import 'opengraph';
 @import 'single-post-view';
-@import 'new_styles/poll';
+@import 'poll';
 
 /* map*/
 @import 'leaflet';
@@ -91,7 +92,7 @@
 @import 'navbar_left';
 
 /* code */
-@import 'new_styles/code';
+@import 'code';
 @import 'highlightjs/github';
 
 /* statistics */
