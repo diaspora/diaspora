@@ -27,52 +27,51 @@ app.views.SinglePostContent = app.views.Base.extend({
   },
 
   map : function(){
-    if (this.$el.find(".mapContainer")){
+    if (this.$(".mapContainer").length < 1){ return; }
 
-      // find and set height of mapContainer to max size of the container
-      // which is necessary to have all necessary tiles prerendered
-      var mapContainer = this.$el.find(".mapContainer");
-      mapContainer.css("height", "200px");
+    // find and set height of mapContainer to max size of the container
+    // which is necessary to have all necessary tiles prerendered
+    var mapContainer = this.$(".mapContainer");
+    mapContainer.css("height", "200px");
 
-      // get location data and render map
-      var location = this.model.get("location");
+    // get location data and render map
+    var location = this.model.get("location");
 
-      // If map function is enabled the maptiles from the Heidelberg University are used by default.
+    // If map function is enabled the maptiles from the Heidelberg University are used by default.
 
-      var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);
+    var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);
 
-      var tiles = L.tileLayer("http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}", {
+    var tiles = L.tileLayer("http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}", {
+      attribution: "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
+                    "rendering <a href='http://giscience.uni-hd.de/'>" +
+                    "GIScience Research Group @ Heidelberg University</a>",
+      maxZoom: 18,
+    });
+
+    // If the mapbox option is enabled in the diaspora.yml, the mapbox tiles with the podmin's credentials are used.
+    if (gon.appConfig.map.mapbox.enabled) {
+
+      tiles = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+        id: gon.appConfig.map.mapbox.id,
+        /* jshint camelcase: false */
+        accessToken: gon.appConfig.map.mapbox.access_token,
+        /* jshint camelcase: true */
         attribution: "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
-                      "rendering <a href='http://giscience.uni-hd.de/'>" +
-                      "GIScience Research Group @ Heidelberg University</a>",
+                     "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
+                     "Imagery © <a href='https://www.mapbox.com'>Mapbox</a>",
         maxZoom: 18,
       });
-
-      // If the mapbox option is enabled in the diaspora.yml, the mapbox tiles with the podmin's credentials are used.
-      if (gon.appConfig.map.mapbox.enabled) {
-
-        tiles = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-          id: gon.appConfig.map.mapbox.id,
-          /* jshint camelcase: false */
-          accessToken: gon.appConfig.map.mapbox.access_token,
-          /* jshint camelcase: true */
-          attribution: "Map data &copy; <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors, " +
-                       "<a href='http://creativecommons.org/licenses/by-sa/2.0/''>CC-BY-SA</a>, " +
-                       "Imagery © <a href='https://www.mapbox.com'>Mapbox</a>",
-          maxZoom: 18,
-        });
-      }
-
-      tiles.addTo(map);
-
-      // set mapContainer size to a smaller preview size
-      mapContainer.css("height", "75px");
-      map.invalidateSize();
-
-      // put marker on map
-      L.marker(location).addTo(map);
-      return map;
     }
+
+    tiles.addTo(map);
+
+    // set mapContainer size to a smaller preview size
+    mapContainer.css("height", "75px");
+    map.invalidateSize();
+
+    // put marker on map
+    L.marker(location).addTo(map);
+    return map;
   },
 
   toggleMap: function () {
