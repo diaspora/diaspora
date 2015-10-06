@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
 
   xml_attr :provider_display_name
 
-  has_many :favorites
+  has_many :bookmarks
   has_many :reports, as: :item
 
   has_many :mentions, :dependent => :destroy

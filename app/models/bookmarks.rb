@@ -1,4 +1,4 @@
-class Favorites < ActiveRecord::Base
+class Bookmarks < ActiveRecord::Base
   validates :user_id, presence: true
   validates :post_id, presence: true
 
@@ -8,7 +8,7 @@ class Favorites < ActiveRecord::Base
   belongs_to :post
 
   def item
-    Favorites.where(post_id: post_id, user_id: user_id)
+    Bookmarks.where(post_id: post_id, user_id: user_id)
   end
 
   def entry_does_not_exist

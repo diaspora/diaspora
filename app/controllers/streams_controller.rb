@@ -48,8 +48,8 @@ class StreamsController < ApplicationController
     stream_responder(Stream::FollowedTag)
   end
 
-  def favors
-    stream_responder(Stream::Favor)
+  def bookmarked
+    stream_responder(Stream::Bookmarked)
   end
 
   private

@@ -18,11 +18,11 @@ en:
       status:
         created: "The report has successfully been created"
         exists: "The report already exists"
-    favorite:
-      name: "Add/Remove Favorite"
+    bookmark:
+      name: "Add/Remove Bookmark"
       status:
         error: "The post already exists! Removing it.."
-        success: "The post was successfully added to your favorites"
+        success: "The post was successfully added to your bookmarks"
     ignore_user: "Ignore this user?"
     ignore_failed: "Unable to ignore this user"
     hide_post: "Hide this post?"

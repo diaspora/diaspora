@@ -1,16 +1,16 @@
-class Stream::Favor < Stream::Base
+class Stream::Bookmarked < Stream::Base
   def link(opts={})
-    Rails.application.routes.url_helpers.favor_stream_path(opts)
+    Rails.application.routes.url_helpers.bookmarked_stream_path(opts)
   end
 
   def title
-    I18n.translate("streams.favors.title")
+    I18n.translate("streams.bookmarks.title")
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     @posts ||= []
-    Favorites.where(user_id: user.id).each do |f|
+    Bookmarks.where(user_id: user.id).each do |f|
       @posts << f.post
     end
     @posts
@@ -21,6 +21,6 @@ class Stream::Favor < Stream::Base
   end
 
   def contacts_title
-    I18n.translate('streams.favors.contacts_title')
+    I18n.translate('streams.bookmarks.contacts_title')
   end
 end

@@ -1334,9 +1334,9 @@ en:
     activity:
       title: "My activity"
 
-    favors:
-      title: "Favorites"
-      contacts_title: "People whose posts you favored"
+    bookmarks:
+      title: "Bookmarks"
+      contacts_title: "People whose posts you bookmarked"
 
   users:
     edit:
