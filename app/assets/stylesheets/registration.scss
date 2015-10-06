@@ -1,0 +1,52 @@
+.page-registrations.action-new {
+  .ball {
+    background: image-url('branding/ball.png') no-repeat;
+    background-size: contain;
+    height: 633px;
+    max-width: 100%;
+  }
+
+  .v-center {
+    display: table;
+    height: 633px;
+  }
+
+  .content {
+    display: table-cell;
+    vertical-align: middle;
+
+    h2 {
+      font-size: 35px;
+      margin: 12px;
+      text-align: center;
+    }
+  }
+
+  form {
+    max-width: 400px;
+  }
+
+  .captcha-img {
+    left: 10px;
+    position: absolute;
+    top: 169px;
+    width: 120px;
+  }
+
+  .captcha-input {
+    border-bottom: 1px solid $border-grey;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 40px;
+    line-height: $line-height-base;
+    padding: 10px 10px 10px 130px;
+    width: 100%;
+  }
+
+  .terms > a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
