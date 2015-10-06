@@ -107,6 +107,7 @@ app.Router = Backbone.Router.extend({
     app.stream.fetch();
     app.page = new app.views.Stream({model : app.stream});
     app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
+    app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
 
     var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
 

@@ -1,21 +1,11 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-app.views.StreamShortcuts = {
-
+app.views.StreamShortcuts = Backbone.View.extend({
   _headerSize: 50,
 
-
-  setupShortcuts : function() {
-    $(document).on('keydown', _.bind(this._onHotkeyDown, this));
-    $(document).on('keyup', _.bind(this._onHotkeyUp, this));
-
-    this.on('hotkey:gotoNext', this.gotoNext, this);
-    this.on('hotkey:gotoPrev', this.gotoPrev, this);
-    this.on('hotkey:likeSelected', this.likeSelected, this);
-    this.on('hotkey:commentSelected', this.commentSelected, this);
-    this.on('hotkey:reshareSelected', this.reshareSelected, this);
-    this.on('hotkey:expandSelected', this.expandSelected, this);
-    this.on('hotkey:openFirstLinkSelected', this.openFirstLinkSelected, this);
+  events: {
+    "keydown": "_onHotkeyDown",
+    "keyup": "_onHotkeyUp"
   },
 
   _onHotkeyDown: function(event) {
@@ -28,10 +18,10 @@ app.views.StreamShortcuts = {
     // trigger the events based on what key was pressed
     switch (String.fromCharCode( event.which ).toLowerCase()) {
       case "j":
-        this.trigger('hotkey:gotoNext');
+        this.gotoNext();
         break;
       case "k":
-        this.trigger('hotkey:gotoPrev');
+        this.gotoPrev();
         break;
       default:
     }
@@ -47,19 +37,19 @@ app.views.StreamShortcuts = {
     // trigger the events based on what key was pressed
     switch (String.fromCharCode( event.which ).toLowerCase()) {
       case "c":
-        this.trigger('hotkey:commentSelected');
+        this.commentSelected();
         break;
       case "l":
-        this.trigger('hotkey:likeSelected');
+        this.likeSelected();
         break;
       case "r":
-        this.trigger('hotkey:reshareSelected');
+        this.reshareSelected();
         break;
       case "m":
-        this.trigger('hotkey:expandSelected');
+        this.expandSelected();
         break;
       case "o":
-        this.trigger('hotkey:openFirstLinkSelected');
+        this.openFirstLinkSelected();
         break;
       default:
     }
@@ -132,6 +122,5 @@ app.views.StreamShortcuts = {
     //add the selection and selected-class to new post
     element.className+=" shortcut_selected highlighted";
   },
-};
+});
 // @license-end
-
