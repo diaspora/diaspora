@@ -88,6 +88,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 
 ## Bug fixes
 * Skip first getting started step if it looks done already [#6456](https://github.com/diaspora/diaspora/pull/6456)
+* Normalize new followed tags and insert them alphabetically [#6454](https://github.com/diaspora/diaspora/pull/6454)
 
 ## Features
 * Show spinner on initial stream load [#6384](https://github.com/diaspora/diaspora/pull/6384)
