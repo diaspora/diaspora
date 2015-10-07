@@ -101,6 +101,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
         if($.inArray(notification, notifications) === -1){
           var node = self.dropdownNotifications.append(notification.note_html);
           $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
+          $(node).find(self.avatars.selector).error(self.avatars.fallback);
         }
       });
     });
