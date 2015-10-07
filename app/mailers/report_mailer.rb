@@ -8,7 +8,7 @@ class ReportMailer < ActionMailer::Base
   def new_report(type, id, role)
     resource = {
       url:  report_index_url,
-      type: I18n.t("notifier.report_email.type." + type),
+      type: I18n.t("notifier.report_email.type.#{type.downcase}"),
       id:   id
     }
     person = Person.find(role.person_id)

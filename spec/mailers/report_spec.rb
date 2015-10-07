@@ -37,5 +37,15 @@ describe Report, type: :mailer do
       expect(ActionMailer::Base.deliveries[0].subject).to match("Ein neuer post wurde als anstößig markiert")
       expect(ActionMailer::Base.deliveries[1].subject).to match("A new post was marked as offensive")
     end
+
+    it "should find correct post translation" do
+      ReportMailer.new_report("PosT", 666).each(&:deliver_now)
+      expect(ActionMailer::Base.deliveries[0].subject).not_to match("translation missing")
+    end
+
+    it "should find correct comment translation" do
+      ReportMailer.new_report("CoMMenT", 666).each(&:deliver_now)
+      expect(ActionMailer::Base.deliveries[0].subject).not_to match("translation missing")
+    end
   end
 end
