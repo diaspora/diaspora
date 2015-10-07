@@ -90,7 +90,6 @@
     .leaflet-control-zoom {
       display: block;
     }
-    .grey { color: $text-grey; }
     .post-content p:last-of-type { margin-bottom: 0; }
     .nsfw-shield {
       color: $text-grey;
@@ -99,6 +98,16 @@
       border: 1px solid $border-grey;
       border-radius: 3px;
     }
+  }
+
+  .permalink {
+    @include transition(opacity);
+    opacity: 0;
+  }
+
+  &:hover .permalink {
+    opacity: .8;
+    &:hover { opacity: 1; }
   }
 
   div.reshare {

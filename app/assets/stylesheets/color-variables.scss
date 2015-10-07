@@ -1,0 +1,30 @@
+$white: #fff;
+$black: #000;
+
+$text-grey: #999;
+$text-dark-grey: #666;
+$text: #333;
+
+$background-white: $white;
+$background-grey: #eee;
+$background-blue: #e7f2f7;
+
+$grey: #2b2b2b;
+$light-grey: #ddd;
+
+$border-grey: $light-grey;
+$border-dark-grey: $text-grey;
+
+$link-grey: #777;
+$link-disabled-grey: $text-grey;
+
+$green: #8ede3d;
+$light-green: lighten($green, 20%);
+$red: #a80000;
+$blue: #3f8fba;
+
+$sidebars-background: #f0f0f0;
+$sidebars-sub-background: darken($sidebars-background, 12%);
+$left-navbar-drawer-background: darken($sidebars-background, 6%);
+
+$card-shadow: 0 1px 2px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);

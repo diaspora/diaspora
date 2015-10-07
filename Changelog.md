@@ -79,6 +79,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Allow users to view a posts locations on an OpenStreetMap [#6256](https://github.com/diaspora/diaspora/pull/6256)
 * Redesign and unify error pages [#6428](https://github.com/diaspora/diaspora/pull/6428)
 * Redesign and refactor report admin interface [#6378](https://github.com/diaspora/diaspora/pull/6378)
+* Add permalink icon to stream elements [#6457](https://github.com/diaspora/diaspora/pull/6457)
 
 # 0.5.4.0
 

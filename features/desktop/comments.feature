@@ -79,7 +79,7 @@ Feature: commenting
     And I fill in the following:
         | text            | I think thats a cat    |
     And I press "Comment"
-    When I follow "less than a minute ago" within "span.details.grey"
+    When I follow "less than a minute ago" within "span.details.gray"
     Then I should see "I think thats a cat" within ".comments .comment:last-child"
     When I follow "less than a minute ago" within ".comments .comment:last-child"
     Then I should see "I think thats a cat" within ".comments .comment .highlighted"
