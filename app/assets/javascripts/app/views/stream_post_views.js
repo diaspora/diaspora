@@ -23,7 +23,7 @@ app.views.StreamPost = app.views.Post.extend({
 
     "click .remove_post": "destroyModel",
     "click .hide_post": "hidePost",
-    "click .bookmark": "add_bookmark",
+    "click .bookmark": "bookmark",
     "click .post_report": "report",
     "click .block_user": "blockUser",
 
