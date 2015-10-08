@@ -98,6 +98,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Always show public photos on profile page [#6398](https://github.com/diaspora/diaspora/pull/6398)
 * Expose Unicorn's pid option to our configuration system [#6411](https://github.com/diaspora/diaspora/pull/6411)
 * Add stream of all public posts [#6465](https://github.com/diaspora/diaspora/pull/6465)
+* Reload stream when clicking on already active one [#6466](https://github.com/diaspora/diaspora/pull/6466)
 
 # 0.5.3.1
 
