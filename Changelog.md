@@ -90,6 +90,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Skip first getting started step if it looks done already [#6456](https://github.com/diaspora/diaspora/pull/6456)
 * Normalize new followed tags and insert them alphabetically [#6454](https://github.com/diaspora/diaspora/pull/6454)
 * Add avatar fallback for notification dropdown [#6463](https://github.com/diaspora/diaspora/pull/6463)
+* Improve handling of j/k hotkeys [#6462](https://github.com/diaspora/diaspora/pull/6462)
 
 ## Features
 * Show spinner on initial stream load [#6384](https://github.com/diaspora/diaspora/pull/6384)
@@ -129,7 +130,6 @@ and on a pod that received that data.
 * Guard against passing nil into person\_image\_tag [#6286](https://github.com/diaspora/diaspora/pull/6286)
 * Prevent Handlebars from messing up indentation of pre tags [#6339](https://github.com/diaspora/diaspora/pull/6339)
 * Fix pagination design on notifications page [#6364](https://github.com/diaspora/diaspora/pull/6364)
-* Improve handling of j/k hotkeys [#6462](https://github.com/diaspora/diaspora/pull/6462)
 
 ## Features
 
