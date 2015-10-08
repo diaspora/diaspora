@@ -107,6 +107,8 @@ var app = {
         $(".stream_title").text(link.text());
       }
 
+      $("html, body").animate({scrollTop: 0});
+
       // app.router.navigate doesn't tell us if it changed the page,
       // so we use Backbone.history.navigate instead.
       var change = Backbone.history.navigate(link.attr("href").substring(1) ,true);
