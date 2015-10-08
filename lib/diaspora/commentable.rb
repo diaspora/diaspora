@@ -24,5 +24,8 @@ module Diaspora
         update_all(:comments_count => self.comments.count)
     end
 
+    def comments_authors
+      Person.where(id: comments.select(:author_id).distinct)
+    end
   end
 end

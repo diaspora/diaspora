@@ -67,8 +67,12 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
       additional_subscriber = @object.post.author.owner
     end
 
-    Notification.notify(additional_subscriber, @object, @object.author) if additional_subscriber &&
-      additional_subscriber != @object.author.owner &&
-      !@users.exists?(additional_subscriber.id)
+    Notification.notify(additional_subscriber, @object, @object.author) if needs_notification?(additional_subscriber)
+  end
+
+  private
+
+  def needs_notification?(person)
+    person && person != @object.author.owner && !@users.exists?(person.id)
   end
 end

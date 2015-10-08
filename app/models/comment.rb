@@ -94,6 +94,7 @@ class Comment < ActiveRecord::Base
 
     def initialize(person, target, text)
       @text = text
+      @dispatcher_opts = {additional_subscribers: target.comments_authors.where.not(id: person.id)}
       super(person, target)
     end
 
