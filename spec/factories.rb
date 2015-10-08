@@ -56,6 +56,8 @@ FactoryGirl.define do
   factory :like do
     association :author, :factory => :person
     association :target, :factory => :status_message
+    author_signature "author_signature"
+    parent_author_signature "parent_author_signature"
   end
 
   factory :user do

@@ -154,7 +154,10 @@ defaults:
         enable: false
         after_days: 730
         warn_days: 30
-        limit_removals_to_per_day: 100
+        limit_removals_to_per_day: 100  
+      database_size_control:
+        enable: false
+        remove_old_participations_after: 365
     source_url:
     default_color_theme: "original"
   services:
