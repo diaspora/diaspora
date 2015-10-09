@@ -898,7 +898,6 @@ en:
           title: "Authorized applications"
           access: "%{name} has access to:"
           no_requirement: "%{name} requires no permissions"
-          applications_explanation: "Here is a list of applications you have authorized"
         no_applications: "You have no authorized applications"
         revoke_autorization: "Revoke"
       scopes:

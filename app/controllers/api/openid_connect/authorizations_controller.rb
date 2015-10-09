@@ -114,11 +114,7 @@ module Api
         ]
         save_request_parameters
 
-        @app = {
-          name:           @o_auth_application.client_name,
-          image:          @o_auth_application.image_uri,
-          authorizations: @scopes
-        }
+        @app = UserApplicationPresenter.new @o_auth_application, @scopes
 
         render :new
       end

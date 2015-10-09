@@ -2,16 +2,12 @@
   = t(".edit_applications")
 
 .container-fluid.applications-page
-  = render "shared/settings_nav"
-  .container-fluid
-    .row
-      .col-lg-8.col-lg-offset-2
-        %h3= t(".title")
-        %p.visible-sm-block.visible-xs-block
-          = t(".applications_explanation")
-          .row
-            .col-md-7
-              = render "add_remove_applications"
-            .col-md-5
-              %p.hidden-sm.hidden-xs
-                = t(".applications_explanation")
+  .row
+    .col-lg-10.col-lg-offset-1
+      = render "shared/settings_nav"
+  .row
+    .col-lg-8.col-lg-offset-2
+      %h3= t(".title")
+      .row
+        .col-md-12
+          = render "add_remove_applications"
