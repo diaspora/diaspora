@@ -26,6 +26,10 @@ class Role < ActiveRecord::Base
     find_or_create_by(person_id: person.id, name: "moderator")
   end
 
+  def self.spotlight?(person)
+    exists?(person_id: person.id, name: "spotlight")
+  end
+
   def self.add_spotlight(person)
     find_or_create_by(person_id: person.id, name: "spotlight")
   end
