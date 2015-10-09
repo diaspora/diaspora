@@ -8,6 +8,7 @@
 * Normalize new followed tags and insert them alphabetically [#6454](https://github.com/diaspora/diaspora/pull/6454)
 * Add avatar fallback for notification dropdown [#6463](https://github.com/diaspora/diaspora/pull/6463)
 * Improve handling of j/k hotkeys [#6462](https://github.com/diaspora/diaspora/pull/6462)
+* Fix JS error caused by hovercards [6480](https://github.com/diaspora/diaspora/pull/6480)
 
 ## Features
 * Show spinner on initial stream load [#6384](https://github.com/diaspora/diaspora/pull/6384)
