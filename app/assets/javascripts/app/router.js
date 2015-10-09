@@ -104,6 +104,10 @@ app.Router = Backbone.Router.extend({
   //below here is oldness
 
   stream : function() {
+    if(app.page) {
+      app.page.unbindInfScroll();
+      app.page.remove();
+    }
     app.stream = new app.models.Stream();
     app.stream.fetch();
     app.page = new app.views.Stream({model : app.stream});
