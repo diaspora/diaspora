@@ -50,9 +50,6 @@ Diaspora::Application.routes.draw do
   end
 
   # Streams
-  get "participate" => "streams#activity" # legacy
-  get "explore" => "streams#multi"        # legacy
-
   get "activity" => "streams#activity", :as => "activity_stream"
   get "stream" => "streams#multi", :as => "stream"
   get "public" => "streams#public", :as => "public_stream"
