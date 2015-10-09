@@ -119,8 +119,8 @@ app.Router = Backbone.Router.extend({
   },
 
   aspects: function() {
-    app.aspects = new app.collections.Aspects(app.currentUser.get("aspects"));
-    this.aspectsList = new app.views.AspectsList({ collection: app.aspects });
+    app.aspects = app.aspects || new app.collections.Aspects(app.currentUser.get("aspects"));
+    this.aspectsList = this.aspectsList || new app.views.AspectsList({ collection: app.aspects });
     this.aspectsList.render();
     this.aspects_stream();
   },
