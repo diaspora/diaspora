@@ -562,7 +562,7 @@ GEM
     rails-assets-markdown-it-sanitizer (0.4.0)
     rails-assets-markdown-it-sub (1.0.0)
     rails-assets-markdown-it-sup (1.0.0)
-    rails-assets-perfect-scrollbar (0.6.5)
+    rails-assets-perfect-scrollbar (0.6.7)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -844,7 +844,7 @@ DEPENDENCIES
   rails-assets-markdown-it-sanitizer (= 0.4.0)!
   rails-assets-markdown-it-sub (= 1.0.0)!
   rails-assets-markdown-it-sup (= 1.0.0)!
-  rails-assets-perfect-scrollbar (= 0.6.5)!
+  rails-assets-perfect-scrollbar (= 0.6.7)!
   rails-i18n (= 4.0.5)
   rails-timeago (= 2.11.0)
   rails_admin (= 0.7.0)
