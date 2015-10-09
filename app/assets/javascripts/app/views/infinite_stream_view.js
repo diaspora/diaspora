@@ -97,7 +97,8 @@ app.views.InfScroll = app.views.Base.extend({
   infScroll : function() {
     var $window = $(window),
         distFromBottom = $(document).height() - $window.height() - $window.scrollTop(),
-        elementDistance = this.$el.children().last().offset().top - $window.scrollTop() - 500;
+        lastElOffset = this.$el.children().last().offset(),
+        elementDistance = lastElOffset ? lastElOffset.top - $window.scrollTop() - 500 : 1;
 
     if(elementDistance <= 0 || distFromBottom < 500) {
       this.trigger("loadMore");
