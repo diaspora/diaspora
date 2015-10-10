@@ -62,6 +62,8 @@ describe("app.views.AspectCreate", function() {
     describe("#createAspect", function() {
       beforeEach(function() {
         this.view.render();
+        this.view.$el.append($("<div id='flash-container'/>"));
+        app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
       });
 
       it("should send the correct name to the server", function() {
@@ -115,7 +117,7 @@ describe("app.views.AspectCreate", function() {
         it("should display a flash message", function() {
           this.view.createAspect();
           jasmine.Ajax.requests.mostRecent().respondWith(this.response);
-          expect($("[id^=\"flash\"]")).toBeSuccessFlashMessage(
+          expect(this.view.$(".flash-message")).toBeSuccessFlashMessage(
             Diaspora.I18n.t("aspects.create.success", {name: "new name"})
           );
         });
@@ -138,7 +140,7 @@ describe("app.views.AspectCreate", function() {
         it("should display a flash message", function() {
           this.view.createAspect();
           jasmine.Ajax.requests.mostRecent().respondWith(this.response);
-          expect($("[id^=\"flash\"]")).toBeErrorFlashMessage(
+          expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
             Diaspora.I18n.t("aspects.create.failure")
           );
         });

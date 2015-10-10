@@ -4,8 +4,8 @@ describe("app.views.Conversations", function(){
       beforeEach(function() {
         spec.loadFixture("conversations_unread");
         // select second conversation that is still unread
-        $(".conversation-wrapper > .conversation.selected").removeClass("selected")
-        $(".conversation-wrapper > .conversation.unread").addClass("selected")
+        $(".conversation-wrapper > .conversation.selected").removeClass("selected");
+        $(".conversation-wrapper > .conversation.unread").addClass("selected");
       });
 
       it("removes the unread class from the conversation", function() {

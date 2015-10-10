@@ -67,8 +67,9 @@ module LayoutHelper
 
   def flash_messages
     flash.map do |name, msg|
-      content_tag(:div, :id => "flash_#{name}") do
-        content_tag(:div, msg, :class => 'message')
+      klass = flash_class name
+      content_tag(:div, msg, class: "flash-body expose") do
+        content_tag(:div, msg, class: "flash-message message alert alert-#{klass}")
       end
     end.join(' ').html_safe
   end

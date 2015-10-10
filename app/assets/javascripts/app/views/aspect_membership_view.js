@@ -89,7 +89,7 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
     if( this.dropdown.find("li.selected").length === 0 ) {
       var msg = Diaspora.I18n.t("aspect_dropdown.started_sharing_with", { "name": this._name() });
       startSharing = true;
-      Diaspora.page.flashMessages.render({ "success": true, "notice": msg });
+      app.flashMessages.success(msg);
     }
 
     app.events.trigger("aspect_membership:create", {
@@ -110,7 +110,7 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
     this.dropdown.closest('.aspect_membership_dropdown').removeClass('open'); // close the dropdown
 
     var msg = Diaspora.I18n.t(msg_id, { 'name': this._name() });
-    Diaspora.page.flashMessages.render({ 'success':false, 'notice':msg });
+    app.flashMessages.error(msg);
   },
 
   // remove the membership with the given id
@@ -143,7 +143,7 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
     if( this.dropdown.find("li.selected").length === 0 ) {
       var msg = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", { "name": this._name() });
       stopSharing = true;
-      Diaspora.page.flashMessages.render({ "success": true, "notice": msg });
+      app.flashMessages.success(msg);
     }
 
     app.events.trigger("aspect_membership:destroy", {

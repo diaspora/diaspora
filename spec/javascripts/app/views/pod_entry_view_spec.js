@@ -57,6 +57,11 @@ describe("app.views.PodEntry", function() {
   describe("recheckPod", function() {
     var ajaxSuccess = { status: 200, responseText: "{}" };
     var ajaxFail = { status: 400 };
+    beforeEach(function(){
+      this.view.render();
+      this.view.$el.append($("<div id='flash-container'/>"));
+      app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
+    });
 
     it("calls .recheck() on the model", function() {
       spyOn(this.pod, "recheck").and.returnValue($.Deferred());
@@ -67,13 +72,13 @@ describe("app.views.PodEntry", function() {
     it("renders a success flash message", function() {
       this.view.recheckPod();
       jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
-      expect($("[id^=\"flash\"]")).toBeSuccessFlashMessage();
+      expect(this.view.$(".flash-message")).toBeSuccessFlashMessage();
     });
 
     it("renders an error flash message", function() {
       this.view.recheckPod();
       jasmine.Ajax.requests.mostRecent().respondWith(ajaxFail);
-      expect($("[id^=\"flash\"]")).toBeErrorFlashMessage();
+      expect(this.view.$(".flash-message")).toBeErrorFlashMessage();
     });
 
     it("sets the appropriate CSS class", function() {

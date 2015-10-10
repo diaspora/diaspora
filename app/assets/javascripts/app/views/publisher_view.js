@@ -215,7 +215,7 @@ app.views.Publisher = Backbone.View.extend({
           app.publisher.trigger("publisher:error");
         }
         self.setInputEnabled(true);
-        Diaspora.page.flashMessages.render({ "success":false, "notice":resp.responseText });
+        app.flashMessages.error(resp.responseText);
         self.setButtonsEnabled(true);
         self.setInputEnabled(true);
       }

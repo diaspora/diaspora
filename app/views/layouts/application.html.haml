@@ -47,8 +47,6 @@
     = include_gon(camel_case:  true)
 
   %body{ class:  "page-#{controller_name} action-#{action_name}" }
-    = flash_messages
-
     = yield :before_content
 
     = content_for?(:content) ? yield(:content) : yield
@@ -69,3 +67,5 @@
         .entypo-cross
       %a.play-pause
       %ol.indicator
+
+    #flash-container= flash_messages

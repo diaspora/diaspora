@@ -3,15 +3,12 @@
 var realXMLHttpRequest = window.XMLHttpRequest;
 
 // matches flash messages with success/error and contained text
-var flashMatcher = function(flash, id, text) {
+var flashMatcher = function(flash, klass, text) {
   var textContained = true;
-  if( text ) {
-    textContained = (flash.text().indexOf(text) !== -1);
+  if(text) {
+    textContained = (flash.text().trim().indexOf(text) !== -1);
   }
-
-  return flash.is(id) &&
-          flash.hasClass('expose') &&
-          textContained;
+  return flash.hasClass(klass) && flash.parent().hasClass("expose") && textContained;
 };
 
 // information for jshint
@@ -24,7 +21,7 @@ var customMatchers = {
     return {
       compare: function(actual, expected) {
         var result = {};
-        result.pass = flashMatcher(actual, '#flash_notice', expected);
+        result.pass = flashMatcher(actual, "alert-success", expected);
         return result;
       }
     };
@@ -33,7 +30,7 @@ var customMatchers = {
     return {
       compare: function(actual, expected) {
         var result = {};
-        result.pass = flashMatcher(actual, '#flash_error', expected);
+        result.pass = flashMatcher(actual, "alert-danger", expected);
         return result;
       }
     };
@@ -55,7 +52,7 @@ beforeEach(function() {
   var Page = Diaspora.Pages["TestPage"];
   $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
-  Diaspora.I18n.load({}, 'en', {});
+  Diaspora.I18n.load({}, "en", {});
 
   Diaspora.page = new Page();
   Diaspora.page.publish("page/ready", [$(document.body)]);
@@ -147,12 +144,12 @@ spec.clearLiveEventBindings = function() {
 };
 
 spec.content = function() {
-  return $('#jasmine_content');
+  return $("#jasmine_content");
 };
 
 // Loads fixure markup into the DOM as a child of the jasmine_content div
 spec.loadFixture = function(fixtureName) {
-  var $destination = $('#jasmine_content');
+  var $destination = $("#jasmine_content");
 
   // get the markup, inject it into the dom
   $destination.html(spec.fixtureHtml(fixtureName));
@@ -179,7 +176,7 @@ spec.fixtureHtml = function(fixtureName) {
 spec.retrieveFixture = function(fixtureName) {
 
   // construct a path to the fixture, including a cache-busting timestamp
-  var path = '/tmp/js_dom_fixtures/' + fixtureName + ".fixture.html?" + new Date().getTime();
+  var path = "/tmp/js_dom_fixtures/" + fixtureName + ".fixture.html?" + new Date().getTime();
   var xhr;
 
   // retrieve the fixture markup via xhr request to jasmine server

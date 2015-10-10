@@ -9,10 +9,8 @@
 
   #main_stream.stream
     - flash.each do |name, msg|
-      %p{class: "login_#{name}"}
-        = msg
-      #flash_alert.expose
-        #session.message
+      .expose#flash-container
+        .flash-message{class: "message alert alert-#{flash_class name}"}
           = msg
 
     #login_form

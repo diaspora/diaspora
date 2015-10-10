@@ -6,6 +6,8 @@ describe("app.views.AspectMembership", function(){
     // mock a dummy aspect dropdown
     spec.loadFixture("aspect_membership_dropdown");
     this.view = new app.views.AspectMembership({el: $('.aspect_membership_dropdown')});
+    this.view.$el.append($("<div id='flash-container'/>"));
+    app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
     this.personId = $(".dropdown-menu").data("person_id");
     this.personName = $(".dropdown-menu").data("person-short-name");
     Diaspora.I18n.load({
@@ -36,7 +38,7 @@ describe("app.views.AspectMembership", function(){
       this.newAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(success);
 
-      expect($('[id^="flash"]')).toBeSuccessFlashMessage(
+      expect(this.view.$(".flash-message")).toBeSuccessFlashMessage(
         Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: this.personName})
       );
     });
@@ -56,7 +58,7 @@ describe("app.views.AspectMembership", function(){
       this.newAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
-      expect($('[id^="flash"]')).toBeErrorFlashMessage(
+      expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
         Diaspora.I18n.t("aspect_dropdown.error", {name: this.personName})
       );
     });
@@ -80,7 +82,7 @@ describe("app.views.AspectMembership", function(){
       this.oldAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(success);
 
-      expect($('[id^="flash"]')).toBeSuccessFlashMessage(
+      expect(this.view.$(".flash-message")).toBeSuccessFlashMessage(
         Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: this.personName})
       );
     });
@@ -100,7 +102,7 @@ describe("app.views.AspectMembership", function(){
       this.oldAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
-      expect($('[id^="flash"]')).toBeErrorFlashMessage(
+      expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
         Diaspora.I18n.t("aspect_dropdown.error_remove", {name: this.personName})
       );
     });

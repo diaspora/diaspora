@@ -39,10 +39,10 @@ app.views.StreamPost = app.views.Post.extend({
                      ".permalink"].join(", "),
 
   initialize : function(){
-    var personId = this.model.get('author').id;
-    app.events.on('person:block:'+personId, this.remove, this);
+    var personId = this.model.get("author").id;
+    app.events.on("person:block:"+personId, this.remove, this);
 
-    this.model.on('remove', this.remove, this);
+    this.model.on("remove", this.remove, this);
     //subviews
     this.commentStreamView = new app.views.CommentStream({model : this.model});
     this.oEmbedView = new app.views.OEmbed({model : this.model});
@@ -85,14 +85,11 @@ app.views.StreamPost = app.views.Post.extend({
 
   blockUser: function(evt){
     if(evt) { evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t('ignore_user'))) { return }
+    if(!confirm(Diaspora.I18n.t("ignore_user"))) { return }
 
     this.model.blockAuthor()
       .fail(function() {
-        Diaspora.page.flashMessages.render({
-          success: false,
-          notice: Diaspora.I18n.t('ignore_failed')
-        });
+        app.flashMessages.error(Diaspora.I18n.t("ignore_failed"));
       });
   },
 
@@ -104,7 +101,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   hidePost : function(evt) {
     if(evt) { evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t('confirm_dialog'))) { return }
+    if(!confirm(Diaspora.I18n.t("confirm_dialog"))) { return }
 
     var self = this;
     $.ajax({
@@ -117,10 +114,7 @@ app.views.StreamPost = app.views.Post.extend({
         self.remove();
       })
       .fail(function() {
-        Diaspora.page.flashMessages.render({
-          success: false,
-          notice: Diaspora.I18n.t('hide_post_failed')
-        });
+        app.flashMessages.error(Diaspora.I18n.t("hide_post_failed"));
       });
   },
 
