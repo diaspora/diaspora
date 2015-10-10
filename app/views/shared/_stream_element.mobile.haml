@@ -29,3 +29,6 @@
 
     - if defined?(expanded_info) && expanded_info
       = render partial: "shared/post_stats", locals: {post: @post}
+
+    .add-comment-switcher{class: ('hidden' unless defined?(expanded_info) && expanded_info)}
+      = render :partial => 'comments/new_comment', :locals =>{:post_id => post.id}

@@ -122,27 +122,29 @@
 
     showCommentBox: function(link){
       if(!link.hasClass("inactive") || link.hasClass("loading")) { return; }
-      var self = this;
-      $.ajax({
-        url: link.attr("href"),
-        beforeSend: function(){
-          link.addClass("loading");
-        },
-        context: link,
-        success: function(data) {
-          self.appendCommentBox.call(this, link, data);
-        },
-        error: function() {
-          link.removeClass("loading");
-        }
-      });
+    //   var self = this;
+    //   $.ajax({
+    //     url: link.attr("href"),
+    //     beforeSend: function(){
+    //       link.addClass("loading");
+    //     },
+    //     context: link,
+    //     success: function(data) {
+    //       self.appendCommentBox.call(this, link, data);
+    //     },
+    //     error: function() {
+    //       link.removeClass("loading");
+    //     }
+    //   });
+      this.appendCommentBox(link);
     },
 
-    appendCommentBox: function(link, data) {
+    appendCommentBox: function(link) {
       link.removeClass("loading");
       link.removeClass("inactive");
       var bottomBar = link.closest(".bottom_bar").first();
-      bottomBar.append(data);
+    //   bottomBar.append(data);
+      var addCommentSwitcher = bottomBar.find(".add-comment-switcher").removeClass('hidden')
       var textArea = bottomBar.find("textarea.comment_box").first()[0];
       autosize(textArea);
     },
