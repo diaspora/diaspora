@@ -37,11 +37,11 @@
           %dd= user.username
           %dt= t('.email')
           %dd= user.email
-          %dt= t('.role.label')
+          %dt= t(".role.label")
           %dd
-            = t('.role.spotlight') if Role.spotlight? user.person
-            = t('.role.moderator') if Role.moderator? user.person
-            = t('.role.admin') if Role.is_admin? user.person
+            = t(".role.spotlight") if Role.spotlight? user.person
+            = t(".role.moderator") if Role.moderator? user.person
+            = t(".role.admin") if Role.is_admin? user.person
           %dt= t('.diaspora_handle')
           %dd= user.person.diaspora_handle
           %dt= t('.last_seen')
