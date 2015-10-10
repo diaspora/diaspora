@@ -490,11 +490,11 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    Role.is_admin?(self.person)
+    Role.is_admin?(person_id)
   end
 
   def moderator?
-    Role.moderator?(person)
+    Role.moderator?(person_id)
   end
 
   def podmin_account?
