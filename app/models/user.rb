@@ -490,7 +490,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    Role.is_admin?(person_id)
+    Role.admin?(person_id)
   end
 
   def moderator?

@@ -10,7 +10,7 @@ class Role < ActiveRecord::Base
   scope :admins, -> { where(name: "admin") }
   scope :moderators, -> { where(name: %w(moderator admin)) }
 
-  def self.is_admin?(person_id)
+  def self.admin?(person_id)
     exists?(person_id: person_id, name: "admin")
   end
 
