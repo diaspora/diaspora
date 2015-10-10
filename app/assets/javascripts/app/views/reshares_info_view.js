@@ -1,24 +1,24 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-app.views.LikesInfo = app.views.Base.extend({
+app.views.ResharesInfo = app.views.Base.extend({
 
-  templateName : "likes-info",
+  templateName : "reshares-info",
 
   events : {
-    "click .expand-likes" : "showAvatars"
+    "click .expand-reshares" : "showAvatars"
   },
 
   tooltipSelector : ".avatar",
 
   initialize : function() {
-    this.model.interactions.bind('change', this.render, this);
+    this.model.interactions.bind("change", this.render, this);
     this.displayAvatars = false;
   },
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      likes : this.model.interactions.likes.toJSON(),
-      likesCount : this.model.interactions.likesCount(),
+      reshares : this.model.interactions.reshares.toJSON(),
+      resharesCount : this.model.interactions.resharesCount(),
       displayAvatars : this.model.interactions.get("fetched") && this.displayAvatars
     });
   },

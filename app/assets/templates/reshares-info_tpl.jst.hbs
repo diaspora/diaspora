@@ -1,17 +1,17 @@
-{{#if likesCount}}
+{{#if resharesCount}}
   <div class="comment">
     <div class="media">
-      <i class="entypo-heart"></i>
+      <i class="entypo-reshare"></i>
 
       <div class="bd">
         {{#unless displayAvatars}}
-          <a href="#" class="expand-likes gray">
-            {{t "stream.likes" count=likesCount}}
+          <a href="#" class="expand-reshares gray">
+            {{t "stream.reshares" count=resharesCount}}
           </a>
 
         {{else}}
 
-          {{#each likes}}
+          {{#each reshares}}
             {{#linkToAuthor author}}
               {{{personImage this 'small' 'micro'}}}
             {{/linkToAuthor}}
