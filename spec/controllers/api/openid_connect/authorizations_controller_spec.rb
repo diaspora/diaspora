@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Api::OpenidConnect::AuthorizationsController, type: :controller do
   let!(:client) { FactoryGirl.create(:o_auth_application) }
+  let!(:client_with_xss) { FactoryGirl.create(:o_auth_application_with_xss) }
   let!(:client_with_multiple_redirects) { FactoryGirl.create(:o_auth_application_with_multiple_redirects) }
   let!(:auth_with_read) { FactoryGirl.create(:auth_with_read) }
 
@@ -129,7 +130,16 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           expect(json_body["error"]).to match("bad_request")
         end
       end
+
+      context "when XSS script is passed as name" do
+        it "should escape html" do
+          post :new, client_id: client_with_xss.client_id, redirect_uri: "http://localhost:3000/",
+               response_type: "id_token", scope: "openid", nonce: SecureRandom.hex(16), state: SecureRandom.hex(16)
+          expect(response.body).to_not include("<script>alert(0);</script>")
+        end
+      end
     end
+
     context "when already authorized" do
       let!(:auth) {
         Api::OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: alice,

@@ -900,6 +900,8 @@ en:
           no_requirement: "%{name} requires no permissions"
         no_applications: "You have no authorized applications"
         revoke_autorization: "Revoke"
+        tos: "See the application's ToS"
+        policy: "See the application's privacy policy"
       scopes:
         openid:
           name: "basic profile"

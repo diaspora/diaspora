@@ -14,19 +14,31 @@ class UserApplicationPresenter
   end
 
   def name
-    CGI::escape @app.client_name
+    @app.client_name
   end
 
   def image
     @app.image_uri
   end
 
+  def terms_of_services
+    @app.tos_uri
+  end
+
+  def policy
+    @app.policy_uri
+  end
+
   def name?
-    if @app.client_name
-      true
-    else
-      false
-    end
+    @app.client_name.present?
+  end
+
+  def terms_of_services?
+    @app.tos_uri.present?
+  end
+
+  def policy?
+    @app.policy_uri.present?
   end
 
   def url

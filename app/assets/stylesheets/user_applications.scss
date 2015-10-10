@@ -25,5 +25,10 @@
   float: right;
 }
 
+.application-tos-policy > b {
+  &:first-child { margin-right: 5px; }
+  &:nth-child(2) { margin-left: 5px; }
+}
+
 .user-consent { margin-top: 20px; }
 .approval-button { display: inline; }

@@ -189,7 +189,7 @@ module Api
             redirect_prompt_error_display(error, error_description)
           else
             render json: {error:       "bad_request",
-                          description: "No client with client_id " + params[:client_id] + " found"}
+                          description: "No client with client_id #{params[:client_id]} found"}
           end
         else
           render json: {error: "bad_request", description: "Missing client id or redirect URI"}

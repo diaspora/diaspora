@@ -14,3 +14,17 @@
   - else
     .well
       = t("api.openid_connect.user_applications.index.no_requirement", name: user_application_name(app)).html_safe
+
+  .small-horizontal-spacer
+  .application-tos-policy
+    - if app.terms_of_services?
+      %b= link_to t("api.openid_connect.user_applications.tos"), app.terms_of_services
+
+    - if app.policy? && app.terms_of_services?
+      |
+
+    - if app.policy?
+      %b= link_to t("api.openid_connect.user_applications.policy"), app.policy
+
+    - if app.policy? || app.terms_of_services?
+      .small-horizontal-spacer
