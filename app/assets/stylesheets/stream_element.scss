@@ -65,31 +65,6 @@
       font-size: $font-size-small;
       line-height: $font-size-small;
     }
-    .likes {
-      margin-top: 10px;
-      font-size: 12px;
-      line-height: 16px;
-      .author-name, .bd { display: inline-block; }
-      .author-name { margin-right: 3px; }
-      .entypo-heart {
-        display: inline-block;
-        font-size: 16px;
-        vertical-align: top;
-        margin-top: -2px;
-        margin-right: 5px;
-      }
-    }
-    .stream_photo {
-      float: left;
-      margin-top: 6px;
-    }
-    .status-message-location {
-      font-size: $font-size-small;
-      color: $text-grey;
-    }
-    .leaflet-control-zoom {
-      display: block;
-    }
     .post-content p:last-of-type { margin-bottom: 0; }
     .nsfw-shield {
       color: $text-grey;
@@ -156,5 +131,39 @@
   &.post_preview {
     background-color: lighten($brand-primary,45%);
     border: 1px solid $brand-primary;
+  }
+}
+
+.stream_element {
+  .likes,
+  .reshares {
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 10px;
+
+    .author-name,
+    .bd {
+      display: inline-block;
+    }
+
+    .author-name { margin-right: 3px; }
+
+    .entypo-heart,
+    .entypo-reshare {
+      display: inline-block;
+      font-size: 16px;
+      line-height: $line-height-computed;
+      margin-right: 5px;
+      vertical-align: top;
+    }
+  }
+
+  .status-message-location {
+    color: $text-grey;
+    font-size: $font-size-small;
+  }
+
+  .leaflet-control-zoom {
+    display: block;
   }
 }

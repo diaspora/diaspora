@@ -81,6 +81,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Redesign and unify error pages [#6428](https://github.com/diaspora/diaspora/pull/6428)
 * Redesign and refactor report admin interface [#6378](https://github.com/diaspora/diaspora/pull/6378)
 * Add permalink icon to stream elements [#6457](https://github.com/diaspora/diaspora/pull/6457)
+* Move reshare count to interactions for stream elements [#6487](https://github.com/diaspora/diaspora/pull/6487)
 
 # 0.5.4.0
 

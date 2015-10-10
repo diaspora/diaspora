@@ -7,6 +7,7 @@ app.views.StreamPost = app.views.Post.extend({
   subviews : {
     ".feedback" : "feedbackView",
     ".likes" : "likesInfoView",
+    ".reshares" : "resharesInfoView",
     ".comments" : "commentStreamView",
     ".post-content" : "postContentView",
     ".oembed" : "oEmbedView",
@@ -53,6 +54,10 @@ app.views.StreamPost = app.views.Post.extend({
 
   likesInfoView : function(){
     return new app.views.LikesInfo({model : this.model});
+  },
+
+  resharesInfoView : function(){
+    return new app.views.ResharesInfo({model : this.model});
   },
 
   feedbackView : function(){

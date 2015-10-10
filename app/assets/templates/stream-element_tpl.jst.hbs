@@ -49,11 +49,6 @@
         <a href="/posts/{{id}}" class="permalink" title="{{t "stream.permalink"}}">
           <i class="entypo-link"></i>
         </a>
-
-        {{#if interactions.reshares_count}}
-          -
-          {{t "stream.reshares" count=interactions.reshares_count}}
-        {{/if}}
       </span>
     </div>
 
@@ -62,6 +57,7 @@
 
     <div class="feedback nsfw-hidden"> </div>
     <div class="likes nsfw-hidden"> </div>
+    <div class="reshares nsfw-hidden"> </div>
     <div class="comments nsfw-hidden"> </div>
   </div>
 </div>
