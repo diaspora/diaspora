@@ -10,6 +10,13 @@ $mobile-navbar-height: 46px;
   min-height: $mobile-navbar-height !important;
   max-height: $mobile-navbar-height !important;
 
+  .login {
+    color: $white;
+    float: right;
+    font-weight: bold;
+    padding: 13px;
+  }
+
   .navbar {
     margin: 0;
     padding: 0;
