@@ -21,7 +21,3 @@ Feature: managing authorized applications
     Then I should see 1 authorized applications
     And I revoke the first authorization
     Then I should see 0 authorized applications
-
-  Scenario: XSS escaping
-    When An application manually registers
-    Then I should not see "<script>alert(0);</script>"

@@ -14,9 +14,3 @@ end
 When /^I revoke the first authorization$/ do
   find(".app-revoke", match: :first).click
 end
-
-When /^An application manually registers$/ do
-  post api_openid_connect_authorizations_new_path, client_name: "<script>alert(0);</script>",
-       redirect_uri: "http://example.org/", response_type: "id_token", scope: "openid",
-       state: 1234, display: "page", prompt: "none"
-end

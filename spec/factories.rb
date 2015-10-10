@@ -340,6 +340,11 @@ FactoryGirl.define do
     redirect_uris %w(http://localhost:3000/ http://localhost/)
   end
 
+  factory :o_auth_application_with_xss, class: Api::OpenidConnect::OAuthApplication do
+    client_name "<script>alert(0);</script>"
+    redirect_uris %w(http://localhost:3000/)
+  end
+
   factory :auth_with_read, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user

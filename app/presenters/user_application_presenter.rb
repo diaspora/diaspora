@@ -14,7 +14,7 @@ class UserApplicationPresenter
   end
 
   def name
-    @app.client_name
+    CGI::escape @app.client_name
   end
 
   def image
