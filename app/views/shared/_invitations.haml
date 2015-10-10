@@ -1,15 +1,9 @@
-= t('.share_this')
+= t(".share_this")
 = invite_link(current_user.invitation_code)
-#invitations-button.btn.btn-link{ "data-toggle" => "modal"}
+.invitations-link.btn.btn-link#invitations-button{"data-toggle" => "modal"}
   = t(".by_email")
 
-= render 'shared/modal',
+= render "shared/modal",
     path: new_user_invitation_path,
-    id: 'invitationsModal',
-    title: t('invitations.new.invite_someone_to_join')
-
--# This will have to be extracte in a JS view
-:javascript
-  $("#invitations-button").click(function(){
-    app.helpers.showModal("#invitationsModal");
-  });
+    id: "invitationsModal",
+    title: t("invitations.new.invite_someone_to_join")

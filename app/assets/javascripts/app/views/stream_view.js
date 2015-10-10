@@ -11,6 +11,7 @@ app.views.Stream = app.views.InfScroll.extend({
     this.setupNSFW();
     this.setupInfiniteScroll();
     this.markNavSelected();
+    this.initInvitationModal();
   },
 
   postClass : app.views.StreamPost,
@@ -27,6 +28,12 @@ app.views.Stream = app.views.InfScroll.extend({
     var streamSelection = $("#stream_selection");
     streamSelection.find("[data-stream]").removeClass("selected");
     streamSelection.find("[data-stream='" + activeStream + "']").addClass("selected");
+  },
+
+  initInvitationModal : function() {
+    $(".invitations-link").click(function() {
+      app.helpers.showModal("#invitationsModal");
+    });
   }
 });
 // @license-end
