@@ -6,7 +6,7 @@ module Api
         render json: {error: e.message || :error, status: e.status}
       end
 
-      before_action :authenticate_user!
+      before_action :auth_user_unless_prompt_none!
 
       def new
         auth = Api::OpenidConnect::Authorization.find_by_client_id_and_user(params[:client_id], current_user)
@@ -200,6 +200,17 @@ module Api
         redirect_params_hash = {error: error, error_description: error_description, state: params[:state]}
         redirect_fragment = redirect_params_hash.compact.map {|key, value| key.to_s + "=" + value }.join("&")
         redirect_to params[:redirect_uri] + "?" + redirect_fragment
+      end
+
+      private
+
+      def auth_user_unless_prompt_none!
+        if params[:prompt] == "none" && !user_signed_in?
+          render json: {error: "login_required",
+                        description: "User must be first logged in when `prompt` is `none`"}
+        else
+          authenticate_user!
+        end
       end
     end
   end
