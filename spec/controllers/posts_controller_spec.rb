@@ -25,36 +25,50 @@ describe PostsController, type: :controller do
     end
 
     context "user signed in" do
-      before do
-        sign_in :user, alice
-        expect(post_service_double).to receive(:post).and_return(@message)
+      context "given a post that the user is allowed to see" do
+        before do
+          sign_in :user, alice
+          expect(post_service_double).to receive(:post).and_return(@message)
+        end
+
+        it "succeeds" do
+          get :show, id: @message.id
+          expect(response).to be_success
+        end
+
+        it 'succeeds after removing a mention when closing the mentioned user\'s account' do
+          user = FactoryGirl.create(:user, username: "user")
+          alice.share_with(user.person, alice.aspects.first)
+          msg = alice.build_post :status_message,
+                                 text: "Mention @{User ; #{user.diaspora_handle}}", public: true, to: "all"
+          msg.save!
+          expect(msg.mentioned_people.count).to eq(1)
+          user.destroy
+          get :show, id: msg.id
+          expect(response).to be_success
+        end
+
+        it "renders the application layout on mobile" do
+          get :show, id: @message.id, format: :mobile
+          expect(response).to render_template("layouts/application")
+        end
+
+        it "succeeds on mobile with a reshare" do
+          get :show, id: FactoryGirl.create(:reshare, author: alice.person).id, format: :mobile
+          expect(response).to be_success
+        end
       end
 
-      it "succeeds" do
-        get :show, id: @message.id
-        expect(response).to be_success
-      end
+      context "given a post that the user is not allowed to see" do
+        before do
+          sign_in :user, alice
+          expect(post_service_double).to receive(:post).and_raise(Diaspora::NonPublic)
+        end
 
-      it 'succeeds after removing a mention when closing the mentioned user\'s account' do
-        user = FactoryGirl.create(:user, username: "user")
-        alice.share_with(user.person, alice.aspects.first)
-        msg = alice.build_post :status_message,
-                               text: "Mention @{User ; #{user.diaspora_handle}}", public: true, to: "all"
-        msg.save!
-        expect(msg.mentioned_people.count).to eq(1)
-        user.destroy
-        get :show, id: msg.id
-        expect(response).to be_success
-      end
-
-      it "renders the application layout on mobile" do
-        get :show, id: @message.id, format: :mobile
-        expect(response).to render_template("layouts/application")
-      end
-
-      it "succeeds on mobile with a reshare" do
-        get :show, id: FactoryGirl.create(:reshare, author: alice.person).id, format: :mobile
-        expect(response).to be_success
+        it "returns a 404" do
+          get :show, id: @message.id
+          expect(response.code).to eq("404")
+        end
       end
     end
 
@@ -79,6 +93,18 @@ describe PostsController, type: :controller do
         it "responds with diaspora xml if format is xml" do
           get :show, id: @status.guid, format: :xml
           expect(response.body).to eq(@status.to_diaspora_xml)
+        end
+      end
+
+      context "given a limited post" do
+        before do
+          expect(post_service_double).to receive(:post).and_raise(Diaspora::NonPublic)
+        end
+
+        it "forces the user to sign" do
+          get :show, id: @message.id
+          expect(response).to be_redirect
+          expect(response).to redirect_to new_user_session_path
         end
       end
     end

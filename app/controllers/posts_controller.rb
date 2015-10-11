@@ -11,9 +11,13 @@ class PostsController < ApplicationController
   respond_to :html, :mobile, :json, :xml
 
   rescue_from Diaspora::NonPublic do
-    @code = "not-public"
-    respond_to do |format|
-      format.all { render template: "errors/not_public", status: 404, layout: "error_page" }
+    if user_signed_in?
+      @code = "not-public"
+      respond_to do |format|
+        format.all { render template: "errors/not_public", status: 404, layout: "error_page" }
+      end
+    else
+      authenticate_user!
     end
   end
 
