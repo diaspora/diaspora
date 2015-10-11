@@ -52,6 +52,7 @@ var app = {
     this.setupBackboneLinks();
     this.setupGlobalViews();
     this.setupDisabledLinks();
+    this.setupForms();
   },
 
   hasPreload : function(prop) {
@@ -143,6 +144,17 @@ var app = {
       event.preventDefault();
     });
   },
+
+  setupForms: function() {
+    // add placeholder support for old browsers
+    $("input, textarea").placeholder();
+
+    // setup remote forms
+    $(document).on("ajax:success", "form[data-remote]", function() {
+      $(this).clearForm();
+      $(this).focusout();
+    });
+  }
 };
 
 $(function() {

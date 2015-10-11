@@ -41,7 +41,6 @@
 //= require_tree ./helpers
 //= require_tree ./pages
 //= require_tree ./widgets
-//= require view
 //= require aspects-dropdown
 //= require mentions
 //= require bootstrap-tooltip
