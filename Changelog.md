@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Redirect to sign in page when a background request fails with 401 [#6496](https://github.com/diaspora/diaspora/pull/6496)
 
 ## Features
 

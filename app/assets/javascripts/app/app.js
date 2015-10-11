@@ -53,6 +53,7 @@ var app = {
     this.setupGlobalViews();
     this.setupDisabledLinks();
     this.setupForms();
+    this.setupAjaxErrorRedirect();
   },
 
   hasPreload : function(prop) {
@@ -154,6 +155,22 @@ var app = {
       $(this).clearForm();
       $(this).focusout();
     });
+  },
+
+  setupAjaxErrorRedirect: function() {
+    var self = this;
+    // Binds the global ajax event. To prevent this, add
+    // preventGlobalErrorHandling: true
+    // to the settings of your ajax calls
+    $(document).ajaxError(function(evt, jqxhr, settings) {
+      if(jqxhr.status === 401 && !settings.preventGlobalErrorHandling) {
+        self._changeLocation(Routes.newUserSession());
+      }
+    });
+  },
+
+  _changeLocation: function(href) {
+    window.location.assign(href);
   }
 };
 
