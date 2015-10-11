@@ -1,6 +1,7 @@
-header > .dark-header > nav {
+.navbar.navbar-fixed-top {
   border-bottom: none;
   box-shadow: 1px 0 2px $black;
+  a:focus {outline: 0 none; }
 
   .navbar-brand {
     font-weight: bold;
@@ -11,11 +12,8 @@ header > .dark-header > nav {
     .col-lg-10 { padding: 0; }
     .navbar-header > .nav li { display: inline-block !important; }
     .nav-badge {
-      color: $navbar-inverse-link-color;
       padding-left: 12px;
       padding-right: 12px;
-      &:hover { color: $navbar-inverse-link-hover-color; }
-      &:hover, &:focus { background-color: transparent; }
     }
     #navbar-collapse {
       .form-group, .twitter-typeahead  {
@@ -60,8 +58,7 @@ header > .dark-header > nav {
 
   .navbar-nav:not(.nav-badges) > li > a { font-weight: bold; }
   .nav-badges {
-    & > li { height: 50px; }
-    .dropdown > a:focus { outline: 0px none; }
+    li { height: $navbar-height; }
     .dropdown-open {
       background-color: $dropdown-bg;
       & > a { color: $dropdown-link-color; }
