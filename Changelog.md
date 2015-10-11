@@ -18,6 +18,7 @@
 * Expose Unicorn's pid option to our configuration system [#6411](https://github.com/diaspora/diaspora/pull/6411)
 * Add stream of all public posts [#6465](https://github.com/diaspora/diaspora/pull/6465)
 * Reload stream when clicking on already active one [#6466](https://github.com/diaspora/diaspora/pull/6466)
+* Sign in user before evaluating post visibility [#6490](https://github.com/diaspora/diaspora/pull/6490)
 
 # 0.5.3.1
 
