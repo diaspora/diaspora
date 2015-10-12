@@ -83,6 +83,14 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Add permalink icon to stream elements [#6457](https://github.com/diaspora/diaspora/pull/6457)
 * Move reshare count to interactions for stream elements [#6487](https://github.com/diaspora/diaspora/pull/6487)
 
+# 0.5.5.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.5.4.0
 
 ## Refactor
