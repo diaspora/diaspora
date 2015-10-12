@@ -26,7 +26,6 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.$("textarea").placeholder();
     this.model.comments.each(this.appendComment, this);
 
     // add autoexpanders to new comment textarea
