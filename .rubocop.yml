@@ -105,6 +105,11 @@ Style/SpaceInsideHashLiteralBraces:
 Style/BlockDelimiters:
   Enabled: false
 
+# Enforcing -> would be nice, but not at the cost of enforcing lambda { } for
+# multiline lambdas.
+Style/Lambda:
+  Enabled: false
+
 # do / end blocks should be used for side effects,
 # methods that run a block for side effects and have
 # a useful return value are rare, assign the return
