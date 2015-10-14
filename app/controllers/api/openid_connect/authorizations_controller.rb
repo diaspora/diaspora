@@ -202,8 +202,6 @@ module Api
         redirect_to params[:redirect_uri] + "?" + redirect_fragment
       end
 
-      private
-
       def auth_user_unless_prompt_none!
         if params[:prompt] == "none" && !user_signed_in?
           render json: {error: "login_required",

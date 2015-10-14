@@ -8,7 +8,6 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
 
   before do
     sign_in :user, alice
-    allow(@controller).to receive(:current_user).and_return(alice)
   end
 
   describe "#new" do
