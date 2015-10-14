@@ -12,8 +12,14 @@
     .col-lg-10 { padding: 0; }
     .navbar-header > .nav li { display: inline-block !important; }
     .nav-badge {
+      color: $navbar-inverse-link-color;
       padding-left: 12px;
       padding-right: 12px;
+      &:hover { color: $navbar-inverse-link-hover-color; }
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
     }
     #navbar-collapse {
       .form-group, .twitter-typeahead  {
