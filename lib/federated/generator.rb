@@ -5,13 +5,14 @@ module Federated
     def initialize(user, target)
       @user = user
       @target = target
+      @dispatcher_opts ||= {}
     end
 
     def create!(options={})
       relayable = build(options)
       if relayable.save!
         logger.info "user:#{@user.id} dispatching #{relayable.class}:#{relayable.guid}"
-        Postzord::Dispatcher.defer_build_and_post(@user, relayable)
+        Postzord::Dispatcher.defer_build_and_post(@user, relayable, @dispatcher_opts)
         relayable
       end
     end

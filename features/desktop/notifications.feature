@@ -9,6 +9,7 @@ Feature: Notifications
       | email             |
       | bob@bob.bob       |
       | alice@alice.alice |
+      | carol@carol.carol |
 
   Scenario: someone shares with me
     When I sign in as "bob@bob.bob"
@@ -66,6 +67,80 @@ Feature: Notifications
     Then the notification dropdown should be visible
     Then I should see "commented on your post"
     And I should have 1 email delivery
+
+  Scenario: unconnected user comments in reply to comment by another user who commented a post of someone who she shares with
+    Given "alice@alice.alice" has a public post with text "check this out!"
+    When I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    And I focus the comment field
+    And I fill in the following:
+        | text        | great post, alice!    |
+    And I press "Comment"
+    Then I should see "less than a minute ago" within ".comment"
+    When I sign out
+    And I sign in as "carol@carol.carol"
+    And I am on "alice@alice.alice"'s page
+    And I focus the comment field
+    And I fill in the following:
+        | text        | great comment, bob!    |
+    And I press "Comment"
+    Then I should see "less than a minute ago" within ".comment:nth-child(2)"
+    When I sign out
+    And I sign in as "bob@bob.bob"
+    And I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    And I should see "also commented on"
+    And I should have 3 email delivery
+
+
+  Scenario: unconnected user comments in reply to my comment to her post
+    Given "alice@alice.alice" has a public post with text "check this out!"
+    When I sign in as "carol@carol.carol"
+    And I am on "alice@alice.alice"'s page
+    And I focus the comment field
+    And I fill in the following:
+        | text        | great post, alice!    |
+    And I press "Comment"
+    Then I should see "less than a minute ago" within ".comment"
+    When I sign out
+    And I sign in as "alice@alice.alice"
+    And I am on "alice@alice.alice"'s page
+    And I focus the comment field
+    And I fill in the following:
+        | text        | great post, carol!    |
+    And I press "Comment"
+    Then I should see "less than a minute ago" within ".comment:nth-child(2)"
+    When I sign out
+    And I sign in as "carol@carol.carol"
+    And I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    And I should see "also commented on"
+    And I should have 2 email delivery
+
+  Scenario: connected user comments in reply to my comment to an unconnected user's post
+    Given "alice@alice.alice" has a public post with text "check this out!"
+    And a user with email "bob@bob.bob" is connected with "carol@carol.carol"
+    When I sign in as "carol@carol.carol"
+    And I am on "alice@alice.alice"'s page
+    And I focus the comment field
+    And I fill in the following:
+        | text        | great post!    |
+    And I press "Comment"
+    Then I should see "less than a minute ago" within ".comment"
+    When I sign out
+    And I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    And I focus the comment field
+    And I fill in the following:
+        | text        | great post!    |
+    And I press "Comment"
+    Then I should see "less than a minute ago" within ".comment:nth-child(2)"
+    When I sign out
+    And I sign in as "carol@carol.carol"
+    And I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    And I should see "also commented on"
+    And I should have 3 email delivery
 
   Scenario: someone mentioned me in their post
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
