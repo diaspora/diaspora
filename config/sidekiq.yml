@@ -1,7 +1,9 @@
 <% require_relative 'config/load_config' %>
 ---
 :verbose: false
-:logfile: "<%= AppConfig.sidekiq_log unless AppConfig.heroku? %>"
+<% unless AppConfig.heroku? %>
+:logfile: "<%= AppConfig.sidekiq_log %>"
+<% end %>
 :concurrency: <%= AppConfig.environment.sidekiq.concurrency.to_i %>
 :queues:
   - socket_webfinger
