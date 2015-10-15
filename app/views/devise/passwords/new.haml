@@ -26,7 +26,7 @@
                        autofocus:      true,
                        aria:           {labelledby: "passwordLabel"}
 
-      = f.submit t('devise.passwords.new.send_password_instructions'), class: "btn btn-block btn-default"
+      = f.submit t("devise.passwords.new.send_password_instructions"), class: "btn btn-block btn-primary"
 
     .text-center
       = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)

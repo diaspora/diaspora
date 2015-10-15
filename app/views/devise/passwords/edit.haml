@@ -38,7 +38,7 @@
                            aria:           {labelledby: "passwordConfirmationLabel"}
 
       = hidden_field(:user, :remember_me, value: 1)
-      = f.submit t('devise.passwords.edit.change_password'), class: "btn btn-block btn-default"
+      = f.submit t("devise.passwords.edit.change_password"), class: "btn btn-block btn-primary"
 
     .text-center
-      = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)
+      = link_to t("devise.shared.links.sign_in"), new_session_path(resource_name)

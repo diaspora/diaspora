@@ -34,7 +34,7 @@
                          aria: {labelledby: "passwordLabel"}
 
     = f.hidden_field :remember_me, value: 1
-    = f.submit t('devise.sessions.new.sign_in'), class: 'btn btn-large btn-block btn-default'
+    = f.submit t("devise.sessions.new.sign_in"), class: "btn btn-large btn-block btn-primary"
 
   .text-center
     - if display_password_reset_link?
