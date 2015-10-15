@@ -23,7 +23,7 @@
 
       .stream_container
 
-        - if user_signed_in? && current_user.person == @person
+        - if user_signed_in? && current_user.person.id == @person.id
           = render 'publisher/publisher', publisher_aspects_for(nil)
 
         .stream.clearfix#main_stream
