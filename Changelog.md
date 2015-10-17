@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix mention autocomplete when pasting the username [#6510](https://github.com/diaspora/diaspora/pull/6510)
 
 ## Features
 
