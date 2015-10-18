@@ -142,6 +142,10 @@ And /^I reject the alert$/ do
   page.driver.browser.switch_to.alert.dismiss
 end
 
+And /^I should not see any alert$/ do
+  expect { page.driver.browser.switch_to.alert }.to raise_error(Selenium::WebDriver::Error::NoAlertPresentError)
+end
+
 When /^(.*) in the mention modal$/ do |action|
   within('#mentionModal') do
     step action

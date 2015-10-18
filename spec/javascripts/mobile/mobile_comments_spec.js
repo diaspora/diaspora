@@ -2,7 +2,7 @@ describe("Diaspora.Mobile.Comments", function(){
   describe("toggleComments", function() {
     beforeEach(function() {
       spec.loadFixture("aspects_index_mobile_post_with_comments");
-      this.link = $(".stream .show_comments").first();
+      this.link = $(".stream .show-comments").first();
       spyOn(Diaspora.Mobile.Comments, "showComments");
       spyOn(Diaspora.Mobile.Comments, "hideComments");
     });
@@ -31,27 +31,27 @@ describe("Diaspora.Mobile.Comments", function(){
   describe("showUnloadedComments", function() {
     beforeEach(function() {
       spec.loadFixture("aspects_index_mobile_post_with_comments");
-      this.link = $(".stream .show_comments").first();
-      this.bottomBar = this.link.closest(".bottom_bar").first();
+      this.link = $(".stream .show-comments").first();
+      this.bottomBar = this.link.closest(".bottom-bar").first();
       this.commentActionLink = this.bottomBar.find("a.comment-action");
     });
 
     it("adds the 'loading' class to the link", function() {
       Diaspora.Mobile.Comments.showUnloadedComments(this.link, this.bottomBar, this.commentActionLink);
-      expect($(".show_comments").first()).toHaveClass("loading");
+      expect($(".show-comments").first()).toHaveClass("loading");
     });
 
     it("removes the 'loading' class if the request failed", function() {
       Diaspora.Mobile.Comments.showUnloadedComments(this.link, this.bottomBar, this.commentActionLink);
       jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
-      expect($(".show_comments").first()).not.toHaveClass("loading");
+      expect($(".show-comments").first()).not.toHaveClass("loading");
     });
 
     it("adds the 'active' class if the request succeeded", function() {
       Diaspora.Mobile.Comments.showUnloadedComments(this.link, this.bottomBar, this.commentActionLink);
       jasmine.Ajax.requests.mostRecent().respondWith({status: 200, contentType: "text/plain", responseText: "test"});
-      expect($(".show_comments").first()).toHaveClass("active");
-      expect($(".show_comments").first()).not.toHaveClass("loading");
+      expect($(".show-comments").first()).toHaveClass("active");
+      expect($(".show-comments").first()).not.toHaveClass("loading");
     });
 
     it("calls showCommentBox", function() {
@@ -70,50 +70,12 @@ describe("Diaspora.Mobile.Comments", function(){
       });
       expect($(".stream .stream_element").first()).toContainElement(".commentContainerForTest");
     });
-  });
 
-  describe("showCommentBox", function() {
-    beforeEach(function() {
-      spec.loadFixture("aspects_index_mobile_post_with_comments");
-      this.link = $(".stream .comment-action").first();
-    });
-
-    it("adds the 'loading' class to the link", function() {
-      Diaspora.Mobile.Comments.showCommentBox(this.link);
-      expect($(".comment-action").first()).toHaveClass("loading");
-    });
-
-    it("removes the 'loading' class if the request failed", function() {
-      Diaspora.Mobile.Comments.showCommentBox(this.link);
-      jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
-      expect($(".comment-action").first()).not.toHaveClass("loading");
-    });
-
-    it("fires an AJAX call", function() {
-      spyOn(jQuery, "ajax");
-      Diaspora.Mobile.Comments.showCommentBox(this.link);
-      expect(jQuery.ajax).toHaveBeenCalled();
-    });
-
-    it("calls appendCommentBox", function() {
-      spyOn(Diaspora.Mobile.Comments, "appendCommentBox");
-      Diaspora.Mobile.Comments.showCommentBox(this.link);
+    it("shows and hides the mobile spinner", function(){
+      Diaspora.Mobile.Comments.showComments(this.link);
+      expect($(".ajax-loader").first()).toBeVisible();
       jasmine.Ajax.requests.mostRecent().respondWith({status: 200, contentType: "text/plain", responseText: "test"});
-      expect(Diaspora.Mobile.Comments.appendCommentBox).toHaveBeenCalledWith(this.link, "test");
-    });
-
-    it("doesn't do anything if the link class is 'loading'", function() {
-      spyOn(jQuery, "ajax");
-      this.link.addClass("loading");
-      Diaspora.Mobile.Comments.showCommentBox(this.link);
-      expect(jQuery.ajax).not.toHaveBeenCalled();
-    });
-
-    it("doesn't do anything if the link class is not 'inactive'", function() {
-      spyOn(jQuery, "ajax");
-      this.link.removeClass("inactive");
-      Diaspora.Mobile.Comments.showCommentBox(this.link);
-      expect(jQuery.ajax).not.toHaveBeenCalled();
+      expect($(".ajax-loader").first()).not.toBeVisible();
     });
   });
 

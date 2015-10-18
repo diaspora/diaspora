@@ -12,7 +12,7 @@
     - if user_signed_in? && @person != current_user.person
       = render 'aspect_memberships/aspect_membership_dropdown'
     .clear
-  .bottom_bar
+  .bottom-bar
     - if !@person.tag_string.blank? && user_signed_in?
       = Diaspora::Taggable.format_tags(@person.tag_string)
 .row

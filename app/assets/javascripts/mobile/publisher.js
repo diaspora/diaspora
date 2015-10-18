@@ -14,7 +14,7 @@ $(document).ready(function(){
     $("#new_status_message .counter").remove();
 
     $.each(selectedServices, function() {
-      serviceMaxChars = parseInt($(this).attr("maxchar"));
+      serviceMaxChars = parseInt($(this).attr("maxchar"), 10);
       if(publisherMaxChars > serviceMaxChars) {
         publisherMaxChars = serviceMaxChars;
       }
