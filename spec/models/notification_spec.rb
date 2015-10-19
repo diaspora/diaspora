@@ -73,6 +73,11 @@ describe Notification, :type => :model do
         Notification.notify(@user, @request, @person)
       end
 
+      it "does nothing if told to notify oneself" do
+        notification = Notification.notify(@user, @request, @user.person)
+        expect(notification).to eq(nil)
+      end
+
       describe '#emails_the_user' do
         it 'calls mail' do
           opts = {
