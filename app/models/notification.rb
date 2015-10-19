@@ -15,7 +15,7 @@ class Notification < ActiveRecord::Base
   end
 
   def self.notify(recipient, target, actor)
-    return nil unless target.respond_to? :notification_type
+    return nil unless target.respond_to?(:notification_type) && recipient.person != actor
 
     note_type = target.notification_type(recipient, actor)
     return nil unless note_type
