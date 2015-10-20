@@ -22,6 +22,19 @@ Feature: Keyboard navigation
     Then post 2 should be highlighted
     And I close the publisher
 
+  Scenario: navigate downwards after changing the stream
+    When I go to the activity stream page
+    And I click on selector "[data-stream='stream'] a"
+    Then I should see "Stream" within ".stream_title"
+
+    When I press the "J" key somewhere
+    Then post 1 should be highlighted
+    And I should have navigated to the highlighted post
+
+    When I press the "J" key somewhere
+    Then post 2 should be highlighted
+    And I should have navigated to the highlighted post
+
   Scenario: navigate upwards
     When I scroll to post 3
     And I press the "K" key somewhere

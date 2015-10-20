@@ -69,13 +69,19 @@ describe("app.views.Base", function(){
         expect($.fn.timeago.calls.mostRecent().object.selector).toBe("time");
       });
 
-
       it("initializes tooltips declared with the view's tooltipSelector property", function(){
         this.view.tooltipSelector = ".christopher_columbus, .barrack_obama, .block_user";
 
         spyOn($.fn, "tooltip");
         this.view.render();
         expect($.fn.tooltip.calls.mostRecent().object.selector).toBe(".christopher_columbus, .barrack_obama, .block_user");
+      });
+
+      it("applies infield labels", function(){
+        spyOn($.fn, "placeholder");
+        this.view.render();
+        expect($.fn.placeholder).toHaveBeenCalled();
+        expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("input, textarea");
       });
     });
   });

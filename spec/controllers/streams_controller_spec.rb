@@ -10,15 +10,9 @@ describe StreamsController, :type => :controller do
   end
 
   describe "#public" do
-    it 'will succeed if admin' do
-      Role.add_admin(alice.person)
+    it "succeeds" do
       get :public
       expect(response).to be_success
-    end
-
-    it 'will redirect if not' do
-      get :public
-      expect(response).to be_redirect
     end
   end
 

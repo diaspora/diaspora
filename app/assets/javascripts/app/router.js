@@ -10,20 +10,16 @@ app.Router = Backbone.Router.extend({
     "user/edit": "settings",
     "users/sign_up": "registration",
 
-    //new hotness
     "posts/:id": "singlePost",
     "p/:id": "singlePost",
 
-    //oldness
     "activity": "stream",
     "stream": "stream",
-    "participate": "stream",
-    "explore": "stream",
     "aspects": "aspects",
-    "aspects/stream": "aspects_stream",
     "commented": "stream",
     "liked": "stream",
     "mentions": "stream",
+    "public": "stream",
     "followed_tags": "followed_tags",
     "tags/:name": "followed_tags",
     "people/:id/photos": "photos",
@@ -85,19 +81,10 @@ app.Router = Backbone.Router.extend({
     }
   },
 
-  //below here is oldness
-
   stream : function() {
     app.stream = new app.models.Stream();
     app.stream.fetch();
-    app.page = new app.views.Stream({model : app.stream});
-    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
-
-    var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
-
-    $("#main_stream").html(app.page.render().el);
-    $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
-    this._hideInactiveStreamLists();
+    this._initializeStreamView();
   },
 
   photos : function(guid) {
@@ -131,10 +118,10 @@ app.Router = Backbone.Router.extend({
     this._hideInactiveStreamLists();
   },
 
-  aspects : function(){
-    app.aspects = new app.collections.Aspects(app.currentUser.get('aspects'));
-    this.aspects_list =  new app.views.AspectsList({ collection: app.aspects });
-    this.aspects_list.render();
+  aspects: function() {
+    app.aspects = app.aspects || new app.collections.Aspects(app.currentUser.get("aspects"));
+    this.aspectsList = this.aspectsList || new app.views.AspectsList({ collection: app.aspects });
+    this.aspectsList.render();
     this.aspects_stream();
   },
 
@@ -142,24 +129,8 @@ app.Router = Backbone.Router.extend({
     var ids = app.aspects.selectedAspects('id');
     app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
     app.stream.fetch();
-
-    app.page = new app.views.Stream({model : app.stream});
-    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
+    this._initializeStreamView();
     app.publisher.setSelectedAspects(ids);
-
-    var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
-
-    $("#main_stream").html(app.page.render().el);
-    $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
-    this._hideInactiveStreamLists();
-  },
-
-  _hideInactiveStreamLists: function() {
-    if(this.aspects_list && Backbone.history.fragment !== "aspects")
-      this.aspects_list.hideAspectsList();
-
-    if(this.followedTagsView && Backbone.history.fragment !== "followed_tags")
-      this.followedTagsView.hideFollowedTags();
   },
 
   bookmarklet: function() {
@@ -173,6 +144,33 @@ app.Router = Backbone.Router.extend({
     this.renderPage(function() { return new app.pages.Profile({
       el: $('body > .container-fluid')
     }); });
+  },
+
+  _hideInactiveStreamLists: function() {
+    if(this.aspectsList && Backbone.history.fragment !== "aspects") {
+      this.aspectsList.hideAspectsList();
+    }
+
+    if(this.followedTagsView && Backbone.history.fragment !== "followed_tags") {
+      this.followedTagsView.hideFollowedTags();
+    }
+  },
+
+  _initializeStreamView: function() {
+    if(app.page) {
+      app.page.unbindInfScroll();
+      app.page.remove();
+    }
+
+    app.page = new app.views.Stream({model : app.stream});
+    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
+    app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
+
+    var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
+
+    $("#main_stream").html(app.page.render().el);
+    $("#selected_aspect_contacts .content").html(streamFacesView.render().el);
+    this._hideInactiveStreamLists();
   }
 });
 // @license-end

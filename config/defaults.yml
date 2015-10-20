@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.5.3.99" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.5.4.99" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -203,6 +203,9 @@ development:
       serve: true
     single_process_mode: true
     require_ssl: false
+    logging:
+      debug:
+        sql: true
   server:
     unicorn_worker: 1
   settings:

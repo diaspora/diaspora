@@ -14,13 +14,6 @@ describe("app.views.CommentStream", function(){
   });
 
   describe("postRenderTemplate", function(){
-    it("applies infield labels", function(){
-      spyOn($.fn, "placeholder");
-      this.view.postRenderTemplate();
-      expect($.fn.placeholder).toHaveBeenCalled();
-      expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("textarea");
-    });
-
     it("autoResizes the new comment textarea", function(){
       spyOn($.fn, "autoResize");
       this.view.postRenderTemplate();

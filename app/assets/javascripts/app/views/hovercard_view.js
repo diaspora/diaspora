@@ -147,6 +147,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   mouseIsOverElement: function(element, event) {
+    if(!element) { return false; }
     var elPos = element.offset();
     return event.pageX >= elPos.left &&
       event.pageX <= elPos.left + element.width() &&
