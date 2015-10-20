@@ -239,7 +239,7 @@ group :development do
 
   # Linters
   gem "jshintrb",       "0.3.0"
-  gem "rubocop",        "0.34.1"
+  gem "rubocop",        "0.34.2"
   gem "haml_lint",      "0.15.2"
   gem "pronto",         "0.4.3"
   gem "pronto-jshint",  "0.4.2"
