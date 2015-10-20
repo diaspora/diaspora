@@ -487,7 +487,7 @@ GEM
       ast (>= 1.1, < 3.0)
     phantomjs (1.9.8.0)
     powerpack (0.1.1)
-    pry (0.10.1)
+    pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
