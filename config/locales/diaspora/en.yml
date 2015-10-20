@@ -204,7 +204,8 @@ en:
       start_talking: "Nobody has said anything yet!"
     no_contacts_message:
       you_should_add_some_more_contacts: "You should add some more contacts!"
-      try_adding_some_more_contacts: "You can search or invite more contacts."
+      try_adding_some_more_contacts: "You can search or %{invite_link} more contacts."
+      invite_link_text: "invite"
       or_spotlight:  "Or you can share with %{link}"
       community_spotlight: "Community spotlight"
     aspect_listings:
