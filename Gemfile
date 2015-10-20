@@ -134,7 +134,7 @@ gem "leaflet-rails",       "0.7.4"
 # Parsing
 
 gem "nokogiri",          "1.6.6.2"
-gem "redcarpet",         "3.3.2"
+gem "redcarpet",         "3.3.3"
 gem "twitter-text",      "1.13.0"
 gem "roxml",             "3.1.6"
 gem "ruby-oembed",       "0.8.14"
