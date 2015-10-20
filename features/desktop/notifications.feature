@@ -142,6 +142,37 @@ Feature: Notifications
     And I should see "also commented on"
     And I should have 3 email delivery
 
+  Scenario: comment on my own reshare
+    Given "alice@alice.alice" has a public post with text "check this out!"
+    When I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    And I follow "Reshare"
+    And I confirm the alert
+    And I am on "bob@bob.bob"'s page
+    And I focus the comment field
+    And I fill in the following:
+        | text        | hello, myself!    |
+    And I press "Comment"
+    Then I should see "less than a minute ago" within ".comment"
+    When I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    And I should not see "also commented on"
+    And I should have 1 email delivery
+
+  Scenario: comment on my own post
+    Given "alice@alice.alice" has a public post with text "check this out!"
+    When I sign in as "alice@alice.alice"
+    And I am on "alice@alice.alice"'s page
+    And I focus the comment field
+    And I fill in the following:
+        | text        | hello, myself!    |
+    And I press "Comment"
+    Then I should see "less than a minute ago" within ".comment"
+    When I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    And I should not see "also commented on"
+    And I should have 0 email delivery
+
   Scenario: someone mentioned me in their post
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
