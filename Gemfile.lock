@@ -361,6 +361,7 @@ GEM
       multi_json (~> 1.0)
       sprockets (>= 2.0.0, < 4.0)
       tilt (~> 1.2)
+    hashdiff (0.2.2)
     hashie (3.4.2)
     hike (1.2.3)
     hiredis (0.5.2)
@@ -786,9 +787,10 @@ GEM
     valid (1.0.2)
     warden (1.2.3)
       rack (>= 1.0)
-    webmock (1.21.0)
+    webmock (1.22.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+      hashdiff
     websocket (1.2.2)
     will_paginate (3.0.7)
     xpath (2.0.0)
@@ -933,7 +935,7 @@ DEPENDENCIES
   uglifier (= 2.7.2)
   unicorn (= 4.9.0)
   uuid (= 2.3.8)
-  webmock (= 1.21.0)
+  webmock (= 1.22.1)
   will_paginate (= 3.0.7)
 
 BUNDLED WITH
