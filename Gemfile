@@ -268,7 +268,7 @@ group :test do
   gem "factory_girl_rails", "4.5.0"
   gem "timecop",            "0.8.0"
   gem "webmock",            "1.21.0", require: false
-  gem "shoulda-matchers",   "2.8.0", require: false
+  gem "shoulda-matchers",   "3.0.0"
 end
 
 group :development, :test do
