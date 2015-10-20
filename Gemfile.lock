@@ -350,7 +350,7 @@ GEM
       rubocop (~> 0.20)
     haml (4.0.7)
       tilt
-    handlebars_assets (0.20.2)
+    handlebars_assets (0.21.0)
       execjs (~> 2.0)
       multi_json (~> 1.0)
       sprockets (>= 2.0.0, < 4.0)
@@ -792,7 +792,7 @@ DEPENDENCIES
   guard-rspec (= 4.6.4)
   guard-rubocop (= 1.2.0)
   haml (= 4.0.7)
-  handlebars_assets (= 0.20.2)
+  handlebars_assets (= 0.21.0)
   http_accept_language (= 2.0.5)
   i18n-inflector-rails (= 1.0.7)
   jasmine (= 2.3.1)
