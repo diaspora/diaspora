@@ -165,7 +165,7 @@ GEM
       rails (~> 4.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.24)
+    domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     eco (1.0.0)
       coffee-script
@@ -366,7 +366,7 @@ GEM
     hike (1.2.3)
     hiredis (0.5.2)
     hitimes (1.2.3)
-    http (0.9.6)
+    http (0.9.8)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)
