@@ -260,7 +260,7 @@ group :test do
   # Cucumber (integration tests)
 
   gem "capybara",           "2.5.0"
-  gem "database_cleaner" ,  "1.5.0"
+  gem "database_cleaner" ,  "1.5.1"
   gem "selenium-webdriver", "2.47.1"
 
   # General helpers
