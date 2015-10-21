@@ -58,6 +58,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Hide cancel button in publisher on small screens [#6435](https://github.com/diaspora/diaspora/pull/6435)
 * Replace mobile background with color [#6415](https://github.com/diaspora/diaspora/pull/6415)
 * Port flash messages to backbone [#6395](https://github.com/diaspora/diaspora/6395)
+* Change login/registration/forgot password button color [#6504](https://github.com/diaspora/diaspora/pull/6504)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
