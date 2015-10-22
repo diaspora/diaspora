@@ -3,7 +3,8 @@ module Api
     class AuthorizationsController < ApplicationController
       rescue_from Rack::OAuth2::Server::Authorize::BadRequest do |e|
         logger.info e.backtrace[0, 10].join("\n")
-        render json: {error: e.message || :error, status: e.status}
+        error, description = e.message.split(" :: ")
+        handle_prompt_params_error(error, description)
       end
 
       before_action :auth_user_unless_prompt_none!
