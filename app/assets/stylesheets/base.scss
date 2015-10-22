@@ -3,6 +3,13 @@ body {
   padding: none;
 }
 
+a:focus,
+a:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
 // Overflow
 h1,
 h2,

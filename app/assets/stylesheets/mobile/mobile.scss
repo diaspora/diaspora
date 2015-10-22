@@ -21,6 +21,13 @@ a {
   text-decoration: none;
 }
 
+a:focus,
+a:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
 code {
     white-space: normal;
     word-wrap: break-word;
