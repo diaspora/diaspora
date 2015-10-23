@@ -35,7 +35,8 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an bad request error" do
           post :new, redirect_uri: "http://localhost:3000/", response_type: "id_token",
                scope: "openid", nonce: SecureRandom.hex(16), state: SecureRandom.hex(16)
-          expect(response.body).to match("bad_request")
+          expect(response).to redirect_to root_path
+          expect(flash[:error]).to include("Missing client id")
         end
       end
 
@@ -57,7 +58,8 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an invalid request error" do
           post :new, client_id: client_with_multiple_redirects.client_id, response_type: "id_token",
                scope: "openid", nonce: SecureRandom.hex(16), state: SecureRandom.hex(16)
-          expect(response.body).to match("bad_request")
+          expect(response).to redirect_to root_path
+          expect(flash[:error]).to include("Missing client id or redirect URI")
         end
       end
 
@@ -65,7 +67,8 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an invalid request error" do
           post :new, client_id: client.client_id, redirect_uri: "http://localhost:2000/",
                response_type: "id_token", scope: "openid", nonce: SecureRandom.hex(16)
-          expect(response.body).to match("bad_request")
+          expect(response).to redirect_to root_path
+          expect(flash[:error]).to include("No client")
         end
       end
 
@@ -129,8 +132,8 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an account_selection_required error" do
           post :new, client_id: "random", redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
-          json_body = JSON.parse(response.body)
-          expect(json_body["error"]).to match("bad_request")
+          expect(response).to redirect_to root_path
+          expect(flash[:error]).to include("No client")
         end
       end
 
@@ -138,8 +141,8 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an account_selection_required error" do
           post :new, client_id: client.client_id, redirect_uri: "http://randomuri:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
-          json_body = JSON.parse(response.body)
-          expect(json_body["error"]).to match("bad_request")
+          expect(response).to redirect_to root_path
+          expect(flash[:error]).to include("No client")
         end
       end
 

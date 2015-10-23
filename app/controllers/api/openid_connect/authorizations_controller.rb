@@ -189,11 +189,13 @@ module Api
           if app && app.redirect_uris.include?(params[:redirect_uri])
             redirect_prompt_error_display(error, error_description)
           else
-            render json: {error:       "bad_request",
-                          description: "No client with client_id #{params[:client_id]} found"}
+            flash[:error] = I18n.t("api.openid_connect.authorizations.new.client_id_not_found",
+                                   client_id: params[:client_id], redirect_uri: params[:redirect_uri])
+            redirect_to root_path
           end
         else
-          render json: {error: "bad_request", description: "Missing client id or redirect URI"}
+          flash[:error] = I18n.t("api.openid_connect.authorizations.new.bad_request")
+          redirect_to root_path
         end
       end
 

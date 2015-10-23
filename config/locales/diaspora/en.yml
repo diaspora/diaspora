@@ -890,6 +890,8 @@ en:
           no_requirement: "%{name} requires no permissions"
           approve: "Approve"
           deny: "Deny"
+          bad_request: "Missing client id or redirect URI"
+          client_id_not_found: "No client with client_id %{client_id} with redirect URI %{redirect_uri} found"
         destroy:
           fail: "The attempt to revoke the authorization with ID %{id} has failed"
       user_applications:
