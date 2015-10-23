@@ -278,7 +278,7 @@ ActiveRecord::Schema.define(version: 20151003142048) do
     t.string   "client_id",                  limit: 255
     t.string   "client_secret",              limit: 255
     t.string   "client_name",                limit: 255
-    t.string   "redirect_uris",              limit: 255
+    t.text     "redirect_uris",              limit: 65535
     t.string   "response_types",             limit: 255
     t.string   "grant_types",                limit: 255
     t.string   "application_type",           limit: 255,   default: "web"

@@ -6,7 +6,7 @@ class CreateOAuthApplications < ActiveRecord::Migration
       t.string :client_secret
       t.string :client_name
 
-      t.string :redirect_uris
+      t.text :redirect_uris
       t.string :response_types
       t.string :grant_types
       t.string :application_type, default: "web"
