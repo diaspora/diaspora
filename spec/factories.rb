@@ -348,19 +348,19 @@ FactoryGirl.define do
   factory :auth_with_read, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
-    scopes %w(openid read)
+    scopes %w(openid sub aud profile picture nickname name read)
   end
 
   factory :auth_with_read_and_ppid, class: Api::OpenidConnect::Authorization do
     association :o_auth_application, factory: :o_auth_application_with_ppid
     user
-    scopes %w(openid read)
+    scopes %w(openid sub aud profile picture nickname name read)
   end
 
   factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
-    scopes %w(openid read write)
+    scopes %w(openid sub aud profile picture nickname name read write)
   end
 
   # Factories for the DiasporaFederation-gem

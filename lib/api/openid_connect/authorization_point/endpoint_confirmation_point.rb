@@ -19,6 +19,14 @@ module Api
           end
         end
 
+        def replace_profile_scope_with_specific_claims(req)
+          # Empty
+        end
+
+        def build_from_request_object(req)
+          # Empty
+        end
+
         private
 
         def approved!(req, res)

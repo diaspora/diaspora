@@ -22,6 +22,41 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           end
         end
 
+        context "using claims" do
+          it "should return a form page" do
+            get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token",
+                scope: "openid", claims: "{\"userinfo\": {\"name\": {\"essential\": true}}}", nonce: SecureRandom.hex(16),
+                state: SecureRandom.hex(16)
+            expect(response.body).to match("Diaspora Test Client")
+          end
+        end
+
+        context "as a request object" do
+          it "should return a form page" do
+            header = JWT.encoded_header("none")
+            payload_hash = { client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token",
+                scope: "openid", nonce: "hello", state: "hello", claims: { userinfo: { name: { essential: true } } } }
+            payload = JWT.encoded_payload(JSON.parse(payload_hash.to_json))
+            request_object = header + "." + payload + "."
+            get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token",
+                scope: "openid", nonce: "hello", state: "hello", request: request_object
+            expect(response.body).to match("Diaspora Test Client")
+          end
+        end
+
+        context "as a request object with no claims" do
+          it "should return a form page" do
+            header = JWT.encoded_header("none")
+            payload_hash = { client_id: client.client_id, redirect_uri: "http://localhost:3000/",
+                             response_type: "id_token", scope: "openid", nonce: "hello", state: "hello" }
+            payload = JWT.encoded_payload(JSON.parse(payload_hash.to_json))
+            request_object = header + "." + payload + "."
+            get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token",
+                scope: "openid", nonce: "hello", state: "hello", request: request_object
+            expect(response.body).to match("Diaspora Test Client")
+          end
+        end
+
         context "as POST request" do
           it "should return a form page" do
             post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token",

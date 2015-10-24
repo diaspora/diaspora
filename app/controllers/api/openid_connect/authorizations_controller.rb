@@ -76,8 +76,20 @@ module Api
       end
 
       def request_authorization_consent_form
+        add_claims_to_scopes
         endpoint = Api::OpenidConnect::AuthorizationPoint::EndpointStartPoint.new(current_user)
         handle_start_point_response(endpoint)
+      end
+
+      def add_claims_to_scopes
+        return unless params[:claims]
+        claims_json = JSON.parse(params[:claims])
+        return unless claims_json
+        claims_array = claims_json["userinfo"].try(:keys)
+        return unless claims_array
+        claims = claims_array.join(" ")
+        req = build_rack_request
+        req.update_param("scope", req[:scope] + " " + claims)
       end
 
       def logged_in_before?(seconds)
@@ -112,14 +124,12 @@ module Api
       end
 
       def save_params_and_render_consent_form(endpoint)
-        @o_auth_application, @response_type, @redirect_uri, @scopes, @request_object = *[
+        @o_auth_application, @response_type, @redirect_uri, @scopes = *[
           endpoint.o_auth_application, endpoint.response_type,
-          endpoint.redirect_uri, endpoint.scopes, endpoint.request_object
+          endpoint.redirect_uri, endpoint.scopes
         ]
         save_request_parameters
-
         @app = UserApplicationPresenter.new @o_auth_application, @scopes
-
         render :new
       end
 
@@ -128,7 +138,6 @@ module Api
         session[:response_type] = @response_type
         session[:redirect_uri] = @redirect_uri
         session[:scopes] = scopes_as_space_seperated_values
-        session[:request_object] = @request_object
         session[:nonce] = params[:nonce]
       end
 
@@ -153,7 +162,6 @@ module Api
         session.delete(:response_type)
         session.delete(:redirect_uri)
         session.delete(:scopes)
-        session.delete(:request_object)
         session.delete(:nonce)
       end
 
@@ -167,7 +175,6 @@ module Api
         req.update_param("redirect_uri", session[:redirect_uri])
         req.update_param("response_type", response_type_as_space_seperated_values)
         req.update_param("scope", session[:scopes])
-        req.update_param("request_object", session[:request_object])
         req.update_param("nonce", session[:nonce])
       end
 
