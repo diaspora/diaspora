@@ -6,7 +6,7 @@ Feature: New user registration
 
   Background:
     Given I am on the login page
-    And I follow "Sign up"
+    And I follow "Sign up" within "#login_form"
 
   Scenario: user signs up and goes to getting started
     When I fill in the new user form
