@@ -1,7 +1,7 @@
 O_AUTH_QUERY_PARAMS = {
   redirect_uri:  "http://localhost:3000",
   response_type: "id_token token",
-  scope:         "openid read",
+  scope:         "openid profile read",
   nonce:         "hello",
   state:         "hi",
   prompt:        "login"
@@ -10,7 +10,7 @@ O_AUTH_QUERY_PARAMS = {
 O_AUTH_QUERY_PARAMS_WITH_MAX_AGE = {
   redirect_uri:  "http://localhost:3000",
   response_type: "id_token token",
-  scope:         "openid read",
+  scope:         "openid profile read",
   nonce:         "hello",
   state:         "hi",
   prompt:        "login",

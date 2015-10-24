@@ -16,7 +16,7 @@ module Api
 
         def replace_profile_scope_with_specific_claims(req)
           profile_claims = %w(sub aud name nickname profile picture)
-          scopes_as_claims = req.scope.map { |scope| scope == "profile" ? profile_claims : [scope] }.flatten!.uniq
+          scopes_as_claims = req.scope.map {|scope| scope == "profile" ? profile_claims : [scope] }.flatten!.uniq
           req.update_param("scope", scopes_as_claims)
         end
 
@@ -27,8 +27,6 @@ module Api
             OpenIDConnect::RequestObject.fetch req.request_uri
           elsif req.request.present?
             OpenIDConnect::RequestObject.decode req.request
-          else
-            nil
           end
         end
       end

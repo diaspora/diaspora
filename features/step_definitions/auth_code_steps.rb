@@ -1,7 +1,7 @@
 O_AUTH_QUERY_PARAMS_WITH_CODE = {
   redirect_uri:  "http://localhost:3000",
   response_type: "code",
-  scope:         "openid read",
+  scope:         "openid profile read",
   nonce:         "hello",
   state:         "hi"
 }

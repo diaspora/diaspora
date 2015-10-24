@@ -10,8 +10,9 @@ module Api
       def show
         serializer = UserInfoSerializer.new(current_user)
         auth = current_token.authorization
-        serializer.serialization_options = { authorization: auth }
-        attributes_without_essential = serializer.attributes.with_indifferent_access.select{|scope| auth.scopes.include? scope }
+        serializer.serialization_options = {authorization: auth}
+        attributes_without_essential =
+          serializer.attributes.with_indifferent_access.select {|scope| auth.scopes.include? scope }
         attributes = attributes_without_essential.merge(
           sub: serializer.sub)
         render json: attributes.to_json

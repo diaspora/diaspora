@@ -197,16 +197,20 @@ module Api
 
       def handle_params_error(error, error_description)
         if params[:client_id] && params[:redirect_uri]
-          app = Api::OpenidConnect::OAuthApplication.find_by(client_id: params[:client_id])
-          if app && app.redirect_uris.include?(params[:redirect_uri])
-            redirect_prompt_error_display(error, error_description)
-          else
-            flash[:error] = I18n.t("api.openid_connect.authorizations.new.client_id_not_found",
-                                   client_id: params[:client_id], redirect_uri: params[:redirect_uri])
-            redirect_to root_path
-          end
+          handle_params_error_when_client_id_and_redirect_uri_exists(error, error_description)
         else
           flash[:error] = I18n.t("api.openid_connect.authorizations.new.bad_request")
+          redirect_to root_path
+        end
+      end
+
+      def handle_params_error_when_client_id_and_redirect_uri_exists(error, error_description)
+        app = Api::OpenidConnect::OAuthApplication.find_by(client_id: params[:client_id])
+        if app && app.redirect_uris.include?(params[:redirect_uri])
+          redirect_prompt_error_display(error, error_description)
+        else
+          flash[:error] = I18n.t("api.openid_connect.authorizations.new.client_id_not_found",
+                                 client_id: params[:client_id], redirect_uri: params[:redirect_uri])
           redirect_to root_path
         end
       end
@@ -219,7 +223,7 @@ module Api
 
       def auth_user_unless_prompt_none!
         if params[:prompt] == "none" && !user_signed_in?
-          render json: {error: "login_required",
+          render json: {error:       "login_required",
                         description: "User must be first logged in when `prompt` is `none`"}
         else
           authenticate_user!

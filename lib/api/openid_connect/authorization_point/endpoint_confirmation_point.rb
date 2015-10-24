@@ -19,11 +19,11 @@ module Api
           end
         end
 
-        def replace_profile_scope_with_specific_claims(req)
+        def replace_profile_scope_with_specific_claims(_req)
           # Empty
         end
 
-        def build_from_request_object(req)
+        def build_from_request_object(_req)
           # Empty
         end
 
