@@ -43,6 +43,7 @@ class UserApplicationPresenter
 
   def url
     client_redirect = URI(@app.redirect_uris[0])
-    "#{client_redirect.scheme}://#{client_redirect.host}"
+    client_redirect.path = "/"
+    client_redirect.to_s
   end
 end

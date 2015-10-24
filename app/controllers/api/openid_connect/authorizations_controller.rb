@@ -55,7 +55,7 @@ module Api
       def handle_prompt(prompt, auth)
         if prompt.include? "select_account"
           handle_params_error("account_selection_required",
-                                     "There is no support for choosing among multiple accounts")
+                              "There is no support for choosing among multiple accounts")
         elsif prompt.include? "none"
           handle_prompt_none(prompt, auth)
         elsif prompt.include?("login") && logged_in_before?(60)
@@ -92,9 +92,9 @@ module Api
         return unless claims_json
         claims_array = claims_json["userinfo"].try(:keys)
         return unless claims_array
-        claims = claims_array.join(" ")
         req = build_rack_request
-        req.update_param("scope", req[:scope] + " " + claims)
+        claims = claims_array.unshift(req[:scope]).join(" ")
+        req.update_param("scope", claims)
       end
 
       def logged_in_before?(seconds)
@@ -111,16 +111,16 @@ module Api
             process_authorization_consent("true")
           else
             handle_params_error("interaction_required",
-                                       "The Authentication Request cannot be completed without end-user interaction")
+                                "The Authentication Request cannot be completed without end-user interaction")
           end
         else
           handle_params_error("invalid_request",
-                                     "The 'none' value cannot be used with any other prompt value")
+                              "The 'none' value cannot be used with any other prompt value")
         end
       end
 
       def handle_start_point_response(endpoint)
-        _status, header, response = *endpoint.call(request.env)
+        _status, header, response = endpoint.call(request.env)
         if response.redirect?
           redirect_to header["Location"]
         else
@@ -129,10 +129,10 @@ module Api
       end
 
       def save_params_and_render_consent_form(endpoint)
-        @o_auth_application, @response_type, @redirect_uri, @scopes = *[
-          endpoint.o_auth_application, endpoint.response_type,
-          endpoint.redirect_uri, endpoint.scopes
-        ]
+        @o_auth_application = endpoint.o_auth_application
+        @response_type = endpoint.response_type
+        @redirect_uri = endpoint.redirect_uri
+        @scopes = endpoint.scopes
         save_request_parameters
         @app = UserApplicationPresenter.new @o_auth_application, @scopes
         render :new
@@ -157,7 +157,7 @@ module Api
       end
 
       def handle_confirmation_endpoint_response(endpoint)
-        _status, header, _response = *endpoint.call(request.env)
+        _status, header, _response = endpoint.call(request.env)
         delete_authorization_session_variables
         redirect_to header["Location"]
       end
@@ -188,11 +188,7 @@ module Api
       end
 
       def response_type_as_space_seperated_values
-        if session[:response_type].respond_to?(:map)
-          session[:response_type].join(" ")
-        else
-          session[:response_type]
-        end
+        [*session[:response_type]].join(" ")
       end
 
       def handle_params_error(error, error_description)

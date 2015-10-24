@@ -1,6 +1,6 @@
 module Api
   module OpenidConnect
-    module Exception
+    module Error
       class InvalidSectorIdentifierUri < ::ArgumentError
         def initialize
           super "Invalid sector identifier uri"

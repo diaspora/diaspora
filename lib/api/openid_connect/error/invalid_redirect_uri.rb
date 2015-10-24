@@ -1,6 +1,6 @@
 module Api
   module OpenidConnect
-    module Exception
+    module Error
       class InvalidRedirectUri < ::ArgumentError
         def initialize
           super "Redirect uri contains fragment"

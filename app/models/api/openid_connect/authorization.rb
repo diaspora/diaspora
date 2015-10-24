@@ -4,9 +4,8 @@ module Api
       belongs_to :user
       belongs_to :o_auth_application
 
-      validates :user, presence: true
+      validates :user, presence: true, uniqueness: {scope: :o_auth_application}
       validates :o_auth_application, presence: true
-      validates :user, uniqueness: {scope: :o_auth_application}
       validate :validate_scope_names
       serialize :scopes, JSON
 
@@ -38,8 +37,7 @@ module Api
 
       def create_code
         SecureRandom.hex(32).tap do |code|
-          self.code = code
-          save
+          update!(code: code)
         end
       end
 
@@ -52,13 +50,13 @@ module Api
       end
 
       def self.find_by_client_id_and_user(client_id, user)
-        app = Api::OpenidConnect::OAuthApplication.find_by(client_id: client_id)
+        app = Api::OpenidConnect::OAuthApplication.where(client_id: client_id)
         find_by(o_auth_application: app, user: user)
       end
 
       def self.find_by_refresh_token(client_id, refresh_token)
-        Api::OpenidConnect::Authorization.joins(:o_auth_application).find_by(
-          o_auth_applications: {client_id: client_id}, refresh_token: refresh_token)
+        app = Api::OpenidConnect::OAuthApplication.where(client_id: client_id)
+        find_by(o_auth_application: app, refresh_token: refresh_token)
       end
 
       def self.use_code(code)

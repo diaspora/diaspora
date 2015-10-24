@@ -1,7 +1,7 @@
 module Api
   module OpenidConnect
-    class SubjectIdentifierCreator
-      def self.createSub(auth)
+    module SubjectIdentifierCreator
+      def self.create(auth)
         if auth.o_auth_application.ppid?
           identifier = auth.o_auth_application.sector_identifier_uri ||
             URI.parse(auth.o_auth_application.redirect_uris[0]).host

@@ -56,7 +56,7 @@ module Api
           redirect_uris = attributes[:redirect_uris]
           sector_identifier_uri_includes_redirect_uris = (redirect_uris - sector_identifier_uri_json).empty?
           return if sector_identifier_uri_includes_redirect_uris
-          raise Api::OpenidConnect::Exception::InvalidSectorIdentifierUri.new
+          raise Api::OpenidConnect::Error::InvalidSectorIdentifierUri.new
         end
 
         def check_redirect_uris(attributes)
@@ -64,7 +64,7 @@ module Api
           uri_array = redirect_uris.map {|uri| URI(uri) }
           any_uri_contains_fragment = uri_array.any? {|uri| !uri.fragment.nil? }
           return unless any_uri_contains_fragment
-          raise Api::OpenidConnect::Exception::InvalidRedirectUri.new
+          raise Api::OpenidConnect::Error::InvalidRedirectUri.new
         end
 
         def supported_metadata

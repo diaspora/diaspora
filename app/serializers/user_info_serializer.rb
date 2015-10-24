@@ -3,7 +3,7 @@ class UserInfoSerializer < ActiveModel::Serializer
 
   def sub
     auth = serialization_options[:authorization]
-    Api::OpenidConnect::SubjectIdentifierCreator.createSub(auth)
+    Api::OpenidConnect::SubjectIdentifierCreator.create(auth)
   end
 
   def name

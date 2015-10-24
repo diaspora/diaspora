@@ -16,7 +16,7 @@ module Api
 
         def replace_profile_scope_with_specific_claims(req)
           profile_claims = %w(sub aud name nickname profile picture)
-          scopes_as_claims = req.scope.map {|scope| scope == "profile" ? profile_claims : [scope] }.flatten!.uniq
+          scopes_as_claims = req.scope.flat_map {|scope| scope == "profile" ? profile_claims : [scope] }.uniq
           req.update_param("scope", scopes_as_claims)
         end
 

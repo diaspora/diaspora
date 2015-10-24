@@ -39,7 +39,7 @@ module Api
       end
 
       def build_sub
-        Api::OpenidConnect::SubjectIdentifierCreator.createSub(authorization)
+        Api::OpenidConnect::SubjectIdentifierCreator.create(authorization)
       end
     end
   end

@@ -6,11 +6,11 @@ module Api
       end
 
       rescue_from OpenIDConnect::ValidationFailed,
-                  ActiveRecord::RecordInvalid, Api::OpenidConnect::Exception::InvalidSectorIdentifierUri do |e|
+                  ActiveRecord::RecordInvalid, Api::OpenidConnect::Error::InvalidSectorIdentifierUri do |e|
         validation_fail_as_json(e)
       end
 
-      rescue_from Api::OpenidConnect::Exception::InvalidRedirectUri do |e|
+      rescue_from Api::OpenidConnect::Error::InvalidRedirectUri do |e|
         validation_fail_redirect_uri(e)
       end
 
