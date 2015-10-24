@@ -4,7 +4,12 @@ module Api
       rescue_from Rack::OAuth2::Server::Authorize::BadRequest do |e|
         logger.info e.backtrace[0, 10].join("\n")
         error, description = e.message.split(" :: ")
-        handle_prompt_params_error(error, description)
+        handle_params_error(error, description)
+      end
+
+      rescue_from OpenSSL::SSL::SSLError do |e|
+        logger.info e.backtrace[0, 10].join("\n")
+        handle_params_error("ssl_error", e.message)
       end
 
       before_action :auth_user_unless_prompt_none!
@@ -49,7 +54,7 @@ module Api
 
       def handle_prompt(prompt, auth)
         if prompt.include? "select_account"
-          handle_prompt_params_error("account_selection_required",
+          handle_params_error("account_selection_required",
                                      "There is no support for choosing among multiple accounts")
         elsif prompt.include? "none"
           handle_prompt_none(prompt, auth)
@@ -105,11 +110,11 @@ module Api
           if auth
             process_authorization_consent("true")
           else
-            handle_prompt_params_error("interaction_required",
+            handle_params_error("interaction_required",
                                        "The Authentication Request cannot be completed without end-user interaction")
           end
         else
-          handle_prompt_params_error("invalid_request",
+          handle_params_error("invalid_request",
                                      "The 'none' value cannot be used with any other prompt value")
         end
       end
@@ -190,7 +195,7 @@ module Api
         end
       end
 
-      def handle_prompt_params_error(error, error_description)
+      def handle_params_error(error, error_description)
         if params[:client_id] && params[:redirect_uri]
           app = Api::OpenidConnect::OAuthApplication.find_by(client_id: params[:client_id])
           if app && app.redirect_uris.include?(params[:redirect_uri])
