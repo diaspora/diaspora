@@ -101,16 +101,10 @@ app.views.Base = Backbone.View.extend({
     var respond = {
       type: method,
       success: function() {
-        Diaspora.page.flashMessages.render({
-          success: true,
-          notice: Diaspora.I18n.t('bookmark.status.' + type + '.success')
-        });
+        app.flashMessages.success(Diaspora.I18n.t('bookmark.status.' + type + '.success'));
       },
       error: function() {
-        Diaspora.page.flashMessages.render({
-          success: false,
-          notice: Diaspora.I18n.t('bookmark.status.' + type + '.error')
-        });
+        app.flashMessages.error(Diaspora.I18n.t('bookmark.status.' + type + '.error'));
       }
     };
 
