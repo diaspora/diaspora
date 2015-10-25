@@ -26,8 +26,7 @@ module Api
       def fetch_public_key(o_auth_app, jwt)
         public_key = fetch_public_key_from_json(o_auth_app.jwks, jwt)
         if public_key.empty? && o_auth_app.jwks_uri
-          uri = URI.parse(o_auth_app.jwks_uri)
-          response = Net::HTTP.get_response(uri)
+          response = Faraday.get(o_auth_app.jwks_uri)
           public_key = fetch_public_key_from_json(response.body, jwt)
         end
         raise Rack::OAuth2::Server::Authorize::BadRequest(:unauthorized_client) if public_key.empty?

@@ -9,7 +9,7 @@ module Api
 
       rescue_from OpenSSL::SSL::SSLError do |e|
         logger.info e.backtrace[0, 10].join("\n")
-        handle_params_error("ssl_error", e.message)
+        handle_params_error("bad_request", e.message)
       end
 
       before_action :auth_user_unless_prompt_none!

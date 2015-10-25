@@ -50,8 +50,7 @@ module Api
         def check_sector_identifier_uri(attributes)
           sector_identifier_uri = attributes[:sector_identifier_uri]
           return unless sector_identifier_uri
-          uri = URI.parse(sector_identifier_uri)
-          response = Net::HTTP.get_response(uri)
+          response = Faraday.get(sector_identifier_uri)
           sector_identifier_uri_json = JSON.parse(response.body)
           redirect_uris = attributes[:redirect_uris]
           sector_identifier_uri_includes_redirect_uris = (redirect_uris - sector_identifier_uri_json).empty?
@@ -80,8 +79,7 @@ module Api
             if key == :subject_type
               attr[:ppid] = (value == "pairwise")
             elsif key == :jwks_uri
-              uri = URI.parse(value)
-              response = Net::HTTP.get_response(uri)
+              response = Faraday.get(value)
               attr[:jwks] = response.body
               attr[:jwks_uri] = value
             elsif key == :jwks

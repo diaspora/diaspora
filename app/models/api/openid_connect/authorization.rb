@@ -67,8 +67,7 @@ module Api
           auth.destroy
           nil
         else
-          auth.code_used = true
-          auth.save
+          auth.update!(code_used: true)
           auth
         end
       end
