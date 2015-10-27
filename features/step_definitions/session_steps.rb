@@ -28,6 +28,13 @@ When /^I (?:sign|log) in as "([^"]*)" on the mobile website$/ do |email|
   confirm_login_mobile
 end
 
+When /^I (?:sign|log) in manually as "([^"]*)" with password "([^"]*)" on the mobile website$/ do |username, password|
+  @me = User.find_by_username(username)
+  @me.password ||= password
+  manual_login
+  confirm_login_mobile
+end
+
 When /^I (?:sign|log) in with password "([^"]*)"$/ do |password|
   @me.password = password
   automatic_login
@@ -64,6 +71,10 @@ end
 
 When /^I (?:log|sign) out manually$/ do
   manual_logout
+end
+
+When /^I (?:log|sign) out manually on the mobile website$/ do
+  manual_logout_mobile
 end
 
 Then(/^I should not be able to sign up$/) do
