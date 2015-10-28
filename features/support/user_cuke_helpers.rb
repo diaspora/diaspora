@@ -64,6 +64,11 @@ module UserCukeHelpers
     find("#user_menu li:last-child a").click
   end
 
+  def manual_logout_mobile
+    find("#menu-badge").click
+    find("#drawer ul li:last-child a").click
+  end
+
   def fill_in_new_user_form
     @username = "ohai"
     fill_in('user_username', with: @username)
