@@ -98,14 +98,14 @@ module UserCukeHelpers
     find("#new_user input.btn").click
   end
 
-  # fill the reset password form
-  def fill_reset_password_form(new_pass, confirm_pass)
+  # fill the password reset form
+  def fill_password_reset_form(new_pass, confirm_pass)
     fill_in 'user_password', :with => new_pass
     fill_in 'user_password_confirmation', :with => confirm_pass
   end
 
-  # submit reset password form
-  def submit_reset_password_form
+  # submit the password reset form
+  def submit_password_reset_form
     find(".btn").click
   end
 

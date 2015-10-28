@@ -57,12 +57,12 @@ When /^I submit forgot password form$/ do
   submit_forgot_password_form
 end
 
-When /^I fill out reset password form with "([^"]*)" and "([^"]*)"$/ do |new_pass,confirm_pass|
-  fill_reset_password_form(new_pass, confirm_pass)
+When /^I fill out the password reset form with "([^"]*)" and "([^"]*)"$/ do |new_pass,confirm_pass|
+  fill_password_reset_form(new_pass, confirm_pass)
 end
 
-When /^I submit reset password form$/ do
-  submit_reset_password_form
+When /^I submit the password reset form$/ do
+  submit_password_reset_form
 end
 
 When /^I (?:log|sign) out$/ do
