@@ -12,7 +12,8 @@ gem "unicorn", "4.9.0", require: false
 
 # Federation
 
-gem "diaspora_federation-rails", "0.0.8"
+gem 'diaspora_federation-rails', :git => "https://github.com/SuperTux88/diaspora_federation.git", :branch => "salmon"
+
 
 # API and JSON
 
@@ -280,8 +281,10 @@ group :test do
 
   gem "factory_girl_rails", "4.5.0"
   gem "timecop",            "0.8.0"
-  gem "webmock",            "1.22.1", require: false
+  gem "webmock",            "1.22.3", require: false
   gem "shoulda-matchers",   "3.0.0"
+
+  gem "federation-testbed", :git => "https://github.com/cmrd-senya/federation-testbed.git", :branch => "shape-into-gem"
 end
 
 group :development, :test do
