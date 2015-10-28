@@ -25,7 +25,9 @@ class Pod < ActiveRecord::Base
 
   class << self
     def find_or_create_by(opts) # Rename this method to not override an AR method
-      u = URI.parse(opts.fetch(:url))
+      url = opts.fetch(:url)
+      return if url.nil?
+      u = URI.parse(url)
       find_or_initialize_by(host: u.host).tap do |pod|
         unless pod.persisted?
           pod.ssl = (u.scheme == "https")
