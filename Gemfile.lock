@@ -560,7 +560,7 @@ GEM
       sprockets-rails
     rails-assets-autosize (3.0.13)
     rails-assets-blueimp-gallery (2.16.0)
-    rails-assets-diaspora_jsxc (0.1.4.develop.3)
+    rails-assets-diaspora_jsxc (0.1.4.develop.4)
       rails-assets-favico.js (= 0.3.9)
       rails-assets-jquery (= 1.11.2)
       rails-assets-jquery-colorbox (= 1.6.3)
