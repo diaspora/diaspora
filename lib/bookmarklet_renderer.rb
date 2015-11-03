@@ -2,7 +2,7 @@
 class BookmarkletRenderer
   class << self
     def cached_name
-      @cached ||= File.join(Rails.application.config.paths["tmp"].first, "cache", "bookmarklet.cached")
+      @cached ||= Rails.root.join("public", "assets", "bookmarklet.js")
     end
 
     def source_name
@@ -21,6 +21,7 @@ class BookmarkletRenderer
     def compile
       src = File.read(source_name)
       @body = Uglifier.compile(src)
+      FileUtils.mkdir_p cached_name.dirname
       File.open(cached_name, "w") {|f| f.write(@body) }
     end
   end
