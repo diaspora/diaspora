@@ -20,6 +20,10 @@ class PostsController < ApplicationController
     end
   end
 
+  rescue_from Diaspora::NotMine do
+    render text: "You are not allowed to do that", status: 403
+  end
+
   def show
     post_service = PostService.new(id: params[:id], user: current_user)
     post_service.mark_user_notifications
