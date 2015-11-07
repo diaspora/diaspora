@@ -14,6 +14,10 @@ module Api
         validation_fail_redirect_uri(e)
       end
 
+      rescue_from OpenSSL::SSL::SSLError do |e|
+        validation_fail_as_json(e)
+      end
+
       def create
         registrar = OpenIDConnect::Client::Registrar.new(request.url, params)
         client = Api::OpenidConnect::OAuthApplication.register! registrar
