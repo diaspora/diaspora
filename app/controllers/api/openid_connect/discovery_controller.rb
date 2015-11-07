@@ -29,7 +29,8 @@ module Api
           id_token_signing_alg_values_supported:       %i(RS256),
           token_endpoint_auth_methods_supported:       %w(client_secret_basic client_secret_post private_key_jwt),
           claims_parameter_supported:                  true,
-          claims_supported:                            %w(sub name nickname profile picture)
+          claims_supported:                            %w(sub name nickname profile picture),
+          userinfo_signing_alg_values_supported:       %w(none)
         )
       end
     end
