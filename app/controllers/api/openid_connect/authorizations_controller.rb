@@ -219,8 +219,8 @@ module Api
 
       def auth_user_unless_prompt_none!
         if params[:prompt] == "none" && !user_signed_in?
-          render json: {error:       "login_required",
-                        description: "User must be first logged in when `prompt` is `none`"}
+          handle_params_error("login_required",
+                              "User must already be logged in when 'prompt' is 'none'")
         else
           authenticate_user!
         end

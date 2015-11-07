@@ -141,8 +141,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an interaction required error" do
           post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
-          json_body = JSON.parse(response.body)
-          expect(json_body["error"]).to match("login_required")
+          expect(response.location).to match("error=login_required")
         end
       end
 
