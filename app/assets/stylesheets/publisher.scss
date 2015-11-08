@@ -83,7 +83,7 @@
       }
 
       &.active textarea {
-        min-height: 70px;
+        min-height: 90px;
       }
 
       .markdownIndications {
@@ -117,6 +117,8 @@
           cursor: pointer;
         }
       }
+
+      &:not(.with_location) #location_container { display: none; }
 
       &.with_location .loader {
         height: 20px;
