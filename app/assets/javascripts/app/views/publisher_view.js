@@ -31,6 +31,7 @@ app.views.Publisher = Backbone.View.extend({
 
   initialize : function(opts){
     this.standalone = opts ? opts.standalone : false;
+    this.prefillMention = opts && opts.prefillMention ? opts.prefillMention : undefined;
     this.disabled   = false;
 
     // init shortcut references to the various elements
@@ -40,9 +41,6 @@ app.views.Publisher = Backbone.View.extend({
     this.submitEl = this.$("input[type=submit], button#submit");
     this.previewEl = this.$("button.post_preview_button");
     this.photozoneEl = this.$("#photodropzone");
-
-    // init mentions plugin
-    Mentions.initialize(this.inputEl);
 
     // if there is data in the publisher we ask for a confirmation
     // before the user is able to leave the page
@@ -100,6 +98,11 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initSubviews: function() {
+    this.mention = new app.views.PublisherMention({ el: this.$("#publisher_textarea_wrapper") });
+    if(this.prefillMention){
+      this.mention.prefillMention([this.prefillMention]);
+    }
+
     var form = this.$(".content_creation form");
 
     this.view_services = new app.views.PublisherServices({
@@ -265,32 +268,6 @@ app.views.Publisher = Backbone.View.extend({
     return photos;
   },
 
-  getMentionedPeople: function(serializedForm) {
-    var mentionedPeople = [],
-        regexp = /@{([^;]+); ([^}]+)}/g,
-        user;
-    var getMentionedUser = function(handle) {
-      return Mentions.contacts.filter(function(user) {
-        return user.handle === handle;
-      })[0];
-    };
-
-    while( (user = regexp.exec(serializedForm["status_message[text]"])) ) {
-      // user[1]: name, user[2]: handle
-      var mentionedUser = getMentionedUser(user[2]);
-      if(mentionedUser){
-        mentionedPeople.push({
-          "id": mentionedUser.id,
-          "guid": mentionedUser.guid,
-          "name": user[1],
-          "diaspora_id": user[2],
-          "avatar": mentionedUser.avatar
-        });
-      }
-    }
-    return mentionedPeople;
-  },
-
   getPollData: function(serializedForm) {
     var poll;
     var pollQuestion = serializedForm.poll_question;
@@ -321,7 +298,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
     var photos = this.getUploadedPhotos();
-    var mentionedPeople = this.getMentionedPeople(serializedForm);
+    var mentionedPeople = this.mention.mentionsCollection;
     var date = (new Date()).toISOString();
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
@@ -395,7 +372,7 @@ app.views.Publisher = Backbone.View.extend({
     autosize.update(this.inputEl);
 
     // remove mentions
-    this.inputEl.mentionsInput("reset");
+    this.mention.reset();
 
     // remove photos
     this.photozoneEl.find("li").remove();
@@ -450,9 +427,6 @@ app.views.Publisher = Backbone.View.extend({
     this.$el.removeClass("closed");
     this.wrapperEl.addClass("active");
     autosize.update(this.inputEl);
-
-    // fetch contacts for mentioning
-    Mentions.fetchContacts();
     return this;
   },
 
@@ -521,9 +495,7 @@ app.views.Publisher = Backbone.View.extend({
     var self = this;
 
     this.checkSubmitAvailability();
-    this.inputEl.mentionsInput("val", function(value){
-      self.hiddenInputEl.val(value);
-    });
+    this.hiddenInputEl.val(this.mention.getTextForSubmit());
   },
 
   _beforeUnload: function(e) {
