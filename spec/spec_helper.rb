@@ -79,7 +79,7 @@ end
 
 def client_assertion_with_nonexistent_client_id_path
   @client_assertion_with_nonexistent_client_id = File.join(File.dirname(__FILE__), "fixtures",
-                                                     "client_assertion_with_nonexistent_client_id.txt")
+                                                           "client_assertion_with_nonexistent_client_id.txt")
 end
 
 # Force fixture rebuild

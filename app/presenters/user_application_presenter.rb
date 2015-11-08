@@ -1,12 +1,10 @@
 class UserApplicationPresenter
+  attr_reader :scopes
+
   def initialize(application, scopes, authorization_id=nil)
     @app = application
     @scopes = scopes
     @authorization_id = authorization_id
-  end
-
-  def scopes
-    @scopes
   end
 
   def id
