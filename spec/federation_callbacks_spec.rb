@@ -1,4 +1,5 @@
 require "spec_helper"
+require "diaspora_federation/test"
 
 describe "diaspora federation callbacks" do
   describe ":fetch_person_for_webfinger" do
@@ -145,6 +146,124 @@ describe "diaspora federation callbacks" do
         expect(profile_entity.first_name).to eq(profile.first_name)
         expect(profile_entity.last_name).to eq(profile.last_name)
       end
+    end
+  end
+
+  def create_a_local_person
+    FactoryGirl.create(:user).person
+  end
+
+  def create_a_remote_person
+    FactoryGirl.create(:person)
+  end
+
+  def create_post_by_a_local_person
+    FactoryGirl.create(:status_message, author: create_a_local_person).guid
+  end
+
+  def create_post_by_a_remote_person
+    FactoryGirl.create(:status_message, author: create_a_remote_person).guid
+  end
+
+  describe :fetch_private_key_by_diaspora_id do
+    it "returns a private key for a local user" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, create_a_local_person.diaspora_handle)
+      ).not_to be_nil
+    end
+
+    it "returns nil for a remote user" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, create_a_remote_person.diaspora_handle)
+      ).to be_nil
+    end
+
+    it "returns nil for an unknown id" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, FactoryGirl.generate(:diaspora_id))
+      ).to be_nil
+    end
+  end
+
+  describe :fetch_author_private_key_by_entity_guid do
+    it "returns a private key for a post by a local user" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", create_post_by_a_local_person)
+      ).not_to be_nil
+    end
+
+    it "returns nil for a post by a remote user" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", create_post_by_a_remote_person)
+      ).to be_nil
+    end
+
+    it "returns nil for an unknown post" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", FactoryGirl.generate(:guid))
+      ).to be_nil
+    end
+  end
+
+  describe :fetch_public_key_by_diaspora_id do
+    it "returns a public key for a person" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, create_a_remote_person.diaspora_handle)
+      ).not_to be_nil
+    end
+
+    it "returns nil for an unknown person" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, FactoryGirl.generate(:diaspora_id))
+      ).to be_nil
+    end
+  end
+
+  describe :fetch_author_public_key_by_entity_guid do
+    it "returns a public key for a known post" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", create_post_by_a_remote_person)
+      ).not_to be_nil
+    end
+
+    it "returns nil for an unknown post" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", FactoryGirl.generate(:guid))
+      ).to be_nil
+    end
+  end
+
+  describe :entity_author_is_local? do
+    it "returns true for a post by a local user" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", create_post_by_a_local_person)
+      ).to be(true)
+    end
+
+    it "returns false for a post by a remote user" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", create_post_by_a_remote_person)
+      ).to be(false)
+    end
+
+    it "returns false for a unknown post" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", FactoryGirl.generate(:diaspora_id))
+      ).to be(false)
+    end
+  end
+
+  describe :fetch_entity_author_id_by_guid do
+    it "returns id for a existing guid" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", create_post_by_a_remote_person)
+      ).not_to be_nil
+    end
+
+    it "returns nil for a non-existing guid" do
+      expect(
+        DiasporaFederation.callbacks.trigger(described_class, "Post", FactoryGirl.generate(:guid))
+      ).to be_nil
     end
   end
 end
