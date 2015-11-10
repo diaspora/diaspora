@@ -8,38 +8,12 @@ DiasporaFederation.configure do |config|
   config.define_callbacks do
     on :fetch_person_for_webfinger do |handle|
       person = Person.find_local_by_diaspora_handle(handle)
-      if person
-        DiasporaFederation::Discovery::WebFinger.new(
-          acct_uri:    "acct:#{person.diaspora_handle}",
-          alias_url:   AppConfig.url_to("/people/#{person.guid}"),
-          hcard_url:   AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
-          seed_url:    AppConfig.pod_uri,
-          profile_url: person.profile_url,
-          atom_url:    person.atom_url,
-          salmon_url:  person.receive_url,
-          guid:        person.guid,
-          public_key:  person.serialized_public_key
-        )
-      end
+      person.webfinger if person
     end
 
     on :fetch_person_for_hcard do |guid|
       person = Person.find_local_by_guid(guid)
-      if person
-        DiasporaFederation::Discovery::HCard.new(
-          guid:             person.guid,
-          nickname:         person.username,
-          full_name:        "#{person.profile.first_name} #{person.profile.last_name}".strip,
-          url:              AppConfig.pod_uri,
-          photo_large_url:  person.image_url,
-          photo_medium_url: person.image_url(:thumb_medium),
-          photo_small_url:  person.image_url(:thumb_small),
-          public_key:       person.serialized_public_key,
-          searchable:       person.searchable,
-          first_name:       person.profile.first_name,
-          last_name:        person.profile.last_name
-        )
-      end
+      person.hcard if person
     end
 
     on :save_person_after_webfinger do |person|
@@ -60,6 +34,34 @@ DiasporaFederation.configure do |config|
       profile_entity.searchable = profile.searchable
 
       person_entity.save!
+    end
+
+    on :fetch_private_key_by_diaspora_id do |diaspora_id|
+      key = Person.where(diaspora_handle: diaspora_id).joins(:owner).pluck(:serialized_private_key).first
+      OpenSSL::PKey::RSA.new key unless key.nil?
+    end
+
+    on :fetch_author_private_key_by_entity_guid do |entity_type, guid|
+      key = entity_type.constantize.where(guid: guid).joins(author: :owner).pluck(:serialized_private_key).first
+      OpenSSL::PKey::RSA.new key unless key.nil?
+    end
+
+    on :fetch_public_key_by_diaspora_id do |diaspora_id|
+      key = Person.where(diaspora_handle: diaspora_id).pluck(:serialized_public_key).first
+      OpenSSL::PKey::RSA.new key unless key.nil?
+    end
+
+    on :fetch_author_public_key_by_entity_guid do |entity_type, guid|
+      key = entity_type.constantize.where(guid: guid).joins(:author).pluck(:serialized_public_key).first
+      OpenSSL::PKey::RSA.new key unless key.nil?
+    end
+
+    on :entity_author_is_local? do |entity_type, guid|
+      entity_type.constantize.where(guid: guid).joins(author: :owner).exists?
+    end
+
+    on :fetch_entity_author_id_by_guid do |entity_type, guid|
+      entity_type.constantize.where(guid: guid).joins(:author).pluck(:diaspora_handle).first
     end
   end
 end
