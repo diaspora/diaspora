@@ -917,6 +917,8 @@ en:
         write:
           name: "send posts, conversations and reactions"
           description: "This allows the application to send new posts, write conversations, and send reactions"
+      error_page:
+        title: "Oh! Something went wrong :("
 
   people:
     zero: "No people"

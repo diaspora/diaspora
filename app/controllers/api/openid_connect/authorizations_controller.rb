@@ -110,8 +110,7 @@ module Api
           if auth
             process_authorization_consent("true")
           else
-            handle_params_error("interaction_required",
-                                "The Authentication Request cannot be completed without end-user interaction")
+            render_error "The Authentication Request cannot be completed without end-user interaction"
           end
         else
           handle_params_error("invalid_request",
@@ -219,11 +218,18 @@ module Api
 
       def auth_user_unless_prompt_none!
         if params[:prompt] == "none" && !user_signed_in?
-          handle_params_error("login_required",
-                              "User must already be logged in when 'prompt' is 'none'")
+          render_error "User must be first logged in when `prompt` is `none`"
+          # render json: {error:       "login_required",
+          #               description: "User must be first logged in when `prompt` is `none`"}
         else
           authenticate_user!
         end
+      end
+
+      def render_error(error_description)
+        @error_description = error_description
+        render "api/openid_connect/error/error",
+               layout: request.format == :mobile ? "application" : "with_header_with_footer"
       end
     end
   end
