@@ -10,6 +10,7 @@
 
 .container-fluid#tags_show
   .row
+    .col-lg-3.hidden-xs.left-navbar-fixed-background
     .col-md-3.hidden-xs
       %h4
         = t('.tagged_people', count: @stream.tagged_people_count, tag: @stream.display_tag_name)

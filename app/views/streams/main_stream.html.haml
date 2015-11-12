@@ -31,7 +31,7 @@
           = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
         %li{data: {stream: "mentions"}}
           = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
-        %li.all_aspects
+        %li.all-aspects
           = render "aspects/aspect_listings", stream: @stream
         %li.followed-tags-sidebar
           = render "tags/followed_tags_listings"

@@ -7,14 +7,13 @@
     = stream.title
 
 .container-fluid.main-stream-publisher
-  .pull-left
+  .pull-left.hidden-xs
     = owner_image_link
   = render "publisher/publisher", publisher_aspects_for(stream)
 = render "aspects/no_posts_message"
 
-#gs-shim{:title => popover_with_close_html("3. #{t('.stay_updated')}"), 'data-content' => t('.stay_updated_explanation')}
-
-#main_stream.stream
+.stream#main_stream{title: popover_with_close_html("3. #{t('.stay_updated')}"),
+  "data-content" => t(".stay_updated_explanation")}
 
 #paginate
   %span.loader.hidden

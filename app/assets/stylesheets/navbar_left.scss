@@ -5,19 +5,14 @@
   height: 100%;
 }
 
+.left-navbar,
 .left-navbar-fixed-background {
-  background: $sidebars-background;
   border-right: 1px solid $light-grey;
-  position: fixed;
-  height: 100%;
+  background: $sidebars-background;
 }
 
 .left-navbar {
-  background: $sidebars-background;
-  border-right: 1px solid $light-grey;
   a {
-    color: $link-grey;
-    font-weight: bold;
     text-decoration: none;
     outline: 0;
   }
@@ -32,11 +27,14 @@
   }
 
   .hoverable {
-    border-bottom: 1px solid $border-grey;
     color: $link-grey;
     display: block;
-    font-weight: normal;
     padding: 10px 20px;
+    font-weight: bold;
+
+    a {
+      color: $link-grey;
+    }
 
     &:hover, &:hover a, &:hover [class^="entypo"] {
       background-color: $blue;
@@ -45,16 +43,16 @@
     }
   }
 
-  .all_aspects a.hoverable.selected,
-  .followed-tags-sidebar a.hoverable.selected,
-  li.selected > a.hoverable {
+  .all-aspects .hoverable.selected,
+  .followed-tags-sidebar .hoverable.selected,
+  .selected > .hoverable {
     color: $white;
     background: $gray;
     border-color: $gray;
   }
 
-  #aspects_list,
-  #tags_list {
+  .all-aspects ul,
+  .followed-tags-sidebar ul {
     background: $left-navbar-drawer-background;
     li { padding: 0; }
     .entypo-check { visibility: hidden; }
@@ -114,78 +112,78 @@
     }
     /* ---- end override app/stylesheets/vendor/autoSuggest.css ---- */
   }
+}
 
-  .info-bar {
-    margin-top: 25px;
+.info-bar {
+  margin-top: 25px;
 
-    .section {
-      margin-bottom: 20px;
+  .section {
+    margin-bottom: 20px;
+  }
 
-      > .title {
-        border-bottom: 1px solid $border-grey;
-        padding-bottom: 5px;
+  .title {
+    border-bottom: 1px solid $border-grey;
+    padding-bottom: 5px;
 
-        h5 {
-          color: $text-dark-grey;
-          font-size: $font-size-base;
-          margin: 0;
-        }
-      }
-
-      .content {
-        color: $text-grey;
-        font-size: $font-size-small;
-        line-height: 18px;
-        padding: 10px 0;
-
-        p,
-        ul {
-          margin: 0;
-        }
-
-        ul {
-          margin-bottom: 5px;
-          padding-left: 0;
-          li { list-style: none; }
-        }
-
-        .btn-link {
-          font-size: $font-size-small;
-          padding-left: 0;
-        }
-
-        > #invite_code {
-          box-sizing: border-box;
-          font-size: $font-size-small;
-          height: 30px;
-          width: 100%;
-        }
-
-        > .right-service-icons {
-          padding: 10px {
-            bottom: 0;
-          }
-          text-align: center;
-
-          .social-media-logos-facebook-24x24,
-          .social-media-logos-twitter-24x24,
-          .social-media-logos-tumblr-24x24,
-          .social-media-logos-wordpress-24x24 {
-            height: 24px;
-            width: 24px;
-          }
-
-          a {
-            display: inline-block;
-          }
-        }
-
-        .stream-faces {
-          display: flex;
-          flex-flow: row wrap;
-          img { margin: 1px; }
-        }
-      }
+    h5 {
+      color: $text-dark-grey;
+      font-size: $font-size-base;
+      margin: 0;
     }
+  }
+
+  .content {
+    color: $text-grey;
+    font-size: $font-size-small;
+    line-height: 18px;
+    padding: 10px 0;
+
+    p,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 5px;
+      padding-left: 0;
+    }
+
+    .btn-link {
+      font-size: $font-size-small;
+      padding-left: 0;
+    }
+
+    > [name="invite_code"] {
+      box-sizing: border-box;
+      font-size: $font-size-small;
+      height: 30px;
+      width: 100%;
+    }
+  }
+
+  .right-service-icons {
+    padding: 10px {
+      bottom: 0;
+    }
+    text-align: center;
+
+    .social-media-logos-facebook-24x24,
+    .social-media-logos-twitter-24x24,
+    .social-media-logos-tumblr-24x24,
+    .social-media-logos-wordpress-24x24 {
+      height: 24px;
+      width: 24px;
+    }
+
+    a {
+      display: inline-block;
+    }
+  }
+
+  .stream-faces {
+    display: flex;
+    flex-flow: row wrap;
+    img { margin: 1px; }
   }
 }

@@ -1,4 +1,4 @@
-#publisher {
+.publisher {
   z-index: 1;
   color: $text-grey;
   margin: 0;
@@ -36,6 +36,7 @@
 
     .options_and_submit {
       padding: 10px 0;
+
       #publisher-service-icons {
         text-decoration: none;
 

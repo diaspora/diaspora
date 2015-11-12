@@ -34,7 +34,7 @@ end
 World(AspectCukeHelpers)
 
 When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
-  within(".all_aspects") do
+  within(".all-aspects") do
     li = find('li', text: aspect_name)
     li.hover
     li.find('.modify_aspect').click
