@@ -30,13 +30,24 @@
         self.scrollToOffset(commentContainer);
       });
 
-      $(".stream").on("submit", ".new_comment", function(evt) {
-        evt.preventDefault();
-        var form = $(this);
+      $(".stream").on("submit", ".new_comment", this.submitComment);
+    },
+
+    submitComment: function(evt) {
+      evt.preventDefault();
+      var form = $(this);
+      var commentBox = form.find(".comment_box");
+      var commentText = $.trim(commentBox.val());
+      if (commentText) {
         $.post(form.attr("action")+"?format=mobile", form.serialize(), function(data) {
-          self.updateStream(form, data);
+          Diaspora.Mobile.Comments.updateStream(form, data);
         }, "html");
-      });
+        return true;
+      }
+      else {
+        commentBox.focus();
+        return false;
+      }
     },
 
     toggleComments: function(toggleReactionsLink) {
