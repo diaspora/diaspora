@@ -50,11 +50,4 @@
     background-color: #CA410B;
     border-color: darken(#CA410B, 10%);
   }
-
-  @media (max-width: $grid-float-breakpoint-max) {
-    .flash-message {
-      max-width: 80%;
-      min-width: 80%;
-    }
-  }
 }
