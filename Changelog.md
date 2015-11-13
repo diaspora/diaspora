@@ -94,7 +94,6 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Correctly skip setting sidekiq logfile on Heroku [#6500](https://github.com/diaspora/diaspora/pull/6500)
 * Fix notifications for interactions by non-contacts [#6498](https://github.com/diaspora/diaspora/pull/6498)
 * Fix issue where the publisher was broken on profile pages [#6503](https://github.com/diaspora/diaspora/pull/6503)
-* Limit flash message width on small devices [#6529](https://github.com/diaspora/diaspora/pull/6529)
 
 ## Features
 
