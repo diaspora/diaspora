@@ -19,4 +19,11 @@
     &.alert-succes { border: 1px solid darken($state-success-bg, 10%); }
     &.alert-warning { border: 1px solid darken($state-warning-bg, 10%); }
   }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+    .flash-message {
+      max-width: 80%;
+      min-width: 80%;
+    }
+  }
 }
