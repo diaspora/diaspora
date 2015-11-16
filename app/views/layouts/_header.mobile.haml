@@ -16,7 +16,7 @@
         -# Conversations
         %li
           = link_to conversations_path, class: "badge-link", id: "conversations-badge" do
-            %i.diaspora-custom-mail
+            %i.entypo-mail
             - if current_user.unread_message_count > 0
               %span.badge.badge-important#conversation
                 = current_user.unread_message_count
