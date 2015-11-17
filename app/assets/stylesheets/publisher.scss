@@ -82,7 +82,7 @@
       }
 
       textarea {
-        border: none;
+        border: 0 solid $light-grey;
         margin: 0;
         box-shadow: none;
         resize: none;
@@ -101,16 +101,11 @@
         a { color: lighten($blue,20%); }
       }
 
-      .mentions-input-box .mentions {
-        line-height: $line-height-base !important;
-      }
-
       &.with_attachments #photodropzone_container {
         border-top: 1px dashed $border-grey;
       }
 
       #poll_creator_container {
-        display: none;
         border-top: 1px dashed $border-grey;
         padding:4px 6px 4px 6px;
         box-sizing: border-box;
@@ -212,7 +207,14 @@
 }
 
 .publisher-textarea-wrapper {
-  &:not(.with-location) .location-container { display: none; }
+  &:not(.with-location) .location-container,
+  &.markdown-preview .location-container,
+  &:not(.with-poll) .poll-creator-container,
+  &.markdown-preview .poll-creator-container,
+  &.markdown-preview .photodropzone-container,
+  &.markdown-preview .publisher-buttonbar {
+    display: none;
+  }
 
   &.with-location .loader {
     height: 20px;
@@ -259,7 +261,15 @@
 
   .twitter-typeahead {
     left: -1px;
-    position: absolute;
+    // Override inline rule of Typeahead
+    // scss-lint:disable ImportantRule
+    position: absolute !important;
+    // scss-lint:enable ImportantRule
+  }
+
+  .mentions-box {
+    // Leave space for markdown editor header
+    margin-top: 42px;
   }
 }
 

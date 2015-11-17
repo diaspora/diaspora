@@ -25,7 +25,11 @@
       {{/poll.poll_answers}}
       {{#if show_form}}
           <div class="toggle-result-wrapper">
-            <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
+            {{#if preview}}
+              <span>{{t "poll.show_result"}}</span>
+            {{else}}
+              <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
+            {{/if}}
           </div>
           <input type="submit" class="submit pull-right btn btn-default" value="{{t "poll.vote"}}"/>
           <div class="clearfix"></div>
