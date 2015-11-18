@@ -68,6 +68,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Prevent multiple comment boxes on mobile [#6363](https://github.com/diaspora/diaspora/pull/6363)
 * Correctly display location in post preview [#6429](https://github.com/diaspora/diaspora/pull/6429)
 * Do not fail when submitting an empty comment in the mobile view [#6543](https://github.com/diaspora/diaspora/pull/6543)
+* Limit flash message width on small devices [#6529](https://github.com/diaspora/diaspora/pull/6529)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
@@ -94,7 +95,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Correctly skip setting sidekiq logfile on Heroku [#6500](https://github.com/diaspora/diaspora/pull/6500)
 * Fix notifications for interactions by non-contacts [#6498](https://github.com/diaspora/diaspora/pull/6498)
 * Fix issue where the publisher was broken on profile pages [#6503](https://github.com/diaspora/diaspora/pull/6503)
-* Limit flash message width on small devices [#6529](https://github.com/diaspora/diaspora/pull/6529)
+* Prevent participations being created for invalid interactions [#6552](https://github.com/diaspora/diaspora/pull/6552)
 
 ## Features
 

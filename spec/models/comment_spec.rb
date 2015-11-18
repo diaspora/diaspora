@@ -77,6 +77,15 @@ describe Comment, :type => :model do
       participations = Participation.where(target_id: comment_alice.commentable_id, author_id: comment_alice.author_id)
       expect(participations.count).to eq(1)
     end
+
+    it "does not create a participation if comment validation failed" do
+      begin
+        alice.comment!(status_bob, " ")
+      rescue ActiveRecord::RecordInvalid
+      end
+      participations = Participation.where(target_id: status_bob, author_id: alice.person.id)
+      expect(participations.count).to eq(0)
+    end
   end
 
   describe "counter cache" do
