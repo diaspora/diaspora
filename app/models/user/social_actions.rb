@@ -1,7 +1,8 @@
 module User::SocialActions
   def comment!(target, text, opts={})
-    find_or_create_participation!(target)
-    Comment::Generator.new(self, target, text).create!(opts)
+    Comment::Generator.new(self, target, text).create!(opts).tap do
+      find_or_create_participation!(target)
+    end
   end
 
   def participate!(target, opts={})
@@ -9,21 +10,23 @@ module User::SocialActions
   end
 
   def like!(target, opts={})
-    find_or_create_participation!(target)
-    Like::Generator.new(self, target).create!(opts)
+    Like::Generator.new(self, target).create!(opts).tap do
+      find_or_create_participation!(target)
+    end
   end
 
   def participate_in_poll!(target, answer, opts={})
-    find_or_create_participation!(target)
-    PollParticipation::Generator.new(self, target, answer).create!(opts)
+    PollParticipation::Generator.new(self, target, answer).create!(opts).tap do
+      find_or_create_participation!(target)
+    end
   end
 
   def reshare!(target, opts={})
-    find_or_create_participation!(target)
-    reshare = build_post(:reshare, :root_guid => target.guid)
-    reshare.save!
-    Postzord::Dispatcher.defer_build_and_post(self, reshare)
-    reshare
+    build_post(:reshare, :root_guid => target.guid).tap do |reshare|
+      reshare.save!
+      find_or_create_participation!(target)
+      Postzord::Dispatcher.defer_build_and_post(self, reshare)
+    end
   end
 
   def build_comment(options={})
