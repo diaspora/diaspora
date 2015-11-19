@@ -12,7 +12,7 @@ describe Workers::ReceiveEncryptedSalmon do
       end
     }
   end
-  it 'calls receive_salmon' do
+  it "calls receiver" do
     zord = double
 
     expect(zord).to receive(:perform!)

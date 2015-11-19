@@ -5,7 +5,7 @@
 
 module Workers
   class ResendInvitation < Base
-    sidekiq_options queue: :mail
+    sidekiq_options queue: :low
     
     def perform(invitation_id)
       inv = Invitation.find(invitation_id)

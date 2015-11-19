@@ -4,7 +4,7 @@
 
 module Workers
   class NotifyLocalUsers < Base
-    sidekiq_options queue: :receive_local
+    sidekiq_options queue: :high
 
     def perform(user_ids, object_klass, object_id, person_id)
 

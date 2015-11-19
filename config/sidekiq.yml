@@ -6,16 +6,8 @@
 <% end %>
 :concurrency: <%= AppConfig.environment.sidekiq.concurrency.to_i %>
 :queues:
-  - socket_webfinger
-  - photos
-  - http_service
-  - dispatch
-  - mail
-  - delete_account
-  - receive_local
-  - receive
-  - receive_salmon
-  - http
-  - export
-  - maintenance
+  - urgent
+  - high
+  - medium
+  - low
   - default

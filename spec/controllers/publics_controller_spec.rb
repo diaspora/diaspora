@@ -42,7 +42,7 @@ describe PublicsController, :type => :controller do
       post :receive, "guid" => @user.person.guid.to_s, "xml" => xml
     end
 
-    it 'unescapes the xml before sending it to receive_salmon' do
+    it "unescapes the xml before sending it to queue" do
       aspect = @user.aspects.create(:name => 'foo')
       post1 = @user.post(:status_message, :text => 'moms', :to => [aspect.id])
       xml2 = post1.to_diaspora_xml

@@ -5,7 +5,7 @@
 
 module Workers
   class Receive < Base
-    sidekiq_options queue: :receive
+    sidekiq_options queue: :urgent
 
     def perform(user_id, xml, salmon_author_id)
       suppress_annoying_errors do

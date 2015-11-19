@@ -4,7 +4,7 @@
 
 module Workers
   class ReceiveUnencryptedSalmon < Base
-    sidekiq_options queue: :receive
+    sidekiq_options queue: :urgent
 
     def perform(xml)
       suppress_annoying_errors do

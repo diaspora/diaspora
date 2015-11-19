@@ -5,7 +5,7 @@
 
 module Workers
   class GatherOpenGraphData < Base
-    sidekiq_options queue: :http_service
+    sidekiq_options queue: :medium
 
     def perform(post_id, url, retry_count=1)
       post = Post.find(post_id)
