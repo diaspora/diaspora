@@ -59,6 +59,24 @@ wiki](https://wiki.diasporafoundation.org/Integration/Chat#Vines_to_Prosody)
 for more information on how to migrate to Prosody if you've been using Vines
 before.
 
+## Sidekiq queue changes
+
+We've decreased the amount of sidekiq queues from 13 to 5 in PR [#6950](https://github.com/diaspora/diaspora/pull/6950).
+The new queues are organized according to priority for the jobs they will process. When upgrading please make sure to
+empty the sidekiq queues before shutting down the server for an update.
+
+If you run your sidekiq with a custom queue configuration, please make sure to update that for the new queues.
+
+The new queues are: `urgent, high, medium, low, default`.
+
+When you upgrade to the new version, some jobs may persist in the old queues. To ensure that jobs to be processed, launch
+job processing for old queues using command:
+```
+rake migrations:run_legacy_queues
+```
+
+The command will report queues that still have jobs and launch sidekiq process for that queues.
+
 ## Refactor
 * Improve bookmarklet [#5904](https://github.com/diaspora/diaspora/pull/5904)
 * Update listen configuration to listen on unix sockets by default [#5974](https://github.com/diaspora/diaspora/pull/5974)
@@ -118,6 +136,7 @@ before.
 * Extract relayable signatures into their own tables [#6932](https://github.com/diaspora/diaspora/pull/6932)
 * Remove outdated columns from posts table [#6940](https://github.com/diaspora/diaspora/pull/6940)
 * Remove some unused routes [#6781](https://github.com/diaspora/diaspora/pull/6781)
+* Consolidate sidekiq queues [#6950](https://github.com/diaspora/diaspora/pull/6950)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

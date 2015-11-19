@@ -4,7 +4,7 @@
 
 module Workers
   class QueueUsersForRemoval < Base
-    sidekiq_options queue: :maintenance
+    sidekiq_options queue: :low
 
     def perform
       # Queue users for removal due to inactivity
