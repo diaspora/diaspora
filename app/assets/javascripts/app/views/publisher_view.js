@@ -225,8 +225,8 @@ app.views.Publisher = Backbone.View.extend({
   // creates the location
   showLocation: function(){
     if($("#location").length === 0){
-      $("#location_container").append("<div id=\"location\"></div>");
-      this.wrapperEl.addClass("with_location");
+      this.$(".location-container").append("<div id=\"location\"></div>");
+      this.wrapperEl.addClass("with-location");
       this.view_locator = new app.views.Location();
     }
   },
@@ -235,7 +235,7 @@ app.views.Publisher = Backbone.View.extend({
   destroyLocation: function(){
     if(this.view_locator){
       this.view_locator.remove();
-      this.wrapperEl.removeClass("with_location");
+      this.wrapperEl.removeClass("with-location");
       delete this.view_locator;
     }
   },
