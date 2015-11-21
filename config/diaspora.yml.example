@@ -599,6 +599,13 @@ configuration: ## Section
     ## ("original" for the theme in "app/assets/stylesheets/color_themes/original/", for
     ## example).
     #default_color_theme: "original"
+
+    ## Notifications
+    notifications:  ## Section
+      ## Interval which clients should poll for unread notification counts, in seconds
+      ## Set to 0 for no background polling
+      #polling_interval: 30
+
   ## Posting from Diaspora to external services (all are disabled by default).
   services: ## Section
 

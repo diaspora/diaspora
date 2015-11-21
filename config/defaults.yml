@@ -157,6 +157,8 @@ defaults:
         limit_removals_to_per_day: 100
     source_url:
     default_color_theme: "original"
+    notifications:
+      polling_interval: 30
   services:
     facebook:
       enable: false

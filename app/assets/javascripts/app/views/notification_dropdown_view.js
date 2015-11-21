@@ -17,7 +17,9 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.ajaxLoader = this.dropdown.find(".ajax-loader");
     this.perfectScrollbarInitialized = false;
     this.updateHeaderCounts();
-    setInterval(this.updateHeaderCounts, 30000);
+    if (gon.appConfig.settings.notifications.polling_interval > 0) {
+      setInterval(this.updateHeaderCounts, gon.appConfig.settings.notifications.polling_interval*1000);
+    }
   },
 
   toggleDropdown: function(evt){
@@ -35,6 +37,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
   showDropdown: function(){
     this.resetParams();
     this.ajaxLoader.show();
+    this.updateHeaderCounts();
     this.dropdown.addClass("dropdown-open");
     this.updateScrollbar();
     this.dropdownNotifications.addClass("loading");
@@ -107,7 +110,6 @@ app.views.NotificationDropdown = app.views.Base.extend({
         }
       });
     });
-    this.updateHeaderCounts();
 
     this.hideAjaxLoader();
 
