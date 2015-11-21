@@ -198,22 +198,11 @@ $mobile-navbar-height: 46px;
   }
 }
 
-#main-nav, #drawer {
-  transition: all 0.25s ease;
+.nav-and-drawer {
   z-index: 10;
 }
 
-/* This class is added when the user open the drawer */
-#app.draw {
-  #main-nav, #drawer {
-    transform: translateX(-$drawer-width);
-  }
-  @media (max-width: $drawer-width-offset) {
-    #main-nav {
-      transform: translateX(-80%);
-    }
-    #drawer {
-      transform: translateX(-100%);
-    }
-  }
+.opened-drawer,
+.closed-drawer {
+  transition: all .25s ease;
 }

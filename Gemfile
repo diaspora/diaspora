@@ -115,6 +115,8 @@ source "https://rails-assets.org" do
   gem "rails-assets-perfect-scrollbar",             "0.6.11"
   gem "rails-assets-autosize",                      "3.0.15"
   gem "rails-assets-blueimp-gallery",               "2.21.2"
+  gem "rails-assets-hammerjs",                      "2.0.4"
+  gem "rails-assets-AugierLe42e--jquery.hammer.js", "2.1.0"
 end
 
 # Localization

@@ -17,6 +17,8 @@
 //= require diaspora
 //= require helpers/i18n
 //= require widgets/timeago
+//= require hammerjs
+//= require jquery-hammerjs
 //= require mobile/mobile_application
 //= require mobile/mobile_file_uploader
 //= require mobile/profile_aspects
