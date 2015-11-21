@@ -50,13 +50,20 @@ describe Reshare, :type => :model do
       receive_reshare
       expect(@root.resharers).to include(@reshare.author)
     end
-    it 'does not error if the root author has a contact for the resharer' do
+
+    it "does not error if the root author has a contact for the resharer" do
       bob.share_with @reshare.author, bob.aspects.first
       expect {
         Timeout.timeout(5) do
           receive_reshare #This doesn't ever terminate on my machine before it was fixed.
         end
       }.not_to raise_error
+    end
+
+    it "participates root author in the reshare" do
+      receive_reshare
+      participations = Participation.where(target_id: @reshare.id, author_id: @root.author_id)
+      expect(participations.count).to eq(1)
     end
   end
 
