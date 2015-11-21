@@ -2,7 +2,7 @@ class InvitationCodesController < ApplicationController
   before_action :ensure_valid_invite_code
 
   rescue_from ActiveRecord::RecordNotFound do
-    redirect_to root_url, :notice => "That invite code is no longer valid"
+    redirect_to root_url, :notice => I18n.t('invitation_codes.not_valid')
   end
 
   def show 
