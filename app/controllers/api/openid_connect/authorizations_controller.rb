@@ -3,7 +3,7 @@ module Api
     class AuthorizationsController < ApplicationController
       rescue_from Rack::OAuth2::Server::Authorize::BadRequest do |e|
         logger.info e.backtrace[0, 10].join("\n")
-        error, description = e.message.split(" :: ")
+        error, _description = e.message.split(" :: ")
         handle_params_error(error, "The request was malformed: please double check the client id and redirect uri.")
       end
 
@@ -210,22 +210,26 @@ module Api
       def handle_prompt_none
         if params[:prompt] == "none"
           if user_signed_in?
-            client_id = params[:client_id]
-            if client_id
-              auth = Api::OpenidConnect::Authorization.find_by_client_id_and_user(client_id, current_user)
-              if auth
-                process_authorization_consent("true")
-              else
-                handle_params_error("interaction_required", "User must already be authorized when `prompt` is `none`")
-              end
-            else
-              handle_params_error("bad_request", "Client ID is missing from request")
-            end
+            handle_prompt_with_signed_in_user
           else
             handle_params_error("login_required", "User must already be logged in when `prompt` is `none`")
           end
         else
           handle_params_error("invalid_request", "The 'none' value cannot be used with any other prompt value")
+        end
+      end
+
+      def handle_prompt_with_signed_in_user
+        client_id = params[:client_id]
+        if client_id
+          auth = Api::OpenidConnect::Authorization.find_by_client_id_and_user(client_id, current_user)
+          if auth
+            process_authorization_consent("true")
+          else
+            handle_params_error("interaction_required", "User must already be authorized when `prompt` is `none`")
+          end
+        else
+          handle_params_error("bad_request", "Client ID is missing from request")
         end
       end
 

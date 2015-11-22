@@ -37,4 +37,3 @@ end
 Then(/^I should see a message containing "(.*?)"$/) do |message|
   expect(find("#openid_connect_error_description").text).to eq(message)
 end
-

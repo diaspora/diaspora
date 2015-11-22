@@ -1,7 +1,7 @@
 @import 'perfect-scrollbar';
 
 @import 'color-variables';
-@import "bootstrap-complete.scss";
+@import 'bootstrap-complete';
 @import 'mixins';
 
 
@@ -99,11 +99,11 @@
 @import 'statistics';
 
 /* gallery */
-@import "blueimp-gallery";
-@import "gallery";
+@import 'blueimp-gallery';
+@import 'gallery';
 
 // settings
 @import 'user_applications';
 
-// API
-@import "openid_connect_error_page";
+// OpenID Connect (API)
+@import 'openid_connect_error_page';
