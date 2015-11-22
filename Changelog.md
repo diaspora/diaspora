@@ -96,6 +96,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Fix notifications for interactions by non-contacts [#6498](https://github.com/diaspora/diaspora/pull/6498)
 * Fix issue where the publisher was broken on profile pages [#6503](https://github.com/diaspora/diaspora/pull/6503)
 * Prevent participations being created for invalid interactions [#6552](https://github.com/diaspora/diaspora/pull/6552)
+* Improve federation for reshare related interactions [#6481](https://github.com/diaspora/diaspora/pull/6481)
 
 ## Features
 
