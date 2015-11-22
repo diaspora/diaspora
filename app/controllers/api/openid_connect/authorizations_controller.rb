@@ -12,6 +12,11 @@ module Api
         handle_params_error("bad_request", e.message)
       end
 
+      rescue_from JSON::JWS::VerificationFailed do |e|
+        logger.info e.backtrace[0, 10].join("\n")
+        handle_params_error("bad_request", e.message)
+      end
+
       before_action :auth_user_unless_prompt_none!
 
       def new
