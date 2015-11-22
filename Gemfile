@@ -103,7 +103,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "8.8.0"
+  gem "rails-assets-highlightjs",                         "8.9.1"
   gem "rails-assets-typeahead.js",                        "0.11.1"
 
   # jQuery plugins
