@@ -111,9 +111,9 @@ sk:
   are_you_sure_delete_account: "Určite chceš zrušiť svoj účet? Potom sa to už nedá vrátiť späť!"
   aspect_memberships:
     destroy:
-      failure: "Nepodarilo sa odstrániť kontakt z kategórie"
+      failure: "Nepodarilo sa odstrániť tohto človeka z kategórie"
       no_membership: "V tejto kategórii sa nepodarilo nájsť tohto človeka"
-      success: "Tento kontakt si úspešne odstránil(a) z kategórie"
+      success: "Tohto človeka si úspešne odstránil(a) z kategórie"
   aspects:
     add_to_aspect:
       failure: "Nepodarilo sa pridať kontakt do kategórie."
@@ -133,7 +133,7 @@ sk:
       failure: "Kategóriu sa nepodarilo vytvoriť."
       success: "Nová kategória %{name} bola vytvorená"
     destroy:
-      failure: "Kategória %{name} nie je prázdna,  a tak sa nedá odstrániť."
+      failure: "Kategória %{name} sa nedá odstrániť."
       success: "Použ. %{name} bol úspešne odstránený."
     edit:
       aspect_list_is_not_visible: "Ľudia v tejto kategórii sa nevida"
@@ -209,8 +209,8 @@ sk:
   back: "Späť"
   blocks:
     create:
-      failure: "Tohto používateľa nemôžeš ignorovať.  #evasion"
-      success: "V poriadku, tohto používateľa na svojej nástenke znova neuvidíš. #silencio!"
+      failure: "Tohto používateľa nemôžem ignorovať.  #evasion"
+      success: "V poriadku, príspevky od tohto používateľa už na svojej nástenke neuvidíš. #silencio!"
     destroy:
       failure: "Ignorovanie tohto používateľa sa nepodarilo zrušiť.  #evasion"
       success: "Pozrime sa, čo hovoria! #sayhello"
@@ -341,6 +341,7 @@ sk:
     getting_started_tutorial: "návody pre začiatočníkov"
     here: "sem"
     irc: "IRC"
+    markdown: "značky"
     mentions:
       how_to_mention_a: "Napíš znak \"@\" pred meno toho človeka (bez medzery). Malo by sa zobraziť rolovacie menu, aby si si mohol (-hla) ľahšie vybrať. Pamätaj si, že takto môžeš spomenúť iba ľudí, ktorých máš pridaných do kategórií."
       how_to_mention_q: "Ako môžem niekoho spomenúť, keď píšem príspevok?"
@@ -456,15 +457,15 @@ sk:
         other: "%{count} ľuďom sa to nepáči"
         zero: "nikto neoznačil, že sa mu to nepáči"
       people_like_this:
-        few: "%{count} ľuďom sa to páči"
-        one: "%{count} človeku sa to páči"
-        other: "%{count} ľuďom sa to páči"
-        zero: "Nikomu sa to nepáči"
+        few: "%{count} ľuďom sa páči"
+        one: "%{count} človeku sa páči"
+        other: "%{count} ľuďom sa páči"
+        zero: "Nikomu sa nepáči"
       people_like_this_comment:
-        few: "%{count} ľuďom sa to páči"
-        one: "%{count} človeku sa to páči"
-        other: "%{count} ľuďom sa to páči"
-        zero: "nikomu sa to nepáči"
+        few: "%{count} ľuďom sa páči"
+        one: "%{count} človeku sa páči"
+        other: "%{count} ľuďom sa páči"
+        zero: "nikomu sa nepáči"
   limited: "Vyhradený"
   more: "Viac"
   next: "Ďalej"
@@ -606,9 +607,9 @@ sk:
     add_contact:
       invited_by: "Pozval(a) vás"
     add_contact_small:
-      add_contact_from_tag: "pridať kontakt zo značky"
+      add_contact_from_tag: "Pridať kontakt zo značky"
     aspect_list:
-      edit_membership: "upraviť členstvo v kategórii"
+      edit_membership: "Zmeniť kategóriu"
     helper:
       is_sharing: "%{name} sa s Tebou o niečo delí"
       results_for: "výsledky pre %{params}"
@@ -633,10 +634,10 @@ sk:
       born: "Narodeniny"
       edit_my_profile: "Upraviť si profil"
       gender: "Pohlavie"
-      in_aspects: "v kategóriách"
+      in_aspects: "V kategóriách"
       location: "Bydlisko"
       photos: "Fotky"
-      remove_contact: "odstrániť kontakt"
+      remove_contact: "Odstrániť kontakt"
       remove_from: "Odstrániť používateľa %{name} z kategórie %{aspect}?"
     show:
       closed_account: "Tento účet bol zrušený."
@@ -654,12 +655,12 @@ sk:
       start_sharing: "Pridať do kontaktov"
       to_accept_or_ignore: "prijať alebo ignorovať."
     sub_header:
-      add_some: "pridať nejaké"
-      edit: "upraviť"
-      you_have_no_tags: "nemáš žiadne značky!"
+      add_some: "Pridaj si nejaké"
+      edit: "Upraviť"
+      you_have_no_tags: "Nemáš žiadne značky!"
     webfinger:
       fail: "Prepáč, %{handle} sa nedá nájsť."
-    zero: "žiadni ľudia"
+    zero: "Žiadni ľudia"
   photos:
     comment_email_subject: "fotka použ. %{name}"
     create:
@@ -673,7 +674,7 @@ sk:
     new:
       back_to_list: "Späť na zoznam"
       new_photo: "Nová fotka"
-      post_it: "Poslať to!"
+      post_it: "Pošli to!"
     new_photo:
       empty: "Súbor {file} je prázdny; vyber, prosím, znova všetky súbory okrem tohto."
       invalid_ext: "Súbor {file} má neplatnú príponu. Povolené sú len prípony {extensions}."
@@ -686,7 +687,7 @@ sk:
     show:
       collection_permalink: "trvalý odkaz na kolekciu"
       delete_photo: "Zmazať fotku"
-      edit: "upraviť"
+      edit: "Upraviť"
       edit_delete_photo: "Upraviť popis fotky/zmazať fotku"
       make_profile_photo: "Vytvoriť profilovú fotku"
       show_original_post: "Zobraziť pôvodný príspevok"
@@ -699,8 +700,8 @@ sk:
       title: "Príspevok, ktorý napísal(a) %{name}"
     show:
       destroy: "Odstrániť"
-      not_found: "Prepáč, tento príspevok sa nepodarilo nájsť."
-      permalink: "trvalý odkaz"
+      not_found: "Prepáč, ten príspevok sme nenašli."
+      permalink: "Trvalý odkaz"
       photos_by:
         few: "%{count} fotiek, ktoré nahral(a) %{author}"
         many: "%{count} fotiek, ktoré nahral(a) %{author}"
@@ -731,7 +732,7 @@ sk:
       your_private_profile: "Tvoj verejný profil"
       your_public_profile: "Tvoj verejný profil"
       your_tags: "Napíš o sebe 5 slov"
-      your_tags_placeholder: "ako #filmy #mačiatka #cestovanie #učiteľ #newyork"
+      your_tags_placeholder: "Ako #filmy #mačiatka #cestovanie #učiteľ #newyork"
     update:
       failed: "Nepodarilo sa aktualizovať profil"
       updated: "Profil aktualizovaný"
@@ -748,7 +749,7 @@ sk:
     edit:
       cancel_my_account: "Zrušiť účet"
       edit: "Upraviť %{name}"
-      leave_blank: "(ak to nechceš zmeniť, nevypĺňaj, prosím, toto pole)"
+      leave_blank: "(ak to nechceš zmeniť, nevypĺňaj toto pole)"
       password_to_confirm: "(na potvrdenie zmien budeme potrebovať tvoje heslo)"
       unhappy: "Si nešťastný (-á)?"
       update: "Aktualizovať"
@@ -756,7 +757,7 @@ sk:
     new:
       create_my_account: "Založ si účet!"
       email: "E-MAIL"
-      enter_email: "Zadaj e-mail"
+      enter_email: "Zadaj svoju e-mailovú adresu"
       enter_password: "Zadaj heslo (minimálne šesť znakov)"
       enter_password_again: "Zadaj rovnaké heslo ako predtým"
       enter_username: "Zadaj používateľské meno (iba písmená, číslice  a podčiarkovníky)"
@@ -764,7 +765,7 @@ sk:
       password: "HESLO"
       password_confirmation: "POTVRDENIE HESLA"
       sign_up: "ZAREGISTROVAŤ SA"
-      sign_up_message: "Prepojenie cez sociálne siete s ♥"
+      sign_up_message: "Prepojenie ostatných sociálnych sietí s ♥"
       submitting: "Posiela sa..."
       username: "POUŽÍVATEĽ"
   report:
@@ -779,7 +780,7 @@ sk:
   requests:
     create:
       sending: "Posiela sa"
-      sent: "Niekto ťa poprosil,  aby si sa o niečo podelil(a) s použ. %{name}. Mal by to uvidieť, keď sa nabudúce prihlási na diasporu*."
+      sent: "Niekto ťa poprosil, aby si niečo ukázal(a) použ. %{name}. Mal by to uvidieť, keď sa nabudúce prihlási na diasporu*."
     destroy:
       error: "Vyberte, prosím, kategóriu!"
       ignore: "Ignorované žiadosti o priateľstvo."
@@ -787,9 +788,9 @@ sk:
     helper:
       new_requests:
         few: "%{count} nové žiadosti!"
-        one: "nová žiadosť!"
+        one: "Nová žiadosť!"
         other: "%{count} nových žiadostí!"
-        zero: "žiadne nové žiadosti"
+        zero: "Žiadne nové žiadosti"
     manage_aspect_contacts:
       existing: "Existujúce kontakty"
       manage_within: "Riadiť kontakty v"
@@ -808,7 +809,7 @@ sk:
         zero: "Znova ukázať príspevok"
       reshare_confirmation: "Chceš sa znova podeliť o príspevok, ktorý napísal(a) %{author}?"
       reshare_original: "Originál znova ukázať priateľom"
-      reshared_via: "znova sa niekto podelil cez"
+      reshared_via: "Znova zverejnené cez"
       show_original: "Zobraziť originál"
   search: "Vyhľadávanie"
   services:
@@ -819,28 +820,28 @@ sk:
     destroy:
       success: "Overenie totožnosti úspešne vymazané."
     failure:
-      error: "pri pripájaní k službe nastala chyba"
+      error: "Pri pripájaní k službe nastala chyba"
     finder:
       fetching_contacts: "diaspora* pridáva údaje o tvojich priateľoch zo siete %{service}, prosím, vráť sa sem  o niekoľko minút."
       no_friends: "Žiadni priatelia z Facebooku sa nenašli."
       service_friends: "Priatelia zo siete %{service}"
     index:
-      disconnect: "Odhlásiť sa"
+      disconnect: "Odpojiť sa"
       edit_services: "Upraviť pripojenie na služby"
-      logged_in_as: "prihlásil(a) si sa ako"
-      really_disconnect: "Chceš sa odhlásiť zo služby %{service}?"
+      logged_in_as: "Prihlásil(a) si sa ako %{nickname}"
+      really_disconnect: "Chceš sa odpojiť zo služby %{service}?"
       services_explanation: "Pripojenie k službám Ti umožňuje publikovať na nich príspevky, len čo ich napíšeš na Diasporu*."
     inviter:
       click_link_to_accept_invitation: "Ak chcete prijať pozvanie, kliknite na tento odkaz"
       join_me_on_diaspora: "Pridať sa k Diaspore*"
     remote_friend:
-      invite: "pozvať"
+      invite: "Pozvať"
       not_on_diaspora: "Ešte nie je na diaspore*"
-      resend: "preposlať"
+      resend: "Preposlať"
   settings: "Nastavenia"
   share_visibilites:
     update:
-      post_hidden_and_muted: "Príspevok, ktorý vytvoril(a) %{name} si schoval(a), a posielanie oznamov bolo zastavené."
+      post_hidden_and_muted: "Príspevok, ktorý vytvoril(a) %{name}, je schovaný a neposielajú sa ani oznamy"
       see_it_on_their_profile: "Ak si chceš prečítať novšie verzie tohto príspevku, navštív stránku s profilom použ. %{name}."
   shared:
     add_contact:
@@ -849,7 +850,7 @@ sk:
       diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Zadaj používateľské meno na diasporu*:"
       know_email: "Poznáš túto adresu? Môžeš na ňu poslať pozvánku."
-      your_diaspora_username_is: "Tvoje používateľské meno na Diasporu je %{diaspora_handle}"
+      your_diaspora_username_is: "Tvoje používateľské meno na diasporu* je %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Pridať kontakt"
       toggle:
@@ -860,11 +861,11 @@ sk:
     contact_list:
       all_contacts: "Všetky kontakty"
     footer:
-      logged_in_as: "prihlásil(a) si sa ako %{name}"
-      your_aspects: "tvoje kategórie"
+      logged_in_as: "Prihlásil(a) si sa ako %{name}"
+      your_aspects: "Tvoje kategórie"
     invitations:
       by_email: "e-mailom"
-      dont_have_now: "Momentálne už nemáš žiadnu, ale ďalšie čoskoro prídu!"
+      dont_have_now: "Momentálne už nemáš žiadnu pozvánku, ale ďalšie čoskoro prídu!"
       from_facebook: "z Facebooku"
       invitations_left: "ostáva(jú) %{count}"
       invite_someone: "Pozvať niekoho"
@@ -885,9 +886,10 @@ sk:
       title: "Nastaviť pripojené služby"
       visibility_dropdown: "Na zmenu viditeľnosti svojho príspevku použi toto rozbaľovacie menu. (Navrhujeme, aby bol tento prvý príspevok verejný.)"
     publisher:
-      all: "všetko"
+      all: "Všetko"
       all_contacts: "Všetky kontakty"
       discard_post: "Vymazať príspevok"
+      formatWithMarkdown: "Na formátovanie svojho príspevku môžeš použiť %{markdown_link}"
       get_location: "Vypísať tvoju polohu"
       make_public: "Zverejniť"
       new_user_prefill:
@@ -910,7 +912,7 @@ sk:
       reshare: "Znovu zdieľať"
     stream_element:
       connect_to_comment: "Pripoj sa k tomuto používateľovi  a okomentuj jeho príspevok"
-      currently_unavailable: "momentálne sa nedajú písať komentáre"
+      currently_unavailable: "Momentálne sa nedajú písať komentáre"
       dislike: "Nepáči sa mi to"
       hide_and_mute: "Schovať príspevok  a vypnúť oznamy"
       ignore_user: "Ignorovať použ. %{name}"
@@ -937,7 +939,7 @@ sk:
       no_message_to_display: "Žiadna správa na zobrazenie."
     new:
       mentioning: "Spomína sa: %{person}"
-    too_long: "{\"few\"=>\"prosím, skráť svoje správy v statuse na menej ako %{count} znakov\", \"one\"=>\"prosím, skráť svoje správy v statusoch na menej ako %{count} znak\", \"other\"=>\"prosím, skráť svoje správy v statuse na menej ako %{count} znakov\", \"zero\"=>\"prosím, skráť svoje správy v statusoch na menej ako %{count} znakov\"}"
+    too_long: "Prosím, skráť svoju správu v statuse na menej ako %{count} znakov. Momentálne má %{current_length} znakov."
   stream_helper:
     hide_comments: "schovať komentáre"
     show_comments:

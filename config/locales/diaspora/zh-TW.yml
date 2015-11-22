@@ -150,6 +150,7 @@ zh-TW:
     destroy:
       failure: "無法刪除%{name}，因為它不是空的。"
       success: "成功刪除%{name}了。"
+      success_auto_follow_back: "成功刪除%{name}了。但是因為你之前用這個面向來自動反向追蹤，你應該要到使用者設定去指定一個新的面向。"
     edit:
       aspect_chat_is_enabled: "面向中的聯絡人可以和你聊天。"
       aspect_chat_is_not_enabled: "面向中的聯絡人不能和你聊天。"
@@ -298,6 +299,7 @@ zh-TW:
       send: "傳送"
       sending: "傳送中..."
       subject: "主旨"
+      subject_default: "沒標題"
       to: "收件人"
     new_conversation:
       fail: "訊息無效"
@@ -345,7 +347,7 @@ zh-TW:
       title: "面向"
       what_is_an_aspect_a: "面向是將你在的聯絡人分群的方式。用來比喻你展現給這個世界的其中一面。比如說你在職場的一面，你在家庭中的一面，或是你對某個團體的朋友展現的一面。"
       what_is_an_aspect_q: "什麼是面向？"
-      who_sees_post_a: "當你發表了一篇有限的貼文，就只有你那一個面向（或是那些面向，你也可以選擇好幾個面向）中的人才看得到。不在那個（或那些）面向中的聯絡人，就看不到那篇貼文，除非你把它公開。只有公開的貼文可以讓不在你任何面向中的其它人看到。"
+      who_sees_post_a: "當你發表了一篇設限的貼文，就只有你那一個面向（或是那些面向，你也可以選擇好幾個面向）中的人才看得到。不在那個（或那些）面向中的聯絡人，就看不到那篇貼文，除非你把它公開。只有公開的貼文可以讓不在你任何面向中的其它人看到。"
       who_sees_post_q: "當我貼文到一個面向時，誰看得到？"
     faq: "常見問答"
     foundation_website: "Diaspora 基金會網站"
@@ -425,6 +427,7 @@ zh-TW:
       powered_by: "強力配置 diaspora*"
       public_feed: "%{name} 在 diaspora* 的公開發文"
       source_package: "下載原始碼套件"
+      statistics_link: "豆莢統計資料"
       toggle: "行動切換"
       whats_new: "有什麼新消息嗎？"
       your_aspects: "你的面向"
@@ -518,12 +521,15 @@ zh-TW:
       other: "%{actors} 開始跟你分享了。"
       zero: "%{actors} 開始跟你分享了。"
   notifier:
-    a_limited_post_comment: "你在 diaspora* 有一則有限貼文上的新評論可看。"
+    a_limited_post_comment: "你在 diaspora* 有一則設限貼文上的新評論可看。"
     a_post_you_shared: "一篇貼文."
     a_private_message: "你在 diaspora* 有一則新的私人訊息。"
     accept_invite: "接受來自 diaspora* 的邀請吧！"
+    also_commented:
+      limited_subject: "你留意見的貼文又有一則新的意見"
     click_here: "按這裡"
     comment_on_post:
+      limited_subject: "你的貼文有一則新意見"
       reply: "回或看 %{name} 的貼文 >"
     confirm_email:
       click_link: "請點以下連結，來啟用你新的電子信箱 %{unconfirmed_email}："
@@ -582,8 +588,10 @@ zh-TW:
     invited_you: "%{name} 邀請你來用 diaspora*"
     liked:
       liked: "%{name} 說你的貼文很讚"
+      limited_post: "%{name} 喜歡你一篇設限的貼文"
       view_post: "看貼文 >"
     mentioned:
+      limited_post: "你在一篇設限的貼文中被提到了。"
       mentioned: "在貼文中點到了你："
       subject: "%{name} 在 diaspora* 點到了你"
     private_message:
@@ -864,9 +872,12 @@ zh-TW:
       no_friends: "沒有 Facebook 朋友。"
       service_friends: "%{service} 朋友"
     index:
+      connect: "連接"
       disconnect: "切斷連結"
       edit_services: "編輯服務"
       logged_in_as: "已經登入為"
+      no_services_available: "這個豆莢目前不提供外部服務的連接。"
+      not_logged_in: "目前還沒登入。"
       really_disconnect: "切斷與 %{service} 的連結？"
       services_explanation: "和其他服務連結可以將你在 diaspora* 的貼文同時發表在其他服務上"
     inviter:
@@ -1050,6 +1061,9 @@ zh-TW:
     destroy:
       failure: "停止追蹤標籤 #%{name} 失敗。也許你已經沒在追蹤了吧？"
       success: "唉！你從此不再追蹤標籤 #%{name} 了。"
+    manage:
+      no_tags: "你沒有追蹤任何標籤。"
+      title: "管理追蹤中的標籤"
   tags:
     name_too_long: "請讓標籤長度少於 %{count} 個字元。目前字元數是 %{current_length}"
     show:
@@ -1074,7 +1088,7 @@ zh-TW:
     edit:
       also_commented: "當有人對你評論的貼文發表意見"
       auto_follow_aspect: "自動加入的聯絡人歸類在以下哪個話題："
-      auto_follow_back: "發文自動包括與你分享發文的使用者"
+      auto_follow_back: "對主動要求跟你分享的使用者自動開始分享"
       change: "更改"
       change_email: "更改電子信箱"
       change_language: "更改語言"
@@ -1101,7 +1115,7 @@ zh-TW:
       export_data: "資料匯出"
       export_in_progress: "我們正在處理你的資料，請稍等一下再來看看。"
       export_photos_in_progress: "正在處理你的相片中。請等一下再回來看看。"
-      following: "發文設定"
+      following: "分享設定"
       getting_started: "新使用者偏好設定"
       last_exported_at: "(最後一次是在 %{timestamp} 更新)"
       liked: "有人對你的貼文說讚"
@@ -1114,12 +1128,13 @@ zh-TW:
       request_export_photos_update: "更新相片下載檔案"
       request_export_update: "更新個人檔案資料"
       reshared: "有人轉貼你的發文"
-      show_community_spotlight: "要在河道中顯示社群焦點嗎？"
+      show_community_spotlight: "要在流水帳中顯示社群焦點嗎？"
       show_getting_started: "使用入門指南"
       someone_reported: "有人寄了一封回報"
       started_sharing: "有人和你分享貼文"
-      stream_preferences: "河道偏好設定"
+      stream_preferences: "流水帳偏好設定"
       your_email: "你的電子郵件"
+      your_email_private: "其他使用者看不到你的電子郵件信箱"
       your_handle: "你的 diaspora* 帳號"
     getting_started:
       awesome_take_me_to_diaspora: "帥！帶我去 diaspora* 吧"

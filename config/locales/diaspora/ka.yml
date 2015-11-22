@@ -143,6 +143,7 @@ ka:
   back: "უკან"
   blocks:
     create:
+      failure: "მე არ ვაიგნორებ ამ მომხმარებელს  #evasion"
       success: "ვეღარ ნახავ ამ მომხმარებელს შენს გვერდზე. #silencio!"
   bookmarklet:
     explanation: "გამოაქვეყნე დიასპორაზე ნებისმიერი ადგილიდან ამ ბმულის ჩანიშვნით  =>%{link}."
@@ -153,6 +154,7 @@ ka:
   comments:
     new_comment:
       comment: "კომენტარი"
+      commenting: "დაკომენტარება"
     one: "1 კომენტარი"
     other: "%{count} კომენტარი"
     zero: "კომენტარები არ არის"
@@ -163,6 +165,7 @@ ka:
       add_a_new_aspect: "დაამატე ახალი ასპექტი"
       add_to_aspect: "%{name} დაამატე კონტაქტებში"
       all_contacts: "ყველა კონტაქტი"
+      community_spotlight: "საზოგადოების ყურადღების ცენტრში"
       my_contacts: "ჩემი კონტაქტები"
       no_contacts: "მგონი კიდევ რამოდენიმე კონტაქტის დამატება გჭირდება"
       no_contacts_message: "ნახე %{community_spotlight}"
@@ -683,12 +686,18 @@ ka:
       all: "ყველა"
       all_contacts: "ყველა კონტაქტი"
       discard_post: "წაშალე პოსტი"
+      make_public: "გაასაჯაროვე"
       new_user_prefill:
         hello: "ყველას მოგესალმებით, მე ვარ #%{new_user_tag}. "
         i_like: "მე მაინტერესებს %{tags}. "
         invited_by: "მადლობა მოწვევისთვის, "
         newhere: "ახალი"
+      post_a_message_to: "დაპოსტე შეტყობინება%{aspect}"
+      posting: "დაპოსტვა"
+      share: "გაზიარება"
+      share_with: "გააზიარე ვინმესთან"
       upload_photos: "ფოტოების ატვირთვა"
+      whats_on_your_mind: "რას ფიქრობ ?"
     reshare:
       reshare: "თავიდან გაზიარება"
     stream_element:

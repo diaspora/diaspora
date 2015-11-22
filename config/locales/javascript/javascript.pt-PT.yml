@@ -82,6 +82,8 @@ pt-PT:
     show_more: "mostrar mais"
     stream:
       comment: "Comentar"
+      disable_post_notifications: "Desativar notificações para esta publicação"
+      enable_post_notifications: "Ativar notificações para esta publicação"
       follow: "Seguir"
       followed_tag:
         add_a_tag: "Adicionar uma etiqueta"
@@ -102,19 +104,23 @@ pt-PT:
         zero: "Mostrar mais <%= count %> comentários"
       original_post_deleted: "Publicação original eliminada pelo autor."
       public: "Público"
-      reshare: "Partilhar"
+      reshare: "Voltar a Partilhar"
       reshares:
         one: "<%= count %> repartilha"
         other: "<%= count %> repartilhas"
         zero: "<%= count %> repartilhas"
       show_nsfw_post: "Mostrar publicação"
-      show_nsfw_posts: "Mostrar todos"
+      show_nsfw_posts: "Mostrar todas"
       tags:
         follow: "Seguir #<%= tag %>"
+        follow_error: "Não foi possível seguir #<%= tag %> :("
         following: "A Seguir #<%= tag %>"
-        stop_following: "Parar de Seguir #<%= tag %>"
-      unfollow: "Não seguir"
+        stop_following: "Parar de seguir #<%= tag %>"
+        stop_following_confirm: "Deixar de seguir #<%= tag %>"
+        stop_following_error: "Não foi possível deixar de seguir #<%= tag %> :("
+      unfollow: "Anular Seguir"
       unlike: "Não gostar"
+      via: "via <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, suponho que #<%= tagName %> não era assim tão interessante..."
     timeago:

@@ -489,21 +489,21 @@ sv:
     public_posts:
       can_comment_reshare_like_a: "Bara de som är inloggade på Diaspora* kan kommentera, dela vidare och gilla dina offentliga inlägg."
       can_comment_reshare_like_q: "Vilka kan kommentera, dela och gilla mina publika inlägg?"
-      deselect_aspect_posting_a: "Du påverkar inte dina publika inlägg genom att välja bort aspekter från dem. Inläggen kommer ändå att synas hos alla dina kontakter. Vill du bara att några aspekter ska se ditt inlägg väljer du dem i listan under utgivaren."
+      deselect_aspect_posting_a: "Du påverkar inte dina publika inlägg genom att välja bort aspekter från dem. Inläggen kommer ändå att synas hos alla dina kontakter. Vill du bara att några aspekter ska se ditt inlägg, väljer du dem i listan under utgivaren."
       deselect_aspect_posting_q: "Vad händer när jag tar väljer bort aspekter när jag ska göra ett offentligt inlägg?"
-      find_public_post_a: "Dina publika inlägg kommer att dyka upp i de strömmar som följer dig. Om du har #-taggar i dina publika inlägg kommer alla som följer taggen att se inlägget i strömmen. Varje publikt inlägg ges en specifik webbadress så att vem som helst kan komma åt det, även om de inte är inloggade. Publika inlägg kan alltså länkas till direkt från till exempel Twitter och bloggar. De publika inläggen kan då också bli indexerade av sökmotorer."
+      find_public_post_a: "Dina publika inlägg kommer att dyka upp i strömmarna som följer dig. Om du har fyrkantstaggar i dina publika inlägg kommer alla som följer taggen se inlägget i strömmen. Varje publikt inlägg ges en specifik webbadress så att vem som helst kan komma åt det, även om de inte är inloggade. Publika inlägg kan alltså länkas till direkt från (till exempel) Twitter och bloggar. De publika inläggen kan då också bli indexerade av sökmotorer."
       find_public_post_q: "Hur hittar man mina publika inlägg?"
-      see_comment_reshare_like_a: "Kommentarer, gillanden och vidaredelningar av publika inlägg kommer att vara publika. Alla inloggade på Diaspora* och vem som helst på Internet skulle dina interaktioner med ett publikt inlägg."
+      see_comment_reshare_like_a: "Kommentarer, gillanden och vidaredelningar av publika inlägg kommer att vara publika. Alla inloggade på Diaspora* och vem som helst på Internet kan se dina interaktioner med ett publikt inlägg."
       see_comment_reshare_like_q: "Vilka ser när jag kommenterar, delar eller gillar ett publikt inlägg?"
       title: "Publika inlägg"
-      who_sees_post_a: "Vem som helst med Internetuppkoppling kan potentiellt se dina publika inlägg. Var därför noga med att du verkligen vill att dina publika inlägg skall vara publika. Det är bra sätt komma i kontakt med resten av världen."
+      who_sees_post_a: "Vem som helst med en Internetuppkoppling kan potentiellt se dina publika inlägg. Var därför noga med att du verkligen vill att dina publika inlägg skall vara publika. Det är bra sätt komma i kontakt med resten av världen."
       who_sees_post_q: "Vilka ser de publika inlägg som jag gör?"
     public_profiles:
       title: "Publika profiler"
       what_do_tags_do_a: "Taggarna hjälper andra att lära känna dig. Din profilbild kommer också att synas till på taggarnas sida, tillsammans med alla andra som har dessa taggar på sin sida."
       what_do_tags_do_q: "Vad gör taggarna på min publika profilsida?"
       whats_in_profile_a: "Ditt namn, de fem taggarna du beskrivit dig med och din profilbild. De ändras i den övre delen på profilinställningssidan. Du kan själv välja hur publik du vill att informationen på din profilsida ska vara. Din profilsida visar även alla de offentliga inlägg du har gjort."
-      whats_in_profile_q: "Vad syns i min publika profil"
+      whats_in_profile_q: "Vad syns i min publika profil?"
       who_sees_profile_a: "Alla som besöker din sida kan se den, oavsett om de är inloggade på Diaspora* eller inte. Varje profil har en direktlänk så att man kan länka till den direkt från andra sidor. Sökmotorer kan indexera din profilsida."
       who_sees_profile_q: "Vilka ser min publika profil?"
       who_sees_updates_a: "Alla kan se ändringarna du gör, givet att de besöker din sida."
@@ -511,7 +511,7 @@ sv:
     resharing_posts:
       reshare_private_post_aspects_a: "Nej, det är inte möjligt att dela vidare privata inlägg. Med hänsyn för upphovspersonen, kan inlägget bara ses av dem personen själv vill."
       reshare_private_post_aspects_q: "Kan jag dela vidare privata inlägg till specifika aspekter?"
-      reshare_public_post_aspects_a: "Nej. När du delar med dig av publika inlägg kommer de automatiskt att bli ett av dina inlägg. För att bara dela med dig till särskilda aspekter kan du kopiera inläggets innehåll och göra ett eget nytt inlägg."
+      reshare_public_post_aspects_a: "Nej. När du delar med dig av publika inlägg kommer de automatiskt att bli ett av dina inlägg. För att bara dela med dig till särskilda aspekter kan du kopiera inläggets innehåll och göra ett eget nytt inlägg med begränsningarna."
       reshare_public_post_aspects_q: "Kan jag dela vidare ett publikt inlägg till specifika aspekter?"
       title: "Vidaredelning av inlägg"
     sharing:
@@ -735,7 +735,7 @@ sv:
       subject: "Din personliga data finns nu tillgänglig för att laddas ned, %{name}"
     export_failure_email:
       body: |-
-          Hej %{name}
+          Hej %{name}!
 
           Vi har stött på ett problem medan vi behandlade din personliga data för nedladdning.
           Var god försök igen.

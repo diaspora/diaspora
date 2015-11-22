@@ -79,6 +79,7 @@ es-AR:
       home: "Inicio"
       log_out: "Salir"
       mark_all_as_read: "Marcar todo como leído"
+      moderator: "Moderador"
       notifications: "Notificaciones"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"

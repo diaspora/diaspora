@@ -82,6 +82,7 @@ sv:
       home: "Hem"
       log_out: "Logga ut"
       mark_all_as_read: "Markera alla som lästa"
+      moderator: "Moderator"
       notifications: "Notiser"
       profile: "Profil"
       recent_notifications: "Tidigare notiser"

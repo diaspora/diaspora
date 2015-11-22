@@ -79,6 +79,7 @@ de_formal:
       home: "Startseite"
       log_out: "Abmelden"
       mark_all_as_read: "Markiere alle als gelesen"
+      moderator: "Moderator"
       notifications: "Benachrichtigungen"
       profile: "Profil"
       recent_notifications: "Letzte Benachrichtigungen"
