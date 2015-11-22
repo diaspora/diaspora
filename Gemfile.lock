@@ -560,7 +560,7 @@ GEM
     rails-assets-markdown-it (5.0.2)
     rails-assets-markdown-it-diaspora-mention (0.4.0)
     rails-assets-markdown-it-hashtag (0.4.0)
-    rails-assets-markdown-it-sanitizer (0.4.0)
+    rails-assets-markdown-it-sanitizer (0.4.1)
     rails-assets-markdown-it-sub (1.0.0)
     rails-assets-markdown-it-sup (1.0.0)
     rails-assets-perfect-scrollbar (0.6.7)
@@ -843,7 +843,7 @@ DEPENDENCIES
   rails-assets-markdown-it--markdown-it-for-inline (= 0.1.1)!
   rails-assets-markdown-it-diaspora-mention (= 0.4.0)!
   rails-assets-markdown-it-hashtag (= 0.4.0)!
-  rails-assets-markdown-it-sanitizer (= 0.4.0)!
+  rails-assets-markdown-it-sanitizer (= 0.4.1)!
   rails-assets-markdown-it-sub (= 1.0.0)!
   rails-assets-markdown-it-sup (= 1.0.0)!
   rails-assets-perfect-scrollbar (= 0.6.7)!
