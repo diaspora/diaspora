@@ -7,7 +7,7 @@ Feature: Access protected resources using implicit flow
     When I register a new client
     And I send a post request from that client to the authorization endpoint using a invalid client id
     And I sign in as "kent@kent.kent"
-    Then I should see a flash message containing "No client with"
+    Then I should see a message containing "Invalid client id or redirect uri"
 
   Scenario: Application is denied authorization
     When I register a new client

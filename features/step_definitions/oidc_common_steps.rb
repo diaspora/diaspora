@@ -33,3 +33,8 @@ Then /^I should receive an "([^\"]*)" error$/ do |error_message|
   user_info_json = JSON.parse(last_response.body)
   expect(user_info_json["error"]).to have_content(error_message)
 end
+
+Then(/^I should see a message containing "(.*?)"$/) do |message|
+  expect(find("#openid_connect_error_description").text).to eq(message)
+end
+

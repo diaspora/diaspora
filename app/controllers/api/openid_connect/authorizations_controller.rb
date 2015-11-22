@@ -4,7 +4,7 @@ module Api
       rescue_from Rack::OAuth2::Server::Authorize::BadRequest do |e|
         logger.info e.backtrace[0, 10].join("\n")
         error, description = e.message.split(" :: ")
-        handle_params_error(error, description)
+        handle_params_error(error, "The request was malformed: please double check the client id and redirect uri.")
       end
 
       rescue_from OpenSSL::SSL::SSLError do |e|
@@ -56,8 +56,6 @@ module Api
         if prompt.include? "select_account"
           handle_params_error("account_selection_required",
                               "There is no support for choosing among multiple accounts")
-        elsif prompt.include? "none"
-          handle_prompt_none(prompt, auth)
         elsif prompt.include?("login") && logged_in_before?(60)
           reauthenticate
         elsif prompt.include? "consent"
@@ -102,19 +100,6 @@ module Api
           false
         else
           (Time.zone.now.utc.to_i - current_user.current_sign_in_at.to_i) > seconds.to_i
-        end
-      end
-
-      def handle_prompt_none(prompt, auth)
-        if prompt == ["none"]
-          if auth
-            process_authorization_consent("true")
-          else
-            render_error "The Authentication Request cannot be completed without end-user interaction"
-          end
-        else
-          handle_params_error("invalid_request",
-                              "The 'none' value cannot be used with any other prompt value")
         end
       end
 
@@ -194,8 +179,7 @@ module Api
         if params[:client_id] && params[:redirect_uri]
           handle_params_error_when_client_id_and_redirect_uri_exists(error, error_description)
         else
-          flash[:error] = I18n.t("api.openid_connect.authorizations.new.bad_request")
-          redirect_to root_path
+          render_error error_description
         end
       end
 
@@ -204,9 +188,7 @@ module Api
         if app && app.redirect_uris.include?(params[:redirect_uri])
           redirect_prompt_error_display(error, error_description)
         else
-          flash[:error] = I18n.t("api.openid_connect.authorizations.new.client_id_not_found",
-                                 client_id: params[:client_id], redirect_uri: params[:redirect_uri])
-          redirect_to root_path
+          render_error "Invalid client id or redirect uri"
         end
       end
 
@@ -217,12 +199,33 @@ module Api
       end
 
       def auth_user_unless_prompt_none!
-        if params[:prompt] == "none" && !user_signed_in?
-          render_error "User must be first logged in when `prompt` is `none`"
-          # render json: {error:       "login_required",
-          #               description: "User must be first logged in when `prompt` is `none`"}
+        prompt = params[:prompt]
+        if prompt && prompt.include?("none")
+          handle_prompt_none
         else
           authenticate_user!
+        end
+      end
+
+      def handle_prompt_none
+        if params[:prompt] == "none"
+          if user_signed_in?
+            client_id = params[:client_id]
+            if client_id
+              auth = Api::OpenidConnect::Authorization.find_by_client_id_and_user(client_id, current_user)
+              if auth
+                process_authorization_consent("true")
+              else
+                handle_params_error("interaction_required", "User must already be authorized when `prompt` is `none`")
+              end
+            else
+              handle_params_error("bad_request", "Client ID is missing from request")
+            end
+          else
+            handle_params_error("login_required", "User must already be logged in when `prompt` is `none`")
+          end
+        else
+          handle_params_error("invalid_request", "The 'none' value cannot be used with any other prompt value")
         end
       end
 

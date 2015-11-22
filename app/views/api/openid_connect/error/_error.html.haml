@@ -3,4 +3,5 @@
     .api-error.col-sm-6.col-sm-offset-3
       %h4
         %b= t("api.openid_connect.error_page.title")
-      %div= @error_description
+      %div{id: "openid_connect_error_description"}
+        = @error_description

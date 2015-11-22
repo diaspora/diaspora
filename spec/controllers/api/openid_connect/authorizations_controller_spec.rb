@@ -71,8 +71,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an bad request error" do
           post :new, redirect_uri: "http://localhost:3000/", response_type: "id_token",
                scope: "openid", nonce: SecureRandom.hex(16), state: SecureRandom.hex(16)
-          expect(response).to redirect_to root_path
-          expect(flash[:error]).to include("Missing client id")
+          expect(response.body).to include("The request was malformed")
         end
       end
 
@@ -94,17 +93,15 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an invalid request error" do
           post :new, client_id: client_with_multiple_redirects.client_id, response_type: "id_token",
                scope: "openid", nonce: SecureRandom.hex(16), state: SecureRandom.hex(16)
-          expect(response).to redirect_to root_path
-          expect(flash[:error]).to include("Missing client id or redirect URI")
+          expect(response.body).to include("The request was malformed")
         end
       end
 
       context "when redirect URI does not match pre-registered URIs" do
-        it "should return an invalid request error" do
+        it "should return an invalid request error", focus: true do
           post :new, client_id: client.client_id, redirect_uri: "http://localhost:2000/",
                response_type: "id_token", scope: "openid", nonce: SecureRandom.hex(16)
-          expect(response).to redirect_to root_path
-          expect(flash[:error]).to include("No client")
+          expect(response.body).to include("Invalid client id or redirect uri")
         end
       end
 
@@ -128,8 +125,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an interaction required error" do
           post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
-          expect(response.location).to match("error=interaction_required")
-          expect(response.location).to match("state=1234")
+          expect(response.body).to include("User must already be authorized when `prompt` is `none`")
         end
       end
 
@@ -141,7 +137,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an interaction required error" do
           post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
-          expect(response.location).to match("error=login_required")
+          expect(response.body).to include("User must already be logged in when `prompt` is `none`")
         end
       end
 
@@ -150,7 +146,6 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
           post :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none consent"
           expect(response.location).to match("error=invalid_request")
-          expect(response.location).to match("state=1234")
         end
       end
 
@@ -167,8 +162,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an account_selection_required error" do
           post :new, client_id: "random", redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
-          expect(response).to redirect_to root_path
-          expect(flash[:error]).to include("No client")
+          expect(response.body).to include("Invalid client id or redirect uri")
         end
       end
 
@@ -176,8 +170,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
         it "should return an account_selection_required error" do
           post :new, client_id: client.client_id, redirect_uri: "http://randomuri:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"
-          expect(response).to redirect_to root_path
-          expect(flash[:error]).to include("No client")
+          expect(response.body).to include("Invalid client id or redirect uri")
         end
       end
 
