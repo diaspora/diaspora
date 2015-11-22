@@ -26,10 +26,18 @@ zh-TW:
       deselect_all: "全不選"
       no_aspects: "沒選任何一個面向"
       select_all: "全選"
+    aspects:
+      create:
+        add_a_new_aspect: "新增面向"
+        failure: "創造面向失敗。"
+        success: "新的面向<%= name %>已經造出來了"
+      make_aspect_list_visible: "要讓這個面向中的聯絡人看得見彼此嗎？"
+      name: "名稱"
     bookmarklet:
       post_something: "貼到 diaspora*"
       post_submit: "傳送貼文中..."
       post_success: "貼好了！彈出視窗關閉中..."
+    cancel: "取消"
     comma: "，"
     comments:
       hide: "隱藏意見"
@@ -46,7 +54,10 @@ zh-TW:
       remove_contact: "刪聯絡人"
       search_no_results: "沒找到聯絡人"
     conversation:
+      new:
+        no_contacts: "\x1f開始對話前你必須先加一些聯絡人"
       participants: "參加人員"
+    create: "建立"
     delete: "刪除"
     edit: "編輯"
     failed_to_like: "說讚失敗！"
@@ -67,6 +78,7 @@ zh-TW:
       home: "我家"
       log_out: "登出"
       mark_all_as_read: "全部標示為看過了"
+      moderator: "協調人"
       notifications: "消息"
       profile: "個人檔案"
       recent_notifications: "最新消息"
@@ -128,7 +140,7 @@ zh-TW:
     publisher:
       add_option: "增加答案"
       at_least_one_aspect: "發表時請至少選擇一個面向"
-      limited: "有限 - 只有你想分享的人才看得到你的貼文"
+      limited: "設限 - 只有你想分享的人才看得到你的貼文"
       near_from: "貼文地點：<%= location %>"
       option: "答案"
       public: "公開 - 所有人都能看到你的貼文，包括搜尋引擎"
@@ -177,8 +189,11 @@ zh-TW:
       show_nsfw_posts: "全都顯示"
       tags:
         follow: "追蹤 #<%= tag %>"
+        follow_error: "沒辦法追蹤 #<%= tag %> :("
         following: "正在追蹤 #<%= tag %>"
         stop_following: "停止追蹤 #<%= tag %>"
+        stop_following_confirm: "要停止追蹤 #<%= tag %> 嗎？"
+        stop_following_error: "沒辦法停止追蹤 #<%= tag %> :("
       unfollow: "取消追蹤"
       unlike: "收回讚"
       via: "經由<%= provider %>"

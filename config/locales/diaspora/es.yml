@@ -57,7 +57,7 @@ es:
       report: "Informes"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Buscar usuario"
-      weekly_user_stats: "Estadísticas Semanales del Usuario"
+      weekly_user_stats: "Estadísticas semanales de usuario"
     stats:
       2weeks: "2 semanas"
       50_most: "Las 50 etiquetas más leídas."
@@ -68,7 +68,7 @@ es:
       current_segment: "El período actual tiene un promedio de <b>%{post_yest}</b> publicaciones por usuario, de <b>%{post_day}</b>"
       daily: "Diario"
       display_results: "Mostrando resultados del período <b>%{segment}</b>"
-      go: "adelante"
+      go: "Adelante"
       month: "Mes"
       posts:
         one: "%{count} publicación"
@@ -79,7 +79,7 @@ es:
         other: "%{count} veces compartido"
         zero: "%{count} veces compartido"
       tag_name: "Etiqueta: <b>%{name_tag}</b> Veces: <b>%{count_tag}</b>"
-      usage_statistic: "Estadísticas de Uso"
+      usage_statistic: "Estadísticas de uso"
       users:
         one: "%{count} usuario"
         other: "%{count} usuarios"
@@ -115,9 +115,9 @@ es:
         zero: "se han encontrado %{count} usuarios"
       view_profile: "ver perfil"
       you_currently:
-        one: "actualmente tienes %{count} invitaciones pendientes %{link}"
-        other: "actualmente no tienes invitaciones pendientes %{link}"
-        zero: "actualmente te queda una invitación pendiente %{link}"
+        one: "Actualmente te queda una invitación pendiente %{link}"
+        other: "Actualmente tienes %{count} invitaciones pendientes %{link}"
+        zero: "Actualmente no tienes invitaciones pendientes %{link}"
     weekly_user_stats:
       amount_of:
         one: "Usuarios nuevos esta semana: %{count}"
@@ -196,7 +196,7 @@ es:
         tag_feature: "idea"
         tag_question: "pregunta"
         tutorial_link_text: "Tutoriales"
-        tutorials_and_wiki: "%{faq}, %{tutorial} y %{wiki}: Ayuda para dar tus primeros pasos."
+        tutorials_and_wiki: "%{faq}, %{tutorial} y %{wiki}: ayuda para dar tus primeros pasos."
       introduce_yourself: "Ésta es tu página principal.  Adelante, preséntate..."
       keep_diaspora_running: "¡Haz que el desarrollo de Diaspora vaya más rápido con una donación mensual!"
       keep_pod_running: "Haz que %{pod} vaya más rápido, ¡invita a café a nuestros servidores con una donación mensual!"
@@ -237,7 +237,7 @@ es:
   back: "Atrás"
   blocks:
     create:
-      failure: "No puede ignorar a este usuario.  #evasión"
+      failure: "No puede ignorar a este usuario.  #evasion"
       success: "Bien, no verás a esa persona en tu entrada otra vez. #silencio!"
     destroy:
       failure: "No podría dejar de ignorar a esa persona.  #evasion"
@@ -389,7 +389,7 @@ es:
       getting_started_a: "Estás de suerte. Prueba los %{tutorial_series} en la web del proyecto. Te llevara paso a paso por el proceso de registro, y te enseñara todas las cosas básicas que necesitas saber para usar diaspora*."
       getting_started_q: "¡Ayuda! ¡Necesito conocer lo básico para empezar!"
       title: "Obteniendo ayuda"
-    getting_started_tutorial: "Tutoriales de la serie 'Empezando'"
+    getting_started_tutorial: "Guías de la serie \"Empezando\""
     here: "aquí"
     irc: "IRC"
     keyboard_shortcuts:
@@ -546,7 +546,7 @@ es:
       title: "Etiquetas"
       what_are_tags_for_a: "Las etiquetas son una manera de categorizar una publicación, usualmente por un tema. Buscando por etiquetas se mostraran todas las publicaciones con dicha etiqueta que puedes ver (ambos públicos y privados). Esto permite a las personas que están interesadas en un tema en particular encontrar todas las publicaciones públicas sobre él."
       what_are_tags_for_q: "¿Para qué sirven las etiquetas?"
-    third_party_tools: "herramientas de terceros"
+    third_party_tools: "Herramientas de terceros"
     title_header: "Ayuda"
     tutorial: "tutorial"
     tutorials: "tutoriales"
@@ -774,7 +774,10 @@ es:
 
           ¡El generador de correo automático de Diaspora*!
 
+          P.D.: ¡En el caso de que (todavía) no sepas qué es diaspora*, [aquí][2] está la respuesta!
+
           [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
     invited_you: "¡%{name} te ha invitado a diaspora*!"
     liked:
       liked: "A %{name} le gustó tu publicación"
@@ -857,7 +860,7 @@ es:
       no_results: "¡Eh! Tienes que buscar algo."
       results_for: "Usuarios que coinciden con %{search_term}"
       search_handle: "Utiliza su ID de Diaspora* (usuario@pod.tld) para estar seguro de que encontrarás a tus amigos."
-      searching: "buscando, por favor sé paciente…"
+      searching: "Buscando, por favor sé paciente…"
       send_invite: "¿Todavía nadie? ¡Envía una invitación!"
     one: "1 persona"
     other: "%{count} personas"
@@ -991,7 +994,7 @@ es:
     new:
       create_my_account: "¡Crear mi cuenta!"
       email: "Correo electrónico"
-      enter_email: "Escribe un correo"
+      enter_email: "Escribe tu correo"
       enter_password: "Escribe una contraseña (seis caracteres como mínimo)"
       enter_password_again: "Escribe la misma contraseña como antes"
       enter_username: "Elige un nombre de usuario (letras, números o guiones bajos)"
@@ -1022,7 +1025,7 @@ es:
   requests:
     create:
       sending: "Enviando"
-      sent: "Quieres compartir con %{name}?. Será visible la próxima vez que entre/n en Diaspora*."
+      sent: "¿Quieres compartir con %{name}?. Será visible la próxima vez que entre/n en Diaspora*."
     destroy:
       error: "¡Selecciona un aspecto!"
       ignore: "Solicitud de contacto ignorada."

@@ -1011,7 +1011,7 @@ nl:
     new:
       create_my_account: "Maak mijn account aan!"
       email: "E-mail"
-      enter_email: "Vul een e-mailadres in"
+      enter_email: "Vul je e-mailadres in"
       enter_password: "Vul een wachtwoord in (zes karakters minimaal)"
       enter_password_again: "Vul hetzelfde wachtwoord nogmaals in"
       enter_username: "Kies een gebruikersnaam (alleen letters, nummers, en underscores)"

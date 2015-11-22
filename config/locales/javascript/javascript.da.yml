@@ -82,6 +82,7 @@ da:
       home: "Hjem"
       log_out: "Log ud"
       mark_all_as_read: "Marker alle som læst"
+      moderator: "Moderator"
       notifications: "Meddelelser"
       profile: "Profil"
       recent_notifications: "Seneste notifikationer"
