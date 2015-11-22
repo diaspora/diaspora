@@ -18,8 +18,10 @@ app.views.Gallery = app.views.Base.extend({
   preventHideControls: function(){
     var lightbox = $("#blueimp-gallery");
     var onEvent = function(ev){
-      ev.preventDefault();
-      ev.stopPropagation();
+      if($(ev.target).hasClass("slide-content")){
+        ev.preventDefault();
+        ev.stopPropagation();
+      }
     };
 
     lightbox.find(".slide").click(onEvent);
@@ -29,7 +31,6 @@ app.views.Gallery = app.views.Base.extend({
     return {
       index: link,
       event: event,
-      stretchImages: true,
       hidePageScrollbars: false,
       disableScroll: true,
       continuous: true,
