@@ -36,6 +36,13 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
         expect(decoded_token.exp).to be > Time.zone.now.utc.to_i
       end
 
+      it "should return an id token with a kid" do
+        json = JSON.parse(response.body)
+        encoded_id_token = json["id_token"]
+        kid = JSON::JWT.decode(encoded_id_token, :skip_verification).header[:kid]
+        expect(kid).to eq("default")
+      end
+
       it "should return a valid access token" do
         json = JSON.parse(response.body)
         encoded_id_token = json["id_token"]

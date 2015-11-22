@@ -14,7 +14,9 @@ module Api
       end
 
       def to_jwt(options={})
-        to_response_object(options).to_jwt OpenidConnect::IdTokenConfig::PRIVATE_KEY
+        to_response_object(options).to_jwt(OpenidConnect::IdTokenConfig::PRIVATE_KEY) do |jwt|
+          jwt.kid = :default
+        end
       end
 
       def to_response_object(options={})
