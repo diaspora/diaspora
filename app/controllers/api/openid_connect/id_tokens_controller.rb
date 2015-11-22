@@ -8,7 +8,7 @@ module Api
       private
 
       def build_jwk
-        JSON::JWK.new(Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY, use: :sig)
+        JSON::JWK.new(Api::OpenidConnect::IdTokenConfig::PUBLIC_KEY, use: :sig, kid: :default)
       end
     end
   end
