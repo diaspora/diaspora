@@ -46,16 +46,16 @@ module Api
         end
       end
 
-      rescue_from Rack::OAuth2::Server::Authorize::BadRequest, JSON::JWT::InvalidFormat do |e|
+      rescue_from Rack::OAuth2::Server::Authorize::BadRequest,
+                  JSON::JWT::InvalidFormat, JSON::JWK::UnknownAlgorithm do |e|
         logger.info e.backtrace[0, 10].join("\n")
-        render json: {error: :invalid_request, error_description: e.message, status: e.status}
-      end
-      rescue_from JSON::JWT::InvalidFormat do |e|
         render json: {error: :invalid_request, error_description: e.message, status: 400}
       end
       rescue_from JSON::JWT::VerificationFailed do |e|
+        logger.info e.backtrace[0, 10].join("\n")
         render json: {error: :invalid_grant, error_description: e.message, status: 400}
       end
+
     end
   end
 end
