@@ -86,9 +86,15 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Add permalink icon to stream elements [#6457](https://github.com/diaspora/diaspora/pull/6457)
 * Move reshare count to interactions for stream elements [#6487](https://github.com/diaspora/diaspora/pull/6487)
 
-# 0.5.5.0
+# 0.5.6.0
 
 ## Refactor
+
+## Bug fixes
+
+## Features
+
+# 0.5.5.0
 
 ## Bug fixes
 * Redirect to sign in page when a background request fails with 401 [#6496](https://github.com/diaspora/diaspora/pull/6496)
@@ -97,8 +103,6 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Fix issue where the publisher was broken on profile pages [#6503](https://github.com/diaspora/diaspora/pull/6503)
 * Prevent participations being created for invalid interactions [#6552](https://github.com/diaspora/diaspora/pull/6552)
 * Improve federation for reshare related interactions [#6481](https://github.com/diaspora/diaspora/pull/6481)
-
-## Features
 
 # 0.5.4.0
 
