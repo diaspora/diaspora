@@ -1,7 +1,5 @@
 # 0.5.5.0
 
-## Refactor
-
 ## Bug fixes
 * Redirect to sign in page when a background request fails with 401 [#6496](https://github.com/diaspora/diaspora/pull/6496)
 * Correctly skip setting sidekiq logfile on Heroku [#6500](https://github.com/diaspora/diaspora/pull/6500)
@@ -9,8 +7,6 @@
 * Fix issue where the publisher was broken on profile pages [#6503](https://github.com/diaspora/diaspora/pull/6503)
 * Prevent participations being created for invalid interactions [#6552](https://github.com/diaspora/diaspora/pull/6552)
 * Improve federation for reshare related interactions [#6481](https://github.com/diaspora/diaspora/pull/6481)
-
-## Features
 
 # 0.5.4.0
 
