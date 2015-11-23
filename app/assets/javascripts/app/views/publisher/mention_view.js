@@ -8,8 +8,8 @@
 
 app.views.PublisherMention = app.views.SearchBase.extend({
   KEYS: {
-    BACKSPACE: 8, TAB: 9, RETURN: 13, ESC: 27, LEFT: 37, UP: 38,
-    RIGHT: 39, DOWN: 40, COMMA: 188, SPACE: 32, HOME: 36, END: 35
+    PASTE: 118, BACKSPACE: 8, TAB: 9, RETURN: 13, ESC: 27, LEFT: 37,
+    UP: 38, RIGHT: 39, DOWN: 40, COMMA: 188, SPACE: 32, HOME: 36, END: 35
   },
 
   settings: {
@@ -23,33 +23,13 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     }
   },
 
-  utils: {
-    setCaretPosition: function(domNode, caretPos){
-      if(domNode.createTextRange){
-        var range = domNode.createTextRange();
-        range.move("character", caretPos);
-        range.select();
-      } else{
-        if(domNode.selectionStart){
-          domNode.focus();
-          domNode.setSelectionRange(caretPos, caretPos);
-        } else{
-          domNode.focus();
-        }
-      }
-    },
-
-    rtrim: function(string){
-      return string.replace(/\s+$/, "");
-    }
-  },
-
   events: {
     "keydown #status_message_fake_text": "onInputBoxKeyDown",
     "keypress #status_message_fake_text": "onInputBoxKeyPress",
     "input #status_message_fake_text": "onInputBoxInput",
     "click #status_message_fake_text": "onInputBoxClick",
-    "blur #status_message_fake_text": "onInputBoxBlur"
+    "blur #status_message_fake_text": "onInputBoxBlur",
+    "paste #status_message_fake_text": "onInputBoxPaste"
   },
 
   initialize: function(){
@@ -66,21 +46,24 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.elmMentionsOverlay = $(this.settings.templates.mentionsOverlay());
     this.elmMentionsOverlay.prependTo(this.elmWrapperBox);
 
+    this.bindMentionningEvents();
+    this.completeSetup(this.getTypeaheadInput());
+
+    this.$el.find(".twitter-typeahead").css({position: "absolute", left: "-1px"});
+    this.$el.find(".twitter-typeahead .tt-menu").css("margin-top", 0);
+  },
+
+  bindMentionningEvents: function(){
     var self = this;
-    this.getSearchInput().on("typeahead:select", function(evt, datum){
+    this.getTypeaheadInput().on("typeahead:select", function(evt, datum){
       self.processMention(datum);
       self.resetMentionBox();
       self.addToFilteredResults(datum);
     });
 
-    this.getSearchInput().on("typeahead:render", function(){
+    this.getTypeaheadInput().on("typeahead:render", function(){
       self.select(self.$(".tt-menu .tt-suggestion").first());
     });
-
-    this.completeSetup(this.getSearchInput());
-
-    this.$el.find(".twitter-typeahead").css({position: "absolute", left: "-1px"});
-    this.$el.find(".twitter-typeahead .tt-menu").css("margin-top", 0);
   },
 
   clearBuffer: function(){
@@ -110,12 +93,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   processMention: function(mention){
     var currentMessage = this.getInputBoxValue();
 
-    // Using a regex to figure out positions
-    var regex = new RegExp("\\" + this.settings.triggerChar + this.currentDataQuery, "gi");
-    regex.exec(currentMessage);
-
-    var startCaretPosition = regex.lastIndex - this.currentDataQuery.length - 1;
-    var currentCaretPosition = regex.lastIndex;
+    var currentCaretPosition = this.getCaretPosition();
+    var startCaretPosition = currentCaretPosition - (this.currentDataQuery.length + 1);
 
     var start = currentMessage.substr(0, startCaretPosition);
     var end = currentMessage.substr(currentCaretPosition, currentMessage.length);
@@ -135,7 +114,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
     // Set correct focus and selection
     this.elmInputBox.focus();
-    this.utils.setCaretPosition(this.elmInputBox[0], startEndIndex);
+    this.setCaretPosition(startEndIndex);
   },
 
   updateValues: function(){
@@ -153,7 +132,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       var textSyntax = self.settings.templates.mentionItemSyntax(mention);
       syntaxMessage = syntaxMessage.replace(mentionVal, textSyntax);
 
-      var textHighlight = self.settings.templates.mentionItemHighlight({ name: _.escape(mention.name) });
+      var textHighlight = self.settings.templates.mentionItemHighlight({name: _.escape(mention.name)});
       mentionText = mentionText.replace(mentionVal, textHighlight);
     });
 
@@ -174,7 +153,11 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     _.each(persons, function(person){
       self.addMention(person);
       self.addToFilteredResults(person);
-      self.elmInputBox.val(self.mentionChar + person.name);
+      var text = self.mentionChar + person.name;
+      if(self.elmInputBox.val().length !== 0){
+        text = self.elmInputBox.val() + " " + text;
+      }
+      self.elmInputBox.val(text);
       self.updateValues();
     });
   },
@@ -210,7 +193,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   },
 
   onInputBoxKeyPress: function(e){
-    if(e.keyCode !== this.KEYS.BACKSPACE){
+    // Excluding ctrl+v from key press event in firefox
+    if(!((e.which === this.KEYS.PASTE && e.ctrlKey) || (e.keyCode === this.KEYS.BACKSPACE))){
       var typedValue = String.fromCharCode(e.which || e.keyCode);
       this.inputBuffer.push(typedValue);
     }
@@ -223,7 +207,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     var triggerCharIndex = _.lastIndexOf(this.inputBuffer, this.settings.triggerChar);
     if(triggerCharIndex > -1){
       this.currentDataQuery = this.inputBuffer.slice(triggerCharIndex + 1).join("");
-      this.currentDataQuery = this.utils.rtrim(this.currentDataQuery);
+      this.currentDataQuery = this.rtrim(this.currentDataQuery);
 
       this.showMentionBox();
     }
@@ -232,7 +216,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   onInputBoxKeyDown: function(e){
     // This also matches HOME/END on OSX which is CMD+LEFT, CMD+RIGHT
     if(e.keyCode === this.KEYS.LEFT || e.keyCode === this.KEYS.RIGHT ||
-        e.keyCode === this.KEYS.HOME || e.keyCode === this.KEYS.END){
+       e.keyCode === this.KEYS.HOME || e.keyCode === this.KEYS.END){
       _.defer(this.clearBuffer);
 
       // IE9 doesn't fire the oninput event when backspace or delete is pressed. This causes the highlighting
@@ -268,7 +252,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       case this.KEYS.RETURN:
       case this.KEYS.TAB:
         if(this.getSelected().size() === 1){
-          this.getSelected().click();
+           this.getSelected().click();
           return false;
         }
         break;
@@ -284,6 +268,15 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.resetMentionBox();
   },
 
+  onInputBoxPaste: function(evt){
+    var pastedData = evt.originalEvent.clipboardData.getData("text/plain");
+    var dataArray = pastedData.split("");
+    var self = this;
+    _.each(dataArray, function(value){
+      self.inputBuffer.push(value);
+    });
+  },
+
   reset: function(){
     this.elmInputBox.val("");
     this.mentionsCollection.length = 0;
@@ -292,13 +285,13 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   },
 
   showMentionBox: function(){
-    this.getSearchInput().typeahead("val", this.currentDataQuery);
-    this.getSearchInput().typeahead("open");
+    this.getTypeaheadInput().typeahead("val", this.currentDataQuery);
+    this.getTypeaheadInput().typeahead("open");
   },
 
   resetMentionBox: function(){
-    this.getSearchInput().typeahead("val", "");
-    this.getSearchInput().typeahead("close");
+    this.getTypeaheadInput().typeahead("val", "");
+    this.getTypeaheadInput().typeahead("close");
   },
 
   getInputBoxValue: function(){
@@ -309,7 +302,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     return this.$el.find(".tt-menu").is(":visible");
   },
 
-  getSearchInput: function(){
+  getTypeaheadInput: function(){
     if(this.$el.find(".typeahead-mention-box").length === 0){
       this.elmInputBox.after("<input class='typeahead-mention-box hidden' type='text'/>");
     }
@@ -318,5 +311,18 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
   getTextForSubmit: function(){
     return this.mentionsCollection.length ? this.elmInputBox.data("messageText") : this.getInputBoxValue();
+  },
+
+  setCaretPosition: function(caretPos){
+    this.elmInputBox[0].focus();
+    this.elmInputBox[0].setSelectionRange(caretPos, caretPos);
+  },
+
+  getCaretPosition: function(){
+    return this.elmInputBox[0].selectionStart;
+  },
+
+  rtrim: function(string){
+    return string.replace(/\s+$/, "");
   }
 });
