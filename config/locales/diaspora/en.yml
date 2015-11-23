@@ -919,6 +919,9 @@ en:
           description: "This allows the application to send new posts, write conversations, and send reactions"
       error_page:
         title: "Oh! Something went wrong :("
+        contact_developer: "You should contact the developer of the application and include the following detailed message error:"
+        login_required: "You must first login before authorize this application"
+        could_not_authorize: "The application could not be authorized"
 
   people:
     zero: "No people"

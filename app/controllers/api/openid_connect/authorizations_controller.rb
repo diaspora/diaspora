@@ -177,7 +177,7 @@ module Api
         if params[:client_id] && params[:redirect_uri]
           handle_params_error_when_client_id_and_redirect_uri_exists(error, error_description)
         else
-          render_error error_description
+          render_error I18n.t("api.openid_connect.error_page.could_not_authorize"), error_description
         end
       end
 
@@ -186,7 +186,8 @@ module Api
         if app && app.redirect_uris.include?(params[:redirect_uri])
           redirect_prompt_error_display(error, error_description)
         else
-          render_error "Invalid client id or redirect uri"
+          render_error I18n.t("api.openid_connect.error_page.could_not_authorize"),
+                       "Invalid client id or redirect uri"
         end
       end
 
@@ -239,10 +240,14 @@ module Api
         redirect_to new_api_openid_connect_authorization_path(params)
       end
 
-      def render_error(error_description)
+      def render_error(error_description, detailed_error=nil)
         @error_description = error_description
-        render "api/openid_connect/error/error",
-               layout: request.format == :mobile ? "application" : "with_header_with_footer"
+        @detailed_error = detailed_error
+        if request.format == :mobile
+          render "api/openid_connect/error/error.mobile", layout: "application.mobile"
+        else
+          render "api/openid_connect/error/error", layout: "with_header_with_footer"
+        end
       end
     end
   end
