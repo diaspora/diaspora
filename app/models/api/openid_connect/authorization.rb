@@ -38,6 +38,7 @@ module Api
       def create_code
         SecureRandom.hex(32).tap do |code|
           update!(code: code)
+          update!(code_used: false)
         end
       end
 
