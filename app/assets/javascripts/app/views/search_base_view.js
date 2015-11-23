@@ -98,18 +98,19 @@ app.views.SearchBase = app.views.Base.extend({
    */
   bindSelectionEvents: function(){
     var self = this;
-    var onover = function(evt){
-      var isSuggestion = $(evt.target).is(".tt-suggestion");
-      var suggestion = isSuggestion ? $(evt.target) : $(evt.target).parent(".tt-suggestion");
-      if(suggestion){
+    var onover = function(suggestion){
+      return function(){
         self.select(suggestion);
-      }
+      };
     };
 
     this.typeaheadElement.on("typeahead:render", function(){
-      self.$(".tt-menu *").off("mouseover", onover);
-      self.$(".tt-menu .tt-suggestion").on("mouseover", onover);
-      self.$(".tt-menu .tt-suggestion *").on("mouseover", onover);
+      self.$(".tt-menu *").off("mouseover");
+      self.$(".tt-menu .tt-suggestion").each(function(){
+        var $suggestion = $(this);
+        $suggestion.on("mouseover", onover($suggestion));
+        $suggestion.find("*").on("mouseover", onover($suggestion));
+      });
     });
   },
 

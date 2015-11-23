@@ -17,7 +17,12 @@
   }
 
   .container-fluid{ padding: 0; }
-  .mentions-autocomplete-list ul { width: 100% !important; }
+
+  .twitter-typeahead {
+    width: calc(100% + 2px);
+
+    .tt-menu { width: 100%; }
+  }
 
   form {
     margin: 0;
