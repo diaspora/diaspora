@@ -23,7 +23,7 @@ module Api
         auth = Api::OpenidConnect::Authorization.find_by_client_id_and_user(params[:client_id], current_user)
         reset_auth(auth)
         if logged_in_before?(params[:max_age])
-          reauthenticate
+          reauthenticate(params)
         elsif params[:prompt]
           prompt = params[:prompt].split(" ")
           handle_prompt(prompt, auth)
@@ -61,18 +61,11 @@ module Api
         if prompt.include? "select_account"
           handle_params_error("account_selection_required",
                               "There is no support for choosing among multiple accounts")
-        elsif prompt.include?("login") && logged_in_before?(60)
-          reauthenticate
         elsif prompt.include? "consent"
           request_authorization_consent_form
         else
           handle_authorization_form(auth)
         end
-      end
-
-      def reauthenticate
-        sign_out current_user
-        redirect_to new_api_openid_connect_authorization_path(params)
       end
 
       def handle_authorization_form(auth)
@@ -207,6 +200,9 @@ module Api
         prompt = params[:prompt]
         if prompt && prompt.include?("none")
           handle_prompt_none
+        elsif prompt && prompt.include?("login")
+          new_params = params.merge!(prompt: prompt.remove("login"))
+          reauthenticate(new_params)
         else
           authenticate_user!
         end
@@ -236,6 +232,11 @@ module Api
         else
           handle_params_error("bad_request", "Client ID is missing from request")
         end
+      end
+
+      def reauthenticate(params)
+        sign_out current_user
+        redirect_to new_api_openid_connect_authorization_path(params)
       end
 
       def render_error(error_description)
