@@ -10,7 +10,7 @@
     %ul
       - app.scopes.each do |scope|
         %li
-          %b= t("api.openid_connect.scopes.#{scope}.name")
+          %strong= t("api.openid_connect.scopes.#{scope}.name")
           %p= t("api.openid_connect.scopes.#{scope}.description")
   - else
     .well
@@ -19,13 +19,13 @@
   .small-horizontal-spacer
   .application-tos-policy
     - if app.terms_of_services?
-      %b= link_to t("api.openid_connect.user_applications.tos"), app.terms_of_services
+      %strong= link_to t("api.openid_connect.user_applications.tos"), app.terms_of_services
 
     - if app.policy? && app.terms_of_services?
       |
 
     - if app.policy?
-      %b= link_to t("api.openid_connect.user_applications.policy"), app.policy
+      %strong= link_to t("api.openid_connect.user_applications.policy"), app.policy
 
     - if app.policy? || app.terms_of_services?
       .small-horizontal-spacer
