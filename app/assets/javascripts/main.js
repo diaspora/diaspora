@@ -45,3 +45,4 @@
 //= require bootstrap-switch
 //= require blueimp-gallery
 //= require leaflet
+//= require jquery.are-you-sure

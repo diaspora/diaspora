@@ -115,6 +115,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
   gem "rails-assets-autosize",                      "3.0.14"
   gem "rails-assets-blueimp-gallery",               "2.16.0"
+  gem "rails-assets-jquery.are-you-sure",           "1.9.0"
 end
 
 # Localization
