@@ -283,7 +283,7 @@ pl:
       no_contacts: "Wygląda na to, że musisz dodać kilka kontaktów!"
       no_contacts_in_aspect: "Nie masz jeszcze żadnych kontaktów w tym aspekcie. Poniżej widnieje lista kontaktów które możesz do niego dodać."
       no_contacts_message: "Sprawdź kto jest %{community_spotlight}"
-      only_sharing_with_me: "Udostępniający tylko mnie"
+      only_sharing_with_me: "Jedynie mi udostępniają"
       remove_contact: "Usuń kontakt"
       start_a_conversation: "Rozpocznij rozmowę"
       title: "Kontakty"

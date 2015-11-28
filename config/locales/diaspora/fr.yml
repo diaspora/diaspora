@@ -1154,7 +1154,7 @@ fr:
       manage: "Gérer les services connectés"
       new_user_welcome_message: "Utilisez les #tags pour classer vos messages et trouver des personnes qui partagent vos intérêts. Interpellez des personnes géniales avec les @Mentions"
       outside: "Les messages publics pourront être vus par tous, même en dehors de diaspora*."
-      share: "Partager"
+      share: "Partagez"
       title: "Mettre en place des services connectés"
       visibility_dropdown: "Utilisez ce menu déroulant pour modifier la visibilité de votre message. (Nous vous conseillons de rendre public ce premier message.)"
     publisher:
@@ -1258,7 +1258,7 @@ fr:
       title: "#Tags suivis"
     followed_tags_stream: "#Tags suivis"
     like_stream:
-      contacts_title: "Personnes dont vous avez aimé les commentaires"
+      contacts_title: "Personnes dont vous avez aimé les messages"
       title: "Flux des éléments aimés"
     mentioned_stream: "@Mentions"
     mentions:
@@ -1269,7 +1269,7 @@ fr:
       title: "Flux"
     public:
       contacts_title: "Ayant posté récemment"
-      title: "Activité publique"
+      title: "Messages publics"
     tags:
       contacts_title: "Personnes qui suivent ce tag"
       title: "Messages tagués : %{tags}"

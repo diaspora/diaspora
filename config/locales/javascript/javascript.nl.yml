@@ -82,6 +82,7 @@ nl:
       home: "Home"
       log_out: "Uitloggen"
       mark_all_as_read: "Markeer alles gelezen"
+      moderator: "Moderator"
       notifications: "Notificaties"
       profile: "Profiel"
       recent_notifications: "Recente meldingen"

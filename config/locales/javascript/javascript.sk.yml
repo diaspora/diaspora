@@ -112,6 +112,7 @@ sk:
     show_more: "Zobraziť viac"
     stream:
       comment: "Okomentovať"
+      disable_post_notifications: "Neposielať oznamy o tomto príspevku"
       follow: "Sledovať"
       followed_tag:
         add_a_tag: "Pridať značku"

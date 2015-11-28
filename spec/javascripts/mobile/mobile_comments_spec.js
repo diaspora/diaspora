@@ -116,4 +116,26 @@ describe("Diaspora.Mobile.Comments", function(){
       expect(jQuery.ajax).not.toHaveBeenCalled();
     });
   });
+
+  describe("createComment", function () {
+    beforeEach(function() {
+      spec.loadFixture("aspects_index_mobile_post_with_comments");
+      var commentBoxHtml = spec.fixtureHtml("comments_mobile_commentbox");
+      var link = $(".stream .comment-action").first();
+      Diaspora.Mobile.Comments.showCommentBox(link);
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200,
+        contentType: "text/html",
+        responseText: commentBoxHtml
+      });
+      $(".stream .new_comment").submit(Diaspora.Mobile.Comments.submitComment);
+    });
+
+    it("doesn't submit an empty comment", function() {
+      var form = $(".stream .new_comment").first();
+      spyOn(jQuery, "ajax");
+      form.submit();
+      expect(jQuery.ajax).not.toHaveBeenCalled();
+    });
+  });
 });
