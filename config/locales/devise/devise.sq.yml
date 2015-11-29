@@ -73,7 +73,7 @@ sq:
         ignore: "Nëse këtë s’e kërkuat ju, ju lutemi, shpërfilleni këtë email."
       unlock_instructions:
         subject: "Udhëzime zhbllokimi"
-        account_locked: "Llogaris juaj është bllokuar për shkak të një sasie të tepruar përpjekjesh për të hyrë në të."
+        account_locked: "Llogaria juaj është bllokuar për shkak të një sasie të tepruar përpjekjesh për të hyrë në të."
         click_to_unlock: "Që të zhbllokoni llogarinë tuaj, klikoni lidhjen më poshtë:"
         unlock: "Zhbllokoje llogarinë time"
       invitation_instructions:
