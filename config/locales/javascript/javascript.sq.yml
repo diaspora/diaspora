@@ -37,14 +37,14 @@ javascripts:
       limited: "I kufizuar - postimi juaj do të shihet vetëm nga persona me të cilët ndani gjëra"
       public: "Publik - postimi juaj do të jetë i dukshëm nga kushdo dhe dhe motorët e kërkimeve do të jenë në gjendje ta kapin"
     infinite_scroll:
-      no_more: "Nuk ka më postime."
+      no_more: "S’ka më postime."
     aspect_dropdown:
       add_to_aspect: "Shtoni kontakt"
       select_aspects: "Përzgjidhni aspekte"
       all_aspects: "Krejt aspektet"
       stopped_sharing_with: "Reshtët së ndari gjëra me <%= name %>."
       started_sharing_with: "Filluat të ndani gjëra me <%= name %>!"
-      error: "Nuk u fillua dot ndarja e gjërave me <%= name %>.  Mos po e shpërfillni?"
+      error: "S’u fillua dot ndarja e gjërave me <%= name %>.  Mos po e shpërfillni?"
       toggle:
         zero: "Përzgjidhni aspekte"
         one: "Në <%= count %> aspekt"
@@ -59,29 +59,31 @@ javascripts:
       show: "shfaqi krejt komentet"
       hide: "fshihi komentet"
     reshares:
-      duplicate: "I bukur ky, hë?  E keni ndarë një herë me të tjerët atë postim!"
+      duplicate: "I bukur ky, ë?  E keni ndarë një herë me të tjerët atë postim!"
+      successful: "Postimi u rinda me sukses me të tjerët!"
+      post: "Të rindahet me të tjerët postimi i <%= name %>?"
     aspect_navigation:
       select_all: "Përzgjidhi krejt"
-      deselect_all: "Çpërzgjidhi krejt"
-      no_aspects: "Nuk janë përzgjedhur aspekte"
+      deselect_all: "Shpërzgjidhi krejt"
+      no_aspects: "S’janë përzgjedhur aspekte"
     getting_started:
       hey: "Hej, <%= name %>!"
-      no_tags: "Hej, nuk jeni duke ndjekur ndonjë etiketë!  Të vazhdohet, sido qoftë?"
+      no_tags: "Hej, s’jeni duke ndjekur ndonjë etiketë!  Të vazhdohet, sido qoftë?"
       alright_ill_wait: "Në rregull, do të pres."
-      preparing_your_stream: "Po përgatitet rrjedha juaj e personalizuar..."
+      preparing_your_stream: "Po përgatitet rrjedha juaj e personalizuar…"
     photo_uploader:
       looking_good: "O Zot, sa bukur që dukeni!"
     tags:
-      wasnt_that_interesting: "OK, them se #<%= tagName %> nuk qe kushedi se çë interesant..."
+      wasnt_that_interesting: "OK, them se #<%= tagName %> s’qe kushedi se çë interesant…"
     people:
-      not_found: "dhe nuk u gjet ndonjë..."
+      not_found: "dhe s’u gjet ndonjë…"
 
     stream:
       hide: "Fshihe"
       public: "Publike"
       limited: "E kufizuar"
       like: "Pëlqejeni"
-      unlike: "Çpëlqejeni"
+      unlike: "Shpëlqejeni"
       reshare: "Rindajeni"
       comment: "Komentojeni"
       original_post_deleted: "Postimi origjinal është fshirë nga autori."
@@ -94,26 +96,17 @@ javascripts:
       likes:
         zero: "<%= count %> Pëlqime"
         one: "<%= count %> Pëlqim"
-        two: "<%= count %> Pëlqime"
-        few: "<%= count %> Pëlqime"
-        many: "<%= count %> Pëlqime"
         other: "<%= count %> Pëlqime"
 
       reshares:
         zero: "<%= count %> Rindarje"
         one: "<%= count %> Rindarje"
-        two: "<%= count %> Rindarje"
-        few: "<%= count %> Rindarje"
-        many: "<%= count %> Rindarje"
         other: "<%= count %> Rindarje"
 
       more_comments:
         zero: "Shfaq <%= count %> komente të tjera"
-        one: "Shfaq edhe <%= count %> koment"
-        two: "Shfaq edhe <%= count %> komente"
-        few: "Shfaq edhe <%= count %> komente"
-        many: "Shfaq edhe <%= count %> komente"
-        other: "Shfaq edhe <%= count %> komente"
+        one: "Shfaq edhe <%= count %> koment tjetër"
+        other: "Shfaq edhe <%= count %> komente të tjera"
 
     header:
       home: "Kreu"
@@ -128,15 +121,17 @@ javascripts:
 
       search: "Kërko"
 
-      recent_notifications: "Njoftime Së Fundmi"
+      recent_notifications: "Njoftime Së Fundi"
       mark_all_as_read: "Shënoji krejt si të lexuara"
       view_all: "Shihini krejt"
+      close: "mbylle"
 
     viewer:
       stop_following_post: "Resht së ndjekuri postimin"
       follow_post: "Ndiqe postimin"
       like: "Pëlqejeni"
-      unlike: "Çpëlqejeni"
+      unlike: "Shpëlqejeni"
       reshare: "Rindajeni"
       reshared: "I rindarë"
       comment: "Komentojeni"
+      home: "KREU"
