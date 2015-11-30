@@ -1,5 +1,5 @@
-//= require jquery.slimscroll
-//= require colorbox
+//= require jquery.slimscroll/jquery.slimscroll
+//= require jquery-colorbox
 //= require favico.js
 //= require jquery-fullscreen-plugin
 //= require diaspora_jsxc
@@ -25,7 +25,7 @@ $(document).ready(function() {
             chat: 1
           },
           displayRosterMinimized: function() {
-            return true;
+            return false;
           },
           xmpp: {
             url: $('script#jsxc').data('endpoint'),
