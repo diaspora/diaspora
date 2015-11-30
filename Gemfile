@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.4"
+gem "rails", "4.2.5"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -71,7 +71,7 @@ gem "activerecord-import", "0.10.0"
 
 gem "carrierwave", "0.10.0"
 gem "fog",         "1.34.0"
-gem "mini_magick", "4.3.3"
+gem "mini_magick", "4.3.6"
 gem "remotipart",  "1.2.1"
 
 # GUID generation
@@ -84,7 +84,7 @@ gem "entypo-rails", "2.2.3"
 # JavaScript
 
 gem "backbone-on-rails", "1.2.0.0"
-gem "handlebars_assets", "0.20.2"
+gem "handlebars_assets", "0.21.0"
 gem "jquery-rails",      "4.0.5"
 gem "jquery-ui-rails",   "5.0.5"
 gem "js_image_paths",    "0.0.2"
@@ -93,19 +93,19 @@ gem "js-routes",         "1.1.2"
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "1.11.2" # Should be kept in sync with jquery-rails
 
-  gem "rails-assets-markdown-it",                         "5.0.0"
+  gem "rails-assets-markdown-it",                         "5.0.2"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "0.4.0"
-  gem "rails-assets-markdown-it-sanitizer",               "0.4.0"
+  gem "rails-assets-markdown-it-sanitizer",               "0.4.1"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "8.8.0"
+  gem "rails-assets-highlightjs",                         "8.9.1"
 
   # jQuery plugins
 
   gem "rails-assets-jeresig--jquery.hotkeys",       "0.2.0"
-  gem "rails-assets-jquery-placeholder",            "2.1.2"
+  gem "rails-assets-jquery-placeholder",            "2.1.3"
   gem "rails-assets-jquery-textchange",             "0.2.3"
   gem "rails-assets-perfect-scrollbar",             "0.6.7"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
@@ -126,8 +126,8 @@ gem "messagebus_ruby_api", "1.0.3"
 
 # Parsing
 
-gem "nokogiri",          "1.6.6.2"
-gem "redcarpet",         "3.3.2"
+gem "nokogiri",          "1.6.6.4"
+gem "redcarpet",         "3.3.3"
 gem "twitter-text",      "1.13.0"
 gem "roxml",             "3.1.6"
 gem "ruby-oembed",       "0.8.14"
@@ -157,7 +157,7 @@ gem "acts-as-taggable-on", "3.5.0"
 # URIs and HTTP
 
 gem "addressable",        "2.3.8", require: "addressable/uri"
-gem "faraday",            "0.9.1"
+gem "faraday",            "0.9.2"
 gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"
 gem "typhoeus",           "0.8.0"
@@ -235,7 +235,7 @@ group :development do
 
   # Linters
   gem "jshintrb", "0.3.0"
-  gem "rubocop",  "0.32.1"
+  gem "rubocop",  "0.34.2"
 
   # Preloading environment
 
@@ -263,15 +263,15 @@ group :test do
   # Cucumber (integration tests)
 
   gem "capybara",           "2.5.0"
-  gem "database_cleaner" ,  "1.5.0"
+  gem "database_cleaner" ,  "1.5.1"
   gem "selenium-webdriver", "2.47.1"
 
   # General helpers
 
   gem "factory_girl_rails", "4.5.0"
   gem "timecop",            "0.8.0"
-  gem "webmock",            "1.21.0", require: false
-  gem "shoulda-matchers",   "2.8.0", require: false
+  gem "webmock",            "1.22.1", require: false
+  gem "shoulda-matchers",   "3.0.0"
 end
 
 group :development, :test do

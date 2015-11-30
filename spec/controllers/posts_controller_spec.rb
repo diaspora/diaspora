@@ -135,5 +135,15 @@ describe PostsController, type: :controller do
       message = alice.post(:status_message, text: "hey", to: alice.aspects.first.id)
       delete :destroy, format: :js, id: message.id
     end
+
+    context "when Diaspora::NotMine is raised by retract post" do
+      it "will respond with a 403" do
+        expect(post_service_double).to receive(:retract_post).and_raise(Diaspora::NotMine)
+        message = alice.post(:status_message, text: "hey", to: alice.aspects.first.id)
+        delete :destroy, format: :js, id: message.id
+        expect(response.body).to eq("You are not allowed to do that")
+        expect(response.status).to eq(403)
+      end
+    end
   end
 end

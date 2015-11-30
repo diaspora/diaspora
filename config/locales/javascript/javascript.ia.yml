@@ -12,24 +12,36 @@ ia:
       all_aspects: "Tote le aspectos"
       error: "Impossibile comenciar a divider con <%= name %>. Esque tu ignora iste persona?"
       error_remove: "Non poteva remover <%= name %> del aspecto."
+      mobile_row_checked: "<%= name %> (remover)"
+      mobile_row_unchecked: "<%= name %> (adder)"
       select_aspects: "Seliger aspectos"
       started_sharing_with: "Tu ha comenciate a divider con <%= name %>!"
       stopped_sharing_with: "Tu ha cessate de divider con <%= name %>."
+      updating: "actualisa…"
     aspect_navigation:
       add_an_aspect: "+ Adder un aspecto"
       deselect_all: "Deseliger totes"
       no_aspects: "Nulle aspecto seligite"
       select_all: "Seliger totes"
+    aspects:
+      create:
+        add_a_new_aspect: "Adder un nove aspecto"
+        failure: "Le creation del aspecto ha fallite."
+        success: "Tu nove aspecto <%= name %> ha essite create"
+      make_aspect_list_visible: "Render contactos in iste aspecto visibile le unes pro le alteres?"
+      name: "Nomine"
     bookmarklet:
       post_something: "Inviar a diaspora*"
       post_submit: "Submitte entrata…"
       post_success: "Inviate! Le fenestra se claude ora…"
+    cancel: "Cancellar"
     comma: ","
     comments:
       hide: "celar commentos"
       no_comments: "Il non ha ancora commentos."
       show: "revelar tote le commentos"
     confirm_dialog: "Es tu secur?"
+    confirm_unload: "Per favor, confirma que tu vole quitar iste pagina. Le datos que tu ha inserite non essera salveguardate."
     contacts:
       add_contact: "Adder contacto"
       aspect_list_is_not_visible: "Le contactos in iste aspecto non pote vider le un le altere."
@@ -39,12 +51,16 @@ ia:
       remove_contact: "Remover contacto"
       search_no_results: "Nulle contacto trovate"
     conversation:
+      new:
+        no_contacts: "Es necessari adder alcun contactos ante de poter initiar un conversation."
       participants: "Participantes"
+    create: "Crear"
     delete: "Deler"
     edit: "Modificar"
     failed_to_like: "Appreciation fallite!"
     failed_to_post_message: "Publication del entrata fallite!"
     failed_to_remove: "Le remotion del entrata ha fallite."
+    failed_to_reshare: "Repetition fallite!"
     getting_started:
       alright_ill_wait: "Ben, io attendera."
       hey: "Hallo, <%= name %>!"
@@ -161,8 +177,11 @@ ia:
       show_nsfw_posts: "Monstrar totes"
       tags:
         follow: "Sequer #<%= tag %>"
+        follow_error: "Error in sequer <%= tag %>."
         following: "Tu seque #<%= tag %>"
         stop_following: "Cessar de sequer #<%= tag %>"
+        stop_following_confirm: "Cessar de sequer #<%= tag %>?"
+        stop_following_error: "Error in cessar de sequer <%= tag %>."
       unfollow: "Non plus sequer"
       unlike: "Non plus appreciar"
       via: "via <%= provider %>"

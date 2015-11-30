@@ -126,7 +126,7 @@ sc:
           Saludos,
           Su robot de sa posta eletrònica de diaspora*!
   nsfw: "NSFW (no est adatu pro unu logu de traballu)"
-  ok: "OK"
+  ok: "AB"
   or: "o"
   password: "Crae (password)"
   password_confirmation: "Cunfirma sa crae (password)"
@@ -136,7 +136,7 @@ sc:
   profile: "Profilu"
   public: "Pùblicu"
   search: "Chirca"
-  settings: "Impostaduras"
+  settings: "Impostatziones"
   terms_and_conditions: "Tèrmines e cunditziones"
   undo: "Annuddare?"
   username: "Nùmene impitadore"

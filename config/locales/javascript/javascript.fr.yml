@@ -79,6 +79,7 @@ fr:
       home: "Accueil"
       log_out: "Se déconnecter"
       mark_all_as_read: "Tout marquer comme lu"
+      moderator: "Modérateur"
       notifications: "Notifications"
       profile: "Profil"
       recent_notifications: "Notifications récentes"

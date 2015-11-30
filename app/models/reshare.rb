@@ -56,6 +56,7 @@ class Reshare < Post
   def receive(recipient, sender)
     local_reshare = Reshare.where(:guid => self.guid).first
     if local_reshare && local_reshare.root.author_id == recipient.person.id
+      recipient.participate! self
       return unless recipient.has_contact_for?(sender)
     end
     super(recipient, sender)
