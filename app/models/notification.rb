@@ -64,6 +64,8 @@ private
       begin
         n.actors = n.actors | [actor]
         n.unread = true
+        # Explicitly touch the notification to update updated_at whenever new actor is inserted in notification.
+        n.touch
         n.save!
       rescue ActiveRecord::RecordNotUnique
         nil
