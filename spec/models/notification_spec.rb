@@ -97,8 +97,10 @@ describe Notification, :type => :model do
           p = FactoryGirl.build(:status_message, :author => @user.person)
           person2 = FactoryGirl.build(:person)
           notification = Notification.notify(@user, FactoryGirl.build(:like, :author => @person, :target => p), @person)
+          earlier_updated_at = notification.updated_at
           notification2 =  Notification.notify(@user, FactoryGirl.build(:like, :author => person2, :target => p), person2)
           expect(notification.id).to eq(notification2.id)
+          expect(earlier_updated_at).to_not eq(notification.reload.updated_at)
         end
       end
 
@@ -107,8 +109,10 @@ describe Notification, :type => :model do
           p = FactoryGirl.build(:status_message, :author => @user.person)
           person2 = FactoryGirl.build(:person)
           notification = Notification.notify(@user, FactoryGirl.build(:comment, :author => @person, :post => p), @person)
+          earlier_updated_at = notification.updated_at
           notification2 =  Notification.notify(@user, FactoryGirl.build(:comment, :author => person2, :post => p), person2)
           expect(notification.id).to eq(notification2.id)
+          expect(earlier_updated_at).to_not eq(notification.reload.updated_at)
         end
       end
 
