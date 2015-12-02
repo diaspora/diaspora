@@ -21,6 +21,14 @@ shared_examples_for "it deals correctly with a relayable" do
     expect(received_entity.author.diaspora_handle).to eq(@remote_person2.diaspora_handle)
   end
 
+  it "rejects a downstream entity with a malformed author signature" do
+    Workers::ReceiveEncryptedSalmon.new.perform(
+      @user.id,
+      generate_relayable_remote_parent_wrong_author_key(entity_name)
+    )
+    expect(klass.exists?(guid: @entity.guid)).to be(false)
+  end
+
   it "declines downstream receive when sender signed with a wrong key" do
     Workers::ReceiveEncryptedSalmon.new.perform(
       @user.id,

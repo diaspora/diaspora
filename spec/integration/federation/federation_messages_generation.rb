@@ -117,6 +117,13 @@ def generate_relayable_local_parent_wrong_author_key(entity_name)
   generate_relayable_local_parent(entity_name)
 end
 
+# Checks when a remote pod B wants to send us a relayable with authorship from a remote pod C user
+# without having correct signature from him.
+def generate_relayable_remote_parent_wrong_author_key(entity_name)
+  substitute_wrong_key(@remote_user2, 1)
+  generate_relayable_remote_parent(entity_name)
+end
+
 # Checks when a remote pod C wants to send us a relayable from its user, but bypassing the pod B where
 # remote status came from.
 def generate_relayable_remote_parent_wrong_parent_key(entity_name)
