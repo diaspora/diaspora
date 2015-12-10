@@ -431,7 +431,7 @@ GEM
       activesupport (>= 3.0.0)
     kgio (2.10.0)
     leaflet-rails (0.7.4)
-    listen (3.0.3)
+    listen (3.0.5)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     little-plugger (1.1.4)
