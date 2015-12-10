@@ -99,7 +99,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1.1)
+    coffee-script-source (1.10.0)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -116,6 +116,7 @@ GEM
       compass (~> 1.0.0)
       sass-rails (< 5.1)
       sprockets (< 2.13)
+    concurrent-ruby (1.0.0)
     configurate (0.3.1)
     connection_pool (2.2.0)
     crack (0.4.2)
@@ -319,7 +320,7 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
-    font-awesome-rails (4.4.0.0)
+    font-awesome-rails (4.5.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     fuubar (2.0.0)
@@ -620,7 +621,7 @@ GEM
     rails-timeago (2.11.0)
       actionpack (>= 3.1)
       activesupport (>= 3.1)
-    rails_admin (0.7.0)
+    rails_admin (0.8.1)
       builder (~> 3.1)
       coffee-rails (~> 4.0)
       font-awesome-rails (>= 3.0, < 5)
@@ -695,7 +696,7 @@ GEM
     rubyzip (1.1.7)
     rugged (0.23.3)
     safe_yaml (1.0.4)
-    sass (3.4.19)
+    sass (3.4.20)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -920,7 +921,7 @@ DEPENDENCIES
   rails-assets-typeahead.js (= 0.11.1)!
   rails-i18n (= 4.0.8)
   rails-timeago (= 2.11.0)
-  rails_admin (= 0.7.0)
+  rails_admin (= 0.8.1)
   rb-fsevent (= 0.9.6)
   rb-inotify (= 0.9.5)
   redcarpet (= 3.3.3)
