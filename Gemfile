@@ -53,7 +53,7 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 
 # CSS
 
-gem "bootstrap-sass", "3.3.5.1"
+gem "bootstrap-sass", "3.3.6"
 gem "compass-rails",  "2.0.5"
 gem "sass-rails",     "5.0.4"
 gem "autoprefixer-rails", "6.2.2"
