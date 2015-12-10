@@ -114,7 +114,6 @@ GEM
       compass (~> 1.0.0)
       sass-rails (< 5.1)
       sprockets (< 2.13)
-    concurrent-ruby (1.0.0)
     configurate (0.3.1)
     connection_pool (2.2.0)
     crack (0.4.3)
@@ -392,8 +391,8 @@ GEM
     ice_cube (0.11.1)
     inflecto (0.0.2)
     ipaddress (0.8.0)
-    jasmine (2.3.1)
-      jasmine-core (~> 2.3)
+    jasmine (2.4.0)
+      jasmine-core (~> 2.4)
       phantomjs
       rack (>= 1.2.1)
       rake
@@ -815,7 +814,7 @@ DEPENDENCIES
   handlebars_assets (= 0.22.0)
   http_accept_language (= 2.0.5)
   i18n-inflector-rails (= 1.0.7)
-  jasmine (= 2.3.1)
+  jasmine (= 2.4.0)
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 4.0.5)
   jquery-ui-rails (= 5.0.5)
