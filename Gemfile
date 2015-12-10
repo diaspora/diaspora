@@ -109,7 +109,7 @@ source "https://rails-assets.org" do
   # jQuery plugins
 
   gem "rails-assets-jeresig--jquery.hotkeys",       "0.2.0"
-  gem "rails-assets-jquery-placeholder",            "2.1.3"
+  gem "rails-assets-jquery-placeholder",            "2.3.1"
   gem "rails-assets-jquery-textchange",             "0.2.3"
   gem "rails-assets-perfect-scrollbar",             "0.6.7"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
