@@ -22,7 +22,7 @@ gem "json-schema", "2.5.1"
 
 # Authentication
 
-gem "devise", "3.5.2"
+gem "devise", "3.5.3"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-token_authenticatable", "~> 0.4.0"
 
