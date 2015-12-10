@@ -650,7 +650,7 @@ GEM
       nokogiri (>= 1.4.1)
       trollop
     redcarpet (3.3.3)
-    redis (3.2.1)
+    redis (3.2.2)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
     remotipart (1.2.1)
