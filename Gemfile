@@ -136,7 +136,7 @@ gem "open_graph_reader", "0.6.1"
 # Services
 
 gem "omniauth",           "1.2.2"
-gem "omniauth-facebook",  "2.0.1"
+gem "omniauth-facebook",  "3.0.0"
 gem "omniauth-tumblr",    "1.1"
 gem "omniauth-twitter",   "1.2.1"
 gem "twitter",            "5.15.0"
