@@ -63,7 +63,7 @@ gem "autoprefixer-rails", "6.2.2"
 ENV["DB"] ||= "mysql"
 
 gem "mysql2", "0.3.20" if ENV["DB"] == "all" || ENV["DB"] == "mysql"
-gem "pg",     "0.18.3" if ENV["DB"] == "all" || ENV["DB"] == "postgres"
+gem "pg",     "0.18.4" if ENV["DB"] == "all" || ENV["DB"] == "postgres"
 
 gem "activerecord-import", "0.10.0"
 
