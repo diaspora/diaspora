@@ -236,7 +236,7 @@ group :development do
 
   # Preloading environment
 
-  gem "spring", "1.4.0"
+  gem "spring", "1.5.0"
   gem "spring-commands-rspec", "1.0.4"
   gem "spring-commands-cucumber", "1.0.1"
 
