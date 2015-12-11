@@ -73,6 +73,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
   config.mock_with :rspec
 
+  config.example_status_persistence_file_path = "tmp/rspec-persistance.txt"
+
   config.render_views
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
