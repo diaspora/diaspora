@@ -21,11 +21,6 @@ class Message < ActiveRecord::Base
                    # inside, which would cause an infinite recursion
     #sign comment as commenter
     self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
-
-    if self.author.owns?(self.parent)
-      #sign comment as post owner
-      self.parent_author_signature = self.sign_with_key(self.parent.author.owner.encryption_key) if self.parent.author.owner
-    end
     self.save!
     self
   end
