@@ -46,6 +46,14 @@ class Retraction
     logger.info "event=retraction status=complete type=#{type} guid=#{post_guid}"
   end
 
+  def correct_authorship?
+    if target.respond_to?(:relayable?) && target.relayable?
+      [target.author, target.parent.author].include?(person)
+    else
+      target.author == person
+    end
+  end
+
   def receive(user, person)
     if self.type == 'Person'
       unless self.person.guid.to_s == self.post_guid.to_s
@@ -55,7 +63,7 @@ class Retraction
         return
       end
       user.disconnected_by(self.target)
-    elsif self.target.nil? || self.target.author != self.person
+    elsif target.nil? || !correct_authorship?
       logger.warn "event=retraction status=abort reason='no post found authored by retractor' " \
                   "sender=#{person.diaspora_handle} post_guid=#{post_guid}"
     else
