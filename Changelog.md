@@ -6,7 +6,8 @@
 ## Bug fixes
 * Fix mention autocomplete when pasting the username [#6510](https://github.com/diaspora/diaspora/pull/6510)
 * Use and update updated\_at for notifications [#6573](https://github.com/diaspora/diaspora/pull/6573)
-* Ensure the author signature is checked when receiving a relayable [#6539](https://github.com/diaspora/diaspora/pull/6539) 
+* Ensure the author signature is checked when receiving a relayable [#6539](https://github.com/diaspora/diaspora/pull/6539)
+* Do not try to display hovercards when logged out [#6587](https://github.com/diaspora/diaspora/pull/6587)
 
 ## Features
 
