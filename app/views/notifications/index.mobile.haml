@@ -7,11 +7,11 @@
   -else
     = link_to t('.mark_all_as_read'), read_all_notifications_path, :class => 'btn'
 %ul.notifications
-  - @group_days.each do |day, notes|
+  - @group_days.each do |date, notes|
     %li
       .notification_day_header
         %span.label
-          = day
+          = locale_date(date)
       %ul.notifications_for_day
         - notes.each do |note|
           .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : 'read'}"}
@@ -21,4 +21,9 @@
               .time_notif
                 = timeago(note.created_at)
 
-  = will_paginate @notifications, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+  = will_paginate @notifications,
+    previous_label: "&laquo;",
+    next_label: "&raquo;",
+    inner_window: 1,
+    outer_window: 0,
+    renderer: WillPaginate::ActionView::BootstrapLinkRenderer

@@ -1,5 +1,5 @@
-Then /^I like the post "([^"]*)"$/ do |post_text|
-  like_post(post_text)
+When /^I (?:like|unlike) the post "([^"]*)" in the stream$/ do |post_text|
+  like_stream_post(post_text)
 end
 
 Then /^"([^"]*)" should be post (\d+)$/ do |post_text, position|

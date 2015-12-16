@@ -1,7 +1,3 @@
-@import '../colors';
-@import '../mixins';
-@import 'new_mixins';
-
 .poll_form {
   border-top: 1px solid $border-grey;
   border-bottom: 1px solid $border-grey;
@@ -21,7 +17,7 @@
 
   .progress {
     background-image: none;
-    @include box-shadow(0, 0, 0);
+    box-shadow: 0 0 0;
     margin-bottom: 5px;
     height: 10px !important;
 
@@ -34,7 +30,7 @@
   }
   .submit[disabled] {
     cursor: default;
-    color: $light-grey;
+    color: $text-grey;
 
     &:hover, &:active {
       background-image: none;

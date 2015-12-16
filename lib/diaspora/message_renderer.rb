@@ -14,6 +14,10 @@ module Diaspora
           processor.instance_exec(&block)
           processor.message
         end
+
+        def normalize message
+          message.gsub(/[\u202a\u202b]#[\u200e\u200f\u202d\u202e](\S+)\u202c/u, "#\\1")
+        end
       end
 
       attr_reader :message, :options
@@ -36,12 +40,9 @@ module Diaspora
         message << options[:append_after_truncate].to_s
       end
 
-      include ActionView::Helpers::TagHelper
       def escape
         if options[:escape]
-          # TODO: On Rails 4 port change this to ERB::Util.html_escape_once
-          # and remove the include
-          @message = escape_once message
+          @message = ERB::Util.html_escape_once message
 
           # Special case Hex entities since escape_once
           # doesn't catch them.
@@ -89,6 +90,14 @@ module Diaspora
 
       def render_tags
         @message = Diaspora::Taggable.format_tags message, no_escape: !options[:escape_tags]
+      end
+
+      def camo_urls
+        @message = Diaspora::Camo.from_markdown(@message)
+      end
+
+      def normalize
+        @message = self.class.normalize(@message)
       end
     end
 
@@ -169,9 +178,18 @@ module Diaspora
     end
 
     # @param [Hash] opts Override global output options, see {#initialize}
+    def plain_text_for_json opts={}
+      process(opts) {
+        normalize
+        camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
+      }
+    end
+
+    # @param [Hash] opts Override global output options, see {#initialize}
     def html opts={}
       process(opts) {
         escape
+        normalize
         render_mentions
         render_tags
         squish
@@ -183,6 +201,8 @@ module Diaspora
     def markdownified opts={}
       process(opts) {
         process_newlines
+        normalize
+        camo_urls if AppConfig.privacy.camo.proxy_markdown_images?
         markdownify
         render_mentions
         render_tags
@@ -193,9 +213,8 @@ module Diaspora
 
     # Get a short summary of the message
     # @param [Hash] opts Additional options
-    # @option opts [Integer] :length (20 | first heading) Truncate the title to
-    #   this length. If not given defaults to 20 and to not truncate
-    #   if a heading is found.
+    # @option opts [Integer] :length (70) Truncate the title to
+    #   this length. If not given defaults to 70.
     def title opts={}
       # Setext-style header
       heading = if /\A(?<setext_content>.{1,200})\n(?:={1,200}|-{1,200})(?:\r?\n|$)/ =~ @raw_message.lstrip
@@ -205,15 +224,21 @@ module Diaspora
         atx_content
       end
 
-      heading &&= heading.strip
+      heading &&= self.class.new(heading).plain_text_without_markdown
 
-      if heading && opts[:length]
-        heading.truncate opts[:length]
-      elsif heading
-        heading
+      if heading
+        heading.truncate opts.fetch(:length, 70)
       else
-        plain_text_without_markdown squish: true, truncate: opts.fetch(:length, 20)
+        plain_text_without_markdown squish: true, truncate: opts.fetch(:length, 70)
       end
+    end
+
+    # Extracts all the urls from the raw message and return them in the form of a string
+    # Different URLs are seperated with a space
+    def urls
+      @urls ||= Twitter::Extractor.extract_urls(plain_text_without_markdown).map {|url|
+        Addressable::URI.parse(url).normalize.to_s
+      }
     end
 
     def raw

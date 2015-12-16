@@ -1,0 +1,18 @@
+= form_for Conversation.new, html: {class: "form-horizontal form_do_not_clear"}, remote: true do |conversation|
+  .control-group
+    %label.control-label{:for => 'contact_ids'}
+      = t('.to')
+    .controls
+      = text_field_tag "contact_autocomplete"
+  .control-group
+    %label.control-label{:for => 'conversation_subject'}
+      = t('.subject')
+    .controls
+      = conversation.text_field :subject, :class => 'input-block-level'
+  .control-group
+    .controls
+      = text_area_tag "conversation[text]", '', :rows => 5, :class => 'input-block-level'
+  .control-group
+    .controls
+      .pull-right
+        = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), :class => 'btn btn-primary creation'

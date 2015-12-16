@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe InvitationsController do
+describe InvitationsController, :type => :controller do
 
   before do
     AppConfig.settings.invitations.open = true
@@ -15,7 +15,7 @@ describe InvitationsController do
   describe "#create" do
     before do
       sign_in :user, @user
-      @controller.stub(:current_user).and_return(@user)
+      allow(@controller).to receive(:current_user).and_return(@user)
       @referer = 'http://test.host/cats/foo'
       request.env["HTTP_REFERER"] = @referer
     end
@@ -26,18 +26,18 @@ describe InvitationsController do
       end
 
       it 'does not create an EmailInviter' do
-        Workers::Mail::InviteEmail.should_not_receive(:perform_async)
+        expect(Workers::Mail::InviteEmail).not_to receive(:perform_async)
         post :create,  @invite
       end
 
       it 'returns to the previous page' do
         post :create, @invite
-        response.should redirect_to @referer
+        expect(response).to redirect_to @referer
       end
 
       it 'flashes an error' do
         post :create, @invite
-        flash[:error].should == I18n.t("invitations.create.empty")
+        expect(flash[:error]).to eq(I18n.t("invitations.create.empty"))
       end
     end
 
@@ -49,19 +49,19 @@ describe InvitationsController do
 
       it 'creates an InviteEmail worker'  do
         inviter = double(:emails => [@emails], :send! => true)
-        Workers::Mail::InviteEmail.should_receive(:perform_async).with(@invite['email_inviter']['emails'], @user.id, @invite['email_inviter'])
+        expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(@invite['email_inviter']['emails'], @user.id, @invite['email_inviter'])
         post :create,  @invite
       end
 
       it 'returns to the previous page on success' do
         post :create, @invite
-        response.should redirect_to @referer
+        expect(response).to redirect_to @referer
       end
 
       it 'flashes a notice' do
         post :create, @invite
         expected =  I18n.t('invitations.create.sent', :emails => @emails.split(',').join(', '))
-        flash[:notice].should == expected
+        expect(flash[:notice]).to eq(expected)
       end
     end
 
@@ -72,20 +72,20 @@ describe InvitationsController do
       end
 
       it 'does not create an InviteEmail worker' do
-        Workers::Mail::InviteEmail.should_not_receive(:perform_async)
+        expect(Workers::Mail::InviteEmail).not_to receive(:perform_async)
         post :create,  @invite
       end
 
       it 'returns to the previous page' do
         post :create, @invite
-        response.should redirect_to @referer
+        expect(response).to redirect_to @referer
       end
 
       it 'flashes an error' do
         post :create, @invite
 
         expected =  I18n.t('invitations.create.rejected') + @emails.split(',').join(', ')
-        flash[:error].should == expected
+        expect(flash[:error]).to eq(expected)
       end
     end
 
@@ -99,13 +99,13 @@ describe InvitationsController do
 
       it 'creates an InviteEmail worker'  do
         inviter = double(:emails => [@emails], :send! => true)
-        Workers::Mail::InviteEmail.should_receive(:perform_async).with(@valid_emails, @user.id, @invite['email_inviter'])
+        expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(@valid_emails, @user.id, @invite['email_inviter'])
         post :create,  @invite
       end
 
       it 'returns to the previous page' do
         post :create, @invite
-        response.should redirect_to @referer
+        expect(response).to redirect_to @referer
       end
 
       it 'flashes a notice' do
@@ -114,17 +114,15 @@ describe InvitationsController do
                           @valid_emails.split(',').join(', ')) +
                           '. ' + I18n.t('invitations.create.rejected') +
                           @invalid_emails.split(',').join(', ')
-        flash[:error].should == expected
+        expect(flash[:error]).to eq(expected)
       end
     end
 
     it 'redirects if invitations are closed' do
-      open_bit = AppConfig.settings.invitations.open?
       AppConfig.settings.invitations.open =  false
 
       post :create, @invite
-      response.should be_redirect
-      AppConfig.settings.invitations.open = open_bit
+      expect(response).to be_redirect
     end
   end
 
@@ -132,7 +130,7 @@ describe InvitationsController do
 
     it 'succeeds' do
       get :email, :invitation_code => "anycode"
-      response.should be_success
+      expect(response).to be_success
     end
 
     context 'legacy invite tokens' do
@@ -146,14 +144,14 @@ describe InvitationsController do
         it 'redirects and flashes if the invitation token is invalid' do
           get_email
 
-          response.should be_redirect
-          response.should redirect_to root_url
+          expect(response).to be_redirect
+          expect(response).to redirect_to root_url
         end
 
         it 'flashes an error if the invitation token is invalid' do
           get_email
 
-          flash[:error].should == I18n.t("invitations.check_token.not_found")
+          expect(flash[:error]).to eq(I18n.t("invitations.check_token.not_found"))
         end
       end
     end
@@ -169,50 +167,50 @@ describe InvitationsController do
   describe 'redirect logged out users to the sign in page' do
     it 'redriects #new' do
       get :new
-      response.should be_redirect
-      response.should redirect_to new_user_session_path
+      expect(response).to be_redirect
+      expect(response).to redirect_to new_user_session_path
     end
 
     it 'redirects #create' do
       post :create
-      response.should be_redirect
-      response.should redirect_to new_user_session_path
+      expect(response).to be_redirect
+      expect(response).to redirect_to new_user_session_path
     end
   end
 
   describe '.valid_email?' do
     it 'returns false for empty email' do
-      subject.send(:valid_email?, '').should be false
+      expect(subject.send(:valid_email?, '')).to be false
     end
 
     it 'returns false for email without @-sign' do
-      subject.send(:valid_email?, 'foo').should be false
+      expect(subject.send(:valid_email?, 'foo')).to be false
     end
 
     it 'returns true for valid email' do
-      subject.send(:valid_email?, 'foo@bar.com').should be true
+      expect(subject.send(:valid_email?, 'foo@bar.com')).to be true
     end
   end
 
   describe '.html_safe_string_from_session_array' do
     it 'returns "" for blank session[key]' do
-      subject.send(:html_safe_string_from_session_array, :blank).should eq ""
+      expect(subject.send(:html_safe_string_from_session_array, :blank)).to eq ""
     end
 
     it 'returns "" if session[key] is not an array' do
       session[:test_key] = "test"
-      subject.send(:html_safe_string_from_session_array, :test_key).should eq ""
+      expect(subject.send(:html_safe_string_from_session_array, :test_key)).to eq ""
     end
 
     it 'returns the correct value' do
       session[:test_key] = ["test", "foo"]
-      subject.send(:html_safe_string_from_session_array, :test_key).should eq "test, foo"
+      expect(subject.send(:html_safe_string_from_session_array, :test_key)).to eq "test, foo"
     end
 
     it 'sets session[key] to nil' do
       session[:test_key] = ["test"]
       subject.send(:html_safe_string_from_session_array, :test_key)
-      session[:test_key].should be nil
+      expect(session[:test_key]).to be nil
     end
   end
 end

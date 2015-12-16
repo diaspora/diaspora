@@ -1,0 +1,24 @@
+// A temporary fix for broken classes in bootstrap 2.
+// Can probably be removed when migration of bootstrap 3 is done.
+
+input::placeholder,
+textarea::placeholder {
+  color: #999999;
+}
+input::input-placeholder,
+textarea::input-placeholder {
+  color: #999999;
+}
+
+
+// A temporary fix for mention modal #5329
+
+#new_status_message_pane .modal {
+  position: absolute;
+  max-height: none;
+}
+
+#new_status_message_pane .modal-body{
+  overflow-y: visible;
+  max-height: none;
+}

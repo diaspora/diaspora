@@ -30,8 +30,8 @@ class Comment < ActiveRecord::Base
   validates :text, :presence => true, :length => {:maximum => 65535}
   validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
-  scope :including_author, includes(:author => :profile)
-  scope :for_a_stream, including_author.merge(order('created_at ASC'))
+  scope :including_author, -> { includes(:author => :profile) }
+  scope :for_a_stream,  -> { including_author.merge(order('created_at ASC')) }
 
   before_save do
     self.text.strip! unless self.text.nil?
@@ -54,13 +54,13 @@ class Comment < ActiveRecord::Base
   end
 
   def diaspora_handle= nh
-    self.author = Webfinger.new(nh).fetch
+    self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
   def notification_type(user, person)
     if self.post.author == user.person
       return Notifications::CommentOnPost
-    elsif self.post.comments.where(:author_id => user.person.id) != [] && self.author_id != user.person.id
+    elsif user.participations.where(:target_id => self.post).exists? && self.author_id != user.person.id
       return Notifications::AlsoCommented
     else
       return false
@@ -94,6 +94,7 @@ class Comment < ActiveRecord::Base
 
     def initialize(person, target, text)
       @text = text
+      @dispatcher_opts = {additional_subscribers: target.comments_authors.where.not(id: person.id)}
       super(person, target)
     end
 

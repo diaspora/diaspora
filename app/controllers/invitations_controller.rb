@@ -4,7 +4,7 @@
 
 class InvitationsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => [:new, :create]
+  before_action :authenticate_user!, :only => [:new, :create]
 
   def new
     @invite_code = current_user.invitation_code
@@ -14,7 +14,7 @@ class InvitationsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        render params[:blueprint] ? 'invitations/new_blueprint' : 'invitations/new', layout: false
+        render 'invitations/new', layout: false
       end
     end
   end

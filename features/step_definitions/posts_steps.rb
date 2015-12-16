@@ -15,27 +15,34 @@ Then /^I should not see an uploaded image within the photo drop zone$/ do
 end
 
 Then /^I should not see any posts in my stream$/ do
-  all(".stream_element").should be_empty
+  page.assert_selector(".stream_element", count: 0)
 end
 
 Then /^I should not be able to submit the publisher$/ do
-  expect(publisher_submittable?).to be_false
+  expect(publisher_submittable?).to be false
 end
 
 Given /^"([^"]*)" has a public post with text "([^"]*)"$/ do |email, text|
   user = User.find_by_email(email)
-  user.post(:status_message, :text => text, :public => true, :to => user.aspects)
+  user.post(:status_message, :text => text, :public => true, :to => user.aspect_ids)
+end
+
+Given /^there are (\d+) public posts from "([^"]*)"$/ do |n_posts, email|
+  user = User.find_by_email(email)
+  (1..n_posts.to_i).each do |n|
+    user.post(:status_message, text: "post nr. #{n}", public: true, to: user.aspect_ids)
+  end
 end
 
 Given /^"([^"]*)" has a non public post with text "([^"]*)"$/ do |email, text|
   user = User.find_by_email(email)
-  user.post(:status_message, :text => text, :public => false, :to => user.aspects)
+  user.post(:status_message, :text => text, :public => false, :to => user.aspect_ids)
 end
 
 And /^the post with text "([^"]*)" is reshared by "([^"]*)"$/ do |text, email|
   user = User.find_by_email(email)
   root = Post.find_by_text(text)
-  user.post(:reshare, :root_guid => root.guid, :public => true, :to => user.aspects)
+  user.post(:reshare, :root_guid => root.guid, :public => true, :to => user.aspect_ids)
 end
 
 And /^I submit the publisher$/ do
@@ -53,10 +60,6 @@ end
 
 When /^I expand the post$/ do
   expand_first_post
-end
-
-Then /^I should see "([^"]*)" as the first post in my stream$/ do |text|
-  first_post_text.should include(text)
 end
 
 When /^I click the publisher and post "([^"]*)"$/ do |text|
@@ -79,8 +82,12 @@ When /^I append "([^"]*)" to the publisher$/ do |text|
   append_to_publisher(text)
 end
 
-When /^I append "([^"]*)" to the publisher mobile$/ do |text|
+When /^I append "([^"]*)" to the mobile publisher$/ do |text|
   append_to_publisher(text, '#status_message_text')
+end
+
+When /^I attach "([^"]*)" to the publisher$/ do |path|
+  upload_file_with_publisher(path)
 end
 
 When /^I open the show page of the "([^"]*)" post$/ do |post_text|
@@ -89,7 +96,7 @@ end
 
 When /^I select "([^"]*)" on the aspect dropdown$/ do |text|
   page.execute_script(
-    "$('#publisher .dropdown .dropdown_list')
+    "$('#publisher .dropdown .dropdown_list, #publisher .aspect_dropdown .dropdown-menu')
       .find('li').each(function(i,el){
       var elem = $(el);
       if ('" + text + "' == $.trim(elem.text()) ) {

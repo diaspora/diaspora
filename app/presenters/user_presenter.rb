@@ -6,16 +6,16 @@ class UserPresenter
     self.aspects_ids = aspects_ids
   end
 
-  def to_json(options = {})
-    self.user.person.as_api_response(:backbone).update(
-      { :notifications_count => notifications_count,
-        :unread_messages_count => unread_messages_count,
-        :admin => admin,
-        :aspects => aspects,
-        :services => services,
-        :following_count => self.user.contacts.receiving.count,
-        :configured_services => self.configured_services,
-      }
+  def to_json(options={})
+    user.person.as_api_response(:backbone).update(
+      notifications_count:   notifications_count,
+      unread_messages_count: unread_messages_count,
+      admin:                 admin,
+      moderator:             moderator,
+      aspects:               aspects,
+      services:              services,
+      following_count:       user.contacts.receiving.count,
+      configured_services:   configured_services
     ).to_json(options)
   end
 
@@ -24,14 +24,14 @@ class UserPresenter
   end
 
   def configured_services
-    user.services.map{|service| service.provider }
+    user.services.map(&:provider)
   end
 
   def aspects
     @aspects ||= begin
                    aspects = AspectPresenter.as_collection(user.aspects)
-                   no_aspects = self.aspects_ids.empty?
-                   aspects.each{ |a| a[:selected] = no_aspects || self.aspects_ids.include?(a[:id].to_s) }
+                   no_aspects = aspects_ids.empty?
+                   aspects.each {|a| a[:selected] = no_aspects || aspects_ids.include?(a[:id].to_s) }
                  end
   end
 
@@ -45,5 +45,9 @@ class UserPresenter
 
   def admin
     user.admin?
+  end
+
+  def moderator
+    user.moderator?
   end
 end

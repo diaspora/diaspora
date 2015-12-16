@@ -4,6 +4,8 @@
 
 
 class Postzord::Dispatcher
+  include Diaspora::Logging
+
   require 'postzord/dispatcher/private'
   require 'postzord/dispatcher/public'
 
@@ -66,8 +68,6 @@ class Postzord::Dispatcher
     @object
   end
 
-  
-
   protected
 
   # @return [Object]
@@ -126,7 +126,8 @@ class Postzord::Dispatcher
       batch_deliver_to_local(people)
     else
       people.each do |person|
-        Rails.logger.info("event=push route=local sender=#{@sender.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{@object.class}")
+        logger.info "event=push route=local sender=#{@sender.diaspora_handle} recipient=#{person.diaspora_handle} " \
+                    "payload_type=#{@object.class}"
         Workers::Receive.perform_async(person.owner_id, @xml, @sender.person_id)
       end
     end
@@ -136,12 +137,13 @@ class Postzord::Dispatcher
   def batch_deliver_to_local(people)
     ids = people.map{ |p| p.owner_id }
     Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, ids)
-    Rails.logger.info("event=push route=local sender=#{@sender.diaspora_handle} recipients=#{ids.join(',')} payload_type=#{@object.class}")
+    logger.info "event=push route=local sender=#{@sender.diaspora_handle} recipients=#{ids.join(',')} " \
+                "payload_type=#{@object.class}"
   end
 
   def deliver_to_hub
-    Rails.logger.debug("event=post_to_service type=pubsub sender_handle=#{@sender.diaspora_handle}")
-    Workers::PublishToHub.perform_async(@sender.public_url)
+    logger.debug "event=post_to_service type=pubsub sender_handle=#{@sender.diaspora_handle}"
+    Workers::PublishToHub.perform_async(@sender.atom_url)
   end
 
   # @param url [String]
@@ -170,14 +172,7 @@ class Postzord::Dispatcher
   def notify_users(users)
     return unless users.present? && @object.respond_to?(:persisted?)
 
-    #temp hax
-    unless object_is_related_to_diaspora_hq?
-      Workers::NotifyLocalUsers.perform_async(users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
-    end
-  end
-
-  def object_is_related_to_diaspora_hq?
-    (@object.author.diaspora_handle == 'diasporahq@joindiaspora.com' || (@object.respond_to?(:relayable?) && @object.parent.author.diaspora_handle == 'diasporahq@joindiaspora.com'))
+    Workers::NotifyLocalUsers.perform_async(users.map(&:id), @object.class.to_s, @object.id, @object.author.id)
   end
 end
 

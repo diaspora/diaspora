@@ -17,7 +17,7 @@
             <span class="section-selected">{{ title_account_and_data_management }}</span>
           </li>
           <li>
-            <a href="#" class="section-unselected faq-link" data-section="aspects" data-items="what_is_an_aspect who_sees_post restrict_posts_i_see contacts_know_aspect contacts_visible remove_notification rename_aspect change_aspect_of_post post_multiple_aspects person_multiple_aspects delete_aspect">{{ title_aspects }}</a>
+            <a href="#" class="section-unselected faq-link" data-section="aspects" data-items="what_is_an_aspect who_sees_post contacts_know_aspect person_multiple_aspects contacts_visible remove_notification change_aspect_of_post post_multiple_aspects restrict_posts_i_see rename_aspect delete_aspect">{{ title_aspects }}</a>
             <span class="section-selected">{{ title_aspects }}</span>
           </li>
           <li>
@@ -57,7 +57,7 @@
             <span class="section-selected">{{ title_sharing }}</span>
           </li>
           <li>
-            <a href="#" class="section-unselected faq-link" data-section="tags" data-items="what_are_tags_for tags_in_comments followed_tags people_tag_page filter_tags">{{ title_tags }}</a>
+            <a href="#" class="section-unselected faq-link-tags" data-section="tags" data-items="what_are_tags_for tags_in_comments followed_tags people_tag_page filter_tags">{{ title_tags }}</a>
             <span class="section-selected">{{ title_tags }}</span>
           </li>
           <li>
@@ -68,6 +68,12 @@
             <a href="#" class="section-unselected faq-link" data-section="miscellaneous" data-items="back_to_top photo_albums subscribe_feed diaspora_app">{{ title_miscellaneous }}</a>
             <span class="section-selected">{{ title_miscellaneous }}</span>
           </li>
+          {{#if chat_enabled }}
+          <li>
+            <a href="#" class="section-unselected faq-link-chat" data-section="chat" data-items="add_contact_roster i_m_a_podmin">{{ title_chat }}</a>
+            <span class="section-selected">{{ title_chat }}</span>
+          </li>
+          {{/if}}
         </ul>
       </div>
     </div>

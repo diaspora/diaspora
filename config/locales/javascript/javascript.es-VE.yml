@@ -6,6 +6,7 @@
 
 es-VE:
   javascripts:
+    and: "y"
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
@@ -21,6 +22,7 @@ es-VE:
         two: "En <%= count %> aspectos"
         zero: "Seleccionar aspectos"
     aspect_navigation:
+      add_an_aspect: "+ Añade un aspecto"
       deselect_all: "Desmarcar todos"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Marcar todos"
@@ -40,6 +42,7 @@ es-VE:
       admin: "Administración"
       close: "cerrar"
       contacts: "Contactos"
+      help: "Ayuda"
       home: "Inicio"
       log_out: "Salir"
       mark_all_as_read: "Marcar todo como leido"
@@ -56,13 +59,39 @@ es-VE:
     my_activity: "Mi Actividad"
     my_stream: "Entrada"
     people:
+      edit_my_profile: "Editar mi perfil"
       not_found: "...no se encontró a nadie."
     photo_uploader:
       looking_good: "¡Genial, estás increíble!"
+    poll:
+      close_result: "Ocultar resultado"
+      count:
+        one: "<%=count%> por ahora"
+        other: "<%=count%> votos por ahora"
+      go_to_original_post: "Puedes participar en esta encuesta en <%= original_post_link %>."
+      original_post: "Publicación original"
+      result: "Resultado"
+      show_result: "Mostrar resultado"
+      vote: "Votar"
+    profile:
+      add_some: "Añade algo"
+      bio: "Biografía"
+      born: "Cumpleaños"
+      contacts: "Contactos"
+      edit: "Editar"
+      gender: "Sexo"
+      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
+      location: "Ubicación"
+      photos: "Fotos"
+      posts: "Mensajes"
+      you_have_no_tags: "¡no tienes etiquetas!"
     publisher:
+      add_option: "Añade una respuesta"
       at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
       limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
+      option: "Respuesta"
       public: "Público - tu publicación es visible para todos, los buscadores podrán encontrarla."
+      question: "Pregunta"
     reshares:
       duplicate: "Que bueno, ¿eh? ¡Ya has compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"
@@ -93,6 +122,13 @@ es-VE:
         zero: "Compartido <%= count %> veces"
       show_nsfw_post: "Mostrar publicación"
       show_nsfw_posts: "Mostrar todo"
+      tags:
+        follow: "Seguir #<%= tag %>"
+        follow_error: "No se pudo seguir #<%= tag %> :("
+        following: "Siguiendo #<%= tag %>"
+        stop_following: "Dejar de seguir #<%= tag %>"
+        stop_following_confirm: "Dejar de seguir #<%= tag %>?"
+        stop_following_error: "No se pudo dejar de seguir #<%= tag %> :("
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
     tags:

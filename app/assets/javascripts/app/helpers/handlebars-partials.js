@@ -1,4 +1,7 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 /* we need to wrap this in a document ready to ensure JST is accessible */
 $(function(){
-  Handlebars.registerPartial('status-message', JST['status-message_tpl'])
+  Handlebars.registerPartial('status-message', HandlebarsTemplates['status-message_tpl']);
 });
+// @license-end

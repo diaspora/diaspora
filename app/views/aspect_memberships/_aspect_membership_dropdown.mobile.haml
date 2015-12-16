@@ -1,0 +1,13 @@
+%div
+  %select{:name => 'user_aspects', :class => 'user_aspects', 'data-person-id' => @person.id}
+    %option{:value => 'list_cover', :class => 'list_cover', :disabled => 'true', :selected => 'true'}
+      = t("add_contact")
+    - contact = current_user.contact_for(@person)
+    - current_user.aspects.each do |aspect|
+      - if contact.try(:in_aspect?, aspect)
+        - membership_id = contact.aspect_memberships.where(:aspect_id => aspect.id).limit(1).pluck(:id).first
+        %option{:value => aspect.id, 'data-name' => aspect.name, 'data-membership_id' => membership_id, :class => 'selected'}
+          = "✓ #{t('shared.aspect_dropdown.mobile_row_checked', name: aspect.name)}"
+      - else
+        %option{:value => aspect.id, 'data-name' => aspect.name}
+          = "– #{t('shared.aspect_dropdown.mobile_row_unchecked', name: aspect.name)}"

@@ -1,0 +1,28 @@
+ul.followed_tags {
+  list-style: none;
+  margin: 0px;
+
+  > li {
+    background-color: $white;
+    border: 1px solid $border-grey;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba($border-dark-grey, 0.5);
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px;
+
+    .tag_name {
+      margin-right: 30px;
+      word-break: break-all;
+    }
+
+    .tag_following_action {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 10px;
+      margin: 0;
+      padding: 0;
+      &:hover { text-decoration: none }
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe StreamsController do
+describe StreamsController, :type => :controller do
   describe '#aspects' do
     before do
       sign_in :user, alice
@@ -15,7 +15,7 @@ describe StreamsController do
 
     context 'jasmine fixtures' do
       before do
-        Stream::Aspect.any_instance.stub(:ajax_stream?).and_return(false)
+        allow_any_instance_of(Stream::Aspect).to receive(:ajax_stream?).and_return(false)
       end
 
       it "generates a jasmine fixture", :fixture => true do
@@ -68,18 +68,7 @@ describe StreamsController do
       it "generates a jasmine fixture with a post containing a video", :fixture => true do
         stub_request(
           :get,
-          "http://gdata.youtube.com/feeds/api/videos/UYrkQL1bX4A?v=2"
-        ).with(
-          :headers => {'Accept'=>'*/*'}
-        ).to_return(
-          :status  => 200,
-          :body    => "<title>LazyTown song - Cooking By The Book</title>",
-          :headers => {}
-        )
-
-        stub_request(
-          :get,
-          "http://www.youtube.com/oembed?scheme=https&format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://www.youtube.com/watch?v=UYrkQL1bX4A"
+          "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&scheme=https&url=http://www.youtube.com/watch?v=UYrkQL1bX4A"
         ).with(
           :headers => {'Accept'=>'*/*'}
         ).to_return(

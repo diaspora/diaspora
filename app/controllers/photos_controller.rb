@@ -3,8 +3,7 @@
 #   the COPYRIGHT file.
 
 class PhotosController < ApplicationController
-  before_filter :authenticate_user!, :except => :show
-
+  before_action :authenticate_user!, except: %i(show index)
   respond_to :html, :json
 
   def show
@@ -20,24 +19,25 @@ class PhotosController < ApplicationController
   def index
     @post_type = :photos
     @person = Person.find_by_guid(params[:person_id])
+    authenticate_user! if @person.try(:remote?) && !user_signed_in?
 
     if @person
-      @contact = current_user.contact_for(@person)
-
-      if @contact
-        @contacts_of_contact = @contact.contacts
-        @contacts_of_contact_count = @contact.contacts.count
-      else
-        @contact = Contact.new
-      end
-
-      @posts = current_user.photos_from(@person, max_time: max_time)
-
+      @contact = current_user.contact_for(@person) if user_signed_in?
+      @posts = Photo.visible(current_user, @person, :all, max_time)
       respond_to do |format|
-        format.all { render 'people/show' }
+        format.all do
+          gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
+          gon.preloads[:photos] = {
+            count: Photo.visible(current_user, @person).count(:all)
+          }
+          gon.preloads[:contacts] = {
+            count: Contact.contact_contacts_for(current_user, @person).count(:all),
+          }
+          render "people/show", layout: "with_header"
+        end
+        format.mobile { render "people/show" }
         format.json{ render_for_api :backbone, :json => @posts, :root => :photos }
       end
-
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
       redirect_to people_path

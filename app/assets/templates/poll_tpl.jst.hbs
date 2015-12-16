@@ -37,6 +37,13 @@
           </div>
         {{/poll.poll_answers}}
       {{/if}}
+
+      {{#if is_reshare }}
+        <div class="poll_footer">
+          {{{t "poll.go_to_original_post" original_post_link=original_post_link}}}
+        </div>
+      {{/if}}
+
     </div>
   </div>
 {{/if}}

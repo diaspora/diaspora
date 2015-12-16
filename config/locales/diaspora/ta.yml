@@ -50,8 +50,6 @@ ta:
   are_you_sure: "நீங்கள் உறுதியாக இருக்கிறீர்களா?"
   are_you_sure_delete_account: "நீங்கள் உங்கள் கணக்கை மூட வேண்டுமா? இதை தவிர்க்க முடியாது!"
   aspects:
-    aspect_contacts:
-      done_editing: "திருத்தம் முடிந்தது"
     aspect_listings:
       deselect_all: "அனைத்தையும் தேர்வுநீக்கம் செய்க"
       edit_aspect: "மாற்று %{name}"
@@ -62,18 +60,14 @@ ta:
       failure: "%{name} காலியாக இல்லை ஆகையால் நீக்க முடியவில்லை"
       success: "%{name} வெற்றிகரமாக நீக்கப்பட்டது"
     edit:
-      add_existing: "ஏற்கனவே இருக்கும் தொடர்பை சேர்க்க."
       aspect_list_is_not_visible: "அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களுக்கு மறைக்கப்பட்டது"
       aspect_list_is_visible: "அம்சம் பட்டியல் அம்சங்களிலுள்ள மற்றவர்களால் பார்க்க இயலும்"
       confirm_remove_aspect: "நீங்கள் இந்த அம்சத்தை நீக்க வேண்டுமா?"
-      done: "முடிக்கப்பட்டது."
       make_aspect_list_visible: "இந்த அம்சத்தில் உள்ள தொடர்புகளை ஒருவருகொற்ருவர் பார்க்க இயலுமா?"
       remove_aspect: "இந்த அம்சத்தை நீக்கு"
       rename: "மறுபெயர்"
       update: "புதுப்பிக்க"
       updating: "புதுப்பித்தல் நடக்கிறது"
-    helper:
-      remove: "அகற்று"
     index:
       donate: "நன்கொடை"
       help:
@@ -92,14 +86,12 @@ ta:
     no_posts_message:
       start_talking: "யாரும் எதுவும் கூறவில்லை!"
     one: "ஒரு அம்சம்"
+    other: "%{count} அம்சங்கள்"
     seed:
       acquaintances: "அறிமுகமானவர்கள்"
       family: "குடும்பம்"
       friends: "நண்பர்கள்"
       work: "வேலை"
-    show:
-      edit_aspect: "அம்சத்தை திருத்த"
-    two: "%{count} அம்சங்கள்"
     zero: "இல்லாத அம்சங்கள்"
   back: "பின்"
   cancel: "ரத்துசெய்"
@@ -110,6 +102,7 @@ ta:
       correct_the_following_errors_and_try_again: "கொடுக்கப்பட்டுள்ள பிழைகளை சரிசெய்து மீண்டும் முயற்சிக்கவும்."
       invalid_fields: "தவறான புலங்கள்"
   fill_me_out: "என்னை நிரப்பு"
+  find_people: "நபர்களை/குறிச்சொற்களை கண்டுபிடி"
   hide: "மறை"
   limited: "வரம்புக்குட்பட்ட"
   more: "மேலும்"

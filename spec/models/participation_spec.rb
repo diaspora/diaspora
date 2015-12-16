@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Participation do
+describe Participation, :type => :model do
   describe 'it is relayable' do
     before do
       @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)

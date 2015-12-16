@@ -3,12 +3,21 @@
 -#   the COPYRIGHT file.
 
 .conversation_participants
-  = link_to(content_tag(:div, nil, :class => 'icons-deletelabel'),
-            conversation_visibility_path(conversation),
-            :method => 'delete',
-            :data => { :confirm => "#{t('.delete')}?" },
-            :title => t('.delete'),
-            :class => 'close_conversation')
+  .control-icons.pull-right
+    - if conversation.participants.count > 1
+      = link_to(content_tag(:i, nil, :class => 'entypo cross'),
+                conversation_visibility_path(conversation),
+                :method => 'delete',
+                :data => { :confirm => "#{t('.hide')}?" },
+                :title => t('.hide'),
+                :class => 'hide_conversation')
+    - else
+      = link_to(content_tag(:i, nil, :class => 'entypo trash'),
+                conversation_visibility_path(conversation),
+                :method => 'delete',
+                :data => { :confirm => "#{t('.delete')}?" },
+                :title => t('.delete'),
+                :class => 'delete_conversation')
 
   %h3{ :class => direction_for(conversation.subject) }
     = conversation.subject
@@ -27,4 +36,4 @@
       .bd
         = form_for [conversation, Message.new] do |message|
           = message.text_area :text, :class => 'span12', :rows => 5, :tabindex => 1
-          = message.submit t('.reply').capitalize, 'data-disable-with' => t('.replying'), :class => 'btn btn-primary creation', :tabindex => 2
+          = message.submit t('.reply').capitalize, 'data-disable-with' => t('.replying'), class: 'btn btn-primary pull-right creation', tabindex: 2

@@ -14,7 +14,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   end
 
   def receive!
-    FEDERATION_LOGGER.info("receiving local batch for #{@object.inspect}")
+    logger.info "receiving local batch for #{@object.inspect}"
     if @object.respond_to?(:relayable?)
       receive_relayable
     else
@@ -25,18 +25,16 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
     # 09/27/11 this is slow
     notify_users
 
-    FEDERATION_LOGGER.info("receiving local batch completed for #{@object.inspect}")
-    true
+    logger.info "receiving local batch completed for #{@object.inspect}"
   end
 
   # NOTE(copied over from receiver public)
-  # @return [Object]
+  # @return [void]
   def receive_relayable
     if @object.parent_author.local?
       # receive relayable object only for the owner of the parent object
       @object.receive(@object.parent_author.owner)
     end
-    @object
   end
 
   # Batch import post visibilities for the recipients of the given @object
@@ -63,5 +61,18 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
     @users.find_each do |user|
       Notification.notify(user, @object, @object.author)
     end
+    if @object.respond_to?(:target)
+      additional_subscriber = @object.target.author.owner
+    elsif @object.respond_to?(:post)
+      additional_subscriber = @object.post.author.owner
+    end
+
+    Notification.notify(additional_subscriber, @object, @object.author) if needs_notification?(additional_subscriber)
+  end
+
+  private
+
+  def needs_notification?(person)
+    person && person != @object.author.owner && !@users.exists?(person.id)
   end
 end

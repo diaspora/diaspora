@@ -1,11 +1,7 @@
-Diaspora is written by:
-  Daniel Grippi
-  Ilya Zhitomirskiy
-  Maxwell Salzberg
-  Raphael Sofaer
+diaspora* was initially developed by:
+-  Ilya Zhitomirskiy
+-  Raphael Sofaer
+-  Daniel Grippi
+-  Maxwell Salzberg
 
-With help from many libraries and frameworks including:
-  JQuery
-  Ruby on Rails
-  Blueprint-CSS
-  and others
+It lives on as an open source project with many contributors, a self updating list is at: https://github.com/diaspora/diaspora/graphs/contributors

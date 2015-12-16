@@ -24,7 +24,7 @@ module Federated
     end
 
     def diaspora_handle=(nh)
-      self.author = Webfinger.new(nh).fetch
+      self.author = Person.find_or_fetch_by_identifier(nh)
     end
 
     def parent_class
@@ -37,6 +37,10 @@ module Federated
 
     def parent= parent
       self.target = parent
+    end
+
+    def fetch_parent guid
+      Diaspora::Fetcher::Single.find_or_fetch_from_remote guid, diaspora_handle
     end
   end
 end

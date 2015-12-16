@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 //   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 //   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
@@ -7,33 +9,48 @@ var AspectsDropdown = {
     var button = dropdown.parents(".dropdown").children('.button.toggle'),
         selectedAspects = dropdown.children(".selected").length,
         allAspects = dropdown.children().length,
-        replacement;
+        replacement,
+        message,
+        isInPublisher = dropdown.closest('#publisher').length;
 
-    if (number == 0) {
+    if (number === 0) {
       button.removeClass(inAspectClass);
-      if( dropdown.closest('#publisher').length ) {
+      if (isInPublisher) {
         replacement = Diaspora.I18n.t("aspect_dropdown.select_aspects");
       } else {
         replacement = Diaspora.I18n.t("aspect_dropdown.add_to_aspect");
         /* flash message prompt */
-        var message = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: dropdown.data('person-short-name')});
+        message = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: dropdown.data('person-short-name')});
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
-    }else if (selectedAspects == allAspects) {
+    } else if (selectedAspects === allAspects) {
       replacement = Diaspora.I18n.t('aspect_dropdown.all_aspects');
-    }else if (number == 1) {
+    } else if (number === 1) {
       button.addClass(inAspectClass);
       replacement = dropdown.find(".selected").first().text();
       /* flash message prompt */
-      if( dropdown.closest('#publisher').length == 0 ) {
-        var message = Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: dropdown.data('person-short-name')});
+      if (!isInPublisher) {
+        message = Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: dropdown.data('person-short-name')});
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
-    }else {
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle', { count: number.toString()})
+    } else {
+      replacement = Diaspora.I18n.t('aspect_dropdown.toggle', { count: number.toString()});
     }
 
-    button.text(replacement + ' ▼');
+    // if we are in the publisher, we add the visibility icon
+    if (isInPublisher) {
+      var icon = $('#visibility-icon');      
+      if (replacement.trim() === Diaspora.I18n.t('stream.public')) {
+        icon.removeClass('lock');
+        icon.addClass('globe');
+      } else {
+        icon.removeClass('globe');
+        icon.addClass('lock');
+      }
+      button.find('.text').text(replacement);
+    } else {
+      button.text(replacement + ' ▼');
+    }
   },
 
   toggleCheckbox: function(check) {
@@ -58,4 +75,4 @@ var AspectsDropdown = {
     });
   }
 };
-
+// @license-end

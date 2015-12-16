@@ -8,7 +8,7 @@ module User::Connecting
   # @param [Aspect] aspect The aspect to add them to.
   # @return [Contact] The newly made contact for the passed in person.
   def share_with(person, aspect)
-    contact = self.contacts.find_or_initialize_by_person_id(person.id)
+    contact = self.contacts.find_or_initialize_by(person_id: person.id)
     return false unless contact.valid?
 
     unless contact.receiving?
@@ -22,7 +22,7 @@ module User::Connecting
     if notification = Notification.where(:target_id => person.id).first
       notification.update_attributes(:unread=>false)
     end
-    
+
     deliver_profile_update
     register_share_visibilities(contact)
     contact
@@ -42,8 +42,6 @@ module User::Connecting
   end
 
   def remove_contact(contact, opts={:force => false, :retracted => false})
-    posts = contact.posts.all
-
     if !contact.mutual? || opts[:force]
       contact.destroy
     elsif opts[:retracted]
@@ -55,7 +53,7 @@ module User::Connecting
 
   def disconnect(bad_contact, opts={})
     person = bad_contact.person
-    Rails.logger.info("event=disconnect user=#{diaspora_handle} target=#{person.diaspora_handle}")
+    logger.info "event=disconnect user=#{diaspora_handle} target=#{person.diaspora_handle}"
     retraction = Retraction.for(self)
     retraction.subscribers = [person]#HAX
     Postzord::Dispatcher.build(self, retraction).post
@@ -65,7 +63,7 @@ module User::Connecting
   end
 
   def disconnected_by(person)
-    Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}")
+    logger.info "event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}"
     if contact = self.contact_for(person)
       remove_contact(contact, :retracted => true)
     end

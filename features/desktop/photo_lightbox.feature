@@ -1,13 +1,9 @@
 @javascript
 Feature: viewing the photo lightbox
   Background:
-    Given I am on the home page
-    And a user with username "bob"
-
-    When I sign in as "bob@bob.bob"
-    And I am on the home page
-
-    Given I expand the publisher
+    Given a user with username "bob"
+    And I sign in as "bob@bob.bob"
+    And I expand the publisher
     And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
     And I fill in the following:
         | status_message_fake_text    | Look at this dog    |

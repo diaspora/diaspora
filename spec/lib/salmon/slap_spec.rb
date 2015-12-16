@@ -8,11 +8,11 @@ describe Salmon::Slap do
 
   describe '#create' do
     it 'has data in the magic envelope' do
-      @created_salmon.magic_sig.data.should_not be nil
+      expect(@created_salmon.magic_sig.data).not_to be nil
     end
 
     it 'has no parsed_data' do
-      @created_salmon.parsed_data.should be nil
+      expect(@created_salmon.parsed_data).to be nil
     end
 
   end
@@ -20,13 +20,13 @@ describe Salmon::Slap do
   it 'works' do
     salmon_string = @created_salmon.xml_for(nil)
     salmon = Salmon::Slap.from_xml(salmon_string)
-    salmon.author.should == alice.person
-    salmon.parsed_data.should == @post.to_diaspora_xml
+    expect(salmon.author).to eq(alice.person)
+    expect(salmon.parsed_data).to eq(@post.to_diaspora_xml)
   end
 
   describe '#from_xml' do
     it 'procsses the header' do
-      Salmon::Slap.any_instance.should_receive(:process_header)
+      expect_any_instance_of(Salmon::Slap).to receive(:process_header)
       Salmon::Slap.from_xml(@created_salmon.xml_for(eve.person))
     end
   end
@@ -35,7 +35,7 @@ describe Salmon::Slap do
     it 'sets the author id' do
       slap = Salmon::Slap.new
       slap.process_header(Nokogiri::XML(@created_salmon.plaintext_header))
-      slap.author_id.should == alice.diaspora_handle
+      expect(slap.author_id).to eq(alice.diaspora_handle)
     end
   end
 
@@ -44,7 +44,7 @@ describe Salmon::Slap do
     let(:parsed_salmon) { Salmon::Slap.from_xml(xml, alice)}
 
     it 'should reference a local author' do
-      parsed_salmon.author.should == alice.person
+      expect(parsed_salmon.author).to eq(alice.person)
     end
 
     it 'should fail if no author is found' do
@@ -60,19 +60,19 @@ describe Salmon::Slap do
     let(:parsed_salmon) { Salmon::Slap.from_xml(xml)}
 
     it 'should parse out the authors diaspora_handle' do
-      parsed_salmon.author_id.should == alice.person.diaspora_handle
+      expect(parsed_salmon.author_id).to eq(alice.person.diaspora_handle)
     end
 
     it 'verifies the signature for the sender' do
-      parsed_salmon.verified_for_key?(alice.public_key).should be_true
+      expect(parsed_salmon.verified_for_key?(alice.public_key)).to be true
     end
 
     it 'verifies the signature for the sender' do
-      parsed_salmon.verified_for_key?(FactoryGirl.create(:person).public_key).should be_false
+      expect(parsed_salmon.verified_for_key?(FactoryGirl.create(:person).public_key)).to be false
     end
 
     it 'contains the original data' do
-      parsed_salmon.parsed_data.should == @post.to_diaspora_xml
+      expect(parsed_salmon.parsed_data).to eq(@post.to_diaspora_xml)
     end
   end
 
@@ -83,12 +83,12 @@ describe Salmon::Slap do
     
     it "has diaspora as the root" do
       doc = Nokogiri::XML(@xml)
-      doc.root.name.should == "diaspora"
+      expect(doc.root.name).to eq("diaspora")
     end
     
     it "it has the descrypted header" do
       doc = Nokogiri::XML(@xml)
-      doc.search("header").should_not be_blank
+      expect(doc.search("header")).not_to be_blank
     end
     
     context "header" do
@@ -96,14 +96,14 @@ describe Salmon::Slap do
       it "it has author_id node " do
         doc = Nokogiri::XML(@xml)
         search = doc.search("header").search("author_id")
-        search.map(&:text).should == [alice.diaspora_handle]
+        expect(search.map(&:text)).to eq([alice.diaspora_handle])
       end
 
     end
 
     it "it has the magic envelope " do
       doc = Nokogiri::XML(@xml)
-      doc.find("/me:env").should_not be_blank
+      expect(doc.find("/me:env")).not_to be_blank
     end
   end
 end

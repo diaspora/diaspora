@@ -35,7 +35,7 @@
     = t('profiles.edit.your_birthday')
 
   .row-fluid
-    = select_date profile.birthday, { :prompt => true, :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1910, :prefix => 'profile[date]' }, { :class => 'span4' }
+    = select_date profile.birthday, { :prompt => true, :default => true, :order => t('date.order'), :start_year => upper_limit_date_of_birth, :end_year => lower_limit_date_of_birth, :prefix => 'profile[date]' }, { :class => 'span4' }
 
   .small-horizontal-spacer
 

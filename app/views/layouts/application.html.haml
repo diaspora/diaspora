@@ -4,7 +4,7 @@
 
 !!!
 %html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
-  %head
+  %head{:prefix => og_prefix}
     %title
       = page_title yield(:page_title)
 
@@ -12,19 +12,17 @@
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{:name => "description", :content => "diaspora*"}/
     %meta{:name => "author", :content => "Diaspora, Inc."}/
-    %meta{:property => "og:site_name", :content => "#{AppConfig.settings.pod_name}"}/
 
     %link{:rel => 'shortcut icon', :href => "#{image_path('favicon.png')}" }
     %link{:rel => 'apple-touch-icon', :href => "#{image_path('apple-touch-icon.png')}"}
 
+    = render 'layouts/open_graph'
+
     = chartbeat_head_block
     = include_mixpanel
 
-    = include_base_css_framework(@css_framework)
-    - if @css_framework == :bootstrap && !@include_application_css
-      = stylesheet_link_tag :default, 'new-templates', :media => 'all'
-    - else
-      = stylesheet_link_tag 'application', 'default'
+    = include_base_css_framework
+    = stylesheet_link_tag 'application', :media => 'all'
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
@@ -40,29 +38,21 @@
       = javascript_include_tag :main, :templates
       = load_javascript_locales
 
-    = set_asset_host
     = translation_missing_warnings
     = current_user_atom_tag
 
     = yield(:head)
     = csrf_meta_tag
 
-    - if @post.present?
-      %link{:rel => 'alternate', :type => "application/json+oembed", :href => "#{oembed_url(:url => post_url(@post))}"}
-      = og_page_specific_tags(@post)
 
     = include_gon(:camel_case => true)
 
-  %body
+  %body{ :class => "page-#{controller_name} action-#{action_name}" }
     = flash_messages
 
     = yield :before_content
 
-    - if content_for?(:container_content)
-      .container
-        =  yield(:container_content)
-    - else
-      = content_for?(:content) ? yield(:content) : yield
+    = content_for?(:content) ? yield(:content) : yield
 
     = yield :after_content
 

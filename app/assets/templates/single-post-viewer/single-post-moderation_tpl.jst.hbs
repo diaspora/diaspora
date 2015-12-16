@@ -1,0 +1,28 @@
+<div>
+  {{#if loggedIn}}
+    {{#if authorIsCurrentUser}}
+      <a href="#" class="remove_post" title="{{t "delete"}}">
+        <i class="entypo trash"></i>
+      </a>
+    {{else}}
+      <a href="#" data-type="post" class="post_report" title="{{t "report.name"}}">
+        <i class="entypo warning"></i>
+      </a>
+      <a href="#" data-type="post" class="block_user" title="{{t "ignore"}}">
+        <i class="entypo block"></i>
+      </a>
+      {{#if participation}}
+        <a href="#" data-type="nofollow" class="destroy_participation" title="{{t "stream.disable_post_notifications"}}">
+          <i class="entypo bell"></i>
+        </a>
+      {{else}}
+        <a href="#" data-type="nofollow" class="create_participation" title="{{t "stream.enable_post_notifications"}}">
+          <i class="entypo bell"></i>
+        </a>
+      {{/if}}
+      <a href="#" data-type="post" class="hide_post" title="{{t "stream.hide"}}">
+        <i class="entypo cross"></i>
+      </a>
+    {{/if}}
+  {{/if}}
+</div>

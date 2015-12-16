@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 app.views.HelpSectionView = app.views.StaticContentView.extend({
 
   events: {
@@ -24,8 +26,8 @@ app.views.HelpSectionView = app.views.StaticContentView.extend({
   },
 
   toggled: function(e) {
-    el = $(e.target);
-    parent = el.parents('.question');
+    var el = $(e.target);
+    var parent = el.parents('.question');
 
     parent.children('.answer.hideable').toggle();
     parent.toggleClass('opened').toggleClass('collapsed');
@@ -52,3 +54,5 @@ app.views.HelpSectionView = app.views.StaticContentView.extend({
   },
 
 });
+// @license-end
+

@@ -1,0 +1,141 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+nds:
+  javascripts:
+    and: "un"
+    aspect_dropdown:
+      add_to_aspect: "Kontakt sluten"
+      all_aspects: "Alle Aspekte"
+      toggle:
+        one: "In een Aspekt"
+        other: "In <%= count %> Aspekte"
+        zero: "Aspekte utwählen"
+    aspect_navigation:
+      add_an_aspect: "+ Do een nee’en Aspekt dorto"
+      deselect_all: "Alle afwählen"
+      no_aspects: "Keene Aspekte utwählt"
+      select_all: "Alle utwählen"
+    bookmarklet:
+      post_something: "Schriev wat in diaspora*"
+      post_submit: "Schick Bidrag af..."
+      post_success: "Verfat! Mok Pop-Up-Fenster to..."
+    comma: ","
+    comments:
+      hide: "Kommentore versteken"
+      no_comments: "Dat gift noch keene Kommentore."
+      show: "Alle Kommentore anzeigen"
+    confirm_dialog: "Bist du seker?"
+    contacts:
+      add_contact: "Kontakt sluten"
+      aspect_list_is_not_visible: "Kontakte in dissen Aspekt künnt sick nich gegensiedich seihn."
+      aspect_list_is_visible: "Kontakte in dissen Aspekt künnt sick gegensiedich seihn."
+      error_add: "Kunn <%= name %> nich ton Aspekt dortodoon :("
+      error_remove: "Kunn <%= name %> nich ut den Aspekt wegmoken :("
+      remove_contact: "Kontakt wegmoken"
+    conversation:
+      participants: "Bedeeligte"
+    delete: "Löschen"
+    edit: "Ännern"
+    failed_to_remove: "Kunn denn Indrag nich wegmoken!"
+    getting_started:
+      hey: "He, <%= name %>!"
+    header:
+      admin: "Admin"
+      close: "sluten"
+      contacts: "Kontakte"
+      conversations: "Snacks"
+      help: "Hülp"
+      home: "Startsiet"
+      log_out: "Afmellen"
+      notifications: "Benarichtigungen"
+      profile: "Profil"
+      search: "Söken"
+      settings: "Instellungen"
+    ignore: "Ignoreren"
+    ignore_failed: "Kunn dissen Benutter nich ignoreren"
+    ignore_user: "Dissen Benutter ignoreren?"
+    infinite_scroll:
+      no_more: "Keene Bidräg mehr."
+      no_more_contacts: "Keene annern Kontakte."
+    my_aspects: "Miene Aspekte"
+    my_stream: "Stream"
+    no_results: "Keene Resultate funnen"
+    notifications:
+      mark_read: "As lesen markeren"
+      mark_unread: "As unlesen markeren"
+    people:
+      edit_my_profile: "Mien Profil ännern"
+      message: "Naricht"
+      not_found: "un keener is funnen worrn..."
+      stop_ignoring: "Nich mehr ignoreren"
+    photo_uploader:
+      error: "Dat geev een Problem bin hoochladen von de Datei <%= file %>"
+      looking_good: "OMG, du sühst toll ut!"
+    poll:
+      close_result: "Resultat versteken"
+      count:
+        one: "Een Stimm bit nu"
+        other: "<%=count%> Stimmen bit nu"
+      result: "Resultat"
+      show_result: "Resultat zeigen"
+      vote: "Afstimmen"
+    profile:
+      born: "Geburtsdag"
+      contacts: "Kontakte"
+      edit: "ännern"
+      gender: "Geschlecht"
+      ignoring: "Du ignoreerst alle Bidräg von <%= name %>."
+      photos: "Biller"
+      posts: "Bidräg"
+    publisher:
+      add_option: "Do eene Antwort dorto"
+      near_from: "Verfat von: <%= location %>"
+      option: "Antwort"
+      question: "Froog"
+    report:
+      prompt: "Bidde geev een Grund an:"
+    reshares:
+      post: "<%= name %>s Bidrag wiederseggen?"
+      successful: "De Bidrag is erfolgriek wiederseggt worrn!"
+    show_more: "mehr anzeigen"
+    stream:
+      comment: "Kommentor"
+      follow: "Folgen"
+      hide: "Versteken"
+      hide_nsfw_posts: "#nsfw-Bidräg versteken"
+      likes:
+        one: "Eener mag dat"
+        other: "<%= count %> Lüü mögt dat"
+        zero: "Keener mag dat"
+      more_comments:
+        one: "Zeig een annern Kommentor"
+        other: "Zeig <%= count %> annere Kommentore"
+        zero: "Zeig keene annern Kommentore"
+      original_post_deleted: "Originalbidrag von den Autor löscht."
+      public: "Opentlich"
+      reshares:
+        one: "Een mol wiederseggt"
+        other: "<%= count %> mol wiederseggt"
+        zero: "Keen mol wiederseggt"
+      show_nsfw_post: "Bidrag anzeigen"
+      show_nsfw_posts: "Alle anzeigen"
+      unfollow: "Nich mehr folgen"
+      via: "öber <%= provider %>"
+    timeago:
+      day: "een Dag"
+      days: "%d Doog"
+      minutes: "%d Minuten"
+      months: "%d Monate"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "weniger as eene Minute"
+      suffixAgo: ""
+      suffixFromNow: ""
+      wordSeparator: " "
+      years: "%d Johre"
+    viewer:
+      home: "STARTSIET"

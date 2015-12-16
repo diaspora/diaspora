@@ -12,7 +12,6 @@ Feature: Mentions
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
     When I sign in as "alice@alice.alice"
-    And I am on the home page
     And I follow "Bob Jones"
     Then I should see "Bob Jones"
 
@@ -23,13 +22,11 @@ Feature: Mentions
       | Alice Smith  | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     When I sign in as "alice@alice.alice"
-    And I am on the home page
     And I expand the publisher
     When I fill in the following:
       | status_message_fake_text  | @Bo  |
     And I click on the first user in the mentions dropdown list
     And I press "Share"
-    And I follow "Bob Jones"
+    Then I should see "Bob Jones" within ".stream_element"
+    When I follow "Bob Jones"
     Then I should see "Bob Jones"
-
-

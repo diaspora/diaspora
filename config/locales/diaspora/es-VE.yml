@@ -8,6 +8,7 @@ es-VE:
   _applications: "Aplicaciones"
   _comments: "Comentarios"
   _contacts: "Contactos"
+  _help: "Ayuda"
   _home: "Inicio"
   _photos: "Fotos"
   _services: "Servicios"
@@ -43,6 +44,7 @@ es-VE:
   admins:
     admin_bar:
       correlations: "Similitudes"
+      dashboard: "Tablero"
       pages: "Páginas"
       pod_stats: "Estadísticas del Servidor"
       resque_overview: "Información de Resque"
@@ -79,11 +81,16 @@ es-VE:
       week: "Semana"
     user_search:
       add_invites: "Añadir invitaciones"
+      are_you_sure: "Estás seguro de que deseas cerrar esta cuenta?"
+      close_account: "Cerrar cuenta"
       email_to: "Enviar invitación por correo electrónico a"
+      lock_account: "Bloquear cuenta"
+      unlock_account: "Desbloquear cuenta"
       users:
         one: "se ha encontrado %{count} usuario"
         other: "se han encontrado %{count} usuarios"
         zero: "se han encontrado %{count} usuarios"
+      view_profile: "Ver perfil"
       you_currently: "Tienes actualmente %{user_invitation} invitaciones %{link}"
     weekly_user_stats:
       amount_of:
@@ -373,6 +380,7 @@ es-VE:
       admin: "Administrar"
       blog: "Blog"
       code: "Código"
+      help: "Ayuda"
       login: "Iniciar sesión"
       logout: "Salir"
       profile: "Perfil"
@@ -603,6 +611,11 @@ es-VE:
     update:
       error: "Error al editar la foto."
       notice: "Foto actualizada correctamente."
+  polls:
+    votes:
+      one: "%{count} votos por ahora"
+      other: "%{count} votos por ahora"
+      zero: "%{count} votos por ahora"
   posts:
     presenter:
       title: "Una publicación de %{name}"
@@ -622,9 +635,20 @@ es-VE:
   profiles:
     edit:
       allow_search: "Permitir que la gente te busque dentro de Diaspora*"
+      basic: "Mi perfil básico"
+      basic_hint: "Cada item en su perfil es opcional. Su perfil básico siempre estará visible al público."
       edit_profile: "Editar perfil"
+      extended: "Mi perfil ampliado"
+      extended_hint: "Haga clic en el interruptor para configurar la visibilidad de los datos del perfil ampliado. Público significa que es visible para el internet, limitado significa que solo las personas con las que comparte veran esta información."
+      extended_visibility_text: "Visibilidad de su perfil ampliado:"
       first_name: "Nombre"
       last_name: "Apellidos"
+      limited: "Limitado"
+      nsfw_check: "Marcar todo lo que comparto como NSFW ('no es seguro para el trabajo)."
+      nsfw_explanation: "\"No es seguro para el trabajo\" (NSFW-'no es seguro para el trabajo') es un estándar de la comunidad de diaspora autónomo para el contenido que puede no ser adecuado para ver mientras estas trabajando. Si planeas compartir este material con frecuencia, por favor marca esta opción para que todo lo que compartas esté escondido para las personas comunes a menos que ellos elijan verlas."
+      nsfw_explanation2: "Si eliges no marcar esta opción, por favor agrega la etiqueta #nsfw cada vez que compartas un material de este tipo."
+      public: "Publico"
+      settings: "Configuración del perfil"
       update_profile: "Actualizar perfil"
       you_are_nsfw: "Has marcado tu perfil como no apto para todos los públicos, tu contenido no se mostrará a las personas que hayan descartado ver ese tipo de publicaciones."
       you_are_safe_for_work: "Has marcado tu perfil como apto para todos públicos, esto significa que aceptas que el contenido que publiques respetará las normas de toda la comunidad."
@@ -791,6 +815,12 @@ es-VE:
         i_like: "Tengo interés en %{tags}. "
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
+      poll:
+        add_a_poll: "Añadir una encuesta"
+        add_poll_answer: "Añadir opcion"
+        option: "Opcion 1"
+        question: "Pregunta"
+        remove_poll_answer: "Quitar opcion"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
       publishing_to: "publicar en:"

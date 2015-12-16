@@ -1,0 +1,23 @@
+<div class="stream_element media contact {{in_aspect}}" id={{person_id}}>
+  <div class="pull-right">
+    {{{aspectMembershipIndicator this in_aspect}}}
+  </div>
+
+  <div class="media-object pull-left">
+    {{{personImage person 'small'}}}
+  </div>
+
+  <div class="media-body">
+    {{#linkToPerson person}}
+      {{name}}
+    {{/linkToPerson}}
+
+    <div class="info diaspora_handle">
+      {{person.diaspora_id}}
+    </div>
+
+    <div class="info tags">
+      {{{fmtTags person.profile.tags}}}
+    </div>
+  </div>
+</div>

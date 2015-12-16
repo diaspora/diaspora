@@ -1,35 +1,33 @@
 <div id="{{guid}}">
   <div class="img">
-    {{#linkToPerson author}}
+    {{#linkToAuthor author}}
       {{{personImage this "small" "small"}}}
-    {{/linkToPerson}}
+    {{/linkToAuthor}}
   </div>
 
   <div class="bd">
-    <div class="controls">
+    <div class="control-icons">
     {{#if loggedIn}}
       {{#if canRemove}}
         <a href="#" class="delete comment_delete" title="{{t "delete"}}">
-          <div alt="Deletelabel" class="icons-deletelabel" />
+          <i class="entypo trash"></i>
         <a/>
       {{else}}
         <a href="#" data-type="comment" class="comment_report" title="{{t "report.name"}}">
-          <div class="icons-report"/>
+          <i class="entypo warning"></i>
         </a>
       {{/if}}
     {{/if}}
     </div>
 
-    {{#with author}}
-      <a href="/people/{{guid}}" class="author author-name {{hovercardable this}}">
-        {{name}}
-      </a>
-    {{/with}}
+    {{#linkToAuthor author}}
+      {{name}}
+    {{/linkToAuthor}}
 
-    <div class="collapsible comment-content">
+    <div class="collapsible comment-content markdown-content">
       {{{text}}}
     </div>
-    
+
     <div class="info">
       <a href="/posts/{{parent.id}}#{{guid}}" class="permalink_comment">
         <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>

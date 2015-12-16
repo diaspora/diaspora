@@ -57,8 +57,6 @@ ast:
     add_to_aspect:
       failure: "Nun pudo amestase'l contautu al aspeutu."
       success: "Amestóse'l contautu al aspeutu correutamente."
-    aspect_contacts:
-      done_editing: "edición terminada"
     aspect_listings:
       add_an_aspect: "+ Amestar un aspeutu"
       deselect_all: "Nun seleicionar nada"
@@ -76,21 +74,14 @@ ast:
       failure: "%{name} nun ta baleru nun pudo desaniciase."
       success: "%{name} desanicióse correutamente."
     edit:
-      add_existing: "Amestar un contautu esistente"
       aspect_list_is_not_visible: "Los contactos d'esti aspeutu nun puen vese unos a otros."
       aspect_list_is_visible: "Los contactos d'esti aspeutu puen vese unos a otros."
       confirm_remove_aspect: "¿Tas seguru de que quies desaniciar esti aspeutu?"
-      done: "Fecho"
       make_aspect_list_visible: "¿facer los contactos d'esti aspeutu visibles ente ellos?"
       remove_aspect: "Desaniciar esti aspeutu"
       rename: "renomar"
       update: "anovar"
       updating: "anovando"
-    few: "%{count} aspeutos"
-    helper:
-      are_you_sure: "¿Tas seguru de que quies desaniciar esti aspeutu?"
-      aspect_not_empty: "L'aspeutu nun ta baleru"
-      remove: "desaniciar"
     index:
       diaspora_id:
         content_1: "La to ID de diaspora* ye:"
@@ -123,11 +114,6 @@ ast:
         heading: "Coneutar servicios"
       unfollow_tag: "Dexar de siguir #%{tag}"
       welcome_to_diaspora: "¡Afáyati en diaspora*, %{name}!"
-    many: "%{count} aspeutos"
-    move_contact:
-      error: "Error al mover el contautu: %{inspect}"
-      failure: "%{inspect} nun funcionó"
-      success: "La persona movióse a un aspeutu nuevu"
     new:
       create: "Crear"
       name: "Nome (visible pa ti namái)"
@@ -145,14 +131,6 @@ ast:
       family: "Familia"
       friends: "Amigos"
       work: "Trabayu"
-    selected_contacts:
-      manage_your_aspects: "Alministrar los aspeutos."
-      no_contacts: "Inda nun tienes contautos equí."
-      view_all_community_spotlight: "Ver tolo destacao de la comunidá"
-      view_all_contacts: "Ver tolos contautos"
-    show:
-      edit_aspect: "editar aspeutu"
-    two: "%{count} aspeutos"
     update:
       failure: "El to aspeutu, %{name}, tenía un nome llargu enforma pa poder guardalu."
       success: "Editóse correutamente'l to aspeutu, %{name}."
@@ -165,23 +143,17 @@ ast:
     post_success: "¡Publicao! Zarrando."
   cancel: "Encaboxar"
   comments:
-    few: "%{count} comentarios"
-    many: "%{count} comentarios"
     new_comment:
       comment: "Comentariu"
       commenting: "Comentando..."
     one: "1 comentariu"
     other: "%{count} comentarios"
-    two: "%{count} comentarios"
     zero: "nun hai comentarios"
   contacts:
     create:
       failure: "Nun pudo crease'l contautu"
-    few: "%{count} contautos"
-    many: "%{count} contautos"
     one: "1 contautu"
     other: "%{count} contautos"
-    two: "%{count} contautos"
     zero: "contautos"
   delete: "Desaniciar"
   email: "Corréu electrónicu"

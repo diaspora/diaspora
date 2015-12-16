@@ -3,18 +3,19 @@
 #   the COPYRIGHT file.
 
 class ApplicationController < ActionController::Base
+  before_action :force_tablet_html
   has_mobile_fu
-  protect_from_forgery :except => :receive
+  protect_from_forgery except: :receive
 
-  before_filter :ensure_http_referer_is_set
-  before_filter :set_locale
-  before_filter :set_diaspora_header
-  before_filter :set_grammatical_gender
-  before_filter :mobile_switch
-  before_filter :gon_set_current_user
-  before_filter :gon_set_preloads
+  before_action :ensure_http_referer_is_set
+  before_action :set_locale
+  before_action :set_diaspora_header
+  before_action :set_grammatical_gender
+  before_action :mobile_switch
+  before_action :gon_set_current_user
+  before_action :gon_set_preloads
 
-  inflection_method :grammatical_gender => :gender
+  inflection_method grammatical_gender: :gender
 
   helper_method :all_aspects,
                 :all_contacts_count,
@@ -24,23 +25,21 @@ class ApplicationController < ActionController::Base
                 :tags,
                 :open_publisher
 
-  layout ->(c) { request.format == :mobile ? "application" : "centered_with_header_with_footer" }
+  layout proc { request.format == :mobile ? "application" : "with_header_with_footer" }
 
   private
 
+  def default_serializer_options
+    {root: false}
+  end
+
   def ensure_http_referer_is_set
-    request.env['HTTP_REFERER'] ||= '/'
+    request.env["HTTP_REFERER"] ||= "/"
   end
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    # mobile_fu's is_mobile_device? wasn't working here for some reason...
-    # it may have been just because of the test env.
-    if request.env['HTTP_USER_AGENT'].match(/mobile/i)
-      root_path
-    else
-      new_user_session_path
-    end
+    is_mobile_device? ? root_path : new_user_session_path
   end
 
   def all_aspects
@@ -68,11 +67,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_diaspora_header
-    headers['X-Diaspora-Version'] = AppConfig.version_string
+    headers["X-Diaspora-Version"] = AppConfig.version_string
 
     if AppConfig.git_available?
-      headers['X-Git-Update'] = AppConfig.git_update if AppConfig.git_update.present?
-      headers['X-Git-Revision'] = AppConfig.git_revision if AppConfig.git_revision.present?
+      headers["X-Git-Update"] = AppConfig.git_update if AppConfig.git_update.present?
+      headers["X-Git-Revision"] = AppConfig.git_revision if AppConfig.git_revision.present?
     end
   end
 
@@ -80,18 +79,20 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       I18n.locale = current_user.language
     else
-      locale = request.preferred_language_from AVAILABLE_LANGUAGE_CODES
-      locale ||= request.compatible_language_from AVAILABLE_LANGUAGE_CODES
+      locale = http_accept_language.language_region_compatible_from AVAILABLE_LANGUAGE_CODES
       locale ||= DEFAULT_LANGUAGE
       I18n.locale = locale
     end
   end
 
   def redirect_unless_admin
-    unless current_user.admin?
-      redirect_to stream_url, :notice => 'you need to be an admin to do that'
-      return
-    end
+    return if current_user.admin?
+    redirect_to stream_url, notice: "you need to be an admin to do that"
+  end
+
+  def redirect_unless_moderator
+    return if current_user.moderator?
+    redirect_to stream_url, notice: "you need to be an admin or moderator to do that"
   end
 
   def set_grammatical_gender
@@ -99,7 +100,7 @@ class ApplicationController < ActionController::Base
       gender = current_user.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
       unless gender.empty?
         i_langs = I18n.inflector.inflected_locales(:gender)
-        i_langs.delete  I18n.locale
+        i_langs.delete I18n.locale
         i_langs.unshift I18n.locale
         i_langs.each do |lang|
           token = I18n.inflector.true_token(gender, :gender, lang)
@@ -121,10 +122,11 @@ class ApplicationController < ActionController::Base
   def mobile_switch
     if session[:mobile_view] == true && request.format.html?
       request.format = :mobile
-    elsif request.format.tablet?
-      # we currently don't have any special tablet views...
-      request.format = :html
     end
+  end
+
+  def force_tablet_html
+    session[:tablet_view] = false
   end
 
   def after_sign_in_path_for(resource)
@@ -136,25 +138,23 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_redirect_path
-    current_user.getting_started? ? getting_started_path : stream_path
+    # If getting started is active AND the user has not completed the getting_started page
+    if current_user.getting_started? && !current_user.basic_profile_present?
+      getting_started_path
+    else
+      stream_path
+    end
   end
 
   def gon_set_current_user
     return unless user_signed_in?
     a_ids = session[:a_ids] || []
     user = UserPresenter.new(current_user, a_ids)
-    gon.push({:user => user})
+    gon.push(user: user)
   end
 
   def gon_set_preloads
     return unless gon.preloads.nil?
     gon.preloads = {}
-  end
-
-  def self.use_bootstrap_for *routes
-    before_filter -> {
-      @css_framework = :bootstrap
-      gon.bootstrap = true
-    }, only: routes.flatten
   end
 end

@@ -4,6 +4,8 @@
 
 
 class Postzord::Receiver
+  include Diaspora::Logging
+
   require 'postzord/receiver/private'
   require 'postzord/receiver/public'
   require 'postzord/receiver/local_batch'
@@ -12,11 +14,19 @@ class Postzord::Receiver
     self.receive!
   end
 
+  private
+
   def author_does_not_match_xml_author?
-    if (@author.diaspora_handle != xml_author)
-      FEDERATION_LOGGER.info("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{@object.class} sender=#{@author.diaspora_handle}")
-      return true
-    end
+    return false unless @author.diaspora_handle != xml_author
+    logger.error "event=receive status=abort reason='author in xml does not match retrieved person' " \
+                 "type=#{@object.class} sender=#{@author.diaspora_handle}"
+    true
+  end
+
+  def relayable_without_parent?
+    return false unless @object.respond_to?(:relayable?) && @object.parent.nil?
+    logger.error "event=receive status=abort reason='no corresponding post' type=#{@object.class} " \
+                 "sender=#{@author.diaspora_handle}"
+    true
   end
 end
-

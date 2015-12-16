@@ -9,8 +9,6 @@ describe Diaspora::Exporter do
 
   before do
     @user1 =  alice
-    @user2 =  FactoryGirl.create(:user)
-    @user3 =  bob
 
     @user1.person.profile.first_name = "<script>"
     @user1.person.profile.gender = "<script>"
@@ -19,108 +17,71 @@ describe Diaspora::Exporter do
     @user1.person.profile.save
 
     @aspect  =  @user1.aspects.first
-    @aspect1 =  @user1.aspects.create(:name => "Work")
-    @aspect2 =  @user2.aspects.create(:name => "Family")
-    @aspect3 =  @user3.aspects.first
+    @aspect1 =  @user1.aspects.create(:name => "Work", :contacts_visible => false)
     @aspect.name = "<script>"
     @aspect.save
-
-    @status_message1 =  @user1.post(:status_message, :text => "One", :public => true, :to => @aspect1.id)
-    @status_message2 =  @user1.post(:status_message, :text => "Two", :public => true, :to => @aspect1.id)
-    @status_message3 =  @user2.post(:status_message, :text => "Three", :public => false, :to => @aspect2.id)
-    @status_message4 =  @user1.post(:status_message, :text => "<script>", :public => true, :to => @aspect2.id)
   end
 
-  def exported
-    Nokogiri::XML(Diaspora::Exporter.new(Diaspora::Exporters::XML).execute(@user1))
-  end
+  context "json" do
 
-  it 'escapes xml relevant characters' do
-    expect(exported.to_s).to_not include "<script>"
-  end
-
-  context '<user/>' do
-    let(:user_xml) { exported.xpath('//user').to_s }
-
-    it 'includes a users private key' do
-      expect(user_xml).to include @user1.serialized_private_key
+    def json
+      @json ||= JSON.parse Diaspora::Exporter.new(@user1).execute
     end
 
-    it 'includes the profile as xml' do
-      expect(user_xml).to include "<profile>"
-    end
-  end
+    it { matches :version, to: '1.0' }
+    it { matches :user, :name }
+    it { matches :user, :email }
+    it { matches :user, :username }
+    it { matches :user, :language }
+    it { matches :user, :disable_mail }
+    it { matches :user, :show_community_spotlight_in_stream }
+    it { matches :user, :auto_follow_back }
+    it { matches :user, :auto_follow_back_aspect }
+    it { matches :user, :strip_exif }
 
-  context '<aspects/>' do
-    let(:aspects_xml) { exported.xpath('//aspects').to_s }
+    it { matches :user, :profile, :first_name,      root: @user1.person.profile }
+    it { matches :user, :profile, :last_name,       root: @user1.person.profile }
+    it { matches :user, :profile, :gender,          root: @user1.person.profile }
+    it { matches :user, :profile, :bio,             root: @user1.person.profile }
+    it { matches :user, :profile, :location,        root: @user1.person.profile }
+    it { matches :user, :profile, :image_url,       root: @user1.person.profile }
+    it { matches :user, :profile, :diaspora_handle, root: @user1.person.profile }
+    it { matches :user, :profile, :searchable,      root: @user1.person.profile }
+    it { matches :user, :profile, :nsfw,            root: @user1.person.profile }
 
-    it 'includes the post_ids' do
-      aspects_xml.should include @status_message1.id.to_s
-      aspects_xml.should include @status_message2.id.to_s
-    end
-  end
+    it { matches_relation :aspects,  :name,
+                                     :contacts_visible,
+                                     :chat_enabled }
 
-  context '<contacts/>' do
+    it { matches_relation :contacts, :sharing,
+                                     :receiving,
+                                     :person_guid,
+                                     :person_name,
+                                     :person_first_name,
+                                     :person_diaspora_handle }
 
-    before do
-      @aspect.name = "Safe"
-      @aspect.save
-      @user1.add_contact_to_aspect(@user1.contact_for(@user3.person), @aspect1)
-      @user1.reload
-    end
+    private
 
-    let(:contacts_xml) {exported.xpath('//contacts').to_s}
-    it "includes a person's guid" do
-      contacts_xml.should include @user3.person.guid
-    end
-
-    it "includes the names of all aspects they are in" do
-      #contact specific xml needs to be tested
-      @user1.contacts.find_by_person_id(@user3.person.id).aspects.count.should > 0
-      @user1.contacts.find_by_person_id(@user3.person.id).aspects.each { |aspect|
-        contacts_xml.should include aspect.name
-      }
-    end
-  end
-
-  context '<people/>' do
-    let(:people_xml) {exported.xpath('//people').to_s}
-
-    it 'includes their guid' do
-      people_xml.should include @user3.person.guid
+    def matches(*fields, to: nil, root: @user1)
+      expected = to || root.send(fields.last)
+      expect(recurse_field(json, fields)).to eq expected
     end
 
-    it 'includes their profile' do
-      people_xml.should include @user3.person.profile.first_name
-      people_xml.should include @user3.person.profile.last_name
+    def matches_relation(relation, *fields, to: nil, root: @user1)
+      array = json['user'][to || relation.to_s]
+      fields.each do |field|
+        expected = root.send(relation).map(&:"#{field}")
+        expect(array.map { |f| f[field.to_s] }).to eq expected
+      end
     end
 
-    it 'includes their public key' do
-      people_xml.should include @user3.person.exported_key
+    def recurse_field(json, fields)
+      if fields.any?
+        recurse_field json[fields.shift.to_s], fields
+      else
+        json
+      end
     end
 
-    it 'includes their diaspora handle' do
-      people_xml.should include @user3.person.diaspora_handle
-    end
-  end
-
-  context '<posts>' do
-    let(:posts_xml) {exported.xpath('//posts').to_s}
-    it "includes many posts' xml" do
-      posts_xml.should include @status_message1.text
-      posts_xml.should include @status_message2.text
-      posts_xml.should_not include @status_message3.text
-    end
-
-    it "includes the post's created at time" do
-      @status_message1.update_attribute(:created_at, Time.now - 1.day) # make sure they have different created at times
-
-      doc = Nokogiri::XML::parse(posts_xml)
-      created_at_text = doc.xpath('//posts/status_message').detect do |status|
-        status.to_s.include?(@status_message1.guid)
-      end.xpath('created_at').text
-
-      Time.zone.parse(created_at_text).to_i.should == @status_message1.created_at.to_i
-    end
   end
 end

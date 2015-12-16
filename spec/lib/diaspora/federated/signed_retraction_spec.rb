@@ -11,11 +11,11 @@ describe SignedRetraction do
     it "dispatches the retraction onward to recipients of the recipient's reshare" do
       retraction = described_class.build(bob, @post)
       onward_retraction = retraction.dup
-      retraction.should_receive(:dup).and_return(onward_retraction)
+      expect(retraction).to receive(:dup).and_return(onward_retraction)
 
       dis = double
-      Postzord::Dispatcher.should_receive(:build).with(@resharer, onward_retraction).and_return(dis)
-      dis.should_receive(:post)
+      expect(Postzord::Dispatcher).to receive(:build).with(@resharer, onward_retraction).and_return(dis)
+      expect(dis).to receive(:post)
 
       retraction.perform(@resharer)
     end
@@ -28,19 +28,19 @@ describe SignedRetraction do
         r.target_type = remote_post.type
         r.target_guid = remote_post.guid
         r.sender = remote_post.author
-        r.stub(:target_author_signature_valid?).and_return(true)
+        allow(r).to receive(:target_author_signature_valid?).and_return(true)
       }
 
       remote_retraction.dup.perform(bob)
-      Post.exists?(:id => remote_post.id).should be_false
+      expect(Post.exists?(:id => remote_post.id)).to be false
 
       dis = double
-      Postzord::Dispatcher.should_receive(:build){ |sender, retraction|
-        sender.should == alice
-        retraction.sender.should == alice.person
+      expect(Postzord::Dispatcher).to receive(:build){ |sender, retraction|
+        expect(sender).to eq(alice)
+        expect(retraction.sender).to eq(alice.person)
         dis
       }
-      dis.should_receive(:post)
+      expect(dis).to receive(:post)
       remote_retraction.perform(alice)
     end
   end

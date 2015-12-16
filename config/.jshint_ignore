@@ -1,0 +1,4 @@
+vendor/assets/javascripts/**.js
+lib/assets/javascripts/fileuploader-custom.js
+lib/assets/javascripts/jquery.autoresize.js
+lib/assets/javascripts/jquery.mentionsInput.js

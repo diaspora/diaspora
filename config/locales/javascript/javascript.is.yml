@@ -85,7 +85,7 @@ is:
       post: "Deila áfram skeyti frá <%= name %>?"
       successful: "Tókst að deila þessu skeyti áfram!"
     search_for: "Search for <%= name %>"
-    show_more: "birta fleirri"
+    show_more: "sýna meira"
     stream:
       comment: "Athugasemd"
       follow: "Fyljgast með"

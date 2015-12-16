@@ -3,29 +3,29 @@
     <div id='post-info' class='span8'>
       <div class="img pull-left">
         {{#if root}}
-          {{#linkToPerson root.author}}
+          {{#linkToAuthor root.author}}
             {{{personImage this 'medium'}}}
-          {{/linkToPerson}}
+          {{/linkToAuthor}}
         {{else}}
-          {{#linkToPerson author}}
+          {{#linkToAuthor author}}
             {{{personImage this 'medium'}}}
-          {{/linkToPerson}}
+          {{/linkToAuthor}}
         {{/if}}
       </div>
 
       <div class="bd">
         <span class='author'>
           {{#if root}}
-            {{#linkToPerson root.author}}
+            {{#linkToAuthor root.author}}
               {{name}}
-            {{/linkToPerson}}
+            {{/linkToAuthor}}
           {{else}}
-            {{#linkToPerson author}}
+            {{#linkToAuthor author}}
               {{name}}
-            {{/linkToPerson}}
+            {{/linkToAuthor}}
           {{/if}}
         </span>
-            
+
         <div class='info'>
           {{#if public}}
             <span class='post_scope' title="{{t "stream.public"}}">
@@ -58,6 +58,9 @@
           {{/if}}
           <div class='status-message-location' />
         </div>
+        {{#unless root}}
+          <div id='single-post-moderation' />
+        {{/unless}}
       </div>
     </div>
     {{#unless root}}
@@ -69,26 +72,29 @@
       <div class='span8' id='reshare-info'>
         <i class='entypo retweet small pull-left'></i>
         <div class="img pull-left">
-          {{#linkToPerson author}}
+          {{#linkToAuthor author}}
             {{{personImage this 'small'}}}
-          {{/linkToPerson}}
+          {{/linkToAuthor}}
         </div>
         <span class="author">
-          {{#linkToPerson author}}
+          {{#linkToAuthor author}}
             {{name}}
-          {{/linkToPerson}}
+          {{/linkToAuthor}}
         </span>
-        <span class="post-time">
-          <a href="/posts/{{id}}">
-            <time datetime="{{created_at}}" title="{{localTime created_at}}" />
-          </a>
-        </span>
+        <div class="post-context">
+          <span class="post-time">
+            <a href="/posts/{{id}}">
+              <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+            </a>
+          </span>
+          <span id='single-post-moderation' />
+        </div>
       </div>
       <div id='single-post-actions' class='span4' />
     </div>
   {{/if}}
 </div>
 <div id='body' class='row-fluid'>
-  <div id='real-post-content' class='span12'>
+  <div id='real-post-content' class='post-content span12'>
   </div>
 </div>

@@ -1,0 +1,40 @@
+<div class="modal hide fade" id="newAspectModal" tabindex="-1" role="dialog" aria-labelledby="newAspectModalLabel" aria-hidden="true">
+
+  <div class="modal-header">
+    <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="newAspectModalLabel">{{ t "aspects.create.add_a_new_aspect" }}</h3>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <fieldset>
+        {{#if addPersonId}}
+          <input id="aspect_person_id" type="hidden" value="{{ personId }}">
+        {{/if}}
+
+        <div class="control-group">
+          <label for="aspect_name">{{ t "aspects.name" }}</label>
+          <input id="aspect_name" class="input-block-level" maxlength=20 type="text">
+        </div>
+
+        <div class="control-group">
+          <label for="aspect_contacts_visible" class="checkbox inline">
+            <input id="aspect_contacts_visible" type="checkbox">
+            {{ t "aspects.make_aspect_list_visible" }}
+          </label>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div class="btn" data-dismiss="modal" aria-hidden="true">
+      {{ t "cancel" }}
+    </div>
+    <div class="btn creation">
+      {{ t "create" }}
+    </div>
+  </div>
+
+</div>

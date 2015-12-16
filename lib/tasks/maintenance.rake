@@ -36,4 +36,13 @@ RUBY
       puts "Could not install logrotate configs. Perhaps you should try running this task as root and ensuring logrotate is installed:\n#{logrotate_conf}"
     end
   end
+  
+  desc "Queue users for removal"
+  task :queue_users_for_removal => :environment do
+    # Queue users for removal due to inactivity
+    # Note! settings.maintenance.remove_old_users
+    # must still be enabled, this only bypasses
+    # scheduling to run the queuing immediately
+    Workers::QueueUsersForRemoval.perform_async
+  end
 end

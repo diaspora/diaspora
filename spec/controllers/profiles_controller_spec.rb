@@ -4,43 +4,43 @@
 
 require 'spec_helper'
 
-describe ProfilesController do
+describe ProfilesController, :type => :controller do
   before do
     sign_in :user, eve
   end
 
   describe '#show' do
-    let(:mock_person) {mock_model(User)}
+    let(:mock_person) { FactoryGirl.create(:user) }
     let(:mock_presenter) { double(:as_json => {:rock_star => "Jamie Cai"})}
 
     it "returns a post Presenter" do
-      Person.should_receive(:find_by_guid!).with("12345").and_return(mock_person)
-      PersonPresenter.should_receive(:new).with(mock_person, eve).and_return(mock_presenter)
+      expect(Person).to receive(:find_by_guid!).with("12345").and_return(mock_person)
+      expect(PersonPresenter).to receive(:new).with(mock_person, eve).and_return(mock_presenter)
 
       get :show, :id => 12345, :format => :json
-      response.body.should == {:rock_star => "Jamie Cai"}.to_json
+      expect(response.body).to eq({:rock_star => "Jamie Cai"}.to_json)
     end
   end
 
   describe '#edit' do
     it 'succeeds' do
       get :edit
-      response.should be_success
+      expect(response).to be_success
     end
 
     it 'sets the profile to the current users profile' do
       get :edit
-      assigns[:profile].should == eve.person.profile
+      expect(assigns[:profile]).to eq(eve.person.profile)
     end
 
     it 'sets the aspect to "person_edit" ' do
       get :edit
-      assigns[:aspect].should == :person_edit
+      expect(assigns[:aspect]).to eq(:person_edit)
     end
 
     it 'sets the person to the current users person' do
       get :edit
-      assigns[:person].should == eve.person
+      expect(assigns[:person]).to eq(eve.person)
     end
   end
 
@@ -51,22 +51,22 @@ describe ProfilesController do
           :first_name => "Will",
           :last_name  => "Smith"
         }
-      flash[:notice].should_not be_blank
+      expect(flash[:notice]).not_to be_blank
     end
 
     it "sets nsfw" do
-      eve.person(true).profile.nsfw.should == false
+      expect(eve.person(true).profile.nsfw).to eq(false)
       put :update, :profile => { :id => eve.person.id, :nsfw => "1" }
-      eve.person(true).profile.nsfw.should == true
+      expect(eve.person(true).profile.nsfw).to eq(true)
     end
 
     it "unsets nsfw" do
       eve.person.profile.nsfw = true
       eve.person.profile.save
 
-      eve.person(true).profile.nsfw.should == true
+      expect(eve.person(true).profile.nsfw).to eq(true)
       put :update, :profile => { :id => eve.person.id }
-      eve.person(true).profile.nsfw.should == false
+      expect(eve.person(true).profile.nsfw).to eq(false)
     end
 
     it 'sets tags' do
@@ -75,7 +75,7 @@ describe ProfilesController do
                  :profile => {:tag_string => ''} }
 
       put :update, params
-      eve.person(true).profile.tag_list.to_set.should == ['apples', 'oranges'].to_set
+      expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges'].to_set)
     end
 
     it 'sets plaintext tags' do
@@ -84,7 +84,7 @@ describe ProfilesController do
                  :profile => {:tag_string => '#pears'} }
 
       put :update, params
-      eve.person(true).profile.tag_list.to_set.should == ['apples', 'oranges', 'pears'].to_set
+      expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges', 'pears'].to_set)
     end
 
     it 'sets plaintext tags without #' do
@@ -93,7 +93,7 @@ describe ProfilesController do
                  :profile => {:tag_string => 'bananas'} }
 
       put :update, params
-      eve.person(true).profile.tag_list.to_set.should == ['apples', 'oranges', 'bananas'].to_set
+      expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges', 'bananas'].to_set)
     end
 
     it 'sets valid birthday' do
@@ -105,9 +105,9 @@ describe ProfilesController do
                      :day => '28' } } }
 
       put :update, params
-      eve.person(true).profile.birthday.year.should == 2001
-      eve.person(true).profile.birthday.month.should == 2
-      eve.person(true).profile.birthday.day.should == 28
+      expect(eve.person(true).profile.birthday.year).to eq(2001)
+      expect(eve.person(true).profile.birthday.month).to eq(2)
+      expect(eve.person(true).profile.birthday.day).to eq(28)
     end
 
     it 'displays error for invalid birthday' do
@@ -119,7 +119,7 @@ describe ProfilesController do
                      :day => '31' } } }
 
       put :update, params
-      flash[:error].should_not be_blank
+      expect(flash[:error]).not_to be_blank
     end
 
     context 'with a profile photo set' do
@@ -138,7 +138,7 @@ describe ProfilesController do
         image_url = eve.person.profile.image_url
         put :update, @params
 
-        Person.find(eve.person.id).profile.image_url.should == image_url
+        expect(Person.find(eve.person.id).profile.image_url).to eq(image_url)
       end
     end
 
@@ -153,12 +153,12 @@ describe ProfilesController do
         person = eve.person
         profile = person.profile
         put :update, @profile_params
-        profile.reload.person_id.should == person.id
+        expect(profile.reload.person_id).to eq(person.id)
       end
 
       it 'diaspora handle' do
         put :update, @profile_params
-        Person.find(eve.person.id).profile[:diaspora_handle].should_not == 'abc@a.com'
+        expect(Person.find(eve.person.id).profile[:diaspora_handle]).not_to eq('abc@a.com')
       end
     end
   end

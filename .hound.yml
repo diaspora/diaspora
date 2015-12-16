@@ -1,0 +1,9 @@
+java_script:
+  enabled: true
+  config_file: config/.jshint.json
+  ignore_file: config/.jshint_ignore
+ruby:
+  enabled: true
+  config_file: .rubocop.yml
+scss:
+  enabled: false

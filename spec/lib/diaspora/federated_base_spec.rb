@@ -13,7 +13,7 @@ describe Diaspora::Federated::Base do
 
       f = Foo.new
 
-      proc{ f.subscribers(1)}.should raise_error /override subscribers/
+      expect{ f.subscribers(1)}.to raise_error /override subscribers/
     end
   end
 end

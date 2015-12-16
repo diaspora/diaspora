@@ -10,14 +10,26 @@ class Conversation < ActiveRecord::Base
 
   has_many :conversation_visibilities, :dependent => :destroy
   has_many :participants, :class_name => 'Person', :through => :conversation_visibilities, :source => :person
-  has_many :messages, :order => 'created_at ASC'
+  has_many :messages, -> { order('created_at ASC') }
 
   belongs_to :author, :class_name => 'Person'
 
   validate :max_participants
+  validate :local_recipients
 
   def max_participants
     errors.add(:max_participants, "too many participants") if participants.count > 20
+  end
+
+  def local_recipients
+    recipients.each do |recipient|
+      if recipient.local?
+        unless recipient.owner.contacts.where(person_id: author.id).any? ||
+            (author.owner && author.owner.podmin_account?)
+          errors.add(:all_recipients, "recipient not allowed")
+        end
+      end
+    end
   end
 
   accepts_nested_attributes_for :messages
@@ -31,12 +43,19 @@ class Conversation < ActiveRecord::Base
   end
 
   def diaspora_handle= nh
-    self.author = Webfinger.new(nh).fetch
+    self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
   def first_unread_message(user)
     if visibility = self.conversation_visibilities.where(:person_id => user.person.id).where('unread > 0').first
-      self.messages.all[-visibility.unread]
+      self.messages.to_a[-visibility.unread]
+    end
+  end
+
+  def set_read(user)
+    if visibility = self.conversation_visibilities.where(:person_id => user.person.id).first
+      visibility.unread = 0
+      visibility.save
     end
   end
 
@@ -49,18 +68,22 @@ class Conversation < ActiveRecord::Base
   end
   def participant_handles= handles
     handles.split(';').each do |handle|
-      self.participants << Webfinger.new(handle).fetch
+      participants << Person.find_or_fetch_by_identifier(handle)
     end
   end
 
   def last_author
-    return unless @last_author.present? || self.messages.size > 0
-    @last_author_id ||= self.messages.pluck(:author_id).last
+    return unless @last_author.present? || messages.size > 0
+    @last_author_id ||= messages.pluck(:author_id).last
     @last_author ||= Person.includes(:profile).where(id: @last_author_id).first
   end
 
+  def ordered_participants
+    @ordered_participants ||= (messages.map(&:author).reverse + participants).uniq
+  end
+
   def subject
-    self[:subject].blank? ? "no subject" : self[:subject]
+    self[:subject].blank? ? I18n.t("conversations.new.subject_default") : self[:subject]
   end
 
   def subscribers(user)
@@ -68,10 +91,10 @@ class Conversation < ActiveRecord::Base
   end
 
   def receive(user, person)
-    cnv = Conversation.find_or_create_by_guid(self.attributes)
+    cnv = Conversation.create_with(self.attributes).find_or_create_by!(guid: guid)
 
     self.participants.each do |participant|
-      ConversationVisibility.find_or_create_by_conversation_id_and_person_id(cnv.id, participant.id)
+      ConversationVisibility.find_or_create_by(conversation_id: cnv.id, person_id: participant.id)
     end
 
     self.messages.each do |msg|

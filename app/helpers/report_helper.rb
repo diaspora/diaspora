@@ -9,7 +9,7 @@ module ReportHelper
     elsif type == 'comment' && !(comment = Comment.find_by_id(id)).nil?
       # comment_message is not html_safe. To prevent
       # cross-site-scripting we have to escape html
-      raw t('report.comment_label', data: h(comment_message(comment)))
+      raw t('report.comment_label', data: link_to(h(comment_message(comment)), post_path(comment.post.id, anchor: comment.guid)))
     else
       raw t('report.not_found')
     end

@@ -1,20 +1,20 @@
+- conversation = visibility.conversation
 %a.conversation{ :href => conversation_path(conversation) }
-  .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
+  .stream_element.conversation{data: {guid: conversation.id}, class: ("unread" if visibility.unread > 0)}
     .media
       .img
         = person_image_tag(conversation.author)
 
       .bg
-        = render(:partial => 'conversation_subject',
-                  :locals => { :conversation => conversation,
-                               :unread_count => unread_counts[conversation.id].to_i })
+        = render partial: "conversation_subject",
+                 locals:  { conversation: conversation, unread_count: visibility.unread }
 
         .last_author
           .timestamp
             = timeago(conversation.updated_at)
 
-          - if authors[conversation.id].present?
-            = authors[conversation.id].name
+          - if conversation.last_author.present?
+            = conversation.last_author.name
 
           - if conversation.participants.size > 2
             %span.participant_count

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe InterimStreamHackinessHelper do
+describe InterimStreamHackinessHelper, :type => :helper do
   describe 'commenting_disabled?' do
     include Devise::TestHelpers
     before do
@@ -14,24 +14,24 @@ describe InterimStreamHackinessHelper do
       def user_signed_in? 
         false 
       end
-      commenting_disabled?(double).should == true
+      expect(commenting_disabled?(double)).to eq(true)
     end
 
     it 'returns true if @commenting_disabled is set' do
       @commenting_disabled = true
-      commenting_disabled?(double).should == true
+      expect(commenting_disabled?(double)).to eq(true)
       @commenting_disabled = false
-      commenting_disabled?(double).should == false 
+      expect(commenting_disabled?(double)).to eq(false) 
     end
 
     it 'returns @stream.can_comment? if @stream is set' do
       post = double
       @stream = double
-      @stream.should_receive(:can_comment?).with(post).and_return(true)
-      commenting_disabled?(post).should == false
+      expect(@stream).to receive(:can_comment?).with(post).and_return(true)
+      expect(commenting_disabled?(post)).to eq(false)
 
-      @stream.should_receive(:can_comment?).with(post).and_return(false)
-      commenting_disabled?(post).should == true
+      expect(@stream).to receive(:can_comment?).with(post).and_return(false)
+      expect(commenting_disabled?(post)).to eq(true)
     end
   end
 end

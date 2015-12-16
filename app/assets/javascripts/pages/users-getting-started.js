@@ -1,3 +1,5 @@
+// @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
+
 Diaspora.Pages.UsersGettingStarted = function() {
   var self = this;
 
@@ -5,12 +7,12 @@ Diaspora.Pages.UsersGettingStarted = function() {
     self.peopleSearch = self.instantiate("Search", body.find("form.people.search_form"));
     self.tagSearch = self.instantiate("Search", body.find("form.tag_input.search_form"));
 
-    $('#edit_profile').bind('ajax:success', function(evt, data, status, xhr){
+    $('#edit_profile').bind('ajax:success', function(){
       $('#gs-name-form-spinner').addClass("hidden");
     });
 
     // It seems that the default behavior of rails ujs is to clear the remote form
-    $('#edit_profile').bind('ajax:complete', function(evt, xhr, status){
+    $('#edit_profile').bind('ajax:complete', function(){
       var firstNameField = $("#profile_first_name");
       firstNameField.val(firstNameField.data("cachedValue"));
 
@@ -33,7 +35,7 @@ Diaspora.Pages.UsersGettingStarted = function() {
       $(this).addClass("active_input");
     });
 
-    $("#awesome_button").bind("click", function(evt){
+    $("#awesome_button").bind("click", function(){
       var confirmMessage = Diaspora.I18n.t("getting_started.no_tags");
       var message = Diaspora.I18n.t("getting_started.preparing_your_stream");
       var confirmation = true;
@@ -71,12 +73,14 @@ Diaspora.Pages.UsersGettingStarted = function() {
       });
 
     autocompleteInput.bind('keydown', function(evt){
-      if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
+      if(evt.keyCode === 13 || evt.keyCode === 9 || evt.keyCode === 32){
         evt.preventDefault();
-        if( $('li.as-result-item.active').length == 0 ){
+        if( $('li.as-result-item.active').length === 0 ){
           $('li.as-result-item').first().click();
         }
       }
     });
   });
 };
+// @license-end
+

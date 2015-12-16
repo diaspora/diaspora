@@ -26,6 +26,6 @@ class EmailInviter
   private
 
   def mail(email)
-    Notifier.invite(email, message, inviter, invitation_code, locale).deliver!
+    Notifier.invite(email, message, inviter, invitation_code, locale).deliver_now!
   end
 end

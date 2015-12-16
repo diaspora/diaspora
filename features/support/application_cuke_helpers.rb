@@ -12,7 +12,7 @@ module ApplicationCukeHelpers
   end
 
   def flash_message_containing?(text)
-    flash_message(text: text).should be_visible
+    expect(flash_message(text: text)).to be_visible
   end
 
   def flash_message(opts={})
@@ -23,7 +23,7 @@ module ApplicationCukeHelpers
 
   def confirm_form_validation_error(element)
     is_invalid = page.evaluate_script("$('#{element}').is(':invalid')")
-    is_invalid.should be_true
+    expect(is_invalid).to be true
   end
 
   def check_fields_validation_error(field_list)

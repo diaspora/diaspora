@@ -12,20 +12,22 @@ end
 describe EvilQuery::Participation do
   before do
     @status_message = FactoryGirl.create(:status_message, :author => bob.person)
+    # done in StatusMessagesController#create
+    bob.participate!(@status_message)
   end
 
   it "includes posts liked by the user" do
     alice.like!(@status_message)
-    EvilQuery::Participation.new(alice).posts.should include(@status_message)
+    expect(EvilQuery::Participation.new(alice).posts).to include(@status_message)
   end
 
   it "includes posts commented by the user" do
     alice.comment!(@status_message, "hey")
-    EvilQuery::Participation.new(alice).posts.should include(@status_message)
+    expect(EvilQuery::Participation.new(alice).posts).to include(@status_message)
   end
 
   it "should include your statusMessages" do
-    pending
+    expect(EvilQuery::Participation.new(bob).posts).to include(@status_message)
   end
 
   describe "ordering" do
@@ -55,12 +57,12 @@ describe EvilQuery::Participation do
     let(:posts) {EvilQuery::Participation.new(alice).posts}
 
     it "doesn't include Posts that aren't acted on" do
-      posts.map(&:id).should_not include(@status_messageD.id)
-      posts.map(&:id).should =~ [@status_messageA.id, @status_messageB.id, @status_messageE.id]
+      expect(posts.map(&:id)).not_to include(@status_messageD.id)
+      expect(posts.map(&:id)).to match_array([@status_messageA.id, @status_messageB.id, @status_messageE.id])
     end
 
     it "returns the posts that the user has commented on or liked with the most recently acted on ones first" do
-      posts.map(&:id).should == [@status_messageE.id, @status_messageA.id, @status_messageB.id]
+      expect(posts.map(&:id)).to eq([@status_messageE.id, @status_messageA.id, @status_messageB.id])
     end
   end
 end

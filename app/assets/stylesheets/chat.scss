@@ -1,0 +1,7 @@
+body > .container-fluid.chat-roster-shown {
+  padding-right: 224px;
+  #back-to-top { right: 244px; }
+}
+body > .container-fluid.chat-roster-hidden {
+  #back-to-top { right: 54px; }
+}

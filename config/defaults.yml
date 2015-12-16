@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.4.1.3" # Do not touch unless doing a release, do not backport the version number that's in master but keep develop to always say "head"
+    number: "0.5.5.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -31,17 +31,54 @@ defaults:
       upload: false
       host:
     pubsub_server: 'https://pubsubhubbub.appspot.com/'
+    logging:
+      logrotate:
+        enable: true
+        days: 7
+      debug:
+        sql: false
+        federation: false
   server:
-    port: 3000
+    port:
+    listen: '0.0.0.0:3000'
     rails_environment: 'development'
+    pid:
     stderr_log:
     stdout_log:
     unicorn_worker: 2
     unicorn_timeout: 90
     embed_sidekiq_worker: false
     sidekiq_workers: 1
+  chat:
+    enabled: false
+    server:
+      enabled: true
+      certs: 'config/vines'
+      accept_self_signed: false
+      cross_domain_messages: true
+      max_offline_msgs: 150
+      c2s:
+        address: '0.0.0.0'
+        port: 5222
+        max_stanza_size: 65536
+        max_resources_per_account: 5
+      s2s:
+        address: '0.0.0.0'
+        port: 5269
+        max_stanza_size: 131072
+        blacklist: []
+      bosh:
+        proxy: false
+        address: '0.0.0.0'
+        port: 5280
+        bind: '/http-bind'
+        max_stanza_size: 65536
+        max_resources_per_account: 5
+      log:
+        file: 'log/vines.log'
+        level: 'info'
   privacy:
-    jquery_cdn: true
+    jquery_cdn: false
     google_analytics_key:
     piwik:
       enable: false
@@ -53,16 +90,31 @@ defaults:
       user_counts: false
       post_counts: false
       comment_counts: false
+    camo:
+      proxy_markdown_images: false
+      proxy_opengraph_thumbnails: false
+      proxy_remote_pod_images: false
+      root:
+      key:
   settings:
     pod_name: 'diaspora*'
     enable_registrations: true
     autofollow_on_join: true
-    autofollow_on_join_user: 'diasporahq@joindiaspora.com'
+    autofollow_on_join_user: 'hq@pod.diaspora.software'
+    welcome_message:
+      enabled: false
+      subject: 'Welcome Message'
+      text: 'Hello %{username}, welcome to diaspora*.'
     invitations:
       open: true
       count: 25
-    paypal_hosted_button_id:
+    paypal_donations:
+      enable: false
+      currency: USD
+      paypal_hosted_button_id:
+      paypal_unhosted_button_encrypted:
     bitcoin_address:
+    bitcoin_wallet_id: # DEPRECATED: Remove with 0.6
     community_spotlight:
       enable: false
       suggest_email:
@@ -93,23 +145,35 @@ defaults:
       enable: false
       jurisdiction: false
       minimum_age: false
+    maintenance:
+      remove_old_users:
+        enable: false
+        after_days: 730
+        warn_days: 30
+        limit_removals_to_per_day: 100
+    source_url:
   services:
     facebook:
       enable: false
       app_id:
       secret:
+      open_graph_namespace: 'joindiaspora'
+      authorized: false
     twitter:
       enable: false
       key:
       secret:
+      authorized: true
     tumblr:
       enable: false
       key:
       secret:
+      authorized: true
     wordpress:
       enable: false
       key:
       secret:
+      authorized: true
   mail:
     enable: false
     sender_address: 'no-reply@example.org'
@@ -130,6 +194,8 @@ defaults:
   admins:
     account:
     podmin_email:
+  # List valid environment variables
+  redistogo_url:
 
 development:
   environment:
@@ -137,6 +203,9 @@ development:
       serve: true
     single_process_mode: true
     require_ssl: false
+    logging:
+      debug:
+        sql: true
   server:
     unicorn_worker: 1
   settings:
@@ -161,6 +230,7 @@ test:
       enable: true
       app_id: 'fake'
       secret: 'sdoigjosdfijg'
+      authorized: true
   mail:
     enable: true
 integration1:

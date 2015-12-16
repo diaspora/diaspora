@@ -1,7 +1,7 @@
 <div class="container" style="position:relative;">
 
-  <a href="/stream">
-    <div alt="Logo_small" class="diaspora_header_logo branding-header-logo">
+  <a href="/stream" data-stream-title="{{t "my_stream"}}">
+    <div alt="logo" class="diaspora_header_logo logos-header-logo">
     </div>
   </a>
 
@@ -22,7 +22,7 @@
   <div id="nav_badges">
     <div class="badge badge-inverse" id="notification_badge">
       <div class="icons-notifications_grey" >
-        <a href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
+        <a id="notifications-badge" href="/notifications" title="{{t "header.notifications"}}" class="badge_link" >
           <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
             {{current_user.notifications_count}}
           </div>
@@ -72,7 +72,7 @@
       <div class="user-menu-more-indicator">
         ▼
       </div>
-      <img alt="{{current_user.name}}" class="user-menu-avatar" src="{{current_user.avatar.small}}" title="{{current_user.name}}" />
+      {{{personImage current_user 'small' 'avatar user-menu-avatar'}}}
       <a class="user-name" href="#">{{current_user.name}}</a>
     </li>
     <li class="user-menu-item"><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
@@ -81,13 +81,15 @@
     <li class="user-menu-item"><a href="/help">{{t "header.help"}}</a></li>
     {{#if current_user.admin}}
       <li class="user-menu-item"><a href="/admins/user_search">{{t "header.admin"}}</a></li>
+    {{else if current_user.moderator}}
+      <li class="user-menu-item"><a href="/report">{{t "header.moderator"}}</a></li>
     {{/if}}
     <li class="user-menu-item"><a href="/users/sign_out" data-method="delete">{{t "header.log_out"}}</a></li>
   </ul>
 
 
   <div id="global_search">
-    <form accept-charset="UTF-8" action="/search" class="search_form" method="get">
+    <form id="header-search-form" accept-charset="UTF-8" action="/search" class="search_form" method="get">
       <input name="utf8" type="hidden" value="✓">
       <input id="q" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off" class="ac_input">
     </form>

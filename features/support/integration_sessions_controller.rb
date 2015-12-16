@@ -1,7 +1,7 @@
 class IntegrationSessionsController < ActionController::Base
   def new
     @user_id = params[:user_id]
-    render 'features/support/integration_sessions_form', :layout => false
+    render file: 'features/support/integration_sessions_form', layout: false
   end
   def create
     sign_in_and_redirect User.find(params[:user_id])

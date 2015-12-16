@@ -1,0 +1,21 @@
+.post-content {
+  .photo_attachments {
+    margin-top: 7px;
+    padding-bottom: 10px;
+    text-align: center;
+    img {
+      &.big_stream_photo {
+        display: block;
+        max-width: 100%;
+      }
+      &.thumb_small {
+        display: inline;
+        max-width: 50px;
+        max-height: 50px;
+      }
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 5px;
+    }
+  }
+}

@@ -1,16 +1,16 @@
-atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
- 'xmlns:georss' => 'http://www.georss.org/georss',
- 'xmlns:activity' => 'http://activitystrea.ms/spec/1.0/',
- 'xmlns:media' => 'http://purl.org/syndication/atommedia',
- 'xmlns:poco' => 'http://portablecontacts.net/spec/1.0',
- 'xmlns:ostatus' => 'http://ostatus.org/schema/1.0',
- 'xmlns:statusnet' => 'http://status.net/schema/api/1/',
- :id => "#{@user.public_url}.atom",
- :root_url => "#{@user.public_url}"}) do |feed|
+atom_feed("xmlns:thr"       => "http://purl.org/syndication/thread/1.0",
+          "xmlns:georss"    => "http://www.georss.org/georss",
+          "xmlns:activity"  => "http://activitystrea.ms/spec/1.0/",
+          "xmlns:media"     => "http://purl.org/syndication/atommedia",
+          "xmlns:poco"      => "http://portablecontacts.net/spec/1.0",
+          "xmlns:ostatus"   => "http://ostatus.org/schema/1.0",
+          "xmlns:statusnet" => "http://status.net/schema/api/1/",
+          :id               => @user.atom_url,
+          :root_url         => @user.profile_url) do |feed|
 
   feed.tag! :generator, 'Diaspora', :uri => "#{AppConfig.pod_uri.to_s}"
   feed.title "#{@user.name}'s Public Feed"
-  feed.subtitle "Updates from #{@user.name} on Diaspora"
+  feed.subtitle "Updates from #{@user.name} on #{AppConfig.settings.pod_name}"
   feed.logo "#{@user.image_url(:thumb_small)}"
   feed.updated @posts[0].created_at if @posts.length > 0
   feed.tag! :link, :rel => 'avatar', :type => 'image/jpeg', 'media:width' => '100',

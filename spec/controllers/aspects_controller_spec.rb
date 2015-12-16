@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe AspectsController do
+describe AspectsController, :type => :controller do
   before do
     alice.getting_started = false
     alice.save
@@ -12,82 +12,66 @@ describe AspectsController do
     @alices_aspect_1 = alice.aspects.where(:name => "generic").first
     @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
 
-    @controller.stub(:current_user).and_return(alice)
+    allow(@controller).to receive(:current_user).and_return(alice)
     request.env["HTTP_REFERER"] = 'http://' + request.host
-  end
-
-
-  describe "#new" do
-    it "renders a remote form if remote is true" do
-      get :new, "remote" => "true"
-      response.should be_success
-      response.body.should =~ /#{Regexp.escape('data-remote="true"')}/
-    end
-    it "renders a non-remote form if remote is false" do
-      get :new, "remote" => "false"
-      response.should be_success
-      response.body.should_not =~ /#{Regexp.escape('data-remote="true"')}/
-    end
-    it "renders a non-remote form if remote is missing" do
-      get :new
-      response.should be_success
-      response.body.should_not =~ /#{Regexp.escape('data-remote="true"')}/
-    end
   end
 
   describe "#show" do
     it "succeeds" do
       get :show, 'id' => @alices_aspect_1.id.to_s
-      response.should be_redirect
+      expect(response).to be_redirect
     end
     it 'redirects on an invalid id' do
-      get :show, 'id' => 4341029835
-      response.should be_redirect
+      get :show, 'id' => 0
+      expect(response).to be_redirect
     end
   end
 
   describe "#create" do
     context "with valid params" do
       it "creates an aspect" do
-        alice.aspects.count.should == 2
-        post :create, "aspect" => {"name" => "new aspect"}
-        alice.reload.aspects.count.should == 3
+        expect(alice.aspects.count).to eq(2)
+        post :create, aspect: {name: "new aspect"}
+        expect(alice.reload.aspects.count).to eq(3)
       end
-      it "redirects to the aspect's contact page" do
-        post :create, "aspect" => {"name" => "new aspect"}
-        response.should redirect_to(contacts_path(:a_id => Aspect.find_by_name("new aspect").id))
+
+      it "returns the created aspect as json" do
+        post :create, aspect: {name: "new aspect"}
+        expect(JSON.parse(response.body)["id"]).to eq Aspect.find_by_name("new aspect").id
+        expect(JSON.parse(response.body)["name"]).to eq "new aspect"
       end
 
       context "with person_id param" do
         it "creates a contact if one does not already exist" do
-          lambda {
-            post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
-          }.should change {
+          expect {
+            post :create, format: "js", person_id: eve.person.id, aspect: {name: "new"}
+          }.to change {
             alice.contacts.count
           }.by(1)
         end
 
         it "adds a new contact to the new aspect" do
-          post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
-          alice.aspects.find_by_name("new").contacts.count.should == 1
+          post :create, format: "js", person_id: eve.person.id, aspect: {name: "new"}
+          expect(alice.aspects.find_by_name("new").contacts.count).to eq(1)
         end
 
         it "adds an existing contact to the new aspect" do
-          post :create, :format => 'js', :aspect => {:name => "new", :person_id => bob.person.id}
-          alice.aspects.find_by_name("new").contacts.count.should == 1
+          post :create, format: "js", person_id: bob.person.id, aspect: {name: "new"}
+          expect(alice.aspects.find_by_name("new").contacts.count).to eq(1)
         end
       end
     end
 
     context "with invalid params" do
       it "does not create an aspect" do
-        alice.aspects.count.should == 2
-        post :create, "aspect" => {"name" => ""}
-        alice.reload.aspects.count.should == 2
+        expect(alice.aspects.count).to eq(2)
+        post :create, aspect: {name: ""}
+        expect(alice.reload.aspects.count).to eq(2)
       end
-      it "goes back to the page you came from" do
-        post :create, "aspect" => {"name" => ""}
-        response.should redirect_to(:back)
+
+      it "responds with 422" do
+        post :create, aspect: {name: ""}
+        expect(response.status).to eq(422)
       end
     end
   end
@@ -102,57 +86,73 @@ describe AspectsController do
       params = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
       put('update', :id => @alices_aspect_1.id, "aspect" => params)
-      Aspect.find(@alices_aspect_1.id).user_id.should == alice.id
+      expect(Aspect.find(@alices_aspect_1.id).user_id).to eq(alice.id)
     end
 
     it "should return the name and id of the updated item" do
       params = {"name" => "Bruisers"}
       put('update', :id => @alices_aspect_1.id, "aspect" => params)
-      response.body.should == { :id => @alices_aspect_1.id, :name => "Bruisers" }.to_json
+      expect(response.body).to eq({ :id => @alices_aspect_1.id, :name => "Bruisers" }.to_json)
     end
   end
 
-  describe '#edit' do
+  describe "update_order" do
+    it "updates the aspect order" do
+      @alices_aspect_1.update_attributes(order_id: 10)
+      @alices_aspect_2.update_attributes(order_id: 20)
+      ordered_aspect_ids = [@alices_aspect_2.id, @alices_aspect_1.id]
+
+      put(:update_order, ordered_aspect_ids: ordered_aspect_ids)
+
+      expect(Aspect.find(@alices_aspect_1.id).order_id).to eq(1)
+      expect(Aspect.find(@alices_aspect_2.id).order_id).to eq(0)
+    end
+  end
+
+  describe "#destroy" do
     before do
-      eve.profile.first_name = eve.profile.last_name = nil
-      eve.profile.save
-      eve.save
-
-      @zed = FactoryGirl.create(:user_with_aspect, :username => "zed")
-      @zed.profile.first_name = "zed"
-      @zed.profile.save
-      @zed.save
-      @katz = FactoryGirl.create(:user_with_aspect, :username => "katz")
-      @katz.profile.first_name = "katz"
-      @katz.profile.save
-      @katz.save
-
-      connect_users(alice, @alices_aspect_2, eve, eve.aspects.first)
-      connect_users(alice, @alices_aspect_2, @zed, @zed.aspects.first)
-      connect_users(alice, @alices_aspect_1, @katz, @katz.aspects.first)
+      @alices_aspect_1 = alice.aspects.create(name: "Contacts")
     end
 
-    it 'renders' do
-      get :edit, :id => @alices_aspect_1.id
-      response.should be_success
+    context "with no auto follow back aspect" do
+      it "destoys the aspect" do
+        expect(alice.aspects.to_a).to include @alices_aspect_1
+        post :destroy, id: @alices_aspect_1.id
+        expect(alice.reload.aspects.to_a).not_to include @alices_aspect_1
+      end
+
+      it "renders a flash message on success" do
+        post :destroy, id: @alices_aspect_1.id
+        expect(flash[:notice]).to eq(I18n.t("aspects.destroy.success", name: @alices_aspect_1.name))
+        expect(flash[:error]).to be_blank
+      end
     end
 
-    it 'assigns the contacts in alphabetical order with people in aspects first' do
-      get :edit, :id => @alices_aspect_2.id
-      assigns[:contacts].map(&:id).should == [alice.contact_for(eve.person), alice.contact_for(@zed.person), alice.contact_for(bob.person), alice.contact_for(@katz.person)].map(&:id)
-    end
+    context "with the aspect set as auto follow back" do
+      before do
+        alice.auto_follow_back = true
+        alice.auto_follow_back_aspect = @alices_aspect_1
+        alice.save
+      end
 
-    it 'assigns all the contacts if noone is there' do
-      alices_aspect_3 = alice.aspects.create(:name => "aspect 3")
+      it "destoys the aspect" do
+        expect(alice.aspects.to_a).to include @alices_aspect_1
+        post :destroy, id: @alices_aspect_1.id
+        expect(alice.reload.aspects.to_a).not_to include @alices_aspect_1
+      end
 
-      get :edit, :id => alices_aspect_3.id
-      assigns[:contacts].map(&:id).should == [alice.contact_for(bob.person), alice.contact_for(eve.person), alice.contact_for(@katz.person), alice.contact_for(@zed.person)].map(&:id)
-    end
+      it "disables auto follow back" do
+        expect(alice.auto_follow_back).to be(true)
+        expect(alice.auto_follow_back_aspect).to eq(@alices_aspect_1)
+        post :destroy, id: @alices_aspect_1.id
+        expect(alice.auto_follow_back).to be(false)
+        expect(alice.auto_follow_back_aspect).to eq(nil)
+      end
 
-    it 'eager loads the aspect memberships for all the contacts' do
-      get :edit, :id => @alices_aspect_2.id
-      assigns[:contacts].each do |c|
-        c.aspect_memberships.loaded?.should be_true
+      it "renders a flash message telling you to set a new auto follow back aspect" do
+        post :destroy, id: @alices_aspect_1.id
+        expect(flash[:notice]).to eq(I18n.t("aspects.destroy.success_auto_follow_back", name: @alices_aspect_1.name))
+        expect(flash[:error]).to be_blank
       end
     end
   end
@@ -162,16 +162,16 @@ describe AspectsController do
       @alices_aspect_1.contacts_visible = false
       @alices_aspect_1.save
 
-      get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
-      @alices_aspect_1.reload.contacts_visible.should be_true
+      xhr :get, :toggle_contact_visibility, :aspect_id => @alices_aspect_1.id
+      expect(@alices_aspect_1.reload.contacts_visible).to be true
     end
 
     it 'sets contacts hidden' do
       @alices_aspect_1.contacts_visible = true
       @alices_aspect_1.save
 
-      get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
-      @alices_aspect_1.reload.contacts_visible.should be_false
+      xhr :get, :toggle_contact_visibility, :aspect_id => @alices_aspect_1.id
+      expect(@alices_aspect_1.reload.contacts_visible).to be false
     end
   end
 end

@@ -1,7 +1,0 @@
-.notification_element{:data=>{:guid => n.id, :type => (Notification.types.key(n.type) || '')}, :class => (n.unread ? "unread" : "read")}
-  .pull-right.unread-toggle
-    %i.entypo.eye{ :title => (n.unread ? t('notifications.index.mark_read') : t('notifications.index.mark_unread')) }
-  = person_image_tag n.actors.first, :thumb_small
-  .notification_message
-    = notification_message_for(n)
-    %div= timeago(n.created_at)

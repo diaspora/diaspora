@@ -6,10 +6,12 @@
 
 ms:
   javascripts:
+    and: "dan"
     aspect_dropdown:
       add_to_aspect: "Tambah kenalan"
       all_aspects: "Semua aspek"
       error: "Tidak dapat berkongsi dengan <%= name %>.  Adakah anda mengabaikan mereka?"
+      error_remove: "Tidak dapat mengeluarkan <%= name %> daripada aspek :("
       select_aspects: "Pilih kenalan"
       started_sharing_with: "Anda telah mula berkongsi dengan <%= name %>!"
       stopped_sharing_with: "Anda telah berhenti berkongsi dengan <%= name %>."
@@ -17,35 +19,117 @@ ms:
         other: "dalam <%= count %> aspek"
         zero: "Pilih aspek"
     aspect_navigation:
+      add_an_aspect: "+ Tambah sebuah aspek"
       deselect_all: "menyahpilih semua"
       no_aspects: "Tiada aspek yang dipilih"
       select_all: "Pilih semua"
+    bookmarklet:
+      post_something: "Pos kepada diaspora*"
+      post_submit: "Menghantar pos..."
+      post_success: "Disiarkan! Menutup tetingkap popup..."
+    comma: ","
     comments:
       hide: "sembunyi komen"
+      no_comments: "Tiada komen lagi."
       show: "tunjuk semua komen"
     confirm_dialog: "Anda pasti?"
+    confirm_unload: "Sila sahkan bahawa anda mahu meninggalkan halaman ini - data yang telah anda masukkan tidak akan disimpan."
+    contacts:
+      add_contact: "Tambah kenalan"
+      aspect_list_is_not_visible: "Kenalan dalam aspek ini tidak dapat melihat satu sama lain."
+      aspect_list_is_visible: "Kenalan dalam aspek ini dapat melihat satu sama lain."
+      error_add: "Tidak dapat menambah <%= name %> kepada aspek :("
+      error_remove: "Tidak dapat membuang <%= name %> dari aspek :("
+      remove_contact: "Buang kenalan"
+    conversation:
+      participants: "Peserta"
+    edit: "Edit"
     failed_to_like: "Gagal untuk suka!"
     failed_to_post_message: "Gagal untuk pos mesej!"
+    failed_to_remove: "Gagal membuang catatan!"
     getting_started:
       alright_ill_wait: "Baiklah, saya akan tunggu."
       hey: "Hei, <%= name %>!"
       no_tags: "Hei, anda tidak mengikuti mana-mana tag! Teruskan juga?"
       preparing_your_stream: "Menyediakan strim peribadi anda..."
     header:
+      close: "tutup"
+      conversations: "Perbualan"
+      help: "Bantuan"
       search: "Find people or #tags"
+    ignore_failed: "Tidak boleh mengabaikan pengguna ini"
+    ignore_user: "Abaikan pengguna ini?"
     infinite_scroll:
       no_more: "Tiada lagi pos."
+      no_more_contacts: "Tiada lagi kenalan."
+    my_aspects: "Aspek-aspek saya"
+    no_results: "Tiada Hasil Dijumpai"
+    notifications:
+      mark_read: "Tanda sudah dibaca"
+      mark_unread: "Tanda belum dibaca"
+    people:
+      edit_my_profile: "Edit profil saya"
+      helper:
+        is_not_sharing: "<%= name %> tidak berkongsi dengan anda"
+        is_sharing: "<%= name %> berkongsi dengan anda"
+      message: "Mesej"
+      not_found: "...dan tiada orang yang dijumpai."
+      stop_ignoring: "Berhenti mengabaikan"
     photo_uploader:
+      completed: "<%= file %> siap"
+      empty: "{file} kosong, sila pilih fail sekali lagi tanpa ia."
+      error: "Berlaku masalah semasa memuat naik fail <%= file %>"
+      invalid_ext: "{file} mempunyai sambungan tidak sah. Hanya {extensions} dibenarkan."
       looking_good: "Wah, anda nampak hebat! \n"
+      size_error: "{file} terlalu besar, saiz fail maksimum adalah {sizeLimit}"
+    poll:
+      close_result: "Sembunyikan keputusan"
+      count:
+        other: |-
+            1 undi setakat ini
+
+            <%=count%> undian setakat ini
+      result: "Keputusan"
+      show_result: "Paparkan keputusan"
+      vote: "Undi"
+    profile:
+      add_some: "tambah beberapa"
+      born: "Hari Lahir"
+      contacts: "Kenalan-kenalan"
+      edit: "edit"
+      gender: "Jantina"
+      ignoring: "Anda mengabaikan semua siaran daripada <%= name %>."
+      location: "Lokasi"
+      photos: "Gambar"
+      posts: "Catatan"
+      you_have_no_tags: "anda tidak mempunyai tag!"
     publisher:
+      add_option: "Tambah jawapan"
       at_least_one_aspect: "Anda perlu menerbitkan sekurang-kurangnya satu aspek"
       limited: "Terhad - catatan anda hanya akan dilihat oleh orang-orang yang berkongsi dengan anda"
+      near_from: "Dicatatkan dari: <%= location %>"
+      option: "Jawapan"
       public: "Awam - Pos anda akan dilihat oleh semua orang dan dijumpai oleh enjin carian"
+      question: "Soalan"
+    report:
+      name: "Lapor"
+      prompt: "Sila sertakan sebab:"
+      prompt_default: "kandungan yang menyinggung"
+      status:
+        created: "Laporan itu sudah wujud"
+        exists: "Laporan itu sudah wujud"
     reshares:
       duplicate: "Yang baik, kan? Anda telah berkongsi semula pos itu!"
+      post: "Kongsi semula catatan <%= name %>?"
+      successful: "Catatan berjaya dikongsi semula!"
     search_for: "Mencari <%= name %>"
     show_more: "tunjuk lagi"
     stream:
+      followed_tag:
+        add_a_tag: "Tambah sebuah tag"
+        contacts_title: "Orang yang meminati tag ini"
+        follow: "Ikuti"
+        title: "Tag #Diikuti"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -67,6 +151,11 @@ ms:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      tags:
+        follow: "Ikuti #<%= tag %>"
+        following: "Mengikuti #<%= tag %>"
+        stop_following: "Berhenti Mengikuti #<%= tag %>"
+      via: "melalui <%= provider %>"
     tags:
       wasnt_that_interesting: "OK, saya mengandaikan #<%= tagName %> tidak semua yang menarik..."
     timeago:
@@ -85,6 +174,7 @@ ms:
       suffixFromNow: "dari sekarang"
       year: "kira-kira setahun"
       years: "%d tahun"
+    unblock_failed: "Membuang sekatan pada pengguna ini telah gagal"
     videos:
       unknown: "Jenis video tidak diketahui"
       watch: "Tonton video ini di <%= provider %>"

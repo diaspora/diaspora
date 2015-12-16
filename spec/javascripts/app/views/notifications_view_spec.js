@@ -40,8 +40,8 @@ describe("app.views.Notifications", function(){
     });
 
     it('changes the "all notifications" count', function() {
-      badge = $('ul.nav > li:eq(0) .badge');
-      count = parseInt(badge.text());
+      var badge = $('ul.nav > li:eq(0) .badge');
+      var count = parseInt(badge.text());
 
       this.view.updateView(this.guid, this.type, true);
       expect(parseInt(badge.text())).toBe(count + 1);
@@ -51,8 +51,8 @@ describe("app.views.Notifications", function(){
     });
 
     it('changes the notification type count', function() {
-      badge = $('ul.nav > li[data-type=' + this.type + '] .badge');
-      count = parseInt(badge.text());
+      var badge = $('ul.nav > li[data-type=' + this.type + '] .badge');
+      var count = parseInt(badge.text());
 
       this.view.updateView(this.guid, this.type, true);
       expect(parseInt(badge.text())).toBe(count + 1);
@@ -63,14 +63,44 @@ describe("app.views.Notifications", function(){
 
     it('toggles the unread class and changes the title', function() {
       this.view.updateView(this.readN.data('guid'), this.readN.data('type'), true);
-      expect(this.readN.hasClass('unread')).toBeTruethy;
-      expect(this.readN.hasClass('read')).toBeFalsy;
+      expect(this.readN.hasClass('unread')).toBeTruthy();
+      expect(this.readN.hasClass('read')).toBeFalsy();
       expect(this.readN.find('.unread-toggle .entypo').data('original-title')).toBe(Diaspora.I18n.t('notifications.mark_read'));
 
       this.view.updateView(this.readN.data('guid'), this.readN.data('type'), false);
-      expect(this.readN.hasClass('read')).toBeTruethy;
-      expect(this.readN.hasClass('unread')).toBeFalsy;
+      expect(this.readN.hasClass('read')).toBeTruthy();
+      expect(this.readN.hasClass('unread')).toBeFalsy();
       expect(this.readN.find('.unread-toggle .entypo').data('original-title')).toBe(Diaspora.I18n.t('notifications.mark_unread'));
+    });
+
+    context("with a header", function() {
+      beforeEach(function() {
+        loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}, notifications_count : 2});
+        this.header = new app.views.Header();
+        $("header").prepend(this.header.el);
+        this.header.render();
+      });
+
+      it("changes the header notifications count", function() {
+        var badge = $("#notification_badge .badge_count");
+        var count = parseInt(badge.text(), 10);
+
+        this.view.updateView(this.guid, this.type, true);
+        expect(parseInt(badge.text(), 10)).toBe(count + 1);
+
+        this.view.updateView(this.guid, this.type, false);
+        expect(parseInt(badge.text(), 10)).toBe(count);
+      });
+
+      context("markAllRead", function() {
+        it("calls setRead for each unread notification", function(){
+          spyOn(this.view, "setRead");
+          this.view.markAllRead();
+          expect(this.view.setRead).toHaveBeenCalledWith(this.view.$('.stream_element.unread').eq(0).data('guid'));
+          this.view.markAllRead();
+          expect(this.view.setRead).toHaveBeenCalledWith(this.view.$('.stream_element.unread').eq(1).data('guid'));
+          });
+        });
     });
   });
 });

@@ -21,18 +21,18 @@ shared_examples_for "it is taggable" do
     end
 
     it "supports non-ascii characters" do
-      @object.tags(true).map(&:name).should include('vöglein')
+      expect(@object.tags(true).map(&:name)).to include('vöglein')
     end
 
     it 'links each tag' do
       formatted_string = Diaspora::Taggable.format_tags(@str)
-      formatted_string.should include(tag_link('what'))
-      formatted_string.should include(tag_link('hey'))
-      formatted_string.should include(tag_link('vöglein'))
+      expect(formatted_string).to include(tag_link('what'))
+      expect(formatted_string).to include(tag_link('hey'))
+      expect(formatted_string).to include(tag_link('vöglein'))
     end
 
     it 'responds to plain_text' do
-      Diaspora::Taggable.format_tags(@str, :plain_text => true).should == @str
+      expect(Diaspora::Taggable.format_tags(@str, :plain_text => true)).to eq(@str)
     end
 
     it "doesn't mangle text when tags are involved" do
@@ -52,9 +52,9 @@ shared_examples_for "it is taggable" do
         '#12345 tag'             => "#{tag_link('12345')} tag",
         '#12cde tag'             => "#{tag_link('12cde')} tag",
         '#abc45 tag'             => "#{tag_link('abc45')} tag",
-        '#<3'                    => %{<a href="/tags/<3" class="tag">#&lt;3</a>},
-        'i #<3'                  => %{i <a href="/tags/<3" class="tag">#&lt;3</a>},
-        'i #<3 you'              => %{i <a href="/tags/<3" class="tag">#&lt;3</a> you},
+        '#<3'                    => %{<a class="tag" href="/tags/<3">#&lt;3</a>},
+        'i #<3'                  => %{i <a class="tag" href="/tags/<3">#&lt;3</a>},
+        'i #<3 you'              => %{i <a class="tag" href="/tags/<3">#&lt;3</a> you},
         '#<4'                    => '#&lt;4',
         'test#foo test'          => 'test#foo test',
         'test.#joo bar'          => 'test.#joo bar',
@@ -78,7 +78,7 @@ shared_examples_for "it is taggable" do
       }
 
       expected.each do |input,output|
-        Diaspora::Taggable.format_tags(input).should == output
+        expect(Diaspora::Taggable.format_tags(input)).to eq(output)
       end
     end
   end
@@ -87,10 +87,10 @@ shared_examples_for "it is taggable" do
     it 'builds the tags' do
       @object.send(@object.class.field_with_tags_setter, '#what')
       @object.build_tags
-      @object.tag_list.should == ['what']
-      lambda {
+      expect(@object.tag_list).to eq(['what'])
+      expect {
         @object.save
-      }.should change{@object.tags.count}.by(1)
+      }.to change{@object.tags.count}.by(1)
     end
   end
 
@@ -100,7 +100,7 @@ shared_examples_for "it is taggable" do
       arr = ['what', 'hey', 'that', 'THATWASMYBIKE', 'vöglein', '135440we', 'abc', 'h', 'ok', 'see', 're']
 
       @object.send(@object.class.field_with_tags_setter, str)
-      @object.tag_strings.should =~ arr
+      expect(@object.tag_strings).to match_array(arr)
     end
 
     it 'extracts tags despite surrounding text' do
@@ -139,11 +139,12 @@ shared_examples_for "it is taggable" do
         '#-initialhyphen'        => '-initialhyphen',
         '#-initialhyphen tag'    => '-initialhyphen',
         '#-initial-hyphen'       => '-initial-hyphen',
+        "\u202a#\u200eUSA\u202c" => 'USA'
       }
 
       expected.each do |text,hashtag|
         @object.send  @object.class.field_with_tags_setter, text
-        @object.tag_strings.should == [hashtag].compact
+        expect(@object.tag_strings).to eq([hashtag].compact)
       end
     end
 
@@ -152,7 +153,7 @@ shared_examples_for "it is taggable" do
       arr = ['what','whaaaaaaaaaat']
 
       @object.send(@object.class.field_with_tags_setter, str)
-      @object.tag_strings.should =~ arr
+      expect(@object.tag_strings).to match_array(arr)
     end
 
     it 'is case insensitive' do
@@ -160,7 +161,7 @@ shared_examples_for "it is taggable" do
       arr = ['what']
 
       @object.send(@object.class.field_with_tags_setter, str)
-      @object.tag_strings.should =~ arr
+      expect(@object.tag_strings).to match_array(arr)
     end
   end
 end

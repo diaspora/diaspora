@@ -1,37 +1,56 @@
-class StatisticsPresenter
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
 
-  def as_json(options={})
-    result = {
-      'name' => AppConfig.settings.pod_name,
-      'version' => AppConfig.version_string,
-      'registrations_open' => AppConfig.settings.enable_registrations
+# TODO: Drop after 0.6
+class StatisticsPresenter < NodeInfoPresenter
+  def initialize
+    super("1.0")
+  end
+
+  def as_json(_options={})
+    base_data.merge(user_counts)
+             .merge(post_counts)
+             .merge(comment_counts)
+             .merge(legacy_services)
+  end
+
+  def base_data
+    {
+      "name"               => name,
+      "network"            => "Diaspora",
+      "version"            => version,
+      "registrations_open" => open_registrations?,
+      "services"           => available_services
     }
-    if AppConfig.privacy.statistics.user_counts?
-      result['total_users'] = User.count
-      result['active_users_halfyear'] = User.halfyear_actives.count
-      result['active_users_monthly'] = User.monthly_actives.count
-    end
-    if AppConfig.privacy.statistics.post_counts?
-      result['local_posts'] = self.local_posts
-    end
-    if AppConfig.privacy.statistics.comment_counts?
-      result['local_comments'] = self.local_comments
-    end
-
-    AppConfig.services.each do |service, options|
-      result[service] = options ? !!options["enable"] : false
-    
-    end
-
-    result
   end
 
-  def local_posts
-    Post.where(:type => "StatusMessage").joins(:author).where("owner_id IS NOT null").count
+  def user_counts
+    return {} unless expose_user_counts?
+    {
+      "total_users"           => total_users,
+      "active_users_monthly"  => monthly_users,
+      "active_users_halfyear" => halfyear_users
+    }
   end
 
-  def local_comments
-    Comment.joins(:author).where("owner_id IS NOT null").count
+  def post_counts
+    return {} unless expose_posts_counts?
+    {
+      "local_posts" => local_posts
+    }
   end
-  
+
+  def comment_counts
+    return {} unless expose_comment_counts?
+    {
+      "local_comments" => local_comments
+    }
+  end
+
+  def legacy_services
+    Configuration::KNOWN_SERVICES.each_with_object({}) {|service, result|
+      result[service.to_s] = AppConfig.show_service?(service, nil)
+    }
+  end
 end

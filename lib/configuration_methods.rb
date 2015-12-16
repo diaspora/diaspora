@@ -1,19 +1,27 @@
 module Configuration
+  KNOWN_SERVICES = [:twitter, :tumblr, :facebook, :wordpress].freeze
+
   module Methods
     def pod_uri
-      return @pod_uri unless @pod_uri.nil?
+      return @pod_uri.dup unless @pod_uri.nil?
 
       url = environment.url.get
       url = "http://#{url}" unless url =~ /^(https?:\/\/)/
       url << "/" unless url.end_with?("/")
 
       begin
-        @pod_url = Addressable::URI.parse(url)
+        @pod_uri = Addressable::URI.parse(url)
       rescue
         puts "WARNING: pod url #{url} is not a legal URI"
       end
 
-      @pod_url
+      @pod_uri.dup
+    end
+
+    # @param path [String]
+    # @return [String]
+    def url_to(path)
+      pod_uri.tap {|uri| uri.path = path }.to_s
     end
 
     def bare_pod_uri
@@ -24,13 +32,20 @@ module Configuration
       return @configured_services unless @configured_services.nil?
 
       @configured_services = []
-      [:twitter, :tumblr, :facebook, :wordpress].each do |service|
+      KNOWN_SERVICES.each do |service|
         @configured_services << service if services.send(service).enable?
       end
 
       @configured_services
     end
     attr_writer :configured_services
+
+    def show_service?(service, user)
+      return false unless self["services.#{service}.enable"]
+      # Return true only if 'authorized' is true or equal to user username
+      (user && self["services.#{service}.authorized"] == user.username) ||
+        self["services.#{service}.authorized"] == true
+    end
 
     def secret_token
       if heroku?
@@ -44,10 +59,10 @@ module Configuration
           File.dirname(__FILE__)
         )
         unless File.exist? token_file
-          `bundle exec rake generate:secret_token`
+          `DISABLE_SPRING=1 bin/rake generate:secret_token`
         end
         require token_file
-        Rails.application.config.secret_token
+        Diaspora::Application.config.secret_key_base
       end
     end
 
@@ -112,13 +127,16 @@ module Configuration
 
     def sidekiq_log
       path = Pathname.new environment.sidekiq.log.get
-      path = Rails.root.join(path) unless pathname.absolute?
+      path = Rails.root.join(path) unless path.absolute?
       path.to_s
     end
 
     def postgres?
-      defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) &&
-      ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+      ActiveRecord::Base.connection.adapter_name == "PostgreSQL"
+    end
+
+    def mysql?
+      ActiveRecord::Base.connection.adapter_name == "Mysql2"
     end
 
     def bitcoin_donation_address

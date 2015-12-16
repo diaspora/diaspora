@@ -28,7 +28,7 @@ class Person < ActiveRecord::Base
   xml_attr :profile, :as => Profile
   xml_attr :exported_key
 
-  has_one :profile, :dependent => :destroy
+  has_one :profile, dependent: :destroy
   delegate :last_name, :image_url, :tag_string, :bio, :location,
            :gender, :birthday, :formatted_birthday, :tags, :searchable,
            to: :profile
@@ -63,32 +63,40 @@ class Person < ActiveRecord::Base
   validates :serialized_public_key, :presence => true
   validates :diaspora_handle, :uniqueness => true
 
-  scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
-  scope :remote, where('people.owner_id IS NULL')
-  scope :local, where('people.owner_id IS NOT NULL')
-  scope :for_json, select('DISTINCT people.id, people.guid, people.diaspora_handle').includes(:profile)
+  scope :searchable, -> { joins(:profile).where(:profiles => {:searchable => true}) }
+  scope :remote, -> { where('people.owner_id IS NULL') }
+  scope :local, -> { where('people.owner_id IS NOT NULL') }
+  scope :for_json, -> {
+    select('DISTINCT people.id, people.guid, people.diaspora_handle')
+      .includes(:profile)
+  }
 
   # @note user is passed in here defensively
-  scope :all_from_aspects, lambda { |aspect_ids, user|
+  scope :all_from_aspects, ->(aspect_ids, user) {
     joins(:contacts => :aspect_memberships).
          where(:contacts => {:user_id => user.id}).
          where(:aspect_memberships => {:aspect_id => aspect_ids})
   }
 
-  scope :unique_from_aspects, lambda{ |aspect_ids, user|
+  scope :unique_from_aspects, ->(aspect_ids, user) {
     all_from_aspects(aspect_ids, user).select('DISTINCT people.*')
   }
 
   #not defensive
-  scope :in_aspects, lambda { |aspect_ids|
+  scope :in_aspects, ->(aspect_ids) {
     joins(:contacts => :aspect_memberships).
         where(:aspect_memberships => {:aspect_id => aspect_ids})
   }
 
-  scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:tags => {:name => tag_name}).where('profiles.searchable IS TRUE') }
+  scope :profile_tagged_with, ->(tag_name) {
+    joins(:profile => :tags)
+      .where(:tags => {:name => tag_name})
+      .where('profiles.searchable IS TRUE')
+  }
 
-  scope :who_have_reshared_a_users_posts, lambda{|user|
-    joins(:posts).where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
+  scope :who_have_reshared_a_users_posts, ->(user) {
+    joins(:posts)
+      .where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
   }
 
   def self.community_spotlight
@@ -187,37 +195,34 @@ class Person < ActiveRecord::Base
               end
   end
 
+  def username
+    @username ||= owner ? owner.username : diaspora_handle.split("@")[0]
+  end
+
   def owns?(obj)
     self.id == obj.author_id
   end
 
   def url
-    begin
-      uri = URI.parse(@attributes['url'])
-      url = "#{uri.scheme}://#{uri.host}"
-      url += ":#{uri.port}" unless ["80", "443"].include?(uri.port.to_s)
-      url += "/"
-    rescue => e
-      url = @attributes['url']
-    end
-    url
+    url_to "/"
+  rescue
+    self[:url]
+  end
+
+  def profile_url
+    url_to "/u/#{username}"
+  end
+
+  def atom_url
+    url_to "/public/#{username}.atom"
   end
 
   def receive_url
-    "#{url}receive/users/#{self.guid}/"
-  end
-
-  def public_url
-    if self.owner
-      username = self.owner.username
-    else
-      username = self.diaspora_handle.split("@")[0]
-    end
-    "#{url}public/#{username}"
+    url_to "/receive/users/#{guid}"
   end
 
   def public_key_hash
-    Base64.encode64(OpenSSL::Digest::SHA256.new(self.exported_key).to_s)
+    Base64.encode64(OpenSSL::Digest::SHA256.new(serialized_public_key).to_s)
   end
 
   def public_key
@@ -233,41 +238,31 @@ class Person < ActiveRecord::Base
     serialized_public_key = new_key
   end
 
-  #database calls
+  # discovery (webfinger)
+  def self.find_or_fetch_by_identifier(account)
+    # exiting person?
+    person = by_account_identifier(account)
+    return person if person.present? && person.profile.present?
+
+    # create or update person from webfinger
+    logger.info "webfingering #{account}, it is not known or needs updating"
+    DiasporaFederation::Discovery::Discovery.new(account).fetch_and_save
+
+    by_account_identifier(account)
+  end
+
+  # database calls
   def self.by_account_identifier(identifier)
-    identifier = identifier.strip.downcase.gsub('acct:', '')
-    self.where(:diaspora_handle => identifier).first
+    identifier = identifier.strip.downcase.sub("acct:", "")
+    find_by(diaspora_handle: identifier)
   end
 
-  def self.local_by_account_identifier(identifier)
-    person = self.by_account_identifier(identifier)
-   (person.nil? || person.remote?) ? nil : person
+  def self.find_local_by_diaspora_handle(handle)
+    where(diaspora_handle: handle, closed_account: false).where.not(owner: nil).take
   end
 
-  def self.create_from_webfinger(profile, hcard)
-    return nil if profile.nil? || !profile.valid_diaspora_profile?
-    new_person = Person.new
-    new_person.serialized_public_key = profile.public_key
-    new_person.guid = profile.guid
-    new_person.diaspora_handle = profile.account
-    new_person.url = profile.seed_location
-
-    #hcard_profile = HCard.find profile.hcard.first[:href]
-    Rails.logger.info("event=webfinger_marshal valid=#{new_person.valid?} target=#{new_person.diaspora_handle}")
-    new_person.url = hcard[:url]
-    new_person.assign_new_profile_from_hcard(hcard)
-    new_person.save!
-    new_person.profile.save!
-    new_person
-  end
-
-  def assign_new_profile_from_hcard(hcard)
-    self.profile = Profile.new(:first_name => hcard[:given_name],
-                              :last_name  => hcard[:family_name],
-                              :image_url  => hcard[:photo],
-                              :image_url_medium  => hcard[:photo_medium],
-                              :image_url_small  => hcard[:photo_small],
-                              :searchable => hcard[:searchable])
+  def self.find_local_by_guid(guid)
+    where(guid: guid, closed_account: false).where.not(owner: nil).take
   end
 
   def remote?
@@ -304,19 +299,12 @@ class Person < ActiveRecord::Base
     end
   end
 
-  #gross method pulled out from controller, not exactly sure how it should be used.
-  def shares_with(user)
-    user.contacts.receiving.where(:person_id => self.id).first if user
-  end
-
   # @param person [Person]
   # @param url [String]
   def update_url(url)
-    location = URI.parse(url)
-    newuri = "#{location.scheme}://#{location.host}"
-    newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
-    newuri += "/"
-    self.update_attributes(:url => newuri)
+    @uri = URI.parse(url)
+    @uri.path = "/"
+    update_attributes(:url => @uri.to_s)
   end
 
   def lock_access!
@@ -340,8 +328,21 @@ class Person < ActiveRecord::Base
 
   private
 
+  # @return [URI]
+  def uri
+    @uri ||= URI.parse(self[:url])
+    @uri.dup
+  end
+
+  # @param path [String]
+  # @return [String]
+  def url_to(path)
+    uri.tap {|uri| uri.path = path }.to_s
+  end
+
   def fix_profile
-    Webfinger.new(self.diaspora_handle).fetch
-    self.reload
+    logger.info "fix profile for account: #{diaspora_handle}"
+    DiasporaFederation::Discovery::Discovery.new(diaspora_handle).fetch_and_save
+    reload
   end
 end

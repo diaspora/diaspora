@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe OEmbedHelper do
+describe OEmbedHelper, :type => :helper do
   describe 'o_embed_html' do
     scenarios = {
       "photo" => {
@@ -112,15 +112,15 @@ describe OEmbedHelper do
         formatted = o_embed_html(cache).gsub('https://', 'http://')
         case type
           when 'photo'
-            formatted.should =~ /#{data['oembed_data']['url']}/
+            expect(formatted).to match(/#{data['oembed_data']['url']}/)
           when 'unsupported'
-            formatted.should =~ /#{data['link_url']}/
+            expect(formatted).to match(/#{data['link_url']}/)
           when 'secure_video', 'secure_rich'
-            formatted.should =~ /#{data['oembed_data']['html']}/
+            expect(formatted).to match(/#{data['oembed_data']['html']}/)
           when 'unsecure_video', 'unsecure_rich'
-            formatted.should_not =~ /#{data['oembed_data']['html']}/
-            formatted.should =~ /#{data['oembed_data']['title']}/
-            formatted.should =~ /#{data['oembed_data']['url']}/
+            expect(formatted).not_to match(/#{data['oembed_data']['html']}/)
+            expect(formatted).to match(/#{data['oembed_data']['title']}/)
+            expect(formatted).to match(/#{data['oembed_data']['url']}/)
         end
       end
     end

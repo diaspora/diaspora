@@ -22,7 +22,7 @@ describe Postzord::Receiver::Public do
       bob.destroy
       comment.destroy
       expect{
-        receiver = Postzord::Receiver::Public.new(xml) 
+        receiver = Postzord::Receiver::Public.new(xml)
         receiver.perform!
       }.to change(Comment, :count).by(1)
     end
@@ -31,7 +31,7 @@ describe Postzord::Receiver::Public do
   describe '#initialize' do
     it 'creates a Salmon instance variable' do
       receiver = Postzord::Receiver::Public.new(@xml)
-      receiver.salmon.should_not be_nil
+      expect(receiver.salmon).not_to be_nil
     end
   end
 
@@ -41,28 +41,29 @@ describe Postzord::Receiver::Public do
     end
 
     it 'calls verify_signature' do
-      @receiver.should_receive(:verified_signature?)
+      expect(@receiver).to receive(:verified_signature?)
       @receiver.perform!
     end
 
-    it 'returns false if signature is not verified' do
-      @receiver.should_receive(:verified_signature?).and_return(false)
-      @receiver.perform!.should be_false
+    it "does not save the object if signature is not verified" do
+      expect(@receiver).to receive(:verified_signature?).and_return(false)
+      expect(@receiver).not_to receive(:parse_and_receive)
+      @receiver.perform!
     end
 
     context 'if signature is valid' do
       it 'calls recipient_user_ids' do
-        @receiver.should_receive(:recipient_user_ids)
+        expect(@receiver).to receive(:recipient_user_ids)
         @receiver.perform!
       end
 
       it 'saves the parsed object' do
-        @receiver.should_receive(:save_object)
+        expect(@receiver).to receive(:parse_and_receive).and_call_original
         @receiver.perform!
       end
 
-      it 'enqueues a Workers::ReceiveLocalBatch' do 
-        Workers::ReceiveLocalBatch.should_receive(:perform_async).with(anything, anything, anything)
+      it 'enqueues a Workers::ReceiveLocalBatch' do
+        expect(Workers::ReceiveLocalBatch).to receive(:perform_async).with(anything, anything, anything)
         @receiver.perform!
       end
 
@@ -77,20 +78,20 @@ describe Postzord::Receiver::Public do
   describe '#verify_signature?' do
     it 'calls Slap#verified_for_key?' do
       receiver = Postzord::Receiver::Public.new(@xml)
-      receiver.salmon.should_receive(:verified_for_key?).with(instance_of(OpenSSL::PKey::RSA))
+      expect(receiver.salmon).to receive(:verified_for_key?).with(instance_of(OpenSSL::PKey::RSA))
       receiver.verified_signature?
     end
   end
 
   describe '#recipient_user_ids' do
     it 'calls User.all_sharing_with_person' do
-      User.should_receive(:all_sharing_with_person).and_return(double(:select => []))
+      expect(User).to receive(:all_sharing_with_person).and_return(double(:pluck => []))
       receiver = Postzord::Receiver::Public.new(@xml)
       receiver.perform!
     end
   end
 
-  describe '#receive_relayable' do 
+  describe '#receive_relayable' do
     before do
       @comment = bob.build_comment(:text => 'yo', :post => FactoryGirl.create(:status_message))
       @comment.save
@@ -104,7 +105,7 @@ describe Postzord::Receiver::Public do
       comment = double.as_null_object
       @receiver.instance_variable_set(:@object, comment)
 
-      comment.should_receive(:receive)
+      expect(comment).to receive(:receive)
       @receiver.receive_relayable
     end
 
@@ -113,9 +114,21 @@ describe Postzord::Receiver::Public do
       @receiver.instance_variable_set(:@object, comment)
 
       local_batch_receiver = double.as_null_object
-      Postzord::Receiver::LocalBatch.stub(:new).and_return(local_batch_receiver)
-      local_batch_receiver.should_receive(:notify_users)
+      allow(Postzord::Receiver::LocalBatch).to receive(:new).and_return(local_batch_receiver)
+      expect(local_batch_receiver).to receive(:notify_users)
       @receiver.receive_relayable
+    end
+  end
+
+  describe "#parse_and_receive" do
+    before do
+      @receiver = Postzord::Receiver::Public.new(@xml)
+      @parsed_salmon = Salmon::Slap.from_xml(@xml)
+    end
+
+    it "should raise a Diaspora::XMLNotParseable when the parsed object is nil" do
+      expect(Diaspora::Parser).to receive(:from_xml).and_return(nil)
+      expect { @receiver.parse_and_receive(@parsed_salmon.parsed_data) }.to raise_error(Diaspora::XMLNotParseable)
     end
   end
 end

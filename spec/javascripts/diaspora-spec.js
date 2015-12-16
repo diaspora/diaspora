@@ -57,8 +57,8 @@ describe("Diaspora", function() {
       describe("subscribe", function() {
         it("will subscribe to multiple events", function() {
           var firstEventCalled = false,
-                  secondEventCalled = false
-          events = Diaspora.EventBroker.extend({});
+              secondEventCalled = false,
+              events = Diaspora.EventBroker.extend({});
 
           events.subscribe("first/event second/event", function() {
             if (firstEventCalled) {
@@ -78,8 +78,8 @@ describe("Diaspora", function() {
       describe("publish", function() {
         it("will publish multiple events", function() {
           var firstEventCalled = false,
-                  secondEventCalled = false
-          events = Diaspora.EventBroker.extend({});
+              secondEventCalled = false,
+              events = Diaspora.EventBroker.extend({});
 
           events.subscribe("first/event second/event", function() {
             if (firstEventCalled) {
