@@ -1,3 +1,7 @@
+# 0.5.5.1
+
+* Fix XSS on profile pages
+
 # 0.5.5.0
 
 ## Bug fixes
