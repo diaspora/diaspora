@@ -89,5 +89,24 @@ DiasporaFederation.configure do |config|
     on :fetch_entity_author_id_by_guid do |entity_type, guid|
       entity_type.constantize.where(guid: guid).joins(:author).pluck(:diaspora_handle).first
     end
+
+    on :queue_public_receive do |xml|
+      Workers::ReceiveUnencryptedSalmon.perform_async(xml)
+    end
+
+    on :queue_private_receive do |guid, xml|
+      person = Person.find_by_guid(guid)
+
+      if person.nil? || person.owner_id.nil?
+        false
+      else
+        Workers::ReceiveEncryptedSalmon.perform_async(person.owner.id, xml)
+        true
+      end
+    end
+
+    on :save_entity_after_receive do
+      # TODO
+    end
   end
 end
