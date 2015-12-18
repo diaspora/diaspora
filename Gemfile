@@ -13,7 +13,7 @@ gem "unicorn-worker-killer", "0.4.4"
 
 # Federation
 
-gem "diaspora_federation-rails", "0.0.13"
+gem "diaspora_federation-rails", "0.1.0"
 
 # API and JSON
 
@@ -289,7 +289,7 @@ group :test do
   gem "webmock",            "2.1.0", require: false
   gem "shoulda-matchers",   "3.1.1"
 
-  gem "diaspora_federation-test", "0.0.13"
+  gem "diaspora_federation-test", "0.1.0"
 end
 
 group :development, :test do
