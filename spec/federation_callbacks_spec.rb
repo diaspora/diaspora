@@ -266,4 +266,39 @@ describe "diaspora federation callbacks" do
       ).to be_nil
     end
   end
+
+  describe ":queue_public_receive" do
+    it "enqueues a ReceiveUnencryptedSalmon job" do
+      xml = "<diaspora/>"
+      expect(Workers::ReceiveUnencryptedSalmon).to receive(:perform_async).with(xml)
+
+      DiasporaFederation.callbacks.trigger(:queue_public_receive, xml)
+    end
+  end
+
+  describe ":queue_private_receive" do
+    let(:xml) { "<diaspora/>" }
+
+    it "returns true if the user is found" do
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, xml)
+      expect(result).to be_truthy
+    end
+
+    it "enqueues a ReceiveEncryptedSalmon job" do
+      expect(Workers::ReceiveEncryptedSalmon).to receive(:perform_async).with(alice.id, xml)
+
+      DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, xml)
+    end
+
+    it "returns false if the no user is found" do
+      person = FactoryGirl.create(:person)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, person.guid, xml)
+      expect(result).to be_falsey
+    end
+
+    it "returns false if the no person is found" do
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, "2398rq3948yftn", xml)
+      expect(result).to be_falsey
+    end
+  end
 end

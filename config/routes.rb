@@ -186,9 +186,7 @@ Diaspora::Application.routes.draw do
   # Federation
 
   controller :publics do
-    post 'receive/users/:guid'  => :receive
-    post 'receive/public'       => :receive_public
-    get 'hub'                   => :hub
+    get "hub" => :hub
   end
 
 
