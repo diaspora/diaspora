@@ -1,3 +1,8 @@
+# 0.5.5.1
+
+* Fix XSS on profile pages
+* Bump nokogiri to fix several libxml2 CVEs, see http://www.ubuntu.com/usn/usn-2834-1/
+
 # 0.5.5.0
 
 ## Bug fixes
