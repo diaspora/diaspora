@@ -4,6 +4,7 @@ app.pages.Settings = Backbone.View.extend({
     $(".settings-visibility").tooltip({placement: "top"});
     $(".profile-visibility-hint").tooltip({placement: "top"});
     $("[name='profile[public_details]']").bootstrapSwitch();
+    $("#update_profile_form").areYouSure();
   }
 });
 // @license-end
