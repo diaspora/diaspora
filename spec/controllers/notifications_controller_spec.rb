@@ -46,7 +46,7 @@ describe NotificationsController, :type => :controller do
   describe '#index' do
     before do
       @post = FactoryGirl.create(:status_message)
-      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+      @notification = FactoryGirl.create(:notification, recipient: alice, target: @post)
     end
 
     it 'succeeds' do
@@ -56,8 +56,15 @@ describe NotificationsController, :type => :controller do
     end
 
     it 'succeeds for notification dropdown' do
+      Timecop.travel(6.seconds.ago) do
+        @notification.touch
+      end
       get :index, :format => :json
       expect(response).to be_success
+      note_html = JSON.parse(response.body)[0]["also_commented"]["note_html"]
+      note_html = Nokogiri::HTML(note_html)
+      timeago_content = note_html.css("time")[0]["data-time-ago"]
+      expect(timeago_content).to include(@notification.updated_at.iso8601)
       expect(response.body).to match(/note_html/)
     end
 
@@ -84,7 +91,6 @@ describe NotificationsController, :type => :controller do
       it "should not provide a contacts menu for standard notifications" do
         FactoryGirl.create(:notification, :recipient => alice, :target => @post)
         get :index, "per_page" => 5
-
         expect(Nokogiri(response.body).css('.aspect_membership')).to be_empty
       end
 

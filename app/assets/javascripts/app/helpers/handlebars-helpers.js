@@ -42,15 +42,15 @@ Handlebars.registerHelper('linkToPerson', function(context, block) {
 });
 
 // relationship indicator for profile page
-Handlebars.registerHelper('sharingMessage', function(person) {
-  var i18n_scope = 'people.helper.is_not_sharing';
+Handlebars.registerHelper("sharingMessage", function(person) {
+  var i18nScope = "people.helper.is_not_sharing";
   var icon = "circle";
   if( person.is_sharing ) {
-    i18n_scope = 'people.helper.is_sharing';
+    i18nScope = "people.helper.is_sharing";
     icon = "entypo check";
   }
 
-  var title = Diaspora.I18n.t(i18n_scope, {name: person.name});
+  var title = Diaspora.I18n.t(i18nScope, {name: _.escape(person.name)});
   var html = '<span class="sharing_message_container" title="'+title+'" data-placement="bottom">'+
              '  <i id="sharing_message" class="'+icon+'"></i>'+
              '</span>';
