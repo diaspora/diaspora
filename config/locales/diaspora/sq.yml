@@ -1134,7 +1134,7 @@ nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në 
       not_logged_in: "Hëpërhë jo i futur"
       really_disconnect: "Të shkëputet nga %{service}?"
       edit_services: "Përpunoni shërbime"
-      services_explanation: "Lidhja te shërbime ndarjesh prej palësh të treta  ju jep aftësinë të botoni postime në to, ndërkohë që i shkruani në diaspora*.""
+      services_explanation: "Lidhja te shërbime ndarjesh prej palësh të treta ju jep aftësinë të botoni postime në to, ndërkohë që i shkruani në diaspora*.""
     create:
       success: "Mirëfilltësim i suksesshëm."
       failure: "Mirëfilltësimi dështoi."

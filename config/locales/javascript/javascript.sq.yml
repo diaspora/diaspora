@@ -143,7 +143,7 @@ sq:
       mobile_row_unchecked: "<%= name %> (shtoje)"
       stopped_sharing_with: "Reshtët së ndari gjëra me <%= name %>."
       started_sharing_with: "Filluat të ndani gjëra me <%= name %>!"
-      error: "S’u fillua dot ndarja e gjërave me <%= name %>.  Mos po i shpërfillni?"
+      error: "S’u fillua dot ndarja e gjërave me <%= name %>. Mos po i shpërfillni?"
       error_remove: "S’u hoq dot <%= name %> prej aspekti :("
       toggle:
         zero: "Përzgjidhni aspekte"
@@ -159,7 +159,7 @@ sq:
       hide: "Fshihi komentet"
       no_comments: "Ende s’ka komente."
     reshares:
-      duplicate: "Bukur, ë?  E keni ndarë një herë me të tjerët atë postim!"
+      duplicate: "Bukur, ë? E keni ndarë një herë me të tjerët atë postim!"
       successful: "Postimi u rinda me sukses me të tjerët!"
       post: "Të rindahet me të tjerët postimi i <%= name %>?"
     aspect_navigation:
@@ -169,7 +169,7 @@ sq:
       add_an_aspect: "+ Shtoni një aspekt"
     getting_started:
       hey: "Hej, <%= name %>!"
-      no_tags: "Hej, s’jeni duke ndjekur ndonjë etiketë!  Të vazhdohet, sido qoftë?"
+      no_tags: "Hej, s’jeni duke ndjekur ndonjë etiketë! Të vazhdohet, sido qoftë?"
       alright_ill_wait: "Në rregull, do të pres."
       preparing_your_stream: "Po përgatitet rrjedha juaj e personalizuar…"
     photo_uploader:
@@ -295,7 +295,7 @@ sq:
 
     poll:
       vote: "Votoni"
-      go_to_original_post: "Mund të merrni pjesë te ky votim përmes lidhjes  te <%= original_post_link %>."
+      go_to_original_post: "Mund të merrni pjesë te ky votim përmes lidhjes te <%= original_post_link %>."
       original_post: "postimi origjinal"
       result: "Përfundimi"
       count:
