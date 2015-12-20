@@ -1,4 +1,4 @@
-//= require jquery.slimscroll
+//= require jquery.slimscroll/jquery.slimscroll
 //= require jquery-colorbox
 //= require favico.js
 //= require jquery-fullscreen-plugin
@@ -24,7 +24,7 @@ $(document).ready(function() {
             chat: 1
           },
           displayRosterMinimized: function() {
-            return true;
+            return false;
           },
           xmpp: {
             url: $('script#jsxc').data('endpoint'),
