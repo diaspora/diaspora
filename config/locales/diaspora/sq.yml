@@ -600,7 +600,7 @@ sq:
 
   invitation_codes:
     excited: "%{name} është i ngazëllyer që ju sheh këtu."
-invitations:
+  invitations:
     create:
       sent: "Janë dërguar ftesa për: %{emails}"
       rejected: "Adresat email vijuese patën probleme: "
