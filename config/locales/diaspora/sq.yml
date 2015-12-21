@@ -294,7 +294,6 @@ sq:
     post_success: "U postua! Po mbyllet!"
     post_something: "Postoni diçka te diaspora*"
     explanation: "Postoni te diaspora* prej kudo qofshi, duke faqeruajtur %{link}."
-    explanation_link_text: "këtë lidhje"
 
   comments:
     zero: "Pa komente"
@@ -332,6 +331,7 @@ sq:
       only_sharing_with_me: "Që vetëm ndajnë me mua"
       adde_contact: "Shtoje kontaktin"
       remove_contact: "Hiqe kontaktin"
+      user_search: "Kërkim kontaktesh"
     spotlight:
       community_spotlight: "Projektori mbi bashkësinë"
       suggest_member: "Sugjeroni një anëtar"
@@ -760,10 +760,6 @@ show_all: "Shfaqi krejt"
         subject: "Mesazh lidhur me llogarinë tuaj te diaspora*:"
         admin: "Përgjegjësi i diaspora*-s suaj"
     started_sharing:
-    single_admin:
-        subject: "Një mesazh rreth llogarisë suaj diaspora*:"
-        admin: "Përgjegjësi i diaspora*-s suaj"
-    started_sharing:
         subject: "%{name} filloi të ndajë gjëra me ju në diaspora*"
         sharing: "ka filluar të ndajë gjëra me ju!"
         view_profile: "Shihni profilin për %{name}"
@@ -861,13 +857,13 @@ show_all: "Shfaqi krejt"
         Që t’ia filloni, klikoni mbi këtë lidhje
         
         [%{invite_url}][1]
-        
-        
-        Me dashuri,
-        
-        Roboti i email-eve te diaspora*! 
 
-P.S.: Në rast se s’e dini (ende) ç’është diaspora*, [ja][2] ku është përgjigja!
+
+        Me dashuri,
+
+        Roboti i email-eve te diaspora*!
+
+  P.S.: Në rast se s’e dini (ende) ç’është diaspora*, [ja][2] ku është përgjigja!
 
         [1]: %{invite_url}
         [2]: %{diasporafoundation_url}
@@ -933,6 +929,7 @@ P.S.: Në rast se s’e dini (ende) ç’është diaspora*, [ja][2] ku është p
       location: "Vendndodhje"
       gender: "Gjini"
       born: "Datëlindje"
+      photos: "Foto"
       in_aspects: "Në aspektet"
       remove_from: "Hiqe %{name} prej %{aspect}?"
     helper:
@@ -1017,7 +1014,6 @@ P.S.: Në rast se s’e dini (ende) ç’është diaspora*, [ja][2] ku është p
       destroyed: "Postimi u asgjësua"
       created: "U krijua një raportim"
       failed: "Diçka shkoi ters"
-
 
   share_visibilites:
     update:
@@ -1274,15 +1270,16 @@ nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në 
   tags:
     show:
       tagged_people:
-         zero: "Asnjë i etiketuar me %{tag}."
-         one: "1 person i etiketuar me %{tag}."
-         other: "%{count} persona të etiketuar me %{tag}."
+        zero: "Asnjë i etiketuar me %{tag}."
+        one: "1 person i etiketuar me %{tag}."
+        other: "%{count} persona të etiketuar me %{tag}."
       follow: "Ndiqeni #%{tag}"
       following: "Po ndiqet #%{tag}"
       stop_following: "Resht së ndjekuri #%{tag}"
       none: "Etiketa e zbrazët s’ka kuptim!"
     name_too_long: "Ju lutemi, bëjeni emrin e etiketës suaj më të shkurtër se %{count} shenja. Tani është %{current_length} shenja"
-  tag_followings:
+  
+tag_followings:
     create:
       success: "Urraaa! Tani po ndiqni #%{name}."
       failure: "Ndjekja e #%{name} dështoi. Mos jeni duke e ndjekur tashmë?"
@@ -1335,7 +1332,6 @@ nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në 
 
     activity:
       title: "Veprimtaria ime"
-
   users:
     edit:
       edit_account: "Përpunoni llogarinë"
@@ -1402,6 +1398,7 @@ nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në 
       success: "Llogaria juaj u bllokua. Mund të na duhen 20 minuta që të bllokojmë llogarinë tuaj. Faleminderit që provuat diaspora*-n."
       no_password: "Ju lutemi, jepni fjalëkalimin tuaj të tanishëm që të mbyllim llogarinë tuaj."
       wrong_password: "Fjalëkalimi i dhënë s’u përputh me fjalëkalimin tuaj të tanishëm."
+
     getting_started:
       well_hello_there: "E po…, tungjatjetani!"
       community_welcome: "Bashkësia e diaspora*-s ka kënaqësinë t’ju shohë pjesë të saj!"
@@ -1471,4 +1468,3 @@ nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në 
     disabled: "Çaktivizuar"
     open: "Open"
     closed: "Closed"
-
