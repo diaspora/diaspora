@@ -329,7 +329,7 @@ sq:
       my_contacts: "Kontaktet e mia"
       all_contacts: "Krejt kontaktet"
       only_sharing_with_me: "Që vetëm ndajnë me mua"
-      adde_contact: "Shtoje kontaktin"
+      add_contact: "Shtoje kontaktin"
       remove_contact: "Hiqe kontaktin"
       user_search: "Kërkim kontaktesh"
     spotlight:
@@ -726,7 +726,7 @@ sq:
       mark_all_shown_as_read: "Vëru shenjë krejt të shfaqurave si të lexuara"
       mark_read: "Vëri shenjë si të lexuar"
       mark_unread: "Vëri shenjë si të palexuar"
-show_all: "Shfaqi krejt"
+      show_all: "Shfaqi krejt"
       show_unread: "Shfaq të palexuarat"
       all_notifications: "Krejt njoftimet"
       also_commented: "Ka komentuar edhe"
@@ -813,7 +813,7 @@ show_all: "Shfaqi krejt"
 
         Shëndet,
 
-          Roboti i email-eve te diaspora*!
+        Roboti i email-eve te diaspora*!
     export_failure_email:
       subject: "%{name}, na ndjeni, pati një problem me të dhënat tuaja"
       body: |-
@@ -824,7 +824,7 @@ show_all: "Shfaqi krejt"
 
         Na ndjeni,
 
-          Roboti i email-eve te diaspora*!
+        Roboti i email-eve te diaspora*!
     export_photos_email:
       subject: "%{name}, fotot tuaja janë gati për shkarkim"
       body: |-
@@ -834,7 +834,7 @@ show_all: "Shfaqi krejt"
 
         Shëndet,
 
-          Roboti i email-eve te diaspora*!
+        Roboti i email-eve te diaspora*!
     export_photos_failure_email:
       subject: "%{name}, pati një problem me fotot tuaja"
       body: |-
@@ -845,17 +845,17 @@ show_all: "Shfaqi krejt"
 
         Na ndjeni,
 
-          Roboti i email-eve te diaspora*!
+        Roboti i email-eve te diaspora*!
     accept_invite: "Pranoni ftesën për te diaspora*!"
     invited_you: "%{name} ju ka ftuar te diaspora*"
     invite:
       message: |-
         Tungjatjeta!
-        
+
         Ju kanë ftuar te diaspora*!
-        
+
         Që t’ia filloni, klikoni mbi këtë lidhje
-        
+
         [%{invite_url}][1]
 
 
@@ -863,7 +863,7 @@ show_all: "Shfaqi krejt"
 
         Roboti i email-eve te diaspora*!
 
-  P.S.: Në rast se s’e dini (ende) ç’është diaspora*, [ja][2] ku është përgjigja!
+        P.S.: Në rast se s’e dini (ende) ç’është diaspora*, [ja][2] ku është përgjigja!
 
         [1]: %{invite_url}
         [2]: %{diasporafoundation_url}
@@ -878,11 +878,11 @@ show_all: "Shfaqi krejt"
 
         Nëse dëshironi ta mbani gjallë llogarinë tuaj, krejt çka lypset të bëni është të hyni në të përpara %{remove_after}. Kur të bëni hyrjen, ndaluni një çast dhe hidhni një sy nëpër diaspora*. Ka ndryshuar mjaft që nga hera e fundit që e patë, dhe mendojmë se do t’i pëlqeni përmirësimet që kemi bërë. Ndiqni ca #etiketa që të gjeni lëndë që ju pëlqen.
 
-       Hyni nga këtu: %{login_url}. Nëse keni harruar hollësitë tuaja për hyrje, mund të kërkoni një kujtues që nga ajo faqe.
+        Hyni nga këtu: %{login_url}. Nëse keni harruar hollësitë tuaja për hyrje, mund të kërkoni një kujtues që nga ajo faqe.
 
         Me shpresë se do t’ju shohim sërish,
 
-       Roboti i email-eve te diaspora*!
+        Roboti i email-eve te diaspora*!
   people:
     zero: "asnjë person"
     one: "1 person"
@@ -1045,7 +1045,7 @@ show_all: "Shfaqi krejt"
       update_profile: "Përditësoni profilin"
       allow_search: "Lejojuni njerëzve të kërkojnë për ju brenda diaspora-s"
       edit_profile: "Përpunoje profilin"
-nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në punë) është standardi i bashkësisë vetë-administruese diaspora* për lëndë që mund të mos jetë e përshtatshme për t’u parë kur jeni në punë. Nëse planifikoni të ndani shpesh me të tjerët material të tillë, ju lutemi, i vini shenjë kësaj mundësie, që gjithçka që ndani me të tjerët, të fshihet te rrjedhat e njerëzve, derisa ata të zgjedhin ta shohin."
+      nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në punë) është standardi i bashkësisë vetë-administruese diaspora* për lëndë që mund të mos jetë e përshtatshme për t’u parë kur jeni në punë. Nëse planifikoni të ndani shpesh me të tjerët material të tillë, ju lutemi, i vini shenjë kësaj mundësie, që gjithçka që ndani me të tjerët, të fshihet te rrjedhat e njerëzve, derisa ata të zgjedhin ta shohin."
       nsfw_explanation2: "Nëse vendosni të mos e përzgjidhni këtë mundësi, ju lutemi, shtoni etiketën #nsfw sa herë që ndani me të tjerët material të tillë."
       nsfw_check: "Vëri shenjë si NSFW gjithçkaje që ndaj me të tjerët"
     update:
@@ -1130,7 +1130,7 @@ nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në 
       not_logged_in: "Hëpërhë jo i futur"
       really_disconnect: "Të shkëputet nga %{service}?"
       edit_services: "Përpunoni shërbime"
-      services_explanation: "Lidhja te shërbime ndarjesh prej palësh të treta ju jep aftësinë të botoni postime në to, ndërkohë që i shkruani në diaspora*.""
+      services_explanation: "Lidhja te shërbime ndarjesh prej palësh të treta ju jep aftësinë të botoni postime në to, ndërkohë që i shkruani në diaspora*."
     create:
       success: "Mirëfilltësim i suksesshëm."
       failure: "Mirëfilltësimi dështoi."
@@ -1279,7 +1279,7 @@ nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në 
       none: "Etiketa e zbrazët s’ka kuptim!"
     name_too_long: "Ju lutemi, bëjeni emrin e etiketës suaj më të shkurtër se %{count} shenja. Tani është %{current_length} shenja"
   
-tag_followings:
+  tag_followings:
     create:
       success: "Urraaa! Tani po ndiqni #%{name}."
       failure: "Ndjekja e #%{name} dështoi. Mos jeni duke e ndjekur tashmë?"
