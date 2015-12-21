@@ -17,10 +17,18 @@ def remote_user_on_pod_c
 end
 
 def generate_xml(entity, remote_user, user)
-  DiasporaFederation::Salmon::EncryptedSlap.generate_xml(
-    remote_user.diaspora_handle,
-    OpenSSL::PKey::RSA.new(remote_user.encryption_key),
-    entity,
-    OpenSSL::PKey::RSA.new(user.encryption_key)
-  )
+  if @public
+    DiasporaFederation::Salmon::Slap.generate_xml(
+      remote_user.diaspora_handle,
+      OpenSSL::PKey::RSA.new(remote_user.encryption_key),
+      entity
+    )
+  else
+    DiasporaFederation::Salmon::EncryptedSlap.generate_xml(
+      remote_user.diaspora_handle,
+      OpenSSL::PKey::RSA.new(remote_user.encryption_key),
+      entity,
+      OpenSSL::PKey::RSA.new(user.encryption_key)
+    )
+  end
 end

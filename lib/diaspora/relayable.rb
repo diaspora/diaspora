@@ -71,7 +71,7 @@ module Diaspora
 
       unless comment_or_like.signature_valid?
         logger.warn "event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} "\
-                    "sender=#{parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
+                    "sender=#{comment_or_like.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
         return
       end
 
