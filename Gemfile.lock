@@ -467,7 +467,7 @@ GEM
     naught (1.1.0)
     nenv (0.2.0)
     nested_form (0.3.2)
-    nio4r (1.1.1)
+    nio4r (1.2.0)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     notiffany (0.0.8)
