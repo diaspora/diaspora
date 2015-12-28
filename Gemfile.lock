@@ -649,7 +649,7 @@ GEM
       builder
       nokogiri (>= 1.4.1)
       trollop
-    redcarpet (3.3.3)
+    redcarpet (3.3.4)
     redis (3.2.2)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
@@ -923,7 +923,7 @@ DEPENDENCIES
   rails_admin (= 0.8.1)
   rb-fsevent (= 0.9.6)
   rb-inotify (= 0.9.5)
-  redcarpet (= 3.3.3)
+  redcarpet (= 3.3.4)
   remotipart (= 1.2.1)
   responders (= 2.1.0)
   roxml (= 3.1.6)
