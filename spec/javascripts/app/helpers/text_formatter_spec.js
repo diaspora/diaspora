@@ -97,7 +97,7 @@ describe("app.helpers.textFormatter", function(){
 
     it("works with markdown", function(){
       var code = "```markdown\n# header\n**strong**\n```";
-      expect(this.formatter(code)).toContain("<span class=\"hljs-header\">");
+      expect(this.formatter(code)).toContain("<span class=\"hljs-section\">");
       expect(this.formatter(code)).toContain("<span class=\"hljs-strong\">");
     });
 
