@@ -10,15 +10,16 @@ DiasporaFederation.configure do |config|
       person = Person.find_local_by_diaspora_handle(handle)
       if person
         DiasporaFederation::Discovery::WebFinger.new(
-          acct_uri:    "acct:#{person.diaspora_handle}",
-          alias_url:   AppConfig.url_to("/people/#{person.guid}"),
-          hcard_url:   AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
-          seed_url:    AppConfig.pod_uri,
-          profile_url: person.profile_url,
-          atom_url:    person.atom_url,
-          salmon_url:  person.receive_url,
-          guid:        person.guid,
-          public_key:  person.serialized_public_key
+          acct_uri:      "acct:#{person.diaspora_handle}",
+          alias_url:     AppConfig.url_to("/people/#{person.guid}"),
+          hcard_url:     AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
+          seed_url:      AppConfig.pod_uri,
+          profile_url:   person.profile_url,
+          atom_url:      person.atom_url,
+          salmon_url:    person.receive_url,
+          subscribe_url: AppConfig.url_to("/people?q={uri}"),
+          guid:          person.guid,
+          public_key:    person.serialized_public_key
         )
       end
     end
