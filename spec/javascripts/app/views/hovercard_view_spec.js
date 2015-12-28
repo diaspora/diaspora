@@ -5,9 +5,12 @@ describe("app.views.Hovercard", function() {
       this.view = new app.views.Hovercard();
     });
 
-    describe("initialize", function() {
-      it("deactivates hovercards", function() {
-        expect(this.view.active).toBeFalsy();
+    describe("_populateHovercardWith", function() {
+      it("doesn't fetch the aspect dropdown", function() {
+        spyOn(jQuery, "ajax").and.callThrough();
+        this.view.parent = spec.content();
+        this.view._populateHovercardWith({});
+        expect(jQuery.ajax).not.toHaveBeenCalled();
       });
     });
   });
