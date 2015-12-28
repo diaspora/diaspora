@@ -25,7 +25,7 @@ app.views.Hovercard = app.views.Base.extend({
     this.hashtags = this.$('.hashtags');
     this.person_link = this.$('a.person');
     this.person_handle = this.$('div.handle');
-    this.active = app.currentUser.authenticated();
+    this.active = true;
   },
 
   postRenderTemplate: function() {
@@ -126,6 +126,7 @@ app.views.Hovercard = app.views.Base.extend({
       return $('<a/>',{href: "/tags/"+tag.substring(1)}).text(tag)[0] ;
     })) );
 
+    if(!app.currentUser.authenticated()){ return; }
     // set aspect dropdown
     // TODO render me client side!!!
     var href = this.href();

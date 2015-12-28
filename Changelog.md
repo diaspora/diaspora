@@ -11,6 +11,8 @@
 
 ## Features
 
+Display hovercards without aspect dropdown when logged out [#6603](https://github.com/diaspora/diaspora/pull/6603)
+
 # 0.5.5.1
 
 * Fix XSS on profile pages
