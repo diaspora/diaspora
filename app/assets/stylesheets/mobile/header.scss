@@ -12,7 +12,6 @@ $mobile-navbar-height: 46px;
 
   .login {
     color: $white;
-    float: right;
     font-weight: bold;
     padding: 13px;
   }
@@ -22,6 +21,16 @@ $mobile-navbar-height: 46px;
     padding: 0;
     border: none;
     min-height: $mobile-navbar-height;
+  }
+
+  .navbar-right {
+    float: right;
+  }
+
+  .navbar-nav {
+    margin-bottom: 0;
+    margin-top: 0;
+    li { float: left; }
   }
 
   #header-title {
