@@ -5,6 +5,7 @@
   top: -100px;
   z-index: 999;
   width: 100%;
+  pointer-events: none;
   &.expose {  @include animation(expose, 10s) }
 
   .flash-message {
