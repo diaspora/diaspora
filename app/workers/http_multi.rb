@@ -4,7 +4,7 @@
 
 module Workers
   class HttpMulti < Base
-    sidekiq_options queue: :http
+    sidekiq_options queue: :medium
 
     MAX_RETRIES = 3
     ABANDON_ON_CODES=[:peer_failed_verification, # Certificate does not match URL

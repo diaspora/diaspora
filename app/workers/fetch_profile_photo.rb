@@ -5,7 +5,7 @@
 
 module Workers
   class FetchProfilePhoto < Base
-    sidekiq_options queue: :photos
+    sidekiq_options queue: :medium
 
     def perform(user_id, service_id, fallback_image_url = nil)
       service = Service.find(service_id)

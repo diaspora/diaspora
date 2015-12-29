@@ -3,7 +3,7 @@ module Workers
   class RecurringPodCheck < Base
     include Sidetiq::Schedulable
 
-    sidekiq_options queue: :maintenance
+    sidekiq_options queue: :low
 
     recurrence { daily }
 

@@ -30,6 +30,16 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 
 With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. If you have created a customised app/views/terms/terms.haml or app/views/terms/terms.erb file, you will need to edit those files to base your customisations on the new default.haml file.
 
+## Sidekiq queue changes
+
+We've decreased the amount of sidekiq queues from 13 to 5 in PR [#6530](https://github.com/diaspora/diaspora/pull/6530).
+The new queues are organized according to priority for the jobs they will process. When upgrading please make sure to 
+empty the sidekiq queues before shutting down the server for an update.
+
+If you run your sidekiq with a custom queue configuration, please make sure to update that for the new queues.
+
+The new queues are: `urgent, high, medium, low, default`.
+
 ## Refactor
 * Improve bookmarklet [#5904](https://github.com/diaspora/diaspora/pull/5904)
 * Update listen configuration to listen on unix sockets by default [#5974](https://github.com/diaspora/diaspora/pull/5974)
@@ -59,6 +69,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 * Replace mobile background with color [#6415](https://github.com/diaspora/diaspora/pull/6415)
 * Port flash messages to backbone [#6395](https://github.com/diaspora/diaspora/6395)
 * Change login/registration/forgot password button color [#6504](https://github.com/diaspora/diaspora/pull/6504)
+* Consolidate sidekiq queues [#6530](https://github.com/diaspora/diaspora/pull/6530)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

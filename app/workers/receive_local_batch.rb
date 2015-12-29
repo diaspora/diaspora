@@ -4,7 +4,7 @@
 
 module Workers
   class ReceiveLocalBatch < Base
-    sidekiq_options queue: :receive
+    sidekiq_options queue: :urgent
 
     def perform(object_class_string, object_id, recipient_user_ids)
       object = object_class_string.constantize.find(object_id)

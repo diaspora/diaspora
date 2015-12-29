@@ -1,7 +1,7 @@
 module Workers
   module Mail
     class Liked < Base
-      sidekiq_options queue: :mail
+      sidekiq_options queue: :low
 
       def perform(recipient_id, sender_id, like_id)
         Notifier.liked(recipient_id, sender_id, like_id).deliver_now

@@ -2,7 +2,7 @@ module Workers
   class CleanCachedFiles < Base
     include Sidetiq::Schedulable
 
-    sidekiq_options queue: :maintenance
+    sidekiq_options queue: :low
 
     recurrence { daily }
 
