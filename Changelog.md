@@ -99,6 +99,8 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 
 ## Features
 
+Display hovercards without aspect dropdown when logged out [#6603](https://github.com/diaspora/diaspora/pull/6603)
+
 # 0.5.5.1
 
 * Fix XSS on profile pages
