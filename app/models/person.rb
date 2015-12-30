@@ -317,36 +317,6 @@ class Person < ActiveRecord::Base
     self
   end
 
-  def webfinger
-    DiasporaFederation::Discovery::WebFinger.new(
-      acct_uri:    "acct:#{diaspora_handle}",
-      alias_url:   AppConfig.url_to("/people/#{guid}"),
-      hcard_url:   AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(guid)),
-      seed_url:    AppConfig.pod_uri,
-      profile_url: profile_url,
-      atom_url:    atom_url,
-      salmon_url:  receive_url,
-      guid:        guid,
-      public_key:  serialized_public_key
-    )
-  end
-
-  def hcard
-    DiasporaFederation::Discovery::HCard.new(
-      guid:             guid,
-      nickname:         username,
-      full_name:        "#{profile.first_name} #{profile.last_name}".strip,
-      url:              AppConfig.pod_uri,
-      photo_large_url:  image_url,
-      photo_medium_url: image_url(:thumb_medium),
-      photo_small_url:  image_url(:thumb_small),
-      public_key:       serialized_public_key,
-      searchable:       searchable,
-      first_name:       profile.first_name,
-      last_name:        profile.last_name
-    )
-  end
-
   protected
 
   def clean_url

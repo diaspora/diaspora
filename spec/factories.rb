@@ -10,6 +10,9 @@ def r_str
   SecureRandom.hex(3)
 end
 
+require "diaspora_federation/test"
+DiasporaFederation::Test::Factories.federation_factories
+
 FactoryGirl.define do
   factory :profile do
     sequence(:first_name) { |n| "Robert#{n}#{r_str}" }
