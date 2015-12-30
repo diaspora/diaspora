@@ -79,7 +79,7 @@ describe("app.views.Notifications", function(){
 
     context("with a header", function() {
       beforeEach(function() {
-        loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}, notifications_count : 2});
+        loginAs({name: "alice", avatar: {small: "http://avatar.com/photo.jpg"}, notifications_count: 2, guid: "foo"});
         gon.appConfig = {settings: {podname: "MyPod"}};
         this.header = new app.views.Header();
         $("header").prepend(this.header.el);

@@ -1,6 +1,6 @@
 describe("app.views.Header", function() {
   beforeEach(function() {
-    this.userAttrs = {name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}};
+    this.userAttrs = {name: "alice", avatar: {small: "http://avatar.com/photo.jpg"}, guid: "foo" };
 
     loginAs(this.userAttrs);
 

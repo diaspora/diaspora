@@ -4,6 +4,7 @@ describe("app.views.NotificationDropdown", function() {
     gon.appConfig = {settings: {podname: "MyPod"}};
     this.header = new app.views.Header();
     $("header").prepend(this.header.el);
+    loginAs({guid: "foo"});
     this.header.render();
     this.view = new app.views.NotificationDropdown({el: "#notification-dropdown"});
   });
