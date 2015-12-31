@@ -309,9 +309,6 @@ en:
     other: "%{count} reactions"
 
   contacts:
-    zero: "No contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
     create:
       failure: "Failed to create contact"
     sharing:
