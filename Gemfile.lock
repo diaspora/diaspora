@@ -866,7 +866,6 @@ DEPENDENCIES
   js_image_paths (= 0.0.2)
   jshintrb (= 0.3.0)
   json (= 1.8.3)
-  json-schema (= 2.5.1)
   json-schema (= 2.5.2)
   leaflet-rails (= 0.7.4)
   logging-rails (= 0.5.0)
