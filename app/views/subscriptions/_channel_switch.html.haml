@@ -1,0 +1,18 @@
+- # locals:
+- channel || raise('no channel given.')
+
+.stream_element.media
+  .pull-right
+    - subscription = channel.subscriptions.where(subscriber: current_user).first
+    - if subscription
+      = link_to subscription_path(subscription), method: :delete, class: 'btn btn-small green' do
+        = t '.subscribed'
+    - else
+      = link_to subscriptions_path(channel_type: channel.class.name, channel_id: channel.id), method: :post, class: 'btn btn-small' do
+        = t '.subscribe'
+  .media-body
+    - case channel
+      - when ActsAsTaggableOn::Tag
+        %p= link_to "##{channel.name}", tag_path(name: channel.name)
+      - else
+        %p= channel.name

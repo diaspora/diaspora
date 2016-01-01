@@ -1280,6 +1280,15 @@ en:
       none: "The empty tag does not exist!"
     name_too_long: "Please make your tag name fewer than %{count} characters. Right now it is %{current_length} characters"
 
+  subscriptions:
+    index:
+      title: "Email subscriptions"
+      explanation: "On this page you may choose the channels you would like to receive email notifications for new posts."
+      aspects: "Aspects"
+      tags: "#Hashtags you are following"
+    channel_switch:
+      subscribe: 'Subscribe'
+      subscribed: 'You receive email notifications'
   tag_followings:
     create:
       success: "Hooray!  You’re now following #%{name}."

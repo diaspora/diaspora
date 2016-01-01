@@ -1312,6 +1312,15 @@ de:
     tags:
       contacts_title: "Personen, die diesen Tag nutzen"
       title: "Getaggte Beiträge: %{tags}"
+  subscriptions:
+    index:
+      title: "E-Mail-Abonnements"
+      explanation: "Auf dieser Seite kannst Du einstellen, für welche Kanäle Du E-Mail-Benachrichtigungen empfangen möchtest, sobald dort ein neuer Beitrag erstellt wird."
+      aspects: "Aspekte"
+      tags: "#Hashtags, denen Du folgst"
+    channel_switch:
+      subscribe: 'Abonnieren'
+      subscribed: 'Du erhältst E-Mail-Benachrichtigungen'
   tag_followings:
     create:
       failure: "Fehler beim Folgen von: #%{name}. Folgst du #%{name} bereits?"

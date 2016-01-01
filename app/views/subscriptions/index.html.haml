@@ -1,0 +1,15 @@
+- content_for :page_title do
+  = t('.title')
+
+- content_for :content do
+  #container.container-fluid
+    %h1= t('.title')
+    %p= t('.explanation')
+
+    %h2= t('.aspects')
+    - current_user.aspects.each do |aspect|
+      = render partial: 'subscriptions/channel_switch', locals: {channel: aspect}
+    
+    %h2= t('.tags')
+    - current_user.followed_tags.each do |tag|
+      = render partial: 'subscriptions/channel_switch', locals: {channel: tag}
