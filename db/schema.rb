@@ -495,6 +495,14 @@ ActiveRecord::Schema.define(version: 20151003142048) do
 
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "subscriber_id", limit: 4
+    t.integer  "channel_id",    limit: 4
+    t.string   "channel_type",  limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "tag_followings", force: :cascade do |t|
     t.integer  "tag_id",     limit: 4, null: false
     t.integer  "user_id",    limit: 4, null: false

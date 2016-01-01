@@ -1,5 +1,7 @@
 module ActsAsTaggableOn
   class Tag
+    
+    has_many :subscriptions, as: :channel
 
     self.include_root_in_json = false
 
