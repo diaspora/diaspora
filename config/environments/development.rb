@@ -15,6 +15,12 @@ Diaspora::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+  
+  # Use letter_opener to show emails in the browser
+  if ENV['LETTER_OPENER'].present?
+    config.action_mailer.delivery_method = :letter_opener
+    config.action_mailer.raise_delivery_errors = true
+  end
 
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
@@ -24,7 +30,6 @@ Diaspora::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-
 
   # Do not compress assets
   config.assets.compress = false

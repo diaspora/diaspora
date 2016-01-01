@@ -301,4 +301,7 @@ group :development, :test do
 
   # silence assets
   gem "quiet_assets", "1.1.0"
+  
+  # Test notification emails by opening emails in the browser
+  gem "letter_opener"
 end
