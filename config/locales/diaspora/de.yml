@@ -825,6 +825,9 @@ de:
       limited_post: "Du wurdest in einem begrenzten Beitrag erwähnt."
       mentioned: "hat dich in einem Beitrag erwähnt:"
       subject: "%{name} hat dich auf diaspora* erwähnt"
+    posted:
+      limited_post: "Ein begrenzter Beitrag wurde in einem Kanal veröffentlicht, den Du abonniert hast."
+      subject: "%{name} hat einen neuen Beitrag geschrieben"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
     remove_old_user:

@@ -70,6 +70,10 @@ class Notifier < ActionMailer::Base
   def mentioned(recipient_id, sender_id, target_id)
     send_notification(:mentioned, recipient_id, sender_id, target_id)
   end
+  
+  def posted(recipient_id, sender_id, target_id)
+    send_notification(:posted, recipient_id, sender_id, target_id)
+  end
 
   def comment_on_post(recipient_id, sender_id, comment_id)
     send_notification(:comment_on_post, recipient_id, sender_id, comment_id)

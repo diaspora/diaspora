@@ -770,6 +770,9 @@ en:
         subject: "%{name} has mentioned you on diaspora*"
         mentioned: "mentioned you in a post:"
         limited_post: "You were mentioned in a limited post."
+    posted:
+      limited_post: "A new post has been published in a channel you've subscribed to."
+      subject: "%{name} has created a new post"
     private_message:
         reply_to_or_view: "Reply to or view this conversation >"
     liked:

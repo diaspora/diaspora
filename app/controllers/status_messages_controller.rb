@@ -49,6 +49,7 @@ class StatusMessagesController < ApplicationController
   def create
     @status_message = StatusMessageCreationService.new(params, current_user).status_message
     handle_mention_feedback
+    handle_subscriptions
     respond_to do |format|
       format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
@@ -75,6 +76,15 @@ class StatusMessagesController < ApplicationController
   def handle_mention_feedback
     return unless comes_from_others_profile_page?
     flash[:notice] = successful_mention_message
+  end
+  
+  def handle_subscriptions
+    @status_message.subscriber_users.each do |subscriber|
+      recipient_id = subscriber.id
+      actor_id = @status_message.author.owner.id
+      target_id = @status_message.id
+      Workers::Mail::Posted.perform_async(recipient_id, actor_id, target_id)
+    end
   end
 
   def comes_from_others_profile_page?
