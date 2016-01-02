@@ -103,11 +103,17 @@ class Post < ActiveRecord::Base
     excluding_blocks(user).excluding_hidden_shareables(user)
   end
 
-  def self.for_a_stream(max_time, order, user=nil)
+  def self.for_a_stream(max_time, order, user=nil, ignore_blocks=false)
     scope = self.for_visible_shareable_sql(max_time, order).
       includes_for_a_stream
 
-    scope = scope.excluding_hidden_content(user) if user.present?
+    if user.present?
+      if ignore_blocks
+        scope = scope.excluding_hidden_shareables(user)
+      else
+        scope = scope.excluding_hidden_content(user)
+      end
+    end
 
     scope
   end
