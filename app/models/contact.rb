@@ -63,12 +63,11 @@ class Contact < ActiveRecord::Base
   def receive_shareable(shareable)
     ShareVisibility.create!(:shareable_id => shareable.id, :shareable_type => shareable.class.base_class.to_s, :contact_id => self.id)
   end
-  
+
   def incoming_aspects
-    Aspect.where(
-          :user_id => self.person.owner_id,
-          :contacts_visible => true).joins(:contacts).where(
-            :contacts => {:person_id => self.user.person_id}).select('aspects.id')
+    Aspect.where(user_id: person.owner_id, contacts_visible: true)
+    .joins(:contacts).where(contacts: {person_id: user.person_id})
+    .select("aspects.id")
   end
 
   def incoming_aspect_ids

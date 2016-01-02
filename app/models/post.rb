@@ -121,12 +121,12 @@ class Post < ActiveRecord::Base
     return unless user
     likes.where(:author_id => user.person.id).first
   end
-  
+
   def subscriptions
     Subscription.by_post self
   end
-  
-  def subscriber_users  # "subscribers" is already taken :(
+
+  def subscriber_users # "subscribers" is already taken :(
     subscriptions.map(&:subscriber).uniq
   end
 

@@ -77,7 +77,7 @@ class StatusMessagesController < ApplicationController
     return unless comes_from_others_profile_page?
     flash[:notice] = successful_mention_message
   end
-  
+
   def handle_subscriptions
     @status_message.subscriber_users.each do |subscriber|
       recipient_id = subscriber.id

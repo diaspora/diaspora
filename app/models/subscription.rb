@@ -11,21 +11,20 @@
 # * `Tag`: Receive notifications whenever a post is created with that tag.
 #
 class Subscription < ActiveRecord::Base
-  
-  belongs_to :subscriber, class_name: 'User'
+  belongs_to :subscriber, class_name: "User"
   belongs_to :channel, polymorphic: true
-  
+
   # When a new post is created, it's convenient to get all subscriptions
   # that should be triggered by the new post. This includes:
-  # 
+  #
   # - Person-type channels, considering the author of the post.
   # - Aspect-type channels, considering the author could be member of the aspect.
   # - Tag-type channels, considering the post could have the tag.
   #
   def self.by_post(post)
-    (self.by_person(post.author) +
-    self.by_aspects(Aspect.includes(:contacts).where(contacts: {person: post.author})) +
-    self.by_tags(post.tags)).select { |subscription|
+    (by_person(post.author) +
+    by_aspects(Aspect.includes(:contacts).where(contacts: {person: post.author})) +
+    by_tags(post.tags)).select {|subscription|
       # Check that the post is actually visible to the subscriber:
       post.share_visibilities.includes(:contact)
       .where(contacts: {user_id: subscription.subscriber_id})
@@ -34,23 +33,22 @@ class Subscription < ActiveRecord::Base
   end
 
   def self.by_person(person)
-    self.where(channel_type: 'Person', channel_id: person.id)
+    where(channel_type: "Person", channel_id: person.id)
   end
-  
+
   def self.by_aspects(aspects)
-    aspects.collect { |aspect| self.by_aspect(aspect) }.flatten
+    aspects.map {|aspect| by_aspect(aspect) }.flatten
   end
-  
+
   def self.by_aspect(aspect)
-    self.where(channel_type: 'Aspect', channel_id: aspect.id)
+    where(channel_type: "Aspect", channel_id: aspect.id)
   end
-  
+
   def self.by_tags(tags)
-    tags.collect { |tag| self.by_tag(tag) }.flatten
+    tags.map {|tag| by_tag(tag) }.flatten
   end
-  
+
   def self.by_tag(tag)
-    self.where(channel_type: 'ActsAsTaggableOn::Tag', channel_id: tag.id)
+    where(channel_type: "ActsAsTaggableOn::Tag", channel_id: tag.id)
   end
-  
 end
