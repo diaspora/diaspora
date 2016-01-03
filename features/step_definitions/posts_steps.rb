@@ -15,6 +15,7 @@ Then /^I should not see an uploaded image within the photo drop zone$/ do
 end
 
 Then /^I should not see any posts in my stream$/ do
+  page.assert_selector("#paginate .loader", visible: :hidden)
   page.assert_selector(".stream_element", count: 0)
 end
 
