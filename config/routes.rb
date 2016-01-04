@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'sidekiq/web'
-require 'sidetiq/web'
+require "sidekiq/cron/web"
 
 Diaspora::Application.routes.draw do
 
