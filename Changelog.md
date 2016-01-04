@@ -11,7 +11,8 @@
 
 ## Features
 
-Display hovercards without aspect dropdown when logged out [#6603](https://github.com/diaspora/diaspora/pull/6603)
+* Display hovercards without aspect dropdown when logged out [#6603](https://github.com/diaspora/diaspora/pull/6603)
+* Add media.ccc.de as a trusted oEmbed endpoint
 
 # 0.5.5.1
 
