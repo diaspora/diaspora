@@ -1,3 +1,5 @@
+# Inspired by https://github.com/nov/openid_connect_sample/blob/master/db/migrate/20110829023837_create_access_tokens.rb
+
 class CreateOAuthAccessTokens < ActiveRecord::Migration
   def change
     create_table :o_auth_access_tokens do |t|

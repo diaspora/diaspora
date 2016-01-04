@@ -18,6 +18,7 @@ module Api
         validation_fail_as_json(e)
       end
 
+      # Inspired by https://github.com/nov/openid_connect_sample/blob/master/app/controllers/connect/clients_controller.rb#L24
       def create
         registrar = OpenIDConnect::Client::Registrar.new(request.url, params)
         client = Api::OpenidConnect::OAuthApplication.register! registrar

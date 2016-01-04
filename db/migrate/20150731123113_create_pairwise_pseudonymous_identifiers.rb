@@ -1,3 +1,5 @@
+# Inspired by https://github.com/nov/openid_connect_sample/blob/master/db/migrate/20110829024140_create_pairwise_pseudonymous_identifiers.rb
+
 class CreatePairwisePseudonymousIdentifiers < ActiveRecord::Migration
   def change
     create_table :ppid do |t|

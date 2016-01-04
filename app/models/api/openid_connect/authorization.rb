@@ -1,3 +1,5 @@
+# Inspired by https://github.com/nov/openid_connect_sample/blob/master/app/models/authorization.rb
+
 module Api
   module OpenidConnect
     class Authorization < ActiveRecord::Base
@@ -29,6 +31,7 @@ module Api
         end
       end
 
+      # Inspired by https://github.com/nov/openid_connect_sample/blob/master/app/models/access_token.rb#L26
       def accessible?(required_scopes=nil)
         Array(required_scopes).all? { |required_scope|
           scopes.include? required_scope
