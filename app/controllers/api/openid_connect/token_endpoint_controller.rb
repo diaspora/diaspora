@@ -55,7 +55,6 @@ module Api
         logger.info e.backtrace[0, 10].join("\n")
         render json: {error: :invalid_grant, error_description: e.message, status: 400}
       end
-
     end
   end
 end

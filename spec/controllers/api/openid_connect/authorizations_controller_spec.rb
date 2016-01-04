@@ -356,7 +356,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
       it "raises an error" do
         delete :destroy, id: 123_456_789
         expect(response).to redirect_to(api_openid_connect_user_applications_url)
-        expect(flash[:error]).to eq("The attempt to revoke the authorization with ID 123456789 has failed")
+        expect(flash[:error]).to eq("The attempt to revoke the authorization with ID 123456789 failed")
       end
     end
   end

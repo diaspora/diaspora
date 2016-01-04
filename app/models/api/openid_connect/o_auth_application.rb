@@ -76,13 +76,14 @@ module Api
           supported_metadata.each_with_object({}) do |key, attr|
             value = registrar.public_send(key)
             next unless value
-            if key == :subject_type
+            case key
+            when :subject_type
               attr[:ppid] = (value == "pairwise")
-            elsif key == :jwks_uri
+            when :jwks_uri
               response = Faraday.get(value)
               attr[:jwks] = response.body
               attr[:jwks_uri] = value
-            elsif key == :jwks
+            when :jwks
               attr[:jwks] = value.to_json
             else
               attr[key] = value

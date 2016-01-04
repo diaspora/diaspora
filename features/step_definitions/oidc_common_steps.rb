@@ -35,5 +35,5 @@ Then /^I should receive an "([^\"]*)" error$/ do |error_message|
 end
 
 Then(/^I should see a message containing "(.*?)"$/) do |message|
-  expect(find("#openid_connect_error_description").text).to eq(message)
+  expect(find("#openid_connect_error_description").text).to include(message)
 end

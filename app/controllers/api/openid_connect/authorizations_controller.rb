@@ -97,7 +97,7 @@ module Api
         if seconds.nil?
           false
         else
-          (Time.zone.now.utc.to_i - current_user.current_sign_in_at.to_i) > seconds.to_i
+          (Time.now - current_user.current_sign_in_at) > seconds.to_i
         end
       end
 
