@@ -13,7 +13,7 @@ describe Api::V0::PostsController do
 
   describe "#show" do
     before do
-      expect(post_service_double).to receive(:present_json)
+      expect(post_service_double).to receive(:present_api_json)
     end
 
     context "when mark notifications is omitted" do

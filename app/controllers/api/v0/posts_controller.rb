@@ -14,7 +14,7 @@ module Api
       def show
         posts_services = PostService.new(id: params[:id], user: current_user)
         posts_services.mark_user_notifications unless params[:mark_notifications] == "false"
-        render json: posts_services.present_json
+        render json: posts_services.present_api_json
       end
 
       def create

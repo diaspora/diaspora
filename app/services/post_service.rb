@@ -16,6 +16,14 @@ class PostService
     end
   end
 
+  def present_api_json
+    service = CommentService.new(post_id: post.id, user: user)
+    @presenter = PostPresenter.new(post, user)
+    @presenter.as_json.tap do |post|
+      post[:interactions] = ({comments: service.comments}).merge!(post[:interactions])
+    end
+  end
+
   def present_json
     PostPresenter.new(post, user)
   end

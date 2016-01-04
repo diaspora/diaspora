@@ -51,33 +51,4 @@ describe Api::V0::PostsController do
       end
     end
   end
-
-  describe "#index" do
-    before do
-      post api_v0_post_comments_path(post_id: @status.id), text: "This is a first comment", access_token: access_token
-      post api_v0_post_comments_path(post_id: @status.id), text: "This is a second comment", access_token: access_token
-    end
-
-    context "valid post ID with two comments" do
-      before do
-        get api_v0_post_comments_path(post_id: @status.id), access_token: access_token
-      end
-
-      it "succeeds" do
-        comments = JSON.parse(response.body)
-        expect(comments.first["text"]).to eq("This is a first comment")
-        expect(comments.second["text"]).to eq("This is a second comment")
-      end
-    end
-
-    context "invalid post ID" do
-      before do
-        get api_v0_post_comments_path(post_id: 1234567), access_token: access_token
-      end
-
-      it "fails with appropriate error message" do
-        expect(response.body).to eq("Post or comment not found")
-      end
-    end
-  end
 end

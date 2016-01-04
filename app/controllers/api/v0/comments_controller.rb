@@ -1,9 +1,6 @@
 module Api
   module V0
     class CommentsController < Api::V0::BaseController
-      before_action only: :index do
-        require_access_token %w(read)
-      end
 
       before_action only: %i(create destroy) do
         require_access_token %w(read write)
@@ -15,12 +12,6 @@ module Api
 
       rescue_from ActiveRecord::RecordInvalid do
         render json: I18n.t("comments.create.fail"), status: 404
-      end
-
-      def index
-        service = CommentService.new(post_id: params[:post_id], user: current_user)
-        @comments = service.comments
-        render json: CommentPresenter.as_collection(@comments), status: 200
       end
 
       def create
