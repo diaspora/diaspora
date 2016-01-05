@@ -411,7 +411,7 @@ FactoryGirl.define do
 
   factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
     o_auth_application
-    user
+    association :user, factory: :user_with_aspect
     scopes %w(openid sub aud profile picture nickname name read write)
     after(:build) {|m|
       m.redirect_uri = m.o_auth_application.redirect_uris[0]
