@@ -226,6 +226,14 @@ Rails.application.routes.draw do
     resources :posts, only: %i(show create destroy) do
       resources :comments, only: %i(create destroy)
     end
+    get "activity" => "streams#activity", :as => "activity_stream"
+    get "stream" => "streams#multi", :as => "stream"
+    get "public" => "streams#public", :as => "public_stream"
+    get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
+    get "mentions" => "streams#mentioned", :as => "mentioned_stream"
+    get "liked" => "streams#liked", :as => "liked_stream"
+    get "commented" => "streams#commented", :as => "commented_stream"
+    get "aspects" => "streams#aspects", :as => "aspects_stream"
   end
 
   namespace :api do
