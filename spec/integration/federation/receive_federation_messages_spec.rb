@@ -2,128 +2,149 @@ require "spec_helper"
 require "integration/federation/federation_helper"
 require "integration/federation/shared_receive_relayable"
 require "integration/federation/shared_receive_retraction"
+require "integration/federation/shared_receive_stream_items"
 
-describe Workers::ReceiveEncryptedSalmon do
-  it "treats sharing request receive correctly" do
-    entity = FactoryGirl.build(:request_entity, recipient_id: alice.diaspora_handle)
-
-    expect(Diaspora::Fetcher::Public).to receive(:queue_for)
-    Workers::ReceiveEncryptedSalmon.new.perform(alice.id, generate_xml(entity, remote_user_on_pod_c, alice))
-
-    new_contact = alice.contacts.find {|c| c.person.diaspora_handle == remote_user_on_pod_c.diaspora_handle }
-    expect(new_contact).not_to be_nil
-    expect(new_contact.sharing).to eq(true)
+describe "Receive federation messages feature" do
+  before do
+    allow(DiasporaFederation.callbacks).to receive(:trigger)
+                                            .with(:queue_public_receive, any_args).and_call_original
+    allow(DiasporaFederation.callbacks).to receive(:trigger)
+                                            .with(:queue_private_receive, any_args).and_call_original
   end
 
-  it "doesn't save the status message if there is no sharing" do
-    entity = FactoryGirl.build(:status_message_entity, diaspora_id: remote_user_on_pod_b.diaspora_handle, public: false)
-    Workers::ReceiveEncryptedSalmon.new.perform(alice.id, generate_xml(entity, remote_user_on_pod_b, alice))
+  let(:sender) { remote_user_on_pod_b }
+  let(:sender_id) { remote_user_on_pod_b.diaspora_handle }
 
-    expect(StatusMessage.exists?(guid: entity.guid)).to be(false)
-  end
+  context "with public receive" do
+    let(:recipient) { nil }
 
-  describe "with messages which require sharing" do
-    before do
-      contact = alice.contacts.find_or_initialize_by(person_id: remote_user_on_pod_b.person.id)
-      contact.sharing = true
-      contact.save
+    it "receives account deletion correctly" do
+      post_message(generate_xml(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: sender_id), sender))
+
+      expect(AccountDeletion.exists?(diaspora_handle: sender_id)).to be_truthy
     end
 
-    it "treats status message receive correctly" do
-      entity = FactoryGirl.build(:status_message_entity,
-                                 diaspora_id: remote_user_on_pod_b.diaspora_handle, public: false)
-      Workers::ReceiveEncryptedSalmon.new.perform(alice.id, generate_xml(entity, remote_user_on_pod_b, alice))
+    it "rejects account deletion with wrong diaspora_id" do
+      delete_id = FactoryGirl.generate(:diaspora_id)
+      post_message(generate_xml(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: delete_id), sender))
 
-      expect(StatusMessage.exists?(guid: entity.guid)).to be(true)
+      expect(AccountDeletion.exists?(diaspora_handle: delete_id)).to be_falsey
+      expect(AccountDeletion.exists?(diaspora_handle: sender_id)).to be_falsey
     end
 
-    it "doesn't accept status message with wrong signature" do
-      expect(remote_user_on_pod_b).to receive(:encryption_key).and_return(OpenSSL::PKey::RSA.new(1024))
+    context "reshare" do
+      it "reshare of public post passes" do
+        post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+        reshare = FactoryGirl.build(
+          :reshare_entity, root_diaspora_id: alice.diaspora_handle, root_guid: post.guid, diaspora_id: sender_id)
+        post_message(generate_xml(reshare, sender))
 
-      entity = FactoryGirl.build(:status_message_entity,
-                                 diaspora_id: remote_user_on_pod_b.diaspora_handle, public: false)
-      Workers::ReceiveEncryptedSalmon.new.perform(alice.id, generate_xml(entity, remote_user_on_pod_b, alice))
+        expect(Reshare.exists?(root_guid: post.guid, diaspora_handle: sender_id)).to be_truthy
+      end
 
-      expect(StatusMessage.exists?(guid: entity.guid)).to be(false)
-    end
+      it "reshare of private post fails" do
+        post = FactoryGirl.create(:status_message, author: alice.person, public: false)
+        reshare = FactoryGirl.build(
+          :reshare_entity, root_diaspora_id: alice.diaspora_handle, root_guid: post.guid, diaspora_id: sender_id)
+        post_message(generate_xml(reshare, sender))
 
-    describe "retractions for non-relayable objects" do
-      %w(
-        retraction
-        signed_retraction
-      ).each do |retraction_entity_name|
-        context "with #{retraction_entity_name}" do
-          %w(status_message photo).each do |target|
-            context "with #{target}" do
-              it_behaves_like "it retracts non-relayable object" do
-                let(:target_object) { FactoryGirl.create(target.to_sym, author: remote_user_on_pod_b.person) }
-                let(:entity_name) { "#{retraction_entity_name}_entity".to_sym }
-              end
-            end
-          end
-        end
+        expect(Reshare.exists?(root_guid: post.guid, diaspora_handle: sender_id)).to be_falsey
       end
     end
 
-    describe "with messages which require a status to operate on" do
-      let(:local_message) { FactoryGirl.create(:status_message, author: alice.person) }
-      let(:remote_message) { FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person) }
+    it_behaves_like "messages which are indifferent about sharing fact"
 
-      %w(comment like participation).each do |entity|
-        context "with #{entity}" do
-          it_behaves_like "it deals correctly with a relayable" do
-            let(:entity_name) { "#{entity}_entity".to_sym }
-            let(:klass) { entity.camelize.constantize }
-          end
-        end
+    context "with sharing" do
+      before do
+        contact = alice.contacts.find_or_initialize_by(person_id: sender.person.id)
+        contact.sharing = true
+        contact.save
       end
 
-      describe "retractions for relayable objects" do
-        let(:sender) { remote_user_on_pod_b }
+      it_behaves_like "messages which are indifferent about sharing fact"
+      it_behaves_like "messages which can't be send without sharing"
+    end
+  end
 
-        %w(
-          retraction
-          signed_retraction
-          relayable_retraction
-        ).each do |retraction_entity_name|
-          context "with #{retraction_entity_name}" do
-            context "with comment" do
-              it_behaves_like "it retracts object" do
-                # case for to-upstream federation
-                let(:entity_name) { "#{retraction_entity_name}_entity".to_sym }
-                let(:target_object) {
-                  FactoryGirl.create(:comment, author: remote_user_on_pod_b.person, post: local_message)
-                }
-              end
+  context "with private receive" do
+    let(:recipient) { alice }
 
-              it_behaves_like "it retracts object" do
-                # case for to-downsteam federation
-                let(:entity_name) { "#{retraction_entity_name}_entity".to_sym }
-                let(:target_object) {
-                  FactoryGirl.create(:comment, author: remote_user_on_pod_c.person, post: remote_message)
-                }
-              end
-            end
+    it "treats sharing request recive correctly" do
+      entity = FactoryGirl.build(:request_entity, recipient_id: alice.diaspora_handle)
 
-            context "with like" do
-              it_behaves_like "it retracts object" do
-                # case for to-upstream federation
-                let(:entity_name) { "#{retraction_entity_name}_entity".to_sym }
-                let(:target_object) {
-                  FactoryGirl.create(:like, author: remote_user_on_pod_b.person, target: local_message)
-                }
-              end
+      expect(Diaspora::Fetcher::Public).to receive(:queue_for).exactly(1).times
 
-              it_behaves_like "it retracts object" do
-                # case for to-downsteam federation
-                let(:entity_name) { "#{retraction_entity_name}_entity".to_sym }
-                let(:target_object) {
-                  FactoryGirl.create(:like, author: remote_user_on_pod_c.person, target: remote_message)
-                }
-              end
-            end
+      post_message(generate_xml(entity, sender, alice), alice)
+
+      expect(alice.contacts.count).to eq(2)
+      new_contact = alice.contacts.order(created_at: :asc).last
+      expect(new_contact).not_to be_nil
+      expect(new_contact.sharing).to eq(true)
+      expect(new_contact.person.diaspora_handle).to eq(sender_id)
+
+      expect(
+        Notifications::StartedSharing.exists?(
+          recipient_id: alice.id,
+          target_type:  "Person",
+          target_id:    sender.person.id
+        )
+      ).to be_truthy
+    end
+
+    it "doesn't save the private status message if there is no sharing" do
+      entity = FactoryGirl.build(:status_message_entity, diaspora_id: sender_id, public: false)
+      post_message(generate_xml(entity, sender, alice), alice)
+
+      expect(StatusMessage.exists?(guid: entity.guid)).to be_falsey
+    end
+
+    context "with sharing" do
+      before do
+        contact = alice.contacts.find_or_initialize_by(person_id: sender.person.id)
+        contact.sharing = true
+        contact.save
+      end
+
+      it_behaves_like "messages which are indifferent about sharing fact"
+      it_behaves_like "messages which can't be send without sharing"
+
+      it "treats profile receive correctly" do
+        entity = FactoryGirl.build(:profile_entity, diaspora_id: sender_id)
+        post_message(generate_xml(entity, sender, alice), alice)
+
+        expect(Profile.exists?(diaspora_handle: entity.diaspora_id)).to be_truthy
+      end
+
+      it "receives conversation correctly" do
+        entity = FactoryGirl.build(
+          :conversation_entity,
+          diaspora_id:     sender_id,
+          participant_ids: "#{sender_id};#{alice.diaspora_handle}"
+        )
+        post_message(generate_xml(entity, sender, alice), alice)
+
+        expect(Conversation.exists?(guid: entity.guid)).to be_truthy
+      end
+
+      context "with message" do
+        let(:local_target) {
+          FactoryGirl.build(:conversation, author: alice.person).tap do |target|
+            target.participants << remote_user_on_pod_b.person
+            target.participants << remote_user_on_pod_c.person
+            target.save
           end
-        end
+        }
+        let(:remote_target) {
+          FactoryGirl.build(:conversation, author: remote_user_on_pod_b.person).tap do |target|
+            target.participants << alice.person
+            target.participants << remote_user_on_pod_c.person
+            target.save
+          end
+        }
+        let(:entity_name) { :message_entity }
+        let(:klass) { Message }
+
+        it_behaves_like "it deals correctly with a relayable"
       end
     end
   end
