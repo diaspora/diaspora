@@ -820,6 +820,9 @@ de_formal:
       limited_post: "Sie wurden in einem begrenzten Beitrag erwähnt."
       mentioned: "hat Sie in einem Beitrag erwähnt:"
       subject: "%{name} hat Sie auf diaspora* erwähnt"
+    posted:
+      limited_post: "Ein begrenzter Beitrag wurde in einem Kanal veröffentlicht, den Sie abonniert haben."
+      subject: "%{name} hat einen neuen Beitrag geschrieben"
     private_message:
       reply_to_or_view: "Antworten Sie oder sehen Sie sich diese Unterhaltung an >"
     remove_old_user:
@@ -1292,6 +1295,15 @@ de_formal:
     tags:
       contacts_title: "Menschen, die diese Tags nutzen"
       title: "Getaggte Beiträge: %{tags}"
+  subscriptions:
+    index:
+      title: "E-Mail-Abonnements"
+      explanation: "Auf dieser Seite können Sie einstellen, für welche Kanäle Sie E-Mail-Benachrichtigungen empfangen möchten, sobald dort ein neuer Beitrag erstellt wird."
+      aspects: "Aspekte"
+      tags: "#Hashtags, denen Sie folgen"
+    channel_switch:
+      subscribe: 'Abonnieren'
+      subscribed: 'Sie erhalten E-Mail-Benachrichtigungen'
   tag_followings:
     create:
       failure: "Fehler beim Folgen von: #%{name}"

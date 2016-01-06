@@ -235,6 +235,9 @@ Diaspora::Application.routes.draw do
     get 'terms' => 'terms#index'
   end
 
+  # Subscriptions
+  resources :subscriptions
+
   # Relay
   get ".well-known/x-social-relay" => "social_relay#well_known"
 

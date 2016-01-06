@@ -4,9 +4,9 @@
 require Rails.root.join('lib', 'messagebus', 'mailer')
 
 Diaspora::Application.configure do
-  config.action_mailer.perform_deliveries = AppConfig.mail.enable?
+  config.action_mailer.perform_deliveries = AppConfig.mail.enable? || ENV["LETTER_OPENER"].present?
 
-  unless Rails.env == 'test' || !AppConfig.mail.enable?
+  unless Rails.env == "test" || ENV["LETTER_OPENER"].present? || !AppConfig.mail.enable?
     if AppConfig.mail.method == 'messagebus'
 
       if AppConfig.mail.message_bus_api_key.present?

@@ -56,6 +56,8 @@ class User < ActiveRecord::Base
 
   has_many :aspect_memberships, :through => :aspects
 
+  has_many :subscriptions, foreign_key: :subscriber_id
+
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
 
