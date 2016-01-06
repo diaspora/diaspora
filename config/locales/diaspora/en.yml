@@ -911,7 +911,6 @@ en:
       start_sharing: "Start sharing"
       message: "Message"
       mention: "Mention"
-      ignoring: "You are ignoring all posts from %{name}."
       closed_account: "This account has been closed."
     sub_header:
       you_have_no_tags: "You have no tags!"

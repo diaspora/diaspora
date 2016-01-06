@@ -194,7 +194,6 @@ en:
       edit: "Edit"
       add_some: "Add some"
       you_have_no_tags: "You have no tags!"
-      ignoring: "You are ignoring all posts from <%= name %>."
       bio: "Bio"
       location: "Location"
       gender: "Gender"
