@@ -878,6 +878,48 @@ en:
         Hoping to see you again,
 
         The diaspora* email robot!
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          redirection_message: "Are you sure you want to give access to %{redirect_uri}?"
+          access: "%{name} requires access to:"
+          no_requirement: "%{name} requires no permissions"
+          approve: "Approve"
+          deny: "Deny"
+          bad_request: "Missing client id or redirect URI"
+          client_id_not_found: "No client with client_id %{client_id} with redirect URI %{redirect_uri} found"
+        destroy:
+          fail: "The attempt to revoke the authorization with ID %{id} failed"
+      user_applications:
+        index:
+          edit_applications: "Applications"
+          title: "Authorized applications"
+          access: "%{name} has access to:"
+          no_requirement: "%{name} requires no permissions"
+        no_applications: "You have no authorized applications"
+        revoke_autorization: "Revoke"
+        tos: "See the application's terms of service"
+        policy: "See the application's privacy policy"
+      scopes:
+        openid:
+          name: "basic profile"
+          description: "This allows the application to read your basic profile"
+        extended:
+          name: "extended profile"
+          description: "This allows the application to read your extended profile"
+        read:
+          name: "read profile, stream and conversations"
+          description: "This allows the application to read your stream, your conversations and your complete profile"
+        write:
+          name: "send posts, conversations and reactions"
+          description: "This allows the application to send new posts, write conversations, and send reactions"
+      error_page:
+        title: "Oh! Something went wrong :("
+        contact_developer: "You should contact the developer of the application and include the following detailed error message:"
+        login_required: "You must first login before you can authorize this application"
+        could_not_authorize: "The application could not be authorized"
+
   people:
     zero: "No people"
     one: "1 person"

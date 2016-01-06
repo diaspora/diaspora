@@ -55,6 +55,22 @@ ActiveRecord::Schema.define(version: 20151003142048) do
   add_index "aspects", ["user_id", "contacts_visible"], name: "index_aspects_on_user_id_and_contacts_visible", using: :btree
   add_index "aspects", ["user_id"], name: "index_aspects_on_user_id", using: :btree
 
+  create_table "authorizations", force: :cascade do |t|
+    t.integer  "user_id",               limit: 4
+    t.integer  "o_auth_application_id", limit: 4
+    t.string   "refresh_token",         limit: 255
+    t.string   "code",                  limit: 255
+    t.string   "redirect_uri",          limit: 255
+    t.string   "nonce",                 limit: 255
+    t.string   "scopes",                limit: 255
+    t.boolean  "code_used",                         default: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+  end
+
+  add_index "authorizations", ["o_auth_application_id"], name: "index_authorizations_on_o_auth_application_id", using: :btree
+  add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
+
   create_table "blocks", force: :cascade do |t|
     t.integer "user_id",   limit: 4
     t.integer "person_id", limit: 4
@@ -136,6 +152,16 @@ ActiveRecord::Schema.define(version: 20151003142048) do
   end
 
   add_index "conversations", ["author_id"], name: "conversations_author_id_fk", using: :btree
+
+  create_table "id_tokens", force: :cascade do |t|
+    t.integer  "authorization_id", limit: 4
+    t.datetime "expires_at"
+    t.string   "nonce",            limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "id_tokens", ["authorization_id"], name: "index_id_tokens_on_authorization_id", using: :btree
 
   create_table "invitation_codes", force: :cascade do |t|
     t.string   "token",      limit: 255
@@ -235,6 +261,43 @@ ActiveRecord::Schema.define(version: 20151003142048) do
   add_index "notifications", ["recipient_id"], name: "index_notifications_on_recipient_id", using: :btree
   add_index "notifications", ["target_id"], name: "index_notifications_on_target_id", using: :btree
   add_index "notifications", ["target_type", "target_id"], name: "index_notifications_on_target_type_and_target_id", length: {"target_type"=>190, "target_id"=>nil}, using: :btree
+
+  create_table "o_auth_access_tokens", force: :cascade do |t|
+    t.integer  "authorization_id", limit: 4
+    t.string   "token",            limit: 255
+    t.datetime "expires_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "o_auth_access_tokens", ["authorization_id"], name: "index_o_auth_access_tokens_on_authorization_id", using: :btree
+  add_index "o_auth_access_tokens", ["token"], name: "index_o_auth_access_tokens_on_token", unique: true, length: {"token"=>191}, using: :btree
+
+  create_table "o_auth_applications", force: :cascade do |t|
+    t.integer  "user_id",                    limit: 4
+    t.string   "client_id",                  limit: 255
+    t.string   "client_secret",              limit: 255
+    t.string   "client_name",                limit: 255
+    t.text     "redirect_uris",              limit: 65535
+    t.string   "response_types",             limit: 255
+    t.string   "grant_types",                limit: 255
+    t.string   "application_type",           limit: 255,   default: "web"
+    t.string   "contacts",                   limit: 255
+    t.string   "logo_uri",                   limit: 255
+    t.string   "client_uri",                 limit: 255
+    t.string   "policy_uri",                 limit: 255
+    t.string   "tos_uri",                    limit: 255
+    t.string   "sector_identifier_uri",      limit: 255
+    t.string   "token_endpoint_auth_method", limit: 255
+    t.text     "jwks",                       limit: 65535
+    t.string   "jwks_uri",                   limit: 255
+    t.boolean  "ppid",                                     default: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+  end
+
+  add_index "o_auth_applications", ["client_id"], name: "index_o_auth_applications_on_client_id", unique: true, length: {"client_id"=>191}, using: :btree
+  add_index "o_auth_applications", ["user_id"], name: "index_o_auth_applications_on_user_id", using: :btree
 
   create_table "o_embed_caches", force: :cascade do |t|
     t.string "url",  limit: 1024,  null: false
@@ -402,6 +465,17 @@ ActiveRecord::Schema.define(version: 20151003142048) do
   add_index "posts", ["tweet_id"], name: "index_posts_on_tweet_id", length: {"tweet_id"=>191}, using: :btree
   add_index "posts", ["type", "pending", "id"], name: "index_posts_on_type_and_pending_and_id", using: :btree
 
+  create_table "ppid", force: :cascade do |t|
+    t.integer "o_auth_application_id", limit: 4
+    t.integer "user_id",               limit: 4
+    t.string  "guid",                  limit: 32
+    t.string  "string",                limit: 32
+    t.string  "identifier",            limit: 255
+  end
+
+  add_index "ppid", ["o_auth_application_id"], name: "index_ppid_on_o_auth_application_id", using: :btree
+  add_index "ppid", ["user_id"], name: "index_ppid_on_user_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.string   "diaspora_handle",  limit: 255
     t.string   "first_name",       limit: 127
@@ -419,7 +493,7 @@ ActiveRecord::Schema.define(version: 20151003142048) do
     t.string   "location",         limit: 255
     t.string   "full_name",        limit: 70
     t.boolean  "nsfw",                           default: false
-    t.boolean  "public_details",               default: false
+    t.boolean  "public_details",                 default: false
   end
 
   add_index "profiles", ["full_name", "searchable"], name: "index_profiles_on_full_name_and_searchable", using: :btree
@@ -589,18 +663,25 @@ ActiveRecord::Schema.define(version: 20151003142048) do
   add_foreign_key "aspect_memberships", "aspects", name: "aspect_memberships_aspect_id_fk", on_delete: :cascade
   add_foreign_key "aspect_memberships", "contacts", name: "aspect_memberships_contact_id_fk", on_delete: :cascade
   add_foreign_key "aspect_visibilities", "aspects", name: "aspect_visibilities_aspect_id_fk", on_delete: :cascade
+  add_foreign_key "authorizations", "o_auth_applications"
+  add_foreign_key "authorizations", "users"
   add_foreign_key "comments", "people", column: "author_id", name: "comments_author_id_fk", on_delete: :cascade
   add_foreign_key "contacts", "people", name: "contacts_person_id_fk", on_delete: :cascade
   add_foreign_key "conversation_visibilities", "conversations", name: "conversation_visibilities_conversation_id_fk", on_delete: :cascade
   add_foreign_key "conversation_visibilities", "people", name: "conversation_visibilities_person_id_fk", on_delete: :cascade
   add_foreign_key "conversations", "people", column: "author_id", name: "conversations_author_id_fk", on_delete: :cascade
+  add_foreign_key "id_tokens", "authorizations"
   add_foreign_key "invitations", "users", column: "recipient_id", name: "invitations_recipient_id_fk", on_delete: :cascade
   add_foreign_key "invitations", "users", column: "sender_id", name: "invitations_sender_id_fk", on_delete: :cascade
   add_foreign_key "likes", "people", column: "author_id", name: "likes_author_id_fk", on_delete: :cascade
   add_foreign_key "messages", "conversations", name: "messages_conversation_id_fk", on_delete: :cascade
   add_foreign_key "messages", "people", column: "author_id", name: "messages_author_id_fk", on_delete: :cascade
   add_foreign_key "notification_actors", "notifications", name: "notification_actors_notification_id_fk", on_delete: :cascade
+  add_foreign_key "o_auth_access_tokens", "authorizations"
+  add_foreign_key "o_auth_applications", "users"
   add_foreign_key "posts", "people", column: "author_id", name: "posts_author_id_fk", on_delete: :cascade
+  add_foreign_key "ppid", "o_auth_applications"
+  add_foreign_key "ppid", "users"
   add_foreign_key "profiles", "people", name: "profiles_person_id_fk", on_delete: :cascade
   add_foreign_key "services", "users", name: "services_user_id_fk", on_delete: :cascade
   add_foreign_key "share_visibilities", "contacts", name: "post_visibilities_contact_id_fk", on_delete: :cascade

@@ -30,11 +30,18 @@
   }
 }
 
-#blocked_people {
-  .blocked_person {
-    border-bottom: 1px solid $border-grey;
-    margin-top: 0;
-    .avatar { max-width: 35px; }
-    .info { color: $text; }
+.applications-page .applications-explanation {
+  margin-bottom: 15px;
+}
+
+.application-img {
+  margin: auto;
+  max-width: 150px;
+  text-align: center;
+
+  .entypo-browser {
+    font-size: 137px;
+    height: 160px;
+    margin-top: -45px;
   }
 }

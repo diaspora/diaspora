@@ -45,3 +45,4 @@
 //= require bootstrap-switch
 //= require blueimp-gallery
 //= require leaflet
+//= require api/authorization_page
