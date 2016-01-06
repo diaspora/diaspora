@@ -217,6 +217,7 @@ Diaspora::Application.routes.draw do
     match "user", to: "users#show", via: %i(get post)
     resources :posts, only: %i(show create destroy) do
       resources :comments, only: %i(create destroy)
+      resources :likes, only: %i(create destroy)
     end
     get "activity" => "streams#activity", :as => "activity_stream"
     get "stream" => "streams#multi", :as => "stream"
