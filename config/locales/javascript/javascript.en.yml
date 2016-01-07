@@ -258,6 +258,11 @@ en:
         stop_following_confirm: "Stop following #<%= tag %>?"
         follow_error: "Couldn’t follow #<%= tag %> :("
         stop_following_error: "Couldn’t stop following #<%= tag %> :("
+      
+      reactions:
+        zero: "<%= count%> reactions"
+        one: "<%= count%> reaction"
+        other: "<%= count%> reactions"
 
     header:
       home: "Home"

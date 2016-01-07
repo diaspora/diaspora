@@ -57,8 +57,9 @@
     toggleComments: function(toggleReactionsLink) {
       if(toggleReactionsLink.hasClass("loading")) { return; }
 
-      if (toggleReactionsLink.hasClass("active")) {
+      if(toggleReactionsLink.hasClass("active")) {
         this.hideComments(toggleReactionsLink);
+        toggleReactionsLink.parents(".bottom-bar").find(".add-comment-switcher").addClass("hidden");
       } else {
         this.showComments(toggleReactionsLink);
       }
@@ -171,7 +172,7 @@
       var bottomBar = form.closest(".bottom-bar").first();
       this.addNewComments(bottomBar, data);
       this.updateCommentCount(bottomBar);
-      this.updateReactionCount(bottomBar);
+      this.increaseReactionCount(bottomBar);
       this.handleCommentShowing(form, bottomBar);
       bottomBar.find("time.timeago").timeago();
     },
@@ -193,11 +194,28 @@
     },
 
     // Fix for no reactions
-    updateReactionCount: function(bottomBar) {
+    increaseReactionCount: function(bottomBar) {
       var toggleReactionsLink = bottomBar.find(".show-comments").first();
-      toggleReactionsLink.text(toggleReactionsLink.text().replace(/(\d+)/, function (match) {
-        return parseInt(match, 10) + 1;
-      }));
+      var count = toggleReactionsLink.text().match(/.*(\d+).*/);
+      var text = "";
+
+      // No previous comment
+      if(!count){
+        text = Diaspora.I18n.t("stream.reactions", {count: 1});
+        var parent = toggleReactionsLink.parent();
+        var postGuid = bottomBar.parents(".stream_element").data("guid");
+
+        toggleReactionsLink.remove();
+        toggleReactionsLink = $("<a/>", {"class": "show-comments", "href": Routes.postComments(postGuid) + ".mobile"})
+          .html(text + "<i class='entypo-chevron-up'/>");
+        parent.prepend(toggleReactionsLink);
+        bottomBar.removeClass("inactive").addClass("active");
+      }
+      else {
+        count = parseInt(count, 10) + 1;
+        text = Diaspora.I18n.t("stream.reactions", {count: count});
+        toggleReactionsLink.html(text + "<i class='entypo-chevron-up'/>");
+      }
     },
 
     handleCommentShowing: function(form, bottomBar) {
@@ -206,8 +224,7 @@
       this.resetCommentBox(formContainer);
       var commentActionLink = bottomBar.find("a.comment-action").first();
       commentActionLink.addClass("inactive");
-      var toggleReactionsLink = bottomBar.find(".show-comments").first();
-      this.showComments(toggleReactionsLink);
+      this.showComments(bottomBar.find(".show-comments").first());
     },
 
     resetCommentBox: function(el){

@@ -38,7 +38,7 @@ module MobileHelper
       entypo_class = "entypo-chevron-down"
     end
     if reactions_count > 0
-      link_to "#{t('reactions', count: reactions_count)} <i class='#{entypo_class}'></i>".html_safe,
+      link_to "#{t('reactions', count: reactions_count)}<i class='#{entypo_class}'></i>".html_safe,
               post_comments_path(post, format: "mobile"),
               class: "show-comments #{klass}"
     else

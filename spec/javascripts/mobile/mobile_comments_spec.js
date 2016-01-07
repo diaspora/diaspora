@@ -100,4 +100,71 @@ describe("Diaspora.Mobile.Comments", function(){
       expect(jQuery.ajax).not.toHaveBeenCalled();
     });
   });
+
+  describe("increaseReactionCount", function(){
+    beforeEach(function() {
+      spec.loadFixture("aspects_index_mobile_post_with_comments");
+      this.bottomBar = $(".bottom-bar").first();
+      this.toggleReactionsLink = this.bottomBar.find(".show-comments").first();
+    });
+
+    it("Increase reaction count from 1", function(){
+      expect(this.toggleReactionsLink.text().trim()).toBe("5 reactions");
+      Diaspora.Mobile.Comments.increaseReactionCount(this.bottomBar);
+      expect(this.toggleReactionsLink.text().trim()).toBe("6 reactions");
+    });
+
+    it("Creates the reaction link when no reactions", function(){
+      var parent = this.toggleReactionsLink.parent();
+      var postGuid = this.bottomBar.parents(".stream_element").data("guid");
+      this.toggleReactionsLink.remove();
+      parent.prepend($("<span/>", {"class": "show-comments"}).text("No reaction"));
+
+      Diaspora.Mobile.Comments.increaseReactionCount(this.bottomBar);
+      this.toggleReactionsLink = this.bottomBar.find(".show-comments").first();
+      expect(this.toggleReactionsLink.text().trim()).toBe("1 reaction");
+      expect(this.toggleReactionsLink.attr("href")).toBe("/posts/" + postGuid + "/comments.mobile");
+    });
+  });
+
+  describe("bottomBarLazy", function(){
+    beforeEach(function() {
+      spec.loadFixture("aspects_index_mobile_post_with_comments");
+      this.bottomBar = $(".bottom-bar").first();
+      this.bottomBarLazy = Diaspora.Mobile.Comments.bottomBarLazy(this.bottomBar);
+    });
+
+    it("shows and hides the loader", function(){
+      expect(this.bottomBarLazy.loader()).toHaveClass("hidden");
+      this.bottomBarLazy.showLoader();
+      expect(this.bottomBarLazy.loader()).not.toHaveClass("hidden");
+      this.bottomBarLazy.hideLoader();
+      expect(this.bottomBarLazy.loader()).toHaveClass("hidden");
+    });
+
+    it("activates the bottom bar", function(){
+      expect(this.bottomBar).toHaveClass("inactive");
+      expect(this.bottomBar).not.toHaveClass("active");
+      expect(this.bottomBarLazy.getShowCommentsLink()).not.toHaveClass("active");
+      expect(this.bottomBarLazy.getShowCommentsLink().find("i")).toHaveClass("entypo-chevron-down");
+      this.bottomBarLazy.activate();
+      expect(this.bottomBar).not.toHaveClass("inactive");
+      expect(this.bottomBar).toHaveClass("active");
+      expect(this.bottomBarLazy.getShowCommentsLink()).toHaveClass("active");
+      expect(this.bottomBarLazy.getShowCommentsLink().find("i")).toHaveClass("entypo-chevron-up");
+    });
+
+    it("deactivates the bottom bar", function(){
+      this.bottomBarLazy.activate();
+      expect(this.bottomBar).not.toHaveClass("inactive");
+      expect(this.bottomBar).toHaveClass("active");
+      expect(this.bottomBarLazy.getShowCommentsLink()).toHaveClass("active");
+      expect(this.bottomBarLazy.getShowCommentsLink().find("i")).toHaveClass("entypo-chevron-up");
+      this.bottomBarLazy.deactivate();
+      expect(this.bottomBar).toHaveClass("inactive");
+      expect(this.bottomBar).not.toHaveClass("active");
+      expect(this.bottomBarLazy.getShowCommentsLink()).not.toHaveClass("active");
+      expect(this.bottomBarLazy.getShowCommentsLink().find("i")).toHaveClass("entypo-chevron-down");
+    });
+  });
 });
