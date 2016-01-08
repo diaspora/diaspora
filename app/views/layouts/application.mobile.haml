@@ -51,8 +51,8 @@
     = include_gon(:camel_case => true)
   %body
     #app
+      = render "layouts/header"
       - if user_signed_in?
-        = render "layouts/header"
         = render "layouts/drawer"
 
       #main{:role => "main"}

@@ -78,6 +78,7 @@ Contributions are very welcome, the hard work is done!
 * Correctly display location in post preview [#6429](https://github.com/diaspora/diaspora/pull/6429)
 * Do not fail when submitting an empty comment in the mobile view [#6543](https://github.com/diaspora/diaspora/pull/6543)
 * Limit flash message width on small devices [#6529](https://github.com/diaspora/diaspora/pull/6529)
+* Add navbar on mobile when not logged in [#6483](https://github.com/diaspora/diaspora/pull/6483)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)

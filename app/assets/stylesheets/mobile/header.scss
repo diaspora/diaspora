@@ -10,11 +10,27 @@ $mobile-navbar-height: 46px;
   min-height: $mobile-navbar-height !important;
   max-height: $mobile-navbar-height !important;
 
+  .login {
+    color: $white;
+    font-weight: bold;
+    padding: 13px;
+  }
+
   .navbar {
     margin: 0;
     padding: 0;
     border: none;
     min-height: $mobile-navbar-height;
+  }
+
+  .navbar-right {
+    float: right;
+  }
+
+  .navbar-nav {
+    margin-bottom: 0;
+    margin-top: 0;
+    li { float: left; }
   }
 
   #header-title {

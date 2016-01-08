@@ -4,32 +4,36 @@
       = link_to(image_tag("mobile/asterisk_white_mobile.png", class: "img-responsive"),
           stream_path, id: "header-title", class: "navbar-brand")
 
-      %ul.nav.navbar-nav#nav-badges
-        -# Notifications
-        %li
-          = link_to notifications_path, class: "badge-link", id: "notification-badge" do
-            %i.entypo-bell
-            - if current_user.unread_notifications.size > 0
-              %span.badge.badge-important#notification
-                = current_user.unread_notifications.size
+      - if user_signed_in?
+        %ul.nav.navbar-nav#nav-badges
+          -# Notifications
+          %li
+            = link_to notifications_path, class: "badge-link", id: "notification-badge" do
+              %i.entypo-bell
+              - if current_user.unread_notifications.size > 0
+                %span.badge.badge-important#notification
+                  = current_user.unread_notifications.size
 
-        -# Conversations
-        %li
-          = link_to conversations_path, class: "badge-link", id: "conversations-badge" do
-            %i.entypo-mail
-            - if current_user.unread_message_count > 0
-              %span.badge.badge-important#conversation
-                = current_user.unread_message_count
+          -# Conversations
+          %li
+            = link_to conversations_path, class: "badge-link", id: "conversations-badge" do
+              %i.entypo-mail
+              - if current_user.unread_message_count > 0
+                %span.badge.badge-important#conversation
+                  = current_user.unread_message_count
 
-        -# Publisher
-        %li
-          = link_to new_status_message_path, class: "badge-link", id: "compose-badge" do
-            %i.diaspora-custom-compose
+          -# Publisher
+          %li
+            = link_to new_status_message_path, class: "badge-link", id: "compose-badge" do
+              %i.diaspora-custom-compose
 
-        -# Menu
-        %li
-          %button.navbar-toggle#menu-badge{type: "button"}
-            %span.sr-only
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
+          -# Menu
+          %li
+            %button.navbar-toggle#menu-badge{type: "button"}
+              %span.sr-only
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+
+      - else
+        = render "layouts/header_not_connected"
