@@ -10,8 +10,8 @@
 
 .container-fluid#tags_show
   .row
-    .col-lg-1.visible-lg#left-navbar-fixed-sub-background
-    .col-lg-offset-1.col-lg-3.col-md-4.hidden-sm.hidden-xs#left-navbar-fixed-background
+    .col-lg-1.visible-lg.left-navbar-fixed-sub-background
+    .col-lg-offset-1.col-lg-3.col-md-4.hidden-sm.hidden-xs.left-navbar-fixed-background
     .col-lg-offset-1.col-lg-3.col-md-4
       %h4
         = t('.tagged_people', count: @stream.tagged_people_count, tag: @stream.display_tag_name)
@@ -34,7 +34,7 @@
           %span.loader.hidden
             .spinner
 
-    .col-lg-1.visible-lg#right-sidebar-fixed-sub-background
+    .col-lg-1.visible-lg.right-sidebar-fixed-sub-background
 
       %a.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}
         &#8679;

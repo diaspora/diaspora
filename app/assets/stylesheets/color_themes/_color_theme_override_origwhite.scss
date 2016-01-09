@@ -1,23 +1,26 @@
-/* Raw CSS */
 body {
-  #left-navbar .hoverable { border-bottom: none; }
+  #main_stream .stream_element {
+    border: 0;
+    border-bottom: 1px solid $border-grey;
+    margin-bottom: 10px;
+  }
 
-  #left-navbar-fixed-sub-background { background: $sidebars-background; }
-  #left-navbar-fixed-background {
-    background: $sidebars-background;
-    border-right: 1px solid $sidebars-background;
+  .profile_header > div {
+    border-bottom: 1px solid $border-grey;
   }
-  #left-navbar {
-    background: $sidebars-background;
-    border-right: 1px solid $sidebars-background;
+
+  .left-navbar .hoverable { border-bottom: 0; }
+
+  .profile-sidebar,
+  .left-navbar-fixed-background,
+  &.page-tags .left-navbar-fixed-background,
+  .left-navbar {
+    border-right: 1px solid $border-grey;
   }
-  #right-sidebar-fixed-sub-background { background: $sidebars-background; }
-  #right-sidebar-fixed-background {
-    background: $sidebars-background;
-    border-left: 1px solid $sidebars-background;
-  }
+
+  .right-sidebar-fixed-background,
+  .right-sidebar-fixed-background,
   .rightbar {
-    background: $sidebars-background;
     border-left: 1px solid $sidebars-background;
   }
 }

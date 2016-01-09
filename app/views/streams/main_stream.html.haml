@@ -22,9 +22,9 @@
 
 %div.container-fluid
   .row
-    #left-navbar-fixed-sub-background.col-lg-1.visible-lg
-    #left-navbar-fixed-background.col-lg-offset-1.col-lg-2.col-md-3.hidden-sm.hidden-xs
-    #left-navbar.col-lg-offset-1.col-lg-2.col-md-3
+    .left-navbar-fixed-sub-background.col-lg-1.visible-lg
+    .left-navbar-fixed-background.col-lg-offset-1.col-lg-2.col-md-3.hidden-sm.hidden-xs
+    .left-navbar.col-lg-offset-1.col-lg-2.col-md-3
       #home_user_badge
         = owner_image_link
         %h4
@@ -48,8 +48,8 @@
       #aspect_stream_container.stream_container
         = render 'aspects/aspect_stream', stream: @stream
 
-    #right-sidebar-fixed-sub-background.col-lg-3.visible-lg
-    #right-sidebar-fixed-background.col-md-3.col-lg-2.hidden-sm.hidden-xs
+    .right-sidebar-fixed-sub-background.col-lg-3.visible-lg
+    .right-sidebar-fixed-background.col-md-3.col-lg-2.hidden-sm.hidden-xs
     .col-md-3.col-lg-2.hidden-xs.hidden-sm.rightbar
       #selected_aspect_contacts.section
         .title

@@ -1,11 +1,11 @@
-#right-sidebar-fixed-background {
+.right-sidebar-fixed-background {
   height: 100%;
   border-left: 1px solid $light-grey;
   background: $sidebars-background;
   position: fixed;
   right: 0;
 }
-#right-sidebar-fixed-sub-background {
+.right-sidebar-fixed-sub-background {
   height: 100%;
   background: $sidebars-sub-background;
   position: fixed;
@@ -89,7 +89,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-  #right-sidebar-fixed-background {
+  .right-sidebar-fixed-background {
     margin-right: 8.33333%; /* Only for LARGE screens, same as lg-offset-1 class, BS3 does not provide right side offsetting */
   }
 }
