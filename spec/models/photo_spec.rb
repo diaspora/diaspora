@@ -226,7 +226,9 @@ describe Photo, :type => :model do
       url = @saved_photo.url
       thumb_url = @saved_photo.url :thumb_medium
 
-      xml = @saved_photo.to_diaspora_xml
+      @saved_photo.height = 42
+      @saved_photo.width = 23
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.photo(@saved_photo)).to_xml
 
       @saved_photo.destroy
       zord = Postzord::Receiver::Private.new(user2, :person => @photo.author)

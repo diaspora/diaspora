@@ -195,7 +195,7 @@ describe Post, :type => :model do
   describe 'serialization' do
     it 'should serialize the handle and not the sender' do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id
-      xml = post.to_diaspora_xml
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(post)).to_xml
 
       expect(xml.include?("person_id")).to be false
       expect(xml.include?(@user.person.diaspora_handle)).to be true

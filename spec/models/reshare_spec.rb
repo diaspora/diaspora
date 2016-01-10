@@ -214,7 +214,9 @@ describe Reshare, type: :model do
 
           expect(Person).to receive(:find_or_fetch_by_identifier).and_return(@original_author)
 
-          allow(@response).to receive(:body).and_return(root_object.to_diaspora_xml)
+          allow(@response).to receive(:body).and_return(
+            Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(root_object)).to_xml
+          )
 
           expect(Faraday.default_connection).to receive(:get).with(
             URI.join(
@@ -251,7 +253,9 @@ describe Reshare, type: :model do
 
         context "saving the post" do
           before do
-            allow(@response).to receive(:body).and_return(root_object.to_diaspora_xml)
+            allow(@response).to receive(:body).and_return(
+              Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(root_object)).to_xml
+            )
             allow(Faraday.default_connection).to receive(:get).with(
               URI.join(
                 reshare.root.author.url,

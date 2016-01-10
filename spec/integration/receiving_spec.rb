@@ -20,7 +20,7 @@ describe 'a user receives a post', :type => :request do
   it 'should be able to parse and store a status message from xml' do
     status_message = bob.post :status_message, :text => 'store this!', :to => @bobs_aspect.id
 
-    xml = status_message.to_diaspora_xml
+    xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(status_message)).to_xml
     bob.delete
     status_message.destroy
 
@@ -97,7 +97,7 @@ describe 'a user receives a post', :type => :request do
     it 'does not update posts not marked as mutable' do
       status = alice.post :status_message, :text => "store this!", :to => @alices_aspect.id
       status.text = 'foo'
-      xml = status.to_diaspora_xml
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(status)).to_xml
 
       receive_with_zord(bob, alice.person, xml)
 
@@ -105,9 +105,16 @@ describe 'a user receives a post', :type => :request do
     end
 
     it 'updates posts marked as mutable' do
-      photo = alice.post(:photo, :user_file => uploaded_photo, :text => "Original", :to => @alices_aspect.id)
+      photo = alice.post(
+        :photo,
+        user_file: uploaded_photo,
+        text:      "Original",
+        to:        @alices_aspect.id
+      )
       photo.text = 'foo'
-      xml = photo.to_diaspora_xml
+      photo.height = 42
+      photo.width = 23
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.photo(photo)).to_xml
       bob.reload
 
       receive_with_zord(bob, alice.person, xml)
@@ -154,7 +161,7 @@ describe 'a user receives a post', :type => :request do
           connect_users(alice, @alices_aspect, eve, @eves_aspect)
           @post = alice.post(:status_message, :text => "hello", :to => @alices_aspect.id)
 
-          xml = @post.to_diaspora_xml
+          xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(@post)).to_xml
 
           receive_with_zord(bob, alice.person, xml)
           receive_with_zord(eve, alice.person, xml)
@@ -164,12 +171,13 @@ describe 'a user receives a post', :type => :request do
           # After Eve creates her comment, it gets sent to Alice, who signs it with her private key
           # before relaying it out to the contacts on the top-level post
           comment.parent_author_signature = comment.sign_with_key(alice.encryption_key)
-          @xml = comment.to_diaspora_xml
+          @xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.comment(comment)).to_xml
           comment.delete
 
           comment_with_whitespace = alice.comment!(@post, '   I cannot lift my thumb from the spacebar  ')
           queue.drain_all
-          @xml_with_whitespace = comment_with_whitespace.to_diaspora_xml
+          comment_entity = Diaspora::Federation::Entities.comment(comment_with_whitespace)
+          @xml_with_whitespace = Diaspora::Federation.xml(comment_entity).to_xml
           @guid_with_whitespace = comment_with_whitespace.guid
           comment_with_whitespace.delete
         end
@@ -220,7 +228,7 @@ describe 'a user receives a post', :type => :request do
       before do
         @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
 
-        xml = @post.to_diaspora_xml
+        xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(@post)).to_xml
 
         alice.share_with(eve.person, alice.aspects.first)
 
@@ -231,7 +239,7 @@ describe 'a user receives a post', :type => :request do
       it 'does not raise a `Mysql2::Error: Duplicate entry...` exception on save' do
         inlined_jobs do
           @comment = bob.comment!(@post, 'tada')
-          @xml = @comment.to_diaspora_xml
+          @xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.comment(@comment)).to_xml
 
           expect {
             receive_with_zord(alice, bob.person, @xml)
@@ -245,27 +253,41 @@ describe 'a user receives a post', :type => :request do
   describe 'receiving mulitple versions of the same post from a remote pod' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @post = FactoryGirl.create(:status_message, :text => 'hey', :guid => '12313123', :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+
+      @post = FactoryGirl.build(
+        :status_message,
+        text:       "hey",
+        guid:       UUID.generate(:compact),
+        author:     @remote_raphael,
+        created_at: 5.days.ago,
+        updated_at: 5.days.ago
+      )
     end
 
-    it 'does not update created_at or updated_at when two people save the same post' do
-      @post = FactoryGirl.build(:status_message, :text => 'hey', :guid => '12313123', :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
-      xml = @post.to_diaspora_xml
+    it "allows two people saving the same post" do
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(@post)).to_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
-      old_time = Time.now+1
       receive_with_zord(@local_leia, @remote_raphael, xml)
-      expect((Post.find_by_guid @post.guid).updated_at).to be < old_time
-      expect((Post.find_by_guid @post.guid).created_at).to be < old_time
+      expect(Post.find_by_guid(@post.guid).updated_at).to be < Time.now.utc + 1
+      expect(Post.find_by_guid(@post.guid).created_at.day).to eq(@post.created_at.day)
     end
 
     it 'does not update the post if a new one is sent with a new created_at' do
-      @post = FactoryGirl.build(:status_message, :text => 'hey', :guid => '12313123', :author => @remote_raphael, :created_at => 5.days.ago)
       old_time = @post.created_at
-      xml = @post.to_diaspora_xml
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(@post)).to_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
-      @post = FactoryGirl.build(:status_message, :text => 'hey', :guid => '12313123', :author => @remote_raphael, :created_at => 2.days.ago)
+
+      @post = FactoryGirl.build(
+        :status_message,
+        text:       "hey",
+        guid:       @post.guid,
+        author:     @remote_raphael,
+        created_at: 2.days.ago
+      )
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(@post)).to_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
-      expect((Post.find_by_guid @post.guid).created_at.day).to eq(old_time.day)
+
+      expect(Post.find_by_guid(@post.guid).created_at.day).to eq(old_time.day)
     end
   end
 
@@ -290,28 +312,17 @@ describe 'a user receives a post', :type => :request do
     let(:zord) { Postzord::Receiver::Private.new(alice, person: bob.person) }
 
     it 'should accept retractions' do
-      retraction = Retraction.for(message)
-      xml = retraction.to_diaspora_xml
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.retraction(message)).to_xml
 
       expect {
         zord.parse_and_receive(xml)
       }.to change(StatusMessage, :count).by(-1)
     end
 
-    it 'should accept relayable retractions' do
-      comment = bob.comment! message, "and dogs"
-      retraction = RelayableRetraction.build(bob, comment)
-      xml = retraction.to_diaspora_xml
-
-      expect {
-        zord.parse_and_receive xml
-      }.to change(Comment, :count).by(-1)
-    end
-
     it 'should accept signed retractions for public posts' do
       message = bob.post(:status_message, text: "cats", public: true)
-      retraction = SignedRetraction.build(bob, message)
-      salmon = Postzord::Dispatcher::Public.salmon bob, retraction.to_diaspora_xml
+      retraction = Diaspora::Federation.xml(Diaspora::Federation::Entities.signed_retraction(message, bob)).to_xml
+      salmon = Postzord::Dispatcher::Public.salmon(bob, retraction)
       xml = salmon.xml_for alice.person
       zord = Postzord::Receiver::Public.new xml
 
@@ -324,9 +335,13 @@ describe 'a user receives a post', :type => :request do
   it 'should marshal a profile for a person' do
     #Create person
     person = bob.person
-    id = person.id
     person.profile.delete
-    person.profile = Profile.new(:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com", :person_id => person.id)
+    person.profile = Profile.new(
+      first_name: "bob",
+      last_name:  "billytown",
+      image_url:  "http://clown.com/image.png",
+      person_id:  person.id
+    )
     person.save
 
     #Cache profile for checking against marshaled profile
@@ -334,7 +349,7 @@ describe 'a user receives a post', :type => :request do
     new_profile.first_name = 'boo!!!'
 
     #Build xml for profile
-    xml = new_profile.to_diaspora_xml
+    xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.profile(new_profile)).to_xml
     #Marshal profile
     zord = Postzord::Receiver::Private.new(alice, :person => person)
     zord.parse_and_receive(xml)

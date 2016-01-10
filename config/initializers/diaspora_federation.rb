@@ -112,7 +112,7 @@ DiasporaFederation.configure do |config|
 
     on :fetch_public_entity do |entity_type, guid|
       entity = entity_type.constantize.find_by(guid: guid, public: true)
-      Diaspora::Federation.post(entity) if entity.is_a? Post
+      Diaspora::Federation::Entities.post(entity) if entity.is_a? Post
     end
 
     on :fetch_person_url_to do |diaspora_id, path|

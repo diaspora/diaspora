@@ -174,10 +174,10 @@ describe Profile, :type => :model do
   end
 
   describe 'serialization' do
-    let(:person) {FactoryGirl.build(:person,:diaspora_handle => "foobar" )}
+    let(:person) { FactoryGirl.build(:person, diaspora_handle: "foobar@localhost") }
 
     it 'should include persons diaspora handle' do
-      xml = person.profile.to_diaspora_xml
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.profile(person.profile)).to_xml
       expect(xml).to include "foobar"
     end
 
@@ -185,14 +185,14 @@ describe Profile, :type => :model do
       person.profile.tag_string = '#one'
       person.profile.build_tags
       person.profile.save
-      xml = person.profile.to_diaspora_xml
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.profile(person.profile)).to_xml
       expect(xml).to include "#one"
     end
 
     it 'includes location' do
       person.profile.location = 'Dark Side, Moon'
       person.profile.save
-      xml = person.profile.to_diaspora_xml
+      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.profile(person.profile)).to_xml
       expect(xml).to include "Dark Side, Moon"
     end
   end

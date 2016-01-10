@@ -78,7 +78,7 @@ describe PostsController, type: :controller do
 
         it "responds with diaspora xml if format is xml" do
           get :show, id: public.guid, format: :xml
-          expect(response.body).to eq(public.to_diaspora_xml)
+          expect(response.body).to eq(Diaspora::Federation.xml(Diaspora::Federation::Entities.post(public)).to_xml)
         end
       end
 
