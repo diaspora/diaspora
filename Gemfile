@@ -279,7 +279,7 @@ group :test do
 
   gem "capybara",           "2.5.0"
   gem "database_cleaner" ,  "1.5.1"
-  gem "selenium-webdriver", "2.47.1"
+  gem "selenium-webdriver", "2.48.1"
 
   gem "cucumber-api-steps", "0.13", require: false
   gem "json_spec", "1.1.4"
