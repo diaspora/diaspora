@@ -1,18 +1,18 @@
 /* Fixed backgrounds are a common practice to avoid height issues */
-#left-navbar-fixed-sub-background {
+.left-navbar-fixed-sub-background {
   background: $sidebars-sub-background;
   position: fixed;
   height: 100%;
 }
 
-#left-navbar-fixed-background {
+.left-navbar-fixed-background {
   background: $sidebars-background;
   border-right: 1px solid $light-grey;
   position: fixed;
   height: 100%;
 }
 
-#left-navbar {
+.left-navbar {
   background: $sidebars-background;
   border-right: 1px solid $light-grey;
   a {

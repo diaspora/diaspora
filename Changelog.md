@@ -96,6 +96,7 @@ Contributions are very welcome, the hard work is done!
 * Add permalink icon to stream elements [#6457](https://github.com/diaspora/diaspora/pull/6457)
 * Move reshare count to interactions for stream elements [#6487](https://github.com/diaspora/diaspora/pull/6487)
 * Posts of ignored users are now visible on that profile page [#6617](https://github.com/diaspora/diaspora/pull/6617)
+* Add white color theme [#6631](https://github.com/diaspora/diaspora/pull/6631)
 
 # 0.5.7.0
 

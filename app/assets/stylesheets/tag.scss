@@ -24,8 +24,8 @@ h1.tag {
 }
 .page-tags {
   background-color: $sidebars-background;
+  .left-navbar-fixed-background { border-right: 0; }
   #tags_show {
-    #left-navbar-fixed-background { border-right: none; }
     .col-md-3 {
       h4 { margin: 25px 0 15px; }
       .side_stream #people_stream {
