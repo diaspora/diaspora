@@ -69,6 +69,12 @@ module Diaspora
     def receive(user, person=nil)
       comment_or_like = self.class.where(guid: self.guid).first || self
 
+      unless comment_or_like.signature_valid?
+        logger.warn "event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} "\
+                    "sender=#{comment_or_like.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
+        return
+      end
+
       # Check to make sure the signature of the comment or like comes from the person claiming to author it
       unless comment_or_like.parent_author == user.person || comment_or_like.verify_parent_author_signature
         logger.warn "event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} "\

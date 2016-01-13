@@ -97,7 +97,7 @@ app.views.Hovercard = app.views.Base.extend({
     href += "/hovercard.json";
 
     var self = this;
-    $.get(href, function(person){
+    $.ajax(href, {preventGlobalErrorHandling: true}).done(function(person){
       if( !person || person.length === 0 ) {
         throw new Error("received data is not a person object");
       }
@@ -126,11 +126,12 @@ app.views.Hovercard = app.views.Base.extend({
       return $('<a/>',{href: "/tags/"+tag.substring(1)}).text(tag)[0] ;
     })) );
 
+    if(!app.currentUser.authenticated()){ return; }
     // set aspect dropdown
     // TODO render me client side!!!
     var href = this.href();
     href += "/aspect_membership_button";
-    $.get(href, function(response) {
+    $.ajax(href, {preventGlobalErrorHandling: true}).done(function(response){
       self.dropdown_container.html(response);
     });
     new app.views.AspectMembership({el: self.dropdown_container});

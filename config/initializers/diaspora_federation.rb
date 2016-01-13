@@ -10,15 +10,16 @@ DiasporaFederation.configure do |config|
       person = Person.find_local_by_diaspora_handle(handle)
       if person
         DiasporaFederation::Discovery::WebFinger.new(
-          acct_uri:    "acct:#{person.diaspora_handle}",
-          alias_url:   AppConfig.url_to("/people/#{person.guid}"),
-          hcard_url:   AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
-          seed_url:    AppConfig.pod_uri,
-          profile_url: person.profile_url,
-          atom_url:    person.atom_url,
-          salmon_url:  person.receive_url,
-          guid:        person.guid,
-          public_key:  person.serialized_public_key
+          acct_uri:      "acct:#{person.diaspora_handle}",
+          alias_url:     AppConfig.url_to("/people/#{person.guid}"),
+          hcard_url:     AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
+          seed_url:      AppConfig.pod_uri,
+          profile_url:   person.profile_url,
+          atom_url:      person.atom_url,
+          salmon_url:    person.receive_url,
+          subscribe_url: AppConfig.url_to("/people?q={uri}"),
+          guid:          person.guid,
+          public_key:    person.serialized_public_key
         )
       end
     end
@@ -60,6 +61,53 @@ DiasporaFederation.configure do |config|
       profile_entity.searchable = profile.searchable
 
       person_entity.save!
+    end
+
+    on :fetch_private_key_by_diaspora_id do |diaspora_id|
+      key = Person.where(diaspora_handle: diaspora_id).joins(:owner).pluck(:serialized_private_key).first
+      OpenSSL::PKey::RSA.new key unless key.nil?
+    end
+
+    on :fetch_author_private_key_by_entity_guid do |entity_type, guid|
+      key = entity_type.constantize.where(guid: guid).joins(author: :owner).pluck(:serialized_private_key).first
+      OpenSSL::PKey::RSA.new key unless key.nil?
+    end
+
+    on :fetch_public_key_by_diaspora_id do |diaspora_id|
+      key = Person.where(diaspora_handle: diaspora_id).pluck(:serialized_public_key).first
+      OpenSSL::PKey::RSA.new key unless key.nil?
+    end
+
+    on :fetch_author_public_key_by_entity_guid do |entity_type, guid|
+      key = entity_type.constantize.where(guid: guid).joins(:author).pluck(:serialized_public_key).first
+      OpenSSL::PKey::RSA.new key unless key.nil?
+    end
+
+    on :entity_author_is_local? do |entity_type, guid|
+      entity_type.constantize.where(guid: guid).joins(author: :owner).exists?
+    end
+
+    on :fetch_entity_author_id_by_guid do |entity_type, guid|
+      entity_type.constantize.where(guid: guid).joins(:author).pluck(:diaspora_handle).first
+    end
+
+    on :queue_public_receive do |xml|
+      Workers::ReceiveUnencryptedSalmon.perform_async(xml)
+    end
+
+    on :queue_private_receive do |guid, xml|
+      person = Person.find_by_guid(guid)
+
+      if person.nil? || person.owner_id.nil?
+        false
+      else
+        Workers::ReceiveEncryptedSalmon.perform_async(person.owner.id, xml)
+        true
+      end
+    end
+
+    on :save_entity_after_receive do
+      # TODO
     end
   end
 end

@@ -18,6 +18,7 @@ Diaspora::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq', :as => 'sidekiq'
   end
 
+  # Federation
   mount DiasporaFederation::Engine => "/"
 
   get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
@@ -181,17 +182,6 @@ Diaspora::Application.routes.draw do
   end
   get '/u/:username' => 'people#show', :as => 'user_profile', :constraints => { :username => /[^\/]+/ }
   get '/u/:username/profile_photo' => 'users#user_photo', :constraints => { :username => /[^\/]+/ }
-
-
-  # Federation
-
-  controller :publics do
-    post 'receive/users/:guid'  => :receive
-    post 'receive/public'       => :receive_public
-    get 'hub'                   => :hub
-  end
-
-
 
   # External
 

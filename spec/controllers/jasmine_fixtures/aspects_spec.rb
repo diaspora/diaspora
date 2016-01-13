@@ -68,7 +68,7 @@ describe StreamsController, :type => :controller do
       it "generates a jasmine fixture with a post containing a video", :fixture => true do
         stub_request(
           :get,
-          "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&scheme=https&url=http://www.youtube.com/watch?v=UYrkQL1bX4A"
+          "https://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&scheme=https&url=http://www.youtube.com/watch?v=UYrkQL1bX4A"
         ).with(
           :headers => {'Accept'=>'*/*'}
         ).to_return(
