@@ -173,9 +173,6 @@ en:
       video_title:
         unknown: "Unknown video title"
   aspects:
-    zero: "No aspects"
-    one: "1 aspect"
-    other: "%{count} aspects"
     contacts_visible: "Contacts in this aspect will be able to see each other."
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     edit:
@@ -299,9 +296,6 @@ en:
     other: "%{count} reactions"
 
   contacts:
-    zero: "No contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
     create:
       failure: "Failed to create contact"
     sharing:

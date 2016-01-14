@@ -24,7 +24,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
     parse_and_receive(@salmon.parsed_data)
 
     logger.info "received a #{@object.inspect}"
-    if @object.is_a?(SignedRetraction) # feels like a hack
+    if @object.is_a?(SignedRetraction) || @object.is_a?(Retraction) # feels like a hack
       self.recipient_user_ids.each do |user_id|
         user = User.where(id: user_id).first
         @object.perform user if user
@@ -43,6 +43,11 @@ class Postzord::Receiver::Public < Postzord::Receiver
     if @object.parent_author.local?
       # receive relayable object only for the owner of the parent object
       @object.receive(@object.parent_author.owner, @author)
+    end
+    unless @object.signature_valid?
+      @object.destroy
+      logger.warn "event=receive status=abort reason='object signature not valid' "
+      return
     end
     # notify everyone who can see the parent object
     receiver = Postzord::Receiver::LocalBatch.new(@object, self.recipient_user_ids)
@@ -74,7 +79,11 @@ class Postzord::Receiver::Public < Postzord::Receiver
   end
 
   def xml_author
-    if @object.respond_to?(:relayable?)
+    if @object.is_a?(RelayableRetraction)
+      if [@object.parent_diaspora_handle, @object.target.parent.diaspora_handle].include?(@author.diaspora_handle)
+        @author.diaspora_handle
+      end
+    elsif @object.respond_to?(:relayable?)
       #this is public, so it would only be owners sending us other people comments etc
       @object.parent_author.local? ? @object.diaspora_handle : @object.parent_diaspora_handle
     else
