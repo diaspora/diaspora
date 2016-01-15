@@ -106,7 +106,11 @@ DiasporaFederation.configure do |config|
       end
     end
 
-    on :save_entity_after_receive do
+    on :receive_entity do
+      # TODO
+    end
+
+    on :update_pod do
       # TODO
     end
   end
