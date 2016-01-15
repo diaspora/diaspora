@@ -39,23 +39,6 @@ Feature: new user registration
     Then I should be on the stream page
     And I close the publisher
 
-  Scenario: new user without any tags posts first status message
-    When I follow "awesome_button"
-    And I confirm the alert
-    Then I should be on the stream page
-    When I submit the publisher
-    Then "Hey everyone, I’m #newhere." should be post 1
-
-  Scenario: new user with some tags posts first status message
-    When I fill in the following:
-      | profile_first_name | some name        |
-    And I fill in "tags" with "#rockstar"
-    And I press the first ".as-result-item" within "#as-results-tags"
-    And I follow "awesome_button"
-    Then I should be on the stream page
-    When I submit the publisher
-    Then "Hey everyone, I’m #newhere. I’m interested in #rockstar." should be post 1
-
   Scenario: closing a popover clears getting started
     When I follow "awesome_button"
     And I confirm the alert
