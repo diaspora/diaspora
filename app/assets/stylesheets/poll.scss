@@ -4,10 +4,6 @@
   margin: 10px 0;
   padding: 10px 0 5px;
 
-  .poll-content {
-    margin-top: 5px;
-  }
-
   .toggle-result-wrapper {
     display: inline-block;
     margin-top: 10px;
@@ -16,8 +12,6 @@
   form {
     margin-bottom: 0;
   }
-
-  .result-row > label { width: 100%; }
 
   .progress {
     background-image: none;
@@ -41,5 +35,26 @@
     &:active {
       background-image: none;
     }
+  }
+}
+
+.poll-content {
+  margin-top: 5px;
+
+  [type=radio],
+  label {
+    font-weight: normal;
+    margin-bottom: 5px;
+    vertical-align: middle;
+  }
+
+  [type=radio],
+  form .poll-result,
+  form .progress {
+    display: none; // Hide the result by default when the vote is possible
+  }
+
+  form [type=radio] {
+    display: inline;
   }
 }
