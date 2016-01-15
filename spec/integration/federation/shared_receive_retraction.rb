@@ -9,7 +9,7 @@ def retraction_entity(entity_name, target_object, sender)
 
   FactoryGirl.build(
     entity_name,
-    diaspora_id: sender.diaspora_handle,
+    author:      sender.diaspora_handle,
     target_guid: target_object.guid,
     target_type: target_object.class.to_s
   )

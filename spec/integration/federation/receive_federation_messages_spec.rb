@@ -36,7 +36,7 @@ describe "Receive federation messages feature" do
       it "reshare of public post passes" do
         post = FactoryGirl.create(:status_message, author: alice.person, public: true)
         reshare = FactoryGirl.build(
-          :reshare_entity, root_diaspora_id: alice.diaspora_handle, root_guid: post.guid, diaspora_id: sender_id)
+          :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id)
         post_message(generate_xml(reshare, sender))
 
         expect(Reshare.exists?(root_guid: post.guid, diaspora_handle: sender_id)).to be_truthy
@@ -45,7 +45,7 @@ describe "Receive federation messages feature" do
       it "reshare of private post fails" do
         post = FactoryGirl.create(:status_message, author: alice.person, public: false)
         reshare = FactoryGirl.build(
-          :reshare_entity, root_diaspora_id: alice.diaspora_handle, root_guid: post.guid, diaspora_id: sender_id)
+          :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id)
         expect {
           post_message(generate_xml(reshare, sender))
         }.to raise_error ActiveRecord::RecordInvalid, "Validation failed: Only posts which are public may be reshared."
@@ -72,7 +72,7 @@ describe "Receive federation messages feature" do
     let(:recipient) { alice }
 
     it "treats sharing request recive correctly" do
-      entity = FactoryGirl.build(:request_entity, recipient_id: alice.diaspora_handle)
+      entity = FactoryGirl.build(:request_entity, recipient: alice.diaspora_handle)
 
       expect(Diaspora::Fetcher::Public).to receive(:queue_for).exactly(1).times
 
@@ -94,7 +94,7 @@ describe "Receive federation messages feature" do
     end
 
     it "doesn't save the private status message if there is no sharing" do
-      entity = FactoryGirl.build(:status_message_entity, diaspora_id: sender_id, public: false)
+      entity = FactoryGirl.build(:status_message_entity, author: sender_id, public: false)
       post_message(generate_xml(entity, sender, alice), alice)
 
       expect(StatusMessage.exists?(guid: entity.guid)).to be_falsey
@@ -111,7 +111,7 @@ describe "Receive federation messages feature" do
       it_behaves_like "messages which can't be send without sharing"
 
       it "treats profile receive correctly" do
-        entity = FactoryGirl.build(:profile_entity, diaspora_id: sender_id)
+        entity = FactoryGirl.build(:profile_entity, author: sender_id)
         post_message(generate_xml(entity, sender, alice), alice)
 
         expect(Profile.exists?(diaspora_handle: entity.diaspora_id)).to be_truthy
@@ -120,8 +120,8 @@ describe "Receive federation messages feature" do
       it "receives conversation correctly" do
         entity = FactoryGirl.build(
           :conversation_entity,
-          diaspora_id:     sender_id,
-          participant_ids: "#{sender_id};#{alice.diaspora_handle}"
+          author:       sender_id,
+          participants: "#{sender_id};#{alice.diaspora_handle}"
         )
         post_message(generate_xml(entity, sender, alice), alice)
 
