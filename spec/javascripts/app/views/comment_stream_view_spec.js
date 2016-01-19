@@ -50,7 +50,10 @@ describe("app.views.CommentStream", function(){
       });
 
       it("doesn't add the comment to the view, when the request fails", function(){
-        Diaspora.I18n.load({failed_to_post_message: "posting failed!"});
+        // disable jshint camelcase for i18n
+        /* jshint camelcase: false */
+        Diaspora.I18n.load({failed_to_comment: "posting failed!"});
+        /* jshint camelcase: true */
         this.request.respondWith({status: 500});
 
         expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");
@@ -123,5 +126,4 @@ describe("app.views.CommentStream", function(){
       expect(submitCallback).toHaveBeenCalled();
     });
   });
-
 });

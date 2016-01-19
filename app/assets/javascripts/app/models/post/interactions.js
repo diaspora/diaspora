@@ -45,7 +45,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
 
   userLike : function(){
     return this.likes.select(function(like){
-      return like.get("author").guid === app.currentUser.get("guid");
+      return like.get("author") && like.get("author").guid === app.currentUser.get("guid");
     })[0];
   },
 
@@ -65,10 +65,15 @@ app.models.Post.Interactions = Backbone.Model.extend({
 
   like : function() {
     var self = this;
-    this.likes.create({}, {success : function(){
-      self.trigger("change");
-      self.set({"likes_count" : self.get("likes_count") + 1});
-    }});
+    this.likes.create({}, {
+      success: function() {
+        self.trigger("change");
+        self.set({"likes_count" : self.get("likes_count") + 1});
+      },
+      error: function() {
+        app.flashMessages.error(Diaspora.I18n.t("failed_to_like"));
+      }
+    });
 
     app.instrument("track", "Like");
   },
@@ -87,7 +92,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
 
     this.comments.make(text).fail(function () {
-      app.flashMessages.error(Diaspora.I18n.t("failed_to_post_message"));
+      app.flashMessages.error(Diaspora.I18n.t("failed_to_comment"));
     }).done(function() {
       self.trigger('change'); //updates after sync
     });
