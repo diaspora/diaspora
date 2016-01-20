@@ -22,6 +22,19 @@ describe "diaspora federation callbacks" do
       wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, "unknown@example.com")
       expect(wf).to be_nil
     end
+
+    it "returns nil for a remote person" do
+      person = FactoryGirl.create(:person)
+      wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, person.diaspora_handle)
+      expect(wf).to be_nil
+    end
+
+    it "returns nil for a closed account" do
+      user = FactoryGirl.create(:user)
+      user.person.lock_access!
+      wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, user.diaspora_handle)
+      expect(wf).to be_nil
+    end
   end
 
   describe ":fetch_person_for_hcard" do
@@ -52,6 +65,19 @@ describe "diaspora federation callbacks" do
 
     it "returns nil if the person was not found" do
       hcard = DiasporaFederation.callbacks.trigger(:fetch_person_for_hcard, "1234567890abcdef")
+      expect(hcard).to be_nil
+    end
+
+    it "returns nil for a remote person" do
+      person = FactoryGirl.create(:person)
+      hcard = DiasporaFederation.callbacks.trigger(:fetch_person_for_hcard, person.guid)
+      expect(hcard).to be_nil
+    end
+
+    it "returns nil for a closed account" do
+      user = FactoryGirl.create(:user)
+      user.person.lock_access!
+      hcard = DiasporaFederation.callbacks.trigger(:fetch_person_for_hcard, user.guid)
       expect(hcard).to be_nil
     end
   end
@@ -205,10 +231,23 @@ describe "diaspora federation callbacks" do
       expect(key.to_s).to eq(remote_person.serialized_public_key)
     end
 
+    it "fetches an unknown user" do
+      person = FactoryGirl.build(:person)
+      expect(Person).to receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
+
+      key = DiasporaFederation.callbacks.trigger(:fetch_public_key_by_diaspora_id, person.diaspora_handle)
+      expect(key).to be_a(OpenSSL::PKey::RSA)
+      expect(key.to_s).to eq(person.serialized_public_key)
+    end
+
     it "returns nil for an unknown person" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:fetch_public_key_by_diaspora_id, FactoryGirl.generate(:diaspora_id))
-      ).to be_nil
+      diaspora_id = FactoryGirl.generate(:diaspora_id)
+      expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
+        .and_raise(DiasporaFederation::Discovery::DiscoveryError)
+
+      expect {
+        DiasporaFederation.callbacks.trigger(:fetch_public_key_by_diaspora_id, diaspora_id)
+      }.to raise_error DiasporaFederation::Discovery::DiscoveryError
     end
   end
 

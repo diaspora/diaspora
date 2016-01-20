@@ -6,8 +6,8 @@ DiasporaFederation.configure do |config|
   config.certificate_authorities = AppConfig.environment.certificate_authorities.get
 
   config.define_callbacks do
-    on :fetch_person_for_webfinger do |handle|
-      person = Person.find_local_by_diaspora_handle(handle)
+    on :fetch_person_for_webfinger do |diaspora_id|
+      person = Person.where(diaspora_handle: diaspora_id, closed_account: false).where.not(owner: nil).first
       if person
         DiasporaFederation::Discovery::WebFinger.new(
           acct_uri:      "acct:#{person.diaspora_handle}",
@@ -25,7 +25,7 @@ DiasporaFederation.configure do |config|
     end
 
     on :fetch_person_for_hcard do |guid|
-      person = Person.find_local_by_guid(guid)
+      person = Person.where(guid: guid, closed_account: false).where.not(owner: nil).take
       if person
         DiasporaFederation::Discovery::HCard.new(
           guid:             person.guid,
@@ -74,7 +74,7 @@ DiasporaFederation.configure do |config|
     end
 
     on :fetch_public_key_by_diaspora_id do |diaspora_id|
-      key = Person.where(diaspora_handle: diaspora_id).pluck(:serialized_public_key).first
+      key = Person.find_or_fetch_by_identifier(diaspora_id).serialized_public_key
       OpenSSL::PKey::RSA.new key unless key.nil?
     end
 

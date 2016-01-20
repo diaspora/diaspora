@@ -236,30 +236,20 @@ class Person < ActiveRecord::Base
   end
 
   # discovery (webfinger)
-  def self.find_or_fetch_by_identifier(account)
+  def self.find_or_fetch_by_identifier(diaspora_id)
     # exiting person?
-    person = by_account_identifier(account)
+    person = by_account_identifier(diaspora_id)
     return person if person.present? && person.profile.present?
 
     # create or update person from webfinger
-    logger.info "webfingering #{account}, it is not known or needs updating"
-    DiasporaFederation::Discovery::Discovery.new(account).fetch_and_save
+    logger.info "webfingering #{diaspora_id}, it is not known or needs updating"
+    DiasporaFederation::Discovery::Discovery.new(diaspora_id).fetch_and_save
 
-    by_account_identifier(account)
+    by_account_identifier(diaspora_id)
   end
 
-  # database calls
-  def self.by_account_identifier(identifier)
-    identifier = identifier.strip.downcase.sub("acct:", "")
-    find_by(diaspora_handle: identifier)
-  end
-
-  def self.find_local_by_diaspora_handle(handle)
-    where(diaspora_handle: handle, closed_account: false).where.not(owner: nil).take
-  end
-
-  def self.find_local_by_guid(guid)
-    where(guid: guid, closed_account: false).where.not(owner: nil).take
+  def self.by_account_identifier(diaspora_id)
+    find_by(diaspora_handle: diaspora_id.strip.downcase)
   end
 
   def remote?

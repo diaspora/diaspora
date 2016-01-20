@@ -460,42 +460,6 @@ describe Person, :type => :model do
         expect(f).to be nil
       end
     end
-
-    describe ".find_local_by_diaspora_handle" do
-      it "should find local users person" do
-        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
-        expect(person).to eq(user.person)
-      end
-
-      it "should not find a remote person" do
-        person = Person.find_local_by_diaspora_handle(@person.diaspora_handle)
-        expect(person).to be nil
-      end
-
-      it "should not find a person with closed account" do
-        user.person.lock_access!
-        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
-        expect(person).to be nil
-      end
-    end
-
-    describe ".find_local_by_guid" do
-      it "should find local users person" do
-        person = Person.find_local_by_guid(user.guid)
-        expect(person).to eq(user.person)
-      end
-
-      it "should not find a remote person" do
-        person = Person.find_local_by_guid(@person.guid)
-        expect(person).to be nil
-      end
-
-      it "should not find a person with closed account" do
-        user.person.lock_access!
-        person = Person.find_local_by_guid(user.guid)
-        expect(person).to be nil
-      end
-    end
   end
 
   describe '#has_photos?' do
