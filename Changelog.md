@@ -3,10 +3,10 @@
 ## Refactor
 * Internationalize controller rescue\_from text [#6554](https://github.com/diaspora/diaspora/pull/6554)
 
-# Bug fixes
+## Bug fixes
 * Fix plural rules handling more than wanted as "one" [#6630](https://github.com/diaspora/diaspora/pull/6630)
 
-# Features
+## Features
 * Keyboard shortcuts now do work on profile pages as well [#6647](https://github.com/diaspora/diaspora/pull/6647/files)
 
 # 0.5.6.0
