@@ -1,5 +1,7 @@
 # 0.5.6.1
 
+* Fix Nokogiri CVE-2015-7499
+
 # 0.5.6.0
 
 ## Refactor
