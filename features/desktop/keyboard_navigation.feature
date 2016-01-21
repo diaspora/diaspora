@@ -46,3 +46,13 @@ Feature: Keyboard navigation
     When I press the "J" key somewhere
     And I press the "C" key somewhere
     Then the first comment field should be open
+  
+  Scenario: navigate downwards on a profile page
+    When I am on "alice@alice.alice"'s page
+    And I press the "J" key somewhere
+    Then post 1 should be highlighted
+    And I should have navigated to the highlighted post
+
+    When I press the "J" key somewhere
+    Then post 2 should be highlighted
+    And I should have navigated to the highlighted post
