@@ -80,6 +80,7 @@ Contributions are very welcome, the hard work is done!
 * Do not fail when submitting an empty comment in the mobile view [#6543](https://github.com/diaspora/diaspora/pull/6543)
 * Limit flash message width on small devices [#6529](https://github.com/diaspora/diaspora/pull/6529)
 * Add navbar on mobile when not logged in [#6483](https://github.com/diaspora/diaspora/pull/6483)
+*  Fix timeago tooltips for reshares [#6648](https://github.com/diaspora/diaspora/pull/6648)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
