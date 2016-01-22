@@ -23,15 +23,17 @@
     {{#linkToAuthor author}}
       {{name}}
     {{/linkToAuthor}}
+      -
+    <span class="info">
+      <a href="/posts/{{parent.id}}#{{guid}}" class="permalink_comment">
+        <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>
+      </a>
+    </span>
 
     <div class="collapsible comment-content markdown-content">
       {{{text}}}
     </div>
 
-    <div class="info">
-      <a href="/posts/{{parent.id}}#{{guid}}" class="permalink_comment">
-        <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}"/>
-      </a>
-    </div>
+
   </div>
 </div>
