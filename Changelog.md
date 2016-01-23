@@ -8,6 +8,7 @@
 
 ## Features
 * Keyboard shortcuts now do work on profile pages as well [#6647](https://github.com/diaspora/diaspora/pull/6647/files)
+* Add the podmin email address to 500 errors [#6652](https://github.com/diaspora/diaspora/pull/6652)
 
 # 0.5.6.1
 
