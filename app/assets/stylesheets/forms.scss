@@ -20,6 +20,10 @@ textarea {
 }
 // scss-lint:enable QualifyingElement
 
+textarea {
+  resize: vertical;
+}
+
 // Forms described here are only used on the public pages at the moment
 .block-form {
   margin: 20px auto;
