@@ -895,8 +895,6 @@ DEPENDENCIES
   devise-token_authenticatable (~> 0.4.0)
   devise_lastseenable (= 0.0.6)
   diaspora-vines (~> 0.2.0.develop)
-  diaspora_federation-rails (= 0.0.11)
-  diaspora_federation-test (= 0.0.11)
   diaspora_federation-rails (= 0.0.12)
   diaspora_federation-test (= 0.0.12)
   entypo-rails (= 3.0.0.pre.rc2)
