@@ -120,8 +120,6 @@ module Configuration
         redis_options[:url] = redis_url
       end
 
-      redis_options[:namespace] = AppConfig.environment.sidekiq.namespace.get
-
       redis_options
     end
 

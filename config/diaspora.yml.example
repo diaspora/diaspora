@@ -85,10 +85,6 @@ configuration: ## Section
       ## Set it to false to disable it completely.
       #retry: 10
 
-      ## Namespace to use in Redis. Useful if you need to run
-      ## multiple instances of Diaspora using the same Redis instance.
-      #namespace: "diaspora"
-
       ## Lines of backtrace that are stored on failure (default=15).
       ## Set n to the required value. Set this to false to reduce memory
       ## usage (and log size) if you're not interested in this data.

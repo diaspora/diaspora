@@ -26,6 +26,14 @@ changed. diaspora\* will no longer listen on `0.0.0.0:3000` as it will now
 bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 `diaspora.yml` if necessary.
 
+## Redis namespace support dropped
+
+We dropped support for Redis namespaces in this release. If you previously set
+a custom namespace, please note that diaspora\* will no longer use the
+configured value. By default, Redis supports up to 8 databases which can be
+selected via the Redis URL in `diaspora.yml`. Please check the examples
+provided in our configuration example file.
+
 ## Terms of Use design changes
 
 With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. If you have created a customised app/views/terms/terms.haml or app/views/terms/terms.erb file, you will need to edit those files to base your customisations on the new default.haml file.
