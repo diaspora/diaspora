@@ -327,7 +327,6 @@ ActiveRecord::Schema.define(version: 20160225232049) do
 
   create_table "people", force: :cascade do |t|
     t.string   "guid",                  limit: 255,                   null: false
-    t.text     "url",                   limit: 65535,                 null: false
     t.string   "diaspora_handle",       limit: 255,                   null: false
     t.text     "serialized_public_key", limit: 65535,                 null: false
     t.integer  "owner_id",              limit: 4
@@ -335,11 +334,13 @@ ActiveRecord::Schema.define(version: 20160225232049) do
     t.datetime "updated_at",                                          null: false
     t.boolean  "closed_account",                      default: false
     t.integer  "fetch_status",          limit: 4,     default: 0
+    t.integer  "pod_id",                limit: 4
   end
 
   add_index "people", ["diaspora_handle"], name: "index_people_on_diaspora_handle", unique: true, length: {"diaspora_handle"=>191}, using: :btree
   add_index "people", ["guid"], name: "index_people_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "people", ["owner_id"], name: "index_people_on_owner_id", unique: true, using: :btree
+  add_index "people", ["pod_id"], name: "people_pod_id_fk", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.integer  "tmp_old_id",          limit: 4
@@ -375,10 +376,12 @@ ActiveRecord::Schema.define(version: 20160225232049) do
     t.integer  "response_time", limit: 4,   default: -1
     t.string   "software",      limit: 255
     t.string   "error",         limit: 255
+    t.integer  "port",          limit: 4
+    t.boolean  "blocked",                   default: false
   end
 
   add_index "pods", ["checked_at"], name: "index_pods_on_checked_at", using: :btree
-  add_index "pods", ["host"], name: "index_pods_on_host", unique: true, length: {"host"=>190}, using: :btree
+  add_index "pods", ["host", "port"], name: "index_pods_on_host_and_port", unique: true, length: {"host"=>190, "port"=>nil}, using: :btree
   add_index "pods", ["offline_since"], name: "index_pods_on_offline_since", using: :btree
   add_index "pods", ["status"], name: "index_pods_on_status", using: :btree
 
@@ -672,6 +675,7 @@ ActiveRecord::Schema.define(version: 20160225232049) do
   add_foreign_key "notification_actors", "notifications", name: "notification_actors_notification_id_fk", on_delete: :cascade
   add_foreign_key "o_auth_access_tokens", "authorizations"
   add_foreign_key "o_auth_applications", "users"
+  add_foreign_key "people", "pods", name: "people_pod_id_fk", on_delete: :cascade
   add_foreign_key "posts", "people", column: "author_id", name: "posts_author_id_fk", on_delete: :cascade
   add_foreign_key "ppid", "o_auth_applications"
   add_foreign_key "ppid", "users"

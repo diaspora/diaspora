@@ -8,10 +8,13 @@ end
 
 def create_remote_user(pod)
   FactoryGirl.build(:user).tap do |user|
-    user.person = FactoryGirl.create(:person,
-                                     profile:               FactoryGirl.build(:profile),
-                                     serialized_public_key: user.encryption_key.public_key.export,
-                                     diaspora_handle:       "#{user.username}@#{pod}")
+    allow(user).to receive(:person).and_return(
+      FactoryGirl.create(:person,
+                         profile:               FactoryGirl.build(:profile),
+                         serialized_public_key: user.encryption_key.public_key.export,
+                         pod:                   Pod.find_or_create_by(url: "http://#{pod}"),
+                         diaspora_handle:       "#{user.username}@#{pod}")
+    )
     allow(DiasporaFederation.callbacks).to receive(:trigger)
                                              .with(:fetch_private_key_by_diaspora_id, user.diaspora_handle) {
                                              user.encryption_key

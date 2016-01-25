@@ -109,7 +109,7 @@ describe Person, :type => :model do
 
   describe "valid url" do
     context "https urls" do
-      let(:person) { FactoryGirl.build(:person, url: "https://example.com") }
+      let(:person) { FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com")) }
 
       it "should add trailing slash" do
         expect(person.url).to eq("https://example.com/")
@@ -129,7 +129,9 @@ describe Person, :type => :model do
     end
 
     context "messed up urls" do
-      let(:person) { FactoryGirl.build(:person, url: "https://example.com/a/bit/messed/up") }
+      let(:person) {
+        FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com/a/bit/messed/up"))
+      }
 
       it "should return the correct url" do
         expect(person.url).to eq("https://example.com/")
@@ -149,12 +151,12 @@ describe Person, :type => :model do
     end
 
     it "should allow ports in the url" do
-      person = FactoryGirl.build(:person, url: "https://example.com:3000/")
+      person = FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com:3000/"))
       expect(person.url).to eq("https://example.com:3000/")
     end
 
     it "should remove https port in the url" do
-      person = FactoryGirl.build(:person, url: "https://example.com:443/")
+      person = FactoryGirl.build(:person, pod: Pod.find_or_create_by(url: "https://example.com:443/"))
       expect(person.url).to eq("https://example.com/")
     end
   end
@@ -534,32 +536,6 @@ describe Person, :type => :model do
 
       it "returns an empty array" do
         expect(Person.community_spotlight).to eq([])
-      end
-    end
-  end
-
-  context 'updating urls' do
-    before do
-      @url = "http://new-url.com/"
-    end
-
-    describe '.url_batch_update' do
-      it "calls #update_person_url given an array of users and a url" do
-        people = [double.as_null_object, double.as_null_object, double.as_null_object]
-        people.each do |person|
-          expect(person).to receive(:update_url).with(@url)
-        end
-        Person.url_batch_update(people, @url)
-      end
-    end
-
-    describe '#update_url' do
-      it "updates a given person's url" do
-        expect {
-          alice.person.update_url(@url)
-        }.to change {
-          alice.person.reload.url
-        }.from(anything).to(@url)
       end
     end
   end

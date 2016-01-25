@@ -19,16 +19,21 @@ class Pod < ActiveRecord::Base
     ConnectionTester::NodeInfoFailure => :version_failed
   }
 
+  DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
+
+  has_many :people
+
   scope :check_failed, lambda {
     where(arel_table[:status].gt(Pod.statuses[:no_errors]))
   }
 
   class << self
     def find_or_create_by(opts) # Rename this method to not override an AR method
-      u = URI.parse(opts.fetch(:url))
-      find_or_initialize_by(host: u.host).tap do |pod|
+      uri = URI.parse(opts.fetch(:url))
+      port = DEFAULT_PORTS.include?(uri.port) ? nil : uri.port
+      find_or_initialize_by(host: uri.host, port: port).tap do |pod|
         unless pod.persisted?
-          pod.ssl = (u.scheme == "https")
+          pod.ssl = (uri.scheme == "https")
           pod.save
         end
       end
@@ -57,13 +62,18 @@ class Pod < ActiveRecord::Base
   end
 
   def test_connection!
-    url = "#{ssl ? 'https' : 'http'}://#{host}"
-    result = ConnectionTester.check url
-    logger.info "testing pod: '#{url}' - #{result.inspect}"
+    result = ConnectionTester.check uri.to_s
+    logger.info "testing pod: '#{uri}' - #{result.inspect}"
 
     transaction do
       update_from_result(result)
     end
+  end
+
+  # @param path [String]
+  # @return [String]
+  def url_to(path)
+    uri.tap {|uri| uri.path = path }.to_s
   end
 
   private
@@ -96,5 +106,11 @@ class Pod < ActiveRecord::Base
     else
       :no_errors
     end
+  end
+
+  # @return [URI]
+  def uri
+    @uri ||= (ssl ? URI::HTTPS : URI::HTTP).build(host: host, port: port)
+    @uri.dup
   end
 end

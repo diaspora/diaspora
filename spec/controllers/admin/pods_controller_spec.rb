@@ -25,10 +25,11 @@ describe Admin::PodsController, type: :controller do
     end
 
     it "returns the json data" do
-      @pods = (0..2).map { FactoryGirl.create(:pod).reload } # normalize timestamps
+      pods = (0..2).map { FactoryGirl.create(:pod).reload } # normalize timestamps
+      pods.unshift remote_raphael.pod
       get :index, format: :json
 
-      expect(response.body).to eql(PodPresenter.as_collection(@pods).to_json)
+      expect(response.body).to eql(PodPresenter.as_collection(pods).to_json)
     end
   end
 

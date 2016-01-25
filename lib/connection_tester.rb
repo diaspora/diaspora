@@ -17,11 +17,10 @@ class ConnectionTester
     #
     # @api This is the entry point you're supposed to use for testing
     #   connections to other diaspora-compatible servers.
-    # @param [String] server URL
+    # @param [String] url URL
     # @return [Result] result object containing information about the
     #   server and to what point the connection was successful
     def check(url)
-      url = "http://#{url}" unless url.include?("://")
       result = Result.new
 
       begin
@@ -70,8 +69,6 @@ class ConnectionTester
     @uri ||= URI.parse(@url)
     raise AddressFailure,
           "invalid protocol: '#{@uri.scheme.upcase}'" unless http_uri?(@uri)
-
-    result.hostname = @uri.host
   rescue AddressFailure => e
     raise e
   rescue URI::InvalidURIError => e
@@ -228,11 +225,8 @@ class ConnectionTester
   end
 
   Result = Struct.new(
-    :hostname, :ip, :reachable, :ssl_status, :status_code, :rt, :software_version, :error
+    :ip, :reachable, :ssl_status, :status_code, :rt, :software_version, :error
   ) do
-    # @!attribute hostname
-    #   @return [String] hostname derived from the URL
-
     # @!attribute ip
     #   @return [String] resolved IP address from DNS query
 

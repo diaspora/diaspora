@@ -74,37 +74,4 @@ describe HydraWrapper do
     end
 
   end
-
-  describe '#redirecting_to_https?!' do
-    it 'does not execute unless response has a 3xx code' do
-      resp = double code: 200
-      expect(@wrapper.send(:redirecting_to_https?, resp)).to be false
-    end
-
-    it "returns true if just the protocol is different" do
-      host = "the-same.com/"
-      resp = double(
-        request: double(url: "http://#{host}"),
-        code: 302,
-        headers_hash: {
-          'Location' => "https://#{host}"
-        }
-      )
-
-      expect(@wrapper.send(:redirecting_to_https?, resp)).to be true
-    end
-
-    it "returns false if not just the protocol is different" do
-      host = "the-same.com/"
-      resp = double(
-        request: double(url: "http://#{host}"),
-        code: 302,
-        headers_hash: {
-          'Location' => "https://not-the-same/"
-        }
-      )
-
-      expect(@wrapper.send(:redirecting_to_https?, resp)).to be false
-    end
-  end
 end

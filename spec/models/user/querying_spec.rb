@@ -200,7 +200,9 @@ describe User::Querying, :type => :model do
         connect_users(alice, @alices_aspect, remote_user, asp3)
 
         local_person = remote_user.person
-        local_person.owner_id = nil
+        local_person.diaspora_handle = "#{remote_user.username}@example.net"
+        local_person.owner = nil
+        local_person.pod = Pod.find_or_create_by(url: "http://example.net")
         local_person.save
         local_person.reload
 

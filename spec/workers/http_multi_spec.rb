@@ -108,21 +108,20 @@ describe Workers::HttpMulti do
     Workers::HttpMulti.new.perform bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private"
   end
 
-  it 'updates http users who have moved to https' do
+  it "updates http users who have moved to https" do
     person = @people.first
-    person.update_url("http://remote.net/")
 
     response = Typhoeus::Response.new(
-      code: 301,
-      effective_url: 'https://foobar.com',
+      code:             301,
+      effective_url:    "https://example.net",
       response_headers: "Location: #{person.receive_url.sub('http://', 'https://')}",
-      body: "",
-      time: 0.2
+      body:             "",
+      time:             0.2
     )
     Typhoeus.stub(person.receive_url).and_return response
 
     Workers::HttpMulti.new.perform bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private"
-    expect(Person.find(person.id).url).to eq("https://remote.net/")
+    expect(Person.find(person.id).url).to eq("https://example.net/")
   end
 
   it 'only sends to users with valid RSA keys' do
