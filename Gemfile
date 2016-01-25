@@ -22,7 +22,7 @@ gem "json-schema", "2.5.2"
 
 # Authentication
 
-gem "devise", "3.5.3"
+gem "devise", "3.5.4"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-token_authenticatable", "~> 0.4.0"
 
@@ -126,7 +126,7 @@ gem "messagebus_ruby_api", "1.0.3"
 
 # Parsing
 
-gem "nokogiri",          "1.6.7.1"
+gem "nokogiri",          "1.6.7.2"
 gem "redcarpet",         "3.3.4"
 gem "twitter-text",      "1.13.0"
 gem "roxml",             "3.1.6"
