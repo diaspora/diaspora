@@ -9,35 +9,27 @@
     <div class="poll-content">
       {{#if show_form}}
         <form action="/posts/{{poll.post_id}}/poll_participations" method="POST">
-          {{#poll.poll_answers}}
-            <div class="radio result-row">
-              <label>
-                <input type="radio" name="vote" value="{{id}}"/>
-                {{answer}}
-                <span class="percentage pull-right" style="display: none;"></span>
-                <div class="poll_progress_bar_wrapper progress" style="display: none">
-                  <div class="poll_progress_bar bar" data-answerid="{{id}}" style="height: 100%"></div>
-                </div>
-              </label>
-            </div>
-          {{/poll.poll_answers}}
+      {{/if}}
+      {{#poll.poll_answers}}
+        <div class="result-row">
+          <input type="radio" name="vote" value="{{id}}"/>
+          <label>{{answer}}</label>
+          <div class="poll-result pull-right">
+            <span class="percentage"></span>
+            ({{t "poll.answer_count" count=vote_count}})
+          </div>
+          <div class="poll_progress_bar_wrapper progress">
+            <div class="poll_progress_bar bar" data-answerid="{{id}}" style="height: 100%"></div>
+          </div>
+        </div>
+      {{/poll.poll_answers}}
+      {{#if show_form}}
           <div class="toggle-result-wrapper">
             <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
           </div>
           <input type="submit" class="submit pull-right btn btn-default" value="{{t "poll.vote"}}"/>
           <div class="clearfix"></div>
         </form>
-      {{else}}
-        {{#poll.poll_answers}}
-          <div class="result-row">
-            {{answer}}
-            <span class="percentage pull-right"></span>
-            <div class="poll_progress_bar_wrapper progress">
-              <div class="poll_progress_bar bar" data-answerid="{{id}}">
-              </div>
-            </div>
-          </div>
-        {{/poll.poll_answers}}
       {{/if}}
 
       {{#if is_reshare }}
@@ -45,7 +37,6 @@
           {{{t "poll.go_to_original_post" original_post_link=original_post_link}}}
         </div>
       {{/if}}
-
     </div>
   </div>
 {{/if}}

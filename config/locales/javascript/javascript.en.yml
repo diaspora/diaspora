@@ -300,5 +300,9 @@ en:
       count:
         one: "1 vote so far"
         other: "<%=count%> votes so far"
+      answer_count:
+        zero: "0 votes"
+        one: "1 vote"
+        other: "<%=count%> votes"
       show_result: "Show result"
       close_result: "Hide result"
