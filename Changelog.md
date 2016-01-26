@@ -1,3 +1,5 @@
+# 0.5.6.3
+
 # 0.5.6.2
 
 * Fix [CVE-2016-0751](https://groups.google.com/forum/#!topic/rubyonrails-security/9oLY_FCzvoc) - Possible Object Leak and Denial of Service attack in Action Pack
