@@ -9,7 +9,6 @@ class PostPresenter < BasePresenter
   end
 
   def as_json(_options={})
-    @post.include_root_in_json = false
     @post.as_json(only: directly_retrieved_attributes).merge(non_directly_retrieved_attributes)
   end
 

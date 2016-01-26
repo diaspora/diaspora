@@ -122,6 +122,11 @@ Contributions are very welcome, the hard work is done!
 * Keyboard shortcuts now do work on profile pages as well [#6647](https://github.com/diaspora/diaspora/pull/6647/files)
 * Add the podmin email address to 500 errors [#6652](https://github.com/diaspora/diaspora/pull/6652)
 
+# 0.5.6.3
+
+Fix evil regression caused by Active Model no longer exposing
+`include_root_in_json` in instances.
+
 # 0.5.6.2
 
 * Fix [CVE-2016-0751](https://groups.google.com/forum/#!topic/rubyonrails-security/9oLY_FCzvoc) - Possible Object Leak and Denial of Service attack in Action Pack
