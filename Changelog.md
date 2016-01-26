@@ -1,5 +1,8 @@
 # 0.5.6.3
 
+Fix evil regression caused by Active Model no longer exposing
+`include_root_in_json` in instances.
+
 # 0.5.6.2
 
 * Fix [CVE-2016-0751](https://groups.google.com/forum/#!topic/rubyonrails-security/9oLY_FCzvoc) - Possible Object Leak and Denial of Service attack in Action Pack

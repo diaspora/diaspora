@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class Post < ActiveRecord::Base
+  self.include_root_in_json = false
+
   include ApplicationHelper
 
   include Diaspora::Federated::Shareable
