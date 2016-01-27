@@ -9,7 +9,6 @@ describe Mention, :type => :model do
     before do
       @user = alice
       @aspect1 = @user.aspects.create(:name => 'second_aspect')
-
     end
 
     it 'notifies the person being mentioned' do
