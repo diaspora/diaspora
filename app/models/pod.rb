@@ -24,7 +24,7 @@ class Pod < ActiveRecord::Base
   has_many :people
 
   scope :check_failed, lambda {
-    where(arel_table[:status].gt(Pod.statuses[:no_errors]))
+    where(arel_table[:status].gt(Pod.statuses[:no_errors])).where.not(status: Pod.statuses[:version_failed])
   }
 
   class << self
@@ -32,10 +32,8 @@ class Pod < ActiveRecord::Base
       uri = URI.parse(opts.fetch(:url))
       port = DEFAULT_PORTS.include?(uri.port) ? nil : uri.port
       find_or_initialize_by(host: uri.host, port: port).tap do |pod|
-        unless pod.persisted?
-          pod.ssl = (uri.scheme == "https")
-          pod.save
-        end
+        pod.ssl ||= (uri.scheme == "https")
+        pod.save
       end
     end
 
@@ -63,7 +61,7 @@ class Pod < ActiveRecord::Base
 
   def test_connection!
     result = ConnectionTester.check uri.to_s
-    logger.info "testing pod: '#{uri}' - #{result.inspect}"
+    logger.debug "tested pod: '#{uri}' - #{result.inspect}"
 
     transaction do
       update_from_result(result)
@@ -95,6 +93,7 @@ class Pod < ActiveRecord::Base
   end
 
   def attributes_from_result(result)
+    self.ssl ||= result.ssl
     self.error = result.failure_message[0..254] if result.error?
     self.software = result.software_version[0..254] if result.software_version.present?
     self.response_time = result.rt

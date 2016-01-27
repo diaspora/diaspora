@@ -34,6 +34,11 @@ app.pages.AdminPods = app.views.Base.extend({
         .append(Diaspora.I18n.t("admin.pods.unchecked", {count: gon.uncheckedCount}));
       msgs.appendChild(unchecked[0]);
     }
+    if( gon.versionFailedCount && gon.versionFailedCount > 0 ) {
+      var versionFailed = $("<div class='alert alert-warning' />")
+          .append(Diaspora.I18n.t("admin.pods.version_failed", {count: gon.versionFailedCount}));
+      msgs.appendChild(versionFailed[0]);
+    }
     if( gon.errorCount && gon.errorCount > 0 ) {
       var errors = $("<div class='alert alert-danger' />")
         .append(Diaspora.I18n.t("admin.pods.errors", {count: gon.errorCount}));
