@@ -119,8 +119,21 @@ DiasporaFederation.configure do |config|
       Person.find_by(diaspora_handle: diaspora_id).send(:url_to, path)
     end
 
-    on :update_pod do
-      # TODO
+    on :update_pod do |url, status|
+      pod = Pod.find_or_create_by(url: url)
+
+      if status.is_a? Symbol
+        pod.status = Pod::CURL_ERROR_MAP.fetch(status, :unknown_error)
+        pod.error = "FederationError: #{status}"
+      elsif status >= 200 && status < 300
+        pod.status = :no_errors unless Pod.statuses[pod.status] == Pod.statuses[:version_failed]
+      else
+        pod.status = :http_failed
+        pod.error = "FederationError: HTTP status code was: #{status}"
+      end
+      pod.update_offline_since
+
+      pod.save
     end
   end
 end

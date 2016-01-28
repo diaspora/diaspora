@@ -389,4 +389,47 @@ describe "diaspora federation callbacks" do
       ).to eq("https://#{pod.host}/path/on/pod")
     end
   end
+
+  describe ":update_pod" do
+    let(:pod) { FactoryGirl.create(:pod) }
+    let(:pod_url) { pod.url_to("/") }
+
+    it "sets the correct error for curl-errors" do
+      pod = FactoryGirl.create(:pod)
+
+      DiasporaFederation.callbacks.trigger(:update_pod, pod.url_to("/"), :ssl_cacert)
+
+      updated_pod = Pod.find_or_create_by(url: pod.url_to("/"))
+      expect(Pod.statuses[updated_pod.status]).to eq(Pod.statuses[:ssl_failed])
+      expect(updated_pod.error).to eq("FederationError: ssl_cacert")
+    end
+
+    it "sets :no_errors to a pod that was down but up now and return code 202" do
+      pod = FactoryGirl.create(:pod, status: :unknown_error)
+
+      DiasporaFederation.callbacks.trigger(:update_pod, pod.url_to("/"), 202)
+
+      updated_pod = Pod.find_or_create_by(url: pod.url_to("/"))
+      expect(Pod.statuses[updated_pod.status]).to eq(Pod.statuses[:no_errors])
+    end
+
+    it "does not change a pod that has status :version_failed and was successful" do
+      pod = FactoryGirl.create(:pod, status: :version_failed)
+
+      DiasporaFederation.callbacks.trigger(:update_pod, pod.url_to("/"), 202)
+
+      updated_pod = Pod.find_or_create_by(url: pod.url_to("/"))
+      expect(Pod.statuses[updated_pod.status]).to eq(Pod.statuses[:version_failed])
+    end
+
+    it "sets :http_failed if it has an unsuccessful http status code" do
+      pod = FactoryGirl.create(:pod)
+
+      DiasporaFederation.callbacks.trigger(:update_pod, pod.url_to("/"), 404)
+
+      updated_pod = Pod.find_or_create_by(url: pod.url_to("/"))
+      expect(Pod.statuses[updated_pod.status]).to eq(Pod.statuses[:http_failed])
+      expect(updated_pod.error).to eq("FederationError: HTTP status code was: 404")
+    end
+  end
 end

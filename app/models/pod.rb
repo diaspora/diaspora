@@ -19,6 +19,15 @@ class Pod < ActiveRecord::Base
     ConnectionTester::NodeInfoFailure => :version_failed
   }
 
+  # this are only the most common errors, the rest will be +unknown_error+
+  CURL_ERROR_MAP = {
+    couldnt_resolve_host: :dns_failed,
+    couldnt_connect:      :net_failed,
+    operation_timedout:   :net_failed,
+    ssl_cipher:           :ssl_failed,
+    ssl_cacert:           :ssl_failed
+  }.freeze
+
   DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
 
   has_many :people
@@ -76,17 +85,20 @@ class Pod < ActiveRecord::Base
     uri.tap {|uri| uri.path = path }.to_s
   end
 
+  def update_offline_since
+    if offline?
+      touch(:offline_since) unless was_offline?
+    else
+      self.offline_since = nil
+    end
+  end
+
   private
 
   def update_from_result(result)
     self.status = status_from_result(result)
-
-    if offline?
-      touch(:offline_since) unless was_offline?
-      logger.warn "OFFLINE #{result.failure_message}"
-    else
-      self.offline_since = nil
-    end
+    update_offline_since
+    logger.warn "OFFLINE #{result.failure_message}" if offline?
 
     attributes_from_result(result)
     touch(:checked_at)
