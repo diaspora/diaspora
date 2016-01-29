@@ -1,14 +1,11 @@
 clean_cached_files:
   cron: "0 0 * * *"
   class: "Workers::CleanCachedFiles"
-  queue: "clean_cached_files"
 
 queue_users_for_removal:
   cron: "0 0 * * *"
   class: "Workers::QueueUsersForRemoval"
-  queue: queue_users_for_removal
 
 recurring_pod_check:
   cron: "0 0 * * *"
   class: "Workers::RecurringPodCheck"
-  queue: recurring_pod_check
