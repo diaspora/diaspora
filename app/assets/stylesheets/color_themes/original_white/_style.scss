@@ -7,8 +7,8 @@ $main-color-dark: darken($main-color, 15%);
 
 // Variables
 $header-background-color: $main-color-dark;
+$main-background: $background;
 $sidebars-background: $background;
-$sidebars-sub-background: $background;
 $card-shadow: none;
 
 @import 'color_themes/color_theme_override_origwhite';
