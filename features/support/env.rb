@@ -25,7 +25,7 @@ Selenium::WebDriver::Firefox::Binary.path = ENV["FIREFOX_BINARY_PATH"] || Seleni
 
 Capybara.register_driver :selenium do |app|
   profile = Selenium::WebDriver::Firefox::Profile.new
-  # Set the download directory to "~/diaspora/tmp/downloads"
+  # Set the download directory to "tmp/downloads"
   profile["browser.download.dir"] = DownloadHelpers::PATH.to_s
   # Save the file instead of opening it
   profile["browser.download.folderList"] = 2
