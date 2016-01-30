@@ -200,8 +200,7 @@
                 = link_to t(".request_export_photos_update"), export_photos_user_path,
                   class: "btn btn-default btn-block"
                 .small-horizontal-spacer
-                = link_to t(".download_export_photos"), download_photos_user_path, method: :post,
-                  class: "btn btn-success btn-block"
+                = link_to t(".download_export_photos"), download_photos_user_path, class: "btn btn-success btn-block"
                 .small-horizontal-spacer
                 %h6
                   = t(".last_exported_at", timestamp: current_user.exported_photos_at)
