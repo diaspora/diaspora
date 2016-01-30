@@ -219,3 +219,11 @@ end
 When /^I click the sign in button$/ do
   click_link "Sign in"
 end
+
+Given /^I did request my photos$/ do
+  @me.perform_export_photos!
+end
+
+Then /^I should get a zipped file$/ do
+  expect(DownloadHelpers.download).to end_with("zip")
+end
