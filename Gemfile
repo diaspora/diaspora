@@ -32,7 +32,7 @@ gem "simple_captcha2", "0.3.4", require: "simple_captcha"
 
 # Background processing
 
-gem "sidekiq", "4.0.1"
+gem "sidekiq", "4.1.0"
 gem "sinatra", "1.4.6"
 
 # Scheduled processing
