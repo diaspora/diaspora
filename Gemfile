@@ -167,7 +167,7 @@ gem "typhoeus",           "0.8.0"
 gem "gon",                     "6.0.1"
 gem "haml",                    "4.0.7"
 gem "mobile-fu",               "1.3.1"
-gem "will_paginate",           "3.0.7"
+gem "will_paginate",           "3.1.0"
 gem "rails-timeago",           "2.11.0"
 
 # Logging
