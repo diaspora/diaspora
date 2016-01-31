@@ -114,7 +114,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-perfect-scrollbar",             "0.6.8"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
   gem "rails-assets-autosize",                      "3.0.15"
-  gem "rails-assets-blueimp-gallery",               "2.16.0"
+  gem "rails-assets-blueimp-gallery",               "2.17.0"
 end
 
 # Localization
