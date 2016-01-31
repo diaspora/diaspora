@@ -28,7 +28,7 @@ gem "devise-token_authenticatable", "~> 0.4.0"
 
 # Captcha
 
-gem "simple_captcha2", "0.3.4", require: "simple_captcha"
+gem "simple_captcha2", "0.4.0", require: "simple_captcha"
 
 # Background processing
 
