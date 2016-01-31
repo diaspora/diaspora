@@ -37,7 +37,7 @@ gem "sinatra", "1.4.6"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "0.4.1"
+gem "sidekiq-cron", "0.4.2"
 
 # Compression
 
