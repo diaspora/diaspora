@@ -220,7 +220,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Process management
 
-  gem "eye", "0.7"
+  gem "eye", "0.8"
 
   # Redirects
 
