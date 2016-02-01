@@ -1,17 +1,3 @@
-.right-sidebar-fixed-background {
-  height: 100%;
-  border-left: 1px solid $light-grey;
-  background: $sidebars-background;
-  position: fixed;
-  right: 0;
-}
-.right-sidebar-fixed-sub-background {
-  height: 100%;
-  background: $sidebars-sub-background;
-  position: fixed;
-  right: 0;
-}
-
 .right-sidebar-padder {
   max-width: 400px;
 }

@@ -20,11 +20,9 @@
           .pull-right
             = link_to '&times;'.html_safe, getting_started_completed_path, id: "gs-skip-x", class: "close"
 
-%div.container-fluid
+%div.container
   .row
-    .left-navbar-fixed-sub-background.col-lg-1.visible-lg
-    .left-navbar-fixed-background.col-lg-offset-1.col-lg-2.col-md-3.hidden-sm.hidden-xs
-    .left-navbar.col-lg-offset-1.col-lg-2.col-md-3
+    .left-navbar.col-md-2.hidden-sm.hidden-xs
       #home_user_badge
         = owner_image_link
         %h4
@@ -44,12 +42,9 @@
         %li{data: {stream: "public"}}
           = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
 
-    .col-md-6
-      #aspect_stream_container.stream_container
-        = render 'aspects/aspect_stream', stream: @stream
+    #aspect_stream_container.stream_container.col-md-7.col-lg-8
+      = render 'aspects/aspect_stream', stream: @stream
 
-    .right-sidebar-fixed-sub-background.col-lg-3.visible-lg
-    .right-sidebar-fixed-background.col-md-3.col-lg-2.hidden-sm.hidden-xs
     .col-md-3.col-lg-2.hidden-xs.hidden-sm.rightbar
       #selected_aspect_contacts.section
         .title
