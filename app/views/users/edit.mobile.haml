@@ -167,9 +167,9 @@
       = link_to t('.download_export'), download_profile_user_path, class: "btn btn-success"
       %h6
         = t('.last_exported_at', timestamp: current_user.exported_at)
-      = link_to t('.request_export_update'), export_profile_user_path, class: "btn"
+      = link_to t('.request_export_update'), export_profile_user_path, class: "btn", method: :post
     - else
-      = link_to t('.request_export'), export_profile_user_path, :class => "btn"
+      = link_to t('.request_export'), export_profile_user_path, class: "btn", method: :post
     %br
     %br
     - if current_user.exporting_photos
@@ -178,9 +178,9 @@
       = link_to t('.download_export_photos'), download_photos_user_path, class: "btn btn-success"
       %h6
         = t('.last_exported_at', timestamp: current_user.exported_photos_at)
-      = link_to t('.request_export_photos_update'), export_photos_user_path, class: "btn"
+      = link_to t('.request_export_photos_update'), export_photos_user_path, class: "btn", method: :post
     - else
-      = link_to t('.request_export_photos'), export_photos_user_path, :class => "btn"
+      = link_to t('.request_export_photos'), export_photos_user_path, class: "btn", method: :post
 
   %hr
   .span-5.last
