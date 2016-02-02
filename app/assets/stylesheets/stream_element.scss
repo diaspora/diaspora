@@ -41,6 +41,7 @@
   margin-bottom: 20px;
   background-color: $white;
   border: 1px solid $light-grey;
+  border-radius: 4px;
 
   & > .media {
     &.shield-active .nsfw-hidden { display: none; }
