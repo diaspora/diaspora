@@ -22,22 +22,22 @@ gem "json-schema", "2.5.2"
 
 # Authentication
 
-gem "devise", "3.5.4"
+gem "devise", "3.5.5"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-token_authenticatable", "~> 0.4.0"
 
 # Captcha
 
-gem "simple_captcha2", "0.3.4", require: "simple_captcha"
+gem "simple_captcha2", "0.4.0", require: "simple_captcha"
 
 # Background processing
 
-gem "sidekiq", "4.0.1"
-gem "sinatra", "1.4.6"
+gem "sidekiq", "4.1.0"
+gem "sinatra", "1.4.7"
 
 # Scheduled processing
 
-gem "sidekiq-cron", "0.4.1"
+gem "sidekiq-cron", "0.4.2"
 
 # Compression
 
@@ -56,7 +56,7 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 gem "bootstrap-sass", "3.3.6"
 gem "compass-rails",  "2.0.5"
 gem "sass-rails",     "5.0.4"
-gem "autoprefixer-rails", "6.2.2"
+gem "autoprefixer-rails", "6.3.1"
 gem "bootstrap-switch-rails", "3.3.3"
 
 # Database
@@ -87,14 +87,14 @@ gem "entypo-rails", "3.0.0.pre.rc2"
 # JavaScript
 
 gem "backbone-on-rails", "1.2.0.0"
-gem "handlebars_assets", "0.22.0"
-gem "jquery-rails",      "4.0.5"
+gem "handlebars_assets", "0.23.0"
+gem "jquery-rails",      "4.1.0"
 gem "jquery-ui-rails",   "5.0.5"
 gem "js_image_paths",    "0.0.2"
-gem "js-routes",         "1.2.0"
+gem "js-routes",         "1.2.3"
 
 source "https://rails-assets.org" do
-  gem "rails-assets-jquery",                              "1.11.2" # Should be kept in sync with jquery-rails
+  gem "rails-assets-jquery",                              "1.12.0" # Should be kept in sync with jquery-rails
 
   gem "rails-assets-markdown-it",                         "5.1.0"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
@@ -103,7 +103,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "9.0.0"
+  gem "rails-assets-highlightjs",                         "9.1.0"
   gem "rails-assets-typeahead.js",                        "0.11.1"
 
   # jQuery plugins
@@ -111,10 +111,10 @@ source "https://rails-assets.org" do
   gem "rails-assets-jeresig--jquery.hotkeys",       "0.2.0"
   gem "rails-assets-jquery-placeholder",            "2.3.1"
   gem "rails-assets-jquery-textchange",             "0.2.3"
-  gem "rails-assets-perfect-scrollbar",             "0.6.8"
+  gem "rails-assets-perfect-scrollbar",             "0.6.10"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
-  gem "rails-assets-autosize",                      "3.0.14"
-  gem "rails-assets-blueimp-gallery",               "2.16.0"
+  gem "rails-assets-autosize",                      "3.0.15"
+  gem "rails-assets-blueimp-gallery",               "2.17.0"
 end
 
 # Localization
@@ -177,7 +177,7 @@ gem "typhoeus",           "0.8.0"
 gem "gon",                     "6.0.1"
 gem "haml",                    "4.0.7"
 gem "mobile-fu",               "1.3.1"
-gem "will_paginate",           "3.0.7"
+gem "will_paginate",           "3.1.0"
 gem "rails-timeago",           "2.11.0"
 
 # Logging
@@ -220,7 +220,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Process management
 
-  gem "eye", "0.7"
+  gem "eye", "0.8"
 
   # Redirects
 

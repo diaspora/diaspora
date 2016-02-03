@@ -44,5 +44,6 @@
 //= require osmlocator
 //= require bootstrap-switch
 //= require blueimp-gallery
+//= require blueimp-gallery/blueimp-gallery-indicator
 //= require leaflet
 //= require api/authorization_page

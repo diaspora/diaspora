@@ -197,7 +197,7 @@
               - if current_user.exporting_photos
                 .export-in-progress= t(".export_photos_in_progress")
               - elsif current_user.exported_photos_file.present?
-                = link_to t(".request_export_photos_update"), export_photos_user_path,
+                = link_to t(".request_export_photos_update"), export_photos_user_path, method: :post,
                   class: "btn btn-default btn-block"
                 .small-horizontal-spacer
                 = link_to t(".download_export_photos"), download_photos_user_path, class: "btn btn-success btn-block"
