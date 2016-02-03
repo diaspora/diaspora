@@ -2,6 +2,10 @@ body.page-streams, body.page-photos {
   background-color: $sidebars-sub-background;
 }
 
+.stream-wrapper {
+  background-color: $stream-background;
+}
+
 .stream_container {
   #publisher {
     margin-top: 10px;
