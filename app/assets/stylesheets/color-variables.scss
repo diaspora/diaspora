@@ -23,6 +23,7 @@ $light-green: lighten($green, 20%);
 $red: #a80000;
 $blue: #3f8fba;
 
+$stream-background: #f0f0f0 !default;
 $sidebars-background: #f0f0f0 !default;
 $sidebars-sub-background: darken($sidebars-background, 12%) !default;
 $left-navbar-drawer-background: darken($sidebars-background, 6%);

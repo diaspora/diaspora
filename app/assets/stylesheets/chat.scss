@@ -1,6 +1,36 @@
 body > .container-fluid.chat-roster-shown {
   padding-right: 224px;
   #back-to-top { right: 244px; }
+  .col-md-11-with-chat-shown {
+    @media (min-width: 1200px) {
+      width: 91.66666667%;
+    }
+  }
+  .col-sm-9-with-chat-shown {
+    @media (min-width: 768px) {
+      width: 75%;
+    }
+  }
+  .col-md-9-with-chat-shown {
+    @media (min-width: 992px) {
+      width: 75%;
+    }
+  }
+  .col-md-12-with-chat-shown {
+    @media (min-width: 992px) {
+      width: 100%;
+    }
+  }
+  .hidden-lg-with-chat-shown {
+    @media (min-width: 1200px) {
+      display: none!important;
+    }
+  }
+  .hidden-md-with-chat-shown {
+    @media (min-width: 992px) and (max-width: 1200px) {
+      display: none!important;
+    }
+  }
 }
 body > .container-fluid.chat-roster-hidden {
   #back-to-top { right: 54px; }

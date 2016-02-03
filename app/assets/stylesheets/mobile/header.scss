@@ -4,6 +4,13 @@ $drawer-width: 400px;
 $drawer-width-offset: $drawer-width + 50px;
 $mobile-navbar-height: 46px;
 
+html[native-ios-app='true'] #main-nav.navbar-fixed-top {
+  padding-top: 15px;
+  height: 61px !important;
+  min-height: 61px !important;
+  max-height: 61px !important;
+}
+
 #main-nav.navbar-fixed-top {
   width: 100%;
   height: $mobile-navbar-height !important;
@@ -94,6 +101,17 @@ $mobile-navbar-height: 46px;
     }
   }
 }
+
+html[native-ios-app='true']{
+  #drawer {
+    background-color: $navbar-inverse-bg;
+    padding-top: 15px;
+    nav {
+      margin-top: 15px;
+    }
+  }
+}
+
 
 #drawer {
   position: fixed;

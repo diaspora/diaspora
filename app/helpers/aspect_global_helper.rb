@@ -61,14 +61,16 @@ LISTITEM
       aspects = stream.aspects
       aspect = stream.aspect
       aspect_ids = stream.aspect_ids
+      title = stream.title
     elsif current_user
       aspects = current_user.aspects
       aspect = aspects.first
       aspect_ids = current_user.aspect_ids
+      title = current_user.first_name
     else
       return {}
     end
 
-    { selected_aspects: aspects, aspect: aspect, aspect_ids: aspect_ids }
+    { selected_aspects: aspects, aspect: aspect, aspect_ids: aspect_ids, title: title }
   end
 end

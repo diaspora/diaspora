@@ -13,11 +13,14 @@
       display: none !important;
     }
 
-    #publisher_textarea_wrapper { border: 1px solid $border-grey !important; }
+    #publisher_textarea_wrapper { border: none; }
   }
 
   .container-fluid{ padding: 0; }
   .mentions-autocomplete-list ul { width: 100% !important; }
+
+  .panel-body {padding: 0;}
+  .panel-footer {padding: 6px;}
 
   form {
     margin: 0;
@@ -65,8 +68,7 @@
 
     #publisher_textarea_wrapper {
       background-color: white;
-      border-radius: 3px;
-      border: 1px solid $border-dark-grey;
+      border: none;
 
       input[type='text']#status_message_text {
         border: none;
