@@ -37,7 +37,7 @@
     %meta{:name => "apple-mobile-web-app-status-bar-style", :content => "black-translucent"}
     / There is bug in new iOS and startup images do not work at all. I leave it here in case it starts
     / but i do not generate other resolutions
-    %link{:rel => "apple-touch-startup-image", :href => "/assets/branding/apple-splash1242x2148.png",
+    %link{:rel => "apple-touch-startup-image", :href => image_path("/assets/branding/apple-splash1242x2148.png"),
       :media => "(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)"}
 
     = render 'layouts/open_graph'
