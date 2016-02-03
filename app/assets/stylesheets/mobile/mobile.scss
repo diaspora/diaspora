@@ -34,6 +34,11 @@ body {
 
 h3 {  margin-top: 0; }
 .clear { clear: both; }
+
+html[native-ios-app='true'] #main {
+  padding-top: 71px !important;
+}
+
 #main { padding: 56px 10px 0 10px; }
 
 .avatar {

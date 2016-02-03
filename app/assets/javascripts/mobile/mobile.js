@@ -22,7 +22,17 @@
 //= require mobile/mobile_comments
 
 $(document).ready(function(){
-
+  if (window.navigator.standalone) {
+    $("body").on("click", "a",function (event) {
+      var targetURL = $(this).attr("href");
+      // urls with . or / but not // at the begining should be opened in the same windows
+      if (targetURL[0] == "." || (targetURL[0] == "/" && targetURL[1] != "/")) {
+        event.preventDefault();
+        window.location = targetURL;
+      }
+    });
+  }
+  
   $('.shield a').click(function(){
     $(this).parents(".stream_element").removeClass("shield-active");
     return false;
