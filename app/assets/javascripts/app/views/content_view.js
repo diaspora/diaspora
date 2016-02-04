@@ -72,6 +72,21 @@ app.views.Content = app.views.Base.extend({
 
   postRenderTemplate : function(){
     _.defer(_.bind(this.collapseOversized, this));
+
+    // run collapseOversized again after all contained images are loaded
+    var self = this;
+    _.defer(function() {
+      self.$("img").each(function() {
+        this.addEventListener("load", function() {
+          // only fire if the top of the post is in viewport
+          var rect = self.el.getBoundingClientRect();
+          if(rect.top > 0) {
+            self.collapseOversized.call(self);
+          }
+        });
+      });
+    });
+
     var photoAttachments = this.$(".photo_attachments");
     if(photoAttachments.length > 0) {
       new app.views.Gallery({ el: photoAttachments });
