@@ -78,6 +78,7 @@ Contributions are very welcome, the hard work is done!
 * Change login/registration/forgot password button color [#6504](https://github.com/diaspora/diaspora/pull/6504)
 * A note regarding ignoring users was added to the failure messages on commenting/liking [#6646](https://github.com/diaspora/diaspora/pull/6646)
 * Replace sidetiq with sidekiq-cron [#6616](https://github.com/diaspora/diaspora/pull/6616)
+* Refactor mobile comment section [#6509](https://github.com/diaspora/diaspora/pull/6509)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

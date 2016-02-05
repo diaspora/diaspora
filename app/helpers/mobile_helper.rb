@@ -10,7 +10,11 @@ module MobileHelper
         link_to "", reshares_path(root_guid: absolute_root.guid),
                 title: t("reshares.reshare.reshare_confirmation", author: absolute_root.author_name),
                 class: "entypo-reshare reshare-action #{klass}"
+      else
+        content_tag :div, nil, class: "entypo-reshare reshare-action disabled"
       end
+    else
+      content_tag :div, nil, class: "entypo-reshare reshare-action disabled"
     end
   end
 
@@ -26,14 +30,19 @@ module MobileHelper
     link_to "", new_post_comment_path(post), class: "entypo-comment comment-action inactive"
   end
 
-  def reactions_link(post)
+  def reactions_link(post, klass="")
     reactions_count = post.comments_count + post.likes_count
-    if reactions_count > 0
-      link_to "#{t('reactions', count: reactions_count)}",
-              post_comments_path(post, format: "mobile"),
-              class: "show_comments"
+    if klass == "active"
+      entypo_class = "entypo-chevron-up"
     else
-      html = "<span class='show_comments'>"
+      entypo_class = "entypo-chevron-down"
+    end
+    if reactions_count > 0
+      link_to "#{t('reactions', count: reactions_count)}<i class='#{entypo_class}'></i>".html_safe,
+              post_comments_path(post, format: "mobile"),
+              class: "show-comments #{klass}"
+    else
+      html = "<span class='show-comments'>"
       html << "#{t('reactions', count: reactions_count)}"
       html << "</span>"
     end

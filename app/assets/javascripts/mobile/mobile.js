@@ -59,7 +59,7 @@ $(document).ready(function(){
   $(".like-action", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
     var link = $(this),
-        likeCounter = $(this).closest(".stream_element").find("like_count"),
+        likeCounter = $(this).closest(".stream_element").find(".like-count"),
         href = link.attr("href");
 
     if(!link.hasClass("loading")){
@@ -74,7 +74,7 @@ $(document).ready(function(){
             link.attr("href", href + "/" + data["id"]);
 
             if(likeCounter){
-              likeCounter.text(parseInt(likeCounter.text) + 1);
+              likeCounter.text(parseInt(likeCounter.text(), 10) + 1);
             }
           }
         });
@@ -90,7 +90,7 @@ $(document).ready(function(){
             link.attr("href", href.replace(/\/\d+$/, ''));
 
             if(likeCounter){
-              likeCounter.text(parseInt(likeCounter.text) - 1);
+              likeCounter.text(parseInt(likeCounter.text(), 10) - 1);
             }
           }
         });
@@ -99,7 +99,7 @@ $(document).ready(function(){
   });
 
   /* Reshare */
-  $(".reshare-action", ".stream").bind("tap click", function(evt){
+  $(".reshare-action:not(.disabled)", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
 
     var link = $(this),

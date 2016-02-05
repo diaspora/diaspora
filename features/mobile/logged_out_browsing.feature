@@ -17,5 +17,5 @@ Feature: Browsing Diaspora as a logged out user mobile
     Scenario: Visiting a profile page
       When I am on "bob@bob.bob"'s page
       Then I should see "public stuff" within ".ltr"
-      And I click on selector "a.show_comments"
+      And I click on selector "a.show-comments"
       And I should see "this also" within ".comment"
