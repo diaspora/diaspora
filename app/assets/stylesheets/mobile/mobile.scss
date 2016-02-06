@@ -33,6 +33,10 @@ body {
   padding: 0;
 }
 
+textarea {
+  resize: vertical;
+}
+
 h3 {  margin-top: 0; }
 .clear { clear: both; }
 #main { padding: 56px 10px 0 10px; }
