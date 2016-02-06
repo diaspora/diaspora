@@ -144,6 +144,9 @@ var app = {
     // add placeholder support for old browsers
     $("input, textarea").placeholder();
 
+    // init autosize plugin
+    autosize($("textarea"));
+
     // setup remote forms
     $(document).on("ajax:success", "form[data-remote]", function() {
       $(this).clearForm();

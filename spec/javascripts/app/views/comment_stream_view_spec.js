@@ -15,10 +15,10 @@ describe("app.views.CommentStream", function(){
 
   describe("postRenderTemplate", function(){
     it("autoResizes the new comment textarea", function(){
-      spyOn(window, "autosize");
+      spyOn(window.autosize, "update");
       this.view.postRenderTemplate();
-      expect(window.autosize).toHaveBeenCalled();
-      expect(window.autosize.calls.mostRecent().args[0].selector).toBe("textarea");
+      expect(window.autosize.update).toHaveBeenCalled();
+      expect(window.autosize.update.calls.mostRecent().args[0].selector).toBe("textarea");
     });
   });
 
