@@ -14,7 +14,7 @@
               = link_to t('.new_conversation'), conversations_path, class: 'btn btn-default'
             = t('.inbox')
 
-        #conversation_inbox
+        .conversation-inbox#conversation_inbox
           .stream.conversations
             - if @visibilities.count > 0
               = render partial: "conversations/conversation", collection: @visibilities, as: :visibility
@@ -34,9 +34,8 @@
       - else
         .stream_container.hidden
           #conversation_show
-        .row#conversation_new
-          .col-md-10.col-md-offset-1
-            .new-conversation
-              %h3.text-center
-                = t("conversations.index.new_conversation")
-              = render "conversations/new"
+        #conversation_new
+          .new-conversation
+            %h3.text-center
+              = t("conversations.index.new_conversation")
+            = render "conversations/new"

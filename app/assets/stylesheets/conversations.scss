@@ -191,11 +191,12 @@
   }
 }
 
-@media (max-width: 1354px) {
-  #left_pane #conversation_inbox .pagination ul > li > a {
-    padding: 4px 7px;
-  }
+// We need this to override the Bootstrap pagination style only for the conversations view
+// scss-lint:disable SelectorDepth
+.conversation-inbox .pagination > li > a {
+  padding: 4px 7px;
 }
+// scss-lint:enable SelectorDepth
 
 #new_conversation_pane {
   ul.as-selections { width: 100% !important; }

@@ -9,7 +9,6 @@
   }
 
   @media (max-width: $grid-float-breakpoint-max) {
-    .col-lg-10 { padding: 0; }
     .navbar-header > .nav li { display: inline-block !important; }
     .nav-badge {
       color: $navbar-inverse-link-color;
