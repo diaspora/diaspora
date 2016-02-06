@@ -35,7 +35,7 @@ linters:
     enabled: true
 
   DisableLinterReason:
-    enabled: false
+    enabled: true
 
   DuplicateProperty:
     enabled: true
