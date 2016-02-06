@@ -6,4 +6,8 @@
   = t('.title')
 
 .container-fluid
-  = render "privacy_settings"
+  .row
+    .col-md-3
+      = render "shared/settings_nav"
+    .col-md-9
+      = render "privacy_settings"
