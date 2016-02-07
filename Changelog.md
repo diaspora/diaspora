@@ -10,6 +10,7 @@
 * Fix `suppress_annoying_errors` eating too much errors [#6653](https://github.com/diaspora/diaspora/pull/6653)
 * Ensure the rubyzip gem is properly loaded [#6659](https://github.com/diaspora/diaspora/pull/6659)
 * Fix mobile registration layout after failed registration [#6677](https://github.com/diaspora/diaspora/pull/6677)
+* Fix mirrored names when using a RTL language [#6680](https://github.com/diaspora/diaspora/pull/6680)
 
 ## Features
 * Keyboard shortcuts now do work on profile pages as well [#6647](https://github.com/diaspora/diaspora/pull/6647/files)
