@@ -2,15 +2,11 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-:css
-  div.navbar.navbar-fixed-top{ display:none;}
-
-.registrations
-.stream
+.stream#main_stream
   - flash.each do |name, msg|
-    %p{class: "registrations_#{name}"}= msg
-    #flash_alert.expose
-      %div{class: "message", id: "session"}= msg
+    .expose#flash-container
+      .flash-message{class: "message alert alert-#{flash_class name}"}
+        = msg
 
   #login_form
     .login-container
@@ -18,39 +14,41 @@
         %fieldset
           %legend
             = image_tag("branding/logos/header-logo2x.png", height: 40, width: 40)
-            = t('aspects.aspect_stream.make_something')
+            = t("aspects.aspect_stream.make_something")
 
-          .control-group
-            = f.label :username, t('username')
-            .controls
-              = f.text_field :username, placeholder: "jedi_guy"
+          .form-group
+            = f.label :username, t("username")
+            = f.text_field :username, class: "form-control", placeholder: "jedi_guy"
 
-            .control-group
-              = f.label :email, t('email')
-              .controls
-                = f.text_field :email, placeholder: "luke@hoth.net"
+          .form-group
+            = f.label :email, t("email")
+            = f.text_field :email, class: "form-control", placeholder: "luke@hoth.net"
 
-            .control-group
-              = f.label :password, t('password')
-              .controls
-                = f.password_field :password, placeholder: "••••••••"
+          .form-group
+            = f.label :password, t("password")
+            = f.password_field :password, class: "form-control", placeholder: "••••••••"
 
-            .control-group
-              = f.label :password_confirmation, t('password_confirmation')
-              .controls
-                = f.password_field :password_confirmation, placeholder: "••••••••"
+          .form-group
+            = f.label :password_confirmation, t("password_confirmation")
+            = f.password_field :password_confirmation, class: "form-control", placeholder: "••••••••"
 
-            - if AppConfig.settings.captcha.enable?
-              = show_simple_captcha(object: 'user', :code_type => 'numeric')
+          - if AppConfig.settings.captcha.enable?
+            = show_simple_captcha object: "user",
+                                  code_type: "numeric",
+                                  class: "simple-captcha-image",
+                                  input_html: {class: "form-control captcha-input"}
 
-            = invite_hidden_tag(invite)
+          = invite_hidden_tag(invite)
 
-            - if AppConfig.settings.terms.enable?
-              = t('registrations.new.terms', terms_link: link_to(t('registrations.new.terms_link'), terms_path, target: "_blank")).html_safe
+          - if AppConfig.settings.terms.enable?
+            = t("registrations.new.terms",
+              terms_link: link_to(t("registrations.new.terms_link"), terms_path, target: "_blank")).html_safe
 
-            .controls
-              = f.submit t('registrations.new.create_my_account'), class: 'btn btn-primary', :disable_with => t('registrations.new.submitting')
-              = link_to t('devise.sessions.new.sign_in'), new_user_session_path(), class: 'btn btn-link', style: "float: right;"
+          .form-group
+            = f.submit t("registrations.new.create_my_account"),
+              class: "btn btn-primary",
+              disable_with: t("registrations.new.submitting")
+            = link_to t("devise.sessions.new.sign_in"), new_user_session_path, class: "btn btn-link pull-right"
 
 %footer
   = link_to t('layouts.application.toggle'), toggle_mobile_path
