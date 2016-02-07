@@ -22,7 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
 
       flash.now[:error] = @user.errors.full_messages.join(" - ")
       logger.info "event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'"
-      render :action => 'new', :layout => 'with_header'
+      render action: "new", layout: request.format == :mobile ? "application" : "with_header"
     end
   end
 
