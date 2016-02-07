@@ -3,6 +3,13 @@ body {
   padding: none;
 }
 
+.container-fluid { max-width: $screen-lg-min; }
+
+.page-streams,
+.page-tags.action-show {
+  > .container-fluid { max-width: 100%; }
+}
+
 // Overflow
 h1,
 h2,

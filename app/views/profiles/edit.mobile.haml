@@ -4,11 +4,11 @@
 
 .settings_container.container-fluid
   .row
-    .col-lg-10.col-lg-offset-1
+    .col-md-12
       = render "shared/settings_nav"
 
   .row
-    .col-lg-8.col-lg-offset-2
+    .col-md-12
       - content_for :submit_block do
         = link_to t("cancel"), local_or_remote_person_path(current_user.person), class: "btn btn-default"
         = submit_tag t(".update_profile"), class: "btn btn-primary pull-right", id: "update_profile"

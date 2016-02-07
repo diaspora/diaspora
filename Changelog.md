@@ -80,6 +80,7 @@ Contributions are very welcome, the hard work is done!
 * Replace sidetiq with sidekiq-cron [#6616](https://github.com/diaspora/diaspora/pull/6616)
 * Refactor mobile comment section [#6509](https://github.com/diaspora/diaspora/pull/6509)
 * Set vertical resize as default for all textareas [#6654](https://github.com/diaspora/diaspora/pull/6654)
+* Unifiy max-widths and page layouts [#6675](https://github.com/diaspora/diaspora/pull/6675)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
