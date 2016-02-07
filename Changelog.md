@@ -113,6 +113,7 @@ Contributions are very welcome, the hard work is done!
 * Posts of ignored users are now visible on that profile page [#6617](https://github.com/diaspora/diaspora/pull/6617)
 * Add white color theme [#6631](https://github.com/diaspora/diaspora/pull/6631)
 * Add answer counts to poll [#6641](https://github.com/diaspora/diaspora/pull/6641)
+* Check for collapsible posts after images in posts have loaded [#6671](https://github.com/diaspora/diaspora/pull/6671)
 
 # 0.5.7.0
 
