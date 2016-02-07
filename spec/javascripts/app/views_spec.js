@@ -1,10 +1,12 @@
 describe("app.views.Base", function(){
+  beforeEach(function(){
+    var StaticTemplateClass = app.views.Base.extend({ templateName : "static-text" });
+    this.model = new Backbone.Model({text : "model attributes are in the default presenter"});
+    this.view = new StaticTemplateClass({model: this.model});
+  });
+
   describe("#render", function(){
     beforeEach(function(){
-      var staticTemplateClass = app.views.Base.extend({ templateName : "static-text" });
-
-      this.model = new Backbone.Model({text : "model attributes are in the default presenter"});
-      this.view = new staticTemplateClass({model: this.model});
       this.view.render();
     });
 
@@ -83,6 +85,22 @@ describe("app.views.Base", function(){
         expect($.fn.placeholder).toHaveBeenCalled();
         expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("input, textarea");
       });
+    });
+  });
+
+  describe("#renderTemplate", function(){
+    it("calls jQuery.placeholder() for inputs", function() {
+      spyOn($.fn, "placeholder");
+      this.view.renderTemplate();
+      expect($.fn.placeholder).toHaveBeenCalled();
+      expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("input, textarea");
+    });
+
+    it("initializes autosize for textareas", function(){
+      spyOn(window, "autosize");
+      this.view.renderTemplate();
+      expect(window.autosize).toHaveBeenCalled();
+      expect(window.autosize.calls.mostRecent().args[0].selector).toBe("textarea");
     });
   });
 });

@@ -38,6 +38,4 @@ $(document).ready(function(){
     evt.preventDefault();
     $("#new_status_message").submit();
   });
-
-  autosize($("#status_message_text"));
 });

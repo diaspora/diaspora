@@ -94,9 +94,6 @@ app.views.Publisher = Backbone.View.extend({
       this.viewPollCreator.render();
     });
 
-    // init autosize plugin
-    autosize(this.inputEl);
-
     this.initSubviews();
     this.checkSubmitAvailability();
     return this;

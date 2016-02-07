@@ -53,6 +53,9 @@ app.views.Base = Backbone.View.extend({
     // add placeholder support for old browsers
     this.$("input, textarea").placeholder();
 
+    // init autosize plugin
+    autosize(this.$("textarea"));
+
     this.postRenderTemplate();
   },
 

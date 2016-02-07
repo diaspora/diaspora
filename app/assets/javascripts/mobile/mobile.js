@@ -37,6 +37,9 @@ $(document).ready(function(){
          .toggleClass('inactive');
   };
 
+  // init autosize plugin
+  autosize($("textarea"));
+
   /* Drawer menu */
   $("#menu-badge").bind("tap click", function(evt){
     evt.preventDefault();
