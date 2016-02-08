@@ -114,6 +114,7 @@ Contributions are very welcome, the hard work is done!
 * Add white color theme [#6631](https://github.com/diaspora/diaspora/pull/6631)
 * Add answer counts to poll [#6641](https://github.com/diaspora/diaspora/pull/6641)
 * Check for collapsible posts after images in posts have loaded [#6671](https://github.com/diaspora/diaspora/pull/6671)
+* Add reason for post report to email sent to admins [#6679](https://github.com/diaspora/diaspora/pull/6679)
 
 # 0.5.7.0
 

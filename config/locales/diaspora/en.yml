@@ -793,6 +793,8 @@ en:
 
           the %{type} with ID %{id} was marked as offensive.
 
+          Reason: %{reason}
+
           [%{url}][1]
 
           Please review as soon as possible!

@@ -56,6 +56,6 @@ class Report < ActiveRecord::Base
   end
 
   def send_report_notification
-    Workers::Mail::ReportWorker.perform_async(self.item_type, self.item_id)
+    Workers::Mail::ReportWorker.perform_async(id)
   end
 end
