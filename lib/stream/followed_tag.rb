@@ -17,10 +17,6 @@ class Stream::FollowedTag < Stream::Base
     @posts ||= StatusMessage.user_tag_stream(user, tag_ids)
   end
 
-  def contacts_title
-    I18n.translate('streams.followed_tag.contacts_title')
-  end
-
   private
 
   def tag_string
