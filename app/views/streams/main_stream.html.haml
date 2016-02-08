@@ -51,12 +51,6 @@
     .right-sidebar-fixed-sub-background.col-lg-3.visible-lg
     .right-sidebar-fixed-background.col-md-3.col-lg-2.hidden-sm.hidden-xs
     .col-md-3.col-lg-2.hidden-xs.hidden-sm.rightbar
-      #selected_aspect_contacts.section
-        .title
-          %h5.stream_title
-            = @stream.title
-        .content
-
       = render 'shared/right_sections'
 
       %a.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}

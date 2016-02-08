@@ -6,6 +6,7 @@ describe("app.views.StreamPost", function(){
     this.collection = new app.collections.Posts(posts);
     this.statusMessage = this.collection.models[0];
     this.reshare = this.collection.models[1];
+    app.stream = new app.models.Stream();
   });
 
   describe("events", function(){

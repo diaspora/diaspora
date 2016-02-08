@@ -183,10 +183,7 @@ app.Router = Backbone.Router.extend({
     app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
     app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
 
-    var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
-
     $("#main_stream").html(app.page.render().el);
-    $("#selected_aspect_contacts .content").html(streamFacesView.render().el);
     this._hideInactiveStreamLists();
   }
 });
