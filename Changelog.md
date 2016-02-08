@@ -95,6 +95,7 @@ Contributions are very welcome, the hard work is done!
 * Add navbar on mobile when not logged in [#6483](https://github.com/diaspora/diaspora/pull/6483)
 * Fix timeago tooltips for reshares [#6648](https://github.com/diaspora/diaspora/pull/6648)
 * "Getting started" is now turned off after first visit on mobile [#6681](https://github.com/diaspora/diaspora/pull/6681)
+* Fixed a 500 when liking on mobile without JS enabled [#6683](https://github.com/diaspora/diaspora/pull/6683)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
