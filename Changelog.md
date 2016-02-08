@@ -96,6 +96,7 @@ Contributions are very welcome, the hard work is done!
 * Fix timeago tooltips for reshares [#6648](https://github.com/diaspora/diaspora/pull/6648)
 * "Getting started" is now turned off after first visit on mobile [#6681](https://github.com/diaspora/diaspora/pull/6681)
 * Fixed a 500 when liking on mobile without JS enabled [#6683](https://github.com/diaspora/diaspora/pull/6683)
+* Fixed profile image upload in the mobile UI [#6684](https://github.com/diaspora/diaspora/pull/6684)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)

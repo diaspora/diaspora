@@ -38,7 +38,7 @@
 
           /* flash message prompt */
           var message = Diaspora.I18n.t("photo_uploader.looking_good");
-          app.flashMessages.success(message);
+          if(app.flashMessages) { app.flashMessages.success(message); }
 
           var id = responseJSON.data.photo.id;
           var url = responseJSON.data.photo.unprocessed_image.url;
