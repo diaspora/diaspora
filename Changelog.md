@@ -82,6 +82,7 @@ Contributions are very welcome, the hard work is done!
 * Set vertical resize as default for all textareas [#6654](https://github.com/diaspora/diaspora/pull/6654)
 * Unifiy max-widths and page layouts [#6675](https://github.com/diaspora/diaspora/pull/6675)
 * Enable autosizing for all textareas [#6674](https://github.com/diaspora/diaspora/pull/6674)
+* Stream faces are gone [#6686](https://github.com/diaspora/diaspora/pull/6686)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
