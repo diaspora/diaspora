@@ -76,5 +76,8 @@
         = text_field_tag "follow_tags", nil, class: "nostrap form-control"
 
     .center
-      = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, id: "awesome_button", class: "btn btn-primary"
+      = link_to "#{t('.awesome_take_me_to_diaspora')} »",
+        getting_started_completed_path,
+        id: "awesome_button",
+        class: "btn btn-primary"
 
