@@ -18,10 +18,6 @@ shared_examples_for 'it is a stream' do
       expect(@stream.send(:publisher_opts)).not_to be_nil
     end
 
-    it 'has a #contacts title' do
-      expect(@stream.contacts_title).not_to be_nil
-    end
-
     it 'has a contacts link' do
       expect(@stream.contacts_link).not_to be_nil
     end
