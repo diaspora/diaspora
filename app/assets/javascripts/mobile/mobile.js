@@ -63,18 +63,18 @@ $(document).ready(function(){
     evt.preventDefault();
     var link = $(this),
         likeCounter = $(this).closest(".stream_element").find(".like-count"),
-        href = link.attr("href");
+        url = link.data("url");
 
     if(!link.hasClass("loading")){
       if(link.hasClass('inactive')) {
         $.ajax({
-          url: href,
+          url: url,
           dataType: 'json',
           type: 'POST',
           beforeSend: showLoader(link),
           success: function(data){
             removeLoader(link);
-            link.attr("href", href + "/" + data["id"]);
+            link.data("url", url + "/" + data.id);
 
             if(likeCounter){
               likeCounter.text(parseInt(likeCounter.text(), 10) + 1);
@@ -84,13 +84,13 @@ $(document).ready(function(){
       }
       else if(link.hasClass("active")){
         $.ajax({
-          url: link.attr("href"),
+          url: url,
           dataType: 'json',
           type: 'DELETE',
           beforeSend: showLoader(link),
           complete: function(){
             removeLoader(link);
-            link.attr("href", href.replace(/\/\d+$/, ''));
+            link.data("url", url.replace(/\/\d+$/, ""));
 
             if(likeCounter){
               likeCounter.text(parseInt(likeCounter.text(), 10) - 1);

@@ -20,9 +20,15 @@ module MobileHelper
 
   def mobile_like_icon(post)
     if current_user && current_user.liked?(post)
-      link_to "", post_like_path(post.id, current_user.like_for(post).id), class: "entypo-heart like-action active"
+      link_to "",
+              "#",
+              data:  {url: post_like_path(post.id, current_user.like_for(post).id)},
+              class: "entypo-heart like-action active"
     else
-      link_to "", post_likes_path(post.id), class: "entypo-heart like-action inactive"
+      link_to "",
+              "#",
+              data:  {url: post_likes_path(post.id)},
+              class: "entypo-heart like-action inactive"
     end
   end
 
