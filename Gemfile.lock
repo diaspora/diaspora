@@ -595,7 +595,7 @@ GEM
       activesupport
     rack-mobile-detect (0.4.0)
       rack
-    rack-oauth2 (1.2.1)
+    rack-oauth2 (1.2.3)
       activesupport (>= 2.3)
       attr_required (>= 0.0.5)
       httpclient (>= 2.4)
