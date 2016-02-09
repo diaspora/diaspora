@@ -144,7 +144,7 @@ gem "omniauth-wordpress", "0.2.2"
 
 # Serializers
 
-gem "active_model_serializers", "0.9.3"
+gem "active_model_serializers", "0.9.4"
 
 # XMPP chat dependencies
 gem "diaspora-vines",             "~> 0.2.0.develop"
