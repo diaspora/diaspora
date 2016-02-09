@@ -879,7 +879,7 @@ GEM
       activesupport
       httpclient (>= 2.4)
       multi_json
-    webmock (1.22.3)
+    webmock (1.22.6)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -1034,7 +1034,7 @@ DEPENDENCIES
   unicorn (= 5.0.1)
   uuid (= 2.3.8)
   versionist (= 1.4.1)
-  webmock (= 1.22.3)
+  webmock (= 1.22.6)
   will_paginate (= 3.1.0)
 
 BUNDLED WITH
