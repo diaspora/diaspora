@@ -310,7 +310,7 @@ GEM
       fog-core
       fog-xml
       nokogiri
-    fog-radosgw (0.0.4)
+    fog-radosgw (0.0.5)
       fog-core (>= 1.21.0)
       fog-json
       fog-xml (>= 0.0.1)
