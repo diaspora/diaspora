@@ -85,17 +85,6 @@ class Stream::Aspect < Stream::Base
     @all_aspects ||= aspect_ids.length == user.aspects.size
   end
 
-  # Provides a translated title for contacts box on the right pane.
-  #
-  # @return [String]
-  def contacts_title
-    if self.for_all_aspects? || self.aspect_ids.size > 1
-      I18n.t('_contacts')
-    else
-     "#{self.aspect.name} (#{self.people.size})"
-    end
-  end
-
   # Provides a link to the user to the contacts page that corresponds with
   # the stream's active aspects.
   #

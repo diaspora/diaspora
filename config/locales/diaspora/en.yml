@@ -1342,33 +1342,26 @@ en:
 
     mentions:
       title: "@Mentions"
-      contacts_title: "People who mentioned you"
 
     comment_stream:
       title: "Commented posts"
-      contacts_title: "People whose posts you commented on"
 
     like_stream:
       title: "Like stream"
-      contacts_title: "People whose posts you like"
 
     followed_tag:
       title: "#Followed tags"
-      contacts_title: "People who dig these tags"
       add_a_tag: "Add a tag"
       follow: "Follow"
 
     tags:
       title: "Posts tagged: %{tags}"
-      contacts_title: "People who dig this tag"
 
     public:
       title: "Public activity"
-      contacts_title: "Recent posters"
 
     multi:
       title: "Stream"
-      contacts_title: "People in your stream"
 
     aspects:
       title: "My aspects"

@@ -49,11 +49,6 @@ class Stream::Base
       includes(:profile)
   end
 
-  # @return [String] def contacts_title 'change me in lib/base_stream.rb!'
-  def contacts_title
-    'change me in lib/base_stream.rb!'
-  end
-
   # @return [String]
   def contacts_link
     Rails.application.routes.url_helpers.contacts_path

@@ -126,6 +126,7 @@ Contributions are very welcome, the hard work is done!
 * Internationalize controller rescue\_from text [#6554](https://github.com/diaspora/diaspora/pull/6554)
 * Make mention parsing a bit more robust [#6658](https://github.com/diaspora/diaspora/pull/6658)
 * Remove unlicensed images [#6673](https://github.com/diaspora/diaspora/pull/6673)
+* Removed unused contacts\_title [#6687](https://github.com/diaspora/diaspora/pull/6687)
 
 ## Bug fixes
 * Fix plural rules handling more than wanted as "one" [#6630](https://github.com/diaspora/diaspora/pull/6630)
