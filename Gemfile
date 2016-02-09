@@ -240,7 +240,7 @@ group :development do
   gem "guard-rubocop",  "1.2.0"
   gem "guard",          "2.13.0", require: false
   gem "rb-fsevent",     "0.9.7", require: false
-  gem "rb-inotify",     "0.9.5", require: false
+  gem "rb-inotify",     "0.9.7", require: false
 
   # Linters
   gem "jshintrb",       "0.3.0"
