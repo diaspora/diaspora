@@ -302,7 +302,7 @@ GEM
     fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (1.0.2)
+    fog-softlayer (1.0.3)
       fog-core
       fog-json
     fog-storm_on_demand (0.1.1)
