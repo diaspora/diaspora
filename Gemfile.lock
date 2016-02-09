@@ -74,7 +74,7 @@ GEM
     bootstrap-switch-rails (3.3.3)
     buftok (0.2.0)
     builder (3.2.2)
-    byebug (8.2.1)
+    byebug (8.2.2)
     capybara (2.6.2)
       addressable
       mime-types (>= 1.16)
