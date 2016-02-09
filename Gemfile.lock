@@ -558,7 +558,7 @@ GEM
     parser (2.3.0.4)
       ast (~> 2.2)
     pg (0.18.4)
-    phantomjs (1.9.8.0)
+    phantomjs (2.1.1.0)
     powerpack (0.1.1)
     pronto (0.5.3)
       gitlab (~> 3.4.0)
