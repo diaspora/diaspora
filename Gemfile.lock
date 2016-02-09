@@ -451,7 +451,7 @@ GEM
       multi_json (>= 1.3)
       rake
     json (1.8.3)
-    json-jwt (1.5.1)
+    json-jwt (1.5.2)
       activesupport
       bindata
       multi_json (>= 1.3)
