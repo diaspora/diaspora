@@ -875,7 +875,7 @@ GEM
       yard (~> 0.7)
     warden (1.2.6)
       rack (>= 1.0)
-    webfinger (1.0.1)
+    webfinger (1.0.2)
       activesupport
       httpclient (>= 2.4)
       multi_json
