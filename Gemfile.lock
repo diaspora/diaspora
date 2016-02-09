@@ -223,7 +223,7 @@ GEM
       thor
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.5.0)
+    factory_girl_rails (4.6.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     faraday (0.9.2)
@@ -919,7 +919,7 @@ DEPENDENCIES
   diaspora_federation-test (= 0.0.12)
   entypo-rails (= 3.0.0.pre.rc2)
   eye (= 0.8)
-  factory_girl_rails (= 4.5.0)
+  factory_girl_rails (= 4.6.0)
   faraday (= 0.9.2)
   faraday-cookie_jar (= 0.0.6)
   faraday_middleware (= 0.10.0)
