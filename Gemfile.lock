@@ -813,7 +813,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     state_machine (1.2.0)
-    swd (1.0.0)
+    swd (1.0.1)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
       httpclient (>= 2.4)
