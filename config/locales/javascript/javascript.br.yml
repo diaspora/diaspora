@@ -93,7 +93,6 @@ br:
       contacts: "Darempredoù"
       edit: "Embann"
       gender: "Jener"
-      ignoring: "Ne rit ket van eus an holl postoù gant <%= name %>"
       location: "Lec'hiadur"
       photos: "Skeudennoù"
       posts: "Postoù"
@@ -114,7 +113,6 @@ br:
       follow: "Heuliañ"
       followed_tag:
         add_a_tag: "Ouzhpennañ un dikedenn"
-        contacts_title: "Tud o deus furchet en tikedennoù-se"
         follow: "Heuliañ"
         title: "#Tikedennoù heuliet"
       hide: "Kuzhat"

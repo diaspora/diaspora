@@ -129,7 +129,6 @@ ia:
       contacts: "Contactos"
       edit: "modificar"
       gender: "Sexo"
-      ignoring: "Tu ignora tote le entratas de <%= name %>."
       location: "Loco"
       photos: "Photos"
       posts: "Entratas"
@@ -163,7 +162,6 @@ ia:
       follow: "Sequer"
       followed_tag:
         add_a_tag: "Adder un etiquetta"
-        contacts_title: "Personas qui se interessa in iste etiquettas"
         follow: "Sequer"
         title: "#Etiquettas sequite"
       hide: "Celar"

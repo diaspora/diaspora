@@ -129,8 +129,6 @@ ka:
       you_should_add_some_more_contacts: "თქვენ უნდა დაამატოთ მეტი კონტაქტი!"
     no_posts_message:
       start_talking: "ჯერ არავის არაფერი არ უთქვამს!"
-    one: "1 ასპექტი"
-    other: "%{count} ასპექტი"
     seed:
       acquaintances: "ნაცნობები"
       family: "ოჯახი"
@@ -139,7 +137,6 @@ ka:
     update:
       failure: "თქვენს ასპექტს, %{name}, აქვს ძალიან დიდი სახელი და არ შეიძლება მისი შენახვა"
       success: "თქვენი ასპექტი, %{name}, წარმატებით დარედაქტირდა."
-    zero: "ასპექტები არ არის"
   back: "უკან"
   blocks:
     create:
@@ -173,13 +170,10 @@ ka:
       start_a_conversation: "დაიწყე საუბარი"
       title: "კონტაქტები"
       your_contacts: "შენი კონტაქტები"
-    one: "1 კონტაქტი"
-    other: "%{count} კონტაქტი"
     sharing:
       people_sharing: "ხალხი, რომელიც აზიარებს შენთან:"
     spotlight:
       community_spotlight: "Community Spotlight"
-    zero: "კონტაქტები"
   conversations:
     create:
       fail: "არასწორი წერილი"
@@ -452,7 +446,6 @@ ka:
       closed_account: "ეს ანგარიში დახურულია."
       does_not_exist: "პიროვნება არ არსებობს!"
       has_not_shared_with_you_yet: "%{name} არ აქვს პოსტები შენთან გაზიარებული"
-      ignoring: "იგნორირებას უკეთებთ %{name}-ის ყველა პოსტს"
       incoming_request: "%{name} wants to share with you"
       mention: "ხსენება"
       message: "შეტყობინება"
@@ -534,8 +527,6 @@ ka:
       your_location: "თქვენი მდებარეობა"
       your_name: "თქვენი სახელი"
       your_photo: "თქვენი ფოტო"
-      your_private_profile: "თქვენი პირადი პროფილი"
-      your_public_profile: "თქვენი საჯარო პროფილი"
       your_tags: "აღწერეთ თქვენი თავი 5 სიტყვით"
       your_tags_placeholder: "მომწონს #ფილმები #კატები #მოგზაურობა # მასწავლებელი #მადრიდი"
     update:

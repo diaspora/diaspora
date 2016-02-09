@@ -5,30 +5,42 @@
 
 
 gd:
-  _applications: "Prògraman"
+  _applications: "Aplacaidean"
   _comments: "Beachdan"
-  _contacts: "Càirdean"
+  _contacts: "Luchd-aithne"
   _help: "Cuideachadh"
   _home: "Dachaigh"
-  _photos: "dealbhan"
+  _photos: "Dealbhan"
   _services: "Seirbheisean"
   account: "Cunntas"
   activerecord:
     errors:
       models:
+        contact:
+          attributes:
+            person_id:
+              taken: ", chan fhaod e nochdadh ann an luchd-aithne a’ chleachdaiche seo barrachd air aon turas."
         person:
           attributes:
             diaspora_handle:
-              taken: "Tha seo clàraichte mar-thà."
+              taken: "’s e aig cuideigin eile mu thràth."
+        request:
+          attributes:
+            from_id:
+              taken: "’s e ’na dhùblachadh air iarrtas a tha ann mu thràth."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Cho math sin? Rinn thu ath-phostadh air mu thràth!"
         user:
           attributes:
             email:
-              taken: "Tha seo clàraichte mar-thà."
+              taken: "’s e aig cuideigin eile mu thràth."
             person:
-              invalid: "Tha seo neo-bhrìgheil."
+              invalid: "’s e mì-dhligheach."
             username:
-              invalid: "Tha seo neo-bhrìgheil. Chan fhaodar ach a-u, 0-9 agus _ a chleachdadh."
-              taken: "Tha seo clàraichte mar-thà."
+              invalid: "’s e mì-dhligheach. Chan fhaodar ach litrichean, àireamhan agus fo-loidhne a chleachdadh."
+              taken: "’s e ’ga chleachdadh mu thràth."
   admins:
     admin_bar:
       pages: "Duilleagan"
@@ -40,13 +52,16 @@ gd:
       week: "Seachdain"
   ago: "o chionn %{time}"
   are_you_sure: "A bheil thu cinnteach?"
-  are_you_sure_delete_account: "A bheil thu cinnteach gu bheil thu airson do chunntas a dhùnadh? Chan urrainn dhut seo atharradh!"
+  are_you_sure_delete_account: "A bheil thu cinnteach gu bheil thu airson an cunntas agad a dhùnadh? Chan urrainn dhut seo a neo-dhèanamh!"
   aspects:
     aspect_listings:
       deselect_all: "Na tagh na h-uile"
       edit_aspect: "Deasaich %{name}"
       select_all: "Tagh na h-uile"
+    contacts_not_visible: "Chan fhaic daoine anns an roinn seo a chèile."
+    contacts_visible: "Chì daoine anns an roinn seo a chèile."
     edit:
+      make_aspect_list_visible: "A bheil thu ag iarraidh gum faic daoine san roinn seo a chèile?"
       update: "ùraich"
       updating: "ag ùrachadh"
     index:
@@ -67,13 +82,13 @@ gd:
         heading: "Dèan ceangal ri Sèirbheis"
       welcome_to_diaspora: "Fàilte gu diaspora*, a %{name}!"
     new:
-      create: "Dèan"
+      create: "Cruthaich"
     seed:
       acquaintances: "Muinntireachd"
       family: "Teaghlach"
       friends: "Càirdean"
   back: "Air ais"
-  cancel: "Sgùir"
+  cancel: "Sguir dheth"
   comments:
     new_comment:
       comment: "Thoir beachd air"
@@ -88,9 +103,6 @@ gd:
       no_contacts_message: "Thoir sùil air %{community_spotlight}"
       title: "Càirdean"
       your_contacts: "Do Chàirdean"
-    one: "1 chàraid"
-    other: "%{count} càirdean"
-    zero: "càirdean"
   conversations:
     create:
       fail: "Teachdaireachd neo-bhrìgheil"
@@ -112,10 +124,14 @@ gd:
       birthday: ""
       birthday_with_year: ""
       fullmonth_day: ""
-  delete: "Dubh às"
+  delete: "Sguab às"
   email: "Post-d"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Cuir ceart na mearachdan a leanas is feuch ris a-rithist."
+      invalid_fields: "Raointean mì-dhligheach"
   fill_me_out: "Lìon a-steach"
-  find_people: "Rannsaich airson daoine no #tagaichean"
+  find_people: "Lorg daoine no #tagaichean"
   help:
     irc: ""
     markdown: ""
@@ -141,9 +157,10 @@ gd:
       logout: "Log a-mach"
       profile: "Profaidhl"
       settings: "Roghainnean"
-  limited: "Earranta"
-  more: "Tuilleadh"
-  next: "air adhart"
+  limited: "Cuingichte"
+  more: "Barrachd"
+  next: "Air adhart"
+  no_results: "Cha deach toradh a lorg"
   notifications:
     index:
       and: "agus"
@@ -191,7 +208,7 @@ gd:
   ok: "Ceart ma-thà"
   or: "no"
   password: "Facal-faire"
-  password_confirmation: "Dearbh d' fhacal-faire"
+  password_confirmation: "Dearbhadh an fhacail-fhaire"
   people:
     index:
       no_results: "Haidh! Feumaidh tu rannsachadh airson rudeigin."
@@ -221,10 +238,10 @@ gd:
   posts:
     show:
       destroy: "Dubh às"
-  previous: "air ais"
+  previous: "Air ais"
   privacy: "Prìobhaideachd"
-  privacy_policy: "Poileasaidh Prìobhaideachd"
-  profile: "Profaidhl"
+  privacy_policy: "Am poileasaidh prìobhaideachd"
+  profile: "Pròifil"
   profiles:
     edit:
       allow_search: "Am faod daoine rannsachadh air do shon air diaspora*"
@@ -265,7 +282,7 @@ gd:
       sending: "a' cur"
     new_request_to_person:
       sent: "air a chur!"
-  search: "Rannsaich"
+  search: "Lorg"
   services:
     index:
       edit_services: "Deasaich sèirbheisean"
@@ -283,8 +300,9 @@ gd:
       share: "Sgaoil"
     reshare:
       reshare: "Sgaoil"
-  terms_and_conditions: "Cùmhnantan"
-  username: "Ainm-cleachdaidh"
+  terms_and_conditions: "Teirmichean is cumhaichean"
+  undo: "Neo-dhèan?"
+  username: "Ainm-cleachdaiche"
   users:
     edit:
       change: "Atharraich"

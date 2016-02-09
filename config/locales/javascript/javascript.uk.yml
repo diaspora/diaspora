@@ -127,7 +127,6 @@ uk:
       contacts: "Контакти"
       edit: "редагувати"
       gender: "Стать"
-      ignoring: "Ви блокуєте усі записи користувача <%= name %>."
       location: "Адреса"
       photos: "Фотогорафії"
       posts: "Записи"
@@ -159,7 +158,6 @@ uk:
       follow: "Слідкувати"
       followed_tag:
         add_a_tag: "Додати мітку"
-        contacts_title: "Люди, які цікавляться цими мітками"
         follow: "Підписатися"
         title: "#Мітки"
       hide: "Приховати"

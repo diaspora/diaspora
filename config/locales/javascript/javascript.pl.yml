@@ -139,7 +139,6 @@ pl:
       contacts: "Kontakty"
       edit: "zmień"
       gender: "Płeć"
-      ignoring: "Ignorujesz wszystkie wpisy od <%= name %>."
       location: "Miejsce"
       photos: "Zdjęcia"
       posts: "Wpisy"
@@ -173,7 +172,6 @@ pl:
       follow: "Obserwuj"
       followed_tag:
         add_a_tag: "Dodaj znacznik"
-        contacts_title: "Osoby, które wykopały te te znaczniki"
         follow: "Obserwuj"
         title: "#Obserwowane znaczniki"
       hide: "Ukryj"

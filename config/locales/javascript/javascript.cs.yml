@@ -136,7 +136,6 @@ cs:
       contacts: "Kontakty"
       edit: "upravit"
       gender: "Pohlaví"
-      ignoring: "Ignorujete všechny příspěvky od <%= name %>."
       location: "Pozice"
       photos: "Fotky"
       posts: "Příspěvky"
@@ -170,7 +169,6 @@ cs:
       follow: "Sledovat"
       followed_tag:
         add_a_tag: "Přidat štítek"
-        contacts_title: "Lidé navěšující tyto štítky"
         follow: "Sledovat"
         title: "#Sledované štítky"
       hide: "Skrýt"

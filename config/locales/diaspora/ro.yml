@@ -123,8 +123,6 @@ ro:
       you_should_add_some_more_contacts: "Ar trebui sa mai adaugi noi persoane de contact!"
     no_posts_message:
       start_talking: "Nimeni nu a spus nimic deocamdată."
-    one: "1 aspect"
-    other: "%{count} aspecte"
     seed:
       acquaintances: "Cunoscuții"
       family: "Familie"
@@ -133,7 +131,6 @@ ro:
     update:
       failure: "Apectul tău, %{name}, are numele prea lung ca să fie salvat"
       success: "Aspectul, %{name}, a fost editat cu succes."
-    zero: "niciun aspect"
   back: "Înapoi"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
@@ -162,14 +159,11 @@ ro:
       start_a_conversation: "Începe o conversație."
       title: "Contacte"
       your_contacts: "Contactele Tale"
-    one: "1 contact"
-    other: "%{count} contacte"
     sharing:
       people_sharing: "Cunoscuți care partajează cu tine"
     spotlight:
       community_spotlight: "reflectorul comunității"
       suggest_member: "Propune un membru"
-    zero: "contacte"
   conversations:
     create:
       fail: "Mesajul nu este valid"
@@ -445,7 +439,6 @@ ro:
       closed_account: "Acest cont a fost închis."
       does_not_exist: "Persoana nu există!"
       has_not_shared_with_you_yet: "%{name} nu a publicat încă nimic!"
-      ignoring: "De acum toate publicaţiile de la %{name} vor fi ignorate."
       mention: "Menţionează"
       message: "Mesaj"
       recent_posts: "Publicaţii Recente"
@@ -525,8 +518,6 @@ ro:
       your_location: "Locaţia ta"
       your_name: "Numele tău"
       your_photo: "Poza ta"
-      your_private_profile: "Profilul tău privat"
-      your_public_profile: "Profilul tău public"
     update:
       failed: "Eşuare la actualizarea profilului"
       updated: "Profil actualizat"
@@ -691,12 +682,9 @@ ro:
     mentions:
       title: "Your Mentions"
     multi:
-      contacts_title: "Persoane în Fluxul tău"
       title: "Flux"
     public:
       title: "Activitate publică"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

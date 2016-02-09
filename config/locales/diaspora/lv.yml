@@ -112,8 +112,6 @@ lv:
       or_spotlight: "Vai arī tu vari dalīties ar saiti %{link}"
       try_adding_some_more_contacts: "Tu vari meklēt vai uzaicināt vairāk cilvēku."
       you_should_add_some_more_contacts: "Pievieno vairāk cilvēku!"
-    one: "1 grupa"
-    other: "%{count} grupas"
     seed:
       acquaintances: "Paziņas"
       family: "Ģimene"
@@ -122,7 +120,6 @@ lv:
     update:
       failure: "Grupas %{name} nosaukums ir pārāk garš, lai to saglabātu."
       success: "Grupa %{name} tika veiksmīgi labota."
-    zero: "nav grupu"
   back: "Atpakaļ"
   cancel: "Atcelt"
   comments:
@@ -141,9 +138,6 @@ lv:
       start_a_conversation: "Sākt sarunu"
       title: "Kontakti"
       your_contacts: "Tavi kontakti"
-    one: "1 kontakts"
-    other: "%{count} kontakti"
-    zero: "kontakti"
   conversations:
     create:
       sent: "Ziņa aizsūtīta"

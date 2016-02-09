@@ -137,7 +137,6 @@ da:
       contacts: "Kontakter"
       edit: "Rediger"
       gender: "Køn"
-      ignoring: "Du ignorerer alle indlæg fra <%= name %>"
       location: "Sted"
       photos: "Fotos"
       posts: "Indlæg"
@@ -171,7 +170,6 @@ da:
       follow: "Følg"
       followed_tag:
         add_a_tag: "Tilføj et tag"
-        contacts_title: "Folk der kan lide disse tags"
         follow: "Følg"
         title: "#Fulgte tags"
       hide: "Skjul"

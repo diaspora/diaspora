@@ -204,8 +204,6 @@ ia:
       you_should_add_some_more_contacts: "Tu deberea adder plus contactos!"
     no_posts_message:
       start_talking: "Nemo ha ancora dicite qualcosa!"
-    one: "1 aspecto"
-    other: "%{count} aspectos"
     seed:
       acquaintances: "Cognoscitos"
       family: "Familia"
@@ -214,7 +212,6 @@ ia:
     update:
       failure: "Tu aspecto, %{name}, ha un nomine troppo longe e non pote esser salveguardate."
       success: "Tu aspecto, %{name}, ha essite modificate con successo."
-    zero: "nulle aspecto"
   back: "Retornar"
   blocks:
     create:
@@ -255,14 +252,11 @@ ia:
       title: "Contactos"
       user_search: "Recerca de usatores"
       your_contacts: "Tu contactos"
-    one: "1 contacto"
-    other: "%{count} contactos"
     sharing:
       people_sharing: "Qui divide cosas con te:"
     spotlight:
       community_spotlight: "Usatores in evidentia"
       suggest_member: "Suggerer un membro"
-    zero: "contactos"
   conversations:
     conversation:
       participants: "Participantes"
@@ -819,7 +813,6 @@ ia:
       closed_account: "Iste conto ha essite claudite."
       does_not_exist: "Iste persona non existe!"
       has_not_shared_with_you_yet: "%{name} non ha ancora dividite alcun cosa con te!"
-      ignoring: "Tu ignora tote le entratas de %{name}."
       incoming_request: "%{name} vole divider con te"
       mention: "Mention"
       message: "Message"
@@ -899,8 +892,6 @@ ia:
       your_location: "Tu loco"
       your_name: "Tu nomine"
       your_photo: "Tu photo"
-      your_private_profile: "Tu profilo private"
-      your_public_profile: "Tu profilo public"
       your_tags: "Describe te in 5 parolas"
       your_tags_placeholder: "p.ex. #films #cattones #viages #docente #interlingua"
     update:
@@ -1140,30 +1131,23 @@ ia:
       title: "Mi aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
-      contacts_title: "Personas de qui tu ha commentate messages"
       title: "Messages commentate"
     community_spotlight_stream: "Usatores in evidentia"
     followed_tag:
       add_a_tag: "Adder un etiquetta"
-      contacts_title: "Personas qui se interessa in iste etiquettas"
       follow: "Sequer"
       title: "#Etiquettas sequite"
     followed_tags_stream: "#Etiquettas sequite"
     like_stream:
-      contacts_title: "Personas de qui tu apprecia le messages"
       title: "Fluxo de appreciationes"
     mentioned_stream: "@Mentiones"
     mentions:
-      contacts_title: "Personas qui te ha mentionate"
       title: "@Mentiones"
     multi:
-      contacts_title: "Personas in tu fluxo"
       title: "Fluxo"
     public:
-      contacts_title: "Autores recente"
       title: "Activitate public"
     tags:
-      contacts_title: "Personas qui se interessa in iste etiquetta"
       title: "Messages con etiquettas: %{tags}"
   tag_followings:
     create:

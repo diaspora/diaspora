@@ -128,7 +128,6 @@ fi:
       contacts: "Kontaktit"
       edit: "Muokkaa"
       gender: "Sukupuoli"
-      ignoring: "Sivuutat nyt kaikki julkaisut, jotka <%= name %> lähettää."
       location: "Sijainti"
       photos: "Kuvat"
       posts: "Julkaisut"
@@ -162,7 +161,6 @@ fi:
       follow: "Seuraa"
       followed_tag:
         add_a_tag: "Lisää tagi"
-        contacts_title: "Tästä tagista pitävät henkilöt"
         follow: "Seuraa"
         title: "#Seuratut Tagit"
       hide: "Piilota"

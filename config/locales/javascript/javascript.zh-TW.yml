@@ -132,7 +132,6 @@ zh-TW:
       contacts: "聯絡資訊"
       edit: "編輯"
       gender: "性別"
-      ignoring: "你目前會忽視 <%= name %> 的所有貼文。"
       location: "地點"
       photos: "相片"
       posts: "貼文"
@@ -166,7 +165,6 @@ zh-TW:
       follow: "追蹤"
       followed_tag:
         add_a_tag: "新增標籤"
-        contacts_title: "這些標籤的粉絲"
         follow: "追蹤"
         title: "#追蹤中的標籤"
       hide: "隱藏"

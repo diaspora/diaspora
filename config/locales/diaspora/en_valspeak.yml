@@ -215,8 +215,6 @@ en_valspeak:
       you_should_add_some_more_contacts: "U should like... add some moar ppl!"
     no_posts_message:
       start_talking: "No 1z gossiped yet! Lame :\\"
-    one: "1 azpect"
-    other: "%{count} aspectz"
     seed:
       acquaintances: "Some ppl I sorta kno"
       family: "Fam"
@@ -225,7 +223,6 @@ en_valspeak:
     update:
       failure: "Ur group, %{name}, had like... a rlly long name.. so yeah... it wasnt saved... sry :\\"
       success: "Ur aspect, %{name}, has like... not flipped out. So ur good!(:"
-    zero: "no aspectz"
   back: "go back"
   blocks:
     create:
@@ -265,14 +262,11 @@ en_valspeak:
       title: "BFFs"
       user_search: "Ppl stalk"
       your_contacts: "ur BFFs"
-    one: "1 BFF"
-    other: "%{count} BFFs"
     sharing:
       people_sharing: "ppl sharin wit u:"
     spotlight:
       community_spotlight: "d* celebz!! <3"
       suggest_member: "Suggest a membah!!(:"
-    zero: "BFFs"
   conversations:
     conversation:
       participants: "Ppl participatin"
@@ -777,7 +771,6 @@ en_valspeak:
       closed_account: "this profile is gone dude..."
       does_not_exist: "they dont like... exist :\\"
       has_not_shared_with_you_yet: "%{name} has like... not shared ne posties wit u yet!"
-      ignoring: "U r like... ignorin all posties from %{name}."
       incoming_request: "%{name} wants 2 like... share wit u"
       mention: "Tag person"
       message: "Txt"
@@ -861,8 +854,6 @@ en_valspeak:
       your_location: "Ur place"
       your_name: "Ur name"
       your_photo: "Ur pic"
-      your_private_profile: "Ur like... private profile..."
-      your_public_profile: "Ur like... profile where every1 can like... c it..."
       your_tags: "Describe urself in like... 5 werdz"
       your_tags_placeholder: "like #twilight #selfies #Belieber #iphone #mtv"
     update:
@@ -1096,30 +1087,23 @@ en_valspeak:
       title: "My Aspectz"
     aspects_stream: "Aspectz"
     comment_stream:
-      contacts_title: "Ppl whose posties u commented on"
       title: "Commented Posties"
     community_spotlight_stream: "D* celebz!!"
     followed_tag:
       add_a_tag: "Add a like... tag"
-      contacts_title: "Ppl who <3 these tags"
       follow: "Stalk"
       title: "#Followed Tagz"
     followed_tags_stream: "#Followed Tagz"
     like_stream:
-      contacts_title: "Ppl whos posties u <3"
       title: "Like Wall"
     mentioned_stream: "@Mentionz"
     mentions:
-      contacts_title: "Ppl who like... mentioned u"
       title: "@Mentionz"
     multi:
-      contacts_title: "Ppl on ur Wall"
       title: "Wall"
     public:
-      contacts_title: "Recent Posterz"
       title: "Stuff every1 can like... c"
     tags:
-      contacts_title: "Ppl who <3 this tag"
       title: "Posties tagged: %{tags}"
   tag_followings:
     create:

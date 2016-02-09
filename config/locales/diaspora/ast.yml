@@ -124,8 +124,6 @@ ast:
       you_should_add_some_more_contacts: "¡Tendríes d'amestar más contautos!"
     no_posts_message:
       start_talking: "¡Inda naide dixo nada!"
-    one: "1 aspeutu"
-    other: "%{count} aspeutos"
     seed:
       acquaintances: "Conocíos"
       family: "Familia"
@@ -134,7 +132,6 @@ ast:
     update:
       failure: "El to aspeutu, %{name}, tenía un nome llargu enforma pa poder guardalu."
       success: "Editóse correutamente'l to aspeutu, %{name}."
-    zero: "nun hai aspeutos"
   back: "Anterior"
   bookmarklet:
     explanation: "Publicar en diaspora* dende uquiera poniendo esti enllaz nos marcadores => %{link}."
@@ -152,9 +149,6 @@ ast:
   contacts:
     create:
       failure: "Nun pudo crease'l contautu"
-    one: "1 contautu"
-    other: "%{count} contautos"
-    zero: "contautos"
   delete: "Desaniciar"
   email: "Corréu electrónicu"
   error_messages:

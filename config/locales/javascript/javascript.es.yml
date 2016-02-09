@@ -134,7 +134,6 @@ es:
       contacts: "Contactos"
       edit: "editar"
       gender: "Sexo"
-      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
       location: "Ubicación"
       photos: "Fotos"
       posts: "Mensajes"
@@ -168,7 +167,6 @@ es:
       follow: "Seguir"
       followed_tag:
         add_a_tag: "Añadir una etiqueta"
-        contacts_title: "Personas que buscaron estas etiquetas"
         follow: "Seguir"
         title: "#Etiquetas seguidas"
       hide: "Ocultar publicación"

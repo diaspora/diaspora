@@ -151,8 +151,6 @@ ar:
       you_should_add_some_more_contacts: "يُستحسن إضافة مزيد من الأعضاء"
     no_posts_message:
       start_talking: "لم يتحدث أحد بعد!"
-    one: "فئة"
-    other: "%{count} فئات"
     seed:
       acquaintances: "معارِفي"
       family: "العائلة"
@@ -161,7 +159,6 @@ ar:
     update:
       failure: "فئتك, %{name}, اسمها طويل ولا يمكن حفظها."
       success: ".بنجاح %{name} تم تعديل"
-    zero: "لا فئات"
   back: "ارجع"
   blocks:
     create:
@@ -197,13 +194,10 @@ ar:
       start_a_conversation: "ابدأ محادثة"
       title: "جهات الاتصال"
       your_contacts: "جهات الاتصال"
-    one: "1 عضو"
-    other: "%{count} أعضاء"
     sharing:
       people_sharing: "أعضاء يتشاركون معك:"
     spotlight:
       community_spotlight: "ضوء المجتمع"
-    zero: "جهات الاتصال"
   conversations:
     create:
       fail: "رسالة غير صالحة"
@@ -525,7 +519,6 @@ ar:
       closed_account: "لقد تم إغلاق هذا الحساب."
       does_not_exist: "هذا العضو غير موجود"
       has_not_shared_with_you_yet: "%{name} لمْ يشارك أي مشاركة معك بعد"
-      ignoring: "أنت تتجاهل جميع المشاركات من %{name}."
       incoming_request: "%{name} يريد المشاركة معك"
       mention: "إشارة"
       message: "رسالة"
@@ -609,8 +602,6 @@ ar:
       your_location: "مكانُك"
       your_name: "اسمك"
       your_photo: "صورتُك"
-      your_private_profile: "ملفك الشخصى الخاص"
-      your_public_profile: "ملفك الشخصى العام"
       your_tags: "صِف نفسك في 5 كلمات"
       your_tags_placeholder: "مثال: #دياسبرا #إسلام #عرب #موسيقى #فن"
     update:
@@ -822,7 +813,6 @@ ar:
       title: "Your Aspects"
     aspects_stream: "الفئات"
     comment_stream:
-      contacts_title: "الأشخاص الذين علقت عليهم"
       title: "المشاركات التى تم التعليق عليها"
     community_spotlight_stream: "مجتمع فى دائرة الضوء"
     followed_tag:
@@ -830,20 +820,13 @@ ar:
       follow: "تابِع"
       title: "#الوسم المتتبع"
     followed_tags_stream: "الوسوم #المُتتبعه"
-    like_stream:
-      contacts_title: "الأشخاص الذين يفضلون مشاركاتك"
     mentioned_stream: "@اﻹشارات"
     mentions:
-      contacts_title: "الأشخاص الذين أشاروا إليك"
       title: "إاشاراتك"
     multi:
-      contacts_title: "اﻷشخاص فى ساحة مشاركاتك"
       title: "ساحة المشاركات"
     public:
-      contacts_title: "الملصقات الحالية"
       title: "النشاط العام"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "فشل في متابعة: #%{name}"

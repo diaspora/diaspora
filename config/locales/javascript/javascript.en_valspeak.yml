@@ -112,7 +112,6 @@ en_valspeak:
       contacts: "BFFs <33"
       edit: "edit!"
       gender: "So Im like..."
-      ignoring: "U r ignorin all posties from <%= name %>."
       location: "My crib"
       photos: "Pics and selfies <3"
       you_have_no_tags: "u like... have no tagz!"
@@ -142,7 +141,6 @@ en_valspeak:
       follow: "Stalk"
       followed_tag:
         add_a_tag: "Add a tag!!"
-        contacts_title: "Ppl who <3 these tagz"
         follow: "Folloe!!"
         title: "#Followed Tagz"
       hide: "Hyde"

@@ -137,7 +137,6 @@ nl:
       contacts: "Contacten"
       edit: "Bewerken"
       gender: "Geslacht"
-      ignoring: "Je negeert alle berichten van <%= name %>"
       location: "Locatie"
       photos: "Foto's"
       posts: "Berichten"
@@ -171,7 +170,6 @@ nl:
       follow: "Volgen"
       followed_tag:
         add_a_tag: "Voeg een label toe"
-        contacts_title: "Mensen die deze tags leuk vinden"
         follow: "Volgen"
         title: "#Gevolgde tags"
       hide: "Verberg"

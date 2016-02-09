@@ -125,8 +125,6 @@ es-CO:
       you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
     no_posts_message:
       start_talking: "¡Nadie ha dicho nada aún!"
-    one: "1 aspecto"
-    other: "%{count} aspectos"
     seed:
       acquaintances: "Conocidos"
       family: "Familia"
@@ -135,7 +133,6 @@ es-CO:
     update:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para ser guardado."
       success: "Tu aspecto, %{name}, fue editado exitosamente."
-    zero: "ningún aspecto"
   back: "Atrás"
   bookmarklet:
     explanation: "Publica en Diaspora desde cualquier lugar, agregando a tus marcadores este enlace => %{link}."
@@ -165,13 +162,10 @@ es-CO:
       start_a_conversation: "Inicia una conversación"
       title: "Contactos"
       your_contacts: "Tus Contactos"
-    one: "1 contacto"
-    other: "%{count} contactos"
     sharing:
       people_sharing: "Personas que comparten contigo:"
     spotlight:
       community_spotlight: "Comunidad Creativa"
-    zero: "contactos"
   conversations:
     create:
       fail: "Mensaje inválido"
@@ -367,7 +361,6 @@ es-CO:
       closed_account: "Esta cuenta ha sido cerrada."
       does_not_exist: "¡La persona no existe!"
       has_not_shared_with_you_yet: "¡%{name} no ha compartido ninguna publicación contigo todavía!"
-      ignoring: "Estás ignorando todas las publicaciones de %{name}."
       incoming_request: "%{name} quiere compartir contigo"
       mention: "Mención"
       message: "Mensaje"
@@ -436,8 +429,6 @@ es-CO:
       your_birthday: "Cumpleaños"
       your_gender: "Género"
       your_name: "Tu Nombre"
-      your_private_profile: "Tu Perfil Privado"
-      your_public_profile: "Tu Perfil Público"
       your_tags: "Descríbete en 5 palabras"
       your_tags_placeholder: "como #películas #gatos #viajes #profesor #bogotá"
   public: "Público"

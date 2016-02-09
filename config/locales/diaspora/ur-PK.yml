@@ -104,8 +104,6 @@ ur-PK:
       you_should_add_some_more_contacts: "آپ کو کچھ مزید رابطے شامل کرنا چاہیئں!"
     no_posts_message:
       start_talking: "ابھی تک کسی نے کچھ نہیں کہا!"
-    one: "1 پہلو"
-    other: "%{count} پہلو"
     seed:
       acquaintances: "جاننے والے"
       family: "خاندان"
@@ -114,7 +112,6 @@ ur-PK:
     update:
       failure: "آپکے پہلو کا نام, %{name}, محفوظ کرنے کی حد سے لمبا ہے۔"
       success: "آپکے پہلو, %{name}, میں ترمیم ہو گئ ہے۔"
-    zero: "کوئ پہلو نہیں"
   back: "واپس"
   contacts:
     index:
@@ -331,8 +328,6 @@ ur-PK:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

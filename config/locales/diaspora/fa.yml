@@ -119,8 +119,6 @@ fa:
       you_should_add_some_more_contacts: "شما باید مخاطبین بیشتری اضافه کنید!"
     no_posts_message:
       start_talking: "هنوز کسی چیطی نگفته!"
-    one: "منظر"
-    other: "‎%{count}‎ منظر"
     seed:
       acquaintances: "آشنایان"
       family: "خانواده"
@@ -129,7 +127,6 @@ fa:
     update:
       failure: "منظر ‎%{name}‎، نامش برای ذخیره سازی طولانی هست."
       success: "منظر ‎%{name}‎، با موفقیت ویرایش شد."
-    zero: "بدون منظر"
   back: "عقب"
   cancel: "لفو"
   delete: "حذف"

@@ -137,7 +137,6 @@ de:
       contacts: "Kontakte"
       edit: "Bearbeiten"
       gender: "Geschlecht"
-      ignoring: "Du ignorierst sämtliche Beiträge von <%= name %>."
       location: "Ort"
       photos: "Fotos"
       posts: "Beiträge"
@@ -171,7 +170,6 @@ de:
       follow: "Folgen"
       followed_tag:
         add_a_tag: "Tag hinzufügen"
-        contacts_title: "Leute, die diese Tags mögen"
         follow: "Folgen"
         title: "#Tags, denen du folgst"
       hide: "Ausblenden"

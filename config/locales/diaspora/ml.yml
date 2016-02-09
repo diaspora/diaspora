@@ -185,8 +185,6 @@ ml:
       you_should_add_some_more_contacts: "താങ്കള്‍ കുറച്ചുകൂടി സമ്പര്‍ക്കങ്ങള്‍ ചേര്‍ക്കണം!"
     no_posts_message:
       start_talking: "ആരും ഇതുവരെ ഒന്നും പറഞ്ഞില്ല!"
-    one: "ഒരു പരിചയം"
-    other: "%{count} പരിചയങ്ങള്‍"
     seed:
       acquaintances: "പരിചയക്കാര്‍"
       family: "കുടുംബം"
@@ -195,7 +193,6 @@ ml:
     update:
       failure: "താങ്കള്‍ നല്കിയ %{name} എന്ന പരിചയത്തിന്റെ പേര് അനുവദിനീയമായതിലും വലുതാണ്."
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
-    zero: "പരിചയങ്ങള്‍ ഇല്ല"
   back: "പിന്നോട്ട്"
   blocks:
     create:
@@ -232,14 +229,11 @@ ml:
       start_a_conversation: "സംഭാഷണം ആരംഭിക്കൂ"
       title: "സമ്പര്‍ക്കങ്ങള്‍"
       your_contacts: "നിങ്ങളുടെ സമ്പര്‍ക്കങ്ങള്‍"
-    one: "ഒരു സമ്പര്‍ക്കം"
-    other: "%{count} മറ്റു സമ്പര്‍ക്കങ്ങള്‍"
     sharing:
       people_sharing: "നിങ്ങളുമായി പങ്കിടുന്ന സുഹൃത്തുക്കൾ"
     spotlight:
       community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
       suggest_member: "ഒരു ഉപയോക്ത്താവിനെ നിർദ്ദേശിക്കുക"
-    zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations:
     conversation:
       participants: "അംഗങ്ങൾ"
@@ -663,7 +657,6 @@ ml:
       closed_account: "ഈ അക്കൗണ്ട് പൂട്ടിയിരിക്കുന്നു."
       does_not_exist: "വ്യക്തി നിലവിലില്ല!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
-      ignoring: "നിങ്ങള്‍ %{name} - ഇല്‍ നിന്നുള്ളാ എല്ലാ കുറിപ്പുകളും അവഗണിക്കുന്നു."
       incoming_request: "%{name} നിങ്ങളുമായി പങ്കിടാന്‍ ആഗ്രഹിക്കുന്നു"
       mention: "സൂചിപ്പിച്ചു"
       message: "സന്ദേശം"
@@ -744,8 +737,6 @@ ml:
       your_location: "താങ്കളുടെ സ്ഥലം"
       your_name: "താങ്കളുടെ പേര്"
       your_photo: "താങ്കളുടെ ചിത്രം"
-      your_private_profile: "താങ്കളുടെ സ്വകാര്യ പ്രൊഫൈല്‍ "
-      your_public_profile: "താങ്കളുടെ പൊതു പ്രൊഫൈല്‍ "
       your_tags: "Describe yourself in 5 words"
       your_tags_placeholder: "like #movies #kittens #travel #teacher #newyork"
     update:
@@ -955,30 +946,23 @@ ml:
       title: "Your Aspects"
     aspects_stream: "Aspects"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
       title: "Commented Posts"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
       add_a_tag: "Add a tag"
-      contacts_title: "People who dig these tags"
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
     like_stream:
-      contacts_title: "People whose posts you like"
       title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
-      contacts_title: "People who mentioned you"
       title: "@Mentions"
     multi:
-      contacts_title: "People in your Stream"
       title: "Stream"
     public:
-      contacts_title: "Recent Posters"
       title: "Public Activity"
     tags:
-      contacts_title: "People who dig this tag"
       title: "Posts tagged: %{tags}"
   tag_followings:
     create:

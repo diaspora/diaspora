@@ -137,7 +137,6 @@ sv:
       contacts: "Kontakter"
       edit: "Ändra"
       gender: "Kön"
-      ignoring: "Du ignorerar alla inlägg från <%= name %>."
       location: "Plats"
       photos: "Foton"
       posts: "Inlägg"
@@ -171,7 +170,6 @@ sv:
       follow: "Följ"
       followed_tag:
         add_a_tag: "Lägg till en tagg"
-        contacts_title: "Personer som gillar dessa taggar"
         follow: "Följ"
         title: "#Följda taggar"
       hide: "Göm"

@@ -98,7 +98,6 @@ ms:
       contacts: "Kenalan-kenalan"
       edit: "edit"
       gender: "Jantina"
-      ignoring: "Anda mengabaikan semua siaran daripada <%= name %>."
       location: "Lokasi"
       photos: "Gambar"
       posts: "Catatan"
@@ -127,7 +126,6 @@ ms:
     stream:
       followed_tag:
         add_a_tag: "Tambah sebuah tag"
-        contacts_title: "Orang yang meminati tag ini"
         follow: "Ikuti"
         title: "Tag #Diikuti"
       likes:

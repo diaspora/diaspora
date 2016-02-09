@@ -134,7 +134,6 @@ fr:
       contacts: "Contacts"
       edit: "modifier"
       gender: "Genre"
-      ignoring: "Vous ignorez tous les messages de <%= name %>."
       location: "Localisation"
       photos: "Photos"
       posts: "Messages"
@@ -168,7 +167,6 @@ fr:
       follow: "Suivre"
       followed_tag:
         add_a_tag: "Ajouter un tag"
-        contacts_title: "Personnes qui suivent ces tags"
         follow: "Suivre"
         title: "#tags suivis"
       hide: "Masquer"

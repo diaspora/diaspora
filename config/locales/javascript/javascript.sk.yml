@@ -116,7 +116,6 @@ sk:
       follow: "Sledovať"
       followed_tag:
         add_a_tag: "Pridať značku"
-        contacts_title: "Ľudia, ktorí hľadajú tieto značky"
         follow: "Sledovať"
         title: "#Sledované značky"
       hide: "Schovať"
