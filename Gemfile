@@ -18,11 +18,11 @@ gem "diaspora_federation-rails", "0.0.12"
 
 gem "acts_as_api", "0.4.2"
 gem "json",        "1.8.3"
-gem "json-schema", "2.5.2"
+gem "json-schema", "2.6.0"
 
 # Authentication
 
-gem "devise", "3.5.5"
+gem "devise", "3.5.6"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-token_authenticatable", "~> 0.4.0"
 
@@ -62,19 +62,19 @@ gem "bootstrap-switch-rails", "3.3.3"
 # Database
 
 group :mysql, optional: true do
-  gem "mysql2", "0.3.20"
+  gem "mysql2", "0.4.2"
 end
 group :postgresql, optional: true do
   gem "pg",     "0.18.4"
 end
 
-gem "activerecord-import", "0.10.0"
+gem "activerecord-import", "0.11.0"
 
 # File uploading
 
 gem "carrierwave", "0.10.0"
 gem "fog",         "1.37.0"
-gem "mini_magick", "4.3.6"
+gem "mini_magick", "4.4.0"
 gem "remotipart",  "1.2.1"
 
 # GUID generation
@@ -135,7 +135,7 @@ gem "leaflet-rails",       "0.7.4"
 
 gem "nokogiri",          "1.6.7.2"
 gem "redcarpet",         "3.3.4"
-gem "twitter-text",      "1.13.0"
+gem "twitter-text",      "1.13.3"
 gem "roxml",             "3.1.6"
 gem "ruby-oembed",       "0.9.0"
 gem "open_graph_reader", "0.6.1"
@@ -146,7 +146,7 @@ gem "omniauth",           "1.3.1"
 gem "omniauth-facebook",  "3.0.0"
 gem "omniauth-tumblr",    "1.2"
 gem "omniauth-twitter",   "1.2.1"
-gem "twitter",            "5.15.0"
+gem "twitter",            "5.16.0"
 gem "omniauth-wordpress", "0.2.2"
 
 # OpenID Connect
@@ -154,7 +154,7 @@ gem "openid_connect", "0.8.3"
 
 # Serializers
 
-gem "active_model_serializers", "0.9.3"
+gem "active_model_serializers", "0.9.4"
 
 # XMPP chat dependencies
 gem "diaspora-vines",             "~> 0.2.0.develop"
@@ -239,8 +239,8 @@ group :development do
   gem "guard-rspec",    "4.6.4"
   gem "guard-rubocop",  "1.2.0"
   gem "guard",          "2.13.0", require: false
-  gem "rb-fsevent",     "0.9.6", require: false
-  gem "rb-inotify",     "0.9.5", require: false
+  gem "rb-fsevent",     "0.9.7", require: false
+  gem "rb-inotify",     "0.9.7", require: false
 
   # Linters
   gem "jshintrb",       "0.3.0"
@@ -254,7 +254,7 @@ group :development do
 
   # Preloading environment
 
-  gem "spring", "1.6.1"
+  gem "spring", "1.6.3"
   gem "spring-commands-rspec", "1.0.4"
   gem "spring-commands-cucumber", "1.0.1"
 
@@ -264,7 +264,7 @@ group :development do
   gem "pry-byebug"
 
   # test coverage
-  gem "simplecov", "0.11.1", require: false
+  gem "simplecov", "0.11.2", require: false
 end
 
 group :test do
@@ -277,7 +277,7 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "capybara",           "2.5.0"
+  gem "capybara",           "2.6.2"
   gem "database_cleaner" ,  "1.5.1"
   gem "selenium-webdriver", "2.47.1"
 
@@ -286,20 +286,20 @@ group :test do
 
   # General helpers
 
-  gem "factory_girl_rails", "4.5.0"
+  gem "factory_girl_rails", "4.6.0"
   gem "timecop",            "0.8.0"
-  gem "webmock",            "1.22.3", require: false
-  gem "shoulda-matchers",   "3.0.1"
+  gem "webmock",            "1.22.6", require: false
+  gem "shoulda-matchers",   "3.1.1"
 
   gem "diaspora_federation-test", "0.0.12"
 end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails",     "3.3.3"
+  gem "rspec-rails", "3.4.2"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails",     "1.4.2", require: false
+  gem "cucumber-rails", "1.4.3", require: false
 
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "2.4.0"
