@@ -462,7 +462,7 @@ GEM
     json_spec (1.1.4)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
-    jsonpath (0.5.7)
+    jsonpath (0.5.8)
       multi_json
     jwt (1.5.1)
     kaminari (0.16.3)
