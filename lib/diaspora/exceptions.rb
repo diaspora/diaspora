@@ -10,6 +10,12 @@ module Diaspora
   # the account was closed and that should not be the case if we want
   # to continue
   class AccountClosed < StandardError
+    def errors
+      [JSONAPI::Error.new(code:   JSONAPI::FORBIDDEN,
+                          status: :closed_account,
+                          title:  "Closed Account",
+                          detail: "A closed account was attempted to be accessed.")]
+    end
   end
 
   # something that should be accessed does not belong to the current user and
