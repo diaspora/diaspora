@@ -320,7 +320,7 @@ GEM
     fog-vsphere (0.6.0)
       fog-core
       rbvmomi (~> 1.8)
-    fog-xenserver (0.2.2)
+    fog-xenserver (0.2.3)
       fog-core
       fog-xml
     fog-xml (0.1.2)
