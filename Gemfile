@@ -74,7 +74,7 @@ gem "activerecord-import", "0.11.0"
 
 gem "carrierwave", "0.10.0"
 gem "fog",         "1.37.0"
-gem "mini_magick", "4.3.6"
+gem "mini_magick", "4.4.0"
 gem "remotipart",  "1.2.1"
 
 # GUID generation
