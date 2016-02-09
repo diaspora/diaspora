@@ -62,7 +62,7 @@ gem "bootstrap-switch-rails", "3.3.3"
 # Database
 
 group :mysql, optional: true do
-  gem "mysql2", "0.3.20"
+  gem "mysql2", "0.4.2"
 end
 group :postgresql, optional: true do
   gem "pg",     "0.18.4"
