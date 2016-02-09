@@ -246,7 +246,7 @@ group :development do
   gem "pry-byebug"
 
   # test coverage
-  gem "simplecov", "0.11.1", require: false
+  gem "simplecov", "0.11.2", require: false
 end
 
 group :test do
