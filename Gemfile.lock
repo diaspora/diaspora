@@ -481,7 +481,7 @@ GEM
       logging (>= 1.8)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    lumberjack (1.0.9)
+    lumberjack (1.0.10)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
     mail (2.6.3)
