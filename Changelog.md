@@ -1,3 +1,12 @@
+# 0.5.8.0
+
+## Refactor
+
+## Bug fixes
+* Fix empty name field when editing aspect names [#6548](https://github.com/diaspora/diaspora/issues/6548)
+
+## Features
+
 # 0.5.7.0
 
 ## Refactor
