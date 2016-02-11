@@ -41,7 +41,7 @@ With the port to Bootstrap 3, app/views/terms/default.haml has a new structure. 
 ## API authentication
 
 This release makes diaspora\* a OpenID Connect provider. This means you can authenticate to third parties with your diaspora\* account and let
-them act as your diaspora* account on your behalf. This feature is still considered in early development, we still expect edge cases and advanced
+them act as your diaspora\* account on your behalf. This feature is still considered in early development, we still expect edge cases and advanced
 features of the specificiation to not be handled correctly or be missing. But we expect a basic OpenID Connect compliant client to work. Please submit issues!
 We will also most likely still change the authorization scopes we offer and started with a very minimal set.
 Most work still required is on documentation as well as designing and implementing the data API for all of Diaspora's functionality.
@@ -98,6 +98,7 @@ Contributions are very welcome, the hard work is done!
 * "Getting started" is now turned off after first visit on mobile [#6681](https://github.com/diaspora/diaspora/pull/6681)
 * Fixed a 500 when liking on mobile without JS enabled [#6683](https://github.com/diaspora/diaspora/pull/6683)
 * Fixed profile image upload in the mobile UI [#6684](https://github.com/diaspora/diaspora/pull/6684)
+* Fixed eye not stopping all processes when trying to exit `script/server` [#6693](https://github.com/diaspora/diaspora/pull/6693)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)

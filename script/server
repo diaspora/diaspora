@@ -202,4 +202,4 @@ else
 fi
 echo ""
 
-exec bin/bundle exec loader_eye -st -c config/eye.rb
+exec bin/bundle exec loader_eye --stop_all -c config/eye.rb
