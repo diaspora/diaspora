@@ -48,7 +48,8 @@
         link.data("url", url.replace(/\/\d+$/, ""));
 
         if(likeCounter){
-          likeCounter.text(parseInt(likeCounter.text(), 10) - 1);
+          var newValue = parseInt(likeCounter.text(), 10) - 1;
+          likeCounter.text(Math.max(newValue, 0));
         }
       };
 
