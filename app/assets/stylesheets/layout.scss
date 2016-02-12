@@ -1,0 +1,21 @@
+.left-navbar {
+  height: 100%;
+  padding: 0px;
+
+  & > h3 {
+    padding-left: 15px;
+  }
+
+  .list-group-item {
+    border-left: 0px;
+    border-right: 0px;
+  }
+}
+
+
+.left-navbar-fixed-background { // To be reused by navbar_left
+  background: $sidebars-background;
+  border-right: 1px solid $light-grey;
+  position: fixed;
+  height: 100%;
+}
