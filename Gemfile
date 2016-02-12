@@ -96,7 +96,7 @@ gem "js-routes",         "1.2.3"
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "1.12.0" # Should be kept in sync with jquery-rails
 
-  gem "rails-assets-markdown-it",                         "5.1.0"
+  gem "rails-assets-markdown-it",                         "6.0.0"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "0.4.0"
   gem "rails-assets-markdown-it-sanitizer",               "0.4.1"
