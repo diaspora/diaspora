@@ -583,6 +583,20 @@ configuration: ## Section
         ## Limit queuing for removal per day.
         #limit_removals_to_per_day: 100
 
+      ## Database size control allows purging selected old data from the database
+      ## automatically.
+      database_size_control:
+
+        # Enable first database size control
+        #enable: true
+
+        # Like and Participations contain signatures that allow the like or participation
+        # to be retracted later. Unfortunately, these signatures make up most of the data
+        # in a regular pod. Removing the signatures will not remove the likes or participations,
+        # it will just make it impossible for remote users to remove them. Local users will still
+        # be able to remove their likes even after the signatures are removed.
+        #remove_old_participations_after: 365
+
     ## Source code URL
     ## URL to the source code your pod is currently running.
     ## If not set your pod will provide a downloadable archive.
