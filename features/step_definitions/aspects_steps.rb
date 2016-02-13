@@ -98,7 +98,7 @@ When /^I drag "([^"]*)" (up|down)$/ do |aspect_name, direction|
   native_aspect = aspect.base.native
   native_target = target.base.native
   mouse.down native_aspect
-  mouse.move_to native_target, native_target.size.width / 2, 0
+  mouse.move_to native_target
   sleep 1
   mouse.up
   expect(page).to have_no_css "#aspect_nav .ui-sortable.syncing"

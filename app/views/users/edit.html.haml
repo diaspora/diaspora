@@ -1,6 +1,8 @@
 .container-fluid
   .row
     .col-md-3
-      = render "shared/settings_nav"
+      .sidebar
+        = render "shared/settings_nav"
     .col-md-9
-      = render "edit"
+      .framed-content
+        = render "edit"

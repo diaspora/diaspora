@@ -1,7 +1,6 @@
 if($('.stream_container').hasClass('hidden')){
   $('#conversation_new').hide();
   $('.stream_container').removeClass('hidden');
-  $('#left_pane_header .pull-right').removeClass('hidden');
 }
 
 $('#conversation_show').html("<%= escape_javascript(render('conversations/show', :conversation => @conversation)) %>");

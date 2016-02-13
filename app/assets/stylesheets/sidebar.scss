@@ -1,0 +1,21 @@
+.sidebar,
+.framed-content {
+  background-color: $white;
+  border: 1px solid $light-grey;
+  box-shadow: $card-shadow;
+  margin-top: -10px;
+  padding-top: 10px;
+
+  .header,
+  .sidebar-header {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    h3 {
+      line-height: 40px;
+      margin: 7px 0;
+    }
+  }
+
+  .list-group { margin-bottom: 0; }
+}
