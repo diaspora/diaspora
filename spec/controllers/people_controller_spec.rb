@@ -116,21 +116,6 @@ describe PeopleController, :type => :controller do
     end
   end
 
-  describe '#tag_index' do
-    it 'works for js' do
-      xhr :get, :tag_index, :name => 'jellybeans', :format => :js
-      expect(response).to be_success
-    end
-
-    it 'returns awesome people who have that tag' do
-      f = FactoryGirl.create(:person)
-      f.profile.tag_string = "#seeded"
-      f.profile.save
-      xhr :get, :tag_index, :name => 'seeded', :format => :js
-      expect(assigns[:people].count).to eq(1)
-    end
-  end
-
   describe "#show performance", :performance => true do
     before do
       require 'benchmark'
