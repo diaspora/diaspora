@@ -109,34 +109,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  def edit
-    if @photo = current_user.photos.where(:id => params[:id]).first
-      respond_with @photo
-    else
-      redirect_to person_photos_path(current_user.person)
-    end
-  end
-
-  def update
-    photo = current_user.photos.where(:id => params[:id]).first
-    if photo
-      if current_user.update_post( photo, photo_params )
-        flash.now[:notice] = I18n.t 'photos.update.notice'
-        respond_to do |format|
-          format.js{ render :json => photo, :status => 200 }
-        end
-      else
-        flash.now[:error] = I18n.t 'photos.update.error'
-        respond_to do |format|
-          format.html{ redirect_to [:edit, photo] }
-          format.js{ render :status => 403 }
-        end
-      end
-    else
-      redirect_to person_photos_path(current_user.person)
-    end
-  end
-
   private
 
   def photo_params
