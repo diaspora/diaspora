@@ -83,6 +83,7 @@ Contributions are very welcome, the hard work is done!
 * Unifiy max-widths and page layouts [#6675](https://github.com/diaspora/diaspora/pull/6675)
 * Enable autosizing for all textareas [#6674](https://github.com/diaspora/diaspora/pull/6674)
 * Stream faces are gone [#6686](https://github.com/diaspora/diaspora/pull/6686)
+* Refactor mobile javascript and add tests [#6394](https://github.com/diaspora/diaspora/pull/6394)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

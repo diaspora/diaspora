@@ -65,6 +65,20 @@ describe StreamsController, :type => :controller do
         save_fixture(html_for("body"), "aspects_index_mobile_post_with_comments")
       end
 
+      it "generates a mobile jasmine fixture with a public post", fixture: true do
+        message = bob.post(:status_message, text: "HALO WHIRLED", public: true)
+        5.times { bob.comment!(message, "what") }
+        get :aspects, format: :mobile
+        save_fixture(html_for("body"), "aspects_index_mobile_public_post")
+      end
+
+      it "generates a mobile jasmine fixture with an NSFW post", fixture: true do
+        message = bob.post(:status_message, text: "#NSFW", to: @bob.aspects.where(name: "generic").first.id)
+        5.times { bob.comment!(message, "what") }
+        get :aspects, format: :mobile
+        save_fixture(html_for("body"), "aspects_index_mobile_nsfw_post")
+      end
+
       it 'generates a jasmine fixture with a followed tag', :fixture => true do
         @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
         TagFollowing.create!(:tag => @tag, :user => alice)
