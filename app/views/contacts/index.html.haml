@@ -4,10 +4,11 @@
 .container-fluid#contacts_container
   .row
     .col-md-3
-      = render 'contacts/sidebar'
+      .sidebar
+        = render "contacts/sidebar"
 
     .col-md-9
-      #people_stream.stream.contacts
+      .stream.contacts.framed-content#people_stream
         = render 'contacts/header'
 
         - if @contacts_size > 0

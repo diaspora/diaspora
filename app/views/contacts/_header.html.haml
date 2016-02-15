@@ -1,6 +1,6 @@
-.header
+.header.clearfix
   - if @aspect
-    #aspect_controls.pull-right
+    .aspect-controls.pull-right#aspect_controls
       - if @aspect.contacts.size > 0 && @aspect.contacts.size < 20
         = start_a_conversation_link(@aspect, @aspect.contacts.size)
 
@@ -19,7 +19,7 @@
 
       = link_to @aspect, method: "delete", data: { confirm: t("aspects.edit.confirm_remove_aspect") }, class: "delete contacts_button", id: "delete_aspect" do
         %i.entypo-trash.contacts-header-icon{title: t("delete")}
-    .pull-right
+    .pull-right.contact-list-search
       = search_field_tag :contact_search, "", id: "contact_list_search", class: "search-query form-control",  placeholder: t("contacts.index.user_search")
     %h3
       %span#aspect_name

@@ -1,22 +1,8 @@
 .page-conversations {
-  background-color: $sidebars-background;
+  .framed-content { padding: 0 10px 10px; }
+  .sidebar-header .pull-right { margin-top: 12px; }
 
-  .left-pane,
-  .new-conversation,
-  .stream_container .conversation-participants {
-    background-color: $white;
-    border: 1px solid $light-grey;
-    box-shadow: $card-shadow;
-    margin-top: -10px;
-  }
-
-  .new-conversation,
-  .left-pane-header,
-  .stream_container .conversation-participants {
-    padding: 10px;
-  }
-
-  .left-pane {
+  .sidebar {
     margin-bottom: 50px;
     .pagination { margin: 5px; }
   }
