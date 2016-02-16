@@ -732,6 +732,7 @@ GEM
       hitimes
     tins (1.6.0)
     trollop (2.1.2)
+    turbo_dev_assets (0.0.2)
     twitter (5.16.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -897,6 +898,7 @@ DEPENDENCIES
   spring-commands-rspec (= 1.0.4)
   test_after_commit (= 0.4.2)
   timecop (= 0.8.0)
+  turbo_dev_assets (= 0.0.2)
   twitter (= 5.16.0)
   twitter-text (= 1.13.3)
   typhoeus (= 0.8.0)
