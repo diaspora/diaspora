@@ -265,6 +265,8 @@ group :development do
 
   # test coverage
   gem "simplecov", "0.11.2", require: false
+
+  gem "turbo_dev_assets", "0.0.2"
 end
 
 group :test do
