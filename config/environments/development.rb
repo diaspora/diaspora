@@ -37,4 +37,7 @@ Diaspora::Application.configure do
 
   # Show the logging configuration on STDOUT
   config.show_log_configuration = true
+
+  # Speed up asset serving
+  config.middleware.insert 0, TurboDevAssets
 end
