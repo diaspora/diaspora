@@ -32,6 +32,27 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     "paste #status_message_fake_text": "onInputBoxPaste"
   },
 
+  /**
+   * Performs setup of the setup of the plugin.
+   *
+   * this.mentionsCollection: used to keep track of the people mentionned in the post
+   * this.inputBuffer: buffer to keep track of the text currently being typed. It is cleared
+   *                   each time a mention has been processed.
+   *                   See this#onInputBoxKeyPress
+   * this.currentDataQuery: contains the query for the search engine
+   *
+   * The plugin initilizes two different elements that will contain the text of the post:
+   *
+   * this.elmInputBox: hidden element which keeps track of typed text formatted following
+   *                   the mentioning syntax given by this.settings.templates#mentionItemSyntax
+   *                   For instance, if the user writes the text "Hello @user1", the resulting hidden
+   *                   text will be: "Hello @{user1 ; user1@pod.tld}. This is the text that is submitted
+   *                   to the pod when the user posts.
+   * this.elmMentionsOverlay: contains the text that will be displayed to the user
+   *
+   * this.mentionChar is a invisible caracter used to mark the name of the mentionned person
+   * during the process. See this#processMention
+   */
   initialize: function(){
     this.mentionsCollection = [];
     this.inputBuffer = [];
@@ -39,28 +60,32 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.mentionChar = "\u200B";
 
     this.elmInputBox = this.$el.find("#status_message_fake_text");
-    this.elmInputWrapper = this.elmInputBox.parent();
-    this.elmWrapperBox = $(this.settings.templates.wrapper());
-    this.elmInputBox.wrapAll(this.elmWrapperBox);
-    this.elmWrapperBox = this.elmInputWrapper.find("> div").first();
+    var elmInputWrapper = this.elmInputBox.parent();
+    this.elmInputBox.wrapAll($(this.settings.templates.wrapper()));
+    var elmWrapperBox = elmInputWrapper.find("> div").first();
     this.elmMentionsOverlay = $(this.settings.templates.mentionsOverlay());
-    this.elmMentionsOverlay.prependTo(this.elmWrapperBox);
+    this.elmMentionsOverlay.prependTo(elmWrapperBox);
 
-    this.bindMentionningEvents();
-    this.completeSetup(this.getTypeaheadInput());
+    this.bindMentioningEvents();
+    app.views.SearchBase.prototype.initialize.call(this, {typeaheadElement: this.getTypeaheadInput()});
 
     this.$el.find(".twitter-typeahead").css({position: "absolute", left: "-1px"});
     this.$el.find(".twitter-typeahead .tt-menu").css("margin-top", 0);
   },
 
-  bindMentionningEvents: function(){
+  /**
+   * Attach events to Typeahead.
+   */
+  bindMentioningEvents: function(){
     var self = this;
+    // Process mention when the user selects a result.
     this.getTypeaheadInput().on("typeahead:select", function(evt, datum){
       self.processMention(datum);
       self.resetMentionBox();
       self.addToFilteredResults(datum);
     });
 
+    // Highlight the first result when the results dropdown opens
     this.getTypeaheadInput().on("typeahead:render", function(){
       self.select(self.$(".tt-menu .tt-suggestion").first());
     });
@@ -70,6 +95,10 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.inputBuffer.length = 0;
   },
 
+  /**
+   * Cleans the collection of mentionned people. Rejects every item who's name
+   * is not present in the post an falsy values (false, null, "", etc.)
+   */
   updateMentionsCollection: function(){
     var inputText = this.getInputBoxValue();
 
@@ -79,6 +108,11 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.mentionsCollection = _.compact(this.mentionsCollection);
   },
 
+  /**
+   * Adds mention to the mention collection
+   * @param person Mentionned person.
+   * JSON object of form { handle: <diaspora handle>, name: <name>, ... }
+   */
   addMention: function(person){
     if(!person || !person.name || !person.handle){
       return;
@@ -90,12 +124,25 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.mentionsCollection.push(person);
   },
 
+  /**
+   * Process the text to add mention to the post. Every @mention in the text
+   * will be replaced by this.mentionChar + mention.name. This temporary text
+   * will then be replaced by final syntax in this#updateValues
+   *
+   * For instance if the user types text "Hello @use" and selects result user1,
+   * The text will be transformed to "Hello \u200Buser1" before calling this#updateValues
+   *
+   * @param mention Mentionned person.
+   * JSON object of form { handle: <diaspora handle>, name: <name>, ... }
+   */
   processMention: function(mention){
     var currentMessage = this.getInputBoxValue();
 
     var currentCaretPosition = this.getCaretPosition();
     var startCaretPosition = currentCaretPosition - (this.currentDataQuery.length + 1);
 
+    // Extracts the text before the mention and the text after it.
+    // startEndIndex is the position where to place the caret at the en of the process
     var start = currentMessage.substr(0, startCaretPosition);
     var end = currentMessage.substr(currentCaretPosition, currentMessage.length);
     var startEndIndex = (start + mention.name).length + 1;
@@ -107,16 +154,24 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.currentDataQuery = "";
     this.resetMentionBox();
 
-    // Mentions & syntax message
+    // Autocompletes mention and updates message text
     var updatedMessageText = start + this.mentionChar + mention.name + end;
     this.elmInputBox.val(updatedMessageText);
     this.updateValues();
 
-    // Set correct focus and selection
+    // Set correct focus and caret position
     this.elmInputBox.focus();
     this.setCaretPosition(startEndIndex);
   },
 
+  /**
+   * Replaces every combination of this.mentionChar + mention.name by the
+   * correct syntax for both hidden text and visible one.
+   *
+   * For instance, the text "Hello \u200Buser1" will be tranformed to
+   * "Hello @{user1 ; user1@pod.tld}" in the hidden element and
+   * "Hello <strong><span>user1</span></strong>" in the element visible to the user.
+   */
   updateValues: function(){
     var syntaxMessage = this.getInputBoxValue();
     var mentionText = this.getInputBoxValue();
@@ -162,34 +217,21 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     });
   },
 
-  selectNextResult: function(evt){
-    if(this.isVisible()){
-      evt.preventDefault();
-      evt.stopPropagation();
+  /**
+   * Selects next or previous result when result dropdown is open and
+   * user press up and down arrows.
+   */
+  onArrowKeysPress: function(e){
+    if(!this.isVisible() || (e.keyCode !== this.KEYS.UP && e.keyCode !== this.KEYS.DOWN)){
+      return;
     }
 
-    if(this.getSelected().size() !== 1 || this.getSelected().next().size() !== 1){
-      this.getSelected().removeClass("tt-cursor");
-      this.$el.find(".tt-suggestion").first().addClass("tt-cursor");
-    }
-    else{
-      this.getSelected().removeClass("tt-cursor").next().addClass("tt-cursor");
-    }
-  },
+    e.preventDefault();
+    e.stopPropagation();
 
-  selectPreviousResult: function(evt){
-    if(this.isVisible()){
-      evt.preventDefault();
-      evt.stopPropagation();
-    }
-
-    if(this.getSelected().size() !== 1 || this.getSelected().prev().size() !== 1){
-      this.getSelected().removeClass("tt-cursor");
-      this.$el.find(".tt-suggestion").last().addClass("tt-cursor");
-    }
-    else{
-      this.getSelected().removeClass("tt-cursor").prev().addClass("tt-cursor");
-    }
+    this.getTypeaheadInput().typeahead("activate");
+    this.getTypeaheadInput().typeahead("open");
+    this.getTypeaheadInput().trigger($.Event("keydown", {keyCode: e.keyCode}));
   },
 
   onInputBoxKeyPress: function(e){
@@ -200,6 +242,9 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     }
   },
 
+  /**
+   * Listens for user input and opens results dropdown when input contains the trigger char
+   */
   onInputBoxInput: function(){
     this.updateValues();
     this.updateMentionsCollection();
@@ -244,10 +289,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
         this.resetMentionBox();
         break;
       case this.KEYS.UP:
-        this.selectPreviousResult(e);
-        break;
       case this.KEYS.DOWN:
-        this.selectNextResult(e);
+        this.onArrowKeysPress(e);
         break;
       case this.KEYS.RETURN:
       case this.KEYS.TAB:

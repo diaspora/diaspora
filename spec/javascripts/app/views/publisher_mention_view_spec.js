@@ -8,8 +8,8 @@ describe("app.views.PublisherMention", function(){
 
   describe("initialize", function(){
     beforeEach(function(){
-      spyOn(app.views.PublisherMention.prototype, "completeSetup").and.callThrough();
-      spyOn(app.views.PublisherMention.prototype, "bindMentionningEvents").and.callThrough();
+      spyOn(app.views.SearchBase.prototype, "initialize").and.callThrough();
+      spyOn(app.views.PublisherMention.prototype, "bindMentioningEvents").and.callThrough();
       this.view = new app.views.PublisherMention({ el: "#publisher" });
     });
 
@@ -21,8 +21,9 @@ describe("app.views.PublisherMention", function(){
     });
 
     it("calls completeSetup", function(){
-      expect(app.views.PublisherMention.prototype.completeSetup).toHaveBeenCalledWith(this.view.getTypeaheadInput());
-      expect(app.views.PublisherMention.prototype.bindMentionningEvents).toHaveBeenCalled();
+      expect(app.views.SearchBase.prototype.initialize)
+        .toHaveBeenCalledWith({typeaheadElement: this.view.getTypeaheadInput()});
+      expect(app.views.PublisherMention.prototype.bindMentioningEvents).toHaveBeenCalled();
     });
 
     it("initializes html elements", function(){
@@ -33,7 +34,7 @@ describe("app.views.PublisherMention", function(){
     });
   });
 
-  describe("bindMentionningEvents", function(){
+  describe("bindMentioningEvents", function(){
     beforeEach(function(){
       spyOn(app.views.PublisherMention.prototype, "processMention");
       spyOn(app.views.PublisherMention.prototype, "resetMentionBox");
