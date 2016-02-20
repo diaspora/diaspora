@@ -1,6 +1,6 @@
 app.views.SearchBase = app.views.Base.extend({
-  completeSetup: function(typeaheadElement){
-    this.typeaheadElement = $(typeaheadElement);
+  initialize: function(options){
+    this.typeaheadElement = $(options.typeaheadElement);
     this.setupBloodhound();
     this.setupTypeahead();
     this.bindSelectionEvents();
@@ -59,21 +59,21 @@ app.views.SearchBase = app.views.Base.extend({
 
   setupTypeahead: function() {
     this.typeaheadElement.typeahead({
-          hint: false,
-          highlight: true,
-          minLength: 2
-        },
-        {
-          name: "search",
-          display: "name",
-          limit: 5,
-          source: this.bloodhound.customSearch,
-          templates: {
-            /* jshint camelcase: false */
-            suggestion: HandlebarsTemplates.search_suggestion_tpl
-            /* jshint camelcase: true */
-          }
-        });
+      hint: false,
+      highlight: true,
+      minLength: 2
+    },
+    {
+      name: "search",
+      display: "name",
+      limit: 5,
+      source: this.searchFormAction !== undefined ? this.bloodhound : this.bloodhound.customSearch,
+      templates: {
+        /* jshint camelcase: false */
+        suggestion: HandlebarsTemplates.search_suggestion_tpl
+        /* jshint camelcase: true */
+      }
+    });
   },
 
   transformBloodhoundResponse: function(response) {

@@ -38,7 +38,6 @@
 //= require_tree ./helpers
 //= require_tree ./pages
 //= require_tree ./widgets
-//= require mentions
 //= require bootstrap
 //= require osmlocator
 //= require bootstrap-switch

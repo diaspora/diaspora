@@ -6,10 +6,11 @@ describe("app.views.Search", function(){
   });
 
   describe("initialize", function(){
-    it("calls completeSetup", function(){
-      spyOn(app.views.Search.prototype, "completeSetup").and.callThrough();
+    it("calls app.views.SearchBase.prototype.initialize", function(){
+      spyOn(app.views.SearchBase.prototype, "initialize").and.callThrough();
       var view = new app.views.Search({el: "#search_people_form"});
-      expect(app.views.Search.prototype.completeSetup).toHaveBeenCalledWith(view.getTypeaheadElement());
+      expect(app.views.SearchBase.prototype.initialize)
+        .toHaveBeenCalledWith({typeaheadElement: view.getTypeaheadElement()});
     });
 
     it("calls bindMoreSelectionEvents", function(){

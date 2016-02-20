@@ -1,36 +1,32 @@
 describe("app.views.SearchBase", function() {
   beforeEach(function(){
     spec.content().html(
-      "<form action='/search' id='search_people_form'><input id='q' name='q' type='search'></input></form>"
+      "<form action='/search' id='search_people_form'><input id='q' name='q' type='search'/></form>"
     );
   });
 
-  describe("completeSetup", function(){
+  describe("initialize", function(){
     it("calls setupBloodhound", function(){
       spyOn(app.views.SearchBase.prototype, "setupBloodhound").and.callThrough();
-      var view = new app.views.SearchBase({el: "#search_people_form"});
-      view.completeSetup();
+      new app.views.SearchBase({el: "#search_people_form"});
       expect(app.views.SearchBase.prototype.setupBloodhound).toHaveBeenCalled();
     });
 
     it("calls setupTypeahead", function(){
       spyOn(app.views.SearchBase.prototype, "setupTypeahead");
-      var view = new app.views.SearchBase({el: "#search_people_form"});
-      view.completeSetup();
+      new app.views.SearchBase({el: "#search_people_form"});
       expect(app.views.SearchBase.prototype.setupTypeahead).toHaveBeenCalled();
     });
 
     it("calls bindSelectionEvents", function(){
       spyOn(app.views.SearchBase.prototype, "bindSelectionEvents");
-      var view = new app.views.SearchBase({el: "#search_people_form"});
-      view.completeSetup();
+      new app.views.SearchBase({el: "#search_people_form"});
       expect(app.views.SearchBase.prototype.bindSelectionEvents).toHaveBeenCalled();
     });
 
     it("initializes the results to filter", function(){
       spyOn(app.views.SearchBase.prototype, "bindSelectionEvents");
       var view = new app.views.SearchBase({el: "#search_people_form"});
-      view.completeSetup();
       expect(view.resultsTofilter.length).toBe(0);
     });
   });
@@ -44,7 +40,7 @@ describe("app.views.SearchBase", function() {
 
     context("when performing a local search with 1 filtered result", function(){
       beforeEach(function(){
-        this.view.completeSetup(this.view.$("#q"));
+        this.view.initialize({typeaheadElement: this.view.$("#q")});
         this.view.bloodhound.add([
           {"id":1,"guid":"1","name":"user1","handle":"user1@pod.tld","url":"/people/1"},
           {"id":2,"guid":"2","name":"user2","handle":"user2@pod.tld","url":"/people/2"}
@@ -106,7 +102,7 @@ describe("app.views.SearchBase", function() {
   describe("bindSelectionEvents", function(){
     beforeEach(function() {
       this.view = new app.views.SearchBase({ el: "#search_people_form" });
-      this.view.completeSetup(this.view.$("#q"));
+      this.view.initialize({typeaheadElement: this.view.$("#q")});
       this.view.bloodhound.add([
         {"person": true, "name":"user1", "handle":"user1@pod.tld"},
         {"person": true, "name":"user2", "handle":"user2@pod.tld"}
@@ -147,7 +143,7 @@ describe("app.views.SearchBase", function() {
   describe("addToFilteredResults", function(){
     beforeEach(function() {
       this.view = new app.views.SearchBase({ el: "#search_people_form" });
-      this.view.completeSetup(this.view.$("#q"));
+      this.view.initialize({typeaheadElement: this.view.$("#q")});
     });
 
     context("when item is a person", function(){
@@ -168,7 +164,7 @@ describe("app.views.SearchBase", function() {
   describe("clearFilteredResults", function(){
     beforeEach(function() {
       this.view = new app.views.SearchBase({ el: "#search_people_form" });
-      this.view.completeSetup(this.view.$("#q"));
+      this.view.initialize({typeaheadElement: this.view.$("#q")});
     });
 
     context("clear filtered results", function(){

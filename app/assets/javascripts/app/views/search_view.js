@@ -8,7 +8,7 @@ app.views.Search = app.views.SearchBase.extend({
 
   initialize: function(){
     this.searchFormAction = this.$el.attr("action");
-    this.completeSetup(this.getTypeaheadElement());
+    app.views.SearchBase.prototype.initialize.call(this, {typeaheadElement: this.getTypeaheadElement()});
     this.bindMoreSelectionEvents();
     this.getTypeaheadElement().on("typeahead:select", this.suggestionSelected);
   },
