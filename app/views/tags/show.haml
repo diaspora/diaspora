@@ -10,13 +10,14 @@
 
 .container-fluid#tags_show
   .row
-    .col-lg-3.hidden-xs.left-navbar-fixed-background
     .col-md-3.hidden-xs
-      %h4
-        = t('.tagged_people', count: @stream.tagged_people_count, tag: @stream.display_tag_name)
+      .sidebar
+        .sidebar-header.clearfix
+          %h3
+            = t(".tagged_people", count: @stream.tagged_people_count, tag: @stream.display_tag_name)
 
-      .side_stream.stream
-        = render partial: 'people/index', locals: {people: @stream.tagged_people}
+        .side_stream.stream
+          = render partial: "people/index", locals: {people: @stream.tagged_people}
 
     .col-md-9
       .stream_container

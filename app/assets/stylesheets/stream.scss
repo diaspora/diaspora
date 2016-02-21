@@ -1,14 +1,4 @@
-.page-streams,
-.page-people,
-.page-photos,
-.page-tags {
-  background-color: $main-background;
-}
-
 .stream_container {
-  margin: auto;
-  max-width: 900px;
-
   .stream-title {
     margin: 12px 0;
   }
@@ -29,7 +19,7 @@
 
 @media(max-width: $screen-xs) {
 
-  .publisher {
+  .main-stream-publisher .publisher {
     margin-left: 0;
   }
 }

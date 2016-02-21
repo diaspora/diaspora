@@ -10,9 +10,8 @@
   .pull-left.hidden-xs
     = owner_image_link
   = render "publisher/publisher", publisher_aspects_for(stream)
-= render "aspects/no_posts_message"
 
-.stream#main_stream{title: popover_with_close_html("3. #{t('.stay_updated')}"),
+.stream#main_stream{:title => popover_with_close_html("3. #{t('.stay_updated')}"),
   "data-content" => t(".stay_updated_explanation")}
 
 #paginate

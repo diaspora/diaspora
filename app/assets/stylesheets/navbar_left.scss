@@ -1,16 +1,6 @@
-/* Fixed backgrounds are a common practice to avoid height issues */
-.left-navbar-fixed-background {
-  position: fixed;
-  height: 100%;
-}
-
-.left-navbar,
-.left-navbar-fixed-background {
-  border-right: 1px solid $light-grey;
-  background: $sidebars-background;
-}
-
 .left-navbar {
+  padding: 0;
+
   a {
     text-decoration: none;
     outline: 0;
@@ -20,9 +10,6 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    &#stream_selection {
-      margin: 0px -15px; /* -15px overrides Bootstrap's default gutter width */
-    }
   }
 
   .hoverable {
@@ -114,10 +101,10 @@
 }
 
 .info-bar {
-  margin-top: 25px;
+  padding: 0 20px;
 
   .section {
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   .title {
@@ -178,11 +165,5 @@
     a {
       display: inline-block;
     }
-  }
-
-  .stream-faces {
-    display: flex;
-    flex-flow: row wrap;
-    img { margin: 1px; }
   }
 }

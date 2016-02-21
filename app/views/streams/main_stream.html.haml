@@ -22,132 +22,126 @@
 
 .container-fluid
   .row
-    .left-navbar-fixed-background.col-lg-2.col-sm-3.hidden-sm.hidden-xs
-    .left-navbar.col-lg-2.col-sm-3
-      %ul#stream_selection
-        %li{data: {stream: "stream"}}
-          = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
-        %li{data: {stream: "activity"}}
-          = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
-        %li{data: {stream: "mentions"}}
-          = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
-        %li.all-aspects
-          = render "aspects/aspect_listings", stream: @stream
-        %li.followed-tags-sidebar
-          = render "tags/followed_tags_listings"
-        %li{data: {stream: "public"}}
-          = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
+    .col-md-3
+      .sidebar.left-navbar
+        %ul#stream_selection
+          %li{data: {stream: "stream"}}
+            = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
+          %li{data: {stream: "activity"}}
+            = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
+          %li{data: {stream: "mentions"}}
+            = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
+          %li.all-aspects
+            = render "aspects/aspect_listings", stream: @stream
+          %li.followed-tags-sidebar
+            = render "tags/followed_tags_listings"
+          %li{data: {stream: "public"}}
+            = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
 
-      .info-bar.hidden-xs
-        .section#selected_aspect_contacts
-          .title
-            %h5.stream-title
-              = @stream.title
-          .content
+        .info-bar.hidden-xs
+          - if AppConfig.settings.invitations.open?
+            .section
+              .title
+                %h5.title-header
+                  = t("shared.invitations.invite_your_friends")
+              .content
+                = render "shared/invitations"
 
-        - if AppConfig.settings.invitations.open?
           .section
             .title
               %h5.title-header
-                = t("shared.invitations.invite_your_friends")
+                = t("aspects.index.new_here.title")
             .content
-              = render "shared/invitations"
+              != t("aspects.index.new_here.follow",
+                link: link_to("#" + t("shared.publisher.new_user_prefill.newhere"),
+                tag_path(name: t("shared.publisher.new_user_prefill.newhere"))))
+              %br
+              = link_to(t("aspects.index.new_here.learn_more"),
+                "http://wiki.diasporafoundation.org/Welcoming_Committee")
 
-        .section
-          .title
-            %h5.title-header
-              = t("aspects.index.new_here.title")
-          .content
-            != t("aspects.index.new_here.follow",
-              link: link_to("#" + t("shared.publisher.new_user_prefill.newhere"),
-              tag_path(name: t("shared.publisher.new_user_prefill.newhere"))))
-            %br
-            = link_to(t("aspects.index.new_here.learn_more"),
-              "http://wiki.diasporafoundation.org/Welcoming_Committee")
-
-        .section
-          .title
-            %h5.title-header
-              = t("aspects.index.help.need_help")
-          .content
-            %p
-              = t("aspects.index.help.here_to_help")
-            %p
-              = t("aspects.index.help.do_you")
-            %ul
-              %li
-                != t("aspects.index.help.have_a_question",
-                  link: link_to("#" + t("aspects.index.help.tag_question"),
-                  tag_path(name: t("aspects.index.help.tag_question"))))
-              %li
-                != t("aspects.index.help.find_a_bug",
-                  link: link_to("#" + t("aspects.index.help.tag_bug"),
-                  tag_path(name: t("aspects.index.help.tag_bug"))))
-              %li
-                != t("aspects.index.help.feature_suggestion",
-                  link: link_to("#" + t("aspects.index.help.tag_feature"),
-                  tag_path(name: t("aspects.index.help.tag_feature"))))
-            %p
-              != t("aspects.index.help.tutorials_and_wiki",
-                faq: link_to(t("_help"), help_path),
-                tutorial: link_to(t("aspects.index.help.tutorial_link_text"),
-                  "https://diasporafoundation.org/tutorials", target: "_blank"),
-                wiki: link_to("Wiki", "http://wiki.diasporafoundation.org",
-                  target: "_blank"),
-                target: "_blank")
-
-        - unless AppConfig.configured_services.blank? || all_services_connected?
           .section
             .title
               %h5.title-header
-                = t("aspects.index.services.heading")
-            .content
-              %div
-                = t("aspects.index.services.content")
-
-              .right-service-icons
-                - AppConfig.configured_services.each do |service|
-                  - if AppConfig.show_service?(service, current_user)
-                    - unless current_user.services.any? {|x| x.provider == service }
-                      = link_to(content_tag(:div, nil,
-                        class: "social-media-logos-#{service.to_s.downcase}-24x24",
-                        title: service.to_s.titleize), "/auth/#{service}")
-
-        .section
-          .title
-            %h5.title-header
-              = t("bookmarklet.heading")
-          .content
-            != t("bookmarklet.explanation", link: link_to(t("bookmarklet.post_something"), bookmarklet_code))
-
-        - if AppConfig.settings.paypal_donations.enable? || AppConfig.bitcoin_donation_address
-          .section
-            .title
-              %h5.title-header
-                = t("aspects.index.donate")
+                = t("aspects.index.help.need_help")
             .content
               %p
-                = t("aspects.index.keep_pod_running", pod: AppConfig.pod_uri.host)
-              = render "shared/donatepod"
+                = t("aspects.index.help.here_to_help")
+              %p
+                = t("aspects.index.help.do_you")
+              %ul
+                %li
+                  != t("aspects.index.help.have_a_question",
+                    link: link_to("#" + t("aspects.index.help.tag_question"),
+                    tag_path(name: t("aspects.index.help.tag_question"))))
+                %li
+                  != t("aspects.index.help.find_a_bug",
+                    link: link_to("#" + t("aspects.index.help.tag_bug"),
+                    tag_path(name: t("aspects.index.help.tag_bug"))))
+                %li
+                  != t("aspects.index.help.feature_suggestion",
+                    link: link_to("#" + t("aspects.index.help.tag_feature"),
+                    tag_path(name: t("aspects.index.help.tag_feature"))))
+              %p
+                != t("aspects.index.help.tutorials_and_wiki",
+                  faq: link_to(t("_help"), help_path),
+                  tutorial: link_to(t("aspects.index.help.tutorial_link_text"),
+                    "https://diasporafoundation.org/tutorials", target: "_blank"),
+                  wiki: link_to("Wiki", "http://wiki.diasporafoundation.org",
+                    target: "_blank"),
+                  target: "_blank")
 
-        - if AppConfig.admins.podmin_email.present?
+          - unless AppConfig.configured_services.blank? || all_services_connected?
+            .section
+              .title
+                %h5.title-header
+                  = t("aspects.index.services.heading")
+              .content
+                %div
+                  = t("aspects.index.services.content")
+
+                .right-service-icons
+                  - AppConfig.configured_services.each do |service|
+                    - if AppConfig.show_service?(service, current_user)
+                      - unless current_user.services.any? {|x| x.provider == service }
+                        = link_to(content_tag(:div, nil,
+                          class: "social-media-logos-#{service.to_s.downcase}-24x24",
+                          title: service.to_s.titleize), "/auth/#{service}")
+
           .section
             .title
               %h5.title-header
-                = t("aspects.index.help.any_problem")
+                = t("bookmarklet.heading")
             .content
-              %p
-                = t("aspects.index.help.contact_podmin")
-              %p
-                = link_to t("aspects.index.help.mail_podmin"), "mailto:#{AppConfig.admins.podmin_email}"
+              != t("bookmarklet.explanation", link: link_to(t("bookmarklet.post_something"), bookmarklet_code))
 
-        .section
-          .title
-          .content
-            %ul
-              = render "shared/links"
+          - if AppConfig.settings.paypal_donations.enable? || AppConfig.bitcoin_donation_address
+            .section
+              .title
+                %h5.title-header
+                  = t("aspects.index.donate")
+              .content
+                %p
+                  = t("aspects.index.keep_pod_running", pod: AppConfig.pod_uri.host)
+                = render "shared/donatepod"
 
-    .col-lg-10.col-sm-9
+          - if AppConfig.admins.podmin_email.present?
+            .section
+              .title
+                %h5.title-header
+                  = t("aspects.index.help.any_problem")
+              .content
+                %p
+                  = t("aspects.index.help.contact_podmin")
+                %p
+                  = link_to t("aspects.index.help.mail_podmin"), "mailto:#{AppConfig.admins.podmin_email}"
+
+          .section
+            .title
+            .content
+              %ul
+                = render "shared/links"
+
+    .col-md-9
       .stream_container#aspect_stream_container
         = render "aspects/aspect_stream", stream: @stream
 
