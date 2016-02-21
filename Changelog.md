@@ -122,6 +122,15 @@ Contributions are very welcome, the hard work is done!
 * Check for collapsible posts after images in posts have loaded [#6671](https://github.com/diaspora/diaspora/pull/6671)
 * Add reason for post report to email sent to admins [#6679](https://github.com/diaspora/diaspora/pull/6679)
 
+# 0.5.8.0
+
+## Refactor
+
+## Bug fixes
+* Fix empty name field when editing aspect names [#6548](https://github.com/diaspora/diaspora/issues/6548)
+
+## Features
+
 # 0.5.7.0
 
 ## Refactor
