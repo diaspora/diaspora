@@ -11,10 +11,9 @@ describe Stream::Person do
   end
 
   it "returns the most recent posts" do
-    skip # this randomly fails on postgres
     posts = []
     fetched_posts = []
-    
+
     aspect = bob.aspects.first.id
     Timecop.scale(600) do
       16.times do |n|
