@@ -94,8 +94,6 @@ es-BO:
       you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
     no_posts_message:
       start_talking: "¡Nadie ha dicho nada aún!"
-    one: "1 aspecto"
-    other: "%{count} aspectos"
     seed:
       acquaintances: "Conocidos"
       family: "Familia"
@@ -104,7 +102,6 @@ es-BO:
     update:
       failure: "Tu aspecto, %{name}, tiene un nombre muy largo para ser guardado."
       success: "Tu aspecto %{name}, ha sido editado con éxito."
-    zero: "no hay aspectos"
   back: "atrás"
   cancel: "Cancelar"
   delete: "Borrar"

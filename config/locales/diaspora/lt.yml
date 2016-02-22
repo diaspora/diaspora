@@ -125,8 +125,6 @@ lt:
       you_should_add_some_more_contacts: "Pridėkite daugiau kontaktų!"
     no_posts_message:
       start_talking: "Dar niekas nepasisakė. Pradėkite pokalbį pats!"
-    one: "1 kategorija"
-    other: "%{count} kategorijų"
     seed:
       acquaintances: "Pažintys"
       family: "Šeima"
@@ -135,7 +133,6 @@ lt:
     update:
       failure: "Kategorijos %{name} pavadinimas yra per ilgas."
       success: "Kategorija %{name} sėkmingai pakeista."
-    zero: "Nėra kategorijų"
   back: "Atgal"
   bookmarklet:
     explanation: "Paskelbkite tinkle Diaspora %{link} paspausdami šią nuorodą => %{link}"
@@ -165,13 +162,10 @@ lt:
       start_a_conversation: "Pradėti pokalbį"
       title: "Kontaktai"
       your_contacts: "Jūsų kontaktai"
-    one: "1 kontaktas"
-    other: "%{count} kontaktų"
     sharing:
       people_sharing: "Žmonės dalijasi su jumis:"
     spotlight:
       community_spotlight: "Bendruomenės dėmesio centre"
-    zero: "kontaktai"
   conversations:
     create:
       fail: "Netinkamas pranešimas"
@@ -575,8 +569,6 @@ lt:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

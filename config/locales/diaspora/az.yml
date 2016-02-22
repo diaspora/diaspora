@@ -110,12 +110,9 @@ az:
           Bank icma xidməti.
           Bank icmaya xidmət etmir.
       or_spotlight: ""
-      try_adding_some_more_contacts: ""
       you_should_add_some_more_contacts: ""
     no_posts_message:
       start_talking: ""
-    one: ""
-    other: ""
     seed:
       acquaintances: ""
       family: ""
@@ -124,7 +121,6 @@ az:
     update:
       failure: ""
       success: ""
-    zero: "hec bir aspekt yoxdu"
   back: ""
   bookmarklet:
     explanation: ""
@@ -145,11 +141,8 @@ az:
     index:
       add_to_aspect: "şəxs əlavə edin %{name}"
       start_a_conversation: ""
-    one: ""
-    other: ""
     sharing:
       people_sharing: ""
-    zero: "Əlaqələr tapılmadı"
   delete: "Poz"
   email: ""
   error_messages:

@@ -140,7 +140,6 @@ hu:
       follow: "Követem"
       followed_tag:
         add_a_tag: "Címke hozzáadása"
-        contacts_title: "Emberek, akik ezeket a címkéket követik"
         follow: "Követés"
         title: "#követett címkék"
       hide: "Elrejt"

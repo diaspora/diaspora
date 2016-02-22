@@ -187,8 +187,6 @@ pt-PT:
       you_should_add_some_more_contacts: "Devia adicionar mais alguns contactos!"
     no_posts_message:
       start_talking: "Ainda ninguém disse nada!"
-    one: "1 grupo"
-    other: "%{count} grupos"
     seed:
       acquaintances: "Conhecidos"
       family: "Família"
@@ -197,7 +195,6 @@ pt-PT:
     update:
       failure: "O seu grupo, %{name}, tinha um nome grande demais para ser guardado."
       success: "O seu grupo, %{name}, foi editado com sucesso."
-    zero: "Sem Aspetos"
   back: "Voltar"
   blocks:
     create:
@@ -234,14 +231,11 @@ pt-PT:
       start_a_conversation: "Iniciar uma conversa"
       title: "Contactos"
       your_contacts: "Seus contactos"
-    one: "1 contacto"
-    other: "%{count} contactos"
     sharing:
       people_sharing: "Pessoas a partilhar consigo:"
     spotlight:
       community_spotlight: "Destaque da comunidade"
       suggest_member: "Sugerir um membro"
-    zero: "Sem contactos"
   conversations:
     conversation:
       participants: "Participantes"
@@ -499,18 +493,12 @@ pt-PT:
         other: "%{count} pessoas não gostam"
         zero: "Nenhum 'não gostar'"
       people_like_this:
-        few: "%{count} pessoas gostam"
-        many: "%{count} pessoas não gostam"
         one: "%{count} gosto"
         other: "%{count} gostos"
-        two: "%{count} gostam"
         zero: "Sem gostos"
       people_like_this_comment:
-        few: "%{count} gostos"
-        many: "%{count} gostos"
         one: "%{count} gosto"
         other: "%{count} gostos"
-        two: "%{count} gostam"
         zero: "Sem gostos"
   limited: "Limitado"
   more: "Mais"
@@ -971,30 +959,23 @@ pt-PT:
       title: "Meus aspetos"
     aspects_stream: "Aspetos"
     comment_stream:
-      contacts_title: "Pessoas cujas publicações você comentou"
       title: "Publicações comentadas"
     community_spotlight_stream: "Destaque da comunidade"
     followed_tag:
       add_a_tag: "Adicionar uma etiqueta"
-      contacts_title: "Pessoas que gostam destas etiquetas"
       follow: "Seguir"
       title: "Etiquetas #Seguidas"
     followed_tags_stream: "Etiquetas #Seguidas"
     like_stream:
-      contacts_title: "Pessoas cujas publicações você gostou"
       title: "Publicações de que gostou"
     mentioned_stream: "@Menções"
     mentions:
-      contacts_title: "Pessoas que o mencionaram"
       title: "@Menções"
     multi:
-      contacts_title: "Pessoas no seu fluxo"
       title: "Fluxo"
     public:
-      contacts_title: "Cartazes recentes"
       title: "Atividade pública"
     tags:
-      contacts_title: "Pessoas que gostam desta etiqueta"
       title: "Publicações marcadas: %{tags}"
   tag_followings:
     create:

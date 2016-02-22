@@ -75,6 +75,7 @@ ia:
       home: "Initio"
       log_out: "Clauder session"
       mark_all_as_read: "Marcar totes como legite"
+      moderator: "Moderator"
       notifications: "Notificationes"
       profile: "Profilo"
       recent_notifications: "Notificationes recente"
@@ -163,7 +164,6 @@ ia:
       follow: "Sequer"
       followed_tag:
         add_a_tag: "Adder un etiquetta"
-        contacts_title: "Personas qui se interessa in iste etiquettas"
         follow: "Sequer"
         title: "#Etiquettas sequite"
       hide: "Celar"

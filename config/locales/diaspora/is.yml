@@ -133,8 +133,6 @@ is:
       you_should_add_some_more_contacts: "Þú ættir að bæta við tengiliðum!"
     no_posts_message:
       start_talking: "Enginn hefur sagt neitt enn!"
-    one: "1 ásýnd"
-    other: "%{count} ásýndir"
     seed:
       acquaintances: "Kunningjar"
       family: "Fjölskylda"
@@ -143,7 +141,6 @@ is:
     update:
       failure: "Ásýnd þín, %{name}, hefur of langt nafn til að hægt sé að vista hana."
       success: "Ásýnd þinni, %{name}, hefur verið breytt."
-    zero: "engin ásýnd"
   back: "Til baka"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
@@ -170,13 +167,10 @@ is:
       start_a_conversation: "Hefja umræðu"
       title: "Tengiliðir"
       your_contacts: "Þínir tegiliðir"
-    one: "1 tengiliður"
-    other: "%{count} tengiliðir"
     sharing:
       people_sharing: "Fólk sem deilir með þér:"
     spotlight:
       community_spotlight: "Efst á baugi í samfélaginu"
-    zero: "tengiliðir"
   conversations:
     create:
       fail: "Ógild skilaboð"
@@ -657,8 +651,6 @@ is:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

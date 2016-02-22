@@ -170,7 +170,6 @@ cs:
       follow: "Sledovat"
       followed_tag:
         add_a_tag: "Přidat štítek"
-        contacts_title: "Lidé navěšující tyto štítky"
         follow: "Sledovat"
         title: "#Sledované štítky"
       hide: "Skrýt"

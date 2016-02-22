@@ -79,6 +79,7 @@ nb:
       home: "Hjem"
       log_out: "Logg ut"
       mark_all_as_read: "Merk alle som lest"
+      moderator: "Moderator"
       notifications: "Varsler"
       profile: "Profil"
       recent_notifications: "Nylige varsel"
@@ -168,7 +169,6 @@ nb:
       follow: "Følg"
       followed_tag:
         add_a_tag: "Legg til en tag"
-        contacts_title: "Folk som liker disse taggene"
         follow: "Følg"
         title: "#Fulgte tagger"
       hide: "Skjul"

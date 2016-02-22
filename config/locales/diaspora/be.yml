@@ -104,8 +104,6 @@ be:
       you_should_add_some_more_contacts: "спачатку дадай пару кантактаў"
     no_posts_message:
       start_talking: "пакуль ніхто нічога не казаў"
-    one: "адна катыгорыя"
-    other: "%{count} катыгорыі"
     seed:
       acquaintances: "знаёмыя"
       family: "сям'я"
@@ -114,7 +112,6 @@ be:
     update:
       failure: "не магчыма захаваць катыгорыю %{name}, занадта дліная назва."
       success: "катыгорыя %{name} была паспяхова выдалена"
-    zero: "катыгорыі адсутнічаюць"
   back: "назад"
   cancel: "адмяніць"
   comments:

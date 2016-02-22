@@ -88,7 +88,6 @@ bs:
       follow: "Prati"
       followed_tag:
         add_a_tag: "Dodaj oznaku"
-        contacts_title: "Ljudi kojima se ova oznaka sviđa"
         follow: "Pratite"
         title: "#Praćene Oznake"
       hide: "Sakrij"

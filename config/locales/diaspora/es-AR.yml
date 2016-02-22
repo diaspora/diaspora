@@ -137,6 +137,8 @@ es-AR:
   aspect_memberships:
     destroy:
       failure: "El contacto no se pudo eliminar del aspecto"
+      forbidden: "No tienes permiso para hacer eso."
+      invalid_statement: "El registro duplicado ha sido rechazado."
       no_membership: "No se encontró a la persona seleccionada en el aspecto"
       success: "El contacto se eliminó del aspecto"
   aspects:
@@ -224,8 +226,6 @@ es-AR:
       you_should_add_some_more_contacts: "¡Deberías agregar más contactos!"
     no_posts_message:
       start_talking: "Nadie dijo nada todavía. ¡Inicia una conversación!"
-    one: "1 aspecto"
-    other: "%{count} aspectos"
     seed:
       acquaintances: "Conocidos"
       family: "Familia"
@@ -234,7 +234,6 @@ es-AR:
     update:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para guardarlo."
       success: "Tu aspecto, %{name}, se editó con éxito."
-    zero: "No hay aspectos"
   back: "Atrás"
   blocks:
     create:
@@ -275,14 +274,11 @@ es-AR:
       title: "Contactos"
       user_search: "Búsqueda de usuarios"
       your_contacts: "Tus contactos"
-    one: "1 contacto"
-    other: "%{count} contactos"
     sharing:
       people_sharing: "Compartiendo con vos:"
     spotlight:
       community_spotlight: "Comunidad Creativa"
       suggest_member: "Sugiere un usuario"
-    zero: "No hay contactos"
   conversations:
     conversation:
       participants: "Participantes"
@@ -559,6 +555,7 @@ es-AR:
   ignore: "Ignorar"
   invitation_codes:
     excited: "%{name} está encantado de verte por aquí."
+    not_valid: "El código de invitación ya no es válido"
   invitations:
     a_facebook_user: "Un usuario de Facebook"
     check_token:
@@ -966,6 +963,7 @@ es-AR:
       title: "Una publicación de %{name}"
     show:
       destroy: "Eliminar"
+      forbidden: "No tienes permiso para hacer eso"
       not_found: "No se pudo encontrar la publicación."
       permalink: "Enlace permanente"
       photos_by:
@@ -1264,30 +1262,23 @@ es-AR:
       title: "Mis aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
-      contacts_title: "Personas que han comentado tu mensaje"
       title: "Posts Comentados"
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
-      contacts_title: "Personas que usaron estas etiquetas"
       follow: "Seguir"
       title: "#Etiquetas que sigues"
     followed_tags_stream: "#Etiquetas que sigues"
     like_stream:
-      contacts_title: "Personas de las que te gustan mensajes"
       title: "Tus preferidos"
     mentioned_stream: "@Menciones"
     mentions:
-      contacts_title: "Gente que te mencionó"
       title: "@Menciones"
     multi:
-      contacts_title: "Personas en tu Entrada"
       title: "Entrada"
     public:
-      contacts_title: "Autores recientes"
       title: "Actividad pública"
     tags:
-      contacts_title: "Personas que usaron esta etiqueta"
       title: "Mensajes tagueados: %{tags}"
   tag_followings:
     create:
@@ -1396,7 +1387,7 @@ es-AR:
       email_notifications_changed: "Tus notificaciones por correo fueron cambiadas"
       follow_settings_changed: "La configuración de seguimiento se cambió"
       follow_settings_not_changed: "Error al cambiar la configuración de seguimiento."
-      language_changed: "Tu idioma se cambió"
+      language_changed: "El idioma se ha cambiado"
       language_not_changed: "No pudo cambiarse el idioma"
       password_changed: "Tu contraseña se cambió.  Ya podés conectarte con tu nueva contraseña."
       password_not_changed: "No pudo cambiarse tu contraseña"

@@ -26,7 +26,6 @@ kk:
         tag_question: "сұрақ"
     new:
       create: "жасау"
-    one: "1 аспектісі"
     seed:
       family: "Жанұя"
       friends: "достар"

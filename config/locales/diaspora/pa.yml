@@ -44,12 +44,9 @@ pa:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    one: "1 aspect"
-    other: "%{count} aspects"
     seed:
       family: "ਪਰਿਵਾਰ"
       work: "ਕੰਮ"
-    zero: "no aspects"
   back: "ਪਿੱਛੇ"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
@@ -356,8 +353,6 @@ pa:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

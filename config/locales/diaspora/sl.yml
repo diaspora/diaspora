@@ -196,8 +196,6 @@ sl:
       you_should_add_some_more_contacts: "Lahko bi dodali še kakšno osebo!"
     no_posts_message:
       start_talking: "Trenutno ni še nihče ničesar objavil!"
-    one: "1 vidik"
-    other: "%{count} vidikov"
     seed:
       acquaintances: "Poznanstva"
       family: "Družina"
@@ -206,7 +204,6 @@ sl:
     update:
       failure: "Vidik %{name} ima predolgo ime, zato ga ni mogoče shraniti."
       success: "Vaš vidik %{name} je bil uspešno posodobljen."
-    zero: "brez vidikov"
   back: "Nazaj"
   blocks:
     create:
@@ -243,14 +240,11 @@ sl:
       start_a_conversation: "Začni pogovor"
       title: "Stiki"
       your_contacts: "Vaši stiki"
-    one: "1 stik"
-    other: "%{count} stikov"
     sharing:
       people_sharing: "Ljudje, ki delijo z vami:"
     spotlight:
       community_spotlight: "Središče pozornosti skupnosti"
       suggest_member: "Predlagaj člana"
-    zero: "stiki"
   conversations:
     conversation:
       participants: "Udeleženci"
@@ -850,30 +844,23 @@ sl:
       title: "Vaši vidiki"
     aspects_stream: "Vidiki"
     comment_stream:
-      contacts_title: "Ljudje, katerim ste napisali mnenje o objavah"
       title: "Objave z napisanim mnenjem"
     community_spotlight_stream: "Središče pozornosti skupnosti"
     followed_tag:
       add_a_tag: "Dodaj oznako"
-      contacts_title: "Ljudje, ki so izbrskali te oznake"
       follow: "Sledi"
       title: "#Vaše oznake"
     followed_tags_stream: "#Vaše oznake"
     like_stream:
-      contacts_title: "Ljudje, katerih objave so vam všeč"
       title: "Tok mi je všeč"
     mentioned_stream: "@Omembe"
     mentions:
-      contacts_title: "Ljudje, ki so vas omenili"
       title: "@Omembe"
     multi:
-      contacts_title: "Ljudje v vašem toku"
       title: "Tok"
     public:
-      contacts_title: "Zadnji objavljajoči"
       title: "Javna aktivnost"
     tags:
-      contacts_title: "Ljudje, ki so izbrskali to oznako"
       title: "Objave označene z: %{tags}"
   tag_followings:
     create:

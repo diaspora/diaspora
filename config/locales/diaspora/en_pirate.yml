@@ -125,8 +125,6 @@ en_pirate:
       you_should_add_some_more_contacts: "Ye should add some more contacts!"
     no_posts_message:
       start_talking: "None of yer mates has said anything yet!"
-    one: "1 crew"
-    other: "%{count} crews"
     seed:
       acquaintances: "Landlubbers"
       family: "Kin"
@@ -135,7 +133,6 @@ en_pirate:
     update:
       failure: "Yer crew, %{name}, had too many words, YARGH!"
       success: "Yer crew, %{name}. has been edited matey!"
-    zero: "Ye have no crews! Yargh!"
   back: "Backs"
   blocks:
     create:
@@ -169,11 +166,8 @@ en_pirate:
       start_a_conversation: "Send a letter"
       title: "Mateys"
       your_contacts: "Yer Mateys"
-    one: "1 matey"
-    other: "%{count} mateys"
     sharing:
       people_sharing: "Buccaneers sharin' with ye:"
-    zero: "mates"
   conversations:
     create:
       fail: "Problem with letter, YARGH!"
@@ -613,13 +607,9 @@ en_pirate:
       title: "Yer Aspects"
     aspects_stream: "Crews"
     mentions:
-      contacts_title: "Seadogs that mentioned ye"
       title: "Yer Mentions"
     multi:
-      contacts_title: "Mateys in yer Sea"
       title: "Sea"
-    tags:
-      contacts_title: "scallywags who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

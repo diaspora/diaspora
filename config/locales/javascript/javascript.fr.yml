@@ -168,7 +168,6 @@ fr:
       follow: "Suivre"
       followed_tag:
         add_a_tag: "Ajouter un tag"
-        contacts_title: "Personnes qui suivent ces tags"
         follow: "Suivre"
         title: "#tags suivis"
       hide: "Masquer"

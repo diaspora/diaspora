@@ -10,7 +10,7 @@ nn:
   _contacts: "Kontaktar"
   _help: "Hjelp"
   _home: "Heim"
-  _photos: "foto"
+  _photos: "Bilete"
   _services: "Tenester"
   account: "Konto"
   activerecord:
@@ -19,7 +19,7 @@ nn:
         contact:
           attributes:
             person_id:
-              taken: "må vera unik blant kontaktane til denne brukaren."
+              taken: "må vere unik blant kontaktane til denne brukaren."
         person:
           attributes:
             diaspora_handle:
@@ -31,7 +31,7 @@ nn:
         reshare:
           attributes:
             root_guid:
-              taken: "Var det så bra? Du har allereie delt innlegget."
+              taken: "Var det så bra? Du har allereie delt dette innlegget."
         user:
           attributes:
             email:
@@ -124,16 +124,16 @@ nn:
       failure: "Klarte ikkje å laga aspektet."
       success: "Det nye aspektet %{name} vart laga"
     destroy:
-      failure: "%{name} må vera tom for å kunna slettast."
+      failure: "%{name} må vere tom for å kunne slettast."
       success: "%{name} vart fjerna."
     edit:
-      aspect_list_is_not_visible: "aspektet er gøymt frå andre i aspektet"
-      aspect_list_is_visible: "aspektlista er synleg for andre i aspektet"
+      aspect_list_is_not_visible: "Aspektet er gøymt frå andre i aspektet"
+      aspect_list_is_visible: "Aspektlista er synleg for andre i aspektet"
       confirm_remove_aspect: "Er du sikker på at du vil sletta aspektet?"
-      make_aspect_list_visible: "skal kontaktane i dette aspektet kunna sjå kvarandre?"
+      make_aspect_list_visible: "Skal kontaktane i dette aspektet kunna sjå kvarandre?"
       remove_aspect: "Slett dette aspektet"
-      rename: "gje nytt namn"
-      update: "oppdatering"
+      rename: "Gje nytt namn"
+      update: "Oppdatering"
       updating: "oppdaterer"
     index:
       diaspora_id:
@@ -146,7 +146,7 @@ nn:
         any_problem: "Har du eit problem?"
         contact_podmin: "Ta kontakt med administratoren (podminen) på poden din."
         do_you: "Har du:"
-        email_feedback: "%{link} attendemeldingane dine, om du vil"
+        email_feedback: "%{link} gi meldingar attende, om du vil"
         email_link: "E-post"
         feature_suggestion: "eit %{link}forslag?"
         find_a_bug: "funne ein %{link}?"
@@ -157,6 +157,7 @@ nn:
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "spørsmål"
+        tutorial_link_text: "Innføringar"
         tutorials_and_wiki: "%{faq}, %{tutorial} og %{wiki} er her for å hjelpe deg med dei første skritta."
       introduce_yourself: "Dette er straumen din.   Hiv deg med og introduser deg sjølv."
       keep_diaspora_running: "Held utviklinga av Diaspora* rask med ei månadleg donasjon!"
@@ -168,7 +169,7 @@ nn:
       no_contacts: "Ingen kontaktar"
       no_tags: "+ Finn ein etikett du vil følgja"
       people_sharing_with_you: "Folk som deler med deg"
-      post_a_message: "skriv eit innlegg >>"
+      post_a_message: "Skriv eit innlegg >>"
       services:
         content: "Du kan kopla desse tenestene til Diaspora:"
         heading: "Kopla tenester"
@@ -178,14 +179,12 @@ nn:
       create: "Lag"
       name: "Namn (berre du kan sjå det)"
     no_contacts_message:
-      community_spotlight: "kreative medlemer"
+      community_spotlight: "Kreative medlemmar"
       or_spotlight: "Eller du kan dele med %{link}"
       try_adding_some_more_contacts: "Du kan søkja etter eller invitera fleire kontaktar."
       you_should_add_some_more_contacts: "Du bør leggja til nokre fleire kontaktar."
     no_posts_message:
       start_talking: "Ingen har sagt noko enno."
-    one: "1 aspekt"
-    other: "%{count} aspekt"
     seed:
       acquaintances: "Kjende"
       family: "Familie"
@@ -194,7 +193,6 @@ nn:
     update:
       failure: "Aspektet ditt, %{name}, hadde eit for langt namn til å bli lagra."
       success: "Aspektet ditt, %{name}, er vorte endra."
-    zero: "ingen aspekt"
   back: "Attende"
   blocks:
     create:
@@ -231,14 +229,11 @@ nn:
       start_a_conversation: "Start ein samtale"
       title: "Kontaktar"
       your_contacts: "Kontaktane dine"
-    one: "1 kontakt"
-    other: "%{count} kontaktar"
     sharing:
       people_sharing: "Personar som deler med deg:"
     spotlight:
       community_spotlight: "Kreative medlemer"
       suggest_member: "Foreslå eit medlem"
-    zero: "kontaktar"
   conversations:
     conversation:
       participants: "Deltakarar"
@@ -283,6 +278,18 @@ nn:
     post_not_public: "Innlegget du prøvar å sjå er ikkje offentleg!"
   fill_me_out: "Fyll meg ut"
   find_people: "Finn personar eller #grindmerke"
+  help:
+    getting_help:
+      getting_started_q: "Hjelp! Eg treng nokon til å hjelpe meg i gang!"
+      title: "Få hjelp"
+    getting_started_tutorial: "Innføringsserie for å komme i gang"
+    here: "her"
+    irc: "IRC"
+    markdown: "Markdown"
+    third_party_tools: "Tredjepartsverktyg"
+    tutorial: "innføring"
+    tutorials: "innføringar"
+    wiki: "wiki"
   hide: "Gøym"
   invitation_codes:
     excited: "%{name} er glad for å sjå deg her!"
@@ -607,7 +614,7 @@ nn:
       reshare_by: "Deling av %{author}"
   previous: "førre"
   privacy: "Personvern"
-  privacy_policy: "Retningsline for personvern"
+  privacy_policy: "Retningslinje for personvern"
   profile: "Profil"
   profiles:
     edit:
@@ -699,7 +706,7 @@ nn:
     create:
       already_authorized: "En brukar med Diaspora* ID %{diaspora_id} har allereie teke i bruk den %{service_name}kontoen."
       failure: "Feila autentisering"
-      read_only_access: "Tilgangsnivå er \"berre les\", ver ven og autoriser igjen seinare"
+      read_only_access: "Tilgangsnivået er \"berre les\". Ver ven og autoriser igjen seinare"
       success: "Vellukka autentisering."
     destroy:
       success: "Sletta autentiseringa."
@@ -828,30 +835,23 @@ nn:
       title: "Aspekta mine"
     aspects_stream: "Aspektar"
     comment_stream:
-      contacts_title: "Folk som du har kommentert innlegga til"
       title: "Kommenterte innlegg"
     community_spotlight_stream: "Kreative Medlemer"
     followed_tag:
       add_a_tag: "Legg til ein tag"
-      contacts_title: "Folk som lik denne tagen"
       follow: "Følg"
       title: "Følgde tags"
     followed_tags_stream: "Følgde tags"
     like_stream:
-      contacts_title: "Dei du likar innlegga til"
       title: "Lik-straum"
     mentioned_stream: "@Nemningar"
     mentions:
-      contacts_title: "Folk som har nemnd deg"
       title: "@Nemningar"
     multi:
-      contacts_title: "Folk i straumen din"
       title: "Straum"
     public:
-      contacts_title: "Brukarar som nyleg har lagt ut noko"
       title: "Offentleg aktivitet"
     tags:
-      contacts_title: "Personar som elskar denne etiketten"
       title: "Innlegg merka med: %{tags}"
   tag_followings:
     create:
@@ -860,13 +860,21 @@ nn:
       success: "Bra! No følgjer du: #%{name}."
     destroy:
       failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      success: "Du har slutta å følgje #%{name}"
+    manage:
+      no_tags: "Du følgjer ikkje nokon taggar"
+      title: "Administrer taggane du følgjer"
   tags:
+    name_too_long: "Namnet på taggen må vere færre enn %{count} teikn. Nett no er det %{current_length} teikn."
     show:
       follow: "Følg #%{tag}"
       following: "Følgjer #%{tag}"
       none: "Det finnast ikkje tomme tags!"
-      stop_following: "Følg ikkje #%{tag} lenger"
+      stop_following: "Ikkje følg #%{tag} lenger"
+      tagged_people:
+        one: "Det er ein person som er merka med %{tag}"
+        other: "Det er %{count} personar som er merka med %{tag}"
+        zero: "Det er ingen som er merka med %{tag}"
   terms_and_conditions: "Vilkår og retningslinjer"
   undo: "Gjera om?"
   username: "Brukarnamn"
@@ -906,12 +914,12 @@ nn:
       export_data: "Eksporter data"
       following: "Følgje-innstillingar"
       getting_started: "Innstillingar for nye brukarar"
-      liked: "… nokon liker innlegget ditt?"
+      liked: "… nokon likar innlegget ditt?"
       mentioned: "… du er nemnt i eit innlegg?"
       new_password: "Nytt passord"
       private_message: "… du mottek ei privat melding?"
       receive_email_notifications: "Få e-postvarsel når …"
-      reshared: "… nokon deler innlegget ditt vidare?"
+      reshared: "… nokon delar innlegget ditt vidare?"
       show_community_spotlight: "Vil du sjå kreative medlemer i straumen din?"
       show_getting_started: "Ta i bruk \"Kom igang\" igjen"
       started_sharing: "… nokon byrjar å dela med deg?"

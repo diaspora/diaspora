@@ -64,7 +64,7 @@ nl:
     create: "Creëren"
     delete: "Verwijder"
     edit: "Bewerken"
-    failed_to_like: "Leuk vinden mislukt!"
+    failed_to_like: "Leuk vinden mislukt! Misschien negeert de schrijver jou?"
     failed_to_post_message: "Bericht plaatsen mislukt!"
     failed_to_remove: "Kon het bericht niet verwijderen!"
     failed_to_reshare: "Doorgeven mislukt!"
@@ -171,7 +171,6 @@ nl:
       follow: "Volgen"
       followed_tag:
         add_a_tag: "Voeg een label toe"
-        contacts_title: "Mensen die deze tags leuk vinden"
         follow: "Volgen"
         title: "#Gevolgde tags"
       hide: "Verberg"

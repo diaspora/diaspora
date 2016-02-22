@@ -76,6 +76,7 @@ eo:
     user_search:
       add_invites: "aldonu invitojn"
       email_to: "Retmesaĝo por inviti"
+      under_13: "Montru uzantojn malpli ol 13-jaraĝajn (por la usona regularo COPPA)"
       users:
         one: "%{count} uzanto trovita"
         other: "%{count} uzantoj trovitaj"
@@ -83,6 +84,10 @@ eo:
       you_currently:
         other: "vi aktuale havas ankoraŭ %{user_invitation} invitojn %{link}"
     weekly_user_stats:
+      amount_of:
+        one: "Kiomo de novaj uzantoj ĉi-semajne: %{count}"
+        other: "Kiomo de novaj uzantoj ĉi-semajne: %{count}"
+        zero: "Kiomo de novaj uzantoj ĉi-semajne: %{count}"
       current_server: "Aktuala dato de servilo estas %{date}"
   ago: "antaŭ %{time}"
   all_aspects: "Ĉiuj aspektoj"
@@ -127,7 +132,7 @@ eo:
       remove_aspect: "Forigi ĉi tiun aspekton"
       rename: "alinomigi"
       update: "ĝisdatigi"
-      updating: "ĝisdatigado"
+      updating: "ĝisdatigante"
     index:
       diaspora_id:
         content_1: "Via DIASPORA* uzantnomo estas:"
@@ -137,6 +142,7 @@ eo:
       handle_explanation: "Tiu ĉi estas via DIASPORA*-uzantnomo. Vi povas doni ĝin al aliaj homoj same kiel retpoŝtan adreson, por ke ili vin kontaktu."
       help:
         any_problem: "Ĉu iu problemo?"
+        contact_podmin: "Kontaktu vian pod-estron!"
         do_you: "Ĉu vi:"
         email_feedback: "%{link} viajn respondojn, se vi volas"
         email_link: "Retpoŝtadreso"
@@ -144,10 +150,12 @@ eo:
         find_a_bug: "... trovis %{link}n?"
         have_a_question: "... havas %{link}n?"
         here_to_help: "Jen la DIASPORA* komunumo!"
+        mail_podmin: "Podestra retpoŝtadreso"
         need_help: "Ĉu Vi Bezonas Helpon?"
         tag_bug: "cimo"
         tag_feature: "trajtpeto"
         tag_question: "demando"
+        tutorial_link_text: "Enkondukoj"
         tutorials_and_wiki: "%{faq}, %{tutorial} kaj %{wiki}: helpoj por via unuaj paŝoj."
       introduce_yourself: "Tio estas via torento. Ensaltu kaj prezentu vin mem."
       keep_diaspora_running: "Tenu la DIASPORA-evoluadon rapida per monata donacado!"
@@ -164,7 +172,7 @@ eo:
         content: "Vi povas konekti la postajn servojn kun DIASPORA*:"
         heading: "Konekti Servojn"
       unfollow_tag: "Ne plu abonas #%{tag}."
-      welcome_to_diaspora: "Bonvenon al Diaspora, %{name}!"
+      welcome_to_diaspora: "Bonvenon al diaspora*, %{name}!"
     new:
       create: "Krei"
       name: "Nomo (nur videblas de vi)"
@@ -175,8 +183,6 @@ eo:
       you_should_add_some_more_contacts: "Vi devus aldoni pliajn kontaktojn!"
     no_posts_message:
       start_talking: "Ankoraŭ neniu diris ion ajn!"
-    one: "1 aspekto"
-    other: "%{count} aspektoj"
     seed:
       acquaintances: "Konatoj"
       family: "Familio"
@@ -185,7 +191,6 @@ eo:
     update:
       failure: "Via aspekto, %{name}, havis tro longan nomon por konserviĝi."
       success: "Via aspekto, %{name}, sukcese redaktiĝis."
-    zero: "neniuj aspektoj"
   back: "Malantaŭen"
   blocks:
     create:
@@ -222,19 +227,17 @@ eo:
       start_a_conversation: "Komenci interparoladon"
       title: "Kontaktoj"
       your_contacts: "Viaj kontaktoj"
-    one: "1 kontakto"
-    other: "%{count} kontaktoj"
     sharing:
       people_sharing: "Homoj, kiuj konigas al vi:"
     spotlight:
       community_spotlight: "Komunuma ĉeflumo"
       suggest_member: "Sugesti membron"
-    zero: "kontaktoj"
   conversations:
     conversation:
       participants: "Partoprenantoj"
     create:
       fail: "Malĝusta mesaĝo"
+      no_contact: "Hej, unue devas vi aldoni la kontakton."
       sent: "Mesaĝo sendiĝis."
     helper:
       new_messages:
@@ -274,8 +277,14 @@ eo:
     foundation_website: "Retejo de Fondaĵo Diaspora"
     getting_help:
       get_support_a_website: "vizitu nian %{link}"
+      getting_started_a: "Vi bonŝancas. Provu la %{tutorial_series} en nia projektrejejo. Ĝi enkondukos vin paŝo post paŝo tra la aliĝilon kaj instruos vin ĉiujn bazajn bezonatajn informojn pri la uzado de diaspora*."
+      getting_started_q: "Help! Mi bezonas bazan helpon por komenci!"
     here: "ĉi tie"
     irc: "IRC"
+    markdown: "Markdown"
+    third_party_tools: "Deeksterulaj iloj"
+    tutorial: "enkonduko"
+    tutorials: "enkondukoj"
     wiki: "vikio"
   hide: "Kaŝi"
   invitation_codes:
@@ -289,10 +298,10 @@ eo:
       already_sent: "Vi jam invitis tiun personon."
       empty: "Bonvole tajpu almenaŭ unu retpoŝtadreson."
       no_more: "Vi ne plu havas invitojn."
-      note_already_sent: "Invitoj estas ĵus senditaj al: %{emails}"
+      note_already_sent: "Invitiloj estas jam senditaj al: %{emails}"
       own_address: "Vi ne povas sendi inviton al via propra adreso."
       rejected: "La postaj retpoŝtadresoj estis problemaj:"
-      sent: "Invitoj estas sendita al: %{emails}"
+      sent: "Invitoj estas senditaj al: %{emails}"
     edit:
       accept_your_invitation: "Akcepti vian inviton"
       your_account_awaits: "Via konto atendas!"
@@ -705,6 +714,7 @@ eo:
       edit_services: "Redakti servojn"
       logged_in_as: "ensalutinta kiel"
       really_disconnect: "ĉu vi volas malkonekti %{service}?"
+      services_explanation: "Konektiĝo al servoj ebligas al vi publikigi viajn afisojn al tiuj, dum vi en diaspora* verkas ilin."
     inviter:
       click_link_to_accept_invitation: "Sekvu tiun ligilon por akcepti vian inviton"
       join_me_on_diaspora: "Renkontu min ĉe DIASPORA*"
@@ -823,30 +833,23 @@ eo:
       title: "Viaj Aspektoj"
     aspects_stream: "Aspektoj"
     comment_stream:
-      contacts_title: "Homoj kies mesaĝojn vi komentis"
       title: "Komentitaj mesaĝoj"
     community_spotlight_stream: "Komunuma Ĉeflumo"
     followed_tag:
       add_a_tag: "Aldoni etikedon"
-      contacts_title: "homoj kiuj frandas tiujn etikedojn"
       follow: "Sekvi"
       title: "#Sekvataj etikedoj"
     followed_tags_stream: "#Sekvataj etikedoj"
     like_stream:
-      contacts_title: "Homoj kies mesaĝojn vi ŝatas"
       title: "Kiel torento"
     mentioned_stream: "@Mencioj"
     mentions:
-      contacts_title: "Homoj, kiuj menciis vin"
       title: "@Mencioj"
     multi:
-      contacts_title: "Homoj en via Torento"
       title: "Torento"
     public:
-      contacts_title: "ĵusaj afiŝintoj"
       title: "publika aktiveco"
     tags:
-      contacts_title: "Homoj, al kiuj tiuj ĉi etikedoj plaĉas"
       title: "Afiŝoj etikeditaj: %{tags}"
   tag_followings:
     create:
@@ -916,6 +919,7 @@ eo:
     getting_started:
       awesome_take_me_to_diaspora: "Brile! Gvidu min al Diaspora*"
       community_welcome: "La komunumo de DIASPORA* feliĉas, ke vi aniĝis!"
+      connect_to_facebook_link: "Konektante vian Facebook-konton"
       hashtag_explanation: "Etikedoj permesas al vi priparoli kaj aboni viajn interesojn. Ili estas ankaŭ bona metodo por trovi novajn homojn ĉe DIASPORA*."
       hashtag_suggestions: "Provu sekvi etikedojn kiel #arto, #filmoj, #gif, ktp."
       saved: "Konservita!"

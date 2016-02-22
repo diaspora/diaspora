@@ -179,8 +179,6 @@ ko:
       you_should_add_some_more_contacts: "컨택을 좀 더 추가하세요!"
     no_posts_message:
       start_talking: "아직 뭔가 말한 사람이 없습니다!"
-    one: "애스펙 한 개"
-    other: "애스펙 %{count}개"
     seed:
       acquaintances: "지인"
       family: "가족"
@@ -189,7 +187,6 @@ ko:
     update:
       failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 고쳤습니다."
-    zero: "애스펙 없음"
   back: "돌아가기"
   blocks:
     create:
@@ -225,14 +222,11 @@ ko:
       start_a_conversation: "대화를 시작하세요"
       title: "컨택"
       your_contacts: "내 컨택"
-    one: "컨택 한 명"
-    other: "컨택 %{count}명"
     sharing:
       people_sharing: "나와 공유하는 사람들:"
     spotlight:
       community_spotlight: "커뮤니티 스포트라이트"
       suggest_member: "회원 제안"
-    zero: "컨택"
   conversations:
     conversation:
       participants: "참여자"
@@ -856,30 +850,23 @@ ko:
       title: "내 애스펙"
     aspects_stream: "애스펙"
     comment_stream:
-      contacts_title: "내가 댓글 남긴 게시물을 공유한 사람들"
       title: "댓글 스트림"
     community_spotlight_stream: "커뮤니티 스포트라이트"
     followed_tag:
       add_a_tag: "태그 추가"
-      contacts_title: "이 태그들을 파고있는 사람들"
       follow: "팔로우"
       title: "#팔로우한 태그"
     followed_tags_stream: "#팔로우한 태그"
     like_stream:
-      contacts_title: "내가 좋아하는 게시물을 공유한 사람들"
       title: "좋아요 스트림"
     mentioned_stream: "@멘션"
     mentions:
-      contacts_title: "나를 멘션한 사람들"
       title: "@멘션"
     multi:
-      contacts_title: "내 스트림에 있는 사람들"
       title: "스트림"
     public:
-      contacts_title: "최근 게시자"
       title: "공개 활동"
     tags:
-      contacts_title: "이 태그를 파고있는 사람들"
       title: "태그: %{tags}"
   tag_followings:
     create:

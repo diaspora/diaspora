@@ -85,14 +85,11 @@ ta:
       you_should_add_some_more_contacts: "நீங்கள் கண்டிப்பாக மேலும் சில தொடர்புகளை சேர்க்க வேண்டும்!"
     no_posts_message:
       start_talking: "யாரும் எதுவும் கூறவில்லை!"
-    one: "ஒரு அம்சம்"
-    other: "%{count} அம்சங்கள்"
     seed:
       acquaintances: "அறிமுகமானவர்கள்"
       family: "குடும்பம்"
       friends: "நண்பர்கள்"
       work: "வேலை"
-    zero: "இல்லாத அம்சங்கள்"
   back: "பின்"
   cancel: "ரத்துசெய்"
   delete: "நீக்கு"

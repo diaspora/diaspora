@@ -173,7 +173,6 @@ pl:
       follow: "Obserwuj"
       followed_tag:
         add_a_tag: "Dodaj znacznik"
-        contacts_title: "Osoby, które wykopały te te znaczniki"
         follow: "Obserwuj"
         title: "#Obserwowane znaczniki"
       hide: "Ukryj"

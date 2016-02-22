@@ -99,8 +99,6 @@ en_shaw:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑧𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑!"
-    one: "1 𐑨𐑕𐑐𐑧𐑒𐑑"
-    other: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     seed:
       acquaintances: "𐑩𐑒𐑢𐑱𐑑𐑩𐑯𐑕𐑩𐑟"
       family: "𐑓𐑨𐑥𐑦𐑤𐑦"
@@ -109,7 +107,6 @@ en_shaw:
     update:
       failure: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑛 𐑑𐑵 𐑤𐑪𐑙 𐑩 𐑯𐑱𐑥 𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
       success: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑧𐑛𐑦𐑑𐑩𐑛."
-    zero: "𐑯𐑴 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
   back: "𐑚𐑨𐑒"
   bookmarklet:
     explanation: "𐑐𐑴𐑕𐑑 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑮𐑳𐑥 𐑨𐑯𐑦𐑢𐑺 𐑚𐑲 𐑚𐑫𐑒𐑥𐑸𐑒𐑦𐑙 %{link}."
@@ -137,11 +134,8 @@ en_shaw:
       start_a_conversation: "𐑕𐑑𐑸𐑑 𐑩 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯"
       title: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       your_contacts: "𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-    one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
-    other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     sharing:
       people_sharing: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿:"
-    zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   conversations:
     create:
       sent: "𐑥𐑧𐑕𐑩𐑡 𐑕𐑧𐑯𐑑"
@@ -644,8 +638,6 @@ en_shaw:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑓𐑪𐑤𐑴: #%{name}"

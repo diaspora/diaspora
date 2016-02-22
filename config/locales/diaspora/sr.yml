@@ -124,8 +124,6 @@ sr:
       you_should_add_some_more_contacts: "Требало би да додаш контакте!"
     no_posts_message:
       start_talking: "Још нико ништа није рекао!"
-    one: "један поглед"
-    other: "%{count} погледа"
     seed:
       acquaintances: "Познаници"
       family: "Породица"
@@ -134,7 +132,6 @@ sr:
     update:
       failure: "Твој поглед, %{name}, има предугачак назив да би се сачувао."
       success: "Твој поглед, %{name}, је успешно измењен."
-    zero: "нема погледа"
   back: "Назад"
   bookmarklet:
     post_something: "Објави на Дијаспори"
@@ -158,12 +155,10 @@ sr:
       start_a_conversation: "Започни разговор"
       title: "Контакти"
       your_contacts: "Твоји контакти"
-    one: "1 контакт"
     sharing:
       people_sharing: "Људи који деле са вама:"
     spotlight:
       community_spotlight: "Погледи заједнице"
-    zero: "Нема контаката"
   conversations:
     create:
       fail: "Неисправна порука"
@@ -458,15 +453,10 @@ sr:
     hide_comments: "Сакриј све коментаре"
   streams:
     comment_stream:
-      contacts_title: "Особе на чије објаве сте ви коментарисали"
       title: "Коментарисане објаве"
     followed_tag:
       add_a_tag: "Додајте ознаку"
       follow: "Пратите"
-    like_stream:
-      contacts_title: "Особе чије објаве вам се свиђају"
-    mentions:
-      contacts_title: "Особе које су споменуле вас"
     public:
       title: "Јавна активност"
   tag_followings:

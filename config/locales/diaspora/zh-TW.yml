@@ -214,8 +214,6 @@ zh-TW:
       you_should_add_some_more_contacts: "新增更多聯絡人吧！"
     no_posts_message:
       start_talking: "都還沒有人出聲！"
-    one: "1個話題"
-    other: "%{count}個話題"
     seed:
       acquaintances: "認識的人"
       family: "家人"
@@ -224,7 +222,6 @@ zh-TW:
     update:
       failure: "你的面向%{name}名稱太長了無法儲存。"
       success: "你的面向%{name}已經編輯完成了。"
-    zero: "不屬於任何話題"
   back: "上一步"
   blocks:
     create:
@@ -265,14 +262,11 @@ zh-TW:
       title: "聯絡人"
       user_search: "使用者搜尋"
       your_contacts: "你的聯絡人"
-    one: "1個聯絡人"
-    other: "%{count}個聯絡人"
     sharing:
       people_sharing: "跟你分享的人："
     spotlight:
       community_spotlight: "社群焦點"
       suggest_member: "推薦會員"
-    zero: "聯絡人"
   conversations:
     conversation:
       participants: "參加人員"
@@ -341,6 +335,8 @@ zh-TW:
       contacts_know_aspect_a: "不知道。無論如何他們都看不到面向的名稱。"
       contacts_know_aspect_q: "我的聯絡人知道我把他們放到哪些面向裡面嗎？"
       contacts_visible_q: "\"讓面向中的聯絡人可以互相看得到\"是什麼意思？"
+      person_multiple_aspects_a: 可以。在"聯絡人"頁面點一下"我的聯絡人"，可以看到聯絡人的列表。每個聯絡人的右邊有個面向的選單，可以讓你把她/他加到任何數目的面向中，或是從面向中移除掉。你也可以從聯絡人的個人檔案頁面，點面向的選擇按鈕，來把他們加入或移除面向。你還可以在流水帳中，把游標移到聯絡人的名字上面，浮動卡片就會跳出來，讓你也可以設定他們的面向。
+      person_multiple_aspects_q: "我可以把一個人加到好幾個面向去嗎？"
       remove_notification_q: "如果某人從一個話題，或所有話題中遭到移除，他們會收到通知嗎？"
       restrict_posts_i_see_a: "可以。請點一下側邊欄的你的面向，然後用點個別的面向來選擇，或是取消選擇他們。只有被選擇的貼文才會出現在流水帳裡。"
       restrict_posts_i_see_q: "我可以過濾只看到來自特定面向的貼文嗎？"
@@ -352,6 +348,7 @@ zh-TW:
     faq: "常見問答"
     foundation_website: "Diaspora 基金會網站"
     getting_help:
+      get_support_a_faq: "來看看我們在維基上的%{faq}頁面"
       get_support_a_hashtag: "公開用 %{question} 標籤在 diaspora* 上發問"
       get_support_a_irc: "來%{irc}加入我們（即時聊天）"
       get_support_a_tutorials: "來看看我們的%{tutorials}"
@@ -1028,30 +1025,23 @@ zh-TW:
       title: "你的面向"
     aspects_stream: "面向"
     comment_stream:
-      contacts_title: "你發表過意見的貼文作者"
       title: "有意見的貼文"
     community_spotlight_stream: "社群焦點"
     followed_tag:
       add_a_tag: "新增標籤"
-      contacts_title: "這些標籤的粉絲"
       follow: "追蹤"
       title: "#追蹤中的標籤"
     followed_tags_stream: "#追蹤中的標籤"
     like_stream:
-      contacts_title: "你說讚的貼文作者"
       title: "讚的流水帳"
     mentioned_stream: "@指指點點"
     mentions:
-      contacts_title: "對你指指點點過的人"
       title: "@指指點點"
     multi:
-      contacts_title: "出現在流水帳中的人"
       title: "流水帳"
     public:
-      contacts_title: "最新貼文者"
       title: "公開活動"
     tags:
-      contacts_title: "這個標籤的粉絲"
       title: "有以下標籤的貼文：%{tags}"
   tag_followings:
     create:
