@@ -222,7 +222,7 @@ de:
     no_contacts_message:
       community_spotlight: "Gemeinschafts-Schaukasten"
       or_spotlight: "Du kannst auch mit %{link} teilen"
-      try_adding_some_more_contacts: "Du kannst weitere Kontakte suchen oder welche einladen."
+      try_adding_some_more_contacts: "Du kannst weitere Kontakte suchen oder welche %{invite_link}."
       you_should_add_some_more_contacts: "Du solltest ein paar neue Kontakte hinzufügen!"
     no_posts_message:
       start_talking: "Niemand hat bisher etwas gesagt!"
@@ -843,9 +843,12 @@ de:
 
           der %{type} mit der ID %{id} wurde als anstößig markiert.
 
+          Grund: "%{reason}"
+
           [%{url}][1]
 
           Bitte überprüfe das so bald wie möglich!
+
 
           Grüße,
 
@@ -1118,7 +1121,7 @@ de:
       no_services_available: "Auf diesem Pod stehen keine Dienste zur Verfügung."
       not_logged_in: "Du bist momentan nicht angemeldet."
       really_disconnect: "Verbindung mit %{service} entfernen?"
-      services_explanation: "Das Verbinden zu anderen Diensten gibt dir die Möglichkeit, Beiträge, die du in diaspora* schreibst, auch dort zu veröffentlichen."
+      services_explanation: "Das Verbinden zu anderen Drittanbieter-Diensten zum Teilen gibt dir die Möglichkeit, Beiträge, die du in diaspora* schreibst, auch dort zu veröffentlichen."
     inviter:
       click_link_to_accept_invitation: "Öffne diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folge mir auf diaspora*"

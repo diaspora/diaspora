@@ -137,7 +137,7 @@ sv:
   aspect_memberships:
     destroy:
       failure: "Kunde inte ta bort personen från aspekten"
-      forbidden: "Du har inte rätt att göra så."
+      forbidden: "Du har inte tillåtelse att göra så."
       invalid_statement: "Dupliceringar avvisades."
       no_membership: "Kunde inte hitta den valda personen i aspekten"
       success: "Personen har nu tagits bort från aspekten"
@@ -222,7 +222,7 @@ sv:
     no_contacts_message:
       community_spotlight: "Gemenskapens rampljus"
       or_spotlight: "Du kan också dela med %{link}"
-      try_adding_some_more_contacts: "Du kan söka efter eller bjuda in fler personer."
+      try_adding_some_more_contacts: "Du kan söka efter eller %{invite_link} fler kontakter."
       you_should_add_some_more_contacts: "Du borde lägga till fler kontakter!"
     no_posts_message:
       start_talking: "Ingen har sagt någonting än!"
@@ -811,9 +811,11 @@ sv:
       subject: "Ditt Diaspora*-konto har blivit märkt för att tas bort på grund av passivitet."
     report_email:
       body: |-
-          Tjenare,
+          Hejsan.
 
-          %{type} med id:et %{id} var märt som stötande.
+          %{type} med id:et %{id} var märkt som stötande.
+
+          Orsak: "%{reason}"
 
           [%{url}][1]
 
@@ -887,6 +889,7 @@ sv:
       closed_account: "Detta konto har stängts."
       does_not_exist: "Personen finns inte!"
       has_not_shared_with_you_yet: "%{name} har inte delat några inlägg med dig än!"
+      ignoring: "Du ignorerar alla inlägg från %{name}."
       incoming_request: "%{name} vill dela med dig"
       mention: "Omnämn"
       message: "Skicka meddelande"
@@ -943,7 +946,7 @@ sv:
       title: "Ett inlägg från %{name}"
     show:
       destroy: "Ta bort"
-      forbidden: "Du har inte rätt att göra så."
+      forbidden: "Du har inte tillåtelse att göra så."
       not_found: "Tyvärr, men vi kan inte hitta inlägget."
       permalink: "Permanent länk"
       photos_by:
@@ -974,6 +977,8 @@ sv:
       your_location: "Din plats"
       your_name: "Ditt namn"
       your_photo: "Ditt foto"
+      your_private_profile: "Din privata profil"
+      your_public_profile: "Din publika profil"
       your_tags: "Beskriv dig själv med fem ord"
       your_tags_placeholder: "Som #filmer #kattungar #resande #lärare #newyork"
     update:
@@ -1082,7 +1087,7 @@ sv:
       no_services_available: "Det finns inga tjänster tillgängliga på denna pod."
       not_logged_in: "För nuvarande inte inloggad."
       really_disconnect: "Vill du koppla från %{service}?"
-      services_explanation: "Genom att ansluta till andra tjänster, möjliggör det dig att skicka dina inlägg till dem samtidigt som på Diaspora*."
+      services_explanation: "Genom att ansluta till andra tjänster, möjliggör det dig att skicka dina inlägg till dem när du skriver på Diaspora*."
     inviter:
       click_link_to_accept_invitation: "Följ länken för att acceptera din inbjudan"
       join_me_on_diaspora: "Gå med mig på Diaspora*"
@@ -1356,7 +1361,7 @@ sv:
     privacy_settings:
       ignored_users: "Ignorerade användare"
       no_user_ignored_message: "Du har inga ignorerade kontakter."
-      stop_ignoring: "sluta ignorera"
+      stop_ignoring: "Sluta ignorera"
       strip_exif: "Rensa bort metadata, såsom plats, upphovsman och kameramodell från de uppladdade bilderna (rekommenderat)"
       title: "Sekretessinställningar"
     public:
