@@ -15,8 +15,4 @@ class Stream::Mention < Stream::Base
   def posts
     @posts ||= StatusMessage.where_person_is_mentioned(self.user.person)
   end
-
-  def contacts_title
-    I18n.translate('streams.mentions.contacts_title')
-  end
 end

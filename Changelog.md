@@ -1,3 +1,23 @@
+# 0.5.7.0
+
+## Refactor
+* Internationalize controller rescue\_from text [#6554](https://github.com/diaspora/diaspora/pull/6554)
+* Make mention parsing a bit more robust [#6658](https://github.com/diaspora/diaspora/pull/6658)
+* Remove unlicensed images [#6673](https://github.com/diaspora/diaspora/pull/6673)
+* Removed unused contacts\_title [#6687](https://github.com/diaspora/diaspora/pull/6687)
+
+## Bug fixes
+* Fix plural rules handling more than wanted as "one" [#6630](https://github.com/diaspora/diaspora/pull/6630)
+* Fix `suppress_annoying_errors` eating too much errors [#6653](https://github.com/diaspora/diaspora/pull/6653)
+* Ensure the rubyzip gem is properly loaded [#6659](https://github.com/diaspora/diaspora/pull/6659)
+* Fix mobile registration layout after failed registration [#6677](https://github.com/diaspora/diaspora/pull/6677)
+* Fix mirrored names when using a RTL language [#6680](https://github.com/diaspora/diaspora/pull/6680)
+* Disable submitting a post multiple times in the mobile UI [#6682](https://github.com/diaspora/diaspora/pull/6682)
+
+## Features
+* Keyboard shortcuts now do work on profile pages as well [#6647](https://github.com/diaspora/diaspora/pull/6647/files)
+* Add the podmin email address to 500 errors [#6652](https://github.com/diaspora/diaspora/pull/6652)
+
 # 0.5.6.3
 
 Fix evil regression caused by Active Model no longer exposing

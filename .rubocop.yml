@@ -1,7 +1,8 @@
 AllCops:
   RunRailsCops: true
   Exclude:
-    - 'db/schema.rb'
+    - "bin/**/*"
+    - "db/schema.rb"
 
 # Commonly used screens these days easily fit more than 80 characters.
 Metrics/LineLength:
@@ -14,6 +15,8 @@ Metrics/MethodLength:
 
 # The guiding principle of classes is SRP, SRP can't be accurately measured by LoC
 Metrics/ClassLength:
+  Max: 1500
+Metrics/ModuleLength:
   Max: 1500
   
 # Raise AbcSize from 15 to 20

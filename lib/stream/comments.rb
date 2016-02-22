@@ -15,8 +15,4 @@ class Stream::Comments < Stream::Base
   def posts
     @posts ||= EvilQuery::CommentedPosts.new(user).posts
   end
-
-  def contacts_title
-    I18n.translate('streams.comment_stream.contacts_title')
-  end
 end

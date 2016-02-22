@@ -46,7 +46,9 @@ describe "Receive federation messages feature" do
         post = FactoryGirl.create(:status_message, author: alice.person, public: false)
         reshare = FactoryGirl.build(
           :reshare_entity, root_diaspora_id: alice.diaspora_handle, root_guid: post.guid, diaspora_id: sender_id)
-        post_message(generate_xml(reshare, sender))
+        expect {
+          post_message(generate_xml(reshare, sender))
+        }.to raise_error ActiveRecord::RecordInvalid, "Validation failed: Only posts which are public may be reshared."
 
         expect(Reshare.exists?(root_guid: post.guid, diaspora_handle: sender_id)).to be_falsey
       end

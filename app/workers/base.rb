@@ -24,10 +24,10 @@ module Workers
       logger.warn "error on receive: #{e.class}"
     rescue ActiveRecord::RecordInvalid => e
       logger.warn "failed to save received object: #{e.record.errors.full_messages}"
-      raise e unless %w(
-        "already been taken"
+      raise e unless [
+        "already been taken",
         "is ignored by the post author"
-      ).any? {|reason| e.message.include? reason }
+      ].any? {|reason| e.message.include? reason }
     end
   end
 end

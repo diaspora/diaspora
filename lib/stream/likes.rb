@@ -15,8 +15,4 @@ class Stream::Likes < Stream::Base
   def posts
     @posts ||= EvilQuery::LikedPosts.new(user).posts
   end
-
-  def contacts_title
-    I18n.translate('streams.like_stream.contacts_title')
-  end
 end

@@ -5,7 +5,7 @@ module Diaspora::Mentionable
   # ex.
   #   "message @{User Name; user@pod.net} text"
   #   will yield "User Name" and "user@pod.net"
-  REGEX = /(@\{([^\}]+)\})/
+  REGEX = /(@\{(.+?; [^\}]+)\})/
 
   # class attribute that will be added to all mention html links
   PERSON_HREF_CLASS = "mention hovercardable"
