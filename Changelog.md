@@ -131,6 +131,7 @@ Contributions are very welcome, the hard work is done!
 * Fix internal server error when trying to log out of an expired session [#6707](https://github.com/diaspora/diaspora/pull/6707)
 
 ## Features
+* Added the footer to conversation pages
 
 # 0.5.7.0
 
