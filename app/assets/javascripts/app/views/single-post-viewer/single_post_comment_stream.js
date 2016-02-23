@@ -20,7 +20,7 @@ app.views.SinglePostCommentStream = app.views.CommentStream.extend({
 
   postRenderTemplate: function() {
     app.views.CommentStream.prototype.postRenderTemplate.apply(this);
-    this.$(".new_comment_form_wrapper").removeClass('hidden');
+    this.$(".new-comment-form-wrapper").removeClass("hidden");
     _.defer(this.highlightPermalinkComment);
   },
 

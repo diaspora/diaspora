@@ -3,9 +3,9 @@
 }
 
 #single-post-content {
-  border-right: solid 1px #cccccc;
-  #head {
+  .head {
     padding-bottom: 10px;
+    padding-top: 5px;
     border-bottom: 1px solid $border-grey;
     #post-info {
       .author{ color: $grey; }
@@ -26,12 +26,12 @@
     .near-from {
       color: $text-grey;
       font-size: 12px;
-      margin: 10px 20px 0px 15px;
+      margin: 10px 15px 0;
     }
     .mapContainer {
-      margin: 10px 20px 0px 15px;
+      margin: 10px 15px 0;
     }
-    .row.reshare {
+    .reshare {
       border-top: 1px solid lighten($border-grey,5%);
       padding-top: 10px;
       margin-top: 10px;
@@ -99,44 +99,16 @@
     }
   }
 
-  #body {
-    margin-left: 20px;
-    padding-top: 20px;
-    width: auto;
-
-    #real-post-content div.reshare {
-      border-left: 2px solid #DDD;
-      padding-left: 10px;
-    }
+  .body {
+    padding: 20px 15px;
 
     .nsfw-off { display: none; }
     .nsfw-shield { display: none; }
-    .oembed { width: 95%; }
-    .photo_attachments {
-      img.big_stream_photo { max-width: 90%; }
-    }
   }
 }
 
 #single-post-interactions {
-  border-left: 1px solid #cccccc;
-  position: relative;
-  left: -1px;
-  margin-left: 0;
-  padding-left: 15px;
-
-  .comment.media .img {
-    margin-left: 5px;
-  }
-
-  .no_comments {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: $background-grey;
-    text-align: center;
-    border-radius: 4px;
-    margin-bottom: 30px;
-  }
+  .no-comments { text-align: center; }
 
   a {
     color: $blue;
@@ -161,4 +133,8 @@
     img{ display: inline; }
   }
 
+  .comments > .comment,
+  .comment.new-comment-form-wrapper {
+    padding: 10px;
+  }
 }
