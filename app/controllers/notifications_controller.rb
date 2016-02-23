@@ -61,9 +61,9 @@ class NotificationsController < ApplicationController
 
   def read_all
     current_type = Notification.types[params[:type]]
-    notifications = Notification.where(:recipient_id => current_user.id)
-    notifications = notifications.where(:type => current_type) if params[:type]
-    notifications.update_all(:unread => false)
+    notifications = Notification.where(recipient_id: current_user.id, unread: true)
+    notifications = notifications.where(type: current_type) if params[:type]
+    notifications.update_all(unread: false)
     respond_to do |format|
       if current_user.unread_notifications.count > 0
         format.html { redirect_to notifications_path }
@@ -75,7 +75,6 @@ class NotificationsController < ApplicationController
       format.xml { render :xml => {}.to_xml }
       format.json { render :json => {}.to_json }
     end
-
   end
 
 end
