@@ -185,7 +185,8 @@ describe StatusMessagesController, :type => :controller do
 
       it "attaches all referenced photos" do
         post :create, @hash
-        expect(assigns[:status_message].photos.map(&:id)).to match_array([@photo1, @photo2].map(&:id))
+        status_message = StatusMessage.find_by_text(status_message_hash[:status_message][:text])
+        expect(status_message.photos.map(&:id)).to match_array([@photo1, @photo2].map(&:id))
       end
 
       it "sets the pending bit of referenced photos" do
