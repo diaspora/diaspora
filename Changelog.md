@@ -100,6 +100,7 @@ Contributions are very welcome, the hard work is done!
 * Fixed a 500 when liking on mobile without JS enabled [#6683](https://github.com/diaspora/diaspora/pull/6683)
 * Fixed profile image upload in the mobile UI [#6684](https://github.com/diaspora/diaspora/pull/6684)
 * Fixed eye not stopping all processes when trying to exit `script/server` [#6693](https://github.com/diaspora/diaspora/pull/6693)
+* Do not change contacts count when marking notifications on the contacts page as read [#6718](https://github.com/diaspora/diaspora/pull/6718)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
