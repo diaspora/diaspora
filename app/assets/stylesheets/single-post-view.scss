@@ -114,6 +114,7 @@
     color: $blue;
   }
   .count {
+    float: left;
     i {
       display: inline-block;
       text-align: center;
@@ -136,5 +137,10 @@
   .comments > .comment,
   .comment.new-comment-form-wrapper {
     padding: 10px;
+  }
+
+  .count,
+  .interaction-avatars {
+    line-height: 25px;
   }
 }
