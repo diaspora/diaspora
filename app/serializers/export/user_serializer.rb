@@ -4,6 +4,7 @@ module Export
                :email,
                :language,
                :username,
+               :serialized_private_key,
                :disable_mail,
                :show_community_spotlight_in_stream,
                :auto_follow_back,
