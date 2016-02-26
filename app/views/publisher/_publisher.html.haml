@@ -9,7 +9,7 @@
     = form_for(StatusMessage.new) do |status|
       = status.error_messages
       %params
-        #publisher_textarea_wrapper
+        .publisher-textarea-wrapper#publisher_textarea_wrapper
           - if current_user.getting_started?
             = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text),
               :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
@@ -29,14 +29,14 @@
           #poll_creator_container
             -# handlebars template
           #button_container
-            .pull-right#publisher-images
-              .btn.btn-link#poll_creator{title: t("shared.publisher.poll.add_a_poll")}
+            .publisher-buttonbar#publisher-images
+              .btn.btn-link.poll-creator#poll_creator{title: t("shared.publisher.poll.add_a_poll")}
                 %i.entypo-bar-graph
-              .btn.btn-link#file-upload{title: t("shared.publisher.upload_photos")}
+              .btn.btn-link.file-upload#file-upload{title: t("shared.publisher.upload_photos")}
                 %i.entypo-camera.publisher_image
-              .btn.btn-link#locator{title: t("shared.publisher.get_location")}
+              .btn.btn-link.locator#locator{title: t("shared.publisher.get_location")}
                 %i.entypo-location.publisher_image
-              .btn.btn-link#hide_location{title: t("shared.publisher.remove_location")}
+              .btn.btn-link.hide-location#hide_location{title: t("shared.publisher.remove_location")}
                 %i.entypo-cross.publisher_image
             %span.markdownIndications
               != t("shared.publisher.formatWithMarkdown", markdown_link: link_to(t("help.markdown"),
