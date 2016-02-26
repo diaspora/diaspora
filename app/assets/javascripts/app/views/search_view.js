@@ -40,7 +40,7 @@ app.views.Search = app.views.SearchBase.extend({
   },
 
   inputKeypress: function(evt){
-    if(evt.which === 13 && $(".tt-suggestion.tt-cursor").length === 0){
+    if(evt.which === Keycodes.ENTER && $(".tt-suggestion.tt-cursor").length === 0){
       $(evt.target).closest("form").submit();
     }
   },

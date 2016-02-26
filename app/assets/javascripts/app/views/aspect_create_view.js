@@ -32,7 +32,7 @@ app.views.AspectCreate = app.views.Base.extend({
   },
 
   inputKeypress: function(evt) {
-    if(evt.which === 13) {
+    if(evt.which === Keycodes.ENTER) {
       evt.preventDefault();
       this.createAspect();
     }

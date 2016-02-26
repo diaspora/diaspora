@@ -43,7 +43,7 @@ app.views.ConversationsForm = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode === 13 && evt.ctrlKey ) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
       $(evt.target).parents("form").submit();
     }
   }

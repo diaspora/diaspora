@@ -47,13 +47,13 @@ describe("app.views.AspectCreate", function() {
       });
 
       it("should call createAspect if the enter key was pressed", function() {
-        var e = $.Event("keypress", { which: 13 });
+        var e = $.Event("keypress", { which: Keycodes.ENTER });
         this.view.inputKeypress(e);
         expect(this.view.createAspect).toHaveBeenCalled();
       });
 
       it("shouldn't call createAspect if another key was pressed", function() {
-        var e = $.Event("keypress", { which: 42 });
+        var e = $.Event("keypress", { which: Keycodes.TAB });
         this.view.inputKeypress(e);
         expect(this.view.createAspect).not.toHaveBeenCalled();
       });

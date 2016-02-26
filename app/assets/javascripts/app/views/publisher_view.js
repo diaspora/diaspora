@@ -247,8 +247,9 @@ app.views.Publisher = Backbone.View.extend({
 
   // avoid submitting form when pressing Enter key
   avoidEnter: function(evt){
-    if(evt.keyCode === 13)
+    if(evt.which === Keycodes.ENTER) {
       return false;
+    }
   },
 
   getUploadedPhotos: function() {
@@ -356,7 +357,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode === 13 && evt.ctrlKey ) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
       this.$("form").submit();
       this.open();
       return false;

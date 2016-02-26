@@ -7,11 +7,6 @@
  */
 
 app.views.PublisherMention = app.views.SearchBase.extend({
-  KEYS: {
-    PASTE: 118, BACKSPACE: 8, TAB: 9, RETURN: 13, ESC: 27, LEFT: 37,
-    UP: 38, RIGHT: 39, DOWN: 40, COMMA: 188, SPACE: 32, HOME: 36, END: 35
-  },
-
   settings: {
     triggerChar: "@",
     minChars: 2,
@@ -222,7 +217,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
    * user press up and down arrows.
    */
   onArrowKeysPress: function(e){
-    if(!this.isVisible() || (e.keyCode !== this.KEYS.UP && e.keyCode !== this.KEYS.DOWN)){
+    if(!this.isVisible() || (e.which !== Keycodes.UP && e.which !== Keycodes.DOWN)){
       return;
     }
 
@@ -231,12 +226,12 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
     this.getTypeaheadInput().typeahead("activate");
     this.getTypeaheadInput().typeahead("open");
-    this.getTypeaheadInput().trigger($.Event("keydown", {keyCode: e.keyCode}));
+    this.getTypeaheadInput().trigger($.Event("keydown", {keyCode: e.keyCode, which: e.which}));
   },
 
   onInputBoxKeyPress: function(e){
     // Excluding ctrl+v from key press event in firefox
-    if(!((e.which === this.KEYS.PASTE && e.ctrlKey) || (e.keyCode === this.KEYS.BACKSPACE))){
+    if(!((String.fromCharCode(e.which).toLowerCase() === "v" && e.ctrlKey) || (e.which === Keycodes.BACKSPACE))){
       var typedValue = String.fromCharCode(e.which || e.keyCode);
       this.inputBuffer.push(typedValue);
     }
@@ -260,8 +255,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
   onInputBoxKeyDown: function(e){
     // This also matches HOME/END on OSX which is CMD+LEFT, CMD+RIGHT
-    if(e.keyCode === this.KEYS.LEFT || e.keyCode === this.KEYS.RIGHT ||
-       e.keyCode === this.KEYS.HOME || e.keyCode === this.KEYS.END){
+    if(e.which === Keycodes.LEFT || e.which === Keycodes.RIGHT ||
+       e.which === Keycodes.HOME || e.which === Keycodes.END){
       _.defer(this.clearBuffer);
 
       // IE9 doesn't fire the oninput event when backspace or delete is pressed. This causes the highlighting
@@ -274,7 +269,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       return;
     }
 
-    if(e.keyCode === this.KEYS.BACKSPACE){
+    if(e.which === Keycodes.BACKSPACE){
       this.inputBuffer = this.inputBuffer.slice(0, this.inputBuffer.length - 1);
       return;
     }
@@ -283,17 +278,17 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       return true;
     }
 
-    switch(e.keyCode){
-      case this.KEYS.ESC:
-      case this.KEYS.SPACE:
+    switch(e.which){
+      case Keycodes.ESC:
+      case Keycodes.SPACE:
         this.resetMentionBox();
         break;
-      case this.KEYS.UP:
-      case this.KEYS.DOWN:
+      case Keycodes.UP:
+      case Keycodes.DOWN:
         this.onArrowKeysPress(e);
         break;
-      case this.KEYS.RETURN:
-      case this.KEYS.TAB:
+      case Keycodes.RETURN:
+      case Keycodes.TAB:
         if(this.getSelected().size() === 1){
            this.getSelected().click();
           return false;
