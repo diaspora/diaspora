@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210213023) do
+ActiveRecord::Schema.define(version: 20160225232049) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -542,18 +542,16 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
   create_table "share_visibilities", force: :cascade do |t|
-    t.integer  "shareable_id",   limit: 4,                   null: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.boolean  "hidden",                    default: false,  null: false
-    t.integer  "contact_id",     limit: 4,                   null: false
-    t.string   "shareable_type", limit: 60, default: "Post", null: false
+    t.integer "shareable_id",   limit: 4,                   null: false
+    t.boolean "hidden",                    default: false,  null: false
+    t.string  "shareable_type", limit: 60, default: "Post", null: false
+    t.integer "user_id",        limit: 4,                   null: false
   end
 
-  add_index "share_visibilities", ["contact_id"], name: "index_post_visibilities_on_contact_id", using: :btree
-  add_index "share_visibilities", ["shareable_id", "shareable_type", "contact_id"], name: "shareable_and_contact_id", using: :btree
-  add_index "share_visibilities", ["shareable_id", "shareable_type", "hidden", "contact_id"], name: "shareable_and_hidden_and_contact_id", using: :btree
+  add_index "share_visibilities", ["shareable_id", "shareable_type", "hidden", "user_id"], name: "shareable_and_hidden_and_user_id", using: :btree
+  add_index "share_visibilities", ["shareable_id", "shareable_type", "user_id"], name: "shareable_and_user_id", using: :btree
   add_index "share_visibilities", ["shareable_id"], name: "index_post_visibilities_on_post_id", using: :btree
+  add_index "share_visibilities", ["user_id"], name: "index_share_visibilities_on_user_id", using: :btree
 
   create_table "simple_captcha_data", force: :cascade do |t|
     t.string   "key",        limit: 40
@@ -679,5 +677,5 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   add_foreign_key "ppid", "users"
   add_foreign_key "profiles", "people", name: "profiles_person_id_fk", on_delete: :cascade
   add_foreign_key "services", "users", name: "services_user_id_fk", on_delete: :cascade
-  add_foreign_key "share_visibilities", "contacts", name: "post_visibilities_contact_id_fk", on_delete: :cascade
+  add_foreign_key "share_visibilities", "users", name: "share_visibilities_user_id_fk", on_delete: :cascade
 end
