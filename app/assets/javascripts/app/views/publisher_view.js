@@ -5,9 +5,11 @@
  *   the COPYRIGHT file.
  */
 
-//= require ./publisher/services_view
 //= require ./publisher/aspect_selector_view
 //= require ./publisher/getting_started_view
+//= require ./publisher/mention_view
+//= require ./publisher/poll_creator_view
+//= require ./publisher/services_view
 //= require ./publisher/uploader_view
 //= require jquery-textchange
 
@@ -99,7 +101,7 @@ app.views.Publisher = Backbone.View.extend({
 
   initSubviews: function() {
     this.mention = new app.views.PublisherMention({ el: this.$("#publisher_textarea_wrapper") });
-    if(this.prefillMention){
+    if(this.prefillMention) {
       this.mention.prefillMention([this.prefillMention]);
     }
 
@@ -299,7 +301,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
     var photos = this.getUploadedPhotos();
-    var mentionedPeople = this.mention.mentionsCollection;
+    var mentionedPeople = this.mention.mentionedPeople;
     var date = (new Date()).toISOString();
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
@@ -365,15 +367,15 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   clear : function() {
+    // remove mentions
+    this.mention.reset();
+
     // clear text(s)
     this.inputEl.val("");
     this.hiddenInputEl.val("");
     this.inputEl.trigger("keyup")
                  .trigger("keydown");
     autosize.update(this.inputEl);
-
-    // remove mentions
-    this.mention.reset();
 
     // remove photos
     this.photozoneEl.find("li").remove();

@@ -1,15 +1,17 @@
 app.views.SearchBase = app.views.Base.extend({
-  initialize: function(options){
-    this.typeaheadElement = $(options.typeaheadElement);
-    this.setupBloodhound();
+  initialize: function(options) {
+    this.ignoreDiasporaIds = [];
+    this.typeaheadInput = options.typeaheadInput;
+    this.setupBloodhound(options);
+    if(options.customSearch) { this.setupCustomSearch(); }
     this.setupTypeahead();
-    this.bindSelectionEvents();
-    this.resultsTofilter = [];
+    // TODO: Remove this as soon as corejavascript/typeahead.js has its first release
+    this.setupMouseSelectionEvents();
+    if(options.autoselect) { this.setupAutoselect(); }
   },
 
-  setupBloodhound: function() {
-    var self = this;
-    var bloodhoundConf = {
+  setupBloodhound: function(options) {
+    var bloodhoundOptions = {
       datumTokenizer: function(datum) {
         var nameTokens = Bloodhound.tokenizers.nonword(datum.name);
         var handleTokens = datum.handle ? Bloodhound.tokenizers.nonword(datum.name) : [];
@@ -24,32 +26,25 @@ app.views.SearchBase = app.views.Base.extend({
       sufficient: 5
     };
 
-    // The publisher does not define an additionnal source for searchin
-    // This prevents tests from failing when this additionnal source isn't set
-    if(this.searchFormAction !== undefined){
-      bloodhoundConf.remote = {
-        url: this.searchFormAction + ".json?q=%QUERY",
+    // Allow bloodhound to look for remote results if there is a route given in the options
+    if(options.remoteRoute) {
+      bloodhoundOptions.remote = {
+        url: options.remoteRoute + ".json?q=%QUERY",
         wildcard: "%QUERY",
         transform: this.transformBloodhoundResponse
       };
     }
 
-    this.bloodhound = new Bloodhound(bloodhoundConf);
+    this.bloodhound = new Bloodhound(bloodhoundOptions);
+  },
 
-    /**
-     * Custom searching function that let us filter contacts from prefetched Bloodhound results.
-     */
-    this.bloodhound.customSearch = function(query, sync, async){
-      var filterResults = function(datums){
-        return _.filter(datums, function(result){
-          if(result.handle){
-            return !_.contains(self.resultsTofilter, result.handle);
-          }
+  setupCustomSearch: function() {
+    var self = this;
+    this.bloodhound.customSearch = function(query, sync, async) {
+      var _sync = function(datums) {
+        var results = datums.filter(function(datum) {
+          return datum.handle !== undefined && self.ignoreDiasporaIds.indexOf(datum.handle) === -1;
         });
-      };
-
-      var _sync = function(datums){
-        var results = filterResults(datums);
         sync(results);
       };
 
@@ -58,7 +53,7 @@ app.views.SearchBase = app.views.Base.extend({
   },
 
   setupTypeahead: function() {
-    this.typeaheadElement.typeahead({
+    this.typeaheadInput.typeahead({
       hint: false,
       highlight: true,
       minLength: 2
@@ -67,7 +62,7 @@ app.views.SearchBase = app.views.Base.extend({
       name: "search",
       display: "name",
       limit: 5,
-      source: this.searchFormAction !== undefined ? this.bloodhound : this.bloodhound.customSearch,
+      source: this.bloodhound.customSearch !== undefined ? this.bloodhound.customSearch : this.bloodhound,
       templates: {
         /* jshint camelcase: false */
         suggestion: HandlebarsTemplates.search_suggestion_tpl
@@ -77,9 +72,9 @@ app.views.SearchBase = app.views.Base.extend({
   },
 
   transformBloodhoundResponse: function(response) {
-    return response.map(function(data){
+    return response.map(function(data) {
       // person
-      if(data.handle){
+      if(data.handle) {
         data.person = true;
         return data;
       }
@@ -93,49 +88,37 @@ app.views.SearchBase = app.views.Base.extend({
     });
   },
 
-  /**
-   * This bind events to highlight a result when overing it
-   */
-  bindSelectionEvents: function(){
-    var self = this;
-    var onover = function(suggestion){
-      return function(){
-        self.select(suggestion);
-      };
-    };
+  _deselectAllSuggestions: function() {
+    this.$(".tt-suggestion").removeClass("tt-cursor");
+  },
 
-    this.typeaheadElement.on("typeahead:render", function(){
-      self.$(".tt-menu *").off("mouseover");
-      self.$(".tt-menu .tt-suggestion").each(function(){
-        var $suggestion = $(this);
-        $suggestion.on("mouseover", onover($suggestion));
-        $suggestion.find("*").on("mouseover", onover($suggestion));
-      });
+  _selectSuggestion: function(suggestion) {
+    this._deselectAllSuggestions();
+    suggestion.addClass("tt-cursor");
+  },
+
+  // TODO: Remove this as soon as corejavascript/typeahead.js has its first release
+  setupMouseSelectionEvents: function() {
+    var self = this,
+        selectSuggestion = function(e) { self._selectSuggestion($(e.target).closest(".tt-suggestion")); },
+        deselectAllSuggestions = function() { self._deselectAllSuggestions(); };
+
+    this.typeaheadInput.on("typeahead:render", function() {
+      self.$(".tt-menu .tt-suggestion").off("mouseover").on("mouseover", selectSuggestion);
+      self.$(".tt-menu .tt-suggestion *").off("mouseover").on("mouseover", selectSuggestion);
+      self.$(".tt-menu .tt-suggestion").off("mouseleave").on("mouseleave", deselectAllSuggestions);
     });
   },
 
-  /**
-   * This function lets us filter contacts from Bloodhound's responses
-   * It is used by app.views.PublisherMention to filter already mentionned
-   * people in post. Does not filter tags from results.
-   * @param person a JSON object of form { handle: <diaspora handle>, ... } representing the filtered contact
-   */
-  addToFilteredResults: function(person){
-    if(person.handle){
-      this.resultsTofilter.push(person.handle);
-    }
+  // Selects the first result when the result dropdown opens
+  setupAutoselect: function() {
+    var self = this;
+    this.typeaheadInput.on("typeahead:render", function() {
+      self._selectSuggestion(self.$(".tt-menu .tt-suggestion").first());
+    });
   },
 
-  clearFilteredResults: function(){
-    this.resultsTofilter.length = 0;
+  ignorePersonForSuggestions: function(person) {
+    if(person.handle) { this.ignoreDiasporaIds.push(person.handle); }
   },
-
-  getSelected: function(){
-    return this.$el.find(".tt-cursor");
-  },
-
-  select: function(el){
-    this.getSelected().removeClass("tt-cursor");
-    $(el).addClass("tt-cursor");
-  }
 });

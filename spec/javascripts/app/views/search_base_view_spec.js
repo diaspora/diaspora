@@ -1,75 +1,106 @@
 describe("app.views.SearchBase", function() {
-  beforeEach(function(){
+  beforeEach(function() {
     spec.content().html(
       "<form action='/search' id='search_people_form'><input id='q' name='q' type='search'/></form>"
     );
+    this.search = function(view, name) {
+      view.$("#q").trigger("focusin");
+      view.$("#q").val(name);
+      view.$("#q").trigger("keypress");
+      view.$("#q").trigger("input");
+      view.$("#q").trigger("focus");
+    };
+    this.bloodhoundData = [
+      {"person": true, "name": "user1", "handle": "user1@pod.tld"},
+      {"person": true, "name": "user2", "handle": "user2@pod.tld"}
+    ];
   });
 
-  describe("initialize", function(){
-    it("calls setupBloodhound", function(){
+  describe("initialize", function() {
+    it("calls setupBloodhound", function() {
       spyOn(app.views.SearchBase.prototype, "setupBloodhound").and.callThrough();
-      new app.views.SearchBase({el: "#search_people_form"});
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
       expect(app.views.SearchBase.prototype.setupBloodhound).toHaveBeenCalled();
     });
 
-    it("calls setupTypeahead", function(){
+    it("doesn't call setupCustomSearch if customSearch hasn't been enabled", function() {
+      spyOn(app.views.SearchBase.prototype, "setupCustomSearch");
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      expect(app.views.SearchBase.prototype.setupCustomSearch).not.toHaveBeenCalled();
+    });
+
+    it("calls setupCustomSearch if customSearch has been enabled", function() {
+      spyOn(app.views.SearchBase.prototype, "setupCustomSearch");
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q"), customSearch: true});
+      expect(app.views.SearchBase.prototype.setupCustomSearch).toHaveBeenCalled();
+    });
+
+    it("calls setupTypeahead", function() {
       spyOn(app.views.SearchBase.prototype, "setupTypeahead");
-      new app.views.SearchBase({el: "#search_people_form"});
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
       expect(app.views.SearchBase.prototype.setupTypeahead).toHaveBeenCalled();
     });
 
-    it("calls bindSelectionEvents", function(){
-      spyOn(app.views.SearchBase.prototype, "bindSelectionEvents");
-      new app.views.SearchBase({el: "#search_people_form"});
-      expect(app.views.SearchBase.prototype.bindSelectionEvents).toHaveBeenCalled();
+    it("calls setupMouseSelectionEvents", function() {
+      spyOn(app.views.SearchBase.prototype, "setupMouseSelectionEvents");
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      expect(app.views.SearchBase.prototype.setupMouseSelectionEvents).toHaveBeenCalled();
     });
 
-    it("initializes the results to filter", function(){
-      spyOn(app.views.SearchBase.prototype, "bindSelectionEvents");
-      var view = new app.views.SearchBase({el: "#search_people_form"});
-      expect(view.resultsTofilter.length).toBe(0);
+    it("initializes the array of diaspora ids that should be excluded from the search results", function() {
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      expect(this.view.ignoreDiasporaIds.length).toBe(0);
+    });
+
+    it("doesn't call setupAutoselect if autoselect hasn't been enabled", function() {
+      spyOn(app.views.SearchBase.prototype, "setupAutoselect");
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      expect(app.views.SearchBase.prototype.setupAutoselect).not.toHaveBeenCalled();
+    });
+
+    it("calls setupAutoselect if autoselect has been enabled", function() {
+      spyOn(app.views.SearchBase.prototype, "setupAutoselect");
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q"), autoselect: true});
+      expect(app.views.SearchBase.prototype.setupAutoselect).toHaveBeenCalled();
     });
   });
 
-  describe("setupBloodhound", function(){
-    beforeEach(function(){
-      this.view = new app.views.SearchBase({el: "#search_people_form"});
-      this.syncCallback = function(){};
-      this.asyncCallback = function(){};
+  describe("setupCustomSearch", function() {
+    it("sets bloodhound.customSearch", function() {
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      expect(this.view.bloodhound.customSearch).toBeUndefined();
+      this.view.setupCustomSearch();
+      expect(this.view.bloodhound.customSearch).toBeDefined();
     });
 
-    context("when performing a local search with 1 filtered result", function(){
-      beforeEach(function(){
-        this.view.initialize({typeaheadElement: this.view.$("#q")});
-        this.view.bloodhound.add([
-          {"id":1,"guid":"1","name":"user1","handle":"user1@pod.tld","url":"/people/1"},
-          {"id":2,"guid":"2","name":"user2","handle":"user2@pod.tld","url":"/people/2"}
-        ]);
+    describe("customSearch", function() {
+      beforeEach(function() {
+        this.view = new app.views.SearchBase({
+          el: "#search_people_form",
+          typeaheadInput: $("#q"),
+          customSearch: true
+        });
+        this.view.bloodhound.add(this.bloodhoundData);
       });
 
-      it("should not return the filtered result", function(){
-        spyOn(this, "syncCallback");
-        spyOn(this, "asyncCallback");
+      it("returns all results if none of them should be ignored", function() {
+        var spy = jasmine.createSpyObj("callbacks", ["syncCallback", "asyncCallback"]);
+        this.view.bloodhound.customSearch("user", spy.syncCallback, spy.asyncCallback);
+        expect(spy.syncCallback).toHaveBeenCalledWith(this.bloodhoundData);
+      });
 
-        this.view.bloodhound.customSearch("user", this.syncCallback, this.asyncCallback);
-        expect(this.syncCallback).toHaveBeenCalledWith([
-          {"id":1,"guid":"1","name":"user1","handle":"user1@pod.tld","url":"/people/1"},
-          {"id":2,"guid":"2","name":"user2","handle":"user2@pod.tld","url":"/people/2"}
-        ]);
-        expect(this.asyncCallback).not.toHaveBeenCalled();
-
-        this.view.addToFilteredResults({"id":1,"guid":"1","name":"user1","handle":"user1@pod.tld","url":"/people/1"});
-        this.view.bloodhound.customSearch("user", this.syncCallback, this.asyncCallback);
-        expect(this.syncCallback).toHaveBeenCalledWith(
-          [{"id":2,"guid":"2","name":"user2","handle":"user2@pod.tld","url":"/people/2"}]);
-        expect(this.asyncCallback).not.toHaveBeenCalled();
+      it("doesn't return results that should be ignored", function() {
+        var spy = jasmine.createSpyObj("callbacks", ["syncCallback", "asyncCallback"]);
+        this.view.ignorePersonForSuggestions({handle: "user1@pod.tld"});
+        this.view.bloodhound.customSearch("user", spy.syncCallback, spy.asyncCallback);
+        expect(spy.syncCallback).toHaveBeenCalledWith([this.bloodhoundData[1]]);
       });
     });
   });
 
   describe("transformBloodhoundResponse", function() {
     beforeEach(function() {
-      this.view = new app.views.SearchBase({ el: "#search_people_form" });
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
     });
 
     context("with persons", function() {
@@ -99,81 +130,119 @@ describe("app.views.SearchBase", function() {
     });
   });
 
-  describe("bindSelectionEvents", function(){
+  describe("setupMouseSelectionEvents", function() {
     beforeEach(function() {
-      this.view = new app.views.SearchBase({ el: "#search_people_form" });
-      this.view.initialize({typeaheadElement: this.view.$("#q")});
-      this.view.bloodhound.add([
-        {"person": true, "name":"user1", "handle":"user1@pod.tld"},
-        {"person": true, "name":"user2", "handle":"user2@pod.tld"}
-      ]);
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      this.view.bloodhound.add(this.bloodhoundData);
     });
 
-    context("bind over events", function(){
-      it("binds over event only once", function(){
-        this.view.$("#q").trigger("focusin");
-        this.view.$("#q").val("user");
-        this.view.$("#q").trigger("keypress");
-        this.view.$("#q").trigger("input");
-        this.view.$("#q").trigger("focus");
-        var numBindedEvents = $._data(this.view.$(".tt-menu .tt-suggestion")[0], "events").mouseover.length;
-        expect(numBindedEvents).toBe(1);
-        this.view.$("#q").trigger("focusout");
-        this.view.$("#q").trigger("focusin");
-        this.view.$("#q").val("user");
-        this.view.$("#q").trigger("keypress");
-        this.view.$("#q").trigger("input");
-        this.view.$("#q").trigger("focus");
-        numBindedEvents = $._data(this.view.$(".tt-menu .tt-suggestion")[0], "events").mouseover.length;
-        expect(numBindedEvents).toBe(1);
-      });
+    it("binds mouseover and mouseleave events only once", function() {
+      this.search(this.view, "user");
+      $("#q").trigger("focusout");
+      expect($._data($(".tt-menu .tt-suggestion")[0], "events").mouseover.length).toBe(1);
+      expect($._data($(".tt-menu .tt-suggestion")[0], "events").mouseout.length).toBe(1);
 
-      it("highlights the result when overing it", function(){
-        this.view.$("#q").trigger("focusin");
-        this.view.$("#q").val("user");
-        this.view.$("#q").trigger("keypress");
-        this.view.$("#q").trigger("input");
-        this.view.$("#q").trigger("focus");
-        this.view.$(".tt-menu .tt-suggestion").first().trigger("mouseover");
-        expect(this.view.$(".tt-menu .tt-suggestion").first()).toHaveClass("tt-cursor");
-      });
+      this.search(this.view, "user");
+      $("#q").trigger("focusout");
+      expect($._data($(".tt-menu .tt-suggestion")[0], "events").mouseover.length).toBe(1);
+      expect($._data($(".tt-menu .tt-suggestion")[0], "events").mouseout.length).toBe(1);
+    });
+
+    it("allows selecting results with the mouse", function() {
+      this.search(this.view, "user");
+      this.view.$(".tt-menu .tt-suggestion:eq(0)").trigger("mouseover");
+      expect(this.view.$(".tt-menu .tt-suggestion:eq(0)")).toHaveClass("tt-cursor");
+      expect(this.view.$(".tt-cursor").length).toBe(1);
+
+      this.view.$(".tt-menu .tt-suggestion:eq(1)").trigger("mouseover");
+      expect(this.view.$(".tt-menu .tt-suggestion:eq(1)")).toHaveClass("tt-cursor");
+      expect(this.view.$(".tt-cursor").length).toBe(1);
+
+      this.view.$(".tt-menu .tt-suggestion:eq(1)").trigger("mouseleave");
+      expect(this.view.$(".tt-cursor").length).toBe(0);
+
+      this.view.$(".tt-menu .tt-suggestion:eq(0)").trigger("mouseover");
+      expect(this.view.$(".tt-menu .tt-suggestion:eq(0)")).toHaveClass("tt-cursor");
+      expect(this.view.$(".tt-cursor").length).toBe(1);
     });
   });
 
-  describe("addToFilteredResults", function(){
+  describe("_deselectAllSuggestions", function() {
     beforeEach(function() {
-      this.view = new app.views.SearchBase({ el: "#search_people_form" });
-      this.view.initialize({typeaheadElement: this.view.$("#q")});
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      this.view.bloodhound.add(this.bloodhoundData);
+      this.search(this.view, "user");
     });
 
-    context("when item is a person", function(){
-      it("add the item to filtered results", function(){
-        this.view.addToFilteredResults({handle: "user@pod.tld"});
-        expect(this.view.resultsTofilter.length).toBe(1);
-      });
-    });
+    it("deselects all suggestions", function() {
+      $(".tt-suggestion").addClass(".tt-cursor");
+      this.view._deselectAllSuggestions();
+      expect($(".tt-suggestion.tt-cursor").length).toBe(0);
 
-    context("when item is not a person", function(){
-      it("does not add the item to filtered results", function(){
-        this.view.addToFilteredResults({});
-        expect(this.view.resultsTofilter.length).toBe(0);
-      });
+      $(".tt-suggestion:eq(1)").addClass(".tt-cursor");
+      this.view._deselectAllSuggestions();
+      expect($(".tt-suggestion.tt-cursor").length).toBe(0);
     });
   });
 
-  describe("clearFilteredResults", function(){
+  describe("_selectSuggestion", function() {
     beforeEach(function() {
-      this.view = new app.views.SearchBase({ el: "#search_people_form" });
-      this.view.initialize({typeaheadElement: this.view.$("#q")});
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      this.view.bloodhound.add(this.bloodhoundData);
+      this.search(this.view, "user");
     });
 
-    context("clear filtered results", function(){
-      it("clears the filtered results list", function(){
-        this.view.addToFilteredResults({handle: "user@pod.tld"});
-        expect(this.view.resultsTofilter.length).toBe(1);
-        this.view.clearFilteredResults();
-        expect(this.view.resultsTofilter.length).toBe(0);
+    it("selects a suggestion", function() {
+      this.view._selectSuggestion($(".tt-suggestion:eq(1)"));
+      expect($(".tt-suggestion.tt-cursor").length).toBe(1);
+      expect($(".tt-suggestion:eq(1)")).toHaveClass("tt-cursor");
+    });
+
+    it("deselects all other suggestions", function() {
+      spyOn(this.view, "_deselectAllSuggestions").and.callThrough();
+      $(".tt-suggestion:eq(0)").addClass(".tt-cursor");
+      this.view._selectSuggestion($(".tt-suggestion:eq(1)"));
+      expect(this.view._deselectAllSuggestions).toHaveBeenCalled();
+      expect($(".tt-suggestion.tt-cursor").length).toBe(1);
+      expect($(".tt-suggestion:eq(1)")).toHaveClass("tt-cursor");
+    });
+  });
+
+  describe("setupAutoSelect", function() {
+    beforeEach(function() {
+      this.view = new app.views.SearchBase({
+        el: "#search_people_form",
+        typeaheadInput: $("#q"),
+        autoselect: true
       });
+      this.view.bloodhound.add(this.bloodhoundData);
+    });
+
+    it("selects the first suggestion when showing the results", function() {
+      this.search(this.view, "user");
+      expect($(".tt-suggestion:eq(0)")).toHaveClass("tt-cursor");
+      expect($(".tt-suggestion:eq(1)")).not.toHaveClass("tt-cursor");
+    });
+  });
+
+  describe("ignorePersonForSuggestions", function() {
+    beforeEach(function() {
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+    });
+
+    it("adds the diaspora ids to the ignore list", function() {
+      expect(this.view.ignoreDiasporaIds.length).toBe(0);
+      this.view.ignorePersonForSuggestions({handle: "user1@pod.tld"});
+      expect(this.view.ignoreDiasporaIds.length).toBe(1);
+      this.view.ignorePersonForSuggestions({handle: "user2@pod.tld", someData: true});
+      expect(this.view.ignoreDiasporaIds.length).toBe(2);
+      expect(this.view.ignoreDiasporaIds).toEqual(["user1@pod.tld", "user2@pod.tld"]);
+    });
+
+    it("doesn't fail when the diaspora id is missing", function() {
+      expect(this.view.ignoreDiasporaIds.length).toBe(0);
+      this.view.ignorePersonForSuggestions({data: "user1@pod.tld"});
+      expect(this.view.ignoreDiasporaIds.length).toBe(0);
     });
   });
 });

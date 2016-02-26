@@ -1,322 +1,471 @@
-describe("app.views.PublisherMention", function(){
-  beforeEach(function(){
-    spec.content().html(
-      "<div id='publisher'>" +
-        "<textarea id='status_message_fake_text'></textarea>" +
-      "</div>");
+describe("app.views.PublisherMention", function() {
+  beforeEach(function() {
+    spec.loadFixture("aspects_index");
   });
 
-  describe("initialize", function(){
-    beforeEach(function(){
-      spyOn(app.views.SearchBase.prototype, "initialize").and.callThrough();
-      spyOn(app.views.PublisherMention.prototype, "bindMentioningEvents").and.callThrough();
+  describe("initialize", function() {
+    it("initializes object properties", function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
+      expect(this.view.mentionedPeople).toEqual([]);
+      expect(this.view.invisibleChar).toBe("\u200B");
+      expect(this.view.triggerChar).toBe("@");
     });
 
-    it("initializes object properties", function(){
-      expect(this.view.mentionsCollection).toEqual([]);
-      expect(this.view.inputBuffer).toEqual([]);
-      expect(this.view.currentDataQuery).toBe("");
-      expect(this.view.mentionChar).toBe("\u200B");
+    it("calls app.views.SearchBase.initialize", function() {
+      spyOn(app.views.SearchBase.prototype, "initialize");
+      this.view = new app.views.PublisherMention({ el: "#publisher" });
+      expect(app.views.SearchBase.prototype.initialize).toHaveBeenCalled();
+      var call = app.views.SearchBase.prototype.initialize.calls.mostRecent();
+      expect(call.args[0].typeaheadInput.selector).toBe("#publisher .typeahead-mention-box");
+      expect(call.args[0].customSearch).toBeTruthy();
+      expect(call.args[0].autoselect).toBeTruthy();
     });
 
-    it("calls completeSetup", function(){
-      expect(app.views.SearchBase.prototype.initialize)
-        .toHaveBeenCalledWith({typeaheadElement: this.view.getTypeaheadInput()});
-      expect(app.views.PublisherMention.prototype.bindMentioningEvents).toHaveBeenCalled();
-    });
-
-    it("initializes html elements", function(){
-      expect(this.view.$(".typeahead-mention-box").length).toBe(1);
-      expect(this.view.$(".mentions-input-box").length).toBe(1);
-      expect(this.view.$(".mentions-box").length).toBe(1);
-      expect(this.view.$(".mentions").length).toBe(1);
+    it("calls bindTypeaheadEvents", function() {
+      spyOn(app.views.PublisherMention.prototype, "bindTypeaheadEvents");
+      this.view = new app.views.PublisherMention({ el: "#publisher" });
+      expect(app.views.PublisherMention.prototype.bindTypeaheadEvents).toHaveBeenCalled();
     });
   });
 
-  describe("bindMentioningEvents", function(){
-    beforeEach(function(){
-      spyOn(app.views.PublisherMention.prototype, "processMention");
-      spyOn(app.views.PublisherMention.prototype, "resetMentionBox");
-      spyOn(app.views.PublisherMention.prototype, "addToFilteredResults");
+  describe("bindTypeaheadEvents", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
       this.view.bloodhound.add([
-        {"person": true, "name":"user1", "handle":"user1@pod.tld"},
-        {"person": true, "name":"user2", "handle":"user2@pod.tld"}
+        {person: true, name: "user1", handle: "user1@pod.tld"},
+        {person: true, name: "user2", handle: "user2@pod.tld"}
       ]);
     });
 
-    it("highlights the first item when rendering results", function(){
-      this.view.getTypeaheadInput().typeahead("val", "user");
-      this.view.getTypeaheadInput().typeahead("open");
-      expect(this.view.$(".tt-suggestion").first()).toHaveClass("tt-cursor");
-    });
-
-    it("process mention when clicking a result", function(){
-      this.view.getTypeaheadInput().typeahead("val", "user");
-      this.view.getTypeaheadInput().typeahead("open");
-      this.view.$(".tt-suggestion").first().click();
-      expect(app.views.PublisherMention.prototype.processMention).toHaveBeenCalled();
-      expect(app.views.PublisherMention.prototype.resetMentionBox).toHaveBeenCalled();
-      expect(app.views.PublisherMention.prototype.addToFilteredResults).toHaveBeenCalled();
+    it("process mention when clicking a result", function() {
+      spyOn(this.view, "onSuggestionSelection");
+      this.view.typeaheadInput.typeahead("val", "user");
+      this.view.typeaheadInput.typeahead("open");
+      $(".tt-suggestion").first().click();
+      expect(this.view.onSuggestionSelection).toHaveBeenCalledWith(
+        {person: true, name: "user1", handle: "user1@pod.tld"}
+      );
     });
   });
 
-  describe("updateMentionsCollection", function(){
-    beforeEach(function(){
+  describe("addPersonToMentions", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
     });
 
-    it("removes person from mention collection if not mentionned anymore", function(){
-      this.view.mentionsCollection.push({name: "user1"});
-      expect(this.view.mentionsCollection.length).toBe(1);
-      this.view.updateMentionsCollection();
-      expect(this.view.mentionsCollection.length).toBe(0);
-    });
-
-    it("removes item from mention collection if not a person", function(){
-      this.view.mentionsCollection.push({});
-      expect(this.view.mentionsCollection.length).toBe(1);
-      this.view.updateMentionsCollection();
-      expect(this.view.mentionsCollection.length).toBe(0);
-    });
-  });
-
-  describe("addMention", function(){
-    beforeEach(function(){
-      this.view = new app.views.PublisherMention({ el: "#publisher" });
-    });
-
-    it("add person to mentionned people", function(){
-      expect(this.view.mentionsCollection.length).toBe(0);
-      this.view.addMention({"name":"user1", "handle":"user1@pod.tld"});
-      expect(this.view.mentionsCollection.length).toBe(1);
-      expect(this.view.mentionsCollection[0]).toEqual({
+    it("adds a person to mentioned people", function() {
+      expect(this.view.mentionedPeople.length).toBe(0);
+      this.view.addPersonToMentions({name: "user1", handle: "user1@pod.tld"});
+      expect(this.view.mentionedPeople.length).toBe(1);
+      expect(this.view.mentionedPeople[0]).toEqual({
         /* jshint camelcase: false */
-        "name":"user1", "handle":"user1@pod.tld", diaspora_id: "user1@pod.tld"});
+        name: "user1", handle: "user1@pod.tld", diaspora_id: "user1@pod.tld"});
         /* jshint camelcase: true */
     });
 
-    it("does not add mention if not a person", function(){
-      expect(this.view.mentionsCollection.length).toBe(0);
-      this.view.addMention();
-      expect(this.view.mentionsCollection.length).toBe(0);
-      this.view.addMention({});
-      expect(this.view.mentionsCollection.length).toBe(0);
-      this.view.addMention({"name": "user1"});
-      expect(this.view.mentionsCollection.length).toBe(0);
-      this.view.addMention({"handle":"user1@pod.tld"});
-      expect(this.view.mentionsCollection.length).toBe(0);
+    it("adds a person to the ignored diaspora ids", function() {
+      spyOn(this.view, "ignorePersonForSuggestions");
+      this.view.addPersonToMentions({name: "user1", handle: "user1@pod.tld"});
+      expect(this.view.ignorePersonForSuggestions).toHaveBeenCalledWith({
+        /* jshint camelcase: false */
+        name: "user1", handle: "user1@pod.tld", diaspora_id: "user1@pod.tld"});
+        /* jshint camelcase: true */
+    });
+
+    it("doesn't add mention if not a person", function() {
+      expect(this.view.mentionedPeople.length).toBe(0);
+      this.view.addPersonToMentions();
+      expect(this.view.mentionedPeople.length).toBe(0);
+      this.view.addPersonToMentions({});
+      expect(this.view.mentionedPeople.length).toBe(0);
+      this.view.addPersonToMentions({name: "user1"});
+      expect(this.view.mentionedPeople.length).toBe(0);
+      this.view.addPersonToMentions({handle: "user1@pod.tld"});
+      expect(this.view.mentionedPeople.length).toBe(0);
     });
   });
 
-  describe("getTypeaheadInput", function(){
-    beforeEach(function(){
+  describe("cleanMentionedPeople", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
     });
 
-    it("inserts typeahead input if it does not already exist", function(){
-      this.view.getTypeaheadInput().remove();
-      expect(this.view.$(".typeahead-mention-box").length).toBe(0);
-      this.view.getTypeaheadInput();
-      expect(this.view.$(".typeahead-mention-box").length).toBe(1);
+    it("removes person from mentioned people if not mentioned anymore", function() {
+      this.view.addPersonToMentions({name: "user1", handle: "user1@pod.tld"});
+      expect(this.view.mentionedPeople.length).toBe(1);
+      this.view.cleanMentionedPeople();
+      expect(this.view.mentionedPeople.length).toBe(0);
+    });
+
+    it("removes person from ignored people if not mentioned anymore", function() {
+      this.view.addPersonToMentions({name: "user1", handle: "user1@pod.tld"});
+      expect(this.view.ignoreDiasporaIds.length).toBe(1);
+      this.view.cleanMentionedPeople();
+      expect(this.view.ignoreDiasporaIds.length).toBe(0);
+    });
+
+    it("keeps mentioned persons", function() {
+      this.view.addPersonToMentions({name: "user1", handle: "user1@pod.tld"});
+      this.view.inputBox.val("user1");
+      expect(this.view.mentionedPeople.length).toBe(1);
+      this.view.cleanMentionedPeople();
+      expect(this.view.mentionedPeople.length).toBe(1);
+    });
+
+    it("keeps mentioned persons for ignored diaspora ids", function() {
+      this.view.addPersonToMentions({name: "user1", handle: "user1@pod.tld"});
+      this.view.inputBox.val("user1");
+      expect(this.view.ignoreDiasporaIds.length).toBe(1);
+      this.view.cleanMentionedPeople();
+      expect(this.view.ignoreDiasporaIds.length).toBe(1);
     });
   });
 
-  describe("processMention", function(){
-    beforeEach(function(){
+  describe("onSuggestionSelection", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
-      this.view.elmInputBox.val("@user1 Text before @user1 text after");
-      this.view.currentDataQuery = "user1";
-      this.view.elmInputBox[0].setSelectionRange(25, 25);
+      this.view.inputBox.val("@user1337 Text before @user1 text after");
+      this.view.inputBox[0].setSelectionRange(28, 28);
     });
 
-    it("add person to mentionned people", function(){
-      spyOn(this.view, "addMention");
-      this.view.processMention({"name":"user1", "handle":"user1@pod.tld"});
-      expect(this.view.addMention).toHaveBeenCalledWith({"name":"user1", "handle":"user1@pod.tld"});
+    it("doesn't do anything if there is no '@' in front of the caret", function() {
+      spyOn(this.view, "addPersonToMentions");
+      this.view.inputBox.val("user1337 Text before @user1 text after");
+      this.view.inputBox[0].setSelectionRange(9, 9);
+      this.view.onSuggestionSelection({name: "user1337", handle: "user1@pod.tld"});
+      expect(this.view.addPersonToMentions).not.toHaveBeenCalled();
     });
 
-    it("cleans buffers", function(){
-      spyOn(this.view, "clearBuffer");
-      spyOn(this.view, "resetMentionBox");
-      this.view.processMention({"name":"user1", "handle":"user1@pod.tld"});
-      expect(this.view.clearBuffer).toHaveBeenCalled();
-      expect(this.view.resetMentionBox).toHaveBeenCalled();
-      expect(this.view.currentDataQuery).toBe("");
+    it("adds a person to mentioned people", function() {
+      spyOn(this.view, "addPersonToMentions");
+      this.view.onSuggestionSelection({name: "user1337", handle: "user1@pod.tld"});
+      expect(this.view.addPersonToMentions).toHaveBeenCalledWith({name: "user1337", handle: "user1@pod.tld"});
     });
 
-    it("correctly formats the text", function(){
-      spyOn(this.view, "updateValues");
-      this.view.processMention({"name":"user1", "handle":"user1@pod.tld"});
-      expect(this.view.updateValues).toHaveBeenCalled();
-      expect(this.view.getInputBoxValue()).toBe("@user1 Text before " + this.view.mentionChar + "user1 text after");
+    it("closes the suggestions box", function() {
+      spyOn(this.view, "closeSuggestions");
+      this.view.onSuggestionSelection({name: "user1337", handle: "user1@pod.tld"});
+      expect(this.view.closeSuggestions).toHaveBeenCalled();
     });
 
-    it("places the caret at the right position", function(){
-      this.view.processMention({"name":"user1WithLongName", "handle":"user1@pod.tld"});
-      var expectedCaretPosition = ("@user1 Text before " + this.view.mentionChar + "user1WithLongName").length;
-      expect(this.view.elmInputBox[0].selectionStart).toBe(expectedCaretPosition);
+    it("correctly formats the text", function() {
+      this.view.onSuggestionSelection({name: "user1337", handle: "user1@pod.tld"});
+      expect(this.view.inputBox.val()).toBe("@user1337 Text before \u200Buser1337 text after");
+    });
+
+    it("replaces the correct mention", function() {
+      this.view.inputBox.val("@user1337 123 user2 @user2 456 @user3 789");
+      this.view.inputBox[0].setSelectionRange(26, 26);
+      this.view.onSuggestionSelection({name: "user23", handle: "user2@pod.tld"});
+      expect(this.view.inputBox.val()).toBe("@user1337 123 user2 \u200Buser23 456 @user3 789");
+      this.view.inputBox[0].setSelectionRange(9, 9);
+      this.view.onSuggestionSelection({name: "user1337", handle: "user1@pod.tld"});
+      expect(this.view.inputBox.val()).toBe("\u200Buser1337 123 user2 \u200Buser23 456 @user3 789");
+      this.view.inputBox[0].setSelectionRange(38, 38);
+      this.view.onSuggestionSelection({name: "user32", handle: "user3@pod.tld"});
+      expect(this.view.inputBox.val()).toBe("\u200Buser1337 123 user2 \u200Buser23 456 \u200Buser32 789");
+    });
+
+    it("calls updateMessageTexts", function() {
+      spyOn(this.view, "updateMessageTexts");
+      this.view.onSuggestionSelection({name: "user1337", handle: "user1@pod.tld"});
+      expect(this.view.updateMessageTexts).toHaveBeenCalled();
+    });
+
+    it("places the caret at the right position", function() {
+      this.view.onSuggestionSelection({"name": "user1WithLongName", "handle": "user1@pod.tld"});
+      var expectedCaretPosition = ("@user1337 Text before \u200Buser1WithLongName").length;
+      expect(this.view.inputBox[0].selectionStart).toBe(expectedCaretPosition);
     });
   });
 
-  describe("updateValues", function(){
-    beforeEach(function(){
+  describe("updateMessageTexts", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
-      this.view.elmInputBox.val("@user1 Text before " + this.view.mentionChar + "user1\ntext after");
-      this.view.mentionsCollection.push({"name":"user1", "handle":"user1@pod.tld"});
+      this.view.inputBox.val("@user1 Text before \u200Buser1\ntext after");
+      this.view.mentionedPeople.push({"name": "user1", "handle": "user1@pod.tld"});
     });
 
-    it("filters mention from future results", function(){
-      spyOn(this.view, "clearFilteredResults");
-      spyOn(this.view, "addToFilteredResults");
-      this.view.updateValues();
-      expect(this.view.clearFilteredResults).toHaveBeenCalled();
-      expect(this.view.addToFilteredResults).toHaveBeenCalledWith({"name":"user1", "handle":"user1@pod.tld"});
+    it("sets the correct messageText", function() {
+      this.view.updateMessageTexts();
+      expect(this.view.inputBox.data("messageText")).toBe("@user1 Text before @{user1 ; user1@pod.tld}\ntext after");
     });
 
-    it("formats message text data with correct mentionning syntax", function(){
-      this.view.updateValues();
-      expect(this.view.elmInputBox.data("messageText")).toBe("@user1 Text before @{user1 ; user1@pod.tld}\ntext after");
-    });
-
-    it("formats overlay text to HTML", function(){
-      this.view.updateValues();
-      expect(this.view.elmMentionsOverlay.find("div > div").html())
-        .toBe("@user1 Text before <strong><span>user1</span></strong><br>text after");
+    it("formats overlay text to HTML", function() {
+      this.view.updateMessageTexts();
+      expect(this.view.mentionsBox.find(".mentions").html())
+        .toBe("@user1 Text before <strong><span>user1</span></strong>\ntext after");
     });
   });
 
-  describe("prefillMention", function(){
-    beforeEach(function(){
+  describe("updateTypeaheadInput", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
-      spyOn(this.view, "addMention");
-      spyOn(this.view, "addToFilteredResults");
-      spyOn(this.view, "updateValues");
+      this.view.inputBox.val("@user1337 Text before @user1 text after");
+      this.view.inputBox[0].setSelectionRange(28, 28);
     });
 
-    it("prefills one mention", function(){
-      this.view.prefillMention([{"name":"user1", "handle":"user1@pod.tld"}]);
-
-      expect(this.view.addMention).toHaveBeenCalledWith({"name":"user1", "handle":"user1@pod.tld"});
-      expect(this.view.addToFilteredResults)
-        .toHaveBeenCalledWith({"name":"user1", "handle":"user1@pod.tld"});
-      expect(this.view.updateValues).toHaveBeenCalled();
-      expect(this.view.getInputBoxValue()).toBe(this.view.mentionChar + "user1");
+    it("calls 'closeSuggestions' if there is no '@' in front of the caret", function() {
+      spyOn(this.view, "closeSuggestions");
+      this.view.inputBox.val("user1337 Text before @user1 text after");
+      this.view.inputBox[0].setSelectionRange(9, 9);
+      this.view.updateTypeaheadInput();
+      expect(this.view.closeSuggestions).toHaveBeenCalled();
     });
 
-    it("prefills multiple mentions", function(){
+    it("calls 'closeSuggestions' if there is a whitespace between the '@' and the caret", function() {
+      spyOn(this.view, "closeSuggestions");
+      this.view.inputBox.val("@user1337 Text before @user1 text after");
+      this.view.inputBox[0].setSelectionRange(9, 9);
+      this.view.updateTypeaheadInput();
+      expect(this.view.closeSuggestions.calls.count()).toEqual(0);
+      this.view.inputBox[0].setSelectionRange(10, 10);
+      this.view.updateTypeaheadInput();
+      expect(this.view.closeSuggestions.calls.count()).toEqual(1);
+      this.view.inputBox[0].setSelectionRange(11, 11);
+      this.view.updateTypeaheadInput();
+      expect(this.view.closeSuggestions.calls.count()).toEqual(2);
+    });
+
+    it("fills the typeahead input with the correct text", function() {
+      spyOn(this.view, "closeSuggestions");
+      this.view.inputBox.val("@user1337 Text before @user1 text after");
+      this.view.inputBox[0].setSelectionRange(2, 2);
+      this.view.updateTypeaheadInput();
+      expect(this.view.closeSuggestions).not.toHaveBeenCalled();
+      expect(this.view.typeaheadInput.val()).toBe("u");
+      this.view.inputBox[0].setSelectionRange(9, 9);
+      this.view.updateTypeaheadInput();
+      expect(this.view.closeSuggestions).not.toHaveBeenCalled();
+      expect(this.view.typeaheadInput.val()).toBe("user1337");
+      this.view.inputBox[0].setSelectionRange(27, 27);
+      this.view.updateTypeaheadInput();
+      expect(this.view.closeSuggestions).not.toHaveBeenCalled();
+      expect(this.view.typeaheadInput.val()).toBe("user");
+    });
+  });
+
+  describe("prefillMention", function() {
+    beforeEach(function() {
+      this.view = new app.views.PublisherMention({ el: "#publisher" });
+      spyOn(this.view, "addPersonToMentions");
+      spyOn(this.view, "updateMessageTexts");
+    });
+
+    it("prefills one mention", function() {
+      this.view.prefillMention([{"name": "user1", "handle": "user1@pod.tld"}]);
+      expect(this.view.addPersonToMentions).toHaveBeenCalledWith({"name": "user1", "handle": "user1@pod.tld"});
+      expect(this.view.updateMessageTexts).toHaveBeenCalled();
+      expect(this.view.inputBox.val()).toBe("\u200Buser1");
+    });
+
+    it("prefills multiple mentions", function() {
       this.view.prefillMention([
-        {"name":"user1", "handle":"user1@pod.tld"},
-        {"name":"user2", "handle":"user2@pod.tld"}
+        {"name": "user1", "handle": "user1@pod.tld"},
+        {"name": "user2", "handle": "user2@pod.tld"}
       ]);
 
-      expect(this.view.addMention).toHaveBeenCalledWith({"name":"user1", "handle":"user1@pod.tld"});
-      expect(this.view.addMention).toHaveBeenCalledWith({"name":"user2", "handle":"user2@pod.tld"});
-      expect(this.view.addToFilteredResults).toHaveBeenCalledWith({"name":"user1", "handle":"user1@pod.tld"});
-      expect(this.view.addToFilteredResults).toHaveBeenCalledWith({"name":"user2", "handle":"user2@pod.tld"});
-      expect(this.view.updateValues).toHaveBeenCalled();
-      expect(this.view.getInputBoxValue()).toBe(this.view.mentionChar + "user1 " + this.view.mentionChar + "user2");
+      expect(this.view.addPersonToMentions).toHaveBeenCalledWith({"name": "user1", "handle": "user1@pod.tld"});
+      expect(this.view.addPersonToMentions).toHaveBeenCalledWith({"name": "user2", "handle": "user2@pod.tld"});
+      expect(this.view.updateMessageTexts).toHaveBeenCalled();
+      expect(this.view.inputBox.val()).toBe("\u200Buser1 \u200Buser2");
     });
   });
 
-  describe("onInputBoxPaste", function(){
-    beforeEach(function(){
+  describe("onInputBoxKeyDown", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
     });
 
-    it("add person to mentionned people", function(){
-      var pasteEvent = {originalEvent: {clipboardData: {getData: function(){
-        return "Pasted text";
-      }}}};
+    context("escape key", function() {
+      beforeEach(function() {
+        this.evt = $.Event("keydown", {which: Keycodes.ESC});
+      });
 
-      this.view.onInputBoxPaste(pasteEvent);
-      expect(this.view.inputBuffer).toEqual(["P", "a", "s", "t", "e", "d", " ", "t", "e", "x", "t"]);
+      it("calls 'closeSuggestions'", function() {
+        spyOn(this.view, "closeSuggestions");
+        this.view.onInputBoxKeyDown(this.evt);
+        expect(this.view.closeSuggestions).toHaveBeenCalled();
+      });
+    });
+
+    context("space key", function() {
+      beforeEach(function() {
+        this.evt = $.Event("keydown", {which: Keycodes.SPACE});
+      });
+
+      it("calls 'closeSuggestions'", function() {
+        spyOn(this.view, "closeSuggestions");
+        this.view.onInputBoxKeyDown(this.evt);
+        expect(this.view.closeSuggestions).toHaveBeenCalled();
+      });
+    });
+
+    context("up key", function() {
+      beforeEach(function() {
+        this.evt = $.Event("keydown", {which: Keycodes.UP});
+      });
+
+      it("calls 'onArrowKeyDown'", function() {
+        spyOn(this.view, "onArrowKeyDown");
+        this.view.onInputBoxKeyDown(this.evt);
+        expect(this.view.onArrowKeyDown).toHaveBeenCalled();
+      });
+    });
+
+    context("down key", function() {
+      beforeEach(function() {
+        this.evt = $.Event("keydown", {which: Keycodes.DOWN});
+      });
+
+      it("calls 'onArrowKeyDown'", function() {
+        spyOn(this.view, "onArrowKeyDown");
+        this.view.onInputBoxKeyDown(this.evt);
+        expect(this.view.onArrowKeyDown).toHaveBeenCalled();
+      });
+    });
+
+    context("return key", function() {
+      beforeEach(function() {
+        this.evt = $.Event("keydown", {which: Keycodes.RETURN});
+        this.view.bloodhound.add([
+          {person: true, name: "user1", handle: "user1@pod.tld"},
+          {person: true, name: "user2", handle: "user2@pod.tld"}
+        ]);
+        this.view.typeaheadInput.typeahead("val", "user");
+        this.view.typeaheadInput.typeahead("open");
+        $(".tt-suggestion").first().addClass(".tt-cursor");
+      });
+
+      it("calls 'onSuggestionSelection'", function() {
+        spyOn(this.view, "onSuggestionSelection");
+        this.view.onInputBoxKeyDown(this.evt);
+        expect(this.view.onSuggestionSelection).toHaveBeenCalled();
+      });
+    });
+
+    context("tab key", function() {
+      beforeEach(function() {
+        this.evt = $.Event("keydown", {which: Keycodes.TAB});
+        this.view.bloodhound.add([
+          {person: true, name: "user1", handle: "user1@pod.tld"},
+          {person: true, name: "user2", handle: "user2@pod.tld"}
+        ]);
+        this.view.typeaheadInput.typeahead("val", "user");
+        this.view.typeaheadInput.typeahead("open");
+        $(".tt-suggestion").first().addClass(".tt-cursor");
+      });
+
+      it("calls 'onSuggestionSelection'", function() {
+        spyOn(this.view, "onSuggestionSelection");
+        this.view.onInputBoxKeyDown(this.evt);
+        expect(this.view.onSuggestionSelection).toHaveBeenCalled();
+      });
     });
   });
 
-  describe("reset", function(){
-    beforeEach(function(){
+  describe("onInputBoxInput", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
-      spyOn(this.view, "clearFilteredResults");
-      spyOn(this.view, "updateValues");
     });
 
-    it("resets the mention box", function(){
+    it("calls 'cleanMentionedPeople'", function() {
+      spyOn(this.view, "cleanMentionedPeople");
+      this.view.onInputBoxInput();
+      expect(this.view.cleanMentionedPeople).toHaveBeenCalled();
+    });
+
+    it("calls 'updateMessageTexts'", function() {
+      spyOn(this.view, "updateMessageTexts");
+      this.view.onInputBoxInput();
+      expect(this.view.updateMessageTexts).toHaveBeenCalled();
+    });
+
+    it("calls 'updateTypeaheadInput'", function() {
+      spyOn(this.view, "updateTypeaheadInput");
+      this.view.onInputBoxInput();
+      expect(this.view.updateTypeaheadInput).toHaveBeenCalled();
+    });
+  });
+
+  describe("onInputBoxClick", function() {
+    beforeEach(function() {
+      this.view = new app.views.PublisherMention({ el: "#publisher" });
+    });
+
+    it("calls 'updateTypeaheadInput'", function() {
+      spyOn(this.view, "updateTypeaheadInput");
+      this.view.onInputBoxClick();
+      expect(this.view.updateTypeaheadInput).toHaveBeenCalled();
+    });
+  });
+
+  describe("onInputBoxBlur", function() {
+    beforeEach(function() {
+      this.view = new app.views.PublisherMention({ el: "#publisher" });
+    });
+
+    it("calls 'closeSuggestions'", function() {
+      spyOn(this.view, "closeSuggestions");
+      this.view.onInputBoxBlur();
+      expect(this.view.closeSuggestions).toHaveBeenCalled();
+    });
+  });
+
+  describe("reset", function() {
+    beforeEach(function() {
+      this.view = new app.views.PublisherMention({ el: "#publisher" });
+      spyOn(this.view, "onInputBoxInput");
+    });
+
+    it("resets the mention box", function() {
       this.view.reset();
-      expect(this.view.elmInputBox.val()).toBe("");
-      expect(this.view.mentionsCollection.length).toBe(0);
-      expect(this.view.clearFilteredResults).toHaveBeenCalled();
-      expect(this.view.updateValues).toHaveBeenCalled();
+      expect(this.view.inputBox.val()).toBe("");
+      expect(this.view.onInputBoxInput).toHaveBeenCalled();
     });
   });
 
-  describe("showMentionBox", function(){
-    beforeEach(function(){
+  describe("closeSuggestions", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
       this.view.bloodhound.add([
-        {"person": true, "name":"user1", "handle":"user1@pod.tld"}
+        {"person": true, "name": "user1", "handle": "user1@pod.tld"}
       ]);
-      this.view.currentDataQuery = "user1";
     });
 
-    it("shows the mention box", function(){
+    it("resets results and closes mention box", function() {
+      this.view.typeaheadInput.typeahead("val", "user");
+      this.view.typeaheadInput.typeahead("open");
+      expect(this.view.$(".tt-menu").is(":visible")).toBe(true);
+      expect(this.view.$(".tt-menu .tt-suggestion").length).toBeGreaterThan(0);
+      expect(this.view.typeaheadInput.val()).toBe("user");
+      this.view.closeSuggestions();
       expect(this.view.$(".tt-menu").is(":visible")).toBe(false);
       expect(this.view.$(".tt-menu .tt-suggestion").length).toBe(0);
-      this.view.showMentionBox();
-      expect(this.view.$(".tt-menu").is(":visible")).toBe(true);
-      expect(this.view.$(".tt-menu .tt-suggestion").length).toBe(1);
+      expect(this.view.typeaheadInput.val()).toBe("");
     });
   });
 
-  describe("resetMentionBox", function(){
-    beforeEach(function(){
+  describe("getTextForSubmit", function() {
+    beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
       this.view.bloodhound.add([
-        {"person": true, "name":"user1", "handle":"user1@pod.tld"}
+        {person: true, name: "user1", handle: "user1@pod.tld"}
       ]);
     });
 
-    it("resets results and closes mention box", function(){
-      this.view.getTypeaheadInput().typeahead("val", "user");
-      this.view.getTypeaheadInput().typeahead("open");
-      expect(this.view.$(".tt-menu").is(":visible")).toBe(true);
-      expect(this.view.$(".tt-menu .tt-suggestion").length >= 1).toBe(true);
-      this.view.resetMentionBox();
-      expect(this.view.$(".tt-menu").is(":visible")).toBe(false);
-      expect(this.view.$(".tt-menu .tt-suggestion").length).toBe(0);
-    });
-  });
-
-  describe("getInputBoxValue", function(){
-    beforeEach(function(){
-      this.view = new app.views.PublisherMention({ el: "#publisher" });
-    });
-
-    it("returns trimmed text", function(){
-      this.view.elmInputBox.val("Text with trailing spaces        ");
-      expect(this.view.getInputBoxValue()).toBe("Text with trailing spaces");
-    });
-  });
-
-  describe("getTextForSubmit", function(){
-    beforeEach(function(){
-      this.view = new app.views.PublisherMention({ el: "#publisher" });
-      this.view.bloodhound.add([
-        {"person": true, "name":"user1", "handle":"user1@pod.tld"}
-      ]);
-    });
-
-    it("returns text with mention syntax if someone is mentionned", function(){
-      this.view.getTypeaheadInput().typeahead("val", "user");
-      this.view.getTypeaheadInput().typeahead("open");
+    it("returns text with mention if someone has been mentioned", function() {
+      this.view.inputBox.val("@user");
+      this.view.inputBox[0].setSelectionRange(5, 5);
+      this.view.typeaheadInput.typeahead("val", "user");
+      this.view.typeaheadInput.typeahead("open");
       this.view.$(".tt-suggestion").first().click();
       expect(this.view.getTextForSubmit()).toBe("@{user1 ; user1@pod.tld}");
     });
 
-    it("returns normal text if nobody is mentionned", function(){
-      this.view.elmInputBox.data("messageText", "Bad text");
-      this.view.elmInputBox.val("Good text");
+    it("returns normal text if nobody has been mentioned", function() {
+      this.view.inputBox.data("messageText", "Bad text");
+      this.view.inputBox.val("Good text");
       expect(this.view.getTextForSubmit()).toBe("Good text");
     });
   });

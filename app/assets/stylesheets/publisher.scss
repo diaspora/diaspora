@@ -252,6 +252,11 @@
     .hide-location { display: inline-block; }
     .locator { display: none; }
   }
+
+  .twitter-typeahead {
+    left: -1px;
+    position: absolute;
+  }
 }
 
 .publisher-buttonbar {

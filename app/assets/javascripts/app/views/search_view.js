@@ -6,46 +6,29 @@ app.views.Search = app.views.SearchBase.extend({
     "keypress #q": "inputKeypress"
   },
 
-  initialize: function(){
-    this.searchFormAction = this.$el.attr("action");
-    app.views.SearchBase.prototype.initialize.call(this, {typeaheadElement: this.getTypeaheadElement()});
-    this.bindMoreSelectionEvents();
-    this.getTypeaheadElement().on("typeahead:select", this.suggestionSelected);
-  },
-
-  /**
-   * This bind events to unselect all results when leaving the menu
-   */
-  bindMoreSelectionEvents: function(){
-    var self = this;
-    var onleave = function(){
-      self.$(".tt-cursor").removeClass("tt-cursor");
-    };
-
-    this.getTypeaheadElement().on("typeahead:render", function(){
-      self.$(".tt-menu").off("mouseleave", onleave);
-      self.$(".tt-menu").on("mouseleave", onleave);
+  initialize: function() {
+    this.searchInput = this.$("#q");
+    app.views.SearchBase.prototype.initialize.call(this, {
+      typeaheadInput: this.searchInput,
+      remoteRoute: this.$el.attr("action")
     });
+    this.searchInput.on("typeahead:select", this.suggestionSelected);
   },
 
-  getTypeaheadElement: function(){
-    return this.$("#q");
-  },
-
-  toggleSearchActive: function(evt){
+  toggleSearchActive: function(evt) {
     // jQuery produces two events for focus/blur (for bubbling)
     // don't rely on which event arrives first, by allowing for both variants
     var isActive = (_.indexOf(["focus","focusin"], evt.type) !== -1);
     $(evt.target).toggleClass("active", isActive);
   },
 
-  inputKeypress: function(evt){
-    if(evt.which === Keycodes.ENTER && $(".tt-suggestion.tt-cursor").length === 0){
+  inputKeypress: function(evt) {
+    if(evt.which === Keycodes.ENTER && $(".tt-suggestion.tt-cursor").length === 0) {
       $(evt.target).closest("form").submit();
     }
   },
 
-  suggestionSelected: function(evt, datum){
+  suggestionSelected: function(evt, datum) {
     window.location = datum.url;
   }
 });

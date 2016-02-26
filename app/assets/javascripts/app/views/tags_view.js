@@ -2,7 +2,7 @@
 
 app.views.Tags = Backbone.View.extend({
   initialize: function(opts) {
-    if(app.publisher){
+    if(app.publisher) {
       app.publisher.setText("#"+ opts.hashtagName + " ");
     }
   }

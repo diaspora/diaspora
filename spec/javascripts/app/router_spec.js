@@ -114,7 +114,7 @@ describe('app.Router', function () {
       expect(app.publisher.jasmineTestValue).toEqual(42);
     });
 
-    it("doesn't set app.publisher if there is no publisher element in page", function(){
+    it("doesn't set app.publisher if there is no publisher element in page", function() {
       $("#publisher").remove();
       app.router._initializeStreamView();
       expect(app.publisher).toBeUndefined();

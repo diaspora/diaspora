@@ -1,64 +1,22 @@
-describe("app.views.Search", function(){
-  beforeEach(function(){
+describe("app.views.Search", function() {
+  beforeEach(function() {
     spec.content().html(
       "<form action='/search' id='search_people_form'><input id='q' name='q' type='search'/></form>"
     );
   });
 
-  describe("initialize", function(){
-    it("calls app.views.SearchBase.prototype.initialize", function(){
-      spyOn(app.views.SearchBase.prototype, "initialize").and.callThrough();
-      var view = new app.views.Search({el: "#search_people_form"});
-      expect(app.views.SearchBase.prototype.initialize)
-        .toHaveBeenCalledWith({typeaheadElement: view.getTypeaheadElement()});
+  describe("initialize", function() {
+    it("calls app.views.SearchBase.prototype.initialize", function() {
+      spyOn(app.views.SearchBase.prototype, "initialize");
+      this.view = new app.views.Search({el: "#search_people_form"});
+      var call = app.views.SearchBase.prototype.initialize.calls.mostRecent();
+      expect(call.args[0].typeaheadInput.selector).toBe("#search_people_form #q");
+      expect(call.args[0].remoteRoute).toBe("/search");
     });
 
-    it("calls bindMoreSelectionEvents", function(){
-      spyOn(app.views.Search.prototype, "bindMoreSelectionEvents").and.callThrough();
-      new app.views.Search({el: "#search_people_form"});
-      expect(app.views.Search.prototype.bindMoreSelectionEvents).toHaveBeenCalled();
-    });
-  });
-
-  describe("bindMoreSelectionEvents", function(){
-    beforeEach(function() {
-      this.view = new app.views.Search({ el: "#search_people_form" });
-      this.view.bloodhound.add([
-        {"person": true, "name":"user1", "handle":"user1@pod.tld"},
-        {"person": true, "name":"user2", "handle":"user2@pod.tld"}
-      ]);
-    });
-
-    context("bind mouseleave event", function(){
-      it("binds mouseleave event only once", function(){
-        this.view.$("#q").trigger("focusin");
-        this.view.$("#q").val("user");
-        this.view.$("#q").trigger("keypress");
-        this.view.$("#q").trigger("input");
-        this.view.$("#q").trigger("focus");
-        var numBindedEvents = $._data(this.view.$(".tt-menu")[0], "events").mouseout.length;
-        expect(numBindedEvents).toBe(1);
-        this.view.$("#q").trigger("focusout");
-        this.view.$("#q").trigger("focusin");
-        this.view.$("#q").val("user");
-        this.view.$("#q").trigger("keypress");
-        this.view.$("#q").trigger("input");
-        this.view.$("#q").trigger("focus");
-        numBindedEvents = $._data(this.view.$(".tt-menu")[0], "events").mouseout.length;
-        expect(numBindedEvents).toBe(1);
-      });
-
-      it("remove result highlight when leaving results list", function(){
-        this.view.$("#q").trigger("focusin");
-        this.view.$("#q").val("user");
-        this.view.$("#q").trigger("keypress");
-        this.view.$("#q").trigger("input");
-        this.view.$("#q").trigger("focus");
-        this.view.$(".tt-menu .tt-suggestion").first().trigger("mouseover");
-        expect(this.view.$(".tt-menu .tt-suggestion").first()).toHaveClass("tt-cursor");
-        this.view.$(".tt-menu").first().trigger("mouseleave");
-        expect(this.view.$(".tt-menu .tt-cursor").length).toBe(0);
-      });
+    it("binds typeahead:select", function() {
+      this.view = new app.views.Search({el: "#search_people_form"});
+      expect($._data($("#q")[0], "events")["typeahead:select"].length).toBe(1);
     });
   });
 
