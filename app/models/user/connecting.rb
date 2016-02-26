@@ -24,21 +24,7 @@ module User::Connecting
     end
 
     deliver_profile_update
-    register_share_visibilities(contact)
     contact
-  end
-
-  # This puts the last 100 public posts by the passed in contact into the user's stream.
-  # @param [Contact] contact
-  # @return [void]
-  def register_share_visibilities(contact)
-    #should have select here, but proven hard to test
-    posts = Post.where(:author_id => contact.person_id, :public => true).limit(100)
-    p = posts.map do |post|
-      ShareVisibility.new(:contact_id => contact.id, :shareable_id => post.id, :shareable_type => 'Post')
-    end
-    ShareVisibility.import(p) unless posts.empty?
-    nil
   end
 
   def remove_contact(contact, opts={:force => false, :retracted => false})

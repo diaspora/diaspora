@@ -82,16 +82,6 @@ describe User::Connecting, :type => :model do
     end
   end
 
-  describe '#register_share_visibilities' do
-    it 'creates post visibilites for up to 100 posts' do
-      allow(Post).to receive_message_chain(:where, :limit).and_return([FactoryGirl.create(:status_message)])
-      c = Contact.create!(:user_id => alice.id, :person_id => eve.person.id)
-      expect{
-        alice.register_share_visibilities(c)
-      }.to change(ShareVisibility, :count).by(1)
-    end
-  end
-
   describe '#share_with' do
     it 'finds or creates a contact' do
       expect {
@@ -118,11 +108,6 @@ describe User::Connecting, :type => :model do
       expect {
         alice.share_with(eve.person, alice.aspects.first)
       }.to change(contact.aspects, :count).by(1)
-    end
-
-    it 'calls #register_share_visibilities with a contact' do
-      expect(eve).to receive(:register_share_visibilities)
-      eve.share_with(alice.person, eve.aspects.first)
     end
 
     context 'dispatching' do

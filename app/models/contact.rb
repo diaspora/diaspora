@@ -14,9 +14,6 @@ class Contact < ActiveRecord::Base
   has_many :aspect_memberships, :dependent => :destroy
   has_many :aspects, :through => :aspect_memberships
 
-  has_many :share_visibilities, :source => :shareable, :source_type => 'Post'
-  has_many :posts, :through => :share_visibilities, :source => :shareable, :source_type => 'Post'
-
   validate :not_contact_for_self,
            :not_blocked_user,
            :not_contact_with_closed_account
@@ -58,10 +55,6 @@ class Contact < ActiveRecord::Base
     Request.diaspora_initialize(:from => self.user.person,
                 :to => self.person,
                 :into => aspects.first)
-  end
-
-  def receive_shareable(shareable)
-    ShareVisibility.create!(:shareable_id => shareable.id, :shareable_type => shareable.class.base_class.to_s, :contact_id => self.id)
   end
 
   def contacts

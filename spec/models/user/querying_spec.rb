@@ -85,8 +85,7 @@ describe User::Querying, :type => :model do
       end
 
       it "does not pull back hidden posts" do
-        visibility = @status.share_visibilities(Post).where(:contact_id => alice.contact_for(bob.person).id).first
-        visibility.update_attributes(:hidden => true)
+        @status.share_visibilities(Post).where(user_id: alice.id).first.update_attributes(hidden: true)
         expect(alice.visible_shareable_ids(Post).include?(@status.id)).to be false
       end
     end
