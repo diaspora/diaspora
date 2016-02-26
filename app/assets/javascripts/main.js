@@ -6,7 +6,6 @@
 //= require js-routes
 //= require underscore
 //= require backbone
-//= require jquery.hotkeys
 //= require jquery.remotipart
 //= require autosize
 //= require jquery.charcount
