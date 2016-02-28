@@ -148,6 +148,22 @@ describe Post, :type => :model do
           Post.for_visible_shareable_sql(Time.now + 1, "created_at")
         end
 
+        context "with two posts with the same timestamp" do
+          before do
+            aspect_id = alice.aspects.where(name: "generic").first.id
+            Timecop.freeze Time.now do
+              alice.post(:status_message, text: "first", to: aspect_id)
+              alice.post(:status_message, text: "second", to: aspect_id)
+            end
+          end
+
+          it "returns them in reverse creation order" do
+            posts = Post.for_visible_shareable_sql(Time.now + 1, "created_at")
+            expect(posts.first.text).to eq("second")
+            expect(posts.at(1).text).to eq("first")
+            expect(posts.last.text).to eq("alice - 5")
+          end
+        end
       end
     end
   end

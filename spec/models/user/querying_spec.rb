@@ -113,21 +113,6 @@ describe User::Querying, :type => :model do
       expect(bob.visible_shareables(Post).count(:all)).to eq(0)
     end
 
-    context 'with two posts with the same timestamp' do
-      before do
-        aspect_id = alice.aspects.where(:name => "generic").first.id
-        Timecop.freeze Time.now do
-          alice.post :status_message, :text => "first", :to => aspect_id
-          alice.post :status_message, :text => "second", :to => aspect_id
-        end
-      end
-
-      it "returns them in reverse creation order" do
-        expect(bob.visible_shareables(Post).first.text).to eq("second")
-        expect(bob.visible_shareables(Post).last.text).to eq("first")
-      end
-    end
-
     context 'with many posts' do
       before do
         time_interval = 1000
