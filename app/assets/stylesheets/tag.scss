@@ -24,7 +24,12 @@ h1.tag {
 }
 .page-tags {
   #tags_show {
-    .col-md-3 {
+    .sidebar {
+      h3 {
+        font-size: 13px;
+        line-height: 1.1;
+      }
+
       .side_stream #people_stream {
         .name { display: block; }
         .name, .diaspora_handle {

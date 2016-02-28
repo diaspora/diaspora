@@ -101,19 +101,35 @@
 }
 
 .info-bar {
+  border-top: 1px solid $border-grey;
   padding: 0 20px;
 
   .section {
-    margin-top: 20px;
+    margin-top: 10px;
+
+    &:last-child {
+      margin-bottom: 10px;
+    }
+
+    &:not(.collapsed) .entypo-triangle-right,
+    &.collapsed .entypo-triangle-down,
+    &.collapsed .content {
+      display: none;
+    }
+
+    &.collapsed .title h5 {
+      font-weight: normal;
+    }
   }
 
   .title {
-    border-bottom: 1px solid $border-grey;
+    cursor: pointer;
     padding-bottom: 5px;
 
     h5 {
       color: $text-dark-grey;
       font-size: $font-size-base;
+      font-weight: bold;
       margin: 0;
     }
   }
