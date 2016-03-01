@@ -15,9 +15,12 @@ class Photo < ActiveRecord::Base
     t.add :created_at
     t.add :author
     t.add lambda { |photo|
-      { :small => photo.url(:thumb_small),
-        :medium => photo.url(:thumb_medium),
-        :large => photo.url(:scaled_full) }
+      {
+        small:    photo.url(:thumb_small),
+        medium:   photo.url(:thumb_medium),
+        large:    photo.url(:scaled_full),
+        original: photo.url
+      }
     }, :as => :sizes
     t.add lambda { |photo|
       { :height => photo.height,
