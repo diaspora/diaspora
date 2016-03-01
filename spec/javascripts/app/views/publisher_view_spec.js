@@ -430,7 +430,7 @@ describe("app.views.Publisher", function() {
       it("Show location", function(){
 
         // inserts location to the DOM; it is the location's view element
-        setFixtures('<div id="location_container"></div>');
+        setFixtures('<div class="location-container"></div>');
 
         // creates a fake Locator
         OSM = {};

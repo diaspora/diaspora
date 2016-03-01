@@ -1,21 +1,64 @@
-describe("app.views.Search", function() {
+describe("app.views.Search", function(){
   beforeEach(function(){
     spec.content().html(
-      "<form action='/search' id='search_people_form'><input id='q' name='q' type='search'></input></form>"
+      "<form action='/search' id='search_people_form'><input id='q' name='q' type='search'/></form>"
     );
   });
 
-  describe("initialize", function() {
-    it("calls setupBloodhound", function() {
-      spyOn(app.views.Search.prototype, "setupBloodhound").and.callThrough();
-      new app.views.Search({ el: "#search_people_form" });
-      expect(app.views.Search.prototype.setupBloodhound).toHaveBeenCalled();
+  describe("initialize", function(){
+    it("calls app.views.SearchBase.prototype.initialize", function(){
+      spyOn(app.views.SearchBase.prototype, "initialize").and.callThrough();
+      var view = new app.views.Search({el: "#search_people_form"});
+      expect(app.views.SearchBase.prototype.initialize)
+        .toHaveBeenCalledWith({typeaheadElement: view.getTypeaheadElement()});
     });
 
-    it("calls setupTypeahead", function() {
-      spyOn(app.views.Search.prototype, "setupTypeahead");
-      new app.views.Search({ el: "#search_people_form" });
-      expect(app.views.Search.prototype.setupTypeahead).toHaveBeenCalled();
+    it("calls bindMoreSelectionEvents", function(){
+      spyOn(app.views.Search.prototype, "bindMoreSelectionEvents").and.callThrough();
+      new app.views.Search({el: "#search_people_form"});
+      expect(app.views.Search.prototype.bindMoreSelectionEvents).toHaveBeenCalled();
+    });
+  });
+
+  describe("bindMoreSelectionEvents", function(){
+    beforeEach(function() {
+      this.view = new app.views.Search({ el: "#search_people_form" });
+      this.view.bloodhound.add([
+        {"person": true, "name":"user1", "handle":"user1@pod.tld"},
+        {"person": true, "name":"user2", "handle":"user2@pod.tld"}
+      ]);
+    });
+
+    context("bind mouseleave event", function(){
+      it("binds mouseleave event only once", function(){
+        this.view.$("#q").trigger("focusin");
+        this.view.$("#q").val("user");
+        this.view.$("#q").trigger("keypress");
+        this.view.$("#q").trigger("input");
+        this.view.$("#q").trigger("focus");
+        var numBindedEvents = $._data(this.view.$(".tt-menu")[0], "events").mouseout.length;
+        expect(numBindedEvents).toBe(1);
+        this.view.$("#q").trigger("focusout");
+        this.view.$("#q").trigger("focusin");
+        this.view.$("#q").val("user");
+        this.view.$("#q").trigger("keypress");
+        this.view.$("#q").trigger("input");
+        this.view.$("#q").trigger("focus");
+        numBindedEvents = $._data(this.view.$(".tt-menu")[0], "events").mouseout.length;
+        expect(numBindedEvents).toBe(1);
+      });
+
+      it("remove result highlight when leaving results list", function(){
+        this.view.$("#q").trigger("focusin");
+        this.view.$("#q").val("user");
+        this.view.$("#q").trigger("keypress");
+        this.view.$("#q").trigger("input");
+        this.view.$("#q").trigger("focus");
+        this.view.$(".tt-menu .tt-suggestion").first().trigger("mouseover");
+        expect(this.view.$(".tt-menu .tt-suggestion").first()).toHaveClass("tt-cursor");
+        this.view.$(".tt-menu").first().trigger("mouseleave");
+        expect(this.view.$(".tt-menu .tt-cursor").length).toBe(0);
+      });
     });
   });
 
@@ -41,37 +84,6 @@ describe("app.views.Search", function() {
       it("removes the class 'active' when the user blurs the text field", function() {
         this.typeaheadInput.trigger("focusout");
         expect(this.typeaheadInput).not.toHaveClass("active");
-      });
-    });
-  });
-
-  describe("transformBloodhoundResponse" , function() {
-    beforeEach(function() {
-      this.view = new app.views.Search({ el: "#search_people_form" });
-    });
-    context("with persons", function() {
-      beforeEach(function() {
-        this.response = [{name: "Person", handle: "person@pod.tld"},{name: "User", handle: "user@pod.tld"}];
-      });
-
-      it("sets data.person to true", function() {
-        expect(this.view.transformBloodhoundResponse(this.response)).toEqual([
-         {name: "Person", handle: "person@pod.tld", person: true},
-         {name: "User", handle: "user@pod.tld", person: true}
-        ]);
-      });
-    });
-
-    context("with hashtags", function() {
-      beforeEach(function() {
-        this.response = [{name: "#tag"}, {name: "#hashTag"}];
-      });
-
-      it("sets data.hashtag to true and adds the correct URL", function() {
-        expect(this.view.transformBloodhoundResponse(this.response)).toEqual([
-         {name: "#tag", hashtag: true, url: Routes.tag("tag")},
-         {name: "#hashTag", hashtag: true, url: Routes.tag("hashTag")}
-        ]);
       });
     });
   });
