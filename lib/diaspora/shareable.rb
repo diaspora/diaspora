@@ -24,6 +24,10 @@ module Diaspora
           joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = #{table_name}.id")
         }
 
+        scope :with_aspects, -> {
+          joins("LEFT OUTER JOIN aspect_visibilities ON aspect_visibilities.shareable_id = #{table_name}.id")
+        }
+
         def self.owned_or_visible_by_user(user)
           with_visibility.where(
             visible_by_user(user).or(arel_table[:public].eq(true)
