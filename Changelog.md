@@ -122,6 +122,7 @@ Contributions are very welcome, the hard work is done!
 * Add answer counts to poll [#6641](https://github.com/diaspora/diaspora/pull/6641)
 * Check for collapsible posts after images in posts have loaded [#6671](https://github.com/diaspora/diaspora/pull/6671)
 * Add reason for post report to email sent to admins [#6679](https://github.com/diaspora/diaspora/pull/6679)
+* Add links to the single post view of the related post to photos in the photo stream [#6621](https://github.com/diaspora/diaspora/pull/6621)
 
 # 0.5.8.0
 
