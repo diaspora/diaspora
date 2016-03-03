@@ -61,11 +61,6 @@ shared_examples_for "it is relayable" do
         expect(@object_by_parent_author.verify_parent_author_signature).to be true
       end
 
-      it 'does not sign as the parent author is not parent' do
-        @object_by_recipient.author_signature = @object_by_recipient.send(:sign_with_key, @local_leia.encryption_key)
-        expect(@object_by_recipient.verify_parent_author_signature).to be false
-      end
-
       it 'should verify a object made on a remote post by a different contact' do
         @object_by_recipient.author_signature = @object_by_recipient.send(:sign_with_key, @local_leia.encryption_key)
         @object_by_recipient.parent_author_signature = @object_by_recipient.send(:sign_with_key, @local_luke.encryption_key)
@@ -88,12 +83,6 @@ shared_examples_for "it is relayable" do
         expect {
           @dup_object_by_parent_author.receive(@local_leia, @local_luke.person)
         }.to_not change { @dup_object_by_parent_author.class.count }
-      end
-
-      it 'does not process if post_creator_signature is invalid' do
-        @object_by_parent_author.delete # remove object from db so we set a creator sig
-        @dup_object_by_parent_author.parent_author_signature = "dsfadsfdsa"
-        expect(@dup_object_by_parent_author.receive(@local_leia, @local_luke.person)).to eq(nil)
       end
 
       it 'signs when the person receiving is the parent author' do

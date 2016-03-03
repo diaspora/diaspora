@@ -1,5 +1,9 @@
 # 0.6.0.0
 
+## Warning: This release contains long migrations
+
+This diaspora\* releases comes with a few database cleanup migrations and they could possible take a while. While you should always do that, it is especially important this time to make sure you run the migrations inside a detachable environment like `screen` or `tmux`. A interrupted SSH session could possibly harm your database. Also, please make a backup.
+
 ## The DB environment variable is gone
 
 With Bundler 1.10 supporting optional groups, we removed the DB environment variable. When updating to this release, please update
@@ -84,6 +88,7 @@ Contributions are very welcome, the hard work is done!
 * Enable autosizing for all textareas [#6674](https://github.com/diaspora/diaspora/pull/6674)
 * Stream faces are gone [#6686](https://github.com/diaspora/diaspora/pull/6686)
 * Refactor mobile javascript and add tests [#6394](https://github.com/diaspora/diaspora/pull/6394)
+* Dropped `parent_author_signature` from relayables [#6586](https://github.com/diaspora/diaspora/pull/6586)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
