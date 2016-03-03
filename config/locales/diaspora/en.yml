@@ -1368,6 +1368,11 @@ en:
 
     activity:
       title: "My activity"
+
+    bookmarks:
+      title: "Bookmarks"
+      contacts_title: "People whose posts you bookmarked"
+
   users:
     edit:
       edit_account: "Edit account"

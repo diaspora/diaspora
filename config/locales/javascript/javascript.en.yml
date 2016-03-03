@@ -18,6 +18,17 @@ en:
       status:
         created: "The report has successfully been created"
         exists: "The report already exists"
+    bookmark:
+      name: "Bookmark"
+      add_to_list: "Add Bookmark"
+      remove_from_list: "Remove Bookmark"
+      status:
+        post:
+          error: "Bookmark already exists!"
+          success: "The bookmark was successfully added"
+        delete:
+          error: "Removing bookmark failed!"
+          success: "The bookmark was removed successfully"
     ignore_user: "Ignore this user?"
     ignore_failed: "Unable to ignore this user"
     hide_post: "Hide this post?"

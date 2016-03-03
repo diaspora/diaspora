@@ -22,7 +22,10 @@ app.views.Base = Backbone.View.extend({
 
     return _.extend(modelJson, {
       current_user : app.currentUser.attributes,
-      loggedIn : app.currentUser.authenticated()
+      loggedIn : app.currentUser.authenticated(),
+      isBookmarkedPage: function() {
+        return (Backbone.history.fragment === "bookmarked");
+      }
     });
   },
 
@@ -92,6 +95,26 @@ app.views.Base = Backbone.View.extend({
     }
 
     this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}));
+  },
+
+  bookmark: function(evt) {
+    if(evt) { evt.preventDefault(); }
+    var type = $(evt.currentTarget).data('type');
+    var method = type.toUpperCase();
+    var respond = {
+      type: method,
+      success: function() {
+        app.flashMessages.success(Diaspora.I18n.t('bookmark.status.' + type + '.success'));
+      },
+      error: function() {
+        app.flashMessages.error(Diaspora.I18n.t('bookmark.status.' + type + '.error'));
+      }
+    };
+
+    var bookmark = new app.models.Bookmark({id: this.model.id});
+    if (method === 'POST') {
+      bookmark.save({}, respond);
+    } else bookmark.destroy(respond);
   },
 
   report: function(evt) {

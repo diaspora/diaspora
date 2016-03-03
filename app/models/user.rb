@@ -75,6 +75,7 @@ class User < ActiveRecord::Base
   has_many :notifications, :foreign_key => :recipient_id
 
   has_many :reports
+  has_many :bookmarks
 
   has_many :pairwise_pseudonymous_identifiers, class_name: "Api::OpenidConnect::PairwisePseudonymousIdentifier"
   has_many :authorizations, class_name: "Api::OpenidConnect::Authorization"
