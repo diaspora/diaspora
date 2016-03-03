@@ -8,7 +8,7 @@ module ActsAsTaggableOn
     end
 
     def self.autocomplete(name)
-      where("name LIKE ?", "#{name.downcase}%")
+      where("name LIKE ?", "#{name.downcase}%").order("name ASC")
     end
 
     def self.normalize(name)

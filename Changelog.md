@@ -1,6 +1,7 @@
 # 0.5.8.0
 
 ## Refactor
+* Sort tag autocompletion by tag name [#6734](https://github.com/diaspora/diaspora/pull/6734)
 
 ## Bug fixes
 * Fix empty name field when editing aspect names [#6706](https://github.com/diaspora/diaspora/pull/6706)
