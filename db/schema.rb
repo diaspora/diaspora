@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225232049) do
+ActiveRecord::Schema.define(version: 20160302025129) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -31,11 +31,9 @@ ActiveRecord::Schema.define(version: 20160225232049) do
   add_index "aspect_memberships", ["contact_id"], name: "index_aspect_memberships_on_contact_id", using: :btree
 
   create_table "aspect_visibilities", force: :cascade do |t|
-    t.integer  "shareable_id",   limit: 4,                    null: false
-    t.integer  "aspect_id",      limit: 4,                    null: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.string   "shareable_type", limit: 255, default: "Post", null: false
+    t.integer "shareable_id",   limit: 4,                    null: false
+    t.integer "aspect_id",      limit: 4,                    null: false
+    t.string  "shareable_type", limit: 255, default: "Post", null: false
   end
 
   add_index "aspect_visibilities", ["aspect_id"], name: "index_aspect_visibilities_on_aspect_id", using: :btree
