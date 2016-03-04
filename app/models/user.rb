@@ -80,8 +80,6 @@ class User < ActiveRecord::Base
   has_many :authorizations, class_name: "Api::OpenidConnect::Authorization"
   has_many :o_auth_applications, through: :authorizations, class_name: "Api::OpenidConnect::OAuthApplication"
 
-  has_many :share_visibilities
-
   before_save :guard_unconfirmed_email,
               :save_person!
 
@@ -114,10 +112,6 @@ class User < ActiveRecord::Base
 
   def invitation_code
     InvitationCode.find_or_create_by(user_id: self.id)
-  end
-
-  def receive_shareable(shareable)
-    ShareVisibility.create!(shareable_id: shareable.id, shareable_type: shareable.class.base_class.to_s, user_id: id)
   end
 
   def hidden_shareables
