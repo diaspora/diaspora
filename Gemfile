@@ -87,7 +87,7 @@ gem "backbone-on-rails", "1.2.0.0"
 gem "handlebars_assets", "0.23.0"
 gem "jquery-rails",      "4.1.0"
 gem "jquery-ui-rails",   "5.0.5"
-gem "js_image_paths",    "0.0.2"
+gem "js_image_paths",    "0.1.0"
 gem "js-routes",         "1.2.4"
 
 source "https://rails-assets.org" do
