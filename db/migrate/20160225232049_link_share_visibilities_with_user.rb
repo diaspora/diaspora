@@ -1,12 +1,21 @@
 class LinkShareVisibilitiesWithUser < ActiveRecord::Migration
+  class ShareVisibility < ActiveRecord::Base
+  end
+
   def up
     cleanup_deleted_share_visibilities
 
     remove_columns :share_visibilities, :created_at, :updated_at
     add_column :share_visibilities, :user_id, :integer
 
-    ShareVisibility.joins("INNER JOIN contacts ON share_visibilities.contact_id = contacts.id")
-      .update_all("share_visibilities.user_id = contacts.user_id")
+    # update_all from AR doesn't work with postgres, see: https://github.com/rails/rails/issues/13496
+    if AppConfig.postgres?
+      execute "UPDATE share_visibilities SET user_id = contacts.user_id " \
+              "FROM contacts WHERE contacts.id = share_visibilities.contact_id"
+    else
+      ShareVisibility.joins("INNER JOIN contacts ON share_visibilities.contact_id = contacts.id")
+        .update_all("share_visibilities.user_id = contacts.user_id")
+    end
 
     remove_foreign_key :share_visibilities, name: :post_visibilities_contact_id_fk
 
@@ -31,8 +40,13 @@ class LinkShareVisibilitiesWithUser < ActiveRecord::Migration
   def down
     add_column :share_visibilities, :contact_id, :integer
 
-    ShareVisibility.joins("INNER JOIN contacts ON share_visibilities.user_id = contacts.user_id")
-      .update_all("share_visibilities.contact_id = contacts.id")
+    if AppConfig.postgres?
+      execute "UPDATE share_visibilities SET contact_id = contacts.id " \
+              "FROM contacts WHERE contacts.user_id = share_visibilities.user_id"
+    else
+      ShareVisibility.joins("INNER JOIN contacts ON share_visibilities.user_id = contacts.user_id")
+        .update_all("share_visibilities.contact_id = contacts.id")
+    end
 
     remove_foreign_key :share_visibilities, name: :share_visibilities_user_id_fk
 
