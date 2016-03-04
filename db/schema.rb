@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210213023) do
+ActiveRecord::Schema.define(version: 20160225232049) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -103,15 +103,15 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text     "text",                    limit: 65535,                  null: false
-    t.integer  "commentable_id",          limit: 4,                      null: false
-    t.integer  "author_id",               limit: 4,                      null: false
-    t.string   "guid",                    limit: 255,                    null: false
-    t.text     "author_signature",        limit: 65535
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
-    t.integer  "likes_count",             limit: 4,     default: 0,      null: false
-    t.string   "commentable_type",        limit: 60,    default: "Post", null: false
+    t.text     "text",             limit: 65535,                  null: false
+    t.integer  "commentable_id",   limit: 4,                      null: false
+    t.integer  "author_id",        limit: 4,                      null: false
+    t.string   "guid",             limit: 255,                    null: false
+    t.text     "author_signature", limit: 65535
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "likes_count",      limit: 4,     default: 0,      null: false
+    t.string   "commentable_type", limit: 60,    default: "Post", null: false
   end
 
   add_index "comments", ["author_id"], name: "index_comments_on_person_id", using: :btree
@@ -188,14 +188,14 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   add_index "invitations", ["sender_id"], name: "index_invitations_on_sender_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
-    t.boolean  "positive",                              default: true
-    t.integer  "target_id",               limit: 4
-    t.integer  "author_id",               limit: 4
-    t.string   "guid",                    limit: 255
-    t.text     "author_signature",        limit: 65535
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.string   "target_type",             limit: 60,                   null: false
+    t.boolean  "positive",                       default: true
+    t.integer  "target_id",        limit: 4
+    t.integer  "author_id",        limit: 4
+    t.string   "guid",             limit: 255
+    t.text     "author_signature", limit: 65535
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "target_type",      limit: 60,                   null: false
   end
 
   add_index "likes", ["author_id"], name: "likes_author_id_fk", using: :btree
@@ -222,13 +222,13 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   add_index "mentions", ["post_id"], name: "index_mentions_on_post_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
-    t.integer  "conversation_id",         limit: 4,     null: false
-    t.integer  "author_id",               limit: 4,     null: false
-    t.string   "guid",                    limit: 255,   null: false
-    t.text     "text",                    limit: 65535, null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.text     "author_signature",        limit: 65535
+    t.integer  "conversation_id",  limit: 4,     null: false
+    t.integer  "author_id",        limit: 4,     null: false
+    t.string   "guid",             limit: 255,   null: false
+    t.text     "text",             limit: 65535, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.text     "author_signature", limit: 65535
   end
 
   add_index "messages", ["author_id"], name: "index_messages_on_author_id", using: :btree
@@ -312,14 +312,14 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.string   "guid",                    limit: 255
-    t.integer  "target_id",               limit: 4
-    t.string   "target_type",             limit: 60,                null: false
-    t.integer  "author_id",               limit: 4
-    t.text     "author_signature",        limit: 65535
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.integer  "count",                   limit: 4,     default: 1, null: false
+    t.string   "guid",             limit: 255
+    t.integer  "target_id",        limit: 4
+    t.string   "target_type",      limit: 60,                null: false
+    t.integer  "author_id",        limit: 4
+    t.text     "author_signature", limit: 65535
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "count",            limit: 4,     default: 1, null: false
   end
 
   add_index "participations", ["guid"], name: "index_participations_on_guid", length: {"guid"=>191}, using: :btree
@@ -392,11 +392,11 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   add_index "poll_answers", ["poll_id"], name: "index_poll_answers_on_poll_id", using: :btree
 
   create_table "poll_participations", force: :cascade do |t|
-    t.integer  "poll_answer_id",          limit: 4,     null: false
-    t.integer  "author_id",               limit: 4,     null: false
-    t.integer  "poll_id",                 limit: 4,     null: false
-    t.string   "guid",                    limit: 255
-    t.text     "author_signature",        limit: 65535
+    t.integer  "poll_answer_id",   limit: 4,     null: false
+    t.integer  "author_id",        limit: 4,     null: false
+    t.integer  "poll_id",          limit: 4,     null: false
+    t.string   "guid",             limit: 255
+    t.text     "author_signature", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -542,18 +542,16 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
   create_table "share_visibilities", force: :cascade do |t|
-    t.integer  "shareable_id",   limit: 4,                   null: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.boolean  "hidden",                    default: false,  null: false
-    t.integer  "contact_id",     limit: 4,                   null: false
-    t.string   "shareable_type", limit: 60, default: "Post", null: false
+    t.integer "shareable_id",   limit: 4,                   null: false
+    t.boolean "hidden",                    default: false,  null: false
+    t.string  "shareable_type", limit: 60, default: "Post", null: false
+    t.integer "user_id",        limit: 4,                   null: false
   end
 
-  add_index "share_visibilities", ["contact_id"], name: "index_post_visibilities_on_contact_id", using: :btree
-  add_index "share_visibilities", ["shareable_id", "shareable_type", "contact_id"], name: "shareable_and_contact_id", using: :btree
-  add_index "share_visibilities", ["shareable_id", "shareable_type", "hidden", "contact_id"], name: "shareable_and_hidden_and_contact_id", using: :btree
+  add_index "share_visibilities", ["shareable_id", "shareable_type", "hidden", "user_id"], name: "shareable_and_hidden_and_user_id", using: :btree
+  add_index "share_visibilities", ["shareable_id", "shareable_type", "user_id"], name: "shareable_and_user_id", using: :btree
   add_index "share_visibilities", ["shareable_id"], name: "index_post_visibilities_on_post_id", using: :btree
+  add_index "share_visibilities", ["user_id"], name: "index_share_visibilities_on_user_id", using: :btree
 
   create_table "simple_captcha_data", force: :cascade do |t|
     t.string   "key",        limit: 40
@@ -679,5 +677,5 @@ ActiveRecord::Schema.define(version: 20151210213023) do
   add_foreign_key "ppid", "users"
   add_foreign_key "profiles", "people", name: "profiles_person_id_fk", on_delete: :cascade
   add_foreign_key "services", "users", name: "services_user_id_fk", on_delete: :cascade
-  add_foreign_key "share_visibilities", "contacts", name: "post_visibilities_contact_id_fk", on_delete: :cascade
+  add_foreign_key "share_visibilities", "users", name: "share_visibilities_user_id_fk", on_delete: :cascade
 end

@@ -44,12 +44,11 @@ class Stream::Tag < Stream::Base
   end
 
   def construct_post_query
-    posts = StatusMessage
-    if user.present?
-      posts = posts.owned_or_visible_by_user(user)
-    else
-      posts = posts.all_public
-    end
+    posts = if user.present?
+              StatusMessage.owned_or_visible_by_user(user)
+            else
+              StatusMessage.all_public
+            end
     posts.tagged_with(tag_name, :any => true)
   end
 end

@@ -32,8 +32,4 @@ shared_examples_for 'it removes the person associations' do
     expect(ConversationVisibility.where(:person_id => alice.person.id)).not_to be_empty
     expect(ConversationVisibility.where(:person_id => @person.id)).to be_empty
   end
-
-  it "deletes the share visibilities on the person's posts" do
-    expect(ShareVisibility.for_contacts_of_a_person(@person)).to be_empty
-  end
 end

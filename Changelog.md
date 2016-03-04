@@ -89,6 +89,7 @@ Contributions are very welcome, the hard work is done!
 * Stream faces are gone [#6686](https://github.com/diaspora/diaspora/pull/6686)
 * Refactor mobile javascript and add tests [#6394](https://github.com/diaspora/diaspora/pull/6394)
 * Dropped `parent_author_signature` from relayables [#6586](https://github.com/diaspora/diaspora/pull/6586)
+* Attached ShareVisibilities to the User, not the Contact [#6723](https://github.com/diaspora/diaspora/pull/6723)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

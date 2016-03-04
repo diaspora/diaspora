@@ -41,8 +41,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   # @note performs a bulk insert into mySQL
   # @return [void]
   def create_share_visibilities
-    contacts_ids = Contact.connection.select_values(Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id).select("id").to_sql)
-    ShareVisibility.batch_import(contacts_ids, object)
+    ShareVisibility.batch_import(@recipient_user_ids, object)
   end
 
   # Notify any mentioned users within the @object's text
