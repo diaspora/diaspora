@@ -16,10 +16,10 @@ module PeopleHelper
   end
 
   def birthday_format(bday)
-    if bday.year == 1000
-      I18n.l bday, :format => I18n.t('date.formats.birthday')
+    if bday.year <= 1004
+      I18n.l bday, format: I18n.t("date.formats.birthday")
     else
-      I18n.l bday, :format => I18n.t('date.formats.birthday_with_year')
+      I18n.l bday, format: I18n.t("date.formats.birthday_with_year")
     end
   end
 
