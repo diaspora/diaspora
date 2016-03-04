@@ -408,7 +408,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    js-routes (1.2.3)
+    js-routes (1.2.4)
       railties (>= 3.2)
       sprockets-rails
     js_image_paths (0.0.2)
@@ -823,7 +823,7 @@ DEPENDENCIES
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 4.1.0)
   jquery-ui-rails (= 5.0.5)
-  js-routes (= 1.2.3)
+  js-routes (= 1.2.4)
   js_image_paths (= 0.0.2)
   jshintrb (= 0.3.0)
   json (= 1.8.3)
