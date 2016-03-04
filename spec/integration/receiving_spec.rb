@@ -15,8 +15,6 @@ describe 'a user receives a post', :type => :request do
     @alices_aspect = alice.aspects.where(:name => "generic").first
     @bobs_aspect = bob.aspects.where(:name => "generic").first
     @eves_aspect = eve.aspects.where(:name => "generic").first
-
-    @contact = alice.contact_for(bob.person)
   end
 
   it 'should be able to parse and store a status message from xml' do
@@ -134,39 +132,17 @@ describe 'a user receives a post', :type => :request do
   describe 'post refs' do
     before do
       @status_message = bob.post(:status_message, :text => "hi", :to => @bobs_aspect.id)
-      alice.reload
-      @alices_aspect.reload
-      @contact = alice.contact_for(bob.person)
     end
 
-    it "adds a received post to the the contact" do
+    it "adds a received post to the the user" do
       expect(alice.visible_shareables(Post)).to include(@status_message)
-      expect(@contact.posts).to include(@status_message)
+      expect(ShareVisibility.find_by(user_id: alice.id, shareable_id: @status_message.id)).not_to be_nil
     end
 
-    it 'removes posts upon forceful removal' do
-      alice.remove_contact(@contact, :force => true)
+    it "does not remove visibility on disconnect" do
+      alice.remove_contact(alice.contact_for(bob.person), force: true)
       alice.reload
-      expect(alice.visible_shareables(Post)).not_to include @status_message
-    end
-
-    context 'dependent delete' do
-      it 'deletes share_visibilities on disconnected by' do
-        @person = FactoryGirl.create(:person)
-        alice.contacts.create(:person => @person, :aspects => [@alices_aspect])
-
-        @post = FactoryGirl.create(:status_message, :author => @person)
-        expect(@post.share_visibilities).to be_empty
-        receive_with_zord(alice, @person, @post.to_diaspora_xml)
-        @contact = alice.contact_for(@person)
-        @contact.share_visibilities.reset
-        expect(@contact.posts(true)).to include(@post)
-        @post.share_visibilities.reset
-
-        expect {
-          alice.disconnected_by(@person)
-        }.to change{@post.share_visibilities(true).count}.by(-1)
-      end
+      expect(ShareVisibility.find_by(user_id: alice.id, shareable_id: @status_message.id)).not_to be_nil
     end
   end
 

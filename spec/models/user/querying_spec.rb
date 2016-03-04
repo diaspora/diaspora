@@ -85,8 +85,7 @@ describe User::Querying, :type => :model do
       end
 
       it "does not pull back hidden posts" do
-        visibility = @status.share_visibilities(Post).where(:contact_id => alice.contact_for(bob.person).id).first
-        visibility.update_attributes(:hidden => true)
+        @status.share_visibilities(Post).where(user_id: alice.id).first.update_attributes(hidden: true)
         expect(alice.visible_shareable_ids(Post).include?(@status.id)).to be false
       end
     end
@@ -112,21 +111,6 @@ describe User::Querying, :type => :model do
     it 'never contains posts from people not in your aspects' do
       FactoryGirl.create(:status_message, :public => true)
       expect(bob.visible_shareables(Post).count(:all)).to eq(0)
-    end
-
-    context 'with two posts with the same timestamp' do
-      before do
-        aspect_id = alice.aspects.where(:name => "generic").first.id
-        Timecop.freeze Time.now do
-          alice.post :status_message, :text => "first", :to => aspect_id
-          alice.post :status_message, :text => "second", :to => aspect_id
-        end
-      end
-
-      it "returns them in reverse creation order" do
-        expect(bob.visible_shareables(Post).first.text).to eq("second")
-        expect(bob.visible_shareables(Post).last.text).to eq("first")
-      end
     end
 
     context 'with many posts' do

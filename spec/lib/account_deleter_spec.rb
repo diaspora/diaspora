@@ -27,7 +27,6 @@ describe AccountDeleter do
     person_removal_methods = [:delete_contacts_of_me,
      :delete_standard_person_associations,
      :tombstone_person_and_profile,
-     :remove_share_visibilities_on_persons_posts,
      :remove_conversation_visibilities]
 
     context "user deletion" do
@@ -158,21 +157,11 @@ describe AccountDeleter do
     end
   end
 
-  describe "#remove_person_share_visibilities" do
-    it 'removes the share visibilities for a person ' do
-      @s_vis = double
-      expect(ShareVisibility).to receive(:for_contacts_of_a_person).with(bob.person).and_return(@s_vis)
-      expect(@s_vis).to receive(:destroy_all)
-
-      @account_deletion.remove_share_visibilities_on_persons_posts
-    end
-  end
-
   describe "#remove_share_visibilities_by_contacts_of_user" do
-    it 'removes the share visibilities for a user' do
-      @s_vis = double
-      expect(ShareVisibility).to receive(:for_a_users_contacts).with(bob).and_return(@s_vis)
-      expect(@s_vis).to receive(:destroy_all)
+    it "removes the share visibilities for a user" do
+      s_vis = double
+      expect(ShareVisibility).to receive(:for_a_user).with(bob).and_return(s_vis)
+      expect(s_vis).to receive(:destroy_all)
 
       @account_deletion.remove_share_visibilities_on_contacts_posts
     end
