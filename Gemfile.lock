@@ -560,6 +560,7 @@ GEM
     orm_adapter (0.5.0)
     parser (2.3.0.4)
       ast (~> 2.2)
+    pg (0.18.4)
     phantomjs (2.1.1.0)
     powerpack (0.1.1)
     pronto (0.5.3)
