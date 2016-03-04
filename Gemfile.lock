@@ -447,7 +447,7 @@ GEM
     js-routes (1.2.4)
       railties (>= 3.2)
       sprockets-rails
-    js_image_paths (0.0.2)
+    js_image_paths (0.1.0)
       rails (~> 4.0)
     jshintrb (0.3.0)
       execjs
@@ -947,7 +947,7 @@ DEPENDENCIES
   jquery-rails (= 4.1.0)
   jquery-ui-rails (= 5.0.5)
   js-routes (= 1.2.4)
-  js_image_paths (= 0.0.2)
+  js_image_paths (= 0.1.0)
   jshintrb (= 0.3.0)
   json (= 1.8.3)
   json-schema (= 2.6.0)
