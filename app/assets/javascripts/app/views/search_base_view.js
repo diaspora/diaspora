@@ -10,13 +10,18 @@ app.views.SearchBase = app.views.Base.extend({
     if(options.autoselect) { this.setupAutoselect(); }
   },
 
+  bloodhoundTokenizer: function(str) {
+    if(typeof str !== "string") { return []; }
+    return str.split(/[\s\.:,;\?\!#@\-_\[\]\{\}\(\)]+/).filter(function(s) { return s !== ""; });
+  },
+
   setupBloodhound: function(options) {
     var bloodhoundOptions = {
       datumTokenizer: function(datum) {
-        var nameTokens = Bloodhound.tokenizers.nonword(datum.name);
-        var handleTokens = datum.handle ? Bloodhound.tokenizers.nonword(datum.name) : [];
+        var nameTokens = this.bloodhoundTokenizer(datum.name);
+        var handleTokens = datum.handle ? this.bloodhoundTokenizer(datum.handle) : [];
         return nameTokens.concat(handleTokens);
-      },
+      }.bind(this),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       prefetch: {
         url: "/contacts.json",

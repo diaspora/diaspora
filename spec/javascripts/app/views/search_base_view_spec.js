@@ -65,6 +65,37 @@ describe("app.views.SearchBase", function() {
     });
   });
 
+  describe("bloodhoundTokenizer", function() {
+    beforeEach(function() {
+      this.view = new app.views.SearchBase({ el: "#search_people_form", typeaheadInput: $("#q") });
+    });
+
+    it("splits the string at whitespaces and punctuation chars", function() {
+      expect(this.view.bloodhoundTokenizer("ab.c-d_ef g;h,i  #jkl?mnopq!rstu[vwx]::y(z){}")).toEqual(
+        ["ab", "c", "d", "ef", "g", "h", "i", "jkl", "mnopq", "rstu", "vwx", "y", "z"]
+      );
+    });
+
+    it("doesn't split the string at Cyrillic chars", function() {
+      expect(this.view.bloodhoundTokenizer("АаБбВвГгДдЕеЁё ЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФф")).toEqual(
+        ["АаБбВвГгДдЕеЁё", "ЖжЗзИиЙйКкЛлМмНнОоПпРрСсТтУуФф"]
+      );
+    });
+
+    it("doesn't split the string at Malayalam chars", function() {
+      expect(this.view.bloodhoundTokenizer("ബിപിൻദാസ്")).toEqual(
+        ["ബിപിൻദാസ്"]
+      );
+    });
+
+    it("returns an empty array inputs which are not a string", function() {
+      expect(this.view.bloodhoundTokenizer(undefined)).toEqual([]);
+      expect(this.view.bloodhoundTokenizer(null)).toEqual([]);
+      expect(this.view.bloodhoundTokenizer(23)).toEqual([]);
+      expect(this.view.bloodhoundTokenizer({foo: "bar"})).toEqual([]);
+    });
+  });
+
   describe("setupCustomSearch", function() {
     it("sets bloodhound.customSearch", function() {
       this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
