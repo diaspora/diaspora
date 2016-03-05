@@ -2,7 +2,9 @@
 
 app.views.Tags = Backbone.View.extend({
   initialize: function(opts) {
-    app.publisher.setText("#"+ opts.hashtagName + " ");
+    if(app.publisher) {
+      app.publisher.setText("#"+ opts.hashtagName + " ");
+    }
   }
 });
 // @license-end

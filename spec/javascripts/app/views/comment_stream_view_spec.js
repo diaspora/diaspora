@@ -107,8 +107,7 @@ describe("app.views.CommentStream", function(){
       var form = this.view.$("form");
       form.submit(submitCallback);
 
-      var e = $.Event("keydown", { keyCode: 13 });
-      e.ctrlKey = false;
+      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: false });
       this.view.keyDownOnCommentBox(e);
 
       expect(submitCallback).not.toHaveBeenCalled();
@@ -119,8 +118,7 @@ describe("app.views.CommentStream", function(){
       var form = this.view.$("form");
       form.submit(submitCallback);
 
-      var e = $.Event("keydown", { keyCode: 13 });
-      e.ctrlKey = true;
+      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: true });
       this.view.keyDownOnCommentBox(e);
 
       expect(submitCallback).toHaveBeenCalled();

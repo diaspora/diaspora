@@ -66,6 +66,7 @@
 
     "app",
     "Diaspora",
+    "Keycodes",
     "Mentions",
     "PosixBracketExpressions"
   ]

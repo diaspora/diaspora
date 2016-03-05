@@ -225,8 +225,7 @@ describe("app.views.Publisher", function() {
         var submitCallback = jasmine.createSpy().and.returnValue(false);
         form.submit(submitCallback);
 
-        var e = $.Event("keydown", { keyCode: 13 });
-        e.ctrlKey = true;
+        var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: true });
         this.view.keyDown(e);
 
         expect(submitCallback).toHaveBeenCalled();
@@ -430,7 +429,7 @@ describe("app.views.Publisher", function() {
       it("Show location", function(){
 
         // inserts location to the DOM; it is the location's view element
-        setFixtures('<div id="location_container"></div>');
+        setFixtures('<div class="location-container"></div>');
 
         // creates a fake Locator
         OSM = {};
@@ -460,8 +459,7 @@ describe("app.views.Publisher", function() {
     describe('#avoidEnter', function(){
       it("Avoid submitting the form when pressing enter", function(){
         // simulates the event object
-        var evt = {};
-        evt.keyCode = 13;
+        var evt = $.Event("keydown", { which: Keycodes.ENTER });
 
         // should return false in order to avoid the form submition
         expect(this.view.avoidEnter(evt)).toBeFalsy();

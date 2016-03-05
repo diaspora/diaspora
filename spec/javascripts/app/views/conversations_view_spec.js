@@ -64,14 +64,14 @@ describe("app.views.Conversations", function(){
 
     it("should submit the form with ctrl+enter", function(){
       $("form#new_message").submit(this.submitCallback);
-      var e = $.Event("keydown", { keyCode: 13, ctrlKey: true });
+      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: true });
       $("textarea#message_text").trigger(e);
       expect(this.submitCallback).toHaveBeenCalled();
     });
 
     it("shouldn't submit the form without the ctrl key", function(){
       $("form#new_message").submit(this.submitCallback);
-      var e = $.Event("keydown", { keyCode: 13, ctrlKey: false });
+      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: false });
       $("textarea#message_text").trigger(e);
       expect(this.submitCallback).not.toHaveBeenCalled();
     });

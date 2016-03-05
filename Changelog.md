@@ -90,6 +90,7 @@ Contributions are very welcome, the hard work is done!
 * Refactor mobile javascript and add tests [#6394](https://github.com/diaspora/diaspora/pull/6394)
 * Dropped `parent_author_signature` from relayables [#6586](https://github.com/diaspora/diaspora/pull/6586)
 * Attached ShareVisibilities to the User, not the Contact [#6723](https://github.com/diaspora/diaspora/pull/6723)
+* Refactor mentions input, now based on typeahead.js [#6728](https://github.com/diaspora/diaspora/pull/6728)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

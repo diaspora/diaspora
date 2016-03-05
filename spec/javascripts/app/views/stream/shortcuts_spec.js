@@ -16,9 +16,7 @@ describe("app.views.StreamShortcuts", function () {
   describe("pressing 'j'", function(){
     it("should call 'gotoNext' if not pressed in an input field", function(){
       spyOn(this.view, 'gotoNext');
-      var e = $.Event("keydown", { which: 74, target: {type: "div"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('j');
+      var e = $.Event("keydown", { which: Keycodes.J, target: {type: "div"} });
       this.view._onHotkeyDown(e);
       expect(this.view.gotoNext).toHaveBeenCalled();
     });
@@ -32,9 +30,7 @@ describe("app.views.StreamShortcuts", function () {
     it("shouldn't do anything if the user types in an input field", function(){
       spyOn(this.view, 'gotoNext');
       spyOn(this.view, 'selectPost');
-      var e = $.Event("keydown", { which: 74, target: {type: "textarea"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('j');
+      var e = $.Event("keydown", { which: Keycodes.J, target: {type: "textarea"} });
       this.view._onHotkeyDown(e);
       expect(this.view.gotoNext).not.toHaveBeenCalled();
       expect(this.view.selectPost).not.toHaveBeenCalled();
@@ -44,9 +40,7 @@ describe("app.views.StreamShortcuts", function () {
   describe("pressing 'k'", function(){
     it("should call 'gotoPrev' if not pressed in an input field", function(){
       spyOn(this.view, 'gotoPrev');
-      var e = $.Event("keydown", { which: 75, target: {type: "div"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('k');
+      var e = $.Event("keydown", { which: Keycodes.K, target: {type: "div"} });
       this.view._onHotkeyDown(e);
       expect(this.view.gotoPrev).toHaveBeenCalled();
     });
@@ -60,9 +54,7 @@ describe("app.views.StreamShortcuts", function () {
     it("shouldn't do anything if the user types in an input field", function(){
       spyOn(this.view, 'gotoPrev');
       spyOn(this.view, 'selectPost');
-      var e = $.Event("keydown", { which: 75, target: {type: "textarea"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('k');
+      var e = $.Event("keydown", { which: Keycodes.K, target: {type: "textarea"} });
       this.view._onHotkeyDown(e);
       expect(this.view.gotoPrev).not.toHaveBeenCalled();
       expect(this.view.selectPost).not.toHaveBeenCalled();
@@ -72,18 +64,14 @@ describe("app.views.StreamShortcuts", function () {
   describe("pressing 'c'", function(){
     it("should click on the comment-button if not pressed in an input field", function(){
       spyOn(this.view, 'commentSelected');
-      var e = $.Event("keyup", { which: 67, target: {type: "div"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('c');
+      var e = $.Event("keyup", { which: Keycodes.C, target: {type: "div"} });
       this.view._onHotkeyUp(e);
       expect(this.view.commentSelected).toHaveBeenCalled();
     });
 
     it("shouldn't do anything if the user types in an input field", function(){
       spyOn(this.view, 'commentSelected');
-      var e = $.Event("keyup", { which: 67, target: {type: "textarea"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('c');
+      var e = $.Event("keyup", { which: Keycodes.C, target: {type: "textarea"} });
       this.view._onHotkeyUp(e);
       expect(this.view.commentSelected).not.toHaveBeenCalled();
     });
@@ -92,18 +80,14 @@ describe("app.views.StreamShortcuts", function () {
   describe("pressing 'l'", function(){
     it("should click on the like-button if not pressed in an input field", function(){
       spyOn(this.view, 'likeSelected');
-      var e = $.Event("keyup", { which: 76, target: {type: "div"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('l');
+      var e = $.Event("keyup", { which: Keycodes.L, target: {type: "div"} });
       this.view._onHotkeyUp(e);
       expect(this.view.likeSelected).toHaveBeenCalled();
     });
 
     it("shouldn't do anything if the user types in an input field", function(){
       spyOn(this.view, 'likeSelected');
-      var e = $.Event("keyup", { which: 76, target: {type: "textarea"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('l');
+      var e = $.Event("keyup", { which: Keycodes.L, target: {type: "textarea"} });
       this.view._onHotkeyUp(e);
       expect(this.view.likeSelected).not.toHaveBeenCalled();
     });
@@ -112,18 +96,14 @@ describe("app.views.StreamShortcuts", function () {
   describe("pressing 'r'", function(){
     it("should click on the reshare-button if not pressed in an input field", function(){
       spyOn(this.view, 'reshareSelected');
-      var e = $.Event("keyup", { which: 82, target: {type: "div"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('r');
+      var e = $.Event("keyup", { which: Keycodes.R, target: {type: "div"} });
       this.view._onHotkeyUp(e);
       expect(this.view.reshareSelected).toHaveBeenCalled();
     });
 
     it("shouldn't do anything if the user types in an input field", function(){
       spyOn(this.view, 'reshareSelected');
-      var e = $.Event("keyup", { which: 82, target: {type: "textarea"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('r');
+      var e = $.Event("keyup", { which: Keycodes.R, target: {type: "textarea"} });
       this.view._onHotkeyUp(e);
       expect(this.view.reshareSelected).not.toHaveBeenCalled();
     });
@@ -132,18 +112,14 @@ describe("app.views.StreamShortcuts", function () {
   describe("pressing 'm'", function(){
     it("should click on the more-button if not pressed in an input field", function(){
       spyOn(this.view, 'expandSelected');
-      var e = $.Event("keyup", { which: 77, target: {type: "div"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('m');
+      var e = $.Event("keyup", { which: Keycodes.M, target: {type: "div"} });
       this.view._onHotkeyUp(e);
       expect(this.view.expandSelected).toHaveBeenCalled();
     });
 
     it("shouldn't do anything if the user types in an input field", function(){
       spyOn(this.view, 'expandSelected');
-      var e = $.Event("keyup", { which: 77, target: {type: "textarea"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('m');
+      var e = $.Event("keyup", { which: Keycodes.M, target: {type: "textarea"} });
       this.view._onHotkeyUp(e);
       expect(this.view.expandSelected).not.toHaveBeenCalled();
     });
@@ -152,18 +128,14 @@ describe("app.views.StreamShortcuts", function () {
   describe("pressing 'o'", function(){
     it("should click on the more-button if not pressed in an input field", function(){
       spyOn(this.view, 'openFirstLinkSelected');
-      var e = $.Event("keyup", { which: 79, target: {type: "div"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('o');
+      var e = $.Event("keyup", { which: Keycodes.O, target: {type: "div"} });
       this.view._onHotkeyUp(e);
       expect(this.view.openFirstLinkSelected).toHaveBeenCalled();
     });
 
     it("shouldn't do anything if the user types in an input field", function(){
       spyOn(this.view, 'openFirstLinkSelected');
-      var e = $.Event("keyup", { which: 79, target: {type: "textarea"} });
-      //verify that the test is correct
-      expect(String.fromCharCode( e.which ).toLowerCase()).toBe('o');
+      var e = $.Event("keyup", { which: Keycodes.O, target: {type: "textarea"} });
       this.view._onHotkeyUp(e);
       expect(this.view.openFirstLinkSelected).not.toHaveBeenCalled();
     });

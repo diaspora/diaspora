@@ -1,9 +1,3 @@
--# TODO this should happen in the js app
-- content_for :head do
-  - if user_signed_in? && @person != current_user.person
-    :javascript
-      Mentions.options.prefillMention = Mentions._contactToMention(#{j @person.to_json});
-
 - content_for :page_title do
   = @person.name
 

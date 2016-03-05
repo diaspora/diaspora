@@ -6,15 +6,12 @@
 //= require js-routes
 //= require underscore
 //= require backbone
-//= require jquery.hotkeys
 //= require jquery.remotipart
 //= require autosize
 //= require jquery.charcount
 //= require jquery-placeholder
 //= require rails-timeago
 //= require jquery.events.input
-//= require jakobmattsson-jquery-elastic
-//= require jquery.mentionsInput
 //= require jquery.infinitescroll-custom
 //= require jquery-ui/core
 //= require jquery-ui/widget
@@ -39,7 +36,6 @@
 //= require_tree ./helpers
 //= require_tree ./pages
 //= require_tree ./widgets
-//= require mentions
 //= require bootstrap
 //= require osmlocator
 //= require bootstrap-switch
