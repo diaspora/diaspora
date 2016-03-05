@@ -8,35 +8,6 @@ Feature: The activity stream
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     When "alice@alice.alice" has posted a status message with a photo
 
-  Scenario: Sorting
-    When I sign in as "bob@bob.bob"
-
-    Given I expand the publisher
-    When I write the status message "A- I like turtles"
-    And I submit the publisher
-    
-    Given I expand the publisher
-    When I write the status message "B- barack obama is your new bicycle"
-    And I submit the publisher
-
-    Given I expand the publisher
-    When I write the status message "C- barack obama is a square"
-    And I submit the publisher
-
-    When I go to the activity stream page
-    Then "C- barack obama is a square" should be post 1
-    And "B- barack obama is your new bicycle" should be post 2
-    And "A- I like turtles" should be post 3
-
-    When I like the post "A- I like turtles" in the stream
-    And I comment "Sassy sawfish" on "C- barack obama is a square"
-    And I like the post "B- barack obama is your new bicycle" in the stream
-    
-    When I go to the activity stream page
-    Then "B- barack obama is your new bicycle" should be post 1
-    And "C- barack obama is a square" should be post 2
-    And "A- I like turtles" should be post 3
-
   Scenario: delete a comment
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
