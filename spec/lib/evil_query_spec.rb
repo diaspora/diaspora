@@ -65,4 +65,29 @@ describe EvilQuery::Participation do
       expect(posts.map(&:id)).to eq([@status_messageE.id, @status_messageA.id, @status_messageB.id])
     end
   end
+
+  describe "multiple participations" do
+    before do
+      @status_message = FactoryGirl.create(:status_message, author: bob.person)
+      @like = alice.like!(@status_message)
+      @comment = alice.comment!(@status_message, "party")
+    end
+
+    let(:posts) { EvilQuery::Participation.new(alice).posts }
+
+    it "includes Posts with multiple participations" do
+      expect(posts.map(&:id)).to eq([@status_message.id])
+    end
+
+    it "includes Posts with multiple participation after removing one participation" do
+      @like.destroy
+      expect(posts.map(&:id)).to eq([@status_message.id])
+    end
+
+    it "doesn't includes Posts after removing all of their participations" do
+      @like.destroy
+      @comment.destroy
+      expect(posts.map(&:id)).not_to include(@status_message.id)
+    end
+  end
 end

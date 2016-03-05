@@ -41,35 +41,3 @@ Feature: The activity stream
     And I unlike the post "Look at this dog" in the stream
     And I go to the activity stream page
     Then I should not see "Look at this dog"
-
-  Scenario: multiple participations
-    When I sign in as "bob@bob.bob"
-    And I am on "alice@alice.alice"'s page
-    Then I should see "Look at this dog"
-
-    When I like the post "Look at this dog" in the stream
-    And I go to the activity stream page
-    Then I should see "Look at this dog"
-
-    When I am on "alice@alice.alice"'s page
-    Then I should see "Look at this dog"
-
-    When I focus the comment field
-    And I fill in the following:
-        | text            | is that a poodle?    |
-    And I press "Comment"
-
-    And I go to the activity stream page
-    Then I should see "Look at this dog"
-
-    When I am on "alice@alice.alice"'s page
-    And I unlike the post "Look at this dog" in the stream
-    And I go to the activity stream page
-    Then I should see "Look at this dog"
-
-    When I am on "alice@alice.alice"'s page
-    And I click to delete the first comment
-    And I confirm the alert
-
-    And I go to the activity stream page
-    Then I should not see "Look at this dog"
