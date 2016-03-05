@@ -46,8 +46,8 @@ Given /^I have been invited by an admin$/ do
   i.send!
 end
 
-Given /^I have been invited by bob$/ do
-  @inviter = FactoryGirl.create(:user, :email => 'bob@bob.bob')
+Given /^I have been invited by "([^\"]+)"$/ do |email|
+  @inviter = User.find_by_email(email)
   @inviter_invite_count = @inviter.invitation_code.count
   i = EmailInviter.new("new_invitee@example.com", @inviter)
   i.send!
@@ -200,20 +200,14 @@ When /^I view "([^\"]*)"'s first post$/ do |email|
   visit post_path(post)
 end
 
-Given /^I visit alice's invitation code url$/ do
-  @alice ||= FactoryGirl.create(:user, :username => 'alice', :getting_started => false)
-  invite_code  = InvitationCode.find_or_create_by(user_id: @alice.id)
-  visit invite_code_path(invite_code)
-end
-
 When /^I fill in the new user form/ do
   fill_in_new_user_form
 end
 
-And /^I should be able to friend Alice$/ do
-  alice = User.find_by_username 'alice'
+And /^I should be able to friend "([^\"]*)"$/ do |email|
+  user = User.find_by_email(email)
   step 'I should see "Add contact"'
-  step "I should see \"#{alice.name}\""
+  step "I should see \"#{user.name}\""
 end
 
 When /^I click the sign in button$/ do
