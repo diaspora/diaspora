@@ -1,10 +1,34 @@
 require 'spec_helper'
 
 describe EvilQuery::MultiStream do
-  let(:evil_query) { EvilQuery::MultiStream.new(alice, 'created_at', Time.now-1.week, true) }
+  let(:evil_query) { EvilQuery::MultiStream.new(alice, "created_at", Time.zone.now, true) }
+
   describe 'community_spotlight_posts!' do
     it 'does not raise an error' do
       expect { evil_query.community_spotlight_posts! }.to_not raise_error
+    end
+  end
+
+  describe "make_relation!" do
+    it "includes public posts of someone you follow" do
+      alice.share_with(eve.person, alice.aspects.first)
+      public_post = eve.post(:status_message, text: "public post", to: "all", public: true)
+      expect(evil_query.make_relation!.map(&:id)).to include(public_post.id)
+    end
+
+    it "includes private posts of contacts with a mutual relationship" do
+      alice.share_with(eve.person, alice.aspects.first)
+      eve.share_with(alice.person, eve.aspects.first)
+      private_post = eve.post(:status_message, text: "private post", to: eve.aspects.first.id, public: false)
+      expect(evil_query.make_relation!.map(&:id)).to include(private_post.id)
+    end
+
+    it "doesn't include posts of followers that you don't follow back" do
+      eve.share_with(alice.person, eve.aspects.first)
+      public_post = eve.post(:status_message, text: "public post", to: "all", public: true)
+      private_post = eve.post(:status_message, text: "private post", to: eve.aspects.first.id, public: false)
+      expect(evil_query.make_relation!.map(&:id)).not_to include(public_post.id)
+      expect(evil_query.make_relation!.map(&:id)).not_to include(private_post.id)
     end
   end
 end
@@ -63,6 +87,31 @@ describe EvilQuery::Participation do
 
     it "returns the posts that the user has commented on or liked with the most recently acted on ones first" do
       expect(posts.map(&:id)).to eq([@status_messageE.id, @status_messageA.id, @status_messageB.id])
+    end
+  end
+
+  describe "multiple participations" do
+    before do
+      @status_message = FactoryGirl.create(:status_message, author: bob.person)
+      @like = alice.like!(@status_message)
+      @comment = alice.comment!(@status_message, "party")
+    end
+
+    let(:posts) { EvilQuery::Participation.new(alice).posts }
+
+    it "includes Posts with multiple participations" do
+      expect(posts.map(&:id)).to eq([@status_message.id])
+    end
+
+    it "includes Posts with multiple participation after removing one participation" do
+      @like.destroy
+      expect(posts.map(&:id)).to eq([@status_message.id])
+    end
+
+    it "doesn't includes Posts after removing all of their participations" do
+      @like.destroy
+      @comment.destroy
+      expect(posts.map(&:id)).not_to include(@status_message.id)
     end
   end
 end
