@@ -104,11 +104,11 @@ class AccountDeleter
   end
 
   def normal_ar_person_associates_to_delete
-    [:posts, :photos, :mentions, :participations, :roles]
+    %i(posts photos mentions participations roles)
   end
 
   def ignored_or_special_ar_person_associations
-    [:comments, :contacts, :notification_actors, :notifications, :owner, :profile, :conversation_visibilities]
+    %i(comments contacts notification_actors notifications owner profile conversation_visibilities pod)
   end
 
   def mark_account_deletion_complete

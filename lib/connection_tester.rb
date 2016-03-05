@@ -17,11 +17,10 @@ class ConnectionTester
     #
     # @api This is the entry point you're supposed to use for testing
     #   connections to other diaspora-compatible servers.
-    # @param [String] server URL
+    # @param [String] url URL
     # @return [Result] result object containing information about the
     #   server and to what point the connection was successful
     def check(url)
-      url = "http://#{url}" unless url.include?("://")
       result = Result.new
 
       begin
@@ -54,7 +53,7 @@ class ConnectionTester
         result.reachable = false
       when SSLFailure
         result.reachable = true
-        result.ssl_status = false
+        result.ssl = false
       when HTTPFailure
         result.reachable = true
       when NodeInfoFailure
@@ -70,8 +69,6 @@ class ConnectionTester
     @uri ||= URI.parse(@url)
     raise AddressFailure,
           "invalid protocol: '#{@uri.scheme.upcase}'" unless http_uri?(@uri)
-
-    result.hostname = @uri.host
   rescue AddressFailure => e
     raise e
   rescue URI::InvalidURIError => e
@@ -83,11 +80,8 @@ class ConnectionTester
   # Perform the DNS query, the IP address will be stored in the result
   # @raise [DNSFailure] caused by a failure to resolve or a timeout
   def resolve
-    with_dns_resolver do |dns|
-      addr = dns.getaddress(@uri.host)
-      @result.ip = addr.to_s
-    end
-  rescue Resolv::ResolvError, Resolv::ResolvTimeout => e
+    @result.ip = IPSocket.getaddress(@uri.host)
+  rescue SocketError => e
     raise DNSFailure, "'#{@uri.host}' - #{e.message}"
   rescue StandardError => e
     raise Failure, e.inspect
@@ -99,13 +93,15 @@ class ConnectionTester
   # * is the SSL certificate valid (only on HTTPS)
   # * does the server return a successful HTTP status code
   # * is there a reasonable amount of redirects (3 by default)
+  # * is there a /.well-known/host-meta (this is needed to work, this can be replaced with a mandatory NodeInfo later)
   # (can't do a HEAD request, since that's not a defined route in the app)
   #
   # @raise [NetFailure, SSLFailure, HTTPFailure] if any of the checks fail
   # @return [Integer] HTTP status code
   def request
     with_http_connection do |http|
-      response = capture_response_time { http.get("/") }
+      capture_response_time { http.get("/") }
+      response = http.get("/.well-known/host-meta")
       handle_http_response(response)
     end
   rescue HTTPFailure => e
@@ -132,7 +128,7 @@ class ConnectionTester
       find_software_version(nd_resp.body)
     end
   rescue Faraday::ResourceNotFound, JSON::JSONError => e
-    raise NodeInfoFailure, e.message[0..255]
+    raise NodeInfoFailure, e.message[0..255].encode(Encoding.default_external, undef: :replace)
   rescue StandardError => e
     raise Failure, e.inspect
   end
@@ -153,19 +149,8 @@ class ConnectionTester
     yield(@http) if block_given?
   end
 
-  def with_dns_resolver
-    dns = Resolv::DNS.new
-    yield(dns) if block_given?
-  ensure
-    dns.close
-  end
-
   def http_uri?(uri)
     uri.is_a?(URI::HTTP) || uri.is_a?(URI::HTTPS)
-  end
-
-  def uses_ssl?
-    @uses_ssl
   end
 
   # request root path, measure response time
@@ -173,19 +158,20 @@ class ConnectionTester
   #
   # @return [Faraday::Response]
   def capture_response_time
-    start     = Time.zone.now
+    start = Time.zone.now
     resp = yield if block_given?
     @result.rt = ((Time.zone.now - start) * 1000.0).to_i # milliseconds
     resp
   end
 
   def handle_http_response(response)
-    @uses_ssl = (response.env.url.scheme == "https")
     @result.status_code = Integer(response.status)
 
     if response.success?
-      @result.reachable  = true
-      @result.ssl_status = @uses_ssl
+      raise HTTPFailure, "redirected to other hostname: #{response.env.url}" unless @uri.host == response.env.url.host
+
+      @result.reachable = true
+      @result.ssl = (response.env.url.scheme == "https")
     else
       raise HTTPFailure, "unsuccessful response code: #{response.status}"
     end
@@ -228,19 +214,16 @@ class ConnectionTester
   end
 
   Result = Struct.new(
-    :hostname, :ip, :reachable, :ssl_status, :status_code, :rt, :software_version, :error
+    :ip, :reachable, :ssl, :status_code, :rt, :software_version, :error
   ) do
-    # @!attribute hostname
-    #   @return [String] hostname derived from the URL
-
     # @!attribute ip
     #   @return [String] resolved IP address from DNS query
 
     # @!attribute reachable
     #   @return [Boolean] whether the host was reachable over the network
 
-    # @!attribute ssl_status
-    #   @return [Boolean] indicating how the SSL verification went
+    # @!attribute ssl
+    #   @return [Boolean] whether the host has working ssl
 
     # @!attribute status_code
     #   @return [Integer] HTTP status code that was returned for the HEAD request

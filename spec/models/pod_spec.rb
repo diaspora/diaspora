@@ -1,19 +1,45 @@
 require "spec_helper"
 
 describe Pod, type: :model do
-  describe "::find_or_create_by" do
+  describe ".find_or_create_by" do
     it "takes a url, and makes one by host" do
-      pod = Pod.find_or_create_by(url: "https://joindiaspora.com/maxwell")
-      expect(pod.host).to eq("joindiaspora.com")
+      pod = Pod.find_or_create_by(url: "https://example.org/u/maxwell")
+      expect(pod.host).to eq("example.org")
     end
 
-    it "sets ssl boolean (side-effect)" do
-      pod = Pod.find_or_create_by(url: "https://joindiaspora.com/maxwell")
+    it "saves the port" do
+      pod = Pod.find_or_create_by(url: "https://example.org:3000/")
+      expect(pod.host).to eq("example.org")
+      expect(pod.port).to eq(3000)
+    end
+
+    it "ignores default ports" do
+      pod = Pod.find_or_create_by(url: "https://example.org:443/")
+      expect(pod.host).to eq("example.org")
+      expect(pod.port).to be_nil
+    end
+
+    it "sets ssl boolean" do
+      pod = Pod.find_or_create_by(url: "https://example.org/")
+      expect(pod.ssl).to be true
+    end
+
+    it "updates ssl boolean if upgraded to https" do
+      pod = Pod.find_or_create_by(url: "http://joindiaspora.com/")
+      expect(pod.ssl).to be false
+      pod = Pod.find_or_create_by(url: "https://joindiaspora.com/")
+      expect(pod.ssl).to be true
+    end
+
+    it "does not update ssl boolean if downgraded to http" do
+      pod = Pod.find_or_create_by(url: "https://joindiaspora.com/")
+      expect(pod.ssl).to be true
+      pod = Pod.find_or_create_by(url: "http://joindiaspora.com/")
       expect(pod.ssl).to be true
     end
   end
 
-  describe "::check_all!" do
+  describe ".check_all!" do
     before do
       @pods = (0..4).map do
         double("pod").tap do |pod|
@@ -73,6 +99,13 @@ describe Pod, type: :model do
         expect(@pod.offline_since).to be_within(1.second).of now
         expect(Time.zone.now).to be_within(1.day).of(now + 30.days)
       end
+    end
+  end
+
+  describe "#url_to" do
+    it "appends the path to the pod-url" do
+      pod = FactoryGirl.create(:pod)
+      expect(pod.url_to("/receive/public")).to eq("https://#{pod.host}/receive/public")
     end
   end
 end

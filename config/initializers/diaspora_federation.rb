@@ -47,7 +47,7 @@ DiasporaFederation.configure do |config|
       # find existing person or create a new one
       person_entity = Person.find_by(diaspora_handle: person.diaspora_id) ||
         Person.new(diaspora_handle: person.diaspora_id, guid: person.guid,
-                   serialized_public_key: person.exported_key, url: person.url)
+                   serialized_public_key: person.exported_key, pod: Pod.find_or_create_by(url: person.url))
 
       profile = person.profile
       profile_entity = person_entity.profile ||= Profile.new

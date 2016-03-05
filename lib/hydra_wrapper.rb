@@ -86,10 +86,6 @@ class HydraWrapper
       # Save the reference to the pod to the database if not already present
       Pod.find_or_create_by(url: response.effective_url)
 
-      if redirecting_to_https? response
-        Person.url_batch_update people_for_receive_url, response.headers_hash['Location']
-      end
-
       unless response.success?
         logger.warn "event=http_multi_fail sender_id=#{@user.id} url=#{response.effective_url} " \
                     "return_code=#{response.return_code} response_code=#{response.response_code}"
@@ -100,11 +96,5 @@ class HydraWrapper
 
       end
     end
-  end
-
-  # @return [Boolean]
-  def redirecting_to_https? response
-    response.code >= 300 && response.code < 400 &&
-    response.headers_hash['Location'] == response.request.url.sub('http://', 'https://')
   end
 end
