@@ -1,10 +1,34 @@
 require 'spec_helper'
 
 describe EvilQuery::MultiStream do
-  let(:evil_query) { EvilQuery::MultiStream.new(alice, 'created_at', Time.now-1.week, true) }
+  let(:evil_query) { EvilQuery::MultiStream.new(alice, "created_at", Time.zone.now, true) }
+
   describe 'community_spotlight_posts!' do
     it 'does not raise an error' do
       expect { evil_query.community_spotlight_posts! }.to_not raise_error
+    end
+  end
+
+  describe "make_relation!" do
+    it "includes public posts of someone you follow" do
+      alice.share_with(eve.person, alice.aspects.first)
+      public_post = eve.post(:status_message, text: "public post", to: "all", public: true)
+      expect(evil_query.make_relation!.map(&:id)).to include(public_post.id)
+    end
+
+    it "includes private posts of contacts with a mutual relationship" do
+      alice.share_with(eve.person, alice.aspects.first)
+      eve.share_with(alice.person, eve.aspects.first)
+      private_post = eve.post(:status_message, text: "private post", to: eve.aspects.first.id, public: false)
+      expect(evil_query.make_relation!.map(&:id)).to include(private_post.id)
+    end
+
+    it "doesn't include posts of followers that you don't follow back" do
+      eve.share_with(alice.person, eve.aspects.first)
+      public_post = eve.post(:status_message, text: "public post", to: "all", public: true)
+      private_post = eve.post(:status_message, text: "private post", to: eve.aspects.first.id, public: false)
+      expect(evil_query.make_relation!.map(&:id)).not_to include(public_post.id)
+      expect(evil_query.make_relation!.map(&:id)).not_to include(private_post.id)
     end
   end
 end
