@@ -134,7 +134,10 @@ module User::Querying
     query = opts[:klass].where(conditions)
 
     unless opts[:all_aspects?]
-      query = query.joins(:aspect_visibilities).where(aspect_visibilities: {aspect_id: opts[:by_members_of]})
+      query = query.with_aspects.where(
+        AspectVisibility.arel_table[:aspect_id].in(opts[:by_members_of])
+          .or(opts[:klass].arel_table[:public].eq(true))
+      )
     end
 
     ugly_select_clause(query, opts)

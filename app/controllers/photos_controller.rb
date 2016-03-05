@@ -150,10 +150,12 @@ class PhotosController < ApplicationController
     @photo = current_user.build_post(:photo, params[:photo])
 
     if @photo.save
-      aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
 
       unless @photo.pending
-        current_user.add_to_streams(@photo, aspects)
+        unless @photo.public?
+          aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
+          current_user.add_to_streams(@photo, aspects)
+        end
         current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
       end
 

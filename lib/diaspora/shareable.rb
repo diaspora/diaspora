@@ -8,7 +8,7 @@ module Diaspora
   module Shareable
     def self.included(model)
       model.instance_eval do
-        has_many :aspect_visibilities, as: :shareable, validate: false
+        has_many :aspect_visibilities, as: :shareable, validate: false, dependent: :delete_all
         has_many :aspects, through: :aspect_visibilities
 
         has_many :share_visibilities, as: :shareable, dependent: :delete_all
@@ -22,6 +22,10 @@ module Diaspora
 
         scope :with_visibility, -> {
           joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = #{table_name}.id")
+        }
+
+        scope :with_aspects, -> {
+          joins("LEFT OUTER JOIN aspect_visibilities ON aspect_visibilities.shareable_id = #{table_name}.id")
         }
 
         def self.owned_or_visible_by_user(user)

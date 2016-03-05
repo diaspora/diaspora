@@ -34,9 +34,9 @@ class StatusMessageCreationService
   end
 
   def destination_aspect_ids(params, user)
-    if params[:status_message][:public] || params[:status_message][:aspect_ids].first == "all_aspects"
+    if params[:status_message][:aspect_ids].first == "all_aspects"
       user.aspect_ids
-    else
+    elsif !params[:status_message][:public]
       params[:aspect_ids]
     end
   end
