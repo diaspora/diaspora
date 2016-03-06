@@ -46,9 +46,9 @@ class ExtendPods < ActiveRecord::Migration
     add_column :people, :pod_id, :integer
     add_index :people, :url, length: 190
     add_foreign_key :people, :pods, name: :people_pod_id_fk, on_delete: :cascade
-    Person.where(owner: nil).group_by {|person| person[:url] }.each do |url, _|
+    Person.where(owner: nil).distinct(:url).pluck(:url).each do |url|
       pod = Pod.find_or_create_by(url: url)
-      Person.where(url: url).update_all(pod_id: pod.id)
+      Person.where(url: url, owner_id: nil).update_all(pod_id: pod.id) if pod.persisted?
     end
 
     # cleanup unused pods

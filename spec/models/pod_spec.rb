@@ -25,17 +25,45 @@ describe Pod, type: :model do
     end
 
     it "updates ssl boolean if upgraded to https" do
-      pod = Pod.find_or_create_by(url: "http://joindiaspora.com/")
+      pod = Pod.find_or_create_by(url: "http://example.org/")
       expect(pod.ssl).to be false
-      pod = Pod.find_or_create_by(url: "https://joindiaspora.com/")
+      pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
     end
 
     it "does not update ssl boolean if downgraded to http" do
-      pod = Pod.find_or_create_by(url: "https://joindiaspora.com/")
+      pod = Pod.find_or_create_by(url: "https://example.org/")
       expect(pod.ssl).to be true
-      pod = Pod.find_or_create_by(url: "http://joindiaspora.com/")
+      pod = Pod.find_or_create_by(url: "http://example.org/")
       expect(pod.ssl).to be true
+    end
+
+    context "validation" do
+      it "is valid" do
+        pod = Pod.find_or_create_by(url: "https://example.org/")
+        expect(pod).to be_valid
+      end
+
+      it "doesn't allow own pod" do
+        pod = Pod.find_or_create_by(url: AppConfig.url_to("/"))
+        expect(pod).not_to be_valid
+      end
+
+      it "doesn't allow own pod with default port" do
+        uri = URI.parse("https://example.org/")
+        allow(AppConfig).to receive(:pod_uri).and_return(uri)
+
+        pod = Pod.find_or_create_by(url: AppConfig.url_to("/"))
+        expect(pod).not_to be_valid
+      end
+
+      it "doesn't allow own pod with other scheme" do
+        uri = URI.parse("https://example.org/")
+        allow(AppConfig).to receive(:pod_uri).and_return(uri)
+
+        pod = Pod.find_or_create_by(url: "http://example.org/")
+        expect(pod).not_to be_valid
+      end
     end
   end
 

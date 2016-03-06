@@ -27,6 +27,8 @@ class Pod < ActiveRecord::Base
     where(arel_table[:status].gt(Pod.statuses[:no_errors])).where.not(status: Pod.statuses[:version_failed])
   }
 
+  validate :not_own_pod
+
   class << self
     def find_or_create_by(opts) # Rename this method to not override an AR method
       uri = URI.parse(opts.fetch(:url))
@@ -111,5 +113,11 @@ class Pod < ActiveRecord::Base
   def uri
     @uri ||= (ssl ? URI::HTTPS : URI::HTTP).build(host: host, port: port)
     @uri.dup
+  end
+
+  def not_own_pod
+    pod_uri = AppConfig.pod_uri
+    pod_port = DEFAULT_PORTS.include?(pod_uri.port) ? nil : pod_uri.port
+    errors.add(:base, "own pod not allowed") if pod_uri.host == host && pod_port == port
   end
 end

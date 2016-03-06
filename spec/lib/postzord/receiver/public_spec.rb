@@ -21,7 +21,7 @@ describe Postzord::Receiver::Public do
       xml = Salmon::Slap.create_by_user_and_activity(bob, comment.to_diaspora_xml).xml_for(nil)
       person = bob.person
       person.owner = nil
-      person.pod = Pod.find_or_create_by(url: AppConfig.pod_uri)
+      person.pod = Pod.find_or_create_by(url: "https://example.org/")
       person.save
       bob.destroy
       comment.destroy
