@@ -88,7 +88,7 @@ describe CommentService do
       it "does not return comments for private post" do
         expect {
           CommentService.new.find_for_post(post.id)
-        }.to raise_error ActiveRecord::RecordNotFound
+        }.to raise_error Diaspora::NonPublic
       end
     end
 

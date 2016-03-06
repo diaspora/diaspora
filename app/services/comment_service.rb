@@ -4,7 +4,7 @@ class CommentService
   end
 
   def create(post_id, text)
-    post = find_post!(post_id)
+    post = post_service.find(post_id)
     user.comment!(post, text)
   end
 
@@ -19,24 +19,14 @@ class CommentService
   end
 
   def find_for_post(post_id)
-    find_post!(post_id).comments.for_a_stream
+    post_service.find(post_id).comments.for_a_stream
   end
 
   private
 
   attr_reader :user
 
-  def find_post!(post_id)
-    find_post(post_id).tap do |post|
-      raise ActiveRecord::RecordNotFound unless post
-    end
-  end
-
-  def find_post(post_id)
-    if user
-      user.find_visible_shareable_by_id(Post, post_id)
-    else
-      Post.find_by_id_and_public(post_id, true)
-    end
+  def post_service
+    @post_service ||= PostService.new(user)
   end
 end

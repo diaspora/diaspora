@@ -3,8 +3,6 @@
 #   the COPYRIGHT file.
 
 class PostsController < ApplicationController
-  include PostsHelper
-
   before_action :authenticate_user!, only: :destroy
   before_action :set_format_if_malformed_from_status_net, only: :show
 
@@ -26,44 +24,46 @@ class PostsController < ApplicationController
   end
 
   def show
-    post_service = PostService.new(id: params[:id], user: current_user)
-    post_service.mark_user_notifications
-    @post = post_service.post
+    post = post_service.find(params[:id])
+    post_service.mark_user_notifications(post.id)
     respond_to do |format|
-      format.html { gon.post = post_service.present_json }
-      format.xml { render xml: @post.to_diaspora_xml }
-      format.json { render json: post_service.present_json }
+      format.html {
+        gon.post = PostPresenter.new(post, current_user)
+        render locals: {post: post}
+      }
+      format.mobile { render locals: {post: post} }
+      format.xml { render xml: post.to_diaspora_xml }
+      format.json { render json: PostPresenter.new(post, current_user) }
     end
-  end
-
-  def iframe
-    render text: post_iframe_url(params[:id]), layout: false
   end
 
   def oembed
     post_id = OEmbedPresenter.id_from_url(params.delete(:url))
-    post_service = PostService.new(id: post_id, user: current_user,
-                                    oembed: params.slice(:format, :maxheight, :minheight))
-    render json: post_service.present_oembed
+    post = post_service.find(post_id)
+    oembed = params.slice(:format, :maxheight, :minheight)
+    render json: OEmbedPresenter.new(post, oembed)
+  rescue
+    render nothing: true, status: 404
   end
 
   def interactions
-    post_service = PostService.new(id: params[:id], user: current_user)
-    respond_with post_service.present_interactions_json
+    post = post_service.find(params[:id])
+    respond_with PostInteractionPresenter.new(post, current_user)
   end
 
   def destroy
-    post_service = PostService.new(id: params[:id], user: current_user)
-    post_service.retract_post
-    @post = post_service.post
+    post_service.destroy(params[:id])
     respond_to do |format|
-      format.js { render "destroy", layout: false, format: :js }
       format.json { render nothing: true, status: 204 }
       format.any { redirect_to stream_path }
     end
   end
 
   private
+
+  def post_service
+    @post_service ||= PostService.new(current_user)
+  end
 
   def set_format_if_malformed_from_status_net
     request.format = :html if request.format == "application/html+xml"
