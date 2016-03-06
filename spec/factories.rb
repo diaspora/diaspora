@@ -369,7 +369,7 @@ FactoryGirl.define do
   factory(:federation_person_from_webfinger, class: DiasporaFederation::Entities::Person) do
     sequence(:guid) { UUID.generate :compact }
     sequence(:diaspora_id) {|n| "bob-person-#{n}#{r_str}@example.net" }
-    url AppConfig.pod_uri.to_s
+    url "https://example.net/"
     exported_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     profile {
       DiasporaFederation::Entities::Profile.new(
