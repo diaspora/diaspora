@@ -137,7 +137,6 @@ class Post < ActiveRecord::Base
     new_post.author = params[:author]
     new_post.public = params[:public] if params[:public]
     new_post.pending = params[:pending] if params[:pending]
-    new_post.diaspora_handle = new_post.author.diaspora_handle
     new_post
   end
 

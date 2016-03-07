@@ -24,12 +24,11 @@ module Diaspora
       module InstanceMethods
         include Diaspora::Logging
         def diaspora_handle
-          read_attribute(:diaspora_handle) || author.diaspora_handle
+          author.diaspora_handle
         end
 
         def diaspora_handle=(author_handle)
           self.author = Person.where(diaspora_handle: author_handle).first
-          write_attribute(:diaspora_handle, author_handle)
         end
 
         # @param [User] user The user that is receiving this shareable.

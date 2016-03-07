@@ -39,7 +39,8 @@ describe "Receive federation messages feature" do
           :reshare_entity, root_diaspora_id: alice.diaspora_handle, root_guid: post.guid, diaspora_id: sender_id)
         post_message(generate_xml(reshare, sender))
 
-        expect(Reshare.exists?(root_guid: post.guid, diaspora_handle: sender_id)).to be_truthy
+        expect(Reshare.exists?(root_guid: post.guid)).to be_truthy
+        expect(Reshare.where(root_guid: post.guid).last.diaspora_handle).to eq(sender_id)
       end
 
       it "reshare of private post fails" do
@@ -50,7 +51,7 @@ describe "Receive federation messages feature" do
           post_message(generate_xml(reshare, sender))
         }.to raise_error ActiveRecord::RecordInvalid, "Validation failed: Only posts which are public may be reshared."
 
-        expect(Reshare.exists?(root_guid: post.guid, diaspora_handle: sender_id)).to be_falsey
+        expect(Reshare.exists?(root_guid: post.guid)).to be_falsey
       end
     end
 
