@@ -46,15 +46,13 @@ class PostService
   end
 
   def mark_comment_reshare_like_notifications_read(post_id)
-    notifications = Notification.where(recipient_id: user.id, target_type: "Post", target_id: post_id, unread: true)
-    notifications.each do |notification|
-      notification.set_read_state(true)
-    end
+    Notification.where(recipient_id: user.id, target_type: "Post", target_id: post_id, unread: true)
+      .update_all(unread: false)
   end
 
   def mark_mention_notifications_read(post_id)
-    mention = find(post_id).mentions.where(person_id: user.person_id).first
-    Notification.where(recipient_id: user.id, target_type: "Mention", target_id: mention.id, unread: true)
-      .first.try(:set_read_state, true) if mention
+    mention_id = Mention.where(post_id: post_id, person_id: user.person_id).pluck(:id)
+    Notification.where(recipient_id: user.id, target_type: "Mention", target_id: mention_id, unread: true)
+      .update_all(unread: false) if mention_id
   end
 end

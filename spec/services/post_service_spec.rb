@@ -93,6 +93,28 @@ describe PostService do
       }.to change(Notification.where(unread: true), :count).by(-1)
     end
 
+    it "does not change the update_at date/time for post notifications" do
+      notification = Timecop.travel(1.minute.ago) do
+        FactoryGirl.create(:notification, recipient: alice, target: post, unread: true)
+      end
+
+      expect {
+        PostService.new(alice).mark_user_notifications(post.id)
+      }.not_to change { Notification.where(id: notification.id).pluck(:updated_at) }
+    end
+
+    it "does not change the update_at date/time for mention notifications" do
+      status_text = "this is a text mentioning @{Mention User ; #{alice.diaspora_handle}} ... have fun testing!"
+      mention_post = Timecop.travel(1.minute.ago) do
+        bob.post(:status_message, text: status_text, public: true)
+      end
+      mention = mention_post.mentions.where(person_id: alice.person.id).first
+
+      expect {
+        PostService.new(alice).mark_user_notifications(post.id)
+      }.not_to change { Notification.where(target_type: "Mention", target_id: mention.id).pluck(:updated_at) }
+    end
+
     it "does nothing without a user" do
       expect_any_instance_of(PostService).not_to receive(:mark_comment_reshare_like_notifications_read).with(post.id)
       expect_any_instance_of(PostService).not_to receive(:mark_mention_notifications_read).with(post.id)
