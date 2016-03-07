@@ -4,7 +4,7 @@ class CommentService
   end
 
   def create(post_id, text)
-    post = post_service.find(post_id)
+    post = post_service.find!(post_id)
     user.comment!(post, text)
   end
 
@@ -19,7 +19,7 @@ class CommentService
   end
 
   def find_for_post(post_id)
-    post_service.find(post_id).comments.for_a_stream
+    post_service.find!(post_id).comments.for_a_stream
   end
 
   private

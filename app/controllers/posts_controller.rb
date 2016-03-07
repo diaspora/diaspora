@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    post = post_service.find(params[:id])
+    post = post_service.find!(params[:id])
     post_service.mark_user_notifications(post.id)
     respond_to do |format|
       format.html {
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def oembed
     post_id = OEmbedPresenter.id_from_url(params.delete(:url))
-    post = post_service.find(post_id)
+    post = post_service.find!(post_id)
     oembed = params.slice(:format, :maxheight, :minheight)
     render json: OEmbedPresenter.new(post, oembed)
   rescue
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   end
 
   def interactions
-    post = post_service.find(params[:id])
+    post = post_service.find!(params[:id])
     respond_with PostInteractionPresenter.new(post, current_user)
   end
 

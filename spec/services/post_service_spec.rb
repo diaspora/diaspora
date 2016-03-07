@@ -10,10 +10,6 @@ describe PostService do
         expect(PostService.new(alice).find(post.id)).to eq(post)
       end
 
-      it "works with guid" do
-        expect(PostService.new(alice).find(post.guid)).to eq(post)
-      end
-
       it "returns the post, if the user can see the it" do
         expect(PostService.new(bob).find(post.id)).to eq(post)
       end
@@ -22,16 +18,12 @@ describe PostService do
         expect(PostService.new(eve).find(public.id)).to eq(public)
       end
 
-      it "RecordNotFound if the post cannot be found" do
-        expect {
-          PostService.new(alice).find("unknown")
-        }.to raise_error ActiveRecord::RecordNotFound, "could not find a post with id unknown for user #{alice.id}"
+      it "does not return the post, if the post cannot be found" do
+        expect(PostService.new(alice).find("unknown")).to be_nil
       end
 
-      it "RecordNotFound if user cannot see the post" do
-        expect {
-          PostService.new(eve).find(post.id)
-        }.to raise_error ActiveRecord::RecordNotFound, "could not find a post with id #{post.id} for user #{eve.id}"
+      it "does not return the post, if user cannot see the post" do
+        expect(PostService.new(eve).find(post.id)).to be_nil
       end
     end
 
@@ -40,19 +32,65 @@ describe PostService do
         expect(PostService.new.find(public.id)).to eq(public)
       end
 
+      it "does not return the post, if the post is private" do
+        expect(PostService.new.find(post.id)).to be_nil
+      end
+
+      it "does not return the post, if the post cannot be found" do
+        expect(PostService.new.find("unknown")).to be_nil
+      end
+    end
+  end
+
+  describe "#find!" do
+    context "with user" do
+      it "returns the post, if it is the users post" do
+        expect(PostService.new(alice).find!(post.id)).to eq(post)
+      end
+
       it "works with guid" do
-        expect(PostService.new.find(public.guid)).to eq(public)
+        expect(PostService.new(alice).find!(post.guid)).to eq(post)
+      end
+
+      it "returns the post, if the user can see the it" do
+        expect(PostService.new(bob).find!(post.id)).to eq(post)
+      end
+
+      it "returns the post, if it is public" do
+        expect(PostService.new(eve).find!(public.id)).to eq(public)
+      end
+
+      it "RecordNotFound if the post cannot be found" do
+        expect {
+          PostService.new(alice).find!("unknown")
+        }.to raise_error ActiveRecord::RecordNotFound, "could not find a post with id unknown for user #{alice.id}"
+      end
+
+      it "RecordNotFound if user cannot see the post" do
+        expect {
+          PostService.new(eve).find!(post.id)
+        }.to raise_error ActiveRecord::RecordNotFound, "could not find a post with id #{post.id} for user #{eve.id}"
+      end
+    end
+
+    context "without user" do
+      it "returns the post, if it is public" do
+        expect(PostService.new.find!(public.id)).to eq(public)
+      end
+
+      it "works with guid" do
+        expect(PostService.new.find!(public.guid)).to eq(public)
       end
 
       it "NonPublic if the post is private" do
         expect {
-          PostService.new.find(post.id)
+          PostService.new.find!(post.id)
         }.to raise_error Diaspora::NonPublic
       end
 
       it "RecordNotFound if the post cannot be found" do
         expect {
-          PostService.new.find("unknown")
+          PostService.new.find!("unknown")
         }.to raise_error ActiveRecord::RecordNotFound, "could not find a post with id unknown"
       end
     end
@@ -63,13 +101,13 @@ describe PostService do
       it "assumes ids less than 16 chars are ids and not guids" do
         post = Post.where(id: public.id)
         expect(Post).to receive(:where).with(hash_including(id: "123456789012345")).and_return(post).at_least(:once)
-        PostService.new(alice).find("123456789012345")
+        PostService.new(alice).find!("123456789012345")
       end
 
       it "assumes ids more than (or equal to) 16 chars are actually guids" do
         post = Post.where(guid: public.guid)
         expect(Post).to receive(:where).with(hash_including(guid: "1234567890123456")).and_return(post).at_least(:once)
-        PostService.new(alice).find("1234567890123456")
+        PostService.new(alice).find!("1234567890123456")
       end
     end
   end
