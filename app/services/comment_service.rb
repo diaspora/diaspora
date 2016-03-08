@@ -1,43 +1,32 @@
 class CommentService
-  attr_reader :post, :comments
-
-  def initialize(params)
-    @user = params[:user]
-    @post_id = params[:post_id]
-    @comment_id = params[:comment_id]
-    @text = params[:text]
-
-    @post = find_post! if @post_id
-    @comments = @post.comments.for_a_stream if @post
+  def initialize(user=nil)
+    @user = user
   end
 
-  def create_comment
-    @user.comment!(post, @text) if @post
+  def create(post_id, text)
+    post = post_service.find!(post_id)
+    user.comment!(post, text)
   end
 
-  def destroy_comment
-    @comment = Comment.find(@comment_id)
-    if @user.owns?(@comment) || @user.owns?(@comment.parent)
-      @user.retract(@comment)
+  def destroy(comment_id)
+    comment = Comment.find(comment_id)
+    if user.owns?(comment) || user.owns?(comment.parent)
+      user.retract(comment)
       true
     else
       false
     end
   end
 
-  private
-
-  def find_post!
-    find_post.tap do |post|
-      raise(ActiveRecord::RecordNotFound) unless post
-    end
+  def find_for_post(post_id)
+    post_service.find!(post_id).comments.for_a_stream
   end
 
-  def find_post
-    if @user
-      @user.find_visible_shareable_by_id(Post, @post_id)
-    else
-      Post.find_by_id_and_public(@post_id, true)
-    end
+  private
+
+  attr_reader :user
+
+  def post_service
+    @post_service ||= PostService.new(user)
   end
 end
