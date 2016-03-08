@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302025129) do
+ActiveRecord::Schema.define(version: 20160307142216) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -341,10 +341,8 @@ ActiveRecord::Schema.define(version: 20160302025129) do
   add_index "people", ["pod_id"], name: "people_pod_id_fk", using: :btree
 
   create_table "photos", force: :cascade do |t|
-    t.integer  "tmp_old_id",          limit: 4
     t.integer  "author_id",           limit: 4,                     null: false
     t.boolean  "public",                            default: false, null: false
-    t.string   "diaspora_handle",     limit: 255
     t.string   "guid",                limit: 255,                   null: false
     t.boolean  "pending",                           default: false, null: false
     t.text     "text",                limit: 65535
@@ -418,7 +416,6 @@ ActiveRecord::Schema.define(version: 20160302025129) do
   create_table "posts", force: :cascade do |t|
     t.integer  "author_id",             limit: 4,                     null: false
     t.boolean  "public",                              default: false, null: false
-    t.string   "diaspora_handle",       limit: 255
     t.string   "guid",                  limit: 255,                   null: false
     t.boolean  "pending",                             default: false, null: false
     t.string   "type",                  limit: 40,                    null: false

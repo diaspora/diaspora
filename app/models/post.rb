@@ -135,7 +135,6 @@ class Post < ActiveRecord::Base
   def self.diaspora_initialize(params)
     new(params.to_hash.stringify_keys.slice(*column_names)).tap do |new_post|
       new_post.author = params[:author]
-      new_post.diaspora_handle = new_post.author.diaspora_handle
     end
   end
 

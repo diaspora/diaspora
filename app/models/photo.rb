@@ -86,7 +86,6 @@ class Photo < ActiveRecord::Base
     photo.author = params[:author]
     photo.public = params[:public] if params[:public]
     photo.pending = params[:pending] if params[:pending]
-    photo.diaspora_handle = photo.author.diaspora_handle
 
     photo.random_string = SecureRandom.hex(10)
 
