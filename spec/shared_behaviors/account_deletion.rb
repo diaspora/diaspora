@@ -19,6 +19,14 @@ shared_examples_for 'it removes the person associations' do
     expect(Photo.where(author_id: person.id)).to be_empty
   end
 
+  it "deletes all person's participations" do
+    expect(Participation.where(author_id: person.id)).to be_empty
+  end
+
+  it "deletes all person's roles" do
+    expect(Role.where(person_id: person.id)).to be_empty
+  end
+
   it 'sets the person object as closed and the profile is cleared' do
     expect(person.reload.closed_account).to be true
 

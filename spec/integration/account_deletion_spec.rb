@@ -35,6 +35,14 @@ describe "deleteing your account", type: :request do
       expect(user.contacts).to be_empty
     end
 
+    it "deletes all invitation codes" do
+      expect(bob.invitation_codes).to be_empty
+    end
+
+    it "deletes all tag followings" do
+      expect(bob.tag_followings).to be_empty
+    end
+
     it "clears the account fields" do
       user.send(:clearable_fields).each do |field|
         expect(user.reload[field]).to be_blank
