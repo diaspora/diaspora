@@ -444,7 +444,9 @@ describe Notifier, type: :mailer do
       mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
       expect(mails.length).to eq(1)
       mail = mails.first
-      expect(mail.body.encoded).to match "<p><a href=\"http://localhost:9887/tags/welcome\">#Welcome</a> to bureaucracy!</p>"
+      expect(mail.body.encoded).to match(
+        "<p><a href=\"#{AppConfig.url_to(tag_path('welcome'))}\">#Welcome</a> to bureaucracy!</p>"
+      )
     end
   end
 
