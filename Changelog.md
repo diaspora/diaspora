@@ -7,6 +7,7 @@
 * Fix empty name field when editing aspect names [#6706](https://github.com/diaspora/diaspora/pull/6706)
 * Fix internal server error when trying to log out of an expired session [#6707](https://github.com/diaspora/diaspora/pull/6707)
 * Only mark unread notifications as read [#6711](https://github.com/diaspora/diaspora/pull/6711)
+* Use https for OEmbeds [#6748](https://github.com/diaspora/diaspora/pull/6748)
 
 ## Features
 * Added the footer to conversation pages [#6710](https://github.com/diaspora/diaspora/pull/6710)
