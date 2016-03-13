@@ -7,7 +7,7 @@ describe Diaspora::Shareable do
         post1 = FactoryGirl.create(:status_message, author: alice.person, public: true)
         post2 = FactoryGirl.create(:status_message, author: bob.person, public: true)
         post3 = FactoryGirl.create(:status_message, author: eve.person, public: true)
-        expect(Post.all_public.map(&:id)).to eq([post1.id, post2.id, post3.id])
+        expect(Post.all_public.map(&:id)).to match_array([post1.id, post2.id, post3.id])
       end
 
       it "doesn't include any private posts" do
