@@ -116,7 +116,7 @@ DiasporaFederation.configure do |config|
     end
 
     on :fetch_person_url_to do |diaspora_id, path|
-      Person.find_by(diaspora_handle: diaspora_id).send(:url_to, path)
+      Pod.joins(:people).find_by(people: {diaspora_handle: diaspora_id}).url_to(path)
     end
 
     on :update_pod do |url, status|
