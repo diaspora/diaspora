@@ -253,6 +253,8 @@
     .locator { display: none; }
   }
 
+  &.submitting .mentions-box { display: none; }
+
   .twitter-typeahead {
     left: -1px;
     position: absolute;

@@ -20,6 +20,8 @@
     box-sizing: border-box;
   }
 
+  .form-control[disabled] { background-color: transparent; }
+
   .mentions-autocomplete-list {
     background: white;
     display: none;
