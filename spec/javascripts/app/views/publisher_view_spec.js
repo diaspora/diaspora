@@ -134,6 +134,13 @@ describe("app.views.Publisher", function() {
         this.view.clear($.Event());
         expect($("#location").length).toBe(0);
       });
+
+      it("removes the 'submitting' class from the textarea wrapper", function(){
+        this.view.wrapperEl.addClass("submitting");
+        expect(this.view.wrapperEl).toHaveClass("submitting");
+        this.view.clear($.Event());
+        expect(this.view.wrapperEl).not.toHaveClass("submitting");
+      });
     });
 
     describe("createStatusMessage", function(){
@@ -149,6 +156,12 @@ describe("app.views.Publisher", function() {
         this.view.createStatusMessage($.Event());
         jasmine.Ajax.requests.mostRecent().respondWith({ status: 200, responseText: "{\"id\": 1}" });
         expect(app.stream.addNow).toHaveBeenCalled();
+      });
+
+      it("adds the 'submitting' class from the textarea wrapper", function(){
+        expect(this.view.wrapperEl).not.toHaveClass("submitting");
+        this.view.createStatusMessage($.Event());
+        expect(this.view.wrapperEl).toHaveClass("submitting");
       });
     });
 
@@ -617,6 +630,4 @@ describe("app.views.Publisher", function() {
       });
     });
   });
-
 });
-
