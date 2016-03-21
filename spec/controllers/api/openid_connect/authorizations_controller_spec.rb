@@ -4,7 +4,6 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
   let!(:client) { FactoryGirl.create(:o_auth_application) }
   let!(:client_with_xss) { FactoryGirl.create(:o_auth_application_with_xss) }
   let!(:client_with_multiple_redirects) { FactoryGirl.create(:o_auth_application_with_multiple_redirects) }
-  let!(:auth_with_read) { FactoryGirl.create(:auth_with_read) }
 
   before do
     sign_in :user, alice
@@ -98,7 +97,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
       end
 
       context "when redirect URI does not match pre-registered URIs" do
-        it "should return an invalid request error", focus: true do
+        it "should return an invalid request error" do
           post :new, client_id: client.client_id, redirect_uri: "http://localhost:2000/",
                response_type: "id_token", scope: "openid", nonce: SecureRandom.hex(16)
           expect(response.body).to include("Invalid client id or redirect uri")
@@ -184,10 +183,10 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
     end
 
     context "when already authorized" do
-      let!(:auth) {
-        Api::OpenidConnect::Authorization.find_or_create_by(o_auth_application: client, user: alice,
-                                                            redirect_uri: "http://localhost:3000/", scopes: ["openid"])
-      }
+      before do
+        Api::OpenidConnect::Authorization.create!(
+          o_auth_application: client, user: alice, redirect_uri: "http://localhost:3000/", scopes: ["openid"])
+      end
 
       context "when valid parameters are passed" do
         before do
@@ -229,6 +228,24 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
               response_type: "id_token", scope: "openid", nonce: 413_093_098_3, state: 413_093_098_3,
               display: "page", prompt: "consent"
           expect(response.body).to match("Diaspora Test Client")
+        end
+      end
+
+      context "when scopes are escalated" do
+        before do
+          get :new, client_id: client.client_id, redirect_uri: "http://localhost:3000/", response_type: "id_token",
+              scope: "openid read", nonce: 413_093_098_3, state: 413_093_098_3
+        end
+
+        it "should receive another authorization request" do
+          expect(response.body).to match("Diaspora Test Client")
+        end
+
+        it "should overwrite old authorization scope after approval" do
+          post :create, approve: "true"
+          authorization_with_old_scope =
+            Api::OpenidConnect::Authorization.find_by_client_id_user_and_scopes(client.client_id, alice, ["openid"])
+          expect(authorization_with_old_scope).to be_nil
         end
       end
     end
@@ -342,6 +359,8 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
   end
 
   describe "#destroy" do
+    let!(:auth_with_read) { FactoryGirl.create(:auth_with_read) }
+
     context "with existent authorization" do
       before do
         delete :destroy, id: auth_with_read.id
