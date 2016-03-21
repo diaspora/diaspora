@@ -1,5 +1,6 @@
 .left-navbar {
   padding: 0;
+  padding-bottom: 10px;
 
   a {
     text-decoration: none;
@@ -101,8 +102,14 @@
 }
 
 .info-bar {
-  border-top: 1px solid $border-grey;
-  padding: 0 20px;
+  margin-top: 20px;
+  padding: 10px 20px 0;
+
+  .info-links {
+    border-top: 1px solid $border-grey;
+    margin-top: 10px;
+    padding: 5px;
+  }
 
   .section {
     margin-top: 10px;
