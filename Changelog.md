@@ -147,6 +147,7 @@ Contributions are very welcome, the hard work is done!
 
 ## Features
 * Added the footer to conversation pages [#6710](https://github.com/diaspora/diaspora/pull/6710)
+* Drop ChromeFrame and display an error page on old IE versions instead [#6751](https://github.com/diaspora/diaspora/pull/6751)
 
 # 0.5.7.1
 
