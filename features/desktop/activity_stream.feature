@@ -9,15 +9,9 @@ Feature: The activity stream
     When "alice@alice.alice" has posted a status message with a photo
 
   Scenario: delete a comment
-    When I sign in as "bob@bob.bob"
-    And I am on "alice@alice.alice"'s page
-    Then I should see "Look at this dog"
-    When I focus the comment field
-    And I fill in the following:
-        | text            | is that a poodle?    |
-    And I press "Comment"
-
-    When I go to the activity stream page
+    When "bob@bob.bob" has commented "is that a poodle?" on "Look at this dog"
+    And I sign in as "bob@bob.bob"
+    And I go to the activity stream page
     Then I should see "Look at this dog"
     And I should see "is that a poodle?"
 
