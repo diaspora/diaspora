@@ -15,10 +15,13 @@ Feature: Liking posts
 
   Scenario: Liking and unliking a post from the stream
     When I like the post "I like unicorns" in the stream
-    Then I should see a ".likes" within "#main_stream .stream_element"
+    Then I should see "Unlike" within ".stream_element .feedback"
+    And I should see a ".likes .media" within "#main_stream .stream_element"
 
     When I unlike the post "I like unicorns" in the stream
-    Then I should not see a ".likes" within "#main_stream .stream_element"
+    Then I should see "Like" within ".stream_element .feedback"
+    And I should not see a ".likes .media" within "#main_stream .stream_element"
+
 
   Scenario: Liking and unliking a post from a single post page
     When I open the show page of the "I like unicorns" post

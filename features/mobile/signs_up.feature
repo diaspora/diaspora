@@ -12,7 +12,7 @@ Feature: New user registration
     When I fill in the new user form
     And I press "Sign up"
     Then I should be on the getting started page
-    Then I should see the 'getting started' contents
+    And I should see the 'getting started' contents
 
   Scenario: user fills in bogus data - client side validation
     When I fill in the following:

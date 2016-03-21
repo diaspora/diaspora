@@ -1,6 +1,6 @@
 module AspectCukeHelpers
   def click_aspect_dropdown
-    find('.aspect_dropdown .dropdown-toggle').click
+    find(".aspect_dropdown .dropdown-toggle").trigger "click"
   end
 
   def toggle_aspect(a_name)
@@ -12,19 +12,18 @@ module AspectCukeHelpers
 
   def toggle_aspect_via_ui(aspect_name)
     aspects_dropdown = find(".aspect_membership_dropdown .dropdown-toggle", match: :first)
-    aspects_dropdown.click
+    aspects_dropdown.trigger "click"
     selected_aspect_count = all(".aspect_membership_dropdown.open .dropdown-menu li.selected").length
     aspect = find(".aspect_membership_dropdown.open .dropdown-menu li", text: aspect_name)
     aspect_selected = aspect["class"].include? "selected"
-    aspect.click
+    aspect.trigger "click"
     aspect.parent.should have_no_css(".loading")
 
     # close dropdown
     page.should have_no_css('#profile.loading')
     unless selected_aspect_count == 0 or (selected_aspect_count == 1 and aspect_selected )
-      aspects_dropdown.click
+      aspects_dropdown.trigger "click"
     end
-    aspects_dropdown.should have_no_xpath("..[contains(@class, 'active')]")
   end
 
   def aspect_dropdown_visible?
@@ -89,20 +88,14 @@ When /^(.*) in the aspect creation modal$/ do |action|
 end
 
 When /^I drag "([^"]*)" (up|down)$/ do |aspect_name, direction|
+  page.execute_script("$('#aspect_nav .list-group').sortable('option', 'tolerance', 'pointer');")
   aspect_id = @me.aspects.where(name: aspect_name).first.id
   aspect = find(:xpath, "//div[@id='aspect_nav']/ul/a[@data-aspect-id='#{aspect_id}']")
   target = direction == "up" ? aspect.all(:xpath, "./preceding-sibling::a").last :
                                aspect.all(:xpath, "./following-sibling::a").first
-  browser = aspect.base.driver.browser
-  mouse = browser.mouse
-  native_aspect = aspect.base.native
-  native_target = target.base.native
-  mouse.down native_aspect
-  mouse.move_to native_target
-  sleep 1
-  mouse.up
+  aspect.drag_to target
   expect(page).to have_no_css "#aspect_nav .ui-sortable.syncing"
- end
+end
 
 And /^I toggle the aspect "([^"]*)"$/ do |name|
   toggle_aspect(name)

@@ -41,4 +41,18 @@ describe HomeController, type: :controller do
       expect(session[:mobile_view]).to be true
     end
   end
+
+  describe "#force_mobile" do
+    it "changes :html to :mobile" do
+      session[:mobile_view] = nil
+      get :force_mobile
+      expect(session[:mobile_view]).to be true
+    end
+
+    it "keeps :mobile" do
+      session[:mobile_view] = true
+      get :force_mobile
+      expect(session[:mobile_view]).to be true
+    end
+  end
 end

@@ -29,11 +29,12 @@
           $('#file-upload').addClass("loading");
           $("#profile_photo_upload").find(".avatar").addClass('loading');
           $("#file-upload-spinner").removeClass("hidden");
+          $("#fileInfo").show();
          },
 
          onComplete: function(id, fileName, responseJSON){
           $("#file-upload-spinner").addClass("hidden");
-          $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
+          $("#fileInfo").text(Diaspora.I18n.t("photo_uploader.completed", {"file": fileName}));
           $('#file-upload').removeClass("loading");
 
           /* flash message prompt */

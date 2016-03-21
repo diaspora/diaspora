@@ -7,6 +7,7 @@
 //= require jquery.charcount
 //= require js-routes
 //= require autosize
+//= require keycodes
 //= require jquery.autoSuggest.custom
 //= require fileuploader-custom
 //= require rails-timeago

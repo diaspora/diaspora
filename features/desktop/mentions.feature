@@ -23,8 +23,7 @@ Feature: Mentions
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     When I sign in as "alice@alice.alice"
     And I expand the publisher
-    When I fill in the following:
-      | status_message_fake_text  | @Bo  |
+    And I append "@Bob" to the publisher
     And I click on the first user in the mentions dropdown list
     And I press "Share"
     Then I should see "Bob Jones" within ".stream_element"

@@ -7,7 +7,7 @@ Then /^the post should be expanded$/ do
 end
 
 Then /^I should see an uploaded image within the photo drop zone$/ do
-  find("#photodropzone img")["src"].should include("uploads/images")
+  expect(find("#photodropzone img")["src"]).to include("uploads/images")
 end
 
 Then /^I should not see an uploaded image within the photo drop zone$/ do

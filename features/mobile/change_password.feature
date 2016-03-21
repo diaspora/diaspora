@@ -5,17 +5,17 @@ Feature: Change password
 
 
   Scenario: Change my password
-    Given I am signed in
+    Given I am signed in on the mobile website
     When I go to the users edit page
     And I fill out change password section with my password and "newsecret" and "newsecret"
     And I press "Change password"
     Then I should see "Password changed"
     And I should be on the new user session page
-    When I sign in with password "newsecret"
+    When I sign in with password "newsecret" on the mobile website
     Then I should be on the stream page
 
   Scenario: Attempt to change my password with invalid input
-    Given I am signed in
+    Given I am signed in on the mobile website
     When I go to the edit user page
     And I fill out change password section with my password and "too" and "short"
     And I press "Change password"
@@ -32,7 +32,8 @@ Feature: Change password
     And I fill out the password reset form with "supersecret" and "supersecret"
     And I submit the password reset form
     Then I should be on the stream page
-    When I sign out manually on the mobile website
+    When I sign out
+    And I go to the login page
     And I sign in manually as "georges_abitbol" with password "supersecret" on the mobile website
     Then I should be on the stream page
 

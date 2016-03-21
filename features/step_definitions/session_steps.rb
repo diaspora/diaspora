@@ -1,44 +1,31 @@
-Given /^(?:I am signed in)$/ do
+Given /^I am signed in( on the mobile website)?$/ do |mobile|
   automatic_login
-  confirm_login
+  confirm_login mobile
 end
 
 When /^I try to sign in manually$/ do
   manual_login
 end
 
-When /^I (?:sign|log) in manually as "([^"]*)" with password "([^"]*)"$/ do |username, password|
+When /^I (?:sign|log) in manually as "([^"]*)" with password "([^"]*)"( on the mobile website)?$/ \
+do |username, password, mobile|
   @me = User.find_by_username(username)
   @me.password ||= password
   manual_login
-  confirm_login
+  confirm_login mobile
 end
 
-When /^I (?:sign|log) in as "([^"]*)"$/ do |email|
+When /^I (?:sign|log) in as "([^"]*)"( on the mobile website)?$/ do |email, mobile|
   @me = User.find_by_email(email)
   @me.password ||= 'password'
   automatic_login
-  confirm_login
+  confirm_login mobile
 end
 
-When /^I (?:sign|log) in as "([^"]*)" on the mobile website$/ do |email|
-  @me = User.find_by_email(email)
-  @me.password ||= 'password'
-  automatic_login
-  confirm_login_mobile
-end
-
-When /^I (?:sign|log) in manually as "([^"]*)" with password "([^"]*)" on the mobile website$/ do |username, password|
-  @me = User.find_by_username(username)
-  @me.password ||= password
-  manual_login
-  confirm_login_mobile
-end
-
-When /^I (?:sign|log) in with password "([^"]*)"$/ do |password|
+When /^I (?:sign|log) in with password "([^"]*)"( on the mobile website)?$/ do |password, mobile|
   @me.password = password
   automatic_login
-  confirm_login
+  confirm_login mobile
 end
 
 When /^I put in my password in "([^"]*)"$/ do |field|

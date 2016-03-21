@@ -18,8 +18,7 @@ Feature: public repost
     Given I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     And I open the show page of the "reshare this!" post
-    And I click on selector "a.reshare"
-    And I confirm the alert
+    And I confirm the alert after I click on selector "a.reshare"
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
 
@@ -28,8 +27,7 @@ Feature: public repost
     And I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     And I open the show page of the "reshare this!" post
-    And I click on selector "a.reshare"
-    And I confirm the alert
+    And I confirm the alert after I click on selector "a.reshare"
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
 
@@ -48,8 +46,7 @@ Feature: public repost
   # app.stream in jasmine should be enough coverage
   Scenario: When I reshare, it shows up on my profile page
     Given I sign in as "alice@alice.alice"
-    And I follow "Reshare"
-    And I confirm the alert
+    And I confirm the alert after I follow "Reshare"
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
     And I should not see a ".reshare" within ".feedback"

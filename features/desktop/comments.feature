@@ -27,8 +27,7 @@ Feature: commenting
     When "bob@bob.bob" has commented "is that a poodle?" on "Look at this dog"
     And I am on "alice@alice.alice"'s page
     Then I should see "is that a poodle?"
-    When I click to delete the first comment
-    And I confirm the alert
+    When I confirm the alert after I click to delete the first comment
     Then I should not see "is that a poodle?"
 
   Scenario: expand the comment form in the main stream and an individual aspect stream
@@ -48,7 +47,7 @@ Feature: commenting
     Then I should see "Look at this dog"
     When I follow "less than a minute ago"
     Then I should see "Look at this dog"
-    And I make a show page comment "I think that’s a cat"
+    When I make a show page comment "I think that’s a cat"
     Then I should see "less than a minute ago" within "#comments"
     When I go to "alice@alice.alice"'s page
     Then I should see "I think that’s a cat"
@@ -60,7 +59,8 @@ Feature: commenting
     Then I should see "Look at this dog"
     And I should see "I think that’s a cat" within ".comment:last-child"
     When I follow "less than a minute ago" within ".comment:last-child"
-    Then I should see "I think that’s a cat" within ".comment .highlighted"
+    Then I should see "Look at this dog" within "#single-post-content"
+    And I should see "I think that’s a cat" within ".comment .highlighted"
     And I should have scrolled down
 
   Scenario: permalink to comment from a status show page

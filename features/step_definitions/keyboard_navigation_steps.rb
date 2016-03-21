@@ -5,7 +5,7 @@ When /^I press the "([^\"]*)" key somewhere$/ do |key|
 end
 
 When /^I press the "([^\"]*)" key in the publisher$/ do |key|
-  find("#status_message_fake_text").native.send_keys(key)
+  find("#status_message_fake_text").native.send_key(key)
 end
 
 Then /^post (\d+) should be highlighted$/ do |position|
@@ -14,11 +14,4 @@ end
 
 And /^I should have navigated to the highlighted post$/ do
   find(".shortcut_selected")["offsetTop"].to_i.should == page.evaluate_script("window.pageYOffset + 50").to_i
-end
-
-When /^I scroll to post (\d+)$/ do |position|
-  page.should have_css("div.stream_element")
-  page.driver.browser.execute_script("
-    window.scrollTo(window.pageXOffset, $('div.stream_element')[#{position}-1].offsetTop-50);
-  ")
 end

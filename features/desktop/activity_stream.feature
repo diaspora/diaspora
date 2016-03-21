@@ -16,8 +16,7 @@ Feature: The activity stream
     And I should see "is that a poodle?"
 
     When I am on "alice@alice.alice"'s page
-    And I click to delete the first comment
-    And I confirm the alert
+    And I confirm the alert after I click to delete the first comment
 
     And I go to the activity stream page
     Then I should not see "Look at this dog"

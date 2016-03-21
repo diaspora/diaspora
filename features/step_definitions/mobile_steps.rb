@@ -12,6 +12,7 @@ end
 
 When /^I open the drawer$/ do
   find("#menu-badge").click
+  expect(find("#app")["class"]).to include "draw"
 end
 
 Then /^the aspect dropdown within "([^"]*)" should be labeled "([^"]*)"/ do |selector, label|

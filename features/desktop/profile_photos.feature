@@ -29,8 +29,8 @@ Feature: show photos
 
     Scenario: I delete a photo
       When I am on "robert@grimm.grimm"'s photos page
-      And I delete a photo
-      And I confirm the alert
-      Then I should not see a ".stream"
+      Then I should see a ".thumbnail" within "#main_stream"
+      When I confirm the alert after I delete a photo
+      Then I should not see a ".thumbnail" within "#main_stream"
       When I am on "robert@grimm.grimm"'s page
       Then I should not see "Photos" within "#profile-horizontal-bar"

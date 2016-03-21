@@ -43,6 +43,5 @@ Feature: reactions mobile post
     And I click on selector "a.show-comments"
     And I should see "1" within ".comment-count"
     When I click on selector "a.comment-action"
-    And I click on selector "a.remove"
-    And I confirm the alert
+    And I confirm the alert after I click on selector "a.remove"
     Then I should not see "1 reaction" within ".show-comments"

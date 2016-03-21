@@ -8,13 +8,13 @@ app.views.SinglePostCommentStream = app.views.CommentStream.extend({
   },
 
   highlightPermalinkComment: function() {
-    if(document.location.hash){
+    if (document.location.hash && $(document.location.hash).length > 0) {
       var element = $(document.location.hash);
-      var headerSize = 50;
+      var headerSize = 60;
       $(".highlighted").removeClass("highlighted");
       element.addClass("highlighted");
       var pos = element.offset().top - headerSize;
-      $("html").animate({scrollTop:pos});
+      window.scroll(0, pos);
     }
   },
 
