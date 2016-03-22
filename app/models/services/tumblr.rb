@@ -39,8 +39,23 @@ class Services::Tumblr < Service
     post.photos.each do |photo|
       html << "![photo](#{photo.url(:scaled_full)})\n\n"
     end
+    # save all the mentions within a post
+    @mentions = []
+    post.message.instance_values["options"][:mentioned_people].each do |o|
+      @person_url = o.url + "people/" + o.guid
+      @mentions << {name: o.name, url: @person_url}
+    end
+    # removes the hovercard link that gets added by default
     html << post.message.html(mentioned_people: [])
     html << "\n\n[original post](#{url})"
+    @mentions.each { |mention|
+      html.gsub!("#{mention[:name]}", "[#{mention[:name]}](#{mention[:url]})")
+    }
+    # the following regular expressions matches the tag with its surrounding html
+    # the two capture groups capture the tag with and without #-sign to build the
+    # markdown link
+    html.gsub!(/<a\s.+?>(#([\w|\d|_-|<3]+\b))<\/a>/, '[\1]' + "(#{AppConfig.pod_uri}tags/" + '\2)')
+    html
   end
 
   def delete_post(post)
@@ -63,4 +78,3 @@ class Services::Tumblr < Service
     @client ||= OAuth::AccessToken.new(@consumer, self.access_token, self.access_secret)
   end
 end
-
