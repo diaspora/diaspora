@@ -1,7 +1,8 @@
-#publisher {
+.publisher {
   z-index: 1;
   color: $text-grey;
   margin: 0;
+  margin-bottom: 20px;
 
   &.closed {
     #button_container,
@@ -35,6 +36,7 @@
 
     .options_and_submit {
       padding: 10px 0;
+
       #publisher-service-icons {
         text-decoration: none;
 
@@ -46,7 +48,7 @@
         .service_icon { padding: 6px 5px; }
         .btn.btn-link.question_mark:hover .entypo-cog { color: $black; }
         .dim { opacity: 0.3; }
-        .social_media_logos-wordpress-16x16 {
+        .social-media-logos-wordpress-16x16 {
           display: inline-block;
           height: 16px;
           width: 16px;

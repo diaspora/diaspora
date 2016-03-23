@@ -42,7 +42,7 @@ public/500.html
 app/assets/images/branding-*.png
 app/assets/images/branding/logos-*.png
 app/assets/images/icons-*.png
-app/assets/images/social_media_logos-*.png
+app/assets/images/social-media-logos-*.png
 
 # Documentation
 .yardoc/

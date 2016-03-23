@@ -4,7 +4,7 @@
         if( app.publisher ) app.publisher.triggerGettingStarted();
       });
 
-.row#publisher{class: ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
+.row.publisher#publisher{class: ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
   .content_creation
     = form_for(StatusMessage.new) do |status|
       = status.error_messages

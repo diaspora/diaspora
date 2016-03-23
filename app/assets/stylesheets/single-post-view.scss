@@ -4,9 +4,8 @@
 
 #single-post-content {
   .head {
-    padding-bottom: 10px;
-    padding-top: 5px;
     border-bottom: 1px solid $border-grey;
+    padding: 10px 0;
     #post-info {
       .author{ color: $grey; }
       .info {
@@ -108,6 +107,11 @@
 }
 
 #single-post-interactions {
+
+  > .framed-content {
+    padding-top: 10px;
+  }
+
   .no-comments { text-align: center; }
 
   a {

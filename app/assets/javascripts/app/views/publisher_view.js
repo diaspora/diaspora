@@ -121,7 +121,7 @@ app.views.Publisher = Backbone.View.extend({
     this.viewGettingStarted = new app.views.PublisherGettingStarted({
       firstMessageEl:  this.inputEl,
       visibilityEl: this.$(".public_toggle .aspect_dropdown > .dropdown-toggle"),
-      streamEl:     $("#gs-shim")
+      streamEl:     $("#main_stream")
     });
 
     this.viewUploader = new app.views.PublisherUploader({

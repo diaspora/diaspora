@@ -2,9 +2,8 @@
 .framed-content {
   background-color: $white;
   border: 1px solid $light-grey;
+  border-top: 0;
   box-shadow: $card-shadow;
-  margin-top: -10px;
-  padding-top: 10px;
 
   .header,
   .sidebar-header {

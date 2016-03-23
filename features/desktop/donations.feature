@@ -13,4 +13,6 @@ Feature: donations
   Scenario: Bitcoin donations
     Given I have configured a Bitcoin address
     And I go to the home page
+    Then I should see "Donate" within ".info-bar"
+    And I click on "Donate" navbar title
     Then I should see the Bitcoin address

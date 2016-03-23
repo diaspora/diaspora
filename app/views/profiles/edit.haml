@@ -8,7 +8,7 @@
       .sidebar
         = render "shared/settings_nav"
     .col-md-9
-      .framed-content
+      .framed-content.clearfix
         - content_for :submit_block do
           = link_to t("cancel"), local_or_remote_person_path(current_user.person), class: "btn btn-default"
           = submit_tag t(".update_profile"), class: "btn btn-primary pull-right", id: "update_profile"

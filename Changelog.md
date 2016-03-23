@@ -94,6 +94,7 @@ Contributions are very welcome, the hard work is done!
 * Optimized the pod up checks [#6727](https://github.com/diaspora/diaspora/pull/6727)
 * Prune and do not create aspect visibilities for public posts [#6732](https://github.com/diaspora/diaspora/pull/6732)
 * Optimized mobile login and registration forms [#6764](https://github.com/diaspora/diaspora/pull/6764)
+* Redesign stream pages [#6535](https://github.com/diaspora/diaspora/pull/6535)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
