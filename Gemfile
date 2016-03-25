@@ -12,7 +12,7 @@ gem "unicorn", "5.0.1", require: false
 
 # Federation
 
-gem "diaspora_federation-rails", "0.0.12"
+gem "diaspora_federation-rails", "0.0.13"
 
 # API and JSON
 
@@ -168,7 +168,7 @@ gem "addressable",        "2.3.8", require: "addressable/uri"
 gem "faraday",            "0.9.2"
 gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"
-gem "typhoeus",           "0.8.0"
+gem "typhoeus",           "1.0.1"
 
 # Views
 
@@ -291,7 +291,7 @@ group :test do
   gem "webmock",            "1.22.6", require: false
   gem "shoulda-matchers",   "3.1.1"
 
-  gem "diaspora_federation-test", "0.0.12"
+  gem "diaspora_federation-test", "0.0.13"
 end
 
 group :development, :test do
