@@ -2,6 +2,7 @@
 
 ## Refactor
 * Sort tag autocompletion by tag name [#6734](https://github.com/diaspora/diaspora/pull/6734)
+* Make account deletions faster by adding an index [#6771](https://github.com/diaspora/diaspora/pull/6771)
 
 ## Bug fixes
 * Fix empty name field when editing aspect names [#6706](https://github.com/diaspora/diaspora/pull/6706)
