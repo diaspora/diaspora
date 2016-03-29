@@ -63,32 +63,19 @@ DiasporaFederation.configure do |config|
       person_entity.save!
     end
 
-    on :fetch_private_key_by_diaspora_id do |diaspora_id|
+    on :fetch_private_key do |diaspora_id|
       key = Person.where(diaspora_handle: diaspora_id).joins(:owner).pluck(:serialized_private_key).first
       OpenSSL::PKey::RSA.new key unless key.nil?
     end
 
-    on :fetch_author_private_key_by_entity_guid do |entity_type, guid|
-      key = entity_type.constantize.where(guid: guid).joins(author: :owner).pluck(:serialized_private_key).first
-      OpenSSL::PKey::RSA.new key unless key.nil?
-    end
-
-    on :fetch_public_key_by_diaspora_id do |diaspora_id|
+    on :fetch_public_key do |diaspora_id|
       key = Person.find_or_fetch_by_identifier(diaspora_id).serialized_public_key
       OpenSSL::PKey::RSA.new key unless key.nil?
     end
 
-    on :fetch_author_public_key_by_entity_guid do |entity_type, guid|
-      key = entity_type.constantize.where(guid: guid).joins(:author).pluck(:serialized_public_key).first
-      OpenSSL::PKey::RSA.new key unless key.nil?
-    end
-
-    on :entity_author_is_local? do |entity_type, guid|
-      entity_type.constantize.where(guid: guid).joins(author: :owner).exists?
-    end
-
-    on :fetch_entity_author_id_by_guid do |entity_type, guid|
-      entity_type.constantize.where(guid: guid).joins(:author).pluck(:diaspora_handle).first
+    on :fetch_related_entity do |entity_type, guid|
+      entity = entity_type.constantize.find_by(guid: guid)
+      Diaspora::Federation::Entities.related_entity(entity) if entity
     end
 
     on :queue_public_receive do |xml|

@@ -128,6 +128,15 @@ module Diaspora
           provider_display_name: status_message.provider_display_name
         )
       end
+
+      def self.related_entity(entity)
+        DiasporaFederation::Entities::RelatedEntity.new(
+          author: entity.author.diaspora_handle,
+          local:  entity.author.local?,
+          public: entity.respond_to?(:public?) && entity.public?,
+          parent: entity.respond_to?(:parent) ? related_entity(entity.parent) : nil
+        )
+      end
     end
   end
 end
