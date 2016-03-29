@@ -1,6 +1,6 @@
 shared_examples_for "it deals correctly with a relayable" do
   context "local" do
-    let(:entity) { create_relayable_entity(entity_name, local_target, sender_id, nil) }
+    let(:entity) { create_relayable_entity(entity_name, local_parent, sender_id) }
 
     it "treats upstream receive correctly" do
       expect(Postzord::Dispatcher).to receive(:build).with(alice, kind_of(klass)).and_call_original
@@ -23,7 +23,7 @@ shared_examples_for "it deals correctly with a relayable" do
 
   context "remote" do
     let(:author_id) { remote_user_on_pod_c.diaspora_handle }
-    let(:entity) { create_relayable_entity(entity_name, remote_target, author_id, sender.encryption_key) }
+    let(:entity) { create_relayable_entity(entity_name, remote_parent, author_id) }
 
     it "treats downstream receive correctly" do
       expect(Postzord::Dispatcher).to receive(:build)

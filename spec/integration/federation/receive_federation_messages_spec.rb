@@ -6,10 +6,12 @@ require "integration/federation/shared_receive_stream_items"
 
 describe "Receive federation messages feature" do
   before do
-    allow(DiasporaFederation.callbacks).to receive(:trigger)
-                                            .with(:queue_public_receive, any_args).and_call_original
-    allow(DiasporaFederation.callbacks).to receive(:trigger)
-                                            .with(:queue_private_receive, any_args).and_call_original
+    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
+      :queue_public_receive, any_args
+    ).and_call_original
+    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
+      :queue_private_receive, any_args
+    ).and_call_original
   end
 
   let(:sender) { remote_user_on_pod_b }
@@ -80,10 +82,9 @@ describe "Receive federation messages feature" do
       post_message(generate_xml(entity, sender, alice), alice)
 
       expect(alice.contacts.count).to eq(2)
-      new_contact = alice.contacts.order(created_at: :asc).last
+      new_contact = alice.contacts.find {|c| c.person.diaspora_handle == sender_id }
       expect(new_contact).not_to be_nil
       expect(new_contact.sharing).to eq(true)
-      expect(new_contact.person.diaspora_handle).to eq(sender_id)
 
       expect(
         Notifications::StartedSharing.exists?(
@@ -130,14 +131,14 @@ describe "Receive federation messages feature" do
       end
 
       context "with message" do
-        let(:local_target) {
+        let(:local_parent) {
           FactoryGirl.build(:conversation, author: alice.person).tap do |target|
             target.participants << remote_user_on_pod_b.person
             target.participants << remote_user_on_pod_c.person
             target.save
           end
         }
-        let(:remote_target) {
+        let(:remote_parent) {
           FactoryGirl.build(:conversation, author: remote_user_on_pod_b.person).tap do |target|
             target.participants << alice.person
             target.participants << remote_user_on_pod_c.person

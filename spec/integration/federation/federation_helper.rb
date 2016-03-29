@@ -15,28 +15,24 @@ def create_remote_user(pod)
                          pod:                   Pod.find_or_create_by(url: "http://#{pod}"),
                          diaspora_handle:       "#{user.username}@#{pod}")
     )
-    allow(DiasporaFederation.callbacks).to receive(:trigger)
-                                             .with(:fetch_private_key_by_diaspora_id, user.diaspora_handle) {
-                                             user.encryption_key
-                                           }
+    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
+      :fetch_private_key, user.diaspora_handle
+    ) { user.encryption_key }
   end
 end
 
-def create_relayable_entity(entity_name, target, diaspora_id, parent_author_key)
-  expect(DiasporaFederation.callbacks).to receive(:trigger)
-                                            .with(
-                                              :fetch_author_private_key_by_entity_guid,
-                                              FactoryGirl.build(entity_name).parent_type,
-                                              target.guid
-                                            )
-                                            .and_return(parent_author_key)
+def create_relayable_entity(entity_name, parent, diaspora_id)
+  expect(DiasporaFederation.callbacks).to receive(:trigger).with(
+    :fetch_private_key, alice.diaspora_handle
+  ).and_return(nil) if parent == local_parent
 
   FactoryGirl.build(
     entity_name,
-    conversation_guid: target.guid,
-    parent_guid:       target.guid,
+    conversation_guid: parent.guid,
+    parent_guid:       parent.guid,
     author:            diaspora_id,
-    poll_answer_guid:  target.respond_to?(:poll_answers) ? target.poll_answers.first.guid : nil
+    poll_answer_guid:  parent.respond_to?(:poll_answers) ? parent.poll_answers.first.guid : nil,
+    parent:            Diaspora::Federation::Entities.related_entity(parent)
   )
 end
 

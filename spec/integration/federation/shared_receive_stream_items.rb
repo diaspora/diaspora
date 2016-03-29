@@ -21,32 +21,32 @@ shared_examples_for "messages which are indifferent about sharing fact" do
   end
 
   describe "with messages which require a status to operate on" do
-    let(:local_target) { FactoryGirl.create(:status_message, author: alice.person, public: public) }
-    let(:remote_target) { FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
+    let(:local_parent) { FactoryGirl.create(:status_message, author: alice.person, public: public) }
+    let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
 
     describe "notifications are sent where required" do
       it "for comment on local post" do
-        entity = create_relayable_entity(:comment_entity, local_target, remote_user_on_pod_b.diaspora_handle, nil)
+        entity = create_relayable_entity(:comment_entity, local_parent, remote_user_on_pod_b.diaspora_handle)
         post_message(generate_xml(entity, sender, recipient), recipient)
 
         expect(
           Notifications::CommentOnPost.exists?(
             recipient_id: alice.id,
             target_type:  "Post",
-            target_id:    local_target.id
+            target_id:    local_parent.id
           )
         ).to be_truthy
       end
 
       it "for like on local post" do
-        entity = create_relayable_entity(:like_entity, local_target, remote_user_on_pod_b.diaspora_handle, nil)
+        entity = create_relayable_entity(:like_entity, local_parent, remote_user_on_pod_b.diaspora_handle)
         post_message(generate_xml(entity, sender, recipient), recipient)
 
         expect(
           Notifications::Liked.exists?(
             recipient_id: alice.id,
             target_type:  "Post",
-            target_id:    local_target.id
+            target_id:    local_parent.id
           )
         ).to be_truthy
       end
@@ -62,13 +62,13 @@ shared_examples_for "messages which are indifferent about sharing fact" do
     end
 
     context "with poll_participation" do
-      let(:local_target) {
+      let(:local_parent) {
         FactoryGirl.create(
           :poll,
           status_message: FactoryGirl.create(:status_message, author: alice.person, public: public)
         )
       }
-      let(:remote_target) {
+      let(:remote_parent) {
         FactoryGirl.create(
           :poll,
           status_message: FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person, public: public)
@@ -102,22 +102,22 @@ shared_examples_for "messages which can't be send without sharing" do
 
   describe "with messages which require a status to operate on" do
     let(:public) { recipient.nil? }
-    let(:local_target) { FactoryGirl.create(:status_message, author: alice.person, public: public) }
-    let(:remote_target) { FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
+    let(:local_parent) { FactoryGirl.create(:status_message, author: alice.person, public: public) }
+    let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_user_on_pod_b.person, public: public) }
 
     # this one shouldn't depend on the sharing fact. this must be fixed
     describe "notifications are sent where required" do
       it "for comment on remote post where we participate" do
-        alice.participate!(remote_target)
+        alice.participate!(remote_parent)
         author_id = remote_user_on_pod_c.diaspora_handle
-        entity = create_relayable_entity(:comment_entity, remote_target, author_id, sender.encryption_key)
+        entity = create_relayable_entity(:comment_entity, remote_parent, author_id)
         post_message(generate_xml(entity, sender, recipient), recipient)
 
         expect(
           Notifications::AlsoCommented.exists?(
             recipient_id: alice.id,
             target_type:  "Post",
-            target_id:    remote_target.id
+            target_id:    remote_parent.id
           )
         ).to be_truthy
       end
@@ -132,14 +132,14 @@ shared_examples_for "messages which can't be send without sharing" do
             it_behaves_like "it retracts relayable object" do
               # case for to-upstream federation
               let(:target_object) {
-                FactoryGirl.create(:comment, author: remote_user_on_pod_b.person, post: local_target)
+                FactoryGirl.create(:comment, author: remote_user_on_pod_b.person, post: local_parent)
               }
             end
 
             it_behaves_like "it retracts relayable object" do
               # case for to-downsteam federation
               let(:target_object) {
-                FactoryGirl.create(:comment, author: remote_user_on_pod_c.person, post: remote_target)
+                FactoryGirl.create(:comment, author: remote_user_on_pod_c.person, post: remote_parent)
               }
             end
           end
@@ -148,14 +148,14 @@ shared_examples_for "messages which can't be send without sharing" do
             it_behaves_like "it retracts relayable object" do
               # case for to-upstream federation
               let(:target_object) {
-                FactoryGirl.create(:like, author: remote_user_on_pod_b.person, target: local_target)
+                FactoryGirl.create(:like, author: remote_user_on_pod_b.person, target: local_parent)
               }
             end
 
             it_behaves_like "it retracts relayable object" do
               # case for to-downsteam federation
               let(:target_object) {
-                FactoryGirl.create(:like, author: remote_user_on_pod_c.person, target: remote_target)
+                FactoryGirl.create(:like, author: remote_user_on_pod_c.person, target: remote_parent)
               }
             end
           end
