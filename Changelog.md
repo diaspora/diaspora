@@ -136,6 +136,14 @@ Contributions are very welcome, the hard work is done!
 * Add reason for post report to email sent to admins [#6679](https://github.com/diaspora/diaspora/pull/6679)
 * Add links to the single post view of the related post to photos in the photo stream [#6621](https://github.com/diaspora/diaspora/pull/6621)
 
+# 0.5.9.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.5.8.0
 
 ## Refactor
