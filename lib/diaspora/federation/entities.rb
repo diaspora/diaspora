@@ -17,7 +17,8 @@ module Diaspora
           author:      comment.diaspora_handle,
           guid:        comment.guid,
           parent_guid: comment.parent_guid,
-          text:        comment.text
+          text:        comment.text,
+          parent:      related_entity(comment.parent)
         )
       end
 
@@ -82,6 +83,7 @@ module Diaspora
         DiasporaFederation::Entities::RelayableRetraction.new(
           target_guid: target.guid,
           target_type: target.class.to_s,
+          target:      related_entity(target),
           author:      sender.diaspora_handle
         )
       end
@@ -102,6 +104,7 @@ module Diaspora
         DiasporaFederation::Entities::Retraction.new(
           target_guid: target.is_a?(User) ? target.person.guid : target.guid,
           target_type: target.is_a?(User) ? Person.to_s : target.class.to_s,
+          target:      related_entity(target),
           author:      target.diaspora_handle
         )
       end
@@ -111,6 +114,7 @@ module Diaspora
         DiasporaFederation::Entities::SignedRetraction.new(
           target_guid: target.guid,
           target_type: target.class.to_s,
+          target:      related_entity(target),
           author:      sender.diaspora_handle
         )
       end
