@@ -12,9 +12,10 @@ module PublisherHelper
   end
 
   def service_button(service)
+    share_to = I18n.t "services.index.share_to"
     content_tag :div,
                 class:   "btn btn-link service_icon dim",
-                title:   "#{service.provider.titleize} (#{service.nickname})",
+                title:   "#{share_to} #{service.provider.titleize} (#{service.nickname})",
                 id:      "#{service.provider}",
                 maxchar: "#{service.class::MAX_CHARACTERS}",
                 data:    {toggle: "tooltip", placement: "bottom"} do
