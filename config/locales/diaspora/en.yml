@@ -1171,7 +1171,7 @@ en:
       really_disconnect: "Disconnect %{service}?"
       edit_services: "Edit services"
       services_explanation: "Connecting to third-party sharing services gives you the ability to publish your posts to them as you write them in diaspora*."
-      share_to: "Share to"
+      share_to: "Share to %{provider}"
     create:
       success: "Authentication successful."
       failure: "Authentication failed."
