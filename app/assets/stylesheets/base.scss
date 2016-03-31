@@ -86,6 +86,21 @@ pre { word-wrap: break-word; }
   &.visible { opacity: .5; }
 }
 
+.noscript {
+  background-color: rgba($black, .9);
+  height: 100%;
+  margin-top: -50px;
+  position: fixed;
+  width: 100%;
+  z-index: 9001;
+
+  h3 {
+    background-color: $white;
+    margin: 100px;
+    padding: 50px;
+  }
+}
+
 // general purpose classes
 
 .small-horizontal-spacer {
