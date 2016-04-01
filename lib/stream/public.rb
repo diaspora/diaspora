@@ -16,10 +16,6 @@ class Stream::Public < Stream::Base
     @posts ||= Post.all_public
   end
 
-  def contacts_title
-    I18n.translate("streams.public.contacts_title")
-  end
-
   def can_comment?(post)
     post.author.local?
   end

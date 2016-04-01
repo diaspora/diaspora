@@ -275,6 +275,8 @@ en:
       success: "Successfully removed person from aspect."
       failure: "Failed to remove person from aspect."
       no_membership: "Could not find the selected person in that aspect."
+      forbidden: "You are not allowed to do that."
+      invalid_statement: "Duplicate record rejected."
 
   bookmarklet:
     heading: "Bookmarklet"
@@ -582,6 +584,8 @@ en:
 
   invitation_codes:
     excited: "%{name} is excited to see you here."
+    not_valid: "That invite code is no longer valid"
+    
   invitations:
     create:
       sent: "Invitations have been sent to: %{emails}"
@@ -967,6 +971,7 @@ en:
       destroy: "Delete"
       permalink: "Permalink"
       not_found: "Sorry, we couldn’t find that post."
+      forbidden: "You are not allowed to do that"
       photos_by:
         zero: "No photos by %{author}"
         one: "One photo by %{author}"
@@ -1266,33 +1271,26 @@ en:
 
     mentions:
       title: "@Mentions"
-      contacts_title: "People who mentioned you"
 
     comment_stream:
       title: "Commented posts"
-      contacts_title: "People whose posts you commented on"
 
     like_stream:
       title: "Like stream"
-      contacts_title: "People whose posts you like"
 
     followed_tag:
       title: "#Followed tags"
-      contacts_title: "People who dig these tags"
       add_a_tag: "Add a tag"
       follow: "Follow"
 
     tags:
       title: "Posts tagged: %{tags}"
-      contacts_title: "People who dig this tag"
 
     public:
       title: "Public activity"
-      contacts_title: "Recent posters"
 
     multi:
       title: "Stream"
-      contacts_title: "People in your stream"
 
     aspects:
       title: "My aspects"

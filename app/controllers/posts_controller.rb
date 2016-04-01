@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   rescue_from Diaspora::NotMine do
-    render text: "You are not allowed to do that", status: 403
+    render text: I18n.t("posts.show.forbidden"), status: 403
   end
 
   def show

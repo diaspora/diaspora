@@ -88,6 +88,7 @@ app.pages.Profile = app.views.Base.extend({
     if( this.model.get('is_own_profile') ) {
       app.publisher = new app.views.Publisher({collection : app.stream.items});
     }
+    app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
 
     return new view({model: app.stream});
   },

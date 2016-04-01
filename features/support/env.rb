@@ -21,7 +21,17 @@ Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 Selenium::WebDriver::Firefox::Binary.path = ENV["FIREFOX_BINARY_PATH"] || Selenium::WebDriver::Firefox::Binary.path
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
+  profile = Selenium::WebDriver::Firefox::Profile.new
+  # Set the download directory to "tmp/downloads"
+  profile["browser.download.dir"] = DownloadHelpers::PATH.to_s
+  # Save the file instead of opening it
+  profile["browser.download.folderList"] = 2
+  # Hide the download Manager
+  profile["browser.download.manager.showWhenStarting"] = false
+  # Suppress "open with" dialog for zipped files only
+  profile["browser.helperApps.neverAsk.saveToDisk"] = "application/zip"
+  # Start Firefox using our profile
+  Capybara::Selenium::Driver.new(app, browser: :firefox, profile: profile)
 end
 
 Capybara.register_driver :mobile do |app|
@@ -70,4 +80,6 @@ include HelperMethods
 
 Before do
   Devise.mailer.deliveries = []
+  # Delete all files in "tmp/downloads"
+  DownloadHelpers.clear_downloads
 end

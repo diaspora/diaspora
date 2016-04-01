@@ -41,7 +41,6 @@ app.views.ProfileHeader = app.views.Base.extend({
   },
 
   postRenderTemplate: function() {
-    var self = this;
     var dropdownEl = this.$('.aspect_membership_dropdown.placeholder');
     if( dropdownEl.length === 0 ) {
       return;
