@@ -230,10 +230,6 @@ Diaspora::Application.routes.draw do
   # Startpage
   root :to => 'home#show'
 
-  api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
-    match "user", to: "users#show", via: %i(get post)
-  end
-
   namespace :api do
     namespace :openid_connect do
       resources :clients, only: :create
