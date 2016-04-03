@@ -284,36 +284,36 @@ describe "diaspora federation callbacks" do
   end
 
   describe ":queue_public_receive" do
-    it "enqueues a ReceiveUnencryptedSalmon job" do
-      xml = "<diaspora/>"
-      expect(Workers::ReceiveUnencryptedSalmon).to receive(:perform_async).with(xml)
+    it "enqueues a ReceivePublic job" do
+      data = "<diaspora/>"
+      expect(Workers::ReceivePublic).to receive(:perform_async).with(data, true)
 
-      DiasporaFederation.callbacks.trigger(:queue_public_receive, xml)
+      DiasporaFederation.callbacks.trigger(:queue_public_receive, data, true)
     end
   end
 
   describe ":queue_private_receive" do
-    let(:xml) { "<diaspora/>" }
+    let(:data) { "<diaspora/>" }
 
     it "returns true if the user is found" do
-      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, xml)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, data)
       expect(result).to be_truthy
     end
 
-    it "enqueues a ReceiveEncryptedSalmon job" do
-      expect(Workers::ReceiveEncryptedSalmon).to receive(:perform_async).with(alice.id, xml)
+    it "enqueues a ReceivePrivate job" do
+      expect(Workers::ReceivePrivate).to receive(:perform_async).with(alice.id, data, true)
 
-      DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, xml)
+      DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, data, true)
     end
 
     it "returns false if the no user is found" do
       person = FactoryGirl.create(:person)
-      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, person.guid, xml)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, person.guid, data, true)
       expect(result).to be_falsey
     end
 
     it "returns false if the no person is found" do
-      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, "2398rq3948yftn", xml)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, "2398rq3948yftn", data, true)
       expect(result).to be_falsey
     end
   end

@@ -65,12 +65,12 @@ DiasporaFederation.configure do |config|
 
     on :fetch_private_key do |diaspora_id|
       key = Person.where(diaspora_handle: diaspora_id).joins(:owner).pluck(:serialized_private_key).first
-      OpenSSL::PKey::RSA.new key unless key.nil?
+      OpenSSL::PKey::RSA.new(key) unless key.nil?
     end
 
     on :fetch_public_key do |diaspora_id|
       key = Person.find_or_fetch_by_identifier(diaspora_id).serialized_public_key
-      OpenSSL::PKey::RSA.new key unless key.nil?
+      OpenSSL::PKey::RSA.new(key) unless key.nil?
     end
 
     on :fetch_related_entity do |entity_type, guid|
@@ -78,18 +78,15 @@ DiasporaFederation.configure do |config|
       Diaspora::Federation::Entities.related_entity(entity) if entity
     end
 
-    on :queue_public_receive do |xml|
-      Workers::ReceiveUnencryptedSalmon.perform_async(xml)
+    on :queue_public_receive do |xml, legacy=false|
+      Workers::ReceivePublic.perform_async(xml, legacy)
     end
 
-    on :queue_private_receive do |guid, xml|
+    on :queue_private_receive do |guid, xml, legacy=false|
       person = Person.find_by_guid(guid)
 
-      if person.nil? || person.owner_id.nil?
-        false
-      else
-        Workers::ReceiveEncryptedSalmon.perform_async(person.owner.id, xml)
-        true
+      (person.present? && person.owner_id.present?).tap do |user_found|
+        Workers::ReceivePrivate.perform_async(person.owner.id, xml, legacy) if user_found
       end
     end
 
