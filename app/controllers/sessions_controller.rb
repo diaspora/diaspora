@@ -7,6 +7,6 @@ class SessionsController < Devise::SessionsController
   before_filter :reset_authentication_token, :only => [:destroy]
 
   def reset_authentication_token
-    current_user.reset_authentication_token!
+    current_user.reset_authentication_token! unless current_user.nil?
   end
 end

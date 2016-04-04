@@ -91,7 +91,6 @@ is:
       follow: "Fyljgast með"
       followed_tag:
         add_a_tag: "Bæta við merki"
-        contacts_title: "Fólk sem fílar þessi merki"
         title: "#Merkisem fylgst er með"
       hide: "Fela"
       hide_nsfw_posts: "Fela skeyti sem hennta ekki vinnu"

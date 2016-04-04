@@ -168,7 +168,6 @@ es-AR:
       follow: "Seguir"
       followed_tag:
         add_a_tag: "Añadir una etiqueta"
-        contacts_title: "Personas que buscaron esta etiqueta"
         follow: "Seguir"
         title: "#Etiquetas que sigues"
       hide: "Ocultar"

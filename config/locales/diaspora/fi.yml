@@ -223,8 +223,6 @@ fi:
       you_should_add_some_more_contacts: "Sinun pitäisi lisätä kontakteja!"
     no_posts_message:
       start_talking: "Kukaan ei ole vielä sanonut mitään!"
-    one: "1 näkymä"
-    other: "%{count} näkymää"
     seed:
       acquaintances: "Tuttavat"
       family: "Perhe"
@@ -233,7 +231,6 @@ fi:
     update:
       failure: "Antamasi näkymän nimi, %{name}, oli liian pitkä tallennettavaksi."
       success: "Näkymäsi, %{name}, muokkaus onnistui."
-    zero: "Ei näkymiä"
   back: "Takaisin"
   blocks:
     create:
@@ -273,14 +270,11 @@ fi:
       title: "Kontaktit"
       user_search: "Käyttäjähaku"
       your_contacts: "Kontaktisi"
-    one: "1 kontakti"
-    other: "%{count} kontaktia"
     sharing:
       people_sharing: "Henkilöt, jotka jakavat kanssasi:"
     spotlight:
       community_spotlight: "Yhteisön valokeila"
       suggest_member: "Ehdota jäsentä"
-    zero: "Ei kontakteja"
   conversations:
     conversation:
       participants: "Osallistujat"
@@ -1190,30 +1184,23 @@ fi:
       title: "Näkymäni"
     aspects_stream: "Näkymät"
     comment_stream:
-      contacts_title: "Ihmiset, joiden julkaisuja olet kommentoinut"
       title: "Kommentoimasi julkaisut"
     community_spotlight_stream: "Yhteisön valokeila"
     followed_tag:
       add_a_tag: "Lisää tagi"
-      contacts_title: "Näistä tageista pitävät ihmiset"
       follow: "Seuraa"
       title: "#Seuratut tagit"
     followed_tags_stream: "#Seuratut tagit"
     like_stream:
-      contacts_title: "Ihmiset, joiden julkaisuista olet tykännyt"
       title: "Tykkäysvirta"
     mentioned_stream: "@Maininnat"
     mentions:
-      contacts_title: "Sinut maininneet ihmiset"
       title: "@Maininnat"
     multi:
-      contacts_title: "Ihmiset sinun virrassasi"
       title: "Virta"
     public:
-      contacts_title: "Viimeisimmät julkaisijat"
       title: "Julkinen toiminta"
     tags:
-      contacts_title: "Tästä tagista pitävät ihmiset"
       title: "%{tags} merkityt julkaisut"
   tag_followings:
     create:

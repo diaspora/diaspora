@@ -196,8 +196,6 @@ he:
       you_should_add_some_more_contacts: "כדאי להוסיף כמה אנשי קשר!"
     no_posts_message:
       start_talking: "אף אחד לא כתב הודעה עדיין!"
-    one: "היבט אחד"
-    other: "%{count} היבטים"
     seed:
       acquaintances: "מכרים"
       family: "משפחה"
@@ -206,7 +204,6 @@ he:
     update:
       failure: "ההיבט שלך, %{name}, לא נשמר מכיוון שהשם שלו היה ארוך מדי."
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
-    zero: "אין היבטים"
   back: "חזרה"
   blocks:
     create:
@@ -243,14 +240,11 @@ he:
       start_a_conversation: "התחלת שיחה"
       title: "אנשי קשר"
       your_contacts: "אנשי הקשר שלך"
-    one: "איש קשר אחד"
-    other: "%{count} אנשי קשר"
     sharing:
       people_sharing: "אנשים המשתפים איתך:"
     spotlight:
       community_spotlight: "פרסומים חשובים בקהילה"
       suggest_member: "המלצה על חבר"
-    zero: "אנשי קשר"
   conversations:
     conversation:
       participants: "משתתפים"
@@ -881,30 +875,23 @@ he:
       title: "ההיבטים שלי"
     aspects_stream: "היבטים"
     comment_stream:
-      contacts_title: "אנשים שהגבת להודעותיהם"
       title: "הודעות שהגבת להן"
     community_spotlight_stream: "פרסומים חשובים בקהילה"
     followed_tag:
       add_a_tag: "הוספת תגית"
-      contacts_title: "אנשים שמשתמשים בתגיות אלו"
       follow: "עקיבה"
       title: "#תגיות נעקבות"
     followed_tags_stream: "#תגיות נעקבות"
     like_stream:
-      contacts_title: "אנשים שאהבת את הודעותיהם"
       title: "הודעות שאהבת"
     mentioned_stream: "@אזכורים"
     mentions:
-      contacts_title: "אנשים שהזכירו אותך"
       title: "@אזכורים"
     multi:
-      contacts_title: "אנשים בחדשות שלך"
       title: "חדשות"
     public:
-      contacts_title: "מפרסמים אחרונים"
       title: "פעילות ציבורית"
     tags:
-      contacts_title: "אנשים ששותפים לתגית הזו"
       title: "הודעות שתויגו: %{tags}"
   tag_followings:
     create:

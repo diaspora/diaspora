@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724152052) do
+ActiveRecord::Schema.define(version: 20160327103605) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -262,6 +262,7 @@ ActiveRecord::Schema.define(version: 20150724152052) do
     t.datetime "updated_at",                            null: false
   end
 
+  add_index "participations", ["author_id"], name: "index_participations_on_author_id", using: :btree
   add_index "participations", ["guid"], name: "index_participations_on_guid", length: {"guid"=>191}, using: :btree
   add_index "participations", ["target_id", "target_type", "author_id"], name: "index_participations_on_target_id_and_target_type_and_author_id", using: :btree
 

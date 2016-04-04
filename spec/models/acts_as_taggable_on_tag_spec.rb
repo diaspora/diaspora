@@ -13,6 +13,12 @@ describe ActsAsTaggableOn::Tag, :type => :model do
     it "does an end where on tags" do
       expect(tag.autocomplete("CAT")).to eq([tag_cats])
     end
+
+    it "sorts the results by name" do
+      tag_cat = tag.create(name: "cat")
+      tag_catt = tag.create(name: "catt")
+      expect(tag.autocomplete("CAT")).to eq([tag_cat, tag_cats, tag_catt])
+    end
   end
 
   describe ".normalize" do

@@ -64,7 +64,7 @@ sv:
     create: "Skapa"
     delete: "Radera"
     edit: "Ändra"
-    failed_to_like: "Misslyckades med att gilla!"
+    failed_to_like: "Misslyckades med att gilla. Ignorerar författaren dig?"
     failed_to_post_message: "Misslyckades att posta meddelande!"
     failed_to_remove: "Misslyckades med att borttaga inlägget!"
     failed_to_reshare: "Kunde inte dela vidare!"
@@ -125,8 +125,8 @@ sv:
       count:
         one: "<%=count%> röst lagd"
         other: "<%=count%> röster lagda"
-      go_to_original_post: "Du kan rösta på <%= original_post_link %>"
-      original_post: "ursprungligt inlägg"
+      go_to_original_post: "Du kan rösta hos <%= original_post_link %>"
+      original_post: "det ursprungliga inlägget"
       result: "Resultat"
       show_result: "Visa resultat"
       vote: "Rösta"
@@ -171,7 +171,6 @@ sv:
       follow: "Följ"
       followed_tag:
         add_a_tag: "Lägg till en tagg"
-        contacts_title: "Personer som gillar dessa taggar"
         follow: "Följ"
         title: "#Följda taggar"
       hide: "Göm"

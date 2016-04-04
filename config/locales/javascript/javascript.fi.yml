@@ -162,7 +162,6 @@ fi:
       follow: "Seuraa"
       followed_tag:
         add_a_tag: "Lisää tagi"
-        contacts_title: "Tästä tagista pitävät henkilöt"
         follow: "Seuraa"
         title: "#Seuratut Tagit"
       hide: "Piilota"

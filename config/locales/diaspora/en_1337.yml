@@ -113,8 +113,6 @@ en_1337:
       you_should_add_some_more_contacts: "U 5H0ULD G37 50M3 N00B5!"
     no_posts_message:
       start_talking: "N0B0DY 5P4MM3D 4NY7H1NG..."
-    one: "1 45P3C7"
-    other: "%{count} 45P3C75"
     seed:
       acquaintances: "PR05"
       family: "RL"
@@ -123,7 +121,6 @@ en_1337:
     update:
       failure: "45P3C7 %{name} H4D 2 L0NG N4M3 -> F41L!"
       success: "45P3C7 %{name} H45 B33N 5UCC35FULLY 3D173D!"
-    zero: "n0 45p3c7z"
   back: "<-"
   bookmarklet:
     explanation: "5P4M FR0M 4NYWH3R3, 4NY71M3! %{link}."
@@ -151,11 +148,8 @@ en_1337:
       start_a_conversation: "574R7 4 N3W C0NV3R54710N!"
       title: "N00B5"
       your_contacts: "Y0UR N00B5"
-    one: "1 N00B"
-    other: "%{count} N00B5"
     sharing:
       people_sharing: "N00B5 5H4R1NG W17H U:"
-    zero: "N00B5"
   conversations:
     create:
       fail: "1NV4L1D M3554G3!"
@@ -685,10 +679,8 @@ en_1337:
     aspects:
       title: "UR 45P3C75"
     mentions:
-      contacts_title: "N00B5 WH0 M3N710N3D U"
       title: "Y0UR M3N710N5"
     tags:
-      contacts_title: "N00B5 WH0 D1G 7H353 74G5"
       title: "5P4M 74GG3D: %{tags}"
   tag_followings:
     create:

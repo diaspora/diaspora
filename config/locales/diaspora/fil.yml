@@ -82,14 +82,11 @@ fil:
       name: "Pangalan"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-    one: "1 crew"
-    other: "%{count} crews"
     seed:
       acquaintances: "Landlubbers"
       family: "Kin"
       friends: "Mateys"
       work: "Shipmates"
-    zero: "no aspects"
   contacts:
     index:
       add_to_aspect: "Add contacts to %{name}"
@@ -337,8 +334,6 @@ fil:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

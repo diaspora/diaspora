@@ -10,7 +10,7 @@ cs:
   _contacts: "Kontakty"
   _help: "Nápověda"
   _home: "Domů"
-  _photos: "fotky"
+  _photos: "Fotky"
   _services: "Služby"
   _statistics: "Statistiky"
   _terms: "pojmy"
@@ -136,7 +136,7 @@ cs:
   all_aspects: "Všechny aspekty"
   application:
     helper:
-      unknown_person: "neznámá osoba"
+      unknown_person: "Neznámá osoba"
       video_title:
         unknown: "Neznámý název videa"
   are_you_sure: "Jste si jisti?"
@@ -144,6 +144,8 @@ cs:
   aspect_memberships:
     destroy:
       failure: "Nepodařilo se odstranit osobu z aspektu"
+      forbidden: "Nemáte povolení k této akci."
+      invalid_statement: "Záznam by odmítnut, protože už existuje."
       no_membership: "Nelze najít vybrané osoby v tomto aspektu"
       success: "Osoba byla úspěšně odstraněna z aspektu"
   aspects:
@@ -171,16 +173,16 @@ cs:
     edit:
       aspect_chat_is_enabled: "Kontakty v tomto aspektu s Vámi mohou chatovat."
       aspect_chat_is_not_enabled: "Kontakty v tomto aspektu s Vámi nemohou chatovat."
-      aspect_list_is_not_visible: "seznam kontaktů je skryt ostatním v aspektu"
-      aspect_list_is_visible: "seznam kontaktů je viditelný pro ostatní v aspektu"
+      aspect_list_is_not_visible: "Sothereznam kontaktů je skryt ostatním v aspektu"
+      aspect_list_is_visible: "Seznam kontaktů je viditelný pro ostatní v aspektu"
       confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
       grant_contacts_chat_privilege: "dát kontaktům v tomto aspektu právo chatovat ?"
-      make_aspect_list_visible: "umožnit kontaktům v tomto aspektu se vzájemně vidět?"
+      make_aspect_list_visible: "Umožnit kontaktům v tomto aspektu se vzájemně vidět?"
       remove_aspect: "Odstranit tento aspekt"
-      rename: "přejmenovat"
+      rename: "Přejmenovat"
       set_visibility: "Nastavit viditelnost"
-      update: "aktualizovat"
-      updating: "aktualizace"
+      update: "Aktualizovat"
+      updating: "Aktualizuji"
     index:
       diaspora_id:
         content_1: "Vaše Diaspora ID je:"
@@ -215,7 +217,7 @@ cs:
       no_contacts: "Žádné kontakty"
       no_tags: "+ Najít štítek k odběru"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
-      post_a_message: "odeslat příspěvek »"
+      post_a_message: "Odeslat příspěvek »"
       services:
         content: "Můžete připojit následující služby na Diasporu:"
         heading: "Připojit služby"
@@ -225,14 +227,12 @@ cs:
       create: "Vytvořit"
       name: "Název"
     no_contacts_message:
-      community_spotlight: "ve středu pozornosti komunity"
+      community_spotlight: "Ve středu pozornosti komunity"
       or_spotlight: "Můžete jej sdílet i pomocí %{link}"
       try_adding_some_more_contacts: "Nové kontakty můžete vyhledávat (nahoře) nebo někoho pozvat (vpravo)."
       you_should_add_some_more_contacts: "Přidejte si více kontaktů!"
     no_posts_message:
       start_talking: "Nikdo zatím ještě nic nesdělil!"
-    one: "1 aspekt"
-    other: "%{count} aspektů"
     seed:
       acquaintances: "Známí"
       family: "Rodina"
@@ -241,7 +241,6 @@ cs:
     update:
       failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
       success: "Váš aspekt %{name} byl úspěšně upraven."
-    zero: "žádné aspekty"
   back: "Zpět"
   blocks:
     create:
@@ -262,7 +261,7 @@ cs:
       commenting: "Komentování..."
     one: "1 komentář"
     other: "%{count} komentářů"
-    zero: "žádné komentáře"
+    zero: "Žádné komentáře"
   contacts:
     create:
       failure: "Nepodařilo se vytvořit kontakt"
@@ -282,14 +281,11 @@ cs:
       title: "Kontakty"
       user_search: "Hledat uživatele"
       your_contacts: "Vaše kontakty"
-    one: "1 kontakt"
-    other: "%{count} kontaktů"
     sharing:
       people_sharing: "Lidé, kteří s vámi sdílí:"
     spotlight:
       community_spotlight: "Aktuality z komunity"
       suggest_member: "Navrhněte člena"
-    zero: "žádné kontakty"
   conversations:
     conversation:
       participants: "Účastníci"
@@ -314,14 +310,14 @@ cs:
       inbox: "Doručená pošta"
       new_conversation: "Nová konverzace"
       no_conversation_selected: "není výbrána žádná konverzace"
-      no_messages: "žádné zprávy"
+      no_messages: "Žádné zprávy"
     new:
       abandon_changes: "Zamítnout změny?"
       send: "Poslat"
       sending: "Posílám..."
-      subject: "předmět"
+      subject: "Předmět"
       subject_default: "Žádný předmět"
-      to: "pro"
+      to: "Komu"
     new_conversation:
       fail: "Neplatná zpráva"
     show:
@@ -568,6 +564,7 @@ cs:
   ignore: "Ignorovat"
   invitation_codes:
     excited: "%{name} tě tu rád(a) vidí."
+    not_valid: "Kód této pozvánky již není platný."
   invitations:
     a_facebook_user: "Uživatel Facebooku"
     check_token:
@@ -613,11 +610,11 @@ cs:
       statistics_link: "Statistiky podu"
       toggle: "Přepnout mobilní / plnou verzi"
       whats_new: "Co je nového?"
-      your_aspects: "vaše aspekty"
+      your_aspects: "Vaše aspekty"
     header:
-      admin: "správce"
-      blog: "blog"
-      code: "kód"
+      admin: "Správce"
+      blog: "Blog"
+      code: "Kód"
       help: "Nápověda"
       login: "Přihlásit"
       logout: "Odhlásit se"
@@ -644,7 +641,7 @@ cs:
         zero: "žádná kladná hodnocení"
   limited: "Omezený"
   more: "Více"
-  next: "další"
+  next: "Další"
   no_results: "Nebyly nalezeny žádné výsledky"
   notifications:
     also_commented:
@@ -738,7 +735,7 @@ cs:
     accept_invite: "Přijměte vaši pozvánku do Diaspory*!"
     also_commented:
       limited_subject: "Na příspěvku, který jste komentoval, byl přidán další komentář."
-    click_here: "klikněte zde"
+    click_here: "Klikněte zde"
     comment_on_post:
       limited_subject: "U příspěvku, který jste okomentoval, je další komentář."
       reply: "Zobrazit příspěvek od %{name} nebo na něj odpovědět »"
@@ -870,7 +867,7 @@ cs:
     add_contact:
       invited_by: "Byl(a) jste pozván(a)"
     add_contact_small:
-      add_contact_from_tag: "přidat kontakt ze štítku"
+      add_contact_from_tag: "Přidat kontakt ze štítku"
     aspect_list:
       edit_membership: "upravit člena aspektu"
     helper:
@@ -889,7 +886,7 @@ cs:
     one: "1 člověk"
     other: "%{count} lidí"
     person:
-      add_contact: "přidat kontakt"
+      add_contact: "Přidat kontakt"
       already_connected: "Již připojen"
       pending_request: "Nevyřízená žádost"
       thats_you: "To jste vy!"
@@ -901,7 +898,7 @@ cs:
       in_aspects: "v aspektech"
       location: "Poloha"
       photos: "Fotky"
-      remove_contact: "odstranit kontakt"
+      remove_contact: "Odstranit kontakt"
       remove_from: "Odstranit %{name} z %{aspect}?"
     show:
       closed_account: "Tento účet byl uzavřen."
@@ -920,7 +917,7 @@ cs:
       to_accept_or_ignore: "přijmout nebo ignorovat."
     sub_header:
       add_some: "přidat nějaké"
-      edit: "upravit"
+      edit: "Upravit"
       you_have_no_tags: "nemáte žádný štítek!"
     webfinger:
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
@@ -964,6 +961,7 @@ cs:
       title: "Příspěvek uživatele %{name}"
     show:
       destroy: "Smazat"
+      forbidden: "Nemáte povolení k této akci."
       not_found: "Tento příspěvek nelze bohužel najít."
       permalink: "trvalý odkaz"
       photos_by:
@@ -972,7 +970,7 @@ cs:
         other: "%{count} fotek uživatele %{author}"
         zero: "Žádné fotky uživatele %{author}"
       reshare_by: "Sdílel %{author}"
-  previous: "předchozí"
+  previous: "Předchozí"
   privacy: "Soukromí"
   privacy_policy: "Ochrana osobních údajů"
   profile: "Profil"
@@ -1259,30 +1257,23 @@ cs:
       title: "Moje aspekty"
     aspects_stream: "Aspekty"
     comment_stream:
-      contacts_title: "Lidé, jejichž příspěvky jste komentovali"
       title: "Komentované příspěvky"
     community_spotlight_stream: "Aktuality z komunity"
     followed_tag:
       add_a_tag: "Přidat štítek"
-      contacts_title: "Lidé, kteří navěšují tyto štítky"
       follow: "Odebírat"
       title: "#Odebírané štítky"
     followed_tags_stream: "#Odebírané štítky"
     like_stream:
-      contacts_title: "Lidé, jejichž příspěvky se vám líbí"
       title: "Proud zalíbení"
     mentioned_stream: "@Zmínky"
     mentions:
-      contacts_title: "Lidé, kteří vás zmínili"
       title: "@Zmínky"
     multi:
-      contacts_title: "Lidé ve vašem proudu"
       title: "Proud"
     public:
-      contacts_title: "Nedávní přispěvatelé"
       title: "Veřejná aktivita"
     tags:
-      contacts_title: "Lidé, kteří navěšují tento štítek"
       title: "Příspěvky označené: %{tags}"
   tag_followings:
     create:

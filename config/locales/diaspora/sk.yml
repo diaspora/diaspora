@@ -195,8 +195,6 @@ sk:
       you_should_add_some_more_contacts: "Mal(a) by si ešte pridať pár kontaktov!"
     no_posts_message:
       start_talking: "Nikto ešte nič nepovedal!"
-    one: "1 kategória"
-    other: "%{count} kategórií"
     seed:
       acquaintances: "Známi"
       family: "Rodina"
@@ -205,7 +203,6 @@ sk:
     update:
       failure: "Tvoja kategória %{name} má príliš dlhý názov."
       success: "Úspešne si upravil(a) kategóriu %{name}."
-    zero: "Žiadne kategórie"
   back: "Späť"
   blocks:
     create:
@@ -242,14 +239,11 @@ sk:
       start_a_conversation: "Začať rozhovor"
       title: "Kontakty"
       your_contacts: "Tvoje kontakty"
-    one: "1 kontakt"
-    other: "%{count} kontaktov"
     sharing:
       people_sharing: "Ľudia, ktorí vás majú v kontaktoch:"
     spotlight:
       community_spotlight: "Aktuality z komunity"
       suggest_member: "Navrhnúť člena"
-    zero: "Žiadne kontakty"
   conversations:
     conversation:
       participants: "Účastníci"
@@ -954,30 +948,23 @@ sk:
       title: "Tvoje kategórie"
     aspects_stream: "Kategórie"
     comment_stream:
-      contacts_title: "Ľudia, ktorých príspevky si okomentoval(a)"
       title: "Okomentované príspevky"
     community_spotlight_stream: "Aktuality z komunity"
     followed_tag:
       add_a_tag: "Pridať značku"
-      contacts_title: "Ľudia, ktorí sledujú tieto značky"
       follow: "Sledovať"
       title: "#Značky, ktoré sleduješ"
     followed_tags_stream: "#Značky, ktoré sleduješ"
     like_stream:
-      contacts_title: "Ľudia, ktorých príspevky sa ti páčia"
       title: "Páči sa mi"
     mentioned_stream: "@Zmienky"
     mentions:
-      contacts_title: "Ľudia, ktorí ťa spomenuli"
       title: "@Zmienky"
     multi:
-      contacts_title: "Ľudia na tvojej nástenke"
       title: "Prehľadávať"
     public:
-      contacts_title: "Autori najnovších príspevkov"
       title: "Verejná aktivita"
     tags:
-      contacts_title: "Ľudia, ktorí hľadajú tieto značky"
       title: "Príspevky so značkami: %{tags}"
   tag_followings:
     create:

@@ -237,8 +237,6 @@ uk:
       you_should_add_some_more_contacts: "Додайте більше контактів!"
     no_posts_message:
       start_talking: "Тут ще ніхто нічого не сказав."
-    one: "1 аспект"
-    other: "%{count} аспект[-и, -ів]"
     seed:
       acquaintances: "Знайомі"
       family: "Сім'я"
@@ -247,7 +245,6 @@ uk:
     update:
       failure: "Ваш аспект %{name} має занадто довге ім'я для збереження."
       success: "Ваш аспект %{name} успішно відредагований."
-    zero: "Немає категорій"
   back: "Назад"
   blocks:
     create:
@@ -288,14 +285,11 @@ uk:
       title: "Контакти"
       user_search: "Пошук користувача"
       your_contacts: "Ваші контакти"
-    one: "1 контакт"
-    other: "%{count} контакт[-у, -iв]"
     sharing:
       people_sharing: "діляться з вами:"
     spotlight:
       community_spotlight: "У центрі уваги"
       suggest_member: "Запропонуйте учасника"
-    zero: "Немає контактів"
   conversations:
     conversation:
       participants: "Учасники"
@@ -1258,30 +1252,23 @@ uk:
       title: "Ваші аспекти"
     aspects_stream: "Аспекти"
     comment_stream:
-      contacts_title: "Люди, чиї записи ви прокоментували"
       title: "Прокоментовані"
     community_spotlight_stream: "У центрі уваги"
     followed_tag:
       add_a_tag: "Додати мітку"
-      contacts_title: "Люди, що цікавляться цими мітками"
       follow: "Cтежити"
       title: "#Відстежувані мітки"
     followed_tags_stream: "#Відстежувані мітки"
     like_stream:
-      contacts_title: "Люди, чиї записи вам сподобалися"
       title: "Вподобані"
     mentioned_stream: "@Згадування"
     mentions:
-      contacts_title: "Люди, що згадали вас"
       title: "@Згадування"
     multi:
-      contacts_title: "Люди у вашому Потоці"
       title: "Потік"
     public:
-      contacts_title: "Нещодавно написали"
       title: "Публічна діяльність"
     tags:
-      contacts_title: "Люди, яким подобаються ця мітка"
       title: "Записи, позначені: %{tags}"
   tag_followings:
     create:

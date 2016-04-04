@@ -75,7 +75,6 @@ si:
     new:
       create: "සාදන්න"
       name: "නම (ඔබට පමණක් පෙනෙන)"
-    one: "එක අංගයක්"
     seed:
       acquaintances: "	ඇඳුනුම්කම්"
       family: "පවුල"
@@ -84,7 +83,6 @@ si:
     update:
       failure: "ඔබගේ අංගය, %{name}, හි නම save කිරීමට දිග වැඩියි."
       success: "ඔබගේ අංගය, %{name}, සාර්ථකව නැවත සකසන ලදී."
-    zero: "අංගයන් නැත"
   back: "පිටුපසට"
   bookmarklet:
     heading: "පොත් සලකුණ"

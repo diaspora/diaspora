@@ -185,8 +185,6 @@ ml:
       you_should_add_some_more_contacts: "താങ്കള്‍ കുറച്ചുകൂടി സമ്പര്‍ക്കങ്ങള്‍ ചേര്‍ക്കണം!"
     no_posts_message:
       start_talking: "ആരും ഇതുവരെ ഒന്നും പറഞ്ഞില്ല!"
-    one: "ഒരു പരിചയം"
-    other: "%{count} പരിചയങ്ങള്‍"
     seed:
       acquaintances: "പരിചയക്കാര്‍"
       family: "കുടുംബം"
@@ -195,7 +193,6 @@ ml:
     update:
       failure: "താങ്കള്‍ നല്കിയ %{name} എന്ന പരിചയത്തിന്റെ പേര് അനുവദിനീയമായതിലും വലുതാണ്."
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
-    zero: "പരിചയങ്ങള്‍ ഇല്ല"
   back: "പിന്നോട്ട്"
   blocks:
     create:
@@ -232,14 +229,11 @@ ml:
       start_a_conversation: "സംഭാഷണം ആരംഭിക്കൂ"
       title: "സമ്പര്‍ക്കങ്ങള്‍"
       your_contacts: "നിങ്ങളുടെ സമ്പര്‍ക്കങ്ങള്‍"
-    one: "ഒരു സമ്പര്‍ക്കം"
-    other: "%{count} മറ്റു സമ്പര്‍ക്കങ്ങള്‍"
     sharing:
       people_sharing: "നിങ്ങളുമായി പങ്കിടുന്ന സുഹൃത്തുക്കൾ"
     spotlight:
       community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
       suggest_member: "ഒരു ഉപയോക്ത്താവിനെ നിർദ്ദേശിക്കുക"
-    zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations:
     conversation:
       participants: "അംഗങ്ങൾ"
@@ -955,30 +949,23 @@ ml:
       title: "Your Aspects"
     aspects_stream: "Aspects"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
       title: "Commented Posts"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
       add_a_tag: "Add a tag"
-      contacts_title: "People who dig these tags"
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
     like_stream:
-      contacts_title: "People whose posts you like"
       title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
-      contacts_title: "People who mentioned you"
       title: "@Mentions"
     multi:
-      contacts_title: "People in your Stream"
       title: "Stream"
     public:
-      contacts_title: "Recent Posters"
       title: "Public Activity"
     tags:
-      contacts_title: "People who dig this tag"
       title: "Posts tagged: %{tags}"
   tag_followings:
     create:

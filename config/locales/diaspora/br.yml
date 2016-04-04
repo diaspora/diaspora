@@ -194,8 +194,6 @@ br:
       you_should_add_some_more_contacts: "Dleout a rafec'h ouzhpennañ darempredoù all !"
     no_posts_message:
       start_talking: "N'eus bet lavaret grik gant den evit poent !"
-    one: "1 strollad"
-    other: "%{count} strollad"
     seed:
       acquaintances: "Tud anavezet"
       family: "Familh"
@@ -204,7 +202,6 @@ br:
     update:
       failure: "Re hir eo anv ho strollad, %{name}, evit gallout bezañ enrollet"
       success: "Kemmet eo bet ho strollad, %{name}, ervat."
-    zero: "strollad ebet"
   back: "Distreiñ"
   blocks:
     create:
@@ -241,14 +238,11 @@ br:
       start_a_conversation: "Boulc'hañ ur gaoz"
       title: "Darempredoù"
       your_contacts: "Ho tarempredoù"
-    one: "1 darempred"
-    other: "%{count} darempred"
     sharing:
       people_sharing: "Tud a rann keleier ganeoc'h:"
     spotlight:
       community_spotlight: "Nevezenti ar rouedad"
       suggest_member: "Kinnig anv un ezel"
-    zero: "darempred ebet"
   conversations:
     conversation:
       participants: "Perzhidi"
@@ -919,30 +913,23 @@ br:
       title: "Ma strolladoù"
     aspects_stream: "Strolladoù"
     comment_stream:
-      contacts_title: "Tud lakaet evezhiadennoù war o embannadennoù"
       title: "Embannadennoù lakaet evezhiadennoù warno"
     community_spotlight_stream: "Nevezenti ar rouedad"
     followed_tag:
       add_a_tag: "Ouzhpennañ un dikedenn"
-      contacts_title: "Tud a gav bourrus an tagoù-se"
       follow: "Heuliañ"
       title: "#Tikedennoù heuliet"
     followed_tags_stream: "#Tagoù heuliet"
     like_stream:
-      contacts_title: "Tud gant embannadennoù a blij deoc'h"
       title: "Red plijus"
     mentioned_stream: "@Menegoù"
     mentions:
-      contacts_title: "Tud oc'h bet meneget ganto"
       title: "@Menegoù"
     multi:
-      contacts_title: "Tud en ho red darvoudoù"
       title: "Red keleier"
     public:
-      contacts_title: "Embannerien nevez"
       title: "Obererezh Foran"
     tags:
-      contacts_title: "Tud o deus klasket an dikedenn-mañ"
       title: "Embannadennoù merket : %{tags}"
   tag_followings:
     create:

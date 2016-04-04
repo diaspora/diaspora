@@ -90,8 +90,6 @@ sc:
       you_should_add_some_more_contacts: "Dias dèpere annànghere carchi cuntatu in prus!"
     no_posts_message:
       start_talking: "Perunu at galu naradu nudda!"
-    one: "1 cara"
-    other: "%{count} caras"
     seed:
       acquaintances: "Connoschentes"
       family: "Famìlia"
@@ -100,7 +98,6 @@ sc:
     update:
       failure: "Sa cara tua, %{name}, tenet unu nùmene tropu longu pro èssere sarbada."
       success: "Sa cara tua, %{name}, est istada modificada."
-    zero: "Peruna cara"
   back: "In dae segus"
   cancel: "Annudda"
   delete: "Burra"

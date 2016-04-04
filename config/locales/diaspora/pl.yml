@@ -238,8 +238,6 @@ pl:
       you_should_add_some_more_contacts: "Dodaj więcej kontaktów!"
     no_posts_message:
       start_talking: "Nikt jeszcze nic nie powiedział!"
-    one: "1 aspekt"
-    other: "Aspekty: %{count}"
     seed:
       acquaintances: "Dalsi znajomi"
       family: "Rodzina"
@@ -248,7 +246,6 @@ pl:
     update:
       failure: "Aspekt %{name} nie mógł zostać zapisany z powodu zbyt długiej nazwy."
       success: "Edycja aspektu %{name} powiodła się."
-    zero: "Brak aspektów"
   back: "Powrót"
   blocks:
     create:
@@ -289,14 +286,11 @@ pl:
       title: "Kontakty"
       user_search: "Wyszukiwanie użytkowników"
       your_contacts: "Twoje kontakty"
-    one: "1 kontakt"
-    other: "%{count} kontaktów"
     sharing:
       people_sharing: "Osoby które Ci udostępniają:"
     spotlight:
       community_spotlight: "W centrum uwagi społeczności"
       suggest_member: "Zasugeruj członka"
-    zero: "Brak kontaktów"
   conversations:
     conversation:
       participants: "Uczestnicy"
@@ -1290,30 +1284,23 @@ pl:
       title: "Moje aspekty"
     aspects_stream: "Aspekty"
     comment_stream:
-      contacts_title: "Osoby których wpisy zostały skomentowane przez Ciebie"
       title: "Skomentowane wpisy"
     community_spotlight_stream: "W centrum uwagi społeczności"
     followed_tag:
       add_a_tag: "Dodaj znacznik"
-      contacts_title: "Osoby które wykopały te znaczniki"
       follow: "Obserwuj"
       title: "#Obserwowane znaczniki"
     followed_tags_stream: "#Obserwowane znaczniki"
     like_stream:
-      contacts_title: "Osoby, których wpisy polubi@{m:łeś|f:łaś|n:łeś/łaś}"
       title: "Strumień polubionych"
     mentioned_stream: "@Wzmianki"
     mentions:
-      contacts_title: "Wspomnieli o Tobie"
       title: "@Wzmianki"
     multi:
-      contacts_title: "Osoby w twoim strumieniu"
       title: "Strumień"
     public:
-      contacts_title: "Ostatnio dodawali"
       title: "Działalność publiczna"
     tags:
-      contacts_title: "Osoby, które wykopały ten znacznik"
       title: "Oznaczone wpisy: %{tags}"
   tag_followings:
     create:

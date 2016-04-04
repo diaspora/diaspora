@@ -171,8 +171,6 @@ zh-CN:
       you_should_add_some_more_contacts: "添加更多好友！"
     no_posts_message:
       start_talking: "还没人发布过内容。您发布第一条吧！"
-    one: "1个分组"
-    other: "%{count} 个分组"
     seed:
       acquaintances: "熟人"
       family: "家人"
@@ -181,7 +179,6 @@ zh-CN:
     update:
       failure: "分组 %{name} 名称太长了，不能保存"
       success: "分组 %{name} 编辑成功。"
-    zero: "尚未添加分组"
   back: "后退"
   blocks:
     create:
@@ -218,13 +215,10 @@ zh-CN:
       start_a_conversation: "开始对话"
       title: "好友"
       your_contacts: "您的好友"
-    one: "1 个好友"
-    other: "%{count} 个好友"
     sharing:
       people_sharing: "与您分享的人："
     spotlight:
       community_spotlight: "社区热点"
-    zero: "尚未添加好友"
   conversations:
     create:
       fail: "无效的信息"
@@ -738,30 +732,23 @@ zh-CN:
       title: "我的视窗"
     aspects_stream: "分组"
     comment_stream:
-      contacts_title: "您评论过的内容作者"
       title: "有评论的内容"
     community_spotlight_stream: "社区热点"
     followed_tag:
       add_a_tag: "新增标签"
-      contacts_title: "这个标签的粉丝"
       follow: "关注"
       title: "#关注的标签"
     followed_tags_stream: "#关注的标签"
     like_stream:
-      contacts_title: "您赞的帖文作者"
       title: "赞的动态"
     mentioned_stream: "@提到的"
     mentions:
-      contacts_title: "提到您的人"
       title: "@提到的"
     multi:
-      contacts_title: "出现在动态中的人"
       title: "动态"
     public:
-      contacts_title: "最新发布者"
       title: "公开活动"
     tags:
-      contacts_title: "这个标签的粉丝"
       title: "有以下标签的内容：%{tags}"
   tag_followings:
     create:

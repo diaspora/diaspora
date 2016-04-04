@@ -177,8 +177,6 @@ eu:
       you_should_add_some_more_contacts: "Adiskide gehiago lortu beharko zenituzke!"
     no_posts_message:
       start_talking: "Oraindik inork ez du ezer esan!"
-    one: "arlo 1"
-    other: "%{count} arlo"
     seed:
       acquaintances: "Ezagunak"
       family: "Familia"
@@ -187,7 +185,6 @@ eu:
     update:
       failure: "Zure arloak, %{name}(e)k, izen luzeegia du."
       success: "Zure arloa, %{name}, eraldatua izan da."
-    zero: "arlorik ez"
   back: "Atzera"
   blocks:
     create:
@@ -224,13 +221,10 @@ eu:
       start_a_conversation: "Elkarrizketa bat hasi"
       title: "Adiskideak"
       your_contacts: "Zure Adiskideak"
-    one: "lagun 1"
-    other: "%{count} lagun"
     sharing:
       people_sharing: "Zurekin harremanetan daudenak:"
     spotlight:
       community_spotlight: "Komunitateko Nabarmenena"
-    zero: "lagunak"
   conversations:
     create:
       fail: "Mezu baliogabea"
@@ -832,30 +826,23 @@ eu:
       title: "Zure Arloak"
     aspects_stream: "Arloak"
     comment_stream:
-      contacts_title: "Iruzkindu dituzun mezuen egileak"
       title: "Mezu Iruzkinduak"
     community_spotlight_stream: "Komunitateko Nabarmenenak"
     followed_tag:
       add_a_tag: "Etiketa bat gehitu"
-      contacts_title: "Etiketa hauek erabiltzen dituen jendea"
       follow: "Jarraitu"
       title: "#Jarraitutako Etiketak"
     followed_tags_stream: "#Jarraitutako Etiketak"
     like_stream:
-      contacts_title: "Gustuko dituzun mezuen egileak"
       title: "Gustukoen Kronologia"
     mentioned_stream: "@Aipamenak"
     mentions:
-      contacts_title: "Aipatu zaituzten jendea"
       title: "@Aipamenak"
     multi:
-      contacts_title: "Zure Kronologiako Jendea"
       title: "Kronologia"
     public:
-      contacts_title: "MAutore Berrienak"
       title: "Ekintza Publikoak"
     tags:
-      contacts_title: "Etiketa hau jarraitzen duen jendea"
       title: "Mezu etiketatuak: %{tags}"
   tag_followings:
     create:

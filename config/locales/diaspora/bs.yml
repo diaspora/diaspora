@@ -197,8 +197,6 @@ bs:
       you_should_add_some_more_contacts: "Trebali bi dodati još više kontakata!"
     no_posts_message:
       start_talking: "Niko još ništa nije rekao!"
-    one: "1 aspekt"
-    other: "%{count} aspekti"
     seed:
       acquaintances: "Poznanici"
       family: "Porodica"
@@ -207,7 +205,6 @@ bs:
     update:
       failure: "Vaš aspekt, %{name}, ima predugo ime da bi se snimilo."
       success: "Vaš aspekt, %{name}, je uspješno uređen."
-    zero: "nema aspekata"
   back: "Nazad"
   blocks:
     create:
@@ -244,14 +241,11 @@ bs:
       start_a_conversation: "Započni razgovor"
       title: "Kontakti"
       your_contacts: "Vaši Kontakti"
-    one: "1 kontakt"
-    other: "%{count} kontakti"
     sharing:
       people_sharing: "Ljudi koji dijele s vama:"
     spotlight:
       community_spotlight: "U Centru Pažnje"
       suggest_member: "Preporuči člana"
-    zero: "kontakti"
   conversations:
     conversation:
       participants: "Učesnici"
@@ -907,30 +901,23 @@ bs:
       title: "Moji Aspekti"
     aspects_stream: "Aspekti"
     comment_stream:
-      contacts_title: "Ljudi na čije objave ste komentarisali"
       title: "Komentirane Objave"
     community_spotlight_stream: "U Centru Pažnje"
     followed_tag:
       add_a_tag: "Dodaj oznaku"
-      contacts_title: "Ljudi kojima se ove oznake sviđaju"
       follow: "Prati"
       title: "#Praćene Oznake"
     followed_tags_stream: "#Praćene Oznake"
     like_stream:
-      contacts_title: "Ljudi čije objave vam se sviđaju"
       title: "Tok Sviđanja"
     mentioned_stream: "@Spominjanja"
     mentions:
-      contacts_title: "Ljudi koji su vas spomenuli"
       title: "@Spominjanja"
     multi:
-      contacts_title: "Ljudi u vašem Toku"
       title: "Tok"
     public:
-      contacts_title: "Skorašnji Objavljivači"
       title: "Javna Aktivnost"
     tags:
-      contacts_title: "Ljudi kojima se ova oznaka sviđa"
       title: "Objave označene: %{tags}"
   tag_followings:
     create:

@@ -1,3 +1,20 @@
+# 0.5.8.0
+
+## Refactor
+* Sort tag autocompletion by tag name [#6734](https://github.com/diaspora/diaspora/pull/6734)
+* Make account deletions faster by adding an index [#6771](https://github.com/diaspora/diaspora/pull/6771)
+
+## Bug fixes
+* Fix empty name field when editing aspect names [#6706](https://github.com/diaspora/diaspora/pull/6706)
+* Fix internal server error when trying to log out of an expired session [#6707](https://github.com/diaspora/diaspora/pull/6707)
+* Only mark unread notifications as read [#6711](https://github.com/diaspora/diaspora/pull/6711)
+* Use https for OEmbeds [#6748](https://github.com/diaspora/diaspora/pull/6748)
+* Fix birthday issues on leap days [#6738](https://github.com/diaspora/diaspora/pull/6738)
+
+## Features
+* Added the footer to conversation pages [#6710](https://github.com/diaspora/diaspora/pull/6710)
+* Drop ChromeFrame and display an error page on old IE versions instead [#6751](https://github.com/diaspora/diaspora/pull/6751)
+
 # 0.5.7.1
 
 This security release disables post fetching for relayables. Due to an insecure implementation, fetching of root posts for relayables could allow an attacker to distribute malicious/spoofed/modified posts for any person.

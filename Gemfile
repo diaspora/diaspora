@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.5.1"
+gem "rails", "4.2.5.2"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -12,7 +12,7 @@ gem "unicorn", "5.0.1", require: false
 
 # Federation
 
-gem "diaspora_federation-rails", "0.0.12"
+gem "diaspora_federation-rails", "0.0.13"
 
 # API and JSON
 
@@ -56,13 +56,13 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 gem "bootstrap-sass", "2.3.2.2"
 gem "compass-rails",  "2.0.5"
 gem "sass-rails",     "5.0.4"
-gem "autoprefixer-rails", "6.3.1"
+gem "autoprefixer-rails", "6.3.3.1"
 
 # Database
 
 ENV["DB"] ||= "mysql"
 
-gem "mysql2", "0.4.2" if ENV["DB"] == "all" || ENV["DB"] == "mysql"
+gem "mysql2", "0.4.3" if ENV["DB"] == "all" || ENV["DB"] == "mysql"
 gem "pg",     "0.18.4" if ENV["DB"] == "all" || ENV["DB"] == "postgres"
 
 gem "activerecord-import", "0.11.0"
@@ -87,8 +87,8 @@ gem "backbone-on-rails", "1.2.0.0"
 gem "handlebars_assets", "0.23.0"
 gem "jquery-rails",      "4.1.0"
 gem "jquery-ui-rails",   "5.0.5"
-gem "js_image_paths",    "0.0.2"
-gem "js-routes",         "1.2.3"
+gem "js_image_paths",    "0.1.0"
+gem "js-routes",         "1.2.4"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "1.12.0" # Should be kept in sync with jquery-rails
@@ -160,7 +160,7 @@ gem "addressable",        "2.3.8", require: "addressable/uri"
 gem "faraday",            "0.9.2"
 gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"
-gem "typhoeus",           "0.8.0"
+gem "typhoeus",           "1.0.1"
 
 # Views
 
@@ -247,6 +247,8 @@ group :development do
 
   # test coverage
   gem "simplecov", "0.11.2", require: false
+
+  gem "turbo_dev_assets", "0.0.2"
 end
 
 group :test do
@@ -270,7 +272,7 @@ group :test do
   gem "webmock",            "1.22.6", require: false
   gem "shoulda-matchers",   "3.1.1"
 
-  gem "diaspora_federation-test", "0.0.12"
+  gem "diaspora_federation-test", "0.0.13"
 end
 
 group :development, :test do

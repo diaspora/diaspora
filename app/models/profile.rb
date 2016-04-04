@@ -113,20 +113,20 @@ class Profile < ActiveRecord::Base
   end
 
   def date= params
-    if ['month', 'day'].all? { |key| params[key].present?  }
-      params['year'] = '1000' if params['year'].blank?
-      if Date.valid_civil?(params['year'].to_i, params['month'].to_i, params['day'].to_i)
-        self.birthday = Date.new(params['year'].to_i, params['month'].to_i, params['day'].to_i)
+    if %w(month day).all? {|key| params[key].present? }
+      params["year"] = "1004" if params["year"].blank?
+      if Date.valid_civil?(params["year"].to_i, params["month"].to_i, params["day"].to_i)
+        self.birthday = Date.new(params["year"].to_i, params["month"].to_i, params["day"].to_i)
       else
         @invalid_birthday_date = true
       end
-    elsif [ 'year', 'month', 'day'].all? { |key| params[key].blank? }
+    elsif %w(year month day).all? {|key| params[key].blank? }
       self.birthday = nil
     end
   end
 
   def formatted_birthday
-    birthday.to_s(:long).gsub(', 1000', '') if birthday.present?
+    birthday.to_s(:long).gsub(/, 100[0|4]/, "") if birthday.present?
   end
 
   def bio_message

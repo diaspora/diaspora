@@ -20,11 +20,10 @@ def create_remote_user(pod)
 end
 
 def create_relayable_entity(entity_name, target, diaspora_id, parent_author_key)
-  target_entity_type = FactoryGirl.factory_by_name(entity_name).build_class.get_target_entity_type(@entity.to_h)
   expect(DiasporaFederation.callbacks).to receive(:trigger)
                                             .with(
                                               :fetch_author_private_key_by_entity_guid,
-                                              target_entity_type,
+                                              FactoryGirl.build(entity_name).parent_type,
                                               target.guid
                                             )
                                             .and_return(parent_author_key)
@@ -33,19 +32,18 @@ def create_relayable_entity(entity_name, target, diaspora_id, parent_author_key)
     entity_name,
     conversation_guid: target.guid,
     parent_guid:       target.guid,
-    diaspora_id:       diaspora_id,
+    author:            diaspora_id,
     poll_answer_guid:  target.respond_to?(:poll_answers) ? target.poll_answers.first.guid : nil
   )
 end
 
 def generate_xml(entity, remote_user, recipient=nil)
   if recipient
-    DiasporaFederation::Salmon::EncryptedSlap.generate_xml(
+    DiasporaFederation::Salmon::EncryptedSlap.prepare(
       remote_user.diaspora_handle,
       OpenSSL::PKey::RSA.new(remote_user.encryption_key),
-      entity,
-      OpenSSL::PKey::RSA.new(recipient.encryption_key)
-    )
+      entity
+    ).generate_xml(OpenSSL::PKey::RSA.new(recipient.encryption_key))
   else
     DiasporaFederation::Salmon::Slap.generate_xml(
       remote_user.diaspora_handle,
