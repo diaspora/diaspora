@@ -241,7 +241,7 @@ en:
       people_sharing_with_you: "People sharing with you"
 
       welcome_to_diaspora: "Welcome to diaspora*, %{name}!"
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
+      introduce_yourself: "This is your stream.  Why not let everyone know by creating a post with the #newhere tag to get started"
 
       new_here:
         title: "Welcome new users"
