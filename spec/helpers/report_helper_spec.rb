@@ -1,5 +1,7 @@
 describe ReportHelper, type: :helper do
   before do
+    Report.destroy_all
+
     @user = bob
     @post = @user.post(:status_message, text: "hello", to: @user.aspects.first.id)
     @comment = @user.comment!(@post, "welcome")

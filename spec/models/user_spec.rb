@@ -1098,7 +1098,7 @@ describe User, :type => :model do
     end
 
     it "returns total_users excluding closed accounts & users without usernames" do
-      expect(User.active.count).to eq 6     # 6 users from fixtures
+      expect(User.active.count).to eq 8 # 8 users from fixtures
     end
   end
 end

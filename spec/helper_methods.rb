@@ -27,12 +27,12 @@ module HelperMethods
     File.open(fixture_name)
   end
 
-  def create_conversation_with_message(sender, recipient_person, subject, text)
+  def create_conversation_with_message(sender_person, recipient_person, subject, text)
     create_hash = {
-      :author => sender.person,
-      :participant_ids => [sender.person.id, recipient_person.id],
-      :subject => subject,
-      :messages_attributes => [ {:author => sender.person, :text => text} ]
+      author:              sender_person,
+      participant_ids:     [sender_person.id, recipient_person.id],
+      subject:             subject,
+      messages_attributes: [{author: sender_person, text: text}]
     }
 
     Conversation.create!(create_hash)

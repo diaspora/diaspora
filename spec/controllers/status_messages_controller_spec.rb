@@ -185,7 +185,7 @@ describe StatusMessagesController, :type => :controller do
       status_message_hash.merge!(:aspect_ids => ['public'])
       status_message_hash[:status_message].merge!(:provider_display_name => "mobile")
       post :create, status_message_hash
-      expect(StatusMessage.first.provider_display_name).to eq('mobile')
+      expect(StatusMessage.last.provider_display_name).to eq("mobile")
     end
 
     it "has no participation" do
