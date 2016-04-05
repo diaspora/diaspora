@@ -51,30 +51,16 @@ defaults:
     enabled: false
     server:
       enabled: true
-      certs: 'config/vines'
-      accept_self_signed: false
-      cross_domain_messages: true
-      max_offline_msgs: 150
-      c2s:
-        address: '0.0.0.0'
-        port: 5222
-        max_stanza_size: 65536
-        max_resources_per_account: 5
-      s2s:
-        address: '0.0.0.0'
-        port: 5269
-        max_stanza_size: 131072
-        blacklist: []
+      certs: "config/certs"
       bosh:
         proxy: false
         address: '0.0.0.0'
         port: 5280
         bind: '/http-bind'
-        max_stanza_size: 65536
-        max_resources_per_account: 5
       log:
-        file: 'log/vines.log'
-        level: 'info'
+        info: 'log/prosody.log'
+        error: 'log/prosody.err'
+        debug: false
   map:
     mapbox:
       enabled: false

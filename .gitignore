@@ -1,6 +1,7 @@
 # XMPP certificates, keys and user data
-config/vines/*.crt
-config/vines/*.key
+config/certs/*.crt
+config/certs/*.key
+config/prosody.cfg.lua
 
 # Trademark sillyness
 app/views/home/_show.*
