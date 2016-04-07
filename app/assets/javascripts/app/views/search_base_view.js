@@ -18,9 +18,11 @@ app.views.SearchBase = app.views.Base.extend({
   setupBloodhound: function(options) {
     var bloodhoundOptions = {
       datumTokenizer: function(datum) {
-        var nameTokens = this.bloodhoundTokenizer(datum.name);
-        var handleTokens = datum.handle ? this.bloodhoundTokenizer(datum.handle) : [];
-        return nameTokens.concat(handleTokens);
+        // hashtags
+        if(typeof datum.handle === "undefined") { return [datum.name]; }
+        // people
+        if(datum.name === datum.handle) { return [datum.handle]; }
+        return this.bloodhoundTokenizer(datum.name).concat(datum.handle);
       }.bind(this),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       prefetch: {
