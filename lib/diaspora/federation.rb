@@ -8,3 +8,4 @@ module Diaspora
 end
 
 require "diaspora/federation/entities"
+require "diaspora/federation/receive"

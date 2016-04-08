@@ -18,6 +18,9 @@ def create_remote_user(pod)
     allow(DiasporaFederation.callbacks).to receive(:trigger).with(
       :fetch_private_key, user.diaspora_handle
     ) { user.encryption_key }
+    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
+      :fetch_public_key, user.diaspora_handle
+    ) { OpenSSL::PKey::RSA.new(user.person.serialized_public_key) }
   end
 end
 
