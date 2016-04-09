@@ -52,10 +52,10 @@ app.views.Notifications = Backbone.View.extend({
 
   updateView: function(guid, type, unread) {
     var change = unread ? 1 : -1,
-        allNotes = $(".list-group > a:eq(0) .badge"),
-        typeNotes = $(".list-group > a[data-type=" + type + "] .badge"),
+        allNotes = $("#notifications_container .list-group > a:eq(0) .badge"),
+        typeNotes = $("#notifications_container .list-group > a[data-type=" + type + "] .badge"),
         headerBadge = $(".notifications-link .badge"),
-        note = $(".stream_element[data-guid=" + guid + "]"),
+        note = $(".notifications .stream_element[data-guid=" + guid + "]"),
         markAllReadLink = $("a#mark_all_read_link"),
         translationKey = unread ? "notifications.mark_read" : "notifications.mark_unread";
 

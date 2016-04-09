@@ -110,14 +110,6 @@ module PublishingCukeHelpers
     all('.stream_element')
   end
 
-  def comment_on_post(post_text, comment_text)
-    within_post(post_text) do
-      focus_comment_box
-      make_comment(comment_text)
-    end
-    step %Q(I should see "#{comment_text}" within ".comment")
-  end
-
   def comment_on_show_page(comment_text)
     within("#single-post-interactions") do
       make_comment(comment_text)

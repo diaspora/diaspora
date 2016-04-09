@@ -31,7 +31,8 @@ app.views.PodEntry = app.views.Base.extend({
       has_no_errors: (this.model.get("status")==="no_errors"),
       has_errors: (this.model.get("status")!=="no_errors"),
       status_text: Diaspora.I18n.t("admin.pods.states."+this.model.get("status")),
-      pod_url: (this.model.get("ssl") ? "https" : "http") + "://" + this.model.get("host"),
+      pod_url: (this.model.get("ssl") ? "https" : "http") + "://" + this.model.get("host") +
+                 (this.model.get("port") ? ":" + this.model.get("port") : ""),
       response_time_fmt: this._fmtResponseTime()
       /* jshint camelcase: true */
     });

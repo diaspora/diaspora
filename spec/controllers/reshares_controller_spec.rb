@@ -33,11 +33,6 @@ describe ResharesController, :type => :controller do
         }.to change(Reshare, :count).by(1)
       end
 
-      it 'after save, calls add to streams' do
-        expect(bob).to receive(:add_to_streams)
-        post_request!
-      end
-
       it 'calls dispatch' do
         expect(bob).to receive(:dispatch_post).with(anything, hash_including(:additional_subscribers))
         post_request!

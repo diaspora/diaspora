@@ -15,14 +15,23 @@ class Photo < ActiveRecord::Base
     t.add :created_at
     t.add :author
     t.add lambda { |photo|
-      { :small => photo.url(:thumb_small),
-        :medium => photo.url(:thumb_medium),
-        :large => photo.url(:scaled_full) }
+      {
+        small:  photo.url(:thumb_small),
+        medium: photo.url(:thumb_medium),
+        large:  photo.url(:scaled_full)
+      }
     }, :as => :sizes
     t.add lambda { |photo|
-      { :height => photo.height,
-        :width => photo.width }
-    }, :as => :dimensions
+      {
+        height: photo.height,
+        width:  photo.width
+      }
+    }, as: :dimensions
+    t.add lambda { |photo|
+      {
+        id: photo.status_message.id
+      } if photo.status_message
+    }, as: :status_message
   end
 
   mount_uploader :processed_image, ProcessedImage
@@ -77,7 +86,6 @@ class Photo < ActiveRecord::Base
     photo.author = params[:author]
     photo.public = params[:public] if params[:public]
     photo.pending = params[:pending] if params[:pending]
-    photo.diaspora_handle = photo.author.diaspora_handle
 
     photo.random_string = SecureRandom.hex(10)
 

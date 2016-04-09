@@ -31,7 +31,7 @@ FactoryGirl.define do
 
   factory(:person, aliases: %i(author)) do
     sequence(:diaspora_handle) {|n| "bob-person-#{n}#{r_str}@example.net" }
-    url AppConfig.pod_uri.to_s
+    pod { Pod.find_or_create_by(url: "http://example.net") }
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     after(:build) do |person|
       unless person.profile.first_name.present?
@@ -69,10 +69,11 @@ FactoryGirl.define do
     password_confirmation { |u| u.password }
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
     after(:build) do |u|
-      u.person = FactoryGirl.build(:person, :profile => FactoryGirl.build(:profile),
-                                  :owner_id => u.id,
-                                  :serialized_public_key => u.encryption_key.public_key.export,
-                                  :diaspora_handle => "#{u.username}#{User.diaspora_id_host}")
+      u.person = FactoryGirl.build(:person,
+                                   profile:               FactoryGirl.build(:profile),
+                                   pod:                   nil,
+                                   serialized_public_key: u.encryption_key.public_key.export,
+                                   diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
     end
     after(:create) do |u|
       u.person.save
@@ -368,7 +369,7 @@ FactoryGirl.define do
   factory(:federation_person_from_webfinger, class: DiasporaFederation::Entities::Person) do
     sequence(:guid) { UUID.generate :compact }
     sequence(:diaspora_id) {|n| "bob-person-#{n}#{r_str}@example.net" }
-    url AppConfig.pod_uri.to_s
+    url "https://example.net/"
     exported_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     profile {
       DiasporaFederation::Entities::Profile.new(

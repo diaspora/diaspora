@@ -26,7 +26,7 @@
       != reactions_link(post, "active")
       .comment-container
         %ul.comments
-          = render partial: "comments/comment", collection: @post.comments.for_a_stream, locals: {post: @post}
+          = render partial: "comments/comment", collection: post.comments.for_a_stream, locals: {post: post}
 
     - else
       != reactions_link(post)

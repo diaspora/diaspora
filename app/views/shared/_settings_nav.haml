@@ -1,6 +1,7 @@
 #section_header
-  %h2
-    = t("settings")
+  .sidebar-header.clearfix
+    %h3
+      = t("settings")
   .list-group#settings_nav
     = link_to t("profile"), edit_profile_path,
       class: current_page?(edit_profile_path) ? "list-group-item active" : "list-group-item"

@@ -7,12 +7,12 @@
 .container-fluid#conversations_container
   .row
     .col-md-4
-      .left-pane#left_pane
-        .left-pane-header#left_pane_header
+      .sidebar#left_pane
+        .sidebar-header.clearfix#left_pane_header
+          .pull-right
+            = link_to t(".new_conversation"), conversations_path, class: "btn btn-default"
           %h3
-            .pull-right{ class: ("hidden" unless @visibilities)}
-              = link_to t('.new_conversation'), conversations_path, class: 'btn btn-default'
-            = t('.inbox')
+            = t(".inbox")
 
         .conversation-inbox#conversation_inbox
           .stream.conversations
@@ -34,7 +34,7 @@
       - else
         .stream_container.hidden
           #conversation_show
-        #conversation_new
+        .framed-content.clearfix#conversation_new
           .new-conversation
             %h3.text-center
               = t("conversations.index.new_conversation")

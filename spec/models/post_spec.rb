@@ -148,6 +148,22 @@ describe Post, :type => :model do
           Post.for_visible_shareable_sql(Time.now + 1, "created_at")
         end
 
+        context "with two posts with the same timestamp" do
+          before do
+            aspect_id = alice.aspects.where(name: "generic").first.id
+            Timecop.freeze Time.now do
+              alice.post(:status_message, text: "first", to: aspect_id)
+              alice.post(:status_message, text: "second", to: aspect_id)
+            end
+          end
+
+          it "returns them in reverse creation order" do
+            posts = Post.for_visible_shareable_sql(Time.now + 1, "created_at")
+            expect(posts.first.text).to eq("second")
+            expect(posts.at(1).text).to eq("first")
+            expect(posts.last.text).to eq("alice - 5")
+          end
+        end
       end
     end
   end
@@ -255,7 +271,7 @@ describe Post, :type => :model do
     before do
       @post = FactoryGirl.create(:status_message, author: bob.person)
       @known_post = Post.new
-      allow(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
+      allow(bob).to receive(:receive_shareable).with(@known_post).and_return(true)
     end
 
     context "user knows about the post" do
@@ -266,13 +282,13 @@ describe Post, :type => :model do
       it "updates attributes only if mutable" do
         allow(@known_post).to receive(:mutable?).and_return(true)
         expect(@known_post).to receive(:update_attributes)
-        expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
+        expect(@post.send(:receive_persisted, bob, @known_post)).to eq(true)
       end
 
       it "does not update attributes if trying to update a non-mutable object" do
         allow(@known_post).to receive(:mutable?).and_return(false)
         expect(@known_post).not_to receive(:update_attributes)
-        @post.send(:receive_persisted, bob, eve.person, @known_post)
+        @post.send(:receive_persisted, bob, @known_post)
       end
     end
 
@@ -283,14 +299,14 @@ describe Post, :type => :model do
       end
 
       it "receives the post from the contact of the author" do
-        expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
+        expect(@post.send(:receive_persisted, bob, @known_post)).to eq(true)
       end
 
       it "notifies the user if they are mentioned" do
         allow(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
         expect(bob).to receive(:notify_if_mentioned).and_return(true)
 
-        expect(@post.send(:receive_persisted, bob, eve.person, @known_post)).to eq(true)
+        expect(@post.send(:receive_persisted, bob, @known_post)).to eq(true)
       end
     end
   end
@@ -304,34 +320,34 @@ describe Post, :type => :model do
       end
 
       it "it receives the post from the contact of the author" do
-        expect(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
-        expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(true)
+        expect(bob).to receive(:receive_shareable).with(@post).and_return(true)
+        expect(@post.send(:receive_non_persisted, bob)).to eq(true)
       end
 
       it "notifies the user if they are mentioned" do
-        allow(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
+        allow(bob).to receive(:receive_shareable).with(@post).and_return(true)
         expect(bob).to receive(:notify_if_mentioned).and_return(true)
 
-        expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(true)
+        expect(@post.send(:receive_non_persisted, bob)).to eq(true)
       end
 
       it "does not create shareable visibility if the post does not save" do
         allow(@post).to receive(:save).and_return(false)
         expect(@post).not_to receive(:receive_shareable_visibility)
-        @post.send(:receive_non_persisted, bob, eve.person)
+        @post.send(:receive_non_persisted, bob)
       end
 
       it "retries if saving fails with RecordNotUnique error" do
         allow(@post).to receive(:save).and_raise(ActiveRecord::RecordNotUnique.new("Duplicate entry ..."))
-        expect(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
-        expect(@post.send(:receive_non_persisted, bob, eve.person)).to eq(true)
+        expect(bob).to receive(:receive_shareable).with(@post).and_return(true)
+        expect(@post.send(:receive_non_persisted, bob)).to eq(true)
       end
 
       it "retries if saving fails with RecordNotUnique error and raise again if no persisted shareable found" do
         allow(@post).to receive(:save).and_raise(ActiveRecord::RecordNotUnique.new("Duplicate entry ..."))
         allow(@post).to receive(:persisted_shareable).and_return(nil)
-        expect(bob).not_to receive(:contact_for).with(eve.person)
-        expect { @post.send(:receive_non_persisted, bob, eve.person) }.to raise_error(ActiveRecord::RecordNotUnique)
+        expect(bob).not_to receive(:receive_shareable)
+        expect { @post.send(:receive_non_persisted, bob) }.to raise_error(ActiveRecord::RecordNotUnique)
       end
     end
   end
@@ -397,58 +413,6 @@ describe Post, :type => :model do
     it "sets #interacted_at" do
       post = FactoryGirl.create(:status_message)
       expect(post.interacted_at).not_to be_blank
-    end
-  end
-
-  describe "#find_public" do
-    it "succeeds with an id" do
-      post = FactoryGirl.create :status_message, public: true
-      expect(Post.find_public post.id).to eq(post)
-    end
-
-    it "succeeds with an guid" do
-      post = FactoryGirl.create :status_message, public: true
-      expect(Post.find_public post.guid).to eq(post)
-    end
-
-    it "raises ActiveRecord::RecordNotFound for a non-existing id without a user" do
-      allow(Post).to receive_messages where: double(includes: double(first: nil))
-      expect {
-        Post.find_public 123
-      }.to raise_error ActiveRecord::RecordNotFound
-    end
-
-    it "raises Diaspora::NonPublic for a private post without a user" do
-      post = FactoryGirl.create :status_message
-      expect {
-        Post.find_public post.id
-      }.to raise_error Diaspora::NonPublic
-    end
-  end
-
-  describe "#find_non_public_by_guid_or_id_with_user" do
-    it "succeeds with an id" do
-      post = FactoryGirl.create :status_message_in_aspect
-      expect(Post.find_non_public_by_guid_or_id_with_user(post.id, post.author.owner)).to eq(post)
-    end
-
-    it "succeeds with an guid" do
-      post = FactoryGirl.create :status_message_in_aspect
-      expect(Post.find_non_public_by_guid_or_id_with_user(post.guid, post.author.owner)).to eq(post)
-    end
-
-    it "looks up on the passed user object if it's non-nil" do
-      post = FactoryGirl.create :status_message
-      user = double
-      expect(user).to receive(:find_visible_shareable_by_id).with(Post, post.id, key: :id).and_return(post)
-      Post.find_non_public_by_guid_or_id_with_user(post.id, user)
-    end
-
-    it "raises ActiveRecord::RecordNotFound with a non-existing id and a user" do
-      user = double(find_visible_shareable_by_id: nil)
-      expect {
-        Post.find_non_public_by_guid_or_id_with_user(123, user)
-      }.to raise_error ActiveRecord::RecordNotFound
     end
   end
 end

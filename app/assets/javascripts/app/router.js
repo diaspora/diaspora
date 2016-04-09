@@ -180,8 +180,10 @@ app.Router = Backbone.Router.extend({
     }
 
     app.page = new app.views.Stream({model : app.stream});
-    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
     app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
+    if($("#publisher").length !== 0) {
+      app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
+    }
 
     $("#main_stream").html(app.page.render().el);
     this._hideInactiveStreamLists();

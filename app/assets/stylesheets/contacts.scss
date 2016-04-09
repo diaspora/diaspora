@@ -1,21 +1,29 @@
+.page-contacts {
+  .sidebar { padding-bottom: 10px; }
+
+  .stream.contacts .header {
+    border-bottom: 1px solid $border-grey;
+    min-height: 55px;
+    form { margin: 0; }
+    input,
+    .btn {
+      margin-bottom: 11px;
+      margin-top: 11px;
+    }
+
+    .aspect-controls { margin: 7px -10px 7px 0; }
+  }
+}
+
 #contacts_container {
   #people_stream.contacts {
     .header {
-      border-bottom: 1px solid $border-grey;
-      margin-top: 10px;
-      min-height: 53px;
       #change_aspect_name { cursor: pointer; }
       #aspect_name_form {
         display: none;
-        form { margin: 0px; }
-        input {
-          margin-bottom: 0px;
-          margin-top: 10px;
-        }
-        .btn { margin-top: 10px; }
       }
       #contact_list_search {
-        margin: 6px 30px 0 0;
+        margin: 11px 30px 0 0;
         width: 150px;
         &:focus { width: 250px; }
       }
@@ -57,7 +65,7 @@
       text-align: center;
       margin-top: 50px;
     }
-    .well { margin: 20px 0 10px; }
+    .well { margin: 10px; }
   }
 }
 

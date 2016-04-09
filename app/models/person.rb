@@ -50,15 +50,14 @@ class Person < ActiveRecord::Base
   has_many :roles
 
   belongs_to :owner, :class_name => 'User'
+  belongs_to :pod
 
   has_many :notification_actors
   has_many :notifications, :through => :notification_actors
 
   has_many :mentions, :dependent => :destroy
 
-  before_validation :clean_url
-
-  validates :url, :presence => true
+  validate :owner_xor_pod
   validates :profile, :presence => true
   validates :serialized_public_key, :presence => true
   validates :diaspora_handle, :uniqueness => true
@@ -205,8 +204,6 @@ class Person < ActiveRecord::Base
 
   def url
     url_to "/"
-  rescue
-    self[:url]
   end
 
   def profile_url
@@ -290,23 +287,6 @@ class Person < ActiveRecord::Base
     json
   end
 
-  # Update an array of people given a url, and set it as the new destination_url
-  # @param people [Array<People>]
-  # @param url [String]
-  def self.url_batch_update(people, url)
-    people.each do |person|
-      person.update_url(url)
-    end
-  end
-
-  # @param person [Person]
-  # @param url [String]
-  def update_url(url)
-    @uri = URI.parse(url)
-    @uri.path = "/"
-    update_attributes(:url => @uri.to_s)
-  end
-
   def lock_access!
     self.closed_account = true
     self.save
@@ -317,32 +297,21 @@ class Person < ActiveRecord::Base
     self
   end
 
-  protected
-
-  def clean_url
-    if self.url
-      self.url = 'http://' + self.url unless self.url.match(/https?:\/\//)
-      self.url = self.url + '/' if self.url[-1, 1] != '/'
-    end
-  end
-
   private
-
-  # @return [URI]
-  def uri
-    @uri ||= URI.parse(self[:url])
-    @uri.dup
-  end
 
   # @param path [String]
   # @return [String]
   def url_to(path)
-    uri.tap {|uri| uri.path = path }.to_s
+    local? ? AppConfig.url_to(path) : pod.url_to(path)
   end
 
   def fix_profile
     logger.info "fix profile for account: #{diaspora_handle}"
     DiasporaFederation::Discovery::Discovery.new(diaspora_handle).fetch_and_save
     reload
+  end
+
+  def owner_xor_pod
+    errors.add(:base, "Specify an owner or a pod, not both") unless owner.blank? ^ pod.blank?
   end
 end

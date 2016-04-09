@@ -20,6 +20,8 @@
     box-sizing: border-box;
   }
 
+  .form-control[disabled] { background-color: transparent; }
+
   .mentions-autocomplete-list {
     background: white;
     display: none;
@@ -82,15 +84,9 @@
     white-space: pre-wrap;
     word-wrap: break-word;
 
-    > div {
-      color: white;
-      white-space: pre-wrap;
-      width: 100%;
-
-      strong {
-        background: #d8dfea;
-        font-weight: normal;
-      }
+    > strong {
+      background: $background-blue;
+      font-weight: normal;
     }
   }
 }

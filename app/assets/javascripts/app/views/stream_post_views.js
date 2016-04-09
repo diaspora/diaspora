@@ -125,7 +125,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   createParticipation: function (evt) {
     if(evt) { evt.preventDefault(); }
-    that = this;
+    var that = this;
     $.post(Routes.postParticipation(this.model.get("id")), {}, function () {
       that.model.set({participation: true});
       that.render();
@@ -134,7 +134,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   destroyParticipation: function (evt) {
     if(evt) { evt.preventDefault(); }
-    that = this;
+    var that = this;
     $.post(Routes.postParticipation(this.model.get("id")), { _method: "delete" }, function () {
       that.model.set({participation: false});
       that.render();
@@ -143,7 +143,7 @@ app.views.StreamPost = app.views.Post.extend({
 
   focusCommentTextarea: function(evt){
     evt.preventDefault();
-    this.$(".new_comment_form_wrapper").removeClass("hidden");
+    this.$(".new-comment-form-wrapper").removeClass("hidden");
     this.$(".comment_box").focus();
 
     return this;

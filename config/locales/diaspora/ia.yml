@@ -117,6 +117,8 @@ ia:
   aspect_memberships:
     destroy:
       failure: "Le remotion del persona del aspecto ha fallite"
+      forbidden: "Tu non ha le permission de facer isto."
+      invalid_statement: "Elemento duple rejectate."
       no_membership: "Impossibile trovar le persona seligite in ille aspecto"
       success: "Persona removite del aspecto con successo"
   aspects:
@@ -525,6 +527,7 @@ ia:
   ignore: "Ignorar"
   invitation_codes:
     excited: "%{name} es multo felice de vider te hic."
+    not_valid: "Iste codice de invitation non plus es valide"
   invitations:
     a_facebook_user: "Un usator de Facebook"
     check_token:
@@ -869,6 +872,7 @@ ia:
       title: "Un entrata de %{name}"
     show:
       destroy: "Deler"
+      forbidden: "Tu non ha le permission de facer isto"
       not_found: "Impossibile trovar iste entrata."
       permalink: "permaligamine"
       reshare_by: "Repetite per %{author}"

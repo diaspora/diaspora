@@ -109,34 +109,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  def edit
-    if @photo = current_user.photos.where(:id => params[:id]).first
-      respond_with @photo
-    else
-      redirect_to person_photos_path(current_user.person)
-    end
-  end
-
-  def update
-    photo = current_user.photos.where(:id => params[:id]).first
-    if photo
-      if current_user.update_post( photo, photo_params )
-        flash.now[:notice] = I18n.t 'photos.update.notice'
-        respond_to do |format|
-          format.js{ render :json => photo, :status => 200 }
-        end
-      else
-        flash.now[:error] = I18n.t 'photos.update.error'
-        respond_to do |format|
-          format.html{ redirect_to [:edit, photo] }
-          format.js{ render :status => 403 }
-        end
-      end
-    else
-      redirect_to person_photos_path(current_user.person)
-    end
-  end
-
   private
 
   def photo_params
@@ -178,10 +150,12 @@ class PhotosController < ApplicationController
     @photo = current_user.build_post(:photo, params[:photo])
 
     if @photo.save
-      aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
 
       unless @photo.pending
-        current_user.add_to_streams(@photo, aspects)
+        unless @photo.public?
+          aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
+          current_user.add_to_streams(@photo, aspects)
+        end
         current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
       end
 

@@ -5,9 +5,11 @@
  *   the COPYRIGHT file.
  */
 
-//= require ./publisher/services_view
 //= require ./publisher/aspect_selector_view
 //= require ./publisher/getting_started_view
+//= require ./publisher/mention_view
+//= require ./publisher/poll_creator_view
+//= require ./publisher/services_view
 //= require ./publisher/uploader_view
 //= require jquery-textchange
 
@@ -31,6 +33,7 @@ app.views.Publisher = Backbone.View.extend({
 
   initialize : function(opts){
     this.standalone = opts ? opts.standalone : false;
+    this.prefillMention = opts && opts.prefillMention ? opts.prefillMention : undefined;
     this.disabled   = false;
 
     // init shortcut references to the various elements
@@ -40,9 +43,6 @@ app.views.Publisher = Backbone.View.extend({
     this.submitEl = this.$("input[type=submit], button#submit");
     this.previewEl = this.$("button.post_preview_button");
     this.photozoneEl = this.$("#photodropzone");
-
-    // init mentions plugin
-    Mentions.initialize(this.inputEl);
 
     // if there is data in the publisher we ask for a confirmation
     // before the user is able to leave the page
@@ -100,6 +100,11 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initSubviews: function() {
+    this.mention = new app.views.PublisherMention({ el: this.$("#publisher_textarea_wrapper") });
+    if(this.prefillMention) {
+      this.mention.prefillMention([this.prefillMention]);
+    }
+
     var form = this.$(".content_creation form");
 
     this.view_services = new app.views.PublisherServices({
@@ -116,7 +121,7 @@ app.views.Publisher = Backbone.View.extend({
     this.viewGettingStarted = new app.views.PublisherGettingStarted({
       firstMessageEl:  this.inputEl,
       visibilityEl: this.$(".public_toggle .aspect_dropdown > .dropdown-toggle"),
-      streamEl:     $("#gs-shim")
+      streamEl:     $("#main_stream")
     });
 
     this.viewUploader = new app.views.PublisherUploader({
@@ -170,6 +175,7 @@ app.views.Publisher = Backbone.View.extend({
     var serializedForm = $(evt.target).closest("form").serializeObject();
     // disable input while posting, must be after the form is serialized
     this.setInputEnabled(false);
+    this.wrapperEl.addClass("submitting");
 
     // lulz this code should be killed.
     var statusMessage = new app.models.Post();
@@ -215,6 +221,9 @@ app.views.Publisher = Backbone.View.extend({
         app.flashMessages.error(resp.responseText);
         self.setButtonsEnabled(true);
         self.setInputEnabled(true);
+        self.wrapperEl.removeClass("submitting");
+        self.handleTextchange();
+        autosize.update(self.inputEl);
       }
     });
   },
@@ -222,8 +231,8 @@ app.views.Publisher = Backbone.View.extend({
   // creates the location
   showLocation: function(){
     if($("#location").length === 0){
-      $("#location_container").append("<div id=\"location\"></div>");
-      this.wrapperEl.addClass("with_location");
+      this.$(".location-container").append("<div id=\"location\"></div>");
+      this.wrapperEl.addClass("with-location");
       this.view_locator = new app.views.Location();
     }
   },
@@ -232,7 +241,7 @@ app.views.Publisher = Backbone.View.extend({
   destroyLocation: function(){
     if(this.view_locator){
       this.view_locator.remove();
-      this.wrapperEl.removeClass("with_location");
+      this.wrapperEl.removeClass("with-location");
       delete this.view_locator;
     }
   },
@@ -244,8 +253,9 @@ app.views.Publisher = Backbone.View.extend({
 
   // avoid submitting form when pressing Enter key
   avoidEnter: function(evt){
-    if(evt.keyCode === 13)
+    if(evt.which === Keycodes.ENTER) {
       return false;
+    }
   },
 
   getUploadedPhotos: function() {
@@ -263,32 +273,6 @@ app.views.Publisher = Backbone.View.extend({
       );
     });
     return photos;
-  },
-
-  getMentionedPeople: function(serializedForm) {
-    var mentionedPeople = [],
-        regexp = /@{([^;]+); ([^}]+)}/g,
-        user;
-    var getMentionedUser = function(handle) {
-      return Mentions.contacts.filter(function(user) {
-        return user.handle === handle;
-      })[0];
-    };
-
-    while( (user = regexp.exec(serializedForm["status_message[text]"])) ) {
-      // user[1]: name, user[2]: handle
-      var mentionedUser = getMentionedUser(user[2]);
-      if(mentionedUser){
-        mentionedPeople.push({
-          "id": mentionedUser.id,
-          "guid": mentionedUser.guid,
-          "name": user[1],
-          "diaspora_id": user[2],
-          "avatar": mentionedUser.avatar
-        });
-      }
-    }
-    return mentionedPeople;
   },
 
   getPollData: function(serializedForm) {
@@ -321,7 +305,7 @@ app.views.Publisher = Backbone.View.extend({
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
     var photos = this.getUploadedPhotos();
-    var mentionedPeople = this.getMentionedPeople(serializedForm);
+    var mentionedPeople = this.mention.mentionedPeople;
     var date = (new Date()).toISOString();
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
@@ -379,7 +363,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode === 13 && evt.ctrlKey ) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
       this.$("form").submit();
       this.open();
       return false;
@@ -387,15 +371,15 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   clear : function() {
+    // remove mentions
+    this.mention.reset();
+
     // clear text(s)
     this.inputEl.val("");
     this.hiddenInputEl.val("");
     this.inputEl.trigger("keyup")
                  .trigger("keydown");
     autosize.update(this.inputEl);
-
-    // remove mentions
-    this.inputEl.mentionsInput("reset");
 
     // remove photos
     this.photozoneEl.find("li").remove();
@@ -419,6 +403,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // enable input
     this.setInputEnabled(true);
+    this.wrapperEl.removeClass("submitting");
 
     // enable buttons
     this.setButtonsEnabled(true);
@@ -450,9 +435,6 @@ app.views.Publisher = Backbone.View.extend({
     this.$el.removeClass("closed");
     this.wrapperEl.addClass("active");
     autosize.update(this.inputEl);
-
-    // fetch contacts for mentioning
-    Mentions.fetchContacts();
     return this;
   },
 
@@ -521,9 +503,7 @@ app.views.Publisher = Backbone.View.extend({
     var self = this;
 
     this.checkSubmitAvailability();
-    this.inputEl.mentionsInput("val", function(value){
-      self.hiddenInputEl.val(value);
-    });
+    this.hiddenInputEl.val(this.mention.getTextForSubmit());
   },
 
   _beforeUnload: function(e) {

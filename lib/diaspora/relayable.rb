@@ -8,6 +8,8 @@ module Diaspora
 
     def self.included(model)
       model.class_eval do
+        attr_writer :parent_author_signature
+
         #these fields must be in the schema for a relayable model
         xml_attr :parent_guid
         xml_attr :parent_author_signature
@@ -77,7 +79,7 @@ module Diaspora
 
       # Check to make sure the signature of the comment or like comes from the person claiming to author it
       unless comment_or_like.parent_author == user.person || comment_or_like.verify_parent_author_signature
-        logger.warn "event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} "\
+        logger.warn "event=receive status=abort reason='sender is not valid' recipient=#{user.diaspora_handle} "\
                     "sender=#{parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
         return
       end
@@ -108,11 +110,13 @@ module Diaspora
     def initialize_signatures
       #sign relayable as model creator
       self.author_signature = self.sign_with_key(author.owner.encryption_key)
+    end
 
-      if !self.parent.blank? && self.author.owns?(self.parent)
-        #sign relayable as parent object owner
-        self.parent_author_signature = sign_with_key(author.owner.encryption_key)
+    def parent_author_signature
+      unless parent.blank? || parent.author.owner.nil?
+        @parent_author_signature = sign_with_key(parent.author.owner.encryption_key)
       end
+      @parent_author_signature
     end
 
     # @return [Boolean]

@@ -705,6 +705,7 @@ nds:
       closed_account: "Dit Konto is taumokt worn."
       does_not_exist: "De Person gift dat nich!"
       has_not_shared_with_you_yet: "%{name} het noch keene Bidräg mit di deelt!"
+      ignoring: "Du ignorierst alle Bidräg von %{name}."
       incoming_request: "%{name} will mit di deelen"
       mention: "Erwähnung"
       message: "Noricht"
@@ -787,6 +788,8 @@ nds:
       your_location: "Dien Ort"
       your_name: "Dien Noom"
       your_photo: "Dien Bild"
+      your_private_profile: "Dien privates Profil"
+      your_public_profile: "Dien öffentliches Profil"
       your_tags: "Beschriev di sülbst in fiev Wüür"
       your_tags_placeholder: "To’n Bispeel #Filme #Katten #Reisen #Lehrer #NewYork"
     update:

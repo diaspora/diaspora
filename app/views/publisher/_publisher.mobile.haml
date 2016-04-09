@@ -11,7 +11,9 @@
     %span#publisher-service-icons
       - if current_user.services
         - for service in current_user.services
-          = image_tag "social_media_logos/#{service.provider}-32x32.png", title: service.provider.titleize, class: "service_icon dim", id:"#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"
+          = image_tag "social-media-logos/#{service.provider}-32x32.png",
+            title: service.provider.titleize, class: "service_icon dim",
+            id: "#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"
 
     %select{id: "aspect_ids_", class: "form-control", name: "aspect_ids[]"}
       %option{value: 'public'}
@@ -37,5 +39,3 @@
         id: "submit_new_message",
         data: {"disable-with" => t("shared.publisher.posting")}
     .clearfix
-
-    #publisher_photo_upload

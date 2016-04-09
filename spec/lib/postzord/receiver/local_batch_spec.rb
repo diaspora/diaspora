@@ -35,7 +35,7 @@ describe Postzord::Receiver::LocalBatch do
 
   describe '#create_share_visibilities' do
     it 'calls sharevisibility.batch_import with hashes' do
-      expect(ShareVisibility).to receive(:batch_import).with(instance_of(Array), @object)
+      expect(ShareVisibility).to receive(:batch_import).with(@ids, @object)
       receiver.create_share_visibilities
     end
   end

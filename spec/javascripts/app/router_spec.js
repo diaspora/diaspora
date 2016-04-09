@@ -2,6 +2,7 @@ describe('app.Router', function () {
   describe('followed_tags', function() {
     beforeEach(function() {
       factory.preloads({tagFollowings: []});
+      spec.loadFixture("aspects_index");
     });
 
     it('decodes name before passing it into TagFollowingAction', function () {
@@ -92,6 +93,7 @@ describe('app.Router', function () {
       delete app.page;
       delete app.publisher;
       delete app.shortcuts;
+      spec.loadFixture("aspects_index");
     });
 
     it("sets app.page", function() {
@@ -110,6 +112,12 @@ describe('app.Router', function () {
       app.publisher = { jasmineTestValue: 42 };
       app.router._initializeStreamView();
       expect(app.publisher.jasmineTestValue).toEqual(42);
+    });
+
+    it("doesn't set app.publisher if there is no publisher element in page", function() {
+      $("#publisher").remove();
+      app.router._initializeStreamView();
+      expect(app.publisher).toBeUndefined();
     });
 
     it("sets app.shortcuts", function() {

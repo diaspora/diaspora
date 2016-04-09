@@ -13,7 +13,7 @@ describe PeopleController, type: :request do
       expect(response.status).to eq(200)
       # make sure we are signed in
       expect(response.body).not_to match(/a class="login"/)
-      expect(response.body).to match(/div id='publisher_textarea_wrapper'/)
+      expect(response.body).to match(/div class='publisher-textarea-wrapper' id='publisher_textarea_wrapper'/)
     end
 
     it "displays the publisher for people path" do
@@ -22,7 +22,7 @@ describe PeopleController, type: :request do
       expect(response.status).to eq(200)
       # make sure we are signed in
       expect(response.body).not_to match(/a class="login"/)
-      expect(response.body).to match(/div id='publisher_textarea_wrapper'/)
+      expect(response.body).to match(/div class='publisher-textarea-wrapper' id='publisher_textarea_wrapper'/)
     end
   end
 
@@ -37,7 +37,7 @@ describe PeopleController, type: :request do
       expect(response.status).to eq(200)
       # make sure we are signed in
       expect(response.body).not_to match(/a class="login"/)
-      expect(response.body).not_to match(/div id='publisher_textarea_wrapper'/)
+      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher_textarea_wrapper'/)
     end
 
     it "doesn't display the publisher for people path" do
@@ -46,7 +46,7 @@ describe PeopleController, type: :request do
       expect(response.status).to eq(200)
       # make sure we are signed in
       expect(response.body).not_to match(/a class="login"/)
-      expect(response.body).not_to match(/div id='publisher_textarea_wrapper'/)
+      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher_textarea_wrapper'/)
     end
   end
 
@@ -57,7 +57,7 @@ describe PeopleController, type: :request do
       expect(response.status).to eq(200)
       # make sure we aren't signed in
       expect(response.body).to match(/a class="login"/)
-      expect(response.body).not_to match(/div id='publisher_textarea_wrapper'/)
+      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher_textarea_wrapper'/)
     end
 
     it "doesn't display the publisher for people path" do
@@ -66,7 +66,7 @@ describe PeopleController, type: :request do
       expect(response.status).to eq(200)
       # make sure we aren't signed in
       expect(response.body).to match(/a class="login"/)
-      expect(response.body).not_to match(/div id='publisher_textarea_wrapper'/)
+      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher_textarea_wrapper'/)
     end
   end
 end

@@ -3,15 +3,19 @@
 -#   the COPYRIGHT file.
 
 - if user_signed_in? && @person != current_user.person
-  %h3#aspect_stream_header.stream_title
+  %h3.stream-title
     = stream.title
 
-= render 'publisher/publisher', publisher_aspects_for(stream)
-= render 'aspects/no_posts_message'
+.container-fluid.main-stream-publisher
+  .pull-left.hidden-xs
+    = owner_image_link
+  = render "publisher/publisher", publisher_aspects_for(stream)
 
-#gs-shim{:title => popover_with_close_html("3. #{t('.stay_updated')}"), 'data-content' => t('.stay_updated_explanation')}
-
-#main_stream.stream
+- if current_user.getting_started?
+  .stream#main_stream{:title => popover_with_close_html("3. #{t('.stay_updated')}"),
+    "data-content" => t(".stay_updated_explanation")}
+- else
+  .stream#main_stream
 
 #paginate
   %span.loader.hidden

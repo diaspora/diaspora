@@ -1,55 +1,71 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-#the pont of this object is to centralize the simmilarities of Photo and post,
+
+# the point of this object is to centralize the simmilarities of Photo and Post,
 # as they used to be the same class
 module Diaspora
   module Shareable
     def self.included(model)
       model.instance_eval do
+        has_many :aspect_visibilities, as: :shareable, validate: false, dependent: :delete_all
+        has_many :aspects, through: :aspect_visibilities
 
-        has_many :aspect_visibilities, :as => :shareable, :validate => false
-        has_many :aspects, :through => :aspect_visibilities
+        has_many :share_visibilities, as: :shareable, dependent: :delete_all
 
-        has_many :share_visibilities, :as => :shareable
-        has_many :contacts, :through => :share_visibilities
-
-        belongs_to :author, :class_name => 'Person'
+        belongs_to :author, class_name: "Person"
 
         delegate :id, :name, :first_name, to: :author, prefix: true
 
-        #scopes
-        scope :all_public, -> { where(:public => true, :pending => false) }
+        # scopes
+        scope :all_public, -> { where(public: true, pending: false) }
+
+        scope :with_visibility, -> {
+          joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = #{table_name}.id")
+        }
+
+        scope :with_aspects, -> {
+          joins("LEFT OUTER JOIN aspect_visibilities ON aspect_visibilities.shareable_id = #{table_name}.id")
+        }
 
         def self.owned_or_visible_by_user(user)
-          self.joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = posts.id AND share_visibilities.shareable_type = 'Post'").
-               joins("LEFT OUTER JOIN contacts ON contacts.id = share_visibilities.contact_id").
-               where(
-                  Contact.arel_table[:user_id].eq(user.id).or(
-                    self.arel_table[:public].eq(true).or(
-                      self.arel_table[:author_id].eq(user.person_id)
-                   )
-                 )
-               ).
-               select("DISTINCT #{self.table_name}.*")
+          with_visibility.where(
+            visible_by_user(user).or(arel_table[:public].eq(true)
+                                       .or(arel_table[:author_id].eq(user.person_id)))
+          ).select("DISTINCT #{table_name}.*")
         end
 
-        def self.for_visible_shareable_sql(max_time, order, limit = 15, types = Stream::Base::TYPES_OF_POST_IN_STREAM)
-          by_max_time(max_time, order).
-          where(:type => types).
-          limit(limit)
+        def self.from_person_visible_by_user(user, person)
+          return owned_by_user(user) if person == user.person
+
+          with_visibility.where(author_id: person.id).where(
+            visible_by_user(user).or(arel_table[:public].eq(true))
+          ).select("DISTINCT #{table_name}.*")
         end
 
-        def self.by_max_time(max_time, order='created_at')
-          where("#{self.table_name}.#{order} < ?", max_time).order("#{self.table_name}.#{order} desc")
+        def self.for_visible_shareable_sql(max_time, order, limit=15, types=Stream::Base::TYPES_OF_POST_IN_STREAM)
+          by_max_time(max_time, order).order(table_name + ".id DESC").where(type: types).limit(limit)
         end
+
+        def self.by_max_time(max_time, order="created_at")
+          where("#{table_name}.#{order} < ?", max_time).order("#{table_name}.#{order} DESC")
+        end
+
+        def self.owned_by_user(user)
+          user.person.send(table_name).where(pending: false)
+        end
+
+        def self.visible_by_user(user)
+          ShareVisibility.arel_table[:user_id].eq(user.id)
+            .and(ShareVisibility.arel_table[:shareable_type].eq(base_class.to_s))
+        end
+        private_class_method :visible_by_user
       end
     end
 
     # @return [Integer]
     def update_reshares_counter
-      self.class.where(:id => self.id).
-        update_all(:reshares_count => self.reshares.count)
+      self.class.where(id: id).update_all(reshares_count: reshares.count)
     end
   end
 end

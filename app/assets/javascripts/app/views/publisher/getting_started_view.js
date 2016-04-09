@@ -20,15 +20,13 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
   show: function() {
     this._addPopover(this.firstMessage, {
       trigger: "manual",
-      offset: 30,
       id: "first_message_explain",
-      placement: "right",
+      placement: "left",
       html: true,
       container: "body"
     }, 600);
     this._addPopover(this.visibility, {
       trigger: "manual",
-      offset: 10,
       id: "message_visibility_explain",
       placement: "bottom",
       html: true,
@@ -36,7 +34,6 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
     }, 1000);
     this._addPopover(this.stream, {
       trigger: "manual",
-      offset: -5,
       id: "stream_explain",
       placement: "left",
       html: true,
@@ -77,4 +74,3 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
   }
 });
 // @license-end
-

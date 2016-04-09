@@ -1,10 +1,25 @@
-body.page-streams, body.page-photos {
-  background-color: $sidebars-background;
+.stream_container {
+  .stream-title {
+    margin: 12px 0;
+  }
 }
 
-.stream_container {
-  #publisher {
-    margin-bottom: 15px;
+.main-stream-publisher {
+  padding: 0;
+
+  .avatar {
+    height: 50px;
+    width: 50px;
   }
-  .well#ignore-info { text-align: center; }
+
+  .publisher {
+    margin-left: 65px;
+  }
+}
+
+@media(max-width: $screen-xs-max) {
+
+  .main-stream-publisher .publisher {
+    margin-left: 0;
+  }
 }

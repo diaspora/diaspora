@@ -134,6 +134,13 @@ describe("app.views.Publisher", function() {
         this.view.clear($.Event());
         expect($("#location").length).toBe(0);
       });
+
+      it("removes the 'submitting' class from the textarea wrapper", function(){
+        this.view.wrapperEl.addClass("submitting");
+        expect(this.view.wrapperEl).toHaveClass("submitting");
+        this.view.clear($.Event());
+        expect(this.view.wrapperEl).not.toHaveClass("submitting");
+      });
     });
 
     describe("createStatusMessage", function(){
@@ -149,6 +156,12 @@ describe("app.views.Publisher", function() {
         this.view.createStatusMessage($.Event());
         jasmine.Ajax.requests.mostRecent().respondWith({ status: 200, responseText: "{\"id\": 1}" });
         expect(app.stream.addNow).toHaveBeenCalled();
+      });
+
+      it("adds the 'submitting' class from the textarea wrapper", function(){
+        expect(this.view.wrapperEl).not.toHaveClass("submitting");
+        this.view.createStatusMessage($.Event());
+        expect(this.view.wrapperEl).toHaveClass("submitting");
       });
     });
 
@@ -225,8 +238,7 @@ describe("app.views.Publisher", function() {
         var submitCallback = jasmine.createSpy().and.returnValue(false);
         form.submit(submitCallback);
 
-        var e = $.Event("keydown", { keyCode: 13 });
-        e.ctrlKey = true;
+        var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: true });
         this.view.keyDown(e);
 
         expect(submitCallback).toHaveBeenCalled();
@@ -430,7 +442,7 @@ describe("app.views.Publisher", function() {
       it("Show location", function(){
 
         // inserts location to the DOM; it is the location's view element
-        setFixtures('<div id="location_container"></div>');
+        setFixtures('<div class="location-container"></div>');
 
         // creates a fake Locator
         OSM = {};
@@ -460,8 +472,7 @@ describe("app.views.Publisher", function() {
     describe('#avoidEnter', function(){
       it("Avoid submitting the form when pressing enter", function(){
         // simulates the event object
-        var evt = {};
-        evt.keyCode = 13;
+        var evt = $.Event("keydown", { which: Keycodes.ENTER });
 
         // should return false in order to avoid the form submition
         expect(this.view.avoidEnter(evt)).toBeFalsy();
@@ -619,6 +630,4 @@ describe("app.views.Publisher", function() {
       });
     });
   });
-
 });
-

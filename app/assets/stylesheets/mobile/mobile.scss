@@ -29,7 +29,7 @@ code {
   }
 
 body {
-  background-color: $sidebars-background;
+  background-color: $main-background;
   padding: 0;
 }
 
@@ -127,14 +127,28 @@ textarea { resize: vertical; }
   text-shadow: 1px 1px 20px rgb(126, 240, 77); }
 
 #login_form {
-  padding: 0;
-
   /* ensure url bar is banished from view on iOS */
   margin-bottom: 40px !important;
 
   .login-container {
     padding: 10px;
     label, legend { text-transform: uppercase; }
+    .form-control { margin-bottom: 20px; }
+    .form-group { margin: 10px 0; }
+  }
+}
+
+footer {
+  margin-bottom: 20px;
+  text-align: center;
+
+  ul {
+    padding-left: 0;
+
+    li {
+      list-style: none;
+      margin-bottom: 5px;
+    }
   }
 }
 
@@ -597,10 +611,6 @@ form#new_user.new_user input.btn {
       background: $background-grey;
     }
   }
-}
-
-input#user_password, #user_username, #user_password_confirmation, #user_email {
-  height: 30px;
 }
 
 #flash_notice,

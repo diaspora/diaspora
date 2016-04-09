@@ -12,6 +12,7 @@
 #main_stream > div > .photo {
   & > .media {
     overflow: visible;
+    position: relative;
     > .bd {
       position: relative;
       overflow: inherit;

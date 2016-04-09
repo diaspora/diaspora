@@ -23,11 +23,13 @@ h1.tag {
   }
 }
 .page-tags {
-  background-color: $sidebars-background;
-  .left-navbar-fixed-background { border-right: 0; }
   #tags_show {
-    .col-md-3 {
-      h4 { margin: 25px 0 15px; }
+    .sidebar {
+      h3 {
+        font-size: 13px;
+        line-height: 1.1;
+      }
+
       .side_stream #people_stream {
         .name { display: block; }
         .name, .diaspora_handle {
@@ -37,7 +39,7 @@ h1.tag {
         }
       }
     }
-    .col-md-7 {
+    .col-md-9 {
       .tag-following-action {
         max-width: 100%;
         input[type="submit"] {

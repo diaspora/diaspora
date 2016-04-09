@@ -53,6 +53,17 @@ module Api
         id_tokens.create!(nonce: nonce)
       end
 
+      def self.find_by_client_id_user_and_scopes(client_id, user, scopes)
+        app = Api::OpenidConnect::OAuthApplication.where(client_id: client_id)
+        authorizations = where(o_auth_application: app, user: user).all
+        authorizations.each do |authorization|
+          if authorization.scopes.uniq.sort == Array(scopes).uniq.sort
+            return authorization
+          end
+        end
+        nil
+      end
+
       def self.find_by_client_id_and_user(client_id, user)
         app = Api::OpenidConnect::OAuthApplication.where(client_id: client_id)
         find_by(o_auth_application: app, user: user)

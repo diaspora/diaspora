@@ -2,27 +2,24 @@
   .stream {
     .header {
       border-bottom: 1px solid $border-grey;
-      .btn-toolbar { margin: 11px 0; }
       margin-bottom: 10px;
     }
 
-    .year_container { margin-top: 40px; }
+    .btn-toolbar { margin: 11px 0; }
+
+    .framed-content { padding-bottom: 10px; }
+
     .year {
       background-color: $white;
       color: $text-grey;
       font-size: 40px;
       line-height: 40px;
-      margin-bottom: -20px;
+      margin-bottom: 20px;
+      margin-top: 40px;
       text-align: center;
     }
 
-    .year_container + .day_group {
-      border-top: 1px solid $border-grey;
-      padding-top: 60px;
-    }
-
     .day_group + .day_group {
-      border-top: 1px dashed $border-grey;
       margin-top: 10px;
       padding-top: 10px;
     }
@@ -48,7 +45,10 @@
 
     .pagination { text-align: center; }
 
-    .no_notifications { text-align: center; }
+    .no-notifications {
+      margin: 0 10px;
+      text-align: center;
+    }
   }
 
   .list-group .list-group-item {

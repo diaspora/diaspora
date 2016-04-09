@@ -1,21 +1,22 @@
 describe("app.views.Search", function() {
-  beforeEach(function(){
+  beforeEach(function() {
     spec.content().html(
-      "<form action='/search' id='search_people_form'><input id='q' name='q' type='search'></input></form>"
+      "<form action='/search' id='search_people_form'><input id='q' name='q' type='search'/></form>"
     );
   });
 
   describe("initialize", function() {
-    it("calls setupBloodhound", function() {
-      spyOn(app.views.Search.prototype, "setupBloodhound").and.callThrough();
-      new app.views.Search({ el: "#search_people_form" });
-      expect(app.views.Search.prototype.setupBloodhound).toHaveBeenCalled();
+    it("calls app.views.SearchBase.prototype.initialize", function() {
+      spyOn(app.views.SearchBase.prototype, "initialize");
+      this.view = new app.views.Search({el: "#search_people_form"});
+      var call = app.views.SearchBase.prototype.initialize.calls.mostRecent();
+      expect(call.args[0].typeaheadInput.selector).toBe("#search_people_form #q");
+      expect(call.args[0].remoteRoute).toBe("/search");
     });
 
-    it("calls setupTypeahead", function() {
-      spyOn(app.views.Search.prototype, "setupTypeahead");
-      new app.views.Search({ el: "#search_people_form" });
-      expect(app.views.Search.prototype.setupTypeahead).toHaveBeenCalled();
+    it("binds typeahead:select", function() {
+      this.view = new app.views.Search({el: "#search_people_form"});
+      expect($._data($("#q")[0], "events")["typeahead:select"].length).toBe(1);
     });
   });
 
@@ -41,37 +42,6 @@ describe("app.views.Search", function() {
       it("removes the class 'active' when the user blurs the text field", function() {
         this.typeaheadInput.trigger("focusout");
         expect(this.typeaheadInput).not.toHaveClass("active");
-      });
-    });
-  });
-
-  describe("transformBloodhoundResponse" , function() {
-    beforeEach(function() {
-      this.view = new app.views.Search({ el: "#search_people_form" });
-    });
-    context("with persons", function() {
-      beforeEach(function() {
-        this.response = [{name: "Person", handle: "person@pod.tld"},{name: "User", handle: "user@pod.tld"}];
-      });
-
-      it("sets data.person to true", function() {
-        expect(this.view.transformBloodhoundResponse(this.response)).toEqual([
-         {name: "Person", handle: "person@pod.tld", person: true},
-         {name: "User", handle: "user@pod.tld", person: true}
-        ]);
-      });
-    });
-
-    context("with hashtags", function() {
-      beforeEach(function() {
-        this.response = [{name: "#tag"}, {name: "#hashTag"}];
-      });
-
-      it("sets data.hashtag to true and adds the correct URL", function() {
-        expect(this.view.transformBloodhoundResponse(this.response)).toEqual([
-         {name: "#tag", hashtag: true, url: Routes.tag("tag")},
-         {name: "#hashTag", hashtag: true, url: Routes.tag("hashTag")}
-        ]);
       });
     });
   });

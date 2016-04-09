@@ -19,18 +19,23 @@ class Pod < ActiveRecord::Base
     ConnectionTester::NodeInfoFailure => :version_failed
   }
 
+  DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
+
+  has_many :people
+
   scope :check_failed, lambda {
-    where(arel_table[:status].gt(Pod.statuses[:no_errors]))
+    where(arel_table[:status].gt(Pod.statuses[:no_errors])).where.not(status: Pod.statuses[:version_failed])
   }
+
+  validate :not_own_pod
 
   class << self
     def find_or_create_by(opts) # Rename this method to not override an AR method
-      u = URI.parse(opts.fetch(:url))
-      find_or_initialize_by(host: u.host).tap do |pod|
-        unless pod.persisted?
-          pod.ssl = (u.scheme == "https")
-          pod.save
-        end
+      uri = URI.parse(opts.fetch(:url))
+      port = DEFAULT_PORTS.include?(uri.port) ? nil : uri.port
+      find_or_initialize_by(host: uri.host, port: port).tap do |pod|
+        pod.ssl ||= (uri.scheme == "https")
+        pod.save
       end
     end
 
@@ -57,13 +62,18 @@ class Pod < ActiveRecord::Base
   end
 
   def test_connection!
-    url = "#{ssl ? 'https' : 'http'}://#{host}"
-    result = ConnectionTester.check url
-    logger.info "testing pod: '#{url}' - #{result.inspect}"
+    result = ConnectionTester.check uri.to_s
+    logger.debug "tested pod: '#{uri}' - #{result.inspect}"
 
     transaction do
       update_from_result(result)
     end
+  end
+
+  # @param path [String]
+  # @return [String]
+  def url_to(path)
+    uri.tap {|uri| uri.path = path }.to_s
   end
 
   private
@@ -85,6 +95,7 @@ class Pod < ActiveRecord::Base
   end
 
   def attributes_from_result(result)
+    self.ssl ||= result.ssl
     self.error = result.failure_message[0..254] if result.error?
     self.software = result.software_version[0..254] if result.software_version.present?
     self.response_time = result.rt
@@ -96,5 +107,17 @@ class Pod < ActiveRecord::Base
     else
       :no_errors
     end
+  end
+
+  # @return [URI]
+  def uri
+    @uri ||= (ssl ? URI::HTTPS : URI::HTTP).build(host: host, port: port)
+    @uri.dup
+  end
+
+  def not_own_pod
+    pod_uri = AppConfig.pod_uri
+    pod_port = DEFAULT_PORTS.include?(pod_uri.port) ? nil : pod_uri.port
+    errors.add(:base, "own pod not allowed") if pod_uri.host == host && pod_port == port
   end
 end

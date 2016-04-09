@@ -72,6 +72,9 @@ en:
         unchecked:
           one: "There is still one pod that hasn't been checked at all."
           other: "There are still <%= count %> pods that haven't been checked at all."
+        version_failed:
+          one: "There is one pod that has no version (old pod, no NodeInfo)."
+          other: "There are <%= count %> pods that have no version (old pods, no NodeInfo)."
         errors:
           one: "The connection test returned an error for one pod."
           other: "The connection test returned an error for <%= count %> pods."

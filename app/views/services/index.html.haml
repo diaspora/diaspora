@@ -8,14 +8,16 @@
 .container-fluid
   .row
     .col-md-3
-      = render "shared/settings_nav"
+      .sidebar
+        = render "shared/settings_nav"
     .col-md-9
-      %h3= t(".title")
-      .row
-        .col-md-12
-          = render "add_remove_services"
+      .framed-content.clearfix
+        %h3= t(".title")
+        .row
+          .col-md-12
+            = render "add_remove_services"
 
-      .row
-        .col-md-12
-          %p
-            = t(".services_explanation")
+        .row
+          .col-md-12
+            %p
+              = t(".services_explanation")

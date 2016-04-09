@@ -47,7 +47,7 @@ DiasporaFederation.configure do |config|
       # find existing person or create a new one
       person_entity = Person.find_by(diaspora_handle: person.diaspora_id) ||
         Person.new(diaspora_handle: person.diaspora_id, guid: person.guid,
-                   serialized_public_key: person.exported_key, url: person.url)
+                   serialized_public_key: person.exported_key, pod: Pod.find_or_create_by(url: person.url))
 
       profile = person.profile
       profile_entity = person_entity.profile ||= Profile.new
@@ -106,7 +106,20 @@ DiasporaFederation.configure do |config|
       end
     end
 
-    on :save_entity_after_receive do
+    on :receive_entity do
+      # TODO
+    end
+
+    on :fetch_public_entity do |entity_type, guid|
+      entity = entity_type.constantize.find_by(guid: guid, public: true)
+      Diaspora::Federation.post(entity) if entity.is_a? Post
+    end
+
+    on :fetch_person_url_to do |diaspora_id, path|
+      Person.find_by(diaspora_handle: diaspora_id).send(:url_to, path)
+    end
+
+    on :update_pod do
       # TODO
     end
   end

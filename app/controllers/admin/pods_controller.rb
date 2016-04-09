@@ -10,6 +10,7 @@ module Admin
         format.html do
           gon.preloads[:pods] = pods_json
           gon.unchecked_count = Pod.unchecked.count
+          gon.version_failed_count = Pod.version_failed.count
           gon.error_count = Pod.check_failed.count
 
           render "admins/pods"

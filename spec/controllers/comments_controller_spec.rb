@@ -140,7 +140,7 @@ describe CommentsController, :type => :controller do
       comments = [alice, bob, eve].map{ |u| u.comment!(@message, "hey") }
 
       get :index, :post_id => @message.id, :format => :json
-      expect(assigns[:comments].map(&:id)).to match_array(comments.map(&:id))
+      expect(JSON.parse(response.body).map {|comment| comment["id"] }).to match_array(comments.map(&:id))
     end
 
     it 'returns a 404 on a nonexistent post' do

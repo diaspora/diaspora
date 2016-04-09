@@ -27,7 +27,6 @@ class AccountDeleter
       #person
       delete_standard_person_associations
       remove_conversation_visibilities
-      remove_share_visibilities_on_persons_posts
       delete_contacts_of_me
       tombstone_person_and_profile
 
@@ -56,7 +55,7 @@ class AccountDeleter
 
   def ignored_ar_user_associations
     %i(followed_tags invited_by contact_people aspect_memberships
-       ignored_people conversation_visibilities conversations reports)
+       ignored_people share_visibilities conversation_visibilities conversations reports)
   end
 
   def delete_standard_user_associations
@@ -83,12 +82,8 @@ class AccountDeleter
 
   # Currently this would get deleted due to the db foreign key constrainsts,
   # but we'll keep this method here for completeness
-  def remove_share_visibilities_on_persons_posts
-    ShareVisibility.for_contacts_of_a_person(person).destroy_all
-  end
-
   def remove_share_visibilities_on_contacts_posts
-    ShareVisibility.for_a_users_contacts(user).destroy_all
+    ShareVisibility.for_a_user(user).destroy_all
   end
 
   def remove_conversation_visibilities
@@ -109,11 +104,11 @@ class AccountDeleter
   end
 
   def normal_ar_person_associates_to_delete
-    [:posts, :photos, :mentions, :participations, :roles]
+    %i(posts photos mentions participations roles)
   end
 
   def ignored_or_special_ar_person_associations
-    [:comments, :contacts, :notification_actors, :notifications, :owner, :profile, :conversation_visibilities]
+    %i(comments contacts notification_actors notifications owner profile conversation_visibilities pod)
   end
 
   def mark_account_deletion_complete

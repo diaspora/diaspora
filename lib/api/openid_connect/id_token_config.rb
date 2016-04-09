@@ -5,7 +5,7 @@ module Api
       if File.exist?(key_file_path)
         private_key = OpenSSL::PKey::RSA.new(File.read(key_file_path))
       else
-        private_key = OpenSSL::PKey::RSA.new(2048)
+        private_key = OpenSSL::PKey::RSA.new(4096)
         File.write key_file_path, private_key.to_pem
         File.chmod(0600, key_file_path)
       end

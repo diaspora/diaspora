@@ -24,23 +24,22 @@ module Diaspora
       module InstanceMethods
         include Diaspora::Logging
         def diaspora_handle
-          read_attribute(:diaspora_handle) || author.diaspora_handle
+          author.diaspora_handle
         end
 
         def diaspora_handle=(author_handle)
           self.author = Person.where(diaspora_handle: author_handle).first
-          write_attribute(:diaspora_handle, author_handle)
         end
 
         # @param [User] user The user that is receiving this shareable.
-        # @param [Person] person The person who dispatched this shareable to the
+        # @param [Person] _person The sender of the shareable
         # @return [void]
-        def receive(user, person)
+        def receive(user, _person)
           local_shareable = persisted_shareable
           if local_shareable
-            receive_persisted(user, person, local_shareable) if verify_persisted_shareable(local_shareable)
+            receive_persisted(user, local_shareable) if verify_persisted_shareable(local_shareable)
           else
-            receive_non_persisted(user, person)
+            receive_non_persisted(user)
           end
         end
 
@@ -81,12 +80,12 @@ module Diaspora
           false
         end
 
-        def receive_persisted(user, person, shareable)
+        def receive_persisted(user, shareable)
           known_shareable = user.find_visible_shareable_by_id(self.class.base_class, guid, key: :guid)
           if known_shareable
             update_existing_sharable(known_shareable)
           else
-            receive_shareable_visibility(user, person, shareable)
+            receive_shareable_visibility(user, shareable)
           end
         end
 
@@ -101,18 +100,18 @@ module Diaspora
           end
         end
 
-        def receive_shareable_visibility(user, person, shareable)
-          user.contact_for(person).receive_shareable(shareable)
+        def receive_shareable_visibility(user, shareable)
+          user.receive_shareable(shareable)
           user.notify_if_mentioned(shareable)
           logger.info "event=receive payload_type=#{self.class} status=complete " \
-                      "sender=#{diaspora_handle} receiver=#{person.diaspora_handle} guid=#{shareable.guid}"
+                      "sender=#{diaspora_handle} receiver=#{user.diaspora_handle} guid=#{shareable.guid}"
         end
 
-        def receive_non_persisted(user, person)
+        def receive_non_persisted(user)
           if save
             logger.info "event=receive payload_type=#{self.class} status=complete sender=#{diaspora_handle} " \
                         "guid=#{guid}"
-            receive_shareable_visibility(user, person, self)
+            receive_shareable_visibility(user, self)
           else
             logger.warn "event=receive payload_type=#{self.class} status=abort sender=#{diaspora_handle} " \
                         "reason=#{errors.full_messages} guid=#{guid}"
@@ -122,7 +121,7 @@ module Diaspora
           logger.info "event=receive payload_type=#{self.class} status=retry sender=#{diaspora_handle} guid=#{guid}"
           local_shareable = persisted_shareable
           raise e unless local_shareable
-          receive_shareable_visibility(user, person, local_shareable) if verify_persisted_shareable(local_shareable)
+          receive_shareable_visibility(user, local_shareable) if verify_persisted_shareable(local_shareable)
         end
       end
     end

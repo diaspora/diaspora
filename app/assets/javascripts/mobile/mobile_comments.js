@@ -5,19 +5,11 @@
  */
 
 (function() {
-  Diaspora.Mobile = {};
   Diaspora.Mobile.Comments = {
     stream: function(){ return $(".stream"); },
 
     initialize: function() {
       var self = this;
-      $(".stream").on("tap click", "a.back_to_stream_element_top", function() {
-        var bottomBar = $(this).closest(".bottom_bar").first();
-        var streamElement = bottomBar.parent();
-        $("html, body").animate({
-          scrollTop: streamElement.offset().top - 54
-        }, 1000);
-      });
 
       this.stream().on("tap click", "a.show-comments", function(evt){
         evt.preventDefault();

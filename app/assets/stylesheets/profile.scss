@@ -1,7 +1,3 @@
-body.page-people.action-show, body.page-people.action-contacts {
-  background-color: $sidebars-background;
-}
-
 #profile_container {
   .profile_header {
     margin-bottom: 15px;
@@ -109,11 +105,8 @@ body.page-people.action-show, body.page-people.action-contacts {
   }
 
   #profile {
-    background-color: $white;
     padding: 20px;
-    margin-top: -10px;
     margin-bottom: 35px;
-    box-shadow: $card-shadow;
 
     #profile_photo {
       margin-top: 10px;

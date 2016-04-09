@@ -105,6 +105,7 @@ nds:
       contacts: "Kontakte"
       edit: "Ännern"
       gender: "Geschlecht"
+      ignoring: "Du ignorierst alle Bidräg von <%= name %>."
       location: "Ort"
       photos: "Bilder"
       posts: "Bidräg"

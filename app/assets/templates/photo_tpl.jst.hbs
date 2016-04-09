@@ -26,4 +26,15 @@
       </a>
     </div>
   </div>
+  <div class="card-footer">
+    <div class="footer-container">
+      {{#if status_message}}
+        <a href="{{urlTo "post" status_message.id}}">
+          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+        </a>
+      {{else}}
+          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+      {{/if}}
+    </div>
+  </div>
 </div>

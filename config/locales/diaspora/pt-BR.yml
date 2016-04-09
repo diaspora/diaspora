@@ -137,6 +137,8 @@ pt-BR:
   aspect_memberships:
     destroy:
       failure: "Falha ao remover pessoa do aspecto."
+      forbidden: "Você não tem permissão para fazer isso."
+      invalid_statement: "Registro duplicado rejeitado."
       no_membership: "A pessoa selecionada não foi encontrada neste aspecto."
       success: "Pessoa removida do aspecto com sucesso."
   aspects:
@@ -220,7 +222,7 @@ pt-BR:
     no_contacts_message:
       community_spotlight: "Destaques da Comunidade"
       or_spotlight: "Ou você pode compartilhar com %{link}"
-      try_adding_some_more_contacts: "Você pode buscar ou convidar mais pessoas."
+      try_adding_some_more_contacts: "Você pode buscar ou %{invite_link} mais pessoas."
       you_should_add_some_more_contacts: "Adicione mais alguns contatos!"
     no_posts_message:
       start_talking: "Ninguém disse nada ainda!"
@@ -296,7 +298,7 @@ pt-BR:
         two: "%{count} novas mensagens"
         zero: "Nenhuma mensagem nova"
     index:
-      conversations_inbox: "Conversas - Caixa de Entrada"
+      conversations_inbox: "Conversas – Caixa de Entrada"
       create_a_new_conversation: "iniciar uma nova conversa"
       inbox: "Entrada"
       new_conversation: "Nova conversa"
@@ -392,10 +394,10 @@ pt-BR:
     irc: "IRC"
     keyboard_shortcuts:
       keyboard_shortcuts_a1: "Na visualização do fluxo você pode usar as seguintes teclas de atalho:"
-      keyboard_shortcuts_li1: "j - Pular para a próxima publicação"
-      keyboard_shortcuts_li2: "k - Voltar para a publicação anterior"
-      keyboard_shortcuts_li3: "c - Comentar a publicação atual"
-      keyboard_shortcuts_li4: "l - Curtir a publicação atual"
+      keyboard_shortcuts_li1: "j – Pular para a próxima publicação"
+      keyboard_shortcuts_li2: "k – Voltar para a publicação anterior"
+      keyboard_shortcuts_li3: "c – Comentar a publicação atual"
+      keyboard_shortcuts_li4: "l – Curtir a publicação atual"
       keyboard_shortcuts_li5: "r – Recompartilhar a publicação atual"
       keyboard_shortcuts_li6: "m – Expandir a publicação atual"
       keyboard_shortcuts_li7: "o – Abrir o primeiro link da publicação atual"
@@ -479,7 +481,7 @@ pt-BR:
       who_sees_post_q: "Quando eu publico uma mensagem em um aspecto (por ex., uma publicação privada), quem pode vê-la?"
     private_profiles:
       title: "Perfis privados"
-      whats_in_profile_a: "Biografia, localização, sexo, e data de aniversário. É o que aparece na parte de baixo da página de edição do perfil. Toda esta informação é opcional - depende de você se você quer ou não preencher isto. Usuários logados que você tenha adicionado aos seus aspectos são as únicas pessoas que podem ver o seu perfil privado. Eles também verão as publicações privadas feitas ao(s) aspecto(s) que eles estão, misturadas com suas publicações públicas, quando eles visitarem sua página de perfil."
+      whats_in_profile_a: "Seu perfil privado contém informações como biografia, localização, sexo e data de nascimento. Todas são opcionais – você decide se vai fornecê-las ou não. Apenas pessoas autenticadas com quem você compartilha podem ver seu perfil privado, bem como as publicações privadas destinadas aos aspectos aos quais pertencem. As publicações privadas aparecem para elas na sua página de perfil, misturadas às públicas."
       whats_in_profile_q: "O que está no meu perfil privado?"
       who_sees_profile_a: "Qualquer usuário logado com quem você esteja compartilhando (significa que você os adicionou a um de seus aspectos). De qualquer modo, pessoas seguem você, mas aqueles que você não segue, somente verão sua informação pública."
       who_sees_profile_q: "Quem vê meu perfil privado?"
@@ -490,9 +492,7 @@ pt-BR:
       can_comment_reshare_like_q: "Quem pode comentar, recompartilhar, ou curtir minha publicação no modo público?"
       deselect_aspect_posting_a: "Desselecionar aspectos não afeta uma publicação pública. Esta apenas irá aparecer nos fluxos de todos os seus contatos. Para tornar uma publicação visível somente para aspectos específicos, você precisa selecionar os aspectos a partir do botão abaixo do editor."
       deselect_aspect_posting_q: "O que acontece quando eu desseleciono um ou mais aspectos ao fazer uma publicação no modo público?"
-      find_public_post_a: |-
-          Suas publicações públicas aparecerão nos fluxos de qualquer pessoa que te seguir. Se você incluiu #tags na sua publicação pública, quaisquer pessoas seguindo essas tags encontrarão sua publicação nos fluxos delas. Toda publicação pública também tem um URL específico que qualquer um pode ver, mesmo que eles não estejam logados - além disso, publicações públicas podem ter uma ligação direta a partir do Twitter, blogs, etc.
-          Publicações públicas podem também ser indexadas por mecanismos de buscas.
+      find_public_post_a: "Suas publicações públicas aparecem nos fluxos das pessoas que seguem você. Se contêm #tags, são mostradas nos fluxos das pessoas que seguem essas tags. Além disso, toda publicação pública tem um URL específico que qualquer internauta pode ver e, portanto, divulgar via Twitter, blogs etc. Publicações públicas também podem ser indexadas por mecanismos de busca."
       find_public_post_q: "Como outras pessoas podem encontrar minhas publicações no modo público?"
       see_comment_reshare_like_a: "Comentários, curtidas e recompartilhamentos de publicações públicas também são públicos. Qualquer  internauta pode ver suas interações com essas publicações."
       see_comment_reshare_like_q: "Quando eu comento, recompartilho, ou curto uma publicação pública, quem pode ver?"
@@ -557,6 +557,7 @@ pt-BR:
   ignore: "Ignorar"
   invitation_codes:
     excited: "%{name} está contente em te ver aqui."
+    not_valid: "Esse código de convite expirou"
   invitations:
     a_facebook_user: "Um usuário do Facebook"
     check_token:
@@ -886,6 +887,7 @@ pt-BR:
       closed_account: "Essa conta foi cancelada."
       does_not_exist: "Esta pessoa não existe!"
       has_not_shared_with_you_yet: "%{name}, não possui nenhuma publicação compartilhada com você ainda!"
+      ignoring: "Você está ignorando todas as mensagens de %{name}."
       incoming_request: "%{name}, quer compartilhar com você."
       mention: "Mencionar"
       message: "Mensagem"
@@ -897,7 +899,7 @@ pt-BR:
       start_sharing: "Comece a compartilhar"
       to_accept_or_ignore: "Aceitar ou ignorar."
     sub_header:
-      add_some: "adicione algo"
+      add_some: "Adicione algumas"
       edit: "Editar"
       you_have_no_tags: "Você não tem tags!"
     webfinger:
@@ -942,6 +944,7 @@ pt-BR:
       title: "Uma publicação de %{name}"
     show:
       destroy: "Apagar"
+      forbidden: "Você não tem permissão para fazer isso"
       not_found: "Desculpe! Não foi possível encontrar."
       permalink: "Link permanente"
       photos_by:
@@ -969,6 +972,8 @@ pt-BR:
       your_location: "Sua localização"
       your_name: "Seu nome"
       your_photo: "Sua foto"
+      your_private_profile: "Seu perfil privado"
+      your_public_profile: "Seu perfil público"
       your_tags: "Descreva-se em cinco palavras"
       your_tags_placeholder: "Ex: #diaspora #cinema #musica #cafe"
     update:
@@ -976,9 +981,9 @@ pt-BR:
       updated: "Perfil Atualizado!"
   public: "Público"
   reactions:
-    one: "1 reação"
+    one: "Uma reação"
     other: "%{count} reações"
-    zero: "Sem reações"
+    zero: "Nenhuma reação"
   registrations:
     closed: "Os cadastros estão temporariamente desabilitados neste servidor diaspora*."
     create:

@@ -6,9 +6,8 @@ class PeopleController < ApplicationController
   before_action :authenticate_user!, except: %i(show stream hovercard)
   before_action :find_person, only: %i(show stream hovercard)
 
-  respond_to :html, :except => [:tag_index]
+  respond_to :html
   respond_to :json, :only => [:index, :show]
-  respond_to :js, :only => [:tag_index]
 
   rescue_from ActiveRecord::RecordNotFound do
     render :file => Rails.root.join('public', '404').to_s,
@@ -62,13 +61,6 @@ class PeopleController < ApplicationController
       @answer_html = render_to_string :partial => 'people/person', :locals => @hashes.first
     end
     render :json => { :search_count => @people.count, :search_html => @answer_html }.to_json
-  end
-
-
-  def tag_index
-    profiles = Profile.tagged_with(params[:name]).where(:searchable => true).select('profiles.id, profiles.person_id')
-    @people = Person.where(:id => profiles.map{|p| p.person_id}).paginate(:page => params[:page], :per_page => 15)
-    respond_with @people
   end
 
   # renders the persons user profile page

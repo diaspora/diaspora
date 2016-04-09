@@ -22,9 +22,13 @@
 @import 'vendor/autoSuggest';
 @import 'typeahead';
 @import 'colors';
+@import 'card-footer';
 
 /* font overrides */
 @import 'typography';
+
+// layout
+@import 'sidebar';
 
 /* login */
 @import 'login';
@@ -82,9 +86,6 @@
 @import 'markdown-content';
 @import 'oembed';
 @import 'post-content';
-
-/* right bar */
-@import 'navbar_right';
 
 /* contacts */
 @import 'contacts';

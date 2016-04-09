@@ -1,8 +1,11 @@
 .tt-menu {
-  width: 300px;
-  margin-top: ($navbar-height - $input-height-small) / 2;
   background-color: $navbar-inverse-bg;
   box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.navbar.navbar-fixed-top .tt-menu {
+  margin-top: ($navbar-height - $input-height-small) / 2;
+  width: 300px;
 }
 
 .tt-suggestion {
@@ -12,9 +15,8 @@
   line-height: 20px;
   &.tt-cursor {
     background-color: $brand-primary;
+    border-top: 1px solid $brand-primary;
   }
-
-  &:hover { background-color: lighten($navbar-inverse-bg, 10%); }
 
   &.search-suggestion-person {
     padding: 8px;

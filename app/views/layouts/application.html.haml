@@ -49,6 +49,10 @@
   %body{ class:  "page-#{controller_name} action-#{action_name}" }
     = yield :before_content
 
+    %noscript
+      .noscript
+        %h3= t("error_messages.need_javascript")
+
     = content_for?(:content) ? yield(:content) : yield
 
     = yield :after_content

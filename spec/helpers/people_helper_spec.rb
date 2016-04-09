@@ -10,6 +10,18 @@ describe PeopleHelper, :type => :helper do
     @person = FactoryGirl.create(:person)
   end
 
+  describe "#birthday_format" do
+    it "contains the birth year if available" do
+      birthday = Date.new 2016, 3, 5
+      expect(birthday_format(birthday)).to include "2016"
+    end
+
+    it "does not contain the birth year if placeholder year is used" do
+      birthday = Date.new 1004, 3, 5
+      expect(birthday_format(birthday)).not_to include "1004"
+    end
+  end
+
   describe "#person_image_link" do
     it "returns an empty string if person is nil" do
       expect(person_image_link(nil)).to eq("")

@@ -1,11 +1,12 @@
-#publisher {
+.publisher {
   z-index: 1;
   color: $text-grey;
   margin: 0;
+  margin-bottom: 20px;
 
   &.closed {
     #button_container,
-    #location_container,
+    .location-container,
     #hide_publisher,
     #photodropzone_container,
     .counter,
@@ -17,7 +18,12 @@
   }
 
   .container-fluid{ padding: 0; }
-  .mentions-autocomplete-list ul { width: 100% !important; }
+
+  .twitter-typeahead {
+    width: calc(100% + 2px);
+
+    .tt-menu { width: 100%; }
+  }
 
   form {
     margin: 0;
@@ -30,6 +36,7 @@
 
     .options_and_submit {
       padding: 10px 0;
+
       #publisher-service-icons {
         text-decoration: none;
 
@@ -41,7 +48,7 @@
         .service_icon { padding: 6px 5px; }
         .btn.btn-link.question_mark:hover .entypo-cog { color: $black; }
         .dim { opacity: 0.3; }
-        .social_media_logos-wordpress-16x16 {
+        .social-media-logos-wordpress-16x16 {
           display: inline-block;
           height: 16px;
           width: 16px;
@@ -83,7 +90,7 @@
       }
 
       &.active textarea {
-        min-height: 70px;
+        min-height: 90px;
       }
 
       .markdownIndications {
@@ -118,22 +125,6 @@
         }
       }
 
-      &.with_location .loader {
-        height: 20px;
-        width: 20px;
-      }
-      &.with_location #location_container {
-        height: 30px;
-        margin-bottom: 0;
-        border-top: 1px dashed $border-grey;
-        input[type='text'] {
-          border: none;
-          color: $text-grey;
-          height: 20px;
-          margin-bottom: 0;
-          padding: 0;
-        }
-      }
       &.active #button_container {
         border-top: 1px solid $border-grey;
       }
@@ -201,48 +192,6 @@
         text-align: center;
       }
 
-      #publisher-images {
-        margin-right: 5px;
-        #file-upload,
-        #locator,
-        #poll_creator,
-        #hide_location {
-          text-decoration: none !important;
-          font-size: 16px;
-          line-height: $line-height-computed;
-          padding: 4px 2px;
-          i {
-            color: $text-grey;
-          }
-          &:hover{
-            i { color: black; }
-          }
-          input[type='file'] {
-            cursor: pointer;
-            &::-webkit-file-upload-button {
-              cursor: pointer;
-            }
-          }
-        }
-        #hide_location {
-          display: none;
-        }
-      }
-      &.with_location #publisher-images {
-        #hide_location { display: inline-block; }
-        #locator { display: none; }
-      }
-
-      .counter {
-        height: 30px;
-        line-height: 30px;
-        position: absolute;
-        right: 10px;
-        bottom: -25px;
-      }
-      &.with_location .counter {
-        bottom: -62px;
-      }
       .warning {
         color: orange;
       }
@@ -259,5 +208,79 @@
       margin-top: 0;
       margin-bottom: 0;
     }
+  }
+}
+
+.publisher-textarea-wrapper {
+  &:not(.with-location) .location-container { display: none; }
+
+  &.with-location .loader {
+    height: 20px;
+    width: 20px;
+  }
+
+  &.with-location .location-container {
+    border-top: 1px dashed $border-grey;
+    height: 30px;
+    margin-bottom: 0;
+
+    [type='text'] {
+      border: 0;
+      color: $text-grey;
+      height: 20px;
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+
+  &.with-location .counter {
+    bottom: -62px;
+  }
+
+  .counter {
+    bottom: -25px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 10px;
+  }
+
+  &:not(.with-location) .publisher-buttonbar {
+    .hide-location { display: none; }
+    .locator { display: inline-block; }
+  }
+
+  &.with-location .publisher-buttonbar {
+    .hide-location { display: inline-block; }
+    .locator { display: none; }
+  }
+
+  &.submitting .mentions-box { display: none; }
+
+  .twitter-typeahead {
+    left: -1px;
+    position: absolute;
+  }
+}
+
+.publisher-buttonbar {
+  float: right;
+  margin-right: 5px;
+
+  .btn.btn-link {
+    font-size: 16px;
+    line-height: $line-height-computed;
+    padding: 4px 2px;
+    text-decoration: none;
+    i { color: $text-grey; }
+
+    [type='file'],
+    [type='file']::-webkit-file-upload-button {
+      cursor: pointer;
+    }
+  }
+
+  .btn.btn-link:hover {
+    i { color: $black; }
   }
 }

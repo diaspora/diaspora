@@ -310,6 +310,7 @@ el:
       rename_aspect_q: "Πώς μπορώ να μετονομάσω μια πτυχή;"
       title: "Πτυχές"
       what_is_an_aspect_q: "Τι είναι πτυχή;"
+      who_sees_post_q: "Όταν κοινοποιώ σε μια πτυχή, ποιος βλέπει τι;"
     foundation_website: "Η ιστοσελίδα του ιδρύματος diaspora*"
     getting_help:
       get_support_a_hashtag: "Υποβάλετε ένα δημόσιο ερώτημα στο diaspora* χρησιμοποιώντας την ετικέτα της ερώτησης ( %{question} )"
@@ -321,6 +322,7 @@ el:
       getting_started_a: "Είσαστε τυχερός/ή. Δοκιμάστε τις %{tutorial_series} στην σελίδα του έργου μας. Θα σας δείξουν βήμα - βήμα την διαδικασία εγγραφής και θα σας μάθει όλα τα βασικά πράγματα που χρειάζεται να ξέρετε σχετικά με το diaspora*."
       getting_started_q: "Βοήθεια! Χρειάζομαι βοήθεια με τα βασικά για να ξεκινήσω!"
       title: "Λήψη βοήθειας"
+    getting_started_tutorial: "\"Ξεκινώντας\" σειρά μαθημάτων."
     here: "εδώ"
     irc: "Κανάλι συζήτησης IRC"
     markdown: "Markdown"
@@ -335,6 +337,7 @@ el:
       title: "Ιδιωτικές αναρτήσεις"
     private_profiles:
       title: "Ιδιωτικά προφίλ"
+    third_party_tools: "Εργαλεία τρίτων"
     title_header: "Βοήθεια"
     tutorial: "οδηγός"
     tutorials: "οδηγοί"

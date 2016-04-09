@@ -10,16 +10,16 @@
 
 .container-fluid#tags_show
   .row
-    .col-lg-1.visible-lg.left-navbar-fixed-sub-background
-    .col-lg-offset-1.col-lg-3.col-md-4.hidden-sm.hidden-xs.left-navbar-fixed-background
-    .col-lg-offset-1.col-lg-3.col-md-4
-      %h4
-        = t('.tagged_people', count: @stream.tagged_people_count, tag: @stream.display_tag_name)
+    .col-md-3.hidden-xs
+      .sidebar
+        .sidebar-header.clearfix
+          %h3
+            = t(".tagged_people", count: @stream.tagged_people_count, tag: @stream.display_tag_name)
 
-      .side_stream.stream
-        = render partial: 'people/index', locals: {people: @stream.tagged_people}
+        .side_stream.stream
+          = render partial: "people/index", locals: {people: @stream.tagged_people}
 
-    .col-lg-7.col-md-8
+    .col-md-9
       .stream_container
         #author_info
           %h2
@@ -33,8 +33,6 @@
         #paginate
           %span.loader.hidden
             .spinner
-
-    .col-lg-1.visible-lg.right-sidebar-fixed-sub-background
 
       %a.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}
         &#8679;
