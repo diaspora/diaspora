@@ -96,7 +96,7 @@ Contributions are very welcome, the hard work is done!
 * Optimized mobile login and registration forms [#6764](https://github.com/diaspora/diaspora/pull/6764)
 * Redesign stream pages [#6535](https://github.com/diaspora/diaspora/pull/6535)
 * Improve search and mentions suggestions [#6788](https://github.com/diaspora/diaspora/pull/6788)
-* Redesign back to top button [#6782](https://github.com/diaspora/diaspora/pull/6741)
+* Redesign back to top button [#6782](https://github.com/diaspora/diaspora/pull/6782)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
@@ -115,7 +115,6 @@ Contributions are very welcome, the hard work is done!
 * Fixed eye not stopping all processes when trying to exit `script/server` [#6693](https://github.com/diaspora/diaspora/pull/6693)
 * Do not change contacts count when marking notifications on the contacts page as read [#6718](https://github.com/diaspora/diaspora/pull/6718)
 * Fix typeahead for non-latin characters [#6741](https://github.com/diaspora/diaspora/pull/6741)
-* Fix back to top button not appearing on Webkit browsers [#6782](https://github.com/diaspora/diaspora/pull/6741)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
@@ -145,6 +144,7 @@ Contributions are very welcome, the hard work is done!
 ## Refactor
 
 ## Bug fixes
+* Fix back to top button not appearing on Webkit browsers [#6782](https://github.com/diaspora/diaspora/pull/6782)
 
 ## Features
 
