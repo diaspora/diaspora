@@ -65,22 +65,25 @@ pre { word-wrap: break-word; }
 
 .back-to-top {
   background-color: $border-dark-grey;
-  border-radius: 10px;
+  border-radius: 4px;
   bottom: 20px;
   color: $white;
   display: block;
-  font-size: 2.9em;
-  line-height: 1.5;
+  font-size: 3.5em;
+  height: 50px;
+  line-height: 50px;
   opacity: 0;
-  padding: 0 12px;
   position: fixed;
   right: 54px;
+  transition: opacity ease 400ms;
+  width: 50px;
   z-index: 49;
 
   &:hover,
   &.visible:hover {
     color: $white;
     opacity: .85;
+    text-decoration: none;
   }
 
   &.visible { opacity: .5; }
