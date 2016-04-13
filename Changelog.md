@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix back to top button not appearing on Webkit browsers [#6782](https://github.com/diaspora/diaspora/pull/6782)
 
 ## Features
 
