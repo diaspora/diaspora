@@ -51,6 +51,10 @@ module Diaspora::Mentionable
     end
 
     return [] if identifiers.empty?
+    unknown_ids = identifiers - Person.where(diaspora_handle: identifiers).pluck(:diaspora_handle)
+    unknown_ids.each do |id|
+      Person.find_or_fetch_by_identifier(id) if Validation::Rule::DiasporaId.new.valid_value?(id)
+    end
     Person.where(diaspora_handle: identifiers)
   end
 
