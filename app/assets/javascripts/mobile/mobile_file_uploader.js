@@ -2,7 +2,6 @@
 //= require js_image_paths
 
 function createUploader(){
-
    var aspectIds = gon.preloads.aspect_ids;
 
    new qq.FileUploaderBasic({
@@ -10,7 +9,7 @@ function createUploader(){
        params: {'photo' : {'pending' : 'true', 'aspect_ids' : aspectIds},},
        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'tiff'],
        action: "/photos",
-       debug: true,
+       debug: false,
        button: document.getElementById('file-upload-publisher'),
        sizeLimit: 4194304,
 
@@ -21,8 +20,8 @@ function createUploader(){
 
        messages: {
           typeError: Diaspora.I18n.t("photo_uploader.invalid_ext"),
-          sizeError: Diaspora.I18n.t("photo_uploader.new_photo.size_error"),
-          emptyError: Diaspora.I18n.t("photo_uploader.new_photo.empty")
+          sizeError: Diaspora.I18n.t("photo_uploader.size_error"),
+          emptyError: Diaspora.I18n.t("photo_uploader.empty")
        },
 
        onSubmit: function(){
@@ -75,10 +74,10 @@ function createUploader(){
         });
        },
 
-       onAllComplete: function(){
-       }
-
+       onAllComplete: function(){}
    });
 }
-createUploader();
+window.addEventListener("load", function() {
+  createUploader();
+});
 // @license-end
