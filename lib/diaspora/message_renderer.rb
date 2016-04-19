@@ -43,12 +43,6 @@ module Diaspora
       def escape
         if options[:escape]
           @message = ERB::Util.html_escape_once message
-
-          # Special case Hex entities since escape_once
-          # doesn't catch them.
-          # TODO: Watch for https://github.com/rails/rails/pull/9102
-          # on whether this can be removed
-          @message = message.gsub(/&amp;(#[xX][\dA-Fa-f]{1,4});/, '&\1;')
         end
       end
 
