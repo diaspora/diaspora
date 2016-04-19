@@ -28,7 +28,9 @@ module PeopleHelper
     opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
     opts[:class] << " hovercardable" if defined?(user_signed_in?) && user_signed_in? && current_user.person != person
     remote_or_hovercard_link = Rails.application.routes.url_helpers.person_path(person).html_safe
-    "<a data-hovercard='#{remote_or_hovercard_link}' href='#{remote_or_hovercard_link}' class='#{opts[:class]}' #{ ("target=" + opts[:target]) if opts[:target]}>#{h(person.name)}</a>".html_safe
+    "<a data-hovercard='#{remote_or_hovercard_link}' href='#{remote_or_hovercard_link}' class='#{opts[:class]}'>"\
+      "#{html_escape_once(opts[:display_name] || person.name)}</a>"\
+      .html_safe
   end
 
   def person_image_tag(person, size = :thumb_small)
@@ -58,7 +60,7 @@ module PeopleHelper
     absolute = opts.delete(:absolute)
 
     if person.local?
-      username = person.diaspora_handle.split('@')[0]
+      username = person.username
       unless username.include?('.')
         opts.merge!(:username => username)
         if absolute
