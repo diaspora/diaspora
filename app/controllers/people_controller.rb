@@ -209,7 +209,7 @@ class PeopleController < ApplicationController
   end
 
   def diaspora_id?(query)
-    !query.try(:match, /^(\w)*@([a-zA-Z0-9]|[-]|[.]|[:])*$/).nil?
+    !(query.nil? || query.lstrip.empty?) && Validation::Rule::DiasporaId.new.valid_value?(query)
   end
 
   def remote_profile_with_no_user_session?
