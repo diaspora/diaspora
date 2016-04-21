@@ -3,8 +3,6 @@
 #   the COPYRIGHT file.
 
 class Mention < ActiveRecord::Base
-  REGEX = /@\{([^;]+); ([^\}]+)\}/
-
   belongs_to :post
   belongs_to :person
   validates :post, :presence => true
