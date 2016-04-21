@@ -97,6 +97,7 @@ Contributions are very welcome, the hard work is done!
 * Redesign stream pages [#6535](https://github.com/diaspora/diaspora/pull/6535)
 * Improve search and mentions suggestions [#6788](https://github.com/diaspora/diaspora/pull/6788)
 * Redesign back to top button [#6782](https://github.com/diaspora/diaspora/pull/6782)
+* Adjusted Facebook integration for a successful review [#6778](https://github.com/diaspora/diaspora/pull/6778)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
