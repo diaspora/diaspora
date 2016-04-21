@@ -58,8 +58,8 @@ Diaspora::Application.routes.draw do
   get "aspects" => "streams#aspects", :as => "aspects_stream"
 
   resources :aspects do
-    put :toggle_contact_visibility
-    put :toggle_chat_privilege
+    patch :toggle_contact_visibility
+    patch :toggle_chat_privilege
     collection do
       put "order" => :update_order
     end
