@@ -98,6 +98,7 @@ Contributions are very welcome, the hard work is done!
 * Improve search and mentions suggestions [#6788](https://github.com/diaspora/diaspora/pull/6788)
 * Redesign back to top button [#6782](https://github.com/diaspora/diaspora/pull/6782)
 * Adjusted Facebook integration for a successful review [#6778](https://github.com/diaspora/diaspora/pull/6778)
+* Redirect to the sign-in page instead of the stream on account deletion [#6784](https://github.com/diaspora/diaspora/pull/6784)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

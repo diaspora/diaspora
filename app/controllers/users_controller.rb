@@ -95,7 +95,7 @@ class UsersController < ApplicationController
     if params[:user] && params[:user][:current_password] && current_user.valid_password?(params[:user][:current_password])
       current_user.close_account!
       sign_out current_user
-      redirect_to(stream_path, :notice => I18n.t('users.destroy.success'))
+      redirect_to(new_user_session_path(format: request[:format]), notice: I18n.t("users.destroy.success"))
     else
       if params[:user].present? && params[:user][:current_password].present?
         flash[:error] = t 'users.destroy.wrong_password'
