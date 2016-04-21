@@ -117,6 +117,7 @@ Contributions are very welcome, the hard work is done!
 * Fixed eye not stopping all processes when trying to exit `script/server` [#6693](https://github.com/diaspora/diaspora/pull/6693)
 * Do not change contacts count when marking notifications on the contacts page as read [#6718](https://github.com/diaspora/diaspora/pull/6718)
 * Fix typeahead for non-latin characters [#6741](https://github.com/diaspora/diaspora/pull/6741)
+* Fix upload size error on mobile [#6803](https://github.com/diaspora/diaspora/pull/6803)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
