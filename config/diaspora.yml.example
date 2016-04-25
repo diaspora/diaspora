@@ -200,6 +200,9 @@ configuration: ## Section
   chat: ## Section
 
     ## Enable the chat service and all its components.
+    ##
+    ## Please make sure that you followed the Installation-Instructions first:
+    ## https://wiki.diasporafoundation.org/Integration/Chat#Installation.2FUpdate
     #enabled: true
 
     ## Custom XMPP server configuration goes here.
@@ -217,8 +220,8 @@ configuration: ## Section
       ## The easiest way of avoiding certificate and mixed-content issues
       ## is to use a proxy, e.g.:
       ##
-      ## Apache: https://wiki.diasporafoundation.org/Vines#Apache2
-      ## Nginx: https://wiki.diasporafoundation.org/Vines#Nginx
+      ## Apache: https://wiki.diasporafoundation.org/Integration/Chat#Apache2
+      ## Nginx: https://wiki.diasporafoundation.org/Integration/Chat#Nginx
       ##
       ## If you configured your proxy correctly,
       ## you should set the proxy option to 'true'
