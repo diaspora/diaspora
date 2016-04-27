@@ -17,16 +17,16 @@ class PostsController < ApplicationController
   end
 
   def show
-    post = post_service.find!(params[:id])
-    post_service.mark_user_notifications(post.id)
+    @post = post_service.find!(params[:id])
+    post_service.mark_user_notifications(@post.id)
     respond_to do |format|
       format.html {
-        gon.post = PostPresenter.new(post, current_user)
-        render locals: {post: post}
+        gon.post = PostPresenter.new(@post, current_user)
+        render locals: {post: @post}
       }
-      format.mobile { render locals: {post: post} }
-      format.xml { render xml: post.to_diaspora_xml }
-      format.json { render json: PostPresenter.new(post, current_user) }
+      format.mobile { render locals: {post: @post} }
+      format.xml { render xml: @post.to_diaspora_xml }
+      format.json { render json: PostPresenter.new(@post, current_user) }
     end
   end
 

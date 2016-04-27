@@ -21,6 +21,11 @@ describe PostsController, type: :controller do
           expect(response).to be_success
         end
 
+        it "should instantiate post as global val for open_graph" do
+          get :show, id: post.id
+          expect(assigns(:post).id) == post.id
+        end
+
         it "succeeds after removing a mention when closing the mentioned user's account" do
           user = FactoryGirl.create(:user, username: "user")
           alice.share_with(user.person, alice.aspects.first)
