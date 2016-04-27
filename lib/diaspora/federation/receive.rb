@@ -21,6 +21,18 @@ module Diaspora
         end
       end
 
+      def self.contact(entity)
+        recipient = Person.find_by(diaspora_handle: entity.recipient).owner
+        contact = recipient.contacts.find_or_initialize_by(person_id: author_of(entity).id)
+
+        return if contact.sharing
+
+        contact.tap do |contact|
+          contact.sharing = true
+          contact.save!
+        end
+      end
+
       def self.conversation(entity)
         Conversation.new(
           author:              author_of(entity),

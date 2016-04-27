@@ -81,11 +81,9 @@ describe "Receive federation messages feature" do
     let(:recipient) { alice }
 
     it "treats sharing request recive correctly" do
-      skip("TODO: handle contacts") # TODO
+      entity = FactoryGirl.build(:request_entity, author: sender_id, recipient: alice.diaspora_handle)
 
-      entity = FactoryGirl.build(:request_entity, recipient: alice.diaspora_handle)
-
-      expect(Diaspora::Fetcher::Public).to receive(:queue_for).exactly(1).times
+      # TODO: expect(Diaspora::Fetcher::Public).to receive(:queue_for).exactly(1).times
 
       post_message(generate_xml(entity, sender, alice), alice)
 
@@ -94,13 +92,14 @@ describe "Receive federation messages feature" do
       expect(new_contact).not_to be_nil
       expect(new_contact.sharing).to eq(true)
 
-      expect(
-        Notifications::StartedSharing.exists?(
-          recipient_id: alice.id,
-          target_type:  "Person",
-          target_id:    sender.person.id
-        )
-      ).to be_truthy
+      # TODO: handle notifications
+      # expect(
+      #   Notifications::StartedSharing.exists?(
+      #     recipient_id: alice.id,
+      #     target_type:  "Person",
+      #     target_id:    sender.person.id
+      #   )
+      # ).to be_truthy
     end
 
     context "with sharing" do
