@@ -24,13 +24,13 @@ describe Publisher do
   end
 
   ["open", "public", "explain"].each do |property|
-    describe "##{property}?" do
+    describe "##{property}" do
       it 'defaults to closed' do
-        expect(@publisher.send("#{property}?".to_sym)).to be_falsey
+        expect(@publisher.send("#{property}".to_sym)).to be_falsey
       end
 
       it 'listens to the opts' do
-        expect(Publisher.new(alice, {property.to_sym => true}).send("#{property}?".to_sym)).to be true
+        expect(Publisher.new(alice, property.to_sym => true).send("#{property}".to_sym)).to be true
       end
     end
   end
