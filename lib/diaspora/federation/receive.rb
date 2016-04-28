@@ -40,8 +40,10 @@ module Diaspora
           subject:             entity.subject,
           created_at:          entity.created_at,
           participant_handles: entity.participants
-        ).tap(&:save!)
-        # TODO: nested messages
+        ).tap do |conversation|
+          conversation.messages = entity.messages.map {|message| build_message(message) }
+          conversation.save!
+        end
       end
 
       def self.like(entity)
@@ -57,13 +59,7 @@ module Diaspora
       end
 
       def self.message(entity)
-        Message.new(
-          author:            author_of(entity),
-          guid:              entity.guid,
-          text:              entity.text,
-          created_at:        entity.created_at,
-          conversation_guid: entity.conversation_guid
-        ).tap(&:save!)
+        build_message(entity).tap(&:save!)
       end
 
       def self.participation(entity)
@@ -77,18 +73,7 @@ module Diaspora
       end
 
       def self.photo(entity)
-        Photo.new(
-          author:              author_of(entity),
-          guid:                entity.guid,
-          text:                entity.text,
-          public:              entity.public,
-          created_at:          entity.created_at,
-          remote_photo_path:   entity.remote_photo_path,
-          remote_photo_name:   entity.remote_photo_name,
-          status_message_guid: entity.status_message_guid,
-          height:              entity.height,
-          width:               entity.width
-        ).tap(&:save!)
+        build_photo(entity).tap(&:save!)
       end
 
       def self.poll_participation(entity)
@@ -122,14 +107,66 @@ module Diaspora
           public:                entity.public,
           created_at:            entity.created_at,
           provider_display_name: entity.provider_display_name
-        ).tap(&:save!)
-        # TODO: nested entities
+        ).tap do |status_message|
+          status_message.photos = entity.photos.map {|photo| build_photo(photo) }
+          status_message.location = build_location(entity.location) if entity.location
+          status_message.poll = build_poll(entity.poll) if entity.poll
+
+          status_message.save!
+        end
       end
 
       private
 
       def self.author_of(entity)
         Person.find_by(diaspora_handle: entity.author)
+      end
+
+      def self.build_location(entity)
+        Location.new(
+          address: entity.address,
+          lat:     entity.lat,
+          lng:     entity.lng
+        )
+      end
+
+      def self.build_message(entity)
+        Message.new(
+          author:            author_of(entity),
+          guid:              entity.guid,
+          text:              entity.text,
+          created_at:        entity.created_at,
+          conversation_guid: entity.conversation_guid
+        )
+      end
+
+      def self.build_photo(entity)
+        Photo.new(
+          author:              author_of(entity),
+          guid:                entity.guid,
+          text:                entity.text,
+          public:              entity.public,
+          created_at:          entity.created_at,
+          remote_photo_path:   entity.remote_photo_path,
+          remote_photo_name:   entity.remote_photo_name,
+          status_message_guid: entity.status_message_guid,
+          height:              entity.height,
+          width:               entity.width
+        )
+      end
+
+      def self.build_poll(entity)
+        Poll.new(
+          guid:     entity.guid,
+          question: entity.question
+        ).tap do |poll|
+          poll.poll_answers = entity.poll_answers.map do |answer|
+            PollAnswer.new(
+              guid:   answer.guid,
+              answer: answer.answer
+            )
+          end
+        end
       end
     end
   end
