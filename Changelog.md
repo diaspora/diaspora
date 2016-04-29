@@ -8,6 +8,8 @@
 
 ## Features
 
+* The sender's diaspora-ID is now shown in invitation mails [#6817](https://github.com/diaspora/diaspora/pull/6817)
+
 # 0.5.8.0
 
 ## Refactor
