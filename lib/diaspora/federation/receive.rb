@@ -63,13 +63,15 @@ module Diaspora
       end
 
       def self.participation(entity)
+        parent = entity.parent_type.constantize.find_by(guid: entity.parent_guid)
+
+        return unless parent.author.local?
+
         Participation.new(
           author: author_of(entity),
           guid:   entity.guid,
           target: entity.parent_type.constantize.find_by(guid: entity.parent_guid)
-        ).tap do |participation|
-          participation.save! if participation.parent.author.local?
-        end
+        ).tap(&:save!)
       end
 
       def self.photo(entity)

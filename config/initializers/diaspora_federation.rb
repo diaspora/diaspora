@@ -94,33 +94,38 @@ DiasporaFederation.configure do |config|
       case entity
       when DiasporaFederation::Entities::AccountDeletion
         Diaspora::Federation::Receive.account_deletion(entity)
-      when DiasporaFederation::Entities::Comment
-        Diaspora::Federation::Receive.comment(entity)
-      when DiasporaFederation::Entities::Contact
-        Diaspora::Federation::Receive.contact(entity)
-        # TODO: post receive actions (auto-follow-back and fetch posts)
-      when DiasporaFederation::Entities::Conversation
-        Diaspora::Federation::Receive.conversation(entity)
-      when DiasporaFederation::Entities::Like
-        Diaspora::Federation::Receive.like(entity)
-      when DiasporaFederation::Entities::Message
-        Diaspora::Federation::Receive.message(entity)
-      when DiasporaFederation::Entities::Participation
-        Diaspora::Federation::Receive.participation(entity)
-      when DiasporaFederation::Entities::Photo
-        Diaspora::Federation::Receive.photo(entity)
-      when DiasporaFederation::Entities::PollParticipation
-        Diaspora::Federation::Receive.poll_participation(entity)
-      when DiasporaFederation::Entities::Profile
-        # TODO: update profile
-      when DiasporaFederation::Entities::Reshare
-        Diaspora::Federation::Receive.reshare(entity)
       when DiasporaFederation::Entities::Retraction
         # TODO
-      when DiasporaFederation::Entities::StatusMessage
-        Diaspora::Federation::Receive.status_message(entity)
       else
-        raise DiasporaFederation::Entity::UnknownEntity, "unknown entity: #{entity.class}"
+        persisted = case entity
+                    when DiasporaFederation::Entities::Comment
+                      Diaspora::Federation::Receive.comment(entity)
+                    when DiasporaFederation::Entities::Contact
+                      Diaspora::Federation::Receive.contact(entity)
+                      # TODO: post receive actions (auto-follow-back and fetch posts)
+                    when DiasporaFederation::Entities::Conversation
+                      Diaspora::Federation::Receive.conversation(entity)
+                    when DiasporaFederation::Entities::Like
+                      Diaspora::Federation::Receive.like(entity)
+                    when DiasporaFederation::Entities::Message
+                      Diaspora::Federation::Receive.message(entity)
+                    when DiasporaFederation::Entities::Participation
+                      Diaspora::Federation::Receive.participation(entity)
+                    when DiasporaFederation::Entities::Photo
+                      Diaspora::Federation::Receive.photo(entity)
+                    when DiasporaFederation::Entities::PollParticipation
+                      Diaspora::Federation::Receive.poll_participation(entity)
+                    when DiasporaFederation::Entities::Profile
+                      # TODO: update profile
+                    when DiasporaFederation::Entities::Reshare
+                      Diaspora::Federation::Receive.reshare(entity)
+                    when DiasporaFederation::Entities::StatusMessage
+                      Diaspora::Federation::Receive.status_message(entity)
+                    else
+                      raise DiasporaFederation::Entity::UnknownEntity, "unknown entity: #{entity.class}"
+                    end
+
+        Workers::ReceiveLocal.perform_async(persisted.class.to_s, persisted.id, [recipient_id].compact) if persisted
       end
     end
 
