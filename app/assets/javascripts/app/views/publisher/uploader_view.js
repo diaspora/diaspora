@@ -7,7 +7,7 @@
 app.views.PublisherUploader = Backbone.View.extend({
 
   allowedExtensions: ["jpg", "jpeg", "png", "gif", "tif", "tiff"],
-  sizeLimit: 4194304,  // bytes
+  sizeLimit: gon.appConfig.settings.max_upload_size,
 
   initialize: function(opts) {
     this.publisher = opts.publisher;

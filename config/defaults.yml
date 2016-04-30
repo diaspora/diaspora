@@ -108,6 +108,7 @@ defaults:
       enabled: false
       subject: 'Welcome Message'
       text: 'Hello %{username}, welcome to diaspora*.'
+    max_upload_size: 4194304
     invitations:
       open: true
       count: 25
