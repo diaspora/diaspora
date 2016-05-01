@@ -19,6 +19,7 @@ module Workers
            DiasporaFederation::Salmon::InvalidSignature,
            DiasporaFederation::Salmon::InvalidAlgorithm,
            DiasporaFederation::Salmon::InvalidEncoding,
+           Diaspora::Federation::AuthorIgnored,
            # TODO: deprecated
            DiasporaFederation::Salmon::MissingMagicEnvelope,
            DiasporaFederation::Salmon::MissingAuthor,
@@ -27,10 +28,7 @@ module Workers
       logger.warn "don't retry for error: #{e.class}"
     rescue ActiveRecord::RecordInvalid => e
       logger.warn "failed to save received object: #{e.record.errors.full_messages}"
-      raise e unless [
-        "already been taken",
-        "is ignored by the post author"
-      ].any? {|reason| e.message.include? reason }
+      raise e unless e.message.include? "already been taken"
     end
   end
 end

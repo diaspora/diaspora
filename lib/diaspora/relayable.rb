@@ -30,15 +30,12 @@ module Diaspora
     end
 
     def author_is_not_ignored
-      if self.new_record? && self.parent.present?
-        post_author = self.parent.author
-        relayable_author = self.author
-
-        if post_author.local? && post_author.owner.ignored_people.include?(relayable_author)
-          self.errors.add(:author_id, 'This person is ignored by the post author')
-          #post_author.owner.retract(self)
-        end
+      unless new_record? && parent.present? && parent.author.local? &&
+        parent.author.owner.ignored_people.include?(author)
+        return
       end
+
+      errors.add(:author_id, "This relayable author is ignored by the post author")
     end
 
     # @return [Boolean] true

@@ -15,10 +15,7 @@ module Diaspora
           created_at:  entity.created_at,
           text:        entity.text,
           commentable: Post.find_by(guid: entity.parent_guid)
-        ).tap do |comment|
-          comment.author_signature = entity.author_signature if comment.parent.author.local?
-          comment.save!
-        end
+        ).tap {|comment| save_relayable(comment, entity) }
       end
 
       def self.contact(entity)
@@ -52,10 +49,7 @@ module Diaspora
           guid:     entity.guid,
           positive: entity.positive,
           target:   entity.parent_type.constantize.find_by(guid: entity.parent_guid)
-        ).tap do |like|
-          like.author_signature = entity.author_signature if like.parent.author.local?
-          like.save!
-        end
+        ).tap {|like| save_relayable(like, entity) }
       end
 
       def self.message(entity)
@@ -85,8 +79,8 @@ module Diaspora
           poll:   Poll.find_by(guid: entity.parent_guid)
         ).tap do |poll_participation|
           poll_participation.poll_answer_guid = entity.poll_answer_guid
-          poll_participation.author_signature = entity.author_signature if poll_participation.parent.author.local?
-          poll_participation.save!
+
+          save_relayable(poll_participation, entity)
         end
       end
 
@@ -169,6 +163,22 @@ module Diaspora
             )
           end
         end
+      end
+
+      def self.save_relayable(relayable, entity)
+        retract_if_author_ignored(relayable)
+
+        relayable.author_signature = entity.author_signature if relayable.parent.author.local?
+        relayable.save!
+      end
+
+      def self.retract_if_author_ignored(relayable)
+        parent_author = relayable.parent.author
+        return unless parent_author.local? && parent_author.owner.ignored_people.include?(relayable.author)
+
+        # TODO: send retraction
+
+        raise Diaspora::Federation::AuthorIgnored
       end
     end
   end
