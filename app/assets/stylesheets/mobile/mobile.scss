@@ -325,10 +325,11 @@ footer {
 }
 
 .header-full-width {
-  margin: -10px -10px 0;
-  padding-top: 5px;
   background-color: #fff;
   border-bottom: 1px solid #aaa;
+  margin: -10px; // Counter the #main padding
+  margin-bottom: 10px;
+  padding-top: 5px;
 }
 
 #author_info {
