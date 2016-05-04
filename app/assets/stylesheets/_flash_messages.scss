@@ -17,7 +17,7 @@
     min-width: 500px;
     padding: 10px 12px;
     &.alert-danger { border: 1px solid darken($state-danger-bg, 10%); }
-    &.alert-succes { border: 1px solid darken($state-success-bg, 10%); }
+    &.alert-success { border: 1px solid darken($state-success-bg, 10%); }
     &.alert-warning { border: 1px solid darken($state-warning-bg, 10%); }
   }
 
