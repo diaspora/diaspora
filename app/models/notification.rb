@@ -3,15 +3,15 @@
 #   the COPYRIGHT file.
 #
 class Notification < ActiveRecord::Base
-  belongs_to :recipient, :class_name => 'User'
-  has_many :notification_actors, :dependent => :destroy
-  has_many :actors, :class_name => 'Person', :through => :notification_actors, :source => :person
-  belongs_to :target, :polymorphic => true
+  belongs_to :recipient, class_name: "User"
+  has_many :notification_actors, dependent: :destroy
+  has_many :actors, class_name: "Person", through: :notification_actors, source: :person
+  belongs_to :target, polymorphic: true
 
   attr_accessor :note_html
 
   def self.for(recipient, opts={})
-    self.where(opts.merge!(:recipient_id => recipient.id)).order('updated_at desc')
+    where(opts.merge!(recipient_id: recipient.id)).order("updated_at DESC")
   end
 
   def self.notify(recipient, target, actor)
@@ -33,11 +33,11 @@ class Notification < ActiveRecord::Base
   end
 
   def as_json(opts={})
-    super(opts.merge(:methods => :note_html))
+    super(opts.merge(methods: :note_html))
   end
 
   def email_the_user(target, actor)
-    self.recipient.mail(self.mail_job, self.recipient_id, actor.id, target.id)
+    recipient.mail(mail_job, recipient_id, actor.id, target.id)
   end
 
   def set_read_state( read_state )
@@ -45,14 +45,13 @@ class Notification < ActiveRecord::Base
   end
 
   def mail_job
-    raise NotImplementedError.new('Subclass this.')
+    raise NotImplementedError.new("Subclass this.")
   end
 
-  def effective_target
-    self.popup_translation_key == "notifications.mentioned" ? self.target.post : self.target
+  def linked_object
+    target
   end
 
-private
   def self.concatenate_or_create(recipient, target, actor, notification_type)
     return nil if suppress_notification?(recipient, target)
 
@@ -76,7 +75,6 @@ private
     end
   end
 
-
   def self.make_notification(recipient, target, actor, notification_type)
     return nil if suppress_notification?(recipient, target)
     n = notification_type.new(:target => target,
@@ -87,9 +85,28 @@ private
     n
   end
 
+  def self.concatenate_or_create(recipient, target, actor)
+    return nil if suppress_notification?(recipient, target)
+
+    find_or_initialize_by(recipient: recipient, target: target, unread: true).tap do |notification|
+      notification.actors |= [actor]
+      # Explicitly touch the notification to update updated_at whenever new actor is inserted in notification.
+      if notification.new_record? || notification.changed?
+        notification.save!
+      else
+        notification.touch
+      end
+    end
+  end
+
+  def self.create_notification(recipient_id, target, actor)
+    create(recipient_id: recipient_id, target: target, actors: [actor])
+  end
+
   def self.suppress_notification?(recipient, post)
     post.is_a?(Post) && recipient.is_shareable_hidden?(post)
   end
+  private_class_method :suppress_notification?
 
   def self.types
     {

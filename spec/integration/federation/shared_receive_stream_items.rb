@@ -26,8 +26,6 @@ shared_examples_for "messages which are indifferent about sharing fact" do
 
     describe "notifications are sent where required" do
       it "for comment on local post" do
-        skip("TODO: handle notifications") # TODO
-
         entity = create_relayable_entity(:comment_entity, local_parent, remote_user_on_pod_b.diaspora_handle)
         post_message(generate_xml(entity, sender, recipient), recipient)
 
@@ -41,8 +39,6 @@ shared_examples_for "messages which are indifferent about sharing fact" do
       end
 
       it "for like on local post" do
-        skip("TODO: handle notifications") # TODO
-
         entity = create_relayable_entity(:like_entity, local_parent, remote_user_on_pod_b.diaspora_handle)
         post_message(generate_xml(entity, sender, recipient), recipient)
 
@@ -134,8 +130,6 @@ shared_examples_for "messages which can't be send without sharing" do
     # this one shouldn't depend on the sharing fact. this must be fixed
     describe "notifications are sent where required" do
       it "for comment on remote post where we participate" do
-        skip("TODO: handle notifications") # TODO
-
         alice.participate!(remote_parent)
         author_id = remote_user_on_pod_c.diaspora_handle
         entity = create_relayable_entity(:comment_entity, remote_parent, author_id)

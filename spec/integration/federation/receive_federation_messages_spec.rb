@@ -92,14 +92,13 @@ describe "Receive federation messages feature" do
       expect(new_contact).not_to be_nil
       expect(new_contact.sharing).to eq(true)
 
-      # TODO: handle notifications
-      # expect(
-      #   Notifications::StartedSharing.exists?(
-      #     recipient_id: alice.id,
-      #     target_type:  "Person",
-      #     target_id:    sender.person.id
-      #   )
-      # ).to be_truthy
+      expect(
+        Notifications::StartedSharing.exists?(
+          recipient_id: alice.id,
+          target_type:  "Person",
+          target_id:    sender.person.id
+        )
+      ).to be_truthy
     end
 
     context "with sharing" do
