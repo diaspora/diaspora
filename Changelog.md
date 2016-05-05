@@ -145,6 +145,7 @@ Contributions are very welcome, the hard work is done!
 # 0.5.9.0
 
 ## Refactor
+* Remove unused mentions regex [#6810](https://github.com/diaspora/diaspora/pull/6810)
 
 ## Bug fixes
 * Fix back to top button not appearing on Webkit browsers [#6782](https://github.com/diaspora/diaspora/pull/6782)
