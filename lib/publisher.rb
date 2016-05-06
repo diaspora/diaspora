@@ -10,26 +10,10 @@ class Publisher
   end
 
   def text
-    formatted_message
-  end
-
-  def open?
-    self.open
-  end
-
-  def public?
-    self.public
-  end
-
-  def explain?
-    self.explain
-  end
-
-  private
-  def formatted_message
-    if self.prefill.present?
-      sm = StatusMessage.new(:text => self.prefill)
-      Diaspora::Mentionable.format(sm.raw_message, sm.mentioned_people, plain_text: true)
-    end
+    return unless prefill.present?
+    Diaspora::MessageRenderer.new(
+      prefill,
+      mentioned_people: Diaspora::Mentionable.people_from_string(prefill)
+    ).plain_text
   end
 end
