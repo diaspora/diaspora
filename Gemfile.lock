@@ -343,6 +343,7 @@ GEM
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
+    get_process_mem (0.2.0)
     gherkin (3.2.0)
     gitlab (3.4.0)
       httparty
@@ -849,6 +850,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    unicorn-worker-killer (0.4.4)
+      get_process_mem (~> 0)
+      unicorn (>= 4, < 6)
     url_safe_base64 (0.2.2)
     uuid (2.3.8)
       macaddr (~> 1.0)
@@ -1021,6 +1025,7 @@ DEPENDENCIES
   typhoeus (= 1.0.1)
   uglifier (= 2.7.2)
   unicorn (= 5.0.1)
+  unicorn-worker-killer (= 0.4.4)
   uuid (= 2.3.8)
   versionist (= 1.4.1)
   webmock (= 1.22.6)

@@ -107,6 +107,7 @@ before.
 * Redesign back to top button [#6782](https://github.com/diaspora/diaspora/pull/6782)
 * Adjusted Facebook integration for a successful review [#6778](https://github.com/diaspora/diaspora/pull/6778)
 * Redirect to the sign-in page instead of the stream on account deletion [#6784](https://github.com/diaspora/diaspora/pull/6784)
+* Removed own unicorn killer by a maintained third-party gem [#6792](https://github.com/diaspora/diaspora/pull/6792)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
