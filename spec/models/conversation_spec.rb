@@ -124,10 +124,6 @@ describe Conversation, :type => :model do
       it "does not save before receive" do
         expect(Diaspora::Parser.from_xml(xml).persisted?).to be false
       end
-      it "notifies for the message" do
-        expect(Notification).to receive(:notify).once
-        Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
-      end
     end
   end
 

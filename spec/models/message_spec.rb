@@ -24,16 +24,6 @@ describe Message, :type => :model do
     expect(message).not_to be_valid
   end
 
-  describe '#notification_type' do
-    it 'does not return anything for the author' do
-      expect(@message.notification_type(bob, bob.person)).to be_nil
-    end
-
-    it 'returns private mesage for an actual receiver' do
-      expect(@message.notification_type(alice, bob.person)).to eq(Notifications::PrivateMessage)
-    end
-  end
-
   describe '#before_create' do
     it 'signs the message' do
       expect(@message.author_signature).not_to be_blank

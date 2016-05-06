@@ -69,10 +69,6 @@ class Reshare < Post
     I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author_name)
   end
 
-  def notification_type(user, person)
-    Notifications::Reshared if root.try(:author) == user.person
-  end
-
   def absolute_root
     @absolute_root ||= self
     @absolute_root = @absolute_root.root while @absolute_root.is_a? Reshare

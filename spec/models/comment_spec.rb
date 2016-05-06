@@ -24,37 +24,6 @@ describe Comment, :type => :model do
     end
   end
 
-  describe "comment#notification_type" do
-    it "returns 'comment_on_post' if the comment is on a post you own" do
-      expect(comment_alice.notification_type(bob, alice.person)).to eq(Notifications::CommentOnPost)
-    end
-
-    it "returns 'also_commented' if the comment is on a post you participate to" do
-      eve.participate! status_bob
-      expect(comment_alice.notification_type(eve, alice.person)).to eq(Notifications::AlsoCommented)
-    end
-
-    it "returns false if the comment is not on a post you own and no one 'also_commented'" do
-      expect(comment_alice.notification_type(eve, alice.person)).to be false
-    end
-
-    context "also commented" do
-      let(:comment_eve) { eve.comment!(status_bob, "I also commented on the first user's post") }
-
-      before do
-        comment_alice
-      end
-
-      it "does not return also commented if the user commented" do
-        expect(comment_eve.notification_type(eve, alice.person)).to eq(false)
-      end
-
-      it "returns 'also_commented' if another person commented on a post you commented on" do
-        expect(comment_eve.notification_type(alice, alice.person)).to eq(Notifications::AlsoCommented)
-      end
-    end
-  end
-
   describe "User#comment" do
     it "should be able to comment on one's own status" do
       bob.comment!(status_bob, "sup dog")

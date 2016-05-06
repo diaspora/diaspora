@@ -61,16 +61,6 @@ class Comment < ActiveRecord::Base
     self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
-  def notification_type(user, person)
-    if self.post.author == user.person
-      return Notifications::CommentOnPost
-    elsif user.participations.where(:target_id => self.post).exists? && self.author_id != user.person.id
-      return Notifications::AlsoCommented
-    else
-      return false
-    end
-  end
-
   def parent_class
     Post
   end

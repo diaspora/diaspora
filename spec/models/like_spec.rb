@@ -31,24 +31,6 @@ describe Like, :type => :model do
     end
   end
 
-  describe '#notification_type' do
-    before do
-      @like = alice.like!(@status)
-    end
-
-    it 'should be notifications liked if you are the post owner' do
-      expect(@like.notification_type(bob, alice.person)).to be Notifications::Liked
-    end
-
-    it 'should not notify you if you are the like-r' do
-      expect(@like.notification_type(alice, alice.person)).to be_nil
-    end
-
-    it 'should not notify you if you did not create the post' do
-      expect(@like.notification_type(eve, alice.person)).to be_nil
-    end
-  end
-
   describe 'counter cache' do
     it 'increments the counter cache on its post' do
       expect {

@@ -14,24 +14,6 @@ class Notification < ActiveRecord::Base
     where(opts.merge!(recipient_id: recipient.id)).order("updated_at DESC")
   end
 
-  def self.notify(recipient, target, actor)
-    return nil unless target.respond_to?(:notification_type) && recipient.person != actor
-
-    note_type = target.notification_type(recipient, actor)
-    return nil unless note_type
-
-    return_note = if [Comment, Like, Reshare].any? { |klass| target.is_a?(klass) }
-      s_target = target.is_a?(Reshare) ? target.root : target.parent
-      note_type.concatenate_or_create(recipient, s_target,
-                                          actor, note_type)
-    else
-      note_type.make_notification(recipient, target,
-                                      actor, note_type)
-    end
-    return_note.email_the_user(target, actor) if return_note
-    return_note
-  end
-
   def as_json(opts={})
     super(opts.merge(methods: :note_html))
   end
@@ -50,39 +32,6 @@ class Notification < ActiveRecord::Base
 
   def linked_object
     target
-  end
-
-  def self.concatenate_or_create(recipient, target, actor, notification_type)
-    return nil if suppress_notification?(recipient, target)
-
-    if n = notification_type.where(:target_id => target.id,
-                                   :target_type => target.class.base_class,
-                                   :recipient_id => recipient.id,
-                                   :unread => true).first
-
-      begin
-        n.actors = n.actors | [actor]
-        n.unread = true
-        # Explicitly touch the notification to update updated_at whenever new actor is inserted in notification.
-        n.touch
-        n.save!
-      rescue ActiveRecord::RecordNotUnique
-        nil
-      end
-      n
-    else
-      make_notification(recipient, target, actor, notification_type)
-    end
-  end
-
-  def self.make_notification(recipient, target, actor, notification_type)
-    return nil if suppress_notification?(recipient, target)
-    n = notification_type.new(:target => target,
-                              :recipient_id => recipient.id)
-    n.actors = n.actors | [actor]
-    n.unread = false if target.is_a? Request
-    n.save!
-    n
   end
 
   def self.concatenate_or_create(recipient, target, actor)

@@ -52,47 +52,6 @@ describe 'a user receives a post', :type => :request do
     expect(alice.visible_shareables(Post).count(:all)).to eq(1)
   end
 
-  context 'with mentions, ' do
-    it 'adds the notifications for the mentioned users regardless of the order they are received' do
-      expect(Notification).to receive(:notify).with(alice, anything(), bob.person)
-      expect(Notification).to receive(:notify).with(eve, anything(), bob.person)
-
-      @sm = bob.build_post(:status_message, :text => "@{#{alice.name}; #{alice.diaspora_handle}} stuff @{#{eve.name}; #{eve.diaspora_handle}}")
-      bob.add_to_streams(@sm, [bob.aspects.first])
-      @sm.save
-
-      zord = Postzord::Receiver::Private.new(alice, :object => @sm, :person => bob.person)
-      zord.receive_object
-
-      zord = Postzord::Receiver::Private.new(eve, :object => @sm, :person => bob.person)
-      zord.receive_object
-    end
-
-    it 'notifies local users who are mentioned' do
-      @remote_person = FactoryGirl.create(:person, :diaspora_handle => "foobar@foobar.com")
-      Contact.create!(:user => alice, :person => @remote_person, :aspects => [@alices_aspect])
-
-      expect(Notification).to receive(:notify).with(alice, anything(), @remote_person)
-
-      @sm = FactoryGirl.create(:status_message, :text => "hello @{#{alice.name}; #{alice.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :author => @remote_person)
-      @sm.save
-
-      zord = Postzord::Receiver::Private.new(alice, :object => @sm, :person => bob.person)
-      zord.receive_object
-    end
-
-    it 'does not notify the mentioned user if the mentioned user is not friends with the post author' do
-      expect(Notification).not_to receive(:notify).with(alice, anything(), eve.person)
-
-      @sm = eve.build_post(:status_message, :text => "should not notify @{#{alice.name}; #{alice.diaspora_handle}}")
-      eve.add_to_streams(@sm, [eve.aspects.first])
-      @sm.save
-
-      zord = Postzord::Receiver::Private.new(alice, :object => @sm, :person => bob.person)
-      zord.receive_object
-    end
-  end
-
   context 'update posts' do
     it 'does not update posts not marked as mutable' do
       status = alice.post :status_message, :text => "store this!", :to => @alices_aspect.id

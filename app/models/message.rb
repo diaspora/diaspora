@@ -62,10 +62,6 @@ class Message < ActiveRecord::Base
     end
   end
 
-  def notification_type(user, person)
-    Notifications::PrivateMessage unless user.person == person
-  end
-
   def message
     @message ||= Diaspora::MessageRenderer.new text
   end

@@ -49,9 +49,6 @@ class Postzord::Receiver::Public < Postzord::Receiver
       logger.warn "event=receive status=abort reason='object signature not valid' "
       return
     end
-    # notify everyone who can see the parent object
-    receiver = Postzord::Receiver::LocalBatch.new(@object, self.recipient_user_ids)
-    receiver.notify_users
   end
 
   # @return [void]

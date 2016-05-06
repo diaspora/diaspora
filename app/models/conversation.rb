@@ -99,8 +99,7 @@ class Conversation < ActiveRecord::Base
 
     self.messages.each do |msg|
       msg.conversation_id = cnv.id
-      received_msg = msg.receive(user, person)
-      Notification.notify(user, received_msg, person) if msg.respond_to?(:notification_type)
+      msg.receive(user, person)
     end
   end
 end

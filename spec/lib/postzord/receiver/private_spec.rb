@@ -67,20 +67,6 @@ describe Postzord::Receiver::Private do
       @salmon = @zord.instance_variable_get(:@salmon)
     end
 
-    it 'calls Notification.notify if object responds to notification_type' do
-      cm = Comment.new
-      allow(cm).to receive(:receive).and_return(cm)
-
-      expect(Notification).to receive(:notify).with(bob, cm, alice.person)
-      zord = Postzord::Receiver::Private.new(bob, :person => alice.person, :object => cm)
-      zord.receive_object
-    end
-
-    it 'does not call Notification.notify if object does not respond to notification_type' do
-      expect(Notification).not_to receive(:notify)
-      @zord.receive_object
-    end
-
     it 'calls receive on @object' do
       obj = expect(@zord.instance_variable_get(:@object)).to receive(:receive)
       @zord.receive_object

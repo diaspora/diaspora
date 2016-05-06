@@ -196,13 +196,6 @@ describe StatusMessage, type: :model do
       end
     end
 
-    describe "#notify_person" do
-      it "notifies the person mentioned" do
-        expect(Notification).to receive(:notify).with(alice, anything, anything)
-        status_message.notify_person(alice.person)
-      end
-    end
-
     describe "#filter_mentions" do
       it "calls Diaspora::Mentionable#filter_for_aspects" do
         msg = FactoryGirl.build(:status_message_in_aspect)

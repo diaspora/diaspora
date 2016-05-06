@@ -89,26 +89,6 @@ describe Reshare, type: :model do
     end
   end
 
-  describe "#notification_type" do
-    let(:status_message) { build(:status_message, author: alice.person, public: true) }
-    let(:reshare) { build(:reshare, root: status_message) }
-
-    it "does not return anything for non-author of the original post" do
-      expect(reshare.notification_type(bob, reshare.author)).to be_nil
-    end
-
-    it "returns 'Reshared' for the original post author" do
-      expect(reshare.notification_type(alice, reshare.author)).to eq(Notifications::Reshared)
-    end
-
-    it "does not error out if the root was deleted" do
-      reshare.root = nil
-      expect {
-        reshare.notification_type(alice, reshare.author)
-      }.to_not raise_error
-    end
-  end
-
   describe "#absolute_root" do
     before do
       @status_message = FactoryGirl.build(:status_message, author: alice.person, public: true)

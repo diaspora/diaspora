@@ -112,16 +112,6 @@ describe Postzord::Receiver::Public do
       expect(comment).to receive(:receive)
       @receiver.receive_relayable
     end
-
-    it 'calls notifiy_users' do
-      comment = double.as_null_object
-      @receiver.instance_variable_set(:@object, comment)
-
-      local_batch_receiver = double.as_null_object
-      allow(Postzord::Receiver::LocalBatch).to receive(:new).and_return(local_batch_receiver)
-      expect(local_batch_receiver).to receive(:notify_users)
-      @receiver.receive_relayable
-    end
   end
 
   describe "#parse_and_receive" do
