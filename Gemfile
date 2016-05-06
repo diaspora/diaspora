@@ -155,7 +155,7 @@ gem "openid_connect", "0.10.0"
 gem "active_model_serializers", "0.9.4"
 
 # XMPP chat dependencies
-gem "diaspora-vines",             "~> 0.2.0.develop"
+gem "diaspora-prosody-config",    "~> 0.0.4"
 gem "rails-assets-diaspora_jsxc", "~> 0.1.5.develop", source: "https://rails-assets.org"
 
 # Tags

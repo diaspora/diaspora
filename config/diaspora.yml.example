@@ -194,102 +194,37 @@ configuration: ## Section
     ## increase environment.sidekiq.concurrency instead!
     #sidekiq_workers: 1
 
-  ## Diaspora has an internal XMPP server. If you want to enable the chat
+  ## Diaspora has an internal XMPP web-client. If you want to enable the chat
   ## functionality or want to use a custom XMPP server, then you should edit
   ## the following configuration.
-  ##
-  ## The internal XMPP server does not support https
-  ## and even if we implement it, we would ran into certificate issues.
-  ## The problem with mixed-content is described here:
-  ## https://wiki.diasporafoundation.org/Vines#Browser_blocks_mixed-content
-  ##
-  ## The easiest way of avoiding certificate and mixed-content issues
-  ## is to use a proxy, e.g.:
-  ##
-  ## Apache: https://wiki.diasporafoundation.org/Vines#Apache2
-  ## Nginx: https://wiki.diasporafoundation.org/Vines#Nginx
-  ##
-  ## If you configured your proxy correctly, you should adjust
-  ## the configuration in the BOSH section.
   chat: ## Section
 
     ## Enable the chat service and all its components.
+    ##
+    ## Please make sure that you followed the Installation-Instructions first:
+    ## https://wiki.diasporafoundation.org/Integration/Chat#Installation.2FUpdate
     #enabled: true
 
     ## Custom XMPP server configuration goes here.
     server: ## Section
 
-      ## Start built-in XMPP server (default=true).
-      ## In case you want to run your own server, you should disable it.
+      ## Use the configuration bridge to prosody (default=true).
+      ## In case you want to run your own server or want to configure
+      ## prosody on your own, you should disable it.
       #enabled: false
 
       ## Set the directory in which to look for virtual hosts TLS certificates.
-      ## Check documentation on how to generate or configure your existing
-      ## certficates correctly:
-      ##
-      ## https://wiki.diasporafoundation.org/Vines#Certificates
-      #certs: 'config/vines'
-
-      ## The server accepts by default only valid certificates.
-      ## Any connection which uses self-signed ones will be closed.
-      ## If you'd like to accept self-signed certificates
-      ## on your server, set the next option to true.
-      #accept_self_signed: true
-
-      ## Only edit the next option if you'd like to deny
-      ## your users to exchange messages between other XMPP servers.
-      #cross_domain_messages: false
-
-      ## Set the maximum of offline messages stored per user (default=150).
-      ## If it exceeds, it will start deleting old messages. You can disable
-      ## offline message support completely by setting the option to zero.
-      #max_offline_msgs: 150
-
-      ## Client to server
-      c2s: ## Section
-
-        ## Configure the address that vines should listen on.
-        #address: '0.0.0.0'
-
-        ## Configure the client-to-server port.
-        ## If your server is behind a router or firewall
-        ## check documentation on how to forward ports:
-        ##
-        ## https://wiki.diasporafoundation.org/Vines#Firewall_Ports
-        #port: 5222
-
-        ## The maximum we'd like to allow for stanza size.
-        #max_stanza_size: 65536
-
-        ## The max_resources_per_account attribute, limits how many
-        ## concurrent connections one user can have to the server.
-        #max_resources_per_account: 5
-
-      ## Server to server
-      s2s: ## Section
-
-        ## Configure the address that vines should listen on.
-        #address: '0.0.0.0'
-
-        ## Configure the server-to-server port.
-        ## If your server is behind a router or firewall
-        ## check documentation on how to forward ports:
-        ##
-        ## https://wiki.diasporafoundation.org/Vines#Firewall_Ports
-        #port: 5269
-
-        ## The max_stanza_size attribute should be
-        ## much larger than the setting for client-to-server.
-        #max_stanza_size: 131072
-
-        ## By default every XMPP server with a valid certificate
-        ## is able to communicate with your server. In case of a
-        ## malicious server (e.g. spam reason), you can black-list them.
-        #blacklist:
-        #  - 'example.com'
-        #  - 'malicous.net'
+      #certs: 'config/certs'
 
       ## XEP-0124 BOSH requests
+      ## The easiest way of avoiding certificate and mixed-content issues
+      ## is to use a proxy, e.g.:
+      ##
+      ## Apache: https://wiki.diasporafoundation.org/Integration/Chat#Apache2
+      ## Nginx: https://wiki.diasporafoundation.org/Integration/Chat#Nginx
+      ##
+      ## If you configured your proxy correctly,
+      ## you should set the proxy option to 'true'
       bosh: ## Section
 
         ## If you'd like to use a proxy, you should set the proxy
@@ -306,22 +241,17 @@ configuration: ## Section
         ## Configure the bind endpoint.
         #bind: '/http-bind'
 
-        ## The maximum we'd like to allow for stanza size.
-        #max_stanza_size: 65536
-
-        ## The max_resources_per_account attribute, limits how many
-        ## concurrent connections one user can have to the server.
-        #max_resources_per_account: 5
-
       ## Specify log behaviour here.
       log: ## Section
 
         ## Log file location.
-        #file: 'log/vines.log'
+        #info: 'log/prosody.log'
 
-        ## Set the logging level to debug, info, warn, error, or fatal.
+        ## Error log file location.
+        #error: 'log/prosody.err'
+
         ## The debug level logs all XML sent and received by the server.
-        #level: 'info'
+        #debug: false
 
   ## Displays the location of a post in a map. Per default we are using the map
   ## tiles of the Heidelberg University (http://giscience.uni-hd.de).

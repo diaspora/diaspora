@@ -51,6 +51,14 @@ We will also most likely still change the authorization scopes we offer and star
 Most work still required is on documentation as well as designing and implementing the data API for all of Diaspora's functionality.
 Contributions are very welcome, the hard work is done!
 
+## Vines got replaced by Prosody
+
+Due to many issues with Vines, we decided to remove Vines and offer a Prosody
+example configuration instead. [Check the
+wiki](https://wiki.diasporafoundation.org/Integration/Chat#Vines_to_Prosody)
+for more information on how to migrate to Prosody if you've been using Vines
+before.
+
 ## Refactor
 * Improve bookmarklet [#5904](https://github.com/diaspora/diaspora/pull/5904)
 * Update listen configuration to listen on unix sockets by default [#5974](https://github.com/diaspora/diaspora/pull/5974)
