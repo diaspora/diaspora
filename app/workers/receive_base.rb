@@ -20,15 +20,13 @@ module Workers
            DiasporaFederation::Salmon::InvalidAlgorithm,
            DiasporaFederation::Salmon::InvalidEncoding,
            Diaspora::Federation::AuthorIgnored,
+           Diaspora::Federation::InvalidAuthor,
            # TODO: deprecated
            DiasporaFederation::Salmon::MissingMagicEnvelope,
            DiasporaFederation::Salmon::MissingAuthor,
            DiasporaFederation::Salmon::MissingHeader,
            DiasporaFederation::Salmon::InvalidHeader => e
       logger.warn "don't retry for error: #{e.class}"
-    rescue ActiveRecord::RecordInvalid => e
-      logger.warn "failed to save received object: #{e.record.errors.full_messages}"
-      raise e unless e.message.include? "already been taken"
     end
   end
 end

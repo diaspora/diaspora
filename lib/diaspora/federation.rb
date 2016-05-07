@@ -8,6 +8,10 @@ module Diaspora
     # Raised, if author is ignored by the relayable parent author
     class AuthorIgnored < RuntimeError
     end
+
+    # Raised, if the author of the existing object doesn't match the received author
+    class InvalidAuthor < RuntimeError
+    end
   end
 end
 
