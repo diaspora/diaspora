@@ -62,7 +62,7 @@ module Diaspora
 
       def self.profile(profile)
         DiasporaFederation::Entities::Profile.new(
-          diaspora_id:      profile.diaspora_handle,
+          author:           profile.diaspora_handle,
           first_name:       profile.first_name,
           last_name:        profile.last_name,
           image_url:        profile.image_url,

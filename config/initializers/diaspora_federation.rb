@@ -116,7 +116,7 @@ DiasporaFederation.configure do |config|
                     when DiasporaFederation::Entities::PollParticipation
                       Diaspora::Federation::Receive.poll_participation(entity)
                     when DiasporaFederation::Entities::Profile
-                      # TODO: update profile
+                      Diaspora::Federation::Receive.profile(entity)
                     when DiasporaFederation::Entities::Reshare
                       Diaspora::Federation::Receive.reshare(entity)
                     when DiasporaFederation::Entities::StatusMessage

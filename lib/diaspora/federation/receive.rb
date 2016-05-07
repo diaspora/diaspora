@@ -84,6 +84,25 @@ module Diaspora
         end
       end
 
+      def self.profile(entity)
+        author_of(entity).profile.tap do |profile|
+          profile.update_attributes(
+            first_name:       entity.first_name,
+            last_name:        entity.last_name,
+            image_url:        entity.image_url,
+            image_url_medium: entity.image_url_medium,
+            image_url_small:  entity.image_url_small,
+            birthday:         entity.birthday,
+            gender:           entity.gender,
+            bio:              entity.bio,
+            location:         entity.location,
+            searchable:       entity.searchable,
+            nsfw:             entity.nsfw,
+            tag_string:       entity.tag_string
+          )
+        end
+      end
+
       def self.reshare(entity)
         Reshare.new(
           author:                author_of(entity),

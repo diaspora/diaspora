@@ -112,12 +112,13 @@ describe "Receive federation messages feature" do
       it_behaves_like "messages which can't be send without sharing"
 
       it "treats profile receive correctly" do
-        skip("TODO: handle profile update") # TODO
-
         entity = FactoryGirl.build(:profile_entity, author: sender_id)
         post_message(generate_xml(entity, sender, alice), alice)
 
-        expect(Profile.exists?(diaspora_handle: entity.diaspora_id)).to be_truthy
+        received_profile = sender.profile.reload
+
+        expect(received_profile.first_name).to eq(entity.first_name)
+        expect(received_profile.bio).to eq(entity.bio)
       end
 
       it "receives conversation correctly" do
