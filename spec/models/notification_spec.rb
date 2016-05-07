@@ -41,15 +41,17 @@ describe Notification, :type => :model do
   describe 'set_read_state method' do
     it "should set an unread notification to read" do
       @note.unread = true
+      @note.save
       @note.set_read_state( true )
       expect(@note.unread).to eq(false)
     end
+
     it "should set an read notification to unread" do
       @note.unread = false
+      @note.save
       @note.set_read_state( false )
       expect(@note.unread).to eq(true)
     end
-
   end
 
 

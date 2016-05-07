@@ -31,6 +31,19 @@ describe NotificationsController, :type => :controller do
       get :update, "id" => note.id, :set_unread => "true", :format => :json
     end
 
+    it "marks a notification as unread without timestamping" do
+      note = Timecop.travel(1.hour.ago) do
+        FactoryGirl.create(:notification, recipient: alice, unread: false)
+      end
+
+      get :update, "id" => note.id, :set_unread => "true", :format => :json
+      expect(response).to be_success
+
+      updated_note = Notification.find(note.id)
+      expect(updated_note.unread).to eq(true)
+      expect(updated_note.updated_at.iso8601).to eq(note.updated_at.iso8601)
+    end
+
     it 'only lets you read your own notifications' do
       user2 = bob
 

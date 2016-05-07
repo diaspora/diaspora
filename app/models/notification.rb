@@ -9,7 +9,7 @@ class Notification < ActiveRecord::Base
   belongs_to :target, :polymorphic => true
 
   attr_accessor :note_html
- 
+
   def self.for(recipient, opts={})
     self.where(opts.merge!(:recipient_id => recipient.id)).order('updated_at desc')
   end
@@ -29,7 +29,7 @@ class Notification < ActiveRecord::Base
                                       actor, note_type)
     end
     return_note.email_the_user(target, actor) if return_note
-    return_note 
+    return_note
   end
 
   def as_json(opts={})
@@ -41,7 +41,7 @@ class Notification < ActiveRecord::Base
   end
 
   def set_read_state( read_state )
-    self.update_attributes( :unread => !read_state )
+    update_column(:unread, !read_state)
   end
 
   def mail_job

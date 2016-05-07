@@ -158,6 +158,7 @@ before.
 
 ## Bug fixes
 * Fix back to top button not appearing on Webkit browsers [#6782](https://github.com/diaspora/diaspora/pull/6782)
+* Don't reset the notification timestamp when marking them as read [#6821](https://github.com/diaspora/diaspora/pull/6821)
 
 ## Features
 
