@@ -82,7 +82,25 @@ module Diaspora
       end
 
       def self.photo(entity)
-        build_photo(entity).tap(&:save!)
+        author = author_of(entity)
+        persisted_photo = load_from_database(Photo, entity.guid, author)
+
+        if persisted_photo
+          persisted_photo.tap do |photo|
+            photo.update_attributes(
+              text:                entity.text,
+              public:              entity.public,
+              created_at:          entity.created_at,
+              remote_photo_path:   entity.remote_photo_path,
+              remote_photo_name:   entity.remote_photo_name,
+              status_message_guid: entity.status_message_guid,
+              height:              entity.height,
+              width:               entity.width
+            )
+          end
+        else
+          save_photo(entity)
+        end
       end
 
       def self.poll_participation(entity)
@@ -131,21 +149,9 @@ module Diaspora
       end
 
       def self.status_message(entity)
-        author = author_of(entity)
-        try_load_existing_guid(StatusMessage, entity.guid, author) do
-          StatusMessage.new(
-            author:                author,
-            guid:                  entity.guid,
-            raw_message:           entity.raw_message,
-            public:                entity.public,
-            created_at:            entity.created_at,
-            provider_display_name: entity.provider_display_name
-          ).tap do |status_message|
-            status_message.photos = entity.photos.map {|photo| build_photo(photo) }
-            status_message.location = build_location(entity.location) if entity.location
-            status_message.poll = build_poll(entity.poll) if entity.poll
-
-            status_message.save!
+        save_status_message(entity).tap do
+          entity.photos.map do |photo|
+            ignore_existing_guid(Photo, photo.guid, author_of(photo)) { save_photo(photo) }
           end
         end
       end
@@ -175,22 +181,6 @@ module Diaspora
       end
       private_class_method :build_message
 
-      def self.build_photo(entity)
-        Photo.new(
-          author:              author_of(entity),
-          guid:                entity.guid,
-          text:                entity.text,
-          public:              entity.public,
-          created_at:          entity.created_at,
-          remote_photo_path:   entity.remote_photo_path,
-          remote_photo_name:   entity.remote_photo_name,
-          status_message_guid: entity.status_message_guid,
-          height:              entity.height,
-          width:               entity.width
-        )
-      end
-      private_class_method :build_photo
-
       def self.build_poll(entity)
         Poll.new(
           guid:     entity.guid,
@@ -206,6 +196,22 @@ module Diaspora
       end
       private_class_method :build_poll
 
+      def self.save_photo(entity)
+        Photo.new(
+          author:              author_of(entity),
+          guid:                entity.guid,
+          text:                entity.text,
+          public:              entity.public,
+          created_at:          entity.created_at,
+          remote_photo_path:   entity.remote_photo_path,
+          remote_photo_name:   entity.remote_photo_name,
+          status_message_guid: entity.status_message_guid,
+          height:              entity.height,
+          width:               entity.width
+        ).tap(&:save!)
+      end
+      private_class_method :save_photo
+
       def self.save_relayable(relayable, entity)
         retract_if_author_ignored(relayable)
 
@@ -213,6 +219,25 @@ module Diaspora
         relayable.save!
       end
       private_class_method :save_relayable
+
+      def self.save_status_message(entity)
+        try_load_existing_guid(StatusMessage, entity.guid, author_of(entity)) do
+          StatusMessage.new(
+            author:                author_of(entity),
+            guid:                  entity.guid,
+            raw_message:           entity.raw_message,
+            public:                entity.public,
+            created_at:            entity.created_at,
+            provider_display_name: entity.provider_display_name
+          ).tap do |status_message|
+            status_message.location = build_location(entity.location) if entity.location
+            status_message.poll = build_poll(entity.poll) if entity.poll
+
+            status_message.save!
+          end
+        end
+      end
+      private_class_method :save_status_message
 
       def self.retract_if_author_ignored(relayable)
         parent_author = relayable.parent.author
