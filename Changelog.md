@@ -151,6 +151,14 @@ before.
 * Add links to the single post view of the related post to photos in the photo stream [#6621](https://github.com/diaspora/diaspora/pull/6621)
 * Add a note for people with disabled JavaScript [#6777](https://github.com/diaspora/diaspora/pull/6777)
 
+# 0.5.10.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.5.9.0
 
 ## Refactor
