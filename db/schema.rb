@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20160531170531) do
   end
 
   add_index "conversations", ["author_id"], name: "conversations_author_id_fk", using: :btree
+  add_index "conversations", ["guid"], name: "index_conversations_on_guid", unique: true, length: {"guid"=>191}, using: :btree
 
   create_table "id_tokens", force: :cascade do |t|
     t.integer  "authorization_id", limit: 4
@@ -231,6 +232,7 @@ ActiveRecord::Schema.define(version: 20160531170531) do
 
   add_index "messages", ["author_id"], name: "index_messages_on_author_id", using: :btree
   add_index "messages", ["conversation_id"], name: "messages_conversation_id_fk", using: :btree
+  add_index "messages", ["guid"], name: "index_messages_on_guid", unique: true, length: {"guid"=>191}, using: :btree
 
   create_table "notification_actors", force: :cascade do |t|
     t.integer  "notification_id", limit: 4
@@ -360,6 +362,7 @@ ActiveRecord::Schema.define(version: 20160531170531) do
     t.integer  "width",               limit: 4
   end
 
+  add_index "photos", ["guid"], name: "index_photos_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "photos", ["status_message_guid"], name: "index_photos_on_status_message_guid", length: {"status_message_guid"=>191}, using: :btree
 
   create_table "pods", force: :cascade do |t|
@@ -389,6 +392,7 @@ ActiveRecord::Schema.define(version: 20160531170531) do
     t.integer "vote_count", limit: 4,   default: 0
   end
 
+  add_index "poll_answers", ["guid"], name: "index_poll_answers_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "poll_answers", ["poll_id"], name: "index_poll_answers_on_poll_id", using: :btree
 
   create_table "poll_participations", force: :cascade do |t|
@@ -401,6 +405,7 @@ ActiveRecord::Schema.define(version: 20160531170531) do
     t.datetime "updated_at"
   end
 
+  add_index "poll_participations", ["guid"], name: "index_poll_participations_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "poll_participations", ["poll_id"], name: "index_poll_participations_on_poll_id", using: :btree
 
   create_table "polls", force: :cascade do |t|
@@ -412,6 +417,7 @@ ActiveRecord::Schema.define(version: 20160531170531) do
     t.datetime "updated_at"
   end
 
+  add_index "polls", ["guid"], name: "index_polls_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "polls", ["status_message_id"], name: "index_polls_on_status_message_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
