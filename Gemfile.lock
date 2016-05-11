@@ -203,7 +203,7 @@ GEM
     erubis (2.7.0)
     ethon (0.8.1)
       ffi (>= 1.3.0)
-    excon (0.45.4)
+    excon (0.49.0)
     execjs (2.6.0)
     eye (0.8)
       celluloid (~> 0.17.2)
@@ -229,19 +229,22 @@ GEM
     fixture_builder (0.4.1)
       activerecord (>= 2)
       activesupport (>= 2)
-    fog (1.37.0)
+    fog (1.38.0)
       fog-aliyun (>= 0.1.0)
       fog-atmos
       fog-aws (>= 0.6.0)
       fog-brightbox (~> 0.4)
+      fog-cloudatcost (~> 0.1.0)
       fog-core (~> 1.32)
       fog-dynect (~> 0.0.2)
       fog-ecloud (~> 0.1)
       fog-google (<= 0.1.0)
       fog-json
       fog-local
+      fog-openstack
       fog-powerdns (>= 0.1.1)
       fog-profitbricks
+      fog-rackspace
       fog-radosgw (>= 0.0.2)
       fog-riakcs
       fog-sakuracloud (>= 0.0.4)
@@ -263,7 +266,7 @@ GEM
     fog-atmos (0.1.0)
       fog-core
       fog-xml
-    fog-aws (0.8.1)
+    fog-aws (0.9.2)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
@@ -272,11 +275,16 @@ GEM
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
-    fog-core (1.35.0)
+    fog-cloudatcost (0.1.2)
+      fog-core (~> 1.36)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (1.39.0)
       builder
-      excon (~> 0.45)
+      excon (~> 0.49)
       formatador (~> 0.2)
-    fog-dynect (0.0.2)
+    fog-dynect (0.0.3)
       fog-core
       fog-json
       fog-xml
@@ -290,8 +298,13 @@ GEM
     fog-json (1.0.2)
       fog-core (~> 1.0)
       multi_json (~> 1.10)
-    fog-local (0.2.1)
+    fog-local (0.3.0)
       fog-core (~> 1.27)
+    fog-openstack (0.1.5)
+      fog-core (>= 1.38)
+      fog-json (>= 1.0)
+      fog-xml (>= 0.1)
+      ipaddress (>= 0.8)
     fog-powerdns (0.1.1)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -300,6 +313,11 @@ GEM
       fog-core
       fog-xml
       nokogiri
+    fog-rackspace (0.1.1)
+      fog-core (>= 1.35)
+      fog-json (>= 1.0)
+      fog-xml (>= 0.1)
+      ipaddress (>= 0.8)
     fog-radosgw (0.0.5)
       fog-core (>= 1.21.0)
       fog-json
@@ -314,7 +332,7 @@ GEM
     fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (1.0.3)
+    fog-softlayer (1.1.1)
       fog-core
       fog-json
     fog-storm_on_demand (0.1.1)
@@ -329,7 +347,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (0.6.0)
+    fog-vsphere (0.6.4)
       fog-core
       rbvmomi (~> 1.8)
     fog-xenserver (0.2.3)
@@ -421,7 +439,7 @@ GEM
       i18n-inflector (~> 2.6)
       railties (>= 3.0.0)
     inflecto (0.0.2)
-    ipaddress (0.8.2)
+    ipaddress (0.8.3)
     jasmine (2.4.0)
       jasmine-core (~> 2.4)
       phantomjs
@@ -922,7 +940,7 @@ DEPENDENCIES
   faraday-cookie_jar (= 0.0.6)
   faraday_middleware (= 0.10.0)
   fixture_builder (= 0.4.1)
-  fog (= 1.37.0)
+  fog (= 1.38.0)
   fuubar (= 2.0.0)
   gon (= 6.0.1)
   guard (= 2.13.0)
