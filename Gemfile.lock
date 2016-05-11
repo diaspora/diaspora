@@ -173,7 +173,7 @@ GEM
     devise_lastseenable (0.0.6)
       devise
       rails (>= 3.0.4)
-    diaspora-prosody-config (0.0.4)
+    diaspora-prosody-config (0.0.5)
     diaspora_federation (0.0.13)
       faraday (~> 0.9.0)
       faraday_middleware (~> 0.10.0)
@@ -908,7 +908,7 @@ DEPENDENCIES
   devise (= 3.5.6)
   devise-token_authenticatable (~> 0.4.0)
   devise_lastseenable (= 0.0.6)
-  diaspora-prosody-config (~> 0.0.4)
+  diaspora-prosody-config (~> 0.0.5)
   diaspora_federation-rails (= 0.0.13)
   diaspora_federation-test (= 0.0.13)
   entypo-rails (= 3.0.0.pre.rc2)
