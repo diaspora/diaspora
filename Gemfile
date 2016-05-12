@@ -25,7 +25,7 @@ gem "json-schema", "2.6.1"
 
 gem "devise", "3.5.6"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-token_authenticatable", "~> 0.4.0"
+gem "devise-token_authenticatable", "0.4.6"
 
 # Captcha
 
@@ -156,8 +156,8 @@ gem "openid_connect", "0.11.2"
 gem "active_model_serializers", "0.9.5"
 
 # XMPP chat dependencies
-gem "diaspora-prosody-config",    "~> 0.0.5"
-gem "rails-assets-diaspora_jsxc", "~> 0.1.5.develop", source: "https://rails-assets.org"
+gem "diaspora-prosody-config",    "0.0.5"
+gem "rails-assets-diaspora_jsxc", "0.1.5.develop.1", source: "https://rails-assets.org"
 
 # Tags
 
