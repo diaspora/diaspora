@@ -632,7 +632,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
-    raindrops (0.15.0)
+    raindrops (0.16.0)
     rake (11.1.2)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
@@ -776,9 +776,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    unicorn (5.0.1)
+    unicorn (5.1.0)
       kgio (~> 2.6)
-      rack
       raindrops (~> 0.7)
     uuid (2.3.8)
       macaddr (~> 1.0)
@@ -923,7 +922,7 @@ DEPENDENCIES
   twitter-text (= 1.13.4)
   typhoeus (= 1.0.2)
   uglifier (= 3.0.0)
-  unicorn (= 5.0.1)
+  unicorn (= 5.1.0)
   uuid (= 2.3.8)
   webmock (= 1.22.6)
   will_paginate (= 3.1.0)
