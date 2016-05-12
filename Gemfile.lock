@@ -189,7 +189,7 @@ GEM
       factory_girl (~> 4.5, >= 4.5.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.20160128)
+    domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
     eco (1.0.0)
       coffee-script
