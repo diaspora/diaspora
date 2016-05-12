@@ -686,7 +686,7 @@ GEM
     ruby-progressbar (1.8.0)
     rubyzip (1.2.0)
     safe_yaml (1.0.4)
-    sass (3.4.21)
+    sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
