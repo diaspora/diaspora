@@ -748,7 +748,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    timecop (0.8.0)
+    timecop (0.8.1)
     timers (4.0.4)
       hitimes
     tins (1.6.0)
@@ -918,7 +918,7 @@ DEPENDENCIES
   spring-commands-cucumber (= 1.0.1)
   spring-commands-rspec (= 1.0.4)
   test_after_commit (= 1.0.0)
-  timecop (= 0.8.0)
+  timecop (= 0.8.1)
   turbo_dev_assets (= 0.0.2)
   twitter (= 5.16.0)
   twitter-text (= 1.13.3)
