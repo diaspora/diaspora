@@ -146,10 +146,6 @@ class Photo < ActiveRecord::Base
     Workers::ProcessPhoto.perform_async(self.id)
   end
 
-  def mutable?
-    true
-  end
-
   def self.visible(current_user, person, limit=:all, max_time=nil)
     photos = if current_user
                current_user.photos_from(person, limit: limit, max_time: max_time)

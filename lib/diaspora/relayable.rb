@@ -65,45 +65,6 @@ module Diaspora
       end
     end
 
-    def receive(user, person=nil)
-      comment_or_like = self.class.where(guid: self.guid).first || self
-
-      unless comment_or_like.signature_valid?
-        logger.warn "event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} "\
-                    "sender=#{comment_or_like.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
-        return
-      end
-
-      # Check to make sure the signature of the comment or like comes from the person claiming to author it
-      unless comment_or_like.parent_author == user.person || comment_or_like.verify_parent_author_signature
-        logger.warn "event=receive status=abort reason='sender is not valid' recipient=#{user.diaspora_handle} "\
-                    "sender=#{parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
-        return
-      end
-
-      # As the owner of the post being liked or commented on, you need to add your own signature in order to
-      # pass it to the people who received your original post
-      if user.owns? comment_or_like.parent
-        comment_or_like.parent_author_signature = comment_or_like.sign_with_key(user.encryption_key)
-        comment_or_like.save!
-      end
-
-      # Dispatch object DOWNSTREAM, received it via UPSTREAM
-      unless user.owns?(comment_or_like)
-        comment_or_like.save!
-        Postzord::Dispatcher.build(user, comment_or_like).post
-      end
-
-      if comment_or_like.after_receive(user, person)
-        comment_or_like
-      end
-    end
-
-    # @return [Object]
-    def after_receive(user, person)
-      self
-    end
-
     def initialize_signatures
       #sign relayable as model creator
       self.author_signature = self.sign_with_key(author.owner.encryption_key)

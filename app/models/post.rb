@@ -136,11 +136,6 @@ class Post < ActiveRecord::Base
     shareable_initialize(params)
   end
 
-  # @return Returns true if this Post will accept updates (i.e. updates to the caption of a photo).
-  def mutable?
-    false
-  end
-
   def activity_streams?
     false
   end

@@ -93,7 +93,13 @@ class Contact < ActiveRecord::Base
     end
   end
 
+  # Follows back if user setting is set so
+  def receive(_recipient_user_ids)
+    user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !receiving
+  end
+
   private
+
   def not_contact_with_closed_account
     if person_id && person.closed_account?
       errors[:base] << 'Cannot be in contact with a closed account'

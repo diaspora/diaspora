@@ -319,18 +319,6 @@ describe Profile, :type => :model do
 
   end
 
-  describe '#receive' do
-    it 'updates the profile in place' do
-      local_luke, local_leia, remote_raphael = set_up_friends
-      new_profile = FactoryGirl.build :profile
-      expect{
-        new_profile.receive(local_leia, remote_raphael)
-      }.not_to change(Profile, :count)
-      expect(remote_raphael.last_name).to eq(new_profile.last_name)
-    end
-
-  end
-
   describe "#tombstone!" do
     before do
       @profile = bob.person.profile

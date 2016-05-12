@@ -68,25 +68,6 @@ class Request
     [self.recipient]
   end
 
-  # Finds or initializes a corresponding [Contact], and will set Contact#sharing to true
-  # Follows back if user setting is set so
-  # @note A [Contact] may already exist if the [Request]'s recipient is sharing with the sender
-  # @return [Request]
-  def receive(user, person)
-    logger.info("event=receive payload_type=request sender=#{sender} to=#{recipient}")
-
-    contact = user.contacts.find_or_initialize_by(person_id: self.sender.id)
-    contact.sharing = true
-    contact.save
-
-    user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !contact.receiving
-
-    # also, schedule to fetch a few public posts from that person
-    Diaspora::Fetcher::Public.queue_for(person)
-
-    self
-  end
-
   private
 
   # Checks if a [Contact] does not already exist between the requesting [User] and receiving [Person]

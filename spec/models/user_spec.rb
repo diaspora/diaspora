@@ -560,34 +560,6 @@ describe User, :type => :model do
     end
   end
 
-  describe '#notify_if_mentioned' do
-    before do
-      @post = FactoryGirl.build(:status_message, :author => bob.person)
-    end
-
-    it 'notifies the user if the incoming post mentions them' do
-      expect(@post).to receive(:mentions?).with(alice.person).and_return(true)
-      expect(@post).to receive(:notify_person).with(alice.person)
-
-      alice.notify_if_mentioned(@post)
-    end
-
-    it 'does not notify the user if the incoming post does not mention them' do
-      expect(@post).to receive(:mentions?).with(alice.person).and_return(false)
-      expect(@post).not_to receive(:notify_person)
-
-      alice.notify_if_mentioned(@post)
-    end
-
-    it 'does not notify the user if the post author is not a contact' do
-      @post = FactoryGirl.build(:status_message, :author => eve.person)
-      allow(@post).to receive(:mentions?).and_return(true)
-      expect(@post).not_to receive(:notify_person)
-
-      alice.notify_if_mentioned(@post)
-    end
-  end
-
   describe 'account deletion' do
     describe '#destroy' do
       it 'removes invitations from the user' do

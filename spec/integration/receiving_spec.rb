@@ -17,18 +17,6 @@ describe 'a user receives a post', :type => :request do
     @eves_aspect = eve.aspects.where(:name => "generic").first
   end
 
-  it 'should be able to parse and store a status message from xml' do
-    status_message = bob.post :status_message, :text => 'store this!', :to => @bobs_aspect.id
-
-    xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(status_message)).to_xml
-    bob.delete
-    status_message.destroy
-
-    expect {
-      receive_with_zord(alice, bob.person, xml)
-    }.to change(Post,:count).by(1)
-  end
-
   it 'should not create new aspects on message receive' do
     num_aspects = alice.aspects.size
 
@@ -52,49 +40,6 @@ describe 'a user receives a post', :type => :request do
     expect(alice.visible_shareables(Post).count(:all)).to eq(1)
   end
 
-  context 'update posts' do
-    it 'does not update posts not marked as mutable' do
-      status = alice.post :status_message, :text => "store this!", :to => @alices_aspect.id
-      status.text = 'foo'
-      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(status)).to_xml
-
-      receive_with_zord(bob, alice.person, xml)
-
-      expect(status.reload.text).to eq('store this!')
-    end
-
-    it 'updates posts marked as mutable' do
-      photo = alice.post(
-        :photo,
-        user_file: uploaded_photo,
-        text:      "Original",
-        to:        @alices_aspect.id
-      )
-      photo.text = 'foo'
-      photo.height = 42
-      photo.width = 23
-      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.photo(photo)).to_xml
-      bob.reload
-
-      receive_with_zord(bob, alice.person, xml)
-
-      expect(photo.reload.text).to match(/foo/)
-    end
-  end
-
-  describe 'profiles' do
-   it 'federates tags' do
-     luke, leia, raph = set_up_friends
-     raph.profile.diaspora_handle = "raph@remote.net"
-     raph.profile.save!
-     p = raph.profile
-
-     p.tag_string = "#big #rafi #style"
-     p.receive(luke, raph)
-     expect(p.tags(true).count).to eq(3)
-   end
-  end
-
   describe 'post refs' do
     before do
       @status_message = bob.post(:status_message, :text => "hi", :to => @bobs_aspect.id)
@@ -116,6 +61,7 @@ describe 'a user receives a post', :type => :request do
 
     context 'remote' do
       before do
+        skip # TODO
         inlined_jobs do |queue|
           connect_users(alice, @alices_aspect, eve, @eves_aspect)
           @post = alice.post(:status_message, :text => "hello", :to => @alices_aspect.id)
@@ -151,15 +97,6 @@ describe 'a user receives a post', :type => :request do
         expect(post_in_db.comments(true).first.guid).to eq(@guid_with_whitespace)
       end
 
-      it 'should correctly attach the user already on the pod' do
-        expect(bob.reload.visible_shareables(Post).size).to eq(1)
-        post_in_db = StatusMessage.find(@post.id)
-        expect(post_in_db.comments).to eq([])
-        receive_with_zord(bob, alice.person, @xml)
-
-        expect(post_in_db.comments(true).first.author).to eq(eve.person)
-      end
-
       it 'should correctly marshal a stranger for the downstream user' do
         remote_person = eve.person.dup
         eve.person.delete
@@ -185,6 +122,7 @@ describe 'a user receives a post', :type => :request do
 
     context 'local' do
       before do
+        skip # TODO
         @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
 
         xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(@post)).to_xml
@@ -224,6 +162,7 @@ describe 'a user receives a post', :type => :request do
     end
 
     it "allows two people saving the same post" do
+      skip # TODO
       xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(@post)).to_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
       receive_with_zord(@local_leia, @remote_raphael, xml)
@@ -232,6 +171,7 @@ describe 'a user receives a post', :type => :request do
     end
 
     it 'does not update the post if a new one is sent with a new created_at' do
+      skip # TODO
       old_time = @post.created_at
       xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(@post)).to_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
@@ -263,60 +203,5 @@ describe 'a user receives a post', :type => :request do
 
       expect(bob.visible_shareables(Post).include?(post)).to be true
     end
-  end
-
-
-  context 'retractions' do
-    let(:message) { bob.post(:status_message, text: "cats", to: @bobs_aspect.id) }
-    let(:zord) { Postzord::Receiver::Private.new(alice, person: bob.person) }
-
-    it 'should accept retractions' do
-      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.retraction(message)).to_xml
-
-      expect {
-        zord.parse_and_receive(xml)
-      }.to change(StatusMessage, :count).by(-1)
-    end
-
-    it 'should accept signed retractions for public posts' do
-      message = bob.post(:status_message, text: "cats", public: true)
-      retraction = Diaspora::Federation.xml(Diaspora::Federation::Entities.signed_retraction(message, bob)).to_xml
-      salmon = Postzord::Dispatcher::Public.salmon(bob, retraction)
-      xml = salmon.xml_for alice.person
-      zord = Postzord::Receiver::Public.new xml
-
-      expect {
-        zord.receive!
-      }.to change(Post, :count).by(-1)
-    end
-  end
-
-  it 'should marshal a profile for a person' do
-    #Create person
-    person = bob.person
-    person.profile.delete
-    person.profile = Profile.new(
-      first_name: "bob",
-      last_name:  "billytown",
-      image_url:  "http://clown.com/image.png",
-      person_id:  person.id
-    )
-    person.save
-
-    #Cache profile for checking against marshaled profile
-    new_profile = person.profile.dup
-    new_profile.first_name = 'boo!!!'
-
-    #Build xml for profile
-    xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.profile(new_profile)).to_xml
-    #Marshal profile
-    zord = Postzord::Receiver::Private.new(alice, :person => person)
-    zord.parse_and_receive(xml)
-
-    #Check that marshaled profile is the same as old profile
-    person = Person.find(person.id)
-    expect(person.profile.first_name).to eq(new_profile.first_name)
-    expect(person.profile.last_name).to eq(new_profile.last_name)
-    expect(person.profile.image_url).to eq(new_profile.image_url)
   end
 end

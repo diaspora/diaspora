@@ -184,6 +184,38 @@ describe Contact, :type => :model do
     end
   end
 
+  describe "#receive" do
+    it "shares back if auto_following is enabled" do
+      alice.auto_follow_back = true
+      alice.auto_follow_back_aspect = alice.aspects.first
+      alice.save
+
+      expect(alice).to receive(:share_with).with(eve.person, alice.aspects.first)
+
+      described_class.new(user: alice, person: eve.person, sharing: true).receive([alice.id])
+    end
+
+    it "shares not back if auto_following is not enabled" do
+      alice.auto_follow_back = false
+      alice.auto_follow_back_aspect = alice.aspects.first
+      alice.save
+
+      expect(alice).not_to receive(:share_with)
+
+      described_class.new(user: alice, person: eve.person, sharing: true).receive([alice.id])
+    end
+
+    it "shares not back if already sharing" do
+      alice.auto_follow_back = true
+      alice.auto_follow_back_aspect = alice.aspects.first
+      alice.save
+
+      expect(alice).not_to receive(:share_with)
+
+      described_class.new(user: alice, person: eve.person, sharing: true, receiving: true).receive([alice.id])
+    end
+  end
+
   describe "#not_blocked_user" do
     let(:contact) { alice.contact_for(bob.person) }
 

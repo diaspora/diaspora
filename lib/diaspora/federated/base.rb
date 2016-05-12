@@ -43,11 +43,6 @@ module Diaspora
           raise 'You must override subscribers in order to enable federation on this model'
         end
 
-        # @abstract
-        def receive(user, person)
-          raise 'You must override receive in order to enable federation on this model'
-        end
-
         # @param [User] sender
         # @note this is a hook(optional)
         def after_dispatch(sender)

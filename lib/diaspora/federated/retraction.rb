@@ -53,22 +53,4 @@ class Retraction
       target.author == person
     end
   end
-
-  def receive(user, person)
-    if self.type == 'Person'
-      unless self.person.guid.to_s == self.post_guid.to_s
-        logger.warn "event=receive status=abort reason='sender is not the person he is trying to retract' " \
-                    "recipient=#{diaspora_handle} sender=#{self.person.diaspora_handle} " \
-                    "payload_type=#{self.class} retraction_type=person"
-        return
-      end
-      user.disconnected_by(self.target)
-    elsif target.nil? || !correct_authorship?
-      logger.warn "event=retraction status=abort reason='no post found authored by retractor' " \
-                  "sender=#{person.diaspora_handle} post_guid=#{post_guid}"
-    else
-      self.perform(user)
-    end
-    self
-  end
 end

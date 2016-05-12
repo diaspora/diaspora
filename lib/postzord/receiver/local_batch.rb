@@ -29,7 +29,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   def receive_relayable
     if @object.parent_author.local?
       # receive relayable object only for the owner of the parent object
-      @object.receive(@object.parent_author.owner)
+      # @object.receive(@object.parent_author.owner)
     end
   end
 

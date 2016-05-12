@@ -60,16 +60,4 @@ describe Postzord::Receiver::Private do
       @zord.receive!
     end
   end
-
-  describe 'receive_object' do
-    before do
-      @zord = Postzord::Receiver::Private.new(bob, :person => alice.person, :object => @alices_post)
-      @salmon = @zord.instance_variable_get(:@salmon)
-    end
-
-    it 'calls receive on @object' do
-      obj = expect(@zord.instance_variable_get(:@object)).to receive(:receive)
-      @zord.receive_object
-    end
-  end
 end

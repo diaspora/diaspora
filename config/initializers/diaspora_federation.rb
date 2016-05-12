@@ -102,7 +102,6 @@ DiasporaFederation.configure do |config|
                       Diaspora::Federation::Receive.comment(entity)
                     when DiasporaFederation::Entities::Contact
                       Diaspora::Federation::Receive.contact(entity)
-                      # TODO: post receive actions (auto-follow-back and fetch posts)
                     when DiasporaFederation::Entities::Conversation
                       Diaspora::Federation::Receive.conversation(entity)
                     when DiasporaFederation::Entities::Like

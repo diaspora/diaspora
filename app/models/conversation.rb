@@ -89,17 +89,4 @@ class Conversation < ActiveRecord::Base
   def subscribers(user)
     self.recipients
   end
-
-  def receive(user, person)
-    cnv = Conversation.create_with(self.attributes).find_or_create_by!(guid: guid)
-
-    self.participants.each do |participant|
-      ConversationVisibility.find_or_create_by(conversation_id: cnv.id, person_id: participant.id)
-    end
-
-    self.messages.each do |msg|
-      msg.conversation_id = cnv.id
-      msg.receive(user, person)
-    end
-  end
 end

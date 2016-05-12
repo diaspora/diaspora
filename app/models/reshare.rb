@@ -56,15 +56,6 @@ class Reshare < Post
     absolute_root.try(:poll) || super
   end
 
-  def receive(recipient, sender)
-    local_reshare = Reshare.where(:guid => self.guid).first
-    if local_reshare && local_reshare.root.author_id == recipient.person.id
-      recipient.participate! self
-      return unless recipient.has_contact_for?(sender)
-    end
-    super(recipient, sender)
-  end
-
   def comment_email_subject
     I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author_name)
   end

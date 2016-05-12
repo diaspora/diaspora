@@ -11,27 +11,6 @@ describe Postzord::Receiver::Public do
     @xml = @created_salmon.xml_for(nil)
   end
 
-  context 'round trips works with' do
-    it 'a comment' do
-      sm = FactoryGirl.create(:status_message, :author => alice.person)
-
-      comment = bob.build_comment(:text => 'yo', :post => sm)
-      comment.save
-      #bob signs his comment, and then sends it up
-      xml = Salmon::Slap.create_by_user_and_activity(bob, comment.to_diaspora_xml).xml_for(nil)
-      person = bob.person
-      person.owner = nil
-      person.pod = Pod.find_or_create_by(url: "https://example.org/")
-      person.save
-      bob.destroy
-      comment.destroy
-      expect{
-        receiver = Postzord::Receiver::Public.new(xml)
-        receiver.perform!
-      }.to change(Comment, :count).by(1)
-    end
-  end
-
   describe '#initialize' do
     it 'creates a Salmon instance variable' do
       receiver = Postzord::Receiver::Public.new(@xml)

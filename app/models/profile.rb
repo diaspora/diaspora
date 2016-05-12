@@ -54,15 +54,6 @@ class Profile < ActiveRecord::Base
     Person.joins(:contacts).where(:contacts => {:user_id => user.id})
   end
 
-  def receive(user, person)
-    person.reload # make sure to have old profile referenced
-    logger.info "event=receive payload_type=profile sender=#{person.diaspora_handle} to=#{user.diaspora_handle}"
-    profiles_attr = self.attributes.merge('tag_string' => self.tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
-    person.profile.update_attributes(profiles_attr)
-
-    person.profile
-  end
-
   def diaspora_handle
     #get the parent diaspora handle, unless we want to access a profile without a person
     (self.person) ? self.person.diaspora_handle : self[:diaspora_handle]

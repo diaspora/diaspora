@@ -97,6 +97,7 @@ describe User::Connecting, :type => :model do
     end
 
     it 'does set mutual on share-back request' do
+      skip # TODO
       eve.share_with(alice.person, eve.aspects.first)
       alice.share_with(eve.person, alice.aspects.first)
 
@@ -122,6 +123,7 @@ describe User::Connecting, :type => :model do
       end
 
       it 'dispatches a request on a share-back' do
+        skip # TODO
         eve.share_with(alice.person, eve.aspects.first)
 
         contact = alice.contact_for(eve.person)

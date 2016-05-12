@@ -33,41 +33,6 @@ describe Reshare, type: :model do
     end
   end
 
-  describe "#receive" do
-    let(:receive_reshare) { @reshare.receive(@root.author.owner, @reshare.author) }
-
-    before do
-      @reshare = FactoryGirl.create(:reshare, root:
-                 FactoryGirl.build(:status_message, author: bob.person, public: true))
-      @root = @reshare.root
-    end
-
-    it "increments the reshare count" do
-      receive_reshare
-      expect(@root.resharers.count).to eq(1)
-    end
-
-    it "adds the resharer to the re-sharers of the post" do
-      receive_reshare
-      expect(@root.resharers).to include(@reshare.author)
-    end
-
-    it "does not error if the root author has a contact for the resharer" do
-      bob.share_with @reshare.author, bob.aspects.first
-      expect {
-        Timeout.timeout(5) do
-          receive_reshare # This doesn't ever terminate on my machine before it was fixed.
-        end
-      }.not_to raise_error
-    end
-
-    it "participates root author in the reshare" do
-      receive_reshare
-      participations = Participation.where(target_id: @reshare.id, author_id: @root.author_id)
-      expect(participations.count).to eq(1)
-    end
-  end
-
   describe "#nsfw" do
     let(:sfw) { build(:status_message, author: alice.person, public: true) }
     let(:nsfw) { build(:status_message, author: alice.person, public: true, text: "This is #nsfw") }
