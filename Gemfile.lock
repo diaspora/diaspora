@@ -389,7 +389,7 @@ GEM
     guard-jshintrb (1.1.1)
       guard (~> 2.0)
       jshintrb
-    guard-rspec (4.6.4)
+    guard-rspec (4.6.5)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -944,7 +944,7 @@ DEPENDENCIES
   guard (= 2.13.0)
   guard-cucumber (= 2.1.2)
   guard-jshintrb (= 1.1.1)
-  guard-rspec (= 4.6.4)
+  guard-rspec (= 4.6.5)
   guard-rubocop (= 1.2.0)
   haml_lint (= 0.17.1)
   hamlit (= 2.3.1)
