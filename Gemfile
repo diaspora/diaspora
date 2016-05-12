@@ -243,13 +243,13 @@ group :development do
 
   # Linters
   gem "jshintrb",       "0.3.0"
-  gem "rubocop",        "0.35.1"
-  gem "haml_lint",      "0.15.2"
-  gem "pronto",         "0.5.3"
-  gem "pronto-jshint",  "0.5.0"
-  gem "pronto-rubocop", "0.5.0"
-  gem "pronto-haml",    "0.5.0"
-  gem "pronto-scss",    "0.5.0", require: false
+  gem "rubocop",        "0.40.0"
+  gem "haml_lint",      "0.17.1"
+  gem "pronto",         "0.6.0"
+  gem "pronto-jshint",  "0.6.0"
+  gem "pronto-rubocop", "0.6.2"
+  gem "pronto-haml",    "0.6.0"
+  gem "pronto-scss",    "0.6.0", require: false
 
   # Preloading environment
 
