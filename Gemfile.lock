@@ -683,7 +683,7 @@ GEM
       ruby-progressbar (~> 1.7)
       tins (<= 1.6.0)
     ruby-oembed (0.10.0)
-    ruby-progressbar (1.7.5)
+    ruby-progressbar (1.8.0)
     rubyzip (1.2.0)
     safe_yaml (1.0.4)
     sass (3.4.21)
