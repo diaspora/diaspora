@@ -788,7 +788,7 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    websocket (1.2.2)
+    websocket (1.2.3)
     will_paginate (3.1.0)
     xml-simple (1.1.5)
     xpath (2.0.0)
