@@ -114,7 +114,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jquery-textchange",             "0.2.3"
   gem "rails-assets-perfect-scrollbar",             "0.6.11"
   gem "rails-assets-autosize",                      "3.0.15"
-  gem "rails-assets-blueimp-gallery",               "2.17.0"
+  gem "rails-assets-blueimp-gallery",               "2.21.2"
 end
 
 # Localization
