@@ -416,7 +416,7 @@ GEM
     hashdiff (0.3.0)
     hashie (3.4.4)
     hike (1.2.3)
-    hitimes (1.2.3)
+    hitimes (1.2.4)
     http (1.0.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
