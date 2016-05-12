@@ -8,22 +8,21 @@ module Notifications
       "notifications.private_message"
     end
 
-    def self.notify(object, recipient_user_ids)
+    def self.notify(object, _recipient_user_ids)
       case object
       when Conversation
-        object.messages.each do |message|
-          recipient_ids = recipient_user_ids - [message.author.owner_id]
-          User.where(id: recipient_ids).find_each {|recipient| notify_message(message, recipient) }
-        end
+        object.messages.each {|message| notify_message(message) }
       when Message
-        recipients = object.conversation.participants.select(&:local?) - [object.author]
-        recipients.each {|recipient| notify_message(object, recipient.owner) }
+        notify_message(object)
       end
     end
 
-    def self.notify_message(message, recipient)
-      message.increase_unread(recipient)
-      new(recipient: recipient).email_the_user(message, message.author)
+    def self.notify_message(message)
+      recipient_ids = message.conversation.participants.local.where.not(id: message.author_id).pluck(:owner_id)
+      User.where(id: recipient_ids).find_each do |recipient|
+        message.increase_unread(recipient)
+        new(recipient: recipient).email_the_user(message, message.author)
+      end
     end
     private_class_method :notify_message
   end

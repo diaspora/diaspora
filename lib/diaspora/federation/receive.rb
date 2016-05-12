@@ -37,7 +37,7 @@ module Diaspora
 
       def self.conversation(entity)
         author = author_of(entity)
-        try_load_existing_guid(Conversation, entity.guid, author) do
+        ignore_existing_guid(Conversation, entity.guid, author) do
           Conversation.new(
             author:              author,
             guid:                entity.guid,
