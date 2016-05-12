@@ -128,7 +128,7 @@ gem "markerb",             "1.1.0"
 gem "messagebus_ruby_api", "1.0.3"
 
 # Map
-gem "leaflet-rails",       "0.7.4"
+gem "leaflet-rails",       "0.7.7"
 
 # Parsing
 
