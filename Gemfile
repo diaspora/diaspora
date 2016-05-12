@@ -222,7 +222,7 @@ end
 
 group :development do
   # Automatic test runs
-  gem "guard-cucumber", "1.5.4"
+  gem "guard-cucumber", "2.1.2"
   gem "guard-jshintrb", "1.1.1"
   gem "guard-rspec",    "4.6.4"
   gem "guard-rubocop",  "1.2.0"
