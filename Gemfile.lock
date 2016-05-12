@@ -394,7 +394,7 @@ GEM
     hike (1.2.3)
     hiredis (0.6.1)
     hitimes (1.2.4)
-    http (1.0.2)
+    http (1.0.4)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 1.0.1)
