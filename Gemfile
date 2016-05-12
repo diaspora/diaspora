@@ -4,7 +4,7 @@ gem "rails", "4.2.6"
 
 # Legacy Rails features, remove me!
 # responders (class level)
-gem "responders", "2.1.1"
+gem "responders", "2.2.0"
 
 # Appserver
 
