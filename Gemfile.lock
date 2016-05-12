@@ -390,7 +390,7 @@ GEM
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
     hashdiff (0.3.0)
-    hashie (3.4.3)
+    hashie (3.4.4)
     hike (1.2.3)
     hiredis (0.6.1)
     hitimes (1.2.3)
