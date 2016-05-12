@@ -664,13 +664,13 @@ GEM
     rails-assets-jquery.ui (1.11.4)
       rails-assets-jquery (>= 1.6)
     rails-assets-markdown-it--markdown-it-for-inline (0.1.1)
-    rails-assets-markdown-it (6.0.0)
+    rails-assets-markdown-it (6.0.1)
     rails-assets-markdown-it-diaspora-mention (0.4.0)
     rails-assets-markdown-it-hashtag (0.4.0)
     rails-assets-markdown-it-sanitizer (0.4.1)
     rails-assets-markdown-it-sub (1.0.0)
     rails-assets-markdown-it-sup (1.0.0)
-    rails-assets-perfect-scrollbar (0.6.10)
+    rails-assets-perfect-scrollbar (0.6.11)
     rails-assets-typeahead.js (0.11.1)
       rails-assets-jquery (>= 1.7)
     rails-deprecated_sanitizer (1.0.3)
@@ -1004,14 +1004,14 @@ DEPENDENCIES
   rails-assets-jquery (= 1.12.0)!
   rails-assets-jquery-placeholder (= 2.3.1)!
   rails-assets-jquery-textchange (= 0.2.3)!
-  rails-assets-markdown-it (= 6.0.0)!
+  rails-assets-markdown-it (= 6.0.1)!
   rails-assets-markdown-it--markdown-it-for-inline (= 0.1.1)!
   rails-assets-markdown-it-diaspora-mention (= 0.4.0)!
   rails-assets-markdown-it-hashtag (= 0.4.0)!
   rails-assets-markdown-it-sanitizer (= 0.4.1)!
   rails-assets-markdown-it-sub (= 1.0.0)!
   rails-assets-markdown-it-sup (= 1.0.0)!
-  rails-assets-perfect-scrollbar (= 0.6.10)!
+  rails-assets-perfect-scrollbar (= 0.6.11)!
   rails-assets-typeahead.js (= 0.11.1)!
   rails-i18n (= 4.0.8)
   rails-timeago (= 2.11.0)
