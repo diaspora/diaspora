@@ -80,7 +80,7 @@ class Postzord::Dispatcher
     remote_people, local_people = @subscribers.partition{ |person| person.owner_id.nil? }
 
     if @object.respond_to?(:relayable?) && @sender.owns?(@object.parent)
-      self.notify_local_users(local_people)
+      Postzord::Receiver::LocalBatch.new(@object, local_people.map(&:owner_id)).notify_users
     else
       self.deliver_to_local(local_people)
     end
@@ -91,14 +91,6 @@ class Postzord::Dispatcher
   # @return [Array<Person>] Recipients of the object, minus any additional subscribers
   def subscribers_from_object
     @object.subscribers(@sender)
-  end
-
-  # @param local_people [Array<People>]
-  # @return [ActiveRecord::Association<User>, Array]
-  def fetch_local_users(people)
-    return [] if people.blank?
-    user_ids = people.map{|x| x.owner_id }
-    User.where(:id => user_ids)
   end
 
   # @param remote_people [Array<Person>] Recipients of the post on other pods
@@ -160,19 +152,6 @@ class Postzord::Dispatcher
         Workers::DeletePostFromService.perform_async(service.id, @object.target.id)
       end
     end
-  end
-
-  # @param local_people [Array<People>]
-  def notify_local_users(local_people)
-    local_users = fetch_local_users(local_people)
-    self.notify_users(local_users)
-  end
-
-  # @param services [Array<User>]
-  def notify_users(users)
-    return unless users.present? && @object.respond_to?(:persisted?)
-
-    Workers::NotifyLocalUsers.perform_async(users.map(&:id), @object.class.to_s, @object.id, @object.author.id)
   end
 end
 

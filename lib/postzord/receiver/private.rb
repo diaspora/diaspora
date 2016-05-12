@@ -40,7 +40,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
   # @return [void]
   def receive_object
     obj = @object.receive(@user, @author)
-    Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
+    Postzord::Receiver::LocalBatch.new(obj, [@user.id], @author).notify_users
     logger.info "user:#{@user.id} successfully received #{@object.class} from person #{@author.guid}" \
                 "#{": #{@object.guid}" if @object.respond_to?(:guid)}"
     logger.debug "received: #{@object.inspect}"
