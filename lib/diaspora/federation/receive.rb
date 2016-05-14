@@ -148,6 +148,17 @@ module Diaspora
         ).tap(&:save!)
       end
 
+      def self.retraction(entity, recipient_id)
+        object = entity.target_type.constantize.where(guid: entity.target_guid).take!
+
+        case object
+        when Person
+          User.find(recipient_id).disconnected_by(object)
+        else
+          object.destroy!
+        end
+      end
+
       def self.status_message(entity)
         save_status_message(entity).tap do
           entity.photos.map do |photo|

@@ -227,7 +227,7 @@ describe "diaspora federation callbacks" do
   end
 
   describe ":fetch_related_entity" do
-    it "returns related entity for a existing local post" do
+    it "returns related entity for an existing local post" do
       post = FactoryGirl.create(:status_message, author: local_person)
       entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", post.guid)
       expect(entity.author).to eq(post.diaspora_handle)
@@ -236,7 +236,7 @@ describe "diaspora federation callbacks" do
       expect(entity.parent).to be_nil
     end
 
-    it "returns related entity for a existing remote post" do
+    it "returns related entity for an existing remote post" do
       post = FactoryGirl.create(:status_message, author: remote_person)
       entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", post.guid)
       expect(entity.author).to eq(post.diaspora_handle)
@@ -245,7 +245,7 @@ describe "diaspora federation callbacks" do
       expect(entity.parent).to be_nil
     end
 
-    it "returns related entity for a existing public post" do
+    it "returns related entity for an existing public post" do
       post = FactoryGirl.create(:status_message, author: local_person, public: true)
       entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", post.guid)
       expect(entity.author).to eq(post.diaspora_handle)
@@ -254,7 +254,7 @@ describe "diaspora federation callbacks" do
       expect(entity.parent).to be_nil
     end
 
-    it "returns related entity for a existing comment" do
+    it "returns related entity for an existing comment" do
       post = FactoryGirl.create(:status_message, author: local_person, public: true)
       comment = FactoryGirl.create(:comment, author: remote_person, parent: post)
       entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Comment", comment.guid)
@@ -267,11 +267,19 @@ describe "diaspora federation callbacks" do
       expect(entity.parent.parent).to be_nil
     end
 
-    it "returns related entity for a existing conversation" do
+    it "returns related entity for an existing conversation" do
       conversation = FactoryGirl.create(:conversation, author: local_person)
       entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Conversation", conversation.guid)
       expect(entity.author).to eq(local_person.diaspora_handle)
       expect(entity.local).to be_truthy
+      expect(entity.public).to be_falsey
+      expect(entity.parent).to be_nil
+    end
+
+    it "returns related entity for an existing person" do
+      entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Person", remote_person.guid)
+      expect(entity.author).to eq(remote_person.diaspora_handle)
+      expect(entity.local).to be_falsey
       expect(entity.public).to be_falsey
       expect(entity.parent).to be_nil
     end

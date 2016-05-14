@@ -95,7 +95,7 @@ DiasporaFederation.configure do |config|
       when DiasporaFederation::Entities::AccountDeletion
         Diaspora::Federation::Receive.account_deletion(entity)
       when DiasporaFederation::Entities::Retraction
-        # TODO
+        Diaspora::Federation::Receive.retraction(entity, recipient_id)
       else
         persisted = case entity
                     when DiasporaFederation::Entities::Comment

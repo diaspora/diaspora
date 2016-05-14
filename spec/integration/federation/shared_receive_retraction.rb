@@ -10,8 +10,6 @@ end
 
 shared_examples_for "it retracts non-relayable object" do
   it "retracts object by a correct retraction message" do
-    skip("TODO: handle retractions") # TODO
-
     entity = retraction_entity(entity_name, target_object, sender)
     post_message(generate_xml(entity, sender, recipient), recipient)
 
@@ -36,8 +34,6 @@ end
 
 shared_examples_for "it retracts relayable object" do
   it "retracts object by a correct message" do
-    skip("TODO: handle retractions") # TODO
-
     entity = retraction_entity(entity_name, target_object, sender)
     post_message(generate_xml(entity, sender, recipient), recipient)
 

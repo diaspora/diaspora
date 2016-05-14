@@ -198,6 +198,10 @@ class Person < ActiveRecord::Base
     @username ||= owner ? owner.username : diaspora_handle.split("@")[0]
   end
 
+  def author
+    self
+  end
+
   def owns?(obj)
     self.id == obj.author_id
   end
