@@ -65,7 +65,7 @@ shared_examples_for "messages which are indifferent about sharing fact" do
       let(:entity) { create_relayable_entity(:participation_entity, local_parent, sender_id) }
 
       it "treats participation receive correctly" do
-        # TODO: expect(Postzord::Dispatcher).to receive(:build).with(alice, kind_of(Participations)).and_call_original
+        expect(Workers::ReceiveLocal).to receive(:perform_async)
         post_message(generate_xml(entity, sender, recipient), recipient)
 
         received_entity = Participation.find_by(guid: entity.guid)
@@ -74,7 +74,7 @@ shared_examples_for "messages which are indifferent about sharing fact" do
       end
 
       it "rejects a participations for a remote parent" do
-        # TODO: expect(Postzord::Dispatcher).not_to receive(:build)
+        expect(Workers::ReceiveLocal).not_to receive(:perform_async)
         entity = create_relayable_entity(:participation_entity, remote_parent, sender_id)
 
         post_message(generate_xml(entity, sender, recipient), recipient)

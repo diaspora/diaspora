@@ -83,7 +83,7 @@ describe "Receive federation messages feature" do
     it "treats sharing request recive correctly" do
       entity = FactoryGirl.build(:request_entity, author: sender_id, recipient: alice.diaspora_handle)
 
-      # TODO: expect(Diaspora::Fetcher::Public).to receive(:queue_for).exactly(1).times
+      expect(Workers::ReceiveLocal).to receive(:perform_async).and_call_original
 
       post_message(generate_xml(entity, sender, alice), alice)
 
