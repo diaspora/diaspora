@@ -4,10 +4,7 @@ module Diaspora
       extend Diaspora::Logging
 
       def self.account_deletion(entity)
-        AccountDeletion.new(
-          person:          author_of(entity),
-          diaspora_handle: entity.author
-        ).tap(&:save!)
+        AccountDeletion.create!(person: author_of(entity), diaspora_handle: entity.author)
       end
 
       def self.comment(entity)
@@ -38,16 +35,14 @@ module Diaspora
       def self.conversation(entity)
         author = author_of(entity)
         ignore_existing_guid(Conversation, entity.guid, author) do
-          Conversation.new(
+          Conversation.create!(
             author:              author,
             guid:                entity.guid,
             subject:             entity.subject,
             created_at:          entity.created_at,
-            participant_handles: entity.participants
-          ).tap do |conversation|
-            conversation.messages = entity.messages.map {|message| build_message(message) }
-            conversation.save!
-          end
+            participant_handles: entity.participants,
+            messages:            entity.messages.map {|message| build_message(message) }
+          )
         end
       end
 
@@ -70,15 +65,12 @@ module Diaspora
       end
 
       def self.participation(entity)
-        parent = entity.parent_type.constantize.find_by(guid: entity.parent_guid)
+        author = author_of(entity)
+        ignore_existing_guid(Participation, entity.guid, author) do
+          parent = entity.parent_type.constantize.find_by(guid: entity.parent_guid)
 
-        return unless parent.author.local?
-
-        Participation.new(
-          author: author_of(entity),
-          guid:   entity.guid,
-          target: entity.parent_type.constantize.find_by(guid: entity.parent_guid)
-        ).tap(&:save!)
+          Participation.create!(author: author, guid: entity.guid, target: parent) if parent.author.local?
+        end
       end
 
       def self.photo(entity)
@@ -107,14 +99,11 @@ module Diaspora
         author = author_of(entity)
         ignore_existing_guid(PollParticipation, entity.guid, author) do
           PollParticipation.new(
-            author: author,
-            guid:   entity.guid,
-            poll:   Poll.find_by(guid: entity.parent_guid)
-          ).tap do |poll_participation|
-            poll_participation.poll_answer_guid = entity.poll_answer_guid
-
-            save_relayable(poll_participation, entity)
-          end
+            author:           author,
+            guid:             entity.guid,
+            poll:             Poll.find_by(guid: entity.parent_guid),
+            poll_answer_guid: entity.poll_answer_guid
+          ).tap {|poll_participation| save_relayable(poll_participation, entity) }
         end
       end
 
@@ -138,14 +127,17 @@ module Diaspora
       end
 
       def self.reshare(entity)
-        Reshare.new(
-          author:                author_of(entity),
-          guid:                  entity.guid,
-          created_at:            entity.created_at,
-          provider_display_name: entity.provider_display_name,
-          public:                entity.public,
-          root_guid:             entity.root_guid
-        ).tap(&:save!)
+        author = author_of(entity)
+        ignore_existing_guid(Reshare, entity.guid, author) do
+          Reshare.create!(
+            author:                author,
+            guid:                  entity.guid,
+            created_at:            entity.created_at,
+            provider_display_name: entity.provider_display_name,
+            public:                entity.public,
+            root_guid:             entity.root_guid
+          )
+        end
       end
 
       def self.retraction(entity, recipient_id)
@@ -208,7 +200,7 @@ module Diaspora
       private_class_method :build_poll
 
       def self.save_photo(entity)
-        Photo.new(
+        Photo.create!(
           author:              author_of(entity),
           guid:                entity.guid,
           text:                entity.text,
@@ -219,7 +211,7 @@ module Diaspora
           status_message_guid: entity.status_message_guid,
           height:              entity.height,
           width:               entity.width
-        ).tap(&:save!)
+        )
       end
       private_class_method :save_photo
 

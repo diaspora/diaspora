@@ -65,38 +65,6 @@ describe Request do
     end
   end
 
-  describe '#receive' do
-    it 'creates a contact' do
-      skip # TODO
-      request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
-      expect{
-        request.receive(eve, alice.person)
-      }.to change{
-        eve.contacts(true).size
-      }.by(1)
-    end
-
-    it 'sets mutual if a contact already exists' do
-      skip # TODO
-      alice.share_with(eve.person, alice.aspects.first)
-
-      expect {
-        described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                    :into => eve.aspects.first).receive(alice, eve.person)
-      }.to change {
-        alice.contacts.find_by_person_id(eve.person.id).mutual?
-      }.from(false).to(true)
-
-    end
-
-    it 'sets sharing' do
-      skip # TODO
-      described_class.diaspora_initialize(:from => eve.person, :to => alice.person,
-                                  :into => eve.aspects.first).receive(alice, eve.person)
-      expect(alice.contact_for(eve.person)).to be_sharing
-    end
-  end
-
   context 'xml' do
     before do
       @request = described_class.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)

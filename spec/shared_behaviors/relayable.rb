@@ -79,13 +79,6 @@ shared_examples_for "it is relayable" do
 
   context 'propagation' do
     describe '#receive' do
-      it 'does not overwrite a object that is already in the db' do
-        skip # TODO
-        expect {
-          @dup_object_by_parent_author.receive(@local_leia, @local_luke.person)
-        }.to_not change { @dup_object_by_parent_author.class.count }
-      end
-
       it 'dispatches when the person receiving is the parent author' do
         skip # TODO
         p = Postzord::Dispatcher.build(@local_luke, @object_by_recipient)

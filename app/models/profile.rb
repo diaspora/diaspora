@@ -129,12 +129,7 @@ class Profile < ActiveRecord::Base
   end
 
   def tag_string
-    if @tag_string
-      @tag_string
-    else
-      tags = self.tags.pluck(:name)
-      tags.inject(""){|string, tag| string << "##{tag} " }
-    end
+    @tag_string ||= tags.pluck(:name).map {|tag| "##{tag}" }.join(" ")
   end
 
   # Constructs a full name by joining #first_name and #last_name

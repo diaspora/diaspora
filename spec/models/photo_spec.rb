@@ -274,23 +274,6 @@ describe Photo, :type => :model do
     end
   end
 
-  describe "#receive_public" do
-    it "updates the photo if it is already persisted" do
-      skip # TODO
-      allow(@photo).to receive(:persisted_shareable).and_return(@photo2)
-      expect(@photo2).to receive(:update_attributes)
-      @photo.receive_public
-    end
-
-    it "does not update the photo if the author mismatches" do
-      skip # TODO
-      @photo.author = bob.person
-      allow(@photo).to receive(:persisted_shareable).and_return(@photo2)
-      expect(@photo).not_to receive(:update_existing_sharable)
-      @photo.receive_public
-    end
-  end
-
   describe "#visible" do
     context "with a current user" do
       it "calls photos_from" do

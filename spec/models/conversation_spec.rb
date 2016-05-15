@@ -99,32 +99,6 @@ describe Conversation, :type => :model do
         expect(conversation.subscribers(user1)).to eq(user1.contacts.map(&:person))
       end
     end
-
-    describe "#receive" do
-      before do
-        Message.destroy_all
-        Conversation.destroy_all
-      end
-
-      it "creates a message" do
-        skip # TODO
-        expect {
-          Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
-        }.to change(Message, :count).by(1)
-      end
-      it "creates a conversation" do
-        skip # TODO
-        expect {
-          Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
-        }.to change(Conversation, :count).by(1)
-      end
-      it "creates appropriate visibilities" do
-        skip # TODO
-        expect {
-          Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
-        }.to change(ConversationVisibility, :count).by(participant_ids.size)
-      end
-    end
   end
 
   describe "#invalid parameters" do
