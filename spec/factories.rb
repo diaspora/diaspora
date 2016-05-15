@@ -21,6 +21,7 @@ FactoryGirl.define do
     gender "robot"
     location "Earth"
     birthday Date.today
+    association :person
   end
 
   factory :profile_with_image_url, :parent => :profile do
@@ -70,7 +71,6 @@ FactoryGirl.define do
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
     after(:build) do |u|
       u.person = FactoryGirl.build(:person,
-                                   profile:               FactoryGirl.build(:profile),
                                    pod:                   nil,
                                    serialized_public_key: u.encryption_key.public_key.export,
                                    diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
@@ -149,16 +149,29 @@ FactoryGirl.define do
     lng 13.409779
   end
 
+  factory :participation do
+    association :author, factory: :person
+    association :target, factory: :status_message
+  end
+
   factory(:poll) do
-    sequence(:question) { |n| "What do you think about #{n} ninjas?" }
+    sequence(:question) {|n| "What do you think about #{n} ninjas?" }
+    association :status_message
     after(:build) do |p|
-      p.poll_answers << FactoryGirl.build(:poll_answer)
-      p.poll_answers << FactoryGirl.build(:poll_answer)
+      p.poll_answers << FactoryGirl.build(:poll_answer, poll: p)
+      p.poll_answers << FactoryGirl.build(:poll_answer, poll: p)
     end
   end
 
   factory(:poll_answer) do
-    sequence(:answer) { |n| "#{n} questionmarks" }
+    sequence(:answer) {|n| "#{n} questionmarks" }
+    association :poll
+  end
+
+  factory :poll_participation do
+    association :author, factory: :person
+    association :poll_answer
+    after(:build) {|p| p.poll = p.poll_answer.poll }
   end
 
   factory(:photo) do
@@ -286,8 +299,10 @@ FactoryGirl.define do
   end
 
   factory(:message) do
-    association(:author, factory: :person)
-    sequence(:text) { |n| "message text ##{n}" }
+    association :author, factory: :person
+    association :conversation
+    sequence(:text) {|n| "message text ##{n}" }
+    after(:build) {|m| m.conversation.participants << m.author }
   end
 
   factory(:message_with_conversation, parent: :message) do
