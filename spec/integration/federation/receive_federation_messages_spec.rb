@@ -6,18 +6,7 @@ require "integration/federation/shared_receive_stream_items"
 
 describe "Receive federation messages feature" do
   before do
-    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
-      :queue_public_receive, any_args
-    ).and_call_original
-    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
-      :queue_private_receive, any_args
-    ).and_call_original
-    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
-      :receive_entity, any_args
-    ).and_call_original
-    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
-      :fetch_related_entity, any_args
-    ).and_call_original
+    allow_callbacks(%i(queue_public_receive queue_private_receive receive_entity fetch_related_entity))
   end
 
   let(:sender) { remote_user_on_pod_b }

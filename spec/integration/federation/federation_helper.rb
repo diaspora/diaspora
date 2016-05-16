@@ -24,6 +24,12 @@ def create_remote_user(pod)
   end
 end
 
+def allow_callbacks(callbacks)
+  callbacks.each do |callback|
+    allow(DiasporaFederation.callbacks).to receive(:trigger).with(callback, any_args).and_call_original
+  end
+end
+
 def create_relayable_entity(entity_name, parent, diaspora_id)
   expect(DiasporaFederation.callbacks).to receive(:trigger).with(
     :fetch_private_key, alice.diaspora_handle
