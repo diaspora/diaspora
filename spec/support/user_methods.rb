@@ -7,6 +7,11 @@ class User
     end
   end
 
+  def add_contact_to_aspect(contact, aspect)
+    return if AspectMembership.exists?(contact_id: contact.id, aspect_id: aspect.id)
+    contact.aspect_memberships.create!(aspect: aspect)
+  end
+
   def post(class_name, opts = {})
     inlined_jobs do
       aspects = self.aspects_from_ids(opts[:to])

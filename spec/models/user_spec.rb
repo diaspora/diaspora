@@ -611,26 +611,6 @@ describe User, :type => :model do
     end
   end
 
-  context "aspect management" do
-    before do
-      @contact = alice.contact_for(bob.person)
-      @original_aspect = alice.aspects.where(:name => "generic").first
-      @new_aspect = alice.aspects.create(:name => 'two')
-    end
-
-    describe "#add_contact_to_aspect" do
-      it 'adds the contact to the aspect' do
-        expect {
-          alice.add_contact_to_aspect(@contact, @new_aspect)
-        }.to change(@new_aspect.contacts, :count).by(1)
-      end
-
-      it 'returns true if they are already in the aspect' do
-        expect(alice.add_contact_to_aspect(@contact, @original_aspect)).to be true
-      end
-    end
-  end
-
   context 'likes' do
     before do
       alices_aspect = alice.aspects.where(:name => "generic").first

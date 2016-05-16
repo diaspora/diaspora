@@ -231,12 +231,6 @@ class User < ActiveRecord::Base
     save
   end
 
-  ######### Aspects ######################
-  def add_contact_to_aspect(contact, aspect)
-    return true if AspectMembership.exists?(:contact_id => contact.id, :aspect_id => aspect.id)
-    contact.aspect_memberships.create!(:aspect => aspect)
-  end
-
   ######## Posting ########
   def build_post(class_name, opts={})
     opts[:author] = self.person
