@@ -118,11 +118,6 @@ describe Postzord::Dispatcher do
               expect(@mailman).to receive(:deliver_to_remote).with([@remote_raphael])
               @mailman.post
             end
-
-            it 'calls notify_users' do
-              expect(@mailman).to receive(:notify_users).with([@local_leia])
-              @mailman.post
-            end
           end
         end
 
@@ -142,11 +137,6 @@ describe Postzord::Dispatcher do
             expect(@mailman).to receive(:deliver_to_remote).with([@remote_raphael])
             @mailman.post
           end
-
-          it 'calls notify_users' do
-            expect(@mailman).to receive(:notify_users).with([@local_leia])
-            @mailman.post
-          end
         end
 
         context "local luke" do
@@ -163,11 +153,6 @@ describe Postzord::Dispatcher do
 
           it 'calls deliver_to_remote with remote_raphael' do
             expect(@mailman).to receive(:deliver_to_remote).with([@remote_raphael])
-            @mailman.post
-          end
-
-          it 'calls notify_users' do
-            expect(@mailman).to receive(:notify_users).with([@local_leia])
             @mailman.post
           end
         end
@@ -317,21 +302,6 @@ describe Postzord::Dispatcher do
 
         expect(Workers::DeletePostFromService).to receive(:perform_async).with(anything, anything)
         mailman.post
-      end
-
-    end
-
-    describe '#and_notify_local_users' do
-      it 'calls notifiy_users' do
-        expect(@zord).to receive(:notify_users).with([bob])
-        @zord.send(:notify_local_users, [bob.person])
-      end
-    end
-
-    describe '#notify_users' do
-      it 'enqueues a NotifyLocalUsers job' do
-        expect(Workers::NotifyLocalUsers).to receive(:perform_async).with([bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
-        @zord.send(:notify_users, [bob])
       end
     end
   end
