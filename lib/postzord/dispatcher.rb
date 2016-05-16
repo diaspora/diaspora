@@ -128,7 +128,7 @@ class Postzord::Dispatcher
       people.each do |person|
         logger.info "event=push route=local sender=#{@sender.diaspora_handle} recipient=#{person.diaspora_handle} " \
                     "payload_type=#{@object.class}"
-        Workers::Receive.perform_async(person.owner_id, @xml, @sender.person_id)
+        # TODO: Workers::Receive.perform_async(person.owner_id, @xml, @sender.person_id)
       end
     end
   end
