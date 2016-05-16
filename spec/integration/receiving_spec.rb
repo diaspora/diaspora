@@ -45,7 +45,7 @@ describe 'a user receives a post', :type => :request do
     end
 
     it "does not remove visibility on disconnect" do
-      alice.remove_contact(alice.contact_for(bob.person), force: true)
+      alice.disconnect(alice.contact_for(bob.person), force: true)
       alice.reload
       expect(ShareVisibility.find_by(user_id: alice.id, shareable_id: @status_message.id)).not_to be_nil
     end

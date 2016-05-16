@@ -2,56 +2,55 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-module User::Connecting
-  # This will create a contact on the side of the sharer and the sharee.
-  # @param [Person] person The person to start sharing with.
-  # @param [Aspect] aspect The aspect to add them to.
-  # @return [Contact] The newly made contact for the passed in person.
-  def share_with(person, aspect)
-    contact = self.contacts.find_or_initialize_by(person_id: person.id)
-    return false unless contact.valid?
+class User
+  module Connecting
+    # This will create a contact on the side of the sharer and the sharee.
+    # @param [Person] person The person to start sharing with.
+    # @param [Aspect] aspect The aspect to add them to.
+    # @return [Contact] The newly made contact for the passed in person.
+    def share_with(person, aspect)
+      contact = contacts.find_or_initialize_by(person_id: person.id)
+      return false unless contact.valid?
 
-    unless contact.receiving?
-      contact.dispatch_request
-      contact.receiving = true
+      unless contact.receiving?
+        # TODO: dispatch
+        contact.receiving = true
+      end
+
+      contact.aspects << aspect
+      contact.save
+
+      Notifications::StartedSharing.where(recipient_id: id, target: person.id, unread: true)
+                                   .update_all(unread: false)
+
+      deliver_profile_update
+      contact
     end
 
-    contact.aspects << aspect
-    contact.save
+    def disconnect(contact, opts={force: false})
+      logger.info "event=disconnect user=#{diaspora_handle} target=#{contact.person.diaspora_handle}"
 
-    if notification = Notification.where(:target_id => person.id).first
-      notification.update_attributes(:unread=>false)
+      # TODO: send retraction
+
+      contact.aspect_memberships.delete_all
+
+      if !contact.sharing || opts[:force]
+        contact.destroy
+      else
+        contact.update_attributes(receiving: false)
+      end
     end
 
-    deliver_profile_update
-    contact
-  end
+    def disconnected_by(person)
+      logger.info "event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}"
+      contact = contact_for(person)
+      return unless contact
 
-  def remove_contact(contact, opts={:force => false, :retracted => false})
-    if !contact.mutual? || opts[:force]
-      contact.destroy
-    elsif opts[:retracted]
-      contact.update_attributes(:sharing => false)
-    else
-      contact.update_attributes(:receiving => false)
-    end
-  end
-
-  def disconnect(bad_contact, opts={})
-    person = bad_contact.person
-    logger.info "event=disconnect user=#{diaspora_handle} target=#{person.diaspora_handle}"
-    retraction = Retraction.for(self)
-    retraction.subscribers = [person]#HAX
-    Postzord::Dispatcher.build(self, retraction).post
-
-    AspectMembership.where(:contact_id => bad_contact.id).delete_all
-    remove_contact(bad_contact, opts)
-  end
-
-  def disconnected_by(person)
-    logger.info "event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}"
-    if contact = self.contact_for(person)
-      remove_contact(contact, :retracted => true)
+      if contact.receiving
+        contact.update_attributes(sharing: false)
+      else
+        contact.destroy
+      end
     end
   end
 end

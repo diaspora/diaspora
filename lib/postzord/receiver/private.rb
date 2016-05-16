@@ -79,23 +79,14 @@ class Postzord::Receiver::Private < Postzord::Receiver
     raise Diaspora::ContactRequiredUnlessRequest if contact_required_unless_request
     raise Diaspora::RelayableObjectWithoutParent if relayable_without_parent?
 
-    assign_sender_handle_if_request
-
     raise Diaspora::AuthorXMLAuthorMismatch if author_does_not_match_xml_author?
   end
 
   def contact_required_unless_request
-    unless @object.is_a?(Request) || @user.contact_for(@author) || (@author.owner && @author.owner.podmin_account?)
+    unless @user.contact_for(@author) || (@author.owner && @author.owner.podmin_account?)
       logger.error "event=receive status=abort reason='sender not connected to recipient' type=#{@object.class} " \
                    "recipient=#{@user_person.diaspora_handle} sender=#{@author.diaspora_handle}"
       return true
-    end
-  end
-
-  def assign_sender_handle_if_request
-    #special casey
-    if @object.is_a?(Request)
-      @object.sender_handle = @author.diaspora_handle
     end
   end
 end
