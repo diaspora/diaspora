@@ -27,29 +27,28 @@ class User
       contact
     end
 
-    def disconnect(contact, opts={force: false})
+    def disconnect(contact)
       logger.info "event=disconnect user=#{diaspora_handle} target=#{contact.person.diaspora_handle}"
 
       # TODO: send retraction
 
       contact.aspect_memberships.delete_all
 
-      if !contact.sharing || opts[:force]
-        contact.destroy
-      else
-        contact.update_attributes(receiving: false)
-      end
+      disconnect_contact(contact, direction: :receiving, destroy: !contact.sharing)
     end
 
     def disconnected_by(person)
       logger.info "event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}"
-      contact = contact_for(person)
-      return unless contact
+      contact_for(person).try {|contact| disconnect_contact(contact, direction: :sharing, destroy: !contact.receiving) }
+    end
 
-      if contact.receiving
-        contact.update_attributes(sharing: false)
-      else
+    private
+
+    def disconnect_contact(contact, direction:, destroy:)
+      if destroy
         contact.destroy
+      else
+        contact.update_attributes(direction => false)
       end
     end
   end
