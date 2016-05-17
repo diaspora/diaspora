@@ -39,7 +39,7 @@ class InvitationsController < ApplicationController
       else
         params[:invitation_code]
       end
-
+    @inviter = user || InvitationCode.where(id: params[:invitation_code]).first.try(:user)
     if @invitation_code.present?
       render 'notifier/invite', :layout => false
     else

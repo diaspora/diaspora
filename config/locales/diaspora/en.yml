@@ -838,11 +838,13 @@ en:
       message: |-
         Hello!
 
-        You have been invited to join diaspora*!
+        You have been invited to join diaspora* by %{diaspora_id}!
 
         Click this link to get started
 
         [%{invite_url}][1]
+
+        Or you can add %{diaspora_id} to your contacts if you already have an account.
 
 
         Love,
