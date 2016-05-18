@@ -10,10 +10,8 @@ module Workers
       user = User.find(user_id)
       object = object_class_name.constantize.find(object_id)
       opts = HashWithIndifferentAccess.new(opts)
-      opts[:services] = user.services.where(type: opts.delete(:service_types))
 
-      add_additional_subscribers(object, object_class_name, opts)
-      Postzord::Dispatcher.build(user, object, opts).post
+      Diaspora::Federation::Dispatcher.build(user, object, opts).dispatch
     rescue ActiveRecord::RecordNotFound # The target got deleted before the job was run
     end
 
