@@ -27,7 +27,8 @@ module Diaspora
       attr_reader :sender, :object, :opts
 
       def deliver_to_services
-        # TODO: pubsubhubbub, relay, social-network-services
+        # TODO: pubsubhubbub, relay
+        deliver_to_user_services
       end
 
       def deliver_to_subscribers
@@ -43,6 +44,27 @@ module Diaspora
 
       def deliver_to_remote(people)
         # TODO: send to remote hosts
+      end
+
+      def deliver_to_user_services
+        services.each do |service|
+          case object
+          when StatusMessage
+            Workers::PostToService.perform_async(service.id, object.id, opts[:url])
+          when Retraction
+            Workers::DeletePostFromService.perform_async(service.id, object.target.id)
+          end
+        end
+      end
+
+      def services
+        if opts[:services]
+          opts[:services]
+        elsif opts[:service_types]
+          sender.services.where(type: opts[:service_types])
+        else
+          []
+        end
       end
     end
   end
