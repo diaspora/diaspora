@@ -39,7 +39,9 @@ module Diaspora
       end
 
       def deliver_to_local(people)
-        Workers::ReceiveLocal.perform_async(object.class.to_s, object.id, people.map(&:owner_id))
+        obj = object.respond_to?(:object_to_receive) ? object.object_to_receive : object
+        return unless obj
+        Workers::ReceiveLocal.perform_async(obj.class.to_s, obj.id, people.map(&:owner_id))
       end
 
       def deliver_to_remote(people)

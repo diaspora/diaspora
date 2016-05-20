@@ -85,9 +85,24 @@ class Contact < ActiveRecord::Base
     user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !receiving
   end
 
+  # object for local recipient
+  def object_to_receive
+    Contact.create_or_update_sharing_contact(person.owner, user.person)
+  end
+
   # @return [Array<Person>] The recipient of the contact
   def subscribers
     [person]
+  end
+
+  # creates or updates a contact with active sharing flag. Returns nil if already sharing.
+  def self.create_or_update_sharing_contact(recipient, sender)
+    contact = recipient.contacts.find_or_initialize_by(person_id: sender.id)
+
+    return if contact.sharing
+
+    contact.update(sharing: true)
+    contact
   end
 
   private

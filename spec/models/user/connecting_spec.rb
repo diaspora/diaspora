@@ -109,7 +109,6 @@ describe User::Connecting, type: :model do
     end
 
     it "does set mutual on share-back request" do
-      skip # TODO
       eve.share_with(alice.person, eve.aspects.first)
       alice.share_with(eve.person, alice.aspects.first)
 
@@ -127,25 +126,23 @@ describe User::Connecting, type: :model do
 
     context "dispatching" do
       it "dispatches a request on initial request" do
-        skip # TODO
-
         contact = alice.contacts.new(person: eve.person)
         expect(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
-        # TODO: expect(contact).to receive(:dispatch_request)
+        allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, contact)
 
         alice.share_with(eve.person, alice.aspects.first)
       end
 
       it "dispatches a request on a share-back" do
-        skip # TODO
-
         eve.share_with(alice.person, eve.aspects.first)
 
         contact = alice.contact_for(eve.person)
         expect(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
-        # TODO: expect(contact).to receive(:dispatch_request)
+        allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, contact)
 
         alice.share_with(eve.person, alice.aspects.first)
       end
@@ -154,7 +151,8 @@ describe User::Connecting, type: :model do
         contact = alice.contacts.create(person: eve.person, receiving: true)
         allow(alice.contacts).to receive(:find_or_initialize_by).and_return(contact)
 
-        # TODO: expect(contact).not_to receive(:dispatch_request)
+        allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, instance_of(Profile))
+        expect(Diaspora::Federation::Dispatcher).not_to receive(:defer_dispatch).with(alice, instance_of(Contact))
 
         alice.share_with(eve.person, aspect2)
       end

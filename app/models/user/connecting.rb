@@ -12,13 +12,14 @@ class User
       contact = contacts.find_or_initialize_by(person_id: person.id)
       return false unless contact.valid?
 
-      unless contact.receiving?
-        # TODO: dispatch
-        contact.receiving = true
-      end
-
+      needs_dispatch = !contact.receiving?
+      contact.receiving = true
       contact.aspects << aspect
       contact.save
+
+      if needs_dispatch
+        Diaspora::Federation::Dispatcher.defer_dispatch(self, contact)
+      end
 
       Notifications::StartedSharing.where(recipient_id: id, target: person.id, unread: true)
                                    .update_all(unread: false)
