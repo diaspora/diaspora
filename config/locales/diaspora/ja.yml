@@ -94,6 +94,7 @@ ja:
     index:
       diaspora_id:
         content_1: "あなたのダイアスポラIDは:"
+        content_2: "誰かに渡すと、その人は diaspora* であなたを見つけることができます。"
         heading: "ダイアスポラID"
       donate: "寄付"
       handle_explanation: "これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。"
@@ -243,6 +244,7 @@ ja:
       sent: "次の人々に招待を送信しました："
     edit:
       accept_your_invitation: "招待を受ける"
+      your_account_awaits: "アカウントをお待ちしています!"
     new:
       already_invited: "招待済み"
       aspect: "アスペクト"
@@ -267,6 +269,7 @@ ja:
       whats_new: "更新履歴"
       your_aspects: "アスペクト"
     header:
+      admin: "管理"
       blog: "ブログ"
       code: "ソース"
       login: "ログイン"
@@ -422,6 +425,8 @@ ja:
     mentioned:
       mentioned: "さんは投稿であなたをメンションしました。"
       subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
+    private_message:
+      reply_to_or_view: "この会話に返信、または表示 >"
     report_email:
       subject: "%{type}が新しく攻撃的だとマークされました"
     reshared:
@@ -475,6 +480,7 @@ ja:
       closed_account: "このアカウントは削除されています"
       does_not_exist: "存在しない連絡先です！"
       has_not_shared_with_you_yet: "%{name}さんはまだあなたにどの投稿も共有していません！"
+      ignoring: "%{name}さんからの全ての投稿を無視しています。"
       incoming_request: "%{name}さんは共有の許可を求めています"
       mention: "メンション"
       message: "メッセージ"
@@ -557,6 +563,8 @@ ja:
       your_location: "所在地"
       your_name: "姓名"
       your_photo: "写真"
+      your_private_profile: "非公開プロフィール"
+      your_public_profile: "公開プロフィール"
       your_tags: "自分を表す５つの#タグ"
       your_tags_placeholder: "例：#diaspora #kaji #nyanko #ongaku"
     update:

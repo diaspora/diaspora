@@ -103,6 +103,8 @@ en_valspeak:
       account_closing_scheduled: "So like, the account of %{name} is waitin 2 b closed. it will b done in a few min, kay?"
       add_invites: "add invites!! <3"
       are_you_sure: "R u like... totally sure u wanna trash this account?"
+      are_you_sure_lock_account: "So like, u totes sure u wanna lock this ppl?"
+      are_you_sure_unlock_account: "So like, u totes sure u wanna unlock this ppl?"
       close_account: "trash account"
       email_to: "Email for the ppl 2 invite <3"
       under_13: "show ppl undah 13 (COPPA)"
@@ -133,6 +135,7 @@ en_valspeak:
   aspect_memberships:
     destroy:
       failure: "The person was not like... removed... sry bout that :\\"
+      forbidden: "So like, ur not allowed to do tht..."
       no_membership: "like... we couldnt find the ppl u picked in that aspect... sry bout tht :\\"
       success: "The person was like... removed.. n stuff..."
   aspects:
@@ -161,6 +164,7 @@ en_valspeak:
       aspect_list_is_not_visible: "Ppl in this aspect r like.. not able 2 c each other."
       aspect_list_is_visible: "Ppl in this aspect r like.. able 2 c each other."
       confirm_remove_aspect: "R u sure u want 2 like... remove this aspect?"
+      grant_contacts_chat_privilege: "Give the ppl in this aspect chat privies?"
       make_aspect_list_visible: "make ppl in this group like... able 2 see each other?"
       remove_aspect: "Git rid of this aspect"
       rename: "bag this name.."
@@ -296,6 +300,7 @@ en_valspeak:
       send: "txt"
       sending: "txtin..."
       subject: "topic"
+      subject_default: "No subjieeee"
       to: "2"
     new_conversation:
       fail: "Bad txt"
@@ -357,6 +362,10 @@ en_valspeak:
       what_is_an_aspect_q: "Wat is an aspect er group er whatev?"
       who_sees_post_a: "so like, if u like... make a postie thats like... limited, it will only like, b seen by the ppl u have in ur aspect or group or groups err whatever. BFFs u have that like... arent in the aspect have like... no way of seein the postie, unless u set it 2 like... internet or public n junk. like, only like... posties that r set 2 public can b seen by ppl who u havent like... place in 1 of ur aspects. totally weird, right?"
       who_sees_post_q: "when i like... make a postie 2 a aspect er whatever.. who can like.. see it?"
+    chat:
+      add_contact_roster_q: "So like, how do I cht with ppl in d*?"
+      contacts_page: "ppl page"
+      title: "Chttt"
     faq: "FACK"
     foundation_website: "d* foundation site! i lurve it!! <3"
     getting_help:
@@ -380,6 +389,7 @@ en_valspeak:
       keyboard_shortcuts_li4: "l - <3 the current postie"
       keyboard_shortcuts_li5: "r - reshar the current postie"
       keyboard_shortcuts_li6: "like, make the current postie bigger"
+      keyboard_shortcuts_li7: "o - Open the first linkie in the current postie"
       keyboard_shortcuts_q: "What key shorties r available?(:"
       title: "Keypad shorties!!!"
     markdown: "markydown"
@@ -629,6 +639,7 @@ en_valspeak:
       mark_read: "i liek, read this"
       mark_unread: "umm, HELLO, i havent read this"
       mentioned: "Mentioned"
+      no_notifications: "U dont have any noties yet :S"
       notifications: "Noties!"
       reshared: "Reshared! <3"
       show_all: "show like, all"
@@ -679,7 +690,19 @@ en_valspeak:
       subject: "Plz like... confirm ur new email %{unconfirmed_email}. K thx!!! <3"
     email_sent_by_diaspora: "This email was like... sent by %{pod_name}. If u'd like... to like... stop gettin emails like this,"
     export_email:
+      body: |-
+          Hai %{name}!!
+
+          So like, we got ur data, and its totally ready for dl by [clicking here!!!!:D](%{url}).
+
+          Deuces!
+
+          The d* robo!!
       subject: "u can dl ur personal data nao!!!!, %{name} :D"
+    export_failure_email:
+      subject: "So like, totally sry, but like... there was a problem with your stuff %{name}"
+    export_photos_failure_email:
+      subject: "So like, there was an issue with ur photos, %{name}... so sry bout tht..."
     hello: "OMG HEY! %{name}"
     invite:
       message: |-
@@ -807,6 +830,7 @@ en_valspeak:
       closed_account: "this profile is gone dude..."
       does_not_exist: "they dont like... exist :\\"
       has_not_shared_with_you_yet: "%{name} has like... not shared ne posties wit u yet!"
+      ignoring: "U r like... ignorin all posties from %{name}."
       incoming_request: "%{name} wants 2 like... share wit u"
       mention: "Tag person"
       message: "Txt"
@@ -863,6 +887,7 @@ en_valspeak:
       title: "A postie from %{name}"
     show:
       destroy: "Trash ur pic"
+      forbidden: "So like, ur not allowed to do tht..."
       not_found: "Sry, but we like... couldnt find that postie. :\\"
       permalink: "like... permalink"
       photos_by:
@@ -890,6 +915,8 @@ en_valspeak:
       your_location: "Ur place"
       your_name: "Ur name"
       your_photo: "Ur pic"
+      your_private_profile: "Ur like... private profile..."
+      your_public_profile: "Ur like... profile where every1 can like... c it..."
       your_tags: "Describe urself in like... 5 werdz"
       your_tags_placeholder: "like #twilight #selfies #Belieber #iphone #mtv"
     update:
@@ -1001,6 +1028,8 @@ en_valspeak:
       click_link_to_accept_invitation: "so like... follow this link 2 like... accept ur invite"
       join_me_on_diaspora: "Chill wit me on diaspora*!"
     provider:
+      facebook: "fb"
+      tumblr: "tmblr"
       twitter: "Twittar<333"
       wordpress: "WurdPress"
     remote_friend:
@@ -1105,9 +1134,20 @@ en_valspeak:
       user: "The secret pic n code werent the same D:"
     placeholder: "like, enter in the stuff in the pic"
   statistics:
+    active_users_halfyear: "Active ppl half yr"
+    active_users_monthly: "Active ppl monthly"
+    closed: "Closed"
+    disabled: "Not availab"
+    enabled: "Availab"
     local_comments: "Local commentz"
+    local_posts: "Local posties"
+    name: "Nameee"
+    network: "Da network"
+    open: "Open"
+    registrations: "Reggies"
     services: "Serviez!!!! :3"
     total_users: "Total ppl"
+    version: "Ver"
   status_messages:
     create:
       success: "YAY! %{names} has been mentioned!! :D"
@@ -1204,13 +1244,17 @@ en_valspeak:
       edit_account: "Edit ur account <3"
       email_awaiting_confirmation: "So we like... sent u a link 2 like activate %{unconfirmed_email}. Until u like... follow this link && activate this new addy, we will continue 2 like.. use ur original addy %{email}. Kay?"
       export_data: "dl data!!!"
+      export_in_progress: "We're gettin ur data... bbl!!!! <3"
+      export_photos_in_progress: "So like, we're currently gettin ur photos and junk. Bbl! <3"
       following: "Sharin settins"
       getting_started: "New user prefies"
+      last_exported_at: "(So like, last updated @ %{timestamp})"
       liked: "some1 likes ur postie"
       mentioned: "u r mentioned in a postie"
       new_password: "New passwerd(;"
       private_message: "u receive a sext :o"
       receive_email_notifications: "Receive email noties when like:"
+      request_export: "Get my pro dats."
       request_export_photos: "make a request for my pics"
       request_export_photos_update: "Refresh my pics"
       request_export_update: "Refresh my wall data"

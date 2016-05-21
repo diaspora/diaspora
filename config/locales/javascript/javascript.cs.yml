@@ -136,6 +136,7 @@ cs:
       contacts: "Kontakty"
       edit: "upravit"
       gender: "Pohlaví"
+      ignoring: "Ignorujete všechny příspěvky od <%= name %>."
       location: "Pozice"
       photos: "Fotky"
       posts: "Příspěvky"

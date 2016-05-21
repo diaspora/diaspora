@@ -548,6 +548,7 @@ nn:
       closed_account: "Denne kontoen er låst."
       does_not_exist: "Personen finst ikkje."
       has_not_shared_with_you_yet: "%{name} har enno ikkje delt noko innlegg med deg."
+      ignoring: "Du ser ikkje innlegg frå %{name} lengjer."
       incoming_request: "%{name} ønskjer å dela med deg"
       mention: "Nemn"
       message: "Melding"
@@ -628,6 +629,8 @@ nn:
       your_location: "Staden du er"
       your_name: "Namnet ditt"
       your_photo: "Foto av deg"
+      your_private_profile: "Den private profilen din"
+      your_public_profile: "Den offentlege profilen din"
       your_tags: "5 ord om deg sjølv"
       your_tags_placeholder: "liker #movies #kittens #travel #teacher #newyork"
     update:

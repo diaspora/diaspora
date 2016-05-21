@@ -568,6 +568,7 @@ he:
       closed_account: "חשבון זה נסגר."
       does_not_exist: "אדם זה אינו קיים!"
       has_not_shared_with_you_yet: "%{name} טרם שיתף איתך הודעה כלשהי!"
+      ignoring: "אתם מתעלמים מכל הההודעות של %{name}."
       incoming_request: "%{name} רוצה לשתף איתך"
       mention: "אזכור"
       message: "הודעה"
@@ -651,6 +652,8 @@ he:
       your_location: "המיקום שלך"
       your_name: "שמך"
       your_photo: "התמונה שלך"
+      your_private_profile: "הפרופיל הפרטי שלך"
+      your_public_profile: "הפרופיל הציבורי שלך"
       your_tags: "תאר/י את עצמך ב־5 מילים"
       your_tags_placeholder: "כגון #סרטים #חתלתולים #טיולים #מורה #כרמיאל"
     update:

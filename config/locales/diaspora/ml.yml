@@ -657,6 +657,7 @@ ml:
       closed_account: "ഈ അക്കൗണ്ട് പൂട്ടിയിരിക്കുന്നു."
       does_not_exist: "വ്യക്തി നിലവിലില്ല!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      ignoring: "നിങ്ങള്‍ %{name} - ഇല്‍ നിന്നുള്ളാ എല്ലാ കുറിപ്പുകളും അവഗണിക്കുന്നു."
       incoming_request: "%{name} നിങ്ങളുമായി പങ്കിടാന്‍ ആഗ്രഹിക്കുന്നു"
       mention: "സൂചിപ്പിച്ചു"
       message: "സന്ദേശം"
@@ -737,6 +738,8 @@ ml:
       your_location: "താങ്കളുടെ സ്ഥലം"
       your_name: "താങ്കളുടെ പേര്"
       your_photo: "താങ്കളുടെ ചിത്രം"
+      your_private_profile: "താങ്കളുടെ സ്വകാര്യ പ്രൊഫൈല്‍ "
+      your_public_profile: "താങ്കളുടെ പൊതു പ്രൊഫൈല്‍ "
       your_tags: "Describe yourself in 5 words"
       your_tags_placeholder: "like #movies #kittens #travel #teacher #newyork"
     update:

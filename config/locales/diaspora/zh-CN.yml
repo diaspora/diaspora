@@ -459,6 +459,7 @@ zh-CN:
       closed_account: "此帐号已经关闭"
       does_not_exist: "好友不存在！"
       has_not_shared_with_you_yet: "%{name} 暂未和您分享内容！"
+      ignoring: "您忽略了 %{name} 的所有内容"
       incoming_request: "%{name} 希望能与您分享"
       mention: "提及"
       message: "消息"
@@ -538,6 +539,8 @@ zh-CN:
       your_location: "您的位置"
       your_name: "您的名字"
       your_photo: "您的照片"
+      your_private_profile: "您的私人档案"
+      your_public_profile: "您的公开档案"
       your_tags: "用五个#标签 描述您自己"
       your_tags_placeholder: "比如 #diaspora #烫发 #猫咪 #音乐"
     update:

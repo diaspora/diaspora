@@ -678,6 +678,7 @@ es-CL:
       closed_account: "Esta cuenta ha sido cerrada."
       does_not_exist: "¡La persona no existe!"
       has_not_shared_with_you_yet: "%{name} todavía no ha compartido ningún post contigo!"
+      ignoring: "Estas ignorando todos los post de %{name}."
       incoming_request: "Tienes una solicitud pendiente de %{name}"
       mention: "Mencionar"
       message: "Mensaje"
@@ -761,6 +762,8 @@ es-CL:
       your_location: "Tú ubicación"
       your_name: "Tu nombre"
       your_photo: "Tu foto"
+      your_private_profile: "Tú perfil privado"
+      your_public_profile: "Tú perfil publico"
       your_tags: "Describite en 5 palabras"
       your_tags_placeholder: "como #peliculas #carrete #gatitos #viajes #profesora"
     update:

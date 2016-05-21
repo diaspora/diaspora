@@ -139,6 +139,7 @@ pl:
       contacts: "Kontakty"
       edit: "zmień"
       gender: "Płeć"
+      ignoring: "Ignorujesz wszystkie wpisy od <%= name %>."
       location: "Miejsce"
       photos: "Zdjęcia"
       posts: "Wpisy"

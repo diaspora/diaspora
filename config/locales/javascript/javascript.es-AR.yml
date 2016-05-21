@@ -134,6 +134,7 @@ es-AR:
       contacts: "Contactos"
       edit: "Editar"
       gender: "Género"
+      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
       location: "Ubicación"
       photos: "Fotos"
       posts: "Publicaciones"

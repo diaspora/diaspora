@@ -519,6 +519,7 @@ ar:
       closed_account: "لقد تم إغلاق هذا الحساب."
       does_not_exist: "هذا العضو غير موجود"
       has_not_shared_with_you_yet: "%{name} لمْ يشارك أي مشاركة معك بعد"
+      ignoring: "أنت تتجاهل جميع المشاركات من %{name}."
       incoming_request: "%{name} يريد المشاركة معك"
       mention: "إشارة"
       message: "رسالة"
@@ -602,6 +603,8 @@ ar:
       your_location: "مكانُك"
       your_name: "اسمك"
       your_photo: "صورتُك"
+      your_private_profile: "ملفك الشخصى الخاص"
+      your_public_profile: "ملفك الشخصى العام"
       your_tags: "صِف نفسك في 5 كلمات"
       your_tags_placeholder: "مثال: #دياسبرا #إسلام #عرب #موسيقى #فن"
     update:

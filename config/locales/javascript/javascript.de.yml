@@ -137,6 +137,7 @@ de:
       contacts: "Kontakte"
       edit: "Bearbeiten"
       gender: "Geschlecht"
+      ignoring: "Du ignorierst sämtliche Beiträge von <%= name %>."
       location: "Ort"
       photos: "Fotos"
       posts: "Beiträge"

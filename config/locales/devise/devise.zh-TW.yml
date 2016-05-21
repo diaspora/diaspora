@@ -37,7 +37,7 @@ zh-TW:
       reset_password_instructions:
         change: "更改密碼"
         ignore: "如果你沒有要求過，請不用管這封信。"
-        someone_requested: "如果你要求重設密碼，請點下方連結來重設密碼。"
+        someone_requested: "如果你有要求要重設密碼的話，請點下方連結進行。"
         subject: "密碼重設步驟"
         wont_change: "在按了以上連結，並且設定新的密碼後，你的密碼才會改變。"
       unlock_instructions:

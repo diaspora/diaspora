@@ -916,6 +916,7 @@ nb:
       closed_account: "Denne kontoen har blitt avsluttet."
       does_not_exist: "Personen eksisterer ikke!"
       has_not_shared_with_you_yet: "%{name} har ikke delt noe med deg enda."
+      ignoring: "Du ignorerer innlegg fra %{name}."
       incoming_request: "You have an incoming request from this person."
       mention: "Omtale"
       message: "Melding"
@@ -1000,6 +1001,8 @@ nb:
       your_location: "Hvor bor du?"
       your_name: "Ditt navn"
       your_photo: "Ditt profilbilde"
+      your_private_profile: "Din private profil"
+      your_public_profile: "Din offentlige profil"
       your_tags: "Deg: i 5 #tagger"
       your_tags_placeholder: "f.eks. #diaspora #matlaging #skiskyting #musikk"
     update:

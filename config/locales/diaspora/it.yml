@@ -737,6 +737,7 @@ it:
       closed_account: "Questo account è stato chiuso."
       does_not_exist: "La persona non esiste!"
       has_not_shared_with_you_yet: "%{name} non ha ancora condiviso dei post con te!"
+      ignoring: "Stai ignorando tutti i post di %{name}."
       incoming_request: "%{name} vuole condividere con te"
       mention: "Menziona"
       message: "Messaggio"
@@ -820,6 +821,8 @@ it:
       your_location: "Dove ti trovi"
       your_name: "Il tuo nome"
       your_photo: "La tua foto"
+      your_private_profile: "Il tuo profilo privato"
+      your_public_profile: "Il tuo profilo pubblico"
       your_tags: "Descriviti con 5 #tag"
       your_tags_placeholder: "per esempio #cinema #viaggi #gattini #musica #cagliari"
     update:

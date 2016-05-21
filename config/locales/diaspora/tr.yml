@@ -656,6 +656,7 @@ tr:
       closed_account: "Bu hesap kapatılmıştır."
       does_not_exist: "Kişi yok!"
       has_not_shared_with_you_yet: "%{name} seninle henüz bir şey paylaşmamış!"
+      ignoring: "%{name} isimli kullanıcının tüm gönderilerini görmezden geliyorsun."
       incoming_request: "%{name} seninle paylaşımda bulunmak istiyor"
       mention: "Bahset"
       message: "Mesaj"
@@ -738,6 +739,8 @@ tr:
       your_location: "Bulunduğun yer"
       your_name: "Adın"
       your_photo: "Fotoğrafın"
+      your_private_profile: "Özel profil"
+      your_public_profile: "Genel profil"
       your_tags: "Kendini 5 kelime ile anlat"
       your_tags_placeholder: "#diaspora #ironing #kittens #music gibi"
     update:

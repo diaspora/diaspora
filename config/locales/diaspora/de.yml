@@ -422,7 +422,7 @@ de:
       diaspora_app_q: "Gibt es eine diaspora* App für Android oder iOS?"
       photo_albums_a: "Nein, momentan nicht. Aber du kannst dir die hochgeladenen Bilder in der Fotosektion in der linke Leiste auf dem Profil ansehen."
       photo_albums_q: "Gibt es Foto oder Videoalben?"
-      subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird nicht ganz richtig formatiert. Wenn du die Funktion dennoch benutzen willst, gehe einfach zu der Profilseite der Person und klicke auf die Feed-Schaltfläche deines Browsers oder kopiere die Profil-URL (z.B. https://joindiaspora.com/people/irgendeinenummer) und füge sie in einen Feedreader ein. Die resultierenden Feed-Adressen sehen z.B. so aus: https://joindiaspora.com/public/benutzername.atom – diaspora* benutzt Atom anstelle von RSS."
+      subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird nicht ganz richtig formatiert. Wenn du die Funktion dennoch benutzen willst, gehe einfach zu der Profilseite der Person und klicke auf die Feed-Schaltfläche deines Browsers oder kopiere die Profil-URL (z.B. https://podname.org/people/irgendeinenummer) und füge sie in einen Feedreader ein. Die resultierenden Feed-Adressen sehen z.B. so aus: https://podname.org/public/benutzername.atom – diaspora* benutzt Atom anstelle von RSS."
       subscribe_feed_q: "Kann ich die öffentlichen Beiträge einer Person mit einem Feedreader verfolgen?"
       title: "Diverses"
     pods:
@@ -917,6 +917,7 @@ de:
       closed_account: "Dieses Konto wurde geschlossen."
       does_not_exist: "Diese Person existiert nicht!"
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit dir geteilt!"
+      ignoring: "Du ignorierst alle Beiträge von %{name}."
       incoming_request: "Du hast eine eingehende Anfrage von %{name}."
       mention: "Erwähnen"
       message: "Nachricht"
@@ -975,7 +976,7 @@ de:
       destroy: "Löschen"
       forbidden: "Du bist nicht berechtigt, das zu tun"
       not_found: "Entschuldige, wir konnten den Beitrag leider nicht finden."
-      permalink: "Permanentlink"
+      permalink: "Permalink"
       photos_by:
         few: "%{count} Fotos von %{author}"
         many: "%{count} Fotos von %{author}"
@@ -1004,6 +1005,8 @@ de:
       your_location: "Dein Ort"
       your_name: "Dein Name"
       your_photo: "Dein Profilbild"
+      your_private_profile: "Dein privates Profil"
+      your_public_profile: "Dein öffentliches Profil"
       your_tags: "Beschreibe dich in 5 Worten"
       your_tags_placeholder: "Zum Beispiel: #Diaspora #lustig #Kätzchen #Musik"
     update:

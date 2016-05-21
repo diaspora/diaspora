@@ -130,6 +130,7 @@ ia:
       contacts: "Contactos"
       edit: "modificar"
       gender: "Sexo"
+      ignoring: "Tu ignora tote le entratas de <%= name %>."
       location: "Loco"
       photos: "Photos"
       posts: "Entratas"

@@ -585,6 +585,7 @@ el:
       closed_account: "Αυτός ο λογαριασμός έχει κλείσει."
       does_not_exist: "Δεν υπάρχει τέτοιο άτομα!"
       has_not_shared_with_you_yet: "Ο/Η %{name} δεν μοιράζεται ακόμα κάποια δημοσίευση μαζί σου!"
+      ignoring: "Αγνοείς όλες τις αναρτήσεις από %{name}."
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σου"
       mention: "Αναφορά"
       message: "Μήνυμα"
@@ -665,6 +666,8 @@ el:
       your_location: "Η τοποθεσία σου"
       your_name: "Το όνομά σου"
       your_photo: "Η φωτογραφία σου"
+      your_private_profile: "Το ιδιωτικό σου προφίλ"
+      your_public_profile: "Το δημόσιο προφίλ σου"
       your_tags: "Περιέγραψε τον εαυτό σου με 5 λέξεις"
       your_tags_placeholder: "όπως #ταινίες #γατάκια #ταξίδι #δάσκαλος #newyork"
     update:

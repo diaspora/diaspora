@@ -681,6 +681,7 @@ es-MX:
       closed_account: "Esta cuenta ha sido cerrada."
       does_not_exist: "¡La persona no existe!"
       has_not_shared_with_you_yet: "¡%{name} aún no ha compartido ninguna publicación contigo!"
+      ignoring: "Estás ignorando todas las publicaciones de %{name}."
       incoming_request: "%{name} quiere compartir contigo"
       mention: "Mención"
       message: "Mensaje"
@@ -764,6 +765,8 @@ es-MX:
       your_location: "Ubicación"
       your_name: "Tu nombre"
       your_photo: "Foto"
+      your_private_profile: "Tu perfil privado"
+      your_public_profile: "Perfil público"
       your_tags: "Descríbete en 5 palabras"
       your_tags_placeholder: "como #películas #gatos #viajes #profesora #méxico"
     update:

@@ -412,6 +412,7 @@ bg:
       closed_account: "Акаунтът е затворен."
       does_not_exist: "Лицето не съществува!"
       has_not_shared_with_you_yet: "%{name} все още не е споделил нито една публикация с Вас!"
+      ignoring: "Всички публикации на %{name} биват игнорирани."
       incoming_request: "%{name} желае да споделя с Вас"
       mention: "Споменете"
       message: "Съобщение"
@@ -491,6 +492,8 @@ bg:
       your_location: "Местоположение"
       your_name: "Вашето име"
       your_photo: "Снимка"
+      your_private_profile: "Вашият личен профил"
+      your_public_profile: "Вашият публичен профил"
       your_tags: "Опишете се с до 5 #думи (марки)"
       your_tags_placeholder: "например: #България #diaspora #фитнес #музика #котки"
     update:

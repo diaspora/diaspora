@@ -549,6 +549,7 @@ sl:
       closed_account: "Ta račun je bil zaprt."
       does_not_exist: "Oseba ne obstaja!"
       has_not_shared_with_you_yet: "Oseba %{name} še ni izmenjala objave z vami!"
+      ignoring: "Vi ignorirate vse prispevke osebe %{name}."
       incoming_request: "%{name} želi deliti z vami."
       mention: "Omemba"
       message: "Sporočilo"
@@ -631,6 +632,8 @@ sl:
       your_location: "Vaš kraj"
       your_name: "Vaše ime"
       your_photo: "Vaša slika"
+      your_private_profile: "Vaš zasebni profil"
+      your_public_profile: "Vaš javni profil"
       your_tags: "Opišite se v petih besedah"
       your_tags_placeholder: "npr. #movies #kittens #travel #teacher #newyork"
     update:

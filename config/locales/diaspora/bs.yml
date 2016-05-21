@@ -606,6 +606,7 @@ bs:
       closed_account: "Ovaj račun je zatvoren."
       does_not_exist: "Osoba ne postoji!"
       has_not_shared_with_you_yet: "%{name} nije dijelio/la još ni jednu objavu s vama."
+      ignoring: "Ignorišete sve objave od %{name}."
       incoming_request: "%{name} želiti dijeliti s vama"
       mention: "Spominjanje"
       message: "Poruka"
@@ -688,6 +689,8 @@ bs:
       your_location: "Vaša lokacija"
       your_name: "Vaše ime"
       your_photo: "Vaša fotografija"
+      your_private_profile: "Vaš privatni profil"
+      your_public_profile: "Vaš javni profil"
       your_tags: "Opišite sebe u 5 riječi"
       your_tags_placeholder: "kao #filmovi #mačkice #putovanja #učitelj #sarajevo"
     update:

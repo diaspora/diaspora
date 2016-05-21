@@ -675,6 +675,7 @@ te:
       closed_account: "ఈ ఖాతా మూసివేయబడినది"
       does_not_exist: "అటువంటి వ్యక్తి లేనే లేరు!"
       has_not_shared_with_you_yet: "%{name} ఇంకా మీతో టపాలు ఏవీ పంచుకోలేదు!"
+      ignoring: "%{name} నుండి వచ్చే అన్ని టపాలను మీరు విస్మరిస్తున్నారు."
       incoming_request: "%{name} మీతో పంచుకోవాలనుకుంటున్నారు"
       mention: "పేర్కొను"
       message: "సందేశం"
@@ -757,6 +758,8 @@ te:
       your_location: "మీ ప్రాంతం"
       your_name: "మీ పేరు"
       your_photo: "మీ ఫొటో"
+      your_private_profile: "మీ రహస్య ప్రవర"
+      your_public_profile: "మీ బహిరంగ ప్రవర"
       your_tags: "5 పదాల్లో మీ గురించి చెప్పండి"
       your_tags_placeholder: "#చలనచిత్రాలు #ప్రయాణం #క్రికెట్ #తెలుగు #సంగీతం #హైదరాబాద్ వంటివి"
     update:

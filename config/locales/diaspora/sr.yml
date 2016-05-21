@@ -338,6 +338,8 @@ sr:
       your_location: "Ваша локација"
       your_name: "Ваше име"
       your_photo: "Ваша слика"
+      your_private_profile: "Ваш приватни профил"
+      your_public_profile: "Ваш јавни профил"
       your_tags: "Опишите себе у 5 ријечи"
     update:
       failed: "Неуспело ажурирање профила"

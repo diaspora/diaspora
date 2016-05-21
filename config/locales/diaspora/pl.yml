@@ -926,6 +926,7 @@ pl:
       closed_account: "Te konto zostało zamknięte."
       does_not_exist: "Osoba nie istnieje!"
       has_not_shared_with_you_yet: "%{name} nie udostępnia Ci jeszcze żadnych wpisów!"
+      ignoring: "Ignorujesz wszystkie wpisy od %{name}."
       incoming_request: "%{name} chce Ci udostępniać"
       mention: "Wspomnij"
       message: "Wiadomość"
@@ -1011,6 +1012,8 @@ pl:
       your_location: "Lokalizacja"
       your_name: "Imię"
       your_photo: "Twoje zdjęcie"
+      your_private_profile: "Twój profil prywatny"
+      your_public_profile: "Twój profil publiczny"
       your_tags: "Opisz siebie w pięciu słowach"
       your_tags_placeholder: "np. #filmy #kotki #podróże #nauczyciel #warszawa"
     update:

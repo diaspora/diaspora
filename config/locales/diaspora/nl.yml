@@ -222,7 +222,7 @@ nl:
     no_contacts_message:
       community_spotlight: "Community aanrader"
       or_spotlight: "Of je kan delen met %{link}\n"
-      try_adding_some_more_contacts: "Je kunt zoeken of %{invite_link} meer contacten uitnodigen."
+      try_adding_some_more_contacts: "Je kunt zoeken en meer contacten uitnodigen."
       you_should_add_some_more_contacts: "Voeg wat meer contacten toe!"
     no_posts_message:
       start_talking: "Nog niemand heeft iets gezegd!"
@@ -823,16 +823,15 @@ nl:
           Hallo,
 
           het %{type} met ID %{id} werd als aanstootgevend gemarkeerd.
-
-          Reden: "%{reason}"
-
           [%{url}][1]
 
-          Beoordeel het zo snel mogelijk.
+          Beoordeel het zo snel mogelijk!
+
 
           Groetjes,
 
           De diaspora* e-mailrobot!
+
           [1]: %{url}
       subject: "Een nieuw %{type} is als aanstootgevend gemarkeerd"
       type:
@@ -896,6 +895,7 @@ nl:
       closed_account: "Deze account is gesloten."
       does_not_exist: "Die persoon bestaat niet!"
       has_not_shared_with_you_yet: "%{name} heeft nog geen berichten met je gedeeld!"
+      ignoring: "Je negeert alle berichten van %{name}."
       incoming_request: "%{name} wil met je delen"
       mention: "Noemen"
       message: "Bericht"
@@ -983,6 +983,8 @@ nl:
       your_location: "Jouw locatie"
       your_name: "Je naam"
       your_photo: "Je profielfoto"
+      your_private_profile: "Je privé-profiel"
+      your_public_profile: "Je openbare profiel"
       your_tags: "Jezelf: in 5 #tags"
       your_tags_placeholder: "b.v. #diaspora #strijken #kittens #muziek"
     update:

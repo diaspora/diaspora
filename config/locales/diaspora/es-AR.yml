@@ -222,7 +222,7 @@ es-AR:
     no_contacts_message:
       community_spotlight: "Comunidad creativa"
       or_spotlight: "O lo podés compartir con %{link}"
-      try_adding_some_more_contacts: "Podés buscar o invitar más contactos."
+      try_adding_some_more_contacts: "Podés buscar o invitar a más contactos."
       you_should_add_some_more_contacts: "¡Deberías agregar más contactos!"
     no_posts_message:
       start_talking: "Nadie dijo nada todavía. ¡Inicia una conversación!"
@@ -906,6 +906,7 @@ es-AR:
       closed_account: "Esta cuenta ha sido cerrada."
       does_not_exist: "¡Ese usuario no existe!"
       has_not_shared_with_you_yet: "¡%{name} no compartió ninguna publicación con vos todavía!"
+      ignoring: "Estás ignorando todas las publicaciones de %{name}."
       incoming_request: "%{name} quiere compartir con vos"
       mention: "Mención"
       message: "Mensaje"
@@ -990,6 +991,8 @@ es-AR:
       your_location: "Tu ubicación"
       your_name: "Tu nombre"
       your_photo: "Tu foto"
+      your_private_profile: "Tu perfil privado"
+      your_public_profile: "Tu perfil público"
       your_tags: "Vos en 5 palabras"
       your_tags_placeholder: "Por ejemplo #arte #viajes #linux #música #cine"
     update:
@@ -1375,7 +1378,7 @@ es-AR:
     privacy_settings:
       ignored_users: "Usuarios ignorados"
       no_user_ignored_message: "En este momento no estás ignorando a ningún otro usuario"
-      stop_ignoring: "Dejar de ignorar"
+      stop_ignoring: "dejar de ignorar"
       strip_exif: "Evita metadatos como la ubicación, autor y modelo de cámara de fotos en las imágenes subidas (recomendado)"
       title: "Configuración de Privacidad"
     public:

@@ -544,6 +544,7 @@ ko:
       closed_account: "없어진 계정입니다."
       does_not_exist: "없는 사람입니다!"
       has_not_shared_with_you_yet: "%{name}님은 아직 나와 아무것도 공유하지 않았습니다!"
+      ignoring: "%{name}님의 모든 게시물을 무시하고 있습니다."
       incoming_request: "%{name}님이 나와 공유하길 원합니다"
       mention: "멘션"
       message: "쪽지"
@@ -627,6 +628,8 @@ ko:
       your_location: "위치"
       your_name: "이름"
       your_photo: "내 사진"
+      your_private_profile: "개인 프로필"
+      your_public_profile: "공개 프로필"
       your_tags: "낱말 5개로 나를 표현하세요"
       your_tags_placeholder: "예) #movies #kittens #travel #teacher #newyork"
     update:

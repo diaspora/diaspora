@@ -31,12 +31,17 @@ fi:
       no_aspects: "Näkymiä ei ole valittu"
       select_all: "Valitse kaikki"
     aspects:
+      create:
+        add_a_new_aspect: "Lisää näkymä"
+        failure: "Näkymän luominen epäonnistui."
+        success: "Uusi näkymäsi <%= name %> on luotu"
       make_aspect_list_visible: "Salli tämän näkymän kontaktien nähdä toisensa?"
       name: "Nimi"
     bookmarklet:
       post_something: "Lähetä julkaisu Diasporaan"
       post_submit: "Lähettää julkaisua..."
       post_success: "Julkaistu! Suljetaan ponnahdusikkuna"
+    cancel: "Peru"
     comma: ","
     comments:
       hide: "Piilota kommentit"
@@ -53,6 +58,8 @@ fi:
       remove_contact: "Poista kontakti"
       search_no_results: "Kontakteja ei löytynyt"
     conversation:
+      new:
+        no_contacts: "Sinun pitää lisätä muutamia kontakteja ennen kuin voit aloittaa keskustelun."
       participants: "Osallistujat"
     create: "Luo"
     delete: "Poista"
@@ -75,6 +82,7 @@ fi:
       home: "Koti"
       log_out: "Kirjaudu ulos"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
+      moderator: "Ylläpitäjä"
       notifications: "Ilmoitukset"
       profile: "Profiili"
       recent_notifications: "Tuoreet ilmoitukset"
@@ -117,6 +125,7 @@ fi:
       count:
         one: "<%=count%> ääni tähän mennessä"
         other: "<%=count%> ääntä tähän mennessä"
+      go_to_original_post: "Voit osallistua tähän kyselyyn sivulla <%= original_post_link %>"
       original_post: "alkuperäinen julkaisu"
       result: "Tulos"
       show_result: "Näytä tulokset"
@@ -128,6 +137,7 @@ fi:
       contacts: "Kontaktit"
       edit: "Muokkaa"
       gender: "Sukupuoli"
+      ignoring: "Sivuutat nyt kaikki julkaisut, jotka <%= name %> lähettää."
       location: "Sijainti"
       photos: "Kuvat"
       posts: "Julkaisut"
@@ -195,9 +205,11 @@ fi:
       show_nsfw_posts: "Näytä kaikki"
       tags:
         follow: "Seuraa #<%= tag %>"
+        follow_error: "Tagin <%= tag %> seuraaminen epäonnistui :("
         following: "Seurataan tagia #<%= tag %>"
         stop_following: "Lopeta tagin #<%= tag %> seuraaminen"
         stop_following_confirm: "Lopetetaanko tagin #<%= tag %> seuraaminen?"
+        stop_following_error: "Tagin <%= tag %> seuraamisen lopettaminen epäonnistui :("
       unfollow: "Lopeta seuraaminen"
       unlike: "Peru tykkäys"
       via: "<%= provider %> kautta"

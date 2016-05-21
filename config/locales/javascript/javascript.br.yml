@@ -93,6 +93,7 @@ br:
       contacts: "Darempredoù"
       edit: "Embann"
       gender: "Jener"
+      ignoring: "Ne rit ket van eus an holl postoù gant <%= name %>"
       location: "Lec'hiadur"
       photos: "Skeudennoù"
       posts: "Postoù"

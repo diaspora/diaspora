@@ -495,6 +495,8 @@ en_1337:
       your_location: "Y0UR 1P"
       your_name: "Y0UR N4M3"
       your_photo: "Y0UR PR0N"
+      your_private_profile: "Y0UR PR1V473 PR0F1L3"
+      your_public_profile: "Y0UR PUBL1C PR0F1L3"
       your_tags: "D35CR1B3 Y0UR53LF 1N 5 W0RD5"
       your_tags_placeholder: "L1K3 #4N0N #W0W #G33K #4N0NYM0U5 #1RC"
     update:

@@ -135,6 +135,7 @@ nb:
       contacts: "Kontakter"
       edit: "Endre"
       gender: "Kjønn"
+      ignoring: "Du vil ignorere alle innlegg fra <%= name %>."
       location: "Lokasjon"
       photos: "Bilder"
       posts: "Innlegg"

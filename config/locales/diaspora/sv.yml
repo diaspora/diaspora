@@ -222,7 +222,7 @@ sv:
     no_contacts_message:
       community_spotlight: "Gemenskapens rampljus"
       or_spotlight: "Du kan också dela med %{link}"
-      try_adding_some_more_contacts: "Du kan söka efter eller %{invite_link} fler kontakter."
+      try_adding_some_more_contacts: "Du kan söka efter eller bjuda in kontakter."
       you_should_add_some_more_contacts: "Du borde lägga till fler kontakter!"
     no_posts_message:
       start_talking: "Ingen har sagt någonting än!"
@@ -666,7 +666,7 @@ sv:
       mark_read: "Lästmärk"
       mark_unread: "Markera som oläst"
       mentioned: "Omnämnd"
-      no_notifications: "Du har inga notifikationer ännu."
+      no_notifications: "Du har inga notifikationer än."
       notifications: "Notiser"
       reshared: "Återdelad"
       show_all: "Visa alla"
@@ -815,14 +815,12 @@ sv:
 
           %{type} med id:et %{id} var märkt som stötande.
 
-          Orsak: "%{reason}"
-
           [%{url}][1]
 
           Var god och se över det snarast!
 
 
-          Tack ska du ha,
+          Med vänlig hälsning,
 
           Diaspora*:s e-postbot!
 
@@ -1230,7 +1228,7 @@ sv:
   stream_helper:
     hide_comments: "Dölj alla kommentarer"
     no_more_posts: "Du har nått strömmens slut."
-    no_posts_yet: "Det finns inga inlägg ännu."
+    no_posts_yet: "Inga inlägg har gjorts än."
     show_comments:
       few: "Visa %{count} ytterligare kommentarer"
       many: "Visa %{count} ytterligare kommentarer"
@@ -1361,7 +1359,7 @@ sv:
     privacy_settings:
       ignored_users: "Ignorerade användare"
       no_user_ignored_message: "Du har inga ignorerade kontakter."
-      stop_ignoring: "Sluta ignorera"
+      stop_ignoring: "sluta ignorera"
       strip_exif: "Rensa bort metadata, såsom plats, upphovsman och kameramodell från de uppladdade bilderna (rekommenderat)"
       title: "Sekretessinställningar"
     public:

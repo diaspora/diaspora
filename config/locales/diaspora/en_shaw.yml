@@ -463,6 +463,8 @@ en_shaw:
       your_location: "𐑿𐑼 𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
       your_name: "𐑿𐑼 𐑯𐑱𐑥"
       your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
+      your_private_profile: "𐑿𐑼 𐑐𐑮𐑲𐑝𐑩𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      your_public_profile: "𐑿𐑼 𐑐𐑳𐑚𐑤𐑦𐑒 𐑐𐑮𐑴𐑓𐑲𐑤"
       your_tags: "𐑛𐑦𐑕𐑒𐑮𐑲𐑚 𐑿𐑼𐑕𐑧𐑤𐑓 𐑦𐑯 5 𐑢𐑻𐑛𐑟"
       your_tags_placeholder: "𐑤𐑲𐑒 #diaspora #ironing #kittens #music #newyork"
     update:

@@ -899,6 +899,7 @@ uk:
       closed_account: "Цей обліковий запис був закритий."
       does_not_exist: "Персони не існує!"
       has_not_shared_with_you_yet: "%{name} ще не ділився записами з вами!"
+      ignoring: "Ви блокуєте усі записи користувача %{name}."
       incoming_request: "%{name} хоче поділитися з вами"
       mention: "Згадати"
       message: "Повідомлення"
@@ -984,6 +985,8 @@ uk:
       your_location: "Ваше місце розташування"
       your_name: "Ваше ім'я"
       your_photo: "Ваша світлина"
+      your_private_profile: "Ваш особистий профіль"
+      your_public_profile: "Ваш публічний профіль"
       your_tags: "Опишіть себе в п'яти словах"
       your_tags_placeholder: "наприклад, #кіно #кошенята #подорожі #вчитель #київ"
     update:

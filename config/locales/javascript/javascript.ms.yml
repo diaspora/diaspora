@@ -98,6 +98,7 @@ ms:
       contacts: "Kenalan-kenalan"
       edit: "edit"
       gender: "Jantina"
+      ignoring: "Anda mengabaikan semua siaran daripada <%= name %>."
       location: "Lokasi"
       photos: "Gambar"
       posts: "Catatan"

@@ -445,6 +445,7 @@ id:
       closed_account: "Akun ini telah ditutup."
       does_not_exist: "Orang tidak ada!"
       has_not_shared_with_you_yet: "%{name} belum berbagi apapun dengan kamu!"
+      ignoring: "Kamu mengabaikan semua kiriman dari %{name}"
       incoming_request: "You have an incoming request from this person."
       mention: "Panggilan"
       message: "Pesan"

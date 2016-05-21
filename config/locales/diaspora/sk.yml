@@ -637,6 +637,7 @@ sk:
       closed_account: "Tento účet bol zrušený."
       does_not_exist: "Tento človek neexistuje!"
       has_not_shared_with_you_yet: "%{name} sa s tebou ešte nepodelil(a) o žiadne príspevky!"
+      ignoring: "Ignoruješ všetky príspevky, ktoré vytvoril(a) %{name}."
       incoming_request: "%{name} si ťa chce pridať do kontaktov"
       mention: "Zmienka"
       message: "Správa"
@@ -722,6 +723,8 @@ sk:
       your_location: "Tvoje bydlisko"
       your_name: "Tvoje meno"
       your_photo: "Tvoja fotka"
+      your_private_profile: "Tvoj verejný profil"
+      your_public_profile: "Tvoj verejný profil"
       your_tags: "Napíš o sebe 5 slov"
       your_tags_placeholder: "Ako #filmy #mačiatka #cestovanie #učiteľ #newyork"
     update:

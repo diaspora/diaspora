@@ -134,6 +134,7 @@ fr:
       contacts: "Contacts"
       edit: "modifier"
       gender: "Genre"
+      ignoring: "Vous ignorez tous les messages de <%= name %>."
       location: "Localisation"
       photos: "Photos"
       posts: "Messages"
@@ -199,7 +200,7 @@ fr:
       tags:
         follow: "Suivre #<%= tag %>"
         follow_error: "Impossible de suivre <%= tag %> :("
-        following: "Suivant #<%= tag %>"
+        following: "Vous suivez #<%= tag %>"
         stop_following: "Arrêter de suivre #<%= tag %>"
         stop_following_confirm: "Arrêter de suivre <%= tag %> ?"
         stop_following_error: "Impossible d'arrêter de suivre <%= tag %> :("

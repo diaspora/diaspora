@@ -880,6 +880,7 @@ es:
       closed_account: "Esta cuenta ha sido eliminada."
       does_not_exist: "¡La persona no existe!"
       has_not_shared_with_you_yet: "¡%{name} todavía no ha compartido ninguna publicación contigo!"
+      ignoring: "Estás ignorando todas las publicaciones de %{name}."
       incoming_request: "%{name} quisiera compartir contigo"
       mention: "Mención"
       message: "Mensaje"
@@ -964,6 +965,8 @@ es:
       your_location: "Ubicación"
       your_name: "Tu nombre"
       your_photo: "Foto"
+      your_private_profile: "Perfil privado"
+      your_public_profile: "Perfil público"
       your_tags: "Descríbete en 5 palabras"
       your_tags_placeholder: "Como #películas #gatitos #viajes #profesor #madrid"
     update:

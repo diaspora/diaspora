@@ -613,6 +613,7 @@ br:
       closed_account: "Ar c'hont-mañ a zo bet prenet."
       does_not_exist: "An den-mañ n'eus ket anezhañ !"
       has_not_shared_with_you_yet: "N'eo bet rannet embannadenn ebet ganeoc'h a-berzh %{name}"
+      ignoring: "Ne daolit ket evezh eus holl postoù %{name}"
       incoming_request: "%{name} n'efe c'hoant eskemm diganit"
       mention: "Meneg"
       message: "Kemmenadenn"
@@ -694,6 +695,8 @@ br:
       your_location: "Lec'h annez"
       your_name: "Hoc'h anv"
       your_photo: "Ho poltred"
+      your_private_profile: "Ho aelad prevez"
+      your_public_profile: "Ho aelad foran"
       your_tags: "Deskrivit ac'hanoc'h gant 5 ger"
       your_tags_placeholder: "evel #sinema #farsus #loened #Breizh #dudioù"
     update:

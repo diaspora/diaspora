@@ -536,6 +536,7 @@ eo:
       closed_account: "Tiu ĉi konto estas fermita."
       does_not_exist: "Persono ne ekzistas!"
       has_not_shared_with_you_yet: "%{name} ne jam konigis iun ajn afiŝon al vi!"
+      ignoring: "Vi estas ignoranta ĉiujn afiŝojn de %{name}."
       incoming_request: "%{name} volas konigi al vi"
       mention: "Mencii"
       message: "Mesaĝo"
@@ -619,6 +620,8 @@ eo:
       your_location: "Via loko"
       your_name: "Via nomo"
       your_photo: "Via bildo"
+      your_private_profile: "Via nepublika profilo"
+      your_public_profile: "Via publika profilo"
       your_tags: "Per kvin vortoj priskribu vin mem."
       your_tags_placeholder: "ekz. #filmoj #katidoj #vojaĝi #instruisto #novjorko"
     update:

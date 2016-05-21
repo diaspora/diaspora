@@ -222,7 +222,7 @@ da:
     no_contacts_message:
       community_spotlight: "Community Spotlight"
       or_spotlight: "Eller du kan dele med %{link}"
-      try_adding_some_more_contacts: "Du kan søge (øverst) eller invitere flere kontakter (til højre)."
+      try_adding_some_more_contacts: "Du kan søge efter eller invitere flere kontakter."
       you_should_add_some_more_contacts: "Du kan tilføje nogle flere kontakter!"
     no_posts_message:
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"
@@ -908,6 +908,7 @@ da:
       closed_account: "Denne konto er blevet lukket."
       does_not_exist: "Personen findes ikke!"
       has_not_shared_with_you_yet: "%{name} har ikke delt nogen indlæg med dig endnu!"
+      ignoring: "Du ignorerer alle indlæg fra %{name}."
       incoming_request: "%{name} vil gerne dele med dig."
       mention: "Nævn"
       message: "Besked"
@@ -995,6 +996,8 @@ da:
       your_location: "Din placering"
       your_name: "Dit navn"
       your_photo: "Dit foto"
+      your_private_profile: "Din private profil"
+      your_public_profile: "Din offentlige profil"
       your_tags: "Beskriv dig selv i fem ord"
       your_tags_placeholder: "Såsom #diaspora #danmark #kattekillinger #musik #hacking"
     update:

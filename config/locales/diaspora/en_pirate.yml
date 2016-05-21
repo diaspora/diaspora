@@ -416,6 +416,7 @@ en_pirate:
       closed_account: "This ship has been sunk."
       does_not_exist: "Matey does not exist! Arrr"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with ye yet!"
+      ignoring: "Yer ignorin' all posts from %{name}."
       incoming_request: "%{name} wants 't share with ye"
       not_connected: "Yer not sharin' with this scallywag."
       return_to_aspects: "Return 't yer mateys page"
@@ -477,6 +478,8 @@ en_pirate:
       your_location: "Where ye be in the sea?"
       your_name: "Yer name"
       your_photo: "Ye portrait"
+      your_private_profile: "Ye private profile"
+      your_public_profile: "Ye public profile"
       your_tags: "Describe yerself in 5 words, mate."
       your_tags_placeholder: "like #treasure #ships #plunderin #sea #rum"
     update:

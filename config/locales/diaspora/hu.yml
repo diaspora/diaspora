@@ -735,6 +735,7 @@ hu:
       closed_account: "Ez a fiók zárolva lett."
       does_not_exist: "Személy nem létezik!"
       has_not_shared_with_you_yet: "%{name} még nem oszt meg veled semmit."
+      ignoring: "Figyelmen kívül hagyod az összes bejegyzést tőle: %{name}."
       incoming_request: "%{name} megosztást kezdeményezett veled."
       mention: "Megemlít"
       message: "Üzenet"
@@ -821,6 +822,8 @@ hu:
       your_location: "Lakóhelyed"
       your_name: "Neved"
       your_photo: "Fényképed"
+      your_private_profile: "Személyes adatlapod"
+      your_public_profile: "Nyilvános adatlapod"
       your_tags: "5 tulajdonság (#címke) rólad:"
       your_tags_placeholder: "pl: #film #kultúra #utazás #fényképezés"
     update:

@@ -533,6 +533,7 @@ eu:
       closed_account: "Kontu hau ezabatua izan da."
       does_not_exist: "Pertsona hau ez dago!"
       has_not_shared_with_you_yet: "%{name}(e)k ez duzu mezurik partekatu zurekin oraindik!"
+      ignoring: "%{name}(r)en mezuak sahiesten ari zara."
       incoming_request: "%{name}(e)k zure laguna izan nahi du"
       mention: "Aipatu"
       message: "Mezu pribatua bidali"
@@ -616,6 +617,8 @@ eu:
       your_location: "Zure kokalekua"
       your_name: "Zure izena"
       your_photo: "Zure argazkia"
+      your_private_profile: "Zure profil pribatua"
+      your_public_profile: "Zure profil publikoa"
       your_tags: "Zure burua deskribatu 5 hitzetan"
       your_tags_placeholder: "#filmak #katakumeak #bidaiak #irakaslea #newyork bezalakoak"
     update:

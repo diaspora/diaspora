@@ -495,6 +495,7 @@ vi:
       closed_account: "Tài khoản này đã bị đóng."
       does_not_exist: "Người không tồn tại!"
       has_not_shared_with_you_yet: "%{name} chưa từng chia sẻ gì với bạn!"
+      ignoring: "Bạn đang từ chối tất cả bài đăng từ %{name}."
       incoming_request: "%{name} muốn chia sẻ với bạn"
       mention: "Nhắc đến"
       message: "Tin nhắn"
@@ -574,6 +575,8 @@ vi:
       your_location: "Nơi ở"
       your_name: "Họ và tên"
       your_photo: "Ảnh hồ sơ"
+      your_private_profile: "Hồ sơ cá nhân"
+      your_public_profile: "Hồ sơ công khai"
       your_tags: "Mô tả bản thân qua 5 từ"
       your_tags_placeholder: "ví dụ: #movies #kittens #travel #teacher #newyork"
     update:

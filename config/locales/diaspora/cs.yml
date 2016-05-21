@@ -904,6 +904,7 @@ cs:
       closed_account: "Tento účet byl uzavřen."
       does_not_exist: "Osoba neexistuje!"
       has_not_shared_with_you_yet: "%{name} s vámi zatím žádný příspěvek nesdílí!"
+      ignoring: "Ignorujete všechny příspěvky od %{name}."
       incoming_request: "%{name} s vámi chce sdílet"
       mention: "Zmínka"
       message: "Zpráva"
@@ -989,6 +990,8 @@ cs:
       your_location: "Vaše poloha"
       your_name: "Vaše jméno"
       your_photo: "Vaše fotografie"
+      your_private_profile: "Váš soukromý profil"
+      your_public_profile: "Váš veřejný profil"
       your_tags: "Popište se pěti slovy"
       your_tags_placeholder: "např. #filmy #koťata #cestování #učitel #praha"
     update:

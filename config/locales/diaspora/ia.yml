@@ -816,6 +816,7 @@ ia:
       closed_account: "Iste conto ha essite claudite."
       does_not_exist: "Iste persona non existe!"
       has_not_shared_with_you_yet: "%{name} non ha ancora dividite alcun cosa con te!"
+      ignoring: "Tu ignora tote le entratas de %{name}."
       incoming_request: "%{name} vole divider con te"
       mention: "Mention"
       message: "Message"
@@ -896,6 +897,8 @@ ia:
       your_location: "Tu loco"
       your_name: "Tu nomine"
       your_photo: "Tu photo"
+      your_private_profile: "Tu profilo private"
+      your_public_profile: "Tu profilo public"
       your_tags: "Describe te in 5 parolas"
       your_tags_placeholder: "p.ex. #films #cattones #viages #docente #interlingua"
     update:

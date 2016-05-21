@@ -671,6 +671,7 @@ pt-PT:
       closed_account: "Esta conta foi fechada."
       does_not_exist: "Essa pessoa não existe!"
       has_not_shared_with_you_yet: "%{name} ainda não partilhou quaisquer publicações consigo!"
+      ignoring: "Você está a ignorar todas as mensagens de %{name}."
       incoming_request: "%{name} quer partilhar consigo"
       mention: "Mencionar"
       message: "Mensagem"
@@ -754,6 +755,8 @@ pt-PT:
       your_location: "A sua localização"
       your_name: "O seu nome"
       your_photo: "A sua fotografia"
+      your_private_profile: "O seu perfil privado"
+      your_public_profile: "O seu perfil público"
       your_tags: "Descreva-se em 5 palavras"
       your_tags_placeholder: "Como #filmes #gatos #viagens #professor #lisboa"
     update:

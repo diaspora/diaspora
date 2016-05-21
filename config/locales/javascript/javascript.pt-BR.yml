@@ -95,7 +95,7 @@ pt-BR:
       no_more: "Não há mais publicações."
       no_more_contacts: "Sem mais contatos."
     my_activity: "Minha atividade"
-    my_aspects: "Meus Aspectos"
+    my_aspects: "Meus aspectos"
     my_stream: "Fluxo"
     no_results: "Nenhum resultado encontrado"
     notifications:
@@ -134,6 +134,7 @@ pt-BR:
       contacts: "Contatos"
       edit: "Editar"
       gender: "Sexo"
+      ignoring: "Você está ignorando todas as publicações de <%= name %>."
       location: "Localização"
       photos: "Fotos"
       posts: "Publicações"

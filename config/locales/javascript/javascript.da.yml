@@ -137,6 +137,7 @@ da:
       contacts: "Kontakter"
       edit: "Rediger"
       gender: "Køn"
+      ignoring: "Du ignorerer alle indlæg fra <%= name %>"
       location: "Sted"
       photos: "Fotos"
       posts: "Indlæg"
