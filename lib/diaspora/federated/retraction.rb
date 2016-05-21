@@ -10,9 +10,9 @@ class Retraction
 
   attr_accessor :person, :object, :subscribers
 
-  def subscribers(user)
+  def subscribers
     unless self.type == 'Person'
-      @subscribers ||= self.object.subscribers(user)
+      @subscribers ||= object.subscribers
       @subscribers -= self.object.resharers unless self.object.is_a?(Photo)
       @subscribers
     else

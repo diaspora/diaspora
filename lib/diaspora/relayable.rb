@@ -55,13 +55,11 @@ module Diaspora
     end
 
     # @return [Array<Person>]
-    def subscribers(user)
-      if user.owns?(self.parent)
-        self.parent.subscribers(user)
-      elsif user.owns?(self)
-        [self.parent.author]
+    def subscribers
+      if parent.author.local?
+        parent.subscribers
       else
-        []
+        [parent.author]
       end
     end
 

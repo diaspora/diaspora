@@ -24,11 +24,11 @@ describe Retraction do
       before do
         @retraction = described_class.for(@post)
         @obj = @retraction.instance_variable_get(:@object)
-        @wanted_subscribers = @obj.subscribers(alice)
+        @wanted_subscribers = @obj.subscribers
       end
 
       it 'returns the subscribers to the post for all objects other than person' do
-        expect(@retraction.subscribers(alice).map(&:id)).to match_array(@wanted_subscribers.map(&:id))
+        expect(@retraction.subscribers.map(&:id)).to match_array(@wanted_subscribers.map(&:id))
       end
 
       it 'does not return the authors of reshares' do
@@ -36,7 +36,7 @@ describe Retraction do
         @post.save!
 
         @wanted_subscribers -= [bob.person]
-        expect(@retraction.subscribers(alice).map(&:id)).to match_array(@wanted_subscribers.map(&:id))
+        expect(@retraction.subscribers.map(&:id)).to match_array(@wanted_subscribers.map(&:id))
       end
     end
 
@@ -46,14 +46,14 @@ describe Retraction do
         obj = retraction.instance_variable_get(:@object)
 
         expect {
-          retraction.subscribers(alice)
-        }.to raise_error
+          retraction.subscribers
+        }.to raise_error RuntimeError, "HAX: you must set the subscribers manaully before unfriending" # TODO
       end
 
-      it 'returns manually set subscribers' do
+      it "returns manually set subscribers" do
         retraction = described_class.for(alice)
         retraction.subscribers = "fooey"
-        expect(retraction.subscribers(alice)).to eq('fooey')
+        expect(retraction.subscribers).to eq("fooey")
       end
     end
   end

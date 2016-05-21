@@ -88,7 +88,7 @@ class Postzord::Dispatcher
 
   # @return [Array<Person>] Recipients of the object, minus any additional subscribers
   def subscribers_from_object
-    @object.subscribers(@sender)
+    @object.subscribers
   end
 
   # @param remote_people [Array<Person>] Recipients of the post on other pods

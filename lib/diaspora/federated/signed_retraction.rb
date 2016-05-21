@@ -46,8 +46,8 @@ class SignedRetraction
     self.sender_handle
   end
 
-  def subscribers(user)
-    self.target.subscribers(user)
+  def subscribers
+    target.subscribers
   end
 
   def self.build(sender, target)

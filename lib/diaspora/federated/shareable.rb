@@ -33,10 +33,10 @@ module Diaspora
 
         # The list of people that should receive this Shareable.
         #
-        # @param [User] user The context, or dispatching user.
         # @return [Array<Person>] The list of subscribers to this shareable
-        def subscribers(user)
-          if self.public?
+        def subscribers
+          user = author.owner
+          if public?
             user.contact_people
           else
             user.people_in_aspects(user.aspects_with_shareable(self.class, id))

@@ -86,7 +86,7 @@ class Conversation < ActiveRecord::Base
     self[:subject].blank? ? I18n.t("conversations.new.subject_default") : self[:subject]
   end
 
-  def subscribers(user)
-    self.recipients
+  def subscribers
+    recipients
   end
 end

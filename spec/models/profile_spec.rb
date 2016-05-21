@@ -219,7 +219,7 @@ describe Profile, :type => :model do
 
   describe '#subscribers' do
     it 'returns all non-pending contacts for a user' do
-      expect(bob.profile.subscribers(bob).map{|s| s.id}).to match_array([alice.person, eve.person].map{|s| s.id})
+      expect(bob.profile.subscribers.map(&:id)).to match_array([alice.person, eve.person].map(&:id))
     end
   end
 

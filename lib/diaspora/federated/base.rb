@@ -39,7 +39,7 @@ module Diaspora
         # @abstract
         # @note this must return [Array<Person>]
         # @return [Array<Person>]
-        def subscribers(user)
+        def subscribers
           raise 'You must override subscribers in order to enable federation on this model'
         end
 

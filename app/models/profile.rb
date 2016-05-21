@@ -50,8 +50,8 @@ class Profile < ActiveRecord::Base
     self.construct_full_name
   end
 
-  def subscribers(user)
-    Person.joins(:contacts).where(:contacts => {:user_id => user.id})
+  def subscribers
+    Person.joins(:contacts).where(contacts: {user_id: person.owner_id})
   end
 
   def diaspora_handle

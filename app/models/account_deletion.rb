@@ -33,7 +33,7 @@ class AccountDeletion < ActiveRecord::Base
     AccountDeleter.new(self.diaspora_handle).perform!
   end
 
-  def subscribers(user)
+  def subscribers
     person.owner.contact_people.remote | Person.who_have_reshared_a_users_posts(person.owner).remote
   end
 

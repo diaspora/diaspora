@@ -213,13 +213,13 @@ describe Post, :type => :model do
     it 'returns the people contained in the aspects the post appears in' do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id
 
-      expect(post.subscribers(@user)).to eq([])
+      expect(post.subscribers).to eq([]) # TODO
     end
 
     it 'returns all a users contacts if the post is public' do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
 
-      expect(post.subscribers(@user).to_set).to eq(@user.contact_people.to_set)
+      expect(post.subscribers.to_set).to eq(@user.contact_people.to_set)
     end
   end
 

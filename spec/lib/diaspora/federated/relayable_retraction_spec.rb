@@ -32,11 +32,10 @@ describe RelayableRetraction do
       end
     end
 
-    describe '#subscribers' do
-      it 'delegates it to target' do
-        arg = double()
-        expect(@retraction.target).to receive(:subscribers).with(arg)
-        @retraction.subscribers(arg)
+    describe "#subscribers" do
+      it "delegates it to target" do
+        expect(@retraction.target).to receive(:subscribers)
+        @retraction.subscribers
       end
     end
   end

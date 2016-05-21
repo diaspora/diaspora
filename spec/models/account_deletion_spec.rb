@@ -51,7 +51,7 @@ describe AccountDeletion, :type => :model do
     it "includes all remote contacts" do
       alice.share_with(remote_raphael, alice.aspects.first)
 
-      expect(account_deletion_new.subscribers(alice)).to eq([remote_raphael])
+      expect(account_deletion_new.subscribers).to eq([remote_raphael])
     end
 
     it "includes remote resharers" do
@@ -59,7 +59,7 @@ describe AccountDeletion, :type => :model do
       FactoryGirl.create(:reshare, author: remote_raphael, root: status_message)
       FactoryGirl.create(:reshare, author: local_luke.person, root: status_message)
 
-      expect(account_deletion_new.subscribers(alice)).to eq([remote_raphael])
+      expect(account_deletion_new.subscribers).to eq([remote_raphael])
     end
   end
 

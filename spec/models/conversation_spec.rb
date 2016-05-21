@@ -96,7 +96,7 @@ describe Conversation, :type => :model do
 
     describe "#subscribers" do
       it "returns the recipients for the post owner" do
-        expect(conversation.subscribers(user1)).to eq(user1.contacts.map(&:person))
+        expect(conversation.subscribers).to eq(user1.contacts.map(&:person))
       end
     end
   end
