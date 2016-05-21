@@ -222,7 +222,7 @@ da:
     no_contacts_message:
       community_spotlight: "Community Spotlight"
       or_spotlight: "Eller du kan dele med %{link}"
-      try_adding_some_more_contacts: "Du kan søge (øverst) eller invitere flere kontakter (til højre)."
+      try_adding_some_more_contacts: "Du kan søge efter eller invitere flere kontakter."
       you_should_add_some_more_contacts: "Du kan tilføje nogle flere kontakter!"
     no_posts_message:
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"

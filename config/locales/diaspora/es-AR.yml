@@ -222,7 +222,7 @@ es-AR:
     no_contacts_message:
       community_spotlight: "Comunidad creativa"
       or_spotlight: "O lo podés compartir con %{link}"
-      try_adding_some_more_contacts: "Podés buscar o invitar más contactos."
+      try_adding_some_more_contacts: "Podés buscar o invitar a más contactos."
       you_should_add_some_more_contacts: "¡Deberías agregar más contactos!"
     no_posts_message:
       start_talking: "Nadie dijo nada todavía. ¡Inicia una conversación!"
@@ -1378,7 +1378,7 @@ es-AR:
     privacy_settings:
       ignored_users: "Usuarios ignorados"
       no_user_ignored_message: "En este momento no estás ignorando a ningún otro usuario"
-      stop_ignoring: "Dejar de ignorar"
+      stop_ignoring: "dejar de ignorar"
       strip_exif: "Evita metadatos como la ubicación, autor y modelo de cámara de fotos en las imágenes subidas (recomendado)"
       title: "Configuración de Privacidad"
     public:

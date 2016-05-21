@@ -674,7 +674,7 @@ fr:
       mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
       mentioned: "Vous mentionnant"
-      no_notifications: "Vous ne avez pas encore de notifications."
+      no_notifications: "Vous n'avez pas encore de notifications."
       notifications: "Notifications"
       reshared: "Repartagé"
       show_all: "montrer tout"

@@ -222,7 +222,7 @@ nl:
     no_contacts_message:
       community_spotlight: "Community aanrader"
       or_spotlight: "Of je kan delen met %{link}\n"
-      try_adding_some_more_contacts: "Je kunt zoeken of %{invite_link} meer contacten uitnodigen."
+      try_adding_some_more_contacts: "Je kunt zoeken en meer contacten uitnodigen."
       you_should_add_some_more_contacts: "Voeg wat meer contacten toe!"
     no_posts_message:
       start_talking: "Nog niemand heeft iets gezegd!"
@@ -823,16 +823,15 @@ nl:
           Hallo,
 
           het %{type} met ID %{id} werd als aanstootgevend gemarkeerd.
-
-          Reden: "%{reason}"
-
           [%{url}][1]
 
-          Beoordeel het zo snel mogelijk.
+          Beoordeel het zo snel mogelijk!
+
 
           Groetjes,
 
           De diaspora* e-mailrobot!
+
           [1]: %{url}
       subject: "Een nieuw %{type} is als aanstootgevend gemarkeerd"
       type:
