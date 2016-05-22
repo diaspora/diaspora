@@ -10,7 +10,11 @@ module Diaspora
       end
 
       def self.build(sender, object, opts={})
-        new(sender, object, opts)
+        if object.try(:public?)
+          Public.new(sender, object, opts)
+        else
+          Private.new(sender, object, opts)
+        end
       end
 
       def self.defer_dispatch(sender, object, opts={})
@@ -27,7 +31,6 @@ module Diaspora
       attr_reader :sender, :object, :opts
 
       def deliver_to_services
-        # TODO: pubsubhubbub, relay
         deliver_to_user_services
       end
 
@@ -44,8 +47,8 @@ module Diaspora
         Workers::ReceiveLocal.perform_async(obj.class.to_s, obj.id, people.map(&:owner_id))
       end
 
-      def deliver_to_remote(people)
-        # TODO: send to remote hosts
+      def deliver_to_remote(_people)
+        raise NotImplementedError, "This is an abstract base method. Implement in your subclass."
       end
 
       def deliver_to_user_services
@@ -71,3 +74,6 @@ module Diaspora
     end
   end
 end
+
+require "diaspora/federation/dispatcher/private"
+require "diaspora/federation/dispatcher/public"

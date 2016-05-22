@@ -15,5 +15,6 @@ module Diaspora
   end
 end
 
+require "diaspora/federation/dispatcher"
 require "diaspora/federation/entities"
 require "diaspora/federation/receive"
