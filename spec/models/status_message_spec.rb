@@ -361,28 +361,6 @@ describe StatusMessage, type: :model do
     end
   end
 
-  describe "#after_dispatch" do
-    before do
-      @photos = [alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name)),
-                 alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name))]
-      @photos.each(&:save!)
-      @status_message = alice.build_post(:status_message, text: "the best pebble.")
-      @status_message.photos << @photos
-      @status_message.save!
-      alice.add_to_streams(@status_message, alice.aspects)
-    end
-
-    it "sets pending to false on any attached photos" do
-      @status_message.after_dispatch(alice)
-      expect(@photos.all? {|p| p.reload.pending }).to be false
-    end
-
-    it "dispatches any attached photos" do
-      expect(alice).to receive(:dispatch_post).twice
-      @status_message.after_dispatch(alice)
-    end
-  end
-
   describe "oembed" do
     let(:youtube_url) { "https://www.youtube.com/watch?v=3PtFwlKfvHI" }
     let(:message_text) { "#{youtube_url} is so cool. so is this link -> https://joindiaspora.com" }

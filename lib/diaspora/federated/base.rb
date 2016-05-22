@@ -42,11 +42,6 @@ module Diaspora
         def subscribers
           raise 'You must override subscribers in order to enable federation on this model'
         end
-
-        # @param [User] sender
-        # @note this is a hook(optional)
-        def after_dispatch(sender)
-        end
       end
     end
   end

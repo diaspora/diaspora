@@ -222,7 +222,6 @@ describe StatusMessagesController, :type => :controller do
       end
 
       it "sets the pending bit of referenced photos" do
-        skip # TODO
         inlined_jobs do
           post :create, @hash
         end

@@ -64,17 +64,10 @@ class Postzord::Dispatcher
   def post
     self.deliver_to_services(@opts[:url], @opts[:services] || [])
     self.post_to_subscribers if @subscribers.present?
-    self.process_after_dispatch_hooks
     @object
   end
 
   protected
-
-  # @return [Object]
-  def process_after_dispatch_hooks
-    @object.after_dispatch(@sender)
-    @object
-  end
 
   def post_to_subscribers
     remote_people, local_people = @subscribers.partition{ |person| person.owner_id.nil? }

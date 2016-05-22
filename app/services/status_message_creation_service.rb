@@ -42,8 +42,13 @@ class StatusMessageCreationService
   end
 
   def add_photos(status_message, photos)
-    status_message.attach_photos_by_ids(photos)
-    status_message.photos.each {|photo| photo.public = status_message.public }
+    if photos.present?
+      status_message.photos << Photo.where(id: photos, author_id: status_message.author_id)
+      status_message.photos.each do |photo|
+        photo.public = status_message.public
+        photo.pending = false
+      end
+    end
   end
 
   def process(status_message, aspect_ids, services)
@@ -55,6 +60,7 @@ class StatusMessageCreationService
   def add_to_streams(status_message, aspect_ids)
     aspects = user.aspects_from_ids(aspect_ids)
     user.add_to_streams(status_message, aspects)
+    status_message.photos.each {|photo| user.add_to_streams(photo, aspects) }
   end
 
   def dispatch(status_message, services)
