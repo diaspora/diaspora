@@ -1,6 +1,25 @@
 module Diaspora
   module Federation
     module Entities
+      def self.build(entity)
+        case entity
+        when AccountDeletion then account_deletion(entity)
+        when Comment then comment(entity)
+        when Contact then contact(entity)
+        when Conversation then conversation(entity)
+        when Like then like(entity)
+        when Message then message(entity)
+        when Participation then participation(entity)
+        when Photo then photo(entity)
+        when PollParticipation then poll_participation(entity)
+        when Profile then profile(entity)
+        when Reshare then reshare(entity)
+        when StatusMessage then status_message(entity)
+        else
+          raise DiasporaFederation::Entity::UnknownEntity, "unknown entity: #{entity.class}"
+        end
+      end
+
       def self.post(post)
         case post
         when StatusMessage
@@ -10,6 +29,12 @@ module Diaspora
         else
           raise ArgumentError, "unknown post-class: #{post.class}"
         end
+      end
+
+      def self.account_deletion(account_deletion)
+        DiasporaFederation::Entities::AccountDeletion.new(
+          author: account_deletion.diaspora_handle
+        )
       end
 
       def self.comment(comment)
@@ -22,11 +47,63 @@ module Diaspora
         )
       end
 
+      def self.contact(contact)
+        # TODO: use DiasporaFederation::Entities::Contact
+        DiasporaFederation::Entities::Request.new(
+          author:    contact.user.diaspora_handle,
+          recipient: contact.person.diaspora_handle
+        )
+      end
+
+      def self.conversation(conversation)
+        DiasporaFederation::Entities::Conversation.new(
+          author:       conversation.diaspora_handle,
+          guid:         conversation.guid,
+          subject:      conversation.subject,
+          created_at:   conversation.created_at,
+          participants: conversation.participant_handles,
+          messages:     conversation.messages.map {|message| message(message) }
+        )
+      end
+
+      def self.like(like)
+        DiasporaFederation::Entities::Like.new(
+          author:      like.diaspora_handle,
+          guid:        like.guid,
+          parent_guid: like.parent_guid,
+          positive:    like.positive,
+          parent_type: like.parent.class.base_class.to_s,
+          parent:      related_entity(like.parent)
+        )
+      end
+
       def self.location(location)
         DiasporaFederation::Entities::Location.new(
           address: location.address,
           lat:     location.lat,
           lng:     location.lng
+        )
+      end
+
+      def self.message(message)
+        DiasporaFederation::Entities::Message.new(
+          author:            message.diaspora_handle,
+          guid:              message.guid,
+          text:              message.text,
+          created_at:        message.created_at,
+          parent_guid:       message.parent_guid,
+          conversation_guid: message.parent_guid,
+          parent:            related_entity(message.parent)
+        )
+      end
+
+      def self.participation(participation)
+        DiasporaFederation::Entities::Participation.new(
+          author:      participation.diaspora_handle,
+          guid:        participation.guid,
+          parent_guid: participation.parent_guid,
+          parent_type: participation.parent.class.base_class.to_s,
+          parent:      related_entity(participation.parent)
         )
       end
 
@@ -60,6 +137,16 @@ module Diaspora
         )
       end
 
+      def self.poll_participation(poll_participation)
+        DiasporaFederation::Entities::PollParticipation.new(
+          author:           poll_participation.diaspora_handle,
+          guid:             poll_participation.guid,
+          parent_guid:      poll_participation.parent_guid,
+          poll_answer_guid: poll_participation.poll_answer.guid,
+          parent:           related_entity(poll_participation.parent)
+        )
+      end
+
       def self.profile(profile)
         DiasporaFederation::Entities::Profile.new(
           author:           profile.diaspora_handle,
@@ -82,7 +169,7 @@ module Diaspora
       def self.relayable_retraction(target, sender)
         DiasporaFederation::Entities::RelayableRetraction.new(
           target_guid: target.guid,
-          target_type: target.class.to_s,
+          target_type: target.class.base_class.to_s,
           target:      related_entity(target),
           author:      sender.diaspora_handle
         )
@@ -103,7 +190,7 @@ module Diaspora
       def self.retraction(target)
         DiasporaFederation::Entities::Retraction.new(
           target_guid: target.is_a?(User) ? target.person.guid : target.guid,
-          target_type: target.is_a?(User) ? Person.to_s : target.class.to_s,
+          target_type: target.is_a?(User) ? Person.to_s : target.class.base_class.to_s,
           target:      related_entity(target),
           author:      target.diaspora_handle
         )
@@ -113,7 +200,7 @@ module Diaspora
       def self.signed_retraction(target, sender)
         DiasporaFederation::Entities::SignedRetraction.new(
           target_guid: target.guid,
-          target_type: target.class.to_s,
+          target_type: target.class.base_class.to_s,
           target:      related_entity(target),
           author:      sender.diaspora_handle
         )
