@@ -49,13 +49,13 @@ def generate_xml(entity, remote_user, recipient=nil)
   if recipient
     DiasporaFederation::Salmon::EncryptedSlap.prepare(
       remote_user.diaspora_handle,
-      OpenSSL::PKey::RSA.new(remote_user.encryption_key),
+      remote_user.encryption_key,
       entity
-    ).generate_xml(OpenSSL::PKey::RSA.new(recipient.encryption_key))
+    ).generate_xml(recipient.encryption_key)
   else
     DiasporaFederation::Salmon::Slap.generate_xml(
       remote_user.diaspora_handle,
-      OpenSSL::PKey::RSA.new(remote_user.encryption_key),
+      remote_user.encryption_key,
       entity
     )
   end
