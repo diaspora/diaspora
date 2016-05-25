@@ -107,8 +107,8 @@ RSpec.configure do |config|
     stub_request(:post, "https://pubsubhubbub.appspot.com/")
     disable_typhoeus
     $process_queue = false
-    allow_any_instance_of(Postzord::Dispatcher::Public).to receive(:deliver_to_remote)
-    allow_any_instance_of(Postzord::Dispatcher::Private).to receive(:deliver_to_remote)
+    allow(Workers::SendPublic).to receive(:perform_async)
+    allow(Workers::SendPrivate).to receive(:perform_async)
   end
 
   config.expect_with :rspec do |expect_config|
