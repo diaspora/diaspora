@@ -416,7 +416,7 @@ class User < ActiveRecord::Base
   end
 
   def deliver_profile_update
-    Postzord::Dispatcher.build(self, profile).post
+    Diaspora::Federation::Dispatcher.defer_dispatch(self, profile)
   end
 
   def basic_profile_present?

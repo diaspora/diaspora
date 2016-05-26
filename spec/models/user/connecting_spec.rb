@@ -158,7 +158,9 @@ describe User::Connecting, type: :model do
       end
 
       it "posts profile" do
-        skip # TODO
+        allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile)
+
         alice.share_with(eve.person, alice.aspects.first)
       end
     end

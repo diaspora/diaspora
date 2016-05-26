@@ -498,16 +498,14 @@ describe User, :type => :model do
       }
     end
 
-    it 'dispatches the profile when tags are set' do
-      @params = {:tag_string => '#what #hey'}
-      mailman = Postzord::Dispatcher.build(alice, Profile.new(person: alice.person))
-      expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
+    it "dispatches the profile when tags are set" do
+      @params = {tag_string: '#what #hey'}
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile)
       expect(alice.update_profile(@params)).to be true
     end
 
-    it 'sends a profile to their contacts' do
-      mailman = Postzord::Dispatcher.build(alice, Profile.new(person: alice.person))
-      expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
+    it "sends a profile to their contacts" do
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile)
       expect(alice.update_profile(@params)).to be true
     end
 
