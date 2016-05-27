@@ -3,6 +3,7 @@ module Diaspora
     class Dispatcher
       class Public < Dispatcher
         def deliver_to_services
+          deliver_to_hub if object.instance_of?(StatusMessage)
           # TODO: pubsubhubbub, relay
           super
         end
@@ -24,6 +25,11 @@ module Diaspora
             sender.encryption_key,
             entity
           )
+        end
+
+        def deliver_to_hub
+          logger.debug "deliver to pubsubhubbub sender: #{sender.diaspora_handle}"
+          Workers::PublishToHub.perform_async(sender.atom_url)
         end
       end
     end
