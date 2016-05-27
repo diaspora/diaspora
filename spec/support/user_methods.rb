@@ -16,7 +16,6 @@ class User
       if p.save!
         self.aspects.reload
 
-        add_to_streams(p, aspects)
         dispatch_opts = {
           url: Rails.application.routes.url_helpers.post_url(
             p,
