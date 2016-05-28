@@ -70,10 +70,9 @@ describe 'making sure the spec runner works' do
     end
   end
 
-  describe '#post' do
-    it 'creates a notification with a mention' do
-      skip("TODO: handle local receive") # TODO
-      expect{
+  describe "#post" do
+    it "creates a notification with a mention" do
+      expect {
         alice.post(:status_message, :text => "@{Bob Grimn; #{bob.person.diaspora_handle}} you are silly", :to => alice.aspects.find_by_name('generic'))
       }.to change(Notification, :count).by(1)
     end

@@ -123,8 +123,6 @@ describe PostService do
     end
 
     it "marks a corresponding mention notification as read" do
-      skip("TODO: create local notifications") # TODO
-
       status_text = "this is a text mentioning @{Mention User ; #{alice.diaspora_handle}} ... have fun testing!"
       mention_post = bob.post(:status_message, text: status_text, public: true)
 
