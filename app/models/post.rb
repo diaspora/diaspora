@@ -133,9 +133,7 @@ class Post < ActiveRecord::Base
   #############
 
   def self.diaspora_initialize(params)
-    new(params.to_hash.stringify_keys.slice(*column_names)).tap do |new_post|
-      new_post.author = params[:author]
-    end
+    shareable_initialize(params)
   end
 
   # @return Returns true if this Post will accept updates (i.e. updates to the caption of a photo).

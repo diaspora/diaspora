@@ -57,6 +57,12 @@ module Diaspora
           user.person.send(table_name).where(pending: false)
         end
 
+        def self.shareable_initialize(params)
+          new(params.to_hash.stringify_keys.slice(*column_names)).tap do |new_shareable|
+            new_shareable.author = params[:author]
+          end
+        end
+
         def self.visible_by_user(user)
           ShareVisibility.arel_table[:user_id].eq(user.id)
         end
