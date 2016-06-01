@@ -10,6 +10,11 @@ class Retraction
 
   attr_accessor :person, :object, :subscribers
 
+  def initialize(data, subscribers)
+    @data = data
+    @subscribers = subscribers
+  end
+
   def subscribers
     unless self.type == 'Person'
       @subscribers ||= object.subscribers
@@ -22,7 +27,7 @@ class Retraction
   end
 
   def self.for(object)
-    retraction = self.new
+    retraction = new({}, [])
     if object.is_a? User
       retraction.post_guid = object.person.guid
       retraction.type = object.person.class.to_s
@@ -37,6 +42,10 @@ class Retraction
 
   def target
     @target ||= self.type.constantize.where(:guid => post_guid).first
+  end
+
+  def defer_dispatch(user)
+    Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id))
   end
 
   def perform receiving_user
