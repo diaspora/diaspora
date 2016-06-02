@@ -8,58 +8,38 @@ class Retraction
   xml_accessor :diaspora_handle
   xml_accessor :type
 
-  attr_accessor :person, :object, :subscribers
+  attr_reader :subscribers, :data
 
-  def initialize(data, subscribers)
+  def initialize(data, subscribers, target=nil)
     @data = data
     @subscribers = subscribers
+    @target = target
   end
 
-  def subscribers
-    unless self.type == 'Person'
-      @subscribers ||= object.subscribers
-      @subscribers -= self.object.resharers unless self.object.is_a?(Photo)
-      @subscribers
-    else
-      raise 'HAX: you must set the subscribers manaully before unfriending' if @subscribers.nil?
-      @subscribers
-    end
-  end
+  def self.for(target, sender=nil)
+    federation_retraction = case target
+                            when Diaspora::Relayable
+                              Diaspora::Federation::Entities.relayable_retraction(target, sender)
+                            when Post
+                              Diaspora::Federation::Entities.signed_retraction(target, sender)
+                            else
+                              Diaspora::Federation::Entities.retraction(target)
+                            end
 
-  def self.for(object)
-    retraction = new({}, [])
-    if object.is_a? User
-      retraction.post_guid = object.person.guid
-      retraction.type = object.person.class.to_s
-    else
-      retraction.post_guid = object.guid
-      retraction.type = object.class.to_s
-      retraction.object = object
-    end
-    retraction.diaspora_handle = object.diaspora_handle
-    retraction
-  end
-
-  def target
-    @target ||= self.type.constantize.where(:guid => post_guid).first
+    new(federation_retraction.to_h, target.subscribers, target)
   end
 
   def defer_dispatch(user)
     Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id))
   end
 
-  def perform receiving_user
-    logger.debug "Performing retraction for #{post_guid}"
-
-    self.target.destroy if self.target
-    logger.info "event=retraction status=complete type=#{type} guid=#{post_guid}"
+  def perform
+    logger.debug "Performing retraction for #{target.class.base_class}:#{target.guid}"
+    target.destroy!
+    logger.info "event=retraction status=complete target=#{data[:target_type]}:#{data[:target_guid]}"
   end
 
-  def correct_authorship?
-    if target.respond_to?(:relayable?) && target.relayable?
-      [target.author, target.parent.author].include?(person)
-    else
-      target.author == person
-    end
-  end
+  private
+
+  attr_reader :target
 end

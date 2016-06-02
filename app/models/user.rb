@@ -387,7 +387,7 @@ class User < ActiveRecord::Base
     mailman = Postzord::Dispatcher.build(self, retraction, opts)
     mailman.post
 
-    retraction.perform(self)
+    retraction.perform
 
     retraction
   end

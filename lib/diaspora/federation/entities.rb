@@ -14,9 +14,21 @@ module Diaspora
         when PollParticipation then poll_participation(entity)
         when Profile then profile(entity)
         when Reshare then reshare(entity)
+        when Retraction then build_retraction(entity)
         when StatusMessage then status_message(entity)
         else
           raise DiasporaFederation::Entity::UnknownEntity, "unknown entity: #{entity.class}"
+        end
+      end
+
+      def self.build_retraction(retraction)
+        case retraction.data[:target_type]
+        when "Comment", "Like", "PollParticipation"
+          DiasporaFederation::Entities::RelayableRetraction.new(retraction.data)
+        when "Post"
+          DiasporaFederation::Entities::SignedRetraction.new(retraction.data)
+        else
+          DiasporaFederation::Entities::Retraction.new(retraction.data)
         end
       end
 
