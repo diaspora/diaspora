@@ -200,12 +200,23 @@ module Diaspora
       end
 
       def self.retraction(target)
-        DiasporaFederation::Entities::Retraction.new(
-          target_guid: target.is_a?(User) ? target.person.guid : target.guid,
-          target_type: target.is_a?(User) ? Person.to_s : target.class.base_class.to_s,
-          target:      related_entity(target),
-          author:      target.diaspora_handle
-        )
+        case target
+        when Contact
+          author = target.user.diaspora_handle
+          DiasporaFederation::Entities::Retraction.new(
+            target_guid: target.user.guid,
+            target_type: Person.to_s,
+            target:      DiasporaFederation::Entities::RelatedEntity.new(author: author, local: true),
+            author:      author
+          )
+        else
+          DiasporaFederation::Entities::Retraction.new(
+            target_guid: target.guid,
+            target_type: target.class.base_class.to_s,
+            target:      related_entity(target),
+            author:      target.diaspora_handle
+          )
+        end
       end
 
       # @deprecated

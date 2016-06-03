@@ -31,7 +31,11 @@ class User
     def disconnect(contact)
       logger.info "event=disconnect user=#{diaspora_handle} target=#{contact.person.diaspora_handle}"
 
-      # TODO: send retraction
+      if contact.person.local?
+        contact.person.owner.disconnected_by(contact.user.person)
+      else
+        Retraction.for(contact).defer_dispatch(self)
+      end
 
       contact.aspect_memberships.delete_all
 

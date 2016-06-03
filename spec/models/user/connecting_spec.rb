@@ -41,8 +41,6 @@ describe User::Connecting, type: :model do
       end
 
       it "removes notitications" do
-        skip # TODO
-
         alice.share_with(eve.person, alice.aspects.first)
         expect(Notifications::StartedSharing.where(recipient_id: eve.id).first).not_to be_nil
         eve.disconnected_by(alice.person)
@@ -79,10 +77,22 @@ describe User::Connecting, type: :model do
         expect(contact).to be_sharing
       end
 
-      it "dispatches a retraction" do
-        skip # TODO
+      it "dispatches a retraction for local person" do
+        contact = bob.contact_for(eve.person)
 
-        bob.disconnect bob.contact_for(eve.person)
+        expect(contact.person.owner).to receive(:disconnected_by).with(bob.person)
+
+        bob.disconnect(contact)
+      end
+
+      it "dispatches a retraction for remote person" do
+        contact = local_leia.contact_for(remote_raphael)
+        retraction = double
+
+        expect(Retraction).to receive(:for).with(contact).and_return(retraction)
+        expect(retraction).to receive(:defer_dispatch).with(local_leia)
+
+        local_leia.disconnect(contact)
       end
 
       it "should remove the contact from all aspects they are in" do
