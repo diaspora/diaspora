@@ -781,36 +781,21 @@ describe User, :type => :model do
   end
 
 
-  describe '#retract' do
-    before do
-      @retraction = double
-      @post = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
-    end
+  describe "#retract" do
+    let(:retraction) { double }
+    let(:post) { FactoryGirl.build(:status_message, author: bob.person, public: true) }
 
     context "posts" do
-      before do
-        allow(SignedRetraction).to receive(:build).and_return(@retraction)
-        allow(@retraction).to receive(:perform)
+      it "sends a retraction" do
+        expect(Retraction).to receive(:for).with(post, bob).and_return(retraction)
+        expect(retraction).to receive(:defer_dispatch).with(bob)
+        expect(retraction).to receive(:perform)
+
+        bob.retract(post)
       end
 
-      it 'sends a retraction' do
-        dispatcher = double
-        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
-        expect(dispatcher).to receive(:post)
-
-        bob.retract(@post)
-      end
-
-      it 'adds resharers of target post as additional subsctibers' do
-        person = FactoryGirl.create(:person)
-        reshare = FactoryGirl.create(:reshare, :root => @post, :author => person)
-        @post.reshares << reshare
-
-        dispatcher = double
-        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
-        expect(dispatcher).to receive(:post)
-
-        bob.retract(@post)
+      it "adds resharers of target post as additional subsctibers" do
+        skip # TODO: add resharers to subscribers of posts
       end
     end
   end

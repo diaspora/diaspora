@@ -370,26 +370,10 @@ class User < ActiveRecord::Base
   end
 
   ######### Posts and Such ###############
-  def retract(target, opts={})
-    if target.respond_to?(:relayable?) && target.relayable?
-      retraction = RelayableRetraction.build(self, target)
-    elsif target.is_a? Post
-      retraction = SignedRetraction.build(self, target)
-    else
-      retraction = Retraction.for(target)
-    end
-
-    if target.is_a?(Post)
-      opts[:additional_subscribers] = target.resharers
-      opts[:services] = services
-    end
-
-    mailman = Postzord::Dispatcher.build(self, retraction, opts)
-    mailman.post
-
+  def retract(target)
+    retraction = Retraction.for(target, self)
+    retraction.defer_dispatch(self)
     retraction.perform
-
-    retraction
   end
 
   ########### Profile ######################
