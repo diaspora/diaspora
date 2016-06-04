@@ -39,6 +39,10 @@ class Retraction
     logger.info "event=retraction status=complete target=#{data[:target_type]}:#{data[:target_guid]}"
   end
 
+  def public?
+    data[:target][:public]
+  end
+
   private
 
   attr_reader :target
