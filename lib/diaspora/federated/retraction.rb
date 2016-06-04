@@ -26,11 +26,11 @@ class Retraction
                               Diaspora::Federation::Entities.retraction(target)
                             end
 
-    new(federation_retraction.to_h, target.subscribers, target)
+    new(federation_retraction.to_h, target.subscribers.select(&:remote?), target)
   end
 
   def defer_dispatch(user)
-    Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id))
+    Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id)) unless subscribers.empty?
   end
 
   def perform
