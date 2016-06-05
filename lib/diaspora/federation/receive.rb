@@ -139,6 +139,15 @@ module Diaspora
         case object
         when Person
           User.find(recipient_id).disconnected_by(object)
+        when Diaspora::Relayable
+          if object.parent.author.local?
+            parent_author = object.parent.author.owner
+            retraction = Retraction.for(object, parent_author)
+            retraction.defer_dispatch(parent_author)
+            retraction.perform
+          else
+            object.destroy!
+          end
         else
           object.destroy!
         end

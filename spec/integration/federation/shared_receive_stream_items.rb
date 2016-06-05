@@ -150,6 +150,12 @@ shared_examples_for "messages which can't be send without sharing" do
         context "with #{retraction_entity_name}" do
           let(:entity_name) { "#{retraction_entity_name}_entity".to_sym }
 
+          before do
+            allow(DiasporaFederation.callbacks).to receive(:trigger).with(
+              :fetch_private_key, alice.diaspora_handle
+            ) { alice.encryption_key }
+          end
+
           context "with comment" do
             it_behaves_like "it retracts relayable object" do
               # case for to-upstream federation
