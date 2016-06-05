@@ -52,24 +52,21 @@ module Diaspora
       end
 
       def deliver_to_user_services
-        services.each do |service|
-          case object
-          when StatusMessage
-            Workers::PostToService.perform_async(service.id, object.id, opts[:url])
-          when Retraction
-            Workers::DeletePostFromService.perform_async(service.id, object.target.id)
-          end
+        if object.is_a?(StatusMessage) && opts[:service_types]
+          post_to_services
+        elsif object.is_a?(Retraction) && object.target_type == "Post"
+          delete_from_services
         end
       end
 
-      def services
-        if opts[:services]
-          opts[:services]
-        elsif opts[:service_types]
-          sender.services.where(type: opts[:service_types])
-        else
-          []
+      def post_to_services
+        sender.services.where(type: opts[:service_types]).each do |service|
+          Workers::PostToService.perform_async(service.id, object.id, opts[:url])
         end
+      end
+
+      def delete_from_services
+        sender.services.each {|service| Workers::DeletePostFromService.perform_async(service.id, object.target.id) }
       end
     end
   end

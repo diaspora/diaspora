@@ -43,6 +43,10 @@ class Retraction
     data[:target][:public]
   end
 
+  def target_type
+    data[:target_type]
+  end
+
   private
 
   attr_reader :target
