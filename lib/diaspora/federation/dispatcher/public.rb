@@ -4,19 +4,25 @@ module Diaspora
       class Public < Dispatcher
         def deliver_to_services
           deliver_to_hub if object.instance_of?(StatusMessage)
-          # TODO: pubsubhubbub, relay
           super
         end
 
         def deliver_to_remote(people)
+          targets = target_urls(people) + additional_target_urls
+
           entity = Entities.build(object)
-          Workers::SendPublic.perform_async(sender.id, entity.to_s, target_urls(people), salmon_xml(entity))
+          Workers::SendPublic.perform_async(sender.id, entity.to_s, targets, salmon_xml(entity))
         end
 
         private
 
         def target_urls(people)
           Pod.where(id: people.map(&:pod_id).uniq).map {|pod| pod.url_to("/receive/public") }
+        end
+
+        def additional_target_urls
+          return [] unless AppConfig.relay.outbound.send? && object.instance_of?(StatusMessage)
+          [AppConfig.relay.outbound.url]
         end
 
         def salmon_xml(entity)
