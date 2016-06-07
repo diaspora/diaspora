@@ -4,7 +4,7 @@ describe("app.views.AspectsList", function(){
     var aspects  = [{ name: 'Work',          selected: true  },
                    { name: 'Friends',       selected: false },
                    { name: 'Acquaintances', selected: false }];
-    this.aspects = new app.collections.Aspects(aspects);
+    this.aspects = new app.collections.AspectSelections(aspects);
     this.view    = new app.views.AspectsList({ collection: this.aspects });
   });
 

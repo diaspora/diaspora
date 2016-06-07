@@ -39,7 +39,7 @@ describe('app.Router', function () {
 
     it('hides the aspects list', function(){
       setFixtures('<div id="aspects_list" />');
-      aspects = new app.collections.Aspects([
+      aspects = new app.collections.AspectSelections([
         factory.aspectAttrs({selected:true}),
         factory.aspectAttrs()
       ]);

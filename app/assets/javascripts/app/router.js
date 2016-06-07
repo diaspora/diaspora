@@ -134,14 +134,15 @@ app.Router = Backbone.Router.extend({
   },
 
   aspects: function() {
-    app.aspects = app.aspects || new app.collections.Aspects(app.currentUser.get("aspects"));
-    this.aspectsList = this.aspectsList || new app.views.AspectsList({ collection: app.aspects });
+    app.aspectSelections = app.aspectSelections ||
+      new app.collections.AspectSelections(app.currentUser.get("aspects"));
+    this.aspectsList = this.aspectsList || new app.views.AspectsList({collection: app.aspectSelections});
     this.aspectsList.render();
     this.aspects_stream();
   },
 
   aspects_stream : function(){
-    var ids = app.aspects.selectedAspects("id");
+    var ids = app.aspectSelections.selectedAspects("id");
     app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
     app.stream.fetch();
     this._initializeStreamView();

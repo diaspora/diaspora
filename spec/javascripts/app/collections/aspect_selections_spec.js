@@ -1,11 +1,11 @@
-describe("app.collections.Aspects", function(){
+describe("app.collections.AspectSelections", function(){
   beforeEach(function(){
     var my_aspects = [
       { name: 'Work',          selected: true  },
       { name: 'Friends',       selected: false },
       { name: 'Acquaintances', selected: false }
     ];
-    this.aspects = new app.collections.Aspects(my_aspects);
+    this.aspects = new app.collections.AspectSelections(my_aspects);
   });
 
   describe("#selectAll", function(){
@@ -41,7 +41,7 @@ describe("app.collections.Aspects", function(){
   describe("#toSentence", function(){
     describe('without aspects', function(){
       beforeEach(function(){
-        this.aspects = new app.collections.Aspects([{ name: 'Work', selected: false }]);
+        this.aspects = new app.collections.AspectSelections([{ name: 'Work', selected: false }]);
       });
 
       it("returns the name of the aspect", function(){
@@ -51,7 +51,7 @@ describe("app.collections.Aspects", function(){
 
     describe("with one aspect", function(){
       beforeEach(function(){
-        this.aspects = new app.collections.Aspects([{ name: 'Work', selected: true }]);
+        this.aspects = new app.collections.AspectSelections([{ name: 'Work', selected: true }]);
       });
 
       it("returns the name of the aspect", function(){
