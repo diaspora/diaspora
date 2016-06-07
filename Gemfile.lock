@@ -448,7 +448,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.99.1)
     mini_magick (4.4.0)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.8.4)
     mobile-fu (1.3.1)
       rack-mobile-detect
@@ -462,8 +462,9 @@ GEM
     nenv (0.3.0)
     nested_form (0.3.2)
     nio4r (1.2.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -500,6 +501,7 @@ GEM
     parser (2.3.0.4)
       ast (~> 2.2)
     phantomjs (2.1.1.0)
+    pkg-config (1.1.7)
     powerpack (0.1.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -835,7 +837,7 @@ DEPENDENCIES
   minitest
   mobile-fu (= 1.3.1)
   mysql2 (= 0.4.3)
-  nokogiri (= 1.6.7.2)
+  nokogiri (= 1.6.8)
   omniauth (= 1.3.1)
   omniauth-facebook (= 3.0.0)
   omniauth-tumblr (= 1.2)
@@ -908,4 +910,4 @@ DEPENDENCIES
   will_paginate (= 3.1.0)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
