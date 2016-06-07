@@ -33,9 +33,7 @@ h1.tag {
       .side_stream #people_stream {
         .name { display: block; }
         .name, .diaspora_handle {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+          word-break: break-all;
         }
       }
     }
