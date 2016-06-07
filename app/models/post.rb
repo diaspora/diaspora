@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   include ApplicationHelper
 
-  include Diaspora::Federated::Shareable
+  include Diaspora::Federated::Base
 
   include Diaspora::Likeable
   include Diaspora::Commentable
@@ -133,7 +133,7 @@ class Post < ActiveRecord::Base
   #############
 
   def self.diaspora_initialize(params)
-    shareable_initialize(params)
+    new(params.to_hash.stringify_keys.slice(*column_names, "author"))
   end
 
   def activity_streams?

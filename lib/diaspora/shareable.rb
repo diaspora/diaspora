@@ -8,6 +8,8 @@ module Diaspora
   module Shareable
     def self.included(model)
       model.instance_eval do
+        include Diaspora::Guid
+
         has_many :aspect_visibilities, as: :shareable, validate: false, dependent: :delete_all
         has_many :aspects, through: :aspect_visibilities
 
@@ -15,6 +17,7 @@ module Diaspora
 
         belongs_to :author, class_name: "Person"
 
+        delegate :diaspora_handle, to: :author
         delegate :id, :name, :first_name, to: :author, prefix: true
 
         # scopes
@@ -29,45 +32,8 @@ module Diaspora
           joins("LEFT OUTER JOIN aspect_visibilities ON aspect_visibilities.shareable_id = #{table_name}.id AND "\
           " aspect_visibilities.shareable_type = '#{base_class}'")
         }
-
-        def self.owned_or_visible_by_user(user)
-          with_visibility.where(
-            visible_by_user(user).or(arel_table[:public].eq(true)
-                                       .or(arel_table[:author_id].eq(user.person_id)))
-          ).select("DISTINCT #{table_name}.*")
-        end
-
-        def self.from_person_visible_by_user(user, person)
-          return owned_by_user(user) if person == user.person
-
-          with_visibility.where(author_id: person.id).where(
-            visible_by_user(user).or(arel_table[:public].eq(true))
-          ).select("DISTINCT #{table_name}.*")
-        end
-
-        def self.for_visible_shareable_sql(max_time, order, limit=15, types=Stream::Base::TYPES_OF_POST_IN_STREAM)
-          by_max_time(max_time, order).order(table_name + ".id DESC").where(type: types).limit(limit)
-        end
-
-        def self.by_max_time(max_time, order="created_at")
-          where("#{table_name}.#{order} < ?", max_time).order("#{table_name}.#{order} DESC")
-        end
-
-        def self.owned_by_user(user)
-          user.person.send(table_name).where(pending: false)
-        end
-
-        def self.shareable_initialize(params)
-          new(params.to_hash.stringify_keys.slice(*column_names)).tap do |new_shareable|
-            new_shareable.author = params[:author]
-          end
-        end
-
-        def self.visible_by_user(user)
-          ShareVisibility.arel_table[:user_id].eq(user.id)
-        end
-        private_class_method :visible_by_user
       end
+      model.extend Diaspora::Shareable::QueryMethods
     end
 
     def receive(recipient_user_ids)
@@ -79,6 +45,57 @@ module Diaspora
     # @return [Integer]
     def update_reshares_counter
       self.class.where(id: id).update_all(reshares_count: reshares.count)
+    end
+
+    def diaspora_handle=(author_handle)
+      self.author = Person.where(diaspora_handle: author_handle).first
+    end
+
+    # The list of people that should receive this Shareable.
+    #
+    # @return [Array<Person>] The list of subscribers to this shareable
+    def subscribers
+      user = author.owner
+      if public?
+        user.contact_people
+      else
+        user.people_in_aspects(user.aspects_with_shareable(self.class, id))
+      end
+    end
+
+    module QueryMethods
+      def owned_or_visible_by_user(user)
+        with_visibility.where(
+          visible_by_user(user).or(arel_table[:public].eq(true)
+                                     .or(arel_table[:author_id].eq(user.person_id)))
+        ).select("DISTINCT #{table_name}.*")
+      end
+
+      def from_person_visible_by_user(user, person)
+        return owned_by_user(user) if person == user.person
+
+        with_visibility.where(author_id: person.id).where(
+          visible_by_user(user).or(arel_table[:public].eq(true))
+        ).select("DISTINCT #{table_name}.*")
+      end
+
+      def for_visible_shareable_sql(max_time, order, limit=15, types=Stream::Base::TYPES_OF_POST_IN_STREAM)
+        by_max_time(max_time, order).order(table_name + ".id DESC").where(type: types).limit(limit)
+      end
+
+      def by_max_time(max_time, order="created_at")
+        where("#{table_name}.#{order} < ?", max_time).order("#{table_name}.#{order} DESC")
+      end
+
+      def owned_by_user(user)
+        user.person.public_send(table_name).where(pending: false)
+      end
+
+      private
+
+      def visible_by_user(user)
+        ShareVisibility.arel_table[:user_id].eq(user.id)
+      end
     end
   end
 end

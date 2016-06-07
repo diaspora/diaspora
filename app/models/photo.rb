@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class Photo < ActiveRecord::Base
-  include Diaspora::Federated::Shareable
+  include Diaspora::Federated::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
@@ -81,13 +81,11 @@ class Photo < ActiveRecord::Base
     end
   end
 
-  def self.diaspora_initialize(params = {})
-    photo = shareable_initialize(params)
+  def self.diaspora_initialize(params={})
+    photo = new(params.to_hash.stringify_keys.slice(*column_names, "author"))
     photo.random_string = SecureRandom.hex(10)
 
-    if photo.author.local?
-      photo.unprocessed_image.strip_exif = photo.author.owner.strip_exif
-    end
+    photo.unprocessed_image.strip_exif = photo.author.owner.strip_exif
 
     if params[:user_file]
       image_file = params.delete(:user_file)
