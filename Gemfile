@@ -133,7 +133,7 @@ gem "leaflet-rails",       "0.7.7"
 
 # Parsing
 
-gem "nokogiri",          "1.6.7.2"
+gem "nokogiri",          "1.6.8"
 gem "redcarpet",         "3.3.4"
 gem "twitter-text",      "1.13.4"
 gem "roxml",             "3.1.6"
