@@ -120,3 +120,21 @@ $default-border-radius: 3px;
     }
   }
 }
+
+@mixin selectable-list() {
+  .glyphicon-ok,
+  .glyphicon-refresh {
+    display: none;
+    padding-right: 5px;
+  }
+
+  &.selected {
+    .glyphicon-ok { display: inline-block;}
+    .glyphicon-refresh { display: none;}
+  }
+
+  &.loading {
+    .glyphicon-refresh { display: inline-block;}
+    .glyphicon-ok { display: none;}
+  }
+}

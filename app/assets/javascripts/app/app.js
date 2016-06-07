@@ -120,9 +120,6 @@ var app = {
 
   setupGlobalViews: function() {
     app.hovercard = new app.views.Hovercard();
-    $('.aspect_membership_dropdown').each(function(){
-      new app.views.AspectMembership({el: this});
-    });
     app.sidebar = new app.views.Sidebar();
     app.backToTop = new app.views.BackToTop({el: $(document)});
     app.flashMessages = new app.views.FlashMessages({el: $("#flash-container")});

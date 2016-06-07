@@ -5,6 +5,7 @@ app.Router = Backbone.Router.extend({
     "help/:section": "help",
     "help/": "help",
     "help": "help",
+    "getting_started": "gettingStarted",
     "contacts": "contacts",
     "conversations": "conversations",
     "user/edit": "settings",
@@ -60,6 +61,7 @@ app.Router = Backbone.Router.extend({
   contacts: function() {
     app.aspect = new app.models.Aspect(gon.preloads.aspect);
     app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
+    this._loadAspects();
 
     var stream = new app.views.ContactStream({
       collection: app.contacts,
@@ -67,6 +69,13 @@ app.Router = Backbone.Router.extend({
     });
 
     app.page = new app.pages.Contacts({stream: stream});
+  },
+
+  gettingStarted: function() {
+    this._loadAspects();
+    this.renderPage(function() {
+      return new app.pages.GettingStarted({inviter: new app.models.Person(app.parsePreload("inviter"))});
+    });
   },
 
   conversations: function() {
@@ -134,6 +143,7 @@ app.Router = Backbone.Router.extend({
   },
 
   aspects: function() {
+    this._loadAspects();
     app.aspectSelections = app.aspectSelections ||
       new app.collections.AspectSelections(app.currentUser.get("aspects"));
     this.aspectsList = this.aspectsList || new app.views.AspectsList({collection: app.aspectSelections});
@@ -157,11 +167,16 @@ app.Router = Backbone.Router.extend({
   },
 
   profile: function() {
+    this._loadAspects();
     this.renderPage(function() {
       return new app.pages.Profile({
         el: $("body > #profile_container")
       });
     });
+  },
+
+  _loadAspects: function() {
+    app.aspects = new app.collections.Aspects(app.currentUser.get("aspects"));
   },
 
   _hideInactiveStreamLists: function() {

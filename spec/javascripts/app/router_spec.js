@@ -88,6 +88,13 @@ describe('app.Router', function () {
     });
   });
 
+  describe("gettingStarted", function() {
+    it("renders app.pages.GettingStarted", function() {
+      app.router.navigate("/getting_started", {trigger: true});
+      expect(app.page.$el.selector).toEqual("#hello-there");
+    });
+  });
+
   describe("_initializeStreamView", function() {
     beforeEach(function() {
       delete app.page;

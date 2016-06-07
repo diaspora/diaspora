@@ -14,10 +14,13 @@ class AspectsController < ApplicationController
     aspecting_person_id = params[:person_id]
 
     if @aspect.save
+      result = {id: @aspect.id, name: @aspect.name}
       if aspecting_person_id.present?
-        connect_person_to_aspect(aspecting_person_id)
+        aspect_membership = connect_person_to_aspect(aspecting_person_id)
+        result[:aspect_membership] = AspectMembershipPresenter.new(aspect_membership).base_hash if aspect_membership
       end
-      render json: {id: @aspect.id, name: @aspect.name}
+
+      render json: result
     else
       render nothing: true, status: 422
     end
@@ -96,9 +99,10 @@ class AspectsController < ApplicationController
   def connect_person_to_aspect(aspecting_person_id)
     @person = Person.find(aspecting_person_id)
     if @contact = current_user.contact_for(@person)
-      @contact.aspects << @aspect
+      @contact.aspect_memberships.create(aspect: @aspect)
     else
       @contact = current_user.share_with(@person, @aspect)
+      @contact.aspect_memberships.first
     end
   end
 

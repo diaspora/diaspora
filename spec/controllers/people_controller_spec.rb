@@ -5,6 +5,8 @@
 require 'spec_helper'
 
 describe PeopleController, :type => :controller do
+  include_context :gon
+
   before do
     @user = alice
     @aspect = @user.aspects.first
@@ -277,6 +279,11 @@ describe PeopleController, :type => :controller do
         get :show, id: @person.to_param
         expect(response.body).to include(@person.profile.bio)
       end
+
+      it "preloads data using gon for the aspect memberships dropdown" do
+        get :show, id: @person.to_param
+        expect_gon_preloads_for_aspect_membership_dropdown(:person, true)
+      end
     end
 
     context "when the person is not a contact of the current user" do
@@ -297,6 +304,11 @@ describe PeopleController, :type => :controller do
       it "leaks no private profile info" do
         get :show, id: @person.to_param
         expect(response.body).not_to include(@person.profile.bio)
+      end
+
+      it "preloads data using gon for the aspect memberships dropdown" do
+        get :show, id: @person.to_param
+        expect_gon_preloads_for_aspect_membership_dropdown(:person, false)
       end
     end
 

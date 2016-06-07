@@ -20,17 +20,4 @@ describe PeopleController, :type => :controller do
       save_fixture(html_for("body"), "pending_external_people_search")
     end
   end
-
-  describe '#aspect_membership_dropdown' do
-    before do
-      aspect = bob.aspects.create name: 'Testing'
-      bob.share_with alice.person, aspect
-      sign_in :user, bob
-    end
-
-    it "generates a jasmine fixture", :fixture => true do
-      get :aspect_membership_dropdown, :person_id => alice.person.guid
-      save_fixture(html_for("body"), "aspect_membership_dropdown")
-    end
-  end
 end

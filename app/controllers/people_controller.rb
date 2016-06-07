@@ -146,21 +146,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  # shows the dropdown list of aspects the current user has set for the given person.
-  # renders "thats you" in case the current user views himself
-  def aspect_membership_dropdown
-    @person = Person.find_by_guid(params[:person_id])
-
-    # you are not a contact of yourself...
-    return render :text => I18n.t('people.person.thats_you') if @person == current_user.person
-
-    @contact = current_user.contact_for(@person) || Contact.new
-    @aspect = :profile if params[:create]  # let aspect dropdown create new aspects
-    size = params[:size] || "small"
-
-    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :size => size}
-  end
-
   private
 
   def find_person

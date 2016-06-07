@@ -17,6 +17,7 @@ Feature: following and being followed
     And I go to the edit profile page
     And I fill in the following:
       | profile_first_name         | <script>alert(0)//   |
+      | profile_last_name          ||
     And I press "update_profile"
     Then I should be on my edit profile page
 
