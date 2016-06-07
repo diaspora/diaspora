@@ -606,7 +606,7 @@ configuration: ## Section
 
       ## OpenSSL verify mode used when connecting to a SMTP server with TLS.
       ## Set this to 'none' if you have a self-signed certificate. Possible
-      ## values: 'none', 'peer', 'client_once', 'fail_if_no_peer_cert'.
+      ## values: 'none', 'peer'.
       #openssl_verify_mode: 'none'
 
     ## Ignore if method isn't 'sendmail'
