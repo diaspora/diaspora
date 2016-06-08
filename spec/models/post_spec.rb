@@ -5,11 +5,6 @@
 require 'spec_helper'
 
 describe Post, :type => :model do
-  before do
-    @user = alice
-    @aspect = @user.aspects.create(:name => "winners")
-  end
-
   describe 'scopes' do
     describe '.owned_or_visible_by_user' do
       before do
@@ -184,21 +179,11 @@ describe Post, :type => :model do
 
   describe 'deletion' do
     it 'should delete a posts comments on delete' do
-      post = FactoryGirl.create(:status_message, :author => @user.person)
-      @user.comment!(post, "hey")
+      post = FactoryGirl.create(:status_message, author: alice.person)
+      alice.comment!(post, "hey")
       post.destroy
       expect(Post.where(:id => post.id).empty?).to eq(true)
       expect(Comment.where(:text => "hey").empty?).to eq(true)
-    end
-  end
-
-  describe 'serialization' do
-    it 'should serialize the handle and not the sender' do
-      post = @user.post :status_message, :text => "hello", :to => @aspect.id
-      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.status_message(post)).to_xml
-
-      expect(xml.include?("person_id")).to be false
-      expect(xml.include?(@user.person.diaspora_handle)).to be true
     end
   end
 
@@ -209,17 +194,50 @@ describe Post, :type => :model do
     end
   end
 
-  describe '#subscribers' do
-    it 'returns the people contained in the aspects the post appears in' do
-      post = @user.post :status_message, :text => "hello", :to => @aspect.id
+  describe "#subscribers" do
+    let(:user) { FactoryGirl.create(:user_with_aspect) }
 
-      expect(post.subscribers).to eq([]) # TODO
+    before do
+      user.share_with(alice.person, user.aspects.first)
     end
 
-    it 'returns all a users contacts if the post is public' do
-      post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
+    context "private" do
+      it "returns the people contained in the aspects the post appears in" do
+        post = user.post(:status_message, text: "hello", to: user.aspects.first.id)
 
-      expect(post.subscribers.to_set).to eq(@user.contact_people.to_set)
+        expect(post.subscribers).to eq([alice.person])
+      end
+
+      it "returns empty if posted to an empty aspect" do
+        empty_aspect = user.aspects.create(name: "empty")
+
+        post = user.post(:status_message, text: "hello", to: empty_aspect.id)
+
+        expect(post.subscribers).to eq([])
+      end
+    end
+
+    context "public" do
+      let(:post) { user.post(:status_message, text: "hello", public: true) }
+
+      it "returns all a users contacts if the post is public" do
+        second_aspect = user.aspects.create(name: "winners")
+        user.share_with(bob.person, second_aspect)
+
+        expect(post.subscribers).to eq([alice.person, bob.person])
+      end
+
+      it "adds resharers to subscribers" do
+        FactoryGirl.create(:reshare, root: post, author: eve.person)
+
+        expect(post.subscribers).to eq([alice.person, eve.person])
+      end
+
+      it "adds participants to subscribers" do
+        eve.participate!(post)
+
+        expect(post.subscribers).to eq([alice.person, eve.person])
+      end
     end
   end
 
@@ -261,7 +279,7 @@ describe Post, :type => :model do
 
   describe '#reshares_count' do
     before :each do
-      @post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
+      @post = alice.post(:status_message, text: "hello", public: true)
       expect(@post.reshares.size).to eq(0)
     end
 

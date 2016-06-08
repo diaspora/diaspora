@@ -14,6 +14,7 @@ class Post < ActiveRecord::Base
   include Diaspora::Shareable
 
   has_many :participations, dependent: :delete_all, as: :target, inverse_of: :target
+  has_many :participants, class_name: "Person", through: :participations, source: :author
 
   attr_accessor :user_like
 
@@ -21,10 +22,10 @@ class Post < ActiveRecord::Base
 
   has_many :reports, as: :item
 
-  has_many :mentions, :dependent => :destroy
+  has_many :mentions, dependent: :destroy
 
-  has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
-  has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
+  has_many :reshares, class_name: "Reshare", foreign_key: :root_guid, primary_key: :guid
+  has_many :resharers, class_name: "Person", through: :reshares, source: :author
 
   belongs_to :o_embed_cache
   belongs_to :open_graph_cache
@@ -146,5 +147,11 @@ class Post < ActiveRecord::Base
 
   def nsfw
     self.author.profile.nsfw?
+  end
+
+  def subscribers
+    super.tap do |subscribers|
+      subscribers.concat(resharers).concat(participants) if public?
+    end
   end
 end

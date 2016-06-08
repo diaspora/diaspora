@@ -793,10 +793,6 @@ describe User, :type => :model do
 
         bob.retract(post)
       end
-
-      it "adds resharers of target post as additional subsctibers" do
-        skip # TODO: add resharers to subscribers of posts
-      end
     end
   end
 
