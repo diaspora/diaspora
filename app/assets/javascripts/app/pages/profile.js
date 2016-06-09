@@ -86,7 +86,7 @@ app.pages.Profile = app.views.Base.extend({
     });
     app.stream.fetch();
 
-    if( this.model.get("is_own_profile") ) {
+    if( this.model.get("is_own_profile") && route !== "personPhotos" ) {
       app.publisher = new app.views.Publisher({collection : app.stream.items});
     }
     app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});

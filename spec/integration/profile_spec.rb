@@ -24,6 +24,15 @@ describe PeopleController, type: :request do
       expect(response.body).not_to match(/a class="login"/)
       expect(response.body).to match(/div class='publisher-textarea-wrapper' id='publisher_textarea_wrapper'/)
     end
+
+    it "doesn't display the publisher for people photos path" do
+      get "/people/#{alice.person.guid}/photos"
+
+      expect(response.status).to eq(200)
+      # make sure we are signed in
+      expect(response.body).not_to match(/a class="login"/)
+      expect(response.body).not_to match(/div class='publisher-textarea-wrapper' id='publisher_textarea_wrapper'/)
+    end
   end
 
   context "for another user" do

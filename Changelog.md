@@ -155,6 +155,8 @@ before.
 
 ## Refactor
 
+* Removed the publisher from a user's photo stream due to various issues [#6851](https://github.com/diaspora/diaspora/pull/6851)
+
 ## Bug fixes
 
 ## Features
