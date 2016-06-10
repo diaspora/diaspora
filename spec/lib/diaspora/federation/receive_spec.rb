@@ -420,6 +420,49 @@ describe Diaspora::Federation::Receive do
       expect(contact).not_to be_nil
       expect(contact.sharing).to be_falsey
     end
+
+    context "Relayable" do
+      it "relays the retraction and destroys the relayable when the parent-author is local" do
+        local_post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+        remote_comment = FactoryGirl.create(:comment, author: sender, post: local_post)
+
+        retraction = FactoryGirl.build(
+          :retraction_entity,
+          author:      sender.diaspora_handle,
+          target_guid: remote_comment.guid,
+          target_type: "Comment"
+        )
+
+        comment_retraction = Retraction.for(remote_comment, alice)
+
+        expect(Retraction).to receive(:for).with(instance_of(Comment), alice).and_return(comment_retraction)
+        expect(comment_retraction).to receive(:defer_dispatch).with(alice)
+        expect(comment_retraction).to receive(:perform).and_call_original
+        expect_any_instance_of(Comment).to receive(:destroy!).and_call_original
+
+        Diaspora::Federation::Receive.retraction(retraction, nil)
+
+        expect(StatusMessage.exists?(guid: remote_comment.guid)).to be_falsey
+      end
+
+      it "destroys the relayable when the parent-author is not local" do
+        remote_post = FactoryGirl.create(:status_message, author: sender, public: true)
+        remote_comment = FactoryGirl.create(:comment, author: sender, post: remote_post)
+
+        retraction = FactoryGirl.build(
+          :retraction_entity,
+          author:      sender.diaspora_handle,
+          target_guid: remote_comment.guid,
+          target_type: "Comment"
+        )
+
+        expect_any_instance_of(Comment).to receive(:destroy!).and_call_original
+
+        Diaspora::Federation::Receive.retraction(retraction, nil)
+
+        expect(StatusMessage.exists?(guid: remote_comment.guid)).to be_falsey
+      end
+    end
   end
 
   describe ".status_message" do
