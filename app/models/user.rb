@@ -242,7 +242,7 @@ class User < ActiveRecord::Base
 
   def dispatch_post(post, opts={})
     logger.info "user:#{id} dispatching #{post.class}:#{post.guid}"
-    Postzord::Dispatcher.defer_build_and_post(self, post, opts)
+    Diaspora::Federation::Dispatcher.defer_dispatch(self, post, opts)
   end
 
   def update_post(post, post_hash={})
@@ -459,10 +459,10 @@ class User < ActiveRecord::Base
     conversation = sender.build_conversation(
       participant_ids: [sender.person.id, person.id],
       subject:         AppConfig.settings.welcome_message.subject.get,
-      message:         {text: AppConfig.settings.welcome_message.text.get % {username: username}})
-    if conversation.save
-      Postzord::Dispatcher.build(sender, conversation).post
-    end
+      message:         {text: AppConfig.settings.welcome_message.text.get % {username: username}}
+    )
+
+    Diaspora::Federation::Dispatcher.build(sender, conversation).dispatch if conversation.save
   end
 
   def encryption_key

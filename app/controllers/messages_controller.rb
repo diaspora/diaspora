@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     if message.save
       logger.info "event=create type=comment user=#{current_user.diaspora_handle} status=success " \
                   "message=#{message.id} chars=#{params[:message][:text].length}"
-      Postzord::Dispatcher.build(current_user, message).post
+      Diaspora::Federation::Dispatcher.defer_dispatch(current_user, message)
     else
       flash[:error] = I18n.t('conversations.new_conversation.fail')
     end

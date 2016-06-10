@@ -16,9 +16,10 @@ describe "adds root author on reshare" do
   end
 
   it "calls add_root_author" do
-    allow(Postzord::Dispatcher).to receive(:defer_build_and_post).and_return(true)
+    allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).and_return(true)
     allow(@generator).to receive(:build).and_return(@relayable)
     allow(@relayable).to receive(:save!).and_return(true)
+    allow(@relayable).to receive(:new_record?).and_return(false)
     expect(@generator).to receive(:add_root_author)
     @generator.create!
   end

@@ -25,16 +25,12 @@ class AccountDeletion < ActiveRecord::Base
   end
 
   def perform!
-    self.dispatch if person.local?
-    AccountDeleter.new(self.diaspora_handle).perform!
+    Diaspora::Federation::Dispatcher.build(person.owner, self).dispatch if person.local?
+    AccountDeleter.new(diaspora_handle).perform!
   end
 
   def subscribers
     person.owner.contact_people.remote | Person.who_have_reshared_a_users_posts(person.owner).remote
-  end
-
-  def dispatch
-    Postzord::Dispatcher.build(person.owner, self).post
   end
 
   def public?

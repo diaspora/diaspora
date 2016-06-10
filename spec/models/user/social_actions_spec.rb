@@ -23,7 +23,7 @@ describe User::SocialActions, :type => :model do
 
     it "federates" do
       allow_any_instance_of(Participation::Generator).to receive(:create!)
-      expect(Postzord::Dispatcher).to receive(:defer_build_and_post)
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
       alice.comment!(@status, "omg")
     end
   end
@@ -41,7 +41,7 @@ describe User::SocialActions, :type => :model do
     it "federates" do
       #participation and like
       allow_any_instance_of(Participation::Generator).to receive(:create!)
-      expect(Postzord::Dispatcher).to receive(:defer_build_and_post)
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
       alice.like!(@status)
     end
   end
@@ -62,7 +62,7 @@ describe User::SocialActions, :type => :model do
 
     it "federates" do
       #participation and like
-      expect(Postzord::Dispatcher).to receive(:defer_build_and_post).twice
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).twice
       alice.like!(@status)
     end
 
@@ -95,7 +95,7 @@ describe User::SocialActions, :type => :model do
 
     it "federates" do
       allow_any_instance_of(Participation::Generator).to receive(:create!)
-      expect(Postzord::Dispatcher).to receive(:defer_build_and_post)
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
       alice.participate_in_poll!(@status, @answer)
     end
 

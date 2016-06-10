@@ -13,7 +13,7 @@ module Federated
       if relayable.save!
         logger.info "user:#{@user.id} dispatching #{relayable.class}:#{relayable.guid}"
         add_root_author(relayable)
-        Postzord::Dispatcher.defer_build_and_post(@user, relayable, @dispatcher_opts)
+        Diaspora::Federation::Dispatcher.defer_dispatch(@user, relayable, @dispatcher_opts)
         relayable
       end
     end

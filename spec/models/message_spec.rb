@@ -51,7 +51,7 @@ describe Message, :type => :model do
 
       msg_hash = {:author => @local_luke.person, :text => 'yo', :conversation => @local_parent}
       @object_by_parent_author = Message.create(msg_hash.dup)
-      Postzord::Dispatcher.build(@local_luke, @object_by_parent_author).post
+      Diaspora::Federation::Dispatcher.build(@local_luke, @object_by_parent_author).dispatch
 
       msg_hash[:author] = @local_leia.person
       @object_by_recipient = Message.create(msg_hash.dup)
@@ -61,7 +61,7 @@ describe Message, :type => :model do
       msg_hash[:author] = @local_luke.person
       msg_hash[:conversation] = @remote_parent
       @object_on_remote_parent = Message.create(msg_hash)
-      Postzord::Dispatcher.build(@local_luke, @object_on_remote_parent).post
+      Diaspora::Federation::Dispatcher.build(@local_luke, @object_on_remote_parent).dispatch
     end
 
     let(:build_object) { Message.new(:author => @alice.person, :text => "ohai!", :conversation => @conversation) }
