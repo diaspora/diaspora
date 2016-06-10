@@ -2,9 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 class RelayableRetraction < SignedRetraction
-  xml_name :relayable_retraction
-  xml_attr :parent_author_signature
-
   attr_accessor :parent_author_signature
 
   delegate :parent, :parent_author, to: :target, allow_nil: true

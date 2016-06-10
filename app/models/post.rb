@@ -18,8 +18,6 @@ class Post < ActiveRecord::Base
 
   attr_accessor :user_like
 
-  xml_attr :provider_display_name
-
   has_many :reports, as: :item
 
   has_many :mentions, dependent: :destroy

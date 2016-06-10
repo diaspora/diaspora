@@ -10,10 +10,6 @@ class AccountDeletion < ActiveRecord::Base
   belongs_to :person
   after_commit :queue_delete_account, :on => :create
 
-  xml_name :account_deletion
-  xml_attr :diaspora_handle
-
-
   def person=(person)
     self[:diaspora_handle] = person.diaspora_handle
     self[:person_id] = person.id

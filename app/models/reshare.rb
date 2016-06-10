@@ -9,9 +9,6 @@ class Reshare < Post
   validates_uniqueness_of :root_guid, :scope => :author_id
   delegate :author, to: :root, prefix: true
 
-  xml_attr :root_diaspora_id
-  xml_attr :root_guid
-
   before_validation do
     self.public = true
   end

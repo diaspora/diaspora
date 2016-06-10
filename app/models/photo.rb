@@ -37,15 +37,6 @@ class Photo < ActiveRecord::Base
   mount_uploader :processed_image, ProcessedImage
   mount_uploader :unprocessed_image, UnprocessedImage
 
-  xml_attr :remote_photo_path
-  xml_attr :remote_photo_name
-
-  xml_attr :text
-  xml_attr :status_message_guid
-
-  xml_attr :height
-  xml_attr :width
-
   belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
   validates_associated :status_message
   delegate :author_name, to: :status_message, prefix: true

@@ -33,13 +33,7 @@ module Diaspora
 
     # @return [Array<String>] The ROXML attrs other than author_signature and parent_author_signature.
     def signable_accessors
-      accessors = self.class.roxml_attrs.collect do |definition|
-        definition.accessor
-      end
-      ['author_signature', 'parent_author_signature'].each do |acc|
-        accessors.delete acc
-      end
-      accessors
+      []
     end
 
     # @return [String] Defaults to the ROXML attrs which are not signatures.

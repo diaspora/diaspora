@@ -10,11 +10,6 @@ module Diaspora
       model.class_eval do
         attr_writer :parent_author_signature
 
-        #these fields must be in the schema for a relayable model
-        xml_attr :parent_guid
-        xml_attr :parent_author_signature
-        xml_attr :author_signature
-
         validates_associated :parent
         validates :author, :presence => true
         validate :author_is_not_ignored
@@ -101,18 +96,6 @@ module Diaspora
     # @param parent An instance of Relayable#parent_class
     def parent= parent
       raise NotImplementedError.new('you must override parent= in order to enable relayable on this model')
-    end
-
-    # ROXML hook ensuring our own hooks are called
-    def after_parse
-      if @parent_guid
-        self.parent ||= fetch_parent(@parent_guid)
-      end
-    end
-
-    # Childs should override this to support fetching a missing parent
-    # @param guid the parents guid
-    def fetch_parent guid
     end
   end
 end

@@ -16,9 +16,6 @@ class Comment < ActiveRecord::Base
   extract_tags_from :text
   before_create :build_tags
 
-  xml_attr :text
-  xml_attr :diaspora_handle
-
   belongs_to :commentable, :touch => true, :polymorphic => true
   alias_attribute :post, :commentable
   belongs_to :author, :class_name => 'Person'

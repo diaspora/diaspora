@@ -13,20 +13,6 @@ class Profile < ActiveRecord::Base
   extract_tags_from :tag_string
   validates :tag_list, :length => { :maximum => 5 }
 
-  xml_attr :diaspora_handle
-  xml_attr :first_name
-  xml_attr :last_name
-  xml_attr :image_url
-  xml_attr :image_url_small
-  xml_attr :image_url_medium
-  xml_attr :birthday
-  xml_attr :gender
-  xml_attr :bio
-  xml_attr :location
-  xml_attr :searchable
-  xml_attr :nsfw
-  xml_attr :tag_string
-
   before_save :strip_names
   after_validation :strip_names
 

@@ -2,12 +2,6 @@ class Conversation < ActiveRecord::Base
   include Diaspora::Federated::Base
   include Diaspora::Guid
 
-  xml_attr :subject
-  xml_attr :created_at
-  xml_attr :messages, :as => [Message]
-  xml_reader :diaspora_handle
-  xml_reader :participant_handles
-
   has_many :conversation_visibilities, :dependent => :destroy
   has_many :participants, :class_name => 'Person', :through => :conversation_visibilities, :source => :person
   has_many :messages, -> { order('created_at ASC') }

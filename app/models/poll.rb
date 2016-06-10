@@ -7,9 +7,6 @@ class Poll < ActiveRecord::Base
   has_many :poll_participations
   has_one :author, through: :status_message
 
-  xml_attr :question
-  xml_attr :poll_answers, :as => [PollAnswer]
-
   #forward some requests to status message, because a poll is just attached to a status message and is not sharable itself
   delegate :author_id, :diaspora_handle, :public?, :subscribers, to: :status_message
 

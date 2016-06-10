@@ -1,12 +1,10 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+
 class Retraction
   include Diaspora::Federated::Base
-
-  xml_accessor :post_guid
-  xml_accessor :diaspora_handle
-  xml_accessor :type
+  include Diaspora::Logging
 
   attr_reader :subscribers, :data
 

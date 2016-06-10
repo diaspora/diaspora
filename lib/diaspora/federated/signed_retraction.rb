@@ -7,12 +7,6 @@ class SignedRetraction
 
   include Diaspora::Encryptable
 
-  xml_name :signed_retraction
-  xml_attr :target_guid
-  xml_attr :target_type
-  xml_attr :sender_handle
-  xml_attr :target_author_signature
-
   attr_accessor :target_guid,
                 :target_type,
                 :target_author_signature,
@@ -25,13 +19,6 @@ class SignedRetraction
     else
       sender
     end
-  end
-
-  def signable_accessors
-      accessors = self.class.roxml_attrs.collect do |definition|
-        definition.accessor
-      end
-      accessors - ['target_author_signature', 'sender_handle']
   end
 
   def sender_handle= new_sender_handle

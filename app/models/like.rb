@@ -23,8 +23,6 @@ class Like < Federated::Relayable
     participation.unparticipate! if participation.present?
   end
 
-  xml_attr :positive
-
   # NOTE API V1 to be extracted
   acts_as_api
   api_accessible :backbone do |t|

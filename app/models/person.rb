@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Person < ActiveRecord::Base
-  include ROXML
   include Encryptor::Public
   include Diaspora::Guid
 
@@ -22,11 +21,6 @@ class Person < ActiveRecord::Base
        :large => person.profile.image_url(:thumb_large) }
     }, :as => :avatar
   end
-
-  xml_attr :diaspora_handle
-  xml_attr :url
-  xml_attr :profile, :as => Profile
-  xml_attr :exported_key
 
   has_one :profile, dependent: :destroy
   delegate :last_name, :image_url, :tag_string, :bio, :location,

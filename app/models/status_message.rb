@@ -15,12 +15,6 @@ class StatusMessage < Post
   # don't allow creation of empty status messages
   validate :presence_of_content, on: :create, if: proc {|sm| sm.author && sm.author.local? }
 
-  xml_name :status_message
-  xml_attr :raw_message
-  xml_attr :photos, :as => [Photo]
-  xml_attr :location, :as => Location
-  xml_attr :poll, :as => Poll
-
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   has_one :location

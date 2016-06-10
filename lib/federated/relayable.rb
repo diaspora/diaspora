@@ -2,15 +2,10 @@ module Federated
   class Relayable < ActiveRecord::Base
     self.abstract_class = true
 
-    #crazy ordering issues - DEATH TO ROXML
     include Diaspora::Federated::Base
     include Diaspora::Guid
 
-    #seriously, don't try to move this shit around until you have killed ROXML
-    xml_attr :target_type
     include Diaspora::Relayable
-
-    xml_attr :diaspora_handle
 
     belongs_to :target, :polymorphic => true
     belongs_to :author, :class_name => 'Person'
@@ -37,10 +32,6 @@ module Federated
 
     def parent= parent
       self.target = parent
-    end
-
-    def fetch_parent guid
-      raise Diaspora::PostNotFetchable
     end
   end
 end

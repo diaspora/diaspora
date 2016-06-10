@@ -1,15 +1,13 @@
 class PollParticipation < ActiveRecord::Base
-
   include Diaspora::Federated::Base
 
   include Diaspora::Guid
   include Diaspora::Relayable
+
   belongs_to :poll
   belongs_to :poll_answer, counter_cache: :vote_count
   belongs_to :author, :class_name => 'Person', :foreign_key => :author_id
-  xml_attr :diaspora_handle
-  xml_attr :poll_answer_guid
-  xml_convention :underscore
+
   validate :not_already_participated
 
   def parent_class

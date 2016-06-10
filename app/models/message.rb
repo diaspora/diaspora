@@ -4,11 +4,6 @@ class Message < ActiveRecord::Base
   include Diaspora::Guid
   include Diaspora::Relayable
 
-  xml_attr :text
-  xml_attr :created_at
-  xml_reader :diaspora_handle
-  xml_reader :conversation_guid
-
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation, :touch => true
 
