@@ -65,17 +65,6 @@ class Reshare < Post
 
   private
 
-  def after_parse
-    if root.blank?
-      self.root = Diaspora::Fetcher::Single.find_or_fetch_from_remote root_guid, @root_diaspora_id do |fetched_post, author|
-        # why do we check this?
-        if fetched_post.diaspora_handle != author.diaspora_handle
-          raise Diaspora::PostNotFetchable, "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{author.diaspora_handle}) specified in the reshare!"
-        end
-      end
-    end
-  end
-
   def root_must_be_public
     if self.root && !self.root.public
       errors[:base] << "Only posts which are public may be reshared."
