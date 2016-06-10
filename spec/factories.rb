@@ -21,6 +21,7 @@ FactoryGirl.define do
     gender "robot"
     location "Earth"
     birthday Date.today
+    tag_string "#one #two"
     association :person
   end
 
@@ -177,6 +178,8 @@ FactoryGirl.define do
   factory(:photo) do
     sequence(:random_string) {|n| SecureRandom.hex(10) }
     association :author, :factory => :person
+    height 42
+    width 23
     after(:build) do |p|
       p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
       p.update_remote_path
@@ -290,7 +293,7 @@ FactoryGirl.define do
   end
 
   factory(:conversation_with_message, parent: :conversation) do
-    after(:build) do |c|
+    after(:create) do |c|
       msg = FactoryGirl.build(:message)
       msg.conversation_id = c.id
       c.participants << msg.author
