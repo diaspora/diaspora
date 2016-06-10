@@ -105,7 +105,6 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = :en
     stub_request(:post, "https://pubsubhubbub.appspot.com/")
-    disable_typhoeus
     $process_queue = false
     allow(Workers::SendPublic).to receive(:perform_async)
     allow(Workers::SendPrivate).to receive(:perform_async)

@@ -94,12 +94,6 @@ class Postzord::Dispatcher
   # @param remote_people [Array<Person>] Recipients of the post on other pods
   # @return [void]
   def queue_remote_delivery_job(remote_people)
-    Workers::HttpMulti.perform_async(
-      @sender.id,
-      Base64.strict_encode64(@object.to_diaspora_xml),
-      remote_people.map{|p| p.id},
-      self.class.to_s
-    )
   end
 
   # @param people [Array<Person>] Recipients of the post

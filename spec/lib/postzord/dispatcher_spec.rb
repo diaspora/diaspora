@@ -184,24 +184,6 @@ describe Postzord::Dispatcher do
       end
     end
 
-    describe '#deliver_to_remote' do
-      before do
-        @remote_people = []
-        @remote_people << alice.person
-        @mailman = Postzord::Dispatcher.build(alice, @sm)
-        @hydra = double()
-        allow(Typhoeus::Hydra).to receive(:new).and_return(@hydra)
-      end
-
-      it 'should queue an HttpMultiJob for the remote people' do
-        allow_any_instance_of(Postzord::Dispatcher::Public).to receive(:deliver_to_remote).and_call_original
-        expect(Workers::HttpMulti).to receive(:perform_async).with(alice.id, anything, @remote_people.map{|p| p.id}, anything).once
-        @mailman.send(:deliver_to_remote, @remote_people)
-
-        allow(Postzord::Dispatcher::Public).to receive(:deliver_to_remote)
-      end
-    end
-
     describe '#deliver_to_local' do
       before do
         @mailman = Postzord::Dispatcher.build(alice, @sm)
@@ -284,7 +266,6 @@ describe Postzord::Dispatcher do
        mailman = Postzord::Dispatcher.build(alice, FactoryGirl.create(:status_message), :url => "http://joindiaspora.com/p/123", :services => [@s1])
 
        allow(Workers::PublishToHub).to receive(:perform_async).with(anything)
-       allow(Workers::HttpMulti).to receive(:perform_async).with(anything, anything, anything)
        expect(Workers::PostToService).to receive(:perform_async).with(@s1.id, anything, anything)
        mailman.post
       end
