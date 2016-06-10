@@ -46,36 +46,6 @@ describe Like, :type => :model do
     end
   end
 
-  describe 'xml' do
-    before do
-      alices_aspect = alice.aspects.first
-
-      @liker = FactoryGirl.create(:user)
-      @liker_aspect = @liker.aspects.create(:name => "dummies")
-      connect_users(alice, alices_aspect, @liker, @liker_aspect)
-      @post = alice.post(:status_message, :text => "huhu", :to => alices_aspect.id)
-      @like = @liker.like!(@post)
-      @xml = @like.to_xml.to_s
-    end
-    it 'serializes the sender handle' do
-      expect(@xml.include?(@liker.diaspora_handle)).to be true
-    end
-    it' serializes the post_guid' do
-      expect(@xml).to include(@post.guid)
-    end
-    describe 'marshalling' do
-      before do
-        @marshalled_like = Like.from_xml(@xml)
-      end
-      it 'marshals the author' do
-        expect(@marshalled_like.author).to eq(@liker.person)
-      end
-      it 'marshals the post' do
-        expect(@marshalled_like.target).to eq(@post)
-      end
-    end
-  end
-
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends

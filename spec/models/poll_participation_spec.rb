@@ -25,56 +25,6 @@ describe PollParticipation, :type => :model do
         bob.participate_in_poll!(@status, @poll.poll_answers.first)
       }.to_not raise_error
     end
-
-  end
-
-  describe 'xml' do
-    before do
-      @poll_participant = FactoryGirl.create(:user)
-      @poll_participant_aspect = @poll_participant.aspects.create(:name => "bruisers")
-      connect_users(alice, @alices_aspect, @poll_participant, @poll_participant_aspect)
-      @poll = Poll.new(:question => "hi")
-      @poll.poll_answers.build(:answer => "a")
-      @poll.poll_answers.build(:answer => "b")
-      @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
-      @post.poll = @poll
-      @poll_participation = @poll_participant.participate_in_poll!(@post, @poll.poll_answers.first)
-      @xml = @poll_participation.to_xml.to_s
-    end
-
-    it 'serializes the class name' do
-      expect(@xml.include?(PollParticipation.name.underscore.to_s)).to be true
-    end
-
-    it 'serializes the sender handle' do
-      expect(@xml.include?(@poll_participation.diaspora_handle)).to be true
-    end
-
-    it 'serializes the poll_guid' do
-      expect(@xml).to include(@poll.guid)
-    end
-
-    it 'serializes the poll_answer_guid' do
-      expect(@xml).to include(@poll_participation.poll_answer.guid)
-    end
-
-    describe 'marshalling' do
-      before do
-        @marshalled_poll_participation = PollParticipation.from_xml(@xml)
-      end
-
-      it 'marshals the author' do
-        expect(@marshalled_poll_participation.author).to eq(@poll_participant.person)
-      end
-
-      it 'marshals the answer' do
-        expect(@marshalled_poll_participation.poll_answer).to eq(@poll_participation.poll_answer)
-      end
-
-      it 'marshals the poll' do
-        expect(@marshalled_poll_participation.poll).to eq(@poll)
-      end
-    end
   end
 
   describe 'it is relayable' do

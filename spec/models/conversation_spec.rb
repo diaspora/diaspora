@@ -70,37 +70,6 @@ describe Conversation, :type => :model do
     end
   end
 
-  context "transport" do
-    let(:conversation_message) { conversation.messages.first }
-    let(:xml) { conversation.to_diaspora_xml }
-
-    before do
-      conversation
-    end
-
-    describe "serialization" do
-      it "serializes the message" do
-        expect(xml.gsub(/\s/, "")).to include(conversation_message.to_xml.to_s.gsub(/\s/, ""))
-      end
-
-      it "serializes the participants" do
-        create_hash[:participant_ids].each do |id|
-          expect(xml).to include(Person.find(id).diaspora_handle)
-        end
-      end
-
-      it "serializes the created_at time" do
-        expect(xml).to include(conversation_message.created_at.to_s)
-      end
-    end
-
-    describe "#subscribers" do
-      it "returns the recipients for the post owner" do
-        expect(conversation.subscribers).to eq(user1.contacts.map(&:person))
-      end
-    end
-  end
-
   describe "#invalid parameters" do
     context "local author" do
       let(:invalid_hash) {

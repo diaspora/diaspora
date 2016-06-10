@@ -185,31 +185,6 @@ describe Photo, :type => :model do
 
   end
 
-  describe 'serialization' do
-    before do
-      skip # TODO
-      @saved_photo = with_carrierwave_processing do
-         @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-      end
-      @xml = @saved_photo.to_xml.to_s
-    end
-
-    it 'serializes the url' do
-      expect(@xml.include?(@saved_photo.remote_photo_path)).to be true
-      expect(@xml.include?(@saved_photo.remote_photo_name)).to be true
-    end
-
-    it 'serializes the diaspora_handle' do
-      expect(@xml.include?(@user.diaspora_handle)).to be true
-    end
-
-    it 'serializes the height and width' do
-      expect(@xml).to include 'height'
-      expect(@xml.include?('width')).to be true
-      expect(@xml.include?('40')).to be true
-    end
-  end
-
   describe "remote photos" do
     it "should set the remote_photo on marshalling" do
       url = @saved_photo.url

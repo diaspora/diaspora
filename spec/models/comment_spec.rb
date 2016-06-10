@@ -67,46 +67,6 @@ describe Comment, :type => :model do
     end
   end
 
-  describe "xml" do
-    let(:commenter) { create(:user) }
-    let(:commenter_aspect) { commenter.aspects.create(name: "bruisers") }
-    let(:post) { alice.post :status_message, text: "hello", to: alices_aspect.id }
-    let(:comment) { commenter.comment!(post, "Fool!") }
-    let(:xml) { comment.to_xml.to_s }
-
-    before do
-      connect_users(alice, alices_aspect, commenter, commenter_aspect)
-    end
-
-    it "serializes the sender handle" do
-      expect(xml.include?(commenter.diaspora_handle)).to be true
-    end
-
-    it "serializes the post_guid" do
-      expect(xml).to include(post.guid)
-    end
-
-    describe "marshalling" do
-      let(:marshalled_comment) { Comment.from_xml(xml) }
-
-      it "marshals the author" do
-        expect(marshalled_comment.author).to eq(commenter.person)
-      end
-
-      it "marshals the post" do
-        expect(marshalled_comment.post).to eq(post)
-      end
-
-      it "tries to fetch a missing parent" do
-        guid = post.guid
-        marshalled_comment
-        post.destroy
-        expect_any_instance_of(Comment).to receive(:fetch_parent).with(guid).and_return(nil)
-        Comment.from_xml(xml)
-      end
-    end
-  end
-
   describe "it is relayable" do
     let(:remote_parent) { build(:status_message, author: remote_raphael) }
     let(:local_parent) { local_luke.post :status_message, text: "hi", to: local_luke.aspects.first }

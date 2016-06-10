@@ -16,7 +16,6 @@ describe Message, :type => :model do
 
     @conversation = Conversation.create!(@create_hash)
     @message = @conversation.messages.first
-    @xml = @message.to_diaspora_xml
   end
 
   it 'validates that the author is a participant in the conversation' do
@@ -31,24 +30,6 @@ describe Message, :type => :model do
 
     it 'signs the message author if author of conversation' do
       expect(@message.parent_author_signature).not_to be_blank
-    end
-  end
-
-  describe 'serialization' do
-    it 'serializes the text' do
-      expect(@xml).to include(@message.text)
-    end
-
-    it 'serializes the author_handle' do
-      expect(@xml).to include(@message.author.diaspora_handle)
-    end
-
-    it 'serializes the created_at time' do
-      expect(@xml).to include(@message.created_at.to_s)
-    end
-
-    it 'serializes the conversation_guid time' do
-      expect(@xml).to include(@message.conversation.guid)
     end
   end
 

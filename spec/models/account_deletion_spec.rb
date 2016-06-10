@@ -62,16 +62,4 @@ describe AccountDeletion, :type => :model do
       expect(account_deletion_new.subscribers).to eq([remote_raphael])
     end
   end
-
-  describe "serialization" do
-    let(:xml) { account_deletion_new.to_xml.to_s }
-
-    it "should have a diaspora_handle" do
-      expect(xml.include?(alice.person.diaspora_handle)).to eq(true)
-    end
-
-    it "marshals the xml" do
-      expect(AccountDeletion.from_xml(xml)).to be_valid
-    end
-  end
 end

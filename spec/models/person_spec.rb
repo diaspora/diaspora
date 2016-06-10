@@ -240,21 +240,6 @@ describe Person, :type => :model do
     end
   end
 
-  describe 'XML' do
-    before do
-      @xml = @person.to_xml.to_s
-    end
-
-    it 'should serialize to xml' do
-      expect(@xml.include?("person")).to eq(true)
-    end
-
-    it 'should have a profile in its xml' do
-      expect(@xml.include?("first_name")).to eq(true)
-
-    end
-  end
-
   it '#owns? posts' do
     person_message = FactoryGirl.create(:status_message, :author => @person)
     person_two = FactoryGirl.create(:person)

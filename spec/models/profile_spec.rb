@@ -161,42 +161,6 @@ describe Profile, :type => :model do
     end
   end
 
-  describe '#from_xml' do
-    it 'should make a valid profile object' do
-      @profile = FactoryGirl.build(:profile)
-      @profile.tag_string = '#big #rafi #style'
-      xml = @profile.to_xml
-
-      new_profile = Profile.from_xml(xml.to_s)
-      expect(new_profile.tag_string).not_to be_blank
-      expect(new_profile.tag_string).to include('#rafi')
-    end
-  end
-
-  describe 'serialization' do
-    let(:person) { FactoryGirl.build(:person, diaspora_handle: "foobar@localhost") }
-
-    it 'should include persons diaspora handle' do
-      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.profile(person.profile)).to_xml
-      expect(xml).to include "foobar"
-    end
-
-    it 'includes tags' do
-      person.profile.tag_string = '#one'
-      person.profile.build_tags
-      person.profile.save
-      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.profile(person.profile)).to_xml
-      expect(xml).to include "#one"
-    end
-
-    it 'includes location' do
-      person.profile.location = 'Dark Side, Moon'
-      person.profile.save
-      xml = Diaspora::Federation.xml(Diaspora::Federation::Entities.profile(person.profile)).to_xml
-      expect(xml).to include "Dark Side, Moon"
-    end
-  end
-
   describe '#image_url' do
     before do
       @profile = FactoryGirl.build(:profile)
