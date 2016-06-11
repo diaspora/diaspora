@@ -115,10 +115,6 @@ class User < ActiveRecord::Base
     InvitationCode.find_or_create_by(user_id: self.id)
   end
 
-  def receive_shareable(shareable)
-    ShareVisibility.create!(shareable_id: shareable.id, shareable_type: shareable.class.base_class.to_s, user_id: id)
-  end
-
   def hidden_shareables
     self[:hidden_shareables] ||= {}
   end

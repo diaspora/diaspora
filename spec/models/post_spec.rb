@@ -257,22 +257,21 @@ describe Post, :type => :model do
 
   describe "#receive" do
     it "creates a share visibility for the user" do
+      user_ids = [alice.id, eve.id]
       post = FactoryGirl.create(:status_message, author: bob.person)
-      expect_any_instance_of(User).to receive(:receive_shareable).with(post) do |user, _|
-        expect(user.id).to eq(alice.id)
-      end
-      post.receive([alice.id])
+      expect(ShareVisibility).to receive(:batch_import).with(user_ids, post)
+      post.receive(user_ids)
     end
 
     it "does nothing for public post" do
       post = FactoryGirl.create(:status_message, author: bob.person, public: true)
-      expect_any_instance_of(User).not_to receive(:receive_shareable)
+      expect(ShareVisibility).not_to receive(:batch_import)
       post.receive([alice.id])
     end
 
     it "does nothing if no recipients provided" do
       post = FactoryGirl.create(:status_message, author: bob.person)
-      expect_any_instance_of(User).not_to receive(:receive_shareable)
+      expect(ShareVisibility).not_to receive(:batch_import)
       post.receive([])
     end
   end

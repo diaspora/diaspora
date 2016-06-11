@@ -39,7 +39,7 @@ module Diaspora
     def receive(recipient_user_ids)
       return if recipient_user_ids.empty? || public?
 
-      User.where(id: recipient_user_ids).find_each {|recipient| recipient.receive_shareable(self) }
+      ShareVisibility.batch_import(recipient_user_ids, self)
     end
 
     # @return [Integer]

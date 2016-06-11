@@ -113,7 +113,7 @@ class Postzord::Dispatcher
   # @param people [Array<Person>] Recipients of the post
   def batch_deliver_to_local(people)
     ids = people.map{ |p| p.owner_id }
-    Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, ids)
+    #Workers::ReceiveLocalBatch.perform_async(@object.class.to_s, @object.id, ids)
     logger.info "event=push route=local sender=#{@sender.diaspora_handle} recipients=#{ids.join(',')} " \
                 "payload_type=#{@object.class}"
   end
