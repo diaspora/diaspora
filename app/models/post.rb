@@ -131,6 +131,11 @@ class Post < ActiveRecord::Base
 
   #############
 
+  # @return [Integer]
+  def update_reshares_counter
+    self.class.where(id: id).update_all(reshares_count: reshares.count)
+  end
+
   def self.diaspora_initialize(params)
     new(params.to_hash.stringify_keys.slice(*column_names, "author"))
   end

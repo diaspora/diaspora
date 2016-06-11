@@ -42,11 +42,6 @@ module Diaspora
       ShareVisibility.batch_import(recipient_user_ids, self)
     end
 
-    # @return [Integer]
-    def update_reshares_counter
-      self.class.where(id: id).update_all(reshares_count: reshares.count)
-    end
-
     def diaspora_handle=(author_handle)
       self.author = Person.where(diaspora_handle: author_handle).first
     end
