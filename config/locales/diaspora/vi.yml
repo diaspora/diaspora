@@ -172,8 +172,6 @@ vi:
       you_should_add_some_more_contacts: "Bạn có thể thêm một vài liên lạc!"
     no_posts_message:
       start_talking: "Chưa có ai nói gì!"
-    one: "1 mối quan hệ"
-    other: "%{count} mối quan hệ"
     seed:
       acquaintances: "Người quen"
       family: "Gia đình"
@@ -182,7 +180,6 @@ vi:
     update:
       failure: "Mối quan hệ %{name} có tên quá dài, không thể lưu."
       success: "Mối quan hệ %{name} đã được chỉnh sửa."
-    zero: "không có mối quan hệ"
   back: "Trở lại"
   blocks:
     create:
@@ -219,14 +216,11 @@ vi:
       start_a_conversation: "Bắt đầu một cuộc trò chuyện"
       title: "Liên lạc"
       your_contacts: "Liên lạc của bạn"
-    one: "1 liên lạc"
-    other: "%{count} liên lạc"
     sharing:
       people_sharing: "Người đang chia sẻ với bạn:"
     spotlight:
       community_spotlight: "Nổi bật từ cộng đồng"
       suggest_member: "Gợi ý một thành viên"
-    zero: "contacts"
   conversations:
     conversation:
       participants: "Người tham gia"
@@ -778,30 +772,23 @@ vi:
       title: "Các mối quan hệ"
     aspects_stream: "Mối quan hệ"
     comment_stream:
-      contacts_title: "Người đăng bình luận của bạn trên"
       title: "Bài đăng đã bình luận"
     community_spotlight_stream: "Nổi bật từ cộng đồng"
     followed_tag:
       add_a_tag: "Thêm thẻ"
-      contacts_title: "Người khai thác các thẻ này"
       follow: "Theo dõi"
       title: "#Thẻ đang theo dõi"
     followed_tags_stream: "#Thẻ đang theo dõi"
     like_stream:
-      contacts_title: "Những người có bài đăng mà bạn thích"
       title: "Luồng thích"
     mentioned_stream: "@Nhắc đến tôi"
     mentions:
-      contacts_title: "Người đã nhắc đến bạn"
       title: "@Nhắc đến tôi"
     multi:
-      contacts_title: "Người trong luồng của bạn"
       title: "Luồng"
     public:
-      contacts_title: "Người đăng gần đây"
       title: "Hoạt động công khai"
     tags:
-      contacts_title: "People who dig these tags"
       title: "Những bài đăng được gán thẻ: #%{tags}"
   tag_followings:
     create:

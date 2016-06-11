@@ -125,8 +125,6 @@ ms:
       you_should_add_some_more_contacts: "Anda perlu menambah beberapa lagi kenalan!"
     no_posts_message:
       start_talking: "Tiada orang berkata apa-apa lagi!"
-    one: "1 aspek"
-    other: "%{count} aspek"
     seed:
       acquaintances: "kenalan"
       family: "Famili"
@@ -135,7 +133,6 @@ ms:
     update:
       failure: "Aspek anda, %{name}, mempunyai nama terlalu panjang untuk disimpan."
       success: "Aspek anda, %{name}, telah berjaya diedit."
-    zero: "no aspects"
   back: "Undur"
   bookmarklet:
     explanation: "Pos kepada diaspora * dari mana-mana sahaja dengan bookmark link ini => %{link}."
@@ -162,11 +159,8 @@ ms:
       start_a_conversation: "Mulakan perbualan"
       title: "Kenalan-kenalan"
       your_contacts: "Kenalan Anda"
-    one: "1 kenalan"
-    other: "%{count} kenalan-kenalan"
     sharing:
       people_sharing: "Orang berkongsi dengan anda:"
-    zero: "kenalan-kenalan"
   conversations:
     helper:
       new_messages:

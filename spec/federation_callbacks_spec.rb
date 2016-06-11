@@ -296,4 +296,57 @@ describe "diaspora federation callbacks" do
       expect(result).to be_falsey
     end
   end
+
+  describe ":fetch_public_entity" do
+    it "fetches a Post" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Post", post.guid)
+
+      expect(entity.guid).to eq(post.guid)
+      expect(entity.author).to eq(alice.diaspora_handle)
+      expect(entity.public).to be_truthy
+    end
+
+    it "fetches a StatusMessage" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_public_entity, "StatusMessage", post.guid)
+
+      expect(entity.guid).to eq(post.guid)
+      expect(entity.author).to eq(alice.diaspora_handle)
+      expect(entity.public).to be_truthy
+    end
+
+    it "fetches a Reshare" do
+      post = FactoryGirl.create(:reshare, author: alice.person, public: true)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Reshare", post.guid)
+
+      expect(entity.guid).to eq(post.guid)
+      expect(entity.author).to eq(alice.diaspora_handle)
+      expect(entity.public).to be_truthy
+    end
+
+    it "does not fetch a private post" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: false)
+
+      expect(
+        DiasporaFederation.callbacks.trigger(:fetch_public_entity, "StatusMessage", post.guid)
+      ).to be_nil
+    end
+
+    it "returns nil, if the post is unknown" do
+      expect(
+        DiasporaFederation.callbacks.trigger(:fetch_public_entity, "Post", "unknown-guid")
+      ).to be_nil
+    end
+  end
+
+  describe ":fetch_person_url_to" do
+    it "returns the url with with the pod of the person" do
+      person = FactoryGirl.create(:person, url: "https://example.org")
+
+      expect(
+        DiasporaFederation.callbacks.trigger(:fetch_person_url_to, person.diaspora_handle, "/path/on/pod")
+      ).to eq("https://example.org/path/on/pod")
+    end
+  end
 end

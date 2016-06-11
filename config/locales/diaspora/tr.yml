@@ -108,6 +108,7 @@ tr:
   aspect_memberships:
     destroy:
       failure: "Yön'den kişi kaldırılamadı"
+      invalid_statement: "Reddedilen kayıt çoğaltın."
       no_membership: "Bu Yön'de seçilen kişi bulamadı"
       success: "Kişi Yön'den başarıyla kaldırıldı"
   aspects:
@@ -190,8 +191,6 @@ tr:
       you_should_add_some_more_contacts: "Daha fazla kişi eklemelisin!"
     no_posts_message:
       start_talking: "Hiçbir şey söylemedi!"
-    one: "1 yön"
-    other: "%{count} yön"
     seed:
       acquaintances: "Tanıdıklar"
       family: "Aile"
@@ -200,7 +199,6 @@ tr:
     update:
       failure: "%{name} yönünün ismi çok uzundu ve kaydedilmedi."
       success: "Yönünüz, %{name}, başarıyla düzeltildi."
-    zero: "yön yok"
   back: "Geri"
   blocks:
     create:
@@ -237,14 +235,11 @@ tr:
       start_a_conversation: "Bir iletişim başlatın"
       title: "Kişiler"
       your_contacts: "Kişiler"
-    one: "1 kişi"
-    other: "%{count} kişi"
     sharing:
       people_sharing: "Sizinle paylaşıyor:"
     spotlight:
       community_spotlight: "Topluluk Gönderileri"
       suggest_member: "Bir üye önerin."
-    zero: "kişiler"
   conversations:
     conversation:
       participants: "Katilimcılar"
@@ -386,6 +381,7 @@ tr:
       title: "Özel gönderiler"
     private_profiles:
       title: "Özel profiller"
+      whats_in_profile_q: "Ne benim özel profil var?"
       who_sees_updates_a: "Bakışlarınızdaki herkes özel profilinizdeki değişiklikleri görebilir. "
       who_sees_updates_q: "Özel profilimin güncelllemelerini kim görebilir?"
     public_posts:
@@ -955,30 +951,23 @@ tr:
       title: "Yönlerin"
     aspects_stream: "Yönler"
     comment_stream:
-      contacts_title: "Gönderilerini yorumladığın kişiler"
       title: "Yorumlanan gönderiler"
     community_spotlight_stream: "Topluluk Spotlight"
     followed_tag:
       add_a_tag: "Etiket ekle"
-      contacts_title: "Bu etiketleri izleyenler"
       follow: "Takip Et"
       title: "#Takip Edilen Etiketler"
     followed_tags_stream: "#Takip Edilen Etiketler"
     like_stream:
-      contacts_title: "Gönderilerini iğnelediğin kişiler"
       title: "İğnelenenler akışı"
     mentioned_stream: "@Bahsedenler"
     mentions:
-      contacts_title: "Senden Bahsedenler"
       title: "@Bahsedenler"
     multi:
-      contacts_title: "Göz atma akışındaki kişiler"
       title: "Göz at"
     public:
-      contacts_title: "Yeni Düzen"
       title: "Genel Aktiviteler"
     tags:
-      contacts_title: "Kişileri etiketle"
       title: "Gönderi etiketlendi: %{tags}"
   tag_followings:
     create:

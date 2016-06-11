@@ -137,6 +137,8 @@ da:
   aspect_memberships:
     destroy:
       failure: "Kunne ikke fjerne person fra aspekt."
+      forbidden: "Denne handling er ikke tilladt."
+      invalid_statement: "Dobbelt registrering afvist."
       no_membership: "Kunne ikke finde den valgte person i det aspekt."
       success: "Personen er fjernet fra aspektet."
   aspects:
@@ -224,8 +226,6 @@ da:
       you_should_add_some_more_contacts: "Du kan tilføje nogle flere kontakter!"
     no_posts_message:
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"
-    one: "1 aspekt"
-    other: "%{count} aspekter"
     seed:
       acquaintances: "Bekendte"
       family: "Familie"
@@ -234,7 +234,6 @@ da:
     update:
       failure: "Dit aspekt, %{name}, var for langt til at blive gemt."
       success: "Dit aspekt, %{name}, er nu blevet redigeret."
-    zero: "Ingen aspekter"
   back: "Tilbage"
   blocks:
     create:
@@ -275,14 +274,11 @@ da:
       title: "Kontakter"
       user_search: "Søg efter brugere"
       your_contacts: "Dine kontakter"
-    one: "Én kontaktperson"
-    other: "%{count} kontaktpersoner"
     sharing:
       people_sharing: "Personer der deler med dig:"
     spotlight:
       community_spotlight: "Community Spotlight"
       suggest_member: "Foreslå et medlem"
-    zero: "Ingen kontakter"
   conversations:
     conversation:
       participants: "Deltagere"
@@ -559,6 +555,7 @@ da:
   ignore: "Ignorer"
   invitation_codes:
     excited: "%{name} er glad for at se dig her."
+    not_valid: "Invitationskoden er udløbet."
   invitations:
     a_facebook_user: "En Facebook-bruger"
     check_token:
@@ -968,6 +965,7 @@ da:
       title: "Et opslag fra %{name}"
     show:
       destroy: "Slet"
+      forbidden: "Denne handling er ikke tilladt."
       not_found: "Vi kunne desværre ikke finde dette indlæg."
       permalink: "Permalink"
       photos_by:
@@ -1269,30 +1267,23 @@ da:
       title: "Dine aspekter"
     aspects_stream: "Aspekter"
     comment_stream:
-      contacts_title: "Brugere, hvis indlæg du har kommenteret"
       title: "Kommenterede indlæg"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
       add_a_tag: "Tilføj et tag"
-      contacts_title: "Personer der følger disse tags"
       follow: "Følg"
       title: "#Fulgte tags"
     followed_tags_stream: "#Fulgte tags"
     like_stream:
-      contacts_title: "Brugere hvis indlæg du kan lide"
       title: "'Synes om' strøm"
     mentioned_stream: "@Omtaler"
     mentions:
-      contacts_title: "Personer der har nævnt dig"
       title: "Dine omtaler"
     multi:
-      contacts_title: "Personer i din strøm"
       title: "Strøm"
     public:
-      contacts_title: "Har senest slået ting op"
       title: "Offentlig Aktivitet"
     tags:
-      contacts_title: "Folk der følger disse tags"
       title: "Indlæg tagget med: %{tags}"
   tag_followings:
     create:

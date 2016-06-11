@@ -41,7 +41,7 @@ nb:
         reshare:
           attributes:
             root_guid:
-              taken: "Så sykt bra, altså?  Du har allerede delt dette innlegget!"
+              taken: "Såpass bra, altså?  Du har allerede delt dette innlegget!"
         user:
           attributes:
             email:
@@ -131,12 +131,14 @@ nb:
     helper:
       unknown_person: "ukjent person"
       video_title:
-        unknown: "Ukjent Videotittel"
+        unknown: "Ukjent videotittel"
   are_you_sure: "Er du sikker?"
   are_you_sure_delete_account: "Er du sikker på at du vil stenge kontoen din? Dette kan ikke gjøres om på!"
   aspect_memberships:
     destroy:
       failure: "Kunne ikke fjerne person fra aspekt"
+      forbidden: "Du har ikke lov til å gjøre det."
+      invalid_statement: "Duplikatoppføring avvist."
       no_membership: "Kunne ikke finne personen i det aspektet"
       success: "Personen er fjernet fra aspektet"
   aspects:
@@ -224,8 +226,6 @@ nb:
       you_should_add_some_more_contacts: "Du bør legge til flere kontakter."
     no_posts_message:
       start_talking: "Ingen har sagt noe enda!"
-    one: "1 aspekt"
-    other: "%{count} aspekter"
     seed:
       acquaintances: "Bekjente"
       family: "Familie"
@@ -234,7 +234,6 @@ nb:
     update:
       failure: "Aspektet ditt, %{name}, har for langt navn."
       success: "Aspektet ditt, %{name}, har blitt endra."
-    zero: "ingen aspekter"
   back: "Tilbake"
   blocks:
     create:
@@ -275,14 +274,11 @@ nb:
       title: "Kontakter"
       user_search: "Søk etter kontakt"
       your_contacts: "Dine kontakter"
-    one: "1 kontakt"
-    other: "%{count} kontakter"
     sharing:
       people_sharing: "Folk som deler med deg:"
     spotlight:
       community_spotlight: "Fremhevet av Fellesskapet"
       suggest_member: "Forslå et nytt medlem"
-    zero: "ingen kontakter"
   conversations:
     conversation:
       participants: "Deltakere"
@@ -332,7 +328,7 @@ nb:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Rett opp de følgende feilene og prøv igjen."
-      invalid_fields: "Ugyldige Felter"
+      invalid_fields: "Ugyldige felt"
     login_try_again: "Vennligst <a href=%{login_link}>logg på</a> og forsøk igjen."
     post_not_public: "Innholdet som du forsøker å titte på er ikke alment tilgjengelig!"
     post_not_public_or_not_exist: "Innlegget du prøver å vise er ikke offentlig, eller eksisterer ikke!"
@@ -559,6 +555,7 @@ nb:
   ignore: "Ignorer"
   invitation_codes:
     excited: "%{name} ble glad for å se deg her."
+    not_valid: "Den invitasjonskoden er ikke lenger gyldig"
   invitations:
     a_facebook_user: "En Facebook-bruker"
     check_token:
@@ -976,6 +973,7 @@ nb:
       title: "En post fra %{name}"
     show:
       destroy: "Slett"
+      forbidden: "Du har ikke lov til å gjøre det"
       not_found: "Beklager, vi fant ikke det inlegget. "
       permalink: "permalenke"
       photos_by:
@@ -1271,39 +1269,32 @@ nb:
       title: "Mine aspekter"
     aspects_stream: "Aspekter"
     comment_stream:
-      contacts_title: "Personer hvis poster du har kommentert"
       title: "Kommenterte poster"
     community_spotlight_stream: "Fremhevet av Fellesskapet"
     followed_tag:
       add_a_tag: "Legg til en tag"
-      contacts_title: "Personer som liker disse taggene"
       follow: "Følg"
       title: "#Fulgte tagger"
     followed_tags_stream: "#Fulgte tagger"
     like_stream:
-      contacts_title: "Personer hvis poster du liker"
       title: "Liker-strøm"
     mentioned_stream: "@Omtaler"
     mentions:
-      contacts_title: "Folk som har nevnt deg"
       title: "@Omtaler"
     multi:
-      contacts_title: "Folk i din strøm"
       title: "Strøm"
     public:
-      contacts_title: "Folk som har lagt ut noe nytt"
       title: "Offentlig aktivitet"
     tags:
-      contacts_title: "Personer som liker denne tag"
       title: "Innlegg med tags: %{tags}"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"
       none: "Du kan ikke følge en blank tagg"
-      success: "Hurra! Du følger nå:: #%{name}"
+      success: "Hurra! Nå følger du: #%{name}"
     destroy:
       failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      success: "Du har sluttet å følge: #%{name}"
     manage:
       no_tags: "Du følger ikke noen tagger"
       title: "Administrer fulgte tagger"
@@ -1360,7 +1351,7 @@ nb:
       export_in_progress: "Vi behandler dine data nå. Vennligst prøv igjen om et lite øyeblikk."
       export_photos_in_progress: "Vi klargjør bildene dine. Vennligst kom tilbake om et par øyeblikk."
       following: "Innstillinger for deling"
-      getting_started: "Ny bruker innstillinger"
+      getting_started: "Ny brukerinnstillinger"
       last_exported_at: "(Sist oppdatert %{timestamp})"
       liked: "noen liker innlegget ditt"
       mentioned: "du blir omtalt i et innlegg"
@@ -1372,8 +1363,8 @@ nb:
       request_export_photos_update: "Last mine bilder på ny"
       request_export_update: "Last profildata på ny"
       reshared: "noen deler innlegget ditt"
-      show_community_spotlight: "Vis felleskaps meldinger i strømmen"
-      show_getting_started: "Skru på oppstart veiledning"
+      show_community_spotlight: "Vil du se kreative medlemmer i strømmen din?"
+      show_getting_started: "Skru på innføringsveiledningen igjen"
       someone_reported: "en bruker sendte en rapport"
       started_sharing: "noen begynner å dele med deg"
       stream_preferences: "Innstillinger for strømmen"

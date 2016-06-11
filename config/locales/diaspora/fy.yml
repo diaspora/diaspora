@@ -50,9 +50,6 @@ fy:
       all_contacts: "Alle Kontakten"
       title: "Kontakten"
       your_contacts: "Dyn Kontakten"
-    one: "1 kontakt"
-    other: "%{count} kontakten"
-    zero: "kontakten"
   conversations:
     create:
       sent: "Berjocht ferstjoerd"

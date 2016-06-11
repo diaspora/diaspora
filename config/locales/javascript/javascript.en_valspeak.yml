@@ -62,6 +62,7 @@ en_valspeak:
       home: "Homee"
       log_out: "Bounce"
       mark_all_as_read: "Read them all"
+      moderator: "MODS MODS"
       notifications: "Noties"
       profile: "Profilee"
       recent_notifications: "Recent Noties"
@@ -115,6 +116,7 @@ en_valspeak:
       ignoring: "U r ignorin all posties from <%= name %>."
       location: "My crib"
       photos: "Pics and selfies <3"
+      posts: "Posties!!"
       you_have_no_tags: "u like... have no tagz!"
     publisher:
       add_option: "Like, add an ansah!"
@@ -142,7 +144,6 @@ en_valspeak:
       follow: "Stalk"
       followed_tag:
         add_a_tag: "Add a tag!!"
-        contacts_title: "Ppl who <3 these tagz"
         follow: "Folloe!!"
         title: "#Followed Tagz"
       hide: "Hyde"
@@ -189,7 +190,7 @@ en_valspeak:
       seconds: "less than a min"
       suffixAgo: "like... ago"
       suffixFromNow: "from nao"
-      wordSeparator: ""
+      wordSeparator: " "
       year: "bout like... a yr"
       years: "like %d yrs"
     unblock_failed: "Unblockin this h8ter didnt work :("

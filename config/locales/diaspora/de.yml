@@ -137,6 +137,8 @@ de:
   aspect_memberships:
     destroy:
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden"
+      forbidden: "Du bist nicht berechtigt, das zu tun."
+      invalid_statement: "Doppelter Eintrag abgelehnt."
       no_membership: "Konnte die ausgewählte Person in diesem Aspekt leider nicht finden"
       success: "Die Person wurde erfolgreich aus dem Aspekt entfernt"
   aspects:
@@ -220,12 +222,10 @@ de:
     no_contacts_message:
       community_spotlight: "Gemeinschafts-Schaukasten"
       or_spotlight: "Du kannst auch mit %{link} teilen"
-      try_adding_some_more_contacts: "Du kannst weitere Kontakte suchen oder welche einladen."
+      try_adding_some_more_contacts: "Du kannst weitere Kontakte suchen oder welche %{invite_link}."
       you_should_add_some_more_contacts: "Du solltest ein paar neue Kontakte hinzufügen!"
     no_posts_message:
       start_talking: "Niemand hat bisher etwas gesagt!"
-    one: "Ein Aspekt"
-    other: "%{count} Aspekte"
     seed:
       acquaintances: "Bekannte"
       family: "Familie"
@@ -234,7 +234,6 @@ de:
     update:
       failure: "%{name} ist ein zu langer Name, um gespeichert zu werden."
       success: "Aspekt %{name} erfolgreich bearbeitet."
-    zero: "Keine Aspekte"
   back: "Zurück"
   blocks:
     create:
@@ -275,14 +274,11 @@ de:
       title: "Kontakte"
       user_search: "Nutzersuche"
       your_contacts: "Deine Kontakte"
-    one: "Ein Kontakt"
-    other: "%{count} Kontakte"
     sharing:
       people_sharing: "Leute, die mit dir teilen:"
     spotlight:
       community_spotlight: "Gemeinschafts-Schaukasten"
       suggest_member: "Ein Mitglied vorschlagen"
-    zero: "Keine Kontakte"
   conversations:
     conversation:
       participants: "Teilnehmer"
@@ -559,6 +555,7 @@ de:
   ignore: "Ignorieren"
   invitation_codes:
     excited: "%{name} freut sich dich hier zu sehen."
+    not_valid: "Dieser Einladungscode ist nicht mehr gültig"
   invitations:
     a_facebook_user: "Ein Facebook-Nutzer"
     check_token:
@@ -691,12 +688,9 @@ de:
       show_unread: "Ungelesene anzeigen"
       started_sharing: "Angefangen zu teilen"
     liked:
-      few: "%{actors} gefällt dein %{post_link}."
-      many: "%{actors} gefällt dein %{post_link}."
-      one: "%{actors} gefällt dein %{post_link}."
-      other: "%{actors} gefällt dein %{post_link}."
-      two: "%{actors} gefällt dein %{post_link}."
-      zero: "Niemandem gefällt dein %{post_link}."
+      one: "%{actors} gefällt dein Beitrag %{post_link}."
+      other: "%{actors} gefällt dein Beitrag %{post_link}."
+      zero: "%{actors} gefällt dein Beitrag %{post_link}."
     liked_post_deleted:
       few: "%{actors} gefällt dein gelöschter Beitrag."
       many: "%{actors} gefällt dein gelöschter Beitrag."
@@ -849,9 +843,12 @@ de:
 
           der %{type} mit der ID %{id} wurde als anstößig markiert.
 
+          Grund: "%{reason}"
+
           [%{url}][1]
 
           Bitte überprüfe das so bald wie möglich!
+
 
           Grüße,
 
@@ -977,6 +974,7 @@ de:
       title: "Ein Beitrag von %{name}"
     show:
       destroy: "Löschen"
+      forbidden: "Du bist nicht berechtigt, das zu tun"
       not_found: "Entschuldige, wir konnten den Beitrag leider nicht finden."
       permalink: "Permanentlink"
       photos_by:
@@ -1126,7 +1124,7 @@ de:
       no_services_available: "Auf diesem Pod stehen keine Dienste zur Verfügung."
       not_logged_in: "Du bist momentan nicht angemeldet."
       really_disconnect: "Verbindung mit %{service} entfernen?"
-      services_explanation: "Das Verbinden zu anderen Diensten gibt dir die Möglichkeit, Beiträge, die du in diaspora* schreibst, auch dort zu veröffentlichen."
+      services_explanation: "Das Verbinden zu anderen Drittanbieter-Diensten zum Teilen gibt dir die Möglichkeit, Beiträge, die du in diaspora* schreibst, auch dort zu veröffentlichen."
     inviter:
       click_link_to_accept_invitation: "Öffne diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folge mir auf diaspora*"
@@ -1284,30 +1282,23 @@ de:
       title: "Meine Aspekte"
     aspects_stream: "Aspekte"
     comment_stream:
-      contacts_title: "Leute, deren Beiträge du kommentiert hast"
       title: "Kommentierte Beiträge"
     community_spotlight_stream: "Gemeinschaftsfokus"
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
-      contacts_title: "Leute, denen diese Tags gefallen"
       follow: "Folgen"
       title: "#Tags, denen du folgst"
     followed_tags_stream: "#Tags, denen du folgst"
     like_stream:
-      contacts_title: "Leute, deren Beiträge dir gefallen"
       title: "\"Gefällt mir\"-Stream"
     mentioned_stream: "@Erwähnungen"
     mentions:
-      contacts_title: "Personen, die dich erwähnt haben"
       title: "@Erwähnungen"
     multi:
-      contacts_title: "Personen in deinem Stream"
       title: "Stream"
     public:
-      contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"
     tags:
-      contacts_title: "Personen, die diesen Tag nutzen"
       title: "Getaggte Beiträge: %{tags}"
   tag_followings:
     create:

@@ -30,6 +30,6 @@ script: "./script/ci/build.sh"
 notifications:
   irc:
     channels:
-      - "irc.freenode.org:6667#diaspora-dev"
+      - secure: YvYkeTAw+5oOl/RaXVwu7JkKGNWPoFosNQRmLvJkBFbWzZ1s5LZD1u3+Qj819bT3lGzJu9pxmJg765IRYrGWmBi4mcAV3dpO6qowVdFTcorf0JsnLw3Kvkga9rrDunsRNr21KTAQqHOO5mKUzw9DtMzd52BiWuZwIj3xcl72gQI=
     template:
       - "%{repository_slug}#%{commit} (%{branch} - %{commit_subject}): %{message} %{build_url}"

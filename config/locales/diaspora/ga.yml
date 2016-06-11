@@ -51,13 +51,10 @@ ga:
         learn_more: "Breis eolais"
     new:
       create: "Cruthaigh"
-    one: "gné amháin"
-    other: "%{count} gnéithe"
     seed:
       family: "Gaolmhara"
       friends: "Cháirde"
       work: "Obair"
-    zero: "gan ghnéithe"
   back: "Ar ais"
   cancel: "Cealaigh"
   contacts:
@@ -67,11 +64,8 @@ ga:
       my_contacts: "Mo Theagmhálacha"
       title: "Teagmhálacha"
       your_contacts: "Do Theagmhálacha"
-    one: "Teagmháil amháin"
-    other: "%{count} teagmhálacha"
     spotlight:
       community_spotlight: "Spotsolas Pobail"
-    zero: "teagmhálacha"
   conversations:
     index:
       inbox: "post isteach"

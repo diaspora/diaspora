@@ -30,10 +30,18 @@ ru:
       deselect_all: "Снять выделение"
       no_aspects: "Аспект не выбран"
       select_all: "Выделить всё"
+    aspects:
+      create:
+        add_a_new_aspect: "Новый аспект"
+        failure: "Не удалось создать аспект."
+        success: "Ваш новый аспект <%= name %> создан"
+      make_aspect_list_visible: "Сделать контакты в этом аспекте видимыми друг другу?"
+      name: "Название"
     bookmarklet:
       post_something: "Опубликовать в диаспоре*"
       post_submit: "Отправка записи..."
       post_success: "Отправка завершена! Закрытие окна..."
+    cancel: "Отмена"
     comma: ","
     comments:
       hide: "скрыть комментарии"
@@ -50,7 +58,10 @@ ru:
       remove_contact: "Удалить контакт"
       search_no_results: "Контакты не найдены"
     conversation:
+      new:
+        no_contacts: "Нужно добавить кого-нибудь в список контактов, перед тем, как заводить разговор."
       participants: "Участники"
+    create: "Создать"
     delete: "Удалить"
     edit: "Изменить"
     failed_to_like: "Не удалось!"
@@ -71,6 +82,7 @@ ru:
       home: "Главная"
       log_out: "Выйти"
       mark_all_as_read: "Пометить как прочитанные"
+      moderator: "Модератор"
       notifications: "Уведомления"
       profile: "Профиль"
       recent_notifications: "Последние уведомления"
@@ -162,7 +174,6 @@ ru:
       follow: "Следить"
       followed_tag:
         add_a_tag: "Добавить метку"
-        contacts_title: "Интересуются этими метками"
         follow: "Следить"
         title: "#Метки"
       hide: "Скрыть"
@@ -195,8 +206,11 @@ ru:
       show_nsfw_posts: "Показать всё"
       tags:
         follow: "Следить за меткой #<%= tag %>"
+        follow_error: "Не смог подписаться на <%= tag %> :("
         following: "Вы следите за меткой #<%= tag %>"
         stop_following: "Не следить за меткой #<%= tag %>"
+        stop_following_confirm: "Не следить за меткой #<%= tag %>?"
+        stop_following_error: "Не смог отписаться от <%= tag %> :("
       unfollow: "Не следить"
       unlike: "Не нравится"
       via: "через <%= provider %>"

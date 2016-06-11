@@ -197,8 +197,6 @@ el:
       you_should_add_some_more_contacts: "Πρέπει να προσθέσεις περισσότερες επαφές!"
     no_posts_message:
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα!"
-    one: "1 πτυχή"
-    other: "%{count} πτυχές"
     seed:
       acquaintances: "Γνωριμίες"
       family: "Οικογένεια"
@@ -207,7 +205,6 @@ el:
     update:
       failure: "Η πτυχή σου, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σου, %{name}."
-    zero: "Kαμία πτυχή"
   back: "Πίσω"
   blocks:
     create:
@@ -244,14 +241,11 @@ el:
       start_a_conversation: "Ξεκίνα μια συζήτηση"
       title: "Επαφές"
       your_contacts: "Οι επαφές σου"
-    one: "1 επαφή"
-    other: "%{count} επαφές"
     sharing:
       people_sharing: "Άτομα που μοιράζονται μαζί σου:"
     spotlight:
       community_spotlight: "Δημοσιεύσεις κοινότητας"
       suggest_member: "Πρότεινε ένα μέλος"
-    zero: "Καμία επαφή"
   conversations:
     conversation:
       participants: "Συμμετέχοντες"
@@ -316,6 +310,7 @@ el:
       rename_aspect_q: "Πώς μπορώ να μετονομάσω μια πτυχή;"
       title: "Πτυχές"
       what_is_an_aspect_q: "Τι είναι πτυχή;"
+      who_sees_post_q: "Όταν κοινοποιώ σε μια πτυχή, ποιος βλέπει τι;"
     foundation_website: "Η ιστοσελίδα του ιδρύματος diaspora*"
     getting_help:
       get_support_a_hashtag: "Υποβάλετε ένα δημόσιο ερώτημα στο diaspora* χρησιμοποιώντας την ετικέτα της ερώτησης ( %{question} )"
@@ -327,6 +322,7 @@ el:
       getting_started_a: "Είσαστε τυχερός/ή. Δοκιμάστε τις %{tutorial_series} στην σελίδα του έργου μας. Θα σας δείξουν βήμα - βήμα την διαδικασία εγγραφής και θα σας μάθει όλα τα βασικά πράγματα που χρειάζεται να ξέρετε σχετικά με το diaspora*."
       getting_started_q: "Βοήθεια! Χρειάζομαι βοήθεια με τα βασικά για να ξεκινήσω!"
       title: "Λήψη βοήθειας"
+    getting_started_tutorial: "\"Ξεκινώντας\" σειρά μαθημάτων."
     here: "εδώ"
     irc: "Κανάλι συζήτησης IRC"
     markdown: "Markdown"
@@ -341,6 +337,7 @@ el:
       title: "Ιδιωτικές αναρτήσεις"
     private_profiles:
       title: "Ιδιωτικά προφίλ"
+    third_party_tools: "Εργαλεία τρίτων"
     title_header: "Βοήθεια"
     tutorial: "οδηγός"
     tutorials: "οδηγοί"
@@ -886,30 +883,23 @@ el:
       title: "Οι πτυχές μου"
     aspects_stream: "Πτυχές"
     comment_stream:
-      contacts_title: "Χρήστες των οποίων έχεις σχολιάσει αναρτήσεις"
       title: "Σχολιασμένες αναρτήσεις"
     community_spotlight_stream: "Δημοσιεύσεις κοινότητας"
     followed_tag:
       add_a_tag: "Προσθήκη μιας ετικέτας"
-      contacts_title: "Άτομα που έψαξαν αυτές τις ετικέτες"
       follow: "Ακολούθησε"
       title: "#Ετικέτες που ακολουθείς"
     followed_tags_stream: "#Ετικέτες που ακολουθείς"
     like_stream:
-      contacts_title: "Χρήστες των οποίων αναρτήσεις σου αρέσουν"
       title: "Αυτή η ροή μου αρέσει"
     mentioned_stream: "@Αναφορές"
     mentions:
-      contacts_title: "Άτομα που σε έχουν αναφέρει"
       title: "@Αναφορές"
     multi:
-      contacts_title: "Άτομα στη ροή σου"
       title: "Ροή"
     public:
-      contacts_title: "Πρόσφατες δημοσιεύσεις"
       title: "Δημόσια δραστηριότητα"
     tags:
-      contacts_title: "Άτομα που τους αρέσει αυτή η ετικέτα"
       title: "Ανάρτησες με ετικέτες: %{tags}"
   tag_followings:
     create:

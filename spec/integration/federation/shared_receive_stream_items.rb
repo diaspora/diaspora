@@ -4,7 +4,7 @@ shared_examples_for "messages which are indifferent about sharing fact" do
   let(:public) { recipient.nil? }
 
   it "treats status message receive correctly" do
-    entity = FactoryGirl.build(:status_message_entity, diaspora_id: sender_id, public: public)
+    entity = FactoryGirl.build(:status_message_entity, author: sender_id, public: public)
 
     post_message(generate_xml(entity, sender, recipient), recipient)
 
@@ -13,7 +13,7 @@ shared_examples_for "messages which are indifferent about sharing fact" do
 
   it "doesn't accept status message with wrong signature" do
     allow(sender).to receive(:encryption_key).and_return(OpenSSL::PKey::RSA.new(1024))
-    entity = FactoryGirl.build(:status_message_entity, diaspora_id: sender_id, public: public)
+    entity = FactoryGirl.build(:status_message_entity, author: sender_id, public: public)
 
     post_message(generate_xml(entity, sender, recipient), recipient)
 

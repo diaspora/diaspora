@@ -84,6 +84,13 @@ describe("app.pages.Contacts", function(){
       this.button.trigger('click');
       expect($('.header > h3').css('display')).toBe('none');
     });
+
+    it("sets the current aspect name as the default value in the form", function() {
+      $(".header > h3 #aspect_name").text("My awesome unicorn aspect");
+      expect($("#aspect_name_form input[name='aspect[name]']").val()).not.toBe("My awesome unicorn aspect");
+      this.button.trigger("click");
+      expect($("#aspect_name_form input[name='aspect[name]']").val()).toBe("My awesome unicorn aspect");
+    });
   });
 
   context('search contact list', function() {

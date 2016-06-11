@@ -123,8 +123,6 @@ ro:
       you_should_add_some_more_contacts: "Ar trebui sa mai adaugi noi persoane de contact!"
     no_posts_message:
       start_talking: "Nimeni nu a spus nimic deocamdată."
-    one: "1 aspect"
-    other: "%{count} aspecte"
     seed:
       acquaintances: "Cunoscuții"
       family: "Familie"
@@ -133,7 +131,6 @@ ro:
     update:
       failure: "Apectul tău, %{name}, are numele prea lung ca să fie salvat"
       success: "Aspectul, %{name}, a fost editat cu succes."
-    zero: "niciun aspect"
   back: "Înapoi"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
@@ -162,14 +159,11 @@ ro:
       start_a_conversation: "Începe o conversație."
       title: "Contacte"
       your_contacts: "Contactele Tale"
-    one: "1 contact"
-    other: "%{count} contacte"
     sharing:
       people_sharing: "Cunoscuți care partajează cu tine"
     spotlight:
       community_spotlight: "reflectorul comunității"
       suggest_member: "Propune un membru"
-    zero: "contacte"
   conversations:
     create:
       fail: "Mesajul nu este valid"
@@ -691,12 +685,9 @@ ro:
     mentions:
       title: "Your Mentions"
     multi:
-      contacts_title: "Persoane în Fluxul tău"
       title: "Flux"
     public:
       title: "Activitate publică"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

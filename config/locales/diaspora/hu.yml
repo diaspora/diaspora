@@ -205,8 +205,6 @@ hu:
       you_should_add_some_more_contacts: "Adj hozzá még néhány ismerőst."
     no_posts_message:
       start_talking: "Mindenki hallgat. Kezdd el te a beszélgetést."
-    one: "1 csoport"
-    other: "%{count} csoport"
     seed:
       acquaintances: "Ismerősök"
       family: "Család"
@@ -215,7 +213,6 @@ hu:
     update:
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
-    zero: "nincs csoport"
   back: "Vissza"
   blocks:
     create:
@@ -255,14 +252,11 @@ hu:
       title: "Ismerősök"
       user_search: "Felhasználó keresése"
       your_contacts: "Ismerőseid"
-    one: "1 ismerős"
-    other: "%{count} ismerős"
     sharing:
       people_sharing: "Ismerőseid:"
     spotlight:
       community_spotlight: "A figyelem középpontjában"
       suggest_member: "Javasolj egy tagot"
-    zero: "nincs ismerős"
   conversations:
     conversation:
       participants: "Résztvevők"
@@ -1080,30 +1074,23 @@ hu:
       title: "Csoportjaim"
     aspects_stream: "Csoportok"
     comment_stream:
-      contacts_title: "Emberek, akiknek a bejegyzéséhez hozzászóltál."
       title: "Hozzászólt bejegyzések"
     community_spotlight_stream: "A figyelem középpontjában"
     followed_tag:
       add_a_tag: "Címke hozzáadása"
-      contacts_title: "Emberek, akiket ugyanezek a címkék érdekelnek"
       follow: "Követ"
       title: "#követett címkék"
     followed_tags_stream: "#követett címkék"
     like_stream:
-      contacts_title: "Ismerősök, akiknek kedveled a bejegyzéseit"
       title: "Kedveled"
     mentioned_stream: "@említések"
     mentions:
-      contacts_title: "Emberek, akik megemlítettek"
       title: "@Megemlítettek"
     multi:
-      contacts_title: "Személyek a Hírfolyamodban"
       title: "Hírfolyam"
     public:
-      contacts_title: "Legújabb szerzők"
       title: "Nyilvános tevékenység"
     tags:
-      contacts_title: "Emberek, akik ezeket a címkéket követik"
       title: "Bejegyzés megjelölve: %{tags}"
   tag_followings:
     create:

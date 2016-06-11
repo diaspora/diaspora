@@ -129,8 +129,6 @@ ka:
       you_should_add_some_more_contacts: "თქვენ უნდა დაამატოთ მეტი კონტაქტი!"
     no_posts_message:
       start_talking: "ჯერ არავის არაფერი არ უთქვამს!"
-    one: "1 ასპექტი"
-    other: "%{count} ასპექტი"
     seed:
       acquaintances: "ნაცნობები"
       family: "ოჯახი"
@@ -139,7 +137,6 @@ ka:
     update:
       failure: "თქვენს ასპექტს, %{name}, აქვს ძალიან დიდი სახელი და არ შეიძლება მისი შენახვა"
       success: "თქვენი ასპექტი, %{name}, წარმატებით დარედაქტირდა."
-    zero: "ასპექტები არ არის"
   back: "უკან"
   blocks:
     create:
@@ -173,13 +170,10 @@ ka:
       start_a_conversation: "დაიწყე საუბარი"
       title: "კონტაქტები"
       your_contacts: "შენი კონტაქტები"
-    one: "1 კონტაქტი"
-    other: "%{count} კონტაქტი"
     sharing:
       people_sharing: "ხალხი, რომელიც აზიარებს შენთან:"
     spotlight:
       community_spotlight: "Community Spotlight"
-    zero: "კონტაქტები"
   conversations:
     create:
       fail: "არასწორი წერილი"

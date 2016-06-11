@@ -55,11 +55,8 @@ cy:
       you_should_add_some_more_contacts: "Dylech chi ychwanegu mwy o gysylltiadau!"
     no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    one: "1 aspect"
-    other: "%{count} agweddau"
     update:
       success: "Eich aspect, %{name},  wedi bod yn golygu yn llwyddiannus."
-    zero: "dim agweddau"
   back: "Yn ôl"
   blocks:
     create:
@@ -80,9 +77,6 @@ cy:
       no_contacts: "No contacts."
       title: "Cysylltiadau"
       your_contacts: "Eich Cysylltiadau chi"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
   conversations:
     create:
       sent: "Neges wedi anfon"
@@ -444,10 +438,7 @@ cy:
     mentions:
       title: "Your Mentions"
     multi:
-      contacts_title: "Pobol yn eich ffrwd"
       title: "Ffrwd"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

@@ -136,6 +136,8 @@ es:
   aspect_memberships:
     destroy:
       failure: "No se pudo quitar a la persona del aspecto."
+      forbidden: "No tienes permiso para hacer eso."
+      invalid_statement: "No se permiten registros duplicados."
       no_membership: "No se pudo encontrar a la persona seleccionada en ese aspecto."
       success: "Se ha quitado correctamente a la persona del aspecto"
   aspects:
@@ -223,8 +225,6 @@ es:
       you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos más!"
     no_posts_message:
       start_talking: "¡Nadie ha dicho nada todavía!"
-    one: "1 aspecto"
-    other: "%{count} aspectos"
     seed:
       acquaintances: "Conocidos"
       family: "Familia"
@@ -233,7 +233,6 @@ es:
     update:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para guardarlo."
       success: "Tu aspecto, %{name}, fue editado con éxito."
-    zero: "No hay aspectos"
   back: "Atrás"
   blocks:
     create:
@@ -263,7 +262,7 @@ es:
       add_contact: "Añadir contacto"
       add_to_aspect: "Añadir contactos a %{name}"
       all_contacts: "Todos los contactos"
-      community_spotlight: "Comunidad Creativa"
+      community_spotlight: "Lo más destacado"
       my_contacts: "Mis contactos"
       no_contacts: "¡Parece que necesitas añadir algunos contactos!"
       no_contacts_in_aspect: "Todavía no tienes ningún contacto en este aspecto. A continuación puedes ver una lista de tus contactos que puedes agregar a este aspecto."
@@ -274,14 +273,11 @@ es:
       title: "Contactos"
       user_search: "Buscar usuarios"
       your_contacts: "Tus contactos"
-    one: "1 contacto"
-    other: "%{count} contactos"
     sharing:
       people_sharing: "Personas que comparten contigo:"
     spotlight:
-      community_spotlight: "Comunidad Creativa"
+      community_spotlight: "Lo más destacado"
       suggest_member: "Sugiere un usuario"
-    zero: "No hay contactos"
   conversations:
     conversation:
       participants: "Participantes"
@@ -381,7 +377,7 @@ es:
     getting_help:
       get_support_a_faq: "Lee nuestra página %{faq} en la wiki"
       get_support_a_hashtag: "pregunta en una publicación pública en diaspora* usando el hashtag %{question}"
-      get_support_a_irc: "únete a nosotros en %{irc} (Chat en vivo)"
+      get_support_a_irc: "Únete a nosotros en %{irc} (chat en vivo)"
       get_support_a_tutorials: "Consulta nuestros %{tutorials}"
       get_support_a_website: "Visítanos en %{link}"
       get_support_a_wiki: "Busca %{link}"
@@ -509,7 +505,7 @@ es:
       who_sees_updates_q: "¿Quién puede ver las actualizaciones de mi perfil público?"
     resharing_posts:
       reshare_private_post_aspects_a: "No es posible volver a compartir una publicación privada. Es por respeto a las intenciones del publicador original de solo compartirla con un grupo determinado de personas."
-      reshare_private_post_aspects_q: "¿Puedo volver a compartir una publicación privada solo con ciertos aspectos?"
+      reshare_private_post_aspects_q: "¿Puedo volver a compartir una publicación privada sólo con algunos aspectos?"
       reshare_public_post_aspects_a: "No, cuando vuelves a compartir una publicación pública automáticamente se convierte en una de tus publicaciones públicas. Para compartirla con ciertos aspectos, copia y pega el contenido en una nueva publicación."
       reshare_public_post_aspects_q: "¿Puedo compartir una publicación pública sólo con algunos aspectos?"
       title: "Compartir publicaciones"
@@ -555,6 +551,7 @@ es:
   ignore: "Ignorar"
   invitation_codes:
     excited: "%{name} está encantado de verte por aquí."
+    not_valid: "Ese código de invitación ya no es válido"
   invitations:
     a_facebook_user: "Un usuario de Facebook"
     check_token:
@@ -940,6 +937,7 @@ es:
       title: "Una publicación de %{name}"
     show:
       destroy: "Eliminar"
+      forbidden: "No tienes permiso para hacer eso"
       not_found: "Lo sentimos, no podemos encontrar esa publicación."
       permalink: "Enlace permanente"
       photos_by:
@@ -1146,7 +1144,7 @@ es:
       get_location: "Obtener tu localización"
       make_public: "Hacer público"
       new_user_prefill:
-        hello: "#%{new_user_tag}, acabo de llegar aquí. "
+        hello: "Hola a todos, soy #%{new_user_tag}. "
         i_like: "Tengo interés en %{tags}. "
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
@@ -1229,30 +1227,23 @@ es:
       title: "Mis aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
-      contacts_title: "Gente cuyas publicaciones comentaste"
       title: "Publicaciones comentadas"
     community_spotlight_stream: "Lo más destacado"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
-      contacts_title: "Gente con esas etiquetas"
       follow: "Seguir"
       title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
-      contacts_title: "Personas cuyas publicaciones te gustaron"
       title: "Me gusta"
     mentioned_stream: "@Menciones"
     mentions:
-      contacts_title: "Personas que te han mencionado"
       title: "@Menciones"
     multi:
-      contacts_title: "Gente en tu línea"
       title: "Inicio"
     public:
-      contacts_title: "Publicadores recientes"
       title: "Actividad pública"
     tags:
-      contacts_title: "Gente que sigue esta etiqueta"
       title: "Publicaciones etiquetadas: %{tags}"
   tag_followings:
     create:

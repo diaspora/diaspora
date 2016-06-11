@@ -137,6 +137,8 @@ sv:
   aspect_memberships:
     destroy:
       failure: "Kunde inte ta bort personen från aspekten"
+      forbidden: "Du har inte tillåtelse att göra så."
+      invalid_statement: "Dupliceringar avvisades."
       no_membership: "Kunde inte hitta den valda personen i aspekten"
       success: "Personen har nu tagits bort från aspekten"
   aspects:
@@ -220,12 +222,10 @@ sv:
     no_contacts_message:
       community_spotlight: "Gemenskapens rampljus"
       or_spotlight: "Du kan också dela med %{link}"
-      try_adding_some_more_contacts: "Du kan söka efter eller bjuda in fler personer."
+      try_adding_some_more_contacts: "Du kan söka efter eller %{invite_link} fler kontakter."
       you_should_add_some_more_contacts: "Du borde lägga till fler kontakter!"
     no_posts_message:
       start_talking: "Ingen har sagt någonting än!"
-    one: "En aspekt"
-    other: "%{count} aspekter"
     seed:
       acquaintances: "Bekanta"
       family: "Familj"
@@ -234,7 +234,6 @@ sv:
     update:
       failure: "Det namn du valde för din aspekt, %{name}, var för långt för att kunna sparas."
       success: "Din aspekt %{name} har nu ändrats."
-    zero: "Inga aspekter"
   back: "Tillbaka"
   blocks:
     create:
@@ -275,14 +274,11 @@ sv:
       title: "Kontakter"
       user_search: "Användarsökning"
       your_contacts: "Dina kontakter"
-    one: "en kontakt"
-    other: "%{count} kontakter"
     sharing:
       people_sharing: "Personer som delar med dig:"
     spotlight:
       community_spotlight: "Gemenskapens rampljus"
       suggest_member: "Föreslå en medlem"
-    zero: "Inga kontakter"
   conversations:
     conversation:
       participants: "Deltagare"
@@ -556,6 +552,7 @@ sv:
   ignore: "Ignorera"
   invitation_codes:
     excited: "%{name} är glad för att du är här."
+    not_valid: "Inbjudningskoden är inte längre giltig."
   invitations:
     a_facebook_user: "En Facebookanvändare"
     check_token:
@@ -814,9 +811,11 @@ sv:
       subject: "Ditt Diaspora*-konto har blivit märkt för att tas bort på grund av passivitet."
     report_email:
       body: |-
-          Tjenare,
+          Hejsan.
 
-          %{type} med id:et %{id} var märt som stötande.
+          %{type} med id:et %{id} var märkt som stötande.
+
+          Orsak: "%{reason}"
 
           [%{url}][1]
 
@@ -947,6 +946,7 @@ sv:
       title: "Ett inlägg från %{name}"
     show:
       destroy: "Ta bort"
+      forbidden: "Du har inte tillåtelse att göra så."
       not_found: "Tyvärr, men vi kan inte hitta inlägget."
       permalink: "Permanent länk"
       photos_by:
@@ -1087,7 +1087,7 @@ sv:
       no_services_available: "Det finns inga tjänster tillgängliga på denna pod."
       not_logged_in: "För nuvarande inte inloggad."
       really_disconnect: "Vill du koppla från %{service}?"
-      services_explanation: "Genom att ansluta till andra tjänster, möjliggör det dig att skicka dina inlägg till dem samtidigt som på Diaspora*."
+      services_explanation: "Genom att ansluta till andra tjänster, möjliggör det dig att skicka dina inlägg till dem när du skriver på Diaspora*."
     inviter:
       click_link_to_accept_invitation: "Följ länken för att acceptera din inbjudan"
       join_me_on_diaspora: "Gå med mig på Diaspora*"
@@ -1245,30 +1245,23 @@ sv:
       title: "Mina aspekter"
     aspects_stream: "Aspekter"
     comment_stream:
-      contacts_title: "Personer vars inlägg du har kommenterat på"
       title: "Kommenterade inlägg"
     community_spotlight_stream: "Gemenskapens rampljus"
     followed_tag:
       add_a_tag: "Lägg till en tagg"
-      contacts_title: "Personer som gillar dessa taggar"
       follow: "Följ"
       title: "#Följda taggar"
     followed_tags_stream: "#Följda taggar"
     like_stream:
-      contacts_title: "Personer vars inlägg du gillar"
       title: "Gilla flöde"
     mentioned_stream: "@Omnämnanden"
     mentions:
-      contacts_title: "Personer som nämnt dig"
       title: "@Omnämnanden"
     multi:
-      contacts_title: "Personer i din ström"
       title: "Ström"
     public:
-      contacts_title: "Nyligen aktiva"
       title: "Publik aktivitet"
     tags:
-      contacts_title: "Användare som gillar den här taggen"
       title: "Inlägg taggade med: %{tags}"
   tag_followings:
     create:
@@ -1368,7 +1361,7 @@ sv:
     privacy_settings:
       ignored_users: "Ignorerade användare"
       no_user_ignored_message: "Du har inga ignorerade kontakter."
-      stop_ignoring: "sluta ignorera"
+      stop_ignoring: "Sluta ignorera"
       strip_exif: "Rensa bort metadata, såsom plats, upphovsman och kameramodell från de uppladdade bilderna (rekommenderat)"
       title: "Sekretessinställningar"
     public:

@@ -134,8 +134,6 @@ ja:
       you_should_add_some_more_contacts: "もっと連絡先を追加しましょう!"
     no_posts_message:
       start_talking: "投稿がまだありません。会話を始めましょう！"
-    one: "アスペクト1集"
-    other: "アスペクト%{count}集"
     seed:
       acquaintances: "知り合い"
       family: "家族"
@@ -144,7 +142,6 @@ ja:
     update:
       failure: "アスペクト名「%{name}」は長すぎて保存できませんでした。"
       success: "アスペクト「%{name}」の編集に成功しました。"
-    zero: "アスペクト無し"
   back: "前へ"
   blocks:
     create:
@@ -179,13 +176,10 @@ ja:
       start_a_conversation: "会話を開始する"
       title: "連絡先"
       your_contacts: "あなたの連絡先"
-    one: "連絡先1件"
-    other: "連絡先%{count}件"
     sharing:
       people_sharing: "あなたに共有している人たち:"
     spotlight:
       community_spotlight: "コミュニティスポットライト"
-    zero: "連絡先無し"
   conversations:
     create:
       fail: "無効なメッセージです。"
@@ -761,10 +755,7 @@ ja:
     followed_tags_stream: "フォローしたタグ"
     mentions:
       title: "Your Mentions"
-    public:
-      contacts_title: "最近の投稿者"
     tags:
-      contacts_title: "People who dig these tags"
       title: "タグ%{tags}の付いた投稿"
   tag_followings:
     create:

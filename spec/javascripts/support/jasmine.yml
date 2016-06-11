@@ -41,7 +41,7 @@ stylesheets:
 #   - helpers/**/*.jsview
 #
 helpers:
-  - helpers/**/*.js
+  - jasmine_helpers/**/*.js
 
 # spec_files
 #

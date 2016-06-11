@@ -12,6 +12,7 @@ en_valspeak:
   _home: "ur place"
   _photos: "Picz n selfiez"
   _services: "Other socialz"
+  _statistics: "statsss"
   _terms: "boring legal stuff"
   account: "Like ur account"
   activerecord:
@@ -156,6 +157,7 @@ en_valspeak:
       failure: "%{name} is like... not gone n so it like... cant b removed... sry bout tht :\\"
       success: "%{name} is nao like... gone n stuff."
     edit:
+      aspect_chat_is_not_enabled: "ppl in this aspect are like, not able to chat wit u. sry bout tht :\\"
       aspect_list_is_not_visible: "Ppl in this aspect r like.. not able 2 c each other."
       aspect_list_is_visible: "Ppl in this aspect r like.. able 2 c each other."
       confirm_remove_aspect: "R u sure u want 2 like... remove this aspect?"
@@ -215,8 +217,6 @@ en_valspeak:
       you_should_add_some_more_contacts: "U should like... add some moar ppl!"
     no_posts_message:
       start_talking: "No 1z gossiped yet! Lame :\\"
-    one: "1 azpect"
-    other: "%{count} aspectz"
     seed:
       acquaintances: "Some ppl I sorta kno"
       family: "Fam"
@@ -225,7 +225,6 @@ en_valspeak:
     update:
       failure: "Ur group, %{name}, had like... a rlly long name.. so yeah... it wasnt saved... sry :\\"
       success: "Ur aspect, %{name}, has like... not flipped out. So ur good!(:"
-    zero: "no aspectz"
   back: "go back"
   blocks:
     create:
@@ -265,14 +264,11 @@ en_valspeak:
       title: "BFFs"
       user_search: "Ppl stalk"
       your_contacts: "ur BFFs"
-    one: "1 BFF"
-    other: "%{count} BFFs"
     sharing:
       people_sharing: "ppl sharin wit u:"
     spotlight:
       community_spotlight: "d* celebz!! <3"
       suggest_member: "Suggest a membah!!(:"
-    zero: "BFFs"
   conversations:
     conversation:
       participants: "Ppl participatin"
@@ -280,6 +276,9 @@ en_valspeak:
       fail: "bad txt"
       no_contact: "Umm HELLO, u need 2 like, add them first! Duh!"
       sent: "txt sent"
+    destroy:
+      delete_success: "convo successfully deleted YAAAAY!((:"
+      hide_success: "convo be hidden!(:"
     helper:
       new_messages:
         one: "1 new txts! ZOMG!!!"
@@ -302,6 +301,7 @@ en_valspeak:
       fail: "Bad txt"
     show:
       delete: "get rid of n like... block the convo"
+      hide: "gtfo and shush convo"
       reply: "txt bak"
       replying: "txtin bak..."
   date:
@@ -357,6 +357,7 @@ en_valspeak:
       what_is_an_aspect_q: "Wat is an aspect er group er whatev?"
       who_sees_post_a: "so like, if u like... make a postie thats like... limited, it will only like, b seen by the ppl u have in ur aspect or group or groups err whatever. BFFs u have that like... arent in the aspect have like... no way of seein the postie, unless u set it 2 like... internet or public n junk. like, only like... posties that r set 2 public can b seen by ppl who u havent like... place in 1 of ur aspects. totally weird, right?"
       who_sees_post_q: "when i like... make a postie 2 a aspect er whatever.. who can like.. see it?"
+    faq: "FACK"
     foundation_website: "d* foundation site! i lurve it!! <3"
     getting_help:
       get_support_a_hashtag: "ask in a public postie on d* usin the %{question} hashtag"
@@ -377,6 +378,8 @@ en_valspeak:
       keyboard_shortcuts_li2: "k - to like... go to last postie"
       keyboard_shortcuts_li3: "c - comment on the current postie"
       keyboard_shortcuts_li4: "l - <3 the current postie"
+      keyboard_shortcuts_li5: "r - reshar the current postie"
+      keyboard_shortcuts_li6: "like, make the current postie bigger"
       keyboard_shortcuts_q: "What key shorties r available?(:"
       title: "Keypad shorties!!!"
     markdown: "markydown"
@@ -426,6 +429,7 @@ en_valspeak:
       insert_images_comments_a2: "can b used 2 like.. put pics from the web into comments as well as in posties :)"
       insert_images_comments_q: "Can I insert picz into commentz? :o"
       insert_images_q: "How do I like... put picz into posties?"
+      post_report_q: "how like, do i report a groody postie?"
       size_of_images_a: "No :\\ Pics r resized automagically 2 fit the Wall err stream. Markydown doesnt have a code for specifyin a picz size n stuff."
       size_of_images_q: "Can I like... customize the size of pics in posties or commentz?"
       stream_full_of_posts_a1: "ur Wall err stream err whatever is like.. made up of 3 kindsa posties:"
@@ -664,6 +668,7 @@ en_valspeak:
       other: "%{actors} started sharin wit u!!! :DDD"
       zero: "%{actors} started sharin wit u :("
   notifier:
+    a_limited_post_comment: "OMG!!! YOU GOT A NEW COMMENTT!!! But its like.. on a post that ppl cant see.. so like.. go check it out!"
     a_post_you_shared: "a postie!!"
     accept_invite: "RSVP ur d* invite!!"
     click_here: "click this txt"
@@ -673,6 +678,8 @@ en_valspeak:
       click_link: "2 like, activate ur like new email %{unconfirmed_email}, plz like, follow this link:"
       subject: "Plz like... confirm ur new email %{unconfirmed_email}. K thx!!! <3"
     email_sent_by_diaspora: "This email was like... sent by %{pod_name}. If u'd like... to like... stop gettin emails like this,"
+    export_email:
+      subject: "u can dl ur personal data nao!!!!, %{name} :D"
     hello: "OMG HEY! %{name}"
     invite:
       message: |-
@@ -699,6 +706,29 @@ en_valspeak:
       subject: "OMG! %{name} has like... mentioned u on d*"
     private_message:
       reply_to_or_view: "Reply 2 or like... look at this convo >"
+    remove_old_user:
+      body: |-
+          Hai thar! :P~~
+
+          So like, it looks like you don't want your account @ %{pod_url}, since like... you haven't used it in like... forever... which has been like... %{after_days} days. Mm, cha. That's like... a lot. So like, to make sure that like, the ppl who often use the pod, get like, the best performance and junk, we'd like to totally remove accounts that we think ppl don't want from our database thingy..
+
+          We'd love for you stay and like... hang out with us in the d* community, and youre totally welcome to keep ur account going if you wanna..
+
+          d* is like.. totes better than fb 'n junk... js..
+
+          So like, if you wanna keep ur account like.. active.. which its like, totally cool if you wanna go but like, if you wanna keep ur account, then all you like, need to do is like.. sign in to ur account before like ... %{remove_after}. And like, when u sign back in... itd be totally far out if you would like... play around with d*! Like, stuff changez like.. a lot.. all the time. Its not dead like erryone keeps sayin. its like umm as IF right!? that zuckerberg dude seems dead inside.. like.. does he like totally EVER blink? ew, gross.. gag me with a SPOOOOOOON..
+
+          oh damn, i totes forgot what i was sayin... OH YEAH! so like, if you found d* boring or somethin, try followin some different #tags 'n stuff.. and like.. things are always changin... like ALL the time.. but not like.. in a bad way.. like.. not like how FB is always changin their privacy policy. thats like.. rlly annoyin.. js..
+
+          so like, if you wanna sign in, clickie here: %{login_url}. if youve forgot ur log-in creds, u can like ask for a like.. reminder on tht page.. its totes okay if you forgot. like, omg, this one time, i forgot i left my curling on, and it set my bathroom on fire... my daddy was like SOOOOOOOO angry like omg... he almost like, took my allowance away... it was totally lame..
+
+          so like, anyway, i hope you come back! we can like, netflix and chill and junk.
+
+          baiiii! <3333 :*
+
+
+          the d* robot!
+      subject: "So like, your account has been like... set to be trashed... because you like... haven't been on in awhile. So sry bout tht.."
     report_email:
       body: |-
           Ohai!
@@ -967,11 +997,15 @@ en_valspeak:
       disconnect: "like disconnect"
       edit_services: "Edit servies!!!"
       logged_in_as: "ur like... checkin in as"
+      not_logged_in: "ur like.. currently not logged in and stuffz"
       really_disconnect: "drop %{service}?"
       services_explanation: "Connectin 2 servies gives u like... the ability 2 post ur posties 2 them as u write them in d*! :p"
     inviter:
       click_link_to_accept_invitation: "so like... follow this link 2 like... accept ur invite"
       join_me_on_diaspora: "Chill wit me on diaspora*!"
+    provider:
+      twitter: "Twittar<333"
+      wordpress: "WurdPress"
     remote_friend:
       invite: "invite!!"
       not_on_diaspora: "Not yet on d* :("
@@ -1073,6 +1107,10 @@ en_valspeak:
       failed: "so like, r u human? cuz u have to b in order to get past this :\\ sry bout tht. :\\"
       user: "The secret pic n code werent the same D:"
     placeholder: "like, enter in the stuff in the pic"
+  statistics:
+    local_comments: "Local commentz"
+    services: "Serviez!!!! :3"
+    total_users: "Total ppl"
   status_messages:
     create:
       success: "YAY! %{names} has been mentioned!! :D"
@@ -1085,6 +1123,8 @@ en_valspeak:
     too_long: "Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses"
   stream_helper:
     hide_comments: "Cover up... like... all commentz"
+    no_more_posts: "youre at the end :("
+    no_posts_yet: "Therez no posties yet.."
     show_comments:
       one: "Show like... 1 moar comment"
       other: "Show like... %{count} moar commentz"
@@ -1096,30 +1136,23 @@ en_valspeak:
       title: "My Aspectz"
     aspects_stream: "Aspectz"
     comment_stream:
-      contacts_title: "Ppl whose posties u commented on"
       title: "Commented Posties"
     community_spotlight_stream: "D* celebz!!"
     followed_tag:
       add_a_tag: "Add a like... tag"
-      contacts_title: "Ppl who <3 these tags"
       follow: "Stalk"
       title: "#Followed Tagz"
     followed_tags_stream: "#Followed Tagz"
     like_stream:
-      contacts_title: "Ppl whos posties u <3"
       title: "Like Wall"
     mentioned_stream: "@Mentionz"
     mentions:
-      contacts_title: "Ppl who like... mentioned u"
       title: "@Mentionz"
     multi:
-      contacts_title: "Ppl on ur Wall"
       title: "Wall"
     public:
-      contacts_title: "Recent Posterz"
       title: "Stuff every1 can like... c"
     tags:
-      contacts_title: "Ppl who <3 this tag"
       title: "Posties tagged: %{tags}"
   tag_followings:
     create:
@@ -1168,6 +1201,8 @@ en_valspeak:
       comment_on_post: "some1 comments on ur postie"
       current_password: "Current passwerd :3"
       current_password_expl: "the 1 u like sign in wit... OMG"
+      download_export: "dl my profileee"
+      download_export_photos: "dl my pics"
       download_photos: "dl mah picz"
       edit_account: "Edit ur account <3"
       email_awaiting_confirmation: "So we like... sent u a link 2 like activate %{unconfirmed_email}. Until u like... follow this link && activate this new addy, we will continue 2 like.. use ur original addy %{email}. Kay?"
@@ -1179,6 +1214,9 @@ en_valspeak:
       new_password: "New passwerd(;"
       private_message: "u receive a sext :o"
       receive_email_notifications: "Receive email noties when like:"
+      request_export_photos: "make a request for my pics"
+      request_export_photos_update: "Refresh my pics"
+      request_export_update: "Refresh my wall data"
       reshared: "some1 reshares ur postie"
       show_community_spotlight: "Show d* celebs on Wall"
       show_getting_started: "Show gettin started stuff"
@@ -1200,6 +1238,7 @@ en_valspeak:
       who_are_you: "Umm like, who r u?"
     privacy_settings:
       ignored_users: "Haters"
+      no_user_ignored_message: "You arent like... currently ignoring any other ppl"
       stop_ignoring: "Stop ignorin hater"
       title: "Privie settins"
     public:

@@ -127,7 +127,6 @@ ms:
     stream:
       followed_tag:
         add_a_tag: "Tambah sebuah tag"
-        contacts_title: "Orang yang meminati tag ini"
         follow: "Ikuti"
         title: "Tag #Diikuti"
       likes:

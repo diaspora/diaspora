@@ -186,8 +186,6 @@ es-MX:
       you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
     no_posts_message:
       start_talking: "¡Nadie ha dicho nada aún!"
-    one: "1 aspecto"
-    other: "%{count} aspectos"
     seed:
       acquaintances: "Conocidos"
       family: "Familia"
@@ -196,7 +194,6 @@ es-MX:
     update:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para ser guardado."
       success: "Tu aspecto, %{name}, fue editado exitosamente."
-    zero: "no hay aspectos"
   back: "Atrás"
   blocks:
     create:
@@ -233,14 +230,11 @@ es-MX:
       start_a_conversation: "Inicia una conversación"
       title: "Contactos"
       your_contacts: "Tus contactos"
-    one: "1 contacto"
-    other: "%{count} contactos"
     sharing:
       people_sharing: "Personas que comparten contigo:"
     spotlight:
       community_spotlight: "Lo más destacado de la comunidad"
       suggest_member: "Sugiere a un miembro"
-    zero: "contactos"
   conversations:
     conversation:
       participants: "Participantes"
@@ -982,30 +976,23 @@ es-MX:
       title: "Mis aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
-      contacts_title: "Personas cuyas publicaciones comentaste"
       title: "Publicaciones comentadas"
     community_spotlight_stream: "Lo más destacado de la comunidad"
     followed_tag:
       add_a_tag: "Añadir una etiqueta"
-      contacts_title: "Personas que buscaron en estas etiquetas"
       follow: "Seguir"
       title: "#Etiquetas seguidas"
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
-      contacts_title: "Personas cuyas publicaciones te gustan"
       title: "Tus preferidos"
     mentioned_stream: "@Menciones"
     mentions:
-      contacts_title: "Personas que te han mencionado"
       title: "@Menciones"
     multi:
-      contacts_title: "Personas en tu Entrada"
       title: "Entrada"
     public:
-      contacts_title: "Autores recientes"
       title: "Actividad pública"
     tags:
-      contacts_title: "Personas que buscaron en esta etiqueta"
       title: "Publicaciones etiquetadas: %{tags}"
   tag_followings:
     create:

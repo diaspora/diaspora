@@ -89,7 +89,6 @@ es-MX:
       follow: "Seguir"
       followed_tag:
         add_a_tag: "Añadir una etiqueta"
-        contacts_title: "Personas siguiendo estas etiquetas"
         follow: "Seguir"
         title: "#Etiquetas seguidas"
       hide: "Ocultar"

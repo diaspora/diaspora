@@ -78,7 +78,6 @@ nn:
       follow: "Følg"
       followed_tag:
         add_a_tag: "Legg til ein tag"
-        contacts_title: "Folk som lik denne tagen"
         follow: "Følg"
         title: "#Følgde tags"
       hide: "Gøym"

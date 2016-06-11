@@ -91,7 +91,6 @@ it:
       follow: "Segui"
       followed_tag:
         add_a_tag: "Aggiungi un tag"
-        contacts_title: "Persone che seguono questi tag"
         follow: "Segui"
         title: "#Tag seguiti"
       hide: "Nascondi"

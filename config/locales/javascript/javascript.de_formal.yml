@@ -10,7 +10,7 @@ de_formal:
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
-      error: "Couldn't start sharing with <%= name %>. Are you ignoring them?"
+      error: "Konnte nicht anfangen, mit <%= name %> zu teilen.  Ignorieren Sie ihn/sie?"
       error_remove: "Konnte <%= name %> nicht vom Aspekt entfernen :("
       mobile_row_checked: "<%= name %> (entfernen)"
       mobile_row_unchecked: "<%= name %> (hinzufügen)"
@@ -45,7 +45,7 @@ de_formal:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
-    confirm_unload: "Bitte bestätigen Sie, dass Sie diese Seite verlassen möchten - die von Ihnen eingegebenen Daten werden nicht gespeichert werden."
+    confirm_unload: "Bitte bestätigen Sie, dass Sie diese Seite verlassen möchten. Die von Ihnen eingegebenen Daten werden nicht gespeichert werden."
     contacts:
       add_contact: "Kontakt hinzufügen"
       aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
@@ -68,7 +68,7 @@ de_formal:
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, <%= name %>!"
-      no_tags: "Hey, Sie folgen noch keinen Tags! Trotzdem weitermachen?"
+      no_tags: "Hey, Sie folgen noch keinen Tags!  Trotzdem weitermachen?"
       preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
     header:
       admin: "Administration"
@@ -142,10 +142,10 @@ de_formal:
     publisher:
       add_option: "Antwortmöglichkeit hinzufügen"
       at_least_one_aspect: "Sie müssen zumindest zu einem Aspekt posten"
-      limited: "Eingeschränkt - Ihr Beitrag wird nur Leuten sichtbar sein, mit denen Sie teilen"
+      limited: "Eingeschränkt: Ihr Beitrag wird nur von Leuten gesehen werden können, mit denen Sie teilen"
       near_from: "In der Nähe von <%= location %>"
       option: "Antwort"
-      public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
+      public: "Öffentlich: Ihr Beitrag wird von allen gesehen und von Suchmaschinen gefunden werden können"
       question: "Frage"
     remove_post: "Diesen Beitrag löschen?"
     report:
@@ -153,7 +153,7 @@ de_formal:
       prompt: "Bitte geben Sie einen Grund an:"
       prompt_default: "z.B. anstößiger Inhalt"
       status:
-        created: "Die Meldung wurde erfolgreich erstellt"
+        created: "Die Meldung ist erfolgreich erstellt worden"
         exists: "Die Meldung existiert bereits"
     reshares:
       duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
@@ -168,7 +168,6 @@ de_formal:
       follow: "Folgen"
       followed_tag:
         add_a_tag: "Einen Tag hinzufügen"
-        contacts_title: "Leute, die diese Tags mögen"
         follow: "Folgen"
         title: "#Tags, denen Sie folgen"
       hide: "Verbergen"
@@ -183,7 +182,7 @@ de_formal:
         one: "Zeige <%= count %> weiteren Kommentar"
         other: "Zeige <%= count %> weitere Kommentare"
         zero: "Keine weiteren Kommentare"
-      original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
+      original_post_deleted: "Originalbeitrag wurde vom Autor entfernt"
       public: "Öffentlich"
       reshare: "Weitersagen"
       reshares:

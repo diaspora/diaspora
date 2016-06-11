@@ -64,7 +64,7 @@ de:
     create: "Erstellen"
     delete: "Löschen"
     edit: "Bearbeiten"
-    failed_to_like: "Gefällt mir fehlgeschlagen!"
+    failed_to_like: "Gefällt mir fehlgeschlagen. Vielleicht ignoriert dich der Autor?"
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     failed_to_remove: "Fehler beim Entfernen des Beitrags!"
     failed_to_reshare: "Fehler beim Weitersagen!"
@@ -171,7 +171,6 @@ de:
       follow: "Folgen"
       followed_tag:
         add_a_tag: "Tag hinzufügen"
-        contacts_title: "Leute, die diese Tags mögen"
         follow: "Folgen"
         title: "#Tags, denen du folgst"
       hide: "Ausblenden"

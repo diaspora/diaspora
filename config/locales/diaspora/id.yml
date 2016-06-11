@@ -52,6 +52,8 @@ id:
   aspect_memberships:
     destroy:
       failure: "Gagal menghapus pribadi dari Aspek"
+      forbidden: "Kamu tidak boleh melakukannya."
+      invalid_statement: "Catatan duplikat ditolak."
       no_membership: "Tidak dapat menemukan orang dicari pada aspek tersebut"
       success: "Berhasil menghapus pribadi dari Aspek"
   aspects:
@@ -125,8 +127,6 @@ id:
       you_should_add_some_more_contacts: "Anda perlu menambahkan beberapa kontak baru!"
     no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    one: "1 aspek"
-    other: "%{count} aspek"
     seed:
       acquaintances: "Kenalan"
       family: "Keluarga"
@@ -135,7 +135,6 @@ id:
     update:
       failure: "Nama aspek anda, %{name}, terlalu panjang untuk disimpan."
       success: "Aspek anda, %{name}, telah berhasil diubah."
-    zero: "Tak ada apapun yang di pilih"
   back: "Kembali"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
@@ -165,13 +164,10 @@ id:
       start_a_conversation: "Mulai pembicaraan"
       title: "Kontak"
       your_contacts: "Kontakmu"
-    one: "1 kontak"
-    other: "%{count} kontak"
     sharing:
       people_sharing: "Orang-orang yang berbagi dengan anda"
     spotlight:
       community_spotlight: "Sorotan Komunitas"
-    zero: "kontak"
   conversations:
     create:
       fail: "Pesan tak valid"
@@ -212,6 +208,8 @@ id:
   fill_me_out: "Isi di sini"
   find_people: "Temukan orang"
   hide: "Sembunyikan"
+  invitation_codes:
+    not_valid: "Kode undangan sudah tidak valid."
   invitations:
     a_facebook_user: "Seorang pengguna Facebook"
     check_token:
@@ -497,6 +495,7 @@ id:
       notice: "Foto berhasil diperbarui."
   posts:
     show:
+      forbidden: "Kamu tidak boleh melakukannya"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -612,8 +611,6 @@ id:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    tags:
-      contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"

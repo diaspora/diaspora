@@ -168,7 +168,6 @@ hy:
       follow: "Հետևել"
       followed_tag:
         add_a_tag: "Պիտակ ավելացնել"
-        contacts_title: "Մարդիկ, ում հետաքրքիր են այս պիտակները"
         follow: "Հետևել"
         title: "#Հետևվող_պիտակներ"
       hide: "Թաքցնել"
@@ -190,8 +189,8 @@ hy:
         one: "<%= count %> հոգի տարածել է"
         other: "<%= count %> հոգի տարածել են"
         zero: "Ոչ ոք չի տարածել"
-      show_nsfw_post: "Ցուցադրել գրառումը"
-      show_nsfw_posts: "Ցուցադրել բոլորը"
+      show_nsfw_post: "Ցույց տալ գրառումը"
+      show_nsfw_posts: "Ցույց տալ բոլորը"
       tags:
         follow: "Հետևել #<%= tag %>"
         follow_error: "Չստացվեց հետևել #<%= tag %>"
