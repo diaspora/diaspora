@@ -33,8 +33,7 @@ shared_examples_for "it is relayable" do
 
         it "sends a retraction for the object" do
           skip 'need to figure out how to test this'
-          expect(RelayableRetraction).to receive(:build)
-          expect(Postzord::Dispatcher).to receive(:build)
+          expect(Retraction).to receive(:for)
           @relayable.valid?
         end
 
