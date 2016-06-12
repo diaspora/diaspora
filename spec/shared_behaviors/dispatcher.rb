@@ -1,0 +1,68 @@
+shared_examples "a dispatcher" do
+  describe "#dispatch" do
+    context "deliver to user services" do
+      let(:twitter) { Services::Twitter.new(access_token: "twitter") }
+      let(:facebook) { Services::Facebook.new(access_token: "facebook") }
+
+      before do
+        alice.services << twitter << facebook
+      end
+
+      it "delivers a StatusMessage to specified services" do
+        opts = {service_types: "Services::Twitter", url: "https://example.org/p/123"}
+        expect(Workers::PostToService).to receive(:perform_async).with(twitter.id, post.id, "https://example.org/p/123")
+        Diaspora::Federation::Dispatcher.build(alice, post, opts).dispatch
+      end
+
+      it "delivers a Retraction of a Post to all user services" do
+        skip # TODO
+
+        retraction = Retraction.for(post, alice)
+        Diaspora::Federation::Dispatcher.build(alice, retraction).dispatch
+      end
+
+      it "does not deliver a Comment to services" do
+        expect(Workers::PostToService).not_to receive(:perform_async)
+        Diaspora::Federation::Dispatcher.build(alice, comment).dispatch
+      end
+
+      it "does not deliver a Retraction of a Comment to services" do
+        expect(Workers::DeletePostFromService).not_to receive(:perform_async)
+
+        retraction = Retraction.for(comment, alice)
+        Diaspora::Federation::Dispatcher.build(alice, retraction).dispatch
+      end
+    end
+
+    context "deliver to local user" do
+      it "queues receive local job for all local receivers" do
+        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, [bob.id])
+        Diaspora::Federation::Dispatcher.build(alice, post).dispatch
+      end
+
+      it "gets the object for the receiving user" do
+        expect(Workers::ReceiveLocal).to receive(:perform_async).with("RSpec::Mocks::Double", 42, [bob.id])
+
+        object = double
+        object_to_receive = double
+        expect(object).to receive(:subscribers).and_return([bob.person])
+        expect(object).to receive(:object_to_receive).and_return(object_to_receive)
+        expect(object).to receive(:public?).and_return(post.public?)
+        expect(object_to_receive).to receive(:id).and_return(42)
+
+        Diaspora::Federation::Dispatcher.build(alice, object).dispatch
+      end
+
+      it "does not queue a job if the object to receive is nil" do
+        expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+
+        object = double
+        expect(object).to receive(:subscribers).and_return([bob.person])
+        expect(object).to receive(:object_to_receive).and_return(nil)
+        expect(object).to receive(:public?).and_return(post.public?)
+
+        Diaspora::Federation::Dispatcher.build(alice, object).dispatch
+      end
+    end
+  end
+end

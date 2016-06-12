@@ -38,7 +38,7 @@ module Diaspora
         local_people, remote_people = object.subscribers.partition(&:local?)
 
         deliver_to_local(local_people) unless local_people.empty?
-        deliver_to_remote(remote_people) unless remote_people.empty?
+        deliver_to_remote(remote_people)
       end
 
       def deliver_to_local(people)

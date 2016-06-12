@@ -2,6 +2,8 @@ module Diaspora
   module Federation
     class Dispatcher
       class Public < Dispatcher
+        private
+
         def deliver_to_services
           deliver_to_hub if object.instance_of?(StatusMessage)
           super
@@ -10,11 +12,11 @@ module Diaspora
         def deliver_to_remote(people)
           targets = target_urls(people) + additional_target_urls
 
+          return if targets.empty?
+
           entity = Entities.build(object)
           Workers::SendPublic.perform_async(sender.id, entity.to_s, targets, salmon_xml(entity))
         end
-
-        private
 
         def target_urls(people)
           Pod.where(id: people.map(&:pod_id).uniq).map {|pod| pod.url_to("/receive/public") }

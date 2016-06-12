@@ -2,12 +2,14 @@ module Diaspora
   module Federation
     class Dispatcher
       class Private < Dispatcher
+        private
+
         def deliver_to_remote(people)
+          return if people.empty?
+
           entity = Entities.build(object)
           Workers::SendPrivate.perform_async(sender.id, entity.to_s, targets(people, salmon_slap(entity)))
         end
-
-        private
 
         def targets(people, salmon_slap)
           people.map {|person| [person.receive_url, salmon_slap.generate_xml(person.public_key)] }.to_h
