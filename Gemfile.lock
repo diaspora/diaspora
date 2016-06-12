@@ -403,7 +403,7 @@ GEM
       rake (>= 10, < 12)
       rubocop (>= 0.36.0)
       sysexits (~> 1.1)
-    hamlit (2.3.1)
+    hamlit (2.5.0)
       temple (~> 0.7.6)
       thor
       tilt
@@ -835,7 +835,7 @@ GEM
       json (>= 1.4.3)
     sysexits (1.2.0)
     systemu (2.6.5)
-    temple (0.7.6)
+    temple (0.7.7)
     terminal-table (1.5.2)
     test_after_commit (1.0.0)
       activerecord (>= 3.2)
@@ -951,7 +951,7 @@ DEPENDENCIES
   guard-rspec (= 4.7.2)
   guard-rubocop (= 1.2.0)
   haml_lint (= 0.17.1)
-  hamlit (= 2.3.1)
+  hamlit (= 2.5.0)
   handlebars_assets (= 0.23.0)
   http_accept_language (= 2.0.5)
   i18n-inflector-rails (= 1.0.7)
