@@ -130,7 +130,7 @@ gem "nokogiri",          "1.6.8"
 gem "redcarpet",         "3.3.4"
 gem "twitter-text",      "1.13.4"
 gem "roxml",             "3.1.6"
-gem "ruby-oembed",       "0.10.0"
+gem "ruby-oembed",       "0.10.1"
 gem "open_graph_reader", "0.6.1"
 
 # Services
