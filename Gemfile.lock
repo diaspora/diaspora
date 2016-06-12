@@ -54,7 +54,7 @@ GEM
       activemodel
       fog (>= 1.8.0)
       unf
-    ast (2.2.0)
+    ast (2.3.0)
     autoprefixer-rails (6.3.6.2)
       execjs
     backbone-on-rails (1.2.0.0)
