@@ -468,7 +468,7 @@ GEM
       multi_json (>= 1.3)
       securecompare
       url_safe_base64
-    json-schema (2.6.1)
+    json-schema (2.6.2)
       addressable (~> 2.3.8)
     json_spec (1.1.4)
       multi_json (~> 1.0)
@@ -963,7 +963,7 @@ DEPENDENCIES
   js_image_paths (= 0.1.0)
   jshintrb (= 0.3.0)
   json (= 1.8.3)
-  json-schema (= 2.6.1)
+  json-schema (= 2.6.2)
   json_spec (= 1.1.4)
   leaflet-rails (= 0.7.7)
   logging-rails (= 0.5.0)
