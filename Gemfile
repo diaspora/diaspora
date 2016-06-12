@@ -226,7 +226,7 @@ group :development do
   gem "guard-jshintrb", "1.1.1"
   gem "guard-rspec",    "4.6.5"
   gem "guard-rubocop",  "1.2.0"
-  gem "guard",          "2.13.0", require: false
+  gem "guard",          "2.14.0", require: false
   gem "rb-fsevent",     "0.9.7", require: false
   gem "rb-inotify",     "0.9.7", require: false
 
