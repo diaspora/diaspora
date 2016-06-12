@@ -96,7 +96,7 @@ describe StatusMessageCreationService do
         status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids))
         photos = status_message.photos
         expect(photos.size).to eq(2)
-        expect(photos.map(&:id).map(&:to_s)).to eq(photo_ids)
+        expect(photos.map(&:id).map(&:to_s)).to match_array(photo_ids)
       end
 
       it "it marks the photos as non-public if the post is non-public" do
