@@ -834,7 +834,7 @@ GEM
     sysexits (1.2.0)
     systemu (2.6.5)
     temple (0.7.7)
-    terminal-table (1.5.2)
+    terminal-table (1.6.0)
     test_after_commit (1.0.0)
       activerecord (>= 3.2)
     thor (0.19.1)
