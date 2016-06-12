@@ -71,7 +71,7 @@ GEM
     bootstrap-switch-rails (3.3.3)
     buftok (0.2.0)
     builder (3.2.2)
-    byebug (8.2.5)
+    byebug (9.0.5)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -598,8 +598,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.3.0)
-      byebug (~> 8.0)
+    pry-byebug (3.4.0)
+      byebug (~> 9.0)
       pry (~> 0.10)
     pry-debundle (0.8)
       pry
