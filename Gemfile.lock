@@ -55,7 +55,7 @@ GEM
       fog (>= 1.8.0)
       unf
     ast (2.2.0)
-    autoprefixer-rails (6.3.6)
+    autoprefixer-rails (6.3.6.2)
       execjs
     backbone-on-rails (1.2.0.0)
       eco
@@ -187,7 +187,7 @@ GEM
       ffi (>= 1.3.0)
     eventmachine (1.0.9.1)
     excon (0.49.0)
-    execjs (2.6.0)
+    execjs (2.7.0)
     eye (0.7)
       celluloid (~> 0.16.0)
       celluloid-io (~> 0.16.0)
@@ -803,7 +803,7 @@ DEPENDENCIES
   acts_as_api (= 0.4.2)
   addressable (= 2.3.8)
   asset_sync (= 1.1.0)
-  autoprefixer-rails (= 6.3.6)
+  autoprefixer-rails (= 6.3.6.2)
   backbone-on-rails (= 1.2.0.0)
   bootstrap-sass (= 2.3.2.2)
   capybara (= 2.7.1)
