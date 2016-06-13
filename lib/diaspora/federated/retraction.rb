@@ -28,7 +28,7 @@ class Retraction
   end
 
   def defer_dispatch(user)
-    Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id)) unless subscribers.empty?
+    Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id), service_opts(user))
   end
 
   def perform
@@ -41,11 +41,19 @@ class Retraction
     data[:target][:public]
   end
 
-  def target_type
-    data[:target_type]
-  end
-
   private
 
   attr_reader :target
+
+  def service_opts(user)
+    return {} unless target.is_a?(StatusMessage)
+
+    user.services.each_with_object(service_types: []) do |service, opts|
+      service_opts = service.post_opts(target)
+      if service_opts
+        opts.merge!(service_opts)
+        opts[:service_types] << service.class.to_s
+      end
+    end
+  end
 end

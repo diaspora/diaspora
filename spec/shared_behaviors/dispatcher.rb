@@ -2,10 +2,9 @@ shared_examples "a dispatcher" do
   describe "#dispatch" do
     context "deliver to user services" do
       let(:twitter) { Services::Twitter.new(access_token: "twitter") }
-      let(:facebook) { Services::Facebook.new(access_token: "facebook") }
 
       before do
-        alice.services << twitter << facebook
+        alice.services << twitter
       end
 
       it "delivers a StatusMessage to specified services" do
@@ -14,11 +13,18 @@ shared_examples "a dispatcher" do
         Diaspora::Federation::Dispatcher.build(alice, post, opts).dispatch
       end
 
-      it "delivers a Retraction of a Post to all user services" do
-        skip # TODO
+      it "delivers a Retraction of a Post to specified services" do
+        opts = {service_types: "Services::Twitter", tweet_id: "123"}
+        expect(Workers::DeletePostFromService).to receive(:perform_async).with(twitter.id, opts)
 
         retraction = Retraction.for(post, alice)
-        Diaspora::Federation::Dispatcher.build(alice, retraction).dispatch
+        Diaspora::Federation::Dispatcher.build(alice, retraction, opts).dispatch
+      end
+
+      it "does not queue service jobs when no services specified" do
+        opts = {url: "https://example.org/p/123"}
+        expect(Workers::PostToService).not_to receive(:perform_async)
+        Diaspora::Federation::Dispatcher.build(alice, post, opts).dispatch
       end
 
       it "does not deliver a Comment to services" do

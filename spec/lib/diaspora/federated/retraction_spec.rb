@@ -53,20 +53,50 @@ describe Retraction do
   describe ".defer_dispatch" do
     it "queues a job to send the retraction later" do
       post = local_luke.post(:status_message, text: "destroy!", public: true)
+      federation_retraction = Diaspora::Federation::Entities.signed_retraction(post, local_luke)
+
+      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+        local_luke.id, federation_retraction.to_h, [remote_raphael.id], service_types: []
+      )
+
+      Retraction.for(post, local_luke).defer_dispatch(local_luke)
+    end
+
+    it "adds service metadata to queued job for deletion" do
+      post.tweet_id = "123"
+      twitter = Services::Twitter.new(access_token: "twitter")
+      facebook = Services::Facebook.new(access_token: "facebook")
+      alice.services << twitter << facebook
+
       federation_retraction = Diaspora::Federation::Entities.signed_retraction(post, alice)
 
-      expect(Workers::DeferredRetraction)
-        .to receive(:perform_async).with(alice.id, federation_retraction.to_h, [remote_raphael.id])
+      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+        alice.id, federation_retraction.to_h, [], service_types: ["Services::Twitter"], tweet_id: "123"
+      )
 
       Retraction.for(post, alice).defer_dispatch(alice)
     end
 
-    it "does not queue a job if subscribers is empty" do
+    it "queues also a job if subscribers is empty" do
       federation_retraction = Diaspora::Federation::Entities.signed_retraction(post, alice)
 
-      expect(Workers::DeferredRetraction).not_to receive(:perform_async).with(alice.id, federation_retraction.to_h, [])
+      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+        alice.id, federation_retraction.to_h, [], service_types: []
+      )
 
       Retraction.for(post, alice).defer_dispatch(alice)
+    end
+
+    it "queues a job with empty opts for non-StatusMessage" do
+      post = local_luke.post(:status_message, text: "hello", public: true)
+      comment = local_luke.comment!(post, "destroy!")
+      federation_retraction = Diaspora::Federation::Entities.relayable_retraction(comment, local_luke)
+
+      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+        local_luke.id, federation_retraction.to_h, [remote_raphael.id], {}
+      )
+
+      Retraction.for(comment, local_luke).defer_dispatch(local_luke)
     end
   end
 
@@ -85,17 +115,6 @@ describe Retraction do
     it "returns false for a private target" do
       private_post = alice.post(:status_message, text: "destroy!", to: alice.aspects.first.id)
       expect(Retraction.for(private_post, alice).public?).to be_falsey
-    end
-  end
-
-  describe "#target_type" do
-    it "returns the type of the target as String" do
-      expect(Retraction.for(post, alice).target_type).to eq("Post")
-    end
-
-    it "is Person for a Contact-retraction" do
-      contact = FactoryGirl.create(:contact)
-      expect(Retraction.for(contact, contact.user).target_type).to eq("Person")
     end
   end
 end

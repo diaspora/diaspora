@@ -31,7 +31,7 @@ module Diaspora
       attr_reader :sender, :object, :opts
 
       def deliver_to_services
-        deliver_to_user_services
+        deliver_to_user_services if opts[:service_types]
       end
 
       def deliver_to_subscribers
@@ -52,21 +52,16 @@ module Diaspora
       end
 
       def deliver_to_user_services
-        if object.is_a?(StatusMessage) && opts[:service_types]
-          post_to_services
-        elsif object.is_a?(Retraction) && object.target_type == "Post"
-          delete_from_services
+        case object
+        when StatusMessage
+          each_service {|service| Workers::PostToService.perform_async(service.id, object.id, opts[:url]) }
+        when Retraction
+          each_service {|service| Workers::DeletePostFromService.perform_async(service.id, opts) }
         end
       end
 
-      def post_to_services
-        sender.services.where(type: opts[:service_types]).each do |service|
-          Workers::PostToService.perform_async(service.id, object.id, opts[:url])
-        end
-      end
-
-      def delete_from_services
-        sender.services.each {|service| Workers::DeletePostFromService.perform_async(service.id, object.target.id) }
+      def each_service
+        sender.services.where(type: opts[:service_types]).each {|service| yield(service) }
       end
     end
   end
