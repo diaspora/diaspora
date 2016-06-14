@@ -44,28 +44,19 @@ shared_examples_for "it is relayable" do
     end
   end
 
-  context 'propagation' do
-    describe '#receive' do
-      it 'dispatches when the person receiving is the parent author' do
-        skip # TODO
-        p = Postzord::Dispatcher.build(@local_luke, @object_by_recipient)
-        expect(p).to receive(:post)
-        allow(p.class).to receive(:new).and_return(p)
-        @object_by_recipient.receive(@local_luke, @local_leia.person)
-      end
+  describe "#subscribers" do
+    it "returns the parents original audience, if the parent is local" do
+      expect(object_on_local_parent.subscribers.map(&:id))
+        .to match_array([local_leia.person, remote_raphael].map(&:id))
     end
 
-    describe '#subscribers' do
-      it 'returns the posts original audience, if the post is owned by the user' do
-        expect(@object_by_parent_author.subscribers.map(&:id))
-          .to match_array([@local_leia.person, @remote_raphael].map(&:id))
-      end
+    it "returns remote persons of the parents original audience, if the parent is local, but the author is remote" do
+      expect(remote_object_on_local_parent.subscribers.map(&:id)).to match_array([remote_raphael].map(&:id))
+    end
 
-      it 'returns the owner of the original post, if the user owns the object' do
-        skip # TODO
-        expect(@object_by_recipient.subscribers.map(&:id)).to match_array([@local_luke.person].map(&:id))
-      end
+    it "returns the author of parent and author of relayable (for local delivery), if the parent is not local" do
+      expect(object_on_remote_parent.subscribers.map(&:id))
+        .to match_array([remote_raphael, local_luke.person].map(&:id))
     end
   end
 end
-

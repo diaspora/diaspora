@@ -52,3 +52,15 @@ shared_examples_for "it rejects if the parent author ignores the author" do |kla
     end
   end
 end
+
+shared_examples_for "it relays relayables" do |klass, method|
+  it "dispatches the received relayable" do
+    expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch) do |parent_author, relayable|
+      expect(parent_author).to eq(alice)
+      expect(relayable).to be_instance_of(klass)
+      expect(relayable.guid).to eq(entity.guid)
+    end
+
+    Diaspora::Federation::Receive.public_send(method, entity)
+  end
+end

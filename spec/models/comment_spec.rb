@@ -3,9 +3,8 @@
 #   the COPYRIGHT file.
 
 require "spec_helper"
-require Rails.root.join("spec", "shared_behaviors", "relayable")
 
-describe Comment, :type => :model do
+describe Comment, type: :model do
   let(:alices_aspect) { alice.aspects.first }
   let(:status_bob) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
   let(:comment_alice) { alice.comment!(status_bob, "why so formal?") }
@@ -67,25 +66,13 @@ describe Comment, :type => :model do
     end
   end
 
-  describe "it is relayable" do
-    let(:remote_parent) { build(:status_message, author: remote_raphael) }
-    let(:local_parent) { local_luke.post :status_message, text: "hi", to: local_luke.aspects.first }
-    let(:object_by_parent_author) { local_luke.comment!(local_parent, "yo!") }
-    let(:object_by_recipient) { local_leia.build_comment(text: "yo", post: local_parent) }
-    let(:dup_object_by_parent_author) { object_by_parent_author.dup }
+  it_behaves_like "it is relayable" do
+    let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_raphael) }
+    let(:local_parent) { local_luke.post(:status_message, text: "hi", to: local_luke.aspects.first) }
+    let(:object_on_local_parent) { local_luke.comment!(local_parent, "yo!") }
     let(:object_on_remote_parent) { local_luke.comment!(remote_parent, "Yeah, it was great") }
-
-    before do
-      # shared_behaviors/relayable.rb is still using instance variables, so we need to define them here.
-      # Suggestion: refactor all specs using shared_behaviors/relayable.rb to use "let"
-      @object_by_parent_author = object_by_parent_author
-      @object_by_recipient = object_by_recipient
-      @dup_object_by_parent_author = dup_object_by_parent_author
-      @object_on_remote_parent = object_on_remote_parent
-    end
-
+    let(:remote_object_on_local_parent) { FactoryGirl.create(:comment, post: local_parent, author: remote_raphael) }
     let(:relayable) { Comment::Generator.new(alice, status_bob, "why so formal?").build }
-    it_should_behave_like "it is relayable"
   end
 
   describe "tags" do

@@ -33,12 +33,13 @@ end
 def create_relayable_entity(entity_name, parent, diaspora_id)
   expect(DiasporaFederation.callbacks).to receive(:trigger).with(
     :fetch_private_key, alice.diaspora_handle
-  ).and_return(nil) if parent == local_parent
+  ).at_least(1).times.and_return(nil) if parent == local_parent
 
+  parent_guid = parent.guid
   FactoryGirl.build(
     entity_name,
-    conversation_guid: parent.guid,
-    parent_guid:       parent.guid,
+    conversation_guid: parent_guid,
+    parent_guid:       parent_guid,
     author:            diaspora_id,
     poll_answer_guid:  parent.respond_to?(:poll_answers) ? parent.poll_answers.first.guid : nil,
     parent:            Diaspora::Federation::Entities.related_entity(parent)

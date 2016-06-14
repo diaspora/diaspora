@@ -2,70 +2,50 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-require Rails.root.join("spec", "shared_behaviors", "relayable")
+require "spec_helper"
 
-describe Message, :type => :model do
-  before do
-    @create_hash = {
-      :author => bob.person,
-      :participant_ids => [bob.person.id, alice.person.id],
-      :subject => "cool stuff",
-      :messages_attributes => [ {:author => bob.person, :text => 'stuff'} ]
+describe Message, type: :model do
+  let(:create_hash) {
+    {
+      author:              bob.person,
+      participant_ids:     [bob.person.id, alice.person.id],
+      subject:             "cool stuff",
+      messages_attributes: [{author: bob.person, text: "stuff"}]
     }
+  }
+  let(:conversation) { Conversation.create!(create_hash) }
+  let(:message) { conversation.messages.first }
 
-    @conversation = Conversation.create!(@create_hash)
-    @message = @conversation.messages.first
-  end
-
-  it 'validates that the author is a participant in the conversation' do
-    message = Message.new(:text => 'yo', :author => eve.person, :conversation_id => @conversation.id)
+  it "validates that the author is a participant in the conversation" do
+    message = Message.new(text: "yo", author: eve.person, conversation_id: conversation.id)
     expect(message).not_to be_valid
   end
 
-  describe 'it is relayable' do
-    before do
-      @local_luke, @local_leia, @remote_raphael = set_up_friends
-
-      cnv_hash = {
-        :author => @remote_raphael,
-        :participant_ids => [@local_luke.person, @local_leia.person, @remote_raphael].map(&:id),
-        :subject => 'cool story, bro',
-        :messages_attributes => [ {:author => @remote_raphael, :text => 'hey'} ]
+  it_behaves_like "it is relayable" do
+    let(:cnv_hash) {
+      {
+        participant_ids:     [local_luke.person, local_leia.person, remote_raphael].map(&:id),
+        subject:             "cool story, bro",
+        messages_attributes: [{author: remote_raphael, text: "hey"}]
       }
+    }
+    let(:remote_parent) { Conversation.create(cnv_hash.merge(author: remote_raphael)) }
+    let(:local_parent) { Conversation.create(cnv_hash.merge(author: local_luke.person)) }
+    let(:object_on_local_parent) { Message.create(author: local_luke.person, text: "yo", conversation: local_parent) }
+    let(:object_on_remote_parent) { Message.create(author: local_luke.person, text: "yo", conversation: remote_parent) }
+    let(:remote_object_on_local_parent) {
+      Message.create(author: remote_raphael, text: "yo", conversation: local_parent)
+    }
+    let(:relayable) { Message.new(author: alice.person, text: "ohai!", conversation: conversation) }
+  end
 
-      @remote_parent = Conversation.create(cnv_hash.dup)
+  describe "#increase_unread" do
+    it "increments the conversation visibility for the conversation" do
+      conf = ConversationVisibility.find_by(conversation_id: conversation.id, person_id: alice.person.id)
+      expect(conf.unread).to eq(0)
 
-      cnv_hash[:author] = @local_luke.person
-      @local_parent = Conversation.create(cnv_hash)
-
-      msg_hash = {:author => @local_luke.person, :text => 'yo', :conversation => @local_parent}
-      @object_by_parent_author = Message.create(msg_hash.dup)
-      Diaspora::Federation::Dispatcher.build(@local_luke, @object_by_parent_author).dispatch
-
-      msg_hash[:author] = @local_leia.person
-      @object_by_recipient = Message.create(msg_hash.dup)
-
-      @dup_object_by_parent_author = @object_by_parent_author.dup
-
-      msg_hash[:author] = @local_luke.person
-      msg_hash[:conversation] = @remote_parent
-      @object_on_remote_parent = Message.create(msg_hash)
-      Diaspora::Federation::Dispatcher.build(@local_luke, @object_on_remote_parent).dispatch
-    end
-
-    let(:relayable) { Message.new(author: @alice.person, text: "ohai!", conversation: @conversation) }
-    it_should_behave_like "it is relayable"
-
-    describe '#increase_unread' do
-      it 'increments the conversation visiblity for the conversation' do
-       expect(ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
-                                                     :person_id => @local_luke.person.id).first.unread).to eq(0)
-
-        @object_by_recipient.increase_unread(@local_luke)
-        expect(ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
-                                                     :person_id => @local_luke.person.id).first.unread).to eq(1)
-      end
+      message.increase_unread(alice)
+      expect(conf.reload.unread).to eq(1)
     end
   end
 end

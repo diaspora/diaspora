@@ -31,9 +31,13 @@ module Diaspora
     # @return [Array<Person>]
     def subscribers
       if parent.author.local?
-        parent.subscribers
+        if author.local?
+          parent.subscribers
+        else
+          parent.subscribers.select(&:remote?)
+        end
       else
-        [parent.author]
+        [parent.author, author]
       end
     end
 

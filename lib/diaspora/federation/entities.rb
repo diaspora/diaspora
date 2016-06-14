@@ -51,11 +51,12 @@ module Diaspora
 
       def self.comment(comment)
         DiasporaFederation::Entities::Comment.new(
-          author:      comment.diaspora_handle,
-          guid:        comment.guid,
-          parent_guid: comment.post.guid,
-          text:        comment.text,
-          parent:      related_entity(comment.post)
+          author:           comment.diaspora_handle,
+          guid:             comment.guid,
+          parent_guid:      comment.post.guid,
+          text:             comment.text,
+          author_signature: comment.author_signature,
+          parent:           related_entity(comment.post)
         )
       end
 
@@ -80,12 +81,13 @@ module Diaspora
 
       def self.like(like)
         DiasporaFederation::Entities::Like.new(
-          author:      like.diaspora_handle,
-          guid:        like.guid,
-          parent_guid: like.target.guid,
-          positive:    like.positive,
-          parent_type: like.target.class.base_class.to_s,
-          parent:      related_entity(like.target)
+          author:           like.diaspora_handle,
+          guid:             like.guid,
+          parent_guid:      like.target.guid,
+          positive:         like.positive,
+          parent_type:      like.target.class.base_class.to_s,
+          author_signature: like.author_signature,
+          parent:           related_entity(like.target)
         )
       end
 
@@ -105,6 +107,7 @@ module Diaspora
           created_at:        message.created_at,
           parent_guid:       message.conversation.guid,
           conversation_guid: message.conversation.guid,
+          author_signature:  message.author_signature,
           parent:            related_entity(message.conversation)
         )
       end
@@ -155,6 +158,7 @@ module Diaspora
           guid:             poll_participation.guid,
           parent_guid:      poll_participation.poll.guid,
           poll_answer_guid: poll_participation.poll_answer.guid,
+          author_signature: poll_participation.author_signature,
           parent:           related_entity(poll_participation.poll)
         )
       end

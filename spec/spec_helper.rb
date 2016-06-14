@@ -23,10 +23,6 @@ UnprocessedImage.enable_processing = false
 Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
 Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
-def set_up_friends
-  [local_luke, local_leia, remote_raphael]
-end
-
 def alice
   @alice ||= User.find_by(username: "alice")
 end

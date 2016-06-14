@@ -8,15 +8,14 @@ module Diaspora
       end
 
       def self.comment(entity)
-        author = author_of(entity)
-        ignore_existing_guid(Comment, entity.guid, author) do
+        receive_relayable(Comment, entity) do
           Comment.new(
-            author:      author,
+            author:      author_of(entity),
             guid:        entity.guid,
             created_at:  entity.created_at,
             text:        entity.text,
             commentable: Post.find_by(guid: entity.parent_guid)
-          ).tap {|comment| save_relayable(comment, entity) }
+          )
         end
       end
 
@@ -40,21 +39,18 @@ module Diaspora
       end
 
       def self.like(entity)
-        author = author_of(entity)
-        ignore_existing_guid(Like, entity.guid, author) do
+        receive_relayable(Like, entity) do
           Like.new(
-            author:   author,
+            author:   author_of(entity),
             guid:     entity.guid,
             positive: entity.positive,
             target:   entity.parent_type.constantize.find_by(guid: entity.parent_guid)
-          ).tap {|like| save_relayable(like, entity) }
+          )
         end
       end
 
       def self.message(entity)
-        ignore_existing_guid(Message, entity.guid, author_of(entity)) do
-          build_message(entity).tap(&:save!)
-        end
+        save_message(entity).tap {|message| relay_relayable(message) if message }
       end
 
       def self.participation(entity)
@@ -89,14 +85,13 @@ module Diaspora
       end
 
       def self.poll_participation(entity)
-        author = author_of(entity)
-        ignore_existing_guid(PollParticipation, entity.guid, author) do
+        receive_relayable(PollParticipation, entity) do
           PollParticipation.new(
-            author:           author,
+            author:           author_of(entity),
             guid:             entity.guid,
             poll:             Poll.find_by(guid: entity.parent_guid),
             poll_answer_guid: entity.poll_answer_guid
-          ).tap {|poll_participation| save_relayable(poll_participation, entity) }
+          )
         end
       end
 
@@ -201,6 +196,16 @@ module Diaspora
       end
       private_class_method :build_poll
 
+      def self.save_message(entity)
+        ignore_existing_guid(Message, entity.guid, author_of(entity)) do
+          build_message(entity).tap do |message|
+            message.author_signature = entity.author_signature if message.conversation.author.local?
+            message.save!
+          end
+        end
+      end
+      private_class_method :save_message
+
       def self.save_photo(entity)
         Photo.create!(
           author:              author_of(entity),
@@ -217,11 +222,20 @@ module Diaspora
       end
       private_class_method :save_photo
 
-      def self.save_relayable(relayable, entity)
-        retract_if_author_ignored(relayable)
+      def self.receive_relayable(klass, entity)
+        save_relayable(klass, entity) { yield }.tap {|relayable| relay_relayable(relayable) if relayable }
+      end
+      private_class_method :receive_relayable
 
-        relayable.author_signature = entity.author_signature if relayable.parent.author.local?
-        relayable.save!
+      def self.save_relayable(klass, entity)
+        ignore_existing_guid(klass, entity.guid, author_of(entity)) do
+          yield.tap do |relayable|
+            retract_if_author_ignored(relayable)
+
+            relayable.author_signature = entity.author_signature if relayable.parent.author.local?
+            relayable.save!
+          end
+        end
       end
       private_class_method :save_relayable
 
@@ -254,6 +268,12 @@ module Diaspora
         raise Diaspora::Federation::AuthorIgnored
       end
       private_class_method :retract_if_author_ignored
+
+      def self.relay_relayable(relayable)
+        parent_author = relayable.parent.author.owner
+        Diaspora::Federation::Dispatcher.defer_dispatch(parent_author, relayable) if parent_author
+      end
+      private_class_method :relay_relayable
 
       # check if the object already exists, otherwise save it.
       # if save fails (probably because of a second object received parallel),

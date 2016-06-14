@@ -42,6 +42,7 @@ describe Diaspora::Federation::Receive do
     let(:entity) { comment_entity }
     it_behaves_like "it ignores existing object received twice", Comment, :comment
     it_behaves_like "it rejects if the parent author ignores the author", Comment, :comment
+    it_behaves_like "it relays relayables", Comment, :comment
   end
 
   describe ".contact" do
@@ -158,6 +159,7 @@ describe Diaspora::Federation::Receive do
     let(:entity) { like_entity }
     it_behaves_like "it ignores existing object received twice", Like, :like
     it_behaves_like "it rejects if the parent author ignores the author", Like, :like
+    it_behaves_like "it relays relayables", Like, :like
   end
 
   describe ".message" do
@@ -196,9 +198,9 @@ describe Diaspora::Federation::Receive do
       expect(msg.conversation).to eq(conv)
     end
 
-    it_behaves_like "it ignores existing object received twice", Message, :message do
-      let(:entity) { message_entity }
-    end
+    let(:entity) { message_entity }
+    it_behaves_like "it ignores existing object received twice", Message, :message
+    it_behaves_like "it relays relayables", Message, :message
   end
 
   describe ".participation" do
@@ -323,6 +325,7 @@ describe Diaspora::Federation::Receive do
     let(:entity) { poll_participation_entity }
     it_behaves_like "it ignores existing object received twice", PollParticipation, :poll_participation
     it_behaves_like "it rejects if the parent author ignores the author", PollParticipation, :poll_participation
+    it_behaves_like "it relays relayables", PollParticipation, :poll_participation
   end
 
   describe ".profile" do
