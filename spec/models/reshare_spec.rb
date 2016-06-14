@@ -115,4 +115,16 @@ describe Reshare, type: :model do
       end
     end
   end
+
+  describe "#subscribers" do
+    it "adds root author to subscribers" do
+      user = FactoryGirl.create(:user_with_aspect)
+      user.share_with(alice.person, user.aspects.first)
+
+      post = eve.post(:status_message, text: "hello", public: true)
+      reshare = FactoryGirl.create(:reshare, root: post, author: user.person)
+
+      expect(reshare.subscribers).to eq([alice.person, eve.person])
+    end
+  end
 end

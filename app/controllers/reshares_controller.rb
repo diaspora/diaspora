@@ -11,7 +11,7 @@ class ResharesController < ApplicationController
     end
 
     if @reshare.save
-      current_user.dispatch_post(@reshare, :url => post_url(@reshare), :additional_subscribers => @reshare.root_author)
+      current_user.dispatch_post(@reshare)
       render :json => ExtremePostPresenter.new(@reshare, current_user), :status => 201
     else
       render :nothing => true, :status => 422

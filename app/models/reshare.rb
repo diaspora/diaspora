@@ -63,6 +63,10 @@ class Reshare < Post
     @absolute_root
   end
 
+  def subscribers
+    super + [root.author]
+  end
+
   private
 
   def root_must_be_public

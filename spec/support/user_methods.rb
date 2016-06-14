@@ -27,7 +27,6 @@ class User
             host: AppConfig.pod_uri.to_s
           ),
           to:  opts[:to]}
-        dispatch_opts.merge!(:additional_subscribers => p.root.author) if class_name == :reshare
         dispatch_post(p, dispatch_opts)
       end
       unless opts[:created_at]
