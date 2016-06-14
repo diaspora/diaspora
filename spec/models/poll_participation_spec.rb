@@ -45,7 +45,7 @@ describe PollParticipation, :type => :model do
       @object_on_remote_parent = @local_luke.participate_in_poll!(@remote_parent, @remote_parent.poll.poll_answers.first)
     end
 
-  let(:build_object) { PollParticipation::Generator.new(alice, @status, @poll.poll_answers.first).build }
-  it_should_behave_like 'it is relayable'
+  let(:relayable) { PollParticipation::Generator.new(alice, @status, @poll.poll_answers.first).build }
+  it_should_behave_like "it is relayable"
   end
 end

@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Diaspora::Federation::Receive do
   let(:sender) { FactoryGirl.create(:person) }
-  let(:post) { alice.post(:status_message, text: "hello", public: true) }
+  let(:post) { FactoryGirl.create(:status_message, text: "hello", public: true, author: alice.person) }
 
   describe ".account_deletion" do
     let(:account_deletion_entity) { FactoryGirl.build(:account_deletion_entity, author: sender.diaspora_handle) }
@@ -39,9 +39,9 @@ describe Diaspora::Federation::Receive do
       expect(comment.post).to eq(post)
     end
 
-    it_behaves_like "it ignores existing object received twice", Comment, :comment do
-      let(:entity) { comment_entity }
-    end
+    let(:entity) { comment_entity }
+    it_behaves_like "it ignores existing object received twice", Comment, :comment
+    it_behaves_like "it rejects if the parent author ignores the author", Comment, :comment
   end
 
   describe ".contact" do
@@ -155,9 +155,9 @@ describe Diaspora::Federation::Receive do
       expect(like.target).to eq(post)
     end
 
-    it_behaves_like "it ignores existing object received twice", Like, :like do
-      let(:entity) { like_entity }
-    end
+    let(:entity) { like_entity }
+    it_behaves_like "it ignores existing object received twice", Like, :like
+    it_behaves_like "it rejects if the parent author ignores the author", Like, :like
   end
 
   describe ".message" do
@@ -291,7 +291,7 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".poll_participation" do
-    let(:post_with_poll) { FactoryGirl.create(:status_message_with_poll) }
+    let(:post_with_poll) { FactoryGirl.create(:status_message_with_poll, author: alice.person) }
     let(:poll_participation_entity) {
       FactoryGirl.build(
         :poll_participation_entity,
@@ -320,9 +320,9 @@ describe Diaspora::Federation::Receive do
       expect(poll_participation.poll).to eq(post_with_poll.poll)
     end
 
-    it_behaves_like "it ignores existing object received twice", PollParticipation, :poll_participation do
-      let(:entity) { poll_participation_entity }
-    end
+    let(:entity) { poll_participation_entity }
+    it_behaves_like "it ignores existing object received twice", PollParticipation, :poll_participation
+    it_behaves_like "it rejects if the parent author ignores the author", PollParticipation, :poll_participation
   end
 
   describe ".profile" do

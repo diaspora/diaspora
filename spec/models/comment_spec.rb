@@ -84,7 +84,7 @@ describe Comment, :type => :model do
       @object_on_remote_parent = object_on_remote_parent
     end
 
-    let(:build_object) { alice.build_comment(post: status_bob, text: "why so formal?") }
+    let(:relayable) { Comment::Generator.new(alice, status_bob, "why so formal?").build }
     it_should_behave_like "it is relayable"
   end
 

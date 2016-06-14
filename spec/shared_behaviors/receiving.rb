@@ -14,3 +14,41 @@ shared_examples_for "it ignores existing object received twice" do |klass, metho
     Diaspora::Federation::Receive.public_send(method, entity)
   end
 end
+
+shared_examples_for "it rejects if the parent author ignores the author" do |klass, method|
+  it "saves the relayable if the author is not ignored" do
+    Diaspora::Federation::Receive.public_send(method, entity)
+
+    expect(klass.find_by!(guid: entity.guid)).to be_instance_of(klass)
+  end
+
+  context "if the author is ignored" do
+    before do
+      alice.blocks.create(person: sender)
+    end
+
+    it "raises an error and does not save the relayable" do
+      expect {
+        Diaspora::Federation::Receive.public_send(method, entity)
+      }.to raise_error Diaspora::Federation::AuthorIgnored
+
+      expect(klass.find_by(guid: entity.guid)).to be_nil
+    end
+
+    it "it sends a retraction back to the author" do
+      dispatcher = double
+      expect(Diaspora::Federation::Dispatcher).to receive(:build) do |retraction_sender, retraction, opts|
+        expect(retraction_sender).to eq(alice)
+        expect(retraction.data[:target_guid]).to eq(entity.guid)
+        expect(retraction.data[:target_type]).to eq(klass.to_s)
+        expect(opts).to eq(subscribers: [sender])
+        dispatcher
+      end
+      expect(dispatcher).to receive(:dispatch)
+
+      expect {
+        Diaspora::Federation::Receive.public_send(method, entity)
+      }.to raise_error Diaspora::Federation::AuthorIgnored
+    end
+  end
+end

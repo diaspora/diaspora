@@ -16,9 +16,8 @@ describe Participation, :type => :model do
       @object_on_remote_parent = @local_luke.participate!(@remote_parent)
     end
 
-    let(:build_object) { Participation::Generator.new(alice, @status).build }
-
-    it_should_behave_like 'it is relayable'
+    let(:relayable) { Participation::Generator.new(alice, @status).build }
+    it_should_behave_like "it is relayable"
   end
 
   describe "#unparticipate" do

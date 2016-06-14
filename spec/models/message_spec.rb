@@ -54,8 +54,8 @@ describe Message, :type => :model do
       Diaspora::Federation::Dispatcher.build(@local_luke, @object_on_remote_parent).dispatch
     end
 
-    let(:build_object) { Message.new(:author => @alice.person, :text => "ohai!", :conversation => @conversation) }
-    it_should_behave_like 'it is relayable'
+    let(:relayable) { Message.new(author: @alice.person, text: "ohai!", conversation: @conversation) }
+    it_should_behave_like "it is relayable"
 
     describe '#increase_unread' do
       it 'increments the conversation visiblity for the conversation' do

@@ -245,10 +245,11 @@ module Diaspora
       private_class_method :save_status_message
 
       def self.retract_if_author_ignored(relayable)
-        parent_author = relayable.parent.author
-        return unless parent_author.local? && parent_author.owner.ignored_people.include?(relayable.author)
+        parent_author = relayable.parent.author.owner
+        return unless parent_author && parent_author.ignored_people.include?(relayable.author)
 
-        # TODO: send retraction
+        retraction = Retraction.for(relayable, parent_author)
+        Diaspora::Federation::Dispatcher.build(parent_author, retraction, subscribers: [relayable.author]).dispatch
 
         raise Diaspora::Federation::AuthorIgnored
       end
