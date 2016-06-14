@@ -394,8 +394,8 @@ class User < ActiveRecord::Base
     update_profile( self.profile.from_omniauth_hash( user_info ) )
   end
 
-  def deliver_profile_update
-    Diaspora::Federation::Dispatcher.defer_dispatch(self, profile)
+  def deliver_profile_update(opts={})
+    Diaspora::Federation::Dispatcher.defer_dispatch(self, profile, opts)
   end
 
   def basic_profile_present?

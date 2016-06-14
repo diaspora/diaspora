@@ -19,12 +19,12 @@ class User
 
       if needs_dispatch
         Diaspora::Federation::Dispatcher.defer_dispatch(self, contact)
+        deliver_profile_update(subscriber_ids: [person.id]) unless person.local?
       end
 
       Notifications::StartedSharing.where(recipient_id: id, target: person.id, unread: true)
                                    .update_all(unread: false)
 
-      deliver_profile_update
       contact
     end
 

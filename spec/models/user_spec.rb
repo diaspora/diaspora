@@ -494,12 +494,12 @@ describe User, :type => :model do
 
     it "dispatches the profile when tags are set" do
       @params = {tag_string: '#what #hey'}
-      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile)
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile, {})
       expect(alice.update_profile(@params)).to be true
     end
 
     it "sends a profile to their contacts" do
-      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile)
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile, {})
       expect(alice.update_profile(@params)).to be true
     end
 

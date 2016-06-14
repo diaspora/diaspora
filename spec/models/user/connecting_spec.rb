@@ -167,9 +167,17 @@ describe User::Connecting, type: :model do
         alice.share_with(eve.person, aspect2)
       end
 
-      it "posts profile" do
+      it "delivers profile for remote persons" do
         allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
-        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile)
+        expect(Diaspora::Federation::Dispatcher)
+          .to receive(:defer_dispatch).with(alice, alice.profile, subscriber_ids: [remote_raphael.id])
+
+        alice.share_with(remote_raphael, alice.aspects.first)
+      end
+
+      it "does not deliver profile for remote persons" do
+        allow(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
+        expect(Diaspora::Federation::Dispatcher).not_to receive(:defer_dispatch).with(alice, alice.profile, anything)
 
         alice.share_with(eve.person, alice.aspects.first)
       end
