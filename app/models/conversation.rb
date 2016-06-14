@@ -6,7 +6,8 @@ class Conversation < ActiveRecord::Base
   has_many :participants, :class_name => 'Person', :through => :conversation_visibilities, :source => :person
   has_many :messages, -> { order('created_at ASC') }
 
-  belongs_to :author, :class_name => 'Person'
+  belongs_to :author, class_name: "Person"
+  delegate :diaspora_handle, to: :author
 
   validate :max_participants
   validate :local_recipients
@@ -32,11 +33,7 @@ class Conversation < ActiveRecord::Base
     self.participants - [self.author]
   end
 
-  def diaspora_handle
-    self.author.diaspora_handle
-  end
-
-  def diaspora_handle= nh
+  def diaspora_handle=(nh)
     self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
@@ -58,10 +55,11 @@ class Conversation < ActiveRecord::Base
   end
 
   def participant_handles
-    self.participants.map{|p| p.diaspora_handle}.join(";")
+    participants.map(&:diaspora_handle).join(";")
   end
-  def participant_handles= handles
-    handles.split(';').each do |handle|
+
+  def participant_handles=(handles)
+    handles.split(";").each do |handle|
       participants << Person.find_or_fetch_by_identifier(handle)
     end
   end

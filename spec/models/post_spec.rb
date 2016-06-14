@@ -241,14 +241,15 @@ describe Post, :type => :model do
     end
   end
 
-  describe 'Likeable#update_likes_counter' do
+  describe "Likeable#update_likes_counter" do
     before do
-      @post = bob.post :status_message, :text => "hello", :to => 'all'
+      @post = bob.post(:status_message, text: "hello", public: true)
       bob.like!(@post)
     end
-    it 'does not update updated_at' do
-      old_time = Time.zone.now - 10000
-      Post.where(:id => @post.id).update_all(:updated_at => old_time)
+
+    it "does not update updated_at" do
+      old_time = Time.zone.now - 100
+      Post.where(id: @post.id).update_all(updated_at: old_time)
       expect(@post.reload.updated_at.to_i).to eq(old_time.to_i)
       @post.update_likes_counter
       expect(@post.reload.updated_at.to_i).to eq(old_time.to_i)

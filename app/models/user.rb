@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class User < ActiveRecord::Base
-  include Encryptor::Private
   include Connecting
   include Querying
   include SocialActions

@@ -17,7 +17,7 @@ describe PollParticipation, :type => :model do
         2.times do |run|
           bob.participate_in_poll!(@status, @poll.poll_answers.first)
         end
-      }.to raise_error
+      }.to raise_error ActiveRecord::RecordInvalid
     end
 
     it 'allows a one time participation in a poll' do

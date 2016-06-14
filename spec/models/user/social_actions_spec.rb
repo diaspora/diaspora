@@ -79,7 +79,7 @@ describe User::SocialActions, :type => :model do
     it "does not allow multiple likes" do
       alice.like!(@status)
       likes = @status.likes
-      expect { alice.like!(@status) }.to raise_error
+      expect { alice.like!(@status) }.to raise_error ActiveRecord::RecordInvalid
 
       expect(@status.reload.likes).to eq(likes)
     end

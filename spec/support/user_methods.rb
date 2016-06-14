@@ -37,4 +37,8 @@ class User
       p
     end
   end
+
+  def build_comment(options={})
+    Comment::Generator.new(self, options.delete(:post), options.delete(:text)).build(options)
+  end
 end

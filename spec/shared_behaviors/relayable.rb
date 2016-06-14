@@ -54,28 +54,6 @@ shared_examples_for "it is relayable" do
     end
   end
 
-  context 'encryption' do
-    describe '#parent_author_signature' do
-      it 'should sign the object if the user is the post author' do
-        expect(@object_by_parent_author.verify_parent_author_signature).to be true
-      end
-
-      it 'should verify a object made on a remote post by a different contact' do
-        @object_by_recipient.author_signature = @object_by_recipient.send(:sign_with_key, @local_leia.encryption_key)
-        @object_by_recipient.parent_author_signature = @object_by_recipient.send(:sign_with_key, @local_luke.encryption_key)
-        expect(@object_by_recipient.verify_parent_author_signature).to be true
-      end
-    end
-
-    describe '#author_signature' do
-      it 'should sign as the object author' do
-        expect(@object_on_remote_parent.signature_valid?).to be true
-        expect(@object_by_parent_author.signature_valid?).to be true
-        expect(@object_by_recipient.signature_valid?).to be true
-      end
-    end
-  end
-
   context 'propagation' do
     describe '#receive' do
       it 'dispatches when the person receiving is the parent author' do

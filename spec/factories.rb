@@ -285,7 +285,7 @@ FactoryGirl.define do
 
   factory(:conversation) do
     association(:author, factory: :person)
-    sequence(:subject) { |n| "conversation ##{n}" }
+    sequence(:subject) {|n| "conversation ##{n}" }
 
     after(:build) do |c|
       c.participants << c.author
@@ -306,14 +306,6 @@ FactoryGirl.define do
     association :conversation
     sequence(:text) {|n| "message text ##{n}" }
     after(:build) {|m| m.conversation.participants << m.author }
-  end
-
-  factory(:message_with_conversation, parent: :message) do
-    after(:build) do |msg|
-      c = FactoryGirl.build(:conversation)
-      c.participants << msg.author
-      msg.conversation_id = c.id
-    end
   end
 
   #templates

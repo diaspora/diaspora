@@ -53,9 +53,9 @@ module Diaspora
         DiasporaFederation::Entities::Comment.new(
           author:      comment.diaspora_handle,
           guid:        comment.guid,
-          parent_guid: comment.parent_guid,
+          parent_guid: comment.post.guid,
           text:        comment.text,
-          parent:      related_entity(comment.parent)
+          parent:      related_entity(comment.post)
         )
       end
 
@@ -82,10 +82,10 @@ module Diaspora
         DiasporaFederation::Entities::Like.new(
           author:      like.diaspora_handle,
           guid:        like.guid,
-          parent_guid: like.parent_guid,
+          parent_guid: like.target.guid,
           positive:    like.positive,
-          parent_type: like.parent.class.base_class.to_s,
-          parent:      related_entity(like.parent)
+          parent_type: like.target.class.base_class.to_s,
+          parent:      related_entity(like.target)
         )
       end
 
@@ -103,9 +103,9 @@ module Diaspora
           guid:              message.guid,
           text:              message.text,
           created_at:        message.created_at,
-          parent_guid:       message.parent_guid,
-          conversation_guid: message.parent_guid,
-          parent:            related_entity(message.parent)
+          parent_guid:       message.conversation.guid,
+          conversation_guid: message.conversation.guid,
+          parent:            related_entity(message.conversation)
         )
       end
 
@@ -113,9 +113,9 @@ module Diaspora
         DiasporaFederation::Entities::Participation.new(
           author:      participation.diaspora_handle,
           guid:        participation.guid,
-          parent_guid: participation.parent_guid,
-          parent_type: participation.parent.class.base_class.to_s,
-          parent:      related_entity(participation.parent)
+          parent_guid: participation.target.guid,
+          parent_type: participation.target.class.base_class.to_s,
+          parent:      related_entity(participation.target)
         )
       end
 
@@ -153,9 +153,9 @@ module Diaspora
         DiasporaFederation::Entities::PollParticipation.new(
           author:           poll_participation.diaspora_handle,
           guid:             poll_participation.guid,
-          parent_guid:      poll_participation.parent_guid,
+          parent_guid:      poll_participation.poll.guid,
           poll_answer_guid: poll_participation.poll_answer.guid,
-          parent:           related_entity(poll_participation.parent)
+          parent:           related_entity(poll_participation.poll)
         )
       end
 

@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Person < ActiveRecord::Base
-  include Encryptor::Public
   include Diaspora::Guid
 
   # NOTE API V1 to be extracted

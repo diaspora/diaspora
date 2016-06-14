@@ -18,9 +18,11 @@ class Comment < ActiveRecord::Base
 
   belongs_to :commentable, :touch => true, :polymorphic => true
   alias_attribute :post, :commentable
-  belongs_to :author, :class_name => 'Person'
+  alias_attribute :parent, :commentable
+  belongs_to :author, class_name: "Person"
 
   delegate :name, to: :author, prefix: true
+  delegate :diaspora_handle, to: :author
   delegate :comment_email_subject, to: :parent
   delegate :author_name, to: :parent, prefix: true
 
@@ -36,10 +38,6 @@ class Comment < ActiveRecord::Base
     self.text.strip! unless self.text.nil?
   end
 
-  after_save do
-    self.post.touch
-  end
-
   after_commit :on => :create do
     self.parent.update_comments_counter
   end
@@ -50,24 +48,8 @@ class Comment < ActiveRecord::Base
     participation.unparticipate! if participation.present?
   end
 
-  def diaspora_handle
-    self.author.diaspora_handle
-  end
-
-  def diaspora_handle= nh
+  def diaspora_handle=(nh)
     self.author = Person.find_or_fetch_by_identifier(nh)
-  end
-
-  def parent_class
-    Post
-  end
-
-  def parent
-    self.post
-  end
-
-  def parent= parent
-    self.post = parent
   end
 
   def message
@@ -85,7 +67,6 @@ class Comment < ActiveRecord::Base
 
     def initialize(person, target, text)
       @text = text
-      @dispatcher_opts = {additional_subscribers: target.comments_authors.where.not(id: person.id)}
       super(person, target)
     end
 

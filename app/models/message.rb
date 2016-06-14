@@ -1,53 +1,27 @@
-class NotVisibleError < RuntimeError; end
 class Message < ActiveRecord::Base
   include Diaspora::Federated::Base
   include Diaspora::Guid
   include Diaspora::Relayable
 
-  belongs_to :author, :class_name => 'Person'
-  belongs_to :conversation, :touch => true
+  belongs_to :author, class_name: "Person"
+  belongs_to :conversation, touch: true
 
+  delegate :diaspora_handle, to: :author
   delegate :name, to: :author, prefix: true
+
+  alias_attribute :parent, :conversation
 
   validates :text, :presence => true
   validate :participant_of_parent_conversation
 
-  after_create do  # don't use 'after_commit' here since there is a call to 'save!'
-                   # inside, which would cause an infinite recursion
-    #sign comment as commenter
-    self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
-    self.save!
-    self
-  end
-
-  def diaspora_handle
-    self.author.diaspora_handle
-  end
-
-  def diaspora_handle= nh
+  def diaspora_handle=(nh)
     self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
-  def conversation_guid
-    self.conversation.guid
-  end
-
-  def conversation_guid= guid
+  def conversation_guid=(guid)
     if cnv = Conversation.find_by_guid(guid)
       self.conversation_id = cnv.id
     end
-  end
-
-  def parent_class
-    Conversation
-  end
-
-  def parent
-    self.conversation
-  end
-
-  def parent= parent
-    self.conversation = parent
   end
 
   def increase_unread(user)
@@ -62,8 +36,9 @@ class Message < ActiveRecord::Base
   end
 
   private
+
   def participant_of_parent_conversation
-    if self.parent && !self.parent.participants.include?(self.author)
+    if conversation && !conversation.participants.include?(author)
       errors[:base] << "Author is not participating in the conversation"
     else
       true

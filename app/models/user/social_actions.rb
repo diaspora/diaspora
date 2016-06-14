@@ -29,10 +29,6 @@ module User::SocialActions
     end
   end
 
-  def build_comment(options={})
-    Comment::Generator.new(self, options.delete(:post), options.delete(:text)).build(options)
-  end
-
   def build_conversation(opts={})
     Conversation.new do |c|
       c.author = self.person

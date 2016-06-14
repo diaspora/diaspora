@@ -482,12 +482,6 @@ describe User, :type => :model do
     it "does not preserve case" do
       expect(User.find_for_database_authentication(:username => alice.username.upcase)).to eq(alice)
     end
-
-    it 'errors out when passed a non-hash' do
-      expect {
-        User.find_for_database_authentication(alice.username)
-      }.to raise_error
-    end
   end
 
   describe '#update_profile' do

@@ -23,16 +23,6 @@ describe Message, :type => :model do
     expect(message).not_to be_valid
   end
 
-  describe '#before_create' do
-    it 'signs the message' do
-      expect(@message.author_signature).not_to be_blank
-    end
-
-    it 'signs the message author if author of conversation' do
-      expect(@message.parent_author_signature).not_to be_blank
-    end
-  end
-
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
