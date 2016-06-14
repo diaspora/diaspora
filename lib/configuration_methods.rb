@@ -102,25 +102,14 @@ module Configuration
     end
 
     def get_redis_options
-      if redistogo_url.present?
-        warn "WARNING: using the REDISTOGO_URL environment variable is deprecated, please use REDIS_URL now."
-        ENV['REDIS_URL'] = redistogo_url
+      redis_url = ENV["REDIS_URL"] || environment.redis.get
+
+      return {} unless redis_url.present?
+
+      unless redis_url.start_with?("redis://", "unix:///")
+        warn "WARNING: Your redis url (#{redis_url}) doesn't start with redis:// or unix:///"
       end
-
-      redis_options = {}
-
-      redis_url = ENV['REDIS_URL'] || environment.redis.get
-
-      if ENV['RAILS_ENV']== 'integration2'
-        redis_options[:url] = "redis://localhost:6380"
-      elsif redis_url.present?
-        unless redis_url.start_with?("redis://") || redis_url.start_with?("unix:///")
-          warn "WARNING: Your redis url (#{redis_url}) doesn't start with redis:// or unix:///"
-        end
-        redis_options[:url] = redis_url
-      end
-
-      redis_options
+      {url: redis_url}
     end
 
     def sidekiq_log

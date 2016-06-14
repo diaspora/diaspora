@@ -152,19 +152,8 @@ describe Configuration::Methods do
   end
 
   describe "#get_redis_options" do
-    context "with REDISTOGO_URL set" do
-      before do
-        ENV["REDISTOGO_URL"] = "redis://myserver"
-      end
-
-      it "uses that" do
-        expect(@settings.get_redis_options[:url]).to match "myserver"
-      end
-    end
-
     context "with REDIS_URL set" do
       before do
-        ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = "redis://yourserver"
       end
 
@@ -175,7 +164,6 @@ describe Configuration::Methods do
 
     context "with redis set" do
       before do
-        ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = nil
         @settings.environment.redis = "redis://ourserver"
       end
@@ -187,7 +175,6 @@ describe Configuration::Methods do
 
     context "with a unix socket set" do
       before do
-        ENV["REDISTOGO_URL"] = nil
         ENV["REDIS_URL"] = nil
         @settings.environment.redis = "unix:///tmp/redis.sock"
       end
