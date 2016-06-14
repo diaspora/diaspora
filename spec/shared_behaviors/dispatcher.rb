@@ -69,6 +69,16 @@ shared_examples "a dispatcher" do
 
         Diaspora::Federation::Dispatcher.build(alice, object).dispatch
       end
+
+      it "queues receive local job for a specific subscriber" do
+        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, [eve.id])
+        Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [eve.person]).dispatch
+      end
+
+      it "queues receive local job for a specific subscriber id" do
+        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, [eve.id])
+        Diaspora::Federation::Dispatcher.build(alice, post, subscriber_ids: [eve.person.id]).dispatch
+      end
     end
   end
 end

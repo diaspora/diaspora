@@ -50,10 +50,10 @@ describe Diaspora::Federation::Dispatcher::Public do
     end
 
     context "deliver to remote user" do
+      let(:salmon_xml) { "<diaspora/>" }
+
       it "queues a public send job" do
         alice.share_with(remote_raphael, alice.aspects.first)
-
-        salmon_xml = "<diaspora/>"
 
         expect(Workers::SendPublic).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
           expect(user_id).to eq(alice.id)
@@ -71,6 +71,19 @@ describe Diaspora::Federation::Dispatcher::Public do
         expect(Workers::SendPublic).not_to receive(:perform_async)
 
         Diaspora::Federation::Dispatcher.build(alice, post).dispatch
+      end
+
+      it "queues public send job for a specific subscriber" do
+        expect(Workers::SendPublic).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
+          expect(user_id).to eq(alice.id)
+          expect(urls.size).to eq(1)
+          expect(urls[0]).to eq(remote_raphael.pod.url_to("/receive/public"))
+          expect(xml).to eq(salmon_xml)
+        end
+
+        expect(DiasporaFederation::Salmon::Slap).to receive(:generate_xml).and_return(salmon_xml)
+
+        Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [remote_raphael]).dispatch
       end
     end
   end

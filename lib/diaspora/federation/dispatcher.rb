@@ -35,7 +35,7 @@ module Diaspora
       end
 
       def deliver_to_subscribers
-        local_people, remote_people = object.subscribers.partition(&:local?)
+        local_people, remote_people = subscribers.partition(&:local?)
 
         deliver_to_local(local_people) unless local_people.empty?
         deliver_to_remote(remote_people)
@@ -62,6 +62,14 @@ module Diaspora
 
       def each_service
         sender.services.where(type: opts[:service_types]).each {|service| yield(service) }
+      end
+
+      def subscribers
+        opts[:subscribers] || subscribers_from_ids || object.subscribers
+      end
+
+      def subscribers_from_ids
+        Person.where(id: opts[:subscriber_ids]) if opts[:subscriber_ids]
       end
     end
   end
