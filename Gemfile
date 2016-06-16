@@ -19,7 +19,7 @@ gem "diaspora_federation-rails", "0.0.13"
 
 gem "acts_as_api", "0.4.2"
 gem "json",        "1.8.3"
-gem "json-schema", "2.6.1"
+gem "json-schema", "2.6.2"
 
 # Authentication
 
@@ -57,7 +57,7 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 gem "bootstrap-sass", "3.3.6"
 gem "compass-rails",  "2.0.5"
 gem "sass-rails",     "5.0.4"
-gem "autoprefixer-rails", "6.3.6"
+gem "autoprefixer-rails", "6.3.6.2"
 gem "bootstrap-switch-rails", "3.3.3"
 
 # Database
@@ -93,19 +93,19 @@ gem "handlebars_assets", "0.23.0"
 gem "jquery-rails",      "4.1.1"
 gem "jquery-ui-rails",   "5.0.5"
 gem "js_image_paths",    "0.1.0"
-gem "js-routes",         "1.2.5"
+gem "js-routes",         "1.2.6"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "1.12.0" # Should be kept in sync with jquery-rails
 
-  gem "rails-assets-markdown-it",                         "6.0.1"
+  gem "rails-assets-markdown-it",                         "6.0.5"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "0.4.0"
   gem "rails-assets-markdown-it-sanitizer",               "0.4.1"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "9.2.0"
+  gem "rails-assets-highlightjs",                         "9.4.0"
   gem "rails-assets-typeahead.js",                        "0.11.1"
 
   # jQuery plugins
@@ -137,7 +137,7 @@ gem "nokogiri",          "1.6.8"
 gem "redcarpet",         "3.3.4"
 gem "twitter-text",      "1.13.4"
 gem "roxml",             "3.1.6"
-gem "ruby-oembed",       "0.10.0"
+gem "ruby-oembed",       "0.10.1"
 gem "open_graph_reader", "0.6.1"
 
 # Services
@@ -236,9 +236,9 @@ group :development do
   # Automatic test runs
   gem "guard-cucumber", "2.1.2"
   gem "guard-jshintrb", "1.1.1"
-  gem "guard-rspec",    "4.6.5"
+  gem "guard-rspec",    "4.7.2"
   gem "guard-rubocop",  "1.2.0"
-  gem "guard",          "2.13.0", require: false
+  gem "guard",          "2.14.0", require: false
   gem "rb-fsevent",     "0.9.7", require: false
   gem "rb-inotify",     "0.9.7", require: false
 
@@ -274,7 +274,6 @@ group :test do
 
   gem "fixture_builder",   "0.4.1"
   gem "fuubar",            "2.0.0"
-  gem "rspec-instafail",   "0.5.0", require: false
   gem "test_after_commit", "1.0.0"
 
   # Cucumber (integration tests)
@@ -290,7 +289,7 @@ group :test do
 
   gem "factory_girl_rails", "4.7.0"
   gem "timecop",            "0.8.1"
-  gem "webmock",            "1.22.6", require: false
+  gem "webmock",            "2.1.0", require: false
   gem "shoulda-matchers",   "3.1.1"
 
   gem "diaspora_federation-test", "0.0.13"

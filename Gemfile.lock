@@ -54,9 +54,9 @@ GEM
       activemodel
       fog (>= 1.8.0)
       unf
-    ast (2.2.0)
+    ast (2.3.0)
     attr_required (1.0.1)
-    autoprefixer-rails (6.3.6)
+    autoprefixer-rails (6.3.6.2)
       execjs
     backbone-on-rails (1.2.0.0)
       eco
@@ -71,7 +71,7 @@ GEM
     bootstrap-switch-rails (3.3.3)
     buftok (0.2.0)
     builder (3.2.2)
-    byebug (8.2.5)
+    byebug (9.0.5)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -138,20 +138,20 @@ GEM
     connection_pool (2.2.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    cucumber (2.3.3)
+    cucumber (2.4.0)
       builder (>= 2.1.2)
-      cucumber-core (~> 1.4.0)
+      cucumber-core (~> 1.5.0)
       cucumber-wire (~> 0.0.1)
       diff-lcs (>= 1.1.3)
-      gherkin (~> 3.2.0)
+      gherkin (~> 4.0)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.2)
     cucumber-api-steps (0.13)
       cucumber (>= 1.2.1)
       jsonpath (>= 0.1.2)
       rspec (>= 2.12.0)
-    cucumber-core (1.4.0)
-      gherkin (~> 3.2.0)
+    cucumber-core (1.5.0)
+      gherkin (~> 4.0)
     cucumber-rails (1.4.3)
       capybara (>= 1.1.2, < 3)
       cucumber (>= 1.3.8, < 3)
@@ -202,7 +202,7 @@ GEM
     ethon (0.9.0)
       ffi (>= 1.3.0)
     excon (0.49.0)
-    execjs (2.6.0)
+    execjs (2.7.0)
     eye (0.8)
       celluloid (~> 0.17.2)
       celluloid-io (~> 0.17.0)
@@ -278,7 +278,7 @@ GEM
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
       ipaddress (~> 0.8)
-    fog-core (1.39.0)
+    fog-core (1.40.0)
       builder
       excon (~> 0.49)
       formatador (~> 0.2)
@@ -354,14 +354,14 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
-    font-awesome-rails (4.6.2.0)
+    font-awesome-rails (4.6.3.0)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
     get_process_mem (0.2.0)
-    gherkin (3.2.0)
+    gherkin (4.0.0)
     gitlab (3.6.1)
       httparty
       terminal-table
@@ -372,9 +372,9 @@ GEM
       json
       multi_json
       request_store (>= 1.0)
-    guard (2.13.0)
+    guard (2.14.0)
       formatador (>= 0.2.4)
-      listen (>= 2.7, <= 4.0)
+      listen (>= 2.7, < 4.0)
       lumberjack (~> 1.0)
       nenv (~> 0.1)
       notiffany (~> 0.0)
@@ -389,7 +389,7 @@ GEM
     guard-jshintrb (1.1.1)
       guard (~> 2.0)
       jshintrb
-    guard-rspec (4.6.5)
+    guard-rspec (4.7.2)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -452,7 +452,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    js-routes (1.2.5)
+    js-routes (1.2.6)
       railties (>= 3.2)
       sprockets-rails
     js_image_paths (0.1.0)
@@ -468,7 +468,7 @@ GEM
       multi_json (>= 1.3)
       securecompare
       url_safe_base64
-    json-schema (2.6.1)
+    json-schema (2.6.2)
       addressable (~> 2.3.8)
     json_spec (1.1.4)
       multi_json (~> 1.0)
@@ -481,9 +481,9 @@ GEM
       activesupport (>= 3.0.0)
     kgio (2.10.0)
     leaflet-rails (0.7.7)
-    listen (3.1.3)
-      rb-fsevent (~> 0.9, >= 0.9.7)
-      rb-inotify (~> 0.9, >= 0.9.7)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (>= 0.9)
       ruby_dep (~> 1.2)
     little-plugger (1.1.4)
     logging (2.1.0)
@@ -503,17 +503,17 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     messagebus_ruby_api (1.0.3)
     method_source (0.8.2)
-    mime-types (3.0)
+    mime-types (3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0221)
+    mime-types-data (3.2016.0521)
     mimemagic (0.3.1)
     mini_magick (4.5.1)
     mini_portile2 (2.1.0)
-    minitest (5.8.4)
+    minitest (5.9.0)
     mobile-fu (1.3.1)
       rack-mobile-detect
       rails
-    multi_json (1.12.0)
+    multi_json (1.12.1)
     multi_test (0.1.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -525,7 +525,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    notiffany (0.0.8)
+    notiffany (0.1.0)
       nenv (~> 0.1)
       shellany (~> 0.0)
     oauth (0.5.1)
@@ -571,7 +571,7 @@ GEM
       validate_url
       webfinger (>= 1.0.1)
     orm_adapter (0.5.0)
-    parser (2.3.1.0)
+    parser (2.3.1.2)
       ast (~> 2.2)
     pg (0.18.4)
     phantomjs (2.1.1.0)
@@ -598,8 +598,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.3.0)
-      byebug (~> 8.0)
+    pry-byebug (3.4.0)
+      byebug (~> 9.0)
       pry (~> 0.10)
     pry-debundle (0.8)
       pry
@@ -650,7 +650,7 @@ GEM
       rails-assets-jquery.slimscroll (~> 1.3.6)
       rails-assets-jquery.ui (~> 1.11.4)
     rails-assets-favico.js (0.3.10)
-    rails-assets-highlightjs (9.2.0)
+    rails-assets-highlightjs (9.4.0)
     rails-assets-jasmine (2.4.1)
     rails-assets-jasmine-ajax (3.2.0)
       rails-assets-jasmine (~> 2)
@@ -666,7 +666,7 @@ GEM
     rails-assets-jquery.ui (1.11.4)
       rails-assets-jquery (>= 1.6)
     rails-assets-markdown-it--markdown-it-for-inline (0.1.1)
-    rails-assets-markdown-it (6.0.1)
+    rails-assets-markdown-it (6.0.5)
     rails-assets-markdown-it-diaspora-mention (0.4.0)
     rails-assets-markdown-it-hashtag (0.4.0)
     rails-assets-markdown-it-sanitizer (0.4.1)
@@ -710,7 +710,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
     raindrops (0.16.0)
-    rake (11.1.2)
+    rake (11.2.2)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -738,8 +738,6 @@ GEM
     rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
-    rspec-instafail (0.5.0)
-      rspec
     rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
@@ -759,8 +757,8 @@ GEM
       ruby-progressbar (~> 1.7)
       tins (<= 1.6.0)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    ruby-oembed (0.10.0)
-    ruby-progressbar (1.8.0)
+    ruby-oembed (0.10.1)
+    ruby-progressbar (1.8.1)
     ruby_dep (1.3.1)
     rubyzip (1.2.0)
     rufus-scheduler (3.2.1)
@@ -897,7 +895,7 @@ GEM
       activesupport
       httpclient (>= 2.4)
       multi_json
-    webmock (1.22.6)
+    webmock (2.1.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -918,7 +916,7 @@ DEPENDENCIES
   acts_as_api (= 0.4.2)
   addressable (= 2.3.8)
   asset_sync (= 1.1.0)
-  autoprefixer-rails (= 6.3.6)
+  autoprefixer-rails (= 6.3.6.2)
   backbone-on-rails (= 1.2.0.0)
   bootstrap-sass (= 3.3.6)
   bootstrap-switch-rails (= 3.3.3)
@@ -945,10 +943,10 @@ DEPENDENCIES
   fog (= 1.38.0)
   fuubar (= 2.0.0)
   gon (= 6.0.1)
-  guard (= 2.13.0)
+  guard (= 2.14.0)
   guard-cucumber (= 2.1.2)
   guard-jshintrb (= 1.1.1)
-  guard-rspec (= 4.6.5)
+  guard-rspec (= 4.7.2)
   guard-rubocop (= 1.2.0)
   haml_lint (= 0.17.1)
   hamlit (= 2.3.1)
@@ -959,11 +957,11 @@ DEPENDENCIES
   jasmine-jquery-rails (= 2.0.3)
   jquery-rails (= 4.1.1)
   jquery-ui-rails (= 5.0.5)
-  js-routes (= 1.2.5)
+  js-routes (= 1.2.6)
   js_image_paths (= 0.1.0)
   jshintrb (= 0.3.0)
   json (= 1.8.3)
-  json-schema (= 2.6.1)
+  json-schema (= 2.6.2)
   json_spec (= 1.1.4)
   leaflet-rails (= 0.7.7)
   logging-rails (= 0.5.0)
@@ -1001,12 +999,12 @@ DEPENDENCIES
   rails-assets-autosize (= 3.0.15)!
   rails-assets-blueimp-gallery (= 2.21.2)!
   rails-assets-diaspora_jsxc (= 0.1.5.develop.1)!
-  rails-assets-highlightjs (= 9.2.0)!
+  rails-assets-highlightjs (= 9.4.0)!
   rails-assets-jasmine-ajax (= 3.2.0)!
   rails-assets-jquery (= 1.12.0)!
   rails-assets-jquery-placeholder (= 2.3.1)!
   rails-assets-jquery-textchange (= 0.2.3)!
-  rails-assets-markdown-it (= 6.0.1)!
+  rails-assets-markdown-it (= 6.0.5)!
   rails-assets-markdown-it--markdown-it-for-inline (= 0.1.1)!
   rails-assets-markdown-it-diaspora-mention (= 0.4.0)!
   rails-assets-markdown-it-hashtag (= 0.4.0)!
@@ -1024,10 +1022,9 @@ DEPENDENCIES
   remotipart (= 1.2.1)
   responders (= 2.2.0)
   roxml (= 3.1.6)
-  rspec-instafail (= 0.5.0)
   rspec-rails (= 3.4.2)
   rubocop (= 0.40.0)
-  ruby-oembed (= 0.10.0)
+  ruby-oembed (= 0.10.1)
   rubyzip (= 1.2.0)
   sass-rails (= 5.0.4)
   selenium-webdriver (= 2.47.1)
@@ -1052,7 +1049,7 @@ DEPENDENCIES
   unicorn-worker-killer (= 0.4.4)
   uuid (= 2.3.8)
   versionist (= 1.5.0)
-  webmock (= 1.22.6)
+  webmock (= 2.1.0)
   will_paginate (= 3.1.0)
 
 BUNDLED WITH
