@@ -193,8 +193,6 @@ defaults:
       scope: tags
       include_user_tags: false
       pod_tags:
-  # List valid environment variables
-  redistogo_url:
 
 development:
   environment:
@@ -243,6 +241,7 @@ integration1:
 integration2:
   environment:
     url: 'http://localhost:34658/'
+    redis: 'redis://localhost:6380'
     single_process_mode: true
     assets:
       serve: true

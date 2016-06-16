@@ -669,8 +669,8 @@ configuration: ## Section
 ## to have them different in different environments.
 production: ## Section
   environment: ## Section
-    #redis_url: 'redis://production.example.org:6379'
+    #redis: 'redis://production.example.org:6379'
 
 development: ## Section
   environment: ## Section
-    #redis_url: 'redis://production.example.org:6379'
+    #redis: 'redis://production.example.org:6379'
