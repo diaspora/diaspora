@@ -235,7 +235,6 @@ end
 group :development do
   # Automatic test runs
   gem "guard-cucumber", "2.1.2"
-  gem "guard-jshintrb", "1.1.1"
   gem "guard-rspec",    "4.7.2"
   gem "guard-rubocop",  "1.2.0"
   gem "guard",          "2.14.0", require: false
@@ -243,11 +242,10 @@ group :development do
   gem "rb-inotify",     "0.9.7", require: false
 
   # Linters
-  gem "jshintrb",       "0.3.0"
   gem "rubocop",        "0.40.0"
   gem "haml_lint",      "0.17.1"
   gem "pronto",         "0.6.0"
-  gem "pronto-jshint",  "0.6.0"
+  gem "pronto-eslint",  "0.6.1"
   gem "pronto-rubocop", "0.6.2"
   gem "pronto-haml",    "0.6.0"
   gem "pronto-scss",    "0.6.0", require: false
