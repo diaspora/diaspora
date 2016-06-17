@@ -25,7 +25,7 @@ class PollParticipation < ActiveRecord::Base
     end
   end
 
-  class Generator < Federated::Generator
+  class Generator < Diaspora::Federated::Generator
     def self.federated_class
       PollParticipation
     end

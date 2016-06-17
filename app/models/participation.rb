@@ -4,7 +4,7 @@ class Participation < ActiveRecord::Base
   include Diaspora::Fields::Author
   include Diaspora::Fields::Target
 
-  class Generator < Federated::Generator
+  class Generator < Diaspora::Federated::Generator
     def self.federated_class
       Participation
     end

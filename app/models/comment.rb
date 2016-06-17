@@ -54,7 +54,7 @@ class Comment < ActiveRecord::Base
      self[:text] = text.to_s.strip #to_s if for nil, for whatever reason
   end
 
-  class Generator < Federated::Generator
+  class Generator < Diaspora::Federated::Generator
     def self.federated_class
       Comment
     end

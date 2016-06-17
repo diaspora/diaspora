@@ -12,7 +12,7 @@ class Like < ActiveRecord::Base
 
   alias_attribute :parent, :target
 
-  class Generator < Federated::Generator
+  class Generator < Diaspora::Federated::Generator
     def self.federated_class
       Like
     end
