@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class Person < ActiveRecord::Base
-  include Diaspora::Guid
+  include Diaspora::Fields::Guid
 
   # NOTE API V1 to be extracted
   acts_as_api

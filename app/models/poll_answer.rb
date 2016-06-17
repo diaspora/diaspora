@@ -1,6 +1,6 @@
 class PollAnswer < ActiveRecord::Base
   include Diaspora::Federated::Base
-  include Diaspora::Guid
+  include Diaspora::Fields::Guid
 
   belongs_to :poll
   has_many :poll_participations

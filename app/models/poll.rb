@@ -1,6 +1,6 @@
 class Poll < ActiveRecord::Base
   include Diaspora::Federated::Base
-  include Diaspora::Guid
+  include Diaspora::Fields::Guid
 
   belongs_to :status_message
   has_many :poll_answers, -> { order 'id ASC' }

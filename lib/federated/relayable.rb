@@ -3,7 +3,7 @@ module Federated
     self.abstract_class = true
 
     include Diaspora::Federated::Base
-    include Diaspora::Guid
+    include Diaspora::Fields::Guid
     include Diaspora::Fields::Author
 
     include Diaspora::Relayable

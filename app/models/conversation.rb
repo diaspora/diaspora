@@ -1,6 +1,6 @@
 class Conversation < ActiveRecord::Base
   include Diaspora::Federated::Base
-  include Diaspora::Guid
+  include Diaspora::Fields::Guid
   include Diaspora::Fields::Author
 
   has_many :conversation_visibilities, dependent: :destroy

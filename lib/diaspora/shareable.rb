@@ -8,7 +8,7 @@ module Diaspora
   module Shareable
     def self.included(model)
       model.instance_eval do
-        include Diaspora::Guid
+        include Diaspora::Fields::Guid
         include Diaspora::Fields::Author
 
         has_many :aspect_visibilities, as: :shareable, validate: false, dependent: :delete_all
