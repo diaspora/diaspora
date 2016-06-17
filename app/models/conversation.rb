@@ -1,13 +1,11 @@
 class Conversation < ActiveRecord::Base
   include Diaspora::Federated::Base
   include Diaspora::Guid
+  include Diaspora::Fields::Author
 
   has_many :conversation_visibilities, dependent: :destroy
   has_many :participants, class_name: "Person", through: :conversation_visibilities, source: :person
   has_many :messages, -> { order("created_at ASC") }, inverse_of: :conversation
-
-  belongs_to :author, class_name: "Person"
-  delegate :diaspora_handle, to: :author
 
   validate :max_participants
   validate :local_recipients
@@ -31,10 +29,6 @@ class Conversation < ActiveRecord::Base
 
   def recipients
     self.participants - [self.author]
-  end
-
-  def diaspora_handle=(nh)
-    self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
   def first_unread_message(user)

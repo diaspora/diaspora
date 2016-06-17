@@ -1,24 +1,18 @@
 class Message < ActiveRecord::Base
   include Diaspora::Federated::Base
   include Diaspora::Guid
+  include Diaspora::Fields::Author
 
-  belongs_to :author, class_name: "Person"
   belongs_to :conversation, touch: true
 
-  delegate :diaspora_handle, to: :author
   delegate :name, to: :author, prefix: true
 
   # TODO: can be removed when messages are not relayed anymore
   alias_attribute :parent, :conversation
 
   validates :conversation, presence: true
-  validates :author, presence: true
   validates :text, presence: true
   validate :participant_of_parent_conversation
-
-  def diaspora_handle=(nh)
-    self.author = Person.find_or_fetch_by_identifier(nh)
-  end
 
   def conversation_guid=(guid)
     self.conversation_id = Conversation.where(guid: guid).ids.first

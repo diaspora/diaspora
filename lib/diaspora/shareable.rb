@@ -9,15 +9,13 @@ module Diaspora
     def self.included(model)
       model.instance_eval do
         include Diaspora::Guid
+        include Diaspora::Fields::Author
 
         has_many :aspect_visibilities, as: :shareable, validate: false, dependent: :delete_all
         has_many :aspects, through: :aspect_visibilities
 
         has_many :share_visibilities, as: :shareable, dependent: :delete_all
 
-        belongs_to :author, class_name: "Person"
-
-        delegate :diaspora_handle, to: :author
         delegate :id, :name, :first_name, to: :author, prefix: true
 
         # scopes
@@ -40,10 +38,6 @@ module Diaspora
       return if recipient_user_ids.empty? || public?
 
       ShareVisibility.batch_import(recipient_user_ids, self)
-    end
-
-    def diaspora_handle=(author_handle)
-      self.author = Person.where(diaspora_handle: author_handle).first
     end
 
     # The list of people that should receive this Shareable.

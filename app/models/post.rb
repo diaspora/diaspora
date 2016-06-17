@@ -30,8 +30,6 @@ class Post < ActiveRecord::Base
 
   validates_uniqueness_of :id
 
-  validates :author, presence: true
-
   after_create do
     self.touch(:interacted_at)
   end

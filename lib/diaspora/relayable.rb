@@ -7,7 +7,6 @@ module Diaspora
     def self.included(model)
       model.class_eval do
         validates_associated :parent
-        validates :author, :presence => true
         validate :author_is_not_ignored
 
         delegate :public?, to: :parent

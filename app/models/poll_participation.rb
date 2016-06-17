@@ -1,14 +1,11 @@
 class PollParticipation < ActiveRecord::Base
   include Diaspora::Federated::Base
-
   include Diaspora::Guid
+  include Diaspora::Fields::Author
   include Diaspora::Relayable
 
   belongs_to :poll
   belongs_to :poll_answer, counter_cache: :vote_count
-  belongs_to :author, class_name: "Person"
-
-  delegate :diaspora_handle, to: :author
 
   alias_attribute :parent, :poll
 
@@ -17,10 +14,6 @@ class PollParticipation < ActiveRecord::Base
 
   def poll_answer_guid=(new_poll_answer_guid)
     self.poll_answer_id = PollAnswer.where(guid: new_poll_answer_guid).ids.first
-  end
-
-  def diaspora_handle=(nh)
-    self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
   def not_already_participated

@@ -7,6 +7,7 @@ class Comment < ActiveRecord::Base
   include Diaspora::Federated::Base
 
   include Diaspora::Guid
+  include Diaspora::Fields::Author
   include Diaspora::Relayable
 
   include Diaspora::Taggable
@@ -19,10 +20,8 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, :touch => true, :polymorphic => true
   alias_attribute :post, :commentable
   alias_attribute :parent, :commentable
-  belongs_to :author, class_name: "Person"
 
   delegate :name, to: :author, prefix: true
-  delegate :diaspora_handle, to: :author
   delegate :comment_email_subject, to: :parent
   delegate :author_name, to: :parent, prefix: true
 
@@ -46,10 +45,6 @@ class Comment < ActiveRecord::Base
     self.parent.update_comments_counter
     participation = author.participations.where(target_id: post.id).first
     participation.unparticipate! if participation.present?
-  end
-
-  def diaspora_handle=(nh)
-    self.author = Person.find_or_fetch_by_identifier(nh)
   end
 
   def message
