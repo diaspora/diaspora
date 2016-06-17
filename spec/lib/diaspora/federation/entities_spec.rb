@@ -32,7 +32,8 @@ describe Diaspora::Federation::Entities do
     end
 
     context "Conversation" do
-      let(:diaspora_entity) { FactoryGirl.create(:conversation_with_message) }
+      let(:participant) { FactoryGirl.create(:person) }
+      let(:diaspora_entity) { FactoryGirl.create(:conversation_with_message, participants: [participant]) }
       let(:federation_entity) { described_class.build(diaspora_entity) }
 
       it "builds a conversation" do
@@ -45,7 +46,7 @@ describe Diaspora::Federation::Entities do
 
       it "adds the participants" do
         expect(federation_entity.participants)
-          .to eq("#{diaspora_entity.author.diaspora_handle};#{diaspora_entity.messages.first.author.diaspora_handle}")
+          .to eq("#{participant.diaspora_handle};#{diaspora_entity.author.diaspora_handle}")
       end
 
       it "includes the message" do

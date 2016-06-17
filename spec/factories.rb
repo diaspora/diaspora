@@ -294,9 +294,8 @@ FactoryGirl.define do
 
   factory(:conversation_with_message, parent: :conversation) do
     after(:create) do |c|
-      msg = FactoryGirl.build(:message)
+      msg = FactoryGirl.build(:message, author: c.author)
       msg.conversation_id = c.id
-      c.participants << msg.author
       msg.save
     end
   end

@@ -21,7 +21,7 @@ describe Message, type: :model do
     expect(message).not_to be_valid
   end
 
-  it_behaves_like "it is relayable" do
+  describe "#subscribers" do
     let(:cnv_hash) {
       {
         participant_ids:     [local_luke.person, local_leia.person, remote_raphael].map(&:id),
@@ -29,14 +29,23 @@ describe Message, type: :model do
         messages_attributes: [{author: remote_raphael, text: "hey"}]
       }
     }
-    let(:remote_parent) { Conversation.create(cnv_hash.merge(author: remote_raphael)) }
-    let(:local_parent) { Conversation.create(cnv_hash.merge(author: local_luke.person)) }
-    let(:object_on_local_parent) { Message.create(author: local_luke.person, text: "yo", conversation: local_parent) }
-    let(:object_on_remote_parent) { Message.create(author: local_luke.person, text: "yo", conversation: remote_parent) }
-    let(:remote_object_on_local_parent) {
-      Message.create(author: remote_raphael, text: "yo", conversation: local_parent)
-    }
-    let(:relayable) { Message.new(author: alice.person, text: "ohai!", conversation: conversation) }
+    let(:local_conv) { Conversation.create(cnv_hash.merge(author: local_luke.person)) }
+    let(:remote_conv) { Conversation.create(cnv_hash.merge(author: remote_raphael)) }
+
+    it "returns all participants, if the conversation and the author is local" do
+      message = Message.create(author: local_luke.person, text: "yo", conversation: local_conv)
+      expect(message.subscribers).to match_array([local_luke.person, local_leia.person, remote_raphael])
+    end
+
+    it "returns all participants, if the author is local and the conversation is remote" do
+      message = Message.create(author: local_luke.person, text: "yo", conversation: remote_conv)
+      expect(message.subscribers).to match_array([local_luke.person, local_leia.person, remote_raphael])
+    end
+
+    it "returns only remote participants, if the conversation is local, but the author is remote" do
+      message = Message.create(author: remote_raphael, text: "yo", conversation: local_conv)
+      expect(message.subscribers).to match_array([remote_raphael])
+    end
   end
 
   describe "#increase_unread" do

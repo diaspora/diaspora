@@ -1,7 +1,6 @@
 class Message < ActiveRecord::Base
   include Diaspora::Federated::Base
   include Diaspora::Guid
-  include Diaspora::Relayable
 
   belongs_to :author, class_name: "Person"
   belongs_to :conversation, touch: true
@@ -9,9 +8,12 @@ class Message < ActiveRecord::Base
   delegate :diaspora_handle, to: :author
   delegate :name, to: :author, prefix: true
 
+  # TODO: can be removed when messages are not relayed anymore
   alias_attribute :parent, :conversation
 
-  validates :text, :presence => true
+  validates :conversation, presence: true
+  validates :author, presence: true
+  validates :text, presence: true
   validate :participant_of_parent_conversation
 
   def diaspora_handle=(nh)
@@ -19,9 +21,7 @@ class Message < ActiveRecord::Base
   end
 
   def conversation_guid=(guid)
-    if cnv = Conversation.find_by_guid(guid)
-      self.conversation_id = cnv.id
-    end
+    self.conversation_id = Conversation.where(guid: guid).ids.first
   end
 
   def increase_unread(user)
@@ -33,6 +33,15 @@ class Message < ActiveRecord::Base
 
   def message
     @message ||= Diaspora::MessageRenderer.new text
+  end
+
+  # @return [Array<Person>]
+  def subscribers
+    if author.local?
+      conversation.participants
+    else # for relaying, TODO: can be removed when messages are not relayed anymore
+      conversation.participants.remote
+    end
   end
 
   private
