@@ -2,7 +2,16 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Like < Federated::Relayable
+class Like < ActiveRecord::Base
+  include Diaspora::Federated::Base
+  include Diaspora::Fields::Guid
+  include Diaspora::Fields::Author
+  include Diaspora::Fields::Target
+
+  include Diaspora::Relayable
+
+  alias_attribute :parent, :target
+
   class Generator < Federated::Generator
     def self.federated_class
       Like

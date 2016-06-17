@@ -1,7 +1,12 @@
-class Participation < Federated::Relayable
+class Participation < ActiveRecord::Base
+  include Diaspora::Federated::Base
+  include Diaspora::Fields::Guid
+  include Diaspora::Fields::Author
+  include Diaspora::Fields::Target
+
   class Generator < Federated::Generator
     def self.federated_class
-     Participation
+      Participation
     end
 
     def relayable_options
@@ -15,6 +20,11 @@ class Participation < Federated::Relayable
     else
       update!(count: count.pred)
     end
+  end
+
+  # @return [Array<Person>]
+  def subscribers
+    [target.author]
   end
 
   # NOTE API V1 to be extracted
