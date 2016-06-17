@@ -34,6 +34,11 @@ describe "Receive federation messages feature" do
         post = FactoryGirl.create(:status_message, author: alice.person, public: true)
         reshare = FactoryGirl.build(
           :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id)
+
+        expect(Participation::Generator).to receive(:new).with(
+          alice, instance_of(Reshare)
+        ).and_return(double(create!: true))
+
         post_message(generate_xml(reshare, sender))
 
         expect(Reshare.exists?(root_guid: post.guid)).to be_truthy

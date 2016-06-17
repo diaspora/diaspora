@@ -63,6 +63,12 @@ class Reshare < Post
     @absolute_root
   end
 
+  def receive(recipient_user_ids)
+    super(recipient_user_ids)
+
+    root.author.owner.participate!(self) if root.author.local?
+  end
+
   def subscribers
     super + [root.author]
   end

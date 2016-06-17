@@ -33,6 +33,15 @@ describe Reshare, type: :model do
     end
   end
 
+  describe "#receive" do
+    let(:reshare) { create(:reshare, root: FactoryGirl.build(:status_message, author: bob.person, public: true)) }
+
+    it "participates root author in the reshare" do
+      reshare.receive([])
+      expect(Participation.count(target_id: reshare.id, author_id: bob.person.id)).to eq(1)
+    end
+  end
+
   describe "#nsfw" do
     let(:sfw) { build(:status_message, author: alice.person, public: true) }
     let(:nsfw) { build(:status_message, author: alice.person, public: true, text: "This is #nsfw") }
