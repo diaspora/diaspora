@@ -43,9 +43,9 @@ describe 'mentioning', :type => :request do
     expect(users_connected?(@user1, @user3)).to be false
 
     status_msg = nil
-    expect do
+    expect {
       status_msg = @user1.post(:status_message, {text: text_mentioning(@user3), to: default_aspect})
-    end.to change(Post, :count).by(1)
+    }.to change(Post, :count).by(1).and change(AspectVisibility, :count).by(1)
 
     expect(status_msg).not_to be_nil
     expect(status_msg.public?).to be false
