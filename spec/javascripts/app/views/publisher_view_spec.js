@@ -47,6 +47,21 @@ describe("app.views.Publisher", function() {
       this.view = new app.views.Publisher();
     });
 
+    describe("#initSubviews", function() {
+      it("calls handleTextchange if the publisher is prefilled with mentions", function() {
+        spyOn(this.view, "handleTextchange");
+        this.view.prefillMention = "user@example.org";
+        this.view.initSubviews();
+        expect(this.view.handleTextchange).toHaveBeenCalled();
+      });
+
+      it("doesn't call handleTextchange if there are no prefilled mentions", function() {
+        spyOn(this.view, "handleTextchange");
+        this.view.initSubviews();
+        expect(this.view.handleTextchange).not.toHaveBeenCalled();
+      });
+    });
+
     describe("#open", function() {
       it("removes the 'closed' class from the publisher element", function() {
         expect($(this.view.el)).toHaveClass("closed");

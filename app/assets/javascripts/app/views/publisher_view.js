@@ -135,6 +135,10 @@ app.views.Publisher = Backbone.View.extend({
     });
     this.viewPollCreator.on("change", this.checkSubmitAvailability, this);
     this.viewPollCreator.render();
+
+    if (this.prefillMention) {
+      this.handleTextchange();
+    }
   },
 
   // set the selected aspects in the dropdown by their ids
