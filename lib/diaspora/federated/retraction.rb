@@ -27,7 +27,8 @@ class Retraction
     new(federation_retraction.to_h, target.subscribers.select(&:remote?), target)
   end
 
-  def defer_dispatch(user)
+  def defer_dispatch(user, include_target_author=true)
+    subscribers = dispatch_subscribers(include_target_author)
     Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id), service_opts(user))
   end
 
@@ -45,6 +46,11 @@ class Retraction
   private
 
   attr_reader :target
+
+  def dispatch_subscribers(include_target_author)
+    subscribers << target.author if target.is_a?(Diaspora::Relayable) && include_target_author && target.author.remote?
+    subscribers
+  end
 
   def service_opts(user)
     return {} unless target.is_a?(StatusMessage)

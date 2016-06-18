@@ -45,18 +45,27 @@ shared_examples_for "it is relayable" do
   end
 
   describe "#subscribers" do
-    it "returns the parents original audience, if the parent is local" do
-      expect(object_on_local_parent.subscribers.map(&:id))
-        .to match_array([local_leia.person, remote_raphael].map(&:id))
+    context "parent is local" do
+      it "returns the parents original audience, if author is local" do
+        expect(object_on_local_parent.subscribers.map(&:id))
+          .to match_array([local_leia.person, remote_raphael].map(&:id))
+      end
+
+      it "returns remote persons of the parents original audience not on same pod as the author, if author is remote" do
+        person1 = FactoryGirl.create(:person, pod: remote_raphael.pod)
+        person2 = FactoryGirl.create(:person, pod: FactoryGirl.create(:pod))
+        local_luke.share_with(person1, local_luke.aspects.first)
+        local_luke.share_with(person2, local_luke.aspects.first)
+
+        expect(remote_object_on_local_parent.subscribers.map(&:id)).to match_array([person2].map(&:id))
+      end
     end
 
-    it "returns remote persons of the parents original audience, if the parent is local, but the author is remote" do
-      expect(remote_object_on_local_parent.subscribers.map(&:id)).to match_array([remote_raphael].map(&:id))
-    end
-
-    it "returns the author of parent and author of relayable (for local delivery), if the parent is not local" do
-      expect(object_on_remote_parent.subscribers.map(&:id))
-        .to match_array([remote_raphael, local_luke.person].map(&:id))
+    context "parent is remote" do
+      it "returns the author of parent and author of relayable (for local delivery)" do
+        expect(object_on_remote_parent.subscribers.map(&:id))
+          .to match_array([remote_raphael, local_luke.person].map(&:id))
+      end
     end
   end
 end

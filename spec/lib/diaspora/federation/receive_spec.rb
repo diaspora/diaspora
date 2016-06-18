@@ -468,7 +468,7 @@ describe Diaspora::Federation::Receive do
         comment_retraction = Retraction.for(remote_comment, alice)
 
         expect(Retraction).to receive(:for).with(instance_of(Comment), alice).and_return(comment_retraction)
-        expect(comment_retraction).to receive(:defer_dispatch).with(alice)
+        expect(comment_retraction).to receive(:defer_dispatch).with(alice, false)
         expect(comment_retraction).to receive(:perform).and_call_original
         expect_any_instance_of(Comment).to receive(:destroy!).and_call_original
 

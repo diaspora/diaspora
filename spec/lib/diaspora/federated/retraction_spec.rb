@@ -98,6 +98,31 @@ describe Retraction do
 
       Retraction.for(comment, local_luke).defer_dispatch(local_luke)
     end
+
+    context "relayable" do
+      let(:post) { local_luke.post(:status_message, text: "hello", public: true) }
+      let(:comment) { FactoryGirl.create(:comment, post: post, author: remote_raphael) }
+
+      it "sends retraction to target author if deleted by parent author" do
+        federation_retraction = Diaspora::Federation::Entities.relayable_retraction(comment, local_luke)
+
+        expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+          local_luke.id, federation_retraction.to_h, [remote_raphael.id], {}
+        )
+
+        Retraction.for(comment, local_luke).defer_dispatch(local_luke)
+      end
+
+      it "don't sends retraction back to target author if relayed by parent author" do
+        federation_retraction = Diaspora::Federation::Entities.relayable_retraction(comment, local_luke)
+
+        expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+          local_luke.id, federation_retraction.to_h, [], {}
+        )
+
+        Retraction.for(comment, local_luke).defer_dispatch(local_luke, false)
+      end
+    end
   end
 
   describe "#perform" do
