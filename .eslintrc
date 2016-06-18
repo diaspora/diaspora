@@ -242,7 +242,7 @@
     "space-in-parens": [2, "never"],
     "space-infix-ops": [2, {"int32Hint": true}],
     "space-unary-ops": [2, {"words": true, "nonwords": false}],
-    "spaced-comment": [2, "always"],
+    "spaced-comment": [2, "always", {"markers": ["="]}],
     "strict": 0,
     "template-curly-spacing": 0,
     "unicode-bom": 0,
