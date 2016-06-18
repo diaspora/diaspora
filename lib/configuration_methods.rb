@@ -89,13 +89,11 @@ module Configuration
       get_git_info if git_available?
       @git_revision
     end
-    attr_writer :git_revision
 
     def git_update
       get_git_info if git_available?
       @git_update
     end
-    attr_writer :git_update
 
     def rails_asset_id
       (git_revision || version)[0..8]

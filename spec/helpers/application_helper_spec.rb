@@ -88,17 +88,16 @@ describe ApplicationHelper, :type => :helper do
     end
   end
 
-  describe '#changelog_url' do
-    it 'defaults to master branch changleog' do
-      AppConfig.git_revision = nil
-      expect(changelog_url).to eq('https://github.com/diaspora/diaspora/blob/master/Changelog.md')
+  describe "#changelog_url" do
+    it "defaults to master branch changleog" do
+      expect(AppConfig).to receive(:git_revision).and_return(nil)
+      expect(changelog_url).to eq("https://github.com/diaspora/diaspora/blob/master/Changelog.md")
     end
 
-    it 'displays the changelog for the current git revision if set' do
-      AppConfig.git_revision = '123'
-      expect(changelog_url).to eq('https://github.com/diaspora/diaspora/blob/123/Changelog.md')
+    it "displays the changelog for the current git revision if set" do
+      expect(AppConfig).to receive(:git_revision).twice.and_return("123")
+      expect(changelog_url).to eq("https://github.com/diaspora/diaspora/blob/123/Changelog.md")
     end
-
   end
 
   describe '#pod_name' do
@@ -108,7 +107,6 @@ describe ApplicationHelper, :type => :helper do
 
     it 'displays the supplied pod_name if it is set' do
       AppConfig.settings.pod_name = "Catspora"
-      # require 'pry'; binding.pry
       expect(pod_name).to match "Catspora"
     end
   end
