@@ -21,11 +21,13 @@ module Diaspora
         scope :all_public, -> { where(public: true, pending: false) }
 
         scope :with_visibility, -> {
-          joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = #{table_name}.id")
+          joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = #{table_name}.id AND "\
+            "share_visibilities.shareable_type = '#{base_class}'")
         }
 
         scope :with_aspects, -> {
-          joins("LEFT OUTER JOIN aspect_visibilities ON aspect_visibilities.shareable_id = #{table_name}.id")
+          joins("LEFT OUTER JOIN aspect_visibilities ON aspect_visibilities.shareable_id = #{table_name}.id AND "\
+          " aspect_visibilities.shareable_type = '#{base_class}'")
         }
 
         def self.owned_or_visible_by_user(user)
@@ -55,9 +57,14 @@ module Diaspora
           user.person.send(table_name).where(pending: false)
         end
 
+        def self.shareable_initialize(params)
+          new(params.to_hash.stringify_keys.slice(*column_names)).tap do |new_shareable|
+            new_shareable.author = params[:author]
+          end
+        end
+
         def self.visible_by_user(user)
           ShareVisibility.arel_table[:user_id].eq(user.id)
-            .and(ShareVisibility.arel_table[:shareable_type].eq(base_class.to_s))
         end
         private_class_method :visible_by_user
       end
