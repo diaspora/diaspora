@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531170531) do
+ActiveRecord::Schema.define(version: 20160618033455) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -312,19 +312,18 @@ ActiveRecord::Schema.define(version: 20160531170531) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.string   "guid",             limit: 255
-    t.integer  "target_id",        limit: 4
-    t.string   "target_type",      limit: 60,                null: false
-    t.integer  "author_id",        limit: 4
-    t.text     "author_signature", limit: 65535
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.integer  "count",            limit: 4,     default: 1, null: false
+    t.string   "guid",        limit: 255
+    t.integer  "target_id",   limit: 4
+    t.string   "target_type", limit: 60,              null: false
+    t.integer  "author_id",   limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "count",       limit: 4,   default: 1, null: false
   end
 
   add_index "participations", ["author_id"], name: "index_participations_on_author_id", using: :btree
   add_index "participations", ["guid"], name: "index_participations_on_guid", length: {"guid"=>191}, using: :btree
-  add_index "participations", ["target_id", "target_type", "author_id"], name: "index_participations_on_target_id_and_target_type_and_author_id", using: :btree
+  add_index "participations", ["target_id", "target_type", "author_id"], name: "index_participations_on_target_id_and_target_type_and_author_id", unique: true, using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "guid",                  limit: 255,                   null: false
