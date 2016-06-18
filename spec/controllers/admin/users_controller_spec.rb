@@ -24,6 +24,25 @@ describe Admin::UsersController, :type => :controller do
       other_user = FactoryGirl.create :user
       other_user.lock_access!
       expect(other_user.reload.access_locked?).to be_truthy
+      expect(other_user.lock_expires).to be_falsey
+    end
+
+    it "it locks the given account for a certain amount of time" do
+      other_user = FactoryGirl.create :user
+      current_time = Time.now.utc
+      other_user.lock_access!(unlock_in: 10.minutes)
+      expect((other_user.locked_at - current_time).to_i).to eq(600)
+      expect(other_user.lock_expires).to be_truthy
+    end
+
+    it "it should expire with unlock_in set only" do
+      other_user = FactoryGirl.create :user
+      other_user.lock_access!(unlock_in: 10.minutes)
+      expect(other_user.lock_expires).to be_truthy
+      other_user.unlock_access!
+      expect(other_user.lock_expires).to be_falsey
+      other_user.lock_access!
+      expect(other_user.lock_expires).to be_falsey
     end
   end
 

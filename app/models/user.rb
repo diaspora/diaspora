@@ -550,6 +550,26 @@ class User < ActiveRecord::Base
     AccountDeletion.create(:person => self.person)
   end
 
+  def lock_access!(opts={})
+    if opts[:unlock_in]
+      self.lock_expires = true
+      self.locked_at = Time.now.utc + opts[:unlock_in]
+      save
+    else
+      self.lock_expires = false
+      super
+    end
+  end
+
+  def lock_expired?
+    locked_at && lock_expires && locked_at < Time.now.utc
+  end
+
+  def unlock_access!
+    self.lock_expires = false
+    super
+  end
+
   def closed_account?
     self.person.closed_account
   end
