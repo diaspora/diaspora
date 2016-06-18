@@ -108,8 +108,19 @@ describe Retraction do
   end
 
   describe "#public?" do
-    it "returns true for a public target" do
+    it "returns true for a public post" do
       expect(Retraction.for(post, alice).public?).to be_truthy
+    end
+
+    it "returns true for a public comment if parent post is local" do
+      comment = bob.comment!(post, "destroy!")
+      expect(Retraction.for(comment, bob).public?).to be_truthy
+    end
+
+    it "returns false for a public comment if parent post is not local" do
+      remote_post = FactoryGirl.create(:status_message, author: remote_raphael)
+      comment = alice.comment!(remote_post, "destroy!")
+      expect(Retraction.for(comment, alice).public?).to be_falsey
     end
 
     it "returns false for a private target" do

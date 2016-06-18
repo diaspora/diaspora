@@ -38,7 +38,8 @@ class Retraction
   end
 
   def public?
-    data[:target][:public]
+    # TODO: backward compatibility for pre 0.6 pods, they don't relay public retractions
+    data[:target][:public] && (!data[:target][:parent] || data[:target][:parent][:local])
   end
 
   private
