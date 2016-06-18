@@ -190,11 +190,10 @@ describe StatusMessagesController, :type => :controller do
       expect(StatusMessage.first.provider_display_name).to eq('mobile')
     end
 
-    it "has one participation" do
+    it "has no participation" do
       post :create, status_message_hash
       new_message = StatusMessage.find_by_text(text)
-      expect(new_message.participations.count).to eq(1)
-      expect(new_message.participations.first.count).to eq(1)
+      expect(new_message.participations.count).to eq(0)
     end
 
     context 'with photos' do

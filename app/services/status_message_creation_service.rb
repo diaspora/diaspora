@@ -54,7 +54,6 @@ class StatusMessageCreationService
   def process(status_message, aspect_ids, services)
     add_to_streams(status_message, aspect_ids) unless status_message.public
     dispatch(status_message, services)
-    user.participate!(status_message)
   end
 
   def add_to_streams(status_message, aspect_ids)
