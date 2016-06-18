@@ -133,7 +133,7 @@ describe Reshare, type: :model do
       post = eve.post(:status_message, text: "hello", public: true)
       reshare = FactoryGirl.create(:reshare, root: post, author: user.person)
 
-      expect(reshare.subscribers).to eq([alice.person, eve.person])
+      expect(reshare.subscribers).to match_array([alice.person, eve.person, user.person])
     end
   end
 end

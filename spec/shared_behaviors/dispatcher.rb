@@ -42,7 +42,8 @@ shared_examples "a dispatcher" do
 
     context "deliver to local user" do
       it "queues receive local job for all local receivers" do
-        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, [bob.id])
+        local_subscriber_ids = post.subscribers.select(&:local?).map(&:owner_id)
+        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, local_subscriber_ids)
         Diaspora::Federation::Dispatcher.build(alice, post).dispatch
       end
 

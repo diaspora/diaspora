@@ -220,23 +220,29 @@ describe Post, :type => :model do
     context "public" do
       let(:post) { user.post(:status_message, text: "hello", public: true) }
 
+      it "returns the author to ensure local delivery" do
+        lonely_user = FactoryGirl.create(:user)
+        lonely_post = lonely_user.post(:status_message, text: "anyone?", public: true)
+        expect(lonely_post.subscribers).to match_array([lonely_user.person])
+      end
+
       it "returns all a users contacts if the post is public" do
         second_aspect = user.aspects.create(name: "winners")
         user.share_with(bob.person, second_aspect)
 
-        expect(post.subscribers).to eq([alice.person, bob.person])
+        expect(post.subscribers).to match_array([alice.person, bob.person, user.person])
       end
 
       it "adds resharers to subscribers" do
         FactoryGirl.create(:reshare, root: post, author: eve.person)
 
-        expect(post.subscribers).to eq([alice.person, eve.person])
+        expect(post.subscribers).to match_array([alice.person, eve.person, user.person])
       end
 
       it "adds participants to subscribers" do
         eve.participate!(post)
 
-        expect(post.subscribers).to eq([alice.person, eve.person])
+        expect(post.subscribers).to match_array([alice.person, eve.person, user.person])
       end
     end
   end

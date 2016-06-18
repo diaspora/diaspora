@@ -46,7 +46,7 @@ module Diaspora
     def subscribers
       user = author.owner
       if public?
-        user.contact_people
+        [*user.contact_people, author]
       else
         user.people_in_aspects(user.aspects_with_shareable(self.class, id))
       end
