@@ -77,6 +77,35 @@ describe Diaspora::Federation::Receive do
 
       expect(Diaspora::Federation::Receive.contact(contact_entity)).to be_nil
     end
+
+    context "sharing=false" do
+      let(:unshare_contact_entity) {
+        FactoryGirl.build(
+          :contact_entity,
+          author:    sender.diaspora_handle,
+          recipient: alice.diaspora_handle,
+          sharing:   "false"
+        )
+      }
+
+      it "disconnects, if currently connected" do
+        alice.contacts.find_or_initialize_by(person_id: sender.id, receiving: true, sharing: true).save!
+
+        received = Diaspora::Federation::Receive.contact(unshare_contact_entity)
+        expect(received).to be_nil
+
+        contact = alice.contacts.find_by!(person_id: sender.id)
+
+        expect(contact).not_to be_nil
+        expect(contact.sharing).to be_falsey
+      end
+
+      it "does nothing, if already disconnected" do
+        received = Diaspora::Federation::Receive.contact(unshare_contact_entity)
+        expect(received).to be_nil
+        expect(alice.contacts.find_by(person_id: sender.id)).to be_nil
+      end
+    end
   end
 
   describe ".conversation" do
