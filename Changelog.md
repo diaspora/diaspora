@@ -158,6 +158,7 @@ before.
 ## Refactor
 
 * Removed the publisher from a user's photo stream due to various issues [#6851](https://github.com/diaspora/diaspora/pull/6851)
+* Don't implicitly ignore missing templateName in app.views.Base [#6877](https://github.com/diaspora/diaspora/pull/6877)
 
 ## Bug fixes
 
