@@ -94,9 +94,6 @@ FactoryGirl.define do
   factory(:status_message, aliases: %i(status_message_without_participation)) do
     sequence(:text) {|n| "jimmy's #{n} whales" }
     author
-    after(:build) do |sm|
-      sm.diaspora_handle = sm.author.diaspora_handle
-    end
 
     factory(:status_message_with_poll) do
       after(:build) do |sm|

@@ -20,7 +20,7 @@ describe "attack vectors", type: :request do
     # bob trys to send a message to alice
 
     original_message = eve.post(:status_message, text: "store this!", to: eves_aspect.id)
-    original_message.diaspora_handle = bob.diaspora_handle
+    original_message.author = bob.person
 
     alice.share_with(eve.person, alices_aspect)
 
@@ -116,7 +116,7 @@ describe "attack vectors", type: :request do
     original_message = eve.post(:photo, user_file: uploaded_photo, text: "store this!", to: eves_aspect.id)
 
     new_message = original_message.dup
-    new_message.diaspora_handle = alice.diaspora_handle
+    new_message.author = alice.person
     new_message.text = "bad bad bad"
     new_message.height = 23
     new_message.width = 42

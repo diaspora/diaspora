@@ -10,10 +10,6 @@ module Diaspora
           validates :author, presence: true
         end
       end
-
-      def diaspora_handle=(nh)
-        self.author = Person.find_or_fetch_by_identifier(nh)
-      end
     end
   end
 end

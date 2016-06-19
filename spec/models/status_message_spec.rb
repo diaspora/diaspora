@@ -96,15 +96,6 @@ describe StatusMessage, type: :model do
     end
   end
 
-  describe "#diaspora_handle=" do
-    it "sets #author" do
-      person = FactoryGirl.create(:person)
-      post = FactoryGirl.build(:status_message, author: user.person)
-      post.diaspora_handle = person.diaspora_handle
-      expect(post.author).to eq(person)
-    end
-  end
-
   context "emptyness" do
     it "needs either a message or at least one photo" do
       post = user.build_post(:status_message, text: nil)

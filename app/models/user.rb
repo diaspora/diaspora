@@ -228,8 +228,7 @@ class User < ActiveRecord::Base
 
   ######## Posting ########
   def build_post(class_name, opts={})
-    opts[:author] = self.person
-    opts[:diaspora_handle] = opts[:author].diaspora_handle
+    opts[:author] = person
 
     model_class = class_name.to_s.camelize.constantize
     model_class.diaspora_initialize(opts)
