@@ -26,11 +26,12 @@
           array[index][1] = attribute[1].replace(/^www\./, "http://www.");
         }
       });
-      tokens[idx].attrPush([ "target", "_blank" ]);
+      tokens[idx].attrPush(["target", "_blank"]);
+      tokens[idx].attrPush(["rel", "noopener noreferrer"]);
     });
 
     md.use(inlinePlugin, "responsive_images", "image", function (tokens, idx) {
-      tokens[idx].attrPush([ "class", "img-responsive" ]);
+      tokens[idx].attrPush(["class", "img-responsive"]);
     });
 
     var hashtagPlugin = window.markdownitHashtag;
