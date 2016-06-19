@@ -5,7 +5,7 @@
 @import 'mixins';
 
 
-/* core */
+// core
 @import 'media-box';
 @import 'entypo';
 @import 'icons';
@@ -24,59 +24,62 @@
 @import 'colors';
 @import 'card-footer';
 
-/* font overrides */
+// font overrides
 @import 'typography';
 
 // layout
 @import 'sidebar';
 
-/* login */
+// home
+@import 'home';
+
+// login
 @import 'login';
 @import 'registration';
 @import 'forms';
 
-/* terms */
+// terms
 @import 'terms';
 
-/* profile and settings pages */
+// profile and settings pages
 @import 'settings';
 
-/* new SPV */
+// new SPV
 @import 'header';
 @import 'footer';
 @import 'opengraph';
 @import 'single-post-view';
 @import 'poll';
 
-/* map*/
+// map
 @import 'leaflet';
 @import 'map';
 
-/* conversations */
+// conversations
 @import 'conversations';
 
-/* publisher */
+// publisher
 @import 'publisher';
 @import 'aspects';
 
-/* bookmarklet */
+// bookmarklet
 @import 'bookmarklet';
 
-/* notifications */
+// notifications
 @import 'notifications';
 
-/* help */
+// help
 @import 'help';
 
-/* getting started */
+// getting started
 @import 'getting-started';
 
-/* people */
+// people
 @import 'people';
 @import 'invitations';
 @import 'profile';
 
-/* stream */
+// stream
 @import 'tag';
 @import 'stream';
 @import 'stream_element';
@@ -87,18 +90,18 @@
 @import 'oembed';
 @import 'post-content';
 
-/* contacts */
+// contacts
 @import 'contacts';
 @import 'navbar_left';
 
-/* code */
+// code
 @import 'code';
 @import 'highlightjs/github';
 
-/* statistics */
+// statistics
 @import 'statistics';
 
-/* gallery */
+// gallery
 @import 'blueimp-gallery';
 @import 'blueimp-gallery/blueimp-gallery-indicator';
 @import 'gallery';

@@ -32,10 +32,8 @@
     <![endif]-->
 
     = jquery_include_tag
-
-    - unless @landing_page
-      = javascript_include_tag :main, :templates
-      = load_javascript_locales
+    = javascript_include_tag :main, :templates
+    = load_javascript_locales
 
     = translation_missing_warnings
     = current_user_atom_tag

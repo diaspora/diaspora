@@ -19,10 +19,15 @@ class HomeController < ApplicationController
           partial_dir.join("_show.html.erb").exist? ||
           partial_dir.join("_show.haml").exist?
       render :show
+    elsif User.count > 1 && Role.where(name: "admin").any?
+      render :default
     else
-      render :default,
-             layout: "application"
+      redirect_to podmin_path
     end
+  end
+
+  def podmin
+    render :podmin
   end
 
   def toggle_mobile
