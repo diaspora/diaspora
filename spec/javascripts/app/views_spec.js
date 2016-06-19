@@ -10,6 +10,30 @@ describe("app.views.Base", function(){
       this.view.render();
     });
 
+    it("throws an exception if no templateName was provided", function() {
+      expect(function() {
+        new app.views.Base().render();
+      }).toThrow(new Error("No templateName set, set to false to ignore."));
+    });
+
+    it("does not throw an exception if templateName is set to false", function() {
+      var ViewClass = app.views.Base.extend({
+        templateName: false
+      });
+
+      new ViewClass().render();
+    });
+
+    it("throws an exception if an invalid templateName was provided", function() {
+      expect(function() {
+        var ViewClass = app.views.Base.extend({
+          templateName: "noiamnotavalidtemplate"
+        });
+
+        new ViewClass().render();
+      }).toThrow(new Error("Invalid templateName provided: noiamnotavalidtemplate"));
+    });
+
     it("renders the template with the presenter", function(){
       expect($(this.view.el).text().trim()).toBe("model attributes are in the default presenter");
     });
