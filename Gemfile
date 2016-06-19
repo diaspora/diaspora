@@ -222,11 +222,11 @@ end
 
 group :development do
   # Automatic test runs
-  gem "guard-cucumber", "2.1.2"
-  gem "guard-jshintrb", "1.1.1"
-  gem "guard-rspec",    "4.7.2", require: false
-  gem "guard-rubocop",  "1.2.0"
   gem "guard",          "2.14.0", require: false
+  gem "listen",         "~> 3.0.0", require: false
+  gem "guard-cucumber", "2.1.2", require: false
+  gem "guard-rspec",    "4.7.2", require: false
+  gem "guard-rubocop",  "1.2.0", require: false
   gem "rb-fsevent",     "0.9.7", require: false
   gem "rb-inotify",     "0.9.7", require: false
 
