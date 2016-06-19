@@ -13,7 +13,7 @@ end
 When /^I fill in the following for the options:$/ do |table|
   i = 0
   table.raw.flatten.each do |value|
-    all(".poll-answer input")[i].set(value)
+    all(".poll-answer input")[i].native.send_keys(value)
     i+=1
   end
 end
@@ -25,7 +25,7 @@ end
 
 When(/^I fill in values for the first two options$/) do
   all(".poll-answer input").each_with_index do |answer, i|
-    answer.set "answer option #{i}"
+    answer.native.send_keys "answer option #{i}"
   end
 end
 

@@ -206,7 +206,7 @@ end
 
 And /^I should be able to friend "([^\"]*)"$/ do |email|
   user = User.find_by_email(email)
-  step 'I should see "Add contact"'
+  step 'I should see a ".aspect_dropdown"'
   step "I should see \"#{user.name}\""
 end
 
@@ -219,5 +219,5 @@ Given /^I did request my photos$/ do
 end
 
 Then /^I should get a zipped file$/ do
-  expect(DownloadHelpers.download).to end_with("zip")
+  expect(page.response_headers["Content-Type"]).to eq("application/zip")
 end

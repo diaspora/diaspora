@@ -18,8 +18,7 @@
     And I sign in as "alice@alice.alice"
 
     And I open the show page of the "Here is a post to test with" post
-    And I click to hide the post
-    And I confirm the alert
+    And I confirm the alert after I click to hide the post
 
     Then I should be on the stream page
 
@@ -32,8 +31,7 @@
     And I sign in as "alice@alice.alice"
 
     And I open the show page of the "Here is a post to test with" post
-    And I click to block the user
-    And I confirm the alert
+    And I confirm the alert after I click to block the user
 
     Then I should be on the stream page
 
@@ -46,8 +44,7 @@
     And I sign in as "alice@alice.alice"
 
     And I open the show page of the "Here is a post to test with" post
-    And I click to report the post
-    And I confirm the alert
+    And I confirm the alert after I click to report the post
 
     And I should see a flash message containing "The report has successfully been created"
 
@@ -57,6 +54,5 @@
     And I submit the publisher
 
     And I open the show page of the "Here is a post to test with" post
-    And I click to delete the post
-    And I confirm the alert
+    And I confirm the alert after I click to delete the post
     Then I should be on the stream page

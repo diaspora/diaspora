@@ -29,8 +29,7 @@ Feature: Notifications
     And "alice@alice.alice" has a public post with text "check this out!"
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
-    And I follow "Reshare"
-    And I confirm the alert
+    And I confirm the alert after I follow "Reshare"
     And I sign out
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header

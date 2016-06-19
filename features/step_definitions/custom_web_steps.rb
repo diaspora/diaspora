@@ -106,13 +106,15 @@ When /^I prepare hiding the first post$/ do
 end
 
 When /^I click to delete the first post$/ do
-  step "I prepare the deletion of the first post"
-  step "I confirm the alert"
+  accept_alert do
+    step "I prepare the deletion of the first post"
+  end
 end
 
 When /^I click to hide the first post$/ do
-  step "I prepare hiding the first post"
-  step "I confirm the alert"
+  accept_alert do
+    step "I prepare hiding the first post"
+  end
 end
 
 When /^I click to delete the first comment$/ do
@@ -123,7 +125,7 @@ end
 
 When /^I click to delete the first uploaded photo$/ do
   page.execute_script("$('#photodropzone .x').css('display', 'block');")
-  find("#photodropzone .x", match: :first).click
+  find("#photodropzone .x", match: :first).trigger "click"
 end
 
 And /^I click on selector "([^"]*)"$/ do |selector|
@@ -134,16 +136,24 @@ And /^I click on the first selector "([^"]*)"$/ do |selector|
   find(selector, match: :first).click
 end
 
-And /^I confirm the alert$/ do
-  page.driver.browser.switch_to.alert.accept
+And /^I confirm the alert after (.*)$/ do |action|
+  accept_alert do
+    step action
+  end
 end
 
-And /^I reject the alert$/ do
-  page.driver.browser.switch_to.alert.dismiss
+And /^I reject the alert after (.*)$/ do |action|
+  dismiss_confirm do
+    step action
+  end
 end
 
-And /^I should not see any alert$/ do
-  expect { page.driver.browser.switch_to.alert }.to raise_error(Selenium::WebDriver::Error::NoAlertPresentError)
+And /^I should not see any alert after (.*)$/ do |action|
+  expect {
+    accept_alert do
+      step action
+    end
+  }.to raise_error(Capybara::ModalNotFound)
 end
 
 When /^(.*) in the mention modal$/ do |action|
@@ -184,12 +194,6 @@ When /^I have turned off jQuery effects$/ do
   page.execute_script("$.fx.off = true")
 end
 
-When /^I search for "([^\"]*)"$/ do |search_term|
-  fill_in "q", :with => search_term
-  find_field("q").native.send_key(:enter)
-  have_content(search_term)
-end
-
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"$/ do |field, selector, value|
   with_scope(selector) do
     field = find_field(field)
@@ -211,11 +215,11 @@ And /^I scroll down on the notifications dropdown$/ do
 end
 
 Then /^I should have scrolled down$/ do
-  page.evaluate_script("window.pageYOffset").should > 0
+  expect(page.evaluate_script("window.pageYOffset")).to be > 0
 end
 
 Then /^I should have scrolled down on the notification dropdown$/ do
-  page.evaluate_script("$('.notifications').scrollTop()").should > 0
+  expect(page.evaluate_script("$('.notifications').scrollTop()")).to be > 0
 end
 
 

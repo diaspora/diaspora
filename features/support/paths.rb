@@ -66,7 +66,11 @@ module NavigationHelpers
   end
 
   def confirm_on_page(page_name)
-    expect(page).to have_path(path_to(page_name))
+    if page_name == "my profile page"
+      expect(page).to have_path_in([person_path(@me.person), user_profile_path(@me.username)])
+    else
+      expect(page).to have_path(path_to(page_name))
+    end
   end
 end
 

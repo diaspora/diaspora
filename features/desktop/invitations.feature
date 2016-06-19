@@ -15,8 +15,7 @@ Feature: Invitations
     And I fill in the following:
       | profile_first_name         | O             |
 
-    And I follow "awesome_button"
-    And I confirm the alert
+    And I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
     And I close the publisher
 
@@ -31,8 +30,7 @@ Feature: Invitations
     And I fill in the following:
       | profile_first_name         | O             |
 
-    And I follow "awesome_button"
-    And I confirm the alert
+    And I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
     And I close the publisher
     And I log out

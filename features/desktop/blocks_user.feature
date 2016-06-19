@@ -11,15 +11,13 @@ Feature: Blocking a user from the stream
     And I sign in as "bob@bob.bob"
 
   Scenario: Blocking a user
-    When I click on the first block button
-    And I confirm the alert
+    When I confirm the alert after I click on the first block button
     And I go to the home page
     Then I should not see any posts in my stream
 
   Scenario: Blocking a user from the profile page
     When I am on "alice@alice.alice"'s page
-    When I click on the profile block button
-    And I confirm the alert
+    And I confirm the alert after I click on the profile block button
     Then "All your base are belong to us!" should be post 1
     When I go to the home page
     Then I should not see any posts in my stream

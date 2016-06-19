@@ -21,6 +21,5 @@ Feature: private conversations mobile
     And I reply with "hey, how you doing?"
     And I press the first ".ltr" within ".conversation"
     Then I should see "hey, how you doing?"
-    When I click on selector "a.remove"
-    And I confirm the alert
+    When I confirm the alert after I click on selector "a.remove"
     Then I should not see "hey, how you doing"

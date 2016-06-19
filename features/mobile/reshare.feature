@@ -13,11 +13,10 @@ Feature: resharing from the mobile
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And a user with email "eve@eve.eve" is connected with "bob@bob.bob"
     Given "bob@bob.bob" has a public post with text "reshare this!"
-    And I sign in as "alice@alice.alice"
+    And I sign in as "alice@alice.alice" on the mobile website
 
   Scenario: Resharing a post from a single post page
-    And I click on selector ".reshare-action.inactive"
-    And I confirm the alert
+    And I confirm the alert after I click on selector ".reshare-action.inactive"
     Then I should see a ".reshare-action.active"
     When I go to the stream page
     Then I should see "Reshared via" within ".reshare_via"
@@ -25,8 +24,7 @@ Feature: resharing from the mobile
   Scenario: Resharing a post from a single post page that is reshared
     Given the post with text "reshare this!" is reshared by "eve@eve.eve"
     And a user with email "alice@alice.alice" is connected with "eve@eve.eve"
-    And I click on the first selector ".reshare-action.inactive"
-    And I confirm the alert
+    And I confirm the alert after I click on the first selector ".reshare-action.inactive"
     Then I should see a ".reshare-action.active"
     When I go to the stream page
     Then I should see "Reshared via" within ".reshare_via"
@@ -47,10 +45,9 @@ Feature: resharing from the mobile
     Then I should see "Original post deleted by author" within ".reshare"
 
   Scenario: Not resharing own post
-    Given I sign in as "bob@bob.bob"
+    Given I sign in as "bob@bob.bob" on the mobile website
     Then I should see a ".reshare-action.disabled"
-    When I click on selector ".reshare-action"
-    Then I should not see any alert
+    And I should not see any alert after I click on selector ".reshare-action"
     And I should not see a ".reshare-action.active"
     When I go to the stream page
     Then I should not see a ".reshare_via"

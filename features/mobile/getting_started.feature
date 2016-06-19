@@ -17,8 +17,7 @@ Feature: editing the getting started in the mobile view
     And I should not see "awesome_button"
 
   Scenario: new user adds a profile photo and tags
-    When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-    And I confirm the alert
+    When I confirm the alert after I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
     And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
     Then I should see a "img" within "#profile_photo_upload"
 
@@ -32,11 +31,13 @@ Feature: editing the getting started in the mobile view
     And I should not see "awesome_button"
 
   Scenario: new user completes getting started and signs in again later
-    When I sign out manually on the mobile website
+    When I sign out
+    And I go to the login page
     And I sign in manually as "ohai" with password "secret" on the mobile website
     Then I should be on the getting started page
     When I follow "awesome_button"
     Then I should be on the stream page
-    When I sign out manually on the mobile website
+    When I sign out
+    And I go to the login page
     And I sign in manually as "ohai" with password "secret" on the mobile website
     Then I should be on the stream page

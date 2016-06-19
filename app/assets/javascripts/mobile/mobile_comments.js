@@ -220,7 +220,7 @@
     },
 
     resetCommentBox: function(el){
-      var commentButton = el.find("input.comment-button").first();
+      var commentButton = $(el).find("input.comment-button").first();
       commentButton.attr("value", commentButton.data("reset-with"));
       commentButton.removeAttr("disabled");
       commentButton.blur();

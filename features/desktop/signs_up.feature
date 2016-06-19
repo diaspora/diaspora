@@ -11,8 +11,7 @@ Feature: new user registration
   Scenario: new user goes through the setup wizard
     When I fill in the following:
       | profile_first_name | O             |
-    And I follow "awesome_button"
-    And I confirm the alert
+    And I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
     And I close the publisher
     And I should not see "awesome_button"
@@ -28,20 +27,17 @@ Feature: new user registration
       | profile_first_name | some name     |
     And I focus the "follow_tags" field
     Then I should see a flash message containing "Hey, some name!"
-    When I follow "awesome_button"
-    And I reject the alert
+    When I reject the alert after I follow "awesome_button"
     Then I should be on the getting started page
     And I should see a flash message containing "All right, I’ll wait."
 
   Scenario: new user skips the setup wizard
-    When I follow "awesome_button"
-    And I confirm the alert
+    When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
     And I close the publisher
 
   Scenario: new user without any tags posts first status message
-    When I follow "awesome_button"
-    And I confirm the alert
+    When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
     When I submit the publisher
     Then "Hey everyone, I’m #newhere." should be post 1
@@ -57,8 +53,7 @@ Feature: new user registration
     Then "Hey everyone, I’m #newhere. I’m interested in #rockstar." should be post 1
 
   Scenario: closing a popover clears getting started
-    When I follow "awesome_button"
-    And I confirm the alert
+    When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
     And I have turned off jQuery effects
     And I wait for the popovers to appear

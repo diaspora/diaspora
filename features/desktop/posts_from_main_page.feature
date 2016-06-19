@@ -156,6 +156,7 @@ Feature: posting from the main page
       When I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "PostingTo"
+      And I press the aspect dropdown
       And I append "I am eating a yogurt" to the publisher
       And I submit the publisher
 
@@ -171,12 +172,14 @@ Feature: posting from the main page
       When I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "PostingTo"
+      And I press the aspect dropdown
       And I append "I am eating a yogurt" to the publisher
       And I submit the publisher
 
       And I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "Besties"
+      And I press the aspect dropdown
       And I append "And cornflakes also" to the publisher
       And I submit the publisher
 
@@ -200,6 +203,5 @@ Feature: posting from the main page
       And I submit the publisher
 
       And I hover over the ".stream_element"
-      And I prepare the deletion of the first post
-      And I reject the alert
+      And I reject the alert after I prepare the deletion of the first post
       Then I should see "I am eating a yogurt"

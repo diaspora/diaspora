@@ -15,7 +15,7 @@ And /^Alice has (\d+) posts mentioning Bob$/ do |n|
 end
 
 And /^I mention Alice in the publisher$/ do
-  write_in_publisher("@alice")
+  step %(I append "@alice" to the publisher)
   step %(I click on the first user in the mentions dropdown list)
 end
 

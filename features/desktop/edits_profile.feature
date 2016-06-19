@@ -25,7 +25,7 @@ Feature: editing your profile
     And the "profile_gender" field should contain "Fearless"
     And the "profile_first_name" field should contain "Boba"
     And the "profile_last_name" field should contain "Fett"
-    And I should see "This is a bio"
+    And the "profile_bio" field should contain "This is a bio"
     And the "profile_date_year" field should be filled with "1986"
     And the "profile_date_month" field should be filled with "11"
     And the "profile_date_day" field should be filled with "30"
@@ -42,7 +42,10 @@ Feature: editing your profile
     And I should see "#starwars" within "ul#as-selections-tags"
     And the "#profile_public_details" bootstrap-switch should be on
 
-    When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-    And I confirm the alert
+    When I confirm the alert after I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
     And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+    Then I should see "button.png completed"
+    And I should see a "img" within "#profile_photo_upload"
+
+    When I go to my edit profile page
     Then I should see a "img" within "#profile_photo_upload"

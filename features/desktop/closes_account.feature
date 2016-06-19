@@ -11,8 +11,7 @@ Feature: Close account
     Then I should see a modal
     And I should see "Hey, please don’t go!" within "#closeAccountModal"
     When I put in my password in "close_account_password"
-    And I press "close_account_confirm"
-    And I confirm the alert
+    And I confirm the alert after I press "Close account" in the modal
     Then I should be on the new user session page
 
     When I try to sign in manually
