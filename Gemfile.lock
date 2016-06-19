@@ -531,8 +531,6 @@ GEM
     pry-byebug (3.4.0)
       byebug (~> 9.0)
       pry (~> 0.10)
-    pry-debundle (0.8)
-      pry
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -863,7 +861,6 @@ DEPENDENCIES
   open_graph_reader (= 0.6.1)
   pry
   pry-byebug
-  pry-debundle
   quiet_assets (= 1.1.0)
   rack-cors (= 0.4.0)
   rack-google-analytics (= 1.2.0)
