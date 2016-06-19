@@ -22,8 +22,7 @@ guard :rspec, cmd: "bin/spring rspec", all_on_start: false, all_after_pass: fals
 end
 
 guard(:cucumber,
-      command_prefix: "bin/spring",
-      bundler:        false,
+      cmd:            "bin/spring cucumber",
       all_on_start:   false,
       all_after_pass: false) do
   watch(/^features\/.+\.feature$/)
