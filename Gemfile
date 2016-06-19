@@ -261,7 +261,6 @@ group :development do
 
   # Debugging
   gem "pry"
-  gem "pry-debundle"
   gem "pry-byebug"
 
   # test coverage
