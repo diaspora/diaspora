@@ -4,7 +4,11 @@ module Diaspora
       include ActionView::Helpers::TextHelper
 
       def autolink link, type
-        Twitter::Autolink.auto_link_urls(link, url_target: "_blank")
+        Twitter::Autolink.auto_link_urls(
+          link,
+          url_target:           "_blank",
+          link_attribute_block: lambda {|_, attr| attr[:rel] += " noopener noreferrer" }
+        )
       end
     end
   end

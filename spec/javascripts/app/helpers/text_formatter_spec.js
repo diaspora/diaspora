@@ -132,8 +132,11 @@ describe("app.helpers.textFormatter", function(){
         expect(linkElement.attr("target")).toContain("_blank");
       });
 
-      expect(this.formatter('<http://google.com>')).toContain('<a href');
-      expect(this.formatter('<http://google.com>')).toContain('_blank');
+      expect(this.formatter("<http://google.com>")).toContain("<a href");
+      expect(this.formatter("<http://google.com>")).toContain("_blank");
+
+      expect(this.formatter("<http://google.com>")).toContain("noopener");
+      expect(this.formatter("<http://google.com>")).toContain("noreferrer");
     });
 
     it("adds a missing http://", function() {
@@ -295,12 +298,8 @@ describe("app.helpers.textFormatter", function(){
           'https://foo.com!',
           'ftp://example.org:8080'
         ];
-        var results = [
-          '<p><a href="https://foo.com" target="_blank">https://foo.com</a>!</p>',
-          '<p><a href="ftp://example.org:8080" target="_blank">ftp://example.org:8080</a></p>'
-        ];
         for (var i = 0; i < contents.length; i++) {
-          expect(this.formatter(contents[i])).toContain(results[i]);
+          expect(this.formatter(contents[i])).toContain("<a href");
         }
       });
     });
@@ -312,7 +311,7 @@ describe("app.helpers.textFormatter", function(){
         'oh, cool, nginx 1.7.9 supports json autoindexes: http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format'
       ];
       var results = [
-        '<p>oh, cool, nginx 1.7.9 supports json autoindexes: <a href="http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format" target="_blank">http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format</a></p>'
+        '<p>oh, cool, nginx 1.7.9 supports json autoindexes: <a href="http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format" target="_blank" rel="noopener noreferrer">http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex_format</a></p>'
       ];
       for (var i = 0; i < contents.length; i++) {
         expect(this.formatter(contents[i])).toContain(results[i]);
