@@ -3,6 +3,10 @@ module Diaspora
     module Receive
       extend Diaspora::Logging
 
+      def self.perform(entity)
+        public_send(Mappings.receiver_for(entity.class), entity)
+      end
+
       def self.account_deletion(entity)
         AccountDeletion.create!(person: author_of(entity), diaspora_handle: entity.author)
       end
@@ -49,7 +53,7 @@ module Diaspora
             author:   author_of(entity),
             guid:     entity.guid,
             positive: entity.positive,
-            target:   entity.parent_type.constantize.find_by(guid: entity.parent_guid)
+            target:   Mappings.model_class_for(entity.parent_type).find_by(guid: entity.parent_guid)
           )
         end
       end
@@ -61,7 +65,7 @@ module Diaspora
       def self.participation(entity)
         author = author_of(entity)
         ignore_existing_guid(Participation, entity.guid, author) do
-          parent = entity.parent_type.constantize.find_by(guid: entity.parent_guid)
+          parent = Mappings.model_class_for(entity.parent_type).find_by(guid: entity.parent_guid)
 
           Participation.create!(author: author, guid: entity.guid, target: parent) if parent.author.local?
         end
@@ -134,7 +138,8 @@ module Diaspora
       end
 
       def self.retraction(entity, recipient_id)
-        object = entity.target_type.constantize.where(guid: entity.target_guid).take!
+        model_class = Diaspora::Federation::Mappings.model_class_for(entity.target_type)
+        object = model_class.where(guid: entity.target_guid).take!
 
         case object
         when Person

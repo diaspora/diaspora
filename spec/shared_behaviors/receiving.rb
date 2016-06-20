@@ -1,23 +1,23 @@
 require "spec_helper"
 
-shared_examples_for "it ignores existing object received twice" do |klass, method|
+shared_examples_for "it ignores existing object received twice" do |klass|
   it "return nil if the #{klass} already exists" do
-    expect(Diaspora::Federation::Receive.public_send(method, entity)).not_to be_nil
-    expect(Diaspora::Federation::Receive.public_send(method, entity)).to be_nil
+    expect(Diaspora::Federation::Receive.public_send(:perform, entity)).not_to be_nil
+    expect(Diaspora::Federation::Receive.public_send(:perform, entity)).to be_nil
   end
 
   it "does not change anything if the #{klass} already exists" do
-    Diaspora::Federation::Receive.public_send(method, entity)
+    Diaspora::Federation::Receive.public_send(:perform, entity)
 
     expect_any_instance_of(klass).not_to receive(:create_or_update)
 
-    Diaspora::Federation::Receive.public_send(method, entity)
+    Diaspora::Federation::Receive.public_send(:perform, entity)
   end
 end
 
-shared_examples_for "it rejects if the parent author ignores the author" do |klass, method|
+shared_examples_for "it rejects if the parent author ignores the author" do |klass|
   it "saves the relayable if the author is not ignored" do
-    Diaspora::Federation::Receive.public_send(method, entity)
+    Diaspora::Federation::Receive.public_send(:perform, entity)
 
     expect(klass.find_by!(guid: entity.guid)).to be_instance_of(klass)
   end
@@ -29,7 +29,7 @@ shared_examples_for "it rejects if the parent author ignores the author" do |kla
 
     it "raises an error and does not save the relayable" do
       expect {
-        Diaspora::Federation::Receive.public_send(method, entity)
+        Diaspora::Federation::Receive.public_send(:perform, entity)
       }.to raise_error Diaspora::Federation::AuthorIgnored
 
       expect(klass.find_by(guid: entity.guid)).to be_nil
@@ -47,13 +47,13 @@ shared_examples_for "it rejects if the parent author ignores the author" do |kla
       expect(dispatcher).to receive(:dispatch)
 
       expect {
-        Diaspora::Federation::Receive.public_send(method, entity)
+        Diaspora::Federation::Receive.public_send(:perform, entity)
       }.to raise_error Diaspora::Federation::AuthorIgnored
     end
   end
 end
 
-shared_examples_for "it relays relayables" do |klass, method|
+shared_examples_for "it relays relayables" do |klass|
   it "dispatches the received relayable" do
     expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch) do |parent_author, relayable|
       expect(parent_author).to eq(alice)
@@ -61,6 +61,6 @@ shared_examples_for "it relays relayables" do |klass, method|
       expect(relayable.guid).to eq(entity.guid)
     end
 
-    Diaspora::Federation::Receive.public_send(method, entity)
+    Diaspora::Federation::Receive.public_send(:perform, entity)
   end
 end

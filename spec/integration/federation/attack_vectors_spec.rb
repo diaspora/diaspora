@@ -59,9 +59,10 @@ describe "attack vectors", type: :request do
     it "should not receive contact retractions from another person" do
       # we are banking on bob being friends with alice and eve
       # here, alice is trying to disconnect bob and eve
-      expect(bob.contacts(true).find_by(person_id: eve.person.id)).to be_sharing
+      contact = bob.contacts(true).find_by(person_id: eve.person.id)
+      expect(contact).to be_sharing
 
-      post_message(generate_xml(Diaspora::Federation::Entities.retraction(eve.person), alice, bob), bob)
+      post_message(generate_xml(Diaspora::Federation::Entities.retraction(contact), alice, bob), bob)
 
       expect(bob.contacts(true).find_by(person_id: eve.person.id)).to be_sharing
     end

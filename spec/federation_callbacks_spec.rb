@@ -346,36 +346,33 @@ describe "diaspora federation callbacks" do
       DiasporaFederation.callbacks.trigger(:receive_entity, retraction, 42)
     end
 
-    %i(comment contact conversation like message participation photo
-       poll_participation profile reshare status_message).each do |entity|
-      it "receives a #{entity}" do
-        received = FactoryGirl.build("#{entity}_entity")
-        persisted = FactoryGirl.create(entity)
+    it "receives a entity" do
+      received = FactoryGirl.build(:status_message_entity)
+      persisted = FactoryGirl.create(:status_message)
 
-        expect(Diaspora::Federation::Receive).to receive(entity).with(received).and_return(persisted)
-        expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
+      expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
+      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
 
-        DiasporaFederation.callbacks.trigger(:receive_entity, received, nil)
-      end
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, nil)
+    end
 
-      it "receives a #{entity} for a recipient" do
-        received = FactoryGirl.build("#{entity}_entity")
-        persisted = FactoryGirl.create(entity)
+    it "receives a entity for a recipient" do
+      received = FactoryGirl.build(:status_message_entity)
+      persisted = FactoryGirl.create(:status_message)
 
-        expect(Diaspora::Federation::Receive).to receive(entity).with(received).and_return(persisted)
-        expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [42])
+      expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
+      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [42])
 
-        DiasporaFederation.callbacks.trigger(:receive_entity, received, 42)
-      end
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, 42)
+    end
 
-      it "does not trigger a ReceiveLocal job if Receive.#{entity} returned nil" do
-        received = FactoryGirl.build("#{entity}_entity")
+    it "does not trigger a ReceiveLocal job if Receive.perform returned nil" do
+      received = FactoryGirl.build(:status_message_entity)
 
-        expect(Diaspora::Federation::Receive).to receive(entity).with(received).and_return(nil)
-        expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+      expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(nil)
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
 
-        DiasporaFederation.callbacks.trigger(:receive_entity, received, nil)
-      end
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, nil)
     end
   end
 

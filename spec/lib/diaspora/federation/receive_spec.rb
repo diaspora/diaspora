@@ -20,7 +20,7 @@ describe Diaspora::Federation::Receive do
     let(:comment_entity) { FactoryGirl.build(:comment_entity, author: sender.diaspora_handle, parent_guid: post.guid) }
 
     it "saves the comment" do
-      received = Diaspora::Federation::Receive.comment(comment_entity)
+      received = Diaspora::Federation::Receive.perform(comment_entity)
 
       comment = Comment.find_by!(guid: comment_entity.guid)
 
@@ -31,7 +31,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "attaches the comment to the post" do
-      Diaspora::Federation::Receive.comment(comment_entity)
+      Diaspora::Federation::Receive.perform(comment_entity)
 
       comment = Comment.find_by!(guid: comment_entity.guid)
 
@@ -40,9 +40,9 @@ describe Diaspora::Federation::Receive do
     end
 
     let(:entity) { comment_entity }
-    it_behaves_like "it ignores existing object received twice", Comment, :comment
-    it_behaves_like "it rejects if the parent author ignores the author", Comment, :comment
-    it_behaves_like "it relays relayables", Comment, :comment
+    it_behaves_like "it ignores existing object received twice", Comment
+    it_behaves_like "it rejects if the parent author ignores the author", Comment
+    it_behaves_like "it relays relayables", Comment
   end
 
   describe ".contact" do
@@ -51,7 +51,7 @@ describe Diaspora::Federation::Receive do
     }
 
     it "creates the contact if it doesn't exist" do
-      received = Diaspora::Federation::Receive.contact(contact_entity)
+      received = Diaspora::Federation::Receive.perform(contact_entity)
 
       contact = alice.contacts.find_by!(person_id: sender.id)
 
@@ -62,7 +62,7 @@ describe Diaspora::Federation::Receive do
     it "updates the contact if it exists" do
       alice.contacts.find_or_initialize_by(person_id: sender.id, receiving: true, sharing: false).save!
 
-      received = Diaspora::Federation::Receive.contact(contact_entity)
+      received = Diaspora::Federation::Receive.perform(contact_entity)
 
       contact = alice.contacts.find_by!(person_id: sender.id)
 
@@ -75,7 +75,7 @@ describe Diaspora::Federation::Receive do
 
       expect_any_instance_of(Contact).not_to receive(:save!)
 
-      expect(Diaspora::Federation::Receive.contact(contact_entity)).to be_nil
+      expect(Diaspora::Federation::Receive.perform(contact_entity)).to be_nil
     end
 
     context "sharing=false" do
@@ -91,7 +91,7 @@ describe Diaspora::Federation::Receive do
       it "disconnects, if currently connected" do
         alice.contacts.find_or_initialize_by(person_id: sender.id, receiving: true, sharing: true).save!
 
-        received = Diaspora::Federation::Receive.contact(unshare_contact_entity)
+        received = Diaspora::Federation::Receive.perform(unshare_contact_entity)
         expect(received).to be_nil
 
         contact = alice.contacts.find_by!(person_id: sender.id)
@@ -101,7 +101,7 @@ describe Diaspora::Federation::Receive do
       end
 
       it "does nothing, if already disconnected" do
-        received = Diaspora::Federation::Receive.contact(unshare_contact_entity)
+        received = Diaspora::Federation::Receive.perform(unshare_contact_entity)
         expect(received).to be_nil
         expect(alice.contacts.find_by(person_id: sender.id)).to be_nil
       end
@@ -129,7 +129,7 @@ describe Diaspora::Federation::Receive do
     }
 
     it "saves the conversation" do
-      received = Diaspora::Federation::Receive.conversation(conversation_entity)
+      received = Diaspora::Federation::Receive.perform(conversation_entity)
 
       conv = Conversation.find_by!(guid: conversation_entity.guid)
 
@@ -139,7 +139,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "saves the message" do
-      Diaspora::Federation::Receive.conversation(conversation_entity)
+      Diaspora::Federation::Receive.perform(conversation_entity)
 
       conv = Conversation.find_by!(guid: conversation_entity.guid)
 
@@ -150,7 +150,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "creates appropriate visibilities" do
-      Diaspora::Federation::Receive.conversation(conversation_entity)
+      Diaspora::Federation::Receive.perform(conversation_entity)
 
       conv = Conversation.find_by!(guid: conversation_entity.guid)
 
@@ -158,7 +158,7 @@ describe Diaspora::Federation::Receive do
       expect(conv.participants).to include(alice.person, bob.person)
     end
 
-    it_behaves_like "it ignores existing object received twice", Conversation, :conversation do
+    it_behaves_like "it ignores existing object received twice", Conversation do
       let(:entity) { conversation_entity }
     end
   end
@@ -167,7 +167,7 @@ describe Diaspora::Federation::Receive do
     let(:like_entity) { FactoryGirl.build(:like_entity, author: sender.diaspora_handle, parent_guid: post.guid) }
 
     it "saves the like" do
-      received = Diaspora::Federation::Receive.like(like_entity)
+      received = Diaspora::Federation::Receive.perform(like_entity)
 
       like = Like.find_by!(guid: like_entity.guid)
 
@@ -177,7 +177,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "attaches the like to the post" do
-      Diaspora::Federation::Receive.like(like_entity)
+      Diaspora::Federation::Receive.perform(like_entity)
 
       like = Like.find_by!(guid: like_entity.guid)
 
@@ -186,9 +186,9 @@ describe Diaspora::Federation::Receive do
     end
 
     let(:entity) { like_entity }
-    it_behaves_like "it ignores existing object received twice", Like, :like
-    it_behaves_like "it rejects if the parent author ignores the author", Like, :like
-    it_behaves_like "it relays relayables", Like, :like
+    it_behaves_like "it ignores existing object received twice", Like
+    it_behaves_like "it rejects if the parent author ignores the author", Like
+    it_behaves_like "it relays relayables", Like
   end
 
   describe ".message" do
@@ -208,7 +208,7 @@ describe Diaspora::Federation::Receive do
     }
 
     it "saves the message" do
-      received = Diaspora::Federation::Receive.message(message_entity)
+      received = Diaspora::Federation::Receive.perform(message_entity)
 
       msg = Message.find_by!(guid: message_entity.guid)
 
@@ -219,7 +219,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "attaches the message to the conversation" do
-      msg = Diaspora::Federation::Receive.message(message_entity)
+      msg = Diaspora::Federation::Receive.perform(message_entity)
 
       conv = Conversation.find_by!(guid: conversation.guid)
 
@@ -228,8 +228,8 @@ describe Diaspora::Federation::Receive do
     end
 
     let(:entity) { message_entity }
-    it_behaves_like "it ignores existing object received twice", Message, :message
-    it_behaves_like "it relays relayables", Message, :message
+    it_behaves_like "it ignores existing object received twice", Message
+    it_behaves_like "it relays relayables", Message
   end
 
   describe ".participation" do
@@ -238,7 +238,7 @@ describe Diaspora::Federation::Receive do
     }
 
     it "saves the participation" do
-      received = Diaspora::Federation::Receive.participation(participation_entity)
+      received = Diaspora::Federation::Receive.perform(participation_entity)
 
       participation = Participation.find_by!(guid: participation_entity.guid)
 
@@ -247,7 +247,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "attaches the participation to the post" do
-      Diaspora::Federation::Receive.participation(participation_entity)
+      Diaspora::Federation::Receive.perform(participation_entity)
 
       participation = Participation.find_by!(guid: participation_entity.guid)
 
@@ -263,12 +263,12 @@ describe Diaspora::Federation::Receive do
         parent_guid: remote_post.guid
       )
 
-      expect(Diaspora::Federation::Receive.participation(remote_participation)).to be_nil
+      expect(Diaspora::Federation::Receive.perform(remote_participation)).to be_nil
 
       expect(Participation.exists?(guid: remote_participation.guid)).to be_falsey
     end
 
-    it_behaves_like "it ignores existing object received twice", Participation, :participation do
+    it_behaves_like "it ignores existing object received twice", Participation do
       let(:entity) { participation_entity }
     end
   end
@@ -277,7 +277,7 @@ describe Diaspora::Federation::Receive do
     let(:photo_entity) { FactoryGirl.build(:photo_entity, author: sender.diaspora_handle) }
 
     it "saves the photo if it does not already exist" do
-      received = Diaspora::Federation::Receive.photo(photo_entity)
+      received = Diaspora::Federation::Receive.perform(photo_entity)
 
       photo = Photo.find_by!(guid: photo_entity.guid)
 
@@ -288,13 +288,13 @@ describe Diaspora::Federation::Receive do
     end
 
     it "updates the photo if it is already persisted" do
-      Diaspora::Federation::Receive.photo(photo_entity)
+      Diaspora::Federation::Receive.perform(photo_entity)
 
       photo = Photo.find_by!(guid: photo_entity.guid)
       photo.remote_photo_name = "foobar.jpg"
       photo.save
 
-      received = Diaspora::Federation::Receive.photo(photo_entity)
+      received = Diaspora::Federation::Receive.perform(photo_entity)
       photo.reload
 
       expect(received).to eq(photo)
@@ -303,7 +303,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "does not update the photo if the author mismatches" do
-      Diaspora::Federation::Receive.photo(photo_entity)
+      Diaspora::Federation::Receive.perform(photo_entity)
 
       photo = Photo.find_by!(guid: photo_entity.guid)
       photo.remote_photo_name = "foobar.jpg"
@@ -311,7 +311,7 @@ describe Diaspora::Federation::Receive do
       photo.save
 
       expect {
-        Diaspora::Federation::Receive.photo(photo_entity)
+        Diaspora::Federation::Receive.perform(photo_entity)
       }.to raise_error Diaspora::Federation::InvalidAuthor
 
       photo.reload
@@ -333,7 +333,7 @@ describe Diaspora::Federation::Receive do
     }
 
     it "saves the poll participation" do
-      received = Diaspora::Federation::Receive.poll_participation(poll_participation_entity)
+      received = Diaspora::Federation::Receive.perform(poll_participation_entity)
 
       poll_participation = PollParticipation.find_by!(guid: poll_participation_entity.guid)
 
@@ -343,7 +343,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "attaches the poll participation to the poll" do
-      Diaspora::Federation::Receive.poll_participation(poll_participation_entity)
+      Diaspora::Federation::Receive.perform(poll_participation_entity)
 
       poll_participation = PollParticipation.find_by!(guid: poll_participation_entity.guid)
 
@@ -352,16 +352,16 @@ describe Diaspora::Federation::Receive do
     end
 
     let(:entity) { poll_participation_entity }
-    it_behaves_like "it ignores existing object received twice", PollParticipation, :poll_participation
-    it_behaves_like "it rejects if the parent author ignores the author", PollParticipation, :poll_participation
-    it_behaves_like "it relays relayables", PollParticipation, :poll_participation
+    it_behaves_like "it ignores existing object received twice", PollParticipation
+    it_behaves_like "it rejects if the parent author ignores the author", PollParticipation
+    it_behaves_like "it relays relayables", PollParticipation
   end
 
   describe ".profile" do
     let(:profile_entity) { FactoryGirl.build(:profile_entity, author: sender.diaspora_handle) }
 
     it "updates the profile of the person" do
-      received = Diaspora::Federation::Receive.profile(profile_entity)
+      received = Diaspora::Federation::Receive.perform(profile_entity)
 
       profile = Profile.find(sender.profile.id)
 
@@ -381,7 +381,7 @@ describe Diaspora::Federation::Receive do
     let(:reshare_entity) { FactoryGirl.build(:reshare_entity, author: sender.diaspora_handle, root_guid: post.guid) }
 
     it "saves the reshare" do
-      received = Diaspora::Federation::Receive.reshare(reshare_entity)
+      received = Diaspora::Federation::Receive.perform(reshare_entity)
 
       reshare = Reshare.find_by!(guid: reshare_entity.guid)
 
@@ -390,7 +390,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "attaches the reshare to the post" do
-      Diaspora::Federation::Receive.reshare(reshare_entity)
+      Diaspora::Federation::Receive.perform(reshare_entity)
 
       reshare = Reshare.find_by!(guid: reshare_entity.guid)
 
@@ -399,7 +399,7 @@ describe Diaspora::Federation::Receive do
       expect(reshare.created_at.iso8601).to eq(reshare_entity.created_at.iso8601)
     end
 
-    it_behaves_like "it ignores existing object received twice", Reshare, :reshare do
+    it_behaves_like "it ignores existing object received twice", Reshare do
       let(:entity) { reshare_entity }
     end
   end
@@ -502,7 +502,7 @@ describe Diaspora::Federation::Receive do
       let(:status_message_entity) { FactoryGirl.build(:status_message_entity, author: sender.diaspora_handle) }
 
       it "saves the status message" do
-        received = Diaspora::Federation::Receive.status_message(status_message_entity)
+        received = Diaspora::Federation::Receive.perform(status_message_entity)
 
         status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
 
@@ -519,19 +519,19 @@ describe Diaspora::Federation::Receive do
       end
 
       it "returns the status message if it already exists" do
-        first = Diaspora::Federation::Receive.status_message(status_message_entity)
-        second = Diaspora::Federation::Receive.status_message(status_message_entity)
+        first = Diaspora::Federation::Receive.perform(status_message_entity)
+        second = Diaspora::Federation::Receive.perform(status_message_entity)
 
         expect(second).not_to be_nil
         expect(first).to eq(second)
       end
 
       it "does not change anything if the status message already exists" do
-        Diaspora::Federation::Receive.status_message(status_message_entity)
+        Diaspora::Federation::Receive.perform(status_message_entity)
 
         expect_any_instance_of(StatusMessage).not_to receive(:create_or_update)
 
-        Diaspora::Federation::Receive.status_message(status_message_entity)
+        Diaspora::Federation::Receive.perform(status_message_entity)
       end
     end
 
@@ -542,7 +542,7 @@ describe Diaspora::Federation::Receive do
       }
 
       it "saves the status message" do
-        received = Diaspora::Federation::Receive.status_message(status_message_entity)
+        received = Diaspora::Federation::Receive.perform(status_message_entity)
 
         status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
 
@@ -563,7 +563,7 @@ describe Diaspora::Federation::Receive do
       }
 
       it "saves the status message" do
-        received = Diaspora::Federation::Receive.status_message(status_message_entity)
+        received = Diaspora::Federation::Receive.perform(status_message_entity)
 
         status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
 
@@ -594,7 +594,7 @@ describe Diaspora::Federation::Receive do
       }
 
       it "saves the status message and photos" do
-        received = Diaspora::Federation::Receive.status_message(status_message_entity)
+        received = Diaspora::Federation::Receive.perform(status_message_entity)
 
         status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
 
@@ -609,7 +609,7 @@ describe Diaspora::Federation::Receive do
         received_photo.text = "foobar"
         received_photo.save!
 
-        received = Diaspora::Federation::Receive.status_message(status_message_entity)
+        received = Diaspora::Federation::Receive.perform(status_message_entity)
 
         status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
 

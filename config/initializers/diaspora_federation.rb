@@ -74,7 +74,7 @@ DiasporaFederation.configure do |config|
     end
 
     on :fetch_related_entity do |entity_type, guid|
-      entity = entity_type.constantize.find_by(guid: guid)
+      entity = Diaspora::Federation::Mappings.model_class_for(entity_type).find_by(guid: guid)
       Diaspora::Federation::Entities.related_entity(entity) if entity
     end
 
@@ -97,39 +97,13 @@ DiasporaFederation.configure do |config|
       when DiasporaFederation::Entities::Retraction
         Diaspora::Federation::Receive.retraction(entity, recipient_id)
       else
-        persisted = case entity
-                    when DiasporaFederation::Entities::Comment
-                      Diaspora::Federation::Receive.comment(entity)
-                    when DiasporaFederation::Entities::Contact
-                      Diaspora::Federation::Receive.contact(entity)
-                    when DiasporaFederation::Entities::Conversation
-                      Diaspora::Federation::Receive.conversation(entity)
-                    when DiasporaFederation::Entities::Like
-                      Diaspora::Federation::Receive.like(entity)
-                    when DiasporaFederation::Entities::Message
-                      Diaspora::Federation::Receive.message(entity)
-                    when DiasporaFederation::Entities::Participation
-                      Diaspora::Federation::Receive.participation(entity)
-                    when DiasporaFederation::Entities::Photo
-                      Diaspora::Federation::Receive.photo(entity)
-                    when DiasporaFederation::Entities::PollParticipation
-                      Diaspora::Federation::Receive.poll_participation(entity)
-                    when DiasporaFederation::Entities::Profile
-                      Diaspora::Federation::Receive.profile(entity)
-                    when DiasporaFederation::Entities::Reshare
-                      Diaspora::Federation::Receive.reshare(entity)
-                    when DiasporaFederation::Entities::StatusMessage
-                      Diaspora::Federation::Receive.status_message(entity)
-                    else
-                      raise DiasporaFederation::Entity::UnknownEntity, "unknown entity: #{entity.class}"
-                    end
-
+        persisted = Diaspora::Federation::Receive.perform(entity)
         Workers::ReceiveLocal.perform_async(persisted.class.to_s, persisted.id, [recipient_id].compact) if persisted
       end
     end
 
     on :fetch_public_entity do |entity_type, guid|
-      entity = entity_type.constantize.find_by(guid: guid, public: true)
+      entity = Diaspora::Federation::Mappings.model_class_for(entity_type).find_by(guid: guid, public: true)
       Diaspora::Federation::Entities.post(entity) if entity.is_a? Post
     end
 
