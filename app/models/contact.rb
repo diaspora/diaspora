@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class Contact < ActiveRecord::Base
+  include Diaspora::Federated::Base
+
   belongs_to :user
   validates :user, presence: true
 
@@ -85,7 +87,7 @@ class Contact < ActiveRecord::Base
     user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !receiving
   end
 
-  # object for local recipient
+  # object for local recipients
   def object_to_receive
     Contact.create_or_update_sharing_contact(person.owner, user.person)
   end

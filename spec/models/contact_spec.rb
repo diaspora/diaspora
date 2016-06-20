@@ -210,6 +210,16 @@ describe Contact, type: :model do
     end
   end
 
+  describe "#object_to_receive" do
+    it "returns the contact for the recipient" do
+      user = FactoryGirl.create(:user)
+      contact = alice.contacts.create(person: user.person)
+      receive = contact.object_to_receive
+      expect(receive.user).to eq(user)
+      expect(receive.person).to eq(alice.person)
+    end
+  end
+
   describe "#subscribers" do
     it "returns an array with recipient of the contact" do
       contact = alice.contacts.create(person: eve.person)
