@@ -66,21 +66,21 @@ Feature: new user registration
     And I go to the new user registration page
     And I fill in the following:
         | user_username        | $%&(/&%$&/=)(/    |
-    And I press "Sign up"
+    And I press "Create account"
     Then I should not be able to sign up
     And I should have a validation error on "user_username, user_password, user_email"
 
     When I fill in the following:
         | user_username     | valid_user                        |
         | user_email        | this is not a valid email $%&/()( |
-    And I press "Sign up"
+    And I press "Create account"
     Then I should not be able to sign up
     And I should have a validation error on "user_password, user_email"
 
     When I fill in the following:
         | user_email        | valid@email.com        |
         | user_password     | 1                      |
-    And I press "Sign up"
+    And I press "Create account"
     Then I should not be able to sign up
     And I should have a validation error on "user_password, user_password_confirmation"
 

@@ -3,7 +3,7 @@ Feature: editing the getting started in the mobile view
 
   Background:
     Given I am on the login page
-    When I follow "Sign up" within ".navbar"
+    When I follow "Create account" within ".navbar"
     And I fill in the new user form
     And I submit the form
     Then I should be on the getting started page

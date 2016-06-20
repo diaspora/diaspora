@@ -81,7 +81,7 @@ en:
     shared:
       links:
         sign_in: 'Sign in'
-        sign_up: 'Sign up'
+        sign_up: 'Create account'
         sign_up_closed: 'Open signups are closed at this time.'
         forgot_your_password: 'Forgot your password?'
         receive_confirmation: "Didn't receive confirmation instructions?"
