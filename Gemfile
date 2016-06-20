@@ -250,9 +250,6 @@ group :development do
   gem "pronto-haml",    "0.6.0"
   gem "pronto-scss",    "0.6.0", require: false
 
-  # We need to use a fork of eslintrb until https://github.com/zendesk/eslintrb/pull/7 is merged
-  gem "eslintrb",       github: "denschub/eslintrb", ref: "8e6eec682909ae5dabb2609b3ac6331f128cf539"
-
   # Preloading environment
 
   gem "spring", "1.7.1"
