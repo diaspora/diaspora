@@ -592,6 +592,37 @@ en:
       diaspora_app_q: "Is there a diaspora* app for Android or iOS?"
       diaspora_app_a: "There have been several Android apps in development by community members. Some are long-abandoned projects and so do not work well with the current version of diaspora*. Don’t expect much from these apps at the moment. There is currently no app for iOS. The best way to access diaspora* from your mobile device is through a browser, because we’ve designed a mobile version of the site which should work well on all devices, although it does not yet have complete functionality."
 
+  home:
+    default:
+      headline: "Welcome to %{pod_name}"
+      byline: "The online social world where you are in control"
+      be_who_you_want_to_be: "Be who you want to be"
+      be_who_you_want_to_be_info: "A lot of networks insist that you use your real identity. Not diaspora*. Here you can choose who you want to be, and share as much or as little about yourself as you want. It really is up to you how you want to interact with other people."
+      choose_your_audience: "Choose your audience"
+      choose_your_audience_info: "diaspora*’s aspects allow you to share with just those people you want to. You can be as public or as private as you like. Share a funny photo with the whole world, or a deep secret just with your closest friends. You’re in control."
+      own_your_data: "Own your own data"
+      own_your_data_info: "Many networks use your data to make money by analysing your interactions and using this information to advertise things to you. diaspora* doesn’t use your data for any purpose other than allowing you to connect and share with others."
+    podmin:
+      headline: "Welcome, friend."
+      byline: "You’re about to change the Internet. Let’s get you set up, shall we?"
+      configure_your_pod: "Configure your pod"
+      create_an_account: "Create an account"
+      make_yourself_an_admin: "Make yourself an admin"
+      update_your_pod: "Update your pod"
+      getting_help: "Getting help"
+      contribute: "Contribute"
+      configuration_info: "Open %{database_path} and %{diaspora_path} in your favourite text editor and carefully review them, they are extensively commented."
+      create_an_account_info: "%{sign_up_link} for a new account."
+      make_yourself_an_admin_info: "You can find instructions in the %{wiki}. This should add an “Admin” link to your user menu in the header when you are logged in. It gives you stuff like user search and stats for your pod. For intense detail on the operational aspects of your pod, go to the %{admin_panel}."
+      admin_panel: "admin panel"
+      update_your_pod_info: "You can find %{update_instructions}."
+      update_instructions: "update instructions in the diaspora* wiki"
+      getting_help_info: "We listed some %{faq} including some additional tips and tricks and solutions for the most common problems. Also feel free to %{irc}."
+      faq_for_podmins: "FAQ for pod maintainers in our wiki"
+      contact_irc: "contact us on IRC"
+      contribute_info: "Make diaspora* even better! If you find any bugs please %{report_bugs}."
+      report_bugs: "report them"
+
   invitation_codes:
     excited: "%{name} is excited to see you here."
     not_valid: "That invite code is no longer valid"

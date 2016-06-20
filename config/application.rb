@@ -84,7 +84,6 @@ module Diaspora
       error_pages.css
       admin.css
       rtl.css
-      home.css
       color_themes/*/desktop.css
       color_themes/*/mobile.css
     }
