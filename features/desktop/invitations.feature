@@ -9,7 +9,7 @@ Feature: Invitations
     Given I have been invited by an admin
     And I am on my acceptance form page
     And I fill in the new user form
-    And I press "Sign up"
+    And I press "Create account"
     Then I should be on the getting started page
     And I should see "Well, hello there!"
     And I fill in the following:
@@ -23,7 +23,7 @@ Feature: Invitations
     Given I have been invited by "alice@alice.alice"
     And I am on my acceptance form page
     And I fill in the new user form
-    And I press "Sign up"
+    And I press "Create account"
     Then I should be on the getting started page
     And I should see "Well, hello there!"
     And I should be able to friend "alice@alice.alice"
