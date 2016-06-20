@@ -65,9 +65,11 @@ module Diaspora
       def self.participation(entity)
         author = author_of(entity)
         ignore_existing_guid(Participation, entity.guid, author) do
-          parent = Mappings.model_class_for(entity.parent_type).find_by(guid: entity.parent_guid)
-
-          Participation.create!(author: author, guid: entity.guid, target: parent) if parent.author.local?
+          Participation.create!(
+            author: author,
+            guid:   entity.guid,
+            target: Mappings.model_class_for(entity.parent_type).find_by(guid: entity.parent_guid)
+          )
         end
       end
 

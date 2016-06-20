@@ -255,19 +255,6 @@ describe Diaspora::Federation::Receive do
       expect(participation.target).to eq(post)
     end
 
-    it "does not save the participation if the target is not local" do
-      remote_post = FactoryGirl.create(:status_message, author: sender, public: true)
-      remote_participation = FactoryGirl.build(
-        :participation_entity,
-        author:      sender.diaspora_handle,
-        parent_guid: remote_post.guid
-      )
-
-      expect(Diaspora::Federation::Receive.perform(remote_participation)).to be_nil
-
-      expect(Participation.exists?(guid: remote_participation.guid)).to be_falsey
-    end
-
     it_behaves_like "it ignores existing object received twice", Participation do
       let(:entity) { participation_entity }
     end
