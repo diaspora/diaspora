@@ -161,21 +161,19 @@ module Diaspora
         end
       end
 
-      def self.author_of(entity)
+      private_class_method def self.author_of(entity)
         Person.find_by(diaspora_handle: entity.author)
       end
-      private_class_method :author_of
 
-      def self.build_location(entity)
+      private_class_method def self.build_location(entity)
         Location.new(
           address: entity.address,
           lat:     entity.lat,
           lng:     entity.lng
         )
       end
-      private_class_method :build_location
 
-      def self.build_message(entity)
+      private_class_method def self.build_message(entity)
         Message.new(
           author:            author_of(entity),
           guid:              entity.guid,
@@ -184,9 +182,8 @@ module Diaspora
           conversation_guid: entity.conversation_guid
         )
       end
-      private_class_method :build_message
 
-      def self.build_poll(entity)
+      private_class_method def self.build_poll(entity)
         Poll.new(
           guid:     entity.guid,
           question: entity.question
@@ -199,9 +196,8 @@ module Diaspora
           end
         end
       end
-      private_class_method :build_poll
 
-      def self.save_message(entity)
+      private_class_method def self.save_message(entity)
         ignore_existing_guid(Message, entity.guid, author_of(entity)) do
           build_message(entity).tap do |message|
             message.author_signature = entity.author_signature if message.conversation.author.local?
@@ -209,9 +205,8 @@ module Diaspora
           end
         end
       end
-      private_class_method :save_message
 
-      def self.save_photo(entity)
+      private_class_method def self.save_photo(entity)
         Photo.create!(
           author:              author_of(entity),
           guid:                entity.guid,
@@ -225,14 +220,12 @@ module Diaspora
           width:               entity.width
         )
       end
-      private_class_method :save_photo
 
-      def self.receive_relayable(klass, entity)
+      private_class_method def self.receive_relayable(klass, entity)
         save_relayable(klass, entity) { yield }.tap {|relayable| relay_relayable(relayable) if relayable }
       end
-      private_class_method :receive_relayable
 
-      def self.save_relayable(klass, entity)
+      private_class_method def self.save_relayable(klass, entity)
         ignore_existing_guid(klass, entity.guid, author_of(entity)) do
           yield.tap do |relayable|
             retract_if_author_ignored(relayable)
@@ -242,9 +235,8 @@ module Diaspora
           end
         end
       end
-      private_class_method :save_relayable
 
-      def self.save_status_message(entity)
+      private_class_method def self.save_status_message(entity)
         try_load_existing_guid(StatusMessage, entity.guid, author_of(entity)) do
           StatusMessage.new(
             author:                author_of(entity),
@@ -261,9 +253,8 @@ module Diaspora
           end
         end
       end
-      private_class_method :save_status_message
 
-      def self.retract_if_author_ignored(relayable)
+      private_class_method def self.retract_if_author_ignored(relayable)
         parent_author = relayable.parent.author.owner
         return unless parent_author && parent_author.ignored_people.include?(relayable.author)
 
@@ -272,31 +263,28 @@ module Diaspora
 
         raise Diaspora::Federation::AuthorIgnored
       end
-      private_class_method :retract_if_author_ignored
 
-      def self.relay_relayable(relayable)
+      private_class_method def self.relay_relayable(relayable)
         parent_author = relayable.parent.author.owner
         Diaspora::Federation::Dispatcher.defer_dispatch(parent_author, relayable) if parent_author
       end
-      private_class_method :relay_relayable
 
       # check if the object already exists, otherwise save it.
       # if save fails (probably because of a second object received parallel),
       # check again if an object with the same guid already exists, but maybe has a different author.
       # @raise [InvalidAuthor] if the author of the existing object doesn't match
-      def self.ignore_existing_guid(klass, guid, author)
+      private_class_method def self.ignore_existing_guid(klass, guid, author)
         yield unless klass.where(guid: guid, author_id: author.id).exists?
       rescue => e
         raise e unless load_from_database(klass, guid, author)
         logger.warn "ignoring error on receive #{klass}:#{guid}: #{e.class}: #{e.message}"
       end
-      private_class_method :ignore_existing_guid
 
       # try to load the object first from the DB and if not available, save it.
       # if save fails (probably because of a second object received parallel),
       # try again to load it, because it is possibly there now.
       # @raise [InvalidAuthor] if the author of the existing object doesn't match
-      def self.try_load_existing_guid(klass, guid, author)
+      private_class_method def self.try_load_existing_guid(klass, guid, author)
         load_from_database(klass, guid, author) || yield
       rescue Diaspora::Federation::InvalidAuthor => e
         raise e # don't try loading from db twice
@@ -306,17 +294,15 @@ module Diaspora
           raise e unless object
         end
       end
-      private_class_method :try_load_existing_guid
 
       # @raise [InvalidAuthor] if the author of the loaded object doesn't match
-      def self.load_from_database(klass, guid, author)
+      private_class_method def self.load_from_database(klass, guid, author)
         klass.find_by(guid: guid).tap do |object|
           if object && object.author_id != author.id
             raise Diaspora::Federation::InvalidAuthor, "#{klass}:#{guid}: #{author.diaspora_handle}"
           end
         end
       end
-      private_class_method :load_from_database
     end
   end
 end

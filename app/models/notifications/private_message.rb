@@ -17,13 +17,12 @@ module Notifications
       end
     end
 
-    def self.notify_message(message)
+    private_class_method def self.notify_message(message)
       recipient_ids = message.conversation.participants.local.where.not(id: message.author_id).pluck(:owner_id)
       User.where(id: recipient_ids).find_each do |recipient|
         message.increase_unread(recipient)
         new(recipient: recipient).email_the_user(message, message.author)
       end
     end
-    private_class_method :notify_message
   end
 end

@@ -52,10 +52,9 @@ class Notification < ActiveRecord::Base
     create(recipient_id: recipient_id, target: target, actors: [actor])
   end
 
-  def self.suppress_notification?(recipient, post)
+  private_class_method def self.suppress_notification?(recipient, post)
     post.is_a?(Post) && recipient.is_shareable_hidden?(post)
   end
-  private_class_method :suppress_notification?
 
   def self.types
     {
