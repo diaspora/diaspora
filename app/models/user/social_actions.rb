@@ -48,6 +48,7 @@ module User::SocialActions
   end
 
   def update_or_create_participation!(target)
+    return if target.author == person
     participation = participations.where(target_id: target).first
     if participation.present?
       participation.update!(count: participation.count.next)
