@@ -36,8 +36,6 @@ end
 describe EvilQuery::Participation do
   before do
     @status_message = FactoryGirl.create(:status_message, :author => bob.person)
-    # done in StatusMessagesController#create
-    bob.participate!(@status_message)
   end
 
   it "includes posts liked by the user" do
