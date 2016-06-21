@@ -282,7 +282,7 @@ describe Post, :type => :model do
       it "updates attributes only if mutable" do
         allow(@known_post).to receive(:mutable?).and_return(true)
         expect(@known_post).to receive(:update_attributes)
-        expect(@post.send(:receive_persisted, bob, @known_post)).to eq(true)
+        expect(@post.send(:receive_persisted, bob, @known_post)).to eq(@known_post)
       end
 
       it "does not update attributes if trying to update a non-mutable object" do
@@ -299,14 +299,7 @@ describe Post, :type => :model do
       end
 
       it "receives the post from the contact of the author" do
-        expect(@post.send(:receive_persisted, bob, @known_post)).to eq(true)
-      end
-
-      it "notifies the user if they are mentioned" do
-        allow(bob).to receive(:contact_for).with(eve.person).and_return(double(receive_shareable: true))
-        expect(bob).to receive(:notify_if_mentioned).and_return(true)
-
-        expect(@post.send(:receive_persisted, bob, @known_post)).to eq(true)
+        expect(@post.send(:receive_persisted, bob, @known_post)).to eq(@known_post)
       end
     end
   end
@@ -321,14 +314,7 @@ describe Post, :type => :model do
 
       it "it receives the post from the contact of the author" do
         expect(bob).to receive(:receive_shareable).with(@post).and_return(true)
-        expect(@post.send(:receive_non_persisted, bob)).to eq(true)
-      end
-
-      it "notifies the user if they are mentioned" do
-        allow(bob).to receive(:receive_shareable).with(@post).and_return(true)
-        expect(bob).to receive(:notify_if_mentioned).and_return(true)
-
-        expect(@post.send(:receive_non_persisted, bob)).to eq(true)
+        expect(@post.send(:receive_non_persisted, bob)).to eq(@post)
       end
 
       it "does not create shareable visibility if the post does not save" do

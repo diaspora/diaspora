@@ -100,7 +100,8 @@ describe Postzord::Dispatcher do
             end
 
             it 'does not call notify_users' do
-              expect(@mailman).not_to receive(:notify_users)
+              expect(Postzord::Receiver::LocalBatch).not_to receive(:new)
+              expect_any_instance_of(Postzord::Receiver::LocalBatch).not_to receive(:notify_users)
               @mailman.post
             end
           end
@@ -120,7 +121,8 @@ describe Postzord::Dispatcher do
             end
 
             it 'calls notify_users' do
-              expect(@mailman).to receive(:notify_users).with([@local_leia])
+              expect(Postzord::Receiver::LocalBatch).to receive(:new).with(@comment, [@local_leia.id]).and_call_original
+              expect_any_instance_of(Postzord::Receiver::LocalBatch).to receive(:notify_users)
               @mailman.post
             end
           end
@@ -144,7 +146,8 @@ describe Postzord::Dispatcher do
           end
 
           it 'calls notify_users' do
-            expect(@mailman).to receive(:notify_users).with([@local_leia])
+            expect(Postzord::Receiver::LocalBatch).to receive(:new).with(@comment, [@local_leia.id]).and_call_original
+            expect_any_instance_of(Postzord::Receiver::LocalBatch).to receive(:notify_users)
             @mailman.post
           end
         end
@@ -167,7 +170,8 @@ describe Postzord::Dispatcher do
           end
 
           it 'calls notify_users' do
-            expect(@mailman).to receive(:notify_users).with([@local_leia])
+            expect(Postzord::Receiver::LocalBatch).to receive(:new).with(@comment, [@local_leia.id]).and_call_original
+            expect_any_instance_of(Postzord::Receiver::LocalBatch).to receive(:notify_users)
             @mailman.post
           end
         end
@@ -192,7 +196,8 @@ describe Postzord::Dispatcher do
         end
 
         it 'does not call notify_users' do
-          expect(@mailman).not_to receive(:notify_users)
+          expect(Postzord::Receiver::LocalBatch).not_to receive(:new)
+          expect_any_instance_of(Postzord::Receiver::LocalBatch).not_to receive(:notify_users)
           @mailman.post
         end
       end
@@ -319,20 +324,6 @@ describe Postzord::Dispatcher do
         mailman.post
       end
 
-    end
-
-    describe '#and_notify_local_users' do
-      it 'calls notifiy_users' do
-        expect(@zord).to receive(:notify_users).with([bob])
-        @zord.send(:notify_local_users, [bob.person])
-      end
-    end
-
-    describe '#notify_users' do
-      it 'enqueues a NotifyLocalUsers job' do
-        expect(Workers::NotifyLocalUsers).to receive(:perform_async).with([bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
-        @zord.send(:notify_users, [bob])
-      end
     end
   end
 end

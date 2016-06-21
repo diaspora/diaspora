@@ -109,6 +109,7 @@ describe Postzord::Receiver::Public do
       comment = double.as_null_object
       @receiver.instance_variable_set(:@object, comment)
 
+      allow_any_instance_of(Postzord::Receiver::LocalBatch).to receive(:notify_users)
       expect(comment).to receive(:receive)
       @receiver.receive_relayable
     end

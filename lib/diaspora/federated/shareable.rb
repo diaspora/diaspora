@@ -87,6 +87,7 @@ module Diaspora
           else
             receive_shareable_visibility(user, shareable)
           end
+          shareable
         end
 
         def update_existing_sharable(shareable)
@@ -102,7 +103,6 @@ module Diaspora
 
         def receive_shareable_visibility(user, shareable)
           user.receive_shareable(shareable)
-          user.notify_if_mentioned(shareable)
           logger.info "event=receive payload_type=#{self.class} status=complete " \
                       "sender=#{diaspora_handle} receiver=#{user.diaspora_handle} guid=#{shareable.guid}"
         end
@@ -116,6 +116,7 @@ module Diaspora
             logger.warn "event=receive payload_type=#{self.class} status=abort sender=#{diaspora_handle} " \
                         "reason=#{errors.full_messages} guid=#{guid}"
           end
+          self
         rescue ActiveRecord::RecordNotUnique => e
           # this happens, when two share-visibilities are received parallel. Retry again with local shareable.
           logger.info "event=receive payload_type=#{self.class} status=retry sender=#{diaspora_handle} guid=#{guid}"

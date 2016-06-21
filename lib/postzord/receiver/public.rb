@@ -40,9 +40,11 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [void]
   def receive_relayable
+    notified_users = recipient_user_ids
     if @object.parent_author.local?
       # receive relayable object only for the owner of the parent object
       @object.receive(@object.parent_author.owner, @author)
+      notified_users.push(@object.parent_author.owner.id)
     end
     unless @object.signature_valid?
       @object.destroy
@@ -50,8 +52,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
       return
     end
     # notify everyone who can see the parent object
-    receiver = Postzord::Receiver::LocalBatch.new(@object, self.recipient_user_ids)
-    receiver.notify_users
+    Postzord::Receiver::LocalBatch.new(@object, notified_users).notify_users
   end
 
   # @return [void]
