@@ -86,7 +86,8 @@ Logging::Rails.configure do |config|
 
   # log-levels from the diaspora.yml for SQL and federation debug-logging
   Logging.logger[ActiveRecord::Base].level = AppConfig.environment.logging.debug.sql? ? :debug : :info
-  Logging.logger["XMLLogger"].level = AppConfig.environment.logging.debug.federation? ? :debug : :info
+  Logging.logger[DiasporaFederation::Salmon::MagicEnvelope].level =
+    AppConfig.environment.logging.debug.federation? ? :debug : :info
 
   # Under Phusion Passenger smart spawning, we need to reopen all IO streams
   # after workers have forked.
