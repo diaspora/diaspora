@@ -697,10 +697,6 @@ en:
         zero: "No likes"
         one: "%{count} like"
         other: "%{count} likes"
-      people_dislike_this:
-        zero: "No dislikes"
-        one: "%{count} dislike"
-        other: "%{count} dislikes"
 
   notifications:
     started_sharing:
@@ -1315,7 +1311,6 @@ en:
       hide_and_mute: "Hide and mute post"
       like: "Like"
       unlike: "Unlike"
-      dislike: "Dislike"
       shared_with: "Shared with: %{aspect_names}"
       nsfw: "This post has been flagged as NSFW by its author. %{link}"
       show: "Show"
@@ -1453,7 +1448,6 @@ en:
         locked_out: "You will get signed out and locked out of your account until it has been deleted."
         lock_username: "Your username will be locked. You will not be able to create a new account on this pod with the same ID."
         no_turning_back: "There is no turning back! If you’re really sure, enter your password below."
-        if_you_want_this: "If you really want this to happen, type in your password below and click “Close account”"
 
     privacy_settings:
       title: "Privacy settings"
