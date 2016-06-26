@@ -10,10 +10,6 @@ class AccountDeletion < ActiveRecord::Base
   belongs_to :person
   after_commit :queue_delete_account, :on => :create
 
-  xml_name :account_deletion
-  xml_attr :diaspora_handle
-
-
   def person=(person)
     self[:diaspora_handle] = person.diaspora_handle
     self[:person_id] = person.id
@@ -29,16 +25,12 @@ class AccountDeletion < ActiveRecord::Base
   end
 
   def perform!
-    self.dispatch if person.local?
-    AccountDeleter.new(self.diaspora_handle).perform!
+    Diaspora::Federation::Dispatcher.build(person.owner, self).dispatch if person.local?
+    AccountDeleter.new(diaspora_handle).perform!
   end
 
-  def subscribers(user)
+  def subscribers
     person.owner.contact_people.remote | Person.who_have_reshared_a_users_posts(person.owner).remote
-  end
-
-  def dispatch
-    Postzord::Dispatcher.build(person.owner, self).post
   end
 
   def public?

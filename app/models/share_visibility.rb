@@ -4,7 +4,7 @@
 
 class ShareVisibility < ActiveRecord::Base
   belongs_to :user
-  belongs_to :shareable, :polymorphic => :true
+  belongs_to :shareable, polymorphic: :true
 
   scope :for_a_user, ->(user) {
     where(user_id: user.id)
@@ -18,7 +18,7 @@ class ShareVisibility < ActiveRecord::Base
   # @param share [Shareable]
   # @return [void]
   def self.batch_import(user_ids, share)
-    return false unless ShareVisibility.new(:shareable_id => share.id, :shareable_type => share.class.to_s).valid?
+    return false unless ShareVisibility.new(shareable_id: share.id, shareable_type: share.class.to_s).valid?
 
     if AppConfig.postgres?
       user_ids.each do |user_id|
@@ -37,9 +37,8 @@ class ShareVisibility < ActiveRecord::Base
   end
 
   private
+
   def not_public
-    if shareable.public?
-      errors[:base] << "Cannot create visibility for a public object"
-    end
+    errors[:base] << "Cannot create visibility for a public object" if shareable.public?
   end
 end

@@ -153,9 +153,7 @@ describe ConversationsController, :type => :controller do
           }
         )
 
-        p = Postzord::Dispatcher.build(alice, cnv)
-        allow(p.class).to receive(:new).and_return(p)
-        expect(p).to receive(:post)
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
         post :create, @hash
       end
     end

@@ -34,7 +34,7 @@ describe ResharesController, :type => :controller do
       end
 
       it 'calls dispatch' do
-        expect(bob).to receive(:dispatch_post).with(anything, hash_including(:additional_subscribers))
+        expect(bob).to receive(:dispatch_post)
         post_request!
       end
 

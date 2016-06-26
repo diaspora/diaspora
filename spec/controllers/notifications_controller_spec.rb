@@ -111,7 +111,7 @@ describe NotificationsController, :type => :controller do
         eve.share_with(alice.person, eve.aspects.first)
         get :index, "per_page" => 5
 
-        expect(Nokogiri(response.body).css('.aspect_membership')).not_to be_empty
+        expect(Nokogiri(response.body).css(".aspect_membership")).not_to be_empty
       end
 
       it 'succeeds on mobile' do

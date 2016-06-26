@@ -55,7 +55,7 @@ describe BlocksController, :type => :controller do
     it "calls disconnect with the force option if there is a contact for a given user" do
       contact = alice.contact_for(bob.person)
       allow(alice).to receive(:contact_for).and_return(contact)
-      expect(alice).to receive(:disconnect).with(contact, hash_including(:force => true))
+      expect(alice).to receive(:disconnect).with(contact)
       @controller.send(:disconnect_if_contact, bob.person)
     end
 

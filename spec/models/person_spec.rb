@@ -240,21 +240,6 @@ describe Person, :type => :model do
     end
   end
 
-  describe 'XML' do
-    before do
-      @xml = @person.to_xml.to_s
-    end
-
-    it 'should serialize to xml' do
-      expect(@xml.include?("person")).to eq(true)
-    end
-
-    it 'should have a profile in its xml' do
-      expect(@xml.include?("first_name")).to eq(true)
-
-    end
-  end
-
   it '#owns? posts' do
     person_message = FactoryGirl.create(:status_message, :author => @person)
     person_two = FactoryGirl.create(:person)
@@ -458,42 +443,6 @@ describe Person, :type => :model do
         person1 = FactoryGirl.create(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
         f = Person.by_account_identifier("tom@tom.joindiaspora.com")
         expect(f).to be nil
-      end
-    end
-
-    describe ".find_local_by_diaspora_handle" do
-      it "should find local users person" do
-        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
-        expect(person).to eq(user.person)
-      end
-
-      it "should not find a remote person" do
-        person = Person.find_local_by_diaspora_handle(@person.diaspora_handle)
-        expect(person).to be nil
-      end
-
-      it "should not find a person with closed account" do
-        user.person.lock_access!
-        person = Person.find_local_by_diaspora_handle(user.diaspora_handle)
-        expect(person).to be nil
-      end
-    end
-
-    describe ".find_local_by_guid" do
-      it "should find local users person" do
-        person = Person.find_local_by_guid(user.guid)
-        expect(person).to eq(user.person)
-      end
-
-      it "should not find a remote person" do
-        person = Person.find_local_by_guid(@person.guid)
-        expect(person).to be nil
-      end
-
-      it "should not find a person with closed account" do
-        user.person.lock_access!
-        person = Person.find_local_by_guid(user.guid)
-        expect(person).to be nil
       end
     end
   end

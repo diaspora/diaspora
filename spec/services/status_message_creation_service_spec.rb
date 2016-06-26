@@ -99,23 +99,57 @@ describe StatusMessageCreationService do
         expect(photos.map(&:id).map(&:to_s)).to match_array(photo_ids)
       end
 
-      it "it marks the photos as non-public if the post is non-public" do
-        status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids, public: false))
-        status_message.photos.each do |photo|
-          expect(photo.public).to be_falsey
-        end
-      end
-
-      it "it marks the photos as public if the post is public" do
-        status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids, public: true))
-        status_message.photos.each do |photo|
-          expect(photo.public).to be_truthy
-        end
-      end
-
       it "does not attach photos without photos param" do
         status_message = StatusMessageCreationService.new(alice).create(params)
         expect(status_message.photos).to be_empty
+      end
+
+      context "with aspect_ids" do
+        it "it marks the photos as non-public if the post is non-public" do
+          status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids))
+          status_message.photos.each do |photo|
+            expect(photo.public).to be_falsey
+          end
+        end
+
+        it "creates aspect_visibilities for the Photo" do
+          alice.aspects.create(name: "another aspect")
+
+          status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids))
+          status_message.photos.each do |photo|
+            expect(photo.aspect_visibilities.map(&:aspect)).to eq([aspect])
+          end
+        end
+
+        it "does not create aspect_visibilities if the post is public" do
+          status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids, public: true))
+          status_message.photos.each do |photo|
+            expect(photo.aspect_visibilities).to be_empty
+          end
+        end
+
+        it "sets pending to false on any attached photos" do
+          status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids))
+          status_message.photos.each do |photo|
+            expect(photo.reload.pending).to be_falsey
+          end
+        end
+      end
+
+      context "with public" do
+        it "it marks the photos as public if the post is public" do
+          status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids, public: true))
+          status_message.photos.each do |photo|
+            expect(photo.public).to be_truthy
+          end
+        end
+
+        it "sets pending to false on any attached photos" do
+          status_message = StatusMessageCreationService.new(alice).create(params.merge(photos: photo_ids, public: true))
+          status_message.photos.each do |photo|
+            expect(photo.reload.pending).to be_falsey
+          end
+        end
       end
     end
 

@@ -45,7 +45,7 @@ class ConversationsController < ApplicationController
 
     @response = {}
     if person_ids.present? && @conversation.save
-      Postzord::Dispatcher.build(current_user, @conversation).post
+      Diaspora::Federation::Dispatcher.defer_dispatch(current_user, @conversation)
       @response[:success] = true
       @response[:message] = I18n.t('conversations.create.sent')
       @response[:conversation_id] = @conversation.id

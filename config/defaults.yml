@@ -187,7 +187,7 @@ defaults:
   relay:
     outbound:
       send: false
-      handle: 'relay@relay.iliketoast.net'
+      url: 'https://relay.iliketoast.net/receive/public'
     inbound:
       subscribe: false
       scope: tags

@@ -19,7 +19,11 @@ module EvilQuery
     end
 
     def posts
-      Post.joins(:participations).where(:participations => {:author_id => @user.person.id}).order("posts.interacted_at DESC")
+      author_id = @user.person_id
+      Post.joins("LEFT OUTER JOIN participations ON participations.target_id = posts.id AND " \
+                 "participations.target_type = 'Post'")
+          .where(::Participation.arel_table[:author_id].eq(author_id).or(Post.arel_table[:author_id].eq(author_id)))
+          .order("posts.interacted_at DESC")
     end
   end
 

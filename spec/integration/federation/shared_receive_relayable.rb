@@ -1,9 +1,9 @@
 shared_examples_for "it deals correctly with a relayable" do
   context "local" do
-    let(:entity) { create_relayable_entity(entity_name, local_target, sender_id, nil) }
+    let(:entity) { create_relayable_entity(entity_name, local_parent, sender_id) }
 
     it "treats upstream receive correctly" do
-      expect(Postzord::Dispatcher).to receive(:build).with(alice, kind_of(klass)).and_call_original
+      expect(Workers::ReceiveLocal).to receive(:perform_async)
       post_message(generate_xml(entity, sender, recipient), recipient)
 
       received_entity = klass.find_by(guid: entity.guid)
@@ -13,7 +13,7 @@ shared_examples_for "it deals correctly with a relayable" do
 
     # Checks when a remote pod wants to send us a relayable without having a key for declared diaspora ID
     it "rejects an upstream entity with a malformed author signature" do
-      expect(Postzord::Dispatcher).not_to receive(:build)
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
       allow(remote_user_on_pod_b).to receive(:encryption_key).and_return(OpenSSL::PKey::RSA.new(1024))
       post_message(generate_xml(entity, sender, recipient), recipient)
 
@@ -23,11 +23,10 @@ shared_examples_for "it deals correctly with a relayable" do
 
   context "remote" do
     let(:author_id) { remote_user_on_pod_c.diaspora_handle }
-    let(:entity) { create_relayable_entity(entity_name, remote_target, author_id, sender.encryption_key) }
+    let(:entity) { create_relayable_entity(entity_name, remote_parent, author_id) }
 
     it "treats downstream receive correctly" do
-      expect(Postzord::Dispatcher).to receive(:build)
-                                        .with(alice, kind_of(klass)).and_call_original unless recipient.nil?
+      expect(Workers::ReceiveLocal).to receive(:perform_async)
 
       post_message(generate_xml(entity, sender, recipient), recipient)
 
@@ -39,7 +38,7 @@ shared_examples_for "it deals correctly with a relayable" do
     # Checks when a remote pod B wants to send us a relayable with authorship from a remote pod C user
     # without having correct signature from him.
     it "rejects a downstream entity with a malformed author signature" do
-      expect(Postzord::Dispatcher).not_to receive(:build)
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
       allow(remote_user_on_pod_c).to receive(:encryption_key).and_return(OpenSSL::PKey::RSA.new(1024))
       post_message(generate_xml(entity, sender, recipient), recipient)
 
@@ -49,7 +48,7 @@ shared_examples_for "it deals correctly with a relayable" do
     # Checks when a remote pod C wants to send us a relayable from its user, but bypassing the pod B where
     # remote status came from.
     it "declines downstream receive when sender signed with a wrong key" do
-      expect(Postzord::Dispatcher).not_to receive(:build)
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
       allow(sender).to receive(:encryption_key).and_return(OpenSSL::PKey::RSA.new(1024))
       post_message(generate_xml(entity, sender, recipient), recipient)
 

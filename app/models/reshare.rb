@@ -9,9 +9,6 @@ class Reshare < Post
   validates_uniqueness_of :root_guid, :scope => :author_id
   delegate :author, to: :root, prefix: true
 
-  xml_attr :root_diaspora_id
-  xml_attr :root_guid
-
   before_validation do
     self.public = true
   end
@@ -56,21 +53,8 @@ class Reshare < Post
     absolute_root.try(:poll) || super
   end
 
-  def receive(recipient, sender)
-    local_reshare = Reshare.where(:guid => self.guid).first
-    if local_reshare && local_reshare.root.author_id == recipient.person.id
-      recipient.participate! self
-      return unless recipient.has_contact_for?(sender)
-    end
-    super(recipient, sender)
-  end
-
   def comment_email_subject
     I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author_name)
-  end
-
-  def notification_type(user, person)
-    Notifications::Reshared if root.try(:author) == user.person
   end
 
   def absolute_root
@@ -79,18 +63,17 @@ class Reshare < Post
     @absolute_root
   end
 
-  private
+  def receive(recipient_user_ids)
+    super(recipient_user_ids)
 
-  def after_parse
-    if root.blank?
-      self.root = Diaspora::Fetcher::Single.find_or_fetch_from_remote root_guid, @root_diaspora_id do |fetched_post, author|
-        # why do we check this?
-        if fetched_post.diaspora_handle != author.diaspora_handle
-          raise Diaspora::PostNotFetchable, "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{author.diaspora_handle}) specified in the reshare!"
-        end
-      end
-    end
+    root.author.owner.participate!(self) if root.author.local?
   end
+
+  def subscribers
+    super + [root.author]
+  end
+
+  private
 
   def root_must_be_public
     if self.root && !self.root.public

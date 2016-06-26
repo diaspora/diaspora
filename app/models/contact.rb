@@ -3,58 +3,47 @@
 #   the COPYRIGHT file.
 
 class Contact < ActiveRecord::Base
+  include Diaspora::Federated::Base
+
   belongs_to :user
+  validates :user, presence: true
 
   belongs_to :person
-  validates :person, :presence => true
+  validates :person, presence: true
+
+  validates :person_id, uniqueness: {scope: :user_id}
 
   delegate :name, :diaspora_handle, :guid, :first_name,
            to: :person, prefix: true
 
-  has_many :aspect_memberships, :dependent => :destroy
-  has_many :aspects, :through => :aspect_memberships
+  has_many :aspect_memberships, dependent: :destroy
+  has_many :aspects, through: :aspect_memberships
 
   validate :not_contact_for_self,
            :not_blocked_user,
            :not_contact_with_closed_account
 
-  validates_presence_of :user
-  validates_uniqueness_of :person_id, :scope => :user_id
-
   before_destroy :destroy_notifications
 
-  scope :all_contacts_of_person, ->(x) { where(:person_id => x.id) }
+  scope :all_contacts_of_person, ->(x) { where(person_id: x.id) }
 
-    # contact.sharing is true when contact.person is sharing with contact.user
-  scope :sharing, -> { where(:sharing => true) }
+  # contact.sharing is true when contact.person is sharing with contact.user
+  scope :sharing, -> { where(sharing: true) }
 
   # contact.receiving is true when contact.user is sharing with contact.person
-  scope :receiving, -> { where(:receiving => true) }
+  scope :receiving, -> { where(receiving: true) }
 
-  scope :for_a_stream, -> {
-    includes(:aspects, :person => :profile).
-        order('profiles.last_name ASC')
-  }
+  scope :for_a_stream, -> { includes(:aspects, person: :profile).order("profiles.last_name ASC") }
 
-  scope :only_sharing, -> { sharing.where(:receiving => false) }
+  scope :only_sharing, -> { sharing.where(receiving: false) }
 
   def destroy_notifications
-    Notification.where(:target_type => "Person",
-                       :target_id => person_id,
-                       :recipient_id => user_id,
-                       :type => "Notifications::StartedSharing").destroy_all
-  end
-
-  def dispatch_request
-    request = self.generate_request
-    Postzord::Dispatcher.build(self.user, request).post
-    request
-  end
-
-  def generate_request
-    Request.diaspora_initialize(:from => self.user.person,
-                :to => self.person,
-                :into => aspects.first)
+    Notification.where(
+      target_type:  "Person",
+      target_id:    person_id,
+      recipient_id: user_id,
+      type:         "Notifications::StartedSharing"
+    ).destroy_all
   end
 
   def contacts
@@ -69,10 +58,10 @@ class Contact < ActiveRecord::Base
   end
 
   def mutual?
-    self.sharing && self.receiving
+    sharing && receiving
   end
 
-  def in_aspect? aspect
+  def in_aspect?(aspect)
     if aspect_memberships.loaded?
       aspect_memberships.detect{ |am| am.aspect_id == aspect.id }
     elsif aspects.loaded?
@@ -93,26 +82,43 @@ class Contact < ActiveRecord::Base
     end
   end
 
+  # Follows back if user setting is set so
+  def receive(_recipient_user_ids)
+    user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !receiving
+  end
+
+  # object for local recipients
+  def object_to_receive
+    Contact.create_or_update_sharing_contact(person.owner, user.person)
+  end
+
+  # @return [Array<Person>] The recipient of the contact
+  def subscribers
+    [person]
+  end
+
+  # creates or updates a contact with active sharing flag. Returns nil if already sharing.
+  def self.create_or_update_sharing_contact(recipient, sender)
+    contact = recipient.contacts.find_or_initialize_by(person_id: sender.id)
+
+    return if contact.sharing
+
+    contact.update(sharing: true)
+    contact
+  end
+
   private
+
   def not_contact_with_closed_account
-    if person_id && person.closed_account?
-      errors[:base] << 'Cannot be in contact with a closed account'
-    end
+    errors.add(:base, "Cannot be in contact with a closed account") if person_id && person.closed_account?
   end
 
   def not_contact_for_self
-    if person_id && person.owner == user
-      errors[:base] << 'Cannot create self-contact'
-    end
+    errors.add(:base, "Cannot create self-contact") if person_id && person.owner == user
   end
 
   def not_blocked_user
-    if user && user.blocks.where(:person_id => person_id).exists?
-      errors[:base] << 'Cannot connect to an ignored user'
-      false
-    else
-      true
-    end
+    errors.add(:base, "Cannot connect to an ignored user") if user && user.blocks.where(person_id: person_id).exists?
   end
 end
 

@@ -13,20 +13,6 @@ class Profile < ActiveRecord::Base
   extract_tags_from :tag_string
   validates :tag_list, :length => { :maximum => 5 }
 
-  xml_attr :diaspora_handle
-  xml_attr :first_name
-  xml_attr :last_name
-  xml_attr :image_url
-  xml_attr :image_url_small
-  xml_attr :image_url_medium
-  xml_attr :birthday
-  xml_attr :gender
-  xml_attr :bio
-  xml_attr :location
-  xml_attr :searchable
-  xml_attr :nsfw
-  xml_attr :tag_string
-
   before_save :strip_names
   after_validation :strip_names
 
@@ -50,17 +36,8 @@ class Profile < ActiveRecord::Base
     self.construct_full_name
   end
 
-  def subscribers(user)
-    Person.joins(:contacts).where(:contacts => {:user_id => user.id})
-  end
-
-  def receive(user, person)
-    person.reload # make sure to have old profile referenced
-    logger.info "event=receive payload_type=profile sender=#{person.diaspora_handle} to=#{user.diaspora_handle}"
-    profiles_attr = self.attributes.merge('tag_string' => self.tag_string).slice('diaspora_handle', 'first_name', 'last_name', 'image_url', 'image_url_small', 'image_url_medium', 'birthday', 'gender', 'bio', 'location', 'searchable', 'nsfw', 'tag_string')
-    person.profile.update_attributes(profiles_attr)
-
-    person.profile
+  def subscribers
+    Person.joins(:contacts).where(contacts: {user_id: person.owner_id})
   end
 
   def diaspora_handle
@@ -138,12 +115,7 @@ class Profile < ActiveRecord::Base
   end
 
   def tag_string
-    if @tag_string
-      @tag_string
-    else
-      tags = self.tags.pluck(:name)
-      tags.inject(""){|string, tag| string << "##{tag} " }
-    end
+    @tag_string ||= tags.pluck(:name).map {|tag| "##{tag}" }.join(" ")
   end
 
   # Constructs a full name by joining #first_name and #last_name

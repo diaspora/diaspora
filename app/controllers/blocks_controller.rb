@@ -35,9 +35,7 @@ class BlocksController < ApplicationController
   private
 
   def disconnect_if_contact(person)
-    if contact = current_user.contact_for(person)
-      current_user.disconnect(contact, :force => true)
-    end
+    current_user.contact_for(person).try {|contact| current_user.disconnect(contact) }
   end
 
   def block_params

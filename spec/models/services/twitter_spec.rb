@@ -147,4 +147,15 @@ describe Services::Twitter, :type => :model do
       expect(@service.profile_photo_url).to eq("http://a2.twimg.com/profile_images/uid/avatar.png")
     end
   end
+
+  describe "#post_opts" do
+    it "returns the tweet_id of the post" do
+      @post.tweet_id = "2345"
+      expect(@service.post_opts(@post)).to eq(tweet_id: "2345")
+    end
+
+    it "returns nil when the post has no tweet_id" do
+      expect(@service.post_opts(@post)).to be_nil
+    end
+  end
 end

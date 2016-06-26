@@ -13,7 +13,7 @@ gem "unicorn-worker-killer", "0.4.4"
 
 # Federation
 
-gem "diaspora_federation-rails", "0.0.13"
+gem "diaspora_federation-rails", "0.1.0"
 
 # API and JSON
 
@@ -136,7 +136,6 @@ gem "leaflet-rails",       "0.7.7"
 gem "nokogiri",          "1.6.8"
 gem "redcarpet",         "3.3.4"
 gem "twitter-text",      "1.13.4"
-gem "roxml",             "3.1.6"
 gem "ruby-oembed",       "0.10.1"
 gem "open_graph_reader", "0.6.1"
 
@@ -289,7 +288,7 @@ group :test do
   gem "webmock",            "2.1.0", require: false
   gem "shoulda-matchers",   "3.1.1"
 
-  gem "diaspora_federation-test", "0.0.13"
+  gem "diaspora_federation-test", "0.1.0"
 end
 
 group :development, :test do

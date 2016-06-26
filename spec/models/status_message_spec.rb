@@ -96,15 +96,6 @@ describe StatusMessage, type: :model do
     end
   end
 
-  describe "#diaspora_handle=" do
-    it "sets #author" do
-      person = FactoryGirl.create(:person)
-      post = FactoryGirl.build(:status_message, author: user.person)
-      post.diaspora_handle = person.diaspora_handle
-      expect(post.author).to eq(person)
-    end
-  end
-
   context "emptyness" do
     it "needs either a message or at least one photo" do
       post = user.build_post(:status_message, text: nil)
@@ -196,13 +187,6 @@ describe StatusMessage, type: :model do
       end
     end
 
-    describe "#notify_person" do
-      it "notifies the person mentioned" do
-        expect(Notification).to receive(:notify).with(alice, anything, anything)
-        status_message.notify_person(alice.person)
-      end
-    end
-
     describe "#filter_mentions" do
       it "calls Diaspora::Mentionable#filter_for_aspects" do
         msg = FactoryGirl.build(:status_message_in_aspect)
@@ -264,129 +248,6 @@ describe StatusMessage, type: :model do
       message = "##{'a' * (255 + 1)}"
       status_message = FactoryGirl.build(:status_message, text: message)
       expect(status_message).not_to be_valid
-    end
-  end
-
-  describe "XML" do
-    let(:message) { FactoryGirl.build(:status_message, text: "I hate WALRUSES!", author: user.person) }
-    let(:xml) { message.to_xml.to_s }
-    let(:marshalled) { StatusMessage.from_xml(xml) }
-
-    it "serializes the escaped, unprocessed message" do
-      text = "[url](http://example.org)<script> alert('xss should be federated');</script>"
-      message.text = text
-      expect(xml).to include Builder::XChar.encode(text)
-    end
-
-    it "serializes the message" do
-      expect(xml).to include "<raw_message>I hate WALRUSES!</raw_message>"
-    end
-
-    it "serializes the author address" do
-      expect(xml).to include(user.person.diaspora_handle)
-    end
-
-    describe ".from_xml" do
-      it "marshals the message" do
-        expect(marshalled.text).to eq("I hate WALRUSES!")
-      end
-
-      it "marshals the guid" do
-        expect(marshalled.guid).to eq(message.guid)
-      end
-
-      it "marshals the author" do
-        expect(marshalled.author).to eq(message.author)
-      end
-
-      it "marshals the diaspora_handle" do
-        expect(marshalled.diaspora_handle).to eq(message.diaspora_handle)
-      end
-    end
-
-    context "with some photos" do
-      before do
-        message.photos << FactoryGirl.build(:photo)
-        message.photos << FactoryGirl.build(:photo)
-      end
-
-      it "serializes the photos" do
-        expect(xml).to include "photo"
-        expect(xml).to include message.photos.first.remote_photo_path
-      end
-
-      describe ".from_xml" do
-        it "marshals the photos" do
-          expect(marshalled.photos.size).to eq(2)
-        end
-
-        it "handles existing photos" do
-          message.photos.each(&:save!)
-          expect(marshalled).to be_valid
-        end
-      end
-    end
-
-    context "with a location" do
-      before do
-        message.location = FactoryGirl.build(:location)
-      end
-
-      it "serializes the location" do
-        expect(xml).to include "location"
-        expect(xml).to include "lat"
-        expect(xml).to include "lng"
-      end
-
-      describe ".from_xml" do
-        it "marshals the location" do
-          expect(marshalled.location).to be_present
-        end
-      end
-    end
-
-    context "with a poll" do
-      before do
-        message.poll = FactoryGirl.build(:poll)
-      end
-
-      it "serializes the poll" do
-        expect(xml).to include "poll"
-        expect(xml).to include "question"
-        expect(xml).to include "poll_answer"
-      end
-
-      describe ".from_xml" do
-        it "marshals the poll" do
-          expect(marshalled.poll).to be_present
-        end
-
-        it "marshals the poll answers" do
-          expect(marshalled.poll.poll_answers.size).to eq(2)
-        end
-      end
-    end
-  end
-
-  describe "#after_dispatch" do
-    before do
-      @photos = [alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name)),
-                 alice.build_post(:photo, pending: true, user_file: File.open(photo_fixture_name))]
-      @photos.each(&:save!)
-      @status_message = alice.build_post(:status_message, text: "the best pebble.")
-      @status_message.photos << @photos
-      @status_message.save!
-      alice.add_to_streams(@status_message, alice.aspects)
-    end
-
-    it "sets pending to false on any attached photos" do
-      @status_message.after_dispatch(alice)
-      expect(@photos.all? {|p| p.reload.pending }).to be false
-    end
-
-    it "dispatches any attached photos" do
-      expect(alice).to receive(:dispatch_post).twice
-      @status_message.after_dispatch(alice)
     end
   end
 

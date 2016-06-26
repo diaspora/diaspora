@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class Photo < ActiveRecord::Base
-  include Diaspora::Federated::Shareable
+  include Diaspora::Federated::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
@@ -36,15 +36,6 @@ class Photo < ActiveRecord::Base
 
   mount_uploader :processed_image, ProcessedImage
   mount_uploader :unprocessed_image, UnprocessedImage
-
-  xml_attr :remote_photo_path
-  xml_attr :remote_photo_name
-
-  xml_attr :text
-  xml_attr :status_message_guid
-
-  xml_attr :height
-  xml_attr :width
 
   belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
   validates_associated :status_message
@@ -81,13 +72,11 @@ class Photo < ActiveRecord::Base
     end
   end
 
-  def self.diaspora_initialize(params = {})
-    photo = shareable_initialize(params)
+  def self.diaspora_initialize(params={})
+    photo = new(params.to_hash.stringify_keys.slice(*column_names, "author"))
     photo.random_string = SecureRandom.hex(10)
 
-    if photo.author.local?
-      photo.unprocessed_image.strip_exif = photo.author.owner.strip_exif
-    end
+    photo.unprocessed_image.strip_exif = photo.author.owner.strip_exif
 
     if params[:user_file]
       image_file = params.delete(:user_file)
@@ -144,10 +133,6 @@ class Photo < ActiveRecord::Base
 
   def queue_processing_job
     Workers::ProcessPhoto.perform_async(self.id)
-  end
-
-  def mutable?
-    true
   end
 
   def self.visible(current_user, person, limit=:all, max_time=nil)

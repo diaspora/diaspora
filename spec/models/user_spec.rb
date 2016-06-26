@@ -482,12 +482,6 @@ describe User, :type => :model do
     it "does not preserve case" do
       expect(User.find_for_database_authentication(:username => alice.username.upcase)).to eq(alice)
     end
-
-    it 'errors out when passed a non-hash' do
-      expect {
-        User.find_for_database_authentication(alice.username)
-      }.to raise_error
-    end
   end
 
   describe '#update_profile' do
@@ -498,16 +492,14 @@ describe User, :type => :model do
       }
     end
 
-    it 'dispatches the profile when tags are set' do
-      @params = {:tag_string => '#what #hey'}
-      mailman = Postzord::Dispatcher.build(alice, Profile.new)
-      expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
+    it "dispatches the profile when tags are set" do
+      @params = {tag_string: '#what #hey'}
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile, {})
       expect(alice.update_profile(@params)).to be true
     end
 
-    it 'sends a profile to their contacts' do
-      mailman = Postzord::Dispatcher.build(alice, Profile.new)
-      expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
+    it "sends a profile to their contacts" do
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile, {})
       expect(alice.update_profile(@params)).to be true
     end
 
@@ -560,34 +552,6 @@ describe User, :type => :model do
     end
   end
 
-  describe '#notify_if_mentioned' do
-    before do
-      @post = FactoryGirl.build(:status_message, :author => bob.person)
-    end
-
-    it 'notifies the user if the incoming post mentions them' do
-      expect(@post).to receive(:mentions?).with(alice.person).and_return(true)
-      expect(@post).to receive(:notify_person).with(alice.person)
-
-      alice.notify_if_mentioned(@post)
-    end
-
-    it 'does not notify the user if the incoming post does not mention them' do
-      expect(@post).to receive(:mentions?).with(alice.person).and_return(false)
-      expect(@post).not_to receive(:notify_person)
-
-      alice.notify_if_mentioned(@post)
-    end
-
-    it 'does not notify the user if the post author is not a contact' do
-      @post = FactoryGirl.build(:status_message, :author => eve.person)
-      allow(@post).to receive(:mentions?).and_return(true)
-      expect(@post).not_to receive(:notify_person)
-
-      alice.notify_if_mentioned(@post)
-    end
-  end
-
   describe 'account deletion' do
     describe '#destroy' do
       it 'removes invitations from the user' do
@@ -636,26 +600,6 @@ describe User, :type => :model do
        alice.reload
        expect(Workers::Mail::StartedSharing).not_to receive(:perform_async)
       alice.mail(Workers::Mail::StartedSharing, alice.id, 'contactrequestid')
-    end
-  end
-
-  context "aspect management" do
-    before do
-      @contact = alice.contact_for(bob.person)
-      @original_aspect = alice.aspects.where(:name => "generic").first
-      @new_aspect = alice.aspects.create(:name => 'two')
-    end
-
-    describe "#add_contact_to_aspect" do
-      it 'adds the contact to the aspect' do
-        expect {
-          alice.add_contact_to_aspect(@contact, @new_aspect)
-        }.to change(@new_aspect.contacts, :count).by(1)
-      end
-
-      it 'returns true if they are already in the aspect' do
-        expect(alice.add_contact_to_aspect(@contact, @original_aspect)).to be true
-      end
     end
   end
 
@@ -831,36 +775,17 @@ describe User, :type => :model do
   end
 
 
-  describe '#retract' do
-    before do
-      @retraction = double
-      @post = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
-    end
+  describe "#retract" do
+    let(:retraction) { double }
+    let(:post) { FactoryGirl.build(:status_message, author: bob.person, public: true) }
 
     context "posts" do
-      before do
-        allow(SignedRetraction).to receive(:build).and_return(@retraction)
-        allow(@retraction).to receive(:perform)
-      end
+      it "sends a retraction" do
+        expect(Retraction).to receive(:for).with(post, bob).and_return(retraction)
+        expect(retraction).to receive(:defer_dispatch).with(bob)
+        expect(retraction).to receive(:perform)
 
-      it 'sends a retraction' do
-        dispatcher = double
-        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
-        expect(dispatcher).to receive(:post)
-
-        bob.retract(@post)
-      end
-
-      it 'adds resharers of target post as additional subsctibers' do
-        person = FactoryGirl.create(:person)
-        reshare = FactoryGirl.create(:reshare, :root => @post, :author => person)
-        @post.reshares << reshare
-
-        dispatcher = double
-        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
-        expect(dispatcher).to receive(:post)
-
-        bob.retract(@post)
+        bob.retract(post)
       end
     end
   end

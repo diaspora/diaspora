@@ -645,8 +645,8 @@ configuration: ## Section
     outbound: ## Section
       ## Enable this setting to send out public posts from this pod to a relay
       #send: false
-      ## Change default remote relay handle used for sending out here
-      #handle: 'relay@relay.iliketoast.net'
+      ## Change default remote relay url used for sending out here
+      #url: 'https://relay.iliketoast.net/receive/public'
 
     inbound: ## Section
       ## Enable this to receive public posts from relays

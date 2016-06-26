@@ -15,12 +15,6 @@ class StatusMessage < Post
   # don't allow creation of empty status messages
   validate :presence_of_content, on: :create, if: proc {|sm| sm.author && sm.author.local? }
 
-  xml_name :status_message
-  xml_attr :raw_message
-  xml_attr :photos, :as => [Photo]
-  xml_attr :location, :as => Location
-  xml_attr :poll, :as => Poll
-
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   has_one :location
@@ -66,11 +60,6 @@ class StatusMessage < Post
     write_attribute(:text, text)
   end
 
-  def attach_photos_by_ids(photo_ids)
-    return [] unless photo_ids.present?
-    self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id)
-  end
-
   def nsfw
     self.raw_message.match(/#nsfw/i) || super
   end
@@ -108,24 +97,6 @@ class StatusMessage < Post
 
   def notify_person(person)
     self.mentions.where(:person_id => person.id).first.try(:notify_recipient)
-  end
-
-  def after_dispatch(sender)
-    self.update_and_dispatch_attached_photos(sender)
-  end
-
-  def update_and_dispatch_attached_photos(sender)
-    if self.photos.any?
-      logger.info "dispatch photos for StatusMessage:#{guid}"
-      Photo.where(status_message_guid: guid).update_all(:public => self.public)
-      self.photos.each do |photo|
-        if photo.pending
-          sender.add_to_streams(photo, self.aspects)
-          sender.dispatch_post(photo)
-        end
-      end
-      Photo.where(status_message_guid: guid).update_all(:pending => false)
-    end
   end
 
   def comment_email_subject

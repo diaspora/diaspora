@@ -21,6 +21,8 @@ FactoryGirl.define do
     gender "robot"
     location "Earth"
     birthday Date.today
+    tag_string "#one #two"
+    association :person
   end
 
   factory :profile_with_image_url, :parent => :profile do
@@ -70,7 +72,6 @@ FactoryGirl.define do
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
     after(:build) do |u|
       u.person = FactoryGirl.build(:person,
-                                   profile:               FactoryGirl.build(:profile),
                                    pod:                   nil,
                                    serialized_public_key: u.encryption_key.public_key.export,
                                    diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
@@ -93,9 +94,6 @@ FactoryGirl.define do
   factory(:status_message, aliases: %i(status_message_without_participation)) do
     sequence(:text) {|n| "jimmy's #{n} whales" }
     author
-    after(:build) do |sm|
-      sm.diaspora_handle = sm.author.diaspora_handle
-    end
 
     factory(:status_message_with_poll) do
       after(:build) do |sm|
@@ -149,21 +147,36 @@ FactoryGirl.define do
     lng 13.409779
   end
 
+  factory :participation do
+    association :author, factory: :person
+    association :target, factory: :status_message
+  end
+
   factory(:poll) do
-    sequence(:question) { |n| "What do you think about #{n} ninjas?" }
+    sequence(:question) {|n| "What do you think about #{n} ninjas?" }
+    association :status_message
     after(:build) do |p|
-      p.poll_answers << FactoryGirl.build(:poll_answer)
-      p.poll_answers << FactoryGirl.build(:poll_answer)
+      p.poll_answers << FactoryGirl.build(:poll_answer, poll: p)
+      p.poll_answers << FactoryGirl.build(:poll_answer, poll: p)
     end
   end
 
   factory(:poll_answer) do
-    sequence(:answer) { |n| "#{n} questionmarks" }
+    sequence(:answer) {|n| "#{n} questionmarks" }
+    association :poll
+  end
+
+  factory :poll_participation do
+    association :author, factory: :person
+    association :poll_answer
+    after(:build) {|p| p.poll = p.poll_answer.poll }
   end
 
   factory(:photo) do
     sequence(:random_string) {|n| SecureRandom.hex(10) }
     association :author, :factory => :person
+    height 42
+    width 23
     after(:build) do |p|
       p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
       p.update_remote_path
@@ -269,7 +282,7 @@ FactoryGirl.define do
 
   factory(:conversation) do
     association(:author, factory: :person)
-    sequence(:subject) { |n| "conversation ##{n}" }
+    sequence(:subject) {|n| "conversation ##{n}" }
 
     after(:build) do |c|
       c.participants << c.author
@@ -277,25 +290,18 @@ FactoryGirl.define do
   end
 
   factory(:conversation_with_message, parent: :conversation) do
-    after(:build) do |c|
-      msg = FactoryGirl.build(:message)
+    after(:create) do |c|
+      msg = FactoryGirl.build(:message, author: c.author)
       msg.conversation_id = c.id
-      c.participants << msg.author
       msg.save
     end
   end
 
   factory(:message) do
-    association(:author, factory: :person)
-    sequence(:text) { |n| "message text ##{n}" }
-  end
-
-  factory(:message_with_conversation, parent: :message) do
-    after(:build) do |msg|
-      c = FactoryGirl.build(:conversation)
-      c.participants << msg.author
-      msg.conversation_id = c.id
-    end
+    association :author, factory: :person
+    association :conversation
+    sequence(:text) {|n| "message text ##{n}" }
+    after(:build) {|m| m.conversation.participants << m.author }
   end
 
   #templates

@@ -5,9 +5,6 @@ class Location < ActiveRecord::Base
   attr_accessor :coordinates
 
   include Diaspora::Federated::Base
-  xml_attr :address
-  xml_attr :lat
-  xml_attr :lng
 
   belongs_to :status_message
 

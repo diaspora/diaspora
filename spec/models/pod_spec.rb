@@ -136,4 +136,39 @@ describe Pod, type: :model do
       expect(pod.url_to("/receive/public")).to eq("https://#{pod.host}/receive/public")
     end
   end
+
+  describe "#update_offline_since" do
+    let(:pod) { FactoryGirl.create(:pod) }
+
+    it "handles a successful status" do
+      pod.status = :no_errors
+      pod.update_offline_since
+
+      expect(pod.offline?).to be_falsey
+      expect(pod.offline_since).to be_nil
+    end
+
+    it "handles a failed status" do
+      pod.status = :unknown_error
+      pod.update_offline_since
+
+      expect(pod.offline?).to be_truthy
+      expect(pod.offline_since).to be_within(1.second).of Time.zone.now
+    end
+
+    it "preserves the original offline timestamp" do
+      pod.status = :unknown_error
+      pod.update_offline_since
+      pod.save
+
+      now = Time.zone.now
+      expect(pod.offline_since).to be_within(1.second).of now
+
+      Timecop.travel(Time.zone.today + 30.days) do
+        pod.update_offline_since
+        expect(pod.offline_since).to be_within(1.second).of now
+        expect(Time.zone.now).to be_within(1.day).of(now + 30.days)
+      end
+    end
+  end
 end

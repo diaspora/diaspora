@@ -23,10 +23,6 @@ UnprocessedImage.enable_processing = false
 Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
 Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
-def set_up_friends
-  [local_luke, local_leia, remote_raphael]
-end
-
 def alice
   @alice ||= User.find_by(username: "alice")
 end
@@ -105,10 +101,9 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = :en
     stub_request(:post, "https://pubsubhubbub.appspot.com/")
-    disable_typhoeus
     $process_queue = false
-    allow_any_instance_of(Postzord::Dispatcher::Public).to receive(:deliver_to_remote)
-    allow_any_instance_of(Postzord::Dispatcher::Private).to receive(:deliver_to_remote)
+    allow(Workers::SendPublic).to receive(:perform_async)
+    allow(Workers::SendPrivate).to receive(:perform_async)
   end
 
   config.expect_with :rspec do |expect_config|
