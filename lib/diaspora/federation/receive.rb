@@ -285,6 +285,7 @@ module Diaspora
       rescue => e
         raise e unless load_from_database(klass, guid, author)
         logger.warn "ignoring error on receive #{klass}:#{guid}: #{e.class}: #{e.message}"
+        nil
       end
 
       # try to load the object first from the DB and if not available, save it.
