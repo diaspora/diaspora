@@ -99,6 +99,18 @@ describe Retraction do
       Retraction.for(comment, local_luke).defer_dispatch(local_luke)
     end
 
+    it "uses the author of the target parent as sender for a comment-retraction if the parent is local" do
+      post = local_luke.post(:status_message, text: "hello", public: true)
+      comment = local_leia.comment!(post, "destroy!")
+      federation_retraction = Diaspora::Federation::Entities.relayable_retraction(comment, local_leia)
+
+      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
+        local_luke.id, federation_retraction.to_h, [remote_raphael.id], {}
+      )
+
+      Retraction.for(comment, local_leia).defer_dispatch(local_leia)
+    end
+
     context "relayable" do
       let(:post) { local_luke.post(:status_message, text: "hello", public: true) }
       let(:comment) { FactoryGirl.create(:comment, post: post, author: remote_raphael) }

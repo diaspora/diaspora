@@ -96,7 +96,7 @@ describe CommentService do
       post = alice.post(:status_message, text: "hello", public: true)
       comments = [alice, bob, eve].map {|user| CommentService.new(user).create(post.id, "hi") }
 
-      expect(CommentService.new.find_for_post(post.id)).to eq(comments)
+      expect(CommentService.new.find_for_post(post.id)).to match_array(comments)
     end
   end
 end
