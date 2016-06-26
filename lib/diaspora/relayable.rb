@@ -40,6 +40,11 @@ module Diaspora
       end
     end
 
+    # @deprecated This is only needed for pre 0.6 pods
+    def sender_for_dispatch
+      parent.author.owner if parent.author.local?
+    end
+
     # @abstract
     def parent
       raise NotImplementedError.new('you must override parent in order to enable relayable on this model')

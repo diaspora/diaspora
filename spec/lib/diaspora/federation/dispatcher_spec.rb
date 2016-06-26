@@ -32,6 +32,27 @@ describe Diaspora::Federation::Dispatcher do
 
       expect(dispatcher).to be_instance_of(Diaspora::Federation::Dispatcher::Private)
     end
+
+    it "uses the parent author as sender for a comment if the parent is local" do
+      comment = FactoryGirl.create(:comment, author: bob.person, post: post)
+
+      expect(Diaspora::Federation::Dispatcher::Public).to receive(:new).with(alice, comment, {}).and_call_original
+
+      dispatcher = described_class.build(bob, comment)
+
+      expect(dispatcher).to be_instance_of(Diaspora::Federation::Dispatcher::Public)
+    end
+
+    it "uses the original sender for a comment if the parent is not local" do
+      remote_post = FactoryGirl.create(:status_message, author: remote_raphael, text: "hello", public: true)
+      comment = FactoryGirl.create(:comment, author: bob.person, post: remote_post)
+
+      expect(Diaspora::Federation::Dispatcher::Public).to receive(:new).with(bob, comment, {}).and_call_original
+
+      dispatcher = described_class.build(bob, comment)
+
+      expect(dispatcher).to be_instance_of(Diaspora::Federation::Dispatcher::Public)
+    end
   end
 
   describe ".defer_dispatch" do

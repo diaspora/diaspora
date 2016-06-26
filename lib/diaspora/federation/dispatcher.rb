@@ -10,6 +10,7 @@ module Diaspora
       end
 
       def self.build(sender, object, opts={})
+        sender = object.try(:sender_for_dispatch) || sender
         if object.try(:public?)
           Public.new(sender, object, opts)
         else
