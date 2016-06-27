@@ -428,6 +428,26 @@ describe "diaspora federation callbacks" do
         DiasporaFederation.callbacks.trigger(:fetch_person_url_to, person.diaspora_handle, "/path/on/pod")
       ).to eq("https://#{pod.host}/path/on/pod")
     end
+
+    it "fetches an unknown user" do
+      pod = FactoryGirl.build(:pod)
+      person = FactoryGirl.build(:person, pod: pod)
+      expect(Person).to receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
+
+      expect(
+        DiasporaFederation.callbacks.trigger(:fetch_person_url_to, person.diaspora_handle, "/path/on/pod")
+      ).to eq("https://#{pod.host}/path/on/pod")
+    end
+
+    it "forwards the DiscoveryError" do
+      diaspora_id = FactoryGirl.generate(:diaspora_id)
+      expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
+        .and_raise(DiasporaFederation::Discovery::DiscoveryError)
+
+      expect {
+        DiasporaFederation.callbacks.trigger(:fetch_person_url_to, diaspora_id, "/path/on/pod")
+      }.to raise_error DiasporaFederation::Discovery::DiscoveryError
+    end
   end
 
   describe ":update_pod" do

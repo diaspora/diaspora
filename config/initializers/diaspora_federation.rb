@@ -108,7 +108,7 @@ DiasporaFederation.configure do |config|
     end
 
     on :fetch_person_url_to do |diaspora_id, path|
-      Pod.joins(:people).find_by(people: {diaspora_handle: diaspora_id}).url_to(path)
+      Person.find_or_fetch_by_identifier(diaspora_id).url_to(path)
     end
 
     on :update_pod do |url, status|

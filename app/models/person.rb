@@ -215,6 +215,12 @@ class Person < ActiveRecord::Base
     url_to "/receive/users/#{guid}"
   end
 
+  # @param path [String]
+  # @return [String]
+  def url_to(path)
+    local? ? AppConfig.url_to(path) : pod.url_to(path)
+  end
+
   def public_key_hash
     Base64.encode64(OpenSSL::Digest::SHA256.new(serialized_public_key).to_s)
   end
@@ -285,12 +291,6 @@ class Person < ActiveRecord::Base
   end
 
   private
-
-  # @param path [String]
-  # @return [String]
-  def url_to(path)
-    local? ? AppConfig.url_to(path) : pod.url_to(path)
-  end
 
   def fix_profile
     logger.info "fix profile for account: #{diaspora_handle}"
