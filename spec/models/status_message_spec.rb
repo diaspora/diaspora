@@ -113,6 +113,9 @@ describe StatusMessage, type: :model do
 
       post.photos << photo
       expect(post).to be_valid
+      expect(post.message.to_s).to be_empty
+      expect(post.raw_message).to eq ""
+      expect(post.nsfw).to be_falsy
       expect(post.errors.full_messages).to eq([])
     end
 

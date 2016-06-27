@@ -53,7 +53,7 @@ class StatusMessage < Post
   end
 
   def raw_message
-    read_attribute(:text)
+    read_attribute(:text) || ""
   end
 
   def raw_message=(text)
