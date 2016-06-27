@@ -25,7 +25,7 @@ describe StatisticsPresenter do
         "network"            => "Diaspora",
         "version"            => AppConfig.version_string,
         "registrations_open" => AppConfig.settings.enable_registrations?,
-        "services"           => ["facebook"]
+        "services"           => AppConfig.configured_services.map(&:to_s)
       )
     end
 
@@ -104,7 +104,7 @@ describe StatisticsPresenter do
           "active_users_monthly"  => User.monthly_actives.count,
           "local_posts"           => @presenter.local_posts,
           "local_comments"        => @presenter.local_comments,
-          "services"              => ["facebook"]
+          "services"              => AppConfig.configured_services.map(&:to_s)
         )
       end
     end
