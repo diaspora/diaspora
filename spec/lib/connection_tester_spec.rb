@@ -145,6 +145,13 @@ describe ConnectionTester do
       expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
     end
 
+    it "handles a invalid jrd document gracefully" do
+      invalid_wellknown = {links: {rel: ConnectionTester::NODEINFO_SCHEMA, href: "/nodeinfo"}}
+      stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
+        .to_return(status: 200, body: JSON.generate(invalid_wellknown))
+      expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
+    end
+
     it "handles a invalid nodeinfo document gracefully" do
       stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
         .to_return(status: 200, body: JSON.generate(ni_wellknown))

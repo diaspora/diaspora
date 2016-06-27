@@ -129,6 +129,8 @@ class ConnectionTester
       nd_resp = http.get(find_nodeinfo_url(ni_resp.body))
       find_software_version(nd_resp.body)
     end
+  rescue NodeInfoFailure => e
+    raise e
   rescue JSON::Schema::ValidationError, JSON::Schema::SchemaError => e
     raise NodeInfoFailure, "#{e.class}: #{e.message}"
   rescue Faraday::ResourceNotFound, JSON::JSONError => e
@@ -183,8 +185,10 @@ class ConnectionTester
 
   # walk the JSON document, get the actual document location
   def find_nodeinfo_url(body)
-    links = JSON.parse(body)
-    links.fetch("links").find { |entry|
+    jrd = JSON.parse(body)
+    links = jrd.fetch("links")
+    raise NodeInfoFailure, "invalid JRD: '#/links' is not an array!" unless links.is_a?(Array)
+    links.find { |entry|
       entry.fetch("rel") == NODEINFO_SCHEMA
     }.fetch("href")
   end
