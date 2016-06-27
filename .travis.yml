@@ -5,10 +5,10 @@ rvm:
   - 2.1
 
 env:
-  - DB=postgresql BUILD_TYPE=other
-  - DB=mysql BUILD_TYPE=other
   - DB=postgresql BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
+  - DB=postgresql BUILD_TYPE=other
+  - DB=mysql BUILD_TYPE=other
 
 sudo: false
 cache:
