@@ -129,6 +129,8 @@ class ConnectionTester
       nd_resp = http.get(find_nodeinfo_url(ni_resp.body))
       find_software_version(nd_resp.body)
     end
+  rescue JSON::Schema::ValidationError, JSON::Schema::SchemaError => e
+    raise NodeInfoFailure, "#{e.class}: #{e.message}"
   rescue Faraday::ResourceNotFound, JSON::JSONError => e
     raise NodeInfoFailure, e.message[0..255].encode(Encoding.default_external, undef: :replace)
   rescue StandardError => e
@@ -190,6 +192,7 @@ class ConnectionTester
   # walk the JSON document, find the version string
   def find_software_version(body)
     info = JSON.parse(body)
+    JSON::Validator.validate!(NodeInfo.schema("1.0"), info)
     sw = info.fetch("software")
     @result.software_version = "#{sw.fetch('name')} #{sw.fetch('version')}"
   end
