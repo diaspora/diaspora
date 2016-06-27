@@ -1,7 +1,9 @@
 
 class ConnectionTester
-  NODEINFO_SCHEMA   = "http://nodeinfo.diaspora.software/ns/schema/1.0"
-  NODEINFO_FRAGMENT = "/.well-known/nodeinfo"
+  include Diaspora::Logging
+
+  NODEINFO_SCHEMA   = "http://nodeinfo.diaspora.software/ns/schema/1.0".freeze
+  NODEINFO_FRAGMENT = "/.well-known/nodeinfo".freeze
 
   class << self
     # Test the reachability of a server by the given HTTP/S URL.
@@ -74,7 +76,7 @@ class ConnectionTester
   rescue URI::InvalidURIError => e
     raise AddressFailure, e.message
   rescue StandardError => e
-    raise Failure, e.inspect
+    unexpected_error(e)
   end
 
   # Perform the DNS query, the IP address will be stored in the result
@@ -84,7 +86,7 @@ class ConnectionTester
   rescue SocketError => e
     raise DNSFailure, "'#{@uri.host}' - #{e.message}"
   rescue StandardError => e
-    raise Failure, e.inspect
+    unexpected_error(e)
   end
 
   # Perform a HTTP GET request to determine the following information
@@ -113,7 +115,7 @@ class ConnectionTester
   rescue ArgumentError, FaradayMiddleware::RedirectLimitReached, Faraday::ClientError => e
     raise HTTPFailure, e.message
   rescue StandardError => e
-    raise Failure, e.inspect
+    unexpected_error(e)
   end
 
   # Try to find out the version of the other servers software.
@@ -127,10 +129,14 @@ class ConnectionTester
       nd_resp = http.get(find_nodeinfo_url(ni_resp.body))
       find_software_version(nd_resp.body)
     end
+  rescue NodeInfoFailure => e
+    raise e
+  rescue JSON::Schema::ValidationError, JSON::Schema::SchemaError => e
+    raise NodeInfoFailure, "#{e.class}: #{e.message}"
   rescue Faraday::ResourceNotFound, JSON::JSONError => e
     raise NodeInfoFailure, e.message[0..255].encode(Encoding.default_external, undef: :replace)
   rescue StandardError => e
-    raise Failure, e.inspect
+    unexpected_error(e)
   end
 
   private
@@ -179,8 +185,10 @@ class ConnectionTester
 
   # walk the JSON document, get the actual document location
   def find_nodeinfo_url(body)
-    links = JSON.parse(body)
-    links.fetch("links").find { |entry|
+    jrd = JSON.parse(body)
+    links = jrd.fetch("links")
+    raise NodeInfoFailure, "invalid JRD: '#/links' is not an array!" unless links.is_a?(Array)
+    links.find { |entry|
       entry.fetch("rel") == NODEINFO_SCHEMA
     }.fetch("href")
   end
@@ -188,8 +196,14 @@ class ConnectionTester
   # walk the JSON document, find the version string
   def find_software_version(body)
     info = JSON.parse(body)
+    JSON::Validator.validate!(NodeInfo.schema("1.0"), info)
     sw = info.fetch("software")
     @result.software_version = "#{sw.fetch('name')} #{sw.fetch('version')}"
+  end
+
+  def unexpected_error(error)
+    logger.error "unexpected error: #{error.class}: #{error.message}\n#{error.backtrace.first(15).join("\n")}"
+    raise Failure, error.inspect
   end
 
   class Failure < StandardError

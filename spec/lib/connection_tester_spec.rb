@@ -113,13 +113,21 @@ describe ConnectionTester do
   end
 
   describe "#nodeinfo" do
+    let(:ni_wellknown) { {links: [{rel: ConnectionTester::NODEINFO_SCHEMA, href: "/nodeinfo"}]} }
+
     it "reads the version from the nodeinfo document" do
-      ni_wellknown = {links: [{rel: ConnectionTester::NODEINFO_SCHEMA, href: "/nodeinfo"}]}
-      ni_document = {software: {name: "diaspora", version: "a.b.c.d"}}
+      ni_document = NodeInfo.build do |doc|
+        doc.version = "1.0"
+        doc.open_registrations = true
+        doc.protocols.inbound << "diaspora"
+        doc.protocols.outbound << "diaspora"
+        doc.software.name = "diaspora"
+        doc.software.version = "a.b.c.d"
+      end
 
       stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
         .to_return(status: 200, body: JSON.generate(ni_wellknown))
-      stub_request(:get, "#{url}/nodeinfo").to_return(status: 200, body: JSON.generate(ni_document))
+      stub_request(:get, "#{url}/nodeinfo").to_return(status: 200, body: JSON.generate(ni_document.as_json))
 
       tester.nodeinfo
       expect(result.software_version).to eq("diaspora a.b.c.d")
@@ -134,6 +142,20 @@ describe ConnectionTester do
     it "handles a malformed document gracefully" do
       stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
         .to_return(status: 200, body: '{"json"::::"malformed"}')
+      expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
+    end
+
+    it "handles a invalid jrd document gracefully" do
+      invalid_wellknown = {links: {rel: ConnectionTester::NODEINFO_SCHEMA, href: "/nodeinfo"}}
+      stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
+        .to_return(status: 200, body: JSON.generate(invalid_wellknown))
+      expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
+    end
+
+    it "handles a invalid nodeinfo document gracefully" do
+      stub_request(:get, "#{url}#{ConnectionTester::NODEINFO_FRAGMENT}")
+        .to_return(status: 200, body: JSON.generate(ni_wellknown))
+      stub_request(:get, "#{url}/nodeinfo").to_return(status: 200, body: '{"software": "invalid nodeinfo"}')
       expect { tester.nodeinfo }.to raise_error(ConnectionTester::NodeInfoFailure)
     end
   end
