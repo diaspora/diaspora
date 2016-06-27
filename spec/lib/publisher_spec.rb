@@ -18,7 +18,7 @@ describe Publisher do
 
   describe '#text' do
     it 'is a formatted version of the prefill' do
-      p = Publisher.new(alice, :prefill => "@{alice; alice@pod.com}")
+      p = Publisher.new(alice, prefill: "@{alice; #{alice.diaspora_handle}}")
       expect(p.text).to eq("alice")
     end
   end
