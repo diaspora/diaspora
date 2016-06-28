@@ -1,3 +1,7 @@
+# 0.5.10.1
+
+We made a mistake and removed `mysql2` from the `Gemfile.lock` in a recent gem update. Since this could cause some issues for some installations, we decided to release a hotfix.
+
 # 0.5.10.0
 
 ## Refactor
