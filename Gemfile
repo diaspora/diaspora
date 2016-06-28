@@ -1,14 +1,14 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.5.2"
+gem "rails", "4.2.6"
 
 # Legacy Rails features, remove me!
 # responders (class level)
-gem "responders", "2.1.1"
+gem "responders", "2.2.0"
 
 # Appserver
 
-gem "unicorn", "5.0.1", require: false
+gem "unicorn", "5.1.0", require: false
 
 # Federation
 
@@ -18,13 +18,13 @@ gem "diaspora_federation-rails", "0.0.13"
 
 gem "acts_as_api", "0.4.2"
 gem "json",        "1.8.3"
-gem "json-schema", "2.6.0"
+gem "json-schema", "2.6.2"
 
 # Authentication
 
 gem "devise", "3.5.6"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-token_authenticatable", "~> 0.4.0"
+gem "devise-token_authenticatable", "0.4.6"
 
 # Captcha
 
@@ -41,7 +41,7 @@ gem "sidetiq", "0.6.3"
 
 # Compression
 
-gem "uglifier", "2.7.2"
+gem "uglifier", "3.0.0"
 
 # Configuration
 
@@ -56,22 +56,22 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 gem "bootstrap-sass", "2.3.2.2"
 gem "compass-rails",  "2.0.5"
 gem "sass-rails",     "5.0.4"
-gem "autoprefixer-rails", "6.3.3.1"
+gem "autoprefixer-rails", "6.3.6.2"
 
 # Database
 
 ENV["DB"] ||= "mysql"
 
-gem "mysql2", "0.4.3" if ENV["DB"] == "all" || ENV["DB"] == "mysql"
+gem "mysql2", "0.4.4" if ENV["DB"] == "all" || ENV["DB"] == "mysql"
 gem "pg",     "0.18.4" if ENV["DB"] == "all" || ENV["DB"] == "postgres"
 
-gem "activerecord-import", "0.11.0"
+gem "activerecord-import", "0.13.0"
 
 # File uploading
 
-gem "carrierwave", "0.10.0"
-gem "fog",         "1.37.0"
-gem "mini_magick", "4.4.0"
+gem "carrierwave", "0.11.2"
+gem "fog",         "1.38.0"
+gem "mini_magick", "4.5.1"
 gem "remotipart",  "1.2.1"
 
 # GUID generation
@@ -85,29 +85,29 @@ gem "entypo-rails", "2.2.3"
 
 gem "backbone-on-rails", "1.2.0.0"
 gem "handlebars_assets", "0.23.0"
-gem "jquery-rails",      "4.1.0"
+gem "jquery-rails",      "4.1.1"
 gem "jquery-ui-rails",   "5.0.5"
 gem "js_image_paths",    "0.1.0"
-gem "js-routes",         "1.2.4"
+gem "js-routes",         "1.2.6"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "1.12.0" # Should be kept in sync with jquery-rails
 
-  gem "rails-assets-markdown-it",                         "6.0.0"
+  gem "rails-assets-markdown-it",                         "6.0.5"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "0.4.0"
   gem "rails-assets-markdown-it-sanitizer",               "0.4.1"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "9.1.0"
+  gem "rails-assets-highlightjs",                         "9.4.0"
 
   # jQuery plugins
 
   gem "rails-assets-jeresig--jquery.hotkeys",       "0.2.0"
   gem "rails-assets-jquery-placeholder",            "2.3.1"
   gem "rails-assets-jquery-textchange",             "0.2.3"
-  gem "rails-assets-perfect-scrollbar",             "0.6.10"
+  gem "rails-assets-perfect-scrollbar",             "0.6.11"
   gem "rails-assets-jakobmattsson--jquery-elastic", "1.6.11"
 end
 
@@ -128,9 +128,9 @@ gem "messagebus_ruby_api", "1.0.3"
 
 gem "nokogiri",          "1.6.8"
 gem "redcarpet",         "3.3.4"
-gem "twitter-text",      "1.13.3"
+gem "twitter-text",      "1.13.4"
 gem "roxml",             "3.1.6"
-gem "ruby-oembed",       "0.9.0"
+gem "ruby-oembed",       "0.10.1"
 gem "open_graph_reader", "0.6.1"
 
 # Services
@@ -144,11 +144,11 @@ gem "omniauth-wordpress", "0.2.2"
 
 # Serializers
 
-gem "active_model_serializers", "0.9.4"
+gem "active_model_serializers", "0.9.5"
 
 # XMPP chat dependencies
-gem "diaspora-vines",             "~> 0.2.0.develop"
-gem "rails-assets-diaspora_jsxc", "~> 0.1.4", source: "https://rails-assets.org"
+gem "diaspora-vines",             "0.2.0.develop.4"
+gem "rails-assets-diaspora_jsxc", "0.1.4", source: "https://rails-assets.org"
 
 # Tags
 
@@ -160,7 +160,7 @@ gem "addressable",        "2.3.8", require: "addressable/uri"
 gem "faraday",            "0.9.2"
 gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"
-gem "typhoeus",           "1.0.1"
+gem "typhoeus",           "1.0.2"
 
 # Views
 
@@ -176,7 +176,7 @@ gem "logging-rails", "0.5.0", require: "logging/rails"
 
 # Reading and writing zip files
 
-gem "rubyzip", "1.1.7", require: "zip"
+gem "rubyzip", "1.2.0", require: "zip"
 
 # Prevent occasions where minitest is not bundled in
 # packaged versions of ruby. See following issues/prs:
@@ -222,27 +222,26 @@ end
 
 group :development do
   # Automatic test runs
-  gem "guard-cucumber", "1.5.4"
-  gem "guard-jshintrb", "1.1.1"
-  gem "guard-rspec",    "4.6.4"
-  gem "guard-rubocop",  "1.2.0"
-  gem "guard",          "2.13.0", require: false
+  gem "guard",          "2.14.0", require: false
+  gem "listen",         "~> 3.0.0", require: false
+  gem "guard-cucumber", "2.1.2", require: false
+  gem "guard-rspec",    "4.7.2", require: false
+  gem "guard-rubocop",  "1.2.0", require: false
   gem "rb-fsevent",     "0.9.7", require: false
   gem "rb-inotify",     "0.9.7", require: false
 
   # Linters
   gem "jshintrb", "0.3.0"
-  gem "rubocop",  "0.35.1"
+  gem "rubocop",  "0.40.0"
 
   # Preloading environment
 
-  gem "spring", "1.6.3"
+  gem "spring", "1.7.1"
   gem "spring-commands-rspec", "1.0.4"
   gem "spring-commands-cucumber", "1.0.1"
 
   # Debugging
   gem "pry"
-  gem "pry-debundle"
   gem "pry-byebug"
 
   # test coverage
@@ -256,20 +255,19 @@ group :test do
 
   gem "fixture_builder",   "0.4.1"
   gem "fuubar",            "2.0.0"
-  gem "rspec-instafail",   "0.4.0", require: false
-  gem "test_after_commit", "0.4.2"
+  gem "test_after_commit", "1.0.0"
 
   # Cucumber (integration tests)
 
-  gem "capybara",           "2.6.2"
-  gem "database_cleaner" ,  "1.5.1"
+  gem "capybara",           "2.7.1"
+  gem "database_cleaner",   "1.5.3"
   gem "selenium-webdriver", "2.47.1"
 
   # General helpers
 
-  gem "factory_girl_rails", "4.6.0"
-  gem "timecop",            "0.8.0"
-  gem "webmock",            "1.22.6", require: false
+  gem "factory_girl_rails", "4.7.0"
+  gem "timecop",            "0.8.1"
+  gem "webmock",            "2.1.0", require: false
   gem "shoulda-matchers",   "3.1.1"
 
   gem "diaspora_federation-test", "0.0.13"

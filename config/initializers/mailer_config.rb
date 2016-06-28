@@ -29,7 +29,8 @@ Diaspora::Application.configure do
         port:                 AppConfig.mail.smtp.port.to_i,
         domain:               AppConfig.mail.smtp.domain.get,
         enable_starttls_auto: false,
-        openssl_verify_mode:  AppConfig.mail.smtp.openssl_verify_mode.get
+        openssl_verify_mode:  AppConfig.mail.smtp.openssl_verify_mode.get,
+        ca_file:              AppConfig.environment.certificate_authorities.get
       }
 
       if AppConfig.mail.smtp.authentication != "none"

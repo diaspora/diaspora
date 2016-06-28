@@ -57,11 +57,11 @@ pt-BR:
       pod_stats: "Status do Servidor"
       report: "Relatos"
       sidekiq_monitor: "Monitor Sidekiq"
-      user_search: "Busca de Usuários"
-      weekly_user_stats: "Estatísticas Semanais"
+      user_search: "Busca de usuários"
+      weekly_user_stats: "Estatísticas semanais"
     stats:
       2weeks: "2 semanas"
-      50_most: "50 Tags Mais Populares"
+      50_most: "50 tags mais populares"
       comments:
         one: "%{count} comentário"
         other: "%{count} comentários"
@@ -386,10 +386,10 @@ pt-BR:
       get_support_a_website: "Visite o %{link}"
       get_support_a_wiki: "Pesquise na %{link}"
       get_support_q: "E se minha pergunta não for respondida neste FAQ? Onde mais eu posso encontrar ajuda?"
-      getting_started_a: "Você está com sorte. Tente o %{tutorial_series} no nosso site do projeto. Ele te levará passo-a-passo através do processo de registro e te ensinará todas as coisas básicas que você precisa saber para utilizar diaspora*."
+      getting_started_a: "Você está com sorte. Experimente a %{tutorial_series} no site do projeto. Ela é um guia, passo a passo, para o processo de cadastro e para os recursos básicos da diaspora*."
       getting_started_q: "Socorro! Preciso de alguma ajuda básica para começar!"
       title: "Obter ajuda"
-    getting_started_tutorial: "tutorial da série 'Começando'"
+    getting_started_tutorial: "a série tutorial \"Começando\""
     here: "aqui"
     irc: "IRC"
     keyboard_shortcuts:
@@ -445,7 +445,7 @@ pt-BR:
       format_text_a: "Utilizando um sistema simplificado chamado %{markdown}. Você pode encontrar a sintaxe completa %{here}. O botão de pré-visualização é muito útil aqui, pois você pode ver como sua mensagem parecerá antes de compartilhá-la."
       format_text_q: "Como eu posso formatar o texto em minhas publicações (negrito, itálico, etc.)?"
       hide_posts_a: "Se você apontar seu mouse para a parte superior da publicação, um X aparece à direita. Clique nele para ocultar a publicação e desligar as notificações sobre esta publicação. Você ainda pode ver a publicação se você visitar a página de perfil da pessoa que publicou."
-      hide_posts_q: "Como eu escondo uma publicação? Como eu posso parar de receber notificações sobre uma publicação na qual eu comentei?"
+      hide_posts_q: "Como faço para ocultar uma publicação?"
       image_text: "texto da imagem"
       image_url: "URL da imagem"
       insert_images_a: "Clique no pequeno ícone de câmera para inserir uma imagem na publicação. Pressione o ícone de foto novamente para adicionar outra foto, ou você pode selecionar múltiplas fotos para serem carregadas de uma vez."
@@ -654,7 +654,7 @@ pt-BR:
         two: "%{count} novas notificações"
         zero: "Nenhuma notificação nova"
     index:
-      all_notifications: "Todas as Notificações"
+      all_notifications: "Todas as notificações"
       also_commented: "Também comentou"
       and: "e"
       and_others:
@@ -850,9 +850,9 @@ pt-BR:
     add_contact:
       invited_by: "você foi convidado por"
     add_contact_small:
-      add_contact_from_tag: "adicionar contato de tag"
+      add_contact_from_tag: "Adicionar contato de tag"
     aspect_list:
-      edit_membership: "editar participação no aspecto"
+      edit_membership: "Editar participação no aspecto"
     helper:
       is_not_sharing: "%{name} não está compartilhando com você"
       is_sharing: "%{name} está compartilhando com você"
@@ -878,7 +878,7 @@ pt-BR:
       born: "Aniversário"
       edit_my_profile: "Editar meu perfil"
       gender: "Sexo"
-      in_aspects: "em aspectos"
+      in_aspects: "Em aspectos"
       location: "Localização"
       photos: "Fotos"
       remove_contact: "Remover contato"
@@ -916,7 +916,7 @@ pt-BR:
     edit:
       editing: "Editando"
     new:
-      back_to_list: "Voltar para Lista"
+      back_to_list: "Voltar para lista"
       new_photo: "Nova foto"
       post_it: "Enviar!"
     new_photo:
@@ -1057,7 +1057,7 @@ pt-BR:
         zero: "Recompartilhar"
       reshare_confirmation: "Recompartilhar publicação de %{author}?"
       reshare_original: "Recompartilhar original"
-      reshared_via: "recompartilhado via"
+      reshared_via: "Recompartilhado via"
       show_original: "Mostrar original"
   search: "Busca"
   services:
@@ -1069,7 +1069,7 @@ pt-BR:
     destroy:
       success: "A autenticação foi apagada com sucesso."
     failure:
-      error: "houve um erro na conexão deste serviço"
+      error: "Houve um erro na conexão do serviço"
     finder:
       fetching_contacts: "diaspora* está importando seus amigos de %{service}; por favor, volte daqui alguns minutos."
       no_friends: "Nenhum amigo do Facebook foi encontrado."
@@ -1348,7 +1348,7 @@ pt-BR:
       what_are_you_in_to: "Onde você está?"
       who_are_you: "Quem é você?"
     privacy_settings:
-      ignored_users: "Usuários Ignorados"
+      ignored_users: "Usuários ignorados"
       no_user_ignored_message: "Você não está ignorando nenhum outro usuário"
       stop_ignoring: "deixar de ignorar"
       strip_exif: "Remover metadados como local, autor e modelo da câmera antes de fazer upload de imagens (recomendado)"
