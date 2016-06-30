@@ -8,6 +8,10 @@ Then /^I should have (\d+) unread private messages?$/ do |n_unread|
   expect(find("header #conversations-link .badge")).to have_content(n_unread)
 end
 
+Then /^I should have no unread private messages$/ do
+  expect(page).to have_no_css "header #conversations-link .badge"
+end
+
 Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
   step %(I am on the conversations page)
   within("#conversation_new", match: :first) do

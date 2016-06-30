@@ -43,3 +43,18 @@ Feature: private conversations
     When I sign in as "alice@alice.alice"
     Then I should have 2 unread private messages
     And I should have 2 email delivery
+
+  Scenario: delete a conversation
+    When I sign in as "bob@bob.bob"
+    And I send a message with subject "Greetings" and text "hello, alice!" to "Alice Awesome"
+    Then I should see "Greetings" within "#conversation_inbox"
+    When I click on selector ".hide_conversation"
+    Then I should not see "Greetings" within "#conversation_inbox"
+    When I sign in as "alice@alice.alice"
+    Then I should have 1 unread private message
+    And I should have 1 email delivery
+    When I reply with "hey, how you doing?"
+    Then I should see "hey, how you doing?" within ".stream_container"
+    When I sign in as "bob@bob.bob"
+    Then I should have 1 email delivery
+    And I should have no unread private messages
