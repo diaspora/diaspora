@@ -118,12 +118,7 @@ en:
     my_stream: "Stream"
     my_aspects: "My aspects"
 
-    videos:
-      watch: "Watch this video on <%= provider %>"
-      unknown: "Unknown video type"
-    search_for: "Search for <%= name %>"
     publisher:
-      at_least_one_aspect: "You must publish to at least one aspect"
       limited: "Limited: your post will only be seen by people you are sharing with"
       public: "Public: your post will be visible to everyone and found by search engines"
       near_from: "Posted from: <%= location %>"
@@ -134,9 +129,6 @@ en:
       post_something: "Post to diaspora*"
       post_submit: "Submitting post..."
       post_success: "Posted! Closing popup window..."
-    infinite_scroll:
-      no_more: "No more posts."
-      no_more_contacts: "No more contacts."
     aspect_dropdown:
       add_to_aspect: "Add contact"
       select_aspects: "Select aspects"
@@ -207,7 +199,6 @@ en:
       posts: "Posts"
 
     conversation:
-      participants: "Participants"
       new:
         no_contacts: "You need to add some contacts before you can start a conversation."
 
@@ -261,7 +252,7 @@ en:
         stop_following_confirm: "Stop following #<%= tag %>?"
         follow_error: "Couldn’t follow #<%= tag %> :("
         stop_following_error: "Couldn’t stop following #<%= tag %> :("
-      
+
       reactions:
         zero: "<%= count%> reactions"
         one: "<%= count%> reaction"
@@ -290,14 +281,7 @@ en:
       close: "Close"
 
     viewer:
-      stop_following_post: "Stop following post"
-      follow_post: "Follow post"
-      like: "Like"
-      unlike: "Unlike"
-      reshare: "Reshare"
       reshared: "Reshared"
-      comment: "Comment"
-      home: "Home"
 
     poll:
       vote: "Vote"
