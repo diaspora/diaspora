@@ -66,14 +66,14 @@ describe("app.views.Notifications", function(){
         this.view.updateView(this.readN.data("guid"), this.readN.data("type"), true);
         expect(this.readN.hasClass("unread")).toBeTruthy();
         expect(this.readN.hasClass("read")).toBeFalsy();
-        expect(this.readN.find(".unread-toggle .entypo-eye").data("original-title")).toBe(
+        expect(this.readN.find(".unread-toggle .entypo-eye").attr("data-original-title")).toBe(
           Diaspora.I18n.t("notifications.mark_read")
         );
 
         this.view.updateView(this.readN.data("guid"), this.readN.data("type"), false);
         expect(this.readN.hasClass("read")).toBeTruthy();
         expect(this.readN.hasClass("unread")).toBeFalsy();
-        expect(this.readN.find(".unread-toggle .entypo-eye").data("original-title")).toBe(
+        expect(this.readN.find(".unread-toggle .entypo-eye").attr("data-original-title")).toBe(
           Diaspora.I18n.t("notifications.mark_unread")
         );
       });

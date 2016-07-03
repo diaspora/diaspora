@@ -1,20 +1,6 @@
 describe("app.views.AspectCreate", function() {
   beforeEach(function() {
     app.events.off("aspect:create");
-    // disable jshint camelcase for i18n
-    /* jshint camelcase: false */
-    Diaspora.I18n.load({
-      aspects: {
-        make_aspect_list_visible: "Make contacts in this aspect visible to each other?",
-        name: "Name",
-        create: {
-          add_a_new_aspect: "Add a new aspect",
-          success: "Your new aspect <%= name %> was created",
-          failure: "Aspect creation failed."
-        }
-      }
-    });
-    /* jshint camelcase: true */
   });
 
   context("without a person id", function() {

@@ -45,12 +45,6 @@ describe("app.views.Poll", function(){
 
   describe("reshared post", function(){
     beforeEach(function(){
-      Diaspora.I18n.load({
-        poll: {
-          go_to_original_post: "You can participate in this poll on the <%= original_post_link %>.",
-          original_post: "original post"
-        }
-      });
       this.view.model.attributes.post_type = "Reshare";
       this.view.model.attributes.root = {id: 1};
       this.view.render();

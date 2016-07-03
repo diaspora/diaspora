@@ -1,17 +1,10 @@
 describe("app.collections.Aspects", function(){
   beforeEach(function(){
-    var locale = {
-      and:        'and',
-      comma:      ',',
-      my_aspects: 'My Aspects'
-    };
     var my_aspects = [
       { name: 'Work',          selected: true  },
       { name: 'Friends',       selected: false },
       { name: 'Acquaintances', selected: false }
     ];
-
-    Diaspora.I18n.load(locale);
     this.aspects = new app.collections.Aspects(my_aspects);
   });
 
@@ -52,7 +45,7 @@ describe("app.collections.Aspects", function(){
       });
 
       it("returns the name of the aspect", function(){
-        expect(this.aspects.toSentence()).toEqual('My Aspects');
+        expect(this.aspects.toSentence()).toEqual("My aspects");
       });
     });
 

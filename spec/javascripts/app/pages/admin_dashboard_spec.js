@@ -3,19 +3,6 @@ describe("app.pages.AdminDashboard", function(){
     spec.loadFixture("admin_dashboard");
     this.view = new app.pages.AdminDashboard();
     gon.podVersion = "0.5.1.2";
-    // disable jshint camelcase for i18n
-    /* jshint camelcase: false */
-    Diaspora.I18n.load({
-      admins: {
-        dashboard: {
-          up_to_date: "Your pod is up to date!",
-          outdated: "Your pod is outdated.",
-          compare_versions: "Latest d* release is <%= latestVersion%>, your pod is running <%= podVersion %>.",
-          error: "Unable to determine latest diaspora* version."
-        }
-      }
-    });
-    /* jshint camelcase: true */
   });
 
   describe("initialize" , function() {

@@ -10,14 +10,6 @@ describe("app.views.AspectMembership", function(){
     app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
     this.personId = $(".dropdown-menu").data("person_id");
     this.personName = $(".dropdown-menu").data("person-short-name");
-    Diaspora.I18n.load({
-      aspect_dropdown: {
-        started_sharing_with: 'you started sharing with <%= name %>',
-        stopped_sharing_with: 'you stopped sharing with <%= name %>',
-        error: 'unable to add <%= name %>',
-        error_remove: 'unable to remove <%= name %>'
-      }
-    });
   });
 
   context('adding to aspects', function() {

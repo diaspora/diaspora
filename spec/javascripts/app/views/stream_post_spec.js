@@ -53,18 +53,6 @@ describe("app.views.StreamPost", function(){
 
     beforeEach(function(){
       loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
-
-      Diaspora.I18n.load({stream : {
-        reshares : {
-          one : "<%= count %> reshare",
-          other : "<%= count %> reshares"
-        },
-        likes : {
-          zero : "<%= count %> Likes",
-          one : "<%= count %> Like",
-          other : "<%= count %> Likes"
-        }
-      }});
     });
 
     context("reshares", function(){

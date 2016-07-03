@@ -1,6 +1,6 @@
 <div class='pull-right'>
   {{#if loggedIn}}
-    <a href="#" class="like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
+    <a href="#" class="like" title="{{#if userLike}} {{t "stream.unlike"}} {{else}} {{t "stream.like"}} {{/if}}">
     {{#if userLike}}
       <i class="entypo-heart red large"></i>
     {{else}}
@@ -8,12 +8,12 @@
     {{/if}}
     </a>
 
-    <a href="#" class="focus-comment" title="{{t "viewer.comment"}}">
+    <a href="#" class="focus-comment" title="{{t "stream.comment"}}">
       <i class="entypo-comment gray large"></i>
     </a>
 
     {{#if userCanReshare}}
-      <a href="#" class="reshare" title="{{t "viewer.reshare"}}">
+      <a href="#" class="reshare" title="{{t "stream.reshare"}}">
         <i class="entypo-reshare gray large"></i>
       </a>
     {{else}}

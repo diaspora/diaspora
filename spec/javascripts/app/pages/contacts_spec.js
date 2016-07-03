@@ -9,14 +9,6 @@ describe("app.pages.Contacts", function(){
         collection: app.contacts
       }
     });
-    Diaspora.I18n.load({
-      contacts: {
-        aspect_list_is_visible: "Contacts in this aspect are able to see each other.",
-        aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other.",
-        aspect_chat_is_enabled: "Contacts in this aspect are able to chat with you.",
-        aspect_chat_is_not_enabled: "Contacts in this aspect are not able to chat with you.",
-      }
-    });
   });
 
   context('toggle chat privilege', function() {

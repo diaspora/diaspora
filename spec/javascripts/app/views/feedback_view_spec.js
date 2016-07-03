@@ -2,14 +2,6 @@ describe("app.views.Feedback", function(){
   beforeEach(function(){
     this.userAttrs = _.extend(factory.userAttrs(), {guid : -1});
     loginAs(this.userAttrs);
-
-    Diaspora.I18n.load({stream : {
-      'like' : "Like",
-      'unlike' : "Unlike",
-      'public' : "Public",
-      'limited' : "Limted"
-    }});
-
     var posts = $.parseJSON(spec.readFixture("stream_json"));
 
     this.post = new app.models.Post(posts[0]);

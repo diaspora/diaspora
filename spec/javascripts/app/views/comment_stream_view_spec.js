@@ -50,14 +50,12 @@ describe("app.views.CommentStream", function(){
       });
 
       it("doesn't add the comment to the view, when the request fails", function(){
-        // disable jshint camelcase for i18n
-        /* jshint camelcase: false */
-        Diaspora.I18n.load({failed_to_comment: "posting failed!"});
-        /* jshint camelcase: true */
         this.request.respondWith({status: 500});
 
         expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");
-        expect(this.view.$(".flash-message")).toBeErrorFlashMessage("posting failed!");
+        expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
+          "Failed to comment. Maybe the author is ignoring you?"
+        );
       });
     });
 
