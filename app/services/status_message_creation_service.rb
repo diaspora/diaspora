@@ -19,7 +19,18 @@ class StatusMessageCreationService
 
   def build_status_message(params)
     public = params[:public] || false
+    filter_mentions params
     user.build_post(:status_message, params[:status_message].merge(public: public))
+  end
+
+  def filter_mentions(params)
+    unless params[:public]
+      params[:status_message][:text] = Diaspora::Mentionable.filter_for_aspects(
+        params[:status_message][:text],
+        user,
+        *params[:aspect_ids]
+      )
+    end
   end
 
   def add_attachments(status_message, params)
