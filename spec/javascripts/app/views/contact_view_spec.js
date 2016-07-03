@@ -9,14 +9,6 @@ describe("app.views.Contact", function(){
       aspect_memberships: [{id: 23, aspect: this.aspect1}]
     });
     this.view = new app.views.Contact({ model: this.model });
-    Diaspora.I18n.load({
-      contacts: {
-        add_contact: "Add contact",
-        remove_contact: "Remove contact",
-        error_add: "Couldn't add <%= name %> to the aspect :(",
-        error_remove: "Couldn't remove <%= name %> from the aspect :("
-      }
-    });
   });
 
   context("#presenter", function() {

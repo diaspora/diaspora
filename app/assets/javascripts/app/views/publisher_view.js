@@ -285,7 +285,7 @@ app.views.Publisher = Backbone.View.extend({
     var pollAnswersArray = _.flatten([serializedForm["poll_answers[]"]]);
     var pollAnswers = _.map(pollAnswersArray, function(answer){
       if (answer) {
-        return { "answer" : answer };
+        return {"answer": answer, "vote_count": 0};
       }
     });
     pollAnswers = _.without(pollAnswers, undefined);

@@ -44,3 +44,6 @@ RSpec::Rails::ControllerExampleGroup.class_eval do
   include JasmineFixtureGeneration
 end
 
+RSpec::Rails::HelperExampleGroup.class_eval do
+  include JasmineFixtureGeneration
+end

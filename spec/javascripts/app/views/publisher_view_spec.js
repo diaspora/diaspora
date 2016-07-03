@@ -262,10 +262,6 @@ describe("app.views.Publisher", function() {
     });
 
     describe("_beforeUnload", function(){
-      beforeEach(function(){
-        Diaspora.I18n.load({ confirm_unload: "Please confirm that you want to leave this page - data you have entered won't be saved."});
-      });
-
       it("calls _submittable", function(){
         spyOn(this.view, "_submittable");
         $(window).trigger('beforeunload');
@@ -366,7 +362,6 @@ describe("app.views.Publisher", function() {
     beforeEach( function(){
       loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
       spec.loadFixture("status_message_new");
-      Diaspora.I18n.load({ stream: { public: 'Public' }});
 
       this.viewAspectSelector = new app.views.PublisherAspectSelector({
         el: $(".public_toggle .aspect_dropdown"),
@@ -559,7 +554,6 @@ describe("app.views.Publisher", function() {
 
       context('successful completion', function() {
         beforeEach(function() {
-          Diaspora.I18n.load({ photo_uploader: { completed: '<%= file %> completed' }});
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
           this.uploader.onComplete(null, 'test.jpg', {
@@ -597,7 +591,6 @@ describe("app.views.Publisher", function() {
 
       context('unsuccessful completion', function() {
         beforeEach(function() {
-          Diaspora.I18n.load({ photo_uploader: { completed: '<%= file %> completed' }});
           $('#photodropzone').html('<li class="publisher_photo loading"><img src="" /></li>');
 
           this.uploader.onComplete(null, 'test.jpg', {

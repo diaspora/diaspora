@@ -24,6 +24,10 @@ describe("Diaspora.I18n", function() {
     Diaspora.I18n.reset();   // run tests with clean locale
   });
 
+  afterEach(function() {
+    Diaspora.I18n.load(spec.defaultLocale, "en"); // leave the tests with the default locale
+  });
+
   describe("::load", function() {
     it("sets the class's locale variable", function() {
       Diaspora.I18n.load(locale, "en", locale);
@@ -65,8 +69,10 @@ describe("Diaspora.I18n", function() {
       expect(translation).toEqual("it works!");
     });
 
-    it("returns an empty string if the translation is not found", function() {
-      expect(Diaspora.I18n.t("missing.locale")).toEqual("");
+    it("throws an error if the translation is not found", function() {
+      expect(function() {
+        return Diaspora.I18n.t("missing.locale");
+      }).toThrowError("Missing translation: missing.locale");
     });
 
     it("falls back on missing key", function() {

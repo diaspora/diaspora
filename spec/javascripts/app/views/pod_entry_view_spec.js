@@ -1,7 +1,7 @@
 
 describe("app.views.PodEntry", function() {
   beforeEach(function() {
-    this.pod = new app.models.Pod({id : 123});
+    this.pod = factory.pod();
     this.view = new app.views.PodEntry({
       model: this.pod,
       parent: document.createDocumentFragment()

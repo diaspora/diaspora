@@ -1,11 +1,6 @@
 describe("app.views.AspectsList", function(){
   beforeEach(function(){
     setFixtures('<ul id="aspects_list"></ul>');
-    Diaspora.I18n.load({ aspect_navigation : {
-      'select_all' : 'Select all',
-      'deselect_all' : 'Deselect all'
-    }});
-
     var aspects  = [{ name: 'Work',          selected: true  },
                    { name: 'Friends',       selected: false },
                    { name: 'Acquaintances', selected: false }];

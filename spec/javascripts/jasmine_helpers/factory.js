@@ -211,6 +211,24 @@ var factory = {
 
     window.gon = { preloads: {} };
     _.extend(window.gon.preloads, defaults, overrides);
+  },
+
+  pod: function(overrides) {
+    var defaultAttrs = {
+      "id": 4,
+      "host": "pod.example.org",
+      "port": null,
+      "ssl": true,
+      "status": "no_errors",
+      "checked_at": "2020-01-01T13:37:00.000Z",
+      "response_time": 100,
+      "offline": false,
+      "offline_since": null,
+      "created_at": "2010-01-01T13:37:00.000Z",
+      "software": "diaspora 1.2.3.0",
+      "error": "ConnectionTester::Failure: #<Faraday::TimeoutError>"
+    };
+    return new app.models.Pod(_.extend(defaultAttrs, overrides));
   }
 };
 
