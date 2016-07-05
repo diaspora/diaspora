@@ -132,6 +132,7 @@ before.
 * Fix typeahead for non-latin characters [#6741](https://github.com/diaspora/diaspora/pull/6741)
 * Fix upload size error on mobile [#6803](https://github.com/diaspora/diaspora/pull/6803)
 * Connection tester handles invalid NodeInfo implementations [#6890](https://github.com/diaspora/diaspora/pull/6890)
+* Do not allow to change email to an already used one [#6905](https://github.com/diaspora/diaspora/pull/6905)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
