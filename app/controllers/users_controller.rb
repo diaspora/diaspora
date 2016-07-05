@@ -112,16 +112,16 @@ class UsersController < ApplicationController
       respond_to do |format|
         format.atom do
           @posts = Post.where(author_id: @user.person_id, public: true)
-                    .order("created_at DESC")
-                    .limit(25)
-                    .map {|post| post.is_a?(Reshare) ? post.absolute_root : post }
-                    .compact
+                       .order("created_at DESC")
+                       .limit(25)
+                       .map {|post| post.is_a?(Reshare) ? post.absolute_root : post }
+                       .compact
         end
 
         format.any { redirect_to person_path(@user.person) }
       end
     else
-      redirect_to stream_path, :error => I18n.t("users.public.does_not_exist", :username => params[:username])
+      redirect_to stream_path, error: I18n.t("users.public.does_not_exist", username: params[:username])
     end
   end
 
@@ -172,7 +172,7 @@ class UsersController < ApplicationController
 
   def confirm_email
     if current_user.confirm_email(params[:token])
-      flash[:notice] = I18n.t("users.confirm_email.email_confirmed", :email => current_user.email)
+      flash[:notice] = I18n.t("users.confirm_email.email_confirmed", email: current_user.email)
     elsif current_user.unconfirmed_email.present?
       flash[:error] = I18n.t("users.confirm_email.email_not_confirmed")
     end
