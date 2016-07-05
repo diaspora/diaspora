@@ -61,8 +61,7 @@ class UsersController < ApplicationController
             flash[:notice] = I18n.t 'users.update.unconfirmed_email_changed'
           end
         else
-          # if this field is not cleared, the form will render as though the change were successful
-          @user.unconfirmed_email = nil
+          @user.reload # match user object with the database
           flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
         end
       elsif u[:auto_follow_back]
