@@ -3,10 +3,7 @@
 -#   the COPYRIGHT file.
 
 - content_for :page_title do
-  - if @stream.tag_name
-    = @stream.display_tag_name
-  - else
-    = t('.whatup', pod: @pod_url)
+  = @stream.display_tag_name
 
 .container-fluid#tags_show
   .row
