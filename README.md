@@ -2,8 +2,10 @@
 ### A privacy-aware, distributed, open source social network
 
 **master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.png?branch=master)](http://travis-ci.org/diaspora/diaspora)
-**stable:** [![Build Status stable](https://secure.travis-ci.org/diaspora/diaspora.png?branch=stable)](http://travis-ci.org/diaspora/diaspora) |
-**develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.png?branch=develop)](http://travis-ci.org/diaspora/diaspora) |
+**stable:** [![Build Status stable](https://secure.travis-ci.org/diaspora/diaspora.png?branch=stable)](http://travis-ci.org/diaspora/diaspora)
+[![Coverage Status stable](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=stable)](https://coveralls.io/github/diaspora/diaspora?branch=stable)|
+**develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.png?branch=develop)](http://travis-ci.org/diaspora/diaspora)
+[![Coverage Status develop](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=develop)](https://coveralls.io/github/diaspora/diaspora?branch=develop) |
 [![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
 [![Code Climate](https://codeclimate.com/github/diaspora/diaspora.png)](https://codeclimate.com/github/diaspora/diaspora)
 

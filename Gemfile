@@ -289,6 +289,9 @@ group :test do
   gem "shoulda-matchers",   "3.1.1"
 
   gem "diaspora_federation-test", "0.1.1"
+
+  # Coverage
+  gem 'coveralls', require: false
 end
 
 group :development, :test do
