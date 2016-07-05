@@ -46,7 +46,8 @@
               = f.password_field :password, placeholder: t(".character_minimum_expl"),
                 class: "form-control"
           .form-group
-            = f.label :password_confirmation, t("password_confirmation"), class: "col-sm-6 control-label"
+            = f.label :password_confirmation, t("registrations.new.password_confirmation"),
+              class: "col-sm-6 control-label"
             .col-sm-6
               = f.password_field :password_confirmation, placeholder: t(".character_minimum_expl"),
                 class: "form-control"

@@ -62,7 +62,7 @@ class AspectMembershipsController < ApplicationController
         format.all { redirect_to :back }
       end
     else
-      flash.now[:error] = I18n.t("contacts.create.failure")
+      flash.now[:error] = I18n.t("aspects.add_to_aspect.failure")
       render nothing: true, status: 409
     end
   end
