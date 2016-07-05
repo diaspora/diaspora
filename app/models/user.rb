@@ -491,7 +491,7 @@ class User < ActiveRecord::Base
   # Ensure that the unconfirmed email isn't already someone's email
   def unconfirmed_email_quasiuniqueness
     if User.exists?(["id != ? AND email = ?", id, unconfirmed_email])
-      errors.add(:unconfirmed_email, "is already in use")
+      errors.add(:unconfirmed_email, I18n.t("errors.messages.taken"))
     end
   end
 
@@ -505,19 +505,14 @@ class User < ActiveRecord::Base
 
   # Whenever email is set, clear all unconfirmed emails which match
   def remove_invalid_unconfirmed_emails
-    if email_changed?
-      User.where("unconfirmed_email = ?", email).find_each do |problem_user|
-        problem_user.unconfirmed_email = nil
-        problem_user.save
-      end
-    end
+    User.where(unconfirmed_email: email).update_all(unconfirmed_email: nil) if email_changed?
   end
 
   # Generate public/private keys for User and associated Person
   def generate_keys
-    key_size = (Rails.env == 'test' ? 512 : 4096)
+    key_size = (Rails.env == "test" ? 512 : 4096)
 
-    self.serialized_private_key = OpenSSL::PKey::RSA::generate(key_size).to_s if self.serialized_private_key.blank?
+    self.serialized_private_key = OpenSSL::PKey::RSA.generate(key_size).to_s if serialized_private_key.blank?
 
     if self.person && self.person.serialized_public_key.blank?
       self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key.to_s

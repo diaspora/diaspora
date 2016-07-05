@@ -307,8 +307,8 @@ describe User, :type => :model do
       end
 
       it "resets a matching unconfirmed_email on save" do
-        eve.update_attribute :unconfirmed_email, "new@email.com"
-        alice.update_attribute :email, "new@email.com"
+        eve.update_attribute :unconfirmed_email, "new@example.com"
+        alice.update_attribute :email, "new@example.com"
         eve.reload
         expect(eve.unconfirmed_email).to eql(nil)
       end
@@ -323,8 +323,8 @@ describe User, :type => :model do
       end
 
       it "does NOT require a unique unconfirmed_email address" do
-        eve.update_attribute :unconfirmed_email, "new@email.com"
-        alice.unconfirmed_email = "new@email.com"
+        eve.update_attribute :unconfirmed_email, "new@example.com"
+        alice.unconfirmed_email = "new@example.com"
         expect(alice).to be_valid
       end
 
