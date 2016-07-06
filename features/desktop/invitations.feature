@@ -35,13 +35,11 @@ Feature: Invitations
     And I close the publisher
     And I log out
     And I sign in as "alice@alice.alice"
-    And I click on "Invite your friends" navbar title
     And I click on selector "#invitations-button"
     Then I should see one less invite
 
   Scenario: sends an invitation
     When I sign in as "alice@alice.alice"
-    And I click on "Invite your friends" navbar title
     And I click on selector "#invitations-button"
     And I fill in the following:
       | email_inviter_emails         | alex@example.com    |
