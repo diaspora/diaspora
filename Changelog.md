@@ -133,6 +133,7 @@ before.
 * Fix upload size error on mobile [#6803](https://github.com/diaspora/diaspora/pull/6803)
 * Connection tester handles invalid NodeInfo implementations [#6890](https://github.com/diaspora/diaspora/pull/6890)
 * Do not allow to change email to an already used one [#6905](https://github.com/diaspora/diaspora/pull/6905)
+* Correctly filter mentions on the server side [#6902](https://github.com/diaspora/diaspora/pull/6902)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
