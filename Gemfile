@@ -126,7 +126,6 @@ gem "rails-i18n",           "4.0.8"
 # Mail
 
 gem "markerb",             "1.1.0"
-gem "messagebus_ruby_api", "1.0.3"
 
 # Map
 gem "leaflet-rails",       "0.7.7"
