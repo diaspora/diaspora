@@ -683,6 +683,7 @@ en:
         subject: "%{name} has mentioned you on diaspora*"
         limited_post: "You were mentioned in a limited post."
     private_message:
+        subject: "There’s a new private message for you"
         reply_to_or_view: "Reply to or view this conversation >"
     liked:
         liked: "%{name} liked your post"
