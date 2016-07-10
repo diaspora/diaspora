@@ -63,16 +63,18 @@ class ConversationsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html do
-        redirect_to conversations_path(:conversation_id => params[:id])
-        return
+      unless params[:raw]
+        format.html do
+          redirect_to conversations_path(:conversation_id => params[:id])
+          return
+        end
       end
 
       if @conversation = current_user.conversations.where(id: params[:id]).first
         @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
         @conversation.set_read(current_user)
 
-        format.js
+        format.html { render partial: "show", locals: { conversation: @conversation }}
         format.json { render :json => @conversation, :status => 200 }
       else
         redirect_to conversations_path

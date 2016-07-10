@@ -1,22 +1,51 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.Conversations = Backbone.View.extend({
-
   el: "#conversations_container",
 
   events: {
     "keydown textarea#message_text" : "keyDown",
-    "conversation:loaded" : "setupConversation"
+    "click .conversation-wrapper": "displayConversation",
+    "click .new-conversation-btn": "showNewConversation"
   },
 
   initialize: function() {
-    if($("#conversation_new:visible").length > 0) {
+    if($("#conversation-new:visible").length > 0) {
       new app.views.ConversationsForm({
-        el: $("#conversation_new"),
+        el: $("#conversation-new"),
         contacts: gon.contacts
       });
     }
     this.setupConversation();
+  },
+
+  renderConversation: function(conversationId) {
+    if(conversationId){
+      var self = this;
+      $.ajax({
+        url: Routes.conversation(conversationId, {raw: true}),
+        dataType: "html",
+        success: function(data) {
+          self.$el.find("#conversation-new").addClass("hidden");
+          self.$el.find("#conversation-show").removeClass("hidden").html(data);
+          self.$el.find("#conversation-inbox").removeClass("selected");
+          self.$el.find(".stream_element[data-guid='" + conversationId + "'] #conversation-inbox").addClass("selected");
+          self.setupConversation();
+        }
+      });
+    }
+  },
+
+  showNewConversation: function(evt){
+    evt.preventDefault();
+    evt.stopPropagation();
+    this.$el.find("#conversation-new").removeClass("hidden");
+    this.$el.find("#conversation-show").addClass("hidden");
+    app.router.navigate(Routes.conversations());
+  },
+
+  getContainer: function() {
+    return this.$el.find(".stream_container");
   },
 
   setupConversation: function() {
@@ -47,6 +76,14 @@ app.views.Conversations = Backbone.View.extend({
     } else {
       $("html").animate({scrollTop:0});
     }
+  },
+
+  displayConversation: function(evt) {
+    var $target = $(evt.target);
+    if(!$target.hasClass(".conversation-wrapper")){
+      $target = $target.parents(".conversation-wrapper");
+    }
+    app.router.navigate($target.data("conversation-path"), {trigger: true});
   },
 
   keyDown : function(evt) {
