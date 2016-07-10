@@ -1,22 +1,25 @@
 .container-fluid
-  = form_for Conversation.new, html: {class: "form-horizontal form_do_not_clear"}, remote: true do |conversation|
+  = form_for Conversation.new, html: {id: "new-conversation",
+    class: "new-conversation form-horizontal form-do-not-clear"}, remote: true do |conversation|
     .form-group
       %label#toLabel{for: "contact_ids"}
         = t(".to")
-      = text_field_tag "contact_autocomplete", nil, class: "form-control"
+      = text_field_tag "contact_autocomplete", nil, id: "contact-autocomplete", class: "form-control"
     .form-group
-      %label#subjectLabel{for: "conversation_subject"}
+      %label#subject-label{for: "conversation-subject"}
         = t(".subject")
       = conversation.text_field :subject,
+                                id: "conversation-subject",
                                 class: "input-block-level form-control",
-                                aria:  {labelledby: "subjectLabel"}
+                                aria:  {labelledby: "subject-label"},
+                                value: "",
+                                placeholder: t("conversations.new.subject_default")
     .form-group
-      %label#messageLabel.sr-only{for: "conversation_text"}
-        = t(".message")
-      = text_area_tag "conversation[text]",
-                      "",
-                      rows:  5,
-                      class: "input-block-level form-control",
-                      aria:  {labelledby: "messageLabel"}
+      %label.sr-only#message-label{for: "new-message-text"} = t(".message")
+      = text_area_tag "conversation[text]", "",
+                                rows: 5,
+                                id: "new-message-text",
+                                class: "conversation-message-text input-block-level form-control",
+                                aria: {labelledby: "message-label"}
     .form-group
-      = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), class: 'btn btn-primary pull-right'
+      = conversation.submit t(".send"), "data-disable-with" => t(".sending"), :class => "btn btn-primary pull-right"

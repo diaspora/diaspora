@@ -77,6 +77,7 @@ Diaspora::Application.routes.draw do
   resources :conversations, except: %i(edit update destroy)  do
     resources :messages, only: %i(create)
     delete 'visibility' => 'conversation_visibilities#destroy'
+    get "raw"
   end
 
   resources :notifications, :only => [:index, :update] do

@@ -594,7 +594,8 @@ form#new_user.new_user input.btn {
   text-shadow: 1px 1px 20px rgb(126, 240, 77);
 }
 
-#conversation_inbox, .notifications {
+.conversation-inbox,
+.notifications {
   div.pagination {
     width: 100%;
     margin-left: auto;

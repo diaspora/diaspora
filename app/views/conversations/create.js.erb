@@ -1,10 +1,12 @@
 var response = <%= raw @response.to_json %>;
 <% if session[:mobile_view] %>
+if(response.success) {
   window.location.href = "<%= conversations_path(conversation_id: @conversation.id) %>";
+}
 <% else %>
   if(response.success){
     app.flashMessages.success(response.message);
-    $("#new_conversation").removeClass('form_do_not_clear').clearForm();
+    $("#new-conversation").removeClass('form-do-not-clear').clearForm();
     window.location.href = "<%= conversations_path(conversation_id: @conversation.id) %>";
   } else {
     app.flashMessages.error(response.message);

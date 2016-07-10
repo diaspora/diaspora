@@ -274,6 +274,7 @@ en:
       new_conversation: "New conversation"
       no_messages: "No messages"
       inbox: "Inbox"
+      no_contacts: "You need to add some contacts before you can start a conversation"
     show:
       reply: "Reply"
       replying: "Replying..."
@@ -290,7 +291,6 @@ en:
     create:
       sent: "Message sent"
       fail: "Invalid message"
-      no_contact: "Hey, you need to add the contact first!"
     new_conversation:
       fail: "Invalid message"
     destroy:
