@@ -12,7 +12,7 @@
   .stream
     %p{ class: "conversation_#{name}" }= msg
 
-#conversation_inbox
+.conversation-inbox#conversation-inbox
   .stream.conversations
     - if @visibilities.count > 0
       = render partial: "conversations/conversation", collection: @visibilities, as: :visibility
