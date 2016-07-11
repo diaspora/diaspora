@@ -105,10 +105,18 @@
   margin-top: 20px;
   padding: 10px 20px 0;
 
+  .excellence-box,
   .info-links {
     border-top: 1px solid $border-grey;
-    margin-top: 10px;
     padding: 5px;
+  }
+
+  .excellence-box {
+    margin-top: 10px;
+
+    .content {
+      font-size: $font-size-base;
+    }
   }
 
   .section {

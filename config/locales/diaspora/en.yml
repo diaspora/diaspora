@@ -589,6 +589,7 @@ en:
       public_feed: "Public diaspora* feed for %{name}"
       back_to_top: "Back to top"
       source_package: "Download the source code package"
+      be_excellent: "Be excellent to each other! ♥"
 
   notifications:
     started_sharing:
