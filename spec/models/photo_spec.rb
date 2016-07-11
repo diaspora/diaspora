@@ -203,12 +203,6 @@ describe Photo, :type => :model do
     end
   end
 
-  context "commenting" do
-    it "accepts comments if there is no parent status message" do
-      expect{ @user.comment!(@photo, "big willy style") }.to change(@photo.comments, :count).by(1)
-    end
-  end
-
   describe '#queue_processing_job' do
     it 'should queue a job to process the images' do
       expect(Workers::ProcessPhoto).to receive(:perform_async).with(@photo.id)
