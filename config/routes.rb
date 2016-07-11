@@ -220,7 +220,7 @@ Diaspora::Application.routes.draw do
   get "statistics",           to: "node_info#statistics"
 
   # Terms
-  if AppConfig.settings.terms.enable?
+  if AppConfig.settings.terms.enable? || Rails.env.test?
     get 'terms' => 'terms#index'
   end
 

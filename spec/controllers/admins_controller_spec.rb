@@ -86,6 +86,12 @@ describe AdminsController, :type => :controller do
         expect(response).to redirect_to user_search_path
         expect(flash.notice).to include("invitation sent")
       end
+
+      it "doesn't invite an existing user" do
+        get :admin_inviter, identifier: bob.email
+        expect(response).to redirect_to user_search_path
+        expect(flash.notice).to include("error sending invite")
+      end
     end
   end
 
@@ -94,10 +100,27 @@ describe AdminsController, :type => :controller do
       Role.add_admin(@user.person)
     end
 
-    it 'succeeds and renders stats' do
+    it "succeeds and renders stats" do
       get :stats
       expect(response).to be_success
       expect(response).to render_template(:stats)
+      expect(response.body).to include(
+        I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.daily"))
+      )
+    end
+
+    it "succeeds and renders stats for different ranges" do
+      %w(week 2weeks month).each do |range|
+        get :stats, range: range
+        expect(response).to be_success
+        expect(response).to render_template(:stats)
+        expect(response.body).not_to include(
+          I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.daily"))
+        )
+        expect(response.body).to include(
+          I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.#{range}"))
+        )
+      end
     end
   end
 end
