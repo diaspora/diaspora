@@ -9,7 +9,6 @@ fil:
     confirm_dialog: "Sigurado ka ba?"
     header:
       view_all: "Tingnan lahat"
-    search_for: "Hanapin si <%=name%>"
     stream:
       hide: "Itago"
       public: "Publiko"

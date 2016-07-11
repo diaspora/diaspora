@@ -60,7 +60,6 @@ pl:
     conversation:
       new:
         no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kontakty"
-      participants: "Uczestnicy"
     create: "Utwórz"
     delete: "Usuń"
     edit: "Edycja"
@@ -93,9 +92,6 @@ pl:
     ignore: "Ignoruj"
     ignore_failed: "Nie można zignorować tego użytkownika"
     ignore_user: "Zignorować tego użytkownika?"
-    infinite_scroll:
-      no_more: "Nie ma więcej wpisów."
-      no_more_contacts: "Brak kontaktów."
     my_activity: "Moja aktywność"
     my_aspects: "Moje aspekty"
     my_stream: "Strumień"
@@ -139,14 +135,12 @@ pl:
       contacts: "Kontakty"
       edit: "zmień"
       gender: "Płeć"
-      ignoring: "Ignorujesz wszystkie wpisy od <%= name %>."
       location: "Miejsce"
       photos: "Zdjęcia"
       posts: "Wpisy"
       you_have_no_tags: "nie masz tagów!"
     publisher:
       add_option: "Dodaj odpowiedź"
-      at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
       near_from: "Blisko <%= location %>"
       option: "Odpowiedź"
@@ -164,7 +158,6 @@ pl:
       duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
       post: "Przesłać dalej wpis użytkownika <%= name %>?"
       successful: "Wpis został pomyślnie przesłany dalej!"
-    search_for: "Znajdź: <%= name %>"
     show_more: "wyświetl więcej"
     stream:
       comment: "Skomentuj"
@@ -232,15 +225,5 @@ pl:
       year: "około roku"
       years: "%d lat"
     unblock_failed: "Nie udało się odblokować tego użytkownika"
-    videos:
-      unknown: "Nieznany typ wideo"
-      watch: "Zobacz ten film na <%= provider %>"
     viewer:
-      comment: "Skomentuj"
-      follow_post: "Obserwuj wpis"
-      home: "GŁÓWNA"
-      like: "Lubię to!"
-      reshare: "Przekaż dalej"
       reshared: "Przekazano dalej"
-      stop_following_post: "Przestań obserwować wpis"
-      unlike: "Nie lubię"

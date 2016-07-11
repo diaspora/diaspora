@@ -57,7 +57,6 @@ es-AR:
     conversation:
       new:
         no_contacts: "Necesitas agregar algunos contactos antes de iniciar una conversación."
-      participants: "Participantes"
     create: "Crear"
     delete: "Borrar"
     edit: "Editar"
@@ -91,9 +90,6 @@ es-AR:
     ignore: "Ignorar"
     ignore_failed: "No es posible ignorar este usuario"
     ignore_user: "¿Ignorar a este usuario?"
-    infinite_scroll:
-      no_more: "No hay más publicaciones."
-      no_more_contacts: "No hay más contactos."
     my_activity: "Mi actividad"
     my_aspects: "Mis aspectos"
     my_stream: "Entrada"
@@ -134,14 +130,12 @@ es-AR:
       contacts: "Contactos"
       edit: "Editar"
       gender: "Género"
-      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
       location: "Ubicación"
       photos: "Fotos"
       posts: "Publicaciones"
       you_have_no_tags: "¡No tenés etiquetas!"
     publisher:
       add_option: "Añadir respuesta"
-      at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
       limited: "Limitada: tu publicación será vista solo por la gente con quien la compartes"
       near_from: "Cerca de: <%= location %>"
       option: "Respuesta"
@@ -159,7 +153,6 @@ es-AR:
       duplicate: "¿Te gustó eh? ¡Ya habías compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡La publicación se compartió correctamente!"
-    search_for: "Buscar a <%= name %>"
     show_more: "Mostrar más"
     stream:
       comment: "Comentar"
@@ -221,15 +214,5 @@ es-AR:
       year: "cerca de un año"
       years: "%d años"
     unblock_failed: "Falló el desbloqueo del usuario"
-    videos:
-      unknown: "Tipo de video desconocido"
-      watch: "Ver este video en <%= provider %>"
     viewer:
-      comment: "Comentar"
-      follow_post: "Seguir esta publicación"
-      home: "Inicio"
-      like: "Me gusta"
-      reshare: "Compartir"
       reshared: "Compartido"
-      stop_following_post: "Dejar de seguir esta publicación"
-      unlike: "No me gusta"

@@ -6,11 +6,62 @@
 
 pt-BR:
   javascripts:
+    admin:
+      pods:
+        actions: "Operações"
+        added: "Adicionados"
+        check: "testar conexão"
+        errors:
+          one: "O teste de conexão acusou erro para <%= count %> servidor."
+          other: "O teste de conexão acusou erro para <%= count %> servidores."
+          zero: "O teste de conexão não acusou erro para nenhum servidor."
+        follow_link: "abrir link no navegador"
+        last_check: "última verificação:"
+        more_info: "mostrar mais informações"
+        ms:
+          one: "<%= count %> ms"
+          other: "<%= count %> ms"
+        no_info: "Não há mais informações disponíveis neste momento"
+        not_available: "indisponível"
+        offline_since: "desconectado desde:"
+        pod: "Servidor"
+        recheck:
+          failure: "A reverificação não foi efetuada."
+          success: "O servidor acabou de ser reverificado."
+        response_time: "Tempo de resposta:"
+        server_software: "Software do servidor:"
+        ssl: "SSL"
+        ssl_disabled: "SSL desabilitado"
+        ssl_enabled: "SSL habilitado"
+        states:
+          dns_failed: "Falha na tradução de nomes (DNS)"
+          http_failed: "Falha na conexão HTTP"
+          net_failed: "Falha ao tentar conectar-se"
+          no_errors: "Em ordem"
+          ssl_failed: "Falha na conexão segura (SSL)"
+          unchecked: "A verificar"
+          unknown_error: "Um erro indefinido ocorreu durante a verificação"
+          version_failed: "Não foi possível obter versão do software"
+        status: "Estado"
+        unchecked:
+          one: "Resta <%= count %> servidor a ser verificado."
+          other: "Restam <%= count %> servidores a serem verificados."
+          zero: "Não restam servidores a serem verificados."
+        unknown: "desconhecido"
+        version_failed:
+          one: "Há um servidor sem versão (servidor antigo, sem NodeInfo)."
+          other: "Há <%= count %> servidores sem versão (servidores antigos, sem NodeInfo)."
+    admins:
+      dashboard:
+        compare_versions: "A versão mais recente de diaspora* é <%= latestVersion %>; a versão instalada no seu servidor é <%= podVersion %>."
+        error: "Não foi possível encontrar a versão mais recente de diaspora*."
+        outdated: "Seu servidor está desatualizado."
+        up_to_date: "Seu servidor está atualizado!"
     and: "e"
     aspect_dropdown:
       add_to_aspect: "Adicionar contato"
       all_aspects: "Todos aspectos"
-      error: "Não foi possível compartilhar com<%= name %>.  Deseja ignorar isto?"
+      error: "Não foi possível compartilhar com <%= name %>. Você está ignorando essa pessoa?"
       error_remove: "Não foi possível remover <%= name %> do aspecto :("
       mobile_row_checked: "<%= name %> (remover)"
       mobile_row_unchecked: "<%= name %> (adicionar)"
@@ -48,6 +99,8 @@ pt-BR:
     confirm_unload: "Por favor, confirme se deseja sair desta página. Os dados que você informou não serão salvos."
     contacts:
       add_contact: "Adicionar contato"
+      aspect_chat_is_enabled: "Contatos neste aspecto podem bater papo com você."
+      aspect_chat_is_not_enabled: "Contatos neste aspecto não podem bater papo com você."
       aspect_list_is_not_visible: "Contatos neste aspecto não podem ver uns aos outros."
       aspect_list_is_visible: "Contatos neste aspecto podem ver uns aos outros."
       error_add: "Não foi possível adicionar <%= name %> ao aspecto. :("
@@ -57,11 +110,11 @@ pt-BR:
     conversation:
       new:
         no_contacts: "Você precisa adicionar contatos antes de começar uma conversa."
-      participants: "Participantes"
     create: "Criar"
     delete: "Apagar"
     edit: "Editar"
-    failed_to_like: "Falhou ao curtir!"
+    failed_to_comment: "Falha ao comentar. Será que estão ignorando você?"
+    failed_to_like: "Falha ao curtir. Será que o autor está ignorando você?"
     failed_to_post_message: "Falha na publicação da mensagem!"
     failed_to_remove: "Falha ao remover a entrada!"
     failed_to_reshare: "Falha ao recompartilhar!"
@@ -85,15 +138,14 @@ pt-BR:
       recent_notifications: "Notificações recentes"
       search: "Encontrar pessoas ou #tags"
       settings: "Configurações"
+      toggle_mobile: "Versão para celular"
+      toggle_navigation: "Alternar navegação"
       view_all: "Ver todas"
     hide_post: "Esconder esta publicação?"
     hide_post_failed: "Não foi possível esconder esta publicação"
     ignore: "Ignorar"
     ignore_failed: "Não foi possível ignorar este usuário"
     ignore_user: "Ignorar este usuário?"
-    infinite_scroll:
-      no_more: "Não há mais publicações."
-      no_more_contacts: "Sem mais contatos."
     my_activity: "Minha atividade"
     my_aspects: "Meus aspectos"
     my_stream: "Fluxo"
@@ -108,7 +160,7 @@ pt-BR:
         is_sharing: "<%= name %> está compartilhando com você"
       mention: "Menção"
       message: "Mensagem"
-      not_found: "e ninguém foi encontrado..."
+      not_found: "... e ninguém foi encontrado"
       stop_ignoring: "Parar de ignorar"
     photo_uploader:
       completed: "<%= file %> completo"
@@ -118,6 +170,10 @@ pt-BR:
       looking_good: "OMG, veja você é incrível!"
       size_error: "{file} é muito grande, o tamanho máximo do arquivo é {sizeLimit}."
     poll:
+      answer_count:
+        one: "Um voto"
+        other: "<%=count%> votos"
+        zero: "Nenhum voto"
       close_result: "Ocultar resultado"
       count:
         one: "<%=count%> voto até agora"
@@ -134,14 +190,12 @@ pt-BR:
       contacts: "Contatos"
       edit: "Editar"
       gender: "Sexo"
-      ignoring: "Você está ignorando todas as publicações de <%= name %>."
       location: "Localização"
       photos: "Fotos"
       posts: "Publicações"
       you_have_no_tags: "Você não tem tags!"
     publisher:
       add_option: "Adicionar uma resposta"
-      at_least_one_aspect: "Você deve publicar em pelo menos um aspecto"
       limited: "Limitada: a sua publicação será visível apenas para as pessoas com quem você compartilha."
       near_from: "Publicado de: <%= location %>"
       option: "Resposta"
@@ -156,10 +210,9 @@ pt-BR:
         created: "O relato foi criado com sucesso"
         exists: "O relato já existe"
     reshares:
-      duplicate: "Que bom, hein? Você já recompartilhou essa publicação."
+      duplicate: "Que bom, hein? Você já recompartilhou essa publicação!"
       post: "Recompartilhar a publicação de <%= name %>?"
       successful: "A publicação foi recompartilhada com sucesso!"
-    search_for: "Procurar por <%= name %>"
     show_more: "Mostrar mais"
     stream:
       comment: "Comentar"
@@ -183,7 +236,12 @@ pt-BR:
         other: "Mostre mais <%= count %> comentários"
         zero: "Mostre mais <%= count %> comentário"
       original_post_deleted: "A publicação original foi apagada pelo autor."
+      permalink: "Link permanente"
       public: "Público"
+      reactions:
+        one: "Uma reação"
+        other: "<%= count%> reações"
+        zero: "Nenhuma reação"
       reshare: "Recompartilhar"
       reshares:
         one: "<%= count %> recompartilhamento"
@@ -208,6 +266,7 @@ pt-BR:
       days: "%d dias"
       hour: "cerca de uma hora"
       hours: "cerca de %d horas"
+      inPast: "a qualquer instante"
       minute: "cerca de um minuto"
       minutes: "%d minutos"
       month: "cerca de um mês"
@@ -221,15 +280,5 @@ pt-BR:
       year: "cerca de um ano"
       years: "%d anos"
     unblock_failed: "O desbloqueio deste usuário falhou"
-    videos:
-      unknown: "Tipo de vídeo desconhecido"
-      watch: "Assista este vídeo no <%= provider %>"
     viewer:
-      comment: "Comentário"
-      follow_post: "Seguir publicação"
-      home: "Página inicial"
-      like: "Curtir"
-      reshare: "Recompartilhar"
       reshared: "Recompartilhado"
-      stop_following_post: "Parar de seguir publicação"
-      unlike: "Descurtir"

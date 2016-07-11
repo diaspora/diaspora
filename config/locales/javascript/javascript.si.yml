@@ -25,7 +25,6 @@ si:
     my_activity: "මගේ ක්‍රියාව"
     photo_uploader:
       looking_good: "මාරයි, ඔයා නියමයි!"
-    search_for: "<%= name %> සදහා සොයා බලන්න"
     show_more: "තවත් පෙන්නන්න"
     stream:
       hide: "සගවන්න"
@@ -59,10 +58,3 @@ si:
       suffixFromNow: "මෙතැන් සිට"
       year: "අවුරුද්දකින් පමණ"
       years: "අවුරුදු %d"
-    videos:
-      unknown: "දන්නේ නැති විඩියෝ type එකක්"
-      watch: "මෙම විඩියෝ එක <%= provider %> එකෙන් බලන්න"
-    viewer:
-      home: "නිවස"
-      like: "කැමතියි"
-      unlike: "අකැමතියි"

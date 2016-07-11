@@ -79,7 +79,7 @@ de_formal:
         receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
         receive_unlock: "Keine Entsperr-Anweisungen erhalten?"
         sign_in: "Anmelden"
-        sign_up: "Registrieren"
+        sign_up: "Konto erstellen"
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
     unlocks:
       new:

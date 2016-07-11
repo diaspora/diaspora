@@ -47,8 +47,6 @@ eu:
       settings: "Ezarpenak"
       view_all: "Guztiak ikusi"
     ignore: "Isildu"
-    infinite_scroll:
-      no_more: "Mezu gehiagorik ez dago."
     my_activity: "Nire Jarduera"
     my_stream: "Kronologia"
     people:
@@ -56,14 +54,12 @@ eu:
     photo_uploader:
       looking_good: "Ene bada, oso jatorra dirudizu!"
     publisher:
-      at_least_one_aspect: "Gutxienez arlo batean partekatu behar duzu"
       limited: "Mugatua - zure mezua aukeratu duzun jendeak bakarrik ikusiko du"
       public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
     reshares:
       duplicate: "Oso ona, e? Dagoeneko birpartekatu duzu mezu hori!"
       post: "Birpartekatu nahi al duzu <%= name %>(r)en mezua?"
       successful: "Mezua arrakastaz birpartekatu da!"
-    search_for: "Bilatu <%= name %>"
     show_more: "erakutsi gehiago"
     stream:
       comment: "Iruzkindu"
@@ -118,15 +114,5 @@ eu:
       suffixFromNow: "barru"
       year: "urte bat"
       years: "%d urte"
-    videos:
-      unknown: "Bideo mota ezezaguna"
-      watch: "Ikusi bideo hau <%= provider %>(e)n"
     viewer:
-      comment: ""
-      follow_post: ""
-      home: "HASIERA"
-      like: ""
-      reshare: ""
       reshared: ""
-      stop_following_post: ""
-      unlike: ""

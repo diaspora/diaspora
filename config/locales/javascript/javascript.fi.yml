@@ -60,7 +60,6 @@ fi:
     conversation:
       new:
         no_contacts: "Sinun pitää lisätä muutamia kontakteja ennen kuin voit aloittaa keskustelun."
-      participants: "Osallistujat"
     create: "Luo"
     delete: "Poista"
     edit: "Muokkaa"
@@ -94,9 +93,6 @@ fi:
     ignore: "Sivuuta"
     ignore_failed: "Tämän käyttäjän sivuuttaminen ei onnistu"
     ignore_user: "Sivuuta tämä käyttäjä?"
-    infinite_scroll:
-      no_more: "Ei enempää viestejä."
-      no_more_contacts: "Ei enempää yhteystietoja."
     my_activity: "Oma toimintani"
     my_aspects: "Omat näkymäni"
     my_stream: "Virta"
@@ -137,14 +133,12 @@ fi:
       contacts: "Kontaktit"
       edit: "Muokkaa"
       gender: "Sukupuoli"
-      ignoring: "Sivuutat nyt kaikki julkaisut, jotka <%= name %> lähettää."
       location: "Sijainti"
       photos: "Kuvat"
       posts: "Julkaisut"
       you_have_no_tags: "Sinulla ei ole tageja!"
     publisher:
       add_option: "Lisää vastaus"
-      at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
       limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"
       near_from: "Lähetetty sijainnista: <%= location %>"
       option: "Vastaus"
@@ -162,7 +156,6 @@ fi:
       duplicate: "Olet jo uudelleenjakanut tämän julkaisun!"
       post: "Jaa käyttäjän <%= name %> julkaisu?"
       successful: "Julkaisu jaettiin onnistuneesti!"
-    search_for: "Etsi nimellä <%= name %>"
     show_more: "Näytä lisää"
     stream:
       comment: "Kommentoi"
@@ -233,15 +226,5 @@ fi:
       year: "noin vuosi"
       years: "%d vuotta"
     unblock_failed: "Tämän käyttäjän torjumisen peruminen on epäonnistunut"
-    videos:
-      unknown: "Tuntematon videomuoto"
-      watch: "Katso video palvelussa <%= provider %>"
     viewer:
-      comment: "Kommentoi"
-      follow_post: "Seuraa julkaisua"
-      home: "KOTI"
-      like: "Tykkää"
-      reshare: "Jaa uudelleen"
       reshared: "Jaettu uudelleen"
-      stop_following_post: "Lopeta julkaisun seuraaminen"
-      unlike: "Peru tykkäys"

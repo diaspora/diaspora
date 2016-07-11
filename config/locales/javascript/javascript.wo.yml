@@ -47,7 +47,3 @@ wo:
       suffixAgo: ""
       suffixFromNow: ""
       years: "%di at"
-    viewer:
-      home: "KËR GI"
-      like: "Bëgg"
-      unlike: "Du bëgg"

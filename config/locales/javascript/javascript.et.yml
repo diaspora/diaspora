@@ -36,17 +36,13 @@ et:
       settings: "Seaded"
       view_all: "Näita kõiki"
     ignore: "Eira"
-    infinite_scroll:
-      no_more: "Rohkem postitusi pole."
     my_activity: "Minu tegevused"
     my_stream: "Voog"
     photo_uploader:
       looking_good: "OMG, sa näed vinge välja!"
     publisher:
-      at_least_one_aspect: "Sa pead avaldama vähemalt ühe aspekti."
       limited: "Piiratud - sinu postitust näidatakse vaid neile inimestele kellega sa oled seda jaganud"
       public: "Avalik - sinu postitus on nähtav kõigile ja leitav otsingumootorite poolt"
-    search_for: "Otsi <%= name %>"
     show_more: "näita veel"
     stream:
       comment: "Kommenteeri"
@@ -92,6 +88,3 @@ et:
       suffixFromNow: "hiljem"
       year: "umbes üks aasta"
       years: "%d aastat"
-    videos:
-      unknown: "Tundmatu videoformaat"
-      watch: "Vaata seda videot <%= provider %>"

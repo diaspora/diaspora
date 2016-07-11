@@ -42,8 +42,6 @@ hu:
       aspect_list_is_not_visible: "A csoport tagjai nem láthatják egymást."
       aspect_list_is_visible: "A csoport tagjai láthatják egymást."
       remove_contact: "Ismerős eltávolítása"
-    conversation:
-      participants: "Résztvevők"
     delete: "Töröl"
     edit: "Szerkesztés"
     failed_to_like: "Hiba"
@@ -72,9 +70,6 @@ hu:
     ignore: "Mellőzés"
     ignore_failed: "Nem sikerült mellőzni ezt a felhasználót"
     ignore_user: "Felhasználó mellőzése?"
-    infinite_scroll:
-      no_more: "Nincs több bejegyzés."
-      no_more_contacts: "Nincs több ismerős."
     my_activity: "Tevékenységeim"
     my_aspects: "Csoportjaim"
     my_stream: "Hírfolyam"
@@ -109,14 +104,12 @@ hu:
       contacts: "ismerősök"
       edit: "szerkesztés"
       gender: "nem"
-      ignoring: "<%= name %> minden hozzászólását mellőzöd"
       location: "lakóhely"
       photos: "képek"
       posts: "bejegyzések"
       you_have_no_tags: "nincsenek címkéid!"
     publisher:
       add_option: "Válasz hozzáadása"
-      at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
       near_from: "<%= location %> közelében"
       option: "Válasz"
@@ -133,7 +126,6 @@ hu:
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
       post: "Szeretnéd újra megosztani <%= name %> bejegyzését?"
       successful: "A bejegyzés újraosztása sikeres!"
-    search_for: "<%= name %> keresése."
     show_more: "tovább"
     stream:
       comment: "Hozzászólás"
@@ -194,15 +186,5 @@ hu:
       wordSeparator: " "
       year: "körülbelül egy évvel"
       years: "%d évvel"
-    videos:
-      unknown: "Ismeretlen videó tipus"
-      watch: "Videó megtekintése itt: <%= provider %>"
     viewer:
-      comment: "Hozzászólás"
-      follow_post: "Követem"
-      home: "KEZDŐLAP"
-      like: "Tetszik"
-      reshare: "Megosztás"
       reshared: "Megosztva"
-      stop_following_post: "Nem követem többé"
-      unlike: "Nem tetszik"

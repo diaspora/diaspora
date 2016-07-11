@@ -57,7 +57,6 @@ nb:
     conversation:
       new:
         no_contacts: "Du må legge til noen kontakter før du kan starte en samtale."
-      participants: "Deltakere"
     create: "Lag"
     delete: "Slett"
     edit: "Rediger"
@@ -91,9 +90,6 @@ nb:
     ignore: "Ignorer"
     ignore_failed: "Ikke mulig å ignorere brukeren"
     ignore_user: "Overse denne brukeren?"
-    infinite_scroll:
-      no_more: "Ingen flere innlegg."
-      no_more_contacts: "Ingen flere kontakter."
     my_activity: "Min aktivitet"
     my_aspects: "Mine aspekter"
     my_stream: "Strøm"
@@ -135,14 +131,12 @@ nb:
       contacts: "Kontakter"
       edit: "Endre"
       gender: "Kjønn"
-      ignoring: "Du vil ignorere alle innlegg fra <%= name %>."
       location: "Lokasjon"
       photos: "Bilder"
       posts: "Innlegg"
       you_have_no_tags: "Du har ingen tagger!"
     publisher:
       add_option: "Legg til valg"
-      at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"
       near_from: "Publisert fra: <%= location %>"
       option: "Valg <%= nr %>"
@@ -160,7 +154,6 @@ nb:
       duplicate: "du har allerede delt denne posten!"
       post: "Videredel <%= name %> sitt innhold?"
       successful: "Dette innholdet ble videredelt"
-    search_for: "Søk etter <%= name %>"
     show_more: "vis mer"
     stream:
       comment: "Kommenter"
@@ -222,15 +215,5 @@ nb:
       year: "ca. et år"
       years: "%d år"
     unblock_failed: "Feilet i å stoppe blokkering"
-    videos:
-      unknown: "Ukjent videotype"
-      watch: "Se denne videoen på <%= provider %>"
     viewer:
-      comment: "Kommenter"
-      follow_post: "Følg post"
-      home: "HJEM"
-      like: "Liker"
-      reshare: "Del"
       reshared: "Delt med andre"
-      stop_following_post: "Slutt å følge post"
-      unlike: "Fjern liker"

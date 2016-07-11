@@ -53,9 +53,6 @@ ro:
       settings: "Setări"
       view_all: "Vizualizează-le pe Toate"
     ignore: "Ignoră"
-    infinite_scroll:
-      no_more: "Nu mai sunt posturi."
-      no_more_contacts: "Niciun contact"
     my_activity: "Activitatea proprie"
     my_stream: "Flux"
     photo_uploader:
@@ -65,13 +62,11 @@ ro:
     profile:
       posts: "Postări"
     publisher:
-      at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
       limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
       near_from: "Publicat din <%= location %>"
       public: "Public - articolul tău va fi vizibil tuturor şi va fi accesibilă prin motoarele de căutare"
     reshares:
       duplicate: "E chiar asa de tare, hmm?  Ati mai raspandit o data aceasta publicatie!"
-    search_for: "Caută <%= name %>"
     show_more: "arată mai mult"
     stream:
       comment: "Comentariu"
@@ -132,8 +127,3 @@ ro:
       suffixFromNow: "in urma"
       year: "un an"
       years: "%d ani"
-    videos:
-      unknown: "Format de video necunoscut"
-      watch: "Vizualizează acest video pe <%= provider %>"
-    viewer:
-      home: "Pagina de start"

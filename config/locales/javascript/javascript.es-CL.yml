@@ -47,8 +47,6 @@ es-CL:
       settings: "Ajustes"
       view_all: "Ver todo"
     ignore: "Ignorar"
-    infinite_scroll:
-      no_more: "No más publicaciones."
     my_activity: "Mi Actividad"
     my_stream: "Entrada"
     people:
@@ -56,13 +54,11 @@ es-CL:
     photo_uploader:
       looking_good: "¡Guau, te ves genial!"
     publisher:
-      at_least_one_aspect: "Debes publicar para al menos un aspecto"
       limited: "Limitada - tu publicación sólo será visto por gente con la que compartes"
       public: "Público - tu post será visible para todos y encontrado por mecanismos de búsqueda"
     reshares:
       duplicate: "¿Es genial, cierto?  ¡Ya has compartido esa publicación!"
       successful: "¡La publicación se compartió correctamente!"
-    search_for: "Buscar <%= name%>"
     show_more: "mostrar más"
     stream:
       comment: "Comentar"
@@ -100,14 +96,5 @@ es-CL:
       suffixFromNow: "desde ahora"
       year: "alrededor de un año"
       years: "%d años"
-    videos:
-      unknown: "Tipo de video desconocido"
-      watch: "Mira este video en <%= provider %>"
     viewer:
-      comment: "Comentar"
-      follow_post: "Seguir esta publicación"
-      like: "Me gusta"
-      reshare: "Compartir"
       reshared: "Compartido"
-      stop_following_post: "Dejar de seguir esta publicación"
-      unlike: "No me gusta"

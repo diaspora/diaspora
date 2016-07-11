@@ -6,11 +6,8 @@
 
 hy:
   _applications: "Հավելվածներ"
-  _comments: "Մեկնաբանություններ"
   _contacts: "Մարդիկ"
   _help: "Օգնություն"
-  _home: "Գլխավոր էջ"
-  _photos: "Նկարներ"
   _services: "Ծառայություններ"
   _statistics: "Վիճակագրություն"
   _terms: "Պայմաններ"
@@ -53,12 +50,19 @@ hy:
               taken: "արդեն օգտագործվում է։"
   admins:
     admin_bar:
+      dashboard: "Վահանակ"
       pages: "Էջեր"
+      pod_network: "Փոդի ցանց"
       pod_stats: "Փոդի վիճակագրություն"
       report: "Բողոքներ"
       sidekiq_monitor: "Սայդկիքի հսկում"
       user_search: "Օգտատիրոջ որոնում"
       weekly_user_stats: "Օգտատերերի շաբաթական վիճակագրություն"
+    dashboard:
+      fetching_diaspora_version: "Որոշվում է դիասպորա*յի ամենաթարմ վարկածը․․․"
+      pod_status: "Փոդի կարգավիճակը"
+    pods:
+      pod_network: "Փոդի ցանց"
     stats:
       2weeks: "2 շաբաթ"
       50_most: "Ամենատարածված 50 պիտակները"
@@ -109,7 +113,9 @@ hy:
       are_you_sure_unlock_account: "Համոզվա՞ծ ես, որ ուզում ես ապաարգելափակել այս հաշիվը։"
       close_account: "Փակել հաշիվը"
       email_to: "Էլ.հասցեն` հրավեր ուղարկելու համար"
+      lock_account: "Արգելափակել հաշիվը"
       under_13: "Ցուցադրել 13-ից փոքր օգտատերերին (COPPA)"
+      unlock_account: "Ապաարգելափակել հաշիվը"
       users:
         one: "գտնվեց %{count} օգտատեր"
         other: "գտնվեց %{count} օգտատեր"
@@ -125,13 +131,41 @@ hy:
         other: "Այս շաբաթվա նոր օգտատերերի քանակը՝ %{count}"
         zero: "Այս շաբաթվա նոր օգտատերերի քանակը՝ 0"
       current_server: "Սպասարկչի ամսաթիվը` %{date}"
-  ago: "%{time} առաջ"
   all_aspects: "Բոլոր խմբերը"
-  application:
-    helper:
-      unknown_person: "Անհայտ անձ"
-      video_title:
-        unknown: "Տեսանյութի անհայտ վերնագիր"
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          access: "%{name} օգտատերը մատչում է հայցում հետեւյալին՝"
+          approve: "Հաստատել"
+          bad_request: "Սպասառուի այդին կամ վերաուղղորդման ՅուԱրԱյ-ը բացակայում են։"
+          client_id_not_found: "Ոչ մի սպասառու %{client_id} սպասառուի այդիով %{redirect_uri} վերաուղղորդման ՅուԱրԱյ-ով չգտնվեց։"
+          deny: "Մերժել"
+          no_requirement: "%{name} օգտատերը ոչ մի թույլատվություն չի պահանջում"
+          redirection_message: "Վստա՞հ ես, որ ուզում ես մատչում տալ %{redirect_uri}-ին։"
+      error_page:
+        contact_developer: "Պետք է հավելվածը մշակողին ուղարկես հետեւյալ սխալի մանրամասն հաղորդագրությունը`"
+        title: "Օհ, ինչ-որ բան սխալ գնաց ։Չ"
+      scopes:
+        openid:
+          description: "Սա կթողնի հավելվածին կարդալ քո հիմնական էջը"
+          name: "հիմնական էջը"
+        read:
+          description: "Սա կթողնի հավելվածին կարդալ քո լրահոսը, քո զրույցները ու քո ամբողջական էջը"
+          name: "կարդալ անձնական էջը, լրահոսն ու զրույցները"
+        write:
+          description: "Սա կթողնի հավելվածին ուղարկել նոր գրառումները, ստեղծել նոր զրույցներ ու ուղարկել արձագանքները"
+          name: "ուղարկել գրառումները, զրույցներն ու արձագանքները"
+      user_applications:
+        index:
+          access: "%{name} օգտատերը մատչում ունի հետեւյալին՝"
+          edit_applications: "Հավելվածներ"
+          no_requirement: "%{name} օգտատերը ոչ մի թույլատվություն չի պահանջում"
+          title: "Արտոնված հավելվածներ"
+        no_applications: "Ոչ մի արտոնված հավելված չունես"
+        policy: "Տես հավելվածի գաղտնիության քաղաքականությունը"
+        revoke_autorization: "Չեղյալ համարել"
+        tos: "Տես հավելվածի օգտագործման պայմանները"
   are_you_sure: "Համոզվա՞ծ ես"
   are_you_sure_delete_account: "Համոզվա՞ծ ես, որ ուզում ես փակել հաշիվդ։ Էլ վերականգնել չի լինի։"
   aspect_memberships:
@@ -147,48 +181,27 @@ hy:
       success: "Բարեհաջող ավելացվեց խմբին։"
     aspect_listings:
       add_an_aspect: "+ Ստեղծել նոր խումբ"
-      deselect_all: "Ապանշել ամբողջը"
-      edit_aspect: "Փոխել %{name}"
-      select_all: "Նշել ամբողջը"
     aspect_stream:
       make_something: "Ստեղծիր"
       stay_updated: "Եղի՛ր տեղեկացված"
       stay_updated_explanation: "Լրահոսումդ լինելու են ընկերներիդ գործողությունները, այն պիտակներով գրառումները, որոնց հետևում ես, և համայնքի որոշ «ընտրված» անդամների գրառումները։"
-    contacts_not_visible: "Այս խմբի մարդիկ չեն կարողանա տեսնել միմյանց։"
-    contacts_visible: "Այս խմբի մարդիկ կկարողանան տեսնել միմյանց։"
-    create:
-      failure: "Չհաջողվեց ստեղծել խումբը։"
-      success: "Քո նոր %{name} խումբը պատրաստ է։"
     destroy:
       failure: "%{name} խումբդ չի կարող ջնջվել։"
       success: "%{name} խումբդ բարեհաջող ջնջվեց։"
       success_auto_follow_back: "%{name} խումբը հաջողությամբ ջնջվեց։ Այդ խումբ ինքնաբերաբար ավելանում էին քեզ հետ կիսվել սկսած մարդիկ։ Ստուգիր կարգավորումներդ ու նոր խումբ ընտրիր, ուր կավելանան ինքնաբերաբար ավելացվող մարդիկ։"
     edit:
-      aspect_chat_is_enabled: "Այս խմբի մարդիկ կարող են չաթվել քո հետ։"
-      aspect_chat_is_not_enabled: "Այս խմբի մարդիկ չեն կարող չաթվել քո հետ։"
       aspect_list_is_not_visible: "Այս խմբի մարդիկ չեն կարող տեսնել միմյանց։"
       aspect_list_is_visible: "Այս խմբի մարդիկ կարող են տեսնել միմյանց։"
       confirm_remove_aspect: "Վստա՞հ ես, որ ուզում ես ջնջել այս խումբը։"
-      grant_contacts_chat_privilege: "Այս խմբի ընկերներին տա՞լ քո հետ չաթվելու պատիվ ու հնարավորություն։"
-      make_aspect_list_visible: "Դարձնե՞լ այս խմբի մարդկանց տեսանելի միմյանց համար։"
-      remove_aspect: "Ջնջել այս խումբը"
       rename: "Վերանվանել"
-      set_visibility: "Կարգավորել տեսանելիությունը"
       update: "Թարմացնել"
       updating: "Թարմացվում է"
     index:
-      diaspora_id:
-        content_1: "Քո դիասպորա*յի ԱյԴի-ն՝"
-        content_2: "Փոխանցիր սա ցանկացած մեկին, և նա կկարողանա գտնել քեզ դիասպորա*յում։"
-        heading: "դիասպորա*յի ԱյԴի"
       donate: "Նվիրաբերել"
-      handle_explanation: "Սա քո դիասպորա*յի ԱյԴի-ն է։ Սրա միջոցով մարդիկ կարող են գտնել քեզ, ինչպես օրինակ էլ․հասցեի միջոցով։"
       help:
         any_problem: "Խնդի՞ր ունես"
         contact_podmin: "Կապվիր քո փոդի ադմինի հետ։"
         do_you: "Արդյո՞ք."
-        email_feedback: "Նաև կարող ես ուղարկել կարծիքդ %{link}ով։"
-        email_link: "էլ․փոստ"
         feature_suggestion: "… %{link} ունես։"
         find_a_bug: "… %{link} ես գտել։"
         have_a_question: "… %{link} ունես։"
@@ -201,31 +214,21 @@ hy:
         tutorial_link_text: "ուսուցանող նյութեր"
         tutorials_and_wiki: "%{faq}, %{tutorial} և %{wiki}՝ առաջին քայլերիդ համար։"
       introduce_yourself: "Սա քո լրահոսն է։  Ընկղմվիր ու ներկայացրու ինքդ քեզ։"
-      keep_diaspora_running: "Նպաստի՛ր դիասպորա*յի արագ զարգացմանը ամսական նվիրատվությամբ։"
       keep_pod_running: "Փող քցվենք %{pod}-ի առողջության համար։"
       new_here:
         follow: "Հետևիր %{link} պիտակը և ողջունիր դիասպորա*յի նոր օգտատերերին։"
         learn_more: "Իմանալ ավելին"
         title: "Ողջունի՛ր նորեկներին"
-      no_contacts: "Ոչ ոք չկա"
-      no_tags: "+ Հետևելու պիտակ գտնել"
-      people_sharing_with_you: "Քեզ հետ կիսվող մարդիկ"
-      post_a_message: "Գրառում անել >>"
       services:
         content: "Կարող ես միացնել հետևյալ ծառայությունները դիասպորա*յին՝"
         heading: "Միացնել ծառայությունները"
-      unfollow_tag: "Դադարել հետևել #%{tag}"
       welcome_to_diaspora: "Բարի գալուստ դիասպորա*, %{name} ջան։"
-    new:
-      create: "Ստեղծել"
-      name: "Անունը (միայն քեզ է տեսանելի)"
     no_contacts_message:
       community_spotlight: "համայնքի ակնառու օգտատերերի"
+      invite_link_text: "հրավիրել"
       or_spotlight: "Կամ կարող ես կիսվել %{link} հետ։"
-      try_adding_some_more_contacts: "Կարող ես էլի մարդկանց փնտրել կամ հրավիրել։"
+      try_adding_some_more_contacts: "Կարող ես էլի մարդկանց փնտրել կամ %{invite_link}։"
       you_should_add_some_more_contacts: "Լավ կլինի՝ մի քանի մարդ ավելացնես։"
-    no_posts_message:
-      start_talking: "Բոլորը դեռ դավադրաբար լռում են"
     seed:
       acquaintances: "Ծանոթներ"
       family: "Ընտանիք"
@@ -234,85 +237,65 @@ hy:
     update:
       failure: "Քո %{name} խմբի անունը շատ երկար է և չի կարող պահպանվել։"
       success: "%{name} խումբդ հաջողությամբ փոփոխվեց։"
-  back: "Հետ"
   blocks:
     create:
-      failure: "Չստացվեց արհամարհել այդ օգտատիրոջը։  #evasion"
+      failure: "Չստացվեց արհամարհել այդ օգտատիրոջը։  #խուսափանք"
       success: "Բարի, այլևս չես տեսնի այդ օգտատերին քո լրահոսում։ #silencio!"
     destroy:
-      failure: "Չստացվեց դադարեցնել արհամարհել այդ օգտատիրոջը։  #evasion"
+      failure: "Չստացվեց դադարել արհամարհել այդ օգտատիրոջը։  #խուսափանք"
       success: "Եկ տեսնենք՝ ինչ ունեն նրանք ասելու։ #sayhello"
   bookmarklet:
     explanation: "Գրառիր դիասպորա*յում ցանկացած տեղից` տեղադրելով այս հղումը => %{link}"
     heading: "Նշագրում (Bookmarklet)"
     post_something: "Գրառել դիասպորա*յում"
-    post_success: "Գրառվեց։ Փակվում եմ ։Ճ"
   cancel: "Չեղարկել"
   comments:
     new_comment:
       comment: "Մեկնաբանել"
       commenting: "Մեկնաբանվում է…"
-    one: "1 մեկնաբանություն"
-    other: "%{count} մեկնաբանություն"
-    zero: "Մեկնաբանություն չկա"
   contacts:
-    create:
-      failure: "Չհաջողվեց կապ հաստատել"
     index:
       add_a_new_aspect: "Նոր խումբ ավելացնել"
       add_contact: "Ավելացնել"
-      add_to_aspect: "Ավելացնել %{name} խումբ"
       all_contacts: "Բոլորը"
       community_spotlight: "Համայնքի ակնառու օգտատերեր"
       my_contacts: "Իմ կապերը"
       no_contacts: "Երևում է՝ նոր ընկերների կարիք ունես։"
       no_contacts_in_aspect: "Այս խմբում դեռ ոչ մեկին չես ավելացրել։ Ներքևում այս պահի քո բոլոր ընկերների ցուցակն է, ում կարող ես ավելացնել այս խմբին։"
-      no_contacts_message: "Անցի՛ր %{community_spotlight} ցուցակով։"
+      no_contacts_message: "Անցի՛ր %{community_spotlight}ի ցուցակով։"
       only_sharing_with_me: "Ինձ հետ միակողմանի կիսվողները"
-      remove_contact: "Հեռացնել"
       start_a_conversation: "Խոսակցություն սկսել"
       title: "Մարդիկ"
       user_search: "Որոնում կապերիդ մեջ"
-      your_contacts: "Քո կապերը"
-    sharing:
-      people_sharing: "Քեզ հետ կիսվող մարդիկ"
     spotlight:
       community_spotlight: "Համայնքի ակնառու օգտատերեր"
       suggest_member: "Անդամ առաջարկել"
   conversations:
-    conversation:
-      participants: "Մասնակիցները"
     create:
-      fail: "Անվավեր հաղորդագրություն"
+      fail: "Անվավեր հաղորդագրություն։"
       no_contact: "Հեյ, բա հասցեատե՞րը։"
-      sent: "Հաղորդագրությունն ուղարկված է"
+      sent: "Հաղորդագրությունն ուղարկված է։"
     destroy:
-      delete_success: "Խոսակցությունը հաջողությամբ ջնջվեց"
-      hide_success: "Խոսակցությունը հաջողությամբ թաքցվեց"
-    helper:
-      new_messages:
-        one: "1 նոր հաղորդագրություն"
-        other: "%{count} նոր հաղորդագրություն"
-        zero: "Նոր հաղորդագրություն չկա"
+      delete_success: "Խոսակցությունը հաջողությամբ ջնջվեց։"
+      hide_success: "Խոսակցությունը հաջողությամբ թաքցվեց։"
     index:
       conversations_inbox: "Խոսակցություններ - մուտքային"
-      create_a_new_conversation: "Նոր խոսակցություն սկսել"
       inbox: "Մուտքային"
       new_conversation: "Նոր խոսակցություն"
-      no_conversation_selected: "Որևէ զրույց ընտրված չէ"
       no_messages: "Հաղորդագրություններ չկան, դեռ ;Ճ"
     new:
-      abandon_changes: "Չեղարկե՞լ փոփոխությունները։"
+      message: "Հաղորդագրություն"
       send: "Ուղարկել"
       sending: "Ուղարկվում է․․․"
       subject: "Թեմա"
       subject_default: "Առանց թեմայի"
       to: "Ո՞ւմ"
     new_conversation:
-      fail: "Անվավեր հաղորդագրություն"
+      fail: "Անվավեր հաղորդագրություն։"
     show:
       delete: "Ջնջել խոսակցությունը"
-      hide: "Թաքցնել և ձայնազրկել խոսակցությունը"
+      hide: "Թաքցնել ու ձայնազրկել խոսակցությունը"
+      last_message: "Վերջին նամակը ստացվել է %{timeago}"
       reply: "Պատասխանել"
       replying: "Պատասխանը ուղարկվում է..."
   date:
@@ -325,10 +308,7 @@ hy:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Ուղղիր նշված վրիպակները և կրկին փորձիր։"
-      invalid_fields: "Անվավեր դաշտեր"
-    login_try_again: "<a href='%{login_link}'>մուտք գործիր</a> և փորձիր նորից:"
-    post_not_public: "Գրառումը, որ փորձում ես դիտել, հրապարակային չէ։"
-    post_not_public_or_not_exist: "Գրառումը, որ փորձում ես դիտել, հրապարակային չէ կամ գոյություն չունի։"
+    need_javascript: "Այս կայքին ՋավաՍքրիփթ է անհրաժեշտ պատշաճ գործելու համար։ Եթե անջատել ես այն, խնդրում ենք ակտիավցնես ու թարմացնես էջը։"
   fill_me_out: "Լրացրու՛ ինձ"
   find_people: "Գտնել մարդկանց կամ #պիտակներ"
   help:
@@ -554,46 +534,57 @@ hy:
     tutorial: "ուսուցանող նյութ"
     tutorials: "ուսուցանող նյութերը"
     wiki: "վիքի"
-  hide: "Թաքցնել"
-  ignore: "Արհամարհել"
+  home:
+    default:
+      be_who_you_want_to_be: "Եղի՛ր՝ ով ուզում ես"
+      be_who_you_want_to_be_info: "Շատ ցանցեր պնդում են, որ դու օգտագործես քո իրական ինքնությունը։ Բայց դիասպորա*ն՝ ոչ։ Այստեղ դու կարող ես ընտրել, թե ով ես ուզում լինել եւ կիսվել քո մասին այնքան քիչ կամ այնքան շատ, ինչքան ուզենաս։ Դա իրոք քո հայեցողությամբ է, թե ինչպես ես դու ուզում փոխազդել մյուսների հետ։"
+      byline: "Առցանց սոցիալական աշխարհ, որտեղ վերահսկողությունը քո ձեռքերում է"
+      choose_your_audience: "Ընտրի՛ր քո լսարանը"
+      choose_your_audience_info: "դիասպորա*յի խմբերը թույլ են տալիս կիսվել միայն այն մարդկանց հետ, ում հետ որ դու ուզում ես։ Դու կարող ես լինել այնքան հրապարակային ու այնքան փակ, ինչքան կամենաս։ Կիսվիր զվարճալի նկարով ամբողջ աշխարհի հետ, իսկ լուրջ գաղտնիքներդ՝ ամենամոտիկ ընկերներիդ։ Վերահսկողությունը քո՛ ձեռքերում է։"
+      headline: "Բարի գալո՜ւստ %{pod_name}"
+      own_your_data: "Եղի՛ր քո տվյալների տերը"
+      own_your_data_info: "Շատ ցանցեր օգտագործում են քո տվյալները գումար վաստակելու նպատակով՝ վերլուծելով քո փոխազդեծություններն ու այդ տեղեկատվության հիման վրա քեզ իրեր գովազդելով։ դիասպորա*ն չի օգտագործում քո տվյալները որեւէ նպատակի համար, բացի քեզ հնարավորություն տալուց՝ կապ հաստատել ու կիսվել ուրիշների հետ։"
+    podmin:
+      byline: "Դու մոտ ես Համացանցը փոխելուն։ Արի, նախապատրաստենք քեզ, հը՞մ։"
+      configuration_info: "Բացիր %{database_path} ու %{diaspora_path} քո նախընտրած տեքստային խմբագրիչի մեջ ու ուշադիր ուսումնասիրիր այն։ Դրանք մանրամասն մեկնաբանված են։"
+      configure_your_pod: "Կարգավորի՛ր քո փոդը"
+      contact_irc: "կապվել մեզ հետ ԱյԱրՍի֊ում"
+      contribute: "Ներդրո՛ւմ ունեցիր"
+      contribute_info: "Դարձրո՛ւ դիասպորա*ն ավելի լավը։ Եթե վրեպներ գտնես, խնդրում ենք %{report_bugs}։"
+      create_an_account: "Հաշի՛վ ստեղծիր"
+      create_an_account_info: "%{sign_up_link} նոր հաշվի համար։"
+      faq_for_podmins: "մեր վիքիում փոդերը սպասարկողների համար ՀՏՀ"
+      getting_help: "Օգնությո՛ւն ստացիր"
+      getting_help_info: "Մենք %{faq} ենք կազմել՝ ներառյալ որոշ լրացուցիչ խորհուրդներ, հնարքներ ու լուծումներ ամենահաճախակի հանդիպող խնդիրների համար։ Նաեւ քեզ ազատ զգա՝ %{irc}։"
+      headline: "Բարի գալո՜ւստ, ընկեր։"
+      make_yourself_an_admin: "Քեզ ադմի՛ն դարձրու"
+      report_bugs: "տեղեկացրու դրանց մասին"
+      update_instructions: "դիասպորա*յի վիքիում"
+      update_your_pod: "Թարմացրո՛ւ քո փոդը"
+      update_your_pod_info: "Թարմացման ցուցումները կարող ես գտնել %{update_instructions}։"
   invitation_codes:
-    excited: "%{name} ուրախ է քեզ այստեղ տեսնել։"
     not_valid: "Հրավերի այս կոդն այլեւս անվավեր է"
   invitations:
     a_facebook_user: "Ֆեյսբուքյան օգտատեր"
     check_token:
       not_found: "Հրավերի կոդանշանը չգտնվեց։"
     create:
-      already_contacts: "Այս մարդու հետ արդեն կապ հաստատել ես"
-      already_sent: "Այս մարդուն արդեն հրավիրել ես։"
       empty: "Պետք է առնվազն մեկ էլ․հասցե նշես։"
       no_more: "Այլևս հրավեր ուղարկելու իրավունք չունես։"
       note_already_sent: "Հրավերները արդեն ուղարկվել են հետևյալ հասցեներին՝ %{emails}"
-      own_address: "Դու չես կարող հրավեր ուղարկել քո սեփական հասցեին։"
       rejected: "Հետևյալ էլ.հասցեների հետ կապված խնդիրներ կան՝ "
       sent: "Հրավերները ուղարկվեցին հետևյալ հասցեներով՝ %{emails}"
-    edit:
-      accept_your_invitation: "Ընդունի՛ր հրավերդ"
-      your_account_awaits: "Հաշիվդ քե՛զ է սպասում։"
     new:
-      already_invited: "Հետևյալ մարդիկ չեն ընդունել հրավերդ՝"
-      aspect: "Խումբ"
-      check_out_diaspora: "Համտեսի՜ր դիասպորա*ն։"
       codes_left:
         one: "Այս հղումը գործող է մեկ հրավերի համար։"
         other: "Այս հղումը գործող է %{count} հրավերի համար։"
         zero: "Այս հղմամբ հրավիրել այլևս հնարավոր չէ։"
       comma_separated_plz: "Կարող ես մի քանի էլ.հասցե մուտքագրել ՝ բաժանելով դրանք ստորակետներով։"
-      if_they_accept_info: "եթե նրանք ընդունեն, ապա կավելացվեն այն խումբ, որտեղ նրանց հրավիրել ես։"
       invite_someone_to_join: "Հրավիրի՛ր որևիցե մեկին՝ միանալու դիասպորա*յին։"
       language: "Լեզու"
       paste_link: "Կիսվիր այս հղումով ընկերներիդ հետ, որպեսզի հրավիրես նրանց դիասպորա*, կամ ուղարկիր այն անմիջապես նրանց էլ.հասցեներին։"
-      personal_message: "Անձնական հաղորդագրություն"
-      resend: "Կրկին ուղարկել"
       send_an_invitation: "Հրավեր ուղարկել"
-      send_invitation: "Ուղարկել հրավերը"
       sending_invitation: "Հրավերը ուղարկվում է․․․"
-      to: "Ո՞ւմ"
   layouts:
     application:
       back_to_top: "Թռնել վերև"
@@ -603,35 +594,13 @@ hy:
       statistics_link: "Հանգույցի վիճակագրություն"
       toggle: "Դյուրակիր տարբերակը"
       whats_new: "Ի՞նչ կա"
-      your_aspects: "Քո խմբերը"
     header:
-      admin: "Ադմին"
-      blog: "Բլոգ"
       code: "Կոդ"
-      help: "Օգնություն"
-      login: "Մուտք"
       logout: "Դուրս գալ"
       profile: "Իմ էջը"
-      recent_notifications: "Վերջին ծանուցումները"
       settings: "Կարգավորումներ"
-      view_all: "Դիտել ամբողջը"
-  likes:
-    likes:
-      people_dislike_this:
-        one: "%{count} հոգի չի հավանում"
-        other: "%{count} հոգի չի հավանում"
-        zero: "չհավանող չկա"
-      people_like_this:
-        one: "%{count} հոգի հավանել է"
-        other: "%{count} հոգի հավանել են"
-        zero: "ոչ ոք չի հավանել"
-      people_like_this_comment:
-        one: "%{count} հոգի հավանել է"
-        other: "%{count} հոգի հավանել են"
-        zero: "ոչ ոք չի հավանել"
   limited: "Փակ"
   more: "Ավելին"
-  next: "Հաջորդ"
   no_results: "Ոչինչ չգտնվեց"
   notifications:
     also_commented:
@@ -646,11 +615,6 @@ hy:
       one: "%{actors} մեկնաբանեց քո %{post_link} գրառումը։"
       other: "%{actors} մեկնաբանեցին քո %{post_link} գրառումը։"
       zero: "%{actors} մեկնաբանեց քո %{post_link} գրառումը։"
-    helper:
-      new_notifications:
-        one: "1 նոր ծանուցում"
-        other: "%{count} նոր ծանուցում"
-        zero: "Նոր ծանուցում չկա"
     index:
       all_notifications: "Բոլոր ծանուցումները"
       also_commented: "Նույնպես մեկնաբանել են"
@@ -681,9 +645,9 @@ hy:
       other: "%{actors} հավանել են ջնջված գրառումդ։"
       zero: "%{actors} հավանել է ջնջված գրառումդ։"
     mentioned:
-      one: "%{actors} նշեց քեզ %{post_link} գրառման մեջ։"
-      other: "%{actors} նշեցին քեզ %{post_link} գրառման մեջ։"
-      zero: "%{actors} նշեց քեզ %{post_link} գրառման մեջ։"
+      one: "%{actors} նշել է քեզ %{post_link} գրառման մեջ։"
+      other: "%{actors} նշել են քեզ %{post_link} գրառման մեջ։"
+      zero: "%{actors} նշել է քեզ %{post_link} գրառման մեջ։"
     mentioned_deleted:
       one: "%{actors} նշել է քեզ ջնջված գրառման մեջ։"
       other: "%{actors} նշել են քեզ ջնջված գրառման մեջ։"
@@ -709,7 +673,6 @@ hy:
     a_limited_post_comment: "դիասպորա*յում նոր մեկնաբանություն ունես փակ գրառման տակ․ ստուգիր։"
     a_post_you_shared: "գրառումը։"
     a_private_message: "դիասպորա*յում նոր հաղորդագրություն ունես․ աչքի անցկացրու։"
-    accept_invite: "Ընդունի՛ր քո՝ դիասպորա*յի հրավերը։"
     also_commented:
       limited_subject: "Մեկնաբանածդ գրառումը նոր մեկնաբանություն ունի"
     click_here: "Սեղմիր այստեղ"
@@ -763,13 +726,15 @@ hy:
       message: |-
           Ողջո՜ւյն։
 
-          Քեզ հրավիրել են՝ միանալու դիասպորա*յին։
+          Քեզ %{diaspora_id} հրավիրել է՝ միանալու դիասպորա*յին։
 
           Անցիր այս հղումով սկսելու համար՝
 
-          [%{invite_url}][1]
-
-
+          [%{invite_url}][1] 
+           
+          Կամ կարող ես ավելացնել %{diaspora_id}֊ին կապերիդ մեջ, եթե արդեն հաշիվ ունես։
+           
+           
           Սիրով՝ 
           դիասպորա*յի էլ.փոստային ժրաջան ռոբոտ։ 
            
@@ -784,7 +749,6 @@ hy:
       view_post: "Դիտել գրառումը >"
     mentioned:
       limited_post: "Քեզ նշել են փակ գրառման մեջ։"
-      mentioned: "նշել է քեզ գրառման մեջ․"
       subject: "%{name} նշել է քեզ գրառման մեջ դիասպորա*յում"
     private_message:
       reply_to_or_view: "Պատասխանիր կամ տես այս խոսակցությունը >"
@@ -808,7 +772,9 @@ hy:
           Ողջույն։
 
           %{id} ԱյԴի-ով %{type}ը նշվել է որպես վիրավորական։
-
+           
+          Պատճառը՝ %{reason} 
+           
           [%{url}][1] 
 
           Խնդրում ենք` հնարավորինս շուտ աչքի անցկացրու։
@@ -836,20 +802,9 @@ hy:
     to_change_your_notification_settings: "ծանուցումների կարգավորումները փոխելու համար"
   nsfw: "ՔԸԽ"
   ok: "Լավ"
-  or: "կամ"
-  password: "Գաղտնաբառ"
-  password_confirmation: "Գաղտնաբառի հաստատում"
   people:
     add_contact:
       invited_by: "Քեզ հրավիրել է՝"
-    add_contact_small:
-      add_contact_from_tag: "Ավելացնել մեկին պիտակից"
-    aspect_list:
-      edit_membership: "Փոխել խմբի անդամությունը"
-    helper:
-      is_not_sharing: "%{name} չի կիսվում քո հետ"
-      is_sharing: "%{name} սկսեց կիսվել քո հետ"
-      results_for: " արդյունքներ %{params}-ի համար"
     index:
       couldnt_find_them: "Չգտա՞ր նրանց։"
       looking_for: "Քեզ %{tag_link} պիտակով գրառումնե՞ր են պետք։"
@@ -859,107 +814,68 @@ hy:
       search_handle: "Օգտագործիր նրանց դիասպորա*յի ԱյԴի-ն (username@pod.am), որ հաստատ գտնես ընկերներիդ։"
       searching: "Փնտրվում է, խնդրում ենք լինել համբերատար..."
       send_invite: "Ոչ մի արդյո՞ւնք։ Հրավե՛ր ուղարկիր։"
-    one: "1 հոգի"
-    other: "%{count} հոգի"
     person:
-      add_contact: "Ավելացնել"
-      already_connected: "Արդեն կապված եք"
-      pending_request: "Սպասում է հաստատման"
       thats_you: "Դա դու՛ ես։"
     profile_sidebar:
       bio: "Կենսագրություն"
       born: "Ծննդյան ամսաթիվ"
-      edit_my_profile: "Խմբագրել իմ էջը"
       gender: "Սեռ"
-      in_aspects: "Խմբերում"
       location: "Տեղակայություն"
-      photos: "Նկարներ"
-      remove_contact: "Հեռացնել"
-      remove_from: "Ջնջե՞լ %{name}-ին %{aspect} խմբից։"
     show:
       closed_account: "Այս հաշիվը փակվել է։"
       does_not_exist: "Այս անձը գոյություն չունի։ Համենայն դեպս դիասպորա*յում։"
       has_not_shared_with_you_yet: "%{name} դեռ չի կիսվել քո հետ որևէ գրառմամբ։"
-      ignoring: "Դու արհամարհում ես %{name}-ի բոլոր գրառումները։"
-      incoming_request: "%{name} ցանկանում է կիսվել քեզ հետ"
-      mention: "Նշել"
-      message: "Հաղորդագրություն"
-      not_connected: "Այս մարդու հետ չես կիսվում։"
-      recent_posts: "Վերջին գրառումները"
-      recent_public_posts: "Վերջին հրապարակային գրառումները"
-      return_to_aspects: "Վերադառնալ քո խմբերի էջին"
-      see_all: "Տեսնել բոլորին"
-      start_sharing: "Սկսել կիսվել"
-      to_accept_or_ignore: "՝ ընդունելու կամ մերժելու համար։"
-    sub_header:
-      add_some: "Ավելացնե՞լ"
-      edit: "Խմբագրել"
-      you_have_no_tags: "Որևէ պիտակով չես նշել քեզ։"
-    webfinger:
-      fail: "Կներես, չկարողացանք գտնել %{handle}։"
-    zero: "Մարդ չկա"
   photos:
-    comment_email_subject: "%{name}-ի նկարին"
     create:
       integrity_error: "Նկար վերբեռնելը տապալվեց։  Համոզվա՞ծ ես, որ դա նկար էր։"
       runtime_error: "Նկար վերբեռնելը տապալվեց։  Համոզվա՞ծ ես, որ ամրագոտիները կապել էիր։"
       type_error: "Նկար վերբեռնելը տապալվեց։  Համոզված ե՞ս, որ հենց նկար էիր ավելացրել։"
     destroy:
       notice: "Նկարը ջնջված է։"
-    edit:
-      editing: "Փոփոխվում է"
-    new:
-      back_to_list: "Հետ՝ ցուցակին"
-      new_photo: "Նոր նկար"
-      post_it: "Հրապարակել"
     new_photo:
       empty: "{file}-ը դատարկ է, կրկին ընտրիր ֆայլերը առանց դրա։"
       invalid_ext: "{file}-ը անհամապատասխան ընդլայնման է։ Միայն {extensions} են թույլատրվում։"
       size_error: "{file}-ը չափից դուրս մեծ է, առավելագույն չափն է՝ {sizeLimit}։"
     new_profile_photo:
-      or_select_one_existing: "կամ ընտրիր արդեն գոյություն ունեցող նկարներիցդ մեկը՝ %{photos}"
       upload: "Նո՜րը վերբեռնել"
-    photo:
-      view_all: "Դիտել %{name}-ի բոլոր նկարները"
     show:
-      collection_permalink: "Հավաքածուի հղումը"
-      delete_photo: "Ջնջել նկարը"
-      edit: "Խմբագրել"
-      edit_delete_photo: "Փոխել նկարի նկարագրությունը կամ ջնջել այն"
-      make_profile_photo: "Դարձնել գլխավոր նկար"
       show_original_post: "Ցույց տալ սկզբնական գրառումը"
-      update_photo: "Փոխել նկարը"
-    update:
-      error: "Չհաջողվեց խմբագրել նկարը։"
-      notice: "Նկարդ հաջողությամբ փոխվեց։"
+  polls:
+    votes:
+      one: "առայժմ %{count} ձայն"
+      other: "առայժմ %{count} ձայն"
+      zero: "դեռեւս քվեարկող չի եղել"
   posts:
     presenter:
       title: "%{name}-ի գրառումը"
     show:
-      destroy: "Ջնջել"
       forbidden: "Դու թույլատվություն չունես անել դա։"
-      not_found: "Ցավոք գրառումը չգտնվեց։"
-      permalink: "Սկզբնաղբյուր"
+      location: "Գրառված է %{location}ից"
       photos_by:
         one: "Մեկ նկար %{author}-ից"
         other: "%{count} նկար %{author}-ից"
         zero: "%{author}-ը նկար չունի"
       reshare_by: "%{author}-ի տարածածը"
-  previous: "Նախորդ"
   privacy: "Գաղտնիություն"
-  privacy_policy: "Գաղտնիության քաղաքականություն"
   profile: "Իմ էջը"
   profiles:
     edit:
       allow_search: "Թույլատրել մարդկանց փնտրել քեզ դիասպորա*յի սահմաններում"
-      edit_profile: "Խմբագրել իմ էջը"
+      basic: "Իմ հիմնական էջ"
+      basic_hint: "Քո էջի ամեն մի տվյալ կամընտիր է։ Հիմնական էջդ միշտ հրապարակայնորեն տեսանելի կլինի։"
+      extended: "Իմ ընդլայնված էջ"
+      extended_hint: "Սեղմիր, որ փոխես քո ընդլայնված էջի տվյալների տեսանելիությունը։ Հրապարակային նշանակում է, որ այն տեսանելի է ամբողջ համացանցին, փակ՝ միայն այն մարդիկ, ում հետ կիսվում ես, կտեսնեն այդ տեղեկատվությունը։"
+      extended_visibility_text: "Ընդլայնված էջիդ տեսանելիությունը՝"
       first_name: "Անուն"
       last_name: "Ազգանուն"
+      limited: "Փակ"
       nsfw_check: "Նշել բոլոր իմ գրառումները որպես ՔԸԽ"
       nsfw_explanation: |-
           Լատինատառ NSFW («not safe for work»` ոչ ապահով աշխատանքի համար) պիտակը դիասպորա*յի ինքնավար համայնքի ստանդարտն է այնպիսի բովանդակության համար, որ անհարմար կլինի դիտել աշխատավայրում։ Եթե նախատեսում ես նմանատիպ նյութեր հաճախ դնել, խնդրում ենք նշել այս կետը, որպեսզի քո բոլոր գրառումները թաքցվեն մարդկանց լրահոսներից, եթե նրանք չեն ընտրել դիտել դրանք։
           Հայերենում կիրառում ենք նաև #քըխ պիտակը։
       nsfw_explanation2: "Եթե այս տարբերակը քեզ հարմար չէ, խնդրում ենք ավելացնել #nsfw պիտակը ամեն անգամ, երբ նման բովանդակությամբ գրառում կանես։ (Հայերենում «նման բովանդակության» գրառումները կոչել ենք ՔԸԽ, սակայն քանի որ դա չի թաքցնում գրառումները, ապա պետք է օգտագործել լատինատառ պիտակը, որպեսզի գրառումը իրոք դիտարկվի դիասպորա*յի կողմից որպես ՔԸԽ)։"
+      public: "Հրապարակային"
+      settings: "Էջի կարգավորումներ"
       update_profile: "Թարմացնել իմ էջը"
       your_bio: "Կենսագրություն"
       your_birthday: "Ծննդյան ամսաթիվ"
@@ -967,8 +883,6 @@ hy:
       your_location: "Որտե՞ղ ես"
       your_name: "Անունդ"
       your_photo: "Նկարդ"
-      your_private_profile: "Քո փակ էջը"
-      your_public_profile: "Քո հրապարակային էջը"
       your_tags: "Նկարագրիր քեզ 5 բառով"
       your_tags_placeholder: "օրինակ՝ #կինո #կատու #Երևան"
     update:
@@ -983,26 +897,16 @@ hy:
     closed: "Գրանցումները հասանելի չեն դիասպորա*յի այս փոդում։"
     create:
       success: "Դու միացար դիասպորա*յի՜ն։"
-    edit:
-      cancel_my_account: "Չեղարկել հաշիվս"
-      edit: "Փոփոխել %{name}-ը"
-      leave_blank: "(թող դատարկ, եթե չես ուզում փոխել դա)"
-      password_to_confirm: "(փոփոխությունները հաստատելու համար հարկավոր է քո ներկայիս գաղտնաբառը)"
-      unhappy: "Տխու՞ր ես"
-      update: "Թարմացնել"
-    invalid_invite: "Հրավերի հղումը, որ տվել ես, այլևս վավեր չէ։"
+    invalid_invite: "Հրավերի հղումը, որ տվել ես, այլեւս վավեր չէ։"
     new:
-      create_my_account: "Ստեղծե՜լ իմ հաշիվը"
       email: "Էլ․հասցե"
       enter_email: "Մուտքագրիր էլ.հասցեդ"
       enter_password: "Մուտքագրիր գաղտնաբառ (առնվազն վեց նիշ)"
       enter_password_again: "Մուտքագրիր նույն գաղտնաբառը"
       enter_username: "Ընտրիր օգտանուն (միայն տառեր, թվեր և _)"
-      join_the_movement: "Միացի՜ր շարժմանը։"
       password: "Գաղտնաբառ"
       password_confirmation: "Գաղտնաբառի հաստատում"
-      sign_up: "Գրանցվել"
-      sign_up_message: "♥-ով լի սոցիալական ցանց"
+      sign_up: "Հաշիվ ստեղծել"
       submitting: "Ուղարկվում է․․․"
       terms: "Ստեղծելով հաշիվ` ընդունում ես %{terms_link}։"
       terms_link: "օգտագործման պայմանները"
@@ -1017,43 +921,15 @@ hy:
     reported_label: "<b>Բողոքողը՝</b> %{person}"
     review_link: "Նշել որպես ստուգված"
     status:
-      created: "Բողոք է ստեղծվել"
       destroyed: "Գրառումը ոչնչացվել է"
       failed: "Ինչ-որ բան սխալ գնաց"
-      marked: "Բողոքը նշվել է որպես ստուգված"
     title: "Բողոքների համառոտագիր"
-  requests:
-    create:
-      sending: "Ուղարկվում է"
-      sent: "%{name}-ին առաջարկել ես կիսվել։  Առաջարկդ կտեսնի, երբ հաջորդ անգամ դիասպորա* մուտք գործի։"
-    destroy:
-      error: "Պետք է խումբ ընտրես։"
-      ignore: "Արհամարհված ընկերանալու հայտ։"
-      success: "Դու արդեն կիսվում ես։"
-    helper:
-      new_requests:
-        one: "Նոր հայտ"
-        other: "%{count} նոր հայտ"
-        zero: "Ոչ մի նոր հայտ"
-    manage_aspect_contacts:
-      existing: "Ներկա կապեր"
-      manage_within: "Կարգավորել կապերդ"
-    new_request_to_person:
-      sent: "Ուղարկվեց"
   reshares:
     comment_email_subject: "%{author}-ի գրառման %{resharer}-ի տարածմանը"
-    create:
-      failure: "Գրառումը տարածելիս խնդիր առաջացավ։"
     reshare:
       deleted: "Օրիգինալ գրառումը ջնջվել է հեղինակի կողմից։"
-      reshare:
-        one: "1 տարածում"
-        other: "%{count} տարածում"
-        zero: "Ոչ մի տարածում"
       reshare_confirmation: "Տարածե՞լ %{author}-ի գրառումը։"
-      reshare_original: "Տարածել բնօրինակը"
       reshared_via: "Տարածվել է իրենից`"
-      show_original: "Ցույց տալ բնօրինակը"
   search: "Որոնում"
   services:
     create:
@@ -1065,10 +941,6 @@ hy:
       success: "Նույնականացումը բարեհաջող ջնջվեց։"
     failure:
       error: "Այդ ծառայությունը միացնելիս խնդիր առաջացավ։"
-    finder:
-      fetching_contacts: "դիասպորա*ն բերում է %{service}ի քո ընկերներին։ Մի քանի րոպեից հետ արի։"
-      no_friends: "Ֆեյսբուքից ընկերներ չգտնվեցին։"
-      service_friends: "%{service}ի ընկերները"
     index:
       connect: "Միացնել"
       disconnect: "Անջատել"
@@ -1077,57 +949,28 @@ hy:
       no_services_available: "Այս փոդի վրա ոչ մի ծառայություն հասանելի չէ կապելու համար։"
       not_logged_in: "Դեռևս չես միացրել։"
       really_disconnect: "Անջատե՞լ %{service}ը։"
-      services_explanation: "Ծառայությունները միացնելու դեպքում դիասպորա*յի գրառումներդ այնտեղ ևս անմիջապես կհրապարակվեն։"
-    inviter:
-      click_link_to_accept_invitation: "Անցիր այս հղումով, որ ընդունես քո հրավերը"
-      join_me_on_diaspora: "Միացի՛ր ինձ դիասպորա*յում"
+      services_explanation: "Կիսվելու երրորդ կողմի ծառայությունները միացնելու դեպքում դիասպորա*յի գրառումներդ այնտեղ եւս անմիջապես կհրապարակվեն։"
+      share_to: "Կիսվել %{provider}ում"
+      title: "Կառավարել միացված ծառայությունները"
     provider:
       facebook: "Ֆեյսբուք"
       tumblr: "Թամբլըր"
       twitter: "Թուիթեր"
       wordpress: "ՈւորդՓրեսս"
-    remote_friend:
-      invite: "Հրավիրել"
-      not_on_diaspora: "Դեռ չկա դիասպորա*յում"
-      resend: "Կրկին ուղարկել"
   settings: "Կարգավորումներ"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "%{name}-ի գրառումը թաքցվել է, իսկ ծանուցումները՝ անջատվել։"
-      see_it_on_their_profile: "Եթե ուզում ես այս գրառման թարմացումները տեսնել, այցելիր %{name}-ի էջը։"
   shared:
-    add_contact:
-      add_new_contact: "Նոր մարդ ավելացնել"
-      create_request: "Գտնել դիասպորա*յի ԱյԴի-ի միջոցով"
-      diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "Մուտքագրիր դիասպորա*յի օգտանուն"
-      know_email: "Գիտես նրանց էլ. հասցենե՞րը։ Կարող ես հրավիրել նրանց։"
-      your_diaspora_username_is: "Քո դիասպորա*յի օգտանունն է՝ %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Ավելացնել"
       mobile_row_checked: "%{name} (ջնջել)"
       mobile_row_unchecked: "%{name} (ավելացնել)"
       toggle:
         one: "%{count} խումբ"
         other: "%{count} խումբ"
         zero: "Ավելացնել "
-    contact_list:
-      all_contacts: "Բոլոր կապերը"
-    footer:
-      logged_in_as: "Համակարգում ես որպես %{name}"
-      your_aspects: "Քո խմբերը"
     invitations:
       by_email: "Էլ.հասցեով"
-      dont_have_now: "Այլևս հրավիրելու իրավունք չունես, բայց շուտով կգան նոր հնարավորություններ։"
-      from_facebook: "Ֆեյսբուքից"
-      invitations_left: "մնաց %{count} հատ"
-      invite_someone: "Հրավիրել որևէ մեկին"
       invite_your_friends: "Կանչի՛ր ընկերներիդ"
       invites: "Հրավերներ"
-      invites_closed: "Ներկա պահին հրավերները հասանելի չեն դիասպորա*յի այս փոդում։"
       share_this: "Ուղարկիր այս հղումը էլ.փոստի, բլոգի կամ այլ սոցիալական ցանցերի միջոցով։"
-    notification:
-      new: "Նոր %{type} %{from}-ից"
     public_explain:
       atom_feed: "Ատոմ հոսքը"
       control_your_audience: "Վերահսկի՛ր լսարանդ"
@@ -1139,12 +982,9 @@ hy:
       title: "Կարգավորել միացված ծառայությունները"
       visibility_dropdown: "Այստեղ կարող ես ընտրել քո գրառման տեսանելիությունը (խորհուրդ կտանք՝ այս առաջինը հրապարակային նշես)։"
     publisher:
-      all: "Բոլորը"
-      all_contacts: "Բոլոր կապերին"
       discard_post: "Չեղարկել գրառումը"
       formatWithMarkdown: "Կարող ես օգտագործել %{markdown_link}` գրառումդ ձևավորելու համար"
       get_location: "Պարզել քո տեղակայությունը"
-      make_public: "Դարձնել հրապարակային"
       new_user_prefill:
         hello: "Ողջո՜ւյն, ժողովուրդ, #%{new_user_tag}։ "
         i_like: "Իմ հետաքրքրություններն են՝ %{tags}։ "
@@ -1152,36 +992,15 @@ hy:
         newhere: "ԵսՆորեկԵմ"
       poll:
         add_a_poll: "Հարցում անել"
-        add_poll_answer: "Տարբերակ ավելացնել"
-        option: "Տարբերակ 1"
-        question: "Հարց"
-        remove_poll_answer: "Ջնջել տարբերակը"
-      post_a_message_to: "Գրառել %{aspect} խմբի համար"
       posting: "Գրառվում է..."
       preview: "Նախադիտել"
-      publishing_to: "Հրապարակվում է դեպի`  "
       remove_location: "Ջնջել տեղակայությունը"
       share: "Կիսվել"
-      share_with: "Կիսվել"
       upload_photos: "Նկարներ վերբեռնել"
       whats_on_your_mind: "Ի՞նչ կա մտքիդ։"
-    reshare:
-      reshare: "Տարածել"
     stream_element:
-      connect_to_comment: "Սկսիր կիսվել այս օգտատիրոջ հետ, որ մեկնաբանես նրա գրառումները"
-      currently_unavailable: "Մեկնաբանումը այս պահին հասանելի չէ"
-      dislike: "Չհավանել"
-      hide_and_mute: "Թաքցնել և անջատել գրառումը"
-      ignore_user: "Արհամարհել %{name}-ին"
-      ignore_user_description: "Արհամարհել օգտատիրոջն ու ջնջել բոլոր խմբերի՞ց։"
-      like: "Հավանել"
-      nsfw: "Այս գրառումը նշվել է որպես ՔԸԽ հեղինակի կողմից. %{link}"
-      shared_with: "Կիսվել է %{aspect_names} խմբերի հետ"
-      show: "Ցուցադրել"
-      unlike: "Ապահավանել"
       via: "Էստեղից` %{link}"
       via_mobile: "Հեռախոսից"
-      viewable_to_anyone: "Այս գրառումը տեսանելի է համացանցում ամենքին"
   simple_captcha:
     label: "Մուտքագրիր ծածկագիրը."
     message:
@@ -1207,21 +1026,12 @@ hy:
   status_messages:
     create:
       success: "Բարեհաջող նշվեց(ին)` %{names}"
-    destroy:
-      failure: "Չհաջողվեց ջնջել գրառումը։"
-    helper:
-      no_message_to_display: "Նամակներ չկան ցույց տալու համար։"
     new:
       mentioning: "Նշում ես %{person}-ին"
     too_long: "Գրառումդ չպետք է գերազանցի %{count} նիշը։ Այն այժմ %{current_length} նիշից է բաղկացած։"
   stream_helper:
-    hide_comments: "Թաքցնել բոլոր մեկնաբանությունները"
     no_more_posts: "Հասար լրահոսի վերջին։"
     no_posts_yet: "Գրառումներ դեռ չկան։"
-    show_comments:
-      one: "Ցուցադրել ևս մեկ մեկնաբանություն"
-      other: "Ցուցադրել ևս %{count} մեկնաբանություն"
-      zero: "Այլևս մեկնաբանություն չկա"
   streams:
     activity:
       title: "Իմ գործունեությունը"
@@ -1248,13 +1058,6 @@ hy:
     tags:
       title: "%{tags} պիտակով գրառումները"
   tag_followings:
-    create:
-      failure: "Չստացվեց հետևել #%{name} պիտակը։  Գուցե արդեն հետևո՞ւմ ես դրան։"
-      none: "Չես կարող դատարկ պիտակ հետևել։"
-      success: "Հեհեե՜յ։ Սկսեցիր հետևել #%{name} պիտակը։"
-    destroy:
-      failure: "Չստացվեց դադարել հետևել #%{name} պիտակը։ Գուցե արդեն դադարե՞լ ես հետևել դրան։"
-      success: "Սատանան տանի՜։ Դու այլևս չես հետևում #%{name} պիտակը։"
     manage:
       no_tags: "Ոչ մի պիտակի չես հետևում։"
       title: "Կարգավորել հետևվող պիտակները"
@@ -1262,15 +1065,12 @@ hy:
     name_too_long: "Պիտակիդ անվանումը կրճատիր մինչև առավելագույնը %{count} նիշ (այժմ այն %{current_length}-ից է բաղկացած)։"
     show:
       follow: "Հետևել #%{tag}"
-      following: "Հետևում ես #%{tag}"
       none: "Դատարկ պիտակ գոյություն չունի։"
       stop_following: "Դադարել հետևել #%{tag}"
       tagged_people:
         one: "Մի հոգի %{tag} պիտակով"
         other: "%{count} հոգի %{tag} պիտակով"
         zero: "Ոչ ոք չկա %{tag} պիտակով"
-  terms_and_conditions: "Պայմաններ ու դրույթներ"
-  undo: "Չեղարկե՞լ"
   username: "Օգտանուն"
   users:
     confirm_email:
@@ -1285,13 +1085,13 @@ hy:
       auto_follow_aspect: "Խումբը, որտեղ կավելացվեն վերջիններս`"
       auto_follow_back: "Անմիջապես կիսվել նրանց հետ, ով սկսեց կիսվել քո հետ"
       change: "Փոխել"
+      change_color_theme: "Փոխել գունային թեման"
       change_email: "Փոխել էլ.հասցեն"
       change_language: "Փոխել լեզուն"
       change_password: "Փոխել գաղտնաբառը"
       character_minimum_expl: "առնվազն վեց նիշ"
       close_account:
         dont_go: "Հեե՜յ, մի հեռացիր, այստեղ լավ է։"
-        if_you_want_this: "Եթե իրոք վստահ ես, ապա ստորև մուտքագրիր գաղտնաբառդ և սեղմիր «Փակել հաշիվը»"
         lock_username: "Ներկայիս օգտանունդ արգելափակվելու է։ Հետագայում չես կարողանա այս փոդում նոր հաշիվ ստեղծել այդ նույն ԱյԴի-ով։"
         locked_out: "Մինչ մենք կջնջենք հաշիվդ այն այլևս քեզ հասանելի չի լինի։"
         make_diaspora_better: "Կուզենայինք, որ մնայիր ու օգնեիր մեզ դարձնել դիասպորա*ն ավելի լավը։ Բայց եթե որոշել ես գնալ, ապա ծանոթացիր, թե ինչ կլինի դրա արդյունքում՝"
@@ -1304,14 +1104,12 @@ hy:
       current_password_expl: "որով մուտք ես գործել..."
       download_export: "Ներբեռնել իմ էջը"
       download_export_photos: "Ներբեռնել իմ նկարները"
-      download_photos: "Ներբեռնել իմ նկարները"
       edit_account: "Խմբագրել հաշիվը"
       email_awaiting_confirmation: "Մենք ակտիվացման հղում ուղարկեցինք %{unconfirmed_email} էլ.հասցեին։ Բայց մինչ դու կանցնես այդ հղմամբ ու կակտիվացնես այն, մենք կշարունակենք օգտագործել քո սկզբնական՝ %{email} էլ.հասցեն։"
       export_data: "Տվյալների դուրս բերում"
       export_in_progress: "Էս պահին մշակում ենք քո տվյալները։ Մի քանի րոպեից հետ արի։"
       export_photos_in_progress: "Էս պահին մշակում ենք քո նկարները։ Մի քանի րոպեից հետ արի։"
       following: "Կիսվելու կարգավորումներ"
-      getting_started: "Նոր օգտատերի նախընտրություններ"
       last_exported_at: "(Վերջին անգամ թարմացվել է %{timestamp}֊ին)"
       liked: "որևէ մեկը հավանել է քո գրառո՞ւմը։"
       mentioned: "քեզ նշել են գրառման մե՞ջ։"
@@ -1338,19 +1136,20 @@ hy:
       connect_to_facebook_link: "միացնելով Ֆեյսբուքյան հաշիվդ"
       hashtag_explanation: "Պիտակները թույլ են տալիս խոսել քո հետաքրքրությունների մասին ու հետևել դրանց։  Ինչպես նաև շատ հարմար ու հավես միջոց են դիասպորա*յում նոր մարդկանց գտնելու համար։"
       hashtag_suggestions: "Կարեղ ես ընտրել պիտակներ, ինչպիսիք են, օրինակ, #արվեստ #կինո #gif և այլն։"
-      saved: "Պահված է"
       well_hello_there: "Դե ինչ, ողջո՜ւյն"
       what_are_you_in_to: "Ինչո՞վ ես հետաքրքրված"
       who_are_you: "Ո՞վ ես դու"
     privacy_settings:
       ignored_users: "Արհամարհված օգտատերեր"
       no_user_ignored_message: "Դեռևս ոչ մեկի չես արհամարհում։"
-      stop_ignoring: "դադարել արհամարհել"
+      stop_ignoring: "Դադարել արհամարհել"
       strip_exif: "Հեռացնել վերբեռնված նկարներից մետադատան, ինչպես օրինակ՝ տեղակայությունը, հեղինակին, տեսախցիկի մոդելը (խորհուրդ է տրվում)"
       title: "Գաղտնիության կարգավորումներ"
     public:
       does_not_exist: "%{username} օգտատերը գոյություն չունի։"
     update:
+      color_theme_changed: "Գունային թեման հաջողությամբ փոխվեց։"
+      color_theme_not_changed: "Ինչ֊որ խնդիր եղավ գունային թեման փոխելիս։"
       email_notifications_changed: "Էլ․հասցեին ծանուցումները փոխված են"
       follow_settings_changed: "Հետևելու կարգավորումները փոխված են"
       follow_settings_not_changed: "Հետևելու կարգավորումների փոփոխումը ձախողվեց"
@@ -1362,13 +1161,6 @@ hy:
       settings_updated: "Կարգավորումները թարմացվեցին"
       unconfirmed_email_changed: "Էլ.հասցեն փոխված է և ակտիվացնելու կարիք ունի"
       unconfirmed_email_not_changed: "Էլ.հասցեի փոփոխումը ձախողվեց"
-  webfinger:
-    fetch_failed: "Չստացվեց վեբֆինգերի էջ ստանալ %{profile_url}-ի համար։"
-    hcard_fetch_failed: "%{account} հաշվի էյչքարդը ստանալիս խնդիր առաջացավ։"
-    no_person_constructed: "Այս էյչքարդից հնարավոր չէ մարդ ձևավորել։"
-    not_enabled: "Կարծես` %{account}-ի խնամորդի համար վեբֆինգերը միացված չէ։"
-    xrd_fetch_failed: "%{account} հաշվից իքսառդին ստանալիս սխալ եղավ։"
-  welcome: "Բարի գալու՜ստ"
   will_paginate:
     next_label: "հաջորդ &raquo;"
     previous_label: "&laquo; նախորդ"

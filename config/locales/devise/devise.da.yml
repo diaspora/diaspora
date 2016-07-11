@@ -14,7 +14,7 @@ da:
     failure:
       inactive: "Din konto er endnu ikke aktiveret."
       invalid: "Forkert brugernavn eller adgangskode."
-      invalid_token: "Ugyldig token."
+      invalid_token: "Ugyldig autentifikation."
       locked: "Din konto er låst."
       not_found_in_database: "Forkert e-mail eller adgangskode."
       timeout: "Du har været inaktiv for længe. Log ind for at fortsætte."
@@ -44,7 +44,7 @@ da:
         account_locked: "Din konto er blevet låst på grund af en stor mængde mislykkede log ind forsøg."
         click_to_unlock: "Klik på linket nedenfor for at aktivere din konto:"
         subject: "Aktiver instruktioner"
-        unlock: "Aktivér min konto"
+        unlock: "Aktiver min konto"
       welcome: "Velkommen %{email}!"
     passwords:
       edit:

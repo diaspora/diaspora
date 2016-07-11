@@ -49,7 +49,6 @@ en_valspeak:
     conversation:
       new:
         no_contacts: "So like, u got to add some ppl before u can start a convo..."
-      participants: "Ppl up in here"
     delete: "Trash"
     edit: "Edit!"
     failed_to_like: "Ur <3 didnt work :("
@@ -81,9 +80,6 @@ en_valspeak:
     ignore: "Block"
     ignore_failed: "Cant block this h8ter :\\"
     ignore_user: "Ignore this h8ter?"
-    infinite_scroll:
-      no_more: "No moar posties :("
-      no_more_contacts: "No more besties :("
     my_activity: "My Happenins"
     my_aspects: "My Aspectz"
     my_stream: "Wall"
@@ -122,14 +118,12 @@ en_valspeak:
       contacts: "BFFs <33"
       edit: "edit!"
       gender: "So Im like..."
-      ignoring: "U r ignorin all posties from <%= name %>."
       location: "My crib"
       photos: "Pics and selfies <3"
       posts: "Posties!!"
       you_have_no_tags: "u like... have no tagz!"
     publisher:
       add_option: "Like, add an ansah!"
-      at_least_one_aspect: "U like... must add to at least 1 group"
       limited: "Limited - ur postie will only b seen by ppl u r sharin wit"
       near_from: "Postie from: <%= location %>"
       option: "Mah ansah<3"
@@ -147,7 +141,6 @@ en_valspeak:
       duplicate: "OMG that gr8t eh?  uve like, already reshared tht postie!! :P"
       post: "do u wanna like, reshare <%= name %>'s postie?"
       successful: "The postie was reshared!!! :D"
-    search_for: "Look for <%= name %>"
     show_more: "show moar"
     stream:
       comment: "Comment!!"
@@ -204,15 +197,5 @@ en_valspeak:
       year: "bout like... a yr"
       years: "like %d yrs"
     unblock_failed: "Unblockin this h8ter didnt work :("
-    videos:
-      unknown: "i dunno what kinda vid this is :("
-      watch: "Watch this vid on <%= provider %>"
     viewer:
-      comment: "Comment!!"
-      follow_post: "Follow postie"
-      home: "HOOOMMMMEEEE"
-      like: "<3"
-      reshare: "Reshare!!"
       reshared: "Reshared<33"
-      stop_following_post: "Stop followin postie"
-      unlike: "</3"

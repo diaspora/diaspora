@@ -48,19 +48,15 @@ sr:
       settings: "Подешавања"
       view_all: "Погледај све"
     ignore: "Игнориши"
-    infinite_scroll:
-      no_more: "Нема више објава."
     my_activity: "Моје активности"
     my_stream: "Вести"
     photo_uploader:
       looking_good: "Човече, изгледаш одлично!"
     publisher:
-      at_least_one_aspect: "Мораш објавити бар једном погледу"
       limited: "Ограничено - твоју објаву ће видети само људи са којима је делиш"
       public: "Јавно - твоју објаву ће видети сви и биће је могуће тражити путем претраживача"
     reshares:
       duplicate: "Добро је, а? Већ сте објавили ово!"
-    search_for: "Тражи <%= name %>"
     show_more: "прикажи још"
     stream:
       comment: "Коментариши"
@@ -112,6 +108,3 @@ sr:
       suffixFromNow: "од овог тренутка"
       year: "око једну годину"
       years: "%d година"
-    videos:
-      unknown: "Непозната врста видеа"
-      watch: "Погледај овај видео на"

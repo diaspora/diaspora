@@ -6,6 +6,51 @@
 
 hy:
   javascripts:
+    admin:
+      pods:
+        actions: "Գործողություններ"
+        added: "Ավելացված"
+        check: "կատարել կապի փորձարկում"
+        errors:
+          one: "Կապի փորձարկումը սխալանք տվեց մեկ փոդի համար։"
+          other: "Կապի փորձարկումը սխալանք տվեց <%= count %> փոդի համար։"
+        follow_link: "բացել հղումը զննիչում"
+        last_check: "վերջին ստուգումը՝"
+        ms:
+          one: "<%= count %>մվ"
+          other: "<%= count %>մվ"
+        no_info: "Այս պահին լրացուցիչ տեղեկատվություն հասանելի չէ"
+        not_available: "հասանելի չէ"
+        offline_since: "անցանց է սկսած՝"
+        pod: "Փոդ"
+        recheck:
+          failure: "Ստուգումը չկատարվեց։"
+          success: "Փոդը հենց նոր նորից ստուգվեց։"
+        response_time: "Արձագանքման ժամանակը՝"
+        server_software: "Սերվերի ծրագրակազմը՝"
+        ssl: "ԷսԷսԷլ"
+        ssl_disabled: "ԷսԷսԷլ-ն անջատված է"
+        ssl_enabled: "ԷսԷսԷլ-ն միացված է"
+        states:
+          http_failed: "ԷյչԹիԹիՓի կապը ձախողվեց"
+          no_errors: "Կարգին"
+          ssl_failed: "Անվտանգ կապը (ԷսԷսԷլ) ձախողվեց"
+          unchecked: "Չստուգված"
+          version_failed: "Անհնար է առբերել ծա-յի վարկածը"
+        status: "Վիճակ"
+        unchecked:
+          one: "Դեռ եւս մեկ փոդ կա, որ ընդհանրապես չի ստուգվել։"
+          other: "Դեռ եւս <%= count %> փոդ կա, որ ընդհանրապես չեն ստուգվել։"
+        unknown: "հայտնի չէ"
+        version_failed:
+          one: "Էստեղ մեկ փոդ կա, որ չունի վարկած (հին փոդ է, ՆոուդԻնֆո չունի)։"
+          other: "Էստեղ <%= count %> փոդ կա, որ չունեն վարկած (հին փոդեր են, ՆոուդԻնֆո չունեն)։"
+    admins:
+      dashboard:
+        compare_versions: "դիասպորա*յի ամենաթարմ թողարկումը <%= latestVersion %>-ն է, քո փոդն աշխատում է <%= podVersion %>-ով։"
+        error: "Չստացվեց որոշել դիասպորա*յի ամենաթարմ վարկածը։"
+        outdated: "Քո փոդի ժամկետն անց է։"
+        up_to_date: "Քո փոդն ուժի մեջ է։"
     and: "և"
     aspect_dropdown:
       add_to_aspect: "Ավելացնել"
@@ -48,6 +93,8 @@ hy:
     confirm_unload: "Հաստատիր, որ ուզում ես լքել այս էջը․ քո մուտքագրած տվյալները չեն պահպանվի։"
     contacts:
       add_contact: "Ավելացնել"
+      aspect_chat_is_enabled: "Այս խմբի մարդիկ կարող են չաթվել քո հետ։"
+      aspect_chat_is_not_enabled: "Այս խմբի մարդիկ չեն կարող չաթվել քո հետ։"
       aspect_list_is_not_visible: "Այս խմբի մարդիկ չեն կարող տեսնել միմյանց։"
       aspect_list_is_visible: "Այս խմբի մարդիկ կարող են տեսնել միմյանց։"
       error_add: "Չստացվեց <%= name %>ին ավելացնել խմբում։ Ափսո՜ս։"
@@ -57,11 +104,11 @@ hy:
     conversation:
       new:
         no_contacts: "Նախքան զրույց սկսելը պետք է գոնե մեկին ավելացնես։"
-      participants: "Մասնակիցներ"
     create: "Ստեղծել"
     delete: "Ջնջել"
     edit: "Փոփոխել"
-    failed_to_like: "Չհաջողվեց հավանել։"
+    failed_to_comment: "Չստացվեց մեկնաբանել։ Գուցե հեղինակն արհամարհո՞ւմ է քեզ։"
+    failed_to_like: "Չհաջողվեց հավանել։ Գուցե հեղինակն արհամարհո՞ւմ է քեզ։"
     failed_to_post_message: "Չհաջողվեց գրառում կատարել։"
     failed_to_remove: "Չստացվեց ջնջել մուտքագրածը։"
     failed_to_reshare: "Չստացվեց տարածել։"
@@ -91,9 +138,6 @@ hy:
     ignore: "Արհամարհել"
     ignore_failed: "Հնարավոր չեղավ արհամարհել այս մարդուն"
     ignore_user: "Արհամարհե՞լ այս օգտատիրոջը։"
-    infinite_scroll:
-      no_more: "Գրառումներ էլ չկան։"
-      no_more_contacts: "Էլ մարդ չկա։"
     my_activity: "Իմ գործունեությունը"
     my_aspects: "Իմ խմբերը"
     my_stream: "Լրահոս"
@@ -107,7 +151,7 @@ hy:
         is_not_sharing: "<%= name %> չի կիսվում քո հետ"
         is_sharing: "<%= name %> կիսվում է քո հետ"
       mention: "Նշել"
-      message: "Հաղորդագրություն"
+      message: "Նամակել"
       not_found: "... և ոչ ոք չգտնվեց"
       stop_ignoring: "Դադարել արհամարհել"
     photo_uploader:
@@ -118,12 +162,16 @@ hy:
       looking_good: "Օ՜, աստվածներ, հիանալի տեսք ունես։"
       size_error: "{file}-ը չափից դուրս մեծ է, առավելագույն չափն է՝ {sizeLimit}։"
     poll:
+      answer_count:
+        one: "1 ձայն"
+        other: "<%=count%> ձայն"
+        zero: "քվեարկող չի եղել"
       close_result: "Թաքցնել արդյունքը"
       count:
         one: "առայժմ 1 ձայն"
         other: "առայժմ <%=count%> ձայն"
-      go_to_original_post: "Կարող ես մասնակցել այս հարցմանը այստեղ` <%= original_post_link %>։"
-      original_post: "բնօրինակ գրառում"
+      go_to_original_post: "Կարող ես մասնակցել այս հարցմանը <%= original_post_link %>։"
+      original_post: "բնօրինակ գրառումում"
       result: "Արդյունքները"
       show_result: "Ցուցադրել արդյունքը"
       vote: "Քվեարկել"
@@ -134,16 +182,14 @@ hy:
       contacts: "Կապեր"
       edit: "Փոփոխել"
       gender: "Սեռ"
-      ignoring: "Դու արհամարհում ես <%= name %>-ի բոլոր գրառումները։"
       location: "Տեղակայություն"
       photos: "Նկարներ"
       posts: "Գրառումներ"
       you_have_no_tags: "Որևէ պիտակով չես նշել քեզ։"
     publisher:
       add_option: "Պատասխան ավելացնել"
-      at_least_one_aspect: "Գրառումդ պետք է տեսանելի լինի առնվազն մեկ խմբի։"
       limited: "Փակ. սա նշանակում է, որ գրառումդ տեսանելի է լինելու միայն այն մարդկանց, ում հետ կիսվում ես։"
-      near_from: "Գրառված է <%= location %>֊ից։"
+      near_from: "Գրառված է <%= location %>ից"
       option: "Պատասխան"
       public: "Հրապարակային. սա նշանակում է, որ գրառումդ տեսանելի է լինելու բոլորին և հասանելի կլինի փնտրող համակարգերի համար"
       question: "Հարց"
@@ -159,7 +205,6 @@ hy:
       duplicate: "Էդքան լա՞վն ա։  Արդեն տարածել ես այս գրառումը։"
       post: "Տարածե՞լ <%= name %>-ի գրառումը։"
       successful: "Գրառումը հաջողությամբ տարածվեց։"
-    search_for: "Փնտրել <%= name %>"
     show_more: "Ցույց տալ ավելին"
     stream:
       comment: "Մեկնաբանել"
@@ -183,7 +228,12 @@ hy:
         other: "Ցույց տալ ևս <%= count %> մեկնաբանություն"
         zero: "Ցույց տալ ևս <%= count %> մեկնաբանություն"
       original_post_deleted: "Հեղինակը ջնջել է բնօրինակը"
+      permalink: "Սկզբնաղբյուր"
       public: "Հրապարակային"
+      reactions:
+        one: "<%= count%> արձագանք"
+        other: "<%= count%> արձագանք"
+        zero: "արձագանք չկա"
       reshare: "Տարածել"
       reshares:
         one: "<%= count %> հոգի տարածել է"
@@ -221,15 +271,5 @@ hy:
       year: "մոտ մեկ տարի"
       years: "%d տարի"
     unblock_failed: "Չստացվեց ապաարգելափակել այս օգտատիրոջը։"
-    videos:
-      unknown: "Տեսահոլովակի անհայտ տեսակ։"
-      watch: "Դիտել այս տեսահոլովակը <%= provider %> կայքում"
     viewer:
-      comment: "Մեկնաբանել"
-      follow_post: "Հետևել գրառմանը"
-      home: "Գլխավոր էջ"
-      like: "Հավանել"
-      reshare: "Տարածել"
       reshared: "Տարածվել է"
-      stop_following_post: "Դադարեցնել հետևել գրառմանը"
-      unlike: "Ապահավանել"

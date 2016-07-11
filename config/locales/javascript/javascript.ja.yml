@@ -51,9 +51,6 @@ ja:
       view_all: "全て見る"
     ignore: "無視"
     ignore_user: "このユーザーを無視しますか?"
-    infinite_scroll:
-      no_more: "投稿はこれ以上ありません。"
-      no_more_contacts: "これ以上連絡先はありません。"
     my_aspects: "私のアスペクト"
     notifications:
       mark_read: "既読にする"
@@ -65,7 +62,6 @@ ja:
       close_result: "結果を非表示にする"
       show_result: "結果を表示する"
     publisher:
-      at_least_one_aspect: "アスペクトを選択してから投稿してください。"
       limited: "限定公開 - 投稿はあなたが共有している人だけが見られるようになります"
       near_from: "<%= location %>からの投稿"
       public: "公開 - 投稿は全ての人から見ることができ、検索エンジンで見つかるようになります"
@@ -77,7 +73,6 @@ ja:
       duplicate: "You've already reshared that post!"
       post: "<%= name %>さんの投稿を再共有しますか?"
       successful: "投稿は正常に再共有されました!"
-    search_for: "<%= name %>を検索する"
     show_more: "さらに表示する"
     stream:
       comment: "コメント"
@@ -137,12 +132,3 @@ ja:
       suffixFromNow: "後"
       year: "大体1年"
       years: "%d年"
-    videos:
-      unknown: "動画の種類が不明です"
-      watch: "<%= provider %>で動画を視聴する"
-    viewer:
-      comment: "コメント"
-      follow_post: "投稿をフォローする"
-      home: "ホーム"
-      reshare: "再共有"
-      stop_following_post: "投稿のフォローを解除する"

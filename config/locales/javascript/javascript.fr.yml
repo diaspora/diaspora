@@ -6,6 +6,55 @@
 
 fr:
   javascripts:
+    admin:
+      pods:
+        actions: "Actions"
+        added: "Ajouté"
+        check: "exécuter un test de connexion"
+        errors:
+          one: "Le test de connexion rapporte une erreur pour un pod."
+          other: "Le test de connexion rapporte une erreur pour <%= count %> pods."
+        follow_link: "ouvrir le lien dans le navigateur"
+        last_check: "dernière vérification :"
+        more_info: "montrer plus d'information"
+        ms:
+          one: "<%= count %>&nbsp;ms"
+          other: "<%= count %>&nbsp;ms"
+        no_info: "Pas d'information supplémentaire disponible pour l'instant."
+        not_available: "non disponible"
+        offline_since: "hors ligne depuis :"
+        pod: "Pod"
+        recheck:
+          failure: "La vérification n'a pas été exécutée."
+          success: "Le pod vient d'être vérifié à nouveau."
+        response_time: "Temps de réponse :"
+        server_software: "Logiciel de serveur :"
+        ssl: "SSL"
+        ssl_disabled: "SSL désactivée"
+        ssl_enabled: "SSL activée"
+        states:
+          dns_failed: "La résolution du nom (DNS) a échoué"
+          http_failed: "La connexion HTTP a échoué"
+          net_failed: "La tentative de connexion a échoué"
+          no_errors: "OK"
+          ssl_failed: "La connexion sécurisée (SSL) a échoué"
+          unchecked: "Non vérifié"
+          unknown_error: "Une erreur inconnue s'est produite pendant la vérification"
+          version_failed: "Impossible de déterminer la version du programme"
+        status: "État"
+        unchecked:
+          one: "Il reste un pod qui n'a pas du tout été vérifié."
+          other: "Il reste <%= count %> pods qui n'ont pas du tout été vérifiés."
+        unknown: "inconnu"
+        version_failed:
+          one: "Il y a un pod dont la version est inconnue (un ancien pod, pas de NodeInfo)."
+          other: "Il y a un <%= count %> pods  dont la version est inconnue (anciens pods, pas de NodeInfo)."
+    admins:
+      dashboard:
+        compare_versions: "La dernière version de diaspora* est <%= latestVersion %>, votre pod tourne sous la version <%= podVersion %>."
+        error: "Impossible de déterminer la dernière version de diaspora*."
+        outdated: "Votre pod n'est pas à jour."
+        up_to_date: "Votre pod est à jour !"
     and: "et"
     aspect_dropdown:
       add_to_aspect: "Ajouter le contact"
@@ -48,6 +97,8 @@ fr:
     confirm_unload: "Merci de confirmer que vous voulez quitter cette page — les données saisies ne seront pas sauvegardées."
     contacts:
       add_contact: "Ajouter ce contact"
+      aspect_chat_is_enabled: "Les contacts de cet aspect peuvent discuter avec vous."
+      aspect_chat_is_not_enabled: "Les contacts de cet aspect ne peuvent pas discuter avec vous."
       aspect_list_is_not_visible: "Les contacts de cette facette ne peuvent pas se voir entre eux."
       aspect_list_is_visible: "Les contacts de cette facette peuvent se voir entre eux."
       error_add: "Impossible d'ajouter <%= name %> à cette facette :("
@@ -57,10 +108,10 @@ fr:
     conversation:
       new:
         no_contacts: "Vous devez ajouter des contacts avant de pouvoir démarrer une conversation."
-      participants: "Participants"
     create: "Créer"
     delete: "Effacer"
     edit: "Éditer"
+    failed_to_comment: "Impossible de commenter. Peut-être que l'auteur vous ignore ?"
     failed_to_like: "Impossible d'aimer !"
     failed_to_post_message: "Impossible de partager le message !"
     failed_to_remove: "L'entrée n'a pu être supprimée"
@@ -85,15 +136,14 @@ fr:
       recent_notifications: "Notifications récentes"
       search: "Trouver des personnes ou #tags"
       settings: "Paramètres"
+      toggle_mobile: "Activer/désactiver la version mobile"
+      toggle_navigation: "Afficher/cacher le menu"
       view_all: "Tout afficher"
     hide_post: "Masquer ce message ?"
     hide_post_failed: "Impossible de masquer ce message"
     ignore: "Ignorer"
     ignore_failed: "Impossible d'ignorer cet utilisateur"
     ignore_user: "Ignorer cet utilisateur ?"
-    infinite_scroll:
-      no_more: "Pas d'autres messages."
-      no_more_contacts: "Pas d'autres contacts."
     my_activity: "Mon activité"
     my_aspects: "Mes aspects"
     my_stream: "Flux"
@@ -118,10 +168,15 @@ fr:
       looking_good: "Impressionnant, vous avez un super look !"
       size_error: "{file} est trop gros, la taille maximum est de {sizeLimit}."
     poll:
+      answer_count:
+        one: "<%=count%> vote"
+        other: "<%=count%> votes"
+        zero: "Aucun vote"
       close_result: "Masquer les résultats"
       count:
         one: "<%=count%> vote pour le moment"
         other: "<%=count%> votes pour le moment"
+        zero: "Aucun vote pour le moment"
       go_to_original_post: "Vous pouvez participer à ce sondage sur le <%= original_post_link %>."
       original_post: "message initial"
       result: "Résultat"
@@ -134,14 +189,12 @@ fr:
       contacts: "Contacts"
       edit: "modifier"
       gender: "Genre"
-      ignoring: "Vous ignorez tous les messages de <%= name %>."
       location: "Localisation"
       photos: "Photos"
       posts: "Messages"
       you_have_no_tags: "vous n'avez pas de tag !"
     publisher:
       add_option: "Ajouter un choix"
-      at_least_one_aspect: "Vous devez créer au moins un aspect"
       limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
       near_from: "Posté à : <%= location %>"
       option: "Choix"
@@ -159,7 +212,6 @@ fr:
       duplicate: "C'est si bien que ça ? Vous avez déjà repartagé ce message !"
       post: "Repartager le message de <%= name %> ?"
       successful: "Le message a été repartagé !"
-    search_for: "Chercher <%= name %>"
     show_more: "Voir plus"
     stream:
       comment: "Commenter"
@@ -186,7 +238,12 @@ fr:
         other: "Montrer <%= count %> commentaires supplémentaires"
         zero: "Montrer <%= count %> commentaires supplémentaires"
       original_post_deleted: "Le message original a été effacé par son auteur."
+      permalink: "Lien permanent"
       public: "Public"
+      reactions:
+        one: "<%= count%> réaction"
+        other: "<%= count%> réactions"
+        zero: "<%= count%> réactions"
       reshare: "Repartager"
       reshares:
         few: "<%= count %> repartages"
@@ -227,15 +284,5 @@ fr:
       year: "un an"
       years: "%d ans"
     unblock_failed: "Impossible de débloquer cet utilisateur"
-    videos:
-      unknown: "Type de vidéo inconnu"
-      watch: "Voir cette vidéo sur <%= provider %>"
     viewer:
-      comment: "Commenter"
-      follow_post: "Suivre cette discussion"
-      home: "Accueil"
-      like: "J'aime"
-      reshare: "Repartager"
       reshared: "Repartagé"
-      stop_following_post: "Ne plus suivre cette discussion"
-      unlike: "Je n'aime plus"

@@ -6,6 +6,16 @@
 
 ru:
   javascripts:
+    admin:
+      pods:
+        states:
+          no_errors: "Хорошо"
+        status: "Статус"
+        version_failed:
+          few: "<%= count %> пода не имеют информации о версии (старые поды, нет NodeInfo)"
+          many: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
+          one: "<%= count %> под не имеет информации о версии (старые поды, нет NodeInfo)"
+          other: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
     and: "и"
     aspect_dropdown:
       add_to_aspect: "Добавить контакт"
@@ -60,7 +70,6 @@ ru:
     conversation:
       new:
         no_contacts: "Нужно добавить кого-нибудь в список контактов, перед тем, как заводить разговор."
-      participants: "Участники"
     create: "Создать"
     delete: "Удалить"
     edit: "Изменить"
@@ -94,9 +103,6 @@ ru:
     ignore: "Блокировать"
     ignore_failed: "Невозможно игнорировать этого пользователя"
     ignore_user: "Игнорировать этого пользователя?"
-    infinite_scroll:
-      no_more: "Больше записей нет."
-      no_more_contacts: "Контактов больше нет."
     my_activity: "Моя активность"
     my_aspects: "Мои аспекты"
     my_stream: "Поток"
@@ -140,14 +146,12 @@ ru:
       contacts: "Контакты"
       edit: "Редактировать"
       gender: "Пол"
-      ignoring: "Вы игнорируете все записи пользователя  <%= name %>."
       location: "Местоположение"
       photos: "Фотографии"
       posts: "Записи"
       you_have_no_tags: "у вас нет меток!"
     publisher:
       add_option: "Добавить вариант"
-      at_least_one_aspect: "Вам надо создать как минимум один аспект"
       limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
       near_from: "Отправлено из: <%= location %>"
       option: "Вариант <%= nr %>"
@@ -165,7 +169,6 @@ ru:
       duplicate: "Здорово, да? Вы уже поделились этой записью!"
       post: "Поделиться записью пользователя <%= name %>?"
       successful: "Вы успешно поделились записью!"
-    search_for: "Искать <%= name %>"
     show_more: "показать больше"
     stream:
       comment: "Комментировать"
@@ -234,15 +237,5 @@ ru:
       year: "около года"
       years: "%d лет"
     unblock_failed: "Разблокировка пользователя не удалась"
-    videos:
-      unknown: "Неизвестный тип видео"
-      watch: "Смотреть этот ролик на <%= provider %>"
     viewer:
-      comment: "Комментировать"
-      follow_post: "Следить за записью"
-      home: "ДОМОЙ"
-      like: "Нравится"
-      reshare: "Поделиться"
       reshared: "Поделились"
-      stop_following_post: "Не следить за записью"
-      unlike: "Не нравится"

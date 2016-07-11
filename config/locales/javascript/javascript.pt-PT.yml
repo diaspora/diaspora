@@ -29,8 +29,6 @@ pt-PT:
       hide: "ocultar comentários"
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
-    conversation:
-      participants: "Participantes"
     delete: "Eliminar"
     edit: "Editar"
     failed_to_like: "Falhou em gostar!"
@@ -55,9 +53,6 @@ pt-PT:
       view_all: "Ver tudo"
     ignore: "Ignorar"
     ignore_user: "Ignorar este utilizador?"
-    infinite_scroll:
-      no_more: "Não há mais publicações."
-      no_more_contacts: "Sem mais contatos."
     my_activity: "Minha atividade"
     my_aspects: "Os meus grupos"
     my_stream: "Fluxo"
@@ -70,7 +65,6 @@ pt-PT:
       looking_good: "OMD, tu estás fantástico(a)!"
       size_error: "O {file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}."
     publisher:
-      at_least_one_aspect: "Tem de publicar em pelo menos um grupo"
       limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
       near_from: "Publicado em: <%= location %>"
       public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
@@ -78,7 +72,6 @@ pt-PT:
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"
       post: "Repartilhar a publicação de <%= name %>?"
       successful: "A publicação foi repartilhada com sucesso!"
-    search_for: "Procurar por <%= name %>"
     show_more: "mostrar mais"
     stream:
       comment: "Comentar"
@@ -138,15 +131,5 @@ pt-PT:
       suffixFromNow: "a partir de agora"
       year: "cerca de um ano"
       years: "%d anos"
-    videos:
-      unknown: "Formato de vídeo desconhecido"
-      watch: "Veja este vídeo no <%= provider %>"
     viewer:
-      comment: "Comentário"
-      follow_post: "Seguir a publicação"
-      home: "INÍCIO"
-      like: "Gostar"
-      reshare: "Repartilhar"
       reshared: "Repartilhado"
-      stop_following_post: "Parar de seguir a publicação"
-      unlike: "Não gostar"

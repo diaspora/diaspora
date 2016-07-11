@@ -53,8 +53,6 @@ nn:
       view_all: "Syn alle"
     ignore: "Oversjå"
     ignore_user: "Oversjå denne brukaren?"
-    infinite_scroll:
-      no_more: "Ingen fleire meldingar."
     my_activity: "Min aktivitet"
     my_aspects: "Aspekta mine"
     my_stream: "Straum"
@@ -64,14 +62,12 @@ nn:
       completed: "<%= file %> ferdig"
       looking_good: "Du verda, du ser flott ut!"
     publisher:
-      at_least_one_aspect: "Du må offentleggjera til minst eitt aspekt"
       limited: "Avgrensa - berre personar du deler med vil kunna sjå meldinga"
       public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
     reshares:
       duplicate: "Så bra, altså? Men du har allereie delt meldinga :-)"
       post: "Vil du dele <%= name %> sin post?"
       successful: "Hurra, posten vart delt!"
-    search_for: "Leit etter <%= name %>"
     show_more: "syn meir"
     stream:
       comment: "Kommenter"
@@ -125,15 +121,5 @@ nn:
       suffixFromNow: "frå no"
       year: "om lag eit år"
       years: "%d år"
-    videos:
-      unknown: "Ukjend videotype"
-      watch: "Sjå denne videoen hos <%= provider %>"
     viewer:
-      comment: "Kommenter"
-      follow_post: "Følg innlegg"
-      home: "HEIM"
-      like: "Lik"
-      reshare: "Del"
       reshared: "Delt"
-      stop_following_post: "Ikkje følg innlegg meir"
-      unlike: "Lik ikkje lenger"

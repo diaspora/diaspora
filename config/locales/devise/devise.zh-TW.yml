@@ -80,7 +80,7 @@ zh-TW:
         receive_unlock: "沒收到解鎖步驟嗎？"
         sign_in: "登入"
         sign_up: "註冊"
-        sign_up_closed: "目前不開放公開登記。"
+        sign_up_closed: "目前不對外開放註冊。"
     unlocks:
       new:
         resend_unlock: "重送解鎖步驟"

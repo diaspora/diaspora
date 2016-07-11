@@ -47,8 +47,6 @@ te:
       add_contact: "పరిచయాన్ని జతచేయి"
       remove_contact: "పరిచయాన్ని తీసివేయి"
       search_no_results: "ఏ పరిచయాలు కనపడలేదు"
-    conversation:
-      participants: "పాల్గొనువారు"
     create: "సృష్టించు"
     delete: "తొలగించు"
     edit: "సవరించు"
@@ -79,9 +77,6 @@ te:
     hide_post_failed: "ఈ టపాను దాయలేకపోయాం"
     ignore: "విస్మరించు"
     ignore_user: "ఈ వాడుకరిని విస్మరించాలా?"
-    infinite_scroll:
-      no_more: "ఇంక టపాలు లేవు."
-      no_more_contacts: "ఇంకే పరిచయాలు లేవు."
     my_activity: "నా క్రియాశీలత"
     my_aspects: "నా కోణాలు"
     my_stream: "ప్రవాహం"
@@ -122,7 +117,6 @@ te:
       you_have_no_tags: "మీరు ఏ కొసలు జతచేయలేదు!"
     publisher:
       add_option: "ఒక సమాధానాన్ని జతచేయి"
-      at_least_one_aspect: "మీరు కనీసం ఒక్క కోణానికైనా ప్రచురించాలి"
       limited: "పరిమితం: మీరు ఎవరితోనైతే పంచుకుంటున్నారో వారు మాత్రమే మీ టపాను చూడగలరు"
       near_from: "ఇక్కడి నుండి టపా వేసారు: <%= location %>"
       option: "సమాధానం"
@@ -138,7 +132,6 @@ te:
         exists: "ఫిర్యాదు ఇదివరకే ఉంది"
     reshares:
       duplicate: "అంత బాగుందా?  ఆ టపాని మీరు ఇప్పటికే పంచుకున్నారు!"
-    search_for: "<%= name %> కోసం వెతకండి"
     show_more: "ఇంకా చూపించు"
     stream:
       comment: "వ్యాఖ్య"
@@ -189,11 +182,3 @@ te:
       suffixFromNow: "ఇప్పటి నుండి"
       year: "దాదాపు సంవత్సరం"
       years: "%d సంవత్సరాల"
-    videos:
-      unknown: "తెలియని వీడియో రకం"
-      watch: "ఈ వీడియోను <%= provider %>లో చూడండి"
-    viewer:
-      comment: "వ్యాఖ్య"
-      home: "నివాసం"
-      like: "ఇష్టం"
-      unlike: "అయిష్టం"

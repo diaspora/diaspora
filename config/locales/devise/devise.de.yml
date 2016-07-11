@@ -16,7 +16,7 @@ de:
       invalid: "Ungültiger Benutzername oder ungültiges Kennwort."
       invalid_token: "Ungültiger Authentifizierungstoken."
       locked: "Dein Konto ist gesperrt."
-      not_found_in_database: "Passwort oder E-Mail-Adresse ungültig"
+      not_found_in_database: "E-Mail-Adresse oder Kennwort ungültig."
       timeout: "Deine Sitzung ist abgelaufen! Um fortzufahren, melde dich bitte erneut an."
       unauthenticated: "Du musst dich anmelden oder registrieren, um fortzufahren."
       unconfirmed: "Du musst dein Konto bestätigen, um fortzufahren."
@@ -37,7 +37,7 @@ de:
       reset_password_instructions:
         change: "Mein Kennwort ändern"
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."
-        someone_requested: "Jemand hat einen Link angefordert, um dein Kennwort zu ändern. Falls du das warst, kannst das durch den unten aufgeführten Link tun."
+        someone_requested: "Jemand hat einen Link angefordert, um dein Kennwort zu ändern. Falls du das warst, kannst du das durch den unten aufgeführten Link tun."
         subject: "Setze dein Kenwort zurück"
         wont_change: "Dein Kennwort bleibt unverändert, bis du es über den Link änderst und ein neues erstellst."
       unlock_instructions:
@@ -49,13 +49,13 @@ de:
     passwords:
       edit:
         change_password: "Mein Kennwort ändern"
-        confirm_password: "Passwort bestätigen"
-        new_password: "Neues Passwort"
+        confirm_password: "Kennwort bestätigen"
+        new_password: "Neues Kennwort"
       new:
         email: "E-Mail-Adresse"
         forgot_password: "Kennwort vergessen?"
         no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse"
-        reset_password: "Passwort zurücksetzen"
+        reset_password: "Kennwort zurücksetzen"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Kennwort zurücksetzt."
       updated: "Dein Kennwort wurde erfolgreich geändert. Du bist nun angemeldet."
@@ -79,7 +79,7 @@ de:
         receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
         receive_unlock: "Keine Entsperr-Anweisungen erhalten?"
         sign_in: "Anmelden"
-        sign_up: "Registrieren"
+        sign_up: "Konto erstellen"
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
     unlocks:
       new:

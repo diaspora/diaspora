@@ -6,11 +6,8 @@
 
 ia:
   _applications: "Applicationes"
-  _comments: "Commentos"
   _contacts: "Contactos"
   _help: "Adjuta"
-  _home: "Initio"
-  _photos: "photos"
   _services: "Servicios"
   _statistics: "Statisticas"
   _terms: "terminos"
@@ -53,12 +50,19 @@ ia:
               taken: "es jam in uso."
   admins:
     admin_bar:
+      dashboard: "Pannello de instrumentos"
       pages: "Paginas"
+      pod_network: "Rete de pods"
       pod_stats: "Statisticas de pod"
       report: "Reportos"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Recerca de usatores"
       weekly_user_stats: "Statisticas septimanal de usatores"
+    dashboard:
+      fetching_diaspora_version: "Determina ultime version de diaspora*..."
+      pod_status: "Stato del pod"
+    pods:
+      pod_network: "Rete de pods"
     stats:
       2weeks: "2 Septimana"
       50_most: "Le 50 etiquettas le plus popular"
@@ -93,7 +97,9 @@ ia:
       are_you_sure_unlock_account: "Es tu secur de voler disblocar iste conto?"
       close_account: "clauder conto"
       email_to: "Adresse de e-mail a invitar"
+      lock_account: "Blocar conto"
       under_13: "Monstrar usatores con minus de 13 annos (COPPA)"
+      unlock_account: "Disblocar conto"
       view_profile: "vider profilo"
       you_currently:
         one: "il te resta un invitation %{link}"
@@ -105,13 +111,45 @@ ia:
         other: "Numero de nove usatores iste septimana: %{count}"
         zero: "Numero de nove usatores iste septimana: zero"
       current_server: "Le data actual del servitor es %{date}"
-  ago: "%{time} retro"
   all_aspects: "Tote le aspectos"
-  application:
-    helper:
-      unknown_person: "persona incognite"
-      video_title:
-        unknown: "Titulo de video incognite"
+  api:
+    openid_connect:
+      authorizations:
+        destroy:
+          fail: "Le tentativa de revocar le autorisation con ID %{id} ha fallite"
+        new:
+          access: "%{name} demanda accesso a:"
+          approve: "Approbar"
+          bad_request: "ID de cliente o URI de redirection mancante"
+          client_id_not_found: "Nulle cliente con client_id %{client_id} con URI de redirection %{redirect_uri} trovate"
+          deny: "Refusar"
+          no_requirement: "%{name} non require permissiones"
+          redirection_message: "Es tu secur de voler dar accesso a %{redirect_uri}?"
+      error_page:
+        contact_developer: "Per favor, contacta le programmator del application e include tote le message de error sequente:"
+        could_not_authorize: "Le application non poteva esser autorisate"
+        login_required: "Tu debe aperir session ante de poter autorisar iste application"
+        title: "Un problema ha occurrite."
+      scopes:
+        openid:
+          description: "Isto permitte que le application lege tu profilo basic"
+          name: "profilo basic"
+        read:
+          description: "Isto permitte que le application lege tu fluxo, tu conversationes e tu profilo complete"
+          name: "leger profilo, fluxo e conversationes"
+        write:
+          description: "Isto permitte que le application publica nove entratas, scribe conversationes e invia reactiones"
+          name: "inviar entratas, conversationes e reactiones"
+      user_applications:
+        index:
+          access: "%{name} ha accesso a:"
+          edit_applications: "Applicationes"
+          no_requirement: "%{name} non require permissiones"
+          title: "Applicationes autorisate"
+        no_applications: "Tu non ha applicationes autorisate"
+        policy: "Vider le politica de confidentialitate del application"
+        revoke_autorization: "Revocar"
+        tos: "Vider le conditiones de servicio del application"
   are_you_sure: "Es tu secur?"
   are_you_sure_delete_account: "Es tu secur de voler clauder tu conto? Isto non pote esser disfacite!"
   aspect_memberships:
@@ -127,48 +165,27 @@ ia:
       success: "Le contacto ha essite addite al aspecto con successo."
     aspect_listings:
       add_an_aspect: "+ Adder un aspecto"
-      deselect_all: "Deseliger totes"
-      edit_aspect: "Modificar %{name}"
-      select_all: "Seliger totes"
     aspect_stream:
       make_something: "Crea qualcosa"
       stay_updated: "Tene te al currente"
       stay_updated_explanation: "Le fluxo principal es plenate con tote le contactos tue, le etiquettas que tu seque, e messages de alcun membros creative del communitate."
-    contacts_not_visible: "Le contactos in iste aspecto non potera vider le unes le alteres."
-    contacts_visible: "Le contactos in iste aspecto potera vider le unes le alteres."
-    create:
-      failure: "Le creation del aspecto ha fallite."
-      success: "Tu nove aspecto %{name} ha essite create"
     destroy:
       failure: "%{name} non es vacue e non pote esser removite."
       success: "%{name} ha essite removite con successo."
       success_auto_follow_back: "%{name} ha essite removite con successo. Tu ha usate iste aspecto pro automaticamente sequer le usatores que te seque. Verifica tu configuration de usator pro seliger un nove aspecto pro reciprocation automatic de sequimento."
     edit:
-      aspect_chat_is_enabled: "Le contactos in iste aspecto pote chattar con te."
-      aspect_chat_is_not_enabled: "Le contactos in iste aspecto non pote chattar con te."
       aspect_list_is_not_visible: "Le contactos in iste aspecto non pote vider le un le altere."
       aspect_list_is_visible: "Le contactos in iste aspecto pote vider le un le altere."
       confirm_remove_aspect: "Es tu secur de voler deler iste aspecto?"
-      grant_contacts_chat_privilege: "Conceder le privilegio de chat al contactos in iste aspecto?"
-      make_aspect_list_visible: "render contactos in iste aspecto visibile le unes pro le alteres?"
-      remove_aspect: "Deler iste aspecto"
       rename: "renominar"
-      set_visibility: "Definir visibilitate"
       update: "actualisar"
       updating: "actualisation in curso"
     index:
-      diaspora_id:
-        content_1: "Tu ID de diaspora* es:"
-        content_2: "Da lo a alteres e illes potera trovar te in diaspora*."
-        heading: "ID de diaspora*"
       donate: "Donar"
-      handle_explanation: "Isto es tu ID de diaspora*. Como un adresse de e-mail, tu pote dar isto a alteres a fin que illes pote attinger te."
       help:
         any_problem: "Problema?"
         contact_podmin: "Contacta le administrator de tu pod!"
         do_you: "Esque tu:"
-        email_feedback: "%{link} tu commentario, si tu lo prefere"
-        email_link: "E-mail"
         feature_suggestion: "... ha un suggestion de %{link}?"
         find_a_bug: "... ha trovate un %{link}?"
         have_a_question: "... ha un %{link}?"
@@ -181,31 +198,21 @@ ia:
         tutorial_link_text: "Tutoriales"
         tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Adjuta pro le prime passos."
       introduce_yourself: "Iste fluxo es le tue. Non hesita… presenta te!"
-      keep_diaspora_running: "Mantene le disveloppamento de diaspora* rapide con un donation mensual!"
       keep_pod_running: "Adjuta al mantenentia e melioration de %{pod} (e al caffeination de su gerentes) con un donation mensual!"
       new_here:
         follow: "Seque %{link} e saluta nove usatores in diaspora*!"
         learn_more: "Leger plus"
         title: "Accolliger nove usatores"
-      no_contacts: "Nulle contacto"
-      no_tags: "+ Cercar un etiquetta a sequer"
-      people_sharing_with_you: "Personas qui divide con te"
-      post_a_message: "publicar un message >>"
       services:
         content: "Tu pote connecter le sequente servicios a diaspora*:"
         heading: "Connecter servicios"
-      unfollow_tag: "Cessar de sequer #%{tag}"
       welcome_to_diaspora: "Benvenite a diaspora*, %{name}!"
-    new:
-      create: "Crear"
-      name: "Nomine (visibile solmente pro te)"
     no_contacts_message:
       community_spotlight: "usatores in evidentia"
+      invite_link_text: "invitar"
       or_spotlight: "O tu pote divider con %{link}"
       try_adding_some_more_contacts: "Tu pote cercar o invitar plus contactos."
       you_should_add_some_more_contacts: "Tu deberea adder plus contactos!"
-    no_posts_message:
-      start_talking: "Nemo ha ancora dicite qualcosa!"
     seed:
       acquaintances: "Cognoscitos"
       family: "Familia"
@@ -214,7 +221,6 @@ ia:
     update:
       failure: "Tu aspecto, %{name}, ha un nomine troppo longe e non pote esser salveguardate."
       success: "Tu aspecto, %{name}, ha essite modificate con successo."
-  back: "Retornar"
   blocks:
     create:
       failure: "Io non poteva ignorar iste usator.  #evasion"
@@ -226,22 +232,15 @@ ia:
     explanation: "Invia cosas a diaspora* ab ubique con iste ligamine: %{link}"
     heading: "Mini-marcapaginas"
     post_something: "Inviar a diaspora*"
-    post_success: "Invio succedite!"
   cancel: "Cancellar"
   comments:
     new_comment:
       comment: "Commentar"
       commenting: "Commenta…"
-    one: "1 commento"
-    other: "%{count} commentos"
-    zero: "nulle commento"
   contacts:
-    create:
-      failure: "Creation de contacto fallite"
     index:
       add_a_new_aspect: "Adder un nove aspecto"
       add_contact: "Adder contacto"
-      add_to_aspect: "adder contactos a %{name}"
       all_contacts: "Tote le contactos"
       community_spotlight: "Usatores in evidentia"
       my_contacts: "Mi contactos"
@@ -249,19 +248,13 @@ ia:
       no_contacts_in_aspect: "Tu non ha ancora contactos in iste aspecto. Infra es un lista de tu contactos existente le quales tu pote adder a iste aspecto."
       no_contacts_message: "Visita %{community_spotlight}"
       only_sharing_with_me: "Solmente qui divide cosas con me"
-      remove_contact: "Remover contacto"
       start_a_conversation: "Initiar un conversation"
       title: "Contactos"
       user_search: "Recerca de usatores"
-      your_contacts: "Tu contactos"
-    sharing:
-      people_sharing: "Qui divide cosas con te:"
     spotlight:
       community_spotlight: "Usatores in evidentia"
       suggest_member: "Suggerer un membro"
   conversations:
-    conversation:
-      participants: "Participantes"
     create:
       fail: "Message non valide"
       no_contact: "Tu debe adder le contacto primo."
@@ -271,13 +264,11 @@ ia:
       hide_success: "Le conversation ha essite celate"
     index:
       conversations_inbox: "Conversationes – Cassa de entrata"
-      create_a_new_conversation: "initiar un nove conversation"
       inbox: "Cassa de entrata"
       new_conversation: "Nove conversation"
-      no_conversation_selected: "nulle conversation seligite"
       no_messages: "nulle message"
     new:
-      abandon_changes: "Abandonar modificationes?"
+      message: "Message"
       send: "Inviar"
       sending: "Invia…"
       subject: "subjecto"
@@ -288,6 +279,7 @@ ia:
     show:
       delete: "deler e blocar conversation"
       hide: "celar e silentiar conversation"
+      last_message: "Ultime message recipite %{timeago}"
       reply: "responder"
       replying: "Responde…"
   date:
@@ -300,10 +292,6 @@ ia:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrige le sequente errores e proba de novo."
-      invalid_fields: "Campos invalide"
-    login_try_again: "Per favor <a href='%{login_link}'>aperi session</a> e reproba."
-    post_not_public: "Le entrata que tu vole vider non es public!"
-    post_not_public_or_not_exist: "Le entrata que tu tenta vider non es public, o non existe."
   fill_me_out: "Plena me"
   find_people: "Cercar personas o #etiquettas"
   help:
@@ -523,42 +511,25 @@ ia:
     tutorial: "tutorial"
     tutorials: "tutoriales"
     wiki: "wiki"
-  hide: "Celar"
-  ignore: "Ignorar"
   invitation_codes:
-    excited: "%{name} es multo felice de vider te hic."
     not_valid: "Iste codice de invitation non plus es valide"
   invitations:
     a_facebook_user: "Un usator de Facebook"
     check_token:
       not_found: "Indicio de invitation non trovate"
     create:
-      already_contacts: "Tu es jam connectite con iste persona."
-      already_sent: "Tu ha jam invitate iste persona."
       empty: "Per favor, specifica al minus un adresse de e-mail."
       no_more: "Tu non ha altere invitationes."
       note_already_sent: "Invitationes ha jam essite inviate a: %{emails}"
-      own_address: "Non es possibile inviar un invitation a tu proprie adresse."
       rejected: "Le sequente adresses de e-mail habeva problemas: "
       sent: "Le sequente adresses ha recipite un invitation: %{emails}"
-    edit:
-      accept_your_invitation: "Acceptar tu invitation"
-      your_account_awaits: "Un conto te attende!"
     new:
-      already_invited: "Le sequente personas non ha acceptate tu invitation:"
-      aspect: "Aspecto"
-      check_out_diaspora: "Discoperi diaspora*!"
       comma_separated_plz: "Tu pote entrar plure adresses de e-mail separante los per commas."
-      if_they_accept_info: "si iste persona accepta, illa essera addite al aspecto in le qual tu la invitava."
       invite_someone_to_join: "Invita qualcuno a unir se a diaspora*!"
       language: "Lingua"
       paste_link: "Divide iste ligamine con tu amicos pro invitar les a diaspora*, o invia le ligamine directemente a illes per e-mail."
-      personal_message: "Message personal"
-      resend: "Reinviar"
       send_an_invitation: "Inviar un invitation"
-      send_invitation: "Inviar invitation"
       sending_invitation: "Invia invitation..."
-      to: "A"
   layouts:
     application:
       back_to_top: "Retornar al cyma"
@@ -568,27 +539,14 @@ ia:
       statistics_link: "Statisticas del pod"
       toggle: "(dis)activar mobile"
       whats_new: "que es nove?"
-      your_aspects: "tu aspectos"
     header:
-      admin: "admin"
-      blog: "blog"
       code: "codice"
-      help: "Adjuta"
-      login: "aperir session"
       logout: "Clauder session"
       profile: "Profilo"
-      recent_notifications: "Notificationes recente"
       settings: "Configuration"
-      view_all: "Vider totes"
-  likes:
-    likes:
-      people_dislike_this:
-        one: "%{count} antipathia"
-        other: "%{count} antipathias"
-        zero: "nulle antipathia "
+      toggle_navigation: "Alternar navigation"
   limited: "Limitate"
   more: "Plus"
-  next: "sequente"
   no_results: "Nulle resultato trovate"
   notifications:
     also_commented:
@@ -641,7 +599,6 @@ ia:
     a_limited_post_comment: "Il ha un nove commento pro te sur un entrata limitate in diaspora*."
     a_post_you_shared: "un entrata."
     a_private_message: "Il ha un nove message private pro te in diaspora*."
-    accept_invite: "Accepta tu invitation a diaspora*!"
     also_commented:
       limited_subject: "Il ha un nove commento sur un entrata que tu ha commentate"
     click_here: "clicca hic"
@@ -718,7 +675,6 @@ ia:
       view_post: "Vider entrata >"
     mentioned:
       limited_post: "Tu ha essite mentionate in un entrata limitate."
-      mentioned: "te mentionava in un message:"
       subject: "%{name} te ha mentionate in diaspora*"
     private_message:
       reply_to_or_view: "Responde o lege iste conversation >"
@@ -772,20 +728,9 @@ ia:
     to_change_your_notification_settings: "pro cambiar tu configuration de notificationes"
   nsfw: "NSFW"
   ok: "OK"
-  or: "o"
-  password: "Contrasigno"
-  password_confirmation: "Confirmation del contrasigno"
   people:
     add_contact:
       invited_by: "tu ha essite inviate per"
-    add_contact_small:
-      add_contact_from_tag: "adder contacto ab etiquetta"
-    aspect_list:
-      edit_membership: "modificar membrato del aspecto"
-    helper:
-      is_not_sharing: "%{name} non divide cosas con te"
-      is_sharing: "%{name} is sharing with you"
-      results_for: " resultatos pro %{params}"
     index:
       couldnt_find_them: "Non trovate?"
       looking_for: "Cercar entratas con le etiquetta %{tag_link}?"
@@ -795,101 +740,57 @@ ia:
       search_handle: "Usa lor ID de diaspora* (p.ex. nominedeusator@pod.tld) pro cercar tu amicos."
       searching: "recerca in curso, un momento per favor..."
       send_invite: "Ancora nihil? Invia un invitation!"
-    one: "1 persona"
-    other: "%{count} personas"
     person:
-      add_contact: "adder contacto"
-      already_connected: "Jam connectite"
-      pending_request: "Requesta pendente"
       thats_you: "Es tu!"
     profile_sidebar:
       bio: "Bio"
       born: "Data de nascentia"
-      edit_my_profile: "Modificar mi profilo"
       gender: "Sexo"
-      in_aspects: "in aspectos"
       location: "Loco"
-      photos: "Photos"
-      remove_contact: "remover contacto"
-      remove_from: "Remover %{name} de %{aspect}?"
     show:
       closed_account: "Iste conto ha essite claudite."
       does_not_exist: "Iste persona non existe!"
       has_not_shared_with_you_yet: "%{name} non ha ancora dividite alcun cosa con te!"
-      ignoring: "Tu ignora tote le entratas de %{name}."
-      incoming_request: "%{name} vole divider con te"
-      mention: "Mention"
-      message: "Message"
-      not_connected: "Tu non divide con iste persona"
-      recent_posts: "Entratas recente"
-      recent_public_posts: "Entratas public recente"
-      return_to_aspects: "Retornar a tu pagina de aspectos"
-      see_all: "Vider totes"
-      start_sharing: "comenciar a divider"
-      to_accept_or_ignore: "pro acceptar o ignorar lo."
-    sub_header:
-      add_some: "adder alcunes"
-      edit: "modificar"
-      you_have_no_tags: "tu non ha etiquettas!"
-    webfinger:
-      fail: "%{handle} non ha essite trovate."
-    zero: "nemo"
   photos:
-    comment_email_subject: "Photo de %{name}"
     create:
       integrity_error: "Le incargamento del photo ha fallite. Es tu secur que iste file contine un imagine?"
       runtime_error: "Le incargamento del photo ha fallite a causa de un problema interne."
       type_error: "Le incargamento del photo ha fallite. Es tu secur que un imagine ha essite addite?"
     destroy:
       notice: "Photo delite."
-    edit:
-      editing: "In processo de modification"
-    new:
-      back_to_list: "Retornar al lista"
-      new_photo: "Nove photo"
-      post_it: "inviar lo!"
     new_photo:
       empty: "{file} es vacue. Per favor re-selige le files sin iste."
       invalid_ext: "{file} ha un extension inadmissibile. Solmente {extensions} es permittite."
       size_error: "{file} es troppo grande. Le dimension maxime es {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "o selige un de tu %{photos} jam existente"
       upload: "Incargar un nove photo de profilo!"
-    photo:
-      view_all: "vider tote le photos de %{name}"
     show:
-      collection_permalink: "permaligamine al collection"
-      delete_photo: "Deler photo"
-      edit: "modificar"
-      edit_delete_photo: "Modificar description del photo / deler photo"
-      make_profile_photo: "facer photo de profilo"
       show_original_post: "Monstrar entrata original"
-      update_photo: "Actualisar photo"
-    update:
-      error: "Le modification del photo ha fallite."
-      notice: "Photo actualisate con successo."
   posts:
     presenter:
       title: "Un entrata de %{name}"
     show:
-      destroy: "Deler"
       forbidden: "Tu non ha le permission de facer isto"
-      not_found: "Impossibile trovar iste entrata."
-      permalink: "permaligamine"
+      location: "Inviate ab: %{location}"
       reshare_by: "Repetite per %{author}"
-  previous: "precedente"
   privacy: "Confidentialitate"
-  privacy_policy: "Politica de confidentialitate"
   profile: "Profilo"
   profiles:
     edit:
       allow_search: "Permitter que on te cerca in diaspora*"
-      edit_profile: "Modificar profilo"
+      basic: "Mi profilo basic"
+      basic_hint: "Cata elemento de profilo es facultative. Le profilo basic es sempre visibile pro le publico."
+      extended: "Mi profilo extendite"
+      extended_hint: "Clicca sur le commutator pro definir le visibilitate de tu profilo extendite. \"Public\" vole dicer que illo es visibile pro tote le internet, \"limitate\" vole dicer que solmente le personas in tu aspectos de contacto videra iste information."
+      extended_visibility_text: "Visibilitate de tu profilo extendite:"
       first_name: "Prenomine"
       last_name: "Nomine de familia"
+      limited: "Limitate"
       nsfw_check: "Marcar toto que io divide como NSFW"
       nsfw_explanation: "NSFW (‘not safe for work’, non appropriate pro le travalio) es un standard communitari pro contento que poterea esser inappropriate a vider durante que on es al travalio. Si tu intende a frequentemente divider tal material, per favor, marca iste option, de sorta que tote le cosas que tu divide essera celate pro le personas qui non ha optate pro vider los."
       nsfw_explanation2: "Si tu non selige iste option, per favor, adde le etiquetta #nsfw cata vice que tu divide tal material."
+      public: "Public"
+      settings: "Configuration de profilo"
       update_profile: "Actualisar profilo"
       your_bio: "Tu bio"
       your_birthday: "Tu data de nascentia"
@@ -897,8 +798,6 @@ ia:
       your_location: "Tu loco"
       your_name: "Tu nomine"
       your_photo: "Tu photo"
-      your_private_profile: "Tu profilo private"
-      your_public_profile: "Tu profilo public"
       your_tags: "Describe te in 5 parolas"
       your_tags_placeholder: "p.ex. #films #cattones #viages #docente #interlingua"
     update:
@@ -909,26 +808,16 @@ ia:
     closed: "Le creation de contos es claudite in iste pod de diaspora*."
     create:
       success: "Tu ha adherite a diaspora*!"
-    edit:
-      cancel_my_account: "Cancellar mi conto"
-      edit: "Modificar %{name}"
-      leave_blank: "(lassa isto vacue si tu non vole cambiar lo)"
-      password_to_confirm: "(nos require tu contrasigno actual pro confirmar le cambiamentos)"
-      unhappy: "Non felice?"
-      update: "Actualisar"
     invalid_invite: "Le ligamine de invitation que tu ha fornite non plus es valide."
     new:
-      create_my_account: "Crear mi conto!"
       email: "E-MAIL"
       enter_email: "Specifica adresse de e-mail"
       enter_password: "Elige un contrasigno (de sex characteres al minimo)"
       enter_password_again: "Repete le contrasigno"
       enter_username: "Elige un nomine de usator (usa solmente litteras, numeros e tractos de sublineamento)"
-      join_the_movement: "Adhere al movimento!"
       password: "CONTRASIGNO"
       password_confirmation: "CONFIRMA CONTRASIGNO"
       sign_up: "CREAR CONTO"
-      sign_up_message: "Rete social con ♥"
       submitting: "Submitte…"
       terms: "Per crear un conto tu accepta le %{terms_link}."
       terms_link: "conditiones de servicio"
@@ -941,36 +830,18 @@ ia:
     post_label: "<b>Entrata</b>: %{title}"
     reason_label: "Motivo: %{text}"
     reported_label: "<b>Reportate per</b> %{person}"
+    reported_user_details: "Detalios sur le usator reportate"
     review_link: "Marcar como revidite"
     status:
-      created: "Un reporto ha essite create"
       destroyed: "Le entrata ha essite destruite"
       failed: "Qualcosa ha errate"
-      marked: "Le reporto ha essite marcate como revidite"
     title: "Summario de reportos"
-  requests:
-    create:
-      sending: "Invio in curso"
-      sent: "Tu ha demandate de divider con %{name}. Iste persona lo videra le proxime vice que illa aperira session in diaspora*."
-    destroy:
-      error: "Per favor selige un aspecto!"
-      ignore: "Demanda de contacto ignorate."
-      success: "Tu ha comenciate a divider."
-    manage_aspect_contacts:
-      existing: "Contactos existente"
-      manage_within: "Gerer contactos intra"
-    new_request_to_person:
-      sent: "inviate!"
   reshares:
     comment_email_subject: "Repetition de %{resharer} del entrata de %{author}"
-    create:
-      failure: "Un error occurreva durante le repetition de iste entrata."
     reshare:
       deleted: "Le entrata original ha essite delite per le autor."
       reshare_confirmation: "Repeter iste entrata de %{author}?"
-      reshare_original: "Repeter le original"
       reshared_via: "repetite via"
-      show_original: "Monstrar le original"
   search: "Cercar"
   services:
     create:
@@ -982,10 +853,6 @@ ia:
       success: "Authentication delite con successo."
     failure:
       error: "un error occurreva durante le connexion a iste servicio"
-    finder:
-      fetching_contacts: "diaspora* obtene presentemente tu amicos de %{service}. Per favor, reveni in alcun momentos."
-      no_friends: "Nulle amico de Facebook trovate."
-      service_friends: "Amicos de %{service}"
     index:
       connect: "Connecter"
       disconnect: "disconnecter"
@@ -995,52 +862,22 @@ ia:
       not_logged_in: "Nulle session aperte in iste momento."
       really_disconnect: "disconnecter %{service}?"
       services_explanation: "Le connexion a servicios da le possibilitate de publicar tu messages anque in illos si tu los scribe in diaspora*."
-    inviter:
-      click_link_to_accept_invitation: "Seque iste ligamine pro acceptar tu invitation"
-      join_me_on_diaspora: "Veni con me in diaspora*"
+      title: "Gerer servicios connectite"
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
-    remote_friend:
-      invite: "invitar"
-      not_on_diaspora: "Non ancora in diaspora*"
-      resend: "reinviar"
   settings: "Configuration"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "Le entrata de %{name} ha essite celate, e le notificationes ha essite silentiate."
-      see_it_on_their_profile: "Si tu vole vider actualisationes sur iste entrata, visita le profilo de %{name}."
   shared:
-    add_contact:
-      add_new_contact: "Adder un nove contacto"
-      create_request: "Cercar per ID de diaspora*"
-      diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "Entra un nomine de usator de diaspora*:"
-      know_email: "Si tu cognosce su adresse de e-mail, tu deberea invitar le/la."
-      your_diaspora_username_is: "Tu nomine de usator de diaspora* es: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Adder contacto"
       mobile_row_checked: "%{name} (remover)"
       mobile_row_unchecked: "%{name} (adder)"
-    contact_list:
-      all_contacts: "Tote le contactos"
-    footer:
-      logged_in_as: "identificate como %{name}"
-      your_aspects: "tu aspectos"
     invitations:
       by_email: "Per e-mail"
-      dont_have_now: "Tu non ha invitationes pro le momento, ma alteres arrivara bentosto!"
-      from_facebook: "De Facebook"
-      invitations_left: "%{count} restante"
-      invite_someone: "Invitar un persona"
       invite_your_friends: "Invitar tu amicos"
       invites: "Invitationes"
-      invites_closed: "Le invitationes es actualmente claudite pro iste pod de diaspora*."
       share_this: "Divide iste ligamine per e-mail, blog o rete social!"
-    notification:
-      new: "Nove %{type} de %{from}"
     public_explain:
       atom_feed: "Syndication Atom"
       control_your_audience: "Controlar tu audientia"
@@ -1052,12 +889,9 @@ ia:
       title: "Connecter altere servicios"
       visibility_dropdown: "Iste menu disrolante es pro cambiar le visibilitate de tu message. (Nos suggere que tu rende iste prime message public.)"
     publisher:
-      all: "totes"
-      all_contacts: "tote le contactos"
       discard_post: "Abandonar entrata"
       formatWithMarkdown: "Tu pote usar %{markdown_link} pro formatar tu entrata"
       get_location: "Localisar te"
-      make_public: "render public"
       new_user_prefill:
         hello: "Salute, io es #%{new_user_tag}. "
         i_like: "Io me interessa in %{tags}. "
@@ -1065,36 +899,15 @@ ia:
         newhere: "NewHere"
       poll:
         add_a_poll: "Adder un sondage"
-        add_poll_answer: "Adder option"
-        option: "Option 1"
-        question: "Question"
-        remove_poll_answer: "Remover option"
-      post_a_message_to: "Inviar un message a %{aspect}"
       posting: "Invio in curso…"
       preview: "Previsualisation"
-      publishing_to: "va publicar in: "
       remove_location: "Remover loco"
       share: "Divider"
-      share_with: "divider con"
       upload_photos: "Incargar photos"
       whats_on_your_mind: "De que pensa tu?"
-    reshare:
-      reshare: "Repeter"
     stream_element:
-      connect_to_comment: "Adde iste usator como contacto pro commentar su message"
-      currently_unavailable: "es impossibile commentar pro le momento"
-      dislike: "Disappreciar"
-      hide_and_mute: "Celar e silentiar iste message"
-      ignore_user: "Ignorar %{name}"
-      ignore_user_description: "Ignorar e remover iste usator de tote le aspectos?"
-      like: "Appreciar"
-      nsfw: "Iste message ha essite marcate como NSFW per su autor. %{link}"
-      shared_with: "Dividite con: %{aspect_names}"
-      show: "monstrar"
-      unlike: "Non plus appreciar"
       via: "via %{link}"
       via_mobile: "via mobile"
-      viewable_to_anyone: "Iste message es visibile pro tote le mundo in le web"
   simple_captcha:
     label: "Scribe le codice in le quadro:"
     message:
@@ -1120,15 +933,10 @@ ia:
   status_messages:
     create:
       success: "Ha essite mentionate: %{names}"
-    destroy:
-      failure: "Le deletion del message ha fallite"
-    helper:
-      no_message_to_display: "Nulle message a presentar."
     new:
       mentioning: "Mentiona: %{person}"
     too_long: "Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres."
   stream_helper:
-    hide_comments: "Celar tote le commentos"
     no_more_posts: "Fin del fluxo."
     no_posts_yet: "Il non ha ancora entratas."
   streams:
@@ -1157,13 +965,6 @@ ia:
     tags:
       title: "Messages con etiquettas: %{tags}"
   tag_followings:
-    create:
-      failure: "Impossibile sequer #%{name}. Esque tu jam lo seque?"
-      none: "Non es possibile sequer un etiquetta vacue!"
-      success: "Hurrah! Tu seque ora #%{name}."
-    destroy:
-      failure: "Impossibile cessar de sequer #%{name}. Esque tu ha jam cessate de sequer lo?"
-      success: "Guai! Tu non plus seque #%{name}."
     manage:
       no_tags: "Tu non seque alcun etiquetta."
       title: "Gerer etiquettas sequite"
@@ -1171,15 +972,12 @@ ia:
     name_too_long: "Per favor, non scribe plus de %{count} characteres in le nomine del etiquetta. In iste momento illo ha %{current_length} characteres."
     show:
       follow: "Sequer #%{tag}"
-      following: "Tu seque #%{tag}"
       none: "Le etiquetta vacue non existe!"
       stop_following: "Non plus sequer #%{tag}"
       tagged_people:
         one: "1 persona con etiquetta %{tag}"
         other: "%{count} personas con etiquetta %{tag}"
         zero: "Nemo con etiquetta %{tag}"
-  terms_and_conditions: "Terminos e conditiones"
-  undo: "Disfacer?"
   username: "Nomine de usator"
   users:
     confirm_email:
@@ -1194,13 +992,13 @@ ia:
       auto_follow_aspect: "Aspecto pro contactos automaticamente addite:"
       auto_follow_back: "Divider automaticamente con omne persona qui comencia a divider con te"
       change: "Cambiar"
+      change_color_theme: "Cambiar thema de colores"
       change_email: "Cambiar adresse de e-mail"
       change_language: "Cambiar de lingua"
       change_password: "Cambiar contrasigno"
       character_minimum_expl: "al minus 6 characteres"
       close_account:
         dont_go: "Per favor, non parti!"
-        if_you_want_this: "Si tu vermente vole facer isto, entra hic infra tu contrasigno e clicca sur 'Clauder conto'."
         lock_username: "Isto reserva tu nomine de usator in caso que tu decide de re-crear tu conto."
         locked_out: "Tu session essera claudite e tu essera excludite de tu conto."
         make_diaspora_better: "Nos ha besonio de adjuta pro meliorar diaspora*, dunque, per favor contribue in loco de quitar. Si tu vermente vole quitar, nos vole informar te de lo que evenira."
@@ -1213,14 +1011,12 @@ ia:
       current_password_expl: "illo con que tu aperi session..."
       download_export: "Discargar mi profilo"
       download_export_photos: "Discargar mi photos"
-      download_photos: "discargar mi photos"
       edit_account: "Modificar conto"
       email_awaiting_confirmation: "Nos te ha inviate un ligamine de activation al adresse %{unconfirmed_email}. Usque al momento que tu seque iste ligamine pro activar le nove adresse, nos va continuar a usar tu adresse original %{email}."
       export_data: "Exportar datos"
       export_in_progress: "Le datos personal tue es actualmente sub preparation. Per favor, reveni in alcun momentos."
       export_photos_in_progress: "Le tractamento de tu photos non ha ancora terminate. Per favor, essaya lo de novo in qualque momentos."
       following: "Configuration de divider"
-      getting_started: "Preferentias de nove usator"
       last_exported_at: "(Ultime actualisation: %{timestamp})"
       liked: "un persona apprecia un entrata tue"
       mentioned: "un persona te mentiona in un entrata sue"
@@ -1247,7 +1043,6 @@ ia:
       connect_to_facebook_link: "connecter tu conto de Facebook"
       hashtag_explanation: "Le #etiquettas permitte discuter e sequer tu interesses. Illos anque es un bon maniera de trovar nove personas in diaspora*."
       hashtag_suggestions: "Tenta sequer etiquettas como #arte, #films, #gif, etc."
-      saved: "Salveguardate!"
       well_hello_there: "Salutationes a te!"
       what_are_you_in_to: "Quales es tu interesses?"
       who_are_you: "Qui es tu?"
@@ -1260,6 +1055,8 @@ ia:
     public:
       does_not_exist: "Le usator %{username} non existe!"
     update:
+      color_theme_changed: "Le thema de colores ha essite cambiate."
+      color_theme_not_changed: "Un error ha occurrite durante le cambio de thema de colores."
       email_notifications_changed: "Notificationes per e-mail cambiate"
       follow_settings_changed: "Configuration de sequimento cambiate"
       follow_settings_not_changed: "Cambiamento de configuration de sequimento fallite"
@@ -1271,13 +1068,6 @@ ia:
       settings_updated: "Configuration actualisate"
       unconfirmed_email_changed: "Adresse de e-mail cambiate. Necessita activation."
       unconfirmed_email_not_changed: "Cambio de e-mail fallite"
-  webfinger:
-    fetch_failed: "obtention de profilo webfinger pro %{profile_url} fallite"
-    hcard_fetch_failed: "il habeva un problema durante le obtention del hcard pro %{account}"
-    no_person_constructed: "Nulle persona poteva esser construite a partir de iste hcard."
-    not_enabled: "le servicio webfinger non pare esser activate pro le host del conto %{account}"
-    xrd_fetch_failed: "il habeva un error durante le obtention del XRD ab le conto %{account}"
-  welcome: "Benvenite!"
   will_paginate:
     next_label: "sequente &raquo;"
     previous_label: "&laquo; precedente"

@@ -51,7 +51,6 @@ uk:
     conversation:
       new:
         no_contacts: "Перш ніж розпочати розмову, треба мати хоча б один контакт."
-      participants: "Учасники"
     delete: "Вилучити"
     edit: "Змінити"
     failed_to_like: "Не вдалося!"
@@ -83,9 +82,6 @@ uk:
     ignore: "Iгнорувати"
     ignore_failed: "Неможливо ігнорувати цього користувача"
     ignore_user: "Ігнорувати цього користувача?"
-    infinite_scroll:
-      no_more: "Повідомлень більше немає."
-      no_more_contacts: "Контактів більше немає."
     my_activity: "Моя діяльність"
     my_aspects: "Мої аспекти"
     my_stream: "Мій потік"
@@ -127,14 +123,12 @@ uk:
       contacts: "Контакти"
       edit: "редагувати"
       gender: "Стать"
-      ignoring: "Ви блокуєте усі записи користувача <%= name %>."
       location: "Адреса"
       photos: "Фотогорафії"
       posts: "Записи"
       you_have_no_tags: "у вас немає міток!"
     publisher:
       add_option: "Додати відповідь"
-      at_least_one_aspect: "Вам потрібно створити мінімум один аспект"
       limited: "Обмежена - ваш запис буде видимий тільки вказаним вами людям"
       near_from: "Відправлено з: <%= location %>"
       option: "Відповідь"
@@ -152,7 +146,6 @@ uk:
       duplicate: "Настільки круто, так? Ви вже поділилися цим записом!"
       post: "Поширити допис <%= name %>?"
       successful: "Ви успішно поділилися записом!"
-    search_for: "Шукати <%= name %>"
     show_more: "показати більше"
     stream:
       comment: "Коментувати"
@@ -199,7 +192,7 @@ uk:
       wasnt_that_interesting: "Гаразд, мабуть, стежити за міткою #<%= tagName %> було не так вже цікаво..."
     timeago:
       day: "день"
-      days: "%d днів[-я]"
+      days: "%d днів[-i]"
       hour: "близько години"
       hours: "близько %d годин"
       minute: "близько хвилини"
@@ -214,15 +207,5 @@ uk:
       year: "близько року"
       years: "%d років"
     unblock_failed: "Не вдалось розблокувати цього користувача"
-    videos:
-      unknown: "Невідомий відеоформат"
-      watch: "Дивитися це відео на <%= provider %>"
     viewer:
-      comment: "Коментувати"
-      follow_post: "Слідкувати за записом"
-      home: "Домівка"
-      like: "Подобається"
-      reshare: "Поділитися"
       reshared: "Поділилися"
-      stop_following_post: "Не слідкувати за записом"
-      unlike: "Не подобається"

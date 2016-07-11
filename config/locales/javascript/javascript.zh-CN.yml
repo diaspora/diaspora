@@ -47,8 +47,6 @@ zh-CN:
       view_all: "查看所有"
     ignore: "忽略"
     ignore_user: "忽略此用户？"
-    infinite_scroll:
-      no_more: "暂无更多的内容。"
     my_activity: "我的活动"
     my_stream: "动态"
     people:
@@ -56,14 +54,12 @@ zh-CN:
     photo_uploader:
       looking_good: "天啊，您太棒了！"
     publisher:
-      at_least_one_aspect: "发布时请选择至少一个情景"
       limited: "限制 - 只有您想分享的人才看得到您的内容"
       public: "公开 - 所有人都能看到您的内容，包括搜索引擎"
     reshares:
       duplicate: "您已经转发过了。"
       post: "要转发 <%= name %> 的内容吗？"
       successful: "转发成功"
-    search_for: "搜索 <%= name %>"
     show_more: "查看更多"
     stream:
       comment: "评论"
@@ -106,15 +102,5 @@ zh-CN:
       suffixFromNow: "后"
       year: "约 1 年"
       years: "%d 年"
-    videos:
-      unknown: "未知视频格式"
-      watch: "在 <%= provider %> 上看观看视频"
     viewer:
-      comment: "评论"
-      follow_post: "关注内容"
-      home: "主页"
-      like: "赞"
-      reshare: "转发"
       reshared: "转发的"
-      stop_following_post: "停止关注内容"
-      unlike: "取消赞"

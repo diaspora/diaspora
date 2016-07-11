@@ -35,7 +35,6 @@ fy:
     my_activity: "Myn Aktiviteit"
     photo_uploader:
       looking_good: "Heare GOD noch oan ta, do sjochst der fantastysk út!"
-    search_for: "Sykje nei <%= name %>"
     show_more: "toan mear"
     stream:
       comment: "Reaksje"
@@ -74,5 +73,3 @@ fy:
       suffixFromNow: ""
       year: "likernôch in jier"
       years: "%d jierren"
-    videos:
-      watch: "Dizze fideo op <%= provider %> besjen"

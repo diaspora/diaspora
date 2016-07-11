@@ -36,13 +36,10 @@ cy:
       preparing_your_stream: "Preparing your personalised stream..."
     header:
       search: "Find people or #tags"
-    infinite_scroll:
-      no_more: "Dim mwy o swyddi."
     photo_uploader:
       looking_good: "OMG, rydych chi'n ymddangos yn neis iawn!"
     reshares:
       duplicate: "Mae hynny'n dda, eh? Rydych chi wedi rhannu'r bost eisoes!"
-    search_for: "Chwilio am <%= name %>"
     show_more: "dangos mwy"
     stream:
       likes:
@@ -84,6 +81,3 @@ cy:
       suffixFromNow: "o hŷd"
       year: "tua flwyddyn"
       years: "%d blyddynoedd"
-    videos:
-      unknown: "Math o fideo anhysbys"
-      watch: "Gwyliwch y fideo ar <%= provider %>"

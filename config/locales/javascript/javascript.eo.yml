@@ -6,6 +6,11 @@
 
 eo:
   javascripts:
+    admin:
+      pods:
+        version_failed:
+          one: "Estas unu pod (Diaspora-servilo) kiu ne havas version (malnova pod, sen NodeInfo)."
+          other: "Estas <%= count %> pods (Diaspora-serviloj) kiuj ne havas version (malnova pod, sen NodeInfo)."
     and: "kaj"
     aspect_dropdown:
       add_to_aspect: "Aldoni kontakton"
@@ -51,8 +56,6 @@ eo:
       settings: "Agordoj"
       view_all: "Vidi ĉiujn"
     ignore: "Ignori"
-    infinite_scroll:
-      no_more: "Neniu plua afiŝo."
     my_activity: "Mia aktiveco"
     my_aspects: "Viaj aspektoj"
     my_stream: "Torento"
@@ -62,14 +65,12 @@ eo:
       completed: "<%= file %> kompletita"
       looking_good: "Diable, vi aspektas bonege!"
     publisher:
-      at_least_one_aspect: "Vi devas konigi al almenaŭ unu aspekton"
       limited: "Malpublika - via afiŝo nur videblos de homoj, al kiuj vi konigas aferojn"
       public: "Publika - via afiŝo videblos al ĉiuj kaj troveblos de retserĉprogramoj."
     reshares:
       duplicate: "Nu, ĉu tiel bone? Vi jam rekonigis tiun afiŝon!"
       post: "Ĉu vi deziras rekonigi la mesaĝon de <%= name %>?"
       successful: "La afiŝo estis sukcese rekonigita!"
-    search_for: "Serĉi por <%= name %>"
     show_more: "vidi plu"
     stream:
       comment: "Komenti"
@@ -123,15 +124,5 @@ eo:
       suffixFromNow: "ekde nun"
       year: "ĉirkaŭ unu jaro"
       years: "%d jaroj"
-    videos:
-      unknown: "nekonata tipo de videaĵo"
-      watch: "Vidi tiun ĉi filmon ĉe <%= provider %>"
     viewer:
-      comment: "Komenti"
-      follow_post: "Sekvi mesaĝon"
-      home: "Ĉefpaĝo"
-      like: "Ŝati"
-      reshare: "Rekonigi"
       reshared: "Rekonigita"
-      stop_following_post: "Ne plu sekvi mesaĝon"
-      unlike: "Ne plu ŝati"

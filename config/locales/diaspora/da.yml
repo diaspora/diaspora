@@ -5,12 +5,9 @@
 
 
 da:
-  _applications: "Programmer"
-  _comments: "Kommentarer"
+  _applications: "Applikationer"
   _contacts: "Kontakter"
   _help: "Hjælp"
-  _home: "Hjem"
-  _photos: "Billeder"
   _services: "Tjenester"
   _statistics: "Statistik"
   _terms: "Betingelser"
@@ -49,16 +46,23 @@ da:
             person:
               invalid: "er ugyldig."
             username:
-              invalid: "er ugyldig. Vi tillader kun bogstaver, tal og bundstreger."
+              invalid: "er ugyldig. Vi tillader kun bogstaver, tal og understreg."
               taken: "er allerede taget."
   admins:
     admin_bar:
+      dashboard: "Kontrolpanel"
       pages: "Sider"
+      pod_network: "Pod netværk"
       pod_stats: "Statistik for Pod"
       report: "Rapporter"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Søg efter brugere"
       weekly_user_stats: "Ugentlig bruger-statistik"
+    dashboard:
+      fetching_diaspora_version: "Bestem seneste Diaspora version ..."
+      pod_status: "Pod status"
+    pods:
+      pod_network: "Pod netværk"
     stats:
       2weeks: "2 uger"
       50_most: "50 mest populære tags"
@@ -109,7 +113,10 @@ da:
       are_you_sure_unlock_account: "Er du sikker på at du vil genåbne denne konto?"
       close_account: "Luk konto"
       email_to: "Inviter på e-mail"
+      invite: "Inviter"
+      lock_account: "Lås konto"
       under_13: "Vis brugere der er under 13 (COPPA)"
+      unlock_account: "Lås konto op"
       users:
         one: "%{count} bruger fundet"
         other: "%{count} brugere fundet"
@@ -125,13 +132,53 @@ da:
         other: "Nye brugere i denne uge: %{count}"
         zero: "Nye brugere i denne uge: ingen"
       current_server: "Serverens dato er %{date}"
-  ago: "%{time} siden"
   all_aspects: "Alle aspekter"
-  application:
-    helper:
-      unknown_person: "Ukendt person"
-      video_title:
-        unknown: "Ukendt videotitel"
+  api:
+    openid_connect:
+      authorizations:
+        destroy:
+          fail: "Forsøget på at tilbagekalde autoriseringen med ID %{id} lykkedes ikke"
+        new:
+          access: "%{name} kræver adgang til:"
+          approve: "Godkend"
+          bad_request: "Manglende klient ID eller omdirigeret URI"
+          client_id_not_found: "Der er ikke fundet nogen klient med client_id %{client_id} og omdirigerings URI %{redirect_uri}"
+          deny: "Afvis"
+          no_requirement: "%{name} kræver ingen tilladelser"
+          redirection_message: "Er du sikker på at du vil give adgang til %{redirect_uri}?"
+      error_page:
+        contact_developer: "Du bør kontakte applikationens udvikler og vedlægge følgende fejlmeddelelse:"
+        could_not_authorize: "Applikationen kan ikke autoriseres"
+        login_required: "Du skal logge ind for at kunne autorisere denne applikation"
+        title: "Ups! Noget gik galt :("
+      scopes:
+        nickname:
+          name: "kælenavn"
+        openid:
+          description: "Dette tillader applikationen at læse fra din basis profil"
+          name: "basis profil"
+        picture:
+          description: "Dette giver applikationen adgang til dine billeder"
+          name: "billede"
+        profile:
+          description: "Dette tillader applikationen at læse din udvidede profil"
+          name: "udvidet profil"
+        read:
+          description: "Dette tillader applikationen at læse fra din strøm, dine samtaler og hele din profil"
+          name: "læs profil, strøm og samtaler"
+        write:
+          description: "Dette tillader applikationen at sende indlæg, skrive meddelelser og sende reaktioner"
+          name: "send indlæg, samtaler og reaktioner"
+      user_applications:
+        index:
+          access: "%{name} har adgang til:"
+          edit_applications: "Applikationer"
+          no_requirement: "%{name} kræver ingen tilladelser"
+          title: "Autoriserede applikationer"
+        no_applications: "Du har ingen autoriserede applikationer"
+        policy: "Se applikationens privatlivspolitik"
+        revoke_autorization: "Tilbagekald"
+        tos: "Se applikationens servicevilkår"
   are_you_sure: "Er du sikker?"
   are_you_sure_delete_account: "Er du helt sikker på at du ønsker at lukke din konto? Det kan ikke fortrydes!"
   aspect_memberships:
@@ -147,48 +194,27 @@ da:
       success: "Kontakt blev tilføjet aspektet."
     aspect_listings:
       add_an_aspect: "+ Tilføj et aspekt"
-      deselect_all: "Fravælg alle"
-      edit_aspect: "Redigér %{navn}"
-      select_all: "Vælg alle"
     aspect_stream:
       make_something: "Gør noget"
       stay_updated: "Hold dig opdateret"
       stay_updated_explanation: "Din hovedstrøm er befolket med dine kontakter, de tags du følger og indlæg fra kreative medlemmer af diaspora-samfundet. (Dette kan justeres i dine præferencer)"
-    contacts_not_visible: "Kontakter i dette aspekt vil ikke være i stand til at se hinanden."
-    contacts_visible: "Kontakter i dette aspekt vil være i stand til at se hinanden."
-    create:
-      failure: "Fejl under oprettelse af aspektet."
-      success: "Klik på plusset i venstre side for at fortælle diaspora, hvem der kan se dit nye aspekt."
     destroy:
       failure: "%{name} kunne ikke slettes."
-      success: "%{name} fjernet."
+      success: "%{name} er blevet slettet."
       success_auto_follow_back: "%{name} er blevet fjernet. Du havde sat dette aspekt til automatisk at tilføje brugere der var begyndt at dele med dig. Gå til dine brugerindstillinger for at vælge et nyt aspekt der automatisk tilføjer brugere der vælger at dele med dig."
     edit:
-      aspect_chat_is_enabled: "Kontakter i dette aspekt kan chatte med dig."
-      aspect_chat_is_not_enabled: "Kontakter i dette aspekt kan ikke chatte med dig."
       aspect_list_is_not_visible: "kontakter i dette aspekt er ikke i stand til at se hinanden."
-      aspect_list_is_visible: "kontakter i dette aspekt er synlige for hinanden."
-      confirm_remove_aspect: "Er du sikker på du vil slette dette aspekt?"
-      grant_contacts_chat_privilege: "Giv kontakter i dette aspekt chat-privilegier?"
-      make_aspect_list_visible: "Gør kontakter i dette aspekt synlige for hinanden?"
-      remove_aspect: "Slet dette aspekt"
+      aspect_list_is_visible: "Kontakter i dette aspekt er synlige for hinanden."
+      confirm_remove_aspect: "Er du sikker på at du vil slette dette aspekt?"
       rename: "Omdøb"
-      set_visibility: "Indstil synlighed"
       update: "Opdater"
       updating: "Opdaterer"
     index:
-      diaspora_id:
-        content_1: "Dit Diaspora-ID er:"
-        content_2: "Giv det til hvem som helst, og de vil kunne finde dig på Diaspora."
-        heading: "Diaspora-ID"
-      donate: "Donér"
-      handle_explanation: "Dette er dit Diaspora-ID. Som med en e-mail-adresse, kan du give det til folk, så de kan kontakte dig."
+      donate: "Doner"
       help:
         any_problem: "Problemer?"
         contact_podmin: "Kontakt din pods administrator!"
         do_you: "Har du:"
-        email_feedback: "%{link} din tilbagemelding, hvis du foretrækker det"
-        email_link: "E-mail"
         feature_suggestion: "... har du et %{link} forslag?"
         find_a_bug: "... har du fundet en %{link}?"
         have_a_question: "... har du et %{link}?"
@@ -200,68 +226,50 @@ da:
         tag_question: "spørgsmål"
         tutorial_link_text: "Guider"
         tutorials_and_wiki: "%{faq}, %{tutorial} og %{wiki}: Hjælp til at komme i gang."
-      introduce_yourself: "Dette er din strøm. Hop ud i den og introducér dig selv."
-      keep_diaspora_running: "Hjælp udviklingen af Diaspora med en månedlig donation!"
+      introduce_yourself: "Dette er din strøm. Hop ud i den og introducer dig selv."
       keep_pod_running: "Hjælp med at få %{pod} til at køre, og sørg for at administratoren kan få sig en kop kaffe i ny og næ med en månedlig donation."
       new_here:
         follow: "Følg %{link} og byd nye brugere velkommen til Diaspora!"
         learn_more: "Lær mere"
         title: "Byd nye brugere velkommen"
-      no_contacts: "Ingen kontakter"
-      no_tags: "+ Find et tag at følge"
-      people_sharing_with_you: "Personer der deler med dig"
-      post_a_message: "Slå en besked op >>"
       services:
         content: "Du kan tilslutte følgende tjenester til Diaspora:"
         heading: "Tilslut tjenester"
-      unfollow_tag: "Hold op med at følge #%{tag}"
-      welcome_to_diaspora: "Velkommen til Diaspora %{name}!"
-    new:
-      create: "Opret"
-      name: "Navn (kun synligt for dig)"
+      welcome_to_diaspora: "Velkommen til Diaspora, %{name}!"
     no_contacts_message:
       community_spotlight: "Community Spotlight"
+      invite_link_text: "inviter"
       or_spotlight: "Eller du kan dele med %{link}"
-      try_adding_some_more_contacts: "Du kan søge efter eller invitere flere kontakter."
-      you_should_add_some_more_contacts: "Du kan tilføje nogle flere kontakter!"
-    no_posts_message:
-      start_talking: "Ingen har sagt noget endnu. Start samtalen!"
+      try_adding_some_more_contacts: "Du kan søge efter eller %{invite_link} flere kontakter."
+      you_should_add_some_more_contacts: "Du bør tilføje nogle flere kontakter!"
     seed:
       acquaintances: "Bekendte"
       family: "Familie"
       friends: "Venner"
       work: "Arbejde"
     update:
-      failure: "Dit aspekt, %{name}, var for langt til at blive gemt."
+      failure: "Dit aspekt, %{name}, havde for langt et navn til at blive gemt."
       success: "Dit aspekt, %{name}, er nu blevet redigeret."
-  back: "Tilbage"
   blocks:
     create:
-      failure: "Jeg kunne ikke ignorere denne bruger.  #evasion"
+      failure: "Kunne ikke ignorere denne bruger. #evasion"
       success: "Du kommer ikke til at se denne bruger i din strøm igen. #silencio!"
     destroy:
-      failure: "Jeg kunne ikke stoppe med at ignorere denne bruger.  #evasion"
+      failure: "Kunne ikke stoppe med at ignorere denne bruger. #evasion"
       success: "Lad os se hvad de har at sige! #sayhello"
   bookmarklet:
     explanation: "Skriv indlæg på Diaspora fra alle steder ved at bogmærke dette link => %{link}."
     heading: "Bogmærke"
     post_something: "Skriv indlæg til Diaspora"
-    post_success: "Slået op! Lukker!"
-  cancel: "Annullér"
+  cancel: "Annuller"
   comments:
     new_comment:
-      comment: "Kommentér"
+      comment: "Kommenter"
       commenting: "Kommenterer ..."
-    one: "1 kommentar"
-    other: "%{count} kommentarer"
-    zero: "Ingen kommentarer"
   contacts:
-    create:
-      failure: "Kunne ikke oprette kontakten"
     index:
       add_a_new_aspect: "Tilføj nyt aspekt"
       add_contact: "Tilføj kontakt"
-      add_to_aspect: "Tilføj kontakter til %{name}"
       all_contacts: "Alle kontakter"
       community_spotlight: "Community Spotlight"
       my_contacts: "Mine kontakter"
@@ -269,19 +277,13 @@ da:
       no_contacts_in_aspect: "Du har ikke nogen kontakter i dette aspekt endnu. Herunder er en liste over dine eksisterende kontakter som du kan føje til aspektet."
       no_contacts_message: "Se %{community_spotlight}"
       only_sharing_with_me: "Deler kun med mig"
-      remove_contact: "Fjern kontakt"
       start_a_conversation: "Start en samtale"
       title: "Kontakter"
       user_search: "Søg efter brugere"
-      your_contacts: "Dine kontakter"
-    sharing:
-      people_sharing: "Personer der deler med dig:"
     spotlight:
       community_spotlight: "Community Spotlight"
       suggest_member: "Foreslå et medlem"
   conversations:
-    conversation:
-      participants: "Deltagere"
     create:
       fail: "Ugyldig besked"
       no_contact: "Hej, du kan tilføje din første kontaktperson!"
@@ -289,25 +291,15 @@ da:
     destroy:
       delete_success: "Konversationen er blevet slettet"
       hide_success: "Konversationen er blevet skjult"
-    helper:
-      new_messages:
-        few: "%{count} nye beskeder"
-        many: "%{count} nye beskeder"
-        one: "1 ny besked"
-        other: "%{count} nye beskeder"
-        two: "%{count} nye beskeder"
-        zero: "Ingen nye beskeder"
     index:
       conversations_inbox: "Samtaler - Indboks"
-      create_a_new_conversation: "Start en ny samtale"
       inbox: "Indbakke"
       new_conversation: "Nye samtaler"
-      no_conversation_selected: "Ingen samtale valgt"
       no_messages: "Ingen beskeder"
     new:
-      abandon_changes: "Opgiv ændringer?"
+      message: "Besked"
       send: "Send"
-      sending: "Sender..."
+      sending: "Sender ..."
       subject: "Emne"
       subject_default: "Intet emne"
       to: "Til"
@@ -316,8 +308,9 @@ da:
     show:
       delete: "Slet samtalen"
       hide: "Skjul konversationen og gør den tavs"
+      last_message: "Sidste besked blev modtaget %{timeago}"
       reply: "Svar"
-      replying: "Svarer..."
+      replying: "Svarer ..."
   date:
     formats:
       birthday: "%d %B"
@@ -327,20 +320,17 @@ da:
   email: "E-mail"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Ret følgende fejl og prøv igen."
-      invalid_fields: "Ugyldige felter"
-    login_try_again: "<a href='%{login_link}'>Log ind</a> og prøv igen."
-    post_not_public: "Det indlæg du prøver at se er ikke offentligt!"
-    post_not_public_or_not_exist: "Det indlæg du prøver at se er enten ikke offentligt, eller også eksisterer det ikke!"
+      correct_the_following_errors_and_try_again: "Ret de følgende fejl og prøv igen."
+    need_javascript: "Denne hjemmeside kræver javascript for at fungere ordentligt. Hvis du har slået javascript fra, slå det venligst til igen og opdater hjemmesiden."
   fill_me_out: "Udfyld mig"
-  find_people: "Find venner eller #tags"
+  find_people: "Find mennesker eller #tags"
   help:
     account_and_data_management:
       close_account_a: "Gå til bunden af ​​dine indstillinger og tryk på knappen \"Luk konto\". Du vil blive bedt om at indtaste dit kodeord for at fuldende processen. Husk, hvis du lukker din konto vil du <strong>aldrig</strong> kunne genregistrere dit brugernavn på denne pod."
       close_account_q: "Hvordan sletter jeg min seed (konto)?"
       data_other_podmins_a: "Så snart du deler med en person fra en anden pod vil de indlæg du deler med dem og en kopi af din profil blive lagret (cached) på deres pod, og være tilgængelige for denne pods database-administrator. Når du sletter et indlæg eller profildata, bliver den slettet fra din pod og alle andre pods, hvor den tidligere har været gemt. Dine billeder bliver aldrig gemt på andre pods end den du selv bruger; det er kun links til billederne der bliver overført til andre pods."
       data_other_podmins_q: "Kan administratorer af andre pods se min information?"
-      data_visible_to_podmin_a: "Kommunikationen *mellem* pods er altid krypteret (ved hjælp af SSL og Diasporas egen transportkryptering), men lagring af data på pods er ikke krypteret. Hvis de ville, kunne database-administratoren for din pod (normalt den person der kører din pod) få adgang til alle dine profildata og alle dine indlæg (som det er tilfældet for de fleste hjemmesider der lagrer brugerdata). Kører du din egen pod giver det mere privatliv da du så styrer adgangen til databasen selv."
+      data_visible_to_podmin_a: "Kort sagt: alting. Kommunikationen mellem pods er altid krypteret (ved hjælp af SSL og Diasporas egen transportkryptering), men lagring af data på pods er ikke krypteret. Hvis de ville, kunne database-administratoren for din pod (normalt den person der kører din pod) få adgang til alle dine profildata og alle dine indlæg (som det er tilfældet for de fleste hjemmesider der lagrer brugerdata). Kører du din egen pod giver det mere privatliv da du så styrer adgangen til databasen selv."
       data_visible_to_podmin_q: "Hvor meget af min information kan min pod-administrator se?"
       download_data_a: "Ja. I bunden af din kontofane i Indstillinger er der to knapper. Den ene er til at downloade dine data, den andentil at downloade dine billeder."
       download_data_q: "Kan jeg downloade en kopi af alle de data der er indeholdt i min seed (konto)?"
@@ -454,11 +444,11 @@ da:
       post_location_a: "Tryk på knappenåls-ikonet ved siden af kameraet i feltet hvor du skriver dine indlæg. Det vil indsætte din placering fra OpenStreetMap. Du kan redigere din placering - måske ønsker du bare at vise hvilken by du er i og ikke hvilken gade."
       post_location_q: "Hvordan tilføjer jeg min placering til et indlæg?"
       post_notification_a: "Du kan finde et klokke ikon ved siden af X'et det øvre højre hjørne af indlægget. Tryk på det for at slå notifikationer til og fra for dette indlæg."
-      post_notification_q: "Hvordan sørger jeg for at få notifikationer, eller at stoppe med at få notifikationer, om en post?"
+      post_notification_q: "Hvordan sørger jeg for at få notifikationer, eller at stoppe med at få notifikationer, om et indlæg?"
       post_poll_a: "Tryk på det ikon der ligner en graf for at lave en afstemning. Skriv et spørgsmål og mindst to mulige svar. Husk at gøre dit indløg offentligt hvis du vil have at alle skal kunne deltage i din afstemning."
       post_poll_q: "Hvordan tilføjer jeg en afstemning til et indlæg?"
       post_report_a: "Tryk på advarselstrekanten i det øvre højre hjørne af indlægget for at anmelde det til din podmin. Skriv grunden til at du anmelder indlægget i dialog-boksen."
-      post_report_q: "Hvordan anmelder jeg et anstødeligt opslag?"
+      post_report_q: "Hvordan anmelder jeg et anstødeligt indlæg?"
       size_of_images_a: "Nej. Billederne skaleres automatisk til at passe til strømmen. Markdown har ikke en kode til angivelse af størrelsen af et billede."
       size_of_images_q: "Kan jeg tilpasse størrelsen på ​​billeder i indlæg eller kommentarer?"
       stream_full_of_posts_a1: "Din strøm består af tre forskellige slags indlæg:"
@@ -476,7 +466,7 @@ da:
       see_comment_q: "Når jeg kommenterer eller synes om privat indlæg, hvem kan så se det"
       title: "Private indlæg"
       who_sees_post_a: "Kun Diaspora-brugere der er logget ind, og som du har placeret i dette aspekt inden du skrev dit begrænsede indlæg kan se det."
-      who_sees_post_q: "Når jeg sender en besked til et aspekt (dvs. en privat post), hvem kan så se det?"
+      who_sees_post_q: "Når jeg sender en besked til et aspekt (dvs. en privat indlæg), hvem kan så se det?"
     private_profiles:
       title: "Private profiler"
       whats_in_profile_a: "Din private profil indeholder biografi, placering, køn og fødselsdag. Det er de ting i den nederste del af profilredigeringssiden. Disse oplysninger er valgfri - det er op til dig om du vil udfylde dem. Indloggede brugere som du har føjet til dine aspekter er de eneste, der kan se din private profil. Når de besøger din profilside kan de også se de indlæg du skrevet til de aspekt(er) de er i og dine offentlige indlæg."
@@ -493,7 +483,7 @@ da:
       find_public_post_a: "Dine offentlige indlæg vises i strømmen hos alle der følger dig. Hvis du har inkluderet #tags i dine offentlige indlæg, vil enhver der følger disse tags kunne se dit indlæg i deres strøm. Hvert offentligt indlæg har også en specifik webadresse som alle kan se, også selvom de er ikke logget ind på Diaspora - dermed kan man linke til offentlige indlæg direkte fra Twitter, blogs osv. Offentlige indlæg kan også blive indekseret af søgemaskiner."
       find_public_post_q: "Hvordan kan folk finde mine offentlige indlæg?"
       see_comment_reshare_like_a: "Kommentarer, synes om og videredelinger af offentlige indlæg er også offentlige. Enhver der er logget på Diaspora og alle andre på internettet kan se hvad du skriver og kommenterer i et offentligt indlæg."
-      see_comment_reshare_like_q: "Når jeg kommenterer, videredeler eller liker en offentlig post, Hvem kan så se det?"
+      see_comment_reshare_like_q: "Når jeg kommenterer, videredeler eller liker et offentlig indlæg, Hvem kan så se det?"
       title: "Offentlige indlæg"
       who_sees_post_a: "Alle der bruger internettet vil kunne se dine offentlige indlæg, så vær sikker på at du virkelig ønsker at det skal være offentligt. Det er en fin måde at række hånden ud mod verden."
       who_sees_post_q: "Når jeg laver et offentligt indlæg hvem kan så se det?"
@@ -551,46 +541,59 @@ da:
     tutorial: "guide"
     tutorials: "guider"
     wiki: "wiki"
-  hide: "Skjul"
-  ignore: "Ignorer"
+  home:
+    default:
+      be_who_you_want_to_be: "Vær den du vil være"
+      be_who_you_want_to_be_info: "Mange sociale netværk insisterer på, at du bruger din virkelige identitet. Ikke Diaspora. Her kan du vælge hvem du vil være og dele lige så meget, eller så lidt, om dig selv som du har lyst. Det er helt op til dig hvordan du vil interagere med andre folk."
+      byline: "Det sociale netværk hvor det er dig der har kontrollen"
+      choose_your_audience: "Vælg dit publikum"
+      choose_your_audience_info: "Ved hjælp af Diasporas aspekter kan du vælge de mennesker du vil dele med. Du kan privat eller offentlig som du har lyst til. Del et sjovt foto med hele verden, eller en dyb hemmelighed kun med dine nærmeste. Du bestemmer."
+      headline: "Velkommen til %{pod_name}"
+      own_your_data: "Vær i besiddelse af dine egne data"
+      own_your_data_info: "Mange sociale netværk tjener penge på dine data ved at analysere din opførsel og derefter bruge informationen til at sælge reklamer. Diaspora bruger ikke dine data til noget, men står til rådighed så du kan kommunikere og dele med andre."
+    podmin:
+      admin_panel: "admin panel"
+      byline: "Du er i gang med at ændre internettet. Lad os komme i gang."
+      configuration_info: "Åben %{database_path} og %{diaspora_path} i din favorit editor og gennemgå dem omhyggeligt. De er udførligt kommenteret."
+      configure_your_pod: "Konfigurer din pod"
+      contact_irc: "kontakt os via IRC"
+      contribute: "Bidrag"
+      contribute_info: "Gør Diaspora endnu bedre! Hvis du finder en fejl så %{report_bugs}."
+      create_an_account: "Opret en konto"
+      create_an_account_info: "%{sign_up_link} til en ny konto."
+      faq_for_podmins: "FAQ for dem dervedligeholder en pod i vores wiki"
+      getting_help: "Hvordan får man hjælp"
+      getting_help_info: "Her er en liste af nogle %{faq} herunder nogle tips, tricks og løsninger på de mest almindelige problemer. Du er også velkommen til at %{irc}."
+      headline: "Velkommen, ven."
+      make_yourself_an_admin: "Gør dig selv til admin"
+      make_yourself_an_admin_info: "Du finder instruktioner i %{wiki}. Dette skulle tilføje et \"admin-link\" til din brugermenu i topbjælken når du er logget ind. Det giver dig adgang til ting som bruger-søgninger og stats for din pod. For de mere detaljerede aspekter af din pod, gå til %{admin_panel}."
+      report_bugs: "indberet dem"
+      update_instructions: "opdater instruktioner i Diasporas wiki"
+      update_your_pod: "Opdater din pod"
+      update_your_pod_info: "Du kan finde %{update_instructions}"
   invitation_codes:
-    excited: "%{name} er glad for at se dig her."
     not_valid: "Invitationskoden er udløbet."
   invitations:
     a_facebook_user: "En Facebook-bruger"
     check_token:
-      not_found: "Invitationstoken ikke fundet"
+      not_found: "Invitation ikke fundet"
     create:
-      already_contacts: "Du er allerede forbundet med denne person"
-      already_sent: "Du har allerede inviteret denne person."
       empty: "Indsæt mindst en e-mailadresse."
       no_more: "Du har ikke flere invitationer."
       note_already_sent: "Der er allerede blevet sendt en invitation til %{emails}"
-      own_address: "Du kan ikke sende en invitation til din egen adresse."
       rejected: "Der var problemer med de følgende e-mail adresser: "
       sent: "Din invitation er blevet sendt til: %{emails}"
-    edit:
-      accept_your_invitation: "Acceptér din invitation"
-      your_account_awaits: "Din konto venter!"
     new:
-      already_invited: "Følgende personer har ikke accepteret din invitation:"
-      aspect: "Aspekt"
-      check_out_diaspora: "Check Diaspora ud!"
       codes_left:
         one: "En invitation tilbage på denne kode"
         other: "%{count} invitationer tilbage på denne kode"
         zero: "Ikke flere invitationer tilbage på denne kode"
       comma_separated_plz: "Du kan indsætte flere emailadresser ved at adskille dem med komma."
-      if_they_accept_info: "hvis de accepterer, vil de blive tilføjet til det aspekt du inviterede dem til."
       invite_someone_to_join: "Inviter en person til Diaspora!"
       language: "Sprog"
       paste_link: "Del dette link med sine venner for at invitere dem til Diaspora, eller email dem linket direkte."
-      personal_message: "Personlig besked"
-      resend: "Send igen"
       send_an_invitation: "Send en invitation"
-      send_invitation: "Send invitation"
       sending_invitation: "Sender invitation ..."
-      to: "Til"
   layouts:
     application:
       back_to_top: "Tilbage til toppen"
@@ -600,35 +603,14 @@ da:
       statistics_link: "Pod statistik"
       toggle: "Slå mobil side til/fra"
       whats_new: "Hvad er nyt?"
-      your_aspects: "Dine aspekter"
     header:
-      admin: "Admin"
-      blog: "Blog"
       code: "Kode"
-      help: "Hjælp"
-      login: "Log ind"
       logout: "Log ud"
       profile: "Profil"
-      recent_notifications: "Seneste meddelelser"
       settings: "Indstillinger"
-      view_all: "Se alle"
-  likes:
-    likes:
-      people_dislike_this:
-        one: "Én person synes ikke om"
-        other: "%{count} synes ikke om"
-        zero: "Ingen synes ikke om"
-      people_like_this:
-        one: "%{count} synes godt om dette"
-        other: "%{count} synes godt om dette"
-        zero: "Ingen synes godt om dette"
-      people_like_this_comment:
-        one: "%{count} synes om det"
-        other: "%{count} synes om det"
-        zero: "Ingen synes om det"
+      toggle_navigation: "Slå navigation til/fra"
   limited: "Begrænset"
   more: "Mere"
-  next: "Næste"
   no_results: "Ingen resultater fundet"
   notifications:
     also_commented:
@@ -646,14 +628,6 @@ da:
       one: "%{actors} kommenterede dit indlæg %{post_link}."
       other: "%{actors} kommenterede dit indlæg %{post_link}."
       zero: "%{actors} kommenterede dit indlæg %{post_link}."
-    helper:
-      new_notifications:
-        few: "%{count} nye notifikationer"
-        many: "%{count} ny notifikationer"
-        one: "1 ny notifikation"
-        other: "%{count} nye notifikationer"
-        two: "%{count} nye meddelelser"
-        zero: "Ingen nye notifikationer"
     index:
       all_notifications: "Alle notifikationer"
       also_commented: "kommenterede også"
@@ -690,9 +664,9 @@ da:
       two: "%{actors} syntes om dit slettede indlæg."
       zero: "%{actors} syntes om dit slettede indlæg."
     mentioned:
-      one: "%{actors} har nævnt dig i et indlæg %{post_link}."
-      other: "%{actors} har nævnt dig i et indlæg %{post_link}."
-      zero: "%{actors} har nævnt dig i et indlæg %{post_link}."
+      one: "%{actors} har nævnt dig i indlægget %{post_link}."
+      other: "%{actors} har nævnt dig i indlægget %{post_link}."
+      zero: "%{actors} har nævnt dig i indlægget %{post_link}."
     mentioned_deleted:
       few: "%{actors} har nævnt dig i et slettet indlæg."
       many: "%{actors} har nævnt dig i et slettet indlæg."
@@ -730,9 +704,8 @@ da:
     a_limited_post_comment: "Der er en ny kommentar til dig i et lukket indlæg i Diaspora."
     a_post_you_shared: "et indlæg."
     a_private_message: "Der er en ny privat besked til dig i Diaspora."
-    accept_invite: "Accepter din Diaspora-invitation!"
     also_commented:
-      limited_subject: "Der er en ny kommentar til et opslag du har kommenteret"
+      limited_subject: "Der er en ny kommentar til et indlæg du har kommenteret"
     click_here: "Klik her"
     comment_on_post:
       limited_subject: "Der er en ny kommentar til et af dine indlæg"
@@ -788,12 +761,13 @@ da:
       message: |-
           Hej!
 
-          Du er blevet inviteret til at deltage på Diaspora!
+          Du er blevet inviteret af %{diaspora_id} til at deltage på Diaspora!
 
-          Tryk på dette link for at starte
+          Tryk på dette link for at komme i gang:
 
           [%{invite_url}][1]
 
+          Eller tilføj %{diaspora_id} til dine kontakter hvis du allerede har en konto.
 
           Kærlig hilsen
 
@@ -809,8 +783,7 @@ da:
       limited_post: "%{name} syntes om dit begrænsede indlæg"
       view_post: "Vis indlæg >"
     mentioned:
-      limited_post: "Du blev nævnt i et begrænset opslag."
-      mentioned: "omtalte dig i et indlæg:"
+      limited_post: "Du blev nævnt i et begrænset indlæg."
       subject: "%{name} har omtalt dig på Diaspora"
     private_message:
       reply_to_or_view: "Besvar eller se denne samtale >"
@@ -835,6 +808,8 @@ da:
           Hej,
 
           %{type} med ID %{id} er blevet markeret som stødende.
+
+          Begrundelse: "%{reason}"
 
           [%{url}][1]
 
@@ -863,111 +838,56 @@ da:
     thanks: "Tak,"
     to_change_your_notification_settings: "for at ændre dine indstillinger for meddelelser"
   nsfw: "Uegnet til arbejdsvisning (NSFW)"
-  ok: "Ok."
-  or: "eller"
-  password: "Adgangskode"
-  password_confirmation: "Adgangskode bekræftelse"
+  ok: "OK"
   people:
     add_contact:
       invited_by: "Du er blevet inviteret af"
-    add_contact_small:
-      add_contact_from_tag: "Tilføj kontakt fra tag"
-    aspect_list:
-      edit_membership: "Redigér aspektsmedlemsskab"
-    helper:
-      is_not_sharing: "%{name} deler ikke med dig."
-      is_sharing: "%{name} deler med dig"
-      results_for: " resultat for %{params}"
     index:
       couldnt_find_them: "Kunne du ikke finde dem?"
       looking_for: "Leder du efter indlæg tagget med %{tag_link}?"
-      no_one_found: "... Og ingen blev fundet."
+      no_one_found: "... og ingen blev fundet."
       no_results: "Hey! Du er nødt til at søge efter noget."
       results_for: "Brugere der matcher %{search_term}"
       search_handle: "Vær sikker på at finde dine venner - brug deres Diaspora-id (brugernavn@pod.tld)."
       searching: "Søger, vent venligst..."
       send_invite: "Stadig ikke noget? Send en invitation!"
-    one: "1 person"
-    other: "%{count} personer"
     person:
-      add_contact: "Tilføj kontaktperson"
-      already_connected: "Allerede forbundet"
-      pending_request: "afventende anmodning"
       thats_you: "Det er dig!"
     profile_sidebar:
       bio: "Biografi"
       born: "Fødselsdag"
-      edit_my_profile: "Redigér min profil"
       gender: "Køn"
-      in_aspects: "I aspekter"
       location: "Placering"
-      photos: "Billeder"
-      remove_contact: "Fjern kontakt"
-      remove_from: "Fjern %{name} fra %{aspect}?"
     show:
       closed_account: "Denne konto er blevet lukket."
       does_not_exist: "Personen findes ikke!"
       has_not_shared_with_you_yet: "%{name} har ikke delt nogen indlæg med dig endnu!"
-      ignoring: "Du ignorerer alle indlæg fra %{name}."
-      incoming_request: "%{name} vil gerne dele med dig."
-      mention: "Nævn"
-      message: "Besked"
-      not_connected: "Du er ikke forbundet til denne person."
-      recent_posts: "Nylige indlæg"
-      recent_public_posts: "Seneste offentlige indlæg"
-      return_to_aspects: "Tilbage til aspektsoversigt"
-      see_all: "Se alle"
-      start_sharing: "Begynd at dele"
-      to_accept_or_ignore: "at godkende eller ignorere det."
-    sub_header:
-      add_some: "Tilføje nogle"
-      edit: "Redigér"
-      you_have_no_tags: "Du har ingen tags!"
-    webfinger:
-      fail: "Undskyld, vi kunne ikke finde %{handle}."
-    zero: "Ingen personer"
   photos:
-    comment_email_subject: "%{name}s billede"
     create:
       integrity_error: "Billed-upload fejlede. Er du sikker på det var et billede?"
       runtime_error: "Billed-upload fejlede. Er du sikker på at du har spændt sikkerhedsselen?"
       type_error: "Billed-upload fejlede. Er du sikker på at et billede var tilføjet?"
     destroy:
       notice: "Billede slettet."
-    edit:
-      editing: "Redigering"
-    new:
-      back_to_list: "Gå tilbage til liste"
-      new_photo: "Nyt billede"
-      post_it: "Del det!"
     new_photo:
       empty: "{file} er tom. Vælg venligst filer igen uden {file}."
       invalid_ext: "{file} har en ugyldig filtype. Kun {udvidelser} er tilladt."
       size_error: "{File} er for stor. Maksimal filstørrelse er {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "eller vælg et fra dine eksisterende %{photos}"
       upload: "Upload et nyt profilbillede!"
-    photo:
-      view_all: "Se alle %{name}s billeder"
     show:
-      collection_permalink: "Samling permalink"
-      delete_photo: "Slet billede"
-      edit: "Redigér"
-      edit_delete_photo: "Redigér billedbeskrivelse / slet billede"
-      make_profile_photo: "Gør til profilbillede"
       show_original_post: "Vis oprindeligt indlæg"
-      update_photo: "Opdatér billede"
-    update:
-      error: "Kunne ikke redigere billede."
-      notice: "Billedet blev opdateret."
+  polls:
+    votes:
+      one: "%{count} stemme indtil videre"
+      other: "%{count} stemmer indtil videre"
+      zero: "Nul stemmer indtil videre"
   posts:
     presenter:
-      title: "Et opslag fra %{name}"
+      title: "Et indlæg fra %{name}"
     show:
-      destroy: "Slet"
       forbidden: "Denne handling er ikke tilladt."
-      not_found: "Vi kunne desværre ikke finde dette indlæg."
-      permalink: "Permalink"
+      location: "Sendt fra %{location}"
       photos_by:
         few: "%{count} billeder af %{author}"
         many: "%{count} billeder af %{author}"
@@ -976,28 +896,31 @@ da:
         two: "To billeder af %{author}"
         zero: "Ingen billeder af %{author}"
       reshare_by: "Videredelt af %{author}"
-  previous: "Forrige"
-  privacy: "Privatindstillinger"
-  privacy_policy: "Privatlivspolitik"
+  privacy: "Privatliv"
   profile: "Profil"
   profiles:
     edit:
       allow_search: "Tillad folk at søge på dig i Diaspora"
-      edit_profile: "Rediger profil"
+      basic: "Min basis profil"
+      basic_hint: "Hvert element i din profil er valgfrit. Din basis profil vil altid være offentligt synlig."
+      extended: "Min udvidede profil"
+      extended_hint: "Tryk på kontakten for at indstille dine udvidede profildatas synlighed. Offentlig betyder, at alle på internettet kan se det. Begrænset betyder at kun mennesker som du deler med, vil se denne information."
+      extended_visibility_text: "Synlighed af din udvidede profil:"
       first_name: "Fornavn"
       last_name: "Efternavn"
+      limited: "Begrænset"
       nsfw_check: "Marker alt det jeg deler som NSFW"
       nsfw_explanation: "NSFW (not safe for work) er Diasporas selvregulerede fællesstandard for hvilket indhold der ikke vil være passende at se i en arbejdssituation. Hvis du ønsker at vise den slags indhold ofte, så husk at slå denne valgmulighed til så det du deler vil være skjult fra folks strøm, med mindre de ønsker at se dem."
       nsfw_explanation2: "Hvis du vælger ikke at slå denne valgmulighed til, husk at tilføje et #nsfw tag hver gang du deler denne slags materiale."
+      public: "Offentlig"
+      settings: "Profil indstillinger"
       update_profile: "Opdater profil"
-      your_bio: "Din bio"
+      your_bio: "Din biografi"
       your_birthday: "Din fødselsdag"
       your_gender: "Dit køn"
       your_location: "Din placering"
       your_name: "Dit navn"
       your_photo: "Dit foto"
-      your_private_profile: "Din private profil"
-      your_public_profile: "Din offentlige profil"
       your_tags: "Beskriv dig selv i fem ord"
       your_tags_placeholder: "Såsom #diaspora #danmark #kattekillinger #musik #hacking"
     update:
@@ -1012,26 +935,16 @@ da:
     closed: "Der er lukket for tilmeldinger på denne Diaspora server."
     create:
       success: "Du er nu en del af Diaspora!"
-    edit:
-      cancel_my_account: "Annullér min konto"
-      edit: "Redigér %{name}"
-      leave_blank: "(Lad det være tomt hvis du ikke ønsker at ændre det)"
-      password_to_confirm: "(Vi har brug for din nuværende adgangskode for at bekræfte dine ændringer)"
-      unhappy: "Ulykkelig?"
-      update: "Opdatér"
-    invalid_invite: "Det invitations link som du anvendte er ikke længere gyldigt!"
+    invalid_invite: "Det invitations-link som du anvendte er ikke længere gyldigt!"
     new:
-      create_my_account: "Opret min konto!"
       email: "E-mail"
       enter_email: "Indtast din e-mailadresse"
       enter_password: "Indtast en adgangskode (mindst seks tegn)"
       enter_password_again: "Indtast den samme adgangskode som før"
       enter_username: "Vælg et brugernavn (kun bogstaver, tal og understreg)"
-      join_the_movement: "Deltag i bevægelsen!"
       password: "Adgangskode"
       password_confirmation: "Bekræftelse af adgangskoden"
-      sign_up: "Tilmeld dig"
-      sign_up_message: "Socialt netværk med et <3"
+      sign_up: "Opret en profil"
       submitting: "Sender ..."
       terms: "Ved at oprette en konto accepterer du %{terms_link}."
       terms_link: "Servicevilkår"
@@ -1044,48 +957,18 @@ da:
     post_label: "<b>Indlæg</b>: %{title}"
     reason_label: "Begrundelse: %{text}"
     reported_label: "<b>Indrapporteret af</b> %{person}"
+    reported_user_details: "Detaljer om den indberettede bruger"
     review_link: "Marker som bedømt"
     status:
-      created: "Der er blevet lavet en rapport"
       destroyed: "Indlægget er blevet ødelagt"
       failed: "Noget gik galt"
-      marked: "Rapporten er blevet markeret som bedømt"
     title: "Rapport oversigt"
-  requests:
-    create:
-      sending: "Sender"
-      sent: "Du har bedt om at dele med %{name}. De vil se det næste gang de logger ind på Diaspora."
-    destroy:
-      error: "Vælg venligst et aspekt!"
-      ignore: "Ignorér kontaktanmodning."
-      success: "I deler nu."
-    helper:
-      new_requests:
-        one: "Ny anmodning!"
-        other: "%{count} nye anmodninger!"
-        zero: "Ingen nye anmodninger"
-    manage_aspect_contacts:
-      existing: "Eksisterende kontaktpersoner"
-      manage_within: "Administrér kontaktpersoner indenfor"
-    new_request_to_person:
-      sent: "Afsendt!"
   reshares:
     comment_email_subject: "%{resharer}s deling af %{author}s indlæg"
-    create:
-      failure: "Der opstod en fejl ved at dele dette indlæg."
     reshare:
       deleted: "Oprindeligt indlæg slettet af forfatter."
-      reshare:
-        few: "%{count} delinger"
-        many: "%{count} delinger"
-        one: "Én deling"
-        other: "%{count} delinger"
-        two: "%{count} delinger"
-        zero: "Del"
       reshare_confirmation: "Del %{author}s indlæg?"
-      reshare_original: "Del original"
       reshared_via: "Delt via"
-      show_original: "Vis original"
   search: "Søg"
   services:
     create:
@@ -1097,46 +980,25 @@ da:
       success: "Godkendelsen er nu blevet slettet."
     failure:
       error: "Forbindelsen til denne service fejlede"
-    finder:
-      fetching_contacts: "Diaspora indsamler dine %{service}-venner. Vent venligst et øjeblik."
-      no_friends: "Ingen Facebook-venner fundet."
-      service_friends: "%{service} venner"
     index:
       connect: "Tilslut"
       disconnect: "Afbryd"
-      edit_services: "Redigér tjenester"
+      edit_services: "Rediger tjenester"
       logged_in_as: "Logget ind som %{nickname}."
       no_services_available: "Denne pod tilbyder for tiden ikke tilmelding."
       not_logged_in: "I øjeblikket ikke logget ind."
       really_disconnect: "Afbryd %{service}?"
       services_explanation: "Tilslutning til andre tjenester giver dig mulighed for at sende dine indlæg til dem, samtidig med at du skriver dem i Diaspora."
-    inviter:
-      click_link_to_accept_invitation: "Klik på dette link for at acceptere din invitation"
-      join_me_on_diaspora: "Deltag sammen med mig på Diaspora"
+      share_to: "Del til %{provider}"
+      title: "Administrer tilsluttede tjenester"
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
-    remote_friend:
-      invite: "Inviter"
-      not_on_diaspora: "Er endnu ikke på Diaspora"
-      resend: "Send igen"
   settings: "Indstillinger"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "%{name}s indlæg er nu skjult, og meddelelser er blevet gjort tavse."
-      see_it_on_their_profile: "Hvis du ønsker at se opdateringer til dette indlæg, besøg %{name}s profilside."
   shared:
-    add_contact:
-      add_new_contact: "Tilføj en ny kontakt"
-      create_request: "Find med Diaspora-ID"
-      diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "Indsæt et Diaspora-brugernavn:"
-      know_email: "Kender du deres e-mail adresse? Du burde invitere dem"
-      your_diaspora_username_is: "Dit Diaspora-brugernavn er: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Tilføj kontakt"
       mobile_row_checked: "%{name} (fjern)"
       mobile_row_unchecked: "%{name} (tilføj)"
       toggle:
@@ -1146,40 +1008,25 @@ da:
         other: "I %{count} aspekter"
         two: "I %{count} aspekter"
         zero: "Tilføj kontakt"
-    contact_list:
-      all_contacts: "Alle kontaktpersoner"
-    footer:
-      logged_in_as: "logget ind som %{name}"
-      your_aspects: "Dine aspekter"
     invitations:
       by_email: "via e-mail"
-      dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere invitationer!"
-      from_facebook: "Fra Facebook"
-      invitations_left: "%{count} tilbage"
-      invite_someone: "Invitér en person"
-      invite_your_friends: "Invitér dine venner"
+      invite_your_friends: "Inviter dine venner"
       invites: "Invitationer"
-      invites_closed: "Invitationer er i øjeblikket lukkede på denne Diaspora server"
       share_this: "Del dette link via e-mail, blog eller dit yndlings-sociale netværk!"
-    notification:
-      new: "Ny %{type} fra %{from}"
     public_explain:
       atom_feed: "Atom feed"
-      control_your_audience: "Kontrollér dit publikum"
+      control_your_audience: "Kontroller dit publikum"
       logged_in: "Logget på %{service}"
-      manage: "Administrér tilsluttede tjenester"
+      manage: "Administrer tilsluttede tjenester"
       new_user_welcome_message: "Brug #tags til at klassificere dine indlæg og til at finde personer der deler dine interesser. Nævn folk ved at kalde dem ved @Navn"
       outside: "Offentlige meddelelser vil kunne ses af folk uden for Diaspora."
       share: "Del"
       title: "Opsæt tilsluttede tjenester"
       visibility_dropdown: "Brug denne dropdown til at ændre synligheden af ​​dit indlæg. (Vi foreslår, at du gør dette første indlæg offentligt.)"
     publisher:
-      all: "Alle"
-      all_contacts: "Alle kontakter"
-      discard_post: "Kassér indlæg"
+      discard_post: "Kasser indlæg"
       formatWithMarkdown: "Du kan bruge %{markdown_link} til at formatere dine indlæg"
       get_location: "Få din placering"
-      make_public: "Offentliggør"
       new_user_prefill:
         hello: "Hej allesammen, jeg er #%{new_user_tag}. "
         i_like: "Jeg interesserer mig for %{tags}."
@@ -1187,36 +1034,15 @@ da:
         newhere: "newhere"
       poll:
         add_a_poll: "Tilføj en afstemning"
-        add_poll_answer: "Tilføj mulighed"
-        option: "Mulighed 1"
-        question: "Spørgsmål"
-        remove_poll_answer: "Fjern mulighed"
-      post_a_message_to: "Send en besked til %{aspect}"
-      posting: "Sender..."
+      posting: "Sender ..."
       preview: "Forhåndsvisning"
-      publishing_to: "Del med: "
       remove_location: "Fjern placering"
       share: "Del"
-      share_with: "Del med"
       upload_photos: "Upload fotos"
       whats_on_your_mind: "Hvad har du på hjertet?"
-    reshare:
-      reshare: "Del igen"
     stream_element:
-      connect_to_comment: "Forbind til denne bruger for at kommentere på deres indlæg"
-      currently_unavailable: "Det er i øjeblikket ikke muligt at kommentere"
-      dislike: "Synes ikke om"
-      hide_and_mute: "Skjul indlægget og dets kommentarer"
-      ignore_user: "Ignorer %{name}"
-      ignore_user_description: "Ignorer og fjern bruger fra alle aspekter?"
-      like: "Synes om"
-      nsfw: "Dette indlæg er markeret af forfatteren som 'uegnet til arbejdsvisning'. %{link}"
-      shared_with: "Delt med: %{aspect_names}"
-      show: "Vis"
-      unlike: "Synes ikke om"
       via: "Via %{link}"
       via_mobile: "Via mobil"
-      viewable_to_anyone: "Dette indlæg er synlig for alle på internettet"
   simple_captcha:
     label: "Skriv koden i boksen:"
     message:
@@ -1231,7 +1057,7 @@ da:
     disabled: "Ikke tilgængelig"
     enabled: "Tilgængelig"
     local_comments: "Lokale kommentarer"
-    local_posts: "Lokale opslag"
+    local_posts: "Lokale indlæg"
     name: "Navn"
     network: "Netværk"
     open: "Åben"
@@ -1242,24 +1068,12 @@ da:
   status_messages:
     create:
       success: "%{names} nævnt med succes"
-    destroy:
-      failure: "Kunne ikke slette post."
-    helper:
-      no_message_to_display: "Ingen beskeder at vise."
     new:
       mentioning: "Nævnt: %{person}"
     too_long: "Lav venligst en statusopdatering på under %{count} tegn. Lige nu er der %{current_length} tegn."
   stream_helper:
-    hide_comments: "Skjul alle kommentarer"
     no_more_posts: "Du har nået bunden af denne strøm."
     no_posts_yet: "Der er endnu ingen indlæg."
-    show_comments:
-      few: "Vis %{count} flere kommentarer"
-      many: "Vis %{count} flere kommentarer"
-      one: "Vis én kommentar mere"
-      other: "Vis %{count} flere kommentarer"
-      two: "Vis to kommentarer til"
-      zero: "Ikke flere kommentarer"
   streams:
     activity:
       title: "Min aktivitet"
@@ -1286,13 +1100,6 @@ da:
     tags:
       title: "Indlæg tagget med: %{tags}"
   tag_followings:
-    create:
-      failure: "Det lykkedes ikke at følge: #%{name}. Følger du allerede tag'et?"
-      none: "Du kan ikke følge et tomt tag!"
-      success: "Du følger nu #%{name}."
-    destroy:
-      failure: "Fejlede med at holde op med at følge #%{name}. Måske har du allerede valgt ikke at følge tag'et?"
-      success: "Du følger ikke #%{name} længere."
     manage:
       no_tags: "Du følger ikke nogen tags."
       title: "Håndter fulgte tags"
@@ -1300,15 +1107,12 @@ da:
     name_too_long: "Lav venligst et tag-navn på under %{count} tegn. Lige nu er det på %{current_length} tegn."
     show:
       follow: "Følg #%{tag}"
-      following: "Følger #%{tag}"
       none: "Det tomme tag eksisterer ikke!"
       stop_following: "Hold op med at følge #%{tag}"
       tagged_people:
         one: "En person har brugt %{tag} tag"
         other: "%{count} personer har brugt %{tag} tag"
         zero: "Ingen har brugt %{tag} tag"
-  terms_and_conditions: "Regler og vilkår"
-  undo: "Fortryd?"
   username: "Brugernavn"
   users:
     confirm_email:
@@ -1323,33 +1127,31 @@ da:
       auto_follow_aspect: "Aspekt for automatisk tilføjede kontakter:"
       auto_follow_back: "Følg automatisk brugere der følger dig"
       change: "Skift"
+      change_color_theme: "Skift farvetema"
       change_email: "Skift e-mail"
       change_language: "Skift sprog"
       change_password: "Skift adgangskode"
       character_minimum_expl: "skal være mindst seks tegn"
       close_account:
         dont_go: "Hey, gå ikke!"
-        if_you_want_this: "Hvis du virkelig ønsker dette, indtast da din adgangskode og klik på \"Luk konto\""
         lock_username: "Dit brugernavn vil blive låst. Du vil ikke kunne åbne en ny konto på denne pod med det samme ID."
         locked_out: "Du vil blive logget ud og derefter låst ude af din konto indtil den er blevet slettet."
         make_diaspora_better: "Vi vlle ønske du blev og hjalp os med at gøre Diaspora til et bedre sted. Men hvis du virkelig ønsker at forlade os, foregår det på denne måde:"
-        mr_wiggles: "Hr. Wiggles bliver ked af det når du forlader os"
+        mr_wiggles: "Hr. Wiggles bliver ked af det hvis du forlader os"
         no_turning_back: "Du kan ikke fortryde dette! Hvis du er helt sikker, indtast din adgangskode herunder."
         what_we_delete: "Vi sletter alle dine indlæg og profildata så hurtigt som overhovedet muligt. Dine kommentarer til andre folks indlæg vil forblive, men vil vise dit Diaspora-ID og ikke dit navn."
       close_account_text: "Luk konto"
       comment_on_post: "... nogen har kommenteret dit indlæg."
       current_password: "Nuværende adgangskode"
-      current_password_expl: "det du loggede ind med..."
+      current_password_expl: "det du logger ind med ..."
       download_export: "Download min profil"
       download_export_photos: "Hent mine billeder"
-      download_photos: "Download mine billeder"
       edit_account: "Rediger konto"
       email_awaiting_confirmation: "Vi har sendt dig et aktiveringslink til %{unconfirmed_email}. Indtil du følger dette link og aktiverer den nye adresse, vil vi fortsætte med at bruge din oprindelige adresse %{email}."
-      export_data: "Eksportér data"
+      export_data: "Eksporter data"
       export_in_progress: "Vi er ved at behandle dine data. Vend venligst tilbage om et øjeblik."
       export_photos_in_progress: "Vi behandler dine billeder. Vend tilbage om et øjeblik."
       following: "Delingsindstillinger"
-      getting_started: "Ny bruger opsætning"
       last_exported_at: "(sidst opdateret %{timestamp})"
       liked: "... nogen synes om dit indlæg."
       mentioned: "... du er nævnt i et indlæg."
@@ -1362,7 +1164,7 @@ da:
       request_export_update: "Genopfrisk mine profildata"
       reshared: "... nogen deler dit indlæg."
       show_community_spotlight: "Vis Community Spotlight i din strøm?"
-      show_getting_started: "Genaktivér 'Kom godt i gang'"
+      show_getting_started: "Genaktiver 'Kom godt i gang'"
       someone_reported: "Der er en der har sendt en rapport"
       started_sharing: "... nogen er begyndt at dele med dig."
       stream_preferences: "Opsætning af din Strøm"
@@ -1376,19 +1178,20 @@ da:
       connect_to_facebook_link: "Forbinde din Facebook-konto"
       hashtag_explanation: "Hashtags giver dig mulighed for at tale om og følge dine interesser. De er også en fantastisk måde at finde nye folk på Diaspora."
       hashtag_suggestions: "Prøv med følgende tags som #kunst, #film, #gif, osv."
-      saved: "Gemt!"
       well_hello_there: "Hejsa!"
       what_are_you_in_to: "Hvad er dine interesser?"
       who_are_you: "Hvem er du?"
     privacy_settings:
       ignored_users: "Ignorerede brugere"
       no_user_ignored_message: "Du ignorerer for tiden ikke andre brugere"
-      stop_ignoring: "hold op med at ignorere"
+      stop_ignoring: "Hold op med at ignorere"
       strip_exif: "Fjern metadata såsom: sted, fotografens navn og kameramodel fra mine uploadede billeder (anbefalet)"
       title: "Privatlivs indstillinger"
     public:
       does_not_exist: "Brugeren %{username} findes ikke!"
     update:
+      color_theme_changed: "Dit farvetema er blevet skiftet."
+      color_theme_not_changed: "Der opstod en fejl med at skifte farvetema."
       email_notifications_changed: "E-mail notifikation ændret"
       follow_settings_changed: "Følgeskabsindstillinger ændret"
       follow_settings_not_changed: "Ændring af følgeskabsindstillinger mislykkedes."
@@ -1400,13 +1203,6 @@ da:
       settings_updated: "Indstillingerne blev opdateret"
       unconfirmed_email_changed: "E-mail ændret. Kræver aktivering."
       unconfirmed_email_not_changed: "E-mail ændring mislykkedes"
-  webfinger:
-    fetch_failed: "Kunne ikke hente webfinger profil for %{profile_url}"
-    hcard_fetch_failed: "Der opstod et problem i forbindelse med hentning af hcard for %{account}"
-    no_person_constructed: "Ingen person kunne konstrueres fra dette hcard."
-    not_enabled: "Det ser ikke ud til at webfinger er aktiveret på %{account}s domæne"
-    xrd_fetch_failed: "Der opstod en fejl i forbindelse med hentning af xrd fra kontoen %{account}"
-  welcome: "Velkommen!"
   will_paginate:
     next_label: "næste &raquo;"
     previous_label: "&laquo; forrige"

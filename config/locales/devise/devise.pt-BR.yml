@@ -79,7 +79,7 @@ pt-BR:
         receive_confirmation: "Não recebeu instruções de confirmação?"
         receive_unlock: "Não recebeu instruções de desbloqueio?"
         sign_in: "Entrar"
-        sign_up: "Cadastre-se"
+        sign_up: "Criar conta"
         sign_up_closed: "Registros abertos estão encerrados no momento."
     unlocks:
       new:

@@ -40,8 +40,6 @@ nds:
       error_remove: "Kun <%= name %> nich ut den Aspekt rutdaun :("
       remove_contact: "Kontakt löschen"
       search_no_results: "Keene Kontakte funnen"
-    conversation:
-      participants: "Bedeeligte"
     delete: "Löschen"
     edit: "Ännern"
     failed_to_remove: "Kun den Indrag nich löschen!"
@@ -68,9 +66,6 @@ nds:
     ignore: "Ignorieren"
     ignore_failed: "Kun dissen Bruker nich ignorieren"
     ignore_user: "Dissen Bruker ignorieren?"
-    infinite_scroll:
-      no_more: "Keene Bidräg mehr."
-      no_more_contacts: "Keene annern Kontakte."
     my_activity: "Mien Rümröören"
     my_aspects: "Miene Aspekte"
     my_stream: "Stream"
@@ -105,7 +100,6 @@ nds:
       contacts: "Kontakte"
       edit: "Ännern"
       gender: "Geschlecht"
-      ignoring: "Du ignorierst alle Bidräg von <%= name %>."
       location: "Ort"
       photos: "Bilder"
       posts: "Bidräg"
@@ -172,11 +166,4 @@ nds:
       wordSeparator: " "
       years: "%d Johre"
     viewer:
-      comment: "Kommentieren"
-      follow_post: "Den Bidrag folgen"
-      home: "Startsiet"
-      like: "Mag ik"
-      reshare: "Widerseggen"
       reshared: "Widerseggt"
-      stop_following_post: "Den Bidrag nich mehr folgen"
-      unlike: "Mag ik nich mehr"

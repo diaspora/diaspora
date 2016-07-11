@@ -6,11 +6,8 @@
 
 en_valspeak:
   _applications: "Appz"
-  _comments: "Txts"
   _contacts: "BFFs <3"
   _help: "Need halp!!"
-  _home: "ur place"
-  _photos: "Picz n selfiez"
   _services: "Other socialz"
   _statistics: "statsss"
   _terms: "boring legal stuff"
@@ -123,13 +120,7 @@ en_valspeak:
         other: "Number of new ppl this week: %{count}"
         zero: "Number of new ppl this week: none :\\"
       current_server: "So like... the current server date ish like... %{date}"
-  ago: "it was like... %{time} ago"
   all_aspects: "All aspectz"
-  application:
-    helper:
-      unknown_person: "this person is like... not known... sry bout that :\\"
-      video_title:
-        unknown: "this video title is like... not known... sry bout that :\\"
   are_you_sure: "R u like, for sure?"
   are_you_sure_delete_account: "R u like, mental? U like, wanna close ur account? U should like stay! YOLO! Well if u do, remember, like, this CANT b undone. Kay?"
   aspect_memberships:
@@ -144,46 +135,26 @@ en_valspeak:
       success: "OMG! Movin them like, totally WORKED! <333"
     aspect_listings:
       add_an_aspect: "+ Addn aspect"
-      deselect_all: "unhighlight everythin"
-      edit_aspect: "Like edit %{name}"
-      select_all: "highlight everythin"
     aspect_stream:
       make_something: "Make somethin.."
       stay_updated: "stay like... up 2 date"
       stay_updated_explanation: "Ur wall has like... ur BFFs n tagz n junk on it..."
-    contacts_not_visible: "Ppl in this group will like... not b able 2 c each other n stuff"
-    contacts_visible: "Ppl in this aspect will like.. b able 2 c each other n stuff"
-    create:
-      failure: "group makin failed."
-      success: "Ur new group %{name} was like... created"
     destroy:
       failure: "%{name} is like... not gone n so it like... cant b removed... sry bout tht :\\"
       success: "%{name} is nao like... gone n stuff."
     edit:
-      aspect_chat_is_not_enabled: "ppl in this aspect are like, not able to chat wit u. sry bout tht :\\"
       aspect_list_is_not_visible: "Ppl in this aspect r like.. not able 2 c each other."
       aspect_list_is_visible: "Ppl in this aspect r like.. able 2 c each other."
       confirm_remove_aspect: "R u sure u want 2 like... remove this aspect?"
-      grant_contacts_chat_privilege: "Give the ppl in this aspect chat privies?"
-      make_aspect_list_visible: "make ppl in this group like... able 2 see each other?"
-      remove_aspect: "Git rid of this aspect"
       rename: "bag this name.."
-      set_visibility: "Set look at prefs"
       update: "make like... newer..."
       updating: "makin like... newer..."
     index:
-      diaspora_id:
-        content_1: "ur diaspora* id is:"
-        content_2: "give it 2 ne1, except for creepers, n theyll b able to like... find u.."
-        heading: "ur like... id"
       donate: "give like... free money"
-      handle_explanation: "This is like... ur name thingy. Its like an email... like.. that thing that my mom uses... she's like... so totally disgustin... she like, wheres mom jeans its like barf out! Gag me with a spoon! So like, neway, this will like... let ppl reach u n stuff."
       help:
         any_problem: "Havin drama?"
         contact_podmin: "Contact the dude that manages ur pod!"
         do_you: "do u... like:"
-        email_feedback: "%{link} ur feedback n junk"
-        email_link: "Emailll <3"
         feature_suggestion: "... do u like... have a %{link} suggestion?"
         find_a_bug: "... find a like... %{link}?"
         have_a_question: "... have a like... %{link}?"
@@ -196,31 +167,20 @@ en_valspeak:
         tutorial_link_text: "Tutorialz!!"
         tutorials_and_wiki: "%{faq}, %{tutorial}, && %{wiki}: Halp for ur first stepz."
       introduce_yourself: "so this is like, ur stream thing... its like facebooks wall thingy but like... less annoyin n wit like... less adz n picz of food and stuff... like, post sumthin n see if ne1 repliez... like... yeah"
-      keep_diaspora_running: "Keep d* from suckin wit a monthly donation! :D<3"
       keep_pod_running: "So like, keep %{pod} from bein all slow n stupid by like... donatin monthly n stuff! <3(:"
       new_here:
         follow: "follow %{link} n like ... welcome new ppl 2 diaspora*!"
         learn_more: "like... learn moar n stuff..."
         title: "dude! u should like, totally whalecum the new diaspora ppl. its a blast like... yeah.."
-      no_contacts: "No BFFs :("
-      no_tags: "+ Find a tag 2 like... follow n junk"
-      people_sharing_with_you: "ppl sharin wit u"
-      post_a_message: "txt somethin >>"
       services:
         content: "U can like... connect the followin things 2 d*:"
         heading: "connect like... other stuff.."
-      unfollow_tag: "Stop creepin on ppl who like... post stuff usin %{tag}"
       welcome_to_diaspora: "OMG HEY! Like, welcome to diaspora*, %{name}. its pretty bitchin' n has electrolytes(;"
-    new:
-      create: "Make like.. a new aspect"
-      name: "Name (only like... u can c it)"
     no_contacts_message:
       community_spotlight: "d* celebz"
       or_spotlight: "Or u can like... share wit %{link}"
       try_adding_some_more_contacts: "U can like... search or like... invite moar ppl."
       you_should_add_some_more_contacts: "U should like... add some moar ppl!"
-    no_posts_message:
-      start_talking: "No 1z gossiped yet! Lame :\\"
     seed:
       acquaintances: "Some ppl I sorta kno"
       family: "Fam"
@@ -229,7 +189,6 @@ en_valspeak:
     update:
       failure: "Ur group, %{name}, had like... a rlly long name.. so yeah... it wasnt saved... sry :\\"
       success: "Ur aspect, %{name}, has like... not flipped out. So ur good!(:"
-  back: "go back"
   blocks:
     create:
       failure: "couldnt ignore the h8ter.  #lame"
@@ -241,41 +200,28 @@ en_valspeak:
     explanation: "post 2 d* from like.. anywhere by like... saving this thing => %{link}"
     heading: "save page thingy"
     post_something: "put it on d* n stuff"
-    post_success: "its like posted nao... byez! <3"
   cancel: "Nvm"
   comments:
     new_comment:
       comment: "say somethin"
       commenting: "sayin somethin"
-    one: "OMG! u got a comment!!!"
-    other: "OMG! u got like %{count} commentz!!!"
-    zero: "like... no commentz :("
   contacts:
-    create:
-      failure: "there was like... drama when makin a BFF"
     index:
       add_a_new_aspect: "add a new aspect!"
       add_contact: "Add BFF <3"
-      add_to_aspect: "add BFFs 2 %{name}"
       all_contacts: "All BFFs!!"
       community_spotlight: "d* celebz <33"
       my_contacts: "My BFFs!!! <333"
       no_contacts: "u like... need 2 add sum ppl"
       no_contacts_message: "OMG! u should like... check out %{community_spotlight}"
       only_sharing_with_me: "only sharin wit me"
-      remove_contact: "Trash BFF :("
       start_a_conversation: "start a like... convo"
       title: "BFFs"
       user_search: "Ppl stalk"
-      your_contacts: "ur BFFs"
-    sharing:
-      people_sharing: "ppl sharin wit u:"
     spotlight:
       community_spotlight: "d* celebz!! <3"
       suggest_member: "Suggest a membah!!(:"
   conversations:
-    conversation:
-      participants: "Ppl participatin"
     create:
       fail: "bad txt"
       no_contact: "Umm HELLO, u need 2 like, add them first! Duh!"
@@ -283,20 +229,12 @@ en_valspeak:
     destroy:
       delete_success: "convo successfully deleted YAAAAY!((:"
       hide_success: "convo be hidden!(:"
-    helper:
-      new_messages:
-        one: "1 new txts! ZOMG!!!"
-        other: "%{count} new txts! ZOMG!!!"
-        zero: "No new txts :("
     index:
       conversations_inbox: "Convos - Inbox"
-      create_a_new_conversation: "start a new convo"
       inbox: "Txts <3"
       new_conversation: "New convo"
-      no_conversation_selected: "no convo picked :\\"
       no_messages: "therez like... no messagez :( </3"
     new:
-      abandon_changes: "nvm?"
       send: "txt"
       sending: "txtin..."
       subject: "topic"
@@ -319,10 +257,6 @@ en_valspeak:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "so much drama! chillax n try again, k?"
-      invalid_fields: "not the like... rite fieldz..."
-    login_try_again: "Plz <a href='%{login_link}'> like login</a> n like... try again. Kthx <3"
-    post_not_public: "Umm, the postie u r tryin 2 look at is like... not public! derrp"
-    post_not_public_or_not_exist: "So like, the postie u r tryin to look at is not public or it like.. doesnt exist. sry bout tht :\\"
   fill_me_out: "Like, put ur txt into here like, K?"
   find_people: "find new BFFs or #stuff"
   help:
@@ -529,45 +463,27 @@ en_valspeak:
     tutorial: "tutorial<3"
     tutorials: "tutorialz!!"
     wiki: "ZOMG D*'s OWN WIKIPEDIA!! :DDD"
-  hide: "Cover"
-  ignore: "Talk to the hand"
-  invitation_codes:
-    excited: "%{name} is like so TOTALLY excited 2 see u!! :D"
   invitations:
     a_facebook_user: "a like... fb usah"
     check_token:
       not_found: "invite token was like... not found :\\"
     create:
-      already_contacts: "u r like.. already talkin 2 this ppl"
-      already_sent: "u like... already invited this ppl."
       empty: "Plz enter at least 1 email addy, thx<3"
       no_more: "u have like... no moar invites."
       note_already_sent: "Invites have like... already been sent 2: %{emails}"
-      own_address: "Umm, u like... cant send an invite 2 ur own address.. duh."
       rejected: "the followin email addys made drama: "
       sent: "Ur invites have like... ben sent 2: %{emails}"
-    edit:
-      accept_your_invitation: "RSVP"
-      your_account_awaits: "ur account like.. awaits! OMG! TOTALLY!"
     new:
-      already_invited: "The followin ppl didnt like accept ur invite:"
-      aspect: "Aspectt"
-      check_out_diaspora: "check out d* dude!!"
       codes_left:
         one: "So theres like... one invite left on this code. Yup."
         other: "ZOMG! theres like %{count} invites left on this code... yeah..."
         zero: "sry, theres like no invites left on this code. omg like totally lame.... yeah... wanna go 2 taco bell?(:"
       comma_separated_plz: "U can enter lots of different email addies by usin commaz! <3"
-      if_they_accept_info: "if they like... accept, they will b added 2 the group u like invited them 2..."
       invite_someone_to_join: "invite sum1 2 da partay!!!"
       language: "what do u like... speak?"
       paste_link: "Share this link wit ur BFFs 2 invite them 2 d*, or like... txt them the link n stuff."
-      personal_message: "sext(;"
-      resend: "Re-txt"
       send_an_invitation: "send an invite"
-      send_invitation: "send invite"
       sending_invitation: "Sendin invite, hold up..."
-      to: "2"
   layouts:
     application:
       back_to_top: "Go back 2 the top"
@@ -576,35 +492,13 @@ en_valspeak:
       source_package: "dl code n stuff.."
       toggle: "make like... phone friendly..."
       whats_new: "sup?"
-      your_aspects: "ur like... aspectz"
     header:
-      admin: "the man"
-      blog: "bllllooog"
       code: "code"
-      help: "Halp"
-      login: "check in"
       logout: "Bounce"
       profile: "Wall"
-      recent_notifications: "Recent noties! <3"
       settings: "Settins"
-      view_all: "Look at all"
-  likes:
-    likes:
-      people_dislike_this:
-        one: "%{count} dislike :("
-        other: "%{count} dislikes :((("
-        zero: "no dislikes(:"
-      people_like_this:
-        one: "1 like!! OMG!!!"
-        other: "%{count} likes!!! OMFG!!!"
-        zero: "omg, theres like.. no likes :("
-      people_like_this_comment:
-        one: "%{count} like!!!"
-        other: "%{count} likez!!! :D"
-        zero: "no likes :("
   limited: "Only ur BFFs can c these! OMG!"
   more: "Moar"
-  next: "next!"
   no_results: "no results found... lame..."
   notifications:
     also_commented:
@@ -619,11 +513,6 @@ en_valspeak:
       one: "%{actors} commented on ur postie %{post_link}. OMG!"
       other: "%{actors} commented on ur postie %{post_link}. OMG!"
       zero: "%{actors} like... commented on ur postie %{post_link}."
-    helper:
-      new_notifications:
-        one: "1 new notie!!"
-        other: "%{count} new noties!!! :D"
-        zero: "no new noties :("
     index:
       all_notifications: "All noties"
       also_commented: "Also comment'd"
@@ -681,7 +570,6 @@ en_valspeak:
   notifier:
     a_limited_post_comment: "OMG!!! YOU GOT A NEW COMMENTT!!! But its like.. on a post that ppl cant see.. so like.. go check it out!"
     a_post_you_shared: "a postie!!"
-    accept_invite: "RSVP ur d* invite!!"
     click_here: "click this txt"
     comment_on_post:
       reply: "Reply or like... look at %{name}'s postie >"
@@ -725,7 +613,6 @@ en_valspeak:
       liked: "OMG! %{name} has like liked ur postie!!!"
       view_post: "Look at postie >"
     mentioned:
-      mentioned: "mentioned u in a postie:"
       subject: "OMG! %{name} has like... mentioned u on d*"
     private_message:
       reply_to_or_view: "Reply 2 or like... look at this convo >"
@@ -786,20 +673,9 @@ en_valspeak:
     to_change_your_notification_settings: "2 change ur notie settins"
   nsfw: "OMG! GROODY!"
   ok: "For SURE"
-  or: "or like"
-  password: "Passwerd"
-  password_confirmation: "2 make sure u put in the right passwerd n junk"
   people:
     add_contact:
       invited_by: "u were like... invited by"
-    add_contact_small:
-      add_contact_from_tag: "add BFF frum tag"
-    aspect_list:
-      edit_membership: "like.. edit aspect membership n junk"
-    helper:
-      is_not_sharing: "%{name} is not sharin wit u :("
-      is_sharing: "%{name} is sharin wit u!!"
-      results_for: " ur like.. resultz for %{params}"
     index:
       couldnt_find_them: "couldnt find them? thats totally lame :("
       looking_for: "U like... lookin for posties tagged %{tag_link}?"
@@ -809,100 +685,47 @@ en_valspeak:
       search_handle: "use their d* ID (usahname@pod.tld) to b for sure 2 find ur BFFs."
       searching: "im lookin, brb... <3"
       send_invite: "still nothin? :( send an invite!!! :DDD"
-    one: "1 personz"
-    other: "%{count} ppl"
     person:
-      add_contact: "add BFF <3"
-      already_connected: "ur like... already connected n stuff"
-      pending_request: "waitin' on request"
       thats_you: "OMG! thats u!!!! FAR OUT!"
     profile_sidebar:
       bio: "all about meee <333"
       born: "Bday"
-      edit_my_profile: "change my stuff.."
       gender: "dude or dudette or whatev..."
-      in_aspects: "in aspectz"
       location: "my crib"
-      photos: "Picz n selfiez"
-      remove_contact: "delete BFF"
-      remove_from: "Do u like... wanna trash %{name} from %{aspect}?"
     show:
       closed_account: "this profile is gone dude..."
       does_not_exist: "they dont like... exist :\\"
       has_not_shared_with_you_yet: "%{name} has like... not shared ne posties wit u yet!"
-      ignoring: "U r like... ignorin all posties from %{name}."
-      incoming_request: "%{name} wants 2 like... share wit u"
-      mention: "Tag person"
-      message: "Txt"
-      not_connected: "ur not like... sharin wit this person... im sure!"
-      recent_posts: "Recent posties!!!"
-      recent_public_posts: "Recent posties that like... every1 can c!!!"
-      return_to_aspects: "bounce back 2 ur aspectz page... thingy..."
-      see_all: "C all!!!"
-      start_sharing: "start like... sharin"
-      to_accept_or_ignore: "2 like... accept or not accept.."
-    sub_header:
-      add_some: "like... add sum"
-      edit: "edit!"
-      you_have_no_tags: "Umm, u like have no tagz! Duh!"
-    webfinger:
-      fail: "sry, we cant find %{handle}"
-    zero: "no ppl"
   photos:
-    comment_email_subject: "%{name}'s pic!"
     create:
       integrity_error: "The pic didnt like... upload.  R u like for sure that was a pic n not somethin else?"
       runtime_error: "Pic didnt like... upload.  R u like for sure ur duck face is like.. ducky enough?"
       type_error: "So like... ur pic wasnt added.  r u like... sure u actually like... added it?"
     destroy:
       notice: "Pic deleted :o"
-    edit:
-      editing: "Editin"
-    new:
-      back_to_list: "Go back to the like... list"
-      new_photo: "New pic!! OMG! -duck face-"
-      post_it: "OMG! post it!"
     new_photo:
       empty: "{file} is like... empty, plz pick the filez again witout that 1. kthx"
       invalid_ext: "{file} is like... not able2 b uploaded cuz like... its not the right kinda file.. only like... these {extensions} r allowed... sry bout tht :\\"
       size_error: "OMG {file} is 2 big!! the biggest i can take is like... {sizeLimit}.(;"
     new_profile_photo:
-      or_select_one_existing: "or like... pick 1 from ur %{photos}"
       upload: "Upload a new selfie!!! OMG!!"
-    photo:
-      view_all: "look at all of %{name}'z picz"
     show:
-      collection_permalink: "the like... collection permalink... thing.."
-      delete_photo: "Delete pic"
-      edit: "edit picz and selfiez"
-      edit_delete_photo: "Edit pic topic / trash pic"
-      make_profile_photo: "make profile pic"
       show_original_post: "Show da original postie"
-      update_photo: "Change Pic"
-    update:
-      error: "the pic wasnt like... edited... sry bout that :\\"
-      notice: "pic changed <3"
   posts:
     presenter:
       title: "A postie from %{name}"
     show:
-      destroy: "Trash ur pic"
       forbidden: "So like, ur not allowed to do tht..."
-      not_found: "Sry, but we like... couldnt find that postie. :\\"
-      permalink: "like... permalink"
       photos_by:
         one: "One pic by %{author}"
         other: "%{count} picz by %{author}"
         zero: "No picz by %{author}"
       reshare_by: "Reshare is like... by %{author}"
-  previous: "prevy!"
   privacy: "OMG give me some privacy!"
-  privacy_policy: "Wat like... privacy u have"
   profile: "Like ur profile"
   profiles:
     edit:
       allow_search: "Do u wanna like... let ppl stalk u within d*?"
-      edit_profile: "Edit profie!!"
       first_name: "First name? Kthx"
       last_name: "Last name? Kthx"
       nsfw_check: "Like, mark everythin i share as groody"
@@ -915,8 +738,6 @@ en_valspeak:
       your_location: "Ur place"
       your_name: "Ur name"
       your_photo: "Ur pic"
-      your_private_profile: "Ur like... private profile..."
-      your_public_profile: "Ur like... profile where every1 can like... c it..."
       your_tags: "Describe urself in like... 5 werdz"
       your_tags_placeholder: "like #twilight #selfies #Belieber #iphone #mtv"
     update:
@@ -931,26 +752,16 @@ en_valspeak:
     closed: "Signups r like... closed on here... sry bout that :\\ totally lame, right?"
     create:
       success: "u've joined d*!!! OMFG YAAAAAYYY!! :DDD"
-    edit:
-      cancel_my_account: "Trash mah account! Plz Kthx"
-      edit: "edit %{name} n junk"
-      leave_blank: "(dont like... type nething if u like.. dont wanna change it kthx)"
-      password_to_confirm: "(we liek... need ur current secret code thingy to make sure it like.. matches the other 1... kthx)"
-      unhappy: "Butthurt? :("
-      update: "Like... update"
     invalid_invite: "OMG, dude, ur invite link is like... SOOOO old... like... gross. so like, sry but its no longer valid. Kthxbye<3"
     new:
-      create_my_account: "Make ur account!!! :DD"
       email: "EMAIL<3"
       enter_email: "Enter like... an email"
       enter_password: "Enter a like... secret code thats like... moar than 6 keys n junk"
       enter_password_again: "enter what u liek... entered b4"
       enter_username: "So like.. pick a name that ppl will like... call u by.. n sry but u can only like.. use letters numbers n these things \"_\" but like.. witout the up n down lines n junk..."
-      join_the_movement: "Join the awesomeness!!!"
       password: "PASSWERD<3"
       password_confirmation: "PASSWERD CONFIRMATION!!"
       sign_up: "SIGN UP!!"
-      sign_up_message: "This is like.. social networkin with a <3"
       submitting: "Submittin... just a sec..."
       terms: "By creatin an account u like... accept the %{terms_link}."
       terms_link: "more boring legal stuff"
@@ -965,43 +776,15 @@ en_valspeak:
     reported_label: "<b>Like, reported by</b> %{person}"
     review_link: "Mark as like, reviewed n stuff"
     status:
-      created: "OMG some1s in troubleee!! A report was made :o"
       destroyed: "The postie went bye byez!"
       failed: "Somethin screwed up. sry bout that :\\"
-      marked: "So umm, like, the report was like, marked as reviewed and stuff."
     title: "Reportz Ovahview"
-  requests:
-    create:
-      sending: "Sendin"
-      sent: "U've like... asked 2 share wit %{name}.  They should like... c it the like.. next time they check into d* <3"
-    destroy:
-      error: "Plz pick an aspect!! Kthx<3"
-      ignore: "Ignored h8ter request"
-      success: "U r nao sharin!"
-    helper:
-      new_requests:
-        one: "new request!!!"
-        other: "%{count} new requests!!! :D"
-        zero: "no new requests :("
-    manage_aspect_contacts:
-      existing: "Existin BFFs"
-      manage_within: "Manage BFFs within"
-    new_request_to_person:
-      sent: "sent!!!"
   reshares:
     comment_email_subject: "%{resharer}'s like... reshare of %{author}'s postie"
-    create:
-      failure: "There was drama when resharin this postie :("
     reshare:
       deleted: "The original postie was like... deleted by the person who made it :("
-      reshare:
-        one: "1 reshare!!!"
-        other: "%{count} reshares!! :DD"
-        zero: "Like... reshare"
       reshare_confirmation: "Like... reshare %{author}'z postie n stuff?"
-      reshare_original: "Reshare the like, original"
       reshared_via: "like reshared via"
-      show_original: "Show the like... original"
   search: "like look for stuff like #shoes!"
   services:
     create:
@@ -1013,10 +796,6 @@ en_valspeak:
       success: "Yay! Trashed eet woo!!"
     failure:
       error: "there was drama when connectin 2 that thing :\\"
-    finder:
-      fetching_contacts: "d* is like... populatin ur %{service} BFFs, plz check back n liek... a few mins. Kthxbye <3"
-      no_friends: "No FB friendz found. :\\"
-      service_friends: "Ur like... %{service} BFFs"
     index:
       disconnect: "like disconnect"
       edit_services: "Edit servies!!!"
@@ -1024,54 +803,23 @@ en_valspeak:
       not_logged_in: "ur like.. currently not logged in and stuffz"
       really_disconnect: "drop %{service}?"
       services_explanation: "Connectin 2 servies gives u like... the ability 2 post ur posties 2 them as u write them in d*! :p"
-    inviter:
-      click_link_to_accept_invitation: "so like... follow this link 2 like... accept ur invite"
-      join_me_on_diaspora: "Chill wit me on diaspora*!"
     provider:
       facebook: "fb"
       tumblr: "tmblr"
       twitter: "Twittar<333"
       wordpress: "WurdPress"
-    remote_friend:
-      invite: "invite!!"
-      not_on_diaspora: "Not yet on d* :("
-      resend: "retxt"
   settings: "Like ur settinz"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "%{name}'s has like... ben hidden, n noties have been like... made quiet."
-      see_it_on_their_profile: "If u like... want 2 c updates on this postie, go 2 %{name}'z profile n stuff."
   shared:
-    add_contact:
-      add_new_contact: "add a new BFF"
-      create_request: "Find by d* id thing.."
-      diaspora_handle: "nick@pod.org"
-      enter_a_diaspora_username: "Enter a d* usernameeee:"
-      know_email: "do u liek... kno their email addy? U should like TOTALLY invite them!!"
-      your_diaspora_username_is: "Ur d* username is like: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Add BFF"
       toggle:
         one: "In like... %{count} aspect"
         other: "In like... %{count} aspectz"
         zero: "add BFF"
-    contact_list:
-      all_contacts: "All BFFs!!"
-    footer:
-      logged_in_as: "checkin in as %{name}"
-      your_aspects: "ur aspectz"
     invitations:
       by_email: "By email(:"
-      dont_have_now: "U dont like.. have ne right nao :\\ BUT moar invites r comin soon! yay! :D"
-      from_facebook: "From FB"
-      invitations_left: "so like... theres %{count} left"
-      invite_someone: "Invite ppl!"
       invite_your_friends: "Invite ur BFFs!!"
       invites: "Invites!!"
-      invites_closed: "so like... invites r closed for this pod... sry bout that :\\"
       share_this: "Share this link like... via email, blogg, or social netz!"
-    notification:
-      new: "OMG new %{type} from %{from}!!!"
     public_explain:
       atom_feed: "Feed thingy"
       control_your_audience: "Control ur ppl"
@@ -1083,12 +831,9 @@ en_valspeak:
       title: "Set up other servies"
       visibility_dropdown: "Use dis dropdown 2 change who can like... c ur postie.  (we like... recommend u make this first 1 2 where ne1 can c it.)"
     publisher:
-      all: "allll"
-      all_contacts: "all ppl"
       discard_post: "Trash postie"
       formatWithMarkdown: "U can like... use %{markdown_link} to make ur postie totally awesome!!(:"
       get_location: "Get ur place in the world!"
-      make_public: "make it so like... every1 can c it"
       new_user_prefill:
         hello: "OMG liek HEY PPL! im #%{new_user_tag} "
         i_like: "im like... rlly into %{tags}. "
@@ -1096,36 +841,15 @@ en_valspeak:
         newhere: "Newbie<3"
       poll:
         add_a_poll: "Add a pole"
-        add_poll_answer: "Like, add an optionnnn"
-        option: "Option #1"
-        question: "q4u"
-        remove_poll_answer: "Trash option"
-      post_a_message_to: "Txt 2 %{aspect}"
       posting: "Postin..."
       preview: "Look at b4 its a postie"
-      publishing_to: "publish 2: "
       remove_location: "Trash where u r"
       share: "Share!!!"
-      share_with: "share wit"
       upload_photos: "Upload picz!!"
       whats_on_your_mind: "Sup dude?"
-    reshare:
-      reshare: "Liek... reshare"
     stream_element:
-      connect_to_comment: "Connect 2 this peep 2 comment on their postie"
-      currently_unavailable: "commenting isnt workin right nao... sry bout that :\\"
-      dislike: "Thumbs down"
-      hide_and_mute: "Hide n like... make postie quiet"
-      ignore_user: "h8te %{name}"
-      ignore_user_description: "Block n delete h8ter from all aspectz?"
-      like: "Thumbs up"
-      nsfw: "This postie has lyke... been flagged as Groody by its author. %{link} n stuff"
-      shared_with: "Shared wit: %{aspect_names}"
-      show: "make seen"
-      unlike: "</3"
       via: "like... via %{link}"
       via_mobile: "via mobilez!!"
-      viewable_to_anyone: "This postie can b seen by ne1 on the internetz"
   simple_captcha:
     label: "enter teh stuff in the box:"
     message:
@@ -1151,21 +875,12 @@ en_valspeak:
   status_messages:
     create:
       success: "YAY! %{names} has been mentioned!! :D"
-    destroy:
-      failure: "so like... ur postie didnt get trashed... sry bout that :\\"
-    helper:
-      no_message_to_display: "No txt 2 display :("
     new:
       mentioning: "Mentionin: %{person}"
     too_long: "Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses"
   stream_helper:
-    hide_comments: "Cover up... like... all commentz"
     no_more_posts: "youre at the end :("
     no_posts_yet: "Therez no posties yet.."
-    show_comments:
-      one: "Show like... 1 moar comment"
-      other: "Show like... %{count} moar commentz"
-      zero: "No moar commentz :("
   streams:
     activity:
       title: "My happenins"
@@ -1191,22 +906,11 @@ en_valspeak:
       title: "Stuff every1 can like... c"
     tags:
       title: "Posties tagged: %{tags}"
-  tag_followings:
-    create:
-      failure: "So like... followin %{name} didnt like... work.  R u like... already followin it?"
-      none: "Umm, u like... cant follow a blank tag! Duh."
-      success: "OMG! Ur nao followin #%{name}. YAAAAY! :DD"
-    destroy:
-      failure: "So like... there was drama when tryin 2 stop followin %{name}. Mayb u already like... stopped followin it?"
-      success: "So like, u rnt followin #%{name} nemore..."
   tags:
     show:
       follow: "Follow like... #%{tag}"
-      following: "Followin #%{tag}"
       none: "Umm, so the like... empty tag doesnt like... exist :\\"
       stop_following: "Stop like... followin #%{tag}"
-  terms_and_conditions: "wat ur like... allowed to do and stuff"
-  undo: "do u wanna like.. undo?"
   username: "ur like... name ppl will find u by or whatever"
   users:
     confirm_email:
@@ -1227,7 +931,6 @@ en_valspeak:
       character_minimum_expl: "must b like... 6 buttons..."
       close_account:
         dont_go: "DUDE! WTF!? Dont leave!"
-        if_you_want_this: "If u like... rlly want this, type in ur passwerd below n click on 'Trash Account'"
         lock_username: "So this will liek.. lock ur username thingy if u decided 2 sign back up n stuff."
         locked_out: "U will like... get like.. automagically bounced n locked out of ur account."
         make_diaspora_better: "We like... want u 2 help make d* bettah n stuff, so u should like.. help us out instead of leavin(: if u do wanna leave, we like... wanna make sure u know wat happens next. K?"
@@ -1240,14 +943,12 @@ en_valspeak:
       current_password_expl: "the 1 u like sign in wit... OMG"
       download_export: "dl my profileee"
       download_export_photos: "dl my pics"
-      download_photos: "dl mah picz"
       edit_account: "Edit ur account <3"
       email_awaiting_confirmation: "So we like... sent u a link 2 like activate %{unconfirmed_email}. Until u like... follow this link && activate this new addy, we will continue 2 like.. use ur original addy %{email}. Kay?"
       export_data: "dl data!!!"
       export_in_progress: "We're gettin ur data... bbl!!!! <3"
       export_photos_in_progress: "So like, we're currently gettin ur photos and junk. Bbl! <3"
       following: "Sharin settins"
-      getting_started: "New user prefies"
       last_exported_at: "(So like, last updated @ %{timestamp})"
       liked: "some1 likes ur postie"
       mentioned: "u r mentioned in a postie"
@@ -1273,7 +974,6 @@ en_valspeak:
       connect_to_facebook_link: "hookin up ur FB account"
       hashtag_explanation: "Ok so like, hashtags allow u 2 talk bout n follow ur interests.  theyre like... also a sweet way 2 find new ppl on d* :D"
       hashtag_suggestions: "Try followin tags like #justinbeiber #16andpregnant #monster #xbox and stuff.."
-      saved: "Saved!!!(:"
       well_hello_there: "Ohai thar! <3"
       what_are_you_in_to: "Wat r u into?"
       who_are_you: "Umm like, who r u?"
@@ -1296,13 +996,6 @@ en_valspeak:
       settings_updated: "Settins updated!!! <33"
       unconfirmed_email_changed: "Ur email was like... changed. N nao it needs activation. K?"
       unconfirmed_email_not_changed: "so like, the email change didnt work. sry bout that :\\"
-  webfinger:
-    fetch_failed: "so like... i couldnt fetch the like... webfinger profile thingy for %{profile_url}. sry bout that :\\"
-    hcard_fetch_failed: "so like, there was like... drama when gettin the hcard for %{account}. yeah, sry bout that :\\"
-    no_person_constructed: "No person could like... b made from this hcard thingy..."
-    not_enabled: "so like... webfinger doesnt seem 2 b enabled for %{account}'s host :\\"
-    xrd_fetch_failed: "there like... was drama when tryin 2 get the xrd from account %{account}..."
-  welcome: "Like, OMG, hey!"
   will_paginate:
     next_label: "next!! &raquo;"
     previous_label: "&laquo; previe!!"

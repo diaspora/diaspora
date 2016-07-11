@@ -45,19 +45,15 @@ ka:
       settings: "პარამეტრები"
       view_all: "ყველას ჩვენება"
     ignore: "იგნორირება"
-    infinite_scroll:
-      no_more: "მეტი პოსტი არ არის."
     my_activity: "ჩემი აქტივობა"
     my_stream: "ნაკადი"
     photo_uploader:
       looking_good: "OMG, ძალიან კარგად გამოიყურები!"
     publisher:
-      at_least_one_aspect: "თქვენ უნდა გამოაქვეყნოთ მინიმუმ ერთ ასპექტში"
       limited: "შეზღუდული - თქვენს პოსტს დაინახავს მხოლოდ ის ხალხი რომელთაც გაუზიარებთ"
       public: "საჯარო - თქვენს პოსტს დაინახავს ყველა და ის გამოჩნდება საძიებო სისტემაში"
     reshares:
       duplicate: "ასეთი მაგარია?  თქვენ უკვე გააზიარეთ ეს პოსტი!"
-    search_for: "<%= name %>-ს მოძებნა"
     show_more: "მეტის ჩვენება"
     stream:
       comment: "კომენტარი"
@@ -108,6 +104,3 @@ ka:
       suffixFromNow: "ამიერიდან"
       year: "დაახლოებით ერთი წელი"
       years: "%d წელი"
-    videos:
-      unknown: "ვიდეოს ტიპი უცნობია"
-      watch: "ვიდეოს ნახვა საიტზე <%= provider %>"

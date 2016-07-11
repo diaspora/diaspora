@@ -6,6 +6,55 @@
 
 de:
   javascripts:
+    admin:
+      pods:
+        actions: "Aktionen"
+        added: "Hinzugefügt"
+        check: "Verbindungstest durchführen"
+        errors:
+          one: "Der Verbindungstest meldete für einen Pod einen Fehler."
+          other: "Der Verbindungstest meldete für <%= count %> Pods einen Fehler."
+        follow_link: "Link im Browser öffnen"
+        last_check: "letzte Überprüfung:"
+        more_info: "zeige weitere Informationen"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "Zur Zeit keine weiteren Informationen verfügbar"
+        not_available: "nicht verfügbar"
+        offline_since: "offline seit:"
+        pod: "Pod"
+        recheck:
+          failure: "Die Überprüfung wurde nicht durchgeführt."
+          success: "Der Pod wurde soeben erneut überprüft."
+        response_time: "Antwortzeit:"
+        server_software: "Server-Software:"
+        ssl: "SSL"
+        ssl_disabled: "SSL deaktiviert"
+        ssl_enabled: "SSL aktiviert"
+        states:
+          dns_failed: "Namensauflösung (DNS) fehlgeschlagen"
+          http_failed: "HTTP-Verbindung fehlgeschlagen"
+          net_failed: "Verbindungsversuch fehlgeschlagen"
+          no_errors: "OK"
+          ssl_failed: "Sichere Verbindung (SSL) fehlgeschlagen"
+          unchecked: "Nicht überprüft"
+          unknown_error: "Während der Überprüfung ist ein nicht angegebener Fehler aufgetreten"
+          version_failed: "Konnte Software-Version nicht ermitteln"
+        status: "Status"
+        unchecked:
+          one: "Es gibt noch immer einen Pod, der gar nicht überprüft wurde."
+          other: "Es gibt noch immer <%= count %> Pods, die gar nicht überprüft wurden."
+        unknown: "unbekannt"
+        version_failed:
+          one: "Es gibt einen Pod, der keine Version hat (alter Pod, kein NodeInfo)."
+          other: "Es gibt <%= count %> Pods, die keine Version haben (alte Pods, kein NodeInfo)."
+    admins:
+      dashboard:
+        compare_versions: "Die neueste diaspora*-Version ist <%= latestVersion %>, dein Pod verwendet <%= podVersion %>."
+        error: "Konnte neueste diaspora*-Version nicht ermitteln."
+        outdated: "Dein Pod ist veraltet."
+        up_to_date: "Dein Pod ist auf dem neuesten Stand!"
     and: "und"
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
@@ -51,6 +100,8 @@ de:
     confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst - Daten, welche du eingegeben hast würden nicht gespeichert werden."
     contacts:
       add_contact: "Kontakt hinzufügen"
+      aspect_chat_is_enabled: "Kontakte in diesem Aspekt können mit dir chatten."
+      aspect_chat_is_not_enabled: "Kontakte in diesem Aspekt können nicht mit dir chatten."
       aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
       aspect_list_is_visible: "Kontakte in diesem Aspekt können einander sehen"
       error_add: "Konnte <%= name %> nicht zum Aspekt hinzufügen :("
@@ -60,11 +111,11 @@ de:
     conversation:
       new:
         no_contacts: "Du musst einige Kontakte hinzufügen, bevor du eine Konversation anfangen kannst."
-      participants: "Teilnehmer"
     create: "Erstellen"
     delete: "Löschen"
     edit: "Bearbeiten"
-    failed_to_like: "Gefällt mir fehlgeschlagen. Vielleicht ignoriert dich der Autor?"
+    failed_to_comment: "Konnte nicht kommentieren. Vielleicht ignoriert dich der Autor?"
+    failed_to_like: "Gefällt mir ist fehlgeschlagen. Vielleicht ignoriert dich der Autor?"
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     failed_to_remove: "Fehler beim Entfernen des Beitrags!"
     failed_to_reshare: "Fehler beim Weitersagen!"
@@ -88,15 +139,14 @@ de:
       recent_notifications: "Neuste Benachrichtigungen"
       search: "Suchen"
       settings: "Einstellungen"
+      toggle_mobile: "Mobile Ansicht umschalten"
+      toggle_navigation: "Navigation umschalten"
       view_all: "Alle anzeigen"
     hide_post: "Diesen Beitrag ausblenden?"
     hide_post_failed: "Ausblenden des Beitrags nicht möglich"
     ignore: "Ignorieren"
     ignore_failed: "Konnte Benutzer nicht ignorieren"
     ignore_user: "Benutzer ignorieren?"
-    infinite_scroll:
-      no_more: "Keine weiteren Beiträge."
-      no_more_contacts: "Keine weiteren Kontakte."
     my_activity: "Meine Aktivitäten"
     my_aspects: "Meine Aspekte"
     my_stream: "Stream"
@@ -121,6 +171,10 @@ de:
       looking_good: "OMG, du siehst toll aus!"
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     poll:
+      answer_count:
+        one: "1 Stimme"
+        other: "<%=count%> Stimmen"
+        zero: "0 Stimmen"
       close_result: "Ergebnis ausblenden"
       count:
         one: "Bisher eine Stimme"
@@ -137,14 +191,12 @@ de:
       contacts: "Kontakte"
       edit: "Bearbeiten"
       gender: "Geschlecht"
-      ignoring: "Du ignorierst sämtliche Beiträge von <%= name %>."
       location: "Ort"
       photos: "Fotos"
       posts: "Beiträge"
       you_have_no_tags: "Du hast keine Tags!"
     publisher:
       add_option: "Antwortmöglichkeit hinzufügen"
-      at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
       near_from: "Gesendet aus <%= location %>"
       option: "Antwort"
@@ -162,7 +214,6 @@ de:
       duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
       post: "<%= name %>s Beitrag weitersagen?"
       successful: "Der Beitrag wurde erfolgreich weitergesagt!"
-    search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentar"
@@ -189,7 +240,12 @@ de:
         other: "Zeige <%= count %> weitere Kommentare"
         zero: "Keine weiteren Kommentare"
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
+      permalink: "Permanentlink"
       public: "Öffentlich"
+      reactions:
+        one: "<%= count%> Reaktion"
+        other: "<%= count%> Reaktionen"
+        zero: "<%= count%> Reaktionen"
       reshare: "Weitersagen"
       reshares:
         few: "<%= count %> mal weitergesagt"
@@ -230,15 +286,5 @@ de:
       year: "etwa einem Jahr"
       years: "%d Jahren"
     unblock_failed: "Den Benutzer zu entblocken ist fehlgeschlagen."
-    videos:
-      unknown: "Unbekanntes Videoformat"
-      watch: "Dieses Video auf <%= provider %> ansehen"
     viewer:
-      comment: "Kommentieren"
-      follow_post: "Diesen Beitrag verfolgen"
-      home: "Start"
-      like: "Gefällt mir"
-      reshare: "Weitersagen"
       reshared: "Weitergesagt"
-      stop_following_post: "Diesen Beitrag nicht mehr verfolgen"
-      unlike: "Gefällt mir nicht mehr"
