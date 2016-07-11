@@ -574,8 +574,7 @@ configuration: ## Section
     #sender_address: 'no-reply@example.org'
 
     ## This selects which mailer should be used. Use 'smtp' for a smtp
-    ## connection, 'sendmail' to use the sendmail binary or
-    ## 'messagebus' to use the messagebus service.
+    ## connection or 'sendmail' to use the sendmail binary.
     #method: 'smtp'
 
     ## Ignore if method isn't 'smtp'.
@@ -617,9 +616,6 @@ configuration: ## Section
 
       ## Use exim and sendmail (default=false)
       #exim_fix: false
-
-    ## Ignore if method isn't 'messagebus'
-    #message_bus_api_key: 'abcdef'
 
   ## Administrator settings
   admins: ## Section
