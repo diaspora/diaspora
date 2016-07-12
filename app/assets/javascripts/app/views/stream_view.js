@@ -1,6 +1,15 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.Stream = app.views.InfScroll.extend({
+  triggerChar: "@",
+  invisibleChar: "\u200B", // zero width space
+  mentionRegex: /@([^@\s]+)$/,
+
+  events: {
+    "click #mention_button": "showMentionModal",
+    "click #message_button": "showMessageModal",
+  },
+
 
   initialize: function() {
     this.stream = this.model;
@@ -21,6 +30,14 @@ app.views.Stream = app.views.InfScroll.extend({
       _.map(this.postViews, function(view){ view.render() });
     }
     app.currentUser.bind("nsfwChanged", reRenderPostViews, this);
+  },
+
+  showMentionModal: function(){
+    app.helpers.showModal("#mentionModal");
+  },
+
+  showMessageModal: function(){
+    app.helpers.showModal("#conversationModal");
   },
 
   markNavSelected : function() {

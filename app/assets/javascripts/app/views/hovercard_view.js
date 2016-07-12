@@ -1,19 +1,40 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.Hovercard = app.views.Base.extend({
+  triggerChar: "@",
+  invisibleChar: "\u200B", // zero width space
+  mentionRegex: /@([^@\s]+)$/,
+
   templateName: 'hovercard',
   id: 'hovercard_container',
 
+  templates: {
+    mentionItemSyntax: _.template("@{<%= name %> ; <%= handle %>}"),
+    mentionItemHighlight: _.template("<strong><span><%= name %></span></strong>")
+  },
+
   events: {
-    'mouseleave': '_mouseleaveHandler'
+    'mouseleave': '_mouseleaveHandler',
+    "keydown #status_message_fake_text": "onInputBoxKeyDown",
+    "input #status_message_fake_text": "onInputBoxInput",
+    "click #status_message_fake_text": "onInputBoxClick",
+    "blur #status_message_fake_text": "onInputBoxBlur",
+    "click #mention_button": "showMentionModal",
+    "click #message_button": "showMessageModal",
   },
 
   initialize: function() {
     this.render();
-
+    console.log($('#mention_button'));
     $(document)
       .on('mouseenter', '.hovercardable', _.bind(this._mouseenterHandler, this))
-      .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this));
+      .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this))
+      .on('click', '#mention_button', function() {
+        $('hovercard_container').fadeOut('fast');
+      })
+      .on('click', '#message_button', function() {
+        $('hovercard_container').fadeOut('fast');
+      });
 
     this.showMe = false;
     this.parent = null;  // current 'hovercardable' element that caused HC to appear
@@ -25,6 +46,8 @@ app.views.Hovercard = app.views.Base.extend({
     this.hashtags = this.$('.hashtags');
     this.person_link = this.$('a.person');
     this.person_handle = this.$('div.handle');
+    // this.person_mention_link = this.$("a.mention");
+    // this.person_message_link = this.$("a.message");
     this.active = true;
   },
 
@@ -95,6 +118,7 @@ app.views.Hovercard = app.views.Base.extend({
   _populateHovercard: function() {
     var href = this.href();
     href += "/hovercard.json";
+    //console.log('calling ' + href);
 
     var self = this;
     $.ajax(href, {preventGlobalErrorHandling: true}).done(function(person){
@@ -119,6 +143,7 @@ app.views.Hovercard = app.views.Base.extend({
     this.person_link.attr('href', person.url);
     this.person_link.text(person.name);
     this.person_handle.text(person.handle);
+    //window.ppp=person;
 
     // set hashtags
     this.hashtags.empty();
@@ -135,6 +160,14 @@ app.views.Hovercard = app.views.Base.extend({
       self.dropdown_container.html(response);
     });
     new app.views.AspectMembership({el: self.dropdown_container});
+  },
+
+  showMentionModal: function(){
+    app.helpers.showModal("#mentionModal");
+  },
+
+  showMessageModal: function(){
+    app.helpers.showModal("#conversationModal");
   },
 
   _positionHovercard: function() {

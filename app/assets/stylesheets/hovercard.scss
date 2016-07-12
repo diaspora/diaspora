@@ -24,7 +24,36 @@
     }
   }
 
+  ul li {
+     display: inline-block;
+     vertical-align: bottom;
+  }
+  .mention {
+    font-size: 17px;
+    color: $text-grey;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    color: lighten($black,75%);
+    &:hover {color: $black; }
+  }
+
+  .message {
+    position: relative;
+    text-decoration: none;
+    cursor:pointer;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    .profile-header-icon {
+      font-size: 17px;
+      line-height: 30px;
+      color: lighten($black,75%);
+      &:hover { color: $black;}
+    }
+  }
+
   $image_width: 80px; /* including margin */
+
 
   > h4,
   > div:not(.card-footer) {
@@ -44,7 +73,7 @@
   }
 
   padding: 5px {
-    bottom: 25px;
+    bottom: 19px;
   };
 
   h4 {

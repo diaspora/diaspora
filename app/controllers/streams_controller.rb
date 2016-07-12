@@ -12,6 +12,11 @@ class StreamsController < ApplicationController
              :mobile,
              :json
 
+  def handle_mention_feedback(status_message)
+    return unless comes_from_others_profile_page?
+    flash[:notice] = t("status_messages.create.success", names: status_message.mentioned_people_names)
+  end
+
   def aspects
     aspect_ids = (session[:a_ids] || [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
@@ -46,6 +51,12 @@ class StreamsController < ApplicationController
   def followed_tags
     gon.preloads[:tagFollowings] = tags
     stream_responder(Stream::FollowedTag)
+  end
+
+  def mention
+  end
+
+  def message
   end
 
   private

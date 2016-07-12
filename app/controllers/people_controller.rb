@@ -169,6 +169,12 @@ class PeopleController < ApplicationController
     render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :size => size}
   end
 
+  def mention
+  end
+
+  def message
+  end
+
   private
 
   def find_person

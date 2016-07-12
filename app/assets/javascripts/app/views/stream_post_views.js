@@ -27,7 +27,9 @@ app.views.StreamPost = app.views.Post.extend({
     "click .block_user": "blockUser",
 
     "click .create_participation": "createParticipation",
-    "click .destroy_participation": "destroyParticipation"
+    "click .destroy_participation": "destroyParticipation",
+    "click #mention_button": "showMentionModal",
+    "click #message_button": "showMessageModal"
   },
 
   tooltipSelector : [".timeago",
@@ -87,6 +89,13 @@ app.views.StreamPost = app.views.Post.extend({
     app.currentUser.toggleNsfwState();
   },
 
+  showMentionModal: function() {
+    app.helpers.showModal("#mentionModal");
+  },
+
+  showMessageModal: function(){
+    app.helpers.showModal("#conversationModal");
+  },
 
   blockUser: function(evt){
     if(evt) { evt.preventDefault(); }
