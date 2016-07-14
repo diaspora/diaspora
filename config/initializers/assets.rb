@@ -2,11 +2,12 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-# bootstrap-markdown plugin relies on rails-assets-bootstrap gem but we use
+# bootstrap-markdown and bootstrap-tags plugin relies on rails-assets-bootstrap gem but we use
 # bootstrap-sass this line makes sure we exclude every asset comming
 # from rails-assets-bootstrap to prevent conflicts with bootstrap-sass
 Rails.configuration.assets.paths.reject! do |path|
-  path.include?("rails-assets-bootstrap") && !path.include?("rails-assets-bootstrap-markdown")
+  path.include?("rails-assets-bootstrap") && !path.include?("rails-assets-bootstrap-markdown") \
+                                          && !path.include?("rails-assets-bootstrap-tags")
 end
 
 Diaspora::Application.configure do

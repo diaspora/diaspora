@@ -121,5 +121,5 @@ app.views.SearchBase = app.views.Base.extend({
 
   ignorePersonForSuggestions: function(person) {
     if(person.handle) { this.ignoreDiasporaIds.push(person.handle); }
-  },
+  }
 });

@@ -240,8 +240,8 @@ en:
       posts: "Posts"
 
     conversation:
-      new:
-        no_contacts: "You need to add some contacts before you can start a conversation."
+      create:
+        no_contacts: "Hey, you need to add a contact first!"
 
     notifications:
       mark_read: "Mark read"

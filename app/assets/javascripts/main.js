@@ -31,6 +31,7 @@
 //= require highlightjs
 //= require clear-form
 //= require typeahead.bundle.js
+//= require bootstrap-tags
 //= require app/app
 //= require diaspora
 //= require_tree ./helpers

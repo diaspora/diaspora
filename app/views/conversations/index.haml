@@ -1,10 +1,7 @@
-- content_for :head do
-  = javascript_include_tag :inbox
-
 - content_for :page_title do
-  = t('.conversations_inbox')
+  = t(".conversations_inbox")
 
-.container-fluid#conversations_container
+.container-fluid#conversations-container
   .row
     .col-md-4
       .sidebar#left_pane
@@ -20,17 +17,20 @@
               = render partial: "conversations/conversation", collection: @visibilities, as: :visibility
             - else
               .no-conversations
-                = t('.no_messages')
+                = t(".no_messages")
             .pagination-container
               = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;", inner_window: 1,
                   renderer: WillPaginate::ActionView::BootstrapLinkRenderer
     .col-md-8
-      .stream_container
+      .conversations-form-container.stream_container
         #conversation-show{class: @conversation ? "" : "hidden"}
           - if @conversation
-            = render 'conversations/show', conversation: @conversation
+            = render "conversations/show", conversation: @conversation
         #conversation-new{class: @conversation ? "framed-content clearfix hidden" : "framed-content clearfix"}
-          .new-conversation
-            %h3.text-center
-              = t("conversations.index.new_conversation")
-            = render "conversations/new"
+          - if no_contacts
+            .well.text-center= t(".no_contacts")
+          - else
+            .new-conversation
+              %h3.text-center
+                = t("conversations.index.new_conversation")
+              = render "conversations/new"

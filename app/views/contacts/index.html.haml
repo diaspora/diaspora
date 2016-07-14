@@ -34,7 +34,7 @@
           .spinner
 
 -if @aspect
-  #new_conversation_pane
+  .conversations-form-container#new_conversation_pane
     = render 'shared/modal',
         :path => new_conversation_path(:aspect_id => @aspect.id, :name => @aspect.name, :modal => true),
         :title => t('conversations.index.new_conversation'),

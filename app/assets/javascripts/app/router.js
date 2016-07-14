@@ -94,7 +94,7 @@ app.Router = Backbone.Router.extend({
   },
 
   conversations: function(id) {
-    app.conversations = app.conversations || new app.views.Conversations();
+    app.conversations = app.conversations || new app.views.ConversationsInbox();
     app.conversations.renderConversation(id);
   },
 

@@ -115,6 +115,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-perfect-scrollbar",             "0.6.12"
   gem "rails-assets-autosize",                      "3.0.17"
   gem "rails-assets-blueimp-gallery",               "2.21.3"
+  gem "rails-assets-bootstrap-tags",                "1.1.6"
 end
 
 # Localization

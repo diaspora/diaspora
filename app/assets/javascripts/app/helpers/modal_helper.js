@@ -1,5 +1,5 @@
 (function(){
-  app.helpers.showModal = function(id){
+  app.helpers.showModal = function(id) {
     $(id).modal();
     var modalBody = $(id).find(".modal-body");
 

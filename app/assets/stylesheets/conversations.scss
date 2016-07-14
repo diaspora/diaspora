@@ -183,8 +183,26 @@
 }
 // scss-lint:enable SelectorDepth
 
-#new_conversation_pane {
-  ul.as-selections { width: 100% !important; }
-  input#contact_ids { box-shadow: none; }
-  label { font-weight: bold; }
+.new-conversation {
+  .contacts-tags-list {
+    margin-bottom: $form-group-margin-bottom;
+
+    // We need to override rules dynamically added to the element
+    // scss-lint:disable ImportantRule
+    padding: 0 !important;
+    // scss-lint:enable ImportantRule
+
+    &.empty-contacts-tags-list { margin-bottom: 0; }
+
+    .tags { position: relative; }
+
+    .tag.label { margin: .1em; }
+
+    input { display: none; }
+  }
+
+  .twitter-typeahead,
+  .tt-menu {
+    width: 100%;
+  }
 }

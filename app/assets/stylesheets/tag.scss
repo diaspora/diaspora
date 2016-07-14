@@ -1,4 +1,4 @@
-.tag {
+:not(.conversation-contact-tag).tag {
   display: inline-block;
   font-weight: bold;
   &:hover {
