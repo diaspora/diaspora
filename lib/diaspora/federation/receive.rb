@@ -248,7 +248,7 @@ module Diaspora
           StatusMessage.new(
             author:                author_of(entity),
             guid:                  entity.guid,
-            raw_message:           entity.raw_message,
+            raw_message:           entity.text,
             public:                entity.public,
             created_at:            entity.created_at,
             provider_display_name: entity.provider_display_name
