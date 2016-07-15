@@ -38,7 +38,7 @@ describe Reshare, type: :model do
 
     it "participates root author in the reshare" do
       reshare.receive([])
-      expect(Participation.count(target_id: reshare.id, author_id: bob.person.id)).to eq(1)
+      expect(Participation.where(target_id: reshare.id, author_id: bob.person.id).count).to eq(1)
     end
   end
 

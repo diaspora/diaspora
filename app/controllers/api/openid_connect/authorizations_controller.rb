@@ -203,7 +203,7 @@ module Api
         if prompt && prompt.include?("none")
           handle_prompt_none
         elsif prompt && prompt.include?("login")
-          new_params = params.merge!(prompt: prompt.remove("login"))
+          new_params = params.except("controller", "action").merge(prompt: prompt.remove("login"))
           reauthenticate(new_params)
         else
           authenticate_user!
