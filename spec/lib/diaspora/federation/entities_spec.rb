@@ -167,7 +167,7 @@ describe Diaspora::Federation::Entities do
         expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::StatusMessage)
         expect(federation_entity.author).to eq(diaspora_entity.author.diaspora_handle)
         expect(federation_entity.guid).to eq(diaspora_entity.guid)
-        expect(federation_entity.raw_message).to eq(diaspora_entity.text)
+        expect(federation_entity.text).to eq(diaspora_entity.text)
         expect(federation_entity.public).to eq(diaspora_entity.public)
         expect(federation_entity.created_at).to eq(diaspora_entity.created_at)
         expect(federation_entity.provider_display_name).to eq(diaspora_entity.provider_display_name)

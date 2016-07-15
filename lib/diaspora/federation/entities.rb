@@ -222,7 +222,7 @@ module Diaspora
         DiasporaFederation::Entities::StatusMessage.new(
           author:                status_message.diaspora_handle,
           guid:                  status_message.guid,
-          raw_message:           status_message.raw_message,
+          text:                  status_message.raw_message,
           photos:                status_message.photos.map {|photo| photo(photo) },
           location:              status_message.location ? location(status_message.location) : nil,
           poll:                  status_message.poll ? poll(status_message.poll) : nil,

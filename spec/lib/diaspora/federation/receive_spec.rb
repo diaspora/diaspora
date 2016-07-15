@@ -495,7 +495,7 @@ describe Diaspora::Federation::Receive do
 
         expect(received).to eq(status_message)
         expect(status_message.author).to eq(sender)
-        expect(status_message.raw_message).to eq(status_message_entity.raw_message)
+        expect(status_message.text).to eq(status_message_entity.text)
         expect(status_message.public).to eq(status_message_entity.public)
         expect(status_message.created_at.iso8601).to eq(status_message_entity.created_at.iso8601)
         expect(status_message.provider_display_name).to eq(status_message_entity.provider_display_name)
