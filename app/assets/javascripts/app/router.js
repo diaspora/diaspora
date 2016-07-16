@@ -28,6 +28,7 @@ app.Router = Backbone.Router.extend({
     "tags/:name": "followed_tags",
     "people/:id/photos": "photos",
     "people/:id/contacts": "profile",
+    "people": "_loadAspects",
 
     "people/:id": "profile",
     "u/:name": "profile"
@@ -106,6 +107,7 @@ app.Router = Backbone.Router.extend({
   },
 
   stream : function() {
+    this._loadAspects();
     app.stream = new app.models.Stream();
     app.stream.fetch();
     this._initializeStreamView();

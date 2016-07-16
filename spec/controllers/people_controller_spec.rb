@@ -453,7 +453,14 @@ describe PeopleController, :type => :controller do
 
     it 'returns json with profile stuff' do
       get :hovercard, :person_id => @hover_test.guid, :format => 'json'
-      expect(JSON.parse( response.body )['handle']).to eq(@hover_test.diaspora_handle)
+      expect(JSON.parse(response.body)["diaspora_id"]).to eq(@hover_test.diaspora_handle)
+    end
+
+    it "returns contact when sharing" do
+      alice.share_with(@hover_test, alice.aspects.first)
+      expect(@controller).to receive(:current_user).at_least(:once).and_return(alice)
+      get :hovercard, person_id: @hover_test.guid, format: "json"
+      expect(JSON.parse(response.body)["contact"]).not_to be_falsy
     end
   end
 
