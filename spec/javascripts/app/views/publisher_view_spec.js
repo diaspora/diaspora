@@ -6,8 +6,7 @@
 describe("app.views.Publisher", function() {
   context("standalone", function() {
     beforeEach(function() {
-      // TODO should be jasmine helper
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs(factory.userAttrs());
 
       spec.loadFixture("aspects_index");
       this.view = new app.views.Publisher({
@@ -40,8 +39,7 @@ describe("app.views.Publisher", function() {
 
   context("plain publisher", function() {
     beforeEach(function() {
-      // TODO should be jasmine helper
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs(factory.userAttrs());
 
       spec.loadFixture("aspects_index");
       this.view = new app.views.Publisher();
@@ -360,13 +358,8 @@ describe("app.views.Publisher", function() {
 
   context("aspect selection", function(){
     beforeEach( function(){
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs(factory.userAttrs());
       spec.loadFixture("status_message_new");
-
-      this.viewAspectSelector = new app.views.PublisherAspectSelector({
-        el: $(".public_toggle .aspect_dropdown"),
-        form: $(".content_creation form")
-      });
 
       this.view = new app.views.Publisher();
       this.view.open();
@@ -441,8 +434,7 @@ describe("app.views.Publisher", function() {
 
   context("locator", function() {
     beforeEach(function() {
-      // should be jasmine helper
-      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs(factory.userAttrs());
 
       spec.loadFixture("aspects_index");
       this.view = new app.views.Publisher();
