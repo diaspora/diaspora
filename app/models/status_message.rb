@@ -20,11 +20,6 @@ class StatusMessage < Post
   has_one :location
   has_one :poll, autosave: true
 
-
-  # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
-  # therefore, we put the validation in a before_destory callback instead of a validation
-  before_destroy :absence_of_content
-
   attr_accessor :oembed_url
   attr_accessor :open_graph_url
 
@@ -42,13 +37,15 @@ class StatusMessage < Post
   end
 
   def self.user_tag_stream(user, tag_ids)
-    owned_or_visible_by_user(user).
-      tag_stream(tag_ids)
+    owned_or_visible_by_user(user).tag_stream(tag_ids)
   end
 
   def self.public_tag_stream(tag_ids)
-    all_public.
-      tag_stream(tag_ids)
+    all_public.tag_stream(tag_ids)
+  end
+
+  def self.tag_stream(tag_ids)
+    joins(:taggings).where("taggings.tag_id IN (?)", tag_ids)
   end
 
   def nsfw
@@ -124,20 +121,10 @@ class StatusMessage < Post
     }
   end
 
-  protected
+  private
+
   def presence_of_content
     errors[:base] << "Cannot create a StatusMessage without content" if text_and_photos_blank?
-  end
-
-  def absence_of_content
-    unless text_and_photos_blank?
-      errors[:base] << "Cannot destory a StatusMessage with text and/or photos present"
-    end
-  end
-
-  private
-  def self.tag_stream(tag_ids)
-    joins(:taggings).where('taggings.tag_id IN (?)', tag_ids)
   end
 end
 
