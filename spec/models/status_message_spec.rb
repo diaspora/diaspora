@@ -91,7 +91,7 @@ describe StatusMessage, type: :model do
     end
   end
 
-  context "emptyness" do
+  context "emptiness" do
     it "needs either a message or at least one photo" do
       post = user.build_post(:status_message, text: nil)
       expect(post).not_to be_valid
@@ -109,8 +109,8 @@ describe StatusMessage, type: :model do
       post.photos << photo
       expect(post).to be_valid
       expect(post.message.to_s).to be_empty
-      expect(post.raw_message).to eq ""
-      expect(post.nsfw).to be_falsy
+      expect(post.text).to be_nil
+      expect(post.nsfw).to be_falsey
       expect(post.errors.full_messages).to eq([])
     end
 

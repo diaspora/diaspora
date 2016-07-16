@@ -61,7 +61,7 @@ describe UsersController, :type => :controller do
     it 'renders xml if atom is requested' do
       sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
-      expect(response.body).to include(sm.raw_message)
+      expect(response.body).to include(sm.text)
     end
 
     it 'renders xml if atom is requested with clickalbe urls' do
@@ -77,7 +77,7 @@ describe UsersController, :type => :controller do
     it 'includes reshares in the atom feed' do
       reshare = FactoryGirl.create(:reshare, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
-      expect(response.body).to include reshare.root.raw_message
+      expect(response.body).to include reshare.root.text
     end
 
     it 'do not show reshares in atom feed if origin post is deleted' do

@@ -24,7 +24,7 @@ STR
   describe "#format" do
     context "html output" do
       it "adds the links to the formatted message" do
-        fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
+        fmt_msg = Diaspora::Mentionable.format(@status_msg.text, @people)
 
         @people.each do |person|
           expect(fmt_msg).to include person_link(person, class: "mention hovercardable")
@@ -32,7 +32,7 @@ STR
       end
 
       it "should work correct when message is escaped html" do
-        raw_msg = @status_msg.raw_message
+        raw_msg = @status_msg.text
         fmt_msg = Diaspora::Mentionable.format(CGI.escapeHTML(raw_msg), @people)
 
         @people.each do |person|
@@ -45,7 +45,7 @@ STR
         p.first_name = "</a><script>alert('h')</script>"
         p.save!
 
-        fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
+        fmt_msg = Diaspora::Mentionable.format(@status_msg.text, @people)
 
         expect(fmt_msg).not_to include(p.first_name)
         expect(fmt_msg).to include("&gt;", "&lt;", "&#39;") # ">", "<", "'"
@@ -54,7 +54,7 @@ STR
 
     context "plain text output" do
       it "removes mention markup and displays unformatted name" do
-        fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people, plain_text: true)
+        fmt_msg = Diaspora::Mentionable.format(@status_msg.text, @people, plain_text: true)
 
         @people.each do |person|
           expect(fmt_msg).to include person.first_name
@@ -64,7 +64,7 @@ STR
     end
 
     it "leaves the name of people that cannot be found" do
-      fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, [])
+      fmt_msg = Diaspora::Mentionable.format(@status_msg.text, [])
       expect(fmt_msg).to eql @test_txt_plain
     end
   end

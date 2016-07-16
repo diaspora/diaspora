@@ -8,7 +8,7 @@ class StatusMessage < Post
   include PeopleHelper
 
   acts_as_taggable_on :tags
-  extract_tags_from :raw_message
+  extract_tags_from :text
 
   validates_length_of :text, :maximum => 65535, :message => proc {|p, v| I18n.t('status_messages.too_long', :count => 65535, :current_length => v[:value].length)}
 
@@ -51,20 +51,12 @@ class StatusMessage < Post
       tag_stream(tag_ids)
   end
 
-  def raw_message
-    read_attribute(:text) || ""
-  end
-
-  def raw_message=(text)
-    write_attribute(:text, text)
-  end
-
   def nsfw
-    self.raw_message.match(/#nsfw/i) || super
+    text.try(:match, /#nsfw/i) || super
   end
 
   def message
-    @message ||= Diaspora::MessageRenderer.new raw_message, mentioned_people: mentioned_people
+    @message ||= Diaspora::MessageRenderer.new(text, mentioned_people: mentioned_people)
   end
 
   def mentioned_people
@@ -72,7 +64,7 @@ class StatusMessage < Post
       create_mentions if self.mentions.empty?
       self.mentions.includes(:person => :profile).map{ |mention| mention.person }
     else
-      Diaspora::Mentionable.people_from_string(self.raw_message)
+      Diaspora::Mentionable.people_from_string(text)
     end
   end
 
@@ -84,7 +76,7 @@ class StatusMessage < Post
   ## ---- ----
 
   def create_mentions
-    ppl = Diaspora::Mentionable.people_from_string(self.raw_message)
+    ppl = Diaspora::Mentionable.people_from_string(text)
     ppl.each do |person|
       self.mentions.find_or_create_by(person_id: person.id)
     end
@@ -103,7 +95,7 @@ class StatusMessage < Post
   end
 
   def text_and_photos_blank?
-    self.raw_message.blank? && self.photos.blank?
+    text.blank? && photos.blank?
   end
 
   def queue_gather_oembed_data
