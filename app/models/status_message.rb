@@ -13,7 +13,7 @@ class StatusMessage < Post
   validates_length_of :text, :maximum => 65535, :message => proc {|p, v| I18n.t('status_messages.too_long', :count => 65535, :current_length => v[:value].length)}
 
   # don't allow creation of empty status messages
-  validate :presence_of_content, on: :create, if: proc {|sm| sm.author && sm.author.local? }
+  validate :presence_of_content, on: :create
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
@@ -126,9 +126,7 @@ class StatusMessage < Post
 
   protected
   def presence_of_content
-    if text_and_photos_blank?
-      errors[:base] << "Cannot create a StatusMessage without content"
-    end
+    errors[:base] << "Cannot create a StatusMessage without content" if text_and_photos_blank?
   end
 
   def absence_of_content

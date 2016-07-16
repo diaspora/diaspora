@@ -591,6 +591,19 @@ describe Diaspora::Federation::Receive do
         expect(status_message.photos.map(&:guid)).to include(photo1.guid, photo2.guid)
       end
 
+      it "receives a status message only with photos and without text" do
+        entity = DiasporaFederation::Entities::StatusMessage.new(status_message_entity.to_h.merge(text: nil))
+        received = Diaspora::Federation::Receive.perform(entity)
+
+        status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
+
+        expect(received).to eq(status_message)
+        expect(status_message.author).to eq(sender)
+
+        expect(status_message.text).to be_nil
+        expect(status_message.photos.map(&:guid)).to include(photo1.guid, photo2.guid)
+      end
+
       it "does not overwrite the photos if they already exist" do
         received_photo = Diaspora::Federation::Receive.photo(photo1)
         received_photo.text = "foobar"

@@ -114,9 +114,9 @@ describe StatusMessage, type: :model do
       expect(post.errors.full_messages).to eq([])
     end
 
-    it "doesn't check for content when author is remote (federation...)" do
+    it "also checks for content when author is remote" do
       post = FactoryGirl.build(:status_message, text: nil)
-      expect(post).to be_valid
+      expect(post).not_to be_valid
     end
   end
 
