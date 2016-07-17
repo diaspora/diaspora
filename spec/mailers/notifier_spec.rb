@@ -212,15 +212,12 @@ describe Notifier, type: :mailer do
       expect(@mail["From"].to_s).to eq("\"#{@cnv.author.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
     end
 
-    it "SUBJECT: has a snippet of the post contents" do
-      expect(@mail.subject).to eq(@cnv.subject)
+    it "should use a generic subject" do
+      expect(@mail.subject).to eq(I18n.translate("notifier.private_message.subject"))
     end
 
-    it "SUBJECT: has 'Re:' if not the first message in a conversation" do
-      @cnv.messages << Message.new(text: "yo", author: eve.person)
-      @mail = Notifier.private_message(bob.id, @cnv.author.id, @cnv.messages.last.id)
-
-      expect(@mail.subject).to eq("Re: #{@cnv.subject}")
+    it "SUBJECT: should not has a snippet of the private message contents" do
+      expect(@mail.subject).not_to include(@cnv.subject)
     end
 
     it "BODY: does not contain the message text" do

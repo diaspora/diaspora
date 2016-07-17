@@ -158,6 +158,7 @@ before.
 * Add reason for post report to email sent to admins [#6679](https://github.com/diaspora/diaspora/pull/6679)
 * Add links to the single post view of the related post to photos in the photo stream [#6621](https://github.com/diaspora/diaspora/pull/6621)
 * Add a note for people with disabled JavaScript [#6777](https://github.com/diaspora/diaspora/pull/6777)
+* Do not include conversation subject in notification mail [#6910](https://github.com/diaspora/diaspora/pull/6910)
 
 # 0.5.11.0
 
