@@ -324,34 +324,7 @@ class User < ActiveRecord::Base
   end
 
   def perform_export_photos!
-    temp_zip = Tempfile.new([username, '_photos.zip'])
-    begin
-      Zip::OutputStream.open(temp_zip.path) do |zos|
-        photos.each do |photo|
-          begin
-            photo_file = photo.unprocessed_image.file
-            if photo_file
-              photo_data = photo_file.read
-              zos.put_next_entry(photo.remote_photo_name)
-              zos.print(photo_data)
-            else
-              logger.info "Export photos error: No file for #{photo.remote_photo_name} not found"
-            end
-          rescue Errno::ENOENT
-            logger.info "Export photos error: #{photo.unprocessed_image.file.path} not found"
-          end
-        end
-      end
-    ensure
-      temp_zip.close
-    end
-
-    begin
-      update exported_photos_file: temp_zip, exported_photos_at: Time.zone.now if temp_zip.present?
-    ensure
-      restore_attributes if invalid? || temp_zip.present?
-      update exporting_photos: false
-    end
+    PhotoExporter.new(self).perform
   end
 
   ######### Mailer #######################
