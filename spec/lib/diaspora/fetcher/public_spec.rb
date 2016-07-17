@@ -122,10 +122,10 @@ describe Diaspora::Fetcher::Public do
         end
       end
 
-      it 'copied the text correctly' do
+      it "copied the text correctly" do
         @data.each do |post|
-          entry = StatusMessage.find_by_guid(post['guid'])
-          expect(entry.raw_message).to eql(post['text'])
+          entry = StatusMessage.find_by_guid(post["guid"])
+          expect(entry.text).to eql(post["text"])
         end
       end
 

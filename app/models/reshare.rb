@@ -29,8 +29,8 @@ class Reshare < Post
            :message, :nsfw,
            to: :absolute_root, allow_nil: true
 
-  def raw_message
-    absolute_root.try(:raw_message) || super
+  def text
+    absolute_root.try(:text) || ""
   end
 
   def mentioned_people

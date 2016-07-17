@@ -59,7 +59,6 @@ class Post < ActiveRecord::Base
   end
 
   def root; end
-  def raw_message; ""; end
   def mentioned_people; []; end
   def photos; []; end
 

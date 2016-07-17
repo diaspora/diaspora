@@ -42,7 +42,7 @@ class PostPresenter < BasePresenter
     if @post.message
       @post.message.plain_text_for_json
     else
-      @post.raw_message
+      @post.text
     end
   end
 

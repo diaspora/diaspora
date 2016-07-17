@@ -161,9 +161,20 @@ module Diaspora
       end
 
       def self.status_message(entity)
-        save_status_message(entity).tap do
-          entity.photos.map do |photo|
-            ignore_existing_guid(Photo, photo.guid, author_of(photo)) { save_photo(photo) }
+        try_load_existing_guid(StatusMessage, entity.guid, author_of(entity)) do
+          StatusMessage.new(
+            author:                author_of(entity),
+            guid:                  entity.guid,
+            text:                  entity.text,
+            public:                entity.public,
+            created_at:            entity.created_at,
+            provider_display_name: entity.provider_display_name
+          ).tap do |status_message|
+            status_message.location = build_location(entity.location) if entity.location
+            status_message.poll = build_poll(entity.poll) if entity.poll
+            status_message.photos = save_or_load_photos(entity.photos)
+
+            status_message.save!
           end
         end
       end
@@ -228,6 +239,12 @@ module Diaspora
         )
       end
 
+      private_class_method def self.save_or_load_photos(photos)
+        photos.map do |photo|
+          try_load_existing_guid(Photo, photo.guid, author_of(photo)) { save_photo(photo) }
+        end
+      end
+
       private_class_method def self.receive_relayable(klass, entity)
         save_relayable(klass, entity) { yield }.tap {|relayable| relay_relayable(relayable) if relayable }
       end
@@ -239,24 +256,6 @@ module Diaspora
 
             relayable.author_signature = entity.author_signature if relayable.parent.author.local?
             relayable.save!
-          end
-        end
-      end
-
-      private_class_method def self.save_status_message(entity)
-        try_load_existing_guid(StatusMessage, entity.guid, author_of(entity)) do
-          StatusMessage.new(
-            author:                author_of(entity),
-            guid:                  entity.guid,
-            raw_message:           entity.text,
-            public:                entity.public,
-            created_at:            entity.created_at,
-            provider_display_name: entity.provider_display_name
-          ).tap do |status_message|
-            status_message.location = build_location(entity.location) if entity.location
-            status_message.poll = build_poll(entity.poll) if entity.poll
-
-            status_message.save!
           end
         end
       end

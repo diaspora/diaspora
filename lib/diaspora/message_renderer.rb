@@ -120,7 +120,7 @@ module Diaspora
 
     delegate :empty?, :blank?, :present?, to: :raw
 
-    # @param [String] raw_message Raw input text
+    # @param [String] text Raw input text
     # @param [Hash] opts Global options affecting output
     # @option opts [Array<Person>] :mentioned_people ([]) List of people
     #   allowed to mention
@@ -147,8 +147,8 @@ module Diaspora
     #   to Redcarpet
     # @option opts [Hash] :markdown_render_options Override default options
     #   passed to the Redcarpet renderer
-    def initialize raw_message, opts={}
-      @raw_message = raw_message
+    def initialize(text, opts={})
+      @text = text
       @options = DEFAULTS.deep_merge opts
     end
 
@@ -211,12 +211,12 @@ module Diaspora
     #   this length. If not given defaults to 70.
     def title opts={}
       # Setext-style header
-      heading = if /\A(?<setext_content>.{1,200})\n(?:={1,200}|-{1,200})(?:\r?\n|$)/ =~ @raw_message.lstrip
-        setext_content
-      # Atx-style header
-      elsif /\A\#{1,6}\s+(?<atx_content>.{1,200}?)(?:\s+#+)?(?:\r?\n|$)/ =~ @raw_message.lstrip
-        atx_content
-      end
+      heading = if /\A(?<setext_content>.{1,200})\n(?:={1,200}|-{1,200})(?:\r?\n|$)/ =~ @text.lstrip
+                  setext_content
+                # Atx-style header
+                elsif /\A\#{1,6}\s+(?<atx_content>.{1,200}?)(?:\s+#+)?(?:\r?\n|$)/ =~ @text.lstrip
+                  atx_content
+                end
 
       heading &&= self.class.new(heading).plain_text_without_markdown
 
@@ -236,7 +236,7 @@ module Diaspora
     end
 
     def raw
-      @raw_message
+      @text
     end
 
     def to_s
@@ -245,8 +245,8 @@ module Diaspora
 
     private
 
-    def process opts, &block
-      Processor.process(@raw_message, @options.deep_merge(opts), &block)
+    def process(opts, &block)
+      Processor.process(@text, @options.deep_merge(opts), &block)
     end
   end
 end
