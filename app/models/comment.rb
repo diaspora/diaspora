@@ -29,6 +29,8 @@ class Comment < ActiveRecord::Base
 
   has_many :reports, as: :item
 
+  has_one :signature, class_name: "CommentSignature", dependent: :delete
+
   scope :including_author, -> { includes(:author => :profile) }
   scope :for_a_stream,  -> { including_author.merge(order('created_at ASC')) }
 

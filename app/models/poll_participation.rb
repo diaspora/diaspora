@@ -7,6 +7,8 @@ class PollParticipation < ActiveRecord::Base
   belongs_to :poll
   belongs_to :poll_answer, counter_cache: :vote_count
 
+  has_one :signature, class_name: "PollParticipationSignature", dependent: :delete
+
   alias_attribute :parent, :poll
 
   validates :poll_answer, presence: true
