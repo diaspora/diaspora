@@ -113,6 +113,7 @@ before.
 * Redesigned the landing page and added dedicated notes for podmins [#6268](https://github.com/diaspora/diaspora/pull/6268)
 * Moved the entire federation implementation into its own gem. 🎉 [#6873](https://github.com/diaspora/diaspora/pull/6873)
 * Remove `StatusMessage#raw_message` [#6921](https://github.com/diaspora/diaspora/pull/6921)
+* Extract photo export into a service class [#6922](https://github.com/diaspora/diaspora/pull/6922)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
