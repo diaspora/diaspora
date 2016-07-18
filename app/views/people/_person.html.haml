@@ -1,7 +1,7 @@
 .media.stream_element{id: person.id}
   .pull-right
     = render partial: 'people/relationship_action',
-             locals: { person: person, contact: contact,
+             locals: { person: person,
                           :current_user => current_user }
   .media-object.pull-left
     = person_image_link(person, size: :thumb_small)

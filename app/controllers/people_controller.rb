@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
+  include GonHelper
+
   before_action :authenticate_user!, except: %i(show stream hovercard)
   before_action :find_person, only: %i(show stream hovercard)
 
@@ -168,16 +170,14 @@ class PeopleController < ApplicationController
   end
 
   def hashes_for_people(people, aspects)
-    ids = people.map{|p| p.id}
-    contacts = {}
-    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
-      contacts[contact.person_id] = contact
-    end
-
-    people.map{|p|
-      {:person => p,
-        :contact => contacts[p.id],
-        :aspects => aspects}
+    people.map {|person|
+      {
+        person:  person,
+        contact: current_user.contact_for(person) || Contact.new(person: person),
+        aspects: aspects
+      }.tap {|hash|
+        gon_load_contact(hash[:contact])
+      }
     }
   end
 

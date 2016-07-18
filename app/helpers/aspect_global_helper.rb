@@ -3,25 +3,6 @@
 #   the COPYRIGHT file.
 
 module AspectGlobalHelper
-  def aspect_membership_dropdown(contact, person, hang)
-    aspect_membership_ids = {}
-
-    selected_aspects = all_aspects.select{|aspect| contact.in_aspect?(aspect)}
-    selected_aspects.each do |a|
-      record = a.aspect_memberships.find { |am| am.contact_id == contact.id }
-      aspect_membership_ids[a.id] = record.id
-    end
-
-    button_class = selected_aspects.size > 0 ? "btn-success" : "btn-default"
-
-    render "aspect_memberships/aspect_membership_dropdown",
-      :selected_aspects => selected_aspects,
-      :aspect_membership_ids => aspect_membership_ids,
-      :person => person,
-      :hang => hang,
-      :button_class => button_class
-  end
-
   def aspect_options_for_select(aspects)
     options = {}
     aspects.each do |aspect|
