@@ -12,6 +12,7 @@ app.views.ProfileHeader = app.views.Base.extend({
     app.events.on('aspect:create', this.postRenderTemplate, this);
     this.photos = _.has(opts, 'photos') ? opts.photos : null;
     this.contacts = _.has(opts, 'contacts') ? opts.contacts : null;
+
   },
 
   presenter: function() {
@@ -46,6 +47,8 @@ app.views.ProfileHeader = app.views.Base.extend({
   },
 
   showMentionModal: function(){
+    // var statusMessagePath = e.target.getAttribute('data-status-message-path');
+    // var title = e.target.getAttribute('data-title');
     app.helpers.showModal("#mentionModal");
   },
 

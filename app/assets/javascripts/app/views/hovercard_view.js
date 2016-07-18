@@ -30,10 +30,10 @@ app.views.Hovercard = app.views.Base.extend({
       .on('mouseenter', '.hovercardable', _.bind(this._mouseenterHandler, this))
       .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this))
       .on('click', '#mention_button', function() {
-        $('hovercard_container').fadeOut('fast');
+        $('#hovercard_container').fadeOut('fast');
       })
       .on('click', '#message_button', function() {
-        $('hovercard_container').fadeOut('fast');
+        $('#hovercard_container').fadeOut('fast');
       });
 
     this.showMe = false;
@@ -46,7 +46,8 @@ app.views.Hovercard = app.views.Base.extend({
     this.hashtags = this.$('.hashtags');
     this.person_link = this.$('a.person');
     this.person_handle = this.$('div.handle');
-    // this.person_mention_link = this.$("a.mention");
+    this.person_mention_button = this.$('#mention_button');
+    this.person_message_button = this.$('#message_button');
     // this.person_message_link = this.$("a.message");
     this.active = true;
   },
@@ -137,13 +138,16 @@ app.views.Hovercard = app.views.Base.extend({
 
   _populateHovercardWith: function(person) {
     var self = this;
-
+    
     this.avatar.attr('src', person.avatar);
     this.avatarLink.attr("href", person.url);
     this.person_link.attr('href', person.url);
     this.person_link.text(person.name);
     this.person_handle.text(person.handle);
-    //window.ppp=person;
+    this.person_mention_button.attr('data-status-message-path', person.status_url);
+    this.person_mention_button.attr('data-title', person.title);
+    this.person_message_button.attr('data-conversation-path', person.message_url);
+    // window.ppp=person;
 
     // set hashtags
     this.hashtags.empty();
@@ -162,12 +166,15 @@ app.views.Hovercard = app.views.Base.extend({
     new app.views.AspectMembership({el: self.dropdown_container});
   },
 
-  showMentionModal: function(){
-    app.helpers.showModal("#mentionModal");
+  showMentionModal: function(e){
+    var statusMessagePath = e.target.getAttribute('data-status-message-path');
+    var title = e.target.getAttribute('data-title');
+    app.helpers.showModal("#mentionModal", statusMessagePath, title);
   },
 
-  showMessageModal: function(){
-    app.helpers.showModal("#conversationModal");
+  showMessageModal: function(e){
+    var conversationPath = e.target.getAttribute('data-conversation-path');
+    app.helpers.showModal("#conversationModal", newConversationPath);
   },
 
   _positionHovercard: function() {

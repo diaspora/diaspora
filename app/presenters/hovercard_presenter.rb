@@ -15,14 +15,17 @@ class HovercardPresenter
     {  :id => person.id,
        :avatar => avatar('medium'),
        :url => profile_url,
+       :status_url => Rails.application.routes.url_helpers.new_person_status_message_path(:person_id => person.id),
        :name => person.name,
        :handle => person.diaspora_handle,
-       :tags => person.tags.map { |t| "#"+t.name }
+       :title => I18n.t('status_messages.new.mentioning', person: person.name),
+       :tags => person.tags.map { |t| "#"+t.name },
+       :message_url => Rails.application.routes.url_helpers.new_conversation_path(person),
     }.to_json(options)
   end
 
   # get the image url of the profile avatar for the given size
-  # possible sizes: 'small', 'medium', 'large'
+  # possible sizes: 'small', 'medium', 'large'    
   def avatar(size="medium")
     if !["small", "medium", "large"].include?(size)
       raise ArgumentError, "the given parameter is not a valid size"
@@ -36,4 +39,5 @@ class HovercardPresenter
   def profile_url
     Rails.application.routes.url_helpers.person_path(person)
   end
+
 end

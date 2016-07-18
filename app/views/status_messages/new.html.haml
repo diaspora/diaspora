@@ -6,6 +6,8 @@
 
 :javascript
   $(function() {
+    window.personjson = #{json_escape @person.to_json};
+    console.log("personjson: " + window.personjson);
     app.publisher = new app.views.Publisher({
       standalone: true,
       prefillMention: #{json_escape @person.to_json}
