@@ -32,7 +32,7 @@
         .last_message
           - if conversation.messages.present?
             %em
-              = conversation.messages.last.text
+              = conversation.messages.last.message.plain_text_without_markdown
         - if other_participants.count > 1
           .participants
             - other_participants.drop(1).take(15).each do |participant|
