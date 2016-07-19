@@ -28,7 +28,8 @@ app.Router = Backbone.Router.extend({
     "tags/:name": "followed_tags",
     "people/:id/photos": "photos",
     "people/:id/contacts": "profile",
-    "people": "_loadAspects",
+    "people": "pageWithAspectMembershipDropdowns",
+    "notifications": "pageWithAspectMembershipDropdowns",
 
     "people/:id": "profile",
     "u/:name": "profile"
@@ -61,8 +62,7 @@ app.Router = Backbone.Router.extend({
 
   contacts: function() {
     app.aspect = new app.models.Aspect(gon.preloads.aspect);
-    app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
-    this._loadAspects();
+    this._loadRelationshipsPreloads();
 
     var stream = new app.views.ContactStream({
       collection: app.contacts,
@@ -177,8 +177,30 @@ app.Router = Backbone.Router.extend({
     });
   },
 
+  pageWithAspectMembershipDropdowns: function() {
+    this._loadRelationshipsPreloads();
+    this._renderAspectMembershipDropdowns();
+  },
+
   _loadAspects: function() {
     app.aspects = new app.collections.Aspects(app.currentUser.get("aspects"));
+  },
+
+  _loadContacts: function() {
+    app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
+  },
+
+  _loadRelationshipsPreloads: function() {
+    this._loadContacts();
+    this._loadAspects();
+  },
+
+  _renderAspectMembershipDropdowns: function() {
+    $(".aspect_membership_dropdown.placeholder").each(function() {
+      var personId = $(this).data("personId");
+      var view = new app.views.AspectMembership({person: app.contacts.findWhere({"person_id": personId}).person});
+      $(this).html(view.render().$el);
+    });
   },
 
   _hideInactiveStreamLists: function() {
