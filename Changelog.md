@@ -138,6 +138,7 @@ before.
 * Do not allow to change email to an already used one [#6905](https://github.com/diaspora/diaspora/pull/6905)
 * Correctly filter mentions on the server side [#6902](https://github.com/diaspora/diaspora/pull/6902)
 * Add aspects to the aspect membership dropdown when creating them on the getting started page [#6864](https://github.com/diaspora/diaspora/pull/6864)
+* Strip markdown from message preview in conversations list [#6923](https://github.com/diaspora/diaspora/pull/6923)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)

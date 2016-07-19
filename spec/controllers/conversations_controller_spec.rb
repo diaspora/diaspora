@@ -64,7 +64,7 @@ describe ConversationsController, :type => :controller do
         author:              alice.person,
         participant_ids:     [alice.contacts.first.person.id, alice.person.id],
         subject:             "not spam",
-        messages_attributes: [{author: alice.person, text: "cool stuff"}]
+        messages_attributes: [{author: alice.person, text: "**cool stuff**"}]
       }
       @conversations = Array.new(3) { Conversation.create(hash) }
       @visibilities = @conversations.map {|conversation|
@@ -101,6 +101,14 @@ describe ConversationsController, :type => :controller do
       sign_in :user, eve
       get :index, conversation_id: @conversations.first.id
       expect(assigns[:conversation]).to be_nil
+    end
+
+    it "retrieves a conversation message with out markdown content " do
+      get :index
+      @conversation = @conversations.first
+      expect(response).to be_success
+      expect(response.body).to match(/cool stuff/)
+      expect(response.body).not_to match(%r{<strong>cool stuff</strong>})
     end
   end
 
