@@ -52,13 +52,16 @@ class NotificationsController < ApplicationController
       format.html
       format.xml { render :xml => @notifications.to_xml }
       format.json {
-        @notifications.each do |note|
-          note.note_html = render_to_string(partial: "notification", locals: {note: note, no_aspect_dropdown: true})
-        end
-        render json: @notifications.to_json
+        render json: @notifications, each_serializer: NotificationSerializer
       }
     end
+  end
 
+  def default_serializer_options
+    {
+      context: self,
+      root:    false
+    }
   end
 
   def read_all
