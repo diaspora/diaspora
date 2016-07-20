@@ -97,7 +97,7 @@ configuration: ## Section
       ## cannot be retried manually.
       # dead_jobs_limit: 1000
 
-      ## Number of seconds a job remains in the dead queue (default=3628800 (one week)).
+      ## Number of seconds a job remains in the dead queue (default=3628800 (six weeks)).
       ## Jobs get into the dead queue after they failed and exhausted all retries.
       ## Increasing this setting will increase the memory usage of Redis.
       ## Once gone from the dead queue, a failed job is permanently lost and
