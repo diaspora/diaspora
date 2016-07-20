@@ -29,7 +29,10 @@ app.views.StreamPost = app.views.Post.extend({
     "click .create_participation": "createParticipation",
     "click .destroy_participation": "destroyParticipation",
     "click #mention_button": "showMentionModal",
-    "click #message_button": "showMessageModal"
+    "click #message_button": "showMessageModal",
+    "keydown textarea#conversation_text" : "keyDown",
+    "conversation:loaded" : "setupConversation",
+    "click .conversation_button": "showMessageModal",
   },
 
   tooltipSelector : [".timeago",
@@ -53,6 +56,35 @@ app.views.StreamPost = app.views.Post.extend({
     this.pollView = new app.views.Poll({model : this.model});
   },
 
+  setupConversation: function() {
+    app.helpers.timeago($(this.el));
+    $(".control-icons a").tooltip({placement: "bottom"});
+
+    var conv = $(".conversation-wrapper .stream_element.selected"),
+        cBadge = $("#conversations-link .badge");
+
+    if(conv.hasClass("unread") ){
+      var unreadCount = parseInt(conv.find(".unread-message-count").text(), 10);
+
+      if(cBadge.text() !== "") {
+        cBadge.text().replace(/\d+/, function(num){
+          num = parseInt(num, 10) - unreadCount;
+          if(num > 0) {
+            cBadge.text(num);
+          } else {
+            cBadge.text(0).addClass("hidden");
+          }
+        });
+      }
+      conv.removeClass("unread");
+      conv.find(".unread-message-count").remove();
+
+      var pos = $("#first_unread").offset().top - 50;
+      $("html").animate({scrollTop:pos});
+    } else {
+      $("html").animate({scrollTop:0});
+    }
+  },
 
   likesInfoView : function(){
     return new app.views.LikesInfo({model : this.model});
@@ -89,12 +121,21 @@ app.views.StreamPost = app.views.Post.extend({
     app.currentUser.toggleNsfwState();
   },
 
-  showMentionModal: function() {
-    app.helpers.showModal("#mentionModal");
+  showMentionModal: function(e){
+    var statusMessagePath = e.target.getAttribute('data-status-message-path');
+    var title = e.target.getAttribute('data-title');
+    app.helpers.showModal("#mentionModal", statusMessagePath, title);
   },
 
-  showMessageModal: function(){
-    app.helpers.showModal("#conversationModal");
+  showMessageModal: function(e){
+    var conversationPath = e.target.getAttribute('data-conversation-path');
+    app.helpers.showModal("#conversationModal", conversationPath);
+  },
+
+  keyDown : function(evt) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
+      $(evt.target).parents("form").submit();
+    }
   },
 
   blockUser: function(evt){

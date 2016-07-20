@@ -21,6 +21,9 @@ app.views.Hovercard = app.views.Base.extend({
     "blur #status_message_fake_text": "onInputBoxBlur",
     "click #mention_button": "showMentionModal",
     "click #message_button": "showMessageModal",
+    "keydown textarea#conversation_text" : "keyDown",
+    "conversation:loaded" : "setupConversation",
+    "click .conversation_button": "showMessageModal",
   },
 
   initialize: function() {
@@ -50,6 +53,46 @@ app.views.Hovercard = app.views.Base.extend({
     this.person_message_button = this.$('#message_button');
     // this.person_message_link = this.$("a.message");
     this.active = true;
+
+    if($("#conversation_new:visible").length > 0) {
+      new app.views.ConversationsForm({
+        el: $("#conversation_new"),
+        contacts: gon.contacts
+      });
+    }
+    this.setupConversation();
+  },
+
+
+
+  setupConversation: function() {
+    app.helpers.timeago($(this.el));
+    $(".control-icons a").tooltip({placement: "bottom"});
+
+    var conv = $(".conversation-wrapper .stream_element.selected"),
+        cBadge = $("#conversations-link .badge");
+
+    if(conv.hasClass("unread") ){
+      var unreadCount = parseInt(conv.find(".unread-message-count").text(), 10);
+
+      if(cBadge.text() !== "") {
+        cBadge.text().replace(/\d+/, function(num){
+          num = parseInt(num, 10) - unreadCount;
+          if(num > 0) {
+            cBadge.text(num);
+          } else {
+            cBadge.text(0).addClass("hidden");
+          }
+        });
+      }
+      conv.removeClass("unread");
+      conv.find(".unread-message-count").remove();
+
+      var pos = $("#first_unread").offset().top - 50;
+      $("html").animate({scrollTop:pos});
+    } else {
+      $("html").animate({scrollTop:0});
+    }
   },
 
   postRenderTemplate: function() {
@@ -147,6 +190,8 @@ app.views.Hovercard = app.views.Base.extend({
     this.person_mention_button.attr('data-status-message-path', person.status_url);
     this.person_mention_button.attr('data-title', person.title);
     this.person_message_button.attr('data-conversation-path', person.message_url);
+    //message t
+    this.person_mention_button.attr('data-title-message', person.title_message);
     // window.ppp=person;
 
     // set hashtags
@@ -174,7 +219,14 @@ app.views.Hovercard = app.views.Base.extend({
 
   showMessageModal: function(e){
     var conversationPath = e.target.getAttribute('data-conversation-path');
-    app.helpers.showModal("#conversationModal", newConversationPath);
+    // var title_message = e.target.getAttribute('data-title-message');
+    app.helpers.showModal("#conversationModal", conversationPath/*, title_message*/);
+  },
+
+  keyDown : function(evt) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
+      $(evt.target).parents("form").submit();
+    }
   },
 
   _positionHovercard: function() {
@@ -194,6 +246,6 @@ app.views.Hovercard = app.views.Base.extend({
       event.pageX <= elPos.left + element.width() &&
       event.pageY >= elPos.top &&
       event.pageY <= elPos.top + element.height();
-  },
+  }
 });
 // @license-end

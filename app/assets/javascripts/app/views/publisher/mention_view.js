@@ -23,6 +23,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     // contains the 'fake text' displayed to the user
     // also has a data-messageText attribute with the original text
     this.inputBox = this.$("#status_message_fake_text");
+    // console.log($('#status_message_fake_text'));
     // contains the mentions displayed to the user
     this.mentionsBox = this.$(".mentions-box");
     this.typeaheadInput = this.$(".typeahead-mention-box");

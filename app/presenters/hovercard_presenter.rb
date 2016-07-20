@@ -21,6 +21,7 @@ class HovercardPresenter
        :title => I18n.t('status_messages.new.mentioning', person: person.name),
        :tags => person.tags.map { |t| "#"+t.name },
        :message_url => Rails.application.routes.url_helpers.new_conversation_path(person),
+       :title_message => I18n.t('conversations.index.new_conversation'),
     }.to_json(options)
   end
 
