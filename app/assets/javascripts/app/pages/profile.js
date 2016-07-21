@@ -40,6 +40,8 @@ app.pages.Profile = app.views.Base.extend({
     app.events.on("person:unblock:"+id, this.reload, this);
     app.events.on("aspect:create", this.reload, this);
     app.events.on("aspect_membership:update", this.reload, this);
+
+    app.router.renderAspectMembershipDropdowns(this.$el);
   },
 
   _populateModel: function(opts) {

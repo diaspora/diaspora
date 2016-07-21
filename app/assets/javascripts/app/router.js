@@ -169,7 +169,7 @@ app.Router = Backbone.Router.extend({
   },
 
   profile: function() {
-    this._loadAspects();
+    this._loadRelationshipsPreloads();
     this.renderPage(function() {
       return new app.pages.Profile({
         el: $("body > #profile_container")
@@ -179,7 +179,7 @@ app.Router = Backbone.Router.extend({
 
   pageWithAspectMembershipDropdowns: function() {
     this._loadRelationshipsPreloads();
-    this._renderAspectMembershipDropdowns();
+    this.renderAspectMembershipDropdowns($(document));
   },
 
   _loadAspects: function() {
@@ -195,8 +195,8 @@ app.Router = Backbone.Router.extend({
     this._loadAspects();
   },
 
-  _renderAspectMembershipDropdowns: function() {
-    $(".aspect_membership_dropdown.placeholder").each(function() {
+  renderAspectMembershipDropdowns: function($context) {
+    $context.find(".aspect_membership_dropdown.placeholder").each(function() {
       var personId = $(this).data("personId");
       var view = new app.views.AspectMembership({person: app.contacts.findWhere({"person_id": personId}).person});
       $(this).html(view.render().$el);
