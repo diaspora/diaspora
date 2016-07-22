@@ -8,6 +8,10 @@ module Diaspora
         validates :author_signature, presence: true
 
         serialize :additional_data, Hash
+
+        def order
+          signature_order.order.split
+        end
       end
     end
   end
