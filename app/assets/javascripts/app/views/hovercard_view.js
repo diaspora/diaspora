@@ -211,7 +211,7 @@ app.views.Hovercard = app.views.Base.extend({
     new app.views.AspectMembership({el: self.dropdown_container});
   },
 
-  showMentionModal: function(e){
+  showMentionModal: function(e) {
     var statusMessagePath = e.target.getAttribute('data-status-message-path');
     var title = e.target.getAttribute('data-title');
     app.helpers.showModal("#mentionModal", statusMessagePath, title);

@@ -46,10 +46,10 @@ app.views.ProfileHeader = app.views.Base.extend({
     return (this.contacts && this.contacts.count > 0);
   },
 
-  showMentionModal: function(){
-    // var statusMessagePath = e.target.getAttribute('data-status-message-path');
-    // var title = e.target.getAttribute('data-title');
-    app.helpers.showModal("#mentionModal");
+  showMentionModal: function(e){
+    var statusMessagePath = e.target.getAttribute('data-status-message-path');
+    var title = e.target.getAttribute('data-title');
+    app.helpers.showModal("#mentionModal", statusMessagePath, title);
   },
 
   showMessageModal: function(){

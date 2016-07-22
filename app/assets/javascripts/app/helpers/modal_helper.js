@@ -7,15 +7,15 @@
     $(id).find(".modal-title").text(title);
     
 
-    // var profileMention = $(id).find(".modal-body");
-    // if ($('showMessageModal').modal()) {
-    //   var message = $(id).find(".modal-body");
-
+    var profileMention = $(id).find(".modal-body");
+    if ($('showMessageModal').modal()) {
+      var message = $(id).find(".modal-body");
+      var url = $(id).attr("href");
       
-    //   message.load(conversationPath, function(){
-    //     $(id).find("#modalWaiter").remove();
-    //   });
-    // }
+      message.load(url, function(){
+        $(id).find("#modalWaiter").remove();
+      });
+    }
     if($('showMentionModal').modal()) {
       if(statusMessagePath){
         // $(id).find(".modal-title").text(title);
