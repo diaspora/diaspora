@@ -30,9 +30,7 @@ class PhotosController < ApplicationController
           gon.preloads[:photos] = {
             count: Photo.visible(current_user, @person).count(:all)
           }
-          gon.preloads[:contacts] = {
-            count: Contact.contact_contacts_for(current_user, @person).count(:all),
-          }
+          gon.preloads[:contacts_count] = Contact.contact_contacts_for(current_user, @person).count(:all)
           render "people/show", layout: "with_header"
         end
         format.mobile { render "people/show" }

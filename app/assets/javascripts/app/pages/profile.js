@@ -24,8 +24,8 @@ app.pages.Profile = app.views.Base.extend({
     if(app.hasPreload("photos")){
       this.photos = app.parsePreload("photos");
     }
-    if(app.hasPreload("contacts")){
-      this.contacts = app.parsePreload("contacts");
+    if (app.hasPreload("contacts_count")) {
+      this.contacts = app.parsePreload("contacts_count");
     }
 
     this.streamCollection = _.has(opts, "streamCollection") ? opts.streamCollection : null;

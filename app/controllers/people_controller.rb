@@ -78,9 +78,7 @@ class PeopleController < ApplicationController
         gon.preloads[:photos] = {
           count: Photo.visible(current_user, @person).count(:all)
         }
-        gon.preloads[:contacts] = {
-          count: Contact.contact_contacts_for(current_user, @person).count(:all),
-        }
+        gon.preloads[:contacts_count] = Contact.contact_contacts_for(current_user, @person).count(:all)
         respond_with @person, layout: "with_header"
       end
 
@@ -140,9 +138,7 @@ class PeopleController < ApplicationController
           gon.preloads[:photos] = {
             count: Photo.visible(current_user, @person).count(:all)
           }
-          gon.preloads[:contacts] = {
-            count: @contacts_of_contact.count(:all),
-          }
+          gon.preloads[:contacts_count] = @contacts_of_contact.count(:all)
           @contacts_of_contact = @contacts_of_contact.paginate(page: params[:page], per_page: (params[:limit] || 15))
           @hashes = hashes_for_people @contacts_of_contact, @aspects
           respond_with @person, layout: "with_header"

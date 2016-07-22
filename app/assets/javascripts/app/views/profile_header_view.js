@@ -42,7 +42,7 @@ app.views.ProfileHeader = app.views.Base.extend({
   },
 
   _shouldShowContacts: function() {
-    return (this.contacts && this.contacts.count > 0);
+    return (this.contacts && this.contacts > 0);
   },
 
   showMentionModal: function(){
