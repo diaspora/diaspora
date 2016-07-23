@@ -89,7 +89,7 @@ app.views.Content = app.views.Base.extend({
 
     var photoAttachments = this.$(".photo_attachments");
     if(photoAttachments.length > 0) {
-      new app.views.Gallery({ el: photoAttachments });
+      new Diaspora.Gallery({el: photoAttachments});
     }
   }
 });
@@ -102,7 +102,7 @@ app.views.ExpandedStatusMessage = app.views.StatusMessage.extend({
   postRenderTemplate : function(){
     var photoAttachments = this.$(".photo_attachments");
     if(photoAttachments.length > 0) {
-      new app.views.Gallery({ el: photoAttachments });
+      new Diaspora.Gallery({el: photoAttachments});
     }
   }
 });

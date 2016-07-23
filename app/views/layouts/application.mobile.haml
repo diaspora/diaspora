@@ -63,6 +63,12 @@
             = t('streams.activity.title')
         = yield
 
+    .blueimp-gallery.blueimp-gallery-controls#blueimp-gallery
+      .slides
+      %h3.title
+      %a.play-pause
+      %ol.indicator
+
     / javascripts at the bottom
     = jquery_include_tag
     = javascript_include_tag "mobile/mobile"

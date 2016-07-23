@@ -17,9 +17,7 @@ Feature: viewing photos on the mobile main page
     When I press "Share"
     And I go to the stream page
     And I click on selector "img.stream-photo"
-    Then I should see a "img" within "#show_content"
-    And I should not see a "#arrow-right" within "#main"
-    And I should not see a "#arrow-left" within "#main"
+    Then I should see a "img" within "#blueimp-gallery"
 
   Scenario: view multiphoto post
     Given I visit the mobile publisher page
@@ -31,11 +29,3 @@ Feature: viewing photos on the mobile main page
     When I press "Share"
     And I go to the stream page
     Then I should see "+ 1" within ".additional_photo_count"
-
-    When I click on selector "img.stream-photo"
-    Then I should see a "#arrow-right" within "#main"
-    And I should not see a "#arrow-left" within "#main"
-
-    When I click on selector "#arrow-right"
-    Then I should see a "#arrow-left" within "#main"
-    And I should not see a "#arrow-right" within "#main"

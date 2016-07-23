@@ -17,7 +17,7 @@ app.views.Photos = app.views.InfScroll.extend({
   postRenderTemplate: function(){
     var photoAttachments = $("#main_stream > div");
     if(photoAttachments.length > 0) {
-      new app.views.Gallery({ el: photoAttachments });
+      new Diaspora.Gallery({el: photoAttachments});
     }
   }
 });

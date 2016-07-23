@@ -14,8 +14,11 @@
 //= require rails-timeago
 //= require underscore
 //= require bootstrap
+//= require blueimp-gallery
+//= require blueimp-gallery/blueimp-gallery-indicator
 //= require diaspora
 //= require helpers/i18n
+//= require helpers/gallery
 //= require widgets/timeago
 //= require mobile/mobile_application
 //= require mobile/mobile_file_uploader
@@ -25,4 +28,5 @@
 //= require mobile/mobile_comments
 //= require mobile/mobile_post_actions
 //= require mobile/mobile_drawer
+//= require mobile/mobile_photo_gallery
 // @license-end
