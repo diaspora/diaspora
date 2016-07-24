@@ -254,10 +254,18 @@ module Diaspora
           yield.tap do |relayable|
             retract_if_author_ignored(relayable)
 
-            relayable.author_signature = entity.author_signature if relayable.parent.author.local?
+            relayable.signature = build_signature(klass, entity) if relayable.parent.author.local?
             relayable.save!
           end
         end
+      end
+
+      private_class_method def self.build_signature(klass, entity)
+        klass.reflect_on_association(:signature).klass.new(
+          author_signature: entity.author_signature,
+          additional_data:  entity.additional_xml_elements,
+          signature_order:  SignatureOrder.find_or_create_by!(order: entity.xml_order.join(" "))
+        )
       end
 
       private_class_method def self.retract_if_author_ignored(relayable)

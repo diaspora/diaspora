@@ -17,7 +17,19 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".comment" do
-    let(:comment_entity) { FactoryGirl.build(:comment_entity, author: sender.diaspora_handle, parent_guid: post.guid) }
+    let(:comment_data) {
+      FactoryGirl.attributes_for(
+        :comment_entity,
+        author:           sender.diaspora_handle,
+        parent_guid:      post.guid,
+        author_signature: "aa"
+      )
+    }
+    let(:comment_entity) {
+      DiasporaFederation::Entities::Comment.new(
+        comment_data, [:author, :guid, :parent_guid, :text, "new_property"], "new_property" => "data"
+      )
+    }
 
     it "saves the comment" do
       received = Diaspora::Federation::Receive.perform(comment_entity)
@@ -37,6 +49,17 @@ describe Diaspora::Federation::Receive do
 
       expect(post.comments).to include(comment)
       expect(comment.post).to eq(post)
+    end
+
+    it "saves the signature data" do
+      Diaspora::Federation::Receive.perform(comment_entity)
+
+      comment = Comment.find_by!(guid: comment_entity.guid)
+
+      expect(comment.signature).not_to be_nil
+      expect(comment.signature.author_signature).to eq("aa")
+      expect(comment.signature.additional_data).to eq("new_property" => "data")
+      expect(comment.signature.order).to eq(%w(author guid parent_guid text new_property))
     end
 
     let(:entity) { comment_entity }
@@ -164,7 +187,19 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".like" do
-    let(:like_entity) { FactoryGirl.build(:like_entity, author: sender.diaspora_handle, parent_guid: post.guid) }
+    let(:like_data) {
+      FactoryGirl.attributes_for(
+        :like_entity,
+        author:           sender.diaspora_handle,
+        parent_guid:      post.guid,
+        author_signature: "aa"
+      )
+    }
+    let(:like_entity) {
+      DiasporaFederation::Entities::Like.new(
+        like_data, [:author, :guid, :parent_guid, :parent_type, :positive, "new_property"], "new_property" => "data"
+      )
+    }
 
     it "saves the like" do
       received = Diaspora::Federation::Receive.perform(like_entity)
@@ -183,6 +218,17 @@ describe Diaspora::Federation::Receive do
 
       expect(post.likes).to include(like)
       expect(like.target).to eq(post)
+    end
+
+    it "saves the signature data" do
+      Diaspora::Federation::Receive.perform(like_entity)
+
+      like = Like.find_by!(guid: like_entity.guid)
+
+      expect(like.signature).not_to be_nil
+      expect(like.signature.author_signature).to eq("aa")
+      expect(like.signature.additional_data).to eq("new_property" => "data")
+      expect(like.signature.order).to eq(%w(author guid parent_guid parent_type positive new_property))
     end
 
     let(:entity) { like_entity }
@@ -310,12 +356,20 @@ describe Diaspora::Federation::Receive do
 
   describe ".poll_participation" do
     let(:post_with_poll) { FactoryGirl.create(:status_message_with_poll, author: alice.person) }
-    let(:poll_participation_entity) {
-      FactoryGirl.build(
+    let(:poll_participation_data) {
+      FactoryGirl.attributes_for(
         :poll_participation_entity,
         author:           sender.diaspora_handle,
         parent_guid:      post_with_poll.poll.guid,
-        poll_answer_guid: post_with_poll.poll.poll_answers.first.guid
+        poll_answer_guid: post_with_poll.poll.poll_answers.first.guid,
+        author_signature: "aa"
+      )
+    }
+    let(:poll_participation_entity) {
+      DiasporaFederation::Entities::PollParticipation.new(
+        poll_participation_data,
+        [:author, :guid, :parent_guid, :poll_answer_guid, "new_property"],
+        "new_property" => "data"
       )
     }
 
@@ -336,6 +390,17 @@ describe Diaspora::Federation::Receive do
 
       expect(post_with_poll.poll.poll_participations).to include(poll_participation)
       expect(poll_participation.poll).to eq(post_with_poll.poll)
+    end
+
+    it "saves the signature data" do
+      Diaspora::Federation::Receive.perform(poll_participation_entity)
+
+      poll_participation = PollParticipation.find_by!(guid: poll_participation_entity.guid)
+
+      expect(poll_participation.signature).not_to be_nil
+      expect(poll_participation.signature.author_signature).to eq("aa")
+      expect(poll_participation.signature.additional_data).to eq("new_property" => "data")
+      expect(poll_participation.signature.order).to eq(%w(author guid parent_guid poll_answer_guid new_property))
     end
 
     let(:entity) { poll_participation_entity }
