@@ -47,9 +47,11 @@ app.views.ProfileHeader = app.views.Base.extend({
   },
 
   showMentionModal: function(e){
-    var statusMessagePath = e.target.getAttribute('data-status-message-path');
-    var title = e.target.getAttribute('data-title');
-    app.helpers.showModal("#mentionModal", statusMessagePath, title);
+    // var statusMessagePath = e.target.getAttribute('data-status-message-path');
+    // var title = e.target.getAttribute('data-title');
+    // app.helpers.showModal("#mentionModal", statusMessagePath, title);
+    app.helpers.showModal("#mentionModal");
+    
   },
 
   showMessageModal: function(){

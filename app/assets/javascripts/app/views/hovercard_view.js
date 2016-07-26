@@ -219,8 +219,8 @@ app.views.Hovercard = app.views.Base.extend({
 
   showMessageModal: function(e){
     var conversationPath = e.target.getAttribute('data-conversation-path');
-    // var title_message = e.target.getAttribute('data-title-message');
-    app.helpers.showModal("#conversationModal", conversationPath/*, title_message*/);
+    var title_message = e.target.getAttribute('data-title-message');
+    app.helpers.showModal("#conversationModal", conversationPath, title_message);
   },
 
   keyDown : function(evt) {
