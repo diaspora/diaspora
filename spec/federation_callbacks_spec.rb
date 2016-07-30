@@ -130,6 +130,15 @@ describe "diaspora federation callbacks" do
         expect(profile_entity.image_url_small).to eq(profile.image_url_small)
         expect(profile_entity.searchable).to eq(profile.searchable)
       end
+
+      it "raises an error if a person with the same GUID already exists" do
+        person_data = FactoryGirl.attributes_for(:federation_person_from_webfinger).merge(guid: alice.guid)
+        person = DiasporaFederation::Entities::Person.new(person_data)
+
+        expect {
+          DiasporaFederation.callbacks.trigger(:save_person_after_webfinger, person)
+        }.to raise_error ActiveRecord::RecordInvalid, /Person with same GUID already exists: #{alice.diaspora_handle}/
+      end
     end
 
     context "update profile" do

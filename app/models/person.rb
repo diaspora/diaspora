@@ -51,6 +51,7 @@ class Person < ActiveRecord::Base
   has_many :mentions, :dependent => :destroy
 
   validate :owner_xor_pod
+  validate :other_person_with_same_guid, on: :create
   validates :profile, :presence => true
   validates :serialized_public_key, :presence => true
   validates :diaspora_handle, :uniqueness => true
@@ -300,5 +301,10 @@ class Person < ActiveRecord::Base
 
   def owner_xor_pod
     errors.add(:base, "Specify an owner or a pod, not both") unless owner.blank? ^ pod.blank?
+  end
+
+  def other_person_with_same_guid
+    diaspora_id = Person.where(guid: guid).where.not(diaspora_handle: diaspora_handle).pluck(:diaspora_handle).first
+    errors.add(:base, "Person with same GUID already exists: #{diaspora_id}") if diaspora_id
   end
 end

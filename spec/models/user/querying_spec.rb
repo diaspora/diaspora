@@ -186,29 +186,21 @@ describe User::Querying, :type => :model do
         expect(alice.people_in_aspects([@alices_aspect])).to eq([bob.person])
       end
 
-      it 'returns local/remote people objects for a users contact in each aspect' do
+      it "returns local/remote people objects for a users contact in each aspect" do
         local_user1 = FactoryGirl.create(:user)
         local_user2 = FactoryGirl.create(:user)
-        remote_user = FactoryGirl.create(:user)
+        remote_person = FactoryGirl.create(:person)
 
-        asp1 = local_user1.aspects.create(:name => "lol")
-        asp2 = local_user2.aspects.create(:name => "brb")
-        asp3 = remote_user.aspects.create(:name => "ttyl")
+        asp1 = local_user1.aspects.create(name: "lol")
+        asp2 = local_user2.aspects.create(name: "brb")
 
         connect_users(alice, @alices_aspect, local_user1, asp1)
         connect_users(alice, @alices_aspect, local_user2, asp2)
-        connect_users(alice, @alices_aspect, remote_user, asp3)
-
-        local_person = remote_user.person
-        local_person.diaspora_handle = "#{remote_user.username}@example.net"
-        local_person.owner = nil
-        local_person.pod = Pod.find_or_create_by(url: "http://example.net")
-        local_person.save
-        local_person.reload
+        alice.contacts.create!(person: remote_person, aspects: [@alices_aspect], sharing: true)
 
         expect(alice.people_in_aspects([@alices_aspect]).count).to eq(4)
-        expect(alice.people_in_aspects([@alices_aspect], :type => 'remote').count).to eq(1)
-        expect(alice.people_in_aspects([@alices_aspect], :type => 'local').count).to eq(3)
+        expect(alice.people_in_aspects([@alices_aspect], type: "remote").count).to eq(1)
+        expect(alice.people_in_aspects([@alices_aspect], type: "local").count).to eq(3)
       end
 
       it 'does not return people not connected to user on same pod' do

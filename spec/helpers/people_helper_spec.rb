@@ -86,10 +86,8 @@ describe PeopleHelper, :type => :helper do
 
     it "links by id if there is a period in the user's username" do
       @user.username = "invalid.username"
-      expect(@user.save(:validate => false)).to eq(true)
-      person = @user.person
-      person.diaspora_handle = "#{@user.username}@#{AppConfig.pod_uri.authority}"
-      person.save!
+      @user.person.diaspora_handle = "#{@user.username}@#{AppConfig.pod_uri.authority}"
+      expect(@user.save(validate: false)).to eq(true)
 
       expect(local_or_remote_person_path(@user.person)).to eq(person_path(@user.person))
     end
