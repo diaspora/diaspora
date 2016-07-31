@@ -167,10 +167,9 @@
       title: t('status_messages.new.mentioning', person: ""),
       id: 'mentionModal'
 
-  -if @contact
-    #new_conversation_pane
-      = render 'shared/modal',
-        path: new_conversation_path(:contact_id => @contact.id, name: @contact.person.name, modal: true),
-        title: t('conversations.index.new_conversation'),
-        id: 'conversationModal'
+  #new_conversation_pane
+    = render 'shared/modal',
+      path: new_conversation_path(:contact_id => ''),
+      title: t('conversations.index.new_conversation'),
+      id: 'conversationModal'
 

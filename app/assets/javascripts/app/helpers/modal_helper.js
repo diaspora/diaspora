@@ -1,11 +1,11 @@
 
 (function(){
-  app.helpers.showModal = function(id, statusMessagePath, title){
+  app.helpers.showModal = function(id, statusMessagePath, title, conversationPath){
     $(id).modal();
 
-    //var modalBody = $(id).find(".modal-body");
+    var modalBody = $(id).find(".modal-body");
 
-    //$(id).find(".modal-title").text(title);
+    $(id).find(".modal-title").text(title);
     var $modalTitle = $(id).find(".modal-title");
 
     if($('showMentionModal').modal()) {
@@ -15,13 +15,13 @@
           $modalTitle.data("original-title", $modalTitle[0].textContent);
         }
 
-        var $modalTitle = $(id).find(".modal-title");
+        // var modalTitle = $(id).find(".modal-title");
         var modalBody = $(id).find(".modal-body");
-        
+
         $modalTitle.text(title);
         modalBody.load(statusMessagePath, function(){
           $(id).find("#modalWaiter").remove();
-        });  
+        });
       }
       else{
 
@@ -36,6 +36,14 @@
         });
       }
     }
+    else if($('showMessageModal').modal()) {
+      var message = $(id).find(".modal-body");
+  
+      message.load(conversationPath, function(){
+        $(id).find("#modalWaiter").remove();
+      });
+    }
+
 
     // var url = $(id).attr("href");
     // modalBody.load(url, function(){

@@ -7,6 +7,7 @@ class HovercardPresenter
     raise ArgumentError, "the given object is not a Person" unless person.class == Person
 
     self.person = person
+    
   end
 
   # returns the json representation of the Person object for use with the
@@ -20,8 +21,7 @@ class HovercardPresenter
        :handle => person.diaspora_handle,
        :title => I18n.t('status_messages.new.mentioning', person: person.name),
        :tags => person.tags.map { |t| "#"+t.name },
-       :message_url => Rails.application.routes.url_helpers.new_conversation_path(person),
-       :title_message => I18n.t('conversations.index.new_conversation'),
+       :message_url => Rails.application.routes.url_helpers.new_conversation_path(:person_id => @person.id, name: @person.name, modal: true),
     }.to_json(options)
   end
 

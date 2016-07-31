@@ -6,16 +6,16 @@
 
 :javascript
   $(function() {
-    window.personjson = #{json_escape @person.to_json};
-    
     app.publisher = new app.views.Publisher({
+      el: "#new_status_message_pane #publisher",
       standalone: true,
       prefillMention: #{json_escape @person.to_json}
     });
     app.publisher.open();
-    $("#publisher").bind('ajax:success', function(){
+    $("#new_status_message_pane #publisher").bind('ajax:success', function(){
       $("#mentionModal").modal('hide');
       app.publisher.clear();
       location.reload();
     });
   });
+

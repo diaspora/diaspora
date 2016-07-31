@@ -1,24 +1,11 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.Hovercard = app.views.Base.extend({
-  triggerChar: "@",
-  invisibleChar: "\u200B", // zero width space
-  mentionRegex: /@([^@\s]+)$/,
-
   templateName: 'hovercard',
   id: 'hovercard_container',
 
-  templates: {
-    mentionItemSyntax: _.template("@{<%= name %> ; <%= handle %>}"),
-    mentionItemHighlight: _.template("<strong><span><%= name %></span></strong>")
-  },
-
   events: {
     'mouseleave': '_mouseleaveHandler',
-    "keydown #status_message_fake_text": "onInputBoxKeyDown",
-    "input #status_message_fake_text": "onInputBoxInput",
-    "click #status_message_fake_text": "onInputBoxClick",
-    "blur #status_message_fake_text": "onInputBoxBlur",
     "click #mention_button": "showMentionModal",
     "click #message_button": "showMessageModal",
     "keydown textarea#conversation_text" : "keyDown",
@@ -28,7 +15,7 @@ app.views.Hovercard = app.views.Base.extend({
 
   initialize: function() {
     this.render();
-    console.log($('#mention_button'));
+    
     $(document)
       .on('mouseenter', '.hovercardable', _.bind(this._mouseenterHandler, this))
       .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this))
@@ -52,48 +39,9 @@ app.views.Hovercard = app.views.Base.extend({
     this.person_mention_button = this.$('#mention_button');
     this.person_message_button = this.$('#message_button');
     // this.person_message_link = this.$("a.message");
-    this.active = true;
-
-    if($("#conversation_new:visible").length > 0) {
-      new app.views.ConversationsForm({
-        el: $("#conversation_new"),
-        contacts: gon.contacts
-      });
-    }
-    this.setupConversation();
+    this.active = true;  
   },
 
-
-
-  setupConversation: function() {
-    app.helpers.timeago($(this.el));
-    $(".control-icons a").tooltip({placement: "bottom"});
-
-    var conv = $(".conversation-wrapper .stream_element.selected"),
-        cBadge = $("#conversations-link .badge");
-
-    if(conv.hasClass("unread") ){
-      var unreadCount = parseInt(conv.find(".unread-message-count").text(), 10);
-
-      if(cBadge.text() !== "") {
-        cBadge.text().replace(/\d+/, function(num){
-          num = parseInt(num, 10) - unreadCount;
-          if(num > 0) {
-            cBadge.text(num);
-          } else {
-            cBadge.text(0).addClass("hidden");
-          }
-        });
-      }
-      conv.removeClass("unread");
-      conv.find(".unread-message-count").remove();
-
-      var pos = $("#first_unread").offset().top - 50;
-      $("html").animate({scrollTop:pos});
-    } else {
-      $("html").animate({scrollTop:0});
-    }
-  },
 
   postRenderTemplate: function() {
     this.$el.appendTo($('body'));
@@ -190,9 +138,7 @@ app.views.Hovercard = app.views.Base.extend({
     this.person_mention_button.attr('data-status-message-path', person.status_url);
     this.person_mention_button.attr('data-title', person.title);
     this.person_message_button.attr('data-conversation-path', person.message_url);
-    //message t
-    this.person_mention_button.attr('data-title-message', person.title_message);
-    // window.ppp=person;
+   
 
     // set hashtags
     this.hashtags.empty();
@@ -219,16 +165,10 @@ app.views.Hovercard = app.views.Base.extend({
 
   showMessageModal: function(e){
     var conversationPath = e.target.getAttribute('data-conversation-path');
-    var title_message = e.target.getAttribute('data-title-message');
-    app.helpers.showModal("#conversationModal", conversationPath, title_message);
+    app.helpers.showModal("#conversationModal", conversationPath);
   },
 
-  keyDown : function(evt) {
-    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
-      $(evt.target).parents("form").submit();
-    }
-  },
-
+  
   _positionHovercard: function() {
     var p_pos = this.parent.offset();
     var p_height = this.parent.height();
