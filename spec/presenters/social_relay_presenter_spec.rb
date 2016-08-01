@@ -30,10 +30,10 @@ describe SocialRelayPresenter do
       end
 
       it "provides pod tags" do
-        expect(@presenter.as_json).to eq(
+        expect(@presenter.as_json).to match(
           "subscribe" => false,
           "scope"     => "tags",
-          "tags"      => ["foo", "bar"]
+          "tags"      => a_collection_containing_exactly("foo", "bar")
         )
       end
     end
@@ -46,15 +46,15 @@ describe SocialRelayPresenter do
         lootag = FactoryGirl.create(:tag, name: "loo")
         FactoryGirl.create(:tag_following, user: alice, tag: ceetag)
         FactoryGirl.create(:tag_following, user: alice, tag: lootag)
-        alice.last_seen = Time.now - 2.month
+        alice.last_seen = Time.zone.now - 2.months
         alice.save
       end
 
       it "provides user tags" do
-        expect(@presenter.as_json).to eq(
+        expect(@presenter.as_json).to match(
           "subscribe" => false,
           "scope"     => "tags",
-          "tags"      => ["cee", "loo"]
+          "tags"      => a_collection_containing_exactly("cee", "loo")
         )
       end
     end
@@ -67,15 +67,15 @@ describe SocialRelayPresenter do
         lootag = FactoryGirl.create(:tag, name: "loo")
         FactoryGirl.create(:tag_following, user: alice, tag: ceetag)
         FactoryGirl.create(:tag_following, user: alice, tag: lootag)
-        alice.last_seen = Time.now - 2.month
+        alice.last_seen = Time.zone.now - 2.months
         alice.save
       end
 
       it "provides combined pod and user tags" do
-        expect(@presenter.as_json).to eq(
+        expect(@presenter.as_json).to match(
           "subscribe" => false,
           "scope"     => "tags",
-          "tags"      => ["foo", "bar", "cee", "loo"]
+          "tags"      => a_collection_containing_exactly("foo", "bar", "cee", "loo")
         )
       end
     end
@@ -88,7 +88,7 @@ describe SocialRelayPresenter do
         lootag = FactoryGirl.create(:tag, name: "loo")
         FactoryGirl.create(:tag_following, user: alice, tag: ceetag)
         FactoryGirl.create(:tag_following, user: alice, tag: lootag)
-        alice.last_seen = Time.now - 8.month
+        alice.last_seen = Time.zone.now - 8.months
         alice.save
       end
 
