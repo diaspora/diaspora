@@ -164,6 +164,7 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   showMessageModal: function(e){
+    console.log("e: ", e);
     var conversationPath = e.target.getAttribute('data-conversation-path');
     app.helpers.showModal("#conversationModal", conversationPath);
   },

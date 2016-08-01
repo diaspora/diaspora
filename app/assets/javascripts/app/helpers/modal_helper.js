@@ -3,9 +3,9 @@
   app.helpers.showModal = function(id, statusMessagePath, title, conversationPath){
     $(id).modal();
 
-    var modalBody = $(id).find(".modal-body");
+    //var modalBody = $(id).find(".modal-body");
 
-    $(id).find(".modal-title").text(title);
+    //$(id).find(".modal-title").text(title);
     var $modalTitle = $(id).find(".modal-title");
 
     if($('showMentionModal').modal()) {
@@ -36,13 +36,16 @@
         });
       }
     }
-    else if($('showMessageModal').modal()) {
-      var message = $(id).find(".modal-body");
+    // else if($('showMessageModal').modal()) {
+    //   if(conversationPath){
+    //     var message = $(id).find(".modal-body");
   
-      message.load(conversationPath, function(){
-        $(id).find("#modalWaiter").remove();
-      });
-    }
+    //     message.load(conversationPath, function(){
+    //       $(id).find("#modalWaiter").remove();
+    //     });
+    //   }
+      
+    // }
 
 
     // var url = $(id).attr("href");

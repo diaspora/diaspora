@@ -112,7 +112,7 @@ class PeopleController < ApplicationController
       end
 
       format.json do
-        render :json => HovercardPresenter.new(@person)
+        render :json => HovercardPresenter.new(@person, current_user)
       end
     end
   end
