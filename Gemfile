@@ -234,7 +234,7 @@ group :development do
   # Automatic test runs
   gem "guard",          "2.14.0", require: false
   gem "guard-cucumber", "2.1.2", require: false
-  gem "guard-rspec",    "4.7.2", require: false
+  gem "guard-rspec",    "4.7.3", require: false
   gem "guard-rubocop",  "1.2.0", require: false
   gem "rb-fsevent",     "0.9.7", require: false
   gem "rb-inotify",     "0.9.7", require: false
@@ -295,7 +295,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "3.4.2"
+  gem "rspec-rails", "3.5.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "1.4.3", require: false
