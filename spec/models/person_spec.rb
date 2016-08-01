@@ -430,19 +430,17 @@ describe Person, :type => :model do
         expect(person).to eq(user1.person)
       end
 
-      it 'should only find people who are exact matches (1/2)' do
-        user = FactoryGirl.create(:user, :username => "SaMaNtHa")
-        person = FactoryGirl.create(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
-        user.person.diaspora_handle = "tom@tom.joindiaspora.com"
-        user.person.save
-        expect(Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle).to eq("tom@tom.joindiaspora.com")
+      it "should only find people who are exact matches (1/2)" do
+        FactoryGirl.create(:person, diaspora_handle: "tomtom@tom.joindiaspora.com")
+        FactoryGirl.create(:person, diaspora_handle: "tom@tom.joindiaspora.com")
+        expect(Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle)
+          .to eq("tom@tom.joindiaspora.com")
       end
 
-      it 'should only find people who are exact matches (2/2)' do
-        person = FactoryGirl.create(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
-        person1 = FactoryGirl.create(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
-        f = Person.by_account_identifier("tom@tom.joindiaspora.com")
-        expect(f).to be nil
+      it "should only find people who are exact matches (2/2)" do
+        FactoryGirl.create(:person, diaspora_handle: "tomtom@tom.joindiaspora.com")
+        FactoryGirl.create(:person, diaspora_handle: "tom@tom.joindiaspora.comm")
+        expect(Person.by_account_identifier("tom@tom.joindiaspora.com")).to be_nil
       end
     end
   end
@@ -504,6 +502,16 @@ describe Person, :type => :model do
     it 'calls Profile#tombstone!' do
       expect(@person.profile).to receive(:tombstone!)
       @person.clear_profile!
+    end
+  end
+
+  context "validation" do
+    it "validates that no other person with same guid exists" do
+      person = FactoryGirl.build(:person)
+      person.guid = alice.guid
+
+      expect(person.valid?).to be_falsey
+      expect(person.errors.full_messages).to include("Person with same GUID already exists: #{alice.diaspora_handle}")
     end
   end
 end
