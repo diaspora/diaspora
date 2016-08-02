@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720212620) do
+ActiveRecord::Schema.define(version: 20160802212635) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -453,28 +453,15 @@ ActiveRecord::Schema.define(version: 20160720212620) do
     t.boolean  "pending",                             default: false, null: false
     t.string   "type",                  limit: 40,                    null: false
     t.text     "text",                  limit: 65535
-    t.text     "remote_photo_path",     limit: 65535
-    t.string   "remote_photo_name",     limit: 255
-    t.string   "random_string",         limit: 255
-    t.string   "processed_image",       limit: 255
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
-    t.string   "unprocessed_image",     limit: 255
-    t.string   "object_url",            limit: 255
-    t.string   "image_url",             limit: 255
-    t.integer  "image_height",          limit: 4
-    t.integer  "image_width",           limit: 4
     t.string   "provider_display_name", limit: 255
-    t.string   "actor_url",             limit: 255
-    t.string   "objectId",              limit: 255
     t.string   "root_guid",             limit: 255
-    t.string   "status_message_guid",   limit: 255
     t.integer  "likes_count",           limit: 4,     default: 0
     t.integer  "comments_count",        limit: 4,     default: 0
     t.integer  "o_embed_cache_id",      limit: 4
     t.integer  "reshares_count",        limit: 4,     default: 0
     t.datetime "interacted_at"
-    t.string   "frame_name",            limit: 255
     t.string   "facebook_id",           limit: 255
     t.string   "tweet_id",              limit: 255
     t.integer  "open_graph_cache_id",   limit: 4
@@ -486,8 +473,6 @@ ActiveRecord::Schema.define(version: 20160720212620) do
   add_index "posts", ["guid"], name: "index_posts_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "posts", ["id", "type", "created_at"], name: "index_posts_on_id_and_type_and_created_at", using: :btree
   add_index "posts", ["root_guid"], name: "index_posts_on_root_guid", length: {"root_guid"=>191}, using: :btree
-  add_index "posts", ["status_message_guid", "pending"], name: "index_posts_on_status_message_guid_and_pending", length: {"status_message_guid"=>190, "pending"=>nil}, using: :btree
-  add_index "posts", ["status_message_guid"], name: "index_posts_on_status_message_guid", length: {"status_message_guid"=>191}, using: :btree
   add_index "posts", ["tweet_id"], name: "index_posts_on_tweet_id", length: {"tweet_id"=>191}, using: :btree
   add_index "posts", ["type", "pending", "id"], name: "index_posts_on_type_and_pending_and_id", using: :btree
 
