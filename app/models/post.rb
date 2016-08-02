@@ -129,10 +129,6 @@ class Post < ActiveRecord::Base
     new(params.to_hash.stringify_keys.slice(*column_names, "author"))
   end
 
-  def activity_streams?
-    false
-  end
-
   def comment_email_subject
     I18n.t('notifier.a_post_you_shared')
   end
