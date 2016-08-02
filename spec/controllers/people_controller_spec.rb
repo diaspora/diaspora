@@ -435,12 +435,12 @@ describe PeopleController, :type => :controller do
     end
 
     it 'redirects html requests' do
-      get :hovercard, :person_id => @hover_test.guid
+      get :hovercard, :person_id => @hover_test.guid, :contact_id => @hover_test.guid
       expect(response).to redirect_to person_path(:id => @hover_test.guid)
     end
 
     it 'returns json with profile stuff' do
-      get :hovercard, :person_id => @hover_test.guid, :format => 'json'
+      get :hovercard, :person_id => @hover_test.guid, :contact_id => @hover_test.guid, :format => 'json'
       expect(JSON.parse( response.body )['handle']).to eq(@hover_test.diaspora_handle)
     end
   end
