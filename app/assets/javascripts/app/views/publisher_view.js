@@ -334,7 +334,6 @@ app.views.Publisher = Backbone.View.extend({
       "author" : app.currentUser ? app.currentUser.attributes : {},
       "mentioned_people" : mentionedPeople,
       "photos" : photos,
-      "frame_name" : "status",
       "title" : serializedForm["status_message[text]"],
       "location" : location,
       "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},

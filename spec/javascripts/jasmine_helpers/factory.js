@@ -81,13 +81,11 @@ var factory = {
       "interacted_at" : '2012-01-03T19:53:13Z',
       "public" : false,
       "guid" : this.guid(),
-      "image_url" : null,
       "o_embed_cache" : null,
       "open_graph_cache": null,
       "photos" : [],
       "text" : "jasmine is bomb",
       "id" : this.id.next(),
-      "object_url" : null,
       "root" : null,
       "post_type" : "StatusMessage",
       "interactions" : {
