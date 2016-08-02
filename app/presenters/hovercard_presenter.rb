@@ -2,18 +2,12 @@ class HovercardPresenter
 
   attr_accessor :person, :contact
 
-  def person
-    @person
-  end
-
   # initialize the presenter with the given Person object
   def initialize(person, current_user)
     raise ArgumentError, "the given object is not a Person" unless person.class == Person
 
     self.person = person
     self.contact = current_user.contact_for(@person)
-    # @contact = person.
-    
   end
 
   # returns the json representation of the Person object for use with the
@@ -27,7 +21,7 @@ class HovercardPresenter
        :handle => person.diaspora_handle,
        :title => I18n.t('status_messages.new.mentioning', person: person.name),
        :tags => person.tags.map { |t| "#"+t.name },
-       :message_url => Rails.application.routes.url_helpers.new_conversation_path(:contact_id => @contact.id, name: @contact.person.name, modal: true),
+       :message_url => message_url,
     }.to_json(options)
   end
 
@@ -47,4 +41,7 @@ class HovercardPresenter
     Rails.application.routes.url_helpers.person_path(person)
   end
 
+  def message_url
+    Rails.application.routes.url_helpers.new_conversation_path(:contact_id => @contact.id, name: @contact.person.name, modal: true)
+  end
 end

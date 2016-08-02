@@ -163,13 +163,13 @@
 -if user_signed_in?## && @person
   #new_status_message_pane
     = render 'shared/modal',
-      path: new_status_message_path(:person_id => ''),
-      title: t('status_messages.new.mentioning', person: ""),
+      path: new_status_message_path(),
+      title: t('status_messages.new.mentioning'),
       id: 'mentionModal'
 
   #new_conversation_pane
     = render 'shared/modal',
-      path: new_conversation_path(:contact_id => ''),
+      path: new_conversation_path(),
       title: t('conversations.index.new_conversation'),
       id: 'conversationModal'
 

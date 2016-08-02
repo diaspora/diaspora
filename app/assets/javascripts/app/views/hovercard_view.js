@@ -8,9 +8,6 @@ app.views.Hovercard = app.views.Base.extend({
     'mouseleave': '_mouseleaveHandler',
     "click #mention_button": "showMentionModal",
     "click #message_button": "showMessageModal",
-    "keydown textarea#conversation_text" : "keyDown",
-    "conversation:loaded" : "setupConversation",
-    "click .conversation_button": "showMessageModal",
   },
 
   initialize: function() {
@@ -38,7 +35,6 @@ app.views.Hovercard = app.views.Base.extend({
     this.person_handle = this.$('div.handle');
     this.person_mention_button = this.$('#mention_button');
     this.person_message_button = this.$('#message_button');
-    // this.person_message_link = this.$("a.message");
     this.active = true;  
   },
 
@@ -164,7 +160,6 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   showMessageModal: function(e){
-    console.log("e: ", e);
     var conversationPath = e.target.getAttribute('data-conversation-path');
     app.helpers.showModal("#conversationModal", conversationPath);
   },
