@@ -107,8 +107,8 @@ describe ConversationsController, :type => :controller do
       get :index
       @conversation = @conversations.first
       expect(response).to be_success
-      expect(response.body).to match(%r/cool stuff/)
-      expect(response.body).not_to match(%r/<strong>cool stuff<\/strong>/)
+      expect(response.body).to match(/cool stuff/)
+      expect(response.body).not_to match(%r{<strong>cool stuff</strong>})
     end
   end
 
