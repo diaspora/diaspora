@@ -450,7 +450,6 @@ ActiveRecord::Schema.define(version: 20160802212635) do
     t.integer  "author_id",             limit: 4,                     null: false
     t.boolean  "public",                              default: false, null: false
     t.string   "guid",                  limit: 255,                   null: false
-    t.boolean  "pending",                             default: false, null: false
     t.string   "type",                  limit: 40,                    null: false
     t.text     "text",                  limit: 65535
     t.datetime "created_at",                                          null: false
@@ -472,9 +471,9 @@ ActiveRecord::Schema.define(version: 20160802212635) do
   add_index "posts", ["author_id"], name: "index_posts_on_person_id", using: :btree
   add_index "posts", ["guid"], name: "index_posts_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "posts", ["id", "type", "created_at"], name: "index_posts_on_id_and_type_and_created_at", using: :btree
+  add_index "posts", ["id", "type"], name: "index_posts_on_id_and_type", using: :btree
   add_index "posts", ["root_guid"], name: "index_posts_on_root_guid", length: {"root_guid"=>191}, using: :btree
   add_index "posts", ["tweet_id"], name: "index_posts_on_tweet_id", length: {"tweet_id"=>191}, using: :btree
-  add_index "posts", ["type", "pending", "id"], name: "index_posts_on_type_and_pending_and_id", using: :btree
 
   create_table "ppid", force: :cascade do |t|
     t.integer "o_auth_application_id", limit: 4

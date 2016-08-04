@@ -43,6 +43,7 @@ class Post < ActiveRecord::Base
     ) #note should include root and photos, but i think those are both on status_message
   }
 
+  scope :all_public, -> { where(public: true) }
 
   scope :commented_by, ->(person)  {
     select('DISTINCT posts.*')

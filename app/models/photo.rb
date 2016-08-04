@@ -141,6 +141,6 @@ class Photo < ActiveRecord::Base
              else
                Photo.where(author_id: person.id, public: true)
              end
-    photos.order("created_at desc")
+    photos.where(pending: false).order("created_at DESC")
   end
 end

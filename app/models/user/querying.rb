@@ -117,7 +117,7 @@ module User::Querying
   end
 
   def visible_shareables_query(query, opts)
-    query.with_visibility.where(pending: false).where(
+    query.with_visibility.where(
       visible_private_shareables(opts).or(opts[:klass].arel_table[:public].eq(true))
     )
   end
@@ -129,7 +129,7 @@ module User::Querying
   end
 
   def construct_shareable_from_self_query(opts)
-    conditions = {pending: false, author_id: person_id}
+    conditions = {author_id: person_id}
     conditions[:type] = opts[:type] if opts.has_key?(:type)
     query = opts[:klass].where(conditions)
 

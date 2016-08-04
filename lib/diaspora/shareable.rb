@@ -19,8 +19,6 @@ module Diaspora
         delegate :id, :name, :first_name, to: :author, prefix: true
 
         # scopes
-        scope :all_public, -> { where(public: true, pending: false) }
-
         scope :with_visibility, -> {
           joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = #{table_name}.id AND "\
             "share_visibilities.shareable_type = '#{base_class}'")
@@ -77,7 +75,7 @@ module Diaspora
       end
 
       def owned_by_user(user)
-        user.person.public_send(table_name).where(pending: false)
+        user.person.public_send(table_name)
       end
 
       private

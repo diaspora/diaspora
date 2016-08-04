@@ -3,8 +3,10 @@ class CleanupPostsTable < ActiveRecord::Migration
     remove_index :posts, column: %i(status_message_guid pending),
                  name: :index_posts_on_status_message_guid_and_pending, length: {status_message_guid: 190}
     remove_index :posts, column: :status_message_guid, name: :index_posts_on_status_message_guid, length: 191
+    remove_index :posts, column: %i(type pending id), name: :index_posts_on_type_and_pending_and_id
 
     # from photos?
+    remove_column :posts, :pending, :boolean, default: false, null: false
     remove_column :posts, :remote_photo_path, :text
     remove_column :posts, :remote_photo_name, :string
     remove_column :posts, :random_string, :string
@@ -22,5 +24,7 @@ class CleanupPostsTable < ActiveRecord::Migration
 
     # old single post view templates
     remove_column :posts, :frame_name, :string
+
+    add_index :posts, %i(id type), name: :index_posts_on_id_and_type
   end
 end
