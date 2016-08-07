@@ -24,6 +24,7 @@ module EvilQuery
                  "participations.target_type = 'Post'")
           .where(::Participation.arel_table[:author_id].eq(author_id).or(Post.arel_table[:author_id].eq(author_id)))
           .order("posts.interacted_at DESC")
+          .distinct
     end
   end
 

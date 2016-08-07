@@ -90,7 +90,6 @@ describe EvilQuery::Participation do
 
   describe "multiple participations" do
     before do
-      @status_message = FactoryGirl.create(:status_message, author: bob.person)
       @like = alice.like!(@status_message)
       @comment = alice.comment!(@status_message, "party")
     end
@@ -99,6 +98,16 @@ describe EvilQuery::Participation do
 
     it "includes Posts with multiple participations" do
       expect(posts.map(&:id)).to eq([@status_message.id])
+    end
+
+    it "includes Posts with multiple participations only once" do
+      eve.like!(@status_message)
+      expect(posts.count).to be(1)
+    end
+
+    it "includes Posts with multiple participations only once for the post author" do
+      eve.like!(@status_message)
+      expect(EvilQuery::Participation.new(bob).posts.count).to eq(1)
     end
 
     it "includes Posts with multiple participation after removing one participation" do
