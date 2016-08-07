@@ -476,8 +476,8 @@ app.views.Publisher = Backbone.View.extend({
 
   setButtonsEnabled: function(bool) {
     if (bool) {
-      this.submitEl.removeProp("disabled");
-      this.previewEl.removeProp("disabled");
+      this.submitEl.removeAttr("disabled");
+      this.previewEl.removeAttr("disabled");
     } else {
       this.submitEl.prop("disabled", true);
       this.previewEl.prop("disabled", true);
@@ -486,8 +486,8 @@ app.views.Publisher = Backbone.View.extend({
 
   setInputEnabled: function(bool) {
     if (bool) {
-      this.inputEl.removeProp("disabled");
-      this.hiddenInputEl.removeProp("disabled");
+      this.inputEl.removeAttr("disabled");
+      this.hiddenInputEl.removeAttr("disabled");
     } else {
       this.inputEl.prop("disabled", true);
       this.hiddenInputEl.prop("disabled", true);
