@@ -69,7 +69,7 @@
     "id-blacklist": 0,
     "id-length": 0,
     "id-match": 0,
-    "indent": [2, 2, {"SwitchCase": 1}],
+    "indent": [2, 2, {"SwitchCase": 1, "VariableDeclarator": {"var": 2, "let": 2, "const": 3}}],
     "init-declarations": 0,
     "jsx-quotes": 0,
     "key-spacing": [2, {"beforeColon": false, "afterColon": true}],
