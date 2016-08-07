@@ -1,5 +1,6 @@
 .well
-  = t('.invited_by')
+  %strong
+    = t(".invited_by")
   .media
     .pull-right
       = render partial: "aspect_memberships/aspect_membership_dropdown"
