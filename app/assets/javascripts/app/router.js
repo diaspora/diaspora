@@ -114,6 +114,7 @@ app.Router = Backbone.Router.extend({
   },
 
   photos : function(guid) {
+    this._loadRelationshipsPreloads();
     this.renderPage(function() {
       return new app.pages.Profile({
         person_id: guid,
