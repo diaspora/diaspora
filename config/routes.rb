@@ -169,7 +169,6 @@ Diaspora::Application.routes.draw do
     resources :status_messages
     resources :photos
     get :contacts
-    get "aspect_membership_button" => :aspect_membership_dropdown, :as => "aspect_membership_button"
     get :stream
     get :hovercard
 

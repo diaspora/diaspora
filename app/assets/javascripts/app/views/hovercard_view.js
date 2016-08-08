@@ -4,13 +4,15 @@ app.views.Hovercard = app.views.Base.extend({
   templateName: 'hovercard',
   id: 'hovercard_container',
 
+  subviews: {
+    "#hovercard_dropdown_container": "aspectMembershipDropdown"
+  },
+
   events: {
     'mouseleave': '_mouseleaveHandler'
   },
 
   initialize: function() {
-    this.render();
-
     $(document)
       .on('mouseenter', '.hovercardable', _.bind(this._mouseenterHandler, this))
       .on('mouseleave', '.hovercardable', _.bind(this._mouseleaveHandler, this));
@@ -18,18 +20,18 @@ app.views.Hovercard = app.views.Base.extend({
     this.showMe = false;
     this.parent = null;  // current 'hovercardable' element that caused HC to appear
 
-    // cache some element references
-    this.avatar = this.$('.avatar');
-    this.avatarLink = this.$("a.person_avatar");
-    this.dropdown_container = this.$('#hovercard_dropdown_container');
-    this.hashtags = this.$('.hashtags');
-    this.person_link = this.$('a.person');
-    this.person_handle = this.$('div.handle');
     this.active = true;
   },
 
   postRenderTemplate: function() {
-    this.$el.appendTo($('body'));
+    this.$el.appendTo($("body"));
+
+    // cache some element references
+    this.avatar = this.$(".avatar");
+    this.avatarLink = this.$("a.person_avatar");
+    this.hashtags = this.$(".hashtags");
+    this.personLink = this.$("a.person");
+    this.personID = this.$("div.handle");
   },
 
   deactivate: function() {
@@ -73,7 +75,6 @@ app.views.Hovercard = app.views.Base.extend({
       this.$el.hide();
     }
 
-    this.dropdown_container.unbind().empty();
     return false;
   },
 
@@ -102,6 +103,12 @@ app.views.Hovercard = app.views.Base.extend({
         throw new Error("received data is not a person object");
       }
 
+      if (app.currentUser.authenticated()) {
+        self.aspectMembershipDropdown = new app.views.AspectMembership({person: new app.models.Person(person)});
+      }
+
+      self.render();
+
       self._populateHovercardWith(person);
       if( !self.showMe ) {
         // mouse has left element
@@ -112,29 +119,20 @@ app.views.Hovercard = app.views.Base.extend({
   },
 
   _populateHovercardWith: function(person) {
-    var self = this;
+    this.avatarLink.attr("href", this.href());
+    this.personLink.attr("href", this.href());
+    this.personLink.text(person.name);
+    this.personID.text(person.diaspora_id);
 
-    this.avatar.attr('src', person.avatar);
-    this.avatarLink.attr("href", person.url);
-    this.person_link.attr('href', person.url);
-    this.person_link.text(person.name);
-    this.person_handle.text(person.handle);
+    if (person.profile) {
+      this.avatar.attr("src", person.profile.avatar);
 
-    // set hashtags
-    this.hashtags.empty();
-    this.hashtags.html( $(_.map(person.tags, function(tag){
-      return $('<a/>',{href: "/tags/"+tag.substring(1)}).text(tag)[0] ;
-    })) );
-
-    if(!app.currentUser.authenticated()){ return; }
-    // set aspect dropdown
-    // TODO render me client side!!!
-    var href = this.href();
-    href += "/aspect_membership_button";
-    $.ajax(href, {preventGlobalErrorHandling: true}).done(function(response){
-      self.dropdown_container.html(response);
-    });
-    new app.views.AspectMembership({el: self.dropdown_container});
+      // set hashtags
+      this.hashtags.empty();
+      this.hashtags.html($(_.map(person.profile.tags, function(tag) {
+        return $("<a/>", {href: "/tags/" + tag.substring(1)}).text(tag)[0];
+      })));
+    }
   },
 
   _positionHovercard: function() {

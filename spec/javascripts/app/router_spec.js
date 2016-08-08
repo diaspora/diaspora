@@ -39,7 +39,7 @@ describe('app.Router', function () {
 
     it('hides the aspects list', function(){
       setFixtures('<div id="aspects_list" />');
-      aspects = new app.collections.Aspects([
+      aspects = new app.collections.AspectSelections([
         factory.aspectAttrs({selected:true}),
         factory.aspectAttrs()
       ]);
@@ -85,6 +85,13 @@ describe('app.Router', function () {
       spyOn(app.router, "_initializeStreamView");
       app.router.stream();
       expect(app.router._initializeStreamView).toHaveBeenCalled();
+    });
+  });
+
+  describe("gettingStarted", function() {
+    it("renders app.pages.GettingStarted", function() {
+      app.router.navigate("/getting_started", {trigger: true});
+      expect(app.page.$el.selector).toEqual("#hello-there");
     });
   });
 

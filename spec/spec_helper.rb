@@ -128,6 +128,11 @@ RSpec.configure do |config|
     ActionMailer::Base.deliveries.clear
   end
 
+  # Reset gon
+  config.after(:each) do
+    RequestStore.store[:gon].gon.clear unless RequestStore.store[:gon].nil?
+  end
+
   config.include FactoryGirl::Syntax::Methods
 end
 

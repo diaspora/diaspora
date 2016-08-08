@@ -73,7 +73,8 @@ app.views.Base = Backbone.View.extend({
     var self = this;
     _.each(this.subviews, function(property, selector){
       var view = _.isFunction(self[property]) ? self[property]() : self[property];
-      if(view) {
+      if (view && self.$(selector).length > 0) {
+        self.$(selector).empty();
         self.$(selector).html(view.render().el);
         view.delegateEvents();
       }

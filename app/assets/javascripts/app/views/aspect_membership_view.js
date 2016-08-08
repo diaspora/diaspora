@@ -1,7 +1,5 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-//= require ./aspects_dropdown_view
-
 /**
  * this view lets the user (de-)select aspect memberships in the context
  * of another users profile or the contact page.
@@ -9,7 +7,13 @@
  * updates to the list of aspects are immediately propagated to the server, and
  * the results are dislpayed as flash messages.
  */
-app.views.AspectMembership = app.views.AspectsDropdown.extend({
+app.views.AspectMembership = app.views.Base.extend({
+  templateName: "aspect_membership_dropdown",
+  className: "btn-group aspect_dropdown aspect_membership_dropdown",
+
+  subviews: {
+    ".newAspectContainer": "aspectCreateView"
+  },
 
   events: {
     "click ul.aspect_membership.dropdown-menu > li.aspect_selector"
@@ -18,70 +22,89 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
         : "_clickHandler"
   },
 
-  initialize: function() {
+  initialize: function(opts) {
+    _.extend(this, opts);
     this.list_item = null;
     this.dropdown  = null;
-    if (this.$(".newAspectContainer").length > 0) {
-      this.aspectCreateView = new app.views.AspectCreate({
-        el:       this.$(".newAspectContainer"),
-        personId: this.$("ul.dropdown-menu").data("person_id")
-      });
-      this.aspectCreateView.render();
-    }
+  },
+
+  presenter: function() {
+    var aspectMembershipsLength = this.person.contact ? this.person.contact.aspectMemberships.length : 0;
+
+    return _.extend(this.defaultPresenter(), {
+      aspects: this.aspectsPresenter(),
+      dropdownMayCreateNewAspect: this.dropdownMayCreateNewAspect
+    }, aspectMembershipsLength === 0 ? {
+      extraButtonClass: "btn-default",
+      noAspectIsSelected: true
+    } : { // this.contact.aspectMemberships.length > 0
+      aspectMembershipsLength: aspectMembershipsLength,
+      allAspectsAreSelected: aspectMembershipsLength === app.aspects.length,
+      onlyOneAspectIsSelected: aspectMembershipsLength === 1,
+      firstMembershipName: this.person.contact.aspectMemberships.at(0).get("aspect").name,
+      extraButtonClass: "btn-success"
+    });
+  },
+
+  aspectsPresenter: function() {
+    return _.map(app.aspects.models, function(aspect) {
+      return _.extend(
+        this.person.contact ?
+          {membership: this.person.contact.aspectMemberships.findByAspectId(aspect.attributes.id)} : {},
+        aspect.attributes // id, name
+      );
+    }, this);
+  },
+
+  aspectCreateView: function() {
+    return new app.views.AspectCreate({
+      person: this.person
+    });
   },
 
   // decide what to do when clicked
   //   -> addMembership
   //   -> removeMembership
   _clickHandler: function(evt) {
-    var promise = null;
     this.list_item = $(evt.target).closest('li.aspect_selector');
     this.dropdown  = this.list_item.parent();
 
     this.list_item.addClass('loading');
 
-    if( this.list_item.is('.selected') ) {
-      var membership_id = this.list_item.data('membership_id');
-      promise = this.removeMembership(membership_id);
+    if (this.list_item.is(".selected")) {
+      this.removeMembership(this.list_item.data("membership_id"));
     } else {
-      var aspect_id = this.list_item.data('aspect_id');
-      var person_id = this.dropdown.data('person_id');
-      promise = this.addMembership(person_id, aspect_id);
+      this.addMembership(this.list_item.data("aspect_id"));
     }
-
-    promise && promise.always(function() {
-      // trigger a global event
-      app.events.trigger('aspect_membership:update');
-    });
 
     return false; // stop the event
   },
 
   // return the (short) name of the person associated with the current dropdown
   _name: function() {
-    return this.dropdown.data('person-short-name');
+    return this.person.name || this.person.get("name");
+  },
+
+  _personId: function() {
+    return this.person.id;
   },
 
   // create a membership for the given person in the given aspect
-  addMembership: function(person_id, aspect_id) {
-    var aspect_membership = new app.models.AspectMembership({
-      'person_id': person_id,
-      'aspect_id': aspect_id
+  addMembership: function(aspectId) {
+    if (!this.person.contact) {
+      this.person.contact = new app.models.Contact();
+    }
+
+    this.listenToOnce(this.person.contact.aspectMemberships, "sync", this._successSaveCb);
+    this.listenToOnce(this.person.contact.aspectMemberships, "error", function() {
+      this._displayError('aspect_dropdown.error');
     });
 
-    aspect_membership.on('sync', this._successSaveCb, this);
-    aspect_membership.on('error', function() {
-      this._displayError('aspect_dropdown.error');
-    }, this);
-
-    return aspect_membership.save();
+    return this.person.contact.aspectMemberships.create({"aspect_id": aspectId, "person_id": this._personId()});
   },
 
   _successSaveCb: function(aspectMembership) {
     var aspectId = aspectMembership.get("aspect_id"),
-        membershipId = aspectMembership.get("id"),
-        li = this.dropdown.find("li[data-aspect_id='" + aspectId + "']"),
-        personId = li.closest("ul.dropdown-menu").data("person_id"),
         startSharing = false;
 
     // the user didn't have this person in any aspects before, congratulate them
@@ -93,15 +116,11 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
     }
 
     app.events.trigger("aspect_membership:create", {
-      membership: { aspectId: aspectId, personId: personId },
+      membership: {aspectId: aspectId, personId: this._personId()},
       startSharing: startSharing
     });
-
-    li.attr("data-membership_id", membershipId) // just to be sure...
-      .data("membership_id", membershipId);
-
-    this.updateSummary(li);
-    this._done();
+    this.render();
+    app.events.trigger("aspect_membership:update");
   },
 
   // show an error flash msg
@@ -114,44 +133,35 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
   },
 
   // remove the membership with the given id
-  removeMembership: function(membership_id) {
-    var aspect_membership = new app.models.AspectMembership({
-      'id': membership_id
+  removeMembership: function(membershipId) {
+    var membership = this.person.contact.aspectMemberships.get(membershipId);
+    this.listenToOnce(membership, "sync", this._successDestroyCb);
+    this.listenToOnce(membership, "error", function() {
+      this._displayError("aspect_dropdown.error_remove");
     });
 
-    aspect_membership.on('sync', this._successDestroyCb, this);
-    aspect_membership.on('error', function() {
-      this._displayError('aspect_dropdown.error_remove');
-    }, this);
-
-    return aspect_membership.destroy();
+    return membership.destroy();
   },
 
   _successDestroyCb: function(aspectMembership) {
     var membershipId = aspectMembership.get("id"),
-        li = this.dropdown.find("li[data-membership_id='" + membershipId + "']"),
-        aspectId = li.data("aspect_id"),
-        personId = li.closest("ul.dropdown-menu").data("person_id"),
+        aspectId = aspectMembership.get("aspect").id,
         stopSharing = false;
 
-    li.removeAttr("data-membership_id")
-      .removeData("membership_id");
-    this.updateSummary(li);
-
+    this.render();
     // we just removed the last aspect, inform the user with a flash message
     // that he is no longer sharing with that person
-    if( this.dropdown.find("li.selected").length === 0 ) {
+    if (this.$el.find("li.selected").length === 0) {
       var msg = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", { "name": this._name() });
       stopSharing = true;
       app.flashMessages.success(msg);
     }
 
     app.events.trigger("aspect_membership:destroy", {
-      membership: { aspectId: aspectId, personId: personId },
+      membership: {aspectId: aspectId, personId: this._personId()},
       stopSharing: stopSharing
     });
-
-    this._done();
+    app.events.trigger("aspect_membership:update");
   },
 
   // cleanup tasks after aspect selection
@@ -160,11 +170,5 @@ app.views.AspectMembership = app.views.AspectsDropdown.extend({
       this.list_item.removeClass('loading');
     }
   },
-
-  // refresh the button text to reflect the current aspect selection status
-  updateSummary: function(target) {
-    this._toggleCheckbox(target);
-    this._updateButton("btn-success");
-  }
 });
 // @license-end

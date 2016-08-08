@@ -26,8 +26,8 @@ app.models.StreamAspects = app.models.Stream.extend({
 
   fetchDone: function() {
     this.triggerFetchedEvents();
-    if (app.aspects) {
-      app.aspects.trigger('aspectStreamFetched');
+    if (app.aspectSelections) {
+      app.aspectSelections.trigger("aspectStreamFetched");
     }
   }
 });

@@ -114,6 +114,7 @@ before.
 * Moved the entire federation implementation into its own gem. 🎉 [#6873](https://github.com/diaspora/diaspora/pull/6873)
 * Remove `StatusMessage#raw_message` [#6921](https://github.com/diaspora/diaspora/pull/6921)
 * Extract photo export into a service class [#6922](https://github.com/diaspora/diaspora/pull/6922)
+* Use handlebars template for aspect membership dropdown [#6864](https://github.com/diaspora/diaspora/pull/6864)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
@@ -136,6 +137,7 @@ before.
 * Connection tester handles invalid NodeInfo implementations [#6890](https://github.com/diaspora/diaspora/pull/6890)
 * Do not allow to change email to an already used one [#6905](https://github.com/diaspora/diaspora/pull/6905)
 * Correctly filter mentions on the server side [#6902](https://github.com/diaspora/diaspora/pull/6902)
+* Add aspects to the aspect membership dropdown when creating them on the getting started page [#6864](https://github.com/diaspora/diaspora/pull/6864)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)

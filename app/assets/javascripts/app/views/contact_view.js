@@ -3,6 +3,10 @@
 app.views.Contact = app.views.Base.extend({
   templateName: 'contact',
 
+  subviews: {
+    ".aspect_membership_dropdown": "AspectMembershipView"
+  },
+
   events: {
     "click .contact_add-to-aspect" : "addContactToAspect",
     "click .contact_remove-from-aspect" : "removeContactFromAspect"
@@ -10,26 +14,17 @@ app.views.Contact = app.views.Base.extend({
 
   tooltipSelector: '.contact_add-to-aspect, .contact_remove-from-aspect',
 
+  initialize: function() {
+    this.AspectMembershipView = new app.views.AspectMembership(
+      {person: _.extend(this.model.get("person"), {contact: this.model})}
+    );
+  },
+
   presenter: function() {
     return _.extend(this.defaultPresenter(), {
       person_id : this.model.get('person_id'),
       person : this.model.get('person'),
       in_aspect: (app.aspect && this.model.inAspect(app.aspect.get('id'))) ? 'in_aspect' : '',
-    });
-  },
-
-  postRenderTemplate: function() {
-    var dropdownEl = this.$('.aspect_membership_dropdown.placeholder');
-    if( dropdownEl.length === 0 ) {
-      return;
-    }
-
-    // TODO render me client side!!!
-    var href = this.model.person.url() + '/aspect_membership_button?size=small';
-
-    $.get(href, function(resp) {
-      dropdownEl.html(resp);
-      new app.views.AspectMembership({el: $('.aspect_dropdown',dropdownEl)});
     });
   },
 

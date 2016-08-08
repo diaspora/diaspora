@@ -21,11 +21,11 @@ app.pages.Profile = app.views.Base.extend({
       this._populateModel(opts);
     }
 
-    if(app.hasPreload("photos")){
-      this.photos = app.parsePreload("photos");
+    if (app.hasPreload("photos_count")) {
+      this.photos = app.parsePreload("photos_count");
     }
-    if(app.hasPreload("contacts")){
-      this.contacts = app.parsePreload("contacts");
+    if (app.hasPreload("contacts_count")) {
+      this.contacts = app.parsePreload("contacts_count");
     }
 
     this.streamCollection = _.has(opts, "streamCollection") ? opts.streamCollection : null;
@@ -40,6 +40,8 @@ app.pages.Profile = app.views.Base.extend({
     app.events.on("person:unblock:"+id, this.reload, this);
     app.events.on("aspect:create", this.reload, this);
     app.events.on("aspect_membership:update", this.reload, this);
+
+    app.router.renderAspectMembershipDropdowns(this.$el);
   },
 
   _populateModel: function(opts) {

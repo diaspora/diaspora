@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
 
     @contacts = contacts_by_type(type)
     @contacts_size = @contacts.length
-    gon.preloads[:contacts] = @contacts.map{ |c| ContactPresenter.new(c, current_user).full_hash_with_person }
+    gon.preloads[:contacts] = @contacts.map {|c| ContactPresenter.new(c, current_user).full_hash_with_person }
   end
 
   def contacts_by_type(type)

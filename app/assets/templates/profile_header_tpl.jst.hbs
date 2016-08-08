@@ -78,7 +78,7 @@
         <a href="{{urlTo 'personPhotos' guid}}" id="photos_link">
           <i class="entypo-picture"></i>
           {{t 'profile.photos'}}
-          <div class="badge badge-default">{{photos.count}}</div>
+          <div class="badge badge-default">{{photos}}</div>
         </a>
       </li>
     {{/if}}
@@ -88,13 +88,13 @@
           <a href="{{urlTo 'contacts'}}" id="contacts_link">
             <i class="entypo-users"></i>
             {{t 'profile.contacts'}}
-            <div class="badge badge-default">{{contacts.count}}</div>
+            <div class="badge badge-default">{{contacts}}</div>
           </a>
         {{else}}
           <a href="{{urlTo 'personContacts' guid}}" id="contacts_link">
             <i class="entypo-users"></i>
             {{t 'profile.contacts'}}
-            <div class="badge badge-default">{{contacts.count}}</div>
+            <div class="badge badge-default">{{contacts}}</div>
           </a>
         {{/if}}
       </li>

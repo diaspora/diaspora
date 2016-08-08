@@ -12,3 +12,5 @@ Feature: Invitations
     And I press "Create account"
     Then I should see the "welcome to diaspora" message
     And I should be able to friend "alice@alice.alice"
+    When I select "Family" from "user_aspects" within "#hello-there"
+    Then the aspect dropdown within "#hello-there" should be labeled "Family"

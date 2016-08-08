@@ -118,8 +118,10 @@ Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
   @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
 end
 
-When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect$/ do |aspect_name|
-  toggle_aspect_via_ui(aspect_name)
+When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect(?: within "([^"]*)")?$/ do |aspect_name, within_selector| # rubocop:disable Metrics/LineLength
+  with_scope(within_selector) do
+    toggle_aspect_via_ui(aspect_name)
+  end
 end
 
 When /^I post a status with the text "([^\"]*)"$/ do |text|

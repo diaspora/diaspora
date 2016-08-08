@@ -85,10 +85,40 @@ describe("app.views.Base", function(){
       it("renders the sub views from functions", function(){
         expect(this.view.$('.subview2').text().trim()).toBe("furreal this is the Second Subview");
       });
+
+      context("with nested matching elements", function() {
+        var subviewInstance;
+
+        beforeEach(function() {
+          var counter = 0;
+          var Subview = app.views.Base.extend({
+            templateName: "static-text",
+
+            className: "subview1", // making the internal view's div class match to the external one
+
+            presenter: function() {
+              return {text: "rendered " + ++counter + " times"};
+            }
+          });
+
+          this.view.templateName = false; // this is also important specification for the test below
+          this.view.subview1 = function() {
+            subviewInstance = new Subview();
+            return subviewInstance;
+          };
+        });
+
+        it("properly handles nested selectors case", function() {
+          this.view.render();
+          this.view.render();
+          subviewInstance.render();
+          expect(this.view.$(".subview1 .subview1").text()).toBe("rendered 3 times");
+        });
+      });
     });
 
-    context("calling out to third party plugins", function(){
-      it("replaces .time with relative time ago in words", function(){
+    context("calling out to third party plugins", function() {
+      it("replaces .time with relative time ago in words", function() {
         spyOn($.fn, "timeago");
         this.view.render();
         expect($.fn.timeago).toHaveBeenCalled();

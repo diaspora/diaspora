@@ -5,6 +5,8 @@
 require 'spec_helper'
 
 describe PeopleController, :type => :controller do
+  include_context :gon
+
   before do
     @user = alice
     @aspect = @user.aspects.first
@@ -195,11 +197,11 @@ describe PeopleController, :type => :controller do
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       end
       get :show, :id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}'
+      expect(response.body).to include ',"photos_count":16'
 
       eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
       get :show, :id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
+      expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
     end
 
     context "when the person is the current user" do
@@ -277,6 +279,11 @@ describe PeopleController, :type => :controller do
         get :show, id: @person.to_param
         expect(response.body).to include(@person.profile.bio)
       end
+
+      it "preloads data using gon for the aspect memberships dropdown" do
+        get :show, id: @person.to_param
+        expect_gon_preloads_for_aspect_membership_dropdown(:person, true)
+      end
     end
 
     context "when the person is not a contact of the current user" do
@@ -297,6 +304,11 @@ describe PeopleController, :type => :controller do
       it "leaks no private profile info" do
         get :show, id: @person.to_param
         expect(response.body).not_to include(@person.profile.bio)
+      end
+
+      it "preloads data using gon for the aspect memberships dropdown" do
+        get :show, id: @person.to_param
+        expect_gon_preloads_for_aspect_membership_dropdown(:person, false)
       end
     end
 
@@ -441,7 +453,14 @@ describe PeopleController, :type => :controller do
 
     it 'returns json with profile stuff' do
       get :hovercard, :person_id => @hover_test.guid, :format => 'json'
-      expect(JSON.parse( response.body )['handle']).to eq(@hover_test.diaspora_handle)
+      expect(JSON.parse(response.body)["diaspora_id"]).to eq(@hover_test.diaspora_handle)
+    end
+
+    it "returns contact when sharing" do
+      alice.share_with(@hover_test, alice.aspects.first)
+      expect(@controller).to receive(:current_user).at_least(:once).and_return(alice)
+      get :hovercard, person_id: @hover_test.guid, format: "json"
+      expect(JSON.parse(response.body)["contact"]).not_to be_falsy
     end
   end
 
@@ -491,11 +510,11 @@ describe PeopleController, :type => :controller do
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       end
       get :contacts, :person_id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}'
+      expect(response.body).to include ',"photos_count":16'
 
       eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
       get :contacts, :person_id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
+      expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
     end
 
     it "returns a 406 for json format" do

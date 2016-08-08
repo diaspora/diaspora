@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
+  include GonHelper
+
   before_action :authenticate_user!, except: %i(show stream hovercard)
   before_action :find_person, only: %i(show stream hovercard)
 
@@ -75,12 +77,8 @@ class PeopleController < ApplicationController
           @contact = current_user.contact_for(@person)
         end
         gon.preloads[:person] = @person_json
-        gon.preloads[:photos] = {
-          count: Photo.visible(current_user, @person).count(:all)
-        }
-        gon.preloads[:contacts] = {
-          count: Contact.contact_contacts_for(current_user, @person).count(:all),
-        }
+        gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
+        gon.preloads[:contacts_count] = Contact.contact_contacts_for(current_user, @person).count(:all)
         respond_with @person, layout: "with_header"
       end
 
@@ -112,7 +110,7 @@ class PeopleController < ApplicationController
       end
 
       format.json do
-        render :json => HovercardPresenter.new(@person)
+        render json: PersonPresenter.new(@person, current_user).hovercard
       end
     end
   end
@@ -137,12 +135,8 @@ class PeopleController < ApplicationController
           @contact = current_user.contact_for(@person)
           @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
           gon.preloads[:person] = PersonPresenter.new(@person, current_user).as_json
-          gon.preloads[:photos] = {
-            count: Photo.visible(current_user, @person).count(:all)
-          }
-          gon.preloads[:contacts] = {
-            count: @contacts_of_contact.count(:all),
-          }
+          gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
+          gon.preloads[:contacts_count] = @contacts_of_contact.count(:all)
           @contacts_of_contact = @contacts_of_contact.paginate(page: params[:page], per_page: (params[:limit] || 15))
           @hashes = hashes_for_people @contacts_of_contact, @aspects
           respond_with @person, layout: "with_header"
@@ -152,21 +146,6 @@ class PeopleController < ApplicationController
         end
       end
     end
-  end
-
-  # shows the dropdown list of aspects the current user has set for the given person.
-  # renders "thats you" in case the current user views himself
-  def aspect_membership_dropdown
-    @person = Person.find_by_guid(params[:person_id])
-
-    # you are not a contact of yourself...
-    return render :text => I18n.t('people.person.thats_you') if @person == current_user.person
-
-    @contact = current_user.contact_for(@person) || Contact.new
-    @aspect = :profile if params[:create]  # let aspect dropdown create new aspects
-    size = params[:size] || "small"
-
-    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left', :size => size}
   end
 
   private
@@ -191,16 +170,14 @@ class PeopleController < ApplicationController
   end
 
   def hashes_for_people(people, aspects)
-    ids = people.map{|p| p.id}
-    contacts = {}
-    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
-      contacts[contact.person_id] = contact
-    end
-
-    people.map{|p|
-      {:person => p,
-        :contact => contacts[p.id],
-        :aspects => aspects}
+    people.map {|person|
+      {
+        person:  person,
+        contact: current_user.contact_for(person) || Contact.new(person: person),
+        aspects: aspects
+      }.tap {|hash|
+        gon_load_contact(hash[:contact])
+      }
     }
   end
 

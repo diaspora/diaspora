@@ -3,51 +3,6 @@
 #   the COPYRIGHT file.
 
 module AspectGlobalHelper
-  def aspect_membership_dropdown(contact, person, hang, aspect=nil, size="small")
-    aspect_membership_ids = {}
-
-    selected_aspects = all_aspects.select{|aspect| contact.in_aspect?(aspect)}
-    selected_aspects.each do |a|
-      record = a.aspect_memberships.find { |am| am.contact_id == contact.id }
-      aspect_membership_ids[a.id] = record.id
-    end
-
-    button_class = selected_aspects.size > 0 ? "btn-success" : "btn-default"
-    button_class << case size
-      when "small"
-        " btn-small"
-      when "normal"
-        ""
-      when "large"
-        " btn-large"
-      else
-        raise ArgumentError, "unknown size #{size}"
-      end
-
-    render "aspect_memberships/aspect_membership_dropdown",
-      :selected_aspects => selected_aspects,
-      :aspect_membership_ids => aspect_membership_ids,
-      :person => person,
-      :hang => hang,
-      :dropdown_class => "aspect_membership",
-      :button_class => button_class
-  end
-
-  def aspect_dropdown_list_item(aspect, am_id=nil)
-    klass = am_id.present? ? "selected" : ""
-
-    str = <<LISTITEM
-<li data-aspect_id="#{aspect.id}" data-membership_id="#{am_id}" class="#{klass} aspect_selector" tabindex="0">
-  #{aspect.name}
-</li>
-LISTITEM
-    str.html_safe
-  end
-
-  def dropdown_may_create_new_aspect
-    @aspect == :profile || @aspect == :tag || @aspect == :notification || params[:action] == "getting_started"
-  end
-
   def aspect_options_for_select(aspects)
     options = {}
     aspects.each do |aspect|

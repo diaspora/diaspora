@@ -144,7 +144,6 @@ en:
       error: "Couldn’t start sharing with <%= name %>.  Are you ignoring them?"
       error_remove: "Couldn’t remove <%= name %> from the aspect :("
       toggle:
-        zero: "Select aspects"
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspects"
     show_more: "Show more"

@@ -12,5 +12,9 @@ module Notifications
       sender = contact.person
       create_notification(contact.user_id, sender, sender).email_the_user(sender, sender)
     end
+
+    def contact
+      recipient.contact_for(target)
+    end
   end
 end

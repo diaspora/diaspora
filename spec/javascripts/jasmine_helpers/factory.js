@@ -21,6 +21,16 @@ var factory = {
     return _.extend(defaultAttrs, overrides);
   },
 
+  aspectMembershipAttrs: function(overrides) {
+    var id = this.id.next();
+    var defaultAttrs = {
+      "id": id,
+      "aspect": factory.aspectAttrs()
+    };
+
+    return _.extend(defaultAttrs, overrides);
+  },
+
   comment : function(overrides) {
     var defaultAttrs = {
       "created_at" : "2012-01-04T00:55:30Z",
@@ -31,6 +41,18 @@ var factory = {
     };
 
     return new app.models.Comment(_.extend(defaultAttrs, overrides));
+  },
+
+  contact: function(overrides) {
+    var person = factory.personAttrs();
+    var attrs = {
+      "id": this.id.next(),
+      "person_id": person.id,
+      "person": person,
+      "aspect_memberships": factory.aspectMembershipAttrs()
+    };
+
+    return new app.models.Contact(_.extend(attrs, overrides));
   },
 
   user : function(overrides) {
@@ -189,6 +211,7 @@ var factory = {
   aspectAttrs: function(overrides) {
     var names = ['Work','School','Family','Friends','Just following','People','Interesting'];
     var defaultAttrs = {
+      id: this.id.next(),
       name: names[Math.floor(Math.random()*names.length)]+' '+Math.floor(Math.random()*100),
       selected: false
     };

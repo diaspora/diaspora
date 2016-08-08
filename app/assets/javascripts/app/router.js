@@ -5,6 +5,7 @@ app.Router = Backbone.Router.extend({
     "help/:section": "help",
     "help/": "help",
     "help": "help",
+    "getting_started": "gettingStarted",
     "contacts": "contacts",
     "conversations": "conversations",
     "user/edit": "settings",
@@ -27,6 +28,8 @@ app.Router = Backbone.Router.extend({
     "tags/:name": "followed_tags",
     "people/:id/photos": "photos",
     "people/:id/contacts": "profile",
+    "people": "pageWithAspectMembershipDropdowns",
+    "notifications": "pageWithAspectMembershipDropdowns",
 
     "people/:id": "profile",
     "u/:name": "profile"
@@ -59,7 +62,7 @@ app.Router = Backbone.Router.extend({
 
   contacts: function() {
     app.aspect = new app.models.Aspect(gon.preloads.aspect);
-    app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
+    this._loadRelationshipsPreloads();
 
     var stream = new app.views.ContactStream({
       collection: app.contacts,
@@ -67,6 +70,13 @@ app.Router = Backbone.Router.extend({
     });
 
     app.page = new app.pages.Contacts({stream: stream});
+  },
+
+  gettingStarted: function() {
+    this._loadAspects();
+    this.renderPage(function() {
+      return new app.pages.GettingStarted({inviter: new app.models.Person(app.parsePreload("inviter"))});
+    });
   },
 
   conversations: function() {
@@ -97,6 +107,7 @@ app.Router = Backbone.Router.extend({
   },
 
   stream : function() {
+    this._loadAspects();
     app.stream = new app.models.Stream();
     app.stream.fetch();
     this._initializeStreamView();
@@ -134,14 +145,16 @@ app.Router = Backbone.Router.extend({
   },
 
   aspects: function() {
-    app.aspects = app.aspects || new app.collections.Aspects(app.currentUser.get("aspects"));
-    this.aspectsList = this.aspectsList || new app.views.AspectsList({ collection: app.aspects });
+    this._loadAspects();
+    app.aspectSelections = app.aspectSelections ||
+      new app.collections.AspectSelections(app.currentUser.get("aspects"));
+    this.aspectsList = this.aspectsList || new app.views.AspectsList({collection: app.aspectSelections});
     this.aspectsList.render();
     this.aspects_stream();
   },
 
   aspects_stream : function(){
-    var ids = app.aspects.selectedAspects("id");
+    var ids = app.aspectSelections.selectedGetAttribute("id");
     app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
     app.stream.fetch();
     this._initializeStreamView();
@@ -156,10 +169,37 @@ app.Router = Backbone.Router.extend({
   },
 
   profile: function() {
+    this._loadRelationshipsPreloads();
     this.renderPage(function() {
       return new app.pages.Profile({
         el: $("body > #profile_container")
       });
+    });
+  },
+
+  pageWithAspectMembershipDropdowns: function() {
+    this._loadRelationshipsPreloads();
+    this.renderAspectMembershipDropdowns($(document));
+  },
+
+  _loadAspects: function() {
+    app.aspects = new app.collections.Aspects(app.currentUser.get("aspects"));
+  },
+
+  _loadContacts: function() {
+    app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
+  },
+
+  _loadRelationshipsPreloads: function() {
+    this._loadContacts();
+    this._loadAspects();
+  },
+
+  renderAspectMembershipDropdowns: function($context) {
+    $context.find(".aspect_membership_dropdown.placeholder").each(function() {
+      var personId = $(this).data("personId");
+      var view = new app.views.AspectMembership({person: app.contacts.findWhere({"person_id": personId}).person});
+      $(this).html(view.render().$el);
     });
   },
 

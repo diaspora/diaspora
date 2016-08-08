@@ -129,6 +129,7 @@ class UsersController < ApplicationController
     @user     = current_user
     @person   = @user.person
     @profile  = @user.profile
+    gon.preloads[:inviter] = PersonPresenter.new(current_user.invited_by.try(:person), current_user).as_json
 
     render "users/getting_started"
   end

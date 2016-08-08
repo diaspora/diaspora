@@ -1,16 +1,24 @@
 describe("app.views.Hovercard", function() {
+
+  afterEach(function() {
+    $("body #hovercard_container").remove();
+  });
+
   context("user not signed in", function() {
     beforeEach(function() {
       logout();
       this.view = new app.views.Hovercard();
     });
 
-    describe("_populateHovercardWith", function() {
-      it("doesn't fetch the aspect dropdown", function() {
-        spyOn(jQuery, "ajax").and.callThrough();
+    describe("_populateHovercard", function() {
+      it("doesn't create the aspect dropdown", function() {
         this.view.parent = spec.content();
-        this.view._populateHovercardWith({});
-        expect(jQuery.ajax).not.toHaveBeenCalled();
+        this.view._populateHovercard();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({id: 1337})
+        });
+        expect(this.view.aspectMembershipDropdown).toEqual(undefined);
       });
     });
   });
@@ -40,17 +48,15 @@ describe("app.views.Hovercard", function() {
         this.view._populateHovercard();
         expect(jQuery.ajax).toHaveBeenCalledWith("undefined/hovercard.json", {preventGlobalErrorHandling: true});
       });
-    });
 
-    describe("_populateHovercardWith", function() {
-      it("prevents global error handling for the ajax call", function() {
-        spyOn(jQuery, "ajax").and.callThrough();
+      it("creates the aspect dropdown", function() {
         this.view.parent = spec.content();
-        this.view._populateHovercardWith({});
-        expect(jQuery.ajax).toHaveBeenCalledWith(
-          "undefined/aspect_membership_button",
-          {preventGlobalErrorHandling: true}
-        );
+        this.view._populateHovercard();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({id: 1337})
+        });
+        expect(this.view.aspectMembershipDropdown).not.toEqual(undefined);
       });
     });
   });

@@ -3,7 +3,7 @@ describe("app.views.AspectCreate", function() {
     app.events.off("aspect:create");
   });
 
-  context("without a person id", function() {
+  context("without a person", function() {
     beforeEach(function() {
       this.view    = new app.views.AspectCreate();
     });
@@ -50,6 +50,7 @@ describe("app.views.AspectCreate", function() {
         this.view.render();
         this.view.$el.append($("<div id='flash-container'/>"));
         app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
+        app.aspects = new app.collections.Aspects();
       });
 
       it("should send the correct name to the server", function() {
@@ -134,9 +135,10 @@ describe("app.views.AspectCreate", function() {
     });
   });
 
-  context("with a person id", function() {
+  context("with a person", function() {
     beforeEach(function() {
-      this.view    = new app.views.AspectCreate({personId: "42"});
+      var person = new app.models.Person({id: "42"});
+      this.view = new app.views.AspectCreate({person: person});
     });
 
     describe("#render", function() {
@@ -161,6 +163,7 @@ describe("app.views.AspectCreate", function() {
     describe("#createAspect", function() {
       beforeEach(function() {
         this.view.render();
+        app.aspects = new app.collections.Aspects();
       });
 
       it("should send the correct name to the server", function() {
@@ -192,6 +195,36 @@ describe("app.views.AspectCreate", function() {
         /* jshint camelcase: false */
         expect(obj.person_id).toBe("42");
         /* jshint camelcase: true */
+      });
+
+      it("should ensure that events order is fine", function() {
+        spyOn(this.view, "ensureEventsOrder").and.callThrough();
+        this.view.$(".modal").removeClass("fade");
+        this.view.$(".modal").modal("toggle");
+        this.view.createAspect();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({id: 1337, name: "new name"})
+        });
+        expect(this.view.ensureEventsOrder.calls.count()).toBe(2);
+      });
+
+      it("should ensure that events order is fine after failure", function() {
+        spyOn(this.view, "ensureEventsOrder").and.callThrough();
+        this.view.$(".modal").removeClass("fade");
+        this.view.$(".modal").modal("toggle");
+        this.view.createAspect();
+        jasmine.Ajax.requests.mostRecent().respondWith({status: 422});
+        expect(this.view.ensureEventsOrder.calls.count()).toBe(1);
+
+        this.view.$(".modal").removeClass("fade");
+        this.view.$(".modal").modal("toggle");
+        this.view.createAspect();
+        jasmine.Ajax.requests.mostRecent().respondWith({
+          status: 200,
+          responseText: JSON.stringify({id: 1337, name: "new name"})
+        });
+        expect(this.view.ensureEventsOrder.calls.count()).toBe(3);
       });
     });
   });
