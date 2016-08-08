@@ -118,9 +118,22 @@ Feature: Notifications
     And I add the person to my "Besties" aspect
     And I sign out
     When I sign in as "alice@alice.alice"
+    And I go to the edit profile page
     And I follow "Notifications" in the header
-    And I active the first hovercard after loading the notifications page
+    And I activate the first hovercard after loading the notifications page
     When I press the aspect dropdown
+    Then the aspect dropdown should be visible
+
+  Scenario: show hovercard in notification dropdown
+    When I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    And I add the person to my "Besties" aspect
+    And I sign out
+    When I sign in as "alice@alice.alice"
+    And I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    When I activate the first hovercard after loading the notifications page
+    And I press the aspect dropdown
     Then the aspect dropdown should be visible
 
   Scenario: scrollbar shows up when >5 notifications
