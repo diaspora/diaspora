@@ -90,6 +90,7 @@ var app = {
 
   setupHeader: function() {
     if(app.currentUser.authenticated()) {
+      app.notificationsCollection = new app.collections.Notifications();
       app.header = new app.views.Header();
       $("header").prepend(app.header.el);
       app.header.render();

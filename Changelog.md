@@ -19,6 +19,8 @@
 * Add a dark color theme [#7152](https://github.com/diaspora/diaspora/pull/7152)
 * Added setting for custom changelog URL [#7166](https://github.com/diaspora/diaspora/pull/7166)
 * Show more information of recipients on conversation creation [#7129](https://github.com/diaspora/diaspora/pull/7129)
+* Update notifications every 5 minutes and when opening the notification dropdown [#6952](https://github.com/diaspora/diaspora/pull/6952)
+* Show browser notifications when receiving new unread notifications [#6952](https://github.com/diaspora/diaspora/pull/6952)
 
 # 0.6.1.0
 
