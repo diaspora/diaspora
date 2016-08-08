@@ -18,7 +18,6 @@
       overflow: inherit;
       > .control-icons {
         border-radius: 4px;
-        padding-left: 5px;
         position: absolute;
         right: 6px;
         text-align: center;
@@ -28,12 +27,37 @@
     &:hover > .bd > .control-icons { background: $white; }
   }
   .thumbnail {
-    padding: 10px;
-    margin: 0 0 15px;
     background: $white;
     border-radius: 0;
     box-shadow: $card-shadow;
-    img.big_photo { max-height: 200px; }
+    height: 240px;
+    margin: 0 0 15px;
+    padding: 10px;
+
+    // Vertically align the image
+    text-align: center;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $light-grey;
+      text-decoration: none;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .big-photo {
+      display: inline;
+      margin-left: -4px;
+      max-height: 200px;
+      vertical-align: middle;
+    }
   }
 }
 
