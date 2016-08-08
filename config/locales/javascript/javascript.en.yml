@@ -248,6 +248,9 @@ en:
     notifications:
       mark_read: "Mark read"
       mark_unread: "Mark unread"
+      new_notifications:
+        one: "You have <%= count %> unread notification"
+        other: "You have <%= count %> unread notifications"
 
     stream:
       hide: "Hide"
