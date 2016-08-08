@@ -39,22 +39,17 @@ describe("app.collections.AspectSelections", function() {
   });
 
   describe("#toSentence", function() {
-    describe("without aspects", function() {
+    describe("with one aspect", function() {
       beforeEach(function() {
         this.aspects = new app.collections.AspectSelections([{name: "Work", selected: false}]);
       });
 
-      it("returns the name of the aspect", function() {
+      it("returns 'My aspects' when the apsect isn't selected", function() {
         expect(this.aspects.toSentence()).toEqual("My aspects");
       });
-    });
 
-    describe("with one aspect", function() {
-      beforeEach(function() {
-        this.aspects = new app.collections.AspectSelections([{name: "Work", selected: true}]);
-      });
-
-      it("returns the name of the aspect", function() {
+      it("returns the name of the aspect when the aspect is selected", function() {
+        this.aspects.at(0).set({selected: true});
         expect(this.aspects.toSentence()).toEqual("Work");
       });
     });
