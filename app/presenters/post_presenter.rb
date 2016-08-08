@@ -15,7 +15,7 @@ class PostPresenter < BasePresenter
   private
 
   def directly_retrieved_attributes
-    %i(id guid public created_at interacted_at provider_display_name image_url object_url)
+    %i(id guid public created_at interacted_at provider_display_name)
   end
 
   def non_directly_retrieved_attributes

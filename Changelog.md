@@ -116,6 +116,7 @@ before.
 * Extract photo export into a service class [#6922](https://github.com/diaspora/diaspora/pull/6922)
 * Use handlebars template for aspect membership dropdown [#6864](https://github.com/diaspora/diaspora/pull/6864)
 * Extract relayable signatures into their own tables [#6932](https://github.com/diaspora/diaspora/pull/6932)
+* Remove outdated columns from posts table [#6940](https://github.com/diaspora/diaspora/pull/6940)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

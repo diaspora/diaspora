@@ -256,6 +256,11 @@ describe Photo, :type => :model do
         expect(@user).to receive(:photos_from).with(@user.person, limit: :all, max_time: nil).and_call_original
         Photo.visible(@user, @user.person)
       end
+
+      it "does not contain pending photos" do
+        pending_photo = @user.post(:photo, pending: true, user_file: File.open(photo_fixture_name), to: @aspect)
+        expect(Photo.visible(@user, @user.person).ids).not_to include(pending_photo.id)
+      end
     end
 
     context "without a current user" do

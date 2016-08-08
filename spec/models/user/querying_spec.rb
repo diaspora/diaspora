@@ -45,22 +45,11 @@ describe User::Querying, :type => :model do
       expect(alice.visible_shareable_ids(Post)).not_to include(invisible_post.id)
     end
 
-    it "does not contain pending posts" do
-      pending_post = bob.post(:status_message, :text => "hey", :public => true, :to => @bobs_aspect.id, :pending => true)
-      expect(pending_post).to be_pending
-      expect(alice.visible_shareable_ids(Post)).not_to include pending_post.id
-    end
-
-    it "does not contain pending photos" do
-      pending_photo = bob.post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
-      expect(alice.visible_shareable_ids(Photo)).not_to include pending_photo.id
-    end
-
     it "respects the :type option" do
-      post = bob.post(:status_message, :text => "hey", :public => true, :to => @bobs_aspect.id, :pending => false)
-      reshare = bob.post(:reshare, :pending => false, :root_guid => post.guid, :to => @bobs_aspect)
-      expect(alice.visible_shareable_ids(Post, :type => "Reshare")).to include(reshare.id)
-      expect(alice.visible_shareable_ids(Post, :type => 'StatusMessage')).not_to include(reshare.id)
+      post = bob.post(:status_message, text: "hey", public: true, to: @bobs_aspect.id)
+      reshare = bob.post(:reshare, root_guid: post.guid, to: @bobs_aspect)
+      expect(alice.visible_shareable_ids(Post, type: "Reshare")).to include(reshare.id)
+      expect(alice.visible_shareable_ids(Post, type: "StatusMessage")).not_to include(reshare.id)
     end
 
     it "does not contain duplicate posts" do

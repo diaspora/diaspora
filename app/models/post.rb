@@ -43,6 +43,7 @@ class Post < ActiveRecord::Base
     ) #note should include root and photos, but i think those are both on status_message
   }
 
+  scope :all_public, -> { where(public: true) }
 
   scope :commented_by, ->(person)  {
     select('DISTINCT posts.*')
@@ -127,10 +128,6 @@ class Post < ActiveRecord::Base
 
   def self.diaspora_initialize(params)
     new(params.to_hash.stringify_keys.slice(*column_names, "author"))
-  end
-
-  def activity_streams?
-    false
   end
 
   def comment_email_subject

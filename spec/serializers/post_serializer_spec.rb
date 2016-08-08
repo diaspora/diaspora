@@ -9,9 +9,6 @@ describe Export::PostSerializer do
   it { is_expected.to include %("public":#{post.public}) }
   it { is_expected.to include %("diaspora_handle":"#{post.diaspora_handle}") }
   it { is_expected.to include %("type":"#{post.type}") }
-  it { is_expected.to include %("image_url":#{post.image_url}) }
-  it { is_expected.to include %("image_height":#{post.image_height}) }
-  it { is_expected.to include %("image_width":#{post.image_width}) }
   it { is_expected.to include %("likes_count":#{post.likes_count}) }
   it { is_expected.to include %("comments_count":#{post.comments_count}) }
   it { is_expected.to include %("reshares_count":#{post.reshares_count}) }
