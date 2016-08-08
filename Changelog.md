@@ -164,6 +164,7 @@ before.
 * Do not include conversation subject in notification mail [#6910](https://github.com/diaspora/diaspora/pull/6910)
 * Add 'Be excellent to each other!' to the sidebar [#6914](https://github.com/diaspora/diaspora/pull/6910)
 * Expose Sidekiq dead queue configuration options
+* Properly support pluralization in timeago strings [#6926](https://github.com/diaspora/diaspora/pull/6926)
 
 # 0.5.11.0
 

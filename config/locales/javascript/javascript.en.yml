@@ -95,15 +95,25 @@ en:
       inPast: "any moment now"
       seconds: "less than a minute"
       minute: "about a minute"
-      minutes: "%d minutes"
+      minutes:
+        one: "1 minute"
+        other: "%d minutes"
       hour: "about an hour"
-      hours: "about %d hours"
+      hours:
+        one: "about 1 hour"
+        other: "about %d hours"
       day: "a day"
-      days: "%d days"
+      days:
+        one: "1 day"
+        other: "%d days"
       month: "about a month"
-      months: "%d months"
+      months:
+        one: "1 month"
+        other: "%d months"
       year: "about a year"
-      years: "%d years"
+      years:
+        one: "1 year"
+        other: "%d years"
       wordSeparator: " "
 
     contacts:
