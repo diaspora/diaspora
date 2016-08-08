@@ -38,7 +38,7 @@ app.views.ProfileHeader = app.views.Base.extend({
   },
 
   _shouldShowPhotos: function() {
-    return (this.photos && this.photos.count > 0);
+    return (this.photos && this.photos > 0);
   },
 
   _shouldShowContacts: function() {

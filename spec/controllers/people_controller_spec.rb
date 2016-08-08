@@ -195,11 +195,11 @@ describe PeopleController, :type => :controller do
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       end
       get :show, :id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}'
+      expect(response.body).to include ',"photos_count":16'
 
       eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
       get :show, :id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
+      expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
     end
 
     context "when the person is the current user" do
@@ -491,11 +491,11 @@ describe PeopleController, :type => :controller do
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       end
       get :contacts, :person_id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}'
+      expect(response.body).to include ',"photos_count":16'
 
       eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
       get :contacts, :person_id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
+      expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
     end
 
     it "returns a 406 for json format" do

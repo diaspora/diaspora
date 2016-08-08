@@ -75,9 +75,7 @@ class PeopleController < ApplicationController
           @contact = current_user.contact_for(@person)
         end
         gon.preloads[:person] = @person_json
-        gon.preloads[:photos] = {
-          count: Photo.visible(current_user, @person).count(:all)
-        }
+        gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
         gon.preloads[:contacts_count] = Contact.contact_contacts_for(current_user, @person).count(:all)
         respond_with @person, layout: "with_header"
       end
@@ -135,9 +133,7 @@ class PeopleController < ApplicationController
           @contact = current_user.contact_for(@person)
           @contacts_of_contact = Contact.contact_contacts_for(current_user, @person)
           gon.preloads[:person] = PersonPresenter.new(@person, current_user).as_json
-          gon.preloads[:photos] = {
-            count: Photo.visible(current_user, @person).count(:all)
-          }
+          gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
           gon.preloads[:contacts_count] = @contacts_of_contact.count(:all)
           @contacts_of_contact = @contacts_of_contact.paginate(page: params[:page], per_page: (params[:limit] || 15))
           @hashes = hashes_for_people @contacts_of_contact, @aspects

@@ -21,8 +21,8 @@ app.pages.Profile = app.views.Base.extend({
       this._populateModel(opts);
     }
 
-    if(app.hasPreload("photos")){
-      this.photos = app.parsePreload("photos");
+    if (app.hasPreload("photos_count")) {
+      this.photos = app.parsePreload("photos_count");
     }
     if (app.hasPreload("contacts_count")) {
       this.contacts = app.parsePreload("contacts_count");
