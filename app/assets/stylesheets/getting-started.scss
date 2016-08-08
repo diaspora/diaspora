@@ -1,7 +1,11 @@
 #hello-there {
   #profile_photo_upload .avatar {
-    width: 200px;
-    height: 200px;
+    max-height: 200px;
+    max-width: 200px;
+  }
+
+  .well .avatar {
+    min-width: 50px;
   }
 
   .well .media{
@@ -9,7 +13,7 @@
   }
 
   .awesome {
-    text-align: center;
+    margin-top: 15px;
   }
 
   .hero-unit {
@@ -27,7 +31,6 @@
       width: 100%;
       input {
         height: 32px;
-        margin-bottom: 15px;
       }
     }
   }
