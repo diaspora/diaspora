@@ -304,6 +304,28 @@ FactoryGirl.define do
     after(:build) {|m| m.conversation.participants << m.author }
   end
 
+  factory(:signature_order) do
+    order "guid parent_guid text author"
+  end
+
+  factory(:comment_signature) do
+    author_signature "some signature"
+    association :signature_order, order: "guid parent_guid text author new_property"
+    additional_data { {"new_property" => "some text"} }
+  end
+
+  factory(:like_signature) do
+    author_signature "some signature"
+    association :signature_order, order: "positive guid parent_type parent_guid author new_property"
+    additional_data { {"new_property" => "some text"} }
+  end
+
+  factory(:poll_participation_signature) do
+    author_signature "some signature"
+    association :signature_order, order: "guid parent_guid author poll_answer_guid new_property"
+    additional_data { {"new_property" => "some text"} }
+  end
+
   #templates
   factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
 

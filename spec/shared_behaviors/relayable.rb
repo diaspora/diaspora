@@ -68,4 +68,32 @@ shared_examples_for "it is relayable" do
       end
     end
   end
+
+  describe "#signature" do
+    let(:signature_class) { described_class.reflect_on_association(:signature).klass }
+
+    before do
+      remote_object_on_local_parent.signature = signature_class.new(
+        author_signature: "signature",
+        additional_data:  {"new_property" => "some text"},
+        signature_order:  FactoryGirl.create(:signature_order)
+      )
+    end
+
+    it "returns the signature data" do
+      signature = described_class.find(remote_object_on_local_parent.id).signature
+      expect(signature).not_to be_nil
+      expect(signature.author_signature).to eq("signature")
+      expect(signature.additional_data).to eq("new_property" => "some text")
+      expect(signature.order).to eq(%w(guid parent_guid text author))
+    end
+
+    it "deletes the signature when destroying the relayable" do
+      id = remote_object_on_local_parent.id
+      remote_object_on_local_parent.destroy!
+
+      signature = signature_class.find_by(signature_class.primary_key => id)
+      expect(signature).to be_nil
+    end
+  end
 end

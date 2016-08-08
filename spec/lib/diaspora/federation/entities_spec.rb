@@ -11,7 +11,7 @@ describe Diaspora::Federation::Entities do
     end
 
     it "builds a comment" do
-      diaspora_entity = FactoryGirl.build(:comment, author_signature: "abc")
+      diaspora_entity = FactoryGirl.build(:comment)
       federation_entity = described_class.build(diaspora_entity)
 
       expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Comment)
@@ -19,7 +19,23 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.guid).to eq(diaspora_entity.guid)
       expect(federation_entity.parent_guid).to eq(diaspora_entity.post.guid)
       expect(federation_entity.text).to eq(diaspora_entity.text)
-      expect(federation_entity.author_signature).to eq(diaspora_entity.author_signature)
+      expect(federation_entity.author_signature).to be_nil
+      expect(federation_entity.xml_order).to be_nil
+      expect(federation_entity.additional_xml_elements).to be_empty
+    end
+
+    it "builds a comment with signature" do
+      diaspora_entity = FactoryGirl.build(:comment, signature: FactoryGirl.build(:comment_signature))
+      federation_entity = described_class.build(diaspora_entity)
+
+      expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Comment)
+      expect(federation_entity.author).to eq(diaspora_entity.author.diaspora_handle)
+      expect(federation_entity.guid).to eq(diaspora_entity.guid)
+      expect(federation_entity.parent_guid).to eq(diaspora_entity.post.guid)
+      expect(federation_entity.text).to eq(diaspora_entity.text)
+      expect(federation_entity.author_signature).to eq(diaspora_entity.signature.author_signature)
+      expect(federation_entity.xml_order).to eq(diaspora_entity.signature.signature_order.order.split)
+      expect(federation_entity.additional_xml_elements).to eq(diaspora_entity.signature.additional_data)
     end
 
     it "builds a contact (request)" do
@@ -62,7 +78,7 @@ describe Diaspora::Federation::Entities do
     end
 
     it "builds a like" do
-      diaspora_entity = FactoryGirl.build(:like, author_signature: "abc")
+      diaspora_entity = FactoryGirl.build(:like)
       federation_entity = described_class.build(diaspora_entity)
 
       expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Like)
@@ -70,7 +86,23 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.guid).to eq(diaspora_entity.guid)
       expect(federation_entity.parent_guid).to eq(diaspora_entity.target.guid)
       expect(federation_entity.positive).to eq(diaspora_entity.positive)
-      expect(federation_entity.author_signature).to eq(diaspora_entity.author_signature)
+      expect(federation_entity.author_signature).to be_nil
+      expect(federation_entity.xml_order).to be_nil
+      expect(federation_entity.additional_xml_elements).to be_empty
+    end
+
+    it "builds a like with signature" do
+      diaspora_entity = FactoryGirl.build(:like, signature: FactoryGirl.build(:like_signature))
+      federation_entity = described_class.build(diaspora_entity)
+
+      expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Like)
+      expect(federation_entity.author).to eq(diaspora_entity.author.diaspora_handle)
+      expect(federation_entity.guid).to eq(diaspora_entity.guid)
+      expect(federation_entity.parent_guid).to eq(diaspora_entity.target.guid)
+      expect(federation_entity.positive).to eq(diaspora_entity.positive)
+      expect(federation_entity.author_signature).to eq(diaspora_entity.signature.author_signature)
+      expect(federation_entity.xml_order).to eq(diaspora_entity.signature.signature_order.order.split)
+      expect(federation_entity.additional_xml_elements).to eq(diaspora_entity.signature.additional_data)
     end
 
     it "builds a message" do
@@ -114,7 +146,7 @@ describe Diaspora::Federation::Entities do
     end
 
     it "builds a poll participation" do
-      diaspora_entity = FactoryGirl.build(:poll_participation, author_signature: "abc")
+      diaspora_entity = FactoryGirl.build(:poll_participation)
       federation_entity = described_class.build(diaspora_entity)
 
       expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::PollParticipation)
@@ -122,7 +154,24 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.guid).to eq(diaspora_entity.guid)
       expect(federation_entity.parent_guid).to eq(diaspora_entity.poll_answer.poll.guid)
       expect(federation_entity.poll_answer_guid).to eq(diaspora_entity.poll_answer.guid)
-      expect(federation_entity.author_signature).to eq(diaspora_entity.author_signature)
+      expect(federation_entity.author_signature).to be_nil
+      expect(federation_entity.xml_order).to be_nil
+      expect(federation_entity.additional_xml_elements).to be_empty
+    end
+
+    it "builds a poll participation with signature" do
+      signature = FactoryGirl.build(:poll_participation_signature)
+      diaspora_entity = FactoryGirl.build(:poll_participation, signature: signature)
+      federation_entity = described_class.build(diaspora_entity)
+
+      expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::PollParticipation)
+      expect(federation_entity.author).to eq(diaspora_entity.author.diaspora_handle)
+      expect(federation_entity.guid).to eq(diaspora_entity.guid)
+      expect(federation_entity.parent_guid).to eq(diaspora_entity.poll_answer.poll.guid)
+      expect(federation_entity.poll_answer_guid).to eq(diaspora_entity.poll_answer.guid)
+      expect(federation_entity.author_signature).to eq(signature.author_signature)
+      expect(federation_entity.xml_order).to eq(signature.signature_order.order.split)
+      expect(federation_entity.additional_xml_elements).to eq(signature.additional_data)
     end
 
     it "builds a profile" do

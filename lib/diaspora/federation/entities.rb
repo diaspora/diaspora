@@ -35,12 +35,16 @@ module Diaspora
 
       def self.comment(comment)
         DiasporaFederation::Entities::Comment.new(
-          author:           comment.diaspora_handle,
-          guid:             comment.guid,
-          parent_guid:      comment.post.guid,
-          text:             comment.text,
-          author_signature: comment.author_signature,
-          parent:           related_entity(comment.post)
+          {
+            author:           comment.diaspora_handle,
+            guid:             comment.guid,
+            parent_guid:      comment.post.guid,
+            text:             comment.text,
+            author_signature: comment.signature.try(:author_signature),
+            parent:           related_entity(comment.post)
+          },
+          comment.signature.try(:order),
+          comment.signature.try(:additional_data) || {}
         )
       end
 
@@ -65,13 +69,17 @@ module Diaspora
 
       def self.like(like)
         DiasporaFederation::Entities::Like.new(
-          author:           like.diaspora_handle,
-          guid:             like.guid,
-          parent_guid:      like.target.guid,
-          positive:         like.positive,
-          parent_type:      Mappings.entity_name_for(like.target),
-          author_signature: like.author_signature,
-          parent:           related_entity(like.target)
+          {
+            author:           like.diaspora_handle,
+            guid:             like.guid,
+            parent_guid:      like.target.guid,
+            positive:         like.positive,
+            parent_type:      Mappings.entity_name_for(like.target),
+            author_signature: like.signature.try(:author_signature),
+            parent:           related_entity(like.target)
+          },
+          like.signature.try(:order),
+          like.signature.try(:additional_data) || {}
         )
       end
 
@@ -138,12 +146,16 @@ module Diaspora
 
       def self.poll_participation(poll_participation)
         DiasporaFederation::Entities::PollParticipation.new(
-          author:           poll_participation.diaspora_handle,
-          guid:             poll_participation.guid,
-          parent_guid:      poll_participation.poll.guid,
-          poll_answer_guid: poll_participation.poll_answer.guid,
-          author_signature: poll_participation.author_signature,
-          parent:           related_entity(poll_participation.poll)
+          {
+            author:           poll_participation.diaspora_handle,
+            guid:             poll_participation.guid,
+            parent_guid:      poll_participation.poll.guid,
+            poll_answer_guid: poll_participation.poll_answer.guid,
+            author_signature: poll_participation.signature.try(:author_signature),
+            parent:           related_entity(poll_participation.poll)
+          },
+          poll_participation.signature.try(:order),
+          poll_participation.signature.try(:additional_data) || {}
         )
       end
 

@@ -10,6 +10,8 @@ class Like < ActiveRecord::Base
 
   include Diaspora::Relayable
 
+  has_one :signature, class_name: "LikeSignature", dependent: :delete
+
   alias_attribute :parent, :target
 
   class Generator < Diaspora::Federated::Generator
