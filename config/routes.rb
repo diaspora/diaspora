@@ -7,7 +7,7 @@ require "sidekiq/cron/web"
 
 Diaspora::Application.routes.draw do
 
-  resources :report, :except => [:edit, :new]
+  resources :report, except: %i(edit new show)
 
   if Rails.env.production?
     mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
@@ -25,11 +25,11 @@ Diaspora::Application.routes.draw do
 
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
-  resources :reshares
+  resources :reshares, only: %i(create)
 
   resources :status_messages, :only => [:new, :create]
 
-  resources :posts do
+  resources :posts, only: %i(show destroy) do
     member do
       get :interactions
     end
@@ -57,7 +57,7 @@ Diaspora::Application.routes.draw do
   get "commented" => "streams#commented", :as => "commented_stream"
   get "aspects" => "streams#aspects", :as => "aspects_stream"
 
-  resources :aspects do
+  resources :aspects, except: %i(index new edit) do
     put :toggle_contact_visibility
     put :toggle_chat_privilege
     collection do
@@ -67,15 +67,15 @@ Diaspora::Application.routes.draw do
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
 
-  resources :photos, :except => [:index, :show] do
+  resources :photos, only: %i(destroy create) do
     put :make_profile_photo
   end
 
 	#Search
 	get 'search' => "search#search"
 
-  resources :conversations do
-    resources :messages, :only => [:create, :show]
+  resources :conversations, except: %i(edit update destroy)  do
+    resources :messages, only: %i(create)
     delete 'visibility' => 'conversation_visibilities#destroy'
   end
 
@@ -95,8 +95,6 @@ Diaspora::Application.routes.draw do
   end
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
-
-  resources :apps, :only => [:show]
 
   # Users and people
 
@@ -156,8 +154,7 @@ Diaspora::Application.routes.draw do
   resources :profiles, :only => [:show]
 
 
-  resources :contacts,           :except => [:update, :create] do
-  end
+  resources :contacts, only: %i(index)
   resources :aspect_memberships, :only  => [:destroy, :create]
   resources :share_visibilities,  :only => [:update]
   resources :blocks, :only => [:create, :destroy]
@@ -165,20 +162,15 @@ Diaspora::Application.routes.draw do
   get 'i/:id' => 'invitation_codes#show', :as => 'invite_code'
 
   get 'people/refresh_search' => "people#refresh_search"
-  resources :people, :except => [:edit, :update] do
-    resources :status_messages
-    resources :photos
+  resources :people, only: %i(show index) do
+    resources :status_messages, only: %i(new create)
+    resources :photos, :except => [:new, :update]
     get :contacts
     get :stream
     get :hovercard
 
-    member do
-      get :last_post
-    end
-
     collection do
       post 'by_handle' => :retrieve_remote, :as => 'person_by_handle'
-      get :tag_index
     end
   end
   get '/u/:username' => 'people#show', :as => 'user_profile', :constraints => { :username => /[^\/]+/ }
@@ -229,10 +221,6 @@ Diaspora::Application.routes.draw do
   # Startpage
   root :to => 'home#show'
   get "podmin", to: "home#podmin"
-
-  api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
-    match "user", to: "users#show", via: %i(get post)
-  end
 
   namespace :api do
     namespace :openid_connect do
