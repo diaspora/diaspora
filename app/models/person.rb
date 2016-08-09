@@ -56,7 +56,9 @@ class Person < ActiveRecord::Base
   validates :serialized_public_key, :presence => true
   validates :diaspora_handle, :uniqueness => true
 
-  scope :searchable, -> { joins(:profile).where(:profiles => {:searchable => true}) }
+  scope :searchable, -> (user) {
+    joins(:profile).where("profiles.searchable = true OR contacts.user_id = ?", user.id)
+  }
   scope :remote, -> { where('people.owner_id IS NULL') }
   scope :local, -> { where('people.owner_id IS NOT NULL') }
   scope :for_json, -> {
@@ -148,10 +150,9 @@ class Person < ActiveRecord::Base
 
     sql, tokens = self.search_query_string(query)
 
-    Person.searchable.where(sql, *tokens).joins(
+    Person.searchable(user).where(sql, *tokens).joins(
       "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
-    ).includes(:profile
-    ).order(search_order)
+    ).includes(:profile).order(search_order)
   end
 
   # @return [Array<String>] postgreSQL and mysql deal with null values in orders differently, it seems.
