@@ -70,7 +70,7 @@ class CreateSignatureTables < ActiveRecord::Migration
             "SELECT relayable.id, #{order_id}, relayable.author_signature FROM #{relayable_type}s AS relayable " \
             "INNER JOIN people AS author ON relayable.author_id = author.id " \
             "#{parent_join} INNER JOIN people AS parent_author ON parent.author_id = parent_author.id " \
-            "WHERE author.owner_id IS NULL AND parent_author.owner_id IS NOT NULL"
+            "WHERE author.owner_id IS NULL AND parent_author.owner_id IS NOT NULL AND relayable.author_signature IS NOT NULL"
   end
 
   def restore_signatures(relayable_type)
