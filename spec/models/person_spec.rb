@@ -294,10 +294,11 @@ describe Person, :type => :model do
       user_profile.last_name = "asdji"
       user_profile.save
 
-      @robert_grimm = FactoryGirl.build(:searchable_person)
-      @eugene_weinstein = FactoryGirl.build(:searchable_person)
-      @yevgeniy_dodis = FactoryGirl.build(:searchable_person)
-      @casey_grippi = FactoryGirl.build(:searchable_person)
+      @robert_grimm = FactoryGirl.build(:person)
+      @eugene_weinstein = FactoryGirl.build(:person)
+      @yevgeniy_dodis = FactoryGirl.build(:person)
+      @casey_grippi = FactoryGirl.build(:person)
+      @invisible_person = FactoryGirl.build(:person)
 
       @robert_grimm.profile.first_name = "Robert"
       @robert_grimm.profile.last_name = "Grimm"
@@ -318,7 +319,14 @@ describe Person, :type => :model do
       @casey_grippi.profile.last_name = "Grippi"
       @casey_grippi.profile.save
       @casey_grippi.reload
+
+      @invisible_person.profile.first_name = "Johnson"
+      @invisible_person.profile.last_name = "Invisible"
+      @invisible_person.profile.searchable = false
+      @invisible_person.profile.save
+      @invisible_person.reload
     end
+
     it 'orders results by last name' do
       @robert_grimm.profile.first_name = "AAA"
       @robert_grimm.profile.save!
@@ -367,10 +375,15 @@ describe Person, :type => :model do
       expect(people.first).to eq(@casey_grippi)
     end
 
-    it 'only displays searchable people' do
-      invisible_person = FactoryGirl.build(:person, :profile => FactoryGirl.build(:profile, :searchable => false, :first_name => "johnson"))
-      expect(Person.search("johnson", @user)).not_to include invisible_person
-      expect(Person.search("", @user)).not_to include invisible_person
+    it "doesn't display people that are neither searchable nor contacts" do
+      expect(Person.search("Johnson", @user)).to be_empty
+    end
+
+    it "displays contacts that are not searchable" do
+      @user.contacts.create(person: @invisible_person, aspects: [@user.aspects.first])
+      people = Person.search("Johnson", @user)
+      expect(people.count).to eq(1)
+      expect(people.first).to eq(@invisible_person)
     end
 
     it 'returns results for Diaspora handles' do
@@ -395,6 +408,65 @@ describe Person, :type => :model do
 
       people = Person.search("AAA", @user)
       expect(people.map { |p| p.name }).to eq([@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map { |p| p.name })
+    end
+
+    context "only contacts" do
+      before do
+        @robert_contact = @user.contacts.create(person: @robert_grimm, aspects: [@user.aspects.first])
+        @eugene_contact = @user.contacts.create(person: @eugene_weinstein, aspects: [@user.aspects.first])
+        @invisible_contact = @user.contacts.create(person: @invisible_person, aspects: [@user.aspects.first])
+      end
+
+      it "orders results by last name" do
+        @robert_grimm.profile.first_name = "AAA"
+        @robert_grimm.profile.save!
+
+        @eugene_weinstein.profile.first_name = "AAA"
+        @eugene_weinstein.profile.save!
+
+        @casey_grippi.profile.first_name = "AAA"
+        @casey_grippi.profile.save!
+
+        people = Person.search("AAA", @user, only_contacts: true)
+        expect(people.map(&:name)).to eq([@robert_grimm, @eugene_weinstein].map(&:name))
+      end
+
+      it "returns nothing on an empty query" do
+        people = Person.search("", @user, only_contacts: true)
+        expect(people).to be_empty
+      end
+
+      it "returns nothing on a one-character query" do
+        people = Person.search("i", @user, only_contacts: true)
+        expect(people).to be_empty
+      end
+
+      it "returns results for partial names" do
+        people = Person.search("Eug", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@eugene_weinstein)
+
+        people = Person.search("wEi", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@eugene_weinstein)
+
+        @user.contacts.create(person: @casey_grippi, aspects: [@user.aspects.first])
+        people = Person.search("gri", @user, only_contacts: true)
+        expect(people.count).to eq(2)
+        expect(people.first).to eq(@robert_grimm)
+        expect(people.second).to eq(@casey_grippi)
+      end
+
+      it "returns results for full names" do
+        people = Person.search("Robert Grimm", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@robert_grimm)
+      end
+
+      it "returns results for Diaspora handles" do
+        people = Person.search(@robert_grimm.diaspora_handle, @user, only_contacts: true)
+        expect(people).to eq([@robert_grimm])
+      end
     end
   end
 

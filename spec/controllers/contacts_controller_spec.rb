@@ -49,25 +49,26 @@ describe ContactsController, :type => :controller do
       end
     end
 
-    context 'format json' do
-      it 'assumes all aspects if none are specified' do
-        get :index, :format => 'json'
-        expect(assigns[:people].map(&:id)).to match_array(bob.contacts.map { |c| c.person.id })
+    context "format json" do
+      before do
+        @person1 = FactoryGirl.create(:person)
+        bob.share_with(@person1, bob.aspects.first)
+        @person2 = FactoryGirl.create(:person)
+      end
+
+      it "succeeds" do
+        get :index, q: @person1.first_name, format: "json"
         expect(response).to be_success
       end
 
-      it 'returns the contacts for multiple aspects' do
-        get :index, :aspect_ids => bob.aspect_ids, :format => 'json'
-        expect(assigns[:people].map(&:id)).to match_array(bob.contacts.map { |c| c.person.id })
-        expect(response).to be_success
+      it "responds with json" do
+        get :index, q: @person1.first_name, format: "json"
+        expect(response.body).to eq([@person1].to_json)
       end
 
-      it 'does not return duplicate contacts' do
-        aspect = bob.aspects.create(:name => 'hilarious people')
-        aspect.contacts << bob.contact_for(eve.person)
-        get :index, :format => 'json', :aspect_ids => bob.aspect_ids
-        expect(assigns[:people].map { |p| p.id }.uniq).to eq(assigns[:people].map { |p| p.id })
-        expect(assigns[:people].map(&:id)).to match_array(bob.contacts.map { |c| c.person.id })
+      it "only returns contacts" do
+        get :index, q: @person2.first_name, format: "json"
+        expect(response.body).to eq([].to_json)
       end
     end
   end

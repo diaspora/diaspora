@@ -52,12 +52,6 @@ FactoryGirl.define do
     end
   end
 
-  factory :searchable_person, :parent => :person do
-    after(:build) do |person|
-      person.profile = FactoryGirl.build(:profile, :person => person, :searchable => true)
-    end
-  end
-
   factory :like do
     association :author, :factory => :person
     association :target, :factory => :status_message

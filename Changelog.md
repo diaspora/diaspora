@@ -169,6 +169,7 @@ before.
 * Add 'Be excellent to each other!' to the sidebar [#6914](https://github.com/diaspora/diaspora/pull/6910)
 * Expose Sidekiq dead queue configuration options
 * Properly support pluralization in timeago strings [#6926](https://github.com/diaspora/diaspora/pull/6926)
+* Return all contacts in people search [#6951](https://github.com/diaspora/diaspora/pull/6951)
 
 # 0.5.11.0
 

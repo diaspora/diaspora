@@ -31,7 +31,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     app.views.SearchBase.prototype.initialize.call(this, {
       typeaheadInput: this.typeaheadInput,
       customSearch: true,
-      autoselect: true
+      autoselect: true,
+      remoteRoute: "/contacts"
     });
   },
 

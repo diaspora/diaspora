@@ -25,11 +25,6 @@ app.views.SearchBase = app.views.Base.extend({
         return this.bloodhoundTokenizer(datum.name).concat(datum.handle);
       }.bind(this),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
-      prefetch: {
-        url: "/contacts.json",
-        transform: this.transformBloodhoundResponse,
-        cache: false
-      },
       sufficient: 5
     };
 

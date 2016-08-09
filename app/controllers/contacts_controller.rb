@@ -14,11 +14,10 @@ class ContactsController < ApplicationController
       # Used by the mobile site
       format.mobile { set_up_contacts_mobile }
 
-      # Used to populate mentions in the publisher
+      # Used for mentions in the publisher
       format.json {
-        aspect_ids = params[:aspect_ids] || current_user.aspects.map(&:id)
-        @people = Person.all_from_aspects(aspect_ids, current_user).for_json
-        render :json => @people.to_json
+        @people = Person.search(params[:q], current_user, only_contacts: true).limit(15)
+        render json: @people
       }
     end
   end
