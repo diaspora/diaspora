@@ -324,7 +324,7 @@ Then(/^I should have a validation error on "(.*?)"$/) do |field_list|
   check_fields_validation_error field_list
 end
 
-And /^I active the first hovercard after loading the notifications page$/ do
+And /^I activate the first hovercard after loading the notifications page$/ do
   page.should have_css '.notifications .hovercardable'
   first('.notifications .hovercardable').hover
 end

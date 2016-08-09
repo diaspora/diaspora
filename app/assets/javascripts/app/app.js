@@ -47,6 +47,7 @@ var app = {
 
     this.setupDummyPreloads();
     this.setupUser();
+    this.setupAspects();
     this.setupHeader();
     this.setupBackboneLinks();
     this.setupGlobalViews();
@@ -81,6 +82,10 @@ var app = {
 
   setupUser: function() {
     app.currentUser = app.user(window.gon.user) || new app.models.User();
+  },
+
+  setupAspects: function() {
+    app.aspects = new app.collections.Aspects(app.currentUser.get("aspects"));
   },
 
   setupHeader: function() {

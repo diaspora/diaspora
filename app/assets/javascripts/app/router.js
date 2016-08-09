@@ -62,7 +62,7 @@ app.Router = Backbone.Router.extend({
 
   contacts: function() {
     app.aspect = new app.models.Aspect(gon.preloads.aspect);
-    this._loadRelationshipsPreloads();
+    this._loadContacts();
 
     var stream = new app.views.ContactStream({
       collection: app.contacts,
@@ -73,7 +73,6 @@ app.Router = Backbone.Router.extend({
   },
 
   gettingStarted: function() {
-    this._loadAspects();
     this.renderPage(function() {
       return new app.pages.GettingStarted({inviter: new app.models.Person(app.parsePreload("inviter"))});
     });
@@ -107,13 +106,13 @@ app.Router = Backbone.Router.extend({
   },
 
   stream : function() {
-    this._loadAspects();
     app.stream = new app.models.Stream();
     app.stream.fetch();
     this._initializeStreamView();
   },
 
   photos : function(guid) {
+    this._loadContacts();
     this.renderPage(function() {
       return new app.pages.Profile({
         person_id: guid,
@@ -145,7 +144,6 @@ app.Router = Backbone.Router.extend({
   },
 
   aspects: function() {
-    this._loadAspects();
     app.aspectSelections = app.aspectSelections ||
       new app.collections.AspectSelections(app.currentUser.get("aspects"));
     this.aspectsList = this.aspectsList || new app.views.AspectsList({collection: app.aspectSelections});
@@ -169,7 +167,7 @@ app.Router = Backbone.Router.extend({
   },
 
   profile: function() {
-    this._loadRelationshipsPreloads();
+    this._loadContacts();
     this.renderPage(function() {
       return new app.pages.Profile({
         el: $("body > #profile_container")
@@ -178,21 +176,12 @@ app.Router = Backbone.Router.extend({
   },
 
   pageWithAspectMembershipDropdowns: function() {
-    this._loadRelationshipsPreloads();
+    this._loadContacts();
     this.renderAspectMembershipDropdowns($(document));
-  },
-
-  _loadAspects: function() {
-    app.aspects = new app.collections.Aspects(app.currentUser.get("aspects"));
   },
 
   _loadContacts: function() {
     app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
-  },
-
-  _loadRelationshipsPreloads: function() {
-    this._loadContacts();
-    this._loadAspects();
   },
 
   renderAspectMembershipDropdowns: function($context) {
