@@ -109,22 +109,26 @@ describe("app.views.SearchBase", function() {
         this.view = new app.views.SearchBase({
           el: "#search_people_form",
           typeaheadInput: $("#q"),
-          customSearch: true
+          customSearch: true,
+          remoteRoute: "/contacts"
         });
-        this.view.bloodhound.add(this.bloodhoundData);
+        this.view.bloodhound.search = function(query, sync, async) {
+          sync([]);
+          async(this.bloodhoundData);
+        }.bind(this);
       });
 
       it("returns all results if none of them should be ignored", function() {
         var spy = jasmine.createSpyObj("callbacks", ["syncCallback", "asyncCallback"]);
         this.view.bloodhound.customSearch("user", spy.syncCallback, spy.asyncCallback);
-        expect(spy.syncCallback).toHaveBeenCalledWith(this.bloodhoundData);
+        expect(spy.asyncCallback).toHaveBeenCalledWith(this.bloodhoundData);
       });
 
       it("doesn't return results that should be ignored", function() {
         var spy = jasmine.createSpyObj("callbacks", ["syncCallback", "asyncCallback"]);
         this.view.ignorePersonForSuggestions({handle: "user1@pod.tld"});
         this.view.bloodhound.customSearch("user", spy.syncCallback, spy.asyncCallback);
-        expect(spy.syncCallback).toHaveBeenCalledWith([this.bloodhoundData[1]]);
+        expect(spy.asyncCallback).toHaveBeenCalledWith([this.bloodhoundData[1]]);
       });
     });
   });

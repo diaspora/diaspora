@@ -43,14 +43,14 @@ app.views.SearchBase = app.views.Base.extend({
   setupCustomSearch: function() {
     var self = this;
     this.bloodhound.customSearch = function(query, sync, async) {
-      var _sync = function(datums) {
+      var _async = function(datums) {
         var results = datums.filter(function(datum) {
           return datum.handle !== undefined && self.ignoreDiasporaIds.indexOf(datum.handle) === -1;
         });
-        sync(results);
+        async(results);
       };
 
-      self.bloodhound.search(query, _sync, async);
+      self.bloodhound.search(query, sync, _async);
     };
   },
 
@@ -59,9 +59,8 @@ app.views.SearchBase = app.views.Base.extend({
       hint: false,
       highlight: true,
       minLength: 2
-    },
-    {
-      name: "search",
+    }, {
+      async: true,
       display: "name",
       limit: 5,
       source: this.bloodhound.customSearch !== undefined ? this.bloodhound.customSearch : this.bloodhound,
