@@ -409,6 +409,65 @@ describe Person, :type => :model do
       people = Person.search("AAA", @user)
       expect(people.map { |p| p.name }).to eq([@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map { |p| p.name })
     end
+
+    context "only contacts" do
+      before do
+        @robert_contact = @user.contacts.create(person: @robert_grimm, aspects: [@user.aspects.first])
+        @eugene_contact = @user.contacts.create(person: @eugene_weinstein, aspects: [@user.aspects.first])
+        @invisible_contact = @user.contacts.create(person: @invisible_person, aspects: [@user.aspects.first])
+      end
+
+      it "orders results by last name" do
+        @robert_grimm.profile.first_name = "AAA"
+        @robert_grimm.profile.save!
+
+        @eugene_weinstein.profile.first_name = "AAA"
+        @eugene_weinstein.profile.save!
+
+        @casey_grippi.profile.first_name = "AAA"
+        @casey_grippi.profile.save!
+
+        people = Person.search("AAA", @user, only_contacts: true)
+        expect(people.map(&:name)).to eq([@robert_grimm, @eugene_weinstein].map(&:name))
+      end
+
+      it "returns nothing on an empty query" do
+        people = Person.search("", @user, only_contacts: true)
+        expect(people).to be_empty
+      end
+
+      it "returns nothing on a one-character query" do
+        people = Person.search("i", @user, only_contacts: true)
+        expect(people).to be_empty
+      end
+
+      it "returns results for partial names" do
+        people = Person.search("Eug", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@eugene_weinstein)
+
+        people = Person.search("wEi", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@eugene_weinstein)
+
+        @user.contacts.create(person: @casey_grippi, aspects: [@user.aspects.first])
+        people = Person.search("gri", @user, only_contacts: true)
+        expect(people.count).to eq(2)
+        expect(people.first).to eq(@robert_grimm)
+        expect(people.second).to eq(@casey_grippi)
+      end
+
+      it "returns results for full names" do
+        people = Person.search("Robert Grimm", @user, only_contacts: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@robert_grimm)
+      end
+
+      it "returns results for Diaspora handles" do
+        people = Person.search(@robert_grimm.diaspora_handle, @user, only_contacts: true)
+        expect(people).to eq([@robert_grimm])
+      end
+    end
   end
 
   context 'people finders for webfinger' do

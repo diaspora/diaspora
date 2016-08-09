@@ -37,14 +37,6 @@ app.views.SearchBase = app.views.Base.extend({
       };
     }
 
-    if (options.prefetch) {
-      bloodhoundOptions.prefetch = {
-        url: "/contacts.json",
-        transform: this.transformBloodhoundResponse,
-        cache: false
-      };
-    }
-
     this.bloodhound = new Bloodhound(bloodhoundOptions);
   },
 

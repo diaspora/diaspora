@@ -72,6 +72,31 @@ describe ContactsController, :type => :controller do
     end
   end
 
+  describe "#search" do
+    before do
+      @eugene = FactoryGirl.create(:person, profile: FactoryGirl.build(:profile, first_name: "Eugene", last_name: "W"))
+      bob.share_with(@eugene, bob.aspects.first)
+      @casey = FactoryGirl.create(:person, profile: FactoryGirl.build(:profile, first_name: "Casey", last_name: "W"))
+    end
+
+    describe "via json" do
+      it "succeeds" do
+        get :search, q: "Eugene", format: "json"
+        expect(response).to be_success
+      end
+
+      it "responds with json" do
+        get :search, q: "Eugene", format: "json"
+        expect(response.body).to eq([@eugene].to_json)
+      end
+
+      it "only returns contacts" do
+        get :search, q: "Casey", format: "json"
+        expect(response.body).to eq([].to_json)
+      end
+    end
+  end
+
   describe '#spotlight' do
     it 'succeeds' do
       get :spotlight

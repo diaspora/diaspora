@@ -32,7 +32,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       typeaheadInput: this.typeaheadInput,
       customSearch: true,
       autoselect: true,
-      prefetch: true
+      remoteRoute: "/contacts/search"
     });
   },
 

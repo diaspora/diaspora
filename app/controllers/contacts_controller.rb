@@ -23,6 +23,17 @@ class ContactsController < ApplicationController
     end
   end
 
+  def search
+    @people = Person.search(params[:q], current_user, only_contacts: true).limit(15)
+
+    respond_to do |format|
+      format.json do
+        @people = @people.limit(15)
+        render json: @people
+      end
+    end
+  end
+
   def spotlight
     @spotlight = true
     @people = Person.community_spotlight

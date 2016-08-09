@@ -145,26 +145,23 @@ class Person < ActiveRecord::Base
     [where_clause, q_tokens]
   end
 
-  def self.search(query, user)
-    return self.where("1 = 0") if query.to_s.blank? || query.to_s.length < 2
+  def self.search(search_str, user, only_contacts: false)
+    search_str.strip!
+    return none if search_str.blank? || search_str.size < 2
 
-    sql, tokens = self.search_query_string(query)
+    sql, tokens = search_query_string(search_str)
 
-    Person.searchable(user).where(sql, *tokens).joins(
-      "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
-    ).includes(:profile).order(search_order)
-  end
+    query = if only_contacts
+              joins(:contacts).where(contacts: {user_id: user.id})
+            else
+              joins(
+                "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
+              ).searchable(user)
+            end
 
-  # @return [Array<String>] postgreSQL and mysql deal with null values in orders differently, it seems.
-  def self.search_order
-    @search_order ||= Proc.new {
-      order = if AppConfig.postgres?
-        "ASC"
-      else
-        "DESC"
-      end
-      ["contacts.user_id #{order}", "profiles.last_name ASC", "profiles.first_name ASC"]
-    }.call
+    query.where(sql, *tokens)
+         .includes(:profile)
+         .order(["contacts.user_id IS NULL", "profiles.last_name ASC", "profiles.first_name ASC"])
   end
 
   def name(opts = {})
