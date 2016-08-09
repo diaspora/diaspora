@@ -6,7 +6,7 @@ Feature: Close account
 
   Scenario: user closes account
     Given I am signed in
-    When I go to the users edit page
+    When I go to the edit user page
     And I click on selector "#close_account"
     Then I should see a modal
     And I should see "Hey, please don’t go!" within "#closeAccountModal"

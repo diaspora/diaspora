@@ -115,12 +115,11 @@ Diaspora::Application.routes.draw do
     get "getting_started_completed" => :getting_started_completed
   end
 
-  # This is a hack to overide a route created by devise.
-  # I couldn't find anything in devise to skip that route, see Bug #961
-  get 'users/edit' => redirect('/user/edit')
-
-  devise_for :users, :controllers => {:registrations => "registrations",
-                                      :sessions      => "sessions"}
+  devise_for :users, controllers: {sessions: :sessions}, skip: :registration
+  devise_scope :user do
+    get "/users/sign_up" => "registrations#new",    :as => :new_user_registration
+    post "/users"        => "registrations#create", :as => :user_registration
+  end
 
   #legacy routes to support old invite routes
   get 'users/invitation/accept' => 'invitations#edit'
