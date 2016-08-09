@@ -70,7 +70,7 @@ module Diaspora
       contact-list.js
       ie.js
       inbox.js
-      jquery.js
+      jquery2.js
       jquery_ujs.js
       jquery-textchange.js
       main.js

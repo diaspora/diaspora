@@ -96,7 +96,7 @@ gem "js_image_paths",    "0.1.0"
 gem "js-routes",         "1.2.6"
 
 source "https://rails-assets.org" do
-  gem "rails-assets-jquery",                              "1.12.0" # Should be kept in sync with jquery-rails
+  gem "rails-assets-jquery",                              "2.2.1" # Should be kept in sync with jquery-rails
 
   gem "rails-assets-markdown-it",                         "6.0.5"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"

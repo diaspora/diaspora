@@ -1,4 +1,4 @@
-//= require jquery
+//= require jquery2
 //= require handlebars.runtime
 //= require templates
 //= require main
