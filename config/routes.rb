@@ -107,11 +107,12 @@ Diaspora::Application.routes.draw do
   end
 
   controller :users do
-    get 'public/:username'          => :public,           :as => 'users_public'
-    get 'getting_started'           => :getting_started,  :as => 'getting_started'
-    get 'privacy'                   => :privacy_settings, :as => 'privacy_settings'
-    get 'getting_started_completed' => :getting_started_completed
-    get 'confirm_email/:token'      => :confirm_email,    :as => 'confirm_email'
+    get "public/:username"          => :public,                  :as => :users_public
+    get "getting_started"           => :getting_started,         :as => :getting_started
+    get "confirm_email/:token"      => :confirm_email,           :as => :confirm_email
+    get "privacy"                   => :privacy_settings,        :as => :privacy_settings
+    put "privacy"                   => :update_privacy_settings, :as => :update_privacy_settings
+    get "getting_started_completed" => :getting_started_completed
   end
 
   # This is a hack to overide a route created by devise.

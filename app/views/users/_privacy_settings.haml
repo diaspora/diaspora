@@ -3,7 +3,7 @@
     %h3
       = t(".title")
 
-    = form_for current_user, url: user_path, html: {method: :put} do |f|
+    = form_for current_user, url: update_privacy_settings_path, html: {method: :put} do |f|
       = f.error_messages
 
       = f.fields_for :stream_preferences do

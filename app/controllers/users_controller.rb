@@ -40,12 +40,6 @@ class UsersController < ApplicationController
         else
           flash[:notice] = I18n.t "users.update.settings_not_updated"
         end
-      elsif u[:strip_exif]
-        if @user.update_attributes(u)
-          flash[:notice] = I18n.t "users.update.settings_updated"
-        else
-          flash[:notice] = I18n.t "users.update.settings_not_updated"
-        end
       elsif u[:language]
         if @user.update_attributes(u)
           I18n.locale = @user.language
@@ -90,6 +84,18 @@ class UsersController < ApplicationController
         end
       end
     end
+  end
+
+  def update_privacy_settings
+    privacy_params = params.fetch(:user).permit(:strip_exif)
+
+    if current_user.update_attributes(strip_exif: privacy_params[:strip_exif])
+      flash[:notice] = t("users.update.settings_updated")
+    else
+      flash[:error] = t("users.update.settings_not_updated")
+    end
+
+    redirect_to :back
   end
 
   def destroy
@@ -194,7 +200,6 @@ class UsersController < ApplicationController
       :invitation_service,
       :invitation_identifier,
       :show_community_spotlight_in_stream,
-      :strip_exif,
       :auto_follow_back,
       :auto_follow_back_aspect_id,
       :remember_me,
