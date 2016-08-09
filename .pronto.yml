@@ -1,0 +1,4 @@
+all:
+  exclude:
+    - "vendor/**/*"
+consolidate_comments: true

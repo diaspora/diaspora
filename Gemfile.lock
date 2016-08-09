@@ -679,8 +679,6 @@ GEM
     rails-assets-markdown-it-sub (1.0.0)
     rails-assets-markdown-it-sup (1.0.0)
     rails-assets-perfect-scrollbar (0.6.11)
-    rails-assets-typeahead.js (0.11.1)
-      rails-assets-jquery (>= 1.7)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -1011,7 +1009,6 @@ DEPENDENCIES
   rails-assets-markdown-it-sub (= 1.0.0)!
   rails-assets-markdown-it-sup (= 1.0.0)!
   rails-assets-perfect-scrollbar (= 0.6.11)!
-  rails-assets-typeahead.js (= 0.11.1)!
   rails-i18n (= 4.0.8)
   rails-timeago (= 2.11.0)
   rails_admin (= 0.8.1)
