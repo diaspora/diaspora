@@ -155,9 +155,6 @@ Diaspora::Application.routes.draw do
 
 
   resources :contacts, only: %i(index)
-
-  get "contacts/search" => "contacts#search"
-
   resources :aspect_memberships, :only  => [:destroy, :create]
   resources :share_visibilities,  :only => [:update]
   resources :blocks, :only => [:create, :destroy]
