@@ -15,6 +15,8 @@ app.views.ProfileHeader = app.views.Base.extend({
   initialize: function(opts) {
     this.photos = _.has(opts, 'photos') ? opts.photos : null;
     this.contacts = _.has(opts, 'contacts') ? opts.contacts : null;
+    $("#mentionModal").on("modal:loaded", this.mentionModalLoaded.bind(this));
+    $("#mentionModal").on("hidden.bs.modal", this.mentionModalHidden);
   },
 
   presenter: function() {
@@ -52,8 +54,28 @@ app.views.ProfileHeader = app.views.Base.extend({
     return (this.contacts && this.contacts > 0);
   },
 
-  showMentionModal: function(){
+  showMentionModal: function() {
     app.helpers.showModal("#mentionModal");
+  },
+
+  mentionModalLoaded: function() {
+    app.publisher = new app.views.Publisher({
+      standalone: true,
+      prefillMention: _.extend({handle: this.model.get("diaspora_id")}, this.model.attributes)
+    });
+    app.publisher.open();
+    $("#publisher").bind("ajax:success", function() {
+      $("#mentionModal").modal("hide");
+      app.publisher.clear();
+      app.publisher.remove();
+      location.reload();
+    });
+  },
+
+  mentionModalHidden: function() {
+    app.publisher.clear();
+    app.publisher.remove();
+    $("#mentionModal .modal-body").empty();
   },
 
   showMessageModal: function(){
