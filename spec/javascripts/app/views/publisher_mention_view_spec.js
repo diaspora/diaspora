@@ -197,6 +197,13 @@ describe("app.views.PublisherMention", function() {
       expect(this.view.mentionsBox.find(".mentions").html())
         .toBe("@user1 Text before <strong><span>user1</span></strong>\ntext after");
     });
+
+    it("properly escapes the user input", function() {
+      this.view.inputBox.val("<img src=\"/default.png\"> @user1 Text before \u200Buser1\ntext after");
+      this.view.updateMessageTexts();
+      expect(this.view.mentionsBox.find(".mentions").html())
+        .toBe("&lt;img src=\"/default.png\"&gt; @user1 Text before <strong><span>user1</span></strong>\ntext after");
+    });
   });
 
   describe("updateTypeaheadInput", function() {
