@@ -9,7 +9,8 @@ app.pages.Contacts = Backbone.View.extend({
     "click #chat_privilege_toggle" : "toggleChatPrivilege",
     "click #change_aspect_name" : "showAspectNameForm",
     "keyup #contact_list_search" : "searchContactList",
-    "click .conversation_button": "showMessageModal"
+    "click .conversation_button": "showMessageModal",
+    "click #invitations-button": "showInvitationsModal"
   },
 
   initialize: function(opts) {
@@ -84,6 +85,10 @@ app.pages.Contacts = Backbone.View.extend({
 
   showMessageModal: function(){
     app.helpers.showModal("#conversationModal");
+  },
+
+  showInvitationsModal: function() {
+    app.helpers.showModal("#invitationsModal");
   },
 
   setupAspectSorting: function() {

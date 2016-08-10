@@ -7,6 +7,7 @@ app.Router = Backbone.Router.extend({
     "help": "help",
     "getting_started": "gettingStarted",
     "contacts": "contacts",
+    "community_spotlight": "spotlight",
     "conversations": "conversations",
     "user/edit": "settings",
     "users/sign_up": "registration",
@@ -92,6 +93,12 @@ app.Router = Backbone.Router.extend({
 
   singlePost : function(id) {
     this.renderPage(function(){ return new app.pages.SinglePostViewer({ id: id })});
+  },
+
+  spotlight: function() {
+    $("#invitations-button").click(function() {
+      app.helpers.showModal("#invitationsModal");
+    });
   },
 
   renderPage : function(pageConstructor){
