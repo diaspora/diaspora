@@ -1,10 +1,6 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.SinglePostContent = app.views.Base.extend({
-  events: {
-    "click .near-from": "toggleMap"
-  },
-
   templateName: "single-post-viewer/single-post-content",
   tooltipSelector: "time, .post_scope",
   className: "framed-content",
@@ -66,19 +62,9 @@ app.views.SinglePostContent = app.views.Base.extend({
 
     tiles.addTo(map);
 
-    // set mapContainer size to a smaller preview size
-    mapContainer.css("height", "75px");
-    map.invalidateSize();
-
     // put marker on map
     L.marker(location).addTo(map);
     return map;
-  },
-
-  toggleMap: function () {
-    $(".mapContainer").height($(".small-map")[0] ? 200 : 50);
-    $(".leaflet-control-zoom").css("display", $(".small-map")[0] ? "block" : "none");
-    $(".mapContainer").toggleClass("small-map");
   },
 
   presenter : function() {
