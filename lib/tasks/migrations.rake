@@ -127,4 +127,20 @@ namespace :migrations do
       tag.destroy
     end
   end
+
+  LEGACY_QUEUES = %w(
+    maintenance dispatch delete_account http http_service export photos socket_webfinger mail receive_local receive
+  ).freeze
+
+  desc "Run sidekiq with old queues so it can finish deferred jobs"
+  task :run_legacy_queues do
+    queues_with_jobs = LEGACY_QUEUES.select {|queue| Sidekiq::Queue.new(queue).size > 0 }
+    if queues_with_jobs.empty?
+      puts "No jobs in legacy queues!"
+    else
+      puts "Launching sidekiq with queues: #{queues_with_jobs.join(', ')}"
+      queus_cli = queues_with_jobs.map {|queue| "-q #{queue}" }.join(" ")
+      system "bundle exec sidekiq #{queus_cli} -e #{Rails.env}"
+    end
+  end
 end

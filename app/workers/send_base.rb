@@ -1,6 +1,6 @@
 module Workers
   class SendBase < Base
-    sidekiq_options queue: :http, retry: 0
+    sidekiq_options queue: :medium, retry: 0
 
     MAX_RETRIES = AppConfig.environment.sidekiq.retry.get.to_i
 
