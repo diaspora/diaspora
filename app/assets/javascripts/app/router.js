@@ -14,10 +14,8 @@ app.Router = Backbone.Router.extend({
     "profile/edit": "settings",
     "admins/dashboard": "adminDashboard",
     "admin/pods": "adminPods",
-
     "posts/:id": "singlePost",
     "p/:id": "singlePost",
-
     "activity": "stream",
     "stream": "stream",
     "aspects": "aspects",
@@ -31,7 +29,6 @@ app.Router = Backbone.Router.extend({
     "people/:id/contacts": "profile",
     "people": "pageWithAspectMembershipDropdowns",
     "notifications": "notifications",
-
     "people/:id": "profile",
     "u/:name": "profile"
   },
@@ -67,7 +64,7 @@ app.Router = Backbone.Router.extend({
 
     var stream = new app.views.ContactStream({
       collection: app.contacts,
-      el: $(".stream.contacts #contact_stream"),
+      el: $(".stream.contacts #contact_stream")
     });
 
     app.page = new app.pages.Contacts({stream: stream});
@@ -97,8 +94,8 @@ app.Router = Backbone.Router.extend({
     app.page = new app.pages.Settings();
   },
 
-  singlePost : function(id) {
-    this.renderPage(function(){ return new app.pages.SinglePostViewer({ id: id })});
+  singlePost: function(id) {
+    this.renderPage(function() { return new app.pages.SinglePostViewer({id: id}); });
   },
 
   spotlight: function() {
@@ -107,28 +104,32 @@ app.Router = Backbone.Router.extend({
     });
   },
 
-  renderPage : function(pageConstructor){
-    app.page && app.page.unbind && app.page.unbind(); //old page might mutate global events $(document).keypress, so unbind before creating
-    app.page = pageConstructor(); //create new page after the world is clean (like that will ever happen)
+  renderPage: function(pageConstructor) {
+    // old page might mutate global events $(document).keypress, so unbind before creating
+    app.page && app.page.unbind && app.page.unbind();
+    // create new page after the world is clean (like that will ever happen)
+    app.page = pageConstructor();
     app.page.render();
 
-    if( !$.contains(document, app.page.el) ) {
+    if (!$.contains(document, app.page.el)) {
       // view element isn"t already attached to the DOM, insert it
       $("#container").empty().append(app.page.el);
     }
   },
 
-  stream : function() {
+  stream: function() {
     app.stream = new app.models.Stream();
     app.stream.fetch();
     this._initializeStreamView();
   },
 
-  photos : function(guid) {
+  photos: function(guid) {
     this._loadContacts();
     this.renderPage(function() {
       return new app.pages.Profile({
+        /* eslint-disable camelcase */
         person_id: guid,
+        /* eslint-enable camelcase */
         el: $("body > #profile_container"),
         streamCollection: app.collections.Photos,
         streamView: app.views.Photos
@@ -136,7 +137,9 @@ app.Router = Backbone.Router.extend({
     });
   },
 
-  followed_tags : function(name) {
+  /* eslint-disable camelcase */
+  followed_tags: function(name) {
+    /* eslint-enable camelcase */
     this.stream();
 
     app.tagFollowings = new app.collections.TagFollowings();
@@ -146,7 +149,7 @@ app.Router = Backbone.Router.extend({
 
     app.tagFollowings.reset(gon.preloads.tagFollowings);
 
-    if(name) {
+    if (name) {
       var followedTagsAction = new app.views.TagFollowingAction(
             {tagText: decodeURIComponent(name).toLowerCase()}
           );
@@ -161,12 +164,18 @@ app.Router = Backbone.Router.extend({
       new app.collections.AspectSelections(app.currentUser.get("aspects"));
     this.aspectsList = this.aspectsList || new app.views.AspectsList({collection: app.aspectSelections});
     this.aspectsList.render();
+    /* eslint-disable camelcase */
     this.aspects_stream();
+    /* eslint-enable camelcase */
   },
 
-  aspects_stream : function(){
+  /* eslint-disable camelcase */
+  aspects_stream: function() {
+    /* eslint-enable camelcase */
     var ids = app.aspectSelections.selectedGetAttribute("id");
-    app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
+    /* eslint-disable camelcase */
+    app.stream = new app.models.StreamAspects([], {aspects_ids: ids});
+    /* eslint-enable camelcase */
     app.stream.fetch();
     this._initializeStreamView();
     app.publisher.setSelectedAspects(ids);
@@ -206,25 +215,25 @@ app.Router = Backbone.Router.extend({
   },
 
   _hideInactiveStreamLists: function() {
-    if(this.aspectsList && Backbone.history.fragment !== "aspects") {
+    if (this.aspectsList && Backbone.history.fragment !== "aspects") {
       this.aspectsList.hideAspectsList();
     }
 
-    if(this.followedTagsView && Backbone.history.fragment !== "followed_tags") {
+    if (this.followedTagsView && Backbone.history.fragment !== "followed_tags") {
       this.followedTagsView.hideFollowedTags();
     }
   },
 
   _initializeStreamView: function() {
-    if(app.page) {
+    if (app.page) {
       app.page.unbindInfScroll();
       app.page.remove();
     }
 
-    app.page = new app.views.Stream({model : app.stream});
+    app.page = new app.views.Stream({model: app.stream});
     app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
-    if($("#publisher").length !== 0) {
-      app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
+    if ($("#publisher").length !== 0) {
+      app.publisher = app.publisher || new app.views.Publisher({collection: app.stream.items});
     }
 
     $("#main_stream").html(app.page.render().el);
