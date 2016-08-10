@@ -3,15 +3,15 @@ app.views.SearchBase = app.views.Base.extend({
     this.ignoreDiasporaIds = [];
     this.typeaheadInput = options.typeaheadInput;
     this.setupBloodhound(options);
-    if(options.customSearch) { this.setupCustomSearch(); }
+    if (options.customSearch) { this.setupCustomSearch(); }
     this.setupTypeahead();
     // TODO: Remove this as soon as corejavascript/typeahead.js has its first release
     this.setupMouseSelectionEvents();
-    if(options.autoselect) { this.setupAutoselect(); }
+    if (options.autoselect) { this.setupAutoselect(); }
   },
 
   bloodhoundTokenizer: function(str) {
-    if(typeof str !== "string") { return []; }
+    if (typeof str !== "string") { return []; }
     return str.split(/[\s\.:,;\?\!#@\-_\[\]\{\}\(\)]+/).filter(function(s) { return s !== ""; });
   },
 
@@ -19,9 +19,9 @@ app.views.SearchBase = app.views.Base.extend({
     var bloodhoundOptions = {
       datumTokenizer: function(datum) {
         // hashtags
-        if(typeof datum.handle === "undefined") { return [datum.name]; }
+        if (typeof datum.handle === "undefined") { return [datum.name]; }
         // people
-        if(datum.name === datum.handle) { return [datum.handle]; }
+        if (datum.name === datum.handle) { return [datum.handle]; }
         return this.bloodhoundTokenizer(datum.name).concat(datum.handle);
       }.bind(this),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -29,7 +29,7 @@ app.views.SearchBase = app.views.Base.extend({
     };
 
     // Allow bloodhound to look for remote results if there is a route given in the options
-    if(options.remoteRoute) {
+    if (options.remoteRoute) {
       bloodhoundOptions.remote = {
         url: options.remoteRoute + ".json?q=%QUERY",
         wildcard: "%QUERY",
@@ -38,19 +38,56 @@ app.views.SearchBase = app.views.Base.extend({
     }
 
     this.bloodhound = new Bloodhound(bloodhoundOptions);
+
+    app.views.SearchBase.fetchedEventBroker.on("contactsFetched", function(contactsList) {
+      this.bloodhound.add(contactsList);
+    }.bind(this));
+
+    this.prefetch();
+  },
+
+  prefetch: function() {
+    ++app.views.SearchBase.lock;
+    if (app.views.SearchBase.lock === 0) { // Preventing other instances to prefetch
+      $.ajax({
+        cache: true,
+        url: "/contacts.json",
+        success: function(data) {
+          var contacts = this.transformBloodhoundResponse(data);
+          app.views.SearchBase.fetchedEventBroker.trigger("contactsFetched", contacts);
+        }.bind(this)
+      });
+    }
+  },
+
+  transformBloodhoundResponse: function(response) {
+    return response.map(function(data) {
+      // person
+      if (data.handle) {
+        data.person = true;
+        return data;
+      }
+
+      // hashtag
+      return {
+        hashtag: true,
+        name: data.name,
+        url: Routes.tag(data.name.substring(1))
+      };
+    });
   },
 
   setupCustomSearch: function() {
     var self = this;
     this.bloodhound.customSearch = function(query, sync, async) {
-      var _async = function(datums) {
-        var results = datums.filter(function(datum) {
-          return datum.handle !== undefined && self.ignoreDiasporaIds.indexOf(datum.handle) === -1;
-        });
-        async(results);
+      var filter = function(datum) {
+        return datum.handle !== undefined && self.ignoreDiasporaIds.indexOf(datum.handle) === -1;
       };
 
-      self.bloodhound.search(query, sync, _async);
+      var _sync = function(datums) { sync(datums.filter(filter)); };
+      var _async = function(datums) { async(datums.filter(filter)); };
+
+      self.bloodhound.search(query, _sync, _async);
     };
   },
 
@@ -69,23 +106,6 @@ app.views.SearchBase = app.views.Base.extend({
         suggestion: HandlebarsTemplates.search_suggestion_tpl
         /* jshint camelcase: true */
       }
-    });
-  },
-
-  transformBloodhoundResponse: function(response) {
-    return response.map(function(data) {
-      // person
-      if(data.handle) {
-        data.person = true;
-        return data;
-      }
-
-      // hashtag
-      return {
-        hashtag: true,
-        name: data.name,
-        url: Routes.tag(data.name.substring(1))
-      };
     });
   },
 
@@ -120,6 +140,9 @@ app.views.SearchBase = app.views.Base.extend({
   },
 
   ignorePersonForSuggestions: function(person) {
-    if(person.handle) { this.ignoreDiasporaIds.push(person.handle); }
-  },
+    if (person.handle) { this.ignoreDiasporaIds.push(person.handle); }
+  }
 });
+// Class variables
+app.views.SearchBase.lock = -1;
+app.views.SearchBase.fetchedEventBroker = $.extend({}, Backbone.Events);
