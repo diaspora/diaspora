@@ -30,7 +30,7 @@ app.Router = Backbone.Router.extend({
     "people/:id/photos": "photos",
     "people/:id/contacts": "profile",
     "people": "pageWithAspectMembershipDropdowns",
-    "notifications": "pageWithAspectMembershipDropdowns",
+    "notifications": "notifications",
 
     "people/:id": "profile",
     "u/:name": "profile"
@@ -81,6 +81,12 @@ app.Router = Backbone.Router.extend({
 
   conversations: function() {
     app.conversations = new app.views.Conversations();
+  },
+
+  notifications: function() {
+    this._loadContacts();
+    this.renderAspectMembershipDropdowns($(document));
+    new app.views.Notifications({el: "#notifications_container"});
   },
 
   registration: function() {
