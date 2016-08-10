@@ -18,7 +18,7 @@ describe ResharesController, :type => :controller do
 
     context 'with an authenticated user' do
       before do
-        sign_in :user, bob
+        sign_in(bob, scope: :user)
         allow(@controller).to receive(:current_user).and_return(bob)
       end
 

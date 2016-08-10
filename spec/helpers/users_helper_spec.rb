@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe UsersHelper, :type => :helper do
-  include Devise::TestHelpers
+describe UsersHelper, type: :helper do
+  include Devise::Test::ControllerHelpers
 
   describe "#current_color_theme" do
     describe "if user is not signed in" do

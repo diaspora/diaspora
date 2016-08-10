@@ -9,7 +9,7 @@ describe PhotosController, :type => :controller do
     @alices_photo = alice.post(:photo, :user_file => uploaded_photo, :to => alice.aspects.first.id, :public => false)
     @bobs_photo = bob.post(:photo, :user_file => uploaded_photo, :to => bob.aspects.first.id, :public => true)
 
-    sign_in :user, alice
+    sign_in alice, scope: :user
     request.env["HTTP_REFERER"] = ''
   end
 

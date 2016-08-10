@@ -9,7 +9,7 @@ describe UsersController, :type => :controller do
 
   before do
     @user = alice
-    sign_in :user, @user
+    sign_in @user, scope: :user
     allow(@controller).to receive(:current_user).and_return(@user)
   end
 
@@ -186,7 +186,7 @@ describe UsersController, :type => :controller do
       end
 
       it 'informs the user about failure' do
-        put(:update, :id => @user.id, :user => { :email => "my@newemailcom"})
+        put(:update, id: @user.id, user: {email: "mynewemailcom"})
         expect(request.flash[:error]).to eql(I18n.t('users.update.unconfirmed_email_not_changed'))
         expect(request.flash[:notice]).to be_blank
       end

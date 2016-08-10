@@ -6,7 +6,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :controller do
   let!(:client_with_multiple_redirects) { FactoryGirl.create(:o_auth_application_with_multiple_redirects) }
 
   before do
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe "#new" do

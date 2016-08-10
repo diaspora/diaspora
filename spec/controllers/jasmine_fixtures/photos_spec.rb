@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PhotosController, :type => :controller do
   before do
     @alices_photo = alice.post(:photo, :user_file => uploaded_photo, :to => alice.aspects.first.id, :public => false)
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe '#index' do

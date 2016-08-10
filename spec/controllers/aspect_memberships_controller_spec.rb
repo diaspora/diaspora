@@ -13,7 +13,7 @@ describe AspectMembershipsController, type: :controller do
     @contact = alice.contact_for(bob.person)
     alice.getting_started = false
     alice.save
-    sign_in :user, alice
+    sign_in alice, scope: :user
     allow(@controller).to receive(:current_user).and_return(alice)
     request.env["HTTP_REFERER"] = "http://" + request.host
   end

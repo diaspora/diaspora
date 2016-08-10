@@ -7,7 +7,7 @@ require 'spec_helper'
 describe CommentsController, :type => :controller do
   before do
     allow(@controller).to receive(:current_user).and_return(alice)
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe '#create' do
@@ -79,7 +79,7 @@ describe CommentsController, :type => :controller do
     context 'your post' do
       before do
         allow(@controller).to receive(:current_user).and_return(bob)
-        sign_in :user, bob
+        sign_in bob, scope: :user
       end
 
       it 'lets the user delete his comment' do

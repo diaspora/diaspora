@@ -6,7 +6,7 @@ describe Admin::UsersController, :type => :controller do
     @user = FactoryGirl.create :user
     Role.add_admin(@user.person)
 
-    sign_in :user, @user
+    sign_in @user, scope: :user
   end
 
   describe '#close_account' do

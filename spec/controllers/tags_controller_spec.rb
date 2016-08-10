@@ -7,7 +7,7 @@ require 'spec_helper'
 describe TagsController, :type => :controller do
   describe '#index (search)' do
     before do
-      sign_in :user, alice
+      sign_in alice, scope: :user
       bob.profile.tag_string = "#cats #diaspora #rad"
       bob.profile.build_tags
       bob.profile.save!
@@ -38,7 +38,7 @@ describe TagsController, :type => :controller do
   describe '#show' do
     context 'tag with capital letters' do
       before do
-        sign_in :user, alice
+        sign_in alice, scope: :user
       end
 
       it 'redirect to the downcase tag uri' do
@@ -67,7 +67,7 @@ describe TagsController, :type => :controller do
 
       context 'signed in' do
         before do
-          sign_in :user, alice
+          sign_in alice, scope: :user
         end
 
         it 'assigns a Stream::Tag object with the current_user' do

@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe UsersController, type: :controller do
   before do
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe "#getting_started" do

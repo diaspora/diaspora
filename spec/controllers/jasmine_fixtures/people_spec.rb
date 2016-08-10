@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PeopleController, :type => :controller do
   describe '#index' do
     before do
-      sign_in :user, bob
+      sign_in bob, scope: :user
     end
 
     it "generates a jasmine fixture with no query", :fixture => true do

@@ -5,7 +5,7 @@ describe AdminsController, type: :controller do
     before do
       @user = FactoryGirl.create :user
       Role.add_admin(@user.person)
-      sign_in :user, @user
+      sign_in @user, scope: :user
     end
 
     context "jasmine fixtures" do

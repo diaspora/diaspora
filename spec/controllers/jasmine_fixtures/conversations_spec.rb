@@ -20,7 +20,7 @@ describe ConversationsController, :type => :controller do
       Message.create(:author => @person, :created_at => Time.now + 100, :text => "message", :conversation_id => @conv2.id)
              .increase_unread(alice)
 
-      sign_in :user, alice
+      sign_in alice, scope: :user
     end
 
     it "generates a jasmine fixture", :fixture => true do
