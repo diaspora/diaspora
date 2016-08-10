@@ -2,7 +2,6 @@ describe("app.views.SinglePostContent", function() {
   beforeEach(function(){
     this.post = factory.post();
     this.view = new app.views.SinglePostContent({model : this.post});
-    gon.appConfig = { map: {mapbox: {enabled: true, id: "yourID", accessToken: "yourAccessToken" }}};
   });
 
   describe("map", function() {
