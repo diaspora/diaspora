@@ -28,6 +28,7 @@ end
 
 describe "mentioning", type: :request do
   include MentioningSpecHelpers
+  include RequestsHelper
 
   before do
     @user1 = FactoryGirl.create :user_with_aspect
