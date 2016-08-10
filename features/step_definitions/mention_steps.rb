@@ -22,3 +22,7 @@ end
 And /^I click on the first user in the mentions dropdown list$/ do
   find(".tt-menu .tt-suggestion", match: :first).click
 end
+
+Then /^I should not see the mentions dropdown list$/ do
+  expect(page).to have_no_css ".tt-menu"
+end

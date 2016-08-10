@@ -196,6 +196,12 @@ Feature: posting from the main page
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt" and "And cornflakes also"
 
+    Scenario: Write html in the publisher
+      When I expand the publisher
+      Then I should not see any alert after I write the status message "<script>alert();</script>"
+      When I submit the publisher
+      Then "<script>alert();</script>" should be post 1
+
     # (NOTE) make this a jasmine spec
     Scenario: reject deletion one of my posts
       When I expand the publisher
