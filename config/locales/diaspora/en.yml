@@ -265,6 +265,7 @@ en:
     spotlight:
       community_spotlight: "Community spotlight"
       suggest_member: "Suggest a member"
+      no_members: "There are no members yet."
 
   conversations:
     index:
