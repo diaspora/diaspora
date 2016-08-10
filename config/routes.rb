@@ -98,7 +98,8 @@ Diaspora::Application.routes.draw do
 
   # Users and people
 
-  resource :user, :only => [:edit, :update, :destroy], :shallow => true do
+  resource :user, only: %i(edit destroy), shallow: true do
+    put :edit, action: :update
     get :getting_started_completed
     post :export_profile
     get :download_profile

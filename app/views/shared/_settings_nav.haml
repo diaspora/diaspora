@@ -6,7 +6,7 @@
     = link_to t("profile"), edit_profile_path,
       class: current_page?(edit_profile_path) ? "list-group-item active" : "list-group-item"
     = link_to t("account"), edit_user_path,
-      class: current_page?(edit_user_path) ? "list-group-item active" : "list-group-item"
+      class: request.path == edit_user_path ? "list-group-item active" : "list-group-item"
     = link_to t("privacy"), privacy_settings_path,
       class: current_page?(privacy_settings_path) ? "list-group-item active" : "list-group-item"
     = link_to t("_services"), services_path,
