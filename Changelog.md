@@ -69,11 +69,14 @@ If you run your sidekiq with a custom queue configuration, please make sure to u
 
 The new queues are: `urgent, high, medium, low, default`.
 
-When you upgrade to the new version, some jobs may persist in the old queues. To ensure that jobs to be processed, launch
-job processing for old queues using command:
+When you upgrade to the new version, some jobs may persist in the old queues. To move them to the default queue,
+so they're processed, run:
+
 ```
-bin/rake migrations:run_legacy_queues
+bin/rake migrations:legacy_queues
 ```
+
+Note that this will retry all dead jobs, if you want to prevent that empty the dead queue first.
 
 The command will report queues that still have jobs and launch sidekiq process for that queues.
 
