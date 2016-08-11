@@ -5,6 +5,8 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
+  respond_to :json, only: :counts
+
   def update
     note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
     if note
@@ -82,4 +84,9 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def counts
+    render json: {
+      notifications: current_user.unread_notifications.count
+    }
+  end
 end

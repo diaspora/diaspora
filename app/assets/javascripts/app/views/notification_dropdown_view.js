@@ -16,6 +16,10 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.dropdownNotifications = this.dropdown.find(".notifications");
     this.ajaxLoader = this.dropdown.find(".ajax-loader");
     this.perfectScrollbarInitialized = false;
+    this.updateHeaderCounts();
+    if (gon.appConfig.settings.notifications.polling_interval > 0) {
+      setInterval(this.updateHeaderCounts, gon.appConfig.settings.notifications.polling_interval*1000);
+    }
   },
 
   toggleDropdown: function(evt){
@@ -33,6 +37,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
   showDropdown: function(){
     this.resetParams();
     this.ajaxLoader.show();
+    this.updateHeaderCounts();
     this.dropdown.addClass("dropdown-open");
     this.updateScrollbar();
     this.dropdownNotifications.addClass("loading");
@@ -131,6 +136,22 @@ app.views.NotificationDropdown = app.views.Base.extend({
       this.dropdownNotifications.perfectScrollbar("destroy");
       this.perfectScrollbarInitialized = false;
     }
+  },
+
+  updateHeaderCounts: function() {
+    $.getJSON(Routes.notificationsCounts(), function(data) {
+      var headerBadge = $(".notifications-link .badge"),
+        markAllReadLink = $("a#mark_all_read_link");
+      if (data.notifications > 0) {
+        headerBadge.html(parseInt(data.notifications));
+        headerBadge.removeClass("hidden");
+        markAllReadLink.removeClass("enabled");
+      } else {
+        headerBadge.addClass("hidden");
+        headerBadge.html(0);
+        markAllReadLink.removeClass("disabled");
+      }
+    });
   }
 });
 // @license-end

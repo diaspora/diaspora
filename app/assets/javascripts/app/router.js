@@ -223,6 +223,14 @@ app.Router = Backbone.Router.extend({
 
     $("#main_stream").html(app.page.render().el);
     this._hideInactiveStreamLists();
+    this._ensureUpdateHeaderCounts();
+  },
+
+  _ensureUpdateHeaderCounts: function() {
+    // Update header counts if they are not polled automatically
+    if (gon.appConfig.settings.notifications.polling_interval === 0) {
+      app.header.notificationDropdown.updateHeaderCounts();
+    }
   }
 });
 // @license-end

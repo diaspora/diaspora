@@ -85,6 +85,7 @@ Diaspora::Application.routes.draw do
     end
   end
 
+  get "notifications/counts" => "notifications#counts"
 
   resources :tags, :only => [:index]
 

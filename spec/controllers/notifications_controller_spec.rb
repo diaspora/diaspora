@@ -200,4 +200,19 @@ describe NotificationsController, :type => :controller do
       expect(response).not_to be_redirect
     end
   end
+
+  describe "counts" do
+    it "succeeds" do
+      get :counts
+      expect(response).to be_success
+    end
+
+    it "returns unread notifications count" do
+      post = FactoryGirl.create(:status_message)
+      FactoryGirl.create(:notification, recipient: alice, target: post)
+      FactoryGirl.create(:notification, recipient: alice, target: post, unread: false)
+      get :counts
+      expect(response.body).to eq('{"notifications":1}')
+    end
+  end
 end
