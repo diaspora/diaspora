@@ -51,6 +51,7 @@ describe "mentioning", type: :request do
     expect(status_msg.public?).to be false
     expect(status_msg.text).to include(@user3.name)
     expect(status_msg.text).not_to include(@user3.diaspora_handle)
+    expect(status_msg.text).to include(user_profile_path(username: @user3.username))
 
     expect(stream_for(@user3).map(&:id)).not_to include(status_msg.id)
     expect(mention_stream_for(@user3).map(&:id)).not_to include(status_msg.id)

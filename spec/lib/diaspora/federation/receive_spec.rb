@@ -425,7 +425,7 @@ describe Diaspora::Federation::Receive do
       expect(profile.location).to eq(profile_entity.location)
       expect(profile.searchable).to eq(profile_entity.searchable)
       expect(profile.nsfw).to eq(profile_entity.nsfw)
-      expect(profile.tag_string).to eq(profile_entity.tag_string)
+      expect(profile.tag_string.split(" ")).to match_array(profile_entity.tag_string.split(" "))
     end
   end
 
