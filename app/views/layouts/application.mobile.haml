@@ -46,6 +46,9 @@
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
 
+    - if Rails.env.test?
+      = stylesheet_link_tag :poltergeist_disable_transition, media: "all"
+
     = yield(:head)
 
     = include_gon(:camel_case => true)
