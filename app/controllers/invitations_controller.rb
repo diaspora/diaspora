@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class InvitationsController < ApplicationController
-
   before_action :authenticate_user!
 
   def new
@@ -14,35 +13,32 @@ class InvitationsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        render 'invitations/new', layout: false
+        render "invitations/new", layout: false
       end
     end
   end
 
   def create
-    emails = inviter_params[:emails].split(',').map(&:strip).uniq
+    emails = inviter_params[:emails].split(",").map(&:strip).uniq
 
-    valid_emails, invalid_emails = emails.partition { |email| valid_email?(email) }
+    valid_emails, invalid_emails = emails.partition {|email| valid_email?(email) }
 
     session[:valid_email_invites] = valid_emails
     session[:invalid_email_invites] = invalid_emails
 
     unless valid_emails.empty?
-      Workers::Mail::InviteEmail.perform_async(valid_emails.join(','),
-                                               current_user.id,
-                                               inviter_params)
+      Workers::Mail::InviteEmail.perform_async(valid_emails.join(","), current_user.id, inviter_params)
     end
 
     if emails.empty?
-      flash[:error] = t('invitations.create.empty')
+      flash[:error] = t("invitations.create.empty")
     elsif invalid_emails.empty?
-      flash[:notice] =  t('invitations.create.sent', :emails => valid_emails.join(', '))
+      flash[:notice] = t("invitations.create.sent", emails: valid_emails.join(", "))
     elsif valid_emails.empty?
-      flash[:error] = t('invitations.create.rejected') +  invalid_emails.join(', ')
+      flash[:error] = t("invitations.create.rejected", emails: invalid_emails.join(", "))
     else
-      flash[:error] = t('invitations.create.sent', :emails => valid_emails.join(', '))
-      flash[:error] << '. '
-      flash[:error] << t('invitations.create.rejected') +  invalid_emails.join(', ')
+      flash[:error] = t("invitations.create.sent", emails: valid_emails.join(", ")) + ". " +
+        t("invitations.create.rejected", emails: invalid_emails.join(", "))
     end
 
     redirect_to :back
@@ -57,9 +53,9 @@ class InvitationsController < ApplicationController
   def html_safe_string_from_session_array(key)
     return "" unless session[key].present?
     return "" unless session[key].respond_to?(:join)
-    value = session[key].join(', ').html_safe
+    value = session[key].join(", ").html_safe
     session[key] = nil
-    return value
+    value
   end
 
   def inviter_params

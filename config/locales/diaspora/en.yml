@@ -556,7 +556,7 @@ en:
   invitations:
     create:
       sent: "Invitations have been sent to: %{emails}"
-      rejected: "The following email addresses had problems: "
+      rejected: "The following email addresses had problems: %{emails}"
       no_more: "You have no more invitations."
       empty: "Please enter at least one email address."
       note_already_sent: "Invitations have already been sent to: %{emails}"

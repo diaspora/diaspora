@@ -81,10 +81,10 @@ describe InvitationsController, :type => :controller do
         expect(response).to redirect_to @referer
       end
 
-      it 'flashes an error' do
+      it "flashes an error" do
         post :create, @invite
 
-        expected =  I18n.t('invitations.create.rejected') + @emails.split(',').join(', ')
+        expected = I18n.t("invitations.create.rejected", emails: @emails.split(",").join(", "))
         expect(flash[:error]).to eq(expected)
       end
     end
@@ -108,12 +108,10 @@ describe InvitationsController, :type => :controller do
         expect(response).to redirect_to @referer
       end
 
-      it 'flashes a notice' do
+      it "flashes a notice" do
         post :create, @invite
-        expected =  I18n.t('invitations.create.sent', :emails =>
-                          @valid_emails.split(',').join(', ')) +
-                          '. ' + I18n.t('invitations.create.rejected') +
-                          @invalid_emails.split(',').join(', ')
+        expected = I18n.t("invitations.create.sent", emails: @valid_emails.split(",").join(", ")) + ". " +
+          I18n.t("invitations.create.rejected", emails: @invalid_emails.split(",").join(", "))
         expect(flash[:error]).to eq(expected)
       end
     end
