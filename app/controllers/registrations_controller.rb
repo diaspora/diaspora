@@ -5,14 +5,14 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :check_registrations_open_or_valid_invite!, :check_valid_invite!
 
-  layout ->(c) { request.format == :mobile ? "application" : "with_header" }, :only => [:new]
+  layout -> { request.format == :mobile ? "application" : "with_header" }
 
   def create
     @user = User.build(user_params)
-    @user.process_invite_acceptence(invite) if invite.present?
 
     if @user.sign_up
-      flash[:notice] = I18n.t 'registrations.create.success'
+      flash[:notice] = t("registrations.create.success")
+      @user.process_invite_acceptence(invite) if invite.present?
       @user.seed_aspects
       @user.send_welcome_message
       sign_in_and_redirect(:user, @user)
@@ -22,12 +22,8 @@ class RegistrationsController < Devise::RegistrationsController
 
       flash.now[:error] = @user.errors.full_messages.join(" - ")
       logger.info "event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'"
-      render action: "new", layout: request.format == :mobile ? "application" : "with_header"
+      render action: "new"
     end
-  end
-
-  def new
-    super
   end
 
   private
@@ -48,9 +44,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def invite
-    if params[:invite].present?
-      @invite ||= InvitationCode.find_by_token(params[:invite][:token])
-    end
+    @invite ||= InvitationCode.find_by_token(params[:invite][:token]) if params[:invite].present?
   end
 
   helper_method :invite

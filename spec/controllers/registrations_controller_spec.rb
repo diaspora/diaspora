@@ -2,20 +2,23 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
+require "spec_helper"
 
 describe RegistrationsController, type: :controller do
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
-    @valid_params = {:user => {
-      :username => "jdoe",
-      :email    => "jdoe@example.com",
-      :password => "password",
-      :password_confirmation => "password"
+  end
+
+  let(:valid_params) {
+    {
+      user: {
+        username:              "jdoe",
+        email:                 "jdoe@example.com",
+        password:              "password",
+        password_confirmation: "password"
       }
     }
-    allow(Person).to receive(:find_or_fetch_by_identifier).and_return(FactoryGirl.create(:person))
-  end
+  }
 
   describe '#check_registrations_open!' do
     before do
@@ -29,7 +32,7 @@ describe RegistrationsController, type: :controller do
     end
 
     it 'redirects #create to the login page' do
-      post :create, @valid_params
+      post :create, valid_params
       expect(flash[:error]).to eq(I18n.t('registrations.closed'))
       expect(response).to redirect_to new_user_session_path
     end
@@ -58,58 +61,71 @@ describe RegistrationsController, type: :controller do
 
       it "creates a user" do
         expect {
-          get :create, @valid_params
+          get :create, valid_params
         }.to change(User, :count).by(1)
       end
 
       it "assigns @user" do
-        get :create, @valid_params
+        get :create, valid_params
         expect(assigns(:user)).to be_truthy
       end
 
       it "sets the flash" do
-        get :create, @valid_params
+        get :create, valid_params
         expect(flash[:notice]).not_to be_blank
       end
 
+      it "uses the invite code" do
+        code = InvitationCode.create(user: bob)
+
+        expect {
+          get :create, valid_params.merge(invite: {token: code.token})
+        }.to change { code.reload.count }.by(-1)
+      end
+
       it "redirects to the home path" do
-        get :create, @valid_params
+        get :create, valid_params
         expect(response).to be_redirect
         expect(response.location).to match /^#{stream_url}\??$/
       end
     end
 
     context "with invalid parameters" do
-      before do
-        @invalid_params = @valid_params
-        @invalid_params[:user][:password_confirmation] = "baddword"
-      end
+      let(:invalid_params) { valid_params.deep_merge(user: {password_confirmation: "baddword"}) }
 
       it "does not create a user" do
-        expect { get :create, @invalid_params }.not_to change(User, :count)
+        expect { get :create, invalid_params }.not_to change(User, :count)
       end
 
       it "does not create a person" do
-        expect { get :create, @invalid_params }.not_to change(Person, :count)
+        expect { get :create, invalid_params }.not_to change(Person, :count)
       end
 
       it "assigns @user" do
-        get :create, @invalid_params
+        get :create, invalid_params
         expect(assigns(:user)).not_to be_nil
       end
 
       it "sets the flash error" do
-        get :create, @invalid_params
+        get :create, invalid_params
         expect(flash[:error]).not_to be_blank
       end
 
+      it "doesn't reduce number of available invites" do
+        code = InvitationCode.create(user: bob)
+
+        expect {
+          get :create, invalid_params.merge(invite: {token: code.token})
+        }.not_to change { code.reload.count }
+      end
+
       it "renders new" do
-        get :create, @invalid_params
+        get :create, invalid_params
         expect(response).to render_template("registrations/new")
       end
 
       it "keeps invalid params in form" do
-        get :create, @invalid_params
+        get :create, invalid_params
         expect(response.body).to match /jdoe@example.com/m
       end
     end
