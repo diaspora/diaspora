@@ -122,11 +122,8 @@ Diaspora::Application.routes.draw do
     post "/users"        => "registrations#create", :as => :user_registration
   end
 
-  #legacy routes to support old invite routes
-  get 'users/invitation/accept' => 'invitations#edit'
-  get 'invitations/email' => 'invitations#email', :as => 'invite_email'
-  get 'users/invitations' => 'invitations#new', :as => 'new_user_invitation'
-  post 'users/invitations' => 'invitations#create', :as => 'user_invitation'
+  get "users/invitations"  => "invitations#new",    :as => "new_user_invitation"
+  post "users/invitations" => "invitations#create", :as => "user_invitation"
 
   get 'login' => redirect('/users/sign_in')
 

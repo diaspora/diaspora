@@ -571,9 +571,6 @@ en:
         zero:  "No invites left on this code"
         one:  "One invite left on this code"
         other:  "%{count} invites left on this code"
-    check_token:
-      not_found: "Invitation token not found"
-    a_facebook_user: "A Facebook user"
 
   layouts:
     header:

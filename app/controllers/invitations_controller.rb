@@ -4,7 +4,7 @@
 
 class InvitationsController < ApplicationController
 
-  before_action :authenticate_user!, :only => [:new, :create]
+  before_action :authenticate_user!
 
   def new
     @invite_code = current_user.invitation_code
@@ -16,36 +16,6 @@ class InvitationsController < ApplicationController
       format.html do
         render 'invitations/new', layout: false
       end
-    end
-  end
-
-  # this is  for legacy invites.  We try to look the person who sent them the
-  # invite, and use their new invite code
-  # owe will be removing this eventually
-  # @depreciated
-  def edit
-    user = User.find_by_invitation_token(params[:invitation_token])
-    invitation_code = user.ugly_accept_invitation_code
-    redirect_to invite_code_path(invitation_code)
-  end
-
-  def email
-    @invitation_code =
-      if params[:invitation_token]
-        # this is  for legacy invites.
-        user = User.find_by_invitation_token(params[:invitation_token])
-
-        user.ugly_accept_invitation_code if user
-      else
-        params[:invitation_code]
-      end
-    @inviter = user || InvitationCode.where(id: params[:invitation_code]).first.try(:user)
-    if @invitation_code.present?
-      render 'notifier/invite', :layout => false
-    else
-      flash[:error] = t('invitations.check_token.not_found')
-
-      redirect_to root_url
     end
   end
 
@@ -78,15 +48,8 @@ class InvitationsController < ApplicationController
     redirect_to :back
   end
 
-  def check_if_invites_open
-    unless AppConfig.settings.invitations.open?
-      flash[:error] = I18n.t 'invitations.create.no_more'
-
-      redirect_to :back
-    end
-  end
-
   private
+
   def valid_email?(email)
     User.email_regexp.match(email).present?
   end

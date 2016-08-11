@@ -126,37 +126,6 @@ describe InvitationsController, :type => :controller do
     end
   end
 
-  describe '#email' do
-
-    it 'succeeds' do
-      get :email, :invitation_code => "anycode"
-      expect(response).to be_success
-    end
-
-    context 'legacy invite tokens' do
-      def get_email
-        get :email, :invitation_token => @invitation_token
-      end
-
-      context 'invalid token' do
-        @invitation_token = "invalidtoken"
-
-        it 'redirects and flashes if the invitation token is invalid' do
-          get_email
-
-          expect(response).to be_redirect
-          expect(response).to redirect_to root_url
-        end
-
-        it 'flashes an error if the invitation token is invalid' do
-          get_email
-
-          expect(flash[:error]).to eq(I18n.t("invitations.check_token.not_found"))
-        end
-      end
-    end
-  end
-
   describe '#new' do
     it 'renders' do
       sign_in @user, scope: :user
