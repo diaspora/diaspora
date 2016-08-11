@@ -2,38 +2,35 @@
 
 app.Router = Backbone.Router.extend({
   routes: {
-    "help/:section": "help",
-    "help/": "help",
-    "help": "help",
-    "getting_started": "gettingStarted",
-    "contacts": "contacts",
-    "community_spotlight": "spotlight",
-    "conversations": "conversations",
-    "user/edit": "settings",
-    "users/sign_up": "registration",
-    "profile/edit": "settings",
-    "admins/dashboard": "adminDashboard",
-    "admin/pods": "adminPods",
-
-    "posts/:id": "singlePost",
-    "p/:id": "singlePost",
-
     "activity": "stream",
-    "stream": "stream",
+    "admin/pods": "adminPods",
+    "admins/dashboard": "adminDashboard",
     "aspects": "aspects",
     "commented": "stream",
+    "community_spotlight": "spotlight",
+    "contacts": "contacts",
+    "conversations": "conversations",
+    "followed_tags": "followed_tags",
+    "getting_started": "gettingStarted",
+    "help": "help",
+    "help/": "help",
+    "help/:section": "help",
     "liked": "stream",
     "mentions": "stream",
-    "public": "stream",
-    "followed_tags": "followed_tags",
-    "tags/:name": "followed_tags",
-    "people/:id/photos": "photos",
-    "people/:id/contacts": "profile",
+    "notifications": "notifications",
+    "p/:id": "singlePost",
     "people": "pageWithAspectMembershipDropdowns",
-    "notifications": "pageWithAspectMembershipDropdowns",
-
     "people/:id": "profile",
-    "u/:name": "profile"
+    "people/:id/contacts": "profile",
+    "people/:id/photos": "photos",
+    "posts/:id": "singlePost",
+    "profile/edit": "settings",
+    "public": "stream",
+    "stream": "stream",
+    "tags/:name": "followed_tags",
+    "u/:name": "profile",
+    "user/edit": "settings",
+    "users/sign_up": "registration"
   },
 
   initialize: function() {
@@ -41,12 +38,6 @@ app.Router = Backbone.Router.extend({
     // our own internal router.route call with the correct regexp.
     // see: https://github.com/diaspora/diaspora/issues/4994#issuecomment-46431124
     this.route(/^bookmarklet(?:\?(.*))?/, "bookmarklet");
-  },
-
-  help: function(section) {
-    app.help = new app.views.Help();
-    $("#help").prepend(app.help.el);
-    app.help.render(section);
   },
 
   adminDashboard: function() {
@@ -61,106 +52,23 @@ app.Router = Backbone.Router.extend({
     });
   },
 
-  contacts: function() {
-    app.aspect = new app.models.Aspect(gon.preloads.aspect);
-    this._loadContacts();
-
-    var stream = new app.views.ContactStream({
-      collection: app.contacts,
-      el: $(".stream.contacts #contact_stream"),
-    });
-
-    app.page = new app.pages.Contacts({stream: stream});
-  },
-
-  gettingStarted: function() {
-    this.renderPage(function() {
-      return new app.pages.GettingStarted({inviter: new app.models.Person(app.parsePreload("inviter"))});
-    });
-  },
-
-  conversations: function() {
-    app.conversations = new app.views.Conversations();
-  },
-
-  registration: function() {
-    app.page = new app.pages.Registration();
-  },
-
-  settings: function() {
-    app.page = new app.pages.Settings();
-  },
-
-  singlePost : function(id) {
-    this.renderPage(function(){ return new app.pages.SinglePostViewer({ id: id })});
-  },
-
-  spotlight: function() {
-    $("#invitations-button").click(function() {
-      app.helpers.showModal("#invitationsModal");
-    });
-  },
-
-  renderPage : function(pageConstructor){
-    app.page && app.page.unbind && app.page.unbind(); //old page might mutate global events $(document).keypress, so unbind before creating
-    app.page = pageConstructor(); //create new page after the world is clean (like that will ever happen)
-    app.page.render();
-
-    if( !$.contains(document, app.page.el) ) {
-      // view element isn"t already attached to the DOM, insert it
-      $("#container").empty().append(app.page.el);
-    }
-  },
-
-  stream : function() {
-    app.stream = new app.models.Stream();
-    app.stream.fetch();
-    this._initializeStreamView();
-  },
-
-  photos : function(guid) {
-    this._loadContacts();
-    this.renderPage(function() {
-      return new app.pages.Profile({
-        person_id: guid,
-        el: $("body > #profile_container"),
-        streamCollection: app.collections.Photos,
-        streamView: app.views.Photos
-      });
-    });
-  },
-
-  followed_tags : function(name) {
-    this.stream();
-
-    app.tagFollowings = new app.collections.TagFollowings();
-    this.followedTagsView = new app.views.TagFollowingList({collection: app.tagFollowings});
-    $("#tags_list").replaceWith(this.followedTagsView.render().el);
-    this.followedTagsView.setupAutoSuggest();
-
-    app.tagFollowings.reset(gon.preloads.tagFollowings);
-
-    if(name) {
-      var followedTagsAction = new app.views.TagFollowingAction(
-            {tagText: decodeURIComponent(name).toLowerCase()}
-          );
-      $("#author_info").prepend(followedTagsAction.render().el);
-      app.tags = new app.views.Tags({hashtagName: name});
-    }
-    this._hideInactiveStreamLists();
-  },
-
   aspects: function() {
     app.aspectSelections = app.aspectSelections ||
       new app.collections.AspectSelections(app.currentUser.get("aspects"));
     this.aspectsList = this.aspectsList || new app.views.AspectsList({collection: app.aspectSelections});
     this.aspectsList.render();
+    /* eslint-disable camelcase */
     this.aspects_stream();
+    /* eslint-enable camelcase */
   },
 
-  aspects_stream : function(){
+  /* eslint-disable camelcase */
+  aspects_stream: function() {
+    /* eslint-enable camelcase */
     var ids = app.aspectSelections.selectedGetAttribute("id");
-    app.stream = new app.models.StreamAspects([], { aspects_ids: ids });
+    /* eslint-disable camelcase */
+    app.stream = new app.models.StreamAspects([], {aspects_ids: ids});
+    /* eslint-enable camelcase */
     app.stream.fetch();
     this._initializeStreamView();
     app.publisher.setSelectedAspects(ids);
@@ -173,6 +81,76 @@ app.Router = Backbone.Router.extend({
     ).render();
   },
 
+  contacts: function() {
+    app.aspect = new app.models.Aspect(gon.preloads.aspect);
+    this._loadContacts();
+
+    var stream = new app.views.ContactStream({
+      collection: app.contacts,
+      el: $(".stream.contacts #contact_stream")
+    });
+
+    app.page = new app.pages.Contacts({stream: stream});
+  },
+
+  conversations: function() {
+    app.conversations = new app.views.Conversations();
+  },
+
+  /* eslint-disable camelcase */
+  followed_tags: function(name) {
+    /* eslint-enable camelcase */
+    this.stream();
+
+    app.tagFollowings = new app.collections.TagFollowings();
+    this.followedTagsView = new app.views.TagFollowingList({collection: app.tagFollowings});
+    $("#tags_list").replaceWith(this.followedTagsView.render().el);
+    this.followedTagsView.setupAutoSuggest();
+
+    app.tagFollowings.reset(gon.preloads.tagFollowings);
+
+    if (name) {
+      var followedTagsAction = new app.views.TagFollowingAction(
+            {tagText: decodeURIComponent(name).toLowerCase()}
+          );
+      $("#author_info").prepend(followedTagsAction.render().el);
+      app.tags = new app.views.Tags({hashtagName: name});
+    }
+    this._hideInactiveStreamLists();
+  },
+
+  gettingStarted: function() {
+    this.renderPage(function() {
+      return new app.pages.GettingStarted({inviter: new app.models.Person(app.parsePreload("inviter"))});
+    });
+  },
+
+  help: function(section) {
+    app.help = new app.views.Help();
+    $("#help").prepend(app.help.el);
+    app.help.render(section);
+  },
+
+  notifications: function() {
+    this._loadContacts();
+    this.renderAspectMembershipDropdowns($(document));
+    new app.views.Notifications({el: "#notifications_container"});
+  },
+
+  photos: function(guid) {
+    this._loadContacts();
+    this.renderPage(function() {
+      return new app.pages.Profile({
+        /* eslint-disable camelcase */
+        person_id: guid,
+        /* eslint-enable camelcase */
+        el: $("body > #profile_container"),
+        streamCollection: app.collections.Photos,
+        streamView: app.views.Photos
+      });
+    });
+  },
+
   profile: function() {
     this._loadContacts();
     this.renderPage(function() {
@@ -182,13 +160,63 @@ app.Router = Backbone.Router.extend({
     });
   },
 
-  pageWithAspectMembershipDropdowns: function() {
-    this._loadContacts();
-    this.renderAspectMembershipDropdowns($(document));
+  registration: function() {
+    app.page = new app.pages.Registration();
+  },
+
+  settings: function() {
+    app.page = new app.pages.Settings();
+  },
+
+  singlePost: function(id) {
+    this.renderPage(function() { return new app.pages.SinglePostViewer({id: id}); });
+  },
+
+  spotlight: function() {
+    $("#invitations-button").click(function() {
+      app.helpers.showModal("#invitationsModal");
+    });
+  },
+
+  stream: function() {
+    app.stream = new app.models.Stream();
+    app.stream.fetch();
+    this._initializeStreamView();
+  },
+
+  _hideInactiveStreamLists: function() {
+    if (this.aspectsList && Backbone.history.fragment !== "aspects") {
+      this.aspectsList.hideAspectsList();
+    }
+
+    if (this.followedTagsView && Backbone.history.fragment !== "followed_tags") {
+      this.followedTagsView.hideFollowedTags();
+    }
+  },
+
+  _initializeStreamView: function() {
+    if (app.page) {
+      app.page.unbindInfScroll();
+      app.page.remove();
+    }
+
+    app.page = new app.views.Stream({model: app.stream});
+    app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
+    if ($("#publisher").length !== 0) {
+      app.publisher = app.publisher || new app.views.Publisher({collection: app.stream.items});
+    }
+
+    $("#main_stream").html(app.page.render().el);
+    this._hideInactiveStreamLists();
   },
 
   _loadContacts: function() {
     app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
+  },
+
+  pageWithAspectMembershipDropdowns: function() {
+    this._loadContacts();
+    this.renderAspectMembershipDropdowns($(document));
   },
 
   renderAspectMembershipDropdowns: function($context) {
@@ -199,30 +227,17 @@ app.Router = Backbone.Router.extend({
     });
   },
 
-  _hideInactiveStreamLists: function() {
-    if(this.aspectsList && Backbone.history.fragment !== "aspects") {
-      this.aspectsList.hideAspectsList();
-    }
+  renderPage: function(pageConstructor) {
+    // old page might mutate global events $(document).keypress, so unbind before creating
+    app.page && app.page.unbind && app.page.unbind();
+    // create new page after the world is clean (like that will ever happen)
+    app.page = pageConstructor();
+    app.page.render();
 
-    if(this.followedTagsView && Backbone.history.fragment !== "followed_tags") {
-      this.followedTagsView.hideFollowedTags();
+    if (!$.contains(document, app.page.el)) {
+      // view element isn"t already attached to the DOM, insert it
+      $("#container").empty().append(app.page.el);
     }
-  },
-
-  _initializeStreamView: function() {
-    if(app.page) {
-      app.page.unbindInfScroll();
-      app.page.remove();
-    }
-
-    app.page = new app.views.Stream({model : app.stream});
-    app.shortcuts = app.shortcuts || new app.views.StreamShortcuts({el: $(document)});
-    if($("#publisher").length !== 0) {
-      app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
-    }
-
-    $("#main_stream").html(app.page.render().el);
-    this._hideInactiveStreamLists();
   }
 });
 // @license-end
