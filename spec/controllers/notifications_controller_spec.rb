@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe NotificationsController, :type => :controller do
   before do
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe '#update' do

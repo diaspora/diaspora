@@ -11,7 +11,7 @@ describe ContactsController, :type => :controller do
       @aspect = bob.aspects.create(:name => "another aspect")
       bob.share_with alice.person, @aspect
       bob.share_with eve.person, @aspect
-      sign_in :user, bob
+      sign_in bob, scope: :user
     end
 
     it "generates the aspects_manage fixture", :fixture => true do

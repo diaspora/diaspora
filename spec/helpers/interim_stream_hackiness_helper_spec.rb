@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-describe InterimStreamHackinessHelper, :type => :helper do
-  describe 'commenting_disabled?' do
-    include Devise::TestHelpers
+describe InterimStreamHackinessHelper, type: :helper do
+  describe "commenting_disabled?" do
+    include Devise::Test::ControllerHelpers
+
     before do
       sign_in alice
       def user_signed_in? 

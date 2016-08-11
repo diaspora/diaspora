@@ -302,7 +302,7 @@ describe User, :type => :model do
       end
 
       it "requires a valid email address" do
-        alice.email = "somebody@anywhere"
+        alice.email = "somebodyanywhere"
         expect(alice).not_to be_valid
       end
 
@@ -334,7 +334,7 @@ describe User, :type => :model do
       end
 
       it "requires a valid unconfirmed_email address" do
-        alice.unconfirmed_email = "somebody@anywhere"
+        alice.unconfirmed_email = "somebodyanywhere"
         expect(alice).not_to be_valid
       end
     end

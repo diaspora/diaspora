@@ -7,10 +7,12 @@ require 'spec_helper'
 describe "i18n interpolation fallbacks" do
   describe "when string does not require interpolation arguments" do
     it "works normally" do
-      expect(I18n.t('user.invalid',
-             :resource_name => "user",
-             :scope => "devise.failure",
-             :default => [:invalid, "invalid"])).to eq("Invalid username or password.")
+      expect(
+        I18n.t("user.already_authenticated",
+               resource_name: "user",
+               scope:         "devise.failure",
+               default:       [:already_authenticated, "already_authenticated"])
+      ).to eq("You are already signed in.")
     end
   end
   describe "when string requires interpolation arguments" do

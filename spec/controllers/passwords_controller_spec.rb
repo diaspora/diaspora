@@ -5,8 +5,6 @@
 require "spec_helper"
 
 describe Devise::PasswordsController, type: :controller do
-  include Devise::TestHelpers
-
   before do
     @request.env["devise.mapping"] = Devise.mappings[:user]
   end

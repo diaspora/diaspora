@@ -9,7 +9,7 @@ describe StatusMessagesController, :type => :controller do
     @aspect1 = alice.aspects.first
 
     request.env["HTTP_REFERER"] = ""
-    sign_in :user, alice
+    sign_in alice, scope: :user
     allow(@controller).to receive(:current_user).and_return(alice)
     alice.reload
   end

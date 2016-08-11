@@ -1,5 +1,4 @@
 require "spec_helper"
-require "requests_helper"
 
 module MentioningSpecHelpers
   def default_aspect
@@ -35,7 +34,7 @@ describe "mentioning", type: :request do
     @user3 = FactoryGirl.create :user
 
     @user1.share_with(@user2.person, default_aspect)
-    login @user1
+    sign_in @user1
   end
 
   # see: https://github.com/diaspora/diaspora/issues/4160

@@ -7,7 +7,7 @@ require 'spec_helper'
 describe StreamsController, :type => :controller do
   describe '#multi' do
     before do
-      sign_in :user, alice
+      sign_in alice, scope: :user
     end
 
     it 'generates the stream_json fixture', :fixture => true do

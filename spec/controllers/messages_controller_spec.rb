@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe MessagesController, :type => :controller do
   before do
-    sign_in :user, alice
+    sign_in(alice, scope: :user)
   end
 
   describe '#create' do

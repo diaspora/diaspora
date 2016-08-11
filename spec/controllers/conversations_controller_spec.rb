@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe ConversationsController, :type => :controller do
   before do
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe '#new' do
@@ -98,7 +98,7 @@ describe ConversationsController, :type => :controller do
     end
 
     it "does not let you access conversations where you are not a recipient" do
-      sign_in :user, eve
+      sign_in eve, scope: :user
       get :index, conversation_id: @conversations.first.id
       expect(assigns[:conversation]).to be_nil
     end

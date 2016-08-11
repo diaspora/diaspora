@@ -14,7 +14,7 @@ describe InvitationsController, :type => :controller do
 
   describe "#create" do
     before do
-      sign_in :user, @user
+      sign_in @user, scope: :user
       allow(@controller).to receive(:current_user).and_return(@user)
       @referer = 'http://test.host/cats/foo'
       request.env["HTTP_REFERER"] = @referer
@@ -159,7 +159,7 @@ describe InvitationsController, :type => :controller do
 
   describe '#new' do
     it 'renders' do
-      sign_in :user, @user
+      sign_in @user, scope: :user
       get :new
     end
   end

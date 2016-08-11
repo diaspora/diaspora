@@ -7,7 +7,7 @@ require 'spec_helper'
 describe AdminsController, :type => :controller do
   before do
     @user = FactoryGirl.create :user
-    sign_in :user, @user
+    sign_in @user, scope: :user
   end
 
   describe '#user_search' do

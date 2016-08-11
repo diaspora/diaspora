@@ -7,7 +7,7 @@ require 'spec_helper'
 describe StreamsController, :type => :controller do
   describe '#aspects' do
     before do
-      sign_in :user, alice
+      sign_in alice, scope: :user
       @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
 
       request.env["HTTP_REFERER"] = 'http://' + request.host

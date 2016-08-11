@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe ProfilesController, :type => :controller do
   before do
-    sign_in :user, eve
+    sign_in eve, scope: :user
   end
 
   describe '#show' do

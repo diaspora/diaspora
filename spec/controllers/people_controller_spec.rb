@@ -10,7 +10,7 @@ describe PeopleController, :type => :controller do
   before do
     @user = alice
     @aspect = @user.aspects.first
-    sign_in :user, @user
+    sign_in @user, scope: :user
   end
 
   describe '#index (search)' do
@@ -315,7 +315,7 @@ describe PeopleController, :type => :controller do
     context "when the user is following the person" do
       before do
         sign_out :user
-        sign_in :user, peter
+        sign_in peter, scope: :user
         @person = alice.person
       end
 

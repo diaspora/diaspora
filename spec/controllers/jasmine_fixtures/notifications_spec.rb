@@ -3,7 +3,7 @@ require 'spec_helper'
 describe NotificationsController, :type => :controller do
   describe '#index' do
     before do
-      sign_in :user, alice
+      sign_in alice, scope: :user
       @post = FactoryGirl.create(:status_message)
       FactoryGirl.create(:notification, :recipient => alice, :target => @post)
       get :read_all

@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe ContactsController, :type => :controller do
   before do
-    sign_in :user, bob
+    sign_in bob, scope: :user
     allow(@controller).to receive(:current_user).and_return(bob)
   end
 

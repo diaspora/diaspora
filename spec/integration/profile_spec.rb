@@ -1,10 +1,9 @@
 require "spec_helper"
-require "requests_helper"
 
 describe PeopleController, type: :request do
   context "for the current user" do
     before do
-      login alice
+      sign_in alice
     end
 
     it "displays the publisher for user profile path" do
@@ -37,7 +36,7 @@ describe PeopleController, type: :request do
 
   context "for another user" do
     before do
-      login bob
+      sign_in bob
     end
 
     it "doesn't display the publisher for user profile path" do
