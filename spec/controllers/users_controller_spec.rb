@@ -118,11 +118,6 @@ describe UsersController, :type => :controller do
       expect(response).to render_template('edit')
     end
 
-    it 'responds with a 204 on a js request' do
-      put :update, @params.merge(:format => :js)
-      expect(response.status).to eq(204)
-    end
-
     describe 'password updates' do
       let(:password_params) do
         {:current_password => 'bluepin7',

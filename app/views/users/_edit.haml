@@ -19,7 +19,7 @@
           %i.entypo-lock.gray.settings-visibility{title: t("users.edit.your_email_private")}
 
 
-        = form_for "user", url: user_path,
+        = form_for "user", url: edit_user_path,
           html: {method: :put, class: "form-horizontal col-md-12", id: "email-form"} do |f|
           = f.error_messages
           .form-group
@@ -32,7 +32,7 @@
     .row
       .col-md-12
         %h3= t(".change_password")
-        = form_for @user, url: user_path, html: {method: :put, class: "form-horizontal"} do |f|
+        = form_for @user, url: edit_user_path, html: {method: :put, class: "form-horizontal"} do |f|
           - if (@user.errors.keys & %i(password password_confirmation current_password)).present?
             = f.error_messages
           .form-group
@@ -59,7 +59,7 @@
     .row
       .col-md-12
         %h3= t(".change_language")
-        = form_for "user", url: user_path, html: {method: :put} do |f|
+        = form_for "user", url: edit_user_path, html: {method: :put} do |f|
           .form-inline.clearfix
             = f.select :language, available_language_options, {}, class: "form-control form-group"
             = f.submit t(".change_language"), class: "btn btn-primary pull-right"
@@ -68,7 +68,7 @@
     .row
       .col-md-12
         %h3= t(".change_color_theme")
-        = form_for "user", url: user_path, html: {method: :put} do |f|
+        = form_for "user", url: edit_user_path, html: {method: :put} do |f|
           .form-inline.clearfix
             = f.select :color_theme, available_color_themes, {}, class: "form-control form-group"
             = f.submit t(".change_color_theme"), class: "btn btn-primary pull-right"
@@ -78,7 +78,7 @@
       .col-md-12
         %h3#stream-preferences
           = t(".stream_preferences")
-        = form_for current_user, url: user_path, html: {method: :put} do |f|
+        = form_for current_user, url: edit_user_path, html: {method: :put} do |f|
 
           = f.fields_for :stream_preferences do
             #stream_prefs
@@ -98,7 +98,7 @@
       .col-md-12
         %h3#auto-follow-back-preferences
           = t(".following")
-        = form_for current_user, url: user_path, html: {method: :put, class: "form-horizontal"} do |f|
+        = form_for current_user, url: edit_user_path, html: {method: :put, class: "form-horizontal"} do |f|
           = f.label :auto_follow_back, class: "checkbox-inline" do
             = f.check_box :auto_follow_back
             = t(".auto_follow_back")
@@ -120,7 +120,7 @@
       .col-md-12
         %h3
           = t(".receive_email_notifications")
-        = form_for "user", url: user_path, html: {method: :put} do |f|
+        = form_for "user", url: edit_user_path, html: {method: :put} do |f|
           = f.fields_for :email_preferences do |type|
             #email_prefs
               - if current_user.admin?

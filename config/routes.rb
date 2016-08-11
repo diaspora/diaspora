@@ -98,7 +98,8 @@ Diaspora::Application.routes.draw do
 
   # Users and people
 
-  resource :user, :only => [:edit, :update, :destroy], :shallow => true do
+  resource :user, only: %i(edit destroy), shallow: true do
+    put :edit, action: :update
     get :getting_started_completed
     post :export_profile
     get :download_profile
@@ -107,19 +108,19 @@ Diaspora::Application.routes.draw do
   end
 
   controller :users do
-    get 'public/:username'          => :public,           :as => 'users_public'
-    get 'getting_started'           => :getting_started,  :as => 'getting_started'
-    get 'privacy'                   => :privacy_settings, :as => 'privacy_settings'
-    get 'getting_started_completed' => :getting_started_completed
-    get 'confirm_email/:token'      => :confirm_email,    :as => 'confirm_email'
+    get "public/:username"          => :public,                  :as => :users_public
+    get "getting_started"           => :getting_started,         :as => :getting_started
+    get "confirm_email/:token"      => :confirm_email,           :as => :confirm_email
+    get "privacy"                   => :privacy_settings,        :as => :privacy_settings
+    put "privacy"                   => :update_privacy_settings, :as => :update_privacy_settings
+    get "getting_started_completed" => :getting_started_completed
   end
 
-  # This is a hack to overide a route created by devise.
-  # I couldn't find anything in devise to skip that route, see Bug #961
-  get 'users/edit' => redirect('/user/edit')
-
-  devise_for :users, :controllers => {:registrations => "registrations",
-                                      :sessions      => "sessions"}
+  devise_for :users, controllers: {sessions: :sessions}, skip: :registration
+  devise_scope :user do
+    get "/users/sign_up" => "registrations#new",    :as => :new_user_registration
+    post "/users"        => "registrations#create", :as => :user_registration
+  end
 
   #legacy routes to support old invite routes
   get 'users/invitation/accept' => 'invitations#edit'

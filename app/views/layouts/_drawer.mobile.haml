@@ -30,6 +30,6 @@
           = t("layouts.header.profile")
           = person_image_tag(current_user, size: :thumb_small)
       %li= link_to t("_contacts"), contacts_path
-      %li= link_to t("layouts.header.settings"), users_edit_path
+      %li= link_to t("layouts.header.settings"), edit_user_path
       %li= link_to t("layouts.application.toggle"), toggle_mobile_path
       %li= link_to t("layouts.header.logout"), destroy_user_session_path, method: :delete

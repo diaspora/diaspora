@@ -6,7 +6,7 @@ Feature: Change password
 
   Scenario: Change my password
     Given I am signed in on the mobile website
-    When I go to the users edit page
+    When I go to the edit user page
     And I fill out change password section with my password and "newsecret" and "newsecret"
     And I press "Change password"
     Then I should see "Password changed"
