@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.6"
+gem "rails", "4.2.7.1"
 
 # Legacy Rails features, remove me!
 # responders (class level)
