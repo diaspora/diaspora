@@ -274,7 +274,7 @@ group :test do
 
   gem "capybara",           "2.7.1"
   gem "database_cleaner",   "1.5.3"
-  gem "poltergeist",        "1.9.0"
+  gem "poltergeist",        "1.10.0"
 
   gem "cucumber-api-steps", "0.13", require: false
   gem "json_spec", "1.1.4"
@@ -297,7 +297,7 @@ group :development, :test do
   gem "rspec-rails", "3.5.1"
 
   # Cucumber (integration tests)
-  gem "cucumber-rails", "1.4.3", require: false
+  gem "cucumber-rails", "1.4.4", require: false
 
   # Jasmine (client side application tests (JS))
   gem "jasmine",                   "2.4.0"

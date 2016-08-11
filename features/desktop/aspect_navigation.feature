@@ -17,6 +17,9 @@ Feature: Aspect navigation on the left menu
 
     Scenario: Aspects selection is remembered through site navigation
       When I select only "Besties" aspect
+      Then I should be on the aspects page
+
+      When I go to the stream page
       And I go to the aspects page
       Then I should see "Besties" aspect selected
       And I should see "Unicorns" aspect unselected

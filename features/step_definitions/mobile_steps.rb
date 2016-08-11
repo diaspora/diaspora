@@ -12,11 +12,12 @@ end
 
 When /^I open the drawer$/ do
   find("#menu-badge").click
-  expect(find("#app")["class"]).to include "draw"
+  expect(page).to have_css("#app.draw")
 end
 
 Then /^the aspect dropdown within "([^"]*)" should be labeled "([^"]*)"/ do |selector, label|
   within(selector) do
-    current_scope.should have_css("option.list_cover", :text => label)
+    current_scope.should have_no_css("option.list_cover", text: "updating...")
+    current_scope.should have_css("option.list_cover", text: label)
   end
 end

@@ -9,7 +9,12 @@ module PublishingCukeHelpers
 
     # make sure the other text field got the new contents
     if input_selector == "#status_message_fake_text"
-      expect(page).to have_selector("#status_message_text[value='#{status_message_text} #{txt}']", visible: false)
+      begin
+        expect(page).to have_selector("#status_message_text[value='#{status_message_text} #{txt}']", visible: false)
+      rescue RSpec::Expectations::ExpectationNotMetError
+        puts "Value was instead: #{find('#status_message_text', visible: false).value.inspect}"
+        raise
+      end
     end
   end
 

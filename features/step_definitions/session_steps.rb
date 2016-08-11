@@ -54,6 +54,7 @@ end
 
 When /^I (?:log|sign) out$/ do
   logout
+  step "I go to the root page"
 end
 
 When /^I (?:log|sign) out manually$/ do
