@@ -20,7 +20,11 @@
       = link_to @aspect, method: "delete", data: { confirm: t("aspects.edit.confirm_remove_aspect") }, class: "delete contacts_button", id: "delete_aspect" do
         %i.entypo-trash.contacts-header-icon{title: t("delete")}
     .pull-right.contact-list-search
-      = search_field_tag :contact_search, "", id: "contact_list_search", class: "search-query form-control",  placeholder: t("contacts.index.user_search")
+      %form#contact-search-form{role: "search", method: "get", action: "/search"}
+        = search_field_tag :q, "",
+          id:          "contact_list_search",
+          class:       "search-query form-control",
+          placeholder: t("contacts.index.user_search")
     %h3
       %span#aspect_name
         = @aspect.name
@@ -32,6 +36,13 @@
         = aspect.submit t('aspects.edit.update'), 'data-disable-with' => t('aspects.edit.updating'), class: "btn btn-default"
 
   - else
+    .pull-right.contact-list-search
+      %form#contact-search-form{role: "search", method: "get", action: "/search"}
+        = search_field_tag :q, "",
+          id:          "contact_list_search",
+          class:       "search-query form-control",
+          placeholder: t("contacts.index.user_search")
+
     %h3
       - case params["set"]
         - when "only_sharing"

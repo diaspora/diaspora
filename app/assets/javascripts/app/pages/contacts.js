@@ -8,7 +8,6 @@ app.pages.Contacts = Backbone.View.extend({
     "click #contacts_visibility_toggle" : "toggleContactVisibility",
     "click #chat_privilege_toggle" : "toggleChatPrivilege",
     "click #change_aspect_name" : "showAspectNameForm",
-    "keyup #contact_list_search" : "searchContactList",
     "click .conversation_button": "showMessageModal",
     "click #invitations-button": "showInvitationsModal"
   },
@@ -77,10 +76,6 @@ app.pages.Contacts = Backbone.View.extend({
     $("#aspect_nav [data-aspect-id='"+data['id']+"'] .name").text(data['name']);
     $(".header > #aspect_name_form").hide();
     $(".header > h3").show();
-  },
-
-  searchContactList: function(e) {
-    this.stream.search($(e.target).val());
   },
 
   showMessageModal: function(){

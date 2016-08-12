@@ -81,13 +81,14 @@ app.Router = Backbone.Router.extend({
     ).render();
   },
 
-  contacts: function() {
+  contacts: function(params) {
     app.aspect = new app.models.Aspect(gon.preloads.aspect);
     this._loadContacts();
 
     var stream = new app.views.ContactStream({
       collection: app.contacts,
-      el: $(".stream.contacts #contact_stream")
+      el: $(".stream.contacts #contact_stream"),
+      urlParams: params
     });
 
     app.page = new app.pages.Contacts({stream: stream});

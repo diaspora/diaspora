@@ -88,19 +88,6 @@ describe("app.pages.Contacts", function(){
     });
   });
 
-  context('search contact list', function() {
-    beforeEach(function() {
-      this.searchinput = $('#contact_list_search');
-    });
-
-    it('calls stream.search', function() {
-      this.view.stream.search = jasmine.createSpy();
-      this.searchinput.val("Username");
-      this.searchinput.trigger('keyup');
-      expect(this.view.stream.search).toHaveBeenCalledWith("Username");
-    });
-  });
-
   describe("updateBadgeCount", function() {
     it("increases the badge count of an aspect", function() {
       var aspect = $("#aspect_nav .aspect").eq(0);

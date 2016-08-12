@@ -17,7 +17,11 @@ describe ContactsController, :type => :controller do
     it "generates the aspects_manage fixture", :fixture => true do
       get :index, :a_id => @aspect.id
       save_fixture(html_for("body"), "aspects_manage")
-      save_fixture(controller.gon.preloads[:contacts].to_json, "aspects_manage_contacts_json")
+    end
+
+    it "generates the aspects_manage_contacts_json fixture", fixture: true do
+      get :index, format: :json, a_id: @aspect.id, page: "1"
+      save_fixture(response.body, "aspects_manage_contacts_json")
     end
 
     it "generates the contacts_json fixture", :fixture => true do
