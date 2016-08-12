@@ -25,15 +25,12 @@ require "uri"
 
 module Api
   module OpenidConnect
-    class IdToken < ActiveRecord::Base
-      belongs_to :authorization
-
-      before_validation :setup, on: :create
-
-      default_scope { where("expires_at >= ?", Time.zone.now.utc) }
-
-      def setup
-        self.expires_at = 30.minutes.from_now
+    class IdToken
+      def initialize(authorization, nonce)
+        @authorization = authorization
+        @nonce = nonce
+        @created_at = Time.current
+        @expires_at = 30.minutes.from_now
       end
 
       def to_jwt(options={})
@@ -41,6 +38,8 @@ module Api
           jwt.kid = :default
         end
       end
+
+      private
 
       def to_response_object(options={})
         OpenIDConnect::ResponseObject::IdToken.new(claims).tap do |id_token|
@@ -54,17 +53,17 @@ module Api
         @claims ||= {
           iss:       AppConfig.environment.url,
           sub:       sub,
-          aud:       authorization.o_auth_application.client_id,
-          exp:       expires_at.to_i,
-          iat:       created_at.to_i,
-          auth_time: authorization.user.current_sign_in_at.to_i,
-          nonce:     nonce,
+          aud:       @authorization.o_auth_application.client_id,
+          exp:       @expires_at.to_i,
+          iat:       @created_at.to_i,
+          auth_time: @authorization.user.current_sign_in_at.to_i,
+          nonce:     @nonce,
           acr:       0
         }
       end
 
       def build_sub
-        Api::OpenidConnect::SubjectIdentifierCreator.create(authorization)
+        Api::OpenidConnect::SubjectIdentifierCreator.create(@authorization)
       end
     end
   end

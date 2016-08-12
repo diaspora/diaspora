@@ -53,7 +53,6 @@ module Api
       def reset_auth(auth)
         return unless auth
         auth.o_auth_access_tokens.destroy_all
-        auth.id_tokens.destroy_all
         auth.code_used = false
         auth.save
       end
