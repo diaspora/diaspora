@@ -30,17 +30,17 @@ app.pages.AdminPods = app.views.Base.extend({
   _showMessages: function() {
     var msgs = document.createDocumentFragment();
     if( gon.uncheckedCount && gon.uncheckedCount > 0 ) {
-      var unchecked = $("<div class='alert alert-info' />")
+      var unchecked = $("<div class='alert alert-info' role='alert' />")
         .append(Diaspora.I18n.t("admin.pods.unchecked", {count: gon.uncheckedCount}));
       msgs.appendChild(unchecked[0]);
     }
     if( gon.versionFailedCount && gon.versionFailedCount > 0 ) {
-      var versionFailed = $("<div class='alert alert-warning' />")
+      var versionFailed = $("<div class='alert alert-warning' role='alert' />")
           .append(Diaspora.I18n.t("admin.pods.version_failed", {count: gon.versionFailedCount}));
       msgs.appendChild(versionFailed[0]);
     }
     if( gon.errorCount && gon.errorCount > 0 ) {
-      var errors = $("<div class='alert alert-danger' />")
+      var errors = $("<div class='alert alert-danger' role='alert' />")
         .append(Diaspora.I18n.t("admin.pods.errors", {count: gon.errorCount}));
         msgs.appendChild(errors[0]);
     }

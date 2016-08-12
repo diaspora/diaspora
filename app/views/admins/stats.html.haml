@@ -44,7 +44,7 @@
 
       .row
         .col-md-12
-          %p.alert.alert-info.text-center
+          %p.alert.alert-info.text-center{role: "alert"}
             != t('.current_segment', :post_yest => @posts[:yesterday]/@user_count.to_f, :post_day => @posts[:day_before]/@user_count.to_f)
 
       .row
