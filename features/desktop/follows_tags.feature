@@ -41,3 +41,7 @@ Feature: posting
     When I go to the followed tags stream page
     And I unfollow the "boss" tag
     Then I should not see "#tag-following-boss" within "#tags_list"
+
+  Scenario: Go to a tags page with no posts
+    When I go to the tag page for "NoPosts"
+    Then I should not see any posts in my stream

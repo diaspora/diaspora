@@ -15,6 +15,7 @@ Feature: new user registration
     Then I should be on the stream page
     And I close the publisher
     And I should not see "awesome_button"
+    And I should not see any posts in my stream
 
   Scenario: new user tries to XSS itself
     When I fill in the following:

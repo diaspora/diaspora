@@ -15,8 +15,9 @@ Then /^I should not see an uploaded image within the photo drop zone$/ do
 end
 
 Then /^I should not see any posts in my stream$/ do
-  page.assert_selector("#paginate .loader", visible: :hidden)
-  page.assert_selector(".stream_element", count: 0)
+  expect(page).not_to have_selector("#paginate .loader")
+  expect(page).not_to have_selector(".stream_element .media")
+  expect(page).to have_selector(".stream_element .no-posts-info")
 end
 
 Then /^I should not see any picture in my stream$/ do
