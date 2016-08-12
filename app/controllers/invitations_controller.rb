@@ -4,6 +4,7 @@
 
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_invitations_available!, only: :create
 
   def new
     @invite_code = current_user.invitation_code
@@ -45,6 +46,17 @@ class InvitationsController < ApplicationController
   end
 
   private
+
+  def check_invitations_available!
+    return true if AppConfig.settings.enable_registrations? || current_user.invitation_code.can_be_used?
+
+    flash[:error] = if AppConfig.settings.invitations.open?
+                      t("invitations.create.no_more")
+                    else
+                      t("invitations.create.closed")
+                    end
+    redirect_to :back
+  end
 
   def valid_email?(email)
     User.email_regexp.match(email).present?

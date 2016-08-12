@@ -56,6 +56,14 @@ describe RegistrationsController, type: :controller do
       expect(response).to redirect_to new_user_session_path
     end
 
+    it "does redirect when invitations are closed now" do
+      code = InvitationCode.create(user: bob)
+      AppConfig.settings.invitations.open = false
+
+      get :new, invite: {token: code.token}
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it "does not redirect when the registration is open" do
       AppConfig.settings.enable_registrations = true
 

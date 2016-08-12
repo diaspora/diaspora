@@ -560,6 +560,7 @@ en:
       no_more: "You have no more invitations."
       empty: "Please enter at least one email address."
       note_already_sent: "Invitations have already been sent to: %{emails}"
+      closed: "Invitations are closed on this diaspora* pod."
     new:
       language: "Language"
       invite_someone_to_join: "Invite someone to join diaspora*!"

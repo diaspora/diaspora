@@ -12,7 +12,7 @@ class InvitationCode < ActiveRecord::Base
   end
 
   def can_be_used?
-    self.count > 0
+    count > 0 && AppConfig.settings.invitations.open?
   end
 
   def add_invites!
