@@ -16,6 +16,7 @@ app.views.InfScroll = app.views.Base.extend({
     this.showLoader();
     this.bind("loadMore", this.fetchAndshowLoader, this);
     this.stream.bind("fetched", this.finishedLoading, this);
+    this.stream.bind("allItemsLoaded", this.showNoPostsInfo, this);
     this.stream.bind("allItemsLoaded", this.unbindInfScroll, this);
 
     this.collection.bind("add", this.addPostView, this);
@@ -47,6 +48,13 @@ app.views.InfScroll = app.views.Base.extend({
         this.prependedPosts.insertBefore(el, this.prependedPosts.firstChild);
     } else {
         this.appendedPosts.appendChild(el);
+    }
+  },
+
+  showNoPostsInfo: function() {
+    if (this.postViews.length === 0) {
+      var noPostsInfo = new app.views.NoPostsInfo();
+      this.$el.append(noPostsInfo.render().el);
     }
   },
 

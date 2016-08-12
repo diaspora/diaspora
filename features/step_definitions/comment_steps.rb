@@ -7,7 +7,7 @@ Then /^the first comment field should be open/ do
 end
 
 Then /^the first comment field should be closed$/ do
-  page.should have_css(".stream_element")
+  page.should have_css(".stream_element .media")
   page.should_not have_selector("#main_stream .stream_element .new_comment", match: :first)
 end
 

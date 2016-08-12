@@ -113,10 +113,6 @@ module PublishingCukeHelpers
     end
   end
 
-  def stream_posts
-    all('.stream_element')
-  end
-
   def comment_on_show_page(comment_text)
     within("#single-post-interactions") do
       make_comment(comment_text)

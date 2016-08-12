@@ -236,6 +236,7 @@ en:
       disable_post_notifications: "Disable notifications for this post"
       permalink: "Permalink"
       via: "via <%= provider %>"
+      no_posts_yet: "There are no posts yet."
 
       likes:
         zero: "<%= count %> Likes"
