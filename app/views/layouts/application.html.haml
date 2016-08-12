@@ -26,6 +26,9 @@
     - if rtl?
       = stylesheet_link_tag :rtl, media:  'all'
 
+    - if Rails.env.test?
+      = stylesheet_link_tag :poltergeist_disable_transition, media: "all"
+
     = old_browser_js_support
     <!--[if IE]>
     = javascript_include_tag :ie

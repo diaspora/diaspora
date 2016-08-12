@@ -30,15 +30,15 @@ Feature: Navigate between pages using the header menu and the drawer
     Then I should be on the new status message page
 
   Scenario: search a user
-    When I have turned off jQuery effects
-    And I open the drawer
-    And I search for "Bob"
+    When I open the drawer
+    Then I should see a "#q" within "#drawer"
+    When I search for "Bob"
     Then I should see "Users matching Bob" within "#search_title"
 
   Scenario: search for a tag
-    When I have turned off jQuery effects
-    And I open the drawer
-    And I search for "#bob"
+    When I open the drawer
+    Then I should see a "#q" within "#drawer"
+    When I search for "#bob"
     Then I should be on the tag page for "bob"
 
   Scenario: navigate to my activity page
