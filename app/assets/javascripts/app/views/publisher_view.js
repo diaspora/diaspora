@@ -20,10 +20,8 @@ app.views.Publisher = Backbone.View.extend({
   events : {
     "keydown #status_message_fake_text" : "keyDown",
     "focus textarea" : "open",
-    "click #hide_publisher" : "clear",
     "submit form" : "createStatusMessage",
     "click #submit" : "createStatusMessage",
-    "click .post_preview_button" : "createPostPreview",
     "textchange #status_message_fake_text": "handleTextchange",
     "click #locator" : "showLocation",
     "click #poll_creator" : "togglePollCreator",
@@ -41,12 +39,12 @@ app.views.Publisher = Backbone.View.extend({
     this.hiddenInputEl = this.$("#status_message_text");
     this.wrapperEl = this.$("#publisher_textarea_wrapper");
     this.submitEl = this.$("input[type=submit], button#submit");
-    this.previewEl = this.$("button.post_preview_button");
     this.photozoneEl = this.$("#photodropzone");
 
     // if there is data in the publisher we ask for a confirmation
     // before the user is able to leave the page
     $(window).on("beforeunload", _.bind(this._beforeUnload, this));
+    $(window).unload(this.clear.bind(this));
 
     // sync textarea content
     if( this.hiddenInputEl.val() === "" ) {
@@ -60,8 +58,6 @@ app.views.Publisher = Backbone.View.extend({
     // in case publisher is standalone
     // (e.g. bookmarklet, mentions popup)
     if( this.standalone ) {
-      this.$("#hide_publisher").hide();
-      this.previewEl.hide();
       this.$(".question_mark").hide();
     }
 
@@ -129,6 +125,36 @@ app.views.Publisher = Backbone.View.extend({
       publisher: this
     });
     this.viewUploader.on("change", this.checkSubmitAvailability, this);
+
+    var self = this;
+    var mdEditorOptions = {
+      onPreview: function() {
+        self.wrapperEl.addClass("markdown-preview");
+        return self.createPostPreview();
+      },
+
+      onHidePreview: function() {
+        self.wrapperEl.removeClass("markdown-preview");
+      },
+
+      onPostPreview: function() {
+        var photoAttachments = self.wrapperEl.find(".photo_attachments");
+        if (photoAttachments.length > 0) {
+          new app.views.Gallery({el: photoAttachments});
+        }
+      },
+
+      onChange: function() {
+        self.inputEl.trigger("textchange");
+      }
+    };
+
+    if (!this.standalone) {
+      mdEditorOptions.onClose = function() {
+        self.clear();
+      };
+    }
+    this.markdownEditor = new Diaspora.MarkdownEditor(this.inputEl, mdEditorOptions);
 
     this.viewPollCreator = new app.views.PublisherPollCreator({
       el: this.$("#poll_creator_container")
@@ -251,7 +277,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   togglePollCreator: function(){
-    this.viewPollCreator.$el.toggle();
+    this.wrapperEl.toggleClass("with-poll");
     this.inputEl.focus();
   },
 
@@ -293,24 +319,21 @@ app.views.Publisher = Backbone.View.extend({
     if(pollQuestion && pollAnswers.length) {
       poll = {
         "question": pollQuestion,
-        "poll_answers" : pollAnswers,
+        "poll_answers": pollAnswers,
         "participation_count": "0"
       };
     }
     return poll;
   },
 
-  createPostPreview : function(evt) {
-    if(evt){ evt.preventDefault(); }
-    if(!app.stream) { return; }
-
+  createPostPreview: function() {
     //add missing mentions at end of post:
     this.handleTextchange();
 
-    var serializedForm = $(evt.target).closest("form").serializeObject();
+    var serializedForm = $("#new_status_message").serializeObject();
+    var text = this.mention.getTextForSubmit();
     var photos = this.getUploadedPhotos();
     var mentionedPeople = this.mention.mentionedPeople;
-    var date = (new Date()).toISOString();
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
     if(!locationCoords || locationCoords === "") {
@@ -325,44 +348,22 @@ app.views.Publisher = Backbone.View.extend({
     };
 
     var previewMessage = {
-      "id" : 0,
-      "text" : serializedForm["status_message[text]"],
-      "public" : serializedForm["aspect_ids[]"] === "public",
-      "created_at" : date,
-      "interacted_at" : date,
-      "post_type" : "StatusMessage",
-      "author" : app.currentUser ? app.currentUser.attributes : {},
-      "mentioned_people" : mentionedPeople,
-      "photos" : photos,
-      "title" : serializedForm["status_message[text]"],
-      "location" : location,
-      "interactions" : {"likes":[],"reshares":[],"comments_count":0,"likes_count":0,"reshares_count":0},
+      "id": 0,
+      "text": text,
+      "public": serializedForm["aspect_ids[]"] === "public",
+      "created_at": new Date().toISOString(),
+      "interacted_at": new Date().toISOString(),
+      "author": app.currentUser ? app.currentUser.attributes : {},
+      "mentioned_people": mentionedPeople,
+      "photos": photos,
+      "title": serializedForm["status_message[text]"],
+      "location": location,
+      "interactions": {"likes": [], "reshares": [], "comments_count": 0, "likes_count": 0, "reshares_count": 0},
       "poll": poll
     };
 
-    this.removePostPreview();
-    app.stream.addNow(previewMessage);
-    this.recentPreview=previewMessage;
-    this.modifyPostPreview($(".stream_element:first",$(".stream_container")));
-  },
-
-  modifyPostPreview : function(post) {
-    post.addClass("post_preview");
-    $(".collapsible",post).removeClass("collapsed").addClass("opened");
-    $("a.delete.remove_post",post).hide();
-    $("a.like, a.focus_comment_textarea",post).removeAttr("href");
-    $("a.like",post).addClass("like_preview")
-                    .removeClass("like");
-    $("a.focus_comment_textarea",post).addClass("focus_comment_textarea_preview")
-                                      .removeClass("focus_comment_textarea");
-    $("a",$("span.details.grey",post)).removeAttr("href");
-  },
-
-  removePostPreview : function() {
-    if(app.stream && this.recentPreview) {
-      app.stream.items.remove(this.recentPreview);
-      delete this.recentPreview;
-    }
+    var previewPost = new app.views.PreviewPost({model: new app.models.Post(previewMessage)}).render().el;
+    return $("<div/>").append(previewPost).html();
   },
 
   keyDown : function(evt) {
@@ -392,11 +393,9 @@ app.views.Publisher = Backbone.View.extend({
     // empty upload-photo
     this.$("#fileInfo").empty();
 
-    // close publishing area (CSS)
+    // remove preview and close publishing area (CSS)
+    this.markdownEditor.hidePreview();
     this.close();
-
-    // remove preview
-    this.removePostPreview();
 
     // disable submitting
     this.checkSubmitAvailability();
@@ -445,7 +444,7 @@ app.views.Publisher = Backbone.View.extend({
     $(this.el).addClass("closed");
     this.wrapperEl.removeClass("active");
     this.inputEl.css("height", "");
-    this.viewPollCreator.$el.hide();
+    this.wrapperEl.removeClass("with-poll");
     return this;
   },
 
@@ -476,10 +475,8 @@ app.views.Publisher = Backbone.View.extend({
   setButtonsEnabled: function(bool) {
     if (bool) {
       this.submitEl.removeAttr("disabled");
-      this.previewEl.removeAttr("disabled");
     } else {
       this.submitEl.prop("disabled", true);
-      this.previewEl.prop("disabled", true);
     }
   },
 
@@ -503,8 +500,6 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   handleTextchange: function() {
-    var self = this;
-
     this.checkSubmitAvailability();
     this.hiddenInputEl.val(this.mention.getTextForSubmit());
   },

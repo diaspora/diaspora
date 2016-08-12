@@ -16,26 +16,27 @@ Feature: preview posts in the stream
     Scenario: preview and post a text-only message
       Given I expand the publisher
       When I write the status message "I am eating yogurt"
-      And I press "Preview"
-      Then "I am eating yogurt" should be post 1
-      And the first post should be a preview
+      And I preview the post
+      Then I should see "I am eating yogurt" in the preview
 
+      Given I edit the post
       When I write the status message "This preview rocks"
-      And I press "Preview"
-      Then "This preview rocks" should be post 1
-      And I should not see "I am eating a yogurt"
+      And I preview the post
+      Then I should see "This preview rocks" in the preview
+      And I should not see "I am eating a yogurt" in the preview
 
+      Given I edit the post
       When I write the status message "I like rocks"
       And I press "Share"
       Then "I like rocks" should be post 1
-      And I should not see "This preview rocks"
+      When I expand the publisher
+      Then I should not be in preview mode
 
     Scenario: preview a very long message
       Given I expand the publisher
       When I insert an extremely long status message
-      And I press "Preview"
+      And I preview the post
       Then the preview should not be collapsed
-
       When I press "Share"
       Then the post should be collapsed
 
@@ -44,15 +45,15 @@ Feature: preview posts in the stream
       And I attach "spec/fixtures/button.png" to the publisher
       When I fill in the following:
           | status_message_fake_text    | Look at this dog    |
-      And I press "Preview"
-      Then I should see a "img" within ".stream_element div.photo_attachments"
-      And I should see "Look at this dog" within ".stream_element"
+      And I preview the post
+      Then I should see a "img" within ".md-preview .stream_element .photo_attachments"
+      And I should see "Look at this dog" within ".md-preview .stream_element"
       And I close the publisher
 
     Scenario: preview a post with mentions
       Given I expand the publisher
       And I mention Alice in the publisher
-      And I press "Preview"
+      And I preview the post
       And I confirm the alert after I follow "Alice Smith"
       Then I should see "Alice Smith"
 
@@ -63,9 +64,8 @@ Feature: preview posts in the stream
       When I expand the publisher
       And I fill in the following:
           | status_message_fake_text    | This preview rocks    |
-      And I press "Preview"
-      Then "This preview rocks" should be post 1
-      And the first post should be a preview
+      And I preview the post
+      Then I should see "This preview rocks" in the preview
       And I close the publisher
 
     Scenario: preview a post with the poll
@@ -79,9 +79,9 @@ Feature: preview posts in the stream
       And I fill in the following for the options:
           | normal |
           | not normal  |
-      And I press "Preview"
-      Then I should see a ".poll_form" within ".stream_element"
-      And I should see a "form" within ".stream_element"
+      And I preview the post
+      Then I should see a ".poll_form" within ".md-preview .stream_element"
+      And I should see a "form" within ".md-preview .stream_element"
       And I close the publisher
 
     Scenario: preview a post with location
@@ -93,7 +93,7 @@ Feature: preview posts in the stream
       When I fill in the following:
           | status_message_fake_text    | I am eating yogurt |
           | location_address            | Some cool place |
-      And I press "Preview"
-      Then I should see a ".near-from" within ".stream_element"
-      And I should see "Some cool place" within ".stream_element .near-from"
+      And I preview the post
+      Then I should see a ".near-from" within ".md-preview .stream_element"
+      And I should see "Some cool place" within ".md-preview .stream_element .near-from"
       And I close the publisher

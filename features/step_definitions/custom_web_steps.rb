@@ -65,7 +65,7 @@ And /^I expand the publisher$/ do
 end
 
 And /^I close the publisher$/ do
- find("#publisher #hide_publisher").click
+  find("#publisher .md-cancel").click
 end
 
 Then /^the publisher should be expanded$/ do

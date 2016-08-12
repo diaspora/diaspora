@@ -1,4 +1,4 @@
-#main_stream .stream_element,
+.stream_element,
 .photo {
   & > .media {
     margin: 0px;
@@ -61,11 +61,19 @@
 }
 
 #main_stream .stream_element {
-  padding: 10px;
   margin-bottom: 20px;
-  background-color: $white;
   border: 1px solid $light-grey;
   box-shadow: $card-shadow;
+
+  &.highlighted {
+    border-left: 3px solid $brand-primary;
+    padding-left: 8px;
+  }
+}
+
+.stream_element {
+  background-color: $white;
+  padding: 10px;
 
   & > .media {
     &.shield-active .nsfw-hidden { display: none; }
@@ -146,18 +154,6 @@
     }
   }
 
-  &.highlighted {
-    padding-left: 8px;
-    border-left: 3px solid $brand-primary;
-  }
-
-  &.post_preview {
-    background-color: lighten($brand-primary,45%);
-    border: 1px solid $brand-primary;
-  }
-}
-
-.stream_element {
   .likes,
   .reshares {
     font-size: 12px;

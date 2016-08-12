@@ -76,6 +76,7 @@ var factory = {
 
   postAttrs : function(){
     return  {
+      "author": {},
       "provider_display_name" : null,
       "created_at" : "2012-01-03T19:53:13Z",
       "interacted_at" : '2012-01-03T19:53:13Z',

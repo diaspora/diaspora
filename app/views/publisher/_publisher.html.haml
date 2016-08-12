@@ -26,11 +26,11 @@
             %input.typeahead-mention-box.hidden{type: "text"}
           = status.hidden_field :text, value: h(publisher_hidden_text), class: "clear_on_submit"
 
-          .container-fluid#photodropzone_container
+          .container-fluid.photodropzone-container#photodropzone_container
             %ul#photodropzone
           .location-container.form-group{style: "padding: 4px 6px;"}
             = hidden_field :location, :coords
-          #poll_creator_container
+          .poll-creator-container#poll_creator_container
             -# handlebars template
           #button_container
             .publisher-buttonbar#publisher-images
@@ -59,12 +59,8 @@
           .spinner
       .options_and_submit.col-sm-12
         .public_toggle.clearfix
-          .btn.btn-default.pull-left.hidden-xs#hide_publisher{title: t("shared.publisher.discard_post")}
-            %span.text= t("cancel")
-
           .btn-toolbar.pull-right
             = render partial: "publisher/aspect_dropdown", locals: {selected_aspects: selected_aspects}
-            %button.btn.btn-default.btn-group.post_preview_button= t("shared.publisher.preview")
             %button.btn.btn-group.btn-primary#submit= t("shared.publisher.share")
 
           .btn-toolbar.pull-right#publisher-service-icons

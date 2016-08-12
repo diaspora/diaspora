@@ -12,14 +12,11 @@ describe("app.views.Publisher", function() {
       this.view = new app.views.Publisher({
         standalone: true
       });
+      this.view.open();
     });
 
     it("hides the close button in standalone mode", function() {
-      expect(this.view.$("#hide_publisher").is(":visible")).toBeFalsy();
-    });
-
-    it("hides the post preview button in standalone mode", function() {
-      expect(this.view.$(".post_preview_button").is(":visible")).toBeFalsy();
+      expect(this.view.$(".md-cancel").is(":visible")).toBeFalsy();
     });
 
     it("hides the manage services link in standalone mode", function() {
@@ -89,6 +86,21 @@ describe("app.views.Publisher", function() {
         this.view.close($.Event());
         expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
       });
+
+      it("should hide the poll container correctly", function() {
+        this.view.$el.find(".poll-creator").click();
+        expect(this.view.$el.find(".publisher-textarea-wrapper")).toHaveClass("with-poll");
+        expect(this.view.$el.find(".poll-creator-container")).toBeVisible();
+        this.view.close();
+        expect(this.view.$el.find(".publisher-textarea-wrapper")).not.toHaveClass("with-poll");
+        expect(this.view.$el.find(".poll-creator-container")).not.toBeVisible();
+        this.view.open();
+        expect(this.view.$el.find(".publisher-textarea-wrapper")).not.toHaveClass("with-poll");
+        expect(this.view.$el.find(".poll-creator-container")).not.toBeVisible();
+        this.view.$el.find(".poll-creator").click();
+        expect(this.view.$el.find(".publisher-textarea-wrapper")).toHaveClass("with-poll");
+        expect(this.view.$el.find(".poll-creator-container")).toBeVisible();
+      });
     });
 
     describe("#clear", function() {
@@ -99,11 +111,11 @@ describe("app.views.Publisher", function() {
         expect(this.view.close).toHaveBeenCalled();
       });
 
-      it("calls removePostPreview", function(){
-        spyOn(this.view, "removePostPreview");
+      it("calls hidePreview", function() {
+        spyOn(this.view.markdownEditor, "hidePreview");
 
         this.view.clear($.Event());
-        expect(this.view.removePostPreview).toHaveBeenCalled();
+        expect(this.view.markdownEditor.hidePreview).toHaveBeenCalled();
       });
 
       it("clears all textareas", function(){
@@ -179,38 +191,10 @@ describe("app.views.Publisher", function() {
     });
 
     describe("createPostPreview", function(){
-      beforeEach(function() {
-        app.stream = { addNow: $.noop };
-      });
-
       it("calls handleTextchange to complete missing mentions", function(){
         spyOn(this.view, "handleTextchange");
-        this.view.createPostPreview($.Event());
+        this.view.createPostPreview();
         expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
-      it("calls removePostPreview to remove the last preview", function(){
-        spyOn(this.view, "removePostPreview");
-        this.view.createPostPreview($.Event());
-        expect(this.view.removePostPreview).toHaveBeenCalled();
-      });
-
-      it("adds the status message to the stream", function() {
-        spyOn(app.stream, "addNow");
-        this.view.createPostPreview($.Event());
-        expect(app.stream.addNow).toHaveBeenCalled();
-      });
-
-      it("sets recentPreview", function(){
-        expect(this.view.recentPreview).toBeUndefined();
-        this.view.createPostPreview($.Event());
-        expect(this.view.recentPreview).toBeDefined();
-      });
-
-      it("calls modifyPostPreview to apply the preview style to the post", function(){
-        spyOn(this.view, "modifyPostPreview");
-        this.view.createPostPreview($.Event());
-        expect(this.view.modifyPostPreview).toHaveBeenCalled();
       });
     });
 
@@ -236,11 +220,9 @@ describe("app.views.Publisher", function() {
       it("disables submitting", function() {
         this.view.setText("TESTING");
         expect(this.view.submitEl.prop("disabled")).toBeFalsy();
-        expect(this.view.previewEl.prop("disabled")).toBeFalsy();
 
         this.view.setEnabled(false);
         expect(this.view.submitEl.prop("disabled")).toBeTruthy();
-        expect(this.view.previewEl.prop("disabled")).toBeTruthy();
       });
     });
 
@@ -491,7 +473,6 @@ describe("app.views.Publisher", function() {
         '    <div id="publisher_textarea_wrapper"></div>'+
         '    <div id="photodropzone"></div>'+
         '    <input type="submit" />'+
-        '    <button class="post_preview_button" />'+
         '  </form></div>'+
         '</div>'
       );
@@ -540,7 +521,6 @@ describe("app.views.Publisher", function() {
 
         it('disables the publisher buttons', function() {
           expect(this.view.submitEl.prop("disabled")).toBeTruthy();
-          expect(this.view.previewEl.prop("disabled")).toBeTruthy();
         });
       });
 
@@ -577,7 +557,6 @@ describe("app.views.Publisher", function() {
 
         it('re-enables the buttons', function() {
           expect(this.view.submitEl.prop("disabled")).toBeFalsy();
-          expect(this.view.previewEl.prop("disabled")).toBeFalsy();
         });
       });
 

@@ -17,13 +17,6 @@ body {
     color: fade-out($link-color, 0.4);
   }
 
-  #main_stream .stream_element {
-    &.post_preview {
-      background-color: $main-color-essence;
-      border-color: darken($main-color-essence, 5%);
-    }
-  }
-
   .left-navbar .hoverable:hover { background-color: $main-color-essence; }
 
   .poll_form .progress .bar { background-color: $main-color-dark; }
