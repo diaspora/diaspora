@@ -50,7 +50,8 @@
 
       .row
         .col-md-12
-          .alert.alert-info.text-center= t('.users', :count => @users.count)
+          .alert.alert-info.text-center{role: "alert"}
+            = t(".users", count: @users.count)
 
       .row
         .users.col-md-12
