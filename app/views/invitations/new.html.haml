@@ -1,7 +1,7 @@
 #paste_link
   = t('.paste_link')
   %span#codes_left
-    = '(' + t('.codes_left', count: @invite_code.count) + ')'
+    = "(" + t(".codes_left", count: @invite_code.count) + ")" unless AppConfig.settings.enable_registrations?
 .form-horizontal
   .control-group
     = invite_link(@invite_code)

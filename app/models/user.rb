@@ -99,9 +99,8 @@ class User < ActiveRecord::Base
 
   def process_invite_acceptence(invite)
     self.invited_by = invite.user
-    invite.use!
+    invite.use! unless AppConfig.settings.enable_registrations?
   end
-
 
   def invitation_code
     InvitationCode.find_or_create_by(user_id: self.id)

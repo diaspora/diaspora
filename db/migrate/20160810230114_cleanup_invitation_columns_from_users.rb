@@ -1,4 +1,7 @@
 class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
+  class InvitationCode < ActiveRecord::Base
+  end
+
   class User < ActiveRecord::Base
   end
 
@@ -20,7 +23,7 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
 
     add_index :users, :email, name: :index_users_on_email, unique: true, length: 191
 
-    drop_invitations_table
+    cleanup_invitations
   end
 
   def username_not_null
@@ -36,10 +39,14 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
     end
   end
 
-  def drop_invitations_table
+  def cleanup_invitations
     reversible do |dir|
       dir.up do
         drop_table :invitations
+
+        # reset negative invitation counters
+        new_counter = AppConfig.settings.enable_registrations? ? AppConfig["settings.invitations.count"] : 0
+        InvitationCode.where("count < 0").update_all(count: new_counter)
       end
 
       dir.down do
