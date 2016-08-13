@@ -566,20 +566,6 @@ describe User, :type => :model do
 
   describe 'account deletion' do
     describe '#destroy' do
-      it 'removes invitations from the user' do
-        FactoryGirl.create(:invitation, :sender => alice)
-        expect {
-          alice.destroy
-        }.to change {alice.invitations_from_me(true).count }.by(-1)
-      end
-
-      it 'removes invitations to the user' do
-        Invitation.new(:sender => eve, :recipient => alice, :identifier => alice.email, :aspect => eve.aspects.first).save(:validate => false)
-        expect {
-          alice.destroy
-        }.to change {alice.invitations_to_me(true).count }.by(-1)
-      end
-
       it 'removes all service connections' do
         Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
         expect {
@@ -960,10 +946,8 @@ describe User, :type => :model do
     describe "#clearable_attributes" do
       it 'returns the clearable fields' do
         user = FactoryGirl.create :user
-        expect(user.send(:clearable_fields).sort).to eq(%w{
+        expect(user.send(:clearable_fields).sort).to eq(%w(
           language
-          invitation_token
-          invitation_sent_at
           reset_password_sent_at
           reset_password_token
           remember_created_at
@@ -973,11 +957,7 @@ describe User, :type => :model do
           current_sign_in_ip
           hidden_shareables
           last_sign_in_ip
-          invitation_service
-          invitation_identifier
-          invitation_limit
           invited_by_id
-          invited_by_type
           authentication_token
           auto_follow_back
           auto_follow_back_aspect_id
@@ -985,7 +965,7 @@ describe User, :type => :model do
           confirm_email_token
           last_seen
           color_theme
-        }.sort)
+        ).sort)
       end
     end
   end
@@ -1110,9 +1090,6 @@ describe User, :type => :model do
 
   describe "active" do
     before do
-      invited_user = FactoryGirl.build(:user, username: nil)
-      invited_user.save(validate: false)
-
       closed_account = FactoryGirl.create(:user)
       closed_account.person.lock_access!
     end

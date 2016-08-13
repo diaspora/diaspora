@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   scope :daily_actives, ->(time = Time.now) { logged_in_since(time - 1.day) }
   scope :yearly_actives, ->(time = Time.now) { logged_in_since(time - 1.year) }
   scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
-  scope :active, -> { joins(:person).where(people: {closed_account: false}).where.not(username: nil) }
+  scope :active, -> { joins(:person).where(people: {closed_account: false}) }
 
   devise :token_authenticatable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
   validate :unconfirmed_email_quasiuniqueness
 
-  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
+  validates :person, presence: true
   validates_associated :person
   validate :no_person_with_same_username
 
@@ -48,8 +48,6 @@ class User < ActiveRecord::Base
            :first_name, :last_name, :gender, :participations, to: :person
   delegate :id, :guid, to: :person, prefix: true
 
-  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
-  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
   has_many :aspects, -> { order('order_id ASC') }
 
   belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
@@ -99,20 +97,10 @@ class User < ActiveRecord::Base
     ConversationVisibility.where(person_id: self.person_id).sum(:unread)
   end
 
-  #@deprecated
-  def ugly_accept_invitation_code
-    begin
-      self.invitations_to_me.first.sender.invitation_code
-    rescue Exception => e
-      nil
-    end
-  end
-
   def process_invite_acceptence(invite)
     self.invited_by = invite.user
-    invite.use!
+    invite.use! unless AppConfig.settings.enable_registrations?
   end
-
 
   def invitation_code
     InvitationCode.find_or_create_by(user_id: self.id)

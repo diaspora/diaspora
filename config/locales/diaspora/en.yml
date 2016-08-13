@@ -556,10 +556,11 @@ en:
   invitations:
     create:
       sent: "Invitations have been sent to: %{emails}"
-      rejected: "The following email addresses had problems: "
+      rejected: "The following email addresses had problems: %{emails}"
       no_more: "You have no more invitations."
       empty: "Please enter at least one email address."
       note_already_sent: "Invitations have already been sent to: %{emails}"
+      closed: "Invitations are closed on this diaspora* pod."
     new:
       language: "Language"
       invite_someone_to_join: "Invite someone to join diaspora*!"
@@ -571,9 +572,6 @@ en:
         zero:  "No invites left on this code"
         one:  "One invite left on this code"
         other:  "%{count} invites left on this code"
-    check_token:
-      not_found: "Invitation token not found"
-    a_facebook_user: "A Facebook user"
 
   layouts:
     header:

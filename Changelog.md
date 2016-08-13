@@ -138,6 +138,7 @@ The command will report queues that still have jobs and launch sidekiq process f
 * Remove some unused routes [#6781](https://github.com/diaspora/diaspora/pull/6781)
 * Consolidate sidekiq queues [#6950](https://github.com/diaspora/diaspora/pull/6950)
 * Don't re-render the whole comment stream when adding comments [#6406](https://github.com/diaspora/diaspora/pull/6406)
+* Drop legacy invitation system [#6976](https://github.com/diaspora/diaspora/pull/6976)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)

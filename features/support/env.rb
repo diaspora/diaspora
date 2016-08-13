@@ -70,6 +70,9 @@ Before do |scenario|
   page.driver.headers = if scenario.source_tag_names.include? "@mobile"
                           {"User-Agent" => "Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0"}
                         else
-                          page.driver.headers = {}
+                          {}
                         end
+
+  # Reset overridden settings
+  AppConfig.reset_dynamic!
 end

@@ -1,7 +1,7 @@
 #paste_link
   = t('.paste_link')
   %span#codes_left
-    = '(' + t('.codes_left', count: @invite_code.count) + ')'
+    = "(" + t(".codes_left", count: @invite_code.count) + ")" unless AppConfig.settings.enable_registrations?
 .form-horizontal
   .control-group
     = invite_link(@invite_code)
@@ -15,8 +15,8 @@
       .col-sm-10
         = text_field_tag 'email_inviter[emails]', @invalid_emails, title: t('.comma_separated_plz'),
             placeholder: 'foo@bar.com, max@foo.com...', class: "form-control"
-      #already_sent
-        = t('invitations.create.note_already_sent', emails: @valid_emails) unless @valid_emails.empty?
+        #already_sent
+          = t("invitations.create.note_already_sent", emails: @valid_emails) unless @valid_emails.empty?
 
     .form-group
       %label.col-sm-2.control-label{ for: 'email_inviter_locale' }

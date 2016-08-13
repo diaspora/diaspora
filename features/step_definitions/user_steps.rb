@@ -47,6 +47,7 @@ Given /^I have been invited by an admin$/ do
 end
 
 Given /^I have been invited by "([^\"]+)"$/ do |email|
+  AppConfig.settings.enable_registrations = false
   @inviter = User.find_by_email(email)
   @inviter_invite_count = @inviter.invitation_code.count
   i = EmailInviter.new("new_invitee@example.com", @inviter)

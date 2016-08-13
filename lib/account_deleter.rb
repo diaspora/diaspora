@@ -34,7 +34,6 @@ class AccountDeleter
         #user deletion methods
         remove_share_visibilities_on_contacts_posts
         delete_standard_user_associations
-        disassociate_invitations
         disconnect_contacts
         tombstone_user
       end
@@ -45,12 +44,12 @@ class AccountDeleter
 
   #user deletions
   def normal_ar_user_associates_to_delete
-    %i(tag_followings invitations_to_me services aspects user_preferences
+    %i(tag_followings services aspects user_preferences
        notifications blocks authorizations o_auth_applications pairwise_pseudonymous_identifiers)
   end
 
   def special_ar_user_associations
-    %i(invitations_from_me person profile contacts auto_follow_back_aspect)
+    %i(person profile contacts auto_follow_back_aspect)
   end
 
   def ignored_ar_user_associations
@@ -67,12 +66,6 @@ class AccountDeleter
   def delete_standard_person_associations
     normal_ar_person_associates_to_delete.each do |asso|
       self.person.send(asso).destroy_all
-    end
-  end
-
-  def disassociate_invitations
-    user.invitations_from_me.each do |inv|
-      inv.convert_to_admin!
     end
   end
 
