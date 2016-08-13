@@ -12,7 +12,6 @@ module Api
       serialize :scopes, JSON
 
       has_many :o_auth_access_tokens, dependent: :destroy
-      has_many :id_tokens, dependent: :destroy
 
       before_validation :setup, on: :create
 
@@ -50,7 +49,7 @@ module Api
       end
 
       def create_id_token
-        id_tokens.create!(nonce: nonce)
+        IdToken.new(self, nonce)
       end
 
       def self.find_by_client_id_user_and_scopes(client_id, user, scopes)

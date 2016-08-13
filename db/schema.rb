@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810230114) do
+ActiveRecord::Schema.define(version: 20160813115514) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -159,16 +159,6 @@ ActiveRecord::Schema.define(version: 20160810230114) do
 
   add_index "conversations", ["author_id"], name: "conversations_author_id_fk", using: :btree
   add_index "conversations", ["guid"], name: "index_conversations_on_guid", unique: true, length: {"guid"=>191}, using: :btree
-
-  create_table "id_tokens", force: :cascade do |t|
-    t.integer  "authorization_id", limit: 4
-    t.datetime "expires_at"
-    t.string   "nonce",            limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  add_index "id_tokens", ["authorization_id"], name: "index_id_tokens_on_authorization_id", using: :btree
 
   create_table "invitation_codes", force: :cascade do |t|
     t.string   "token",      limit: 255
@@ -661,7 +651,6 @@ ActiveRecord::Schema.define(version: 20160810230114) do
   add_foreign_key "conversation_visibilities", "conversations", name: "conversation_visibilities_conversation_id_fk", on_delete: :cascade
   add_foreign_key "conversation_visibilities", "people", name: "conversation_visibilities_person_id_fk", on_delete: :cascade
   add_foreign_key "conversations", "people", column: "author_id", name: "conversations_author_id_fk", on_delete: :cascade
-  add_foreign_key "id_tokens", "authorizations"
   add_foreign_key "like_signatures", "likes", name: "like_signatures_like_id_fk", on_delete: :cascade
   add_foreign_key "like_signatures", "signature_orders", name: "like_signatures_signature_orders_id_fk"
   add_foreign_key "likes", "people", column: "author_id", name: "likes_author_id_fk", on_delete: :cascade
