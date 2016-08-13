@@ -187,12 +187,6 @@
         text-align: center;
       }
 
-      .warning {
-        color: orange;
-      }
-      .exceeded {
-        color: red;
-      }
     }
   }
 
@@ -235,16 +229,9 @@
     }
   }
 
-  &.with-location .counter {
-    bottom: -62px;
-  }
-
   .counter {
-    bottom: -25px;
-    height: 30px;
     line-height: 30px;
-    position: absolute;
-    right: 10px;
+    margin-right: 10px;
   }
 
   &:not(.with-location) .publisher-buttonbar {

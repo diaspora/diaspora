@@ -20,7 +20,15 @@ $(document).ready(function(){
       }
     });
 
-    $("#status_message_text").charCount({allowed: publisherMaxChars, warning: publisherMaxChars/10 });
+    if (selectedServices.length > 0) {
+      var counter = $("<span class='counter'></span>");
+      $("#status_message_text").after(counter);
+      $("#status_message_text").charCount({
+        allowed: publisherMaxChars,
+        warning: publisherMaxChars / 10,
+        counter: counter
+      });
+    }
 
     if(hiddenField.length > 0) { hiddenField.remove(); }
     else {

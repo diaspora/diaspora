@@ -4,7 +4,8 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
-//= require jquery.charcount
+//= require jquery-textchange
+//= require charcount
 //= require js-routes
 //= require autosize
 //= require keycodes
