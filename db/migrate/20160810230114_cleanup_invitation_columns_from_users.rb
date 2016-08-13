@@ -12,7 +12,7 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
     remove_index :users, column: :invitation_token, name: :index_users_on_invitation_token
     remove_index :users, column: :email, name: :index_users_on_email, length: 191
 
-    username_not_null
+    cleanup_invitations
 
     remove_column :users, :invitation_token, :string, limit: 60
     remove_column :users, :invitation_sent_at, :datetime
@@ -22,21 +22,6 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
     remove_column :users, :invited_by_type, :string
 
     add_index :users, :email, name: :index_users_on_email, unique: true, length: 191
-
-    cleanup_invitations
-  end
-
-  def username_not_null
-    reversible do |dir|
-      dir.up do
-        User.delete_all(username: nil)
-        change_column :users, :username, :string, null: false
-      end
-
-      dir.down do
-        change_column :users, :username, :string, null: true
-      end
-    end
   end
 
   def cleanup_invitations
@@ -47,9 +32,15 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
         # reset negative invitation counters
         new_counter = AppConfig.settings.enable_registrations? ? AppConfig["settings.invitations.count"] : 0
         InvitationCode.where("count < 0").update_all(count: new_counter)
+
+        # remove old invitation-users
+        User.delete_all(username: nil)
+        change_column :users, :username, :string, null: false
       end
 
       dir.down do
+        change_column :users, :username, :string, null: true
+
         create_invitations_table
       end
     end
