@@ -118,7 +118,8 @@ class Contact < ActiveRecord::Base
   end
 
   def not_blocked_user
-    errors.add(:base, "Cannot connect to an ignored user") if user && user.blocks.where(person_id: person_id).exists?
+    if receiving && user && user.blocks.where(person_id: person_id).exists?
+      errors.add(:base, "Cannot connect to an ignored user")
+    end
   end
 end
-

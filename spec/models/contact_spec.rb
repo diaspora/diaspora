@@ -62,13 +62,20 @@ describe Contact, type: :model do
     end
 
     describe "#not_blocked_user" do
-      it "add error if potential contact is blocked by user" do
+      it "adds an error when start sharing with a blocked person" do
         alice.blocks.create(person: eve.person)
-        bad_contact = alice.contacts.create(person: eve.person)
+        bad_contact = alice.contacts.create(person: eve.person, receiving: true)
 
         expect(bad_contact).not_to be_valid
         expect(bad_contact.errors.full_messages.count).to eq(1)
         expect(bad_contact.errors.full_messages.first).to eq("Cannot connect to an ignored user")
+      end
+
+      it "is valid when a blocked person starts sharing with the user" do
+        alice.blocks.create(person: eve.person)
+        bad_contact = alice.contacts.create(person: eve.person, receiving: false, sharing: true)
+
+        expect(bad_contact).to be_valid
       end
     end
   end
