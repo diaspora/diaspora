@@ -57,7 +57,7 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 gem "bootstrap-sass", "3.3.6"
 gem "compass-rails",  "2.0.5"
 gem "sass-rails",     "5.0.4"
-gem "autoprefixer-rails", "6.3.6.2"
+gem "autoprefixer-rails", "6.4.0.2"
 gem "bootstrap-switch-rails", "3.3.3"
 
 # Database
