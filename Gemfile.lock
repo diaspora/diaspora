@@ -403,7 +403,7 @@ GEM
       rubocop (~> 0.20)
     haml (4.0.7)
       tilt
-    haml_lint (0.17.1)
+    haml_lint (0.18.1)
       haml (~> 4.0)
       rake (>= 10, < 12)
       rubocop (>= 0.36.0)
@@ -950,7 +950,7 @@ DEPENDENCIES
   guard-cucumber (= 2.1.2)
   guard-rspec (= 4.7.3)
   guard-rubocop (= 1.2.0)
-  haml_lint (= 0.17.1)
+  haml_lint (= 0.18.1)
   hamlit (= 2.5.0)
   handlebars_assets (= 0.23.0)
   http_accept_language (= 2.0.5)
