@@ -106,7 +106,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
   gem "rails-assets-highlightjs",                         "9.4.0"
-  gem "rails-assets-bootstrap-markdown",                  "2.9.0"
+  gem "rails-assets-bootstrap-markdown",                  "2.10.0"
 
   # jQuery plugins
 
