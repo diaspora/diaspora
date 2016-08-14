@@ -64,7 +64,7 @@ GEM
       jquery-rails
       railties
     bcrypt (3.1.11)
-    bindata (2.3.0)
+    bindata (2.3.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -434,7 +434,7 @@ GEM
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
-    httpclient (2.8.0)
+    httpclient (2.8.1)
     i18n (0.7.0)
     i18n-inflector (2.6.7)
       i18n (>= 0.4.1)
@@ -463,7 +463,7 @@ GEM
     js_image_paths (0.1.0)
       rails (~> 4.0)
     json (1.8.3)
-    json-jwt (1.5.2)
+    json-jwt (1.6.3)
       activesupport
       bindata
       multi_json (>= 1.3)
@@ -559,12 +559,12 @@ GEM
     open_graph_reader (0.6.1)
       faraday (~> 0.9.0)
       nokogiri (~> 1.6)
-    openid_connect (0.11.2)
+    openid_connect (0.12.0)
       activemodel
       attr_required (>= 1.0.0)
       json (>= 1.4.3)
       json-jwt (>= 1.5.0)
-      rack-oauth2 (>= 1.2.1)
+      rack-oauth2 (>= 1.3.1)
       swd (>= 1.0.0)
       tzinfo
       validate_email
@@ -616,7 +616,7 @@ GEM
       activesupport
     rack-mobile-detect (0.4.0)
       rack
-    rack-oauth2 (1.3.0)
+    rack-oauth2 (1.4.0)
       activesupport (>= 2.3)
       attr_required (>= 0.0.5)
       httpclient (>= 2.4)
@@ -978,7 +978,7 @@ DEPENDENCIES
   omniauth-twitter (= 1.2.1)
   omniauth-wordpress (= 0.2.2)
   open_graph_reader (= 0.6.1)
-  openid_connect (= 0.11.2)
+  openid_connect (= 0.12.0)
   pg (= 0.18.4)
   poltergeist (= 1.10.0)
   pronto (= 0.7.0)
