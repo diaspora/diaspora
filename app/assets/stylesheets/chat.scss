@@ -10,5 +10,9 @@ body > .container-fluid.chat-roster-hidden {
 // scss-lint:disable IdSelector, SelectorFormat
 #jsxc_roster {
   top: $navbar-height;
+
+  @media(max-width: $screen-sm) {
+    display: none;
+  }
 }
 // scss-lint:enable IdSelector, SelectorFormat
