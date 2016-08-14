@@ -17,7 +17,7 @@ gem "diaspora_federation-rails", "0.1.3"
 
 # API and JSON
 
-gem "acts_as_api", "0.4.2"
+gem "acts_as_api", "0.4.3"
 gem "json",        "1.8.3"
 gem "json-schema", "2.6.2"
 
