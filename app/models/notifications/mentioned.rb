@@ -24,7 +24,7 @@ module Notifications
 
         next if recipient == actor || !(mentionable.public || recipient_user_ids.include?(recipient.owner_id))
 
-        create_notification(recipient.owner_id, mention, actor).email_the_user(mention, actor)
+        create_notification(recipient.owner, mention, actor).try(:email_the_user, mention, actor)
       end
     end
   end

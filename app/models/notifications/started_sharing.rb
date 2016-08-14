@@ -10,7 +10,7 @@ module Notifications
 
     def self.notify(contact, _recipient_user_ids)
       sender = contact.person
-      create_notification(contact.user_id, sender, sender).email_the_user(sender, sender)
+      create_notification(contact.user, sender, sender).try(:email_the_user, sender, sender)
     end
 
     def contact

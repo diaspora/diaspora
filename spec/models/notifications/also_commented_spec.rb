@@ -43,5 +43,25 @@ describe Notifications::AlsoCommented, type: :model do
 
       Notifications::AlsoCommented.notify(comment, [])
     end
+
+    it "does not notify if the commentable is hidden" do
+      bob.participate!(sm)
+      bob.add_hidden_shareable(sm.class.base_class.to_s, sm.id.to_s)
+
+      expect(Notifications::AlsoCommented).not_to receive(:concatenate_or_create)
+
+      Notifications::AlsoCommented.notify(comment, [])
+    end
+
+    it "does not notify if the author of the comment is ignored" do
+      bob.participate!(sm)
+      bob.blocks.create(person: comment.author)
+
+      expect_any_instance_of(Notifications::AlsoCommented).not_to receive(:email_the_user)
+
+      Notifications::AlsoCommented.notify(comment, [])
+
+      expect(Notifications::AlsoCommented.where(target: sm)).not_to exist
+    end
   end
 end

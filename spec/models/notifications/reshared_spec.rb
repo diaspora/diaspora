@@ -38,5 +38,15 @@ describe Notifications::Reshared, type: :model do
 
       Notifications::Reshared.notify(reshare, [])
     end
+
+    it "does not notify if the author of the reshare is ignored" do
+      alice.blocks.create(person: reshare.author)
+
+      expect_any_instance_of(Notifications::Reshared).not_to receive(:email_the_user)
+
+      Notifications::Reshared.notify(reshare, [])
+
+      expect(Notifications::Reshared.where(target: sm)).not_to exist
+    end
   end
 end
