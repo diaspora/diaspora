@@ -10,13 +10,15 @@
     = image_tag photo.url(:scaled_full)
   .stream_element{:class => "photo_mobile"}
     .content
-      .from
-        = person_image_link(photo.author, :size => :thumb_small)
-        = person_link(photo.author)
-        .info
-          %span
-            = link_to(post_path(photo)) do
-              = timeago(photo.created_at)
+      .from.media
+        .media-left
+          = person_image_link(photo.author, class: "media-object", size: :thumb_small)
+        .media-body
+          = person_link(photo.author)
+          .info
+            %span
+              = link_to(post_path(photo)) do
+                = timeago(photo.created_at)
 
 -if additional_photos && additional_photos.length > 1
   #photo_controls

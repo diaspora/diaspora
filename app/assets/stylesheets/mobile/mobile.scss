@@ -278,7 +278,7 @@ footer {
   font-size: larger;
   text-align: center;
 
-  img {
+  img:not(.avatar) {
     max-width: 100%;
   }
 
