@@ -101,6 +101,34 @@ describe("app.views.Publisher", function() {
         expect(this.view.$el.find(".publisher-textarea-wrapper")).toHaveClass("with-poll");
         expect(this.view.$el.find(".poll-creator-container")).toBeVisible();
       });
+
+      it("should close the publisher when clicking outside", function() {
+        expect("#publisher").not.toHaveClass("closed");
+        $("body").click();
+        expect("#publisher").toHaveClass("closed");
+      });
+
+      it("should not close the publisher when clicking inside", function() {
+        expect("#publisher").not.toHaveClass("closed");
+        $("#publisher").find(".publisher-textarea-wrapper").click();
+        expect("#publisher").not.toHaveClass("closed");
+        $("#publisher").find(".aspect_dropdown button").click();
+        expect("#publisher").not.toHaveClass("closed");
+      });
+
+      it("should not close the publisher when clicking inside on a mobile", function() {
+        // Bootstrap inserts a .dropdown-backdrop next to the dropdown menu
+        // that take the whole page when it detects a mobile.
+        // Clicking on this element should not close the publisher.
+        // See https://github.com/diaspora/diaspora/issues/6979.
+        $("#publisher").find(".aspect_dropdown").append("<div class='dropdown-backdrop'></div>")
+          .css({position: "fixed", left: 0, right: 0, bottom: 0, top: 0, "z-index": 990});
+        expect("#publisher").not.toHaveClass("closed");
+        $("#publisher").find(".aspect_dropdown button").click();
+        expect("#publisher").not.toHaveClass("closed");
+        $("#publisher").find(".dropdown-backdrop").click();
+        expect("#publisher").not.toHaveClass("closed");
+      });
     });
 
     describe("#clear", function() {
