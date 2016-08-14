@@ -7,6 +7,7 @@ class PeopleController < ApplicationController
 
   before_action :authenticate_user!, except: %i(show stream hovercard)
   before_action :find_person, only: %i(show stream hovercard)
+  before_action :authenticate_if_remote_profile!, only: %i(show stream)
 
   respond_to :html
   respond_to :json, :only => [:index, :show]
@@ -163,8 +164,6 @@ class PeopleController < ApplicationController
         })
       end
 
-    # view this profile on the home pod, if you don't want to sign in...
-    authenticate_user! if remote_profile_with_no_user_session?
     raise ActiveRecord::RecordNotFound if @person.nil?
     raise Diaspora::AccountClosed if @person.closed_account?
   end
@@ -189,8 +188,9 @@ class PeopleController < ApplicationController
     !query.try(:match, /^(\w)*@([a-zA-Z0-9]|[-]|[.]|[:])*$/).nil?
   end
 
-  def remote_profile_with_no_user_session?
-    @person.try(:remote?) && !user_signed_in?
+  # view this profile on the home pod, if you don't want to sign in...
+  def authenticate_if_remote_profile!
+    authenticate_user! if @person.try(:remote?)
   end
 
   def mark_corresponding_notifications_read

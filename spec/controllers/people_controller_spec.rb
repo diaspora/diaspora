@@ -462,6 +462,24 @@ describe PeopleController, :type => :controller do
       get :hovercard, person_id: @hover_test.guid, format: "json"
       expect(JSON.parse(response.body)["contact"]).not_to be_falsy
     end
+
+    context "with no user signed in" do
+      before do
+        sign_out :user
+      end
+
+      it "succeeds with local person" do
+        get :hovercard, person_id: bob.person.guid, format: :json
+        expect(response.status).to eq(200)
+        expect(JSON.parse(response.body)["diaspora_id"]).to eq(bob.diaspora_handle)
+      end
+
+      it "succeeds with remote person" do
+        get :hovercard, person_id: remote_raphael.guid, format: :json
+        expect(response.status).to eq(200)
+        expect(JSON.parse(response.body)["diaspora_id"]).to eq(remote_raphael.diaspora_handle)
+      end
+    end
   end
 
   describe '#refresh_search ' do
