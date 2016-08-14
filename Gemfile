@@ -17,7 +17,7 @@ gem "diaspora_federation-rails", "0.1.3"
 
 # API and JSON
 
-gem "acts_as_api", "0.4.2"
+gem "acts_as_api", "0.4.3"
 gem "json",        "1.8.3"
 gem "json-schema", "2.6.2"
 
@@ -42,7 +42,7 @@ gem "sidekiq-cron", "0.4.2"
 
 # Compression
 
-gem "uglifier", "3.0.0"
+gem "uglifier", "3.0.1"
 
 # Configuration
 
@@ -54,10 +54,10 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 
 # CSS
 
-gem "bootstrap-sass", "3.3.6"
+gem "bootstrap-sass", "3.3.7"
 gem "compass-rails",  "2.0.5"
-gem "sass-rails",     "5.0.4"
-gem "autoprefixer-rails", "6.3.6.2"
+gem "sass-rails",     "5.0.6"
+gem "autoprefixer-rails", "6.4.0.2"
 gem "bootstrap-switch-rails", "3.3.3"
 
 # Database
@@ -70,7 +70,7 @@ group :postgresql, optional: true do
 end
 
 
-gem "activerecord-import", "0.13.0"
+gem "activerecord-import", "0.15.0"
 
 # File uploading
 
@@ -89,32 +89,32 @@ gem "entypo-rails", "3.0.0.pre.rc2"
 # JavaScript
 
 gem "backbone-on-rails", "1.2.0.0"
-gem "handlebars_assets", "0.23.0"
+gem "handlebars_assets", "0.23.1"
 gem "jquery-rails",      "4.1.1"
 gem "jquery-ui-rails",   "5.0.5"
 gem "js_image_paths",    "0.1.0"
-gem "js-routes",         "1.2.6"
+gem "js-routes",         "1.2.9"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "2.2.1" # Should be kept in sync with jquery-rails
 
-  gem "rails-assets-markdown-it",                         "6.0.5"
+  gem "rails-assets-markdown-it",                         "7.0.0"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
-  gem "rails-assets-markdown-it-diaspora-mention",        "0.4.0"
+  gem "rails-assets-markdown-it-diaspora-mention",        "1.0.0"
   gem "rails-assets-markdown-it-sanitizer",               "0.4.2"
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "9.4.0"
-  gem "rails-assets-bootstrap-markdown",                  "2.9.0"
+  gem "rails-assets-highlightjs",                         "9.6.0"
+  gem "rails-assets-bootstrap-markdown",                  "2.10.0"
 
   # jQuery plugins
 
   gem "rails-assets-jquery-placeholder",            "2.3.1"
   gem "rails-assets-jquery-textchange",             "0.2.3"
-  gem "rails-assets-perfect-scrollbar",             "0.6.11"
-  gem "rails-assets-autosize",                      "3.0.15"
-  gem "rails-assets-blueimp-gallery",               "2.21.2"
+  gem "rails-assets-perfect-scrollbar",             "0.6.12"
+  gem "rails-assets-autosize",                      "3.0.17"
+  gem "rails-assets-blueimp-gallery",               "2.21.3"
 end
 
 # Localization
@@ -134,21 +134,21 @@ gem "leaflet-rails",       "0.7.7"
 
 gem "nokogiri",          "1.6.8"
 gem "redcarpet",         "3.3.4"
-gem "twitter-text",      "1.13.4"
+gem "twitter-text",      "1.14.0"
 gem "ruby-oembed",       "0.10.1"
 gem "open_graph_reader", "0.6.1"
 
 # Services
 
 gem "omniauth",           "1.3.1"
-gem "omniauth-facebook",  "3.0.0"
+gem "omniauth-facebook",  "4.0.0"
 gem "omniauth-tumblr",    "1.2"
 gem "omniauth-twitter",   "1.2.1"
 gem "twitter",            "5.16.0"
 gem "omniauth-wordpress", "0.2.2"
 
 # OpenID Connect
-gem "openid_connect", "0.11.2"
+gem "openid_connect", "0.12.0"
 
 # Serializers
 
@@ -168,11 +168,11 @@ gem "addressable",        "2.3.8", require: "addressable/uri"
 gem "faraday",            "0.9.2"
 gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"
-gem "typhoeus",           "1.0.2"
+gem "typhoeus",           "1.1.0"
 
 # Views
 
-gem "gon",                     "6.0.1"
+gem "gon",                     "6.1.0"
 gem "hamlit",                  "2.5.0"
 gem "mobile-fu",               "1.3.1"
 gem "will_paginate",           "3.1.0"
@@ -241,7 +241,7 @@ group :development do
 
   # Linters
   gem "rubocop",        "0.40.0"
-  gem "haml_lint",      "0.17.1"
+  gem "haml_lint",      "0.18.1"
   gem "pronto",         "0.7.0"
   gem "pronto-eslint",  "0.7.0"
   gem "pronto-rubocop", "0.7.0"
@@ -250,7 +250,7 @@ group :development do
 
   # Preloading environment
 
-  gem "spring", "1.7.1"
+  gem "spring", "1.7.2"
   gem "spring-commands-rspec", "1.0.4"
   gem "spring-commands-cucumber", "1.0.1"
 
@@ -268,8 +268,8 @@ group :test do
   # RSpec (unit tests, some integration tests)
 
   gem "fixture_builder",   "0.4.1"
-  gem "fuubar",            "2.0.0"
-  gem "test_after_commit", "1.0.0"
+  gem "fuubar",            "2.1.1"
+  gem "test_after_commit", "1.1.0"
 
   # Cucumber (integration tests)
 
