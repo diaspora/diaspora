@@ -412,7 +412,7 @@ GEM
       temple (~> 0.7.6)
       thor
       tilt
-    handlebars_assets (0.23.0)
+    handlebars_assets (0.23.1)
       execjs (~> 2.0)
       multi_json (~> 1.0)
       sprockets (>= 2.0.0)
@@ -952,7 +952,7 @@ DEPENDENCIES
   guard-rubocop (= 1.2.0)
   haml_lint (= 0.18.1)
   hamlit (= 2.5.0)
-  handlebars_assets (= 0.23.0)
+  handlebars_assets (= 0.23.1)
   http_accept_language (= 2.0.5)
   i18n-inflector-rails (= 1.0.7)
   jasmine (= 2.4.0)
