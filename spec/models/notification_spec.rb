@@ -70,14 +70,14 @@ describe Notification, :type => :model do
     end
 
     it "appends the actors to the already existing notification" do
-      notification = Notification.create_notification(alice.id, @sm, @person)
+      notification = Notification.create_notification(alice, @sm, @person)
       expect {
         Notification.concatenate_or_create(alice, @sm, eve.person)
       }.to change(notification.actors, :count).by(1)
     end
 
     it "doesn't append the actor to an existing notification if it is already there" do
-      notification = Notification.create_notification(alice.id, @sm, @person)
+      notification = Notification.create_notification(alice, @sm, @person)
       expect {
         Notification.concatenate_or_create(alice, @sm, @person)
       }.not_to change(notification.actors, :count)

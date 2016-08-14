@@ -197,6 +197,7 @@ The command will report queues that still have jobs and launch sidekiq process f
 * Make screenreaders read alerts [#6973](https://github.com/diaspora/diaspora/pull/6973)
 * Display message when there are no posts in a stream [#6974](https://github.com/diaspora/diaspora/pull/6974)
 * Add bootstrap-markdown editor to the publisher [#6551](https://github.com/diaspora/diaspora/pull/6551)
+* Don't create notifications for ignored users [#6984](https://github.com/diaspora/diaspora/pull/6984)
 
 # 0.5.10.2
 
