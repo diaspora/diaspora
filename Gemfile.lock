@@ -375,7 +375,7 @@ GEM
       terminal-table
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    gon (6.0.1)
+    gon (6.1.0)
       actionpack (>= 3.0)
       json
       multi_json
@@ -945,7 +945,7 @@ DEPENDENCIES
   fixture_builder (= 0.4.1)
   fog (= 1.38.0)
   fuubar (= 2.1.1)
-  gon (= 6.0.1)
+  gon (= 6.1.0)
   guard (= 2.14.0)
   guard-cucumber (= 2.1.2)
   guard-rspec (= 4.7.3)
