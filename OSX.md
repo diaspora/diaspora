@@ -20,7 +20,7 @@ To install MySQL, run the following:
 
 Launch the service so it will start automatically:
 
-    brew services mysql start
+    brew services start mysql
 
 Now mysql is running, and you have a user named root with no password.
 
