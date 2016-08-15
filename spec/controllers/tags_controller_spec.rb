@@ -107,6 +107,18 @@ describe TagsController, :type => :controller do
           get :show, :name => 'foo', :format => :mobile
           expect(response).to be_success
         end
+
+        it "returns the post with the correct age" do
+          post2 = eve.post(
+            :status_message,
+            text:       "#what #yes #hellyes #foo tagged second post",
+            public:     true,
+            created_at: @post.created_at - 1.day
+          )
+          get :show, name: "what", max_time: @post.created_at, format: :json
+          expect(JSON.parse(response.body).size).to be(1)
+          expect(JSON.parse(response.body).first["guid"]).to eq(post2.guid)
+        end
       end
     end
   end
