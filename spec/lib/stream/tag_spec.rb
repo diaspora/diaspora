@@ -80,7 +80,7 @@ describe Stream::Tag do
 
   describe 'shared behaviors' do
     before do
-      @stream = Stream::Tag.new(FactoryGirl.create(:user), "test")
+      @stream = Stream::Tag.new(FactoryGirl.create(:user), FactoryGirl.create(:tag).name)
     end
     it_should_behave_like 'it is a stream'
   end
