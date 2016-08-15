@@ -26,4 +26,10 @@ module Workers
       # don't post to services in cucumber
     end
   end
+
+  class FetchWebfinger < Base
+    def perform(*_args)
+      # don't do real discovery in cucumber
+    end
+  end
 end

@@ -15,9 +15,15 @@ var List = {
       });
 
     streamEl.html(string);
-    $('.aspect_membership_dropdown').each(function(){
-      new app.views.AspectMembership({el: this});
-    });
+
+    if (data.contacts) {
+      var contacts = new app.collections.Contacts(data.contacts);
+      $(".aspect_membership_dropdown.placeholder").each(function() {
+        var personId = $(this).data("personId");
+        var view = new app.views.AspectMembership({person: contacts.findWhere({"person_id": personId}).person});
+        $(this).html(view.render().$el);
+      });
+    }
   },
 
   startSearchDelay: function (theSearch) {

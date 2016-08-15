@@ -26,6 +26,13 @@ Scenario: search for a inexistent user and go to the search page
 
   Then I should see "Users matching Trinity" within "#search_title"
 
+Scenario: search for a user in background
+  When I sign in as "bob@bob.bob"
+  And I search for "user@pod.tld"
+  And a person with ID "user@pod.tld" has been discovered
+  Then I should see "user@pod.tld" within ".stream .info.diaspora_handle"
+  And I should see a ".aspect_dropdown" within ".stream"
+
 Scenario: search for a not searchable user
   When I sign in as "carol@example.com"
   And I go to the edit profile page
