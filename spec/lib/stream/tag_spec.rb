@@ -85,6 +85,25 @@ describe Stream::Tag do
     it_should_behave_like 'it is a stream'
   end
 
+  describe '#stream_posts' do
+    it "returns an empty array if the tag does not exist" do
+      stream = Stream::Tag.new(FactoryGirl.create(:user), "test")
+      expect(stream.stream_posts).to eq([])
+    end
+
+    it "returns an empty array if there are no visible posts for the tag" do
+      alice.post(:status_message, text: "#what", public: false, to: "all")
+      stream = Stream::Tag.new(nil, "what")
+      expect(stream.stream_posts).to eq([])
+    end
+
+    it "returns the post containing the tag" do
+      post = alice.post(:status_message, text: "#what", public: true)
+      stream = Stream::Tag.new(FactoryGirl.create(:user), "what")
+      expect(stream.stream_posts).to eq([post])
+    end
+  end
+
   describe '#tag_name=' do
     it 'downcases the tag' do
       stream = Stream::Tag.new(nil, "WHAT")
