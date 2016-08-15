@@ -80,9 +80,20 @@ STR
       end
 
       it "gets a post with invalid handles" do
-        ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx} @{b; yyy@yyyy.yyy} @{...} @{bla; blubb}")
+        ppl = Diaspora::Mentionable.people_from_string("@{a; xxx @} @{b; yyy@yy**yy} @{...} @{bla; blubb}")
         expect(ppl).to be_empty
       end
+    end
+
+    it "fetches profiles of yet unknown people" do
+      expect(Person).to receive(:find_or_fetch_by_identifier).with("xxx@xxx.xx") {
+        FactoryGirl.create(:person, diaspora_handle: "xxx@xxx.xx")
+      }
+      expect(Person).to receive(:find_or_fetch_by_identifier).with("yyy@yyy.yy") {
+        FactoryGirl.create(:person, diaspora_handle: "yyy@yyy.yy")
+      }
+      ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx} @{b; yyy@yyy.yy}")
+      expect(ppl.count).to eq(2)
     end
   end
 
