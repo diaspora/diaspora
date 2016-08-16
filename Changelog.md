@@ -199,6 +199,7 @@ The command will report queues that still have jobs and launch sidekiq process f
 * Display message when there are no posts in a stream [#6974](https://github.com/diaspora/diaspora/pull/6974)
 * Add bootstrap-markdown editor to the publisher [#6551](https://github.com/diaspora/diaspora/pull/6551)
 * Don't create notifications for ignored users [#6984](https://github.com/diaspora/diaspora/pull/6984)
+* Fetch missing persons when receiving a mention for them [#6992](https://github.com/diaspora/diaspora/pull/6992)
 
 # 0.5.10.2
 

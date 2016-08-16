@@ -70,7 +70,7 @@ STR
   describe "#people_from_string" do
     it "extracts the mentioned people from the text" do
       ppl = Diaspora::Mentionable.people_from_string(@test_txt)
-      expect(ppl).to include(*@people)
+      expect(ppl).to match_array(@people)
     end
 
     describe "returns an empty array if nobody was found" do
@@ -80,7 +80,26 @@ STR
       end
 
       it "gets a post with invalid handles" do
-        ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx} @{b; yyy@yyyy.yyy} @{...} @{bla; blubb}")
+        ppl = Diaspora::Mentionable.people_from_string("@{...} @{bla; blubb}")
+        expect(ppl).to be_empty
+      end
+
+      it "filters duplicate handles" do
+        ppl = Diaspora::Mentionable.people_from_string("@{a; #{alice.diaspora_handle}} @{a; #{alice.diaspora_handle}}")
+        expect(ppl).to eq([alice.person])
+      end
+
+      it "fetches unknown handles" do
+        person = FactoryGirl.build(:person)
+        expect(Person).to receive(:find_or_fetch_by_identifier).with("xxx@xxx.xx").and_return(person)
+        ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx}")
+        expect(ppl).to eq([person])
+      end
+
+      it "handles DiscoveryError" do
+        expect(Person).to receive(:find_or_fetch_by_identifier).with("yyy@yyy.yy")
+          .and_raise(DiasporaFederation::Discovery::DiscoveryError)
+        ppl = Diaspora::Mentionable.people_from_string("@{b; yyy@yyy.yy}")
         expect(ppl).to be_empty
       end
     end

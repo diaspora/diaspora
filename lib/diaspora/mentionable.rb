@@ -46,12 +46,11 @@ module Diaspora::Mentionable
   # @return [Array<Person>] array of people
   def self.people_from_string(msg_text)
     identifiers = msg_text.to_s.scan(REGEX).map do |match_str|
-      _, handle = mention_attrs(match_str.first)
-      handle
+      _, identifier = mention_attrs(match_str.first)
+      identifier if Validation::Rule::DiasporaId.new.valid_value?(identifier)
     end
 
-    return [] if identifiers.empty?
-    Person.where(diaspora_handle: identifiers)
+    identifiers.compact.uniq.map {|identifier| find_or_fetch_person_by_identifier(identifier) }.compact
   end
 
   # takes a message text and converts mentions for people that are not in the
@@ -80,6 +79,12 @@ module Diaspora::Mentionable
   end
 
   private
+
+  private_class_method def self.find_or_fetch_person_by_identifier(identifier)
+    Person.find_or_fetch_by_identifier(identifier)
+  rescue DiasporaFederation::Discovery::DiscoveryError
+    nil
+  end
 
   # inline module for namespacing
   module MentionsInternal
