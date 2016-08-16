@@ -160,15 +160,16 @@ describe StatusMessage, type: :model do
     end
 
     describe "#mentioned_people" do
-      it "calls create_mentions if there are no mentions in the db" do
+      it "does not call create_mentions if there are no mentions in the db" do
         status_message.mentions.delete_all
-        expect(status_message).to receive(:create_mentions)
+        expect(status_message).not_to receive(:create_mentions)
         status_message.mentioned_people
       end
+
       it "returns the mentioned people" do
-        status_message.mentions.delete_all
         expect(status_message.mentioned_people.to_set).to eq(people.to_set)
       end
+
       it "does not call create_mentions if there are mentions in the db" do
         expect(status_message).not_to receive(:create_mentions)
         status_message.mentioned_people
