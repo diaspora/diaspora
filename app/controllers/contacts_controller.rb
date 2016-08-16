@@ -6,19 +6,29 @@ class ContactsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    respond_to do |format|
-
-      # Used for normal requests to contacts#index
-      format.html { set_up_contacts }
-
-      # Used by the mobile site
-      format.mobile { set_up_contacts_mobile }
-
-      # Used for mentions in the publisher
-      format.json {
+    if request[:format] == "json"
+      if params[:q]
         @people = Person.search(params[:q], current_user, only_contacts: true).limit(15)
-        render json: @people
-      }
+        respond_to do |format|
+          format.json { render json: @people }
+        end
+      else
+        aspect_ids = params[:aspect_ids] || current_user.aspects.map(&:id)
+        @people = Person.all_from_aspects(aspect_ids, current_user)
+        if stale? @people
+          respond_to do |format|
+            format.json { render json: @people }
+          end
+        end
+      end
+    else
+      respond_to do |format|
+        # Used for normal requests to contacts#index
+        format.html { set_up_contacts }
+
+        # Used by the mobile site
+        format.mobile { set_up_contacts_mobile }
+      end
     end
   end
 
