@@ -1,4 +1,5 @@
 class PersonPresenter < BasePresenter
+
   def base_hash
     {
       id:          id,
@@ -7,6 +8,7 @@ class PersonPresenter < BasePresenter
       diaspora_id: diaspora_handle
     }
   end
+
 
   def full_hash
     base_hash_with_contact.merge(
@@ -23,6 +25,19 @@ class PersonPresenter < BasePresenter
 
   def hovercard
     base_hash_with_contact.merge(profile: ProfilePresenter.new(profile).for_hovercard)
+  end
+
+  def metas_attributes
+    [
+      { name:     'keywords'             , content: comma_separated_tags },
+      { name:     'description'          , content: description          },
+      { property: 'og:title'             , content: title                },
+      { property: 'og:url'               , content: url                  },
+      { property: 'og:image'             , content: image_url            },
+      { property: 'og:profile:username'  , content: name                 },
+      { property: 'og:profile:first_name', content: first_name           },
+      { property: 'og:profile:last_name' , content: last_name            }
+    ]
   end
 
   protected
@@ -88,4 +103,27 @@ class PersonPresenter < BasePresenter
   def is_blocked?
     current_user_person_block.present?
   end
+
+  def title
+    name
+  end
+
+  def comma_separated_tags
+    profile.tags.collect(&:name).join(', ') if profile.tags
+  end
+
+  def url
+    url_for(@presentable)
+  end
+
+  def image_url
+      return AppConfig.url_to @presentable.image_url if @presentable.image_url[0] == '/'
+      @presentable.image_url
+  end
+
+  def description
+    # display bio if allowed?
+  end
+
+
 end

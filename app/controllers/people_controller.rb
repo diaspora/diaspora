@@ -69,27 +69,26 @@ class PeopleController < ApplicationController
   # renders the persons user profile page
   def show
     mark_corresponding_notifications_read if user_signed_in?
-
-    @person_json = PersonPresenter.new(@person, current_user).as_json
+    @presenter = PersonPresenter.new(@person, current_user)
 
     respond_to do |format|
       format.all do
         if user_signed_in?
           @contact = current_user.contact_for(@person)
         end
-        gon.preloads[:person] = @person_json
+        gon.preloads[:person] = @presenter.as_json
         gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
         gon.preloads[:contacts_count] = Contact.contact_contacts_for(current_user, @person).count(:all)
-        respond_with @person, layout: "with_header"
+        respond_with @presenter, layout: "with_header"
       end
 
       format.mobile do
         @post_type = :all
         person_stream
-        respond_with @person
+        respond_with @presenter
       end
 
-      format.json { render json: @person_json }
+      format.json { render json: @presenter.as_json }
     end
   end
 
