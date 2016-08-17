@@ -265,7 +265,6 @@ describe PeopleController, :type => :controller do
         presenter = PersonPresenter.new(@person)
         methods_properties = {
           comma_separated_tags:    { html_attribute: 'name',     name: 'keywords'              },
-          description:             { html_attribute: 'name',     name: 'description'           },
           url:                     { html_attribute: 'property', name: 'og:url'                },
           title:                   { html_attribute: 'property', name: 'og:title'              },
           image_url:               { html_attribute: 'property', name: 'og:image'              },

@@ -32,6 +32,7 @@ class PersonPresenter < BasePresenter
       og_title: { property: 'og:title', content: title                },
       og_url:   { property: 'og:url'  , content: url                  },
       og_image: { property: 'og:image', content: image_url            },
+      og_type:  { property: 'og:type' , content: 'profile'            },
 
       og_profile_username: { property: 'og:profile:username'  , content: name       },
       og_profile_firstname:{ property: 'og:profile:first_name', content: first_name },

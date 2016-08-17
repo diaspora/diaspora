@@ -13,7 +13,7 @@ class TagPresenter < BasePresenter
       description:    { name:     'description'   ,  content: description },
       og_description: { property: 'og:description',  content: description },
       og_title:       { property: 'og:title'      ,  content: title       },
-      og_url:         { property: 'og:url'        ,  content: url         }
+      og_url:         { property: 'og:url'        ,  content: url         },
     }
   end
 

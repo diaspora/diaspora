@@ -21,21 +21,35 @@ describe MetaDataHelper, :type => :helper do
   end
 
   describe '#metas_tags' do
-    it "returns an empty string if passed an empty hash" do
-      expect(metas_tags([])).to eq("")
+    before do
+      @attributes = {
+        description: {name: "description", content: "i am a test"},
+        og_website:  {property: "og:website", content: "http://www.test2.com"}
+      }
+      default_attributes = {
+        description: {name: "description", content: "default description" },
+        og_url:      {property: "og:url",  content: "http://www.defaulturl.com" }
+      }
+      allow(helper).to receive(:general_metas).and_return(default_attributes)
     end
 
-    it "returns a list of meta tags" do
-      attributes_list = {
-        description: {name: "description", content: "diaspora* is the online social world where you are in control."},
-        og_url:      {property: "og:url", content: "http://www.example.com"},
-      }
-      metas_html = <<-EOF
-<meta name="description" content="diaspora* is the online social world where you are in control." />
-<meta property="og:url" content="http://www.example.com" />
-      EOF
-      metas_html.chop!
-      expect(metas_tags(attributes_list)).to eq(metas_html)
+    it "returns the default meta datas if passed nothing" do
+      metas_html = %{<meta name="description" content="default description" />\n} +
+                   %{<meta property="og:url" content="http://www.defaulturl.com" />}
+      expect(helper.metas_tags).to eq(metas_html)
+    end
+
+    it "combines by default the general meta datas with the passed attributes" do
+      metas_html = %{<meta name="description" content="i am a test" />\n} +
+                   %{<meta property="og:url" content="http://www.defaulturl.com" />\n} +
+                   %{<meta property="og:website" content="http://www.test2.com" />}
+      expect(helper.metas_tags @attributes).to eq(metas_html)
+    end
+
+    it "does not combines the general meta datas with the passed attributes if option is disabled" do
+      default_metas_html = %{<meta name="description" content="default description" />\n} +
+                           %{<meta property="og:url" content="http://www.defaulturl.com" />}
+      expect(helper.metas_tags(@attributes, false)).not_to include(default_metas_html)
     end
   end
 end

@@ -4,14 +4,14 @@
 
 !!!
 %html{lang:  I18n.locale.to_s, dir:  (rtl?) ? 'rtl' : 'ltr'}
-  %head
+  %head{prefix: og_prefix}
     %title
       = page_title yield(:page_title)
 
     %meta{charset:  'utf-8'}/
     %meta{"http-equiv" => "Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{name:  "viewport", content:  "width=device-width, initial-scale=1"}/
-    = yield :meta_data
+    = content_for?(:meta_data) ? yield(:meta_data) : metas_tags
 
     %link{rel:  'shortcut icon', href:  "#{image_path('favicon.png')}" }
 

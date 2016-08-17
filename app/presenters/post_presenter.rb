@@ -15,11 +15,12 @@ class PostPresenter < BasePresenter
 
   def metas_attributes
     {
-      keywords:    { name:     'keywords',    content: comma_separated_tags },
-      description: { name:     'description', content: description          },
-      og_url:      { property: 'og:url',      content: url                  },
-      og_title:    { property: 'og:title',    content: title                },
-      og_image:    { property: 'og:image',    content: images               },
+      keywords:       { name:     'keywords',       content: comma_separated_tags },
+      description:    { name:     'description',    content: description          },
+      og_url:         { property: 'og:url',         content: url                  },
+      og_title:       { property: 'og:title',       content: title                },
+      og_image:       { property: 'og:image',       content: images               },
+      og_description: { property: 'og:description', content: description          },
 
       og_article_published_time: { property: 'og:article:published_time', content: published_time_iso8601 },
       og_article_modified_time:  { property: 'og:article:modified_time',  content: modified_time_iso8601  },
