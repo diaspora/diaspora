@@ -37,9 +37,10 @@ class TagsController < ApplicationController
     if user_signed_in?
       gon.preloads[:tagFollowings] = tags
     end
-    @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
+    stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
+    @stream = TagPresenter.new(stream)
     respond_with do |format|
-      format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
+      format.json { render :json => stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end
 
