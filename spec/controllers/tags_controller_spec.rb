@@ -120,6 +120,15 @@ describe TagsController, :type => :controller do
           expect(JSON.parse(response.body).first["guid"]).to eq(post2.guid)
         end
       end
+
+      it "includes the correct meta tags" do
+        get :show, :name => 'yes'
+        expect(response.body).to include('<meta name="keywords" content="yes" />')
+        expect(response.body).to include(%{<meta property="og:url" content="#{tag_url 'yes', host: AppConfig.pod_uri.host, port: AppConfig.pod_uri.port}" />})
+        expect(response.body).to include(%{<meta property="og:title" content="#yes" />})
+        expect(response.body).to include(%{<meta name="description" content="#{I18n.t('streams.tags.title', {'tags': 'yes'})}" />})
+        expect(response.body).to include(%{<meta property="og:description" content="#{I18n.t('streams.tags.title', {'tags': 'yes'})}" />})
+      end
     end
   end
 

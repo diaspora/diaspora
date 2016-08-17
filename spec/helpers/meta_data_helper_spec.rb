@@ -11,6 +11,13 @@ describe MetaDataHelper, :type => :helper do
       attributes = {name: "test", content: "foo"}
       expect(meta_tag attributes).to eq('<meta name="test" content="foo" />')
     end
+
+    it "returns a list of the same meta type if the value for :content in the passed attribute is an array" do
+      attribute = {property: "og:tag", content: ['tag_1', 'tag_2']}
+      expect(meta_tag attribute).to eq(
+        "<meta property=\"og:tag\" content=\"tag_1\" />\n" +
+        "<meta property=\"og:tag\" content=\"tag_2\" />")
+    end
   end
 
   describe '#metas_tags' do
