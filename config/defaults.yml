@@ -144,6 +144,9 @@ defaults:
         limit_removals_to_per_day: 100
     source_url:
     default_color_theme: "original"
+    default_metas:
+      title: 'diaspora* social network'
+      description: 'diaspora* is the online social world where you are in control.'
   services:
     facebook:
       enable: false

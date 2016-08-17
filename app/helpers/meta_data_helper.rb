@@ -14,8 +14,22 @@ module MetaDataHelper
     AppConfig.settings.pod_name
   end
 
+  def default_description
+    AppConfig.settings.default_metas.description
+  end
+
   def default_title
-    AppConfig.settings.pod_name
+    AppConfig.settings.default_metas.title
+  end
+
+  def general_metas
+    {
+      description:    { name:     'description'  , content: default_description },
+      og_description: { property: 'description'  , content: default_description },
+      og_title:       { property: 'og:title'     , content: default_title       },
+      og_website:     { property: 'og:url'       , content: site_url            },
+      og_image:       { property: 'og:image'     , content: default_image_url   },
+    }
   end
 
   def metas_tags(attributes_list)
