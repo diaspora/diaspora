@@ -27,6 +27,7 @@ describe MetaDataHelper, :type => :helper do
 <meta name="description" content="diaspora* is the online social world where you are in control." />
 <meta property="og:url" content="http://www.example.com" />
       EOF
+      metas_html.chop!
       expect(metas_tags(attributes_list)).to eq(metas_html)
     end
   end
