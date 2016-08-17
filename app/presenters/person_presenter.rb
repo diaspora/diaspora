@@ -122,7 +122,7 @@ class PersonPresenter < BasePresenter
   end
 
   def description
-    # display bio if allowed?
+    "" # FIXME: display bio if allowed?
   end
 
 

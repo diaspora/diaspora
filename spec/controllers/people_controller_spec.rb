@@ -169,7 +169,7 @@ describe PeopleController, :type => :controller do
     it "returns a person presenter" do
       expect(PersonPresenter).to receive(:new).with(@person, @user).and_return(@presenter)
       get :show, username: @person.username
-      expect(assigns(:presenter).person).to eq(@presenter.person)
+      expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
     it 'finds a person via username' do
@@ -230,11 +230,6 @@ describe PeopleController, :type => :controller do
         get :show, :id => @person.to_param
         expect(assigns(:presenter).id).to eq(@presenter.id)
       end
-
-      it 'contains the right metas' do
-        get :show, username: @person.diaspora_handle
-        expect(response.body).to include(@person.profile.bio)
-      end
     end
 
     context "with no user signed in" do
@@ -264,6 +259,26 @@ describe PeopleController, :type => :controller do
       it "leaks no private profile info" do
         get :show, id: @person.to_param
         expect(response.body).not_to include(@person.profile.bio)
+      end
+
+      it "includes the correct meta tags" do
+        presenter = PersonPresenter.new(@person)
+        methods_properties = {
+          comma_separated_tags:    { html_attribute: 'name',     name: 'keywords'              },
+          description:             { html_attribute: 'name',     name: 'description'           },
+          url:                     { html_attribute: 'property', name: 'og:url'                },
+          title:                   { html_attribute: 'property', name: 'og:title'              },
+          image_url:               { html_attribute: 'property', name: 'og:image'              },
+          first_name:              { html_attribute: 'property', name: 'og:profile:first_name' },
+          last_name:               { html_attribute: 'property', name: 'og:profile:last_name'  },
+        }
+
+        get :show, id: @person.to_param
+
+        methods_properties.each do |method,property|
+          value = presenter.send(method)
+          expect(response.body).to include(%{<meta #{property[:html_attribute]}="#{property[:name]}" content="#{value}" />})
+        end
       end
     end
 
