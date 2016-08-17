@@ -14,8 +14,12 @@ module MetaDataHelper
     AppConfig.settings.pod_name
   end
 
+  def default_title
+    AppConfig.settings.pod_name
+  end
+
   def metas_tags(attributes_list)
-    attributes_list.map {|attributes| meta_tag attributes}.join("\n")
+    attributes_list.map {|name,attributes| meta_tag attributes}.join("\n")
   end
 
   def meta_tag(attributes)

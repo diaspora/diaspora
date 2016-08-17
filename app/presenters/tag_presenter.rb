@@ -8,13 +8,13 @@ class TagPresenter < BasePresenter
   end
 
   def metas_attributes
-    [
-      { name:     'keywords'      ,  content: tag_name    },
-      { name:     'description'   ,  content: description },
-      { property: 'og:description',  content: description },
-      { property: 'og:title'      ,  content: title       },
-      { property: 'og:url'        ,  content: url         }
-    ]
+    {
+      keywords:       { name:     'keywords'      ,  content: tag_name    },
+      description:    { name:     'description'   ,  content: description },
+      og_description: { property: 'og:description',  content: description },
+      og_title:       { property: 'og:title'      ,  content: title       },
+      og_url:         { property: 'og:url'        ,  content: url         }
+    }
   end
 
   private

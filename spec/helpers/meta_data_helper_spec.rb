@@ -21,15 +21,15 @@ describe MetaDataHelper, :type => :helper do
   end
 
   describe '#metas_tags' do
-    it "returns an empty string if passed an empty array" do
+    it "returns an empty string if passed an empty hash" do
       expect(metas_tags([])).to eq("")
     end
 
     it "returns a list of meta tags" do
-      attributes_list = [
-        {name: "description", content: "diaspora* is the online social world where you are in control."},
-        {property: "og:url", content: "http://www.example.com"},
-      ]
+      attributes_list = {
+        description: {name: "description", content: "diaspora* is the online social world where you are in control."},
+        og_url:      {property: "og:url", content: "http://www.example.com"},
+      }
       metas_html = <<-EOF
 <meta name="description" content="diaspora* is the online social world where you are in control." />
 <meta property="og:url" content="http://www.example.com" />

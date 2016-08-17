@@ -27,15 +27,16 @@ class PersonPresenter < BasePresenter
   end
 
   def metas_attributes
-    [
-      { name:     'keywords'             , content: comma_separated_tags },
-      { property: 'og:title'             , content: title                },
-      { property: 'og:url'               , content: url                  },
-      { property: 'og:image'             , content: image_url            },
-      { property: 'og:profile:username'  , content: name                 },
-      { property: 'og:profile:first_name', content: first_name           },
-      { property: 'og:profile:last_name' , content: last_name            }
-    ]
+    {
+      keywords: { name:     'keywords', content: comma_separated_tags },
+      og_title: { property: 'og:title', content: title                },
+      og_url:   { property: 'og:url'  , content: url                  },
+      og_image: { property: 'og:image', content: image_url            },
+
+      og_profile_username: { property: 'og:profile:username'  , content: name       },
+      og_profile_firstname:{ property: 'og:profile:first_name', content: first_name },
+      og_profile_lastname: { property: 'og:profile:last_name' , content: last_name  }
+    }
   end
 
   protected

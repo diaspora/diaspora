@@ -14,17 +14,18 @@ class PostPresenter < BasePresenter
   end
 
   def metas_attributes
-    [
-      { name:     'keywords',                  content: comma_separated_tags   },
-      { name:     'description',               content: description            },
-      { property: 'og:url',                    content: url                    },
-      { property: 'og:title',                  content: title                  },
-      { property: 'og:image',                  content: images                 },
-      { property: 'og:article:published_time', content: published_time_iso8601 },
-      { property: 'og:article:modified_time',  content: modified_time_iso8601  },
-      { property: 'og:article:author',         content: author_name            },
-      { property: 'og:article:tag',            content: tags                   }
-    ]
+    {
+      keywords:    { name:     'keywords',    content: comma_separated_tags },
+      description: { name:     'description', content: description          },
+      og_url:      { property: 'og:url',      content: url                  },
+      og_title:    { property: 'og:title',    content: title                },
+      og_image:    { property: 'og:image',    content: images               },
+
+      og_article_published_time: { property: 'og:article:published_time', content: published_time_iso8601 },
+      og_article_modified_time:  { property: 'og:article:modified_time',  content: modified_time_iso8601  },
+      og_article_author:         { property: 'og:article:author',         content: author_name            },
+      og_article_tag:            { property: 'og:article:tag',            content: tags                   }
+    }
   end
 
   def page_title
