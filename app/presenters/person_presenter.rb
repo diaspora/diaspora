@@ -9,7 +9,6 @@ class PersonPresenter < BasePresenter
     }
   end
 
-
   def full_hash
     base_hash_with_contact.merge(
       relationship:      relationship,
@@ -30,7 +29,6 @@ class PersonPresenter < BasePresenter
   def metas_attributes
     [
       { name:     'keywords'             , content: comma_separated_tags },
-      { name:     'description'          , content: description          },
       { property: 'og:title'             , content: title                },
       { property: 'og:url'               , content: url                  },
       { property: 'og:image'             , content: image_url            },
@@ -120,10 +118,4 @@ class PersonPresenter < BasePresenter
       return AppConfig.url_to @presentable.image_url if @presentable.image_url[0] == '/'
       @presentable.image_url
   end
-
-  def description
-    "" # FIXME: display bio if allowed?
-  end
-
-
 end

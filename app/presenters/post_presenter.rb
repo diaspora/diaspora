@@ -27,8 +27,6 @@ class PostPresenter < BasePresenter
     ]
   end
 
-  # FIXME : extract post_page_title from PostHelper
-  # FIXME : for posts w/ no message, title in as_json is different from content in <title>
   def page_title
     post_page_title @post
   end
