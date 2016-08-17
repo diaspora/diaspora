@@ -1,15 +1,36 @@
 class PostPresenter < BasePresenter
   include PostsHelper
+  include MetaDataHelper
 
   attr_accessor :post
 
-  def initialize(post, current_user=nil)
-    @post = post
-    @current_user = current_user
+  def initialize(presentable, current_user=nil)
+    @post = presentable
+    super
   end
 
   def as_json(_options={})
     @post.as_json(only: directly_retrieved_attributes).merge(non_directly_retrieved_attributes)
+  end
+
+  def metas_attributes
+    [
+      { name:     'keywords',                  content: comma_separated_tags   },
+      { name:     'description',               content: description            },
+      { property: 'og:url',                    content: url                    },
+      { property: 'og:title',                  content: title                  },
+      { property: 'og:image',                  content: images                 },
+      { property: 'og:article:published_time', content: published_time_iso8601 },
+      { property: 'og:article:modified_time',  content: modified_time_iso8601  },
+      { property: 'og:article:author',         content: author_name            },
+      { property: 'og:article:tag',            content: tags                   }
+    ]
+  end
+
+  # FIXME : extract post_page_title from PostHelper
+  # FIXME : for posts w/ no message, title in as_json is different from content in <title>
+  def page_title
+    post_page_title @post
   end
 
   private
@@ -38,6 +59,10 @@ class PostPresenter < BasePresenter
     }
   end
 
+  def title
+    @post.message.present? ? @post.message.title : I18n.t("posts.presenter.title", name: @post.author_name)
+  end
+
   def build_text
     if @post.message
       @post.message.plain_text_for_json
@@ -56,10 +81,6 @@ class PostPresenter < BasePresenter
 
   def build_photos_json
     @post.photos.map {|p| p.as_api_response(:backbone) }
-  end
-
-  def title
-    @post.message.present? ? @post.message.title : I18n.t("posts.presenter.title", name: @post.author_name)
   end
 
   def root
@@ -102,5 +123,36 @@ class PostPresenter < BasePresenter
 
   def person
     current_user.person
+  end
+
+  def images
+    photos.any? ? photos.collect(&:url) : default_image_url
+  end
+
+
+  def published_time_iso8601
+    created_at.to_time.iso8601
+  end
+
+  def modified_time_iso8601
+    updated_at.to_time.iso8601
+  end
+
+  def tags
+    tags = @post.is_a?(Reshare) ? @post.root.tags: @post.tags
+    return tags.collect(&:name) if tags
+    []
+  end
+
+  def comma_separated_tags
+    tags.join(', ')
+  end
+
+  def url
+    post_url @post
+  end
+
+  def description
+    message.plain_text_without_markdown(truncate:  1000)
   end
 end

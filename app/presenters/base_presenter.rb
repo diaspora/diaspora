@@ -1,5 +1,6 @@
 class BasePresenter
   attr_reader :current_user
+  include Rails.application.routes.url_helpers
 
   class << self
     def new(*args)
@@ -19,6 +20,10 @@ class BasePresenter
 
   def method_missing(method, *args)
     @presentable.public_send(method, *args)
+  end
+
+  def default_url_options
+    { host: AppConfig.pod_uri.host, port: AppConfig.pod_uri.port }
   end
 
   class NilPresenter

@@ -4,7 +4,7 @@
 
 !!!
 %html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
-  %head{:prefix => og_prefix}
+  %head
     %title
       = pod_name
 
@@ -30,8 +30,7 @@
     / NOTE(we will enable these once we don't have to rely on back/forward buttons anymore)
     /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
-
-    = render 'layouts/open_graph'
+    = yield :meta_data
 
     = chartbeat_head_block
 
