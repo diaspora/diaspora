@@ -135,5 +135,16 @@ describe Reshare, type: :model do
 
       expect(reshare.subscribers).to match_array([alice.person, eve.person, user.person])
     end
+
+    it "does not add the root author if the root post was deleted" do
+      user = FactoryGirl.create(:user_with_aspect)
+      user.share_with(alice.person, user.aspects.first)
+
+      post = eve.post(:status_message, text: "hello", public: true)
+      reshare = FactoryGirl.create(:reshare, root: post, author: user.person)
+      post.destroy
+
+      expect(reshare.reload.subscribers).to match_array([alice.person, user.person])
+    end
   end
 end
