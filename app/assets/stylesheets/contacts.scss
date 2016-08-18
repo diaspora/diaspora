@@ -10,8 +10,13 @@
       margin-bottom: 11px;
       margin-top: 11px;
     }
+  }
 
-    .aspect-controls { margin: 7px -10px 7px 0; }
+  .stream.contacts .aspect-controls {
+    margin-bottom: 7px;
+    margin-left: 30px;
+    margin-right: -10px;
+    margin-top: 7px;
   }
 }
 
@@ -23,7 +28,7 @@
         display: none;
       }
       #contact_list_search {
-        margin: 11px 30px 0 0;
+        margin: 11px 0 0;
         width: 150px;
         &:focus { width: 250px; }
       }

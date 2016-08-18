@@ -29,6 +29,10 @@
               .btn.btn-link{ 'data-toggle' => 'modal' }
                 = t('invitations.new.invite_someone_to_join')
 
+      #paginate
+        %span.loader.hidden
+          .spinner
+
 -if @aspect
   #new_conversation_pane
     = render 'shared/modal',
