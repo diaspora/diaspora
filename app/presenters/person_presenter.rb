@@ -27,11 +27,13 @@ class PersonPresenter < BasePresenter
 
   def metas_attributes
     {
-      keywords:             {name:     "keywords", content: comma_separated_tags},
-      og_title:             {property: "og:title", content: title},
-      og_url:               {property: "og:url",   content: url},
-      og_image:             {property: "og:image", content: image_url},
-      og_type:              {property: "og:type",  content: "profile"},
+      keywords:             {name:     "keywords",    content: comma_separated_tags},
+      description:          {name:     "description", content: description},
+      og_title:             {property: "og:title",    content: title},
+      og_description:       {property: "og:title",    content: description},
+      og_url:               {property: "og:url",      content: url},
+      og_image:             {property: "og:image",    content: image_url},
+      og_type:              {property: "og:type",     content: "profile"},
       og_profile_username:  {property: "og:profile:username",   content: name},
       og_profile_firstname: {property: "og:profile:first_name", content: first_name},
       og_profile_lastname:  {property: "og:profile:last_name",  content: last_name}
@@ -112,6 +114,10 @@ class PersonPresenter < BasePresenter
 
   def url
     url_for(@presentable)
+  end
+
+  def description
+    public_details? ? bio : ""
   end
 
   def image_url
