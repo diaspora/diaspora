@@ -93,6 +93,11 @@ describe('app.Router', function () {
       app.router.navigate("/getting_started", {trigger: true});
       expect(app.page.$el.selector).toEqual("#hello-there");
     });
+
+    it("renders app.pages.GettingStarted when the URL has a trailing slash", function() {
+      app.router.navigate("/getting_started/", {trigger: true});
+      expect(app.page.$el.selector).toEqual("#hello-there");
+    });
   });
 
   describe("_initializeStreamView", function() {
