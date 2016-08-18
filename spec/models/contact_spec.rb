@@ -85,10 +85,15 @@ describe Contact, type: :model do
       it "returns contacts with sharing true" do
         expect {
           alice.contacts.create!(sharing: true, person: FactoryGirl.create(:person))
-          alice.contacts.create!(sharing: false, person: FactoryGirl.create(:person))
         }.to change {
           Contact.sharing.count
         }.by(1)
+
+        expect {
+          alice.contacts.create!(sharing: false, person: FactoryGirl.create(:person))
+        }.to change {
+          Contact.sharing.count
+        }.by(0)
       end
     end
 
@@ -96,23 +101,50 @@ describe Contact, type: :model do
       it "returns contacts with sharing true" do
         expect {
           alice.contacts.create!(receiving: true, person: FactoryGirl.build(:person))
-          alice.contacts.create!(receiving: false, person: FactoryGirl.build(:person))
         }.to change {
           Contact.receiving.count
         }.by(1)
+
+        expect {
+          alice.contacts.create!(receiving: false, person: FactoryGirl.build(:person))
+        }.to change {
+          Contact.receiving.count
+        }.by(0)
+      end
+    end
+
+    describe "mutual" do
+      it "returns contacts with sharing true and receiving true" do
+        expect {
+          alice.contacts.create!(receiving: true, sharing: true, person: FactoryGirl.build(:person))
+        }.to change {
+          Contact.mutual.count
+        }.by(1)
+
+        expect {
+          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: true, sharing: false, person: FactoryGirl.build(:person))
+        }.to change {
+          Contact.mutual.count
+        }.by(0)
       end
     end
 
     describe "only_sharing" do
       it "returns contacts with sharing true and receiving false" do
         expect {
+          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
+          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
+        }.to change {
+          Contact.only_sharing.count
+        }.by(2)
+
+        expect {
           alice.contacts.create!(receiving: true, sharing: true, person: FactoryGirl.build(:person))
-          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
-          alice.contacts.create!(receiving: false, sharing: true, person: FactoryGirl.build(:person))
           alice.contacts.create!(receiving: true, sharing: false, person: FactoryGirl.build(:person))
         }.to change {
-          Contact.receiving.count
-        }.by(2)
+          Contact.only_sharing.count
+        }.by(0)
       end
     end
 

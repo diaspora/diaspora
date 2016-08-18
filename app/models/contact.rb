@@ -33,6 +33,8 @@ class Contact < ActiveRecord::Base
   # contact.receiving is true when contact.user is sharing with contact.person
   scope :receiving, -> { where(receiving: true) }
 
+  scope :mutual, -> { sharing.receiving }
+
   scope :for_a_stream, -> { includes(:aspects, person: :profile).order("profiles.last_name ASC") }
 
   scope :only_sharing, -> { sharing.where(receiving: false) }
