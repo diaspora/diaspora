@@ -70,7 +70,7 @@ class Reshare < Post
   end
 
   def subscribers
-    super + [root.author]
+    super.tap {|people| root.try {|root| people << root.author } }
   end
 
   private
