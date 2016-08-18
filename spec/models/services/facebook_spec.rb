@@ -16,14 +16,6 @@ describe Services::Facebook, :type => :model do
       @service.post(@post)
     end
 
-    it 'swallows exception raised by facebook always being down' do
-      skip "temporarily disabled to figure out while some requests are failing"
-
-      stub_request(:post,"https://graph.facebook.com/me/feed").
-        to_raise(StandardError)
-      @service.post(@post)
-    end
-
     it 'removes text formatting markdown from post text' do
       message = double(urls: [])
       expect(message).to receive(:plain_text_without_markdown).and_return("")
