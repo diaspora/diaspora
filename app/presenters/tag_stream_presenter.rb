@@ -1,8 +1,4 @@
-#   Copyright (c) 2016, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
-
-class StreamTagPresenter < BasePresenter
+class TagStreamPresenter < BasePresenter
   def title
     @presentable.display_tag_name
   end
