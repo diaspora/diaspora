@@ -11,9 +11,9 @@ class StreamTagPresenter < BasePresenter
     {
       keywords:       {name:     "keywords",       content: tag_name},
       description:    {name:     "description",    content: description},
-      og_description: {property: "og:description", content: description},
+      og_url:         {property: "og:url",         content: url},
       og_title:       {property: "og:title",       content: title},
-      og_url:         {property: "og:url",         content: url}
+      og_description: {property: "og:description", content: description}
     }
   end
 

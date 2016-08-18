@@ -15,7 +15,7 @@ describe MetaDataHelper, type: :helper do
       attributes = {property: "og:tag", content: %w(tag_1 tag_2)}
       expect(meta_tag(attributes)).to eq(
         %(<meta property="og:tag" content="tag_1" />\n) +
-        %(<meta property="og:tag" content="tag_2" />\n)
+        %(<meta property="og:tag" content="tag_2" />)
       )
     end
   end

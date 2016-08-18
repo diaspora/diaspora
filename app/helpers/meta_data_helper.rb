@@ -28,12 +28,12 @@ module MetaDataHelper
 
   def general_metas
     {
-      description:    {name: "description", content: default_description},
-      og_description: {property: "description", content: default_description},
+      description:    {name:     "description",  content: default_description},
+      og_description: {property: "description",  content: default_description},
       og_site_name:   {property: "og:site_name", content: default_title},
-      og_url:         {property: "og:url", content: site_url},
-      og_image:       {property: "og:image", content: default_image_url},
-      og_type:        {property: "og:type", content: "website"}
+      og_url:         {property: "og:url",       content: site_url},
+      og_image:       {property: "og:image",     content: default_image_url},
+      og_type:        {property: "og:type",      content: "website"}
     }
   end
 
@@ -42,15 +42,12 @@ module MetaDataHelper
     attributes_list.map {|_, attributes| meta_tag attributes }.join("\n").html_safe
   end
 
+  # recursively calls itself if attribute[:content] is an array
+  # (metas such as og:image or og:tag can be present multiple times with different values)
   def meta_tag(attributes)
     return "" if attributes.empty?
     return tag(:meta, attributes) unless attributes[:content].respond_to?(:to_ary)
-
-    # recursively calls meta_tag if attribute[:content] is an array
-    # (metas such as og:image can be present multiple times with different values)
     items = attributes.delete(:content)
-    items.inject("") do |string, item|
-      string + meta_tag(attributes.merge(content: item)) + "\n"
-    end
+    items.map {|item| meta_tag(attributes.merge(content: item)) }.join("\n")
   end
 end
