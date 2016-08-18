@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class TagPresenter < BasePresenter
+class StreamTagPresenter < BasePresenter
   def title
     @presentable.display_tag_name
   end

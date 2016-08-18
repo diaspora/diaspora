@@ -131,13 +131,13 @@ describe TagsController, :type => :controller do
           %(<meta property="og:url" content="#{tag_url}" />)
         )
         expect(response.body).to include(
-          '<meta property="og:url" content="yes" />'
+          '<meta property="og:title" content="#yes" />'
         )
         expect(response.body).to include(
           %(<meta name="description" content="#{I18n.t('streams.tags.title', tags: 'yes')}" />)
         )
         expect(response.body).to include(
-          %(<meta property="og:description" content=\"#{I18n.t('streams.tags.title', tags: 'yes')}" />")
+          %(<meta property="og:description" content=\"#{I18n.t('streams.tags.title', tags: 'yes')}" />)
         )
       end
     end

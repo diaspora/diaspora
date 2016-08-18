@@ -38,7 +38,7 @@ class TagsController < ApplicationController
       gon.preloads[:tagFollowings] = tags
     end
     stream = Stream::Tag.new(current_user, params[:name], max_time: max_time, page: params[:page])
-    @stream = TagPresenter.new(stream)
+    @stream = StreamTagPresenter.new(stream)
     respond_with do |format|
       format.json do
         posts = stream.stream_posts.map do |p|

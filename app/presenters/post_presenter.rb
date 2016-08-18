@@ -22,8 +22,7 @@ class PostPresenter < BasePresenter
       og_title:       {property: "og:title",       content: title},
       og_image:       {property: "og:image",       content: images},
       og_description: {property: "og:description", content: description},
-      og_article_tag:
-        {property: "og:article:tag", content: tags},
+      og_article_tag: {property: "og:article:tag", content: tags},
       og_article_author:
         {property: "og:article:author", content: author_name},
       og_article_modified:
