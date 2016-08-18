@@ -23,10 +23,13 @@ describe ConversationsController, :type => :controller do
     end
 
     it "assigns a json list of contacts that are sharing with the person" do
+      sharing_user = FactoryGirl.create(:user_with_aspect)
+      sharing_user.share_with(alice.person, sharing_user.aspects.first)
       get :new, :modal => true
-      expect(assigns(:contacts_json)).to include(alice.contacts.where(:sharing => true).first.person.name)
+      expect(assigns(:contacts_json)).to include(alice.contacts.where(sharing: true, receiving: true).first.person.name)
       alice.contacts << Contact.new(:person_id => eve.person.id, :user_id => alice.id, :sharing => false, :receiving => true)
-      expect(assigns(:contacts_json)).not_to include(alice.contacts.where(:sharing => false).first.person.name)
+      expect(assigns(:contacts_json)).not_to include(alice.contacts.where(sharing: false).first.person.name)
+      expect(assigns(:contacts_json)).not_to include(alice.contacts.where(receiving: false).first.person.name)
     end
 
     it "assigns a contact if passed a contact id" do

@@ -167,6 +167,7 @@ The command will report queues that still have jobs and launch sidekiq process f
 * Add aspects to the aspect membership dropdown when creating them on the getting started page [#6864](https://github.com/diaspora/diaspora/pull/6864)
 * Strip markdown from message preview in conversations list [#6923](https://github.com/diaspora/diaspora/pull/6923)
 * Improve tag stream performance [#6903](https://github.com/diaspora/diaspora/pull/6903)
+* Only show mutual contacts in conversations auto suggestions [#7001](https://github.com/diaspora/diaspora/pull/7001)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
