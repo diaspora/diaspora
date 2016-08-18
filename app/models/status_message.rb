@@ -58,7 +58,6 @@ class StatusMessage < Post
 
   def mentioned_people
     if self.persisted?
-      create_mentions if self.mentions.empty?
       self.mentions.includes(:person => :profile).map{ |mention| mention.person }
     else
       Diaspora::Mentionable.people_from_string(text)
