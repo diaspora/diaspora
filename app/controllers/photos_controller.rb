@@ -20,13 +20,14 @@ class PhotosController < ApplicationController
     @post_type = :photos
     @person = Person.find_by_guid(params[:person_id])
     authenticate_user! if @person.try(:remote?) && !user_signed_in?
+    @presenter = PersonPresenter.new(@person, current_user)
 
     if @person
       @contact = current_user.contact_for(@person) if user_signed_in?
       @posts = Photo.visible(current_user, @person, :all, max_time)
       respond_to do |format|
         format.all do
-          gon.preloads[:person] = PersonPresenter.new(@person, current_user).as_json
+          gon.preloads[:person] = @presenter.as_json
           gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
           gon.preloads[:contacts_count] = Contact.contact_contacts_for(current_user, @person).count(:all)
           render "people/show", layout: "with_header"

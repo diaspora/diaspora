@@ -4,19 +4,16 @@
 
 !!!
 %html{lang:  I18n.locale.to_s, dir:  (rtl?) ? 'rtl' : 'ltr'}
-  %head{prefix:  og_prefix}
+  %head{prefix: og_prefix}
     %title
       = page_title yield(:page_title)
 
     %meta{charset:  'utf-8'}/
     %meta{"http-equiv" => "Content-Type", :content=>"text/html; charset=utf-8"}/
-    %meta{name:  "description", content:  "diaspora*"}/
-    %meta{name:  "author", content:  "diaspora* contributors"}/
     %meta{name:  "viewport", content:  "width=device-width, initial-scale=1"}/
+    = content_for?(:meta_data) ? yield(:meta_data) : metas_tags
 
     %link{rel:  'shortcut icon', href:  "#{image_path('favicon.png')}" }
-
-    = render 'layouts/open_graph'
 
     = chartbeat_head_block
     = include_mixpanel

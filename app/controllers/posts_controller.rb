@@ -19,14 +19,15 @@ class PostsController < ApplicationController
   def show
     post = post_service.find!(params[:id])
     post_service.mark_user_notifications(post.id)
+    presenter = PostPresenter.new(post, current_user)
     respond_to do |format|
-      format.html {
-        gon.post = PostPresenter.new(post, current_user)
-        render locals: {post: post}
-      }
+      format.html do
+        gon.post = presenter
+        render locals: {post: presenter}
+      end
       format.mobile { render locals: {post: post} }
       format.xml { render xml: DiasporaFederation::Salmon::XmlPayload.pack(Diaspora::Federation::Entities.post(post)) }
-      format.json { render json: PostPresenter.new(post, current_user) }
+      format.json { render json: presenter }
     end
   end
 

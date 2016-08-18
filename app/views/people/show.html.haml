@@ -3,7 +3,10 @@
 -#   the COPYRIGHT file.
 
 - content_for :page_title do
-  = @person.name
+  = @presenter.name
+
+- content_for :meta_data do
+  = metas_tags @presenter.metas_attributes
 
 .container-fluid#profile_container
   .row

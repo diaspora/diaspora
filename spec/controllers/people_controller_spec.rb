@@ -146,6 +146,11 @@ describe PeopleController, :type => :controller do
   end
 
   describe '#show' do
+    before do
+      @person = FactoryGirl.create(:user).person
+      @presenter = PersonPresenter.new(@person, @user)
+    end
+
     it "404s if the id is invalid" do
       get :show, :id => 'delicious'
       expect(response.code).to eq("404")
@@ -161,9 +166,15 @@ describe PeopleController, :type => :controller do
       expect(response.code).to eq("404")
     end
 
+    it "returns a person presenter" do
+      expect(PersonPresenter).to receive(:new).with(@person, @user).and_return(@presenter)
+      get :show, username: @person.username
+      expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
+    end
+
     it 'finds a person via username' do
-      get :show, username: @user.username
-      expect(assigns(:person)).to eq(@user.person)
+      get :show, username: @person.username
+      expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
     it "404s if no person is found via diaspora handle" do
@@ -172,8 +183,8 @@ describe PeopleController, :type => :controller do
     end
 
     it 'finds a person via diaspora handle' do
-      get :show, username: @user.diaspora_handle
-      expect(assigns(:person)).to eq(@user.person)
+      get :show, username: @person.diaspora_handle
+      expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
     it 'redirects home for closed account' do
@@ -216,8 +227,8 @@ describe PeopleController, :type => :controller do
       end
 
       it "assigns the right person" do
-        get :show, :id => @user.person.to_param
-        expect(assigns(:person)).to eq(@user.person)
+        get :show, id: @person.to_param
+        expect(assigns(:presenter).id).to eq(@presenter.id)
       end
     end
 
@@ -248,6 +259,27 @@ describe PeopleController, :type => :controller do
       it "leaks no private profile info" do
         get :show, id: @person.to_param
         expect(response.body).not_to include(@person.profile.bio)
+      end
+
+      it "includes the correct meta tags" do
+        presenter = PersonPresenter.new(@person)
+        methods_properties = {
+          comma_separated_tags: {html_attribute: "name",     name: "keywords"},
+          url:                  {html_attribute: "property", name: "og:url"},
+          title:                {html_attribute: "property", name: "og:title"},
+          image_url:            {html_attribute: "property", name: "og:image"},
+          first_name:           {html_attribute: "property", name: "og:profile:first_name"},
+          last_name:            {html_attribute: "property", name: "og:profile:last_name"}
+        }
+
+        get :show, id: @person.to_param
+
+        methods_properties.each do |method, property|
+          value = presenter.send(method)
+          expect(response.body).to include(
+            "<meta #{property[:html_attribute]}=\"#{property[:name]}\" content=\"#{value}\" />"
+          )
+        end
       end
     end
 

@@ -5,6 +5,9 @@
 - content_for :page_title do
   = @stream.display_tag_name
 
+- content_for :meta_data do
+  = metas_tags @stream.metas_attributes
+
 .container-fluid#tags_show
   .row
     .col-md-3.hidden-xs

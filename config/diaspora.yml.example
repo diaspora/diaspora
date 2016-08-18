@@ -539,6 +539,15 @@ configuration: ## Section
     ## ("original" for the theme in "app/assets/stylesheets/color_themes/original/", for
     ## example).
     #default_color_theme: "original"
+
+    ## Default meta tags
+    ## You can change here the default meta tags content included on the pages of your pod.
+    ## Title will be used for the opengraph og:site_name property while description will be used
+    ## for description and og:description.
+    default_metas:
+      #title: 'diaspora* social network'
+      #description: 'diaspora* is the online social world where you are in control.'
+
   ## Posting from Diaspora to external services (all are disabled by default).
   services: ## Section
 

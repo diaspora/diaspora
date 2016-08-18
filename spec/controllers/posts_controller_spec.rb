@@ -64,6 +64,7 @@ describe PostsController, type: :controller do
     context "user not signed in" do
       context "given a public post" do
         let(:public) { alice.post(:status_message, text: "hello", public: true) }
+        let(:public_with_tags) { alice.post(:status_message, text: "#hi #howareyou", public: true) }
 
         it "shows a public post" do
           get :show, id: public.id
@@ -80,6 +81,35 @@ describe PostsController, type: :controller do
           get :show, id: public.guid, format: :xml
           expected_xml = DiasporaFederation::Salmon::XmlPayload.pack(Diaspora::Federation::Entities.post(public)).to_xml
           expect(response.body).to eq(expected_xml)
+        end
+
+        it "includes the correct uniques meta tags" do
+          presenter = PostPresenter.new(public)
+          methods_properties = {
+            comma_separated_tags:   {html_attribute: "name",     name: "keywords"},
+            description:            {html_attribute: "name",     name: "description"},
+            url:                    {html_attribute: "property", name: "og:url"},
+            title:                  {html_attribute: "property", name: "og:title"},
+            published_time_iso8601: {html_attribute: "property", name: "og:article:published_time"},
+            modified_time_iso8601:  {html_attribute: "property", name: "og:article:modified_time"},
+            author_name:            {html_attribute: "property", name: "og:article:author"}
+          }
+
+          get :show, id: public.id, format: :html
+
+          methods_properties.each do |method, property|
+            value = presenter.send(method)
+            expect(response.body).to include(
+              "<meta #{property[:html_attribute]}=\"#{property[:name]}\" content=\"#{value}\" />"
+            )
+          end
+        end
+
+        it "includes the correct multiple meta tags" do
+          get :show, id: public_with_tags.id, format: :html
+
+          expect(response.body).to include('<meta property="og:article:tag" content="hi" />')
+          expect(response.body).to include('<meta property="og:article:tag" content="howareyou" />')
         end
       end
 

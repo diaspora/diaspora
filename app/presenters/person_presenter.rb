@@ -25,6 +25,21 @@ class PersonPresenter < BasePresenter
     base_hash_with_contact.merge(profile: ProfilePresenter.new(profile).for_hovercard)
   end
 
+  def metas_attributes
+    {
+      keywords:             {name:     "keywords",    content: comma_separated_tags},
+      description:          {name:     "description", content: description},
+      og_title:             {property: "og:title",    content: title},
+      og_description:       {property: "og:title",    content: description},
+      og_url:               {property: "og:url",      content: url},
+      og_image:             {property: "og:image",    content: image_url},
+      og_type:              {property: "og:type",     content: "profile"},
+      og_profile_username:  {property: "og:profile:username",   content: name},
+      og_profile_firstname: {property: "og:profile:first_name", content: first_name},
+      og_profile_lastname:  {property: "og:profile:last_name",  content: last_name}
+    }
+  end
+
   protected
 
   def own_profile?
@@ -87,5 +102,26 @@ class PersonPresenter < BasePresenter
 
   def is_blocked?
     current_user_person_block.present?
+  end
+
+  def title
+    name
+  end
+
+  def comma_separated_tags
+    profile.tags.map(&:name).join(", ") if profile.tags
+  end
+
+  def url
+    url_for(@presentable)
+  end
+
+  def description
+    public_details? ? bio : ""
+  end
+
+  def image_url
+    return AppConfig.url_to @presentable.image_url if @presentable.image_url[0] == "/"
+    @presentable.image_url
   end
 end
