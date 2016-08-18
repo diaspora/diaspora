@@ -229,3 +229,7 @@ end
 Then /^I should get a zipped file$/ do
   expect(page.response_headers["Content-Type"]).to eq("application/zip")
 end
+
+And /^a person with ID "([^\"]*)" has been discovered$/ do |diaspora_id|
+  FactoryGirl.create(:person, diaspora_handle: diaspora_id)
+end

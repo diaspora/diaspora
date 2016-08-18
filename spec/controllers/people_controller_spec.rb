@@ -490,19 +490,20 @@ describe PeopleController, :type => :controller do
                      :profile => FactoryGirl.build(:profile, :first_name => "Evan", :last_name => "Korth"))
     end
 
-    describe 'via json' do
-      it 'returns a zero count when a search fails' do
-        get :refresh_search, :q => "weweweKorth", :format => 'json'
-        expect(response.body).to eq({:search_count=>0, :search_html=>""}.to_json)
+    describe "via json" do
+      it "returns no data when a search fails" do
+        get :refresh_search, q: "weweweKorth", format: "json"
+        expect(response.body).to eq({search_html: "", contacts: nil}.to_json)
       end
 
-      it 'returns with a zero count unless a fully composed name is sent' do
-        get :refresh_search, :q => "Korth"
-        expect(response.body).to eq({:search_count=>0, :search_html=>""}.to_json)
+      it "returns no data unless a fully composed name is sent" do
+        get :refresh_search, q: "Korth"
+        expect(response.body).to eq({search_html: "", contacts: nil}.to_json)
       end
-      it 'returns with a found name' do
-        get :refresh_search, :q => @korth.diaspora_handle
-        expect(JSON.parse( response.body )["search_count"]).to eq(1)
+
+      it "returns with a found name" do
+        get :refresh_search, q: @korth.diaspora_handle
+        expect(JSON.parse(response.body)["contacts"].size).to eq(1)
       end
     end
   end
