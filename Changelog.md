@@ -192,7 +192,7 @@ The command will report queues that still have jobs and launch sidekiq process f
 * Add links to the single post view of the related post to photos in the photo stream [#6621](https://github.com/diaspora/diaspora/pull/6621)
 * Add a note for people with disabled JavaScript [#6777](https://github.com/diaspora/diaspora/pull/6777)
 * Do not include conversation subject in notification mail [#6910](https://github.com/diaspora/diaspora/pull/6910)
-* Add 'Be excellent to each other!' to the sidebar [#6914](https://github.com/diaspora/diaspora/pull/6910)
+* Add 'Be excellent to each other!' to the sidebar [#6914](https://github.com/diaspora/diaspora/pull/6914)
 * Expose Sidekiq dead queue configuration options
 * Properly support pluralization in timeago strings [#6926](https://github.com/diaspora/diaspora/pull/6926)
 * Return all contacts in people search [#6951](https://github.com/diaspora/diaspora/pull/6951)
