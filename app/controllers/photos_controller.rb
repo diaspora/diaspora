@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
     @post_type = :photos
     @person = Person.find_by_guid(params[:person_id])
     authenticate_user! if @person.try(:remote?) && !user_signed_in?
-    @presenter = PersonPresenter.new(@person, current_user);
+    @presenter = PersonPresenter.new(@person, current_user)
 
     if @person
       @contact = current_user.contact_for(@person) if user_signed_in?

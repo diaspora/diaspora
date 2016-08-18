@@ -6,7 +6,7 @@
   = post.page_title
 
 - content_for :meta_data do
-  = raw metas_tags(post.metas_attributes)
+  = metas_tags post.metas_attributes
 
 - content_for :content do
   #container.container-fluid

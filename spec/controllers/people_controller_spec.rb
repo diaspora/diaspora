@@ -227,7 +227,7 @@ describe PeopleController, :type => :controller do
       end
 
       it "assigns the right person" do
-        get :show, :id => @person.to_param
+        get :show, id: @person.to_param
         expect(assigns(:presenter).id).to eq(@presenter.id)
       end
     end
@@ -264,19 +264,21 @@ describe PeopleController, :type => :controller do
       it "includes the correct meta tags" do
         presenter = PersonPresenter.new(@person)
         methods_properties = {
-          comma_separated_tags:    { html_attribute: 'name',     name: 'keywords'              },
-          url:                     { html_attribute: 'property', name: 'og:url'                },
-          title:                   { html_attribute: 'property', name: 'og:title'              },
-          image_url:               { html_attribute: 'property', name: 'og:image'              },
-          first_name:              { html_attribute: 'property', name: 'og:profile:first_name' },
-          last_name:               { html_attribute: 'property', name: 'og:profile:last_name'  },
+          comma_separated_tags: {html_attribute: "name",     name: "keywords"},
+          url:                  {html_attribute: "property", name: "og:url"},
+          title:                {html_attribute: "property", name: "og:title"},
+          image_url:            {html_attribute: "property", name: "og:image"},
+          first_name:           {html_attribute: "property", name: "og:profile:first_name"},
+          last_name:            {html_attribute: "property", name: "og:profile:last_name"}
         }
 
         get :show, id: @person.to_param
 
-        methods_properties.each do |method,property|
+        methods_properties.each do |method, property|
           value = presenter.send(method)
-          expect(response.body).to include(%{<meta #{property[:html_attribute]}="#{property[:name]}" content="#{value}" />})
+          expect(response.body).to include(
+            "<meta #{property[:html_attribute]}=\"#{property[:name]}\" content=\"#{value}\" />"
+          )
         end
       end
     end

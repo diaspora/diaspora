@@ -46,7 +46,6 @@ describe PostsController, type: :controller do
           get :show, id: reshare_id, format: :mobile
           expect(response).to be_success
         end
-
       end
 
       context "given a post that the user is not allowed to see" do
@@ -87,20 +86,22 @@ describe PostsController, type: :controller do
         it "includes the correct uniques meta tags" do
           presenter = PostPresenter.new(public)
           methods_properties = {
-            comma_separated_tags:    { html_attribute: 'name',     name: 'keywords'                  },
-            description:             { html_attribute: 'name',     name: 'description'               },
-            url:                     { html_attribute: 'property', name: 'og:url'                    },
-            title:                   { html_attribute: 'property', name: 'og:title'                  },
-            published_time_iso8601:  { html_attribute: 'property', name: 'og:article:published_time' },
-            modified_time_iso8601:   { html_attribute: 'property', name: 'og:article:modified_time'  },
-            author_name:             { html_attribute: 'property', name: 'og:article:author'         },
+            comma_separated_tags:   {html_attribute: "name",     name: "keywords"},
+            description:            {html_attribute: "name",     name: "description"},
+            url:                    {html_attribute: "property", name: "og:url"},
+            title:                  {html_attribute: "property", name: "og:title"},
+            published_time_iso8601: {html_attribute: "property", name: "og:article:published_time"},
+            modified_time_iso8601:  {html_attribute: "property", name: "og:article:modified_time"},
+            author_name:            {html_attribute: "property", name: "og:article:author"}
           }
 
           get :show, id: public.id, format: :html
 
-          methods_properties.each do |method,property|
+          methods_properties.each do |method, property|
             value = presenter.send(method)
-            expect(response.body).to include(%{<meta #{property[:html_attribute]}="#{property[:name]}" content="#{value}" />})
+            expect(response.body).to include(
+              "<meta #{property[:html_attribute]}=\"#{property[:name]}\" content=\"#{value}\" />"
+            )
           end
         end
 
@@ -109,7 +110,7 @@ describe PostsController, type: :controller do
 
           expect(response.body).to include('<meta property="og:article:tag" content="hi" />')
           expect(response.body).to include('<meta property="og:article:tag" content="howareyou" />')
-       end
+        end
       end
 
       context "given a limited post" do

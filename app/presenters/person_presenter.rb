@@ -1,5 +1,4 @@
 class PersonPresenter < BasePresenter
-
   def base_hash
     {
       id:          id,
@@ -28,15 +27,14 @@ class PersonPresenter < BasePresenter
 
   def metas_attributes
     {
-      keywords: { name:     'keywords', content: comma_separated_tags },
-      og_title: { property: 'og:title', content: title                },
-      og_url:   { property: 'og:url'  , content: url                  },
-      og_image: { property: 'og:image', content: image_url            },
-      og_type:  { property: 'og:type' , content: 'profile'            },
-
-      og_profile_username: { property: 'og:profile:username'  , content: name       },
-      og_profile_firstname:{ property: 'og:profile:first_name', content: first_name },
-      og_profile_lastname: { property: 'og:profile:last_name' , content: last_name  }
+      keywords: {name:     "keywords", content: comma_separated_tags},
+      og_title: {property: "og:title", content: title},
+      og_url:   {property: "og:url",   content: url},
+      og_image: {property: "og:image", content: image_url},
+      og_type:  {property: "og:type",  content: "profile"},
+      og_profile_username:  {property: "og:profile:username",   content: name},
+      og_profile_lastname:  {property: "og:profile:last_name",  content: last_name},
+      og_profile_firstname: {property: "og:profile:first_name", content: first_name}
     }
   end
 
@@ -109,7 +107,7 @@ class PersonPresenter < BasePresenter
   end
 
   def comma_separated_tags
-    profile.tags.collect(&:name).join(', ') if profile.tags
+    profile.tags.map(&:name).join(", ") if profile.tags
   end
 
   def url
@@ -117,7 +115,7 @@ class PersonPresenter < BasePresenter
   end
 
   def image_url
-      return AppConfig.url_to @presentable.image_url if @presentable.image_url[0] == '/'
-      @presentable.image_url
+    return AppConfig.url_to @presentable.image_url if @presentable.image_url[0] == "/"
+    @presentable.image_url
   end
 end

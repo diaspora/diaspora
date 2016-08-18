@@ -9,18 +9,18 @@ class TagPresenter < BasePresenter
 
   def metas_attributes
     {
-      keywords:       { name:     'keywords'      ,  content: tag_name    },
-      description:    { name:     'description'   ,  content: description },
-      og_description: { property: 'og:description',  content: description },
-      og_title:       { property: 'og:title'      ,  content: title       },
-      og_url:         { property: 'og:url'        ,  content: url         },
+      keywords:       {name:     "keywords",       content: tag_name},
+      description:    {name:     "description",    content: description},
+      og_description: {property: "og:description", content: description},
+      og_title:       {property: "og:title",       content: title},
+      og_url:         {property: "og:url",         content: url}
     }
   end
 
   private
 
   def description
-    I18n.t("streams.tags.title", {"tags": tag_name})
+    I18n.t("streams.tags.title", tags: tag_name)
   end
 
   def url

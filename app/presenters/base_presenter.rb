@@ -31,6 +31,6 @@ class BasePresenter
   private
 
   def default_url_options
-    { host: AppConfig.pod_uri.host, port: AppConfig.pod_uri.port }
+    {host: AppConfig.pod_uri.host, port: AppConfig.pod_uri.port}
   end
 end

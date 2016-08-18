@@ -10,22 +10,26 @@ class PostPresenter < BasePresenter
   end
 
   def as_json(_options={})
-    @post.as_json(only: directly_retrieved_attributes).merge(non_directly_retrieved_attributes)
+    @post.as_json(only: directly_retrieved_attributes)
+         .merge(non_directly_retrieved_attributes)
   end
 
   def metas_attributes
     {
-      keywords:       { name:     'keywords',       content: comma_separated_tags },
-      description:    { name:     'description',    content: description          },
-      og_url:         { property: 'og:url',         content: url                  },
-      og_title:       { property: 'og:title',       content: title                },
-      og_image:       { property: 'og:image',       content: images               },
-      og_description: { property: 'og:description', content: description          },
-
-      og_article_published_time: { property: 'og:article:published_time', content: published_time_iso8601 },
-      og_article_modified_time:  { property: 'og:article:modified_time',  content: modified_time_iso8601  },
-      og_article_author:         { property: 'og:article:author',         content: author_name            },
-      og_article_tag:            { property: 'og:article:tag',            content: tags                   }
+      keywords:       {name:     "keywords",       content: comma_separated_tags},
+      description:    {name:     "description",    content: description},
+      og_url:         {property: "og:url",         content: url},
+      og_title:       {property: "og:title",       content: title},
+      og_image:       {property: "og:image",       content: images},
+      og_description: {property: "og:description", content: description},
+      og_article_tag:
+        {property: "og:article:tag", content: tags},
+      og_article_author:
+        {property: "og:article:author", content: author_name},
+      og_article_modified:
+        {property: "og:article:modified_time", content: modified_time_iso8601},
+      og_article_published:
+        {property: "og:article:published_time", content: published_time_iso8601}
     }
   end
 
@@ -126,9 +130,8 @@ class PostPresenter < BasePresenter
   end
 
   def images
-    photos.any? ? photos.collect(&:url) : default_image_url
+    photos.any? ? photos.map(&:url) : default_image_url
   end
-
 
   def published_time_iso8601
     created_at.to_time.iso8601
@@ -139,13 +142,13 @@ class PostPresenter < BasePresenter
   end
 
   def tags
-    tags = @post.is_a?(Reshare) ? @post.root.tags: @post.tags
-    return tags.collect(&:name) if tags
+    tags = @post.is_a?(Reshare) ? @post.root.tags : @post.tags
+    return tags.map(&:name) if tags
     []
   end
 
   def comma_separated_tags
-    tags.join(', ')
+    tags.join(", ")
   end
 
   def url
