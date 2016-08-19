@@ -74,10 +74,21 @@ describe NotificationsHelper, type: :helper do
 
       it 'includes the boilerplate translation' do
         output = object_link(@notification, notification_people_link(@notification))
-        expect(output).to include I18n.t("#{@notification.popup_translation_key}",
-                                     :actors => notification_people_link(@notification),
-                                     :count => @notification.actors.count,
-                                     :post_link => link_to(post_page_title(@post), post_path(@post), 'data-ref' => @post.id, :class => 'hard_object_link').html_safe)
+        post_link = link_to(
+          PostPresenter.new(@post).title,
+          post_path(@post),
+          "data-ref" => @post.id,
+          "class"    => "hard_object_link"
+        ).html_safe
+
+        expect(output).to include(
+          I18n.t(
+            @notification.popup_translation_key.to_s,
+            actors:    notification_people_link(@notification),
+            count:     @notification.actors.count,
+            post_link: post_link
+          )
+        )
       end
 
       context 'when post is deleted' do

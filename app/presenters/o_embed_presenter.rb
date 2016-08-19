@@ -30,7 +30,7 @@ class OEmbedPresenter
   end
 
   def post_title
-    post_page_title(@post)
+    PostPresenter.new(@post).title
   end
 
   def post_author
