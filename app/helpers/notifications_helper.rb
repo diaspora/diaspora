@@ -11,7 +11,7 @@ module NotificationsHelper
         translation(target_type,
                     actors:    actors,
                     count:     actors_count,
-                    post_link: link_to(post_page_title(post), post_path(post)).html_safe)
+                    post_link: link_to(PostPresenter.new(post).title, post_path(post)).html_safe)
       else
         t(note.deleted_translation_key, :actors => actors, :count => actors_count).html_safe
       end
@@ -21,7 +21,7 @@ module NotificationsHelper
                     actors:      actors,
                     count:       actors_count,
                     post_author: h(post.author_name),
-                    post_link:   link_to(post_page_title(post),
+                    post_link:   link_to(PostPresenter.new(post).title,
                                          post_path(post),
                                          data:  {ref: post.id},
                                          class: "hard_object_link").html_safe)

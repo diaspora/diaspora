@@ -67,18 +67,42 @@ describe PostPresenter do
   describe "#title" do
     context "with posts with text" do
       it "delegates to message.title" do
-        message = double(present?: true)
-        expect(message).to receive(:title)
+        message = double(present?: true, title: "A title")
         @presenter.post = double(message: message)
         @presenter.send(:title)
+        expect(message).to have_received(:title)
       end
     end
 
     context "with posts without text" do
-      it " displays a messaage with the post class" do
-        @sm = double(message: double(present?: false), author: bob.person, author_name: bob.person.name)
-        @presenter.post = @sm
-        expect(@presenter.send(:title)).to eq("A post from #{@sm.author.name}")
+      it "displays the author name" do
+        allow(@sm).to receive(:author).and_return(bob.person)
+        allow(@sm).to receive(:message).and_return(double(present?: false))
+        expect(@presenter.title).to eq(
+          I18n.t("posts.presenter.title", name: bob.person.name)
+        )
+      end
+
+      context "containing photos" do
+        it "displays the author name and photos count" do
+          sm_with_photos = FactoryGirl.create(:status_message_with_photo)
+          count = sm_with_photos.photos.size
+          author = sm_with_photos.author.name
+          presenter = PostPresenter.new(sm_with_photos)
+          expect(presenter.title).to eq(
+            I18n.t("posts.show.photos_by", count: count, author: author)
+          )
+        end
+      end
+    end
+
+    context "with reshares" do
+      it "displays the resharer name" do
+        reshare = FactoryGirl.create(:reshare)
+        presenter = PostPresenter.new(reshare)
+        expect(presenter.title).to eq(
+          I18n.t("posts.show.reshare_by", author: reshare.author_name)
+        )
       end
     end
   end

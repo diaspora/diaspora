@@ -29,8 +29,18 @@ class PostPresenter < BasePresenter
     }
   end
 
-  def page_title
-    post_page_title @post
+  def title(**opts)
+    case @presentable
+    when Reshare
+      I18n.t "posts.show.reshare_by", author: @post.author.name
+    when StatusMessage
+      if @post.respond_to?(:photos) && @post.photos.present?
+        I18n.t "posts.show.photos_by", count: @post.photos.size, author: @post.author.name
+      else
+        return @post.message.title opts if @post.message.present?
+        I18n.t "posts.presenter.title", name: @post.author.name
+      end
+    end
   end
 
   private
@@ -57,10 +67,6 @@ class PostPresenter < BasePresenter
       participation:                participate?,
       interactions:                 build_interactions_json
     }
-  end
-
-  def title
-    @post.message.present? ? @post.message.title : I18n.t("posts.presenter.title", name: @post.author_name)
   end
 
   def build_text
