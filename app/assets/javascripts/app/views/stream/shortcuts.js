@@ -1,7 +1,7 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.StreamShortcuts = Backbone.View.extend({
-  _headerSize: 50,
+  _headerSize: 60,
 
   events: {
     "keydown": "_onHotkeyDown",
@@ -57,35 +57,35 @@ app.views.StreamShortcuts = Backbone.View.extend({
 
   gotoNext: function() {
     // select next post: take the first post under the header
-    var stream_elements = this.$('div.stream_element.loaded');
+    var streamElements = this.$("div.stream_element.loaded");
     var posUser = window.pageYOffset;
 
-    for (var i = 0; i < stream_elements.length; i++) {
-      if(stream_elements[i].offsetTop>posUser+this._headerSize){
-        this.selectPost(stream_elements[i]);
+    for (var i = 0; i < streamElements.length; i++) {
+      if (Math.round($(streamElements[i]).offset().top) > posUser + this._headerSize) {
+        this.selectPost(streamElements[i]);
         return;
       }
     }
     // standard: last post
-    if(stream_elements[stream_elements.length-1]){
-      this.selectPost(stream_elements[stream_elements.length-1]);
+    if (streamElements[streamElements.length - 1]) {
+      this.selectPost(streamElements[streamElements.length - 1]);
     }
   },
 
   gotoPrev: function() {
     // select previous post: take the first post above the header
-    var stream_elements = this.$('div.stream_element.loaded');
+    var streamElements = this.$("div.stream_element.loaded");
     var posUser = window.pageYOffset;
 
-    for (var i = stream_elements.length-1; i >=0; i--) {
-      if(stream_elements[i].offsetTop<posUser+this._headerSize){
-        this.selectPost(stream_elements[i]);
+    for (var i = streamElements.length - 1; i >= 0; i--) {
+      if (Math.round($(streamElements[i]).offset().top) < posUser + this._headerSize) {
+        this.selectPost(streamElements[i]);
         return;
       }
     }
     // standard: first post
-    if(stream_elements[0]){
-      this.selectPost(stream_elements[0]);
+    if (streamElements[0]) {
+      this.selectPost(streamElements[0]);
     }
   },
 
@@ -118,7 +118,7 @@ app.views.StreamShortcuts = Backbone.View.extend({
     var selected=this.$('div.stream_element.loaded.shortcut_selected');
     selected.removeClass('shortcut_selected').removeClass('highlighted');
     //move to new post
-    window.scrollTo(window.pageXOffset, element.offsetTop-this._headerSize);
+    window.scrollTo(window.pageXOffset, Math.round($(element).offset().top - this._headerSize));
     //add the selection and selected-class to new post
     element.className+=" shortcut_selected highlighted";
   },

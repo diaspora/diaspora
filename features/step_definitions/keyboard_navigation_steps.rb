@@ -13,5 +13,5 @@ Then /^post (\d+) should be highlighted$/ do |position|
 end
 
 And /^I should have navigated to the highlighted post$/ do
-  find(".shortcut_selected")["offsetTop"].to_i.should == page.evaluate_script("window.pageYOffset + 50").to_i
+  expect(page.evaluate_script("window.pageYOffset + 60 - $('.shortcut_selected').offset().top").to_i).to be(0)
 end
