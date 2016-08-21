@@ -12,6 +12,7 @@ describe Configuration::Methods do
   describe "#pod_uri" do
     before do
       @settings.environment.url = nil
+      @settings.environment.require_ssl = false
       @settings.instance_variable_set(:@pod_uri, nil)
     end
 
@@ -34,6 +35,18 @@ describe Configuration::Methods do
     it "adds http:// on the front if it's missing" do
       @settings.environment.url = "example.org/"
       expect(@settings.pod_uri.to_s).to eq("http://example.org/")
+    end
+
+    it "adds https:// on the front if require_ssl is true" do
+      @settings.environment.require_ssl = true
+      @settings.environment.url = "example.org"
+      expect(@settings.pod_uri.to_s).to eq("https://example.org/")
+    end
+
+    it "changes http to https if require_ssl is true" do
+      @settings.environment.require_ssl = true
+      @settings.environment.url = "http://example.org/"
+      expect(@settings.pod_uri.to_s).to eq("https://example.org/")
     end
 
     it "does not add a prefix if there already is https:// on the front" do

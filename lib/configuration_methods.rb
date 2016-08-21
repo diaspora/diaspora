@@ -6,14 +6,15 @@ module Configuration
       return @pod_uri.dup unless @pod_uri.nil?
 
       url = environment.url.get
-      url = "http://#{url}" unless url =~ /^(https?:\/\/)/
-      url << "/" unless url.end_with?("/")
 
       begin
-        @pod_uri = Addressable::URI.parse(url)
+        @pod_uri = Addressable::URI.heuristic_parse(url)
       rescue
         puts "WARNING: pod url #{url} is not a legal URI"
       end
+
+      @pod_uri.scheme = "https" if environment.require_ssl?
+      @pod_uri.path = "/"
 
       @pod_uri.dup
     end
