@@ -20,7 +20,7 @@ class PostPresenter < BasePresenter
       description:          {name:     "description",    content: description},
       og_url:               {property: "og:url",         content: url},
       og_title:             {property: "og:title",       content: title},
-      og_image:             {property: "og:image",       content:  images},
+      og_image:             {property: "og:image",       content: images},
       og_description:       {property: "og:description", content: description},
       og_article_tag:       {property: "og:article:tag", content: tags},
       og_article_author:    {property: "og:article:author",         content: author_name},
@@ -138,9 +138,8 @@ class PostPresenter < BasePresenter
   end
 
   def tags
-    tags = @post.is_a?(Reshare) ? @post.root.tags : @post.tags
-    return tags.map(&:name) if tags
-    []
+    tags = @post.is_a?(Reshare) ? @post.absolute_root.try(:tags) : @post.tags
+    tags ? tags.map(&:name) : []
   end
 
   def comma_separated_tags
@@ -152,6 +151,6 @@ class PostPresenter < BasePresenter
   end
 
   def description
-    message.plain_text_without_markdown(truncate:  1000)
+    message.try(:plain_text_without_markdown, truncate: 1000)
   end
 end
