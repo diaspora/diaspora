@@ -96,6 +96,7 @@ da:
       email: "E-mail"
       guid: "GUID"
       id: "ID"
+      invite_token: "Invitationskort"
       last_seen: "Sidst set"
       ? "no"
       : Nej
@@ -152,7 +153,11 @@ da:
         login_required: "Du skal logge ind for at kunne autorisere denne applikation"
         title: "Ups! Noget gik galt :("
       scopes:
+        name:
+          description: "Dette giver applikationen adgang til dit navn"
+          name: "navn"
         nickname:
+          description: "Dette giver applikationen adgang til dit kælenavn"
           name: "kælenavn"
         openid:
           description: "Dette tillader applikationen at læse fra din basis profil"
@@ -166,6 +171,9 @@ da:
         read:
           description: "Dette tillader applikationen at læse fra din strøm, dine samtaler og hele din profil"
           name: "læs profil, strøm og samtaler"
+        sub:
+          description: "Dette giver underprivilegier til applikationen"
+          name: "under"
         write:
           description: "Dette tillader applikationen at sende indlæg, skrive meddelelser og sende reaktioner"
           name: "send indlæg, samtaler og reaktioner"
@@ -282,6 +290,7 @@ da:
       user_search: "Søg efter brugere"
     spotlight:
       community_spotlight: "Community Spotlight"
+      no_members: "Der er endnu ingen medlemmer."
       suggest_member: "Foreslå et medlem"
   conversations:
     create:
@@ -597,6 +606,7 @@ da:
   layouts:
     application:
       back_to_top: "Tilbage til toppen"
+      be_excellent: "Vær gode ved hinanden! ♥"
       powered_by: "Kører på Diaspora"
       public_feed: "Offentligt Diaspora-nyhedsfeed for %{name}"
       source_package: "Download kildekoden"
@@ -787,6 +797,7 @@ da:
       subject: "%{name} har omtalt dig på Diaspora"
     private_message:
       reply_to_or_view: "Besvar eller se denne samtale >"
+      subject: "Der er en ny privat meddelelse til dig"
     remove_old_user:
       body: |-
           Hej,
@@ -1002,12 +1013,8 @@ da:
       mobile_row_checked: "%{name} (fjern)"
       mobile_row_unchecked: "%{name} (tilføj)"
       toggle:
-        few: "I %{count} aspekter"
-        many: "I %{count} aspekter"
         one: "I %{count} aspekt"
         other: "I %{count} aspekter"
-        two: "I %{count} aspekter"
-        zero: "Tilføj kontakt"
     invitations:
       by_email: "via e-mail"
       invite_your_friends: "Inviter dine venner"
@@ -1035,7 +1042,6 @@ da:
       poll:
         add_a_poll: "Tilføj en afstemning"
       posting: "Sender ..."
-      preview: "Forhåndsvisning"
       remove_location: "Fjern placering"
       share: "Del"
       upload_photos: "Upload fotos"

@@ -106,19 +106,24 @@ vi:
       wasnt_that_interesting: "Tôi cho rằng #<%= tagName %> không thú vị..."
     timeago:
       day: "một ngày"
-      days: "%d ngày"
+      days:
+        other: "%d ngày"
       hour: "khoảng một giờ"
-      hours: "khoảng %d giờ"
+      hours:
+        other: "khoảng %d giờ"
       minute: "khoảng một phút"
-      minutes: "%d phút"
+      minutes:
+        other: "%d phút"
       month: "khoảng một tháng"
-      months: "%d tháng"
+      months:
+        other: "%d tháng"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "ít hơn một phút"
       suffixAgo: "trước"
       suffixFromNow: "kể từ đây"
       year: "khoảng một năm"
-      years: "%d năm"
+      years:
+        other: "%d năm"
     viewer:
       reshared: "Đã chia sẻ lại"

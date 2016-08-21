@@ -185,6 +185,7 @@ es-CL:
       title: "Contactos"
     spotlight:
       community_spotlight: "Comunidad Creativa"
+      no_members: "Todavía no hay usuarios."
       suggest_member: "Sugiere un usuario"
   conversations:
     create:
@@ -512,6 +513,7 @@ es-CL:
       subject: "%{name} te mencionó en Diaspora*"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
+      subject: "Hay un nuevo mensaje privado para ti"
     reshared:
       reshared: "%{name} compartió tu post"
       view_post: "Ver el post >"
@@ -672,7 +674,6 @@ es-CL:
         invited_by: "Gracias por la invitación,"
         newhere: "Hola"
       posting: "Posteando..."
-      preview: "Vista previa"
       share: "Compartir"
       upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Que pasa por tu cabeza?"

@@ -88,19 +88,24 @@ zh-CN:
       wasnt_that_interesting: "我想 #<%= tagName %> 并不全那么有趣。"
     timeago:
       day: "1 天"
-      days: "%d 天"
+      days:
+        other: "%d 天"
       hour: "约 1 小时"
-      hours: "约 %d 小时"
+      hours:
+        other: "约 %d 小时"
       minute: "约 1 分钟"
-      minutes: "%d 分钟"
+      minutes:
+        other: "%d 分钟"
       month: "约 1 个月"
-      months: "%d 个月"
+      months:
+        other: "%d 个月"
       prefixAgo: "在"
       prefixFromNow: "距今"
       seconds: "少于 1 分钟"
       suffixAgo: "前"
       suffixFromNow: "后"
       year: "约 1 年"
-      years: "%d 年"
+      years:
+        other: "%d 年"
     viewer:
       reshared: "转发的"

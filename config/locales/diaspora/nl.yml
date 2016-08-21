@@ -791,6 +791,7 @@ nl:
       subject: "%{name} heeft jou vermeld op diaspora*"
     private_message:
       reply_to_or_view: "Reageer op of bekijk dit privégesprek >"
+      subject: "Er is een nieuw privébericht voor je"
     remove_old_user:
       body: |-
           Hallo,
@@ -1039,7 +1040,6 @@ nl:
       poll:
         add_a_poll: "Plaatsen peiling"
       posting: "Plaatsen..."
-      preview: "Voorbeeld"
       remove_location: "Verwijder locatie"
       share: "Delen"
       upload_photos: "Upload fotos"

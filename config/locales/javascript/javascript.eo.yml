@@ -110,19 +110,24 @@ eo:
       wasnt_that_interesting: "Nu, mi supozas, ke #<%= tagName %> ne estis tiel interesa..."
     timeago:
       day: "unu tago"
-      days: "%d tagoj"
+      days:
+        other: "%d tagoj"
       hour: "ĉirkaŭ unu horo"
-      hours: "ĉirkaŭ %d horoj"
+      hours:
+        other: "ĉirkaŭ %d horoj"
       minute: "ĉirkaŭ unu minuto"
-      minutes: "%d minutoj"
+      minutes:
+        other: "%d minutoj"
       month: "ĉirkaŭ unu monato"
-      months: "%d monatoj"
+      months:
+        other: "%d monatoj"
       prefixAgo: "antaŭ "
       prefixFromNow: "post "
       seconds: "malpli ol unu minuto"
       suffixAgo: ""
       suffixFromNow: "ekde nun"
       year: "ĉirkaŭ unu jaro"
-      years: "%d jaroj"
+      years:
+        other: "%d jaroj"
     viewer:
       reshared: "Rekonigita"

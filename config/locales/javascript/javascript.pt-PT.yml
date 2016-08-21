@@ -117,19 +117,24 @@ pt-PT:
       wasnt_that_interesting: "OK, suponho que #<%= tagName %> não era assim tão interessante..."
     timeago:
       day: "um dia"
-      days: "%d dias"
+      days:
+        other: "%d dias"
       hour: "cerca de uma hora"
-      hours: "cerca de %d horas"
+      hours:
+        other: "cerca de %d horas"
       minute: "cerca de um minuto"
-      minutes: "%d minutos"
+      minutes:
+        other: "%d minutos"
       month: "cerca de um mês"
-      months: "%d meses"
+      months:
+        other: "%d meses"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "menos de um minuto"
       suffixAgo: ""
       suffixFromNow: "a partir de agora"
       year: "cerca de um ano"
-      years: "%d anos"
+      years:
+        other: "%d anos"
     viewer:
       reshared: "Repartilhado"

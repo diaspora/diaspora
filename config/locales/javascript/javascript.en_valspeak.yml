@@ -181,13 +181,17 @@ en_valspeak:
       wasnt_that_interesting: "K, I guess #<%= tagName %> wasnt all that gr8. Whatev."
     timeago:
       day: "like... a day"
-      days: "like... %d dayz"
+      days:
+        other: "like... %d dayz"
       hour: "bout an hr"
-      hours: "bout %d hrs"
+      hours:
+        other: "bout %d hrs"
       minute: "bout a min"
-      minutes: "%d mins"
+      minutes:
+        other: "%d mins"
       month: "bout like... a month"
-      months: "like %d months"
+      months:
+        other: "like %d months"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "less than a min"
@@ -195,7 +199,8 @@ en_valspeak:
       suffixFromNow: "from nao"
       wordSeparator: " "
       year: "bout like... a yr"
-      years: "like %d yrs"
+      years:
+        other: "like %d yrs"
     unblock_failed: "Unblockin this h8ter didnt work :("
     viewer:
       reshared: "Reshared<33"

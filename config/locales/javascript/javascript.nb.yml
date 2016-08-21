@@ -199,13 +199,17 @@ nb:
       wasnt_that_interesting: "OK, jeg skjønner at #<%= tagName %> ikke var så spennende likevel ..."
     timeago:
       day: "en dag"
-      days: "%d dager"
+      days:
+        other: "%d dager"
       hour: "ca. en time"
-      hours: "ca. %d timer"
+      hours:
+        other: "ca. %d timer"
       minute: "ca. et minutt"
-      minutes: "%d minutter"
+      minutes:
+        other: "%d minutter"
       month: "ca. en måned"
-      months: "%d måneder"
+      months:
+        other: "%d måneder"
       prefixAgo: "for"
       prefixFromNow: "om"
       seconds: "under ett minutt"
@@ -213,7 +217,8 @@ nb:
       suffixFromNow: "fra nå"
       wordSeparator: " "
       year: "ca. et år"
-      years: "%d år"
+      years:
+        other: "%d år"
     unblock_failed: "Feilet i å stoppe blokkering"
     viewer:
       reshared: "Delt med andre"

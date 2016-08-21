@@ -96,6 +96,7 @@ fr:
       email: "E-mail"
       guid: "GUID"
       id: "ID"
+      invite_token: "Jeton d'invitation"
       last_seen: "Dernière connexion"
       ? "no"
       : Non
@@ -154,10 +155,14 @@ fr:
       scopes:
         name:
           name: "nom"
+        nickname:
+          description: "Cela donne les permissions liées au surnom à l'application"
+          name: "Surnom"
         openid:
           description: "Ceci permet à l'application de voir votre profil basique"
           name: "profil basique"
         picture:
+          description: "Cela donne les permissions liées aux images à l'application"
           name: "image"
         profile:
           description: "Ceci autorise l'application à lire votre profil complet"
@@ -233,7 +238,7 @@ fr:
       new_here:
         follow: "Suivez %{link} et souhaitez la bienvenue aux nouveaux utilisateurs de diaspora* !"
         learn_more: "En savoir plus"
-        title: "Accueillir des nouveaux utilisateurs"
+        title: "Accueillir les nouveaux venus"
       services:
         content: "Vous pouvez connecter les services suivants à diaspora* :"
         heading: "Connecter des services"
@@ -242,7 +247,7 @@ fr:
       community_spotlight: "Actualités de la communauté"
       invite_link_text: "inviter"
       or_spotlight: "Ou vous pouvez partager avec %{link}"
-      try_adding_some_more_contacts: "Vous pouvez rechercher ou inviter plus de contacts."
+      try_adding_some_more_contacts: "Vous pouvez rechercher ou %{invite_link} plus de contacts."
       you_should_add_some_more_contacts: "Vous devez ajouter un peu plus de contacts !"
     seed:
       acquaintances: "Connaissances"
@@ -284,6 +289,7 @@ fr:
       user_search: "Checher un contact"
     spotlight:
       community_spotlight: "Actualités de la communauté"
+      no_members: "Il n'y a encore aucun membre."
       suggest_member: "Suggérer un membre"
   conversations:
     create:
@@ -601,6 +607,7 @@ fr:
   layouts:
     application:
       back_to_top: "Retour en haut"
+      be_excellent: "Soyez bienveillant envers chacun ! ♥"
       powered_by: "Propulsé par diaspora*"
       public_feed: "Flux diaspora* public de %{name}"
       source_package: "Téléchargez le code source"
@@ -747,21 +754,22 @@ fr:
       message: |-
           Bonjour !
 
-          Vous avez été invité(e) à rejoindre diaspora* !
+          Vous avez été invité-e par %{diaspora_id} à rejoindre diaspora* !
 
           Cliquez sur ce lien pour vous lancer dans l'aventure :
 
           [%{invite_url}][1]
 
+          Ou si vous avez déjà un compte, vous pouvez ajouter %{diaspora_id} à vos contacts.
 
-          Bien le bonjour chez vous,
+          Amicalement,
 
           Le messager automatique de diaspora*
 
           PS : Au cas où vous ne sauriez pas (encore) ce qu'est diaspora*, la réponse est [ici][2] !
 
           [1] : %{invite_url}
-          [2]: %{diasporafoundation_url}
+          [2] : %{diasporafoundation_url}
     invited_you: "%{name} vous a invité(e) sur diaspora*"
     liked:
       liked: "%{name} a aimé votre message"
@@ -772,6 +780,7 @@ fr:
       subject: "%{name} vous a mentionné(e) sur diaspora*"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
+      subject: "Vous avez un nouveau message privé"
     remove_old_user:
       body: |-
           Bonjour,
@@ -805,10 +814,10 @@ fr:
           Le messager automatique de diaspora*
 
           [1]: %{url}
-      subject: "Un nouveau %{type} a été marqué comme offensant."
+      subject: "Un nouveau %{type} a été marqué comme offensant"
       type:
         comment: "commentaire"
-        post: "Message"
+        post: "message"
     reshared:
       reshared: "%{name} a repartagé votre message"
       view_post: "Voir le message >"
@@ -833,7 +842,7 @@ fr:
       no_results: "Hé ! Vous devez rechercher quelque chose."
       results_for: "Utilisateurs correspondant à %{search_term}"
       search_handle: "Utilisez leur identifiant diaspora* (nomutilisateur@urldupod) pour être sûr de trouver vos amis."
-      searching: "Recherche en cours, veuillez patienter ..."
+      searching: "Recherche en cours, veuillez patienter…"
       send_invite: "Toujours rien ? Envoyez leur une invitation !"
     person:
       thats_you: "C'est vous !"
@@ -918,18 +927,18 @@ fr:
       success: "Vous avez rejoint diaspora* !"
     invalid_invite: "Le lien d'invitation que vous avez fourni n'est plus valide !"
     new:
-      email: "COURRIEL"
+      email: "Adresse électronique"
       enter_email: "Saisissez une adresse de courrier électronique"
       enter_password: "Saisissez un mot de passe (d'au moins six caractères)"
       enter_password_again: "Saisissez à nouveau le même mot de passe"
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
-      password: "MOT DE PASSE"
-      password_confirmation: "CONFIRMATION DU MOT DE PASSE"
-      sign_up: "INSCRIVEZ-VOUS"
-      submitting: "Envoi en cours..."
+      password: "Mot de passe"
+      password_confirmation: "Confirmation du mot de passe"
+      sign_up: "Inscrivez-vous"
+      submitting: "Envoi en cours…"
       terms: "En créant un compte, vous acceptez les %{terms_link}"
       terms_link: "conditions d'utilisation"
-      username: "NOM D'UTILISATEUR"
+      username: "Nom d’utilisateur"
   report:
     comment_label: "<b>Commentaire</b>:<br>%{data}"
     confirm_deletion: "Etes vous vraiment sur de vouloir supprimer cet élément ?"
@@ -1013,14 +1022,13 @@ fr:
       poll:
         add_a_poll: "Ajouter un sondage"
       posting: "Publication…"
-      preview: "Aperçu"
       remove_location: "Supprimer l'emplacement"
       share: "Partager"
       upload_photos: "Envoyer des photos"
       whats_on_your_mind: "Exprimez-vous..."
     stream_element:
       via: "Via %{link}"
-      via_mobile: "Envoyé d'un mobile"
+      via_mobile: "Envoyé depuis un mobile"
   simple_captcha:
     label: "Entrez le code dans le champ"
     message:

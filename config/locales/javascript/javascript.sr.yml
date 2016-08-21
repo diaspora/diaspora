@@ -94,17 +94,22 @@ sr:
       wasnt_that_interesting: "Добро, изгледа да те #<%= tagName %> не занима толико..."
     timeago:
       day: "један дан"
-      days: "%d дана"
+      days:
+        other: "%d дана"
       hour: "око један час"
-      hours: "око %d часова"
+      hours:
+        other: "око %d часова"
       minute: "око минут"
-      minutes: "%d минута"
+      minutes:
+        other: "%d минута"
       month: "око један месец"
-      months: "%d месеци"
+      months:
+        other: "%d месеци"
       prefixAgo: "Пре"
       prefixFromNow: ""
       seconds: "мање од минута"
       suffixAgo: ""
       suffixFromNow: "од овог тренутка"
       year: "око једну годину"
-      years: "%d година"
+      years:
+        other: "%d година"

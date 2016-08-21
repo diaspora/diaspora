@@ -83,17 +83,22 @@ bg:
       wasnt_that_interesting: "Е, вероятно марката #<%= tagName %> не е чак толкова интересна..."
     timeago:
       day: "ден"
-      days: "%d дни"
+      days:
+        other: "%d дни"
       hour: "около час"
-      hours: "около %d часа"
+      hours:
+        other: "около %d часа"
       minute: "около минута"
-      minutes: "%d минути"
+      minutes:
+        other: "%d минути"
       month: "около месец"
-      months: "%d месеца"
+      months:
+        other: "%d месеца"
       prefixAgo: "преди"
       prefixFromNow: "след"
       seconds: "по-малко от минута"
       suffixAgo: "преди"
       suffixFromNow: "от сега"
       year: "около година"
-      years: "%d години"
+      years:
+        other: "%d години"

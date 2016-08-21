@@ -168,17 +168,22 @@ te:
       wasnt_that_interesting: "సరే, #<%= tagName %> మొత్తం అంత ఆసక్తికరంగా లేదని నేను అనుకుంటున్నాను..."
     timeago:
       day: "ఒక రోజు"
-      days: "%d రోజుల"
+      days:
+        other: "%d రోజుల"
       hour: "దాదాపు గంట"
-      hours: "దాదాపు %d గంటల"
+      hours:
+        other: "దాదాపు %d గంటల"
       minute: "దాదాపు నిమిషం"
-      minutes: "%d నిమిషాల"
+      minutes:
+        other: "%d నిమిషాల"
       month: "దాదాపు నెల"
-      months: "%d నెలల"
+      months:
+        other: "%d నెలల"
       prefixAgo: " "
       prefixFromNow: ""
       seconds: "కొన్ని క్షణాల"
       suffixAgo: "క్రితం"
       suffixFromNow: "ఇప్పటి నుండి"
       year: "దాదాపు సంవత్సరం"
-      years: "%d సంవత్సరాల"
+      years:
+        other: "%d సంవత్సరాల"

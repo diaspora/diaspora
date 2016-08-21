@@ -153,12 +153,30 @@ de_formal:
         login_required: "Sie müssen sich erst anmelden, bevor Sie diese Anwendung zulassen können."
         title: "Oh! Etwas ist schiefgegangen :("
       scopes:
+        aud:
+          description: "Dies gewährt der Anwendung aud-Berechtigungen"
+          name: "aud"
+        name:
+          description: "Dies gewährt der Anwendung Name-Berechtigungen"
+          name: "Name"
+        nickname:
+          description: "Dies gewährt der Anwendung Benutzername-Berechtigungen"
+          name: "Benutzername"
         openid:
           description: "Das ermöglicht der Anwendung, Ihr grundlegendes Profil auszulesen"
           name: "grundlegendes Profil"
+        picture:
+          description: "Dies gewährt der Anwendung Bild-Berechtigungen"
+          name: "Bild"
+        profile:
+          description: "Dies ermöglicht der Anwendung, Ihr erweitertes Profil auszulesen"
+          name: "erweitertes Profil"
         read:
           description: "Das ermöglicht der Anwendung, Ihren Stream, Ihre Konversationen und Ihr vollständiges Profil auszulesen"
           name: "Profil, Stream und Konversationen lesen"
+        sub:
+          description: "Dies gewährt der Anwendung sub-Berechtigungen"
+          name: "sub"
         write:
           description: "Dies ermöglicht der Anwendung, neue Beiträge zu senden, Konversationen zu schreiben und Reaktionen zu senden"
           name: "Beiträge, Konversationen und Reaktionen senden"
@@ -245,10 +263,10 @@ de_formal:
       success: "Aspekt %{name} erfolgreich bearbeitet."
   blocks:
     create:
-      failure: "Konnte diesen Benutzer nicht ignorieren.  #evasion"
+      failure: "Konnte diesen Benutzer nicht ignorieren. #evasion"
       success: "Alles klar, Sie werden diesen Benutzer nicht mehr in ihrem Stream sehen. #silencio!"
     destroy:
-      failure: "Konnte das Ignorieren dieses Benutzers nicht aufheben.  #evasion"
+      failure: "Konnte das Ignorieren dieses Benutzers nicht aufheben. #evasion"
       success: "Sehen Sie, was diese zu sagen haben! #sayhello"
   bookmarklet:
     explanation: "Erstellen Sie auf jeder Webseite einen Beitrag für diaspora*, indem Sie %{link} als Lesezeichen speichern."
@@ -275,6 +293,7 @@ de_formal:
       user_search: "Kontaktsuche"
     spotlight:
       community_spotlight: "Gemeinschafts-Schaukasten"
+      no_members: "Es gibt noch keine Mitglieder."
       suggest_member: "Ein Mitglied vorschlagen"
   conversations:
     create:
@@ -409,7 +428,7 @@ de_formal:
       subscribe_feed_q: "Kann ich die öffentlichen Beiträge einer Person mit einem Feedreader verfolgen?"
       title: "Diverses"
     pods:
-      find_people_a: "Benutzen Sie um Ihre Freunde dazu einzuladen, diaspora* beizutreten, den Einladungs- oder den E-Mail-Link in der Seitenleiste. Folgen Sie #Tags, um Andere zu entdecken, die Ihre Interessen teilen und fügen Sie Leute zu Ihren Aspekten hinzu, die für Sie interessante Sachen posten. Schreiben Sie in einem öffentlichen Post, dass Sie #NeuHier sind."
+      find_people_a: "Benutzen Sie um Ihre Freunde dazu einzuladen, diaspora* beizutreten, den Einladungs- oder den E-Mail-Link in der Seitenleiste. Folgen Sie #Tags, um andere zu entdecken, die Ihre Interessen teilen und fügen Sie Leute zu Ihren Aspekten hinzu, die für Sie interessante Sachen posten. Schreiben Sie in einem öffentlichen Post, dass Sie #NeuHier sind."
       find_people_q: "Ich bin gerade erst einem Pod beigetreten, wie finde ich nun Leute zum Teilen?"
       title: "Pods"
       use_search_box_a: "Wenn Sie deren vollständige diaspora* ID (z.B. benutzername@podname.org) kennen, können Sie sie finden, indem Sie danach suchen. Wenn Sie sich auf dem selben Pod befinden, reicht es, wenn Sie nur nach dem Benutzernamen suchen. Alternativ können Sie auch nach ihrem Profilnamen (dem angezeigten Namen) suchen. Wenn eine Suche beim ersten Mal keine Ergebnisse liefert, dann versuchen Sie es nochmal."
@@ -472,7 +491,7 @@ de_formal:
       can_comment_reshare_like_a: "Jeder angemeldete diaspora*-Nutzer kann öffentliche Beiträge weitersagen, kommentieren, beziehungsweise „Gefällt mir“ drücken."
       can_comment_reshare_like_q: "Wer kann meinen öffentlichen Beitrag weitersagen, kommentieren oder bei ihm „Gefällt mir“ drücken?"
       deselect_aspect_posting_a: "Öffentliche Beiträge werden durch das Abwählen von Aspekten nicht beeinflusst. Sie werden weiterhin öffentlich sein und in den Streams all Ihrer Kontakte angezeigt werden. Um einen Beitrag nur für bestimmte Aspekte sichtbar zu machen, müssen Sie diese mit dem Aspektwähler unter dem Eingabefeld auswählen."
-      deselect_aspect_posting_q: "Was passiert wenn ich bei öffentlichen Beiträgen die Auswahl eines oder mehrerer Aspekte aufhebe?"
+      deselect_aspect_posting_q: "Was passiert, wenn ich bei öffentlichen Beiträgen einen oder mehrere Aspekte abwähle?"
       find_public_post_a: "Ihre öffentlichen Beiträge werden in den Streams aller, die Ihnen folgen, erscheinen. Wenn Sie #Tags in Ihren öffentlichen Beitrag einfügen, werden alle, die diesem Tag folgen, Ihren Beitrag in ihren Streams finden. Außerdem hat jeder öffentliche Beitrag eine spezifische URL, die jeder betrachten kann, auch wenn er oder sie nicht angemeldet ist – öffentlichen Beiträge können daher direkt von Twitter, Blogs, etc. verlinkt werden. Öffentliche Beiträge können außerdem von Suchmaschinen indexiert werden."
       find_public_post_q: "Wie können andere Nutzer meine öffentlichen Beiträge finden?"
       see_comment_reshare_like_a: "Die Kommentare, das Weitersagen und das Bekunden von Gefallen an einem öffentlichen Beitrag sind so öffentlich wie der Beitrag selbst. Jeder angemeldete diaspora*-Benutzer und jeder andere im Internet kann Ihre Interaktionen mit öffentlichen Beiträgen sehen."
@@ -512,7 +531,7 @@ de_formal:
       list_not_sharing_q: "Gibt es eine Liste mit Leuten, die ich zu einem meiner Aspekte hinzugefügt habe, die mich aber noch nicht zu einem ihrer Aspekte hinzugefügt haben?"
       only_sharing_a: "Das sind Leute, die Sie zu einem ihrer Aspekte hinzugefügt haben, die sich aber (noch) nicht in einem Ihrer Aspekte befinden. Anders gesagt: Sie teilen mit Ihnen, aber Sie nicht mit ihnen: Sie können sich dies so vorstellen, dass sie Ihnen „folgen”. Wenn Sie sie zu einem Aspekt hinzufügen, werden sie in jenem Aspekt und nicht unter „Nur mit Ihnen Teilende“ zu sehen sein. Siehe oben."
       only_sharing_q: "Wer sind die Leute, die auf der Kontakteseite unter „Nur mit Ihnen Teilende” gelistet sind?"
-      see_old_posts_a: "Nein. Er wird ausschließlich neue Beiträge für diesen Aspekt sehen. Er (und alle Anderen) können aber alle älteren öffentlichen Beiträge von Ihnen auf Ihrer Profilseite oder in ihrem Stream sehen."
+      see_old_posts_a: "Nein. Er wird ausschließlich neue Beiträge für diesen Aspekt sehen. Er (und alle anderen) können aber alle älteren öffentlichen Beiträge von Ihnen auf Ihrer Profilseite oder in ihrem Stream sehen."
       see_old_posts_q: "Wenn ich jemanden zu einem Aspekt hinzufüge, sieht er dann auch ältere, bereits geschriebene Beiträge in diesem Aspekt?"
       sharing_notification_a: "Sie sollten jedes Mal, wenn jemand mit Ihnen zu teilen anfängt, eine Benachrichtigung erhalten."
       sharing_notification_q: "Wie erfahre ich es, wenn jemand anfängt, mit mir zu teilen?"
@@ -574,8 +593,8 @@ de_formal:
       empty: "Bitte mindestens eine E-Mail-Adresse eingeben."
       no_more: "Sie haben keine Einladungen mehr."
       note_already_sent: "Es wurde bereits eine Einladung an %{emails} gesendet"
-      rejected: "Mit diesen E-Mail-Adressen gab es Probleme:"
-      sent: "Einladungen wurden verschickt an:"
+      rejected: "Mit diesen E-Mail-Adressen gab es Probleme: "
+      sent: "Einladungen wurden verschickt an: %{emails}"
     new:
       codes_left:
         one: "Eine Einladung übrig für diesen Code"
@@ -590,6 +609,7 @@ de_formal:
   layouts:
     application:
       back_to_top: "Nach oben"
+      be_excellent: "Seien Sie nett zueinander! ♥"
       powered_by: "Betrieben mit diaspora*"
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket herunterladen"
@@ -658,7 +678,7 @@ de_formal:
       zero: "Niemandem gefällt Ihr gelöschter Beitrag."
     mentioned:
       one: "%{actors} hat Sie in dem Beitrag %{post_link} erwähnt."
-      other: "%{actors} haben Sie in dem %{post_link} erwähnt."
+      other: "%{actors} haben Sie in dem Beitrag %{post_link} erwähnt."
       zero: "Niemand hat Sie in dem Beitrag %{post_link} erwähnt."
     mentioned_deleted:
       few: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
@@ -683,7 +703,7 @@ de_formal:
       few: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
       many: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
       one: "%{actors} hat Ihren gelöschten Beitrag weitergesagt."
-      other: "%{actors} Ihren deinen gelöschten Beitrag weitergesagt."
+      other: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
       two: "%{actors} hat Ihren bereits gelöschten Beitrag weitergeleitet."
       zero: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
     started_sharing:
@@ -694,7 +714,7 @@ de_formal:
       two: "%{actors} haben angefangen mit Ihnen zu teilen."
       zero: "Niemand hat angefangen mit Ihnen zu teilen."
   notifier:
-    a_limited_post_comment: "Auf diaspora* wartet ein neuer Kommentar auf einem begrenzten Beitrag darauf, von Ihnen gelesen zu werden."
+    a_limited_post_comment: "Auf diaspora* wartet ein neuer Kommentar auf einen begrenzten Beitrag darauf, von Ihnen gelesen zu werden."
     a_post_you_shared: "ein Beitrag."
     a_private_message: "Auf diaspora* wartet eine neue private Nachricht darauf, von Ihnen gelesen zu werden."
     also_commented:
@@ -711,19 +731,21 @@ de_formal:
       body: |-
           Hallo %{name},
 
-          Ihre Daten wurden verarbeiten und stehen [hier zum Download bereit](%{url}).
+          Ihre Daten wurden verarbeiten und können unter [diesem Link](%{url}) heruntergeladen werden.
 
-          Gruß,
-          Der diaspora* email bot!
+          Grüße,
+          Der diaspora* E-Mail-Roboter!
       subject: "Ihre persönlichen Daten sind bereit zum Download, %{name}"
     export_failure_email:
       body: |-
           Hallo %{name},
 
-          Es trat ein Fehler beim Verarbeiten Ihrer Daten auf, bitte versuchen Sie es später noch einmal.
+          Es ist ein Fehler aufgetreten, während Ihre Daten zum Herunterladen verarbeitet wurden.
+          Bitte versuchen Sie es noch einmal.
 
           Entschuldigung,
-          Der diaspora* email bot!
+
+          Der diaspora* E-Mail-Roboter!
       subject: "Entschuldige, es gab einen Fehler beim Verarbeiten Ihrer Daten, %{name}"
     export_photos_email:
       body: |-
@@ -777,6 +799,7 @@ de_formal:
       subject: "%{name} hat Sie auf diaspora* erwähnt"
     private_message:
       reply_to_or_view: "Antworten Sie oder sehen Sie sich diese Unterhaltung an >"
+      subject: "Es gibt eine neue private Nachricht für Sie"
     remove_old_user:
       body: |-
           Hallo,
@@ -819,7 +842,7 @@ de_formal:
       view_post: "Beitrag anzeigen >"
     single_admin:
       admin: "Ihr diaspora* Administrator"
-      subject: "Eine Nachricht über Ihr diaspora* Konto:"
+      subject: "Eine Nachricht über Ihr diaspora*-Konto:"
     started_sharing:
       sharing: "hat angefangen mit Ihnen zu teilen!"
       subject: "%{name} hat angefangen mit Ihnen auf diaspora* zu teilen"
@@ -928,8 +951,8 @@ de_formal:
     new:
       email: "E-Mail"
       enter_email: "Geben Sie Ihre E-Mail-Adresse an"
-      enter_password: "Geben Sie ein Kennwort ein (mindestens sechs Zeichen)"
-      enter_password_again: "Geben Sie das gleiche Kennwort wie zuvor ein"
+      enter_password: "Geben Sie ein Passwort ein (mindestens sechs Zeichen)"
+      enter_password_again: "Geben Sie das gleiche Passwort ein wie zuvor"
       enter_username: "Wählen Sie einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
       password: "Passwort"
       password_confirmation: "Passwort bestätigen"
@@ -955,7 +978,7 @@ de_formal:
   reshares:
     comment_email_subject: "%{resharer}s Version von %{author}s Beitrag"
     reshare:
-      deleted: "Originalbeitrag wurde vom Autor entfernt."
+      deleted: "Originalbeitrag wurde vom Autor gelöscht."
       reshare_confirmation: "%{author}'s Beitrag weitersagen?"
       reshared_via: "Weitergesagt durch"
   search: "Suche"
@@ -1024,7 +1047,6 @@ de_formal:
       poll:
         add_a_poll: "Eine Umfrage hinzufügen"
       posting: "Senden …"
-      preview: "Vorschau"
       remove_location: "Position entfernen"
       share: "Teilen"
       upload_photos: "Fotos hochladen"
@@ -1108,9 +1130,9 @@ de_formal:
       email_confirmed: "E-Mail %{email} wurde aktiviert"
       email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
     destroy:
-      no_password: "Bitte geben Sie Ihr Kennwort ein, um Ihren Account zu schließen."
-      success: "Ihr Account wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis Ihr Account endgültig geschlossen ist. Vielen Dank, dass Sie diaspora* ausprobiert haben."
-      wrong_password: "Das eingegebene Kennwort stimmt nicht mit Ihrem aktuellen Kennwort überein."
+      no_password: "Bitte geben Sie Ihr Passwort ein, um Ihr Konto zu schließen."
+      success: "Ihr Konto wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis Ihr Konto endgültig geschlossen ist. Vielen Dank, dass Sie diaspora* ausprobiert haben."
+      wrong_password: "Das eingegebene Passwort stimmte nicht mit Ihrem aktuellen Passwort überein."
     edit:
       also_commented: "jemand ebenfalls einen Beitrag kommentiert, den Sie kommentiert haben"
       auto_follow_aspect: "Aspekt für Benutzer mit denen Sie automatisch teilen:"
@@ -1124,14 +1146,14 @@ de_formal:
       close_account:
         dont_go: "Bitte gehen Sie nicht!"
         lock_username: "Ihr Benutzername wird gesperrt werden. Sie werden auf diesem Pod kein neues Konto mit derselben ID erstellen können."
-        locked_out: "Sie werden abgemeldet und von Ihrem Account ausgesperrt, bis es gelöscht wurde."
+        locked_out: "Sie werden abgemeldet und von Ihrem Konto ausgesperrt, bis es gelöscht wurde."
         make_diaspora_better: "Wir würden uns freuen, wenn Sie bleiben und uns helfen, diaspora* besser zu machen, anstatt uns zu verlassen. Wenn Sie uns jedoch wirklich verlassen möchten, wird folgendes passieren:"
         mr_wiggles: "Mr. Wiggles wird traurig sein, wenn Sie gehen"
         no_turning_back: "Es gibt kein Zurück! Wenn Sie sich wirklich sicher sind, geben Sie Ihr Passwort unten ein."
         what_we_delete: "Wir löschen alle Ihre Beiträge und Ihr Profil so schnell wie möglich. Ihre Kommentare auf Beiträge anderer Leute werden noch angezeigt, aber Sie werden mit Ihrer diaspora*-ID anstatt mit Ihrem Namen verknüpft."
       close_account_text: "Konto schließen"
       comment_on_post: "jemand Ihren Beitrag kommentiert"
-      current_password: "Derzeitiges Kennwort"
+      current_password: "Derzeitiges Passwort"
       current_password_expl: "das mit dem Sie sich anmelden..."
       download_export: "Mein Profil herunterladen"
       download_export_photos: "Meine Fotos herunterladen"
@@ -1144,7 +1166,7 @@ de_formal:
       last_exported_at: "(Zuletzt aktualisiert um %{timestamp})"
       liked: "wenn jemandem Ihr Beitrag gefällt"
       mentioned: "Sie in einem Beitrag erwähnt werden"
-      new_password: "Neues Kennwort"
+      new_password: "Neues Passwort"
       private_message: "Sie eine private Nachricht erhalten"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn:"
       request_export: "Meine Profildaten anfordern"
@@ -1186,8 +1208,8 @@ de_formal:
       follow_settings_not_changed: "Ändern der Folgen-Einstellungen fehlgeschlagen."
       language_changed: "Sprache geändert"
       language_not_changed: "Fehler beim Ändern der Sprache."
-      password_changed: "Kennwort geändert. Sie können sich nun mit Ihrem neuen Kennwort anmelden."
-      password_not_changed: "Fehler beim Ändern des Kennwort."
+      password_changed: "Passwort geändert.  Sie können sich nun mit Ihrem neuen Passwort anmelden."
+      password_not_changed: "Passwortänderung fehlgeschlagen"
       settings_not_updated: "Aktualisierung der Einstellungen fehlgeschlagen"
       settings_updated: "Einstellungen aktualisiert"
       unconfirmed_email_changed: "E-Mail-Adresse geändert. Benötigt Aktivierung."

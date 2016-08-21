@@ -67,17 +67,22 @@ cy:
       wasnt_that_interesting: "OK, mae'n debyg nid yw #<%= tagName %> yn ddiddorol iawn..."
     timeago:
       day: "diwrnod"
-      days: "%d diwrnod"
+      days:
+        other: "%d diwrnod"
       hour: "awr"
-      hours: "%d awr"
+      hours:
+        other: "%d awr"
       minute: "tua funud"
-      minutes: "%d munud"
+      minutes:
+        other: "%d munud"
       month: "mis"
-      months: "%d mis"
+      months:
+        other: "%d mis"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "rhai na munud"
       suffixAgo: "yn ôl"
       suffixFromNow: "o hŷd"
       year: "tua flwyddyn"
-      years: "%d blyddynoedd"
+      years:
+        other: "%d blyddynoedd"

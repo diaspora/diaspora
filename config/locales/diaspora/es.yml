@@ -273,6 +273,7 @@ es:
       user_search: "Buscar usuarios"
     spotlight:
       community_spotlight: "Lo más destacado"
+      no_members: "No hay miembros todavía."
       suggest_member: "Sugiere un usuario"
   conversations:
     create:
@@ -588,6 +589,7 @@ es:
   layouts:
     application:
       back_to_top: "Volver arriba"
+      be_excellent: "¡Sed buenos! ♥"
       powered_by: "Impulsado por Diaspora*"
       public_feed: "Canal público de %{name} "
       source_package: "Descargar el paquete del código fuente"
@@ -758,6 +760,7 @@ es:
       subject: "%{name} te mencionó en diaspora*"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
+      subject: "Tienes un nuevo mensaje privado"
     remove_old_user:
       body: |-
           Hola,
@@ -998,7 +1001,6 @@ es:
       poll:
         add_a_poll: "Crear una encuesta"
       posting: "Publicando..."
-      preview: "Vista previa"
       remove_location: "Eliminar ubicación"
       share: "Compartir"
       upload_photos: "Subir fotos"

@@ -240,13 +240,17 @@ ia:
       wasnt_that_interesting: "OK, io suppone que #<%= tagName %> non es si interessante..."
     timeago:
       day: "un die"
-      days: "%d dies"
+      days:
+        other: "%d dies"
       hour: "circa un hora"
-      hours: "circa %d horas"
+      hours:
+        other: "circa %d horas"
       minute: "circa un minuta"
-      minutes: "%d minutas"
+      minutes:
+        other: "%d minutas"
       month: "circa un mense"
-      months: "%d menses"
+      months:
+        other: "%d menses"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "minus de un minuta"
@@ -254,7 +258,8 @@ ia:
       suffixFromNow: "ab ora"
       wordSeparator: " "
       year: "circa un anno"
-      years: "%d annos"
+      years:
+        other: "%d annos"
     unblock_failed: "Le action de disblocar iste usator ha fallite"
     viewer:
       reshared: "Repetite"

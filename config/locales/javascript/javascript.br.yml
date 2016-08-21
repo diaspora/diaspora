@@ -140,19 +140,24 @@ br:
       wasnt_that_interesting: "Mat eo, moarvat ne oa ket gwall zedennus #<%= tagName %>..."
     timeago:
       day: "un devezh"
-      days: "%d a zevezhioù"
+      days:
+        other: "%d a zevezhioù"
       hour: "war-dro un eurvezh"
-      hours: "war-dro %d eurvezh"
+      hours:
+        other: "war-dro %d eurvezh"
       minute: "war-dro ur vunutenn"
-      minutes: "%d a vunutennoù"
+      minutes:
+        other: "%d a vunutennoù"
       month: "war-dro miz"
-      months: "%d miz"
+      months:
+        other: "%d miz"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "dindan ur vunutenn"
       suffixAgo: "zo"
       suffixFromNow: "diwar-vremañ"
       year: "war-dro bloaz"
-      years: "%d bloaz"
+      years:
+        other: "%d bloaz"
     viewer:
       reshared: "Rannet pelloc'h"

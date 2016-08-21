@@ -193,6 +193,34 @@ es:
     publisher:
       add_option: "Añadir una respuesta"
       limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
+      markdown_editor:
+        preview: "Previsualización"
+        texts:
+          code: "código aquí"
+          heading: "texto de encabezado"
+          insert_image_description_text: "introduce la descripción de la imagen aquí"
+          insert_image_help_text: "Inserta el enlace de la imagen aquí"
+          insert_image_title: "introduce el título de la imagen aquí"
+          insert_link_description_text: "introduce la descripción del enlace aquí"
+          insert_link_help_text: "Insertar enlace aquí"
+          italic: "texto en cursiva"
+          list: "lista el texto aquí"
+          quote: "texto entrecomillado aquí"
+          strong: "texto en negrita"
+        tooltips:
+          bold: "Negritas"
+          cancel: "Cancelar mensaje"
+          code: "Insertar código"
+          heading: "Encabezando"
+          insert_image: "Insertar imagen"
+          insert_link: "Insertar enlace"
+          insert_ordered_list: "Insertar lista ordenada"
+          insert_unordered_list: "Insertar lista sin ordenar"
+          italic: "Cursiva"
+          preview: "Previsualizar mensaje"
+          quote: "Insertar comillas"
+          write: "Editar mensaje"
+        write: "Escribir"
       near_from: "Cerca de: <%= location %>"
       option: "Respuesta"
       public: "Público - tu publicación es visible para todos, incluyendo buscadores"
@@ -231,6 +259,7 @@ es:
         one: "Mostrar <%= count %> comentario más"
         other: "Mostrar <%= count %> comentarios más"
         zero: "Mostrar <%= count %> comentarios más"
+      no_posts_yet: "Todavía no hay post para mostrar aquí."
       original_post_deleted: "Publicación original borrada por el autor."
       permalink: "Enlace permanente"
       public: "Público"
@@ -259,13 +288,17 @@ es:
       wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
       day: "1 día"
-      days: "%d días"
+      days:
+        other: "%d días"
       hour: "1 hora aproximadamente"
-      hours: "%d horas aproximadamente"
+      hours:
+        other: "%d horas aproximadamente"
       minute: "1 minuto aproximadamente"
-      minutes: "%d minutos"
+      minutes:
+        other: "%d minutos"
       month: "1 mes aproximadamente"
-      months: "%d meses"
+      months:
+        other: "%d meses"
       prefixAgo: "Hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
@@ -273,7 +306,8 @@ es:
       suffixFromNow: ""
       wordSeparator: " "
       year: "un año aproximadamente"
-      years: "%d años"
+      years:
+        other: "%d años"
     unblock_failed: "Falló el desbloqueo del usuario"
     viewer:
       reshared: "Compartido"

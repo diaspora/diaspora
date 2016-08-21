@@ -171,13 +171,17 @@ hu:
       wasnt_that_interesting: "Oké, azt hiszem a #<%= tagName %> nem volt annyira érdekes."
     timeago:
       day: "egy nappal"
-      days: "%d nappal"
+      days:
+        other: "%d nappal"
       hour: "körülbelül egy órával"
-      hours: "körülbelül %d órával"
+      hours:
+        other: "körülbelül %d órával"
       minute: "körülbelül egy perccel"
-      minutes: "%d perccel"
+      minutes:
+        other: "%d perccel"
       month: "körülbelül egy hónappal"
-      months: "%d hónappal"
+      months:
+        other: "%d hónappal"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "kevesebb mint egy perccel"
@@ -185,6 +189,7 @@ hu:
       suffixFromNow: "mostantól"
       wordSeparator: " "
       year: "körülbelül egy évvel"
-      years: "%d évvel"
+      years:
+        other: "%d évvel"
     viewer:
       reshared: "Megosztva"

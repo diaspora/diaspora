@@ -209,13 +209,17 @@ pl:
       wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:
       day: "dzień"
-      days: "%d dni"
+      days:
+        other: "%d dni"
       hour: "około godziny"
-      hours: "około %d godzin"
+      hours:
+        other: "około %d godzin"
       minute: "około minuty"
-      minutes: "%d minut"
+      minutes:
+        other: "%d minut"
       month: "około miesiąca"
-      months: "%d miesięcy"
+      months:
+        other: "%d miesięcy"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "mniej niż minutę"
@@ -223,7 +227,8 @@ pl:
       suffixFromNow: "od teraz"
       wordSeparator: " "
       year: "około roku"
-      years: "%d lat"
+      years:
+        other: "%d lat"
     unblock_failed: "Nie udało się odblokować tego użytkownika"
     viewer:
       reshared: "Przekazano dalej"

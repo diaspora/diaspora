@@ -90,17 +90,22 @@ ka:
       wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #<%= tagName %> არც ისე საინტერესო იყო..."
     timeago:
       day: "დღე"
-      days: "%d დღე"
+      days:
+        other: "%d დღე"
       hour: "დაახლოებით ერთი საათი"
-      hours: "დაახლოებით %d საათი"
+      hours:
+        other: "დაახლოებით %d საათი"
       minute: "დაახლოებით წუთი"
-      minutes: "%d წუთი"
+      minutes:
+        other: "%d წუთი"
       month: "დაახლოებით ერთი თვე"
-      months: "%d თვე"
+      months:
+        other: "%d თვე"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "წუთზე ნაკლები"
       suffixAgo: "ადრე"
       suffixFromNow: "ამიერიდან"
       year: "დაახლოებით ერთი წელი"
-      years: "%d წელი"
+      years:
+        other: "%d წელი"

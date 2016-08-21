@@ -115,19 +115,24 @@ es-MX:
       wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante…"
     timeago:
       day: "un día"
-      days: "%d días"
+      days:
+        other: "%d días"
       hour: "una hora aproximadamente"
-      hours: "%d horas aproximadamente"
+      hours:
+        other: "%d horas aproximadamente"
       minute: "un minuto aproximadamente"
-      minutes: "%d minutos"
+      minutes:
+        other: "%d minutos"
       month: "un mes aproximadamente"
-      months: "%d meses"
+      months:
+        other: "%d meses"
       prefixAgo: "hace"
       prefixFromNow: "dentro de"
       seconds: "menos de un minuto"
       suffixAgo: ""
       suffixFromNow: "desde ahora"
       year: "un año aproximadamente"
-      years: "%d años"
+      years:
+        other: "%d años"
     viewer:
       reshared: "Compartido"

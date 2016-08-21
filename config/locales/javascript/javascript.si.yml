@@ -44,17 +44,22 @@ si:
       unlike: "අකැමතියි"
     timeago:
       day: "දවසක්"
-      days: "දවස් %d"
+      days:
+        other: "දවස් %d"
       hour: "පැයකින් පමණ"
-      hours: "පැය %d පමණ"
+      hours:
+        other: "පැය %d පමණ"
       minute: "විනාඩියකින් පමණ"
-      minutes: "විනාඩි %d"
+      minutes:
+        other: "විනාඩි %d"
       month: "මාසයකින් පමණ"
-      months: "මාස %d"
+      months:
+        other: "මාස %d"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "විනාඩියකට අඩු කාලයකින්"
       suffixAgo: "පෙර"
       suffixFromNow: "මෙතැන් සිට"
       year: "අවුරුද්දකින් පමණ"
-      years: "අවුරුදු %d"
+      years:
+        other: "අවුරුදු %d"

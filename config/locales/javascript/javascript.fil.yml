@@ -13,7 +13,8 @@ fil:
       hide: "Itago"
       public: "Publiko"
     timeago:
-      minutes: "%d minuto"
+      minutes:
+        other: "%d minuto"
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: ""
