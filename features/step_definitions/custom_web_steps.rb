@@ -241,9 +241,7 @@ And "I wait for notifications to load" do
 end
 
 When /^I resize my window to 800x600$/ do
-  page.execute_script <<-JS
-    window.resizeTo(800,600);
-  JS
+  page.driver.resize(800, 600)
 end
 
 Then 'I should see an image attached to the post' do

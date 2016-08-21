@@ -60,3 +60,18 @@ Feature: Keyboard navigation
     When I press the "J" key somewhere
     Then post 2 should be highlighted
     And I should have navigated to the highlighted post
+
+  Scenario: navigate downwards on a small screen
+    When I resize my window to 800x600
+    And I press the "J" key somewhere
+    Then post 1 should be highlighted
+    And I should have navigated to the highlighted post
+
+    When I press the "J" key somewhere
+    Then post 2 should be highlighted
+    And I should have navigated to the highlighted post
+
+    Given I expand the publisher
+    When I press the "J" key in the publisher
+    Then post 2 should be highlighted
+    And I close the publisher
