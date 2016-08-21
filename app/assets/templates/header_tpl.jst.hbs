@@ -12,7 +12,7 @@
           <a href="/stream" class="navbar-brand" data-stream-title="{{t "my_stream"}}">
             {{ podname }}
           </a>
-          <ul class="nav nav-badges visible-sm visible-xs">
+          <ul class="nav nav-badges visible-sm">
             <li>
               <a href="/notifications" title="{{t "header.notifications"}}" class="notifications-link nav-badge">
                 <i class="entypo-bell"></i>
@@ -36,6 +36,8 @@
           <ul class="nav navbar-nav navbar-left">
             <li><a href="/stream">{{t "my_stream"}}</a></li>
             <li><a href="/activity">{{t "my_activity"}}</a></li>
+            <li class="visible-xs"><a href="/notifications">{{t "header.notifications"}}</a></li>
+            <li class="visible-xs"><a href="/conversations">{{t "header.conversations"}}</a></li>
             <li class="visible-sm visible-xs"><a href="/mobile/toggle">{{t "header.toggle_mobile"}}</a></li>
           </ul>
 
