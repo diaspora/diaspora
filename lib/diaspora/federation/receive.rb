@@ -180,7 +180,7 @@ module Diaspora
       end
 
       private_class_method def self.author_of(entity)
-        Person.find_by(diaspora_handle: entity.author)
+        Person.by_account_identifier(entity.author)
       end
 
       private_class_method def self.build_location(entity)

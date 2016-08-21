@@ -585,6 +585,17 @@ describe Diaspora::Federation::Receive do
 
         Diaspora::Federation::Receive.perform(status_message_entity)
       end
+
+      it "finds the correct author if the author is not lowercase" do
+        status_message_entity = FactoryGirl.build(:status_message_entity, author: sender.diaspora_handle.upcase)
+
+        received = Diaspora::Federation::Receive.perform(status_message_entity)
+
+        status_message = StatusMessage.find_by!(guid: status_message_entity.guid)
+
+        expect(received).to eq(status_message)
+        expect(status_message.author).to eq(sender)
+      end
     end
 
     context "with poll" do
