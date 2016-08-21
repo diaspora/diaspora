@@ -19,7 +19,7 @@ cache:
 branches:
   only:
     - 'master'
-    - 'stable'
+    - 'next-minor'
     - 'develop'
 
 before_install:
