@@ -292,6 +292,7 @@ ia:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrige le sequente errores e proba de novo."
+    need_javascript: "Iste sito web require JavaScript pro poter functionar. Si tu ha disactivate JavaScript, per favor reactiva lo e recarga iste pagina."
   fill_me_out: "Plena me"
   find_people: "Cercar personas o #etiquettas"
   help:
@@ -511,6 +512,18 @@ ia:
     tutorial: "tutorial"
     tutorials: "tutoriales"
     wiki: "wiki"
+  home:
+    default:
+      be_who_you_want_to_be: "Sia le persona que tu vole esser"
+      be_who_you_want_to_be_info: "Multe retes insiste que on usa su nomine real. Non diaspora*. Hic tu pote eliger le persona que vole esser, e divulgar si multo o si pauco de te como tu vole. Tu pote vermente decider como tu interage con altere personas."
+      byline: "Le mundo social in linea ubi tu ha le controlo"
+      choose_your_audience: "Elige tu audientia"
+      choose_your_audience_info: "Le \"aspectos\" de diaspora* permitte divider cosas solmente con le personas appropriate. Tu pote scriber in publico o si privatemente como tu vole. Divide un photo amusante con tote le mundo, o divide un secreto personal con tu amicos intime. Le controlo es tue."
+      headline: "Benvenite a %{pod_name}"
+      own_your_data: "Possede tu proprie datos"
+      own_your_data_info: "Multe retes usa tu datos pro ganiar moneta analysante tu interactiones e usante iste information pro diriger publicitate a te. diaspora* non usa tu datos pro alcun scopo, salvo illo de permitter te de connecter e divider cosas con altere personas."
+    podmin:
+      headline: "Benvenite, amico."
   invitation_codes:
     not_valid: "Iste codice de invitation non plus es valide"
   invitations:
@@ -678,6 +691,7 @@ ia:
       subject: "%{name} te ha mentionate in diaspora*"
     private_message:
       reply_to_or_view: "Responde o lege iste conversation >"
+      subject: "Il ha un nove message private pro te"
     remove_old_user:
       body: |-
           Salute,
@@ -900,7 +914,6 @@ ia:
       poll:
         add_a_poll: "Adder un sondage"
       posting: "Invio in curso…"
-      preview: "Previsualisation"
       remove_location: "Remover loco"
       share: "Divider"
       upload_photos: "Incargar photos"

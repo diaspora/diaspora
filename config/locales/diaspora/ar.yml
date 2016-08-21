@@ -5,7 +5,7 @@
 
 
 ar:
-  _applications: "التطبيقات"
+  _applications: "التّطبيقات"
   _contacts: "المتراسلون"
   _services: "الخدمات"
   _statistics: "إحصائيّات"
@@ -86,9 +86,9 @@ ar:
       aspect_list_is_not_visible: "قائمة الفئة مخفية عن الأعضاء الأخرين في الفئة"
       aspect_list_is_visible: "قائمة الفئة مرئية للأعضاء الآخرين في الفئة"
       confirm_remove_aspect: "تأكيد حذف هذه الفئة؟"
-      rename: "إعادة تسمية"
-      update: "تحديث"
-      updating: "جارى التحديث"
+      rename: "أعد التّسمية"
+      update: "حدّث"
+      updating: "يحدّث"
     index:
       donate: "تبرّع"
       help:
@@ -113,8 +113,8 @@ ar:
     no_contacts_message:
       community_spotlight: "أضواء المجتمع"
       or_spotlight: "أو يمكنك المشاركة مع %{link}"
-      try_adding_some_more_contacts: "تستطيع أن تبحث عن أو تدعو جهات إتصال أكثر."
-      you_should_add_some_more_contacts: "يُستحسن إضافة مزيد من الأعضاء"
+      try_adding_some_more_contacts: "يمكنك البحث عن متراسلين آخرين أو لربّما ‎%{invite_link}."
+      you_should_add_some_more_contacts: "عليك إضافة متراسلين آخرين!"
     seed:
       acquaintances: "معارِفي"
       family: "العائلة"
@@ -178,7 +178,7 @@ ar:
     helper:
       correct_the_following_errors_and_try_again: "صحّح الأخطاء الآتية وحاول مجدّدًا."
   fill_me_out: "املأني"
-  find_people: "اعثر على أشخاص أو #وسوم"
+  find_people: "ابحث عن أشخاص أو #وسوم"
   help:
     keyboard_shortcuts:
       keyboard_shortcuts_li5: "r - أعد مشاركة التدوينة الحاليّة"
@@ -211,9 +211,9 @@ ar:
       logout: "خروج"
       profile: "الملف الشخصى"
       settings: "إعدادات"
-  limited: "محدود"
+  limited: "محدّد"
   more: "أكثر"
-  no_results: "لم يُعثر على نتائج"
+  no_results: "لا نتائج"
   notifications:
     also_commented:
       few: "%{actors} علق أيضا على %{post_link} %{post_author}."
@@ -415,8 +415,8 @@ ar:
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
       reshare_by: "أعيد مشاركتها بواسطة %{author}"
-  privacy: "الخصوصية"
-  profile: "الملف الشخصي"
+  privacy: "الخصوصيّة"
+  profile: "الملفّ الشخصيّ"
   profiles:
     edit:
       allow_search: "اسمَح للجميع بالبحث عنك من خلال دياسبرا"
@@ -434,7 +434,7 @@ ar:
     update:
       failed: "فشل فى تحديث ملفك الشخصى"
       updated: "تم تحديث ملفك الشخصى"
-  public: "عام"
+  public: "عامّ"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"

@@ -975,7 +975,6 @@ pl:
       poll:
         add_a_poll: "Dodaj ankietę"
       posting: "Publikowanie..."
-      preview: "Podgląd"
       remove_location: "Usuń lokalizację"
       share: "Udostępnij"
       upload_photos: "Prześlij zdjęcia"

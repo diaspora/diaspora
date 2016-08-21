@@ -55,6 +55,34 @@ tr:
       looking_good: "OMG, harika görünüyorsun!"
     publisher:
       limited: "Sınırlı - gönderi sadece paylaşılan kişiler tarafından görünür"
+      markdown_editor:
+        preview: "Önizle"
+        texts:
+          code: "buraya kodu"
+          heading: "başlığı metni"
+          insert_image_description_text: "buraya imaj açıklama girin"
+          insert_image_help_text: "buraya imaj bağlantısını sokun"
+          insert_image_title: "buraya imaj başlığı girin"
+          insert_link_description_text: "Burada link açıklama girin"
+          insert_link_help_text: "buraya linki sokun"
+          italic: "eğik metin"
+          list: "buraya listesinde metni"
+          quote: "buraya alıntı metni"
+          strong: "gçlü metin"
+        tooltips:
+          bold: "Kalın"
+          cancel: "iletiyi iptal"
+          code: "kesici uç kodu"
+          heading: "başlığı"
+          insert_image: "Resim ekle"
+          insert_link: "Bağlantı ekle"
+          insert_ordered_list: "Ekle sıralı listesi"
+          insert_unordered_list: "Sırasız liste ekleme"
+          italic: "Eğik"
+          preview: "Önizleme mesajı"
+          quote: "Ekle tırnak"
+          write: "düzenle mesajı"
+        write: "yazma"
       public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
     reshares:
       duplicate: "Bu iyi, değil mi? Zaten bu gönderiyi tekrar paylaştın!"
@@ -74,6 +102,7 @@ tr:
       more_comments:
         other: "Diğer <%= count %> yorumu gör"
         zero: "Diğer <%= count %> yorumu gör"
+      no_posts_yet: "burada henüz görüntülemek hiç mesaj yok."
       original_post_deleted: "İleti yazarı tarafından silindi."
       public: "Genel"
       reshare: "Yeniden paylaş"
@@ -88,19 +117,24 @@ tr:
       wasnt_that_interesting: "Tamam, benim #<%= tagName %> o kadar da ilginç değil..."
     timeago:
       day: "1 gün"
-      days: "%d gün"
+      days:
+        other: "%d gün"
       hour: "yaklaşık 1 saat"
-      hours: "yaklaşık %d saat"
+      hours:
+        other: "yaklaşık %d saat"
       minute: "yaklaşık 1 dakika"
-      minutes: "%d dakika"
+      minutes:
+        other: "%d dakika"
       month: "yaklaşık 1 ay"
-      months: "%d ay"
+      months:
+        other: "%d ay"
       prefixAgo: "önce"
       prefixFromNow: "önce"
       seconds: "1 dakikadan az"
       suffixAgo: "önce"
       suffixFromNow: "şimdi"
       year: "yaklaşık 1 yıl"
-      years: "%d yıl"
+      years:
+        other: "%d yıl"
     viewer:
       reshared: "Yeniden paylaştı"

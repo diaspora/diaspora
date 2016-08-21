@@ -153,6 +153,33 @@ ru:
     publisher:
       add_option: "Добавить вариант"
       limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
+      markdown_editor:
+        preview: "Предпросмотр"
+        texts:
+          code: "код"
+          heading: "заголовок"
+          insert_image_description_text: "введите сюда описание изображения"
+          insert_image_help_text: "Вставьте ссылку на изображение сюда"
+          insert_image_title: "введите сюда заголовок изображения"
+          insert_link_description_text: "введите сюда описание ссылки"
+          insert_link_help_text: "Вставьте ссылку сюда"
+          italic: "текст курсивом"
+          list: "текст списка"
+          quote: "текст цитаты"
+          strong: "жирный текст"
+        tooltips:
+          bold: "Жирный"
+          cancel: "Отменить сообщение"
+          code: "Вставить код"
+          heading: "Заголовок"
+          insert_image: "Вставить изображение"
+          insert_link: "Вставить ссылку"
+          insert_ordered_list: "Вставить нумерованный список"
+          insert_unordered_list: "Вставить маркированный список"
+          italic: "Курсив"
+          preview: "Предпросмотр сообщения"
+          quote: "Вставить цитату"
+          write: "Редактировать сообщение"
       near_from: "Отправлено из: <%= location %>"
       option: "Вариант <%= nr %>"
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
@@ -196,6 +223,7 @@ ru:
         one: "Ещё <%= count %> комментарий"
         other: "Ещё <%= count %> комментариев"
         zero: "Ещё <%= count %> комментариев"
+      no_posts_yet: "Здесь пока не видно записей."
       original_post_deleted: "Исходная запись удалена автором."
       public: "Публичная"
       reshare: "Поделиться"
@@ -221,13 +249,17 @@ ru:
       wasnt_that_interesting: "Что ж, видимо, метка #<%= tagName %> была не такой уж интересной..."
     timeago:
       day: "день"
-      days: "%d дней[-я]"
+      days:
+        other: "%d дней[-я]"
       hour: "около часа"
-      hours: "около %d часов"
+      hours:
+        other: "около %d часов"
       minute: "около минуты"
-      minutes: "%d минут[-ы]"
+      minutes:
+        other: "%d минут[-ы]"
       month: "около месяца"
-      months: "%d месяца[-ев]"
+      months:
+        other: "%d месяца[-ев]"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "меньше минуты"
@@ -235,7 +267,8 @@ ru:
       suffixFromNow: "с этого момента"
       wordSeparator: " "
       year: "около года"
-      years: "%d лет"
+      years:
+        other: "%d лет"
     unblock_failed: "Разблокировка пользователя не удалась"
     viewer:
       reshared: "Поделились"

@@ -287,6 +287,7 @@ pt-BR:
       user_search: "Busca de contatos"
     spotlight:
       community_spotlight: "Destaque da Comunidade"
+      no_members: "Não há membros ainda."
       suggest_member: "Sugerir um membro"
   conversations:
     create:
@@ -602,6 +603,7 @@ pt-BR:
   layouts:
     application:
       back_to_top: "Voltar ao topo"
+      be_excellent: "Tratem-se com carinho! ♥"
       powered_by: "Desenvolvido por diaspora*"
       public_feed: "Feed público de diaspora* para %{name}"
       source_package: "Baixar pacote do código-fonte"
@@ -771,6 +773,7 @@ pt-BR:
       subject: "%{name} mencionou você em Diaspora*"
     private_message:
       reply_to_or_view: "Responder ou visualizar esta conversa >"
+      subject: "Há uma nova mensagem privada para você"
     remove_old_user:
       body: |-
           Olá,
@@ -985,7 +988,6 @@ pt-BR:
       toggle:
         one: "Em %{count} aspecto"
         other: "Em %{count} aspectos"
-        zero: "Adicionar contato"
     invitations:
       by_email: "Por email"
       invite_your_friends: "Convide seus Amigos"
@@ -1013,7 +1015,6 @@ pt-BR:
       poll:
         add_a_poll: "Adicionar uma enquete"
       posting: "Publicando..."
-      preview: "Visualizar"
       remove_location: "Localização remota"
       share: "Compartilhar"
       upload_photos: "Enviar fotos"

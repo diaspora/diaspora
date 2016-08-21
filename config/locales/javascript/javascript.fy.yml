@@ -61,15 +61,20 @@ fy:
       unlike: "Net mear Leuk"
     timeago:
       day: "in dei"
-      days: "%d dagen"
+      days:
+        other: "%d dagen"
       hour: "likernôch in oere"
-      hours: "likernôch %d oeren"
-      minutes: "%d minuten"
+      hours:
+        other: "likernôch %d oeren"
+      minutes:
+        other: "%d minuten"
       month: "likernôch in moanne"
-      months: "%d moannen"
+      months:
+        other: "%d moannen"
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: "lyn"
       suffixFromNow: ""
       year: "likernôch in jier"
-      years: "%d jierren"
+      years:
+        other: "%d jierren"

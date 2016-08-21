@@ -5,7 +5,7 @@
 
 
 sc:
-  _applications: "Aplicos"
+  _applications: "Aplicatziones"
   _contacts: "Cuntatos"
   _services: "Servìtzios"
   account: "Contu"
@@ -40,12 +40,20 @@ sc:
   all_aspects: "Totu sas caras"
   are_you_sure: "Seguru ses?"
   are_you_sure_delete_account: "Seguru ses de bòlere serrare su contu tuo? Custu non podet èssere annuddadu!"
+  aspect_memberships:
+    destroy:
+      failure: "No est istadu possìbile bogare sa pessone dae s'aspetu."
+      no_membership: "Sa pessone ischertada no est istada agatada in cussu aspetu."
+      success: "Sa pessone est istada bogada dae s'aspetu."
   aspects:
     add_to_aspect:
       failure: "Annanghidura de su cuntatu a sa cara faddida."
       success: "Annanghidura de su cuntatu a sa cara resissida."
     aspect_listings:
       add_an_aspect: "+ Annanghe una cara"
+    aspect_stream:
+      stay_updated: "Abarra agiornadu"
+      stay_updated_explanation: "In su flussu tuo bi sunt totu sos cuntatos tuos, sas etichetas chi sighis e sos messàgios pùblicos de sos membros prus creativos de sa comunidade."
     destroy:
       failure: "No est istadu possìbile bogare %{name}."
       success: "%{name} est istada bogada."
@@ -58,6 +66,25 @@ sc:
       updating: "Agiornande"
     index:
       donate: "Dona"
+      help:
+        do_you: "Boles..."
+        feature_suggestion: "propònnere una %{link}?"
+        find_a_bug: "sinnalare un'%{link}?"
+        have_a_question: "fàghere una %{link}?"
+        here_to_help: "Sa comunidade de diaspora* est inoghe!"
+        need_help: "Tenes bisòngiu de agiudu?"
+        tag_bug: "errore"
+        tag_feature: "funtzionalidade"
+        tag_question: "pregunta"
+      introduce_yourself: "Custu est su flussu tuo. Brinca in intro e presenta·ti."
+      new_here:
+        follow: "Sighi %{link} e saluda sos impitadores noos de diaspora*!"
+        learn_more: "Àteras informatziones"
+        title: "Saluda sos impitadores noos"
+      services:
+        content: "Podes connètere custos servìtzios a diaspora*:"
+        heading: "Connessione a sos servìtzios"
+      welcome_to_diaspora: "Bene bènnidu in diaspora*, %{name}!"
     no_contacts_message:
       community_spotlight: "Prus de importu in sa comunidade"
       or_spotlight: "O podes cumpartzire cun %{link}"
@@ -71,7 +98,17 @@ sc:
     update:
       failure: "Sa cara tua, %{name}, tenet unu nùmene tropu longu pro èssere sarbada."
       success: "Sa cara tua, %{name}, est istada modificada."
+  bookmarklet:
+    explanation: "Pùblica in diaspora* dae totue annanghende  %{link} a sos preferidos tuos."
+    post_something: "Pùblica in diaspora*"
   cancel: "Annudda"
+  comments:
+    new_comment:
+      comment: "Cummenta"
+      commenting: "Cummentende..."
+  contacts:
+    index:
+      start_a_conversation: "Incumintza un'arresonu"
   delete: "Burra"
   email: "P. eletr. (e-mail)"
   error_messages:
@@ -91,11 +128,17 @@ sc:
 
           Saludos,
           Su robot de sa posta eletrònica de diaspora*!
+    private_message:
+      subject: "B'est unu messàgiu privadu nou pro tie"
   nsfw: "NSFW (no est adatu pro unu logu de traballu)"
   ok: "AB"
   privacy: "Privadesa"
   profile: "Profilu"
   public: "Pùblicu"
+  reactions:
+    one: "1 reatzione"
+    other: "%{count} reatziones"
+    zero: "Peruna reatzione"
   search: "Chirca"
   settings: "Impostatziones"
   username: "Nùmene impitadore"

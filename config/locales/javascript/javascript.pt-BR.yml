@@ -71,7 +71,6 @@ pt-BR:
       toggle:
         one: "Em <%= count %> aspecto"
         other: "Em <%= count %> aspectos"
-        zero: "Selecione aspectos"
       updating: "atualizando..."
     aspect_navigation:
       add_an_aspect: "+ Adicionar um aspecto"
@@ -197,6 +196,34 @@ pt-BR:
     publisher:
       add_option: "Adicionar uma resposta"
       limited: "Limitada: a sua publicação será visível apenas para as pessoas com quem você compartilha."
+      markdown_editor:
+        preview: "Pré-visualizar"
+        texts:
+          code: "código aqui"
+          heading: "texto do título"
+          insert_image_description_text: "digitar descrição da imagem aqui"
+          insert_image_help_text: "Inserir link da imagem aqui"
+          insert_image_title: "digitar título da imagem aqui"
+          insert_link_description_text: "digitar descrição do link aqui"
+          insert_link_help_text: "Inserir link aqui"
+          italic: "texto itálico"
+          list: "texto da lista aqui"
+          quote: "texto da citação aqui"
+          strong: "texto negrito"
+        tooltips:
+          bold: "Negrito"
+          cancel: "Cancelar mensagem"
+          code: "Inserir código"
+          heading: "Título"
+          insert_image: "Inserir imagem"
+          insert_link: "Inserir link"
+          insert_ordered_list: "Inserir lista ordenada"
+          insert_unordered_list: "Inserir lista não ordenada"
+          italic: "Itálico"
+          preview: "Pré-visualizar mensagem"
+          quote: "Inserir citação"
+          write: "Editar mensagem"
+        write: "Escrever"
       near_from: "Publicado de: <%= location %>"
       option: "Resposta"
       public: "Pública: a sua publicação será totalmente visível na Web e poderá ser encontrada por meio de mecanismos de buscas"
@@ -235,6 +262,7 @@ pt-BR:
         one: "Mostre mais <%= count %> comentário"
         other: "Mostre mais <%= count %> comentários"
         zero: "Mostre mais <%= count %> comentário"
+      no_posts_yet: "Ainda não há publicações para exibir aqui."
       original_post_deleted: "A publicação original foi apagada pelo autor."
       permalink: "Link permanente"
       public: "Público"
@@ -263,14 +291,22 @@ pt-BR:
       wasnt_that_interesting: "Ok, eu acho que #<%= tagName %> não era tão interessante..."
     timeago:
       day: "um dia"
-      days: "%d dias"
+      days:
+        one: "1 dia"
+        other: "%d dias"
       hour: "cerca de uma hora"
-      hours: "cerca de %d horas"
+      hours:
+        one: "cerca de 1 hora"
+        other: "cerca de %d horas"
       inPast: "a qualquer instante"
       minute: "cerca de um minuto"
-      minutes: "%d minutos"
+      minutes:
+        one: "1 minuto"
+        other: "%d minutos"
       month: "cerca de um mês"
-      months: "%d meses"
+      months:
+        one: "1 mês"
+        other: "%d meses"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "menos de um minuto"
@@ -278,7 +314,9 @@ pt-BR:
       suffixFromNow: "a partir de agora"
       wordSeparator: " "
       year: "cerca de um ano"
-      years: "%d anos"
+      years:
+        one: "1 ano"
+        other: "%d anos"
     unblock_failed: "O desbloqueio deste usuário falhou"
     viewer:
       reshared: "Recompartilhado"

@@ -543,7 +543,6 @@ ko:
       poll:
         add_a_poll: "설문 추가"
       posting: "올리는 중···"
-      preview: "미리보기"
       remove_location: "위치 삭제"
       share: "공유"
       upload_photos: "사진 올리기"

@@ -134,19 +134,24 @@ el:
       wasnt_that_interesting: "OK, φαντάζομαι πως το #<%= tagName %> δεν ήταν και τόσο ενδιαφέρον τελικά..."
     timeago:
       day: "μία μέρα"
-      days: "%d μέρες"
+      days:
+        other: "%d μέρες"
       hour: "περίπου μία ώρα"
-      hours: "περίπου %d ώρες"
+      hours:
+        other: "περίπου %d ώρες"
       minute: "περίπου ένα λεπτό"
-      minutes: "%d λεπτά"
+      minutes:
+        other: "%d λεπτά"
       month: "περίπου ένα μήνα"
-      months: "%d μήνες"
+      months:
+        other: "%d μήνες"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "λιγότερο από ένα λεπτό"
       suffixAgo: "πριν"
       suffixFromNow: "από τώρα"
       year: "περίπου ένα χρόνο"
-      years: "%d χρόνια"
+      years:
+        other: "%d χρόνια"
     viewer:
       reshared: "Κοινοποιήθηκε"

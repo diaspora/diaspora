@@ -264,14 +264,18 @@ nl:
       wasnt_that_interesting: "#<%= tagName %> zal dan toch niet zo interessant geweest zijn..."
     timeago:
       day: "een dag"
-      days: "%d dagen"
+      days:
+        other: "%d dagen"
       hour: "ongeveer een uur"
-      hours: "ongeveer %d uur"
+      hours:
+        other: "ongeveer %d uur"
       inPast: "op elk moment nu"
       minute: "ongeveer een minuut"
-      minutes: "%d minuten"
+      minutes:
+        other: "%d minuten"
       month: "ongeveer een maand"
-      months: "%d maanden"
+      months:
+        other: "%d maanden"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "iets minder dan een minuut"
@@ -279,7 +283,8 @@ nl:
       suffixFromNow: "vanaf nu"
       wordSeparator: " "
       year: "ongeveer een jaar"
-      years: "%d jaar"
+      years:
+        other: "%d jaar"
     unblock_failed: "Deblokkeren van deze gebruiker is mislukt"
     viewer:
       reshared: "Doorgegeven"

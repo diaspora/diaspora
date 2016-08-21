@@ -113,19 +113,24 @@ ml:
       wasnt_that_interesting: "ശരി, ഞാൻ കരുതുന്നു #<%= tagName %> അത്ര രസമുള്ളതായിരുന്നില്ലെന്ന്."
     timeago:
       day: "ഒരു ദിവസം"
-      days: "%d ദിവസങ്ങള്‍"
+      days:
+        other: "%d ദിവസങ്ങള്‍"
       hour: "ഉദ്ദേശം ഒരു മണീക്കൂര്‍"
-      hours: "ഉദ്ദേശം %d മണിക്കൂറുകള്‍"
+      hours:
+        other: "ഉദ്ദേശം %d മണിക്കൂറുകള്‍"
       minute: "ഉദ്ദേശം ഒരു മിനിട്ട്"
-      minutes: "%d മിനിട്ടുകള്‍"
+      minutes:
+        other: "%d മിനിട്ടുകള്‍"
       month: "ഉദ്ദേശം ഒരു മാസം"
-      months: "%d മാസങ്ങള്‍"
+      months:
+        other: "%d മാസങ്ങള്‍"
       prefixAgo: ""
       prefixFromNow: "ഇപ്പോള്‍ മുതല്‍"
       seconds: "ഏതാനും നിമിഷങ്ങള്‍"
       suffixAgo: "മുന്‍പ്"
       suffixFromNow: "വരെ"
       year: "ഉദ്ദേശം ഒരു വര്‍ഷം"
-      years: "%d വര്‍ഷങ്ങള്‍ക്ക്"
+      years:
+        other: "%d വര്‍ഷങ്ങള്‍ക്ക്"
     viewer:
       reshared: "വീണ്ടും പങ്കുവെയ്ക്കപ്പെട്ടത്"

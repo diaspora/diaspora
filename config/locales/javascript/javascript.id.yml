@@ -80,17 +80,22 @@ id:
       wasnt_that_interesting: "OK, sepertinya #<%= tagName %> tidak terlalu menarik..."
     timeago:
       day: "sehari"
-      days: "%d hari"
+      days:
+        other: "%d hari"
       hour: "sekitar sejam"
-      hours: "sekitar %d jam"
+      hours:
+        other: "sekitar %d jam"
       minute: "sekitar satu menit"
-      minutes: "%d menit"
+      minutes:
+        other: "%d menit"
       month: "sekitar sebulan"
-      months: "%d tahun"
+      months:
+        other: "%d tahun"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "kurang dari semenit"
       suffixAgo: "yang lalu"
       suffixFromNow: "dari sekarang"
       year: "sekitar setahun"
-      years: "%d tahun"
+      years:
+        other: "%d tahun"

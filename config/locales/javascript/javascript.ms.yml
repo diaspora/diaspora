@@ -151,18 +151,23 @@ ms:
       wasnt_that_interesting: "OK, saya mengandaikan #<%= tagName %> tidak semua yang menarik..."
     timeago:
       day: "sehari"
-      days: "%d hari"
+      days:
+        other: "%d hari"
       hour: "kira-kira sejam"
-      hours: "kira-kira %d jam"
+      hours:
+        other: "kira-kira %d jam"
       minute: "kira-kira satu minit"
-      minutes: "%d minit"
+      minutes:
+        other: "%d minit"
       month: "kira-kira sebulan"
-      months: "%d bulan"
+      months:
+        other: "%d bulan"
       prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "kurang daripada satu minit"
       suffixAgo: "lalu"
       suffixFromNow: "dari sekarang"
       year: "kira-kira setahun"
-      years: "%d tahun"
+      years:
+        other: "%d tahun"
     unblock_failed: "Membuang sekatan pada pengguna ini telah gagal"

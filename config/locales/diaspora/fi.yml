@@ -899,7 +899,6 @@ fi:
       poll:
         add_a_poll: "Lisää kysely"
       posting: "Lähetetään..."
-      preview: "Esikatselu"
       remove_location: "Poista sijainti"
       share: "Jaa"
       upload_photos: "Lisää kuvia"

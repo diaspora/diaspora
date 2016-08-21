@@ -101,6 +101,8 @@ sv:
     confirm_unload: "Bekräfta att du vill gå från sidan. Du har osparad information här."
     contacts:
       add_contact: "Lägg till kontakt"
+      aspect_chat_is_enabled: "Kontakter i den här aspekten får chatta med dig"
+      aspect_chat_is_not_enabled: "Kontakter i den här aspekten får inte chatta med dig"
       aspect_list_is_not_visible: "Aspektens kontakter kan inte se vilka andra som tillhör aspekten."
       aspect_list_is_visible: "Aspektens kontakter kan se varandra."
       error_add: "Kunde inte lägga till <%= name %> till aspekten. :-("
@@ -263,13 +265,18 @@ sv:
       wasnt_that_interesting: "Ok, jag antar att #<%= tagName %> inte var så intressant..."
     timeago:
       day: "en dag"
-      days: "%d dagar"
+      days:
+        other: "%d dagar"
       hour: "ungefär en timme"
-      hours: "ungefär %d timmar"
+      hours:
+        other: "ungefär %d timmar"
+      inPast: "när som helst nu"
       minute: "ungefär en minut"
-      minutes: "%d minuter"
+      minutes:
+        other: "%d minuter"
       month: "ungefär en månad"
-      months: "%d månader"
+      months:
+        other: "%d månader"
       prefixAgo: "för"
       prefixFromNow: "om"
       seconds: "mindre än en minut"
@@ -277,7 +284,8 @@ sv:
       suffixFromNow: "från nu"
       wordSeparator: " "
       year: "ungefär ett år"
-      years: "%d år"
+      years:
+        other: "%d år"
     unblock_failed: "Misslyckades med att häva blockeringen"
     viewer:
       reshared: "Återdelad"

@@ -33,12 +33,15 @@ art-nvi:
       unlike: "Ke Sunu"
     timeago:
       day: "trr"
-      days: "%d srr"
+      days:
+        other: "%d srr"
       month: "vospxì"
-      months: "%d ayvospxì"
+      months:
+        other: "%d ayvospxì"
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: ""
       suffixFromNow: ""
       year: "zìsìt"
-      years: "%d ayzìsìt"
+      years:
+        other: "%d ayzìsìt"

@@ -105,17 +105,22 @@ ar:
       wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "يوم"
-      days: "%d أيام"
+      days:
+        other: "%d أيام"
       hour: "ساعة تقريباً"
-      hours: "منذ %d ساعات"
+      hours:
+        other: "منذ %d ساعات"
       minute: "دقيقة تقريباً"
-      minutes: "%d دقائق"
+      minutes:
+        other: "%d دقائق"
       month: "شهر تقريباً"
-      months: "%d شهور"
+      months:
+        other: "%d شهور"
       prefixAgo: "قبل"
       prefixFromNow: "من الآن"
       seconds: "أقل من دقيقة"
       suffixAgo: "مضت"
       suffixFromNow: "من اﻵن"
       year: "عام تقريباً"
-      years: "%d أعوام"
+      years:
+        other: "%d أعوام"

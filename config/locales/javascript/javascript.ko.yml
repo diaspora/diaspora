@@ -121,19 +121,24 @@ ko:
       wasnt_that_interesting: "알겠습니다. #<%= tagName %> 태그는 흥미롭지 않았군요?"
     timeago:
       day: "하루"
-      days: "%d일"
+      days:
+        other: "%d일"
       hour: "약 한 시간"
-      hours: "약 %d시간"
+      hours:
+        other: "약 %d시간"
       minute: "몇 분"
-      minutes: "%d분"
+      minutes:
+        other: "%d분"
       month: "약 한 달"
-      months: "%d개월"
+      months:
+        other: "%d개월"
       prefixAgo: ""
       prefixFromNow: "지금부터"
       seconds: "방금"
       suffixAgo: "전"
       suffixFromNow: ""
       year: "한 해"
-      years: "%d년"
+      years:
+        other: "%d년"
     viewer:
       reshared: "재공유"

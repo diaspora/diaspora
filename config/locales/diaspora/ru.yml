@@ -147,6 +147,8 @@ ru:
           approve: "Одобрить"
           deny: "Отказать"
       error_page:
+        could_not_authorize: "Это приложение не может быть авторизовано"
+        login_required: "Вы должны войти, прежде чем сможете авторизовать данное приложение"
         title: "Ой! Что-то пошло не так :("
       user_applications:
         index:
@@ -529,6 +531,7 @@ ru:
       configuration_info: "Откройте %{database_path} и %{diaspora_path} в любимом текстовом редакторе и внимательно изучите. Они подробно прокомментированы."
       configure_your_pod: "Настроить ваш под"
       contribute: "Внести свой вклад"
+      contribute_info: "Сделайте диаспору* еще лучше! Если вы обнаружили ошибку, пожалуйста %{report_bugs}."
       create_an_account: "Создать учетную запись"
       create_an_account_info: "Кликните %{sign_up_link} для получения нового аккаунта"
       getting_help: "Получить помощь"
@@ -564,6 +567,7 @@ ru:
   layouts:
     application:
       back_to_top: "Вернуться наверх"
+      be_excellent: "Будьте прекрасны друг к другу! ♥"
       powered_by: "Основано на диаспоре*"
       public_feed: "Публичный поток %{name} в Диаспоре"
       source_package: "скачать исходный код"
@@ -982,7 +986,6 @@ ru:
       poll:
         add_a_poll: "Добавить опрос"
       posting: "Отправка..."
-      preview: "Предпросмотр"
       remove_location: "Удалить местонахождение"
       share: "Поделиться"
       upload_photos: "Загрузить фотографии"

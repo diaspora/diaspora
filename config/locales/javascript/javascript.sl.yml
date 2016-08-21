@@ -99,19 +99,24 @@ sl:
       wasnt_that_interesting: "V redu, mislim, da zaznamek #<%= tagName %> ni bil tako zanimiv ..."
     timeago:
       day: "včeraj"
-      days: "pred %d dnem"
+      days:
+        other: "pred %d dnem"
       hour: "pred približno uro"
-      hours: "pred približno %d urami"
+      hours:
+        other: "pred približno %d urami"
       minute: "pred približno minuto"
-      minutes: "pred %d minutami"
+      minutes:
+        other: "pred %d minutami"
       month: "pred približno mesecem"
-      months: "pred %d meseci"
+      months:
+        other: "pred %d meseci"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "pred manj kot minuto"
       suffixAgo: "nazaj"
       suffixFromNow: "od zdaj"
       year: "pred približno letom dni"
-      years: "pred %d leti"
+      years:
+        other: "pred %d leti"
     viewer:
       reshared: "Ponovno deljeno"

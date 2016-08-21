@@ -96,6 +96,7 @@ sv:
       email: "E-post"
       guid: "Globalt identifieringsnummer (GUID)"
       id: "id"
+      invite_token: "Inbjudningskort"
       last_seen: "Sedd senast"
       ? "no"
       : Nej
@@ -152,9 +153,24 @@ sv:
         login_required: "Du måste logga in innan du kan auktorisera denna tillämpning."
         title: "Rackarns! Något gick åt pipan."
       scopes:
+        aud:
+          description: "Detta skänker aud-rättigheter till applikationen"
+          name: "aud"
+        name:
+          description: "Det här beviljar namnrättigheter till applikationen."
+          name: "namn"
+        nickname:
+          description: "Det här beviljar smeknamnsrättigheter till applikationen."
+          name: "smeknamn"
         openid:
           description: "Detta låter tillämpningar att läsa din grundprofil."
           name: "grundprofil"
+        picture:
+          description: "Det här beviljar bildrättigheter till applikationen."
+          name: "bild"
+        profile:
+          description: "Det här beviljar rättigheter att se din utökade profil till applikationen."
+          name: "utökad profil"
         read:
           description: "Detta låter tillämpningar att läsa din ström, dina konversationer och hela din profil."
           name: "läs profil, ström och konversationer"
@@ -539,25 +555,25 @@ sv:
   home:
     default:
       be_who_you_want_to_be: "Var vem du vill"
-      be_who_you_want_to_be_info: "Många andra nätverk kräver att du använder din riktiga identitet. Där skiljer sig Diaspora*. Du får själv välja vem du vill vara och dela med av så mycket du vill. Det handlar om du vill interagera med andra människor."
+      be_who_you_want_to_be_info: "Många andra nätverk kräver att du använder din riktiga identitet. Där skiljer sig Diaspora*. Du får själv välja vem du vill vara och dela med av så mycket du vill. Det handlar om hur du vill interagera med andra människor."
       byline: "Den sociala världen på nätet där du har kontrollen."
       choose_your_audience: "Välj din publik"
       choose_your_audience_info: "Med Diasporas aspekter, kan du välja med vilka du delar med dig till. Du kan vara hur offentlig eller privat du vill. Dela med dig av roliga bilder med hela världen eller en hemlighet med dina närmaste vänner. Du bestämmer."
       headline: "Välkommen till %{pod_name}"
       own_your_data: "Du äger din data"
-      own_your_data_info: "Många nätverk använder din data för att tjäna pengar genom att analysera dig och använda din data för att sälja reklam riktad mot dig. Diaspora* gör använder inte din data för något annat än att låta dig kommunicera med andra."
+      own_your_data_info: "Många nätverk använder din data för att tjäna pengar genom att analysera dig och använda din data för att sälja reklam riktad mot dig. Diaspora* använder inte din data för något annat än att låta dig kommunicera med andra."
     podmin:
       admin_panel: "administratörspanel"
       byline: "Du är just på väg att förändra Internet. Är du redo för att komma igång?"
-      configuration_info: "Öppna %{database_path} och %{diaspora_path} i en textredigerare och gå igenom dem noggrant. De är fulla av kommentarer."
+      configuration_info: "Öppna %{database_path} och %{diaspora_path} i en textredigerare och gå igenom dem noggrant. De är fyllda med kommentarer."
       configure_your_pod: "Konfigurera din pod"
-      contact_irc: "kontakta oss på IRC"
+      contact_irc: "kontakta oss genom IRC"
       contribute: "Bidra"
       contribute_info: "Gör Diaspora* ännu bättre! Hittar du några buggar, %{report_bugs}."
       create_an_account: "Skapa ett konto"
       create_an_account_info: "%{sign_up_link} för ett nytt konto."
       faq_for_podmins: "Vanliga frågor för podadministratörer i vår wiki"
-      getting_help: "Skaffa hjälp"
+      getting_help: "Få hjälp"
       getting_help_info: "Vi har listat några %{faq} med ytterligare råd och problemlösningar för de främsta problemen. Du är även välkommen på %{irc}."
       headline: "Välkommen, vän."
       make_yourself_an_admin: "Gör dig till administratör"
@@ -592,6 +608,7 @@ sv:
   layouts:
     application:
       back_to_top: "Åter till början"
+      be_excellent: "Var förträffliga mot varandra! ♥"
       powered_by: "Drivs med Diaspora*"
       public_feed: "Offentligt Diaspora*-flöde för %{name}"
       source_package: "Ladda ned källkodspaketet"
@@ -764,6 +781,7 @@ sv:
       subject: "%{name} har nämnt dig på Diaspora*"
     private_message:
       reply_to_or_view: "Svara på eller läs denna konversation >"
+      subject: "Du fått ett förtroligt meddelande"
     remove_old_user:
       body: |-
           Hej.
@@ -1012,7 +1030,6 @@ sv:
       poll:
         add_a_poll: "Lägg till en undersökning"
       posting: "Skickar..."
-      preview: "Förhandsgranska"
       remove_location: "Ta bort platsen"
       share: "Dela"
       upload_photos: "Ladda upp foton"
