@@ -146,19 +146,24 @@ sk:
       wasnt_that_interesting: "OK, značka #<%= tagName %> asi vôbec nebola zaujímavá."
     timeago:
       day: "včera"
-      days: "pred %d dňami"
+      days:
+        other: "pred %d dňami"
       hour: "asi pred hodinou"
-      hours: "asi pred %d hodinami"
+      hours:
+        other: "asi pred %d hodinami"
       minute: "asi pred minútou"
-      minutes: "pred %d minútami"
+      minutes:
+        other: "pred %d minútami"
       month: "asi pred mesiacom"
-      months: "pred %d mesiacmi"
+      months:
+        other: "pred %d mesiacmi"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "pred menej ako minútou"
       suffixAgo: ""
       suffixFromNow: ""
       year: "asi pred rokom"
-      years: "pred %d rokmi"
+      years:
+        other: "pred %d rokmi"
     viewer:
       reshared: "Znova ukázané"

@@ -113,17 +113,22 @@ ro:
       wasnt_that_interesting: "Bine, presupun ca #<%= tagName %> nu a fost chiar atat de interesant..."
     timeago:
       day: "o zi"
-      days: "%d zile"
+      days:
+        other: "%d zile"
       hour: "o ora"
-      hours: "%d ore"
+      hours:
+        other: "%d ore"
       minute: "un minut"
-      minutes: "%d minute"
+      minutes:
+        other: "%d minute"
       month: "o luna"
-      months: "%d luni"
+      months:
+        other: "%d luni"
       prefixAgo: "acum"
       prefixFromNow: "in timp de"
       seconds: "mai putin de un minut"
       suffixAgo: "în urmă"
       suffixFromNow: "in urma"
       year: "un an"
-      years: "%d ani"
+      years:
+        other: "%d ani"

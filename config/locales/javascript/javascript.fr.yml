@@ -196,6 +196,34 @@ fr:
     publisher:
       add_option: "Ajouter un choix"
       limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
+      markdown_editor:
+        preview: "Aperçu"
+        texts:
+          code: "langage de programmation ici"
+          heading: "Entête"
+          insert_image_description_text: "Entrer une description pour l'image ici"
+          insert_image_help_text: "Insérer un lien vers une image ici"
+          insert_image_title: "Entrer un intitulé d'image ici"
+          insert_link_description_text: "Entrer la description du lien ici"
+          insert_link_help_text: "Insérer un lien ici"
+          italic: "Texte italique"
+          list: "texte de liste ici"
+          quote: "texte de citation ici"
+          strong: "Emphase"
+        tooltips:
+          bold: "Gras"
+          cancel: "Annuler le message"
+          code: "Insérer du langage de programmation"
+          heading: "Titres"
+          insert_image: "Insérer une image"
+          insert_link: "Insérer un lien"
+          insert_ordered_list: "Insérer une liste ordonnée"
+          insert_unordered_list: "Insérer une liste à puces"
+          italic: "Italique"
+          preview: "Aperçu du message"
+          quote: "Insérer une citation"
+          write: "Modifier le message"
+        write: "Écrire"
       near_from: "Posté à : <%= location %>"
       option: "Choix"
       public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"
@@ -237,6 +265,7 @@ fr:
         one: "Montrer <%= count %> commentaire supplémentaire"
         other: "Montrer <%= count %> commentaires supplémentaires"
         zero: "Montrer <%= count %> commentaires supplémentaires"
+      no_posts_yet: "Il n’y a aucun message à afficher pour le moment."
       original_post_deleted: "Le message original a été effacé par son auteur."
       permalink: "Lien permanent"
       public: "Public"
@@ -268,13 +297,18 @@ fr:
       wasnt_that_interesting: "Ok, je suppose que #<%= tagName %> n'est pas la seule chose qui vous intéresse..."
     timeago:
       day: "environ un jour"
-      days: "environ %d jours"
+      days:
+        other: "environ %d jours"
       hour: "environ une heure"
-      hours: "environ %d heures"
+      hours:
+        other: "environ %d heures"
+      inPast: "très bientôt"
       minute: "environ une minute"
-      minutes: "environ %d minutes"
+      minutes:
+        other: "environ %d minutes"
       month: "environ un mois"
-      months: "environ %d mois"
+      months:
+        other: "environ %d mois"
       prefixAgo: "il y a"
       prefixFromNow: "d'ici"
       seconds: "moins d'une minute"
@@ -282,7 +316,8 @@ fr:
       suffixFromNow: "maintenant"
       wordSeparator: " "
       year: "un an"
-      years: "%d ans"
+      years:
+        other: "%d ans"
     unblock_failed: "Impossible de débloquer cet utilisateur"
     viewer:
       reshared: "Repartagé"

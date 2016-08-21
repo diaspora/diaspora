@@ -188,6 +188,34 @@ zh-TW:
     publisher:
       add_option: "增加答案"
       limited: "設限 - 只有你想分享的人才看得到你的貼文"
+      markdown_editor:
+        preview: "預覽"
+        texts:
+          code: "在這裡打程式碼"
+          heading: "將文字變標題"
+          insert_image_description_text: "在這裡輸入圖片的說明"
+          insert_image_help_text: "在這裡加入圖片"
+          insert_image_title: "在這裡輸入圖片的標題"
+          insert_link_description_text: "在這裡輸入連結的說明"
+          insert_link_help_text: "在這裡加入連結"
+          italic: "傾斜文字"
+          list: "在這裡條列文字"
+          quote: "在這裡引用文字"
+          strong: "強調文字"
+        tooltips:
+          bold: "粗體"
+          cancel: "取消訊息"
+          code: "加入程式碼"
+          heading: "標題"
+          insert_image: "加入圖片"
+          insert_link: "加入連結"
+          insert_ordered_list: "加入編號清單"
+          insert_unordered_list: "加入項目清單"
+          italic: "斜體"
+          preview: "預覽訊息"
+          quote: "加入引用文字"
+          write: "編輯訊息"
+        write: "編寫"
       near_from: "貼文地點：<%= location %>"
       option: "答案"
       public: "公開：所有人都能看到你的貼文，包括搜尋引擎"
@@ -224,6 +252,7 @@ zh-TW:
       more_comments:
         other: "顯示另外<%= count %>則留言"
         zero: "顯示另外<%= count %>則留言"
+      no_posts_yet: "目前這裡還沒有貼文可以顯示。"
       original_post_deleted: "原貼文已經被作者刪除了"
       permalink: "永久連結"
       public: "公開"
@@ -250,14 +279,18 @@ zh-TW:
       wasnt_that_interesting: "OK，我想 #<%= tagName %> 大概沒那麼有趣..."
     timeago:
       day: "一天"
-      days: "%d天"
+      days:
+        other: "%d天"
       hour: "約一小時"
-      hours: "約%d小時"
+      hours:
+        other: "約%d小時"
       inPast: "再等一下"
       minute: "約一分鐘"
-      minutes: "%d分鐘"
+      minutes:
+        other: "%d分鐘"
       month: "約一個月"
-      months: "%d個月"
+      months:
+        other: "%d個月"
       prefixAgo: "在"
       prefixFromNow: "距今"
       seconds: "少於一分鐘"
@@ -265,7 +298,8 @@ zh-TW:
       suffixFromNow: "前"
       wordSeparator: ""
       year: "約一年"
-      years: "%d年"
+      years:
+        other: "%d年"
     unblock_failed: "取消封鎖這個使用者失敗了"
     viewer:
       reshared: "已轉貼"

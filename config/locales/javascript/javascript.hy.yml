@@ -227,6 +227,7 @@ hy:
         one: "Ցույց տալ ևս <%= count %> մեկնաբանություն"
         other: "Ցույց տալ ևս <%= count %> մեկնաբանություն"
         zero: "Ցույց տալ ևս <%= count %> մեկնաբանություն"
+      no_posts_yet: "Ցուցադրելու գրառումներ դեռ չկան։"
       original_post_deleted: "Հեղինակը ջնջել է բնօրինակը"
       permalink: "Սկզբնաղբյուր"
       public: "Հրապարակային"
@@ -255,13 +256,21 @@ hy:
       wasnt_that_interesting: "Լավ, ենթադրում եմ, որ #<%= tagName %> պիտակը էդքան էլ հետքրքիր չէր..."
     timeago:
       day: "մեկ օր"
-      days: "%d օր"
+      days:
+        one: "1 օր"
+        other: "%d օր"
       hour: "մոտ մեկ ժամ"
-      hours: "մոտ %d ժամ"
+      hours:
+        one: "մոտ 1 ժամ"
+        other: "մոտ %d ժամ"
       minute: "մոտ մեկ րոպե"
-      minutes: "%d րոպե"
+      minutes:
+        one: "1 րոպե"
+        other: "%d րոպե"
       month: "մոտ մեկ ամիս"
-      months: "%d ամիս"
+      months:
+        one: "1 ամիս"
+        other: "%d ամիս"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "վայրկյաններ"
@@ -269,7 +278,9 @@ hy:
       suffixFromNow: "հիմիկվանից սկսած"
       wordSeparator: " "
       year: "մոտ մեկ տարի"
-      years: "%d տարի"
+      years:
+        one: "1 տարի"
+        other: "%d տարի"
     unblock_failed: "Չստացվեց ապաարգելափակել այս օգտատիրոջը։"
     viewer:
       reshared: "Տարածվել է"

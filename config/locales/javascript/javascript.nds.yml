@@ -155,15 +155,19 @@ nds:
       via: "öber <%= provider %>"
     timeago:
       day: "een Dag"
-      days: "%d Doog"
-      minutes: "%d Minuten"
-      months: "%d Monate"
+      days:
+        other: "%d Doog"
+      minutes:
+        other: "%d Minuten"
+      months:
+        other: "%d Monate"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "weniger as eene Minute"
       suffixAgo: "her"
       suffixFromNow: ""
       wordSeparator: " "
-      years: "%d Johre"
+      years:
+        other: "%d Johre"
     viewer:
       reshared: "Widerseggt"

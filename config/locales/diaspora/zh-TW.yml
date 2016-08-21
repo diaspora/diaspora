@@ -46,7 +46,7 @@ zh-TW:
             person:
               invalid: "不合格。"
             username:
-              invalid: "不合格。只能夠使用字母，數字，以及底線符號。"
+              invalid: "不合格。只能夠使用字母、數字、以及底線符號。"
               taken: "已經有人使用了。"
   admins:
     admin_bar:
@@ -222,14 +222,14 @@ zh-TW:
         feature_suggestion: "...想建議%{link}嗎？"
         find_a_bug: "...找到一隻%{link}嗎？"
         have_a_question: "...有個%{link}嗎？"
-        here_to_help: "diaspora* 社群在這裡了！"
-        mail_podmin: "莢主的電郵信箱"
+        here_to_help: "diaspora* 社群來了！"
+        mail_podmin: "莢主的電子信箱"
         need_help: "要幫忙嗎？"
         tag_bug: "臭蟲"
         tag_feature: "功能"
         tag_question: "問題"
         tutorial_link_text: "個別指導"
-        tutorials_and_wiki: "%{faq}，%{tutorial}，還有%{wiki}：讓你順利上手的好幫手。"
+        tutorials_and_wiki: "還有%{faq}，%{tutorial}，以及%{wiki}：讓你順利上手的好幫手。"
       introduce_yourself: "這是你的流水帳。跳進來介紹你自己吧。"
       keep_pod_running: "歡迎每月固定樂捐，讓 %{pod} 可以高速運轉，以及滿足伺服器的咖啡癮。"
       new_here:
@@ -286,6 +286,7 @@ zh-TW:
       user_search: "使用者搜尋"
     spotlight:
       community_spotlight: "社群焦點"
+      no_members: "目前還沒有成員。"
       suggest_member: "推薦會員"
   conversations:
     create:
@@ -326,7 +327,7 @@ zh-TW:
     helper:
       correct_the_following_errors_and_try_again: "請修正以下錯誤後再試一次。"
     need_javascript: "這個網站需要 JavaScript 功能才能正常運作。如果你關掉了 JavaScript 的話，請打開它後重新載入網頁來使用。"
-  fill_me_out: "填寫此欄"
+  fill_me_out: "填寫這裡"
   find_people: "找人或 #標籤"
   help:
     account_and_data_management:
@@ -582,7 +583,7 @@ zh-TW:
     check_token:
       not_found: "找不到該邀請信物"
     create:
-      empty: "請至少輸入一個電郵信箱"
+      empty: "請輸入至少一個電子信箱"
       no_more: "你沒有邀請卡了。"
       note_already_sent: "邀請卡已經寄到這些信箱了：%{emails}"
       rejected: "以下的電子信箱有問題："
@@ -600,6 +601,7 @@ zh-TW:
   layouts:
     application:
       back_to_top: "回最上面"
+      be_excellent: "用最好的方式互相對待！♥"
       powered_by: "強力配置 diaspora*"
       public_feed: "%{name} 在 diaspora* 的公開資訊源"
       source_package: "下載源碼封裝檔"
@@ -653,7 +655,7 @@ zh-TW:
       other: "%{actors} 稱讚了你的貼文%{post_link}。"
       zero: "%{actors} 稱讚了你的貼文%{post_link}。"
     liked_post_deleted:
-      other: "%{actors} 稱讚了說你刪掉的貼文。"
+      other: "%{actors} 稱讚了你刪掉的貼文。"
       zero: "%{actors} 稱讚了你刪掉的貼文。"
     mentioned:
       other: "%{actors} 在貼文%{post_link}中提到了你"
@@ -675,8 +677,8 @@ zh-TW:
       other: "%{actors} 開始跟你分享了。"
       zero: "%{actors} 開始跟你分享了。"
   notifier:
-    a_limited_post_comment: "你在 diaspora* 有一篇設限貼文上的新留言可看。"
-    a_post_you_shared: "一篇貼文."
+    a_limited_post_comment: "你在 diaspora* 的設限貼文有一則新留言。"
+    a_post_you_shared: "一篇貼文。"
     a_private_message: "你在 diaspora* 有一則新的私人訊息。"
     also_commented:
       limited_subject: "你留言過的貼文又有一則新的留言"
@@ -685,8 +687,8 @@ zh-TW:
       limited_subject: "你的貼文有一則新留言"
       reply: "回或看 %{name} 的貼文 >"
     confirm_email:
-      click_link: "請點以下連結，來啟用你新的電子信箱 %{unconfirmed_email}："
-      subject: "請啟用你新的電子信箱 %{unconfirmed_email}"
+      click_link: "請點以下連結，來開通你新的電子信箱 %{unconfirmed_email}："
+      subject: "請開通你新的電子信箱 %{unconfirmed_email}"
     email_sent_by_diaspora: "這封電子郵件是從 %{pod_name} 寄出。如果你不想再收到這類的信件，"
     export_email:
       body: |-
@@ -751,6 +753,7 @@ zh-TW:
       subject: "%{name} 在 diaspora* 提到了你"
     private_message:
       reply_to_or_view: "回或看這次對話 >"
+      subject: "你有一則新的私人訊息。"
     remove_old_user:
       body: |-
           你好，
@@ -804,13 +807,13 @@ zh-TW:
       couldnt_find_them: "找不到他們嗎？"
       looking_for: "在找標記為 %{tag_link} 的貼文嗎？"
       no_one_found: "...找不到任何東西。"
-      no_results: "喂！搜尋要有目標。"
+      no_results: "嘿！搜尋要有目標。"
       results_for: "符合%{search_term}的使用者："
       search_handle: "確定要用你朋友們的 diaspora* 識別碼來找到他們。"
       searching: "搜尋中，請耐心等待..."
       send_invite: "還是找不到人嗎？寄一封邀請卡吧！"
     person:
-      thats_you: "那是你耶！"
+      thats_you: "那是你喔！"
     profile_sidebar:
       bio: "自我介紹"
       born: "生日"
@@ -823,7 +826,7 @@ zh-TW:
   photos:
     create:
       integrity_error: "相片上傳失敗。你確定它是圖片嗎？"
-      runtime_error: "相片上傳失敗。你確定安全帶有扣上嗎？"
+      runtime_error: "相片上傳失敗。你確定有扣上安全帶嗎？"
       type_error: "相片上傳失敗。你確定有加入任何圖片嗎？"
     destroy:
       notice: "相片刪掉了。"
@@ -875,7 +878,7 @@ zh-TW:
       your_name: "你的名字"
       your_photo: "你的相片"
       your_tags: "用五個詞來表現你自己"
-      your_tags_placeholder: "像是: #電影 #貓咪 #旅行 #老師 #紐約"
+      your_tags_placeholder: "像是: #電影 #喵星人 #旅行 #老師 #台北"
     update:
       failed: "個人檔案更新失敗"
       updated: "個人檔案已經更新了"
@@ -893,7 +896,7 @@ zh-TW:
       enter_email: "輸入電子信箱"
       enter_password: "輸入密碼(至少六個字)"
       enter_password_again: "輸入與前面相同的密碼"
-      enter_username: "選個使用者名稱(名稱只能包含拉丁字母，數字，以及底線字元)"
+      enter_username: "選個使用者名稱(名稱只能包含拉丁字母、數字、以及底線字元)"
       password: "密碼"
       password_confirmation: "密碼確認"
       sign_up: "註冊新帳號"
@@ -983,7 +986,6 @@ zh-TW:
       poll:
         add_a_poll: "新增一輪投票"
       posting: "發表中..."
-      preview: "預覽"
       remove_location: "移除位置資訊"
       share: "分享"
       upload_photos: "上傳相片"
@@ -1063,8 +1065,8 @@ zh-TW:
   username: "使用者名稱"
   users:
     confirm_email:
-      email_confirmed: "電子信箱 %{email} 已經啟用了"
-      email_not_confirmed: "無法啟用電子信箱。連結不對嗎？"
+      email_confirmed: "電子信箱 %{email} 已經開通了"
+      email_not_confirmed: "無法開通電子信箱。連結不對嗎？"
     destroy:
       no_password: "請輸入你目前的密碼來關帳號。"
       success: "你的帳號已經鎖定了。完成關閉帳號大約還需要 20 分鐘的時間，感謝你試用 diaspora*"
@@ -1084,7 +1086,7 @@ zh-TW:
         lock_username: "你的使用者名稱會被鎖定，在同一個豆莢內不能用舊帳號重新註冊。"
         locked_out: "系統會將你登出，且無法重新登入，最後帳號會被刪掉。"
         make_diaspora_better: "希望你能幫助我們讓 diaspora* 更好，而不是選擇離開。但是如果你真的想關閉帳號，這是接下來的程序："
-        mr_wiggles: "Mr Wiggles 看到你走會很難過"
+        mr_wiggles: "搖尾巴先生看到你走會很難過"
         no_turning_back: "一旦確定刪除則無法復原。如果確定要刪除帳號，請在下方輸入你的密碼。"
         what_we_delete: "我們會儘快刪除你的貼文和個人檔案。你對其他使用者貼文的留言仍然保留，但會以 diaspora* 帳號顯示，而非你的使用者名稱。"
       close_account_text: "關閉帳號"
@@ -1094,7 +1096,7 @@ zh-TW:
       download_export: "下載個人檔案"
       download_export_photos: "下載相片"
       edit_account: "編輯帳號"
-      email_awaiting_confirmation: "我們已經將啟用連結寄到 %{unconfirmed_email} 給你。在你點該連結啟用新的信箱之前，我們還是會繼續使用你原來的信箱，也就是 %{email}。"
+      email_awaiting_confirmation: "我們已經將開通連結寄到 %{unconfirmed_email} 給你。在你點該連結開通新的電子信箱之前，我們還是會繼續使用你原來的信箱，也就是 %{email}。"
       export_data: "資料匯出"
       export_in_progress: "我們正在處理你的資料，請稍等一下再來看看。"
       export_photos_in_progress: "正在處理你的相片中。請等一下再回來看看。"
@@ -1115,8 +1117,8 @@ zh-TW:
       someone_reported: "有人寄了一封回報"
       started_sharing: "有人開始跟你分享貼文"
       stream_preferences: "流水帳偏好設定"
-      your_email: "你的電子郵件"
-      your_email_private: "其他使用者看不到你的電子郵件信箱"
+      your_email: "你的電子信箱"
+      your_email_private: "其他使用者看不到你的電子信箱"
       your_handle: "你的 diaspora* 識別碼"
     getting_started:
       awesome_take_me_to_diaspora: "帥！帶我去 diaspora* 吧"
@@ -1148,7 +1150,7 @@ zh-TW:
       password_not_changed: "密碼更改失敗"
       settings_not_updated: "設定更新失敗"
       settings_updated: "設定更新了"
-      unconfirmed_email_changed: "電子信箱已經變更了。必須要啟動使用。"
+      unconfirmed_email_changed: "電子信箱已經變更了。必須要重新開通。"
       unconfirmed_email_not_changed: "電子信箱更改失敗"
   will_paginate:
     next_label: "後面 &raquo;"

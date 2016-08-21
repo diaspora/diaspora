@@ -107,19 +107,24 @@ nn:
       wasnt_that_interesting: "Greitt, #<%= tagName %> var vel kanskje ikkje så interessant …"
     timeago:
       day: "i går"
-      days: "%d dagar"
+      days:
+        other: "%d dagar"
       hour: "om lag ein time"
-      hours: "om lag %d timar"
+      hours:
+        other: "om lag %d timar"
       minute: "om lag eit minutt"
-      minutes: "%d minutt"
+      minutes:
+        other: "%d minutt"
       month: "om lag ein månad"
-      months: "%d månader"
+      months:
+        other: "%d månader"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "mindre enn eit minutt"
       suffixAgo: "sidan"
       suffixFromNow: "frå no"
       year: "om lag eit år"
-      years: "%d år"
+      years:
+        other: "%d år"
     viewer:
       reshared: "Delt"

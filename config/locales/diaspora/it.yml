@@ -727,7 +727,6 @@ it:
       poll:
         add_a_poll: "Aggiungi un sondaggio"
       posting: "Invio in corso..."
-      preview: "Anteprima"
       remove_location: "Rimuovi posizione"
       share: "Condividi"
       upload_photos: "Carica foto"

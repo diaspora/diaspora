@@ -210,13 +210,17 @@ fi:
       wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:
       day: "päivä"
-      days: "%d päivää"
+      days:
+        other: "%d päivää"
       hour: "noin tunti"
-      hours: "noin %d tuntia"
+      hours:
+        other: "noin %d tuntia"
       minute: "noin minuutti"
-      minutes: "%d minuuttia"
+      minutes:
+        other: "%d minuuttia"
       month: "noin kuukausi"
-      months: "%d kuukautta"
+      months:
+        other: "%d kuukautta"
       prefixAgo: ""
       prefixFromNow: "tästä alkaen"
       seconds: "alle minuutti"
@@ -224,7 +228,8 @@ fi:
       suffixFromNow: "tästä alkaen"
       wordSeparator: " "
       year: "noin vuosi"
-      years: "%d vuotta"
+      years:
+        other: "%d vuotta"
     unblock_failed: "Tämän käyttäjän torjumisen peruminen on epäonnistunut"
     viewer:
       reshared: "Jaettu uudelleen"

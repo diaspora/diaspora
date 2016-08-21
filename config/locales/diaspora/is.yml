@@ -19,7 +19,7 @@ is:
         person:
           attributes:
             diaspora_handle:
-              taken: "er þegar frátekið."
+              taken: "er þegar í notkun."
         request:
           attributes:
             from_id:
@@ -43,9 +43,26 @@ is:
       user_search: "Leit að notanda"
     stats:
       2weeks: "2 vikur"
+      comments:
+        one: "%{count} athugasemd"
+        other: "%{count} athugasemdir"
+        zero: "Engar athugasemdir"
       daily: "Daglega"
+      go: "Fara"
       month: "Mánuður"
+      posts:
+        one: "%{count} færsla"
+        other: "%{count} færslur"
+        zero: "Engin færsla"
+      shares:
+        one: "%{count} deiling"
+        other: "%{count} deilingar"
+        zero: "Engar deilingar"
       usage_statistic: "Tölfræði notkunar"
+      users:
+        one: "%{count} notandi"
+        other: "%{count} notendur"
+        zero: "Engir notendur"
       week: "Vika"
   all_aspects: "Allar ásýndir"
   are_you_sure: "Ertu viss?"
@@ -64,14 +81,14 @@ is:
     aspect_stream:
       stay_updated: "Fylgstu með"
     destroy:
-      failure: "%{name} er ekki tóm og því ekki hægt að fjarlægja hana."
+      failure: "%{name} er ekki hægt að fjarlægja."
       success: "það heppnaðist að fjarlægja %{name}."
     edit:
       aspect_list_is_not_visible: "Tengiliðir í þessari ásýnd geta ekki séð hvern annan."
       aspect_list_is_visible: "Tengiliðir í þessari ásýnd geta séð hvern annan."
       confirm_remove_aspect: "Ertu viss um að þú viljir eyða þessari ásýnd?"
-      rename: "breyta nafni"
-      update: "uppfæra"
+      rename: "Breyta nafni"
+      update: "Uppfæra"
       updating: "uppfæri"
     index:
       donate: "Styrkja"
@@ -89,14 +106,14 @@ is:
       new_here:
         follow: "Fylgstu með %{link} og bjóddu nýja notendur velkomna á Diaspora*!"
         learn_more: "Vita meira"
-        title: "Bjóða Nýja Notendur Velkomna"
+        title: "Bjóða nýja notendur velkomna"
       services:
-        heading: "Tengja Þjónustur"
+        heading: "Tengja þjónustur"
       welcome_to_diaspora: "Velkomin í Diaspora* %{name}!"
     no_contacts_message:
       community_spotlight: "efst á baugi í samfélaginu"
       or_spotlight: "Eða þú getur deilt með %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      try_adding_some_more_contacts: "Þú getur leitað eða %{invite_link} fleiri tengiliðum."
       you_should_add_some_more_contacts: "Þú ættir að bæta við tengiliðum!"
     seed:
       acquaintances: "Kunningjar"
@@ -107,7 +124,7 @@ is:
       failure: "Ásýnd þín, %{name}, hefur of langt nafn til að hægt sé að vista hana."
       success: "Ásýnd þinni, %{name}, hefur verið breytt."
   bookmarklet:
-    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation: "Sendu færslu á diaspora* hvaðan sem er með því að bókamerkja þennan tengil => %{link}."
     heading: "Diaspora Bookmarklet"
     post_something: "Senda á Diaspora*"
   cancel: "Hætta við"
@@ -185,14 +202,14 @@ is:
   layouts:
     application:
       back_to_top: "Fara efst"
-      powered_by: "KEYRT AF díaspora*"
-      toggle: "toggle mobile site"
-      whats_new: "hvað er að frétta?"
+      powered_by: "Keyrt með díaspora*"
+      toggle: "Víxla farsímavef af/á"
+      whats_new: "Hvað er að frétta?"
     header:
       code: "kóði"
       logout: "Útskrá"
-      profile: "profile"
-      settings: "settings"
+      profile: "Forsíða"
+      settings: "Stillingar"
   limited: "Takmarkað"
   more: "Meira"
   no_results: "Engar niðurstöður"
@@ -211,7 +228,7 @@ is:
     comment_on_post:
       one: "%{actors} skrifaði ummæli við %{post_link}."
       other: "%{actors} skrifuðu ummæli við %{post_link}."
-      zero: "%{actors} hefur skrifa ummæli við %{post_link}."
+      zero: "%{actors} hefur skrifað ummæli við %{post_link}."
     index:
       all_notifications: "Allar tilkynningar"
       and: "og"
@@ -224,8 +241,8 @@ is:
       mark_read: "Merkja sem lesið"
       mark_unread: "Merkja sem ólesið"
       notifications: "Tilkynningar"
-      show_all: "sýna allt"
-      show_unread: "sýna ólesið"
+      show_all: "Sýna allt"
+      show_unread: "Sýna ólesið"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -278,33 +295,41 @@ is:
       other: "%{actors} hafa byrjað að deila með þér."
       zero: "%{actors} hafa byrjað að deila með þér."
   notifier:
-    click_here: "smelltu hér"
+    a_post_you_shared: "færslu."
+    click_here: "Smelltu hér"
     confirm_email:
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "Til að virkja nýja netfangið þitt %{unconfirmed_email}, smelltu á þennan tengil:"
+      subject: "Virkjaðu nýja netfangið þitt %{unconfirmed_email}"
     hello: "Halló %{name}!"
     invite:
       message: |-
           Halló!
 
-          Þér hefur verið boðið að vera með á Diaspora*!
+          Þér hefur verið boðið að vera með á Diaspora* af %{diaspora_id}!
 
           Smelltu á þennan tengil til að hefjast handa
 
           [%{invite_url}][1]
+
+          Eða að þú getur bætt %{diaspora_id} í tengiliðasafn þitt, ef þú ert þegar með aðgang.
 
 
           Bestu kveðjur,
 
           Diaspora* póst-róbótinn!
 
+          P.S.: Ef svo vill til að þú vitir ekki (ennþá) hvað diaspora* sé, þá er svarið hér [2] !
+
           [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
     liked:
       liked: "%{name} has just liked your post: "
+      view_post: "Skoða færslu >"
     mentioned:
       subject: "%{name} hefur getið þín á Diaspora*"
     reshared:
-      reshared: "%{name} just reshared your post"
+      reshared: "%{name} endurdeildi færslunni þinni"
+      view_post: "Skoða færslu >"
     single_admin:
       subject: "Skilaboð um notandastillingar þínar í Diaspora*:"
     started_sharing:
@@ -314,14 +339,15 @@ is:
   ok: "Í lagi"
   people:
     add_contact:
-      invited_by: "þér var boðið af"
+      invited_by: "Þér var boðið af"
     index:
       no_one_found: "...og enginn fannst."
       no_results: "Hey! Þú þarft að leita að einhverju."
       results_for: "Notendur sem samsvara %{search_term}"
     person:
-      thats_you: "thats you!"
+      thats_you: "Það ert þú!"
     profile_sidebar:
+      bio: "Æviágrip"
       born: "Afmælisdagur"
       gender: "Kyn"
       location: "Staðsetning"
@@ -329,19 +355,19 @@ is:
       does_not_exist: "Manneskjan er ekki til!"
   photos:
     create:
-      integrity_error: "Innhlöðunn myndar mistókst. Ertu viss um að þetta hafi verið mynd?"
-      runtime_error: "Innsetning á mynd mistóḱst.  Ertu viss um að sætisbeltin séu spennt?"
-      type_error: "Innsetning á mynd mistóḱst. Ertu viss um að mynd hafi verið bætt við?"
+      integrity_error: "Innsending á mynd mistókst. Ertu viss um að þetta hafi verið mynd?"
+      runtime_error: "Innsending á mynd mistókst.  Ertu viss um að sætisbeltin séu spennt?"
+      type_error: "Innsending á mynd mistókst. Ertu viss um að mynd hafi verið bætt við?"
     destroy:
-      notice: "Mynd eytt."
+      notice: "Mynd var eytt."
     new_photo:
-      empty: "{file} skráin er tóm, veldu vinsamlegast skrárnar aftur en slepptu henni."
-      invalid_ext: "{file} hefur ógilt viðskeyti. Aðeins {extensions} eru leyfð."
-      size_error: "{file} skráin er of stór, mesta stærð er {sizeLimit}."
+      empty: "{file} skráin er tóm, veldu skrárnar aftur en slepptu þessari skrá."
+      invalid_ext: "{file} er með ógilda skráarendingu. Aðeins {extensions} eru leyfðar."
+      size_error: "{file} skráin er of stór, hámarksstærð er {sizeLimit}."
     new_profile_photo:
-      upload: "Setja upp nýja mynd!"
+      upload: "Senda inn nýja forsíðumynd!"
     show:
-      show_original_post: "Birta upprunalegan póst"
+      show_original_post: "Birta upprunalega færslu"
   posts:
     show:
       photos_by:
@@ -356,14 +382,14 @@ is:
       first_name: "Fornafn"
       last_name: "Kenninafn/Eftirnafn"
       update_profile: "Uppfæra síðuna mína"
-      your_bio: "Ferilskrá þín"
+      your_bio: "Æviágrip þitt"
       your_birthday: "Fæðingardagur þinn"
       your_gender: "Kyn þitt"
       your_location: "Staðsetning þín"
       your_name: "Nafn þitt"
-      your_photo: "Mynd þín"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_photo: "Mynd af þér"
+      your_tags: "Lýstu þér í 5 orðum"
+      your_tags_placeholder: "t.d. #kvikmyndir #kittens #fjallahjol #hestar #music"
     update:
       failed: "Ekki tókst að uppfæra síðuna mína"
       updated: "Síðan mín uppfærð"
@@ -377,30 +403,31 @@ is:
     create:
       success: "Nú hefurðu tengst Diaspora*!"
     new:
-      email: "NETFANG"
+      email: "Netfang"
       enter_email: "Gefðu upp netfang"
       enter_password: "Skrifaðu lykilorð (lágmark sex stafir)"
       enter_password_again: "Skrifaðu sama lykilorð og áður"
       enter_username: "Veldu notandanafn (aðeins bókstafi, tölur, og undirstrikun)"
-      password: "LYKILORÐ"
-      password_confirmation: "STAÐFESTING LYKILORÐS"
-      sign_up: "STOFNA AÐGANG"
+      password: "Lykilorð"
+      password_confirmation: "Staðfesting lykilorðs"
+      sign_up: "Stofna aðgang"
       submitting: "Sendi inn..."
-      username: "NOTANDANAFN"
+      username: "Notandanafn"
   reshares:
     reshare:
-      reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_confirmation: "Endurdeila frá %{author}?"
   search: "Leita"
   services:
     create:
+      failure: "Auðkenning mistókst."
       success: "Auðkenning tókst."
     failure:
-      error: "villa kom upp við að tengjast þeirri þjónustu"
+      error: "Villa kom upp við að tengjast þeirri þjónustu"
     index:
-      disconnect: "aftengja"
+      disconnect: "Aftengjast"
       edit_services: "Breyta þjónustum"
-      logged_in_as: "innskráning þín sem "
-      really_disconnect: "aftengja %{service}?"
+      logged_in_as: "Skráð inn sem %{nickname}"
+      really_disconnect: "Aftengjast %{service}?"
   settings: "Stillingar"
   shared:
     aspect_dropdown:
@@ -410,36 +437,49 @@ is:
         zero: "Bæta við tengilið"
     invitations:
       by_email: "með tölvupósti"
-      invite_your_friends: "Bjóddu vinafólki þínu"
-      invites: "Boðsmiðar"
+      invite_your_friends: "Bjóddu vinum þínum"
+      invites: "Boð"
     public_explain:
-      outside: "Almennt aðgengileg skilaboð verða sýnileg öðrum utan Diaspora."
-      title: "Þú ert að fara að setja þetta á almannafæri!"
+      logged_in: "Skráður inn á %{service}"
+      manage: "Sýsla með tengdar þjónustur"
+      outside: "Opnber skilaboð verða sýnileg öðrum utan Díaspora*."
+      share: "Deila"
+      title: "Setja upp tengdar þjónustur"
     publisher:
+      discard_post: "Henda færslu"
       new_user_prefill:
-        i_like: "I'm interested in %{tags}."
+        hello: "Hæ allir, ég er #%{new_user_tag}. "
+        i_like: "Ég hef áhuga á %{tags}. "
+        invited_by: "Takk fyrir boðið. "
+        newhere: "nýr hér"
       posting: "Senda..."
       share: "Deila"
-      whats_on_your_mind: "hvað er þér efst í huga?"
+      upload_photos: "Senda inn myndir"
+      whats_on_your_mind: "Hvað er þér efst í huga?"
     stream_element:
+      via: "með %{link}"
       via_mobile: "á farsíma"
   status_messages:
-    too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
+    too_long: "Hafðu stöðufærsluna þína með færri en %{count} stöfum. Núna er hún %{current_length} stafir"
   streams:
     aspects:
-      title: "Your Aspects"
-    mentions:
-      title: "Your Mentions"
+      title: "Ásýndirnar þínar"
+    aspects_stream: "Ásýndir"
+    community_spotlight_stream: "Efst á baugi í samfélaginu"
+  tags:
+    show:
+      follow: "Fylgjast með #%{tag}"
+      stop_following: "Hætta að fylgjast með #%{tag}"
   username: "Notandanafn"
   users:
     confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "Tölvupóstfang %{email} virkjað"
+      email_not_confirmed: "Ekki var hægt að virkja tölvupóstfang. Rangur tengill?"
     edit:
-      auto_follow_back: "Automatically follow back if a someone follows you"
-      change: "Breyting"
-      change_email: "Change E-Mail"
-      change_language: "Breyta um tungumál"
+      auto_follow_back: "Byrja sjálfkrafa að deila með notendum sem deila með þér"
+      change: "Breyta"
+      change_email: "Breyta netfangi"
+      change_language: "Skipta um tungumál"
       change_password: "Breyta lykilorði"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
@@ -447,16 +487,24 @@ is:
       edit_account: "Breyta notandastillingum"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       new_password: "Nýtt lykilorð"
-      receive_email_notifications: "Fá tilkynningar í tölvupósti?"
+      receive_email_notifications: "Fá tilkynningar í tölvupósti þegar:"
       your_email: "Netfangið þitt"
       your_handle: "Díaspora* auðkennið þitt"
+    privacy_settings:
+      ignored_users: "Hunsaðir notendur"
+      title: "Gagnaleynd"
     public:
       does_not_exist: "Notandinn %{username} er ekki til!"
     update:
-      email_notifications_changed: "Tilkynningum í tölvupósti var breytt."
-      language_changed: "breytt var um tungumál"
-      language_not_changed: "ekki tókst að breyta um tungumál"
+      email_notifications_changed: "Tilkynningum í tölvupósti var breytt"
+      language_changed: "Skipt var um tungumál"
+      language_not_changed: "Ekki tókst að skipta um tungumál"
       password_changed: "Lykilorði var breytt"
       password_not_changed: "Breyting á lykilorði mistókst"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      settings_not_updated: "Uppfærsla stillinga mistókst"
+      settings_updated: "Stillingar uppfærðar"
+      unconfirmed_email_changed: "Breytt tölvupóstfang. Krefst virkjunar."
+      unconfirmed_email_not_changed: "Breyting á tölvupóstfangi mistókst"
+  will_paginate:
+    next_label: "næsta &raquo;"
+    previous_label: "&laquo; fyrra"

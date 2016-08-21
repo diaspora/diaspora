@@ -920,7 +920,6 @@ nb:
       poll:
         add_a_poll: "Legg til en spørreundersøkelse"
       posting: "Publiserer ..."
-      preview: "Forhåndsvisning"
       remove_location: "Fjern lokasjon"
       share: "Del"
       upload_photos: "Last opp bilder"

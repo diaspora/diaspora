@@ -63,17 +63,22 @@ en_1337:
       wasnt_that_interesting: "0K, 1 5UPP053 #<%= tagName %> W45N7 7H47 1N73R3571NG..."
     timeago:
       day: "4 D4Y"
-      days: "%d D4Y5"
+      days:
+        other: "%d D4Y5"
       hour: "4B0U7 4N H0UR"
-      hours: "4B0U7 %d H0UR5"
+      hours:
+        other: "4B0U7 %d H0UR5"
       minute: "4B0U7 4 M1NU73"
-      minutes: "%d M1NU735"
+      minutes:
+        other: "%d M1NU735"
       month: "4B0U7 4 M0N7H"
-      months: "%d M0N7H5"
+      months:
+        other: "%d M0N7H5"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "L355 7H3N 4 M1NU73"
       suffixAgo: "4G0"
       suffixFromNow: "FR0M N0W"
       year: "4B0U7 4 Y34R"
-      years: "%d Y34R5"
+      years:
+        other: "%d Y34R5"

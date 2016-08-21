@@ -123,19 +123,24 @@ it:
       wasnt_that_interesting: "OK, immagino che #<%= tagName %> non fosse così interessante..."
     timeago:
       day: "un giorno"
-      days: "%d giorni"
+      days:
+        other: "%d giorni"
       hour: "circa un'ora"
-      hours: "circa %d ore"
+      hours:
+        other: "circa %d ore"
       minute: "circa un minuto"
-      minutes: "%d minuti"
+      minutes:
+        other: "%d minuti"
       month: "circa un mese"
-      months: "%d mesi"
+      months:
+        other: "%d mesi"
       prefixAgo: ""
       prefixFromNow: "fra"
       seconds: "meno di un minuto"
       suffixAgo: "fa"
       suffixFromNow: "da ora"
       year: "circa un anno"
-      years: "%d anni"
+      years:
+        other: "%d anni"
     viewer:
       reshared: "Condiviso"

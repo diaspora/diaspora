@@ -210,13 +210,17 @@ cs:
       wasnt_that_interesting: "Dobře, předpokládám, že #<%= tagName %> nebyl zase tak zajímavý…"
     timeago:
       day: "1 dnem"
-      days: "%d dny"
+      days:
+        other: "%d dny"
       hour: "hodinou"
-      hours: "%d hodinami"
+      hours:
+        other: "%d hodinami"
       minute: "minutou"
-      minutes: "%d minutami"
+      minutes:
+        other: "%d minutami"
       month: "1 měsícem"
-      months: "%d měsíci"
+      months:
+        other: "%d měsíci"
       prefixAgo: "před"
       prefixFromNow: "za"
       seconds: "méně než minutou"
@@ -224,7 +228,8 @@ cs:
       suffixFromNow: ""
       wordSeparator: " "
       year: "1 rokem"
-      years: "%d roky"
+      years:
+        other: "%d roky"
     unblock_failed: "Odblokování tohoto uživatele selhalo"
     viewer:
       reshared: "Sdíleno"

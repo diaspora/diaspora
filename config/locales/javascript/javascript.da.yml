@@ -67,12 +67,8 @@ da:
       started_sharing_with: "Du er begyndt at dele med <%= name %>!"
       stopped_sharing_with: "Du deler ikke længere med <%= name %>."
       toggle:
-        few: "I <%= count %> aspekter"
-        many: "I <%= count %> aspekter"
         one: "I <%= count %> aspekt"
         other: "I <%= count %> aspekter"
-        two: "I <%= count %> aspekter"
-        zero: "Vælg aspekter"
       updating: "opdaterer ..."
     aspect_navigation:
       add_an_aspect: "+ Tilføj et aspekt"
@@ -198,6 +194,28 @@ da:
     publisher:
       add_option: "Tilføj et svar"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
+      markdown_editor:
+        preview: "Forhåndsvisning"
+        texts:
+          heading: "Overskriftstekst"
+          insert_link_description_text: "skriv link-beskrivelse her"
+          insert_link_help_text: "Indsæt link her"
+          italic: "tekst i kursiv"
+          strong: "fed tekst"
+        tooltips:
+          bold: "Fed"
+          cancel: "Annuller besked"
+          code: "Indsæt kode"
+          heading: "Overskrift"
+          insert_image: "Indsæt billede"
+          insert_link: "Indsæt link"
+          insert_ordered_list: "Indsæt ordnet liste"
+          insert_unordered_list: "Indsæt uordnet liste"
+          italic: "Kursiv"
+          preview: "Forhåndsvisning af besked"
+          quote: "Indsæt citat"
+          write: "Rediger besked"
+        write: "Skriv"
       near_from: "Sendt fra: <%= location %>"
       option: "Svar"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
@@ -242,6 +260,7 @@ da:
         other: "Vis <%= count %> ekstra kommentarer"
         two: "Vis <%= count %> ekstra kommentarer"
         zero: "Vis <%= count %> ekstra kommentarer"
+      no_posts_yet: "Der er endnu ikke nogen indlæg at vise."
       original_post_deleted: "Oprindeligt indlæg er slettet af forfatteren"
       permalink: "Permalink"
       public: "Offentlig"
@@ -273,14 +292,22 @@ da:
       wasnt_that_interesting: "OK, #<%= tagName %> var ikke var så spændende alligevel ..."
     timeago:
       day: "en dag"
-      days: "%d dage"
+      days:
+        one: "1 dag"
+        other: "%d dage"
       hour: "ca. en time"
-      hours: "ca. %d timer"
+      hours:
+        one: "omkring en time"
+        other: "omkring %d timer"
       inPast: "når som helst"
       minute: "ca. et minut"
-      minutes: "%d minutter"
+      minutes:
+        one: "1 minut"
+        other: "%d minutter"
       month: "ca. en måned"
-      months: "%d måneder"
+      months:
+        one: "1 måned"
+        other: "%d måneder"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "mindre end et minut"
@@ -288,7 +315,9 @@ da:
       suffixFromNow: "fra nu"
       wordSeparator: " "
       year: "ca. et år"
-      years: "%d år"
+      years:
+        one: "1 år"
+        other: "%d år"
     unblock_failed: "Det lykkedes ikke at afblokere denne bruger"
     viewer:
       reshared: "Videredelt"

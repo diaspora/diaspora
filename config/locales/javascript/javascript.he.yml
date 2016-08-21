@@ -131,19 +131,24 @@ he:
       wasnt_that_interesting: "בסדר, כנראה שהתגית #<%= tagName %> לא הייתה מעניינת במיוחד..."
     timeago:
       day: "יום"
-      days: "%d ימים"
+      days:
+        other: "%d ימים"
       hour: "כשעה"
-      hours: "כ-%d שעות"
+      hours:
+        other: "כ-%d שעות"
       minute: "כדקה"
-      minutes: "%d דקות"
+      minutes:
+        other: "%d דקות"
       month: "כחודש"
-      months: "%d חודשים"
+      months:
+        other: "%d חודשים"
       prefixAgo: "לפני"
       prefixFromNow: "מעכשיו"
       seconds: "פחות מדקה"
       suffixAgo: ""
       suffixFromNow: "מעכשיו"
       year: "כשנה"
-      years: "%d שנים"
+      years:
+        other: "%d שנים"
     viewer:
       reshared: "בוצע שיתוף מחדש"

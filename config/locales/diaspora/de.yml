@@ -153,20 +153,30 @@ de:
         login_required: "Du musst dich erst anmelden, bevor du diese Anwendung zulassen kannst"
         title: "Oh! Etwas ist schiefgegangen :("
       scopes:
+        aud:
+          description: "Dies gewährt der Anwendung aud-Berechtigungen"
+          name: "aud"
         name:
+          description: "Dies gewährt der Anwendung Name-Berechtigungen"
           name: "Name"
         nickname:
+          description: "Dies gewährt der Anwendung Benutzername-Berechtigungen"
           name: "Benutzername"
         openid:
           description: "Das ermöglicht der Anwendung, dein grundlegendes Profil auszulesen"
           name: "grundlegendes Profil"
         picture:
+          description: "Dies gewährt der Anwendung Bild-Berechtigungen"
           name: "Bild"
         profile:
+          description: "Dies ermöglicht der Anwendung, Ihr erweitertes Profil auszulesen"
           name: "erweitertes Profil"
         read:
           description: "Das ermöglicht der Anwendung, deinen Stream, deine Konversationen und dein vollständiges Profil auszulesen"
           name: "Profil, Stream und Konversationen lesen"
+        sub:
+          description: "Dies gewährt der Anwendung sub-Berechtigungen"
+          name: "sub"
         write:
           description: "Das ermöglicht der Anwendung, neue Beiträge zu senden, Konversationen zu schreiben und Reaktionen zu senden"
           name: "Beiträge, Konversationen und Reaktionen senden"
@@ -272,7 +282,7 @@ de:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_contact: "Kontakt hinzufügen"
       all_contacts: "Alle Kontakte"
-      community_spotlight: "Gemeinschafts-Fokus"
+      community_spotlight: "Gemeinschafts-Schaukasten"
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus, als müsstest du einige Kontakte hinzufügen!"
       no_contacts_in_aspect: "Du hast noch keine Kontakte in diesem Aspekt. Unten ist eine Liste mit deinen bestehenden Kontakten, die du zu diesem Aspekt hinzufügen kannst."
@@ -283,6 +293,7 @@ de:
       user_search: "Nutzersuche"
     spotlight:
       community_spotlight: "Gemeinschafts-Schaukasten"
+      no_members: "Es gibt noch keine Mitglieder."
       suggest_member: "Ein Mitglied vorschlagen"
   conversations:
     create:
@@ -356,7 +367,7 @@ de:
       rename_aspect_a: "Klick in der Stream-Ansicht in der Seitenleiste auf „Meine Aspekte” und dann auf das Stiftsymbol bei dem Aspekt, den du umbenennen möchtest, oder geh zu deiner „Kontakte”-Seite und wähl den entsprechenden Aspekt aus. Klick dann auf das Bearbeitungssymbol neben dem Aspektnamen oben auf der Seite, änder den Namen und klick auf „Ändern”."
       rename_aspect_q: "Wie benenne ich einen Aspekt um?"
       restrict_posts_i_see_a: "Ja. Klicke dazu in der Seitenleiste erst auf „Meine Aspekte“ und anschließend auf einzelne Aspekte, um diese aus- oder abzuwählen. Anschließend werden nur noch Beiträge von Personen aus den ausgewählten Aspekten im Stream angezeigt werden."
-      restrict_posts_i_see_q: "Kann ich die Beiträge, die ich sehe, auf bestimmte Aspekte beschränken?"
+      restrict_posts_i_see_q: "Kann ich angezeigte Beiträge in meinem Stream auf bestimmte Aspekte beschränken?"
       title: "Aspekte"
       what_is_an_aspect_a: "Um deine Kontakte in diaspora* in Gruppen einzuteilen, kannst du Aspekte anlegen. Zum Beispiel kannst du einen Aspekt für die Leute aus deiner Arbeit, einen für die Leute aus deiner Familie und einen für deine Freunde verwenden."
       what_is_an_aspect_q: "Was sind Aspekte?"
@@ -466,7 +477,7 @@ de:
       see_comment_a: "Nur Leute, mit denen der Beitrag geteilt wurde (die Personen welche sich in den ausgewählten Aspekten des Orginalautors befinden), können Kommentare und Klicks auf „Gefällt mir“ sehen. "
       see_comment_q: "Wer sieht, dass mir ein privater Beitrag gefällt oder dass ich ihn kommentiert habe?"
       title: "Private Beiträge"
-      who_sees_post_a: "Nur eingeloggte diaspora*-Nutzer, welche sich in diesem Aspekt befinden, können deinen privaten Beitrag sehen."
+      who_sees_post_a: "Nur eingeloggte diaspora*-Nutzer, welche du vorher diesem privaten Aspekt zugeordnet hast, können den Beitrag sehen."
       who_sees_post_q: "Wenn ich einen Beitrag in einen Aspekt schreibe (privat), wer kann ihn sehen?"
     private_profiles:
       title: "Private Profile"
@@ -598,6 +609,7 @@ de:
   layouts:
     application:
       back_to_top: "Zurück zum Anfang"
+      be_excellent: "Seid nett zueinander! ♥"
       powered_by: "Betrieben mit diaspora*"
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket runterladen"
@@ -787,6 +799,7 @@ de:
       subject: "%{name} hat dich auf diaspora* erwähnt"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
+      subject: "Es gibt eine neue private Nachricht für dich"
     remove_old_user:
       body: |-
           Hallo,
@@ -830,7 +843,7 @@ de:
       view_post: "Beitrag anzeigen >"
     single_admin:
       admin: "Dein diaspora* Administrator"
-      subject: "Eine Nachricht über dein diaspora* Konto:"
+      subject: "Eine Nachricht über dein diaspora*-Konto:"
     started_sharing:
       sharing: "hat angefangen mit dir zu teilen!"
       subject: "%{name} hat angefangen auf diaspora* mit dir zu teilen"
@@ -982,7 +995,7 @@ de:
     destroy:
       success: "Authentifizierung erfolgreich gelöscht."
     failure:
-      error: "Es gab einen Fehler der Verbindung mit dem Dienst."
+      error: "Es gab einen Fehler beim Verbinden mit dem Dienst."
     index:
       connect: "Verbinde"
       disconnect: "Verbindung entfernen"
@@ -1005,12 +1018,9 @@ de:
       mobile_row_checked: "%{name} (entfernen)"
       mobile_row_unchecked: "%{name} (hinzufügen)"
       toggle:
-        few: "In %{count} Aspekten"
-        many: "In %{count} Aspekten"
         one: "In einem Aspekt"
         other: "In %{count} Aspekten"
-        two: "In %{count} Aspekten"
-        zero: "Kontakt hinzufügen"
+        zero: "In keinem Aspekt"
     invitations:
       by_email: "Per E-Mail"
       invite_your_friends: "Lade deine Freunde ein"
@@ -1038,7 +1048,6 @@ de:
       poll:
         add_a_poll: "Eine Umfrage hinzufügen"
       posting: "Senden …"
-      preview: "Vorschau"
       remove_location: "Ort entfernen"
       share: "Teilen"
       upload_photos: "Fotos hochladen"
@@ -1085,7 +1094,7 @@ de:
     aspects_stream: "Aspekte"
     comment_stream:
       title: "Kommentierte Beiträge"
-    community_spotlight_stream: "Gemeinschaftsfokus"
+    community_spotlight_stream: "Gemeinschafts-Schaukasten"
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
       follow: "Folgen"
@@ -1157,9 +1166,9 @@ de:
       following: "Folgen-Einstellungen"
       last_exported_at: "(Zuletzt aktualisiert: %{timestamp})"
       liked: "jemandem dein Beitrag gefällt"
-      mentioned: "… du in einem Beitrag erwähnt wirst"
+      mentioned: "du in einem Beitrag erwähnt wirst"
       new_password: "Neues Kennwort"
-      private_message: "… du eine private Nachricht erhältst"
+      private_message: "du eine private Nachricht erhältst"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
       request_export: "Meine Profildaten anfordern"
       request_export_photos: "Meine Fotos anfragen"

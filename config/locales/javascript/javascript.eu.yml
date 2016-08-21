@@ -100,19 +100,24 @@ eu:
       wasnt_that_interesting: "Beno, suposatzen dut #<%= tagName %> ez zela oso interesgarria..."
     timeago:
       day: "egun bat"
-      days: "%d egun"
+      days:
+        other: "%d egun"
       hour: "ordu bat"
-      hours: "%d ordu"
+      hours:
+        other: "%d ordu"
       minute: "minutu bat"
-      minutes: "%d minutu"
+      minutes:
+        other: "%d minutu"
       month: "hilabete bat"
-      months: "%d hilabete"
+      months:
+        other: "%d hilabete"
       prefixAgo: "duela"
       prefixFromNow: ""
       seconds: "minutu bat baino gutxiago"
       suffixAgo: ""
       suffixFromNow: "barru"
       year: "urte bat"
-      years: "%d urte"
+      years:
+        other: "%d urte"
     viewer:
       reshared: ""

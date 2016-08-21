@@ -90,17 +90,22 @@ lt:
       wasnt_that_interesting: "Na gerai, greičiausiai #<%= tagName%> tai nebuvo taip įdomu..."
     timeago:
       day: "1 d."
-      days: "%d d."
+      days:
+        other: "%d d."
       hour: "maždaug1 val."
-      hours: "maždaug %d val."
+      hours:
+        other: "maždaug %d val."
       minute: "maždaug 1 min."
-      minutes: "%d min."
+      minutes:
+        other: "%d min."
       month: "maždaug 1 mėn."
-      months: "%d mėn."
+      months:
+        other: "%d mėn."
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "mažiau nei 1 min."
       suffixAgo: "prieš"
       suffixFromNow: "nuo dabar"
       year: "maždaug 1 m."
-      years: "%d m."
+      years:
+        other: "%d m."

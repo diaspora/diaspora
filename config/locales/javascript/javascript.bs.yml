@@ -120,19 +120,24 @@ bs:
       wasnt_that_interesting: "Uredu, pretpostavljam da #<%= tagName %> nije bilo tako interesantno..."
     timeago:
       day: "dan"
-      days: "%d dana"
+      days:
+        other: "%d dana"
       hour: "oko sat"
-      hours: "oko %d sati"
+      hours:
+        other: "oko %d sati"
       minute: "oko minute"
-      minutes: "%d minuta"
+      minutes:
+        other: "%d minuta"
       month: "oko mjesec"
-      months: "%d mjeseci"
+      months:
+        other: "%d mjeseci"
       prefixAgo: "prije"
       prefixFromNow: "u"
       seconds: "manje od minute"
       suffixAgo: "prije"
       suffixFromNow: "od sada"
       year: "oko godina"
-      years: "%d godina"
+      years:
+        other: "%d godina"
     viewer:
       reshared: "Ponovo dijeljeno"

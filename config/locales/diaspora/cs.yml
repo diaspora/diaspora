@@ -143,6 +143,8 @@ cs:
   api:
     openid_connect:
       authorizations:
+        destroy:
+          fail: "Pokus o odejmutí autorizace s ID %{id} selhalo"
         new:
           access: "%{name} potřebný přístup do"
           approve: "Schválit"
@@ -946,7 +948,6 @@ cs:
       poll:
         add_a_poll: "Přidat anketu"
       posting: "Odesílám…"
-      preview: "Náhled"
       remove_location: "Odstranit pozici"
       share: "Sdílet"
       upload_photos: "Nahrát fotky"
