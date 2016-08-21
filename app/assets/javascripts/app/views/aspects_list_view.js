@@ -15,7 +15,6 @@ app.views.AspectsList = app.views.Base.extend({
 
   initialize: function() {
     this.collection.on("change", this.toggleSelector, this);
-    this.collection.on("change", this.updateStreamTitle, this);
     this.collection.on("aspectStreamFetched", this.updateAspectList, this);
     app.events.on("aspect:create", function(id) { window.location = "/contacts?a_id=" + id });
   },
@@ -26,7 +25,6 @@ app.views.AspectsList = app.views.Base.extend({
 
   postRenderTemplate: function() {
     this.collection.each(this.appendAspect, this);
-    this.updateStreamTitle();
     this.toggleSelector();
   },
 
@@ -56,10 +54,6 @@ app.views.AspectsList = app.views.Base.extend({
     } else {
       selector.text(Diaspora.I18n.t('aspect_navigation.select_all'));
     }
-  },
-
-  updateStreamTitle: function() {
-    $(".stream-title").text(this.collection.toSentence());
   },
 
   updateAspectList: function() {

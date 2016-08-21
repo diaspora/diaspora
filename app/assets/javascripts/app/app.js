@@ -108,12 +108,6 @@ var app = {
 
       evt.preventDefault();
       var link = $(this);
-      if(link.data("stream-title") && link.data("stream-title").length) {
-        $(".stream-title").text(link.data("stream-title"));
-      } else {
-        $(".stream-title").text(link.text());
-      }
-
       $("html, body").animate({scrollTop: 0});
 
       // app.router.navigate doesn't tell us if it changed the page,
