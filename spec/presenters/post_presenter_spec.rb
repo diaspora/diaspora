@@ -75,7 +75,7 @@ describe PostPresenter do
     end
 
     context "with posts without text" do
-      it " displays a messaage with the post class" do
+      it "displays a messaage with the post class" do
         @sm = double(message: double(present?: false), author: bob.person, author_name: bob.person.name)
         @presenter.post = @sm
         expect(@presenter.send(:title)).to eq("A post from #{@sm.author.name}")
@@ -87,6 +87,50 @@ describe PostPresenter do
     it "works without a user" do
       presenter = PostPresenter.new(@sm_with_poll)
       expect(presenter.as_json).to be_a(Hash)
+    end
+  end
+
+  describe "#tags" do
+    it "returns the tag of the post" do
+      post = FactoryGirl.create(:status_message, text: "#hello #world", public: true)
+
+      expect(PostPresenter.new(post).send(:tags)).to match_array(%w(hello world))
+    end
+
+    it "returns the tag of the absolute_root of a Reshare" do
+      post = FactoryGirl.create(:status_message, text: "#hello #world", public: true)
+      first_reshare = FactoryGirl.create(:reshare, root: post)
+      second_reshare = FactoryGirl.create(:reshare, root: first_reshare)
+
+      expect(PostPresenter.new(second_reshare).send(:tags)).to match_array(%w(hello world))
+    end
+
+    it "does not raise if the root of a reshare does not exist anymore" do
+      reshare = FactoryGirl.create(:reshare)
+      reshare.root = nil
+
+      expect(PostPresenter.new(reshare).send(:tags)).to eq([])
+    end
+  end
+
+  describe "#description" do
+    it "returns the first 1000 chars of the text" do
+      post = FactoryGirl.create(:status_message, text: "a" * 1001, public: true)
+
+      expect(PostPresenter.new(post).send(:description)).to eq("#{'a' * 997}...")
+    end
+
+    it "does not change the message if less or equal 1000 chars" do
+      post = FactoryGirl.create(:status_message, text: "a" * 1000, public: true)
+
+      expect(PostPresenter.new(post).send(:description)).to eq("a" * 1000)
+    end
+
+    it "does not raise if the root of a reshare does not exist anymore" do
+      reshare = FactoryGirl.create(:reshare)
+      reshare.root = nil
+
+      expect(PostPresenter.new(reshare).send(:description)).to eq(nil)
     end
   end
 end
