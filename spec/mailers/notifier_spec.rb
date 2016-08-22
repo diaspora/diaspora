@@ -79,9 +79,9 @@ describe Notifier, type: :mailer do
     before do
       @user = alice
       @post = FactoryGirl.create(:status_message, public: true)
-      @mention = Mention.create(person: @user.person, post: @post)
+      @mention = Mention.create(person: @user.person, mentions_container: @post)
 
-      @mail = Notifier.mentioned(@user.id, @post.author.id, @mention.id)
+      @mail = Notifier.send_notification("mentioned", @user.id, @post.author.id, @mention.id)
     end
 
     it "TO: goes to the right person" do
@@ -106,13 +106,41 @@ describe Notifier, type: :mailer do
     end
   end
 
+  describe ".mentioned_in_comment" do
+    let(:user) { alice }
+    let(:comment) { FactoryGirl.create(:comment) }
+    let(:mention) { Mention.create(person: user.person, mentions_container: comment) }
+    let(:mail) { Notifier.send_notification("mentioned_in_comment", user.id, comment.author.id, mention.id) }
+
+    it "TO: goes to the right person" do
+      expect(mail.to).to eq([user.email])
+    end
+
+    it "SUBJECT: has the name of person mentioning in the subject" do
+      expect(mail.subject).to include(comment.author.name)
+    end
+
+    it "has the comment link in the body" do
+      expect(mail.body.encoded).to include(post_url(comment.parent, anchor: comment.guid))
+    end
+
+    it "renders proper wording when limited" do
+      expect(mail.body.encoded).to include(I18n.translate("notifier.mentioned_in_comment.limited_post"))
+    end
+
+    it "renders comment text when public" do
+      comment.parent.update(public: true)
+      expect(mail.body.encoded).to include(comment.message.plain_text_without_markdown)
+    end
+  end
+
   describe ".mentioned limited" do
     before do
       @user = alice
       @post = FactoryGirl.create(:status_message, public: false)
-      @mention = Mention.create(person: @user.person, post: @post)
+      @mention = Mention.create(person: @user.person, mentions_container: @post)
 
-      @mail = Notifier.mentioned(@user.id, @post.author.id, @mention.id)
+      @mail = Notifier.send_notification("mentioned", @user.id, @post.author.id, @mention.id)
     end
 
     it "TO: goes to the right person" do

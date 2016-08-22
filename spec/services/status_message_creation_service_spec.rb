@@ -151,44 +151,6 @@ describe StatusMessageCreationService do
       end
     end
 
-    context "with mentions" do
-      let(:mentioned_user) { FactoryGirl.create(:user) }
-      let(:text) {
-        "Hey @{#{bob.name}; #{bob.diaspora_handle}} and @{#{mentioned_user.name}; #{mentioned_user.diaspora_handle}}!"
-      }
-
-      it "calls Diaspora::Mentionable#filter_for_aspects for private posts" do
-        expect(Diaspora::Mentionable).to receive(:filter_for_aspects).with(text, alice, aspect.id.to_s)
-          .and_call_original
-        StatusMessageCreationService.new(alice).create(params)
-      end
-
-      it "keeps mentions for users in one of the aspects" do
-        status_message = StatusMessageCreationService.new(alice).create(params)
-        expect(status_message.text).to include bob.name
-        expect(status_message.text).to include bob.diaspora_handle
-      end
-
-      it "removes mentions for users in other aspects" do
-        status_message = StatusMessageCreationService.new(alice).create(params)
-        expect(status_message.text).to include mentioned_user.name
-        expect(status_message.text).not_to include mentioned_user.diaspora_handle
-      end
-
-      it "doesn't call Diaspora::Mentionable#filter_for_aspects for public posts" do
-        expect(Diaspora::Mentionable).not_to receive(:filter_for_aspects)
-        StatusMessageCreationService.new(alice).create(params.merge(public: true))
-      end
-
-      it "keeps all mentions in public posts" do
-        status_message = StatusMessageCreationService.new(alice).create(params.merge(public: true))
-        expect(status_message.text).to include bob.name
-        expect(status_message.text).to include bob.diaspora_handle
-        expect(status_message.text).to include mentioned_user.name
-        expect(status_message.text).to include mentioned_user.diaspora_handle
-      end
-    end
-
     context "dispatch" do
       it "dispatches the StatusMessage" do
         expect(alice).to receive(:dispatch_post).with(instance_of(StatusMessage), hash_including(service_types: []))
@@ -200,6 +162,16 @@ describe StatusMessageCreationService do
           .with(instance_of(StatusMessage),
                 hash_including(service_types: array_including(%w(Services::Facebook Services::Twitter))))
         StatusMessageCreationService.new(alice).create(params.merge(services: %w(twitter facebook)))
+      end
+
+      context "with mention" do
+        let(:text) { text_mentioning(eve) }
+
+        # this is only required until changes from #6818 are deployed on every pod
+        it "filters out mentions from text attribute" do
+          status_message = StatusMessageCreationService.new(alice).create(params)
+          expect(status_message.text).not_to include(eve.diaspora_handle)
+        end
       end
     end
   end

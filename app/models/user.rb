@@ -333,6 +333,7 @@ class User < ActiveRecord::Base
 
   ######### Mailer #######################
   def mail(job, *args)
+    return unless job.present?
     pref = job.to_s.gsub('Workers::Mail::', '').underscore
     if(self.disable_mail == false && !self.user_preferences.exists?(:email_type => pref))
       job.perform_async(*args)

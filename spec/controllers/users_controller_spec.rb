@@ -184,20 +184,24 @@ describe UsersController, :type => :controller do
       end
     end
 
-    describe 'email settings' do
-      it 'lets the user turn off mail' do
-        par = {:id => @user.id, :user => {:email_preferences => {'mentioned' => 'true'}}}
-        expect{
-          put :update, par
-        }.to change(@user.user_preferences, :count).by(1)
-      end
+    describe "email settings" do
+      UserPreference::VALID_EMAIL_TYPES.each do |email_type|
+        context "for #{email_type}" do
+          it "lets the user turn off mail" do
+            par = {id: @user.id, user: {email_preferences: {email_type => "true"}}}
+            expect {
+              put :update, par
+            }.to change(@user.user_preferences, :count).by(1)
+          end
 
-      it 'lets the user get mail again' do
-        @user.user_preferences.create(:email_type => 'mentioned')
-        par = {:id => @user.id, :user => {:email_preferences => {'mentioned' => 'false'}}}
-        expect{
-          put :update, par
-        }.to change(@user.user_preferences, :count).by(-1)
+          it "lets the user get mail again" do
+            @user.user_preferences.create(email_type: email_type)
+            par = {id: @user.id, user: {email_preferences: {email_type => "false"}}}
+            expect {
+              put :update, par
+            }.to change(@user.user_preferences, :count).by(-1)
+          end
+        end
       end
     end
 

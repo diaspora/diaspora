@@ -3,7 +3,7 @@ When "I filter notifications by likes" do
 end
 
 When "I filter notifications by mentions" do
-  step %(I follow "Mentioned" within "#notifications_container .list-group")
+  step %(I follow "Mentioned in post" within "#notifications_container .list-group")
 end
 
 Then /^I should( not)? have activated notifications for the post( in the single post view)?$/ do |negate, spv|

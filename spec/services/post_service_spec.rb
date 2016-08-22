@@ -111,6 +111,8 @@ describe PostService do
   end
 
   describe "#mark_user_notifications" do
+    let(:status_text) { text_mentioning(alice) }
+
     it "marks a corresponding notifications as read" do
       FactoryGirl.create(:notification, recipient: alice, target: post, unread: true)
       FactoryGirl.create(:notification, recipient: alice, target: post, unread: true)
@@ -121,11 +123,20 @@ describe PostService do
     end
 
     it "marks a corresponding mention notification as read" do
-      status_text = "this is a text mentioning @{Mention User ; #{alice.diaspora_handle}} ... have fun testing!"
       mention_post = bob.post(:status_message, text: status_text, public: true)
 
       expect {
         PostService.new(alice).mark_user_notifications(mention_post.id)
+      }.to change(Notification.where(unread: true), :count).by(-1)
+    end
+
+    it "marks a corresponding mention in comment notification as read" do
+      notification = FactoryGirl.create(:notification_mentioned_in_comment)
+      status_message = notification.target.mentions_container.parent
+      user = notification.recipient
+
+      expect {
+        PostService.new(user).mark_user_notifications(status_message.id)
       }.to change(Notification.where(unread: true), :count).by(-1)
     end
 
@@ -140,7 +151,6 @@ describe PostService do
     end
 
     it "does not change the update_at date/time for mention notifications" do
-      status_text = "this is a text mentioning @{Mention User ; #{alice.diaspora_handle}} ... have fun testing!"
       mention_post = Timecop.travel(1.minute.ago) do
         bob.post(:status_message, text: status_text, public: true)
       end

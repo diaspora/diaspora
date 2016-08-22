@@ -3,10 +3,12 @@ require Rails.root.join("spec", "support", "inlined_jobs")
 
 module HelperMethods
   def connect_users_with_aspects(u1, u2)
-    aspect1 = u1.aspects.length == 1 ? u1.aspects.first : u1.aspects.where(:name => "Besties").first
-    aspect2 = u2.aspects.length == 1 ? u2.aspects.first : u2.aspects.where(:name => "Besties").first
+    aspect1, aspect2 = [u1, u2].map do |user|
+      user.aspects.where(name: "Besties").first.presence || user.aspects.first
+    end
     connect_users(u1, aspect1, u2, aspect2)
   end
+
   def connect_users(user1, aspect1, user2, aspect2)
     user1.contacts.create!(:person => user2.person,
                            :aspects => [aspect1],
@@ -41,5 +43,19 @@ module HelperMethods
     status, headers, body = app.call(env)
     body.close if body.respond_to?(:close) # avoids deadlock after 3 tests
     ActionDispatch::TestResponse.new(status, headers, body)
+  end
+
+  def text_mentioning(*people)
+    people.map {|person|
+      "this is a text mentioning @{#{person.name}; #{person.diaspora_handle}} ... have fun testing!"
+    }.join(" ")
+  end
+
+  def build_relayable_federation_entity(type, data={}, additional_xml_elements={})
+    attributes = FactoryGirl.attributes_for("#{type}_entity".to_sym, data)
+    entity_class = "DiasporaFederation::Entities::#{type.capitalize}".constantize
+    signable_fields = attributes.keys - [:author_signature]
+
+    entity_class.new(attributes, [*signable_fields, *additional_xml_elements.keys], additional_xml_elements)
   end
 end

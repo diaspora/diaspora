@@ -12,15 +12,14 @@ class Post < ActiveRecord::Base
   include Diaspora::Likeable
   include Diaspora::Commentable
   include Diaspora::Shareable
+  include Diaspora::MentionsContainer
 
   has_many :participations, dependent: :delete_all, as: :target, inverse_of: :target
-  has_many :participants, class_name: "Person", through: :participations, source: :author
+  has_many :participants, through: :participations, source: :author
 
   attr_accessor :user_like
 
   has_many :reports, as: :item
-
-  has_many :mentions, dependent: :destroy
 
   has_many :reshares, class_name: "Reshare", foreign_key: :root_guid, primary_key: :guid
   has_many :resharers, class_name: "Person", through: :reshares, source: :author
@@ -60,7 +59,6 @@ class Post < ActiveRecord::Base
   end
 
   def root; end
-  def mentioned_people; []; end
   def photos; []; end
 
   #prevents error when trying to access @post.address in a post different than Reshare and StatusMessage types;

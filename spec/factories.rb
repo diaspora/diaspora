@@ -76,8 +76,17 @@ FactoryGirl.define do
     end
   end
 
-  factory :user_with_aspect, :parent => :user do
-    after(:create) { |u|  FactoryGirl.create(:aspect, :user => u) }
+  factory :user_with_aspect, parent: :user do
+    transient do
+      friends []
+    end
+
+    after(:create) do |user, evaluator|
+      FactoryGirl.create(:aspect, user: user)
+      evaluator.friends.each do |friend|
+        connect_users_with_aspects(user, friend)
+      end
+    end
   end
 
   factory :aspect do
@@ -116,8 +125,8 @@ FactoryGirl.define do
 
     factory(:status_message_in_aspect) do
       public false
+      author { FactoryGirl.create(:user_with_aspect).person }
       after(:build) do |sm|
-        sm.author = FactoryGirl.create(:user_with_aspect).person
         sm.aspects << sm.author.owner.aspects.first
       end
     end
@@ -228,8 +237,8 @@ FactoryGirl.define do
 
   factory(:comment) do
     sequence(:text) {|n| "#{n} cats"}
-    association(:author, :factory => :person)
-    association(:post, :factory => :status_message)
+    association(:author, factory: :person)
+    association(:post, factory: :status_message)
   end
 
   factory(:notification) do
@@ -239,6 +248,16 @@ FactoryGirl.define do
 
     after(:build) do |note|
       note.actors << FactoryGirl.build(:person)
+    end
+  end
+
+  factory(:notification_mentioned_in_comment, class: Notification) do
+    association :recipient, factory: :user
+    type "Notifications::MentionedInComment"
+
+    after(:build) do |note|
+      note.actors << FactoryGirl.build(:person)
+      note.target = FactoryGirl.create :mention_in_comment, person: note.recipient.person
     end
   end
 
@@ -271,8 +290,13 @@ FactoryGirl.define do
   end
 
   factory(:mention) do
-    association(:person, :factory => :person)
-    association(:post, :factory => :status_message)
+    association(:person, factory: :person)
+    association(:mentions_container, factory: :status_message)
+  end
+
+  factory(:mention_in_comment, class: Mention) do
+    association(:person, factory: :person)
+    association(:mentions_container, factory: :comment)
   end
 
   factory(:conversation) do

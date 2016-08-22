@@ -80,7 +80,10 @@ class StatusMessagesController < ApplicationController
 
   def handle_mention_feedback(status_message)
     return unless comes_from_others_profile_page?
-    flash[:notice] = t("status_messages.create.success", names: status_message.mentioned_people_names)
+    flash[:notice] = t(
+      "status_messages.create.success",
+      names: PersonPresenter.people_names(status_message.mentioned_people)
+    )
   end
 
   def comes_from_others_profile_page?

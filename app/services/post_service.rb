@@ -59,8 +59,20 @@ class PostService
   end
 
   def mark_mention_notifications_read(post_id)
-    mention_id = Mention.where(post_id: post_id, person_id: user.person_id).pluck(:id)
-    Notification.where(recipient_id: user.id, target_type: "Mention", target_id: mention_id, unread: true)
-      .update_all(unread: false) if mention_id
+    mention_ids = Mention.where(
+      mentions_container_id:   post_id,
+      mentions_container_type: "Post",
+      person_id:               user.person_id
+    ).ids
+    mention_ids.concat(mentions_in_comments_for_post(post_id).pluck(:id))
+
+    Notification.where(recipient_id: user.id, target_type: "Mention", target_id: mention_ids, unread: true)
+                .update_all(unread: false) if mention_ids.any?
+  end
+
+  def mentions_in_comments_for_post(post_id)
+    Mention
+      .joins("INNER JOIN comments ON mentions_container_id = comments.id AND mentions_container_type = 'Comment'")
+      .where(comments: {commentable_id: post_id, commentable_type: "Post"})
   end
 end

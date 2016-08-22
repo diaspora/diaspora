@@ -21,6 +21,12 @@ Given /^"([^"]*)" has commented "([^"]*)" on "([^"]*)"$/ do |email, comment_text
   user.comment!(post, comment_text)
 end
 
+Given /^"([^"]*)" has commented mentioning "([^"]*)" on "([^"]*)"$/ do |email, mentionee_email, post_text|
+  user = User.find_by(email: email)
+  post = StatusMessage.find_by(text: post_text)
+  user.comment!(post, text_mentioning(User.find_by(email: mentionee_email)))
+end
+
 Given /^"([^"]*)" has commented a lot on "([^"]*)"$/ do |email, post_text|
   user = User.find_by(email: email)
   post = StatusMessage.find_by(text: post_text)

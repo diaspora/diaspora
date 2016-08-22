@@ -2,40 +2,44 @@ module NotificationsHelper
   include PeopleHelper
   include PostsHelper
 
-  def object_link(note, actors)
+  def object_link(note, actors_html)
     target_type = note.popup_translation_key
-    actors_count = note.actors.size
+    opts = {actors: actors_html, count: note.actors.size}
 
-    if note.instance_of?(Notifications::Mentioned)
-      if post = note.linked_object
-        translation(target_type,
-                    actors:    actors,
-                    count:     actors_count,
-                    post_link: link_to(post_page_title(post), post_path(post)).html_safe)
-      else
-        t(note.deleted_translation_key, :actors => actors, :count => actors_count).html_safe
+    if note.respond_to?(:linked_object)
+      if note.linked_object.nil? && note.respond_to?(:deleted_translation_key)
+        target_type = note.deleted_translation_key
+      elsif note.is_a?(Notifications::Mentioned)
+        opts.merge!(opts_for_mentioned(note.linked_object))
+      elsif %w(Notifications::CommentOnPost Notifications::AlsoCommented Notifications::Reshared Notifications::Liked)
+            .include?(note.type)
+        opts.merge!(opts_for_post(note.linked_object))
       end
-    elsif note.instance_of?(Notifications::CommentOnPost) || note.instance_of?(Notifications::AlsoCommented) || note.instance_of?(Notifications::Reshared) || note.instance_of?(Notifications::Liked)
-      if post = note.linked_object
-        translation(target_type,
-                    actors:      actors,
-                    count:       actors_count,
-                    post_author: h(post.author_name),
-                    post_link:   link_to(post_page_title(post),
-                                         post_path(post),
-                                         data:  {ref: post.id},
-                                         class: "hard_object_link").html_safe)
-      else
-        t(note.deleted_translation_key, :actors => actors, :count => actors_count).html_safe
-      end
-    else #Notifications:StartedSharing, etc.
-      translation(target_type, :actors => actors, :count => actors_count)
     end
+    translation(target_type, opts)
   end
 
   def translation(target_type, opts = {})
-    {:post_author => nil}.merge!(opts)
     t("#{target_type}", opts).html_safe
+  end
+
+  def opts_for_post(post)
+    {
+      post_author: html_escape(post.author_name),
+      post_link:   link_to(post_page_title(post),
+                           post_path(post),
+                           data:  {ref: post.id},
+                           class: "hard_object_link").html_safe
+    }
+  end
+
+  def opts_for_mentioned(mentioned)
+    post = mentioned.instance_of?(Comment) ? mentioned.parent : mentioned
+    {
+      post_link: link_to(post_page_title(post), post_path(post)).html_safe
+    }.tap {|opts|
+      opts[:comment_path] = post_path(post, anchor: mentioned.guid).html_safe if mentioned.instance_of?(Comment)
+    }
   end
 
   def notification_people_link(note, people=nil)
