@@ -18,6 +18,7 @@ module Workers
            DiasporaFederation::Salmon::SenderKeyNotFound,
            DiasporaFederation::Salmon::InvalidEnvelope,
            DiasporaFederation::Salmon::InvalidSignature,
+           DiasporaFederation::Salmon::InvalidDataType,
            DiasporaFederation::Salmon::InvalidAlgorithm,
            DiasporaFederation::Salmon::InvalidEncoding,
            Diaspora::Federation::AuthorIgnored,
