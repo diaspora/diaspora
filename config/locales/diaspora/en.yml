@@ -1044,7 +1044,7 @@ en:
     invitations:
       invites: "Invites"
       invite_your_friends: "Invite your friends"
-      by_email: "By email"
+      by_email: "Invite people by email"
       share_this: "Share this link via email, blog, or social networks!"
     public_explain:
       control_your_audience: "Control your audience"
