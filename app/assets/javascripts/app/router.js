@@ -18,7 +18,7 @@ app.Router = Backbone.Router.extend({
     "mentions(/)": "stream",
     "notifications(/)": "notifications",
     "p/:id(/)": "singlePost",
-    "people(/)": "pageWithAspectMembershipDropdowns",
+    "people(/)": "peopleSearch",
     "people/:id(/)": "profile",
     "people/:id/contacts(/)": "profile",
     "people/:id/photos(/)": "photos",
@@ -137,6 +137,14 @@ app.Router = Backbone.Router.extend({
     new app.views.Notifications({el: "#notifications_container"});
   },
 
+  peopleSearch: function() {
+    this._loadContacts();
+    this.renderAspectMembershipDropdowns($(document));
+    $(".invitations-link").click(function() {
+      app.helpers.showModal("#invitationsModal");
+    });
+  },
+
   photos: function(guid) {
     this._loadContacts();
     this.renderPage(function() {
@@ -212,11 +220,6 @@ app.Router = Backbone.Router.extend({
 
   _loadContacts: function() {
     app.contacts = new app.collections.Contacts(app.parsePreload("contacts"));
-  },
-
-  pageWithAspectMembershipDropdowns: function() {
-    this._loadContacts();
-    this.renderAspectMembershipDropdowns($(document));
   },
 
   renderAspectMembershipDropdowns: function($context) {
