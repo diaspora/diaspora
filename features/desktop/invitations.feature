@@ -48,3 +48,14 @@ Feature: Invitations
     And I press "Send an invitation"
     Then I should have 1 Devise email delivery
     And I should not see "change your notification settings" in the last sent email
+
+  Scenario: sends an invitation from the people search page
+    When I sign in as "alice@alice.alice"
+    And I search for "test"
+    Then I should see "Users matching test" within "#search_title"
+    When I click on selector "#invitations-button"
+    And I fill in the following:
+      | email_inviter_emails         | alex@example.com    |
+    And I press "Send an invitation"
+    Then I should have 1 Devise email delivery
+    And I should not see "change your notification settings" in the last sent email
