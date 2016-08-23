@@ -18,6 +18,18 @@
     border-top: 1px dotted $border-grey;
     padding: 10px 0;
 
+    .new_comment {
+      .options_and_submit {
+        padding: 10px 0;
+      }
+      &.closed {
+        .button-container,
+        .options_and_submit {
+          display: none;
+        }
+      }
+    }
+
     .info {
       margin-top: 5px;
       font-size: $font-size-small;
@@ -28,6 +40,111 @@
       border-left: 3px solid $blue;
       padding-left: 3px;
     }
+
+    .publisher-textarea-wrapper.with_attachments .photodropzone_container {
+      border-top: 1px dashed $light-grey;
+    }
+
+    .publisher-textarea-wrapper {
+      background-color: $white;
+      border-radius: 3px;
+      border: 1px solid $border-dark-grey;
+
+      .upload_error {
+        color: white;
+        font-weight: bold;
+        border-top: 1px solid white;
+        background-color: $red;
+        text-align: center;
+      }
+
+      .photodropzone {
+        list-style: none;
+
+        li.publisher_photo {
+          list-style: none;
+          float: left;
+          margin: 8px;
+          height: 80px;
+          width: 80px;
+          overflow: hidden;
+          line-height: 80px;
+          vertical-align: middle;
+
+          .x {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            text-align: center;
+            background-color: white;
+            color: black;
+            font-size: 50px;
+            line-height: 50px;
+            font-weight: bold;
+            position: absolute;
+            z-index: 2;
+            opacity: 0.85;
+            cursor: pointer;
+            top: 15px;
+            left: 15px;
+
+            &:before {
+              content: '\2716';
+              font-family: 'entypo';
+            }
+          }
+
+          .circle {
+            border-radius: 20px;
+            z-index: 1;
+            position: absolute;
+            right: -7px;
+            top: -5px;
+            background-color: $text;
+            width: 20px;
+            max-width: 20px;
+            height: 20px;
+            max-height: 20px;
+            border: 1px solid $white;
+          }
+
+          &:hover .x {
+            display: inline-block;
+          }
+
+          img {
+            width: 80px;
+          }
+        }
+      }
+
+      .button-container {
+        border-top: 1px solid $light-grey;
+
+        .file-upload {
+          position: relative;
+          overflow: hidden;
+          direction: ltr;
+
+          .file-upload-input {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            margin: 0px;
+            padding: 0px;
+            opacity: 0;
+          }
+        }
+
+        .markdownIndications {
+          line-height: 30px;
+          padding-left: 10px;
+          margin-bottom: 0;
+          color: $medium-gray;
+        }
+      }
+    }
   }
   .submit_button {
     margin-top: 10px;
@@ -35,11 +152,12 @@
       float: right;
     }
     padding-left: 12px;
-    display: none;
   }
   .comment_box {
-    height: 35px;
     resize: none;
+  }
+  textarea.comment_box {
+    border: none;
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
