@@ -18,6 +18,19 @@
     border-top: 1px dotted $border-grey;
     padding: 10px 0;
 
+    .new-comment {
+      .options-and-submit {
+        padding: 10px 0;
+      }
+
+      &.closed {
+        .button-container,
+        .options-and-submit {
+          display: none;
+        }
+      }
+    }
+
     .info {
       margin-top: 5px;
       font-size: $font-size-small;
@@ -28,6 +41,111 @@
       border-left: 3px solid $blue;
       padding-left: 3px;
     }
+
+    .publisher-textarea-wrapper {
+      background-color: $white;
+      border: 1px solid $border-dark-grey;
+      border-radius: 3px;
+
+      &.with-attachments .photodropzone-container {
+        border-top: 1px dashed $light-grey;
+      }
+
+      .upload-error {
+        background-color: $red;
+        border-top: 1px solid $white;
+        color: $white;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .photodropzone {
+        list-style: none;
+
+        .publisher-photo {
+          float: left;
+          height: 80px;
+          line-height: 80px;
+          list-style: none;
+          margin: 8px;
+          overflow: hidden;
+          vertical-align: middle;
+          width: 80px;
+
+          .x {
+            background-color: $white;
+            border-radius: 25px;
+            color: $black;
+            cursor: pointer;
+            display: none;
+            font-size: 50px;
+            font-weight: bold;
+            height: 50px;
+            left: 15px;
+            line-height: 50px;
+            opacity: .85;
+            position: absolute;
+            text-align: center;
+            top: 15px;
+            width: 50px;
+            z-index: 2;
+
+            &::before {
+              content: '\2716';
+              font-family: 'entypo';
+            }
+          }
+
+          .circle {
+            background-color: $text;
+            border: 1px solid $white;
+            border-radius: 20px;
+            height: 20px;
+            max-height: 20px;
+            max-width: 20px;
+            position: absolute;
+            right: -7px;
+            top: -5px;
+            width: 20px;
+            z-index: 1;
+          }
+
+          &:hover .x {
+            display: inline-block;
+          }
+
+          img {
+            width: 80px;
+          }
+        }
+      }
+
+      .button-container {
+        border-top: 1px solid $light-grey;
+
+        .file-upload {
+          direction: ltr;
+          overflow: hidden;
+          position: relative;
+
+          .file-upload-input {
+            margin: 0;
+            opacity: 0;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+
+        .markdownIndications {
+          color: $medium-gray;
+          line-height: 30px;
+          margin-bottom: 0;
+          padding-left: 10px;
+        }
+      }
+    }
   }
   .submit_button {
     margin-top: 10px;
@@ -35,12 +153,12 @@
       float: right;
     }
     padding-left: 12px;
-    display: none;
   }
   .comment_box {
-    height: 35px;
+    border: 0;
     resize: none;
   }
+
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
     & + .submit_button { display: block; }

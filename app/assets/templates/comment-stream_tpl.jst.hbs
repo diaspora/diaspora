@@ -17,10 +17,35 @@
     {{/with}}
 
     <div class="bd">
-      <form accept-charset="UTF-8" action="/posts/{{id}}/comments" class="new_comment" id="new_comment_on_{{id}}" method="post">
-        <textarea class="comment_box form-control" id="comment_text_on_{{id}}" name="text" rows="1" required placeholder="{{t "stream.comment"}}" />
-        <div class="submit_button">
-          <input class="btn btn-primary" id="comment_submit_{{id}}" name="commit" type="submit" value="{{t "stream.comment"}}" />
+      <div class="fileInfo"></div>
+      <form accept-charset="UTF-8" action="/posts/{{id}}/comments" class="new-comment closed" id="new_comment_on_{{id}}" method="post">
+        <div class="publisher-textarea-wrapper">
+          <textarea class="comment_box form-control" id="comment_text_on_{{id}}" name="text" rows="1" placeholder="{{t "stream.comment"}}" required />
+          <div class="photodropzone-container container-fluid">
+            <ul class="photodropzone"></ul>
+          </div>
+
+          <div class="button-container">
+            <div class="publisher-buttonbar">
+              <div class="btn btn-link file-upload" title="Upload photos">
+                <i class="entypo-camera publisher_image"></i>
+                <input class="file-upload-input" name="file" type="file" multiple>
+              </div>
+            </div>
+            <span class="markdownIndications">
+              You can use <a target="blank" href="https://diasporafoundation.org/formatting">Markdown</a> to format your comment
+            </span>
+          </div>
+        </div>
+
+        <div class="options-and-submit col-sm-12">
+          <div class="public_toggle clearfix">
+            <div class="btn btn-default pull-left hidden-xs discard_comment" title="Discard comment">
+              <span class="text">Cancel</span>
+            </div>
+            <div class="btn-toolbar pull-right">
+              <input type="submit" class="btn btn-group btn-primary submit_button" id="comment_submit_{{id}}" value="{{t "stream.comment"}}" disabled />
+            </div>
         </div>
       </form>
     </div>
