@@ -5,17 +5,6 @@
 require "spec_helper"
 
 shared_examples_for "it is relayable" do
-  describe "interacted_at" do
-    it "sets the interacted at of the parent to the created at of the relayable post" do
-      Timecop.freeze Time.now do
-        relayable.save
-        if relayable.parent.respond_to?(:interacted_at) #I'm sorry.
-          expect(relayable.parent.interacted_at.to_i).to eq(relayable.created_at.to_i)
-        end
-      end
-    end
-  end
-
   describe "validations" do
     context "author ignored by parent author" do
       context "the author is on the parent object author's ignore list when object is created" do
