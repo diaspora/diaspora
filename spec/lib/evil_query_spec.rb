@@ -83,8 +83,8 @@ describe EvilQuery::Participation do
       expect(posts.map(&:id)).to match_array([@status_messageA.id, @status_messageB.id, @status_messageE.id])
     end
 
-    it "returns the posts that the user has commented on or liked with the most recently acted on ones first" do
-      expect(posts.map(&:id)).to eq([@status_messageE.id, @status_messageA.id, @status_messageB.id])
+    it "returns the posts that the user has commented on most recently first" do
+      expect(posts.map(&:id)).to eq([@status_messageE.id, @status_messageB.id, @status_messageA.id])
     end
   end
 
