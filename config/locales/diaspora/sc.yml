@@ -5,11 +5,8 @@
 
 
 sc:
-  _applications: "Aplicos"
-  _comments: "Cummentos"
+  _applications: "Aplicatziones"
   _contacts: "Cuntatos"
-  _home: "Printzipale"
-  _photos: "Fotos"
   _services: "Servìtzios"
   account: "Contu"
   activerecord:
@@ -40,29 +37,23 @@ sc:
             username:
               invalid: "no est bàlidu. Est possìbile impreare petzi lìteras, nùmeros, e underscores."
               taken: "est giai istadu pigadu."
-  ago: "%{time} fàghet"
   all_aspects: "Totu sas caras"
-  application:
-    helper:
-      unknown_person: "Pessone disconnota"
-      video_title:
-        unknown: "Tìtulu vìdeo disconnotu"
   are_you_sure: "Seguru ses?"
   are_you_sure_delete_account: "Seguru ses de bòlere serrare su contu tuo? Custu non podet èssere annuddadu!"
+  aspect_memberships:
+    destroy:
+      failure: "No est istadu possìbile bogare sa pessone dae s'aspetu."
+      no_membership: "Sa pessone ischertada no est istada agatada in cussu aspetu."
+      success: "Sa pessone est istada bogada dae s'aspetu."
   aspects:
     add_to_aspect:
       failure: "Annanghidura de su cuntatu a sa cara faddida."
       success: "Annanghidura de su cuntatu a sa cara resissida."
     aspect_listings:
       add_an_aspect: "+ Annanghe una cara"
-      deselect_all: "Disischerta totu"
-      edit_aspect: "Modìfica %{name}"
-      select_all: "Ischerta totu"
-    contacts_not_visible: "Sos cuntatos de custa cara non s'ant a pòdere bìdere intre issos."
-    contacts_visible: "Sos cuntatos de custa cara s'ant a pòdere bìdere intre issos."
-    create:
-      failure: "Creatzione de sa cara non resissida."
-      success: "Sa cara tua noa %{name} est istada creada"
+    aspect_stream:
+      stay_updated: "Abarra agiornadu"
+      stay_updated_explanation: "In su flussu tuo bi sunt totu sos cuntatos tuos, sas etichetas chi sighis e sos messàgios pùblicos de sos membros prus creativos de sa comunidade."
     destroy:
       failure: "No est istadu possìbile bogare %{name}."
       success: "%{name} est istada bogada."
@@ -70,26 +61,35 @@ sc:
       aspect_list_is_not_visible: "Sos cuntatos de custa cara non si podent bìdere intre issos."
       aspect_list_is_visible: "Sos cuntatos de custa cara si podent bìdere intre issos."
       confirm_remove_aspect: "Seguru ses de bòlere burrare custa cara?"
-      make_aspect_list_visible: "Boles chi sos cuntatos de custa cara s'ant a pòdere bìdere intre issos?"
-      remove_aspect: "Burra custa cara"
       rename: "Càmbia nùmene"
       update: "Agiorna"
       updating: "Agiornande"
     index:
       donate: "Dona"
-      handle_explanation: "Custu est s'ID diaspora* tuo. Comente un'indiritzu de posta eletrònica, lu podes dare a sa gente pro ti fàghere agatare."
-      no_tags: "+ Agata un'eticheta de sighire"
-      unfollow_tag: "Non sighire prus %{tag}"
-    new:
-      create: "Crea"
-      name: "Nùmene (lu podes bìere petzi tue)"
+      help:
+        do_you: "Boles..."
+        feature_suggestion: "propònnere una %{link}?"
+        find_a_bug: "sinnalare un'%{link}?"
+        have_a_question: "fàghere una %{link}?"
+        here_to_help: "Sa comunidade de diaspora* est inoghe!"
+        need_help: "Tenes bisòngiu de agiudu?"
+        tag_bug: "errore"
+        tag_feature: "funtzionalidade"
+        tag_question: "pregunta"
+      introduce_yourself: "Custu est su flussu tuo. Brinca in intro e presenta·ti."
+      new_here:
+        follow: "Sighi %{link} e saluda sos impitadores noos de diaspora*!"
+        learn_more: "Àteras informatziones"
+        title: "Saluda sos impitadores noos"
+      services:
+        content: "Podes connètere custos servìtzios a diaspora*:"
+        heading: "Connessione a sos servìtzios"
+      welcome_to_diaspora: "Bene bènnidu in diaspora*, %{name}!"
     no_contacts_message:
       community_spotlight: "Prus de importu in sa comunidade"
       or_spotlight: "O podes cumpartzire cun %{link}"
       try_adding_some_more_contacts: "Podes chircare o invitare àteros cuntatos."
       you_should_add_some_more_contacts: "Dias dèpere annànghere carchi cuntatu in prus!"
-    no_posts_message:
-      start_talking: "Perunu at galu naradu nudda!"
     seed:
       acquaintances: "Connoschentes"
       family: "Famìlia"
@@ -98,20 +98,26 @@ sc:
     update:
       failure: "Sa cara tua, %{name}, tenet unu nùmene tropu longu pro èssere sarbada."
       success: "Sa cara tua, %{name}, est istada modificada."
-  back: "In dae segus"
+  bookmarklet:
+    explanation: "Pùblica in diaspora* dae totue annanghende  %{link} a sos preferidos tuos."
+    post_something: "Pùblica in diaspora*"
   cancel: "Annudda"
+  comments:
+    new_comment:
+      comment: "Cummenta"
+      commenting: "Cummentende..."
+  contacts:
+    index:
+      start_a_conversation: "Incumintza un'arresonu"
   delete: "Burra"
   email: "P. eletr. (e-mail)"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Currege custos errore e torra a proare."
-      invalid_fields: "Campos non bàlidos"
   fill_me_out: "Iscrie inoghe"
   find_people: "Agata pessonas o #etichetas"
-  hide: "Cua"
   limited: "Limitadu"
   more: "Àteru"
-  next: "Imbeniente"
   no_results: "Perunu resurtadu agatadu"
   notifier:
     export_photos_email:
@@ -122,23 +128,21 @@ sc:
 
           Saludos,
           Su robot de sa posta eletrònica de diaspora*!
+    private_message:
+      subject: "B'est unu messàgiu privadu nou pro tie"
   nsfw: "NSFW (no est adatu pro unu logu de traballu)"
   ok: "AB"
-  or: "o"
-  password: "Crae (password)"
-  password_confirmation: "Cunfirma sa crae (password)"
-  previous: "Antepostu"
   privacy: "Privadesa"
-  privacy_policy: "Normativa pro sa privadesa"
   profile: "Profilu"
   public: "Pùblicu"
+  reactions:
+    one: "1 reatzione"
+    other: "%{count} reatziones"
+    zero: "Peruna reatzione"
   search: "Chirca"
   settings: "Impostatziones"
-  terms_and_conditions: "Tèrmines e cunditziones"
-  undo: "Annuddare?"
   username: "Nùmene impitadore"
   users:
     edit:
       download_export_photos: "Iscàrriga sas fotos meas"
       export_photos_in_progress: "Semus elaborande sas fotos tuas. Pro piaghere torra a compidare intre pagu."
-  welcome: "Benènnidu!"

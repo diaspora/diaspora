@@ -17,7 +17,7 @@ describe 'making sure the spec runner works' do
     end
   end
 
-   describe '#connect_users' do
+  describe "#connect_users" do
     before do
       @user1 = User.where(:username => 'alice').first
       @user2 = User.where(:username => 'eve').first
@@ -50,9 +50,29 @@ describe 'making sure the spec runner works' do
     end
   end
 
-  describe '#post' do
-    it 'creates a notification with a mention' do
-      expect{
+  describe "#add_contact_to_aspect" do
+    let(:contact) { alice.contact_for(bob.person) }
+
+    it "adds the contact to the aspect" do
+      new_aspect = alice.aspects.create(name: "two")
+
+      expect {
+        alice.add_contact_to_aspect(contact, new_aspect)
+      }.to change(new_aspect.contacts, :count).by(1)
+    end
+
+    it "does nothing if they are already in the aspect" do
+      original_aspect = alice.aspects.where(name: "generic").first
+
+      expect {
+        alice.add_contact_to_aspect(contact, original_aspect)
+      }.not_to change(contact.aspect_memberships, :count)
+    end
+  end
+
+  describe "#post" do
+    it "creates a notification with a mention" do
+      expect {
         alice.post(:status_message, :text => "@{Bob Grimn; #{bob.person.diaspora_handle}} you are silly", :to => alice.aspects.find_by_name('generic'))
       }.to change(Notification, :count).by(1)
     end

@@ -7,7 +7,7 @@ end
 
 Eye.application("diaspora") do
   working_dir Rails.root.to_s
-  env "DB" => ENV["DB"], "RAILS_ENV" => rails_env
+  env "RAILS_ENV" => rails_env
   stdout "log/eye_processes_stdout.log" unless rails_env == "development"
   stderr "log/eye_processes_stderr.log"
 
@@ -40,7 +40,7 @@ Eye.application("diaspora") do
 
   with_condition(AppConfig.chat.enabled? && AppConfig.chat.server.enabled?) do
     process :xmpp do
-      start_command "bin/bundle exec vines start"
+      start_command "bin/bundle exec rails runner Prosody.start"
       daemonize true
       pid_file "tmp/pids/xmpp.pid"
       stop_signals [:TERM, 10.seconds, :KILL]

@@ -3,16 +3,16 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
-  before_action :check_registrations_open_or_valid_invite!, :check_valid_invite!
+  before_action :check_registrations_open_or_valid_invite!
 
-  layout ->(c) { request.format == :mobile ? "application" : "with_header" }, :only => [:new]
+  layout -> { request.format == :mobile ? "application" : "with_header" }
 
   def create
     @user = User.build(user_params)
-    @user.process_invite_acceptence(invite) if invite.present?
 
     if @user.sign_up
-      flash[:notice] = I18n.t 'registrations.create.success'
+      flash[:notice] = t("registrations.create.success")
+      @user.process_invite_acceptence(invite) if invite.present?
       @user.seed_aspects
       @user.send_welcome_message
       sign_in_and_redirect(:user, @user)
@@ -22,40 +22,30 @@ class RegistrationsController < Devise::RegistrationsController
 
       flash.now[:error] = @user.errors.full_messages.join(" - ")
       logger.info "event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'"
-      render action: "new", layout: request.format == :mobile ? "application" : "with_header"
+      render action: "new"
     end
-  end
-
-  def new
-    super
   end
 
   private
 
-  def check_valid_invite!
-    return true if AppConfig.settings.enable_registrations? #this sucks
-    return true if invite && invite.can_be_used?
-    flash[:error] = t('registrations.invalid_invite')
+  def check_registrations_open_or_valid_invite!
+    return true if AppConfig.settings.enable_registrations? || invite.try(:can_be_used?)
+
+    flash[:error] = params[:invite] ? t("registrations.invalid_invite") : t("registrations.closed")
     redirect_to new_user_session_path
   end
 
-  def check_registrations_open_or_valid_invite!
-    return true if invite.present?
-    unless AppConfig.settings.enable_registrations?
-      flash[:error] = t('registrations.closed')
-      redirect_to new_user_session_path
-    end
-  end
-
   def invite
-    if params[:invite].present?
-      @invite ||= InvitationCode.find_by_token(params[:invite][:token])
-    end
+    @invite ||= InvitationCode.find_by_token(params[:invite][:token]) if params[:invite].present?
   end
 
   helper_method :invite
 
   def user_params
-    params.require(:user).permit(:username, :email, :getting_started, :password, :password_confirmation, :language, :disable_mail, :invitation_service, :invitation_identifier, :show_community_spotlight_in_stream, :auto_follow_back, :auto_follow_back_aspect_id, :remember_me, :captcha, :captcha_key)
+    params.require(:user).permit(
+      :username, :email, :getting_started, :password, :password_confirmation, :language, :disable_mail,
+      :show_community_spotlight_in_stream, :auto_follow_back, :auto_follow_back_aspect_id,
+      :remember_me, :captcha, :captcha_key
+    )
   end
 end

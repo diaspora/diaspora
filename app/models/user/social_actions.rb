@@ -1,7 +1,7 @@
 module User::SocialActions
   def comment!(target, text, opts={})
     Comment::Generator.new(self, target, text).create!(opts).tap do
-      find_or_create_participation!(target)
+      update_or_create_participation!(target)
     end
   end
 
@@ -11,26 +11,22 @@ module User::SocialActions
 
   def like!(target, opts={})
     Like::Generator.new(self, target).create!(opts).tap do
-      find_or_create_participation!(target)
+      update_or_create_participation!(target)
     end
   end
 
   def participate_in_poll!(target, answer, opts={})
     PollParticipation::Generator.new(self, target, answer).create!(opts).tap do
-      find_or_create_participation!(target)
+      update_or_create_participation!(target)
     end
   end
 
   def reshare!(target, opts={})
     build_post(:reshare, :root_guid => target.guid).tap do |reshare|
       reshare.save!
-      find_or_create_participation!(target)
-      Postzord::Dispatcher.defer_build_and_post(self, reshare)
+      update_or_create_participation!(target)
+      Diaspora::Federation::Dispatcher.defer_dispatch(self, reshare)
     end
-  end
-
-  def build_comment(options={})
-    Comment::Generator.new(self, options.delete(:post), options.delete(:text)).build(options)
   end
 
   def build_conversation(opts={})
@@ -51,7 +47,13 @@ module User::SocialActions
     )
   end
 
-  def find_or_create_participation!(target)
-    participations.where(:target_id => target).first || participate!(target)
+  def update_or_create_participation!(target)
+    return if target.author == person
+    participation = participations.where(target_id: target).first
+    if participation.present?
+      participation.update!(count: participation.count.next)
+    else
+      participate!(target)
+    end
   end
 end

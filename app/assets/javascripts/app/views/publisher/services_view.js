@@ -37,7 +37,7 @@ app.views.PublisherServices = Backbone.View.extend({
   // keep track of character count
   _createCounter: function() {
     // remove any obsolete counters
-    this.input.siblings('.counter').remove();
+    $("#publisher .counter").remove();
 
     // create new counter
     var min = 40000;
@@ -47,7 +47,13 @@ app.views.PublisherServices = Backbone.View.extend({
         var num = parseInt($(value).attr('maxchar'));
         if (min > num) { min = num; }
       });
-      this.input.charCount({allowed: min, warning: min/10 });
+      var counter = $("<div class='counter pull-right'></div>");
+      $("#publisher-images").after(counter);
+      this.input.charCount({
+        allowed: min,
+        warning: min / 10,
+        counter: counter
+      });
     }
   },
 

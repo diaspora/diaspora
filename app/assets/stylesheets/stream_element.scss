@@ -1,5 +1,5 @@
-#main_stream .stream_element,
-#main_stream > div > .photo {
+.stream_element,
+.photo {
   & > .media {
     margin: 0px;
   }
@@ -9,41 +9,72 @@
   }
 }
 
-#main_stream > div > .photo {
-  & > .media {
+.photo {
+  > .media {
     overflow: visible;
-    > .bd {
-      position: relative;
-      overflow: inherit;
-      > .control-icons {
-        border-radius: 4px;
-        padding-left: 5px;
-        position: absolute;
-        right: 6px;
-        text-align: center;
-        top: 1px;
-      }
+    position: relative;
+
+    .control-icons {
+      background: $white;
+      border-radius: 4px;
+      padding-left: 4px;
+      position: absolute;
+      right: 4px;
+      text-align: center;
+      top: 1px;
     }
-    &:hover > .bd > .control-icons { background: #fff; }
   }
+
   .thumbnail {
-    height: 200px;
+    background: $white;
+    border-radius: 0;
+    box-shadow: $card-shadow;
+    height: 240px;
+    margin: 0 0 15px;
     padding: 10px;
-    margin: 0 5px 10px;
+
+    // Vertically align the image
     text-align: center;
-    line-height: 200px;
-    border: 1px solid $border-grey;
-    background: #fefefe;
-    box-shadow: 3px 3px 2px #eee;
-    img {
-      &.big_photo { max-height: 200px; }
+    white-space: nowrap;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $light-grey;
+      text-decoration: none;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .big-photo {
+      display: inline;
+      margin-left: -4px;
+      max-height: 200px;
+      vertical-align: middle;
     }
   }
 }
 
 #main_stream .stream_element {
-  border-bottom: 1px solid $border-grey;
+  margin-bottom: 20px;
+  border: 1px solid $light-grey;
+  box-shadow: $card-shadow;
+
+  &.highlighted {
+    border-left: 3px solid $brand-primary;
+    padding-left: 8px;
+  }
+}
+
+.stream_element {
+  background-color: $white;
   padding: 10px;
+
   & > .media {
     &.shield-active .nsfw-hidden { display: none; }
     &:not(.shield-active) .nsfw-shield { display: none; }
@@ -62,31 +93,9 @@
     a.author-name { color: $blue; }
     .feedback {
       margin-top: 5px;
-      font-size: 11px;
-      line-height: 11px;
+      font-size: $font-size-small;
+      line-height: $font-size-small;
     }
-    .likes {
-      margin-top: 10px;
-      font-size: 12px;
-      line-height: 16px;
-      .bd { display: inline-block; }
-      .entypo.heart {
-        display: inline-block;
-        font-size: 16px;
-        vertical-align: top;
-        margin-top: -2px;
-        margin-right: 5px;
-      }
-    }
-    .stream_photo {
-      float: left;
-      margin-top: 6px;
-    }
-    .status-message-location .near-from {
-      font-size: 11px;
-      color: $text-grey;
-    }
-    .grey { color: $text-grey; }
     .post-content p:last-of-type { margin-bottom: 0; }
     .nsfw-shield {
       color: $text-grey;
@@ -95,6 +104,16 @@
       border: 1px solid $border-grey;
       border-radius: 3px;
     }
+  }
+
+  .permalink {
+    @include transition(opacity);
+    opacity: 0;
+  }
+
+  &:hover .permalink {
+    opacity: .8;
+    &:hover { opacity: 1; }
   }
 
   div.reshare {
@@ -135,13 +154,40 @@
     }
   }
 
-  &.highlighted {
-    padding-left: 8px;
-    border-left: 3px solid $creation-blue;
+  .likes,
+  .reshares {
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 10px;
+
+    .author-name,
+    .bd {
+      display: inline-block;
+    }
+
+    .author-name { margin-right: 3px; }
+
+    .entypo-heart,
+    .entypo-reshare {
+      display: inline-block;
+      font-size: 16px;
+      line-height: $line-height-computed;
+      margin-right: 5px;
+      vertical-align: top;
+    }
   }
 
-  &.post_preview {
-    background-color: lighten($creation-blue,45%);
-    border: 1px solid $creation-blue;
+  .status-message-location {
+    color: $text-grey;
+    font-size: $font-size-small;
+  }
+
+  .leaflet-control-zoom {
+    display: block;
+  }
+
+  .no-posts-info {
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 }

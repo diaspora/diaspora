@@ -7,23 +7,26 @@
 de_formal:
   devise:
     confirmations:
-      confirmed: "Ihr Konto wurde erfolgreich bestätigt. Sie sind nun angemeldet."
+      confirmed: "Ihre E-Mail-Adresse wurde erfolgreich bestätigt."
       new:
         resend_confirmation: "Anweisungen zum Bestätigen erneut senden"
-      send_instructions: "Sie werden in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie Sie Ihr Konto bestätigen."
+      send_instructions: "Sie werden in ein wenigen Minuten eine E-Mail mit Anweisungen zum Bestätigen Ihrer E-Mail-Adresse erhalten."
+      send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit Anweisungen zur Bestätigung Ihrer E-Mail-Adresse."
     failure:
-      inactive: "Ihr Konto wurde noch nicht aktiviert."
-      invalid: "Ungültiger Benutzername oder ungültiges Kennwort."
+      already_authenticated: "Sie sind bereits angemeldet."
+      inactive: "Ihr Konto ist noch nicht aktiviert."
+      invalid: "%{authentication_keys} oder Passwort ungültig."
       invalid_token: "Ungültiger Authentifizierungstoken."
+      last_attempt: "Sie haben einen weiteren Versuch, bevor Ihr Konto gesperrt wird."
       locked: "Ihr Konto ist gesperrt."
-      not_found_in_database: "Ungültige E-Mail-Adresse oder ungültiges Passwort."
-      timeout: "Ihre Sitzung ist abgelaufen! Um fortzufahren, melden Sie sich bitte erneut an."
+      not_found_in_database: "%{authentication_keys} oder Passwort ungültig."
+      timeout: "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an, um fortzufahren."
       unauthenticated: "Sie müssen sich anmelden oder registrieren, um fortzufahren."
-      unconfirmed: "Sie müssen ihr Konto bestätigen, um fortzufahren."
+      unconfirmed: "Sie müssen Ihre E-Mail-Adresse bestätigen, um fortzufahren."
     invitations:
       invitation_token_invalid: "Das Einladungstoken ist ungültig!"
       send_instructions: "Ihre Einladung wurde versandt."
-      updated: "Ihr Kennwort wurde akzeptiert. Sie sind nun angemeldet."
+      updated: "Ihr Passwort wurde erfolgreich gesetzt. Sie sind nun angemeldet."
     mailer:
       confirmation_instructions:
         confirm: "Mein Konto bestätigen"
@@ -34,60 +37,79 @@ de_formal:
         accept_at: "unter %{url}, können Sie sie über den untenstehenden Link akzeptieren."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} hat Sie eingeladen, diaspora* beizutreten"
+      password_change:
+        subject: "Passwort geändert"
       reset_password_instructions:
-        change: "Mein Kennwort ändern"
+        change: "Mein Passwort ändern"
         ignore: "Wenn Sie dies nicht angefordert haben, ignorieren Sie bitte diese E-Mail."
-        someone_requested: "Jemand hat einen Link angefordert, um Ihr Kennwort zu ändern. Wenn Sie das waren, können Sie das durch den unten aufgeführten Link tun."
+        someone_requested: "Jemand hat einen Link angefordert, um Ihr Passwort zu ändern. Wenn Sie das waren, können Sie das durch den unten aufgeführten Link tun."
         subject: "Setzen Sie Ihr Passwort zurück"
-        wont_change: "Ihr Kennwort bleibt unverändert, bis Sie es über den Link ändern und ein neues erstellen."
+        wont_change: "Ihr Passwort bleibt unverändert, bis Sie es über den Link ändern und ein neues erstellen."
       unlock_instructions:
         account_locked: "Ihr Konto wurde aufgrund von zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."
         click_to_unlock: "Folgen Sie dem unten aufgeführten Link, um Ihr Konto zu entsperren:"
         subject: "Anweisungen zum Entsperren"
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
+    omniauth_callbacks:
+      failure: "Konnte Sie nicht mittels %{kind} authentifizieren, denn „%{reason}”."
+      success: "Erfolgreich authentifiziert mittels %{kind}-Konto."
     passwords:
       edit:
-        change_password: "Mein Kennwort ändern"
+        change_password: "Mein Passwort ändern"
         confirm_password: "Passwort bestätigen"
         new_password: "Neues Passwort"
       new:
         email: "E-Mail-Adresse"
-        forgot_password: "Kennwort vergessen?"
+        forgot_password: "Passwort vergessen?"
         no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse"
         reset_password: "Passwort zurücksetzen"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
-      send_instructions: "Sie werden in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie Sie Ihr Kennwort zurücksetzen."
-      updated: "Ihr Kennwort wurde erfolgreich geändert. Sie sind nun angemeldet."
+      no_token: "Sie können auf diese Seite nicht zugreifen, ohne von einer E-Mail zur Passwortrücksetzung zu kommen. Falls sie von einer E-Mail zur Passwortrücksetzung kommen, vergewissern Sie sich bitte, dass Sie die vollständige angegebene URL verwendet haben."
+      send_instructions: "Sie werden in wenigen Minuten eine E-Mail mit Anweisungen zum Zurücksetzen Ihres Passworts erhalten."
+      send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten einen Link zum Zurücksetzen Ihres Passworts an Ihre E-Mail-Adresse."
+      updated: "Ihr Passwort wurde erfolgreich geändert. Sie sind nun angemeldet."
+      updated_not_active: "Ihr Passwort wurde erfolgreich geändert."
     registrations:
-      destroyed: "Tschüss! Ihr Konto wurde erfolgreich geschlossen. Wir hoffen, Sie bald wiederzusehen."
+      destroyed: "Tschüss! Ihr Konto wurde erfolgreich gelöscht. Wir hoffen, Sie bald wiederzusehen."
       signed_up: "Sie haben sich erfolgreich registriert. Sofern aktiviert, wurde Ihnen eine Bestätigung per E-Mail zugesandt."
-      updated: "Ihr Konto wurde aktualisiert."
+      signed_up_but_inactive: "Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, da Ihr Konto noch nicht aktiviert ist."
+      signed_up_but_locked: "Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, da Ihr Konto gesperrt ist."
+      signed_up_but_unconfirmed: "Eine Nachricht mit einem Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet. Bitte folgen Sie dem Link, um Ihr Konto zu aktivieren."
+      update_needs_confirmation: "Ihr Konto haben Sie erfolgreich aktualisiert, aber Ihre neue E-Mail-Adresse müssen wir überprüfen. Bitte rufen Sie Ihre E-Mails ab und folgen Sie dem Bestätigungslink, um Ihre neue E-Mail-Adresse zu bestätigen."
+      updated: "Ihr Konto wurde erfolgreich aktualisiert."
     sessions:
+      already_signed_out: "Erfolgreich abgemeldet."
       new:
         login: "Einloggen"
         modern_browsers: "unterstützt nur moderne Browser."
-        password: "Kennwort"
+        password: "Passwort"
         remember_me: "Angemeldet bleiben"
         sign_in: "Anmelden"
         username: "Benutzername"
       signed_in: "Angemeldet."
-      signed_out: "Abgemeldet."
+      signed_out: "Erfolgreich abgemeldet."
     shared:
       links:
-        forgot_your_password: "Kennwort vergessen?"
+        forgot_your_password: "Passwort vergessen?"
         receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
         receive_unlock: "Keine Entsperr-Anweisungen erhalten?"
         sign_in: "Anmelden"
-        sign_up: "Registrieren"
+        sign_up: "Konto erstellen"
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
     unlocks:
       new:
         resend_unlock: "Entsperr-Anweisungen erneut senden"
-      send_instructions: "Sie werden in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie Sie Ihr Konto entsperren können."
-      unlocked: "Ihr Konto wurde erfolgreich entsperrt. Sie sind nun angemeldet."
+      send_instructions: "Sie werden in ein wenigen Minuten eine E-Mail mit Anweisungen zum Entsperren Ihres Kontos erhalten."
+      send_paranoid_instructions: "Falls Ihr Konto existiert, erhalten Sie in wenigen Minuten eine E-Mail mit Anweisungen, um es zu entsperren."
+      unlocked: "Ihr Konto wurde erfolgreich entsperrt. Bitte melden Sie sich an, um fortzufahren."
   errors:
     messages:
-      already_confirmed: "wurde bereits bestätigt"
+      already_confirmed: "wurde bereits bestätigt, bitte versuchen Sie, sich anzumelden"
+      confirmation_period_expired: "muss innerhalb von %{period} bestätigt werden, bitte erneut anfordern"
+      expired: "abgelaufen, bitte neu anfordern"
       not_found: "nicht gefunden"
       not_locked: "war nicht gesperrt"
+      not_saved:
+        one: "%{resource} konnte aufgrund eines Fehlers nicht gespeichert werden:"
+        other: "%{resource} konnte aufgrund von %{count} Fehlern nicht gespeichert werden:"

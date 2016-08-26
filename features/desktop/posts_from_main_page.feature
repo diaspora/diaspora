@@ -24,7 +24,8 @@ Feature: posting from the main page
       When I expand the publisher
       Then I should see "You can use Markdown to format your post" within ".markdownIndications"
       Then I should see "All aspects" within ".options_and_submit"
-      Then I should see "Preview" within ".options_and_submit"
+      Then I should see a ".md-write-tab" within ".md-header"
+      Then I should see a ".md-preview-tab" within ".md-header"
 
     Scenario: post a text-only message to all aspects
       Given I expand the publisher
@@ -156,6 +157,7 @@ Feature: posting from the main page
       When I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "PostingTo"
+      And I press the aspect dropdown
       And I append "I am eating a yogurt" to the publisher
       And I submit the publisher
 
@@ -171,12 +173,14 @@ Feature: posting from the main page
       When I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "PostingTo"
+      And I press the aspect dropdown
       And I append "I am eating a yogurt" to the publisher
       And I submit the publisher
 
       And I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "Besties"
+      And I press the aspect dropdown
       And I append "And cornflakes also" to the publisher
       And I submit the publisher
 
@@ -193,6 +197,12 @@ Feature: posting from the main page
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt" and "And cornflakes also"
 
+    Scenario: Write html in the publisher
+      When I expand the publisher
+      Then I should not see any alert after I write the status message "<script>alert();</script>"
+      When I submit the publisher
+      Then "<script>alert();</script>" should be post 1
+
     # (NOTE) make this a jasmine spec
     Scenario: reject deletion one of my posts
       When I expand the publisher
@@ -200,6 +210,5 @@ Feature: posting from the main page
       And I submit the publisher
 
       And I hover over the ".stream_element"
-      And I prepare the deletion of the first post
-      And I reject the alert
+      And I reject the alert after I prepare the deletion of the first post
       Then I should see "I am eating a yogurt"

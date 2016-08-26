@@ -12,8 +12,8 @@ class Service < ActiveRecord::Base
     nil
   end
 
-  def delete_post(post)
-    #don't do anything (should be overriden by service extensions)
+  def post_opts(post)
+    # don't do anything (should be overridden by service extensions)
   end
 
   class << self

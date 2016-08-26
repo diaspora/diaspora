@@ -3,19 +3,17 @@
 -#   the COPYRIGHT file.
 
 - content_for :page_title do
-  = t('.title')
+  = t(".title")
 
 #section_header
   %h2
-    = t('.title')
+    = t(".title")
 
-.span-18.last
-  #people_stream.stream.contacts
-    - if @contacts.size > 0
-      - for contact in @contacts
-        = render 'people/person', :person => contact.person, :contact => contact
-      = will_paginate @contacts, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
-    - else
-      %h3.no_contacts
-        = t('.no_contacts')
-
+#people_stream.stream.contacts
+  - if @contacts.size > 0
+    - for contact in @contacts
+      = render "people/person", person: contact.person, contact: contact
+    = will_paginate @contacts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
+  - else
+    %h3.no_contacts
+      = t(".no_contacts")

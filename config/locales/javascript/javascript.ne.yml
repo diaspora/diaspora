@@ -23,15 +23,19 @@ ne:
       unlike: "मनपरेन"
     timeago:
       day: "एक दिन"
-      days: "%d दिन"
+      days:
+        other: "%d दिन"
       hour: "लगभग एक घण्टा"
-      hours: "लगभग %d घण्टा"
+      hours:
+        other: "लगभग %d घण्टा"
       minute: "लगभग एक मिनेट"
       month: "लगभग एक महिना"
-      months: "%d महिना"
+      months:
+        other: "%d महिना"
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: "अघि"
       suffixFromNow: "अहिले देखी"
       year: "लगभग एक वर्ष"
-      years: "%d वर्ष"
+      years:
+        other: "%d वर्ष"

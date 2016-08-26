@@ -3,11 +3,11 @@
   %div.pull-left
     - if user.person
       %span.media-object
-        = person_image_tag(user.person)
+        = person_image_tag(user.person, size: :thumb_small)
 
   %div.media-body.row
     %div.pull-right
-      %span.label
+      %span.label.label-default
         = t('.id')
         = user.id
       %span.label.label-info
@@ -18,20 +18,20 @@
       = user.person.name if user.person
 
     %div.pull-right
-      %ul.unstyled.text-right.actions
-        %li= link_to t('admins.user_search.view_profile'), person_path(user.person), class: 'btn btn-mini'
-        %li= link_to t('admins.user_search.add_invites'), add_invites_path(user.invitation_code), class: 'btn btn-info btn-mini'
+      .unstyled.text-right.actions
+        = link_to t('admins.user_search.view_profile'), person_path(user.person), class: 'btn btn-default btn-block btn-xs'
+        = link_to t('admins.user_search.add_invites'), add_invites_path(user.invitation_code), class: 'btn btn-info btn-block btn-xs'
         - unless user.person.closed_account
-          %li= link_to t('admins.user_search.close_account'), admin_close_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure') }, class: 'btn btn-danger btn-mini'
+          = link_to t('admins.user_search.close_account'), admin_close_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure') }, class: 'btn btn-danger btn-block btn-xs'
 
         - unless user.closed_account?
           - unless user.access_locked?
-            %li= link_to t('admins.user_search.lock_account'), admin_lock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_lock_account') }, class: 'btn btn-danger btn-mini'
+            = link_to t('admins.user_search.lock_account'), admin_lock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_lock_account') }, class: 'btn btn-danger btn-block btn-xs'
           - else
-            %li= link_to t('admins.user_search.unlock_account'), admin_unlock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_unlock_account') }, class: 'btn btn-danger btn-mini'
-	  
+            = link_to t('admins.user_search.unlock_account'), admin_unlock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_unlock_account') }, class: 'btn btn-danger btn-block btn-xs'
+
     %div.row
-      %div.span5
+      %div.col-md-5
         %dl.dl-horizontal
           %dt= t('username')
           %dd= user.username
@@ -47,15 +47,15 @@
           %dt= t('.account_closed')
           %dd
             - if user.person.closed_account
-              %span.badge.badge-warning= t('.yes')
+              %span.label.label-warning= t('.yes')
             - else
-              %span.badge.badge-success= t('.no')
+              %span.label.label-success= t('.no')
           %dt= t('.nsfw')
           %dd
             - if user.person.profile.nsfw
-              %span.badge.badge-warning= t('.yes')
+              %span.label.label-warning= t('.yes')
             - else
-              %span.badge.badge-success= t('.no')
+              %span.label.label-success= t('.no')
 
         %h4= t('layouts.header.profile')
 

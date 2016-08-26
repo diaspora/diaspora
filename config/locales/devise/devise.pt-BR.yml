@@ -7,19 +7,22 @@
 pt-BR:
   devise:
     confirmations:
-      confirmed: "Sua conta foi confirmada com sucesso. Seja bem-vindo(a)!"
+      confirmed: "Seu endereço de e-mail foi confirmado com sucesso."
       new:
         resend_confirmation: "Reenviar as instruções de confirmação."
-      send_instructions: "Em poucos minutos, você receberá um email com as instruções sobre como confirmar a sua conta."
+      send_instructions: "Você receberá em breve um e-mail com instruções para confirmar seu endereço de e-mail."
+      send_paranoid_instructions: "Se o seu endereço de e-mail estiver no banco de dados, você receberá, em alguns minutos, uma mensagem com instruções para confirmá-lo."
     failure:
+      already_authenticated: "Você já entrou."
       inactive: "Sua conta ainda não foi ativada."
-      invalid: "Nome de usuário ou senha inválidos."
+      invalid: "Senha ou %{authentication_keys} inválidos."
       invalid_token: "Token de autenticação inválido."
+      last_attempt: "Você só pode fazer mais uma tentativa antes que sua conta seja bloqueada."
       locked: "Sua conta está bloqueada."
-      not_found_in_database: "Email ou senha inválido(a)."
-      timeout: "Sua sessão expirou; por favor, entre novamente para continuar."
+      not_found_in_database: "Senha ou %{authentication_keys} inválidos."
+      timeout: "Sua sessão expirou. Por favor, entre novamente para continuar."
       unauthenticated: "Você precisa entrar ou se cadastrar antes de continuar."
-      unconfirmed: "Você deve confirmar a sua conta antes de continuar."
+      unconfirmed: "Você deve confirmar seu endereço de e-mail antes de continuar."
     invitations:
       invitation_token_invalid: "Seu convite é inválido!"
       send_instructions: "Seu convite foi enviado."
@@ -34,6 +37,8 @@ pt-BR:
         accept_at: "em %{url}, você pode aceitar através do link abaixo."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} convidou você para participar de diaspora*"
+      password_change:
+        subject: "Senha Alterada"
       reset_password_instructions:
         change: "Alterar minha senha"
         ignore: "Se você não fez esta solicitação, por favor ignore este email."
@@ -46,6 +51,9 @@ pt-BR:
         subject: "Instruções para desbloqueio"
         unlock: "Desbloquear minha conta"
       welcome: "Bem-vindo(a) %{email}!"
+    omniauth_callbacks:
+      failure: "Não foi possível autenticar você pelo %{kind} porque \"%{reason}\"."
+      success: "Autenticação com conta do %{kind} bem-sucedida."
     passwords:
       edit:
         change_password: "Mudar minha senha"
@@ -57,13 +65,21 @@ pt-BR:
         no_account: "Não há nenhuma conta com este email"
         reset_password: "Resetar senha"
         send_password_instructions: "Envie-me instruções para redefinir minha senha."
-      send_instructions: "Você receberá em breve um email com instruções sobre como redefinir sua senha."
-      updated: "Sua senha foi alterada com sucesso."
+      no_token: "Você só pode acessar esta página a partir de um e-mail de recuperação de senha. Se esse é o caso, certifique-se que usou o URL fornecido completo."
+      send_instructions: "Você receberá em breve um e-mail com instruções para redefinir sua senha."
+      send_paranoid_instructions: "Se o seu endereço de e-mail estiver no banco de dados, você receberá, em alguns minutos, uma mensagem com um link de recuperação de senha."
+      updated: "Sua senha foi alterada com sucesso. Você está em sessão."
+      updated_not_active: "Sua senha foi alterada com sucesso."
     registrations:
       destroyed: "Tchau! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
       signed_up: "Você se inscreveu com êxito. Se habilitado, a confirmação foi enviada para seu e-mail."
-      updated: "Você atualizou a sua conta com sucesso."
+      signed_up_but_inactive: "Você se cadastrou com êxito. Porém não pode entrar porque sua conta ainda não foi ativada."
+      signed_up_but_locked: "Você se cadastrou com êxito. Porém não pode entrar porque sua conta está bloqueada."
+      signed_up_but_unconfirmed: "Uma mensagem de confirmação foi enviada para seu endereço de e-mail. Clique no link para ativar sua conta."
+      update_needs_confirmation: "Você atualizou sua conta, mas precisamos verificar seu novo endereço de e-mail. Por favor, cheque seu e-mail e clique no link fornecido para confirmá-lo."
+      updated: "Sua conta foi atualizada com sucesso."
     sessions:
+      already_signed_out: "A sessão foi terminada com sucesso."
       new:
         login: "Entrar"
         modern_browsers: "somente suporta navegadores modernos."
@@ -79,15 +95,21 @@ pt-BR:
         receive_confirmation: "Não recebeu instruções de confirmação?"
         receive_unlock: "Não recebeu instruções de desbloqueio?"
         sign_in: "Entrar"
-        sign_up: "Cadastre-se"
+        sign_up: "Criar conta"
         sign_up_closed: "Registros abertos estão encerrados no momento."
     unlocks:
       new:
         resend_unlock: "Reenviar instruções de desbloqueio"
-      send_instructions: "Você receberá em breve um email com as instruções sobre como desbloquear a sua conta."
-      unlocked: "Sua conta foi desbloqueada com sucesso. Seja bem-vindo!"
+      send_instructions: "Você receberá em breve um e-mail com instruções para desbloquear sua conta."
+      send_paranoid_instructions: "Se sua conta existir, você receberá, em alguns minutos, um e-mail com instruções para desbloqueá-la."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Entre para continuar."
   errors:
     messages:
-      already_confirmed: "já foi confirmado"
+      already_confirmed: "já foi confirmado, por favor, tente fazer login"
+      confirmation_period_expired: "deve ser confirmado dentro de %{period}, por favor, solicite uma nova"
+      expired: "expirou, por favor, solicite uma nova"
       not_found: "não encontrado"
       not_locked: "não foi bloqueado"
+      not_saved:
+        one: "1 erro impediu-nos de salvar %{resource}:"
+        other: "%{count} erros impediram-nos de salvar %{resource}:"

@@ -5,6 +5,7 @@ describe("app.views.ProfileSidebar", function() {
       diaspora_id: "alice@umbrella.corp",
       name: "Project Alice",
       relationship: 'mutual',
+      show_profile_info: true,
       profile: {
         bio: "confidential",
         location: "underground",

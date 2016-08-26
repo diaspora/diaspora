@@ -4,18 +4,19 @@
 
 %header
   - unless current_user
-    .container{style: "position:relative;"}
-      = link_to content_tag(:div, nil, class: 'diaspora_header_logo logos-header-logo'), root_path
+    .dark-header
+      %nav.navbar.navbar-inverse.navbar-fixed-top
+        .container-fluid
+          .row
+            .col-md-12
+              .navbar-header
+                %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar-collapse"}}
+                  %span.sr-only
+                    = t("layouts.header.toggle_navigation")
+                  %span.icon-bar
+                  %span.icon-bar
+                  %span.icon-bar
+                = link_to AppConfig.settings.pod_name, root_path, class: "navbar-brand"
 
-      %ul#landing_nav
-        - if AppConfig.settings.enable_registrations? && !current_page?(controller: '/registrations', action: :new)
-          %li= link_to t('devise.shared.links.sign_up'), new_user_registration_path, class: 'login'
-        %li= link_to t('devise.shared.links.sign_in'), new_user_session_path, class: 'login'
-      #lightbox
-        #lightbox-content
-          %a#lightbox-close-link(href='#')
-            [x]
-            =t('javascripts.header.close')
-          %img#lightbox-image
-          #lightbox-imageset
-      #lightbox-backdrop
+              .collapse.navbar-collapse#navbar-collapse
+                = render "layouts/header_not_connected"

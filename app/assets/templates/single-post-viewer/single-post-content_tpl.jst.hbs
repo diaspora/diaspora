@@ -1,100 +1,111 @@
-<div id='head' class='row-fluid'>
-  <div class='row-fluid'>
-    <div id='post-info' class='span8'>
-      <div class="img pull-left">
-        {{#if root}}
-          {{#linkToAuthor root.author}}
-            {{{personImage this 'medium'}}}
-          {{/linkToAuthor}}
-        {{else}}
-          {{#linkToAuthor author}}
-            {{{personImage this 'medium'}}}
-          {{/linkToAuthor}}
-        {{/if}}
-      </div>
-
-      <div class="bd">
-        <span class='author'>
+<div id="head" class="head clearfix">
+  <div class="col-md-12">
+    <div class="row">
+      <div id="post-info" class="col-md-8">
+        <div class="img pull-left">
           {{#if root}}
             {{#linkToAuthor root.author}}
-              {{name}}
+              {{{personImage this "medium"}}}
             {{/linkToAuthor}}
           {{else}}
             {{#linkToAuthor author}}
-              {{name}}
+              {{{personImage this "medium"}}}
             {{/linkToAuthor}}
           {{/if}}
-        </span>
+        </div>
 
-        <div class='info'>
-          {{#if public}}
-            <span class='post_scope' title="{{t "stream.public"}}">
-              <i class="entypo globe small"></i>
-            </span>
-          {{else}}
-            <span class='post_scope' title="{{t "stream.limited"}}">
-              <i class="entypo lock small"></i>
-            </span>
-          {{/if}}
-          <span class="post-time">
+        <div class="bd">
+          <span class="author">
             {{#if root}}
-              <a href="/posts/{{root.id}}">
-                <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
-              </a>
+              {{#linkToAuthor root.author}}
+                {{name}}
+              {{/linkToAuthor}}
             {{else}}
+              {{#linkToAuthor author}}
+                {{name}}
+              {{/linkToAuthor}}
+            {{/if}}
+          </span>
+
+          <div class="info">
+            {{#if public}}
+              <span class="post_scope" title="{{t "stream.public"}}">
+                <i class="entypo-globe small"></i>
+              </span>
+            {{else}}
+              <span class="post_scope" title="{{t "stream.limited"}}">
+                <i class="entypo-lock small"></i>
+              </span>
+            {{/if}}
+            <span class="post-time">
+              {{#if root}}
+                <a href="/posts/{{root.id}}">
+                  <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
+                </a>
+              {{else}}
+                <a href="/posts/{{id}}">
+                  <time datetime="{{created_at}}" title="{{localTime created_at}}" />
+                </a>
+              {{/if}}
+            </span>
+            {{#if root}}
+              {{#if root.provider_display_name}}
+                {{t "stream.via" provider=root.provider_display_name}}
+              {{/if}}
+            {{else}}
+              {{#if provider_display_name}}
+                {{t "stream.via" provider=provider_display_name}}
+              {{/if}}
+            {{/if}}
+          </div>
+          {{#unless root}}
+            <div id="single-post-moderation" />
+          {{/unless}}
+        </div>
+      </div>
+      {{#unless root}}
+        <div id="single-post-actions" class="col-md-4" />
+      {{/unless}}
+    </div>
+    {{#if location.lat}}
+    <div class="row">
+      <div class='near-from'>
+        {{t "publisher.near_from" location=location.address}}
+      </div>
+      <div class="mapContainer small-map"></div>
+    </div>
+    {{/if}}
+    {{#if root}}
+      <div class="row reshare">
+        <div class="col-md-8" id="reshare-info">
+          <i class="entypo-reshare small pull-left"></i>
+          <div class="img pull-left">
+            {{#linkToAuthor author}}
+              {{{personImage this "small"}}}
+            {{/linkToAuthor}}
+          </div>
+          <span class="author">
+            {{#linkToAuthor author}}
+              {{name}}
+            {{/linkToAuthor}}
+          </span>
+          <div class="post-context">
+            <span class="post-time">
               <a href="/posts/{{id}}">
                 <time datetime="{{created_at}}" title="{{localTime created_at}}" />
               </a>
-            {{/if}}
-          </span>
-          {{#if root}}
-            {{#if root.provider_display_name}}
-              {{t "stream.via" provider=root.provider_display_name}}
-            {{/if}}
-          {{else}}
-            {{#if provider_display_name}}
-              {{t "stream.via" provider=provider_display_name}}
-            {{/if}}
-          {{/if}}
-          <div class='status-message-location' />
+            </span>
+            <span id="single-post-moderation" />
+          </div>
         </div>
-        {{#unless root}}
-          <div id='single-post-moderation' />
-        {{/unless}}
+        <div id="single-post-actions" class="col-md-4" />
       </div>
-    </div>
-    {{#unless root}}
-      <div id='single-post-actions' class='span4' />
-    {{/unless}}
+    {{/if}}
   </div>
-  {{#if root}}
-    <div class='row-fluid reshare'>
-      <div class='span8' id='reshare-info'>
-        <i class='entypo retweet small pull-left'></i>
-        <div class="img pull-left">
-          {{#linkToAuthor author}}
-            {{{personImage this 'small'}}}
-          {{/linkToAuthor}}
-        </div>
-        <span class="author">
-          {{#linkToAuthor author}}
-            {{name}}
-          {{/linkToAuthor}}
-        </span>
-        <div class="post-context">
-          <span class="post-time">
-            <a href="/posts/{{id}}">
-              <time datetime="{{created_at}}" title="{{localTime created_at}}" />
-            </a>
-          </span>
-          <span id='single-post-moderation' />
-        </div>
-      </div>
-      <div id='single-post-actions' class='span4' />
-    </div>
-  {{/if}}
 </div>
-<div id='body' class='row-fluid'>
-  <div id='real-post-content' class='post-content span12'>
+<div class="row">
+  <div id="body" class="body clearfix">
+    <div id="real-post-content" class="post-content col-md-12">
+    </div>
   </div>
 </div>

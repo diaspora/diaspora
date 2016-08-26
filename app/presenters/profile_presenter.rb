@@ -15,6 +15,13 @@ class ProfilePresenter < BasePresenter
     )
   end
 
+  def for_hovercard
+    {
+      avatar: AvatarPresenter.new(@presentable).medium,
+      tags:   tags.pluck(:name)
+    }
+  end
+
   def private_hash
     public_hash.merge(
       bio:      bio_message.plain_text_for_json,

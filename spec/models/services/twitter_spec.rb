@@ -25,12 +25,6 @@ describe Services::Twitter, :type => :model do
       expect(@post.tweet_id).to match "1234"
     end
 
-    it 'swallows exception raised by twitter always being down' do
-      skip
-      expect_any_instance_of(Twitter::REST::Client).to receive(:update).and_raise(StandardError)
-      @service.post(@post)
-    end
-
     it 'should call build_twitter_post' do
       url = "foo"
       expect(@service).to receive(:build_twitter_post).with(@post, 0)
@@ -145,6 +139,17 @@ describe Services::Twitter, :type => :model do
 
       @service.nickname = "joindiaspora"
       expect(@service.profile_photo_url).to eq("http://a2.twimg.com/profile_images/uid/avatar.png")
+    end
+  end
+
+  describe "#post_opts" do
+    it "returns the tweet_id of the post" do
+      @post.tweet_id = "2345"
+      expect(@service.post_opts(@post)).to eq(tweet_id: "2345")
+    end
+
+    it "returns nil when the post has no tweet_id" do
+      expect(@service.post_opts(@post)).to be_nil
     end
   end
 end

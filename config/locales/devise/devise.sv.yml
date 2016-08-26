@@ -79,7 +79,7 @@ sv:
         receive_confirmation: "Fick du inget bekräftelsemail?"
         receive_unlock: "Fick du inga upplåsningsinstruktioner?"
         sign_in: "Logga in"
-        sign_up: "Registrera dig"
+        sign_up: "Skapa konto"
         sign_up_closed: "Formuläret för att bli medlem är tyvärr stängt."
     unlocks:
       new:

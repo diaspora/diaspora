@@ -24,10 +24,10 @@ app.views.Conversations = Backbone.View.extend({
     $(".control-icons a").tooltip({placement: "bottom"});
 
     var conv = $(".conversation-wrapper .stream_element.selected"),
-        cBadge = $("#conversations_badge .badge_count");
+        cBadge = $("#conversations-link .badge");
 
     if(conv.hasClass("unread") ){
-      var unreadCount = parseInt(conv.find(".unread_message_count").text(), 10);
+      var unreadCount = parseInt(conv.find(".unread-message-count").text(), 10);
 
       if(cBadge.text() !== "") {
         cBadge.text().replace(/\d+/, function(num){
@@ -40,7 +40,7 @@ app.views.Conversations = Backbone.View.extend({
         });
       }
       conv.removeClass("unread");
-      conv.find(".unread_message_count").remove();
+      conv.find(".unread-message-count").remove();
 
       var pos = $("#first_unread").offset().top - 50;
       $("html").animate({scrollTop:pos});
@@ -50,7 +50,7 @@ app.views.Conversations = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode === 13 && evt.ctrlKey ) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
       $(evt.target).parents("form").submit();
     }
   }

@@ -8,32 +8,41 @@ end
 
 def create_remote_user(pod)
   FactoryGirl.build(:user).tap do |user|
-    user.person = FactoryGirl.create(:person,
-                                     profile:               FactoryGirl.build(:profile),
-                                     serialized_public_key: user.encryption_key.public_key.export,
-                                     diaspora_handle:       "#{user.username}@#{pod}")
-    allow(DiasporaFederation.callbacks).to receive(:trigger)
-                                             .with(:fetch_private_key_by_diaspora_id, user.diaspora_handle) {
-                                             user.encryption_key
-                                           }
+    allow(user).to receive(:person).and_return(
+      FactoryGirl.create(:person,
+                         profile:               FactoryGirl.build(:profile),
+                         serialized_public_key: user.encryption_key.public_key.export,
+                         pod:                   Pod.find_or_create_by(url: "http://#{pod}"),
+                         diaspora_handle:       "#{user.username}@#{pod}")
+    )
+    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
+      :fetch_private_key, user.diaspora_handle
+    ) { user.encryption_key }
+    allow(DiasporaFederation.callbacks).to receive(:trigger).with(
+      :fetch_public_key, user.diaspora_handle
+    ) { OpenSSL::PKey::RSA.new(user.person.serialized_public_key) }
   end
 end
 
-def create_relayable_entity(entity_name, target, diaspora_id, parent_author_key)
-  expect(DiasporaFederation.callbacks).to receive(:trigger)
-                                            .with(
-                                              :fetch_author_private_key_by_entity_guid,
-                                              FactoryGirl.build(entity_name).parent_type,
-                                              target.guid
-                                            )
-                                            .and_return(parent_author_key)
+def allow_callbacks(callbacks)
+  callbacks.each do |callback|
+    allow(DiasporaFederation.callbacks).to receive(:trigger).with(callback, any_args).and_call_original
+  end
+end
 
+def create_relayable_entity(entity_name, parent, diaspora_id)
+  expect(DiasporaFederation.callbacks).to receive(:trigger).with(
+    :fetch_private_key, alice.diaspora_handle
+  ).at_least(1).times.and_return(nil) if parent == local_parent
+
+  parent_guid = parent.guid
   FactoryGirl.build(
     entity_name,
-    conversation_guid: target.guid,
-    parent_guid:       target.guid,
+    conversation_guid: parent_guid,
+    parent_guid:       parent_guid,
     author:            diaspora_id,
-    poll_answer_guid:  target.respond_to?(:poll_answers) ? target.poll_answers.first.guid : nil
+    poll_answer_guid:  parent.respond_to?(:poll_answers) ? parent.poll_answers.first.guid : nil,
+    parent:            Diaspora::Federation::Entities.related_entity(parent)
   )
 end
 
@@ -41,13 +50,13 @@ def generate_xml(entity, remote_user, recipient=nil)
   if recipient
     DiasporaFederation::Salmon::EncryptedSlap.prepare(
       remote_user.diaspora_handle,
-      OpenSSL::PKey::RSA.new(remote_user.encryption_key),
+      remote_user.encryption_key,
       entity
-    ).generate_xml(OpenSSL::PKey::RSA.new(recipient.encryption_key))
+    ).generate_xml(recipient.encryption_key)
   else
     DiasporaFederation::Salmon::Slap.generate_xml(
       remote_user.diaspora_handle,
-      OpenSSL::PKey::RSA.new(remote_user.encryption_key),
+      remote_user.encryption_key,
       entity
     )
   end

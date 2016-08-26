@@ -45,6 +45,13 @@ describe("app", function() {
       expect($.fn.placeholder).toHaveBeenCalled();
       expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("input, textarea");
     });
+
+    it("initializes autosize for textareas", function(){
+      spyOn(window, "autosize");
+      app.setupForms();
+      expect(window.autosize).toHaveBeenCalled();
+      expect(window.autosize.calls.mostRecent().args[0].selector).toBe("textarea");
+    });
   });
 
   describe("setupAjaxErrorRedirect", function() {

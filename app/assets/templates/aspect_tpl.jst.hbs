@@ -1,9 +1,11 @@
-<a href="/contacts?a_id={{id}}" class="action modify_aspect pull-right">
-  <i class="entypo pencil"></i>
+<a href="/aspects/query" class="selectable aspect-item" data-guid="{{id}}">
+  {{#if selected}}
+    <i class="entypo-check selected"></i>
+  {{else}}
+    <div class="entypo-check"></div>
+  {{/if}}
+  {{name}}
 </a>
-{{#if selected}}
-  <i class="entypo check selected"></i>
-{{else}}
-  <div class="entypo check"></div>
-{{/if}}
-<a href="/aspects/query" class="selectable" data-guid="{{id}}"> {{name}} </a>
+<a href="/contacts?a_id={{id}}" class="action modify_aspect pull-right">
+  <i class="entypo-pencil"></i>
+</a>

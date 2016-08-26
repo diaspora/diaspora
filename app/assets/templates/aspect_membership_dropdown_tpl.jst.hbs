@@ -1,0 +1,52 @@
+<button class="btn dropdown-toggle {{extraButtonClass}}" data-toggle="dropdown" tabindex="0">
+  <span class="text">
+    {{#if allAspectsAreSelected }}
+      {{ t "aspect_dropdown.all_aspects" }}
+    {{else if onlyOneAspectIsSelected}}
+      {{ firstMembershipName }}
+    {{else if noAspectIsSelected}}
+      {{ t "aspect_dropdown.add_to_aspect"}}
+    {{else}}
+      {{ t "aspect_dropdown.toggle" count=aspectMembershipsLength }}
+    {{/if}}
+  </span>
+  <span class="caret" />
+</button>
+
+<ul class="dropdown-menu aspect_membership pull-right" unselectable="on">
+{{#each aspects}}
+  <li
+    {{#if membership}}
+      class="aspect_selector selected"
+    {{else}}
+      class="aspect_selector"
+    {{/if}}
+
+    data-aspect_id="{{id}}"
+    {{#if membership}}
+      data-membership_id="{{membership.id}}"
+    {{/if}}
+  >
+    <a>
+      <span class="status_indicator">
+        <i class="glyphicon glyphicon-ok" />
+        <i class="glyphicon glyphicon-refresh" />
+      </span>
+      <span class="text">
+        {{name}}
+      </span>
+    </a>
+  </li>
+{{/each}}
+{{#if dropdownMayCreateNewAspect}}
+  <li class="divider" />
+  <li class="newItem add_aspect">
+    <a data-target="#newAspectModal" data-toggle="modal" href="#">
+      {{ t "aspects.create.add_a_new_aspect" }}
+    </a>
+  </li>
+{{/if}}
+</ul>
+{{#if dropdownMayCreateNewAspect}}
+  <div class="newAspectContainer"/>
+{{/if}}

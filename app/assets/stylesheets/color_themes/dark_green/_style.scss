@@ -1,0 +1,18 @@
+/* Main color(s) */
+$brand-primary: #009900;
+
+/* Shades */
+$main-color-essence: fade-out($brand-primary, 0.8);
+$main-color-light: lighten($brand-primary, 10%);
+$main-color-dark: darken($brand-primary, 20%);
+
+/* Bootstrap Variables */
+$btn-primary-bg: $brand-primary;
+$link-color: $brand-primary;
+
+/* Custom Variables */
+$header-background-color: $main-color-dark;
+$navbar-inverse-bg: $main-color-dark;
+$header-search-color: lighten($header-background-color, 10%);
+
+@import "color_themes/color_theme_override"

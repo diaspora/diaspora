@@ -5,3 +5,10 @@ body > .container-fluid.chat-roster-shown {
 body > .container-fluid.chat-roster-hidden {
   #back-to-top { right: 54px; }
 }
+
+// This element is instanciated by JSXC. Does not have to follow naming conventions
+// scss-lint:disable IdSelector, SelectorFormat
+#jsxc_roster {
+  top: $navbar-height;
+}
+// scss-lint:enable IdSelector, SelectorFormat

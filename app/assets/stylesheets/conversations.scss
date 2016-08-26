@@ -1,32 +1,67 @@
-#conversations_container {
-  .stream_container { border-left: none; }
+.page-conversations {
+  .framed-content { padding: 0 10px 10px; }
+  .sidebar-header .pull-right { margin-top: 12px; }
+
+  .sidebar {
+    margin-bottom: 50px;
+    .pagination { margin: 5px; }
+  }
+
+  .pagination-container > .pagination {
+    border-radius: 0;
+    border-top: 1px solid $border-grey;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+  }
 
   .stream_element {
-    border-bottom: 1px solid $border-grey;
-    &:first-child { border-top: none; }
-    a.author{
-      font-weight: bold;
-    }
+    background-color: $white;
+    padding: 10px;
 
-    .avatar{
+    .avatar {
       width: 50px;
       height: 50px;
+    }
+
+    > .media { margin: 0; }
+  }
+
+  .stream_element.message,
+  .stream_element.new-message {
+    border: 1px solid $light-grey;
+    box-shadow: $card-shadow;
+    margin-bottom: 20px;
+
+    .avatar { min-width: 50px; }
+
+    .author {
+      font-weight: bold;
     }
 
     p {
       margin: 0 0 1em 0;
       &:last-child { margin-bottom: 0; }
     }
-    &.new_message { border-bottom: none; }
-    .timestamp { font-size: 11px; }
+  }
+
+  .stream_element.new-message,
+  .new-conversation {
+    label { font-weight: bold; }
+
+    textarea {
+      max-width: 100%;
+      min-width: 100%;
+      width: 100%;
+    }
   }
 
   .stream_element.conversation {
-    padding: 8px;
-    .media {
-      margin-bottom: 0px;
-      margin-left: 0px;
-    }
+    border-top: 1px solid $border-grey;
+
+    .timestamp { font-size: $font-size-small; }
+    .media { margin: 0; }
 
     &:hover:not(.selected), &.selected {
       .subject,
@@ -41,20 +76,15 @@
       background-color: lighten($blue,5%);
       cursor: pointer;
       .participants {
-        height: 25px;
+        border-color: rgba($border-grey, 1);
+        height: 31px;
         margin-top: 5px;
         padding-top: 5px;
-        border-color: rgba($border-grey, 1)
       }
     }
+
     &.unread { background-color: darken($background-white, 5%); }
     &.selected { background-color: $blue; }
-
-    .avatar {
-      width: 50px;
-      height: 50px;
-      float: left;
-    }
 
     .last_author, .last_message {
       font-size: 12px;
@@ -65,9 +95,8 @@
     }
     .last_author { color: $text-dark-grey; }
 
-    .message_count, .unread_message_count {
+    .message-count, .unread-message-count {
       margin-left: 3px;
-      float: right;
       font-size: 12px;
       font-weight: normal;
     }
@@ -77,26 +106,23 @@
       background-color: rgba($white, 0.7);
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
-      float: left;
-      font-size: 13px;
       font-weight: bold;
       height: 15px;
       line-height: 15px;
-      margin-left: -50px;
-      margin-top: 35px;
+      margin-top: -15px;
+      position: absolute;
       text-align: center;
       width: 50px;
     }
 
     .participants {
-      float: left;
-      clear: both;
       height: 0;
       width: 100%;
       overflow: hidden;
       border-top: 1px dotted rgba($border-grey, 0);
       transition: height ease 300ms;
       .avatar {
+        float: left;
         margin: 0 5px 0 0;
         height: 25px;
         width: 25px;
@@ -106,7 +132,7 @@
     .img { line-height: 15px; }
 
     .subject {
-      font-size: $font-size-text;
+      font-size: $font-size-base;
       > * {
         overflow: hidden;
         white-space: nowrap;
@@ -121,109 +147,41 @@
       color: $blue;
     }
   }
-}
 
-#conversation_show {
-  .conversation_participants {
-    box-shadow: 0 2px 3px -3px #666;
-
-    background-color: $background-white;
-    margin-bottom: 5px;
-    border-bottom: 1px solid $border-grey;
-    padding: 5px;
-    line-height: 0px;
+  .stream_container .conversation-participants {
+    margin-bottom: 20px;
 
     .hide_conversation, .delete_conversation {
       display: block;
-      margin-top: 25px;
       margin-left: 10px;
+      margin-top: 10px;
     }
 
     .avatar {
-      height: 30px;
-      width: 30px;
-    }
-
-    .avatars {
-      text-align: right;
-      margin-top: 9px;
-    }
-
-    a img { margin-bottom: 4px; }
-
-    .conversation_controls {
-      margin-bottom: 10px;
-
-      a { margin-right: 10px; }
+      display: inline;
+      height: 50px;
+      margin-top: 4px;
+      width: 50px;
     }
   }
 
-  .conversation_participants a:hover { text-decoration: none; }
+  .conversation-participants a:hover { text-decoration: none; }
 
-  .stream .stream_element {
-    padding: 10px;
-  }
-}
-
-#left_pane {
-  border-right: solid 1px $border-grey;
-  h3 {
-    padding-bottom: 0;
-  }
-
-  #left_pane_header {
-    padding: 10px;
-    padding-right: 20px;
-    border-bottom: 1px solid $border-grey;
-  }
-
-  #conversation_inbox {
-    a:hover {
-      text-decoration: none;
-    }
-    .pagination {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-
-      .disabled a {
-        background: $background-grey;
-      }
-    }
-  }
-}
-
-@media (max-width: 1354px) {
-  #left_pane #conversation_inbox .pagination ul > li > a {
-    padding: 4px 7px;
-  }
-}
-
-#conversation_new {
-  label { font-weight: bold; }
-
-  .well {
+  .no-conversations {
+    color: $gray-light;
+    font-size: $font-size-h4;
     font-weight: bold;
-    margin-top: 25px;
+    padding: 50px 0;
+    text-align: center;
   }
 }
 
-#no_conversations,
-#no_conversation_text {
-  font-weight: bold;
-  color: #ccc;
-  text-align: center;
-  margin-top: 100px;
+// We need this to override the Bootstrap pagination style only for the conversations view
+// scss-lint:disable SelectorDepth
+.conversation-inbox .pagination > li > a {
+  padding: 4px 7px;
 }
-
-#no_conversation_text {
-  font-size: 20px;
-}
-
-#no_conversation_controls {
-  text-align: center;
-  font-size: 12px;
-}
+// scss-lint:enable SelectorDepth
 
 #new_conversation_pane {
   ul.as-selections { width: 100% !important; }

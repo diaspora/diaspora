@@ -5,26 +5,19 @@ describe("app.views.CommentStream", function(){
   });
 
   describe("binds", function() {
-    it("re-renders on a commentsExpanded trigger", function(){
-      spyOn(this.view, "render");
+    it("calls appendComment on insertion to the comments collection", function() {
+      spyOn(this.view, "appendComment");
       this.view.setupBindings();
-      this.view.model.trigger("commentsExpanded");
-      expect(this.view.render).toHaveBeenCalled();
-    });
-  });
-
-  describe("postRenderTemplate", function(){
-    it("autoResizes the new comment textarea", function(){
-      spyOn($.fn, "autoResize");
-      this.view.postRenderTemplate();
-      expect($.fn.autoResize).toHaveBeenCalled();
-      expect($.fn.autoResize.calls.mostRecent().object.selector).toBe("textarea");
+      this.view.model.comments.push(factory.comment());
+      expect(this.view.appendComment).toHaveBeenCalled();
     });
   });
 
   describe("createComment", function() {
     beforeEach(function() {
       this.view.render();
+      this.view.$el.append($("<div id='flash-container'/>"));
+      app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
       this.view.expandComments();
     });
 
@@ -48,11 +41,12 @@ describe("app.views.CommentStream", function(){
       });
 
       it("doesn't add the comment to the view, when the request fails", function(){
-        Diaspora.I18n.load({failed_to_post_message: "posting failed!"});
         this.request.respondWith({status: 500});
 
         expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");
-        expect($('*[id^="flash"]')).toBeErrorFlashMessage("posting failed!");
+        expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
+          "Failed to comment. Maybe the author is ignoring you?"
+        );
       });
     });
 
@@ -76,10 +70,23 @@ describe("app.views.CommentStream", function(){
       this.view.appendComment(comment);
       expect(comment.set).toHaveBeenCalled();
     });
+
+    it("sorts comments in the right order", function() {
+      this.view.render();
+      this.view.appendComment(factory.comment({"created_at": new Date(2000).toJSON(), "text": "2"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(4000).toJSON(), "text": "4"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(5000).toJSON(), "text": "5"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(6000).toJSON(), "text": "6"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(1000).toJSON(), "text": "1"}));
+      this.view.appendComment(factory.comment({"created_at": new Date(3000).toJSON(), "text": "3"}));
+
+      expect(this.view.$(".comments div.comment.media").length).toEqual(6);
+      expect(this.view.$(".comments div.comment.media div.comment-content p").text()).toEqual("123456");
+    });
   });
 
   describe("expandComments", function() {
-    it("refills the comment textbox on success", function() {
+    it("doesn't drop the comment textbox value on success", function() {
       this.view.render();
       this.view.$("textarea").val("great post!");
       this.view.expandComments();
@@ -102,8 +109,7 @@ describe("app.views.CommentStream", function(){
       var form = this.view.$("form");
       form.submit(submitCallback);
 
-      var e = $.Event("keydown", { keyCode: 13 });
-      e.ctrlKey = false;
+      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: false });
       this.view.keyDownOnCommentBox(e);
 
       expect(submitCallback).not.toHaveBeenCalled();
@@ -114,12 +120,10 @@ describe("app.views.CommentStream", function(){
       var form = this.view.$("form");
       form.submit(submitCallback);
 
-      var e = $.Event("keydown", { keyCode: 13 });
-      e.ctrlKey = true;
+      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: true });
       this.view.keyDownOnCommentBox(e);
 
       expect(submitCallback).toHaveBeenCalled();
     });
   });
-
 });

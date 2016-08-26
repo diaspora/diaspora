@@ -13,9 +13,9 @@ describe Diaspora::Fetcher::Public do
     # the guid of the person is "7445f9a0a6c28ebb"
     @fixture = File.open(Rails.root.join('spec', 'fixtures', 'public_posts.json')).read
     @fetcher = Diaspora::Fetcher::Public.new
-    @person = FactoryGirl.create(:person, {:guid => "7445f9a0a6c28ebb",
-                                :url => "https://remote-testpod.net",
-                                :diaspora_handle => "testuser@remote-testpod.net"})
+    @person = FactoryGirl.create(:person, guid:            "7445f9a0a6c28ebb",
+                                          pod:             Pod.find_or_create_by(url: "https://remote-testpod.net"),
+                                          diaspora_handle: "testuser@remote-testpod.net")
 
     stub_request(:get, /remote-testpod.net\/people\/.*\/stream/)
       .with(headers: {
@@ -122,10 +122,10 @@ describe Diaspora::Fetcher::Public do
         end
       end
 
-      it 'copied the text correctly' do
+      it "copied the text correctly" do
         @data.each do |post|
-          entry = StatusMessage.find_by_guid(post['guid'])
-          expect(entry.raw_message).to eql(post['text'])
+          entry = StatusMessage.find_by_guid(post["guid"])
+          expect(entry.text).to eql(post["text"])
         end
       end
 

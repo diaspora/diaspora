@@ -8,7 +8,6 @@
   max-width: 400px;
 
   background-color: $background-white;
-  height: 70px;
   border: 1px solid $border-dark-grey;
   font-size: small;
 
@@ -27,11 +26,14 @@
 
   $image_width: 80px; /* including margin */
 
-  & > h4, & > div {
+  > h4,
+  > div:not(.card-footer) {
     margin-left: $image_width;
   }
 
-  & > h4, & > div, .hashtags {
+  > h4,
+  > div,
+  .hashtags {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -65,32 +67,6 @@
   }
 
   .btn-group.aspect_membership_dropdown { margin: 0 !important; }
-
-  .hovercard_footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: $background-grey;
-    margin-left: 0;
-
-    width: 100%;
-    min-height: 19px;
-
-    font-size: 10px;
-    line-height: 18px;
-
-    border-top: 1px solid #cccccc;
-
-    .footer_container {
-      padding: 1px 5px;
-
-      a {
-        color: $text-grey;
-        margin-right: 4px;
-        font-weight: normal;
-      }
-    }
-  }
 }
 
 #hovercard_container {

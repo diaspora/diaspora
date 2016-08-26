@@ -33,6 +33,7 @@ app.views.ConversationsForm = Backbone.View.extend({
       emptyText: Diaspora.I18n.t("no_results"),
       preFill: this.prefill
     }).focus();
+    $("#contact_ids").attr("aria-labelledby", "toLabel");
   },
 
   displayNoContactsMessage: function() {
@@ -42,7 +43,7 @@ app.views.ConversationsForm = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if( evt.keyCode === 13 && evt.ctrlKey ) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
       $(evt.target).parents("form").submit();
     }
   }

@@ -4,12 +4,12 @@
 #
 module Workers
   class DeletePostFromService < Base
-    sidekiq_options queue: :http_service
+    sidekiq_options queue: :high
 
-    def perform(service_id, post_id)
+    def perform(service_id, opts)
       service = Service.find_by_id(service_id)
-      post = Post.find_by_id(post_id)
-      service.delete_post(post)
+      opts = HashWithIndifferentAccess.new(opts)
+      service.delete_from_service(opts)
     end
   end
 end

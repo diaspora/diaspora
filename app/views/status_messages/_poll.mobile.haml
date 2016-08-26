@@ -1,0 +1,25 @@
+.poll
+  .poll-head
+    .poll-stats.pull-right
+      = t("polls.votes", count: poll.participation_count)
+    .question
+      = poll.question
+  .poll-content
+    - poll.poll_answers.each do |answer|
+      .result-row
+        .result-head
+          - percentage = 0
+          - if poll.participation_count > 0
+            - percentage = (answer.vote_count.to_f / poll.participation_count * 100).round
+          .percentage.pull-right
+            = "#{percentage}%"
+          .answer
+            = answer.answer
+        .progress
+          .progress-bar{role:  "progressbar",
+                        aria:  {valuenow: "#{percentage}",
+                                valuemin: "0",
+                                valuemax: "100"},
+                        style: "width: #{percentage}%;"}
+            %span.sr-only
+              = "#{percentage}%"

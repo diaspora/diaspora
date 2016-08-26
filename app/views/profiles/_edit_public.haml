@@ -1,4 +1,6 @@
 - content_for :head do
+  - if mobile
+    = javascript_include_tag :jquery
   :javascript
     $(document).ready(function () {
       var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
@@ -19,7 +21,7 @@
         });
 
       autocompleteInput.bind('keydown', function(evt){
-        if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
+        if(evt.which === Keycodes.ENTER || evt.which === Keycodes.TAB || evt.which === Keycodes.SPACE) {
           evt.preventDefault();
           if( $('li.as-result-item.active').length == 0 ){
             $('li.as-result-item').first().click();
@@ -28,34 +30,40 @@
       });
     });
 
-%h3
-  = t('profiles.edit.your_public_profile')
+- if mobile
+  .stream
+  - flash.each do |name, msg|
+    %div{:id => "flash_#{name}", :class => "expose"}
+      .message= msg
+    .stream
+      %p{:class => "conversation_#{name}"}= msg
+
+%h3.inline
+  = t("profiles.edit.basic")
+  %span{ :title => t("profiles.edit.basic_hint") }
+    %i.entypo.circled-help.visibility-hint-icon
+.small-horizontal-spacer
 
 = error_messages_for profile
 
-%h4
-  = t('profiles.edit.your_name')
+%h4= t('profiles.edit.your_name')
 
-.row-fluid
-  .span6
+.row
+  .col-md-6
     = label_tag 'profile[first_name]', t('profiles.edit.first_name')
-    = text_field_tag 'profile[first_name]', profile.first_name, :class => 'span12'
-  .span6
+    = text_field_tag 'profile[first_name]', profile.first_name, class: 'form-control'
+  .col-md-6
     = label_tag 'profile[last_name]', t('profiles.edit.last_name')
-    = text_field_tag 'profile[last_name]', profile.last_name, :class => 'span12'
+    = text_field_tag 'profile[last_name]', profile.last_name, class: 'form-control'
 
 .small-horizontal-spacer
 
-%h4
-  = t('profiles.edit.your_tags')
+%h4= t('profiles.edit.your_tags')
 
-= text_field_tag 'profile[tag_string]', "", :placeholder => t('profiles.edit.your_tags_placeholder')
-
-.small-horizontal-spacer
-
-%h4
-  = t('profiles.edit.your_photo')
-
-= render 'photos/new_profile_photo', :aspect => aspect, :person => person
+= text_field_tag 'profile[tag_string]', "", placeholder: t('profiles.edit.your_tags_placeholder'),class: "form-control"
 
 .small-horizontal-spacer
+
+%h4= t('profiles.edit.your_photo')
+
+= render 'photos/new_profile_photo', aspect: aspect, person: person

@@ -10,5 +10,5 @@
 
     = yield(:head)
 
-  %body{id: "error_#{@code}"}
+  %body{class: "error-#{@code}", id: "error_#{@code}"}
     = yield

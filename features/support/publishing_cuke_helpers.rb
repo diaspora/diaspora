@@ -4,11 +4,18 @@ module PublishingCukeHelpers
   end
 
   def append_to_publisher(txt, input_selector='#status_message_fake_text')
-    elem = find(input_selector)
-    elem.native.send_keys(' ' + txt)
+    status_message_text = find("#status_message_text", visible: false).value
+    find(input_selector).native.send_key(" #{txt}")
 
     # make sure the other text field got the new contents
-    expect(find("#status_message_text", visible: false)).to have_value txt
+    if input_selector == "#status_message_fake_text"
+      begin
+        expect(page).to have_selector("#status_message_text[value='#{status_message_text} #{txt}']", visible: false)
+      rescue RSpec::Expectations::ExpectationNotMetError
+        puts "Value was instead: #{find('#status_message_text', visible: false).value.inspect}"
+        raise
+      end
+    end
   end
 
   def upload_file_with_publisher(path)
@@ -26,10 +33,10 @@ module PublishingCukeHelpers
   end
 
   def submit_publisher
-    txt = find('#publisher #status_message_fake_text').value
-    find('#publisher .creation').click
+    txt = find("#publisher #status_message_fake_text").value
+    find("#publisher .btn-primary").click
     # wait for the content to appear
-    expect(find('#main_stream')).to have_content(txt)
+    expect(find("#main_stream")).to have_content(txt)
   end
 
   def click_and_post(text)
@@ -38,10 +45,8 @@ module PublishingCukeHelpers
   end
 
   def click_publisher
-    page.execute_script('
-     $("#publisher").removeClass("closed");
-     $("#publisher").find("#status_message_fake_text").focus();
-    ')
+    find("#status_message_fake_text").click
+    expect(find("#publisher")).to have_css(".publisher-textarea-wrapper.active")
   end
 
   def publisher_submittable?
@@ -104,18 +109,6 @@ module PublishingCukeHelpers
     within("#single-post-actions") do
       find(:css, 'a.like').click
     end
-  end
-
-  def stream_posts
-    all('.stream_element')
-  end
-
-  def comment_on_post(post_text, comment_text)
-    within_post(post_text) do
-      focus_comment_box
-      make_comment(comment_text)
-    end
-    step %Q(I should see "#{comment_text}" within ".comment")
   end
 
   def comment_on_show_page(comment_text)

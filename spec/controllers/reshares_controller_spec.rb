@@ -18,7 +18,7 @@ describe ResharesController, :type => :controller do
 
     context 'with an authenticated user' do
       before do
-        sign_in :user, bob
+        sign_in(bob, scope: :user)
         allow(@controller).to receive(:current_user).and_return(bob)
       end
 
@@ -33,13 +33,8 @@ describe ResharesController, :type => :controller do
         }.to change(Reshare, :count).by(1)
       end
 
-      it 'after save, calls add to streams' do
-        expect(bob).to receive(:add_to_streams)
-        post_request!
-      end
-
       it 'calls dispatch' do
-        expect(bob).to receive(:dispatch_post).with(anything, hash_including(:additional_subscribers))
+        expect(bob).to receive(:dispatch_post)
         post_request!
       end
 

@@ -1,43 +1,21 @@
 class PollParticipation < ActiveRecord::Base
-
   include Diaspora::Federated::Base
-
-  include Diaspora::Guid
+  include Diaspora::Fields::Guid
+  include Diaspora::Fields::Author
   include Diaspora::Relayable
+
   belongs_to :poll
   belongs_to :poll_answer, counter_cache: :vote_count
-  belongs_to :author, :class_name => 'Person', :foreign_key => :author_id
-  xml_attr :diaspora_handle
-  xml_attr :poll_answer_guid
-  xml_convention :underscore
+
+  has_one :signature, class_name: "PollParticipationSignature", dependent: :delete
+
+  alias_attribute :parent, :poll
+
+  validates :poll_answer, presence: true
   validate :not_already_participated
 
-  def parent_class
-    Poll
-  end
-
-  def parent
-    self.poll
-  end
-
-  def poll_answer_guid
-    poll_answer.guid
-  end
-
-  def poll_answer_guid= new_poll_answer_guid
-    self.poll_answer = PollAnswer.where(:guid => new_poll_answer_guid).first
-  end
-
-  def parent= parent
-    self.poll = parent
-  end
-
-  def diaspora_handle
-    self.author.diaspora_handle
-  end
-
-  def diaspora_handle= nh
-    self.author = Person.find_or_fetch_by_identifier(nh)
+  def poll_answer_guid=(new_poll_answer_guid)
+    self.poll_answer_id = PollAnswer.where(guid: new_poll_answer_guid).ids.first
   end
 
   def not_already_participated
@@ -49,7 +27,7 @@ class PollParticipation < ActiveRecord::Base
     end
   end
 
-  class Generator < Federated::Generator
+  class Generator < Diaspora::Federated::Generator
     def self.federated_class
       PollParticipation
     end

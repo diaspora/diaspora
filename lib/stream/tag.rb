@@ -29,7 +29,16 @@ class Stream::Tag < Stream::Base
   end
 
   def posts
-    @posts ||= construct_post_query
+    @posts ||= if user
+                 StatusMessage.user_tag_stream(user, tag.id)
+               else
+                 StatusMessage.public_tag_stream(tag.id)
+               end
+  end
+
+  def stream_posts
+    return [] unless tag
+    super
   end
 
   def tag_name=(tag_name)
@@ -41,15 +50,5 @@ class Stream::Tag < Stream::Base
   # @return [Hash]
   def publisher_opts
     {:open => true}
-  end
-
-  def construct_post_query
-    posts = StatusMessage
-    if user.present?
-      posts = posts.owned_or_visible_by_user(user)
-    else
-      posts = posts.all_public
-    end
-    posts.tagged_with(tag_name, :any => true)
   end
 end

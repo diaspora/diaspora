@@ -1,11 +1,15 @@
 Then /^"([^"]*)" should be part of active conversation$/ do |name|
-  within(".conversation_participants") do
+  within(".conversation-participants") do
     find("img.avatar[title^='#{name}']").should_not be_nil
   end
 end
 
 Then /^I should have (\d+) unread private messages?$/ do |n_unread|
-  find("header #conversations_badge .badge_count").should have_content(n_unread)
+  expect(find("header #conversations-link .badge")).to have_content(n_unread)
+end
+
+Then /^I should have no unread private messages$/ do
+  expect(page).to have_no_css "header #conversations-link .badge"
 end
 
 Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
@@ -26,7 +30,7 @@ Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)" u
     step %(I press the first ".as-result-item" within ".as-results")
     step %(I fill in "conversation_subject" with "#{subject}")
     step %(I fill in "conversation_text" with "#{text}")
-    find("#conversation_text").native.send_keys :control, :return
+    find("#conversation_text").native.send_key %i(Ctrl Return)
   end
 end
 
@@ -41,7 +45,7 @@ When /^I reply with "([^"]*)" using keyboard shortcuts$/ do |text|
   step %(I am on the conversations page)
   step %(I press the first ".conversation" within ".conversations")
   step %(I fill in "message_text" with "#{text}")
-  find("#message_text").native.send_keys :control, :return
+  find("#message_text").native.send_key %i(Ctrl Return)
 end
 
 Then /^I send a mobile message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|

@@ -2,25 +2,28 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
-  = status.hidden_field :provider_display_name, :value => 'mobile'
-  = status.text_area :text, :placeholder => t('shared.publisher.whats_on_your_mind'), :rows => 4, :autofocus => "autofocus"
+= form_for StatusMessage.new, html: {class: "control-group", data: {ajax: false}} do |status|
+  .form-group
+    = status.hidden_field :provider_display_name, value: 'mobile'
+    = status.text_area :text, placeholder: t('shared.publisher.whats_on_your_mind'), rows: 4, autofocus: "autofocus", class: "form-control"
 
-  %fieldset
-    %span#publisher_service_icons
+  .form-group
+    %span#publisher-service-icons
       - if current_user.services
         - for service in current_user.services
-          = image_tag "social_media_logos/#{service.provider}-32x32.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
+          = image_tag "social-media-logos/#{service.provider}-32x32.png",
+            title: service.provider.titleize, class: "service_icon dim",
+            id: "#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"
 
-    %select{:id => "aspect_ids_", :name => "aspect_ids[]"}
-      %option{:value => 'public'}
+    %select{id: "aspect_ids_", class: "form-control", name: "aspect_ids[]"}
+      %option{value: 'public'}
         = t('public')
 
-      %option{:value => 'all_aspects', :selected => true}
+      %option{value: 'all_aspects', selected: true}
         = t('all_aspects')
 
       - current_user.aspects.each do |aspect|
-        %option{:value => aspect.id}
+        %option{value: aspect.id}
           = "· #{aspect.name}"
 
     .clear
@@ -28,12 +31,11 @@
       %ul#photodropzone
     #fileInfo-publisher
 
-    #file-upload-publisher{:title => t('shared.publisher.upload_photos'), :class => 'btn'}
-      = image_tag "mobile/camera.png", alt: t("shared.publisher.upload_photos").titleize
+    #file-upload-publisher{title: t('shared.publisher.upload_photos'), class: 'btn btn-default'}
+      %i.entypo-camera.middle
     #publisher_mobile
       = submit_tag t("shared.publisher.share"),
-        class: "btn primary",
+        class: "btn btn-primary",
         id: "submit_new_message",
         data: {"disable-with" => t("shared.publisher.posting")}
-
-    #publisher_photo_upload
+    .clearfix

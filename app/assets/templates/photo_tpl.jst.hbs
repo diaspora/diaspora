@@ -1,29 +1,37 @@
-<div class="media span4">
-  <div class="bd">
-    {{#if loggedIn}}
-      <div class="control-icons">
-        {{#if authorIsCurrentUser}}
-          <a href="#" rel="nofollow" class="delete remove_post" title="{{t "delete"}}">
-            <i class="entypo trash"></i>
-          </a>
-        {{else}}
-          <a href="#" rel="nofollow" data-type="post" class="post_report" title="{{t "report.name"}}">
-            <i class="entypo warning"></i>
-          </a>
-          <a href="#" rel="nofollow" class="block_user" title="{{t "ignore"}}">
-            <i class="entypo block"></i>
-          </a>
-          <a href="#" rel="nofollow" class="delete hide_post" title="{{t "stream.hide"}}">
-            <i class="entypo cross"></i>
-          </a>
-        {{/if}}
-      </div>
-    {{/if}}
-
-    <div class="thumbnail">
-      <a href="#" class="photo-link">
-        <img src="{{sizes.large}}" class="photo big_photo" data-small-photo="{{sizes.small}}" data-full-photo="{{sizes.large}}" rel="lightbox">
-      </a>
+<div class="media">
+  {{#if loggedIn}}
+    <div class="control-icons">
+      {{#if authorIsCurrentUser}}
+        <a href="#" rel="nofollow" class="delete remove_post" title="{{t "delete"}}">
+          <i class="entypo-trash"></i>
+        </a>
+      {{else}}
+        <a href="#" rel="nofollow" data-type="Post" class="post_report" title="{{t "report.name"}}">
+          <i class="entypo-warning"></i>
+        </a>
+        <a href="#" rel="nofollow" class="block_user" title="{{t "ignore"}}">
+          <i class="entypo-block"></i>
+        </a>
+        <a href="#" rel="nofollow" class="delete hide_post" title="{{t "stream.hide"}}">
+          <i class="entypo-cross"></i>
+        </a>
+      {{/if}}
     </div>
+  {{/if}}
 
+  <a href="{{sizes.large}}" class="thumbnail img-thumbnail photo-link gallery-picture">
+    <img src="{{sizes.large}}" class="photo big-photo">
+  </a>
+
+  <div class="card-footer">
+    <div class="footer-container">
+      {{#if status_message}}
+        <a href="{{urlTo "post" status_message.id}}">
+          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+        </a>
+      {{else}}
+          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+      {{/if}}
+    </div>
+  </div>
 </div>

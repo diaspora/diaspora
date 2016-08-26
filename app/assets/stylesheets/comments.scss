@@ -8,11 +8,11 @@
     }
     .media { margin-top: 10px; }
   }
-  .comments > .comment, .comment.new_comment_form_wrapper {
+  .comments > .comment,
+  .comment.new-comment-form-wrapper {
     .avatar {
-      margin-top: 5px;
-      height: 30px;
-      width: 30px;
+      height: 35px;
+      width: 35px;
     }
     margin: 0;
     border-top: 1px dotted $border-grey;
@@ -20,8 +20,8 @@
 
     .info {
       margin-top: 5px;
-      font-size: 11px;
-      line-height: 11px;
+      font-size: $font-size-small;
+      line-height: $font-size-small;
     }
 
     >.highlighted {
@@ -30,19 +30,21 @@
     }
   }
   .submit_button {
+    margin-top: 10px;
     input {
       float: right;
     }
     padding-left: 12px;
-    width: 95%;
     display: none;
   }
   .comment_box {
-    width: 95%;
-    height: 30px;
+    height: 35px;
+    resize: none;
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
     & + .submit_button { display: block; }
+    min-height: 35px;
+    box-shadow: none;
   }
 }

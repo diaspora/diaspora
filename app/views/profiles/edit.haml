@@ -2,21 +2,17 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.container
-  .row-fluid
-    .span12
-      #section_header
-        %h2
-          = t("settings")
+.container-fluid
+  .row
+    .col-md-3
+      .sidebar
         = render "shared/settings_nav"
+    .col-md-9
+      .framed-content.clearfix
+        - content_for :submit_block do
+          = link_to t("cancel"), local_or_remote_person_path(current_user.person), class: "btn btn-default"
+          = submit_tag t(".update_profile"), class: "btn btn-primary pull-right", id: "update_profile"
 
-.container
-  .row-fluid
-    .span3
-    .span6
-      - content_for :submit_block do
-        = link_to t("cancel"), local_or_remote_person_path(current_user.person), :class => "btn"
-        = submit_tag t(".update_profile"), class: "btn creation", id: "update_profile"
-      = render partial: "edit", locals: {person: @person, profile: @profile, aspect: @aspect, step: @step}
-    .span3
-
+        = form_tag profile_path, method: :put, multipart: true, id: "update_profile_form" do
+          = render "edit_public", profile: @profile, aspect: @aspect, person: @person, mobile: false
+          = render "edit_private", person: @person, profile: @profile, aspect: @aspect, step: @step

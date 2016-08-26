@@ -3,29 +3,28 @@
 -#   the COPYRIGHT file.
 
 !!!
-%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
-  %head{:prefix => og_prefix}
+%html{lang:  I18n.locale.to_s, dir:  (rtl?) ? 'rtl' : 'ltr'}
+  %head{prefix: og_prefix}
     %title
       = page_title yield(:page_title)
 
-    %meta{:charset => 'utf-8'}/
-    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    %meta{:name => "description", :content => "diaspora*"}/
-    %meta{:name => "author", :content => "Diaspora, Inc."}/
+    %meta{charset:  'utf-8'}/
+    %meta{"http-equiv" => "Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{name:  "viewport", content:  "width=device-width, initial-scale=1"}/
+    = content_for?(:meta_data) ? yield(:meta_data) : metas_tags
 
-    %link{:rel => 'shortcut icon', :href => "#{image_path('favicon.png')}" }
-    %link{:rel => 'apple-touch-icon', :href => "#{image_path('apple-touch-icon.png')}"}
-
-    = render 'layouts/open_graph'
+    %link{rel:  'shortcut icon', href:  "#{image_path('favicon.png')}" }
 
     = chartbeat_head_block
     = include_mixpanel
 
-    = include_base_css_framework
-    = stylesheet_link_tag 'application', :media => 'all'
+    = include_color_theme
 
     - if rtl?
-      = stylesheet_link_tag :rtl, :media => 'all'
+      = stylesheet_link_tag :rtl, media:  'all'
+
+    - if Rails.env.test?
+      = stylesheet_link_tag :poltergeist_disable_transition, media: "all"
 
     = old_browser_js_support
     <!--[if IE]>
@@ -33,10 +32,8 @@
     <![endif]-->
 
     = jquery_include_tag
-
-    - unless @landing_page
-      = javascript_include_tag :main, :templates
-      = load_javascript_locales
+    = javascript_include_tag :main, :templates
+    = load_javascript_locales
 
     = translation_missing_warnings
     = current_user_atom_tag
@@ -45,12 +42,14 @@
     = csrf_meta_tag
 
 
-    = include_gon(:camel_case => true)
+    = include_gon(camel_case:  true)
 
-  %body{ :class => "page-#{controller_name} action-#{action_name}" }
-    = flash_messages
-
+  %body{ class:  "page-#{controller_name} action-#{action_name}" }
     = yield :before_content
+
+    %noscript
+      .noscript
+        %h3= t("error_messages.need_javascript")
 
     = content_for?(:content) ? yield(:content) : yield
 
@@ -58,3 +57,17 @@
 
     = include_chartbeat
     = include_mixpanel_guid
+
+    .blueimp-gallery.blueimp-gallery-controls#blueimp-gallery
+      .slides
+      %h3.title
+      %a.prev
+        .entypo-chevron-small-left
+      %a.next
+        .entypo-chevron-small-right
+      %a.close
+        .entypo-cross
+      %a.play-pause
+      %ol.indicator
+
+    #flash-container= flash_messages

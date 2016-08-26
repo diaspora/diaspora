@@ -11,13 +11,13 @@ app.views.Feedback = app.views.Base.extend({
 
     "click .post_report" : "report",
     "click .block_user" : "blockUser",
-    "click .hide_post" : "hidePost",
+    "click .hide_post" : "hidePost"
   },
 
   tooltipSelector : ".label",
 
   initialize : function() {
-    this.model.interactions.on('change', this.render, this);
+    this.model.interactions.on("change", this.render, this);
     this.initViews && this.initViews(); // I don't know why this was failing with $.noop... :(
   },
 
@@ -47,7 +47,7 @@ app.views.Feedback = app.views.Base.extend({
 
   blockUser: function(evt) {
     if(evt) { evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t('ignore_user'))) { return; }
+    if(!confirm(Diaspora.I18n.t("ignore_user"))) { return; }
 
     this.model.blockAuthor()
       .done(function() {
@@ -55,16 +55,13 @@ app.views.Feedback = app.views.Base.extend({
         document.location.href = "/stream";
       })
       .fail(function() {
-        Diaspora.page.flashMessages.render({
-          success: false,
-          notice: Diaspora.I18n.t('hide_post_failed')
-        });
+        app.flashMessages.error(Diaspora.I18n.t("hide_post_failed"));
       });
   },
 
   hidePost : function(evt) {
     if(evt) { evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t('hide_post'))) { return; }
+    if(!confirm(Diaspora.I18n.t("hide_post"))) { return; }
 
     $.ajax({
       url : "/share_visibilities/42",
@@ -77,11 +74,8 @@ app.views.Feedback = app.views.Base.extend({
         document.location.href = "/stream";
       })
       .fail(function() {
-        Diaspora.page.flashMessages.render({
-          success: false,
-          notice: Diaspora.I18n.t('ignore_post_failed')
-        });
+        app.flashMessages.error(Diaspora.I18n.t("ignore_post_failed"));
       });
-  },
+  }
 });
 // @license-end

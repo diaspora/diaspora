@@ -24,28 +24,9 @@
     autocompleteInput.focus();
   });
 
-.span6#new_conversation_pane
-  .span5#facebox_header
+.col-md-6#new_conversation_pane
+  .container-fluid.row
     %h3
       = t('conversations.index.new_conversation')
 
-  = form_for Conversation.new, html: {class: "new_conversation form_do_not_clear"}, remote: true do |conversation|
-
-    .span1
-      %h4
-        = t('.to')
-    .span4
-      = text_field_tag "contact_autocomplete"
-    .clearfix
-    %br
-    .span1
-      %h4
-        = t('.subject')
-    .span4
-      = conversation.text_field :subject
-    %br
-    .span4.offset1
-      = text_area_tag "conversation[text]", '', :rows => 5
-    .clearfix
-    .bottom_submit_section
-      = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), :class => 'button creation'
+  = render 'conversations/new'

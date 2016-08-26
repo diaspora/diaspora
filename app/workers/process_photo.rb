@@ -5,7 +5,7 @@
 
 module Workers
   class ProcessPhoto < Base
-    sidekiq_options queue: :photos
+    sidekiq_options queue: :low
 
     def perform(id)
       photo = Photo.find(id)

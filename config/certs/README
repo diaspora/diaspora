@@ -1,0 +1,7 @@
+If you want to encrypt your chat streams with prosody.
+Add to `config/certs` your server certificate and key.
+
+The domain name should be included in the file name e.g.:
+
+* example.com.crt
+* example.com.key

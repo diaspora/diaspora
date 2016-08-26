@@ -4,8 +4,8 @@ describe("app.views.Conversations", function(){
       beforeEach(function() {
         spec.loadFixture("conversations_unread");
         // select second conversation that is still unread
-        $(".conversation-wrapper > .conversation.selected").removeClass("selected")
-        $(".conversation-wrapper > .conversation.unread").addClass("selected")
+        $(".conversation-wrapper > .conversation.selected").removeClass("selected");
+        $(".conversation-wrapper > .conversation.unread").addClass("selected");
       });
 
       it("removes the unread class from the conversation", function() {
@@ -15,28 +15,28 @@ describe("app.views.Conversations", function(){
       });
 
       it("removes the unread message counter from the conversation", function() {
-        expect($(".conversation-wrapper > .conversation.selected .unread_message_count").length).toEqual(1);
+        expect($(".conversation-wrapper > .conversation.selected .unread-message-count").length).toEqual(1);
         new app.views.Conversations();
-        expect($(".conversation-wrapper > .conversation.selected .unread_message_count").length).toEqual(0);
+        expect($(".conversation-wrapper > .conversation.selected .unread-message-count").length).toEqual(0);
       });
 
       it("decreases the unread message count in the header", function() {
-        var badge = "<div id=\"conversations_badge\"><div class=\"badge_count\">3</div></div>";
+        var badge = "<div id=\"conversations-link\"><div class=\"badge\">3</div></div>";
         $("header").append(badge);
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("3");
-        expect($(".conversation-wrapper > .conversation .unread_message_count").text().trim()).toEqual("1");
+        expect($("#conversations-link .badge").text().trim()).toEqual("3");
+        expect($(".conversation-wrapper > .conversation .unread-message-count").text().trim()).toEqual("1");
         new app.views.Conversations();
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("2");
+        expect($("#conversations-link .badge").text().trim()).toEqual("2");
       });
 
-      it("removes the badge_count in the header if there are no unread messages left", function() {
-        var badge = "<div id=\"conversations_badge\"><div class=\"badge_count\">1</div></div>";
+      it("removes the badge in the header if there are no unread messages left", function() {
+        var badge = "<div id=\"conversations-link\"><div class=\"badge\">1</div></div>";
         $("header").append(badge);
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("1");
-        expect($(".conversation-wrapper > .conversation.selected .unread_message_count").text().trim()).toEqual("1");
+        expect($("#conversations-link .badge").text().trim()).toEqual("1");
+        expect($(".conversation-wrapper > .conversation.selected .unread-message-count").text().trim()).toEqual("1");
         new app.views.Conversations();
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("0");
-        expect($("#conversations_badge .badge_count")).toHaveClass("hidden");
+        expect($("#conversations-link .badge").text().trim()).toEqual("0");
+        expect($("#conversations-link .badge")).toHaveClass("hidden");
       });
     });
 
@@ -45,12 +45,12 @@ describe("app.views.Conversations", function(){
         spec.loadFixture("conversations_read");
       });
 
-      it("does not change the badge_count in the header", function() {
-        var badge = "<div id=\"conversations_badge\"><div class=\"badge_count\">3</div></div>";
+      it("does not change the badge in the header", function() {
+        var badge = "<div id=\"conversations-link\"><div class=\"badge\">3</div></div>";
         $("header").append(badge);
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("3");
+        expect($("#conversations-link .badge").text().trim()).toEqual("3");
         new app.views.Conversations();
-        expect($("#conversations_badge .badge_count").text().trim()).toEqual("3");
+        expect($("#conversations-link .badge").text().trim()).toEqual("3");
       });
     });
   });
@@ -64,14 +64,14 @@ describe("app.views.Conversations", function(){
 
     it("should submit the form with ctrl+enter", function(){
       $("form#new_message").submit(this.submitCallback);
-      var e = $.Event("keydown", { keyCode: 13, ctrlKey: true });
+      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: true });
       $("textarea#message_text").trigger(e);
       expect(this.submitCallback).toHaveBeenCalled();
     });
 
     it("shouldn't submit the form without the ctrl key", function(){
       $("form#new_message").submit(this.submitCallback);
-      var e = $.Event("keydown", { keyCode: 13, ctrlKey: false });
+      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: false });
       $("textarea#message_text").trigger(e);
       expect(this.submitCallback).not.toHaveBeenCalled();
     });

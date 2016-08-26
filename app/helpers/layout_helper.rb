@@ -46,8 +46,8 @@ module LayoutHelper
     end
   end
 
-  def include_base_css_framework
-    stylesheet_link_tag('bootstrap-complete')
+  def include_color_theme(view="desktop")
+    stylesheet_link_tag "#{current_color_theme}/#{view}", media: "all"
   end
 
   def old_browser_js_support
@@ -67,8 +67,9 @@ module LayoutHelper
 
   def flash_messages
     flash.map do |name, msg|
-      content_tag(:div, :id => "flash_#{name}") do
-        content_tag(:div, msg, :class => 'message')
+      klass = flash_class name
+      content_tag(:div, msg, class: "flash-body expose") do
+        content_tag(:div, msg, class: "flash-message message alert alert-#{klass}", role: "alert")
       end
     end.join(' ').html_safe
   end

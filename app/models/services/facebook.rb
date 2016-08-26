@@ -37,11 +37,13 @@ class Services::Facebook < Service
    "https://graph.facebook.com/#{self.uid}/picture?type=large&access_token=#{URI.escape(self.access_token)}"
   end
 
-  def delete_post(post)
-    if post.present? && post.facebook_id.present?
-      logger.debug "event=delete_from_service type=facebook sender_id=#{user_id} post=#{post.guid}"
-      delete_from_facebook("https://graph.facebook.com/#{post.facebook_id}/", {:access_token => self.access_token})
-    end
+  def post_opts(post)
+    {facebook_id: post.facebook_id} if post.facebook_id.present?
+  end
+
+  def delete_from_service(opts)
+    logger.debug "event=delete_from_service type=facebook sender_id=#{user_id} facebook_id=#{opts[:facebook_id]}"
+    delete_from_facebook("https://graph.facebook.com/#{opts[:facebook_id]}/", access_token: access_token)
   end
 
   def delete_from_facebook(url, body)

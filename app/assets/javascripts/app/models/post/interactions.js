@@ -32,7 +32,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   likesCount : function(){
-    return (this.get("fetched") ? this.likes.models.length : this.get("likes_count") );
+    return this.get("fetched") ? this.likes.models.length : this.get("likes_count");
   },
 
   resharesCount : function(){
@@ -44,12 +44,15 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   userLike : function(){
-    return this.likes.select(function(like){ return like.get("author").guid === app.currentUser.get("guid")})[0];
+    return this.likes.select(function(like){
+      return like.get("author") && like.get("author").guid === app.currentUser.get("guid");
+    })[0];
   },
 
   userReshare : function(){
     return this.reshares.select(function(reshare){
-      return reshare.get("author") &&  reshare.get("author").guid === app.currentUser.get("guid")})[0];
+      return reshare.get("author") && reshare.get("author").guid === app.currentUser.get("guid");
+    })[0];
   },
 
   toggleLike : function() {
@@ -62,10 +65,15 @@ app.models.Post.Interactions = Backbone.Model.extend({
 
   like : function() {
     var self = this;
-    this.likes.create({}, {success : function(){
-      self.trigger("change");
-      self.set({"likes_count" : self.get("likes_count") + 1});
-    }});
+    this.likes.create({}, {
+      success: function() {
+        self.trigger("change");
+        self.set({"likes_count" : self.get("likes_count") + 1});
+      },
+      error: function() {
+        app.flashMessages.error(Diaspora.I18n.t("failed_to_like"));
+      }
+    });
 
     app.instrument("track", "Like");
   },
@@ -84,11 +92,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
 
     this.comments.make(text).fail(function () {
-      var flash = new Diaspora.Widgets.FlashMessages();
-      flash.render({
-        success: false,
-        notice: Diaspora.I18n.t("failed_to_post_message")
-      });
+      app.flashMessages.error(Diaspora.I18n.t("failed_to_comment"));
     }).done(function() {
       self.trigger('change'); //updates after sync
     });
@@ -99,16 +103,11 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   reshare : function(){
-    var interactions = this
-      , reshare = this.post.reshare()
-      , flash = new Diaspora.Widgets.FlashMessages();
+    var interactions = this;
 
-    reshare.save()
+    this.post.reshare().save()
       .done(function(reshare) {
-        flash.render({
-          success: true,
-          notice: Diaspora.I18n.t("reshares.successful")
-        });
+        app.flashMessages.success(Diaspora.I18n.t("reshares.successful"));
         interactions.reshares.add(reshare);
         if (app.stream && /^\/(?:stream|activity|aspects)/.test(app.stream.basePath())) {
           app.stream.addNow(reshare);
@@ -116,10 +115,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
         interactions.trigger("change");
       })
       .fail(function(){
-        flash.render({
-          success: false,
-          notice: Diaspora.I18n.t("reshares.duplicate")
-        });
+        app.flashMessages.error(Diaspora.I18n.t("reshares.duplicate"));
       });
 
     app.instrument("track", "Reshare");

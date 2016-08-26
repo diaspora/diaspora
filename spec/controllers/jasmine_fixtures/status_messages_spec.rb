@@ -7,7 +7,7 @@ require 'spec_helper'
 describe StatusMessagesController, :type => :controller do
   describe '#bookmarklet' do
     before do
-      sign_in :user, bob
+      sign_in bob, scope: :user
     end
 
     it "generates a jasmine fixture", :fixture => true do
@@ -19,7 +19,7 @@ describe StatusMessagesController, :type => :controller do
 
   describe '#new' do
     before do
-      sign_in :user, alice
+      sign_in alice, scope: :user
     end
 
     it 'generates a jasmine fixture', :fixture => true do

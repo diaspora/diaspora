@@ -2,7 +2,7 @@ describe("app.views.Poll", function(){
   beforeEach(function() {
     loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
     this.view = new app.views.Poll({ model: factory.postWithPoll()});
-    this.view.render();
+    spec.content().html(this.view.render().el);
   });
 
   describe("setProgressBar", function(){
@@ -15,9 +15,9 @@ describe("app.views.Poll", function(){
 
   describe("toggleResult", function(){
     it("toggles the progress bar and result", function(){
-      expect(this.view.$('.poll_progress_bar_wrapper:first').css('display')).toBe("none");
-      this.view.toggleResult(null);
-      expect(this.view.$('.poll_progress_bar_wrapper:first').css('display')).toBe("block");
+      expect($(".poll_progress_bar_wrapper:first")).toBeHidden();
+      this.view.toggleResult();
+      expect($(".poll_progress_bar_wrapper:first")).toBeVisible();
     });
   });
 
@@ -45,12 +45,6 @@ describe("app.views.Poll", function(){
 
   describe("reshared post", function(){
     beforeEach(function(){
-      Diaspora.I18n.load({
-        poll: {
-          go_to_original_post: "You can participate in this poll on the <%= original_post_link %>.",
-          original_post: "original post"
-        }
-      });
       this.view.model.attributes.post_type = "Reshare";
       this.view.model.attributes.root = {id: 1};
       this.view.render();

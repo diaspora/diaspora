@@ -21,16 +21,10 @@ app.views.CommentStream = app.views.Base.extend({
 
   setupBindings: function() {
     this.model.comments.bind('add', this.appendComment, this);
-    this.model.bind("commentsExpanded", this.storeTextareaValue, this);
-    this.model.bind("commentsExpanded", this.render, this);
   },
 
   postRenderTemplate : function() {
     this.model.comments.each(this.appendComment, this);
-
-    // add autoexpanders to new comment textarea
-    this.$("textarea").autoResize({'extraSpace' : 10});
-    this.$('textarea').val(this.textareaValue);
   },
 
   presenter: function(){
@@ -43,7 +37,7 @@ app.views.CommentStream = app.views.Base.extend({
 
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
-    
+
     var commentText = $.trim(this.$('.comment_box').val());
     this.$(".comment_box").val("");
     this.$(".comment_box").css("height", "");
@@ -56,28 +50,52 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   keyDownOnCommentBox: function(evt) {
-    if(evt.keyCode === 13 && evt.ctrlKey) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
       this.$("form").submit();
       return false;
     }
   },
-  
+
+  _insertPoint: 0, // An index of the comment added in the last call of this.appendComment
+
+  // This adjusts this._insertPoint according to timestamp value
+  _moveInsertPoint: function(timestamp, commentBlocks) {
+    if (commentBlocks.length === 0) {
+      this._insertPoint = 0;
+      return;
+    }
+
+    if (this._insertPoint > commentBlocks.length) {
+      this._insertPoint = commentBlocks.length;
+    }
+
+    while (this._insertPoint > 0 && timestamp < commentBlocks.eq(this._insertPoint - 1).find("time").attr("datetime")) {
+      this._insertPoint--;
+    }
+    while (this._insertPoint < commentBlocks.length &&
+        timestamp > commentBlocks.eq(this._insertPoint).find("time").attr("datetime")) {
+      this._insertPoint++;
+    }
+  },
+
   appendComment: function(comment) {
     // Set the post as the comment's parent, so we can check
     // on post ownership in the Comment view.
     comment.set({parent : this.model.toJSON()});
 
-    this.$(".comments").append(new app.views.Comment({
-      model: comment
-    }).render().el);
+    var commentHtml = new app.views.Comment({model: comment}).render().el;
+    var commentBlocks = this.$(".comments div.comment.media");
+    this._moveInsertPoint(comment.get("created_at"), commentBlocks);
+    if (this._insertPoint === commentBlocks.length) {
+      this.$(".comments").append(commentHtml);
+    } else {
+      commentBlocks.eq(this._insertPoint).before(commentHtml);
+    }
+    this._insertPoint++;
   },
 
   commentTextareaFocused: function(){
     this.$("form").removeClass('hidden').addClass("open");
-  },
-
-  storeTextareaValue: function(){
-    this.textareaValue = this.$('textarea').val();
   },
 
   expandComments: function(evt){
@@ -86,10 +104,7 @@ app.views.CommentStream = app.views.Base.extend({
 
     this.model.comments.fetch({
       success : function(resp){
-        self.model.set({
-          comments : resp.models,
-          all_comments_loaded : true
-        });
+        self.$("div.comment.show_comments").addClass("hidden");
 
         self.model.trigger("commentsExpanded", self);
       }

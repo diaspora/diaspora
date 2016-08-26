@@ -1,0 +1,23 @@
+{{#if resharesCount}}
+  <div class="comment">
+    <div class="media">
+      <i class="entypo-reshare"></i>
+
+      <div class="bd">
+        {{#unless displayAvatars}}
+          <a href="#" class="expand-reshares gray">
+            {{t "stream.reshares" count=resharesCount}}
+          </a>
+
+        {{else}}
+
+          {{#each reshares}}
+            {{#linkToAuthor author}}
+              {{{personImage this 'small' 'micro'}}}
+            {{/linkToAuthor}}
+          {{/each}}
+        {{/unless}}
+      </div>
+    </div>
+  </div>
+{{/if}}

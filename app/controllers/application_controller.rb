@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   before_action :set_grammatical_gender
   before_action :mobile_switch
   before_action :gon_set_current_user
+  before_action :gon_set_appconfig
   before_action :gon_set_preloads
 
   inflection_method grammatical_gender: :gender
@@ -144,6 +145,14 @@ class ApplicationController < ActionController::Base
     else
       stream_path
     end
+  end
+
+  def gon_set_appconfig
+    gon.push(appConfig: {
+               chat:     {enabled: AppConfig.chat.enabled?},
+               settings: {podname: AppConfig.settings.pod_name},
+               map:      {mapbox: AppConfig.map.mapbox}
+             })
   end
 
   def gon_set_current_user

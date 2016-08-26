@@ -1,0 +1,13 @@
+.post-stats
+  - if post.public?
+    .icon-count-group
+      .post-action= mobile_reshare_icon(post)
+      %span.reshare-count.count= post.reshares.size
+
+  .icon-count-group
+    .post-action= mobile_comment_icon(post)
+    %span.comment-count.count= post.comments.size
+
+  .icon-count-group
+    .post-action= mobile_like_icon(post)
+    %span.like-count.count= post.likes.size

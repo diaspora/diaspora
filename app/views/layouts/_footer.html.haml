@@ -1,5 +1,7 @@
-%footer
+%footer.footer
   .container
-    .logos-powered_by_diaspora
-    %ul#footer_nav
+    .pull-left
+      .powered-by-diaspora
+        =t("layouts.application.powered_by")
+    %ul#footer_nav.pull-right
       = render :partial =>'shared/links'

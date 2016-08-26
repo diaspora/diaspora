@@ -1,0 +1,61 @@
+$thumbnail-size: 12px;
+$thumbnail-margin: 2px;
+$thumbnail-active-size: $thumbnail-size + $thumbnail-margin;
+
+#blueimp-gallery {
+  .slides {
+    height: calc(100% - 40px);
+    padding: 20px 0 0 0;
+    margin: 0;
+  }
+
+  [class^="entypo-"], [class*="entypo-"] {
+    color: $text-grey;
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .play-pause {
+    z-index: 2;
+    color: $text-grey;
+  }
+
+  .prev, .next {
+    border-color: $text-grey;
+  }
+
+  .prev [class^="entypo-"], .prev [class*="entypo-"] {
+    padding-right: 6px;
+  }
+
+  .next [class^="entypo-"], .next [class*="entypo-"] {
+    padding-left: 6px;
+  }
+
+  .indicator {
+    margin: 8px 0;
+    position: unset;
+    height: $thumbnail-size + 5px;
+    li {
+      border: none;
+      margin: $thumbnail-margin;
+      vertical-align: middle;
+      width: $thumbnail-size;
+      height: $thumbnail-size;
+      border-radius: $thumbnail-size / 2;
+
+      &.active, &:hover{
+        margin: $thumbnail-margin / 2;
+        width: $thumbnail-active-size;
+        height: $thumbnail-active-size;
+        border-radius: $thumbnail-active-size / 2;
+        transition: linear 0.2s;
+        transition-property: height, width, margin;
+      }
+    }
+  }
+}

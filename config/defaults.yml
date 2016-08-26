@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.5.10.2" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.6.0.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -13,10 +13,11 @@ defaults:
     require_ssl: true
     single_process_mode: false
     sidekiq:
-      namespace:
       concurrency: 5
       retry: 10
       backtrace: 15
+      dead_jobs_limit: 5000
+      dead_jobs_timeout: 3628800 # 6 weeks
       log: 'log/sidekiq.log'
     s3:
       enable: false
@@ -39,7 +40,6 @@ defaults:
         sql: false
         federation: false
   server:
-    port:
     listen: '0.0.0.0:3000'
     rails_environment: 'development'
     pid:
@@ -53,30 +53,21 @@ defaults:
     enabled: false
     server:
       enabled: true
-      certs: 'config/vines'
-      accept_self_signed: false
-      cross_domain_messages: true
-      max_offline_msgs: 150
-      c2s:
-        address: '0.0.0.0'
-        port: 5222
-        max_stanza_size: 65536
-        max_resources_per_account: 5
-      s2s:
-        address: '0.0.0.0'
-        port: 5269
-        max_stanza_size: 131072
-        blacklist: []
+      certs: "config/certs"
       bosh:
         proxy: false
         address: '0.0.0.0'
         port: 5280
         bind: '/http-bind'
-        max_stanza_size: 65536
-        max_resources_per_account: 5
       log:
-        file: 'log/vines.log'
-        level: 'info'
+        info: 'log/prosody.log'
+        error: 'log/prosody.err'
+        debug: false
+  map:
+    mapbox:
+      enabled: false
+      id:
+      access_token:
   privacy:
     jquery_cdn: false
     google_analytics_key:
@@ -152,6 +143,10 @@ defaults:
         warn_days: 30
         limit_removals_to_per_day: 100
     source_url:
+    default_color_theme: "original"
+    default_metas:
+      title: 'diaspora* social network'
+      description: 'diaspora* is the online social world where you are in control.'
   services:
     facebook:
       enable: false
@@ -194,8 +189,15 @@ defaults:
   admins:
     account:
     podmin_email:
-  # List valid environment variables
-  redistogo_url:
+  relay:
+    outbound:
+      send: false
+      url: 'https://relay.iliketoast.net/receive/public'
+    inbound:
+      subscribe: false
+      scope: tags
+      include_user_tags: false
+      pod_tags:
 
 development:
   environment:
@@ -212,7 +214,8 @@ development:
     autofollow_on_join: false
     autofollow_on_join_user: ''
 production:
-  i_am_a_dummy: # Remove if you add an actual override
+  server:
+    listen: 'unix:tmp/diaspora.sock'
 test:
   environment:
     url: 'http://localhost:9887/'
@@ -243,6 +246,7 @@ integration1:
 integration2:
   environment:
     url: 'http://localhost:34658/'
+    redis: 'redis://localhost:6380'
     single_process_mode: true
     assets:
       serve: true

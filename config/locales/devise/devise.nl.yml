@@ -79,7 +79,7 @@ nl:
         receive_confirmation: "Geen bevestigingsinstructies ontvangen?"
         receive_unlock: "Geen ontgrendelinstructies ontvangen?"
         sign_in: "Inloggen"
-        sign_up: "Registreer"
+        sign_up: "Creëer een account"
         sign_up_closed: "Vrij registreren is momenteel niet mogelijk."
     unlocks:
       new:

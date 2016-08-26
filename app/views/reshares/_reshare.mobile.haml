@@ -4,17 +4,21 @@
 
 .reshare
   - if post
-    = render 'shared/photo_area', :post => post
+    .nsfw-hidden
+      = render "shared/photo_area", post: post
 
     .content
-      = render 'shared/post_info', :post => post
+      = render "shared/post_info", post: post
 
-      - if !post.activity_streams?
-        = render 'status_messages/status_message', :post => post, :photos => post.photos
+    - unless post.is_a?(Reshare)
+      = render "shared/nsfw_shield", post: post
+
+      .nsfw-hidden
+        = render "status_messages/status_message", post: post, photos: post.photos
   - else
     .content
-      = t('.deleted')
+      = t(".deleted")
 
   .reshare_via
     %span
-      = t('.reshared_via')
+      = t(".reshared_via")

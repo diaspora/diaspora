@@ -43,25 +43,28 @@ module UserCukeHelpers
   end
 
   # checks the page content to see, if the login was successful
-  def confirm_login
-    page.has_content?("#{@me.first_name} #{@me.last_name}")
-  end
-
-  # checks the mobile page content to see, if the login was successful
-  def confirm_login_mobile
-    page.has_css?("#notification_badge")
+  def confirm_login(mobile)
+    if mobile
+      expect(page).to have_css "#menu-badge"
+    else
+      expect(find("#user_menu")).to have_content "#{@me.first_name} #{@me.last_name}"
+    end
   end
 
   # delete all cookies, destroying the current session
   def logout
-    $browser.delete_cookie('_session', 'path=/') if $browser
-    $browser.delete_all_visible_cookies if $browser
+    page.driver.clear_cookies
   end
 
   # go to user menu, expand it, and click logout
   def manual_logout
-    find("#user_menu li:first-child a").click
+    find("#user_menu .dropdown-toggle").click
     find("#user_menu li:last-child a").click
+  end
+
+  def manual_logout_mobile
+    find("#menu-badge").click
+    find("#drawer ul li:last-child a").click
   end
 
   def fill_in_new_user_form
@@ -93,14 +96,14 @@ module UserCukeHelpers
     find("#new_user input.btn").click
   end
 
-  # fill the reset password form
-  def fill_reset_password_form(new_pass, confirm_pass)
+  # fill the password reset form
+  def fill_password_reset_form(new_pass, confirm_pass)
     fill_in 'user_password', :with => new_pass
     fill_in 'user_password_confirmation', :with => confirm_pass
   end
 
-  # submit reset password form
-  def submit_reset_password_form
+  # submit the password reset form
+  def submit_password_reset_form
     find(".btn").click
   end
 

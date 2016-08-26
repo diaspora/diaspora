@@ -1,0 +1,23 @@
+// diaspora custom icons font
+@font-face {
+  font-family: 'diaspora-custom';
+  src: image-url('fonts/diaspora-custom.ttf');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[class^="diaspora-custom-"]:before,
+[class*=" diaspora-custom-"]:before {
+  font-family: 'diaspora-custom';
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.diaspora-custom-compose:before {
+  content: 'a';
+}

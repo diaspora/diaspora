@@ -1,34 +1,28 @@
 #aspect_nav
-  %ul.nav.nav-tabs.nav-stacked.ui-sortable
-    %li.all_contacts{:class => ("active" if params["set"] == "all")}
-      %a{:href => contacts_path(:set => "all")}
-        = t('contacts.index.all_contacts')
-        .badge.badge-default.pull-right
-          = all_contacts_count
+  %ul.list-group.ui-sortable
+    %a.list-group-item.ui-sortable-handle.all_contacts{class: ("active" if params["set"] == "all"), href: contacts_path(set: "all")}
+      = t('contacts.index.all_contacts')
+      .badge.badge-default.pull-right
+        = all_contacts_count
 
-    %li.all_aspects{:class => ("active" if !params["set"] && !params["a_id"] && !@spotlight)}
-      %a{:href => contacts_path}
-        = t('contacts.index.my_contacts')
-        .badge.badge-default.pull-right
-          = my_contacts_count
+    %a.list-group-item.ui-sortable-handle.all_aspects{class: ("active" if !params["set"] && !params["a_id"] && !@spotlight), href: contacts_path}
+      = t('contacts.index.my_contacts')
+      .badge.badge-default.pull-right
+        = my_contacts_count
 
     - all_aspects.each do |aspect|
-      %li.aspect{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
-        %a{:href => contacts_path(:a_id => aspect.id)}
-          .badge.badge-default.pull-right
-            = aspect.contacts.size
-          .name
-            = aspect
-
-    %li.new_aspect
-      %a{ "data-toggle" => "modal", "data-target" => "#newAspectModal", href: "#"}
-        = t("aspects.aspect_listings.add_an_aspect")
-
-      #newAspectContainer
-        -# JS
-
-    %li.only_sharing{:class => ("active" if params["set"] == "only_sharing")}
-      %a{:href => contacts_path(:set => "only_sharing")}
-        = t('contacts.index.only_sharing_with_me')
+      %a.list-group-item.ui-sortable-handle.aspect{data: {aspect_id: aspect.id}, class: ("active" if params["a_id"].to_i == aspect.id), href: contacts_path(a_id: aspect.id)}
         .badge.badge-default.pull-right
-          = only_sharing_count
+          = aspect.contacts.size
+        .name
+          = aspect
+
+    %a.list-group-item.ui-sortable-handle.new_aspect{ data: { toggle: "modal", target: "#newAspectModal" }, href: "#"}
+      = t('aspects.aspect_listings.add_an_aspect')
+    #newAspectContainer
+      -# JS
+
+    %a.list-group-item.ui-sortable-handle.only_sharing{ class: ("active" if params["set"] == "only_sharing"), href: contacts_path(set: "only_sharing")}
+      = t('contacts.index.only_sharing_with_me')
+      .badge.badge-default.pull-right
+        = only_sharing_count

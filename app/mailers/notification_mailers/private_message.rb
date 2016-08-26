@@ -8,8 +8,7 @@ module NotificationMailers
       @participants = @conversation.participants
 
       @headers[:from] = "\"#{@message.author_name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
-      @headers[:subject] = @conversation.subject.strip
-      @headers[:subject] = "Re: #{@headers[:subject]}" if @conversation.messages.size > 1
+      @headers[:subject] = I18n.t("notifier.private_message.subject")
     end
   end
 end

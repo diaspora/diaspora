@@ -49,16 +49,16 @@ describe ReportController, type: :controller do
 
     context "report offensive post" do
       it "succeeds" do
-        put :create, report: {item_id: @message.id, item_type: "post", text: "offensive content"}
+        put :create, report: {item_id: @message.id, item_type: "Post", text: "offensive content"}
         expect(response.status).to eq(200)
-        expect(Report.exists?(item_id: @message.id, item_type: "post")).to be true
+        expect(Report.exists?(item_id: @message.id, item_type: "Post")).to be true
       end
     end
     context "report offensive comment" do
       it "succeeds" do
-        put :create, report: {item_id: @comment.id, item_type: "comment", text: "offensive content"}
+        put :create, report: {item_id: @comment.id, item_type: "Comment", text: "offensive content"}
         expect(response.status).to eq(200)
-        expect(Report.exists?(item_id: @comment.id, item_type: "comment")).to be true
+        expect(Report.exists?(item_id: @comment.id, item_type: "Comment")).to be true
       end
     end
   end
@@ -68,14 +68,14 @@ describe ReportController, type: :controller do
       it "is behind redirect_unless_admin_or_moderator" do
         put :update, id: @message.id, type: "post"
         expect(response).to redirect_to stream_path
-        expect(Report.where(reviewed: false, item_id: @message.id, item_type: "post")).to be_truthy
+        expect(Report.where(reviewed: false, item_id: @message.id, item_type: "Post")).to be_truthy
       end
     end
     context "mark comment report as user" do
       it "is behind redirect_unless_admin_or_moderator" do
         put :update, id: @comment.id, type: "comment"
         expect(response).to redirect_to stream_path
-        expect(Report.where(reviewed: false, item_id: @comment.id, item_type: "comment")).to be_truthy
+        expect(Report.where(reviewed: false, item_id: @comment.id, item_type: "Comment")).to be_truthy
       end
     end
 
@@ -86,7 +86,7 @@ describe ReportController, type: :controller do
       it "succeeds" do
         put :update, id: @message.id, type: "post"
         expect(response.status).to eq(302)
-        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "post")).to be_truthy
+        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "Post")).to be_truthy
       end
     end
     context "mark comment report as admin" do
@@ -96,7 +96,7 @@ describe ReportController, type: :controller do
       it "succeeds" do
         put :update, id: @comment.id, type: "comment"
         expect(response.status).to eq(302)
-        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "comment")).to be_truthy
+        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "Comment")).to be_truthy
       end
     end
 
@@ -108,7 +108,7 @@ describe ReportController, type: :controller do
       it "succeeds" do
         put :update, id: @message.id, type: "post"
         expect(response.status).to eq(302)
-        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "post")).to be_truthy
+        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "Post")).to be_truthy
       end
     end
 
@@ -119,7 +119,7 @@ describe ReportController, type: :controller do
       it "succeeds" do
         put :update, id: @comment.id, type: "comment"
         expect(response.status).to eq(302)
-        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "comment")).to be_truthy
+        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "Comment")).to be_truthy
       end
     end
   end
@@ -129,14 +129,14 @@ describe ReportController, type: :controller do
       it "is behind redirect_unless_admin_or_moderator" do
         delete :destroy, id: @message.id, type: "post"
         expect(response).to redirect_to stream_path
-        expect(Report.where(reviewed: false, item_id: @message.id, item_type: "post")).to be_truthy
+        expect(Report.where(reviewed: false, item_id: @message.id, item_type: "Post")).to be_truthy
       end
     end
     context "destroy comment as user" do
       it "is behind redirect_unless_admin_or_moderator" do
         delete :destroy, id: @comment.id, type: "comment"
         expect(response).to redirect_to stream_path
-        expect(Report.where(reviewed: false, item_id: @comment.id, item_type: "comment")).to be_truthy
+        expect(Report.where(reviewed: false, item_id: @comment.id, item_type: "Comment")).to be_truthy
       end
     end
 
@@ -147,7 +147,7 @@ describe ReportController, type: :controller do
       it "succeeds" do
         delete :destroy, id: @message.id, type: "post"
         expect(response.status).to eq(302)
-        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "post")).to be_truthy
+        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "Post")).to be_truthy
       end
     end
     context "destroy comment as admin" do
@@ -157,7 +157,7 @@ describe ReportController, type: :controller do
       it "succeeds" do
         delete :destroy, id: @comment.id, type: "comment"
         expect(response.status).to eq(302)
-        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "comment")).to be_truthy
+        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "Comment")).to be_truthy
       end
     end
 
@@ -168,7 +168,7 @@ describe ReportController, type: :controller do
       it "succeeds" do
         delete :destroy, id: @message.id, type: "post"
         expect(response.status).to eq(302)
-        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "post")).to be_truthy
+        expect(Report.where(reviewed: true, item_id: @message.id, item_type: "Post")).to be_truthy
       end
     end
     context "destroy comment as moderator" do
@@ -178,7 +178,7 @@ describe ReportController, type: :controller do
       it "succeeds" do
         delete :destroy, id: @comment.id, type: "comment"
         expect(response.status).to eq(302)
-        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "comment")).to be_truthy
+        expect(Report.where(reviewed: true, item_id: @comment.id, item_type: "Comment")).to be_truthy
       end
     end
   end

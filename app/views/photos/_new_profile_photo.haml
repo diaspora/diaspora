@@ -29,23 +29,24 @@
           $('#file-upload').addClass("loading");
           $("#profile_photo_upload").find(".avatar").addClass('loading');
           $("#file-upload-spinner").removeClass("hidden");
+          $("#fileInfo").show();
          },
 
          onComplete: function(id, fileName, responseJSON){
           $("#file-upload-spinner").addClass("hidden");
-          $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
+          $("#fileInfo").text(Diaspora.I18n.t("photo_uploader.completed", {"file": fileName}));
           $('#file-upload').removeClass("loading");
 
           /* flash message prompt */
           var message = Diaspora.I18n.t("photo_uploader.looking_good");
-          Diaspora.page.flashMessages.render({success: true, notice: message});
+          if(app.flashMessages) { app.flashMessages.success(message); }
 
           var id = responseJSON.data.photo.id;
           var url = responseJSON.data.photo.unprocessed_image.url;
           var oldPhoto = $('#photo_id');
           if(oldPhoto.length == 0) {
             $('#update_profile_form').prepend("<input type='hidden' value='" + id + "' id='photo_id' name='photo_id'/>");
-          }else{
+          } else {
             oldPhoto.val(id);
           }
 
@@ -57,17 +58,15 @@
     }
     window.onload = createUploader;
 
-#profile_photo_upload
+.profile-photo-upload#profile_photo_upload
   = owner_image_tag(:thumb_large)
-
+  .small-horizontal-spacer
   .clearfix
-
-  #file-upload.btn
-    =t('.upload')
+    .text-center
+      #file-upload.btn.btn-primary
+        =t('.upload')
 
   = image_tag('mobile-spinner.gif', :class => 'hidden', :style => "z-index:-1", :id => 'file-upload-spinner')
 
   %p
     #fileInfo
-
-  #publisher_photo_upload

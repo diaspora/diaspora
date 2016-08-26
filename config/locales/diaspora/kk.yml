@@ -5,17 +5,12 @@
 
 
 kk:
-  _comments: "Түсініктемелер"
   _contacts: "Байланыстар"
-  _home: "Үйге"
-  _photos: "Суреттер"
   _services: "Қызмет атқарулар"
   _statistics: "Статистикасы"
   account: "Есепшот"
   are_you_sure: "Сенімдісіз бе?"
   aspects:
-    aspect_listings:
-      select_all: "Барлықты таңдап ал"
     edit:
       rename: "Атын өзгерту"
       update: "жаңала"
@@ -24,18 +19,13 @@ kk:
       help:
         tag_bug: "қате"
         tag_question: "сұрақ"
-    new:
-      create: "жасау"
     seed:
       family: "Жанұя"
       friends: "достар"
       work: "жұмыс"
-  back: "Артқа"
   comments:
     new_comment:
       comment: "түсініктеме"
-    one: "1 түсініктеме"
-    zero: "түсініктемелер жоқ"
   conversations:
     new:
       subject: "тақырып"
@@ -43,20 +33,14 @@ kk:
   delete: "Өшіру"
   invitations:
     new:
-      aspect: "Аспектісі"
       language: "тіл"
-      to: "Үшін"
   limited: "Шектеулі"
   more: "Көбірек"
-  next: "Келесі"
   no_results: "Нәтижелер табылмады"
   notifications:
     index:
       no_notifications: "Сізде әлі ешқандай хабарландыруларды жоқ."
   ok: "ЖАҚСЫ"
-  or: "немесе"
-  password: "Құпиясөз"
-  previous: "Алдыңғы"
   public: "Қоғамдық"
   search: "Іздеу"
   settings: "Құрал саймандар"
@@ -73,6 +57,4 @@ kk:
     services: "Қызмет атқарулар"
     total_users: "Жалпы пайдаланушылар"
     version: "Нұсқа"
-  terms_and_conditions: "Шарт және шарттар"
   username: "Қолданушының аты"
-  welcome: "Қош келдіңіз!"

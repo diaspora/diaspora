@@ -31,7 +31,7 @@ describe NodeInfoPresenter do
         },
         "services"          => {
           "inbound"  => [],
-          "outbound" => ["facebook"]
+          "outbound" => AppConfig.configured_services.map(&:to_s)
         },
         "openRegistrations" => AppConfig.settings.enable_registrations?,
         "usage"             => {

@@ -1,0 +1,65 @@
+.control-icons {
+  a {
+    &:hover { text-decoration: none; }
+
+    [class^="entypo-"],
+    [class*="entypo-"] {
+      color: $text-grey;
+      font-size: $font-size-base;
+      line-height: $line-height-base;
+      vertical-align: middle;
+    }
+
+    [class^="entypo-"]:hover,
+    [class*="entypo-"]:hover {
+      color: $text;
+    }
+
+    &.hide_conversation i { font-size: $line-height-computed * 1.5; }
+    &.delete_conversation i { font-size: $font-size-base * 1.5; }
+    &.destroy_participation i { color: $black; }
+    &.destroy_participation i:hover { color: $text-dark-grey; }
+  }
+}
+
+.stream_container,
+.single-post-interactions {
+  .control-icons {
+    float: right;
+    z-index: 6;
+
+    .block_user,
+    .comment_report,
+    .create_participation,
+    .delete,
+    .destroy_participation,
+    .post_report {
+      display: inline-block;
+    }
+
+    > a:hover { text-decoration: none; }
+  }
+}
+
+.stream_element,
+.comment,
+.photo,
+.stream_element:hover .comment {
+  .control-icons {
+    @include transition(opacity);
+    opacity: 0;
+  }
+
+  &:hover .control-icons { opacity: 1; }
+}
+
+.stream_element,
+.comment,
+.photo {
+  .control-icons > a {
+    @include transition(opacity);
+    opacity: .8;
+  }
+
+  .control-icons > a:hover { opacity: 1; }
+}

@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe ConversationsController, :type => :controller do
   before do
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe '#new' do
@@ -23,10 +23,13 @@ describe ConversationsController, :type => :controller do
     end
 
     it "assigns a json list of contacts that are sharing with the person" do
+      sharing_user = FactoryGirl.create(:user_with_aspect)
+      sharing_user.share_with(alice.person, sharing_user.aspects.first)
       get :new, :modal => true
-      expect(assigns(:contacts_json)).to include(alice.contacts.where(:sharing => true).first.person.name)
+      expect(assigns(:contacts_json)).to include(alice.contacts.where(sharing: true, receiving: true).first.person.name)
       alice.contacts << Contact.new(:person_id => eve.person.id, :user_id => alice.id, :sharing => false, :receiving => true)
-      expect(assigns(:contacts_json)).not_to include(alice.contacts.where(:sharing => false).first.person.name)
+      expect(assigns(:contacts_json)).not_to include(alice.contacts.where(sharing: false).first.person.name)
+      expect(assigns(:contacts_json)).not_to include(alice.contacts.where(receiving: false).first.person.name)
     end
 
     it "assigns a contact if passed a contact id" do
@@ -64,7 +67,7 @@ describe ConversationsController, :type => :controller do
         author:              alice.person,
         participant_ids:     [alice.contacts.first.person.id, alice.person.id],
         subject:             "not spam",
-        messages_attributes: [{author: alice.person, text: "cool stuff"}]
+        messages_attributes: [{author: alice.person, text: "**cool stuff**"}]
       }
       @conversations = Array.new(3) { Conversation.create(hash) }
       @visibilities = @conversations.map {|conversation|
@@ -98,9 +101,17 @@ describe ConversationsController, :type => :controller do
     end
 
     it "does not let you access conversations where you are not a recipient" do
-      sign_in :user, eve
+      sign_in eve, scope: :user
       get :index, conversation_id: @conversations.first.id
       expect(assigns[:conversation]).to be_nil
+    end
+
+    it "retrieves a conversation message with out markdown content " do
+      get :index
+      @conversation = @conversations.first
+      expect(response).to be_success
+      expect(response.body).to match(/cool stuff/)
+      expect(response.body).not_to match(%r{<strong>cool stuff</strong>})
     end
   end
 
@@ -153,9 +164,7 @@ describe ConversationsController, :type => :controller do
           }
         )
 
-        p = Postzord::Dispatcher.build(alice, cnv)
-        allow(p.class).to receive(:new).and_return(p)
-        expect(p).to receive(:post)
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
         post :create, @hash
       end
     end

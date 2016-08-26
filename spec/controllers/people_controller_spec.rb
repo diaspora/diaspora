@@ -5,10 +5,12 @@
 require 'spec_helper'
 
 describe PeopleController, :type => :controller do
+  include_context :gon
+
   before do
     @user = alice
     @aspect = @user.aspects.first
-    sign_in :user, @user
+    sign_in @user, scope: :user
   end
 
   describe '#index (search)' do
@@ -116,21 +118,6 @@ describe PeopleController, :type => :controller do
     end
   end
 
-  describe '#tag_index' do
-    it 'works for js' do
-      xhr :get, :tag_index, :name => 'jellybeans', :format => :js
-      expect(response).to be_success
-    end
-
-    it 'returns awesome people who have that tag' do
-      f = FactoryGirl.create(:person)
-      f.profile.tag_string = "#seeded"
-      f.profile.save
-      xhr :get, :tag_index, :name => 'seeded', :format => :js
-      expect(assigns[:people].count).to eq(1)
-    end
-  end
-
   describe "#show performance", :performance => true do
     before do
       require 'benchmark'
@@ -159,6 +146,11 @@ describe PeopleController, :type => :controller do
   end
 
   describe '#show' do
+    before do
+      @person = FactoryGirl.create(:user).person
+      @presenter = PersonPresenter.new(@person, @user)
+    end
+
     it "404s if the id is invalid" do
       get :show, :id => 'delicious'
       expect(response.code).to eq("404")
@@ -174,9 +166,15 @@ describe PeopleController, :type => :controller do
       expect(response.code).to eq("404")
     end
 
+    it "returns a person presenter" do
+      expect(PersonPresenter).to receive(:new).with(@person, @user).and_return(@presenter)
+      get :show, username: @person.username
+      expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
+    end
+
     it 'finds a person via username' do
-      get :show, username: @user.username
-      expect(assigns(:person)).to eq(@user.person)
+      get :show, username: @person.username
+      expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
     it "404s if no person is found via diaspora handle" do
@@ -185,8 +183,8 @@ describe PeopleController, :type => :controller do
     end
 
     it 'finds a person via diaspora handle' do
-      get :show, username: @user.diaspora_handle
-      expect(assigns(:person)).to eq(@user.person)
+      get :show, username: @person.diaspora_handle
+      expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
     it 'redirects home for closed account' do
@@ -210,11 +208,11 @@ describe PeopleController, :type => :controller do
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       end
       get :show, :id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}'
+      expect(response.body).to include ',"photos_count":16'
 
       eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
       get :show, :id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
+      expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
     end
 
     context "when the person is the current user" do
@@ -229,8 +227,8 @@ describe PeopleController, :type => :controller do
       end
 
       it "assigns the right person" do
-        get :show, :id => @user.person.to_param
-        expect(assigns(:person)).to eq(@user.person)
+        get :show, id: @person.to_param
+        expect(assigns(:presenter).id).to eq(@presenter.id)
       end
     end
 
@@ -262,6 +260,27 @@ describe PeopleController, :type => :controller do
         get :show, id: @person.to_param
         expect(response.body).not_to include(@person.profile.bio)
       end
+
+      it "includes the correct meta tags" do
+        presenter = PersonPresenter.new(@person)
+        methods_properties = {
+          comma_separated_tags: {html_attribute: "name",     name: "keywords"},
+          url:                  {html_attribute: "property", name: "og:url"},
+          title:                {html_attribute: "property", name: "og:title"},
+          image_url:            {html_attribute: "property", name: "og:image"},
+          first_name:           {html_attribute: "property", name: "og:profile:first_name"},
+          last_name:            {html_attribute: "property", name: "og:profile:last_name"}
+        }
+
+        get :show, id: @person.to_param
+
+        methods_properties.each do |method, property|
+          value = presenter.send(method)
+          expect(response.body).to include(
+            "<meta #{property[:html_attribute]}=\"#{property[:name]}\" content=\"#{value}\" />"
+          )
+        end
+      end
     end
 
     context "when the person is a contact of the current user" do
@@ -292,6 +311,11 @@ describe PeopleController, :type => :controller do
         get :show, id: @person.to_param
         expect(response.body).to include(@person.profile.bio)
       end
+
+      it "preloads data using gon for the aspect memberships dropdown" do
+        get :show, id: @person.to_param
+        expect_gon_preloads_for_aspect_membership_dropdown(:person, true)
+      end
     end
 
     context "when the person is not a contact of the current user" do
@@ -313,12 +337,17 @@ describe PeopleController, :type => :controller do
         get :show, id: @person.to_param
         expect(response.body).not_to include(@person.profile.bio)
       end
+
+      it "preloads data using gon for the aspect memberships dropdown" do
+        get :show, id: @person.to_param
+        expect_gon_preloads_for_aspect_membership_dropdown(:person, false)
+      end
     end
 
     context "when the user is following the person" do
       before do
         sign_out :user
-        sign_in :user, peter
+        sign_in peter, scope: :user
         @person = alice.person
       end
 
@@ -456,7 +485,32 @@ describe PeopleController, :type => :controller do
 
     it 'returns json with profile stuff' do
       get :hovercard, :person_id => @hover_test.guid, :format => 'json'
-      expect(JSON.parse( response.body )['handle']).to eq(@hover_test.diaspora_handle)
+      expect(JSON.parse(response.body)["diaspora_id"]).to eq(@hover_test.diaspora_handle)
+    end
+
+    it "returns contact when sharing" do
+      alice.share_with(@hover_test, alice.aspects.first)
+      expect(@controller).to receive(:current_user).at_least(:once).and_return(alice)
+      get :hovercard, person_id: @hover_test.guid, format: "json"
+      expect(JSON.parse(response.body)["contact"]).not_to be_falsy
+    end
+
+    context "with no user signed in" do
+      before do
+        sign_out :user
+      end
+
+      it "succeeds with local person" do
+        get :hovercard, person_id: bob.person.guid, format: :json
+        expect(response.status).to eq(200)
+        expect(JSON.parse(response.body)["diaspora_id"]).to eq(bob.diaspora_handle)
+      end
+
+      it "succeeds with remote person" do
+        get :hovercard, person_id: remote_raphael.guid, format: :json
+        expect(response.status).to eq(200)
+        expect(JSON.parse(response.body)["diaspora_id"]).to eq(remote_raphael.diaspora_handle)
+      end
     end
   end
 
@@ -468,19 +522,20 @@ describe PeopleController, :type => :controller do
                      :profile => FactoryGirl.build(:profile, :first_name => "Evan", :last_name => "Korth"))
     end
 
-    describe 'via json' do
-      it 'returns a zero count when a search fails' do
-        get :refresh_search, :q => "weweweKorth", :format => 'json'
-        expect(response.body).to eq({:search_count=>0, :search_html=>""}.to_json)
+    describe "via json" do
+      it "returns no data when a search fails" do
+        get :refresh_search, q: "weweweKorth", format: "json"
+        expect(response.body).to eq({search_html: "", contacts: nil}.to_json)
       end
 
-      it 'returns with a zero count unless a fully composed name is sent' do
-        get :refresh_search, :q => "Korth"
-        expect(response.body).to eq({:search_count=>0, :search_html=>""}.to_json)
+      it "returns no data unless a fully composed name is sent" do
+        get :refresh_search, q: "Korth"
+        expect(response.body).to eq({search_html: "", contacts: nil}.to_json)
       end
-      it 'returns with a found name' do
-        get :refresh_search, :q => @korth.diaspora_handle
-        expect(JSON.parse( response.body )["search_count"]).to eq(1)
+
+      it "returns with a found name" do
+        get :refresh_search, q: @korth.diaspora_handle
+        expect(JSON.parse(response.body)["contacts"].size).to eq(1)
       end
     end
   end
@@ -506,11 +561,11 @@ describe PeopleController, :type => :controller do
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       end
       get :contacts, :person_id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}'
+      expect(response.body).to include ',"photos_count":16'
 
       eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
       get :contacts, :person_id => eve.person.to_param
-      expect(response.body).to include '"photos":{"count":16}' # eve is not sharing with alice
+      expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
     end
 
     it "returns a 406 for json format" do

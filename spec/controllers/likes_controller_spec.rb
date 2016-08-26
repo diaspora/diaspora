@@ -9,7 +9,7 @@ describe LikesController, :type => :controller do
     @alices_aspect = alice.aspects.where(:name => "generic").first
     @bobs_aspect = bob.aspects.where(:name => "generic").first
 
-    sign_in :user, alice
+    sign_in(alice, scope: :user)
   end
 
   [Comment, Post].each do |class_const|

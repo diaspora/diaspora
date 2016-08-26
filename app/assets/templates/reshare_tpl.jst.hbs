@@ -12,16 +12,11 @@
               {{name}}
             {{/linkToAuthor}}
 
-            <span class="details grey">
+            <span class="details gray">
               -
               <a href="/posts/{{id}}">
-                <time class="timeago" datetime="{{created_at}}"/>
+                <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
               </a>
-
-              {{#if interactions.reshares_count}}
-                -
-                {{t "stream.reshares" count=interactions.reshares_count}}
-              {{/if}}
             </span>
           </div>
       {{/with}}

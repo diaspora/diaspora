@@ -1,0 +1,22 @@
+.stream
+  = render partial: "message", collection: conversation.messages
+
+  .stream_element.new-message
+    .media
+      .media-left
+        = owner_image_tag(:thumb_small)
+      .media-body
+        = form_for [conversation, Message.new], html: {class: "control-group"} do |message|
+          .form-group
+            %label#messageLabel.sr-only{for: "message_text"}
+              = t("conversations.new.message")
+            = message.text_area :text,
+                                rows:     5,
+                                tabindex: 1,
+                                class:    "form-control form-group",
+                                aria:     {labelledby: "messageLabel"}
+
+          = message.submit t("conversations.show.reply"),
+                            "data-disable-with" => t("conversations.show.replying"),
+                            class: "btn btn-primary pull-right", tabindex: 2
+          .clearfix

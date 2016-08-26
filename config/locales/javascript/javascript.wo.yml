@@ -40,14 +40,13 @@ wo:
       unlike: "Du bëgg"
     timeago:
       day: "bés"
-      days: "%di bés"
-      months: "%di weer"
+      days:
+        other: "%di bés"
+      months:
+        other: "%di weer"
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: ""
       suffixFromNow: ""
-      years: "%di at"
-    viewer:
-      home: "KËR GI"
-      like: "Bëgg"
-      unlike: "Du bëgg"
+      years:
+        other: "%di at"

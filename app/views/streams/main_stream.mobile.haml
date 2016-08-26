@@ -2,12 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%h2{:style => "padding:0 10px;display:none;"}
-  - if @stream.for_all_aspects?
-    = t('all_aspects')
-  - else
-    = @stream.aspect
-
 #main_stream.stream
-  = render 'shared/stream', :posts => @stream.stream_posts
+  = render 'shared/stream', posts: @stream.stream_posts
   = render 'shared/stream_more_button'

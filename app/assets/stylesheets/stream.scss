@@ -1,11 +1,26 @@
 .stream_container {
-	border-left: 1px solid $border-grey;
-	padding-left: 10px;
-	padding-top: 20px;
-	margin-left: -10px;
-	margin-top: -20px;
-  #publisher {
-    margin-bottom: 15px;
+  .stream-title {
+    margin: 12px 0;
   }
-  .well#ignore-info { text-align: center; }
+}
+
+.main-stream-publisher {
+  margin-top: 20px;
+  padding: 0;
+
+  .avatar {
+    height: 50px;
+    width: 50px;
+  }
+
+  .publisher {
+    margin-left: 65px;
+  }
+}
+
+@media(max-width: $screen-xs-max) {
+
+  .main-stream-publisher .publisher {
+    margin-left: 0;
+  }
 }

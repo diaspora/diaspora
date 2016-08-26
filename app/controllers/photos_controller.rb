@@ -20,19 +20,16 @@ class PhotosController < ApplicationController
     @post_type = :photos
     @person = Person.find_by_guid(params[:person_id])
     authenticate_user! if @person.try(:remote?) && !user_signed_in?
+    @presenter = PersonPresenter.new(@person, current_user)
 
     if @person
       @contact = current_user.contact_for(@person) if user_signed_in?
       @posts = Photo.visible(current_user, @person, :all, max_time)
       respond_to do |format|
         format.all do
-          gon.preloads[:person] = PersonPresenter.new(@person, current_user).full_hash_with_profile
-          gon.preloads[:photos] = {
-            count: Photo.visible(current_user, @person).count(:all)
-          }
-          gon.preloads[:contacts] = {
-            count: Contact.contact_contacts_for(current_user, @person).count(:all),
-          }
+          gon.preloads[:person] = @presenter.as_json
+          gon.preloads[:photos_count] = Photo.visible(current_user, @person).count(:all)
+          gon.preloads[:contacts_count] = Contact.contact_contacts_for(current_user, @person).count(:all)
           render "people/show", layout: "with_header"
         end
         format.mobile { render "people/show" }
@@ -109,34 +106,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  def edit
-    if @photo = current_user.photos.where(:id => params[:id]).first
-      respond_with @photo
-    else
-      redirect_to person_photos_path(current_user.person)
-    end
-  end
-
-  def update
-    photo = current_user.photos.where(:id => params[:id]).first
-    if photo
-      if current_user.update_post( photo, photo_params )
-        flash.now[:notice] = I18n.t 'photos.update.notice'
-        respond_to do |format|
-          format.js{ render :json => photo, :status => 200 }
-        end
-      else
-        flash.now[:error] = I18n.t 'photos.update.error'
-        respond_to do |format|
-          format.html{ redirect_to [:edit, photo] }
-          format.js{ render :status => 403 }
-        end
-      end
-    else
-      redirect_to person_photos_path(current_user.person)
-    end
-  end
-
   private
 
   def photo_params
@@ -178,10 +147,12 @@ class PhotosController < ApplicationController
     @photo = current_user.build_post(:photo, params[:photo])
 
     if @photo.save
-      aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
 
       unless @photo.pending
-        current_user.add_to_streams(@photo, aspects)
+        unless @photo.public?
+          aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
+          current_user.add_to_streams(@photo, aspects)
+        end
         current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
       end
 

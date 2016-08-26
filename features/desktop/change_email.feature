@@ -3,7 +3,7 @@ Feature: Change email
 
   Scenario: Change my email
     Given I am signed in
-    When I go to the users edit page
+    When I go to the edit user page
     And I fill in the following:
       | user_email         | new_email@newplac.es           |
     And I press "Change email"
@@ -14,7 +14,7 @@ Feature: Change email
 
   Scenario: Change my email preferences
     Given I am signed in
-    When I go to the users edit page
+    When I go to the edit user page
     And I uncheck "user_email_preferences_mentioned"
     And I press "change_email_preferences"
     Then I should see "Email notifications changed"

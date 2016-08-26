@@ -5,9 +5,11 @@
 require 'spec_helper'
 
 describe UsersController, :type => :controller do
+  include_context :gon
+
   before do
     @user = alice
-    sign_in :user, @user
+    sign_in @user, scope: :user
     allow(@controller).to receive(:current_user).and_return(@user)
   end
 
@@ -61,7 +63,7 @@ describe UsersController, :type => :controller do
     it 'renders xml if atom is requested' do
       sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
-      expect(response.body).to include(sm.raw_message)
+      expect(response.body).to include(sm.text)
     end
 
     it 'renders xml if atom is requested with clickalbe urls' do
@@ -77,7 +79,7 @@ describe UsersController, :type => :controller do
     it 'includes reshares in the atom feed' do
       reshare = FactoryGirl.create(:reshare, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
-      expect(response.body).to include reshare.root.raw_message
+      expect(response.body).to include reshare.root.text
     end
 
     it 'do not show reshares in atom feed if origin post is deleted' do
@@ -116,11 +118,6 @@ describe UsersController, :type => :controller do
       expect(response).to render_template('edit')
     end
 
-    it 'responds with a 204 on a js request' do
-      put :update, @params.merge(:format => :js)
-      expect(response.status).to eq(204)
-    end
-
     describe 'password updates' do
       let(:password_params) do
         {:current_password => 'bluepin7',
@@ -152,6 +149,17 @@ describe UsersController, :type => :controller do
       end
     end
 
+    describe "color_theme" do
+      it "allow the user to change his color theme" do
+        old_color_theme = "original"
+        @user.color_theme = old_color_theme
+        @user.save
+        put(:update, id: @user.id, user: {color_theme: "dark_green"})
+        @user.reload
+        expect(@user.color_theme).not_to eq(old_color_theme)
+      end
+    end
+
     describe 'email' do
       it 'disallow the user to change his new (unconfirmed) mail when it is the same as the old' do
         @user.email = "my@newemail.com"
@@ -173,7 +181,7 @@ describe UsersController, :type => :controller do
       end
 
       it 'informs the user about failure' do
-        put(:update, :id => @user.id, :user => { :email => "my@newemailcom"})
+        put(:update, id: @user.id, user: {email: "mynewemailcom"})
         expect(request.flash[:error]).to eql(I18n.t('users.update.unconfirmed_email_not_changed'))
         expect(request.flash[:notice]).to be_blank
       end
@@ -307,6 +315,20 @@ describe UsersController, :type => :controller do
     it 'does not fail miserably on mobile' do
       get :getting_started, :format => :mobile
       expect(response).to be_success
+    end
+
+    context "with inviter" do
+      [bob, eve].each do |inviter|
+        sharing = !alice.contact_for(inviter.person).nil?
+
+        context sharing ? "when sharing" : "when don't share" do
+          it "preloads data using gon for the aspect memberships dropdown" do
+            alice.invited_by = inviter
+            get :getting_started
+            expect_gon_preloads_for_aspect_membership_dropdown(:inviter, sharing)
+          end
+        end
+      end
     end
   end
 end

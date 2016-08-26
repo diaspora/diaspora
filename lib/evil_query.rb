@@ -19,7 +19,12 @@ module EvilQuery
     end
 
     def posts
-      Post.joins(:participations).where(:participations => {:author_id => @user.person.id}).order("posts.interacted_at DESC")
+      author_id = @user.person_id
+      Post.joins("LEFT OUTER JOIN participations ON participations.target_id = posts.id AND " \
+                 "participations.target_type = 'Post'")
+          .where(::Participation.arel_table[:author_id].eq(author_id).or(Post.arel_table[:author_id].eq(author_id)))
+          .order("posts.interacted_at DESC")
+          .distinct
     end
   end
 
@@ -61,7 +66,7 @@ module EvilQuery
 
     def aspects_post_ids!
       logger.debug("[EVIL-QUERY] aspect_post_ids!")
-      @user.visible_shareable_ids(Post, :limit => 15, :order => "#{@order} DESC", :max_time => @max_time, :all_aspects? => true, :by_members_of => @user.aspect_ids)
+      @user.visible_shareable_ids(Post, limit: 15, order: "#{@order} DESC", max_time: @max_time, all_aspects?: true)
     end
 
     def followed_tags_posts!
@@ -94,13 +99,16 @@ module EvilQuery
 
     def post!
       #small optimization - is this optimal order??
-      querent_is_contact.first || querent_is_author.first || public_post.first
+      querent_has_visibility.first || querent_is_author.first || public_post.first
     end
 
     protected
 
-    def querent_is_contact
-      @class.where(@key => @id).joins(:contacts).where(:contacts => {:user_id => @querent.id}).where(@conditions).select(@class.table_name+".*")
+    def querent_has_visibility
+      @class.where(@key => @id).joins(:share_visibilities)
+        .where(share_visibilities: {user_id: @querent.id})
+        .where(@conditions)
+        .select(@class.table_name + ".*")
     end
 
     def querent_is_author
@@ -109,51 +117,6 @@ module EvilQuery
 
     def public_post
       @class.where(@key => @id, :public => true).where(@conditions)
-    end
-  end
-
-  class ShareablesFromPerson < Base
-    def initialize(querent, klass, person)
-      @querent = querent
-      @class = klass
-      @person = person
-    end
-
-    def make_relation!
-      return querents_posts if @person == @querent.person
-
-      # persons_private_visibilities and persons_public_posts have no limit which is making shareable_ids gigantic.
-      # perhaps they should the arrays should be merged and sorted
-      # then the query at the bottom of this method can be paginated or something?
-
-      shareable_ids = contact.present? ? fetch_ids!(persons_private_visibilities, "share_visibilities.shareable_id") : []
-      shareable_ids += fetch_ids!(persons_public_posts, table_name + ".id")
-
-      @class.where(:id => shareable_ids, :pending => false).
-          select('DISTINCT '+table_name+'.*').
-          order(table_name+".created_at DESC")
-    end
-
-    protected
-
-    def table_name
-      @class.table_name
-    end
-
-    def contact
-      @contact ||= @querent.contact_for(@person)
-    end
-
-    def querents_posts
-      @querent.person.send(table_name).where(:pending => false).order("#{table_name}.created_at DESC")
-    end
-
-    def persons_private_visibilities
-      contact.share_visibilities.where(:hidden => false, :shareable_type => @class.to_s)
-    end
-
-    def persons_public_posts
-      @person.send(table_name).where(:public => true).select(table_name+'.id')
     end
   end
 end

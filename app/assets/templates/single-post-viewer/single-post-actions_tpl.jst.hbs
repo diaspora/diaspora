@@ -1,25 +1,25 @@
 <div class='pull-right'>
   {{#if loggedIn}}
-    <a href="#" class="like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
+    <a href="#" class="like" title="{{#if userLike}} {{t "stream.unlike"}} {{else}} {{t "stream.like"}} {{/if}}">
     {{#if userLike}}
-      <i class="entypo heart red large"></i>
+      <i class="entypo-heart red large"></i>
     {{else}}
-      <i class="entypo heart gray large"></i>
+      <i class="entypo-heart gray large"></i>
     {{/if}}
     </a>
-    
-    <a href="#" class="focus-comment" title="{{t "viewer.comment"}}">
-      <i class="entypo comment gray large"></i>
+
+    <a href="#" class="focus-comment" title="{{t "stream.comment"}}">
+      <i class="entypo-comment gray large"></i>
     </a>
-    
+
     {{#if userCanReshare}}
-      <a href="#" class="reshare" title="{{t "viewer.reshare"}}">
-        <i class="entypo retweet gray large"></i>
+      <a href="#" class="reshare" title="{{t "stream.reshare"}}">
+        <i class="entypo-reshare gray large"></i>
       </a>
     {{else}}
       {{#if userReshare}}
         <a href="#" class="reshare-viewonly" title="{{t "viewer.reshared"}}">
-          <i class="entypo retweet blue large"></i>
+          <i class="entypo-reshare blue large"></i>
         </a>
       {{/if}}
     {{/if}}

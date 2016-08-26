@@ -1,0 +1,60 @@
+.poll_form {
+  border-bottom: 1px solid $border-grey;
+  border-top: 1px solid $border-grey;
+  margin: 10px 0;
+  padding: 10px 0 5px;
+
+  .toggle-result-wrapper {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  form {
+    margin-bottom: 0;
+  }
+
+  .progress {
+    background-image: none;
+    box-shadow: 0 0 0;
+    height: 10px;
+    margin-bottom: 5px;
+
+    .bar {
+      background: $border-dark-grey none;
+      color: $text-dark-grey;
+      height: 100%;
+      text-align: left;
+    }
+  }
+
+  .submit[disabled] {
+    color: $text-grey;
+    cursor: default;
+
+    &:hover,
+    &:active {
+      background-image: none;
+    }
+  }
+}
+
+.poll-content {
+  margin-top: 5px;
+
+  [type=radio],
+  label {
+    font-weight: normal;
+    margin-bottom: 5px;
+    vertical-align: middle;
+  }
+
+  [type=radio],
+  form .poll-result,
+  form .progress {
+    display: none; // Hide the result by default when the vote is possible
+  }
+
+  form [type=radio] {
+    display: inline;
+  }
+}

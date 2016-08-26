@@ -1,9 +1,8 @@
 // Calling this file bootstrap would cause an infinite recursion during asset compilation.
-@import 'bootstrap';
-@import 'bootstrap-responsive';
+@import "bootstrap-sprockets";
+@import "bootstrap-variables"; //our overwrites of bootstrap variables
+@import "bootstrap";
 
+// Plugins
 
-// according to the docs, this is part of bootstrap 2.3.x
-.text-left { text-align: left; }
-.text-center { text-align: center; }
-.text-right { text-align: right; }
+@import "bootstrap3-switch";

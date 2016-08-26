@@ -15,6 +15,3 @@ af:
     index:
       help:
         tutorial_link_text: "Tutoriale"
-  people:
-    profile_sidebar:
-      photos: "Fotos"

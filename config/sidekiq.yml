@@ -5,17 +5,11 @@
 :logfile: "<%= AppConfig.sidekiq_log %>"
 <% end %>
 :concurrency: <%= AppConfig.environment.sidekiq.concurrency.to_i %>
+:dead_max_jobs: <%= AppConfig.environment.sidekiq.dead_jobs_limit.to_i %>
+:dead_timeout_in_seconds: <%= AppConfig.environment.sidekiq.dead_jobs_timeout.to_i %>
 :queues:
-  - socket_webfinger
-  - photos
-  - http_service
-  - dispatch
-  - mail
-  - delete_account
-  - receive_local
-  - receive
-  - receive_salmon
-  - http
-  - export
-  - maintenance
+  - urgent
+  - high
+  - medium
+  - low
   - default

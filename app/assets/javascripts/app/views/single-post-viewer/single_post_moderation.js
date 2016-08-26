@@ -1,7 +1,7 @@
 app.views.SinglePostModeration = app.views.Feedback.extend({
   templateName: "single-post-viewer/single-post-moderation",
 
-  className: 'control-icons',
+  className: "control-icons",
 
   events: function() {
     return _.defaults({
@@ -19,7 +19,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
 
   renderPluginWidgets : function() {
     app.views.Base.prototype.renderPluginWidgets.apply(this);
-    this.$('a').tooltip({placement: 'bottom'});
+    this.$("a").tooltip({placement: "bottom"});
   },
 
   authorIsCurrentUser: function() {
@@ -28,7 +28,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
 
   destroyModel: function(evt) {
     if(evt) { evt.preventDefault(); }
-    var url = this.model.urlRoot + '/' + this.model.id;
+    var url = this.model.urlRoot + "/" + this.model.id;
 
     if (confirm(Diaspora.I18n.t("remove_post"))) {
       this.model.destroy({ url: url })
@@ -37,11 +37,7 @@ app.views.SinglePostModeration = app.views.Feedback.extend({
           document.location.href = "/stream";
         })
         .fail(function() {
-          var flash = new Diaspora.Widgets.FlashMessages();
-          flash.render({
-            success: false,
-            notice: Diaspora.I18n.t('failed_to_remove')
-          });
+          app.flashMessages.error(Diaspora.I18n.t("failed_to_remove"));
         });
     }
   },

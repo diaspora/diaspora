@@ -12,7 +12,6 @@ $(document).ready(function() {
         var jid = app.currentUser.get('diaspora_id');
         jsxc.init({
           root: '/assets/diaspora_jsxc',
-          logoutElement: $('.user-menu-item [data-method=delete]'),
           rosterAppend: 'body',
           otr: {
             debug: true,

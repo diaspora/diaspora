@@ -1,17 +1,10 @@
 def retraction_entity(entity_name, target_object, sender)
-  allow(DiasporaFederation.callbacks).to receive(:trigger)
-                                           .with(
-                                             :fetch_entity_author_id_by_guid,
-                                             target_object.class.to_s,
-                                             target_object.guid
-                                           )
-                                           .and_return(sender.encryption_key)
-
   FactoryGirl.build(
     entity_name,
     author:      sender.diaspora_handle,
     target_guid: target_object.guid,
-    target_type: target_object.class.to_s
+    target_type: target_object.class.to_s,
+    target:      Diaspora::Federation::Entities.related_entity(target_object)
   )
 end
 
