@@ -1,0 +1,9 @@
+configuration:
+  pod_count: 3
+  pod1:
+    uri: "http://pod1.diaspora.local"
+    revisions: ["origin/develop"]
+  pod2:
+    revisions: ["origin/develop"]
+  pod3: 
+    revisions: ["origin/develop"]

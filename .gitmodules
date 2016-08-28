@@ -1,0 +1,4 @@
+[submodule "replica"]
+	path = replica
+	url = https://github.com/cmrd-senya/diaspora-replica.git
+	branch = testfarm

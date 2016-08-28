@@ -309,3 +309,12 @@ group :development, :test do
   # silence assets
   gem "quiet_assets", "1.1.0"
 end
+
+group :test_federation do
+  gem "diaspora_api", github: "cmrd-senya/diaspora-api"
+  gem "capistrano"
+  gem "capistrano-rvm", github: "capistrano/rvm"
+  gem "capistrano-rails"
+  gem "capistrano-rails-collection", github: "zonkeynir/capistrano-rails-collection"
+  gem "capistrano-db-tasks", github: "cmrd-senya/capistrano-db-tasks", branch: "dump_task.2"
+end

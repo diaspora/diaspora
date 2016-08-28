@@ -1,3 +1,34 @@
+GIT
+  remote: git://github.com/capistrano/rvm.git
+  revision: 9cfef39cf0022839dca6b5b330dfefeb5fc363e7
+  specs:
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+
+GIT
+  remote: git://github.com/cmrd-senya/capistrano-db-tasks.git
+  revision: 89ff2f8d59cf14f7c9044e1091c3bb1234d1d413
+  branch: dump_task.2
+  specs:
+    capistrano-db-tasks (0.4)
+      capistrano (>= 3.0.0)
+
+GIT
+  remote: git://github.com/cmrd-senya/diaspora-api.git
+  revision: d513d38fb7d5668bb227a91b7f11633a57e8ab41
+  specs:
+    diaspora_api (0.0.6.dev)
+      openid_connect
+      valid
+
+GIT
+  remote: git://github.com/zonkeynir/capistrano-rails-collection.git
+  revision: 919929ae447a9376938614ac1c91f83d6a687e0b
+  specs:
+    capistrano-rails-collection (0.0.3)
+      capistrano-rails (~> 1.1.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -49,6 +80,8 @@ GEM
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
     addressable (2.3.8)
+    airbrussh (1.1.0)
+      sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.3)
     asset_sync (1.1.0)
       activemodel
@@ -72,6 +105,19 @@ GEM
     buftok (0.2.0)
     builder (3.2.2)
     byebug (9.0.5)
+    capistrano (3.6.1)
+      airbrussh (>= 1.0.0)
+      capistrano-harrow
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-harrow (0.5.3)
+    capistrano-rails (1.1.7)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -521,6 +567,9 @@ GEM
     naught (1.1.0)
     nenv (0.3.0)
     nested_form (0.3.2)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.2.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -822,6 +871,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sshkit (1.11.2)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     state_machine (1.2.0)
     swd (1.0.1)
       activesupport (>= 3)
@@ -922,6 +974,11 @@ DEPENDENCIES
   backbone-on-rails (= 1.2.0.0)
   bootstrap-sass (= 3.3.7)
   bootstrap-switch-rails (= 3.3.3)
+  capistrano
+  capistrano-db-tasks!
+  capistrano-rails
+  capistrano-rails-collection!
+  capistrano-rvm!
   capybara (= 2.7.1)
   carrierwave (= 0.11.2)
   compass-rails (= 2.0.5)
@@ -934,6 +991,7 @@ DEPENDENCIES
   devise-token_authenticatable (= 0.5.2)
   devise_lastseenable (= 0.0.6)
   diaspora-prosody-config (= 0.0.5)
+  diaspora_api!
   diaspora_federation-rails (= 0.1.4)
   diaspora_federation-test (= 0.1.4)
   entypo-rails (= 3.0.0.pre.rc2)
