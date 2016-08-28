@@ -259,6 +259,9 @@ group :development do
   gem "simplecov", "0.12.0", require: false
 
   gem "turbo_dev_assets", "0.0.2"
+
+  # Test pods deployment tool
+  gem "diaspora_podz_replicator", github: "cmrd-senya/diaspora_podz_replicator", submodules: true
 end
 
 group :test do

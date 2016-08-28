@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/cmrd-senya/diaspora_podz_replicator.git
+  revision: 5731e683584fef9d1d9730ba7626c6aa5b2daad5
+  submodules: true
+  specs:
+    diaspora_podz_replicator (0.1.0.dev)
+      capistrano (~> 3.0)
+      capistrano-db-tasks.senya (~> 0.4)
+      capistrano-rails (~> 1.1)
+      capistrano-rails-collection (~> 0.1)
+      capistrano-rvm (~> 0.1)
+      trollop (~> 2.1)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -49,6 +62,8 @@ GEM
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
     addressable (2.4.0)
+    airbrussh (1.1.1)
+      sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.3)
     asset_sync (1.1.0)
       activemodel
@@ -72,6 +87,26 @@ GEM
     buftok (0.2.0)
     builder (3.2.2)
     byebug (9.0.5)
+    capistrano (3.6.1)
+      airbrussh (>= 1.0.0)
+      capistrano-harrow
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-db-tasks.senya (0.4.1)
+      capistrano (>= 3.0.0)
+    capistrano-harrow (0.5.3)
+    capistrano-rails (1.2.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rails-collection (0.1.0)
+      capistrano-rails (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
@@ -519,6 +554,9 @@ GEM
     naught (1.1.0)
     nenv (0.3.0)
     nested_form (0.3.2)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.2.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -818,6 +856,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sshkit (1.11.4)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     state_machine (1.2.0)
     swd (1.0.1)
       activesupport (>= 3)
@@ -933,6 +974,7 @@ DEPENDENCIES
   diaspora-prosody-config (= 0.0.7)
   diaspora_federation-rails (= 0.1.5)
   diaspora_federation-test (= 0.1.5)
+  diaspora_podz_replicator!
   entypo-rails (= 3.0.0.pre.rc2)
   eye (= 0.8.1)
   factory_girl_rails (= 4.7.0)
@@ -1046,4 +1088,4 @@ DEPENDENCIES
   will_paginate (= 3.1.5)
 
 BUNDLED WITH
-   1.13.5
+   1.13.6
