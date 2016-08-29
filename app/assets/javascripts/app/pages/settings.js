@@ -9,6 +9,12 @@ app.pages.Settings = Backbone.View.extend({
       preFill: gon.preloads.tagsArray
     });
     new Diaspora.ProfilePhotoUploader();
+
+    var form = $("#post-default-aspects");
+    this.viewAspectSelector = new app.views.PublisherAspectSelector({
+      el: $(".aspect_dropdown"),
+      form: form
+    });
   }
 });
 // @license-end

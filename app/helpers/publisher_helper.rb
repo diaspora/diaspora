@@ -7,10 +7,6 @@ module PublisherHelper
     params[:controller] != "tags"
   end
 
-  def all_aspects_selected?(selected_aspects)
-    @all_aspects_selected ||= all_aspects.size == selected_aspects.size
-  end
-
   def service_button(service)
     provider_title = I18n.t(
       "services.index.share_to",

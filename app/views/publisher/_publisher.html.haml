@@ -40,9 +40,9 @@
               != t("shared.publisher.formatWithMarkdown", markdown_link: link_to(t("help.markdown"),
                   "https://diasporafoundation.org/formatting", target: :blank))
 
-      - if publisher_public
+      - if public_selected?(selected_aspects)
         = hidden_field_tag "aspect_ids[]", "public"
-      - elsif all_aspects_selected?(selected_aspects)
+      - elsif all_aspects_selected?(all_aspects, selected_aspects)
         = hidden_field_tag "aspect_ids[]", "all_aspects"
       - else
         - for aspect_id in aspect_ids
@@ -54,7 +54,7 @@
       .options_and_submit.col-sm-12
         .public_toggle.clearfix
           .btn-toolbar.pull-right
-            = render partial: "publisher/aspect_dropdown", locals: {selected_aspects: selected_aspects}
+            = render partial: "aspects/aspect_dropdown", locals: {selected_aspects: selected_aspects}
             %button.btn.btn-group.btn-primary#submit= t("shared.publisher.share")
 
           .btn-toolbar.pull-right#publisher-service-icons

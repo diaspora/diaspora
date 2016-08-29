@@ -144,6 +144,7 @@ class UsersController < ApplicationController
       :auto_follow_back,
       :auto_follow_back_aspect_id,
       :getting_started,
+      :post_default_public,
       email_preferences: %i(
         someone_reported
         also_commented
@@ -167,6 +168,8 @@ class UsersController < ApplicationController
       change_email(user_data)
     elsif user_data[:auto_follow_back]
       change_settings(user_data, "users.update.follow_settings_changed", "users.update.follow_settings_not_changed")
+    elsif user_data[:post_default_public]
+      change_post_default(user_data)
     elsif user_data[:color_theme]
       change_settings(user_data, "users.update.color_theme_changed", "users.update.color_theme_not_changed")
     else
@@ -182,6 +185,18 @@ class UsersController < ApplicationController
       flash.now[:error] = t("users.update.password_not_changed")
       false
     end
+  end
+
+  def change_post_default(user_data)
+    # by default user_data[:post_default_public] is set to  false
+    case params[:aspect_ids].try(:first)
+    when "public"
+      user_data[:post_default_public] = true
+    when "all_aspects"
+      params[:aspect_ids] = @user.aspects.map {|a| a.id.to_s }
+    end
+    @user.update_post_default_aspects params[:aspect_ids].to_a
+    change_settings(user_data)
   end
 
   # change email notifications

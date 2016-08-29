@@ -931,21 +931,22 @@ describe User, :type => :model do
         end
       end
 
-      it 'disables mail' do
+      it "disables mail" do
         @user.disable_mail = false
         @user.clear_account!
         expect(@user.reload.disable_mail).to be true
       end
 
-      it 'sets getting_started and show_community_spotlight_in_stream fields to false' do
+      it "sets getting_started and show_community_spotlight_in_stream and post_default_public fields to false" do
         @user.clear_account!
         expect(@user.reload.getting_started).to be false
         expect(@user.reload.show_community_spotlight_in_stream).to be false
+        expect(@user.reload.post_default_public).to be false
       end
     end
 
     describe "#clearable_attributes" do
-      it 'returns the clearable fields' do
+      it "returns the clearable fields" do
         user = FactoryGirl.create :user
         expect(user.send(:clearable_fields).sort).to eq(%w(
           language

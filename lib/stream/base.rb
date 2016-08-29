@@ -71,7 +71,7 @@ class Stream::Base
   end
 
   def aspect_ids
-    aspects.map{|x| x.id}
+    aspects.map {|x| x.try(:id) }
   end
 
   def max_time=(time_string)
