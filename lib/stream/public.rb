@@ -19,4 +19,10 @@ class Stream::Public < Stream::Base
   def can_comment?(post)
     post.author.local?
   end
+  
+  # Overriding base class method
+  def publisher_opts
+    # We need this option to make public the default selected aspect for this Stream.
+    {:public => true}
+  end
 end
