@@ -28,7 +28,7 @@ class Stream::Multi < Stream::Base
     if welcome?
       {open: true, prefill: publisher_prefill, public: true}
     else
-      super
+      {public: user.post_default_public}
     end
   end
 

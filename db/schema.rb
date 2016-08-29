@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160906225138) do
     t.boolean  "contacts_visible",             default: true,  null: false
     t.integer  "order_id",         limit: 4
     t.boolean  "chat_enabled",                 default: false
+    t.boolean  "post_default",                 default: true
   end
 
   add_index "aspects", ["user_id", "contacts_visible"], name: "index_aspects_on_user_id_and_contacts_visible", using: :btree
@@ -634,6 +635,7 @@ ActiveRecord::Schema.define(version: 20160906225138) do
     t.datetime "exported_photos_at"
     t.boolean  "exporting_photos",                                 default: false
     t.string   "color_theme",                        limit: 255
+    t.boolean  "post_default_public",                              default: false
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

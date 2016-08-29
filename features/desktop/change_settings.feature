@@ -3,6 +3,9 @@ Feature: Change settings
 
   Background:
     Given I am signed in
+    And I have following aspects:
+      | Friends    |
+      | Family     |
     When I go to the edit user page
 
   Scenario: Change my email
@@ -25,3 +28,24 @@ Feature: Change settings
     And I press "Change language"
     Then I should see "Język został zmieniony"
     And "polski" should be selected from "user_language"
+
+  Scenario: Change my post default aspects
+    When I go to the stream page
+    And I expand the publisher
+    Then I should see "All aspects" within ".aspect_dropdown"
+    When I go to the edit user page
+    And I press the aspect dropdown
+    And I toggle the aspect "Family"
+    And I press the aspect dropdown
+    And I press "Change" within "#post-default-aspects"
+    And I go to the stream page
+    And I expand the publisher
+    Then I should see "Family" within ".aspect_dropdown"
+
+  Scenario: Change my post default to public
+    When I press the aspect dropdown
+    And I toggle the aspect "Public"
+    And I press "Change" within "#post-default-aspects"
+    And I go to the stream page
+    And I expand the publisher
+    Then I should see "Public" within ".aspect_dropdown"
