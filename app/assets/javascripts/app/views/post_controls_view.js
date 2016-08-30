@@ -34,7 +34,9 @@ app.views.PostControls = app.views.Base.extend({
     if (evt) { evt.preventDefault(); }
     if (!confirm(Diaspora.I18n.t("ignore_user"))) { return; }
 
-    this.model.blockAuthor().fail(function() {
+    this.model.blockAuthor().done(function() {
+      if (this.singlePost) { app._changeLocation(Routes.stream()); }
+    }.bind(this)).fail(function() {
       app.flashMessages.error(Diaspora.I18n.t("ignore_failed"));
     });
   },
@@ -43,7 +45,6 @@ app.views.PostControls = app.views.Base.extend({
     if (evt) { evt.preventDefault(); }
     if (!confirm(Diaspora.I18n.t("confirm_dialog"))) { return; }
 
-    var self = this;
     $.ajax({
       url: Routes.shareVisibility(42),
       type: "PUT",
@@ -53,26 +54,28 @@ app.views.PostControls = app.views.Base.extend({
         /* eslint-enable camelcase */
       }
     }).done(function() {
-      self.post.remove();
-    }).fail(function() {
+      if (this.singlePost) {
+        app._changeLocation(Routes.stream());
+      } else {
+        this.post.remove();
+      }
+    }.bind(this)).fail(function() {
       app.flashMessages.error(Diaspora.I18n.t("hide_post_failed"));
     });
   },
 
   createParticipation: function(evt) {
     if (evt) { evt.preventDefault(); }
-    var that = this;
     $.post(Routes.postParticipation(this.model.get("id")), {}, function() {
-      that.model.set({participation: true});
-    });
+      this.model.set({participation: true});
+    }.bind(this));
   },
 
   destroyParticipation: function(evt) {
     if (evt) { evt.preventDefault(); }
-    var that = this;
     $.post(Routes.postParticipation(this.model.get("id")), {_method: "delete"}, function() {
-      that.model.set({participation: false});
-    });
+      this.model.set({participation: false});
+    }.bind(this));
   }
 });
 // @license-end
