@@ -154,6 +154,21 @@ describe("app.views.PostControls", function() {
       expect(this.model.blockAuthor).toHaveBeenCalled();
     });
 
+    it("doesn't redirect to the stream page on success", function() {
+      spyOn(app, "_changeLocation");
+      this.view.blockUser();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 204});
+      expect(app._changeLocation).not.toHaveBeenCalled();
+    });
+
+    it("redirects to the stream page on success from the single post view", function() {
+      spyOn(app, "_changeLocation");
+      this.view.singlePost = true;
+      this.view.blockUser();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 204});
+      expect(app._changeLocation).toHaveBeenCalledWith(Routes.stream());
+    });
+
     it("shows a flash message when errors occur", function() {
       spyOn(app.flashMessages, "error");
       this.view.blockUser();
@@ -185,9 +200,21 @@ describe("app.views.PostControls", function() {
 
     it("removes the post on success", function() {
       spyOn(this.view.post, "remove");
+      spyOn(app, "_changeLocation");
       this.view.hidePost();
       jasmine.Ajax.requests.mostRecent().respondWith({status: 204});
       expect(this.view.post.remove).toHaveBeenCalled();
+      expect(app._changeLocation).not.toHaveBeenCalled();
+    });
+
+    it("redirects to the stream page on success from the single post view", function() {
+      spyOn(this.view.post, "remove");
+      spyOn(app, "_changeLocation");
+      this.view.singlePost = true;
+      this.view.hidePost();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 204});
+      expect(this.view.post.remove).not.toHaveBeenCalled();
+      expect(app._changeLocation).toHaveBeenCalledWith(Routes.stream());
     });
 
     it("shows a flash message when errors occur", function() {
