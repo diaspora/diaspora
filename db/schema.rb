@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822212739) do
+ActiveRecord::Schema.define(version: 20160901072443) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -300,6 +300,7 @@ ActiveRecord::Schema.define(version: 20160822212739) do
     t.text   "image",       limit: 65535
     t.text   "url",         limit: 65535
     t.text   "description", limit: 65535
+    t.text   "video_url",   limit: 65535
   end
 
   create_table "participations", force: :cascade do |t|

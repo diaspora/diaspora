@@ -16,6 +16,7 @@
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
 * The "subscribe" indicator on a post now gets toggled when you like or rehsare a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
+* Add OpenGraph video support [#7043](https://github.com/diaspora/diaspora/pull/7043)
 
 # 0.6.0.0
 
