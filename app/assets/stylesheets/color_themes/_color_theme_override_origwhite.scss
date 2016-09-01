@@ -12,10 +12,13 @@ body {
   .left-navbar .hoverable { border-bottom: 0; }
 
   .profile-sidebar,
-  .left-navbar-fixed-background,
   &.page-tags .left-navbar-fixed-background,
   .left-navbar {
     border-right: 1px solid $border-grey;
+  }
+
+  .left-navbar-fixed-background {
+    border-right: 0px;
   }
 
   .right-sidebar-fixed-background,
