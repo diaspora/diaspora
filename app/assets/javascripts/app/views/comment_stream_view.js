@@ -20,7 +20,8 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   setupBindings: function() {
-    this.model.comments.bind('add', this.appendComment, this);
+    this.model.comments.bind("add", this.appendComment, this);
+    this.model.comments.bind("remove", this.removeComment, this);
   },
 
   postRenderTemplate : function() {
@@ -93,6 +94,10 @@ app.views.CommentStream = app.views.Base.extend({
     } else {
       commentBlocks.eq(this._insertPoint).before(commentHtml);
     }
+  },
+
+  removeComment: function(comment) {
+    this.$("#" + comment.get("guid")).closest(".comment.media").remove();
   },
 
   commentTextareaFocused: function(){
