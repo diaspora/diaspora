@@ -133,4 +133,25 @@ describe PostPresenter do
       expect(PostPresenter.new(reshare).send(:description)).to eq(nil)
     end
   end
+
+  describe "#build_open_graph_cache" do
+    it "returns a dummy og cache if the og cache is missing" do
+      expect(@presenter.build_open_graph_cache.image).to be_nil
+    end
+
+    context "with an open graph cache" do
+      it "delegates to as_api_response" do
+        og_cache = double("open_graph_cache")
+        expect(og_cache).to receive(:as_api_response).with(:backbone)
+        @presenter.post = double(open_graph_cache: og_cache)
+        @presenter.send(:build_open_graph_cache)
+      end
+
+      it "returns the open graph cache data" do
+        open_graph_cache = FactoryGirl.create(:open_graph_cache)
+        post = FactoryGirl.create(:status_message, public: true, open_graph_cache: open_graph_cache)
+        expect(PostPresenter.new(post).send(:build_open_graph_cache)).to eq(open_graph_cache.as_api_response(:backbone))
+      end
+    end
+  end
 end

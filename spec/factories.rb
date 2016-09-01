@@ -257,6 +257,7 @@ FactoryGirl.define do
     title "Some article"
     ob_type "article"
     description "This is the article lead"
+    video_url "http://example.com/videos/123.html"
   end
 
   factory(:tag_following) do
