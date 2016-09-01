@@ -19,15 +19,15 @@ describe StreamHelper, :type => :helper do
     end
 
     it 'works for stream page when current page is stream' do
-      allow(helper).to receive(:current_page?).and_return(false)
-      expect(helper).to receive(:current_page?).with(:stream).and_return(true)
+      allow(helper).to receive(:diaspora_current_page?).and_return(false)
+      expect(helper).to receive(:diaspora_current_page?).with(:stream).and_return(true)
       allow(helper).to receive(:controller).and_return(build_controller(StreamsController))
       expect(helper.next_page_path).to include stream_path
     end
 
     it 'works for aspects page when current page is aspects' do
-      allow(helper).to receive(:current_page?).and_return(false)
-      expect(helper).to receive(:current_page?).with(:aspects_stream).and_return(true)
+      allow(helper).to receive(:diaspora_current_page?).and_return(false)
+      expect(helper).to receive(:diaspora_current_page?).with(:aspects_stream).and_return(true)
       allow(helper).to receive(:controller).and_return(build_controller(StreamsController))
       expect(helper.next_page_path).to include aspects_stream_path
     end
