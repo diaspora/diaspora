@@ -86,6 +86,9 @@ module Diaspora
       rtl.css
       color_themes/*/desktop.css
       color_themes/*/mobile.css
+
+      # images from facebox gem
+      facebox/*
     }
 
     # Version of your assets, change this if you want to expire all your assets
