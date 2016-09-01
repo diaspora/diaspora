@@ -11,6 +11,14 @@ describe("app.views.CommentStream", function(){
       this.view.model.comments.push(factory.comment());
       expect(this.view.appendComment).toHaveBeenCalled();
     });
+
+    it("calls removeComment on removal from the comments collection", function() {
+      this.view.model.comments.push(factory.comment());
+      spyOn(this.view, "removeComment");
+      this.view.setupBindings();
+      this.view.model.comments.pop();
+      expect(this.view.removeComment).toHaveBeenCalled();
+    });
   });
 
   describe("createComment", function() {
@@ -85,15 +93,63 @@ describe("app.views.CommentStream", function(){
     });
   });
 
+  describe("removeComment", function() {
+    it("removes the comment from the stream", function() {
+      this.view.model.comments.push(factory.comment());
+      this.view.model.comments.push(factory.comment());
+      var comment = factory.comment();
+      this.view.model.comments.push(comment);
+      this.view.model.comments.push(factory.comment());
+      this.view.render();
+      expect(this.view.$(".comments div.comment.media").length).toBe(4);
+      expect(this.view.$("#" + comment.get("guid")).length).toBe(1);
+      this.view.removeComment(comment);
+      expect(this.view.$(".comments div.comment.media").length).toBe(3);
+      expect(this.view.$("#" + comment.get("guid")).length).toBe(0);
+    });
+  });
+
   describe("expandComments", function() {
     it("doesn't drop the comment textbox value on success", function() {
       this.view.render();
       this.view.$("textarea").val("great post!");
       this.view.expandComments();
 
-      jasmine.Ajax.requests.mostRecent().respondWith({ comments : [] });
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200,
+        responseText: JSON.stringify([factory.comment()])
+      });
 
       expect(this.view.$("textarea").val()).toEqual("great post!");
+    });
+
+    it("adds and removes comments in the right order", function() {
+      var comments = _.range(42).map(function(_, index) {
+        return factory.comment({"text": "" + index, "created_at": new Date(index).toJSON()});
+      });
+      var evenComments = comments.filter(function(_, index) { return index % 2 === 0; });
+      this.view.model.comments.reset(evenComments);
+      this.view.render();
+      expect(this.view.$(".comments div.comment.media").length).toBe(21);
+      expect(this.view.$(".comments div.comment.media div.comment-content p").text()).toEqual(
+        evenComments.map(function(c) { return c.get("text"); }).join("")
+      );
+
+      var randomComments = _.shuffle(comments).slice(0, 23);
+      this.view.expandComments();
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200,
+        responseText: JSON.stringify(randomComments)
+      });
+
+      expect(this.view.$(".comments div.comment.media").length).toBe(23);
+      expect(this.view.$(".comments div.comment.media div.comment-content p").text()).toEqual(
+        _.sortBy(randomComments, function(c) {
+          return c.get("created_at");
+        }).map(function(c) {
+          return c.get("text");
+        }).join("")
+      );
     });
   });
 
