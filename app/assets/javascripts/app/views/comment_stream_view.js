@@ -86,12 +86,13 @@ app.views.CommentStream = app.views.Base.extend({
     var commentHtml = new app.views.Comment({model: comment}).render().el;
     var commentBlocks = this.$(".comments div.comment.media");
     this._moveInsertPoint(comment.get("created_at"), commentBlocks);
-    if (this._insertPoint === commentBlocks.length) {
+    if (this._insertPoint >= commentBlocks.length) {
       this.$(".comments").append(commentHtml);
+    } else if (this._insertPoint <= 0) {
+      this.$(".comments").prepend(commentHtml);
     } else {
       commentBlocks.eq(this._insertPoint).before(commentHtml);
     }
-    this._insertPoint++;
   },
 
   commentTextareaFocused: function(){
@@ -100,14 +101,10 @@ app.views.CommentStream = app.views.Base.extend({
 
   expandComments: function(evt){
     if(evt){ evt.preventDefault(); }
-    var self = this;
-
     this.model.comments.fetch({
-      success : function(resp){
-        self.$("div.comment.show_comments").addClass("hidden");
-
-        self.model.trigger("commentsExpanded", self);
-      }
+      success: function() {
+        this.$("div.comment.show_comments").addClass("hidden");
+      }.bind(this)
     });
   }
 });
