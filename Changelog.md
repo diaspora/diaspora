@@ -1,6 +1,7 @@
 # 0.6.1.0
 
 ## Refactor
+* Indicate proper way to report bugs in the sidebar [#7039](https://github.com/diaspora/diaspora/pull/7039)
 
 ## Bug fixes
 
