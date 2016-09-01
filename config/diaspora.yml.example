@@ -398,6 +398,9 @@ configuration: ## Section
       ## of the new user.
       #text: "Hello %{username}, welcome to diaspora."
 
+    ## Maxum size in bytes authorized for the files (actually only images) uploaded by the users
+    #max_upload_size: 4194304
+
     ## Invitation settings
     invitations: ## Section
 

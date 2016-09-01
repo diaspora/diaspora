@@ -12,7 +12,7 @@
          allowedExtensions: ['jpg', 'jpeg', 'png'],
          action: "#{photos_path}",
          button: document.getElementById('file-upload'),
-         sizeLimit: 4194304,
+         sizeLimit: AppConfig.settings.max_upload_size,
 
          onProgress: function(id, fileName, loaded, total){
           var progress = Math.round(loaded / total * 100 );

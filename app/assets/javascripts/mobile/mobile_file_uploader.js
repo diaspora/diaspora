@@ -11,7 +11,7 @@ function createUploader(){
        action: "/photos",
        debug: false,
        button: document.getElementById('file-upload-publisher'),
-       sizeLimit: 4194304,
+       sizeLimit: gon.appConfig.settings.max_upload_size,
 
        onProgress: function(id, fileName, loaded, total){
         var progress = Math.round(loaded / total * 100 );
