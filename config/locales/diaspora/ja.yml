@@ -293,6 +293,7 @@ ja:
       fail: "無効なメッセージです。"
       no_contact: "最初に連絡先を追加する必要があります！"
       sent: "メッセージを送信しました"
+      no_contact: "一つ以上の有効な宛先をまず追加して下さい"
     destroy:
       delete_success: "会話を正常に削除しました"
       hide_success: "会話を正常に非表示にしました"

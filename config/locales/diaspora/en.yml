@@ -289,7 +289,7 @@ en:
     create:
       sent: "Message sent"
       fail: "Invalid message"
-      no_contact: "Hey, you need to add the contact first!"
+      no_contact: "Hey, you need to add a valid contact to \"to\" first!"
     new_conversation:
       fail: "Invalid message"
     destroy:
