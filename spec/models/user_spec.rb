@@ -306,11 +306,12 @@ describe User, :type => :model do
         expect(alice).not_to be_valid
       end
 
-      it "resets a matching unconfirmed_email on save" do
-        eve.update_attribute :unconfirmed_email, "new@example.com"
-        alice.update_attribute :email, "new@example.com"
+      it "resets a matching unconfirmed_email and confirm_email_token on save" do
+        eve.update_attributes(unconfirmed_email: "new@example.com", confirm_email_token: SecureRandom.hex(15))
+        alice.update_attribute(:email, "new@example.com")
         eve.reload
         expect(eve.unconfirmed_email).to eql(nil)
+        expect(eve.confirm_email_token).to eql(nil)
       end
     end
 

@@ -466,7 +466,7 @@ class User < ActiveRecord::Base
 
   # Whenever email is set, clear all unconfirmed emails which match
   def remove_invalid_unconfirmed_emails
-    User.where(unconfirmed_email: email).update_all(unconfirmed_email: nil) if email_changed?
+    User.where(unconfirmed_email: email).update_all(unconfirmed_email: nil, confirm_email_token: nil) if email_changed?
   end
 
   # Generate public/private keys for User and associated Person
