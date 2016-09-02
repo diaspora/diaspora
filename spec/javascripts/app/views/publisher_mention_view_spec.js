@@ -19,7 +19,7 @@ describe("app.views.PublisherMention", function() {
       expect(call.args[0].typeaheadInput.selector).toBe("#publisher .typeahead-mention-box");
       expect(call.args[0].customSearch).toBeTruthy();
       expect(call.args[0].autoselect).toBeTruthy();
-      expect(call.args[0].remoteRoute).toBe("/contacts");
+      expect(call.args[0].remoteRoute).toEqual({url: "/contacts"});
     });
 
     it("calls bindTypeaheadEvents", function() {

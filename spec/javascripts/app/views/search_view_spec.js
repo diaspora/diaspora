@@ -11,7 +11,7 @@ describe("app.views.Search", function() {
       this.view = new app.views.Search({el: "#search_people_form"});
       var call = app.views.SearchBase.prototype.initialize.calls.mostRecent();
       expect(call.args[0].typeaheadInput.selector).toBe("#search_people_form #q");
-      expect(call.args[0].remoteRoute).toBe("/search");
+      expect(call.args[0].remoteRoute).toEqual({url: "/search"});
     });
 
     it("binds typeahead:select", function() {

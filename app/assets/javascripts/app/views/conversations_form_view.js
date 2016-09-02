@@ -16,7 +16,7 @@ app.views.ConversationsForm = Backbone.View.extend({
       typeaheadInput: this.getTypeaheadElement(),
       customSearch: true,
       autoselect: true,
-      remoteRoute: "/contacts"
+      remoteRoute: {url: "/contacts", extraParameters: "mutual=true"}
     });
 
     this.contactsTags = this.getContactsTagsElement().tags({

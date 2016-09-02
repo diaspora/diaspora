@@ -15,7 +15,10 @@ describe("app.view.ConversationsForm", function() {
       expect(app.views.SearchBase.prototype.initialize).toHaveBeenCalled();
       expect(app.views.SearchBase.prototype.initialize.calls.argsFor(0)[0].customSearch).toBe(true);
       expect(app.views.SearchBase.prototype.initialize.calls.argsFor(0)[0].autoselect).toBe(true);
-      expect(app.views.SearchBase.prototype.initialize.calls.argsFor(0)[0].remoteRoute).toBe("/contacts");
+      expect(app.views.SearchBase.prototype.initialize.calls.argsFor(0)[0].remoteRoute).toEqual({
+        url: "/contacts",
+        extraParameters: "mutual=true"
+      });
       expect(this.target.search).toBeDefined();
     });
 
