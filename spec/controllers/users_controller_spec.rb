@@ -47,18 +47,6 @@ describe UsersController, :type => :controller do
     end
   end
 
-  describe 'user_photo' do
-    it 'should return the url of the users profile photo' do
-      get :user_photo, :username => @user.username
-      expect(response).to redirect_to(@user.profile.image_url)
-    end
-
-    it 'should 404 if no user is found' do
-      get :user_photo, :username => 'none'
-      expect(response).not_to be_success
-    end
-  end
-
   describe '#public' do
     it 'renders xml if atom is requested' do
       sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
