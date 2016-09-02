@@ -37,6 +37,12 @@ describe ApplicationController, type: :request do
         expect(flash[:error]).to eq(I18n.t("error_messages.csrf_token_fail"))
       end
 
+      it "sends an email to the current user if the token validation failed" do
+        expect_any_instance_of(UsersController).to receive(:verified_request?).and_return(false)
+        expect(Workers::Mail::CsrfTokenFail).to receive(:perform_async).with(alice.id)
+        put edit_user_path, user: {language: "en"}
+      end
+
       it "doesn't sign out users if the token was correct" do
         expect_any_instance_of(UsersController).to receive(:verified_request?).and_return(true)
         put edit_user_path, user: {language: "en"}
