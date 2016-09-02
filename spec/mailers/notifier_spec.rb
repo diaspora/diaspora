@@ -432,6 +432,26 @@ describe Notifier, type: :mailer do
     end
   end
 
+  describe ".csrf_token_fail" do
+    let(:email) { Notifier.csrf_token_fail(alice.id) }
+
+    it "goes to the right person" do
+      expect(email.to).to eq([alice.email])
+    end
+
+    it "has the correct subject" do
+      expect(email.subject).to eq(I18n.translate("notifier.csrf_token_fail.subject", name: alice.name))
+    end
+
+    it "has the receivers name in the body" do
+      expect(email.body.encoded).to include(alice.person.profile.first_name)
+    end
+
+    it "has some informative text in the body" do
+      expect(email.body.encoded).to include("https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)")
+    end
+  end
+
   describe "hashtags" do
     it "escapes hashtags" do
       mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
