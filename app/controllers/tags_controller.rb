@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class TagsController < ApplicationController
-  skip_before_action :set_grammatical_gender
   before_action :ensure_page, :only => :show
 
   helper_method :tag_followed?
