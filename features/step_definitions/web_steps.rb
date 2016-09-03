@@ -160,6 +160,12 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |
   end
 end
 
+Then /^"([^"]*)" should be selected from "([^"]*)"(?: within "([^"]*)")?$/ do |value, field, selector|
+  with_scope(selector) do
+    expect(page).to have_select(field, selected: value)
+  end
+end
+
 Then /^the "([^"]*)" bootstrap-switch should be (on|off)$/ do |label, state|
   if state == "on"
     expect(page.evaluate_script("$('#{label}').bootstrapSwitch('state')")).to be_truthy
