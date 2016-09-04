@@ -73,11 +73,7 @@ describe Notifier, type: :mailer do
     end
 
     it "has the name of person sending the request" do
-      expect(request_mail.body.encoded.include?(person.name)).to be true
-    end
-
-    it "has the css" do
-      request_mail.body.encoded.include?("<style type='text/css'>")
+      expect(request_mail.body.encoded).to include(person.name)
     end
   end
 
