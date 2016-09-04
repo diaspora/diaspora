@@ -15,10 +15,19 @@ describe PeopleController, :type => :controller do
 
   describe '#index (search)' do
     before do
-      @eugene = FactoryGirl.create(:person,
-                        :profile => FactoryGirl.build(:profile, :first_name => "Eugene", :last_name => "w"))
-      @korth = FactoryGirl.create(:person,
-                       :profile => FactoryGirl.build(:profile, :first_name => "Evan", :last_name => "Korth"))
+      @eugene = FactoryGirl.create(
+        :person,
+        profile: FactoryGirl.build(:profile, first_name: "Eugene", last_name: "w")
+      )
+      @korth = FactoryGirl.create(
+        :person,
+        profile: FactoryGirl.build(:profile, first_name: "Evan", last_name: "Korth")
+      )
+      @closed = FactoryGirl.create(
+        :person,
+        closed_account: true,
+        profile:        FactoryGirl.build(:profile, first_name: "Closed", last_name: "Account")
+      )
     end
 
     describe 'via json' do
@@ -35,6 +44,13 @@ describe PeopleController, :type => :controller do
       it 'does not assign hashes' do
         get :index, :q => "Korth", :format => 'json'
         expect(assigns[:hashes]).to be_nil
+      end
+
+      it "doesn't include closed accounts" do
+        get :index, q: "Closed", format: "json"
+        expect(JSON.parse(response.body).size).to eq(0)
+        get :index, q: @closed.diaspora_handle, format: "json"
+        expect(JSON.parse(response.body).size).to eq(0)
       end
     end
 
@@ -63,6 +79,11 @@ describe PeopleController, :type => :controller do
         it 'sets background query task if the user is not found' do
           get :index, :q => "Eugene@Example1.ORG"
           expect(assigns[:background_query]).to eq("eugene@example1.org")
+        end
+
+        it "doesn't include closed accounts" do
+          get :index, q: @closed.diaspora_handle
+          expect(assigns[:people].size).to eq(0)
         end
       end
 
@@ -113,6 +134,11 @@ describe PeopleController, :type => :controller do
                                                       :last_name => "w", :searchable => false))
           get :index, :q => "Eug"
           expect(assigns[:people]).not_to match_array([eugene2])
+        end
+
+        it "doesn't include closed accounts" do
+          get :index, q: "Closed"
+          expect(assigns[:people].size).to eq(0)
         end
       end
     end
@@ -516,10 +542,19 @@ describe PeopleController, :type => :controller do
 
   describe '#refresh_search ' do
     before(:each)do
-      @eugene = FactoryGirl.create(:person,
-                      :profile => FactoryGirl.build(:profile, :first_name => "Eugene", :last_name => "w"))
-      @korth = FactoryGirl.create(:person,
-                     :profile => FactoryGirl.build(:profile, :first_name => "Evan", :last_name => "Korth"))
+      @eugene = FactoryGirl.create(
+        :person,
+        profile: FactoryGirl.build(:profile, first_name: "Eugene", last_name: "w")
+      )
+      @korth = FactoryGirl.create(
+        :person,
+        profile: FactoryGirl.build(:profile, first_name: "Evan", last_name: "Korth")
+      )
+      @closed = FactoryGirl.create(
+        :person,
+        closed_account: true,
+        profile:        FactoryGirl.build(:profile, first_name: "Closed", last_name: "Account")
+      )
     end
 
     describe "via json" do
@@ -536,6 +571,11 @@ describe PeopleController, :type => :controller do
       it "returns with a found name" do
         get :refresh_search, q: @korth.diaspora_handle
         expect(JSON.parse(response.body)["contacts"].size).to eq(1)
+      end
+
+      it "doesn't include closed accounts" do
+        get :refresh_search, q: @closed.diaspora_handle
+        expect(JSON.parse(response.body)["contacts"]).to be_nil
       end
     end
   end
