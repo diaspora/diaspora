@@ -5,7 +5,17 @@
 class ApplicationController < ActionController::Base
   before_action :force_tablet_html
   has_mobile_fu
-  protect_from_forgery except: :receive
+  protect_from_forgery except: :receive, with: :exception
+
+  rescue_from ActionController::InvalidAuthenticityToken do
+    if user_signed_in?
+      logger.warn "#{current_user.diaspora_handle} CSRF token fail. referer: #{request.referer || 'empty'}"
+      Workers::Mail::CsrfTokenFail.perform_async(current_user.id)
+      sign_out current_user
+    end
+    flash[:error] = I18n.t("error_messages.csrf_token_fail")
+    redirect_to new_user_session_path format: request[:format]
+  end
 
   before_action :ensure_http_referer_is_set
   before_action :set_locale
