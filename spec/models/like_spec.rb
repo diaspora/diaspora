@@ -47,9 +47,10 @@ describe Like, type: :model do
     it "doesn't change the interacted at timestamp of the parent" do
       interacted_at = status.reload.interacted_at.to_i
 
-      Timecop.travel(Time.zone.now + 1.minute)
-      Like::Generator.new(alice, status).build.save
-      expect(status.reload.interacted_at.to_i).to eq(interacted_at)
+      Timecop.travel(Time.zone.now + 1.minute) do
+        Like::Generator.new(alice, status).build.save
+        expect(status.reload.interacted_at.to_i).to eq(interacted_at)
+      end
     end
   end
 

@@ -72,8 +72,6 @@ describe EvilQuery::Participation do
 
         alice.comment!(@status_messageE, "party")
       end
-
-      Timecop.return
     end
 
     let(:posts) {EvilQuery::Participation.new(alice).posts}
