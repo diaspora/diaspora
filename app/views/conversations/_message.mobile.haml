@@ -1,15 +1,11 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3 or later.  See
--#   the COPYRIGHT file.
-
 .stream_element.message{data: {guid: message.id}, id: ("first_unread" if @first_unread_message_id == message.id)}
   .media
     .media-left
       = person_image_link(message.author, size: :thumb_small, class: "media-object")
     .media-body
-      = person_link(message.author, :class => 'author from')
+      = person_link(message.author, class: "author from")
       = timeago(message.created_at)
 
-      %div{ :class => direction_for(message.text) }
+      %div{class: direction_for(message.text)}
         .message-content
           = message.message.markdownified
