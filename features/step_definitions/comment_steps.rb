@@ -31,5 +31,4 @@ Given /^"([^"]*)" has commented a lot on "([^"]*)"$/ do |email, post_text|
       user.comment!(post, "Comment #{n}")
     end
   end
-  Timecop.return
 end
