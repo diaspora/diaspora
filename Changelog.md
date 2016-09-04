@@ -14,10 +14,11 @@
 * Make the session cookies HttpOnly again [#7041](https://github.com/diaspora/diaspora/pull/7041)
 
 ## Bug fixes
-* Post comments no longer get collapsed when interacting with a post [#7045](https://github.com/diaspora/diaspora/pull/7045)
+* Post comments no longer get collapsed when interacting with a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
 
 ## Features
-* The "subscribe" indicator on a post now gets toggled when you like or rehsare a post [#7045](https://github.com/diaspora/diaspora/pull/7045)
+* Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
+* The "subscribe" indicator on a post now gets toggled when you like or rehsare a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
 
 # 0.6.0.0
 

@@ -14,9 +14,11 @@ Feature: Liking posts
     And I sign in as "alice@alice.alice"
 
   Scenario: Liking and unliking a post from the stream
+    Then I should not have activated notifications for the post
     When I like the post "I like unicorns" in the stream
     Then I should see "Unlike" within ".stream_element .feedback"
     And I should see a ".likes .media" within "#main_stream .stream_element"
+    And I should have activated notifications for the post
 
     When I unlike the post "I like unicorns" in the stream
     Then I should see "Like" within ".stream_element .feedback"
@@ -25,8 +27,10 @@ Feature: Liking posts
 
   Scenario: Liking and unliking a post from a single post page
     When I open the show page of the "I like unicorns" post
-    And I click to like the post
+    Then I should not have activated notifications for the post in the single post view
+    When I click to like the post
     Then I should see a ".count" within "#single-post-interactions"
+    And I should have activated notifications for the post in the single post view
 
     When I click to unlike the post
     Then I should not see a ".count" within "#single-post-interactions"
