@@ -66,6 +66,16 @@ describe Comment, type: :model do
     end
   end
 
+  describe "interacted_at" do
+    it "sets the interacted at of the parent to the created at of the comment" do
+      Timecop.travel(Time.zone.now + 1.minute)
+
+      comment = Comment::Generator.new(alice, status_bob, "why so formal?").build
+      comment.save
+      expect(status_bob.reload.interacted_at.to_i).to eq(comment.created_at.to_i)
+    end
+  end
+
   it_behaves_like "it is relayable" do
     let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_raphael) }
     let(:local_parent) { local_luke.post(:status_message, text: "hi", to: local_luke.aspects.first) }

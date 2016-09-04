@@ -43,6 +43,16 @@ describe Like, type: :model do
     end
   end
 
+  describe "interacted_at" do
+    it "doesn't change the interacted at timestamp of the parent" do
+      interacted_at = status.reload.interacted_at.to_i
+
+      Timecop.travel(Time.zone.now + 1.minute)
+      Like::Generator.new(alice, status).build.save
+      expect(status.reload.interacted_at.to_i).to eq(interacted_at)
+    end
+  end
+
   it_behaves_like "it is relayable" do
     let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_raphael) }
     let(:local_parent) { local_luke.post(:status_message, text: "hi", to: local_luke.aspects.first) }
