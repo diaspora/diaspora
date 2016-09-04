@@ -151,6 +151,10 @@ app.views.OEmbed = app.views.Base.extend({
 app.views.OpenGraph = app.views.Base.extend({
   templateName : "opengraph",
 
+  events: {
+    "click .video-overlay": "loadVideo"
+  },
+
   initialize: function() {
     this.truncateDescription();
   },
@@ -161,6 +165,12 @@ app.views.OpenGraph = app.views.Base.extend({
       var ogdesc = this.model.get('open_graph_cache');
       ogdesc.description = app.helpers.truncate(ogdesc.description, 250);
     }
+  },
+
+  loadVideo: function() {
+    this.$(".opengraph-container").html(
+      "<iframe src='" + this.$(".video-overlay").attr("data-video-url") + "' frameBorder=0 width='100%'></iframe>"
+    );
   }
 });
 
