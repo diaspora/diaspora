@@ -172,7 +172,6 @@ Diaspora::Application.routes.draw do
     end
   end
   get '/u/:username' => 'people#show', :as => 'user_profile', :constraints => { :username => /[^\/]+/ }
-  get '/u/:username/profile_photo' => 'users#user_photo', :constraints => { :username => /[^\/]+/ }
 
   # External
 
