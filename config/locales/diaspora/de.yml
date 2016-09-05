@@ -960,7 +960,7 @@ de:
       enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
       password: "Kennwort"
       password_confirmation: "Kennwort bestätigen"
-      sign_up: "Konto ersellen"
+      sign_up: "Konto erstellen"
       submitting: "Absenden…"
       terms: "Indem du ein Konto erstellst, akzeptierst du die %{terms_link}."
       terms_link: "Nutzungsbedingungen"
