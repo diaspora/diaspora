@@ -67,8 +67,8 @@ defaults:
   map:
     mapbox:
       enabled: false
-      id:
       access_token:
+      style: "mapbox/streets-v9"
   privacy:
     jquery_cdn: false
     google_analytics_key:
