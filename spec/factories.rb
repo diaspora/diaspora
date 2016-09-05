@@ -366,18 +366,27 @@ FactoryGirl.define do
     o_auth_application
     user
     scopes %w(openid sub aud profile picture nickname name read)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
   end
 
   factory :auth_with_read_and_ppid, class: Api::OpenidConnect::Authorization do
     association :o_auth_application, factory: :o_auth_application_with_ppid
     user
     scopes %w(openid sub aud profile picture nickname name read)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
   end
 
   factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
     scopes %w(openid sub aud profile picture nickname name read write)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
   end
 
   # Factories for the DiasporaFederation-gem

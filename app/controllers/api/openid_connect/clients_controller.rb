@@ -1,6 +1,8 @@
 module Api
   module OpenidConnect
     class ClientsController < ApplicationController
+      skip_before_action :verify_authenticity_token
+
       rescue_from OpenIDConnect::HttpError do |e|
         http_error_page_as_json(e)
       end
