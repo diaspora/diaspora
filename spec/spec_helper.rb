@@ -143,3 +143,9 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+shared_context suppress_csrf_verification: :none do
+  before do
+    ActionController::Base.allow_forgery_protection = true
+  end
+end
