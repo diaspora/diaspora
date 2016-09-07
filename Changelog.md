@@ -23,6 +23,7 @@
 * Fix moving publisher on first click after page load [#7094](https://github.com/diaspora/diaspora/pull/7094)
 * Fix link to comment on report page [#7105](https://github.com/diaspora/diaspora/pull/7105)
 * Fix duplicate flash message on mobile profile edit [#7107](https://github.com/diaspora/diaspora/pull/7107)
+* Clicking photos on mobile should no longer cause 404s [#7071](https://github.com/diaspora/diaspora/pull/7071)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
