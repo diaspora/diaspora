@@ -120,6 +120,12 @@ class StatusMessage < Post
     }
   end
 
+  def receive(recipient_user_ids)
+    super(recipient_user_ids)
+
+    photos.each {|photo| photo.receive(recipient_user_ids) }
+  end
+
   private
 
   def presence_of_content

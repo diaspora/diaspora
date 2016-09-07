@@ -4,7 +4,7 @@
 
 require "spec_helper"
 
-describe ShareVisibility, :type => :model do
+describe ShareVisibility, type: :model do
   describe ".batch_import" do
     let(:post) { FactoryGirl.create(:status_message, author: alice.person) }
 
@@ -27,6 +27,13 @@ describe ShareVisibility, :type => :model do
       expect {
         ShareVisibility.batch_import([bob.id], post)
       }.not_to raise_error
+    end
+
+    it "does not create visibilities for a public shareable" do
+      public_post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+
+      ShareVisibility.batch_import([bob.id], public_post)
+      expect(ShareVisibility.where(user_id: bob.id, shareable_id: post.id, shareable_type: "Post")).not_to exist
     end
 
     context "scopes" do
