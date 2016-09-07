@@ -1019,7 +1019,6 @@ DEPENDENCIES
   rb-fsevent (= 0.9.7)
   rb-inotify (= 0.9.7)
   redcarpet (= 3.3.4)
-  remotipart (= 1.2.1)
   responders (= 2.2.0)
   rspec-rails (= 3.5.1)
   rubocop (= 0.40.0)
