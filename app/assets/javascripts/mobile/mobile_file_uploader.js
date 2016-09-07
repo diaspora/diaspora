@@ -5,12 +5,12 @@ function createUploader(){
    var aspectIds = gon.preloads.aspect_ids;
 
    new qq.FileUploaderBasic({
-       element: document.getElementById('file-upload-publisher'),
+       element: document.getElementById("file-upload-input"),
        params: {'photo' : {'pending' : 'true', 'aspect_ids' : aspectIds},},
        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'tiff'],
        action: "/photos",
        debug: false,
-       button: document.getElementById('file-upload-publisher'),
+       button: document.getElementById("file-upload-input"),
        sizeLimit: 4194304,
 
        onProgress: function(id, fileName, loaded, total){
@@ -76,6 +76,8 @@ function createUploader(){
 
        onAllComplete: function(){}
    });
+
+  $("#file-upload-publisher").click(function() { $("#file-upload-input input[type='file']").click(); });
 }
 window.addEventListener("load", function() {
   createUploader();
