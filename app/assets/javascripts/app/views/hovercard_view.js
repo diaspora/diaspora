@@ -130,7 +130,7 @@ app.views.Hovercard = app.views.Base.extend({
       // set hashtags
       this.hashtags.empty();
       this.hashtags.html($(_.map(person.profile.tags, function(tag) {
-        return $("<a/>", {href: "/tags/" + tag.substring(1)}).text(tag)[0];
+        return $("<a/>", {href: Routes.tag(tag)}).text("#" + tag)[0];
       })));
     }
   },

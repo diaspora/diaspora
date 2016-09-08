@@ -21,6 +21,7 @@
 * Code blocks in conversations no longer overflow the content [#7055](https://github.com/diaspora/diaspora/pull/7055)
 * More buttons in mobile streams are fixed [#7036](https://github.com/diaspora/diaspora/pull/7036)
 * Fixed missing sidebar background in the contacts tab [#7064](https://github.com/diaspora/diaspora/pull/7064)
+* Fix tags URLs in hovercards [#7075](https://github.com/diaspora/diaspora/pull/7075)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
