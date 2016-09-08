@@ -13,7 +13,7 @@ SecureHeaders::Configuration.default do |config|
     img_src:         %w('self' data: *),
     media_src:       %w(https:),
     script_src:      %w('self' 'unsafe-eval' platform.twitter.com cdn.syndication.twimg.com widgets.flickr.com
-                        embedr.flickr.com platform.instagram.com),
+                        embedr.flickr.com platform.instagram.com 'unsafe-inline'),
     style_src:       %w('self' 'unsafe-inline' platform.twitter.com *.twimg.com)
   }
 end
