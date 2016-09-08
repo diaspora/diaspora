@@ -52,7 +52,7 @@
 
     = yield(:head)
 
-    = include_gon(:camel_case => true)
+    = include_gon(camel_case: true, nonce: content_security_policy_nonce(:script))
   %body
     #app
       = render "layouts/header"

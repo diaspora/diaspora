@@ -20,7 +20,7 @@ module LayoutHelper
   end
 
   def load_javascript_locales(section = 'javascripts')
-    content_tag(:script) do
+    nonced_javascript_tag do
       <<-JS.html_safe
         Diaspora.I18n.load(#{get_javascript_strings_for(I18n.locale, section).to_json},
                            "#{I18n.locale}",
@@ -51,7 +51,7 @@ module LayoutHelper
   end
 
   def old_browser_js_support
-    content_tag(:script) do
+    nonced_javascript_tag do
       <<-JS.html_safe
         if(Array.isArray === undefined) {
           Array.isArray = function (arg) {
