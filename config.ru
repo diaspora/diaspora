@@ -17,6 +17,5 @@ if defined?(Unicorn)
 end
 use Rack::Deflater
 use Rack::InternetExplorerVersion, minimum: 9
-use Rack::Protection::FrameOptions
 
 run Diaspora::Application

@@ -137,6 +137,10 @@ gem "twitter-text",      "1.14.0"
 gem "ruby-oembed",       "0.10.1"
 gem "open_graph_reader", "0.6.1"
 
+# Security Headers
+
+gem "secure_headers", "3.4.1"
+
 # Services
 
 gem "omniauth",           "1.3.1"
@@ -210,10 +214,6 @@ group :production do # we don"t install these on travis to speed up test runs
 
   gem "rack-google-analytics", "1.2.0"
   gem "rack-piwik",            "0.3.0",  require: "rack/piwik"
-
-  # Click-jacking protection
-
-  gem "rack-protection", "1.5.3"
 
   # Process management
 
