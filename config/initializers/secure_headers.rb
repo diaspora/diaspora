@@ -16,4 +16,18 @@ SecureHeaders::Configuration.default do |config|
                         embedr.flickr.com platform.instagram.com 'unsafe-inline'),
     style_src:       %w('self' 'unsafe-inline' platform.twitter.com *.twimg.com)
   }
+
+  # Add frame-src but don't spam the log with DEPRECATION warnings.
+  # We need frame-src to support older versions of Chrome, because secure_headers handles all Chrome browsers as
+  # "modern" browser, and ignores the version of the browser. We can drop this once we support only Chrome
+  # versions with child-src support.
+  module SecureHeaders
+    class ContentSecurityPolicy
+      private
+
+      def normalize_child_frame_src
+        @config[:frame_src] = @config[:child_src]
+      end
+    end
+  end
 end
