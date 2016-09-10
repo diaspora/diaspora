@@ -41,8 +41,13 @@ class PostsController < ApplicationController
   end
 
   def interactions
-    post = post_service.find!(params[:id])
-    respond_with PostInteractionPresenter.new(post, current_user)
+    respond_to do |format|
+      format.json {
+        post = post_service.find!(params[:id])
+        render json: PostInteractionPresenter.new(post, current_user)
+      }
+      format.any { render nothing: true, status: 406 }
+    end
   end
 
   def destroy
