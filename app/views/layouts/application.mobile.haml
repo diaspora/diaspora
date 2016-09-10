@@ -48,6 +48,8 @@
     - if Rails.env.test?
       = stylesheet_link_tag :poltergeist_disable_transition, media: "all"
 
+    = jquery_include_tag
+
     = yield(:head)
 
     = include_gon(:camel_case => true)
@@ -64,7 +66,6 @@
         = yield
 
     / javascripts at the bottom
-    = jquery_include_tag
     = javascript_include_tag "mobile/mobile"
     = load_javascript_locales
     = include_chartbeat
