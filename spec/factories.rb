@@ -321,13 +321,6 @@ FactoryGirl.define do
     additional_data { {"new_property" => "some text"} }
   end
 
-  #templates
-  factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
-
-  factory(:photo_backdrop, :parent => :status_message_with_photo) do
-    text ""
-  end
-
   factory(:note, :parent => :status_message) do
     text SecureRandom.hex(1000)
   end
