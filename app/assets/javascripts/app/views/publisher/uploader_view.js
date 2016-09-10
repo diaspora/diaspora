@@ -5,32 +5,43 @@
 // progress. Attaches previews of finished uploads to the publisher.
 
 app.views.PublisherUploader = Backbone.View.extend({
-
   allowedExtensions: ["jpg", "jpeg", "png", "gif", "tif", "tiff"],
   sizeLimit: 4194304,  // bytes
 
   initialize: function(opts) {
     this.publisher = opts.publisher;
-
-    this.uploader = new qq.FileUploaderBasic({
+    this.uploader = new qq.FineUploaderBasic({
       element: this.el,
-      button:  this.el,
+      button: this.el,
 
-      //debug: true,
-
-      action: "/photos",
-      params: { photo: { pending: true }},
-      allowedExtensions: this.allowedExtensions,
-      sizeLimit: this.sizeLimit,
+      request: {
+        endpoint: Routes.photos(),
+        params: {
+          /* eslint-disable camelcase */
+          authenticity_token: $("meta[name='csrf-token']").attr("content"),
+          /* eslint-enable camelcase */
+          photo: {
+            pending: true
+          }
+        }
+      },
+      validation: {
+        allowedExtensions: this.allowedExtensions,
+        sizeLimit: this.sizeLimit
+      },
       messages: {
-        typeError:  Diaspora.I18n.t("photo_uploader.invalid_ext"),
-        sizeError:  Diaspora.I18n.t("photo_uploader.size_error"),
+        typeError: Diaspora.I18n.t("photo_uploader.invalid_ext"),
+        sizeError: Diaspora.I18n.t("photo_uploader.size_error"),
         emptyError: Diaspora.I18n.t("photo_uploader.empty")
       },
-      onProgress: _.bind(this.progressHandler, this),
-      onSubmit:   _.bind(this.submitHandler, this),
-      onComplete: _.bind(this.uploadCompleteHandler, this)
-
+      callbacks: {
+        onProgress: _.bind(this.progressHandler, this),
+        onSubmit: _.bind(this.submitHandler, this),
+        onComplete: _.bind(this.uploadCompleteHandler, this),
+        onError: function(id, name, errorReason) {
+          if (app.flashMessages) { app.flashMessages.error(errorReason); }
+        }
+      }
     });
 
     this.info = $("<div id=\"fileInfo\" />");
