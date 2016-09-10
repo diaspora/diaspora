@@ -24,8 +24,6 @@ end
 
 ProcessedImage.enable_processing = false
 UnprocessedImage.enable_processing = false
-Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
-Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
 def alice
   @alice ||= User.find_by(username: "alice")
