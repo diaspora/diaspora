@@ -512,11 +512,11 @@ describe("app.views.Publisher", function() {
       );
     });
 
-    it('initializes the file uploader plugin', function() {
-      spyOn(qq, 'FileUploaderBasic');
+    it("initializes the FineUploader plugin", function() {
+      spyOn(qq, "FineUploaderBasic");
       new app.views.Publisher();
 
-      expect(qq.FileUploaderBasic).toHaveBeenCalled();
+      expect(qq.FineUploaderBasic).toHaveBeenCalled();
     });
 
     context('event handlers', function() {
