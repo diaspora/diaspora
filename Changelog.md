@@ -15,6 +15,7 @@
 * Invalidate sessions with invalid CSRF tokens [#7050](https://github.com/diaspora/diaspora/pull/7050)
 * Liking a post will no longer update its interacted timestamp [#7030](https://github.com/diaspora/diaspora/pull/7030)
 * Improve W3C compliance [#7068](https://github.com/diaspora/diaspora/pull/7068)
+* Load jQuery in the head on mobile [#7086](https://github.com/diaspora/diaspora/pull/7086)
 
 ## Bug fixes
 * Post comments no longer get collapsed when interacting with a post [#7040](https://github.com/diaspora/diaspora/pull/7040)

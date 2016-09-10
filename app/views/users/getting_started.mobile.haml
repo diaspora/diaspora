@@ -3,8 +3,6 @@
 -#   the COPYRIGHT file.
 
 - content_for :head do
-  = javascript_include_tag :jquery
-
   :javascript
     $(document).ready(function () {
       var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
