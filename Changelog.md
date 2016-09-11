@@ -26,6 +26,7 @@
 * Fix tags URLs in hovercards [#7075](https://github.com/diaspora/diaspora/pull/7075)
 * Fix 500 in html requests for post interactions [#7085](https://github.com/diaspora/diaspora/pull/7085)
 * Remove whitespaces next to like link in stream [#7088](https://github.com/diaspora/diaspora/pull/7088)
+* Prevent overflow of interaction avatars in the single post view [#7070](https://github.com/diaspora/diaspora/pull/7070)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
