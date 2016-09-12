@@ -1,3 +1,7 @@
+# 0.6.0.1
+
+Fixes an issue with installing an running diaspora\*, caused by a recent bundler update that fixes a bundler bug on which we depended on.
+
 # 0.6.0.0
 
 ## Warning: This release contains long migrations
