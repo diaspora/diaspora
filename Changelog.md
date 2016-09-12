@@ -27,6 +27,7 @@
 * Fix 500 in html requests for post interactions [#7085](https://github.com/diaspora/diaspora/pull/7085)
 * Remove whitespaces next to like link in stream [#7088](https://github.com/diaspora/diaspora/pull/7088)
 * Prevent overflow of interaction avatars in the single post view [#7070](https://github.com/diaspora/diaspora/pull/7070)
+* Fix moving publisher on first click after page load [#7094](https://github.com/diaspora/diaspora/pull/7094)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
