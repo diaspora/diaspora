@@ -443,6 +443,7 @@ app.views.Publisher = Backbone.View.extend({
     $(this.el).addClass("closed");
     this.wrapperEl.removeClass("active");
     this.inputEl.css("height", "");
+    autosize.update(this.inputEl);
     this.wrapperEl.removeClass("with-poll");
     return this;
   },
