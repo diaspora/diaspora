@@ -480,6 +480,20 @@ describe Person, :type => :model do
         expect(people).to eq([@robert_grimm])
       end
     end
+
+    context "mutual" do
+      before do
+        @robert_contact = @user.contacts.create(person: @robert_grimm, aspects: [@user.aspects.first],
+                                                receiving: true, sharing: true)
+        @casey_grippi = @user.contacts.create(person: @casey_grippi, aspects: [@user.aspects.first])
+      end
+
+      it "returns only mutual contacts" do
+        people = Person.search("gri", @user, mutual: true)
+        expect(people.count).to eq(1)
+        expect(people.first).to eq(@robert_grimm)
+      end
+    end
   end
 
   context 'people finders for webfinger' do

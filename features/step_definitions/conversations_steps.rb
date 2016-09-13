@@ -14,47 +14,47 @@ end
 
 Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
   step %(I am on the conversations page)
-  within("#conversation_new", match: :first) do
-    step %(I fill in "contact_autocomplete" with "#{person}")
-    step %(I press the first ".as-result-item" within ".as-results")
+  within("#new-conversation", match: :first) do
+    find("#contacts-search-input").native.send_key(person.to_s)
+    step %(I press the first ".tt-suggestion" within ".twitter-typeahead")
     step %(I fill in "conversation_subject" with "#{subject}")
-    step %(I fill in "conversation_text" with "#{text}")
+    step %(I fill in "new-message-text" with "#{text}")
     step %(I press "Send")
   end
 end
 
 Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)" using keyboard shortcuts$/ do |subject, text, person|
   step %(I am on the conversations page)
-  within("#conversation_new", match: :first) do
-    step %(I fill in "contact_autocomplete" with "#{person}")
-    step %(I press the first ".as-result-item" within ".as-results")
+  within("#new-conversation", match: :first) do
+    find("#contacts-search-input").native.send_key(person.to_s)
+    step %(I press the first ".tt-suggestion" within ".twitter-typeahead")
     step %(I fill in "conversation_subject" with "#{subject}")
-    step %(I fill in "conversation_text" with "#{text}")
-    find("#conversation_text").native.send_key %i(Ctrl Return)
+    step %(I fill in "new-message-text" with "#{text}")
+    find("#new-message-text").native.send_key %i(Ctrl Return)
   end
 end
 
 When /^I reply with "([^"]*)"$/ do |text|
   step %(I am on the conversations page)
   step %(I press the first ".conversation" within ".conversations")
-  step %(I fill in "message_text" with "#{text}")
+  step %(I fill in "response-message-text" with "#{text}")
   step %(I press "Reply")
 end
 
 When /^I reply with "([^"]*)" using keyboard shortcuts$/ do |text|
   step %(I am on the conversations page)
   step %(I press the first ".conversation" within ".conversations")
-  step %(I fill in "message_text" with "#{text}")
-  find("#message_text").native.send_key %i(Ctrl Return)
+  step %(I fill in "response-message-text" with "#{text}")
+  find("#response-message-text").native.send_key %i(Ctrl Return)
 end
 
 Then /^I send a mobile message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
   step %(I am on the conversations page)
   step %(I follow "New conversation")
-  step %(I fill in "contact_autocomplete" with "#{person}")
+  step %(I fill in "contacts-autocomplete" with "#{person}")
   step %(I press the first ".as-result-item" within ".as-results")
   step %(I fill in "conversation_subject" with "#{subject}")
-  step %(I fill in "conversation_text" with "#{text}")
+  step %(I fill in "new-message-text" with "#{text}")
   step %(I press "Send")
 end
 
