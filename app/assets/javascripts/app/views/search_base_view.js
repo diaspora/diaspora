@@ -5,8 +5,6 @@ app.views.SearchBase = app.views.Base.extend({
     this.setupBloodhound(options);
     if(options.customSearch) { this.setupCustomSearch(); }
     this.setupTypeahead();
-    // TODO: Remove this as soon as corejavascript/typeahead.js has its first release
-    this.setupMouseSelectionEvents();
     if(options.autoselect) { this.setupAutoselect(); }
   },
 
@@ -96,19 +94,6 @@ app.views.SearchBase = app.views.Base.extend({
   _selectSuggestion: function(suggestion) {
     this._deselectAllSuggestions();
     suggestion.addClass("tt-cursor");
-  },
-
-  // TODO: Remove this as soon as corejavascript/typeahead.js has its first release
-  setupMouseSelectionEvents: function() {
-    var self = this,
-        selectSuggestion = function(e) { self._selectSuggestion($(e.target).closest(".tt-suggestion")); },
-        deselectAllSuggestions = function() { self._deselectAllSuggestions(); };
-
-    this.typeaheadInput.on("typeahead:render", function() {
-      self.$(".tt-menu .tt-suggestion").off("mouseover").on("mouseover", selectSuggestion);
-      self.$(".tt-menu .tt-suggestion *").off("mouseover").on("mouseover", selectSuggestion);
-      self.$(".tt-menu .tt-suggestion").off("mouseleave").on("mouseleave", deselectAllSuggestions);
-    });
   },
 
   // Selects the first result when the result dropdown opens
