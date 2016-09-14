@@ -64,7 +64,7 @@ describe Notifier, type: :mailer do
   end
 
   describe ".started_sharing" do
-    let!(:request_mail) { Notifier.started_sharing(bob.id, person.id) }
+    let!(:request_mail) { Notifier.send_notification("started_sharing", bob.id, person.id) }
 
     it "goes to the right person" do
       expect(request_mail.to).to eq([bob.email])
@@ -136,7 +136,7 @@ describe Notifier, type: :mailer do
     before do
       @post = FactoryGirl.create(:status_message, author: alice.person, public: true)
       @like = @post.likes.create!(author: bob.person)
-      @mail = Notifier.liked(alice.id, @like.author.id, @like.id)
+      @mail = Notifier.send_notification("liked", alice.id, @like.author.id, @like.id)
     end
 
     it "TO: goes to the right person" do
@@ -158,7 +158,7 @@ describe Notifier, type: :mailer do
     it "can handle a reshare" do
       reshare = FactoryGirl.create(:reshare)
       like = reshare.likes.create!(author: bob.person)
-      Notifier.liked(alice.id, like.author.id, like.id)
+      Notifier.send_notification("liked", alice.id, like.author.id, like.id)
     end
   end
 
@@ -166,7 +166,7 @@ describe Notifier, type: :mailer do
     before do
       @post = FactoryGirl.create(:status_message, author: alice.person, public: true)
       @reshare = FactoryGirl.create(:reshare, root: @post, author: bob.person)
-      @mail = Notifier.reshared(alice.id, @reshare.author.id, @reshare.id)
+      @mail = Notifier.send_notification("reshared", alice.id, @reshare.author.id, @reshare.id)
     end
 
     it "TO: goes to the right person" do
@@ -205,7 +205,7 @@ describe Notifier, type: :mailer do
 
       @cnv = Conversation.create(@create_hash)
 
-      @mail = Notifier.private_message(bob.id, @cnv.author.id, @cnv.messages.first.id)
+      @mail = Notifier.send_notification("private_message", bob.id, @cnv.author.id, @cnv.messages.first.id)
     end
 
     it "TO: goes to the right person" do
@@ -248,7 +248,7 @@ describe Notifier, type: :mailer do
     let(:comment) { eve.comment!(commented_post, "Totally is") }
 
     describe ".comment_on_post" do
-      let(:comment_mail) { Notifier.comment_on_post(bob.id, person.id, comment.id).deliver_now }
+      let(:comment_mail) { Notifier.send_notification("comment_on_post", bob.id, person.id, comment.id).deliver_now }
 
       it "TO: goes to the right person" do
         expect(comment_mail.to).to eq([bob.email])
@@ -289,7 +289,7 @@ describe Notifier, type: :mailer do
     end
 
     describe ".also_commented" do
-      let(:comment_mail) { Notifier.also_commented(bob.id, person.id, comment.id) }
+      let(:comment_mail) { Notifier.send_notification("also_commented", bob.id, person.id, comment.id) }
 
       it "TO: goes to the right person" do
         expect(comment_mail.to).to eq([bob.email])
@@ -344,7 +344,7 @@ describe Notifier, type: :mailer do
       let(:comment) { bob.comment!(limited_post, "Totally is") }
 
       describe ".also_commented" do
-        let(:mail) { Notifier.also_commented(alice.id, bob.person.id, comment.id) }
+        let(:mail) { Notifier.send_notification("also_commented", alice.id, bob.person.id, comment.id) }
 
         it "TO: goes to the right person" do
           expect(mail.to).to eq([alice.email])
@@ -369,7 +369,7 @@ describe Notifier, type: :mailer do
 
       describe ".comment_on_post" do
         let(:comment) { bob.comment!(limited_post, "Totally is") }
-        let(:mail) { Notifier.comment_on_post(alice.id, bob.person.id, comment.id) }
+        let(:mail) { Notifier.send_notification("comment_on_post", alice.id, bob.person.id, comment.id) }
 
         it "TO: goes to the right person" do
           expect(mail.to).to eq([alice.email])
@@ -400,7 +400,7 @@ describe Notifier, type: :mailer do
 
     describe ".liked" do
       let(:like) { bob.like!(limited_post) }
-      let(:mail) { Notifier.liked(alice.id, bob.person.id, like.id) }
+      let(:mail) { Notifier.send_notification("liked", alice.id, bob.person.id, like.id) }
 
       it "TO: goes to the right person" do
         expect(mail.to).to eq([alice.email])
@@ -436,7 +436,7 @@ describe Notifier, type: :mailer do
   describe ".confirm_email" do
     before do
       bob.update_attribute(:unconfirmed_email, "my@newemail.com")
-      @confirm_email = Notifier.confirm_email(bob.id)
+      @confirm_email = Notifier.send_notification("confirm_email", bob.id)
     end
 
     it "goes to the right person" do
@@ -461,7 +461,7 @@ describe Notifier, type: :mailer do
   end
 
   describe ".csrf_token_fail" do
-    let(:email) { Notifier.csrf_token_fail(alice.id) }
+    let(:email) { Notifier.send_notification("csrf_token_fail", alice.id) }
 
     it "goes to the right person" do
       expect(email.to).to eq([alice.email])
@@ -495,7 +495,7 @@ describe Notifier, type: :mailer do
     it "handles idn addresses" do
       bob.update_attribute(:email, "ŧoo@ŧexample.com")
       expect {
-        Notifier.started_sharing(bob.id, person.id)
+        Notifier.send_notification("started_sharing", bob.id, person.id)
       }.to_not raise_error
     end
   end
