@@ -246,6 +246,9 @@ configuration: ## Section
         ## connect directly to the port specified below.
         #proxy: true
 
+        ## Configure the protocol used to access the BOSH endpoint
+        #proto: http
+
         ## Configure the address that vines should listen on.
         #address: '0.0.0.0'
 
