@@ -218,6 +218,12 @@ describe UsersController, :type => :controller do
       get 'privacy_settings'
       expect(response.status).to eq(200)
     end
+
+    it "updates chat privacy settings" do
+      put(:update_privacy_settings, user: {disable_chat_login: true})
+      expect(request.flash[:notice]).to eql(I18n.t("users.update.settings_updated"))
+      expect(request.flash[:error]).to be_blank
+    end
   end
 
   describe '#edit' do

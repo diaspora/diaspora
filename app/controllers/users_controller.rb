@@ -38,14 +38,14 @@ class UsersController < ApplicationController
   end
 
   def update_privacy_settings
-    privacy_params = params.fetch(:user).permit(:strip_exif)
-
-    if current_user.update_attributes(strip_exif: privacy_params[:strip_exif])
-      flash[:notice] = t("users.update.settings_updated")
-    else
-      flash[:error] = t("users.update.settings_not_updated")
+    privacy_params = params.fetch(:user)
+    if privacy_params
+      if privacy_params[:strip_exif]
+        change_privacy_params(:strip_exif, privacy_params[:strip_exif])
+      elsif privacy_params[:disable_chat_login]
+        change_privacy_params(:disable_chat_login, privacy_params[:disable_chat_login])
+      end
     end
-
     redirect_to :back
   end
 
@@ -145,6 +145,7 @@ class UsersController < ApplicationController
       :language,
       :color_theme,
       :disable_mail,
+      :disable_chat_login,
       :show_community_spotlight_in_stream,
       :auto_follow_back,
       :auto_follow_back_aspect_id,
@@ -236,6 +237,14 @@ class UsersController < ApplicationController
 
     @user.user_preferences.each do |pref|
       @email_prefs[pref.email_type] = false
+    end
+  end
+
+  def change_privacy_params(key, value)
+    if current_user.update_attributes(key => value)
+      flash[:notice] = t("users.update.settings_updated")
+    else
+      flash[:error] = t("users.update.settings_not_updated")
     end
   end
 end

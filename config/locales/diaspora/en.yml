@@ -1207,6 +1207,8 @@ en:
       ignored_users: "Ignored users"
       stop_ignoring: "Stop ignoring"
       no_user_ignored_message: "You are not currently ignoring any other user"
+      disable_chat_login: "Disable chat autologin"
+      disable_chat_login_desc: "If you login the first time the chat will try to connect automatically. You can disable this behaviour here!"
 
     destroy:
       success: "Your account has been locked. It may take 20 minutes for us to finish closing your account. Thank you for trying diaspora*."

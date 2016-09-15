@@ -806,7 +806,13 @@ describe User, :type => :model do
       [I18n.t('aspects.seed.family'), I18n.t('aspects.seed.friends'),
        I18n.t('aspects.seed.work'), I18n.t('aspects.seed.acquaintances')].each do |aspect_name|
         it "creates an aspect named #{aspect_name} for the user" do
-          expect(user.aspects.find_by_name(aspect_name)).not_to be_nil
+          aspect = user.aspects.find_by_name(aspect_name)
+          if aspect.eql? I18n.t("aspects.seed.acquaintances")
+            expect(aspect.chat_enabled).to be true
+          else
+            expect(aspect.chat_enabled).to be false
+          end
+          expect(aspect).not_to be_nil
         end
       end
     end
@@ -956,6 +962,7 @@ describe User, :type => :model do
             current_sign_in_at
             last_sign_in_at
             current_sign_in_ip
+            disable_chat_login
             hidden_shareables
             last_sign_in_ip
             invited_by_id

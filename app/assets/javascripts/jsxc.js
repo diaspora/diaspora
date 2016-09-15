@@ -42,6 +42,12 @@ $(document).ready(function() {
             onlogin: true
           }
         });
+
+        // auto login if the user hasn't disabled it
+        var onLogin = !(app.currentUser.get("disable_chat_login"));
+        if (onLogin) {
+          jsxc.gui.changePresence("online");
+        }
       } else {
         console.error('No token found! Authenticated!?');
       }

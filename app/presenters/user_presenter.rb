@@ -8,6 +8,7 @@ class UserPresenter
 
   def to_json(options={})
     user.person.as_api_response(:backbone).update(
+      disable_chat_login:    disable_chat_login,
       notifications_count:   notifications_count,
       unread_messages_count: unread_messages_count,
       admin:                 admin,
@@ -33,6 +34,10 @@ class UserPresenter
                    no_aspects = aspects_ids.empty?
                    aspects.each {|a| a[:selected] = no_aspects || aspects_ids.include?(a[:id].to_s) }
                  end
+  end
+
+  def disable_chat_login
+    user.disable_chat_login?
   end
 
   def notifications_count

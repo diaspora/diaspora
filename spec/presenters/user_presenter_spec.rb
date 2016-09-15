@@ -17,6 +17,12 @@ describe UserPresenter do
     end
   end
 
+  describe "#users" do
+    it "provides chat related information" do
+      expect(@presenter.disable_chat_login).to eq(bob.disable_chat_login?)
+    end
+  end
+
   describe '#services' do
     it 'provides an array of jsonifed services' do
       fakebook = double(:provider => 'fakebook')
