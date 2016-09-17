@@ -87,6 +87,7 @@ class UsersController < ApplicationController
     @person   = @user.person
     @profile  = @user.profile
     gon.preloads[:inviter] = PersonPresenter.new(current_user.invited_by.try(:person), current_user).as_json
+    gon.preloads[:tagsArray] = current_user.followed_tags.map {|tag| {name: "##{tag.name}", value: "##{tag.name}"} }
 
     render "users/getting_started"
   end
