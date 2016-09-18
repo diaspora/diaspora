@@ -91,6 +91,7 @@ app.views.Publisher = Backbone.View.extend({
 
     this.initSubviews();
     this.checkSubmitAvailability();
+    this.triggerGettingStarted();
     return this;
   },
 
@@ -184,7 +185,10 @@ app.views.Publisher = Backbone.View.extend({
 
   // show the "getting started" popups around the publisher
   triggerGettingStarted: function() {
-    this.viewGettingStarted.show();
+    if (gon.preloads.getting_started) {
+      this.open();
+      this.viewGettingStarted.show();
+    }
   },
 
   createStatusMessage : function(evt) {
