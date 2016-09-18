@@ -26,4 +26,11 @@ describe ReportHelper, type: :helper do
         .to include %(href="#{post_path(@post, anchor: @comment.guid)}")
     end
   end
+
+  describe "#unreviewed_reports_count" do
+    it "returns the number of unreviewed reports" do
+      @comment_report.mark_as_reviewed
+      expect(helper.unreviewed_reports_count).to be(1)
+    end
+  end
 end

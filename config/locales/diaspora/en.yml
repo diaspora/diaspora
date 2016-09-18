@@ -940,6 +940,10 @@ en:
     status:
       destroyed: "The post was destroyed"
       failed: "Something went wrong"
+    unreviewed_reports:
+      zero: "There are no unreviewed reports."
+      one: "There is one unreviewed report."
+      other: "There are %{count} unreviewed reports."
 
   profiles:
     edit:

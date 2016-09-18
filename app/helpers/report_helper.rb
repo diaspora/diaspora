@@ -16,4 +16,8 @@ module ReportHelper
       raw t("report.not_found")
     end
   end
+
+  def unreviewed_reports_count
+    @unreviewed_reports_count ||= Report.where(reviewed: false).size
+  end
 end

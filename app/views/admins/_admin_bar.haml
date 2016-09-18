@@ -13,7 +13,11 @@
   %li{role: "presentation", class: current_page?(pod_stats_path) && "active"}
     = link_to t(".pod_stats"), pod_stats_path
   %li{role: "presentation", class: current_page?(report_index_path) && "active"}
-    = link_to t(".report"), report_index_path
+    %a{href: report_index_path}
+      - if unreviewed_reports_count > 0
+        .pull-right.badge
+          = unreviewed_reports_count
+      = t(".report")
   %li{role: "presentation", class: current_page?(admin_pods_path) && "active"}
     = link_to t(".pod_network"), admin_pods_path
   %li{role: "presentation", class: current_page?(sidekiq_path) && "active"}
