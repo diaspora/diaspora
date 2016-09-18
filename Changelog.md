@@ -38,6 +38,7 @@
 * Add OpenGraph video support [#7043](https://github.com/diaspora/diaspora/pull/7043)
 * You'll now get redirected to the invites page if you follow an invitation but you're already logged in [#7061](https://github.com/diaspora/diaspora/pull/7061)
 * Add support for setting BOSH access protocol via chat configuration [#7100](https://github.com/diaspora/diaspora/pull/7100)
+* Add number of unreviewed reports to admin dashboard and admin sidebar [#7109](https://github.com/diaspora/diaspora/pull/7109)
 
 # 0.6.0.0
 
