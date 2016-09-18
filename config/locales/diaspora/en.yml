@@ -901,10 +901,6 @@ en:
       type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy:
       notice: "Photo deleted."
-    new_photo:
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
-      empty: "{file} is empty, please select files again without it."
     new_profile_photo:
       upload: "Upload a new profile photo!"
 

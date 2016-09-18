@@ -8,6 +8,7 @@ app.pages.Settings = Backbone.View.extend({
     new Diaspora.TagsAutocomplete("#profile_tag_string", {
       preFill: gon.preloads.tagsArray
     });
+    new Diaspora.ProfilePhotoUploader();
   }
 });
 // @license-end
