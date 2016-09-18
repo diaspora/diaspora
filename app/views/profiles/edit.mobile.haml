@@ -6,6 +6,7 @@
   :javascript
     $(document).ready(function () {
       new Diaspora.TagsAutocomplete("#profile_tag_string", {preFill: gon.preloads.tagsArray});
+      new Diaspora.ProfilePhotoUploader();
     });
 
 .settings_container.container-fluid

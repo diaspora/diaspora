@@ -58,6 +58,7 @@ Diaspora.Pages.UsersGettingStarted = function() {
         elem.remove();
       }
     });
+    new Diaspora.ProfilePhotoUploader();
   });
 };
 // @license-end
