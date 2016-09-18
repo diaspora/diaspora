@@ -36,6 +36,7 @@
 * The "subscribe" indicator on a post now gets toggled when you like or rehsare a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
 * Add OpenGraph video support [#7043](https://github.com/diaspora/diaspora/pull/7043)
 * You'll now get redirected to the invites page if you follow an invitation but you're already logged in [#7061](https://github.com/diaspora/diaspora/pull/7061)
+* Add support for setting BOSH access protocol via chat configuration [#7100](https://github.com/diaspora/diaspora/pull/7100)
 
 # 0.6.0.0
 
