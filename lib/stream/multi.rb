@@ -23,9 +23,10 @@ class Stream::Multi < Stream::Base
   end
 
   private
+
   def publisher_opts
     if welcome?
-      {open: true, prefill: publisher_prefill, public: true, explain: true}
+      {open: true, prefill: publisher_prefill, public: true}
     else
       super
     end

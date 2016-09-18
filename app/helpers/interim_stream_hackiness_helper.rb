@@ -25,7 +25,7 @@ module InterimStreamHackinessHelper
     if params[:prefill].present?
       params[:prefill]
     elsif defined?(@stream)
-      @stream.publisher.prefill 
+      @stream.publisher.prefill
     else
       nil
     end
@@ -49,9 +49,5 @@ module InterimStreamHackinessHelper
 
   def publisher_public
     publisher_method(:public)
-  end
-
-  def publisher_explain
-    publisher_method(:explain)
   end
 end
