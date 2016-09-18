@@ -4,7 +4,11 @@ module AspectCukeHelpers
   end
 
   def toggle_aspect(a_name)
-    a_id = @me.aspects.where(name: a_name).pluck(:id).first
+    if "Public" == a_name
+      a_id = "public"
+    else
+      a_id = @me.aspects.where(name: a_name).pluck(:id).first
+    end
     aspect_css = ".aspect_dropdown li[data-aspect_id='#{a_id}']"
     expect(page).to have_selector(aspect_css)
     find(aspect_css).click
