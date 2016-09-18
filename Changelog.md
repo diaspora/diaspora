@@ -16,6 +16,7 @@
 * Liking a post will no longer update its interacted timestamp [#7030](https://github.com/diaspora/diaspora/pull/7030)
 * Improve W3C compliance [#7068](https://github.com/diaspora/diaspora/pull/7068) [#7082](https://github.com/diaspora/diaspora/pull/7082) [#7091](https://github.com/diaspora/diaspora/pull/7091) [#7092](https://github.com/diaspora/diaspora/pull/7092)
 * Load jQuery in the head on mobile [#7086](https://github.com/diaspora/diaspora/pull/7086)
+* Use translation for NodeInfo services [#7102](https://github.com/diaspora/diaspora/pull/7102)
 
 ## Bug fixes
 * Post comments no longer get collapsed when interacting with a post [#7040](https://github.com/diaspora/diaspora/pull/7040)
