@@ -1,7 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-Bundler.require(:default, Rails.env)
+Bundler.require(:default, *Bundler.settings.with, Rails.env)
 
 # Do not dump the limit of boolean fields on MySQL,
 # since that generates a db/schema.rb that's incompatible
