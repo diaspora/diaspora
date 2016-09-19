@@ -75,6 +75,7 @@ module Diaspora
       jquery-textchange.js
       main.js
       jsxc.js
+      mobile/bookmarklet.js
       mobile/mobile.js
       people.js
       publisher.js
