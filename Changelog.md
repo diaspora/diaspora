@@ -32,6 +32,10 @@
 * Add support for setting BOSH access protocol via chat configuration [#7100](https://github.com/diaspora/diaspora/pull/7100)
 * Add number of unreviewed reports to admin dashboard and admin sidebar [#7109](https://github.com/diaspora/diaspora/pull/7109)
 
+# 0.6.0.1
+
+Fixes an issue with installing an running diaspora\*, caused by a recent bundler update that fixes a bundler bug on which we depended on.
+
 # 0.6.0.0
 
 ## Warning: This release contains long migrations
