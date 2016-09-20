@@ -1,11 +1,3 @@
-# 0.7.0.0
-
-## Refactor
-
-## Bug fixes
-
-## Features
-
 # 0.6.1.0
 
 ## Refactor
