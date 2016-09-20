@@ -21,6 +21,7 @@
 //= require widgets/timeago
 //= require mobile/mobile_application
 //= require mobile/mobile_file_uploader
+//= require mobile/mobile_profile_edit
 //= require mobile/profile_aspects
 //= require mobile/tag_following
 //= require mobile/publisher
