@@ -79,6 +79,19 @@ describe("app.views.CommentStream", function(){
       expect(comment.set).toHaveBeenCalled();
     });
 
+    it("uses this.CommentView for the Comment view", function() {
+      var comment = factory.comment();
+      this.view.CommentView = app.views.Comment;
+      spyOn(app.views.Comment.prototype, "initialize");
+      this.view.appendComment(comment);
+      expect(app.views.Comment.prototype.initialize).toHaveBeenCalled();
+
+      this.view.CommentView = app.views.StatusMessage;
+      spyOn(app.views.StatusMessage.prototype, "initialize");
+      this.view.appendComment(comment);
+      expect(app.views.StatusMessage.prototype.initialize).toHaveBeenCalled();
+    });
+
     it("sorts comments in the right order", function() {
       this.view.render();
       this.view.appendComment(factory.comment({"created_at": new Date(2000).toJSON(), "text": "2"}));

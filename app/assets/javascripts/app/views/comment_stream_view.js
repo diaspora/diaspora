@@ -13,9 +13,8 @@ app.views.CommentStream = app.views.Base.extend({
     "click .toggle_post_comments": "expandComments"
   },
 
-  initialize: function(options) {
-    this.commentTemplate = options.commentTemplate;
-
+  initialize: function() {
+    this.CommentView = app.views.Comment;
     this.setupBindings();
   },
 
@@ -84,7 +83,7 @@ app.views.CommentStream = app.views.Base.extend({
     // on post ownership in the Comment view.
     comment.set({parent : this.model.toJSON()});
 
-    var commentHtml = new app.views.Comment({model: comment}).render().el;
+    var commentHtml = new this.CommentView({model: comment}).render().el;
     var commentBlocks = this.$(".comments div.comment.media");
     this._moveInsertPoint(comment.get("created_at"), commentBlocks);
     if (this._insertPoint >= commentBlocks.length) {
