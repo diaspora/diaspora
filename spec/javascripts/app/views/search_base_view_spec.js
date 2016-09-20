@@ -41,12 +41,6 @@ describe("app.views.SearchBase", function() {
       expect(app.views.SearchBase.prototype.setupTypeahead).toHaveBeenCalled();
     });
 
-    it("calls setupMouseSelectionEvents", function() {
-      spyOn(app.views.SearchBase.prototype, "setupMouseSelectionEvents");
-      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
-      expect(app.views.SearchBase.prototype.setupMouseSelectionEvents).toHaveBeenCalled();
-    });
-
     it("initializes the array of diaspora ids that should be excluded from the search results", function() {
       this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
       expect(this.view.ignoreDiasporaIds.length).toBe(0);
@@ -165,22 +159,10 @@ describe("app.views.SearchBase", function() {
     });
   });
 
-  describe("setupMouseSelectionEvents", function() {
+  describe("typeahead mouse events", function() {
     beforeEach(function() {
       this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
       this.view.bloodhound.add(this.bloodhoundData);
-    });
-
-    it("binds mouseover and mouseleave events only once", function() {
-      this.search(this.view, "user");
-      $("#q").trigger("focusout");
-      expect($._data($(".tt-menu .tt-suggestion")[0], "events").mouseover.length).toBe(1);
-      expect($._data($(".tt-menu .tt-suggestion")[0], "events").mouseout.length).toBe(1);
-
-      this.search(this.view, "user");
-      $("#q").trigger("focusout");
-      expect($._data($(".tt-menu .tt-suggestion")[0], "events").mouseover.length).toBe(1);
-      expect($._data($(".tt-menu .tt-suggestion")[0], "events").mouseout.length).toBe(1);
     });
 
     it("allows selecting results with the mouse", function() {

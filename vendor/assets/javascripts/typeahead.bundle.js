@@ -1839,6 +1839,9 @@
                 this.$node.on("mouseover", this.selectors.selectable, function() {
                     that.setCursor($(this));
                 });
+                this.$node.on("mouseleave", function() {
+                    that._removeCursor();
+                });
                 _.each(this.datasets, function(dataset) {
                     dataset.onSync("asyncRequested", that._propagate, that).onSync("asyncCanceled", that._propagate, that).onSync("asyncReceived", that._propagate, that).onSync("rendered", that._onRendered, that).onSync("cleared", that._onCleared, that);
                 });
