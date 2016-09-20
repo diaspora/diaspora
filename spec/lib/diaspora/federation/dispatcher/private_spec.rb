@@ -10,6 +10,25 @@ describe Diaspora::Federation::Dispatcher::Private do
   end
 
   describe "#dispatch" do
+    context "deliver to local user" do
+      it "delivers to each user only once" do
+        aspect1 = alice.aspects.first
+        aspect2 = alice.aspects.create(name: "cat people")
+        alice.add_contact_to_aspect(alice.contact_for(bob.person), aspect2)
+
+        post = FactoryGirl.create(
+          :status_message,
+          author:  alice.person,
+          text:    "hello",
+          public:  false,
+          aspects: [aspect1, aspect2]
+        )
+
+        expect(Workers::ReceiveLocal).to receive(:perform_async).with("StatusMessage", post.id, [bob.id])
+        Diaspora::Federation::Dispatcher.build(alice, post).dispatch
+      end
+    end
+
     context "deliver to remote user" do
       let(:xml) { "<diaspora/>" }
       it "queues a private send job" do
