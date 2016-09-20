@@ -21,7 +21,7 @@ class FixPhotosShareVisibilities < ActiveRecord::Migration
             "INNER JOIN posts ON posts.guid = photos.status_message_guid AND posts.type = 'StatusMessage' " \
             "LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = photos.id " \
             "INNER JOIN share_visibilities AS post_visibility ON post_visibility.shareable_id = posts.id " \
-            "WHERE photos.public = 0 AND share_visibilities.shareable_id IS NULL " \
+            "WHERE photos.public = false AND share_visibilities.shareable_id IS NULL " \
             "AND post_visibility.shareable_type = 'Post'"
   end
 
