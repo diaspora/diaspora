@@ -17,7 +17,7 @@ module AspectGlobalHelper
       aspect = stream.aspect
       aspect_ids = stream.aspect_ids
     elsif current_user
-      aspects = current_user.aspects
+      aspects = current_user.post_default_aspects
       aspect = aspects.first
       aspect_ids = current_user.aspect_ids
     else

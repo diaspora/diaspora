@@ -22,12 +22,17 @@ class Stream::Multi < Stream::Base
     end.compact
   end
 
+  # Override base class method
+  def aspects
+    user.post_default_aspects
+  end
+
   private
   def publisher_opts
     if welcome?
       {open: true, prefill: publisher_prefill, public: true, explain: true}
     else
-      super
+      {public: user.post_default_public}
     end
   end
 

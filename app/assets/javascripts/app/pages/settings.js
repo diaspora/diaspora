@@ -4,6 +4,12 @@ app.pages.Settings = Backbone.View.extend({
     $(".settings-visibility").tooltip({placement: "top"});
     $(".profile-visibility-hint").tooltip({placement: "top"});
     $("[name='profile[public_details]']").bootstrapSwitch();
+
+    var form = $("#post-default-aspects");
+    this.viewAspectSelector = new app.views.PublisherAspectSelector({
+      el: $(".aspect_dropdown"),
+      form: form
+    });
   }
 });
 // @license-end
