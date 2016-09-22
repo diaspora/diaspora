@@ -31,6 +31,10 @@ module AspectGlobalHelper
   end
 
   def all_aspects_selected?(aspects, selected_aspects)
-    aspects.size == selected_aspects.size
+    !aspects.empty? && aspects.size == selected_aspects.size && !public_selected?(selected_aspects)
+  end
+
+  def aspect_selected?(aspect, aspects, selected_aspects)
+    selected_aspects.include?(aspect) && !all_aspects_selected?(aspects, selected_aspects)
   end
 end

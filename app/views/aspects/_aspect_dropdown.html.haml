@@ -1,9 +1,13 @@
 -# locals: selected_aspects. Note: all_aspects is a global in the ApplicationController
+:ruby
+  dropdown_css = {"data-toggle" => "dropdown"}
+  if current_user.getting_started?
+    dropdown_css[:title] = popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}")
+    dropdown_css["data-content"] = t("shared.public_explain.visibility_dropdown")
+  end
+
 .btn-group.aspect_dropdown
-  %button.btn.btn-default.dropdown-toggle{!current_user.getting_started? ? {"data-toggle" => "dropdown"} : |
-  {"data-toggle" => "dropdown", |
-  :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}"), |
-  "data-content" => t("shared.public_explain.visibility_dropdown")}}   |
+  %button.btn.btn-default.dropdown-toggle{dropdown_css}
     - if public_selected?(selected_aspects)
       %i.entypo-globe.small#visibility-icon
       %span.text
@@ -20,23 +24,23 @@
     %span.caret
   %ul.dropdown-menu.pull-right{unSelectable: "on"}
 
-    %li.public.radio{"data-aspect_id" => "public", class: ("selected" if public_selected?(selected_aspects))}
+    %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if public_selected?(selected_aspects))}
       %a
         %span.status_indicator
           %i.glyphicon.glyphicon-ok
         %span.text
           = t("public")
-    %li.all_aspects.radio{"data-aspect_id" => "all_aspects", class: ("selected" if (!public_selected?(selected_aspects) |
-      && all_aspects_selected?(all_aspects, selected_aspects)))} |
+    %li.all_aspects.radio{"data-aspect_id" => "all_aspects",
+      :class => ("selected" if all_aspects_selected?(all_aspects, selected_aspects))}
       %a
         %span.status_indicator
           %i.glyphicon.glyphicon-ok
         %span.text
           = t("all_aspects")
     %li.divider
-    - for aspect in all_aspects
-      %li.aspect_selector{"data-aspect_id" => aspect.id, class: !all_aspects_selected?(all_aspects, selected_aspects) |
-        && selected_aspects.include?(aspect) ? "selected" : ""} |
+    - all_aspects.each do |aspect|
+      %li.aspect_selector{"data-aspect_id" => aspect.id,
+        :class => ("selected" if aspect_selected?(aspect, all_aspects, selected_aspects))}
         %a
           %span.status_indicator
             %i.glyphicon.glyphicon-ok
