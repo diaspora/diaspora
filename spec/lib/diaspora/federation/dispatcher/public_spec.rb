@@ -67,7 +67,7 @@ describe Diaspora::Federation::Dispatcher::Public do
         Diaspora::Federation::Dispatcher.build(alice, post).dispatch
       end
 
-      it "does not queue a private send job when no remote recipients specified" do
+      it "does not queue a public send job when no remote recipients specified" do
         expect(Workers::SendPublic).not_to receive(:perform_async)
 
         Diaspora::Federation::Dispatcher.build(alice, post).dispatch
@@ -84,6 +84,22 @@ describe Diaspora::Federation::Dispatcher::Public do
         expect(DiasporaFederation::Salmon::Slap).to receive(:generate_xml).and_return(salmon_xml)
 
         Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [remote_raphael]).dispatch
+      end
+
+      it "only queues a public send job for a active pods" do
+        offline_pod = FactoryGirl.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
+        offline_person = FactoryGirl.create(:person, pod: offline_pod)
+
+        expect(Workers::SendPublic).to receive(:perform_async) do |user_id, _entity_string, urls, xml|
+          expect(user_id).to eq(alice.id)
+          expect(urls.size).to eq(1)
+          expect(urls[0]).to eq(remote_raphael.pod.url_to("/receive/public"))
+          expect(xml).to eq(salmon_xml)
+        end
+
+        expect(DiasporaFederation::Salmon::Slap).to receive(:generate_xml).and_return(salmon_xml)
+
+        Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [remote_raphael, offline_person]).dispatch
       end
     end
   end

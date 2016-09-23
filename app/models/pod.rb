@@ -66,8 +66,13 @@ class Pod < ActiveRecord::Base
     Pod.offline_statuses.include?(Pod.statuses[status])
   end
 
-  def was_offline?
-    Pod.offline_statuses.include?(Pod.statuses[status_was])
+  # a pod is active if it is online or was online less than 14 days ago
+  def active?
+    !offline? || offline_since.try {|date| date > DateTime.now.utc - 14.days }
+  end
+
+  def to_s
+    "#{id}:#{host}"
   end
 
   def test_connection!
@@ -87,7 +92,7 @@ class Pod < ActiveRecord::Base
 
   def update_offline_since
     if offline?
-      touch(:offline_since) unless was_offline?
+      self.offline_since ||= DateTime.now.utc
     else
       self.offline_since = nil
     end
