@@ -16,8 +16,8 @@ end
 
 Then /^I should not see any posts in my stream$/ do
   expect(page).not_to have_selector("#paginate .loader")
-  expect(page).not_to have_selector(".stream_element .media")
-  expect(page).to have_selector(".stream_element .no-posts-info")
+  expect(page).not_to have_selector(".stream-element .media")
+  expect(page).to have_selector(".stream-element .no-posts-info")
 end
 
 Then /^I should not see any picture in my stream$/ do
@@ -78,7 +78,7 @@ And /^I submit the publisher$/ do
 end
 
 When /^I click on the first block button/ do
-  find(".stream_element", match: :first).hover
+  find(".stream-element", match: :first).hover
   find(".block_user").click
 end
 

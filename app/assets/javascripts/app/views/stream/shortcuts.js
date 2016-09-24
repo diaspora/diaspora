@@ -57,7 +57,7 @@ app.views.StreamShortcuts = Backbone.View.extend({
 
   gotoNext: function() {
     // select next post: take the first post under the header
-    var streamElements = this.$("div.stream_element.loaded");
+    var streamElements = this.$("div.stream-element.loaded");
     var posUser = window.pageYOffset;
 
     for (var i = 0; i < streamElements.length; i++) {
@@ -74,7 +74,7 @@ app.views.StreamShortcuts = Backbone.View.extend({
 
   gotoPrev: function() {
     // select previous post: take the first post above the header
-    var streamElements = this.$("div.stream_element.loaded");
+    var streamElements = this.$("div.stream-element.loaded");
     var posUser = window.pageYOffset;
 
     for (var i = streamElements.length - 1; i >= 0; i--) {
@@ -90,23 +90,23 @@ app.views.StreamShortcuts = Backbone.View.extend({
   },
 
   commentSelected: function() {
-    $('a.focus_comment_textarea',this.$('div.stream_element.loaded.shortcut_selected')).click();
+    $('a.focus_comment_textarea',this.$('div.stream-element.loaded.shortcut_selected')).click();
   },
 
   likeSelected: function() {
-    $('a.like:first',this.$('div.stream_element.loaded.shortcut_selected')).click();
+    $('a.like:first',this.$('div.stream-element.loaded.shortcut_selected')).click();
   },
 
   reshareSelected: function() {
-    $('a.reshare:first',this.$('div.stream_element.loaded.shortcut_selected')).click();
+    $('a.reshare:first',this.$('div.stream-element.loaded.shortcut_selected')).click();
   },
 
   expandSelected: function() {
-    $('div.expander:first',this.$('div.stream_element.loaded.shortcut_selected')).click();
+    $('div.expander:first',this.$('div.stream-element.loaded.shortcut_selected')).click();
   },
 
   openFirstLinkSelected: function() {
-    var link = $('div.collapsible a[target="_blank"]:first',this.$('div.stream_element.loaded.shortcut_selected'));
+    var link = $('div.collapsible a[target="_blank"]:first',this.$('div.stream-element.loaded.shortcut_selected'));
     if(link.length > 0) {
       // click does only work with vanilla javascript
       link[0].click();
@@ -115,7 +115,7 @@ app.views.StreamShortcuts = Backbone.View.extend({
 
   selectPost: function(element){
     //remove the selection and selected-class from all posts
-    var selected=this.$('div.stream_element.loaded.shortcut_selected');
+    var selected=this.$('div.stream-element.loaded.shortcut_selected');
     selected.removeClass('shortcut_selected').removeClass('highlighted');
     //move to new post
     window.scrollTo(window.pageXOffset, Math.round($(element).offset().top - this._headerSize));

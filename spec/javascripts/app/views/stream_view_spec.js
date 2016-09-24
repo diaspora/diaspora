@@ -27,7 +27,7 @@ describe("app.views.Stream", function() {
   describe("#render", function() {
     beforeEach(function() {
       this.statusMessage = this.stream.items.models[0];
-      this.statusElement = $(this.view.$(".stream_element")[0]);
+      this.statusElement = $(this.view.$(".stream-element")[0]);
     });
 
     context("when rendering a status message", function() {

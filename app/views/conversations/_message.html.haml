@@ -1,4 +1,4 @@
-.stream_element.message{data: {guid: message.id}, id: ("first_unread" if @first_unread_message_id == message.id)}
+.stream-element.message{data: {guid: message.id}, id: ("first_unread" if @first_unread_message_id == message.id)}
   .media
     = person_image_link(message.author, size: :thumb_small, class: "img")
     .bd

@@ -16,7 +16,7 @@ Feature: private conversations mobile
     And I should see "Greetings" within ".ltr"
     And I press the first ".ltr" within ".conversation"
     And "Alice Awesome" should be part of active conversation
-    And I should see "hello, alice!" within ".stream_element"
+    And I should see "hello, alice!" within ".stream-element"
     When I sign in as "alice@alice.alice" on the mobile website
     And I reply with "hey, how you doing?"
     And I press the first ".ltr" within ".conversation"
