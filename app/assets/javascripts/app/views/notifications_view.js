@@ -20,7 +20,7 @@ app.views.Notifications = Backbone.View.extend({
     else { this.setUnread(guid); }
   },
 
-  getAllUnread: function(){ return $(".media.stream-element.unread"); },
+  getAllUnread: function() { return $(".media.stream-element.unread"); },
 
   setRead: function(guid) { this.setUnreadStatus(guid, false); },
 
