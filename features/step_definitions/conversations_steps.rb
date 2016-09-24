@@ -59,5 +59,5 @@ Then /^I send a mobile message with subject "([^"]*)" and text "([^"]*)" to "([^
 end
 
 Then /^I should see "([^"]*)" as a participant$/ do |name|
-  find(".conversation.stream_element img.avatar[title^='#{name}']").should_not be_nil
+  find(".conversation.stream-element img.avatar[title^='#{name}']").should_not be_nil
 end

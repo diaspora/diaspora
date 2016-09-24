@@ -68,7 +68,7 @@ describe("Diaspora.Mobile.Comments", function(){
         contentType: "text/plain",
         responseText: "<div class=\"commentContainerForTest\">new comments</div>"
       });
-      expect($(".stream .stream_element").first()).toContainElement(".commentContainerForTest");
+      expect($(".stream .stream-element").first()).toContainElement(".commentContainerForTest");
     });
 
     it("shows and hides the mobile spinner", function(){
@@ -110,7 +110,7 @@ describe("Diaspora.Mobile.Comments", function(){
 
     it("Creates the reaction link when no reactions", function(){
       var parent = this.toggleReactionsLink.parent();
-      var postGuid = this.bottomBar.parents(".stream_element").data("guid");
+      var postGuid = this.bottomBar.parents(".stream-element").data("guid");
       this.toggleReactionsLink.remove();
       parent.prepend($("<span/>", {"class": "show-comments"}).text("No reaction"));
 

@@ -3,12 +3,12 @@ When /^I focus the comment field$/ do
 end
 
 Then /^the first comment field should be open/ do
-  find("#main_stream .stream_element .new_comment").should be_visible
+  find("#main_stream .stream-element .new_comment").should be_visible
 end
 
 Then /^the first comment field should be closed$/ do
-  page.should have_css(".stream_element .media")
-  page.should_not have_selector("#main_stream .stream_element .new_comment", match: :first)
+  page.should have_css(".stream-element .media")
+  page.should_not have_selector("#main_stream .stream-element .new_comment", match: :first)
 end
 
 When /^I make a show page comment "([^"]*)"$/ do |comment_text|

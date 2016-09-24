@@ -7,7 +7,7 @@ When /^I filter notifications by mentions$/ do
 end
 
 Then /^I should( not)? have activated notifications for the post( in the single post view)?$/ do |negate, spv|
-  selector = spv ? "#single-post-moderation" : "#main_stream .stream_element"
+  selector = spv ? "#single-post-moderation" : "#main_stream .stream-element"
   if negate
     expect(find(selector, match: :first)).to have_no_css(".destroy_participation", visible: false)
     expect(find(selector, match: :first)).to have_css(".create_participation", visible: false)
