@@ -90,23 +90,27 @@ app.views.StreamShortcuts = Backbone.View.extend({
   },
 
   commentSelected: function() {
-    $('a.focus_comment_textarea',this.$('div.stream-element.loaded.shortcut_selected')).click();
+    this.shortcutSelected().find("a.focus_comment_textarea").click();
   },
 
   likeSelected: function() {
-    $('a.like:first',this.$('div.stream-element.loaded.shortcut_selected')).click();
+    this.shortcutSelected().find("a.like:first").click();
   },
 
   reshareSelected: function() {
-    $('a.reshare:first',this.$('div.stream-element.loaded.shortcut_selected')).click();
+    this.shortcutSelected().find("a.reshare:first").click();
   },
 
   expandSelected: function() {
-    $('div.expander:first',this.$('div.stream-element.loaded.shortcut_selected')).click();
+    this.shortcutSelected().find("div.expander:first").click();
+  },
+
+  shortcutSelected: function() {
+    return this.$("div.stream-element.loaded.shortcut_selected");
   },
 
   openFirstLinkSelected: function() {
-    var link = $('div.collapsible a[target="_blank"]:first',this.$('div.stream-element.loaded.shortcut_selected'));
+    var link = $("div.collapsible a[target='_blank']:first");
     if(link.length > 0) {
       // click does only work with vanilla javascript
       link[0].click();
@@ -115,12 +119,11 @@ app.views.StreamShortcuts = Backbone.View.extend({
 
   selectPost: function(element){
     //remove the selection and selected-class from all posts
-    var selected=this.$('div.stream-element.loaded.shortcut_selected');
-    selected.removeClass('shortcut_selected').removeClass('highlighted');
+    this.shortcutSelected().removeClass("shortcut_selected").removeClass("highlighted");
     //move to new post
     window.scrollTo(window.pageXOffset, Math.round($(element).offset().top - this._headerSize));
     //add the selection and selected-class to new post
     element.className+=" shortcut_selected highlighted";
-  },
+  }
 });
 // @license-end

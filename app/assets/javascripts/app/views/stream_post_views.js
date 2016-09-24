@@ -2,7 +2,7 @@
 
 app.views.StreamPost = app.views.Post.extend({
   templateName: "stream-element",
-  className : "stream-element loaded",
+  className: "stream-element loaded",
 
   subviews : {
     ".feedback": "feedbackView",

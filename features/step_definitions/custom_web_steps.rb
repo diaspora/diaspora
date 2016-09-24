@@ -204,7 +204,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
-  has_css?("#people_stream .stream-element", :count => n_posts.to_i).should be true
+  has_css?("#people_stream .stream-element", count: n_posts.to_i).should be true
 end
 
 And /^I scroll down$/ do
@@ -245,11 +245,11 @@ When /^I resize my window to 800x600$/ do
 end
 
 Then 'I should see an image attached to the post' do
-  step %{I should see a "img" within ".stream-element div.photo_attachments"}
+  step %(I should see a "img" within ".stream-element div.photo_attachments")
 end
 
 Then 'I press the attached image' do
-  step %{I press the 1st "img" within ".stream-element div.photo_attachments"}
+  step %(I press the 1st "img" within ".stream-element div.photo_attachments")
 end
 
 And "I wait for the popovers to appear" do
