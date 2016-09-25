@@ -37,6 +37,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Add support for setting BOSH access protocol via chat configuration [#7100](https://github.com/diaspora/diaspora/pull/7100)
 * Add number of unreviewed reports to admin dashboard and admin sidebar [#7109](https://github.com/diaspora/diaspora/pull/7109)
 * Don't federate to pods that have been offline for an extended period of time [#7120](https://github.com/diaspora/diaspora/pull/7120)
+* Add In-Reply-To and References headers to notification mails [#7122](https://github.com/diaspora/diaspora/pull/7122)
 
 # 0.6.0.1
 
