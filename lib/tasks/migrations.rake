@@ -35,6 +35,8 @@ namespace :migrations do
   desc "Migrate sidekiq jobs, retries, scheduled and dead jobs from any legacy queue to "\
        "the default queue (retries all dead jobs)"
   task :legacy_queues do
+    Sidekiq.redis = AppConfig.get_redis_options
+
     # Push all retries, scheduled and dead jobs to their queues
     Sidekiq::RetrySet.new.retry_all
     Sidekiq::DeadSet.new.retry_all
