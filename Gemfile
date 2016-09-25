@@ -77,7 +77,6 @@ gem "activerecord-import", "0.15.0"
 gem "carrierwave", "0.11.2"
 gem "fog",         "1.38.0"
 gem "mini_magick", "4.5.1"
-gem "remotipart",  "1.2.1"
 
 # GUID generation
 gem "uuid", "2.3.8"
@@ -155,8 +154,8 @@ gem "openid_connect", "0.12.0"
 gem "active_model_serializers", "0.9.5"
 
 # XMPP chat dependencies
-gem "diaspora-prosody-config",    "0.0.5"
-gem "rails-assets-diaspora_jsxc", "0.1.5.develop.1", source: "https://rails-assets.org"
+gem "diaspora-prosody-config",    "0.0.7"
+gem "rails-assets-diaspora_jsxc", "0.1.5.develop.7", source: "https://rails-assets.org"
 
 # Tags
 

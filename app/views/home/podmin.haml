@@ -11,7 +11,7 @@
     .col-md-4
       .landing-info-card
         %h3.text-center
-          .entypo-tools
+          %span.entypo-tools
           = t(".configure_your_pod")
         != t(".configuration_info",
              database_path: content_tag(:code, "config/database.yml"),
@@ -20,7 +20,7 @@
     .col-md-4
       .landing-info-card
         %h3.text-center
-          .entypo-add-user
+          %span.entypo-add-user
           = t(".create_an_account")
         != t(".create_an_account_info",
              sign_up_link: link_to(t("devise.shared.links.sign_up"), new_user_registration_path))
@@ -28,7 +28,7 @@
     .col-md-4
       .landing-info-card
         %h3.text-center
-          .entypo-key
+          %span.entypo-key
           = t(".make_yourself_an_admin")
         != t(".make_yourself_an_admin_info",
              wiki: link_to("diaspora* wiki", "https://wiki.diasporafoundation.org/FAQ_for_pod_maintainers#What_are_roles_and_how_do_I_use_them.3F_.2F_Make_yourself_an_admin"),
@@ -38,7 +38,7 @@
     .col-md-4
       .landing-info-card
         %h3.text-center
-          .entypo-new
+          %span.entypo-new
           = t(".update_your_pod")
         != t(".update_your_pod_info",
              update_instructions: link_to(t(".update_instructions"), "https://wiki.diasporafoundation.org/Updating"))
@@ -46,7 +46,7 @@
     .col-md-4
       .landing-info-card
         %h3.text-center
-          .entypo-lifebuoy
+          %span.entypo-lifebuoy
           = t(".getting_help")
         != t(".getting_help_info",
              faq: link_to(t(".faq_for_podmins"), "https://wiki.diasporafoundation.org/FAQ_for_pod_maintainers"),
@@ -55,7 +55,7 @@
     .col-md-4
       .landing-info-card
         %h3.text-center
-          .entypo-code
+          %span.entypo-code
           = t(".contribute")
         != t(".contribute_info",
              report_bugs: link_to(t(".report_bugs"), "https://wiki.diasporafoundation.org/How_to_report_a_bug"))

@@ -101,10 +101,10 @@ describe("app.views.NotificationDropdown", function() {
 
   context("renderNotifications", function(){
     it("Removes the previous notifications", function(){
-      this.view.dropdownNotifications.append("<div class=\"media stream_element\">Notification</div>");
-      expect(this.view.dropdownNotifications.find(".media.stream_element").length).toBe(1);
+      this.view.dropdownNotifications.append("<div class=\"media stream-element\">Notification</div>");
+      expect(this.view.dropdownNotifications.find(".media.stream-element").length).toBe(1);
       this.view.renderNotifications();
-      expect(this.view.dropdownNotifications.find(".media.stream_element").length).toBe(0);
+      expect(this.view.dropdownNotifications.find(".media.stream-element").length).toBe(0);
     });
     it("Calls hideAjaxLoader()", function(){
       spyOn(this.view, "hideAjaxLoader");

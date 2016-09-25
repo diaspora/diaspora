@@ -9,7 +9,6 @@
       = page_title yield(:page_title)
 
     %meta{charset:  'utf-8'}/
-    %meta{"http-equiv" => "Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{name:  "viewport", content:  "width=device-width, initial-scale=1"}/
     = content_for?(:meta_data) ? yield(:meta_data) : metas_tags
 
@@ -60,7 +59,6 @@
 
     .blueimp-gallery.blueimp-gallery-controls#blueimp-gallery
       .slides
-      %h3.title
       %a.prev
         .entypo-chevron-small-left
       %a.next

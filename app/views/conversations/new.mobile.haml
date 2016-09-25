@@ -2,8 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= javascript_include_tag :jquery
-
 :javascript
   $(document).ready(function () {
     var data = $.parseJSON( "#{escape_javascript(@contacts_json)}" ),

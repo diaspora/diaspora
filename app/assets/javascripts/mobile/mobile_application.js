@@ -2,7 +2,7 @@
   Diaspora.Mobile = {
     initialize: function(){
       $(".shield a").click(function(){
-        $(this).parents(".stream_element").removeClass("shield-active");
+        $(this).parents(".stream-element").removeClass("shield-active");
         return false;
       });
 

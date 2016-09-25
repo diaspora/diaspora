@@ -75,6 +75,7 @@ en:
     helper:
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
     need_javascript: "This website requires JavaScript to function properly. If you disabled JavaScript, please enable it and refresh this page."
+    csrf_token_fail: "The CSRF token is invalid. Please sign in and try again."
 
   admins:
     admin_bar:
@@ -552,6 +553,7 @@ en:
 
   invitation_codes:
     not_valid: "That invite code is no longer valid"
+    already_logged_in: "You have been invited by %{inviter} to join this pod but you are already logged in."
 
   invitations:
     create:
@@ -695,6 +697,18 @@ en:
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
+    csrf_token_fail:
+      subject: "We received an unauthorized request from your account, %{name}"
+      body: |-
+        Hello %{name},
+
+        We received a request with a wrong/missing CSRF token from your account. To prevent any possible damage you have been logged out.
+
+        For more information on CSRF see [%{link}](%{link}).
+
+        Sorry,
+
+        The diaspora* email robot!
     report_email:
         type:
           post: "post"
@@ -926,6 +940,10 @@ en:
     status:
       destroyed: "The post was destroyed"
       failed: "Something went wrong"
+    unreviewed_reports:
+      zero: "There are no unreviewed reports."
+      one: "There is one unreviewed report."
+      other: "There are %{count} unreviewed reports."
 
   profiles:
     edit:

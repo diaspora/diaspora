@@ -2,6 +2,7 @@
 
 app.pages.AdminDashboard = Backbone.View.extend({
   initialize: function() {
+    this.podVersionAlert = $("#pod-status .alert.pod-version");
     this.updatePodStatus();
   },
 
@@ -38,15 +39,15 @@ app.pages.AdminDashboard = Backbone.View.extend({
   },
 
   updatePodStatusSuccess: function() {
-    $("#pod-status .alert").removeClass("alert-info");
+    this.podVersionAlert.removeClass("alert-info");
     var podStatusMessage = Diaspora.I18n.t("admins.dashboard.up_to_date");
     if(this.podUpToDate()) {
-      $("#pod-status .alert").addClass("alert-success");
+      this.podVersionAlert.addClass("alert-success");
     } else {
       podStatusMessage = Diaspora.I18n.t("admins.dashboard.outdated");
-      $("#pod-status .alert").addClass("alert-danger");
+      this.podVersionAlert.addClass("alert-danger");
     }
-    $("#pod-status .alert")
+    this.podVersionAlert
       .html("<strong>" + podStatusMessage + "</strong>")
       .append(" ")
       .append(Diaspora.I18n.t("admins.dashboard.compare_versions", {
@@ -56,7 +57,7 @@ app.pages.AdminDashboard = Backbone.View.extend({
   },
 
   updatePodStatusFail: function() {
-    $("#pod-status .alert")
+    this.podVersionAlert
       .removeClass("alert-info")
       .addClass("alert-warning")
       .text(Diaspora.I18n.t("admins.dashboard.error"));

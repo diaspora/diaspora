@@ -55,25 +55,25 @@ module PublishingCukeHelpers
   end
 
   def expand_first_post
-    within(".stream_element", match: :first) do
+    within(".stream-element", match: :first) do
       find(".expander").click
       expect(page).to have_no_css(".expander")
     end
   end
 
   def first_post_collapsed?
-    expect(find(".stream_element .collapsible", match: :first)).to have_css(".expander")
-    expect(page).to have_css(".stream_element .collapsible.collapsed", match: :first)
+    expect(find(".stream-element .collapsible", match: :first)).to have_css(".expander")
+    expect(page).to have_css(".stream-element .collapsible.collapsed", match: :first)
   end
 
   def first_post_expanded?
-    expect(page).to have_no_css(".stream_element .expander", match: :first)
-    expect(page).to have_no_css(".stream_element .collapsible.collapsed", match: :first)
-    expect(page).to have_css(".stream_element .collapsible.opened", match: :first)
+    expect(page).to have_no_css(".stream-element .expander", match: :first)
+    expect(page).to have_no_css(".stream-element .collapsible.collapsed", match: :first)
+    expect(page).to have_css(".stream-element .collapsible.opened", match: :first)
   end
 
   def first_post_text
-    find(".stream_element .post-content", match: :first).text
+    find(".stream-element .post-content", match: :first).text
   end
 
   def frame_numbers_content(position)
@@ -85,12 +85,12 @@ module PublishingCukeHelpers
   end
 
   def stream_element_numbers_content(position)
-    find(".stream_element:nth-child(#{position}) .post-content")
+    find(".stream-element:nth-child(#{position}) .post-content")
   end
 
   def find_post_by_text(text)
     expect(page).to have_text(text)
-    find(".stream_element", text: text)
+    find(".stream-element", text: text)
   end
 
   def within_post(post_text)

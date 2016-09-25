@@ -13,14 +13,14 @@ app.views.Notifications = Backbone.View.extend({
   },
 
   toggleUnread: function(evt) {
-    var note = $(evt.target).closest(".stream_element");
+    var note = $(evt.target).closest(".stream-element");
     var unread = note.hasClass("unread");
     var guid = note.data("guid");
     if (unread){ this.setRead(guid); }
     else { this.setUnread(guid); }
   },
 
-  getAllUnread: function(){ return $(".media.stream_element.unread"); },
+  getAllUnread: function() { return $(".media.stream-element.unread"); },
 
   setRead: function(guid) { this.setUnreadStatus(guid, false); },
 
@@ -38,7 +38,7 @@ app.views.Notifications = Backbone.View.extend({
 
   clickSuccess: function(data) {
     var guid = data.guid;
-    var type = $(".stream_element[data-guid=" + guid + "]").data("type");
+    var type = $(".stream-element[data-guid=" + guid + "]").data("type");
     this.updateView(guid, type, data.unread);
   },
 
@@ -55,7 +55,7 @@ app.views.Notifications = Backbone.View.extend({
         allNotes = $("#notifications_container .list-group > a:eq(0) .badge"),
         typeNotes = $("#notifications_container .list-group > a[data-type=" + type + "] .badge"),
         headerBadge = $(".notifications-link .badge"),
-        note = $(".notifications .stream_element[data-guid=" + guid + "]"),
+        note = $(".notifications .stream-element[data-guid=" + guid + "]"),
         markAllReadLink = $("a#mark_all_read_link"),
         translationKey = unread ? "notifications.mark_read" : "notifications.mark_unread";
 

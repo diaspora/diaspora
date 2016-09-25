@@ -24,10 +24,11 @@ class LinkShareVisibilitiesWithUser < ActiveRecord::Migration
     remove_index :share_visibilities, name: :shareable_and_hidden_and_contact_id
 
     remove_column :share_visibilities, :contact_id
-    change_column :share_visibilities, :user_id, :integer, null: false
 
     ShareVisibility.joins("LEFT OUTER JOIN users ON users.id = share_visibilities.user_id")
       .delete_all("users.id is NULL")
+
+    change_column :share_visibilities, :user_id, :integer, null: false
 
     add_index :share_visibilities, :user_id
     add_index :share_visibilities, %i(shareable_id shareable_type user_id), name: :shareable_and_user_id

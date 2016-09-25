@@ -67,6 +67,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
     this.likes.create({}, {
       success: function() {
+        self.post.set({participation: true});
         self.trigger("change");
         self.set({"likes_count" : self.get("likes_count") + 1});
       },
@@ -94,6 +95,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
     this.comments.make(text).fail(function () {
       app.flashMessages.error(Diaspora.I18n.t("failed_to_comment"));
     }).done(function() {
+      self.post.set({participation: true});
       self.trigger('change'); //updates after sync
     });
 
@@ -109,6 +111,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
       .done(function(reshare) {
         app.flashMessages.success(Diaspora.I18n.t("reshares.successful"));
         interactions.reshares.add(reshare);
+        interactions.post.set({participation: true});
         if (app.stream && /^\/(?:stream|activity|aspects)/.test(app.stream.basePath())) {
           app.stream.addNow(reshare);
         }

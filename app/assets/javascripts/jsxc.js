@@ -1,7 +1,12 @@
+//= require emojione
+//= require favico.js
+
+//= require jquery.ui/ui/resizable
+//= require jquery.ui/ui/draggable
 //= require jquery.slimscroll/jquery.slimscroll
 //= require jquery-colorbox
-//= require favico.js
 //= require jquery-fullscreen-plugin
+
 //= require diaspora_jsxc
 
 // initialize jsxc xmpp client

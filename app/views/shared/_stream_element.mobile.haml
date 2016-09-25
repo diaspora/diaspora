@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.stream_element{data: {guid: post.id}, class: post.respond_to?(:nsfw) && post.nsfw ? "shield-active" : ""}
+.stream-element{data: {guid: post.id}, class: post.respond_to?(:nsfw) && post.nsfw ? "shield-active" : ""}
   - if post.is_a?(Reshare)
     = render "reshares/reshare", reshare: post, post: post.absolute_root
 

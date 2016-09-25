@@ -82,6 +82,28 @@ describe Pod, type: :model do
     end
   end
 
+  describe "#active?" do
+    it "returns true for an unchecked pod" do
+      pod = FactoryGirl.create(:pod)
+      expect(pod.active?).to be_truthy
+    end
+
+    it "returns true for an online pod" do
+      pod = FactoryGirl.create(:pod, status: :no_errors)
+      expect(pod.reload.active?).to be_truthy
+    end
+
+    it "returns true for a pod that is offline for less than 14 days" do
+      pod = FactoryGirl.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 13.days)
+      expect(pod.active?).to be_truthy
+    end
+
+    it "returns false for a pod that is offline for less than 14 days" do
+      pod = FactoryGirl.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
+      expect(pod.active?).to be_falsey
+    end
+  end
+
   describe "#test_connection!" do
     before do
       @pod = FactoryGirl.create(:pod)

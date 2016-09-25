@@ -49,7 +49,7 @@ textarea { resize: vertical; }
 
 .badge-important { background-color: $red; }
 
-.stream_element,
+.stream-element,
 .comments {
   overflow: auto;
   position: relative;
@@ -108,14 +108,6 @@ textarea { resize: vertical; }
   width: 100%;
 }
 
-.stream_element:not(.shield-active) .shield{
-  display: none;
-}
-
-.stream_element.shield-active .nsfw-hidden{
-  display: none;
-}
-
 .login_error,
 .login_alert {
   color: #DF0101;
@@ -153,7 +145,7 @@ footer {
 }
 
 .settings_container,
-.stream_element,
+.stream-element,
 #login_form {
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -165,7 +157,7 @@ footer {
   border-bottom-color: #aaa;
 }
 
-.stream_element {
+.stream-element {
   padding: 0px;
 
   div.img img.avatar {
@@ -194,6 +186,11 @@ footer {
     a {
       padding: 0; }
     margin-top: 0;
+  }
+
+  &.shield-active .nsfw-hidden,
+  &:not(.shield-active) .shield {
+    display: none;
   }
 }
 
@@ -575,7 +572,7 @@ form#new_user.new_user input.btn {
   }
 }
 
-.read.stream_element {
+.read.stream-element {
   color: dimGray;
   .from {
     a {

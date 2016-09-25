@@ -73,11 +73,7 @@ describe Notifier, type: :mailer do
     end
 
     it "has the name of person sending the request" do
-      expect(request_mail.body.encoded.include?(person.name)).to be true
-    end
-
-    it "has the css" do
-      request_mail.body.encoded.include?("<style type='text/css'>")
+      expect(request_mail.body.encoded).to include(person.name)
     end
   end
 
@@ -433,6 +429,26 @@ describe Notifier, type: :mailer do
 
     it "has the activation link in the body" do
       expect(@confirm_email.body.encoded).to include(confirm_email_url(token: bob.confirm_email_token))
+    end
+  end
+
+  describe ".csrf_token_fail" do
+    let(:email) { Notifier.csrf_token_fail(alice.id) }
+
+    it "goes to the right person" do
+      expect(email.to).to eq([alice.email])
+    end
+
+    it "has the correct subject" do
+      expect(email.subject).to eq(I18n.translate("notifier.csrf_token_fail.subject", name: alice.name))
+    end
+
+    it "has the receivers name in the body" do
+      expect(email.body.encoded).to include(alice.person.profile.first_name)
+    end
+
+    it "has some informative text in the body" do
+      expect(email.body.encoded).to include("https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)")
     end
   end
 

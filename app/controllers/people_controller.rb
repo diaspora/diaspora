@@ -41,7 +41,7 @@ class PeopleController < ApplicationController
       format.any(:html, :mobile) do
         #only do it if it is an email address
         if diaspora_id?(search_query)
-          @people =  Person.where(:diaspora_handle => search_query.downcase)
+          @people = Person.where(diaspora_handle: search_query.downcase, closed_account: false)
           if @people.empty?
             Workers::FetchWebfinger.perform_async(search_query)
             @background_query = search_query.downcase
@@ -55,7 +55,7 @@ class PeopleController < ApplicationController
 
   def refresh_search
     @aspect = :search
-    @people =  Person.where(:diaspora_handle => search_query.downcase)
+    @people = Person.where(diaspora_handle: search_query.downcase, closed_account: false)
     @answer_html = ""
     unless @people.empty?
       @hashes = hashes_for_people(@people, @aspects)

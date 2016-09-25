@@ -159,7 +159,8 @@ class Person < ActiveRecord::Base
               ).searchable(user)
             end
 
-    query.where(sql, *tokens)
+    query.where(closed_account: false)
+         .where(sql, *tokens)
          .includes(:profile)
          .order(["contacts.user_id IS NULL", "profiles.last_name ASC", "profiles.first_name ASC"])
   end

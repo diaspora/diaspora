@@ -257,6 +257,7 @@ FactoryGirl.define do
     title "Some article"
     ob_type "article"
     description "This is the article lead"
+    video_url "http://example.com/videos/123.html"
   end
 
   factory(:tag_following) do
@@ -318,13 +319,6 @@ FactoryGirl.define do
     author_signature "some signature"
     association :signature_order, order: "guid parent_guid author poll_answer_guid new_property"
     additional_data { {"new_property" => "some text"} }
-  end
-
-  #templates
-  factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
-
-  factory(:photo_backdrop, :parent => :status_message_with_photo) do
-    text ""
   end
 
   factory(:note, :parent => :status_message) do

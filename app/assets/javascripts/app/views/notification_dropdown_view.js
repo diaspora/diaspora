@@ -95,7 +95,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   renderNotifications: function(){
     var self = this;
-    this.dropdownNotifications.find(".media.stream_element").remove();
+    this.dropdownNotifications.find(".media.stream-element").remove();
     $.each(self.notifications, function(index, notifications){
       $.each(notifications, function(index, notification){
         if($.inArray(notification, notifications) === -1){

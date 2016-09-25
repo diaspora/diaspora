@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: %i(new create public user_photo)
+  before_action :authenticate_user!, except: %i(new create public)
   respond_to :html
 
   def edit
@@ -116,16 +116,6 @@ class UsersController < ApplicationController
 
   def download_photos
     redirect_to current_user.exported_photos_file.url
-  end
-
-  def user_photo
-    username = params[:username].split('@')[0]
-    user = User.find_by_username(username)
-    if user.present?
-      redirect_to user.image_url
-    else
-      render :nothing => true, :status => 404
-    end
   end
 
   def confirm_email

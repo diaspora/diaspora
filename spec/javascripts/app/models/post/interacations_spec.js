@@ -1,6 +1,9 @@
 describe("app.models.Post.Interactions", function(){
+  var ajaxSuccess = {status: 200, responseText: "{\"id\": 1}"};
+
   beforeEach(function(){
-    this.interactions = factory.post().interactions;
+    this.post = factory.post();
+    this.interactions = this.post.interactions;
     this.author = factory.author({guid: "loggedInAsARockstar"});
     loginAs({guid: "loggedInAsARockstar"});
 
@@ -30,6 +33,13 @@ describe("app.models.Post.Interactions", function(){
       this.interactions.like();
       expect(this.interactions.likes.length).toEqual(1);
     });
+
+    it("sets the participation flag for the post", function() {
+      expect(this.post.get("participation")).toBeFalsy();
+      this.interactions.like();
+      jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
+      expect(this.post.get("participation")).toBeTruthy();
+    });
   });
 
   describe("unlike", function(){
@@ -42,8 +52,6 @@ describe("app.models.Post.Interactions", function(){
   });
 
   describe("reshare", function() {
-    var ajaxSuccess = { status: 200, responseText: "{\"id\": 1}" };
-
     beforeEach(function(){
       this.reshare = this.interactions.post.reshare();
     });
@@ -80,6 +88,13 @@ describe("app.models.Post.Interactions", function(){
         jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
         expect(app.stream.addNow).not.toHaveBeenCalled();
       });
+    });
+
+    it("sets the participation flag for the post", function() {
+      expect(this.post.get("participation")).toBeFalsy();
+      this.interactions.reshare();
+      jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
+      expect(this.post.get("participation")).toBeTruthy();
     });
   });
 

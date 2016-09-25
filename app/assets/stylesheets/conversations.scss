@@ -16,7 +16,7 @@
     width: 100%;
   }
 
-  .stream_element {
+  .stream-element {
     background-color: $white;
     padding: 10px;
 
@@ -28,8 +28,8 @@
     > .media { margin: 0; }
   }
 
-  .stream_element.message,
-  .stream_element.new-message {
+  .stream-element.message,
+  .stream-element.new-message {
     border: 1px solid $light-grey;
     box-shadow: $card-shadow;
     margin-bottom: 20px;
@@ -46,7 +46,7 @@
     }
   }
 
-  .stream_element.new-message,
+  .stream-element.new-message,
   .new-conversation {
     label { font-weight: bold; }
 
@@ -57,7 +57,7 @@
     }
   }
 
-  .stream_element.conversation {
+  .stream-element.conversation {
     border-top: 1px solid $border-grey;
 
     .timestamp { font-size: $font-size-small; }

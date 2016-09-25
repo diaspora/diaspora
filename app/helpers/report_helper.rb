@@ -10,10 +10,14 @@ module ReportHelper
     when Comment
       raw t("report.comment_label", data: link_to(
         h(comment_message(item)),
-        post_path(item.post.id, anchor: item.author.guid)
+        post_path(item.post.id, anchor: item.guid)
       ))
     else
       raw t("report.not_found")
     end
+  end
+
+  def unreviewed_reports_count
+    @unreviewed_reports_count ||= Report.where(reviewed: false).size
   end
 end
