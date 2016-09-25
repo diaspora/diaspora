@@ -9,6 +9,7 @@ module NotificationMailers
 
       @headers[:from] = "\"#{@message.author_name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
       @headers[:subject] = I18n.t("notifier.private_message.subject")
+      @headers[:in_reply_to] = @headers[:references] = "<#{@conversation.guid}@#{AppConfig.pod_uri.host}>"
     end
   end
 end
