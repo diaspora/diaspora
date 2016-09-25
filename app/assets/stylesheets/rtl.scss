@@ -8,12 +8,12 @@ body {
   right: auto;
 }
 
-.stream_element .content {
+.stream-element .content {
   padding-right: 60px;
   padding-left: 0;
 }
 
-.stream_element .right {
+.stream-element .right {
   left: 12px;
   right: auto;
 }
@@ -75,17 +75,17 @@ ul.comments li form p, ul.show_comments li form p, div.likes li form p, div.disl
   right: 35px;
 }
 
-.stream .stream_element time {
+.stream .stream-element time {
   right: auto;
   left: 20px;
 }
 
-.stream_element.conversation .message-count {
+.stream-element.conversation .message-count {
   right: auto;
   left: 10px;
 }
 
-.stream_element.conversation .timestamp {
+.stream-element.conversation .timestamp {
   right: auto;
   left: 10px;
 }

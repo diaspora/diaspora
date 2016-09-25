@@ -16,13 +16,13 @@ Feature: Liking posts
   Scenario: Liking and unliking a post from the stream
     Then I should not have activated notifications for the post
     When I like the post "I like unicorns" in the stream
-    Then I should see "Unlike" within ".stream_element .feedback"
-    And I should see a ".likes .media" within "#main_stream .stream_element"
+    Then I should see "Unlike" within ".stream-element .feedback"
+    And I should see a ".likes .media" within "#main_stream .stream-element"
     And I should have activated notifications for the post
 
     When I unlike the post "I like unicorns" in the stream
-    Then I should see "Like" within ".stream_element .feedback"
-    And I should not see a ".likes .media" within "#main_stream .stream_element"
+    Then I should see "Like" within ".stream-element .feedback"
+    And I should not see a ".likes .media" within "#main_stream .stream-element"
 
 
   Scenario: Liking and unliking a post from a single post page
@@ -39,4 +39,4 @@ Feature: Liking posts
     When I like the post "I like unicorns" in the stream
     And I sign out
     And I sign in as "bob@bob.bob"
-    Then I should see a ".likes" within "#main_stream .stream_element"
+    Then I should see a ".likes" within "#main_stream .stream-element"

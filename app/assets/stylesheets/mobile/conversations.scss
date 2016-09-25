@@ -31,14 +31,14 @@
     }
   }
 
-  .stream .stream_element .timeago,
+  .stream .stream-element .timeago,
   .conversation-participants .last-message-timeago {
     display: block;
     font-style: italic;
     color: $text-grey;
   }
 
-  .stream .stream_element {
+  .stream .stream-element {
     padding: 0.5rem;
 
     .ltr {

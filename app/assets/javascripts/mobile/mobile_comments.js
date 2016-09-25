@@ -195,7 +195,7 @@
       if(!count){
         text = Diaspora.I18n.t("stream.reactions", {count: 1});
         var parent = toggleReactionsLink.parent();
-        var postGuid = bottomBar.parents(".stream_element").data("guid");
+        var postGuid = bottomBar.parents(".stream-element").data("guid");
 
         toggleReactionsLink.remove();
         toggleReactionsLink = $("<a/>", {"class": "show-comments", "href": Routes.postComments(postGuid) + ".mobile"})

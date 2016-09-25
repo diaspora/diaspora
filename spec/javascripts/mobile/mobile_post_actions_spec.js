@@ -88,7 +88,7 @@ describe("Diaspora.Mobile.PostActions", function(){
       spec.loadFixture("aspects_index_mobile_public_post");
       Diaspora.Mobile.PostActions.initialize();
       this.link = $(".stream .like-action").first();
-      this.likeCounter = this.link.closest(".stream_element").find(".like-count");
+      this.likeCounter = this.link.closest(".stream-element").find(".like-count");
     });
 
     it("always calls showLoader before sending request", function(){
@@ -135,7 +135,7 @@ describe("Diaspora.Mobile.PostActions", function(){
       spec.loadFixture("aspects_index_mobile_public_post");
       Diaspora.Mobile.PostActions.initialize();
       this.link = $(".stream .like-action").first();
-      this.likeCounter = this.link.closest(".stream_element").find(".like-count");
+      this.likeCounter = this.link.closest(".stream-element").find(".like-count");
       Diaspora.Mobile.PostActions.like(this.likeCounter, this.link);
       jasmine.Ajax.requests.mostRecent().respondWith({status: 201, responseText: "{\"id\": \"18\"}"});
     });

@@ -88,8 +88,8 @@ And /^I hover over the "([^"]+)"$/ do |element|
 end
 
 When /^I prepare the deletion of the first post$/ do
-  find(".stream .stream_element", match: :first).hover
-  within(find(".stream .stream_element", match: :first)) do
+  find(".stream .stream-element", match: :first).hover
+  within(find(".stream .stream-element", match: :first)) do
     ctrl = find(".control-icons")
     ctrl.hover
     ctrl.find(".remove_post").click
@@ -97,8 +97,8 @@ When /^I prepare the deletion of the first post$/ do
 end
 
 When /^I prepare hiding the first post$/ do
-  find(".stream .stream_element", match: :first).hover
-  within(find(".stream .stream_element", match: :first)) do
+  find(".stream .stream-element", match: :first).hover
+  within(find(".stream .stream-element", match: :first)) do
     ctrl = find(".control-icons")
     ctrl.hover
     ctrl.find(".hide_post").click
@@ -204,7 +204,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
-  has_css?("#people_stream .stream_element", :count => n_posts.to_i).should be true
+  has_css?("#people_stream .stream-element", count: n_posts.to_i).should be true
 end
 
 And /^I scroll down$/ do
@@ -232,7 +232,7 @@ Then /^the notification dropdown scrollbar should be visible$/ do
 end
 
 Then /^there should be (\d+) notifications loaded$/ do |n|
-  result = page.evaluate_script("$('.media.stream_element').length")
+  result = page.evaluate_script("$('.media.stream-element').length")
   result.should == n.to_i
 end
 
@@ -245,11 +245,11 @@ When /^I resize my window to 800x600$/ do
 end
 
 Then 'I should see an image attached to the post' do
-  step %{I should see a "img" within ".stream_element div.photo_attachments"}
+  step %(I should see a "img" within ".stream-element div.photo_attachments")
 end
 
 Then 'I press the attached image' do
-  step %{I press the 1st "img" within ".stream_element div.photo_attachments"}
+  step %(I press the 1st "img" within ".stream-element div.photo_attachments")
 end
 
 And "I wait for the popovers to appear" do

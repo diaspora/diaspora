@@ -46,8 +46,8 @@ Feature: preview posts in the stream
       When I fill in the following:
           | status_message_fake_text    | Look at this dog    |
       And I preview the post
-      Then I should see a "img" within ".md-preview .stream_element .photo_attachments"
-      And I should see "Look at this dog" within ".md-preview .stream_element"
+      Then I should see a "img" within ".md-preview .stream-element .photo_attachments"
+      And I should see "Look at this dog" within ".md-preview .stream-element"
       And I close the publisher
 
     Scenario: preview a post with mentions
@@ -80,8 +80,8 @@ Feature: preview posts in the stream
           | normal |
           | not normal  |
       And I preview the post
-      Then I should see a ".poll_form" within ".md-preview .stream_element"
-      And I should see a "form" within ".md-preview .stream_element"
+      Then I should see a ".poll_form" within ".md-preview .stream-element"
+      And I should see a "form" within ".md-preview .stream-element"
       And I close the publisher
 
     Scenario: preview a post with location
@@ -94,6 +94,6 @@ Feature: preview posts in the stream
           | status_message_fake_text    | I am eating yogurt |
           | location_address            | Some cool place |
       And I preview the post
-      Then I should see a ".near-from" within ".md-preview .stream_element"
-      And I should see "Some cool place" within ".md-preview .stream_element .near-from"
+      Then I should see a ".near-from" within ".md-preview .stream-element"
+      And I should see "Some cool place" within ".md-preview .stream-element .near-from"
       And I close the publisher

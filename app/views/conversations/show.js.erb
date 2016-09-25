@@ -5,6 +5,6 @@ if($('.stream_container').hasClass('hidden')){
 
 $('#conversation_show').html("<%= escape_javascript(render('conversations/show', :conversation => @conversation)) %>");
 
-$(".stream_element", "#conversation_inbox").removeClass('selected');
-$(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").addClass('selected');
+$(".stream-element", "#conversation_inbox").removeClass('selected');
+$(".stream-element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").addClass('selected');
 $('#conversation_show').trigger("conversation:loaded");

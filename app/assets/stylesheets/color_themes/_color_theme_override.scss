@@ -3,9 +3,9 @@ body {
   a,
   a.tag,
   .btn-link,
-  #main_stream .stream_element > .media a.author-name,
+  #main_stream .stream-element > .media a.author-name,
   #hovercard h4 a,
-  .stream_element .from a.self {
+  .stream-element .from a.self {
     color: $link-color;
 
     &:hover, &:focus {

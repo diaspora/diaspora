@@ -10,7 +10,7 @@ describe("app.views.StreamShortcuts", function () {
     spec.content().html(this.streamView.render().el);
     this.view = new app.views.StreamShortcuts({el: $(document)});
 
-    expect(spec.content().find("div.stream_element.loaded").length).toBe(2);
+    expect(spec.content().find("div.stream-element.loaded").length).toBe(2);
   });
 
   describe("pressing 'j'", function(){

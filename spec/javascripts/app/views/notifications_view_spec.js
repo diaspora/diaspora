@@ -7,7 +7,7 @@ describe("app.views.Notifications", function(){
 
     describe("mark read", function() {
       beforeEach(function() {
-        this.unreadN = $(".stream_element.unread").first();
+        this.unreadN = $(".stream-element.unread").first();
         this.guid = this.unreadN.data("guid");
       });
 
@@ -21,7 +21,7 @@ describe("app.views.Notifications", function(){
 
     describe("mark unread", function() {
       beforeEach(function() {
-        this.readN = $(".stream_element.read").first();
+        this.readN = $(".stream-element.read").first();
         this.guid = this.readN.data("guid");
       });
 
@@ -35,7 +35,7 @@ describe("app.views.Notifications", function(){
 
     describe("updateView", function() {
       beforeEach(function() {
-        this.readN = $(".stream_element.read").first();
+        this.readN = $(".stream-element.read").first();
         this.guid = this.readN.data("guid");
         this.type = this.readN.data("type");
       });
@@ -113,9 +113,9 @@ describe("app.views.Notifications", function(){
       it("calls setRead for each unread notification", function(){
         spyOn(this.view, "setRead");
         this.view.markAllRead();
-        expect(this.view.setRead).toHaveBeenCalledWith(this.view.$(".stream_element.unread").eq(0).data("guid"));
+        expect(this.view.setRead).toHaveBeenCalledWith(this.view.$(".stream-element.unread").eq(0).data("guid"));
         this.view.markAllRead();
-        expect(this.view.setRead).toHaveBeenCalledWith(this.view.$(".stream_element.unread").eq(1).data("guid"));
+        expect(this.view.setRead).toHaveBeenCalledWith(this.view.$(".stream-element.unread").eq(1).data("guid"));
       });
     });
   });
