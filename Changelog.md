@@ -38,6 +38,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Add number of unreviewed reports to admin dashboard and admin sidebar [#7109](https://github.com/diaspora/diaspora/pull/7109)
 * Don't federate to pods that have been offline for an extended period of time [#7120](https://github.com/diaspora/diaspora/pull/7120)
 * Add In-Reply-To and References headers to notification mails [#7122](https://github.com/diaspora/diaspora/pull/7122)
+* Directly link to a comment in commented notification mails [#7124](https://github.com/diaspora/diaspora/pull/7124)
 
 # 0.6.0.1
 
