@@ -7,6 +7,7 @@ module NotificationMailers
       @post = Mention.find_by_id(target_id).post
 
       @headers[:subject] = I18n.t('notifier.mentioned.subject', :name => @sender.name)
+      @headers[:in_reply_to] = @headers[:references] = "<#{@post.guid}@#{AppConfig.pod_uri.host}>"
     end
   end
 end
