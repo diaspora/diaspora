@@ -269,8 +269,8 @@ describe Notifier, type: :mailer do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
-        it "contains the original post's link" do
-          expect(comment_mail.body.encoded.include?("#{comment.post.id}")).to be true
+        it "contains the original post's link with comment anchor" do
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
         end
 
         it "should not include translation fallback" do
@@ -315,8 +315,8 @@ describe Notifier, type: :mailer do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
-        it "contains the original post's link" do
-          expect(comment_mail.body.encoded).to include("#{comment.post.id}")
+        it "contains the original post's link with comment anchor" do
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
         end
 
         it "should not include translation fallback" do
