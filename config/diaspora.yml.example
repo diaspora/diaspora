@@ -274,15 +274,15 @@ configuration: ## Section
   ## tiles of the Heidelberg University (http://giscience.uni-hd.de).
   ## You also have the possibility to use the map tiles of https://www.mapbox.com
   ## which is probably more reliable. There you have to create an account to get
-  ## an ID and an access token which is limited. If you want to get an unlimited
-  ## account you can write an email to team@diasporafoundation.org.
-  ## Please enable mapbox and fill out your id and access_token.
+  ## an access token which is limited. If you want to get an unlimited account
+  ## you can write an email to team@diasporafoundation.org.
+  ## Please enable mapbox and fill out your access_token.
   map: ##Section
 
     mapbox:
-    # enabled: false
-    # id: 'your.id'
-    # access_token: 'youraccesstoken'
+      #enabled: false
+      #access_token: "youraccesstoken"
+      #style: "mapbox/streets-v9"
 
   ## Settings potentially affecting the privacy of your users.
   privacy: ## Section
