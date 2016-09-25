@@ -44,6 +44,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * You'll now get redirected to the invites page if you follow an invitation but you're already logged in [#7061](https://github.com/diaspora/diaspora/pull/7061)
 * Add support for setting BOSH access protocol via chat configuration [#7100](https://github.com/diaspora/diaspora/pull/7100)
 * Add number of unreviewed reports to admin dashboard and admin sidebar [#7109](https://github.com/diaspora/diaspora/pull/7109)
+* Don't federate to pods that have been offline for an extended period of time [#7120](https://github.com/diaspora/diaspora/pull/7120)
 
 # 0.6.0.1
 

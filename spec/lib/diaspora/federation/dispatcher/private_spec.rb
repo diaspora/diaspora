@@ -71,6 +71,25 @@ describe Diaspora::Federation::Dispatcher::Private do
 
         Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [remote_person]).dispatch
       end
+
+      it "only queues a private send job for a active pods" do
+        remote_person = FactoryGirl.create(:person)
+        offline_pod = FactoryGirl.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
+        offline_person = FactoryGirl.create(:person, pod: offline_pod)
+
+        expect(Workers::SendPrivate).to receive(:perform_async) do |user_id, _entity_string, targets|
+          expect(user_id).to eq(alice.id)
+          expect(targets.size).to eq(1)
+          expect(targets).to have_key(remote_person.receive_url)
+          expect(targets[remote_person.receive_url]).to eq(xml)
+        end
+
+        salmon = double
+        expect(DiasporaFederation::Salmon::EncryptedSlap).to receive(:prepare).and_return(salmon)
+        expect(salmon).to receive(:generate_xml).and_return(xml)
+
+        Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [remote_person, offline_person]).dispatch
+      end
     end
   end
 
