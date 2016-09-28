@@ -18,7 +18,6 @@ app.views.PublisherGettingStarted = Backbone.View.extend({
 
   // initiate all the popover message boxes
   show: function() {
-    app.publisher.open();
     this._addPopover(this.firstMessage, {
       trigger: "manual",
       id: "first_message_explain",

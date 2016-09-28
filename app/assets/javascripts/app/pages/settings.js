@@ -4,6 +4,11 @@ app.pages.Settings = Backbone.View.extend({
     $(".settings-visibility").tooltip({placement: "top"});
     $(".profile-visibility-hint").tooltip({placement: "top"});
     $("[name='profile[public_details]']").bootstrapSwitch();
+
+    new Diaspora.TagsAutocomplete("#profile_tag_string", {
+      preFill: gon.preloads.tagsArray
+    });
+    new Diaspora.ProfilePhotoUploader();
   }
 });
 // @license-end

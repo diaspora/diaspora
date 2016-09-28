@@ -2,36 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :head do
-  :javascript
-    $(document).ready(function () {
-      var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
-      autocompleteInput = $("#follow_tags");
-
-      autocompleteInput.autoSuggest("#{tags_path}", {
-        selectedItemProp: "name",
-        selectedValuesProp: "name",
-        searchObjProps: "name",
-        asHtmlID: "tags",
-        neverSubmit: true,
-        retrieveLimit: 10,
-        minChars: 2,
-        keyDelay: 200,
-        startText: "",
-        emptyText: "#{t('no_results')}",
-        preFill: data
-        });
-
-      autocompleteInput.bind('keydown', function(evt){
-        if(evt.which === Keycodes.ENTER || evt.which === Keycodes.TAB || evt.which === Keycodes.SPACE) {
-          evt.preventDefault();
-          if( $('li.as-result-item.active').length == 0 ){
-            $('li.as-result-item').first().click();
-          }
-        }
-      });
-    });
-
 :css
   .media, .bd{ overflow: visible;}
 
