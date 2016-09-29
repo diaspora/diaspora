@@ -3,18 +3,12 @@
 app.views.StreamShortcuts = Backbone.View.extend({
   _headerSize: 60,
 
-  events: {
-    "keydown": "_onHotkeyDown",
-    "keyup": "_onHotkeyUp"
+  initialize: function() {
+    app.helpers.Shortcuts("keydown", this._onHotkeyDown.bind(this));
+    app.helpers.Shortcuts("keyup", this._onHotkeyUp.bind(this));
   },
 
   _onHotkeyDown: function(event) {
-    //make sure that the user is not typing in an input field
-    var textAcceptingInputTypes = ["textarea", "select", "text", "password", "number", "email", "url", "range", "date", "month", "week", "time", "datetime", "datetime-local", "search", "color"];
-    if(jQuery.inArray(event.target.type, textAcceptingInputTypes) > -1){
-      return;
-    }
-
     // trigger the events based on what key was pressed
     switch (String.fromCharCode( event.which ).toLowerCase()) {
       case "j":
@@ -28,12 +22,6 @@ app.views.StreamShortcuts = Backbone.View.extend({
   },
 
   _onHotkeyUp: function(event) {
-    //make sure that the user is not typing in an input field
-    var textAcceptingInputTypes = ["textarea", "select", "text", "password", "number", "email", "url", "range", "date", "month", "week", "time", "datetime", "datetime-local", "search", "color"];
-    if(jQuery.inArray(event.target.type, textAcceptingInputTypes) > -1){
-      return;
-    }
-
     // trigger the events based on what key was pressed
     switch (String.fromCharCode( event.which ).toLowerCase()) {
       case "c":
