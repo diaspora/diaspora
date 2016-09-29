@@ -12,7 +12,7 @@ describe("app.views.ConversationsInbox", function() {
       expect(app.views.ConversationsForm.prototype.initialize).toHaveBeenCalled();
     });
 
-    it("call setupConversation", function() {
+    it("calls setupConversation", function() {
       spyOn(app.views.ConversationsInbox.prototype, "setupConversation");
       new app.views.ConversationsInbox();
       expect(app.views.ConversationsInbox.prototype.setupConversation).toHaveBeenCalled();
