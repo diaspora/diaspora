@@ -69,7 +69,6 @@ module Diaspora
       aspect-contacts.js
       contact-list.js
       ie.js
-      inbox.js
       jquery2.js
       jquery_ujs.js
       jquery-textchange.js
