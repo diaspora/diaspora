@@ -40,6 +40,9 @@ SecureHeaders::Configuration.default do |config|
   config.csp[:script_src] << "static.chartbeat.com" if AppConfig.privacy.chartbeat_uid.present?
   config.csp[:form_action] << "www.paypal.com" if AppConfig.settings.paypal_donations.enable?
 
+  config.csp[:report_only] = AppConfig.settings.csp.report_only?
+  config.csp[:report_uri] = [AppConfig.settings.csp.report_uri] if AppConfig.settings.csp.report_uri.present?
+
   # Add frame-src but don't spam the log with DEPRECATION warnings.
   # We need frame-src to support older versions of Chrome, because secure_headers handles all Chrome browsers as
   # "modern" browser, and ignores the version of the browser. We can drop this once we support only Chrome
