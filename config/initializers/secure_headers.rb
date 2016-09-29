@@ -17,6 +17,29 @@ SecureHeaders::Configuration.default do |config|
     style_src:       %w('self' 'unsafe-inline' platform.twitter.com *.twimg.com)
   }
 
+  if AppConfig.environment.assets.host.present?
+    asset_host = Addressable::URI.parse(AppConfig.environment.assets.host.get).host
+    config.csp[:script_src] << asset_host
+    config.csp[:style_src] << asset_host
+  end
+
+  if AppConfig.chat.enabled?
+    config.csp[:media_src] << "data:"
+
+    unless AppConfig.chat.server.bosh.proxy?
+      config.csp[:connect_src] << "#{AppConfig.pod_uri.host}:#{AppConfig.chat.server.bosh.port}"
+    end
+  end
+
+  if AppConfig.privacy.mixpanel_uid.present?
+    config.csp[:script_src] << "api.mixpanel.com"
+    config.csp[:connect_src] << "api.mixpanel.com"
+  end
+
+  config.csp[:script_src] << "code.jquery.com" if AppConfig.privacy.jquery_cdn?
+  config.csp[:script_src] << "static.chartbeat.com" if AppConfig.privacy.chartbeat_uid.present?
+  config.csp[:form_action] << "www.paypal.com" if AppConfig.settings.paypal_donations.enable?
+
   # Add frame-src but don't spam the log with DEPRECATION warnings.
   # We need frame-src to support older versions of Chrome, because secure_headers handles all Chrome browsers as
   # "modern" browser, and ignores the version of the browser. We can drop this once we support only Chrome
