@@ -68,7 +68,6 @@ module Diaspora
     config.assets.precompile += %w(
       contact-list.js
       ie.js
-      inbox.js
       jquery2.js
       jquery_ujs.js
       main.js

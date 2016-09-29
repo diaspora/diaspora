@@ -80,6 +80,30 @@ describe('app.Router', function () {
     });
   });
 
+  describe("conversations", function() {
+    beforeEach(function() {
+      this.router = new app.Router();
+    });
+
+    it("doesn't do anything if no conversation id is passed", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations();
+      expect(app.views.ConversationsInbox.prototype.renderConversation).not.toHaveBeenCalled();
+    });
+
+    it("doesn't do anything if id is not a readable number", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations("yolo");
+      expect(app.views.ConversationsInbox.prototype.renderConversation).not.toHaveBeenCalled();
+    });
+
+    it("renders the conversation if id is a readable number", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations("12");
+      expect(app.views.ConversationsInbox.prototype.renderConversation).toHaveBeenCalledWith("12");
+    });
+  });
+
   describe("stream", function() {
     it("calls _initializeStreamView", function() {
       spyOn(app.router, "_initializeStreamView");

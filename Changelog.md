@@ -22,6 +22,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Adopt new Mapbox tile URIs [#7066](https://github.com/diaspora/diaspora/pull/7066)
 * Refactored post interactions on the single post view [#7089](https://github.com/diaspora/diaspora/pull/7089)
 * Extract inline JavaScript [#7113](https://github.com/diaspora/diaspora/pull/7113)
+* Port conversations inbox to backbone.js [#7108](https://github.com/diaspora/diaspora/pull/7108)
 
 ## Bug fixes
 * Post comments no longer get collapsed when interacting with a post [#7040](https://github.com/diaspora/diaspora/pull/7040)

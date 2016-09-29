@@ -5,7 +5,7 @@
 :javascript
   $(document).ready(function () {
     var data = $.parseJSON( "#{escape_javascript(@contacts_json)}" ),
-        autocompleteInput = $("#contact_autocomplete");
+        autocompleteInput = $("#contact-autocomplete");
 
     autocompleteInput.autoSuggest(data, {
       selectedItemProp: "name",
