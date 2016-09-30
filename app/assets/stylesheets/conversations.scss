@@ -183,10 +183,60 @@
 }
 // scss-lint:enable SelectorDepth
 
-#new_conversation_pane {
+.new-conversation {
   ul.as-selections { width: 100% !important; }
+
   input#contact_ids { box-shadow: none; }
+
   label { font-weight: bold; }
+
+  .twitter-typeahead,
+  .tt-menu {
+    width: 100%;
+  }
+}
+
+.recipients-tag-list {
+  .conversation-recipient-tag {
+    background-color: $brand-primary;
+    border-radius: $btn-border-radius-base;
+    display: inline-flex;
+    margin: 0 2px $form-group-margin-bottom;
+    padding: 8px;
+
+    &:first-child { margin-left: 0; }
+
+    &:last-child { margin-right: 0; }
+
+    div {
+      align-self: center;
+      justify-content: flex-start;
+    }
+  }
+
+  .avatar {
+    height: 40px;
+    margin-right: 8px;
+    width: 40px;
+  }
+
+  .name-and-handle {
+    color: $white;
+    margin-right: 8px;
+    text-align: left;
+
+    .diaspora-id { font-size: $font-size-small; }
+  }
+
+  .entypo-circled-cross {
+    color: $white;
+    cursor: pointer;
+    font-size: 20px;
+    height: 22px;
+    line-height: 22px;
+
+    &:hover { color: $light-grey; }
+  }
 }
 
 .new-conversation.form-horizontal .form-group:last-of-type { margin-bottom: 0; }

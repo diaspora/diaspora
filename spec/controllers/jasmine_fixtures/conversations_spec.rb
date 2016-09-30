@@ -29,6 +29,9 @@ describe ConversationsController, :type => :controller do
 
       get :index, :conversation_id => @conv1.id
       save_fixture(html_for("body"), "conversations_read")
+
+      get :new, modal: true
+      save_fixture(response.body, "conversations_modal")
     end
   end
 

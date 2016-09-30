@@ -79,8 +79,11 @@ app.views.ProfileHeader = app.views.Base.extend({
   },
 
   showMessageModal: function(){
+    $("#conversationModal").on("modal:loaded", function() {
+      new app.views.ConversationsForm({prefill: gon.conversationPrefill});
+    });
     app.helpers.showModal("#conversationModal");
-  },
+  }
 });
 // @license-end
 
