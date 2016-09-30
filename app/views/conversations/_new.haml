@@ -1,6 +1,6 @@
 .container-fluid
   = form_for Conversation.new, html: {id: "new-conversation",
-    class: "new-conversation form-horizontal form-do-not-clear"}, remote: true do |conversation|
+    class: "new-conversation form-horizontal"}, remote: true do |conversation|
     .form-group
       %label#toLabel{for: "contact_ids"}
         = t(".to")

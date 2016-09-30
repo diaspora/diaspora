@@ -140,11 +140,10 @@ describe ConversationsController, :type => :controller do
         }.to change(Message, :count).by(1)
       end
 
-      it 'should set response with success to true and message to success message' do
+      it "responds with the conversation id as JSON" do
         post :create, @hash
-        expect(assigns[:response][:success]).to eq(true)
-        expect(assigns[:response][:message]).to eq(I18n.t('conversations.create.sent'))
-        expect(assigns[:response][:conversation_id]).to eq(Conversation.first.id)
+        expect(response).to be_success
+        expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
       end
 
       it 'sets the author to the current_user' do
@@ -193,11 +192,10 @@ describe ConversationsController, :type => :controller do
         }.to change(Message, :count).by(1)
       end
 
-      it 'should set response with success to true and message to success message' do
+      it "responds with the conversation id as JSON" do
         post :create, @hash
-        expect(assigns[:response][:success]).to eq(true)
-        expect(assigns[:response][:message]).to eq(I18n.t('conversations.create.sent'))
-        expect(assigns[:response][:conversation_id]).to eq(Conversation.first.id)
+        expect(response).to be_success
+        expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
       end
     end
 
@@ -225,10 +223,10 @@ describe ConversationsController, :type => :controller do
         expect(Message.count).to eq(count)
       end
 
-      it 'should set response with success to false and message to create fail' do
+      it "responds with an error message" do
         post :create, @hash
-        expect(assigns[:response][:success]).to eq(false)
-        expect(assigns[:response][:message]).to eq(I18n.t('conversations.create.fail'))
+        expect(response).not_to be_success
+        expect(response.body).to eq(I18n.t("conversations.create.fail"))
       end
     end
 
@@ -256,10 +254,10 @@ describe ConversationsController, :type => :controller do
         expect(Message.count).to eq(count)
       end
 
-      it 'should set response with success to false and message to fail due to no contact' do
+      it "responds with an error message" do
         post :create, @hash
-        expect(assigns[:response][:success]).to eq(false)
-        expect(assigns[:response][:message]).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
+        expect(response).not_to be_success
+        expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
       end
     end
 
@@ -285,6 +283,12 @@ describe ConversationsController, :type => :controller do
         count = Message.count
         post :create, @hash
         expect(Message.count).to eq(count)
+      end
+
+      it "responds with an error message" do
+        post :create, @hash
+        expect(response).not_to be_success
+        expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
       end
     end
   end
