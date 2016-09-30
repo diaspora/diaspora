@@ -8,6 +8,10 @@
 
       // init autosize plugin
       autosize($("textarea"));
+    },
+
+    changeLocation: function(href) {
+      window.location.assign(href);
     }
   };
 })();

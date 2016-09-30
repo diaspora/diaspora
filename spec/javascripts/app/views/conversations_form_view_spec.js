@@ -1,8 +1,11 @@
 describe("app.views.ConversationsForm", function() {
+  beforeEach(function() {
+    spec.loadFixture("conversations_read");
+  });
+
   describe("keyDown", function() {
     beforeEach(function() {
       this.submitCallback = jasmine.createSpy().and.returnValue(false);
-      spec.loadFixture("conversations_read");
       new app.views.ConversationsForm();
     });
 
@@ -49,62 +52,49 @@ describe("app.views.ConversationsForm", function() {
     });
   });
 
-  describe("onSubmitNewConversation", function() {
-    beforeEach(function() {
-      spec.loadFixture("conversations_read");
-      $("#conversation-new").removeClass("hidden");
-      $("#conversation-show").addClass("hidden");
-      spyOn(app.views.ConversationsForm.prototype, "onSubmitNewConversation").and.callThrough();
-      this.target = new app.views.ConversationsForm();
+  describe("conversationCreateSuccess", function() {
+    it("is called when there was a successful ajax request for the conversation form", function() {
+      spyOn(app.views.ConversationsForm.prototype, "conversationCreateSuccess");
+      this.view = new app.views.ConversationsForm();
+
+      $("#conversation-show").trigger("ajax:success", [{id: 23}]);
+      expect(app.views.ConversationsForm.prototype.conversationCreateSuccess).not.toHaveBeenCalled();
+
+      $("#new-conversation").trigger("ajax:error", [{responseText: "error"}]);
+      expect(app.views.ConversationsForm.prototype.conversationCreateSuccess).not.toHaveBeenCalled();
+
+      $("#new-conversation").trigger("ajax:success", [{id: 23}]);
+      expect(app.views.ConversationsForm.prototype.conversationCreateSuccess).toHaveBeenCalled();
     });
 
-    it("onSubmitNewConversation is called when submitting the conversation form", function() {
-      spyOn(app.views.ConversationsForm.prototype, "getConversationParticipants").and.returnValue([]);
-      $("#conversation-new").trigger("submit");
+    it("redirects to the new conversation", function() {
+      spyOn(app, "_changeLocation");
+      this.view = new app.views.ConversationsForm();
+      $("#new-conversation").trigger("ajax:success", [{id: 23}]);
+      expect(app._changeLocation).toHaveBeenCalledWith(Routes.conversation(23));
+    });
+  });
 
-      expect(app.views.ConversationsForm.prototype.onSubmitNewConversation).toHaveBeenCalled();
+  describe("conversationCreateError", function() {
+    it("is called when an ajax request failed for the conversation form", function() {
+      spyOn(app.views.ConversationsForm.prototype, "conversationCreateError");
+      this.view = new app.views.ConversationsForm();
+
+      $("#conversation-show").trigger("ajax:error", [{responseText: "error"}]);
+      expect(app.views.ConversationsForm.prototype.conversationCreateError).not.toHaveBeenCalled();
+
+      $("#new-conversation").trigger("ajax:success", [{id: 23}]);
+      expect(app.views.ConversationsForm.prototype.conversationCreateError).not.toHaveBeenCalled();
+
+      $("#new-conversation").trigger("ajax:error", [{responseText: "error"}]);
+      expect(app.views.ConversationsForm.prototype.conversationCreateError).toHaveBeenCalled();
     });
 
-    it("does not submit a conversation with no recipient", function() {
-      spyOn(app.views.ConversationsForm.prototype, "getConversationParticipants").and.returnValue([]);
-      var event = jasmine.createSpyObj("event", ["preventDefault", "stopPropagation"]);
-
-      this.target.onSubmitNewConversation(event);
-
-      expect(event.preventDefault).toHaveBeenCalled();
-      expect(event.stopPropagation).toHaveBeenCalled();
-    });
-
-    it("submits a conversation with recipients", function() {
-      spyOn(app.views.ConversationsForm.prototype, "getConversationParticipants").and.returnValue([1]);
-      var event = jasmine.createSpyObj("event", ["preventDefault", "stopPropagation"]);
-
-      this.target.onSubmitNewConversation(event);
-
-      expect(event.preventDefault).toHaveBeenCalled();
-      expect(event.stopPropagation).not.toHaveBeenCalled();
-    });
-
-    it("flashes an error message when submitting a conversation with no recipient", function() {
-      spyOn(app.views.FlashMessages.prototype, "error");
-      spyOn(app.views.ConversationsForm.prototype, "getConversationParticipants").and.returnValue([]);
-      var event = jasmine.createSpyObj("event", ["preventDefault", "stopPropagation"]);
-
-      this.target.onSubmitNewConversation(event);
-
-      expect(app.views.FlashMessages.prototype.error)
-        .toHaveBeenCalledWith(Diaspora.I18n.t("conversation.create.no_recipient"));
-    });
-
-    it("does not flash an error message when submitting a conversation with recipients", function() {
-      spyOn(app.views.FlashMessages.prototype, "error");
-      spyOn(app.views.ConversationsForm.prototype, "getConversationParticipants").and.returnValue([1]);
-      var event = jasmine.createSpyObj("event", ["preventDefault", "stopPropagation"]);
-
-      this.target.onSubmitNewConversation(event);
-
-      expect(app.views.FlashMessages.prototype.error).not
-        .toHaveBeenCalledWith(Diaspora.I18n.t("conversation.create.no_recipient"));
+    it("shows a flash message", function() {
+      spyOn(app.flashMessages, "error");
+      this.view = new app.views.ConversationsForm();
+      $("#new-conversation").trigger("ajax:error", [{responseText: "Oh noez! Something went wrong!"}]);
+      expect(app.flashMessages.error).toHaveBeenCalledWith("Oh noez! Something went wrong!");
     });
   });
 });

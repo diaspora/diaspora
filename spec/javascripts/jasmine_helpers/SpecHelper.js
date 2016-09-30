@@ -54,6 +54,10 @@ beforeEach(function() {
   Diaspora.page = new Page();
   Diaspora.page.publish("page/ready", [$(document.body)]);
 
+  // don't change window.location in jasmine tests
+  app._changeLocation = function() { /* noop */ };
+  Diaspora.Mobile.changeLocation = function() { /* noop */ };
+
   // add custom matchers for flash messages
   jasmine.addMatchers(customMatchers);
 

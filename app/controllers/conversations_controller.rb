@@ -43,21 +43,16 @@ class ConversationsController < ApplicationController
     opts[:message] = { text: params[:conversation][:text] }
     @conversation = current_user.build_conversation(opts)
 
-    @response = {}
     if person_ids.present? && @conversation.save
       Diaspora::Federation::Dispatcher.defer_dispatch(current_user, @conversation)
-      @response[:success] = true
-      @response[:message] = I18n.t('conversations.create.sent')
-      @response[:conversation_id] = @conversation.id
+      flash[:notice] = I18n.t("conversations.create.sent")
+      render json: {id: @conversation.id}
     else
-      @response[:success] = false
-      @response[:message] = I18n.t('conversations.create.fail')
+      message = I18n.t("conversations.create.fail")
       if person_ids.blank?
-        @response[:message] = I18n.t("javascripts.conversation.create.no_recipient")
+        message = I18n.t("javascripts.conversation.create.no_recipient")
       end
-    end
-    respond_to do |format|
-      format.js
+      render text: message, status: 422
     end
   end
 
