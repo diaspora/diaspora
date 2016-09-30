@@ -1,6 +1,6 @@
 describe("app.views.AspectMembership", function(){
   var success = {status: 200, responseText: "{}"};
-  var resp_fail = {status: 400};
+  var resp_fail = {status: 400, responseText: "error message"};
 
   beforeEach(function() {
     var contact = factory.contact();
@@ -58,8 +58,7 @@ describe("app.views.AspectMembership", function(){
       this.newAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
-      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage(
-        Diaspora.I18n.t("aspect_dropdown.error", {name: this.personName})
+      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
       );
     });
   });
@@ -100,9 +99,7 @@ describe("app.views.AspectMembership", function(){
       this.oldAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
-      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage(
-        Diaspora.I18n.t("aspect_dropdown.error_remove", {name: this.personName})
-      );
+      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
     });
   });
 });
