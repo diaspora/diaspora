@@ -10,7 +10,8 @@ app.views.Search = app.views.SearchBase.extend({
     this.searchInput = this.$("#q");
     app.views.SearchBase.prototype.initialize.call(this, {
       typeaheadInput: this.searchInput,
-      remoteRoute: this.$el.attr("action")
+      remoteRoute: this.$el.attr("action"),
+      suggestionLink: true
     });
     this.searchInput.on("typeahead:select", this.suggestionSelected);
   },

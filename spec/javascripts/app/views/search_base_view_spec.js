@@ -11,8 +11,8 @@ describe("app.views.SearchBase", function() {
       view.$("#q").trigger("focus");
     };
     this.bloodhoundData = [
-      {"person": true, "name": "user1", "handle": "user1@pod.tld"},
-      {"person": true, "name": "user2", "handle": "user2@pod.tld"}
+      {"person": true, "name": "user1", "handle": "user1@pod.tld", url: "/people/1"},
+      {"person": true, "name": "user2", "handle": "user2@pod.tld", url: "/people/2"}
     ];
   });
 
@@ -139,8 +139,8 @@ describe("app.views.SearchBase", function() {
 
       it("sets data.person to true", function() {
         expect(this.view.transformBloodhoundResponse(this.response)).toEqual([
-         {name: "Person", handle: "person@pod.tld", person: true},
-         {name: "User", handle: "user@pod.tld", person: true}
+         {name: "Person", handle: "person@pod.tld", person: true, link: false},
+         {name: "User", handle: "user@pod.tld", person: true, link: false}
         ]);
       });
     });
@@ -154,6 +154,25 @@ describe("app.views.SearchBase", function() {
         expect(this.view.transformBloodhoundResponse(this.response)).toEqual([
          {name: "#tag", hashtag: true, url: Routes.tag("tag")},
          {name: "#hashTag", hashtag: true, url: Routes.tag("hashTag")}
+        ]);
+      });
+    });
+
+    context("with suggestionLink option set to true", function() {
+      beforeEach(function() {
+        this.view = new app.views.SearchBase({
+          el: "#search_people_form",
+          typeaheadInput: $("#q"),
+          suggestionLink: true
+        });
+
+        this.response = [{name: "Person", handle: "person@pod.tld"}, {name: "User", handle: "user@pod.tld"}];
+      });
+
+      it("sets data.link to true", function() {
+        expect(this.view.transformBloodhoundResponse(this.response)).toEqual([
+          {name: "Person", handle: "person@pod.tld", person: true, link: true},
+          {name: "User", handle: "user@pod.tld", person: true, link: true}
         ]);
       });
     });
@@ -260,6 +279,26 @@ describe("app.views.SearchBase", function() {
       expect(this.view.ignoreDiasporaIds.length).toBe(0);
       this.view.ignorePersonForSuggestions({data: "user1@pod.tld"});
       expect(this.view.ignoreDiasporaIds.length).toBe(0);
+    });
+  });
+
+  describe("render results", function() {
+    beforeEach(function() {
+      this.view = new app.views.SearchBase({
+        el: "#search_people_form",
+        typeaheadInput: $("#q"),
+        autoselect: true,
+        suggestionLink: true
+      });
+
+      this.view.bloodhound.add(this.view.transformBloodhoundResponse(this.bloodhoundData));
+    });
+
+    it("produces a link when initialized with suggestionLink option set to true", function() {
+      this.view.typeaheadInput.typeahead("val", "user");
+      this.view.typeaheadInput.typeahead("open");
+      expect(this.view.suggestionLink).toBe(true);
+      expect($(".search-suggestion-person").first().is("a")).toBe(true);
     });
   });
 });
