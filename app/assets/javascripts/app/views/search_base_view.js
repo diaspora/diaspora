@@ -2,6 +2,7 @@ app.views.SearchBase = app.views.Base.extend({
   initialize: function(options) {
     this.ignoreDiasporaIds = [];
     this.typeaheadInput = options.typeaheadInput;
+    this.suggestionLink = options.suggestionLink || false;
     this.setupBloodhound(options);
     if(options.customSearch) { this.setupCustomSearch(); }
     this.setupTypeahead();
@@ -31,7 +32,7 @@ app.views.SearchBase = app.views.Base.extend({
       bloodhoundOptions.remote = {
         url: options.remoteRoute + ".json?q=%QUERY",
         wildcard: "%QUERY",
-        transform: this.transformBloodhoundResponse
+        transform: this.transformBloodhoundResponse.bind(this)
       };
     }
 
@@ -75,6 +76,7 @@ app.views.SearchBase = app.views.Base.extend({
       // person
       if(data.handle) {
         data.person = true;
+        data.link = this.suggestionLink;
         return data;
       }
 
@@ -84,7 +86,7 @@ app.views.SearchBase = app.views.Base.extend({
         name: data.name,
         url: Routes.tag(data.name.substring(1))
       };
-    });
+    }.bind(this));
   },
 
   _deselectAllSuggestions: function() {
@@ -106,5 +108,5 @@ app.views.SearchBase = app.views.Base.extend({
 
   ignorePersonForSuggestions: function(person) {
     if(person.handle) { this.ignoreDiasporaIds.push(person.handle); }
-  },
+  }
 });
