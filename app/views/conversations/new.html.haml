@@ -2,6 +2,7 @@
   $(document).ready(function () {
     var data = $.parseJSON( "#{escape_javascript(@contacts_json)}" );
     new app.views.ConversationsForm({
+      el: $("form#new-conversation").parent(),
       contacts: data,
       prefillName: "#{h params[:name]}",
       prefillValue: "#{@contact_ids}"
