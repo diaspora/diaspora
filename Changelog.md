@@ -44,6 +44,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Add In-Reply-To and References headers to notification mails [#7122](https://github.com/diaspora/diaspora/pull/7122)
 * Directly link to a comment in commented notification mails [#7124](https://github.com/diaspora/diaspora/pull/7124)
 * Add optional `Content-Security-Policy` header [#7128](https://github.com/diaspora/diaspora/pull/7128)
+* Add links to main stream and public stream to the mobile drawer [#7144](https://github.com/diaspora/diaspora/pull/7144)
 
 # 0.6.0.1
 
