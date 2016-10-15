@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906225138) do
+ActiveRecord::Schema.define(version: 20161015174300) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -358,7 +358,7 @@ ActiveRecord::Schema.define(version: 20160906225138) do
   add_index "photos", ["status_message_guid"], name: "index_photos_on_status_message_guid", length: {"status_message_guid"=>191}, using: :btree
 
   create_table "pods", force: :cascade do |t|
-    t.string   "host",          limit: 255
+    t.string   "host",          limit: 255,                                 null: false
     t.boolean  "ssl"
     t.datetime "created_at",                                                null: false
     t.datetime "updated_at",                                                null: false
