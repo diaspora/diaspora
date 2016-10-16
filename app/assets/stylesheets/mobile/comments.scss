@@ -33,7 +33,7 @@
 
     &.active:not(.bottom_collapse),
     &.active:not(.bottom_collapse) > [class^="entypo"] {
-      color: $text;
+      color: $text-color;
     }
   }
 

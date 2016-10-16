@@ -1,6 +1,6 @@
 .md-footer,
 .md-header {
-  background: $sidebars-background;
+  background: $white;
   border: 0;
   display: block;
   height: 42px;
@@ -10,7 +10,7 @@
   [class^="entypo-"],
   [class*="entypo-"],
   .glyphicon {
-    color: $black;
+    color: $icon-color;
   }
 }
 
@@ -72,7 +72,7 @@
     width: 18px;
   }
 
-  &:hover .entypo-cross { color: $text; }
+  &:hover .entypo-cross { color: $text-color; }
 }
 
 

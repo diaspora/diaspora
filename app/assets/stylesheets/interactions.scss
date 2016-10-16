@@ -4,7 +4,7 @@
 
     [class^="entypo-"],
     [class*="entypo-"] {
-      color: $text-grey;
+      color: $text-color-pale;
       font-size: $font-size-base;
       line-height: $line-height-base;
       vertical-align: middle;
@@ -12,12 +12,12 @@
 
     [class^="entypo-"]:hover,
     [class*="entypo-"]:hover {
-      color: $text;
+      color: $text-color;
     }
 
     &.hide_conversation i { font-size: $line-height-computed * 1.5; }
     &.delete_conversation i { font-size: $font-size-base * 1.5; }
-    &.destroy_participation i { color: $black; }
+    &.destroy_participation i { color: $text-color-active; }
     &.destroy_participation i:hover { color: $text-dark-grey; }
   }
 }
