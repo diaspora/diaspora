@@ -17,7 +17,7 @@
   }
 
   .stream-element {
-    background-color: $white;
+    background-color: $framed-background;
     padding: 10px;
 
     .avatar {
@@ -30,7 +30,7 @@
 
   .stream-element.message,
   .stream-element.new-message {
-    border: 1px solid $light-grey;
+    border: 1px solid $border-grey;
     box-shadow: $card-shadow;
     margin-bottom: 20px;
 
@@ -83,7 +83,7 @@
       }
     }
 
-    &.unread { background-color: darken($background-white, 5%); }
+    &.unread { background-color: $background-grey; }
     &.selected { background-color: $blue; }
 
     .last_author, .last_message {
