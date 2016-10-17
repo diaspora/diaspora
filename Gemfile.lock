@@ -56,7 +56,7 @@ GEM
       unf
     ast (2.3.0)
     attr_required (1.0.1)
-    autoprefixer-rails (6.4.0.2)
+    autoprefixer-rails (6.5.1)
       execjs
     backbone-on-rails (1.2.0.0)
       eco
@@ -922,7 +922,7 @@ DEPENDENCIES
   acts_as_api (= 0.4.3)
   addressable (= 2.3.8)
   asset_sync (= 1.1.0)
-  autoprefixer-rails (= 6.4.0.2)
+  autoprefixer-rails (= 6.5.1)
   backbone-on-rails (= 1.2.0.0)
   bootstrap-sass (= 3.3.7)
   bootstrap-switch-rails (= 3.3.3)
@@ -1054,4 +1054,4 @@ DEPENDENCIES
   will_paginate (= 3.1.0)
 
 BUNDLED WITH
-   1.12.5
+   1.13.5
