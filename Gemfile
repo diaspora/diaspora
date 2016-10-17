@@ -267,7 +267,7 @@ group :test do
   # RSpec (unit tests, some integration tests)
 
   gem "fixture_builder",   "0.4.1"
-  gem "fuubar",            "2.1.1"
+  gem "fuubar",            "2.2.0"
   gem "test_after_commit", "1.1.0"
 
   # Cucumber (integration tests)
