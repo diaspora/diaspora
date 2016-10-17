@@ -32,6 +32,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Fix link to comment on report page [#7105](https://github.com/diaspora/diaspora/pull/7105)
 * Fix duplicate flash message on mobile profile edit [#7107](https://github.com/diaspora/diaspora/pull/7107)
 * Clicking photos on mobile should no longer cause 404s [#7071](https://github.com/diaspora/diaspora/pull/7071)
+* Fix avatar size on mobile privacy page for ignored people [#7148](https://github.com/diaspora/diaspora/pull/7148)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
