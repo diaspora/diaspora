@@ -403,7 +403,7 @@ GEM
       rubocop (~> 0.20)
     haml (4.0.7)
       tilt
-    haml_lint (0.18.1)
+    haml_lint (0.18.2)
       haml (~> 4.0)
       rake (>= 10, < 12)
       rubocop (>= 0.36.0)
@@ -571,7 +571,7 @@ GEM
       validate_url
       webfinger (>= 1.0.1)
     orm_adapter (0.5.0)
-    parser (2.3.1.2)
+    parser (2.3.1.4)
       ast (~> 2.2)
     pg (0.18.4)
     phantomjs (2.1.1.0)
@@ -871,7 +871,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    unicode-display_width (1.1.0)
+    unicode-display_width (1.1.1)
     unicorn (5.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -954,7 +954,7 @@ DEPENDENCIES
   guard-cucumber (= 2.1.2)
   guard-rspec (= 4.7.3)
   guard-rubocop (= 1.2.0)
-  haml_lint (= 0.18.1)
+  haml_lint (= 0.18.2)
   hamlit (= 2.5.0)
   handlebars_assets (= 0.23.1)
   http_accept_language (= 2.0.5)
