@@ -45,3 +45,15 @@
     margin-top: -45px;
   }
 }
+
+.settings_container {
+  .blocked_person {
+    margin: 0;
+    padding: 10px 0;
+
+    .avatar {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
