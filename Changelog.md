@@ -54,6 +54,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Directly link to a comment in commented notification mails [#7124](https://github.com/diaspora/diaspora/pull/7124)
 * Add optional `Content-Security-Policy` header [#7128](https://github.com/diaspora/diaspora/pull/7128)
 * Add links to main stream and public stream to the mobile drawer [#7144](https://github.com/diaspora/diaspora/pull/7144)
+* Allow opening search results from the dropdown in a new tab [#7021](https://github.com/diaspora/diaspora/issues/7021)
 
 # 0.6.0.1
 
