@@ -139,7 +139,7 @@ gem "open_graph_reader", "0.6.1"
 
 # Security Headers
 
-gem "secure_headers", "3.4.1"
+gem "secure_headers", "3.5.0"
 
 # Services
 
