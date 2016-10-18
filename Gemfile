@@ -19,7 +19,7 @@ gem "diaspora_federation-rails", "0.1.4"
 
 gem "acts_as_api", "0.4.3"
 gem "json",        "1.8.3"
-gem "json-schema", "2.6.2"
+gem "json-schema", "2.7.0"
 
 # Authentication
 
@@ -167,7 +167,7 @@ gem "acts-as-taggable-on", "3.5.0"
 
 # URIs and HTTP
 
-gem "addressable",        "2.3.8", require: "addressable/uri"
+gem "addressable",        "2.4.0", require: "addressable/uri"
 gem "faraday",            "0.9.2"
 gem "faraday_middleware", "0.10.0"
 gem "faraday-cookie_jar", "0.0.6"

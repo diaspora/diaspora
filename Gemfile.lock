@@ -48,7 +48,7 @@ GEM
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
-    addressable (2.3.8)
+    addressable (2.4.0)
     arel (6.0.3)
     asset_sync (1.1.0)
       activemodel
@@ -469,8 +469,8 @@ GEM
       multi_json (>= 1.3)
       securecompare
       url_safe_base64
-    json-schema (2.6.2)
-      addressable (~> 2.3.8)
+    json-schema (2.7.0)
+      addressable (>= 2.4)
     json_spec (1.1.4)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
@@ -920,7 +920,7 @@ DEPENDENCIES
   activerecord-import (= 0.15.0)
   acts-as-taggable-on (= 3.5.0)
   acts_as_api (= 0.4.3)
-  addressable (= 2.3.8)
+  addressable (= 2.4.0)
   asset_sync (= 1.1.0)
   autoprefixer-rails (= 6.5.1)
   backbone-on-rails (= 1.2.0.0)
@@ -966,7 +966,7 @@ DEPENDENCIES
   js-routes (= 1.2.9)
   js_image_paths (= 0.1.0)
   json (= 1.8.3)
-  json-schema (= 2.6.2)
+  json-schema (= 2.7.0)
   json_spec (= 1.1.4)
   leaflet-rails (= 0.7.7)
   logging-rails (= 0.5.0)
