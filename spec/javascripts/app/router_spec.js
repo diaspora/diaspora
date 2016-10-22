@@ -26,6 +26,16 @@ describe('app.Router', function () {
       expect(followed_tags).toHaveBeenCalled();
       expect(tag_following_action).toHaveBeenCalledWith({tagText: 'somethingwithcapitalletters'});
     });
+
+    it("does not add the TagFollowingAction if not logged in", function() {
+      var followedTags = spyOn(app.router, "followed_tags").and.callThrough();
+      var tagFollowingAction = spyOn(app.views, "TagFollowingAction");
+      logout();
+
+      app.router.followed_tags("some_tag");
+      expect(followedTags).toHaveBeenCalled();
+      expect(tagFollowingAction).not.toHaveBeenCalled();
+    });
   });
 
   describe("when routing to /stream and hiding inactive stream lists", function() {
