@@ -93,7 +93,7 @@ DiasporaFederation.configure do |config|
       end
     end
 
-    on :receive_entity do |entity, recipient_id|
+    on :receive_entity do |entity, _sender, recipient_id|
       case entity
       when DiasporaFederation::Entities::AccountDeletion
         Diaspora::Federation::Receive.account_deletion(entity)
