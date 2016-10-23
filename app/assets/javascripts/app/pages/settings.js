@@ -10,10 +10,9 @@ app.pages.Settings = Backbone.View.extend({
     });
     new Diaspora.ProfilePhotoUploader();
 
-    var form = $("#post-default-aspects");
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
       el: $(".aspect_dropdown"),
-      form: form
+      form: $("#post-default-aspects")
     });
   }
 });
