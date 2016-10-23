@@ -21,11 +21,12 @@ class Pod < ActiveRecord::Base
 
   # this are only the most common errors, the rest will be +unknown_error+
   CURL_ERROR_MAP = {
-    couldnt_resolve_host: :dns_failed,
-    couldnt_connect:      :net_failed,
-    operation_timedout:   :net_failed,
-    ssl_cipher:           :ssl_failed,
-    ssl_cacert:           :ssl_failed
+    couldnt_resolve_host:         :dns_failed,
+    couldnt_connect:              :net_failed,
+    operation_timedout:           :net_failed,
+    ssl_cipher:                   :ssl_failed,
+    ssl_cacert:                   :ssl_failed,
+    redirected_to_other_hostname: :http_failed
   }.freeze
 
   DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
