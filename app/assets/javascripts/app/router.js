@@ -113,10 +113,12 @@ app.Router = Backbone.Router.extend({
     app.tagFollowings.reset(gon.preloads.tagFollowings);
 
     if (name) {
-      var followedTagsAction = new app.views.TagFollowingAction(
+      if (app.currentUser.authenticated()) {
+        var followedTagsAction = new app.views.TagFollowingAction(
             {tagText: decodeURIComponent(name).toLowerCase()}
-          );
-      $("#author_info").prepend(followedTagsAction.render().el);
+        );
+        $("#author_info").prepend(followedTagsAction.render().el);
+      }
       app.tags = new app.views.Tags({hashtagName: name});
     }
     this._hideInactiveStreamLists();
