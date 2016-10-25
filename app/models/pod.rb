@@ -61,6 +61,10 @@ class Pod < ActiveRecord::Base
     def check_all!
       Pod.find_in_batches(batch_size: 20) {|batch| batch.each(&:test_connection!) }
     end
+
+    def check_scheduled!
+      Pod.where(scheduled_check: true).find_each(&:test_connection!)
+    end
   end
 
   def offline?
@@ -74,6 +78,10 @@ class Pod < ActiveRecord::Base
 
   def to_s
     "#{id}:#{host}"
+  end
+
+  def schedule_check_if_needed
+    update_column(:scheduled_check, true) if offline? && !scheduled_check
   end
 
   def test_connection!
@@ -108,6 +116,7 @@ class Pod < ActiveRecord::Base
 
     attributes_from_result(result)
     touch(:checked_at)
+    self.scheduled_check = false
 
     save
   end
