@@ -9,3 +9,7 @@ queue_users_for_removal:
 recurring_pod_check:
   cron: "0 0 * * *"
   class: "Workers::RecurringPodCheck"
+
+recheck_scheduled_pods:
+  cron: "*/30 * * * *"
+  class: "Workers::RecheckScheduledPods"
