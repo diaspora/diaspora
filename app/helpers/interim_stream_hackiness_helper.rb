@@ -46,8 +46,4 @@ module InterimStreamHackinessHelper
   def publisher_open
     publisher_method(:open)
   end
-
-  def publisher_public
-    publisher_method(:public)
-  end
 end

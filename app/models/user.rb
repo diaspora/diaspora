@@ -252,6 +252,21 @@ class User < ActiveRecord::Base
     end
   end
 
+  def post_default_aspects
+    if post_default_public
+      ["public"]
+    else
+      aspects.where(post_default: true).to_a
+    end
+  end
+
+  def update_post_default_aspects(post_default_aspect_ids)
+    aspects.each do |aspect|
+      enable = post_default_aspect_ids.include?(aspect.id.to_s)
+      aspect.update_attribute(:post_default, enable)
+    end
+  end
+
   def salmon(post)
     Salmon::EncryptedSlap.create_by_user_and_activity(self, post.to_diaspora_xml)
   end
@@ -502,7 +517,8 @@ class User < ActiveRecord::Base
       self[field] = nil
     end
     [:getting_started,
-     :show_community_spotlight_in_stream].each do |field|
+     :show_community_spotlight_in_stream,
+     :post_default_public].each do |field|
       self[field] = false
     end
     self[:disable_mail] = true

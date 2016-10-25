@@ -32,7 +32,7 @@ describe Stream::Multi do
     it 'provides no opts if welcome? is not set' do
       prefill_text = "sup?"
       allow(@stream).to receive(:welcome?).and_return(false)
-      expect(@stream.send(:publisher_opts)).to eq({})
+      expect(@stream.send(:publisher_opts)).to eq(public: false)
     end
   end
 
