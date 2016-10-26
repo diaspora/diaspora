@@ -1156,6 +1156,7 @@ en:
       following: "Sharing settings"
       auto_follow_back: "Automatically share with users who start sharing with you"
       auto_follow_aspect: "Aspect for users you automatically share with:"
+      default_post_visibility: "Default aspects selected for posting"
       receive_email_notifications: "Receive email notifications when:"
       started_sharing: "someone starts sharing with you"
       someone_reported: "someone sends a report"

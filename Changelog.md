@@ -57,6 +57,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Add optional `Content-Security-Policy` header [#7128](https://github.com/diaspora/diaspora/pull/7128)
 * Add links to main stream and public stream to the mobile drawer [#7144](https://github.com/diaspora/diaspora/pull/7144)
 * Allow opening search results from the dropdown in a new tab [#7021](https://github.com/diaspora/diaspora/issues/7021)
+* Add user setting for default post visibility [#7118](https://github.com/diaspora/diaspora/issues/7118)
 
 # 0.6.0.1
 
