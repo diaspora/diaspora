@@ -96,9 +96,7 @@ app.views.AspectMembership = app.views.Base.extend({
     }
 
     this.listenToOnce(this.person.contact.aspectMemberships, "sync", this._successSaveCb);
-    this.listenToOnce(this.person.contact.aspectMemberships, "error", function() {
-      this._displayError('aspect_dropdown.error');
-    });
+    this.listenToOnce(this.person.contact.aspectMemberships, "error", this._displayError);
 
     return this.person.contact.aspectMemberships.create({"aspect_id": aspectId, "person_id": this._personId()});
   },
@@ -124,21 +122,17 @@ app.views.AspectMembership = app.views.Base.extend({
   },
 
   // show an error flash msg
-  _displayError: function(msg_id) {
+  _displayError: function(model, resp) {
     this._done();
-    this.dropdown.closest('.aspect_membership_dropdown').removeClass('open'); // close the dropdown
-
-    var msg = Diaspora.I18n.t(msg_id, { 'name': this._name() });
-    app.flashMessages.error(msg);
+    this.dropdown.closest(".aspect_membership_dropdown").removeClass("open"); // close the dropdown
+    app.flashMessages.error(resp.responseText);
   },
 
   // remove the membership with the given id
   removeMembership: function(membershipId) {
     var membership = this.person.contact.aspectMemberships.get(membershipId);
     this.listenToOnce(membership, "sync", this._successDestroyCb);
-    this.listenToOnce(membership, "error", function() {
-      this._displayError("aspect_dropdown.error_remove");
-    });
+    this.listenToOnce(membership, "error", this._displayError);
 
     return membership.destroy();
   },

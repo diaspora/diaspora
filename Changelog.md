@@ -42,7 +42,8 @@ Note: Although this is a minor release, the configuration file changed because t
 * Clicking photos on mobile should no longer cause 404s [#7071](https://github.com/diaspora/diaspora/pull/7071)
 * Fix avatar size on mobile privacy page for ignored people [#7148](https://github.com/diaspora/diaspora/pull/7148)
 * Don't display tag following button when logged out [#7155](https://github.com/diaspora/diaspora/pull/7155)
-* Fix message modal on profile page[#7137](https://github.com/diaspora/diaspora/pull/7137)
+* Fix message modal on profile page [#7137](https://github.com/diaspora/diaspora/pull/7137)
+* Display error message when aspect membership changes fail [#7132](https://github.com/diaspora/diaspora/pull/7132)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
