@@ -5,7 +5,6 @@ app.views.ConversationsForm = Backbone.View.extend({
 
   events: {
     "keydown .conversation-message-text": "keyDown",
-    "submit #conversation-new": "onSubmitNewConversation"
   },
 
   initialize: function(opts) {
@@ -15,6 +14,8 @@ app.views.ConversationsForm = Backbone.View.extend({
       this.prefill = [{name: opts.prefillName, value: opts.prefillValue}];
     }
     this.prepareAutocomplete(this.contacts);
+    this.$("form#new-conversation").on("ajax:success", this.conversationCreateSuccess);
+    this.$("form#new-conversation").on("ajax:error", this.conversationCreateError);
   },
 
   prepareAutocomplete: function(data){
@@ -38,17 +39,12 @@ app.views.ConversationsForm = Backbone.View.extend({
     }
   },
 
-  getConversationParticipants: function() {
-    return this.$("#as-values-contact_ids").val().split(",");
+  conversationCreateSuccess: function(evt, data) {
+    app._changeLocation(Routes.conversation(data.id));
   },
 
-  onSubmitNewConversation: function(evt) {
-    evt.preventDefault();
-    if (this.getConversationParticipants().length === 0) {
-      evt.stopPropagation();
-      app.flashMessages.error(Diaspora.I18n.t("conversation.create.no_recipient"));
-    }
+  conversationCreateError: function(evt, resp) {
+    app.flashMessages.error(resp.responseText);
   }
 });
 // @license-end
-

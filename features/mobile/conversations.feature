@@ -12,9 +12,7 @@ Feature: private conversations mobile
 
   Scenario: send and delete a mobile message
     Given I send a mobile message with subject "Greetings" and text "hello, alice!" to "Alice Awesome"
-    Then I should see "Greetings" within ".ltr"
-    And I should see "Greetings" within ".ltr"
-    And I press the first ".ltr" within ".conversation"
+    Then I should see "Greetings" within ".conversation h3"
     And "Alice Awesome" should be part of active conversation
     And I should see "hello, alice!" within ".stream-element"
     When I sign in as "alice@alice.alice" on the mobile website

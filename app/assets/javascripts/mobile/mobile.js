@@ -25,7 +25,9 @@
 //= require mobile/profile_aspects
 //= require mobile/tag_following
 //= require mobile/publisher
+//= require mobile/mobile_alert
 //= require mobile/mobile_comments
+//= require mobile/mobile_conversations
 //= require mobile/mobile_post_actions
 //= require mobile/mobile_drawer
 // @license-end
