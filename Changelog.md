@@ -44,6 +44,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Don't display tag following button when logged out [#7155](https://github.com/diaspora/diaspora/pull/7155)
 * Fix message modal on profile page [#7137](https://github.com/diaspora/diaspora/pull/7137)
 * Display error message when aspect membership changes fail [#7132](https://github.com/diaspora/diaspora/pull/7132)
+* Avoid the creation of pod that are none [#7145](https://github.com/diaspora/diaspora/pull/7145)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
