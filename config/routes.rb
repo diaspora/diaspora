@@ -106,6 +106,7 @@ Diaspora::Application.routes.draw do
     get :download_profile
     post :export_photos
     get :download_photos
+    post :auth_token
   end
 
   controller :users do
@@ -181,12 +182,6 @@ Diaspora::Application.routes.draw do
     scope "/auth", :as => "auth" do
       get ':provider/callback' => :create
       get :failure
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-      resources :tokens, :only => [:create, :destroy]
     end
   end
 
