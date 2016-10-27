@@ -128,6 +128,11 @@ class UsersController < ApplicationController
     redirect_to edit_user_path
   end
 
+  def auth_token
+    current_user.ensure_authentication_token!
+    render status: 200, json: {token: current_user.authentication_token}
+  end
+
   private
 
   # rubocop:disable Metrics/MethodLength
