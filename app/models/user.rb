@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class User < ActiveRecord::Base
+  include AuthenticationToken
   include Connecting
   include Querying
   include SocialActions
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
   scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
   scope :active, -> { joins(:person).where(people: {closed_account: false}) }
 
-  devise :token_authenticatable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 
