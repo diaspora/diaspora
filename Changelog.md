@@ -38,6 +38,7 @@ Note: Although this is a minor release, the configuration file changed because t
 * Display error message when aspect membership changes fail [#7132](https://github.com/diaspora/diaspora/pull/7132)
 * Avoid the creation of pod that are none [#7145](https://github.com/diaspora/diaspora/pull/7145)
 * Fixed tag pages with alternate default aspect settings [#7262](https://github.com/diaspora/diaspora/pull/7162)
+* Suppressed CSP related deprecation warnings [#7263](https://github.com/diaspora/diaspora/pull/7163)
 
 ## Features
 * Deleted comments will be removed when loading more comments [#7045](https://github.com/diaspora/diaspora/pull/7045)
