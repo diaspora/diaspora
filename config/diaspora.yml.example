@@ -535,6 +535,11 @@ configuration: ## Section
     ## If not set your pod will provide a downloadable archive.
     #source_url: 'https://example.org/username/diaspora'
 
+    ## Changelog URL
+    ## URL to the changelog of the diaspora-version your pod is currently running.
+    ## If not set an auto-generated url to github is used.
+    #changelog_url: "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
+
     ## Default color theme
     ## You can change which color theme is displayed when a user is not signed in
     ## or has not selected any color theme from the available ones. You simply have
