@@ -101,12 +101,6 @@ describe LikesController, :type => :controller do
           @message = alice.comment!(@message, "hey") if class_const == Comment
         end
 
-        it 'generates a jasmine fixture', :fixture => true do
-          get :index, id_field => @message.id
-
-          save_fixture(response.body, "ajax_likes_on_#{class_const.to_s.underscore}")
-        end
-
         it 'returns a 404 for a post not visible to the user' do
           sign_in eve
           expect{get :index, id_field => @message.id}.to raise_error(ActiveRecord::RecordNotFound)
