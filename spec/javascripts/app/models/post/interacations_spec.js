@@ -40,6 +40,13 @@ describe("app.models.Post.Interactions", function(){
       jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
       expect(this.post.get("participation")).toBeTruthy();
     });
+
+    it("triggers a change on the likes collection", function() {
+      spyOn(this.interactions.likes, "trigger");
+      this.interactions.like();
+      jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
+      expect(this.interactions.likes.trigger).toHaveBeenCalledWith("change");
+    });
   });
 
   describe("unlike", function(){
@@ -56,13 +63,20 @@ describe("app.models.Post.Interactions", function(){
       this.reshare = this.interactions.post.reshare();
     });
 
-    it("triggers a change on the model", function() {
+    it("triggers a change on the interactions model", function() {
       spyOn(this.interactions, "trigger");
 
       this.interactions.reshare();
       jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
 
       expect(this.interactions.trigger).toHaveBeenCalledWith("change");
+    });
+
+    it("triggers a change on the reshares collection", function() {
+      spyOn(this.interactions.reshares, "trigger");
+      this.interactions.reshare();
+      jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
+      expect(this.interactions.reshares.trigger).toHaveBeenCalledWith("change");
     });
 
     it("adds the reshare to the default, activity and aspects stream", function() {

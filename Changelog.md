@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
 
 ## Features
 

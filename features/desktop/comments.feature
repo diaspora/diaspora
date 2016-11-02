@@ -73,3 +73,16 @@ Feature: commenting
     When I follow "less than a minute ago" within ".comments .comment:last-child"
     Then I should see "I think that’s a cat" within ".comments .comment .highlighted"
     And I should have scrolled down
+
+  Scenario: Show more comments after loading likes
+    When "alice@alice.alice" has commented a lot on "Look at this dog"
+    And "alice@alice.alice" has liked the post "Look at this dog"
+    And I am on "alice@alice.alice"'s page
+    Then I should see "Look at this dog"
+    And I should not see "Comment 2"
+
+    When I follow "1 Like"
+    Then I should not see "1 Like"
+
+    When I click on selector ".toggle_post_comments"
+    Then I should see "Comment 2"

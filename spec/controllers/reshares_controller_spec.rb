@@ -98,7 +98,7 @@ describe ResharesController, :type => :controller do
         expect(JSON.parse(response.body).map {|h| h["id"] }).to eq(@post.reshares.map(&:id))
       end
 
-      it "returns an empty array for a post with no likes" do
+      it "returns an empty array for a post with no reshares" do
         get :index, post_id: @post.id, format: :json
         expect(JSON.parse(response.body)).to eq([])
       end
