@@ -70,6 +70,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
         self.post.set({participation: true});
         self.trigger("change");
         self.set({"likes_count" : self.get("likes_count") + 1});
+        self.likes.trigger("change");
       },
       error: function() {
         app.flashMessages.error(Diaspora.I18n.t("failed_to_like"));
@@ -84,6 +85,7 @@ app.models.Post.Interactions = Backbone.Model.extend({
     this.userLike().destroy({success : function() {
       self.trigger('change');
       self.set({"likes_count" : self.get("likes_count") - 1});
+      self.likes.trigger("change");
     }});
 
     app.instrument("track", "Unlike");
@@ -116,6 +118,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
           app.stream.addNow(reshare);
         }
         interactions.trigger("change");
+        interactions.set({"reshares_count": interactions.get("reshares_count") + 1});
+        interactions.reshares.trigger("change");
       })
       .fail(function(){
         app.flashMessages.error(Diaspora.I18n.t("reshares.duplicate"));

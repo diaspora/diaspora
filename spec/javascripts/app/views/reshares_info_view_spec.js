@@ -22,19 +22,23 @@ describe("app.views.ResharesInfo", function(){
 
     it("fires on a model change", function(){
       spyOn(this.view, "postRenderTemplate");
-      this.view.model.interactions.trigger("change");
+      this.view.model.interactions.reshares.trigger("change");
       expect(this.view.postRenderTemplate).toHaveBeenCalled();
     });
   });
 
   describe("showAvatars", function(){
-    beforeEach(function(){
-      spyOn(this.post.interactions, "fetch").and.callThrough();
+    it("calls fetch on the model's reshare collection", function() {
+      spyOn(this.post.interactions.reshares, "fetch").and.callThrough();
+      this.view.showAvatars();
+      expect(this.post.interactions.reshares.fetch).toHaveBeenCalled();
     });
 
-    it("calls fetch on the model's reshare collection", function(){
+    it("triggers 'change' on the reshares collection", function() {
+      spyOn(this.post.interactions.reshares, "trigger");
       this.view.showAvatars();
-      expect(this.post.interactions.fetch).toHaveBeenCalled();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 200, responseText: "{\"id\": 1}"});
+      expect(this.post.interactions.reshares.trigger).toHaveBeenCalledWith("change");
     });
 
     it("sets 'displayAvatars' to true", function(){

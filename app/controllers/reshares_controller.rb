@@ -17,4 +17,16 @@ class ResharesController < ApplicationController
       render :nothing => true, :status => 422
     end
   end
+
+  def index
+    @reshares = target.reshares.includes(author: :profile)
+    render json: @reshares.as_api_response(:backbone)
+  end
+
+  private
+
+  def target
+    @target ||= current_user.find_visible_shareable_by_id(Post, params[:post_id]) ||
+      raise(ActiveRecord::RecordNotFound.new)
+  end
 end
