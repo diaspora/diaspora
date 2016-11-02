@@ -1,13 +1,27 @@
 .comment_stream {
   .show_comments {
-    margin-top: 5px;
     border-top: 1px solid $border-grey;
+    line-height: $line-height-computed;
+    margin-top: 5px;
     a {
       color: $text-grey;
       font-size: 13px;
     }
     .media { margin-top: 10px; }
   }
+
+  .loading-comments {
+    height: $line-height-computed + 11px; // height of .show_comments: line-height, 10px margin, 1px border
+    margin-top: -$line-height-computed - 11px;
+
+    .loader {
+      height: 20px;
+      width: 20px;
+    }
+
+    .media { margin: 5px; }
+  }
+
   .comments > .comment,
   .comment.new-comment-form-wrapper {
     .avatar {
