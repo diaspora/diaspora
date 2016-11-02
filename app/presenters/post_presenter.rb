@@ -23,7 +23,8 @@ class PostPresenter < BasePresenter
     as_json.tap do |post|
       post[:interactions].merge!(
         likes:    LikeService.new(current_user).find_for_post(@post.id).limit(30).as_api_response(:backbone),
-        reshares: ReshareService.new(current_user).find_for_post(@post.id).limit(30).as_api_response(:backbone)
+        reshares: ReshareService.new(current_user).find_for_post(@post.id).limit(30).as_api_response(:backbone),
+        comments: CommentPresenter.as_collection(@post.last_comments(10))
       )
     end
   end

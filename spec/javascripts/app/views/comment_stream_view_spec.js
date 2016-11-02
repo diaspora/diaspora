@@ -354,6 +354,18 @@ describe("app.views.CommentStream", function(){
       });
       expect(this.view.$(".loading-comments")).toHaveClass("hidden");
     });
+
+    it("triggers 'commentsExpanded' on success", function() {
+      spyOn(this.view, "trigger");
+      this.view.render();
+      this.view.expandComments();
+      expect(this.view.trigger).not.toHaveBeenCalledWith("commentsExpanded");
+
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200, responseText: JSON.stringify([])
+      });
+      expect(this.view.trigger).toHaveBeenCalledWith("commentsExpanded");
+    });
   });
 
   describe("openForm", function() {

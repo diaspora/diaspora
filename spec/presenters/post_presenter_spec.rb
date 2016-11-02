@@ -22,6 +22,7 @@ describe PostPresenter do
     before do
       bob.like!(status_message)
       bob.reshare!(status_message)
+      bob.comment!(status_message, "hey")
     end
 
     describe "#with_interactions" do
@@ -42,6 +43,9 @@ describe PostPresenter do
       it "works with a user" do
         post_hash = presenter.with_initial_interactions
         expect(post_hash).to be_a Hash
+        expect(post_hash[:interactions][:comments]).to eq(
+          CommentPresenter.as_collection(status_message.last_comments(10))
+        )
         expect(post_hash[:interactions][:likes]).to eq(
           LikeService.new(bob).find_for_post(status_message.id).as_api_response(:backbone)
         )
@@ -53,6 +57,9 @@ describe PostPresenter do
       it "works without a user" do
         post_hash = unauthenticated_presenter.with_initial_interactions
         expect(post_hash).to be_a Hash
+        expect(post_hash[:interactions][:comments]).to eq(
+          CommentPresenter.as_collection(status_message.last_comments(10))
+        )
         expect(post_hash[:interactions][:likes]).to eq(
           LikeService.new.find_for_post(status_message.id).as_api_response(:backbone)
         )
