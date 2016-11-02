@@ -104,10 +104,12 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   expandComments: function(evt){
+    this.$(".loading-comments").removeClass("hidden");
     if(evt){ evt.preventDefault(); }
     this.model.comments.fetch({
       success: function() {
         this.$("div.comment.show_comments").addClass("hidden");
+        this.$(".loading-comments").addClass("hidden");
       }.bind(this)
     });
   }

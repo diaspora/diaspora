@@ -7,6 +7,7 @@
 * Hide 'reshare' button on already reshared posts [#7169](https://github.com/diaspora/diaspora/pull/7169)
 
 ## Features
+* Show spinner when loading comments in the stream [#7170](https://github.com/diaspora/diaspora/pull/7170)
 
 # 0.6.1.0
 
