@@ -3,7 +3,6 @@
 //= require templates
 //= require main
 //= require fileuploader-custom
-//= require inbox
 //= require mobile/mobile
 //= require jquery.autoSuggest.custom
 //= require contact-list

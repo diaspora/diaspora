@@ -24,7 +24,7 @@ class ConversationsController < ApplicationController
     gon.contacts = contacts_data
 
     respond_with do |format|
-      format.html
+      format.html { render "index", locals: {no_contacts: current_user.contacts.mutual.empty?} }
       format.json { render json: @visibilities.map(&:conversation), status: 200 }
     end
   end
@@ -43,28 +43,23 @@ class ConversationsController < ApplicationController
     opts[:message] = { text: params[:conversation][:text] }
     @conversation = current_user.build_conversation(opts)
 
-    @response = {}
     if person_ids.present? && @conversation.save
       Diaspora::Federation::Dispatcher.defer_dispatch(current_user, @conversation)
-      @response[:success] = true
-      @response[:message] = I18n.t('conversations.create.sent')
-      @response[:conversation_id] = @conversation.id
+      flash[:notice] = I18n.t("conversations.create.sent")
+      render json: {id: @conversation.id}
     else
-      @response[:success] = false
-      @response[:message] = I18n.t('conversations.create.fail')
+      message = I18n.t("conversations.create.fail")
       if person_ids.blank?
-        @response[:message] = I18n.t('conversations.create.no_contact')
+        message = I18n.t("javascripts.conversation.create.no_recipient")
       end
-    end
-    respond_to do |format|
-      format.js
+      render text: message, status: 422
     end
   end
 
   def show
     respond_to do |format|
       format.html do
-        redirect_to conversations_path(:conversation_id => params[:id])
+        redirect_to conversations_path(conversation_id: params[:id])
         return
       end
 
@@ -72,11 +67,21 @@ class ConversationsController < ApplicationController
         @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
         @conversation.set_read(current_user)
 
-        format.js
         format.json { render :json => @conversation, :status => 200 }
       else
         redirect_to conversations_path
       end
+    end
+  end
+
+  def raw
+    @conversation = current_user.conversations.where(id: params[:conversation_id]).first
+    if @conversation
+      @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
+      @conversation.set_read(current_user)
+      render partial: "conversations/show", locals: {conversation: @conversation}
+    else
+      render nothing: true, status: 404
     end
   end
 

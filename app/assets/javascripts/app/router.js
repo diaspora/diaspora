@@ -9,7 +9,7 @@ app.Router = Backbone.Router.extend({
     "commented(/)": "stream",
     "community_spotlight(/)": "spotlight",
     "contacts(/)": "contacts",
-    "conversations(/)": "conversations",
+    "conversations(/)(:id)(/)": "conversations",
     "followed_tags(/)": "followed_tags",
     "getting_started(/)": "gettingStarted",
     "help(/)": "help",
@@ -93,8 +93,11 @@ app.Router = Backbone.Router.extend({
     app.page = new app.pages.Contacts({stream: stream});
   },
 
-  conversations: function() {
-    app.conversations = new app.views.Conversations();
+  conversations: function(id) {
+    app.conversations = app.conversations || new app.views.ConversationsInbox();
+    if (parseInt("" + id, 10)) {
+      app.conversations.renderConversation(id);
+    }
   },
 
   /* eslint-disable camelcase */
@@ -110,10 +113,12 @@ app.Router = Backbone.Router.extend({
     app.tagFollowings.reset(gon.preloads.tagFollowings);
 
     if (name) {
-      var followedTagsAction = new app.views.TagFollowingAction(
+      if (app.currentUser.authenticated()) {
+        var followedTagsAction = new app.views.TagFollowingAction(
             {tagText: decodeURIComponent(name).toLowerCase()}
-          );
-      $("#author_info").prepend(followedTagsAction.render().el);
+        );
+        $("#author_info").prepend(followedTagsAction.render().el);
+      }
       app.tags = new app.views.Tags({hashtagName: name});
     }
     this._hideInactiveStreamLists();

@@ -77,6 +77,7 @@ Diaspora::Application.routes.draw do
   resources :conversations, except: %i(edit update destroy)  do
     resources :messages, only: %i(create)
     delete 'visibility' => 'conversation_visibilities#destroy'
+    get "raw"
   end
 
   resources :notifications, :only => [:index, :update] do
@@ -172,7 +173,6 @@ Diaspora::Application.routes.draw do
     end
   end
   get '/u/:username' => 'people#show', :as => 'user_profile', :constraints => { :username => /[^\/]+/ }
-  get '/u/:username/profile_photo' => 'users#user_photo', :constraints => { :username => /[^\/]+/ }
 
   # External
 

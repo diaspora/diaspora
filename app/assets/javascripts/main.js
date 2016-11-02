@@ -6,7 +6,6 @@
 //= require js-routes
 //= require underscore
 //= require backbone
-//= require jquery.remotipart
 //= require autosize
 //= require charcount
 //= require jquery-placeholder
@@ -18,6 +17,7 @@
 //= require jquery-ui/mouse
 //= require jquery-ui/sortable
 //= require keycodes
+//= require jquery.autoSuggest.custom
 //= require fileuploader-custom
 //= require handlebars.runtime
 //= require posix-bracket-expressions

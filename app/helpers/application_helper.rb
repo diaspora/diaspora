@@ -53,14 +53,14 @@ module ApplicationHelper
     buf = []
     if AppConfig.privacy.jquery_cdn?
       version = Jquery::Rails::JQUERY_2_VERSION
-      buf << [ javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js") ]
-      buf << [javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag('jquery2')}'));")]
+      buf << [javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js")]
+      buf << [nonced_javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag('jquery2')}'));")]
     else
       buf << [javascript_include_tag("jquery2")]
     end
-    buf << [ javascript_include_tag('jquery_ujs') ]
-    buf << [ javascript_tag("jQuery.ajaxSetup({'cache': false});") ]
-    buf << [ javascript_tag("$.fx.off = true;") ] if Rails.env.test?
+    buf << [javascript_include_tag("jquery_ujs")]
+    buf << [nonced_javascript_tag("jQuery.ajaxSetup({'cache': false});")]
+    buf << [nonced_javascript_tag("$.fx.off = true;")] if Rails.env.test?
     buf.join("\n").html_safe
   end
 end

@@ -31,4 +31,15 @@
     padding: 8px 20px;
     .name { line-height: 25px; }
   }
+
+  &.search-suggestion-person,
+  &.search-suggestion-hashtag {
+    display: block;
+
+    &:hover,
+    *:hover {
+      color: $white;
+      text-decoration: none;
+    }
+  }
 }

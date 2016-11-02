@@ -13,7 +13,7 @@ describe("Diaspora.Mobile", function(){
 
     it("deactivates shield", function(){
       Diaspora.Mobile.initialize();
-      var $shield = $(".stream_element").first();
+      var $shield = $(".stream-element").first();
       expect($shield).toHaveClass("shield-active");
       $shield.find(".shield a").click();
       expect($shield).not.toHaveClass("shield-active");

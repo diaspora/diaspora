@@ -1,12 +1,20 @@
 {{#unless o_embed_cache}}
   {{#if open_graph_cache}}
     <div class="opengraph-container">
+      <div class="thumb">
+        {{#if open_graph_cache.video_url }}
+          <div class="video-overlay" data-video-url="{{open_graph_cache.video_url}}">
+            <img src="{{open_graph_cache.image}}" />
+            <div class="overlay"></div>
+          </div>
+        {{else}}
+          <img src="{{open_graph_cache.image}}" />
+        {{/if}}
+      </div>
       <a href="{{open_graph_cache.url}}" target="_blank">
-        <img src="{{open_graph_cache.image}}" />
         <p class="og-title">{{open_graph_cache.title}}</p>
       </a>
       <p class="og-description">{{open_graph_cache.description}}</p>
     </div>
   {{/if}}
 {{/unless}}
-

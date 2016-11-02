@@ -140,11 +140,10 @@ describe ConversationsController, :type => :controller do
         }.to change(Message, :count).by(1)
       end
 
-      it 'should set response with success to true and message to success message' do
+      it "responds with the conversation id as JSON" do
         post :create, @hash
-        expect(assigns[:response][:success]).to eq(true)
-        expect(assigns[:response][:message]).to eq(I18n.t('conversations.create.sent'))
-        expect(assigns[:response][:conversation_id]).to eq(Conversation.first.id)
+        expect(response).to be_success
+        expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
       end
 
       it 'sets the author to the current_user' do
@@ -193,11 +192,10 @@ describe ConversationsController, :type => :controller do
         }.to change(Message, :count).by(1)
       end
 
-      it 'should set response with success to true and message to success message' do
+      it "responds with the conversation id as JSON" do
         post :create, @hash
-        expect(assigns[:response][:success]).to eq(true)
-        expect(assigns[:response][:message]).to eq(I18n.t('conversations.create.sent'))
-        expect(assigns[:response][:conversation_id]).to eq(Conversation.first.id)
+        expect(response).to be_success
+        expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
       end
     end
 
@@ -225,10 +223,10 @@ describe ConversationsController, :type => :controller do
         expect(Message.count).to eq(count)
       end
 
-      it 'should set response with success to false and message to create fail' do
+      it "responds with an error message" do
         post :create, @hash
-        expect(assigns[:response][:success]).to eq(false)
-        expect(assigns[:response][:message]).to eq(I18n.t('conversations.create.fail'))
+        expect(response).not_to be_success
+        expect(response.body).to eq(I18n.t("conversations.create.fail"))
       end
     end
 
@@ -256,10 +254,10 @@ describe ConversationsController, :type => :controller do
         expect(Message.count).to eq(count)
       end
 
-      it 'should set response with success to false and message to fail due to no contact' do
+      it "responds with an error message" do
         post :create, @hash
-        expect(assigns[:response][:success]).to eq(false)
-        expect(assigns[:response][:message]).to eq(I18n.t('conversations.create.no_contact'))
+        expect(response).not_to be_success
+        expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
       end
     end
 
@@ -286,6 +284,12 @@ describe ConversationsController, :type => :controller do
         post :create, @hash
         expect(Message.count).to eq(count)
       end
+
+      it "responds with an error message" do
+        post :create, @hash
+        expect(response).not_to be_success
+        expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
+      end
     end
   end
 
@@ -300,12 +304,6 @@ describe ConversationsController, :type => :controller do
       @conversation = Conversation.create(hash)
     end
 
-    it 'succeeds with js' do
-      xhr :get, :show, :id => @conversation.id, :format => :js
-      expect(response).to be_success
-      expect(assigns[:conversation]).to eq(@conversation)
-    end
-
     it 'succeeds with json' do
       get :show, :id => @conversation.id, :format => :json
       expect(response).to be_success
@@ -316,6 +314,28 @@ describe ConversationsController, :type => :controller do
     it 'redirects to index' do
       get :show, :id => @conversation.id
       expect(response).to redirect_to(conversations_path(:conversation_id => @conversation.id))
+    end
+  end
+
+  describe "#raw" do
+    before do
+      hash = {
+        author:              alice.person,
+        participant_ids:     [alice.contacts.first.person.id, alice.person.id],
+        subject:             "not spam",
+        messages_attributes: [{author: alice.person, text: "cool stuff"}]
+      }
+      @conversation = Conversation.create(hash)
+    end
+
+    it "returns html of conversation" do
+      get :raw, conversation_id: @conversation.id
+      expect(response).to render_template(partial: "show", locals: {conversation: @conversation})
+    end
+
+    it "returns 404 when requesting non-existant conversation" do
+      get :raw, conversation_id: -1
+      expect(response).to have_http_status(404)
     end
   end
 end

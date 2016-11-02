@@ -11,10 +11,6 @@ module Diaspora
 
         delegate :public?, to: :parent
         delegate :author, :diaspora_handle, to: :parent, prefix: true
-
-        after_commit :on => :create do
-          parent.touch(:interacted_at) if parent.respond_to?(:interacted_at)
-        end
       end
     end
 

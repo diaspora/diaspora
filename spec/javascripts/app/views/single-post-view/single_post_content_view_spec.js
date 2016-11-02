@@ -1,15 +1,15 @@
 describe("app.views.SinglePostContent", function() {
-  beforeEach(function(){
+  beforeEach(function() {
     this.post = factory.post();
-    this.view = new app.views.SinglePostContent({model : this.post});
+    this.view = new app.views.SinglePostContent({model: this.post});
   });
 
   describe("map", function() {
     context("with location provided", function() {
-      beforeEach(function(){
-        this.post.set({location : factory.location()});
+      beforeEach(function() {
+        this.post.set({location: factory.location()});
         spec.content().html(this.view.render().el);
-        gon.appConfig = { map: {mapbox: {enabled: false }}};
+        gon.appConfig = {map: {mapbox: {enabled: false}}};
       });
 
       it("initializes the leaflet map", function() {
@@ -24,7 +24,7 @@ describe("app.views.SinglePostContent", function() {
     });
 
     context("without location provided", function() {
-      beforeEach(function(){
+      beforeEach(function() {
         spec.content().html(this.view.render().el);
       });
 

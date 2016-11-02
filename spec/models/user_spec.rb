@@ -306,11 +306,12 @@ describe User, :type => :model do
         expect(alice).not_to be_valid
       end
 
-      it "resets a matching unconfirmed_email on save" do
-        eve.update_attribute :unconfirmed_email, "new@example.com"
-        alice.update_attribute :email, "new@example.com"
+      it "resets a matching unconfirmed_email and confirm_email_token on save" do
+        eve.update_attributes(unconfirmed_email: "new@example.com", confirm_email_token: SecureRandom.hex(15))
+        alice.update_attribute(:email, "new@example.com")
         eve.reload
         expect(eve.unconfirmed_email).to eql(nil)
+        expect(eve.confirm_email_token).to eql(nil)
       end
     end
 
@@ -930,42 +931,46 @@ describe User, :type => :model do
         end
       end
 
-      it 'disables mail' do
+      it "disables mail" do
         @user.disable_mail = false
         @user.clear_account!
         expect(@user.reload.disable_mail).to be true
       end
 
-      it 'sets getting_started and show_community_spotlight_in_stream fields to false' do
+      it "sets getting_started and show_community_spotlight_in_stream and post_default_public fields to false" do
         @user.clear_account!
         expect(@user.reload.getting_started).to be false
         expect(@user.reload.show_community_spotlight_in_stream).to be false
+        expect(@user.reload.post_default_public).to be false
       end
     end
 
     describe "#clearable_attributes" do
-      it 'returns the clearable fields' do
+      it "returns the clearable fields" do
         user = FactoryGirl.create :user
-        expect(user.send(:clearable_fields).sort).to eq(%w(
-          language
-          reset_password_sent_at
-          reset_password_token
-          remember_created_at
-          sign_in_count
-          current_sign_in_at
-          last_sign_in_at
-          current_sign_in_ip
-          hidden_shareables
-          last_sign_in_ip
-          invited_by_id
-          authentication_token
-          auto_follow_back
-          auto_follow_back_aspect_id
-          unconfirmed_email
-          confirm_email_token
-          last_seen
-          color_theme
-        ).sort)
+        expect(user.send(:clearable_fields)).to match_array(
+          %w(
+            language
+            reset_password_sent_at
+            reset_password_token
+            remember_created_at
+            sign_in_count
+            current_sign_in_at
+            last_sign_in_at
+            current_sign_in_ip
+            hidden_shareables
+            last_sign_in_ip
+            invited_by_id
+            authentication_token
+            auto_follow_back
+            auto_follow_back_aspect_id
+            unconfirmed_email
+            confirm_email_token
+            last_seen
+            color_theme
+            post_default_public
+          )
+        )
       end
     end
   end

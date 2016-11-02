@@ -246,6 +246,9 @@ configuration: ## Section
         ## connect directly to the port specified below.
         #proxy: true
 
+        ## Configure the protocol used to access the BOSH endpoint
+        #proto: http
+
         ## Configure the address that vines should listen on.
         #address: '0.0.0.0'
 
@@ -271,15 +274,15 @@ configuration: ## Section
   ## tiles of the Heidelberg University (http://giscience.uni-hd.de).
   ## You also have the possibility to use the map tiles of https://www.mapbox.com
   ## which is probably more reliable. There you have to create an account to get
-  ## an ID and an access token which is limited. If you want to get an unlimited
-  ## account you can write an email to team@diasporafoundation.org.
-  ## Please enable mapbox and fill out your id and access_token.
+  ## an access token which is limited. If you want to get an unlimited account
+  ## you can write an email to team@diasporafoundation.org.
+  ## Please enable mapbox and fill out your access_token.
   map: ##Section
 
     mapbox:
-    # enabled: false
-    # id: 'your.id'
-    # access_token: 'youraccesstoken'
+      #enabled: false
+      #access_token: "youraccesstoken"
+      #style: "mapbox/streets-v9"
 
   ## Settings potentially affecting the privacy of your users.
   privacy: ## Section
@@ -547,6 +550,26 @@ configuration: ## Section
     default_metas:
       #title: 'diaspora* social network'
       #description: 'diaspora* is the online social world where you are in control.'
+
+    ## CSP (Content Security Policy) header
+    ## CSP allows limiting origins from where resources are allowed to be loaded. This
+    ## improves security, since it helps to detect and mitigate cross-site scripting
+    ## and data injection attacks. The default policy of diaspora* allows all third
+    ## party domains from services that are included in diaspora*, like OEmbed
+    ## scripts, so you can safely activate it by setting `report_only` to false. If
+    ## you customized diaspora* (edited templates or added own JS), additional work
+    ## may be required. You can test the policy with the "report_uri". Our default CSP
+    ## does not work with Google analytics or Piwik, because they inject JS code that
+    ## is blocked by CSP.
+    csp:
+      ## Report-Only header (default=true)
+      ## By default diaspora* adds only a "Content-Security-Policy-Report-Only" header. If you set
+      ## this to false, the "Content-Security-Policy" header is added instead.
+      #report_only: false
+
+      ## CSP report URI (default=)
+      ## You can set an URI here, where the user agent reports violations as JSON document via a POST request.
+      #report_uri: "/csp_violation_reports"
 
   ## Posting from Diaspora to external services (all are disabled by default).
   services: ## Section

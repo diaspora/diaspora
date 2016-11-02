@@ -240,6 +240,8 @@ en:
       posts: "Posts"
 
     conversation:
+      create:
+        no_recipient: "Hey, you need to add a recipient first!"
       new:
         no_contacts: "You need to add some contacts before you can start a conversation."
 

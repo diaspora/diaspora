@@ -20,11 +20,11 @@
         = f.text_field :email,
                        class:          "input-block-level form-control",
                        required:       true,
-                       autocapitalize: "off",
+                       autocapitalize: "none",
                        placeholder:    t("devise.passwords.new.email"),
                        autocorrect:    "off",
                        autofocus:      true,
-                       aria:           {labelledby: "passwordLabel"}
+                       aria:           {labelledby: "emailLabel"}
 
       = f.submit t("devise.passwords.new.send_password_instructions"), class: "btn btn-block btn-primary"
 

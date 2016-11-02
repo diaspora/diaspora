@@ -1,6 +1,6 @@
 When /^I press the "([^\"]*)" key somewhere$/ do |key|
   within("#main_stream") do
-    find("div.stream_element", match: :first).native.send_keys(key)
+    find("div.stream-element", match: :first).native.send_keys(key)
   end
 end
 

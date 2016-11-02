@@ -40,6 +40,11 @@ Feature: Navigate between pages using the header menu and the drawer
     Then I should see a "#q" within "#drawer"
     When I search for "#bob"
     Then I should be on the tag page for "bob"
+    
+  Scenario: navigate to the stream page
+    When I open the drawer
+    And I click on "Stream" in the drawer
+    Then I should be on the stream page
 
   Scenario: navigate to my activity page
     When I open the drawer
@@ -70,6 +75,11 @@ Feature: Navigate between pages using the header menu and the drawer
     And I click on "#Followed tags" in the drawer
     And I click on "Manage followed tags" in the drawer
     Then I should be on the manage tag followings page
+    
+  Scenario: navigate to the public stream page
+    When I open the drawer
+    And I click on "Public activity" in the drawer
+    Then I should be on the public stream page
 
   Scenario: navigate to my profile page
     When I open the drawer

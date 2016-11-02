@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.6.0.1" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.6.1.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -56,6 +56,7 @@ defaults:
       certs: "config/certs"
       bosh:
         proxy: false
+        proto: 'http'
         address: '0.0.0.0'
         port: 5280
         bind: '/http-bind'
@@ -66,8 +67,8 @@ defaults:
   map:
     mapbox:
       enabled: false
-      id:
       access_token:
+      style: "mapbox/streets-v9"
   privacy:
     jquery_cdn: false
     google_analytics_key:
@@ -147,6 +148,9 @@ defaults:
     default_metas:
       title: 'diaspora* social network'
       description: 'diaspora* is the online social world where you are in control.'
+    csp:
+      report_only: true
+      report_uri:
   services:
     facebook:
       enable: false

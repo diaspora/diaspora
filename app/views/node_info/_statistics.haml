@@ -28,4 +28,7 @@
     %h1= t("statistics.services")
     - Configuration::KNOWN_SERVICES.each do |service|
       .col-md-3
-        = render "statistic", name: "#{service.capitalize}", value: service_status(service, @statistics.available_services), activated: service_class(service, @statistics.available_services)
+        = render "statistic",
+          name:      t("services.provider.#{service}"),
+          value:     service_status(service, @statistics.available_services),
+          activated: service_class(service, @statistics.available_services)

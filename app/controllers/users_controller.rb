@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: %i(new create public user_photo)
+  before_action :authenticate_user!, except: %i(new create public)
   respond_to :html
 
   def edit
@@ -87,6 +87,7 @@ class UsersController < ApplicationController
     @person   = @user.person
     @profile  = @user.profile
     gon.preloads[:inviter] = PersonPresenter.new(current_user.invited_by.try(:person), current_user).as_json
+    gon.preloads[:tagsArray] = current_user.followed_tags.map {|tag| {name: "##{tag.name}", value: "##{tag.name}"} }
 
     render "users/getting_started"
   end
@@ -118,16 +119,6 @@ class UsersController < ApplicationController
     redirect_to current_user.exported_photos_file.url
   end
 
-  def user_photo
-    username = params[:username].split('@')[0]
-    user = User.find_by_username(username)
-    if user.present?
-      redirect_to user.image_url
-    else
-      render :nothing => true, :status => 404
-    end
-  end
-
   def confirm_email
     if current_user.confirm_email(params[:token])
       flash[:notice] = I18n.t("users.confirm_email.email_confirmed", email: current_user.email)
@@ -153,6 +144,7 @@ class UsersController < ApplicationController
       :auto_follow_back,
       :auto_follow_back_aspect_id,
       :getting_started,
+      :post_default_public,
       email_preferences: %i(
         someone_reported
         also_commented
@@ -176,6 +168,8 @@ class UsersController < ApplicationController
       change_email(user_data)
     elsif user_data[:auto_follow_back]
       change_settings(user_data, "users.update.follow_settings_changed", "users.update.follow_settings_not_changed")
+    elsif user_data[:post_default_public]
+      change_post_default(user_data)
     elsif user_data[:color_theme]
       change_settings(user_data, "users.update.color_theme_changed", "users.update.color_theme_not_changed")
     else
@@ -191,6 +185,18 @@ class UsersController < ApplicationController
       flash.now[:error] = t("users.update.password_not_changed")
       false
     end
+  end
+
+  def change_post_default(user_data)
+    # by default user_data[:post_default_public] is set to  false
+    case params[:aspect_ids].try(:first)
+    when "public"
+      user_data[:post_default_public] = true
+    when "all_aspects"
+      params[:aspect_ids] = @user.aspects.map {|a| a.id.to_s }
+    end
+    @user.update_post_default_aspects params[:aspect_ids].to_a
+    change_settings(user_data)
   end
 
   # change email notifications

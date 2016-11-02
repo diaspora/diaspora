@@ -21,7 +21,7 @@
           = timeago(post.created_at)
       %span.via
         - if post.provider_display_name == "mobile"
-          = t('shared.stream_element.via_mobile', link: nil)
+          = t("shared.stream_element.via_mobile", link: nil)
       &ndash;
       %span.scope_scope
         - if post.public?

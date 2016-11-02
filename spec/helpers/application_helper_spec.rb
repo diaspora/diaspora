@@ -60,11 +60,11 @@ describe ApplicationHelper, :type => :helper do
       end
 
       it 'inclues jquery.js from jquery cdn' do
-        expect(jquery_include_tag).to match(/jquery\.com/)
+        expect(helper.jquery_include_tag).to match(/jquery\.com/)
       end
 
       it 'falls back to asset pipeline on cdn failure' do
-        expect(jquery_include_tag).to match(/document\.write/)
+        expect(helper.jquery_include_tag).to match(/document\.write/)
       end
     end
 
@@ -74,17 +74,17 @@ describe ApplicationHelper, :type => :helper do
       end
 
       it 'includes jquery.js from asset pipeline' do
-        expect(jquery_include_tag).to match(/jquery2\.js/)
-        expect(jquery_include_tag).not_to match(/jquery\.com/)
+        expect(helper.jquery_include_tag).to match(/jquery2\.js/)
+        expect(helper.jquery_include_tag).not_to match(/jquery\.com/)
       end
     end
 
     it 'inclues jquery_ujs.js' do
-      expect(jquery_include_tag).to match(/jquery_ujs\.js/)
+      expect(helper.jquery_include_tag).to match(/jquery_ujs\.js/)
     end
 
     it "disables ajax caching" do
-      expect(jquery_include_tag).to match(/jQuery\.ajaxSetup/)
+      expect(helper.jquery_include_tag).to match(/jQuery\.ajaxSetup/)
     end
   end
 

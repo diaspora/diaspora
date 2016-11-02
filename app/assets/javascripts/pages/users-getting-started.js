@@ -49,37 +49,16 @@ Diaspora.Pages.UsersGettingStarted = function() {
       return confirmation;
     });
 
-    /* ------ */
-    var autocompleteInput = $("#follow_tags");
     var tagFollowings = new app.collections.TagFollowings();
-
-    autocompleteInput.autoSuggest("/tags", {
-      selectedItemProp: "name",
-      selectedValuesProp: "name",
-      searchObjProps: "name",
-      asHtmlID: "tags",
-      neverSubmit: true,
-      retrieveLimit: 10,
-      selectionLimit: false,
-      minChars: 2,
-      keyDelay: 200,
-      startText: "",
-      emptyText: "no_results",
+    new Diaspora.TagsAutocomplete("#follow_tags", {
+      preFill: gon.preloads.tagsArray,
       selectionAdded: function(elem){tagFollowings.create({"name":$(elem[0]).text().substring(2)})},
       selectionRemoved: function(elem){
         tagFollowings.where({"name":$(elem[0]).text().substring(2)})[0].destroy();
         elem.remove();
       }
-      });
-
-    autocompleteInput.bind('keydown', function(evt){
-      if(evt.which === Keycodes.ENTER || evt.which === Keycodes.TAB || evt.which === Keycodes.SPACE) {
-        evt.preventDefault();
-        if( $('li.as-result-item.active').length === 0 ){
-          $('li.as-result-item').first().click();
-        }
-      }
     });
+    new Diaspora.ProfilePhotoUploader();
   });
 };
 // @license-end

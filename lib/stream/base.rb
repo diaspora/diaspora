@@ -62,7 +62,7 @@ class Stream::Base
   #NOTE: MBS bad bad methods the fact we need these means our views are foobared. please kill them and make them
   #private methods on the streams that need them
   def aspects
-    user.aspects
+    user.post_default_aspects
   end
 
   # @return [Aspect] The first aspect in #aspects
@@ -71,7 +71,7 @@ class Stream::Base
   end
 
   def aspect_ids
-    aspects.map{|x| x.id}
+    aspects.map {|x| x.try(:id) }
   end
 
   def max_time=(time_string)

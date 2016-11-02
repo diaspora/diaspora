@@ -9,7 +9,6 @@
       = page_title yield(:page_title)
 
     %meta{charset:  'utf-8'}/
-    %meta{"http-equiv" => "Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{name:  "viewport", content:  "width=device-width, initial-scale=1"}/
     = content_for?(:meta_data) ? yield(:meta_data) : metas_tags
 
@@ -42,7 +41,7 @@
     = csrf_meta_tag
 
 
-    = include_gon(camel_case:  true)
+    = include_gon(camel_case: true, nonce: content_security_policy_nonce(:script))
 
   %body{ class:  "page-#{controller_name} action-#{action_name}" }
     = yield :before_content
@@ -60,7 +59,6 @@
 
     .blueimp-gallery.blueimp-gallery-controls#blueimp-gallery
       .slides
-      %h3.title
       %a.prev
         .entypo-chevron-small-left
       %a.next

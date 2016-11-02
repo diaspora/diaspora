@@ -75,6 +75,7 @@ en:
     helper:
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
     need_javascript: "This website requires JavaScript to function properly. If you disabled JavaScript, please enable it and refresh this page."
+    csrf_token_fail: "The CSRF token is invalid. Please sign in and try again."
 
   admins:
     admin_bar:
@@ -273,6 +274,7 @@ en:
       new_conversation: "New conversation"
       no_messages: "No messages"
       inbox: "Inbox"
+      no_contacts: "You need to add some contacts before you can start a conversation"
     show:
       reply: "Reply"
       replying: "Replying..."
@@ -289,7 +291,6 @@ en:
     create:
       sent: "Message sent"
       fail: "Invalid message"
-      no_contact: "Hey, you need to add the contact first!"
     new_conversation:
       fail: "Invalid message"
     destroy:
@@ -540,8 +541,7 @@ en:
       contribute: "Contribute"
       configuration_info: "Open %{database_path} and %{diaspora_path} in your favourite text editor and carefully review them, they are extensively commented."
       create_an_account_info: "%{sign_up_link} for a new account."
-      make_yourself_an_admin_info: "You can find instructions in the %{wiki}. This should add an “Admin” link to your user menu in the header when you are logged in. It gives you stuff like user search and stats for your pod. For intense detail on the operational aspects of your pod, go to the %{admin_panel}."
-      admin_panel: "admin panel"
+      make_yourself_an_admin_info: "You can find instructions in the %{wiki}. This should add an “%{admin_dashboard}” link to your user menu in the header when you are logged in. It gives you stuff like user search and stats for your pod."
       update_your_pod_info: "You can find %{update_instructions}."
       update_instructions: "update instructions in the diaspora* wiki"
       getting_help_info: "We listed some %{faq} including some additional tips and tricks and solutions for the most common problems. Also feel free to %{irc}."
@@ -552,6 +552,7 @@ en:
 
   invitation_codes:
     not_valid: "That invite code is no longer valid"
+    already_logged_in: "You have been invited by %{inviter} to join this pod but you are already logged in."
 
   invitations:
     create:
@@ -695,6 +696,18 @@ en:
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
+    csrf_token_fail:
+      subject: "We received an unauthorized request from your account, %{name}"
+      body: |-
+        Hello %{name},
+
+        We received a request with a wrong/missing CSRF token from your account. To prevent any possible damage you have been logged out.
+
+        For more information on CSRF see [%{link}](%{link}).
+
+        Sorry,
+
+        The diaspora* email robot!
     report_email:
         type:
           post: "post"
@@ -887,10 +900,6 @@ en:
       type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy:
       notice: "Photo deleted."
-    new_photo:
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
-      empty: "{file} is empty, please select files again without it."
     new_profile_photo:
       upload: "Upload a new profile photo!"
 
@@ -926,6 +935,10 @@ en:
     status:
       destroyed: "The post was destroyed"
       failed: "Something went wrong"
+    unreviewed_reports:
+      zero: "There are no unreviewed reports."
+      one: "There is one unreviewed report."
+      other: "There are %{count} unreviewed reports."
 
   profiles:
     edit:
@@ -1143,6 +1156,7 @@ en:
       following: "Sharing settings"
       auto_follow_back: "Automatically share with users who start sharing with you"
       auto_follow_aspect: "Aspect for users you automatically share with:"
+      default_post_visibility: "Default aspects selected for posting"
       receive_email_notifications: "Receive email notifications when:"
       started_sharing: "someone starts sharing with you"
       someone_reported: "someone sends a report"

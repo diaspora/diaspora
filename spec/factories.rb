@@ -257,6 +257,7 @@ FactoryGirl.define do
     title "Some article"
     ob_type "article"
     description "This is the article lead"
+    video_url "http://example.com/videos/123.html"
   end
 
   factory(:tag_following) do
@@ -320,13 +321,6 @@ FactoryGirl.define do
     additional_data { {"new_property" => "some text"} }
   end
 
-  #templates
-  factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
-
-  factory(:photo_backdrop, :parent => :status_message_with_photo) do
-    text ""
-  end
-
   factory(:note, :parent => :status_message) do
     text SecureRandom.hex(1000)
   end
@@ -372,18 +366,27 @@ FactoryGirl.define do
     o_auth_application
     user
     scopes %w(openid sub aud profile picture nickname name read)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
   end
 
   factory :auth_with_read_and_ppid, class: Api::OpenidConnect::Authorization do
     association :o_auth_application, factory: :o_auth_application_with_ppid
     user
     scopes %w(openid sub aud profile picture nickname name read)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
   end
 
   factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
     o_auth_application
     user
     scopes %w(openid sub aud profile picture nickname name read write)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
   end
 
   # Factories for the DiasporaFederation-gem

@@ -1,0 +1,5 @@
+# SECURITY NOTICE! CROSS-SITE SCRIPTING!
+# these endpoints may inject html code into our page
+bandcamp:
+  video_urls:
+    - https://bandcamp.com/EmbeddedPlayer/*/*
