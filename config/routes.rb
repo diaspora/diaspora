@@ -38,6 +38,7 @@ Diaspora::Application.routes.draw do
     resources :poll_participations, only: :create
     resources :likes, only: %i(create destroy index)
     resources :comments, only: %i(new create destroy index)
+    resources :reshares, only: :index
   end
 
   get 'p/:id' => 'posts#show', :as => 'short_post'
