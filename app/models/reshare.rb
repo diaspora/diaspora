@@ -21,6 +21,14 @@ class Reshare < Post
     self.root.update_reshares_counter if self.root.present?
   end
 
+  acts_as_api
+  api_accessible :backbone do |t|
+    t.add :id
+    t.add :guid
+    t.add :author
+    t.add :created_at
+  end
+
   def root_diaspora_id
     root.try(:author).try(:diaspora_handle)
   end
