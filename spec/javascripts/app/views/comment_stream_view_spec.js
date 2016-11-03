@@ -164,6 +164,19 @@ describe("app.views.CommentStream", function(){
         }).join("")
       );
     });
+
+    it("shows the spinner when loading comments and removes it on success", function() {
+      this.view.render();
+      expect(this.view.$(".loading-comments")).toHaveClass("hidden");
+
+      this.view.expandComments();
+      expect(this.view.$(".loading-comments")).not.toHaveClass("hidden");
+
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200, responseText: JSON.stringify([])
+      });
+      expect(this.view.$(".loading-comments")).toHaveClass("hidden");
+    });
   });
 
   describe("pressing a key when typing on the new comment box", function(){
