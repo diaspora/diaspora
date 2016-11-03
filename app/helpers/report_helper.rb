@@ -6,7 +6,7 @@ module ReportHelper
   def report_content(report)
     case (item = report.item)
     when Post
-      raw t("report.post_label", title: link_to(post_page_title(item), post_path(item.id)))
+      raw t("report.post_label", content: link_to(post_message(item), post_path(item.id)))
     when Comment
       raw t("report.comment_label", data: link_to(
         h(comment_message(item)),
