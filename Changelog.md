@@ -5,6 +5,7 @@
 * Replace fileuploader-custom with FineUploader [#7083](https://github.com/diaspora/diaspora/pull/7083)
 * Always show mobile reaction counts [#7207](https://github.com/diaspora/diaspora/pull/7207)
 * Refactor mobile alerts for error responses [#7227](https://github.com/diaspora/diaspora/pull/7227)
+* Switch content and given reason in the reports overview [#7180](https://github.com/diaspora/diaspora/pull/7180)
 
 ## Bug fixes
 * Fix background color of year on notifications page with dark theme [#7263](https://github.com/diaspora/diaspora/pull/7263)
