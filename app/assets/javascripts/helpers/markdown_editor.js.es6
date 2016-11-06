@@ -1,11 +1,5 @@
-Diaspora.MarkdownEditor = function(element, opts) {
-  this.initialize(element, opts);
-};
-
-Diaspora.MarkdownEditor.prototype = {
-  constructor: Diaspora.MarkdownEditor,
-
-  initialize: function(element, opts) {
+Diaspora.MarkdownEditor = class {
+  constructor(element, opts) {
     this.options = {
       resize: "none",
       onHidePreview: $.noop,
@@ -20,14 +14,14 @@ Diaspora.MarkdownEditor.prototype = {
     this.options.onShow = this.onShow.bind(this);
 
     $(element).markdown(this.options);
-  },
+  }
 
   /**
    * Attach the $.fn.markdown instance to the current MarkdownEditor instance
    * and initializes the preview and edit tabs after the editor is shown.
    * @param instance
    */
-  onShow: function(instance) {
+  onShow(instance) {
     this.instance = instance;
 
     if (_.isFunction(this.options.onPreview)) {
@@ -53,84 +47,84 @@ Diaspora.MarkdownEditor.prototype = {
         .removeClass("glyphicon").removeClass(icons[key][0])
         .addClass(icons[key][1]);
     });
-  },
+  }
 
   /**
    * Creates write and preview tabs inside the markdown editor header.
    * @returns {jQuery} The created tabs
    */
-  createTabsElement: function() {
-    var self = this;
+  createTabsElement() {
+    var tabHtml = `<ul class="nav nav-tabs btn-group write-preview-tabs">
+      <li class="active full-height" role="presentation">
+        <a class="full-height md-write-tab" href="#" 
+           title="${Diaspora.I18n.t("publisher.markdown_editor.tooltips.write")}">
+          <i class="visible-sm visible-xs visible-md diaspora-custom-compose"></i>  
+          <span class="hidden-sm hidden-xs hidden-md tab-help-text">
+            ${Diaspora.I18n.t("publisher.markdown_editor.write")}
+          </span>
+        </a>
+      </li>
+      <li class="full-height" role="presentation">
+        <a class="full-height md-preview-tab" href="#"
+           title="${Diaspora.I18n.t("publisher.markdown_editor.tooltips.preview")}">
+          <i class="visible-sm visible-xs visible-md entypo-search"></i>
+          <span class="hidden-sm hidden-xs hidden-md tab-help-text">
+            ${(Diaspora.I18n.t("publisher.markdown_editor.preview"))}
+          </span>
+        </a>
+      </li>
+    </ul>`;
 
-    var tabElement = $("<ul class='nav nav-tabs btn-group write-preview-tabs'></ul>");
+    var tabElement = $(tabHtml);
 
-    var writeTab = $("<li class='active full-height' role='presentation'></li>");
-    this.writeLink = $("<a class='full-height md-write-tab' href='#'></a>")
-      .attr("title", Diaspora.I18n.t("publisher.markdown_editor.tooltips.write"));
-
-    this.writeLink.append($("<i class='visible-sm visible-xs visible-md diaspora-custom-compose'></i>"));
-    this.writeLink.append($("<span class='hidden-sm hidden-xs hidden-md tab-help-text'></span>")
-      .text(Diaspora.I18n.t("publisher.markdown_editor.write")));
-
-    this.writeLink.click(function(evt) {
+    this.writeLink = tabElement.find(".md-write-tab");
+    this.writeLink.click((evt) => {
       evt.preventDefault();
-      self.hidePreview();
+      this.hidePreview();
     });
 
-    writeTab.append(this.writeLink);
-
-    var previewTab = $("<li class='full-height' role='presentation'></li>");
-    this.previewLink = $("<a class='full-height md-preview-tab' href='#'></a>")
-      .attr("title", Diaspora.I18n.t("publisher.markdown_editor.tooltips.preview"));
-
-    this.previewLink.append($("<i class='visible-sm visible-xs visible-md entypo-search'>"));
-    this.previewLink.append($("<span class='hidden-sm hidden-xs hidden-md tab-help-text'></span>")
-      .text(Diaspora.I18n.t("publisher.markdown_editor.preview")));
-
-    this.previewLink.click(function(evt) {
+    this.previewLink = tabElement.find(".md-preview-tab");
+    this.previewLink.click((evt) => {
       evt.preventDefault();
-      self.showPreview();
+      this.showPreview();
     });
 
-    previewTab.append(this.previewLink);
-
-    return tabElement.append(writeTab).append(previewTab);
-  },
+    return tabElement;
+  }
 
   /**
    * Creates a cancel button that executes {options#onClose} on click.
    * @returns {jQuery} The created cancel button
    */
-  createCloseElement: function() {
-    var self = this;
-    var button = $("<a class='md-cancel btn btn-sm btn-link hidden-xs pull-right'></a>")
-      .attr("title", Diaspora.I18n.t("publisher.markdown_editor.tooltips.cancel"));
+  createCloseElement() {
+    var closeBtnHtml = `<a class="md-cancel btn btn-sm btn-link hidden-xs pull-right"
+                           title="${Diaspora.I18n.t("publisher.markdown_editor.tooltips.cancel")}">
+      <i class="entypo-cross"></i>
+    </a>`;
 
-    button.click(function() {
-      self.hidePreview();
-      self.options.onClose();
+    return $(closeBtnHtml).click(() => {
+      this.hidePreview();
+      this.options.onClose();
     });
+  }
 
-    return button.append($("<i class='entypo-cross'></i>"));
-  },
-
-  hidePreview: function() {
+  hidePreview() {
     if (this.writeLink) {
       this.writeLink.tab("show");
       this.instance.hidePreview();
       this.options.onHidePreview();
     }
-  },
+  }
 
-  showPreview: function() {
+  showPreview() {
     if (this.previewLink) {
       this.previewLink.tab("show");
       this.instance.showPreview();
       this.options.onPostPreview();
     }
-  },
+  }
 
-  localize: function() {
+  localize() {
     var locale = Diaspora.I18n.language;
 
     $.fn.markdown.messages[locale] = {

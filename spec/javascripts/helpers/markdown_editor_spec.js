@@ -5,33 +5,21 @@ describe("Diaspora.MarkdownEditor", function() {
   });
 
   describe("constructor", function() {
-    it("calls initialize", function() {
-      spyOn(Diaspora.MarkdownEditor.prototype, "initialize");
-      new Diaspora.MarkdownEditor(this.$el, {});
-      expect(Diaspora.MarkdownEditor.prototype.initialize).toHaveBeenCalledWith(this.$el, {});
-    });
-  });
-
-  describe("initialize", function() {
-    beforeEach(function() {
-      this.target = new Diaspora.MarkdownEditor($("<textarea></textarea>"), {});
-    });
-
     it("calls localize", function() {
       spyOn(Diaspora.MarkdownEditor.prototype, "localize");
-      this.target.initialize(this.$el, {});
+      new Diaspora.MarkdownEditor($("<textarea></textarea>"), {});
       expect(Diaspora.MarkdownEditor.prototype.localize).toHaveBeenCalled();
     });
 
     it("calls onShow", function() {
       spyOn(Diaspora.MarkdownEditor.prototype, "onShow");
-      this.target.initialize(this.$el, {});
+      new Diaspora.MarkdownEditor($("<textarea></textarea>"), {});
       expect(Diaspora.MarkdownEditor.prototype.onShow).toHaveBeenCalled();
     });
 
     it("call $.fn.markdown with correct default options", function() {
       spyOn($.fn, "markdown");
-      this.target.initialize(this.$el, {});
+      new Diaspora.MarkdownEditor($("<textarea></textarea>"), {});
       expect($.fn.markdown).toHaveBeenCalled();
       var args = $.fn.markdown.calls.mostRecent().args[0];
       expect(args.resize).toBe("none");
@@ -46,7 +34,7 @@ describe("Diaspora.MarkdownEditor", function() {
       spyOn($.fn, "markdown").and.callThrough();
       spyOn(Diaspora.MarkdownEditor.prototype, "onShow");
       spyOn(Diaspora.MarkdownEditor.prototype, "localize").and.callThrough();
-      this.target.initialize(this.$el, {
+      new Diaspora.MarkdownEditor(this.$el, {
         fullscreen: {enabled: true, icons: {somekey: "somevalue"}},
         hiddenButtons: [],
         language: "fr",
@@ -135,11 +123,11 @@ describe("Diaspora.MarkdownEditor", function() {
       expect(tabsElement.find("> li > a.md-write-tab").attr("title")).toBe("Edit message");
       expect(tabsElement.find("> li > a.md-write-tab > i.diaspora-custom-compose").length).toBe(1);
       expect(tabsElement.find("> li > a.md-write-tab > span.tab-help-text").length).toBe(1);
-      expect(tabsElement.find("> li > a.md-write-tab > span.tab-help-text").text()).toBe("Write");
+      expect(tabsElement.find("> li > a.md-write-tab > span.tab-help-text").text().trim()).toBe("Write");
       expect(tabsElement.find("> li > a.md-preview-tab").attr("title")).toBe("Preview message");
       expect(tabsElement.find("> li > a.md-preview-tab > i.entypo-search").length).toBe(1);
       expect(tabsElement.find("> li > a.md-preview-tab > span.tab-help-text").length).toBe(1);
-      expect(tabsElement.find("> li > a.md-preview-tab > span.tab-help-text").text()).toBe("Preview");
+      expect(tabsElement.find("> li > a.md-preview-tab > span.tab-help-text").text().trim()).toBe("Preview");
     });
 
     it("correctly binds onclick events", function() {
