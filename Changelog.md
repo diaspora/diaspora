@@ -9,6 +9,7 @@
 ## Features
 * Show spinner when loading comments in the stream [#7170](https://github.com/diaspora/diaspora/pull/7170)
 * Add a dark color theme [#7152](https://github.com/diaspora/diaspora/pull/7152)
+* Added setting for custom changelog URL [#7166](https://github.com/diaspora/diaspora/pull/7166)
 
 # 0.6.1.0
 
