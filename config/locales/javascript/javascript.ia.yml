@@ -192,7 +192,7 @@ ia:
       question: "Question"
     remove_post: "Remover iste entrata?"
     report:
-      name: "Reporto"
+      name: "Reportar"
       prompt: "Specifica un motivo:"
       prompt_default: "contento offensive"
       status:

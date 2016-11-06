@@ -118,6 +118,7 @@ cs:
       are_you_sure_unlock_account: "Určitě chcete odemknout teto účet ?"
       close_account: "zrušit účet"
       email_to: "E-mailová adresa, kterou chcete pozvat"
+      invite: "Pozvat"
       lock_account: "Zamknout Účet"
       under_13: "Zobrazit uživatele mladší 13 let (COPPA)"
       unlock_account: "Odemknout účet"
@@ -149,13 +150,41 @@ cs:
           access: "%{name} potřebný přístup do"
           approve: "Schválit"
           bad_request: "Chybějící ID nebo URI"
+          client_id_not_found: "Nebyl nalezen klient s client_id rovným %{client_id} s přesměrováním na URI %{redirect_uri}"
           deny: "zamítnout"
           no_requirement: "%{name} Nevyžaduje oprávnění"
           redirection_message: "Opravdu chcete dát přístup %{redirect_uri}"
+      error_page:
+        contact_developer: "Můžete kontaktovat vývojáře aplikace a zahrnout následující detailní chybovou hlášku:"
+        could_not_authorize: "Aplikace nemůže být autorizována"
+        login_required: "Pro přístup k aplikaci musíte být autorizován přihlášením."
+        title: "Jejda! Něco se pokazilo :-("
+      scopes:
+        name:
+          name: "jméno"
+        nickname:
+          name: "přezdívka"
+        openid:
+          description: "To umožňuje aplikaci přečíst váš základní profil."
+          name: "základní profil"
+        picture:
+          description: "To zajišťuje omezení práv aplikace k obrázku"
+          name: "Obrázek"
+        profile:
+          description: "To umožňuje aplikaci číst váš rozšířený profil"
+          name: "Rozšířený profil"
+        read:
+          name: "číst profil, stream a konverzace"
+        write:
+          name: "posílat příspěvky, konverzace a reakce"
       user_applications:
         index:
+          access: "%{name} má přístup k:"
           edit_applications: "Aplikace"
+          no_requirement: "%{name} nevyžaduje oprávnění"
           title: "Povolené aplikace"
+        no_applications: "Nemáte žádné autorizované aplikace"
+        revoke_autorization: "Odebrat oprávnění"
   are_you_sure: "Jste si jisti?"
   are_you_sure_delete_account: "Opravdu chcete uzavřít svůj účet? Tuto operaci nelze vrátit!"
   aspect_memberships:
@@ -520,6 +549,20 @@ cs:
     tutorial: "tutoriál"
     tutorials: "tutoriály"
     wiki: "wiki"
+  home:
+    default:
+      be_who_you_want_to_be: "Buď, kým chceš být"
+      choose_your_audience: "Vyber si své publikum"
+      headline: "Vítejte v  %{pod_name}"
+      own_your_data: "Vlastni svá data"
+    podmin:
+      admin_panel: "admin panel"
+      contact_irc: "kontaktujte nás na IRC"
+      contribute: "Pomoci"
+      create_an_account: "Vytvořit účet"
+      headline: "Vítej, příteli."
+      make_yourself_an_admin: "Vytvořte sebe jako administrátora"
+      update_your_pod_info: "Můžete najít %{update_instructions}."
   invitation_codes:
     not_valid: "Kód této pozvánky již není platný."
   invitations:
@@ -809,11 +852,18 @@ cs:
       upload: "Nahrajte novou profilovou fotku!"
     show:
       show_original_post: "Zobrazit původní příspěvek"
+  polls:
+    votes:
+      few: "Zbývá %{count} hlasy"
+      one: "Zbývá %{count} hlas"
+      other: "Zbývá %{count} hlasů"
+      zero: "Zbývá %{count} hlasů"
   posts:
     presenter:
       title: "Příspěvek uživatele %{name}"
     show:
       forbidden: "Nemáte povolení k této akci."
+      location: "Odesláno z: %{location}"
       photos_by:
         few: "%{count} fotky uživatele %{author}"
         one: "Jedna fotka uživatele %{author}"
@@ -825,11 +875,18 @@ cs:
   profiles:
     edit:
       allow_search: "Umožnit, aby vás lidé mohli najít na Diaspoře"
+      basic: "Můj základní profil"
+      basic_hint: "Každá položka vašeho profilu je volitelné. Váš základní profil bude vždy viditelný veřejně."
+      extended: "Můj rozšířený profil"
+      extended_visibility_text: "Viditelnost vašeho rozšířeného profilu"
       first_name: "Jméno"
       last_name: "Příjmení"
+      limited: "Omezený"
       nsfw_check: "Označit vše, co sdílím, jako citlivý obsah"
       nsfw_explanation: "NSFW ('citlivý obsah') je vnitřní standard diaspory* pro obsah, který nemusí být vhodný k prohlížení, když jste v práci. Pokud sdílíte takový obsah často, prosím zatrhněte tuto možnost, čímž budou všechny Vaše příspěvky skryty z uživatelských poudů, dokud se daný uživatel nerozhodne si je prohlédnout."
       nsfw_explanation2: "Pokud se rozhodnete tuto možnost nezatrhnout, přidávejte prosím štítek #nsfw pokaždé když sdílíte takový obsah."
+      public: "Veřejné"
+      settings: "Nastavení profilu"
       update_profile: "Aktualizovat profil"
       your_bio: "Něco o vás"
       your_birthday: "Vaše narozeniny"
@@ -874,6 +931,7 @@ cs:
     post_label: "<b>Příspěvek</b>: %{title}"
     reason_label: "Důvod: %{text}"
     reported_label: "<b>Oznámil/а</b> %{person}"
+    reported_user_details: "Detaily reportujícího uživatele"
     review_link: "Označit jako zkontrolované"
     status:
       destroyed: "Příspěvek byl zničen"
@@ -906,6 +964,7 @@ cs:
       really_disconnect: "odpojit %{service}?"
       services_explanation: "Připojování se k službám vám dá možnost na nich publikovat své příspěvky hned co je napíšete na diaspoře*."
       share_to: "Nasdílet %{provider}"
+      title: "Spravovat služby připojení"
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
@@ -1040,6 +1099,7 @@ cs:
       auto_follow_aspect: "Aspekt, do kterého zařadit automaticky sledované uživatele"
       auto_follow_back: "Automaticky sledovat toho, kdo sleduje vás"
       change: "Změnit"
+      change_color_theme: "Změnit barevné schéma"
       change_email: "Změnit e-mail"
       change_language: "Změnit jazyk"
       change_password: "Změnit heslo"
@@ -1102,6 +1162,8 @@ cs:
     public:
       does_not_exist: "Uživatel %{username} neexistuje!"
     update:
+      color_theme_changed: "Barevné schéma úspěšně změněno"
+      color_theme_not_changed: "Při změně barevného schema nastala chyba"
       email_notifications_changed: "Oznámení e-mailem změněno"
       follow_settings_changed: "Následující nastavení se změnila"
       follow_settings_not_changed: "Následující nastavení se nepodařilo změnit"

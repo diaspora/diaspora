@@ -199,6 +199,14 @@ sv:
     publisher:
       add_option: "Lägg till alternativ"
       limited: "Begränsat: ditt inlägg visas endast för personer som du delar med"
+      markdown_editor:
+        tooltips:
+          bold: "Fet"
+          heading: "Rubrik"
+          insert_image: "Infoga bild"
+          insert_link: "Infoga länk"
+          italic: "Kursiv"
+        write: "Skriv"
       near_from: "Sänt från: <%= location %>"
       option: "Alternativ"
       public: "Publikt: ditt inlägg visas för alla och i söktjänster"
@@ -266,16 +274,20 @@ sv:
     timeago:
       day: "en dag"
       days:
+        one: "1 dag"
         other: "%d dagar"
       hour: "ungefär en timme"
       hours:
+        one: "ungefär 1 timme"
         other: "ungefär %d timmar"
       inPast: "när som helst nu"
       minute: "ungefär en minut"
       minutes:
+        one: "1 minut"
         other: "%d minuter"
       month: "ungefär en månad"
       months:
+        one: "1 månad"
         other: "%d månader"
       prefixAgo: "för"
       prefixFromNow: "om"
@@ -285,6 +297,7 @@ sv:
       wordSeparator: " "
       year: "ungefär ett år"
       years:
+        one: "1 år"
         other: "%d år"
     unblock_failed: "Misslyckades med att häva blockeringen"
     viewer:

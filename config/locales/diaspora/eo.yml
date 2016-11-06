@@ -42,6 +42,7 @@ eo:
     admin_bar:
       pages: "Paĝoj"
       pod_stats: "Statistiko de 'pod' (Diaspora-servilo)"
+      sidekiq_monitor: "Sidekiq monitoro"
       user_search: "Serĉo de uzanto"
       weekly_user_stats: "Semajna statistiko de uzanto"
     stats:
@@ -88,7 +89,7 @@ eo:
       current_server: "Aktuala dato de servilo estas %{date}"
   all_aspects: "Ĉiuj aspektoj"
   are_you_sure: "Ĉu vi certas?"
-  are_you_sure_delete_account: "Ĉu vi certe volas forigi vian konton? Vi ne povas malfari tion!"
+  are_you_sure_delete_account: "Ĉu vi certe volas forigi vian konton? Vi ne povos malfari tion!"
   aspect_memberships:
     destroy:
       failure: "Forigi personon el aspekto malsukcesis"
@@ -111,9 +112,9 @@ eo:
       aspect_list_is_not_visible: "la aspekto-listo estas kaŝita al la aliaj en ĉi tiu aspekto"
       aspect_list_is_visible: "la aspekto-listo estas montrata al la aliaj en ĉi tiu aspekto"
       confirm_remove_aspect: "Ĉu vi certe volas forigi ĉi tiun aspekton?"
-      rename: "alinomigi"
+      rename: "Renomigi"
       update: "ĝisdatigi"
-      updating: "ĝisdatigante"
+      updating: "ĝisdatigado"
     index:
       donate: "Donaci"
       help:
@@ -136,7 +137,7 @@ eo:
       new_here:
         follow: "Sekvu %{link} kaj bonvenigu novajn uzantojn al Diaspora*!"
         learn_more: "Lerni pli"
-        title: "Bonvenigu novajn uzantojn"
+        title: "Bonvenu novajn uzantojn"
       services:
         content: "Vi povas konekti la postajn servojn kun DIASPORA*:"
         heading: "Konekti Servojn"
@@ -217,9 +218,13 @@ eo:
   help:
     foundation_website: "Retejo de Fondaĵo Diaspora"
     getting_help:
+      get_support_a_irc: "aliĝu al ni en %{irc} (rektbabilejo)"
       get_support_a_website: "vizitu nian %{link}"
+      get_support_a_wiki: "serĉi en %{link}"
       getting_started_a: "Vi bonŝancas. Provu la %{tutorial_series} en nia projektrejejo. Ĝi enkondukos vin paŝo post paŝo tra la aliĝilon kaj instruos vin ĉiujn bazajn bezonatajn informojn pri la uzado de diaspora*."
       getting_started_q: "Help! Mi bezonas bazan helpon por komenci!"
+      title: "Ricevo de helpo"
+    getting_started_tutorial: "\"Instrukcio por komencantoj\""
     here: "ĉi tie"
     irc: "IRC"
     markdown: "Markdown"

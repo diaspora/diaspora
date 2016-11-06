@@ -587,7 +587,7 @@ da:
     check_token:
       not_found: "Invitation ikke fundet"
     create:
-      empty: "Indsæt mindst en e-mailadresse."
+      empty: "Skriv mindst en e-mailadresse."
       no_more: "Du har ikke flere invitationer."
       note_already_sent: "Der er allerede blevet sendt en invitation til %{emails}"
       rejected: "Der var problemer med de følgende e-mail adresser: "
@@ -949,7 +949,7 @@ da:
     invalid_invite: "Det invitations-link som du anvendte er ikke længere gyldigt!"
     new:
       email: "E-mail"
-      enter_email: "Indtast din e-mailadresse"
+      enter_email: "Skriv din e-mailadresse"
       enter_password: "Indtast en adgangskode (mindst seks tegn)"
       enter_password_again: "Indtast den samme adgangskode som før"
       enter_username: "Vælg et brugernavn (kun bogstaver, tal og understreg)"
@@ -1055,7 +1055,7 @@ da:
       default: "Den hemmelige kode passede ikke med billedet"
       failed: "Den menneskelige kontrol mislykkedes"
       user: "Det hemmelige billede og koden var forskellige"
-    placeholder: "Indsæt billedværdi"
+    placeholder: "Skriv billedværdien"
   statistics:
     active_users_halfyear: "Aktive brugere halvårligt"
     active_users_monthly: "Aktive brugere månedligt"
@@ -1129,7 +1129,7 @@ da:
       success: "Din konto er nu låst. Det kan tage 20 minutter for os at blive færdige med at lukke den helt. Tak fordi du prøvede Diaspora."
       wrong_password: "Det indtastede kodeord stemmer ikke overens med dit nuværende kodeord."
     edit:
-      also_commented: "nogen har kommenteret et indlæg du tidligere har kommenteret."
+      also_commented: "nogen kommenterer et indlæg du tidligere har kommenteret."
       auto_follow_aspect: "Aspekt for automatisk tilføjede kontakter:"
       auto_follow_back: "Følg automatisk brugere der følger dig"
       change: "Skift"
@@ -1147,7 +1147,7 @@ da:
         no_turning_back: "Du kan ikke fortryde dette! Hvis du er helt sikker, indtast din adgangskode herunder."
         what_we_delete: "Vi sletter alle dine indlæg og profildata så hurtigt som overhovedet muligt. Dine kommentarer til andre folks indlæg vil forblive, men vil vise dit Diaspora-ID og ikke dit navn."
       close_account_text: "Luk konto"
-      comment_on_post: "... nogen har kommenteret dit indlæg."
+      comment_on_post: "nogen kommenterer dit indlæg."
       current_password: "Nuværende adgangskode"
       current_password_expl: "det du logger ind med ..."
       download_export: "Download min profil"
