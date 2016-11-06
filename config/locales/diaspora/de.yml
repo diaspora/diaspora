@@ -418,7 +418,7 @@ de:
       what_is_a_mention_a: "Eine Erwähnung ist ein Link zu der Profilseite einer Person, der in einem Beitrag erscheint. Wenn jemand erwähnt wird, erhält er eine Benachrichtigung, die seine Aufmerksamkeit auf den Beitrag lenkt."
       what_is_a_mention_q: "Was ist eine „Erwähnung“?"
     miscellaneous:
-      back_to_top_a: "Ja. Nachdem du auf einer Seite nach unten gescrollt hast, klicke auf den grauen Pfeil, der in der unteren rechten deines Browserfensters erscheint."
+      back_to_top_a: "Ja. Nachdem du auf einer Seite nach unten gescrollt hast, klicke auf den grauen Pfeil, der unteren rechts im Browserfenster erscheint."
       back_to_top_q: "Gibt es eine Möglichkeit, schnell wieder an den Seitenanfang zu kommen?"
       diaspora_app_a: "Es gibt einige Android-Apps in einem sehr frühen Entwicklungsstadium. Einige Projekte sind bereits seit langem abgebrochen und funktionieren deshalb nicht richtig mit der aktuellen diaspora*-Version. Erwarte von diesen Apps im Moment nicht allzu viel. Zur Zeit ist die beste Möglichkeit, um auf diaspora* von deinem Mobilgerät zuzugreifen, die Seite in einem Browser aufzurufen, da wir eine mobile Version gestaltet haben, die auf allen Geräten gut funktionieren sollte. Für iOS gibt es im Moment keine Apps. Noch einmal, diaspora* sollte sich gut von deinem Browser aus bedienen lassen."
       diaspora_app_q: "Gibt es eine diaspora* App für Android oder iOS?"
@@ -431,7 +431,7 @@ de:
       find_people_a: "Lade deine Freunde mit dem E-Mail-Link in der Seitenleiste ein. Folge #Tags, um Andere zu entdecken, die deine Interessen teilen und füge Leute, die Sachen posten, die dich interessieren, zu deinen Aspekten hinzu. Schreibe in einem öffentlichen Post, dass du #NeuHier bist."
       find_people_q: "Ich bin gerade erst einem Pod beigetreten, wie finde ich nun Leute zum Teilen?"
       title: "Pods"
-      use_search_box_a: "Wenn du deren vollständige diaspora* ID (z.B. benutzername@podname.org) kennst, kannst du sie finden, indem du danach suchst. Wenn du dich auf dem selben Pod befindest, reicht es, wenn du nur nach dem Benutzernamen suchst. Als Alternative kannst du auch nach ihrem Profilnamen (dem angezeigten Namen) suchen. Wenn eine Suche beim ersten Mal keine Ergebnisse liefert, dann versuch es nochmal."
+      use_search_box_a: "Kennst du deren vollständige diaspora* ID (z.B. benutzername@podname.org), kannst du sie durch suchen finden. Bist du auf dem selben Pod, kannst du direkt nach dem Benutzernamen suchen. Alternativ kannst du auch nach ihrem Profilnamen (dem angezeigten Namen) suchen. Wenn eine Suche beim ersten Mal keine Ergebnisse liefert, dann versuch es nochmal."
       use_search_box_q: "Wie benutze ich das Suchfeld, um bestimmte Personen zu finden?"
       what_is_a_pod_a: "Ein Pod ist ein Server, auf dem die diaspora*-Software läuft und der mit dem diaspora*-Netzwerk verbunden ist. „Pod“ ist eine Metapher für Hülsen von Pflanzen, die mehrere Samen enthalten, so wie der Server mehrere Benutzerkonten enthält. Es gibt viele verschiedene Pods. Du kannst Kontakte von anderen Pods hinzufügen und mit ihnen kommunizieren. Du musst nicht Benutzerkonten auf verschiedenen Pods erstellen! (Du kannst dir einen diaspora*-Pod wie einen Mail-Anbieter vorstellen: Es gibt öffentliche Pods, private Pods, und mit ein wenig Aufwand kannst du deinen eigenen betreiben.)"
       what_is_a_pod_q: "Was ist ein Pod?"
@@ -481,7 +481,7 @@ de:
       who_sees_post_q: "Wenn ich einen Beitrag in einen Aspekt schreibe (privat), wer kann ihn sehen?"
     private_profiles:
       title: "Private Profile"
-      whats_in_profile_a: "Deine Beschreibung, dein Ort, dein Geschlecht und dein Geburtstag. Das sind die Sachen im unteren Bereich der Profileinstellungen. Alle diese Informationen sind freiwillig – Du entscheidest, ob du sie preisgibst. Angemeldete Benutzer, die sich in einem deiner Aspekte befinden, sind die Einzigen, die dein privates Profil sehen können. Sie werden auf deiner Profilseite außerdem neben deinen öffentlichen Beiträgen auch private Beiträge von dir sehen können, die an Aspekte gerichtet sind, in denen sie sich befinden."
+      whats_in_profile_a: "Deine Beschreibung, dein Ort, Geschlecht und Geburtstag. Das sind die Dinge aus dem unteren Bereich der Profileinstellungen. Alle diese Informationen sind freiwillig – Du entscheidest, ob du sie preisgibst. Angemeldete Benutzer, aus deinen Aspekten, sind die Einzigen, die dein privates Profil sehen können. Sie werden auf deiner Profilseite außerdem neben deinen öffentlichen Beiträgen auch private Beiträge von dir sehen können, die an Aspekte gerichtet sind, in denen sie sich befinden."
       whats_in_profile_q: "Was ist in meinem privaten Profil zu sehen?"
       who_sees_profile_a: "Jeder angemeldete Benutzer, mit dem du teilst (den du zu einem deiner Aspekte hinzugefügt hast). Leute, die dir folgen, denen du aber nicht folgst, werden nur deine öffentlichen Informationen sehen."
       who_sees_profile_q: "Wer kann mein privates Profil sehen?"

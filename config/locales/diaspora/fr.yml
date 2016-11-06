@@ -10,7 +10,7 @@ fr:
   _help: "Aide"
   _services: "Services"
   _statistics: "Statistiques"
-  _terms: "conditions d'utilisation"
+  _terms: "Conditions d'utilisation"
   account: "Compte"
   activerecord:
     errors:
@@ -238,7 +238,7 @@ fr:
       new_here:
         follow: "Suivez %{link} et souhaitez la bienvenue aux nouveaux utilisateurs de diaspora* !"
         learn_more: "En savoir plus"
-        title: "Accueillir les nouveaux venus"
+        title: "Accueillir les nouveaux"
       services:
         content: "Vous pouvez connecter les services suivants à diaspora* :"
         heading: "Connecter des services"
@@ -418,7 +418,7 @@ fr:
     miscellaneous:
       back_to_top_a: "Oui. Après avoir atteint le bas de page, cliquez sur la flèche grise qui apparaît  dans le bouton dans le coin à droite de votre fenêtre de navigation."
       back_to_top_q: "Il y a t-il un moyen de rapidement revenir en haut d'une page après avoir atteint le bas de celle-ci ?"
-      diaspora_app_a: "Il y a quelques applications Android encore dans les toutes premières phases de développement. Plusieurs sont des projets abandonnés depuis un peu de temps et ne marchent donc pas bien avec la version actuelle de diaspora*. N'en attendez pas trop pour le moment. Actuellement, la meilleure façon accéder à diaspora* à partir d'un téléphone portable est à travers un navigateur web car nous avons créé une version mobile du site qui devrait fonctionner correctement sur tous les appareils. Il n'y a pour l'instant aucune application pour iOS. Encore une fois, diaspora* devrait marcher correctement via votre navigateur web."
+      diaspora_app_a: "Il y a quelques applications Android encore dans les toutes premières phases de développement. Plusieurs sont des projets abandonnés depuis un peu de temps et ne marchent donc pas bien avec la version actuelle de diaspora*. N'en attendez pas trop pour le moment. Actuellement, la meilleure façon pour accéder à diaspora* à partir d'un téléphone portable est à travers un navigateur web car nous avons créé une version mobile du site qui devrait fonctionner correctement sur tous les appareils. Il n'y a pour l'instant aucune application pour iOS. Encore une fois, diaspora* devrait marcher correctement via votre navigateur web."
       diaspora_app_q: "Existe t-il une application diaspora* pour Android ou iOS ?"
       photo_albums_a: "Non, pas actuellement. Cependant vous pouvez voir l'ensemble des images d'un utilisateur à partir de la section Photos de la barre latérale de son profil."
       photo_albums_q: "Il y a t-il des albums photos ou vidéos ?"
@@ -438,7 +438,7 @@ fr:
       char_limit_services_q: "Quelle est la limite de caractères pour les messages partagés avec un service connecté qui a une limite de caractères plus petite ?"
       character_limit_a: "65,535 caractères. C'est 65,395 caractères de plus que Twitter ! ;)"
       character_limit_q: "Quelle est la limite de caractères pour un message ?"
-      embed_multimedia_a: "Vous pouvez généralement juste coller l'URL (p. ex. : http://www.youtube.com/watch?v=nnnnnnnnnnn) au sein de votre message et la vidéo ou le contenu audio sera intégré automatiquement. Parmi les supportés, on trouve : Youtube, Vimeo, SoundCloud, Flickr et quelques autres. Diaspora* utilise oEmbed pour cette fonctionnalité. Nous ajoutons constamment le support de nouveaux sites. Souvenez-vous de toujours publier des liens complets et simples : pas de lien raccourci, pas d'opérateur après l'URL de base, et laissez passer un peu de temps avant de rafraîchir la page après avoir publié un message pour voir l'aperçu."
+      embed_multimedia_a: "Vous pouvez généralement juste coller l'URL (p. ex. : http://www.youtube.com/watch?v=nnnnnnnnnnn) au sein de votre message et la vidéo ou le contenu audio sera intégré automatiquement. Les sites supportés sont, entre autres : Youtube, Vimeo, SoundCloud et Flickr. Diaspora* utilise oEmbed pour cette fonctionnalité. De nouveaux sites  sont régulièrements ajoutés. Publiez toujours des liens complets et simples : pas de lien raccourci, pas d'opérateur après l'URL de base, et attendez un peu  avant de rafraîchir la page pour voir l'aperçu."
       embed_multimedia_q: "Comment puis-je intégrer une vidéo, de l'audio, ou tout autre contenu multimédia dans un message ?"
       format_text_a: "En utilisant un système simplifié appelé %{markdown}. Vous pouvez trouver la syntaxe complète de Markdown %{here}. Le bouton de prévisualisation est vraiment pratique car vous pourrez voir à quoi votre message va ressembler avant de le publier."
       format_text_q: "Comment puis-je formater le texte de mes messages (gras, italique, etc.) ?"
@@ -629,9 +629,9 @@ fr:
       other: "%{actors} ont également commenté sur le message %{post_link} de %{post_author}."
       zero: "%{actors} a également commenté sur le message %{post_link} de %{post_author}."
     also_commented_deleted:
-      one: "%{actors} a commenté votre message supprimé."
-      other: "%{actors} ont commenté votre message supprimé."
-      zero: "%{actors} a commenté votre message supprimé."
+      one: "%{actors} a commenté un message supprimé."
+      other: "%{actors} ont commenté un message supprimé."
+      zero: "%{actors} a commenté un message supprimé."
     comment_on_post:
       one: "%{actors} a commenté votre message %{post_link}."
       other: "%{actors} ont commenté votre message %{post_link}."
@@ -978,7 +978,7 @@ fr:
       no_services_available: "Il n'y a aucun service disponible sur ce pod."
       not_logged_in: "Vous n'êtes pas connecté actuellement."
       really_disconnect: "Déconnecter %{service} ?"
-      services_explanation: "Se connecter à des services vous donne la possibilité d'y publier vos messages depuis diaspora*."
+      services_explanation: "Se connecter à des services tiers vous donne la possibilité d'y publier vos messages depuis diaspora*."
       share_to: "Partager avec %{provider}"
       title: "Gérer les services connectés"
     provider:
@@ -1107,7 +1107,7 @@ fr:
     destroy:
       no_password: "Veuillez introduire votre mot de passe actuel pour fermer votre compte."
       success: "Votre compte est verrouillé. Cela peut nous prendre jusqu'à vingt minutes pour finaliser sa fermeture. Merci d'avoir essayé diaspora*."
-      wrong_password: "Le mot de passe saisi ne correspond pas à  votre mot de passe actuel."
+      wrong_password: "Le mot de passe saisi ne correspond pas à votre mot de passe actuel."
     edit:
       also_commented: "quelqu'un commente un message que vous avez déjà commenté."
       auto_follow_aspect: "Aspect pour les utilisateurs que vous suivez automatiquement :"
@@ -1120,7 +1120,7 @@ fr:
       character_minimum_expl: "doit comporter au moins six caractères"
       close_account:
         dont_go: "Hé, s'il vous plaît, ne partez pas !"
-        lock_username: "Votre nom d'utilisateur sera bloqué. Vous ne pourrez pas créer un nouveau compte sur ce pod avec le même identifiant."
+        lock_username: "Votre nom d'utilisateur sera bloqué. Vous ne pourrez pas créer un nouveau compte sur ce pod avec le même nom."
         locked_out: "Vous serez déconnecté et votre compte sera inaccessible jusqu'à sa suppression."
         make_diaspora_better: "Nous aimerions beaucoup que vous restiez pour nous aider à améliorer diaspora* plutôt que de nous quitter. Toutefois, si c'est vraiment ce que vous souhaitez, voilà ce qui va se passer :"
         mr_wiggles: "Mr Wiggles sera triste de vous voir partir."

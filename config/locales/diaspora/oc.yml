@@ -1,0 +1,1098 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+oc:
+  _applications: "Aplicacions"
+  _contacts: "Contactes"
+  _help: "Ajuda"
+  _services: "Servicis"
+  _statistics: "Estatisticas"
+  _terms: "Condicions d'utilizacion"
+  account: "Compte"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "deu èsser unic entre los contactes d'aqueste utilizaire."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "es ja pres."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "I a pas pro de causidas possiblas"
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Avètz ja paticipat a aquel sondatge !"
+        request:
+          attributes:
+            from_id:
+              taken: "es un doblon d'una requèsta qu'existís ja."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Es tròp crane non ? Avètz ja partejat aquesta publicacion !"
+        user:
+          attributes:
+            email:
+              taken: "es ja utilizat."
+            person:
+              invalid: "es invalid."
+            username:
+              invalid: "es invalid. Autorizam pas que las letras, chifras e caractèrs de soslinhament."
+              taken: "es ja pres."
+  admins:
+    admin_bar:
+      dashboard: "Tablèu de bòrd"
+      pages: "Paginas"
+      pod_network: "Ret del pod"
+      pod_stats: "Estats del Pod"
+      report: "Senhalaments"
+      sidekiq_monitor: "Monitor Sidekiq"
+      user_search: "Cercar un utilizaire"
+      weekly_user_stats: "Estatisticas d'utilizaire setmanièras"
+    dashboard:
+      fetching_diaspora_version: "A determinar la darrièra version de diaspora*..."
+      pod_status: "Estat del pod"
+    pods:
+      pod_network: "Ret del pod"
+    stats:
+      2weeks: "2 setmanas"
+      50_most: "Las 50 etiquetas mai popularas"
+      comments:
+        one: "%{count} comentari"
+        other: "%{count} comentaris"
+        zero: "Pas cap de comentari"
+      current_segment: "La categoria considerada a una mejana de <b>%{post_yest}</b> messatges per utilizaire, dempuèi <b>%{post_day}</b>"
+      daily: "Quotidiana"
+      display_results: "Afichatge dels resultats pel periòde <b>%{segment}</b>"
+      go: "Executar"
+      month: "Mes"
+      posts:
+        one: "%{count} publicacion"
+        other: "%{count} publicacions"
+        zero: "Pas cap de publicacion"
+      shares:
+        one: "%{count} partiment"
+        other: "%{count} partiments"
+        zero: "Pas cap de partiment"
+      tag_name: "Nom del tag : <b>%{name_tag}</b> Nombre : <b>%{count_tag}</b>"
+      usage_statistic: "Estatisticas d'utilizacion"
+      users:
+        one: "%{count} utilizaire"
+        other: "%{count} utilizaires"
+        zero: "Pas cap d'utilizaire"
+      week: "Setmana"
+    user_entry:
+      account_closed: "Compte tampat"
+      diaspora_handle: "identificant diaspora*"
+      email: "E-mail"
+      guid: "GUID"
+      id: "ID"
+      invite_token: "Geton de convit"
+      last_seen: "Darrièra connexion"
+      ? "no"
+      : Non
+      nsfw: "#nsfw"
+      unknown: "Desconegut"
+      ? "yes"
+      : Òc
+    user_search:
+      account_closing_scheduled: "La tampadura del compte %{name} es planificada. Serà efectuada dins gaire de temps."
+      account_locking_scheduled: "Lo compte de %{name} va èsser verrolhat dins un momenton"
+      account_unlocking_scheduled: "Lo compte de %{name} va èsser desverrolhat dins un momenton."
+      add_invites: "Apondre de convits"
+      are_you_sure: "Sètz segur que volètz tampar aqueste compte ?"
+      are_you_sure_lock_account: "Sètz segur que volètz verrolhar aqueste compte ?"
+      are_you_sure_unlock_account: "Sètz segur que volètz desverrolhar aqueste compte ?"
+      close_account: "Tampar aqueste compte"
+      email_to: "Adreça electronica de la persona de convidar"
+      invite: "Convidar"
+      lock_account: "Verrolhar lo compte"
+      under_13: "Mostrar los utilizaires qu'an mens de 13 ans (COPPA)"
+      unlock_account: "Desverrolhar lo compte"
+      users:
+        one: "%{count} utilizaire trobat"
+        other: "%{count} utilizaires trobats"
+        zero: "Cap d'utilizaire pas trobat"
+      view_profile: "Afichar lo perfil"
+      you_currently:
+        one: "Vos demòra actualament un convit %{link}"
+        other: "Vos demòran actualament %{count} convits %{link}"
+        zero: "Vos demòra pas mai de convit %{link} actualament"
+    weekly_user_stats:
+      amount_of:
+        one: "%{count} novèl utilizaire aquesta setmana"
+        other: "Nombre de novèls utilizaires aquesta setmana : %{count}"
+        zero: "Pas cap de novèl utilizaire aquesta setmana "
+      current_server: "La data actuala del servidor es %{date}"
+  all_aspects: "Totes los aspèctes"
+  api:
+    openid_connect:
+      authorizations:
+        destroy:
+          fail: "La temptativa de revocacion de l'autorizacion amb ID %{id} a fracassat"
+        new:
+          access: "%{name} a besonh d'accedir a :"
+          approve: "Aprovar"
+          bad_request: "ID client mancant o URL de redireccion"
+          client_id_not_found: "Pas de client amb client_id %{client_id} amb URL de redireccion %{redirect_uri} pas trobat"
+          deny: "Regetar"
+          no_requirement: "%{name} a pas besonh de permissions"
+          redirection_message: "Sètz segur que volètz donar accès a %{redirect_uri} ?"
+      error_page:
+        contact_developer: "Deuriatz contactar lo desvolopaire de l'aplicacion e inclure lo messatge d'error detalhat seguent :"
+        could_not_authorize: "L'aplicacion a pas pugut èsser autorizada"
+        login_required: "D'en primièr, vos cal vos connectar per fin de poder autorizar aquesta aplicacion"
+        title: "Ops ! Quicòm a trucat :("
+      scopes:
+        name:
+          name: "nom"
+        nickname:
+          description: "Aquò dina las permissions ligadas a l'escais a l'aplicacion"
+          name: "Escais"
+        openid:
+          description: "Aquò permet a l'aplicacion de veire vòstre perfil basic"
+          name: "perfil basic"
+        picture:
+          description: "Aquò dona las permissions ligadas als imatges a l'aplicacion"
+          name: "imatge"
+        profile:
+          description: "Aquò autpriza l'aplicacion a legir vòstre perfil complet"
+          name: "perfil complet"
+        read:
+          name: "veire perfil, flux e conversacions"
+        sub:
+          description: "Aquò autreja de sospermissions a l'aplicacion"
+          name: "jos"
+        write:
+          description: "Aquò permet a l'aplicacion de mandar de publicacions novèlas, escriure de conversacions e publicar de reaccions."
+          name: "mandar publicacions, conversacions e reaccions"
+      user_applications:
+        index:
+          access: "%{name} a accès a :"
+          edit_applications: "Aplicacions"
+          no_requirement: "%{name} as pas besonh d'autorizacions."
+          title: "Aplicacions autorizadas"
+        no_applications: "Avètz pas d'aplicacions autorizadas"
+        policy: "Veire la politica de confidencialitat de l'aplicacion"
+        revoke_autorization: "Revocar"
+        tos: "Veire las condicions d'utilizacion de l'aplicacion"
+  are_you_sure: "Sètz segur ?"
+  are_you_sure_delete_account: "Sètz segur que volètz tampar vòstre compte ? Aquò se pòt pas anullar !"
+  aspect_memberships:
+    destroy:
+      failure: "La persona a pas pogut èsser levada de l'aspècte amb succès."
+      forbidden: "Sètz pas autorizat a far aquò"
+      invalid_statement: "Impossible de duplicar l'enregistrament."
+      no_membership: "Se pòt pas trobar la persona seleccionada dins aqueste aspècte."
+      success: "La persona es estada levada de l'aspècte amb succès."
+  aspects:
+    add_to_aspect:
+      failure: "Fracàs de l'apondon del contacte a l'aspècte."
+      success: "Lo contacte es ben estat apondut a l'aspècte."
+    aspect_listings:
+      add_an_aspect: "+ Apondre un aspècte"
+    aspect_stream:
+      make_something: "Fasètz quicòm"
+      stay_updated: "Demoratz al fial"
+      stay_updated_explanation: "Vòstre flux principal conten totes vòstres contactes, etiquetas seguidas, e publicacions de qualques sòcis creatius de la comunautat."
+    destroy:
+      failure: "%{name} a pas pogut èsser suprimit."
+      success: "%{name} es ben estat levat."
+    edit:
+      aspect_list_is_not_visible: "Los contactes dins aqueste aspècte se pòdon veire entre eles."
+      aspect_list_is_visible: "Los contactes dins aqueste aspècte se pòdon veire entre eles."
+      confirm_remove_aspect: "Sètz segur de volètz suprimir aqueste aspècte ?"
+      rename: "Renomenar"
+      update: "Metre a jorn"
+      updating: "En cors de mesa a jorn"
+    index:
+      donate: "Far un don"
+      help:
+        any_problem: "Avètz agut un problèma ?"
+        contact_podmin: "Contactar ladministrator  de vòstre pod !"
+        do_you: "Volètz :"
+        feature_suggestion: "... aver una suggestion de %{link} ?"
+        find_a_bug: "... trobar %{link} ?"
+        have_a_question: "... aver una %{link} ?"
+        here_to_help: "La comunautat diaspora* es aquí !"
+        mail_podmin: "Corrièl del podmin"
+        need_help: "Besonh d'ajuda ?"
+        tag_bug: "bug"
+        tag_feature: "suggestion"
+        tag_question: "question"
+        tutorial_link_text: "Tutorials"
+        tutorials_and_wiki: "%{faq}, %{tutorial} e %{wiki} : vos ajudan per vòstres primièrs passes."
+      introduce_yourself: "Es vòstre flux. Rejonhètz-nos e presentatz-vos."
+      keep_pod_running: "Permetètz a %{pod} de foncionar rapidament e ofrissètz una dòsi de cafè mesadièra a nòstres servidors !"
+      new_here:
+        follow: "Seguissètz %{link} e aculhissètz los novèls utilizaires de diaspora* !"
+        learn_more: "Ne saber mai"
+        title: "Aculhir los novèls venguts"
+      services:
+        content: "Podètz connectar aqueles servicis a diaspora* :"
+        heading: "Connectar de servicis"
+      welcome_to_diaspora: "Benvenguda dins diaspora*, %{name} !"
+    no_contacts_message:
+      community_spotlight: "Actualitat de la comunautat"
+      invite_link_text: "convidar"
+      or_spotlight: "O podètz partejar amb %{link}"
+      try_adding_some_more_contacts: "Podètz recercar o %{invite_link} mai de contactes."
+      you_should_add_some_more_contacts: "Vos cal apondre un pauc mai de contactes !"
+    seed:
+      acquaintances: "Coneissenças"
+      family: "Familha"
+      friends: "Amics"
+      work: "Trabalh"
+    update:
+      failure: "Lo nom del vòstre aspecte, %{name}, es tròp long, enregistrament impossible."
+      success: "La modificacion de vòstre aspècte %{name}, a capitat."
+  blocks:
+    create:
+      failure: "Ai pas pogut ignorar aqueste utilizaire. #evasion"
+      success: "D'acòrdi, tornaretz pas veire aqueste utilizaire dins vòstre flux. #silenci !"
+    destroy:
+      failure: "Ai pas pogut quitar d'ignorar aqueste utilizaire. #evasion"
+      success: "Vejam çò qu'an a dire ! #digatzbonjorn"
+  bookmarklet:
+    explanation: "Publicatz sus diaspora* dempuèi oont que siá en apondent %{link} a vòstres marcapaginas."
+    heading: "Publicacion rapida"
+    post_something: "Publicatz sus diaspora*"
+  cancel: "Anullar"
+  comments:
+    new_comment:
+      comment: "Comentar"
+      commenting: "Comentari en cors de mandadís..."
+  contacts:
+    index:
+      add_a_new_aspect: "Apondre un aspècte novèl"
+      add_contact: "Apondre un contacte"
+      all_contacts: "Totes los contactes"
+      community_spotlight: "Actualitat de la comunautat"
+      my_contacts: "Mos contactes"
+      no_contacts: "Sembla que vos cal apondre mai de contactes !"
+      no_contacts_message: "Consultatz %{community_spotlight}"
+      only_sharing_with_me: "Solament partejat amb ieu"
+      start_a_conversation: "Començar una conversacion"
+      title: "Contactes"
+      user_search: "Cercar un contacte"
+    spotlight:
+      community_spotlight: "Actualitat de la comunitat"
+      no_members: "I a pas encara cap de membre."
+      suggest_member: "Suggerir un membre"
+  conversations:
+    create:
+      fail: "Messatge invalid"
+      no_contact: "Ei, vos cal ajustar lo contacte en primièr !"
+      sent: "Messatge mandat"
+    destroy:
+      delete_success: "Conversacion escafada amb succès"
+      hide_success: "Conversacion amagada amb succès"
+    index:
+      conversations_inbox: "Discussions - Bóstia de recepcion"
+      inbox: "Bóstia de recepcion"
+      new_conversation: "Novèla conversacion"
+      no_messages: "Pas cap de messatges"
+    new:
+      message: "Messatge"
+      send: "Mandar"
+      sending: "Mandadís..."
+      subject: "Subjècte"
+      subject_default: "Pas de subjècte"
+      to: "Per"
+    new_conversation:
+      fail: "Messatge invalid"
+    show:
+      delete: "Suprimir la conversacion"
+      hide: "amagar e metre en mut la conversacion"
+      last_message: "Darrièr messatge recebut %{timeago}"
+      reply: "Respondre"
+      replying: "Responsa..."
+  date:
+    formats:
+      birthday: "%d de %B"
+      birthday_with_year: "%d de %B de %Y"
+      fullmonth_day: "%d de %B"
+  delete: "Suprimir"
+  email: "Corrièl"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Corregissètz las errors seguentas, e tornatz ensajar."
+  fill_me_out: "Escriure aicí"
+  find_people: "Recercar de personas o de #tags"
+  help:
+    account_and_data_management:
+      close_account_q: "Cossí pòdi suprimir mon compte ?"
+      data_other_podmins_q: "Los administrators dels autres pods pòdon veire mas informacions ?"
+      data_visible_to_podmin_q: "Quina quantitat de mas informacions l'administrator del pod pòt veire ?"
+      download_data_q: "Pòdi telecargar una còpia de totas las donadas contengudas dins mon compte ?"
+      move_pods_q: "Cossí desplaçar mon compte d'un pod a un autre ?"
+      title: "Gestion del compte e de las donadas"
+    aspects:
+      contacts_know_aspect_a: "Non pas. Pòdon pas veire lo nom de l'aspècte qualqu'arribe."
+      contacts_know_aspect_q: "Mos contactes pòdon saber sus quin aspècte los ai mes ?"
+      contacts_visible_q: "Qué significa « rendre los contactes dins aqueste aspècte visibles entre eles » ?"
+      delete_aspect_q: "Cossí pòdi suprimir un aspècte ?"
+      person_multiple_aspects_q: "Pòdi apondre una persona a mantun aspècte ?"
+      post_multiple_aspects_q: "Pòdi mandar un messatge a mantun aspècte a l'encòp ?"
+      remove_notification_q: "Se suprimissi qualqu'un d'un de mos aspèctes, o totas las personas d'un aspècte, son prevengudas ?"
+      rename_aspect_a: "Clicatz \"Mos aspèctes\" sul costat esquèrra de la pagina de flux e clicatz sul gredonèl \"editar\" sus la dreita de l'aspècte de renomenar. Podètz tanben anar sus la pagina \"Contactes\" e seleccionar l'aspècte concernit. Clicatz alara sus l'icòna \"editar\" al costat del nom amont de la pagina, cambiatz lo nom e clicatz \"Metre a jorn\"."
+      rename_aspect_q: "Pòdi tornar nommar un aspècte ?"
+      restrict_posts_i_see_q: "Pòdi afichar unicament los messatges de certans aspèctes ?"
+      title: "Aspèctes"
+      what_is_an_aspect_q: "De qué es un aspècte ?"
+      who_sees_post_q: "Quand publiqui sus un aspècte, qual pòt o veire ?"
+    chat:
+      add_contact_roster_q: "Cossí discutir amb qialqu'un dins diaspora* ?"
+      contacts_page: "pagina dels contactes"
+      title: "Chat"
+    faq: "FAQ"
+    foundation_website: "site internet de la fondacion diaspora*"
+    getting_help:
+      get_support_a_faq: "Legir la pagina %{faq} de nòstre wiki"
+      get_support_a_hashtag: "Pausatz una question dins un messatge public sus diaspora* en utilizant l'hashtag %{question}"
+      get_support_a_irc: "Rejonhètz-nos sus %{irc} (Chat instantanèu)"
+      get_support_a_tutorials: "Referissètz-vos a nòstres %{tutorials}"
+      get_support_a_website: "Visitatz nòstre %{link}"
+      get_support_a_wiki: "Recercatz dins lo %{link}"
+      get_support_q: "De qué far se ma question a pas de responsa dins la FAQ ? A quines autres endreits pòdi obténer de documentcion ?"
+      getting_started_q: "Ajudatz-me ! Ai besonh d'ajuda per debutar !"
+      title: "Obténer d'ajuda"
+    getting_started_tutorial: "Seria de tutorials \"Mos primièrs passes\""
+    here: "aicí"
+    irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "Dins lo flux, podètz utilizar los acorchis de clavièr seguents :"
+      keyboard_shortcuts_li1: "j - Anar al messatge seguent"
+      keyboard_shortcuts_li2: "k - Anar al messatge precedent"
+      keyboard_shortcuts_li3: "c - Comentar lo messatge corrent"
+      keyboard_shortcuts_li4: "l - Marcat lo messatge corrent coma m'agradant"
+      keyboard_shortcuts_li5: "r - Repartejar aqueste messatge"
+      keyboard_shortcuts_li6: "m - Afichar l'ensemble del messatge"
+      keyboard_shortcuts_li7: "o - Dobrir lo primièr ligam d'aqueste messatge"
+      keyboard_shortcuts_li8: "ctrl + entrada - Mandar lo messatge en cors de redaccion"
+      keyboard_shortcuts_q: "Quines son los acorchis de clavièr existents ?"
+      title: "Acorchis de clavièr"
+    markdown: "Markdown"
+    mentions:
+      how_to_mention_q: "Cossí pòdi mencionar qualqu'un quand escrivi un messatge ?"
+      mention_in_comment_a: "Non pas, pel moment."
+      mention_in_comment_q: "Pòdi mencionar qualqu'un dins un comentari ?"
+      see_mentions_a: "Òc, clicatz sus \"@Mencions\" dins la colomna d'esquèrra de vòstra pagina d'acuèlh"
+      see_mentions_q: "I a un biais de veire las publicacions que soi mencionat dedins ?"
+      title: "Mencions"
+      what_is_a_mention_a: "Una mencion es un ligam cap al perfil d'una persona qu'apareis sus una publicacion. Quand qualqu'un es mencionat, receb una notificacion per atirar lor atencion sus la publicacion."
+      what_is_a_mention_q: "De qué es una “mencion” ?"
+    miscellaneous:
+      diaspora_app_q: "Existís una aplicacion diaspora* per Android o iOS ?"
+      photo_albums_q: "I a d'albums de fòtos o de vidèos ?"
+      subscribe_feed_q: "Me pòdi inscriure als messatges publics d'una persona amb un lector de fluxes ?"
+      title: "Divèrs"
+    pods:
+      find_people_q: "Veni de rejónher un pod, cossí pòdi trobar de monde per partejar amb eles ?"
+      title: "Pods"
+      use_search_box_q: "Cossí me cal utilizar lo camp de recèrca per trobar qualqu'un en particular ?"
+      what_is_a_pod_q: "Qu'es aquò un pod ?"
+    posts_and_posting:
+      char_limit_services_q: "Quin es lo limit de caractèrs pels messatges partejats amb un servici qu'a un limit de caractèrs mai pichon ?"
+      character_limit_a: "65 535 caractèrs. Son 65 395 caractèrs de mai que Twitter ! :)"
+      character_limit_q: "Qual es lo limit de caractèrs per las publicacions ?"
+      format_text_q: "Cossí pòdi formatar lo tèxte dins as publicacions (gras, italic, etc.) ?"
+      hide_posts_q: "Cossí escondi una publicacion ?"
+      image_text: "tèxte de l'imatge"
+      image_url: "url de l'imatge"
+      insert_images_comments_a1: "Podètz pas mandar d'imatges dins los comentaris mas lo còdi Markdown seguent"
+      insert_images_comments_a2: "aquò pòt èsser utiizat per inserir d'imatges a partir del web dins los comentaris o los messatges."
+      insert_images_comments_q: "Pòdi inserir d'imatges dins un comentari ?"
+      insert_images_q: "Cossí pòdi inserir d'imatges dins un messatge ?"
+      post_location_q: "Cossí pòdi apondre ma posicion a un messatge ?"
+      post_notification_q: "Cossí pòdi activar o desactivar las notificacions per un messatge ?"
+      post_poll_q: "Cossí pòdi apondre un sondatge a mon messatge ?"
+      post_report_q: "Cossí pòdi senhalar un messatge ofensant ?"
+      size_of_images_q: "Pòdi melhorar la talha dels imatges dins los messatges o los comentaris ?"
+      stream_full_of_posts_a1: "Vòstre flux es condtituit de tres tipes de messatges :"
+      stream_full_of_posts_li2: "Los messatges publics contenon un dels tags que seguissètz. Per los suprimir, daissatz de seguir lo tag."
+      stream_full_of_posts_q: "Perqué mon flux es plen de messatges que provenon de monde que coneissi pas e amb las qualas partegi  pas ?"
+      title: "Publicacions e publicar"
+    private_posts:
+      can_comment_q: "Qual pòt comentar o a qual pòt agradar un messatge privat ?"
+      can_reshare_q: "Qual pòt repartejar mos messatges privats ?"
+      see_comment_q: "Quand comenti un messatge privat o que marqui que m'agrada , qual o pòt veire ?"
+      title: "Publicacions privadas"
+      who_sees_post_q: "Quand mandi un messatge a un aspècte (es a dire un messatge privat), qual o pòt veire ?"
+    private_profiles:
+      title: "Perfils privats"
+      whats_in_profile_q: "Qu'es aquò mon perfil privat ?"
+      who_sees_profile_q: "Qual pòt veire mon perfil privat ?"
+      who_sees_updates_a: "Qual que siá dins vòstres aspèctes pòt veire las modificacions de vòstre perdil privat."
+      who_sees_updates_q: "Qual pòt veire las mesas a jorn de mon perfil privat ?"
+    public_posts:
+      can_comment_reshare_like_a: "Quin utilizaire connectat a diaspora* que siá, pòt comentar, repartejar vòstre messatge public o marcar que li agrada."
+      can_comment_reshare_like_q: "Qual pòt comentar, repartejar, o marcar que li agrada mon messatge public ?"
+      find_public_post_q: "Cossí las autras personas pòdon trobar mos messatges publics ?"
+      title: "Publicacions publicas"
+      who_sees_post_q: "Quand publiqui quicòm publicament, qual pòt veire ?"
+    public_profiles:
+      title: "Perfils publics"
+      what_do_tags_do_q: "De qué fan los tags sus mon perfil public ?"
+      whats_in_profile_q: "Qué i a sul meu perfil public ?"
+      who_sees_profile_q: "Qual vei mon perfil public ?"
+      who_sees_updates_a: "Qual que siá pòt veire aqueles cambiaments en visitant vòstra pagina de perfil."
+      who_sees_updates_q: "Qual pòt veire las mesas a jorn de mon perfil public ?"
+    resharing_posts:
+      reshare_private_post_aspects_q: "Pòdi repartejar un messatge privat unicament amb certans aspèctes ?"
+      reshare_public_post_aspects_q: "Pòdi repartejar un messatge public unicament amb certans aspèctes ?"
+      title: "Repartejar los messatges."
+    sharing:
+      add_to_aspect_li2: "Amy començara de veire los messatges publics de Ben dins son flux."
+      add_to_aspect_li3: "Amy veirà pas cap dels messatges privats de Ben."
+      add_to_aspect_li6: "Ben serà autorizat a veire lo perfil privat d'Amy (bio, localizacion, sèxe, anniversari)."
+      add_to_aspect_li8: "Amy serà tanben capabla de @mencionar Ben dins un messatge."
+      sharing_notification_a: "Deuriatz recebre una notificacion a cada còp que qualqu'un comença de partejar amb vos."
+      sharing_notification_q: "Cossí pòdi saber quand qualqu'un comença de partejar amb ieu ?"
+      title: "Partiment"
+    tags:
+      filter_tags_q: "Cossí pòdi filtrar/exclure certans tags de mon flux ?"
+      followed_tags_q: "De qué son los \"#Tags Seguits\" e cossí pòdi seguir un tag ?"
+      people_tag_page_a: "I a monde qu'an listat aqueste tag per se descriure eles-meteisses dins lor perfil public."
+      people_tag_page_q: "Qualas son las personas listadas sus la partida d'esquèrra d'una pagina de tag ?"
+      tags_in_comments_q: "Pòdi inserir de tags dins un comentari o sonque dins de messatges ?"
+      title: "Etiquetas"
+      what_are_tags_for_q: "A qué servisson las etiquetas ?"
+    third_party_tools: "Aisinas tèrças"
+    title_header: "Ajuda"
+    tutorial: "tutorial"
+    tutorials: "tutorials"
+    wiki: "wiki"
+  home:
+    default:
+      be_who_you_want_to_be: "Siatz lo que volètz èsser"
+      byline: "La ret sociala ont gardatz lo contraròtle."
+      choose_your_audience: "Causissètz vòstre public"
+      headline: "Benvenguda sus %{pod_name}"
+      own_your_data: "Siatz proprietari de vòstras donadas"
+    podmin:
+      admin_panel: "panèl d'administrator"
+      byline: "Sètz a mand de cambiar la fàcia d'internet. Prèst a vos lançar ?"
+      configuration_info: "Dobrissètz %{database_path} e %{diaspora_path} dins vòstre editor de tèxte favorit e relegissètz-los menimosament, son comentats abondament."
+      configure_your_pod: "Configuratz vòstre pod"
+      contact_irc: "nos contactar sus IRC"
+      contribute: "Contribuissètz"
+      contribute_info: "Rendètz diaspora* encara melhor ! Se rencontratz de bugs, %{report_bugs} se vos plai."
+      create_an_account: "Creatz un compte"
+      create_an_account_info: "%{sign_up_link} per un novèl compte"
+      faq_for_podmins: "FAQ pels podmins sus nòstre wiki"
+      getting_help: "Obtenètz d'ajuda"
+      headline: "Benvenguda, l'amic."
+      make_yourself_an_admin: "Venètz administrator"
+      report_bugs: "raportatz-los"
+      update_instructions: "d'instruccions de mesa a jorn sul wiki de diaspora*"
+      update_your_pod: "Mantenètz vòstre pod a jorn"
+      update_your_pod_info: "Trobaretz %{update_instructions}."
+  invitation_codes:
+    not_valid: "Aqueste còdi es pas pus valid."
+  invitations:
+    a_facebook_user: "Un utilizaire de Facebook"
+    check_token:
+      not_found: "Geton de convit pas trobat"
+    create:
+      empty: "Mercés de picar almens una adreça de corrièl."
+      no_more: "Avètz pas mai de convits."
+      note_already_sent: "Las invitacions son ja estadas mandadas a : %{emails}"
+      rejected: "Las adreças de corrièr electronic seguentas an rencontrat un problèma : "
+      sent: "Los convits son estats mandats a %{emails}"
+    new:
+      codes_left:
+        one: "Pas mai qu'un convit de disponible amb aqueste còdi."
+        other: "Encara %{count} convits de disponibles amb aqueste còdi."
+        zero: "Pas mai de convit de disponible amb aqueste còdi."
+      comma_separated_plz: "Podètz entrar mantuna adreça de corrièl separadas per de virgulas."
+      invite_someone_to_join: "Convidar qualqu'un a rejónher diaspora* !"
+      language: "Lenga"
+      paste_link: "Partejatz aqueste ligam amb vòstres amics per los convidar dins diaspora*, o mandatz-lor aqueste ligam dirèctament per corrièl."
+      send_an_invitation: "Mandar un convit"
+      sending_invitation: "Mandadís del convit..."
+  layouts:
+    application:
+      back_to_top: "Tornar amont"
+      be_excellent: "Siatz benvolent amb cadun !"
+      powered_by: "Propulsat per dispora*"
+      public_feed: "Flux diaspora* public per %{name}"
+      source_package: "Telecargatz lo còdi font"
+      statistics_link: "Estatisticas del pod"
+      toggle: "Activar/desactivar la version mobila"
+      whats_new: "Qué de nòu ?"
+    header:
+      code: "Còdi"
+      logout: "Desconnexion"
+      profile: "Perfil"
+      settings: "Paramètres"
+      toggle_navigation: "Afichar/amagar lo menú"
+  limited: "Limitat"
+  more: "Mai"
+  no_results: "Cap de resultat pas trobat"
+  notifications:
+    also_commented:
+      one: "%{actors} a tanben comentat %{post_link} de %{post_author}."
+      other: "%{actors} an tanben comentat %{post_link} de %{post_author}."
+      zero: "%{actors} a tanben comentat %{post_link} de %{post_author}."
+    also_commented_deleted:
+      one: "%{actors} a comentat una publicacion suprimida."
+      other: "%{actors} an comentat una publicacion suprimida."
+      zero: "%{actors} a comentat una publicacion suprimida."
+    comment_on_post:
+      one: "%{actors} a comentat vòstra publicacion %{post_link}."
+      other: "%{actors} an comentat vòstra publicacion %{post_link}."
+      zero: "%{actors} a comentat vòstra publicacion %{post_link}."
+    index:
+      all_notifications: "Totas las notificacions"
+      also_commented: "Tanben comentat"
+      and: "e"
+      and_others:
+        one: "e una persona mai"
+        other: "e %{count} personas mai"
+        zero: "e degun mai"
+      comment_on_post: "Comentari sus un de vòstres messatges"
+      liked: "Que m'agrada"
+      mark_all_as_read: "Tot marcar coma legit"
+      mark_all_shown_as_read: "Marcar tot coma legit"
+      mark_read: "Marcar coma legit"
+      mark_unread: "Marcar coma pas legit"
+      mentioned: "Mencionat"
+      no_notifications: "Avètz pas encara cap de notificacion."
+      notifications: "Notificacions"
+      reshared: "Repartejat"
+      show_all: "afichar tot"
+      show_unread: "afichar los que son pas legits"
+      started_sharing: "A començat de partejar"
+    liked:
+      one: "Vòstra publicacion %{post_link} agrada a %{actors} persona."
+      other: "Vòstra publicacion %{post_link} agrada a %{actors} personas."
+      zero: "Vòstra publicacion %{post_link} agrada a %{actors} persona."
+    liked_post_deleted:
+      one: "Vòstra publicacion suprimida a pas agradat %{actors} persona."
+      other: "Vòstra publicacion suprimida a pas agradat %{actors} personas."
+      zero: "Vòstra publicacion suprimida a pas agradat %{actors} persona."
+    mentioned:
+      one: "%{actors} vos a mencionat dins la publicacion %{post_link}."
+      other: "%{actors} vos an mencionat dins la publicacion %{post_link}."
+      zero: "%{actors} vos a mencionat dins la publicacion %{post_link}."
+    mentioned_deleted:
+      one: "%{actors} vos a mencionat sus una publicacion suprimida."
+      other: "%{actors} vos an mencionat sus una publicacion suprimida."
+      zero: "%{actors} vos a mencionat sus una publicacion suprimida."
+    post: "publicacion"
+    private_message:
+      one: "%{actors} vos a mandat un messatge."
+      other: "%{actors} vos an mandat un messatge."
+      zero: "%{actors} vos a mandat un messatge."
+    reshared:
+      one: "%{actors} a repartejat vòstra publicacion %{post_link}."
+      other: "%{actors} an repartejat vòstra publicacion %{post_link}."
+      zero: "%{actors} a repartejat vòstra publicacion %{post_link}."
+    reshared_post_deleted:
+      one: "%{actors} a tornat partejar vòstra publicacion suprimida."
+      other: "%{actors} an tornat partejar vòstra publicacion suprimida."
+      zero: "%{actors} a tornat partejar vòstra publicacion suprimida."
+    started_sharing:
+      one: "%{actors} a començat de partejar amb vos."
+      other: "%{actors} an començat de partejar amb vos."
+      zero: "%{actors} a començat de partejar amb vos."
+  notifier:
+    a_limited_post_comment: "Avètz un comentari novèl sus un messatge amb visibilitat limitada."
+    a_post_you_shared: "una publicacion."
+    also_commented:
+      limited_subject: "I a un comentari novèl sus un messatge qu'avètz comentat"
+    click_here: "Clicatz aicí"
+    comment_on_post:
+      limited_subject: "I a un comentari novèl sus una publicacion qu'avètz comentada"
+      reply: "Respondre o veire lo messatge de %{name} >"
+    confirm_email:
+      click_link: "Per activar vòstre novèla adreça de corrièl %{unconfirmed_email}, seguissètz aqueste ligam :"
+      subject: "Mercés d'activar vòstre novèl corrièl %{unconfirmed_email}"
+    email_sent_by_diaspora: "Aqueste corrièl es estat mandaat per %{pod_name}. Se volètz pas mai de corrièls atal,"
+    export_email:
+      body: |-
+          Bonjorn %{name},
+
+          Vòstras donadas personalas son estadas tractadas e ara, las podètz telecargar en clicant sus [aqueste ligam](%{url}).
+
+          Coralament,
+
+          Lo messatgièr automatic de diaspora*
+      subject: "Vòstras donadas personalas son prèstas a èsser telecargadas, %{name}"
+    export_failure_email:
+      body: |-
+          Bonjorn %{name},
+
+          I a agut un problèma al moment del tractament de vòstras donadas personalas en vista d'un telecargament.
+          Mercé de tornar ensajar.
+
+          O planhèm sincèrament.
+
+          Lo messatgièr automatic de diaspora*
+      subject: "I a agut un problèma amb vòstras donadas, %{name}"
+    export_photos_email:
+      body: |-
+          Bonjorn %{name},
+
+          Vòstras fòtos son estadas preparadas e son prèstas a èsser telecargadas en seguissent sus [aqueste ligam](%{url}).
+
+          Coralament,
+
+          Lo messatgièr automatic de diaspora*
+      subject: "%{name}, vòstras fòtos son prèstas per èsser telecargadas."
+    export_photos_failure_email:
+      body: |-
+          Bonjorn %{name},
+
+          I a agut un problèma al moment del tractament de vòstras fòtos personalas en vista d'un telecargament.
+          Mercé de tornar ensajar.
+
+          O planhèm sincèrament.
+
+          Lo messatgièr automatic de diaspora*
+      subject: "I a agut un problèma amb vòstras fòtos, %{name}"
+    hello: "Adiu %{name} !"
+    invite:
+      message: |-
+          Bonjorn !
+
+          %{diaspora_id} vos a convidat a rejónher diaspora* !
+
+          Clicatz sul ligam per començar
+
+          %{invite_url}[1]
+
+          O podètz apondre %{diaspora_id} amb vòstres contactes se avètz ja un compte.
+
+          Amistats,
+
+          Lo messatgièr automatic de diaspora* !
+
+          P.S : En cas que coneisseriatz pas (encara) çò qu'es diapora*, aicí[2] i a la responsa !
+
+          [1] : %{invite_url}
+          [2] : %{diasporafoundation_url}
+    invited_you: "%{name} vos a convidat sus diaspora*"
+    liked:
+      liked: "a %{name}, li a agradat vòstra publicacion"
+      limited_post: "A %{name}, li a agradat vòstra publicacion restrenta"
+      view_post: "Veire la publicacion >"
+    mentioned:
+      limited_post: "Sètz estat mencionat dins una publicacion restenta."
+      subject: "%{name} vos a mencionat sus diaspora*"
+    private_message:
+      reply_to_or_view: "Respondre o afichar aquela conversacion >"
+      subject: "Avètz un novèl messatge privat"
+    remove_old_user:
+      body: |-
+          Bonjorn,
+
+          En rason de l'inactivitat de vòstre compte diaspora* %{pod_url}, planhèm de vos informar que lo sistèma l'a identificat coma devent èsser suprimit automaticament. Aquesta procedura se desenclava aprèp un periòde d'inactivitat superior a %{after_days} jorns.
+
+          Podètz evitar la pèrda de vòstre compte en vos connectant a aqueste abans %{remove_after}, dins aqueste cas la procedura de supression serà automaticament anullada.
+
+          Aquesta mantenença es efectuada per assegurar als utilizaires actius lo mehor foncionament possible d'aquesta instància de diaspora*. Vos mercejam de vòstra compreneson.
+
+          Se volètz conservar vòstre compte, identificatz-vos aicí :
+          %{login_url}
+
+          Esperam vos reveire lèu !
+
+          Lo messatgièr automatic de diaspora*
+      subject: "Vòstre compte diaspora* es estat senhalat coma devent èsser suprimit en rason de son inactivitat"
+    report_email:
+      body: |-
+          Bonjorn,
+
+          lo %{type} amb l'identificant %{id} es estat marcat coma ofensant.
+
+          [%{url}][1]
+
+          Mercé de lo verificar tre que possible !
+
+
+          Coralament,
+
+          Lo messatgièr automatic de diaspora*
+
+          [1]: %{url}
+      subject: "Un novèl %{type} es estat marcat coma ofensant"
+      type:
+        comment: "comentari"
+        post: "messatge"
+    reshared:
+      reshared: "%{name} a tornat partejar vòstra publicacion"
+      view_post: "Veire la publicacion >"
+    single_admin:
+      admin: "Vòstre administrator diaspora*"
+      subject: "Un messatge subre vòstre compte diaspora*"
+    started_sharing:
+      sharing: "a començat a partejar amb vos !"
+      subject: "%{name} a començat a partejar amb vos sus diaspora*"
+      view_profile: "Veire lo perfil de %{name}"
+    thanks: "Mercé,"
+    to_change_your_notification_settings: "per cambiar vòstres reglatges de notificacion"
+  nsfw: "NSFW"
+  ok: "D'acòrdi"
+  people:
+    add_contact:
+      invited_by: "Sètz estat convidat per"
+    index:
+      couldnt_find_them: "Los trobatz pas ?"
+      looking_for: "Recercar publicacions marcadas %{tag_link}"
+      no_one_found: "... e pas cap trobat."
+      no_results: "E ben ! Vos cal cercar quicòm."
+      results_for: "Utilizaires que correspondon a %{search_term}"
+      searching: "Recèrca en cors, mercés d'esperar..."
+      send_invite: "Pas res encara ? Mandatz-lor un convit !"
+    person:
+      thats_you: "Sètz vosautres !"
+    profile_sidebar:
+      bio: "Biografia"
+      born: "Anniversari"
+      gender: "Sèxe"
+      location: "Localizacion"
+    show:
+      closed_account: "Aqueste compte es estat tampat"
+      does_not_exist: "Aquesta persona existís pas !"
+      has_not_shared_with_you_yet: "%{name} a pas encara partejar cap de publicacions amb vos !"
+  photos:
+    create:
+      integrity_error: "Fracàs al moment de mandar l'imatge.  Sètz segur qu'èra un imatge ?"
+      runtime_error: "Fracàs al moment de mandar l'imatge.  Sètz segur que vòstre cinta de seguretat es estacada ?"
+      type_error: "Fracàs al moment de mandar l'imatge.  Sètz segur qu'un imatge es estat apondut ?"
+    destroy:
+      notice: "Fòto suprimida"
+    new_photo:
+      empty: "{file} es voida, mercé de tornar seleccionar de fichièrs sens aquel d'aquí."
+      invalid_ext: "L'extension de {file} es pas valida. Sonque {extensions} son autorizadas."
+      size_error: "{file} es tròp granda, la talha maximala es {sizeLimit}."
+    new_profile_photo:
+      upload: "Mandatz una novèla fòto de perfil !"
+    show:
+      show_original_post: "Mostrar la publicacion originala"
+  polls:
+    votes:
+      one: "%{count} vòte pel moment"
+      other: "%{count} vòtes pel moment"
+      zero: "%{count} vòte pel moment"
+  posts:
+    presenter:
+      title: "Una publicacion de %{name}"
+    show:
+      forbidden: "Sètz pas autorizat a far aquò"
+      location: "Publicat dempuèi : %{location}"
+      photos_by:
+        one: "Una fòto per %{author}"
+        other: "%{author} fòtos per %{count}"
+        zero: "Pas cap de fòto per %{author}"
+      reshare_by: "Repartejat per %{author}"
+  privacy: "Vida privada"
+  profile: "Perfil"
+  profiles:
+    edit:
+      allow_search: "Autorizar lo monde a vos recercar dins diaspora*"
+      basic: "Mon perfil basic"
+      basic_hint: "Totes los elements de vòstre perfil son opcionals. Vòstre perfil basic serà totjorn visible publicament."
+      extended: "Mon perfil espandit"
+      extended_visibility_text: "Visibilitat de vòstre perfil complet."
+      first_name: "Pichon nom"
+      last_name: "Nom d'ostal"
+      limited: "Limitat"
+      nsfw_check: "Amagar tot çò que pòsti coma #NSFW"
+      public: "Public"
+      settings: "Paramètres del perfil"
+      update_profile: "Actualizar lo perfil"
+      your_bio: "Vòstra biografia"
+      your_birthday: "Vòstre anniversari"
+      your_gender: "Vòstre sèxe"
+      your_location: "Vòstra localizacion"
+      your_name: "Vòstre nom"
+      your_photo: "Vòstra fòto"
+      your_tags: "Descrivètz-vos en 5 mots"
+      your_tags_placeholder: "Per exemple #filme #catons #viatjar #professor #tolosa"
+    update:
+      failed: "Fracàs de l'actualizacion del perfil"
+      updated: "Perfil a jorn"
+  public: "Public"
+  reactions:
+    one: "1 reaccion"
+    other: "%{count} reaccions"
+    zero: "Pas de reaccion"
+  registrations:
+    closed: "Las inscripcions son tampadas sus aqueste pod diaspora*."
+    create:
+      success: "Avètz rejunt diaspora*!"
+    invalid_invite: "Lo ligam de convit donat es pas mai valid !"
+    new:
+      email: "Adreça electronica"
+      enter_email: "Picatz vòstra adreça de corrièl"
+      enter_password: "Picatz un senhal (sièis caractèrs minimum)"
+      enter_password_again: "Picatz lo meteis senhal coma de per abans"
+      enter_username: "Picatz un escais (sonque letras, chifras e jonhent bas _)"
+      password: "Senhal"
+      password_confirmation: "Confirmacion del senhal"
+      sign_up: "Marcatz-vos"
+      submitting: "Mandadís en cors..."
+      terms: "En creant un compte, acceptatz los %{terms_link}"
+      terms_link: "condicions d'utilizacion"
+      username: "Nom d'utilizaire"
+  report:
+    comment_label: "<b>Comentari</b>:<br>%{data}"
+    confirm_deletion: "Sètz segur que volètz suprimir aqueste element ?"
+    delete_link: "Suprimir l'element"
+    post_label: "<b>Publicacion</b>: %{title}"
+    reason_label: "Rason: %{text}"
+    reported_label: "<b>Senhalat per</b> %{person}"
+    reported_user_details: "Detalhs sus l'utilizaire senhalat"
+    review_link: "Marcat coma revist."
+    status:
+      destroyed: "Lo messatge es estat destruit"
+      failed: "I a agut un problèma."
+    title: "Vista d'ensemble dels senhalaments"
+  reshares:
+    comment_email_subject: "Partiment per %{resharer} d'un messatge de %{author}"
+    reshare:
+      deleted: "La publicacion originala foguèt suprimida per son autor."
+      reshare_confirmation: "Volètz tornar partejar la publicacion de %{author} ?"
+      reshared_via: "Repartejat per"
+  search: "Recercar"
+  services:
+    create:
+      already_authorized: "Un utilizaire que l'identificant diaspora*%{service_name} es %{diaspora_id} a ja autorizat aqueste compte %{service_name}."
+      failure: "Fracàs de l'autentificacion."
+      read_only_access: "Accès en lectura sola, ensajatz tornamai d'autorizar pus tard"
+      success: "Autentificacion capitada"
+    destroy:
+      success: "Autentificacion suprimida."
+    failure:
+      error: "Una error s'est produita al moment de la connexion amb aqueste servici"
+    index:
+      connect: "Connectar"
+      disconnect: "Se desconnectar"
+      edit_services: "Modificar los servicis"
+      logged_in_as: "Connectat coma %{nickname}."
+      no_services_available: "I a pas cap de servici de disponible sus aqueste pod."
+      not_logged_in: "Actualament, sètz pas connectat."
+      really_disconnect: "Se desconnectar de %{service}"
+      services_explanation: "Se connectar a de servicis tèrç vos permet de publicar vòstras publicacions suls aqueles servicis quand n'escrivètz sus diaspora*."
+      share_to: "Partejar amb %{provider}"
+      title: "Geir los servicis connectats"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
+  settings: "Paramètres"
+  shared:
+    aspect_dropdown:
+      mobile_row_checked: "%{name} (suprimir)"
+      mobile_row_unchecked: "%{name} (apondre)"
+      toggle:
+        one: "Dins %{count} aspècte"
+        other: "Dins %{count} aspècte"
+        zero: "Apondre lo contacte"
+    invitations:
+      by_email: "Per corrièl"
+      invite_your_friends: "Convidatz vòstres amics"
+      invites: "Convits"
+      share_this: "Partejatz aqueste ligam via corrièl, blog, o malhums socials !"
+    public_explain:
+      atom_feed: "Flux Atom"
+      control_your_audience: "Contrarotlatz vòstra audiéncia"
+      logged_in: "Connectat a %{service}"
+      manage: "Gerir los servicis connectats"
+      new_user_welcome_message: "Utilizatz las #etiquetas per triar vòstras publicacions e per trobar de monde que partejan vòstres interèsses. Interpellatz de personas genialas amb las @Mencions"
+      outside: "Los messatges publics poiràn èsser vistes per totes, quitament en defòra de diaspora*."
+      share: "Partejatz"
+      title: "Metre en plaça de servicis connectats"
+    publisher:
+      discard_post: "Suprimir la publicacion"
+      formatWithMarkdown: "Utilizatz la sintaxi %{markdown_link} per metre en forma vòstre messatge"
+      get_location: "Apondre vòstra localizacion"
+      new_user_prefill:
+        hello: "Adiu mond, soi %{new_user_tag}. "
+        i_like: "M'interèssa %{tags}. "
+        invited_by: "Mercé pel convit, "
+        newhere: "novèlaicí"
+      poll:
+        add_a_poll: "Apondre un sondatge"
+      posting: "Publicacion..."
+      remove_location: "Suprimir l'emplaçament"
+      share: "Partejar"
+      upload_photos: "Mandar de fòtos"
+      whats_on_your_mind: "A qué pensatz ?"
+    stream_element:
+      via: "Via %{link}"
+      via_mobile: "Mandat dempuèi un mobil"
+  simple_captcha:
+    label: "Entratz lo còdi dins lo camp"
+    message:
+      default: "Lo còdi provesit correspond pas a l'imatge"
+      failed: "La verificacion antirobòt a fracassat"
+      user: "L'imatge e lo còdi son diferents"
+    placeholder: "Sasissètz lo contengut de l'imatge"
+  statistics:
+    active_users_halfyear: "Utilizaires actius aqueste semèstre"
+    active_users_monthly: "Utilizaires actius per mes"
+    closed: "Tampat"
+    disabled: "Indisponible"
+    enabled: "Disponible"
+    local_comments: "Comentaris locals"
+    local_posts: "Messatges locals"
+    name: "Nom"
+    network: "Ret"
+    open: "Dobrir"
+    registrations: "Enregistraments"
+    services: "Servicis"
+    total_users: "Total d'utilizaires"
+    version: "Version"
+  status_messages:
+    create:
+      success: "Mencion de : %{names}"
+    new:
+      mentioning: "Menciona : %{person}"
+    too_long: "Avisatz-vos d'escriure un messatge d'estatut de %{count} caractèrs maximum. Compta actualament %{current_length} caractèrs."
+  stream_helper:
+    no_more_posts: "Avètz atent la fin d'aqueste flux."
+    no_posts_yet: "I a pas encara cap de messatge aicí."
+  streams:
+    activity:
+      title: "Mon activitat"
+    aspects:
+      title: "Mos aspèctes"
+    aspects_stream: "Aspèctes"
+    comment_stream:
+      title: "Publicacions comentadas"
+    community_spotlight_stream: "Actualitat de la comunitat"
+    followed_tag:
+      add_a_tag: "Apondre una etiqueta"
+      follow: "Seguir"
+      title: "#Tags seguits"
+    followed_tags_stream: "#Tags seguits"
+    like_stream:
+      title: "Flux dels elements qu'agradan"
+    mentioned_stream: "@Mencions"
+    mentions:
+      title: "@Mencions"
+    multi:
+      title: "Flux"
+    public:
+      title: "Activitat publica"
+    tags:
+      title: "Messatges tagats : %{tags}"
+  tag_followings:
+    manage:
+      no_tags: "Seguissètz pas cap de tag."
+      title: "Gerir los tags seguits."
+  tags:
+    name_too_long: "Vòstre tag deu far mens de %{count} caractèrs ( actualament, %{current_length})"
+    show:
+      follow: "Seguir #%{tag}"
+      none: "L'etiqueta voida existís pas !"
+      stop_following: "Arrectar de seguir #%{tag}"
+      tagged_people:
+        one: "1 persona marcada amb %{tag}"
+        other: "%{count} personas marcadas amb %{tag}"
+        zero: "Degun es pas marcat amb %{tag}"
+  username: "Nom d'utilizaire"
+  users:
+    confirm_email:
+      email_confirmed: "Corrièl %{email} activat"
+      email_not_confirmed: "Es possible que lo corrièl no siá activat. Marrit ligam ?"
+    destroy:
+      no_password: "Mercé de picar vòstre sehnal actual per tampar lo vòstre compte."
+      success: "Vòstre compte es estat verrolhat. Pòt prene vint minuta per ne finalizar la tampadura. Mercés d'aver ensajat diaspora*."
+      wrong_password: "Lo senhal dintrat correpond pas amb lo senhal actual."
+    edit:
+      also_commented: "qualqu'un a comentat una publicacion qu'avètz comentada"
+      auto_follow_aspect: "Aspècte pels utilizaires seguts automaticament :"
+      auto_follow_back: "Automaticament partejar amb los utilizaires que partejan amb vos"
+      change: "Modificar"
+      change_color_theme: "Cambiar lo tèma de color"
+      change_email: "Cambiar de corrièl"
+      change_language: "Cambiar de lenga"
+      change_password: "Cambiar lo senhal"
+      character_minimum_expl: "deu conténer sièis caractèrs al minim"
+      close_account:
+        dont_go: "E, se vos plai, patiscatz pas !"
+        lock_username: "Vòstre nom d'utilizaire serà verrolhat. Poiretz pas crear un novèl compte sus aqueste pod amb lo meteis ID."
+        locked_out: "Seretz desconnectat e vòstre compte serà inaccessible fins a sa supression."
+        make_diaspora_better: "Nos agradariá fòrça que demorèssetz e nos ajudèssetz a far un melhor diaspora* puslèu que de nos daissar. Se volètz vertadièrament partir, pasmens, vaquí çò que se va passar :"
+        mr_wiggles: "Mossur Wiggles serà triste de vos veire partir."
+        no_turning_back: "Es pas possible de tornar en arrièr ! Se sètz segur de vos, sasissètz vòstre senhal çaijós."
+      close_account_text: "Tampar lo compte"
+      comment_on_post: "qualqu'un comenta vòstra publicacion"
+      current_password: "Senhal actual"
+      current_password_expl: "Lo senhal que causissètz..."
+      download_export: "Telecargar mon perfil"
+      download_export_photos: "Telecargar mas fòtos"
+      edit_account: "Modificar lo compte"
+      email_awaiting_confirmation: "Vos avèm mandat un ligam d'activacion a l'adreça %{unconfirmed_email}. Fins al moment qu'auretz sul ligam e activetz la novèla adreça, anam contunhar d'utilizar vòstra adreça d'origina %{email}."
+      export_data: "Exportar de donadas"
+      export_in_progress: "Sèm a tractar vòstras donadas. Verificatz tornamai l'avançament dins un moment."
+      export_photos_in_progress: "Sèm a tractar vòstras fòtos. Tornatz aicí dins un momenton."
+      following: "Paramètres de partiment"
+      last_exported_at: "(Darrièra mesa a jorn a %{timestamp})"
+      liked: "a qualqu'un li a agradat vòstra publicacion"
+      mentioned: "...se vos menciona dins un messatge."
+      new_password: "Senhal novèl"
+      private_message: "Avètz recebut un messatge privat."
+      receive_email_notifications: "Recebre una notificacion per corrièl quand :"
+      request_export: "Demandar mas donadas de perfil"
+      request_export_photos: "Demandar mas fòtos"
+      request_export_photos_update: "Refrescar mas fòtos."
+      request_export_update: "Refrescar mas donadas de perfil"
+      reshared: "qualqu'un a tornat partejar vòstra publicacion"
+      show_community_spotlight: "Mostrar l'actualitat de la comunitat dins lo flux"
+      show_getting_started: "Mostrar las astúcias de descoberta"
+      someone_reported: "Qualqu'un a senhalat un messatge"
+      started_sharing: "qualqu'un a començat a partejar amb vos"
+      stream_preferences: "Preferéncias del flux"
+      your_email: "Vòstre corrièl"
+      your_email_private: "Vòstre email serà pas jamai vist per d'autres utilizaires"
+      your_handle: "Vòstre ID diaspora*"
+    getting_started:
+      awesome_take_me_to_diaspora: "Òsca ! Mena-me cap a diaspora*"
+      community_welcome: "La comunautat diaspora* es contenta de vos aver a bòrd."
+      connect_to_facebook_link: "Connexion amb vòtre compte Facebook en cors"
+      hashtag_explanation: "Las etiquetas vos permeton de charrar e seguir vòstres interèsses.  Son tanben una bona manièra de trobar de mond novèl sus diaspora*."
+      hashtag_suggestions: "Ensejatz etiquetas coma aquestas #art #filmes #gif, etc."
+      well_hello_there: "E ben, adiu monde !"
+      what_are_you_in_to: "Qué vos interèssa ?"
+      who_are_you: "Qual sètz ?"
+    privacy_settings:
+      ignored_users: "Utilizaires ignorats"
+      no_user_ignored_message: "Actualament, ignoratz pas cap d'utilizaire"
+      stop_ignoring: "Arrestar d'ignorar"
+      strip_exif: "Levar dels imatges mandats las metadonadas talas coma luòc de presa, autor o modèl d'aparelh fòto (recomandat)"
+      title: "Reglatges de confidencialitat"
+    public:
+      does_not_exist: "L'utilizaire %{username} existís pas !"
+    update:
+      color_theme_changed: "Tèma de color cambiat."
+      color_theme_not_changed: "Una error s'es produita pendent lo cambiament de tèma de color."
+      email_notifications_changed: "Notificacions corrièl cambiadas"
+      follow_settings_changed: "Reglatges cambiats pel seguiment"
+      follow_settings_not_changed: "Cambiament dels reglatges pel seguiment fracassat."
+      language_changed: "Lenga cambiada"
+      language_not_changed: "Cambiament de lenga fracassat"
+      password_changed: "Senhal cambiat.  Ara, vos podètz connectar amb lo senhal novèl."
+      password_not_changed: "Cambiament de senhal mancat"
+      settings_not_updated: "Mesa a jorn fracassada"
+      settings_updated: "Reglatges mes a jorn"
+      unconfirmed_email_changed: "Corrièl cambiat. Cal far una activacion."
+      unconfirmed_email_not_changed: "Cambiament de corrièl mancat"
+  will_paginate:
+    next_label: "seguent &raquo;"
+    previous_label: "&laquo; precedent"

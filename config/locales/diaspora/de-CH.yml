@@ -1,0 +1,534 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+de-CH:
+  _applications: "Äpp's"
+  _contacts: "Kontäkt"
+  _services: "Dienscht"
+  account: "Konto"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "dörf nu eimol vorcho i dem Benutzer sine Kontäkt."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "isch scho vergeh."
+        request:
+          attributes:
+            from_id:
+              taken: "isch es duplikat vonere scho existierende aafrog."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Es isch guet, imfall - Du hesch de Post scho Wiitergseit!"
+        user:
+          attributes:
+            email:
+              taken: "isch scho vergeh."
+            person:
+              invalid: "isch ungültig"
+            username:
+              invalid: "isch ungültig, - Mer erlaubed nume Buechstabe, Nummere und Understrich."
+              taken: "isch scho vergeh."
+  admins:
+    admin_bar:
+      pages: "Siitä"
+      pod_stats: "Pod Statistik"
+      sidekiq_monitor: "Sidekiq-Monitor"
+      user_search: "Benutzer Suechi"
+      weekly_user_stats: "Wöchentlichi Benutzerstatistik"
+    stats:
+      2weeks: "2 wuche"
+      50_most: "50 meischt-benutzti täg's"
+      current_segment: "S'aktuelle segment het durchschnittlich <b>%{post_yest}</b> biiträg pto Benutzer, sit em <b>%{post_day}</b>"
+      daily: "Täglich"
+      display_results: "Zeig d'ergäbnis usem  <b>%{segment}</b> segment"
+      go: "Los!"
+      month: "Monet"
+      tag_name: "Tag Name: <b>%{name_tag}</b> Azahl: <b>%{count_tag}</b>"
+      usage_statistic: "Nutzigs-statistik"
+      week: "Wuche"
+    user_search:
+      add_invites: "IIladige hinzuefüege"
+      email_to: "per email iilade"
+    weekly_user_stats:
+      current_server: "S'Momentane Serverdatum isch %{date}"
+  all_aspects: "Ali Aspekt"
+  are_you_sure: "Bisch sicher?"
+  are_you_sure_delete_account: "Bisch sicher, dass din Account lösche willsch ? - da chasch nüm rückgängig mache!"
+  aspect_memberships:
+    destroy:
+      failure: "Benutzer vom Aspekt entferne isch gschiiteret"
+      no_membership: "Han die uswählt Person i dem Aspekt nöd chönne finde."
+      success: "Benutzer erfolgriich vom Aspekt entfernt"
+  aspects:
+    add_to_aspect:
+      failure: "De Kontakt zum Aspekt hinzuefüege isch fehlgschlage."
+      success: "Erfolgrich de Kontakt zum Aspekt hinzuegfüegt."
+    aspect_listings:
+      add_an_aspect: "+ en Aspekt adde"
+    aspect_stream:
+      make_something: "Mach öppis"
+      stay_updated: "Bliib fresh"
+      stay_updated_explanation: "Din Haupt-Stream beinhaltet d'posts vo all dine Kontäkt, vo de täg's dene du folgsch und vo es paar kreative mit-diasporianerInne"
+    destroy:
+      failure: "%{name} het nöd chönne entfernt werde"
+      success: "%{name} isch erfolgriich entfernt worde."
+    edit:
+      aspect_list_is_not_visible: "Kontäkt i dem Aspekt chönd sich gegesiitig nöd gseh."
+      aspect_list_is_visible: "Kontäkt i dem Aspekt chönd sich gegesiitig gseh."
+      confirm_remove_aspect: "Bisch sicher, das de Aspekt lösche willsch?"
+      rename: "Umbenenne"
+      update: "Ändere"
+      updating: "am Ändere"
+    index:
+      donate: "Spende"
+      help:
+        any_problem: "Git's es Problem?"
+        contact_podmin: "Kontaktier de Admin vo dim Pod!"
+        do_you: "Hesch du:"
+        feature_suggestion: "en vorschlag für e %{link}?"
+        find_a_bug: "en %{link} gfunde?"
+        have_a_question: "en %{link}"
+        here_to_help: "d'Diaspora* Komunity isch do!"
+        mail_podmin: "Podmin email"
+        need_help: "Bruchsch Hilf?"
+        tag_bug: "en bug"
+        tag_feature: "e Verbesserig"
+        tag_question: "e Frog"
+      introduce_yourself: "Das isch din Stream. Gump ine und stell dich vor."
+      keep_pod_running: "Hilf %{pod} schnell d'sii und finanzier mitere monatliche chliine spend de schuss kafi wo's defür bruuched"
+      new_here:
+        follow: "Folg %{link} und heiss neui Benutzer bi Diaspora* willkomme !"
+        learn_more: "meh info's"
+        title: "Tuen neui Benutzer Wilkomme heisse"
+      services:
+        content: "Du chasch folgendi Dienst mit Diaspora* verbinde:"
+        heading: "Dienst verbinde"
+      welcome_to_diaspora: "Willkomme bi Diaspora*, %{name}!"
+    no_contacts_message:
+      community_spotlight: "Kommunity Schiiwörferliecht"
+      or_spotlight: "Oder du chasch mit %{link} Teile"
+      try_adding_some_more_contacts: "Du chasch sueche oder meh Kontäkt %{invite_link}"
+      you_should_add_some_more_contacts: "Du söttsch es paar meh Kontäkt adde"
+    seed:
+      acquaintances: "Bekannti"
+      family: "Familie"
+      friends: "Fründe"
+      work: "Arbet"
+    update:
+      failure: "Din Aspekt %{name} het en z'lange name zum chönne gspeicheret werde"
+      success: "Din Aspekt %{name} het erfolgriich chönne gänderet werde"
+  blocks:
+    create:
+      failure: "Ignoriere vo dem benutzer fehlgschlage"
+      success: "Ok, dä gsesch nüm !"
+    destroy:
+      failure: "Han nöd chönne ufhöhre dä benutzer z'ignoriere."
+      success: "Luegemer mol was die z'sägä hend! #sayhello"
+  bookmarklet:
+    explanation: "Poste en biitrag bi Diaspora vo egal wo i dem du dä Link => %{link} zu dine Läsezeiche hinzuefüegsch"
+    heading: "Läsezeichä"
+    post_something: "En biitrag in Diaspora* erstelle"
+  cancel: "Abbreche"
+  comments:
+    new_comment:
+      comment: "Kommentiere"
+      commenting: "Am Kommentiere..."
+  contacts:
+    index:
+      add_a_new_aspect: "en neue Aspekt mache"
+      all_contacts: "Ali Kontäkt"
+      community_spotlight: "Kommunity Schiiwörferliecht"
+      my_contacts: "Mini Kontäkt"
+      no_contacts: "Gseht uus als möstisch es paar Kontäkt adde"
+      no_contacts_message: "Lueg mal s'%{community_spotlight} aa"
+      only_sharing_with_me: "Eisiitig mit mir teilendi"
+      start_a_conversation: "Start es Gspröch"
+      title: "Kontäkt"
+    spotlight:
+      community_spotlight: "Kommunity Schiiwörferliecht"
+      suggest_member: "Mitglied vorschloh"
+  conversations:
+    create:
+      fail: "Ungültigi Nochricht"
+      no_contact: "Hoppla, du muesch zersch de Kontakt adde."
+      sent: "Nochricht gsendet"
+    index:
+      inbox: "Igang"
+      no_messages: "Kei Nochrichte"
+    new:
+      send: "Sende"
+      sending: "Sendend..."
+      subject: "worum gaht's ?"
+      to: "A"
+    show:
+      delete: "Gspröch lösche"
+      reply: "Antworte"
+      replying: "Am Antworte..."
+  date:
+    formats:
+      birthday: "%d. %B"
+      birthday_with_year: "%d. %B %Y"
+      fullmonth_day: "%d. %B"
+  delete: "Lösche"
+  email: "Email"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Korrigier folgendi Errör's und versuechs nomel."
+  fill_me_out: "Füll mi uus"
+  find_people: "Find Mensche oder Tag's"
+  invitations:
+    a_facebook_user: "En Facebook benutzer"
+    check_token:
+      not_found: "Iilatigs-token isch nöd gfunde worde"
+    create:
+      empty: "Bitte mindestens ei email adresse iigä"
+      no_more: "Kei wiiteri Iilage."
+      note_already_sent: "A %{emails} sind scho e iiladig gschickt worde."
+      rejected: "Bi folgende adresse het's Problem geh: "
+      sent: "Illadige sind a folgendi adresse gsendet worde: %{emails}"
+    new:
+      comma_separated_plz: "Du chasch mehreri email adresse iigeh, wenns dur es komma trennsch."
+      invite_someone_to_join: "Tuen öpper zu Diaspora* Iilade!"
+      language: "Sproch"
+      paste_link: "Teil de link mit dine fründe zum sie zu Diaspora* iizlade, oder schrick ene de link direkt."
+      send_an_invitation: "En Iiladig sende"
+  layouts:
+    application:
+      back_to_top: "Zrugg zum Aafang"
+      powered_by: "Es lauft mir Diaspora*"
+      public_feed: "Öffentliche Diaspora* feed vo %{name}"
+      source_package: "Lad S'Quellcode-packet abe"
+      toggle: "Mobiili aasicht ii/us-schalte"
+      whats_new: "Was git's neus?"
+    header:
+      logout: "Abmelde"
+      profile: "Profil"
+      settings: "Iistelige"
+  limited: "Limitiert"
+  more: "Meh"
+  no_results: "Kei Resultat gfunde"
+  notifications:
+    comment_on_post:
+      one: "%{actors} het din biitrag %{post_link} kommentiert"
+      other: "%{actors} hend din biitrag %{post_link} kommentiert"
+      zero: "%{actors} het din biitrag %{post_link} kommentiert"
+    index:
+      and: "und"
+      mark_unread: "als gläsä markiere"
+    liked:
+      one: "%{actors} het din post %{post_link} gern"
+      other: "%{actors} hend din post %{post_link} gern"
+      zero: "%{actors} het din post %{post_link} gern"
+    mentioned:
+      one: "%{actors} het dich im post %{post_link} erwähnt"
+      other: "%{actors} hend dich im post %{post_link} erwähnt"
+      zero: "%{actors} het dich im post %{post_link} erwähnt"
+    private_message:
+      one: "%{actors} het dir e Nochricht gschickt."
+      other: "%{actors} hend dir e Nochricht gschickt."
+      zero: "%{actors} het dir e Nochricht gschickt."
+    reshared:
+      one: "%{actors} het din post %{post_link} wiitergseit."
+      other: "%{actors} hend din post %{post_link} wiitergseit."
+    started_sharing:
+      one: "de %{actors} het agfange mit dir Teile."
+      other: "%{actors} hend agfange mit dir Teile."
+      zero: "%{actors} het agfange mit dir Teile."
+  notifier:
+    a_post_you_shared: "en post"
+    click_here: "druck do"
+    comment_on_post:
+      reply: "Gib antwort oder lueg der de post vo %{name} aa."
+    confirm_email:
+      click_link: "Klick uf dä link zum dini neu email adresse %{unconfirmed_email} z'aktiviere"
+      subject: "Bitte aktivier dini neu email adresse %{unconfirmed_email}"
+    email_sent_by_diaspora: "Das e-mail isch vo %{pod_name} gsendet worde. Wenn du kei söttigi emails me willsch,"
+    hello: "Hallo %{name}!"
+    invite:
+      message: |-
+          Hallo!
+          du bisch vo %{diaspora_id} iiglade worde Diaspora* biizträte.
+          Mit dem Link gohts los
+          [%{invite_url}][1]
+
+          Oder füeg %{diaspora_id} zu dine Aspekt hinzue. wennd scho en Account hesch.
+
+          Liebi grüess
+          De Diaspora* email roboter
+
+          Ps. Für de fall das do gar nonig weisch was Diaspora* isch:[do][2] git's meh info's.
+
+          [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
+    invited_you: "%{name} het dich zu Diaspora* iiglade"
+    liked:
+      liked: "%{name} het din post gern"
+      view_post: "Post aaluege >"
+    mentioned:
+      subject: "%{name} het dich uf Diaspora* erwähnt"
+    private_message:
+      reply_to_or_view: "Gib Antwort oder lueg die Underhaltig aa >"
+    reshared:
+      reshared: "%{name} het din post wiitergseit"
+      view_post: "Post aaluege >"
+    single_admin:
+      admin: "Din Diaspora* administrator"
+      subject: "E Nochricht über din Diaspora* Account:"
+    started_sharing:
+      sharing: "het aagfange mit dir teile!"
+      subject: "%{name} het uf Diaspora* aagfange mit dir teile"
+      view_profile: "lueg s'profil vo %{name} aa"
+    thanks: "Danke,"
+    to_change_your_notification_settings: "zum dini benochrichtigungs-iistellige z'ändere"
+  nsfw: "NSFW"
+  ok: "OK"
+  people:
+    add_contact:
+      invited_by: "Du bisch iglade worde vo"
+    index:
+      looking_for: "Bisch uf de suech noch mit %{tag_link} täggde biiträg?"
+      no_one_found: "...und niemer isch gunde worde."
+      no_results: "Hey, du muesch noch öppisem sueche."
+      results_for: "Benutzer zum Thema %{search_term}"
+      searching: "Sueche, bitte bis geduldig..."
+    person:
+      thats_you: "Das bisch du!"
+    profile_sidebar:
+      bio: "Biografie"
+      born: "Geburi"
+      gender: "Gschlächt"
+      location: "Ort"
+    show:
+      closed_account: "Dä Account isch gschlosse worde."
+      does_not_exist: "Die Person existiert nöd!"
+      has_not_shared_with_you_yet: "%{name} het bis etz no kei posts mit dir teilt.."
+  photos:
+    create:
+      integrity_error: "Fotiupload isch fehlgschlage... Sicher das da e bild gsi isch?"
+      runtime_error: "Fotiupload isch fehlgschlage... Sicher das ali tasse im chuchichäschtli sind?"
+      type_error: "Fotiupload isch fehlgschlage... lueg mal ob's bild dezuegfüegt worde isch.."
+    destroy:
+      notice: "Foti glöscht."
+    new_photo:
+      empty: "{file} isch läär, bitte wähl d'dateie nomol ohni das us."
+      invalid_ext: "{file} het e ungültigi Dateiendig. Nur folgendi ändige sind erlaubt : {extensions}"
+      size_error: "{file} isch z'gross.. - Uploads dörfed Maximal {sizeLimit} sii."
+    new_profile_photo:
+      upload: "Lad es neus Profilfoti ue!"
+    show:
+      show_original_post: "Orginal-Post aazeige"
+  posts:
+    presenter:
+      title: "En post vo %{name}"
+    show:
+      reshare_by: "Wiitergseits vo %{author}"
+  privacy: "Privatsphäre"
+  profile: "Profil"
+  profiles:
+    edit:
+      allow_search: "Andere lüüt innerhalb vo Diaspora* erlaube noch dir z'sueche"
+      first_name: "Vorname"
+      last_name: "Nochname"
+      update_profile: "Profil Update"
+      your_bio: "Dini beschriibig"
+      your_birthday: "Din Geburtstag"
+      your_gender: "Dis Gschlächt"
+      your_location: "Wo du bisch"
+      your_name: "Din name"
+      your_photo: "dis Foti"
+      your_tags: "Beschriib dich in 5 wörter"
+      your_tags_placeholder: "Zum Biispiil: #diaspora #chuchichäschtli #kreativ #linux #musig"
+    update:
+      failed: "Aktualisierä vom Profil isch fehlschlage"
+      updated: "Pofil aktualisiert"
+  public: "Öffentlich"
+  reactions:
+    one: "%{count} Reaktion"
+    other: "%{count} Reaktione"
+    zero: "Kei Reaktion"
+  registrations:
+    closed: "Uf dem pod isch Account erröffnig deaktiviert"
+    create:
+      success: "Du bisch ez volle hahne bi Diaspora* debii !"
+    invalid_invite: "De iiladigslink wo'd erstellt hesch isch nüme gültig!"
+    new:
+      email: "Email"
+      enter_email: "Gib dini email adresse ii"
+      enter_password: "Passwort iigä (mindestens 6 zeiche)"
+      enter_password_again: "Nomol s'gliich passwort wie vorher iigä"
+      enter_username: "Wähl en benutzername uus (bestehend usschliesslich us: zahle, nummere, und understrich)"
+      password: "Passwort"
+      password_confirmation: "Passwort bestätigung"
+      sign_up: "Account mache"
+      username: "Benutzername"
+  reshares:
+    reshare:
+      deleted: "Originalpost isch vom Verfasser glöscht worde"
+      reshare_confirmation: "%{author}'s post wiitersägä ?"
+      reshared_via: "wiitergseit vo"
+  search: "Sueche"
+  services:
+    create:
+      already_authorized: "En benutzer mit de Diapsora id %{diaspora_id} het de Account mit name %{service_name} scho autorisiert."
+      failure: "Authentifizierig fehlgschlage."
+      success: "Authentifizierig erfolgriich."
+    destroy:
+      success: "Authentifikation erfolgriich glöscht."
+    failure:
+      error: "Bim verbinde zu dem Dienst het's en error geh.."
+    index:
+      disconnect: "Trenne"
+      edit_services: "Dienst bearbeite"
+      logged_in_as: "Iigloggt als %{nickname}"
+      really_disconnect: "%{service} trenne"
+  settings: "Iistelige"
+  shared:
+    invitations:
+      by_email: "via email"
+      invite_your_friends: "Lad dini Kollege ii"
+      invites: "Iiladige"
+      share_this: "Teil dä Link über email, blog  oder soziali Netzwerk!"
+    public_explain:
+      atom_feed: "Atom feed"
+      control_your_audience: "Kontrolier dini Ziilgruppe"
+      logged_in: "Igglogt in %{service}"
+      manage: "Verbundeni dienst verwalte"
+      new_user_welcome_message: "Mach #hashtags zum dini post's z'tägge und lüüt mit ähnliche intresse finde. Erwähn anderi mensche mit @mentions"
+      outside: "Öfentlichi biiträg sind für's gsamte internet sichtbar."
+      share: "Teilä"
+      title: "Verbundeni Dienst ufsetzä"
+      visibility_dropdown: "Zum iistelle wär din post gseh dörf benutz s'dropdown menü. (Mer empfehled din erschtä post öffentlich z'mache (wellen susch nemert gseht ^^ ))"
+    publisher:
+      discard_post: "Posting abbreche"
+      new_user_prefill:
+        hello: "Hallo zämä Ich bin %{new_user_tag}. "
+        i_like: "Ich interessier mich für %{tags} "
+        invited_by: "Danke für d'iilagig, "
+        newhere: "neudo"
+      posting: "Am poste..."
+      share: "Teilä"
+      upload_photos: "Fotis Uelade"
+      whats_on_your_mind: "Was lauft?"
+    stream_element:
+      via: "via %{link}"
+      via_mobile: "über's händy"
+  status_messages:
+    create:
+      success: "Erfolgriich erwähnt: %{names}"
+    new:
+      mentioning: "Erwähnt: %{person}"
+    too_long: "Bitte chürz din post uf weniger als %{count} zeichä. Im moment heter %{current_length}."
+  streams:
+    activity:
+      title: "Mini Aktivitätä"
+    aspects:
+      title: "mini Aspekt"
+    aspects_stream: "Aspekt"
+    comment_stream:
+      title: "Kommentierti Post's"
+    community_spotlight_stream: "Kommunity Schiiwörferliecht"
+    followed_tag:
+      add_a_tag: "En tag adde"
+      follow: "Folge"
+      title: "#tags dene du folgsch"
+    followed_tags_stream: "#tags dene du folgsch"
+    like_stream:
+      title: "\"gfallt mer\"-stream"
+    mentioned_stream: "@erwähnige"
+    mentions:
+      title: "@erwähnige"
+    multi:
+      title: "stream"
+    public:
+      title: "Öffentlichi aktivität"
+    tags:
+      title: "Täggti Biiträg: %{tags}"
+  tags:
+    show:
+      follow: "#%{tag} folge"
+      none: "De läär tag existiert nöd!"
+      stop_following: "Ufhöre #%{tag} z'folge"
+  username: "Benutzername"
+  users:
+    confirm_email:
+      email_confirmed: "Email %{email} isch aktiviert"
+      email_not_confirmed: "Email het nöd chönne aktiviert werde. Falsche Link?"
+    destroy:
+      no_password: "Bitte dis aktuelle passwort iigäh zum de account schlüsse."
+      success: "Dis Konto isch gschperrt. Es chan ~ 20 Minute goh bevor din Account endgültig gschlosse isch. Danke das du dich uf Diaspora* versuecht hesch."
+      wrong_password: "Das Passwort stimmt nöd mit dim aktuelle passwort überein."
+    edit:
+      also_commented: "öpper en post kommentiert wo du scho kommentiert häsch"
+      auto_follow_aspect: "Apekt für benutzer mit dene du automatisch hesch agfange teile"
+      auto_follow_back: "Automatisch mit benutzer \"zruggteile\" wo agfange hend mit dir z'teile"
+      change: "ändere"
+      change_email: "Email ändere"
+      change_language: "Sproch ändere"
+      change_password: "Passwort ändere"
+      character_minimum_expl: "mues mindestens sächs zeiche ha"
+      close_account:
+        dont_go: "Hey, bitte hau nöd ab!"
+        lock_username: "Din benutzername wird gsperrt. Niemer wird d'möglichkeit ha zum die gliich ID uf dem pod nomol z'registriere."
+        locked_out: "Du wirsch us dim account abgmeldet und usgsperrt bis er glöscht worde isch."
+        make_diaspora_better: "Üs wär's sehr vill lieber du würsch bliibe und mithelfe Diaspora* besser z'mache anstatt z'goh. - Wenn aber würkli wotsch, das passiert als nöchschts:"
+        mr_wiggles: "Wenn du gosch wird de Mr.Wiggles ganz truurig"
+        no_turning_back: "Es git keis zrugg! Wenn du dir würkli sicher bisch, gib dis passwort une ii."
+        what_we_delete: "Mer lösched all dini biiträg und profildate so bald als möglich. Dini kommentär wo du under de posts vo andere lüüt gmacht hesch werded immerno aazeigt aber mit dinere Diaspora* ID assoziiert anstatt dim name."
+      close_account_text: "Account schlüsse"
+      comment_on_post: "öpper en post vo dir kommentiert"
+      current_password: "aktuell's passwort"
+      current_password_expl: "Das mit demm du di aameldisch..."
+      edit_account: "Account bearbeite"
+      email_awaiting_confirmation: "Mer dir en link noch %{unconfirmed_email} gschikt. Bis du de enthalteni link göffnet hesch und so die neu adresse aktiviersch, sendemer wiiterhin a dini alt adresse %{email}"
+      export_data: "Date exportiere"
+      following: "\"Teile\"-Iistelige"
+      liked: "öpper en post vo dir \"mag\""
+      mentioned: "du @erwähnt wirsch"
+      new_password: "Neus Passwort"
+      private_message: "du e privati nochricht überchunsch"
+      receive_email_notifications: "Email-benochritigunge empfange wänn:"
+      reshared: "öpper din post wiiterseit"
+      show_community_spotlight: "Kommunity Schiiwörferliecht im stream aazeige"
+      show_getting_started: "Iistiiger hiiwiis wieder aktivierä"
+      started_sharing: "öpper mit dir aafangt teile"
+      stream_preferences: "Stream Iistellige"
+      your_email: "Dini Email Adresse"
+      your_handle: "Dini Diaspora* ID"
+    getting_started:
+      awesome_take_me_to_diaspora: "Grossartig! bring mich zu Diaspora*"
+      community_welcome: "d'Diapora\"-Mensche sind froh dich an board zha!"
+      hashtag_explanation: "Mit hashtags chasch du über Sache rede und dini Intresse folge. Usserdem eignet si sich hervorragend zum neui lüüt uf Diaspora* z'finde."
+      hashtag_suggestions: "Versuech's mal tags wie zb. #kunscht, #film, #chääs etc.."
+      well_hello_there: "Halli Hallo !"
+      what_are_you_in_to: "Was machsch so?"
+      who_are_you: "Wär bisch du?"
+    privacy_settings:
+      ignored_users: "Ignorierti benutzer"
+      stop_ignoring: "Ignoriere ufhebe"
+      title: "Privatsphäre iistelige"
+    public:
+      does_not_exist: "%{username} existiert nöd."
+    update:
+      email_notifications_changed: "Email benochrichtigunge gänderet"
+      follow_settings_changed: "Folge-Iistelige gänderet"
+      follow_settings_not_changed: "Folge-Iistelige änderig fehlgschlage"
+      language_changed: "Sproch gänderet"
+      language_not_changed: "Änderig vo de Sproch isch fehlgschlage"
+      password_changed: "Passwort g'änderet. Du chasch di jetzt mit dim neue Passwort iilogge."
+      password_not_changed: "Passwort änderig fehlgschlage"
+      settings_not_updated: "Änderig vo de Iistellige isch fehlgschlage"
+      settings_updated: "Iistellige aktualisiert"
+      unconfirmed_email_changed: "Email g'änderet. Mue no aktiviert werde"
+      unconfirmed_email_not_changed: "Email änderig fehlgschlage"
+  will_paginate:
+    next_label: "nögscht &raquo;"
+    previous_label: "&laquo; zrugg"

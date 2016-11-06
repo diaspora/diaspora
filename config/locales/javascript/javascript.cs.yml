@@ -8,11 +8,45 @@ cs:
   javascripts:
     admin:
       pods:
+        actions: "Akce"
+        added: "Přidáno"
+        check: "Provést test spojení"
+        follow_link: "otevřít odkaz v prohlížeči"
+        last_check: "poslední kontrola:"
+        more_info: "Zobrazit více informací"
+        ms:
+          few: "<%= count %>ms"
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "Nyní nejsou dostupné žádné další informace"
+        not_available: "Není k dispozici"
+        offline_since: "Odpojený od doby:"
+        recheck:
+          failure: "Kontrola nebyla provedena"
+        response_time: "Doba odezvy:"
+        server_software: "Software serveru:"
+        ssl: "SSL"
+        ssl_disabled: "SSL vypnuto"
+        ssl_enabled: "SSL zapnuté"
+        states:
+          dns_failed: "Selhalo rozpoznání jména (DNS)"
+          http_failed: "Selhalo spojení HTTP"
+          net_failed: "Pokus o spojení selhal"
+          no_errors: "Budiž"
+          ssl_failed: "Selhalo bezpečné spojení (SSL)"
+          unchecked: "Neoznačené"
+          unknown_error: "Během kontroly se objevila nespecifikovaná chyba"
+          version_failed: "Nebylo možné zjistit verzi software"
+        status: "Stav"
+        unknown: "Neznámý"
         version_failed:
           few: "<%= count %> pody nemají verzi (staré pody, žádné NodeInfo)"
           one: "Jeden pod nemá verzi (starý pod, žádné NodeInfo)."
           other: "<%= count %> podů nemá verzi (staré pody, žádné NodeInfo)"
           zero: "Není pod, který by neměl verzi."
+    admins:
+      dashboard:
+        error: "Není možné zjistit poslední verzi diaspora*."
     and: "a"
     aspect_dropdown:
       add_to_aspect: "Přidat kontakt"
@@ -92,6 +126,8 @@ cs:
       recent_notifications: "Poslední oznámení"
       search: "Hledat"
       settings: "Nastavení"
+      toggle_mobile: "Vybrat mobil"
+      toggle_navigation: "Vybrat navigaci"
       view_all: "Zobrazit vše"
     hide_post: "Skrýt tento příspěvek"
     hide_post_failed: "Není možné tento příspěvek skrýt"
@@ -122,6 +158,11 @@ cs:
       looking_good: "Tedy, vypadáte úžasně!"
       size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
     poll:
+      answer_count:
+        few: "<%=count%>  hlasů"
+        one: "1 hlas"
+        other: "<%=count%>  hlasů"
+        zero: "0 hlasů"
       close_result: "Skrýt výsledky"
       count:
         few: "zatím <%=count%> hlasy"
@@ -146,6 +187,34 @@ cs:
     publisher:
       add_option: "Přidejte odpověď"
       limited: "Omezený — váš příspěvek bude přístupný pouze lidem, se kterými sdílíte"
+      markdown_editor:
+        preview: "Náhled"
+        texts:
+          code: "zde kód"
+          heading: "text záhlaví"
+          insert_image_description_text: "zde popište obrázek"
+          insert_image_help_text: "zde vložte odkaz na obrázek"
+          insert_image_title: "vložte titulek k obrázku"
+          insert_link_description_text: "zde popište odkaz"
+          insert_link_help_text: "zde vložte odkaz"
+          italic: "text kurzívou"
+          list: "zde textový seznam"
+          quote: "zde text v uvozovkách"
+          strong: "tučný text"
+        tooltips:
+          bold: "Tučně"
+          cancel: "Zrušit zprávu"
+          code: "Vložit kód"
+          heading: "Záhlaví"
+          insert_image: "Vložit obrázek"
+          insert_link: "Vložit odkaz"
+          insert_ordered_list: "Vložit tříděný seznam"
+          insert_unordered_list: "Vložit netříděný seznam"
+          italic: "Kurzíva"
+          preview: "Náhled zprávy"
+          quote: "Vložit uvozovky"
+          write: "Upravit zprávu"
+        write: "Zápis"
       near_from: "Odesláno z: <%= location %>"
       option: "Odpověď"
       public: "Veřejný — váš příspěvek si bude moci přečíst kdokoliv a může být nalezen vyhledávači"
@@ -187,7 +256,12 @@ cs:
         other: "Zobrazit <%= count %> dalších komentářů"
         zero: "Zobrazit <%= count %> dalších komentářů"
       original_post_deleted: "Původní příspěvek byl odstraněn svým autorem."
+      permalink: "trvalý odkaz"
       public: "Veřejný"
+      reactions:
+        few: "<%= count%> reakcí"
+        one: "<%= count%> reakce"
+        other: "<%= count%> reakcí"
       reshare: "Sdílet"
       reshares:
         few: "<%= count %> uživatelé to sdíleli"
@@ -215,6 +289,7 @@ cs:
       hour: "hodinou"
       hours:
         other: "%d hodinami"
+      inPast: "Jakýkoli moment"
       minute: "minutou"
       minutes:
         other: "%d minutami"

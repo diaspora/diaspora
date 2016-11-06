@@ -15,7 +15,7 @@
     position: relative;
 
     .control-icons {
-      background: $white;
+      background: $framed-background;
       border-radius: 4px;
       padding-left: 4px;
       position: absolute;
@@ -26,7 +26,7 @@
   }
 
   .thumbnail {
-    background: $white;
+    background: $framed-background;
     border-radius: 0;
     box-shadow: $card-shadow;
     height: 240px;
@@ -40,7 +40,7 @@
     &:hover,
     &:focus,
     &:active {
-      border-color: $light-grey;
+      border-color: $border-grey;
       text-decoration: none;
     }
 
@@ -62,7 +62,7 @@
 
 #main_stream .stream-element {
   margin-bottom: 20px;
-  border: 1px solid $light-grey;
+  border: 1px solid $border-grey;
   box-shadow: $card-shadow;
 
   &.highlighted {
@@ -72,7 +72,7 @@
 }
 
 .stream-element {
-  background-color: $white;
+  background-color: $framed-background;
   padding: 10px;
 
   & > .media {

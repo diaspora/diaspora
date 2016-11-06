@@ -16,6 +16,7 @@
 
 ## Features
 * Show spinner when loading comments in the stream [#7170](https://github.com/diaspora/diaspora/pull/7170)
+* Add a dark color theme [#7152](https://github.com/diaspora/diaspora/pull/7152)
 
 # 0.6.1.0
 

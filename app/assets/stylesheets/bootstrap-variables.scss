@@ -187,9 +187,9 @@ $btn-success-color: #333 !default;
 // $input-bg-disabled:              $gray-lighter
 
 //** Text color for `<input>`s
-// $input-color:                    $gray
+$input-color: $text-dark-grey !default;
 //** `<input>` border color
-// $input-border:                   #ccc
+$input-border: $border-grey !default;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -202,6 +202,7 @@ $btn-success-color: #333 !default;
 
 //** Border color for inputs on focus
 // $input-border-focus:             #66afe9
+$input-border-focus: $input-border !default;
 
 //** Placeholder text color
 // $input-color-placeholder:        #999
@@ -668,7 +669,7 @@ $navbar-collapse-max-height: 480px;
 //
 //##
 //** Background color on `.list-group-item`
-$list-group-bg: $white;
+$list-group-bg: $white !default;
 //** `.list-group-item` border color
 $list-group-border: transparent;
 //** List group border radius

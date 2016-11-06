@@ -150,7 +150,7 @@ footer {
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
-  background-color: #fff;
+  background-color: $framed-background;
   margin-bottom: 10px;
 
   border: 1px solid #bbb;
@@ -176,7 +176,7 @@ footer {
     border-radius: 3px 3px 0 0;
 
     border: {
-      bottom: 1px solid #ccc;
+      bottom: 1px solid $border-medium-grey;
     }
 
     img.big-stream-photo {
@@ -322,7 +322,7 @@ footer {
 }
 
 .header-full-width {
-  background-color: #fff;
+  background-color: $framed-background;
   border-bottom: 1px solid #aaa;
   margin: -10px; // Counter the #main padding
   margin-bottom: 10px;
@@ -462,7 +462,7 @@ select {
       font-weight: bold;
       color: $text-grey;
       background: {
-        color: #fff;
+        color: $framed-background;
       }
     }
   }
