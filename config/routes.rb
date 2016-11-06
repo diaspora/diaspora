@@ -102,7 +102,6 @@ Diaspora::Application.routes.draw do
 
   resource :user, only: %i(edit destroy), shallow: true do
     put :edit, action: :update
-    get :getting_started_completed
     post :export_profile
     get :download_profile
     post :export_photos
