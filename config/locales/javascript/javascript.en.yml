@@ -135,8 +135,6 @@ en:
     my_aspects: "My aspects"
 
     publisher:
-      limited: "Limited: your post will only be seen by people you are sharing with"
-      public: "Public: your post will be visible to everyone and found by search engines"
       near_from: "Posted from: <%= location %>"
       option: "Answer"
       add_option: "Add an answer"
@@ -184,7 +182,7 @@ en:
       mobile_row_unchecked: "<%= name %> (add)"
       stopped_sharing_with: "You have stopped sharing with <%= name %>."
       started_sharing_with: "You have started sharing with <%= name %>!"
-      error: "Couldn’t start sharing with <%= name %>.  Are you ignoring them?"
+      error: "Couldn’t start sharing with <%= name %>. Are you ignoring them?"
       error_remove: "Couldn’t remove <%= name %> from the aspect :("
       toggle:
         one: "In <%= count %> aspect"
@@ -206,7 +204,7 @@ en:
       add_an_aspect: "+ Add an aspect"
     getting_started:
       hey: "Hey, <%= name %>!"
-      no_tags: "Hey, you haven’t followed any tags!  Continue anyway?"
+      no_tags: "Hey, you haven’t followed any tags! Continue anyway?"
       alright_ill_wait: "All right, I’ll wait."
       preparing_your_stream: "Preparing your personalized stream..."
     photo_uploader:
