@@ -89,14 +89,28 @@ describe ApplicationHelper, :type => :helper do
   end
 
   describe "#changelog_url" do
+    let(:changelog_url_setting) {
+      double.tap {|double| allow(AppConfig).to receive(:settings).and_return(double(changelog_url: double)) }
+    }
+
     it "defaults to master branch changleog" do
+      expect(changelog_url_setting).to receive(:present?).and_return(false)
       expect(AppConfig).to receive(:git_revision).and_return(nil)
       expect(changelog_url).to eq("https://github.com/diaspora/diaspora/blob/master/Changelog.md")
     end
 
     it "displays the changelog for the current git revision if set" do
+      expect(changelog_url_setting).to receive(:present?).and_return(false)
       expect(AppConfig).to receive(:git_revision).twice.and_return("123")
       expect(changelog_url).to eq("https://github.com/diaspora/diaspora/blob/123/Changelog.md")
+    end
+
+    it "displays the configured changelog url if set" do
+      expect(changelog_url_setting).to receive(:present?).and_return(true)
+      expect(changelog_url_setting).to receive(:get)
+        .and_return("https://github.com/diaspora/diaspora/blob/develop/Changelog.md")
+      expect(AppConfig).not_to receive(:git_revision)
+      expect(changelog_url).to eq("https://github.com/diaspora/diaspora/blob/develop/Changelog.md")
     end
   end
 
