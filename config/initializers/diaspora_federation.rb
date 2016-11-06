@@ -93,7 +93,9 @@ DiasporaFederation.configure do |config|
       end
     end
 
-    on :receive_entity do |entity, _sender, recipient_id|
+    on :receive_entity do |entity, sender, recipient_id|
+      Person.by_account_identifier(sender).pod.try(:schedule_check_if_needed)
+
       case entity
       when DiasporaFederation::Entities::AccountDeletion
         Diaspora::Federation::Receive.account_deletion(entity)

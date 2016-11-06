@@ -82,6 +82,16 @@ describe Pod, type: :model do
     end
   end
 
+  describe ".check_scheduled!" do
+    it "calls #test_connection! on all scheduled pods" do
+      (0..4).map { FactoryGirl.create(:pod) }
+      FactoryGirl.create(:pod, scheduled_check: true)
+
+      expect_any_instance_of(Pod).to receive(:test_connection!)
+      Pod.check_scheduled!
+    end
+  end
+
   describe "#active?" do
     it "returns true for an unchecked pod" do
       pod = FactoryGirl.create(:pod)
@@ -101,6 +111,32 @@ describe Pod, type: :model do
     it "returns false for a pod that is offline for less than 14 days" do
       pod = FactoryGirl.create(:pod, status: :net_failed, offline_since: DateTime.now.utc - 15.days)
       expect(pod.active?).to be_falsey
+    end
+  end
+
+  describe "#schedule_check_if_needed" do
+    it "schedules the pod for the next check if it is offline" do
+      pod = FactoryGirl.create(:pod, status: :net_failed)
+      pod.schedule_check_if_needed
+      expect(pod.scheduled_check).to be_truthy
+    end
+
+    it "does nothing if the pod unchecked" do
+      pod = FactoryGirl.create(:pod)
+      pod.schedule_check_if_needed
+      expect(pod.scheduled_check).to be_falsey
+    end
+
+    it "does nothing if the pod is online" do
+      pod = FactoryGirl.create(:pod, status: :no_errors)
+      pod.schedule_check_if_needed
+      expect(pod.scheduled_check).to be_falsey
+    end
+
+    it "does nothing if the pod is scheduled for the next check" do
+      pod = FactoryGirl.create(:pod, status: :no_errors, scheduled_check: true)
+      expect(pod).not_to receive(:update_column)
+      pod.schedule_check_if_needed
     end
   end
 
@@ -125,6 +161,16 @@ describe Pod, type: :model do
       expect(@pod.offline?).to be_falsy
       expect(@pod.response_time).to eq(123)
       expect(@pod.checked_at).to be_within(1.second).of Time.zone.now
+    end
+
+    it "resets the scheduled_check flag" do
+      allow(@result).to receive(:error)
+      allow(@result).to receive(:error?)
+      @pod.update_column(:scheduled_check, true)
+
+      @pod.test_connection!
+
+      expect(@pod.scheduled_check).to be_falsey
     end
 
     it "handles a failed check" do
