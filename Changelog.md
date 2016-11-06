@@ -1,6 +1,7 @@
 # 0.6.7.0
 
 ## Refactor
+* Cleanup some translations [#7465](https://github.com/diaspora/diaspora/pull/7465)
 
 ## Bug fixes
 
