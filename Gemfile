@@ -280,7 +280,6 @@ group :test do
   gem "fuubar",            "2.2.0"
   gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
-  gem "test_after_commit", "1.1.0"
 
   # Cucumber (integration tests)
 
