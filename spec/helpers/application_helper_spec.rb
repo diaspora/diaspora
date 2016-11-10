@@ -54,7 +54,7 @@ describe ApplicationHelper, :type => :helper do
       end
 
       it 'includes jquery.js from asset pipeline' do
-        expect(helper.jquery_include_tag).to match(/jquery2\.js/)
+        expect(helper.jquery_include_tag).to match(/jquery3\.js/)
         expect(helper.jquery_include_tag).not_to match(/jquery\.com/)
       end
     end

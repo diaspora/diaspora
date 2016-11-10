@@ -52,11 +52,13 @@ module ApplicationHelper
   def jquery_include_tag
     buf = []
     if AppConfig.privacy.jquery_cdn?
-      version = Jquery::Rails::JQUERY_2_VERSION
+      version = Jquery::Rails::JQUERY_3_VERSION
       buf << [javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js")]
-      buf << [nonced_javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag('jquery2')}'));")]
+      buf << [
+        nonced_javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag('jquery3')}'));")
+      ]
     else
-      buf << [javascript_include_tag("jquery2")]
+      buf << [javascript_include_tag("jquery3")]
     end
     buf << [javascript_include_tag("jquery_ujs")]
     buf << [nonced_javascript_tag("jQuery.ajaxSetup({'cache': false});")]
