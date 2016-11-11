@@ -1,6 +1,7 @@
 # 0.6.2.0
 
 ## Refactor
+* Use string-direction gem for rtl detection [#7181](https://github.com/diaspora/diaspora/pull/7181)
 
 ## Bug fixes
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
