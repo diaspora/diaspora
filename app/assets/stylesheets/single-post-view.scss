@@ -152,5 +152,10 @@
 
   .interaction-avatars {
     overflow: hidden;
+
+    .author-name:focus,
+    .author-name:hover {
+      text-decoration: none;
+    }
   }
 }
