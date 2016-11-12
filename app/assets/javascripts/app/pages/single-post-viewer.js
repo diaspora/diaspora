@@ -11,7 +11,6 @@ app.pages.SinglePostViewer = app.views.Base.extend({
   initialize : function() {
     this.model = new app.models.Post(gon.post);
     this.initViews();
-    this.model.comments.fetch(); // async, yo, might want to throttle this later.
   },
 
   initViews : function() {
