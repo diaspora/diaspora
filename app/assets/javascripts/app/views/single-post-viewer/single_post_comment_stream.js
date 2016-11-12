@@ -7,7 +7,6 @@ app.views.SinglePostCommentStream = app.views.CommentStream.extend({
     this.CommentView = app.views.ExpandedComment;
     $(window).on('hashchange',this.highlightPermalinkComment);
     this.setupBindings();
-    this.model.comments.on("reset", this.render, this);
     this.model.comments.fetch({success: function() {
       setTimeout(this.highlightPermalinkComment, 0);
     }.bind(this)});
