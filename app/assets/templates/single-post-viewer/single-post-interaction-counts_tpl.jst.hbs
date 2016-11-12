@@ -10,6 +10,12 @@
           {{{personImage this "small" "micro"}}}
         {{/linkToAuthor}}
       {{/each}}
+      {{#if showMoreReshares}}
+        <div class="loader hidden">
+          <div class="spinner"></div>
+        </div>
+        <div id="show-all-reshares" class="btn btn-sm btn-link">{{t "show_all"}}</div>
+      {{/if}}
     </div>
   </div>
 {{/if}}
@@ -25,6 +31,12 @@
           {{{personImage this "small" "micro"}}}
         {{/linkToAuthor}}
       {{/each}}
+      {{#if showMoreLikes}}
+        <div class="loader hidden">
+          <div class="spinner"></div>
+        </div>
+        <div id="show-all-likes" class="btn btn-sm btn-link">{{t "show_all"}}</div>
+      {{/if}}
     </div>
   </div>
 {{/if}}
