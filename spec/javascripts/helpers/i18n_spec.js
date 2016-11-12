@@ -45,6 +45,28 @@ describe("Diaspora.I18n", function() {
 
       expect(Diaspora.I18n.locale.data).toEqual(extended);
     });
+
+    it("overrides existing translations", function() {
+      var oldLocale = {name: "Bob"};
+      var newLocale = {name: "Alice"};
+      Diaspora.I18n.load(oldLocale, "en");
+      expect(Diaspora.I18n.locale.data.name).toBe("Bob");
+      Diaspora.I18n.load(newLocale, "en");
+      expect(Diaspora.I18n.locale.data.name).toBe("Alice");
+
+      Diaspora.I18n.reset(oldLocale);
+      expect(Diaspora.I18n.locale.data.name).toBe("Bob");
+      Diaspora.I18n.load(newLocale, "en");
+      expect(Diaspora.I18n.locale.data.name).toBe("Alice");
+    });
+
+    it("doesn't change locale objects given in ealier calls", function() {
+      var oldLocale = {name: "Bob"};
+      var newLocale = {name: "Alice"};
+      Diaspora.I18n.reset(oldLocale);
+      Diaspora.I18n.load(newLocale, "en");
+      expect(oldLocale.name).toBe("Bob");
+    });
   });
 
   describe("::t", function() {
