@@ -29,7 +29,6 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i(show destroy) do
     member do
-      get :interactions
       get :mentionable
     end
 

@@ -129,38 +129,6 @@ describe PostsController, type: :controller do
     end
   end
 
-  describe "#interactions" do
-    context "user not signed in" do
-      it "returns a 401 for private posts and format json" do
-        get :interactions, params: {id: post.id}, format: :json
-        expect(response.status).to eq(401)
-        expect(JSON.parse(response.body)["error"]).to eq(I18n.t("devise.failure.unauthenticated"))
-      end
-
-      it "returns a 406 for private posts and format html" do
-        get :interactions, params: {id: post.id}
-        expect(response.status).to eq(406)
-      end
-    end
-
-    context "user signed in" do
-      before do
-        sign_in alice
-      end
-
-      it "shows interactions of a post as json" do
-        get :interactions, params: {id: post.id}, format: :json
-        expect(response.body).to eq(PostInteractionPresenter.new(post, alice).to_json)
-      end
-
-      it "returns a 406 for format html" do
-        sign_in alice
-        get :interactions, params: {id: post.id}
-        expect(response.status).to eq(406)
-      end
-    end
-  end
-
   describe "#mentionable" do
     context "with a user signed in" do
       before do

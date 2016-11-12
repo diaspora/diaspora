@@ -3,10 +3,6 @@
 //require ../post
 
 app.models.Post.Interactions = Backbone.Model.extend({
-  url : function(){
-    return this.post.url() + "/interactions";
-  },
-
   initialize : function(options){
     this.post = options.post;
     this.comments = new app.collections.Comments(this.get("comments"), {post : this.post});

@@ -39,16 +39,6 @@ class PostsController < ApplicationController
     head :not_found
   end
 
-  def interactions
-    respond_to do |format|
-      format.json {
-        post = post_service.find!(params[:id])
-        render json: PostInteractionPresenter.new(post, current_user)
-      }
-      format.any { head :not_acceptable }
-    end
-  end
-
   def mentionable
     respond_to do |format|
       format.json {
