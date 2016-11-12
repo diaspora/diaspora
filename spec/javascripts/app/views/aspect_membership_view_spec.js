@@ -59,7 +59,6 @@ describe("app.views.AspectMembership", function(){
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
       expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
-      );
     });
   });
 
