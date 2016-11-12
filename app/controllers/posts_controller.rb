@@ -22,11 +22,11 @@ class PostsController < ApplicationController
     presenter = PostPresenter.new(post, current_user)
     respond_to do |format|
       format.html do
-        gon.post = presenter
+        gon.post = presenter.with_initial_interactions
         render locals: {post: presenter}
       end
       format.mobile { render locals: {post: post} }
-      format.json { render json: presenter }
+      format.json { render json: presenter.with_interactions }
     end
   end
 
