@@ -17,7 +17,7 @@ describe ConversationsController, :type => :controller do
   end
 
   describe "#new modal" do
-    context "desktop and mobile" do
+    context "desktop" do
       it "succeeds" do
         get :new, modal: true
         expect(response).to be_success
@@ -31,14 +31,6 @@ describe ConversationsController, :type => :controller do
       it "assigns a set of contacts if passed an aspect id" do
         get :new, aspect_id: alice.aspects.first.id, modal: true
         expect(controller.gon.conversation_prefill).to eq(alice.aspects.first.contacts.map {|c| c.person.as_json })
-      end
-
-      it "does not allow XSS via the name parameter" do
-        ["</script><script>alert(1);</script>",
-         '"}]});alert(1);(function f() {var foo = [{b:"'].each do |xss|
-          get :new, modal: true, name: xss
-          expect(response.body).not_to include xss
-        end
       end
     end
 
@@ -56,6 +48,14 @@ describe ConversationsController, :type => :controller do
         alice.contacts << Contact.new(person_id: eve.person.id, user_id: alice.id, sharing: false, receiving: true)
         expect(assigns(:contacts_json)).not_to include(alice.contacts.where(sharing: false).first.person.name)
         expect(assigns(:contacts_json)).not_to include(alice.contacts.where(receiving: false).first.person.name)
+      end
+
+      it "does not allow XSS via the name parameter" do
+        ["</script><script>alert(1);</script>",
+         '"}]});alert(1);(function f() {var foo = [{b:"'].each do |xss|
+          get :new, modal: true, name: xss
+          expect(response.body).not_to include xss
+        end
       end
 
       it "does not allow XSS via the profile name" do
