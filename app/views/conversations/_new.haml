@@ -2,9 +2,13 @@
   = form_for Conversation.new, html: {id: "new-conversation",
     class: "new-conversation form-horizontal"}, remote: true do |conversation|
     .form-group
-      %label#toLabel{for: "contact_ids"}
-        = t(".to")
-      = text_field_tag "contact_autocomplete", nil, id: "contact-autocomplete", class: "form-control"
+      %label#to-label{for: "contacts-search-input"}= t(".to")
+      .recipients-tag-list.clearfix#recipients-tag-list
+      = text_field_tag "contact_autocomplete", nil, id: "contacts-search-input", class: "form-control"
+      - unless defined?(mobile) && mobile
+        = text_field_tag "person_ids", nil, id: "contact-ids", type: "hidden",
+                                            aria: {labelledby: "to-label"}
+
     .form-group
       %label#subject-label{for: "conversation-subject"}
         = t(".subject")
@@ -14,12 +18,14 @@
                                 aria:  {labelledby: "subject-label"},
                                 value: "",
                                 placeholder: t("conversations.new.subject_default")
+
     .form-group
-      %label.sr-only#message-label{for: "new-message-text"} = t(".message")
+      %label.sr-only#message-label{for: "new-message-text"}= t(".message")
       = text_area_tag "conversation[text]", "",
                                 rows: 5,
                                 id: "new-message-text",
                                 class: "conversation-message-text input-block-level form-control",
                                 aria: {labelledby: "message-label"}
+
     .form-group
       = conversation.submit t(".send"), "data-disable-with" => t(".sending"), :class => "btn btn-primary pull-right"
