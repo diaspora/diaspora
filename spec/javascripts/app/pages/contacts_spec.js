@@ -280,16 +280,16 @@ describe("app.pages.Contacts", function(){
 
   describe("showMessageModal", function() {
     beforeEach(function() {
-      $("body").append("<div id='conversationModal'/>").append(spec.readFixture("conversations_modal"));
+      spec.content().append("<div id='conversationModal'/>");
     });
 
     it("calls app.helpers.showModal", function() {
       spyOn(app.helpers, "showModal");
       this.view.showMessageModal();
-      expect(app.helpers.showModal);
+      expect(app.helpers.showModal).toHaveBeenCalled();
     });
 
-    it("app.views.ConversationsForm with correct parameters when modal is loaded", function() {
+    it("initializes app.views.ConversationsForm with correct parameters when modal is loaded", function() {
       gon.conversationPrefill = [
         {id: 1, name: "diaspora user", handle: "diaspora-user@pod.tld"},
         {id: 2, name: "other diaspora user", handle: "other-diaspora-user@pod.tld"},
@@ -299,7 +299,6 @@ describe("app.pages.Contacts", function(){
       spyOn(app.views.ConversationsForm.prototype, "initialize");
       this.view.showMessageModal();
       $("#conversationModal").trigger("modal:loaded");
-      expect($("#conversationModal").length).toBe(1);
       expect(app.views.ConversationsForm.prototype.initialize)
         .toHaveBeenCalledWith({prefill: gon.conversationPrefill});
     });
