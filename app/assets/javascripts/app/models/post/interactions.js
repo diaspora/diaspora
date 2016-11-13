@@ -100,11 +100,10 @@ app.models.Post.Interactions = Backbone.Model.extend({
       if (options.error) { options.error(); }
     }).done(function() {
       self.post.set({participation: true});
+      self.set({"comments_count": self.get("comments_count") + 1});
       self.trigger('change'); //updates after sync
       if (options.success) { options.success(); }
     });
-
-    this.trigger("change"); //updates count in an eager manner
 
     app.instrument("track", "Comment");
   },
