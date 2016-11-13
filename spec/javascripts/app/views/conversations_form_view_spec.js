@@ -43,13 +43,13 @@ describe("app.views.ConversationsForm", function() {
       $("#conversation-show").addClass("hidden");
     });
 
-    it("add the participant", function() {
+    it("adds the participant", function() {
       expect(this.target.conversationRecipients).toEqual([]);
       this.target.addRecipient({name: "diaspora user", handle: "diaspora-user@pod.tld"});
       expect(this.target.conversationRecipients).toEqual([{name: "diaspora user", handle: "diaspora-user@pod.tld"}]);
     });
 
-    it("call updateContactIdsListInput", function() {
+    it("calls updateContactIdsListInput", function() {
       spyOn(app.views.ConversationsForm.prototype, "updateContactIdsListInput");
       this.target.addRecipient({name: "diaspora user", handle: "diaspora-user@pod.tld"});
       expect(app.views.ConversationsForm.prototype.updateContactIdsListInput).toHaveBeenCalled();
@@ -67,7 +67,7 @@ describe("app.views.ConversationsForm", function() {
       this.prefills = [{name: "diaspora user"}, {name: "other diaspora user"}, {name: "user"}];
     });
 
-    it("call addRecipient for each prefilled participant", function() {
+    it("calls addRecipient for each prefilled participant", function() {
       spyOn(app.views.ConversationsForm.prototype, "addRecipient");
       this.target.prefill(this.prefills);
       expect(app.views.ConversationsForm.prototype.addRecipient).toHaveBeenCalledTimes(this.prefills.length);
@@ -115,7 +115,7 @@ describe("app.views.ConversationsForm", function() {
   });
 
   describe("onSuggestionSelection", function() {
-    it("calls addRecipient, updateContactIdsListInput and $.fn.typeahead", function() {
+    it("calls addRecipient and $.fn.typeahead", function() {
       spyOn(app.views.ConversationsForm.prototype, "addRecipient");
       spyOn($.fn, "typeahead");
       var person = {name: "diaspora user"};
@@ -208,10 +208,15 @@ describe("app.views.ConversationsForm", function() {
     it("removes the tag element when clicking the tag's remove button", function() {
       expect($("[data-diaspora-handle='diaspora-user@pod.tld']").length).toBe(1);
       $("[data-diaspora-handle='diaspora-user@pod.tld'] .remove").click();
+      expect($("[data-diaspora-handle='diaspora-user@pod.tld']").length).toBe(0);
+
       expect($("[data-diaspora-handle='other-diaspora-user@pod.tld']").length).toBe(1);
       $("[data-diaspora-handle='other-diaspora-user@pod.tld'] .remove").click();
+      expect($("[data-diaspora-handle='other-diaspora-user@pod.tld']").length).toBe(0);
+
       expect($("[data-diaspora-handle='user@pod.tld']").length).toBe(1);
       $("[data-diaspora-handle='user@pod.tld'] .remove").click();
+      expect($("[data-diaspora-handle='user@pod.tld']").length).toBe(0);
     });
 
     it("calls updateContactIdsListInput", function() {
