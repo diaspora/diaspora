@@ -131,7 +131,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: "text debug"},
-            person_ids:   [alice.contacts.first.person.id]
+            person_ids:   alice.contacts.first.person.id.to_s
           }
         end
 
@@ -170,7 +170,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: " ", text: "text debug"},
-            person_ids:   [alice.contacts.first.person.id]
+            person_ids:   alice.contacts.first.person.id.to_s
           }
         end
 
@@ -194,7 +194,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: "  "},
-            person_ids:   [alice.contacts.first.person.id]
+            person_ids:   alice.contacts.first.person.id.to_s
           }
         end
 
@@ -283,7 +283,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: "text debug"},
-            person_ids:   [@person1.id, @person2.id, @person3.id]
+            person_ids:   [@person1.id, @person2.id, @person3.id].join(",")
           }
         end
 
@@ -317,7 +317,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: "text debug"},
-            contact_ids:  [alice.contacts.first.id]
+            contact_ids:  alice.contacts.first.id.to_s
           }
         end
 
@@ -356,7 +356,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: " ", text: "text debug"},
-            contact_ids:  [alice.contacts.first.id]
+            contact_ids:  alice.contacts.first.id.to_s
           }
         end
 
@@ -380,7 +380,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: " "},
-            contact_ids:  [alice.contacts.first.id]
+            contact_ids:  alice.contacts.first.id.to_s
           }
         end
 
@@ -466,7 +466,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: "text debug"},
-            person_ids:   [@contact1.id, @contact2.id]
+            person_ids:   [@contact1.id, @contact2.id].join(",")
           }
         end
 
