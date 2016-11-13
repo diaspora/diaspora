@@ -25,6 +25,8 @@ app.views.CommentStream = app.views.Base.extend({
 
   postRenderTemplate : function() {
     this.model.comments.each(this.appendComment, this);
+    this.commentBox = this.$(".comment_box");
+    this.commentSubmitButton = this.$("input[name='commit']");
   },
 
   presenter: function(){
@@ -38,15 +40,35 @@ app.views.CommentStream = app.views.Base.extend({
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
 
-    var commentText = $.trim(this.$('.comment_box').val());
-    this.$(".comment_box").val("");
-    this.$(".comment_box").css("height", "");
-    if(commentText) {
-      this.model.comment(commentText);
-      return this;
-    } else {
-      this.$(".comment_box").focus();
+    var commentText = $.trim(this.commentBox.val());
+    if (commentText === "") {
+      this.commentBox.focus();
+      return;
     }
+
+    this.disableCommentBox();
+
+    this.model.comment(commentText, {
+      success: function() {
+        this.commentBox.val("");
+        this.enableCommentBox();
+        autosize.update(this.commentBox);
+      }.bind(this),
+      error: function() {
+        this.enableCommentBox();
+        this.commentBox.focus();
+      }.bind(this)
+    });
+  },
+
+  disableCommentBox: function() {
+    this.commentBox.prop("disabled", true);
+    this.commentSubmitButton.prop("disabled", true);
+  },
+
+  enableCommentBox: function() {
+    this.commentBox.removeAttr("disabled");
+    this.commentSubmitButton.removeAttr("disabled");
   },
 
   keyDownOnCommentBox: function(evt) {

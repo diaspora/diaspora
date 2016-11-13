@@ -91,14 +91,17 @@ app.models.Post.Interactions = Backbone.Model.extend({
     app.instrument("track", "Unlike");
   },
 
-  comment : function (text) {
+  comment: function(text, options) {
     var self = this;
+    options = options || {};
 
     this.comments.make(text).fail(function () {
       app.flashMessages.error(Diaspora.I18n.t("failed_to_comment"));
+      if (options.error) { options.error(); }
     }).done(function() {
       self.post.set({participation: true});
       self.trigger('change'); //updates after sync
+      if (options.success) { options.success(); }
     });
 
     this.trigger("change"); //updates count in an eager manner
