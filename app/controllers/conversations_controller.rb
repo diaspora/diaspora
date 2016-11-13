@@ -35,7 +35,7 @@ class ConversationsController < ApplicationController
     # This will have to be removed when mobile autocomplete is ported to Typeahead
     recipients_param, column = [%i(contact_ids id), %i(person_ids person_id)].find {|param, _| params[param].present? }
     if recipients_param
-      person_ids = current_user.contacts.where(column => params[recipients_param].split(",")).pluck(:person_id)
+      person_ids = current_user.contacts.mutual.where(column => params[recipients_param].split(",")).pluck(:person_id)
     end
 
     opts = params.require(:conversation).permit(:subject)
