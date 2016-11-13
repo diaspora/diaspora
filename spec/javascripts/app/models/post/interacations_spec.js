@@ -214,6 +214,13 @@ describe("app.models.Post.Interactions", function(){
         expect(this.post.get("participation")).toBeTruthy();
       });
 
+      it("increases the comments count", function() {
+        var commentsCount = this.interactions.get("comments_count");
+        this.interactions.comment("text");
+        jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
+        expect(this.interactions.get("comments_count")).toBe(commentsCount + 1);
+      });
+
       it("triggers a change on the model", function() {
         spyOn(this.interactions, "trigger");
         this.interactions.comment("text");
@@ -235,6 +242,20 @@ describe("app.models.Post.Interactions", function(){
         this.interactions.comment("text");
         jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
         expect(this.post.get("participation")).toBeFalsy();
+      });
+
+      it("doesn't increase the comments count", function() {
+        var commentsCount = this.interactions.get("comments_count");
+        this.interactions.comment("text");
+        jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
+        expect(this.interactions.get("comments_count")).toBe(commentsCount);
+      });
+
+      it("doesn't trigger a change on the model", function() {
+        spyOn(this.interactions, "trigger");
+        this.interactions.comment("text");
+        jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
+        expect(this.interactions.trigger).not.toHaveBeenCalledWith("change");
       });
 
       it("calls the error function if one is given", function() {
