@@ -75,7 +75,7 @@ app.views.ConversationsForm = Backbone.View.extend({
     var diasporaHandle = $recipientTagEl.data("diaspora-handle");
 
     this.conversationRecipients = this.conversationRecipients.filter(function(person) {
-      return diasporaHandle.localeCompare(person.handle) !== 0;
+      return diasporaHandle !== person.handle;
     });
 
     this.updateContactIdsListInput();
