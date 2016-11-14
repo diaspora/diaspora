@@ -131,7 +131,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: "text debug"},
-            person_ids:   [alice.contacts.first.person.id]
+            person_ids:   alice.contacts.first.person.id.to_s
           }
         end
 
@@ -170,7 +170,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: " ", text: "text debug"},
-            person_ids:   [alice.contacts.first.person.id]
+            person_ids:   alice.contacts.first.person.id.to_s
           }
         end
 
@@ -194,7 +194,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: "  "},
-            person_ids:   [alice.contacts.first.person.id]
+            person_ids:   alice.contacts.first.person.id.to_s
           }
         end
 
@@ -272,6 +272,39 @@ describe ConversationsController, :type => :controller do
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
+
+      context "with non-mutual contact" do
+        before do
+          @person1 = FactoryGirl.create(:person)
+          @person2 = FactoryGirl.create(:person)
+          alice.contacts.create!(receiving: false, sharing: true, person: @person2)
+          @person3 = FactoryGirl.create(:person)
+          alice.contacts.create!(receiving: true, sharing: false, person: @person3)
+          @hash = {
+            format:       :js,
+            conversation: {subject: "secret stuff", text: "text debug"},
+            person_ids:   [@person1.id, @person2.id, @person3.id].join(",")
+          }
+        end
+
+        it "does not create a conversation" do
+          count = Conversation.count
+          post :create, @hash
+          expect(Conversation.count).to eq(count)
+        end
+
+        it "does not create a message" do
+          count = Message.count
+          post :create, @hash
+          expect(Message.count).to eq(count)
+        end
+
+        it "responds with an error message" do
+          post :create, @hash
+          expect(response).not_to be_success
+          expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
+        end
+      end
     end
 
     context "mobile" do
@@ -284,7 +317,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: "text debug"},
-            contact_ids:  [alice.contacts.first.id]
+            contact_ids:  alice.contacts.first.id.to_s
           }
         end
 
@@ -323,7 +356,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: " ", text: "text debug"},
-            contact_ids:  [alice.contacts.first.id]
+            contact_ids:  alice.contacts.first.id.to_s
           }
         end
 
@@ -347,7 +380,7 @@ describe ConversationsController, :type => :controller do
           @hash = {
             format:       :js,
             conversation: {subject: "secret stuff", text: " "},
-            contact_ids:  [alice.contacts.first.id]
+            contact_ids:  alice.contacts.first.id.to_s
           }
         end
 
@@ -417,6 +450,42 @@ describe ConversationsController, :type => :controller do
           count = Message.count
           post :create, @hash
           expect(Message.count).to eq(count)
+        end
+
+        it "responds with an error message" do
+          post :create, @hash
+          expect(response).not_to be_success
+          expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
+        end
+      end
+
+      context "with non-mutual contact" do
+        before do
+          @contact1 = alice.contacts.create(receiving: false, sharing: true, person: FactoryGirl.create(:person))
+          @contact2 = alice.contacts.create(receiving: true, sharing: false, person: FactoryGirl.create(:person))
+          @hash = {
+            format:       :js,
+            conversation: {subject: "secret stuff", text: "text debug"},
+            person_ids:   [@contact1.id, @contact2.id].join(",")
+          }
+        end
+
+        it "does not create a conversation" do
+          count = Conversation.count
+          post :create, @hash
+          expect(Conversation.count).to eq(count)
+        end
+
+        it "does not create a message" do
+          count = Message.count
+          post :create, @hash
+          expect(Message.count).to eq(count)
+        end
+
+        it "responds with an error message" do
+          post :create, @hash
+          expect(response).not_to be_success
+          expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
     end
