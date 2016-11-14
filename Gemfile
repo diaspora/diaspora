@@ -53,7 +53,7 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 # CSS
 
 gem "bootstrap-sass", "3.3.7"
-gem "compass-rails",  "2.0.5"
+gem "compass-rails",  "3.0.2"
 gem "sass-rails",     "5.0.6"
 gem "autoprefixer-rails", "6.5.1"
 gem "bootstrap-switch-rails", "3.3.3"
@@ -91,6 +91,11 @@ gem "jquery-rails",      "4.2.1"
 gem "jquery-ui-rails",   "5.0.5"
 gem "js_image_paths",    "0.1.0"
 gem "js-routes",         "1.2.9"
+
+# ES6
+gem "sprockets",            ">=3.0.0"
+gem "sprockets-es6",        "0.9.2"
+gem "babel-transpiler",     "0.7.0"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "2.2.4" # Should be kept in sync with jquery-rails
