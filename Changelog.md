@@ -9,10 +9,14 @@
 # 0.6.2.0
 
 ## Refactor
+* Use string-direction gem for rtl detection [#7181](https://github.com/diaspora/diaspora/pull/7181)
+* Reduce i18n.load side effects [#7184](https://github.com/diaspora/diaspora/pull/7184)
+* Force jasmine fails on syntax errors [#7185](https://github.com/diaspora/diaspora/pull/7185)
 
 ## Bug fixes
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
 * Hide 'reshare' button on already reshared posts [#7169](https://github.com/diaspora/diaspora/pull/7169)
+* Only reload profile header when changing aspect memberships [#7183](https://github.com/diaspora/diaspora/pull/7183)
 
 ## Features
 * Show spinner when loading comments in the stream [#7170](https://github.com/diaspora/diaspora/pull/7170)

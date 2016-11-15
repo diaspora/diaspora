@@ -135,6 +135,10 @@ gem "twitter-text",      "1.14.0"
 gem "ruby-oembed",       "0.10.1"
 gem "open_graph_reader", "0.6.1"
 
+# RTL support
+
+gem "string-direction", "1.2.0"
+
 # Security Headers
 
 gem "secure_headers", "3.5.0"

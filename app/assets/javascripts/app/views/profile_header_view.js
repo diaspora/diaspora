@@ -15,6 +15,7 @@ app.views.ProfileHeader = app.views.Base.extend({
   initialize: function(opts) {
     this.photos = _.has(opts, 'photos') ? opts.photos : null;
     this.contacts = _.has(opts, 'contacts') ? opts.contacts : null;
+    this.model.on("change", this.render, this);
     $("#mentionModal").on("modal:loaded", this.mentionModalLoaded.bind(this));
     $("#mentionModal").on("hidden.bs.modal", this.mentionModalHidden);
   },
