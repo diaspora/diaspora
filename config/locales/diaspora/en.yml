@@ -193,7 +193,7 @@ en:
       friends: "Friends"
     index:
       donate: "Donate"
-      keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
+      keep_pod_running: "Keep %{pod} running fast with a donation!"
       welcome_to_diaspora: "Welcome to silent.army, %{name}!"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
 
