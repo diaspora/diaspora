@@ -1,3 +1,4 @@
+%li= link_to(t("_help"), help_path)
 %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)
 - if AppConfig.settings.terms.enable?
     %li= link_to(t('_terms'), terms_path)
