@@ -13,7 +13,7 @@ module SessionsHelper
   end
 
   def display_password_reset_link?
-    devise_mapping.recoverable? && controller_name != "passwords"
+    AppConfig.mail.enable? && devise_mapping.recoverable? && controller_name != "passwords"
   end
 
   def flash_class(name)

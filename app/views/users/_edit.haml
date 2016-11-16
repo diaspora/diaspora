@@ -117,58 +117,59 @@
 
     = render partial: "post_default"
 
-    .row
-      .col-md-12
-        %h3
-          = t(".receive_email_notifications")
-        = form_for "user", url: edit_user_path, html: {method: :put} do |f|
-          = f.fields_for :email_preferences do |type|
-            #email_prefs
-              - if current_user.admin?
-                = type.label :someone_reported, class: "checkbox-inline" do
-                  = type.check_box :someone_reported, {checked: @email_prefs["someone_reported"]}, false, true
-                  = t(".someone_reported")
+    - if AppConfig.mail.enable?
+      .row
+        .col-md-12
+          %h3
+            = t(".receive_email_notifications")
+          = form_for "user", url: edit_user_path, html: {method: :put} do |f|
+            = f.fields_for :email_preferences do |type|
+              #email_prefs
+                - if current_user.admin?
+                  = type.label :someone_reported, class: "checkbox-inline" do
+                    = type.check_box :someone_reported, {checked: @email_prefs["someone_reported"]}, false, true
+                    = t(".someone_reported")
 
-              .small-horizontal-spacer
+                .small-horizontal-spacer
 
-              = type.label :started_sharing, class: "checkbox-inline" do
-                = type.check_box :started_sharing, {checked: @email_prefs["started_sharing"]}, false, true
-                = t(".started_sharing")
-              .small-horizontal-spacer
+                = type.label :started_sharing, class: "checkbox-inline" do
+                  = type.check_box :started_sharing, {checked: @email_prefs["started_sharing"]}, false, true
+                  = t(".started_sharing")
+                .small-horizontal-spacer
 
-              = type.label :mentioned, class: "checkbox-inline" do
-                = type.check_box :mentioned, {checked: @email_prefs["mentioned"]}, false, true
-                = t(".mentioned")
-              .small-horizontal-spacer
+                = type.label :mentioned, class: "checkbox-inline" do
+                  = type.check_box :mentioned, {checked: @email_prefs["mentioned"]}, false, true
+                  = t(".mentioned")
+                .small-horizontal-spacer
 
-              = type.label :liked, class: "checkbox-inline" do
-                = type.check_box :liked, {checked: @email_prefs["liked"]}, false, true
-                = t(".liked")
-              .small-horizontal-spacer
+                = type.label :liked, class: "checkbox-inline" do
+                  = type.check_box :liked, {checked: @email_prefs["liked"]}, false, true
+                  = t(".liked")
+                .small-horizontal-spacer
 
-              = type.label :reshared, class: "checkbox-inline" do
-                = type.check_box :reshared, {checked: @email_prefs["reshared"]}, false, true
-                = t(".reshared")
-              .small-horizontal-spacer
+                = type.label :reshared, class: "checkbox-inline" do
+                  = type.check_box :reshared, {checked: @email_prefs["reshared"]}, false, true
+                  = t(".reshared")
+                .small-horizontal-spacer
 
-              = type.label :comment_on_post, class: "checkbox-inline" do
-                = type.check_box :comment_on_post, {checked: @email_prefs["comment_on_post"]}, false, true
-                = t(".comment_on_post")
-              .small-horizontal-spacer
+                = type.label :comment_on_post, class: "checkbox-inline" do
+                  = type.check_box :comment_on_post, {checked: @email_prefs["comment_on_post"]}, false, true
+                  = t(".comment_on_post")
+                .small-horizontal-spacer
 
-              = type.label :also_commented, class: "checkbox-inline" do
-                = type.check_box :also_commented, {checked: @email_prefs["also_commented"]}, false, true
-                = t(".also_commented")
-              .small-horizontal-spacer
+                = type.label :also_commented, class: "checkbox-inline" do
+                  = type.check_box :also_commented, {checked: @email_prefs["also_commented"]}, false, true
+                  = t(".also_commented")
+                .small-horizontal-spacer
 
-              = type.label :private_message, class: "checkbox-inline" do
-                = type.check_box :private_message, {checked: @email_prefs["private_message"]}, false, true
-                = t(".private_message")
+                = type.label :private_message, class: "checkbox-inline" do
+                  = type.check_box :private_message, {checked: @email_prefs["private_message"]}, false, true
+                  = t(".private_message")
 
-          .small-horizontal-spacer
+            .small-horizontal-spacer
 
-          .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right", id: "change_email_preferences"
-    %hr
+            .clearfix= f.submit t(".change"), class: "btn btn-primary pull-right", id: "change_email_preferences"
+      %hr
 
     .row
       .col-md-6#account_data

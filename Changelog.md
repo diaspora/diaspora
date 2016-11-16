@@ -4,6 +4,7 @@
 * Use string-direction gem for rtl detection [#7181](https://github.com/diaspora/diaspora/pull/7181)
 * Reduce i18n.load side effects [#7184](https://github.com/diaspora/diaspora/pull/7184)
 * Force jasmine fails on syntax errors [#7185](https://github.com/diaspora/diaspora/pull/7185)
+* Don't display mail-related view content if it is disabled in the pod's config [#7190](https://github.com/diaspora/diaspora/pull/7190)
 
 ## Bug fixes
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
