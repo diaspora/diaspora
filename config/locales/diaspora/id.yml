@@ -80,13 +80,13 @@ id:
         tag_question: "#question"
       introduce_yourself: "Ini merupakan aliran anda.  Ikutan dan kenalkan diri anda"
       new_here:
-        follow: "Ikuti %{link} dan selamat datang di diaspora*!"
+        follow: "Ikuti %{link} dan selamat datang di silent.army!"
         learn_more: "Pelajari"
         title: "Selamat Datang Pengguna Baru"
       services:
-        content: "Anda dapat menyambungkan layanan berikut ke diaspora*:"
+        content: "Anda dapat menyambungkan layanan berikut ke silent.army:"
         heading: "Sambungkan Layanan"
-      welcome_to_diaspora: "Selamat datang di diaspora*, %{name}"
+      welcome_to_diaspora: "Selamat datang di silent.army, %{name}"
     no_contacts_message:
       community_spotlight: "Sorotan komunitas"
       or_spotlight: "Atau anda dapat berbagi dengan %{link}"
@@ -103,7 +103,7 @@ id:
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     heading: "Diaspora Bookmarklet"
-    post_something: "Kirimkan ke diaspora*"
+    post_something: "Kirimkan ke silent.army"
   cancel: "Batal"
   comments:
     new_comment:
@@ -167,7 +167,7 @@ id:
   layouts:
     application:
       back_to_top: "Kembali ke atas"
-      powered_by: "DIDUKUNG OLEH diaspora*"
+      powered_by: "DIDUKUNG OLEH silent.army"
       toggle: "toggle mobile site"
       whats_new: "apa yang baru?"
     header:
@@ -282,14 +282,14 @@ id:
       liked: "%{name} has just liked your post: "
       view_post: "Lihat kiriman >"
     mentioned:
-      subject: "%{name} menyebutmu di diaspora*"
+      subject: "%{name} menyebutmu di silent.army"
     private_message:
       reply_to_or_view: "Balas atau lihat pembicaraan ini >"
     reshared:
       reshared: "%{name} just reshared your post"
       view_post: "Lihat kiriman >"
     single_admin:
-      admin: "Administrator diaspora* mu"
+      admin: "Administrator silent.army mu"
       subject: "A message from your Diaspora administrator:"
     started_sharing:
       sharing: "mulai berbagi denganmu!"

@@ -176,7 +176,7 @@ br:
       failure: "N'hallan ket paouez d'ober van eus an implijer-mañ"
       success: "Sellomp petra ho deus da lavarout ! #lardemat"
   bookmarklet:
-    explanation: "Postit traoù war diaspora* adalek forzh pelec'h dre lakaat ur sined d'al liamm-mañ => %{link}."
+    explanation: "Postit traoù war silent.army adalek forzh pelec'h dre lakaat ur sined d'al liamm-mañ => %{link}."
     heading: "Sinedoù Diaspora"
     post_something: "Embann un dra bennak e Diaspora"
   cancel: "Nullañ"
@@ -237,7 +237,7 @@ br:
       close_account_q: "Penaos e tiverkan va greunenn (kont) ?"
       data_other_podmins_a: "Ur wech m'emaoc'h o rannañ gant unan bennak war ur pod all, kement post rannet ganeoc'h hag un eilenn eus ho aelad a zo kadavet (er c'hrubuilh) war o pod, hag haezadus eo evit merour ar pod. Pa vez dilamet ur post pe roadennoù un aelad eo dilamet eus ho pod hag kaset e vez un azgoulenn dilamadur d'an holl podoù o deus endalc'het anezho. Ho skeudennoù n'int morse kadavet war podoù all; n'eus nemet ereoù davet anezho."
       data_other_podmins_q: "Ha gallout a ra merourien podoù all gwelet ma zitouroù din-me ?"
-      data_visible_to_podmin_a: "Berr-ha-berr : pep tra. An eskemmoù etre ar podoù a zo enrineget bewech (oc'h implijout SSL hag enrinegañ dezougerezh diaspora*) , met roadennoù ar pod n'eo ket enrineget. M'o deus c'hoant e c'hell merour stlennvon ar pod (alies eo an den o merañ ar pod) haeziñ holl ho roadennoù aelad ha kement tra embannet ganeoc'h (evel ma ra lodenn vrasañ al lec'hiennoù o kadaviñ roadennoù implijerien). Setu perak e vez roet an dibab deoc'h war peseurt pod marilhañ, evit ma vefe tu deoc'h dibab gant peseurt merour e fiziit ho roadennoù. Erounit ho pod deoc'h-c'hwi a ro deoc'h muioc'h ha prevezded dre ma 'z oc'h kiriek eus haeziñ ar stlennvon."
+      data_visible_to_podmin_a: "Berr-ha-berr : pep tra. An eskemmoù etre ar podoù a zo enrineget bewech (oc'h implijout SSL hag enrinegañ dezougerezh silent.army) , met roadennoù ar pod n'eo ket enrineget. M'o deus c'hoant e c'hell merour stlennvon ar pod (alies eo an den o merañ ar pod) haeziñ holl ho roadennoù aelad ha kement tra embannet ganeoc'h (evel ma ra lodenn vrasañ al lec'hiennoù o kadaviñ roadennoù implijerien). Setu perak e vez roet an dibab deoc'h war peseurt pod marilhañ, evit ma vefe tu deoc'h dibab gant peseurt merour e fiziit ho roadennoù. Erounit ho pod deoc'h-c'hwi a ro deoc'h muioc'h ha prevezded dre ma 'z oc'h kiriek eus haeziñ ar stlennvon."
       data_visible_to_podmin_q: "Pegement eus va titouroù a c'hell merour ar pod gwelout ?"
       download_data_a: "Ya. E dibenn an ivinell Kont war pajenn ho arventennoù ho peus div afell : unan evit pellgargañ ho roadennoù, hag unan evit pellgargañ ho skeudennoù."
       download_data_q: "Gallout a ran pellgargañ un eilenn eus va roadennoù endalc'het en va greunenn (kont) ?"
@@ -263,19 +263,19 @@ br:
       restrict_posts_i_see_a: "Ya. Klikit war 'Ma strolladoù\" er varenn-gostez ha klikit war ur strollad evit diuzañ pe diziuzañ anezhañ. Ne vo gwelet ar post gwant an dud ezel eus ar strollad(où)-mañ nemetken."
       restrict_posts_i_see_q: "Ha tu a zo din bevenniñ ar postoù da strolladoù resis nemetken em gwazh ?"
       title: "Strolladoù"
-      what_is_an_aspect_a: "Ar strolladoù a zo an doare ma vez strollet ho tarempredoù war diaspora*. Ur strollad a zo unan eus an dremmoù a vez diskouezet ganeoc'h d'ar bed. Gallout a ra bezañ an den oc'h el labour, pe gant ho familh, pe forzh piv vefec'h gant ur strollad mignoned."
+      what_is_an_aspect_a: "Ar strolladoù a zo an doare ma vez strollet ho tarempredoù war silent.army. Ur strollad a zo unan eus an dremmoù a vez diskouezet ganeoc'h d'ar bed. Gallout a ra bezañ an den oc'h el labour, pe gant ho familh, pe forzh piv vefec'h gant ur strollad mignoned."
       what_is_an_aspect_q: "Petra eo ur strollad ?"
       who_sees_post_a: "Ma vez savet ur post bevennet ganeoc'h, n'hall bezañ gwelet gant an dud bet lakaet er strollad(où) a-raok bezañ bet embannet ar post nemetken. Ho tarempredoù ha n'int ket er strollad na welo ket ar post. Postoù bevennet ne vo morse gwelet gant tud ha n'int ket en ho strolladoù."
       who_sees_post_q: "Gant piv vez gwelet ar pezh a embannan d'ur strollad ?"
-    foundation_website: "lec'hienn web diazezadenn diaspora*"
+    foundation_website: "lec'hienn web diazezadenn silent.army"
     getting_help:
-      get_support_a_hashtag: "Goulennit war ur post foran war diaspora* en ur implijout an hashtag %{question}"
+      get_support_a_hashtag: "Goulennit war ur post foran war silent.army en ur implijout an hashtag %{question}"
       get_support_a_irc: "Deuit ganeomp war %{irc} (kaozeadenn war-eeun)"
       get_support_a_tutorials: "Dizoloit hor %{tutorials}"
       get_support_a_website: "Gweladennit hol %{link}"
       get_support_a_wiki: "Klaskit war ar %{link}"
       get_support_q: "Petra c'hoarvez ma n'emañ ket va goulenn er FAG ? Pelec'h e c'hallan kaout skoazell ?"
-      getting_started_a: "Chañs ho peus. Klaskit an %{tutorial_series} war lec'hienn hor raktres. Heuliet e vo an hentenn marilhadur paz-dre-paz ha desket e vo deoc'h an diazez evit gouzout penaos implij diaspora*."
+      getting_started_a: "Chañs ho peus. Klaskit an %{tutorial_series} war lec'hienn hor raktres. Heuliet e vo an hentenn marilhadur paz-dre-paz ha desket e vo deoc'h an diazez evit gouzout penaos implij silent.army."
       getting_started_q: "Sikour ! Ezhomm am eus skoazell diazez evit kregiñ !"
       title: "Kaout skoazell"
     getting_started_tutorial: "heuliad kelennskridoù \"Kregiñ ganti\""
@@ -286,10 +286,10 @@ br:
       title: "Menegoù"
       what_is_a_mention_q: "Petra eo ur \"meneg\" ?"
     miscellaneous:
-      diaspora_app_q: "Hag un arload diaspora* evit Android pe IOS zo ?"
+      diaspora_app_q: "Hag un arload silent.army evit Android pe IOS zo ?"
       photo_albums_q: "Hag albomoù video pe skeudennoù zo ?"
     pods:
-      what_is_a_pod_a: "Un dafariad oc'h erounit ar meziant diaspora* ha kennasket d'ar rouedad diaspora eo ur pod. \"Pod\" a zo un dave d'ar ger Saoznek \"pod\", a dalv kement ha \"klorenn\", oc'h enderc'hel greun evel-mañ ma vez endalc'het kontoù gant an dafariad. Meur a pod a vez kavet. Gallout a rit ouzhpennañ mignoned adalek ar podoù all hag eskemm ganto. N'eus ezhomm ebet digeriñ kontoù war podoù disheñvel ! Unan 'zo trawalc'h. Gallout a rit soñjal eo ur pod disapora* evel ur pourchaser posteloù. Podoù foran a zo, reoù prevez, ha ma klaskit mat ez eus tu deoc'h erounit ho hini."
+      what_is_a_pod_a: "Un dafariad oc'h erounit ar meziant silent.army ha kennasket d'ar rouedad diaspora eo ur pod. \"Pod\" a zo un dave d'ar ger Saoznek \"pod\", a dalv kement ha \"klorenn\", oc'h enderc'hel greun evel-mañ ma vez endalc'het kontoù gant an dafariad. Meur a pod a vez kavet. Gallout a rit ouzhpennañ mignoned adalek ar podoù all hag eskemm ganto. N'eus ezhomm ebet digeriñ kontoù war podoù disheñvel ! Unan 'zo trawalc'h. Gallout a rit soñjal eo ur pod disapora* evel ur pourchaser posteloù. Podoù foran a zo, reoù prevez, ha ma klaskit mat ez eus tu deoc'h erounit ho hini."
     posts_and_posting:
       char_limit_services_q: "Petra c'hoarvez ma rannan va fost gant ur servij kennasket gant ur vevenn arouezioù bihanoc'h ?"
       image_text: "testenn ar skeudenn"
@@ -338,7 +338,7 @@ br:
     application:
       back_to_top: "Distreiñ e krec'h"
       powered_by: "KASET EN-DRO GANT DIASPORA*"
-      public_feed: "Gwazh diaspora* foran evit %{name}"
+      public_feed: "Gwazh silent.army foran evit %{name}"
       source_package: "Pellgargañ pakad ar boneg tarzh"
       toggle: "gweredekaat/diweredekaat ar stumm evit an hezougoù"
       whats_new: "petra nevez ?"
@@ -429,7 +429,7 @@ br:
       message: |-
           Demat !
 
-          Pedet oc'h bet da zont war diaspora* !
+          Pedet oc'h bet da zont war silent.army !
 
           Klikit war al liamm-mañ evit kregiñ
 
@@ -441,12 +441,12 @@ br:
           Ar robot posteloù diapsora*
 
           [1]: %{invite_url}
-    invited_you: "Pedet oc'h bet gant %{name} war diaspora*"
+    invited_you: "Pedet oc'h bet gant %{name} war silent.army"
     liked:
       liked: "plijet eo bet %{name} gant ar pezh zo bet skrivet ganeoc'h"
       view_post: "Sellet ouzh an embannadenn >"
     mentioned:
-      subject: "%{name} en/he deus meneget ac'hanoc'h war diaspora*"
+      subject: "%{name} en/he deus meneget ac'hanoc'h war silent.army"
     private_message:
       reply_to_or_view: "Respont pe sellet ouzh ar gaoz-mañ >"
     reshared:
@@ -472,7 +472,7 @@ br:
       no_one_found: "... ha n'eus ket bet kavet den."
       no_results: "Hopala ! Ret e deoc'h klask un dra bennak."
       results_for: "Implijerien o klotañ %{search_term}"
-      search_handle: "Ober gant ho kod anaout diaspora* (username@pod.tld) evit bezañ sur da gavout ho mignoned."
+      search_handle: "Ober gant ho kod anaout silent.army (username@pod.tld) evit bezañ sur da gavout ho mignoned."
       searching: "O klask, gortozit ur pennadig..."
       send_invite: "Netra c'hoazh ? Kas ur bedadenn !"
     person:
@@ -514,7 +514,7 @@ br:
   profile: "Aelad"
   profiles:
     edit:
-      allow_search: "Aotren tud da glask ac'hanoc'h war diaspora*"
+      allow_search: "Aotren tud da glask ac'hanoc'h war silent.army"
       first_name: "Anv-bihan"
       last_name: "Anv-familh"
       nsfw_check: "Merkañ kement tra rannet ganin evel NSFW"
@@ -536,9 +536,9 @@ br:
     other: "%{count} respont"
     zero: "0 respont"
   registrations:
-    closed: "Stanket eo an enskrivadur war ar pod diaspora*-mañ"
+    closed: "Stanket eo an enskrivadur war ar pod silent.army-mañ"
     create:
-      success: "Enskrivet oc'h war diaspora* !"
+      success: "Enskrivet oc'h war silent.army !"
     invalid_invite: "Al liamm pedadenn roet ganeoc'h n'eo ket mat ken"
     new:
       email: "POSTEL"
@@ -593,7 +593,7 @@ br:
       logged_in: "kennasket da %{service}"
       manage: "Merañ ar servijoù kennasket"
       new_user_welcome_message: "Implijit #hashtags evit rummadiñ ho embannadennoù ha kavout tud a rann ho dedennoù.  Galvit tud dreist gant @Mentions"
-      outside: "Ar c'hemennadennoù foran a vo gwelet gant tud e diavaez diaspora*."
+      outside: "Ar c'hemennadennoù foran a vo gwelet gant tud e diavaez silent.army."
       share: "Rannañ"
       title: "Arventennañ ar servijoù kennasket"
       visibility_dropdown: "Implijit ar roll disachañ evit kemmañ gwelusted ho embannadenn.  (Aliañ a reomp deoc'h da lakaat an hini kentañ-mañ foran.)"
@@ -665,7 +665,7 @@ br:
       email_not_confirmed: "N'eus ket bet gallet gweredekaat ar chomlec'h. Liamm a-dreuz ?"
     destroy:
       no_password: "Enlakait ho ger-kuzh evit prennañ ho kont, mar plij ganeoc'h."
-      success: "Prennet eo bet ho kont. Gellout 'ra kemer un 20 munutenn bennak evit echuiñ ar c'hlozadur. Trugarez deoc'h evit bezañ bet klasket diaspora*."
+      success: "Prennet eo bet ho kont. Gellout 'ra kemer un 20 munutenn bennak evit echuiñ ar c'hlozadur. Trugarez deoc'h evit bezañ bet klasket silent.army."
       wrong_password: "Ar ger-kuzh bet enlakaet n'eo ket an hini ho 'peus bremañ."
     edit:
       also_commented: "unan bennak a lak evezhiadennoù war un embannadenn lec'h m'ho peus lakaet un evezhiadenn"
@@ -705,11 +705,11 @@ br:
       your_email: "Ho postel"
       your_handle: "Ho kod anaout diaspora"
     getting_started:
-      awesome_take_me_to_diaspora: "Dispar ! Kas ac'hanon betek diaspora*"
-      community_welcome: "kumuniezh diaspora* a zo laouen da zegemer ac'hanoc'h !"
-      connect_to_facebook: "Gallout a reomp fonnusaat an traoù dre %{link} diaspora*. Sachañ a raio ho anv hag ho skeudenn, ha gweredekaat e raio an etre-postañ."
+      awesome_take_me_to_diaspora: "Dispar ! Kas ac'hanon betek silent.army"
+      community_welcome: "kumuniezh silent.army a zo laouen da zegemer ac'hanoc'h !"
+      connect_to_facebook: "Gallout a reomp fonnusaat an traoù dre %{link} silent.army. Sachañ a raio ho anv hag ho skeudenn, ha gweredekaat e raio an etre-postañ."
       connect_to_facebook_link: "O kennaskañ d'ho kont Facebook"
-      hashtag_explanation: "Gant an hashtags ez eus tu deoc'h eskemm hag heuliañ ar pezh a zedenn ac'hanoc'h. Un doare dreist da gavout tud nevez war diaspora* eo ivez."
+      hashtag_explanation: "Gant an hashtags ez eus tu deoc'h eskemm hag heuliañ ar pezh a zedenn ac'hanoc'h. Un doare dreist da gavout tud nevez war silent.army eo ivez."
       hashtag_suggestions: "Klaskit heuliañ klavioù evel #arz, #filmoù, #gif, h.a."
       well_hello_there: "Hey, demat deoc'h !"
       what_are_you_in_to: "Petra blij deoc'h ?"

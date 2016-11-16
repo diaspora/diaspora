@@ -33,7 +33,7 @@ nl:
       inviter:
         accept_at: "op %{url}, je kunt deze accepteren via onderstaande link."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} heeft je uitgenodigd om lid te worden van diaspora*"
+        have_invited_you: "%{names} heeft je uitgenodigd om lid te worden van silent.army"
       reset_password_instructions:
         change: "Wijzig mijn wachtwoord"
         ignore: "Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren."

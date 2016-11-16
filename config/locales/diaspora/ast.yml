@@ -71,20 +71,20 @@ ast:
         feature_suggestion: "... tienes %{link} que suxerir?"
         find_a_bug: "... alcuentres %{link}?"
         have_a_question: "... tienes %{link}?"
-        here_to_help: "¡La comunidá de diaspora* ta equí p'ayudate!"
+        here_to_help: "¡La comunidá de silent.army ta equí p'ayudate!"
         need_help: "¿Necesites ayuda?"
         tag_bug: "un fallu"
         tag_feature: "una carauterística"
         tag_question: "una entruga"
       introduce_yourself: "Esta ye la to canal.  Entra y preséntati."
       new_here:
-        follow: "¡Sigui %{link} y da la bienvenida a diaspora* a los usuarios nuevos!"
+        follow: "¡Sigui %{link} y da la bienvenida a silent.army a los usuarios nuevos!"
         learn_more: "Más información"
         title: "Da la bienvenida a los usuarios nuevos"
       services:
-        content: "Pues coneutar los servicios siguientes a diaspora*:"
+        content: "Pues coneutar los servicios siguientes a silent.army:"
         heading: "Coneutar servicios"
-      welcome_to_diaspora: "¡Afáyati en diaspora*, %{name}!"
+      welcome_to_diaspora: "¡Afáyati en silent.army, %{name}!"
     no_contacts_message:
       community_spotlight: "destacao de la comunidá"
       or_spotlight: "O pues compartir con %{link}"
@@ -99,9 +99,9 @@ ast:
       failure: "El to aspeutu, %{name}, tenía un nome llargu enforma pa poder guardalu."
       success: "Editóse correutamente'l to aspeutu, %{name}."
   bookmarklet:
-    explanation: "Publicar en diaspora* dende uquiera poniendo esti enllaz nos marcadores => %{link}."
+    explanation: "Publicar en silent.army dende uquiera poniendo esti enllaz nos marcadores => %{link}."
     heading: "Bookmarklet"
-    post_something: "Publicar en diaspora*"
+    post_something: "Publicar en silent.army"
   cancel: "Encaboxar"
   comments:
     new_comment:

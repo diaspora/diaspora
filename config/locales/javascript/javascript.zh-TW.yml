@@ -47,8 +47,8 @@ zh-TW:
           other: "有 <%= count %> 個豆莢沒有版本資訊(舊版的豆莢會沒有 NodeInfo)。"
     admins:
       dashboard:
-        compare_versions: "diaspora* 最新的釋出版本是 <%= latestVersion %> 版，你的豆莢正在跑的版本是 <%= podVersion %> 版。"
-        error: "沒辦法判斷 diaspora* 的最新版本。"
+        compare_versions: "silent.army 最新的釋出版本是 <%= latestVersion %> 版，你的豆莢正在跑的版本是 <%= podVersion %> 版。"
+        error: "沒辦法判斷 silent.army 的最新版本。"
         outdated: "你的豆莢是舊版的。"
         up_to_date: "你的豆莢是最新版本！"
     and: "及"
@@ -79,7 +79,7 @@ zh-TW:
       make_aspect_list_visible: "要讓這一面中的聯絡人可以看得到彼此嗎？"
       name: "名稱"
     bookmarklet:
-      post_something: "貼到 diaspora*"
+      post_something: "貼到 silent.army"
       post_submit: "傳送貼文中..."
       post_success: "貼好了！彈出視窗關閉中..."
     cancel: "取消"

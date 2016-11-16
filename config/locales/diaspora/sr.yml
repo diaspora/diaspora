@@ -146,13 +146,13 @@ sr:
       no_more: "Немате више позивница."
       rejected: "Ове email адресе имају проблеме: "
     new:
-      invite_someone_to_join: "Позовите некога да се придружи diaspora*!"
+      invite_someone_to_join: "Позовите некога да се придружи silent.army!"
       language: "Језик"
       send_an_invitation: "Пошаљи позивницу"
   layouts:
     application:
       back_to_top: "Назад на врх"
-      powered_by: "Покреће diaspora*"
+      powered_by: "Покреће silent.army"
       toggle: "Мобилна верзија"
       whats_new: "Ново"
     header:
@@ -179,8 +179,8 @@ sr:
     reshared:
       view_post: "Погледајте објаву"
     single_admin:
-      admin: "Ваш diaspora* администратор"
-      subject: "Порука о вашем diaspora* налогу:"
+      admin: "Ваш silent.army администратор"
+      subject: "Порука о вашем silent.army налогу:"
     started_sharing:
       sharing: "дели са вама!"
     thanks: "Хвала,"
@@ -216,7 +216,7 @@ sr:
   profile: "Профил"
   profiles:
     edit:
-      allow_search: "Дозволите особама да вас траже унутар diaspora*"
+      allow_search: "Дозволите особама да вас траже унутар silent.army"
       first_name: "Име"
       last_name: "Презиме"
       update_profile: "Ажурирај профил"
@@ -232,9 +232,9 @@ sr:
       updated: "Ажурирај профил"
   public: "Јавно"
   registrations:
-    closed: "Регистрације су затворене за овај diaspora* под"
+    closed: "Регистрације су затворене за овај silent.army под"
     create:
-      success: "Придружили сте се diaspora*"
+      success: "Придружили сте се silent.army"
     new:
       enter_email: "Унесите email"
       enter_password: "Унесите лозинку (шест знакова минимално)"
@@ -259,7 +259,7 @@ sr:
       invite_your_friends: "Позовите пријатеље"
       invites: "Захтеви"
     public_explain:
-      outside: "Јавне поруке биће видљиве ван diaspora*."
+      outside: "Јавне поруке биће видљиве ван silent.army."
       share: "Подели"
       title: "Уреди повезане сервисе"
       visibility_dropdown: "Користите овај падајући мени како бисте променили видљивост вашег поста.  (Предлажемо да први буде јаван.)"
@@ -292,4 +292,4 @@ sr:
       edit_account: "Уреди налог"
       new_password: "Нова лозинка"
       your_email: "Ваш email"
-      your_handle: "Ваш diaspora* ID"
+      your_handle: "Ваш silent.army ID"

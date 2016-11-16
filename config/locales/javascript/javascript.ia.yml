@@ -48,8 +48,8 @@ ia:
         unknown: "incognite"
     admins:
       dashboard:
-        compare_versions: "Le ultime version de diaspora* es <%= latestVersion %>; iste pod executa <%= podVersion %>."
-        error: "Impossibile determinar le ultime version de diaspora*."
+        compare_versions: "Le ultime version de silent.army es <%= latestVersion %>; iste pod executa <%= podVersion %>."
+        error: "Impossibile determinar le ultime version de silent.army."
         outdated: "Tu pod non es actual."
         up_to_date: "Tu pod es actual!"
     and: "e"
@@ -77,7 +77,7 @@ ia:
       make_aspect_list_visible: "Render contactos in iste aspecto visibile le unes pro le alteres?"
       name: "Nomine"
     bookmarklet:
-      post_something: "Inviar a diaspora*"
+      post_something: "Inviar a silent.army"
       post_submit: "Submitte entrata…"
       post_success: "Inviate! Le fenestra se claude ora…"
     cancel: "Cancellar"

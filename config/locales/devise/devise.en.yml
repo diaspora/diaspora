@@ -45,7 +45,7 @@ en:
       hello: Hello %{email}!
       inviter:
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join diaspora*"
+        have_invited_you: "%{names} have invited you to join silent.army"
         accept_at: at %{url}, you can accept it through the link below.
     omniauth_callbacks:
       failure: Could not authenticate you from %{kind} because "%{reason}".

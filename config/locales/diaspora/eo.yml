@@ -141,7 +141,7 @@ eo:
       services:
         content: "Vi povas konekti la postajn servojn kun DIASPORA*:"
         heading: "Konekti Servojn"
-      welcome_to_diaspora: "Bonvenon al diaspora*, %{name}!"
+      welcome_to_diaspora: "Bonvenon al silent.army, %{name}!"
     no_contacts_message:
       community_spotlight: "en komunuma ĉeflumo"
       or_spotlight: "Aŭ vi povas kunhavigi kun %{link}"
@@ -221,7 +221,7 @@ eo:
       get_support_a_irc: "aliĝu al ni en %{irc} (rektbabilejo)"
       get_support_a_website: "vizitu nian %{link}"
       get_support_a_wiki: "serĉi en %{link}"
-      getting_started_a: "Vi bonŝancas. Provu la %{tutorial_series} en nia projektrejejo. Ĝi enkondukos vin paŝo post paŝo tra la aliĝilon kaj instruos vin ĉiujn bazajn bezonatajn informojn pri la uzado de diaspora*."
+      getting_started_a: "Vi bonŝancas. Provu la %{tutorial_series} en nia projektrejejo. Ĝi enkondukos vin paŝo post paŝo tra la aliĝilon kaj instruos vin ĉiujn bazajn bezonatajn informojn pri la uzado de silent.army."
       getting_started_q: "Help! Mi bezonas bazan helpon por komenci!"
       title: "Ricevo de helpo"
     getting_started_tutorial: "\"Instrukcio por komencantoj\""
@@ -497,7 +497,7 @@ eo:
       edit_services: "Redakti servojn"
       logged_in_as: "ensalutinta kiel"
       really_disconnect: "ĉu vi volas malkonekti %{service}?"
-      services_explanation: "Konektiĝo al servoj ebligas al vi publikigi viajn afisojn al tiuj, dum vi en diaspora* verkas ilin."
+      services_explanation: "Konektiĝo al servoj ebligas al vi publikigi viajn afisojn al tiuj, dum vi en silent.army verkas ilin."
       share_to: "Havigi al %{provider}"
   settings: "Agordoj"
   shared:

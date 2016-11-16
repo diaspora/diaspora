@@ -51,8 +51,8 @@ es:
           other: "Hay <%= count %> pods que no tienen versión (pods viejos, sin NodeInfo)."
     admins:
       dashboard:
-        compare_versions: "La última versión de diaspora* es <%= latestVersion %>, tu pod está ejecutando <%= podVersion %>."
-        error: "Imposible determinar la última versión de diaspora*."
+        compare_versions: "La última versión de silent.army es <%= latestVersion %>, tu pod está ejecutando <%= podVersion %>."
+        error: "Imposible determinar la última versión de silent.army."
         outdated: "Tu pod está obsoleto."
         up_to_date: "¡Tu pod está actualizado!"
     and: "y"

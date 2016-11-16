@@ -124,7 +124,7 @@ is:
       failure: "Ásýnd þín, %{name}, hefur of langt nafn til að hægt sé að vista hana."
       success: "Ásýnd þinni, %{name}, hefur verið breytt."
   bookmarklet:
-    explanation: "Sendu færslu á diaspora* hvaðan sem er með því að bókamerkja þennan tengil => %{link}."
+    explanation: "Sendu færslu á silent.army hvaðan sem er með því að bókamerkja þennan tengil => %{link}."
     heading: "Diaspora Bookmarklet"
     post_something: "Senda á Diaspora*"
   cancel: "Hætta við"
@@ -171,7 +171,7 @@ is:
   find_people: "Finna fólk eða #merki"
   help:
     account_and_data_management:
-      data_visible_to_podmin_a: "Samskipti milli belgja eru ávalt dulkóðuð (með SSL sem og dulkóðun frá diaspora*), en gögnin á belgnum eru ekki dulkóðuð á miðlaranum.  Kerfisstjórinn á belgnum sem þú ert hýstur á (oftast sá sem rekur belginn) gæti komist í allar þínar upplýsingar á belgnum, sem og öll seyti sem þú hefur sent (sambærilegt við flestar aðrar vefsíður sem vista gögn um þig).  Ef þú keyrir þinn egin belg hefur þú betir stjórn á gögnunum þínum."
+      data_visible_to_podmin_a: "Samskipti milli belgja eru ávalt dulkóðuð (með SSL sem og dulkóðun frá silent.army), en gögnin á belgnum eru ekki dulkóðuð á miðlaranum.  Kerfisstjórinn á belgnum sem þú ert hýstur á (oftast sá sem rekur belginn) gæti komist í allar þínar upplýsingar á belgnum, sem og öll seyti sem þú hefur sent (sambærilegt við flestar aðrar vefsíður sem vista gögn um þig).  Ef þú keyrir þinn egin belg hefur þú betir stjórn á gögnunum þínum."
     aspects:
       person_multiple_aspects_a: "Já.  Farðu á síðuna með tengiliðum þínum og smelltu á Mínir tengiliðir.  Þú getur notað valmyndina til hægri til að bæta tengilið (eða taka úr) eins mörgum sýnum og þú vilt.  Þú getur einnig bætt þeim við nýja sýn með því að ýta á Velja Sýn takkan á upplýsingasíðu viðkomandi.  Einnig getur þú haldið músini fyrir ofan nafn þeirra þar sem nafn þeirra birtist á straumnum þínum og birtist þá lítill val gluggi.  Þar getur þú breytt í hvaða sýnum viðkomandi er."
       post_multiple_aspects_a: "Já.  Þegar þú getur notað 'sýn' takkan til að velja og hafna hvaða sýn skeytið sem þú ert að skrifa birtist í.  Skeytið mun vera sýnilegt í öllum þeim sýnum sem þú hefur valið.  Þú getur einnig valið í hvaða sýn skilaboðin birtast á hliðarslánni.  Þegar þú sendir skilaboðin munu þær sýnir sem þú hefur valið vistast og vera valdar þegar þú skrifar næst skilaboð."
@@ -180,12 +180,12 @@ is:
     here: "hér"
     irc: "IRC spjallrás"
     miscellaneous:
-      diaspora_app_a: "Það er til nokkur Android forrit sem eru enn i þróun.  Sum eru löngu yfirgefin og virka því ekki vel með núverandi útgáfu af diaspora*.  Ekki búast við of mikklu af þessum forritum eins og stendur.  Það er einfaldlega best að nota diaspora* beint á vafranum í símanum þar sem hannað hefur verið viðmót sem ætti að hennta flestum tækjum.  Eins og er eru engin forrit fyrir diaspora* á iOS, en enn og aftur virkar diaspora* vel í vafranum."
-      diaspora_app_q: "Er til diaspora* app fyrir Android eða iOS?"
+      diaspora_app_a: "Það er til nokkur Android forrit sem eru enn i þróun.  Sum eru löngu yfirgefin og virka því ekki vel með núverandi útgáfu af silent.army.  Ekki búast við of mikklu af þessum forritum eins og stendur.  Það er einfaldlega best að nota silent.army beint á vafranum í símanum þar sem hannað hefur verið viðmót sem ætti að hennta flestum tækjum.  Eins og er eru engin forrit fyrir silent.army á iOS, en enn og aftur virkar silent.army vel í vafranum."
+      diaspora_app_q: "Er til silent.army app fyrir Android eða iOS?"
     pods:
-      what_is_a_pod_a: "Belgur er miðlari sem keyrir diaspora* hugbúnaðinn og er tengdur diaspora* netinu.  \"Belgur\" er samlíking við fræbelgi á plöntum sem innihalda fræ á sama átt og miðlarinn hýsir marga notendur.  Það eru margir belgir til.  Þú getur bætt við vinum á öðrum belgjum og átt í samskiptum við þá.  (Þú getur hugsað belg á svipaðan hátt og tölvupóstþjón: það eru margir opnir belgir sem og lokaðir belgir , þú getur meira að segja hýst þinn eginn belg)."
+      what_is_a_pod_a: "Belgur er miðlari sem keyrir silent.army hugbúnaðinn og er tengdur silent.army netinu.  \"Belgur\" er samlíking við fræbelgi á plöntum sem innihalda fræ á sama átt og miðlarinn hýsir marga notendur.  Það eru margir belgir til.  Þú getur bætt við vinum á öðrum belgjum og átt í samskiptum við þá.  (Þú getur hugsað belg á svipaðan hátt og tölvupóstþjón: það eru margir opnir belgir sem og lokaðir belgir , þú getur meira að segja hýst þinn eginn belg)."
     posts_and_posting:
-      embed_multimedia_a: "Oftast er hægt að setja URLið (t.d. http://www.youtube.com/watch?v=nnnnnnnnnnn) beint inn í skilaboðin og myndin eða myndbandið verður fellt sjálfkrafa inn í skeytið.  Við styðjum meðal annars. YouTube, Vimeo, SoundCloud, Flickr ásamt nokkrum öðrum.  diaspora* notar oEmbed til að framkvæma innfellinguna sem gerir það að verkum að nýjar þjónustur eru stöðugt að bætast í hópinn.  Mundu að setja alltaf inn fulla slóð inn, ekki stytta hana né bæta aftan við sem og að smá stund getur tekið áður en innfellingin er verður sýnileg."
+      embed_multimedia_a: "Oftast er hægt að setja URLið (t.d. http://www.youtube.com/watch?v=nnnnnnnnnnn) beint inn í skilaboðin og myndin eða myndbandið verður fellt sjálfkrafa inn í skeytið.  Við styðjum meðal annars. YouTube, Vimeo, SoundCloud, Flickr ásamt nokkrum öðrum.  silent.army notar oEmbed til að framkvæma innfellinguna sem gerir það að verkum að nýjar þjónustur eru stöðugt að bætast í hópinn.  Mundu að setja alltaf inn fulla slóð inn, ekki stytta hana né bæta aftan við sem og að smá stund getur tekið áður en innfellingin er verður sýnileg."
     private_profiles:
       whats_in_profile_a: "Ferilskráin, staðsetning, kyn og fæðingardagur.  Þetta eru allt hlutir sem eru neðst á Síðunni Þinni.  Þú ræður hvort þú setur upplýsingar þar inn.  Eingöngu einstaklingar sem þú hefur bætt í eina af þínum sýnum, og eru skráðir inn, geta séð þessar upplýsingar.  Þegar þeir fara á síðuna þína geta þeir séð þau skeyti sem þú hefur deilt með öllum, sem og þau skeyti sem þú hefur valið að deila með sýnum sem þeir eru í."
   invitations:
@@ -197,7 +197,7 @@ is:
     new:
       invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora*!"
       language: "Tungumál"
-      paste_link: "Deildu þessum tengil með vinum þínum til þess að bjóða þeim á diaspora*, eða sendu þeim tengilinn beint í gegnum tölvupóst."
+      paste_link: "Deildu þessum tengil með vinum þínum til þess að bjóða þeim á silent.army, eða sendu þeim tengilinn beint í gegnum tölvupóst."
       send_an_invitation: "Sendu boðsmiða"
   layouts:
     application:
@@ -318,7 +318,7 @@ is:
 
           Diaspora* póst-róbótinn!
 
-          P.S.: Ef svo vill til að þú vitir ekki (ennþá) hvað diaspora* sé, þá er svarið hér [2] !
+          P.S.: Ef svo vill til að þú vitir ekki (ennþá) hvað silent.army sé, þá er svarið hér [2] !
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}

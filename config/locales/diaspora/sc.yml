@@ -71,20 +71,20 @@ sc:
         feature_suggestion: "propònnere una %{link}?"
         find_a_bug: "sinnalare un'%{link}?"
         have_a_question: "fàghere una %{link}?"
-        here_to_help: "Sa comunidade de diaspora* est inoghe!"
+        here_to_help: "Sa comunidade de silent.army est inoghe!"
         need_help: "Tenes bisòngiu de agiudu?"
         tag_bug: "errore"
         tag_feature: "funtzionalidade"
         tag_question: "pregunta"
       introduce_yourself: "Custu est su flussu tuo. Brinca in intro e presenta·ti."
       new_here:
-        follow: "Sighi %{link} e saluda sos impitadores noos de diaspora*!"
+        follow: "Sighi %{link} e saluda sos impitadores noos de silent.army!"
         learn_more: "Àteras informatziones"
         title: "Saluda sos impitadores noos"
       services:
-        content: "Podes connètere custos servìtzios a diaspora*:"
+        content: "Podes connètere custos servìtzios a silent.army:"
         heading: "Connessione a sos servìtzios"
-      welcome_to_diaspora: "Bene bènnidu in diaspora*, %{name}!"
+      welcome_to_diaspora: "Bene bènnidu in silent.army, %{name}!"
     no_contacts_message:
       community_spotlight: "Prus de importu in sa comunidade"
       or_spotlight: "O podes cumpartzire cun %{link}"
@@ -99,8 +99,8 @@ sc:
       failure: "Sa cara tua, %{name}, tenet unu nùmene tropu longu pro èssere sarbada."
       success: "Sa cara tua, %{name}, est istada modificada."
   bookmarklet:
-    explanation: "Pùblica in diaspora* dae totue annanghende  %{link} a sos preferidos tuos."
-    post_something: "Pùblica in diaspora*"
+    explanation: "Pùblica in silent.army dae totue annanghende  %{link} a sos preferidos tuos."
+    post_something: "Pùblica in silent.army"
   cancel: "Annudda"
   comments:
     new_comment:
@@ -127,7 +127,7 @@ sc:
           Sas fotos tuas sunt istadas elaboradas e sunt prontas pro èssere iscarrigadas sighinde [custu ligòngiu](%{url}).
 
           Saludos,
-          Su robot de sa posta eletrònica de diaspora*!
+          Su robot de sa posta eletrònica de silent.army!
     private_message:
       subject: "B'est unu messàgiu privadu nou pro tie"
   nsfw: "NSFW (no est adatu pro unu logu de traballu)"

@@ -65,7 +65,7 @@ be:
         tag_bug: "памылка"
         tag_question: "пытанне"
       new_here:
-        follow: "Сачы за %{link} і вітай новых карыстальнікаў diaspora*!"
+        follow: "Сачы за %{link} і вітай новых карыстальнікаў silent.army!"
         learn_more: "паказаць больш"
         title: "Прывітанне, Новы Ўдзельнік!(чалавек)"
       welcome_to_diaspora: "Вітаем ў Diaspora, %{name}!"

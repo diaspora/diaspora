@@ -89,7 +89,7 @@ en:
       pod_network: "Pod network"
     dashboard:
       pod_status: "Pod status"
-      fetching_diaspora_version: "Determining latest diaspora* version..."
+      fetching_diaspora_version: "Determining latest silent.army version..."
     user_search:
       you_currently:
         zero: "You currently have no invites left %{link}"
@@ -117,7 +117,7 @@ en:
       id: "ID"
       guid: "GUID"
       email: "Email"
-      diaspora_handle: "diaspora* handle"
+      diaspora_handle: "silent.army handle"
       last_seen: "Last seen"
       account_closed: "Account closed"
       nsfw: "#nsfw"
@@ -194,17 +194,17 @@ en:
     index:
       donate: "Donate"
       keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
-      welcome_to_diaspora: "Welcome to diaspora*, %{name}!"
+      welcome_to_diaspora: "Welcome to silent.army, %{name}!"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
 
       new_here:
         title: "Welcome new users"
-        follow: "Follow %{link} and welcome new users to diaspora*!"
+        follow: "Follow %{link} and welcome new users to silent.army!"
         learn_more: "Learn more"
 
       help:
         need_help: "Need help?"
-        here_to_help: "The diaspora* community is here!"
+        here_to_help: "The silent.army community is here!"
         do_you: "Do you:"
         have_a_question: "... have a %{link}?"
         tag_question: "question"
@@ -219,7 +219,7 @@ en:
         mail_podmin: "Podmin email"
       services:
         heading: "Connect services"
-        content: "You can connect the following services to diaspora*:"
+        content: "You can connect the following services to silent.army:"
 
     aspect_stream:
       stay_updated: "Stay updated"
@@ -236,8 +236,8 @@ en:
 
   bookmarklet:
     heading: "Bookmarklet"
-    post_something: "Post to diaspora*"
-    explanation: "Post to diaspora* from anywhere by bookmarking this link => %{link}."
+    post_something: "Post to silent.army"
+    explanation: "Post to silent.army from anywhere by bookmarking this link => %{link}."
 
   comments:
     new_comment:
@@ -311,20 +311,20 @@ en:
     faq: "FAQ"
     markdown: "Markdown"
     here: "here"
-    foundation_website: "diaspora* foundation website"
+    foundation_website: "silent.army foundation website"
     third_party_tools: "Third-party tools"
     getting_started_tutorial: "”Getting started” tutorial series"
     getting_help:
       title: "Getting help"
       getting_started_q: "Help! I need some basic help to get me started!"
-      getting_started_a: "You’re in luck. Try the %{tutorial_series} on our project site. It will take you step-by-step through the registration process and teach you all the basic things you need to know about using diaspora*."
+      getting_started_a: "You’re in luck. Try the %{tutorial_series} on our project site. It will take you step-by-step through the registration process and teach you all the basic things you need to know about using silent.army."
       get_support_q: "What if my question is not answered in this FAQ? Where else can I get support?"
       get_support_a_website: "Visit our %{link}"
       get_support_a_tutorials: "Check out our %{tutorials}"
       get_support_a_wiki: "Search the %{link}"
       get_support_a_irc: "Join us on %{irc} (live chat)"
       get_support_a_faq: "Read our %{faq} page on wiki"
-      get_support_a_hashtag: "Ask in a public post on diaspora* using the %{question} hashtag"
+      get_support_a_hashtag: "Ask in a public post on silent.army using the %{question} hashtag"
     account_and_data_management:
       title: "Account and data management"
       move_pods_q: "How do I move my seed (account) from one pod to another?"
@@ -334,13 +334,13 @@ en:
       close_account_q: "How do I delete my seed (account)?"
       close_account_a: "Go to the bottom of your settings page and click the “Close account” button. You will be asked to enter your password to complete the process. Remember, if you close your account, you will <strong>never</strong> be able to re-register your username on that pod."
       data_visible_to_podmin_q: "How much of my information can my pod administrator see?"
-      data_visible_to_podmin_a: "In short: everything. Communication between pods is always encrypted (using SSL and diaspora*’s own transport encryption), but the storage of data on pods is not encrypted. If they wanted to, the database administrator for your pod (usually the person running the pod) could access all your profile data and everything that you post (as is the case for most websites that store user data). This is why we give you the choice which pod you sign up to, so you can choose a pod whose admin you are happy to trust with your data. Running your own pod provides more privacy since you then control access to the database."
+      data_visible_to_podmin_a: "In short: everything. Communication between pods is always encrypted (using SSL and silent.army’s own transport encryption), but the storage of data on pods is not encrypted. If they wanted to, the database administrator for your pod (usually the person running the pod) could access all your profile data and everything that you post (as is the case for most websites that store user data). This is why we give you the choice which pod you sign up to, so you can choose a pod whose admin you are happy to trust with your data. Running your own pod provides more privacy since you then control access to the database."
       data_other_podmins_q: "Can the administrators of other pods see my information?"
       data_other_podmins_a: "Once you are sharing with someone on another pod, any posts you share with them and a copy of your profile data are stored (cached) on their pod, and are accessible to that pod’s database administrator. When you delete a post or profile data it is deleted from your pod and a delete request is sent to any other pods where it had previously been stored. Your images are never stored on any pod but your own; only links to them are transmitted to other pods."
     aspects:
       title: "Aspects"
       what_is_an_aspect_q: "What is an aspect?"
-      what_is_an_aspect_a: "Aspects are the way you group your contacts on diaspora*. An aspect is one of the faces you show to the world. It might be who you are at work, or who you are to your family, or who you are to your friends in a club you belong to."
+      what_is_an_aspect_a: "Aspects are the way you group your contacts on silent.army. An aspect is one of the faces you show to the world. It might be who you are at work, or who you are to your family, or who you are to your friends in a club you belong to."
       who_sees_post_q: "When I post to an aspect, who sees it?"
       who_sees_post_a: "If you make a limited post, it will only be visible to the people you had placed in that aspect (or aspects, if it is made to multiple aspects) before making the post. Contacts you have who aren’t in the aspect have no way of seeing the post. Limited posts will never be visible to anyone who you haven’t placed into one of your aspects."
       contacts_know_aspect_q: "Do my contacts know which aspects I have put them in?"
@@ -364,7 +364,7 @@ en:
     chat:
       title: "Chat"
       contacts_page: "contacts page"
-      add_contact_roster_q: "How do I chat with someone in diaspora*?"
+      add_contact_roster_q: "How do I chat with someone in silent.army?"
       add_contact_roster_a: "First, you need to enable chat for one of the aspects that person is in. To do so, go to the %{contacts_page}, select the aspect you want and click on the chat icon to enable chat for the aspect. %{toggle_privilege} You could, if you prefer, create a special aspect called “Chat” and add the people you want to chat with to that aspect. Once you’ve done this, open the chat interface and select the person you want to chat with."
     mentions:
       title: "Mentions"
@@ -379,11 +379,11 @@ en:
     pods:
       title: "Pods"
       what_is_a_pod_q: "What is a pod?"
-      what_is_a_pod_a: "A pod is a server running the diaspora* software and connected to the diaspora* network. “Pod” is a metaphor referring to pods on plants which contain seeds, in the way that a server contains a number of user accounts. There are many different pods. You can add friends from other pods and communicate with them. There’s no need to open an account on different pods! One is enough – in this way, you can think of a diaspora* pod as similar to an email provider. There are public pods, private pods, and with some effort you can even run your own."
+      what_is_a_pod_a: "A pod is a server running the silent.army software and connected to the silent.army network. “Pod” is a metaphor referring to pods on plants which contain seeds, in the way that a server contains a number of user accounts. There are many different pods. You can add friends from other pods and communicate with them. There’s no need to open an account on different pods! One is enough – in this way, you can think of a silent.army pod as similar to an email provider. There are public pods, private pods, and with some effort you can even run your own."
       find_people_q: "I just joined a pod, how can I find people to share with?"
-      find_people_a: "If you want to invite your friends to join diaspora*, use the invitation link or the email link in the side-bar. Follow #tags to discover others who share your interests, and add those who post things that interest you to an aspect. Shout out that you’re #newhere in a public post."
+      find_people_a: "If you want to invite your friends to join silent.army, use the invitation link or the email link in the side-bar. Follow #tags to discover others who share your interests, and add those who post things that interest you to an aspect. Shout out that you’re #newhere in a public post."
       use_search_box_q: "How do I use the search box to find particular individuals?"
-      use_search_box_a: "If you know their full diaspora* ID (e.g. username@podname.org), you can find them by searching for it. If you are on the same pod you can search for just their username. Alternatively you can search for them by their profile name (the name you see on screen). If a search does not work the first time, try it again."
+      use_search_box_a: "If you know their full silent.army ID (e.g. username@podname.org), you can find them by searching for it. If you are on the same pod you can search for just their username. Alternatively you can search for them by their profile name (the name you see on screen). If a search does not work the first time, try it again."
     posts_and_posting:
       title: "Posts and posting"
       stream_full_of_posts_q: "Why is my stream full of posts from people I don’t know and don’t share with?"
@@ -400,7 +400,7 @@ en:
       character_limit_q: "What is the character limit for posts?"
       character_limit_a: "65,535 characters. That’s 65,395 more characters than you get on Twitter! ;)"
       char_limit_services_q: "What if I'm sharing my post with a connected service with a smaller character count?"
-      char_limit_services_a: "In that case you should restrict your post to the smaller character count (140 in the case of Twitter; 1000 in the case of Tumblr), and the number of characters you have left to use is displayed when that service’s icon is highlighted. You can still post to these services if your post is longer than their limit, but the text will be truncated on those services with a link to the post on diaspora*."
+      char_limit_services_a: "In that case you should restrict your post to the smaller character count (140 in the case of Twitter; 1000 in the case of Tumblr), and the number of characters you have left to use is displayed when that service’s icon is highlighted. You can still post to these services if your post is longer than their limit, but the text will be truncated on those services with a link to the post on silent.army."
       format_text_q: "How can I format the text in my posts (bold, italics, etc.)?"
       format_text_a: "By using a simplified system called %{markdown}. You can find the full Markdown syntax %{here}. The preview button is really helpful here, as you can see how your message will look before you share it."
       insert_images_q: "How do I insert images into posts?"
@@ -413,7 +413,7 @@ en:
       size_of_images_q: "Can I customize the size of images in posts or comments?"
       size_of_images_a: "No. Images are resized automatically to fit the stream or single-post view. Markdown does not have a code for specifying the size of an image."
       embed_multimedia_q: "How do I embed a video, audio, or other multimedia content into a post?"
-      embed_multimedia_a: "You can usually just paste the URL (e.g. http://www.youtube.com/watch?v=nnnnnnnnnnn ) into your post and the video or audio will be embedded automatically. The sites supported include: YouTube, Vimeo, SoundCloud, Flickr and a few more. diaspora* uses oEmbed for this feature. We’re supporting more media sources all the time. Remember to always post simple, full links – no shortened links; no operators after the base URL – and give it a little time before you refresh the page after posting for seeing the preview."
+      embed_multimedia_a: "You can usually just paste the URL (e.g. http://www.youtube.com/watch?v=nnnnnnnnnnn ) into your post and the video or audio will be embedded automatically. The sites supported include: YouTube, Vimeo, SoundCloud, Flickr and a few more. silent.army uses oEmbed for this feature. We’re supporting more media sources all the time. Remember to always post simple, full links – no shortened links; no operators after the base URL – and give it a little time before you refresh the page after posting for seeing the preview."
       post_location_q: "How do I add my location to a post?"
       post_location_a: "Click the pin icon next to the camera in the publisher. This will insert your location from OpenStreetMap. You can edit your location – you might only want to include the city you’re in rather than the specific street address."
       post_poll_q: "How do I add a poll to my post?"
@@ -421,11 +421,11 @@ en:
     private_posts:
       title: "Private posts"
       who_sees_post_q: "When I post a message to an aspect (i.e., a private post), who can see it?"
-      who_sees_post_a: "Only logged-in diaspora* users you had placed in that aspect before making the private post can see it."
+      who_sees_post_a: "Only logged-in silent.army users you had placed in that aspect before making the private post can see it."
       can_comment_q: "Who can comment on or like my private post?"
-      can_comment_a: "Only logged-in diaspora* users you had placed in that aspect before making the private post can comment on or like it."
+      can_comment_a: "Only logged-in silent.army users you had placed in that aspect before making the private post can comment on or like it."
       can_reshare_q: "Who can reshare my private post?"
-      can_reshare_a: "Nobody. Private posts are not resharable. Logged-in diaspora* users in that aspect can potentially copy and paste it, however. It’s up to you whether you trust those people!"
+      can_reshare_a: "Nobody. Private posts are not resharable. Logged-in silent.army users in that aspect can potentially copy and paste it, however. It’s up to you whether you trust those people!"
       see_comment_q: "When I comment on or like a private post, who can see it?"
       see_comment_a: "Only the people that the post was shared with (the people who are in the aspects selected by the original poster) can see its comments and likes. "
     private_profiles:
@@ -443,15 +443,15 @@ en:
       find_public_post_q: "How can other people find my public post?"
       find_public_post_a: "Your public posts will appear in the streams of anyone following you. If you included #tags in your public post, anyone following those tags will find your post in their streams. Every public post also has a specific URL that anyone can view, even if they’re not logged in – thus public posts may be linked to directly from Twitter, blogs, etc. Public posts may also be indexed by search engines."
       can_comment_reshare_like_q: "Who can comment on, reshare, or like my public post?"
-      can_comment_reshare_like_a: "Any logged-in diaspora* user can comment on, reshare, or like your public post."
+      can_comment_reshare_like_a: "Any logged-in silent.army user can comment on, reshare, or like your public post."
       see_comment_reshare_like_q: "When I comment on, reshare, or like a public post, who can see it?"
-      see_comment_reshare_like_a: "Comments, likes, and reshares of public posts are also public. Any logged-in diaspora* user and anyone else on the internet can see your interactions with a public post."
+      see_comment_reshare_like_a: "Comments, likes, and reshares of public posts are also public. Any logged-in silent.army user and anyone else on the internet can see your interactions with a public post."
       deselect_aspect_posting_q: "What happens when I deselect one or more aspects when making a public post?"
       deselect_aspect_posting_a: "Deselecting aspects does not affect a public post. It will still be public and will appear in the streams of all of your contacts. To make a post visible only to specific aspects, you need to select those aspects from the aspect selector under the publisher."
     public_profiles:
       title: "Public profiles"
       who_sees_profile_q: "Who sees my public profile?"
-      who_sees_profile_a: "Any logged-in diaspora* user, as well as the wider internet, can see it. Each profile has a direct URL, so it may be linked to directly from outside sites. It may be indexed by search engines."
+      who_sees_profile_a: "Any logged-in silent.army user, as well as the wider internet, can see it. Each profile has a direct URL, so it may be linked to directly from outside sites. It may be indexed by search engines."
       whats_in_profile_q: "What’s in my public profile?"
       whats_in_profile_a: "Your public profile contains your name, the five tags you chose to describe yourself, and your photo, if you have completed these sections. All this information is optional – it’s up to you whether you provide it. You can make this profile information as identifiable or anonymous as you like. Your profile page also shows any public posts you have made."
       who_sees_updates_q: "Who sees updates to my public profile?"
@@ -496,7 +496,7 @@ en:
       people_tag_page_q: "Who are the people listed on the left-hand side of a tag page?"
       people_tag_page_a: "They are people who have listed that tag to describe themselves in their public profile."
       filter_tags_q: "How can I filter/exclude some tags from my stream?"
-      filter_tags_a: "This is not yet available directly through diaspora*, but some %{third_party_tools} have been written that might provide this."
+      filter_tags_a: "This is not yet available directly through silent.army, but some %{third_party_tools} have been written that might provide this."
     keyboard_shortcuts:
       title: "Keyboard shortcuts"
       keyboard_shortcuts_q: "What keyboard shortcuts are available?"
@@ -516,20 +516,20 @@ en:
       photo_albums_q: "Are there photo or video albums?"
       photo_albums_a: "No, not currently. However you can view a person’s uploaded pictures under the Photos tab of their profile page."
       subscribe_feed_q: "Can I subscribe to someone’s public posts with a feed reader?"
-      subscribe_feed_a: "Yes, but this is still not a polished feature and the formatting of the results is still pretty rough. If you want to try it anyway, go to someone’s profile page and click the feed button in your browser, or you can copy the profile URL (e.g. https://podname.org/people/somenumber) and paste it into a feed reader. The resulting feed address looks like this: https://podname.org/public/username.atom – diaspora* uses Atom rather than RSS."
-      diaspora_app_q: "Is there a diaspora* app for Android or iOS?"
-      diaspora_app_a: "There have been several Android apps in development by community members. Some are long-abandoned projects and so do not work well with the current version of diaspora*. Don’t expect much from these apps at the moment. There is currently no app for iOS. The best way to access diaspora* from your mobile device is through a browser, because we’ve designed a mobile version of the site which should work well on all devices, although it does not yet have complete functionality."
+      subscribe_feed_a: "Yes, but this is still not a polished feature and the formatting of the results is still pretty rough. If you want to try it anyway, go to someone’s profile page and click the feed button in your browser, or you can copy the profile URL (e.g. https://podname.org/people/somenumber) and paste it into a feed reader. The resulting feed address looks like this: https://podname.org/public/username.atom – silent.army uses Atom rather than RSS."
+      diaspora_app_q: "Is there a silent.army app for Android or iOS?"
+      diaspora_app_a: "There have been several Android apps in development by community members. Some are long-abandoned projects and so do not work well with the current version of silent.army. Don’t expect much from these apps at the moment. There is currently no app for iOS. The best way to access silent.army from your mobile device is through a browser, because we’ve designed a mobile version of the site which should work well on all devices, although it does not yet have complete functionality."
 
   home:
     default:
       headline: "Welcome to %{pod_name}"
       byline: "The online social world where you are in control"
       be_who_you_want_to_be: "Be who you want to be"
-      be_who_you_want_to_be_info: "A lot of networks insist that you use your real identity. Not diaspora*. Here you can choose who you want to be, and share as much or as little about yourself as you want. It really is up to you how you want to interact with other people."
+      be_who_you_want_to_be_info: "A lot of networks insist that you use your real identity. Not silent.army. Here you can choose who you want to be, and share as much or as little about yourself as you want. It really is up to you how you want to interact with other people."
       choose_your_audience: "Choose your audience"
-      choose_your_audience_info: "diaspora*’s aspects allow you to share with just those people you want to. You can be as public or as private as you like. Share a funny photo with the whole world, or a deep secret just with your closest friends. You’re in control."
+      choose_your_audience_info: "silent.army’s aspects allow you to share with just those people you want to. You can be as public or as private as you like. Share a funny photo with the whole world, or a deep secret just with your closest friends. You’re in control."
       own_your_data: "Own your own data"
-      own_your_data_info: "Many networks use your data to make money by analysing your interactions and using this information to advertise things to you. diaspora* doesn’t use your data for any purpose other than allowing you to connect and share with others."
+      own_your_data_info: "Many networks use your data to make money by analysing your interactions and using this information to advertise things to you. silent.army doesn’t use your data for any purpose other than allowing you to connect and share with others."
     podmin:
       headline: "Welcome, friend."
       byline: "You’re about to change the Internet. Let’s get you set up, shall we?"
@@ -543,11 +543,11 @@ en:
       create_an_account_info: "%{sign_up_link} for a new account."
       make_yourself_an_admin_info: "You can find instructions in the %{wiki}. This should add an “%{admin_dashboard}” link to your user menu in the header when you are logged in. It gives you stuff like user search and stats for your pod."
       update_your_pod_info: "You can find %{update_instructions}."
-      update_instructions: "update instructions in the diaspora* wiki"
+      update_instructions: "update instructions in the silent.army wiki"
       getting_help_info: "We listed some %{faq} including some additional tips and tricks and solutions for the most common problems. Also feel free to %{irc}."
       faq_for_podmins: "FAQ for pod maintainers in our wiki"
       contact_irc: "contact us on IRC"
-      contribute_info: "Make diaspora* even better! If you find any bugs please %{report_bugs}."
+      contribute_info: "Make silent.army even better! If you find any bugs please %{report_bugs}."
       report_bugs: "report them"
 
   invitation_codes:
@@ -561,14 +561,14 @@ en:
       no_more: "You have no more invitations."
       empty: "Please enter at least one email address."
       note_already_sent: "Invitations have already been sent to: %{emails}"
-      closed: "Invitations are closed on this diaspora* pod."
+      closed: "Invitations are closed on this silent.army pod."
     new:
       language: "Language"
-      invite_someone_to_join: "Invite someone to join diaspora*!"
+      invite_someone_to_join: "Invite someone to join silent.army!"
       comma_separated_plz: "You can enter multiple email addresses separated by commas."
       send_an_invitation: "Send an invitation"
       sending_invitation: "Sending invitation..."
-      paste_link: "Share this link with your friends to invite them to diaspora*, or email them the link directly."
+      paste_link: "Share this link with your friends to invite them to silent.army, or email them the link directly."
       codes_left:
         zero:  "No invites left on this code"
         one:  "One invite left on this code"
@@ -582,11 +582,11 @@ en:
       code: "Code"
       toggle_navigation: "Toggle navigation"
     application:
-      powered_by: "Powered by diaspora*"
+      powered_by: "Powered by silent.army"
       whats_new: "What’s new?"
       statistics_link: "Pod statistics"
       toggle: "Toggle mobile"
-      public_feed: "Public diaspora* feed for %{name}"
+      public_feed: "Public silent.army feed for %{name}"
       back_to_top: "Back to top"
       source_package: "Download the source code package"
       be_excellent: "Be excellent to each other! ♥"
@@ -661,18 +661,18 @@ en:
 
   notifier:
     a_post_you_shared: "a post."
-    a_private_message: "There’s a new private message in diaspora* for you to check out."
-    a_limited_post_comment: "There’s a new comment on a limited post in diaspora* for you to check out."
+    a_private_message: "There’s a new private message in silent.army for you to check out."
+    a_limited_post_comment: "There’s a new comment on a limited post in silent.army for you to check out."
     email_sent_by_diaspora: "This email was sent by %{pod_name}. If you'd like to stop getting emails like this,"
     click_here: "Click here"
     hello: "Hello %{name}!"
     thanks: "Thanks,"
     to_change_your_notification_settings: "to change your notification settings"
     single_admin:
-        subject: "A message about your diaspora* account:"
-        admin: "Your diaspora* administrator"
+        subject: "A message about your silent.army account:"
+        admin: "Your silent.army administrator"
     started_sharing:
-        subject: "%{name} started sharing with you on diaspora*"
+        subject: "%{name} started sharing with you on silent.army"
         sharing: "has started sharing with you!"
         view_profile: "View %{name}’s profile"
     comment_on_post:
@@ -681,7 +681,7 @@ en:
     also_commented:
         limited_subject: "There's a new comment on a post you commented"
     mentioned:
-        subject: "%{name} has mentioned you on diaspora*"
+        subject: "%{name} has mentioned you on silent.army"
         limited_post: "You were mentioned in a limited post."
     private_message:
         subject: "There’s a new private message for you"
@@ -707,7 +707,7 @@ en:
 
         Sorry,
 
-        The diaspora* email robot!
+        The silent.army email robot!
     report_email:
         type:
           post: "post"
@@ -727,7 +727,7 @@ en:
 
           Cheers,
 
-          The diaspora* email robot!
+          The silent.army email robot!
 
           [1]: %{url}
     export_email:
@@ -739,7 +739,7 @@ en:
 
         Cheers,
 
-        The diaspora* email robot!
+        The silent.army email robot!
     export_failure_email:
       subject: "We’re sorry, there was an issue with your data, %{name}"
       body: |-
@@ -750,7 +750,7 @@ en:
 
         Sorry,
 
-        The diaspora* email robot!
+        The silent.army email robot!
     export_photos_email:
       subject: "Your photos are ready for download, %{name}"
       body: |-
@@ -760,7 +760,7 @@ en:
 
         Cheers,
 
-        The diaspora* email robot!
+        The silent.army email robot!
     export_photos_failure_email:
       subject: "There was an issue with your photos, %{name}"
       body: |-
@@ -771,13 +771,13 @@ en:
 
         Sorry,
 
-        The diaspora* email robot!
-    invited_you: "%{name} invited you to diaspora*"
+        The silent.army email robot!
+    invited_you: "%{name} invited you to silent.army"
     invite:
       message: |-
         Hello!
 
-        You have been invited to join diaspora* by %{diaspora_id}!
+        You have been invited to join silent.army by %{diaspora_id}!
 
         Click this link to get started
 
@@ -788,28 +788,28 @@ en:
 
         Love,
 
-        The diaspora* email robot!
+        The silent.army email robot!
 
-        P.S.: Just in case you don't know (yet) what diaspora* is, [here][2] is the answer!
+        P.S.: Just in case you don't know (yet) what silent.army is, [here][2] is the answer!
 
         [1]: %{invite_url}
         [2]: %{diasporafoundation_url}
     remove_old_user:
-      subject: "Your diaspora* account has been flagged for removal due to inactivity"
+      subject: "Your silent.army account has been flagged for removal due to inactivity"
       body: |-
         Hello,
 
-        It looks as though you no longer want your account at %{pod_url}, as you haven’t used it for %{after_days} days. To ensure our active users get the best performance from this diaspora* pod, we’d like to remove unwanted accounts from our database.
+        It looks as though you no longer want your account at %{pod_url}, as you haven’t used it for %{after_days} days. To ensure our active users get the best performance from this silent.army pod, we’d like to remove unwanted accounts from our database.
 
-        We’d love you to stay part of diaspora*’s community, and you’re welcome to keep your account live if you want to.
+        We’d love you to stay part of silent.army’s community, and you’re welcome to keep your account live if you want to.
 
-        If you want to keep your account live, all you need to do is to sign in to your account before %{remove_after}. When you sign in, take a moment to have a look around diaspora*. It has changed a lot since you last looked in, and we think you’ll like the improvements we’ve made. Follow some #tags to find content you love.
+        If you want to keep your account live, all you need to do is to sign in to your account before %{remove_after}. When you sign in, take a moment to have a look around silent.army. It has changed a lot since you last looked in, and we think you’ll like the improvements we’ve made. Follow some #tags to find content you love.
 
         Sign in here: %{login_url}. If you’ve forgotten your sign-in details, you can ask for a reminder on that page.
 
         Hoping to see you again,
 
-        The diaspora* email robot!
+        The silent.army email robot!
   api:
     openid_connect:
       authorizations:
@@ -874,7 +874,7 @@ en:
       results_for: "Users matching %{search_term}"
       no_results: "Hey! You need to search for something."
       couldnt_find_them: "Couldn’t find them?"
-      search_handle: "Use their diaspora* ID (username@pod.tld) to be sure to find your friends."
+      search_handle: "Use their silent.army ID (username@pod.tld) to be sure to find your friends."
       send_invite: "Still nothing? Send an invite!"
       no_one_found: "...and no one was found."
       searching: "Searching, please be patient..."
@@ -963,8 +963,8 @@ en:
       your_location: "Your location"
       your_photo: "Your photo"
       update_profile: "Update profile"
-      allow_search: "Allow for people to search for you within diaspora*"
-      nsfw_explanation: "NSFW (“not safe for work”) is diaspora*’s self-governing community standard for content which may not be suitable to view while at work. If you plan to share such material frequently, please check this option so that everything you share will be hidden from people’s streams unless they choose to view them."
+      allow_search: "Allow for people to search for you within silent.army"
+      nsfw_explanation: "NSFW (“not safe for work”) is silent.army’s self-governing community standard for content which may not be suitable to view while at work. If you plan to share such material frequently, please check this option so that everything you share will be hidden from people’s streams unless they choose to view them."
       nsfw_explanation2: "If you choose not to select this option, please add the #nsfw tag each time you share such material."
       nsfw_check: "Mark everything I share as NSFW"
     update:
@@ -986,8 +986,8 @@ en:
       terms: "By creating an account you accept the %{terms_link}."
       terms_link: "terms of service"
     create:
-      success: "You’ve joined diaspora*!"
-    closed: "Signups are closed on this diaspora* pod."
+      success: "You’ve joined silent.army!"
+    closed: "Signups are closed on this silent.army pod."
     invalid_invite: "The invite link you provided is no longer valid!"
 
   reshares:
@@ -1011,7 +1011,7 @@ en:
       not_logged_in: "Currently not logged in."
       really_disconnect: "Disconnect %{service}?"
       edit_services: "Edit services"
-      services_explanation: "Connecting to third-party sharing services gives you the ability to publish your posts to them as you write them in diaspora*."
+      services_explanation: "Connecting to third-party sharing services gives you the ability to publish your posts to them as you write them in silent.army."
       share_to: "Share to %{provider}"
     create:
       success: "Authentication successful."
@@ -1065,7 +1065,7 @@ en:
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
       title: "Set up connected services"
       share: "Share"
-      outside: "Public messages will be available for others outside of diaspora* to see."
+      outside: "Public messages will be available for others outside of silent.army to see."
       logged_in: "Logged in to %{service}"
       manage: "Manage connected services"
       atom_feed: "Atom feed"
@@ -1137,7 +1137,7 @@ en:
     edit:
       edit_account: "Edit account"
       change: "Change"
-      your_handle: "Your diaspora* ID"
+      your_handle: "Your silent.army ID"
       your_email: "Your email"
       your_email_private: "Your email will never be seen by other users"
       change_email: "Change email"
@@ -1179,9 +1179,9 @@ en:
 
       close_account:
         dont_go: "Hey, please don’t go!"
-        make_diaspora_better: "We’d love you to stay and help us make diaspora* better instead of leaving. If you really do want to leave, however, here’s what will happen next:"
+        make_diaspora_better: "We’d love you to stay and help us make silent.army better instead of leaving. If you really do want to leave, however, here’s what will happen next:"
         mr_wiggles: "Mr Wiggles will be sad to see you go"
-        what_we_delete: "We will delete all of your posts and profile data as soon as possible. Your comments on other people’s posts will still appear, but they will be associated with your diaspora* ID rather than your name."
+        what_we_delete: "We will delete all of your posts and profile data as soon as possible. Your comments on other people’s posts will still appear, but they will be associated with your silent.army ID rather than your name."
         locked_out: "You will get signed out and locked out of your account until it has been deleted."
         lock_username: "Your username will be locked. You will not be able to create a new account on this pod with the same ID."
         no_turning_back: "There is no turning back! If you’re really sure, enter your password below."
@@ -1194,19 +1194,19 @@ en:
       no_user_ignored_message: "You are not currently ignoring any other user"
 
     destroy:
-      success: "Your account has been locked. It may take 20 minutes for us to finish closing your account. Thank you for trying diaspora*."
+      success: "Your account has been locked. It may take 20 minutes for us to finish closing your account. Thank you for trying silent.army."
       no_password: "Please enter your current password to close your account."
       wrong_password: "The entered password didn’t match your current password."
 
     getting_started:
       well_hello_there: "Well, hello there!"
-      community_welcome: "diaspora*’s community is happy to have you aboard!"
-      awesome_take_me_to_diaspora: "Awesome! Take me to diaspora*"
+      community_welcome: "silent.army’s community is happy to have you aboard!"
+      awesome_take_me_to_diaspora: "Awesome! Take me to silent.army"
       who_are_you: "Who are you?"
-      connect_to_facebook: "We can speed things up a bit by %{link} to diaspora*. This will pull your name and photo, and enable cross-posting."
+      connect_to_facebook: "We can speed things up a bit by %{link} to silent.army. This will pull your name and photo, and enable cross-posting."
       connect_to_facebook_link: "Hooking up your Facebook account"
       what_are_you_in_to: "What are you into?"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They’re also a great way to find new people on diaspora*."
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They’re also a great way to find new people on silent.army."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
 
     update:

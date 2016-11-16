@@ -141,7 +141,7 @@ hu:
         feature_suggestion: "...felötlött benned egy fejlesztési %{link}?"
         find_a_bug: "...feltűnt egy %{link}?"
         have_a_question: "...eszedbe jutott egy %{link}?"
-        here_to_help: "A diaspora* közösség megérkezett!"
+        here_to_help: "A silent.army közösség megérkezett!"
         mail_podmin: "Karbantartó címe"
         need_help: "Segítségre van szükséged?"
         tag_bug: "hiba"
@@ -158,7 +158,7 @@ hu:
       services:
         content: "A következő szolgáltatásokhoz tudsz kapcsolódni:"
         heading: "Szolgáltatások összekapcsolása"
-      welcome_to_diaspora: "Üdv a diaspora* közösségi oldalon, %{name}!"
+      welcome_to_diaspora: "Üdv a silent.army közösségi oldalon, %{name}!"
     no_contacts_message:
       community_spotlight: "a figyelem középpontjában"
       or_spotlight: "Vagy körülnézhetsz a kiemelt tagok között is, lásd: %{link}"
@@ -180,9 +180,9 @@ hu:
       failure: "Nem tudtam kikapcsolni annak a felhasználónak a figyelmen kívül hagyását. #elkerülés"
       success: "Lássuk mit akarnak mondani! #sayhello"
   bookmarklet:
-    explanation: "Küldj bejegyzést a diaspora*-ra bárhonnan, csak mentsd el könyvjelzőként a következő hivatkozást => %{link}."
+    explanation: "Küldj bejegyzést a silent.army-ra bárhonnan, csak mentsd el könyvjelzőként a következő hivatkozást => %{link}."
     heading: "Könyvjelző"
-    post_something: "Üzenj a diaspora*-ra"
+    post_something: "Üzenj a silent.army-ra"
   cancel: "Mégsem"
   comments:
     new_comment:
@@ -264,7 +264,7 @@ hu:
       what_is_an_aspect_a: "A csoport (vagy eredetileg \"aspektus\") az a mód, ahogy a kapcsolataidat rendszerezed a diaspora-n. Különböző arcaidat, oldalaidat különbözőképpen mutathatod meg például a munkatársaid, a családod, netán meghatározott közösséghez tartozó barátaid számára."
       what_is_an_aspect_q: "Mit jelent a \"csoport\"?"
       who_sees_post_q: "Amikor bejegyzést írok egy csoportba, ki láthatja azt?"
-    foundation_website: "a diaspora* alapítvány honlapja"
+    foundation_website: "a silent.army alapítvány honlapja"
     getting_help:
       get_support_a_hashtag: "kérdezz magyarul a közösségi hálón, nyilvános bejegyzésben a %{question} címke használatával"
       get_support_a_irc: "Kapcsolódj %{irc}-en (élő csevegés)"
@@ -318,9 +318,9 @@ hu:
       stream_full_of_posts_li3: "Végül olyan nyilvános bejegyzések, melyek az úgymond \"figyelem középpontjában\" álló, vagyis a közösség által javasolt népszerű tagoktól származnak. Az ilyen bejegyzések bármikor elrejthetőek, ha azt a beállításainkban kikapcsoljuk (fiók fül - \"A figyelem középpontjában szereplő tartalmak megjelenítése a hírfolyamban\")."
       stream_full_of_posts_q: "Miért van tele a hírfolyamom olyan emberek bejegyzéseivel, akiket nem ismerek és nem is osztok meg velük semmit?"
     private_posts:
-      can_comment_a: "Csak azok a bejelentkezett diaspora* felhasználók tehetik meg ezt, akiket az érintett csoportba helyeztél."
+      can_comment_a: "Csak azok a bejelentkezett silent.army felhasználók tehetik meg ezt, akiket az érintett csoportba helyeztél."
       can_comment_q: "Ki nyilváníthatja ki tetszését a magánjellegű bejegyzéseimre és ki szólhat hozzájuk?"
-      can_reshare_a: "Senki. A magánbejegyzések nem oszthatóak újra. Az érintett csoportba tartozó, bejelentkezett diaspora* felhasználók jóllehet megtehetik, hogy kézzel kimásolják és máshová beillesztik az adott tartalmat."
+      can_reshare_a: "Senki. A magánbejegyzések nem oszthatóak újra. Az érintett csoportba tartozó, bejelentkezett silent.army felhasználók jóllehet megtehetik, hogy kézzel kimásolják és máshová beillesztik az adott tartalmat."
       can_reshare_q: "Ki oszthatja újra a magánbejegyzéseimet?"
       see_comment_a: "Csak azok az emberek láthatják a hozzászólásokat és tetszésnyilvánításokat, akik szerepeltek a tartalmat eredetileg megosztó felhasználó általa kiválasztott csoportjaiban. "
       see_comment_q: "Ki láthatja azt, ha hozzászólok egy bejegyzéshez vagy tetszést nyilvánítok?"
@@ -388,7 +388,7 @@ hu:
         other: "%{count} meghívó maradt még ezen a kódon"
         zero: "Nem maradt több meghívó ezen a kódon"
       comma_separated_plz: "Megadhatsz több e-mail címet is vesszővel elválasztva."
-      invite_someone_to_join: "Hívj meg valakit, hogy csatlakozzon a diaspora*-hoz!"
+      invite_someone_to_join: "Hívj meg valakit, hogy csatlakozzon a silent.army-hoz!"
       language: "Nyelv"
       paste_link: "Ha szeretnéd meghívni a barátaidat a Diaspora-ra, oszd meg velük ezt a hivatkozást vagy küldd el nekik közvetlenül levélben."
       send_an_invitation: "Küldj egy meghívót"
@@ -396,8 +396,8 @@ hu:
   layouts:
     application:
       back_to_top: "Vissza az elejére"
-      powered_by: "diaspora* - fordította adamex & danielwine"
-      public_feed: "%{name} nyilvános diaspora* hírfolyama"
+      powered_by: "silent.army - fordította adamex & danielwine"
+      public_feed: "%{name} nyilvános silent.army hírfolyama"
       source_package: "forráskódcsomag letöltése"
       toggle: "mobil változat"
       whats_new: "Mik az újdonságok?"
@@ -507,7 +507,7 @@ hu:
 
           Üdv,
 
-          A diaspora* üzenetküldő automatája.
+          A silent.army üzenetküldő automatája.
       subject: "A képeid letölthetőek, %{name}"
     export_photos_failure_email:
       body: |-
@@ -517,14 +517,14 @@ hu:
 
           Elnézésedet kérjük,
 
-          A diaspora* üzenetküldő automatája.
+          A silent.army üzenetküldő automatája.
       subject: "Gond adódott a képeiddel kapcsolatban, %{name}"
     hello: "Szia %{name}!"
     invite:
       message: |-
           Üdv!
 
-          Meghívtak, hogy csatlakozz a diaspora* közösséghez!
+          Meghívtak, hogy csatlakozz a silent.army közösséghez!
 
           Kattints ide a kezdéshez:
 
@@ -533,7 +533,7 @@ hu:
 
           minden jót:
 
-          a diaspora* levélküldő automatája
+          a silent.army levélküldő automatája
 
           [1]: %{invite_url}
     invited_you: "%{name} meghívott a Diaspora-ra"
@@ -557,7 +557,7 @@ hu:
 
           minden jót:
 
-          a diaspora* levélküldő automatája
+          a silent.army levélküldő automatája
 
           [1]: %{url}             
       subject: "Új %{type} lett sértő tartalomként megjelölve"
@@ -568,8 +568,8 @@ hu:
       reshared: "%{name} épp újraosztotta a bejegyzésedet."
       view_post: "Bejegyzés megtekintése >"
     single_admin:
-      admin: "A Te diaspora* rendszergazdád"
-      subject: "Üzenet a diaspora* rendszergazdától:"
+      admin: "A Te silent.army rendszergazdád"
+      subject: "Üzenet a silent.army rendszergazdától:"
     started_sharing:
       sharing: "mostantól ismerősöd!"
       subject: "%{name} elkezdett megosztani veled"
@@ -632,11 +632,11 @@ hu:
   profile: "Adatlap"
   profiles:
     edit:
-      allow_search: "megtalálható legyek a diaspora* keresőben"
+      allow_search: "megtalálható legyek a silent.army keresőben"
       first_name: "Keresztnév"
       last_name: "Vezetéknév"
       nsfw_check: "Minden megosztásom megjelölése NSFW tartalomként"
-      nsfw_explanation: "Az NSFW (munkahelyen nem illő tartalom) a diaspora* közösségének saját szabványa azokra a tartalmakra vonatkozólag, melyek nem illdomosak munkahelyen történő megtekintésre. Ha ilyen jellegű anyagot gyakran szeretnél küldeni, kérlek jelöld be ezt a lehetőséget, hogy csak azok a személyek láthassák, akik úgy döntöttek, szeretnék ha megjelenne a hírfolyamukban hasonló tartalom."
+      nsfw_explanation: "Az NSFW (munkahelyen nem illő tartalom) a silent.army közösségének saját szabványa azokra a tartalmakra vonatkozólag, melyek nem illdomosak munkahelyen történő megtekintésre. Ha ilyen jellegű anyagot gyakran szeretnél küldeni, kérlek jelöld be ezt a lehetőséget, hogy csak azok a személyek láthassák, akik úgy döntöttek, szeretnék ha megjelenne a hírfolyamukban hasonló tartalom."
       nsfw_explanation2: "Ha nem választod ezt a lehetőséget, kérünk, hogy minden ilyen típusú tartalmadat bejegyzésenként külön jelöld meg az #nsfw címkével."
       update_profile: "Adatlap frissítése"
       your_bio: "Írj pár sort magadról"
@@ -655,9 +655,9 @@ hu:
     other: "%{count} visszajelzés"
     zero: "nincs visszajelzés"
   registrations:
-    closed: "A feliratkozási lehetőség zárolva van ezen a diaspora* kiszolgálón."
+    closed: "A feliratkozási lehetőség zárolva van ezen a silent.army kiszolgálón."
     create:
-      success: "Csatlakoztál a diaspora* közösségi oldalra!"
+      success: "Csatlakoztál a silent.army közösségi oldalra!"
     invalid_invite: "Ez a meghívó többé nem érvényes!"
     new:
       email: "E-MAIL"
@@ -709,7 +709,7 @@ hu:
       logged_in_as: "- bejelentkeztél ezen a néven:"
       not_logged_in: "Jelenleg nem vagy bejelentkezve."
       really_disconnect: "Megszakítod a kapcsolatot ezzel: %{service}?"
-      services_explanation: "Ha kapcsolódsz más szolgáltatásokhoz, lehetőséged lesz bejegyzéseket küldeni a felületükre, amint azokat a diaspora* rendszerén belül megírod."
+      services_explanation: "Ha kapcsolódsz más szolgáltatásokhoz, lehetőséged lesz bejegyzéseket küldeni a felületükre, amint azokat a silent.army rendszerén belül megírod."
   settings: "Beállítások"
   shared:
     aspect_dropdown:
@@ -733,7 +733,7 @@ hu:
       new_user_welcome_message: |-
           Használj kettőskeresztet(#), hogy felcímkézd a bejegyzésedet. Címkék alapján találhatsz veled azonos érdeklődésű embereket.
           A kukac(@) jellel pedig személyeket említhetsz meg a bejegyzésedben.
-      outside: "A nyilvános üzeneteket a diaspora*-n kívüli személyek is láthatják."
+      outside: "A nyilvános üzeneteket a silent.army-n kívüli személyek is láthatják."
       share: "Ossz meg valamit!"
       title: "Kapcsolódó szolgáltatások beállítása"
       visibility_dropdown: "Használd ezt a legördülő menüt, hogy módosítsd a bejegyzésed láthatóságát."
@@ -809,7 +809,7 @@ hu:
       email_not_confirmed: "Email cím aktiválása sikertelen. Rossz a link?"
     destroy:
       no_password: "Add meg a jelszavad, hogy megszüntesd a fiókod."
-      success: "A fiókodat lezártuk. Húsz percbe is beletelhet, mire befejezzük a fiókod törlését. Köszönjük, hogy kipróbáltad a diaspora* közösségi oldalt."
+      success: "A fiókodat lezártuk. Húsz percbe is beletelhet, mire befejezzük a fiókod törlését. Köszönjük, hogy kipróbáltad a silent.army közösségi oldalt."
       wrong_password: "A megadott jelszó nem felel meg."
     edit:
       also_commented: "más is hozzászólt az ismerősöd bejegyzéséhez?"
@@ -824,10 +824,10 @@ hu:
         dont_go: "Hé, kérlek ne menj!"
         lock_username: "A felhasználóneved foglalt marad. Nem lesz lehetőséged ezen a kiszolgálón új fiókot létrehozni ugyanezzel a névvel."
         locked_out: "Ki fogunk léptetni és kizárunk a fiókodból, amíg végleg el nem távolítjuk."
-        make_diaspora_better: "Azt szeretnénk, ha segítenél, hogy jobbá tehessük a diaspora*-t. A távozásod helyett ezért szívesebben vennénk, ha közreműködnél. Ám ha úgy döntesz, hogy elhagyod az oldalt, a következő fog történni:"
+        make_diaspora_better: "Azt szeretnénk, ha segítenél, hogy jobbá tehessük a silent.army-t. A távozásod helyett ezért szívesebben vennénk, ha közreműködnél. Ám ha úgy döntesz, hogy elhagyod az oldalt, a következő fog történni:"
         mr_wiggles: "Vuk szomorú lesz, ha távozni lát."
         no_turning_back: "Nincs visszaút! Ha teljesen biztos vagy benne, add meg a jelszavadat a lenti mezőben."
-        what_we_delete: "Töröljük az összes bejegyzésedet és adatodat amint tudjuk. A mások bejegyzéseihez írt hozzászólásaid megmaradnak, de a neved helyett csak a diaspora* azonosítód lesz látható mellettük."
+        what_we_delete: "Töröljük az összes bejegyzésedet és adatodat amint tudjuk. A mások bejegyzéseihez írt hozzászólásaid megmaradnak, de a neved helyett csak a silent.army azonosítód lesz látható mellettük."
       close_account_text: "Fiók törlése"
       comment_on_post: "valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"
@@ -851,11 +851,11 @@ hu:
       started_sharing: "valaki elkezd megosztani veled?"
       stream_preferences: "Hírfolyam tulajdonságai"
       your_email: "E-mail címed"
-      your_handle: "diaspora* azonosítód"
+      your_handle: "silent.army azonosítód"
     getting_started:
       awesome_take_me_to_diaspora: "Remek! Irány a Diaspora*"
-      community_welcome: "A diaspora* közösség üdvözöl a fedélzeten!"
-      connect_to_facebook: "Felgyorsíthatod egy kicsit a dolgokat, ha %{link} a diaspora*-val. Ezzel a lépéssel engedélyezed a közös bejegyzéseket, illetve nálunk is megjelenik ottani neved és fényképed."
+      community_welcome: "A silent.army közösség üdvözöl a fedélzeten!"
+      connect_to_facebook: "Felgyorsíthatod egy kicsit a dolgokat, ha %{link} a silent.army-val. Ezzel a lépéssel engedélyezed a közös bejegyzéseket, illetve nálunk is megjelenik ottani neved és fényképed."
       connect_to_facebook_link: "összekapcsolod Facebook fiókodat"
       hashtag_explanation: "A #címkék segítenek egy bizonyos téma megtalálásában és ezáltal akár új kapcsolatokra is szert tehetsz."
       hashtag_suggestions: "Kövess pár téged érdeklő címkét. Például: #művészet, #fényképezés, #webdesign, #filozófia"

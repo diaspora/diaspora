@@ -51,8 +51,8 @@ nl:
           other: "Er zijn <%= count %> pods zonder versie (oude pods, geen NodeInfo)."
     admins:
       dashboard:
-        compare_versions: "De laatste diaspora* release is <%= latestVersion %>, jouw pod draait nog <%= podVersion %>."
-        error: "Kan de laatste diaspora* versie niet bepalen."
+        compare_versions: "De laatste silent.army release is <%= latestVersion %>, jouw pod draait nog <%= podVersion %>."
+        error: "Kan de laatste silent.army versie niet bepalen."
         outdated: "Je pod is verouderd."
         up_to_date: "Je pod is bijgewerkt!"
     and: "en"
@@ -87,7 +87,7 @@ nl:
       make_aspect_list_visible: "Contacten in dit aspect zichtbaar maken voor elkaar?"
       name: "Naam"
     bookmarklet:
-      post_something: "Plaatsen op diaspora*"
+      post_something: "Plaatsen op silent.army"
       post_submit: "Bericht aanmelden..."
       post_success: "Geplaatst! Sluit nu pop-up venster..."
     cancel: "Annuleren"

@@ -70,7 +70,7 @@ tr:
         zero: "%{count} kişi"
       week: "Hafta"
     user_entry:
-      diaspora_handle: "diaspora* kaydı"
+      diaspora_handle: "silent.army kaydı"
       guid: "GUID"
       id: "kimlik"
       ? "no"
@@ -142,7 +142,7 @@ tr:
       introduce_yourself: "Bu sizin akışınızdır. Atla ve kendini tanıt."
       keep_pod_running: "%{pod}u hızlı çalıştırmaya devam edin ve sunucularına aylık bir bağışla kahve ikram edin."
       new_here:
-        follow: "%{link} bağlantısını tıkla ve yeni diaspora* kullanıcılarıyla tanış!"
+        follow: "%{link} bağlantısını tıkla ve yeni silent.army kullanıcılarıyla tanış!"
         learn_more: "Daha fazla bilgi"
         title: "Yeni Kişilerle Tanış"
       services:
@@ -231,7 +231,7 @@ tr:
       close_account_q: "Tohumumu(hesabımı) nasıl silerim?"
       data_other_podmins_a: "Bir kez başka bir poddaki biriyle paylaştıktan sonra, onunla paylaştığınız gönderiler ve profil verinizin bir kopyası o podda da saklanır, ve haliyle o podun veri tabanı yöneticisi de ona erişebilir. Bir gönderi ya da profil verisini sildiğinizde diğer podlardan da kendiliğinden silinirler."
       data_other_podmins_q: "Diğer podların yöneticileri bilgimi görebiliyor mu?"
-      data_visible_to_podmin_a: "Podlar *arası* iletişim her zaman SSL ve diaspora*nın kendi aktarım şifresi ile şifrelenir, ancak pod içinde saklı olan veri şifresizdir. İsterse, podunuzun veri tabanı yöneticisi (genelde podu çalıştıran kişi uğraşır) tüm profil verinize ve (kullanıcı verilerini saklayan diğer sitelerde de olduğu gibi) tüm gönderilerinize erişebilir. Kendi podunuzu çalıştırmak daha fazla mahremiyet sağlar çünkü o zaman veri tabanı erişimini de siz denetlersiniz."
+      data_visible_to_podmin_a: "Podlar *arası* iletişim her zaman SSL ve silent.armynın kendi aktarım şifresi ile şifrelenir, ancak pod içinde saklı olan veri şifresizdir. İsterse, podunuzun veri tabanı yöneticisi (genelde podu çalıştıran kişi uğraşır) tüm profil verinize ve (kullanıcı verilerini saklayan diğer sitelerde de olduğu gibi) tüm gönderilerinize erişebilir. Kendi podunuzu çalıştırmak daha fazla mahremiyet sağlar çünkü o zaman veri tabanı erişimini de siz denetlersiniz."
       data_visible_to_podmin_q: "Pod yöneticisi ne kadar bilgime erişebiliyor?"
       download_data_a: "Evet. Hesap sekmesinde veriyi indirmek için iki düğme var."
       download_data_q: "Tohumum(hesabım)daki tüm veriyi indirebilir miyim?"
@@ -253,19 +253,19 @@ tr:
       restrict_posts_i_see_a: "Evet. Kenar çubuğundaki Bakışlarım'a tıklayın ve seçiminizi değiştirmek için ilgili bakışlara tıklayın. Yalnızca seçili bakışlardan gelen gönderiler size görünür olacak."
       restrict_posts_i_see_q: "Gördüğüm gönderileri sadece belli bakışlara  kısıtlayabilir miyim?"
       title: "Bakışlar"
-      what_is_an_aspect_a: "Bakışlar diaspora* da kişileri gruplamanın bir yolu, dünyaya gösterdiğiniz yüzlerden biridir. Çalıştığınızdaki bakış açınız, ailenize karşı, çevrenizdeki kişilere karşı gösterdiğiniz farklı farklı olabilir."
+      what_is_an_aspect_a: "Bakışlar silent.army da kişileri gruplamanın bir yolu, dünyaya gösterdiğiniz yüzlerden biridir. Çalıştığınızdaki bakış açınız, ailenize karşı, çevrenizdeki kişilere karşı gösterdiğiniz farklı farklı olabilir."
       what_is_an_aspect_q: "Bakış nedir?"
       who_sees_post_a: "Sınırlı gönderi yaparsanız, yalnızca o bakış(lar)a koyduğunuz kişilere görünür olacaktır. Bunun dışındakiler, gönderinizi açmadığınız sürece hiçbir şekilde onu göremeyeceklerdir. Yalnızca genel gönderiler hiçbir bakışa koymadığınız kişilere açıktır."
       who_sees_post_q: "Bir bakışa gönderdiğimde onu kimler görür?"
     foundation_website: "diaspora vakfı web sitesi"
     getting_help:
-      get_support_a_hashtag: "%{question} etiketini kullanarak diaspora* üzerinde açık bir gönderiyle sorun"
+      get_support_a_hashtag: "%{question} etiketini kullanarak silent.army üzerinde açık bir gönderiyle sorun"
       get_support_a_irc: "bize %{irc} kanalında katılın (Canlı sohbet)"
       get_support_a_tutorials: "%{tutorials} belgelerimizi deneyin"
       get_support_a_website: "%{link} bağlantımıza bakın"
       get_support_a_wiki: "%{link} arayın"
       get_support_q: "Eğer sorum SSS'da yanıtlanmamışsa ne yapayım? Daha başka nereden destek alabilirim?"
-      getting_started_a: "Şanslısınız. Proje sayfalarımızdaki %{tutorial_series} deneyin. Böylece adım adım kayıt sürecini tamamlayacak ve diaspora* hakkındaki tüm temel bilgileri öğreneceksiniz."
+      getting_started_a: "Şanslısınız. Proje sayfalarımızdaki %{tutorial_series} deneyin. Böylece adım adım kayıt sürecini tamamlayacak ve silent.army hakkındaki tüm temel bilgileri öğreneceksiniz."
       getting_started_q: "İmdat! Başlamak için bana biraz temel yardım gerekiyor!"
       title: "Yardım almak"
     getting_started_tutorial: "'Başlangıç' öğretim dizisi"
@@ -293,16 +293,16 @@ tr:
       find_people_a: "Kenar çubuğundaki e-mektup bağlantısına tıklayın. İlgi alanlarınızı paylaşan kişileri #etiketler ile takip edin, ve onlardan ilgilendiğiniz şeyler gönderenleri bir bakışa ekleyin. Genel bir gönderide #buradayeniyim diye bağırın."
       find_people_q: "Poda henüz katıldım, paylaşacak birilerine nasıl ulaşacağım?"
       title: "Podlar"
-      use_search_box_a: "Eğer tam diaspora* kimliğini (yani, kullaniciadi@pod) biliyorsanız, o kimlikle aratabilirsiniz. Aynı podda iseniz sadece kullanıcı adı ile de aratabilirsiniz. Bir diğer seçenek de (ekranda görünen) profil adı ile aratmaktır. Eğer ilkinde işe yaramazsa, tekrar deneyin."
+      use_search_box_a: "Eğer tam silent.army kimliğini (yani, kullaniciadi@pod) biliyorsanız, o kimlikle aratabilirsiniz. Aynı podda iseniz sadece kullanıcı adı ile de aratabilirsiniz. Bir diğer seçenek de (ekranda görünen) profil adı ile aratmaktır. Eğer ilkinde işe yaramazsa, tekrar deneyin."
       use_search_box_q: "Birisini arama kutusu aracılığıyla nasıl bulabilirim?"
-      what_is_a_pod_a: "Pod diaspora* yazılımını çalıştıran ve diaspora* ağına bağlı bir sunucudur. Bitkilerin tohum saplarının uçlarına, sunucuların kullanıcı sayısı açısından, benzediği için bu ad verilmiştir. Bir çok pod vardır. Diğer podlardan arkadaşlar ekleyebilir ve onlarla haberleşebilirsiniz. (diasora*yı bir e-mektup sağlayıcısına benzetebilirsiniz: Açık podlar, özel podlar, hatta biraz çaba ile kendiniz bile bir pod açabilirsiniz)."
+      what_is_a_pod_a: "Pod silent.army yazılımını çalıştıran ve silent.army ağına bağlı bir sunucudur. Bitkilerin tohum saplarının uçlarına, sunucuların kullanıcı sayısı açısından, benzediği için bu ad verilmiştir. Bir çok pod vardır. Diğer podlardan arkadaşlar ekleyebilir ve onlarla haberleşebilirsiniz. (diasora*yı bir e-mektup sağlayıcısına benzetebilirsiniz: Açık podlar, özel podlar, hatta biraz çaba ile kendiniz bile bir pod açabilirsiniz)."
       what_is_a_pod_q: "Pod nedir?"
     posts_and_posting:
-      char_limit_services_a: "O halde, göndereceğiniz diğer hizmetin uzunluk sınırına uygun yazmanızı öneririz. Aşmanız halinde, metin orada kırpılacak, ve diaspora* gönderisine bir bağlantı verilecektir. Gönderinizi kısa tutmaya yardımcı olmak için bağlı hizmetin uzunluk sınırına kalan değer(Tumblr için 1000, Twitter için 140) gönderi sırasında hatırlatılacaktır."
+      char_limit_services_a: "O halde, göndereceğiniz diğer hizmetin uzunluk sınırına uygun yazmanızı öneririz. Aşmanız halinde, metin orada kırpılacak, ve silent.army gönderisine bir bağlantı verilecektir. Gönderinizi kısa tutmaya yardımcı olmak için bağlı hizmetin uzunluk sınırına kalan değer(Tumblr için 1000, Twitter için 140) gönderi sırasında hatırlatılacaktır."
       char_limit_services_q: "Gönderimi uzunluk sınırı olan bir bağlı servise gönderdiğimde uzun gönderilerime ne olur?"
       character_limit_a: "65,535 karakter. Yani, Twitter'da izin verilenden 65,395 daha fazla karakter! ;)"
       character_limit_q: "En fazla kaç karakter gönderebilirim?"
-      embed_multimedia_a: "Genelde URL'yi yapıştırmanız gömme işleminin gerçekleşmesi için yeterli olur: YouTube, Vimeo, SoundCloud, Flickr ve birkaç site daha desteklenir. diaspora* bunu oEmbed yardımıyla gerçekleştirir. Her an yeni sitelere açığız. Basit göndermeyi unutmayın: tam bağlantılar:kısaltma servisler kulllanmayın; temel URL'den sonra ?#&!= kullanmayın; ve önizlemeyi görebilmek için bir süre bekleyin."
+      embed_multimedia_a: "Genelde URL'yi yapıştırmanız gömme işleminin gerçekleşmesi için yeterli olur: YouTube, Vimeo, SoundCloud, Flickr ve birkaç site daha desteklenir. silent.army bunu oEmbed yardımıyla gerçekleştirir. Her an yeni sitelere açığız. Basit göndermeyi unutmayın: tam bağlantılar:kısaltma servisler kulllanmayın; temel URL'den sonra ?#&!= kullanmayın; ve önizlemeyi görebilmek için bir süre bekleyin."
       embed_multimedia_q: "Bir gönderiye video, ses ya da başka bir içerik nasıl eklerim?"
       format_text_a: "%{markdown} sistemini kullanarak. Tüm Markdown sözdizimine %{here} erişebilirsiniz. Önizleme düğmesinin yardımı dokunur, böylece paylaşmadan önce nasıl görüneceğine bakabilirsiniz."
       format_text_q: "Gönderilerimi nasıl biçimlendirebilirim(kalın, İtalik, vs.)?"
@@ -319,9 +319,9 @@ tr:
       stream_full_of_posts_li2: "İzlediğiniz etiketleri içeren genel gönderiler. Bunları kaldırmak için, ilgili etiketi izlemeyi bırakın."
       title: "Gönderiler"
     private_posts:
-      can_comment_a: "Yalnızca belirttiğiniz bakış içindeki diaspora* kullanıcıları gönderinizi beğenebilir ya da yorum yazabilir."
+      can_comment_a: "Yalnızca belirttiğiniz bakış içindeki silent.army kullanıcıları gönderinizi beğenebilir ya da yorum yazabilir."
       can_comment_q: "Özel gönderimi kim beğenebilir ya da ona yorum yazabilir?"
-      can_reshare_a: "Hiç kimse. Özel gönderiler yeniden paylaşılamaz, ancak diaspora* nın kopyala-yapıştır koruması yoktur."
+      can_reshare_a: "Hiç kimse. Özel gönderiler yeniden paylaşılamaz, ancak silent.army nın kopyala-yapıştır koruması yoktur."
       can_reshare_q: "Özel gönderimi kim paylaşabilir?"
       title: "Özel gönderiler"
     private_profiles:
@@ -336,7 +336,7 @@ tr:
       whats_in_profile_a: "Adınız, kendinizi tanımladığınız beş etiket, fotoğrafınız. Profili düzenleme sayfasının üstündeki şeyler. Profil bilgilerini tanımlanabilir ya da anonim olarak tanımlayabilirsiniz. Profil sayfası ayrıca tüm genel gönderilerinizi gösterir."
       whats_in_profile_q: "Genel profilimin içinde ne var"
     resharing_posts:
-      reshare_public_post_aspects_a: "Hayır, onları yeniden paylaştığınızda kendiliğinden genel gönderi olarak paylaşılırlar. Belirli bakışlarla paylaşmak için, kopyala-yapıştır yöntemini kullanabilirsiniz. diaspora* nın kopyala-yapıştır koruması yoktur."
+      reshare_public_post_aspects_a: "Hayır, onları yeniden paylaştığınızda kendiliğinden genel gönderi olarak paylaşılırlar. Belirli bakışlarla paylaşmak için, kopyala-yapıştır yöntemini kullanabilirsiniz. silent.army nın kopyala-yapıştır koruması yoktur."
       reshare_public_post_aspects_q: "Genel bir gönderiyi belli bakışlarla yeniden paylaşabilir miyim?"
       title: "Gönderileri yeniden paylaşmak"
     sharing:
@@ -488,7 +488,7 @@ tr:
 
           Saygılar,
 
-          diaspora* elektronik mektup robotu
+          silent.army elektronik mektup robotu
 
           [1]: %{url}
     reshared:
@@ -513,7 +513,7 @@ tr:
       no_one_found: "...ve hiç kimse bulunamadı."
       no_results: "Hey! Bir şeyi araman lazım."
       results_for: "arama sonuçları"
-      search_handle: "Arkadaşlarınızı bulmak için kullaniciadi@pod biçimindeki diaspora* kimliklerini kullanın."
+      search_handle: "Arkadaşlarınızı bulmak için kullaniciadi@pod biçimindeki silent.army kimliklerini kullanın."
       searching: "aranıyor, biraz sabırlı olun..."
       send_invite: "Hâlâ mı bir şey yok? Birilerini davet edin!"
     person:
@@ -558,7 +558,7 @@ tr:
       first_name: "Ad"
       last_name: "Soyad"
       nsfw_check: "Paylaştığım herşeyi İ2GD olarak işaretle"
-      nsfw_explanation: "İ2GD('iş için güvenli değil') diaspora* nın çalışma esnasında görüntülenmesi sakıncalı olabilecek içerik için özdenetimli topluluk standardıdır. Böyle şeyleri sık paylaşacaksanız bunu işaretleyin böylece gerçekten bunu görmek istemeyenler akışlarından bunları gizleyebilsinler."
+      nsfw_explanation: "İ2GD('iş için güvenli değil') silent.army nın çalışma esnasında görüntülenmesi sakıncalı olabilecek içerik için özdenetimli topluluk standardıdır. Böyle şeyleri sık paylaşacaksanız bunu işaretleyin böylece gerçekten bunu görmek istemeyenler akışlarından bunları gizleyebilsinler."
       nsfw_explanation2: "Eğer bu seçeneği tercih etmediyseniz lütfen bu tür malzemeyi her paylaştığınızda #nsfw etiketini ekleyin."
       update_profile: "Profili Güncelle"
       your_bio: "Hakkında"

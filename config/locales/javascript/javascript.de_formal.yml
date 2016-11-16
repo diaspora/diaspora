@@ -51,8 +51,8 @@ de_formal:
           other: "Es gibt <%= count %> Pods, die keine Version haben (alte Pods, kein NodeInfo)."
     admins:
       dashboard:
-        compare_versions: "Die neueste diaspora*-Version ist <%= latestVersion %>, Ihr Pod verwendet <%= podVersion %>."
-        error: "Konnte neueste diaspora*-Version nicht ermitteln."
+        compare_versions: "Die neueste silent.army-Version ist <%= latestVersion %>, Ihr Pod verwendet <%= podVersion %>."
+        error: "Konnte neueste silent.army-Version nicht ermitteln."
         outdated: "Ihr Pod ist veraltet."
         up_to_date: "Ihr Pod ist auf dem neuesten Stand!"
     and: "und"
@@ -84,7 +84,7 @@ de_formal:
       make_aspect_list_visible: "Kontakte in diesem Aspekt gegenseitig sichtbar machen?"
       name: "Name"
     bookmarklet:
-      post_something: "Erstellen Sie einen Beitrag in diaspora*"
+      post_something: "Erstellen Sie einen Beitrag in silent.army"
       post_submit: "Beitrag einreichen..."
       post_success: "Gepostet! Popup-Fenster wird geschlossen..."
     cancel: "Abbrechen"

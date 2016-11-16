@@ -71,7 +71,7 @@ ms:
         feature_suggestion: "... punyai %{link} cadangan?"
         find_a_bug: "... mencari %{link}?"
         have_a_question: "... punyai %{link}?"
-        here_to_help: "Komuniti diaspora* disini!"
+        here_to_help: "Komuniti silent.army disini!"
         need_help: "Perlukan Bantuan?"
         tag_bug: "#bug"
         tag_feature: "#feature"
@@ -82,7 +82,7 @@ ms:
         learn_more: "Ketahui lebih lanjut"
         title: "Alukan Pengguna Baru"
       services:
-        content: "Anda boleh menyambung perkhidmatan berikut kepada diaspora*:"
+        content: "Anda boleh menyambung perkhidmatan berikut kepada silent.army:"
         heading: "Khidmat Perhubungan"
       welcome_to_diaspora: "Selamat datang ke Diaspora, %{name}!"
     no_contacts_message:
@@ -101,7 +101,7 @@ ms:
   bookmarklet:
     explanation: "Pos kepada diaspora * dari mana-mana sahaja dengan bookmark link ini => %{link}."
     heading: "Bookmarklet"
-    post_something: "Pos kepada diaspora*"
+    post_something: "Pos kepada silent.army"
   cancel: "Batal"
   comments:
     new_comment:

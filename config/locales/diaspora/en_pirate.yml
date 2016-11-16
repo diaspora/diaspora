@@ -78,13 +78,13 @@ en_pirate:
         tag_question: "wanna know somethin'!"
       introduce_yourself: "This be yer sea. Make yerself acquainted ye bucko."
       new_here:
-        follow: "Follow %{link} 'n welcome new mateys 't diaspora*!"
+        follow: "Follow %{link} 'n welcome new mateys 't silent.army!"
         learn_more: "Learn more matey"
         title: "Welcome New Buccaneers"
       services:
-        content: "Ye can connect the following services to diaspora*:"
+        content: "Ye can connect the following services to silent.army:"
         heading: "Connect ye services"
-      welcome_to_diaspora: "Welcome to diaspora*, %{name}. Ye old seadog!"
+      welcome_to_diaspora: "Welcome to silent.army, %{name}. Ye old seadog!"
     no_contacts_message:
       community_spotlight: "crew spotlight"
       or_spotlight: "Or ye can share with %{link}"
@@ -105,7 +105,7 @@ en_pirate:
     destroy:
       failure: "Couldnt stop ignorin' that scallywag."
   bookmarklet:
-    explanation: "Post to diaspora* from anywhere by marking this link on yer map => %{link}"
+    explanation: "Post to silent.army from anywhere by marking this link on yer map => %{link}"
     heading: "Mark on ye map"
     post_something: "Post 't d*"
   cancel: "Nevermind"
@@ -150,14 +150,14 @@ en_pirate:
       rejected: "Yer pigeon can't deliver to the followin' addresses: "
       sent: "Invitations have been sent t': %{emails}"
     new:
-      invite_someone_to_join: "Invite a bucko t' diaspora*!"
+      invite_someone_to_join: "Invite a bucko t' silent.army!"
       language: "What do ye speak?"
       send_an_invitation: "Send n' invitation"
   layouts:
     application:
       back_to_top: "Back to crow's nest"
-      powered_by: "This ship be POWERED BY diaspora*"
-      public_feed: "Sea-wide diaspora* feed for %{name}"
+      powered_by: "This ship be POWERED BY silent.army"
+      public_feed: "Sea-wide silent.army feed for %{name}"
       toggle: "toggl' mobile site"
       whats_new: "what be new?"
     header:
@@ -267,18 +267,18 @@ en_pirate:
       liked: "%{name} just like'd yer post"
       view_post: "Read post >"
     mentioned:
-      subject: "%{name} has mention'd ye on diaspora*"
+      subject: "%{name} has mention'd ye on silent.army"
     private_message:
       reply_to_or_view: "Reply 't or read this conversation >"
     reshared:
       reshared: "%{name} just reshare'd yer post"
       view_post: "Read post >"
     single_admin:
-      admin: "Yer diaspora* cap'n"
-      subject: "A message about yer diaspora* account:"
+      admin: "Yer silent.army cap'n"
+      subject: "A message about yer silent.army account:"
     started_sharing:
       sharing: "has start'd sharin' with ye!"
-      subject: "%{name} started sharin' with ye on diaspora*"
+      subject: "%{name} started sharin' with ye on silent.army"
       view_profile: "Look at %{name}'s ship"
     to_change_your_notification_settings: "t' change yer notification settin's"
   nsfw: "Not safe for lad's or lasses'"
@@ -322,7 +322,7 @@ en_pirate:
   profile: "Ye duffle"
   profiles:
     edit:
-      allow_search: "Allow fer scallywags to search fer ye within diaspora*"
+      allow_search: "Allow fer scallywags to search fer ye within silent.army"
       your_bio: "Ye story"
       your_birthday: "Yer day o' birth"
       your_gender: "Lad, lass, or something else?"
@@ -344,7 +344,7 @@ en_pirate:
   registrations:
     closed: "Signups be closed on this ship!"
     create:
-      success: "Ye've joined diaspora*! YARGH!"
+      success: "Ye've joined silent.army! YARGH!"
   search: "Scour"
   services:
     create:
@@ -364,7 +364,7 @@ en_pirate:
     public_explain:
       logged_in: "on deck at %{service}"
       new_user_welcome_message: "Use #hashtags t' classify yer posts n' find mateys.  Call out mateys with @Mentions"
-      outside: "Sea-wide messages will be available fer others outside of diaspora* t' see."
+      outside: "Sea-wide messages will be available fer others outside of silent.army t' see."
       visibility_dropdown: "Use this dropdown t' change the visibility of yer post.  (It's good idear ye make this first one sea-wide.)"
     publisher:
       discard_post: "Scuttle post"
@@ -398,7 +398,7 @@ en_pirate:
       auto_follow_back: "Automatically follow back if someone follows ye"
       close_account:
         dont_go: "Yo Ho HO! No need t' walk the plank!"
-        make_diaspora_better: "We want ye t' make diaspora* better arr, so ye should help before ye walk the plank and feed the fishes. If ye do want t' walk, we want ye t' be savvy on what happens next ye old seadog arrr."
+        make_diaspora_better: "We want ye t' make silent.army better arr, so ye should help before ye walk the plank and feed the fishes. If ye do want t' walk, we want ye t' be savvy on what happens next ye old seadog arrr."
         mr_wiggles: "Mr Wiggles will be sad t' see ye go mate."
         what_we_delete: "We scuttle all of yer posts, profile data, as soon as humanly possible. Yer comments will hang around, but be associated with yer Diaspora Handle."
       show_community_spotlight: "Show Community Spotlight in sea"

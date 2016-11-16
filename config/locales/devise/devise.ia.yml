@@ -33,7 +33,7 @@ ia:
       inviter:
         accept_at: "a %{url}, tu pote acceptar lo per le ligamine sequente."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} te ha invitate a unir te a diaspora*"
+        have_invited_you: "%{names} te ha invitate a unir te a silent.army"
       reset_password_instructions:
         change: "Cambiar mi contrasigno"
         ignore: "Si tu non ha demandate isto, per favor ignora iste message."

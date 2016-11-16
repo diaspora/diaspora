@@ -36,7 +36,7 @@ zh-TW:
       inviter:
         accept_at: "於 %{url}，你可以透過以下連結來接受。"
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} 邀請你加入 diaspora* "
+        have_invited_you: "%{names} 邀請你加入 silent.army "
       password_change:
         subject: "密碼改了"
       reset_password_instructions:
