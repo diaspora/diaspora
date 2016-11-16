@@ -568,7 +568,7 @@ en:
       comma_separated_plz: "You can enter multiple email addresses separated by commas."
       send_an_invitation: "Send an invitation"
       sending_invitation: "Sending invitation..."
-      paste_link: "Share this link with your friends to invite them to silent.army, or email them the link directly."
+      paste_link: "Share this link with your friends to invite them to silent.army."
       codes_left:
         zero:  "No invites left on this code"
         one:  "One invite left on this code"

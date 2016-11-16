@@ -1,7 +1,9 @@
 = t(".share_this")
 = invite_link(current_user.invitation_code)
-.invitations-link.btn.btn-link#invitations-button{"data-toggle" => "modal"}
-  = t(".by_email")
+
+- if AppConfig.mail.enable?
+  .invitations-link.btn.btn-link#invitations-button{"data-toggle" => "modal"}
+    = t(".by_email")
 
 = render "shared/modal",
     path: new_user_invitation_path,
