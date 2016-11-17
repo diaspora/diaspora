@@ -17,6 +17,7 @@
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
 * Hide 'reshare' button on already reshared posts [#7169](https://github.com/diaspora/diaspora/pull/7169)
 * Only reload profile header when changing aspect memberships [#7183](https://github.com/diaspora/diaspora/pull/7183)
+* Fix visiblity on invitation modal when opening it from the stream [#7191](https://github.com/diaspora/diaspora/pull/7191)
 
 ## Features
 * Show spinner when loading comments in the stream [#7170](https://github.com/diaspora/diaspora/pull/7170)
