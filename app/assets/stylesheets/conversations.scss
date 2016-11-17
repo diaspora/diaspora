@@ -7,6 +7,12 @@
     .pagination { margin: 5px; }
   }
 
+  .conversations-container {
+    .row {
+      margin-top: 20px;
+    }
+  }
+
   .pagination-container > .pagination {
     border-radius: 0;
     border-top: 1px solid $border-grey;
