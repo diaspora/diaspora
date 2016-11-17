@@ -30,7 +30,7 @@
 //= require markdown-it-sup
 //= require highlightjs
 //= require clear-form
-//= require typeahead.bundle.js
+//= require corejs-typeahead
 //= require app/app
 //= require diaspora
 //= require_tree ./helpers
