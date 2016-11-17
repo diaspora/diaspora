@@ -6,6 +6,7 @@
 * Force jasmine fails on syntax errors [#7185](https://github.com/diaspora/diaspora/pull/7185)
 * Don't display mail-related view content if it is disabled in the pod's config [#7190](https://github.com/diaspora/diaspora/pull/7190)
 * Use typeahead.js from rails-assets.org [#7192](https://github.com/diaspora/diaspora/pull/7192)
+* Refactor ShareVisibilitesController to use PostService [#7196](https://github.com/diaspora/diaspora/pull/7196)
 
 ## Bug fixes
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
