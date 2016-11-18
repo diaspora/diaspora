@@ -52,7 +52,7 @@ class NotificationsController < ApplicationController
       format.html
       format.xml { render :xml => @notifications.to_xml }
       format.json {
-        render json: @notifications, each_serializer: NotificationSerializer
+        render json: render_as_json(@unread_notification_count, @grouped_unread_notification_counts, @notifications)
       }
     end
   end
@@ -82,4 +82,15 @@ class NotificationsController < ApplicationController
     end
   end
 
+  private
+
+  def render_as_json(unread_count, unread_count_by_type, notification_list)
+    {
+      unread_count:         unread_count,
+      unread_count_by_type: unread_count_by_type,
+      notification_list:    notification_list.map {|note|
+        NotificationSerializer.new(note, default_serializer_options).as_json
+      }
+    }.as_json
+  end
 end

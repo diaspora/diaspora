@@ -6,6 +6,7 @@ describe("app.views.Header", function() {
 
     spec.loadFixture("aspects_index");
     gon.appConfig = {settings: {podname: "MyPod"}};
+    app.notificationsCollection = new app.collections.Notifications();
     this.view = new app.views.Header().render();
   });
 
