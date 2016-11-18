@@ -49,6 +49,16 @@ describe("app.models.Post.Interactions", function(){
       jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
       expect(this.interactions.likes.trigger).toHaveBeenCalledWith("change");
     });
+
+    it("displays a flash message on errors", function() {
+      spyOn(app.flashMessages, "handleAjaxError").and.callThrough();
+      this.interactions.like();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "error message"});
+
+      expect(app.flashMessages.handleAjaxError).toHaveBeenCalled();
+      expect(app.flashMessages.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("error message");
+      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
+    });
   });
 
   describe("unlike", function(){
