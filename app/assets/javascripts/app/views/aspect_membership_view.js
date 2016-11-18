@@ -125,7 +125,7 @@ app.views.AspectMembership = app.views.Base.extend({
   _displayError: function(model, resp) {
     this._done();
     this.dropdown.closest(".aspect_membership_dropdown").removeClass("open"); // close the dropdown
-    app.flashMessages.error(resp.responseText);
+    app.flashMessages.handleAjaxError(resp);
   },
 
   // remove the membership with the given id
@@ -134,7 +134,7 @@ app.views.AspectMembership = app.views.Base.extend({
     this.listenToOnce(membership, "sync", this._successDestroyCb);
     this.listenToOnce(membership, "error", this._displayError);
 
-    return membership.destroy();
+    return membership.destroy({wait: true});
   },
 
   _successDestroyCb: function(aspectMembership) {

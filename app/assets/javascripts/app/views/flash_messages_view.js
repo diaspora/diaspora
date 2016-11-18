@@ -16,5 +16,13 @@ app.views.FlashMessages = app.views.Base.extend({
 
   error: function(message){
     this._flash(message, true);
+  },
+
+  handleAjaxError: function(response) {
+    if (response.status === 0) {
+      this.error(Diaspora.I18n.t("errors.connection"));
+    } else {
+      this.error(response.responseText);
+    }
   }
 });

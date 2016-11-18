@@ -87,6 +87,9 @@ en:
         success: "Your new aspect <%= name %> was created"
         failure: "Aspect creation failed."
 
+    errors:
+      connection: "Unable to connect to the server."
+
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
