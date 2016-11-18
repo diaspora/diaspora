@@ -123,8 +123,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
         interactions.set({"reshares_count": interactions.get("reshares_count") + 1});
         interactions.reshares.trigger("change");
       })
-      .fail(function(){
-        app.flashMessages.error(Diaspora.I18n.t("reshares.duplicate"));
+      .fail(function(response) {
+        app.flashMessages.handleAjaxError(response);
       });
 
     app.instrument("track", "Reshare");
