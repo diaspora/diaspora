@@ -72,8 +72,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
         self.set({"likes_count" : self.get("likes_count") + 1});
         self.likes.trigger("change");
       },
-      error: function() {
-        app.flashMessages.error(Diaspora.I18n.t("failed_to_like"));
+      error: function(model, response) {
+        app.flashMessages.handleAjaxError(response);
       }
     });
 
