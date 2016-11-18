@@ -30,4 +30,18 @@ describe("app.views.FlashMessages", function(){
       expect($(".flash-message").text().trim()).toBe("error!");
     });
   });
+
+  describe("handleAjaxError", function() {
+    it("shows a generic error if the connection failed", function() {
+      spyOn(flashMessages, "error");
+      flashMessages.handleAjaxError({status: 0});
+      expect(flashMessages.error).toHaveBeenCalledWith(Diaspora.I18n.t("errors.connection"));
+    });
+
+    it("shows the error given in the responseText otherwise", function() {
+      spyOn(flashMessages, "error");
+      flashMessages.handleAjaxError({status: 400, responseText: "some specific ajax error"});
+      expect(flashMessages.error).toHaveBeenCalledWith("some specific ajax error");
+    });
+  });
 });
