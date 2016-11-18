@@ -6,6 +6,8 @@ describe("app.models.Post.Interactions", function(){
     this.interactions = this.post.interactions;
     this.author = factory.author({guid: "loggedInAsARockstar"});
     loginAs({guid: "loggedInAsARockstar"});
+    spec.content().append($("<div id='flash-container'>"));
+    app.flashMessages = new app.views.FlashMessages({el: spec.content().find("#flash-container")});
 
     this.userLike = new app.models.Like({author : this.author});
   });
@@ -109,6 +111,16 @@ describe("app.models.Post.Interactions", function(){
       this.interactions.reshare();
       jasmine.Ajax.requests.mostRecent().respondWith(ajaxSuccess);
       expect(this.post.get("participation")).toBeTruthy();
+    });
+
+    it("displays a flash message on errors", function() {
+      spyOn(app.flashMessages, "handleAjaxError").and.callThrough();
+      this.interactions.reshare();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "error message"});
+
+      expect(app.flashMessages.handleAjaxError).toHaveBeenCalled();
+      expect(app.flashMessages.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("error message");
+      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
     });
   });
 

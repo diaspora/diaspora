@@ -199,7 +199,6 @@ en:
       hide: "Hide comments"
       no_comments: "There are no comments yet."
     reshares:
-      duplicate: "That good, eh?  You’ve already reshared that post!"
       successful: "The post was successfully reshared!"
       post: "Reshare <%= name %>’s post?"
     aspect_navigation:
