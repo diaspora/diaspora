@@ -139,7 +139,7 @@ app.Router = Backbone.Router.extend({
   notifications: function() {
     this._loadContacts();
     this.renderAspectMembershipDropdowns($(document));
-    new app.views.Notifications({el: "#notifications_container"});
+    new app.views.Notifications({el: "#notifications_container", collection: app.notificationsCollection});
   },
 
   peopleSearch: function() {

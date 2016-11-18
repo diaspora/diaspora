@@ -12,12 +12,12 @@ app.views.Header = app.views.Base.extend({
     });
   },
 
-  postRenderTemplate: function(){
-    new app.views.Notifications({ el: "#notification-dropdown" });
-    this.notificationDropdown = new app.views.NotificationDropdown({ el: "#notification-dropdown" });
-    new app.views.Search({ el: "#header-search-form" });
+  postRenderTemplate: function() {
+    new app.views.Notifications({el: "#notification-dropdown", collection: app.notificationsCollection});
+    new app.views.NotificationDropdown({el: "#notification-dropdown", collection: app.notificationsCollection});
+    new app.views.Search({el: "#header-search-form"});
   },
 
-  menuElement: function(){ return this.$("ul.dropdown"); },
+  menuElement: function() { return this.$("ul.dropdown"); }
 });
 // @license-end
