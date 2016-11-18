@@ -104,6 +104,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
   gem "rails-assets-highlightjs",                         "9.7.0"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
+  gem "rails-assets-corejs-typeahead",                    "1.0.1"
 
   # jQuery plugins
 

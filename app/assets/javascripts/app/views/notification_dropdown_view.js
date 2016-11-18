@@ -6,16 +6,21 @@ app.views.NotificationDropdown = app.views.Base.extend({
   },
 
   initialize: function(){
-    $(document.body).click($.proxy(this.hideDropdown, this));
+    $(document.body).click(this.hideDropdown.bind(this));
 
-    this.notifications = [];
-    this.perPage = 5;
-    this.hasMoreNotifs = true;
     this.badge = this.$el;
     this.dropdown = $("#notification-dropdown");
     this.dropdownNotifications = this.dropdown.find(".notifications");
     this.ajaxLoader = this.dropdown.find(".ajax-loader");
     this.perfectScrollbarInitialized = false;
+    this.dropdownNotifications.scroll(this.dropdownScroll.bind(this));
+    this.bindCollectionEvents();
+  },
+
+  bindCollectionEvents: function() {
+    this.collection.on("pushFront", this.onPushFront.bind(this));
+    this.collection.on("pushBack", this.onPushBack.bind(this));
+    this.collection.on("finishedLoading", this.finishLoading.bind(this));
   },
 
   toggleDropdown: function(evt){
@@ -31,12 +36,11 @@ app.views.NotificationDropdown = app.views.Base.extend({
   },
 
   showDropdown: function(){
-    this.resetParams();
     this.ajaxLoader.show();
     this.dropdown.addClass("dropdown-open");
     this.updateScrollbar();
     this.dropdownNotifications.addClass("loading");
-    this.getNotifications();
+    this.collection.fetch();
   },
 
   hideDropdown: function(evt){
@@ -50,38 +54,16 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   dropdownScroll: function(){
     var isLoading = ($(".loading").length === 1);
-    if (this.isBottom() && this.hasMoreNotifs && !isLoading){
+    if (this.isBottom() && !isLoading) {
       this.dropdownNotifications.addClass("loading");
-      this.getNotifications();
+      this.collection.fetchMore();
     }
-  },
-
-  getParams: function(){
-    if(this.notifications.length === 0){ return{ per_page: 10, page: 1 }; }
-    else{ return{ per_page: this.perPage, page: this.nextPage }; }
-  },
-
-  resetParams: function(){
-    this.notifications.length = 0;
-    this.hasMoreNotifs = true;
-    delete this.nextPage;
   },
 
   isBottom: function(){
     var bottom = this.dropdownNotifications.prop("scrollHeight") - this.dropdownNotifications.height();
     var currentPosition = this.dropdownNotifications.scrollTop();
     return currentPosition + 50 >= bottom;
-  },
-
-  getNotifications: function(){
-    var self = this;
-    $.getJSON(Routes.notifications(this.getParams()), function(notifications){
-      $.each(notifications, function(){ self.notifications.push(this); });
-      self.hasMoreNotifs = notifications.length >= self.perPage;
-      if(self.nextPage){ self.nextPage++; }
-      else { self.nextPage = 3; }
-      self.renderNotifications();
-    });
   },
 
   hideAjaxLoader: function(){
@@ -93,28 +75,23 @@ app.views.NotificationDropdown = app.views.Base.extend({
     });
   },
 
-  renderNotifications: function(){
-    var self = this;
-    this.dropdownNotifications.find(".media.stream-element").remove();
-    $.each(self.notifications, function(index, notifications){
-      $.each(notifications, function(index, notification){
-        if($.inArray(notification, notifications) === -1){
-          var node = self.dropdownNotifications.append(notification.note_html);
-          $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
-          $(node).find(self.avatars.selector).error(self.avatars.fallback);
-        }
-      });
-    });
+  onPushBack: function(notification) {
+    var node = this.dropdownNotifications.append(notification.get("note_html"));
+    $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
+    $(node).find(this.avatars.selector).error(this.avatars.fallback);
+  },
 
-    this.hideAjaxLoader();
+  onPushFront: function(notification) {
+    var node = this.dropdownNotifications.prepend(notification.get("note_html"));
+    $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
+    $(node).find(this.avatars.selector).error(this.avatars.fallback);
+  },
 
+  finishLoading: function() {
     app.helpers.timeago(this.dropdownNotifications);
-
     this.updateScrollbar();
+    this.hideAjaxLoader();
     this.dropdownNotifications.removeClass("loading");
-    this.dropdownNotifications.scroll(function(){
-      self.dropdownScroll();
-    });
   },
 
   updateScrollbar: function() {

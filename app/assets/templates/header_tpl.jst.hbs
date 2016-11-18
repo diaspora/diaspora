@@ -53,7 +53,7 @@
               <ul class="dropdown-menu" role="menu">
                 <div class="header">
                   <div class="pull-right">
-                    <a href="#" id="mark_all_read_link" class="btn btn-default btn-sm {{#unless current_user.notifications_count}}disabled{{/unless}}">
+                    <a href="#" id="mark-all-read-link" class="btn btn-default btn-sm {{#unless current_user.notifications_count}}disabled{{/unless}}">
                       {{t "header.mark_all_as_read"}}
                     </a>
                   </div>
@@ -61,11 +61,10 @@
                     {{t "header.recent_notifications"}}
                   </h4>
                 </div>
-                <div class="notifications">
-                  <div class="ajax-loader">
-                    <div class="spinner"></div>
-                  </div>
+                <div class="ajax-loader">
+                  <div class="spinner"></div>
                 </div>
+                <div class="notifications"></div>
                 <div class="view_all">
                   <a href="/notifications" id="view_all_notifications">
                     {{t "header.view_all"}}
