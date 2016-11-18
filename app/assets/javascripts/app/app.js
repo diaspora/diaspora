@@ -115,6 +115,7 @@ var app = {
       // so we use Backbone.history.navigate instead.
       var change = Backbone.history.navigate(link.attr("href").substring(1) ,true);
       if(change === undefined) { Backbone.history.loadUrl(link.attr("href").substring(1)); }
+      app.notificationsCollection.fetch();
     });
   },
 

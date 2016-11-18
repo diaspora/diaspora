@@ -96,4 +96,39 @@ describe("app", function() {
       expect(app._changeLocation).toHaveBeenCalledWith("/users/sign_in");
     });
   });
+
+  describe("setupBackboneLinks", function() {
+    it("calls Backbone.history.start", function() {
+      spyOn(Backbone.history, "start");
+      app.setupBackboneLinks();
+      expect(Backbone.history.start).toHaveBeenCalledWith({pushState: true});
+    });
+
+    context("when clicking a backbone link", function() {
+      beforeEach(function() {
+        app.stream = {basePath: function() { return "/stream"; }};
+        app.notificationsCollection = {fetch: $.noop};
+        spyOn(Backbone.history, "start");
+        this.link = $("<a href='/backbone-link' rel='backbone'>");
+        spec.content().append(this.link);
+        app.setupBackboneLinks();
+      });
+
+      afterEach(function() {
+        app.stream = undefined;
+      });
+
+      it("calls Backbone.history.navigate", function() {
+        spyOn(Backbone.history, "navigate");
+        this.link.click();
+        expect(Backbone.history.navigate).toHaveBeenCalledWith("backbone-link", true);
+      });
+
+      it("fetches new notifications", function() {
+        spyOn(app.notificationsCollection, "fetch");
+        this.link.click();
+        expect(app.notificationsCollection.fetch).toHaveBeenCalled();
+      });
+    });
+  });
 });
