@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024231443) do
+ActiveRecord::Schema.define(version: 20161118235506) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
     t.integer  "person_id",       limit: 4
     t.datetime "completed_at"
   end
+
+  add_index "account_deletions", ["person_id"], name: "index_account_deletions_on_person_id", using: :btree
 
   create_table "aspect_memberships", force: :cascade do |t|
     t.integer  "aspect_id",  limit: 4, null: false
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161024231443) do
   end
 
   add_index "aspects", ["user_id", "contacts_visible"], name: "index_aspects_on_user_id_and_contacts_visible", using: :btree
+  add_index "aspects", ["user_id", "order_id"], name: "index_aspects_on_user_id_and_order_id", using: :btree
   add_index "aspects", ["user_id"], name: "index_aspects_on_user_id", using: :btree
 
   create_table "authorizations", force: :cascade do |t|
@@ -68,12 +71,17 @@ ActiveRecord::Schema.define(version: 20161024231443) do
   end
 
   add_index "authorizations", ["o_auth_application_id"], name: "index_authorizations_on_o_auth_application_id", using: :btree
+  add_index "authorizations", ["user_id", "o_auth_application_id"], name: "index_authorizations_on_user_id_and_o_auth_application_id", using: :btree
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
 
   create_table "blocks", force: :cascade do |t|
     t.integer "user_id",   limit: 4
     t.integer "person_id", limit: 4
   end
+
+  add_index "blocks", ["person_id", "user_id"], name: "index_blocks_on_person_id_and_user_id", using: :btree
+  add_index "blocks", ["person_id"], name: "index_blocks_on_person_id", using: :btree
+  add_index "blocks", ["user_id"], name: "index_blocks_on_user_id", using: :btree
 
   create_table "chat_contacts", force: :cascade do |t|
     t.integer "user_id",      limit: 4,   null: false
@@ -169,6 +177,8 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "invitation_codes", ["user_id"], name: "index_invitation_codes_on_user_id", using: :btree
+
   create_table "like_signatures", id: false, force: :cascade do |t|
     t.integer "like_id",            limit: 4,     null: false
     t.text    "author_signature",   limit: 65535, null: false
@@ -202,6 +212,8 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
+
+  add_index "locations", ["status_message_id"], name: "index_locations_on_status_message_id", using: :btree
 
   create_table "mentions", force: :cascade do |t|
     t.integer "post_id",   limit: 4, null: false
@@ -247,6 +259,7 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.string   "type",         limit: 255
   end
 
+  add_index "notifications", ["id", "type"], name: "index_notifications_on_id_and_type", length: {"id"=>nil, "type"=>191}, using: :btree
   add_index "notifications", ["recipient_id"], name: "index_notifications_on_recipient_id", using: :btree
   add_index "notifications", ["target_id"], name: "index_notifications_on_target_id", using: :btree
   add_index "notifications", ["target_type", "target_id"], name: "index_notifications_on_target_type_and_target_id", length: {"target_type"=>190, "target_id"=>nil}, using: :btree
@@ -354,6 +367,7 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.integer  "width",               limit: 4
   end
 
+  add_index "photos", ["author_id"], name: "index_photos_on_author_id", using: :btree
   add_index "photos", ["guid"], name: "index_photos_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "photos", ["status_message_guid"], name: "index_photos_on_status_message_guid", length: {"status_message_guid"=>191}, using: :btree
 
@@ -407,7 +421,9 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.datetime "updated_at"
   end
 
+  add_index "poll_participations", ["author_id"], name: "index_poll_participations_on_author_id", using: :btree
   add_index "poll_participations", ["guid"], name: "index_poll_participations_on_guid", unique: true, length: {"guid"=>191}, using: :btree
+  add_index "poll_participations", ["poll_answer_id"], name: "index_poll_participations_on_poll_answer_id", using: :btree
   add_index "poll_participations", ["poll_id"], name: "index_poll_participations_on_poll_id", using: :btree
 
   create_table "polls", force: :cascade do |t|
@@ -445,9 +461,12 @@ ActiveRecord::Schema.define(version: 20161024231443) do
 
   add_index "posts", ["author_id", "root_guid"], name: "index_posts_on_author_id_and_root_guid", unique: true, length: {"author_id"=>nil, "root_guid"=>190}, using: :btree
   add_index "posts", ["author_id"], name: "index_posts_on_person_id", using: :btree
+  add_index "posts", ["facebook_id"], name: "index_posts_on_facebook_id", length: {"facebook_id"=>191}, using: :btree
   add_index "posts", ["guid"], name: "index_posts_on_guid", unique: true, length: {"guid"=>191}, using: :btree
   add_index "posts", ["id", "type", "created_at"], name: "index_posts_on_id_and_type_and_created_at", using: :btree
   add_index "posts", ["id", "type"], name: "index_posts_on_id_and_type", using: :btree
+  add_index "posts", ["o_embed_cache_id"], name: "index_posts_on_o_embed_cache_id", using: :btree
+  add_index "posts", ["open_graph_cache_id"], name: "index_posts_on_open_graph_cache_id", using: :btree
   add_index "posts", ["root_guid"], name: "index_posts_on_root_guid", length: {"root_guid"=>191}, using: :btree
   add_index "posts", ["tweet_id"], name: "index_posts_on_tweet_id", length: {"tweet_id"=>191}, using: :btree
 
@@ -459,6 +478,7 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.string  "identifier",            limit: 255
   end
 
+  add_index "ppid", ["guid"], name: "index_ppid_on_guid", unique: true, using: :btree
   add_index "ppid", ["o_auth_application_id"], name: "index_ppid_on_o_auth_application_id", using: :btree
   add_index "ppid", ["user_id"], name: "index_ppid_on_user_id", using: :btree
 
@@ -509,7 +529,9 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.integer  "user_id",    limit: 4,                     null: false
   end
 
+  add_index "reports", ["item_id", "item_type"], name: "index_reports_on_item_id_and_item_type", length: {"item_id"=>nil, "item_type"=>191}, using: :btree
   add_index "reports", ["item_id"], name: "index_reports_on_item_id", using: :btree
+  add_index "reports", ["user_id"], name: "index_reports_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.integer  "person_id",  limit: 4
@@ -517,6 +539,8 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "roles", ["person_id"], name: "index_roles_on_person_id", using: :btree
 
   create_table "services", force: :cascade do |t|
     t.string   "type",          limit: 127, null: false
@@ -599,6 +623,8 @@ ActiveRecord::Schema.define(version: 20161024231443) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "user_preferences", ["user_id"], name: "index_user_preferences_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username",                           limit: 255,                   null: false
     t.text     "serialized_private_key",             limit: 65535
@@ -640,7 +666,9 @@ ActiveRecord::Schema.define(version: 20161024231443) do
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+  add_index "users", ["auto_follow_back_aspect_id"], name: "index_users_on_auto_follow_back_aspect_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, length: {"email"=>191}, using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, length: {"username"=>191}, using: :btree
 
   add_foreign_key "aspect_memberships", "aspects", name: "aspect_memberships_aspect_id_fk", on_delete: :cascade
