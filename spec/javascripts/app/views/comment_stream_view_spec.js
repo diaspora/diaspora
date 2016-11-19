@@ -116,9 +116,6 @@ describe("app.views.CommentStream", function(){
         it("doesn't add the comment to the view", function() {
           this.request.respondWith({status: 500});
           expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");
-          expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
-            "Failed to comment. Maybe the author is ignoring you?"
-          );
         });
 
         it("doesn't reset the comment box value", function() {

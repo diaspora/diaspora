@@ -95,8 +95,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
     options = options || {};
 
-    this.comments.make(text).fail(function () {
-      app.flashMessages.error(Diaspora.I18n.t("failed_to_comment"));
+    this.comments.make(text).fail(function(response) {
+      app.flashMessages.handleAjaxError(response);
       if (options.error) { options.error(); }
     }).done(function() {
       self.post.set({participation: true});
