@@ -240,6 +240,8 @@ en:
     explanation: "Post to diaspora* from anywhere by bookmarking this link => %{link}."
 
   comments:
+    create:
+      error: "Failed to comment."
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
@@ -590,6 +592,10 @@ en:
       back_to_top: "Back to top"
       source_package: "Download the source code package"
       be_excellent: "Be excellent to each other! ♥"
+
+  likes:
+    create:
+      error: "Failed to like."
 
   notifications:
     started_sharing:
@@ -991,6 +997,8 @@ en:
     invalid_invite: "The invite link you provided is no longer valid!"
 
   reshares:
+    create:
+      error: "Failed to reshare."
     reshare:
       reshared_via: "Reshared via"
       reshare_confirmation: "Reshare %{author}’s post?"
