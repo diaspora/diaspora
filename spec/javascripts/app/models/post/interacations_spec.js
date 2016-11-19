@@ -286,6 +286,16 @@ describe("app.models.Post.Interactions", function(){
         jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
         expect(error).toHaveBeenCalled();
       });
+
+      it("displays a flash message", function() {
+        spyOn(app.flashMessages, "handleAjaxError").and.callThrough();
+        this.interactions.comment("text");
+        jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "error message"});
+
+        expect(app.flashMessages.handleAjaxError).toHaveBeenCalled();
+        expect(app.flashMessages.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("error message");
+        expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
+      });
     });
   });
 });
