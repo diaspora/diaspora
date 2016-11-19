@@ -8,6 +8,7 @@
 * Use typeahead.js from rails-assets.org [#7192](https://github.com/diaspora/diaspora/pull/7192)
 * Refactor ShareVisibilitesController to use PostService [#7196](https://github.com/diaspora/diaspora/pull/7196)
 * Unify desktop and mobile head elements [#7194](https://github.com/diaspora/diaspora/pull/7194)
+* Refactor flash messages on ajax errors for comments, likes, reshares and aspect memberships [#7202](https://github.com/diaspora/diaspora/pull/7202)
 
 ## Bug fixes
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
