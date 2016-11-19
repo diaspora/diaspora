@@ -1,7 +1,7 @@
 class AddMissingIndexesAcrossSeveralTables < ActiveRecord::Migration
   def change
     add_index :account_deletions, :person_id
-    add_index :aspects, %i(:user_id, :order_id)
+    add_index :aspects, %i(:user_id :order_id)
     add_index :authorizations, %i(:user_id :o_auth_application_id)
     add_index :blocks, :person_id
     add_index :blocks, :user_id
