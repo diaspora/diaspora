@@ -189,11 +189,11 @@
     increaseReactionCount: function(bottomBar) {
       var toggleReactionsLink = bottomBar.find(".show-comments").first();
       var count = toggleReactionsLink.text().match(/.*(\d+).*/);
-      var text = "";
+      count = parseInt(count, 10);
+      var text = Diaspora.I18n.t("stream.comments", {count: count + 1});
 
       // No previous comment
-      if(!count){
-        text = Diaspora.I18n.t("stream.reactions", {count: 1});
+      if (count === 0) {
         var parent = toggleReactionsLink.parent();
         var postGuid = bottomBar.parents(".stream-element").data("guid");
 
@@ -204,8 +204,6 @@
         bottomBar.removeClass("inactive").addClass("active");
       }
       else {
-        count = parseInt(count, 10) + 1;
-        text = Diaspora.I18n.t("stream.reactions", {count: count});
         toggleReactionsLink.html(text + "<i class='entypo-chevron-up'/>");
       }
     },

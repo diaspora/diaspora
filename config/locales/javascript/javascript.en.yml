@@ -281,6 +281,11 @@ en:
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
 
+      comments:
+        zero: "<%= count %> comments"
+        one: "<%= count %> comment"
+        other: "<%= count %> comments"
+
       more_comments:
         zero: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
@@ -298,11 +303,6 @@ en:
         stop_following_confirm: "Stop following #<%= tag %>?"
         follow_error: "Couldn’t follow #<%= tag %> :("
         stop_following_error: "Couldn’t stop following #<%= tag %> :("
-
-      reactions:
-        zero: "<%= count%> reactions"
-        one: "<%= count%> reaction"
-        other: "<%= count%> reactions"
 
     header:
       home: "Home"
