@@ -23,13 +23,13 @@
     = render partial: "comments/post_stats", locals: {post: post}
 
     - if defined?(expanded_info) && expanded_info
-      != reactions_link(post, "active")
+      != show_comments_link(post, "active")
       .comment-container
         %ul.comments
           = render partial: "comments/comment", collection: post.comments.for_a_stream, locals: {post: post}
 
     - else
-      != reactions_link(post)
+      != show_comments_link(post)
 
     .ajax-loader.hidden
       .loader

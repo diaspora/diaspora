@@ -38,29 +38,25 @@
   }
 
   .post-stats {
-    top: -5px;
     float: right;
     position: relative;
     display: flex;
-    margin-bottom: -15px;
 
     .count {
-      background-color: $background-grey;
-      text-align: center;
+      line-height: 22px;
+      margin-left: 5px;
       z-index: 2;
     }
 
     .icon-count-group {
       display: flex;
-      flex-flow: column;
-      justify-content: center;
       margin: 0 7px;
     }
 
     [class^="entypo"] {
       color: $text-grey;
       font-size: 24px;
-      height: 28px;
+      line-height: 24px;
       margin: 0;
       width: 100%;
     }
@@ -77,21 +73,23 @@
   }
 
   .post-action {
-    height: 28px;
-
     .disabled { color: $medium-gray; }
   }
 
   .add-comment-switcher { padding-top: 10px; }
 
-  &.inactive .post-stats .count,
-  &.inactive .comment-container {
-    display: none;
+  &.inactive {
+    padding-bottom: 8px;
+
+    .comment-container {
+      display: none;
+    }
   }
 }
 
 .stream-element .comments {
   margin: 0;
+  margin-top: 10px;
   padding: 0;
   width: 100%;
 

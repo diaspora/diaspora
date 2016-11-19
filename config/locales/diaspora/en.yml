@@ -246,11 +246,6 @@ en:
       comment: "Comment"
       commenting: "Commenting..."
 
-  reactions:
-    zero: "No reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-
   contacts:
     index:
       start_a_conversation: "Start a conversation"
