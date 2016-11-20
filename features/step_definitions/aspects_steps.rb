@@ -21,7 +21,7 @@ module AspectCukeHelpers
     aspect = find(".aspect_membership_dropdown.open .dropdown-menu li", text: aspect_name)
     aspect_selected = aspect["class"].include? "selected"
     aspect.trigger "click"
-    aspect.parent.should have_no_css(".loading")
+    expect(find(".aspect_membership_dropdown .dropdown-menu", visible: false)).to have_no_css(".loading")
 
     # close dropdown
     page.should have_no_css('#profile.loading')
