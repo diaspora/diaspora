@@ -5,18 +5,20 @@
 !!!
 %html{lang: I18n.locale.to_s, dir: (rtl? ? "rtl" : "ltr")}
   %head{prefix: og_prefix}
-    = render "head"
     %meta{name: "viewport", content: "width=device-width, initial-scale=1"}/
 
+    - content_for :javascript do
+      = old_browser_js_support
+
+      <!--[if IE]>
+      = javascript_include_tag :ie
+      <![endif]-->
+
+      = javascript_include_tag :main, :templates
+      = load_javascript_locales
+
+    = render "head"
     = include_color_theme
-    = old_browser_js_support
-
-    <!--[if IE]>
-    = javascript_include_tag :ie
-    <![endif]-->
-
-    = javascript_include_tag :main, :templates
-    = load_javascript_locales
     = translation_missing_warnings
 
   %body{class: "page-#{controller_name} action-#{action_name}"}
