@@ -5,6 +5,10 @@
 !!!
 %html{lang: I18n.locale.to_s, dir: (rtl? ? "rtl" : "ltr")}
   %head{prefix: og_prefix}
+    - content_for :javascript do
+      = javascript_include_tag "mobile/mobile"
+      = load_javascript_locales
+
     = render "head"
     = include_color_theme "mobile"
 
@@ -30,7 +34,5 @@
             = t("streams.activity.title")
         = yield
 
-    = javascript_include_tag "mobile/mobile"
-    = load_javascript_locales
     = include_chartbeat
     = include_mixpanel_guid
