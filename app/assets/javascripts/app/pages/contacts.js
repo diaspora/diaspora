@@ -79,6 +79,9 @@ app.pages.Contacts = Backbone.View.extend({
   },
 
   showMessageModal: function(){
+    $("#conversationModal").on("modal:loaded", function() {
+      new app.views.ConversationsForm({prefill: gon.conversationPrefill});
+    });
     app.helpers.showModal("#conversationModal");
   },
 

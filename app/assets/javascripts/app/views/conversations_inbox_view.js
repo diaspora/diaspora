@@ -9,7 +9,7 @@ app.views.ConversationsInbox = Backbone.View.extend({
   },
 
   initialize: function() {
-    new app.views.ConversationsForm({contacts: gon.contacts});
+    new app.views.ConversationsForm();
     this.setupConversation();
   },
 

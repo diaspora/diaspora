@@ -50,7 +50,7 @@ te:
     create: "సృష్టించు"
     delete: "తొలగించు"
     edit: "సవరించు"
-    failed_to_like: "ఇష్టపడుటలో విఫలమైంది!"
+    failed_to_like: "ఇష్టపడుటలో విఫలమైంది! బహుశా రచయిత మిమ్మల్ని విస్మరిస్తున్నారా?"
     failed_to_post_message: "సందేశాన్ని పోస్టుచేయుటలో విఫలమైంది!"
     failed_to_remove: "ప్రవేశాన్ని తొలగించుటలో విఫలమైంది!"
     failed_to_reshare: "మళ్ళీ పంచుకోవడంలో విఫలమైంది!"
@@ -169,16 +169,20 @@ te:
     timeago:
       day: "ఒక రోజు"
       days:
-        other: "%d రోజుల"
+        one: "1 రోజు"
+        other: "%d రోజులు"
       hour: "దాదాపు గంట"
       hours:
-        other: "దాదాపు %d గంటల"
+        one: "దాదాపు 1 గంట"
+        other: "దాదాపు %d గంటలు"
       minute: "దాదాపు నిమిషం"
       minutes:
-        other: "%d నిమిషాల"
+        one: "1 నిమిషం"
+        other: "%d నిమిషాలు"
       month: "దాదాపు నెల"
       months:
-        other: "%d నెలల"
+        one: "1 నెల"
+        other: "%d నెలలు"
       prefixAgo: " "
       prefixFromNow: ""
       seconds: "కొన్ని క్షణాల"
@@ -186,4 +190,5 @@ te:
       suffixFromNow: "ఇప్పటి నుండి"
       year: "దాదాపు సంవత్సరం"
       years:
-        other: "%d సంవత్సరాల"
+        one: "1 సంవత్సరం"
+        other: "%d సంవత్సరాలు"

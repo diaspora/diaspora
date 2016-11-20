@@ -7,19 +7,19 @@
 sv:
   devise:
     confirmations:
-      confirmed: "Ditt konto har verifierats och du är inloggad."
+      confirmed: "Din e-postadress har verifierats."
       new:
         resend_confirmation: "Skicka instruktioner för att bekräfta kontot igen"
-      send_instructions: "Du kommer att få ett e-brev med instruktioner för att verifiera ditt konto inom några minuter."
+      send_instructions: "Du kommer att få ett e-brev med instruktioner för att verifiera din e-postadress inom några minuter."
     failure:
-      inactive: "Ditt konto är inte aktiverat."
-      invalid: "Fel användarnamn eller lösenord."
+      inactive: "Ditt konto är inte aktiverat ännu."
+      invalid: "Fel %{authentication_keys} eller lösenord."
       invalid_token: "Ogiltig identifiering."
       locked: "Ditt konto är låst."
-      not_found_in_database: "Ogiltig e-postadress eller ogiltigt lösenord."
-      timeout: "Din session är avslutad, var vänlig logga in igen."
+      not_found_in_database: "Ogiltig %{authentication_keys} eller ogiltigt lösenord."
+      timeout: "Din session är avslutad, var vänlig logga in igen för att fortsätta."
       unauthenticated: "Du måste logga in innan du kan fortsätta."
-      unconfirmed: "Du måste verifiera ditt konto innan du kan fortsätta."
+      unconfirmed: "Du måste verifiera din e-postadress innan du kan fortsätta."
     invitations:
       invitation_token_invalid: "Vi ber om ursäkt! Den här inbjudan är inte giltig!"
       send_instructions: "Din inbjudan är nu skickad."
@@ -58,7 +58,7 @@ sv:
         reset_password: "Återställ lösenord"
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
       send_instructions: "Du kommer att få ett e-brev med instruktioner för att återställa lösenordet inom några minuter."
-      updated: "Ditt lösenord har ändrats och du är inloggad."
+      updated: "Ditt lösenord har ändrats och du är nu inloggad."
     registrations:
       destroyed: "Ditt konto är avslutat. På återseende!"
       signed_up: "Du har skapat ett konto. Beroende på dina inställningar kan en bekräftelse ha skickats till din e-postadress."
@@ -85,9 +85,12 @@ sv:
       new:
         resend_unlock: "Skicka upplåsningsinstruktioner igen"
       send_instructions: "Du kommer att få ett e-brev med instruktioner för att låsa upp ditt konto inom några minuter."
-      unlocked: "Ditt konto har är nu upplåst och du är inloggad"
+      unlocked: "Ditt konto har är nu upplåst. Logga in för att fortsätta."
   errors:
     messages:
-      already_confirmed: "var redan bekräftad"
+      already_confirmed: "var redan bekräftad, prova att logga in"
       not_found: "inte funnet"
       not_locked: "var ej låst"
+      not_saved:
+        one: "1 fel hindrade denna %{resource} från att sparas:"
+        other: "%{count} fel hindrade denna %{resource} från att sparas:"

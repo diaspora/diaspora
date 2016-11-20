@@ -33,8 +33,8 @@ sq:
       dashboard:
         up_to_date: "Nyja juaj është e përditësuar!"
         outdated: "Nyja juaj është e vjetruar."
-        compare_versions: "Versioni më i ri i diaspora* është <%= latestVersion %>, nyja juaj xhiron ende <%= podVersion %>."
-        error: "S’u arrit të përcaktohej versioni më i ri i diaspora*."
+        compare_versions: "Versioni më i ri i silent.army është <%= latestVersion %>, nyja juaj xhiron ende <%= podVersion %>."
+        error: "S’u arrit të përcaktohej versioni më i ri i silent.army."
     admin:
       pods:
         pod: "Nyjë"
@@ -128,7 +128,7 @@ sq:
       add_option: "Shtoni një përgjigje"
       question: "Pyetje"
     bookmarklet:
-      post_something: "Postoni diçka te diaspora*"
+      post_something: "Postoni diçka te silent.army"
       post_submit: "Po parashtrohet postimit…"
       post_success: "U postua! Po mbyllet dritarja flluskë…"
     infinite_scroll:

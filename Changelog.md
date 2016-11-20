@@ -1,3 +1,36 @@
+# 0.7.0.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
+# 0.6.2.0
+
+## Refactor
+* Use string-direction gem for rtl detection [#7181](https://github.com/diaspora/diaspora/pull/7181)
+* Reduce i18n.load side effects [#7184](https://github.com/diaspora/diaspora/pull/7184)
+* Force jasmine fails on syntax errors [#7185](https://github.com/diaspora/diaspora/pull/7185)
+* Don't display mail-related view content if it is disabled in the pod's config [#7190](https://github.com/diaspora/diaspora/pull/7190)
+* Use typeahead.js from rails-assets.org [#7192](https://github.com/diaspora/diaspora/pull/7192)
+* Refactor ShareVisibilitesController to use PostService [#7196](https://github.com/diaspora/diaspora/pull/7196)
+* Unify desktop and mobile head elements [#7194](https://github.com/diaspora/diaspora/pull/7194)
+
+## Bug fixes
+* Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
+* Hide 'reshare' button on already reshared posts [#7169](https://github.com/diaspora/diaspora/pull/7169)
+* Only reload profile header when changing aspect memberships [#7183](https://github.com/diaspora/diaspora/pull/7183)
+* Fix visiblity on invitation modal when opening it from the stream [#7191](https://github.com/diaspora/diaspora/pull/7191)
+
+## Features
+* Show spinner when loading comments in the stream [#7170](https://github.com/diaspora/diaspora/pull/7170)
+* Add a dark color theme [#7152](https://github.com/diaspora/diaspora/pull/7152)
+* Added setting for custom changelog URL [#7166](https://github.com/diaspora/diaspora/pull/7166)
+* Show more information of recipients on conversation creation [#7129](https://github.com/diaspora/diaspora/pull/7129)
+* Update notifications every 5 minutes and when opening the notification dropdown [#6952](https://github.com/diaspora/diaspora/pull/6952)
+* Show browser notifications when receiving new unread notifications [#6952](https://github.com/diaspora/diaspora/pull/6952)
+
 # 0.6.1.0
 
 Note: Although this is a minor release, the configuration file changed because the old Mapbox implementation is no longer valid, and the current implementation requires additional fields. Chances are high that if you're using the old integration, it will be broken anyway. If you do use Mapbox, please check out the `diaspora.yml.example` for new parameters.

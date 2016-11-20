@@ -62,9 +62,9 @@ gd:
         tag_feature: "comharra"
         tag_question: "ceist"
       services:
-        content: "Faodaidh tu ceangal a dhèanamh eadar diaspora* agus na sèirbheisean na leanas."
+        content: "Faodaidh tu ceangal a dhèanamh eadar silent.army agus na sèirbheisean na leanas."
         heading: "Dèan ceangal ri Sèirbheis"
-      welcome_to_diaspora: "Fàilte gu diaspora*, a %{name}!"
+      welcome_to_diaspora: "Fàilte gu silent.army, a %{name}!"
     seed:
       acquaintances: "Muinntireachd"
       family: "Teaghlach"
@@ -116,7 +116,7 @@ gd:
       language: "Cànan"
   layouts:
     application:
-      powered_by: "a' ruith air diaspora*"
+      powered_by: "a' ruith air silent.army"
       whats_new: "dè tha dol?"
     header:
       logout: "Log a-mach"
@@ -143,7 +143,7 @@ gd:
       message: |-
             Halo!
 
-          Fhuair thu cuireadh gus gabhail ann an diaspora*!
+          Fhuair thu cuireadh gus gabhail ann an silent.army!
 
           Cliog air a' cheangal seo airson tòiseachadh
 
@@ -159,7 +159,7 @@ gd:
       liked: "Tha do brath còrdadh ri %{name}"
       view_post: "Seall air a' bhrath >"
     mentioned:
-      subject: "Thug %{name} iomradh ort air diaspora*"
+      subject: "Thug %{name} iomradh ort air silent.army"
     private_message:
       reply_to_or_view: "Seall air a' bhrath seo no cuir freagairt ris >"
     reshared:
@@ -183,7 +183,7 @@ gd:
   profile: "Pròifil"
   profiles:
     edit:
-      allow_search: "Am faod daoine rannsachadh air do shon air diaspora*"
+      allow_search: "Am faod daoine rannsachadh air do shon air silent.army"
       first_name: "D' ainm-baistidh"
       last_name: "Do sloinneadh"
       update_profile: "Ùraich profaidhl"
@@ -226,6 +226,6 @@ gd:
       edit_account: "Deasaich cunntas"
       following: "Roghainnean sgaoilidh"
       your_email: "Do phost-d"
-      your_handle: "ID diaspora* agad"
+      your_handle: "ID silent.army agad"
     privacy_settings:
       title: "Roghainnean Prìobhaideachd"

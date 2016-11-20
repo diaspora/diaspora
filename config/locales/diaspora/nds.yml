@@ -83,7 +83,7 @@ nds:
       week: "Week"
     user_entry:
       account_closed: "Konto schloten"
-      diaspora_handle: "diaspora*-Handle"
+      diaspora_handle: "silent.army-Handle"
       email: "E-Mail-Adress"
       guid: "GUID"
       id: "ID"
@@ -151,7 +151,7 @@ nds:
         feature_suggestion: "... een Vörschlag för eene nee’e %{link}?"
         find_a_bug: "... een %{link} funnen?"
         have_a_question: "... eene %{link}?"
-        here_to_help: "De diaspora*-Gemeenschaft is för di dor!"
+        here_to_help: "De silent.army-Gemeenschaft is för di dor!"
         mail_podmin: "E-Mail an’n Podmin"
         need_help: "Brukst du Hülp?"
         tag_bug: "Fehler"
@@ -161,13 +161,13 @@ nds:
         tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Hülp för diene eersten Schritte."
       introduce_yourself: "Dat is dien Stream.  Leg los und stell di vör."
       new_here:
-        follow: "Folg %{link} un begrööt nee’e Bruker op diaspora*!"
+        follow: "Folg %{link} un begrööt nee’e Bruker op silent.army!"
         learn_more: "Mehr rutkriegen"
         title: "Begrööt nee’e Bruker"
       services:
-        content: "Du kannst de folgenden Deenste mit diaspora* verbinnen:"
+        content: "Du kannst de folgenden Deenste mit silent.army verbinnen:"
         heading: "Verbinn Deenste"
-      welcome_to_diaspora: "Willkomen to diaspora*, %{name}!"
+      welcome_to_diaspora: "Willkomen to silent.army, %{name}!"
     no_contacts_message:
       community_spotlight: "vörstellten Gemeenschaftsmitglieder"
       or_spotlight: "Oder du kannst mit de %{link} deelen"
@@ -191,7 +191,7 @@ nds:
   bookmarklet:
     explanation: "Schriev nee’e Bidräg von öberall, indem du dissen Link to diene Leseteken dortaudeist => %{link}."
     heading: "Leseteken."
-    post_something: "Schriev wat in diaspora*"
+    post_something: "Schriev wat in silent.army"
   cancel: "Avbreken"
   comments:
     new_comment:
@@ -275,16 +275,16 @@ nds:
       contacts_page: "Kontaktesiet"
       title: "Tippschnack"
     faq: "FAQ"
-    foundation_website: "Websiet von de diaspora* foundation"
+    foundation_website: "Websiet von de silent.army foundation"
     getting_help:
       get_support_a_faq: "Lees unsere %{faq}-Siet in’t Wiki"
-      get_support_a_hashtag: "Froog in een öffentlichen Bidrag op diaspora* mit den Hashtag %{question}"
+      get_support_a_hashtag: "Froog in een öffentlichen Bidrag op silent.army mit den Hashtag %{question}"
       get_support_a_irc: "Komm to uns in den %{irc} (Echttied-Tippschnack)"
       get_support_a_tutorials: "Bekiek unsere %{tutorials}"
       get_support_a_website: "Bekiek unsere %{link}"
       get_support_a_wiki: "Seuk in dat %{link}"
       get_support_q: "Wat, wenn de FAQ miene Froog nich beantwoort? Wo kan ik noch Hülp kriegen?"
-      getting_started_a: "Du hest Glück. Probier de %{tutorial_series} op unsere Projektsiet ut. De ward die Schritt för Schritt dörch de Registrierung führen und die all de grundlegenden Sooken bibringen, de du öber dat Bruken von diaspora* weeten muss."
+      getting_started_a: "Du hest Glück. Probier de %{tutorial_series} op unsere Projektsiet ut. De ward die Schritt för Schritt dörch de Registrierung führen und die all de grundlegenden Sooken bibringen, de du öber dat Bruken von silent.army weeten muss."
       getting_started_q: "Hülp! Ik bruk een beten grundlegende Hülp, üm lostoleggen!"
       title: "Krieg Hülp"
     getting_started_tutorial: "„Eerste Schritte”-Anleidungsreeg"
@@ -312,7 +312,7 @@ nds:
       what_is_a_mention_q: "Wat is eene „Erwähnung“?"
     miscellaneous:
       back_to_top_q: "Gift dat eene schnelle Mööglichkeit, üm no’n Rünnerscrollen an den Anfang von eene Siet trüchtogohn?"
-      diaspora_app_q: "Gift dat eene diaspora*-App för Android oder iOS?"
+      diaspora_app_q: "Gift dat eene silent.army-App för Android oder iOS?"
       photo_albums_a: "Nee, in’n Moment nich. Du kannst aber de Bilder, de eene Person hochlood het, in’n Tab „Bilder” op ehre Profilsiet ankieken."
       photo_albums_q: "Gift dat Bilder- or Videoalben?"
       subscribe_feed_q: "Kann ik de öffentlichen Bidräg von wen mit een Feedreader abonnieren?"
@@ -339,14 +339,14 @@ nds:
       stream_full_of_posts_q: "Warum is mien Stream full mit Bidräg von Lüüd de ik nich ken und mit de ik nich deel?"
       title: "Bidräg un Schrieben"
     private_posts:
-      can_comment_a: "Nur anmeldte Bruker von diaspora*, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em kommentieren oder Gefallen an em bekunden."
+      can_comment_a: "Nur anmeldte Bruker von silent.army, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em kommentieren oder Gefallen an em bekunden."
       can_comment_q: "Wer kann miene Bidräg kommentieren oder Gefallen an jüm bekunden?"
-      can_reshare_a: "Keener. Private Bidräg künnt nich wiederseggt warden. Anmeldte Bruker von diaspora*, de in den Aspekt sind, kunnen em aber grundsätzlich kopieren und infügen. Dat ligt an di, op du disse Lüüd vertraust!"
+      can_reshare_a: "Keener. Private Bidräg künnt nich wiederseggt warden. Anmeldte Bruker von silent.army, de in den Aspekt sind, kunnen em aber grundsätzlich kopieren und infügen. Dat ligt an di, op du disse Lüüd vertraust!"
       can_reshare_q: "Wer kann mien privaten Bidrag wiederseggen?"
       see_comment_a: "Nur de Lüüd, mit de de Bidrag deelt worn is (de Lüüd de in de von’n Schrieber utwählten Aspekte sind) künnt siene Kommentare und de Lüüd, de Gefallen an em bekund hebbt, sehn. "
       see_comment_q: "Wer kann dat sehn, wenn ik een privaten Bidrag kommentier oder Gefallen an em bekund?"
       title: "Private Bidräg"
-      who_sees_post_a: "Nur anmeldte Bruker von diaspora*, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em sehn."
+      who_sees_post_a: "Nur anmeldte Bruker von silent.army, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em sehn."
       who_sees_post_q: "Wenn ik een Bidrag an een Aspekt schriev (t.B. een privaten Bidrag), wer kann em sehn?"
     private_profiles:
       title: "Private Profile"
@@ -357,7 +357,7 @@ nds:
       who_sees_updates_a: "Jeder in diene Aspekte sütt Ännerungen an dien privates Profil. "
       who_sees_updates_q: "Wer sütt Ännerungen an mien privates Profil?"
     public_posts:
-      can_comment_reshare_like_a: "Jede anmeldte Bruker von diaspora* kann diene öffentlichen Bidräg kommentieren, widerseggen oder Gefallen an em bekunden."
+      can_comment_reshare_like_a: "Jede anmeldte Bruker von silent.army kann diene öffentlichen Bidräg kommentieren, widerseggen oder Gefallen an em bekunden."
       can_comment_reshare_like_q: "Wer kann mien öffentlichen Bidrag kommentieren, widerseggen oder Gefallen an em bekunden?"
       find_public_post_q: "Wie künnt annere Lüüd miene öffentlichen Bidräg finnen?"
       see_comment_reshare_like_q: "Wer kann dat sehn, wenn ik een öffentlichen Bidrag kommentier, widersegg oder Gefallen an em bekund?"
@@ -404,16 +404,16 @@ nds:
         other: "%{count} Inlodungen op dissen Code öber"
         zero: "Keene Inlodungen op dissen Code öber"
       comma_separated_plz: "Du kannst mehrere E-Mail-Adressen dörch Kommas trennt ingeben."
-      invite_someone_to_join: "Lod eenen to diaspora* in!"
+      invite_someone_to_join: "Lod eenen to silent.army in!"
       language: "Sprook"
-      paste_link: "Deel dissen Link mit diene Frünnen oder schick jüm direkt een Nettbreef dormit, üm jüm to diaspora* intoloden."
+      paste_link: "Deel dissen Link mit diene Frünnen oder schick jüm direkt een Nettbreef dormit, üm jüm to silent.army intoloden."
       send_an_invitation: "Eene Inlodung schicken"
       sending_invitation: "Schick Inlodung..."
   layouts:
     application:
       back_to_top: "Trüch no boben"
-      powered_by: "Andreeven von diaspora*"
-      public_feed: "Öffentliche diaspora*-Feed för %{name}"
+      powered_by: "Andreeven von silent.army"
+      public_feed: "Öffentliche silent.army-Feed för %{name}"
       source_package: "Lod dat Quellcodepaket rünner"
       statistics_link: "Podstatistiken"
       toggle: "Mobile Ansicht ümschalten"
@@ -488,9 +488,9 @@ nds:
       other: "%{actors} hebbt anfungen, mit di to deelen"
       zero: "Keener het anfungen, mit di to deelen"
   notifier:
-    a_limited_post_comment: "Dat gift een nee’en Kommentar op een inschränkten Bidrag för di to’n Ankieken op diaspora*."
+    a_limited_post_comment: "Dat gift een nee’en Kommentar op een inschränkten Bidrag för di to’n Ankieken op silent.army."
     a_post_you_shared: "een Bidrag."
-    a_private_message: "Dat gift eene nee’e private Noricht för di to’n Ankieken op diaspora*."
+    a_private_message: "Dat gift eene nee’e private Noricht för di to’n Ankieken op silent.army."
     click_here: "Klick hier"
     comment_on_post:
       reply: "Op den Bidrag von %{name} antwoorten oder em ankieken >"
@@ -509,7 +509,7 @@ nds:
       message: |-
           Hallo!
 
-          Du bist inlod worn, op diaspora* to kommen!
+          Du bist inlod worn, op silent.army to kommen!
 
           Klick op dissen Link, üm antofangen
 
@@ -518,18 +518,18 @@ nds:
 
           Alles Leeve,
 
-          De E-Mail-Roboter von diaspora*!
+          De E-Mail-Roboter von silent.army!
 
-          P.S.: Nur för den Fall, dat du (noch) nich weest, wat diaspora* is, gift dat [hier][2] de Antwoort!
+          P.S.: Nur för den Fall, dat du (noch) nich weest, wat silent.army is, gift dat [hier][2] de Antwoort!
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
-    invited_you: "%{name} het di to diaspora* inlod."
+    invited_you: "%{name} het di to silent.army inlod."
     liked:
       liked: "%{name} mag dien Bidrag"
       view_post: "Bidrag ankieken >"
     mentioned:
-      subject: "%{name} het di op diaspora* erwähnt"
+      subject: "%{name} het di op silent.army erwähnt"
     private_message:
       reply_to_or_view: "Op dissen Schnack antwoorten or em ankieken >"
     report_email:
@@ -541,11 +541,11 @@ nds:
       reshared: "%{name} het dien Bidrag wiederseggt"
       view_post: "Bidrag ankieken >"
     single_admin:
-      admin: "Dien diaspora*-Administrator"
-      subject: "Eene Noricht öber dien diaspora*-Konto:"
+      admin: "Dien silent.army-Administrator"
+      subject: "Eene Noricht öber dien silent.army-Konto:"
     started_sharing:
       sharing: "het anfungen, mit di to deelen!"
-      subject: "%{name} het anfungen, op diaspora* mit di to deelen"
+      subject: "%{name} het anfungen, op silent.army mit di to deelen"
       view_profile: "Profil von %{name} ankieken"
     thanks: "Danke,"
     to_change_your_notification_settings: "üm diene Benorichtigungsinstellungen to ännern"
@@ -601,7 +601,7 @@ nds:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Lüüd erlauben, op diaspora* no di to seuken"
+      allow_search: "Lüüd erlauben, op silent.army no di to seuken"
       first_name: "Vörnoom"
       last_name: "Nonoom"
       nsfw_check: "Markier alles, wat ik deel, as NSFW"
@@ -624,9 +624,9 @@ nds:
     other: "%{count} Reaktionen"
     zero: "Keene Reaktionen"
   registrations:
-    closed: "Registrerungen sind op dissen diaspora*-Pod schloten."
+    closed: "Registrerungen sind op dissen silent.army-Pod schloten."
     create:
-      success: "Du bist nu bi diaspora*!"
+      success: "Du bist nu bi silent.army!"
     invalid_invite: "Dien Inlodungslink is nich mehr gültig!"
     new:
       email: "E-Mail-Adress"
@@ -783,7 +783,7 @@ nds:
       email_not_confirmed: "Kun E-Mail-Adress nich in gang setten. Falsche Link?"
     destroy:
       no_password: "Bidde geev dien jetziges Passwoort in, üm dien Konto to schluten."
-      success: "Dien Konto is spart worn. Wi brukt bit to 20 Minuten, üm dien Konto vullständig to schluten. Danke, dat du diaspora* utprobiert hest."
+      success: "Dien Konto is spart worn. Wi brukt bit to 20 Minuten, üm dien Konto vullständig to schluten. Danke, dat du silent.army utprobiert hest."
       wrong_password: "Dat ingebene Passwoort het dien jetziges Passwoort nich entsproken."
     edit:
       also_commented: "wen een Bidrag kommentiert, den du ok kommentiert hest"
@@ -798,10 +798,10 @@ nds:
         dont_go: "He, bidde goh nich!"
         lock_username: "Dien Brukernoom ward spart. Du warst op dissen Pod keen nee'es Konto mit de sülbe ID anleggen künnen."
         locked_out: "Du warst afmeld und ut dien Konto utspart warn, bit dat löscht worn is."
-        make_diaspora_better: "Wi deen dat good finnen, wenn du bliffst un uns hülpst, diaspora* beter to moken, statt wegtogohn. Wenn du aber wirklich weggohn willst, ward dat hier as neegstes passiern:"
+        make_diaspora_better: "Wi deen dat good finnen, wenn du bliffst un uns hülpst, silent.army beter to moken, statt wegtogohn. Wenn du aber wirklich weggohn willst, ward dat hier as neegstes passiern:"
         mr_wiggles: "Herrn Wiggles ward trurig ween, di gohn to sehn"
         no_turning_back: "Dat gift keen Trüch! Wenn du di wirklich sicher bist, geev ünnen dien Passwoort in."
-        what_we_delete: "Wi ward all diene Bidräg un Profildaten so schnell, wie dat man geiht, löschen. Diene Kommentare op de Bidräg von annere Lüüd ward immer noch to sehn ween, aber se ward mit diene diaspora*-ID statt mit dien Noom verknüppt."
+        what_we_delete: "Wi ward all diene Bidräg un Profildaten so schnell, wie dat man geiht, löschen. Diene Kommentare op de Bidräg von annere Lüüd ward immer noch to sehn ween, aber se ward mit diene silent.army-ID statt mit dien Noom verknüppt."
       close_account_text: "Konto schluten"
       comment_on_post: "wen dien Bidrag kommentiert"
       current_password: "Jetziges Passwoort"
@@ -829,12 +829,12 @@ nds:
       started_sharing: "wen anfangt, mit di to deelen"
       stream_preferences: "Stream-Instellungen"
       your_email: "Diene E-Mail-Adress"
-      your_handle: "Diene diaspora*-ID"
+      your_handle: "Diene silent.army-ID"
     getting_started:
-      awesome_take_me_to_diaspora: "Toll! Bring mi to diaspora*"
-      community_welcome: "De Gemeenschaft von diaspora* freit sik, di an Boord to hebben!"
+      awesome_take_me_to_diaspora: "Toll! Bring mi to silent.army"
+      community_welcome: "De Gemeenschaft von silent.army freit sik, di an Boord to hebben!"
       connect_to_facebook_link: "Mit dien Facebook-Konto verbinnen"
-      hashtag_explanation: "Mit Hashtags kannst du öber diene Interessen schnacken und jüm folgen.  Se sind ok eene tolle Mööglichkeit, üm nee'e Lüüd op diaspora* kennen to lernen."
+      hashtag_explanation: "Mit Hashtags kannst du öber diene Interessen schnacken und jüm folgen.  Se sind ok eene tolle Mööglichkeit, üm nee'e Lüüd op silent.army kennen to lernen."
       hashtag_suggestions: "Verseuk mol, Tags wie #Kunst, #Filme, #gif oder so to folgen"
       well_hello_there: "Naja, hallo erstmol!"
       what_are_you_in_to: "Wat magst du?"

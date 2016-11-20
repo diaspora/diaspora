@@ -70,13 +70,13 @@ lv:
         tag_question: "jautājums"
       introduce_yourself: "Šī ir tava plūsma. Sāk rakstīt un iepazīstini ar sevi."
       new_here:
-        follow: "Seko %{link} un sveicini jaunos lietotājus diaspora*!"
+        follow: "Seko %{link} un sveicini jaunos lietotājus silent.army!"
         learn_more: "Lasīt vairāk"
         title: "Sveicināti, jaunie lietotāji"
       services:
-        content: "Tu vari pieslēgt šādus servisus savam diaspora* profilam:"
+        content: "Tu vari pieslēgt šādus servisus savam silent.army profilam:"
         heading: "Pieslēgt servisus"
-      welcome_to_diaspora: "Laipni lūgti diaspora*, %{name}!"
+      welcome_to_diaspora: "Laipni lūgti silent.army, %{name}!"
     no_contacts_message:
       community_spotlight: "Kopienas uzmanībā"
       or_spotlight: "Vai arī tu vari dalīties ar saiti %{link}"

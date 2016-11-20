@@ -33,7 +33,7 @@ en_valspeak:
       inviter:
         accept_at: "so like, @ %{url} u can accept it through the link below. Kay? <3"
         has_invited_you: "%{name}"
-        have_invited_you: "so like, %{names} have invited u to join diaspora*!!! :DDD"
+        have_invited_you: "so like, %{names} have invited u to join silent.army!!! :DDD"
       reset_password_instructions:
         change: "Change mah passwerd"
         ignore: "So like, if u didnt want this email, plz just like, ignore it. Kthx!!!<33"

@@ -55,7 +55,7 @@ ja:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       all_aspects: "全てのアスペクト"
-      error: "<%= name %>さんと共有を始めることができません。  無視しますか?"
+      error: "<%= name %>さんとシェアを始めることができません。  無視しますか?"
       error_remove: "アスペクトから<%= name %>さんを削除できませんでした :("
       mobile_row_checked: "<%= name %> (削除)"
       mobile_row_unchecked: "<%= name %> (追加)"
@@ -110,7 +110,7 @@ ja:
     failed_to_like: "いいね！に失敗しました。おそらく作者があなたを無視していませんか？"
     failed_to_post_message: "メッセージの投稿に失敗しました!"
     failed_to_remove: "エントリーの削除に失敗しました！"
-    failed_to_reshare: "再共有に失敗しました！"
+    failed_to_reshare: "リシェアに失敗しました！"
     getting_started:
       alright_ill_wait: "OK、私は待ちます。"
       hey: "Hey, <%= name %>!"
@@ -149,8 +149,8 @@ ja:
     people:
       edit_my_profile: "マイ プロフィールを編集する"
       helper:
-        is_not_sharing: "<%= name %>さんはあなたと共有していません"
-        is_sharing: "<%= name %>さんはあなたと共有しています"
+        is_not_sharing: "<%= name %>さんはあなたとシェアしていません"
+        is_sharing: "<%= name %>さんはあなたとシェアしています"
       mention: "メンション"
       message: "メッセージ"
       not_found: "…1人も見つかりませんでした"
@@ -180,13 +180,13 @@ ja:
       contacts: "連絡先"
       edit: "編集"
       gender: "性別"
-      location: "場所"
+      location: "所在地"
       photos: "写真"
       posts: "投稿"
       you_have_no_tags: "タグがありません！"
     publisher:
       add_option: "回答を追加"
-      limited: "限定公開 - 投稿はあなたが共有している人だけが見られるようになります"
+      limited: "限定公開 - 投稿はあなたがシェアしている人だけが見られるようになります"
       markdown_editor:
         preview: "プレビュー"
         texts:
@@ -228,9 +228,9 @@ ja:
         created: "報告を正常に作成しました"
         exists: "報告はすでに存在します"
     reshares:
-      duplicate: "えっ？すでにこの投稿を共有しています！"
-      post: "<%= name %>さんの投稿を再共有しますか?"
-      successful: "投稿は正常に再共有されました!"
+      duplicate: "えっ？すでにこの投稿をリシェアしています！"
+      post: "<%= name %>さんの投稿をリシェアしますか?"
+      successful: "投稿は正常にリシェアされました!"
     show_more: "さらに表示する"
     stream:
       comment: "コメント"
@@ -266,14 +266,14 @@ ja:
       reactions:
         other: "<%= count%> リアクション"
         zero: "<%= count%> リアクション"
-      reshare: "再共有"
+      reshare: "リシェア"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
-        other: "<%= count %> 再共有"
+        other: "<%= count %> リシェア"
         two: "<%= count %> Reshares"
-        zero: "<%= count %> 再共有"
+        zero: "<%= count %> リシェア"
       show_nsfw_post: "投稿を表示する"
       show_nsfw_posts: "全て表示"
       tags:
@@ -292,14 +292,14 @@ ja:
       day: "1日"
       days:
         other: "%d日"
-      hour: "大体1時間"
+      hour: "約1時間"
       hours:
-        other: "大体%d時間"
+        other: "約%d時間"
       inPast: "今さっき"
       minute: "約1分"
       minutes:
         other: "%d分"
-      month: "大体1ヶ月"
+      month: "約1ヶ月"
       months:
         other: "%dヶ月"
       prefixAgo: ""
@@ -308,9 +308,9 @@ ja:
       suffixAgo: "前"
       suffixFromNow: "後"
       wordSeparator: " "
-      year: "大体1年"
+      year: "約1年"
       years:
         other: "%d年"
     unblock_failed: "このユーザーのブロック解除に失敗しました"
     viewer:
-      reshared: "再共有しました"
+      reshared: "リシェアしました"

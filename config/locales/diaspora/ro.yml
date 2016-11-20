@@ -108,7 +108,7 @@ ro:
       success: "Aspectul, %{name}, a fost editat cu succes."
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
-    post_something: "Publică ceva pe diaspora*"
+    post_something: "Publică ceva pe silent.army"
   cancel: "Anulează"
   comments:
     new_comment:
@@ -304,7 +304,7 @@ ro:
       view_post: "Vezi publicaţia >"
     mentioned:
       limited_post: "Ai fost menționat într-o postare limitata"
-      subject: "%{name} te-a menţionat pe diaspora*"
+      subject: "%{name} te-a menţionat pe silent.army"
     private_message:
       reply_to_or_view: "Răspunde sau citeşte această conversaţie >"
     reshared:

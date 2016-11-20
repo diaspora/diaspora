@@ -73,7 +73,7 @@
       background-color: $background-grey;
       .unread-toggle {
         opacity: 1 !important;
-        .entypo-eye { color: $black; }
+        .entypo-eye { color: $text-color-active; }
       }
     }
 
@@ -90,7 +90,7 @@
       padding: 9px 5px;
       .entypo-eye {
         cursor: pointer;
-        color: lighten($black,75%);
+        color: $text-color-pale;
         font-size: 17px;
         line-height: 17px;
       }

@@ -197,10 +197,16 @@ da:
       markdown_editor:
         preview: "Forhåndsvisning"
         texts:
+          code: "kode her"
           heading: "Overskriftstekst"
+          insert_image_description_text: "skriv billedbeskrivelse her"
+          insert_image_help_text: "indsæt billed-link her"
+          insert_image_title: "skriv billedtitel her"
           insert_link_description_text: "skriv link-beskrivelse her"
           insert_link_help_text: "Indsæt link her"
           italic: "tekst i kursiv"
+          list: "listetekst her"
+          quote: "citattekst her"
           strong: "fed tekst"
         tooltips:
           bold: "Fed"

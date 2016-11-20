@@ -33,7 +33,7 @@ nb:
       inviter:
         accept_at: "via %{url}, kan du akseptere lenken du ser under"
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} har invitert deg til diaspora*"
+        have_invited_you: "%{names} har invitert deg til silent.army"
       reset_password_instructions:
         change: "Endre passordet mitt"
         ignore: "Hvis du ikke har bedt om det, kan du overse denne e-posten."

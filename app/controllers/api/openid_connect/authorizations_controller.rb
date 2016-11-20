@@ -247,7 +247,7 @@ module Api
         if request.format == :mobile
           render "api/openid_connect/error/error.mobile", layout: "application.mobile"
         else
-          render "api/openid_connect/error/error", layout: "with_header_with_footer"
+          render "api/openid_connect/error/error", layout: "with_header"
         end
       end
     end

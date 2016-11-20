@@ -279,7 +279,7 @@ sk:
       what_is_a_mention_a: "Zmienka je odkaz na niečiu stránku s profilom, ktorý sa objaví v príspevku. Keď niekoho spomeniete, dostane oznam, ktorý upriami jeho pozornosť na príspevok."
       what_is_a_mention_q: "Čo je to \"zmienka\"?"
     miscellaneous:
-      diaspora_app_q: "Existuje aplikácia diaspora* pre Android alebo iOS?"
+      diaspora_app_q: "Existuje aplikácia silent.army pre Android alebo iOS?"
       title: "Rôzne"
     pods:
       title: "Servery"

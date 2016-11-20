@@ -33,7 +33,7 @@ module LayoutHelper
   def current_user_atom_tag
     return unless @person.present?
     content_tag(:link, "", rel: "alternate", href: @person.atom_url, type: "application/atom+xml",
-                title: t(".public_feed", name: @person.name))
+                title: t("layouts.application.public_feed", name: @person.name))
   end
 
   def translation_missing_warnings

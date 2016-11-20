@@ -171,8 +171,6 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    devise-token_authenticatable (0.5.2)
-      devise (>= 4.0.0, < 4.3.0)
     devise_lastseenable (0.0.6)
       devise
       rails (>= 3.0.4)
@@ -648,6 +646,8 @@ GEM
       rails-assets-jquery (>= 1.9.1, < 4)
     rails-assets-bootstrap-markdown (2.10.0)
       rails-assets-bootstrap (~> 3)
+    rails-assets-corejs-typeahead (1.0.1)
+      rails-assets-jquery (>= 1.7)
     rails-assets-diaspora_jsxc (0.1.5.develop.7)
       rails-assets-emojione (~> 2.0.1)
       rails-assets-favico.js (>= 0.3.10, < 0.4)
@@ -821,6 +821,8 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     state_machine (1.2.0)
+    string-direction (1.2.0)
+      yard (~> 0.8)
     swd (1.0.1)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
@@ -931,7 +933,6 @@ DEPENDENCIES
   cucumber-rails (= 1.4.5)
   database_cleaner (= 1.5.3)
   devise (= 4.2.0)
-  devise-token_authenticatable (= 0.5.2)
   devise_lastseenable (= 0.0.6)
   diaspora-prosody-config (= 0.0.7)
   diaspora_federation-rails (= 0.1.5)
@@ -998,6 +999,7 @@ DEPENDENCIES
   rails-assets-autosize (= 3.0.17)!
   rails-assets-blueimp-gallery (= 2.21.3)!
   rails-assets-bootstrap-markdown (= 2.10.0)!
+  rails-assets-corejs-typeahead (= 1.0.1)!
   rails-assets-diaspora_jsxc (= 0.1.5.develop.7)!
   rails-assets-highlightjs (= 9.7.0)!
   rails-assets-jasmine-ajax (= 3.2.0)!
@@ -1034,6 +1036,7 @@ DEPENDENCIES
   spring (= 2.0.0)
   spring-commands-cucumber (= 1.0.1)
   spring-commands-rspec (= 1.0.4)
+  string-direction (= 1.2.0)
   test_after_commit (= 1.1.0)
   timecop (= 0.8.1)
   turbo_dev_assets (= 0.0.2)
@@ -1049,4 +1052,4 @@ DEPENDENCIES
   will_paginate (= 3.1.5)
 
 BUNDLED WITH
-   1.13.5
+   1.13.6

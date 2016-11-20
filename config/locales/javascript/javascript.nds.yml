@@ -23,7 +23,7 @@ nds:
     aspects:
       name: "Noom"
     bookmarklet:
-      post_something: "Schriev wat in diaspora*"
+      post_something: "Schriev wat in silent.army"
       post_submit: "Schick Bidrag af..."
       post_success: "Schreben! Mok Pop-Up-Fenster tau..."
     comma: ","

@@ -338,7 +338,7 @@ describe "diaspora federation callbacks" do
 
   describe ":receive_entity" do
     it "receives an AccountDeletion" do
-      account_deletion = FactoryGirl.build(:account_deletion_entity)
+      account_deletion = FactoryGirl.build(:account_deletion_entity, author: remote_person.diaspora_handle)
 
       expect(Diaspora::Federation::Receive).to receive(:account_deletion).with(account_deletion)
       expect(Workers::ReceiveLocal).not_to receive(:perform_async)
@@ -347,7 +347,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "receives a Retraction" do
-      retraction = FactoryGirl.build(:retraction_entity)
+      retraction = FactoryGirl.build(:retraction_entity, author: remote_person.diaspora_handle)
 
       expect(Diaspora::Federation::Receive).to receive(:retraction).with(retraction, 42)
       expect(Workers::ReceiveLocal).not_to receive(:perform_async)
@@ -356,7 +356,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "receives a entity" do
-      received = FactoryGirl.build(:status_message_entity)
+      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
       persisted = FactoryGirl.create(:status_message)
 
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
@@ -365,8 +365,20 @@ describe "diaspora federation callbacks" do
       DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, nil)
     end
 
+    it "calls schedule_check_if_needed on the senders pod" do
+      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+      persisted = FactoryGirl.create(:status_message)
+
+      expect(Person).to receive(:by_account_identifier).with(received.author).and_return(remote_person)
+      expect(remote_person.pod).to receive(:schedule_check_if_needed)
+      expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
+      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
+
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, nil)
+    end
+
     it "receives a entity for a recipient" do
-      received = FactoryGirl.build(:status_message_entity)
+      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
       persisted = FactoryGirl.create(:status_message)
 
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
@@ -376,7 +388,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "does not trigger a ReceiveLocal job if Receive.perform returned nil" do
-      received = FactoryGirl.build(:status_message_entity)
+      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
 
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(nil)
       expect(Workers::ReceiveLocal).not_to receive(:perform_async)

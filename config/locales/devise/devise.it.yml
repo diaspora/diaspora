@@ -33,7 +33,7 @@ it:
       inviter:
         accept_at: "su %{url}, puoi accettare dal link qua sotto."
         has_invited_you: "%{name} ti ha invitato ad entrare in Diaspora"
-        have_invited_you: "%{names} ti hanno invitato ad entrare in diaspora*"
+        have_invited_you: "%{names} ti hanno invitato ad entrare in silent.army"
       reset_password_instructions:
         change: "Cambia la mia password"
         ignore: "Se non hai effettuato la richiesta, per favore ignora questa email."

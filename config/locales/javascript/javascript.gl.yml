@@ -70,7 +70,7 @@ gl:
       add_option: "Engadir unha resposta"
       question: "Cuestión"
     bookmarklet:
-      post_something: "Publicar en diaspora*"
+      post_something: "Publicar en silent.army"
       post_submit: "Enviando a publicación…"
       post_success: "Publicouse! Pechando a xanela emerxente…"
     infinite_scroll:
