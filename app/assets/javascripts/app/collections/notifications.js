@@ -11,12 +11,8 @@ app.collections.Notifications = Backbone.Collection.extend({
   timeout: 300000, // 5 minutes
 
   initialize: function() {
-    this.pollNotifications();
-
-    setTimeout(function() {
-      setInterval(this.pollNotifications.bind(this), this.timeout);
-    }.bind(this), this.timeout);
-
+    this.fetch();
+    setInterval(this.pollNotifications.bind(this), this.timeout);
     Diaspora.BrowserNotification.requestPermission();
   },
 
