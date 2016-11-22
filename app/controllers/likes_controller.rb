@@ -26,7 +26,7 @@ class LikesController < ApplicationController
         format.json { render :json => @like.as_api_response(:backbone), :status => 201 }
       end
     else
-      render :nothing => true, :status => 422
+      render text: I18n.t("likes.create.error"), status: 422
     end
   end
 

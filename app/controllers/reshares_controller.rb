@@ -14,7 +14,7 @@ class ResharesController < ApplicationController
       current_user.dispatch_post(@reshare)
       render :json => ExtremePostPresenter.new(@reshare, current_user), :status => 201
     else
-      render :nothing => true, :status => 422
+      render text: I18n.t("reshares.create.error"), status: 422
     end
   end
 

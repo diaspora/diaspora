@@ -223,10 +223,16 @@ describe("Diaspora.Mobile.PostActions", function(){
       expect(Diaspora.Mobile.PostActions.toggleActive).toHaveBeenCalledWith(this.reshareLink);
     });
 
-    it("pops an alert on error", function(){
+    it("pops an alert on server errors", function() {
       this.reshareLink.click();
-      jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
-      expect(window.alert).toHaveBeenCalledWith(Diaspora.I18n.t("failed_to_reshare"));
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "reshare failed"});
+      expect(window.alert).toHaveBeenCalledWith("reshare failed");
+    });
+
+    it("pops an alert on network errors", function() {
+      this.reshareLink.click();
+      jasmine.Ajax.requests.mostRecent().abort();
+      expect(window.alert).toHaveBeenCalledWith(Diaspora.I18n.t("errors.connection"));
     });
   });
 });

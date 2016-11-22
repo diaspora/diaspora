@@ -72,8 +72,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
         self.set({"likes_count" : self.get("likes_count") + 1});
         self.likes.trigger("change");
       },
-      error: function() {
-        app.flashMessages.error(Diaspora.I18n.t("failed_to_like"));
+      error: function(model, response) {
+        app.flashMessages.handleAjaxError(response);
       }
     });
 
@@ -95,8 +95,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
     options = options || {};
 
-    this.comments.make(text).fail(function () {
-      app.flashMessages.error(Diaspora.I18n.t("failed_to_comment"));
+    this.comments.make(text).fail(function(response) {
+      app.flashMessages.handleAjaxError(response);
       if (options.error) { options.error(); }
     }).done(function() {
       self.post.set({participation: true});
@@ -123,8 +123,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
         interactions.set({"reshares_count": interactions.get("reshares_count") + 1});
         interactions.reshares.trigger("change");
       })
-      .fail(function(){
-        app.flashMessages.error(Diaspora.I18n.t("reshares.duplicate"));
+      .fail(function(response) {
+        app.flashMessages.handleAjaxError(response);
       });
 
     app.instrument("track", "Reshare");
