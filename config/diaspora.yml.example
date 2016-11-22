@@ -177,8 +177,8 @@ configuration: ## Section
     #listen: 'unix:/run/diaspora/diaspora.sock'
     #listen: '127.0.0.1:3000'
 
-    ## Set the path for the PID file of the unicorn master process (default=none)
-    #pid: '/run/diaspora/diaspora.pid'
+    ## Set the path for the PID file of the unicorn master process (default=tmp/pids/web.pid)
+    #pid: 'tmp/pids/web.pid'
 
     ## Rails environment (default='development').
     ## The environment in which the server should be started by default.

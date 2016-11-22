@@ -28,6 +28,7 @@
 * Update notifications every 5 minutes and when opening the notification dropdown [#6952](https://github.com/diaspora/diaspora/pull/6952)
 * Show browser notifications when receiving new unread notifications [#6952](https://github.com/diaspora/diaspora/pull/6952)
 * Only clear comment textarea when comment submission was successful [#7186](https://github.com/diaspora/diaspora/pull/7186)
+* Add support for graceful unicorn restarts [#7217](https://github.com/diaspora/diaspora/pull/7217)
 
 # 0.6.1.0
 
