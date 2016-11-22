@@ -35,7 +35,7 @@
         self.scrollToOffset(commentContainer);
       });
 
-      this.stream().on("submit", ".new_comment", this.submitComment);
+      this.stream().on("submit", ".new-comment", this.submitComment);
     },
 
     submitComment: function(evt){

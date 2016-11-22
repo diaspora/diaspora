@@ -78,9 +78,7 @@
       textarea {
         background: transparent;
         border: 0 solid $light-grey;
-        box-shadow: none;
         height: 50px;
-        margin: 0;
         resize: none;
       }
 
@@ -193,6 +191,16 @@
       margin-bottom: 0;
     }
   }
+
+  .md-editor,
+  .md-editor.active {
+    border: 0;
+  }
+
+  // This rule is required until we switch to the newer release of bootstrap-markdown with
+  // the following commit in:
+  // https://github.com/toopay/bootstrap-markdown/commit/14a21c3837140144b27efc19c795d1a37fad70fb
+  .md-preview { min-height: 90px; }
 }
 
 .publisher-textarea-wrapper {

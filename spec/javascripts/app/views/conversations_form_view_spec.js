@@ -35,6 +35,28 @@ describe("app.views.ConversationsForm", function() {
       this.target.initialize({prefill: {}});
       expect(app.views.ConversationsForm.prototype.prefill).toHaveBeenCalledWith({});
     });
+
+    it("creates markdown editor for new conversations", function() {
+      spyOn(this.target, "renderMarkdownEditor");
+      this.target.initialize();
+      expect(this.target.renderMarkdownEditor).toHaveBeenCalledWith("#new-message-text");
+    });
+
+    it("creates markdown editor for an existing conversation", function() {
+      spyOn(this.target, "renderMarkdownEditor");
+      this.target.initialize();
+      expect(this.target.renderMarkdownEditor).toHaveBeenCalledWith(
+        $("#conversation-show .conversation-message-text"));
+    });
+  });
+
+  describe("renderMarkdownEditor", function() {
+    it("creates MarkdownEditor", function() {
+      spec.content().html("<form><textarea id='new-message-text'/></form>");
+      var mdEditor = this.target.renderMarkdownEditor("#new-message-text");
+      expect(mdEditor).toEqual(jasmine.any(Diaspora.MarkdownEditor));
+      expect($("#new-message-text")).toHaveClass("md-input");
+    });
   });
 
   describe("addRecipient", function() {
@@ -252,6 +274,12 @@ describe("app.views.ConversationsForm", function() {
       this.view = new app.views.ConversationsForm();
       $("#new-conversation").trigger("ajax:success", [{id: 23}]);
       expect(app._changeLocation).toHaveBeenCalledWith(Routes.conversation(23));
+    });
+
+    it("hides the preview", function() {
+      spyOn(Diaspora.MarkdownEditor.prototype, "hidePreview");
+      $("#new-conversation").trigger("ajax:success", [{id: 23}]);
+      expect(Diaspora.MarkdownEditor.prototype.hidePreview).toHaveBeenCalled();
     });
   });
 

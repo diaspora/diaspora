@@ -9,8 +9,8 @@ app.views.CommentStream = app.views.Base.extend({
   events: {
     "keydown .comment_box": "keyDownOnCommentBox",
     "submit form": "createComment",
-    "focus .comment_box": "commentTextareaFocused",
-    "click .toggle_post_comments": "expandComments"
+    "click .toggle_post_comments": "expandComments",
+    "click form": "openForm"
   },
 
   initialize: function() {
@@ -21,6 +21,7 @@ app.views.CommentStream = app.views.Base.extend({
   setupBindings: function() {
     this.model.comments.bind("add", this.appendComment, this);
     this.model.comments.bind("remove", this.removeComment, this);
+    $(document.body).click(this.onFormBlur.bind(this));
   },
 
   postRenderTemplate : function() {
@@ -28,6 +29,13 @@ app.views.CommentStream = app.views.Base.extend({
     this.commentBox = this.$(".comment_box");
     this.commentSubmitButton = this.$("input[name='commit']");
     new app.views.CommentMention({el: this.$el, postId: this.model.get("id")});
+
+    this.mdEditor = new Diaspora.MarkdownEditor(this.$(".comment_box"), {
+      onPreview: function($mdInstance) {
+        return "<div class='preview-content'>" + app.helpers.textFormatter($mdInstance.getContent()) + "</div>";
+      },
+      onFocus: this.openForm.bind(this)
+    });
   },
 
   presenter: function(){
@@ -53,11 +61,14 @@ app.views.CommentStream = app.views.Base.extend({
       success: function() {
         this.commentBox.val("");
         this.enableCommentBox();
+        this.mdEditor.hidePreview();
+        this.closeForm();
         autosize.update(this.commentBox);
       }.bind(this),
       error: function() {
         this.enableCommentBox();
-        this.commentBox.focus();
+        this.mdEditor.hidePreview();
+        this.openForm();
       }.bind(this)
     });
   },
@@ -122,10 +133,6 @@ app.views.CommentStream = app.views.Base.extend({
     this.$("#" + comment.get("guid")).closest(".comment.media").remove();
   },
 
-  commentTextareaFocused: function(){
-    this.$("form").removeClass('hidden').addClass("open");
-  },
-
   expandComments: function(evt){
     this.$(".loading-comments").removeClass("hidden");
     if(evt){ evt.preventDefault(); }
@@ -135,6 +142,29 @@ app.views.CommentStream = app.views.Base.extend({
         this.$(".loading-comments").addClass("hidden");
       }.bind(this)
     });
+  },
+
+  openForm: function() {
+    this.$("form").addClass("open");
+    this.$(".md-editor").addClass("active");
+  },
+
+  closeForm: function() {
+    this.$("form").removeClass("open");
+    this.$(".md-editor").removeClass("active");
+    autosize.update(this.commentBox);
+  },
+
+  onFormBlur: function(evt) {
+    if (this.mdEditor !== undefined && this.mdEditor.isPreviewOrTexareaNotEmpty()) {
+      return;
+    }
+
+    var $target = $(evt.target);
+    var isForm = $target.hasClass("new-comment") || $target.parents(".new-comment").length !== 0;
+    if (!isForm && !$target.hasClass("focus_comment_textarea")) {
+      this.closeForm();
+    }
   }
 });
 // @license-end
