@@ -9,7 +9,7 @@ app.views.ConversationsInbox = Backbone.View.extend({
   },
 
   initialize: function() {
-    new app.views.ConversationsForm();
+    this.conversationForm = new app.views.ConversationsForm();
     this.setupConversation();
   },
 
@@ -23,6 +23,7 @@ app.views.ConversationsInbox = Backbone.View.extend({
         self.$el.find("#conversation-show").removeClass("hidden").html(data);
         self.selectConversation(conversationId);
         self.setupConversation();
+        self.conversationForm.renderMarkdownEditor("#conversation-show .conversation-message-text");
       }
     });
   },

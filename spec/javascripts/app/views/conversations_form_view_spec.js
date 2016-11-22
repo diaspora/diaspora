@@ -35,6 +35,19 @@ describe("app.views.ConversationsForm", function() {
       this.target.initialize({prefill: {}});
       expect(app.views.ConversationsForm.prototype.prefill).toHaveBeenCalledWith({});
     });
+
+    it("creates markdown editor for new conversations", function() {
+      spyOn(app.views.ConversationsForm.prototype, "renderMarkdownEditor");
+      this.target.initialize();
+      expect(app.views.ConversationsForm.prototype.renderMarkdownEditor).toHaveBeenCalledWith("#new-message-text");
+    });
+
+    it("creates markdown editor for an existing conversation", function() {
+      spyOn(app.views.ConversationsForm.prototype, "renderMarkdownEditor");
+      this.target.initialize();
+      expect(app.views.ConversationsForm.prototype.renderMarkdownEditor).toHaveBeenCalledWith(
+        $("#conversation-show .conversation-message-text"));
+    });
   });
 
   describe("addRecipient", function() {
@@ -246,6 +259,12 @@ describe("app.views.ConversationsForm", function() {
       this.view = new app.views.ConversationsForm();
       $("#new-conversation").trigger("ajax:success", [{id: 23}]);
       expect(app._changeLocation).toHaveBeenCalledWith(Routes.conversation(23));
+    });
+
+    it("hides the preview", function() {
+      spyOn(Diaspora.MarkdownEditor.prototype, "hidePreview");
+      $("#new-conversation").trigger("ajax:success", [{id: 23}]);
+      expect(Diaspora.MarkdownEditor.prototype.hidePreview).toHaveBeenCalled();
     });
   });
 

@@ -198,6 +198,13 @@
       margin-bottom: 0;
     }
   }
+
+  .md-editor,
+  .md-editor.active {
+    border: 0;
+  }
+
+  .md-preview { min-height: 90px; }
 }
 
 .publisher-textarea-wrapper {

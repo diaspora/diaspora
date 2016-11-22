@@ -44,15 +44,18 @@
     }
   }
 
-  .comment.new-comment-form-wrapper { padding-bottom: 0; }
+  .comment.new-comment-form-wrapper {
+    padding-bottom: 0;
 
-  .submit_button {
+    .md-preview { min-height: 70px; }
+  }
+
+  .submit-button {
     margin-top: 10px;
     input {
       float: right;
     }
     padding-left: 12px;
-    display: none;
   }
   .comment_box {
     height: 35px;
@@ -60,8 +63,15 @@
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
-    & + .submit_button { display: block; }
-    min-height: 35px;
     box-shadow: none;
   }
+}
+
+.new-comment {
+  &:not(.open) .submit-button,
+  &:not(.open) .md-header {
+    display: none;
+  }
+
+  &.open .md-editor textarea { min-height: 70px; }
 }

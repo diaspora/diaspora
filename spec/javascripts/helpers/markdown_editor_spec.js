@@ -220,6 +220,27 @@ describe("Diaspora.MarkdownEditor", function() {
     });
   });
 
+  describe("isPreviewOrTexareaNotEmpty", function() {
+    beforeEach(function() {
+      this.target = new Diaspora.MarkdownEditor(this.$el, {onPreview: $.noop, onPostPreview: $.noop()});
+    });
+
+    it("return false if editor is not visible yet", function() {
+      this.target.instance = undefined;
+      expect(this.target.isPreviewOrTexareaNotEmpty()).toBe(false);
+    });
+
+    it("returns true if editor is in preview mode", function() {
+      this.target.showPreview();
+      expect(this.target.isPreviewOrTexareaNotEmpty()).toBe(true);
+    });
+
+    it("returns true if editor has content", function() {
+      $("textarea").text("Yolo");
+      expect(this.target.isPreviewOrTexareaNotEmpty()).toBe(true);
+    });
+  });
+
   describe("localize", function() {
     beforeEach(function() {
       this.target = new Diaspora.MarkdownEditor(this.$el, {});

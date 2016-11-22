@@ -130,6 +130,13 @@ Diaspora.MarkdownEditor.prototype = {
     }
   },
 
+  isPreviewOrTexareaNotEmpty: function() {
+    if (this.instance === undefined) {
+      return false;
+    }
+    return (this.instance.$editor.find(".md-preview").length > 0) || (this.instance.getContent().length > 0);
+  },
+
   localize: function() {
     var locale = Diaspora.I18n.language;
 

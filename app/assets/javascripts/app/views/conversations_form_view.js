@@ -24,6 +24,14 @@ app.views.ConversationsForm = Backbone.View.extend({
       remoteRoute: {url: "/contacts", extraParameters: "mutual=true"}
     });
 
+    this.newConversationMdEditor = this.renderMarkdownEditor("#new-message-text");
+
+    // Creates another markdown editor in case of displaying conversation
+    var responseTextarea = $("#conversation-show .conversation-message-text");
+    if (responseTextarea.length === 1) {
+      this.renderMarkdownEditor(responseTextarea);
+    }
+
     this.bindTypeaheadEvents();
 
     this.tagListElement.empty();
@@ -31,8 +39,16 @@ app.views.ConversationsForm = Backbone.View.extend({
       this.prefill(opts.prefill);
     }
 
-    this.$("form#new-conversation").on("ajax:success", this.conversationCreateSuccess);
+    this.$("form#new-conversation").on("ajax:success", this.conversationCreateSuccess.bind(this));
     this.$("form#new-conversation").on("ajax:error", this.conversationCreateError);
+  },
+
+  renderMarkdownEditor: function(element) {
+    return new Diaspora.MarkdownEditor($(element), {
+      onPreview: function($mdInstance) {
+        return "<div class='preview-content'>" + app.helpers.textFormatter($mdInstance.getContent()) + "</div>";
+      }
+    });
   },
 
   addRecipient: function(person) {
@@ -83,6 +99,7 @@ app.views.ConversationsForm = Backbone.View.extend({
   },
 
   conversationCreateSuccess: function(evt, data) {
+    this.newConversationMdEditor.hidePreview();
     app._changeLocation(Routes.conversation(data.id));
   },
 
