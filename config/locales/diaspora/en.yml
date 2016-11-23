@@ -898,8 +898,6 @@ en:
       invited_by: "You were invited by"
 
   photos:
-    show:
-      show_original_post: "Show original post"
     create:
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
