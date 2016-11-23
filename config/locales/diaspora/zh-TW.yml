@@ -59,7 +59,7 @@ zh-TW:
       user_search: "使用者搜尋"
       weekly_user_stats: "使用者統計週報"
     dashboard:
-      fetching_diaspora_version: "判斷 diaspora* 的最新版本中..."
+      fetching_diaspora_version: "判斷 silent.army 的最新版本中..."
       pod_status: "豆莢狀態"
     pods:
       pod_network: "豆莢網路"
@@ -222,7 +222,7 @@ zh-TW:
         feature_suggestion: "...想建議%{link}嗎？"
         find_a_bug: "...找到一隻%{link}嗎？"
         have_a_question: "...有個%{link}嗎？"
-        here_to_help: "diaspora* 社群來了！"
+        here_to_help: "silent.army 社群來了！"
         mail_podmin: "莢主的電子信箱"
         need_help: "要幫忙嗎？"
         tag_bug: "臭蟲"
@@ -233,13 +233,13 @@ zh-TW:
       introduce_yourself: "這是你的流水帳。跳進來介紹你自己吧。"
       keep_pod_running: "歡迎每月固定樂捐，讓 %{pod} 可以高速運轉，以及滿足伺服器的咖啡癮。"
       new_here:
-        follow: "追蹤 %{link} 來歡迎 diaspora* 的新人！"
+        follow: "追蹤 %{link} 來歡迎 silent.army 的新人！"
         learn_more: "進一步了解"
         title: "歡迎新使用者"
       services:
-        content: "你可以將以下外部服務跟 diaspora* 連結："
+        content: "你可以將以下外部服務跟 silent.army 連結："
         heading: "連結外部服務"
-      welcome_to_diaspora: "%{name}，歡迎來到 diaspora*！"
+      welcome_to_diaspora: "%{name}，歡迎來到 silent.army！"
     no_contacts_message:
       community_spotlight: "社群焦點"
       invite_link_text: "邀請"
@@ -262,9 +262,9 @@ zh-TW:
       failure: "我無法停止忽視這個使用者。 #藉口"
       success: "看看他們要說什麼吧！ #打招呼"
   bookmarklet:
-    explanation: "將此連結加入書籤 => %{link}，可以隨時在diaspora*貼文。"
+    explanation: "將此連結加入書籤 => %{link}，可以隨時在silent.army貼文。"
     heading: "書籤小程式"
-    post_something: "貼到 diaspora*"
+    post_something: "貼到 silent.army"
   cancel: "取消"
   comments:
     new_comment:
@@ -335,7 +335,7 @@ zh-TW:
       close_account_q: "要怎樣刪掉我的豆子(帳號)？"
       data_other_podmins_a: "當你開始跟其它豆莢裡的某人分享以後，你和他們分享的任何貼文，以及你的帳號資料，都會儲存(或是暫存)在他們的豆莢裡，因此他們豆莢的資料庫管理員就有辦法可以讀得到。當你刪掉貼文或是帳號資料，這些資料不但會從你的豆莢刪掉，也會傳送刪掉的請求給之前有儲存這些資料的其他豆莢。你的圖片則只會儲存在帳號所屬的豆莢裡，其他豆莢只會收到連結。"
       data_other_podmins_q: "其它豆莢的管理員可以看到多少我的資料？"
-      data_visible_to_podmin_a: "豆莢和豆莢間的通訊會全程加密(用 SSL 和 diaspora* 自己的傳輸層加密)，但是存在豆莢理的資料是沒有加密的。所以，如果資料庫管理員(通常也是管理豆莢的人)想看的話，他/她可以看到你全部的個人資料，以及你發表的任何東西(其實對於大多數的，有存放個人資料的網站來說，這點都是一樣的)。因此如果你能管理你自己的豆莢，當然更能確保你的隱私，因為資料庫的存取權也是由你控制。"
+      data_visible_to_podmin_a: "豆莢和豆莢間的通訊會全程加密(用 SSL 和 silent.army 自己的傳輸層加密)，但是存在豆莢理的資料是沒有加密的。所以，如果資料庫管理員(通常也是管理豆莢的人)想看的話，他/她可以看到你全部的個人資料，以及你發表的任何東西(其實對於大多數的，有存放個人資料的網站來說，這點都是一樣的)。因此如果你能管理你自己的豆莢，當然更能確保你的隱私，因為資料庫的存取權也是由你控制。"
       data_visible_to_podmin_q: "我所在豆莢的管理員可以看到多少我的資料？"
       download_data_a: "可以的。在設定頁面的帳號頁籤的最下面，分別有兩個按鈕可以讓你下載個人資料和相片。"
       download_data_q: "我可以把豆子裡全部的資料都下載下來嗎？"
@@ -362,26 +362,26 @@ zh-TW:
       restrict_posts_i_see_a: 可以。請點一下側邊欄的"我的社交面"，然後用點來選擇或是不選個別每一面。只有被選的社交面的貼文才會出現在流水帳裡。
       restrict_posts_i_see_q: "我可以過濾流水帳只看到來自特定社交面的貼文嗎？"
       title: "社交面"
-      what_is_an_aspect_a: "社交面是將你在 diaspora* 的聯絡人分群的方式。\"面\"是一種比喻，好像你展現給這個世界的其中一面。比如說你在職場的一面，你在家庭中的一面，或是你在某個團體中對裡面的朋友展現的一面。"
+      what_is_an_aspect_a: "社交面是將你在 silent.army 的聯絡人分群的方式。\"面\"是一種比喻，好像你展現給這個世界的其中一面。比如說你在職場的一面，你在家庭中的一面，或是你在某個團體中對裡面的朋友展現的一面。"
       what_is_an_aspect_q: "什麼是社交面？"
       who_sees_post_a: "當你發表了一篇設限的貼文，就只有那個面(或是那些面，因為你也可以選擇好幾面)中的人才看得到。不在那個(或是那些面)中的聯絡人，就看不到那篇貼文，除非你把它公開。只有公開的貼文可以讓不在你任何社交面中的其它人看到。"
       who_sees_post_q: "當我貼文到某一面時，誰看得到？"
     chat:
       add_contact_roster_a: "首先，你要把聊天的權限給那個人所在的社交面。我們來開始：先到%{contacts_page}，選你要的那一面，然後點聊天的圖示就可以打開權限。%{toggle_privilege}如果你想的話，也可以先開一個社交面專門給你想跟他們即時聊天的人，比如說就叫做『聊天』，然後把那些人加進去。完成以後就可以到聊天的頁面，選你想即時聊天的人開始聊天。"
-      add_contact_roster_q: "要怎樣在 diaspora* 跟某人即時聊天？"
+      add_contact_roster_q: "要怎樣在 silent.army 跟某人即時聊天？"
       contacts_page: "聯絡人頁面"
       title: "即時聊天"
     faq: "常見問答"
-    foundation_website: "diaspora* 基金會網站"
+    foundation_website: "silent.army 基金會網站"
     getting_help:
       get_support_a_faq: "來看看我們在維基上的%{faq}頁面"
-      get_support_a_hashtag: "公開用 %{question} 標籤在 diaspora* 上發問"
+      get_support_a_hashtag: "公開用 %{question} 標籤在 silent.army 上發問"
       get_support_a_irc: "來%{irc}加入我們（即時聊天）"
       get_support_a_tutorials: "來看看我們的%{tutorials}"
       get_support_a_website: "來拜訪%{link}"
       get_support_a_wiki: "來去%{link}搜尋"
       get_support_q: "我的疑問在這份常見問題中沒有解答怎麼辦？我還可以在哪裡得到幫助？"
-      getting_started_a: "你的運氣很好。來試看看我們專案網站上的%{tutorial_series}吧。我們會一步步帶著你完成註冊過程，並告訴你使用 diaspora* 的基本事項。"
+      getting_started_a: "你的運氣很好。來試看看我們專案網站上的%{tutorial_series}吧。我們會一步步帶著你完成註冊過程，並告訴你使用 silent.army 的基本事項。"
       getting_started_q: "幫我一下！我需要有人教我怎麼開始！"
       title: "求助"
     getting_started_tutorial: "\"出發囉\"個別指導系列"
@@ -413,27 +413,27 @@ zh-TW:
     miscellaneous:
       back_to_top_a: "有啊。在往下捲至少一頁以後，就會在瀏覽器視窗的右下方出現一個灰色的指標，點它就可以回到最上面。"
       back_to_top_q: "有辦法在往下捲了好幾頁後，快速回到最上面嗎？"
-      diaspora_app_a: "目前有些社群成員正在開發 Android 上的應用程式。不過有些因為已經停滯很久了，可能和最新版本的 diaspora* 不太相容。所以請不要對這些應用程式抱太高的期望。至於 iOS 上的應用程式，目前還不存在。要從行動裝置上使用 diaspora* 最好的方式還是用瀏覽器，因為我們設計了應該可以到處通用的行動版網頁，不過功能比較不完整就是了。"
-      diaspora_app_q: "有 Android 或 iOS  的 diaspora* 應用程式嗎？"
+      diaspora_app_a: "目前有些社群成員正在開發 Android 上的應用程式。不過有些因為已經停滯很久了，可能和最新版本的 silent.army 不太相容。所以請不要對這些應用程式抱太高的期望。至於 iOS 上的應用程式，目前還不存在。要從行動裝置上使用 silent.army 最好的方式還是用瀏覽器，因為我們設計了應該可以到處通用的行動版網頁，不過功能比較不完整就是了。"
+      diaspora_app_q: "有 Android 或 iOS  的 silent.army 應用程式嗎？"
       photo_albums_a: 目前還沒有。不過，你可以從個人檔案頁面的"相片"頁面看某人上傳的所有圖片。
       photo_albums_q: "有相簿或影集的功能嗎？"
-      subscribe_feed_a: "可以，不過這個功能還不完整，產生的格式還很粗糙。你還是想試看看的話，可以到某人的個人檔案頁面去，從你的瀏覽器點訂閱訊息按鈕，或是複製個人檔案的網址(比如說：https://podname.org/people/somenumber)，然後貼到你的訊息閱讀器去。這樣產生的訊息來源網址會長的像是這樣：https://podname.org/public/username.atom - 因為 diaspora* 用的訊息來源格式是 Atom 而不是 RSS。"
+      subscribe_feed_a: "可以，不過這個功能還不完整，產生的格式還很粗糙。你還是想試看看的話，可以到某人的個人檔案頁面去，從你的瀏覽器點訂閱訊息按鈕，或是複製個人檔案的網址(比如說：https://podname.org/people/somenumber)，然後貼到你的訊息閱讀器去。這樣產生的訊息來源網址會長的像是這樣：https://podname.org/public/username.atom - 因為 silent.army 用的訊息來源格式是 Atom 而不是 RSS。"
       subscribe_feed_q: "我可以用訊息閱讀器來訂閱某人的公開貼文嗎？"
       title: "其他"
     pods:
-      find_people_a: "你可以用側邊欄的邀請或電子郵件連結，來邀請你的朋友一起加入 diaspora*。你也可以用追蹤 #標籤 來尋找志同道合的人，這樣當他們發表了你有興趣的貼文時，你就可以將他們加進你的社交面。公開貼文大喊你是 #新來的 也行。"
+      find_people_a: "你可以用側邊欄的邀請或電子郵件連結，來邀請你的朋友一起加入 silent.army。你也可以用追蹤 #標籤 來尋找志同道合的人，這樣當他們發表了你有興趣的貼文時，你就可以將他們加進你的社交面。公開貼文大喊你是 #新來的 也行。"
       find_people_q: "我剛剛加入一個豆莢，要怎樣找到其它可以分享的人？"
       title: "豆莢"
-      use_search_box_a: "如果你知道他們的 diaspora* 識別碼全寫的話(比方說像是 username@podname.org)，直接搜尋識別碼就可以了。如果你們在同一個豆莢裡，可以用他們的使用者名稱搜尋。不然就用他們的檔案名字(也就是畫面上看到的名字)搜尋看看。如果第一次搜尋不到，就再重試一次看看。"
+      use_search_box_a: "如果你知道他們的 silent.army 識別碼全寫的話(比方說像是 username@podname.org)，直接搜尋識別碼就可以了。如果你們在同一個豆莢裡，可以用他們的使用者名稱搜尋。不然就用他們的檔案名字(也就是畫面上看到的名字)搜尋看看。如果第一次搜尋不到，就再重試一次看看。"
       use_search_box_q: "要怎樣用搜尋框框找到特定的人？"
-      what_is_a_pod_a: "豆莢是一台伺服器，上面跑了 diaspora* 軟體，和整個 diaspora* 網路相連接。用\"豆莢\"這一個詞，是在比喻伺服器上包含了許多使用者的帳號，就有如植物的豆莢包含了許多豆子一樣。網路上會有許許多多的豆莢。你可以加位於其它豆莢的朋友，好跟他們交流。你不需要在每個豆莢都註冊，只要有一個帳號就夠了！你也可以想像 diaspora* 豆莢就好像電子郵件的信箱一樣：有公開供應的，也有私人專屬的，甚至如果你肯下功夫，也可以維護自己的信箱或豆莢。"
+      what_is_a_pod_a: "豆莢是一台伺服器，上面跑了 silent.army 軟體，和整個 silent.army 網路相連接。用\"豆莢\"這一個詞，是在比喻伺服器上包含了許多使用者的帳號，就有如植物的豆莢包含了許多豆子一樣。網路上會有許許多多的豆莢。你可以加位於其它豆莢的朋友，好跟他們交流。你不需要在每個豆莢都註冊，只要有一個帳號就夠了！你也可以想像 silent.army 豆莢就好像電子郵件的信箱一樣：有公開供應的，也有私人專屬的，甚至如果你肯下功夫，也可以維護自己的信箱或豆莢。"
       what_is_a_pod_q: "什麼是豆莢？"
     posts_and_posting:
-      char_limit_services_a: "這時候你就應該要根據那些服務的上限，來限制你的貼文字數(比如說​ Twitter是140 個字; Tumblr 是 1000 個字)。你還剩下可用的字數，也會依據你所選取的外部服務圖示來顯示。不過即使字數超過該服務的上限，你還是可以發表貼文，只是超過的部份就會被截掉了，並且附上在 diaspora* 上該貼文的連結。"
+      char_limit_services_a: "這時候你就應該要根據那些服務的上限，來限制你的貼文字數(比如說​ Twitter是140 個字; Tumblr 是 1000 個字)。你還剩下可用的字數，也會依據你所選取的外部服務圖示來顯示。不過即使字數超過該服務的上限，你還是可以發表貼文，只是超過的部份就會被截掉了，並且附上在 silent.army 上該貼文的連結。"
       char_limit_services_q: "我如果把貼文同時發表到字數上限比較少的外部服務去會怎樣？"
       character_limit_a: "65,535 的字。這已經比 Twitter 還要多 65,395 個字了！;)"
       character_limit_q: "貼文的字數上限是多少？"
-      embed_multimedia_a: "通常只要在你的貼文中貼影片或音訊的網址(比如說: http://www.youtube.com/watch?v=nnnnnnnnnnn)，就會自動嵌入了。支援的網站有: YouTube, Vimeo, SoundCloud, Flickr 等等。diaspora* 用 oEmbed 機制來提供這個功能。我們會陸續支援更多的媒體來源網站。請記得一定要貼完整的的網址，而不是縮短過的，也不要有多餘的控制參數。貼完後要看預覽畫面的話，請先等一段時間再重新載入頁面。"
+      embed_multimedia_a: "通常只要在你的貼文中貼影片或音訊的網址(比如說: http://www.youtube.com/watch?v=nnnnnnnnnnn)，就會自動嵌入了。支援的網站有: YouTube, Vimeo, SoundCloud, Flickr 等等。silent.army 用 oEmbed 機制來提供這個功能。我們會陸續支援更多的媒體來源網站。請記得一定要貼完整的的網址，而不是縮短過的，也不要有多餘的控制參數。貼完後要看預覽畫面的話，請先等一段時間再重新載入頁面。"
       embed_multimedia_q: "要怎樣在貼文中嵌入一段影片、音訊、或是其他多媒體作品？"
       format_text_a: "用一種叫%{markdown}的簡化寫法，在%{here}有完整的格式說明。\"預覽\"按鈕可以讓你在分享出去之前，先知道貼文看起來會是什麼樣子，真的很有用。"
       format_text_q: "要怎樣對我的貼文加格式(比如說加粗、推斜等等)?"
@@ -463,14 +463,14 @@ zh-TW:
       stream_full_of_posts_q: "為什麼我的流水帳裡面都是一些我不認識也沒跟他們分享的人的貼文？"
       title: "貼文和發表"
     private_posts:
-      can_comment_a: "只有在你發表該篇非公開貼文前，就已經在那一面中的使用者，才可以對貼文留言或按讚，而且必須要在登入 diaspora* 的狀態下。"
+      can_comment_a: "只有在你發表該篇非公開貼文前，就已經在那一面中的使用者，才可以對貼文留言或按讚，而且必須要在登入 silent.army 的狀態下。"
       can_comment_q: "誰可以對我的非公開貼文留言或按讚？"
       can_reshare_a: "沒有人可以。非公開的貼文是不能轉貼的。不過，那些因為在你的社交面中，而可以在登入時看到貼文的人，也可能用複製、貼上的方式轉貼。要不要信任他們就留給你自己決定囉！"
       can_reshare_q: "誰可以轉貼我的非公開貼文？"
       see_comment_a: "只有該篇貼文的分享對象(也就是當初原作者所選擇社交面中的人)才可以看到貼文的留言和稱讚。"
       see_comment_q: "如果我對非公開貼文留言或按讚，誰可以看得到？"
       title: "非公開貼文"
-      who_sees_post_a: "只有在你發表該篇非公開貼文前，就已經在那一面中的使用者才可以看得到，並且必須要在登入 diaspora* 的狀態下。"
+      who_sees_post_a: "只有在你發表該篇非公開貼文前，就已經在那一面中的使用者才可以看得到，並且必須要在登入 silent.army 的狀態下。"
       who_sees_post_q: "當我貼文到某一面時(也就是貼一篇非公開貼文)，有誰可以看得到？"
     private_profiles:
       title: "私人檔案"
@@ -481,13 +481,13 @@ zh-TW:
       who_sees_updates_a: "任何在你的社交面中的人都可以看得到你私人檔案的改變。"
       who_sees_updates_q: "我的私人檔案更新時，誰可以看得到？"
     public_posts:
-      can_comment_reshare_like_a: "任何 diaspora* 的使用者在登入狀態下都可以對你的公開貼文留言、轉貼、或是按讚。"
+      can_comment_reshare_like_a: "任何 silent.army 的使用者在登入狀態下都可以對你的公開貼文留言、轉貼、或是按讚。"
       can_comment_reshare_like_q: "誰可以對我的公開貼文留言、轉貼、或是按讚？"
       deselect_aspect_posting_a: "沒有影響，它還是一篇公開貼文，還是會出現在你的所有聯絡人的流水帳裡。如果只想讓某些面看到該篇貼文，你必須要在發表時點選那些面。"
       deselect_aspect_posting_q: "我在發表公開貼文時，不選某個或某些面會有什麼影響？"
       find_public_post_a: "追蹤你的人會在他們的流水帳看到。如果你在貼文中加了 #標籤 ，那麼任何追蹤該標籤的人都會在他們的流水帳看到。每一篇公開貼文都有專屬的網址，讓任何人不用登入都可以用那個網址看到。因此，公開貼文的連結可以直接貼到 Twitter​、部落格、或是其他地方去。公開貼文也有可能會被搜尋引擎收集並編入索引。"
       find_public_post_q: "其他人要怎樣找到我的公開貼文？"
-      see_comment_reshare_like_a: "公開貼文的留言、稱讚、或是轉貼，也都是公開的。任何登入 diaspora* 的使用者，以及其他使用網際網路的人，都可以看到你對該篇貼文的參與。"
+      see_comment_reshare_like_a: "公開貼文的留言、稱讚、或是轉貼，也都是公開的。任何登入 silent.army 的使用者，以及其他使用網際網路的人，都可以看到你對該篇貼文的參與。"
       see_comment_reshare_like_q: "當我對一篇公開貼文留言、轉貼、或是按讚時，誰可以看得到？"
       title: "公開貼文"
       who_sees_post_a: "任何用網際網路的人都有可能看到你公開的貼文，因此請務必確定你希望該貼文要公開出去。這是一個和世界溝通的好方法。"
@@ -498,7 +498,7 @@ zh-TW:
       what_do_tags_do_q: "個人檔案裡的標籤有什麼用？"
       whats_in_profile_a: "你的公開檔案可能包含了你的名字、描述你自己的五個標籤、以及你的相片。你可以選擇要提供哪些給別人看，沒有一項是必須要填的。隨你高興要讓它一眼就知道是你，還是完全認不出來是誰。你的個人檔案也會顯示你發表過的公開貼文。"
       whats_in_profile_q: "公開檔案的內容有什麼？"
-      who_sees_profile_a: "任何在登入狀態下的 diaspora* 使用者，以及廣大的網際網路世界，都可以看到。每個個人檔案都有一個網址，透過這個網址其他外部網站可以直接連結該檔案。公開檔案也有可能被搜尋引擎收集並編入索引。"
+      who_sees_profile_a: "任何在登入狀態下的 silent.army 使用者，以及廣大的網際網路世界，都可以看到。每個個人檔案都有一個網址，透過這個網址其他外部網站可以直接連結該檔案。公開檔案也有可能被搜尋引擎收集並編入索引。"
       who_sees_profile_q: "誰會看到我的公開檔案？"
       who_sees_updates_a: "任何來看你的個人檔案頁面的人都可以。"
       who_sees_updates_q: "誰會看到我的公開檔案的更新？"
@@ -530,7 +530,7 @@ zh-TW:
       sharing_notification_q: "怎麼知道某人已經開始跟我分享了？"
       title: "分享"
     tags:
-      filter_tags_a: "目前 diaspora* 還不能直接這麼做，但是某些%{third_party_tools}可能有提供這個功能。"
+      filter_tags_a: "目前 silent.army 還不能直接這麼做，但是某些%{third_party_tools}可能有提供這個功能。"
       filter_tags_q: "要怎樣在我的流水帳過濾(排除)掉某些標籤？"
       followed_tags_a: "搜尋一個標籤之後，你可以在標籤專頁的上方按\"追蹤\"按鈕來追蹤它。這樣一來，該標籤就會出現在左手邊追蹤中標籤的選單裡面。點任何一個你追蹤中的標籤會帶你到該標籤的專頁，讓你看到有該標籤的最新貼文。如果是點 #追蹤中的標籤 看到的會是你追蹤的所有標籤的流水帳。"
       followed_tags_q: "什麼是\"#追蹤中的標籤\"？要怎麼追蹤一個標籤？"
@@ -549,13 +549,13 @@ zh-TW:
   home:
     default:
       be_who_you_want_to_be: "做你希望的自己"
-      be_who_you_want_to_be_info: "很多社群網路堅持要你用官方身份。diaspora* 不是。在這裡你可以選擇想要成為誰，並且隨心所欲分享關於自己的一切，可以很多也可以很少。想要怎樣跟別人互動你可以自己決定。"
+      be_who_you_want_to_be_info: "很多社群網路堅持要你用官方身份。silent.army 不是。在這裡你可以選擇想要成為誰，並且隨心所欲分享關於自己的一切，可以很多也可以很少。想要怎樣跟別人互動你可以自己決定。"
       byline: "你能掌控的線上社交世界"
       choose_your_audience: "選擇聽眾"
-      choose_your_audience_info: "diaspora* 用社交面來讓你選擇要分享的對象。可以非常公開，也可以非常私密。比如說跟全世界分享一張好笑的相片，或是只和你的密友分享一個大祕密。都在你的掌控中。"
+      choose_your_audience_info: "silent.army 用社交面來讓你選擇要分享的對象。可以非常公開，也可以非常私密。比如說跟全世界分享一張好笑的相片，或是只和你的密友分享一個大祕密。都在你的掌控中。"
       headline: "歡迎來到%{pod_name}"
       own_your_data: "控制自己的資料"
-      own_your_data_info: "很多社群網路用你的資料來賺錢，像是分析使用行為，然後用這些資訊來對你做廣告推銷。diaspora* 只會用你的資料來讓你和別人聯繫和分享，不會拿來做其他用途。"
+      own_your_data_info: "很多社群網路用你的資料來賺錢，像是分析使用行為，然後用這些資訊來對你做廣告推銷。silent.army 只會用你的資料來讓你和別人聯繫和分享，不會拿來做其他用途。"
     podmin:
       admin_panel: "管理面板"
       byline: "準備來改變網際網路了。我們來幫你準備就緒，好嗎？"
@@ -563,7 +563,7 @@ zh-TW:
       configure_your_pod: "設定豆莢"
       contact_irc: "來​ IRC 跟我們聯絡"
       contribute: "貢獻"
-      contribute_info: "幫助 diaspora* 變得更好！找到臭蟲就請來%{report_bugs}。"
+      contribute_info: "幫助 silent.army 變得更好！找到臭蟲就請來%{report_bugs}。"
       create_an_account: "註冊帳號"
       create_an_account_info: "%{sign_up_link}一個新帳號"
       faq_for_podmins: "豆莢管理員的常見問答集"
@@ -573,7 +573,7 @@ zh-TW:
       make_yourself_an_admin: "成為管理員"
       make_yourself_an_admin_info: "%{wiki}裡面有步驟說明。做完之後，在你登入時頂部的使用者功能表應該就會多一個「管理」項目。這個功能可以讓你搜尋豆莢裡的使用者、檢視統計資料等等。更深度的豆莢維運項目請用%{admin_panel}。"
       report_bugs: "回報"
-      update_instructions: "在 diaspora* 維基上的更新步驟說明"
+      update_instructions: "在 silent.army 維基上的更新步驟說明"
       update_your_pod: "更新豆莢"
       update_your_pod_info: "這是%{update_instructions}。"
   invitation_codes:
@@ -593,17 +593,17 @@ zh-TW:
         other: "還可以邀請%{count}個人"
         zero: "不能邀請更多人了"
       comma_separated_plz: "可以用逗號分隔來輸入多個電子信箱。"
-      invite_someone_to_join: "邀請其他人加入 diaspora*！"
+      invite_someone_to_join: "邀請其他人加入 silent.army！"
       language: "語言"
-      paste_link: "將這個連結分享給你的朋友，來邀請他們加入 diaspora*，或者也可以直接寄電子郵件給他們。"
+      paste_link: "將這個連結分享給你的朋友，來邀請他們加入 silent.army，或者也可以直接寄電子郵件給他們。"
       send_an_invitation: "寄邀請卡"
       sending_invitation: "正在邀請卡..."
   layouts:
     application:
       back_to_top: "回最上面"
       be_excellent: "用最好的方式互相對待！♥"
-      powered_by: "強力配置 diaspora*"
-      public_feed: "%{name} 在 diaspora* 的公開資訊源"
+      powered_by: "強力配置 silent.army"
+      public_feed: "%{name} 在 silent.army 的公開資訊源"
       source_package: "下載源碼封裝檔"
       statistics_link: "豆莢統計資料"
       toggle: "行動檢視切換"
@@ -677,9 +677,9 @@ zh-TW:
       other: "%{actors} 開始跟你分享了。"
       zero: "%{actors} 開始跟你分享了。"
   notifier:
-    a_limited_post_comment: "你在 diaspora* 的設限貼文有一則新留言。"
+    a_limited_post_comment: "你在 silent.army 的設限貼文有一則新留言。"
     a_post_you_shared: "一篇貼文。"
-    a_private_message: "你在 diaspora* 有一則新的私人訊息。"
+    a_private_message: "你在 silent.army 有一則新的私人訊息。"
     also_commented:
       limited_subject: "你留言過的貼文又有一則新的留言"
     click_here: "按這裡"
@@ -696,7 +696,7 @@ zh-TW:
           你的資料已經處理好了，請用[這個連結]下載: %{url}
           使用愉快！
 
-          diaspora* 電郵機器人
+          silent.army 電郵機器人
       subject: "%{name}，你的個人資料已經可以下載了"
     export_failure_email:
       body: |-
@@ -704,7 +704,7 @@ zh-TW:
           我們在準備你的個人資料下載檔案時發生了錯誤，要麻煩你再試一次！
           不好意思。
 
-          diaspora* 電郵機器人
+          silent.army 電郵機器人
       subject: "很抱歉，%{name}，你的資料有問題"
     export_photos_email:
       body: |-
@@ -712,7 +712,7 @@ zh-TW:
           你的相片已經處理好了，請用[這個連結]來下載: %{url}
           使用愉快！
 
-          diaspora* 電郵機器人
+          silent.army 電郵機器人
       subject: "可以下載相片了，%{name}"
     export_photos_failure_email:
       body: |-
@@ -720,37 +720,37 @@ zh-TW:
           我們在準備你的相片下載檔案時發生了錯誤，麻煩你再試一次！
           不好意思。
 
-          diaspora* 電郵機器人
+          silent.army 電郵機器人
       subject: "你的相片有問題，%{name}"
     hello: "%{name} 你好！"
     invite:
       message: |-
           你好！
 
-          %{diaspora_id} 邀請你加入 diaspora* 囉！
+          %{diaspora_id} 邀請你加入 silent.army 囉！
 
           請按這個連結來開始使用吧：
 
           [%{invite_url}][1]
 
-          如果你已經有 diaspora* 帳號的話，可以直接把 %{diaspora_id} 加到你的聯絡人喔。
+          如果你已經有 silent.army 帳號的話，可以直接把 %{diaspora_id} 加到你的聯絡人喔。
 
           祝順利！
 
-          diaspora* 電郵機器人
+          silent.army 電郵機器人
 
-          P.S.：如果你還不知道 diaspora* 是什麼的話，可以看[這邊][2]！
+          P.S.：如果你還不知道 silent.army 是什麼的話，可以看[這邊][2]！
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
-    invited_you: "%{name} 邀請你來用 diaspora*"
+    invited_you: "%{name} 邀請你來用 silent.army"
     liked:
       liked: "%{name} 稱讚你的貼文"
       limited_post: "%{name} 稱讚你一篇設限的貼文"
       view_post: "看貼文 >"
     mentioned:
       limited_post: "你在一篇設限的貼文中被提到了。"
-      subject: "%{name} 在 diaspora* 提到了你"
+      subject: "%{name} 在 silent.army 提到了你"
     private_message:
       reply_to_or_view: "回或看這次對話 >"
       subject: "你有一則新的私人訊息。"
@@ -758,18 +758,18 @@ zh-TW:
       body: |-
           你好，
 
-          因為你已經有 %{after_days} 天沒有使用在 %{pod_url} 的帳號，我們覺得似乎你已經不想要它了。我們為了提供給這個 diaspora* 豆莢的使用者最好的效率，因此會定時從資料庫移除掉那些已經沒人要的帳號。
+          因為你已經有 %{after_days} 天沒有使用在 %{pod_url} 的帳號，我們覺得似乎你已經不想要它了。我們為了提供給這個 silent.army 豆莢的使用者最好的效率，因此會定時從資料庫移除掉那些已經沒人要的帳號。
 
-          我們希望你可以繼續參與 diaspora* 社群，因此只要你還想要你的帳號，我們就會繼續保留它。
+          我們希望你可以繼續參與 silent.army 社群，因此只要你還想要你的帳號，我們就會繼續保留它。
 
-          如果你還想要自己的帳號，你唯一需要做的只有在%{remove_after}之前用這個帳號來登入。登入後，建議你花點時間看看 diaspora*, 相信你會發現從上次來到現在已經改變了很多，我們也希望你會希望這些改進。你也可以追蹤一些 #標籤 來找到喜歡的內容。
+          如果你還想要自己的帳號，你唯一需要做的只有在%{remove_after}之前用這個帳號來登入。登入後，建議你花點時間看看 silent.army, 相信你會發現從上次來到現在已經改變了很多，我們也希望你會希望這些改進。你也可以追蹤一些 #標籤 來找到喜歡的內容。
 
           登入網址是: %{login_url} 如果你忘記了要怎麽登入，也可以在那個頁面找到提示。
 
           希望可以再次見到你！
 
-          diaspora* 電郵機器人
-      subject: "你的 diaspora* 帳號因為太久沒有活動而被標上移除記號了"
+          silent.army 電郵機器人
+      subject: "你的 silent.army 帳號因為太久沒有活動而被標上移除記號了"
     report_email:
       body: |-
           你好，
@@ -779,7 +779,7 @@ zh-TW:
           麻煩盡快檢查看看！
 
           謝謝！
-          diaspora* 電郵機器人
+          silent.army 電郵機器人
 
           [註1]: %{url}
       subject: "有新的%{type}被標記為有攻擊性"
@@ -790,11 +790,11 @@ zh-TW:
       reshared: "%{name} 轉貼了你的貼文"
       view_post: "看貼文 >"
     single_admin:
-      admin: "你的 diaspora* 管理員"
-      subject: "關於你的 diaspora* 帳號："
+      admin: "你的 silent.army 管理員"
+      subject: "關於你的 silent.army 帳號："
     started_sharing:
       sharing: "開始跟你分享了！"
-      subject: "%{name} 開始在 diaspora* 跟你分享了"
+      subject: "%{name} 開始在 silent.army 跟你分享了"
       view_profile: "看 %{name} 的個人檔案"
     thanks: "謝謝，"
     to_change_your_notification_settings: "來更改消息通知的設定"
@@ -809,7 +809,7 @@ zh-TW:
       no_one_found: "...找不到任何東西。"
       no_results: "嘿！搜尋要有目標。"
       results_for: "符合%{search_term}的使用者："
-      search_handle: "確定要用你朋友們的 diaspora* 識別碼來找到他們。"
+      search_handle: "確定要用你朋友們的 silent.army 識別碼來找到他們。"
       searching: "搜尋中，請耐心等待..."
       send_invite: "還是找不到人嗎？寄一封邀請卡吧！"
     person:
@@ -856,7 +856,7 @@ zh-TW:
   profile: "個人檔案"
   profiles:
     edit:
-      allow_search: "讓其他 diaspora* 使用者可以搜尋你"
+      allow_search: "讓其他 silent.army 使用者可以搜尋你"
       basic: "基本個人檔案"
       basic_hint: "個人檔案中的每個項目都可以不填。基本個人檔案永遠都是公開的。"
       extended: "進階個人檔案"
@@ -866,7 +866,7 @@ zh-TW:
       last_name: "名字(後)"
       limited: "受限"
       nsfw_check: "把我分享的所有東西都標示為上班時不宜(NSFW)"
-      nsfw_explanation: "在 diaspora* 社群裡，對於不適合在上班時看的內容，是採用\"上班時不宜\"(NSFW)這種自我管理機制。如果你會常常發表這類題材，可以勾選這個選項，那麼你分享的東西就不會直接顯示在其它人的流水帳中，除非他們去點來看。"
+      nsfw_explanation: "在 silent.army 社群裡，對於不適合在上班時看的內容，是採用\"上班時不宜\"(NSFW)這種自我管理機制。如果你會常常發表這類題材，可以勾選這個選項，那麼你分享的東西就不會直接顯示在其它人的流水帳中，除非他們去點來看。"
       nsfw_explanation2: "如果你沒有勾選這個選項，那麼當你要分享上班時不宜的題材時，請加上 #nsfw 這個標籤。"
       public: "公開"
       settings: "個人檔案設定"
@@ -887,9 +887,9 @@ zh-TW:
     other: "有%{count}個回應"
     zero: "沒有回應"
   registrations:
-    closed: "這個 diaspora* 豆莢不開放註冊。"
+    closed: "這個 silent.army 豆莢不開放註冊。"
     create:
-      success: "你已經成功加入 diaspora* 了！"
+      success: "你已經成功加入 silent.army 了！"
     invalid_invite: "你提供的邀請連結已經失效了！"
     new:
       email: "電子信箱"
@@ -927,7 +927,7 @@ zh-TW:
   search: "搜尋"
   services:
     create:
-      already_authorized: "已經有別的 diaspora* 使用者(識別碼是 %{diaspora_id})被授權使用這個 %{service_name} 帳號了。"
+      already_authorized: "已經有別的 silent.army 使用者(識別碼是 %{diaspora_id})被授權使用這個 %{service_name} 帳號了。"
       failure: "認證失敗。"
       read_only_access: "存取權限是唯讀，請待會重新認證。"
       success: "認證成功。"
@@ -943,7 +943,7 @@ zh-TW:
       no_services_available: "這個豆莢目前不提供跟第三方服務連結。"
       not_logged_in: "目前還沒登入。"
       really_disconnect: "要停止和 %{service} 連結嗎？"
-      services_explanation: "和第三方服務連結可以讓你在 diaspora* 貼文時，同時發表到這些服務去。"
+      services_explanation: "和第三方服務連結可以讓你在 silent.army 貼文時，同時發表到這些服務去。"
       share_to: "分享到%{provider}"
       title: "管理連結中的外部服務"
     provider:
@@ -970,7 +970,7 @@ zh-TW:
       logged_in: "已經在 %{service} 登入"
       manage: "管理連結中的外部服務"
       new_user_welcome_message: "用 #雜湊標籤 來區分你的貼文，並且找到跟你有共同興趣的人。用 @指指點點 來招喚重要人士。"
-      outside: "不使用 diaspora* 的人也能夠看到公開訊息。"
+      outside: "不使用 silent.army 的人也能夠看到公開訊息。"
       share: "分享"
       title: "設定外部服務連結"
       visibility_dropdown: "用這個下拉式選單來改變貼文的可見範圍。(建議你這篇首貼設為公開。)"
@@ -1069,7 +1069,7 @@ zh-TW:
       email_not_confirmed: "無法開通電子信箱。連結不對嗎？"
     destroy:
       no_password: "請輸入你目前的密碼來關帳號。"
-      success: "你的帳號已經鎖定了。完成關閉帳號大約還需要 20 分鐘的時間，感謝你試用 diaspora*"
+      success: "你的帳號已經鎖定了。完成關閉帳號大約還需要 20 分鐘的時間，感謝你試用 silent.army"
       wrong_password: "輸入的密碼與你目前的密碼不符。"
     edit:
       also_commented: "有人也留言在你留言過的貼文"
@@ -1085,10 +1085,10 @@ zh-TW:
         dont_go: "啊，請不要走！"
         lock_username: "你的使用者名稱會被鎖定，在同一個豆莢內不能用舊帳號重新註冊。"
         locked_out: "系統會將你登出，且無法重新登入，最後帳號會被刪掉。"
-        make_diaspora_better: "希望你能幫助我們讓 diaspora* 更好，而不是選擇離開。但是如果你真的想關閉帳號，這是接下來的程序："
+        make_diaspora_better: "希望你能幫助我們讓 silent.army 更好，而不是選擇離開。但是如果你真的想關閉帳號，這是接下來的程序："
         mr_wiggles: "搖尾巴先生看到你走會很難過"
         no_turning_back: "一旦確定刪除則無法復原。如果確定要刪除帳號，請在下方輸入你的密碼。"
-        what_we_delete: "我們會儘快刪除你的貼文和個人檔案。你對其他使用者貼文的留言仍然保留，但會以 diaspora* 帳號顯示，而非你的使用者名稱。"
+        what_we_delete: "我們會儘快刪除你的貼文和個人檔案。你對其他使用者貼文的留言仍然保留，但會以 silent.army 帳號顯示，而非你的使用者名稱。"
       close_account_text: "關閉帳號"
       comment_on_post: "有人留言在你的貼文"
       current_password: "目前密碼"
@@ -1119,13 +1119,13 @@ zh-TW:
       stream_preferences: "流水帳偏好設定"
       your_email: "你的電子信箱"
       your_email_private: "其他使用者看不到你的電子信箱"
-      your_handle: "你的 diaspora* 識別碼"
+      your_handle: "你的 silent.army 識別碼"
     getting_started:
-      awesome_take_me_to_diaspora: "帥！帶我去 diaspora* 吧"
-      community_welcome: "diaspora* 社群歡迎你的加入！"
-      connect_to_facebook: "diaspora* 可以%{link} ，取用你在 Facebook 的姓名和個人照來幫你快速完成設定 ，同時開啟跨站貼文。"
+      awesome_take_me_to_diaspora: "帥！帶我去 silent.army 吧"
+      community_welcome: "silent.army 社群歡迎你的加入！"
+      connect_to_facebook: "silent.army 可以%{link} ，取用你在 Facebook 的姓名和個人照來幫你快速完成設定 ，同時開啟跨站貼文。"
       connect_to_facebook_link: "連結 Facebook 帳號"
-      hashtag_explanation: "標籤讓你可以討論及追蹤你有興趣的話題。也是在 diaspora* 找到新朋友的好方法。"
+      hashtag_explanation: "標籤讓你可以討論及追蹤你有興趣的話題。也是在 silent.army 找到新朋友的好方法。"
       hashtag_suggestions: "試試看追蹤像是 #藝術,  #電影, #gif 等標籤。"
       well_hello_there: "嗨，你好！"
       what_are_you_in_to: "你對什麼有興趣？"

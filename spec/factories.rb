@@ -328,38 +328,34 @@ FactoryGirl.define do
   factory(:status, :parent => :status_message)
 
   factory :o_auth_application, class: Api::OpenidConnect::OAuthApplication do
-    client_name "Diaspora Test Client"
+    sequence(:client_name) {|n| "Diaspora Test Client #{n}" }
     redirect_uris %w(http://localhost:3000/)
-  end
 
-  factory :o_auth_application_with_image, class: Api::OpenidConnect::OAuthApplication do
-    client_name "Diaspora Test Client"
-    redirect_uris %w(http://localhost:3000/)
-    logo_uri "/assets/user/default.png"
-  end
+    trait :with_image do
+      logo_uri "/assets/user/default.png"
+    end
 
-  factory :o_auth_application_with_ppid, class: Api::OpenidConnect::OAuthApplication do
-    client_name "Diaspora Test Client"
-    redirect_uris %w(http://localhost:3000/)
-    ppid true
-    sector_identifier_uri "https://example.com/uri"
-  end
+    trait :with_ppid do
+      ppid true
+    end
 
-  factory :o_auth_application_with_ppid_with_specific_id, class: Api::OpenidConnect::OAuthApplication do
-    client_name "Diaspora Test Client"
-    redirect_uris %w(http://localhost:3000/)
-    ppid true
-    sector_identifier_uri "https://example.com/uri"
-  end
+    trait :with_specific_id do
+      sector_identifier_uri "https://example.com/uri"
+    end
 
-  factory :o_auth_application_with_multiple_redirects, class: Api::OpenidConnect::OAuthApplication do
-    client_name "Diaspora Test Client"
-    redirect_uris %w(http://localhost:3000/ http://localhost/)
-  end
+    trait :with_multiple_redirects do
+      redirect_uris %w(http://localhost:3000/ http://localhost/)
+    end
 
-  factory :o_auth_application_with_xss, class: Api::OpenidConnect::OAuthApplication do
-    client_name "<script>alert(0);</script>"
-    redirect_uris %w(http://localhost:3000/)
+    trait :with_xss do
+      client_name "<script>alert(0);</script>"
+    end
+
+    factory :o_auth_application_with_image, traits: %i(with_image)
+    factory :o_auth_application_with_ppid, traits: %i(with_ppid)
+    factory :o_auth_application_with_ppid_with_specific_id, traits: %i(with_ppid with_specific_id)
+    factory :o_auth_application_with_multiple_redirects, traits: %i(with_multiple_redirects)
+    factory :o_auth_application_with_xss, traits: %i(with_xss)
   end
 
   factory :auth_with_read, class: Api::OpenidConnect::Authorization do

@@ -34,7 +34,7 @@ oc:
       inviter:
         accept_at: "a %{url}, lo podètz acceptar a travèrs lo ligal çaijós."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} vos a convidat a rejónher diaspora*"
+        have_invited_you: "%{names} vos a convidat a rejónher silent.army"
       password_change:
         subject: "Senhal cambiat"
       reset_password_instructions:

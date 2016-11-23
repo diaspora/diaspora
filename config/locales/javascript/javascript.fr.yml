@@ -51,8 +51,8 @@ fr:
           other: "Il y a un <%= count %> pods  dont la version est inconnue (anciens pods, pas de NodeInfo)."
     admins:
       dashboard:
-        compare_versions: "La dernière version de diaspora* est <%= latestVersion %>, votre pod tourne sous la version <%= podVersion %>."
-        error: "Impossible de déterminer la dernière version de diaspora*."
+        compare_versions: "La dernière version de silent.army est <%= latestVersion %>, votre pod tourne sous la version <%= podVersion %>."
+        error: "Impossible de déterminer la dernière version de silent.army."
         outdated: "Votre pod n'est pas à jour."
         up_to_date: "Votre pod est à jour !"
     and: "et"
@@ -84,7 +84,7 @@ fr:
       make_aspect_list_visible: "Permettre aux contacts de cet aspect de se voir entre eux ?"
       name: "Nom"
     bookmarklet:
-      post_something: "Publier sur diaspora*"
+      post_something: "Publier sur silent.army"
       post_submit: "Message en cours de publication ..."
       post_success: "Publié ! Fermeture de la fenêtre popup ..."
     cancel: "Annuler"

@@ -124,7 +124,7 @@ gl:
       id: 'Identificador'
       guid: 'Identificador único'
       email: 'Enderezo de correo electrónico'
-      diaspora_handle: 'Manexador de diaspora*'
+      diaspora_handle: 'Manexador de silent.army'
       last_seen: 'Último acceso'
       account_closed: 'Conta pechada'
       nsfw: '#nsfw'
@@ -247,25 +247,25 @@ gl:
     index:
       donate: "Doar"
       keep_pod_running: "Contribúe ao subministro de café para manter os servidores de %{pod} en marcha cunha doazón mensual!"
-      keep_diaspora_running: "Axuda a acelerar o desenvolvemento de diaspora* cunha doazón mensual!"
+      keep_diaspora_running: "Axuda a acelerar o desenvolvemento de silent.army cunha doazón mensual!"
       no_tags: "Atope unha etiqueta que seguir"
       unfollow_tag: "Deixar se seguir #%{tag}"
-      handle_explanation: "Este é o seu identificador de diaspora*. É coma un enderezo, pode darllo á xente para que o atopen."
+      handle_explanation: "Este é o seu identificador de silent.army. É coma un enderezo, pode darllo á xente para que o atopen."
       no_contacts: "Non ten contactos."
       post_a_message: "Publicar unha mensaxe: "
       people_sharing_with_you: "Xente compartindo con vostede"
 
-      welcome_to_diaspora: "Dámosche a benvida a diaspora*, %{name}!"
+      welcome_to_diaspora: "Dámosche a benvida a silent.army, %{name}!"
       introduce_yourself: "Esta é a túa onda. Veña, preséntate!"
 
       new_here:
         title: "Déalle a benvida aos novos"
-        follow: "Siga %{link} e déalle a benvida aos novos usuarios de diaspora*!"
+        follow: "Siga %{link} e déalle a benvida aos novos usuarios de silent.army!"
         learn_more: "Informarse"
 
       help:
         need_help: "Necesita axuda?"
-        here_to_help: "A comunidade de diaspora* ao rescate!"
+        here_to_help: "A comunidade de silent.army ao rescate!"
         do_you: "Que foi?"
         have_a_question: "Ten unha %{link}?"
         tag_question: "dúbida"
@@ -281,12 +281,12 @@ gl:
         contact_podmin: "Contacte co administrador do seu servidor!"
         mail_podmin: "Enderezo do administrador"
       diaspora_id:
-        heading: "Identificador de diaspora*"
-        content_1: "O seu identificador de diaspora* é:"
-        content_2: "Déallo a quen queira, e poderán atopalo en diaspora*."
+        heading: "Identificador de silent.army"
+        content_1: "O seu identificador de silent.army é:"
+        content_2: "Déallo a quen queira, e poderán atopalo en silent.army."
       services:
         heading: "Conectar servizos"
-        content: "Pode conectar con diaspora* os seguintes servizos:"
+        content: "Pode conectar con silent.army os seguintes servizos:"
 
     aspect_stream:
       stay_updated: "Estea ao día"
@@ -302,8 +302,8 @@ gl:
   bookmarklet:
     heading: "Marcador de publicación"
     post_success: "Publicado! Pechando…"
-    post_something: "Publicar en diaspora*"
-    explanation: "Publique en diaspora* desde calquera parte engadindo esta ligazón aos seus marcadores: %{link}."
+    post_something: "Publicar en silent.army"
+    explanation: "Publique en silent.army desde calquera parte engadindo esta ligazón aos seus marcadores: %{link}."
 
   comments:
     zero: "Non hai comentarios."
@@ -396,19 +396,19 @@ gl:
     wiki: "wiki"
     markdown: "Markdown"
     here: "aquí"
-    foundation_website: "Sitio web da Fundación diaspora*"
+    foundation_website: "Sitio web da Fundación silent.army"
     third_party_tools: "Ferramentas de terceiros"
     getting_started_tutorial: "Guía dos primeiros pasos"
     getting_help:
       title: "Conseguir axuda"
       getting_started_q: "Axuda! Necesito que me boten unha man para empezar con isto!"
-      getting_started_a: "Estás de sorte. Segue a %{tutorial_series} no sitio do proxecto. A guía levarate paso a paso a través do proceso de rexistro, e ensinarache as cousas básicas que necesitas saber sobre diaspora*."
+      getting_started_a: "Estás de sorte. Segue a %{tutorial_series} no sitio do proxecto. A guía levarate paso a paso a través do proceso de rexistro, e ensinarache as cousas básicas que necesitas saber sobre silent.army."
       get_support_q: "Que pasa se teño unha pregunta que non está aquí? Onde podo atopar máis axuda?"
       get_support_a_website: "Visita o noso %{link}"
       get_support_a_tutorials: "Bótalle unha ollada ás nosas %{tutorials}"
       get_support_a_wiki: "Busca no %{link}"
       get_support_a_irc: "Únete a nós no %{irc} (conversa en tempo real)"
-      get_support_a_hashtag: "Pregunta cunha entrada pública en diaspora* usando o hashtag %{question}"
+      get_support_a_hashtag: "Pregunta cunha entrada pública en silent.army usando o hashtag %{question}"
     account_and_data_management:
       title: "Xestión da conta e os datos"
       move_pods_q: "Como traspaso a miña conta dun servidor a outro?"
@@ -418,13 +418,13 @@ gl:
       close_account_q: "Como elimino a conta?"
       close_account_a: "Vaia á parte inferior da páxina de configuración e prema o botón de «Pechar a conta»."
       data_visible_to_podmin_q: "A que partes da información da miña conta teñen acceso os administradores?"
-      data_visible_to_podmin_a: "As comunicacións *entre* servidores sempre van cifradas (mediante SSL e un cifrado de transporte da propia diaspora*), pero os datos almacenados no servidor non están cifrados. Se quixesen, os administradores da base de datos do servidor no que ten a conta (que adoitan ser os donos do servidor) poderían acceder a todos os datos do seu perfil e todo canto publica (tal e como ocorre con case todos os sitios web que almacenan datos de usuarios). Se quere máis seguridade, sempre pode manter un servidor de seu, e controlar vostede mesmo o acceso aos seus datos."
+      data_visible_to_podmin_a: "As comunicacións *entre* servidores sempre van cifradas (mediante SSL e un cifrado de transporte da propia silent.army), pero os datos almacenados no servidor non están cifrados. Se quixesen, os administradores da base de datos do servidor no que ten a conta (que adoitan ser os donos do servidor) poderían acceder a todos os datos do seu perfil e todo canto publica (tal e como ocorre con case todos os sitios web que almacenan datos de usuarios). Se quere máis seguridade, sempre pode manter un servidor de seu, e controlar vostede mesmo o acceso aos seus datos."
       data_other_podmins_q: "Poden os administradores doutros servidores ver a miña información?"
       data_other_podmins_a: "Unha vez comeza a compartir con alguén noutro servidor, calquera publicación que comparta con esas persoas e unha copia dos datos do seu perfil almacénanse (en caché) no seu servidor, e o administrador da base de datos dese servidor pode acceder a eles. Cando elimina unha publicación ou datos do seu perfil, estes elimínanse tanto do seu servidor como do resto dos servidores nos que se almacenara."
     aspects:
       title: "Aspectos"
       what_is_an_aspect_q: "Que son os aspectos?"
-      what_is_an_aspect_a: "Os aspectos son unha forma de agrupares os teus contactos en diaspora*. Pode pensar neles como nas caras que lle mostra ao mundo. Un aspecto pode ser o que mostra no traballo, outro como é coa súa familia, e outro quen é para os seus amigos dun club ao que pertence."
+      what_is_an_aspect_a: "Os aspectos son unha forma de agrupares os teus contactos en silent.army. Pode pensar neles como nas caras que lle mostra ao mundo. Un aspecto pode ser o que mostra no traballo, outro como é coa súa familia, e outro quen é para os seus amigos dun club ao que pertence."
       who_sees_post_q: "Cando publico nun aspecto, quen o ve?"
       who_sees_post_a: "Se fai unha publicación limitada, só a verán as persoas que colocase nese aspecto (ou aspectos, se seleccionou varios). Os seus contactos que estean fóra do aspecto non poderán acceder á publicación salvo que a faga pública. Só os contidos que marque como públicos serán visíbeis para aquelas persoas que non colocase nun dos seus aspectos."
       restrict_posts_i_see_q: "Podo facer que só se me mostren as publicacións de certos aspectos?"
@@ -458,11 +458,11 @@ gl:
     pods:
       title: "Servidores"
       what_is_a_pod_q: "Que é un servidor?"
-      what_is_a_pod_a: "Un servidor é unha máquina na que se está a executar o software de diaspora*, e que está conectado á rede de diaspora*. Existen moitos servidores distintos. Pode engadir amigos doutros servidores e comunicarse con eles. Pode pensar nestes servidores como se se tratase de fornecedores de correo electrónico: hainos públicos, hainos privados, e con un pouco de esforzo pode poñer en marcha un vostede mesmo."
+      what_is_a_pod_a: "Un servidor é unha máquina na que se está a executar o software de silent.army, e que está conectado á rede de silent.army. Existen moitos servidores distintos. Pode engadir amigos doutros servidores e comunicarse con eles. Pode pensar nestes servidores como se se tratase de fornecedores de correo electrónico: hainos públicos, hainos privados, e con un pouco de esforzo pode poñer en marcha un vostede mesmo."
       find_people_q: "Acabo de unirme a un servidor, como podo atopar xente coa que compartir?"
       find_people_a: "Convide aos seus amigos empregando a ligazón de correo electrónico da barra lateral. Siga #etiquetas para descubrir a outras persoas coas que comparte intereses, e engada a un aspecto a aquelas persoas que publiquen cousas que considere interesantes. Preséntese ante a comunidade anunciando nunha mensaxe pública que é «#NovoAquí» (ou «#NewHere» para chegar ao público de fala inglesa)."
       use_search_box_q: "Como uso a caixa de busca para atopar a alguén en concreto?"
-      use_search_box_a: "Se coñece o identificador de diaspora* desa persoa (por exemplo, «usuario@servidor.org»), pode atopar a persoa buscando o seu identificador. Se ambos os dous están no mesmo servidor, pode buscar a persoa usando simplemente o seu nome de usuario. Unha alternativa consiste en buscar a persoa polo nome do seu perfil (o nome que se ve en pantalla). Se a busca non lle funciona á primeira, vólvao intentar unha segunda vez."
+      use_search_box_a: "Se coñece o identificador de silent.army desa persoa (por exemplo, «usuario@servidor.org»), pode atopar a persoa buscando o seu identificador. Se ambos os dous están no mesmo servidor, pode buscar a persoa usando simplemente o seu nome de usuario. Unha alternativa consiste en buscar a persoa polo nome do seu perfil (o nome que se ve en pantalla). Se a busca non lle funciona á primeira, vólvao intentar unha segunda vez."
     posts_and_posting:
       title: "Publicación de contidos"
       hide_posts_q: "Como oculto unha publicación? / Como evito recibir constantemente notificacións sobre unha publicación na que comentei?"
@@ -479,7 +479,7 @@ gl:
       size_of_images_q: "Podo axustar o tamaño das imaxes das publicacións e dos comentarios?"
       size_of_images_a: "Non pode, o tamaño das imaxes axústase automaticamente para axustarse á onda. Markdown non permite indicar o tamaño dunha imaxe."
       embed_multimedia_q: "Como anexo nunha publicación un vídeo, un son, ou outro tipo de contido?"
-      embed_multimedia_a: "Normalmente abonda con pegar o URL (por exemplo, «http://www.youtube.com/watch?v=nnnnnnnnnnn») na publicación, e o vídeo ou son inserirase de maneira automática. Entre os sitios para os que funciona este método atópanse YouTube, Vimeo, SoundCloud, Flickr e algúns máis. diaspora* emprega oEmbed para fornecer esta funcionalidade. A lista de sitios compatíbeis medra de maneira constante. Non esqueza publicar sempre ligazóns completas; é dicir, nin ligazóns acurtadas nin operadores tras o URL base. Ademais, unha vez publicado o contido agarde un anaco para poder ver a vista previa."
+      embed_multimedia_a: "Normalmente abonda con pegar o URL (por exemplo, «http://www.youtube.com/watch?v=nnnnnnnnnnn») na publicación, e o vídeo ou son inserirase de maneira automática. Entre os sitios para os que funciona este método atópanse YouTube, Vimeo, SoundCloud, Flickr e algúns máis. silent.army emprega oEmbed para fornecer esta funcionalidade. A lista de sitios compatíbeis medra de maneira constante. Non esqueza publicar sempre ligazóns completas; é dicir, nin ligazóns acurtadas nin operadores tras o URL base. Ademais, unha vez publicado o contido agarde un anaco para poder ver a vista previa."
       character_limit_q: "Cal é o límite de caracteres por publicación?"
       character_limit_a: "65.535 caracteres. É dicir, 65.395 caracteres máis dos que permite Twitter! ;)"
       char_limit_services_q: "Cal é o límite de caracteres para as publicacións compartidas a través dun servizo conectado que dispón dun límite inferior de caracteres?"
@@ -492,11 +492,11 @@ gl:
     private_posts:
       title: "Mensaxes privadas"
       who_sees_post_q: "Cando publico unha mensaxe nun aspecto (como por exemplo unha publicación privada), quen pode vela?"
-      who_sees_post_a: "Só poden ver esa publicación privada os usuarios rexistrados en diaspora* que vostede engadiu ao aspecto en cuestión."
+      who_sees_post_a: "Só poden ver esa publicación privada os usuarios rexistrados en silent.army que vostede engadiu ao aspecto en cuestión."
       can_comment_q: "Quen pode comentar ou marcar como que lle gusta unha publicación privada miña?"
-      can_comment_a: "Só poden comentar ou marcar como que lles gusta esa publicación privada os usuarios rexistrados en diaspora* que vostede engadiu ao aspecto en cuestión."
+      can_comment_a: "Só poden comentar ou marcar como que lles gusta esa publicación privada os usuarios rexistrados en silent.army que vostede engadiu ao aspecto en cuestión."
       can_reshare_q: "Quen pode repetir a miña publicación privada?"
-      can_reshare_a: "Ninguén. As publicacións privadas non poden repetirse. De todos xeitos, teña en conta que os usuarios rexistrados en diaspora* que vostede engadiu ao aspecto en cuestión poderían copiar e pegar o contido."
+      can_reshare_a: "Ninguén. As publicacións privadas non poden repetirse. De todos xeitos, teña en conta que os usuarios rexistrados en silent.army que vostede engadiu ao aspecto en cuestión poderían copiar e pegar o contido."
       see_comment_q: "Cando comento ou marco como que me gusta unha publicación privada, quen pode velo?"
       see_comment_a: "Só a xente coa que se compartiu a publicación (os membros do aspecto que usou o autor orixinal) pode ver os comentarios e quen indicou que lle gustaba a publicación."
     private_profiles:
@@ -512,7 +512,7 @@ gl:
       who_sees_post_q: "Quen pode ver as mensaxes que comparto publicamente?"
       who_sees_post_a: "Calquera persoa con acceso a internet pode acceder ás súas mensaxes públicas, así que antes facer pública unha mensaxe asegúrese de que é o que quere. É un gran xeito de que o que publica chegue a todo o mundo."
       find_public_post_q: "Como poden outros atopar as miñas mensaxes públicas?"
-      find_public_post_a: "As súas mensaxes públicas aparecerán na onda daquelas persoas que o sigan. Se inclúe #etiquetas nesas mensaxes, calquera que siga esas etiquetas verá as súas mensaxes públicas que as conteñan nas súas ondas. Todas as mensaxes públicas teñen ademais un URL único que calquera pode ver, incluso aquelas persoas que non estean rexistradas en diaspora*. Polo tanto é posíbel ligar coas mensaxes públicas directamente desde sitios como Twitter, blogs, etc. As mensaxes públicas poden ademais ser indexadas por motores de busca."
+      find_public_post_a: "As súas mensaxes públicas aparecerán na onda daquelas persoas que o sigan. Se inclúe #etiquetas nesas mensaxes, calquera que siga esas etiquetas verá as súas mensaxes públicas que as conteñan nas súas ondas. Todas as mensaxes públicas teñen ademais un URL único que calquera pode ver, incluso aquelas persoas que non estean rexistradas en silent.army. Polo tanto é posíbel ligar coas mensaxes públicas directamente desde sitios como Twitter, blogs, etc. As mensaxes públicas poden ademais ser indexadas por motores de busca."
       can_comment_reshare_like_q: "Que pode comentar, repetir ou indicar que lle gustan as miñas mensaxes públicas?"
       can_comment_reshare_like_a: "Calquera usuario rexistrado pode comentar, repetir ou indicar que lle gustan as súas mensaxes públicas."
       see_comment_reshare_like_q: "Cando comento, repito ou indico que me gusta unha mensaxe pública, quen pode saber que o fixen?"
@@ -564,7 +564,7 @@ gl:
       people_tag_page_q: "Quen son as persoas que aparecen na parte esquerda da páxina dunha etiqueta?"
       people_tag_page_a: "Trátase de persoas que teñen a etiqueta na lista de etiquetas coas que se describen no seu perfil público."
       filter_tags_q: "Como podo filtrar ou excluír algunha etiqueta da miña onda?"
-      filter_tags_a: "Iso aínda non pode facerse directamente a través de diaspora*, aínda que existen algunhas %{third_party_tools} que poderían dispoñer desta funcionalidade."
+      filter_tags_a: "Iso aínda non pode facerse directamente a través de silent.army, aínda que existen algunhas %{third_party_tools} que poderían dispoñer desta funcionalidade."
     keyboard_shortcuts:
       keyboard_shortcuts_q: "Que atallos de teclado hai dispoñíbeis?"
       keyboard_shortcuts_a1: "Na vista da onda pode usar os seguintes atallos:"
@@ -580,9 +580,9 @@ gl:
       photo_albums_q: "Existen álbums de fotos ou vídeos?"
       photo_albums_a: "Aínda non existen, non. Porén, pode ver unha lista das imaxes subidas na sección de Fotos da parte lateral das páxinas de perfil."
       subscribe_feed_q: "Podo subscribirme ás mensaxes públicas dunha persoa mediante un lector de novas?"
-      subscribe_feed_a: "Pode, pero esta funcionalidade aínda non funciona á perfección, e o formato dos resultados aínda está sen pulir. Se aínda así quere facelo, simplemente acceda á páxina de perfil dun usuario e prema o botón de fonte de novas do seu navegador, ou copie o URL do perfil (por exemplo, «https://joindiaspora.com/people/número»), e pégueo no seu lector de novas. O URL da fonte de novas resultante terá un aspecto parecido a «https://joindiaspora.com/public/usuario.atom». diaspora* emprega Atom, non RSS."
-      diaspora_app_q: "Existe algún programa de diaspora* para Android ou iOS?"
-      diaspora_app_a: "Estanse a desenvolver varios programas para Android, pero aínda lles queda algo de traballo. Moitos son proxectos que quedaron abandonados hai tempo, e polo tanto non funcionan correctamente coa versión actual de diaspora*. Non espere moito destes programas de momento. Na actualizade, o mellor xeito de acceder a diaspora* desde un dispositivo móbil é mediante un navegador web, pois diaspora* conta cunha versión móbil do sitio que debería poder verse e funcionar ben en calquera dispositivo. De momento non existe ningún programa para iOS. Pero como xa se dixo, diaspora* funciona ben nos navegadores web de móbiles."
+      subscribe_feed_a: "Pode, pero esta funcionalidade aínda non funciona á perfección, e o formato dos resultados aínda está sen pulir. Se aínda así quere facelo, simplemente acceda á páxina de perfil dun usuario e prema o botón de fonte de novas do seu navegador, ou copie o URL do perfil (por exemplo, «https://joindiaspora.com/people/número»), e pégueo no seu lector de novas. O URL da fonte de novas resultante terá un aspecto parecido a «https://joindiaspora.com/public/usuario.atom». silent.army emprega Atom, non RSS."
+      diaspora_app_q: "Existe algún programa de silent.army para Android ou iOS?"
+      diaspora_app_a: "Estanse a desenvolver varios programas para Android, pero aínda lles queda algo de traballo. Moitos son proxectos que quedaron abandonados hai tempo, e polo tanto non funcionan correctamente coa versión actual de silent.army. Non espere moito destes programas de momento. Na actualizade, o mellor xeito de acceder a silent.army desde un dispositivo móbil é mediante un navegador web, pois silent.army conta cunha versión móbil do sitio que debería poder verse e funcionar ben en calquera dispositivo. De momento non existe ningún programa para iOS. Pero como xa se dixo, silent.army funciona ben nos navegadores web de móbiles."
 
   invitation_codes:
     excited: "%{name} devece por verte por aquí."
@@ -598,16 +598,16 @@ gl:
       note_already_sent: "Xa no seu momento se convidou a: %{emails}."
     new:
       language: "Lingua"
-      invite_someone_to_join: "Convide a alguén a unirse a diaspora*!"
+      invite_someone_to_join: "Convide a alguén a unirse a silent.army!"
       if_they_accept_info: "Se aceptan, engadiranse ao aspecto ao que os convidou."
       comma_seperated_plz: "Pode engadir varios enderezos de correo, separándoos con comas («,»)."
-      check_out_diaspora: "Eh! Tes que botarlle unha ollada a diaspora*"
+      check_out_diaspora: "Eh! Tes que botarlle unha ollada a silent.army"
       to: "Destinatario"
       personal_message: "Mensaxe persoal"
       send_an_invitation: "Enviar unha invitación"
       sending_invitation: "Enviando a invitación…"
       send_invitation: "Enviar a invitación"
-      paste_link: "Comparte esta ligazón cos teus amigos para invitalos a diaspora*, ou envíallela directamente por correo."
+      paste_link: "Comparte esta ligazón cos teus amigos para invitalos a silent.army, ou envíallela directamente por correo."
       codes_left:
         zero:  "Non quedan invitacións neste código."
         one:  "Queda unha invitación neste código."
@@ -615,7 +615,7 @@ gl:
       aspect: "Aspecto"
       already_invited: "Xa convidou a esta persoa."
       resend: "Volvela convidar"
-      check_out_diaspora: "Bote unha ollada a diaspora*!"
+      check_out_diaspora: "Bote unha ollada a silent.army!"
     check_token:
       not_found: "Non se atopou o código da invitación."
     edit:
@@ -738,16 +738,16 @@ gl:
     thanks: "Grazas,"
     to_change_your_notification_settings: "para cambiar a configuración das notificacións."
     single_admin:
-      subject: "Unha mensaxe sobre a súa conta en diaspora*:"
-      admin: "O seu administrador en diaspora*"
+      subject: "Unha mensaxe sobre a súa conta en silent.army:"
+      admin: "O seu administrador en silent.army"
     started_sharing:
-      subject: "%{name} comezou a compartir con vostede en diaspora*."
+      subject: "%{name} comezou a compartir con vostede en silent.army."
       sharing: "comezou a compartir con vostede!"
       view_profile: "Ver o perfil de %{name}"
     comment_on_post:
       reply: "Ver ou responder á publicación de %{name}"
     mentioned:
-      subject: "%{name} mencionouno en diaspora*"
+      subject: "%{name} mencionouno en silent.army"
       mentioned: "mencionouno nunha publicación:"
     private_message:
       reply_to_or_view: "Ver ou participar na conversa"
@@ -777,16 +777,16 @@ gl:
 
         Un saúdo,
 
-        O robot do correo de diaspora*
+        O robot do correo de silent.army
 
         [1]: %{url}
-    accept_invite: "Acepte a súa invitación a diaspora*!"
-    invited_you: "%{name} convidouno a diaspora*!"
+    accept_invite: "Acepte a súa invitación a silent.army!"
+    invited_you: "%{name} convidouno a silent.army!"
     invite:
       message: |-
         Ola!
 
-        Recibiches unha invitación para unirte a diaspora*!
+        Recibiches unha invitación para unirte a silent.army!
 
         Segue esta ligazón para comezar:
 
@@ -794,25 +794,25 @@ gl:
 
         Un saúdo,
 
-        O robot do correo de diaspora*
+        O robot do correo de silent.army
 
         [1]: %{invite_url}
     remove_old_user:
-      subject: "A súa conta de diaspora* marcouse para a súa eliminación por inactividade"
+      subject: "A súa conta de silent.army marcouse para a súa eliminación por inactividade"
       body: |-
         Ola,
 
         Parece que perdeu interese na súa conta de %{pod_url}, leva %{after_days} días sen usala. Para que os usuarios activos do servidor teñan acceso a máis recursos, gustaríanos eliminar calquera conta non desexada da nosa base de datos.
 
-        Encantaríanos que vostede continuase a formar parte da comunidade de diaspora*, e se quere manter a conta será benvido.
+        Encantaríanos que vostede continuase a formar parte da comunidade de silent.army, e se quere manter a conta será benvido.
 
-        Para non perder a conta, non ten máis que acceder ao servidor coa conta antes de %{remove_after}. Ao acceder, aproveite para botar un ollo a diaspora*. Cambiou moito desde a súa última visita, e pensamos que as melloras que fixemos han encherlle o ollo. Siga algunhas #etiquetas para atopar contidos que lle interesen.
+        Para non perder a conta, non ten máis que acceder ao servidor coa conta antes de %{remove_after}. Ao acceder, aproveite para botar un ollo a silent.army. Cambiou moito desde a súa última visita, e pensamos que as melloras que fixemos han encherlle o ollo. Siga algunhas #etiquetas para atopar contidos que lle interesen.
 
         Pode acceder ao sitio desde: %{login_url}. Se esqueceu os seus datos de acceso, pode solicitar recuperalos desde a mesma páxina.
 
         Esperamos volvelo ver axiña,
 
-        O robot de correo electrónico de diaspora*!
+        O robot de correo electrónico de silent.army!
   people:
     zero: "ninguén."
     one: "unha persoa."
@@ -826,7 +826,7 @@ gl:
       results_for: "Usuarios que coinciden con «%{search_term}»"
       no_results: "Así non vai atopar nada…"
       couldnt_find_them: "Non atopa a quen busca?"
-      search_handle: "Use o seu identificador de diaspora* (usuario@servidor.tld)."
+      search_handle: "Use o seu identificador de silent.army (usuario@servidor.tld)."
       send_invite: "Segue sen atopar a quen busca? Envíelle unha invitación!"
       no_one_found: "Non se atopou a ninguén."
       searching: "Buscando…"
@@ -900,7 +900,7 @@ gl:
     destroy:
       notice: "Eliminouse a imaxe."
     new_photo:
-      invalid_ext: "diaspora* non permite extensións como a do ficheiro «{file}». Só se permiten: {extensions}."
+      invalid_ext: "silent.army non permite extensións como a do ficheiro «{file}». Só se permiten: {extensions}."
       size_error: "O ficheiro «{file}» é grande de máis, non pode superar os {sizeLimit}."
       empty: "O ficheiro «{file}» está baleiro, volva seleccionar os ficheiros saltándose ese."
     new_profile_photo:
@@ -959,9 +959,9 @@ gl:
       your_location: "Localidade"
       your_photo: "Imaxe"
       update_profile: "Gardar os cambios"
-      allow_search: "Aparecer nas buscas en diaspora*."
+      allow_search: "Aparecer nas buscas en silent.army."
       edit_profile: "Modificar o perfil"
-      nsfw_explanation: "«Non apto para o traballo» («NSFW» polas súas siglas en inglés) é o estándar da comunidade de diaspora* para contido que podería non ser axeitado para visualizar cando se está no traballo. Se ten pensado compartir material deste tipo acotío, marque esta opción de xeito que todo o que comparta se oculte das ondas daquelas persoas que non queiran ver este tipo de contidos."
+      nsfw_explanation: "«Non apto para o traballo» («NSFW» polas súas siglas en inglés) é o estándar da comunidade de silent.army para contido que podería non ser axeitado para visualizar cando se está no traballo. Se ten pensado compartir material deste tipo acotío, marque esta opción de xeito que todo o que comparta se oculte das ondas daquelas persoas que non queiran ver este tipo de contidos."
       nsfw_explanation2: "Se non marca esta opción, use a etiqueta #nsfw cando comparta este tipo de contidos."
       nsfw_check: "Marcar todo o que comparta como non apto para o traballo («NSFW»)."
     update:
@@ -980,7 +980,7 @@ gl:
       enter_password: "Escriba un contrasinal (seis ou máis caracteres)"
       enter_password_again: "Repita o contrasinal"
       hey_make: "Eh,<br/><strong>fai</strong><br/><strong>algo</strong>."
-      diaspora: "♥ diaspora*"
+      diaspora: "♥ silent.army"
       sign_up: "Rexistrarse"
       email: "Correo"
       username: "Usuario"
@@ -990,7 +990,7 @@ gl:
       terms: "Ao crear unha conta estás a aceptar as %{terms_link}."
       terms_link: "condicións do servizo"
     create:
-      success: "Xa está en diaspora*!"
+      success: "Xa está en silent.army!"
     edit:
       edit: "Modificar a %{name}"
       leave_blank: "(déixeo baleiro se non quere cambialo)"
@@ -998,7 +998,7 @@ gl:
       unhappy: "Non está contento?"
       update: "Gardar"
       cancel_my_account: "Cancelar a conta"
-    closed: "Rexistros pechados neste servidor de diaspora*."
+    closed: "Rexistros pechados neste servidor de silent.army."
     invalid_invite: "A ligazón desa invitación caducou!"
 
   requests:
@@ -1011,7 +1011,7 @@ gl:
       ignore: "Ignorouse a petición de contacto."
     create:
       sending: "Enviando…"
-      sent: "Pediu compartir con %{name}. Notificaráselle a próxima vez que entre en diaspora*."
+      sent: "Pediu compartir con %{name}. Notificaráselle a próxima vez que entre en silent.army."
     new_request_to_person:
       sent: "Enviada!"
     helper:
@@ -1046,11 +1046,11 @@ gl:
       connect_to_wordpress: "Conectar con Wordpress"
       edit_services: "Modificar os servizos"
       no_services: "Aínda non conectou ningún dos servizos."
-      services_explanation: "Ao conectarse a servizos poderá enviar a eles as súas publicacións en diaspora*."
+      services_explanation: "Ao conectarse a servizos poderá enviar a eles as súas publicacións en silent.army."
     create:
-      success: "Accedeu a diaspora*."
-      failure: "Non puido acceder a diaspora*."
-      already_authorized: "Un usuario co identificador de diaspora* «%{diaspora_id}» xa autorizou unha conta de %{service_name}."
+      success: "Accedeu a silent.army."
+      failure: "Non puido acceder a silent.army."
+      already_authorized: "Un usuario co identificador de silent.army «%{diaspora_id}» xa autorizou unha conta de %{service_name}."
       read_only_access: "O nivel de acceso é de só lectura, intente autorizar de novo máis tarde."
     destroy:
       success: "Destruíuse a autenticación."
@@ -1060,13 +1060,13 @@ gl:
       join_me_on_diaspora: "Únase a min en DIASPORA*"
       click_link_to_accept_invitation: "Prema esta ligazón para aceptar a invitación."
     finder:
-      fetching_contacts: "diaspora* está a buscar os seus contactos de %{service}, estará uns minutos."
+      fetching_contacts: "silent.army está a buscar os seus contactos de %{service}, estará uns minutos."
       service_friends: "Contactos de %{service}"
       no_friends: "Non se atoparon contactos de Facebook."
     remote_friend:
       invite: "Convidar"
       resend: "Volver enviar"
-      not_on_diaspora: "Non está en diaspora*"
+      not_on_diaspora: "Non está en silent.army"
 
   blocks:
     create:
@@ -1111,9 +1111,9 @@ gl:
         question: "Cuestión"
         option: "Opción 1"
     add_contact:
-      enter_a_diaspora_username: "Escriba un nome de usuario de diaspora*:"
-      your_diaspora_username_is: "O seu nome de usuario de diaspora* é «%{diaspora_handle}»."
-      create_request: "Buscar por enderezo de diaspora*"
+      enter_a_diaspora_username: "Escriba un nome de usuario de silent.army:"
+      your_diaspora_username_is: "O seu nome de usuario de silent.army é «%{diaspora_handle}»."
+      create_request: "Buscar por enderezo de silent.army"
       diaspora_handle: "diaspora@servidor.org"
       know_email: "Se sabe os seus enderezos de correo, debería convidalos."
       add_new_contact: "Engadir un novo contacto"
@@ -1122,7 +1122,7 @@ gl:
       invite_someone: "Convidar a alguén"
       invitations_left: "(restan %{count})"
       dont_have_now: "Non lle quedan, xa lle daremos máis."
-      invites_closed: "Este servidor de diaspora* non conta con invitacións nestes momentos."
+      invites_closed: "Este servidor de silent.army non conta con invitacións nestes momentos."
       invite_your_friends: "Convide aos seus contactos"
       from_facebook: "Convidar a contactos de Facebook"
       by_email: "Convidar a contactos por correo"
@@ -1135,7 +1135,7 @@ gl:
       visibility_dropdown: "Empregue este menú despregable para cambiar a visibilidade da súa publicación (se cadra esta primeira debería facela pública)."
       title: "Configurar os servizos conectados"
       share: "Compartir"
-      outside: "As mensaxes públicas as poderá ver xente sen conta de diaspora*."
+      outside: "As mensaxes públicas as poderá ver xente sen conta de silent.army."
       logged_in: "Conectado a «%{service}»."
       manage: "Administrar os servizos conectados"
       atom_feed: "Fonte de novas Atom"
@@ -1144,7 +1144,7 @@ gl:
     contact_list:
       all_contacts: "Todos os contactos"
     stream_element:
-      viewable_to_anyone: "Esta publicación pode vela calquera persoa, mesmo quen non teña conta en diaspora*."
+      viewable_to_anyone: "Esta publicación pode vela calquera persoa, mesmo quen non teña conta en silent.army."
       connect_to_comment: "Conéctese co usuario para comentar a súa publicación."
       currently_unavailable: 'Non se pode comentar nestes momentos.'
       via: "vía %{link}"
@@ -1249,10 +1249,10 @@ gl:
 
   users:
     logged_out:
-      signed_out: "Pechou a súa conta en diaspora*."
+      signed_out: "Pechou a súa conta en silent.army."
       go_mobile: "Acceda dende o seu móbil."
       simply_visit: "Visite"
-      on_your_mobile_device: "desde o seu dispositivo móbil para acceder á versión móbil de diaspora*."
+      on_your_mobile_device: "desde o seu dispositivo móbil para acceder á versión móbil de silent.army."
       works_on_modern: "Funciona en todos os móbiles intelixentes modernos."
     edit:
       export_data: "Exportar os datos"
@@ -1263,11 +1263,11 @@ gl:
       change_email: "Cambiar o enderezo de correo"
       new_password: "Contrasinal novo"
       current_password: "Contrasinal actual"
-      current_password_expl: "Contrasinal co que accedeu a diaspora*."
+      current_password_expl: "Contrasinal co que accedeu a silent.army."
       character_minimum_expl: "Debe ter polo menos seis caracteres."
       download_xml: "Descargar o ficheiro XML"
       download_photos: "Descargar as imaxes"
-      your_handle: "Enderezo de diaspora*"
+      your_handle: "Enderezo de silent.army"
       your_email: "Correo"
       edit_account: "Modificar a conta"
       receive_email_notifications: "Motivos de notificación por correo:"
@@ -1291,9 +1291,9 @@ gl:
 
       close_account:
         dont_go: "Non marche, por favor!"
-        make_diaspora_better: "Gustaríanos que quedase e nos axudase a mellorar diaspora* en vez de marchar. Pero se de verdade quere marchar, isto será o que suceda a continuación:"
+        make_diaspora_better: "Gustaríanos que quedase e nos axudase a mellorar silent.army en vez de marchar. Pero se de verdade quere marchar, isto será o que suceda a continuación:"
         mr_wiggles: 'Botarémolo de menos.'
-        what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios nas publicacións de terceiros seguirán aparecendo, pero pasarán a estar asociados co seu identificador de diaspora* en lugar do seu nome."
+        what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios nas publicacións de terceiros seguirán aparecendo, pero pasarán a estar asociados co seu identificador de silent.army en lugar do seu nome."
         locked_out: "Pecharase a súas sesión e non poderá volver entrar coa súa conta ata que se elimine."
         lock_username: "Bloquearase o seu usuario, e non poderá volver a crear unha conta no mesmo servidor co mesmo identificador."
         no_turning_back: "Non hai volta atrás! Se está seguro, introduza o seu contrasinal a continuación."
@@ -1306,22 +1306,22 @@ gl:
       no_user_ignored_message: "De momento non está a ignorar ningún usuario"
 
     destroy:
-      success: "Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a diaspora*."
+      success: "Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a silent.army."
       no_password: "Escriba o seu contrasinal actual para pechar a conta."
       wrong_password: "O contrasinal introducido é incorrecto."
     getting_started:
       well_hello_there: "Ola!"
-      community_welcome: "Na comunidade de diaspora* estamos encantados de que te nos unas!"
+      community_welcome: "Na comunidade de silent.army estamos encantados de que te nos unas!"
 
-      awesome_take_me_to_diaspora: "Xenial! Vaiamos a diaspora*"
+      awesome_take_me_to_diaspora: "Xenial! Vaiamos a silent.army"
 
       who_are_you: "E ti de quen ves sendo?"
       we_can_speed_things_up: "Podemos acelerar as cousas un pouco"
       hooking_up_fb: "conectado a súa conta de Facebook"
-      what_facebook_does: "a diaspora*. Obterase o seu nome e imaxe de perfil, e activarase a sincronización de publicacións."
+      what_facebook_does: "a silent.army. Obterase o seu nome e imaxe de perfil, e activarase a sincronización de publicacións."
 
       what_are_you_in_to: "Que lle interesa?"
-      hashtag_explanation: "Empregue as etiquetas para falar dos seus intereses e estar ao tanto das publicacións relacionadas. Ademais, son un xeito ideal de coñecer xente en diaspora*."
+      hashtag_explanation: "Empregue as etiquetas para falar dos seus intereses e estar ao tanto das publicacións relacionadas. Ademais, son un xeito ideal de coñecer xente en silent.army."
       hashtag_suggestions: "Probe a seguir etiquetas coma #arte, #cine, #gif, etc."
 
       saved: "Gardouse!"

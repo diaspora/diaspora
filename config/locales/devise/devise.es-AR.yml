@@ -36,7 +36,7 @@ es-AR:
       inviter:
         accept_at: "en %{url}, podes aceptarlo desde el link  de abajo "
         has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
-        have_invited_you: "%{names} te han invitado a unirte a diaspora*"
+        have_invited_you: "%{names} te han invitado a unirte a silent.army"
       password_change:
         subject: "Contraseña cambiada"
       reset_password_instructions:

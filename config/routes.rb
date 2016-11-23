@@ -213,7 +213,6 @@ Diaspora::Application.routes.draw do
 
   # Startpage
   root :to => 'home#show'
-  get "podmin", to: "home#podmin"
 
   namespace :api do
     namespace :openid_connect do

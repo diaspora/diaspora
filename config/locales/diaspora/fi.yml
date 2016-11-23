@@ -347,7 +347,7 @@ fi:
     miscellaneous:
       back_to_top_a: "Kyllä. Kun olet vierittänyt sivua alas, klikkaa harmaata nuolta joka on selainikkunassa sivun oikeassa yläkulmassa."
       back_to_top_q: "Onko olemassa nopeaa tapaa siirtyä sivun alkuun sen jälkeen, kun olen vierittänyt sitä alas?"
-      diaspora_app_a: "On olemassa useita Android sovelluksia varhaisessa kehitysvaiheessa. Osa on jo pitkään hylättynä olleita ja eivät siitä syystä toimi hyvin nykyisen diaspora* version kanssa. Älä odota liikoja näiltä sovelluksilta tällä erää. Paras tapa käyttää diasporaa* puhelimesi kautta on selain, koska olemme suunnitelleet sivustosta mobiiliversion ja sen pitäisi toimia hyvin kaikilla laitteilla. Tällä hetkellä ei ole olemassa sovellusta iOS:lle, mutta kuten edellä, diaspora* pitäisi toimia hyvin selaimellasi."
+      diaspora_app_a: "On olemassa useita Android sovelluksia varhaisessa kehitysvaiheessa. Osa on jo pitkään hylättynä olleita ja eivät siitä syystä toimi hyvin nykyisen silent.army version kanssa. Älä odota liikoja näiltä sovelluksilta tällä erää. Paras tapa käyttää diasporaa* puhelimesi kautta on selain, koska olemme suunnitelleet sivustosta mobiiliversion ja sen pitäisi toimia hyvin kaikilla laitteilla. Tällä hetkellä ei ole olemassa sovellusta iOS:lle, mutta kuten edellä, silent.army pitäisi toimia hyvin selaimellasi."
       diaspora_app_q: "Onko Android tai iOS käyttöjärjestelmälle Diaspora* sovellusta?"
       photo_albums_a: "Ei tällä hetkellä. Voit kuitenkin katsella virtaa kunkin julkaisemista kuvista kuva-osiossa profiilisivun sivupalkissa."
       photo_albums_q: "Onko olemassa kuva- tai videoalbumeita?"
@@ -358,9 +358,9 @@ fi:
       find_people_a: "Kutsu ystäviäsi käyttämällä sivupalkissa olevaa sähköpostilinkkiä. Seuraa #Tageja löytääksesi muita, jotka jakavat kiinnostuksen kohteesi ja lisätäksesi sinua kiinnostavia julkaisuja tehneet henkilöt omaan näkymääsi. Huuda olevasi #newhere julkisessa julkaisussa."
       find_people_q: "Liityin juuri podiin. Kuinka löydän ihmisiä, joiden kanssa haluan alkaa jakaa?"
       title: "Podit"
-      use_search_box_a: "Jos tiedät heidän diaspora* ID:nsä (esim. käyttäjänimi@podinimi.org), voit löytää heidät etsimällä sitä. Jos olet samassa podissa voit etsiä pelkän käyttäjänimen perusteella. Vaihtoehtoisesti voit etsiä profiilinimen perusteella (nimi, jonka näet näytöllä). Jos haku ei onnistu ensimmäisellä kerralla, yritä uudestaan."
+      use_search_box_a: "Jos tiedät heidän silent.army ID:nsä (esim. käyttäjänimi@podinimi.org), voit löytää heidät etsimällä sitä. Jos olet samassa podissa voit etsiä pelkän käyttäjänimen perusteella. Vaihtoehtoisesti voit etsiä profiilinimen perusteella (nimi, jonka näet näytöllä). Jos haku ei onnistu ensimmäisellä kerralla, yritä uudestaan."
       use_search_box_q: "Kuinka käytän Etsi-kenttää löytääkseni jonkun henkilön?"
-      what_is_a_pod_a: "Podi on palvelin, jossa ajetaan diaspora* ohjelmaa ja joka on yhteydessä diaspora* verkkoon. \"Podi\" on vertaus joidenkin kasvien palkoihin joiden sisällä on siemeniä, vastaavasti palvelimen sisältäessä useita käyttäjätiliejä. On olemassa useita erilaisia podeja. Voit lisätä ystäväi muista podeista ja viestiä heidän kanssaan. (Voi ajatella diaspora* podin olevan kuten sähköpostipalvelu: on olemassa julkisia podeja, yksityisiä podeja ja jonkin verran vaivaa näkemällä voit ajaa myös omaa podiasi)"
+      what_is_a_pod_a: "Podi on palvelin, jossa ajetaan silent.army ohjelmaa ja joka on yhteydessä silent.army verkkoon. \"Podi\" on vertaus joidenkin kasvien palkoihin joiden sisällä on siemeniä, vastaavasti palvelimen sisältäessä useita käyttäjätiliejä. On olemassa useita erilaisia podeja. Voit lisätä ystäväi muista podeista ja viestiä heidän kanssaan. (Voi ajatella silent.army podin olevan kuten sähköpostipalvelu: on olemassa julkisia podeja, yksityisiä podeja ja jonkin verran vaivaa näkemällä voit ajaa myös omaa podiasi)"
       what_is_a_pod_q: "Mikä on podi?"
     posts_and_posting:
       char_limit_services_a: "Sellaisessa tapauksessa julkaisusi pituus on rajoitettu pienempään merkkimäärään (Twitter 140; 1000 Tumblr), ja käytettävissä olevat merkit näkyvät, kun kyseisen palvelun kuvake on korostettuna. Voit lähettää myös pitempiä julkaisuja, mutta teksti katkaistaan ylimenevältä osalta noissa palveluissa."
@@ -397,7 +397,7 @@ fi:
       stream_full_of_posts_q: "Miksi minun virtani on täynnä julkaisuja henkilöiltä, joita en tunne ja joiden kanssa en jaa?"
       title: "Julkaisut ja lähettäminen"
     private_posts:
-      can_comment_a: "Vain kirjautuneet diaspora* käyttäjät, jotka olet sijoittanut kyseiseen näkymään, voivat tykätä tai kommentoida yksityistä julkaisuasi."
+      can_comment_a: "Vain kirjautuneet silent.army käyttäjät, jotka olet sijoittanut kyseiseen näkymään, voivat tykätä tai kommentoida yksityistä julkaisuasi."
       can_comment_q: "Kuka voi kommentoida tai tykätä yksityisiä julkaisujani?"
       can_reshare_a: "Ei kukaan. Yksityiset julkaisut eivät ole jaettavissa uudelleen. Sisäänkirjautuneet Diaspora* käyttäjät voivat tosin kopioida ja liittää julkaisusi."
       can_reshare_q: "Ketkä voivat jakaa yksityisen julkaisuni?"
@@ -432,7 +432,7 @@ fi:
       what_do_tags_do_q: "Mitä tehtävä on tageilla julkisessa profiilissani?"
       whats_in_profile_a: "Nimesi, viisi tagia jotka olet valinnut kuvaamaan itseäsi ja kuvasi. Nämä tiedot löytyvät profiilisivusi yläosasta. Voit määrittää nämä tiedot niin todenmukaisiksi tai tuntemattoiksi kuin haluat. Profiilisivusi näyttää myös jokaisen julkisen julkaisusi, jonka olet tehnyt."
       whats_in_profile_q: "Mitä julkisessa profiilissani on?"
-      who_sees_profile_a: "Jokainen kirjautunut diaspora* käyttäjä ja kuka tahansa Internetistä voi nähdä sen. Jokaisessa profiilissa on suora URL johon voidaan linkittää ulkopuolisista sivuista. Myös hakukoneet voivat luetteloida sen."
+      who_sees_profile_a: "Jokainen kirjautunut silent.army käyttäjä ja kuka tahansa Internetistä voi nähdä sen. Jokaisessa profiilissa on suora URL johon voidaan linkittää ulkopuolisista sivuista. Myös hakukoneet voivat luetteloida sen."
       who_sees_profile_q: "Kuka voi nähdä julkisen profiilini?"
       who_sees_updates_a: "Jokainen joka vierailee profiilisivullasi."
       who_sees_updates_q: "Kuka voi nähdä päivitykset julkiseen profiiliini?"
@@ -636,7 +636,7 @@ fi:
 
           Terveisin,
 
-          diaspora* sähköpostirobotti!
+          silent.army sähköpostirobotti!
       subject: "Kuvatiedostot ovat valmiina ladattaviksi, %{name}"
     export_photos_failure_email:
       body: |-
@@ -691,7 +691,7 @@ fi:
           Toivottavasti näemme uudelleen,
 
           Diaspora-sähköpostirobotti!
-      subject: "Käyttämätön diaspora* käyttäjätilisi on merkitty poistettavaksi"
+      subject: "Käyttämätön silent.army käyttäjätilisi on merkitty poistettavaksi"
     report_email:
       body: |-
           Hei,
@@ -705,7 +705,7 @@ fi:
 
           Kiittäen,
 
-          diaspora* sähköpostirobotti!
+          silent.army sähköpostirobotti!
 
           [1]: %{url}
       subject: "Uusi %{type} merkittiin loukkaavaksi"

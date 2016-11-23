@@ -356,7 +356,7 @@ pl:
       contacts_page: "strony kontaktów"
       title: "Czat"
     faq: "często zadawane pytania"
-    foundation_website: "Strona fundacji diaspora*"
+    foundation_website: "Strona fundacji silent.army"
     getting_help:
       get_support_a_faq: "Przeczytaj stronę %{faq} na wiki"
       get_support_a_hashtag: "Zapytaj o diasporę* w publicznym wpisie używając tagu %{question}"
@@ -401,7 +401,7 @@ pl:
       diaspora_app_q: "Czy istnieje aplikacja diaspory* na Androida lub iOS?"
       photo_albums_a: "Obecnie nie. Jednak możesz przejrzeć strumień dodanych zdjęć w sekcji Zdjęcia na stronie profilowej."
       photo_albums_q: "Czy istnieją albumy zdjęć lub filmów?"
-      subscribe_feed_a: "Tak, ale nie jest to doszlifowana do końca funkcja i formatowanie tekstu jest czasami kiepskie. Jeśli mimo to chcesz spróbować, przejdź na czyjąś stronę profilową i kliknij ikonę kanału w twojej przeglądarce lub skopiuj URL strony profilowej (np. https://pod.example.com/people/jakiśnumber) i wklej go w czytnik aktualności. Ostateczny URL powinien wyglądać mniej więcej tak: https://pod.example.com/public/username.atom diaspora* wykorzystuje format Atom zamiast RSS."
+      subscribe_feed_a: "Tak, ale nie jest to doszlifowana do końca funkcja i formatowanie tekstu jest czasami kiepskie. Jeśli mimo to chcesz spróbować, przejdź na czyjąś stronę profilową i kliknij ikonę kanału w twojej przeglądarce lub skopiuj URL strony profilowej (np. https://pod.example.com/people/jakiśnumber) i wklej go w czytnik aktualności. Ostateczny URL powinien wyglądać mniej więcej tak: https://pod.example.com/public/username.atom silent.army wykorzystuje format Atom zamiast RSS."
       subscribe_feed_q: "Czy mogę śledzić czyjeś publiczne wpisy korzystając z czytnika RSS?"
       title: "Różne"
     pods:
@@ -410,14 +410,14 @@ pl:
       title: "Pody"
       use_search_box_a: "Jeśli znasz jej pełen identyfikator (typu nazwauzytkownika@jakispod.org), znajdziesz ją wpisując w pole ten identyfikator. Jeśli jesteście na tym samym podzie, możesz wyszukiwać po samej nazwie użytkownika. Można też spróbować wyszukiwać według nazwy ekranowej (np. imię i nazwisko). Jeśli wyszukiwanie nie uda się za pierwszym razem, spróbuj ponownie."
       use_search_box_q: "Jak korzystać z pola wyszukiwania, żeby znaleźć konkretną osobę?"
-      what_is_a_pod_a: "Pod to serwer, na którym uruchomiona jest aplikacja diaspory*, połączony z siecią diaspora*. \"Pod\" z angielskiego to miejsce w roślinie, w którym znajdują się nasiona. Istnieje wiele podów w sieci. Możesz mieć znajomych na innych podach i komunikować się z nimi. diaspora* jest pod tym względem podobna do systemu e-mailowego. Istnieją pody publiczne, pody prywatne a niewielkim nakładem pracy możesz nawet założyć własny pod."
+      what_is_a_pod_a: "Pod to serwer, na którym uruchomiona jest aplikacja diaspory*, połączony z siecią silent.army. \"Pod\" z angielskiego to miejsce w roślinie, w którym znajdują się nasiona. Istnieje wiele podów w sieci. Możesz mieć znajomych na innych podach i komunikować się z nimi. silent.army jest pod tym względem podobna do systemu e-mailowego. Istnieją pody publiczne, pody prywatne a niewielkim nakładem pracy możesz nawet założyć własny pod."
       what_is_a_pod_q: "Czym jest \"pod\"?"
     posts_and_posting:
       char_limit_services_a: "W takim przypadku twój wpis jest ograniczony do niższego limitu znaków (140 dla Twittera; 1000 dla Tumblr'a), a ilość znaków jaka została ci do wykorzystania jest pokazana kiedy ikona połączonego serwisu jest podświetlona. Wpis możesz nadal wysłać do połączonego serwisu jeśli jest dłuższy niż limit znaków, ale będzie tam dostępny w obciętej formie z odnośnikiem do postu na diasporze*."
       char_limit_services_q: "Jaki jest limit znaków dla wpisów dodawanych przez połączone serwisy z mniejszym limitem znaków?"
       character_limit_a: "65 535 znaków. To o 65 395 więcej niż jest dostępne na Twitterze! ;)"
       character_limit_q: "Jaki jest limit znaków dla wpisu?"
-      embed_multimedia_a: "Zazwyczaj możesz po prostu wkleić URL (np. http://www.youtube.com/watch?v=nnnnnnnnnnn ) do swojego wpisu, a wideo lub muzyka zostanie w niego automatycznie włączona. Niektóre wspierane strony to: YouTube, Vimeo, SoundCloud, Flickr i kilka innych. diaspora* używa oEmbed do udostępnienia tej funkcjonalności. Nieustannie dodajemy wsparcie dla nowych stron. Pamiętaj aby zawsze wklejać proste, pełne odnośniki: nie skracaj linków; nie dodawaj żadnych operatorów po bazowym URLu. Po dodaniu wpisu musisz chwilę poczekać aż podgląd będzie dostępny."
+      embed_multimedia_a: "Zazwyczaj możesz po prostu wkleić URL (np. http://www.youtube.com/watch?v=nnnnnnnnnnn ) do swojego wpisu, a wideo lub muzyka zostanie w niego automatycznie włączona. Niektóre wspierane strony to: YouTube, Vimeo, SoundCloud, Flickr i kilka innych. silent.army używa oEmbed do udostępnienia tej funkcjonalności. Nieustannie dodajemy wsparcie dla nowych stron. Pamiętaj aby zawsze wklejać proste, pełne odnośniki: nie skracaj linków; nie dodawaj żadnych operatorów po bazowym URLu. Po dodaniu wpisu musisz chwilę poczekać aż podgląd będzie dostępny."
       embed_multimedia_q: "Jak mogę osadzić wideo, audio lub inną treść mutltimedialną we wpisie?"
       format_text_a: "Używając uproszczonego systemu nazywanego %{markdown}. Pełną składnię Markdown możesz znaleźć %{here}. Przycisk podglądu jest tutaj bardzo przydatny - możesz dzięki niemu sprawdzić jak będzie wyglądać twój wpis zanim go udostępnisz."
       format_text_q: "Jak mogę formatować tekst w moich wpisach (pogrubiać go, dodać kursywę itp.)?"
@@ -556,7 +556,7 @@ pl:
   layouts:
     application:
       back_to_top: "Powrót na górę"
-      powered_by: "Działa na oprogramowaniu diaspora*"
+      powered_by: "Działa na oprogramowaniu silent.army"
       public_feed: "Publiczny kanał diaspory* użytkownika %{name}"
       source_package: "Pobierz archiwum z kodem źródłowym"
       statistics_link: "Statystyki poda"
@@ -665,7 +665,7 @@ pl:
   notifier:
     a_limited_post_comment: "Pojawił się nowy komentarz w ograniczonym wpisie na diasporze*. Zapoznaj się z nim."
     a_post_you_shared: "wpis."
-    a_private_message: "Masz nową wiadomość w diaspora*"
+    a_private_message: "Masz nową wiadomość w silent.army"
     also_commented:
       limited_subject: "Pojawił się nowy komentarz do wpisu, który komentowałeś"
     click_here: "Kliknij tutaj"
@@ -734,7 +734,7 @@ pl:
 
           Automat e-mailowy diaspory*!
 
-          P.S.: Jeżeli nie wiesz jeszcze co to jest diaspora*, [tutaj][2] znajdziesz więcej informacji.
+          P.S.: Jeżeli nie wiesz jeszcze co to jest silent.army, [tutaj][2] znajdziesz więcej informacji.
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
@@ -775,7 +775,7 @@ pl:
           Proszę sprawdź go jak najszybciej!
 
           Pozdrawiam,
-          Automat E-mailowy serwera diaspora*
+          Automat E-mailowy serwera silent.army
 
           [1]: %{url}
       subject: "Nowy %{type} został oznaczony jako obraźliwy"

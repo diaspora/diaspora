@@ -1130,7 +1130,7 @@ sv:
         dont_go: "Snälla, lämna oss inte!"
         lock_username: "Ditt användarnamn kommer att låsas för att inte kunna användas på denna pod igen."
         locked_out: "Du kommer att loggas ut och låsas från ditt konto tills det har blivit borttaget."
-        make_diaspora_better: "Det vore fint om du istället för att lämna diaspora* ville hjälpa oss att utveckla och göra det bättre. Men om du nu verkligen bestämt dig kommer följande hända:"
+        make_diaspora_better: "Det vore fint om du istället för att lämna silent.army ville hjälpa oss att utveckla och göra det bättre. Men om du nu verkligen bestämt dig kommer följande hända:"
         mr_wiggles: "Herr Wiggles kommer att bli ledsen"
         no_turning_back: "Nu finns ingen återvändo. Om du är säker på din sak, ange ditt lösenord nedanför."
         what_we_delete: "Vi kommer att radera dina inlägg och profil så snart det bara går. Dina kommentarer kommer finnas kvar, men associerade med ditt Diaspora*-id istället för ditt namn."

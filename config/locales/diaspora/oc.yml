@@ -59,7 +59,7 @@ oc:
       user_search: "Cercar un utilizaire"
       weekly_user_stats: "Estatisticas d'utilizaire setmanièras"
     dashboard:
-      fetching_diaspora_version: "A determinar la darrièra version de diaspora*..."
+      fetching_diaspora_version: "A determinar la darrièra version de silent.army..."
       pod_status: "Estat del pod"
     pods:
       pod_network: "Ret del pod"
@@ -92,7 +92,7 @@ oc:
       week: "Setmana"
     user_entry:
       account_closed: "Compte tampat"
-      diaspora_handle: "identificant diaspora*"
+      diaspora_handle: "identificant silent.army"
       email: "E-mail"
       guid: "GUID"
       id: "ID"
@@ -223,7 +223,7 @@ oc:
         feature_suggestion: "... aver una suggestion de %{link} ?"
         find_a_bug: "... trobar %{link} ?"
         have_a_question: "... aver una %{link} ?"
-        here_to_help: "La comunautat diaspora* es aquí !"
+        here_to_help: "La comunautat silent.army es aquí !"
         mail_podmin: "Corrièl del podmin"
         need_help: "Besonh d'ajuda ?"
         tag_bug: "bug"
@@ -234,13 +234,13 @@ oc:
       introduce_yourself: "Es vòstre flux. Rejonhètz-nos e presentatz-vos."
       keep_pod_running: "Permetètz a %{pod} de foncionar rapidament e ofrissètz una dòsi de cafè mesadièra a nòstres servidors !"
       new_here:
-        follow: "Seguissètz %{link} e aculhissètz los novèls utilizaires de diaspora* !"
+        follow: "Seguissètz %{link} e aculhissètz los novèls utilizaires de silent.army !"
         learn_more: "Ne saber mai"
         title: "Aculhir los novèls venguts"
       services:
-        content: "Podètz connectar aqueles servicis a diaspora* :"
+        content: "Podètz connectar aqueles servicis a silent.army :"
         heading: "Connectar de servicis"
-      welcome_to_diaspora: "Benvenguda dins diaspora*, %{name} !"
+      welcome_to_diaspora: "Benvenguda dins silent.army, %{name} !"
     no_contacts_message:
       community_spotlight: "Actualitat de la comunautat"
       invite_link_text: "convidar"
@@ -263,9 +263,9 @@ oc:
       failure: "Ai pas pogut quitar d'ignorar aqueste utilizaire. #evasion"
       success: "Vejam çò qu'an a dire ! #digatzbonjorn"
   bookmarklet:
-    explanation: "Publicatz sus diaspora* dempuèi oont que siá en apondent %{link} a vòstres marcapaginas."
+    explanation: "Publicatz sus silent.army dempuèi oont que siá en apondent %{link} a vòstres marcapaginas."
     heading: "Publicacion rapida"
-    post_something: "Publicatz sus diaspora*"
+    post_something: "Publicatz sus silent.army"
   cancel: "Anullar"
   comments:
     new_comment:
@@ -351,14 +351,14 @@ oc:
       what_is_an_aspect_q: "De qué es un aspècte ?"
       who_sees_post_q: "Quand publiqui sus un aspècte, qual pòt o veire ?"
     chat:
-      add_contact_roster_q: "Cossí discutir amb qialqu'un dins diaspora* ?"
+      add_contact_roster_q: "Cossí discutir amb qialqu'un dins silent.army ?"
       contacts_page: "pagina dels contactes"
       title: "Chat"
     faq: "FAQ"
-    foundation_website: "site internet de la fondacion diaspora*"
+    foundation_website: "site internet de la fondacion silent.army"
     getting_help:
       get_support_a_faq: "Legir la pagina %{faq} de nòstre wiki"
-      get_support_a_hashtag: "Pausatz una question dins un messatge public sus diaspora* en utilizant l'hashtag %{question}"
+      get_support_a_hashtag: "Pausatz una question dins un messatge public sus silent.army en utilizant l'hashtag %{question}"
       get_support_a_irc: "Rejonhètz-nos sus %{irc} (Chat instantanèu)"
       get_support_a_tutorials: "Referissètz-vos a nòstres %{tutorials}"
       get_support_a_website: "Visitatz nòstre %{link}"
@@ -392,7 +392,7 @@ oc:
       what_is_a_mention_a: "Una mencion es un ligam cap al perfil d'una persona qu'apareis sus una publicacion. Quand qualqu'un es mencionat, receb una notificacion per atirar lor atencion sus la publicacion."
       what_is_a_mention_q: "De qué es una “mencion” ?"
     miscellaneous:
-      diaspora_app_q: "Existís una aplicacion diaspora* per Android o iOS ?"
+      diaspora_app_q: "Existís una aplicacion silent.army per Android o iOS ?"
       photo_albums_q: "I a d'albums de fòtos o de vidèos ?"
       subscribe_feed_q: "Me pòdi inscriure als messatges publics d'una persona amb un lector de fluxes ?"
       title: "Divèrs"
@@ -435,7 +435,7 @@ oc:
       who_sees_updates_a: "Qual que siá dins vòstres aspèctes pòt veire las modificacions de vòstre perdil privat."
       who_sees_updates_q: "Qual pòt veire las mesas a jorn de mon perfil privat ?"
     public_posts:
-      can_comment_reshare_like_a: "Quin utilizaire connectat a diaspora* que siá, pòt comentar, repartejar vòstre messatge public o marcar que li agrada."
+      can_comment_reshare_like_a: "Quin utilizaire connectat a silent.army que siá, pòt comentar, repartejar vòstre messatge public o marcar que li agrada."
       can_comment_reshare_like_q: "Qual pòt comentar, repartejar, o marcar que li agrada mon messatge public ?"
       find_public_post_q: "Cossí las autras personas pòdon trobar mos messatges publics ?"
       title: "Publicacions publicas"
@@ -486,7 +486,7 @@ oc:
       configure_your_pod: "Configuratz vòstre pod"
       contact_irc: "nos contactar sus IRC"
       contribute: "Contribuissètz"
-      contribute_info: "Rendètz diaspora* encara melhor ! Se rencontratz de bugs, %{report_bugs} se vos plai."
+      contribute_info: "Rendètz silent.army encara melhor ! Se rencontratz de bugs, %{report_bugs} se vos plai."
       create_an_account: "Creatz un compte"
       create_an_account_info: "%{sign_up_link} per un novèl compte"
       faq_for_podmins: "FAQ pels podmins sus nòstre wiki"
@@ -494,7 +494,7 @@ oc:
       headline: "Benvenguda, l'amic."
       make_yourself_an_admin: "Venètz administrator"
       report_bugs: "raportatz-los"
-      update_instructions: "d'instruccions de mesa a jorn sul wiki de diaspora*"
+      update_instructions: "d'instruccions de mesa a jorn sul wiki de silent.army"
       update_your_pod: "Mantenètz vòstre pod a jorn"
       update_your_pod_info: "Trobaretz %{update_instructions}."
   invitation_codes:
@@ -515,9 +515,9 @@ oc:
         other: "Encara %{count} convits de disponibles amb aqueste còdi."
         zero: "Pas mai de convit de disponible amb aqueste còdi."
       comma_separated_plz: "Podètz entrar mantuna adreça de corrièl separadas per de virgulas."
-      invite_someone_to_join: "Convidar qualqu'un a rejónher diaspora* !"
+      invite_someone_to_join: "Convidar qualqu'un a rejónher silent.army !"
       language: "Lenga"
-      paste_link: "Partejatz aqueste ligam amb vòstres amics per los convidar dins diaspora*, o mandatz-lor aqueste ligam dirèctament per corrièl."
+      paste_link: "Partejatz aqueste ligam amb vòstres amics per los convidar dins silent.army, o mandatz-lor aqueste ligam dirèctament per corrièl."
       send_an_invitation: "Mandar un convit"
       sending_invitation: "Mandadís del convit..."
   layouts:
@@ -525,7 +525,7 @@ oc:
       back_to_top: "Tornar amont"
       be_excellent: "Siatz benvolent amb cadun !"
       powered_by: "Propulsat per dispora*"
-      public_feed: "Flux diaspora* public per %{name}"
+      public_feed: "Flux silent.army public per %{name}"
       source_package: "Telecargatz lo còdi font"
       statistics_link: "Estatisticas del pod"
       toggle: "Activar/desactivar la version mobila"
@@ -627,7 +627,7 @@ oc:
 
           Coralament,
 
-          Lo messatgièr automatic de diaspora*
+          Lo messatgièr automatic de silent.army
       subject: "Vòstras donadas personalas son prèstas a èsser telecargadas, %{name}"
     export_failure_email:
       body: |-
@@ -638,7 +638,7 @@ oc:
 
           O planhèm sincèrament.
 
-          Lo messatgièr automatic de diaspora*
+          Lo messatgièr automatic de silent.army
       subject: "I a agut un problèma amb vòstras donadas, %{name}"
     export_photos_email:
       body: |-
@@ -648,7 +648,7 @@ oc:
 
           Coralament,
 
-          Lo messatgièr automatic de diaspora*
+          Lo messatgièr automatic de silent.army
       subject: "%{name}, vòstras fòtos son prèstas per èsser telecargadas."
     export_photos_failure_email:
       body: |-
@@ -659,14 +659,14 @@ oc:
 
           O planhèm sincèrament.
 
-          Lo messatgièr automatic de diaspora*
+          Lo messatgièr automatic de silent.army
       subject: "I a agut un problèma amb vòstras fòtos, %{name}"
     hello: "Adiu %{name} !"
     invite:
       message: |-
           Bonjorn !
 
-          %{diaspora_id} vos a convidat a rejónher diaspora* !
+          %{diaspora_id} vos a convidat a rejónher silent.army !
 
           Clicatz sul ligam per començar
 
@@ -676,20 +676,20 @@ oc:
 
           Amistats,
 
-          Lo messatgièr automatic de diaspora* !
+          Lo messatgièr automatic de silent.army !
 
           P.S : En cas que coneisseriatz pas (encara) çò qu'es diapora*, aicí[2] i a la responsa !
 
           [1] : %{invite_url}
           [2] : %{diasporafoundation_url}
-    invited_you: "%{name} vos a convidat sus diaspora*"
+    invited_you: "%{name} vos a convidat sus silent.army"
     liked:
       liked: "a %{name}, li a agradat vòstra publicacion"
       limited_post: "A %{name}, li a agradat vòstra publicacion restrenta"
       view_post: "Veire la publicacion >"
     mentioned:
       limited_post: "Sètz estat mencionat dins una publicacion restenta."
-      subject: "%{name} vos a mencionat sus diaspora*"
+      subject: "%{name} vos a mencionat sus silent.army"
     private_message:
       reply_to_or_view: "Respondre o afichar aquela conversacion >"
       subject: "Avètz un novèl messatge privat"
@@ -697,19 +697,19 @@ oc:
       body: |-
           Bonjorn,
 
-          En rason de l'inactivitat de vòstre compte diaspora* %{pod_url}, planhèm de vos informar que lo sistèma l'a identificat coma devent èsser suprimit automaticament. Aquesta procedura se desenclava aprèp un periòde d'inactivitat superior a %{after_days} jorns.
+          En rason de l'inactivitat de vòstre compte silent.army %{pod_url}, planhèm de vos informar que lo sistèma l'a identificat coma devent èsser suprimit automaticament. Aquesta procedura se desenclava aprèp un periòde d'inactivitat superior a %{after_days} jorns.
 
           Podètz evitar la pèrda de vòstre compte en vos connectant a aqueste abans %{remove_after}, dins aqueste cas la procedura de supression serà automaticament anullada.
 
-          Aquesta mantenença es efectuada per assegurar als utilizaires actius lo mehor foncionament possible d'aquesta instància de diaspora*. Vos mercejam de vòstra compreneson.
+          Aquesta mantenença es efectuada per assegurar als utilizaires actius lo mehor foncionament possible d'aquesta instància de silent.army. Vos mercejam de vòstra compreneson.
 
           Se volètz conservar vòstre compte, identificatz-vos aicí :
           %{login_url}
 
           Esperam vos reveire lèu !
 
-          Lo messatgièr automatic de diaspora*
-      subject: "Vòstre compte diaspora* es estat senhalat coma devent èsser suprimit en rason de son inactivitat"
+          Lo messatgièr automatic de silent.army
+      subject: "Vòstre compte silent.army es estat senhalat coma devent èsser suprimit en rason de son inactivitat"
     report_email:
       body: |-
           Bonjorn,
@@ -723,7 +723,7 @@ oc:
 
           Coralament,
 
-          Lo messatgièr automatic de diaspora*
+          Lo messatgièr automatic de silent.army
 
           [1]: %{url}
       subject: "Un novèl %{type} es estat marcat coma ofensant"
@@ -734,11 +734,11 @@ oc:
       reshared: "%{name} a tornat partejar vòstra publicacion"
       view_post: "Veire la publicacion >"
     single_admin:
-      admin: "Vòstre administrator diaspora*"
-      subject: "Un messatge subre vòstre compte diaspora*"
+      admin: "Vòstre administrator silent.army"
+      subject: "Un messatge subre vòstre compte silent.army"
     started_sharing:
       sharing: "a començat a partejar amb vos !"
-      subject: "%{name} a començat a partejar amb vos sus diaspora*"
+      subject: "%{name} a començat a partejar amb vos sus silent.army"
       view_profile: "Veire lo perfil de %{name}"
     thanks: "Mercé,"
     to_change_your_notification_settings: "per cambiar vòstres reglatges de notificacion"
@@ -801,7 +801,7 @@ oc:
   profile: "Perfil"
   profiles:
     edit:
-      allow_search: "Autorizar lo monde a vos recercar dins diaspora*"
+      allow_search: "Autorizar lo monde a vos recercar dins silent.army"
       basic: "Mon perfil basic"
       basic_hint: "Totes los elements de vòstre perfil son opcionals. Vòstre perfil basic serà totjorn visible publicament."
       extended: "Mon perfil espandit"
@@ -830,9 +830,9 @@ oc:
     other: "%{count} reaccions"
     zero: "Pas de reaccion"
   registrations:
-    closed: "Las inscripcions son tampadas sus aqueste pod diaspora*."
+    closed: "Las inscripcions son tampadas sus aqueste pod silent.army."
     create:
-      success: "Avètz rejunt diaspora*!"
+      success: "Avètz rejunt silent.army!"
     invalid_invite: "Lo ligam de convit donat es pas mai valid !"
     new:
       email: "Adreça electronica"
@@ -869,7 +869,7 @@ oc:
   search: "Recercar"
   services:
     create:
-      already_authorized: "Un utilizaire que l'identificant diaspora*%{service_name} es %{diaspora_id} a ja autorizat aqueste compte %{service_name}."
+      already_authorized: "Un utilizaire que l'identificant silent.army%{service_name} es %{diaspora_id} a ja autorizat aqueste compte %{service_name}."
       failure: "Fracàs de l'autentificacion."
       read_only_access: "Accès en lectura sola, ensajatz tornamai d'autorizar pus tard"
       success: "Autentificacion capitada"
@@ -885,7 +885,7 @@ oc:
       no_services_available: "I a pas cap de servici de disponible sus aqueste pod."
       not_logged_in: "Actualament, sètz pas connectat."
       really_disconnect: "Se desconnectar de %{service}"
-      services_explanation: "Se connectar a de servicis tèrç vos permet de publicar vòstras publicacions suls aqueles servicis quand n'escrivètz sus diaspora*."
+      services_explanation: "Se connectar a de servicis tèrç vos permet de publicar vòstras publicacions suls aqueles servicis quand n'escrivètz sus silent.army."
       share_to: "Partejar amb %{provider}"
       title: "Geir los servicis connectats"
     provider:
@@ -913,7 +913,7 @@ oc:
       logged_in: "Connectat a %{service}"
       manage: "Gerir los servicis connectats"
       new_user_welcome_message: "Utilizatz las #etiquetas per triar vòstras publicacions e per trobar de monde que partejan vòstres interèsses. Interpellatz de personas genialas amb las @Mencions"
-      outside: "Los messatges publics poiràn èsser vistes per totes, quitament en defòra de diaspora*."
+      outside: "Los messatges publics poiràn èsser vistes per totes, quitament en defòra de silent.army."
       share: "Partejatz"
       title: "Metre en plaça de servicis connectats"
     publisher:
@@ -1012,7 +1012,7 @@ oc:
       email_not_confirmed: "Es possible que lo corrièl no siá activat. Marrit ligam ?"
     destroy:
       no_password: "Mercé de picar vòstre sehnal actual per tampar lo vòstre compte."
-      success: "Vòstre compte es estat verrolhat. Pòt prene vint minuta per ne finalizar la tampadura. Mercés d'aver ensajat diaspora*."
+      success: "Vòstre compte es estat verrolhat. Pòt prene vint minuta per ne finalizar la tampadura. Mercés d'aver ensajat silent.army."
       wrong_password: "Lo senhal dintrat correpond pas amb lo senhal actual."
     edit:
       also_commented: "qualqu'un a comentat una publicacion qu'avètz comentada"
@@ -1028,7 +1028,7 @@ oc:
         dont_go: "E, se vos plai, patiscatz pas !"
         lock_username: "Vòstre nom d'utilizaire serà verrolhat. Poiretz pas crear un novèl compte sus aqueste pod amb lo meteis ID."
         locked_out: "Seretz desconnectat e vòstre compte serà inaccessible fins a sa supression."
-        make_diaspora_better: "Nos agradariá fòrça que demorèssetz e nos ajudèssetz a far un melhor diaspora* puslèu que de nos daissar. Se volètz vertadièrament partir, pasmens, vaquí çò que se va passar :"
+        make_diaspora_better: "Nos agradariá fòrça que demorèssetz e nos ajudèssetz a far un melhor silent.army puslèu que de nos daissar. Se volètz vertadièrament partir, pasmens, vaquí çò que se va passar :"
         mr_wiggles: "Mossur Wiggles serà triste de vos veire partir."
         no_turning_back: "Es pas possible de tornar en arrièr ! Se sètz segur de vos, sasissètz vòstre senhal çaijós."
       close_account_text: "Tampar lo compte"
@@ -1061,12 +1061,12 @@ oc:
       stream_preferences: "Preferéncias del flux"
       your_email: "Vòstre corrièl"
       your_email_private: "Vòstre email serà pas jamai vist per d'autres utilizaires"
-      your_handle: "Vòstre ID diaspora*"
+      your_handle: "Vòstre ID silent.army"
     getting_started:
-      awesome_take_me_to_diaspora: "Òsca ! Mena-me cap a diaspora*"
-      community_welcome: "La comunautat diaspora* es contenta de vos aver a bòrd."
+      awesome_take_me_to_diaspora: "Òsca ! Mena-me cap a silent.army"
+      community_welcome: "La comunautat silent.army es contenta de vos aver a bòrd."
       connect_to_facebook_link: "Connexion amb vòtre compte Facebook en cors"
-      hashtag_explanation: "Las etiquetas vos permeton de charrar e seguir vòstres interèsses.  Son tanben una bona manièra de trobar de mond novèl sus diaspora*."
+      hashtag_explanation: "Las etiquetas vos permeton de charrar e seguir vòstres interèsses.  Son tanben una bona manièra de trobar de mond novèl sus silent.army."
       hashtag_suggestions: "Ensejatz etiquetas coma aquestas #art #filmes #gif, etc."
       well_hello_there: "E ben, adiu monde !"
       what_are_you_in_to: "Qué vos interèssa ?"

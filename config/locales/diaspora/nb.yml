@@ -173,13 +173,13 @@ nb:
       introduce_yourself: "Dette er strømmen din. Hopp inn og presenter deg selv."
       keep_pod_running: "Sørg for at %{pod} går kjapt ved å kjøpe kaffe-fiks til dem med en månedlig donasjon!"
       new_here:
-        follow: "Følg %{link} og ønsk nye brukere velkommen til diaspora*!"
+        follow: "Følg %{link} og ønsk nye brukere velkommen til silent.army!"
         learn_more: "Lær mer"
         title: "Ønsk nye brukere velkommen"
       services:
-        content: "Du kan koble følgende tjenester til diaspora*:"
+        content: "Du kan koble følgende tjenester til silent.army:"
         heading: "Koble til tjenester"
-      welcome_to_diaspora: "Velkommen til diaspora*, %{name}!"
+      welcome_to_diaspora: "Velkommen til silent.army, %{name}!"
     no_contacts_message:
       community_spotlight: "kreative medlemmer"
       or_spotlight: "Eller du kan dele med denne %{link}"
@@ -201,9 +201,9 @@ nb:
       failure: "Jeg klarte ikke å slutte å ignorere den brukeren. #evasion"
       success: "La oss se hva de har å si! #sihallo"
   bookmarklet:
-    explanation: "Publiser til diaspora* fra hvor som helst ved å bokmerke denne lenken => %{link}"
+    explanation: "Publiser til silent.army fra hvor som helst ved å bokmerke denne lenken => %{link}"
     heading: "Diaspora Bookmarklet"
-    post_something: "Publiser noe på diaspora*"
+    post_something: "Publiser noe på silent.army"
   cancel: "Avbryt"
   comments:
     new_comment:
@@ -270,7 +270,7 @@ nb:
       close_account_q: "Hvordan sletter jeg frøet (kontoen) min?"
       data_other_podmins_a: "Når du har begynt å dele med noen på en annen pod, vil poster du deler med dem og en kopi av dine profildata lagres (midlertidig «cache»-minne) på deres pod, og være tilgjengelig for den pod-ens databaseadministrator. Når du sletter en post eller profildata slettes det fra din pod og eventuelle andre pod-er hvor det tidligere hadde vært lagret."
       data_other_podmins_q: "Kan administratorene på andre pods se informasjonen min?"
-      data_visible_to_podmin_a: "Kommunikasjon «mellom» pod-er er alltid kryptert (med SSL og diaspora* sin egen transportkryptering), men lagringen av data på pod-er er ikke kryptert. Om de hadde villet, kunne databaseadministratoren for din pod (vanligvis personen som driver pod-en) gått inn på alle dine profildata og alt det du poster (slik tilfellet er for de fleste nettsteder som lagrer brukerdata). Å drive din egen pod gir mer privathet ettersom du da kontrollerer tilgangen til databasen."
+      data_visible_to_podmin_a: "Kommunikasjon «mellom» pod-er er alltid kryptert (med SSL og silent.army sin egen transportkryptering), men lagringen av data på pod-er er ikke kryptert. Om de hadde villet, kunne databaseadministratoren for din pod (vanligvis personen som driver pod-en) gått inn på alle dine profildata og alt det du poster (slik tilfellet er for de fleste nettsteder som lagrer brukerdata). Å drive din egen pod gir mer privathet ettersom du da kontrollerer tilgangen til databasen."
       data_visible_to_podmin_q: "Hvor mye av informasjonen min kan pod-administratoren min se?"
       download_data_a: "Ja. på bunnen av Profil-fanen i instillings-siden din er det to knapper for å laste ned dataen din."
       download_data_q: "Kan jeg laste ned en kopi av alle dataene jeg har i frøet (kontoen) min?"
@@ -297,26 +297,26 @@ nb:
       restrict_posts_i_see_a: "Ja, klikk på «Mine aspekter» i sidefeltet og deretter på individuelle innlegg i listen for å velge dem. Da vil du kun se innlegg fra personer i de valgte aspektene i strømmen din."
       restrict_posts_i_see_q: "Kan jeg begrense postene jeg ser til bare dem fra noen aspekter?"
       title: "Aspektene"
-      what_is_an_aspect_a: "Aspekter er måten du grupperer kontaktene dine på diaspora*. Et aspekt er en av ansiktene du viser til verden. Det kan være hvem du er på jobben, hvem du er for familien din, eller hvem du er for vennene dine i en klubb du er medlem av."
+      what_is_an_aspect_a: "Aspekter er måten du grupperer kontaktene dine på silent.army. Et aspekt er en av ansiktene du viser til verden. Det kan være hvem du er på jobben, hvem du er for familien din, eller hvem du er for vennene dine i en klubb du er medlem av."
       what_is_an_aspect_q: "Hva er en aspekt?"
       who_sees_post_a: "Hvis du lager et begrenset innlegg vil det bare være synlig for de du har lagt inn i aspektet (eller disse aspektene, hvis det gjøres synlig for flere aspekter). Kontakter du har som ikke er i aspektet har ingen mulighet for å se innlegget med mindre du publiserte det som offentlig. Personene du ikke har plassert i et aspekt vil bare kunne se dine offentlige innlegg."
       who_sees_post_q: "Hvem ser hva jeg publiserer til et aspekt?"
     chat:
       add_contact_roster_a: "Først må du slå på chat for noen av aspektene som den personen er med i. For å gjøre det, må du gå til %{contacts_page}, velge det aspektet og klikke på chatikonet for å slå på chat for dette aspektet. %{toggle_privilege} Du kan, hvis du foretrekker, lage et eget aspekt med navn \"Chat\" og legge til de du ønsker å chatte med i dette aspektet. Når du har gjort dette, åpner du chatgrensesnittet og velger personen du ønsker å chatte med."
-      add_contact_roster_q: "Hvordan chatter jeg med noen i diaspora*?"
+      add_contact_roster_q: "Hvordan chatter jeg med noen i silent.army?"
       contacts_page: "kontaktside"
       title: "Chat"
     faq: "FAQ"
     foundation_website: "diaspora-stiftelsens nettside"
     getting_help:
       get_support_a_faq: "Les vår %{faq} på wiki"
-      get_support_a_hashtag: "spør i en offentlig post på diaspora* med %{question}-hashtaggen"
+      get_support_a_hashtag: "spør i en offentlig post på silent.army med %{question}-hashtaggen"
       get_support_a_irc: "bli med oss på %{irc} (live-chat)"
       get_support_a_tutorials: "sjekk våre %{tutorials}"
       get_support_a_website: "besøk vår %{link}"
       get_support_a_wiki: "søk på %{link}"
       get_support_q: "Hva hvis spørsmålet mitt ikke er besvart i denne FAQ'en? Hvor kan jeg ellers få support."
-      getting_started_a: "Nå var du heldig. Prøv %{tutorial_series} på nettstedet for prosjektet vårt. Det vil ta deg gjennom registreringsprosessen steg for steg og vise deg alle de grunnleggende tingene du trenger å vite om hvordan man bruker diaspora*."
+      getting_started_a: "Nå var du heldig. Prøv %{tutorial_series} på nettstedet for prosjektet vårt. Det vil ta deg gjennom registreringsprosessen steg for steg og vise deg alle de grunnleggende tingene du trenger å vite om hvordan man bruker silent.army."
       getting_started_q: "Hjelp! Jeg trenger hjelp med å komme i gang!"
       title: "Få hjelp"
     getting_started_tutorial: "'Komme i gang' veiledninger"
@@ -348,27 +348,27 @@ nb:
     miscellaneous:
       back_to_top_a: "Ja. Etter å ha bladd deg nedover på en side, klikk på den grå pilen som dukker opp i hjørnet nede til høyre i vinduet på nettleseren din."
       back_to_top_q: "Fins der en rask måte å gå tilbake til toppen av siden etter at jeg har bladd meg nedover?"
-      diaspora_app_a: "Der er mange Android-apper i sine veldig tidlige utviklingsforløp. Mange er prosjekter som har vært forlatt for lenge siden, og som derfor ikke fungerer godt med dagens versjon av diaspora*. Ikke forvent mye av disse appene for øyeblikket. Den beste måten å få tilgang til diaspora* via et mobilt apparat er for tiden ved å gå via en nettleser, for vi har designet en mobilversjon av nettstedet, som skulle fungere godt på alle apparater. Der fins for tiden ingen app for iOS. Igjen, diaspora* skulle fungere godt via din nettleser."
-      diaspora_app_q: "Finnes en diaspora* app for Android eller iOS?"
+      diaspora_app_a: "Der er mange Android-apper i sine veldig tidlige utviklingsforløp. Mange er prosjekter som har vært forlatt for lenge siden, og som derfor ikke fungerer godt med dagens versjon av silent.army. Ikke forvent mye av disse appene for øyeblikket. Den beste måten å få tilgang til silent.army via et mobilt apparat er for tiden ved å gå via en nettleser, for vi har designet en mobilversjon av nettstedet, som skulle fungere godt på alle apparater. Der fins for tiden ingen app for iOS. Igjen, silent.army skulle fungere godt via din nettleser."
+      diaspora_app_q: "Finnes en silent.army app for Android eller iOS?"
       photo_albums_a: "Nei, ikke for tiden. Derimot kan du se en persons opplastete bilder under Bilder-seksjonen på profilsiden deres."
       photo_albums_q: "Finnes det foto- eller videoalbumer?"
-      subscribe_feed_a: "Ja, men dette er fremdeles ikke en helt finpusset funksjon, og formateringen av resultatet er fremdeles temmelig røff. Hvis du likevel ønsker å prøve den, gå til noen profilside og klikk på feed-knappen i din nettleser, eller du kan kopiere profilens URL (dvs. https://joindiaspora.com/people/somenumber), og lime inn i en feed-leser. Den resulterende feed-adressen ser sånn ut: https://joindiaspora.com/public/username.atom diaspora* bruker Atom fremfor RSS."
+      subscribe_feed_a: "Ja, men dette er fremdeles ikke en helt finpusset funksjon, og formateringen av resultatet er fremdeles temmelig røff. Hvis du likevel ønsker å prøve den, gå til noen profilside og klikk på feed-knappen i din nettleser, eller du kan kopiere profilens URL (dvs. https://joindiaspora.com/people/somenumber), og lime inn i en feed-leser. Den resulterende feed-adressen ser sånn ut: https://joindiaspora.com/public/username.atom silent.army bruker Atom fremfor RSS."
       subscribe_feed_q: "Kan jeg abonnere på noens offentlige innlegg med en feed-leser?"
       title: "Diverse"
     pods:
       find_people_a: "Inviter dine venner ved å bruke epostlinken i sidebar-en. Følg #tag-er for å oppdage andre som deler dien interesser, og legg de som poster ting som interesser deg til i et aspekt. Rop ut at du er #nyher i en offentlig post."
       find_people_q: "Jeg ble med en pod, hvordan kan jeg finne noen å dele med?"
       title: "Podden"
-      use_search_box_a: "Hvis du kjenner deres fulle diaspora* ID (f.eks. brukernavn@podnavn.org), kan du finne dem ved å søke etter den. Hvis du er på samme pod kan du søke etter bare brukernavnet deres. Et alternativ er å søke etter dem på deres profilnavn (navnet du ser på skjermen). Hvis et søk ikke virker første gangen, prøv det igjen."
+      use_search_box_a: "Hvis du kjenner deres fulle silent.army ID (f.eks. brukernavn@podnavn.org), kan du finne dem ved å søke etter den. Hvis du er på samme pod kan du søke etter bare brukernavnet deres. Et alternativ er å søke etter dem på deres profilnavn (navnet du ser på skjermen). Hvis et søk ikke virker første gangen, prøv det igjen."
       use_search_box_q: "Hvordan bruker jeg søkeboksen for å finne bestemte personer?"
-      what_is_a_pod_a: "En pod er en server som kjører diaspora*-programvaren og som er tilknyttet diaspora*-nettverket. «Pod» er et metafor som på engelsk refererer til en del av planter, som inneholder frø, på den måten at en server inneholder et antall brukerkontoer. Der er mange forskjellige pod-er. Du kan legge til venner fra andre pod-er, og kommunisere med dem. (Du kan tenke på en diaspora*-pod som noe lignende en eposttilbyder: der fins offentlige pod-er, private pod-er, og med litt anstrengelse kan du til og med drive din egen)."
+      what_is_a_pod_a: "En pod er en server som kjører silent.army-programvaren og som er tilknyttet silent.army-nettverket. «Pod» er et metafor som på engelsk refererer til en del av planter, som inneholder frø, på den måten at en server inneholder et antall brukerkontoer. Der er mange forskjellige pod-er. Du kan legge til venner fra andre pod-er, og kommunisere med dem. (Du kan tenke på en silent.army-pod som noe lignende en eposttilbyder: der fins offentlige pod-er, private pod-er, og med litt anstrengelse kan du til og med drive din egen)."
       what_is_a_pod_q: "Hva er en podd?"
     posts_and_posting:
       char_limit_services_a: "I det tilfellet er posten din begrenset til det laveste antallet tegn (140 når det gjelder Twitter, 1000 når det gjelder Tumblr), og antallet tegn du har igjen å bruke vises når den aktuelle tjenestens ikon markeres. Du kan fremdeles poste til disse tjenestene selv om posten din er lenger enn deres grense, men teksten blir avkortet på de tjenestene."
       char_limit_services_q: "Hva er tegngrensen for poster delt gjennom en tilkoblet tjeneste med et lavere tegnantall?"
       character_limit_a: "65 535 tegnene. Det er 65 395 flere tegn enn du får på Twitter! ;)"
       character_limit_q: "Hva er grensen for antall tegn for innlegg?"
-      embed_multimedia_a: "Du kan vanligvis rett og slett lime inn URL-en (f.eks. http://www.youtube.com/watch?v=nnnnnnnnnnn ) i posten din, og videoen eller lyden vil da bli bygget inn automatisk. Noen av nettstedene som støttes er: YouTube, Vimeo, SoundCloud, Flickr og noen flere. diaspora* bruker oEmbed til denne funksjonen. Støtte for nye nettsteder legges til hele tiden. Husk å alltid poste enkle, hele linker: ingen forkortete linker; ingen operatører etter den grunnleggende URL-en; og gi det litt tid før du laster inn siden på nytt etter postingen for å se forhåndsvisningen."
+      embed_multimedia_a: "Du kan vanligvis rett og slett lime inn URL-en (f.eks. http://www.youtube.com/watch?v=nnnnnnnnnnn ) i posten din, og videoen eller lyden vil da bli bygget inn automatisk. Noen av nettstedene som støttes er: YouTube, Vimeo, SoundCloud, Flickr og noen flere. silent.army bruker oEmbed til denne funksjonen. Støtte for nye nettsteder legges til hele tiden. Husk å alltid poste enkle, hele linker: ingen forkortete linker; ingen operatører etter den grunnleggende URL-en; og gi det litt tid før du laster inn siden på nytt etter postingen for å se forhåndsvisningen."
       embed_multimedia_q: "Hvordan kan jeg legge inn en video, lyd eller annet multimedieinnhold i et innlegg?"
       format_text_a: "Ved å bruke et enkelt system som kalles %{markdown}. Du kan finne hele syntaksen for Markdown %{here}. Knappen for forhåndsvisning er veldig nyttig her, siden du får se hvordan meldingen kommer til å se ut før du deler den."
       format_text_q: "Hvordan kan jeg formatere teksten i mine innlegg (fet, kursiv, etc.)?"
@@ -398,14 +398,14 @@ nb:
       stream_full_of_posts_q: "Hvorfor er strømmen min full av innlegg fra folk jeg ikke kjenner og ikke deler med?"
       title: "Innlegg og lagring"
     private_posts:
-      can_comment_a: "Kun innloggete diaspora*-brukere du har plassert i det aspektet kan kommentere på eller like dine private poster."
+      can_comment_a: "Kun innloggete silent.army-brukere du har plassert i det aspektet kan kommentere på eller like dine private poster."
       can_comment_q: "Hvem kan kommentere på eller liker min private innlegg?"
       can_reshare_a: "Ingen. Private poster kan ikke videredeles. Innloggete disapora*-brukere i det aspektet kan potensielt kopiere og lime det det inn, imidlertid."
       can_reshare_q: "Hvem kan videredele min private innlegg?"
       see_comment_a: "Kun folkene som den posten ble delt med (folkene som er i det aspektet den opprinnelige posteren valgte) kan se dens kommentarer og likere. "
       see_comment_q: "Når jeg kommentere eller liker en privat innlegg, som kan se det?"
       title: "Private innlegg"
-      who_sees_post_a: "Kun innloggede diaspora* brukere du har plassert i det aspektet kan se din private innlegg."
+      who_sees_post_a: "Kun innloggede silent.army brukere du har plassert i det aspektet kan se din private innlegg."
       who_sees_post_q: "Når jeg poster en melding til et aspekt (dvs. en privat post), hvem kan se den?"
     private_profiles:
       title: "Private profiler"
@@ -416,13 +416,13 @@ nb:
       who_sees_updates_a: "Noen i aspektene ser endringer på din private profil. "
       who_sees_updates_q: "Hvem ser oppdateringer til private profilen min?"
     public_posts:
-      can_comment_reshare_like_a: "Enhver innloggede diaspora* bruker kan kommentere, videredele, eller liker din offentlige innlegg."
+      can_comment_reshare_like_a: "Enhver innloggede silent.army bruker kan kommentere, videredele, eller liker din offentlige innlegg."
       can_comment_reshare_like_q: "Hvem kan kommentere, videredele, eller liker min offentlige innlegg?"
       deselect_aspect_posting_a: "Å fjerne aspekter fra et offentlig innlegg har ingen effekt. Det vil fremdeles dukke opp i strømmene til alle kontaktene dine. Hvis et innlegg kun skal være synlig for noen aspekter, må du velge disse aspektene fra knappen i publiseringsfeltet."
       deselect_aspect_posting_q: "Hva skjer når jeg fjerner markeringen ett eller flere aspekter når jeg gjør en offentlig innlegg?"
       find_public_post_a: "Dine offentlige innlegg vil dukke opp i strømmene til de som følger deg. Hvis du inkluderer #tagger i offentlige innlegg, vil alle som følger disse taggene se innleggene dine i strømmene sine. Hvert offentlige innlegg har også en spesifikk URL som hvem som helst kan se, til og med om de ikke er logget inn. Dermed kan offentlige innlegg lenkes til direkte fra Twitter, blogger og så videre. Offentlige innlegg kan også indekseres av søkemotorer."
       find_public_post_q: "Hvordan kan andre mennesker finne offentlige innlegg min?"
-      see_comment_reshare_like_a: "En hvilken som helst innlogget diaspora*-bruker og hvem som helst på internett. Kommentarer, likere, og videredelinger av offentlige poster er også offentlige."
+      see_comment_reshare_like_a: "En hvilken som helst innlogget silent.army-bruker og hvem som helst på internett. Kommentarer, likere, og videredelinger av offentlige poster er også offentlige."
       see_comment_reshare_like_q: "Når jeg kommentere, videredele, eller liker en offentlig innlegg, som kan se det?"
       title: "Offentlige innlegg"
       who_sees_post_a: "Enhver som bruker internett kan potensielt se en post du merker som offentlig, så vær sikker på at du virkelig ønsker å gjøre posten din offentlig. Det er en kjempefin måte å nå ut til verden på."
@@ -433,7 +433,7 @@ nb:
       what_do_tags_do_q: "Hva gjør taggene på offentlige profilen min?"
       whats_in_profile_a: "Navnet ditt, de fem tag-ene du valgte for å beskrive deg selv, og bildet ditt. Det er de greiene i øverste seksjon i siden for profilredigering. Du kan gjøre denne profilinformasjonen så identifiserbar eller anonym som du vil. Profilsiden din viser også eventuelle offentlige poster som du har laget."
       whats_in_profile_q: "Hva er i offentlige profilen min"
-      who_sees_profile_a: "Enhver innlogget diaspora*-bruker, og også resten av internett, kan se den. Hver profil har en direkte URL, så den kan linkes til direkte fra andre nettsteder. Den kan indekseres av søkemotorer."
+      who_sees_profile_a: "Enhver innlogget silent.army-bruker, og også resten av internett, kan se den. Hver profil har en direkte URL, så den kan linkes til direkte fra andre nettsteder. Den kan indekseres av søkemotorer."
       who_sees_profile_q: "Hvem ser offentlige profilen min?"
       who_sees_updates_a: "Alle kan se endringer hvis de besøker profilen din."
       who_sees_updates_q: "Hvem ser oppdateringer til offentlige profilen min?"
@@ -465,7 +465,7 @@ nb:
       sharing_notification_q: "Hvordan vet jeg når noen har begynt å dele med meg"
       title: "Deler"
     tags:
-      filter_tags_a: "Dette er så langt ikke ikke tilgjengelig gjennom diaspora* direkte, men noen %{third_party_tools} har blitt skrevet som kunne levere dette."
+      filter_tags_a: "Dette er så langt ikke ikke tilgjengelig gjennom silent.army direkte, men noen %{third_party_tools} har blitt skrevet som kunne levere dette."
       filter_tags_q: "Hvordan kan jeg filtrere/ekskludere noen tagger fra strømmen min?"
       followed_tags_a: "Etter å ha søkt opp en tagg, kan du klikke på knappen øverst i taggens side for å «følge» taggen. Da vil den vises i listen din over fulgte tagger til venstre. Klikker du på en av dine fulgte tagger, kommer du til taggens side slik at du kan se nylige innlegg som inneholder taggen. Klikker du på #Fulgte tagger, får du en strøm av innlegg som inkluderer noen av dine taggene du følger."
       followed_tags_q: "Hva er «#Følges Tags» og hvordan kan jeg følge en kode?"
@@ -499,7 +499,7 @@ nb:
         other: "%{count} invitasjoner er igjen med denne koden"
         zero: "Ingen flere invitasjoner kan gjøres med denne koden"
       comma_separated_plz: "Du kan skrive inn flere e-postadresser adskilt med komma."
-      invite_someone_to_join: "Inviter noen til diaspora*!"
+      invite_someone_to_join: "Inviter noen til silent.army!"
       language: "Språk"
       paste_link: "Del denne lenken med vennene dine for å invitere dem til Diaspora* eller send e-post til dem med lenken direkte."
       send_an_invitation: "Send en invitasjon"
@@ -508,7 +508,7 @@ nb:
     application:
       back_to_top: "Til toppen"
       powered_by: "DREVET AV DIASPORA*"
-      public_feed: "Offentlig diaspora*-feed for %{name}"
+      public_feed: "Offentlig silent.army-feed for %{name}"
       source_package: "Last ned kildekodepakken"
       statistics_link: "Statistikk for poden"
       toggle: "vis mobilsiden"
@@ -610,9 +610,9 @@ nb:
       other: "%{actors} har begynt å dele med deg."
       zero: "%{actors} har begynt å dele med deg."
   notifier:
-    a_limited_post_comment: "Det finnes en ny kommentar på et begrenset innlegg i diaspora* som du kan ta en kikk på."
+    a_limited_post_comment: "Det finnes en ny kommentar på et begrenset innlegg i silent.army som du kan ta en kikk på."
     a_post_you_shared: "en post"
-    a_private_message: "Det er en ny privat samtale i diaspora* du kan ta en kikk på."
+    a_private_message: "Det er en ny privat samtale i silent.army du kan ta en kikk på."
     also_commented:
       limited_subject: "Det finnes en ny kommentar på et innlegg du kommenterte på"
     click_here: "klikk her"
@@ -631,7 +631,7 @@ nb:
 
           Hilsen,
 
-          diaspora*-epostroboten
+          silent.army-epostroboten
       subject: "Din personlige data er klar for nedlasting, %{name}"
     export_failure_email:
       body: |-
@@ -684,25 +684,25 @@ nb:
           Diaspora*s mail-robot!
 
           [1]: %{invite_url}
-    invited_you: "%{name} har invitert deg til diaspora*"
+    invited_you: "%{name} har invitert deg til silent.army"
     liked:
       liked: "%{name} has just liked your post: "
       limited_post: "%{name} likte ditt begrensede innlegg"
       view_post: "Se innlegg >"
     mentioned:
       limited_post: "Du ble nevnt i et begrenset innlegg."
-      subject: "%{name} har nevnt deg på diaspora*"
+      subject: "%{name} har nevnt deg på silent.army"
     private_message:
       reply_to_or_view: "Svar eller se på denne samtalen >"
     remove_old_user:
       body: |-
           Hei!
 
-          Siden du ikke har brukt diaspora*-kontoen din på %{pod_url} på %{after_days} dager, kan det se ut som om du ikke ønsker å ha den lenger. For å sikre at våre aktive brukere får best mulig ytelse fra denne diaspora*-poden, vil vi helst fjerne uønskede kontoer fra databasen vår.
+          Siden du ikke har brukt silent.army-kontoen din på %{pod_url} på %{after_days} dager, kan det se ut som om du ikke ønsker å ha den lenger. For å sikre at våre aktive brukere får best mulig ytelse fra denne silent.army-poden, vil vi helst fjerne uønskede kontoer fra databasen vår.
 
-          Vi ville satt veldig pris på om du ikke forlot diaspora*-felleskapet vårt, og du må gjerne beholde kontoen hvis du ønsker det.
+          Vi ville satt veldig pris på om du ikke forlot silent.army-felleskapet vårt, og du må gjerne beholde kontoen hvis du ønsker det.
 
-          Ønsker du å beholde kontoen, behøver du kun å logge deg inn på kontoen før %{remove_after}. Bruk gjerne muligheten til å kikke deg omkring på diaspora* når du logger deg inn. Det har endret seg ganske mye siden du var logget på sist, og vi tror du vil like forbedringen vi har gjort. Følg noen #tagger for å finne interessant innhold.
+          Ønsker du å beholde kontoen, behøver du kun å logge deg inn på kontoen før %{remove_after}. Bruk gjerne muligheten til å kikke deg omkring på silent.army når du logger deg inn. Det har endret seg ganske mye siden du var logget på sist, og vi tror du vil like forbedringen vi har gjort. Følg noen #tagger for å finne interessant innhold.
 
           Logg inn her: %{login_url}. Hvis du har glemt brukernavnet eller passordet, kan du be om en påminnelse på den siden.
 
@@ -710,7 +710,7 @@ nb:
 
           Med vennlig hilsen,
           Diasporas epostrobot
-      subject: "Din diaspora*-konto er satt til å bli slettet på grunn av inaktivitet"
+      subject: "Din silent.army-konto er satt til å bli slettet på grunn av inaktivitet"
     report_email:
       body: |-
           Hei,
@@ -734,11 +734,11 @@ nb:
       reshared: "%{name} just reshared your post"
       view_post: "Se innlegg >"
     single_admin:
-      admin: "Din diaspora* administrator"
-      subject: "En melding om din diaspora* konto:"
+      admin: "Din silent.army administrator"
+      subject: "En melding om din silent.army konto:"
     started_sharing:
       sharing: "har begynt å dele med deg!"
-      subject: "%{name} har startet å dele med deg på diaspora*"
+      subject: "%{name} har startet å dele med deg på silent.army"
       view_profile: "Se profilen til %{name}"
     thanks: "Takk,"
     to_change_your_notification_settings: "for å endre innstilliger for varsler"
@@ -753,7 +753,7 @@ nb:
       no_one_found: "... og ingen ble funnet."
       no_results: "Hei! Du må søke etter noe."
       results_for: "Brukere tagget med %{search_term}"
-      search_handle: "Benytt diaspora* ID (brukernavn@pod.tid) for å finne dine venner."
+      search_handle: "Benytt silent.army ID (brukernavn@pod.tid) for å finne dine venner."
       searching: "Søker. Vennligst vent ..."
       send_invite: "Finner fremdeles ikke de du søker? Send en invitasjon!"
     person:
@@ -796,11 +796,11 @@ nb:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Tillat folk å søke på deg i diaspora*"
+      allow_search: "Tillat folk å søke på deg i silent.army"
       first_name: "Fornavn"
       last_name: "Etternavn"
       nsfw_check: "Marker alt jeg deler som NSFW"
-      nsfw_explanation: "NSFW («not safe for work») er diaspora* sin selvregulerende felleskapsstandard for innhold som muligens ikke er passende å se på når man er for eksempel er på jobb. Hvis du tenker å dele slikt materiale jevnlig, vennligst huk av for dette alternativet, slik at alt du deler vil være skjult fra folks strømmer med mindre de velger å se det."
+      nsfw_explanation: "NSFW («not safe for work») er silent.army sin selvregulerende felleskapsstandard for innhold som muligens ikke er passende å se på når man er for eksempel er på jobb. Hvis du tenker å dele slikt materiale jevnlig, vennligst huk av for dette alternativet, slik at alt du deler vil være skjult fra folks strømmer med mindre de velger å se det."
       nsfw_explanation2: "Hvis du ikke velger denne opsjonen, vennligst legg til #nsfw tag for hver gang du deler slikt materiale"
       update_profile: "Oppdater profil"
       your_bio: "Om meg"
@@ -823,9 +823,9 @@ nb:
     two: "%{count} reaksjoner"
     zero: "0 reaksjoner"
   registrations:
-    closed: "Registreringer er stengt på denne diaspora*-serveren."
+    closed: "Registreringer er stengt på denne silent.army-serveren."
     create:
-      success: "Du er nå med i diaspora*!"
+      success: "Du er nå med i silent.army!"
     invalid_invite: "Invitasjonslenken som du brukte er ikke gyldig lenger!"
     new:
       email: "E-POST"
@@ -878,7 +878,7 @@ nb:
       no_services_available: "Det  finnes ingen tjenester tilgjengelig på denne poden."
       not_logged_in: "Ikke logget inn for øyeblikket."
       really_disconnect: "koble fra %{service}?"
-      services_explanation: "Ved å koble til andre sosiale tjenester, får du muligheten å publisere til disse tjenestene idet du poster til diaspora*."
+      services_explanation: "Ved å koble til andre sosiale tjenester, får du muligheten å publisere til disse tjenestene idet du poster til silent.army."
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
@@ -904,7 +904,7 @@ nb:
       logged_in: "innlogget på %{service}"
       manage: "Behandle tilkoblede tjenester"
       new_user_welcome_message: "Bruk #hashtags for å sette merkelapp på innleggene dine og finne folk som deler samme interessefelt. Rop ut til bra folk med @Mentions"
-      outside: "Offentlige meldinger vil være synlige for personer utenfor diaspora*."
+      outside: "Offentlige meldinger vil være synlige for personer utenfor silent.army."
       share: "Del"
       title: "Du er i ferd med å poste et offentlig innlegg!"
       visibility_dropdown: "Bruk denne menyen for å endre publikum for ditt innlegg. (Vi foreslår at du gjør dette første innlegget offentlig.)\n"
@@ -1004,7 +1004,7 @@ nb:
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy:
       no_password: "Skriv inn ditt nåværende passord for å stenge din konto."
-      success: "Kontoen din har blitt stengt. Det kan ta oss opp til 20 minutter for å gjøre ferdig stengningen av din konto. Takk for at du prøvde diaspora*."
+      success: "Kontoen din har blitt stengt. Det kan ta oss opp til 20 minutter for å gjøre ferdig stengningen av din konto. Takk for at du prøvde silent.army."
       wrong_password: "Passordet du skrev inn er ikke lik ditt nåværende passord."
     edit:
       also_commented: "noen andre har kommentert et innlegg du kommenterte på"
@@ -1022,7 +1022,7 @@ nb:
         make_diaspora_better: "Vi ønsker at du hjelper oss å gjøre Diaspora bedre, så det hadde vært fint om du hjalp oss i stedet for å forlate oss. Hvis du allikevel ønsker å forsvinne så vil vi gjerne at du skal få vite hva som skjer videre."
         mr_wiggles: "Mr Wiggles blir lei seg om du forlater oss nå"
         no_turning_back: "På dette tidspunktet er det ingen vei tilbake."
-        what_we_delete: "Vi kommer til å slette dine tidligere innlegg og profildata så snart som mulig. Dine kommentarer vil fortsatt stå, men vil bli assosiert med din diaspora* ID istedet for ditt navn."
+        what_we_delete: "Vi kommer til å slette dine tidligere innlegg og profildata så snart som mulig. Dine kommentarer vil fortsatt stå, men vil bli assosiert med din silent.army ID istedet for ditt navn."
       close_account_text: "Avslutt konto"
       comment_on_post: "noen kommenterer på innlegget ditt"
       current_password: "Nåverende passord"
@@ -1053,13 +1053,13 @@ nb:
       stream_preferences: "Innstillinger for strømmen"
       your_email: "Din epost"
       your_email_private: "Din e-postadresse vil aldri bli sett av andre brukere"
-      your_handle: "Ditt diaspora*-brukernavn"
+      your_handle: "Ditt silent.army-brukernavn"
     getting_started:
       awesome_take_me_to_diaspora: "Supert! Ta meg til Diaspora*"
-      community_welcome: "diaspora* felleskapet er glad for å ha deg med på laget!"
-      connect_to_facebook: "Vi kan gjøre dette litt kjappere ved hjelp av %{link} til diaspora*. Dette vil trekke ut ditt navn og foto og tillate krysslagring/oppdatering av innhold."
+      community_welcome: "silent.army felleskapet er glad for å ha deg med på laget!"
+      connect_to_facebook: "Vi kan gjøre dette litt kjappere ved hjelp av %{link} til silent.army. Dette vil trekke ut ditt navn og foto og tillate krysslagring/oppdatering av innhold."
       connect_to_facebook_link: "kobler opp til din Facebook konto"
-      hashtag_explanation: "Hastags lar deg beskrive og følge dine interesser. De er også en fin måte å finne nye folk i diaspora*."
+      hashtag_explanation: "Hastags lar deg beskrive og følge dine interesser. De er også en fin måte å finne nye folk i silent.army."
       hashtag_suggestions: "Prøv å følge tags som #art, #movies, #gif, osv."
       well_hello_there: "Vel, hallo der!"
       what_are_you_in_to: "Hva er dine interesser?"

@@ -1,9 +1,9 @@
 - content_for :page_title do
   = t(".conversations_inbox")
 
-.container-fluid#conversations-container
+.container-fluid.conversations-container
   .row
-    .col-md-4
+    .col-md-3
       .sidebar#left_pane
         .sidebar-header.clearfix#left_pane_header
           .pull-right
@@ -21,7 +21,7 @@
             .pagination-container
               = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;", inner_window: 1,
                   renderer: WillPaginate::ActionView::BootstrapLinkRenderer
-    .col-md-8
+    .col-md-9
       .conversations-form-container.stream_container
         #conversation-show{class: @conversation ? "" : "hidden"}
           - if @conversation

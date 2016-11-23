@@ -32,7 +32,7 @@ pt-PT:
       inviter:
         accept_at: "em %{url}, pode aceitá-lo através da hiperligação abaixo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} convidaram-no para se juntar ao diaspora*"
+        have_invited_you: "%{names} convidaram-no para se juntar ao silent.army"
       reset_password_instructions:
         change: "Alterar a minha palavra-passe"
         ignore: "Se não fez este pedido, por favor ignore este email."

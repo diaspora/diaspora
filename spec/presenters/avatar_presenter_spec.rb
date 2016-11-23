@@ -1,22 +1,30 @@
 require "spec_helper"
 
 describe AvatarPresenter do
+  let(:presenter) { AvatarPresenter.new(profile) }
+
   describe "#base_hash" do
-    it "calls image_url() for the avatars" do
-      @profile = FactoryGirl.create(:profile_with_image_url, person: alice.person)
-      @presenter = AvatarPresenter.new(@profile)
-      expect(@profile).to receive(:image_url).exactly(3).times
-      expect(@presenter.base_hash).to be_present
+    subject { presenter.base_hash }
+
+    context "a profile with an avatar" do
+      let(:profile) { FactoryGirl.build(:profile_with_image_url, person: alice.person) }
+
+      it "calls image_url() for the avatars" do
+        expect(profile).to receive(:image_url).exactly(3).times
+        expect(subject).to be_present
+      end
     end
 
-    it "returns the default images if no images set" do
-      @profile = FactoryGirl.create(:profile, person: alice.person)
-      @presenter = AvatarPresenter.new(@profile)
-      expect(@presenter.base_hash).to eq(
-        small:  "/assets/user/default.png",
-        medium: "/assets/user/default.png",
-        large:  "/assets/user/default.png"
-      )
+    context "a default profile" do
+      let(:profile) { FactoryGirl.build(:profile, person: alice.person) }
+
+      it "returns the default images" do
+        expect(subject).to eq(
+          small:  "/assets/user/default.png",
+          medium: "/assets/user/default.png",
+          large:  "/assets/user/default.png"
+        )
+      end
     end
   end
 end

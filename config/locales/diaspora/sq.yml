@@ -107,7 +107,7 @@ sq:
       pod_network: "Rrjet nyjeje"
     dashboard:
       pod_status: "Gjendje nyjeje"
-      fetching_diaspora_version: "Po përcaktohet versioni më i ri i diaspora*-s…"
+      fetching_diaspora_version: "Po përcaktohet versioni më i ri i silent.army-s…"
     user_search:
       you_currently:
         zero: "S’keni më ftesa %{link}"
@@ -134,7 +134,7 @@ sq:
       id: "ID"
       guid: "GUID"
       email: "Email"
-      diaspora_handle: "diaspora* handle"
+      diaspora_handle: "silent.army handle"
       last_seen: "Parë së fundi më"
       account_closed: "Llogari e mbyllur"
       nsfw: "#nsfw"
@@ -237,25 +237,25 @@ sq:
     index:
       donate: "Dhuroni"
       keep_pod_running: "Mbajeni të shpejtë xhirimin e %{pod}-it dhe u blini shërbyesve kafenë e ditës, përmes një dhurimi të përmuajshëm!"
-      keep_diaspora_running: "Ruani shpejtësinë e zhvillimit të diaspora*-s, përmes një dhurimi të përmuajshëm!"
+      keep_diaspora_running: "Ruani shpejtësinë e zhvillimit të silent.army-s, përmes një dhurimi të përmuajshëm!"
       no_tags: "+ Gjeni një etiketë për ndjekje"
       unfollow_tag: "Resht së ndjekuri #%{tag}"
-      handle_explanation: "Kjo është ID-ja juaj te diaspora*. Pak a shumë si një adresë email, mund t’ua jepni njerëzve që të lidhen me ju."
+      handle_explanation: "Kjo është ID-ja juaj te silent.army. Pak a shumë si një adresë email, mund t’ua jepni njerëzve që të lidhen me ju."
       no_contacts: "Pa kontakte"
       post_a_message: "Postoni një mesazh >>"
       people_sharing_with_you: "Persona që ndajnë gjëra me ju"
 
-      welcome_to_diaspora: "Mirë se vini te diaspora*, %{name}!"
+      welcome_to_diaspora: "Mirë se vini te silent.army, %{name}!"
       introduce_yourself: "Kjo është rrjedha juaj. Fillojani duke prezantuar vetveten."
 
       new_here:
         title: "Mirë se vini, përdorues i ri"
-        follow: "Ndiqni %{link} dhe përshëndetni mirëseardhjen e përdoruesve të rinj te diaspora*!"
+        follow: "Ndiqni %{link} dhe përshëndetni mirëseardhjen e përdoruesve të rinj te silent.army!"
         learn_more: "Mësoni më tepër"
 
       help:
         need_help: "Ju duhet ndihmë?"
-        here_to_help: "Bashkësia diaspora* këtu është!"
+        here_to_help: "Bashkësia silent.army këtu është!"
         do_you: "Mos vallë:"
         have_a_question: "… keni një %{link}?"
         tag_question: "pyetje"
@@ -271,12 +271,12 @@ sq:
         contact_podmin: "Lidhuni me përgjegjësin e nyjës tuaj!"
         mail_podmin: "Email përgjegjësi"
       diaspora_id:
-        heading: "ID diaspora*"
-        content_1: "ID-ja juaj në diaspora* është:"
-        content_2: "Jepjani kujtdo dhe kështu do të jenë në gjendje t’ju gjejnë në diaspora*."
+        heading: "ID silent.army"
+        content_1: "ID-ja juaj në silent.army është:"
+        content_2: "Jepjani kujtdo dhe kështu do të jenë në gjendje t’ju gjejnë në silent.army."
       services:
         heading: "Shërbime lidhjesh"
-        content: "Te diaspora* mund të lidheni me shërbimet vijuese:"
+        content: "Te silent.army mund të lidheni me shërbimet vijuese:"
 
     aspect_stream:
       stay_updated: "Jini përherë i përditësuar"
@@ -292,8 +292,8 @@ sq:
   bookmarklet:
     heading: "Aplikacionth Faqerojtës"
     post_success: "U postua! Po mbyllet!"
-    post_something: "Postoni diçka te diaspora*"
-    explanation: "Postoni te diaspora* prej kudo qofshi, duke faqeruajtur %{link}."
+    post_something: "Postoni diçka te silent.army"
+    explanation: "Postoni te silent.army prej kudo qofshi, duke faqeruajtur %{link}."
 
   comments:
     zero: "Pa komente"
@@ -389,20 +389,20 @@ sq:
     faq: "FAQ"
     markdown: "Markdown"
     here: "këtu"
-    foundation_website: "sajti i diaspora* foundation"
+    foundation_website: "sajti i silent.army foundation"
     third_party_tools: "Mjete palësh të treta"
     getting_started_tutorial: "Seria e përkujdesoreve ”Si t’ia fillohet”"
     getting_help:
       title: "Si të merret ndihmë"
       getting_started_q: "Ndihmë! Më duhet ca ndihmë e thjeshtë, sa për t’ia filluar!"
-      getting_started_a: "Jeni me fat. Provoni %{tutorial_series} te sajti ynë mbi projektin. Do t’ju kalojë hap pas hapi përmes procesit të regjistrimit dhe do t’ju mësojë krejt gjërat themelore që keni nevojë të dini mbi përdorimin e diaspora*."
+      getting_started_a: "Jeni me fat. Provoni %{tutorial_series} te sajti ynë mbi projektin. Do t’ju kalojë hap pas hapi përmes procesit të regjistrimit dhe do t’ju mësojë krejt gjërat themelore që keni nevojë të dini mbi përdorimin e silent.army."
       get_support_q: "Po kur pyetja ime s’ka përgjigje te ky FAQ? Ku mund të marr gjetiu tjetër asistencë?"
       get_support_a_website: "Vizitoni %{link} tonë"
       get_support_a_tutorials: "Hidhni një sy te %{tutorials} tona"
       get_support_a_wiki: "Kërkoni te %{link}"
       get_support_a_irc: "Ejani te ne në %{irc} (fjalosje e atypëratyshme)"
       get_support_a_faq: "Lexoni faqen tonë %{faq} në wiki"
-      get_support_a_hashtag: "Pyetni në një postim publik te diaspora* duke përdorur hashtagun %{question}"
+      get_support_a_hashtag: "Pyetni në një postim publik te silent.army duke përdorur hashtagun %{question}"
     account_and_data_management:
       title: "Administrim llogarie dhe të dhënash"
       move_pods_q: "Si ta kaloj llogarinë time nga një nyjë në një tjetër?"
@@ -412,13 +412,13 @@ sq:
       close_account_q: "Si ta fshij llogarinë time?"
       close_account_a: "Shkoni në fund të faqes së rregullimeve tuaja dhe klikoni mbi butonin “Mbylle llogarinë”. Do t’ju kërkohet të jepni fjalëkalimin tuaj që të plotësohet procesi. Mos harroni, nëse mbyllni llogarinë tuaj, nuk do të jeni <strong>kurrë</strong> më në gjendje të riregjistroni në po atë nyje emrin tuaj të përdoruesit."
       data_visible_to_podmin_q: "Sa nga të dhënat e mia mund të shohë përgjegjësi i nyjës sime?"
-      data_visible_to_podmin_a: "Shkurt: gjithçka. Ndërlidhja mes nyjave është gjithmonë e fshehtëzuar (përmes SSL-së dhe mekanizmit të fshehtëzimit të transporteve të vetë diaspora*-s), por depoja e të dhënave në nyje s’është e fshehtëzuar. Nëse do të donte, përgjegjësi i bazës së të dhënave për nyjën tuaj (zakonisht personi që mban në punë nyjën) mund të hyjë në krejt të dhënat e profilit tuaj dhe në gjithçka që postoni (ashtu siç ndodh në shumicën e sajteve që depozitojnë të dhëna përdoruesi). Kjo është arsyeja pse ju japim mundësinë e zgjedhje se me cilën nyje të regjistroheni, që të mund të zgjidhni një nyje përgjegjësit të së cilës pranoni t’i besoni të dhënat tuaja. Xhirimi nga vetë ju i nyjës suaj ofron më tepër privatësi, ngaqë atëherë keni kontrollin e hyrjeve në bazën e të dhënave."
+      data_visible_to_podmin_a: "Shkurt: gjithçka. Ndërlidhja mes nyjave është gjithmonë e fshehtëzuar (përmes SSL-së dhe mekanizmit të fshehtëzimit të transporteve të vetë silent.army-s), por depoja e të dhënave në nyje s’është e fshehtëzuar. Nëse do të donte, përgjegjësi i bazës së të dhënave për nyjën tuaj (zakonisht personi që mban në punë nyjën) mund të hyjë në krejt të dhënat e profilit tuaj dhe në gjithçka që postoni (ashtu siç ndodh në shumicën e sajteve që depozitojnë të dhëna përdoruesi). Kjo është arsyeja pse ju japim mundësinë e zgjedhje se me cilën nyje të regjistroheni, që të mund të zgjidhni një nyje përgjegjësit të së cilës pranoni t’i besoni të dhënat tuaja. Xhirimi nga vetë ju i nyjës suaj ofron më tepër privatësi, ngaqë atëherë keni kontrollin e hyrjeve në bazën e të dhënave."
       data_other_podmins_q: "A munden përgjegjësit e nyjave të tjera të shohin të dhëna të miat?"
       data_other_podmins_a: "Nga çasti që ndani gjëra me dikë në një nyje tjetër, çfarëdo postimesh që ndani me ta dhe një kopje e të dhënave tuaja të profilit depozitohen (në fshehtinën e) te nyja e tyre, dhe janë të përdorshme nga përgjegjësi i bazës së të dhënave të nyjës. Kur fshini një postim apo kur fshihen të dhëna profili, ato fshihen te nyja juaj dhe një kërkesë fshirjeje dërgohet për secilin prej nyjave të tjera ku qenë depozituar më parë. Figurat tuaja nuk depozitohen kurrë në ndonjë nyje, hiq atë tuajën; nyjave të tjera u transmetohen vetëm lidhje për te to."
     aspects:
       title: "Aspekte"
       what_is_an_aspect_q: "Ç’është një aspekt?"
-      what_is_an_aspect_a: "Aspektet janë mënyra se si i gruponi kontaktet tuaja në diaspora*. Një aspekt përfaqëson një nga fytyrat që i tregoni botës. Ky mund të jetë çka jeni në punë, ose cili jeni për familjen tuaj, ose cili jeni për shokët e një klubi në të cilin bëni pjesë."
+      what_is_an_aspect_a: "Aspektet janë mënyra se si i gruponi kontaktet tuaja në silent.army. Një aspekt përfaqëson një nga fytyrat që i tregoni botës. Ky mund të jetë çka jeni në punë, ose cili jeni për familjen tuaj, ose cili jeni për shokët e një klubi në të cilin bëni pjesë."
       who_sees_post_q: "Kur postoj diçka në një aspekt, kush e sheh?"
       who_sees_post_a: "Nëse bëni një postim të kufizuar, do të jetë i dukshëm vetëm për persona që keni vendosur në atë aspekt (ose aspekte, nëse është bërë në disa aspekte) përpara dërgimit të postimit. Kontaktet që nuk janë pjesë e aspektit, nuk kanë asnjë mundësi ta shohin postimin. Postimet e kufizuara nuk do të jenë kurrë të dukshme për cilindo që s’e keni vendosur në aspektin përkatës."
       contacts_know_aspect_q: "A e dinë kontaktet e mia se në cilat aspekte i kam vendosur?"
@@ -442,7 +442,7 @@ sq:
     chat:
       title: "Fjalosje"
       contacts_page: "faqe kontaktesh"
-      add_contact_roster_q: "Si të fjalosem me dikë në diaspora*?"
+      add_contact_roster_q: "Si të fjalosem me dikë në silent.army?"
       add_contact_roster_a: "Së pari, duhet të aktivizoni fjalosjet për një nga aspektet ku gjendet ai person. Për ta bërë këtë, shkoni te %{contacts_page}, përzgjidhni aspektin që doni dhe klikoni mbi ikonën e fjalosjeve që të aktivizoni fjalosjet për atë aspekt. %{toggle_privilege} Nëse parapëlqeni, mund të krijoni një aspekt special të quajtur “Fjalosje” dhe të shtoni në atë aspekt persona me të cilët doni të fjaloseni. Pasi ta keni bërë këtë, hapni ndërfaqen e fjalosjes dhe përzgjidhni personin me të cilin doni të fjaloseni."
     mentions:
       title: "Përmendje"
@@ -457,11 +457,11 @@ sq:
     pods:
       title: "Nyje"
       what_is_a_pod_q: "Ç’është një nyjë?"
-      what_is_a_pod_a: "Një nyjë është një shërbyes që xhiron software-in diaspora* dhe është i lidhur me rrjetin diaspora*. “Nyjë” është një metaforë që i referohet bishtajës te disa bimë bishtajore, të cilat përmbajnë fara, në atë mënyrë që një shërbyes përmban një numër llogarish përdoruesi. Ka mjaft nyje të ndryshme. Mund të shtoni shokë prej nyjash të tjera dhe të komunikoni me ta. S’ka nevojë të hapni nga një llogari në nyje të ndryshme! Mjafton një – në këtë mënyrë, diaspora*-n mund ta mendoni të ngjashme me një mundësues llogarish email. Ka nyje publike, nyje private, dhe me pak përpjekje mund të xhironi një tuajën."
+      what_is_a_pod_a: "Një nyjë është një shërbyes që xhiron software-in silent.army dhe është i lidhur me rrjetin silent.army. “Nyjë” është një metaforë që i referohet bishtajës te disa bimë bishtajore, të cilat përmbajnë fara, në atë mënyrë që një shërbyes përmban një numër llogarish përdoruesi. Ka mjaft nyje të ndryshme. Mund të shtoni shokë prej nyjash të tjera dhe të komunikoni me ta. S’ka nevojë të hapni nga një llogari në nyje të ndryshme! Mjafton një – në këtë mënyrë, silent.army-n mund ta mendoni të ngjashme me një mundësues llogarish email. Ka nyje publike, nyje private, dhe me pak përpjekje mund të xhironi një tuajën."
       find_people_q: "Sapo u regjistrova në një nyje, si mund të gjej persona me të cilët të ndaj gjëra?"
-      find_people_a: "Nëse doni të ftoni miqtë tuaj të përdorin diaspora*-n, përdorni lidhjen e ftesës ose lidhjen për email, te anështylla. Ndiqni #etiketa që të zbuloni persona të tjerë që kanë interesa të përbashkëta me tuajat, dhe shtoni ata që postojnë në një aspekt gjëra që kanë interes për ju. Në një postim publik thërrisni fort se jeni #irikëtu."
+      find_people_a: "Nëse doni të ftoni miqtë tuaj të përdorin silent.army-n, përdorni lidhjen e ftesës ose lidhjen për email, te anështylla. Ndiqni #etiketa që të zbuloni persona të tjerë që kanë interesa të përbashkëta me tuajat, dhe shtoni ata që postojnë në një aspekt gjëra që kanë interes për ju. Në një postim publik thërrisni fort se jeni #irikëtu."
       use_search_box_q: "Si ta përdor kutinë e kërkimeve për të gjetur individë të veçantë?"
-      use_search_box_a: "Nëse e dini ID-në e plotë të tyre në diaspora* (p.sh. emërpërdoruesi@emërnyjeje.org), mund t’i gjeni duke kërkuar për ta. Nëse gjendeni në të njëjtën nyje, mund të kërkoni thjesht për emrin e tyre të përdoruesit. Si rrugë tjetër, mund të kërkoni për ta sipas emrash profili (emri që shihni në ekran). Nëse kërkimi s’funksionon herën e parë, provoni sërish."
+      use_search_box_a: "Nëse e dini ID-në e plotë të tyre në silent.army (p.sh. emërpërdoruesi@emërnyjeje.org), mund t’i gjeni duke kërkuar për ta. Nëse gjendeni në të njëjtën nyje, mund të kërkoni thjesht për emrin e tyre të përdoruesit. Si rrugë tjetër, mund të kërkoni për ta sipas emrash profili (emri që shihni në ekran). Nëse kërkimi s’funksionon herën e parë, provoni sërish."
     posts_and_posting:
       title: "Postime dhe postimi"
       stream_full_of_posts_q: "Pse është rrjedha ime plot me postime prej personash që s’i njoh dhe me të cilët nuk ndaj gjëra?"
@@ -477,8 +477,8 @@ sq:
       post_report_a: "Klikoni ikonën trekëndëshe të sinjalizimeve, në cepin e djathtë sipër të postimit që doni t’i njoftohet përgjegjësit të nyjës suaj. Te kutia e dialogut jepni një arsye për sinjalizimin e këtij postimi."
       character_limit_q: "Sa është kufiri për shenjat në një postim?"
       character_limit_a: "65535 shenja. Që do të thotë 65395 më shumë se sa ju jepen në Twitter! ;)"
-      char_limit_services_q: "Po kur ndaj postim me një shërbim të lidhur te diaspora*, i cili ka kufi më të ulët për shenjat?"
-      char_limit_services_a: "Në këtë rast do të duhej ta kufizonit postimin tuaj aq sa është kufiri më i ulët (140 në rastin e Twitter-it; 1000 në rastin e Tumblr-it), dhe numri i shenjave të mbetura për përdorim ju shfaqet në ikonën e shërbimit, kur kjo është e theksuar. Mund të postoni prapëseprapë në këto shërbime, edhe kur postimi juaj është më i gjatë se sa kufijtë e tyre, por teksti në këto shërbime do të shfaqet i cunguar dhe me një lidhje për te postimi në diaspora*."
+      char_limit_services_q: "Po kur ndaj postim me një shërbim të lidhur te silent.army, i cili ka kufi më të ulët për shenjat?"
+      char_limit_services_a: "Në këtë rast do të duhej ta kufizonit postimin tuaj aq sa është kufiri më i ulët (140 në rastin e Twitter-it; 1000 në rastin e Tumblr-it), dhe numri i shenjave të mbetura për përdorim ju shfaqet në ikonën e shërbimit, kur kjo është e theksuar. Mund të postoni prapëseprapë në këto shërbime, edhe kur postimi juaj është më i gjatë se sa kufijtë e tyre, por teksti në këto shërbime do të shfaqet i cunguar dhe me një lidhje për te postimi në silent.army."
       format_text_q: "Si ta formatoj tekstin në postimet e mia (shkronja të trasha, italike, etj.)?"
       format_text_a: "Duke përdorur një sistem të thjeshtëzuar, të quajtur %{markdown}. Sintaksën e plotë të Markdown-it mund ta gjeni %{here}. Butoni i paraparjeve është vërtet i dobishëm këtu, sepse mund të shihni si do të duket mesazhi juaj, përpara se ta ndani me të tjerët."
       insert_images_q: "Si të fus figura në postime?"
@@ -491,7 +491,7 @@ sq:
       size_of_images_q: "A mund ta përshtat madhësinë e figurave në postime apo komente?"
       size_of_images_a: "Jo. Figurat ripërmasohen vetvetiu që t’i nxërë rrjedha pse pamja njëpostimëshe. Markdown s’ka kod për përcaktim të madhësisë së një figure."
       embed_multimedia_q: "Si të trupëzoj video, audio, ose tjetër lëndë multimedia në një postim?"
-      embed_multimedia_a: "Zakonisht thjesht mund të hidhni URL-në (p.sh. http://www.youtube.com/watch?v=nnnnnnnnnnn ) te postimi juaj dhe videoja apo audioja do të trupëzohet vetvetiu. Në sajtet e mbuluar përfshihen: YouTube, Vimeo, SoundCloud, Flickr dhe ndoca të tjerë. diaspora* përdor oEmbed për këtë veçori. Dora-dora mbulojmë gjithnjë e më shumë burime media. Mbani mend të postoni përherë lidhje të thjeshta, të plota – jo lidhje të shkurtuara; pa operatorë pas URL-së bazë – dhe lërini pakëz kohë përpara se të rifreskoni faqen pas postimit, për të parë si duket."
+      embed_multimedia_a: "Zakonisht thjesht mund të hidhni URL-në (p.sh. http://www.youtube.com/watch?v=nnnnnnnnnnn ) te postimi juaj dhe videoja apo audioja do të trupëzohet vetvetiu. Në sajtet e mbuluar përfshihen: YouTube, Vimeo, SoundCloud, Flickr dhe ndoca të tjerë. silent.army përdor oEmbed për këtë veçori. Dora-dora mbulojmë gjithnjë e më shumë burime media. Mbani mend të postoni përherë lidhje të thjeshta, të plota – jo lidhje të shkurtuara; pa operatorë pas URL-së bazë – dhe lërini pakëz kohë përpara se të rifreskoni faqen pas postimit, për të parë si duket."
       post_location_q: "Si t’i shtoj një postimi vendndodhjen time?"
       post_location_a: "Brenda skenës së botimi, klikoni ikonën thumb në krah të kamerës. Kjo do të shkaktojë futjen e vendndodhjes suaj me ndihmën e OpenStreetMap-it. Vendndodhjen tuaj mund ta përpunoni – mirë është të vendosni vetëm qytetin ku gjendni, se sa edhe adresën e saktë (rrugë, numër, etj)."
       post_poll_q: "Si të shtoj një votim te postimi im?"
@@ -499,11 +499,11 @@ sq:
     private_posts:
       title: "Postime private"
       who_sees_post_q: "Kur postoj një mesazh në një aspekt (p.sh., një postim privat), kush mundet ta shohë?"
-      who_sees_post_a: "Mund ta shohin vetëm përdorues të diaspora*-s që kanë bërë hyrjen në të dhe që i keni vendosur në atë aspekt, para se të bënit postimin privat."
+      who_sees_post_a: "Mund ta shohin vetëm përdorues të silent.army-s që kanë bërë hyrjen në të dhe që i keni vendosur në atë aspekt, para se të bënit postimin privat."
       can_comment_q: "Kush mund të komentojë dhe të pëlqejë postimin tim privat?"
-      can_comment_a: "Mund të komentojnë ose ta pëlqejnë vetëm përdorues të diaspora*-s që i keni vendosur në atë aspekt përpara se të bënit postimin privat."
+      can_comment_a: "Mund të komentojnë ose ta pëlqejnë vetëm përdorues të silent.army-s që i keni vendosur në atë aspekt përpara se të bënit postimin privat."
       can_reshare_q: "Kush mund ta rindajë me të tjerët postimin tim privat?"
-      can_reshare_a: "Askush. Postimet private nuk mund të rindahen.Megjithatë, përdorues diaspora* që kanë bërë hyrjen, mund ta kopjojnë dhe hedhin gjetiu. U besoni apo jo këtyre personave… atë e dini ju!"
+      can_reshare_a: "Askush. Postimet private nuk mund të rindahen.Megjithatë, përdorues silent.army që kanë bërë hyrjen, mund ta kopjojnë dhe hedhin gjetiu. U besoni apo jo këtyre personave… atë e dini ju!"
       see_comment_q: "Kur komentoj një një postim privat, ose pëlqej një të tillë, kush mund ta shohë?"
       see_comment_a: "Vetëm personat me të cilët qe ndarë ai postim (personat që gjenden në aspektet e përzgjedhura nga postuesi origjinal) mund të shohin komentet dhe pëlqimet për të. "
     private_profiles:
@@ -521,15 +521,15 @@ sq:
       find_public_post_q: "Si mund t’i gjejnë postimet e mia persona të tjerë?"
       find_public_post_a: "Postimet tuaja publike do të shfaqen në rrjedhat e cilitdo që ju ndjek. Nëse përfshitë #etiketa në postimin tuaj publik, cilido që i ndjek këto etiketa do ta gjejë postimin tuaj në rrjedhën e tij. Çdo postim publik përmban gjithashtu një URL të veçantë që mund ta shohë gjithkush, madje edhe pse nuk kanë bërë hyrjen – kështu që postimet publike mund të lidhen drejt e nga Twitter, blogje, etj. Postimet publike mund edhe të indeksohen nga motorë kërkimesh."
       can_comment_reshare_like_q: "Kush mund të komentojë, rindajë dhe pëlqejë postimin tim publik?"
-      can_comment_reshare_like_a: "Cilido përdorues i futur i diaspora*-s mund ta komentojë, rindajë, ose pëlqejë postimin tuaj publik."
+      can_comment_reshare_like_a: "Cilido përdorues i futur i silent.army-s mund ta komentojë, rindajë, ose pëlqejë postimin tuaj publik."
       see_comment_reshare_like_q: "Kur komentoj, rindaj diçka, ose pëlqej një postim publik, kush mund ta shohë?"
-      see_comment_reshare_like_a: "Komentet, pëlqimet, dhe rindarjet e postimeve e publike janë po ashtu publike. Cilido përdorues i diaspora*-s që ka bërë hyrjen, dhe cilido tjetër në internet mund të shohë ndërveprimet tuaj me një postim publik."
+      see_comment_reshare_like_a: "Komentet, pëlqimet, dhe rindarjet e postimeve e publike janë po ashtu publike. Cilido përdorues i silent.army-s që ka bërë hyrjen, dhe cilido tjetër në internet mund të shohë ndërveprimet tuaj me një postim publik."
       deselect_aspect_posting_q: "Çfarë ndodh kur shpërzgjedh një ose më tepër aspekte, teksa bëj një postim publik?"
       deselect_aspect_posting_a: "Shpërzgjedhja e aspekteve nuk e prek një postim publik. Do të jetë sërish publik dhe do të shfaqet në rrjedhën e krejt kontakteve tuaja. Për ta bërë një postim të dukshëm vetëm për aspekte të caktuara, lypset që këto aspekte t’i përzgjidhni që prej përzgjedhësit të aspekteve, nën botuesin."
     public_profiles:
       title: "Profile publikë"
       who_sees_profile_q: "Kush e sheh profilin tim publik?"
-      who_sees_profile_a: "Mund ta shohë cilido përdorues diaspora* i futur, si dhe Interneti përgjithësisht. Çdo profil ka një URL të drejtpërdrejtë, ndaj mund të lidhet drejtpërdrejt nga sajte të jashtëm. Dhe mund të indeksohet nga motorë kërkimesh."
+      who_sees_profile_a: "Mund ta shohë cilido përdorues silent.army i futur, si dhe Interneti përgjithësisht. Çdo profil ka një URL të drejtpërdrejtë, ndaj mund të lidhet drejtpërdrejt nga sajte të jashtëm. Dhe mund të indeksohet nga motorë kërkimesh."
       whats_in_profile_q: "Ç’përmban profili im publik?"
       whats_in_profile_a: "Profili juaj publik përmban emrin tuaj, pesë etiketa që i zgjidhni ju për të përshkruar veten, dhe foton tuaj, nëse i keni plotësuar këto fusha. Krejt këto të dhëna janë në dëshirën tuaj – vendosni ju t’i jepni apo jo. Këto të dhëna mund t’i lejoni të jenë të identifikueshme ose anonime, sipas dëshirës. Faqja juaj e profilit shfaq gjithashtu çfarëdo postimesh publike që keni bërë."
       who_sees_updates_q: "Kush i sheh përditësimet te profili im publik?"
@@ -574,7 +574,7 @@ sq:
       people_tag_page_q: "Cilët janë personat e radhitur në anën e majtë të një faqeje etiketash?"
       people_tag_page_a: "Janë persona që e kanë vënë atë etiketë te përshkrimi i vetes në faqet e tyre publike."
       filter_tags_q: "Si mund të filtroj/përjashtoj disa etiketa nga rrjedha ime?"
-      filter_tags_a: "Kjo s’është ende e mundur drejtpërsëdrejti përmes diaspora*-s, por janë shkruar disa %{third_party_tools} që mund ta bëjnë këtë."
+      filter_tags_a: "Kjo s’është ende e mundur drejtpërsëdrejti përmes silent.army-s, por janë shkruar disa %{third_party_tools} që mund ta bëjnë këtë."
     keyboard_shortcuts:
       title: "Shkurtore tastiere"
       keyboard_shortcuts_q: "Ç’shkurtore tastiere ka të gatshme?"
@@ -594,9 +594,9 @@ sq:
       photo_albums_q: "A ka albume fotosh apo videosh?"
       photo_albums_a: "Jo, hëpërhë jo. Sidoqoftë, mund të shihni fotot e ngarkuara nga një person në skedën Foto të faqes së tyre të profilit."
       subscribe_feed_q: "A mund të pajtohem te postimet publike të dikujt përmes një lexuesi prurjesh?"
-      subscribe_feed_a: "Po, por kjo është ende një veçori jo shumë e latuar dhe formatimi i përfundime është ende me shumë cepa. Nëse prapë dëshironi ta provoni, shkoni te faqja e profilit të dikujt dhe klikoni butonin e prurjeve te shfletuesi juaj, ose mund të kopjoni URL-në e profilit (p.sh. https://podname.org/people/somenumber) dhe t’ia furnizoni një lexuesi prurjesh. Adresa e prurjes që përftohet duket pak a shumë si kjo: https://podname.org/public/username.atom – diaspora* përdor Atom-in, në vend se RSS-në."
-      diaspora_app_q: "A ka një aplikacion diaspora* për Android ose iOS?"
-      diaspora_app_a: "Ka patur disa aplikacione Android në zhvillim e sipër nga anëtarë të bashkësisë. Disa janë projekte të braktisura prej kohësh, ndaj edhe nuk funksionojnë mirë me versionin e tanishëm të diaspora*. Hëpërhë mos prisni shumë prej këtyre aplikacioneve. Nuk ka aplikacion për iOS hëpërhë. Rruga më e mirë për të përdorur diaspora*-n prej pajisjes suaj celulare është përmes një shfletuesi, ngaqë kemi krijuar një version për celular të sajtit, i cili do të duhej të punonte paq në krejt pajisjet, edhe pse nuk përmban ende gjithë funksionet."
+      subscribe_feed_a: "Po, por kjo është ende një veçori jo shumë e latuar dhe formatimi i përfundime është ende me shumë cepa. Nëse prapë dëshironi ta provoni, shkoni te faqja e profilit të dikujt dhe klikoni butonin e prurjeve te shfletuesi juaj, ose mund të kopjoni URL-në e profilit (p.sh. https://podname.org/people/somenumber) dhe t’ia furnizoni një lexuesi prurjesh. Adresa e prurjes që përftohet duket pak a shumë si kjo: https://podname.org/public/username.atom – silent.army përdor Atom-in, në vend se RSS-në."
+      diaspora_app_q: "A ka një aplikacion silent.army për Android ose iOS?"
+      diaspora_app_a: "Ka patur disa aplikacione Android në zhvillim e sipër nga anëtarë të bashkësisë. Disa janë projekte të braktisura prej kohësh, ndaj edhe nuk funksionojnë mirë me versionin e tanishëm të silent.army. Hëpërhë mos prisni shumë prej këtyre aplikacioneve. Nuk ka aplikacion për iOS hëpërhë. Rruga më e mirë për të përdorur silent.army-n prej pajisjes suaj celulare është përmes një shfletuesi, ngaqë kemi krijuar një version për celular të sajtit, i cili do të duhej të punonte paq në krejt pajisjet, edhe pse nuk përmban ende gjithë funksionet."
 
   invitation_codes:
     excited: "%{name} është i ngazëllyer që ju sheh këtu."
@@ -615,13 +615,13 @@ sq:
       invite_someone_to_join: "Ftoni dikë që të marrë pjesë në diaspora!"
       if_they_accept_info: "Nëse pranojnë, do të shtohen te aspekti prej nga ku i ftuat."
       comma_separated_plz: "Mund të jepni disa adresa email njëherësh, ndarë me presje."
-      check_out_diaspora: "Hej! Hidhini një sy diaspora*-s"
+      check_out_diaspora: "Hej! Hidhini një sy silent.army-s"
       to: "Për"
       personal_message: "Mesazh personal"
       send_an_invitation: "Dërgoni një ftesë"
       sending_invitation: "Po dërgohet ftesa…"
       send_invitation: "Dërgoje ftesën"
-      paste_link: "Ndajeni me shokët tuaj këtë lidhje që t’i ftoni ata te diaspora*, ose dërgojuani lidhjen drejtpërsëdrejti me email."
+      paste_link: "Ndajeni me shokët tuaj këtë lidhje që t’i ftoni ata te silent.army, ose dërgojuani lidhjen drejtpërsëdrejti me email."
       codes_left:
         zero: "S’kanë mbetur më ftesa te ky kod"
         one: "Ende një ftesë te ky kod"
@@ -651,7 +651,7 @@ sq:
       recent_notifications: "Njoftime së fundi"
       toggle_navigation: "Shfaqni/Fshihni lëvizjen"
     application:
-      powered_by: "Xhiron me diaspora*"
+      powered_by: "Xhiron me silent.army"
       whats_new: "Ç’ka të re?"
       toggle: "Aktivizojeni/Çaktivizojeni për celular"
       public_feed: "Prurje publike diaspora për %{name}"
@@ -749,18 +749,18 @@ sq:
 
   notifier:
     a_post_you_shared: "postim."
-    a_private_message: "Ka një mesazh të ri privat te diaspora* për ju."
-    a_limited_post_comment: "Ka një koment të ri në një postim të kufizuar te diaspora* për ju."
+    a_private_message: "Ka një mesazh të ri privat te silent.army për ju."
+    a_limited_post_comment: "Ka një koment të ri në një postim të kufizuar te silent.army për ju."
     email_sent_by_diaspora: "Ky email është dërguar nga %{pod_name}. Nëse doni të reshtni së marri email-e të tillë,"
     click_here: "Klikoni këtu"
     hello: "Tungjatjeta %{name}!"
     thanks: "Faleminderit,"
     to_change_your_notification_settings: "që të ndryshoni rregullimet tuaja mbi njoftimet"
     single_admin:
-        subject: "Mesazh lidhur me llogarinë tuaj te diaspora*:"
-        admin: "Përgjegjësi i diaspora*-s suaj"
+        subject: "Mesazh lidhur me llogarinë tuaj te silent.army:"
+        admin: "Përgjegjësi i silent.army-s suaj"
     started_sharing:
-        subject: "%{name} filloi të ndajë gjëra me ju në diaspora*"
+        subject: "%{name} filloi të ndajë gjëra me ju në silent.army"
         sharing: "ka filluar të ndajë gjëra me ju!"
         view_profile: "Shihni profilin për %{name}"
     comment_on_post:
@@ -769,7 +769,7 @@ sq:
     also_commented:
         limited_subject: "Ka një koment të ri në një postim ku komentuat"
     mentioned:
-        subject: "%{name} ju ka përmendur në diaspora*"
+        subject: "%{name} ju ka përmendur në silent.army"
         mentioned: "ju përmendi në një postim:"
         limited_post: "U përmendët në një postim të kufizuar."
     private_message:
@@ -801,7 +801,7 @@ sq:
 
           Shëndet,
 
-          Roboti i email-eve te diaspora*!
+          Roboti i email-eve te silent.army!
 
           [1]: %{url}
     export_email:
@@ -813,7 +813,7 @@ sq:
 
         Shëndet,
 
-        Roboti i email-eve te diaspora*!
+        Roboti i email-eve te silent.army!
     export_failure_email:
       subject: "%{name}, na ndjeni, pati një problem me të dhënat tuaja"
       body: |-
@@ -824,7 +824,7 @@ sq:
 
         Na ndjeni,
 
-        Roboti i email-eve te diaspora*!
+        Roboti i email-eve te silent.army!
     export_photos_email:
       subject: "%{name}, fotot tuaja janë gati për shkarkim"
       body: |-
@@ -834,7 +834,7 @@ sq:
 
         Shëndet,
 
-        Roboti i email-eve te diaspora*!
+        Roboti i email-eve te silent.army!
     export_photos_failure_email:
       subject: "%{name}, pati një problem me fotot tuaja"
       body: |-
@@ -845,14 +845,14 @@ sq:
 
         Na ndjeni,
 
-        Roboti i email-eve te diaspora*!
-    accept_invite: "Pranoni ftesën për te diaspora*!"
-    invited_you: "%{name} ju ka ftuar te diaspora*"
+        Roboti i email-eve te silent.army!
+    accept_invite: "Pranoni ftesën për te silent.army!"
+    invited_you: "%{name} ju ka ftuar te silent.army"
     invite:
       message: |-
         Tungjatjeta!
 
-        Ju kanë ftuar te diaspora*!
+        Ju kanë ftuar te silent.army!
 
         Që t’ia filloni, klikoni mbi këtë lidhje
 
@@ -861,28 +861,28 @@ sq:
 
         Me dashuri,
 
-        Roboti i email-eve te diaspora*!
+        Roboti i email-eve te silent.army!
 
-        P.S.: Në rast se s’e dini (ende) ç’është diaspora*, [ja][2] ku është përgjigja!
+        P.S.: Në rast se s’e dini (ende) ç’është silent.army, [ja][2] ku është përgjigja!
 
         [1]: %{invite_url}
         [2]: %{diasporafoundation_url}
     remove_old_user:
-      subject: "Llogarisë tuaj te diaspora* i është vënë shenjë për heqje, për shkak mosveprimtarie"
+      subject: "Llogarisë tuaj te silent.army i është vënë shenjë për heqje, për shkak mosveprimtarie"
       body: |-
         Tungjatjeta,
 
-        Duket sikur s’e doni më llogarinë tuaj te %{pod_url}, ngaqë s’e keni përdorur që prej %{after_days} ditësh. Që të sigurojmë për përdoruesit tanë aktivë punimin më të mirë te kjo nyjë diaspora*, do të donim të hiqnim prej bazës tonë të të dhënave llogaritë e padëshiruara.
+        Duket sikur s’e doni më llogarinë tuaj te %{pod_url}, ngaqë s’e keni përdorur që prej %{after_days} ditësh. Që të sigurojmë për përdoruesit tanë aktivë punimin më të mirë te kjo nyjë silent.army, do të donim të hiqnim prej bazës tonë të të dhënave llogaritë e padëshiruara.
 
-        Do të donim që të mbeteni pjesë bashkësisë diaspora*, dhe jeni i mirëpritur ta mbani gjallë llogarinë, nëse doni.
+        Do të donim që të mbeteni pjesë bashkësisë silent.army, dhe jeni i mirëpritur ta mbani gjallë llogarinë, nëse doni.
 
-        Nëse dëshironi ta mbani gjallë llogarinë tuaj, krejt çka lypset të bëni është të hyni në të përpara %{remove_after}. Kur të bëni hyrjen, ndaluni një çast dhe hidhni një sy nëpër diaspora*. Ka ndryshuar mjaft që nga hera e fundit që e patë, dhe mendojmë se do t’i pëlqeni përmirësimet që kemi bërë. Ndiqni ca #etiketa që të gjeni lëndë që ju pëlqen.
+        Nëse dëshironi ta mbani gjallë llogarinë tuaj, krejt çka lypset të bëni është të hyni në të përpara %{remove_after}. Kur të bëni hyrjen, ndaluni një çast dhe hidhni një sy nëpër silent.army. Ka ndryshuar mjaft që nga hera e fundit që e patë, dhe mendojmë se do t’i pëlqeni përmirësimet që kemi bërë. Ndiqni ca #etiketa që të gjeni lëndë që ju pëlqen.
 
         Hyni nga këtu: %{login_url}. Nëse keni harruar hollësitë tuaja për hyrje, mund të kërkoni një kujtues që nga ajo faqe.
 
         Me shpresë se do t’ju shohim sërish,
 
-        Roboti i email-eve te diaspora*!
+        Roboti i email-eve te silent.army!
   people:
     zero: "asnjë person"
     one: "1 person"
@@ -896,7 +896,7 @@ sq:
       results_for: "Përfundime kërkimi për"
       no_results: "Hej! Lypset të kërkoni për diçka."
       couldnt_find_them: "S’i gjetët dot?"
-      search_handle: "Që të jeni të sigurt se i gjeni shokët tuaj, përdorni ID-të e tyre diaspora*."
+      search_handle: "Që të jeni të sigurt se i gjeni shokët tuaj, përdorni ID-të e tyre silent.army."
       send_invite: "Ende asgjë? Dërgojuni një ftesë!"
       no_one_found: "…dhe s’u gjet njeri."
       searching: "Po kërkohet, ju lutemi, bëni durim…"
@@ -1045,7 +1045,7 @@ sq:
       update_profile: "Përditësoni profilin"
       allow_search: "Lejojuni njerëzve të kërkojnë për ju brenda diaspora-s"
       edit_profile: "Përpunoje profilin"
-      nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në punë) është standardi i bashkësisë vetë-administruese diaspora* për lëndë që mund të mos jetë e përshtatshme për t’u parë kur jeni në punë. Nëse planifikoni të ndani shpesh me të tjerët material të tillë, ju lutemi, i vini shenjë kësaj mundësie, që gjithçka që ndani me të tjerët, të fshihet te rrjedhat e njerëzve, derisa ata të zgjedhin ta shohin."
+      nsfw_explanation: "NSFW (“not safe for work ” - jo e përshtatshme për në punë) është standardi i bashkësisë vetë-administruese silent.army për lëndë që mund të mos jetë e përshtatshme për t’u parë kur jeni në punë. Nëse planifikoni të ndani shpesh me të tjerët material të tillë, ju lutemi, i vini shenjë kësaj mundësie, që gjithçka që ndani me të tjerët, të fshihet te rrjedhat e njerëzve, derisa ata të zgjedhin ta shohin."
       nsfw_explanation2: "Nëse vendosni të mos e përzgjidhni këtë mundësi, ju lutemi, shtoni etiketën #nsfw sa herë që ndani me të tjerët material të tillë."
       nsfw_check: "Vëri shenjë si NSFW gjithçkaje që ndaj me të tjerët"
     update:
@@ -1130,7 +1130,7 @@ sq:
       not_logged_in: "Hëpërhë jo i futur"
       really_disconnect: "Të shkëputet nga %{service}?"
       edit_services: "Përpunoni shërbime"
-      services_explanation: "Lidhja te shërbime ndarjesh prej palësh të treta ju jep aftësinë të botoni postime në to, ndërkohë që i shkruani në diaspora*."
+      services_explanation: "Lidhja te shërbime ndarjesh prej palësh të treta ju jep aftësinë të botoni postime në to, ndërkohë që i shkruani në silent.army."
     create:
       success: "Mirëfilltësim i suksesshëm."
       failure: "Mirëfilltësimi dështoi."
@@ -1141,16 +1141,16 @@ sq:
     failure:
       error: "Pati një gabim në lidhjen me atë shërbim"
     inviter:
-      join_me_on_diaspora: "Lidhuni me mua në diaspora*"
+      join_me_on_diaspora: "Lidhuni me mua në silent.army"
       click_link_to_accept_invitation: "Që të pranoni ftesën për ju, ndiqni këtë lidhje"
     finder:
-      fetching_contacts: "diaspora* po merret me shokët tuaj nga %{service}, ju lutemi, kontrolloni sërish pas pak minutash."
+      fetching_contacts: "silent.army po merret me shokët tuaj nga %{service}, ju lutemi, kontrolloni sërish pas pak minutash."
       service_friends: "Shokë nga %{service}"
       no_friends: "S’u gjetën shokë nga Facebook-u."
     remote_friend:
       resend: "Ridërgoje"
       invite: "Ftojeni"
-      not_on_diaspora: "Ende jo te diaspora*"
+      not_on_diaspora: "Ende jo te silent.army"
 
   blocks:
     create:
@@ -1197,9 +1197,9 @@ sq:
         question: "Pyetje"
         option: "Mundësia 1"
     add_contact:
-      enter_a_diaspora_username: "Jepni një emër përdoruesi të diaspora*-s:"
-      your_diaspora_username_is: "Emri juaj për te diaspora* është: %{diaspora_handle}"
-      create_request: "Gjeni sipas ID-sh në diaspora*"
+      enter_a_diaspora_username: "Jepni një emër përdoruesi të silent.army-s:"
+      your_diaspora_username_is: "Emri juaj për te silent.army është: %{diaspora_handle}"
+      create_request: "Gjeni sipas ID-sh në silent.army"
       diaspora_handle: "diaspora@pod.org"
       know_email: "Ua dini adresën email? Do të ishte mirë t’i ftonit"
       add_new_contact: "Shtoni një kontakt të ri"
@@ -1208,7 +1208,7 @@ sq:
       invite_someone: "Ftoni dikë"
       invitations_left: "edhe %{count}"
       dont_have_now: "Hëpërhë s’keni ndonjë, por së shpejti do t’ju mbërrijnë më shumë ftesa!"
-      invites_closed: "Në këtë nyjë diaspora*, ftesat hëpërhë janë të mbyllura"
+      invites_closed: "Në këtë nyjë silent.army, ftesat hëpërhë janë të mbyllura"
       invite_your_friends: "Ftoni shokët tuaj"
       from_facebook: "Nga Facebook-u"
       by_email: "Përmes email-i"
@@ -1221,7 +1221,7 @@ sq:
       visibility_dropdown: "Përdoreni këtë menu hapmbyll që të ndryshoni gjendjen e postimit tuaj. (Këshillojmë që këtë të parin ta bëni publik.)"
       title: "Rregulloni shërbimet me të cilat lidheni"
       share: "Ndajeni me të tjerët"
-      outside: "Mesazhet publike do të jeni të dukshme nga të tjerët jashtë diaspora*-s."
+      outside: "Mesazhet publike do të jeni të dukshme nga të tjerët jashtë silent.army-s."
       logged_in: "I futur te %{service}"
       manage: "Administroni shërbimet me të cilat lidheni"
       atom_feed: "Prurje Atom"
@@ -1379,9 +1379,9 @@ sq:
 
       close_account:
         dont_go: "Hej, ju lutemi, mos ikni!"
-        make_diaspora_better: "Do të donim që të qëndronit dhe të na ndihmonit ta bëjmë diaspora*-n më të mirë, në vend se të largoheni. Nëse dëshironi vërtet të largoheni, ja se ç’do të ndodhë më pas:"
+        make_diaspora_better: "Do të donim që të qëndronit dhe të na ndihmonit ta bëjmë silent.army-n më të mirë, në vend se të largoheni. Nëse dëshironi vërtet të largoheni, ja se ç’do të ndodhë më pas:"
         mr_wiggles: "Z. Wiggles do të trishtohet, kur t’ju shohë që po largoheni"
-        what_we_delete: "Do të fshijmë krejt postimet tuaja dhe të dhënat e profilit, sa më shpejt që mundemi. Komentet tuaja në postimet e të tjerëve prapëseprapë do të duken, por do t’i jenë përshoqëruar ID-së suaj diaspora*, në vend se emrit tuaj."
+        what_we_delete: "Do të fshijmë krejt postimet tuaja dhe të dhënat e profilit, sa më shpejt që mundemi. Komentet tuaja në postimet e të tjerëve prapëseprapë do të duken, por do t’i jenë përshoqëruar ID-së suaj silent.army, në vend se emrit tuaj."
         locked_out: "Do të bëhet çregjistrimi juaj dhe s’do t’ju lejohet më hyrja në llogarinë tuaj, derisa të jetë fshirë ."
         lock_username: "Emri juaj i përdoruesit do të bllokohet. S’do të jeni në gjendje të krijoni një llogari të re me po të njëjtën ID në këtë nyjë."
         no_turning_back: "S’ka kthim mbrapa! Nëse jeni vërtet i sigurt, jepni fjalëkalimin tuaj më poshtë."
@@ -1395,19 +1395,19 @@ sq:
       no_user_ignored_message: "S’jeni duke shpërfillur ndonjë përdorues"
 
     destroy:
-      success: "Llogaria juaj u bllokua. Mund të na duhen 20 minuta që të bllokojmë llogarinë tuaj. Faleminderit që provuat diaspora*-n."
+      success: "Llogaria juaj u bllokua. Mund të na duhen 20 minuta që të bllokojmë llogarinë tuaj. Faleminderit që provuat silent.army-n."
       no_password: "Ju lutemi, jepni fjalëkalimin tuaj të tanishëm që të mbyllim llogarinë tuaj."
       wrong_password: "Fjalëkalimi i dhënë s’u përputh me fjalëkalimin tuaj të tanishëm."
 
     getting_started:
       well_hello_there: "E po…, tungjatjetani!"
-      community_welcome: "Bashkësia e diaspora*-s ka kënaqësinë t’ju shohë pjesë të saj!"
-      awesome_take_me_to_diaspora: "Shkëlqyeshëm! Shpjemë te diaspora*"
+      community_welcome: "Bashkësia e silent.army-s ka kënaqësinë t’ju shohë pjesë të saj!"
+      awesome_take_me_to_diaspora: "Shkëlqyeshëm! Shpjemë te silent.army"
       who_are_you: "Kush jeni?"
-      connect_to_facebook: "Mund t’i përshpejtojmë paksa gjërat duke %{link} te diaspora*. Kështu do të merren prej andej emri dhe fotoja juaj dhe do të mundësohen postime të ndërsjella."
+      connect_to_facebook: "Mund t’i përshpejtojmë paksa gjërat duke %{link} te silent.army. Kështu do të merren prej andej emri dhe fotoja juaj dhe do të mundësohen postime të ndërsjella."
       connect_to_facebook_link: "lidhur llogarinë tuaj Facebook"
       what_are_you_in_to: "Me se po merreni?"
-      hashtag_explanation: "Etiketat ju lejojnë të flisni për to dhe të ndiqni interesat tuaja. Janë gjithashtu rrugë e dobishme për të gjetur shokë të rinj në diaspora*."
+      hashtag_explanation: "Etiketat ju lejojnë të flisni për to dhe të ndiqni interesat tuaja. Janë gjithashtu rrugë e dobishme për të gjetur shokë të rinj në silent.army."
       hashtag_suggestions: "Provoni të ndiqni etiketa të tilla si #art, #movies, #gif, etj."
       saved: "U ruajt!"
 

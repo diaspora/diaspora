@@ -53,8 +53,8 @@ pt-BR:
           other: "Há <%= count %> servidores sem versão (servidores antigos, sem NodeInfo)."
     admins:
       dashboard:
-        compare_versions: "A versão mais recente de diaspora* é <%= latestVersion %>; a versão instalada no seu servidor é <%= podVersion %>."
-        error: "Não foi possível encontrar a versão mais recente de diaspora*."
+        compare_versions: "A versão mais recente de silent.army é <%= latestVersion %>; a versão instalada no seu servidor é <%= podVersion %>."
+        error: "Não foi possível encontrar a versão mais recente de silent.army."
         outdated: "Seu servidor está desatualizado."
         up_to_date: "Seu servidor está atualizado!"
     and: "e"
@@ -85,7 +85,7 @@ pt-BR:
       make_aspect_list_visible: "Deseja tornar os contatos deste aspecto visíveis entre si?"
       name: "Nome"
     bookmarklet:
-      post_something: "Publicar em diaspora*"
+      post_something: "Publicar em silent.army"
       post_submit: "Enviando publicação..."
       post_success: "Publicado! Fechando janela popup..."
     cancel: "Cancelar"

@@ -169,13 +169,13 @@ en_valspeak:
       introduce_yourself: "so this is like, ur stream thing... its like facebooks wall thingy but like... less annoyin n wit like... less adz n picz of food and stuff... like, post sumthin n see if ne1 repliez... like... yeah"
       keep_pod_running: "So like, keep %{pod} from bein all slow n stupid by like... donatin monthly n stuff! <3(:"
       new_here:
-        follow: "follow %{link} n like ... welcome new ppl 2 diaspora*!"
+        follow: "follow %{link} n like ... welcome new ppl 2 silent.army!"
         learn_more: "like... learn moar n stuff..."
         title: "dude! u should like, totally whalecum the new diaspora ppl. its a blast like... yeah.."
       services:
         content: "U can like... connect the followin things 2 d*:"
         heading: "connect like... other stuff.."
-      welcome_to_diaspora: "OMG HEY! Like, welcome to diaspora*, %{name}. its pretty bitchin' n has electrolytes(;"
+      welcome_to_diaspora: "OMG HEY! Like, welcome to silent.army, %{name}. its pretty bitchin' n has electrolytes(;"
     no_contacts_message:
       community_spotlight: "d* celebz"
       or_spotlight: "Or u can like... share wit %{link}"
@@ -487,7 +487,7 @@ en_valspeak:
   layouts:
     application:
       back_to_top: "Go back 2 the top"
-      powered_by: "this site is like... powered by diaspora*... far out!!"
+      powered_by: "this site is like... powered by silent.army... far out!!"
       public_feed: "the feed for %{name} that like... every1 can c n stuff"
       source_package: "dl code n stuff.."
       toggle: "make like... phone friendly..."
@@ -596,7 +596,7 @@ en_valspeak:
       message: |-
           Ohai!
 
-          U have like... been invited 2 join diaspora*!
+          U have like... been invited 2 join silent.army!
 
           Click this link thingy 2 like.. get started
 

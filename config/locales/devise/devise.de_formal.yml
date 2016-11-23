@@ -30,13 +30,13 @@ de_formal:
     mailer:
       confirmation_instructions:
         confirm: "Mein Konto bestätigen"
-        subject: "Bestätigung Ihres diaspora*-Kontos"
+        subject: "Bestätigung Ihres silent.army-Kontos"
         you_can_confirm: "Sie können Ihr Konto über den nachfolgenden Link bestätigen:"
       hello: "Hallo %{email}!"
       inviter:
         accept_at: "unter %{url}, können Sie sie über den untenstehenden Link akzeptieren."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} hat Sie eingeladen, diaspora* beizutreten"
+        have_invited_you: "%{names} hat Sie eingeladen, silent.army beizutreten"
       password_change:
         subject: "Passwort geändert"
       reset_password_instructions:

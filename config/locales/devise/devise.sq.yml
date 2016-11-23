@@ -76,7 +76,7 @@ sq:
         unlock: "Zhbllokoje llogarinë time"
       inviter:
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} ju ka ftuar të merrni pjesë në diaspora*"
+        have_invited_you: "%{names} ju ka ftuar të merrni pjesë në silent.army"
         accept_at: "te %{url}, mund ta pranoni përmes lidhjes më poshtë."
     shared:
       links:

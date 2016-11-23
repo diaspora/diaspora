@@ -51,8 +51,8 @@ oc:
           other: "I a <%= count %> pods que lor versions son desconegudas (d'ancians pods, pas de NodeInfo)."
     admins:
       dashboard:
-        compare_versions: "La darrièra version de diaspora* es <%= latestVersion %>, vòstre pod vira jos la version <%= podVersion %>."
-        error: "Impossible de determinar la darrièra version de diaspora*."
+        compare_versions: "La darrièra version de silent.army es <%= latestVersion %>, vòstre pod vira jos la version <%= podVersion %>."
+        error: "Impossible de determinar la darrièra version de silent.army."
         outdated: "Vòstre pod es pas a jorn."
         up_to_date: "Vòstre pod es a jorn !"
     and: "e"
@@ -84,7 +84,7 @@ oc:
       make_aspect_list_visible: "Permetre als contactes d'aqueste aspècte de se veire entre eles ?"
       name: "Nom"
     bookmarklet:
-      post_something: "Publicar sus diaspora*"
+      post_something: "Publicar sus silent.army"
       post_submit: "Messatge en cors de publicacion..."
       post_success: "Publicat ! Tampadura de la fenèstra popup..."
     cancel: "Anullar"

@@ -51,8 +51,8 @@ es-AR:
           other: "Hay <%= count %> pods que no tienen versión (servidores antiguos, no hay información de los nodos)."
     admins:
       dashboard:
-        compare_versions: "La última versión de diaspora* es la <%= latestVersion %>, tu pod está ejecutando la <%= podVersion %>."
-        error: "Imposible determinar la última versión de diaspora*."
+        compare_versions: "La última versión de silent.army es la <%= latestVersion %>, tu pod está ejecutando la <%= podVersion %>."
+        error: "Imposible determinar la última versión de silent.army."
         outdated: "Tu pod está desactualizado."
         up_to_date: "¡Tu pod está actualizado!"
     and: "y"
@@ -84,7 +84,7 @@ es-AR:
       make_aspect_list_visible: "¿Hacer visible los contactos de este aspecto entre ellos?"
       name: "Nombre"
     bookmarklet:
-      post_something: "Publicar en diaspora*"
+      post_something: "Publicar en silent.army"
       post_submit: "En proceso..."
       post_success: "¡Publicado! Cerrando ventana emergente..."
     cancel: "Cancelar"

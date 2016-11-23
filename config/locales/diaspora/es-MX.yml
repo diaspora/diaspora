@@ -136,7 +136,7 @@ es-MX:
       introduce_yourself: "Esta es tu entrada. Adelante, preséntate."
       keep_pod_running: "¡Haz que %{pod} siga yendo rápido, y compra a nuestros servidores su dosis de café, con una donación mensual!"
       new_here:
-        follow: "¡Sigue %{link} y da la bienvenida a nuevos usuarios de diaspora*!"
+        follow: "¡Sigue %{link} y da la bienvenida a nuevos usuarios de silent.army!"
         learn_more: "Aprende más"
         title: "Da la bienvenida a nuevos usuarios"
       services:
@@ -225,7 +225,7 @@ es-MX:
       close_account_q: "¿Cómo puedo borrar mi cuenta?"
       data_other_podmins_a: "Una vez que estés compartiendo con alguien en otro pod, cualquier publicación que compartas con dicha persona, y una copia de la información de tu perfil, son almacenadas (en caché) en su pod, y son accesibles para el administrador de la base de datos del mismo. Cuando eliminas una publicación o información de tu perfil, se eliminará en tu pod, y en cualquier otro pod donde se haya almacenado previamente."
       data_other_podmins_q: "¿Pueden ver mi información los administradores de otros pods?"
-      data_visible_to_podmin_a: "La comunicación *entre* pods está siempre cifrada (utilizando SSL y el propio cifrado de diaspora*), pero el almacenamiento de información en los pods no está cifrado. Si lo desease, el administrador de la base de datos de tu pod (usualmente es la misma persona que mantiene el pod) podría acceder a toda la información de tu perfil, y a todo aquello que publicas (tal como sucede en la mayoría de los sitios que visitas). Instalar tu propio pod te brinda mayor privacidad, ya que tú tienes control sobre quién accede a la base de datos."
+      data_visible_to_podmin_a: "La comunicación *entre* pods está siempre cifrada (utilizando SSL y el propio cifrado de silent.army), pero el almacenamiento de información en los pods no está cifrado. Si lo desease, el administrador de la base de datos de tu pod (usualmente es la misma persona que mantiene el pod) podría acceder a toda la información de tu perfil, y a todo aquello que publicas (tal como sucede en la mayoría de los sitios que visitas). Instalar tu propio pod te brinda mayor privacidad, ya que tú tienes control sobre quién accede a la base de datos."
       data_visible_to_podmin_q: "¿Qué tanto de mi información puede ver el administrador de mi pod?"
       download_data_a: "Sí. En la parte inferior de la pestaña «Cuenta», en tu página de ajustes, se encuentran dos botones que te permiten descargar tu información."
       download_data_q: "¿Puedo descargar una copia de toda la información contenida en mi cuenta?"
@@ -252,19 +252,19 @@ es-MX:
       restrict_posts_i_see_a: "Sí. Haz clic en «Mis aspectos» en la barra lateral, y luego haz clic en los aspectos de la lista para marcarlos o desmarcarlos. Únicamente aparecerán en tu «Entrada» las publicaciones de la gente que se encuentre en los aspectos seleccionados."
       restrict_posts_i_see_q: "¿Puedo ver publicaciones que pertenezcan solo a ciertos aspectos?"
       title: "Aspectos"
-      what_is_an_aspect_a: "Los aspectos son la forma en que agrupas a tus contactos en diaspora*. Un aspecto es una de facetas que le muestras al mundo. Puede ser quién eres en el trabajo, o quién eres con tu familia, o quién eres con tus amigos."
+      what_is_an_aspect_a: "Los aspectos son la forma en que agrupas a tus contactos en silent.army. Un aspecto es una de facetas que le muestras al mundo. Puede ser quién eres en el trabajo, o quién eres con tu familia, o quién eres con tus amigos."
       what_is_an_aspect_q: "¿Qué es un aspecto?"
       who_sees_post_a: "Si creas una publicación limitada solo será visible para la gente a quien hayas incluido en dicho aspecto (o aquellos aspectos, si se publica para varios de estos). Tus contactos que no se encuentren en el aspecto no podrán ver la publicación, a menos que la hayas hecho pública. Solo las publicaciones públicas serán visibles para todo aquel que no se encuentre en alguno de tus aspectos."
       who_sees_post_q: "¿Cuando publico para un aspecto, quién puede verlo?"
-    foundation_website: "sitio web de la fundación de diaspora*"
+    foundation_website: "sitio web de la fundación de silent.army"
     getting_help:
-      get_support_a_hashtag: "haz una pregunta en una publicación pública en diaspora*, utilizando la etiqueta %{question}"
+      get_support_a_hashtag: "haz una pregunta en una publicación pública en silent.army, utilizando la etiqueta %{question}"
       get_support_a_irc: "únete a nosotros en %{irc} (chat en vivo)"
       get_support_a_tutorials: "revisa nuestros %{tutorials}"
       get_support_a_website: "visita nuestro %{link}"
       get_support_a_wiki: "busca en la %{link}"
       get_support_q: "¿Y si mi duda no está respondida en estas preguntas frecuentes? ¿Dónde más puedo obtener ayuda?"
-      getting_started_a: "¡Tienes buena suerte! Intenta la %{tutorial_series} en nuestro sitio del proyecto. Te llevará paso a paso a través del proceso de registro, y te enseñará todos los aspectos básicos sobre el uso de diaspora*."
+      getting_started_a: "¡Tienes buena suerte! Intenta la %{tutorial_series} en nuestro sitio del proyecto. Te llevará paso a paso a través del proceso de registro, y te enseñará todos los aspectos básicos sobre el uso de silent.army."
       getting_started_q: "¡Ayuda! ¡Necesito conocer lo básico para empezar!"
       title: "Obtener ayuda"
     getting_started_tutorial: "serie de tutoriales «primeros pasos»"
@@ -284,8 +284,8 @@ es-MX:
     miscellaneous:
       back_to_top_a: "Sí. Luego de desplazarse hacia abajo en la página, haz clic en la flecha gris que aparece en la esquina inferior derecha de la ventana de tu navegador."
       back_to_top_q: "¿Existe una manera rápida de dirigirse a la parte superior de la página, una vez que me he desplazado hacia abajo?"
-      diaspora_app_a: "Existen varias aplicaciones para Android en una etapa temprana de desarrollo. Algunos son proyectos abandonados hace tiempo, y por tanto no funcionan de manera correcta con la versión actual de diaspora*. No tengas grandes expectativas acerca de dichas aplicaciones, al menos por el momento. Actualmente, la mejor manera de acceder a diaspora* desde tu dispositivo móvil es a través de un navegador, ya que hemos diseñado una versión móvil del sitio, que debería funcionar adecuadamente en todos los dispositivos. No existe por ahora una aplicación para iOS. De nuevo, diaspora* debería funcionar propiamente por medio de tu navegador."
-      diaspora_app_q: "¿Existe una aplicación de diaspora* para Android o iOS?"
+      diaspora_app_a: "Existen varias aplicaciones para Android en una etapa temprana de desarrollo. Algunos son proyectos abandonados hace tiempo, y por tanto no funcionan de manera correcta con la versión actual de silent.army. No tengas grandes expectativas acerca de dichas aplicaciones, al menos por el momento. Actualmente, la mejor manera de acceder a silent.army desde tu dispositivo móvil es a través de un navegador, ya que hemos diseñado una versión móvil del sitio, que debería funcionar adecuadamente en todos los dispositivos. No existe por ahora una aplicación para iOS. De nuevo, silent.army debería funcionar propiamente por medio de tu navegador."
+      diaspora_app_q: "¿Existe una aplicación de silent.army para Android o iOS?"
       photo_albums_a: "No actualmente. Sin embargo, puedes ver las imágenes que un usuario ha subido, desde la sección de «Fotos», en la barra lateral de su página de perfil."
       photo_albums_q: "¿Existen álbumes de fotos o videos?"
       subscribe_feed_q: "¿Puedo suscribirme a las publicaciones públicas de alguien utilizando un lector de fuentes web?"
@@ -294,9 +294,9 @@ es-MX:
       find_people_a: "Invita a tus amigos utilizando el enlace de correo electrónico que se encuentra en la barra lateral. Sigue #etiquetas para descubrir a otros con quien compartas intereses, y añada a aquellos que hacen publicaciones que te resultan interesantes. Incluye la etiqueta #hola en tu primer mensaje público."
       find_people_q: "Acabo de unirme a un pod, ¿cómo puedo encontrar personas con quien compartir?"
       title: "Pods"
-      use_search_box_a: "Si conoces su ID de diaspora* (por ejemplo: usuario@pod.org) puedes encontrarla mediante una búsqueda directa del ID. Si te encuentras en el mismo pod también es posible buscar usando simplemente su nombre de usuario. Una alternativa es buscar basándote en su nombre de perfil (aquel que ves en la pantalla). Si la búsqueda no es exitosa la primera vez, inténtalo de nuevo."
+      use_search_box_a: "Si conoces su ID de silent.army (por ejemplo: usuario@pod.org) puedes encontrarla mediante una búsqueda directa del ID. Si te encuentras en el mismo pod también es posible buscar usando simplemente su nombre de usuario. Una alternativa es buscar basándote en su nombre de perfil (aquel que ves en la pantalla). Si la búsqueda no es exitosa la primera vez, inténtalo de nuevo."
       use_search_box_q: "¿Cómo utilizo la casilla de búsqueda para encontrar a una persona en específico?"
-      what_is_a_pod_a: "Un servidor que ejecuta el software de diaspora*, y que está conectado a la red de diaspora*. La palabra «pod» es una metáfora que se refiere a las vainas que contienen semillas, al igual que un servidor contiene múltiples cuentas de usuario. Existen muchos pods distintos. Puedes agregar amigos de otros pods, y comunicarte con ellos. (Puedes considerar un pod de diaspora* como si fuese un proveedor de correo electrónico: existen pods públicos, privados, y con un poco de esfuerzo incluso puedes crear tu propio pod)."
+      what_is_a_pod_a: "Un servidor que ejecuta el software de silent.army, y que está conectado a la red de silent.army. La palabra «pod» es una metáfora que se refiere a las vainas que contienen semillas, al igual que un servidor contiene múltiples cuentas de usuario. Existen muchos pods distintos. Puedes agregar amigos de otros pods, y comunicarte con ellos. (Puedes considerar un pod de silent.army como si fuese un proveedor de correo electrónico: existen pods públicos, privados, y con un poco de esfuerzo incluso puedes crear tu propio pod)."
       what_is_a_pod_q: "¿Qué es un pod?"
     posts_and_posting:
       char_limit_services_a: "En tal caso la publicación estará limitada al límite de caracteres menor (140 en el caso de Twitter, 1000 en el caso de Tumblr), y el número de caracteres restantes se mostrará cuando se seleccione el ícono de dicho servicio. Te será posible publicar en estos servicios si tu publicación sobrepasa el límite, pero el texto se truncará en tales servicios."
@@ -326,7 +326,7 @@ es-MX:
       title: "Publicaciones y cómo publicar"
     private_posts:
       title: "Publicaciones privadas"
-      who_sees_post_a: "Únicamente los usuarios de diaspora* que hayan iniciado sesión, y a quienes hayas añadido a dicho aspecto, podrán ver tu publicación limitada."
+      who_sees_post_a: "Únicamente los usuarios de silent.army que hayan iniciado sesión, y a quienes hayas añadido a dicho aspecto, podrán ver tu publicación limitada."
       who_sees_post_q: "¿Cuando publico un mensaje para un aspecto (es decir, una publicación privada) quién puede verlo?"
     private_profiles:
       title: "Perfil privado"
@@ -337,7 +337,7 @@ es-MX:
       who_sees_updates_a: "Cualquiera que se encuentre en tus aspectos verá los cambios a tu perfil privado. "
       who_sees_updates_q: "¿Quién ve las actualizaciones a mi perfil privado?"
     public_posts:
-      can_comment_reshare_like_a: "Cualquier usuario de diaspora* que haya iniciado sesión puede marcar como «me gusta», volver a compartir, o comentar en tu publicación pública."
+      can_comment_reshare_like_a: "Cualquier usuario de silent.army que haya iniciado sesión puede marcar como «me gusta», volver a compartir, o comentar en tu publicación pública."
       can_comment_reshare_like_q: "¿Quién puede marcar como «me gusta», volver a compartir, o comentar en mi publicación pública?"
       find_public_post_a: "Tus publicaciones públicas aparecerán en la «Entrada» de cualquiera que te esté siguiendo. Si añadiste #etiquetas en la publicación, cualquiera que esté siguiendo dichas etiquetas encontrará tu publicación en su «Entrada». Cada publicación pública también tiene una URL específica, que toda persona puede ver, incluso si no ha iniciado sesión. Así que las publicaciones públicas pueden ser enlazadas directamente desde Twitter, blogs, etcétera. También podrían ser indexadas por motores de búsqueda."
       find_public_post_q: "¿Cómo pueden encontrar otras personas una de mis publicaciones públicas?"
@@ -351,7 +351,7 @@ es-MX:
       what_do_tags_do_q: "¿Para qué sirven las etiquetas en una publicación pública?"
       whats_in_profile_a: "Tu nombre, las cinco etiquetas que elegiste para describirte, y tu fotografía. Es la información que se encuentra en la sección superior de tu página de edición de perfil. Puedes hacer que esta información sea tan identificable o anónima como desees. Tu página de perfil también muestra cualquier publicación pública que hayas realizado."
       whats_in_profile_q: "¿De qué se compone mi perfil público?"
-      who_sees_profile_a: "Cualquier usuario de diaspora* que haya iniciado sesión, así como cualquiera con acceso a Internet puede verlo. Cada perfil tiene una URL directa, así que podría ser enlazado directamente desde sitios externos. Podría también ser indexada por motores de búsqueda."
+      who_sees_profile_a: "Cualquier usuario de silent.army que haya iniciado sesión, así como cualquiera con acceso a Internet puede verlo. Cada perfil tiene una URL directa, así que podría ser enlazado directamente desde sitios externos. Podría también ser indexada por motores de búsqueda."
       who_sees_profile_q: "¿Quién puede ver mi perfil público?"
       who_sees_updates_a: "Cualquiera puede ver los cambios, si visita tu página de perfil."
       who_sees_updates_q: "¿Quién puede ver las actualizaciones a mi perfil público?"
@@ -375,7 +375,7 @@ es-MX:
       see_old_posts_q: "¿Cuando agrego a alguien a un aspecto, puede esta persona ver las publicaciones antiguas que he publicado para dicho aspecto?"
       title: "Compartir"
     tags:
-      filter_tags_a: "Esta función aún no está disponible por medio de diaspora*, pero algunas %{third_party_tools} se han creado para brindar esta opción."
+      filter_tags_a: "Esta función aún no está disponible por medio de silent.army, pero algunas %{third_party_tools} se han creado para brindar esta opción."
       filter_tags_q: "¿Cómo puedo filtrar/excluir ciertas etiquetas en mi «Entrada»?"
       followed_tags_a: "Cuando hayas buscado una etiqueta, puedes hacer clic en el botón que se encuentra en la parte superior de la página de la etiqueta, para «seguir» la misma. Entonces aparecerá en tu lista de etiquetas seguidas, a la izquierda. Hacer clic en una de tus etiquetas seguidas te llevará a la página esta, para que puedas ver las publicaciones recientes que contengan dicha etiqueta. Haz clic en «Etiquetas seguidas» para ver las publicaciones que incluyan cualquiera de las etiquetas que sigues. "
       followed_tags_q: "¿Qué son las «#etiquetas seguidas», y cómo puedo seguir una etiqueta?"
@@ -408,13 +408,13 @@ es-MX:
       comma_separated_plz: "Puedes introducir múltiples direcciones de correo electrónico, separadas por comas."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora!"
       language: "Idioma"
-      paste_link: "Comparte este enlace con tus amigos para invitarlos a diaspora*, o envíales directamente el enlace por correo electrónico."
+      paste_link: "Comparte este enlace con tus amigos para invitarlos a silent.army, o envíales directamente el enlace por correo electrónico."
       send_an_invitation: "Enviar una invitación"
       sending_invitation: "Enviando invitación…"
   layouts:
     application:
       back_to_top: "Volver al principio"
-      powered_by: "POWERED BY diaspora*"
+      powered_by: "POWERED BY silent.army"
       public_feed: "Canal público de Diaspora para %{name}"
       source_package: "descargar el paquete del código fuente"
       toggle: "Cambiar a sitio móvil"
@@ -496,7 +496,7 @@ es-MX:
       message: |-
           ¡Hola!
 
-          ¡Has sido invitado a unirte a diaspora*!
+          ¡Has sido invitado a unirte a silent.army!
 
           Haz clic en este enlace para comenzar.
 
@@ -505,15 +505,15 @@ es-MX:
 
           Saludos.
 
-          ¡El generador de correo automático de diaspora*!
+          ¡El generador de correo automático de silent.army!
 
           [1]: %{invite_url}
-    invited_you: "%{name} te ha invitado a diaspora*"
+    invited_you: "%{name} te ha invitado a silent.army"
     liked:
       liked: "A %{name} le gustó tu publicación"
       view_post: "Ver publicación >"
     mentioned:
-      subject: "%{name} te mencionó en diaspora*"
+      subject: "%{name} te mencionó en silent.army"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
     reshared:
@@ -524,7 +524,7 @@ es-MX:
       subject: "Un mensaje acerca de tu cuenta de Diaspora:"
     started_sharing:
       sharing: "¡ha comenzado a compartir contigo!"
-      subject: "%{name} comenzó a compartir contigo en diaspora*"
+      subject: "%{name} comenzó a compartir contigo en silent.army"
       view_profile: "Ver el perfil de %{name}"
     thanks: "Gracias,"
     to_change_your_notification_settings: "para cambiar los ajustes de notificación"
@@ -582,7 +582,7 @@ es-MX:
       first_name: "Nombre"
       last_name: "Apellidos"
       nsfw_check: "Marcar todo lo que comparto como NSFW (no es seguro/apropiado para el trabajo)"
-      nsfw_explanation: "NSFW (no es seguro/apropiado para el trabajo) es el estándar autónomo de la comunidad de diaspora*, que se aplica al contenido que no es adecuado para ser visto mientras uno se encuentra en el trabajo. Si tienes pensado compartir dicho material frecuentemente, por favor selecciona esta opción. Así todo lo que compartas estará oculto en la «Entrada» de otros usuarios, hasta que estos decidan verlo."
+      nsfw_explanation: "NSFW (no es seguro/apropiado para el trabajo) es el estándar autónomo de la comunidad de silent.army, que se aplica al contenido que no es adecuado para ser visto mientras uno se encuentra en el trabajo. Si tienes pensado compartir dicho material frecuentemente, por favor selecciona esta opción. Así todo lo que compartas estará oculto en la «Entrada» de otros usuarios, hasta que estos decidan verlo."
       nsfw_explanation2: "SI decides no seleccionar esta opción, por favor añade la etiqueta #nsfw cada vez que publiques material de esta índole."
       update_profile: "Actualizar perfil"
       your_bio: "Biografía"
@@ -768,7 +768,7 @@ es-MX:
       your_email: "Tu correo electrónico"
       your_handle: "Tu ID de Diaspora"
     getting_started:
-      awesome_take_me_to_diaspora: "¡Genial! Llévame a diaspora*"
+      awesome_take_me_to_diaspora: "¡Genial! Llévame a silent.army"
       community_welcome: "¡La comunidad de Diaspora está feliz de tenerte a bordo!"
       connect_to_facebook: "Podemos acelerar un poco las cosas %{link} a Diaspora. Esto extraerá tu nombre y foto, y habilitará las publicaciones cruzadas."
       connect_to_facebook_link: "conectando tu cuenta de Facebook"
