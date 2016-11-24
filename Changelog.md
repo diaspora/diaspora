@@ -17,6 +17,7 @@
 * Refactor ShareVisibilitesController to use PostService [#7196](https://github.com/diaspora/diaspora/pull/7196)
 * Unify desktop and mobile head elements [#7194](https://github.com/diaspora/diaspora/pull/7194)
 * Refactor flash messages on ajax errors for comments, likes, reshares and aspect memberships [#7202](https://github.com/diaspora/diaspora/pull/7202)
+* Only require AWS-module for fog [#7201](https://github.com/diaspora/diaspora/pull/7201)
 
 ## Bug fixes
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)
