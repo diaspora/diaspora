@@ -19,6 +19,7 @@
 * Fix visiblity on invitation modal when opening it from the stream [#7191](https://github.com/diaspora/diaspora/pull/7191)
 * Add avatar fallback on tags page [#7198](https://github.com/diaspora/diaspora/pull/7198)
 * Update notifications when changing the stream [#7199](https://github.com/diaspora/diaspora/pull/7199)
+* Fix 500 on mobile commented and liked streams [#7219](https://github.com/diaspora/diaspora/pull/7219)
 
 ## Features
 * Show spinner when loading comments in the stream [#7170](https://github.com/diaspora/diaspora/pull/7170)

@@ -41,6 +41,20 @@ describe StreamHelper, type: :helper do
       expect(helper.next_page_path).to include activity_stream_path
     end
 
+    it "works for commented page when current page is commented stream" do
+      allow(helper).to receive(:current_page?).and_return(false)
+      expect(helper).to receive(:current_page?).with(:commented_stream).and_return(true)
+      allow(helper).to receive(:controller).and_return(build_controller(StreamsController))
+      expect(helper.next_page_path).to include commented_stream_path
+    end
+
+    it "works for liked page when current page is liked stream" do
+      allow(helper).to receive(:current_page?).and_return(false)
+      expect(helper).to receive(:current_page?).with(:liked_stream).and_return(true)
+      allow(helper).to receive(:controller).and_return(build_controller(StreamsController))
+      expect(helper.next_page_path).to include liked_stream_path
+    end
+
     it "works for mentioned page when current page is mentioned stream" do
       allow(helper).to receive(:current_page?).and_return(false)
       expect(helper).to receive(:current_page?).with(:mentioned_stream).and_return(true)
