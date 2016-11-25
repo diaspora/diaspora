@@ -12,9 +12,6 @@
 / All others
 %link{rel: "shortcut icon", href: image_path("favicon.png")}
 
-= chartbeat_head_block
-= include_mixpanel
-
 - if rtl?
   = stylesheet_link_tag :rtl, media: "all"
 
@@ -22,9 +19,12 @@
   = stylesheet_link_tag :poltergeist_disable_transition, media: "all"
 
 = jquery_include_tag
+= include_gon(camel_case: true, nonce: content_security_policy_nonce(:script))
+= yield(:javascript)
+
+= chartbeat_head_block
+= csrf_meta_tag
 = current_user_atom_tag
+= include_mixpanel
 
 = yield(:head)
-
-= csrf_meta_tag
-= include_gon(camel_case: true, nonce: content_security_policy_nonce(:script))
