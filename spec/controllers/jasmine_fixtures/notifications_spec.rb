@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe NotificationsController, :type => :controller do
   describe '#index' do
     before do

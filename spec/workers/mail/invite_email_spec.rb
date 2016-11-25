@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Workers::Mail::InviteEmail do
   let(:emails) { ['foo@bar.com', 'baz@bar.com'] }
   let(:message) { 'get over here!' }

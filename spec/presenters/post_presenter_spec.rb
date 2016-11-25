@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe PostPresenter do
   before do
     @sm = FactoryGirl.create(:status_message, public: true)

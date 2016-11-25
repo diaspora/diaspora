@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Workers::PublishToHub do
   describe ".perform" do
     it "calls pubsubhubbub" do

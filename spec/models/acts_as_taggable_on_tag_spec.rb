@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe ActsAsTaggableOn::Tag, :type => :model do
   subject(:tag) { ActsAsTaggableOn::Tag }
 

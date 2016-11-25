@@ -1,4 +1,3 @@
-require 'spec_helper'
 describe Workers::GatherOEmbedData do
   before do
     @flickr_oembed_data = {

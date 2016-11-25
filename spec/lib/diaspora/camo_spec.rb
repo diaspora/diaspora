@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Diaspora::Camo do
   before do
     AppConfig.privacy.camo.root = 'http://localhost:3000/camo/'

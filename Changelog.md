@@ -11,6 +11,7 @@
 * Refactor flash messages on ajax errors for comments, likes, reshares and aspect memberships [#7202](https://github.com/diaspora/diaspora/pull/7202)
 * Only require AWS-module for fog [#7201](https://github.com/diaspora/diaspora/pull/7201)
 * Only show community spotlight links on the contacts page if community spotlight is enabled [#7213](https://github.com/diaspora/diaspora/pull/7213)
+* Require spec\_helper in .rspec [#7223](https://github.com/diaspora/diaspora/pull/7223)
 
 ## Bug fixes
 * Fix fetching comments after fetching likes [#7167](https://github.com/diaspora/diaspora/pull/7167)

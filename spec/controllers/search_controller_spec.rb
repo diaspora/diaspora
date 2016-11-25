@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe SearchController, :type => :controller do
   before do
     @user = alice

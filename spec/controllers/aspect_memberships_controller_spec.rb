@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe AspectMembershipsController, type: :controller do
   before do
     @aspect0  = alice.aspects.first

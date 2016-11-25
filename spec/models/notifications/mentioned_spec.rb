@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Notifications::Mentioned, type: :model do
   let(:sm) {
     FactoryGirl.create(:status_message, author: alice.person, text: "hi @{bob; #{bob.diaspora_handle}}", public: true)

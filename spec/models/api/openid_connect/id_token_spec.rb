@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Api::OpenidConnect::IdToken, type: :model do
   describe "#to_jwt" do
     let(:auth) { FactoryGirl.create(:auth_with_read) }

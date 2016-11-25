@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe "i18n interpolation fallbacks" do
   describe "when string does not require interpolation arguments" do
     it "works normally" do

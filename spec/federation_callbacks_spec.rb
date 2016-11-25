@@ -1,4 +1,3 @@
-require "spec_helper"
 require "diaspora_federation/test"
 
 describe "diaspora federation callbacks" do

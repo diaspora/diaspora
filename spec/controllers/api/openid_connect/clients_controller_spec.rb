@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf_verification: :none do
   describe "#create" do
     context "when valid parameters are passed" do

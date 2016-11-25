@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe EvilQuery::MultiStream do
   let(:evil_query) { EvilQuery::MultiStream.new(alice, "created_at", Time.zone.now, true) }
 
