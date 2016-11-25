@@ -6,12 +6,6 @@ describe Stream::Base do
     @stream = Stream::Base.new(alice)
   end
 
-  describe '#contacts_link' do
-    it 'should default to your contacts page' do
-      expect(@stream.contacts_link).to match(/contacts/)
-    end
-  end
-
   describe '#stream_posts' do
     it "should returns the posts.for_a_stream" do
       posts = double

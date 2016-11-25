@@ -33,14 +33,6 @@ module ApplicationHelper
       "bookmarklet('#{bookmarklet_url}', #{width}, #{height});"
   end
 
-  def contacts_link
-    if current_user.contacts.size > 0
-      contacts_path
-    else
-      community_spotlight_path
-    end
-  end
-
   def all_services_connected?
     current_user.services.size == AppConfig.configured_services.size
   end
