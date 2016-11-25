@@ -49,11 +49,6 @@ class Stream::Base
       includes(:profile)
   end
 
-  # @return [String]
-  def contacts_link
-    Rails.application.routes.url_helpers.contacts_path
-  end
-
   # @return [Boolean]
   def for_all_aspects?
     true
