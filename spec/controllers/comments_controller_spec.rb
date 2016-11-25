@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe CommentsController, :type => :controller do
   before do
     allow(@controller).to receive(:current_user).and_return(alice)

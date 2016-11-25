@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Notifier, type: :mailer do
   let(:person) { FactoryGirl.create(:person) }
 

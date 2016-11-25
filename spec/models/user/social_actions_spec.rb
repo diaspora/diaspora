@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe User::SocialActions, type: :model do
   let(:status) { FactoryGirl.create(:status_message, public: true, author: bob.person) }
 

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Workers::QueueUsersForRemoval do
   describe 'remove_old_users is active' do
     before do

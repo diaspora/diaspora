@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 shared_examples_for "it is relayable" do
   describe "validations" do
     context "author ignored by parent author" do

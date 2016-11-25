@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe ShareVisibilitiesController, :type => :controller do
   before do
     @status = alice.post(:status_message, :text => "hello", :to => alice.aspects.first)

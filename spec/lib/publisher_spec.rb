@@ -1,6 +1,3 @@
-
-require 'spec_helper'
-
 describe Publisher do
   before do
     @publisher = Publisher.new(alice)

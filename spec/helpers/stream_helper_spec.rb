@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe StreamHelper, type: :helper do
   describe "next_page_path" do
     def build_controller controller_class

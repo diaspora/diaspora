@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe AccountDeletion, type: :model do
   let(:account_deletion) { AccountDeletion.new(person: alice.person) }
 

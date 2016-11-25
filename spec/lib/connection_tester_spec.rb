@@ -1,6 +1,3 @@
-
-require "spec_helper"
-
 describe ConnectionTester do
   let(:url) { "https://pod.example.com" }
   let(:result) { ConnectionTester::Result.new }

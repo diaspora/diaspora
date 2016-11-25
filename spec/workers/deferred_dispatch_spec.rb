@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Workers::DeferredDispatch do
   it "handles non existing records gracefully" do
     expect {

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ResharesController, :type => :controller do
   describe '#create' do
     let(:post_request!) {

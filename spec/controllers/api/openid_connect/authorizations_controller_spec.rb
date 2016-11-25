@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Api::OpenidConnect::AuthorizationsController, type: :controller do
   let!(:client) { FactoryGirl.create(:o_auth_application) }
   let!(:client_with_xss) { FactoryGirl.create(:o_auth_application_with_xss) }

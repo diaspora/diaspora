@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe HomeController, type: :controller do
   describe "#show" do
     it "does not redirect for :html if there are at least 2 users and an admin" do

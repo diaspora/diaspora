@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ConversationsController, :type => :controller do
   describe '#index' do
     before do

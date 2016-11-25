@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 shared_examples_for 'it removes the person associations' do
   it "removes all of the person's posts" do
     expect(Post.where(:author_id => @person.id).count).to eq(0)

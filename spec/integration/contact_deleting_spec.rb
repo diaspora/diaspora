@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe 'disconnecting a contact', :type => :request do
   it 'removes the aspect membership' do
     @user = alice
