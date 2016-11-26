@@ -198,7 +198,6 @@ describe("Diaspora.Mobile.PostActions", function(){
       Diaspora.Mobile.PostActions.initialize();
       this.reshareLink = $(".stream .reshare-action");
       spyOn(window, "confirm").and.returnValue(true);
-      spyOn(window, "alert");
     });
 
     it("always calls showLoader before sending request and hideLoader after receiving response", function(){
@@ -223,16 +222,12 @@ describe("Diaspora.Mobile.PostActions", function(){
       expect(Diaspora.Mobile.PostActions.toggleActive).toHaveBeenCalledWith(this.reshareLink);
     });
 
-    it("pops an alert on server errors", function() {
+    it("lets Diaspora.Mobile.Alert handle AJAX errors", function() {
+      spyOn(Diaspora.Mobile.Alert, "handleAjaxError");
       this.reshareLink.click();
       jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "reshare failed"});
-      expect(window.alert).toHaveBeenCalledWith("reshare failed");
-    });
-
-    it("pops an alert on network errors", function() {
-      this.reshareLink.click();
-      jasmine.Ajax.requests.mostRecent().abort();
-      expect(window.alert).toHaveBeenCalledWith(Diaspora.I18n.t("errors.connection"));
+      expect(Diaspora.Mobile.Alert.handleAjaxError).toHaveBeenCalled();
+      expect(Diaspora.Mobile.Alert.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("reshare failed");
     });
   });
 });
