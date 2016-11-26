@@ -4,6 +4,11 @@ describe("Diaspora.Mobile.Conversations", function() {
     Diaspora.Page = "ConversationsNew";
   });
 
+  afterEach(function() {
+    $(document).off("ajax:success", Diaspora.Mobile.Conversations.conversationCreateSuccess);
+    $(document).off("ajax:error", Diaspora.Mobile.Conversations.conversationCreateError);
+  });
+
   describe("conversationCreateSuccess", function() {
     it("is called when there was a successful ajax request for the conversation form", function() {
       spyOn(Diaspora.Mobile.Conversations, "conversationCreateSuccess");
@@ -43,10 +48,12 @@ describe("Diaspora.Mobile.Conversations", function() {
     });
 
     it("shows a flash message", function() {
-      spyOn(Diaspora.Mobile.Alert, "error");
+      spyOn(Diaspora.Mobile.Alert, "handleAjaxError").and.callThrough();
       Diaspora.Mobile.Conversations.initialize();
-      $("#new-conversation").trigger("ajax:error", [{responseText: "Oh noez! Something went wrong!"}]);
-      expect(Diaspora.Mobile.Alert.error).toHaveBeenCalledWith("Oh noez! Something went wrong!");
+      var response = {status: 422, responseText: "Oh noez! Something went wrong!"};
+      $("#new-conversation").trigger("ajax:error", response);
+      expect(Diaspora.Mobile.Alert.handleAjaxError).toHaveBeenCalledWith(response);
+      expect($("#flash-messages")).toHaveText("Oh noez! Something went wrong!");
     });
   });
 });
