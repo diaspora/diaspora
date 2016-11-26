@@ -10,9 +10,8 @@
       Diaspora.Mobile.changeLocation(Routes.conversation(data.id));
     },
 
-    conversationCreateError: function(evt, resp) {
-      Diaspora.Mobile.Alert.error(resp.responseText);
-      $("html").animate({scrollTop: 0});
+    conversationCreateError: function(evt, response) {
+      Diaspora.Mobile.Alert.handleAjaxError(response);
     }
   };
 })();

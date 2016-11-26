@@ -14,6 +14,14 @@
 
     success: function(message) { this._flash(message, "success"); },
 
-    error: function(message) { this._flash(message, "danger"); }
+    error: function(message) { this._flash(message, "danger"); },
+
+    handleAjaxError: function(response) {
+      if (response.status === 0) {
+        this.error(Diaspora.I18n.t("errors.connection"));
+      } else {
+        this.error(response.responseText);
+      }
+    }
   };
 })();
