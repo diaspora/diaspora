@@ -38,21 +38,22 @@ class ConversationsController < ApplicationController
       person_ids = current_user.contacts.mutual.where(column => params[recipients_param].split(",")).pluck(:person_id)
     end
 
+    unless person_ids.present?
+      render text: I18n.t("javascripts.conversation.create.no_recipient"), status: 422
+      return
+    end
+
     opts = params.require(:conversation).permit(:subject)
     opts[:participant_ids] = person_ids
     opts[:message] = { text: params[:conversation][:text] }
     @conversation = current_user.build_conversation(opts)
 
-    if person_ids.present? && @conversation.save
+    if @conversation.save
       Diaspora::Federation::Dispatcher.defer_dispatch(current_user, @conversation)
       flash[:notice] = I18n.t("conversations.create.sent")
       render json: {id: @conversation.id}
     else
-      message = I18n.t("conversations.create.fail")
-      if person_ids.blank?
-        message = I18n.t("javascripts.conversation.create.no_recipient")
-      end
-      render text: message, status: 422
+      render text: I18n.t("conversations.create.fail"), status: 422
     end
   end
 
