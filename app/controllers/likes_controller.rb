@@ -31,7 +31,12 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find_by_id_and_author_id!(params[:id], current_user.person.id)
+    begin
+      @like = Like.find_by_id_and_author_id!(params[:id], current_user.person.id)
+    rescue ActiveRecord::RecordNotFound
+      render text: I18n.t("likes.destroy.error"), status: 404
+      return
+    end
 
     current_user.retract(@like)
     respond_to do |format|

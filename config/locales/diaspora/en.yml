@@ -591,6 +591,8 @@ en:
   likes:
     create:
       error: "Failed to like."
+    destroy:
+      error: "Failed to unlike."
 
   notifications:
     started_sharing:
