@@ -25,5 +25,4 @@
   - for participant in conversation.participants
     = person_image_link(participant, :size => :thumb_small)
 
-.stream
-  = render partial: 'messages', locals: { conversation: conversation }
+= render partial: "messages", locals: {conversation: conversation}
