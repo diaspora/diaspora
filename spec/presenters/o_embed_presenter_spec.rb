@@ -1,4 +1,3 @@
-require 'spec_helper'
 describe OEmbedPresenter do
   before do
    @oembed = OEmbedPresenter.new(FactoryGirl.create(:status_message))

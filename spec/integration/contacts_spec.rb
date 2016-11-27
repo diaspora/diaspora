@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe ContactsController, type: :request do
   describe "/contacts" do
     context "user is signed in" do

@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe NotificationsHelper, type: :helper do
   include ApplicationHelper
 

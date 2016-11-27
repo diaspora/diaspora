@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe ShareVisibility, type: :model do
   describe ".batch_import" do
     let(:post) { FactoryGirl.create(:status_message, author: alice.person) }

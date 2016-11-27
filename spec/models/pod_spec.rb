@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Pod, type: :model do
   describe ".find_or_create_by" do
     it "takes a url, and makes one by host" do

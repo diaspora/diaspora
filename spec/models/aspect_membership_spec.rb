@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
-require "spec_helper"
-
 describe AspectMembership, :type => :model do
   describe "#before_destroy" do
     let(:aspect) { alice.aspects.create(name: "two") }

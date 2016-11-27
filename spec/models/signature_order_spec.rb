@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe SignatureOrder, type: :model do
   context "validation" do
     it "requires an order" do

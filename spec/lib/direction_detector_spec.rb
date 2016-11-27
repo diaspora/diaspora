@@ -3,8 +3,6 @@
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe String do
   let(:english) { "Hello World" }
   let(:chinese) { "你好世界" }

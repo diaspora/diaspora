@@ -1,7 +1,4 @@
-require 'spec_helper'
-
 describe Services::Facebook, :type => :model do
-
   before do
     @user = alice
     @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :public =>true, :photos => [])

@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Diaspora::Federation::Dispatcher::Private do
   let(:post) { FactoryGirl.create(:status_message, author: alice.person, text: "hello", public: false) }
   let(:comment) { FactoryGirl.create(:comment, author: alice.person, post: post) }

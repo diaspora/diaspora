@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Workers::Mail::Reshared do
   describe '#perfom' do
     it 'should call .deliver on the notifier object' do

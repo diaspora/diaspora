@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe ReportHelper, type: :helper do
   before do
     @user = bob

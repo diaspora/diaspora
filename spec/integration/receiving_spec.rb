@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe 'a user receives a post', :type => :request do
   before do
     @alices_aspect = alice.aspects.where(:name => "generic").first

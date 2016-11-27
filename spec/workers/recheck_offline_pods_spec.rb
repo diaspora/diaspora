@@ -1,6 +1,3 @@
-
-require "spec_helper"
-
 describe Workers::RecheckScheduledPods do
   it "performs a connection test on all scheduled pods" do
     (0..4).map { FactoryGirl.create(:pod) }

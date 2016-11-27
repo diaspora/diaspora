@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe HelpController, type: :controller do
   describe "#faq" do
     it "succeeds" do

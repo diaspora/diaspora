@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe PostsController, type: :controller do
   let(:post) { alice.post(:status_message, text: "ohai", to: alice.aspects.first) }
 

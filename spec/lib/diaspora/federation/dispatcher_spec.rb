@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Diaspora::Federation::Dispatcher do
   let(:post) { FactoryGirl.create(:status_message, author: alice.person, text: "hello", public: true) }
   let(:opts) { {service_types: "Services::Twitter"} }

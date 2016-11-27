@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Workers::Mail::Liked do
   describe "#perfom" do
     it "should call .deliver_now on the notifier object" do

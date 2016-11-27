@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe User::Querying, :type => :model do
   before do
     @alices_aspect = alice.aspects.where(:name => "generic").first

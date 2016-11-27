@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Comment, type: :model do
   let(:alices_aspect) { alice.aspects.first }
   let(:status_bob) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
