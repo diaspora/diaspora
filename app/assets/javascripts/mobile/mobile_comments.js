@@ -50,8 +50,9 @@
 
       $.post(form.attr("action") + "?format=mobile", form.serialize(), function(data){
         Diaspora.Mobile.Comments.updateStream(form, data);
-      }, "html").fail(function(){
-        Diaspora.Mobile.Comments.resetCommentBox(this);
+      }, "html").fail(function(response) {
+        Diaspora.Mobile.Alert.handleAjaxError(response);
+        Diaspora.Mobile.Comments.resetCommentBox(form);
       });
 
       autosize($(".add-comment-switcher:not(.hidden) textarea"));
