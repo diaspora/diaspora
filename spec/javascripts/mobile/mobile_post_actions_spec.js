@@ -118,6 +118,14 @@ describe("Diaspora.Mobile.PostActions", function(){
       expect(this.likeCounter.text()).toBe("0");
     });
 
+    it("lets Diaspora.Mobile.Alert handle AJAX errors", function() {
+      spyOn(Diaspora.Mobile.Alert, "handleAjaxError");
+      Diaspora.Mobile.PostActions.like(this.likeCounter, this.link);
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "oh noez! like failed!"});
+      expect(Diaspora.Mobile.Alert.handleAjaxError).toHaveBeenCalled();
+      expect(Diaspora.Mobile.Alert.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("oh noez! like failed!");
+    });
+
     it("activates link on success", function(){
       spyOn(Diaspora.Mobile.PostActions, "toggleActive");
       var data = this.link.data("url");
@@ -164,6 +172,14 @@ describe("Diaspora.Mobile.PostActions", function(){
       jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
       expect(Diaspora.Mobile.PostActions.toggleActive).not.toHaveBeenCalled();
       expect(this.likeCounter.text()).toBe("1");
+    });
+
+    it("lets Diaspora.Mobile.Alert handle AJAX errors", function() {
+      spyOn(Diaspora.Mobile.Alert, "handleAjaxError");
+      Diaspora.Mobile.PostActions.unlike(this.likeCounter, this.link);
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "oh noez! unlike failed!"});
+      expect(Diaspora.Mobile.Alert.handleAjaxError).toHaveBeenCalled();
+      expect(Diaspora.Mobile.Alert.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("oh noez! unlike failed!");
     });
 
     it("deactivates link on success", function(){

@@ -35,6 +35,9 @@
           Diaspora.Mobile.PostActions.showLoader(link);
         },
         success: onSuccess,
+        error: function(response) {
+          Diaspora.Mobile.Alert.handleAjaxError(response);
+        },
         complete: function() {
           Diaspora.Mobile.PostActions.hideLoader(link);
         }
@@ -61,6 +64,9 @@
           Diaspora.Mobile.PostActions.showLoader(link);
         },
         success: onSuccess,
+        error: function(response) {
+          Diaspora.Mobile.Alert.handleAjaxError(response);
+        },
         complete: function() {
           Diaspora.Mobile.PostActions.hideLoader(link);
         }
