@@ -3,7 +3,7 @@ class PolymorphicMentions < ActiveRecord::Migration
     remove_index :mentions, column: %i(post_id)
     remove_index :mentions, column: %i(person_id post_id), unique: true
     rename_column :mentions, :post_id, :mentions_container_id
-    add_column :mentions, :mentions_container_type, :string, null: false
+    add_column :mentions, :mentions_container_type, :string
     add_index :mentions,
               %i(mentions_container_id mentions_container_type),
               name:   "index_mentions_on_mc_id_and_mc_type",
@@ -26,6 +26,7 @@ class PolymorphicMentions < ActiveRecord::Migration
   def up_down(change)
     change.up do
       Mention.update_all(mentions_container_type: "Post")
+      change_column :mentions, :mentions_container_type, :string, null: false
       Notification.where(type: "Notifications::Mentioned").update_all(type: "Notifications::MentionedInPost")
     end
 
