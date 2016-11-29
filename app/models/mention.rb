@@ -3,10 +3,14 @@
 #   the COPYRIGHT file.
 
 class Mention < ActiveRecord::Base
-  belongs_to :post
+  belongs_to :mentions_container, polymorphic: true
   belongs_to :person
-  validates :post, presence: true
+  validates :mentions_container, presence: true
   validates :person, presence: true
+
+  scope :local, -> {
+    joins(:person).where.not(people: {owner_id: nil})
+  }
 
   after_destroy :delete_notification
 

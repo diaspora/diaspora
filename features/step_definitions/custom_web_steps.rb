@@ -176,7 +176,7 @@ end
 
 Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    current_scope.should have_css selector
+    expect(current_scope).to have_css(selector)
   end
 end
 

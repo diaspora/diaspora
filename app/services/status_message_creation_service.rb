@@ -19,18 +19,7 @@ class StatusMessageCreationService
 
   def build_status_message(params)
     public = params[:public] || false
-    filter_mentions params
     user.build_post(:status_message, params[:status_message].merge(public: public))
-  end
-
-  def filter_mentions(params)
-    unless params[:public]
-      params[:status_message][:text] = Diaspora::Mentionable.filter_for_aspects(
-        params[:status_message][:text],
-        user,
-        *params[:aspect_ids]
-      )
-    end
   end
 
   def add_attachments(status_message, params)
@@ -75,6 +64,7 @@ class StatusMessageCreationService
 
   def dispatch(status_message, services)
     receiving_services = services ? Service.titles(services) : []
+    status_message.filter_mentions # this is only required until changes from #6818 are deployed on every pod
     user.dispatch_post(status_message,
                        url:           short_post_url(status_message.guid, host: AppConfig.environment.url),
                        service_types: receiving_services)

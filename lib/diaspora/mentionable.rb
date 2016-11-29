@@ -54,25 +54,19 @@ module Diaspora::Mentionable
   end
 
   # takes a message text and converts mentions for people that are not in the
-  # given aspects to simple markdown links, leaving only mentions for people who
+  # given array to simple markdown links, leaving only mentions for people who
   # will actually be able to receive notifications for being mentioned.
   #
   # @param [String] message text
-  # @param [User] aspect owner
-  # @param [Mixed] array containing aspect ids or "all"
+  # @param [Array] allowed_people ids of people that are allowed to stay
   # @return [String] message text with filtered mentions
-  def self.filter_for_aspects(msg_text, user, *aspects)
-    aspect_ids = MentionsInternal.get_aspect_ids(user, *aspects)
-
+  def self.filter_people(msg_text, allowed_people)
     mentioned_ppl = people_from_string(msg_text)
-    aspects_ppl = AspectMembership.where(aspect_id: aspect_ids)
-                                  .includes(:contact => :person)
-                                  .map(&:person)
 
     msg_text.to_s.gsub(REGEX) {|match_str|
       name, handle = mention_attrs(match_str)
       person = mentioned_ppl.find {|p| p.diaspora_handle == handle }
-      mention = MentionsInternal.profile_link(person, name) unless aspects_ppl.include?(person)
+      mention = MentionsInternal.profile_link(person, name) unless allowed_people.include?(person.id)
 
       mention || match_str
     }
@@ -117,26 +111,6 @@ module Diaspora::Mentionable
       return display_name unless person.present?
 
       "[#{display_name.presence || person.name}](#{local_or_remote_person_path(person)})"
-    end
-
-    # takes a user and an array of aspect ids or an array containing "all" as
-    # the first element. will do some checking on ids and return them in an array
-    # in case of "all", returns an array with all the users aspect ids
-    #
-    # @param [User] owner of the aspects
-    # @param [Array] aspect ids or "all"
-    # @return [Array] aspect ids
-    def self.get_aspect_ids(user, *aspects)
-      return [] if aspects.empty?
-
-      if (!aspects.first.is_a?(Integer)) && aspects.first.to_s == 'all'
-        return user.aspects.pluck(:id)
-      end
-
-      ids = aspects.reject {|id| Integer(id) == nil } # only numeric
-
-      #make sure they really belong to the user
-      user.aspects.where(id: ids).pluck(:id)
     end
   end
 

@@ -126,9 +126,9 @@ describe PostPresenter do
 
     it "does not raise if the root of a reshare does not exist anymore" do
       reshare = FactoryGirl.create(:reshare)
-      reshare.root = nil
+      reshare.update(root: nil)
 
-      expect(PostPresenter.new(reshare).send(:description)).to eq(nil)
+      expect(PostPresenter.new(Post.find(reshare.id)).send(:description)).to eq(nil)
     end
   end
 

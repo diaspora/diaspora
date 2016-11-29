@@ -11,6 +11,7 @@ class Comment < ActiveRecord::Base
 
   include Diaspora::Taggable
   include Diaspora::Likeable
+  include Diaspora::MentionsContainer
 
   acts_as_taggable_on :tags
   extract_tags_from :text
@@ -49,12 +50,20 @@ class Comment < ActiveRecord::Base
     participation.unparticipate! if participation.present?
   end
 
-  def message
-    @message ||= Diaspora::MessageRenderer.new text
-  end
-
   def text= text
      self[:text] = text.to_s.strip #to_s if for nil, for whatever reason
+  end
+
+  def people_allowed_to_be_mentioned
+    if parent.public?
+      :all
+    else
+      [*parent.comments.pluck(:author_id), *parent.likes.pluck(:author_id), parent.author_id].uniq
+    end
+  end
+
+  def add_mention_subscribers?
+    super && parent.author.local?
   end
 
   class Generator < Diaspora::Federated::Generator
@@ -68,7 +77,7 @@ class Comment < ActiveRecord::Base
     end
 
     def relayable_options
-      {:post => @target, :text => @text}
+      {post: @target, text: @text}
     end
   end
 end

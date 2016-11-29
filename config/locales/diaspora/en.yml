@@ -615,9 +615,11 @@ en:
       one: "%{actors} also commented on %{post_author}’s post %{post_link}."
       other: "%{actors} also commented on %{post_author}’s post %{post_link}."
     mentioned:
-      zero: "%{actors} have mentioned you in the post %{post_link}."
       one: "%{actors} has mentioned you in the post %{post_link}."
       other: "%{actors} have mentioned you in the post %{post_link}."
+    mentioned_in_comment:
+      one: "%{actors} has mentioned you in a <a href='%{comment_path}'>comment</a> to the post %{post_link}."
+      other: "%{actors} have mentioned you in a <a href='%{comment_path}'>comment</a> to the post %{post_link}."
     liked:
       zero: "%{actors} have liked your post %{post_link}."
       one: "%{actors} has liked your post %{post_link}."
@@ -640,9 +642,11 @@ en:
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
     mentioned_deleted:
-      zero: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
+    mentioned_in_comment_deleted:
+      one: "%{actors} mentioned you in a deleted comment."
+      other: "%{actors} mentioned you in a deleted comment."
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark all as read"
@@ -655,7 +659,8 @@ en:
       also_commented: "Also commented"
       comment_on_post: "Comment on post"
       liked: "Liked"
-      mentioned: "Mentioned"
+      mentioned: "Mentioned in post"
+      mentioned_in_comment: "Mentioned in comment"
       reshared: "Reshared"
       started_sharing: "Started sharing"
       no_notifications: "You don't have any notifications yet."
@@ -689,6 +694,9 @@ en:
     mentioned:
         subject: "%{name} has mentioned you on diaspora*"
         limited_post: "You were mentioned in a limited post."
+    mentioned_in_comment:
+        limited_post: "You were mentioned in a comment to a limited post."
+        reply: "Reply to or view this conversation >"
     private_message:
         subject: "There’s a new private message for you"
         reply_to_or_view: "Reply to or view this conversation >"
@@ -1167,6 +1175,7 @@ en:
       started_sharing: "someone starts sharing with you"
       someone_reported: "someone sends a report"
       mentioned: "you are mentioned in a post"
+      mentioned_in_comment: "you are mentioned in a comment"
       liked: "someone likes your post"
       reshared: "someone reshares your post"
       comment_on_post: "someone comments on your post"

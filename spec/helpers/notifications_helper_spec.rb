@@ -90,6 +90,37 @@ describe NotificationsHelper, type: :helper do
         end
       end
     end
+
+    let(:status_message) {
+      FactoryGirl.create(:status_message_in_aspect, author: alice.person, text: text_mentioning(bob))
+    }
+
+    describe "when mentioned in status message" do
+      it "should include correct wording and post link" do
+        Notifications::MentionedInPost.notify(status_message, [bob.id])
+        notification = Notifications::MentionedInPost.last
+        expect(notification).not_to be_nil
+
+        link = object_link(notification, notification_people_link(notification))
+        expect(link).to include("mentioned you in the post")
+        expect(link).to include(post_path(status_message))
+      end
+    end
+
+    describe "when mentioned in comment" do
+      it "should include correct wording, post link and comment link" do
+        comment = FactoryGirl.create(:comment, author: bob.person, text: text_mentioning(alice), post: status_message)
+        Notifications::MentionedInComment.notify(comment, [alice.id])
+        notification = Notifications::MentionedInComment.last
+        expect(notification).not_to be_nil
+
+        link = object_link(notification, notification_people_link(notification))
+        expect(link).to include("mentioned you in a")
+        expect(link).to include(">comment</a>")
+        expect(link).to include("href=\"#{post_path(status_message)}\"")
+        expect(link).to include("#{post_path(status_message)}##{comment.guid}")
+      end
+    end
   end
 
   describe '#display_year?' do

@@ -102,7 +102,7 @@ STR
     end
   end
 
-  describe "#filter_for_aspects" do
+  describe "#filter_people" do
     before do
       @user_a = FactoryGirl.create(:user_with_aspect, username: "user_a")
       @user_b = FactoryGirl.create(:user, username: "user_b")
@@ -122,8 +122,10 @@ STR
     end
 
     it "filters mention, if contact is not in a given aspect" do
-      aspect_id = @user_a.aspects.where(name: "generic").first.id
-      txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_c, @user_a, aspect_id)
+      txt = Diaspora::Mentionable.filter_people(
+        @test_txt_c,
+        @user_a.aspects.where(name: "generic").first.contacts.map(&:person_id)
+      )
 
       expect(txt).to include("user C")
       expect(txt).to include(local_or_remote_person_path(@user_c.person))
@@ -132,18 +134,13 @@ STR
     end
 
     it "leaves mention, if contact is in a given aspect" do
-      aspect_id = @user_a.aspects.where(name: "generic").first.id
-      txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_b, @user_a, aspect_id)
+      txt = Diaspora::Mentionable.filter_people(
+        @test_txt_b,
+        @user_a.aspects.where(name: "generic").first.contacts.map(&:person_id)
+      )
 
       expect(txt).to include("user B")
       expect(txt).to include(@mention_b)
-    end
-
-    it "recognizes 'all' as keyword for aspects" do
-      txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_bc, @user_a, "all")
-
-      expect(txt).to include(@mention_b)
-      expect(txt).to include(@mention_c)
     end
   end
 end

@@ -1,12 +1,13 @@
 describe Workers::Mail::Liked do
-  describe "#perfom" do
+  describe "#perform" do
     it "should call .deliver_now on the notifier object" do
       sm = FactoryGirl.build(:status_message, author: bob.person, public: true)
       like = FactoryGirl.build(:like, author: alice.person, target: sm)
 
       mail_double = double
       expect(mail_double).to receive(:deliver_now)
-      expect(Notifier).to receive(:liked).with(bob.id, like.author.id, like.id).and_return(mail_double)
+      expect(Notifier).to receive(:send_notification)
+        .with("liked", bob.id, like.author.id, like.id).and_return(mail_double)
 
       Workers::Mail::Liked.new.perform(bob.id, like.author.id, like.id)
     end
@@ -15,7 +16,7 @@ describe Workers::Mail::Liked do
       sm = FactoryGirl.build(:status_message, author: bob.person, public: true)
       like = FactoryGirl.build(:like, author: alice.person, target: sm)
 
-      expect(Notifier).to receive(:liked).with(bob.id, like.author.id, like.id)
+      expect(Notifier).to receive(:send_notification).with("liked", bob.id, like.author.id, like.id)
         .and_raise(ActiveRecord::RecordNotFound.new("Couldn't find Like with 'id'=42"))
 
       Workers::Mail::Liked.new.perform(bob.id, like.author.id, like.id)
@@ -25,7 +26,7 @@ describe Workers::Mail::Liked do
       sm = FactoryGirl.build(:status_message, author: bob.person, public: true)
       like = FactoryGirl.build(:like, author: alice.person, target: sm)
 
-      expect(Notifier).to receive(:liked).with(bob.id, like.author.id, like.id)
+      expect(Notifier).to receive(:send_notification).with("liked", bob.id, like.author.id, like.id)
         .and_raise(ActiveRecord::RecordNotFound.new("Couldn't find Person with 'id'=42"))
 
       expect {

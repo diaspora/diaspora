@@ -51,15 +51,4 @@ class Notification < ActiveRecord::Base
   private_class_method def self.suppress_notification?(recipient, actor)
     recipient.blocks.where(person: actor).exists?
   end
-
-  def self.types
-    {
-      "also_commented" => "Notifications::AlsoCommented",
-      "comment_on_post" => "Notifications::CommentOnPost",
-      "liked" => "Notifications::Liked",
-      "mentioned" => "Notifications::Mentioned",
-      "reshared" => "Notifications::Reshared",
-      "started_sharing" => "Notifications::StartedSharing"
-    }
-  end
 end

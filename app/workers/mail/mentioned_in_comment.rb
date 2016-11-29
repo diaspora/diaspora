@@ -1,7 +1,6 @@
 module Workers
   module Mail
-    class AlsoCommented < NotifierBase
+    class MentionedInComment < NotifierBase
     end
   end
 end
-

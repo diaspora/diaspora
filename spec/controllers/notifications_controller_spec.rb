@@ -77,12 +77,13 @@ describe NotificationsController, :type => :controller do
       timeago_content = note_html.css("time")[0]["data-time-ago"]
       expect(response_json["unread_count"]).to be(1)
       expect(response_json["unread_count_by_type"]).to eq(
-        "also_commented"  => 1,
-        "comment_on_post" => 0,
-        "liked"           => 0,
-        "mentioned"       => 0,
-        "reshared"        => 0,
-        "started_sharing" => 0
+        "also_commented"       => 1,
+        "comment_on_post"      => 0,
+        "liked"                => 0,
+        "mentioned"            => 0,
+        "mentioned_in_comment" => 0,
+        "reshared"             => 0,
+        "started_sharing"      => 0
       )
       expect(timeago_content).to include(@notification.updated_at.iso8601)
       expect(response.body).to match(/note_html/)
