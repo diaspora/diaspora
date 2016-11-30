@@ -44,8 +44,7 @@ $(document).ready(function() {
         });
 
         // auto login if the user hasn't disabled it
-        var onLogin = !(app.currentUser.get("disable_chat_login"));
-        if (onLogin) {
+        if (!(app.currentUser.get("chat_auto_login"))) {
           jsxc.gui.changePresence("online");
         }
       } else {

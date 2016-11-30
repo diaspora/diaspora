@@ -219,9 +219,15 @@ describe UsersController, :type => :controller do
       expect(response.status).to eq(200)
     end
 
-    it "updates chat privacy settings" do
-      put(:update_privacy_settings, user: {disable_chat_login: true})
-      expect(request.flash[:notice]).to eql(I18n.t("users.update.settings_updated"))
+    it "set chat auto login to true" do
+      put(:update_privacy_settings, user: {chat_auto_login: true})
+      expect(@user.chat_auto_login?).to be true
+      expect(request.flash[:error]).to be_blank
+    end
+
+    it "set chat auto login to false" do
+      put(:update_privacy_settings, user: {chat_auto_login: false})
+      expect(@user.chat_auto_login?).to be false
       expect(request.flash[:error]).to be_blank
     end
   end

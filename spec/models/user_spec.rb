@@ -962,7 +962,7 @@ describe User, :type => :model do
             current_sign_in_at
             last_sign_in_at
             current_sign_in_ip
-            disable_chat_login
+            chat_auto_login
             hidden_shareables
             last_sign_in_ip
             invited_by_id

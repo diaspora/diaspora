@@ -8,7 +8,7 @@ class UserPresenter
 
   def to_json(options={})
     user.person.as_api_response(:backbone).update(
-      disable_chat_login:    disable_chat_login,
+      chat_auto_login:       chat_auto_login,
       notifications_count:   notifications_count,
       unread_messages_count: unread_messages_count,
       admin:                 admin,
@@ -36,8 +36,8 @@ class UserPresenter
                  end
   end
 
-  def disable_chat_login
-    user.disable_chat_login?
+  def chat_auto_login
+    user.chat_auto_login?
   end
 
   def notifications_count

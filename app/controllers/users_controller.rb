@@ -42,8 +42,8 @@ class UsersController < ApplicationController
     if privacy_params
       if privacy_params[:strip_exif]
         change_privacy_params(:strip_exif, privacy_params[:strip_exif])
-      elsif privacy_params[:disable_chat_login]
-        change_privacy_params(:disable_chat_login, privacy_params[:disable_chat_login])
+      elsif privacy_params[:chat_auto_login]
+        change_privacy_params(:chat_auto_login, privacy_params[:chat_auto_login])
       end
     end
     redirect_to :back
@@ -145,7 +145,7 @@ class UsersController < ApplicationController
       :language,
       :color_theme,
       :disable_mail,
-      :disable_chat_login,
+      :chat_auto_login,
       :show_community_spotlight_in_stream,
       :auto_follow_back,
       :auto_follow_back_aspect_id,

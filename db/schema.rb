@@ -638,7 +638,7 @@ ActiveRecord::Schema.define(version: 20161107100840) do
     t.boolean  "exporting_photos",                                 default: false
     t.string   "color_theme",                        limit: 255
     t.boolean  "post_default_public",                              default: false
-    t.boolean  "disable_chat_login",                               default: false
+    t.boolean  "chat_auto_login",                                  default: false
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

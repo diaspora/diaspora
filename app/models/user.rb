@@ -420,7 +420,6 @@ class User < ActiveRecord::Base
     self.aspects.create(:name => I18n.t('aspects.seed.friends'))
     self.aspects.create(:name => I18n.t('aspects.seed.work'))
     aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
-    aq.chat_enabled = true # enable chat aspect in acquaintances
 
     if AppConfig.settings.autofollow_on_join?
       default_account = Person.find_or_fetch_by_identifier(AppConfig.settings.autofollow_on_join_user)

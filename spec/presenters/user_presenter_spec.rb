@@ -19,7 +19,7 @@ describe UserPresenter do
 
   describe "#users" do
     it "provides chat related information" do
-      expect(@presenter.disable_chat_login).to eq(bob.disable_chat_login?)
+      expect(@presenter.chat_auto_login).to eq(bob.chat_auto_login?)
     end
   end
 
