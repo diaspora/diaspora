@@ -11,6 +11,8 @@
     initialize: function() {
       var self = this;
 
+      new Diaspora.MarkdownEditor(".comment_box");
+
       this.stream().on("tap click", "a.show-comments", function(evt){
         evt.preventDefault();
         self.toggleComments($(this));

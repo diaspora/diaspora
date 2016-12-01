@@ -1,0 +1,22 @@
+.md-editor {
+  border: 1px solid $light-grey;
+  border-radius: $btn-border-radius-base;
+  overflow: hidden;
+
+  &.active { border-color: $text-grey; }
+
+  &::after,
+  &::before {
+    clear: both;
+    content: ' ';
+    display: table;
+  }
+
+  textarea {
+    border: 0;
+    border-radius: 0;
+    min-height: 6rem;
+    resize: none;
+    width: 100%;
+  }
+}

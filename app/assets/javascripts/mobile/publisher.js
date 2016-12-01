@@ -46,4 +46,6 @@ $(document).ready(function(){
     evt.preventDefault();
     $("#new_status_message").submit();
   });
+
+  new Diaspora.MarkdownEditor("#status_message_text");
 });
