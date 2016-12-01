@@ -1,9 +1,9 @@
 describe("app.collections.Notifications", function() {
   describe("initialize", function() {
-    it("calls pollNotifications", function() {
-      spyOn(app.collections.Notifications.prototype, "pollNotifications");
+    it("calls fetch", function() {
+      spyOn(app.collections.Notifications.prototype, "fetch");
       new app.collections.Notifications();
-      expect(app.collections.Notifications.prototype.pollNotifications).toHaveBeenCalled();
+      expect(app.collections.Notifications.prototype.fetch).toHaveBeenCalled();
     });
 
     it("calls Diaspora.BrowserNotification.requestPermission", function() {
@@ -23,6 +23,16 @@ describe("app.collections.Notifications", function() {
       expect(target.unreadCount).toBe(0);
       expect(target.unreadCountByType).toEqual({});
     });
+
+    it("repeatedly calls pollNotifications", function() {
+      spyOn(app.collections.Notifications.prototype, "pollNotifications").and.callThrough();
+      var collection = new app.collections.Notifications();
+      expect(app.collections.Notifications.prototype.pollNotifications).not.toHaveBeenCalled();
+      jasmine.clock().tick(collection.timeout);
+      expect(app.collections.Notifications.prototype.pollNotifications).toHaveBeenCalledTimes(1);
+      jasmine.clock().tick(collection.timeout);
+      expect(app.collections.Notifications.prototype.pollNotifications).toHaveBeenCalledTimes(2);
+    });
   });
 
   describe("pollNotifications", function() {
@@ -31,9 +41,9 @@ describe("app.collections.Notifications", function() {
     });
 
     it("calls fetch", function() {
-      spyOn(app.collections.Notifications.prototype, "fetch");
+      spyOn(this.target, "fetch");
       this.target.pollNotifications();
-      expect(app.collections.Notifications.prototype.fetch).toHaveBeenCalled();
+      expect(this.target.fetch).toHaveBeenCalled();
     });
 
     it("doesn't call Diaspora.BrowserNotification.spawnNotification when there are no new notifications", function() {
@@ -51,14 +61,6 @@ describe("app.collections.Notifications", function() {
       this.target.pollNotifications();
       this.target.trigger("finishedLoading");
       expect(Diaspora.BrowserNotification.spawnNotification).toHaveBeenCalled();
-    });
-
-    it("refreshes after timeout", function() {
-      spyOn(app.collections.Notifications.prototype, "pollNotifications").and.callThrough();
-      this.target.pollNotifications();
-      expect(app.collections.Notifications.prototype.pollNotifications).toHaveBeenCalledTimes(1);
-      jasmine.clock().tick(2 * this.target.timeout);
-      expect(app.collections.Notifications.prototype.pollNotifications).toHaveBeenCalledTimes(2);
     });
   });
 
