@@ -715,12 +715,23 @@ en:
       body: |-
         Hello %{name},
 
-        We received a request with a wrong/missing CSRF token from your account. To prevent any possible damage you have been logged out.
+        diaspora* has detected an attempt to access your session which might be unauthorised. This might be completely innocent, but it could be a cross-site request forgery (CSRF). To avoid any chance of your data being compromised, you have been signed out.
+
+        A request made using a incorrect or missing CSRF token can be caused by:
+
+          - An add-on manipulating the request or making requests without the token;
+          - A tab left open from a past session;
+          - Another website making requests, with or without your permission;
+          - Various other external tools;
+          - Malicious code trying to access your data.
 
         For more information on CSRF see [%{link}](%{link}).
 
-        Sorry,
+        Don’t worry; you can safely sign in again now.
 
+        If you see this message repeatedly, please check the points above, including any browser add-ons.
+
+        Thank you,
         The diaspora* email robot!
     report_email:
         type:
