@@ -7,6 +7,14 @@
 ## Features
 * Add support for mentions in comments to the backend [#6818](https://github.com/diaspora/diaspora/pull/6818)
 
+# 0.6.3.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.6.2.0
 
 ## Refactor
