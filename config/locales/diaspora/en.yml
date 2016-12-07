@@ -715,9 +715,11 @@ en:
       body: |-
         Hello %{name},
 
-        diaspora* has detected an attempt to access your session which might be unauthorised. This might be completely innocent, but it could be a cross-site request forgery (CSRF). To avoid any chance of your data being compromised, you have been signed out.
+        diaspora* has detected an attempt to access your session which might be unauthorised. To avoid any chance of your data being compromised, you have been signed out. Don’t worry; you can safely sign in again now.
 
-        A request made using a incorrect or missing CSRF token can be caused by:
+        A request has been made using a incorrect or missing CSRF token. This might be completely innocent, but it could be a cross-site request forgery (CSRF) attack.
+
+        This could have been caused by:
 
           - An add-on manipulating the request or making requests without the token;
           - A tab left open from a past session;
@@ -726,8 +728,6 @@ en:
           - Malicious code trying to access your data.
 
         For more information on CSRF see [%{link}](%{link}).
-
-        Don’t worry; you can safely sign in again now.
 
         If you see this message repeatedly, please check the points above, including any browser add-ons.
 
