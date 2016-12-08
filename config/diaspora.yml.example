@@ -116,6 +116,8 @@ configuration: ## Section
       #secret: 'change_me'
       #bucket: 'my_photos'
       #region: 'us-east-1'
+      #host: 's3.amazonaws.com'
+      #endpoint: 'https://s3.amazonaws.com'
 
       ## Use max-age header on Amazon S3 resources (default=true).
       ## When true, this allows locally cached images to be served for up to

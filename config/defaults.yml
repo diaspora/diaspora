@@ -26,6 +26,9 @@ defaults:
       bucket:
       region:
       cache: true
+      host: "s3.amazonaws.com"
+      endpoint: "https://s3.amazonaws.com"
+
     image_redirect_url:
     assets:
       serve: false
