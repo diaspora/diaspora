@@ -41,18 +41,23 @@ describe("app", function() {
   });
 
   describe("setupForms", function() {
+    beforeEach(function() {
+      spec.content().append("<textarea/> <input/>");
+    });
+
     it("calls jQuery.placeholder() for inputs", function() {
       spyOn($.fn, "placeholder");
       app.setupForms();
       expect($.fn.placeholder).toHaveBeenCalled();
-      expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("input, textarea");
+      expect($.fn.placeholder.calls.mostRecent().object.is($("input"))).toBe(true);
+      expect($.fn.placeholder.calls.mostRecent().object.is($("textarea"))).toBe(true);
     });
 
     it("initializes autosize for textareas", function(){
       spyOn(window, "autosize");
       app.setupForms();
       expect(window.autosize).toHaveBeenCalled();
-      expect(window.autosize.calls.mostRecent().args[0].selector).toBe("textarea");
+      expect(window.autosize.calls.mostRecent().args[0].is($("textarea"))).toBe(true);
     });
   });
 
