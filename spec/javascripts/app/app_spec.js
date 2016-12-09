@@ -4,6 +4,7 @@ describe("app", function() {
       spyOn(app.Router.prototype, "initialize");
       spyOn(app, "setupDummyPreloads");
       spyOn(app, "setupUser");
+      spyOn(app, "setupAspects");
       spyOn(app, "setupHeader");
       spyOn(app, "setupBackboneLinks");
       spyOn(app, "setupGlobalViews");
@@ -16,6 +17,7 @@ describe("app", function() {
       expect(app.Router.prototype.initialize).toHaveBeenCalled();
       expect(app.setupDummyPreloads).toHaveBeenCalled();
       expect(app.setupUser).toHaveBeenCalled();
+      expect(app.setupAspects).toHaveBeenCalled();
       expect(app.setupHeader).toHaveBeenCalled();
       expect(app.setupBackboneLinks).toHaveBeenCalled();
       expect(app.setupGlobalViews).toHaveBeenCalled();
