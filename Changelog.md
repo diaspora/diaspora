@@ -6,6 +6,7 @@
 
 ## Bug fixes
 * Fix background color of year on notifications page with dark theme [#7263](https://github.com/diaspora/diaspora/pull/7263)
+* Fix jasmine tests in firefox [#7246](https://github.com/diaspora/diaspora/pull/7246)
 
 ## Features
 * Add links to the aspects and followed tags pages on mobile [#7265](https://github.com/diaspora/diaspora/pull/7265)
