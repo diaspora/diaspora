@@ -46,6 +46,9 @@ ia:
           one: "Il ha ancora un pod non verificate."
           other: "Il ha ancora <%= count %> pods non verificate."
         unknown: "incognite"
+        version_failed:
+          one: "Il ha un pod que non ha version (pod ancian sin NodeInfo)."
+          other: "Il ha <%= count %> pods que non ha version (pods ancian sin NodeInfo)."
     admins:
       dashboard:
         compare_versions: "Le ultime version de diaspora* es <%= latestVersion %>; iste pod executa <%= podVersion %>."
@@ -90,6 +93,8 @@ ia:
     confirm_unload: "Per favor, confirma que tu vole quitar iste pagina. Le datos que tu ha inserite non essera salveguardate."
     contacts:
       add_contact: "Adder contacto"
+      aspect_chat_is_enabled: "Le contactos in iste aspecto pote chattar con te."
+      aspect_chat_is_not_enabled: "Le contactos in iste aspecto non pote chattar con te."
       aspect_list_is_not_visible: "Le contactos in iste aspecto non pote vider le un le altere."
       aspect_list_is_visible: "Le contactos in iste aspecto pote vider le un le altere."
       error_add: "Non poteva adder <%= name %> al aspecto."
@@ -97,16 +102,17 @@ ia:
       remove_contact: "Remover contacto"
       search_no_results: "Nulle contacto trovate"
     conversation:
+      create:
+        no_recipient: "Es necessari adder un destinatario primo."
       new:
         no_contacts: "Es necessari adder alcun contactos ante de poter initiar un conversation."
     create: "Crear"
     delete: "Deler"
     edit: "Modificar"
-    failed_to_comment: "Commento fallite. Es possibile que le autor te ignora."
-    failed_to_like: "Appreciation fallite!"
+    errors:
+      connection: "Impossibile connecter al servitor."
     failed_to_post_message: "Publication del entrata fallite!"
     failed_to_remove: "Le remotion del entrata ha fallite."
-    failed_to_reshare: "Repetition fallite!"
     getting_started:
       alright_ill_wait: "Ben, io attendera."
       hey: "Hallo, <%= name %>!"
@@ -142,6 +148,9 @@ ia:
     notifications:
       mark_read: "Marcar como legite"
       mark_unread: "Marcar como non legite"
+      new_notifications:
+        one: "Tu ha <%= count %> notification non legite"
+        other: "Tu ha <%= count %> notificationes non legite"
     people:
       edit_my_profile: "Modificar mi profilo"
       helper:
@@ -186,6 +195,34 @@ ia:
     publisher:
       add_option: "Adder un responsa"
       limited: "Limitate: le message es visibile solmente pro le personas con qui tu lo divide"
+      markdown_editor:
+        preview: "Previsualisar"
+        texts:
+          code: "scribe hic le codice"
+          heading: "texto de titulo"
+          insert_image_description_text: "describe hic le imagine"
+          insert_image_help_text: "Inserer hic un ligamine a un imagine"
+          insert_image_title: "scribe hic le titulo del imagine"
+          insert_link_description_text: "describe hic le ligamine"
+          insert_link_help_text: "Inserer ligamine hic"
+          italic: "texto italic"
+          list: "scribe hic le texto del lista"
+          quote: "scribe hic le texto del citation"
+          strong: "texto forte"
+        tooltips:
+          bold: "Grasse"
+          cancel: "Cancellar message"
+          code: "Inserer codice"
+          heading: "Titulo"
+          insert_image: "Inserer imagine"
+          insert_link: "Inserer ligamine"
+          insert_ordered_list: "Inserer lista ordinate"
+          insert_unordered_list: "Inserer lista non ordinate"
+          italic: "Italic"
+          preview: "Previsualisar message"
+          quote: "Inserer citation"
+          write: "Modificar message"
+        write: "Scriber"
       near_from: "Inviate ab: <%= location %>"
       option: "Responsa"
       public: "Public: le message es visibile pro tote le mundo e trovabile pro motores de recerca"
@@ -199,7 +236,6 @@ ia:
         created: "Le creation del reporto ha succedite"
         exists: "Le reporto jam existe"
     reshares:
-      duplicate: "Tu ha jam repetite iste entrata."
       post: "Repeter le entrata de <%= name %>?"
       successful: "Le entrata ha essite repetite con successo."
     show_more: "monstrar plus"
@@ -216,6 +252,7 @@ ia:
       hide_nsfw_posts: "Celar entratas #nsfw (improprie pro le travalio)"
       like: "Appreciar"
       limited: "Limitate"
+      no_posts_yet: "Il non ha ancora entratas a monstrar hic."
       original_post_deleted: "Le entrata original ha essite delite per le autor."
       permalink: "Permaligamine"
       public: "Public"
@@ -245,6 +282,7 @@ ia:
       hour: "circa un hora"
       hours:
         other: "circa %d horas"
+      inPast: "a qualcunque momento"
       minute: "circa un minuta"
       minutes:
         other: "%d minutas"

@@ -66,7 +66,6 @@ ga:
   email: "Ríomhphoist"
   fill_me_out: "Líon amach"
   invitations:
-    a_facebook_user: "Úsáideoir Facebook"
     new:
       language: "Teanga"
   layouts:

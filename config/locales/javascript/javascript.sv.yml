@@ -68,12 +68,8 @@ sv:
       started_sharing_with: "Du har börjat dela med <%= name %>!"
       stopped_sharing_with: "Du har slutat dela med <%= name %>."
       toggle:
-        few: "I <%= count %> aspekter"
-        many: "I <%= count %> aspekter"
         one: "I <%= count %> aspekt"
         other: "I <%= count %> aspekter"
-        two: "I <%= count %> aspekter"
-        zero: "Välj aspekter"
       updating: "uppdaterar..."
     aspect_navigation:
       add_an_aspect: "+ Lägg till en aspekt"
@@ -110,16 +106,17 @@ sv:
       remove_contact: "Ta bort kontakt"
       search_no_results: "Inga kontakter hittade"
     conversation:
+      create:
+        no_recipient: "Hörru! Du måste lägga till en mottagare först."
       new:
         no_contacts: "Du behöver några kontakter innan du kan påbörja konversationer."
     create: "Skapa"
     delete: "Radera"
     edit: "Ändra"
-    failed_to_comment: "Lyckades inte kommentera. Författaren kanske ignorerar dig."
-    failed_to_like: "Misslyckades att gilla. Kanske är du inte önskvärd av författaren."
+    errors:
+      connection: "Kunde inte ansluta till servern."
     failed_to_post_message: "Misslyckades att posta meddelande!"
     failed_to_remove: "Misslyckades med att borttaga inlägget!"
-    failed_to_reshare: "Kunde inte dela vidare!"
     getting_started:
       alright_ill_wait: "Okej, jag väntar."
       hey: "Hej, <%= name %>!"
@@ -155,6 +152,10 @@ sv:
     notifications:
       mark_read: "Lästmärk"
       mark_unread: "Olästmarkera"
+      new_notifications:
+        one: "Du har en oläst notifikation"
+        other: "Du har <%= count %> olästa notifikationer"
+        zero: "Du har inga olästa notifikationer"
     people:
       edit_my_profile: "Ändra min profil"
       helper:
@@ -200,12 +201,32 @@ sv:
       add_option: "Lägg till alternativ"
       limited: "Begränsat: ditt inlägg visas endast för personer som du delar med"
       markdown_editor:
+        preview: "Förhandsgranska"
+        texts:
+          code: "kod här"
+          heading: "rubriktext"
+          insert_image_description_text: "fyll i bildbeskrivning här"
+          insert_image_help_text: "Fyll i bildlänk här"
+          insert_image_title: "fyll i bildrubrik här"
+          insert_link_description_text: "fyll i länkbeskrivning här"
+          insert_link_help_text: "Fyll i länk här"
+          italic: "kursiv text"
+          list: "lista text här"
+          quote: "citerad text här"
+          strong: "fet text"
         tooltips:
           bold: "Fet"
+          cancel: "Avbryt meddelande"
+          code: "Infoga kod"
           heading: "Rubrik"
           insert_image: "Infoga bild"
           insert_link: "Infoga länk"
+          insert_ordered_list: "Lägg till sorterad lista"
+          insert_unordered_list: "Lägg till osorterad lista"
           italic: "Kursiv"
+          preview: "Förhandsgranska meddelande"
+          quote: "Infoga citat"
+          write: "Ändra meddelande"
         write: "Skriv"
       near_from: "Sänt från: <%= location %>"
       option: "Alternativ"
@@ -220,7 +241,6 @@ sv:
         created: "Anmälan skapad"
         exists: "Anmälan finns redan"
     reshares:
-      duplicate: "Du gillar detta va? Du har nämligen redan delat vidare detta inlägg!"
       post: "Vill du dela vidare inlägget av <%= name %>?"
       successful: "Lyckades med att dela vidare inlägget."
     show_more: "Visa mer"
@@ -245,6 +265,7 @@ sv:
         one: "Visa en kommentar till"
         other: "Visa <%= count %> kommentarer till"
         zero: "Visa inga fler kommentarer"
+      no_posts_yet: "Det finns inga inlägg än."
       original_post_deleted: "Det ursprungliga inlägget har blivit borttaget av författaren."
       permalink: "Permanent länk"
       public: "Publik"

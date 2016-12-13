@@ -144,7 +144,6 @@ en_pirate:
   fill_me_out: "Fill me out arrr"
   find_people: "Scour fer mates or treasures"
   invitations:
-    a_facebook_user: "A Facebook scallywag"
     create:
       no_more: "Ye have no more invitations."
       rejected: "Yer pigeon can't deliver to the followin' addresses: "
@@ -306,10 +305,6 @@ en_pirate:
       type_error: "Portrait hangin' failed.  Are ye sure a portrait was added mate?"
     destroy:
       notice: "Portrait scuttled!"
-    new_photo:
-      empty: "{file} be empty, choose yer files again without it mate."
-      invalid_ext: "{file} not be valid ye scallywag. Only {extensions} be allowed."
-      size_error: "{file} be 't large mate, the biggest file size be {sizeLimit}."
     new_profile_photo:
       upload: "Hang a new portrait in ye ship!"
   posts:

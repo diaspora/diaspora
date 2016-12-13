@@ -73,10 +73,8 @@ ru:
     create: "Создать"
     delete: "Удалить"
     edit: "Изменить"
-    failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
     failed_to_remove: "Удаление не завершено!"
-    failed_to_reshare: "Не удалось поделиться!"
     getting_started:
       alright_ill_wait: "Хорошо, я подожду."
       hey: "Привет, <%= name %>!"
@@ -193,7 +191,6 @@ ru:
         created: "Донос успешно отправлен"
         exists: "Донос уже отправлен"
     reshares:
-      duplicate: "Здорово, да? Вы уже поделились этой записью!"
       post: "Поделиться записью пользователя <%= name %>?"
       successful: "Вы успешно поделились записью!"
     show_more: "показать больше"

@@ -27,7 +27,6 @@ lt:
       show: "Rodyti visus komentarus"
     confirm_dialog: "Ar Jūs tuo įsitikinęs?"
     delete: "Ištrinti"
-    failed_to_like: "Nepavyko pamėgti!"
     failed_to_post_message: "Nepavyko išsiųsti žinutės!"
     getting_started:
       alright_ill_wait: "Suprantama, aš galiu palaukti!"
@@ -54,8 +53,6 @@ lt:
     publisher:
       limited: "Ribotas - Jūsų įrašą galės peržiūrėti tik žmonės, su kuriais Jūs dalijatės"
       public: "Viešas - Jūsų įrašus galės peržiūrėti visi, taip pat jie bus randami paieškos sistemose."
-    reshares:
-      duplicate: "Šitas geras, ne? Jūs jau dalijotės šiuo įrašu!"
     show_more: "Rodyti daugiau"
     stream:
       comment: "Komentuoti"

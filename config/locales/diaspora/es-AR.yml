@@ -274,6 +274,8 @@ es-AR:
     post_something: "Publicar en diaspora*"
   cancel: "Cancelar"
   comments:
+    create:
+      error: "Hubo un error al comentar."
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
@@ -298,7 +300,6 @@ es-AR:
   conversations:
     create:
       fail: "Mensaje inválido"
-      no_contact: "¡Primero necesitas agregar al contacto!"
       sent: "Mensaje enviado"
     destroy:
       delete_success: "La conversación ha sido eliminada"
@@ -307,6 +308,7 @@ es-AR:
       conversations_inbox: "Conversaciones - Bandeja de entrada"
       inbox: "Mensajes"
       new_conversation: "Nueva conversación"
+      no_contacts: "Necesitas añadir algunos contactos antes de empezar una conversación"
       no_messages: "No hay mensajes"
     new:
       message: "Mensaje"
@@ -331,6 +333,7 @@ es-AR:
   delete: "Eliminar"
   email: "Correo electrónico"
   error_messages:
+    csrf_token_fail: "El token CSRF es invalido. Por favor volvé a iniciar sesión e intentalo nuevamente."
     helper:
       correct_the_following_errors_and_try_again: "Corregí los siguientes errores e intentá de nuevo."
     need_javascript: "Esta web necesita JavaScript para funcionar correctamente. Si lo desactivaste, por favor actívalo y actualiza la página."
@@ -564,7 +567,6 @@ es-AR:
       own_your_data: "Sé el dueño de tus datos"
       own_your_data_info: "Muchas redes usan tus datos para hacer dinero analizando tus interacciones y usando esa información para mostrarte anuncios publicitarios. diaspora* no usa tus datos para ningún propósito más que permitirte estar en contacto con otras personas."
     podmin:
-      admin_panel: "panel de administración"
       byline: "Estás a punto de cambiar Internet. Vamos a configurarlo, ¿dale?"
       configuration_info: "Abre %{database_path} y %{diaspora_path} en tu editor de texto favorito y revísalos cuidadosamente, están comentados al detalle."
       configure_your_pod: "Configura tu pod"
@@ -578,22 +580,21 @@ es-AR:
       getting_help_info: "Mostramos algunas %{faq} incluyendo consejos adicionales, trucos y soluciones para los problemas más comunes. También puedes probar el chat %{irc}."
       headline: "¡Bienvenido!"
       make_yourself_an_admin: "Conviértete en administrador"
-      make_yourself_an_admin_info: "Puedes encontrar instrucciones en la %{wiki}. Esto añadirá un enlace de \"Administrador\" a tu menú de usuario en el encabezado cuando inicies sesión. Asimismo, te dará funciones como búsqueda de usuarios y estadísticas de tu pod. Para detalles avanzados en el aspecto operacional, ve al %{admin_panel}."
+      make_yourself_an_admin_info: "Puedes encontrar instrucciones en la %{wiki}. Esto añadirá un enlace de \"Administrador\" a tu menú de usuario en el encabezado cuando inicies sesión. Asimismo, te dará funciones como búsqueda de usuarios y estadísticas de tu pod. Para detalles avanzados en el aspecto operacional, ve al “%{admin_dashboard}”."
       report_bugs: "repórtalos"
       update_instructions: "instrucciones de actualización en la wiki de diaspora*"
       update_your_pod: "Actualiza tu pod"
       update_your_pod_info: "Puedes encontrar %{update_instructions}"
   invitation_codes:
+    already_logged_in: "Fuiste invitado por %{inviter} para unirte a este pod pero ya tenes una sesión iniciada."
     not_valid: "El código de invitación ya no es válido"
   invitations:
-    a_facebook_user: "Un usuario de Facebook"
-    check_token:
-      not_found: "No se encontró la udentificación de invitación"
     create:
+      closed: "Las invitaciones están desactivadas en este pod de diaspora*."
       empty: "Por favor ingresa al menos una dirección de correo electrónico."
       no_more: "No tenés más invitaciones."
       note_already_sent: "Las invitaciones han sido enviadas a: %{emails}"
-      rejected: "Las siguientes direcciones tuvieron problemas: "
+      rejected: "Hubo problemas con las siguientes direcciones de correo electrónico: %{emails}"
       sent: "Las invitaciones se han enviado a: %{emails}"
     new:
       codes_left:
@@ -622,6 +623,9 @@ es-AR:
       profile: "Perfil"
       settings: "Configuración"
       toggle_navigation: "Cambiar navegación"
+  likes:
+    create:
+      error: "¡Falló el 'Me gusta'!"
   limited: "Limitado"
   more: "Más"
   no_results: "No hay resultados"
@@ -659,6 +663,7 @@ es-AR:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
       mentioned: "Mencionados"
+      mentioned_in_comment: "Fuiste mencionado en un comentario"
       no_notifications: "Aún no tienes ninguna notificación."
       notifications: "Notificaciones"
       reshared: "Compartidos"
@@ -687,6 +692,12 @@ es-AR:
       other: "%{actors} te mencionaron en una publicación eliminada."
       two: "%{actors} te mencionó en un mensaje eliminado."
       zero: "%{actors} te mencionó en una publicación eliminada."
+    mentioned_in_comment:
+      one: "%{actors} te mencionó en un <a href='%{comment_path}'>comentario</a> de la publicación %{post_link}"
+      other: "%{actors} te mencionarion en un <a href='%{comment_path}'>comentario</a> de la publicación  %{post_link}"
+    mentioned_in_comment_deleted:
+      one: "%{actors} te mencionó en un comentario que fue eliminado."
+      other: "%{actors} te mencionaron en un comentario que fue eliminado."
     post: "publicación"
     private_message:
       few: "%{actors} te enviaron un mensaje."
@@ -723,6 +734,29 @@ es-AR:
     confirm_email:
       click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, por favor seguí este enlace::"
       subject: "Por favor, activá tu nueva dirección de correo %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          Hola %{name},
+
+          diaspora* detecto un intento de acceso no autorizado a tu cuenta. Puede ser totalmente inocente, pero también podría  ser un ataque (CSRF). Para evitar cualquier posibilidad de que tus datos sean robados, cerramos tu sesión.
+
+          Una solicitud hecha con token CSRF vacío o invalido, pude suceder por:
+
+          -Un complemento del navegador que manipula la solicitud o que las hace sin el token;
+          -Una pestaña del navegador abierta con una sesión anterior a la actual;
+          -Otro sitio web haciendo peticiones, con o sin tu permiso;
+          -Varias aplicaciones externas;
+          -Algún código malicioso intentando acceder tus datos.
+
+          Para más información sobre CSRF revisá [%{link}](%{link}).
+
+          No te preocupes, ya mismo podés iniciar sesión de manera segura.
+
+          Si ves este mensaje muy a menudo, por favor verifica los puntos nombrados anteriormente, incluyendo los complementos de tu navegador.
+
+          Gracias,
+          El robot de correos de diaspora*
+      subject: "Recibimos una solicitud no autorizada desde tu cuenta, %{name}"
     email_sent_by_diaspora: "Este correo electrónico fue enviado por %{pod_name}. Si quieres dejar de recibir correos como este,"
     export_email:
       body: |-
@@ -794,6 +828,9 @@ es-AR:
     mentioned:
       limited_post: "Se te mencionó en una publicación privada."
       subject: "%{name} te mencionó en diaspora*"
+    mentioned_in_comment:
+      limited_post: "Fuiste mencionado en un comentario de una publicación limitada."
+      reply: "Contestar o ver esta conversación >"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
       subject: "Tienes un nuevo mensaje privado en diaspora*"
@@ -880,14 +917,8 @@ es-AR:
       type_error: "Error subiendo la foto. ¿Estás seguro que agregaste una imagen?"
     destroy:
       notice: "La foto fue eliminada."
-    new_photo:
-      empty: "{file} está vacío, por favor seleccioná archivos sin él."
-      invalid_ext: "{file} tiene una extensión incorrecta. Sólo se permiten {extensions}."
-      size_error: "{file} es demasiado grande, el tamaño máximo de archivo es {sizeLimit}."
     new_profile_photo:
       upload: "¡Subir una nueva foto de perfil!"
-    show:
-      show_original_post: "Mostrar la publicación original"
   polls:
     votes:
       one: "%{count} voto hasta ahora"
@@ -974,8 +1005,14 @@ es-AR:
       destroyed: "La publicación ha sido eliminada"
       failed: "Algo salió mal"
     title: "Resumen de reportes"
+    unreviewed_reports:
+      one: "Hay un reporte sin revisar."
+      other: "Hay %{count} reportes sin revisar."
+      zero: "No hay reportes sin revisar."
   reshares:
     comment_email_subject: "%{resharer} compartió una publicación de %{author}"
+    create:
+      error: "¡Error al compartir!"
     reshare:
       deleted: "La publicación original fue eliminada por su autor."
       reshare_confirmation: "¿Compartir la publicación de %{author}?"
@@ -1017,7 +1054,7 @@ es-AR:
         other: "En %{count} aspectos"
         zero: "En %{count} aspectos"
     invitations:
-      by_email: "Vía correo electrónico"
+      by_email: "Invitar a más personas a través de correo electrónico"
       invite_your_friends: "Invitá a tus contactos"
       invites: "Invitaciones"
       share_this: "¡Comparte este enlace a través de correo electrónico, blog o tu red social favorita!"
@@ -1151,6 +1188,7 @@ es-AR:
       comment_on_post: "...comentan en una publicación tuya?"
       current_password: "Contraseña actual"
       current_password_expl: "con la que inicias sesión…"
+      default_post_visibility: "Seleccionado el aspecto por defecto para la publicación"
       download_export: "Descargar mi perfil"
       download_export_photos: "Descargar mis fotos"
       edit_account: "Editar cuenta"
@@ -1162,6 +1200,7 @@ es-AR:
       last_exported_at: "(Última actualización en %{timestamp})"
       liked: "...a alguien le gusta una publicación tuya?"
       mentioned: "...te mencionan en una publicación?"
+      mentioned_in_comment: "te han mencionado en un comentario"
       new_password: "Contraseña nueva"
       private_message: "...recibís un mensaje privado?"
       receive_email_notifications: "¿Recibir notificaciones por correo electrónico cuando..."

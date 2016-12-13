@@ -27,15 +27,15 @@ de-CH:
         reshare:
           attributes:
             root_guid:
-              taken: "Es isch guet, imfall - Du hesch de Post scho Wiitergseit!"
+              taken: "So guet, gäll? Du hesch de Biitrag scho wiitergseit!"
         user:
           attributes:
             email:
-              taken: "isch scho vergeh."
+              taken: "wird scho benutzt."
             person:
-              invalid: "isch ungültig"
+              invalid: "isch ungültig."
             username:
-              invalid: "isch ungültig, - Mer erlaubed nume Buechstabe, Nummere und Understrich."
+              invalid: "isch ungültig. Es sind nume Buechstabe, Nummere und Understrich erlaubt."
               taken: "isch scho vergeh."
   admins:
     admin_bar:
@@ -45,8 +45,8 @@ de-CH:
       user_search: "Benutzer Suechi"
       weekly_user_stats: "Wöchentlichi Benutzerstatistik"
     stats:
-      2weeks: "2 wuche"
-      50_most: "50 meischt-benutzti täg's"
+      2weeks: "2 Wuche"
+      50_most: "50 meischt-benutzti Tags"
       current_segment: "S'aktuelle segment het durchschnittlich <b>%{post_yest}</b> biiträg pto Benutzer, sit em <b>%{post_day}</b>"
       daily: "Täglich"
       display_results: "Zeig d'ergäbnis usem  <b>%{segment}</b> segment"
@@ -62,22 +62,22 @@ de-CH:
       current_server: "S'Momentane Serverdatum isch %{date}"
   all_aspects: "Ali Aspekt"
   are_you_sure: "Bisch sicher?"
-  are_you_sure_delete_account: "Bisch sicher, dass din Account lösche willsch ? - da chasch nüm rückgängig mache!"
+  are_you_sure_delete_account: "Bisch sicher, dass din Account lösche willsch? - da chasch nüm rückgängig mache!"
   aspect_memberships:
     destroy:
-      failure: "Benutzer vom Aspekt entferne isch gschiiteret"
-      no_membership: "Han die uswählt Person i dem Aspekt nöd chönne finde."
-      success: "Benutzer erfolgriich vom Aspekt entfernt"
+      failure: "Person us em Aspekt entferne isch gschiiteret."
+      no_membership: "Die usgwählt Person isch i dem Aspekt nöd gfinde worde."
+      success: "Person erfolgriich us em Aspekt entfernt."
   aspects:
     add_to_aspect:
       failure: "De Kontakt zum Aspekt hinzuefüege isch fehlgschlage."
-      success: "Erfolgrich de Kontakt zum Aspekt hinzuegfüegt."
+      success: "Kontakt erfolgrich zum Aspekt hinzuegfüegt."
     aspect_listings:
-      add_an_aspect: "+ en Aspekt adde"
+      add_an_aspect: "+ en Aspekt hinzuefüege"
     aspect_stream:
       make_something: "Mach öppis"
-      stay_updated: "Bliib fresh"
-      stay_updated_explanation: "Din Haupt-Stream beinhaltet d'posts vo all dine Kontäkt, vo de täg's dene du folgsch und vo es paar kreative mit-diasporianerInne"
+      stay_updated: "Bliib uf em laufende"
+      stay_updated_explanation: "Din Haupt-Stream beinhaltet d'Biiträg vo all dine Kontäkt, vo de Tägs wo du folgsch und vo es paar kreative Mitglied vo de Community"
     destroy:
       failure: "%{name} het nöd chönne entfernt werde"
       success: "%{name} isch erfolgriich entfernt worde."
@@ -87,45 +87,45 @@ de-CH:
       confirm_remove_aspect: "Bisch sicher, das de Aspekt lösche willsch?"
       rename: "Umbenenne"
       update: "Ändere"
-      updating: "am Ändere"
+      updating: "wird gänderet..."
     index:
       donate: "Spende"
       help:
         any_problem: "Git's es Problem?"
         contact_podmin: "Kontaktier de Admin vo dim Pod!"
         do_you: "Hesch du:"
-        feature_suggestion: "en vorschlag für e %{link}?"
-        find_a_bug: "en %{link} gfunde?"
-        have_a_question: "en %{link}"
-        here_to_help: "d'Diaspora* Komunity isch do!"
+        feature_suggestion: "... en Vorschlag für e %{link}?"
+        find_a_bug: "... en %{link} gfunde?"
+        have_a_question: "... en %{link}"
+        here_to_help: "d'diaspora* Community isch do für di!"
         mail_podmin: "Podmin email"
         need_help: "Bruchsch Hilf?"
-        tag_bug: "en bug"
-        tag_feature: "e Verbesserig"
-        tag_question: "e Frog"
+        tag_bug: "Fähler"
+        tag_feature: "Verbesserig"
+        tag_question: "Frog"
       introduce_yourself: "Das isch din Stream. Gump ine und stell dich vor."
-      keep_pod_running: "Hilf %{pod} schnell d'sii und finanzier mitere monatliche chliine spend de schuss kafi wo's defür bruuched"
+      keep_pod_running: "Hilf %{pod} schnell d'sii und finanzier mitere monatliche chliine spend de schuss kafi wo's defür bruuched!"
       new_here:
-        follow: "Folg %{link} und heiss neui Benutzer bi Diaspora* willkomme !"
-        learn_more: "meh info's"
-        title: "Tuen neui Benutzer Wilkomme heisse"
+        follow: "Folg %{link} und begrüess neui Benutzer bi diaspora*!"
+        learn_more: "Meh Infos"
+        title: "Begrüess neui Benutzer"
       services:
-        content: "Du chasch folgendi Dienst mit Diaspora* verbinde:"
-        heading: "Dienst verbinde"
-      welcome_to_diaspora: "Willkomme bi Diaspora*, %{name}!"
+        content: "Du chasch folgendi Dienscht mit diaspora* verbinde:"
+        heading: "Dienscht verbinde"
+      welcome_to_diaspora: "Willkomme bi diaspora*, %{name}!"
     no_contacts_message:
-      community_spotlight: "Kommunity Schiiwörferliecht"
-      or_spotlight: "Oder du chasch mit %{link} Teile"
-      try_adding_some_more_contacts: "Du chasch sueche oder meh Kontäkt %{invite_link}"
-      you_should_add_some_more_contacts: "Du söttsch es paar meh Kontäkt adde"
+      community_spotlight: "Intressanti Lüt"
+      or_spotlight: "Oder du chasch mit %{link} teile"
+      try_adding_some_more_contacts: "Du chasch meh Kontäkt sueche oder %{invite_link}."
+      you_should_add_some_more_contacts: "Du söttsch es paar meh Kontäkt hinzuefüege"
     seed:
       acquaintances: "Bekannti"
       family: "Familie"
       friends: "Fründe"
       work: "Arbet"
     update:
-      failure: "Din Aspekt %{name} het en z'lange name zum chönne gspeicheret werde"
-      success: "Din Aspekt %{name} het erfolgriich chönne gänderet werde"
+      failure: "%{name} isch en z'lange name zum chönne gspeicheret werde."
+      success: "Din Aspekt %{name} isch erfolgriich gänderet worde."
   blocks:
     create:
       failure: "Ignoriere vo dem benutzer fehlgschlage"
@@ -134,43 +134,43 @@ de-CH:
       failure: "Han nöd chönne ufhöhre dä benutzer z'ignoriere."
       success: "Luegemer mol was die z'sägä hend! #sayhello"
   bookmarklet:
-    explanation: "Poste en biitrag bi Diaspora vo egal wo i dem du dä Link => %{link} zu dine Läsezeiche hinzuefüegsch"
+    explanation: "Erstell vo überall en Biitrag bi diaspora* i dem du %{link} zu dine Läsezeiche hinzuefüegsch"
     heading: "Läsezeichä"
-    post_something: "En biitrag in Diaspora* erstelle"
+    post_something: "Erstell en Biitrag bi diaspora*"
   cancel: "Abbreche"
   comments:
     new_comment:
       comment: "Kommentiere"
-      commenting: "Am Kommentiere..."
+      commenting: "Wird kommentiert..."
   contacts:
     index:
       add_a_new_aspect: "en neue Aspekt mache"
       all_contacts: "Ali Kontäkt"
-      community_spotlight: "Kommunity Schiiwörferliecht"
+      community_spotlight: "Intressanti Lüt"
       my_contacts: "Mini Kontäkt"
-      no_contacts: "Gseht uus als möstisch es paar Kontäkt adde"
-      no_contacts_message: "Lueg mal s'%{community_spotlight} aa"
+      no_contacts: "Gseht uus als möstisch es paar Kontäkt hinzuefüege!"
+      no_contacts_message: "Lueg mal di %{community_spotlight} aa"
       only_sharing_with_me: "Eisiitig mit mir teilendi"
       start_a_conversation: "Start es Gspröch"
       title: "Kontäkt"
     spotlight:
-      community_spotlight: "Kommunity Schiiwörferliecht"
+      community_spotlight: "Intressanti Lüt"
       suggest_member: "Mitglied vorschloh"
   conversations:
     create:
       fail: "Ungültigi Nochricht"
-      no_contact: "Hoppla, du muesch zersch de Kontakt adde."
-      sent: "Nochricht gsendet"
+      sent: "Nochricht verschickt"
     index:
-      inbox: "Igang"
+      inbox: "Poschtigang"
       no_messages: "Kei Nochrichte"
     new:
-      send: "Sende"
-      sending: "Sendend..."
-      subject: "worum gaht's ?"
-      to: "A"
+      send: "Abschicke"
+      sending: "Wird gschickt..."
+      subject: "Um was goht's?"
+      to: "Empfänger"
     show:
       delete: "Gspröch lösche"
+      last_message: "Letschti Nochricht empfange %{timeago}"
       reply: "Antworte"
       replying: "Am Antworte..."
   date:
@@ -179,153 +179,147 @@ de-CH:
       birthday_with_year: "%d. %B %Y"
       fullmonth_day: "%d. %B"
   delete: "Lösche"
-  email: "Email"
+  email: "E-Mail"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Korrigier folgendi Errör's und versuechs nomel."
+      correct_the_following_errors_and_try_again: "Korrigier folgendi Fähler und versuechs nomel."
   fill_me_out: "Füll mi uus"
-  find_people: "Find Mensche oder Tag's"
+  find_people: "Find Mensche oder #Tags"
   invitations:
-    a_facebook_user: "En Facebook benutzer"
-    check_token:
-      not_found: "Iilatigs-token isch nöd gfunde worde"
     create:
       empty: "Bitte mindestens ei email adresse iigä"
-      no_more: "Kei wiiteri Iilage."
+      no_more: "Du hesch kei Iilage meh."
       note_already_sent: "A %{emails} sind scho e iiladig gschickt worde."
-      rejected: "Bi folgende adresse het's Problem geh: "
-      sent: "Illadige sind a folgendi adresse gsendet worde: %{emails}"
+      rejected: "Bi folgende Adresse het's Problem geh: "
+      sent: "Illadige sind a folgendi Adresse gschickt worde: %{emails}"
     new:
       comma_separated_plz: "Du chasch mehreri email adresse iigeh, wenns dur es komma trennsch."
-      invite_someone_to_join: "Tuen öpper zu Diaspora* Iilade!"
+      invite_someone_to_join: "Lad öpper zu diaspora* ii!"
       language: "Sproch"
-      paste_link: "Teil de link mit dine fründe zum sie zu Diaspora* iizlade, oder schrick ene de link direkt."
-      send_an_invitation: "En Iiladig sende"
+      paste_link: "Teil de Link mit dine Fründe zum sie zu diaspora* iizlade, oder schick ene de link direkt per E-Mail."
+      send_an_invitation: "En Iiladig verschicke"
   layouts:
     application:
       back_to_top: "Zrugg zum Aafang"
-      powered_by: "Es lauft mir Diaspora*"
-      public_feed: "Öffentliche Diaspora* feed vo %{name}"
+      powered_by: "Es lauft mit diaspora*"
+      public_feed: "Öffentliche diaspora* Feed vo %{name}"
       source_package: "Lad S'Quellcode-packet abe"
-      toggle: "Mobiili aasicht ii/us-schalte"
+      toggle: "Mobiili Aasicht umschalte"
       whats_new: "Was git's neus?"
     header:
       logout: "Abmelde"
       profile: "Profil"
-      settings: "Iistelige"
-  limited: "Limitiert"
+      settings: "Iistellige"
+  limited: "Begrenzt"
   more: "Meh"
-  no_results: "Kei Resultat gfunde"
+  no_results: "Kei Ergebnis gfunde"
   notifications:
     comment_on_post:
-      one: "%{actors} het din biitrag %{post_link} kommentiert"
-      other: "%{actors} hend din biitrag %{post_link} kommentiert"
-      zero: "%{actors} het din biitrag %{post_link} kommentiert"
+      one: "%{actors} het din Biitrag %{post_link} kommentiert."
+      other: "%{actors} hend din Biitrag %{post_link} kommentiert."
+      zero: "Niemer het din Biitrag %{post_link} kommentiert."
     index:
       and: "und"
       mark_unread: "als gläsä markiere"
     liked:
-      one: "%{actors} het din post %{post_link} gern"
-      other: "%{actors} hend din post %{post_link} gern"
-      zero: "%{actors} het din post %{post_link} gern"
+      one: "%{actors} gfallt din Biitrag %{post_link}."
+      other: "%{actors} gfallt din Biitrag %{post_link}."
+      zero: "%{actors} gfallt din Biitrag %{post_link}."
     mentioned:
-      one: "%{actors} het dich im post %{post_link} erwähnt"
-      other: "%{actors} hend dich im post %{post_link} erwähnt"
-      zero: "%{actors} het dich im post %{post_link} erwähnt"
+      one: "%{actors} het di im Biitrag %{post_link} erwähnt."
+      other: "%{actors} hend di im Biitrag %{post_link} erwähnt."
+      zero: "%{actors} het di im Biitrag %{post_link} erwähnt."
     private_message:
       one: "%{actors} het dir e Nochricht gschickt."
       other: "%{actors} hend dir e Nochricht gschickt."
       zero: "%{actors} het dir e Nochricht gschickt."
     reshared:
-      one: "%{actors} het din post %{post_link} wiitergseit."
-      other: "%{actors} hend din post %{post_link} wiitergseit."
+      one: "%{actors} het din Biitrag %{post_link} wiitergseit."
+      other: "%{actors} hend din Biitrag %{post_link} wiitergseit."
     started_sharing:
-      one: "de %{actors} het agfange mit dir Teile."
-      other: "%{actors} hend agfange mit dir Teile."
-      zero: "%{actors} het agfange mit dir Teile."
+      one: "%{actors} het agfange mit dir z'teile."
+      other: "%{actors} hend agfange mit dir z'teile."
+      zero: "Niemer het agfange mit dir z'teile."
   notifier:
-    a_post_you_shared: "en post"
+    a_post_you_shared: "en Biitrag."
     click_here: "druck do"
     comment_on_post:
-      reply: "Gib antwort oder lueg der de post vo %{name} aa."
+      reply: "Schriib en Antwort oder lueg der de Biitrag vo %{name} aa >"
     confirm_email:
-      click_link: "Klick uf dä link zum dini neu email adresse %{unconfirmed_email} z'aktiviere"
-      subject: "Bitte aktivier dini neu email adresse %{unconfirmed_email}"
-    email_sent_by_diaspora: "Das e-mail isch vo %{pod_name} gsendet worde. Wenn du kei söttigi emails me willsch,"
-    hello: "Hallo %{name}!"
+      click_link: "Klick uf dä Link zum dini neu E-Mail-Adresse %{unconfirmed_email} z'aktiviere:"
+      subject: "Bitte aktivier dini neu E-Mail-Adresse %{unconfirmed_email}"
+    email_sent_by_diaspora: "Das E-Mail isch vo %{pod_name} gschickt worde. Wenn du kei söttigi E-Mails me willsch,"
+    hello: "Hoi %{name}!"
     invite:
       message: |-
           Hallo!
-          du bisch vo %{diaspora_id} iiglade worde Diaspora* biizträte.
+          du bisch vo %{diaspora_id} iiglade worde diaspora* biizträte.
+
           Mit dem Link gohts los
+
           [%{invite_url}][1]
 
-          Oder füeg %{diaspora_id} zu dine Aspekt hinzue. wennd scho en Account hesch.
+          Oder füeg %{diaspora_id} zu dine Aspekt hinzue, wennd scho es Konto hesch.
 
-          Liebi grüess
-          De Diaspora* email roboter
+          Liebi Grüess
 
-          Ps. Für de fall das do gar nonig weisch was Diaspora* isch:[do][2] git's meh info's.
+          De diaspora* E-Mail Roboter!
+
+          PS: Für de Fall das do gar nonig weisch was diaspora* isch, [do][2] git's meh Info's.
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
-    invited_you: "%{name} het dich zu Diaspora* iiglade"
+    invited_you: "%{name} het dich zu diaspora* iiglade"
     liked:
-      liked: "%{name} het din post gern"
-      view_post: "Post aaluege >"
+      liked: "%{name} gfallt din Biitrag"
+      view_post: "Biitrag aaluege >"
     mentioned:
-      subject: "%{name} het dich uf Diaspora* erwähnt"
+      subject: "%{name} het di uf diaspora* erwähnt"
     private_message:
-      reply_to_or_view: "Gib Antwort oder lueg die Underhaltig aa >"
+      reply_to_or_view: "Schrib en Antwort oder lueg s'Gspröch aa >"
     reshared:
-      reshared: "%{name} het din post wiitergseit"
-      view_post: "Post aaluege >"
+      reshared: "%{name} het din Biitrag wiitergseit"
+      view_post: "Biitrag aaluege >"
     single_admin:
-      admin: "Din Diaspora* administrator"
-      subject: "E Nochricht über din Diaspora* Account:"
+      admin: "Din diaspora* Administrator"
+      subject: "E Nochricht über dis diaspora* Konto:"
     started_sharing:
-      sharing: "het aagfange mit dir teile!"
-      subject: "%{name} het uf Diaspora* aagfange mit dir teile"
-      view_profile: "lueg s'profil vo %{name} aa"
+      sharing: "het aagfange mit dir z'teile!"
+      subject: "%{name} het uf diaspora* aagfange mit dir z'teile"
+      view_profile: "Lueg s'Profil vo %{name} aa"
     thanks: "Danke,"
-    to_change_your_notification_settings: "zum dini benochrichtigungs-iistellige z'ändere"
+    to_change_your_notification_settings: "zum dini Benochrichtigungs-Iistellige z'ändere"
   nsfw: "NSFW"
   ok: "OK"
   people:
     add_contact:
       invited_by: "Du bisch iglade worde vo"
     index:
-      looking_for: "Bisch uf de suech noch mit %{tag_link} täggde biiträg?"
-      no_one_found: "...und niemer isch gunde worde."
-      no_results: "Hey, du muesch noch öppisem sueche."
-      results_for: "Benutzer zum Thema %{search_term}"
+      looking_for: "Bisch uf de Suech noch mit %{tag_link} täggde Biiträg?"
+      no_one_found: "...und niemer isch gfunde worde."
+      no_results: "Hey! Du muesch noch öppisem sueche."
+      results_for: "Suechergebnis für %{search_term}"
       searching: "Sueche, bitte bis geduldig..."
     person:
       thats_you: "Das bisch du!"
     profile_sidebar:
-      bio: "Biografie"
+      bio: "Beschriibig"
       born: "Geburi"
       gender: "Gschlächt"
       location: "Ort"
     show:
-      closed_account: "Dä Account isch gschlosse worde."
+      closed_account: "Dä Konto isch gschlosse worde."
       does_not_exist: "Die Person existiert nöd!"
-      has_not_shared_with_you_yet: "%{name} het bis etz no kei posts mit dir teilt.."
+      has_not_shared_with_you_yet: "%{name} het bis etz no kei Biiträg mit dir teilt!"
   photos:
     create:
-      integrity_error: "Fotiupload isch fehlgschlage... Sicher das da e bild gsi isch?"
-      runtime_error: "Fotiupload isch fehlgschlage... Sicher das ali tasse im chuchichäschtli sind?"
-      type_error: "Fotiupload isch fehlgschlage... lueg mal ob's bild dezuegfüegt worde isch.."
+      integrity_error: "Fotiupload isch fehlgschlage... Bisch sicher das da e Bild gsi isch?"
+      runtime_error: "Fotiupload isch fehlgschlage... Bisch sicher das ali Tasse im Chuchichäschtli sind?"
+      type_error: "Fotiupload isch fehlgschlage... Bisch sicher das e Bild iigfüegt worde isch?"
     destroy:
       notice: "Foti glöscht."
-    new_photo:
-      empty: "{file} isch läär, bitte wähl d'dateie nomol ohni das us."
-      invalid_ext: "{file} het e ungültigi Dateiendig. Nur folgendi ändige sind erlaubt : {extensions}"
-      size_error: "{file} isch z'gross.. - Uploads dörfed Maximal {sizeLimit} sii."
     new_profile_photo:
       upload: "Lad es neus Profilfoti ue!"
-    show:
-      show_original_post: "Orginal-Post aazeige"
   posts:
     presenter:
       title: "En post vo %{name}"
@@ -335,50 +329,50 @@ de-CH:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Andere lüüt innerhalb vo Diaspora* erlaube noch dir z'sueche"
+      allow_search: "Andere lüüt innerhalb vo diaspora* erlaube noch dir z'sueche"
       first_name: "Vorname"
       last_name: "Nochname"
-      update_profile: "Profil Update"
-      your_bio: "Dini beschriibig"
+      update_profile: "Profil aktualisierä"
+      your_bio: "Dini Beschriibig"
       your_birthday: "Din Geburtstag"
       your_gender: "Dis Gschlächt"
-      your_location: "Wo du bisch"
-      your_name: "Din name"
-      your_photo: "dis Foti"
-      your_tags: "Beschriib dich in 5 wörter"
+      your_location: "Din Ort"
+      your_name: "Din Name"
+      your_photo: "Dis Foti"
+      your_tags: "Beschriib dich i 5 Wörter"
       your_tags_placeholder: "Zum Biispiil: #diaspora #chuchichäschtli #kreativ #linux #musig"
     update:
-      failed: "Aktualisierä vom Profil isch fehlschlage"
+      failed: "Aktualisierä vom Profil isch fehlgschlage"
       updated: "Pofil aktualisiert"
-  public: "Öffentlich"
+  public: "Öffetlich"
   reactions:
-    one: "%{count} Reaktion"
+    one: "Ei Reaktion"
     other: "%{count} Reaktione"
     zero: "Kei Reaktion"
   registrations:
-    closed: "Uf dem pod isch Account erröffnig deaktiviert"
+    closed: "Uf dem pod isch d'Registrierig deaktiviert"
     create:
-      success: "Du bisch ez volle hahne bi Diaspora* debii !"
+      success: "Du bisch ez volle Hahne bi diaspora* debii!"
     invalid_invite: "De iiladigslink wo'd erstellt hesch isch nüme gültig!"
     new:
-      email: "Email"
-      enter_email: "Gib dini email adresse ii"
+      email: "E-Mail"
+      enter_email: "Gib dini E-Mail-Adresse ii"
       enter_password: "Passwort iigä (mindestens 6 zeiche)"
       enter_password_again: "Nomol s'gliich passwort wie vorher iigä"
-      enter_username: "Wähl en benutzername uus (bestehend usschliesslich us: zahle, nummere, und understrich)"
+      enter_username: "Wähl en Benutzername uus (bestehend usschliesslich us: Buechstabe, Nummere und Understrich)"
       password: "Passwort"
       password_confirmation: "Passwort bestätigung"
       sign_up: "Account mache"
       username: "Benutzername"
   reshares:
     reshare:
-      deleted: "Originalpost isch vom Verfasser glöscht worde"
-      reshare_confirmation: "%{author}'s post wiitersägä ?"
-      reshared_via: "wiitergseit vo"
+      deleted: "Originalbiitrag isch vom Verfasser glöscht worde."
+      reshare_confirmation: "%{author}'s Biitrag wiitersägä?"
+      reshared_via: "Wiitergseit vo"
   search: "Sueche"
   services:
     create:
-      already_authorized: "En benutzer mit de Diapsora id %{diaspora_id} het de Account mit name %{service_name} scho autorisiert."
+      already_authorized: "En Benutzer mit de diaspora* ID %{diaspora_id} het de %{service_name}-Account scho autorisiert."
       failure: "Authentifizierig fehlgschlage."
       success: "Authentifizierig erfolgriich."
     destroy:
@@ -387,7 +381,7 @@ de-CH:
       error: "Bim verbinde zu dem Dienst het's en error geh.."
     index:
       disconnect: "Trenne"
-      edit_services: "Dienst bearbeite"
+      edit_services: "Dienscht bearbeite"
       logged_in_as: "Iigloggt als %{nickname}"
       really_disconnect: "%{service} trenne"
   settings: "Iistelige"
@@ -403,7 +397,7 @@ de-CH:
       logged_in: "Igglogt in %{service}"
       manage: "Verbundeni dienst verwalte"
       new_user_welcome_message: "Mach #hashtags zum dini post's z'tägge und lüüt mit ähnliche intresse finde. Erwähn anderi mensche mit @mentions"
-      outside: "Öfentlichi biiträg sind für's gsamte internet sichtbar."
+      outside: "Öffentlichi Biiträg sind für's gsamte Internet sichtbar."
       share: "Teilä"
       title: "Verbundeni Dienst ufsetzä"
       visibility_dropdown: "Zum iistelle wär din post gseh dörf benutz s'dropdown menü. (Mer empfehled din erschtä post öffentlich z'mache (wellen susch nemert gseht ^^ ))"
@@ -464,7 +458,7 @@ de-CH:
       email_not_confirmed: "Email het nöd chönne aktiviert werde. Falsche Link?"
     destroy:
       no_password: "Bitte dis aktuelle passwort iigäh zum de account schlüsse."
-      success: "Dis Konto isch gschperrt. Es chan ~ 20 Minute goh bevor din Account endgültig gschlosse isch. Danke das du dich uf Diaspora* versuecht hesch."
+      success: "Dis Konto isch gschperrt. Es chan ~ 20 Minute goh bis din Account endgültig gschlosse isch. Danke das du diaspora* uusprobiert hesch."
       wrong_password: "Das Passwort stimmt nöd mit dim aktuelle passwort überein."
     edit:
       also_commented: "öpper en post kommentiert wo du scho kommentiert häsch"
@@ -479,10 +473,10 @@ de-CH:
         dont_go: "Hey, bitte hau nöd ab!"
         lock_username: "Din benutzername wird gsperrt. Niemer wird d'möglichkeit ha zum die gliich ID uf dem pod nomol z'registriere."
         locked_out: "Du wirsch us dim account abgmeldet und usgsperrt bis er glöscht worde isch."
-        make_diaspora_better: "Üs wär's sehr vill lieber du würsch bliibe und mithelfe Diaspora* besser z'mache anstatt z'goh. - Wenn aber würkli wotsch, das passiert als nöchschts:"
+        make_diaspora_better: "Üs wär's sehr vill lieber du würsch bliibe und mithelfe diaspora* besser z'mache anstatt z'goh. Wenn aber würkli wotsch, das passiert als nöchschts:"
         mr_wiggles: "Wenn du gosch wird de Mr.Wiggles ganz truurig"
         no_turning_back: "Es git keis zrugg! Wenn du dir würkli sicher bisch, gib dis passwort une ii."
-        what_we_delete: "Mer lösched all dini biiträg und profildate so bald als möglich. Dini kommentär wo du under de posts vo andere lüüt gmacht hesch werded immerno aazeigt aber mit dinere Diaspora* ID assoziiert anstatt dim name."
+        what_we_delete: "Mer lösched all dini Biiträg und Profildate so bald wie möglich. Dini Kommentär wo du under de Biiträg vo andere Lüüt gmacht hesch werdet immerno aazeigt aber si werdet mit dinere diaspora* ID anstatt dim Name verchnüpft."
       close_account_text: "Account schlüsse"
       comment_on_post: "öpper en post vo dir kommentiert"
       current_password: "aktuell's passwort"
@@ -502,11 +496,11 @@ de-CH:
       started_sharing: "öpper mit dir aafangt teile"
       stream_preferences: "Stream Iistellige"
       your_email: "Dini Email Adresse"
-      your_handle: "Dini Diaspora* ID"
+      your_handle: "Dini diaspora* ID"
     getting_started:
-      awesome_take_me_to_diaspora: "Grossartig! bring mich zu Diaspora*"
-      community_welcome: "d'Diapora\"-Mensche sind froh dich an board zha!"
-      hashtag_explanation: "Mit hashtags chasch du über Sache rede und dini Intresse folge. Usserdem eignet si sich hervorragend zum neui lüüt uf Diaspora* z'finde."
+      awesome_take_me_to_diaspora: "Grossartig! Bring mi zu diaspora*"
+      community_welcome: "d'diapora*-Mensche sind froh di an Bord z'ha!"
+      hashtag_explanation: "Mit hashtags chasch du über Sache rede und dini Intresse folge. Usserdem eignet si sich hervorragend zum neui lüüt uf diaspora* z'finde."
       hashtag_suggestions: "Versuech's mal tags wie zb. #kunscht, #film, #chääs etc.."
       well_hello_there: "Halli Hallo !"
       what_are_you_in_to: "Was machsch so?"

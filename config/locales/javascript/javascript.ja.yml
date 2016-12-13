@@ -101,16 +101,17 @@ ja:
       remove_contact: "連絡先を削除"
       search_no_results: "連絡先が見つかりません"
     conversation:
+      create:
+        no_recipient: "最初に受信者を追加する必要があります!"
       new:
         no_contacts: "会話を開始する前に、連絡先を追加する必要があります。"
     create: "作成"
     delete: "削除"
     edit: "編集"
-    failed_to_comment: "コメントに失敗しました。おそらく作者があなたを無視していませんか？"
-    failed_to_like: "いいね！に失敗しました。おそらく作者があなたを無視していませんか？"
+    errors:
+      connection: "サーバーに接続できません。"
     failed_to_post_message: "メッセージの投稿に失敗しました!"
     failed_to_remove: "エントリーの削除に失敗しました！"
-    failed_to_reshare: "リシェアに失敗しました！"
     getting_started:
       alright_ill_wait: "OK、私は待ちます。"
       hey: "Hey, <%= name %>!"
@@ -146,6 +147,8 @@ ja:
     notifications:
       mark_read: "既読にする"
       mark_unread: "未読にする"
+      new_notifications:
+        other: "<%= count %> 件、未読の通知があります"
     people:
       edit_my_profile: "マイ プロフィールを編集する"
       helper:
@@ -228,7 +231,6 @@ ja:
         created: "報告を正常に作成しました"
         exists: "報告はすでに存在します"
     reshares:
-      duplicate: "えっ？すでにこの投稿をリシェアしています！"
       post: "<%= name %>さんの投稿をリシェアしますか?"
       successful: "投稿は正常にリシェアされました!"
     show_more: "さらに表示する"
@@ -245,19 +247,11 @@ ja:
       hide_nsfw_posts: "#nsfwの投稿を隠す"
       like: "いいね！"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
         other: "<%= count %> いいね！"
-        two: "<%= count %> Likes"
         zero: "<%= count %> いいね！"
       limited: "限定公開"
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
         other: "さらに <%= count %> のコメントを表示"
-        two: "Show <%= count %> more comments"
         zero: "さらに <%= count %> のコメントを表示"
       no_posts_yet: "まだここに表示する投稿はありません。"
       original_post_deleted: "元の投稿は作者によって削除されました"
@@ -268,11 +262,7 @@ ja:
         zero: "<%= count%> リアクション"
       reshare: "リシェア"
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
         other: "<%= count %> リシェア"
-        two: "<%= count %> Reshares"
         zero: "<%= count %> リシェア"
       show_nsfw_post: "投稿を表示する"
       show_nsfw_posts: "全て表示"

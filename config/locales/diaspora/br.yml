@@ -201,7 +201,6 @@ br:
   conversations:
     create:
       fail: "kemennadenn direizh"
-      no_contact: "Alato, ezhomm ho peus ouzhpennañ an darempred da gentañ !"
       sent: "Kemennadenn bet kaset"
     index:
       conversations_inbox: "Kaozeadennoù – Boest degemer"
@@ -314,9 +313,6 @@ br:
     tutorials: "kelennskridoù"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Un implijer eus Facebook"
-    check_token:
-      not_found: "N'eo ket bet kaset ar bilhed-pediñ"
     create:
       empty: "Merkit da nebeutañ ur chomlec'h postel."
       no_more: "N'ho 'peus pedadenn ebet ken."
@@ -493,14 +489,8 @@ br:
       type_error: "C'hwitet war kargadenn ar skeudenn. Sur oc'h bezañ bet ouzhpennet ur skeudenn ?"
     destroy:
       notice: "Dilamet eo bet ar skeudenn"
-    new_photo:
-      empty: "{file} a zo goulo, diuzit ar restroù en-dro heptañ mar plij."
-      invalid_ext: "Ar restr {file} en deus ur astenn direizh. N'eus nemet {extensions} hag a zo asantet."
-      size_error: "Re vras eo {file}, {sizeLimit} eo ar ar vrasañ posupl."
     new_profile_photo:
       upload: "Kargit ur poltred nevez evit ho aelad !"
-    show:
-      show_original_post: "Diskouez an embannadenn orin"
   posts:
     presenter:
       title: "Un embannadenn a-berzh %{name}"

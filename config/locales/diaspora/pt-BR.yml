@@ -268,6 +268,8 @@ pt-BR:
     post_something: "Publicar em diaspora*"
   cancel: "Cancelar"
   comments:
+    create:
+      error: "Falha ao comentar."
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
@@ -292,7 +294,6 @@ pt-BR:
   conversations:
     create:
       fail: "Mensagem inválida"
-      no_contact: "Cuidado, você precisa adicionar o contato primeiro!"
       sent: "Mensagem enviada"
     destroy:
       delete_success: "Conversa excluída com sucesso"
@@ -301,6 +302,7 @@ pt-BR:
       conversations_inbox: "Conversas – Caixa de Entrada"
       inbox: "Entrada"
       new_conversation: "Nova conversa"
+      no_contacts: "Você precisa adicionar contatos antes de começar uma conversa."
       no_messages: "Não há mensagens"
     new:
       message: "Mensagem"
@@ -325,6 +327,7 @@ pt-BR:
   delete: "Apagar"
   email: "E-mail"
   error_messages:
+    csrf_token_fail: "O código CSRF é inválido. Por favor, entre no sistema e tente de novo."
     helper:
       correct_the_following_errors_and_try_again: "Corrija os erros a seguir e tente novamente."
     need_javascript: "Este site precisa de JavaScript para funcionar corretamente. Se você desabilitou o Javascript, habilite-o e atualize esta página."
@@ -558,7 +561,6 @@ pt-BR:
       own_your_data: "Os seus dados são seus"
       own_your_data_info: "Várias redes lucram com seus dados, analisando as suas interações e usando as informações obtidas para fazer publicidade. A diaspora* não usa seus dados para nada além de possibilitar que você se conecte e compartilhe com outras pessoas."
     podmin:
-      admin_panel: "painel de administração"
       byline: "Você está prestes a revolucionar a internet. Vamos começar?"
       configuration_info: "Abra %{database_path} e %{diaspora_path} no seu editor de texto favorito e revise-os cuidadosamente, estão minuciosamente comentados."
       configure_your_pod: "Configure seu servidor"
@@ -572,22 +574,21 @@ pt-BR:
       getting_help_info: "Nós listamos %{faq}, inclusive dicas, macetes e soluções para os problemas mais comuns. Sinta-se livre, também, para %{irc}."
       headline: "Olá, colega."
       make_yourself_an_admin: "Assuma a administração"
-      make_yourself_an_admin_info: "Você pode encontrar instruções na %{wiki}. Quando você entrar no sistema, haverá um link \"Admin\" no seu menu de usuário, no cabeçalho. Você poderá buscar usuários e ver as estatísticas do seu servidor. Para detalhes sobre os aspectos operacionais do seu servidor, vá para o %{admin_panel}."
+      make_yourself_an_admin_info: "Você pode encontrar instruções na %{wiki}. Isso vai adicionar um link \"%{admin_dashboard}\", visível quando você entrar no sistema, ao seu menu de usuário, no cabeçalho. Você poderá buscar usuários e ver as estatísticas do seu servidor."
       report_bugs: "reporte-o"
       update_instructions: "instruções para atualizar na wiki da diaspora*"
       update_your_pod: "Atualize seu servidor"
       update_your_pod_info: "Você pode encontrar %{update_instructions}."
   invitation_codes:
+    already_logged_in: "%{inviter} te convidou para se juntar a este servidor, mas você já fez login."
     not_valid: "Esse código de convite expirou"
   invitations:
-    a_facebook_user: "Um usuário do Facebook"
-    check_token:
-      not_found: "Convite não encontrado."
     create:
+      closed: "Convites estão desativados neste servidor diaspora*."
       empty: "Por favor, insira ao menos um endereço de email."
       no_more: "Você não possui mais convites."
       note_already_sent: "Convites já foram enviados para: %{emails}"
-      rejected: "Houve problemas com os seguintes endereços de e-mail: "
+      rejected: "Os seguintes endereços de e-mail tiveram problemas: %{emails}"
       sent: "Convites enviados para: %{emails}"
     new:
       codes_left:
@@ -616,6 +617,9 @@ pt-BR:
       profile: "Perfil"
       settings: "Configurações"
       toggle_navigation: "Alternar navegação"
+  likes:
+    create:
+      error: "Falha ao curtir."
   limited: "Limitado"
   more: "Mais"
   no_results: "Nenhum resultado encontrado"
@@ -669,9 +673,15 @@ pt-BR:
       other: "%{actors} mencionaram você na publicação %{post_link}."
       zero: "%{actors} mencionou você na publicação %{post_link}."
     mentioned_deleted:
-      one: "%{actors} mencionou você em uma publicação apagada."
-      other: "%{actors} mencionaram você em uma publicação apagada."
+      one: "%{actors} mencionou você em uma publicação deletada."
+      other: "%{actors} mencionaram você em uma publicação deletada."
       zero: "%{actors} mencionou você em uma publicação apagada."
+    mentioned_in_comment:
+      one: "%{actors} mencionou você em um <a href='%{comment_path}'> à publicação %{post_link}."
+      other: "%{actors} mencionaram você em um <a href='%{comment_path}'> à publicação %{post_link}."
+    mentioned_in_comment_deleted:
+      one: "%{actors} mencionou você em um comentário deletado."
+      other: "%{actors} mencionaram você em um comentário deletado."
     post: "publicação"
     private_message:
       one: "%{actors} te enviou uma mensagem."
@@ -702,6 +712,29 @@ pt-BR:
     confirm_email:
       click_link: "Para confirmar o seu novo endereço de email %{unconfirmed_email}, por favor clique neste link:"
       subject: "Por favor, ative o seu novo endereço de email %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          Olá, %{name},
+
+          A diaspora* detectou uma tentativa de acessar a sua sessão que talvez não tenha sido autorizada. Para não arriscar comprometer os seus dados, encerramos sua sessão no sistema. Não se preocupe, você pode entrar com segurança agora.
+
+          Uma solicitação foi feita usando um código CSRF incorreto ou inexistente. Pode não ser nada, mas também pode ser uma tentativa de falsificação de solicitação entre sites (CSRF, do inglês _cross-site request forgery_).
+
+          Isso pode ter sido causado por:
+
+            - Um complemento manipulando o pedido ou fazendo pedidos sem o código;
+            - Uma aba com uma sessão anterior deixada aberta;
+            - Outro site fazendo pedidos, com ou sem a sua permissão;
+            - Várias outras ferramentas externas;
+            - Código malicioso tentando acessar os seus dados.
+
+          Para saber mais sobre falsificação de solicitação entre sites, veja [%{link}](%{link}).
+
+          Se você receber essa mensagem várias vezes, por favor, verifique os itens acima, inclusive os complementos do navegador.
+
+          Nossa equipe agradece.
+          diaspora*
+      subject: "Recebemos um pedido não autorizado da sua conta, %{name}"
     email_sent_by_diaspora: "Este email foi enviado por %{pod_name}. Se você deseja parar de receber emails como este,"
     export_email:
       body: |-
@@ -771,6 +804,9 @@ pt-BR:
     mentioned:
       limited_post: "Você foi mencionado em uma publicação privada."
       subject: "%{name} mencionou você em Diaspora*"
+    mentioned_in_comment:
+      limited_post: "Mencionaram você em um comentário a uma publicação limitada."
+      reply: "Responder ou ver esta conversa >"
     private_message:
       reply_to_or_view: "Responder ou visualizar esta conversa >"
       subject: "Há uma nova mensagem privada para você"
@@ -856,14 +892,8 @@ pt-BR:
       type_error: "O envio da foto falhou. Tem certeza que a imagem é válida?"
     destroy:
       notice: "Foto apagada."
-    new_photo:
-      empty: "{file} está vazio, por favor, selecione os arquivos novamente."
-      invalid_ext: "{file} possui uma extensão inválida. Somente {extensions} são permitidos."
-      size_error: "{file} é muito grande, o tamanho máximo para arquivos é {sizeLimit}."
     new_profile_photo:
       upload: "Envie uma foto nova para o perfil!"
-    show:
-      show_original_post: "Ver publicação original"
   polls:
     votes:
       one: "Um voto até agora"
@@ -947,8 +977,14 @@ pt-BR:
       destroyed: "A publicação foi destruída"
       failed: "Alguma coisa deu errado"
     title: "Visão Geral de Relatos"
+    unreviewed_reports:
+      one: "Há um relatório sem revisar."
+      other: "Há %{count} relatórios sem revisar."
+      zero: "Não há relatórios sem revisar."
   reshares:
     comment_email_subject: "publicação de %{author} recompartilhada por %{resharer}"
+    create:
+      error: "Falha ao recompartilhar."
     reshare:
       deleted: "A publicação original foi apagada pelo autor."
       reshare_confirmation: "Recompartilhar publicação de %{author}?"
@@ -989,7 +1025,7 @@ pt-BR:
         one: "Em %{count} aspecto"
         other: "Em %{count} aspectos"
     invitations:
-      by_email: "Por email"
+      by_email: "Convidar pessoas por e-mail"
       invite_your_friends: "Convide seus Amigos"
       invites: "Convites"
       share_this: "Compartilhe este link via email, blog, ou redes sociais!"
@@ -1123,6 +1159,7 @@ pt-BR:
       comment_on_post: "alguém comentar uma publicação sua"
       current_password: "Senha atual"
       current_password_expl: "o que você usa atualmente..."
+      default_post_visibility: "Aspectos selecionados para publicar por padrão"
       download_export: "Baixar o meu perfil"
       download_export_photos: "Baixar minhas fotos"
       edit_account: "Editar Conta"

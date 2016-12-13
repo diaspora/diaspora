@@ -276,7 +276,6 @@ pl:
   conversations:
     create:
       fail: "Nieprawidłowa wiadomość"
-      no_contact: "Hej! Najpierw należy dodać kontakt!"
       sent: "Wiadomość została wysłana"
     destroy:
       delete_success: "Rozmowa usunięta"
@@ -531,9 +530,6 @@ pl:
     tutorials: "samouczki"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Użytkownik Facebooka"
-    check_token:
-      not_found: "Nie odnaleziono identyfikatora zaproszenia"
     create:
       empty: "Podaj przynajmniej jeden adres e-mail."
       no_more: "Nie masz więcej zaproszeń."
@@ -826,14 +822,8 @@ pl:
       type_error: "Nie udało się przesłać zdjęcia.  Czy na pewno doda@{m:łeś|f:łaś|n:no} obraz?"
     destroy:
       notice: "Usunięto zdjęcie."
-    new_photo:
-      empty: "Plik {file} jest pusty. Wybierz proszę jeszcze raz odpowiednie pliki, pomijając ten."
-      invalid_ext: "Plik {file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia: {extensions}"
-      size_error: "Plik {file} jest zbyt duży, maksymalny rozmiar to {sizeLimit}."
     new_profile_photo:
       upload: "Prześlij nowe zdjęcie profilowe!"
-    show:
-      show_original_post: "Wyświetl oryginalny wpis"
   posts:
     presenter:
       title: "Wpis od %{name}"

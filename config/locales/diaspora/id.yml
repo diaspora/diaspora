@@ -153,9 +153,6 @@ id:
   invitation_codes:
     not_valid: "Kode undangan sudah tidak valid."
   invitations:
-    a_facebook_user: "Seorang pengguna Facebook"
-    check_token:
-      not_found: "Token undangan tidak ditemukan"
     create:
       no_more: "Anda tidak dapat memberikan undangan lagi."
       rejected: "Alamat email berikut bermasalah dengan: "
@@ -323,12 +320,6 @@ id:
       type_error: "Pengunggahan foto gagal.  Kamu yakin sudah menambahkan gambar?"
     destroy:
       notice: "Foto dihapus."
-    new_photo:
-      empty: "{file} kosong, mohon pilih berkas lagi tanpanya."
-      invalid_ext: "ekstensi {file} tak valid. Hanya {extensions} yang diperbolehkan."
-      size_error: "{file} terlalu besar, ukuran maksimal berkas adalah {sizeLimit}"
-    show:
-      show_original_post: "Perlihatkan kiriman asli"
   posts:
     show:
       forbidden: "Kamu tidak boleh melakukannya"

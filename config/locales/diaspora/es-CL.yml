@@ -190,7 +190,6 @@ es-CL:
   conversations:
     create:
       fail: "Mensaje invalido"
-      no_contact: "¡Tranquilo, primero tienes que añadir el contacto!"
       sent: "Mensaje enviado"
     index:
       inbox: "Buzón de Entrada"
@@ -369,9 +368,6 @@ es-CL:
     tutorials: "tutoriales"
     wiki: "Wiki"
   invitations:
-    a_facebook_user: "Un usuario de Facebook"
-    check_token:
-      not_found: "Identificación de invitación no encontrada"
     create:
       empty: "Por favor ingresa al menos una dirección de correo electrónico."
       no_more: "No tienes más invitaciones."
@@ -555,14 +551,8 @@ es-CL:
       type_error: "Error al subir la foto.  ¿Estás seguro que agregaste una imagen?"
     destroy:
       notice: "Foto eliminada."
-    new_photo:
-      empty: "{file} está vacío, por favor, seleccione los archivos nuevamente sin éste último"
-      invalid_ext: "{file} tiene una extensión no válida. Solo están permitidas {extensions}."
-      size_error: "{file} es demasiado grande, el tamaño máximo por archivo es {sizeLimit}."
     new_profile_photo:
       upload: "¡Sube una nueva foto de perfil!"
-    show:
-      show_original_post: "Mostrar post original"
   posts:
     presenter:
       title: "Una publicación de %{name}"

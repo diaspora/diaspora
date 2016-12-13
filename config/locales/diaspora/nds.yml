@@ -216,7 +216,6 @@ nds:
   conversations:
     create:
       fail: "Ungültige Noricht"
-      no_contact: "He, du muss erst Kontakt schluten!"
       sent: "Noricht afschickt"
     destroy:
       delete_success: "Schnack erfolgriek löscht"
@@ -389,9 +388,6 @@ nds:
     tutorials: "Anleidungen"
     wiki: "Wiki"
   invitations:
-    a_facebook_user: "Een Facebook-Bruker"
-    check_token:
-      not_found: "Inlodungstoken nich funnen"
     create:
       empty: "Bidde geev minstens eene E-Mail-Adress in."
       no_more: "Du kannst keene Inlodungen mehr schicken."
@@ -580,14 +576,8 @@ nds:
       type_error: "Hoochloden von dat Bild fehlschloon.  Bist du di sicher, dat du een Bild dortaudoon hest?"
     destroy:
       notice: "Bild löscht."
-    new_photo:
-      empty: "{file} is leer, bidde wähl de Dateien noch mol ohne er ut."
-      invalid_ext: "{file} het een ungültiges Enn. Nur {extensions} sind erlaubt."
-      size_error: "{file} is to groot, Dateien dröfft höchstens {sizeLimit} groot ween."
     new_profile_photo:
       upload: "Nee’es Profilbild hoochloden!"
-    show:
-      show_original_post: "Originalbidrag anzeigen"
   posts:
     presenter:
       title: "Een Bidrag von %{name}"

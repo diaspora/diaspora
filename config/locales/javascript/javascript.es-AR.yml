@@ -106,16 +106,17 @@ es-AR:
       remove_contact: "Eliminar contacto"
       search_no_results: "No se han encontrado contactos con ese nombre."
     conversation:
+      create:
+        no_recipient: "¡Hey! primero tenes que agregar un destinatario"
       new:
         no_contacts: "Necesitas agregar algunos contactos antes de iniciar una conversación."
     create: "Crear"
     delete: "Borrar"
     edit: "Editar"
-    failed_to_comment: "Error al comentar. ¿Puede ser que el autor te esté ignorando?"
-    failed_to_like: "¡No pudo marcarse como \"Me gusta\"! ¿Tal vez el autor de la publicación te está ignorando?"
+    errors:
+      connection: "No es posible conectarse al servidor."
     failed_to_post_message: "¡No pudo publicarse el mensaje!"
     failed_to_remove: "Fallo al eliminar la entrada!"
-    failed_to_reshare: "Error al volver a compartir"
     getting_started:
       alright_ill_wait: "Todo bien, voy a esperar."
       hey: "¡Hola, <%= name %>!"
@@ -151,6 +152,9 @@ es-AR:
     notifications:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
+      new_notifications:
+        one: "Tenés una notificación sin leer"
+        other: "Tenés <%= count %> notificaciones sin leer"
     people:
       edit_my_profile: "Editar mi perfil"
       helper:
@@ -236,7 +240,6 @@ es-AR:
         created: "El reporte se ha creado exitosamente"
         exists: "El reporte ya existe"
     reshares:
-      duplicate: "¿Te gustó eh? ¡Ya habías compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡La publicación se compartió correctamente!"
     show_more: "Mostrar más"

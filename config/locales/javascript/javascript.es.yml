@@ -109,11 +109,8 @@ es:
     create: "Crear"
     delete: "Eliminar"
     edit: "Editar"
-    failed_to_comment: "Error al comentar. ¿Puede ser que el autor te esté ignorando?"
-    failed_to_like: "\"Me gusta\" no ha funcionado."
     failed_to_post_message: "¡Error al publicar el mensaje!"
     failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
-    failed_to_reshare: "¡Error al compartir!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, <%= name %>!"
@@ -234,7 +231,6 @@ es:
         created: "El informe fue creado correctamente"
         exists: "El informe ya existe"
     reshares:
-      duplicate: "¿Verdad que te ha gustado? Pero ya has esa publicación."
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡Publicación compartida con éxito!"
     show_more: "mostrar más"

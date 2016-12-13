@@ -60,10 +60,8 @@ nb:
     create: "Lag"
     delete: "Slett"
     edit: "Rediger"
-    failed_to_like: "Klarte ikke å like!"
     failed_to_post_message: "Klarte ikke å publisere post!"
     failed_to_remove: "Noe gikk galt i forsøket på å fjerne innlegget!"
-    failed_to_reshare: "Kunne ikke videredele"
     getting_started:
       alright_ill_wait: "Greit, jeg venter."
       hey: "Hei, <%= name %>!"
@@ -178,7 +176,6 @@ nb:
         created: "Rapporten er opprettet"
         exists: "Rapporten eksisterer allerede"
     reshares:
-      duplicate: "du har allerede delt denne posten!"
       post: "Videredel <%= name %> sitt innhold?"
       successful: "Dette innholdet ble videredelt"
     show_more: "vis mer"

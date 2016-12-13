@@ -270,6 +270,8 @@ fr:
     post_something: "Publiez sur diaspora*"
   cancel: "Annuler"
   comments:
+    create:
+      error: "Impossible de commenter."
     new_comment:
       comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
@@ -294,7 +296,6 @@ fr:
   conversations:
     create:
       fail: "Message invalide"
-      no_contact: "Hé, vous avez besoin d'ajouter le contact d'abord !"
       sent: "Message envoyé"
     destroy:
       delete_success: "Conversation effacée avec succès"
@@ -303,6 +304,7 @@ fr:
       conversations_inbox: "Discussions - Boîte de réception"
       inbox: "Boîte de réception"
       new_conversation: "Nouvelle discussion"
+      no_contacts: "Vous devez ajouter des contacts avant de pouvoir démarrer une conversation."
       no_messages: "Aucun message"
     new:
       message: "Message"
@@ -327,6 +329,7 @@ fr:
   delete: "Supprimer"
   email: "Courriel"
   error_messages:
+    csrf_token_fail: "Le jeton CSRF est invalide. Veuillez vous connecter et réessayer."
     helper:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
     need_javascript: "Ce site web nécessite JavaScript pour fonctionner correctement. Si vous avez désactivé JavaScript, veuillez le réactiver et actualiser cette page."
@@ -562,7 +565,6 @@ fr:
       own_your_data: "Soyez propriétaire de vos données"
       own_your_data_info: "De nombreux réseaux utilisent vos données pour gagner de l'argent en analysant vos interactions et en utilisant ces informations pour vous proposer des publicités ciblées. Vos données sur diaspora* ne servent qu'à vous mettre en relation et à partager avec d'autres personnes."
     podmin:
-      admin_panel: "panneau d'administrateur"
       byline: "Vous êtes sur le point de changer la face d'Internet. Prêt à vous lancer ?"
       configuration_info: "Ouvrez %{database_path} et %{diaspora_path} dans votre éditeur de texte favori et relisez-les soigneusement, ils sont abondamment commentés."
       configure_your_pod: "Configurez votre pod"
@@ -582,12 +584,11 @@ fr:
       update_your_pod: "Maintenez votre pod à jour"
       update_your_pod_info: "Vous trouverez %{update_instructions}."
   invitation_codes:
+    already_logged_in: "Vous avez été invité par %{inviter} pour rejoindre ce pod mais vous êtes déjà connecté."
     not_valid: "Ce code d'invitation n'est plus valide."
   invitations:
-    a_facebook_user: "Un utilisateur de Facebook"
-    check_token:
-      not_found: "Jeton d'invitation introuvable"
     create:
+      closed: "Les invitations sont fermées sur ce pod diaspora*."
       empty: "Veuillez fournir au moins une adresse de courrier électronique."
       no_more: "Vous n’avez plus d’invitation."
       note_already_sent: "Une invitation a déjà été envoyée aux e-mails %{emails}"
@@ -620,6 +621,9 @@ fr:
       profile: "Profil"
       settings: "Paramètres"
       toggle_navigation: "Afficher/cacher le menu"
+  likes:
+    create:
+      error: "Impossible d'aimer."
   limited: "Limité"
   more: "Plus"
   no_results: "Aucun résultat trouvé"
@@ -654,6 +658,7 @@ fr:
       mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
       mentioned: "Vous mentionnant"
+      mentioned_in_comment: "Vous mentionnant dans un commentaire"
       no_notifications: "Vous n'avez pas encore de notifications."
       notifications: "Notifications"
       reshared: "Repartagé"
@@ -673,9 +678,15 @@ fr:
       other: "%{actors} vous ont mentionné(e) dans le message %{post_link}."
       zero: "%{actors} ne vous a mentionné(e) dans le message %{post_link}."
     mentioned_deleted:
-      one: "%{actors} vous a mentionné-e dans un message supprimé."
-      other: "%{actors} vous ont mentionné-e dans un message supprimé."
-      zero: "%{actors} a ont mentionné-e dans un message supprimé."
+      one: "%{actors} vous a mentionné dans un message supprimé."
+      other: "%{actors} vous ont mentionné dans un message supprimé."
+      zero: "Personne ne vous a mentionné dans un message supprimé."
+    mentioned_in_comment:
+      one: "%{actors} vous a mentionné dans un <a href=%{comment_path}>commentaire</a> sur le message %{post_link}."
+      other: "%{actors} vous ont mentionné dans un <a href=%{comment_path}>commentaire</a> sur le message %{post_link}."
+    mentioned_in_comment_deleted:
+      one: "%{actors} vous a mentionné sur un commentaire supprimé."
+      other: "%{actors} vous ont mentionné sur un commentaire supprimé."
     post: "message"
     private_message:
       one: "%{actors} vous a envoyé un message."
@@ -706,6 +717,29 @@ fr:
     confirm_email:
       click_link: "Pour activer votre nouvelle adresse électronique %{unconfirmed_email}, merci de suivre ce lien :"
       subject: "Merci d'activer votre nouvelle adresse électronique %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          Bonjour %{name},
+
+          diaspora* a détecté une tentative d'accès à votre session qui pourrait ne pas être autorisée. Cela est probablement tout à fait anodin, mais peut éventuellement être une attaque cross-site request forgery (CSRF). Pour éviter tout risque que vos données soient compromises, vous avez été déconnecté.
+
+          Une requête faite en utilisant un jeton CSRF incorrect ou manquant peut être due à :
+
+          - une extension manipulant la requête ou créant des requêtes sans le jeton
+          - un ancien onglet resté ouvert
+          - un autre site web faisant des requêtes avec ou sans votre permission
+          - divers autres outils externes
+          - du code malveillant essayant d'accéder à vos données
+
+          Pour plus d'information sur le CSRF, voir [%{link}](%{link}).
+
+          Ne vous inquiétez pas; vous pouvez vous reconnecter maintenant.
+
+          Si vous voyez ce message à plusieurs reprises, merci de vérifier les points ci-dessus, y compris les extensions du navigateur.
+
+          Merci.
+          Le messager automatique de diaspora* !
+      subject: "Nous avons reçu une demande non autorisée de votre compte, %{name}"
     email_sent_by_diaspora: "Ce courriel a été envoyé par %{pod_name}. Si vous ne souhaitez plus recevoir des courriels de ce genre,"
     export_email:
       body: |-
@@ -778,6 +812,9 @@ fr:
     mentioned:
       limited_post: "Vous avez été mentionné dans une publication restreinte."
       subject: "%{name} vous a mentionné(e) sur diaspora*"
+    mentioned_in_comment:
+      limited_post: "Vous avez été mentionné dans un commentaire sur une publication restreinte."
+      reply: "Répondre ou voir cette conversation >"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
       subject: "Vous avez un nouveau message privé"
@@ -862,14 +899,8 @@ fr:
       type_error: "L'envoi de la photo a échoué. Vérifiez qu'une photo a bien été ajoutée ?"
     destroy:
       notice: "La photo a été supprimée."
-    new_photo:
-      empty: "{file} est vide, merci de sélectionner d'autres fichiers."
-      invalid_ext: "{file} a une extension invalide. Seules {extensions} sont autorisées."
-      size_error: "{file} est trop grand, la taille maximum pour un fichier est {sizeLimit}."
     new_profile_photo:
       upload: "Mettre une nouvelle photo de profil !"
-    show:
-      show_original_post: "Montrer le message original"
   polls:
     votes:
       one: "%{count} vote pour l'instant"
@@ -953,8 +984,14 @@ fr:
       destroyed: "Le message a été détruit"
       failed: "Il y a eu un problème."
     title: "Vue d'ensemble des signalements."
+    unreviewed_reports:
+      one: "Il y a %{count} signalement non vérifié."
+      other: "Il y a %{count} signalements non vérifiés."
+      zero: "Il n'y a aucun signalement non vérifié."
   reshares:
     comment_email_subject: "Partage par %{resharer} d'un message de %{author}"
+    create:
+      error: "Le repartage a échoué."
     reshare:
       deleted: "Le message original a été supprimé par l'auteur."
       reshare_confirmation: "Repartager le message de %{author} ?"
@@ -1109,7 +1146,7 @@ fr:
       success: "Votre compte est verrouillé. Cela peut nous prendre jusqu'à vingt minutes pour finaliser sa fermeture. Merci d'avoir essayé diaspora*."
       wrong_password: "Le mot de passe saisi ne correspond pas à votre mot de passe actuel."
     edit:
-      also_commented: "quelqu'un commente un message que vous avez déjà commenté."
+      also_commented: "…quelqu'un commente un message que vous avez déjà commenté."
       auto_follow_aspect: "Aspect pour les utilisateurs que vous suivez automatiquement :"
       auto_follow_back: "Suivre automatiquement en retour ceux qui vous suivent"
       change: "Modifier"
@@ -1130,6 +1167,7 @@ fr:
       comment_on_post: "…quelqu'un commente un de vos messages."
       current_password: "Mot de passe actuel"
       current_password_expl: "Celui avec lequel vous vous connectez ..."
+      default_post_visibility: "Aspects sélectionnés par défaut pour la publication"
       download_export: "Télécharger mon profil"
       download_export_photos: "Télécharger mes photos"
       edit_account: "Modifier le compte"
@@ -1141,6 +1179,7 @@ fr:
       last_exported_at: "(Dernière mise à jour à %{timestamp})"
       liked: "…quelqu'un a aimé votre message."
       mentioned: "…l'on vous mentionne dans un message."
+      mentioned_in_comment: "…vous êtes mentionné dans un commentaire"
       new_password: "Nouveau mot de passe"
       private_message: "…vous recevez un message privé."
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
@@ -1151,7 +1190,7 @@ fr:
       reshared: "…quelqu'un a repartagé votre message."
       show_community_spotlight: "Afficher les actualités de la communauté dans votre flux"
       show_getting_started: "Montrer les astuces de découverte"
-      someone_reported: "Quelqu'un a signalé un message"
+      someone_reported: "…quelqu'un a signalé un message"
       started_sharing: "…quelqu'un commence à partager avec vous."
       stream_preferences: "Préférences du flux"
       your_email: "Votre adresse électronique"

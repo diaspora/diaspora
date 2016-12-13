@@ -188,7 +188,6 @@ eo:
   conversations:
     create:
       fail: "Malĝusta mesaĝo"
-      no_contact: "Hej, unue devas vi aldoni la kontakton."
       sent: "Mesaĝo sendiĝis."
     index:
       inbox: "Poŝtujo"
@@ -233,9 +232,6 @@ eo:
     tutorials: "enkondukoj"
     wiki: "vikio"
   invitations:
-    a_facebook_user: "Facebook-uzanto"
-    check_token:
-      not_found: "Ne povis trovi invitan ĵetonon"
     create:
       empty: "Bonvole tajpu almenaŭ unu retpoŝtadreson."
       no_more: "Vi ne plu havas invitojn."
@@ -417,14 +413,8 @@ eo:
       type_error: "Alŝuti bildon malsukcesis. Ĉu vi certas, ke vi aldonis bildon?"
     destroy:
       notice: "Bildo forviŝiĝis."
-    new_photo:
-      empty: "{file} malplenas; bonvolu reelekti dosierojn sen ĝi."
-      invalid_ext: "{file} havas malvalidan sufikson. Nur {extensions} estas validaj."
-      size_error: "{file} estas tro granda; la maksimuma dosiergrandeco estas {sizeLimit}."
     new_profile_photo:
       upload: "Alŝutu novan profilbildon!"
-    show:
-      show_original_post: "Montri originan afiŝon."
   posts:
     presenter:
       title: "Mesaĝo de %{name}"

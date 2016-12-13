@@ -182,7 +182,6 @@ ko:
   conversations:
     create:
       fail: "유효하지 않은 쪽지"
-      no_contact: "컨택부터 추가하세요!"
       sent: "쪽지를 보냈습니다"
     index:
       conversations_inbox: "대화 - 수신함"
@@ -241,9 +240,6 @@ ko:
     tutorials: "간단 설명서"
     wiki: "위키"
   invitations:
-    a_facebook_user: "페이스북 사욤자"
-    check_token:
-      not_found: "초대장 토큰을 찾을 수 없습니다"
     create:
       empty: "이메일 주소를 한 개 이상 입력해주세요."
       no_more: "가진 초대장이 없습니다."
@@ -422,14 +418,8 @@ ko:
       type_error: "사진 업로드 실패. 이미지를 추가하지 않았습니다."
     destroy:
       notice: "사진을 지웠습니다."
-    new_photo:
-      empty: "{file} 파일은 빈 파일입니다. 이 파일만 빼고 다시 시도하세요."
-      invalid_ext: "{file} 파일은 유효하지 않은 형식입니다. {extensions} 형식의 파일을 올려주세요."
-      size_error: "{file} 파일이 {sizeLimit} 보다 큽니다"
     new_profile_photo:
       upload: "새 프로필 사진 업로드하기!"
-    show:
-      show_original_post: "원래 게시물 보기"
   posts:
     presenter:
       title: "%{name}님의 게시물"

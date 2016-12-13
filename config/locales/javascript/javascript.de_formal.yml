@@ -69,7 +69,6 @@ de_formal:
       toggle:
         one: "In <%= count %> Aspekt"
         other: "In <%= count %> Aspekten"
-        zero: "Aspekt auswählen"
       updating: "aktualisiere..."
     aspect_navigation:
       add_an_aspect: "+ Aspekt hinzufügen"
@@ -106,16 +105,17 @@ de_formal:
       remove_contact: "Kontakt entfernen"
       search_no_results: "Keine Kontakte gefunden"
     conversation:
+      create:
+        no_recipient: "Hey, Sie müssen erst einen Empfänger angeben!"
       new:
         no_contacts: "Sie müssen einige Kontakte hinzufügen, bevor Sie eine Konversation anfangen können."
     create: "Erstellen"
     delete: "Löschen"
     edit: "Bearbeiten"
-    failed_to_comment: "Konnte nicht kommentieren. Vielleicht ignoriert Sie der Autor?"
-    failed_to_like: "Gefällt mir ist fehlgeschlagen. Vielleicht ignoriert Sie der Autor?"
+    errors:
+      connection: "Konnte keine Verbindung mit dem Server aufbauen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     failed_to_remove: "Fehler beim Entfernen des Beitrags!"
-    failed_to_reshare: "Fehler beim Weitersagen!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, <%= name %>!"
@@ -151,6 +151,9 @@ de_formal:
     notifications:
       mark_read: "Als gelesen markieren"
       mark_unread: "Als ungelesen markieren"
+      new_notifications:
+        one: "Sie haben <%= count %> ungelesene Benachrichtigung"
+        other: "Sie haben <%= count %> ungelesene Benachrichtigungen"
     people:
       edit_my_profile: "Mein Profil bearbeiten"
       helper:
@@ -236,7 +239,6 @@ de_formal:
         created: "Die Meldung ist erfolgreich erstellt worden"
         exists: "Die Meldung existiert bereits"
     reshares:
-      duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
       post: "<%= name %>s Beitrag weitersagen?"
       successful: "Der Beitrag wurde erfolgreich weitergesagt!"
     show_more: "Mehr zeigen"

@@ -91,7 +91,6 @@ si:
   email: "විද්‍යුත් තැපෑල"
   find_people: "පුද්ගයින් සෙවීම හෝ #tags"
   invitations:
-    a_facebook_user: "Facebook පරිශීලකයෙක්"
     create:
       no_more: "ඔබ සතුව තවත් අරාධනාවන් නැත."
     new:
