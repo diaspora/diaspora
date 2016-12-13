@@ -292,7 +292,6 @@ cs:
   conversations:
     create:
       fail: "Neplatná zpráva"
-      no_contact: "Hej, musíte kontakt nejdřív přidat!"
       sent: "Zpráva byla odeslána"
     destroy:
       delete_success: "Konverzace byla úspěšně smazána"
@@ -556,7 +555,6 @@ cs:
       headline: "Vítejte v  %{pod_name}"
       own_your_data: "Vlastni svá data"
     podmin:
-      admin_panel: "admin panel"
       contact_irc: "kontaktujte nás na IRC"
       contribute: "Pomoci"
       create_an_account: "Vytvořit účet"
@@ -566,9 +564,6 @@ cs:
   invitation_codes:
     not_valid: "Kód této pozvánky již není platný."
   invitations:
-    a_facebook_user: "Uživatel Facebooku"
-    check_token:
-      not_found: "Pozvánka nebyla nalezena"
     create:
       empty: "Prosíme zadejte alespoň jednu emailovou adresu."
       no_more: "Nemáte žádné další pozvánky."
@@ -844,14 +839,8 @@ cs:
       type_error: "Nahrání fotky selhalo.  Jste si jist, že byl obrázek přidán?"
     destroy:
       notice: "Fotka smazána."
-    new_photo:
-      empty: "{file} je prázdný, prosím vyberte soubory znovu bez něho."
-      invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
-      size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
     new_profile_photo:
       upload: "Nahrajte novou profilovou fotku!"
-    show:
-      show_original_post: "Zobrazit původní příspěvek"
   polls:
     votes:
       few: "Zbývá %{count} hlasy"

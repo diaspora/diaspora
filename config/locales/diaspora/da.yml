@@ -295,7 +295,6 @@ da:
   conversations:
     create:
       fail: "Ugyldig besked"
-      no_contact: "Hej, du kan tilføje din første kontaktperson!"
       sent: "Besked sendt"
     destroy:
       delete_success: "Konversationen er blevet slettet"
@@ -561,7 +560,6 @@ da:
       own_your_data: "Vær i besiddelse af dine egne data"
       own_your_data_info: "Mange sociale netværk tjener penge på dine data ved at analysere din opførsel og derefter bruge informationen til at sælge reklamer. Diaspora bruger ikke dine data til noget, men står til rådighed så du kan kommunikere og dele med andre."
     podmin:
-      admin_panel: "admin panel"
       byline: "Du er i gang med at ændre internettet. Lad os komme i gang."
       configuration_info: "Åben %{database_path} og %{diaspora_path} i din favorit editor og gennemgå dem omhyggeligt. De er udførligt kommenteret."
       configure_your_pod: "Konfigurer din pod"
@@ -583,9 +581,6 @@ da:
   invitation_codes:
     not_valid: "Invitationskoden er udløbet."
   invitations:
-    a_facebook_user: "En Facebook-bruger"
-    check_token:
-      not_found: "Invitation ikke fundet"
     create:
       empty: "Skriv mindst en e-mailadresse."
       no_more: "Du har ikke flere invitationer."
@@ -880,14 +875,8 @@ da:
       type_error: "Billed-upload fejlede. Er du sikker på at et billede var tilføjet?"
     destroy:
       notice: "Billede slettet."
-    new_photo:
-      empty: "{file} er tom. Vælg venligst filer igen uden {file}."
-      invalid_ext: "{file} har en ugyldig filtype. Kun {udvidelser} er tilladt."
-      size_error: "{File} er for stor. Maksimal filstørrelse er {sizeLimit}."
     new_profile_photo:
       upload: "Upload et nyt profilbillede!"
-    show:
-      show_original_post: "Vis oprindeligt indlæg"
   polls:
     votes:
       one: "%{count} stemme indtil videre"

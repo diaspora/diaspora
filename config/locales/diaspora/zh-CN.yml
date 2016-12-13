@@ -200,9 +200,6 @@ zh-CN:
   fill_me_out: "补全信息"
   find_people: "找人或#标签"
   invitations:
-    a_facebook_user: "Facebook 用户"
-    check_token:
-      not_found: "找不到该邀请码"
     create:
       empty: "请至少填写一个邮箱"
       no_more: "您暂无邀请函。"
@@ -350,14 +347,8 @@ zh-CN:
       type_error: "照片上传失败。您确定有选择任何图片吗？"
     destroy:
       notice: "照片删除成功。"
-    new_photo:
-      empty: "文件 {file} 是空的，请重新选择文件，并且不要选中它。"
-      invalid_ext: "不支持文件 {file} 的格式。只接受 {extensions}。"
-      size_error: "文件 {file} 太大了，上限是 {sizeLimit}。"
     new_profile_photo:
       upload: "上传新的头像！"
-    show:
-      show_original_post: "显示原文"
   posts:
     presenter:
       title: "来自 %{name} 的内容"

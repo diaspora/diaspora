@@ -32,7 +32,6 @@ is:
     confirm_dialog: "Ertu viss?"
     delete: "Eyða"
     edit: "Breyta"
-    failed_to_like: "Tókst ekki að líka við. Ætli höfundurinn sé að hunsa þig?"
     failed_to_post_message: "Tókst ekki að senda skeytið!"
     getting_started:
       alright_ill_wait: "Ekkert mál, ég get beðið."
@@ -75,7 +74,6 @@ is:
       near_from: "Sennt inn nálægt: <%= location %>"
       public: "Opinbert - skeytið verður sýnilegt öllum, leitarvélar geta einnig fundið póstinn"
     reshares:
-      duplicate: "Þetta gott, ha?  Þú ert þegar búinn að endurdeila þessari færslu!"
       post: "Deila áfram færslu frá <%= name %>?"
       successful: "Tókst að deila þessu skeyti áfram!"
     show_more: "Sýna meira"

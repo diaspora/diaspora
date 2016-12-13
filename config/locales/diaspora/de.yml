@@ -274,6 +274,8 @@ de:
     post_something: "Erstelle einen Beitrag in diaspora*"
   cancel: "Abbrechen"
   comments:
+    create:
+      error: "Konnte nicht kommentieren."
     new_comment:
       comment: "Kommentieren"
       commenting: "Kommentieren …"
@@ -298,7 +300,6 @@ de:
   conversations:
     create:
       fail: "Ungültige Nachricht"
-      no_contact: "Hoppla, du musst den Kontakt erst hinzufügen!"
       sent: "Nachricht versendet"
     destroy:
       delete_success: "Das Gespräch wurde erfolgreich gelöscht."
@@ -307,6 +308,7 @@ de:
       conversations_inbox: "Konversationen – Posteingang"
       inbox: "Eingang"
       new_conversation: "Neue Konversation"
+      no_contacts: "Du musst ein paar Kontakte schließen, bevor du eine Unterhaltung anfangen kannst"
       no_messages: "Keine Nachrichten"
     new:
       message: "Nachricht"
@@ -331,6 +333,7 @@ de:
   delete: "Löschen"
   email: "E-Mail"
   error_messages:
+    csrf_token_fail: "Das CSRF-Token ist ungültig. Bitte melde dich an und versuche es noch einmal."
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
     need_javascript: "Diese Website benötigt Javascript, um richtig zu funktionieren. Falls du Javascript deaktiviert haben solltest, bitte aktiviere es und aktualisiere diese Seite."
@@ -564,7 +567,6 @@ de:
       own_your_data: "Deine Daten, dein Eigentum"
       own_your_data_info: "Viele Netzwerke nutzen deine Daten, um Geld zu verdienen, indem Sie deine Interaktionen auswerten und diese Informationen verwenden, um dir Werbung zu zeigen. diaspora* nutzt deine Daten zu keinem anderen Zweck, als es dir zu ermöglichen, dich mit anderen zu verbinden und mit ihnen zu teilen."
     podmin:
-      admin_panel: "Administrationsbereich"
       byline: "Du bist drauf und dran, das Internet zu ändern. Lass uns gleich alles einrichten, okay?"
       configuration_info: "Öffne %{database_path} und %{diaspora_path} in deinem Lieblingstexteditor und sieh sie gründlich durch, sie sind ausführlich kommentiert."
       configure_your_pod: "Richte deinen Pod ein"
@@ -578,22 +580,21 @@ de:
       getting_help_info: "Wir haben einige %{faq} aufgelistet, einschließlich einiger zusätzlicher Tipps und Tricks und Lösungen für die häufigsten Probleme. Kontaktiere uns gerne auch %{irc}."
       headline: "Willkommen, Freund."
       make_yourself_an_admin: "Mach dich zum Admin"
-      make_yourself_an_admin_info: "Du kannst Anweisungen im %{wiki} finden. Das sollte deinem Benutzermenü in der Kopfleiste einen Link „Admin“ hinzufügen, wenn du angemeldet bist. Er stellt dir Dinge wie Benutzersuche und Statistiken für deinen Pod zur Verfügung. Für ausführliche Angaben über die betriebsbezogenen Aspekte deines Pods, besuche den %{admin_panel}."
+      make_yourself_an_admin_info: "Du kannst Anweisungen im %{wiki} finden. Das sollte deinem Benutzermenü in der Kopfleiste einen Link „%{admin_dashboard}“ hinzufügen, wenn du angemeldet bist. Er stellt dir Dinge wie Benutzersuche und Statistiken für deinen Pod zur Verfügung."
       report_bugs: "melde sie"
       update_instructions: "Aktualisierungsanweisungen im diaspora*-Wiki"
       update_your_pod: "Aktualisiere deinen Pod"
       update_your_pod_info: "Du kannst %{update_instructions} finden."
   invitation_codes:
+    already_logged_in: "Du bist von %{inviter} eingeladen worden, diesem Pod beizutreten, allerdings bist du schon angemeldet."
     not_valid: "Dieser Einladungscode ist nicht mehr gültig"
   invitations:
-    a_facebook_user: "Ein Facebook-Nutzer"
-    check_token:
-      not_found: "Einladungstoken nicht gefunden"
     create:
+      closed: "Einladungen sind auf diesem diaspora*-Pod im Moment nicht verfügbar."
       empty: "Bitte mindestens eine E-Mail-Adresse eingeben."
       no_more: "Du hast keine Einladungen mehr."
       note_already_sent: "Es wurde bereits eine Einladung an %{emails} gesendet"
-      rejected: "Mit diesen E-Mail-Adressen gab es Probleme:"
+      rejected: "Mit diesen E-Mail-Adressen gab es Probleme: %{emails}"
       sent: "Einladungen wurden an %{emails} verschickt."
     new:
       codes_left:
@@ -622,6 +623,9 @@ de:
       profile: "Profil"
       settings: "Einstellungen"
       toggle_navigation: "Navigation umschalten"
+  likes:
+    create:
+      error: "Gefällt mir ist fehlgeschlagen."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -658,7 +662,8 @@ de:
       mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
       mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
-      mentioned: "Erwähnt"
+      mentioned: "In Beitrag erwähnt"
+      mentioned_in_comment: "In Kommentar erwähnt"
       no_notifications: "Du hast noch keine Benachrichtigungen."
       notifications: "Benachrichtigungen"
       reshared: "Weitergesagt"
@@ -677,8 +682,8 @@ de:
       two: "%{actors} gefällt dein gelöschter Beitrag."
       zero: "Niemandem gefällt dein gelöschter Beitrag."
     mentioned:
-      one: "%{actors} hat dich in dem Beitrag %{post_link} erwähnt."
-      other: "%{actors} haben dich in dem Beitrag %{post_link} erwähnt."
+      one: "%{actors} hat dich im Beitrag %{post_link} erwähnt."
+      other: "%{actors} haben dich im Beitrag %{post_link} erwähnt."
       zero: "%{actors} hat dich in dem Beitrag %{post_link} erwähnt."
     mentioned_deleted:
       few: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
@@ -687,6 +692,12 @@ de:
       other: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
       two: "%{actors} hat dich in einem bereits gelöschten Beitrag erwähnt."
       zero: "Niemand hat dich in einem gelöschten Beitrag erwähnt."
+    mentioned_in_comment:
+      one: "%{actors} hat dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
+      other: "%{actors} haben dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
+    mentioned_in_comment_deleted:
+      one: "%{actors} hat dich in einem gelöschten Kommentar erwähnt."
+      other: "%{actors} haben dich in einem gelöschten Kommentar erwähnt."
     post: "Beitrag"
     private_message:
       few: "%{actors} haben dir eine Nachricht gesendet."
@@ -726,6 +737,29 @@ de:
     confirm_email:
       click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicke bitte auf diesen Link:"
       subject: "Bitte aktiviere deine neue E-Mail-Adresse %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          Hallo %{name},
+
+          diaspora* hat einen Versuch, auf dein Konto zuzugreifen, erkannt, der eventuell unbefugt war. Um auszuschließen, dass deine Daten gefährdet werden, bist du abgemeldet worden. Mach dir keine Sorgen; Du kannst dich jetzt wieder sicher anmelden.
+
+          Eine Anfrage ist mit ungültigem oder fehlendem CSRF-Token gesendet worden. Das könnte vollkommen harmlos sein, aber es könnte sich auch auch um einen Cross-Site-Request-Forgery-Angriff (CSRF-Angriff) handeln.
+
+          Das könnte verursacht worden sein von:
+
+            - Einem Add-on, das die Anfrage manipuliert oder Anfragen ohne das Token durchführt;
+            - Einem offen gelassenen Tab aus einer früheren Sitzung;
+            - Einer anderen Website, die mit oder ohne deine Genehmigung Anfragen durchführt;
+            - Verschiedenen anderen externen Werkzeugen;
+            - Schädlichen Code, der versucht, auf deine Daten zuzugreifen.
+
+          Für mehr Informationen zu CSRF, siehe [%{link}](%{link}).
+
+          Falls du diese Nachricht wiederholt siehst, prüfe bitte die oben stehenden Punkte, einschließlich aller Browser-Add-ons.
+
+          Danke,
+          Der diaspora* E-Mail-Roboter!
+      subject: "Wir haben eine unbefugte Anfrage von deinem Konto empfangen, %{name}"
     email_sent_by_diaspora: "Diese E-Mail wurde von %{pod_name} verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
     export_email:
       body: |-
@@ -797,6 +831,9 @@ de:
     mentioned:
       limited_post: "Du wurdest in einem begrenzten Beitrag erwähnt."
       subject: "%{name} hat dich auf diaspora* erwähnt"
+    mentioned_in_comment:
+      limited_post: "Du wurdest in einem Kommentar zu einem begrenzten Beitrag erwähnt."
+      reply: "Auf diese Unterhaltung antworten oder sie ansehen >"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
       subject: "Es gibt eine neue private Nachricht für dich"
@@ -882,14 +919,8 @@ de:
       type_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass ein Bild hinzugefügt wurde?"
     destroy:
       notice: "Foto gelöscht."
-    new_photo:
-      empty: "{file} ist leer, bitte wähle erneut Dateien aus."
-      invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
-      size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     new_profile_photo:
       upload: "Ein neues Profilfoto hochladen"
-    show:
-      show_original_post: "Zeige ursprünglichen Beitrag"
   polls:
     votes:
       one: "Bisher %{count} Stimme"
@@ -960,7 +991,7 @@ de:
       enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
       password: "Kennwort"
       password_confirmation: "Kennwort bestätigen"
-      sign_up: "Konto ersellen"
+      sign_up: "Konto erstellen"
       submitting: "Absenden…"
       terms: "Indem du ein Konto erstellst, akzeptierst du die %{terms_link}."
       terms_link: "Nutzungsbedingungen"
@@ -979,8 +1010,14 @@ de:
       destroyed: "Der Beitrag wurde gelöscht"
       failed: "Ein Fehler ist aufgetreten"
     title: "Meldungsübersicht"
+    unreviewed_reports:
+      one: "Es gibt eine ungeprüfte Meldung."
+      other: "Es gibt %{count} ungeprüfte Meldungen."
+      zero: "Es gibt keine ungeprüften Meldungen."
   reshares:
     comment_email_subject: "%{resharer}s Version von %{author}s Beitrag"
+    create:
+      error: "Fehler beim Weitersagen."
     reshare:
       deleted: "Originalbeitrag wurde vom Autor entfernt."
       reshare_confirmation: "%{author}s Beitrag weitersagen?"
@@ -1022,7 +1059,7 @@ de:
         other: "In %{count} Aspekten"
         zero: "In keinem Aspekt"
     invitations:
-      by_email: "Per E-Mail"
+      by_email: "Lade Leute per E-Mail ein"
       invite_your_friends: "Lade deine Freunde ein"
       invites: "Einladungen"
       share_this: "Teile diesen Link per Email, Blog oder sozialen Netzwerken!"
@@ -1156,6 +1193,7 @@ de:
       comment_on_post: "jemand deinen Beitrag kommentiert"
       current_password: "Derzeitiges Kennwort"
       current_password_expl: "das mit dem Du dich anmeldest..."
+      default_post_visibility: "Zum Teilen vorausgewählte Aspekte"
       download_export: "Mein Profil herunterladen"
       download_export_photos: "Meine Fotos herunterladen"
       edit_account: "Konto bearbeiten"
@@ -1167,6 +1205,7 @@ de:
       last_exported_at: "(Zuletzt aktualisiert: %{timestamp})"
       liked: "jemandem dein Beitrag gefällt"
       mentioned: "du in einem Beitrag erwähnt wirst"
+      mentioned_in_comment: "du bist in einem Kommentar erwähnt"
       new_password: "Neues Kennwort"
       private_message: "du eine private Nachricht erhältst"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"

@@ -267,6 +267,8 @@ zh-TW:
     post_something: "貼到 diaspora*"
   cancel: "取消"
   comments:
+    create:
+      error: "發表意見失敗。"
     new_comment:
       comment: "留言"
       commenting: "發表留言中..."
@@ -291,7 +293,6 @@ zh-TW:
   conversations:
     create:
       fail: "無效的訊息"
-      no_contact: "喂，你要先加聯絡人才行！"
       sent: "訊息送出去了"
     destroy:
       delete_success: "對話成功刪掉了"
@@ -300,6 +301,7 @@ zh-TW:
       conversations_inbox: "對話 - 收訊匣"
       inbox: "收訊匣"
       new_conversation: "開始對話"
+      no_contacts: "開始對話前必須先加一些聯絡人"
       no_messages: "沒有訊息"
     new:
       message: "訊息"
@@ -324,6 +326,7 @@ zh-TW:
   delete: "刪除"
   email: "電子信箱"
   error_messages:
+    csrf_token_fail: "CSRF 信物不正確。請重新登入後再重試一次。"
     helper:
       correct_the_following_errors_and_try_again: "請修正以下錯誤後再試一次。"
     need_javascript: "這個網站需要 JavaScript 功能才能正常運作。如果你關掉了 JavaScript 的話，請打開它後重新載入網頁來使用。"
@@ -557,7 +560,6 @@ zh-TW:
       own_your_data: "控制自己的資料"
       own_your_data_info: "很多社群網路用你的資料來賺錢，像是分析使用行為，然後用這些資訊來對你做廣告推銷。diaspora* 只會用你的資料來讓你和別人聯繫和分享，不會拿來做其他用途。"
     podmin:
-      admin_panel: "管理面板"
       byline: "準備來改變網際網路了。我們來幫你準備就緒，好嗎？"
       configuration_info: "請用你慣用的編輯器，打開設定檔 %{database_path} 以及 %{diaspora_path}，仔細檢查並修改它們，裡面有很詳細的註解。"
       configure_your_pod: "設定豆莢"
@@ -571,22 +573,21 @@ zh-TW:
       getting_help_info: "我們在維基上整理了%{faq}，包含一些訣竅、花招、以及常見問題的解法。同時也歡迎%{irc}。"
       headline: "歡迎你來，朋友。"
       make_yourself_an_admin: "成為管理員"
-      make_yourself_an_admin_info: "%{wiki}裡面有步驟說明。做完之後，在你登入時頂部的使用者功能表應該就會多一個「管理」項目。這個功能可以讓你搜尋豆莢裡的使用者、檢視統計資料等等。更深度的豆莢維運項目請用%{admin_panel}。"
+      make_yourself_an_admin_info: "%{wiki}裡面有步驟說明。設定完成之後，在你登入時頂部的使用者功能表應該就會多一個「%{admin_dashboard}」項目。這個功能可以讓你搜尋豆莢裡的使用者、檢視統計資料等等。"
       report_bugs: "回報"
       update_instructions: "在 diaspora* 維基上的更新步驟說明"
       update_your_pod: "更新豆莢"
       update_your_pod_info: "這是%{update_instructions}。"
   invitation_codes:
+    already_logged_in: "%{inviter}邀請你加入這個豆莢，不過其實你已經加入且登入了。"
     not_valid: "邀請碼已經失效了"
   invitations:
-    a_facebook_user: "Facebook 使用者"
-    check_token:
-      not_found: "找不到該邀請信物"
     create:
+      closed: "這個 diaspora* 豆莢目前不開放邀請。"
       empty: "請輸入至少一個電子信箱"
       no_more: "你沒有邀請卡了。"
       note_already_sent: "邀請卡已經寄到這些信箱了：%{emails}"
-      rejected: "以下的電子信箱有問題："
+      rejected: "以下的電子信箱有問題：%{emails}"
       sent: "邀請卡已經寄到這些信箱了：%{emails}"
     new:
       codes_left:
@@ -614,6 +615,9 @@ zh-TW:
       profile: "個人檔案"
       settings: "設定"
       toggle_navigation: "瀏覽模式切換"
+  likes:
+    create:
+      error: "按讚失敗。"
   limited: "受限"
   more: "更多"
   no_results: "搜尋沒有結果"
@@ -689,6 +693,26 @@ zh-TW:
     confirm_email:
       click_link: "請點以下連結，來開通你新的電子信箱 %{unconfirmed_email}："
       subject: "請開通你新的電子信箱 %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          %{name}你好，
+
+          diaspora* 偵測到可能是未經授權而試圖存取你的登入狀態的行為。雖然這有可能無害，但也有可能是跨網站的偽造請求(cross-site request forgery; CSRF)。為了防止你的資料可能會外洩，我們就將你登出了。
+
+          造成資料請求中沒有 CSRF 信物，或是該信物不正確的情形可能有：
+          - 有瀏覽器附加元件修改了資料請求，或是發出了沒有該信物的請求；
+          - 有之前登入的分頁或是視窗沒有關閉；
+          - 有其他網站發出了資料請求，不論是否經過你的同意；
+          - 其他外部工具造成；
+          - 有惡意程式試圖要存取你的資料；
+          有關 CSRF 的更多資訊請見[%{link}](%{link})。
+
+          不用擔心，現在你還是可以安全地重新登入。
+          但是如果你持續收到這個訊息，請檢查以上因素，包含你所使用的瀏覽器附加元件。
+
+          謝謝。
+          diaspora* 電郵機器人
+      subject: "%{name}，我們偵測到你的帳號有未授權的請求"
     email_sent_by_diaspora: "這封電子郵件是從 %{pod_name} 寄出。如果你不想再收到這類的信件，"
     export_email:
       body: |-
@@ -830,14 +854,8 @@ zh-TW:
       type_error: "相片上傳失敗。你確定有加入任何圖片嗎？"
     destroy:
       notice: "相片刪掉了。"
-    new_photo:
-      empty: "檔案 {file} 是空的，請重新挑選檔案，且不要再選它。"
-      invalid_ext: "檔案 {file} 的副檔名不合格。只接受{extensions}。"
-      size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
     new_profile_photo:
       upload: "上傳新的個人照！"
-    show:
-      show_original_post: "顯示原文"
   polls:
     votes:
       other: "目前為止有%{count}個人投票"
@@ -918,8 +936,13 @@ zh-TW:
       destroyed: "貼文已經被銷毀了"
       failed: "發生問題了"
     title: "回報總覽"
+    unreviewed_reports:
+      other: "有%{count}份還沒看過的回報。"
+      zero: "沒有還沒看過的回報。"
   reshares:
     comment_email_subject: "%{resharer} 轉貼了 %{author} 的貼文"
+    create:
+      error: "轉貼失敗。"
     reshare:
       deleted: "原貼文已經被作者刪除了。"
       reshare_confirmation: "要轉貼 %{author} 的貼文嗎？"
@@ -960,7 +983,7 @@ zh-TW:
         other: "在%{count}個社交面中"
         zero: "加聯絡人"
     invitations:
-      by_email: "用電子郵件"
+      by_email: "寄電子郵件邀請"
       invite_your_friends: "邀請你的朋友"
       invites: "邀請"
       share_this: "將這個連結透過電子郵件、部落格，或其他社交網站分享出去！"
@@ -1093,6 +1116,7 @@ zh-TW:
       comment_on_post: "有人留言在你的貼文"
       current_password: "目前密碼"
       current_password_expl: "登入時那一個..."
+      default_post_visibility: "預設貼文發表的社交面"
       download_export: "下載個人檔案"
       download_export_photos: "下載相片"
       edit_account: "編輯帳號"

@@ -187,9 +187,6 @@ ar:
     posts_and_posting:
       character_limit_a: "65535 محرفًا. هذا أكبر بِـ 65395 محرفًا الذي تحصل عليها في تويتر! ؛)"
   invitations:
-    a_facebook_user: "مستخدم فايسبوك"
-    check_token:
-      not_found: "الدعوة الرمزية غير موجودة"
     create:
       no_more: "لم يتبقى لك أية دعوات"
       rejected: "واجه هذا البريد الإلكتروني مشاكلا:  "
@@ -395,14 +392,8 @@ ar:
       type_error: "فشل رفع الصورة، أواثقٌ أن صورة ما قد أُضيفَت؟"
     destroy:
       notice: "حُذِفَت الصورة."
-    new_photo:
-      empty: "{file} فارغ، رجاءًا أَعِد تحديد الملفات دونه."
-      invalid_ext: "{file} له صيغة غير صالحة. {extensions} هي الصيغ الوحيدة المسموح بها."
-      size_error: "{file} ذو حجم كبير جدا, {sizeLimit} هو الحجم الأقصى المسموح به."
     new_profile_photo:
       upload: "ارْفَع صورةً شخصيةً جديدة"
-    show:
-      show_original_post: "إِعرِضْ المشاركة الأصلية"
   posts:
     presenter:
       title: "مشاركة من %{name}"

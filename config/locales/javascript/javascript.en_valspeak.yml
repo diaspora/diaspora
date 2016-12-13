@@ -51,7 +51,6 @@ en_valspeak:
         no_contacts: "So like, u got to add some ppl before u can start a convo..."
     delete: "Trash"
     edit: "Edit!"
-    failed_to_like: "Ur <3 didnt work :("
     failed_to_post_message: "so like, i couldnt post txt... sry bout tht... :\\"
     failed_to_remove: "So like, there was an issue when removin the entry... sry bout that :\\"
     getting_started:
@@ -138,7 +137,6 @@ en_valspeak:
         created: "The report was like, created. Yay."
         exists: "The report like, already existz..."
     reshares:
-      duplicate: "OMG that gr8t eh?  uve like, already reshared tht postie!! :P"
       post: "do u wanna like, reshare <%= name %>'s postie?"
       successful: "The postie was reshared!!! :D"
     show_more: "show moar"

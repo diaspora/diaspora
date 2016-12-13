@@ -37,7 +37,6 @@ sk:
     confirm_dialog: "Určite?"
     delete: "Odstrániť"
     edit: "Upraviť"
-    failed_to_like: "Nepodarilo sa označiť, že sa ti to páči!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
       alright_ill_wait: "V poriadku, počkám."
@@ -99,7 +98,6 @@ sk:
         created: "Úspešne si vytvoril(a) správu"
         exists: "Správa už existuje"
     reshares:
-      duplicate: "Je to dobré, čo? O tento príspevok si sa už raz znova podelil(a)!"
       post: "Znova ukázať priateľom príspevok, ktorý napísal(a) <%= name %>?"
       successful: "Tento príspevok si úspešne znova ukázal(a) priateľom!"
     show_more: "Zobraziť viac"

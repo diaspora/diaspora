@@ -114,11 +114,8 @@ nl:
     create: "Creëren"
     delete: "Verwijder"
     edit: "Bewerken"
-    failed_to_comment: "Reageren mislukt. Misschien negeert de schrijver jou?"
-    failed_to_like: "Leuk vinden mislukt. Misschien negeert de auteur jou?"
     failed_to_post_message: "Bericht plaatsen mislukt!"
     failed_to_remove: "Kon het bericht niet verwijderen!"
-    failed_to_reshare: "Doorgeven mislukt!"
     getting_started:
       alright_ill_wait: "Prima, ik wacht wel."
       hey: "Hallo, <%= name %>!"
@@ -154,6 +151,9 @@ nl:
     notifications:
       mark_read: "Markeren als gelezen"
       mark_unread: "Markeren als ongelezen"
+      new_notifications:
+        one: "Je hebt <%= count %> ongelezen melding"
+        other: "Je hebt <%= count %> ongelezen meldingen"
     people:
       edit_my_profile: "Bewerk mijn profiel"
       helper:
@@ -198,6 +198,30 @@ nl:
     publisher:
       add_option: "Keuzemogelijkheid toevoegen"
       limited: "Gelimiteerd - je bericht is alleen zichtbaar voor de mensen waarmee je hem deelt"
+      markdown_editor:
+        preview: "Voorbeeld"
+        texts:
+          code: "code hier"
+          heading: "Koptekst"
+          insert_image_title: "voeg hier afbeeldingstekst in"
+          italic: "Cursieve tekst"
+          list: "lijst tekst hier"
+          quote: "quote hier"
+          strong: "Benadrukte tekst"
+        tooltips:
+          bold: "Vet"
+          cancel: "Annuleren bericht"
+          code: "Invoegen code"
+          heading: "Koptekst"
+          insert_image: "Invoegen afbeelding"
+          insert_link: "Invoegen link"
+          insert_ordered_list: "Invoegen genummerde lijst"
+          insert_unordered_list: "Invoegen ongenummerde lijst"
+          italic: "Cursief"
+          preview: "Voorbeeld bericht"
+          quote: "Invoegen quote"
+          write: "Bewerk bericht"
+        write: "Schrijven"
       near_from: "Geplaatst vanaf: <%= location %>"
       option: "Keuze <%= nr %>"
       public: "Openbaar - je bericht is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
@@ -211,7 +235,6 @@ nl:
         created: "Het is succesvol gemeld"
         exists: "De melding bestaat al"
     reshares:
-      duplicate: "Je hebt dit bericht al doorgegeven! Is het echt zo goed?"
       post: "Doorgeven <%= name %>'s bericht?"
       successful: "Het bericht is gedeeld!"
     show_more: "Laat meer zien"

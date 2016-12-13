@@ -274,6 +274,8 @@ nl:
     post_something: "Publiceer op diaspora*"
   cancel: "Annuleren"
   comments:
+    create:
+      error: "Reageren mislukt."
     new_comment:
       comment: "Reactie"
       commenting: "Reageren..."
@@ -293,11 +295,11 @@ nl:
       user_search: "Zoek gebruiker"
     spotlight:
       community_spotlight: "Community aanrader"
+      no_members: "Er zijn nog geen leden"
       suggest_member: "Suggereer een lid"
   conversations:
     create:
       fail: "Ongeldig bericht"
-      no_contact: "Hallo, je moet wel eerst een contactpersoon toevoegen!"
       sent: "Privébericht verzonden"
     destroy:
       delete_success: "De conversatie is verwijderd"
@@ -306,6 +308,7 @@ nl:
       conversations_inbox: "Conversaties - inbakje"
       inbox: "Postvak In"
       new_conversation: "Nieuwe conversatie"
+      no_contacts: "Je moet een paar contactpersonen toevoegen om een conversatie te starten"
       no_messages: "Geen privéberichten"
     new:
       message: "Bericht"
@@ -330,6 +333,7 @@ nl:
   delete: "Verwijderen"
   email: "E-mail"
   error_messages:
+    csrf_token_fail: "Het CSRF token is ongeldig. Log opnieuw in en probeer het nog eens."
     helper:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
     need_javascript: "Deze website vereist JavaScript om goed te kunnen werken. Als je JavaScript hebt uitgeschakeld, adviseren we om het te activeren en deze pagina te herladen."
@@ -567,7 +571,6 @@ nl:
       own_your_data: "Beschik over je eigen gegevens"
       own_your_data_info: "Veel netwerken verdienen hun geld door jouw gedrag en interacties vanuit jouw gegevens te analyseren om 'op maat gesneden' advertenties te serveren. diaspora* gebruikt je data alleen om je in de gelegenheid te stellen te communiceren en te delen met anderen."
     podmin:
-      admin_panel: "beheerscherm"
       byline: "Je staat op het punt om het internet te veranderen. Zullen we daar maar eens mee beginnen?"
       configuration_info: "Open %{database_path} en %{diaspora_path} in je voorkeurs teksteditor en bestudeer ze grondig. Ze zijn rijkelijk voorzien van commentaar."
       configure_your_pod: "Configureer je pod"
@@ -587,12 +590,11 @@ nl:
       update_your_pod: "Update je pod"
       update_your_pod_info: "Je vind %{update_instructions}"
   invitation_codes:
+    already_logged_in: "Je bent door %{inviter} uitgenodigd om lid te worden van deze pod, maar je bent al ingelogd."
     not_valid: "Deze uitnodigingscode is niet langer geldig"
   invitations:
-    a_facebook_user: "Een Facebook gebruiker"
-    check_token:
-      not_found: "Uitnodigingstoken niet gevonden"
     create:
+      closed: "Uitnodigingen zijn gesloten op deze diaspora* pod"
       empty: "Gelieve minstens 1 e-mailadres toe te voegen."
       no_more: "Je hebt geen uitnodigingen meer."
       note_already_sent: "Er zijn al uitnodigingen verstuurd naar: %{emails}"
@@ -612,6 +614,7 @@ nl:
   layouts:
     application:
       back_to_top: "Terug naar top"
+      be_excellent: "Wees uitmuntend voor elkaar! ♥"
       powered_by: "Powered by diaspora*"
       public_feed: "Publieke diaspora* kanaal van %{name}"
       source_package: "Download het broncode pakket"
@@ -624,6 +627,9 @@ nl:
       profile: "Profiel"
       settings: "Instellingen"
       toggle_navigation: "Switchen navigatie"
+  likes:
+    create:
+      error: "Leuk vinden mislukt"
   limited: "Beperkt"
   more: "Meer"
   no_results: "Geen resultaten gevonden"
@@ -874,14 +880,8 @@ nl:
       type_error: "Foto uploaden mislukt. Weet je zeker dat je een afbeelding toegevoegd hebt?"
     destroy:
       notice: "Foto verwijderd."
-    new_photo:
-      empty: "{file} is leeg, selecteer de bestanden opnieuw zonder deze."
-      invalid_ext: "{file} heeft een ongeldige extensie. Alleen {extensions} zijn toegestaan."
-      size_error: "{file} is te groot, de maximale bestandsgrootte is {sizeLimit}."
     new_profile_photo:
       upload: "Upload een nieuwe profielfoto!"
-    show:
-      show_original_post: "Toon origineel bericht"
   polls:
     votes:
       one: "%{count} stem tot nu"
@@ -968,8 +968,14 @@ nl:
       destroyed: "Het bericht is vernietigd"
       failed: "Er ging iets verkeerd"
     title: "Meldingenoverzicht"
+    unreviewed_reports:
+      one: "Er is %{count} onbeoordeelde melding."
+      other: "Er zijn %{count} onbeoordeelde meldingen."
+      zero: "Er zijn geen onbeoordeelde meldingen."
   reshares:
     comment_email_subject: "%{resharer}'s doorgifte van %{author}'s post"
+    create:
+      error: "Doordelen mislukt."
     reshare:
       deleted: "Het originele bericht is verwijderd door de auteur."
       reshare_confirmation: "%{author}'s bericht doorgeven?"

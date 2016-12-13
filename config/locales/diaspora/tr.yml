@@ -195,7 +195,6 @@ tr:
   conversations:
     create:
       fail: "Geçersiz mesaj"
-      no_contact: "Hey, önce bir bağlantı ekleyin!"
       sent: "Mesaj gönderildi"
     index:
       conversations_inbox: "Yazışmalar — Gelen kutusu"
@@ -288,6 +287,8 @@ tr:
       title: "Anılmalar"
       what_is_a_mention_q: "\"Birisini anmak\" nedir?"
     miscellaneous:
+      diaspora_app_a: "Toplıluk üyelerince çeşitli Android uygulamaları geliştirilmektedir. Bazıları çoktan terk edlimiş ve mevcut diaspora* yazılımına uygun değildir. Bunlardan çok bir şey beklemeyin. Şu an için bir iOS uygulaması yok. diaspora*ya mobilden erişmenin en iyi yolu bir tarayıcı, çünkü mobil siteyi tüm cihazlarda, işlevselliği henüz tam olmamakla birlikte, düzgün çalışacak şekilde tasarladık."
+      diaspora_app_q: "Android ve iOS için diaspora* uygulamaları var mı?"
       title: "Çeşitli"
     pods:
       find_people_a: "Kenar çubuğundaki e-mektup bağlantısına tıklayın. İlgi alanlarınızı paylaşan kişileri #etiketler ile takip edin, ve onlardan ilgilendiğiniz şeyler gönderenleri bir bakışa ekleyin. Genel bir gönderide #buradayeniyim diye bağırın."
@@ -327,6 +328,8 @@ tr:
     private_profiles:
       title: "Özel profiller"
       whats_in_profile_q: "Ne benim özel profil var?"
+      who_sees_profile_a: "Paylaşımda bulunduğunuz (bakışlarınızdan birinde olan) her hangi kullanıcı, adıyla girdiğinde görebilir. Ancak sizin takip etmediğiniz takipçiler, ancak herkese açık bilgilerinizi görür."
+      who_sees_profile_q: "Özel profilimi kimler görür?"
       who_sees_updates_a: "Bakışlarınızdaki herkes özel profilinizdeki değişiklikleri görebilir. "
       who_sees_updates_q: "Özel profilimin güncelllemelerini kim görebilir?"
     public_posts:
@@ -348,13 +351,11 @@ tr:
       what_are_tags_for_a: "Etiketler gönderileri, genellikle konularına göre, sınıflandırmanın bir yoludur. Bir etiketi aratarak onu içeren tüm görebileceğiniz gönderileri (genel ve özel) bulabilirsiniz. Bu belli bir konu ile ilgilenenlerin onunla ilgili genel gönderileri bulabilmesini sağlar."
       what_are_tags_for_q: "Etiketler ne işe yarar?"
     third_party_tools: "üçüncü taraf araçları"
+    title_header: "Yardım"
     tutorial: "öğretici"
     tutorials: "öğreticiler"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Bir Facebook kullanıcısı"
-    check_token:
-      not_found: "Davetiye bulunamadı."
     create:
       empty: "En az bir e-posta adresi girin."
       no_more: "Başka davetiyeniz yok."
@@ -402,6 +403,8 @@ tr:
       other: "%{actors} %{post_link} gönderinizi yorumladı."
       zero: "%{actors} %{post_link} gönderinizi yorumladı."
     index:
+      all_notifications: "Tüm bildirimler"
+      also_commented: "Bunlar da yorumladı"
       and: "ve"
       and_others:
         other: "ve %{count} diğer kişi"
@@ -411,6 +414,8 @@ tr:
       mark_read: "Okundu"
       mark_unread: "Okunmadı olarak işaretle"
       notifications: "Bildirimler"
+      show_all: "Tümünü göster"
+      show_unread: "Okunmamışları göster"
     liked:
       other: "%{actors} senin %{post_link} gönderini beğendi."
       zero: "%{actors} senin %{post_link} gönderini beğendi."
@@ -491,6 +496,10 @@ tr:
           diaspora* elektronik mektup robotu
 
           [1]: %{url}
+      subject: "Yeni %{type} ağır dil olarak işaretlendi"
+      type:
+        comment: "yorum"
+        post: "gönderi"
     reshared:
       reshared: "%{name} gönderini tekrar paylaştı"
       view_post: "Gönderiyi görüntüle>"
@@ -509,6 +518,7 @@ tr:
     add_contact:
       invited_by: "tarafından davet edildin"
     index:
+      couldnt_find_them: "Aradığını bulamadın mı?"
       looking_for: "%{tag_link} ile etiketlenmiş gönderileri mi arıyorsun?"
       no_one_found: "...ve hiç kimse bulunamadı."
       no_results: "Hey! Bir şeyi araman lazım."
@@ -534,14 +544,8 @@ tr:
       type_error: "Fotoğraf yüklemesi başarısız oldu. Bir görüntünün eklendiğinden emin misin?"
     destroy:
       notice: "Fotoğraf silindi."
-    new_photo:
-      empty: "{file} boş bir dosya, bu olmadan dosyaları tekrar seçin."
-      invalid_ext: "{file} geçersiz uzantıya sahip. sadece {extensions} uzantılarına izin verilir."
-      size_error: "{file} çok büyük, en büyük dosya boyutu {sizeLimit}."
     new_profile_photo:
       upload: "Yeni bir profil fotoğrafı yükle!"
-    show:
-      show_original_post: "Orijinal gönderiyi göster"
   posts:
     presenter:
       title: "%{name} 'den bir gönderi"
@@ -594,6 +598,12 @@ tr:
       terms: "Bir hesap oluşturarak %{terms_link}'teki koşulları kabul etmiş sayılırsınız."
       terms_link: "hizmet koşulları"
       username: "KULLANICI ADI"
+  report:
+    comment_label: "<b>Yorum</b>:<br>%{data}"
+    post_label: "<b>Gönderi</b>: %{title}"
+    reason_label: "Sebep: %{text}"
+    reported_label: "%{person} <b>raporladı</b>"
+    title: "Raporlara bakış"
   reshares:
     comment_email_subject: "%{resharer}, %{author} kişisinin gönderisini tekrar paylaştı"
     reshare:
@@ -647,6 +657,8 @@ tr:
         i_like: "İlgimi çeken şunlardır: %{tags}."
         invited_by: "Davet için teşekkürler, "
         newhere: "YeniyimBurada"
+      poll:
+        add_a_poll: "Oylama ekle"
       posting: "Gönderiliyor..."
       share: "Paylaş"
       upload_photos: "Fotoğraf yükle"

@@ -11,10 +11,13 @@ ia:
       new:
         resend_confirmation: "Reinviar instructiones pro confirmar"
       send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro confirmar tu conto."
+      send_paranoid_instructions: "Si tu adresse de e-mail existe in nostre base de datos, tu recipera in pauc minutas un e-mail con instructiones pro confirmar tu adresse de e-mail."
     failure:
+      already_authenticated: "Tu ha jam aperite session."
       inactive: "Tu conto non ha ancora essite activate."
       invalid: "Nomine de usator o contrasigno invalide."
       invalid_token: "Indicio de authentication invalide."
+      last_attempt: "Tu pote tentar solmente un altere vice ante que le conto es blocate."
       locked: "Tu conto es blocate."
       not_found_in_database: "E-mail o contrasigno invalide."
       timeout: "Le session ha expirate. Per favor aperi session de novo pro continuar."
@@ -34,6 +37,8 @@ ia:
         accept_at: "a %{url}, tu pote acceptar lo per le ligamine sequente."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} te ha invitate a unir te a diaspora*"
+      password_change:
+        subject: "Contrasigno cambiate"
       reset_password_instructions:
         change: "Cambiar mi contrasigno"
         ignore: "Si tu non ha demandate isto, per favor ignora iste message."
@@ -46,6 +51,9 @@ ia:
         subject: "Instructiones pro disblocar"
         unlock: "Disblocar mi conto"
       welcome: "Benvenite, %{email}!"
+    omniauth_callbacks:
+      failure: "Impossibile authenticar te a partir de %{kind} perque \"%{reason}\"."
+      success: "Authentication a partir del conto %{kind} succedite."
     passwords:
       edit:
         change_password: "Cambiar mi contrasigno"
@@ -57,13 +65,21 @@ ia:
         no_account: "Nulle conto con iste adresse de e-mail existe."
         reset_password: "Reinitialisar contrasigno"
         send_password_instructions: "Inviar instructiones pro reinitialisar contrasigno"
+      no_token: "Tu non pote acceder a iste pagina sin venir ab un e-mail pro reinitialisar contrasigno. Si tu de facto veni ab un e-mail pro reinitialisar contrasigno, per favor assecura te de usar le totalitate del URL fornite."
       send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro reinitialisar le contrasigno."
+      send_paranoid_instructions: "Si tu adresse de e-mail existe in nostre base de datos, tu recipera in pauc minutas un e-mail con un ligamine pro recuperar le contrasigno."
       updated: "Le contrasigno ha essite cambiate con successo. Tu ha aperite session."
+      updated_not_active: "Tu contrasigno ha essite cambiate."
     registrations:
       destroyed: "Adeo! Le deletion de tu conto ha succedite. Nos spera revider te bentosto."
       signed_up: "Conto create con successo. Si applicabile, un confirmation ha essite inviate a tu adresse de e-mail."
+      signed_up_but_inactive: "Le creation de tu conto ha succedite. Totevia, nos non ha potite aperir tu session perque tu conto non es ancora activate."
+      signed_up_but_locked: "Le creation de tu conto ha succedite. Totevia, nos non ha potite aperir tu session perque tu conto es blocate."
+      signed_up_but_unconfirmed: "Un message con un ligamine de confirmation ha essite inviate a tu adresse de e-mail. Per favor, seque le ligamine pro activar tu conto."
+      update_needs_confirmation: "Tu ha actualisate tu conto, ma nos debe verificar tu nove adresse de e-mail. Per favor, lege tu e-mail e seque le ligamine de confirmation pro confirmar tu nove adresse de e-mail."
       updated: "Conto actualisate con successo."
     sessions:
+      already_signed_out: "Le session ha essite claudite."
       new:
         login: "Aperir session"
         modern_browsers: "supporta solmente le navigatores moderne."
@@ -85,9 +101,15 @@ ia:
       new:
         resend_unlock: "Reinviar instructiones pro disblocar"
       send_instructions: "Tu recipera in pauc minutas un message de e-mail con instructiones pro disblocar tu conto."
+      send_paranoid_instructions: "Si tu conto existe, tu recipera in pauc minutas un e-mail con instructiones pro disblocar lo."
       unlocked: "Conto disblocate con successo. Tu ha aperite session."
   errors:
     messages:
       already_confirmed: "ha jam essite confirmate"
+      confirmation_period_expired: "debe esser confirmate intra %{period}, per favor requesta un altere"
+      expired: "ha expirate, per favor requesta un altere"
       not_found: "non trovate"
       not_locked: "non ha essite blocate"
+      not_saved:
+        one: "Un error ha impedite iste %{resource} de esser salveguardate:"
+        other: "%{count} errores ha impedite iste %{resource} de esser salveguardate:"

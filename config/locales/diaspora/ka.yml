@@ -156,9 +156,6 @@ ka:
   fill_me_out: "შევსება"
   find_people: "იპოვეთ ადამიანები ან #ტეგები"
   invitations:
-    a_facebook_user: "Facebook-ის მომხმარებელი"
-    check_token:
-      not_found: "მოწვევა არ არის ნაპოვნი"
     create:
       no_more: "თქვენ ამოგეწურათ მოსაწვევები."
       rejected: "შემდეგ ელ-ფოსტებს აქვთ პრობლემა: "
@@ -327,14 +324,8 @@ ka:
       type_error: "ფოტოს ატვირთვა ვერ მოხერხდა.  დარწმუნებული ხარ რომ სურათი დაამატე?"
     destroy:
       notice: "სურათი წაშლილია."
-    new_photo:
-      empty: "{file} არის ცარიელი, გთხოვთ აირჩიოთ ფაილები მის გარეშე"
-      invalid_ext: "{file} აქვს არასწორი გაფართოება. მხოლოდ {extensions} გაფართოებები არის დაშვებული."
-      size_error: "{file} ზომაზე დიდია, მაქსიმალური ზომა არის {sizeLimit}."
     new_profile_photo:
       upload: "ახალი პროფილის ფოტოს ატვირთვა!"
-    show:
-      show_original_post: "ორიგინალი პოსტის ჩვენება"
   posts:
     show:
       photos_by:

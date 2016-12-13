@@ -189,7 +189,6 @@ is:
     private_profiles:
       whats_in_profile_a: "Ferilskráin, staðsetning, kyn og fæðingardagur.  Þetta eru allt hlutir sem eru neðst á Síðunni Þinni.  Þú ræður hvort þú setur upplýsingar þar inn.  Eingöngu einstaklingar sem þú hefur bætt í eina af þínum sýnum, og eru skráðir inn, geta séð þessar upplýsingar.  Þegar þeir fara á síðuna þína geta þeir séð þau skeyti sem þú hefur deilt með öllum, sem og þau skeyti sem þú hefur valið að deila með sýnum sem þeir eru í."
   invitations:
-    a_facebook_user: "Facebook-notandi"
     create:
       no_more: "Ekki eru til fleiri boðsmiðar."
       rejected: "Eftirfarandi netföng ollu vandræðum: "
@@ -360,14 +359,8 @@ is:
       type_error: "Innsending á mynd mistókst. Ertu viss um að mynd hafi verið bætt við?"
     destroy:
       notice: "Mynd var eytt."
-    new_photo:
-      empty: "{file} skráin er tóm, veldu skrárnar aftur en slepptu þessari skrá."
-      invalid_ext: "{file} er með ógilda skráarendingu. Aðeins {extensions} eru leyfðar."
-      size_error: "{file} skráin er of stór, hámarksstærð er {sizeLimit}."
     new_profile_photo:
       upload: "Senda inn nýja forsíðumynd!"
-    show:
-      show_original_post: "Birta upprunalega færslu"
   posts:
     show:
       photos_by:

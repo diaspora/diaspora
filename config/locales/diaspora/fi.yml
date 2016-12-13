@@ -229,7 +229,6 @@ fi:
   conversations:
     create:
       fail: "Virheellinen viesti"
-      no_contact: "Hei, sinun on ensin lisättävä vastaanottaja!"
       sent: "Viesti lähetetty"
     destroy:
       delete_success: "Keskustelun poistaminen onnistui"
@@ -483,9 +482,6 @@ fi:
   invitation_codes:
     not_valid: "Kutsukoodi ei ole enää voimassa"
   invitations:
-    a_facebook_user: "Facebook-käyttäjä"
-    check_token:
-      not_found: "Kutsun tunnusta ei löytynyt"
     create:
       empty: "Ole hyvä kirjoita vähintään yksi sähköpostiosoite."
       no_more: "Sinulla ei ole enempää kutsuja."
@@ -756,14 +752,8 @@ fi:
       type_error: "Kuvan lataus epäonnistui. Lisäsitkö varmasti kuvan?"
     destroy:
       notice: "Kuva poistettu."
-    new_photo:
-      empty: "{file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa."
-      invalid_ext: "{file} sisältää viallisen tiedostopäätteen. Tuetut muodot ovat {extensions}."
-      size_error: "{file} on liian suuri, suurin tiedostokoko on {sizeLimit}."
     new_profile_photo:
       upload: "Lisää uusi profiilikuva!"
-    show:
-      show_original_post: "Näytä alkuperäinen julkaisu"
   posts:
     presenter:
       title: "Julkaisu käyttäjältä %{name}"
