@@ -32,7 +32,6 @@ br:
     confirm_dialog: "Ha sur oc'h ?"
     delete: "Diverkañ"
     edit: "Kemmañ"
-    failed_to_like: "C'hwitet merkañ plijus !"
     failed_to_post_message: "N'eus ket bet gallet embann ar gemennadenn !"
     failed_to_remove: "N'eus ket bet gallet lemel en enmont kuit !"
     getting_started:
@@ -97,7 +96,6 @@ br:
       option: "Dibarzh <%= nr %>"
       question: "Goulenn"
     reshares:
-      duplicate: "Kaset eo bet an destenn-mañ pelloc'h ganeoc'h c'hoazh !"
       post: "Rannañ pelloc'h embannadenn <%= name %> ?"
       successful: "Rannet pelloc'h eo bet an embannadenn ervat !"
     show_more: "Gwelet muioc'h"

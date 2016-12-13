@@ -102,10 +102,8 @@ cs:
     create: "Vytvořit"
     delete: "Odstranit"
     edit: "Upravit"
-    failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
     failed_to_remove: "Odstranění záznamu selhalo!"
-    failed_to_reshare: "Znovusdílení selhalo"
     getting_started:
       alright_ill_wait: "Dobrá, počkám."
       hey: "Ahoj, <%= name %>!"
@@ -228,7 +226,6 @@ cs:
         created: "Zpráva byla úspěšně založena"
         exists: "Zpráva již existuje"
     reshares:
-      duplicate: "Tento příspěvek už sdílíte!"
       post: "Sdílet příspěvek uživatele <%= name %>?"
       successful: "Příspěvek je sdílen!"
     show_more: "zobrazit více"

@@ -200,7 +200,6 @@ sl:
   conversations:
     create:
       fail: "Neveljavno sporočilo"
-      no_contact: "Hej, najprej moraš dodati stike!"
       sent: "Sporočilo poslano"
     index:
       inbox: "Prejeto"
@@ -227,9 +226,6 @@ sl:
   fill_me_out: "Izpolni me"
   find_people: "Poišči ljudi ali #zaznamke"
   invitations:
-    a_facebook_user: "Facebook uporabnik"
-    check_token:
-      not_found: "Povabilo ni bilo najdeno"
     create:
       empty: "Prosim vnesite vsaj en elektronski poštni naslov."
       no_more: "Nimate več povabil."
@@ -420,14 +416,8 @@ sl:
       type_error: "Nalaganje slike ni uspelo.  Ste prepričani, da je bila dodana slika?"
     destroy:
       notice: "Slika izbrisana."
-    new_photo:
-      empty: "Datoteka {file} je prazna, prosimo ponovno izberite datoteke brez nje."
-      invalid_ext: "Datoteka {file} ni veljavna. Dovoljene so samo naslednje vrste datotek {extensions}."
-      size_error: "Datoteka {file} je prevelika, največja dovoljena velikost je {sizeLimit}."
     new_profile_photo:
       upload: "Naloži novo sliko profila!"
-    show:
-      show_original_post: "Prikaži originalno objavo"
   posts:
     presenter:
       title: "Objava osebe %{name}"

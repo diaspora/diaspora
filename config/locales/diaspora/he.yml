@@ -199,7 +199,6 @@ he:
   conversations:
     create:
       fail: "הודעה שגויה"
-      no_contact: "הי, יש להוסיף את איש הקשר קודם!"
       sent: "ההודעה נשלחה"
     index:
       conversations_inbox: "שיחות - דואר נכנס"
@@ -264,9 +263,6 @@ he:
     tutorials: "מדריכים"
     wiki: "ויקי"
   invitations:
-    a_facebook_user: "משתמש פייסבוק"
-    check_token:
-      not_found: "אסימון ההזמנה לא נמצא"
     create:
       empty: "נא להזין לפחות כתובת דוא\"ל אחת."
       no_more: "אין לך עוד הזמנות."
@@ -438,14 +434,8 @@ he:
       type_error: "העלאת התמונה נכשלה. האם תמונה אכן נוספה?"
     destroy:
       notice: "התמונה נמחקה."
-    new_photo:
-      empty: "הקובץ {file} ריק, נא לבחור קבצים בשנית בלעדיו"
-      invalid_ext: "לקובץ {file} יש סיומת לא חוקית. רק הסיומות הבאות מאופשרות: {extensions}."
-      size_error: "הקובץ {file} גדול מדי. הגודל המירבי הוא {sizeLimit}."
     new_profile_photo:
       upload: "העלאת תמונת פרופיל חדשה"
-    show:
-      show_original_post: "הצגת ההודעה המקורית"
   posts:
     presenter:
       title: "הודעה מאת %{name}"

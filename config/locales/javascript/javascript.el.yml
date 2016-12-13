@@ -35,7 +35,6 @@ el:
       remove_contact: "Διαγραφή επαφής"
     delete: "Διαγραφή"
     edit: "Επεξεργασία"
-    failed_to_like: "Αποτυχία!"
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     getting_started:
       alright_ill_wait: "Εντάξει, θα περιμένω."
@@ -92,7 +91,6 @@ el:
     report:
       name: "Αναφορά"
     reshares:
-      duplicate: "Αυτό είναι τόσο καλό ε; Έχετε ήδη κοινοποιήσει αυτή τη δημοσίευση!"
       post: "Κοινοποίηση της ανάρτησης του <%= name %>;"
       successful: "Η ανάρτηση κοινοποιήθηκε επιτυχώς!"
     show_more: "Προβολή περισσότερων"

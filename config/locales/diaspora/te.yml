@@ -208,7 +208,6 @@ te:
   conversations:
     create:
       fail: "చెల్లని సందేశం"
-      no_contact: "ఓయ్, ముందుగా మీరు పరిచయాన్ని జతచేసుకోవాలి!"
       sent: "సందేశం పంపబడింది"
     destroy:
       delete_success: "సంభాషణ విజయవంతంగా తొలగించబడింది"
@@ -339,9 +338,6 @@ te:
     tutorials: "ఉపశిక్షణ"
     wiki: "వికీ"
   invitations:
-    a_facebook_user: "ఫేస్‌బుక్ వాడుకరి"
-    check_token:
-      not_found: "ఆహ్వాన టోకెన్ కనపడలేదు"
     create:
       empty: "దయచేసి ఒక్క ఈమెయిలు చిరునామానైనా ఇవ్వండి."
       no_more: "మీకు ఆహ్వానాలేమీ లేవు."
@@ -554,14 +550,8 @@ te:
       type_error: "ఛాయాచిత్ర ఎక్కింపు విఫలమైంది.  మీరు ఖచ్ఛితంగా బొమ్మనే జోడించారా?"
     destroy:
       notice: "ఛాయాచిత్రం తొలగించబడింది"
-    new_photo:
-      empty: "{file} ఖాళీగావుంది, దయచేసి అదికాకుండా వేరే దస్త్రాలను ఎంచుకోండి."
-      invalid_ext: "{file} చెల్లని పొడిగింతను కలిగివుంది. కేవలం {extensions} మాత్రమే అనుమతించబడును."
-      size_error: "{file} చాలా పెద్దగావుంది, గరిష్ట దస్త్ర పరిమాణం {sizeLimit}."
     new_profile_photo:
       upload: "ఒక కొత్త ప్రవర ఛాయాచిత్రాన్ని ఎక్కించండి!"
-    show:
-      show_original_post: "అసలు టపాని చూపించు"
   posts:
     presenter:
       title: "%{name} నుండి ఒక టపా"

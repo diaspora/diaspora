@@ -106,16 +106,17 @@ de:
       remove_contact: "Kontakt entfernen"
       search_no_results: "Keine Kontakte gefunden"
     conversation:
+      create:
+        no_recipient: "Hey, du musst erst einen Empfänger hinzufügen!"
       new:
         no_contacts: "Du musst einige Kontakte hinzufügen, bevor du eine Konversation anfangen kannst."
     create: "Erstellen"
     delete: "Löschen"
     edit: "Bearbeiten"
-    failed_to_comment: "Konnte nicht kommentieren. Vielleicht ignoriert dich der Autor?"
-    failed_to_like: "Gefällt mir ist fehlgeschlagen. Vielleicht ignoriert dich der Autor?"
+    errors:
+      connection: "Konnte keine Verbindung mit dem Server aufbauen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     failed_to_remove: "Fehler beim Entfernen des Beitrags!"
-    failed_to_reshare: "Fehler beim Weitersagen!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, <%= name %>!"
@@ -151,6 +152,9 @@ de:
     notifications:
       mark_read: "Als gelesen markieren"
       mark_unread: "Als ungelesen markieren"
+      new_notifications:
+        one: "Du hast <%= count %> ungelesene Benachrichtigung"
+        other: "Du hast <%= count %> ungelesene Benachrichtigungen"
     people:
       edit_my_profile: "Mein Profil bearbeiten"
       helper:
@@ -236,7 +240,6 @@ de:
         created: "Die Meldung wurde erfolgreich erstellt"
         exists: "Die Meldung existiert bereits"
     reshares:
-      duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
       post: "<%= name %>s Beitrag weitersagen?"
       successful: "Der Beitrag wurde erfolgreich weitergesagt!"
     show_more: "Mehr zeigen"

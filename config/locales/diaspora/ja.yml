@@ -267,6 +267,8 @@ ja:
     post_something: "ダイアスポラに投稿"
   cancel: "取消"
   comments:
+    create:
+      error: "コメントに失敗しました。"
     new_comment:
       comment: "コメント"
       commenting: "コメント投稿中…"
@@ -291,7 +293,6 @@ ja:
   conversations:
     create:
       fail: "無効なメッセージです。"
-      no_contact: "最初に連絡先を追加する必要があります！"
       sent: "メッセージを送信しました"
     destroy:
       delete_success: "会話を正常に削除しました"
@@ -300,6 +301,7 @@ ja:
       conversations_inbox: "会話 – 受信トレイ"
       inbox: "受信トレイ"
       new_conversation: "新しい会話"
+      no_contacts: "会話を開始する前に、連絡先を追加する必要があります"
       no_messages: "メッセージがありません"
     new:
       message: "メッセージ"
@@ -324,6 +326,7 @@ ja:
   delete: "削除"
   email: "メール"
   error_messages:
+    csrf_token_fail: "CSRFトークンが無効です。 サインインしてもう一度やり直してください。"
     helper:
       correct_the_following_errors_and_try_again: "次の問題を解決してからやり直してください。"
     need_javascript: "このウェブサイトは正常に機能するためにJavaScriptが必要です。 JavaScriptを無効にした場合は、有効にしてこのページを更新してください。"
@@ -557,7 +560,6 @@ ja:
       own_your_data: "あなた自身のデータを所有する"
       own_your_data_info: "多くのネットワークはあなたのデータを使用して、あなたのやり取りを分析することでお金を稼ぎます。そして、この情報を使用して、物を宣伝します。ダイアスポラ*は、あなたが他のユーザーと接続して、シェアすることを可能にする以外の目的のために、あなたのデータを使用しません。"
     podmin:
-      admin_panel: "管理者用パネル"
       byline: "インターネットを変更しようとしています。セットアップを始めますか？"
       configuration_info: "お好みのテキストエディタで %{database_path} と %{diaspora_path} を開いて、慎重にレビューしてください。広範囲にコメントしています。"
       configure_your_pod: "あなたのポッドを設定"
@@ -577,12 +579,11 @@ ja:
       update_your_pod: "ポッドを更新"
       update_your_pod_info: "%{update_instructions}を見つけることができます。"
   invitation_codes:
+    already_logged_in: "あなたは%{inviter}によってこのポッドに参加するように招待されましたが、すでにログインしています。"
     not_valid: "その招待コードは、もはや有効ではありません"
   invitations:
-    a_facebook_user: "Facebookユーザー"
-    check_token:
-      not_found: "招待トークンが見つかりません。"
     create:
+      closed: "このダイアスポラ* ポッドへの招待を締め切らせて頂いています。"
       empty: "少なくとも１つのEメールアドレスを入力してください。"
       no_more: "招待権がもう残っていません。"
       note_already_sent: "招待状はすでにに送信しました: %{emails}"
@@ -614,41 +615,28 @@ ja:
       profile: "プロフィール"
       settings: "設定"
       toggle_navigation: "ナビゲーションの切り替え"
+  likes:
+    create:
+      error: "いいね！に失敗しました。"
   limited: "限定公開"
   more: "続き"
   no_results: "結果が見つかりません"
   notifications:
     also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors}さんは%{post_author}さんの投稿%{post_link}もコメントしました。"
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors}さんは%{post_author}さんの投稿%{post_link}もコメントしました。"
     also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
       other: "%{actors}さんが削除された投稿にコメントしました。"
-      two: "%{actors} commented on a deleted post."
       zero: "%{actors}さんが削除された投稿にコメントしました。"
     comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
       other: "%{actors}さんが投稿%{post_link}にコメントしました。"
-      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors}さんが投稿%{post_link}にコメントしました。"
     index:
       all_notifications: "すべての通知"
       also_commented: "コメントも"
       and: "および"
       and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
         other: "そして他に %{count} 人"
-        two: "and %{count} others"
         zero: "そして他にはいません"
       comment_on_post: "投稿にコメント"
       liked: "いいね！しました"
@@ -657,6 +645,7 @@ ja:
       mark_read: "既読にする"
       mark_unread: "未読にする"
       mentioned: "メンションされました"
+      mentioned_in_comment: "コメントでメンションしました"
       no_notifications: "まだ通知は何もありません"
       notifications: "通知"
       reshared: "リシェアしました"
@@ -664,61 +653,33 @@ ja:
       show_unread: "未開封メッセージを表示"
       started_sharing: "シェアを開始しました"
     liked:
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
       other: "%{actors}さんが投稿%{post_link}にいいね！しました。"
-      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors}さんが投稿%{post_link}にいいね！しました。"
     liked_post_deleted:
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
       other: "%{actors}さんが削除された投稿にいいね！しました。"
-      two: "%{actors} liked your deleted post."
       zero: "%{actors}さんが削除された投稿にいいね！しました。"
     mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors}さんが%{post_link}であなたにメンションしました。"
-      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors}さんが%{post_link}であなたにメンションしました。"
     mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
       other: "%{actors}さんが削除された投稿であなたにメンションしました。"
-      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors}さんが削除された投稿であなたにメンションしました。"
+    mentioned_in_comment:
+      other: "%{actors} が、投稿 %{post_link} に <a href='%{comment_path}'>コメント</a> でメンションしました。"
+    mentioned_in_comment_deleted:
+      other: "%{actors} が、削除したコメントでメンションしました。"
     post: "（投稿で）"
     private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
       other: "%{actors}さんが、あなたにメッセージを送信しました。"
-      two: "%{actors} sent you a message."
       zero: "%{actors}さんが、あなたにメッセージを送信しました。"
     reshared:
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors}さんが投稿%{post_link}をリシェアしました。"
-      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors}さんが投稿%{post_link}をリシェアしました。"
     reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
       other: "%{actors}さんが削除された投稿をリシェアしました。"
-      two: "%{actors} reshared your deleted post."
       zero: "%{actors}さんが削除された投稿をリシェアしました。"
     started_sharing:
-      few: "%{actors} started sharing with you."
-      many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
       other: "%{actors}さんが、あなたとシェアを始めました。"
-      two: "%{actors} started sharing with you."
       zero: "%{actors}さんが、あなたとシェアを始めました。"
   notifier:
     a_limited_post_comment: "あなたが確認する、ダイアスポラ*の制限公開の投稿に新しいコメントがあります。"
@@ -733,6 +694,29 @@ ja:
     confirm_email:
       click_link: "新しいメールアドレス %{unconfirmed_email} を有効にするために、このリンクをクリックしてください:"
       subject: "新しいメールアドレス %{unconfirmed_email} を有効にしてください"
+    csrf_token_fail:
+      body: |-
+          %{name} さん、こんにちは
+
+          ダイアスポラ* が、あなたのセッションへのアクセスを検知しましたが、これは不正な可能性があります。 これは完全に無実かもしれませんが、クロスサイトリクエストフォージェリ (CSRF) の可能性があります。 データが侵害される可能性を避けるために、あなたはログアウトしています。
+
+          不適切または欠落しているCSRFトークンを使用して行われたリクエストは、以下のような原因が考えられます:
+
+            - リクエストを操作するか、トークンなしでリクエストを行うアドオン。
+            - 過去のセッションで開いたタブ。
+            - あなたの許可の有無にかかわらず、リクエストを行う別のウェブサイト。
+            - さまざまな他の外部ツール。
+            - あなたのデータにアクセスしようとしている悪質なコード。
+
+          CSRFの詳細については、 [%{link}](%{link}) を参照してください。
+
+          心配しないでください。 今すぐもう一度安全にサインインすることができます。
+
+          このメッセージが繰り返し表示される場合は、ブラウザのアドオンを含め、上記の点を確認してください。
+
+          ありがとうございました、
+          ダイアスポラ* メールロボット!
+      subject: "あなたのアカウント %{name} から、不正なリクエストを受け取りました。"
     email_sent_by_diaspora: "このEメールは%{pod_name}から送信されました。もしこのようなEメールの受信を拒否したい場合は、"
     export_email:
       body: |-
@@ -804,6 +788,9 @@ ja:
     mentioned:
       limited_post: "あなたは限定公開の投稿でメンションされました。"
       subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
+    mentioned_in_comment:
+      limited_post: "限定公開の投稿にコメントでメンションされました。"
+      reply: "この会話に返信、または表示 >"
     private_message:
       reply_to_or_view: "この会話に返信、または表示 >"
       subject: "あなたに新しい非公開メッセージがあります"
@@ -889,14 +876,8 @@ ja:
       type_error: "写真のアップロードに失敗しました。確かに画像ファイルを添付しましたか。"
     destroy:
       notice: "写真を削除しました。"
-    new_photo:
-      empty: "{file}は空です。取り除いてファイルを選択しなおしてください。"
-      invalid_ext: "{file}のファイル名は不正です。{extensions}以外の拡張子は使えません。"
-      size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
     new_profile_photo:
       upload: "新しいプロフィール写真をアップロードしてください！"
-    show:
-      show_original_post: "元の投稿を表示する"
   polls:
     votes:
       other: "これまで %{count} の投票"
@@ -908,11 +889,7 @@ ja:
       forbidden: "この操作は許可されていません"
       location: "%{location} から投稿"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
         other: "%{author}さんの写真%{count}枚"
-        two: "Two photos by %{author}"
         zero: "%{author}さんの写真はありません"
       reshare_by: "%{author}さんがリシェア"
   privacy: "プライバシー"
@@ -947,11 +924,7 @@ ja:
       updated: "プロフィールを更新しました"
   public: "公開"
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
     other: "%{count} リアクション"
-    two: "%{count} reactions"
     zero: "0 リアクション"
   registrations:
     closed: "このダイアスポラ＊ポッドでは新規登録を受け付けていません。"
@@ -985,8 +958,13 @@ ja:
       destroyed: "投稿が破壊されました"
       failed: "何か問題があります"
     title: "報告の概要"
+    unreviewed_reports:
+      other: "%{count} 件の未確認の報告があります。"
+      zero: "未確認の報告はありません。"
   reshares:
     comment_email_subject: "%{author}の投稿の%{resharer}のリシェア"
+    create:
+      error: "リシェアに失敗しました。"
     reshare:
       deleted: "元の投稿は作者によって削除されました。"
       reshare_confirmation: "%{author}さんの投稿をリシェアしますか?"
@@ -1009,7 +987,7 @@ ja:
       logged_in_as: "%{nickname}としてログインしています。"
       no_services_available: "このポッドで利用可能なサービスはありません。"
       not_logged_in: "現在ログインしていません。"
-      really_disconnect: "%{service}から切断しますか。"
+      really_disconnect: "%{service}から切断しますか?"
       services_explanation: "サードパーティのシェアサービスに接続すると、ダイアスポラ*に書きながらそれらに投稿を公開することができます。"
       share_to: "%{provider}にシェア"
       title: "提携サービスを管理する"
@@ -1024,11 +1002,7 @@ ja:
       mobile_row_checked: "%{name} (削除)"
       mobile_row_unchecked: "%{name} (追加)"
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
         other: "%{count} のアスペクトで"
-        two: "In %{count} aspects"
         zero: "%{count} のアスペクトで"
     invitations:
       by_email: "メールで"
@@ -1166,6 +1140,7 @@ ja:
       comment_on_post: "自分の投稿にコメントがあったとき"
       current_password: "現在のパスワード"
       current_password_expl: "サインインしているもの..."
+      default_post_visibility: "投稿のために選択されるデフォルトのアスペクト"
       download_export: "マイ プロフィールをダウンロード"
       download_export_photos: "写真をダウンロードする"
       edit_account: "アカウント編集"
@@ -1177,6 +1152,7 @@ ja:
       last_exported_at: "(最終更新 %{timestamp})"
       liked: "あなたの投稿をいいね！したとき"
       mentioned: "投稿に自分がメンションされたとき"
+      mentioned_in_comment: "コメントでメンションされました"
       new_password: "新しいパスワード"
       private_message: "非公開メッセージが届いたとき"
       receive_email_notifications: "通知メールの送信設定"

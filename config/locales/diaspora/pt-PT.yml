@@ -191,7 +191,6 @@ pt-PT:
   conversations:
     create:
       fail: "Mensagem inválida"
-      no_contact: "Cuidado, tem de adicionar primeiro um contacto!"
       sent: "A mensagem foi enviada"
     index:
       inbox: "Caixa de entrada"
@@ -367,9 +366,6 @@ pt-PT:
     tutorials: "tutoriais"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Um utilizador do Facebook"
-    check_token:
-      not_found: "Código de convite não encontrado"
     create:
       empty: "Por favor insira pelo menos um endereço de email."
       no_more: "Não tem mais convites."
@@ -546,14 +542,8 @@ pt-PT:
       type_error: "O envio da fotografia falhou. Tem a certeza que uma imagem foi adicionada?"
     destroy:
       notice: "Fotografia apagada."
-    new_photo:
-      empty: "{file} está vazio, por favor seleccione de novo os ficheiros sem este último."
-      invalid_ext: "{file} tem uma extensão inválida. Apenas são permitidas as extensões {extensions}."
-      size_error: "{file} é demasiado grande, o tamanho máximo é {sizeLimit}."
     new_profile_photo:
       upload: "Envie uma fotografia de perfil nova!"
-    show:
-      show_original_post: "Mostrar publicação original"
   posts:
     presenter:
       title: "Uma publicação de %{name}"

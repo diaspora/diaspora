@@ -111,11 +111,8 @@ oc:
     create: "Crear"
     delete: "Suprimir"
     edit: "Editar"
-    failed_to_comment: "Impossible de comentar. Benlèu que l'autor vos ignòra ?"
-    failed_to_like: "Impossible de marcar que m'agrada  !"
     failed_to_post_message: "Impossible de partejar lo messatge !"
     failed_to_remove: "L'entrada a pas pogut èsser suprimida"
-    failed_to_reshare: "Fracàs del partiment"
     getting_started:
       alright_ill_wait: "Bon, vau esperar."
       hey: "Adiu, <%= name %>"
@@ -236,7 +233,6 @@ oc:
         created: "Lo senhalament es estat creat amb succès."
         exists: "Lo senhalament existís ja"
     reshares:
-      duplicate: "Es tan plan coma aquò ? Avètz ja repartejat aqueste messatge !"
       post: "Repartejar lo messatge de <%= name %> ?"
       successful: "Lo messatge es estat repartejat !"
     show_more: "N'afichar mai"

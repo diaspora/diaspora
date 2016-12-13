@@ -150,9 +150,6 @@ bg:
   fill_me_out: "Попълнете ме"
   find_people: "Намерете хора или #марки"
   invitations:
-    a_facebook_user: "Потребител на Facebook"
-    check_token:
-      not_found: "Данните за поканата не са намерени"
     create:
       no_more: "Не разполагате с повече покани."
       rejected: "Възникна проблем със следната ел. поща: "
@@ -293,14 +290,8 @@ bg:
       type_error: "Снимката не бе качена. Сигурни ли сте, че е добавено изображение?"
     destroy:
       notice: "Снимката е изтрита."
-    new_photo:
-      empty: "{file} е празен. Моля, изберете наново файловете без празния."
-      invalid_ext: "{file} е с невалидно разширение. Позволени са само: {extensions}."
-      size_error: "{file} е твърде голям. Максималният разрешен размер е {sizeLimit}."
     new_profile_photo:
       upload: "Качете нова снимка за профила!"
-    show:
-      show_original_post: "Оригиналната публикация"
   posts:
     show:
       photos_by:

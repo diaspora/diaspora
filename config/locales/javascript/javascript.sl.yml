@@ -28,7 +28,6 @@ sl:
       show: "prikaži vse komentarje"
     confirm_dialog: "Ste prepričani"
     delete: "Izbriši"
-    failed_to_like: "Označevanje ni uspelo!"
     failed_to_post_message: "Objava ni uspela!"
     getting_started:
       alright_ill_wait: "V redu, bom počakal."
@@ -59,7 +58,6 @@ sl:
       limited: "Omejeno - Vaša objava bo vidna le ljudem, s katerimi delite"
       public: "Javno - Vaša objava bo vidna vsem, prikazana bo tudi v spletnih iskalnikih"
     reshares:
-      duplicate: "To objavo ste že ponovno delili"
       post: "Ponovno deli objavo osebe <%= name %>?"
       successful: "Objavo ste uspešno ponovno delili!"
     show_more: "pokaži več"

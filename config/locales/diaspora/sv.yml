@@ -274,6 +274,8 @@ sv:
     post_something: "Dela på Diaspora*"
   cancel: "Avbryt"
   comments:
+    create:
+      error: "Lyckades inte kommentera."
     new_comment:
       comment: "Kommentera"
       commenting: "Kommenterar..."
@@ -293,11 +295,11 @@ sv:
       user_search: "Användarsökning"
     spotlight:
       community_spotlight: "Gemenskapens rampljus"
+      no_members: "Det finns inga medlemmar än."
       suggest_member: "Föreslå en medlem"
   conversations:
     create:
       fail: "Ogiltigt meddelande"
-      no_contact: "Hallå där! Du måste först lägga till kontakten."
       sent: "Meddelandet har skickats"
     destroy:
       delete_success: "Konversationen har tagits bort"
@@ -306,6 +308,7 @@ sv:
       conversations_inbox: "Konversationer – Inkorg"
       inbox: "Inkorg"
       new_conversation: "Ny konversation"
+      no_contacts: "Du behöver lägga till några kontakter innan du kan konversera."
       no_messages: "Inga meddelanden"
     new:
       message: "Meddelande"
@@ -330,6 +333,7 @@ sv:
   delete: "Ta bort"
   email: "E-post"
   error_messages:
+    csrf_token_fail: "Ogiltigt CSRF-insegel. Vanligen logga in och försök igen."
     helper:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
     need_javascript: "Denna webbplats behöver JavaScript för att fungera ordentligt. Har du inaktiverat JavaScript, får du vara så snäll att aktivera det och ladda om sidan."
@@ -563,7 +567,6 @@ sv:
       own_your_data: "Du äger din data"
       own_your_data_info: "Många nätverk använder din data för att tjäna pengar genom att analysera dig och använda din data för att sälja reklam riktad mot dig. Diaspora* använder inte din data för något annat än att låta dig kommunicera med andra."
     podmin:
-      admin_panel: "administratörspanel"
       byline: "Du är just på väg att förändra Internet. Är du redo för att komma igång?"
       configuration_info: "Öppna %{database_path} och %{diaspora_path} i en textredigerare och gå igenom dem noggrant. De är fyllda med kommentarer."
       configure_your_pod: "Konfigurera din pod"
@@ -577,22 +580,21 @@ sv:
       getting_help_info: "Vi har listat några %{faq} med ytterligare råd och problemlösningar för de främsta problemen. Du är även välkommen på %{irc}."
       headline: "Välkommen, vän."
       make_yourself_an_admin: "Gör dig till administratör"
-      make_yourself_an_admin_info: "Du hittar instruktioner på %{wiki}. Detta skapar en administratörslänk i din användarmeny när du har loggat in. Där ges du verktyg för att söka och finna statistik för din pod. För fler detaljer om driftaspekterna för din pod, gå till %{admin_panel}."
+      make_yourself_an_admin_info: "Du hittar instruktioner på %{wiki}. Detta ger en %{admin_dashboard}-länk i din användarmeny efter att du har loggat in. Via den kommer du till verktyg för att söka och finna statistik för din pod."
       report_bugs: "rapportera dem"
       update_instructions: "uppdateringsinstruktioner från Diasporawikin."
       update_your_pod: "Uppdatera din pod"
       update_your_pod_info: "Du finner %{update_instructions}"
   invitation_codes:
+    already_logged_in: "Du är inbjuden att gå med denna pod av %{inviter}, men det tycks som att du redan är inloggad."
     not_valid: "Inbjudningskoden är inte längre giltig."
   invitations:
-    a_facebook_user: "En Facebookanvändare"
-    check_token:
-      not_found: "Inbjudan kan inte hittas"
     create:
+      closed: "Inbjudningar är inte längre möjliga till denna Diaspora*-pod."
       empty: "Var snäll och ange minst en e-postadress."
       no_more: "Du har inga fler inbjudningar."
       note_already_sent: "Inbjudningar har redan skickats till: %{emails}"
-      rejected: "Det är problem med följande e-postadresser: "
+      rejected: "Det är problem med följande e-postadresser: %{emails}"
       sent: "Inbjudningarna har skickats till: %{emails}"
     new:
       codes_left:
@@ -621,6 +623,9 @@ sv:
       profile: "Profil"
       settings: "Inställningar"
       toggle_navigation: "Skifta navigation"
+  likes:
+    create:
+      error: "Lyckades inte gilla."
   limited: "Begränsad"
   more: "Mer"
   no_results: "Inga sökresultat"
@@ -654,7 +659,7 @@ sv:
       mark_all_shown_as_read: "Märk allt som läst"
       mark_read: "Lästmärk"
       mark_unread: "Markera som oläst"
-      mentioned: "Omnämnd"
+      mentioned: "Omnämnd i inlägg"
       no_notifications: "Du har inga notifikationer än."
       notifications: "Notiser"
       reshared: "Återdelad"
@@ -676,7 +681,7 @@ sv:
     mentioned_deleted:
       one: "%{actors} har nämnt dig i ett raderat inlägg."
       other: "%{actors} har nämnt dig i ett raderat inlägg."
-      zero: "Ingen inlägg där du är nämnd har raderats."
+      zero: "inga inlägg där du är nämnd har raderats."
     post: "inlägg"
     private_message:
       one: "%{actors} har skickat dig ett meddelande."
@@ -707,6 +712,27 @@ sv:
     confirm_email:
       click_link: "För att aktivera din nya e-postadress %{unconfirmed_email}, klicka här:"
       subject: "Var vänlig och aktivera din nya e-postadress %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          Hej, %{name}.
+
+          Diaspora* har märkt av ett potentiellt oauktoriserat försökt tilla tt komma åt din session. För att undkomma att din data själs, har du loggats ut. Räds icke; du kan nu logga in säkert igen.
+
+          En förfrågan med ogiltigt eller helt saknar CSRF-insegel. Det skulle kunna vara helt oskyldigt, men det skulle kunna vara ett försökt av en sida att låtsas vara en annan sida (s.k. "cross-site request forgery", CSRF). En sådan kan vara orsakat av:
+
+            - Ett tillägg som manipulerar förfrågningar eller gör förfrågningar utan insegel;
+            - En flik från tidigare session finns kvar i webbläsaren;
+            - En annan hemsida gör en förfrågan, med eller utan din tillåtelse;
+            - Diverse externa verktyg;
+            - Försmädlig kod som vill komma åt din data.
+
+          För mer information om CSRF: [%{link}](%{link}).
+
+          Om du får detta meddelande fler gånger, får du se över om det kan vara orsakat av någon av punkterna ovanför.
+
+          Tack ska du ha!
+          Med vänlig hälsning, Diasporas e-postrobot.
+      subject: "Vi har fått en oauktoriserad förfrågan från ditt konto, %{name}."
     email_sent_by_diaspora: "Detta e-brev har skickats av %{pod_name}. Vill du inte få några fler liknade e-brev,"
     export_email:
       body: |-
@@ -864,14 +890,8 @@ sv:
       type_error: "Fotouppladdning misslyckades. Är du säker på att en bild blev tillagd?"
     destroy:
       notice: "Fotot är borttaget."
-    new_photo:
-      empty: "{file} är tom, välj om filerna utan att välja denna."
-      invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
-      size_error: "{file} är för stor, maximal tillåten filstorlek är {sizeLimit}."
     new_profile_photo:
       upload: "Ladda upp en ny profilbild!"
-    show:
-      show_original_post: "Visa det ursprungliga inlägget"
   polls:
     votes:
       one: "En röst än så länge."
@@ -958,8 +978,14 @@ sv:
       destroyed: "Inlägget har förintats"
       failed: "Någonting gick snett"
     title: "Översikt av anmälningar"
+    unreviewed_reports:
+      one: "Det finns en rapport att gå igenom."
+      other: "Det finns %{count} rapporter att gå igenom."
+      zero: "Det finns inga rapporter att gå igenom."
   reshares:
     comment_email_subject: "%{resharer} har delat vidare ett inlägg av %{author}"
+    create:
+      error: "Lyckades inte dela vidare."
     reshare:
       deleted: "Det ursprungliga inlägget är raderat."
       reshare_confirmation: "Vill du dela vidare %{author}s inlägg?"
@@ -997,14 +1023,10 @@ sv:
       mobile_row_checked: "%{name} (ta bort)"
       mobile_row_unchecked: "%{name} (lägg till)"
       toggle:
-        few: "I %{count} aspekter"
-        many: "I %{count} aspekter"
         one: "I %{count} aspekt"
         other: "I %{count} aspekter"
-        two: "I %{count} aspekter"
-        zero: "Lägg till kontakt"
     invitations:
-      by_email: "Via e-post"
+      by_email: "Bjud in personer via e-post"
       invite_your_friends: "Bjud in dina vänner"
       invites: "Inbjudningar"
       share_this: "Dela med dig av länken via e-post, din blog eller de sociala nätverken!"
@@ -1138,6 +1160,7 @@ sv:
       comment_on_post: "någon kommenterar dina inlägg"
       current_password: "Nuvarande lösenord"
       current_password_expl: "den som du loggar in med..."
+      default_post_visibility: "Standardaspekt vald för inlägg."
       download_export: "Ladda ned min profil"
       download_export_photos: "Ladda ned mina bilder"
       edit_account: "Ändra konto"

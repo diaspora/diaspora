@@ -110,11 +110,8 @@ da:
     create: "Opret"
     delete: "Slet"
     edit: "Rediger"
-    failed_to_comment: "Din kommentar blev ikke lagt op. Måske ignorerer indlæggets ophavsmand dig?"
-    failed_to_like: "Kunne ikke synes om! Måske ignorere ophavsmanden dig?"
     failed_to_post_message: "Kunne ikke indsende besked!"
     failed_to_remove: "Det lykkedes ikke at fjerne indlægget!"
-    failed_to_reshare: "Kunne ikke dele indlægget!"
     getting_started:
       alright_ill_wait: "Okay, jeg venter."
       hey: "Hej <%= name %>!"
@@ -235,7 +232,6 @@ da:
         created: "Der blev lavet en rapport"
         exists: "Der eksisterer allerede en rapport"
     reshares:
-      duplicate: "Du har allerede delt indlægget!"
       post: "Videredel <%= name %>s indlæg?"
       successful: "Indlægget er blevet videredelt!"
     show_more: "Vis mere"

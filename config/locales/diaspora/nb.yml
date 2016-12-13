@@ -229,7 +229,6 @@ nb:
   conversations:
     create:
       fail: "Ugyldig melding"
-      no_contact: "Heisann, du må legge til kontakten først."
       sent: "Melding sendt"
     destroy:
       delete_success: "Samtalen ble slettet suksessfullt"
@@ -484,9 +483,6 @@ nb:
   invitation_codes:
     not_valid: "Den invitasjonskoden er ikke lenger gyldig"
   invitations:
-    a_facebook_user: "En Facebook-bruker"
-    check_token:
-      not_found: "Invitasjonsnøkkelen finnes ikke"
     create:
       empty: "Vennligst angi i hvertfall en e-post adresse"
       no_more: "Du har ikke flere invitasjoner."
@@ -774,14 +770,8 @@ nb:
       type_error: "Bildeopplastning mislyktes. ER du sikker på at et bilde ble lagt til?"
     destroy:
       notice: "Bildet er sletta."
-    new_photo:
-      empty: "{file} er tom, vennligst velg filer igjen uten den"
-      invalid_ext: "{file} er en ugyldig filtype. Bare {extensions} er tillatt."
-      size_error: "{file} er for stor, maks filstørrelse er {sizeLimit}."
     new_profile_photo:
       upload: "Last opp et nytt profilbilde!"
-    show:
-      show_original_post: "Vis originalpost"
   posts:
     presenter:
       title: "En post fra %{name}"

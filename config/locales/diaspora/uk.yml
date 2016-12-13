@@ -240,7 +240,6 @@ uk:
   conversations:
     create:
       fail: "Неправильне повідомлення"
-      no_contact: "Ей, вам потрібно спочатку додати контакт!"
       sent: "Повідомлення відправлене"
     destroy:
       delete_success: "Діалог успішно видалений"
@@ -481,9 +480,6 @@ uk:
     tutorials: "настанови"
     wiki: "вікі"
   invitations:
-    a_facebook_user: "Користувач Facebook"
-    check_token:
-      not_found: "Код запрошення не знайдений"
     create:
       empty: "Будь-ласка, введіть хоча б одну електронну пошту."
       no_more: "У вас закінчилися запрошення."
@@ -760,14 +756,8 @@ uk:
       type_error: "Збій при завантаженні світлини. Ви впевнені, що додали графічний файл?"
     destroy:
       notice: "Фотографію вилучено."
-    new_photo:
-      empty: "{file} порожній, будь ласка, виберіть файли ще раз, але без нього."
-      invalid_ext: "{file} має неприпустиме розширення. Дозволені тільки {extensions}."
-      size_error: "{file} занадто великий, максимальний розмір файлу: {sizeLimit}."
     new_profile_photo:
       upload: "Завантажити нове фото для профілю!"
-    show:
-      show_original_post: "Показати початковий запис"
   posts:
     presenter:
       title: "Запис %{name}"

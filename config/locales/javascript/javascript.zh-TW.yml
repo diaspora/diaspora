@@ -101,16 +101,17 @@ zh-TW:
       remove_contact: "刪聯絡人"
       search_no_results: "沒找到聯絡人"
     conversation:
+      create:
+        no_recipient: "欸，必須要有收訊人 ！"
       new:
         no_contacts: "\x1f開始對話前你必須先加一些聯絡人"
     create: "建立"
     delete: "刪除"
     edit: "編輯"
-    failed_to_comment: "發表意見失敗。作者可能正在忽視你。"
-    failed_to_like: "說讚失敗。也許是因為作者正在忽視你。"
+    errors:
+      connection: "沒辦法跟伺服器連線。"
     failed_to_post_message: "貼文失敗！"
     failed_to_remove: "刪掉這個項目的動作失敗了！"
-    failed_to_reshare: "轉貼失敗！"
     getting_started:
       alright_ill_wait: "好，再說吧。"
       hey: "嗨，<%= name %>！"
@@ -146,6 +147,8 @@ zh-TW:
     notifications:
       mark_read: "標示為看過了"
       mark_unread: "標示為沒看過"
+      new_notifications:
+        other: "有<%= count %>則還沒看過的通知"
     people:
       edit_my_profile: "編輯自己的個人檔案"
       helper:
@@ -229,7 +232,6 @@ zh-TW:
         created: "成功產生回報了"
         exists: "已經有這筆回報了"
     reshares:
-      duplicate: "很棒對吧？你已經轉貼過該篇貼文了！"
       post: "要轉貼 <%= name %> 的貼文嗎？"
       successful: "貼文轉貼成功！"
     show_more: "顯示更多"

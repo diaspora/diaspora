@@ -198,7 +198,6 @@ sk:
   conversations:
     create:
       fail: "Neplatná správa"
-      no_contact: "Pozor, najprv treba pridať kontakt!"
       sent: "Správa odoslaná"
     index:
       conversations_inbox: "Rozhovory – Poštová schránka"
@@ -318,9 +317,6 @@ sk:
     tutorials: "návody"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Používateľ(ka) Facebooku"
-    check_token:
-      not_found: "Číslo pozvánky sa nenašlo"
     create:
       empty: "Zadajte, prosím, aspoň jednu e-mailovú adresu."
       no_more: "Nemáš žiadne nové pozvánky."
@@ -505,14 +501,8 @@ sk:
       type_error: "Nepodarilo sa nahrať fotku. Určite si pridal(a) obrázok?"
     destroy:
       notice: "Fotka zmazaná."
-    new_photo:
-      empty: "Súbor {file} je prázdny; vyber, prosím, znova všetky súbory okrem tohto."
-      invalid_ext: "Súbor {file} má neplatnú príponu. Povolené sú len prípony {extensions}."
-      size_error: "Súbor {file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."
     new_profile_photo:
       upload: "Nahrať novú profilovú fotku!"
-    show:
-      show_original_post: "Zobraziť pôvodný príspevok"
   posts:
     presenter:
       title: "Príspevok, ktorý napísal(a) %{name}"

@@ -206,9 +206,6 @@ eu:
   fill_me_out: "Bete nazazu"
   find_people: "Jendea edo #etiketak aurkitu"
   invitations:
-    a_facebook_user: "Facebook erabiltzaile bat"
-    check_token:
-      not_found: "Gonbidapena ez da aurkitu"
     create:
       no_more: "Ez daukazu gonbidapen gehiago."
       rejected: "Hurrengo e-posta hauek arazoak sortu dituzte:"
@@ -404,14 +401,8 @@ eu:
       type_error: "Argazki igoerak huts egin du. Ziur al zaude irudia gehitu duzunaz?"
     destroy:
       notice: "Argazkia ezabatu duzu."
-    new_photo:
-      empty: "{file} hutsik dago, mesedez aukera itzazu fitxategiak hura kenduta."
-      invalid_ext: "{file}(r)en luzapena ez da onartu. {extensions} dira onartuak soilik."
-      size_error: "{file} pisutsuegia da, fitxategi baten gehiengo pisua {sizeLimit} da."
     new_profile_photo:
       upload: "Igo ezazu profil argazki berri bat!"
-    show:
-      show_original_post: "Jatorrizko mezua erakutsi"
   posts:
     presenter:
       title: ""

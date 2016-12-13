@@ -149,9 +149,6 @@ es-CO:
   fill_me_out: "Complétame"
   find_people: "Encontrar personas o #tags"
   invitations:
-    a_facebook_user: "Un usuario de Facebook"
-    check_token:
-      not_found: "No se encontró la identificación de invitación"
     create:
       no_more: "No tienes más invitaciones."
       rejected: "Las siguientes direcciones tuvieron problemas: "
@@ -259,14 +256,8 @@ es-CO:
       type_error: "Error al subir la foto. ¿Estás seguro de que agregaste una imagen?"
     destroy:
       notice: "La foto fue eliminada."
-    new_photo:
-      empty: "{file} está vacío, por favor omítelo y nuevamente selecciona archivos."
-      invalid_ext: "{file} tiene una extensión inválida. Solo se permiten {extensions}."
-      size_error: "{file} es demasiado grande, el tamaño máximo de archivo es {sizeLimit}."
     new_profile_photo:
       upload: "¡Subir una nueva foto de perfil!"
-    show:
-      show_original_post: "Mostrar publicación original"
   privacy: "Privacidad"
   profile: "Perfil"
   profiles:

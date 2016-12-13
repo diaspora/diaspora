@@ -139,9 +139,6 @@ sr:
   fill_me_out: "Испуни ме"
   find_people: "Тражи људе или #тагове"
   invitations:
-    a_facebook_user: "Фејсбук корисник"
-    check_token:
-      not_found: "Токен позивнице није пронађен"
     create:
       no_more: "Немате више позивница."
       rejected: "Ове email адресе имају проблеме: "
@@ -210,8 +207,6 @@ sr:
       notice: "Слика обрисана"
     new_profile_photo:
       upload: "Додајте нову профилну слику!"
-    show:
-      show_original_post: "Прикажи оригиналну објаву"
   privacy: "Приватност"
   profile: "Профил"
   profiles:
