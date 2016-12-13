@@ -3,56 +3,25 @@
 -# the COPYRIGHT file.
 
 !!!
-%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
-  %head
-    %title
-      = pod_name
+%html{lang: I18n.locale.to_s, dir: (rtl? ? "rtl" : "ltr")}
+  %head{prefix: og_prefix}
+    - content_for :javascript do
+      = javascript_include_tag "mobile/mobile"
+      = load_javascript_locales
 
-    %meta{:name => "description", :content => "diaspora* mobile"}/
-    %meta{:name => "author", :content => "Diaspora, Inc."}/
-    %meta{:charset => 'utf-8'}/
+    = render "head"
+    = include_color_theme "mobile"
 
-    / Viewport scale
-    %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1 maximum-scale=1"}/
-    %meta{:name => "HandheldFriendly", :content => "True"}/
-    %meta{:name => "MobileOptimized", :content => "320"}/
-    / Force cleartype on WP7
-    %meta{'http-equiv' => "cleartype", :content => 'on'}/
-
-    / Home screen icon (sized for retina displays)
-    %link{rel: "apple-touch-icon", href: image_path("apple-touch-icon.png")}
-    / For Nokia devices
-    %link{rel: "shortcut icon", href: image_path("apple-touch-icon.png")}
-    / For desktop
-    %link{rel:  'shortcut icon', href:  image_path("favicon.png")}
+    %meta{name: "viewport", content: "width=device-width, minimum-scale=1 maximum-scale=1"}/
+    %meta{name: "HandheldFriendly", content: "True"}/
+    %meta{name: "MobileOptimized", content: "320"}/
+    %meta{"http-equiv" => "cleartype", :content => "on"}/
 
     / iOS mobile web app indicator
     / NOTE(we will enable these once we don't have to rely on back/forward buttons anymore)
     /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
-    = yield :meta_data
 
-    = chartbeat_head_block
-
-    / Stylesheets
-
-    = include_color_theme "mobile"
-    = yield(:custom_css)
-
-
-    = csrf_meta_tag
-
-    - if rtl?
-      = stylesheet_link_tag :rtl, :media => 'all'
-
-    - if Rails.env.test?
-      = stylesheet_link_tag :poltergeist_disable_transition, media: "all"
-
-    = jquery_include_tag
-
-    = yield(:head)
-
-    = include_gon(camel_case: true, nonce: content_security_policy_nonce(:script))
   %body
     #app
       = render "layouts/header"
@@ -62,10 +31,8 @@
       #main{:role => "main"}
         - if current_page?(:activity_stream)
           %h3
-            = t('streams.activity.title')
+            = t("streams.activity.title")
         = yield
 
-    / javascripts at the bottom
-    = javascript_include_tag "mobile/mobile"
-    = load_javascript_locales
     = include_chartbeat
+    = include_mixpanel_guid

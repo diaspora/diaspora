@@ -21,12 +21,57 @@ describe("app.views.CommentStream", function(){
     });
   });
 
+  describe("postRenderTemplate", function() {
+    beforeEach(function() {
+      this.view.render();
+    });
+
+    it("calls appendComment for all comments in the collection", function() {
+      this.view.model.comments.push(factory.comment({id: 1}));
+      this.view.model.comments.push(factory.comment({id: 27}));
+      this.view.model.comments.push(factory.comment({id: 3}));
+      spyOn(this.view, "appendComment");
+      this.view.postRenderTemplate();
+      expect(this.view.appendComment.calls.allArgs().map(function(args) {
+        return args[0].get("id");
+      })).toEqual([1, 27, 3]);
+    });
+
+    it("sets commentBox", function() {
+      this.view.commentBox = undefined;
+      this.view.postRenderTemplate();
+      expect(this.view.commentBox).toBeDefined();
+      expect(this.view.commentBox).toEqual(this.view.$(".comment_box"));
+    });
+
+    it("sets commentSubmitButton", function() {
+      this.view.commentSubmitButton = undefined;
+      this.view.postRenderTemplate();
+      expect(this.view.commentSubmitButton).toBeDefined();
+      expect(this.view.commentSubmitButton).toEqual(this.view.$("input[name='commit']"));
+    });
+  });
+
   describe("createComment", function() {
     beforeEach(function() {
       this.view.render();
       this.view.$el.append($("<div id='flash-container'/>"));
       app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
       this.view.expandComments();
+    });
+
+    it("doesn't fire an AJAX request when there are only spaces in the comment box", function() {
+      this.view.commentBox.val("   ");
+      jasmine.Ajax.requests.reset();
+      this.view.createComment();
+      expect(jasmine.Ajax.requests.count()).toBe(0);
+    });
+
+    it("calls disableCommentBox", function() {
+      spyOn(this.view, "disableCommentBox");
+      this.view.commentBox.val("text");
+      this.view.createComment();
+      expect(this.view.disableCommentBox).toHaveBeenCalled();
     });
 
     context("submission", function() {
@@ -43,31 +88,83 @@ describe("app.views.CommentStream", function(){
         expect(params.text).toEqual("a new comment");
       });
 
-      it("adds the comment to the view", function() {
-        this.request.respondWith({status: 200, responseText: '[]'});
-        expect(this.view.$(".comment-content p").text()).toEqual("a new comment");
+      context("on success", function() {
+        it("adds the comment to the view", function() {
+          this.request.respondWith({status: 200, responseText: "[]"});
+          expect(this.view.$(".comment-content p").text()).toEqual("a new comment");
+        });
+
+        it("resets the comment box value", function() {
+          this.request.respondWith({status: 200, responseText: "[]"});
+          expect(this.view.commentBox.val()).toBe("");
+        });
+
+        it("calls enableCommentBox", function() {
+          spyOn(this.view, "enableCommentBox");
+          this.request.respondWith({status: 200, responseText: "[]"});
+          expect(this.view.enableCommentBox).toHaveBeenCalled();
+        });
+
+        it("calls autosize.update for the commentBox", function() {
+          spyOn(autosize, "update");
+          this.request.respondWith({status: 200, responseText: "[]"});
+          expect(autosize.update).toHaveBeenCalledWith(this.view.commentBox);
+        });
       });
 
-      it("doesn't add the comment to the view, when the request fails", function(){
-        this.request.respondWith({status: 500});
+      context("on error", function() {
+        it("doesn't add the comment to the view", function() {
+          this.request.respondWith({status: 500});
+          expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");
+        });
 
-        expect(this.view.$(".comment-content p").text()).not.toEqual("a new comment");
-        expect(this.view.$(".flash-message")).toBeErrorFlashMessage(
-          "Failed to comment. Maybe the author is ignoring you?"
-        );
+        it("doesn't reset the comment box value", function() {
+          this.request.respondWith({status: 500});
+          expect(this.view.commentBox.val()).toBe("a new comment");
+        });
+
+        it("calls enableCommentBox", function() {
+          spyOn(this.view, "enableCommentBox");
+          this.request.respondWith({status: 500});
+          expect(this.view.enableCommentBox).toHaveBeenCalled();
+        });
       });
     });
+  });
 
-    it("clears the comment box when there are only spaces", function() {
-      this.view.$(".comment_box").val('   ');
-      this.view.createComment();
-      expect(this.view.$(".comment_box").val()).toEqual("");
+  describe("disableCommentBox", function() {
+    beforeEach(function() {
+      this.view.render();
     });
 
-    it("resets comment box height", function() {
-      this.view.$(".comment_box").val('a new comment');
-      this.view.createComment();
-      expect(this.view.$(".comment_box").attr("style")).not.toContain("height");
+    it("disables the comment box", function() {
+      this.view.commentBox.removeAttr("disabled");
+      this.view.disableCommentBox();
+      expect(this.view.commentBox.prop("disabled")).toBeTruthy();
+    });
+
+    it("disables the comment submit button", function() {
+      this.view.commentSubmitButton.removeAttr("disabled");
+      this.view.disableCommentBox();
+      expect(this.view.commentSubmitButton.prop("disabled")).toBeTruthy();
+    });
+  });
+
+  describe("enableCommentBox", function() {
+    beforeEach(function() {
+      this.view.render();
+    });
+
+    it("removes the 'disabled' attribute from the comment box", function() {
+      this.view.commentBox.prop("disabled", true);
+      this.view.enableCommentBox();
+      expect(this.view.commentBox.prop("disabled")).toBeFalsy();
+    });
+
+    it("removes the 'disabled' attribute from the comment submit button", function() {
+      this.view.commentSubmitButton.prop("disabled", true);
+      this.view.enableCommentBox();
+      expect(this.view.commentSubmitButton.prop("disabled")).toBeFalsy();
     });
   });
 
@@ -163,6 +260,19 @@ describe("app.views.CommentStream", function(){
           return c.get("text");
         }).join("")
       );
+    });
+
+    it("shows the spinner when loading comments and removes it on success", function() {
+      this.view.render();
+      expect(this.view.$(".loading-comments")).toHaveClass("hidden");
+
+      this.view.expandComments();
+      expect(this.view.$(".loading-comments")).not.toHaveClass("hidden");
+
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200, responseText: JSON.stringify([])
+      });
+      expect(this.view.$(".loading-comments")).toHaveClass("hidden");
     });
   });
 

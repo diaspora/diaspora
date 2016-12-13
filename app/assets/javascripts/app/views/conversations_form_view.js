@@ -5,38 +5,81 @@ app.views.ConversationsForm = Backbone.View.extend({
 
   events: {
     "keydown .conversation-message-text": "keyDown",
+    "click .conversation-recipient-tag .remove": "removeRecipient"
   },
 
   initialize: function(opts) {
-    this.contacts = _.has(opts, "contacts") ? opts.contacts : null;
-    this.prefill = [];
-    if (_.has(opts, "prefillName") && _.has(opts, "prefillValue")) {
-      this.prefill = [{name: opts.prefillName, value: opts.prefillValue}];
+    opts = opts || {};
+    this.conversationRecipients = [];
+
+    this.typeaheadElement = this.$el.find("#contacts-search-input");
+    this.contactsIdsListInput = this.$el.find("#contact-ids");
+    this.tagListElement = this.$("#recipients-tag-list");
+
+    this.search = new app.views.SearchBase({
+      el: this.$el.find("#new-conversation"),
+      typeaheadInput: this.typeaheadElement,
+      customSearch: true,
+      autoselect: true,
+      remoteRoute: {url: "/contacts", extraParameters: "mutual=true"}
+    });
+
+    this.bindTypeaheadEvents();
+
+    this.tagListElement.empty();
+    if (opts.prefill) {
+      this.prefill(opts.prefill);
     }
-    this.prepareAutocomplete(this.contacts);
+
     this.$("form#new-conversation").on("ajax:success", this.conversationCreateSuccess);
     this.$("form#new-conversation").on("ajax:error", this.conversationCreateError);
   },
 
-  prepareAutocomplete: function(data){
-    this.$("#contact-autocomplete").autoSuggest(data, {
-      selectedItemProp: "name",
-      searchObjProps: "name",
-      asHtmlID: "contact_ids",
-      retrieveLimit: 10,
-      minChars: 1,
-      keyDelay: 0,
-      startText: '',
-      emptyText: Diaspora.I18n.t("no_results"),
-      preFill: this.prefill
-    });
-    $("#contact_ids").attr("aria-labelledby", "toLabel").focus();
+  addRecipient: function(person) {
+    this.conversationRecipients.push(person);
+    this.updateContactIdsListInput();
+    /* eslint-disable camelcase */
+    this.tagListElement.append(HandlebarsTemplates.conversation_recipient_tag_tpl(person));
+    /* eslint-enable camelcase */
   },
 
-  keyDown : function(evt) {
-    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
+  prefill: function(handles) {
+    handles.forEach(this.addRecipient.bind(this));
+  },
+
+  updateContactIdsListInput: function() {
+    this.contactsIdsListInput.val(_(this.conversationRecipients).pluck("id").join(","));
+    this.search.ignoreDiasporaIds.length = 0;
+    this.conversationRecipients.forEach(this.search.ignorePersonForSuggestions.bind(this.search));
+  },
+
+  bindTypeaheadEvents: function() {
+    this.typeaheadElement.on("typeahead:select", function(evt, person) {
+      this.onSuggestionSelection(person);
+    }.bind(this));
+  },
+
+  onSuggestionSelection: function(person) {
+    this.addRecipient(person);
+    this.typeaheadElement.typeahead("val", "");
+  },
+
+  keyDown: function(evt) {
+    if (evt.which === Keycodes.ENTER && evt.ctrlKey) {
       $(evt.target).parents("form").submit();
     }
+  },
+
+  removeRecipient: function(evt) {
+    var $recipientTagEl = $(evt.target).parents(".conversation-recipient-tag");
+    var diasporaHandle = $recipientTagEl.data("diaspora-handle");
+
+    this.conversationRecipients = this.conversationRecipients.filter(function(person) {
+      return diasporaHandle !== person.handle;
+    });
+
+    this.updateContactIdsListInput();
+    $recipientTagEl.remove();
   },
 
   conversationCreateSuccess: function(evt, data) {

@@ -1,6 +1,3 @@
-
-require "spec_helper"
-
 describe Workers::RecurringPodCheck do
   before do
     @pods = (0..4).map do

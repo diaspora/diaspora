@@ -101,9 +101,6 @@ mk:
   fill_me_out: "Пополни ме"
   find_people: "Пронајди пријатели или #тагови"
   invitations:
-    a_facebook_user: "Facebook корисник"
-    check_token:
-      not_found: "Токенот за поканата не е пронајден"
     create:
       no_more: "Немате повеќе покани."
       rejected: "Следните е-маил адреси имаа проблем:"
@@ -238,10 +235,6 @@ mk:
   photos:
     destroy:
       notice: "Сликата е избришана."
-    new_photo:
-      empty: "{file} е празен, изберете датотеки без него."
-      invalid_ext: "{file} има невалидна екстензија. Само овие {extensions} се дозволени."
-      size_error: "{file} е премногу голема, максимална големина на датотека е {sizeLimit}."
   posts:
     show:
       photos_by:

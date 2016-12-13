@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe StatisticsPresenter do
   before do
     @presenter = StatisticsPresenter.new

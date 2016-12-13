@@ -106,16 +106,17 @@ fr:
       remove_contact: "Retirer ce contact"
       search_no_results: "Aucun contact trouvé"
     conversation:
+      create:
+        no_recipient: "Vous avez d'abord besoin d'ajouter un destinataire."
       new:
         no_contacts: "Vous devez ajouter des contacts avant de pouvoir démarrer une conversation."
     create: "Créer"
     delete: "Effacer"
     edit: "Éditer"
-    failed_to_comment: "Impossible de commenter. Peut-être que l'auteur vous ignore ?"
-    failed_to_like: "Impossible d'aimer !"
+    errors:
+      connection: "Impossible de se connecter au serveur."
     failed_to_post_message: "Impossible de partager le message !"
     failed_to_remove: "L'entrée n'a pu être supprimée"
-    failed_to_reshare: "Échec du repartage"
     getting_started:
       alright_ill_wait: "Bon, je vais attendre."
       hey: "Hey, <%= name %> !"
@@ -151,6 +152,9 @@ fr:
     notifications:
       mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
+      new_notifications:
+        one: "Vous avez une notification non lue."
+        other: "Vous avez <%= count %> notifications non lues."
     people:
       edit_my_profile: "Modifier mon profil"
       helper:
@@ -237,7 +241,6 @@ fr:
         created: "Le signalement a été crée avec succès."
         exists: "Le signalement existe déjà"
     reshares:
-      duplicate: "C'est si bien que ça ? Vous avez déjà repartagé ce message !"
       post: "Repartager le message de <%= name %> ?"
       successful: "Le message a été repartagé !"
     show_more: "Voir plus"

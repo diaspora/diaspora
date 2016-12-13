@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.6.1.0" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.6.2.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -42,7 +42,7 @@ defaults:
   server:
     listen: '0.0.0.0:3000'
     rails_environment: 'development'
-    pid:
+    pid: "tmp/pids/web.pid"
     stderr_log:
     stdout_log:
     unicorn_worker: 2
@@ -144,6 +144,7 @@ defaults:
         warn_days: 30
         limit_removals_to_per_day: 100
     source_url:
+    changelog_url:
     default_color_theme: "original"
     default_metas:
       title: 'diaspora* social network'

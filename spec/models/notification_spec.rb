@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Notification, :type => :model do
   before do
     @sm = FactoryGirl.create(:status_message)

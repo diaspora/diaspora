@@ -148,9 +148,6 @@ lt:
   fill_me_out: "Užpildykite"
   find_people: "Rasti žmones arba žymes"
   invitations:
-    a_facebook_user: "Facebook vartotojas"
-    check_token:
-      not_found: "Pakvietimo raktas nerastas"
     create:
       no_more: "Daugiau pakvietimų neturi."
       rejected: "Šie el. pašto adresai neveikė: "
@@ -287,10 +284,6 @@ lt:
   photos:
     destroy:
       notice: "Nuotrauka pašalinta."
-    new_photo:
-      empty: "{file} yra tuščias, pasirink failus iš naujo."
-      invalid_ext: "{file} turi neteisingą galūnę. Yra leidžiamos tik {extensions}."
-      size_error: "{file} yra per didelis, maksimalus failo dydis yra {sizeLimit}."
   posts:
     show:
       photos_by:

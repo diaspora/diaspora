@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe GonHelper, type: :helper do
   include_context :gon
 

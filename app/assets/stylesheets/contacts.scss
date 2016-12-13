@@ -38,13 +38,13 @@
         margin-right: 25px;
       }
       #chat_privilege_toggle > .enabled {
-        color: #000;
+        color: $text-color-active;
       }
       .contacts-header-icon {
         font-size: 24.5px;
         line-height: 40px;
-        color: lighten($black,75%);
-        &:hover { color: $black; }
+        color: $text-color-pale;
+        &:hover { color: $text-color; }
       }
       #suggest_member.btn { margin-top: 8px; }
     }
@@ -56,14 +56,14 @@
         font-size: 20px;
         line-height: 50px;
         margin: 0 10px;
-        color: lighten($black,75%);
-        &:hover { color: $black; }
+        color: $text-color-pale;
+        &:hover { color: $text-color; }
       }
       &.in_aspect {
         border-left: 3px solid $brand-success;
         background-color: lighten($brand-success,35%);
       }
-      &:not(.in_aspect) { border-left: 3px solid $white; }
+      &:not(.in_aspect) { border-left: 3px solid $framed-background; }
     }
 
     .no_contacts {

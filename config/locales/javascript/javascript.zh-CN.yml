@@ -25,7 +25,6 @@ zh-CN:
       show: "显示所有评论"
     confirm_dialog: "您确定吗？"
     delete: "删除"
-    failed_to_like: "赞失败"
     failed_to_post_message: "发布消息失败！"
     getting_started:
       alright_ill_wait: "以后再说"
@@ -57,7 +56,6 @@ zh-CN:
       limited: "限制 - 只有您想分享的人才看得到您的内容"
       public: "公开 - 所有人都能看到您的内容，包括搜索引擎"
     reshares:
-      duplicate: "您已经转发过了。"
       post: "要转发 <%= name %> 的内容吗？"
       successful: "转发成功"
     show_more: "查看更多"

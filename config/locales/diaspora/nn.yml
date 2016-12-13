@@ -189,7 +189,6 @@ nn:
   conversations:
     create:
       fail: "Ugyldig melding"
-      no_contact: "Hei, du må leggje til kontakten først!"
       sent: "Meldinga er sendt"
     index:
       inbox: "Innkorg"
@@ -228,9 +227,6 @@ nn:
     tutorials: "innføringar"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Ein Facebook-brukar"
-    check_token:
-      not_found: "Fann ikkje invitasjonskoda"
     create:
       empty: "Skriv inn minst ei e-post-adresse."
       no_more: "Du har ingen fleire invitasjonar."
@@ -420,14 +416,8 @@ nn:
       type_error: "Klarte ikkje å lasta opp biletet. Er du sikker på at du la til eit bilete?"
     destroy:
       notice: "Biletet er sletta."
-    new_photo:
-      empty: "{file} er tom, vel filer utan å ta ho med."
-      invalid_ext: "{file} har ein ugyldig filtype. Berre {extensions} er tillatne."
-      size_error: "{file} er for stor, kan ikkje vera større enn {sizeLimit}."
     new_profile_photo:
       upload: "Last opp eit nytt profilbilete."
-    show:
-      show_original_post: "Syn den opphavlege meldinga"
   posts:
     presenter:
       title: "Eit innlegg av %{name}"

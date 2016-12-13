@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe InvitationsController, type: :controller do
   describe "#create" do
     let(:referer) { "http://test.host/cats/foo" }

@@ -30,12 +30,17 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    contact_ids = params[:contact_ids]
+    # Contacts autocomplete does not work the same way on mobile and desktop
+    # Mobile returns contact ids array while desktop returns person id
+    # This will have to be removed when mobile autocomplete is ported to Typeahead
+    recipients_param, column = [%i(contact_ids id), %i(person_ids person_id)].find {|param, _| params[param].present? }
+    if recipients_param
+      person_ids = current_user.contacts.mutual.where(column => params[recipients_param].split(",")).pluck(:person_id)
+    end
 
-    # Can't split nil
-    if contact_ids
-      contact_ids = contact_ids.split(',') if contact_ids.is_a? String
-      person_ids = current_user.contacts.where(id: contact_ids).pluck(:person_id)
+    unless person_ids.present?
+      render text: I18n.t("javascripts.conversation.create.no_recipient"), status: 422
+      return
     end
 
     opts = params.require(:conversation).permit(:subject)
@@ -43,16 +48,12 @@ class ConversationsController < ApplicationController
     opts[:message] = { text: params[:conversation][:text] }
     @conversation = current_user.build_conversation(opts)
 
-    if person_ids.present? && @conversation.save
+    if @conversation.save
       Diaspora::Federation::Dispatcher.defer_dispatch(current_user, @conversation)
       flash[:notice] = I18n.t("conversations.create.sent")
       render json: {id: @conversation.id}
     else
-      message = I18n.t("conversations.create.fail")
-      if person_ids.blank?
-        message = I18n.t("javascripts.conversation.create.no_recipient")
-      end
-      render text: message, status: 422
+      render text: I18n.t("conversations.create.fail"), status: 422
     end
   end
 
@@ -91,17 +92,23 @@ class ConversationsController < ApplicationController
       return
     end
 
-    @contacts_json = contacts_data.to_json
-    @contact_ids = ""
-
-    if params[:contact_id]
-      @contact_ids = current_user.contacts.find(params[:contact_id]).id
-    elsif params[:aspect_id]
-      @contact_ids = current_user.aspects.find(params[:aspect_id]).contacts.map{|c| c.id}.join(',')
-    end
     if session[:mobile_view] == true && request.format.html?
+      @contacts_json = contacts_data.to_json
+
+      @contact_ids = if params[:contact_id]
+                       current_user.contacts.find(params[:contact_id]).id
+                     elsif params[:aspect_id]
+                       current_user.aspects.find(params[:aspect_id]).contacts.pluck(:id).join(",")
+                     end
+
       render :layout => true
     else
+      if params[:contact_id]
+        gon.push conversation_prefill: [current_user.contacts.find(params[:contact_id]).person.as_json]
+      elsif params[:aspect_id]
+        gon.push conversation_prefill: current_user.aspects
+                                                   .find(params[:aspect_id]).contacts.map {|c| c.person.as_json }
+      end
       render :layout => false
     end
   end

@@ -12,9 +12,11 @@ cs:
         resend_confirmation: "Zaslat instrukce o potvrzení"
       send_instructions: "Během několika minut obdržíte email s instrukcemi k potvrzení vašeho účtu."
     failure:
+      already_authenticated: "již jste přihlášen"
       inactive: "Váš účet ještě nebyl aktivován."
       invalid: "Neplatné uživatelské jméno nebo heslo."
       invalid_token: "Neplatný autentizační token."
+      last_attempt: "Máte ještě jeden pokus před uzamčením účtu"
       locked: "Váš účet je uzamčen."
       not_found_in_database: "Chybný email nebo heslo."
       timeout: "Vaše sezení vypršelo, pro pokračování se prosím přihlašte znovu."
@@ -34,6 +36,8 @@ cs:
         accept_at: "na %{url}, přijmout pozvání můžete pomocí odkazu níže."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} vás pozvali, abyste vstoupili do Diaspory"
+      password_change:
+        subject: "Heslo změněno"
       reset_password_instructions:
         change: "Změnit moje heslo"
         ignore: "Pokud nechcete potvrdit pozvání, tento e-mail prosím ignorujte."
@@ -64,6 +68,7 @@ cs:
       signed_up: "Úspěšně jste vytvořili účet. Pokud je tak server nastaven, byl vám zaslán potvrzovací email."
       updated: "Úspěšně jste upravili svůj účet."
     sessions:
+      already_signed_out: "Úspěšně odhlášen."
       new:
         login: "Přihlásit"
         modern_browsers: "podporuje pouze moderní prohlížeče."
@@ -85,9 +90,12 @@ cs:
       new:
         resend_unlock: "Znovu zaslat instrukce k odemknutí účtu."
       send_instructions: "Během několika minut obdržíte email s instrukcemi k odemknutí vašeho účtu."
+      send_paranoid_instructions: "Váš účet již existuje, během několika minut dostanete email s instrukcemi, jak je odemknout"
       unlocked: "Váš účet byl úspěšně odemknut. Nyní jste přihlášeni."
   errors:
     messages:
       already_confirmed: "již bylo potvrzeno"
+      confirmation_period_expired: "nutné potvrdit do %{period}, prosím, požádejte znovu"
+      expired: "vypršel, prosím požadujte nový"
       not_found: "nenalezeno"
       not_locked: "nebylo zamčeno"

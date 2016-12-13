@@ -107,16 +107,17 @@ pt-BR:
       remove_contact: "Remover contato"
       search_no_results: "Nenhum contato encontrado"
     conversation:
+      create:
+        no_recipient: "Ei, primeiro você precisa adicionar um destinatário!"
       new:
         no_contacts: "Você precisa adicionar contatos antes de começar uma conversa."
     create: "Criar"
     delete: "Apagar"
     edit: "Editar"
-    failed_to_comment: "Falha ao comentar. Será que estão ignorando você?"
-    failed_to_like: "Falha ao curtir. Será que o autor está ignorando você?"
+    errors:
+      connection: "Não foi possível conectar ao servidor."
     failed_to_post_message: "Falha na publicação da mensagem!"
     failed_to_remove: "Falha ao remover a entrada!"
-    failed_to_reshare: "Falha ao recompartilhar!"
     getting_started:
       alright_ill_wait: "Tudo bem, vou esperar."
       hey: "Ei, <%= name %>!"
@@ -152,6 +153,9 @@ pt-BR:
     notifications:
       mark_read: "Marcar como lida"
       mark_unread: "Marcar como não lida"
+      new_notifications:
+        one: "Você tem <%= count %> notificação não lida"
+        other: "Você tem <%= count %> notificações não lidas"
     people:
       edit_my_profile: "Editar meu perfil"
       helper:
@@ -237,7 +241,6 @@ pt-BR:
         created: "O relato foi criado com sucesso"
         exists: "O relato já existe"
     reshares:
-      duplicate: "Que bom, hein? Você já recompartilhou essa publicação!"
       post: "Recompartilhar a publicação de <%= name %>?"
       successful: "A publicação foi recompartilhada com sucesso!"
     show_more: "Mostrar mais"

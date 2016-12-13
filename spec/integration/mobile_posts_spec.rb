@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe PostsController, type: :request do
   context "with a poll" do
     let(:sm) { FactoryGirl.build(:status_message_with_poll, public: true) }

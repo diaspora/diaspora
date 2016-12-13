@@ -53,6 +53,7 @@ helpers:
 #   - **/*[sS]pec.js
 #
 spec_files:
+  - onerror-fail.js
   - "**/**/*[sS]pec.js"
 
 # src_dir

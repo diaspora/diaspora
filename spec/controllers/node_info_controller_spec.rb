@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe NodeInfoController do
   describe "#jrd" do
     it "responds to JSON" do

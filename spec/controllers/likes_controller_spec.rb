@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe LikesController, :type => :controller do
   before do
     @alices_aspect = alice.aspects.where(:name => "generic").first
@@ -99,12 +97,6 @@ describe LikesController, :type => :controller do
         before do
           @message = alice.post(:status_message, :text => "hey", :to => @alices_aspect.id)
           @message = alice.comment!(@message, "hey") if class_const == Comment
-        end
-
-        it 'generates a jasmine fixture', :fixture => true do
-          get :index, id_field => @message.id
-
-          save_fixture(response.body, "ajax_likes_on_#{class_const.to_s.underscore}")
         end
 
         it 'returns a 404 for a post not visible to the user' do

@@ -98,8 +98,12 @@
           success: function() {
             Diaspora.Mobile.PostActions.toggleActive(link);
           },
-          error: function() {
-            alert(Diaspora.I18n.t("failed_to_reshare"));
+          error: function(response) {
+            if (response.status === 0) {
+              alert(Diaspora.I18n.t("errors.connection"));
+            } else {
+              alert(response.responseText);
+            }
           },
           complete: function() {
             Diaspora.Mobile.PostActions.hideLoader(link);

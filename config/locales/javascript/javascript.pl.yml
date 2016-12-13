@@ -63,10 +63,8 @@ pl:
     create: "Utwórz"
     delete: "Usuń"
     edit: "Edycja"
-    failed_to_like: "Nie udało się pulubić!"
     failed_to_post_message: "Nie można wysłać wiadomości!"
     failed_to_remove: "Nie udało się usunąć wartości!"
-    failed_to_reshare: "Nie udało się przekazać dalej!"
     getting_started:
       alright_ill_wait: "Dobrze, poczekam."
       hey: "Hej, <%= name %>!"
@@ -155,7 +153,6 @@ pl:
         created: "Zgłoszenie zostało pomyślnie utworzone"
         exists: "Zgłoszenie już istnieje"
     reshares:
-      duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
       post: "Przesłać dalej wpis użytkownika <%= name %>?"
       successful: "Wpis został pomyślnie przesłany dalej!"
     show_more: "wyświetl więcej"

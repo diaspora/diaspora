@@ -2,10 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Person, :type => :model do
-
   before do
     @user = bob
     @person = FactoryGirl.create(:person)

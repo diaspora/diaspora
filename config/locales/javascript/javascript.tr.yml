@@ -25,7 +25,6 @@ tr:
       show: "tüm yorumları görüntüle"
     confirm_dialog: "Emin misiniz?"
     delete: "Sil"
-    failed_to_like: "Beğenme başarısız oldu!"
     failed_to_post_message: "Gönderi başarısız oldu!"
     getting_started:
       alright_ill_wait: "Tamam, ben bekleyeceğim."
@@ -85,7 +84,6 @@ tr:
         write: "yazma"
       public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
     reshares:
-      duplicate: "Bu iyi, değil mi? Zaten bu gönderiyi tekrar paylaştın!"
       post: "<%= name %> kişisinin gönderisini yeniden paylaşamak istiyor musun?"
       successful: "Gönderi başarıyla yeniden paylaşıldı!"
     show_more: "daha fazlasını göster"

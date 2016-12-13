@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe CommentService do
   let(:post) { alice.post(:status_message, text: "hello", to: alice.aspects.first) }
 

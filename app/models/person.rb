@@ -145,7 +145,7 @@ class Person < ActiveRecord::Base
     [where_clause, q_tokens]
   end
 
-  def self.search(search_str, user, only_contacts: false)
+  def self.search(search_str, user, only_contacts: false, mutual: false)
     search_str.strip!
     return none if search_str.blank? || search_str.size < 2
 
@@ -158,6 +158,8 @@ class Person < ActiveRecord::Base
                 "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
               ).searchable(user)
             end
+
+    query = query.where(contacts: {sharing: true, receiving: true}) if mutual
 
     query.where(closed_account: false)
          .where(sql, *tokens)

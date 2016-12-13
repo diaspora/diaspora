@@ -6,7 +6,7 @@
   :plain
     $(document).ready(function () {
       var data = $.parseJSON( "#{escape_javascript(@contacts_json).html_safe}" ),
-          autocompleteInput = $("#contact-autocomplete");
+          autocompleteInput = $("#contacts-search-input");
 
       autocompleteInput.autoSuggest(data, {
         selectedItemProp: "name",
@@ -15,7 +15,7 @@
         retrieveLimit: 10,
         minChars: 1,
         keyDelay: 0,
-        startText: '',
+        startText: "",
         emptyText: "#{t("no_results")}",
         preFill: [{name : "#{h params[:name]}",
                    value : "#{@contact_ids}"}]
@@ -27,6 +27,6 @@
   #flash-messages
   .container-fluid.row
     %h3
-      = t('conversations.index.new_conversation')
+      = t("conversations.index.new_conversation")
 
-  = render 'conversations/new'
+  = render "conversations/new", mobile: true

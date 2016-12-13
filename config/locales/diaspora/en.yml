@@ -240,6 +240,8 @@ en:
     explanation: "Post to diaspora* from anywhere by bookmarking this link => %{link}."
 
   comments:
+    create:
+      error: "Failed to comment."
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
@@ -591,6 +593,10 @@ en:
       source_package: "Download the source code package"
       be_excellent: "Be excellent to each other! ♥"
 
+  likes:
+    create:
+      error: "Failed to like."
+
   notifications:
     started_sharing:
       zero: "%{actors} started sharing with you."
@@ -701,12 +707,23 @@ en:
       body: |-
         Hello %{name},
 
-        We received a request with a wrong/missing CSRF token from your account. To prevent any possible damage you have been logged out.
+        diaspora* has detected an attempt to access your session which might be unauthorised. To avoid any chance of your data being compromised, you have been signed out. Don’t worry; you can safely sign in again now.
+
+        A request has been made using a incorrect or missing CSRF token. This might be completely innocent, but it could be a cross-site request forgery (CSRF) attack.
+
+        This could have been caused by:
+
+          - An add-on manipulating the request or making requests without the token;
+          - A tab left open from a past session;
+          - Another website making requests, with or without your permission;
+          - Various other external tools;
+          - Malicious code trying to access your data.
 
         For more information on CSRF see [%{link}](%{link}).
 
-        Sorry,
+        If you see this message repeatedly, please check the points above, including any browser add-ons.
 
+        Thank you,
         The diaspora* email robot!
     report_email:
         type:
@@ -892,8 +909,6 @@ en:
       invited_by: "You were invited by"
 
   photos:
-    show:
-      show_original_post: "Show original post"
     create:
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
@@ -991,6 +1006,8 @@ en:
     invalid_invite: "The invite link you provided is no longer valid!"
 
   reshares:
+    create:
+      error: "Failed to reshare."
     reshare:
       reshared_via: "Reshared via"
       reshare_confirmation: "Reshare %{author}’s post?"

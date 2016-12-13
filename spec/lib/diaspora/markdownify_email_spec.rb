@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Diaspora::Markdownify::Email do
   include Rails.application.routes.url_helpers
 

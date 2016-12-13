@@ -1,6 +1,3 @@
-
-require "spec_helper"
-
 describe Diaspora::Mentionable do
   include PeopleHelper
 

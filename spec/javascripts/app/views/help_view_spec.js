@@ -2,9 +2,15 @@ describe("app.views.Help", function(){
   beforeEach(function(){
     gon.appConfig = {chat: {enabled: false}};
     this.locale = JSON.parse(spec.readFixture("locale_en_help_json"));
+    Diaspora.I18n.reset();
     Diaspora.I18n.load(this.locale, "en");
     this.view = new app.views.Help();
     Diaspora.Page = "HelpFaq";
+  });
+
+  afterEach(function() {
+    Diaspora.I18n.reset();
+    Diaspora.I18n.load(spec.defaultLocale);
   });
 
   describe("render", function(){

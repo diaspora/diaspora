@@ -177,8 +177,8 @@ configuration: ## Section
     #listen: 'unix:/run/diaspora/diaspora.sock'
     #listen: '127.0.0.1:3000'
 
-    ## Set the path for the PID file of the unicorn master process (default=none)
-    #pid: '/run/diaspora/diaspora.pid'
+    ## Set the path for the PID file of the unicorn master process (default=tmp/pids/web.pid)
+    #pid: 'tmp/pids/web.pid'
 
     ## Rails environment (default='development').
     ## The environment in which the server should be started by default.
@@ -534,6 +534,11 @@ configuration: ## Section
     ## URL to the source code your pod is currently running.
     ## If not set your pod will provide a downloadable archive.
     #source_url: 'https://example.org/username/diaspora'
+
+    ## Changelog URL
+    ## URL to the changelog of the diaspora-version your pod is currently running.
+    ## If not set an auto-generated url to github is used.
+    #changelog_url: "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
 
     ## Default color theme
     ## You can change which color theme is displayed when a user is not signed in

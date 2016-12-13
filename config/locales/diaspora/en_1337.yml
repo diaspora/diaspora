@@ -129,9 +129,6 @@ en_1337:
   fill_me_out: "!npu7 73x7 h3r3"
   find_people: "Ctrl+F n0obz, #74g5"
   invitations:
-    a_facebook_user: "4 F4C3B00K N00B!"
-    check_token:
-      not_found: "1NV4L1D 1NV174710N 70K3N!"
     create:
       no_more: "U H4V3 N0 M0R3 1NV174710N5!"
       rejected: "7H3 F0LL0W1NG M41L5 H4D PR0BL3M5: "
@@ -296,14 +293,8 @@ en_1337:
       type_error: "PR0N UPL04D F41L3D! 4R3 U 5UR3 4N 1M4G3 W45 4DD3D?"
     destroy:
       notice: "PR0N D3L373D!"
-    new_photo:
-      empty: "{file} 15 3MP7Y, PLZ 53L3C7 F1L35 4G41N W17H0U7 17!"
-      invalid_ext: "{file} H45 1NV4L1D 3X73N510N! 0NLY {extensions} 4R3 4LL0W3D!"
-      size_error: "{file} 15 2 L4RG3, M4X1MUM F1L3 51Z3 15 {sizeLimit}."
     new_profile_photo:
       upload: "UPL04D 4 N3W PR0F1L3 P1C!"
-    show:
-      show_original_post: "5H0W 0R1G1N4L 5P4M!"
   posts:
     show:
       photos_by:

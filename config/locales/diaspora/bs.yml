@@ -201,7 +201,6 @@ bs:
   conversations:
     create:
       fail: "Nevažeća poruka"
-      no_contact: "Hej, morate prvo dodati kontakt!"
       sent: "Poruka poslata"
     index:
       inbox: "Pošta"
@@ -285,9 +284,6 @@ bs:
     tutorials: "tutorijali"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Facebook korisnik"
-    check_token:
-      not_found: "Znakovi pozivnice nisu pronađeni"
     create:
       empty: "Molimo unesite najmanje jednu email adresu."
       no_more: "Nemate više pozivnica."
@@ -477,14 +473,8 @@ bs:
       type_error: "Objavljivanje fotografije neuspješno.  Jeste li sigurni da je slika dodana?"
     destroy:
       notice: "Fotografija izbrisana."
-    new_photo:
-      empty: "{file} je prazno, molimo izaberite datoteke ponovo bez toga."
-      invalid_ext: "{file} ima nevažeću ekstenziju. Samo {extensions} su dozvoljene."
-      size_error: "{file} je preveliko, maksimalna veličina datoteke je {sizeLimit}."
     new_profile_photo:
       upload: "Objavi novu fotografiju profila!"
-    show:
-      show_original_post: "Pokaži originalnu objavu"
   posts:
     presenter:
       title: "Objava od %{name}"

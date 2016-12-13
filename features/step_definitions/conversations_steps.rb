@@ -15,8 +15,8 @@ end
 Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/ do |subject, text, person|
   step %(I am on the conversations page)
   within("#new-conversation", match: :first) do
-    step %(I fill in "contact_autocomplete" with "#{person}")
-    step %(I press the first ".as-result-item" within ".as-results")
+    find("#contacts-search-input").native.send_key(person.to_s)
+    step %(I press the first ".tt-suggestion" within ".twitter-typeahead")
     step %(I fill in "conversation-subject" with "#{subject}")
     step %(I fill in "new-message-text" with "#{text}")
     step %(I press "Send")
@@ -26,8 +26,8 @@ end
 Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)" using keyboard shortcuts$/ do |subject, text, person|
   step %(I am on the conversations page)
   within("#new-conversation", match: :first) do
-    step %(I fill in "contact_autocomplete" with "#{person}")
-    step %(I press the first ".as-result-item" within ".as-results")
+    find("#contacts-search-input").native.send_key(person.to_s)
+    step %(I press the first ".tt-suggestion" within ".twitter-typeahead")
     step %(I fill in "conversation-subject" with "#{subject}")
     step %(I fill in "new-message-text" with "#{text}")
     find("#new-message-text").native.send_key %i(Ctrl Return)

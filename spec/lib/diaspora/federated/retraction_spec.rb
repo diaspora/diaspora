@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Retraction do
   let(:post) { alice.post(:status_message, text: "destroy!", public: true) }
   let(:retraction) { Retraction.for(post, alice) }

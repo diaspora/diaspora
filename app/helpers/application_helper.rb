@@ -12,6 +12,8 @@ module ApplicationHelper
   end
 
   def changelog_url
+    return AppConfig.settings.changelog_url.get if AppConfig.settings.changelog_url.present?
+
     url = "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
     url.sub!('/master/', "/#{AppConfig.git_revision}/") if AppConfig.git_revision.present?
     url
@@ -29,14 +31,6 @@ module ApplicationHelper
     "javascript:" +
       BookmarkletRenderer.body +
       "bookmarklet('#{bookmarklet_url}', #{width}, #{height});"
-  end
-
-  def contacts_link
-    if current_user.contacts.size > 0
-      contacts_path
-    else
-      community_spotlight_path
-    end
   end
 
   def all_services_connected?

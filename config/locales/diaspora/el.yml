@@ -197,7 +197,6 @@ el:
   conversations:
     create:
       fail: "Μη έγκυρο μήνυμα"
-      no_contact: "Πρέπει πρώτα να προσθέσεις μια επαφή!"
       sent: "Μήνυμα εστάλη"
     index:
       inbox: "Εισερχόμενα"
@@ -276,9 +275,6 @@ el:
     tutorials: "οδηγοί"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Ένας χρήστης του Facebook"
-    check_token:
-      not_found: "Το σύμβολο της πρόσκλησης δεν βρέθηκε"
     create:
       empty: "Παρακαλώ εισήγαγε τουλάχιστον μία διεύθυνση email."
       no_more: "Δεν έχεις άλλες προσκλήσεις."
@@ -451,14 +447,8 @@ el:
       type_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε.  Σίγουρα προστέθηκε μια εικόνα;"
     destroy:
       notice: "Η φωτογραφία διαγράφηκε."
-    new_photo:
-      empty: "{file} είναι κενό, επιλέξτε και πάλι τα αρχεία χωρίς αυτό."
-      invalid_ext: "{file} δεν έχει έγκυρη τύπο αρχείου. Μόνο τύποι αρχείου {extensions} επιτρέπονται."
-      size_error: "{file} είναι πολύ μεγάλο, το μέγιστο μέγεθος αρχείου είναι {sizeLimit}."
     new_profile_photo:
       upload: "Ανέβασε μια νέα φωτογραφία προφίλ!"
-    show:
-      show_original_post: "Προβολή αρχικής ανάρτησης"
   posts:
     presenter:
       title: "Ένα άρθρο από τον/την %{name}"

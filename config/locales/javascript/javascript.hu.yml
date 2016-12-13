@@ -22,6 +22,7 @@ hu:
         other: "<%= count %> csoportban"
         two: "<%= count %> csoportban"
         zero: "Csoportok kiválasztása"
+      updating: "frissítés..."
     aspect_navigation:
       add_an_aspect: "+ Új csoport"
       deselect_all: "Összes kijelölés megszüntetése"
@@ -31,6 +32,7 @@ hu:
       post_something: "Hozz létre bejegyzést"
       post_submit: "Bejegyzés közzététele..."
       post_success: "Közzétéve! A felugró ablak bezáródik..."
+    cancel: "Mégsem"
     comma: ","
     comments:
       hide: "hozzászólások elrejtése"
@@ -42,9 +44,10 @@ hu:
       aspect_list_is_not_visible: "A csoport tagjai nem láthatják egymást."
       aspect_list_is_visible: "A csoport tagjai láthatják egymást."
       remove_contact: "Ismerős eltávolítása"
+      search_no_results: "Nincsenek kapcsolatok"
+    create: "Létrehozás"
     delete: "Töröl"
     edit: "Szerkesztés"
-    failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
     failed_to_remove: "Nem sikerült eltávolítani az elemet!"
     getting_started:
@@ -67,6 +70,8 @@ hu:
       search: "Keresés"
       settings: "Beállítások"
       view_all: "Összes"
+    hide_post: "Bejegyzés elrejetése?"
+    hide_post_failed: "Bejegyzés elrejtése nem lehetséges"
     ignore: "Mellőzés"
     ignore_failed: "Nem sikerült mellőzni ezt a felhasználót"
     ignore_user: "Felhasználó mellőzése?"
@@ -94,6 +99,7 @@ hu:
       close_result: "Eredmény rejtése"
       count:
         other: "<%=count%> szavazat eddig"
+      original_post: "eredeti bejegyzés"
       result: "Eredmény"
       show_result: "Eredmény mutatása"
       vote: "Szavazás"
@@ -110,11 +116,18 @@ hu:
       you_have_no_tags: "nincsenek címkéid!"
     publisher:
       add_option: "Válasz hozzáadása"
-      limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
+      limited: "Korlátozott: csak azok láthatják, akikkel megosztasz tartalmakat"
+      markdown_editor:
+        preview: "Előnézet"
+        tooltips:
+          insert_image: "Kép beillesztése"
+          insert_link: "Hivatkozás beillesztése"
+        write: "Szöveg"
       near_from: "<%= location %> közelében"
       option: "Válasz"
-      public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
+      public: "Nyilvános: bárki láthatja és keresőrobotok is megtalálhatják"
       question: "Kérdés"
+    remove_post: "Bejegyzés törlése?"
     report:
       name: "Jelentés"
       prompt: "Kérünk adj meg egy indokot:"
@@ -123,7 +136,6 @@ hu:
         created: "A jelentés sikeresen létrehozva"
         exists: "A jelentés már létezik"
     reshares:
-      duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
       post: "Szeretnéd újra megosztani <%= name %> bejegyzését?"
       successful: "A bejegyzés újraosztása sikeres!"
     show_more: "tovább"

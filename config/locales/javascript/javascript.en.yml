@@ -87,6 +87,9 @@ en:
         success: "Your new aspect <%= name %> was created"
         failure: "Aspect creation failed."
 
+    errors:
+      connection: "Unable to connect to the server."
+
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
@@ -186,9 +189,6 @@ en:
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspects"
     show_more: "Show more"
-    failed_to_like: "Failed to like. Maybe the author is ignoring you?"
-    failed_to_reshare: "Failed to reshare!"
-    failed_to_comment: "Failed to comment. Maybe the author is ignoring you?"
     failed_to_post_message: "Failed to post message!"
     failed_to_remove: "Failed to remove the entry!"
     comments:
@@ -196,7 +196,6 @@ en:
       hide: "Hide comments"
       no_comments: "There are no comments yet."
     reshares:
-      duplicate: "That good, eh?  You’ve already reshared that post!"
       successful: "The post was successfully reshared!"
       post: "Reshare <%= name %>’s post?"
     aspect_navigation:
@@ -248,6 +247,9 @@ en:
     notifications:
       mark_read: "Mark read"
       mark_unread: "Mark unread"
+      new_notifications:
+        one: "You have <%= count %> unread notification"
+        other: "You have <%= count %> unread notifications"
 
     stream:
       hide: "Hide"

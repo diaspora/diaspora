@@ -12,7 +12,7 @@
 // initialize jsxc xmpp client
 $(document).ready(function() {
   if (app.currentUser.authenticated()) {
-    $.post('api/v1/tokens', null, function(data) {
+    $.post("/user/auth_token", null, function(data) {
       if (jsxc && data['token']) {
         var jid = app.currentUser.get('diaspora_id');
         jsxc.init({

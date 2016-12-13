@@ -1,4 +1,3 @@
-require 'spec_helper'
 describe Workers::GatherOpenGraphData do
   before do
     @ogsite_title = 'Homepage'

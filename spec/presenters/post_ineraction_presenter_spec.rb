@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe PostInteractionPresenter do
   let(:status_message_without_participation) {
     FactoryGirl.create(:status_message_without_participation)

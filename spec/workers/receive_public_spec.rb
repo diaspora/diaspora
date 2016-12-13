@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Workers::ReceivePublic do
   let(:data) { "<xml></xml>" }
 

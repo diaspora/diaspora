@@ -32,7 +32,6 @@ he:
     confirm_dialog: "האם אתם בטוחים?"
     delete: "מחיקה"
     edit: "עריכה"
-    failed_to_like: "הסימון ב'אהבתי' נכשל!"
     failed_to_post_message: "פרסום ההודעה נכשל!"
     failed_to_remove: "הנסיון להסיר את הערך נכשל!"
     getting_started:
@@ -88,7 +87,6 @@ he:
       public: "ציבורי - הודעתך תהיה גלויה לכולם וניתן יהיה למצוא אותה במנועי חיפוש"
       question: "שאלה"
     reshares:
-      duplicate: "כבר שיתפת מחדש את ההודעה הזו."
       post: "האם לשתף מחדש את ההודעה של <%= name %>?"
       successful: "ההודעה שותפה מחדש בהצלחה!"
     show_more: "הצגת עוד"

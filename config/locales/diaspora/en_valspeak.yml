@@ -224,7 +224,6 @@ en_valspeak:
   conversations:
     create:
       fail: "bad txt"
-      no_contact: "Umm HELLO, u need 2 like, add them first! Duh!"
       sent: "txt sent"
     destroy:
       delete_success: "convo successfully deleted YAAAAY!((:"
@@ -464,9 +463,6 @@ en_valspeak:
     tutorials: "tutorialz!!"
     wiki: "ZOMG D*'s OWN WIKIPEDIA!! :DDD"
   invitations:
-    a_facebook_user: "a like... fb usah"
-    check_token:
-      not_found: "invite token was like... not found :\\"
     create:
       empty: "Plz enter at least 1 email addy, thx<3"
       no_more: "u have like... no moar invites."
@@ -703,14 +699,8 @@ en_valspeak:
       type_error: "So like... ur pic wasnt added.  r u like... sure u actually like... added it?"
     destroy:
       notice: "Pic deleted :o"
-    new_photo:
-      empty: "{file} is like... empty, plz pick the filez again witout that 1. kthx"
-      invalid_ext: "{file} is like... not able2 b uploaded cuz like... its not the right kinda file.. only like... these {extensions} r allowed... sry bout tht :\\"
-      size_error: "OMG {file} is 2 big!! the biggest i can take is like... {sizeLimit}.(;"
     new_profile_photo:
       upload: "Upload a new selfie!!! OMG!!"
-    show:
-      show_original_post: "Show da original postie"
   posts:
     presenter:
       title: "A postie from %{name}"

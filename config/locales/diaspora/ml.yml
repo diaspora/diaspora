@@ -189,7 +189,6 @@ ml:
   conversations:
     create:
       fail: "സാധുവല്ലാത്ത സന്ദേശം"
-      no_contact: "നമസ്കാരം, താങ്കൾ ആദ്യം ഒരു ബന്ധം ചേർക്കണം!"
       sent: "സന്ദേശം അയച്ചു."
     index:
       inbox: "ഇന്‍ബോക്സ്"
@@ -348,9 +347,6 @@ ml:
     tutorials: "പഠനോപകരണങ്ങള്‍"
     wiki: "വിക്കി"
   invitations:
-    a_facebook_user: "ഒരു ഫേസ്ബുക്ക് ഉപയോക്താവ്"
-    check_token:
-      not_found: "ക്ഷണത്തിന്റെ ടോക്കണ്‍ കാണുന്നില്ല"
     create:
       empty: "ദയവായി കുറഞ്ഞത് ഒരു ഈമെയിൽ വിലാസമെങ്കിലും നൽകുക"
       no_more: "താങ്കള്‍ക്ക് ഇനി ക്ഷണങ്ങളൊന്നും ബാക്കിയില്ല."
@@ -530,14 +526,8 @@ ml:
       type_error: "ചിത്രം അപ്‌ലോഡ് പരാജയപ്പെട്ടു..  താങ്കള്‍ ഒരു ചിത്രം അപ്‌ലോഡ് ചെയ്യാന്‍ തിരഞ്ഞെടുത്തിരുന്നോ?"
     destroy:
       notice: "ചിത്രം നീക്കം ചെയ്തു."
-    new_photo:
-      empty: "{file} ശൂന്യമാണ്, അതല്ലാത്ത ഫയലുകള്‍ ദയവായി വീണ്ടും തെരഞ്ഞെടുക്കുക."
-      invalid_ext: "{file} ന് തെറ്റായ extension ആണ്.  {extensions} മാത്രം അനുവദിച്ചിരിക്കുന്നു."
-      size_error: "{file} വളരെ വലുതാണ്, കൂടിയ ഫയല്‍ വലിപ്പം {sizeLimit} ആകുന്നു."
     new_profile_photo:
       upload: "പുതിയ പ്രൊഫൈല്‍ ചിത്രം ചേര്‍ക്കുക!"
-    show:
-      show_original_post: "Show original post"
   posts:
     presenter:
       title: "%{name}ല്‍ നിന്നുള്ള കുറിപ്പ്"

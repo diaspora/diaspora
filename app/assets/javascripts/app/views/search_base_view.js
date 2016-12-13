@@ -28,9 +28,13 @@ app.views.SearchBase = app.views.Base.extend({
     };
 
     // Allow bloodhound to look for remote results if there is a route given in the options
-    if(options.remoteRoute) {
+    if (options.remoteRoute && options.remoteRoute.url) {
+      var extraParameters = "";
+      if (options.remoteRoute.extraParameters) {
+        extraParameters += "&" + options.remoteRoute.extraParameters;
+      }
       bloodhoundOptions.remote = {
-        url: options.remoteRoute + ".json?q=%QUERY",
+        url: options.remoteRoute.url + ".json?q=%QUERY" + extraParameters,
         wildcard: "%QUERY",
         transform: this.transformBloodhoundResponse.bind(this)
       };

@@ -173,16 +173,12 @@ ro:
       be_who_you_want_to_be: "Fii cine vrei să fii"
       own_your_data: "Fii tu însăşi proprietarul datelor tale"
     podmin:
-      admin_panel: "panoul de administrator"
       contact_irc: "contactează-ne pe IRC"
       contribute: "Contribuie"
       create_an_account: "Crează-ţi contul."
       headline: "Bine ai venit, prietene."
       make_yourself_an_admin: "Devino administrator"
   invitations:
-    a_facebook_user: "Un utilizator Facebook"
-    check_token:
-      not_found: "Invitaţia nu a fost găsită"
     create:
       no_more: "Nu mai dispui de invitaţii."
       rejected: "Urmatoarele adrese de email au prezentat probleme:"
@@ -346,14 +342,8 @@ ro:
       type_error: "Imaginea nu s-a incarcat cu succes. Sunteti sigur ca era o imagine?"
     destroy:
       notice: "Fotografie eliminată."
-    new_photo:
-      empty: "{file} este gol, incearcă să selectezi fişiere din nou fără acest fişier."
-      invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
-      size_error: "{file} este prea mare, mărimea maximă a unui fişier este {sizeLimit}."
     new_profile_photo:
       upload: "Încarcă o fotografie de profil nouă!"
-    show:
-      show_original_post: "Afişează publicaţia originală"
   posts:
     presenter:
       title: "Un articol de la %{name}"

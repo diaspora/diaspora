@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Api::OpenidConnect::IdTokensController, type: :controller do
   describe "#jwks" do
     before do

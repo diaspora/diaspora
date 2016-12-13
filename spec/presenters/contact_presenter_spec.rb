@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe ContactPresenter do
   before do
     @presenter = ContactPresenter.new(alice.contact_for(bob.person), alice)

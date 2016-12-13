@@ -38,6 +38,7 @@ Diaspora::Application.routes.draw do
     resources :poll_participations, only: :create
     resources :likes, only: %i(create destroy index)
     resources :comments, only: %i(new create destroy index)
+    resources :reshares, only: :index
   end
 
   get 'p/:id' => 'posts#show', :as => 'short_post'
@@ -101,11 +102,11 @@ Diaspora::Application.routes.draw do
 
   resource :user, only: %i(edit destroy), shallow: true do
     put :edit, action: :update
-    get :getting_started_completed
     post :export_profile
     get :download_profile
     post :export_photos
     get :download_photos
+    post :auth_token
   end
 
   controller :users do
@@ -181,12 +182,6 @@ Diaspora::Application.routes.draw do
     scope "/auth", :as => "auth" do
       get ':provider/callback' => :create
       get :failure
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-      resources :tokens, :only => [:create, :destroy]
     end
   end
 

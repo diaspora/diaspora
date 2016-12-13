@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Configuration::Methods do
   before(:all) do
     @settings = Configurate::Settings.create do
