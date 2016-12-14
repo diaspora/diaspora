@@ -84,7 +84,8 @@ app.collections.Notifications = Backbone.Collection.extend({
       /* eslint-disable new-cap */
       var model = new this.model(item);
       /* eslint-enable new-cap */
-      model.on("change:unread", this.onChangedUnreadStatus.bind(this));
+      model.on("userChangedUnreadStatus", this.onChangedUnreadStatus.bind(this));
+      model.on("change:unread", function() { this.trigger("update"); }.bind(this));
       return model;
     }.bind(this));
   },

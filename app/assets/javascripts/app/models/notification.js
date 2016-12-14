@@ -40,6 +40,10 @@ app.models.Notification = Backbone.Model.extend({
    * }
    */
   parse: function(response) {
+    if (response.id) {
+      // already correct format
+      return response;
+    }
     var result = {type: response.type};
     result = $.extend(result, response[result.type]);
     return result;
@@ -62,7 +66,10 @@ app.models.Notification = Backbone.Model.extend({
         /* eslint-enable camelcase */
         type: "PUT",
         context: this,
-        success: function() { this.set("unread", state); }
+        success: function() {
+          this.set("unread", state);
+          this.trigger("userChangedUnreadStatus", this);
+        }
       });
     }
   }

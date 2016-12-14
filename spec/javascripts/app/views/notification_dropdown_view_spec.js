@@ -15,9 +15,11 @@ describe("app.views.NotificationDropdown", function() {
       this.view.collection.off("pushFront");
       this.view.collection.off("pushBack");
       this.view.collection.off("finishedLoading");
+      this.view.collection.off("change:note_html");
       spyOn(this.view, "onPushFront");
       spyOn(this.view, "onPushBack");
       spyOn(this.view, "finishLoading");
+      spyOn(this.view, "onNotificationChange");
     });
 
     it("binds collection events", function() {
@@ -26,10 +28,12 @@ describe("app.views.NotificationDropdown", function() {
       this.collection.trigger("pushFront");
       this.collection.trigger("pushBack");
       this.collection.trigger("finishedLoading");
+      this.collection.trigger("change:note_html");
 
       expect(this.view.onPushFront).toHaveBeenCalled();
       expect(this.view.onPushBack).toHaveBeenCalled();
       expect(this.view.finishLoading).toHaveBeenCalled();
+      expect(this.view.onNotificationChange).toHaveBeenCalled();
     });
   });
 
