@@ -205,7 +205,7 @@ describe("app.collections.Notifications", function() {
     });
 
     it("correctly binds the change:unread event", function() {
-      spyOn(app.collections.Notifications.prototype, "onChangedUnreadStatus");
+      spyOn(this.target, "trigger");
 
       /* eslint-disable camelcase */
       var parsed = this.target.parse({
@@ -216,8 +216,24 @@ describe("app.collections.Notifications", function() {
       /* eslint-enable camelcase */
 
       parsed[0].set("unread", true);
+      expect(this.target.trigger).toHaveBeenCalledWith("update");
+    });
 
-      expect(app.collections.Notifications.prototype.onChangedUnreadStatus).toHaveBeenCalled();
+    it("correctly binds the userChangedUnreadStatus event", function() {
+      spyOn(this.target, "onChangedUnreadStatus");
+
+      /* eslint-disable camelcase */
+      var parsed = this.target.parse({
+        unread_count: 15,
+        unread_count_by_type: {reshared: 6},
+        notification_list: [{"reshared": {id: 1}, "type": "reshared"}]
+      });
+      /* eslint-enable camelcase */
+
+      parsed[0].set("unread", true);
+      parsed[0].trigger("userChangedUnreadStatus", parsed[0]);
+
+      expect(this.target.onChangedUnreadStatus).toHaveBeenCalled();
     });
   });
 

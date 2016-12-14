@@ -18,8 +18,8 @@ describe("app.models.Notification", function() {
   });
 
   describe("parse", function() {
-    it("correctly parses the object", function() {
-      var parsed = this.model.parse({
+    beforeEach(function() {
+      this.response = {
         "reshared": {
           "id": 45,
           "target_type": "Post",
@@ -31,9 +31,8 @@ describe("app.models.Notification", function() {
           "note_html": "<html/>"
         },
         "type": "reshared"
-      });
-
-      expect(parsed).toEqual({
+      };
+      this.parsedResponse = {
         "type": "reshared",
         "id": 45,
         "target_type": "Post",
@@ -43,7 +42,17 @@ describe("app.models.Notification", function() {
         "created_at": "2015-10-27T19:56:30.000Z",
         "updated_at": "2015-10-27T19:56:30.000Z",
         "note_html": "<html/>"
-      });
+      };
+    });
+
+    it("correctly parses the object", function() {
+      var parsed = this.model.parse(this.response);
+      expect(parsed).toEqual(this.parsedResponse);
+    });
+
+    it("correctly parses the object twice", function() {
+      var parsed = this.model.parse(this.parsedResponse);
+      expect(parsed).toEqual(this.parsedResponse);
     });
   });
 
@@ -67,6 +76,7 @@ describe("app.models.Notification", function() {
     beforeEach(function() {
       this.target = new app.models.Notification({"reshared": {id: 16}, "type": "reshared"});
       spyOn(app.models.Notification.prototype, "set").and.callThrough();
+      spyOn(app.models.Notification.prototype, "trigger");
     });
 
     it("calls calls ajax with correct parameters and sets 'unread' attribute", function() {
@@ -80,6 +90,7 @@ describe("app.models.Notification", function() {
       /* eslint-enable camelcase */
       expect(call.method).toEqual("PUT");
       expect(app.models.Notification.prototype.set).toHaveBeenCalledWith("unread", true);
+      expect(app.models.Notification.prototype.trigger).toHaveBeenCalledWith("userChangedUnreadStatus", this.target);
     });
   });
 });
