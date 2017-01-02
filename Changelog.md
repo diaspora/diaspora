@@ -3,6 +3,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix background color of year on notifications page with dark theme [#7263](https://github.com/diaspora/diaspora/pull/7263)
 
 ## Features
 
