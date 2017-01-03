@@ -1135,6 +1135,7 @@ en:
       title: "#Followed tags"
       add_a_tag: "Add a tag"
       follow: "Follow"
+      all: "All tags"
 
     tags:
       title: "Posts tagged: %{tags}"
@@ -1147,6 +1148,7 @@ en:
 
     aspects:
       title: "My aspects"
+      all: "All aspects"
 
     activity:
       title: "My activity"

@@ -15,12 +15,14 @@
         = link_to t("streams.aspects.title"), "#"
       %li.no-border.hide
         %ul
+          %li= link_to t("streams.aspects.all"), aspects_stream_path
           - current_user.aspects.each do |aspect|
             %li= link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
       %li#followed_tags
         = link_to t("streams.followed_tag.title"), "#"
       %li.no-border.hide
         %ul
+          %li= link_to t("streams.followed_tag.all"), followed_tags_stream_path
           - current_user.followed_tags.each do |tag|
             %li= tag_link(tag)
           - if current_user.followed_tags.length > 0
