@@ -32,6 +32,10 @@ Then /^I should not be able to submit the publisher$/ do
   expect(publisher_submittable?).to be false
 end
 
+Given /^I have a limited post with text "([^\"]*)" in the aspect "([^"]*)"$/ do |text, aspect_name|
+  @me.post :status_message, text: text, to: @me.aspects.where(name: aspect_name).first.id
+end
+
 Given /^"([^"]*)" has a public post with text "([^"]*)"$/ do |email, text|
   user = User.find_by_email(email)
   user.post(:status_message, :text => text, :public => true, :to => user.aspect_ids)
