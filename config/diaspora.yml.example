@@ -249,7 +249,7 @@ configuration: ## Section
         ## Configure the protocol used to access the BOSH endpoint
         #proto: http
 
-        ## Configure the address that vines should listen on.
+        ## Configure the address that prosody should listen on.
         #address: '0.0.0.0'
 
         ## Configure the BOSH port.
