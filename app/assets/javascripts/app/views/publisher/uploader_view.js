@@ -37,6 +37,7 @@ app.views.PublisherUploader = Backbone.View.extend({
     this.publisher.wrapperEl.before(this.info);
 
     this.publisher.photozoneEl.on("click", ".x", _.bind(this._removePhoto, this));
+    this.publisher.$("#file-upload").click(function() { this.$el.children("input[type='file']").click(); }.bind(this));
   },
 
   progressHandler: function(id, fileName, loaded, total) {
