@@ -274,11 +274,6 @@
     padding: 4px 2px;
     text-decoration: none;
     i { color: $text-grey; }
-
-    [type='file'],
-    [type='file']::-webkit-file-upload-button {
-      cursor: pointer;
-    }
   }
 
   .btn.btn-link:hover {
