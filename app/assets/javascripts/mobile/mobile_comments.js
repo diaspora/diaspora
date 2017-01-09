@@ -18,8 +18,19 @@
 
       this.stream().on("tap click", "a.comment-action", function(evt) {
         evt.preventDefault();
-        self.showCommentBox($(this));
         var bottomBar = $(this).closest(".bottom-bar").first();
+        var toggleReactionsLink = bottomBar.find("a.show-comments").first();
+
+        if (toggleReactionsLink.length === 0) {
+          self.showCommentBox($(this));
+        } else {
+          if (toggleReactionsLink.hasClass("loading")) {
+            return;
+          }
+          if (!toggleReactionsLink.hasClass("active")) {
+            self.showComments(toggleReactionsLink);
+          }
+        }
         var commentContainer = bottomBar.find(".comment-container").first();
         self.scrollToOffset(commentContainer);
       });
