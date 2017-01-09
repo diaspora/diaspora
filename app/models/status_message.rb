@@ -16,8 +16,8 @@ class StatusMessage < Post
   validate :presence_of_content, on: :create
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
+  has_one :location, as: :localizable
 
-  has_one :location
   has_one :poll, autosave: true
 
   attr_accessor :oembed_url

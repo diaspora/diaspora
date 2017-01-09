@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107100840) do
+ActiveRecord::Schema.define(version: 20170110204603) do
 
   create_table "account_deletions", force: :cascade do |t|
     t.string   "diaspora_handle", limit: 255
@@ -195,13 +195,16 @@ ActiveRecord::Schema.define(version: 20161107100840) do
   add_index "likes", ["target_id"], name: "index_likes_on_post_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
-    t.string   "address",           limit: 255
-    t.string   "lat",               limit: 255
-    t.string   "lng",               limit: 255
-    t.integer  "status_message_id", limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "address",          limit: 255
+    t.string   "lat",              limit: 255
+    t.string   "lng",              limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "localizable_id",   limit: 4,   null: false
+    t.string   "localizable_type", limit: 60,  null: false
   end
+
+  add_index "locations", ["localizable_id", "localizable_type"], name: "index_locations_on_localizable_id_and_localizable_type", unique: true, using: :btree
 
   create_table "mentions", force: :cascade do |t|
     t.integer "mentions_container_id",   limit: 4,   null: false

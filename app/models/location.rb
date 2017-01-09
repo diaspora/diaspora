@@ -6,7 +6,7 @@ class Location < ActiveRecord::Base
 
   include Diaspora::Federated::Base
 
-  belongs_to :status_message
+  belongs_to :localizable, polymorphic: true
 
   def split_coords
     self.lat, self.lng = coordinates.split(',') if coordinates.present?

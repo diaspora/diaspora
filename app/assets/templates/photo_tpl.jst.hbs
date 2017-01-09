@@ -32,6 +32,11 @@
       {{else}}
           <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
       {{/if}}
+
+       {{#if location}}
+       <i class="entypo-location"></i><div class="status-message-location" /> <!-- TODO: CSV instead of hard coded style -->
+       {{/if}}
     </div>
   </div>
+
 </div>
