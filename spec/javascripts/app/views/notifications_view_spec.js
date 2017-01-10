@@ -168,8 +168,15 @@ describe("app.views.Notifications", function() {
     describe("markAllRead", function() {
       it("calls collection#setAllRead", function() {
         spyOn(this.collection, "setAllRead");
-        this.view.markAllRead();
+        this.view.markAllRead($.Event());
         expect(this.collection.setAllRead).toHaveBeenCalled();
+      });
+
+      it("calls preventDefault", function() {
+        var evt = $.Event();
+        spyOn(evt, "preventDefault");
+        this.view.markAllRead(evt);
+        expect(evt.preventDefault).toHaveBeenCalled();
       });
     });
 

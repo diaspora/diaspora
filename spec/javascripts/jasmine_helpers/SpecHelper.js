@@ -78,8 +78,11 @@ afterEach(function() {
   jasmine.clock().uninstall();
   jasmine.Ajax.uninstall();
 
+  $(".modal").removeClass("fade").modal("hide");
   $("#jasmine_content").empty();
   expect(spec.loadFixtureCount).toBeLessThan(2);
+  expect($(".modal-backdrop").length).toBe(0);
+  $(".modal-backdrop").remove();
   spec.loadFixtureCount = 0;
 });
 

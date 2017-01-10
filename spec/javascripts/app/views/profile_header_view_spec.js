@@ -61,7 +61,7 @@ describe("app.views.ProfileHeader", function() {
 
   describe("showMessageModal", function() {
     beforeEach(function() {
-      spec.content().append("<div id='conversationModal'/>");
+      spec.content().append("<div id='conversationModal' class='modal fade'><div class='modal-body'></div></div>");
     });
 
     it("calls app.helpers.showModal", function() {
@@ -78,8 +78,8 @@ describe("app.views.ProfileHeader", function() {
       ];
 
       spyOn(app.views.ConversationsForm.prototype, "initialize");
+      spyOn($.fn, "load").and.callFake(function(url, callback) { callback(); });
       this.view.showMessageModal();
-      $("#conversationModal").trigger("modal:loaded");
       expect(app.views.ConversationsForm.prototype.initialize)
         .toHaveBeenCalledWith({prefill: gon.conversationPrefill});
     });

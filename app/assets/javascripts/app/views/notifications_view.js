@@ -28,7 +28,8 @@ app.views.Notifications = Backbone.View.extend({
     }
   },
 
-  markAllRead: function() {
+  markAllRead: function(evt) {
+    evt.preventDefault();
     this.collection.setAllRead();
   },
 
