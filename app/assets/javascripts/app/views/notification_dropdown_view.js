@@ -77,22 +77,26 @@ app.views.NotificationDropdown = app.views.Base.extend({
   },
 
   onPushBack: function(notification) {
-    var node = this.dropdownNotifications.append(notification.get("note_html"));
-    $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
-    $(node).find(this.avatars.selector).error(this.avatars.fallback);
+    var node = $(notification.get("note_html"));
+    this.dropdownNotifications.append(node);
+    this.afterNotificationChanges(node);
   },
 
   onPushFront: function(notification) {
-    var node = this.dropdownNotifications.prepend(notification.get("note_html"));
-    $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
-    $(node).find(this.avatars.selector).error(this.avatars.fallback);
+    var node = $(notification.get("note_html"));
+    this.dropdownNotifications.prepend(node);
+    this.afterNotificationChanges(node);
   },
 
   onNotificationChange: function(notification) {
-    var node = this.dropdownNotifications.find("[data-guid=" + notification.get("id") + "]");
-    $(node).replaceWith(notification.get("note_html"));
-    $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
-    $(node).find(this.avatars.selector).error(this.avatars.fallback);
+    var node = $(notification.get("note_html"));
+    this.dropdownNotifications.find("[data-guid=" + notification.get("id") + "]").replaceWith(node);
+    this.afterNotificationChanges(node);
+  },
+
+  afterNotificationChanges: function(node) {
+    node.find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
+    node.find(this.avatars.selector).error(this.avatars.fallback);
   },
 
   finishLoading: function() {
