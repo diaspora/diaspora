@@ -17,7 +17,10 @@
           = person_link(photo.author)
           .info
             %span
-              = link_to(post_path(photo)) do
+              - if photo.status_message
+                = link_to(post_path(photo.status_message)) do
+                  = timeago(photo.created_at)
+              - else
                 = timeago(photo.created_at)
 
 -if additional_photos && additional_photos.length > 1
