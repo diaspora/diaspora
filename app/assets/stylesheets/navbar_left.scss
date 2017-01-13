@@ -120,40 +120,29 @@
   }
 
   .section {
-    margin-top: 10px;
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 10px;
+    }
 
     &:last-child {
       margin-bottom: 10px;
     }
-
-    &:not(.collapsed) .entypo-triangle-right,
-    &.collapsed .entypo-triangle-down,
-    &.collapsed .content {
-      display: none;
-    }
-
-    &.collapsed .title h5 {
-      font-weight: normal;
-    }
   }
 
-  .title {
-    cursor: pointer;
-    padding-bottom: 5px;
-
-    h5 {
-      color: $text-dark-grey;
-      font-size: $font-size-base;
-      font-weight: bold;
-      margin: 0;
-    }
+  .title h5 {
+    color: $text-dark-grey;
+    font-size: $font-size-base;
+    font-weight: bold;
+    margin: 0;
   }
 
   .content {
     color: $text-grey;
     font-size: $font-size-small;
     line-height: 18px;
-    padding: 10px 0;
+    padding: 5px 0;
 
     p,
     ul {

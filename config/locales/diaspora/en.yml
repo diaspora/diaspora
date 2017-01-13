@@ -199,7 +199,7 @@ en:
 
       new_here:
         title: "Welcome new users"
-        follow: "Follow %{link} and welcome new users to diaspora*!"
+        follow: "Follow %{link} and welcome new users to diaspora*! Be excellent to each other!"
         learn_more: "Learn more"
 
       help:

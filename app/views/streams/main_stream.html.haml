@@ -40,20 +40,16 @@
 
       .sidebar.info-bar.hidden-xs
         - if AppConfig.settings.invitations.open?
-          .section.collapsed
+          .section
             .title
               %h5.title-header
-                .entypo-triangle-right
-                .entypo-triangle-down
                 = t("shared.invitations.invite_your_friends")
             .content
               = render "shared/invitations"
 
-        .section.collapsed
+        .section
           .title
             %h5.title-header
-              .entypo-triangle-right
-              .entypo-triangle-down
               = t("aspects.index.new_here.title")
           .content
             != t("aspects.index.new_here.follow",
@@ -63,11 +59,9 @@
             = link_to(t("aspects.index.new_here.learn_more"),
               "http://wiki.diasporafoundation.org/Welcoming_Committee")
 
-        .section.collapsed
+        .section
           .title
             %h5.title-header
-              .entypo-triangle-right
-              .entypo-triangle-down
               = t("aspects.index.help.need_help")
           .content
             %p
@@ -97,11 +91,9 @@
                 target: "_blank")
 
         - unless AppConfig.configured_services.blank? || all_services_connected?
-          .section.collapsed
+          .section
             .title
               %h5.title-header
-                .entypo-triangle-right
-                .entypo-triangle-down
                 = t("aspects.index.services.heading")
             .content
               %div
@@ -115,21 +107,17 @@
                         class: "social-media-logos-#{service.to_s.downcase}-24x24",
                         title: service.to_s.titleize), "/auth/#{service}")
 
-        .section.collapsed
+        .section
           .title
             %h5.title-header
-              .entypo-triangle-right
-              .entypo-triangle-down
               = t("bookmarklet.heading")
           .content
             != t("bookmarklet.explanation", link: link_to(t("bookmarklet.post_something"), bookmarklet_code))
 
         - if AppConfig.settings.paypal_donations.enable? || AppConfig.bitcoin_donation_address
-          .section.collapsed
+          .section
             .title
               %h5.title-header
-                .entypo-triangle-right
-                .entypo-triangle-down
                 = t("aspects.index.donate")
             .content
               %p
@@ -137,11 +125,9 @@
               = render "shared/donatepod"
 
         - if AppConfig.admins.podmin_email.present?
-          .section.collapsed
+          .section
             .title
               %h5.title-header
-                .entypo-triangle-right
-                .entypo-triangle-down
                 = t("aspects.index.help.any_problem")
             .content
               %p
