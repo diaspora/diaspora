@@ -86,6 +86,25 @@ describe("app.helpers.textFormatter", function(){
       expect(wrapper.find("a[href='/people/" + this.alice.guid + "']")).not.toHaveClass('hovercardable');
       expect(wrapper.find("a[href='/people/" + this.bob.guid + "']")).toHaveClass('hovercardable');
     });
+
+    it("supports mentions without a given name", function() {
+      this.statusMessage.set({text: "hey there @{alice@example.com} and @{bob@example.com}"});
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
+      var wrapper = $("<div>").html(formattedText);
+
+      _.each([this.alice, this.bob], function(person) {
+        expect(wrapper.find("a[href='/people/" + person.guid + "']").text()).toContain(person.name);
+      });
+    });
+
+    it("it uses the name given in the mention if it exists", function() {
+      this.statusMessage.set({text: "hey there @{Alice Awesome; alice@example.com} and @{bob@example.com}"});
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
+      var wrapper = $("<div>").html(formattedText);
+
+      expect(wrapper.find("a[href='/people/" + this.alice.guid + "']").text()).toContain("Alice Awesome");
+      expect(wrapper.find("a[href='/people/" + this.bob.guid + "']").text()).toContain(this.bob.name);
+    });
   });
 
   context("highlight", function(){
