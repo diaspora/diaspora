@@ -15,9 +15,11 @@ describe("app.views.NotificationDropdown", function() {
       this.view.collection.off("pushFront");
       this.view.collection.off("pushBack");
       this.view.collection.off("finishedLoading");
+      this.view.collection.off("change:note_html");
       spyOn(this.view, "onPushFront");
       spyOn(this.view, "onPushBack");
       spyOn(this.view, "finishLoading");
+      spyOn(this.view, "onNotificationChange");
     });
 
     it("binds collection events", function() {
@@ -26,10 +28,12 @@ describe("app.views.NotificationDropdown", function() {
       this.collection.trigger("pushFront");
       this.collection.trigger("pushBack");
       this.collection.trigger("finishedLoading");
+      this.collection.trigger("change:note_html");
 
       expect(this.view.onPushFront).toHaveBeenCalled();
       expect(this.view.onPushBack).toHaveBeenCalled();
       expect(this.view.finishLoading).toHaveBeenCalled();
+      expect(this.view.onNotificationChange).toHaveBeenCalled();
     });
   });
 
@@ -104,6 +108,79 @@ describe("app.views.NotificationDropdown", function() {
       spyOn($.fn, "perfectScrollbar");
       this.view.destroyScrollbar();
       expect($.fn.perfectScrollbar).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("notification changes", function() {
+    beforeEach(function() {
+      this.collection.fetch();
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200,
+        responseText: spec.readFixture("notifications_collection")
+      });
+      this.notification = factory.notification({
+        "id": 1337,
+        "note_html": "<div class='stream-element' data-guid='1337'>This is a notification</div>"
+      });
+      expect(this.collection.length).toBeGreaterThan(0);
+      expect(this.view.$(".notifications .stream-element").length).toBe(this.collection.length);
+    });
+
+    describe("onPushBack", function() {
+      it("adds the notification at the end of the rendered list", function() {
+        this.view.onPushBack(this.notification);
+        expect(this.view.$(".notifications .stream-element").length).toBe(this.collection.length + 1);
+        expect(this.view.$(".notifications .stream-element").last().text()).toBe("This is a notification");
+      });
+
+      it("calls afterNotificationChanges", function() {
+        spyOn(this.view, "afterNotificationChanges");
+        this.view.onPushBack(this.notification);
+        expect(this.view.afterNotificationChanges).toHaveBeenCalled();
+        var node = this.view.afterNotificationChanges.calls.mostRecent().args[0];
+        expect(node.text()).toBe("This is a notification");
+      });
+    });
+
+    describe("onPushFront", function() {
+      it("adds the notification to the beginning of the rendered list", function() {
+        this.view.onPushFront(this.notification);
+        expect(this.view.$(".notifications .stream-element").length).toBe(this.collection.length + 1);
+        expect(this.view.$(".notifications .stream-element").first().text()).toBe("This is a notification");
+      });
+
+      it("calls afterNotificationChanges", function() {
+        spyOn(this.view, "afterNotificationChanges");
+        this.view.onPushFront(this.notification);
+        expect(this.view.afterNotificationChanges).toHaveBeenCalled();
+        var node = this.view.afterNotificationChanges.calls.mostRecent().args[0];
+        expect(node.text()).toBe("This is a notification");
+      });
+    });
+
+    describe("onNotificationChange", function() {
+      beforeEach(function() {
+        // create a notification which replaces the first in the collection
+        var firstNoteId = this.collection.models[0].attributes.id;
+        this.notification = factory.notification({
+          "id": firstNoteId,
+          "note_html": "<div class='stream-element' data-guid='" + firstNoteId + "'>This is a notification</div>"
+        });
+      });
+
+      it("replaces the notification in the rendered list", function() {
+        this.view.onNotificationChange(this.notification);
+        expect(this.view.$(".notifications .stream-element").length).toBe(this.collection.length);
+        expect(this.view.$(".notifications .stream-element").first().text()).toBe("This is a notification");
+      });
+
+      it("calls afterNotificationChanges", function() {
+        spyOn(this.view, "afterNotificationChanges");
+        this.view.onNotificationChange(this.notification);
+        expect(this.view.afterNotificationChanges).toHaveBeenCalled();
+        var node = this.view.afterNotificationChanges.calls.mostRecent().args[0];
+        expect(node.text()).toBe("This is a notification");
+      });
     });
   });
 });

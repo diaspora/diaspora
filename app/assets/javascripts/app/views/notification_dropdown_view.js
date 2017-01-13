@@ -21,6 +21,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
     this.collection.on("pushFront", this.onPushFront.bind(this));
     this.collection.on("pushBack", this.onPushBack.bind(this));
     this.collection.on("finishedLoading", this.finishLoading.bind(this));
+    this.collection.on("change:note_html", this.onNotificationChange.bind(this));
   },
 
   toggleDropdown: function(evt){
@@ -76,15 +77,26 @@ app.views.NotificationDropdown = app.views.Base.extend({
   },
 
   onPushBack: function(notification) {
-    var node = this.dropdownNotifications.append(notification.get("note_html"));
-    $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
-    $(node).find(this.avatars.selector).error(this.avatars.fallback);
+    var node = $(notification.get("note_html"));
+    this.dropdownNotifications.append(node);
+    this.afterNotificationChanges(node);
   },
 
   onPushFront: function(notification) {
-    var node = this.dropdownNotifications.prepend(notification.get("note_html"));
-    $(node).find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
-    $(node).find(this.avatars.selector).error(this.avatars.fallback);
+    var node = $(notification.get("note_html"));
+    this.dropdownNotifications.prepend(node);
+    this.afterNotificationChanges(node);
+  },
+
+  onNotificationChange: function(notification) {
+    var node = $(notification.get("note_html"));
+    this.dropdownNotifications.find("[data-guid=" + notification.get("id") + "]").replaceWith(node);
+    this.afterNotificationChanges(node);
+  },
+
+  afterNotificationChanges: function(node) {
+    node.find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
+    node.find(this.avatars.selector).error(this.avatars.fallback);
   },
 
   finishLoading: function() {

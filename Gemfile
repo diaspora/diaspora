@@ -85,7 +85,6 @@ gem "entypo-rails", "3.0.0.pre.rc2"
 
 # JavaScript
 
-gem "backbone-on-rails", "1.2.0.0"
 gem "handlebars_assets", "0.23.1"
 gem "jquery-rails",      "4.2.1"
 gem "jquery-ui-rails",   "5.0.5"
@@ -103,6 +102,8 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
   gem "rails-assets-highlightjs",                         "9.7.0"
+
+  gem "rails-assets-backbone",                            "1.3.3"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
   gem "rails-assets-corejs-typeahead",                    "1.0.1"
   gem "rails-assets-fineuploader-dist",                   "5.11.0"
