@@ -54,14 +54,6 @@ class Comment < ActiveRecord::Base
      self[:text] = text.to_s.strip #to_s if for nil, for whatever reason
   end
 
-  def people_allowed_to_be_mentioned
-    if parent.public?
-      :all
-    else
-      [*parent.comments.pluck(:author_id), *parent.likes.pluck(:author_id), parent.author_id].uniq
-    end
-  end
-
   def add_mention_subscribers?
     super && parent.author.local?
   end

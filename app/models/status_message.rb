@@ -95,6 +95,8 @@ class StatusMessage < Post
     photos.each {|photo| photo.receive(recipient_user_ids) }
   end
 
+  # Note: the next two methods can be safely removed once changes from #6818 are deployed on every pod
+  # see StatusMessageCreationService#dispatch
   # Only includes those people, to whom we're going to send a federation entity
   # (and doesn't define exhaustive list of people who can receive it)
   def people_allowed_to_be_mentioned

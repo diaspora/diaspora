@@ -94,6 +94,89 @@ describe Person, :type => :model do
         expect(Person.who_have_reshared_a_users_posts(alice)).to eq([reshare.author])
       end
     end
+
+    describe ".find_by_substring" do
+      it "returns \"none\" when the substring is less than 1 non-space character" do
+        expect(Person.find_by_substring("R")).to eq(Person.none)
+        expect(Person.find_by_substring("R  ")).to eq(Person.none)
+        expect(Person.find_by_substring("")).to eq(Person.none)
+        expect(Person.find_by_substring("  ")).to eq(Person.none)
+      end
+
+      it "finds a person with a profile name containing the substring" do
+        substring = r_str
+        person = FactoryGirl.create(:person, first_name: "A#{substring}A")
+        expect(Person.find_by_substring(substring)).to include(person)
+      end
+
+      it "finds a person with a diaspora ID starting with the substring" do
+        substring = r_str
+        person = FactoryGirl.create(:person, diaspora_handle: "#{substring}A@pod.tld")
+        expect(Person.find_by_substring(substring)).to include(person)
+      end
+    end
+
+    describe ".allowed_to_be_mentioned_in_a_comment_to" do
+      let(:status_bob) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
+
+      it "returns the author and people who have commented or liked the private post" do
+        kate = FactoryGirl.create(:user_with_aspect, friends: [bob])
+        olga = FactoryGirl.create(:user_with_aspect, friends: [bob])
+        alice.comment!(status_bob, "why so formal?")
+        eve.comment!(status_bob, "comment text")
+        kate.like!(status_bob)
+        olga.participate!(status_bob)
+        expect(
+          Person.allowed_to_be_mentioned_in_a_comment_to(status_bob).ids
+        ).to match_array([alice, bob, eve, kate].map(&:person_id))
+      end
+
+      it "returns all for public posts" do
+        status_bob.update(public: true) # set parent public
+        expect(Person.allowed_to_be_mentioned_in_a_comment_to(status_bob)).to eq(Person.all)
+      end
+    end
+
+    describe ".sort_for_mention_suggestion" do
+      let(:status_message) { FactoryGirl.create(:status_message) }
+
+      it "returns people sorted in the order: post author > commenters > likers > contacts" do
+        like = FactoryGirl.create(:like, target: status_message)
+        comment = FactoryGirl.create(:comment, post: status_message)
+        current_user = FactoryGirl.create(:user_with_aspect, friends: [alice])
+        result = Person.select(:id, :guid).sort_for_mention_suggestion(status_message, current_user)
+        expect(result[0]).to eq(status_message.author)
+        expect(result[1]).to eq(comment.author)
+        expect(result[2]).to eq(like.author)
+        expect(result[3]).to eq(alice.person) # a contact of the current user
+      end
+
+      it "sorts people of the same priority by profile name" do
+        current_user = FactoryGirl.create(:user_with_aspect)
+        person1 = FactoryGirl.create(:person, first_name: "x2")
+        person2 = FactoryGirl.create(:person, first_name: "x1")
+        result = Person
+                 .select(:id, :guid)
+                 .where(id: [person1.id, person2.id])
+                 .sort_for_mention_suggestion(status_message, current_user)
+        expect(result[0].id).to eq(person2.id)
+        expect(result[1].id).to eq(person1.id)
+      end
+
+      it "sorts people of the same priority and same names by diaspora ID" do
+        current_user = FactoryGirl.create(:user_with_aspect)
+        person1 = FactoryGirl.create(:person, diaspora_handle: "x2@pod.tld")
+        person1.profile.update(first_name: "John", last_name: "Doe")
+        person2 = FactoryGirl.create(:person, diaspora_handle: "x1@pod.tld")
+        person2.profile.update(first_name: "John", last_name: "Doe")
+        result = Person
+                 .select(:id, :guid)
+                 .where(id: [person1.id, person2.id])
+                 .sort_for_mention_suggestion(status_message, current_user)
+        expect(result[0].id).to eq(person2.id)
+        expect(result[1].id).to eq(person1.id)
+      end
+    end
   end
 
   describe "delegating" do

@@ -32,12 +32,17 @@ FactoryGirl.define do
   end
 
   factory(:person, aliases: %i(author)) do
+    transient do
+      first_name nil
+    end
+
     sequence(:diaspora_handle) {|n| "bob-person-#{n}#{r_str}@example.net" }
     pod { Pod.find_or_create_by(url: "http://example.net") }
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
-    after(:build) do |person|
+    after(:build) do |person, evaluator|
       unless person.profile.first_name.present?
         person.profile = FactoryGirl.build(:profile, person: person)
+        person.profile.first_name = evaluator.first_name if evaluator.first_name
       end
     end
     after(:create) do |person|

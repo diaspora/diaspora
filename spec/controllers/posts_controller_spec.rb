@@ -4,6 +4,7 @@
 
 describe PostsController, type: :controller do
   let(:post) { alice.post(:status_message, text: "ohai", to: alice.aspects.first) }
+  let(:post_service) { controller.send(:post_service) }
 
   describe "#show" do
     context "user signed in" do
@@ -162,6 +163,48 @@ describe PostsController, type: :controller do
         sign_in alice
         get :interactions, id: post.id
         expect(response.status).to eq(406)
+      end
+    end
+  end
+
+  describe "#mentionable" do
+    context "with a user signed in" do
+      before do
+        sign_in alice
+      end
+
+      it "returns status 204 without a :q parameter" do
+        get :mentionable, id: post.id, format: :json
+        expect(response.status).to eq(204)
+      end
+
+      it "responses status 406 (not acceptable) on html request" do
+        get :mentionable, id: post.id, q: "whatever", format: :html
+        expect(response.status).to eq(406)
+      end
+
+      it "responses status 404 when the post can't be found" do
+        expect(post_service).to receive(:find!) do
+          raise ActiveRecord::RecordNotFound
+        end
+        get :mentionable, id: post.id, q: "whatever", format: :json
+        expect(response.status).to eq(404)
+      end
+
+      it "calls PostService#mentionable_in_comment and passes the result as a response" do
+        expect(post_service).to receive(:mentionable_in_comment).with(post.id.to_s, "whatever").and_return([bob.person])
+        get :mentionable, id: post.id, q: "whatever", format: :json
+        expect(response.status).to eq(200)
+        expect(response.body).to eq([bob.person].to_json)
+      end
+    end
+
+    context "without a user signed in" do
+      it "returns 401" do
+        allow(post_service).to receive(:mentionable_in_comment).and_return([])
+        get :mentionable, id: post.id, q: "whatever", format: :json
+        expect(response.status).to eq(401)
+        expect(JSON.parse(response.body)["error"]).to eq(I18n.t("devise.failure.unauthenticated"))
       end
     end
   end

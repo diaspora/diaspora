@@ -23,25 +23,6 @@ describe Comment, type: :model do
     end
   end
 
-  describe "#people_allowed_to_be_mentioned" do
-    let(:kate) { FactoryGirl.create(:user_with_aspect, friends: [bob]) }
-    let(:olga) { FactoryGirl.create(:user_with_aspect, friends: [bob]) }
-
-    it "returns the author and people who have commented or liked the private post" do
-      eve.comment!(status_bob, "comment text")
-      kate.like!(status_bob)
-      olga.participate!(status_bob)
-      status_bob.reload
-      expect(comment_alice.people_allowed_to_be_mentioned).to match_array([alice, bob, eve, kate].map(&:person_id))
-    end
-
-    it "returns :all for public posts" do
-      # set parent public
-      status_bob.update(public: true)
-      expect(comment_alice.people_allowed_to_be_mentioned).to eq(:all)
-    end
-  end
-
   describe "#subscribers" do
     let(:status_bob) { FactoryGirl.create(:status_message, public: true, author: bob.person) }
     let(:comment_alice) {
