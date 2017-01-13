@@ -11,18 +11,19 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   },
 
   events: {
-    "keydown #status_message_fake_text": "onInputBoxKeyDown",
-    "input #status_message_fake_text": "onInputBoxInput",
-    "click #status_message_fake_text": "onInputBoxClick",
-    "blur #status_message_fake_text": "onInputBoxBlur"
+    "keydown .mention-fake-textarea": "onInputBoxKeyDown",
+    "input .mention-fake-textarea": "onInputBoxInput",
+    "click .mention-fake-textarea": "onInputBoxClick",
+    "blur .mention-fake-textarea": "onInputBoxBlur"
   },
 
-  initialize: function() {
+  initialize: function(opts) {
     this.mentionedPeople = [];
+    opts = opts || {url: "/contacts"};
 
     // contains the 'fake text' displayed to the user
     // also has a data-messageText attribute with the original text
-    this.inputBox = this.$("#status_message_fake_text");
+    this.inputBox = this.$(".mention-fake-textarea");
     // contains the mentions displayed to the user
     this.mentionsBox = this.$(".mentions-box");
     this.typeaheadInput = this.$(".typeahead-mention-box");
@@ -32,7 +33,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       typeaheadInput: this.typeaheadInput,
       customSearch: true,
       autoselect: true,
-      remoteRoute: {url: "/contacts"}
+      remoteRoute: {url: opts.url}
     });
   },
 
