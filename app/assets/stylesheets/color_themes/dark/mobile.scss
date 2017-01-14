@@ -43,6 +43,8 @@ body {
   .stream-element.unread { background-color: $gray; }
   .stream-element.read { background-color: $gray-darker; }
 
+  #show_content .photo { border-color: $border-grey; }
+
   .header-full-width { border-bottom: 1px solid $border-grey; }
 
   .user_aspects {

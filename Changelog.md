@@ -20,6 +20,7 @@
 * Prevent scroll to top when clicking 'mark all as read' in the notification dropdown [#7253](https://github.com/diaspora/diaspora/pull/7253)
 * Update existing notifications in dropdown on fetch [#7270](https://github.com/diaspora/diaspora/pull/7270)
 * Fix link to post on mobile photo page [#7274](https://github.com/diaspora/diaspora/pull/7274)
+* Fix some background issues on dark mobile themes [#7278](https://github.com/diaspora/diaspora/pull/7278)
 
 ## Features
 * Add links to the aspects and followed tags pages on mobile [#7265](https://github.com/diaspora/diaspora/pull/7265)
