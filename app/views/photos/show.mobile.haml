@@ -5,7 +5,7 @@
 :css
   footer{display: none;}
 
-#show_content.photos
+.photos
   .photo
     = image_tag photo.url(:scaled_full)
   .stream-element.photo_mobile
@@ -24,7 +24,7 @@
                 = timeago(photo.created_at)
 
 -if additional_photos && additional_photos.length > 1
-  #photo_controls
+  .photo-controls
     - if previous_photo != additional_photos.last
       = link_to(content_tag(:i, nil, id: "arrow-left", class: "entypo-chevron-left"),
                 person_photo_path(previous_photo.author, previous_photo),
