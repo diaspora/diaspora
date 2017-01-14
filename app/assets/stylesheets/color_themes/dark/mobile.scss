@@ -43,7 +43,7 @@ body {
   .stream-element.unread { background-color: $gray; }
   .stream-element.read { background-color: $gray-darker; }
 
-  #show_content .photo { border-color: $border-grey; }
+  .photos .photo { border-color: $border-grey; }
 
   .header-full-width { border-bottom: 1px solid $border-grey; }
 
@@ -60,6 +60,6 @@ body {
     }
   }
 }
-// scss-lint:enable IdSelector, SelectorFormat, NestingDepth, SelectorDepth
+// scss-lint:enable SelectorFormat, NestingDepth, SelectorDepth
 
 @import 'mobile/mobile';
