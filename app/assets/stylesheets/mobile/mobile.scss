@@ -733,7 +733,7 @@ select#aspect_ids_ {
 #publisher_textarea_wrapper {
   border-radius: 2px;
   margin: 12px 0px;
-  background: #fff;
+  background: $framed-background;
   position: relative;
   padding-right: 10px;
 
@@ -766,7 +766,7 @@ select#aspect_ids_ {
 
   &.with_attachments {
     padding-bottom: 55px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid $border-medium-grey;
   }
 
   #photodropzone {
