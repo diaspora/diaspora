@@ -87,7 +87,7 @@ if [ $? -eq 0 ]; then
 fi
 
 # Check if bundle is complete
-if ! bundle check > /dev/null
+if ! bin/bundle check > /dev/null
 then
   fatal "Your bundle is not up to date, run the command \"bundle install\""
 fi

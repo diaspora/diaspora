@@ -140,7 +140,9 @@ describe AdminsController, :type => :controller do
       expect(response).to be_success
       expect(response).to render_template(:stats)
       expect(response.body).to include(
-        I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.daily"))
+        I18n.translate(
+          "admins.stats.display_results", segment: "<strong>#{I18n.translate('admins.stats.daily')}</strong>"
+        )
       )
     end
 
@@ -150,10 +152,14 @@ describe AdminsController, :type => :controller do
         expect(response).to be_success
         expect(response).to render_template(:stats)
         expect(response.body).not_to include(
-          I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.daily"))
+          I18n.translate(
+            "admins.stats.display_results", segment: "<strong>#{I18n.translate('admins.stats.daily')}</strong>"
+          )
         )
         expect(response.body).to include(
-          I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.#{range}"))
+          I18n.translate(
+            "admins.stats.display_results", segment: "<strong>#{I18n.translate("admins.stats.#{range}")}</strong>"
+          )
         )
       end
     end

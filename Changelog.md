@@ -12,6 +12,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix path to `bundle` in `script/server` [#7281](https://github.com/diaspora/diaspora/pull/7281)
 
 ## Features
 
