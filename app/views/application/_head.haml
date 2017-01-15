@@ -22,9 +22,7 @@
 = include_gon(camel_case: true, nonce: content_security_policy_nonce(:script))
 = yield(:javascript)
 
-= chartbeat_head_block
 = csrf_meta_tag
 = current_user_atom_tag
-= include_mixpanel
 
 = yield(:head)
