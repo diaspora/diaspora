@@ -4,6 +4,7 @@
 
 ## Bug fixes
 * Fix path to `bundle` in `script/server` [#7281](https://github.com/diaspora/diaspora/pull/7281)
+* Update comment in database example config [#7282](https://github.com/diaspora/diaspora/pull/7282)
 
 ## Features
 
