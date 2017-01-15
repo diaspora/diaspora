@@ -133,14 +133,12 @@ describe LikesController, :type => :controller do
 
         it 'does not let a user destroy other likes' do
           like2 = eve.like!(@message)
-
           like_count = Like.count
-          expect {
-            delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
-          }.to raise_error(ActiveRecord::RecordNotFound)
 
+          delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
+          expect(response.status).to eq(404)
+          expect(response.body).to eq(I18n.t("likes.destroy.error"))
           expect(Like.count).to eq(like_count)
-
         end
       end
     end

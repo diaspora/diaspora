@@ -17,7 +17,7 @@ Feature: viewing photos on the mobile main page
     When I press "Share"
     And I go to the stream page
     And I click on selector "img.stream-photo"
-    Then I should see a "img" within "#show_content"
+    Then I should see a "img" within ".photos"
     And I should not see a "#arrow-right" within "#main"
     And I should not see a "#arrow-left" within "#main"
 

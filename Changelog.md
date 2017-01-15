@@ -13,6 +13,7 @@
 * Increase the spacing above and below post contents [#7267](https://github.com/diaspora/diaspora/pull/7267)
 * Replace fileuploader-custom with FineUploader [#7083](https://github.com/diaspora/diaspora/pull/7083)
 * Always show mobile reaction counts [#7207](https://github.com/diaspora/diaspora/pull/7207)
+* Refactor mobile alerts for error responses [#7227](https://github.com/diaspora/diaspora/pull/7227)
 
 ## Bug fixes
 * Fix background color of year on notifications page with dark theme [#7263](https://github.com/diaspora/diaspora/pull/7263)

@@ -11,6 +11,7 @@
 @import "mobile/header";
 @import "mobile/tags";
 @import "mobile/conversations";
+@import 'mobile/flash_messages';
 @import "mobile/settings";
 @import "mobile/stream_element";
 @import "mobile/comments";
@@ -269,11 +270,8 @@ footer {
   font-size: 14px;
 }
 
-#show_content {
+.photos {
   padding-bottom: 24px;
-  border-bottom: 1px solid #bbb;
-  font-size: larger;
-  text-align: center;
 
   img:not(.avatar) {
     max-width: 100%;
@@ -287,37 +285,30 @@ footer {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     border-color: #DDDDDD #BBBBBB #AAAAAA;
     border-bottom-width: 0px;
-    margin-top: 12px;
     min-height: 100px;
-    line-height: 5;
-  }
-
-  .controls {
-    font: {
-      size: smaller; };
-  }
-
-  &.photos {
-    border-bottom: 0 !important;
   }
 }
 
-#photo_controls {
-  .arrow {
-    font-size: 10em;
-    text-decoration: none;
-    text-shadow: 0 0 3px $white;
-    position: fixed;
-    bottom: -0.2em;
-    z-index: 1;
-    &.left {
-      left: -0.2em;
-    }
-    &.right {
-      right: -0.2em;
-      text-align: right;
-    }
-    .entypo-chevron-left, .entypo-chevron-right { margin-right: 0; }
+.photo-controls .arrow {
+  bottom: -.2em;
+  font-size: 10em;
+  position: fixed;
+  text-decoration: none;
+  text-shadow: 0 0 3px $white;
+  z-index: 1;
+
+  &.left {
+    left: -.2em;
+  }
+
+  &.right {
+    right: -.2em;
+    text-align: right;
+  }
+
+  .entypo-chevron-left,
+  .entypo-chevron-right {
+    margin-right: 0;
   }
 }
 

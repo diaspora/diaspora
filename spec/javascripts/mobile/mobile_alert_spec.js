@@ -26,4 +26,18 @@ describe("Diaspora.Mobile.Alert", function() {
       expect(Diaspora.Mobile.Alert._flash).toHaveBeenCalledWith("Oh noez!", "danger");
     });
   });
+
+  describe("handleAjaxError", function() {
+    it("shows a generic error if the connection failed", function() {
+      spyOn(Diaspora.Mobile.Alert, "error");
+      Diaspora.Mobile.Alert.handleAjaxError({status: 0});
+      expect(Diaspora.Mobile.Alert.error).toHaveBeenCalledWith(Diaspora.I18n.t("errors.connection"));
+    });
+
+    it("shows the error given in the responseText otherwise", function() {
+      spyOn(Diaspora.Mobile.Alert, "error");
+      Diaspora.Mobile.Alert.handleAjaxError({status: 400, responseText: "some specific ajax error"});
+      expect(Diaspora.Mobile.Alert.error).toHaveBeenCalledWith("some specific ajax error");
+    });
+  });
 });

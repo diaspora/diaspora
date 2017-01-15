@@ -28,6 +28,9 @@
       - if user_signed_in?
         = render "layouts/drawer"
 
+      .flash-messages-container
+        .flash-messages#flash-messages
+
       #main{:role => "main"}
         - if current_page?(:activity_stream)
           %h3

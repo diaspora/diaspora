@@ -35,6 +35,9 @@
           Diaspora.Mobile.PostActions.showLoader(link);
         },
         success: onSuccess,
+        error: function(response) {
+          Diaspora.Mobile.Alert.handleAjaxError(response);
+        },
         complete: function() {
           Diaspora.Mobile.PostActions.hideLoader(link);
         }
@@ -61,6 +64,9 @@
           Diaspora.Mobile.PostActions.showLoader(link);
         },
         success: onSuccess,
+        error: function(response) {
+          Diaspora.Mobile.Alert.handleAjaxError(response);
+        },
         complete: function() {
           Diaspora.Mobile.PostActions.hideLoader(link);
         }
@@ -99,11 +105,7 @@
             Diaspora.Mobile.PostActions.toggleActive(link);
           },
           error: function(response) {
-            if (response.status === 0) {
-              alert(Diaspora.I18n.t("errors.connection"));
-            } else {
-              alert(response.responseText);
-            }
+            Diaspora.Mobile.Alert.handleAjaxError(response);
           },
           complete: function() {
             Diaspora.Mobile.PostActions.hideLoader(link);
