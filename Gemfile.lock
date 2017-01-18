@@ -449,7 +449,7 @@ GEM
       sprockets-rails
     js_image_paths (0.1.0)
       rails (~> 4.0)
-    json (1.8.3)
+    json (1.8.6)
     json-jwt (1.6.3)
       activesupport
       bindata
@@ -954,7 +954,7 @@ DEPENDENCIES
   jquery-ui-rails (= 5.0.5)
   js-routes (= 1.2.9)
   js_image_paths (= 0.1.0)
-  json (= 1.8.3)
+  json (= 1.8.6)
   json-schema (= 2.7.0)
   json_spec (= 1.1.4)
   leaflet-rails (= 0.7.7)
