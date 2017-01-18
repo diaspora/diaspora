@@ -14,6 +14,13 @@ describe NotifierHelper, :type => :helper do
     it 'strip markdown in the post' do
       expect(post_message(@markdown_post)).to eq(@striped_markdown_post)
     end
+
+    it "falls back to the title, if the root post was deleted" do
+      reshare = FactoryGirl.create(:reshare)
+      reshare.root.destroy
+      expect(helper.post_message(Reshare.find(reshare.id)))
+        .to eq(I18n.t("posts.show.reshare_by", author: reshare.author_name))
+    end
   end
 
   describe '#comment_message' do
