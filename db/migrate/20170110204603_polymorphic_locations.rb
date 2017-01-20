@@ -2,9 +2,10 @@ class PolymorphicLocations < ActiveRecord::Migration
   def up
     rename_column :locations, :status_message_id, :localizable_id
     change_column_null :locations, :localizable_id, false
-    add_column :locations, :localizable_type, :string, limit: 60, null: false
-    add_index :locations, %i{localizable_id localizable_type}, unique: true
+    add_column :locations, :localizable_type, :string, limit: 60, null: true
     Location.update_all(localizable_type: "Post")
+    change_column_null :locations, :localizable_type, false
+    add_index :locations, %i{localizable_id localizable_type}, unique: true
   end
 
   def down
