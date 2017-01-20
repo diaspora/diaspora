@@ -55,7 +55,7 @@ class Photo < ActiveRecord::Base
   before_destroy :ensure_user_picture
   after_destroy :clear_empty_status_message_and_location
 
-  before_save :update_location
+  before_create :update_location
 
   after_commit :on => :create do
     queue_processing_job if self.author.local?
@@ -171,8 +171,18 @@ class Photo < ActiveRecord::Base
     lat = coords_to_float(*exif_gps_latitude.split(", ")) * (image.exif["GPSLatitudeRef"] == "S" ? -1 : 1)
     lng = coords_to_float(*exif_gps_longitude.split(", ")) * (image.exif["GPSLongitudeRef"] == "W" ? -1 : 1)
 
-    Location.new(lat: lat, lng: lng, address: "DUMMY")
-    # TODO: see app/assets/javascripts/osmlocator.js, but do the REST call on server side
+    nominatim_request =
+      Typhoeus.get("https://nominatim.openstreetmap.org/reverse?" +
+                   "format=json&lat=%f&lon=%f&addressdetails=3" % [lat, lng])
+
+    address =
+      if nominatim_request.response_code == 200
+        JSON.parse(nominatim_request.response_body)["display_name"]
+      else
+        "A beautiful place."
+      end
+
+    Location.new(lat: lat, lng: lng, address: address)
   end
 
   def update_location
