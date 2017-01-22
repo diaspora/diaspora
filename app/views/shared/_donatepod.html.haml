@@ -1,15 +1,29 @@
 - if AppConfig.settings.paypal_donations.enable?
-  PayPal:
-  %form{action: "https://www.paypal.com/cgi-bin/webscr", method: "post", target: "_blank"}
-    %input{name: "cmd", type: "hidden", value: "_s-xclick"}
-    - if AppConfig.settings.paypal_donations.paypal_hosted_button_id.present?
-      %input{name: "hosted_button_id", type: "hidden", value: AppConfig.settings.paypal_donations.paypal_hosted_button_id}
-    -if AppConfig.settings.paypal_donations.paypal_unhosted_button_encrypted.present?
-      %input{name: "encrypted", type: "hidden", value: AppConfig.settings.paypal_donations.paypal_unhosted_button_encrypted}
-    %input{name: "currency_code", type: "hidden", value: AppConfig.settings.paypal_donations.currency}
-    %input{name: "submit", type: "submit", value: t("aspects.index.donate"), class: "btn btn-default"}
+  %p
+    PayPal:
+    %br
+    %form{action: "https://www.paypal.com/cgi-bin/webscr", method: "post", target: "_blank"}
+      %input{name: "cmd", type: "hidden", value: "_s-xclick"}
+      - if AppConfig.settings.paypal_donations.paypal_hosted_button_id.present?
+        %input{name: "hosted_button_id", type: "hidden",
+          value: AppConfig.settings.paypal_donations.paypal_hosted_button_id}
+      - if AppConfig.settings.paypal_donations.paypal_unhosted_button_encrypted.present?
+        %input{name: "encrypted", type: "hidden",
+          value: AppConfig.settings.paypal_donations.paypal_unhosted_button_encrypted}
+      %input{name: "currency_code", type: "hidden", value: AppConfig.settings.paypal_donations.currency}
+      %input.btn.btn-default{name: "submit", type: "submit", value: t("aspects.index.donate")}
+
+- if AppConfig.settings.liberapay_username.present?
+  %p
+    Liberapay:
+    %br
+    %a{id: "liberapay-button", href: "https://liberapay.com/#{AppConfig.settings.liberapay_username}/donate"}
+      = image_tag "buttons/liberapay-button.svg",
+          alt: t("aspects.index.donate"),
+          title: t("aspects.index.donate_liberapay")
 
 - if AppConfig.bitcoin_donation_address
-  Bitcoin:
-  %input{type: "text", id: "bitcoin_address", value: AppConfig.bitcoin_donation_address, readonly: true}
-
+  %p
+    Bitcoin:
+    %br
+    %input{type: "text", id: "bitcoin_address", value: AppConfig.bitcoin_donation_address, readonly: true}
