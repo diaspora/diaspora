@@ -157,8 +157,9 @@ class Photo < ActiveRecord::Base
     photos.where(pending: false).order("created_at DESC")
   end
 
-  def coords_to_float(deg, min, sec)
-    (deg.to_r + min.to_r / 60 + sec.to_r / 3600).to_f
+  def coords_to_float(coords)
+    deg, min, sec = *(coords.split(", ").map(&:to_r))
+    (deg + min / 60 + sec / 3600).to_f
   end
 
   def determine_location(image)
@@ -168,18 +169,19 @@ class Photo < ActiveRecord::Base
     exif_gps_longitude = image.exif["GPSLongitude"]
     return nil unless exif_gps_longitude
 
-    lat = coords_to_float(*exif_gps_latitude.split(", ")) * (image.exif["GPSLatitudeRef"] == "S" ? -1 : 1)
-    lng = coords_to_float(*exif_gps_longitude.split(", ")) * (image.exif["GPSLongitudeRef"] == "W" ? -1 : 1)
+    lat = coords_to_float(exif_gps_latitude) * (image.exif["GPSLatitudeRef"] == "S" ? -1 : 1)
+    lng = coords_to_float(exif_gps_longitude) * (image.exif["GPSLongitudeRef"] == "W" ? -1 : 1)
 
     nominatim_request =
       Typhoeus.get("https://nominatim.openstreetmap.org/reverse?" +
-                   "format=json&lat=%f&lon=%f&addressdetails=3" % [lat, lng])
+                   "format=json&lat=%f&lon=%f&addressdetails=3" % [lat, lng],
+                   headers: {"User-Agent": "diaspora*/%s" % [AppConfig.pod_uri.host]})
 
     address =
       if nominatim_request.response_code == 200
         JSON.parse(nominatim_request.response_body)["display_name"]
       else
-        "A beautiful place."
+        "_"
       end
 
     Location.new(lat: lat, lng: lng, address: address)

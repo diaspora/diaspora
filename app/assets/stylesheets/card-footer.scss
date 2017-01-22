@@ -19,11 +19,19 @@
       margin-right: 4px;
     }
   }
+  .status-message-location {
+//    margin-top: -3ex;                 //TODO: Place icon next to time
+    .address { display: none; }
+  }
 }
 
 // gallery-picture specific styles for card-footer
 .media {
   .gallery-picture img { margin-bottom: $line-height-computed + 2; }
 
-  .card-footer .footer-container {  font-size: $font-size-base; }
+  .card-footer .footer-container {
+    font-size: $font-size-base;
+//    .timeago { float: left; width: 95% } //TODO: Place icon next to time
+   }
 }
+

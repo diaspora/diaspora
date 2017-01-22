@@ -11,7 +11,7 @@ app.views.LocationStream = app.views.Base.extend({
 
     if (mapContainer.hasClass("empty")) {
       var location = this.model.get("location");
-      mapContainer.css("height", "150px");
+      mapContainer.css("height", "200px");
 
       if (location.lat) {
         var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);

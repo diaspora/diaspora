@@ -1,6 +1,11 @@
 {{#if location.address}}
   <div class='near-from'>
-    {{t "publisher.near_from" location=location.address}}
+    <span class="icon">
+      <i class="entypo-location" />
+    </span>
+    <span class="address">
+      {{t "publisher.near_from" location=location.address}}
+    </span>
   </div>
   <div>
     <div class="mapContainer empty"></div>
