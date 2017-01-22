@@ -194,6 +194,7 @@ en:
     index:
       donate: "Donate"
       keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
+      donate_liberapay: "Donate to liberapay"
       welcome_to_diaspora: "Welcome to diaspora*, %{name}!"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
 
