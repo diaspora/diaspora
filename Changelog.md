@@ -7,6 +7,7 @@
 * Update comment in database example config [#7282](https://github.com/diaspora/diaspora/pull/7282)
 
 ## Features
+* Add support for [Liberapay](https://liberapay.com) donations [#7290](https://github.com/diaspora/diaspora/pull/7290)
 
 # 0.6.3.0
 

@@ -68,6 +68,34 @@ describe ApplicationHelper, :type => :helper do
     end
   end
 
+  describe "#donations_enabled?" do
+    it "returns false when nothing is set" do
+      expect(helper.donations_enabled?).to be false
+    end
+
+    it "returns true when the paypal donations is enabled" do
+      AppConfig.settings.paypal_donations.enable = true
+      expect(helper.donations_enabled?).to be true
+    end
+
+    it "returns true when the liberapay username is set" do
+      AppConfig.settings.liberapay_username = "foo"
+      expect(helper.donations_enabled?).to be true
+    end
+
+    it "returns true when the bitcoin_address is set" do
+      AppConfig.settings.bitcoin_address = "bar"
+      expect(helper.donations_enabled?).to be true
+    end
+
+    it "returns true when all the donations are enabled" do
+      AppConfig.settings.paypal_donations.enable = true
+      AppConfig.settings.liberapay_username = "foo"
+      AppConfig.settings.bitcoin_address = "bar"
+      expect(helper.donations_enabled?).to be true
+    end
+  end
+
   describe "#changelog_url" do
     let(:changelog_url_setting) {
       double.tap {|double| allow(AppConfig).to receive(:settings).and_return(double(changelog_url: double)) }
