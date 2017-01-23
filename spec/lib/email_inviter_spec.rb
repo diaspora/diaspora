@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe EmailInviter do
   before do
     @user = double(:invitation_code => 'coolcodebro', :present? => true, 

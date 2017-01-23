@@ -1,5 +1,5 @@
 body {
-  #main_stream .stream_element {
+  #main_stream .stream-element {
     border: 0;
     border-bottom: 1px solid $border-grey;
     margin-bottom: 10px;
@@ -16,11 +16,5 @@ body {
   &.page-tags .left-navbar-fixed-background,
   .left-navbar {
     border-right: 1px solid $border-grey;
-  }
-
-  .right-sidebar-fixed-background,
-  .right-sidebar-fixed-background,
-  .rightbar {
-    border-left: 1px solid $sidebars-background;
   }
 }

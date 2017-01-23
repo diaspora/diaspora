@@ -18,8 +18,19 @@
 
       this.stream().on("tap click", "a.comment-action", function(evt) {
         evt.preventDefault();
-        self.showCommentBox($(this));
         var bottomBar = $(this).closest(".bottom-bar").first();
+        var toggleReactionsLink = bottomBar.find("a.show-comments").first();
+
+        if (toggleReactionsLink.length === 0) {
+          self.showCommentBox($(this));
+        } else {
+          if (toggleReactionsLink.hasClass("loading")) {
+            return;
+          }
+          if (!toggleReactionsLink.hasClass("active")) {
+            self.showComments(toggleReactionsLink);
+          }
+        }
         var commentContainer = bottomBar.find(".comment-container").first();
         self.scrollToOffset(commentContainer);
       });
@@ -39,8 +50,9 @@
 
       $.post(form.attr("action") + "?format=mobile", form.serialize(), function(data){
         Diaspora.Mobile.Comments.updateStream(form, data);
-      }, "html").fail(function(){
-        Diaspora.Mobile.Comments.resetCommentBox(this);
+      }, "html").fail(function(response) {
+        Diaspora.Mobile.Alert.handleAjaxError(response);
+        Diaspora.Mobile.Comments.resetCommentBox(form);
       });
 
       autosize($(".add-comment-switcher:not(.hidden) textarea"));
@@ -189,13 +201,13 @@
     increaseReactionCount: function(bottomBar) {
       var toggleReactionsLink = bottomBar.find(".show-comments").first();
       var count = toggleReactionsLink.text().match(/.*(\d+).*/);
-      var text = "";
+      count = parseInt(count, 10);
+      var text = Diaspora.I18n.t("stream.comments", {count: count + 1});
 
       // No previous comment
-      if(!count){
-        text = Diaspora.I18n.t("stream.reactions", {count: 1});
+      if (count === 0) {
         var parent = toggleReactionsLink.parent();
-        var postGuid = bottomBar.parents(".stream_element").data("guid");
+        var postGuid = bottomBar.parents(".stream-element").data("guid");
 
         toggleReactionsLink.remove();
         toggleReactionsLink = $("<a/>", {"class": "show-comments", "href": Routes.postComments(postGuid) + ".mobile"})
@@ -204,8 +216,6 @@
         bottomBar.removeClass("inactive").addClass("active");
       }
       else {
-        count = parseInt(count, 10) + 1;
-        text = Diaspora.I18n.t("stream.reactions", {count: count});
         toggleReactionsLink.html(text + "<i class='entypo-chevron-up'/>");
       }
     },

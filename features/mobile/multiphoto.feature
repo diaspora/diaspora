@@ -10,22 +10,22 @@ Feature: viewing photos on the mobile main page
 
   Scenario: view full size image
     Given I visit the mobile publisher page
-    When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
+    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload-publisher"
     Then I should see "button.png completed"
     And I should see an uploaded image within the photo drop zone
 
     When I press "Share"
     And I go to the stream page
     And I click on selector "img.stream-photo"
-    Then I should see a "img" within "#show_content"
+    Then I should see a "img" within ".photos"
     And I should not see a "#arrow-right" within "#main"
     And I should not see a "#arrow-left" within "#main"
 
   Scenario: view multiphoto post
     Given I visit the mobile publisher page
-    When I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
+    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload-publisher"
     Then I should see "button.png completed"
-    When I attach the file "spec/fixtures/button.gif" to hidden "file" within "#file-upload-publisher"
+    When I attach the file "spec/fixtures/button.gif" to hidden "qqfile" within "#file-upload-publisher"
     Then I should see "button.gif completed"
 
     When I press "Share"

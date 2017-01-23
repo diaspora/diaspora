@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Workers::FetchWebfinger do
   it "should webfinger and queue a job to fetch public posts" do
     @person = FactoryGirl.create(:person)

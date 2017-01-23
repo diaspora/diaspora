@@ -26,7 +26,6 @@ eu:
       show: "iruzkin guztiak erakutsi"
     confirm_dialog: "Ziur al zaude?"
     delete: "Ezabatu"
-    failed_to_like: "Huts gustoko egitean!"
     failed_to_post_message: "Huts egin du mezuaren bidalketak!"
     getting_started:
       alright_ill_wait: "Beno, itxarongo dut."
@@ -57,7 +56,6 @@ eu:
       limited: "Mugatua - zure mezua aukeratu duzun jendeak bakarrik ikusiko du"
       public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
     reshares:
-      duplicate: "Oso ona, e? Dagoeneko birpartekatu duzu mezu hori!"
       post: "Birpartekatu nahi al duzu <%= name %>(r)en mezua?"
       successful: "Mezua arrakastaz birpartekatu da!"
     show_more: "erakutsi gehiago"

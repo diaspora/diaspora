@@ -1,6 +1,6 @@
 describe("app.views.AspectMembership", function(){
   var success = {status: 200, responseText: "{}"};
-  var resp_fail = {status: 400};
+  var resp_fail = {status: 400, responseText: "error message"};
 
   beforeEach(function() {
     var contact = factory.contact();
@@ -55,12 +55,13 @@ describe("app.views.AspectMembership", function(){
     });
 
     it('displays an error when it fails', function() {
+      spyOn(app.flashMessages, "handleAjaxError").and.callThrough();
       this.newAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
-      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage(
-        Diaspora.I18n.t("aspect_dropdown.error", {name: this.personName})
-      );
+      expect(app.flashMessages.handleAjaxError).toHaveBeenCalled();
+      expect(app.flashMessages.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("error message");
+      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
     });
   });
 
@@ -97,12 +98,13 @@ describe("app.views.AspectMembership", function(){
     });
 
     it('displays an error when it fails', function() {
+      spyOn(app.flashMessages, "handleAjaxError").and.callThrough();
       this.oldAspect.trigger('click');
       jasmine.Ajax.requests.mostRecent().respondWith(resp_fail);
 
-      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage(
-        Diaspora.I18n.t("aspect_dropdown.error_remove", {name: this.personName})
-      );
+      expect(app.flashMessages.handleAjaxError).toHaveBeenCalled();
+      expect(app.flashMessages.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("error message");
+      expect(spec.content().find(".flash-message")).toBeErrorFlashMessage("error message");
     });
   });
 });

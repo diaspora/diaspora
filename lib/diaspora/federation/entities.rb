@@ -40,6 +40,7 @@ module Diaspora
             guid:             comment.guid,
             parent_guid:      comment.post.guid,
             text:             comment.text,
+            created_at:       comment.created_at,
             author_signature: comment.signature.try(:author_signature),
             parent:           related_entity(comment.post)
           },

@@ -21,11 +21,12 @@ class Pod < ActiveRecord::Base
 
   # this are only the most common errors, the rest will be +unknown_error+
   CURL_ERROR_MAP = {
-    couldnt_resolve_host: :dns_failed,
-    couldnt_connect:      :net_failed,
-    operation_timedout:   :net_failed,
-    ssl_cipher:           :ssl_failed,
-    ssl_cacert:           :ssl_failed
+    couldnt_resolve_host:         :dns_failed,
+    couldnt_connect:              :net_failed,
+    operation_timedout:           :net_failed,
+    ssl_cipher:                   :ssl_failed,
+    ssl_cacert:                   :ssl_failed,
+    redirected_to_other_hostname: :http_failed
   }.freeze
 
   DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
@@ -60,14 +61,27 @@ class Pod < ActiveRecord::Base
     def check_all!
       Pod.find_in_batches(batch_size: 20) {|batch| batch.each(&:test_connection!) }
     end
+
+    def check_scheduled!
+      Pod.where(scheduled_check: true).find_each(&:test_connection!)
+    end
   end
 
   def offline?
     Pod.offline_statuses.include?(Pod.statuses[status])
   end
 
-  def was_offline?
-    Pod.offline_statuses.include?(Pod.statuses[status_was])
+  # a pod is active if it is online or was online less than 14 days ago
+  def active?
+    !offline? || offline_since.try {|date| date > DateTime.now.utc - 14.days }
+  end
+
+  def to_s
+    "#{id}:#{host}"
+  end
+
+  def schedule_check_if_needed
+    update_column(:scheduled_check, true) if offline? && !scheduled_check
   end
 
   def test_connection!
@@ -87,7 +101,7 @@ class Pod < ActiveRecord::Base
 
   def update_offline_since
     if offline?
-      touch(:offline_since) unless was_offline?
+      self.offline_since ||= DateTime.now.utc
     else
       self.offline_since = nil
     end
@@ -102,6 +116,7 @@ class Pod < ActiveRecord::Base
 
     attributes_from_result(result)
     touch(:checked_at)
+    self.scheduled_check = false
 
     save
   end

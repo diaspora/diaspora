@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe SearchController, :type => :controller do
   before do
     @user = alice
@@ -8,9 +6,6 @@ describe SearchController, :type => :controller do
   end
 
   describe 'query is a person' do
-    @lola = FactoryGirl.create(:person, :diaspora_handle => "lola@example.org",
-                                         :profile => FactoryGirl.build(:profile, :first_name => "Lola",
-                                                                   :last_name => "w", :searchable => false))
     it 'goes to people index page' do
       get :search, :q => 'eugene'
       expect(response).to be_redirect

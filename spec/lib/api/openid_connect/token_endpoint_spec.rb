@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Api::OpenidConnect::TokenEndpoint, type: :request do
   let!(:client) { FactoryGirl.create(:o_auth_application_with_ppid) }
   let!(:auth) {

@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class User < ActiveRecord::Base
+  include AuthenticationToken
   include Connecting
   include Querying
   include SocialActions
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
   scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
   scope :active, -> { joins(:person).where(people: {closed_account: false}) }
 
-  devise :token_authenticatable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 
@@ -252,6 +253,21 @@ class User < ActiveRecord::Base
     end
   end
 
+  def post_default_aspects
+    if post_default_public
+      ["public"]
+    else
+      aspects.where(post_default: true).to_a
+    end
+  end
+
+  def update_post_default_aspects(post_default_aspect_ids)
+    aspects.each do |aspect|
+      enable = post_default_aspect_ids.include?(aspect.id.to_s)
+      aspect.update_attribute(:post_default, enable)
+    end
+  end
+
   def salmon(post)
     Salmon::EncryptedSlap.create_by_user_and_activity(self, post.to_diaspora_xml)
   end
@@ -466,7 +482,7 @@ class User < ActiveRecord::Base
 
   # Whenever email is set, clear all unconfirmed emails which match
   def remove_invalid_unconfirmed_emails
-    User.where(unconfirmed_email: email).update_all(unconfirmed_email: nil) if email_changed?
+    User.where(unconfirmed_email: email).update_all(unconfirmed_email: nil, confirm_email_token: nil) if email_changed?
   end
 
   # Generate public/private keys for User and associated Person
@@ -502,7 +518,8 @@ class User < ActiveRecord::Base
       self[field] = nil
     end
     [:getting_started,
-     :show_community_spotlight_in_stream].each do |field|
+     :show_community_spotlight_in_stream,
+     :post_default_public].each do |field|
       self[field] = false
     end
     self[:disable_mail] = true

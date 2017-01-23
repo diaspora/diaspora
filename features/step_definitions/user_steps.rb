@@ -100,6 +100,13 @@ Given /^there is a user "([^\"]*)" who's tagged "([^\"]*)"$/ do |full_name, tag|
   user.profile.save!
 end
 
+Given /^a user with email "([^\"]*)" is tagged "([^\"]*)"$/ do |email, tags|
+  user = User.find_by_email(email)
+  user.profile.tag_string = tags
+  user.profile.build_tags
+  user.profile.save!
+end
+
 Given /^many posts from alice for bob$/ do
   alice = FactoryGirl.create(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
   bob = FactoryGirl.create(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)

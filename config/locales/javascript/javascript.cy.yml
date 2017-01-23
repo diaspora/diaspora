@@ -27,7 +27,6 @@ cy:
       hide: "cuddio sylwadau"
       show: "ddangos sylwadau i gŷd"
     confirm_dialog: "Chi'n siwr?"
-    failed_to_like: "Wedi methu i hoffi!"
     failed_to_post_message: "Methwyd i bostio neges!"
     getting_started:
       alright_ill_wait: "O'r gorau - 'dwi'n aros..."
@@ -38,8 +37,6 @@ cy:
       search: "Find people or #tags"
     photo_uploader:
       looking_good: "OMG, rydych chi'n ymddangos yn neis iawn!"
-    reshares:
-      duplicate: "Mae hynny'n dda, eh? Rydych chi wedi rhannu'r bost eisoes!"
     show_more: "dangos mwy"
     stream:
       likes:

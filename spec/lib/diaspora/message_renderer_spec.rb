@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Diaspora::MessageRenderer do
   MESSAGE_NORMALIZTIONS = {
     "\u202a#\u200eUSA\u202c" => "#USA",

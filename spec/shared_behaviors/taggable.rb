@@ -3,8 +3,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 shared_examples_for "it is taggable" do
   include ActionView::Helpers::UrlHelper
 

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Workers::FetchProfilePhoto do
   before do
    @user = alice

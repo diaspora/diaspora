@@ -20,8 +20,6 @@ en_pirate:
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "Find people or #tags"
-    reshares:
-      duplicate: "You've already reshared that post!"
     stream:
       likes:
         few: "<%= count %> Likes"

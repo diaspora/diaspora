@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe ServicesController, :type => :controller do
   let(:omniauth_auth) do
     { 'provider' => 'facebook',

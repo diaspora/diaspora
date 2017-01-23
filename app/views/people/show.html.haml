@@ -27,7 +27,7 @@
           -# JS
 
         #paginate
-          %span.loader.hidden
+          .loader.hidden
             .spinner
 
       %a.entypo-chevron-up.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}
@@ -40,7 +40,7 @@
       id: 'mentionModal'
 
   -if @contact
-    #new_conversation_pane
+    .conversations-form-container#new_conversation_pane
       = render 'shared/modal',
         path: new_conversation_path(:contact_id => @contact.id, name: @contact.person.name, modal: true),
         title: t('conversations.index.new_conversation'),

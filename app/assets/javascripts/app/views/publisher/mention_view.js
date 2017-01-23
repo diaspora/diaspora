@@ -14,7 +14,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     "keydown #status_message_fake_text": "onInputBoxKeyDown",
     "input #status_message_fake_text": "onInputBoxInput",
     "click #status_message_fake_text": "onInputBoxClick",
-    "blur #status_message_fake_text": "onInputBoxBlur",
+    "blur #status_message_fake_text": "onInputBoxBlur"
   },
 
   initialize: function() {
@@ -32,7 +32,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       typeaheadInput: this.typeaheadInput,
       customSearch: true,
       autoselect: true,
-      remoteRoute: "/contacts"
+      remoteRoute: {url: "/contacts"}
     });
   },
 

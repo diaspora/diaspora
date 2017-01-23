@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe LikesController, :type => :controller do
   before do
     @alices_aspect = alice.aspects.where(:name => "generic").first
@@ -101,12 +99,6 @@ describe LikesController, :type => :controller do
           @message = alice.comment!(@message, "hey") if class_const == Comment
         end
 
-        it 'generates a jasmine fixture', :fixture => true do
-          get :index, id_field => @message.id
-
-          save_fixture(response.body, "ajax_likes_on_#{class_const.to_s.underscore}")
-        end
-
         it 'returns a 404 for a post not visible to the user' do
           sign_in eve
           expect{get :index, id_field => @message.id}.to raise_error(ActiveRecord::RecordNotFound)
@@ -141,14 +133,12 @@ describe LikesController, :type => :controller do
 
         it 'does not let a user destroy other likes' do
           like2 = eve.like!(@message)
-
           like_count = Like.count
-          expect {
-            delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
-          }.to raise_error(ActiveRecord::RecordNotFound)
 
+          delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
+          expect(response.status).to eq(404)
+          expect(response.body).to eq(I18n.t("likes.destroy.error"))
           expect(Like.count).to eq(like_count)
-
         end
       end
     end

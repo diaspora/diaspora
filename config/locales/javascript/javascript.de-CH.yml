@@ -1,0 +1,36 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+de-CH:
+  javascripts:
+    timeago:
+      day: "eim Tag"
+      days:
+        one: "eim Tag"
+        other: "%d Täg"
+      hour: "öpe einere Stund"
+      hours:
+        one: "öpe einere Stund"
+        other: "öpe %d Stunde"
+      inPast: "jede Moment"
+      minute: "öpe einere Minute"
+      minutes:
+        one: "einere Minute"
+        other: "%d Minute"
+      month: "öpe eim Monet"
+      months:
+        one: "eim Monet"
+        other: "%d Mönet"
+      prefixAgo: "vor"
+      prefixFromNow: "i"
+      seconds: "weniger als einere Minute"
+      suffixAgo: ""
+      suffixFromNow: "ab jetzt"
+      wordSeparator: " "
+      year: "öpe eim Johr"
+      years:
+        one: "eim Johr"
+        other: "%d Johr"

@@ -87,6 +87,12 @@ describe("app.views.Publisher", function() {
         expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
       });
 
+      it("calls autosize.update", function() {
+        spyOn(autosize, "update");
+        this.view.close($.Event());
+        expect(autosize.update).toHaveBeenCalledWith(this.view.inputEl);
+      });
+
       it("should hide the poll container correctly", function() {
         this.view.$el.find(".poll-creator").click();
         expect(this.view.$el.find(".publisher-textarea-wrapper")).toHaveClass("with-poll");
@@ -506,11 +512,11 @@ describe("app.views.Publisher", function() {
       );
     });
 
-    it('initializes the file uploader plugin', function() {
-      spyOn(qq, 'FileUploaderBasic');
+    it("initializes the FineUploader plugin", function() {
+      spyOn(qq, "FineUploaderBasic");
       new app.views.Publisher();
 
-      expect(qq.FileUploaderBasic).toHaveBeenCalled();
+      expect(qq.FineUploaderBasic).toHaveBeenCalled();
     });
 
     context('event handlers', function() {

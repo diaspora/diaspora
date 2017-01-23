@@ -2,10 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Person, :type => :model do
-
   before do
     @user = bob
     @person = FactoryGirl.create(:person)
@@ -299,6 +296,7 @@ describe Person, :type => :model do
       @yevgeniy_dodis = FactoryGirl.build(:person)
       @casey_grippi = FactoryGirl.build(:person)
       @invisible_person = FactoryGirl.build(:person)
+      @closed_account = FactoryGirl.build(:person, closed_account: true)
 
       @robert_grimm.profile.first_name = "Robert"
       @robert_grimm.profile.last_name = "Grimm"
@@ -325,6 +323,11 @@ describe Person, :type => :model do
       @invisible_person.profile.searchable = false
       @invisible_person.profile.save
       @invisible_person.reload
+
+      @closed_account.profile.first_name = "Closed"
+      @closed_account.profile.last_name = "Account"
+      @closed_account.profile.save
+      @closed_account.reload
     end
 
     it 'orders results by last name' do
@@ -377,6 +380,12 @@ describe Person, :type => :model do
 
     it "doesn't display people that are neither searchable nor contacts" do
       expect(Person.search("Johnson", @user)).to be_empty
+    end
+
+    it "doesn't display closed accounts" do
+      expect(Person.search("Closed", @user)).to be_empty
+      expect(Person.search("Account", @user)).to be_empty
+      expect(Person.search(@closed_account.diaspora_handle, @user)).to be_empty
     end
 
     it "displays contacts that are not searchable" do

@@ -16,20 +16,12 @@
     .col-md-8
       #people_stream.stream
         - if @hashes.empty?
-          - if @background_query.present?
-
-            / TODO this is gross, and should be extracted!
-            :javascript
-              $(document).ready( function() {
-                List.startSearchDelay('#{@background_query}')
-              } );
-
-            %p
+          %p
+            - if @background_query.present?
               = t(".searching")
               .loader
                 .spinner
-          - else
-            %p
+            - else
               = t('.no_one_found')
         - else
           - for hash in @hashes

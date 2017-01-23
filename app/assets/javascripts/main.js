@@ -6,7 +6,6 @@
 //= require js-routes
 //= require underscore
 //= require backbone
-//= require jquery.remotipart
 //= require autosize
 //= require charcount
 //= require jquery-placeholder
@@ -18,7 +17,8 @@
 //= require jquery-ui/mouse
 //= require jquery-ui/sortable
 //= require keycodes
-//= require fileuploader-custom
+//= require jquery.autoSuggest.custom
+//= require fineuploader-dist/dist/fine-uploader.core
 //= require handlebars.runtime
 //= require posix-bracket-expressions
 //= require markdown-it
@@ -30,7 +30,7 @@
 //= require markdown-it-sup
 //= require highlightjs
 //= require clear-form
-//= require typeahead.bundle.js
+//= require corejs-typeahead
 //= require app/app
 //= require diaspora
 //= require_tree ./helpers

@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe ReportHelper, type: :helper do
   before do
     @user = bob
@@ -23,7 +21,14 @@ describe ReportHelper, type: :helper do
     end
     it "contains an anchor to the comment" do
       expect(helper.report_content(@comment_report))
-        .to include %(href="#{post_path(@post, anchor: @comment.author.guid)}")
+        .to include %(href="#{post_path(@post, anchor: @comment.guid)}")
+    end
+  end
+
+  describe "#unreviewed_reports_count" do
+    it "returns the number of unreviewed reports" do
+      @comment_report.mark_as_reviewed
+      expect(helper.unreviewed_reports_count).to be(1)
     end
   end
 end

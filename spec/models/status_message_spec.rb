@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe StatusMessage, type: :model do
   include PeopleHelper
 
@@ -300,6 +298,35 @@ describe StatusMessage, type: :model do
         expect(status_message.post_location[:lat]).to be_nil
         expect(status_message.post_location[:lng]).to be_nil
       end
+    end
+  end
+
+  describe "#receive" do
+    let(:post) { FactoryGirl.create(:status_message, author: alice.person) }
+
+    it "receives attached photos" do
+      photo = FactoryGirl.create(:photo, status_message: post)
+
+      post.receive([bob.id])
+
+      expect(ShareVisibility.where(user_id: bob.id, shareable_id: post.id, shareable_type: "Post").count).to eq(1)
+      expect(ShareVisibility.where(user_id: bob.id, shareable_id: photo.id, shareable_type: "Photo").count).to eq(1)
+    end
+
+    it "works without attached photos" do
+      post.receive([bob.id])
+
+      expect(ShareVisibility.where(user_id: bob.id, shareable_id: post.id, shareable_type: "Post").count).to eq(1)
+    end
+
+    it "works with already received attached photos" do
+      photo = FactoryGirl.create(:photo, status_message: post)
+
+      photo.receive([bob.id])
+      post.receive([bob.id])
+
+      expect(ShareVisibility.where(user_id: bob.id, shareable_id: post.id, shareable_type: "Post").count).to eq(1)
+      expect(ShareVisibility.where(user_id: bob.id, shareable_id: photo.id, shareable_type: "Photo").count).to eq(1)
     end
   end
 end

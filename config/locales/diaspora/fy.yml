@@ -59,7 +59,6 @@ fy:
   email: "E-mail"
   find_people: "Minsken of #labels Sykje"
   invitations:
-    a_facebook_user: "In Facebook brûker"
     new:
       invite_someone_to_join: "Immen útnoadigje foar Diaspora!"
       language: "Taal"

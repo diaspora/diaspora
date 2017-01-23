@@ -39,13 +39,10 @@ class PeopleController < ApplicationController
       end
 
       format.any(:html, :mobile) do
-        #only do it if it is an email address
+        # only do it if it is a diaspora*-ID
         if diaspora_id?(search_query)
-          @people =  Person.where(:diaspora_handle => search_query.downcase)
-          if @people.empty?
-            Workers::FetchWebfinger.perform_async(search_query)
-            @background_query = search_query.downcase
-          end
+          @people = Person.where(diaspora_handle: search_query.downcase, closed_account: false)
+          background_search(search_query) if @people.empty?
         end
         @people = @people.paginate(:page => params[:page], :per_page => 15)
         @hashes = hashes_for_people(@people, @aspects)
@@ -55,7 +52,7 @@ class PeopleController < ApplicationController
 
   def refresh_search
     @aspect = :search
-    @people =  Person.where(:diaspora_handle => search_query.downcase)
+    @people = Person.where(diaspora_handle: search_query.downcase, closed_account: false)
     @answer_html = ""
     unless @people.empty?
       @hashes = hashes_for_people(@people, @aspects)
@@ -165,6 +162,12 @@ class PeopleController < ApplicationController
 
     raise ActiveRecord::RecordNotFound if @person.nil?
     raise Diaspora::AccountClosed if @person.closed_account?
+  end
+
+  def background_search(search_query)
+    Workers::FetchWebfinger.perform_async(search_query)
+    @background_query = search_query.downcase
+    gon.preloads[:background_query] = @background_query
   end
 
   def hashes_for_people(people, aspects)

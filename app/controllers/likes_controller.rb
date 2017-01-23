@@ -26,12 +26,17 @@ class LikesController < ApplicationController
         format.json { render :json => @like.as_api_response(:backbone), :status => 201 }
       end
     else
-      render :nothing => true, :status => 422
+      render text: I18n.t("likes.create.error"), status: 422
     end
   end
 
   def destroy
-    @like = Like.find_by_id_and_author_id!(params[:id], current_user.person.id)
+    begin
+      @like = Like.find_by_id_and_author_id!(params[:id], current_user.person.id)
+    rescue ActiveRecord::RecordNotFound
+      render text: I18n.t("likes.destroy.error"), status: 404
+      return
+    end
 
     current_user.retract(@like)
     respond_to do |format|

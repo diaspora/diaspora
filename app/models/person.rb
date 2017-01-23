@@ -145,7 +145,7 @@ class Person < ActiveRecord::Base
     [where_clause, q_tokens]
   end
 
-  def self.search(search_str, user, only_contacts: false)
+  def self.search(search_str, user, only_contacts: false, mutual: false)
     search_str.strip!
     return none if search_str.blank? || search_str.size < 2
 
@@ -159,7 +159,10 @@ class Person < ActiveRecord::Base
               ).searchable(user)
             end
 
-    query.where(sql, *tokens)
+    query = query.where(contacts: {sharing: true, receiving: true}) if mutual
+
+    query.where(closed_account: false)
+         .where(sql, *tokens)
          .includes(:profile)
          .order(["contacts.user_id IS NULL", "profiles.last_name ASC", "profiles.first_name ASC"])
   end

@@ -67,11 +67,13 @@ app.models.Post.Interactions = Backbone.Model.extend({
     var self = this;
     this.likes.create({}, {
       success: function() {
+        self.post.set({participation: true});
         self.trigger("change");
         self.set({"likes_count" : self.get("likes_count") + 1});
+        self.likes.trigger("change");
       },
-      error: function() {
-        app.flashMessages.error(Diaspora.I18n.t("failed_to_like"));
+      error: function(model, response) {
+        app.flashMessages.handleAjaxError(response);
       }
     });
 
@@ -83,21 +85,25 @@ app.models.Post.Interactions = Backbone.Model.extend({
     this.userLike().destroy({success : function() {
       self.trigger('change');
       self.set({"likes_count" : self.get("likes_count") - 1});
+      self.likes.trigger("change");
     }});
 
     app.instrument("track", "Unlike");
   },
 
-  comment : function (text) {
+  comment: function(text, options) {
     var self = this;
+    options = options || {};
 
-    this.comments.make(text).fail(function () {
-      app.flashMessages.error(Diaspora.I18n.t("failed_to_comment"));
+    this.comments.make(text).fail(function(response) {
+      app.flashMessages.handleAjaxError(response);
+      if (options.error) { options.error(); }
     }).done(function() {
+      self.post.set({participation: true});
+      self.set({"comments_count": self.get("comments_count") + 1});
       self.trigger('change'); //updates after sync
+      if (options.success) { options.success(); }
     });
-
-    this.trigger("change"); //updates count in an eager manner
 
     app.instrument("track", "Comment");
   },
@@ -109,13 +115,16 @@ app.models.Post.Interactions = Backbone.Model.extend({
       .done(function(reshare) {
         app.flashMessages.success(Diaspora.I18n.t("reshares.successful"));
         interactions.reshares.add(reshare);
+        interactions.post.set({participation: true});
         if (app.stream && /^\/(?:stream|activity|aspects)/.test(app.stream.basePath())) {
           app.stream.addNow(reshare);
         }
         interactions.trigger("change");
+        interactions.set({"reshares_count": interactions.get("reshares_count") + 1});
+        interactions.reshares.trigger("change");
       })
-      .fail(function(){
-        app.flashMessages.error(Diaspora.I18n.t("reshares.duplicate"));
+      .fail(function(response) {
+        app.flashMessages.handleAjaxError(response);
       });
 
     app.instrument("track", "Reshare");

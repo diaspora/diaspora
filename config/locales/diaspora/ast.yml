@@ -122,10 +122,6 @@ ast:
   privacy: "Intimidá"
   profile: "Perfil"
   public: "Públicu"
-  reactions:
-    one: "1 reacción"
-    other: "%{count} reacciones"
-    zero: "0 reacciones"
   search: "Guetar"
   settings: "Preferencies"
   username: "Nome d'usuariu"

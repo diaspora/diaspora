@@ -26,7 +26,6 @@ es-CL:
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro/a?"
     delete: "Eliminar"
-    failed_to_like: "¡Falló el 'Me gusta'!"
     failed_to_post_message: "¡Falló la publicación del mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
@@ -57,7 +56,6 @@ es-CL:
       limited: "Limitada - tu publicación sólo será visto por gente con la que compartes"
       public: "Público - tu post será visible para todos y encontrado por mecanismos de búsqueda"
     reshares:
-      duplicate: "¿Es genial, cierto?  ¡Ya has compartido esa publicación!"
       successful: "¡La publicación se compartió correctamente!"
     show_more: "mostrar más"
     stream:

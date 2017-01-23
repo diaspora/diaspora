@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe BasePresenter do
   it "falls back to nil" do
     p = BasePresenter.new(nil)

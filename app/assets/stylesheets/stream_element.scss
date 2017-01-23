@@ -1,4 +1,4 @@
-.stream_element,
+.stream-element,
 .photo {
   & > .media {
     margin: 0px;
@@ -15,7 +15,7 @@
     position: relative;
 
     .control-icons {
-      background: $white;
+      background: $framed-background;
       border-radius: 4px;
       padding-left: 4px;
       position: absolute;
@@ -26,7 +26,7 @@
   }
 
   .thumbnail {
-    background: $white;
+    background: $framed-background;
     border-radius: 0;
     box-shadow: $card-shadow;
     height: 240px;
@@ -40,7 +40,7 @@
     &:hover,
     &:focus,
     &:active {
-      border-color: $light-grey;
+      border-color: $border-grey;
       text-decoration: none;
     }
 
@@ -60,9 +60,9 @@
   }
 }
 
-#main_stream .stream_element {
+#main_stream .stream-element {
   margin-bottom: 20px;
-  border: 1px solid $light-grey;
+  border: 1px solid $border-grey;
   box-shadow: $card-shadow;
 
   &.highlighted {
@@ -71,8 +71,8 @@
   }
 }
 
-.stream_element {
-  background-color: $white;
+.stream-element {
+  background-color: $framed-background;
   padding: 10px;
 
   & > .media {
@@ -96,7 +96,17 @@
       font-size: $font-size-small;
       line-height: $font-size-small;
     }
-    .post-content p:last-of-type { margin-bottom: 0; }
+
+    .post-content {
+      .markdown-content {
+        padding: .8em 0 .4em;
+      }
+
+      p:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
     .nsfw-shield {
       color: $text-grey;
       padding: 5px 10px;

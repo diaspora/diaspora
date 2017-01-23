@@ -23,7 +23,6 @@ ne:
   delete: "मेट्नुहोस्"
   email: "ईमेल"
   invitations:
-    a_facebook_user: "फेसबुक प्रयोगकर्ता"
     new:
       language: "भाषा"
   notifications:

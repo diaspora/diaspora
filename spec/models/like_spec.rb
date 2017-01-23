@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Like, type: :model do
   let(:status) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
 
@@ -40,6 +38,17 @@ describe Like, type: :model do
       expect {
         alice.like!(comment)
       }.to change { comment.reload.likes_count }.by(1)
+    end
+  end
+
+  describe "interacted_at" do
+    it "doesn't change the interacted at timestamp of the parent" do
+      interacted_at = status.reload.interacted_at.to_i
+
+      Timecop.travel(Time.zone.now + 1.minute) do
+        Like::Generator.new(alice, status).build.save
+        expect(status.reload.interacted_at.to_i).to eq(interacted_at)
+      end
     end
   end
 

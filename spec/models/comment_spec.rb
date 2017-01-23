@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Comment, type: :model do
   let(:alices_aspect) { alice.aspects.first }
   let(:status_bob) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
@@ -63,6 +61,16 @@ describe Comment, type: :model do
       }.to change{
         status_bob.reload.comments_count
       }.by(1)
+    end
+  end
+
+  describe "interacted_at" do
+    it "sets the interacted at of the parent to the created at of the comment" do
+      Timecop.freeze(Time.zone.now + 1.minute) do
+        comment = Comment::Generator.new(alice, status_bob, "why so formal?").build
+        comment.save
+        expect(status_bob.reload.interacted_at.to_i).to eq(comment.created_at.to_i)
+      end
     end
   end
 

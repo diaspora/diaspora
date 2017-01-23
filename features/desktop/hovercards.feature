@@ -15,7 +15,7 @@ Feature: Hovercards
   Scenario: Hovercards on the main stream
     Given I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
-    Then I should see "public stuff" within ".stream_element"
+    Then I should see "public stuff" within ".stream-element"
     When I activate the first hovercard
     Then I should see a hovercard
     When I deactivate the first hovercard
@@ -34,8 +34,18 @@ Feature: Hovercards
 
   Scenario: Hovercards on the tag stream as a logged out user
     Given I am on the tag page for "hashtag"
-    Then I should see "public stuff" within ".stream_element"
+    Then I should see "public stuff" within ".stream-element"
     When I activate the first hovercard
     Then I should see a hovercard
     When I deactivate the first hovercard
     Then I should not see a hovercard
+
+  Scenario: Hovercards contain profile tags
+    Given a user with email "bob@bob.bob" is tagged "#first #second"
+    And I sign in as "alice@alice.alice"
+    And I am on "bob@bob.bob"'s page
+    Then I should see "public stuff" within ".stream-element"
+    When I activate the first hovercard
+    Then I should see a hovercard
+    And I should see "#first" hashtag in the hovercard
+    And I should see "#second" hashtag in the hovercard

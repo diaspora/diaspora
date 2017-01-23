@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe UsersController, :type => :controller do
   include_context :gon
 
@@ -44,18 +42,6 @@ describe UsersController, :type => :controller do
       @user.perform_export_photos!
       get :download_photos
       expect(response).to redirect_to(@user.exported_photos_file.url)
-    end
-  end
-
-  describe 'user_photo' do
-    it 'should return the url of the users profile photo' do
-      get :user_photo, :username => @user.username
-      expect(response).to redirect_to(@user.profile.image_url)
-    end
-
-    it 'should 404 if no user is found' do
-      get :user_photo, :username => 'none'
-      expect(response).not_to be_success
     end
   end
 
@@ -254,11 +240,11 @@ describe UsersController, :type => :controller do
       expect(assigns[:email_prefs]['mentioned']).to be false
     end
 
-    it 'does allow token auth' do
+    it "does not allow token auth" do
       sign_out :user
       bob.reset_authentication_token!
       get :edit, :auth_token => bob.authentication_token
-      expect(response.status).to eq(200)
+      expect(response).to redirect_to new_user_session_path
     end
   end
 

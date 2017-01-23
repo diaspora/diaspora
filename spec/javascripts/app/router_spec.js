@@ -26,6 +26,16 @@ describe('app.Router', function () {
       expect(followed_tags).toHaveBeenCalled();
       expect(tag_following_action).toHaveBeenCalledWith({tagText: 'somethingwithcapitalletters'});
     });
+
+    it("does not add the TagFollowingAction if not logged in", function() {
+      var followedTags = spyOn(app.router, "followed_tags").and.callThrough();
+      var tagFollowingAction = spyOn(app.views, "TagFollowingAction");
+      logout();
+
+      app.router.followed_tags("some_tag");
+      expect(followedTags).toHaveBeenCalled();
+      expect(tagFollowingAction).not.toHaveBeenCalled();
+    });
   });
 
   describe("when routing to /stream and hiding inactive stream lists", function() {
@@ -77,6 +87,30 @@ describe('app.Router', function () {
       router.on('route:bookmarklet', route);
       router.navigate("/bookmarklet?\n\nfeefwefwewef\n", {trigger: true});
       expect(route).toHaveBeenCalled();
+    });
+  });
+
+  describe("conversations", function() {
+    beforeEach(function() {
+      this.router = new app.Router();
+    });
+
+    it("doesn't do anything if no conversation id is passed", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations();
+      expect(app.views.ConversationsInbox.prototype.renderConversation).not.toHaveBeenCalled();
+    });
+
+    it("doesn't do anything if id is not a readable number", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations("yolo");
+      expect(app.views.ConversationsInbox.prototype.renderConversation).not.toHaveBeenCalled();
+    });
+
+    it("renders the conversation if id is a readable number", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations("12");
+      expect(app.views.ConversationsInbox.prototype.renderConversation).toHaveBeenCalledWith("12");
     });
   });
 

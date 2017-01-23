@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe "Dispatching", type: :request do
   context "a comment retraction on a public post" do
     it "triggers a public dispatch" do

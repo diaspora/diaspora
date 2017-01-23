@@ -90,6 +90,7 @@ var app = {
 
   setupHeader: function() {
     if(app.currentUser.authenticated()) {
+      app.notificationsCollection = new app.collections.Notifications();
       app.header = new app.views.Header();
       $("header").prepend(app.header.el);
       app.header.render();
@@ -114,6 +115,7 @@ var app = {
       // so we use Backbone.history.navigate instead.
       var change = Backbone.history.navigate(link.attr("href").substring(1) ,true);
       if(change === undefined) { Backbone.history.loadUrl(link.attr("href").substring(1)); }
+      app.notificationsCollection.fetch();
     });
   },
 

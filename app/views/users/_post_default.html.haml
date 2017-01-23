@@ -1,0 +1,12 @@
+.row
+  .col-md-12
+    %h3
+      = t("users.edit.default_post_visibility")
+    = form_for current_user, url: edit_user_path,
+      html: {method: :put, id: "post-default-aspects", class: "form-horizontal"} do |f|
+      = f.hidden_field :post_default_public, value: false
+      - selected_aspects = current_user.post_default_aspects
+      = render partial: "aspects/aspect_dropdown", locals: {selected_aspects: selected_aspects}
+      .small-horizontal-spacer
+      .clearfix= f.submit t("users.edit.change"), class: "btn btn-primary pull-right"
+%hr

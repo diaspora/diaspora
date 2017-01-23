@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 shared_examples_for 'it is a stream' do
   context 'required methods for display' do
     it '#title' do
@@ -16,10 +14,6 @@ shared_examples_for 'it is a stream' do
 
     it '#publisher_opts' do
       expect(@stream.send(:publisher_opts)).not_to be_nil
-    end
-
-    it 'has a contacts link' do
-      expect(@stream.contacts_link).not_to be_nil
     end
 
     it 'should make the stream a time object' do

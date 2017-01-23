@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Workers::DeletePostFromService do
   it "calls service#delete_from_service with given opts" do
     service = double

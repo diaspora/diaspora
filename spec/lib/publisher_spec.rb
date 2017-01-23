@@ -1,6 +1,3 @@
-
-require 'spec_helper'
-
 describe Publisher do
   before do
     @publisher = Publisher.new(alice)
@@ -23,7 +20,7 @@ describe Publisher do
     end
   end
 
-  ["open", "public", "explain"].each do |property|
+  %w(open public).each do |property|
     describe "##{property}" do
       it 'defaults to closed' do
         expect(@publisher.send("#{property}".to_sym)).to be_falsey

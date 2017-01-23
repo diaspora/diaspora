@@ -88,7 +88,7 @@ describe("Diaspora.Mobile.PostActions", function(){
       spec.loadFixture("aspects_index_mobile_public_post");
       Diaspora.Mobile.PostActions.initialize();
       this.link = $(".stream .like-action").first();
-      this.likeCounter = this.link.closest(".stream_element").find(".like-count");
+      this.likeCounter = this.link.closest(".stream-element").find(".like-count");
     });
 
     it("always calls showLoader before sending request", function(){
@@ -118,6 +118,14 @@ describe("Diaspora.Mobile.PostActions", function(){
       expect(this.likeCounter.text()).toBe("0");
     });
 
+    it("lets Diaspora.Mobile.Alert handle AJAX errors", function() {
+      spyOn(Diaspora.Mobile.Alert, "handleAjaxError");
+      Diaspora.Mobile.PostActions.like(this.likeCounter, this.link);
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "oh noez! like failed!"});
+      expect(Diaspora.Mobile.Alert.handleAjaxError).toHaveBeenCalled();
+      expect(Diaspora.Mobile.Alert.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("oh noez! like failed!");
+    });
+
     it("activates link on success", function(){
       spyOn(Diaspora.Mobile.PostActions, "toggleActive");
       var data = this.link.data("url");
@@ -135,7 +143,7 @@ describe("Diaspora.Mobile.PostActions", function(){
       spec.loadFixture("aspects_index_mobile_public_post");
       Diaspora.Mobile.PostActions.initialize();
       this.link = $(".stream .like-action").first();
-      this.likeCounter = this.link.closest(".stream_element").find(".like-count");
+      this.likeCounter = this.link.closest(".stream-element").find(".like-count");
       Diaspora.Mobile.PostActions.like(this.likeCounter, this.link);
       jasmine.Ajax.requests.mostRecent().respondWith({status: 201, responseText: "{\"id\": \"18\"}"});
     });
@@ -164,6 +172,14 @@ describe("Diaspora.Mobile.PostActions", function(){
       jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
       expect(Diaspora.Mobile.PostActions.toggleActive).not.toHaveBeenCalled();
       expect(this.likeCounter.text()).toBe("1");
+    });
+
+    it("lets Diaspora.Mobile.Alert handle AJAX errors", function() {
+      spyOn(Diaspora.Mobile.Alert, "handleAjaxError");
+      Diaspora.Mobile.PostActions.unlike(this.likeCounter, this.link);
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "oh noez! unlike failed!"});
+      expect(Diaspora.Mobile.Alert.handleAjaxError).toHaveBeenCalled();
+      expect(Diaspora.Mobile.Alert.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("oh noez! unlike failed!");
     });
 
     it("deactivates link on success", function(){
@@ -198,7 +214,6 @@ describe("Diaspora.Mobile.PostActions", function(){
       Diaspora.Mobile.PostActions.initialize();
       this.reshareLink = $(".stream .reshare-action");
       spyOn(window, "confirm").and.returnValue(true);
-      spyOn(window, "alert");
     });
 
     it("always calls showLoader before sending request and hideLoader after receiving response", function(){
@@ -223,10 +238,12 @@ describe("Diaspora.Mobile.PostActions", function(){
       expect(Diaspora.Mobile.PostActions.toggleActive).toHaveBeenCalledWith(this.reshareLink);
     });
 
-    it("pops an alert on error", function(){
+    it("lets Diaspora.Mobile.Alert handle AJAX errors", function() {
+      spyOn(Diaspora.Mobile.Alert, "handleAjaxError");
       this.reshareLink.click();
-      jasmine.Ajax.requests.mostRecent().respondWith({status: 400});
-      expect(window.alert).toHaveBeenCalledWith(Diaspora.I18n.t("failed_to_reshare"));
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "reshare failed"});
+      expect(Diaspora.Mobile.Alert.handleAjaxError).toHaveBeenCalled();
+      expect(Diaspora.Mobile.Alert.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("reshare failed");
     });
   });
 });

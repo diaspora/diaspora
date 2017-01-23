@@ -38,8 +38,9 @@ class Comment < ActiveRecord::Base
     self.text.strip! unless self.text.nil?
   end
 
-  after_commit :on => :create do
-    self.parent.update_comments_counter
+  after_commit on: :create do
+    parent.update_comments_counter
+    parent.touch(:interacted_at) if parent.respond_to?(:interacted_at)
   end
 
   after_destroy do

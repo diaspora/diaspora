@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe OEmbedHelper, :type => :helper do
   describe 'o_embed_html' do
     scenarios = {
