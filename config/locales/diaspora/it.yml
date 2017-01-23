@@ -290,7 +290,7 @@ it:
     miscellaneous:
       back_to_top_a: "Si. Dopo averla fatta scorrere in basso, clicca sulla freccia grigia che appare nell`angolo in basso a destra della finestra del tuo browser."
       back_to_top_q: "C`è un modo veloce per tornare in cima ad una pagina una volta che l'ho fatta scorrere in basso?"
-      diaspora_app_q: "Esiste l'app diaspora per Android o iOS?"
+      diaspora_app_q: "Esiste l'app diaspora* per Android o iOS?"
       photo_albums_a: "Al momento no. Tuttavia puoi vedere uno stream delle loro foto caricate dalla sezione foto nella barra laterale del loro profilo."
       photo_albums_q: "Ci sono album di foto o video?"
       subscribe_feed_q: "Posso seguire i contributi  pubblici di una persona con un Feedreader?"
@@ -415,7 +415,7 @@ it:
       empty: "Perfavore inserire almeno un indirizzo email."
       no_more: "Non hai più inviti a disposizione"
       note_already_sent: "Gli inviti sono stati già inviati a: %{emails}"
-      rejected: "Questi indirizzi email hanno dei problemi:"
+      rejected: "I seguenti indirizzi email hanno dei problemi: %{emails}"
       sent: "Gli inviti sono stati inviati a: "
     new:
       codes_left:
@@ -446,9 +446,9 @@ it:
   no_results: "La ricerca non ha prodotto risultati"
   notifications:
     also_commented:
-      one: "Anche %{actors} ha commentato %{post_link} di %{post_author}."
-      other: "Anche %{actors} hanno commentato %{post_link} di %{post_author}."
-      zero: "%{actors} ha commentato %{post_link} di %{post_author}."
+      one: "Anche %{actors} ha commentato il post %{post_link} di %{post_author}."
+      other: "Anche %{actors} hanno commentato il post %{post_link} di %{post_author}."
+      zero: "%{actors} ha commentato il post %{post_link} di %{post_author}."
     also_commented_deleted:
       one: "%{actors} ha commentato un post che è stato eliminato."
       other: "%{actors} hanno commentato un post che è stato eliminato."
@@ -475,7 +475,7 @@ it:
       mark_unread: "Segna come non letti"
       mentioned: "Menzionato"
       notifications: "Notifiche"
-      reshared: "Ri-condiviso"
+      reshared: "Ricondiviso"
       show_all: "Mostra tutto"
     liked:
       few: "A %{actors} piace il tuo %{post_link}."
@@ -489,12 +489,9 @@ it:
       other: "A %{actors} piaceva il post che hai eliminato."
       zero: "A %{actors} piaceva il post che hai eliminato."
     mentioned:
-      few: "%{actors} ti hanno menzionato in un %{post_link}."
-      many: "%{actors} ti hanno menzionato in un %{post_link}."
-      one: "%{actors} ti ha menzionato in un %{post_link}."
-      other: "%{actors} ti hanno menzionato in un %{post_link}."
-      two: "%{actors} ti hanno menzionato in un %{post_link}."
-      zero: "%{actors} ti hanno menzionato in un %{post_link}."
+      one: "%{actors} ti ha menzionato in un post %{post_link}."
+      other: "%{actors} ti hanno menzionato in un post %{post_link}."
+      zero: "%{actors} ti ha menzionato in un post %{post_link}."
     mentioned_deleted:
       one: "%{actors} ti ha menzionato in un post che è stato eliminato."
       other: "%{actors} ti hanno menzionato in un post che è stato eliminato."
@@ -558,7 +555,7 @@ it:
       reply_to_or_view: "Rispondi o leggi questa conversazione >"
     report_email:
       type:
-        comment: "Commento"
+        comment: "commento"
     reshared:
       reshared: "%{name} ha condiviso il tuo post"
       view_post: "Leggi il post >"
@@ -582,7 +579,7 @@ it:
       no_one_found: "...e nessuno è stato trovato."
       no_results: "Ehi! Devi inserire qualcosa da cercare."
       results_for: "Risultati della ricerca di %{search_term}"
-      search_handle: "Utilizza la loro ID diaspora* (nomeutente@pod.tld) per essere sicuro di trovare i tuoi amici."
+      search_handle: "Utilizza il loro ID diaspora* (nomeutente@pod.tld) per essere sicuro di trovare i tuoi amici."
       searching: "Ricerca in corso, devi avere pazienza..."
       send_invite: "Ancora niente? Manda un invito!"
     person:
@@ -634,13 +631,6 @@ it:
       failed: "Aggiornamento del profilo non riuscito"
       updated: "Profilo aggiornato"
   public: "Pubblico"
-  reactions:
-    few: "%{count} risposte"
-    many: "%{count} risposte"
-    one: "1 risposta"
-    other: "%{count} risposte"
-    two: "%{count} risposte"
-    zero: "0 risposte"
   registrations:
     closed: "Su questo pod Diaspora le iscrizioni sono chiuse."
     create:
@@ -655,8 +645,8 @@ it:
       password: "PASSWORD"
       password_confirmation: "CONFERMA PASSWORD"
       sign_up: "ISCRIVITI"
-      submitting: "Invio..."
-      terms_link: "Termini di servizio"
+      submitting: "Invio in corso..."
+      terms_link: "termini di servizio"
       username: "NOME UTENTE"
   reshares:
     comment_email_subject: "La condivisione di %{resharer} del post di %{author}"

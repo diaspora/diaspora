@@ -196,6 +196,12 @@ ru:
     show_more: "показать больше"
     stream:
       comment: "Комментировать"
+      comments:
+        few: "<%= count %> комментария"
+        many: "<%= count %> комментариев"
+        one: "<%= count %> комментарий"
+        other: "<%= count %> комментариев"
+        zero: "<%= count %> комментариев"
       disable_post_notifications: "Отключить уведомления на эту запись"
       enable_post_notifications: "Включить уведомления на эту запись"
       follow: "Следить"

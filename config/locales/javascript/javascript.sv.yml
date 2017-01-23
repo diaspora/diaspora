@@ -246,6 +246,10 @@ sv:
     show_more: "Visa mer"
     stream:
       comment: "Kommentera"
+      comments:
+        one: "En kommentar"
+        other: "<%= count %> kommentarer"
+        zero: "Inga kommentarer"
       disable_post_notifications: "Inaktivera notifikationer för detta inlägg"
       enable_post_notifications: "Tillåt notifikationer för detta inlägg"
       follow: "Följ"
@@ -269,10 +273,6 @@ sv:
       original_post_deleted: "Det ursprungliga inlägget har blivit borttaget av författaren."
       permalink: "Permanent länk"
       public: "Publik"
-      reactions:
-        one: "<%= count%>  reaktion"
-        other: "<%= count%>  reaktioner"
-        zero: "<%= count%>  reaktioner"
       reshare: "Dela vidare"
       reshares:
         one: "En delar vidare"

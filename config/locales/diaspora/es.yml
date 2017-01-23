@@ -601,6 +601,9 @@ es:
       profile: "Perfil"
       settings: "Ajustes"
       toggle_navigation: "Cambiar navegación"
+  likes:
+    destroy:
+      error: "Ocurrió un error al quitar el \"Me gusta\""
   limited: "Limitado"
   more: "Más"
   no_results: "No hay resultados"
@@ -889,10 +892,6 @@ es:
       failed: "Error actualizando el perfil"
       updated: "Perfil actualizado"
   public: "Público"
-  reactions:
-    one: "1 reacción"
-    other: "%{count} reacciones"
-    zero: "Sin reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diaspora."
     create:
@@ -917,7 +916,7 @@ es:
     delete_link: "Borrar"
     not_found: "No se encontró la noticia o comentario. ¡Parece que fue borrado por el usuario!"
     post_label: "<b>Publicación</b>: %{title}"
-    reason_label: "Razón: %{text}"
+    reason_label: "Razón:"
     reported_label: "<b>Reportado por</b> %{person}"
     reported_user_details: "Detalles del usuario denunciado"
     review_link: "Marcar como revisado"
@@ -1036,6 +1035,7 @@ es:
     activity:
       title: "Mi actividad"
     aspects:
+      all: "Todos los aspectos"
       title: "Mis aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
@@ -1043,6 +1043,7 @@ es:
     community_spotlight_stream: "Lo más destacado"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
+      all: "Todas las etiquetas"
       follow: "Seguir"
       title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"

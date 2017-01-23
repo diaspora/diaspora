@@ -153,6 +153,9 @@ pt-BR:
         login_required: "Você deve entrar no sistema para autorizar esse aplicativo"
         title: "Opa! Alguma coisa deu errado :("
       scopes:
+        aud:
+          description: "O aplicativo teria acesso a aud"
+          name: "aud"
         name:
           description: "O aplicativo teria acesso ao seu nome"
           name: "nome"
@@ -171,6 +174,9 @@ pt-BR:
         read:
           description: "O aplicativo teria permissão para ler seu fluxo, conversas e perfil completo"
           name: "ler perfil, fluxo e conversas"
+        sub:
+          description: "O aplicativo teria acesso a sub"
+          name: "sub"
         write:
           description: "O aplicativo teria permissão para publicar, conversar e enviar reações"
           name: "enviar publicações, conversas e reações"
@@ -620,6 +626,8 @@ pt-BR:
   likes:
     create:
       error: "Falha ao curtir."
+    destroy:
+      error: "Falha ao descurtir."
   limited: "Limitado"
   more: "Mais"
   no_results: "Nenhum resultado encontrado"
@@ -653,7 +661,7 @@ pt-BR:
       mark_all_shown_as_read: "marcar tudo como lido"
       mark_read: "Marcar como lido"
       mark_unread: "Marcar como não lida"
-      mentioned: "Mencionou"
+      mentioned: "Mencionados"
       no_notifications: "Você ainda não tem notificações."
       notifications: "Notificações"
       reshared: "Recompartilhou"
@@ -671,17 +679,9 @@ pt-BR:
     mentioned:
       one: "%{actors} mencionou você na publicação %{post_link}."
       other: "%{actors} mencionaram você na publicação %{post_link}."
-      zero: "%{actors} mencionou você na publicação %{post_link}."
     mentioned_deleted:
       one: "%{actors} mencionou você em uma publicação deletada."
       other: "%{actors} mencionaram você em uma publicação deletada."
-      zero: "%{actors} mencionou você em uma publicação apagada."
-    mentioned_in_comment:
-      one: "%{actors} mencionou você em um <a href='%{comment_path}'> à publicação %{post_link}."
-      other: "%{actors} mencionaram você em um <a href='%{comment_path}'> à publicação %{post_link}."
-    mentioned_in_comment_deleted:
-      one: "%{actors} mencionou você em um comentário deletado."
-      other: "%{actors} mencionaram você em um comentário deletado."
     post: "publicação"
     private_message:
       one: "%{actors} te enviou uma mensagem."
@@ -804,9 +804,6 @@ pt-BR:
     mentioned:
       limited_post: "Você foi mencionado em uma publicação privada."
       subject: "%{name} mencionou você em Diaspora*"
-    mentioned_in_comment:
-      limited_post: "Mencionaram você em um comentário a uma publicação limitada."
-      reply: "Responder ou ver esta conversa >"
     private_message:
       reply_to_or_view: "Responder ou visualizar esta conversa >"
       subject: "Há uma nova mensagem privada para você"
@@ -941,10 +938,6 @@ pt-BR:
       failed: "Falhou ao atualizar o perfil."
       updated: "Perfil Atualizado!"
   public: "Público"
-  reactions:
-    one: "Uma reação"
-    other: "%{count} reações"
-    zero: "Nenhuma reação"
   registrations:
     closed: "Os cadastros estão temporariamente desabilitados neste servidor diaspora*."
     create:
@@ -964,12 +957,12 @@ pt-BR:
       terms_link: "Termos de Serviço"
       username: "Nome de usuário"
   report:
-    comment_label: "<b>Comentário</b>:<br>%{data}"
+    comment_label: "<b>Comentário</b>: %{data}"
     confirm_deletion: "Tem certeza que quer apagar o item?"
     delete_link: "Apagar item"
     not_found: "<u>A publicação ou comentário não foi encontrado. Ao que parece, ele foi apagado pelo autor!</u>"
-    post_label: "<b>Publicação</b>: %{title}"
-    reason_label: "Motivo: %{text}"
+    post_label: "<b>Publicação</b>: %{content}"
+    reason_label: "Motivo:"
     reported_label: "<b>Relatado por</b> %{person}"
     reported_user_details: "Detalhes sobre o usuário relatado"
     review_link: "Marcar como revisado"
@@ -1093,6 +1086,7 @@ pt-BR:
     activity:
       title: "Minha Atividade"
     aspects:
+      all: "Todos os aspectos"
       title: "Meus Aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
@@ -1100,6 +1094,7 @@ pt-BR:
     community_spotlight_stream: "Destaque da Comunidade"
     followed_tag:
       add_a_tag: "Adicionar uma tag"
+      all: "Todas as tags"
       follow: "Seguir"
       title: "#Seguindo Tags"
     followed_tags_stream: "#Seguindo Tags"

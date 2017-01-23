@@ -787,10 +787,6 @@ fi:
       failed: "Profiilin päivitys epäonnistui"
       updated: "Profiili päivitetty"
   public: "Julkinen"
-  reactions:
-    one: "1 reaktio"
-    other: "%{count} reaktiota"
-    zero: "Ei reaktioita"
   registrations:
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create:
@@ -815,7 +811,7 @@ fi:
     delete_link: "Poista kohde"
     not_found: "<u>Julkaisua tai kommenttia ei löytynyt. Vaikuttaa siltä, että käyttäjä on poistanut sen!</u>"
     post_label: "<b>Julkaisu</b>: %{title}"
-    reason_label: "Syy: %{text}"
+    reason_label: "Syy:"
     reported_label: "<b>Ilmoituksen teki</b> %{person}"
     review_link: "Merkitse tarkistetuksi"
     status:

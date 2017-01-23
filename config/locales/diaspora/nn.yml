@@ -447,10 +447,6 @@ nn:
       failed: "Klarte ikkje å oppdatera profilen"
       updated: "Profilen vart oppdatert"
   public: "Offentleg"
-  reactions:
-    one: "1 reaksjon"
-    other: "%{count} reaksjonar"
-    zero: "ingen reaksjonar"
   registrations:
     closed: "Kan ikkje oppretta brukarar på denne Diaspora-poden."
     create:

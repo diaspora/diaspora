@@ -102,6 +102,8 @@ hy:
       remove_contact: "Հեռացնել"
       search_no_results: "Ոչ ոք չգտնվեց"
     conversation:
+      create:
+        no_recipient: "Հեյ, բա հասցեատե՞րը։"
       new:
         no_contacts: "Նախքան զրույց սկսելը պետք է գոնե մեկին ավելացնես։"
     create: "Ստեղծել"
@@ -255,10 +257,6 @@ hy:
       original_post_deleted: "Հեղինակը ջնջել է բնօրինակը"
       permalink: "Սկզբնաղբյուր"
       public: "Հրապարակային"
-      reactions:
-        one: "<%= count%> արձագանք"
-        other: "<%= count%> արձագանք"
-        zero: "արձագանք չկա"
       reshare: "Տարածել"
       reshares:
         one: "<%= count %> հոգի տարածել է"

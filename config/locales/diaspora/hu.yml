@@ -695,9 +695,6 @@ hu:
       failed: "Adatlap frissítése sikertelen"
       updated: "Adatlap frissítve"
   public: "Nyilvános"
-  reactions:
-    other: "%{count} visszajelzés"
-    zero: "nincs visszajelzés"
   registrations:
     closed: "A regisztrációs lehetőség zárolva van ezen a diaspora* kiszolgálón."
     create:
@@ -722,7 +719,7 @@ hu:
     delete_link: "Elem törlése"
     not_found: "<u>A bejegyzés/hozzászólás nem található. Valószínűleg törölte a felhasználó.</u>"
     post_label: "<b>Bejegyzés</b>: %{title}"
-    reason_label: "Indok: %{text}"
+    reason_label: "Indok:"
     reported_label: "<b>Jelentette:</b> %{person}"
     review_link: "Átnézettnek jelöl"
     status:

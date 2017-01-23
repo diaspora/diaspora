@@ -387,10 +387,6 @@ is:
       failed: "Ekki tókst að uppfæra síðuna mína"
       updated: "Síðan mín uppfærð"
   public: "Opið öllum"
-  reactions:
-    one: "1 viðbragð"
-    other: "%{count} viðbrögð"
-    zero: "0 viðbrögð"
   registrations:
     closed: "Lokað er fyrir innskráningar á þessum Diaspora* pod."
     create:

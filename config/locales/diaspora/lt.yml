@@ -298,11 +298,6 @@ lt:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
   public: "Viešas"
-  reactions:
-    few: "%{count} reakcijos"
-    one: "1 reakcija"
-    other: "%{count} reakcijų"
-    zero: "0 reakcijų"
   registrations:
     closed: "Naujų paskyrų kūrimas šiame Diasporos serveryje yra uždarytas."
     create:

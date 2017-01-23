@@ -356,13 +356,6 @@ ka:
       failed: "პროფილის განახლება ვერ მოხერხდა"
       updated: "პროფილი განახლდა"
   public: "საჯაროდ"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
   registrations:
     closed: "რეგისტრაცია დახურულია დიასპორას ამ პოდზე."
     create:

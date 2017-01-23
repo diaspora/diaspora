@@ -447,10 +447,6 @@ eo:
       failed: "Ne povis ĝisdatigi profilon"
       updated: "Profilo ĝisdatigita"
   public: "Publika"
-  reactions:
-    one: "1 reago"
-    other: "%{count} reagoj"
-    zero: "0 reagoj"
   registrations:
     closed: "Registrado estas fermita ĉe tiu ĉi DIASPORA* 'pod' (servilo)."
     create:

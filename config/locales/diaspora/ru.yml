@@ -574,6 +574,9 @@ ru:
       logout: "Выйти"
       profile: "Профиль"
       settings: "Настройки"
+  likes:
+    destroy:
+      error: "Не удалось отменить \"Нравится\""
   limited: "Ограниченная"
   more: "Ещё"
   no_results: "Результатов не найдено"
@@ -866,12 +869,6 @@ ru:
       failed: "Не удалось обновить профиль"
       updated: "Профиль обновлён"
   public: "Публичная"
-  reactions:
-    few: "%{count} отзыва"
-    many: "%{count} отзывов"
-    one: "%{count} отзыв"
-    other: "%{count} отзывов"
-    zero: "Отзывов нет"
   registrations:
     closed: "На этом сервере Диаспоры регистрация закрыта."
     create:
@@ -896,7 +893,7 @@ ru:
     delete_link: "Удалить"
     not_found: "<u>Не удалось найти запись или комментарий. Наверное, уже удалено пользователем.</u>"
     post_label: "<b>Запись</b>: %{title}"
-    reason_label: "Причина: %{text}"
+    reason_label: "Причина:"
     reported_label: "<b>Донос от</b> %{person}"
     review_link: "Отметить как просмотренный"
     status:
@@ -1015,6 +1012,7 @@ ru:
     activity:
       title: "Моя активность"
     aspects:
+      all: "Все аспекты"
       title: "Мои аспекты"
     aspects_stream: "Аспекты"
     comment_stream:
@@ -1022,6 +1020,7 @@ ru:
     community_spotlight_stream: "Рекомендуемые пользователи"
     followed_tag:
       add_a_tag: "Добавить метку"
+      all: "Все хештеги"
       follow: "Следить"
       title: "#Метки"
     followed_tags_stream: "#Метки"
