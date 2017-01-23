@@ -262,10 +262,6 @@ nl:
       original_post_deleted: "Originele bericht verwijderd door de auteur."
       permalink: "Permalink"
       public: "Openbaar"
-      reactions:
-        one: "<%= count%> reactie"
-        other: "<%= count%> reacties"
-        zero: "<%= count%> reacties"
       reshare: "Doorgeven"
       reshares:
         one: "<%= count %>keer opnieuw gedeeld"

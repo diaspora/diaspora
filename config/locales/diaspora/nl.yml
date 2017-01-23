@@ -932,10 +932,6 @@ nl:
       failed: "Profiel bijwerken mislukt"
       updated: "Profiel bijgewerkt"
   public: "Openbaar"
-  reactions:
-    one: "1 reactie"
-    other: "%{count} reacties"
-    zero: "Geen reacties"
   registrations:
     closed: "Registratie op deze diaspora* pod is niet mogelijk."
     create:
@@ -960,7 +956,7 @@ nl:
     delete_link: "Verwijder bericht"
     not_found: "<u>Bericht/Reactie niet gevonden. Het lijkt erop dat de gebruiker het al heeft verwijderd!</u>"
     post_label: "<b>Bericht</b>: %{title}"
-    reason_label: "Reden: %{text}"
+    reason_label: "Reden:"
     reported_label: "<b>Gemeld door</b> %{person}"
     reported_user_details: "Details over gerapporteerde gebruiker"
     review_link: "Markeren als beoordeeld"

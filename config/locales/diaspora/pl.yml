@@ -859,12 +859,6 @@ pl:
       failed: "Aktualizacja profilu nie powiodła się"
       updated: "Profil został pomyślnie zaktualizowany"
   public: "Publiczny"
-  reactions:
-    few: "%{count} reakcje"
-    many: "%{count} reakcji"
-    one: "1 reakcja"
-    other: "%{count} reakcji"
-    zero: "Brak reakcji"
   registrations:
     closed: "Ten pod diaspory* nie zezwala na rejestrację nowych użytkowników."
     create:
@@ -889,7 +883,7 @@ pl:
     delete_link: "Usuń element"
     not_found: "<u>Ten wpis/komentarz nie został znaleziony. Wygląda na to, że został usunięty przez autora!</u>"
     post_label: "<b>Wpis</b>: %{title}"
-    reason_label: "Powód: %{text}"
+    reason_label: "Powód:"
     reported_label: "<b>Zgłoszony przez</b> %{person}"
     review_link: "Oznacz jako sprawdzony"
     status:

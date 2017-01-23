@@ -626,6 +626,8 @@ es-AR:
   likes:
     create:
       error: "¡Falló el 'Me gusta'!"
+    destroy:
+      error: "Ocurrió un error al quitar el \"Me gusta\""
   limited: "Limitado"
   more: "Más"
   no_results: "No hay resultados"
@@ -663,7 +665,6 @@ es-AR:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
       mentioned: "Mencionados"
-      mentioned_in_comment: "Fuiste mencionado en un comentario"
       no_notifications: "Aún no tienes ninguna notificación."
       notifications: "Notificaciones"
       reshared: "Compartidos"
@@ -684,20 +685,14 @@ es-AR:
     mentioned:
       one: "%{actors} te mencionó en la publicación %{post_link}."
       other: "%{actors} te mencionaron en la publicación %{post_link}."
-      zero: "%{actors} te mencionó en la publicación %{post_link}."
+      zero: "%{actors} te mencionaron en la publicación %{post_link}."
     mentioned_deleted:
       few: "%{actors} te mencionaron en una publicación eliminada."
       many: "%{actors} te mencionaron en una publicación eliminada."
       one: "%{actors} te mencionó en una publicación eliminada."
       other: "%{actors} te mencionaron en una publicación eliminada."
       two: "%{actors} te mencionó en un mensaje eliminado."
-      zero: "%{actors} te mencionó en una publicación eliminada."
-    mentioned_in_comment:
-      one: "%{actors} te mencionó en un <a href='%{comment_path}'>comentario</a> de la publicación %{post_link}"
-      other: "%{actors} te mencionarion en un <a href='%{comment_path}'>comentario</a> de la publicación  %{post_link}"
-    mentioned_in_comment_deleted:
-      one: "%{actors} te mencionó en un comentario que fue eliminado."
-      other: "%{actors} te mencionaron en un comentario que fue eliminado."
+      zero: "%{actors} te mencionaron en una publicación eliminada."
     post: "publicación"
     private_message:
       few: "%{actors} te enviaron un mensaje."
@@ -828,9 +823,6 @@ es-AR:
     mentioned:
       limited_post: "Se te mencionó en una publicación privada."
       subject: "%{name} te mencionó en diaspora*"
-    mentioned_in_comment:
-      limited_post: "Fuiste mencionado en un comentario de una publicación limitada."
-      reply: "Contestar o ver esta conversación >"
     private_message:
       reply_to_or_view: "Responder o ver esta conversación >"
       subject: "Tienes un nuevo mensaje privado en diaspora*"
@@ -966,13 +958,6 @@ es-AR:
       failed: "No pudo actualizarse el perfil"
       updated: "Perfil actualizado"
   public: "Público"
-  reactions:
-    few: "%{count} reacciones "
-    many: "%{count} reacciones"
-    one: "1 reacción"
-    other: "%{count} reacciones"
-    two: "%{count} reacciones"
-    zero: "0 reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de diaspora*."
     create:
@@ -992,12 +977,12 @@ es-AR:
       terms_link: "Términos de Servicio"
       username: "Nombre de usuario"
   report:
-    comment_label: "<b>Comentario</b>:<br>%{data}"
+    comment_label: "<b>Comentario</b>: %{data}"
     confirm_deletion: "¿Está seguro de borrar el item?"
     delete_link: "Borrar item"
     not_found: "<u>No se ha encontrado la publicación/comentario. ¡Al parecer ha sido borrada por el usuario!</u>"
-    post_label: "<b>Publicación</b>: %{title}"
-    reason_label: "Motivo: %{text}"
+    post_label: "<b>Publicación</b>: %{content}"
+    reason_label: "Motivo:"
     reported_label: "<b>Reportada por</b> %{person}"
     reported_user_details: "Detalles del usuario denunciado"
     review_link: "Marcar como revisada"
@@ -1122,6 +1107,7 @@ es-AR:
     activity:
       title: "Mi actividad"
     aspects:
+      all: "Todos los aspectos"
       title: "Mis aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
@@ -1129,6 +1115,7 @@ es-AR:
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
+      all: "Todas las etiquetas"
       follow: "Seguir"
       title: "#Etiquetas que sigues"
     followed_tags_stream: "#Etiquetas que sigues"
@@ -1200,7 +1187,6 @@ es-AR:
       last_exported_at: "(Última actualización en %{timestamp})"
       liked: "...a alguien le gusta una publicación tuya?"
       mentioned: "...te mencionan en una publicación?"
-      mentioned_in_comment: "te han mencionado en un comentario"
       new_password: "Contraseña nueva"
       private_message: "...recibís un mensaje privado?"
       receive_email_notifications: "¿Recibir notificaciones por correo electrónico cuando..."

@@ -426,13 +426,6 @@ ar:
       failed: "فشل فى تحديث ملفك الشخصى"
       updated: "تم تحديث ملفك الشخصى"
   public: "عامّ"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
   registrations:
     closed: "التسجيلات مغلقة على هذه المنصة"
     create:

@@ -585,13 +585,6 @@ es-CL:
       failed: "Error al actualizar perfil"
       updated: "Perfil actualizado"
   public: "Publico"
-  reactions:
-    few: "%{count} reacciones"
-    many: "%{count} reacciones"
-    one: "1 reacción"
-    other: "%{count} reacciones"
-    two: "%{count} reacciones"
-    zero: "0 reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diaspora."
     create:

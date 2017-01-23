@@ -271,6 +271,8 @@ da:
     post_something: "Skriv indlæg til Diaspora"
   cancel: "Annuller"
   comments:
+    create:
+      error: "Du kunne ikke kommentere."
     new_comment:
       comment: "Kommenter"
       commenting: "Kommenterer ..."
@@ -303,6 +305,7 @@ da:
       conversations_inbox: "Samtaler - Indboks"
       inbox: "Indbakke"
       new_conversation: "Nye samtaler"
+      no_contacts: "Du skal tilføje nogle kontakter før du kan starte en samtale"
       no_messages: "Ingen beskeder"
     new:
       message: "Besked"
@@ -327,6 +330,7 @@ da:
   delete: "Slet"
   email: "E-mail"
   error_messages:
+    csrf_token_fail: "CSFR-token er ikke gyldigt. Log ind og prøv igen."
     helper:
       correct_the_following_errors_and_try_again: "Ret de følgende fejl og prøv igen."
     need_javascript: "Denne hjemmeside kræver javascript for at fungere ordentligt. Hvis du har slået javascript fra, slå det venligst til igen og opdater hjemmesiden."
@@ -367,7 +371,7 @@ da:
       title: "Aspekter"
       what_is_an_aspect_a: "Aspekter er den måde du kan gruppere dine kontakter på Diaspora. Et aspekt er en af de roller du har i verden. Det kan være i forhold til dit arbejde, din familie eller overfor venner du kender gennem en forening."
       what_is_an_aspect_q: "Hvad er et aspekt?"
-      who_sees_post_a: "Hvis du laver et begrænset indlæg, vil det kun være synligt for de personer du har lagt i dette aspekt (eller aspekter, hvis det er lavet til flere aspekter) før du lavede dit indlæg. Kontakter der ikke er i det aspekt kan ikke se indlægget. Begrænsede indlæg vil aldrig kunne ses af andre end dem du har i dine aspekter."
+      who_sees_post_a: "Hvis du laver et lukket indlæg, vil det kun være synligt for de personer du har lagt i dette aspekt (eller aspekter, hvis det er lavet til flere aspekter) før du lavede dit indlæg. Kontakter der ikke er i det aspekt kan ikke se indlægget. Lukkede indlæg vil aldrig kunne ses af andre end dem du har i dine aspekter."
       who_sees_post_q: "Hvis jeg skriver et indlæg til et aspekt hvem kan så se det?"
     chat:
       add_contact_roster_a: "Først skal du slå chat til for det af dine aspekter personen er i. For at gøre det gå til %{contacts_page}, vælg det aspekt du ønsker og klik chat-ikonnet. Herved slår du chat til for det aspekt. %{toggle_privilege} Hvis du ønsker det kan du lave et nyt aspekt kaldet \"Chat\" og så tilføje de personer du er interesseret i at chatte med. Når du har gjort det, åben chat interfacet og vælg den person du vil chatte med."
@@ -460,7 +464,7 @@ da:
       size_of_images_a: "Nej. Billederne skaleres automatisk til at passe til strømmen. Markdown har ikke en kode til angivelse af størrelsen af et billede."
       size_of_images_q: "Kan jeg tilpasse størrelsen på ​​billeder i indlæg eller kommentarer?"
       stream_full_of_posts_a1: "Din strøm består af tre forskellige slags indlæg:"
-      stream_full_of_posts_li1: "Indlæg skrevet af de mennesker du deler med som kan være både offentlige og begrænset til kun at kunne ses af et af deres aspekter som du er en del af. Hvis du vil fjerne indlæg skrevet af en bestemt person kan du bare holde op med at dele med vedkommende."
+      stream_full_of_posts_li1: "Indlæg skrevet af de mennesker du deler med som kan være både offentlige og begrænset til kun at kunne ses af et af deres aspekter som du er en del af. Hvis du vil fjerne indlæg fra din strøm skrevet af en bestemt person kan du bare holde op med at dele med vedkommende."
       stream_full_of_posts_li2: "Offentlige indlæg som indeholder et af de tags du følger. For at fjerne disse skal du holde op med at følge det tag."
       stream_full_of_posts_li3: "Offentlige indlæg af folk listet i Community Spotlight. Man kan fjerne disse indlæg ved at aftjekke \"Vis Community Spotlight i din hovedstrøm?\" i kontoafsnittet af dine indstillinger."
       stream_full_of_posts_q: "Hvorfor er min strøm fuld af indlæg fra personer, jeg ikke kender og ikke deler med?"
@@ -508,7 +512,7 @@ da:
     resharing_posts:
       reshare_private_post_aspects_a: "Nej, det er ikke muligt at videredele et privat indlæg. Dette er for at respektere intentionen hos det oprindelige indlægs forfatter der jo havde valgt kun at dele indlægget med en begrænset gruppe."
       reshare_private_post_aspects_q: "Kan jeg videredele et begrænset indlæg til udvalgte aspekter?"
-      reshare_public_post_aspects_a: "Nej. Når du videredeler et offentligt indlæg bliver det automatisk et af dine offentlige indlæg. Hvis du kun ønsker at dele det med bestemte aspekter må du kopiere og indsætte det i et nyt begrænset indlæg."
+      reshare_public_post_aspects_a: "Nej. Når du videredeler et offentligt indlæg bliver det automatisk et af dine offentlige indlæg. Hvis du kun ønsker at dele det med bestemte aspekter må du kopiere og indsætte det i et nyt lukket indlæg."
       reshare_public_post_aspects_q: "Kan jeg videredele et offentligt indlæg til et begrænset aspekt?"
       title: "Videredele indlæg"
     sharing:
@@ -573,19 +577,21 @@ da:
       getting_help_info: "Her er en liste af nogle %{faq} herunder nogle tips, tricks og løsninger på de mest almindelige problemer. Du er også velkommen til at %{irc}."
       headline: "Velkommen, ven."
       make_yourself_an_admin: "Gør dig selv til admin"
-      make_yourself_an_admin_info: "Du finder instruktioner i %{wiki}. Dette skulle tilføje et \"admin-link\" til din brugermenu i topbjælken når du er logget ind. Det giver dig adgang til ting som bruger-søgninger og stats for din pod. For de mere detaljerede aspekter af din pod, gå til %{admin_panel}."
+      make_yourself_an_admin_info: "Du finder instruktioner i %{wiki}. Dette skulle tilføje et \"%{admin_dashboard}\"-link til din brugermenu i topbjælken når du er logget ind. Det giver dig adgang til ting som bruger-søgninger og stats for din pod."
       report_bugs: "indberet dem"
       update_instructions: "opdater instruktioner i Diasporas wiki"
       update_your_pod: "Opdater din pod"
       update_your_pod_info: "Du kan finde %{update_instructions}"
   invitation_codes:
+    already_logged_in: "Du er blevet inviteret af %{inviter} til at tilslutte dig denne pod, men du er allerede logget ind."
     not_valid: "Invitationskoden er udløbet."
   invitations:
     create:
+      closed: "Der er lukket for invitationer på denne Diaspora-pod."
       empty: "Skriv mindst en e-mailadresse."
       no_more: "Du har ikke flere invitationer."
       note_already_sent: "Der er allerede blevet sendt en invitation til %{emails}"
-      rejected: "Der var problemer med de følgende e-mail adresser: "
+      rejected: "Der var problemer med de følgende e-mail adresser: %{emails}"
       sent: "Din invitation er blevet sendt til: %{emails}"
     new:
       codes_left:
@@ -614,6 +620,11 @@ da:
       profile: "Profil"
       settings: "Indstillinger"
       toggle_navigation: "Slå navigation til/fra"
+  likes:
+    create:
+      error: "Du kunne ikke like."
+    destroy:
+      error: "Kunne ikke fjerne synes om."
   limited: "Begrænset"
   more: "Mere"
   no_results: "Ingen resultater fundet"
@@ -650,7 +661,7 @@ da:
       mark_all_shown_as_read: "Marker alle viste som læst"
       mark_read: "Marker som læst"
       mark_unread: "Marker som ulæst"
-      mentioned: "omtalte"
+      mentioned: "Omtalt i indlæg"
       no_notifications: "Du har endnu ikke fået nogen notifikationer."
       notifications: "Notifikationer"
       reshared: "Delt"
@@ -673,11 +684,8 @@ da:
       other: "%{actors} har nævnt dig i indlægget %{post_link}."
       zero: "%{actors} har nævnt dig i indlægget %{post_link}."
     mentioned_deleted:
-      few: "%{actors} har nævnt dig i et slettet indlæg."
-      many: "%{actors} har nævnt dig i et slettet indlæg."
       one: "%{actors} har nævnt dig i et slettet indlæg."
       other: "%{actors} har nævnt dig i et slettet indlæg."
-      two: "%{actors} har nævnt dig i et slettet indlæg."
       zero: "%{actors} har nævnt dig i et slettet indlæg."
     post: "indlæg"
     private_message:
@@ -718,6 +726,29 @@ da:
     confirm_email:
       click_link: "For at aktivere din nye e-mail adresse %{unconfirmed_email}, skal du følge dette link:"
       subject: "Aktiver venligst din nye e-mail adresse %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          Goddag %{name},
+
+          Diaspora har opdaget et forsøg på at skaffe sig adgang til din session der kan være uautoriseret. For at sikre dine data er du blevet logget ud. Ingen grund til bekymring - du kan roligt logge ind igen nu.
+
+          Forespørgslen er sket med et fejlagtigt eller manglende CSRF-token. Dette kan sagtens være helt uskyldigt, men det kan også være et cross-site request forgery (CSRF) angreb.
+
+          Årsagen kan være:
+
+           - En program-tilføjelse der manipulerer forespørgslen eller forespørger uden token;
+           - Der er en tab åben fra din sidste session;
+           - Et andet website har lavet forespørgslen med eller uden din tilladelse;
+           - Forskellige andre eksterne redskaber;
+           - Ondsindet kode der forsøger at tilgå dine data.
+
+          For mere information om CSRF, se [%{link}](%{link}).
+
+          Hvis du bliver ved med at se denne meddelelse, så undersøg venligst punkterne ovenfor, inklusive dine browser-add-ons.
+
+          Mange tak,
+          Diaspora email-robotten!
+      subject: "Vi har modtager en ikke-autoriseret forespørgsel fra din konto, %{name}"
     email_sent_by_diaspora: "Denne e-mail blev sendt af %{pod_name}. Hvis du gerne vil holde op med at få e-mails som denne,"
     export_email:
       body: |-
@@ -785,10 +816,10 @@ da:
     invited_you: "%{name} inviterede dig til at deltage på Diaspora"
     liked:
       liked: "%{name} har lige syntes om dit indlæg"
-      limited_post: "%{name} syntes om dit begrænsede indlæg"
+      limited_post: "%{name} syntes om dit lukkede indlæg"
       view_post: "Vis indlæg >"
     mentioned:
-      limited_post: "Du blev nævnt i et begrænset indlæg."
+      limited_post: "Du blev nævnt i et lukket indlæg."
       subject: "%{name} har omtalt dig på Diaspora"
     private_message:
       reply_to_or_view: "Besvar eller se denne samtale >"
@@ -927,10 +958,6 @@ da:
       failed: "Kunne ikke opdatere profil"
       updated: "Profil opdateret"
   public: "Offentlig"
-  reactions:
-    one: "1 reaktion"
-    other: "%{count} reaktioner"
-    zero: "Ingen reaktioner"
   registrations:
     closed: "Der er lukket for tilmeldinger på denne Diaspora server."
     create:
@@ -950,12 +977,12 @@ da:
       terms_link: "Servicevilkår"
       username: "Brugernavn"
   report:
-    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    comment_label: "<b>Kommentar</b>: %{data}"
     confirm_deletion: "Er du sikker på at du vil slette det valgte?"
     delete_link: "Slet det valgte"
     not_found: "<u>Indlægget/kommentaren blev ikke fundet. Det ser ud til at være blevet slettet af brugeren!</u>"
-    post_label: "<b>Indlæg</b>: %{title}"
-    reason_label: "Begrundelse: %{text}"
+    post_label: "<b>Indlæg</b>: %{content}"
+    reason_label: "Begrundelse:"
     reported_label: "<b>Indrapporteret af</b> %{person}"
     reported_user_details: "Detaljer om den indberettede bruger"
     review_link: "Marker som bedømt"
@@ -963,8 +990,14 @@ da:
       destroyed: "Indlægget er blevet ødelagt"
       failed: "Noget gik galt"
     title: "Rapport oversigt"
+    unreviewed_reports:
+      one: "Der er en ugennemset rapport."
+      other: "Der er %{count} ugennemsete rapporter."
+      zero: "Alle rapporter er gennemset."
   reshares:
     comment_email_subject: "%{resharer}s deling af %{author}s indlæg"
+    create:
+      error: "Du kunne ikke dele indlægget."
     reshare:
       deleted: "Oprindeligt indlæg slettet af forfatter."
       reshare_confirmation: "Del %{author}s indlæg?"
@@ -1005,7 +1038,7 @@ da:
         one: "I %{count} aspekt"
         other: "I %{count} aspekter"
     invitations:
-      by_email: "via e-mail"
+      by_email: "Inviter folk via e-mail"
       invite_your_friends: "Inviter dine venner"
       invites: "Invitationer"
       share_this: "Del dette link via e-mail, blog eller dit yndlings-sociale netværk!"
@@ -1073,6 +1106,7 @@ da:
     activity:
       title: "Min aktivitet"
     aspects:
+      all: "Alle aspekter"
       title: "Dine aspekter"
     aspects_stream: "Aspekter"
     comment_stream:
@@ -1080,6 +1114,7 @@ da:
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
       add_a_tag: "Tilføj et tag"
+      all: "Alle tags"
       follow: "Følg"
       title: "#Fulgte tags"
     followed_tags_stream: "#Fulgte tags"
@@ -1139,6 +1174,7 @@ da:
       comment_on_post: "nogen kommenterer dit indlæg."
       current_password: "Nuværende adgangskode"
       current_password_expl: "det du logger ind med ..."
+      default_post_visibility: "Standard aspekt når du lægger indlæg op"
       download_export: "Download min profil"
       download_export_photos: "Hent mine billeder"
       edit_account: "Rediger konto"

@@ -377,9 +377,6 @@ zh-CN:
       failed: "个人档案更新失败"
       updated: "个人档案更新成功"
   public: "公开"
-  reactions:
-    other: "%{count} 个回应"
-    zero: "0 个回应"
   registrations:
     closed: "此 Diaspora pod 不开放注册。"
     create:

@@ -321,13 +321,6 @@ bg:
       failed: "Профилът не бе обновен"
       updated: "Профилът е обновен"
   public: "Публична"
-  reactions:
-    few: "%{count} отзива"
-    many: "%{count} отзива"
-    one: "1 отзив"
-    other: "%{count} отзива"
-    two: "%{count} отзива"
-    zero: "0 отзива"
   registrations:
     closed: "Нови регистрации не са възможни на този pod на Diaspora."
     create:

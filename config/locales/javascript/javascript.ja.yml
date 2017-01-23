@@ -236,6 +236,8 @@ ja:
     show_more: "さらに表示する"
     stream:
       comment: "コメント"
+      comments:
+        other: "<%= count %> コメント"
       disable_post_notifications: "この投稿に対する通知を無効にする"
       enable_post_notifications: "この投稿に対する通知を有効にする"
       follow: "フォロー"
@@ -257,9 +259,6 @@ ja:
       original_post_deleted: "元の投稿は作者によって削除されました"
       permalink: "パーマリンク"
       public: "公開"
-      reactions:
-        other: "<%= count%> リアクション"
-        zero: "<%= count%> リアクション"
       reshare: "リシェア"
       reshares:
         other: "<%= count %> リシェア"

@@ -271,10 +271,6 @@ es-CO:
       your_tags: "Descríbete en 5 palabras"
       your_tags_placeholder: "como #películas #gatos #viajes #profesor #bogotá"
   public: "Público"
-  reactions:
-    one: "%{count} reacción"
-    other: "%{count} reacciones"
-    zero: "Ninguna reacción"
   search: "Buscar"
   settings: "Configuración"
   username: "Nombre de usuario"

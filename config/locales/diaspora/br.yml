@@ -521,10 +521,6 @@ br:
       failed: "C'hwitet hizivadenn an aelad"
       updated: "Patrom nevesaet"
   public: "A-wel d'an holl"
-  reactions:
-    one: "1 respont"
-    other: "%{count} respont"
-    zero: "0 respont"
   registrations:
     closed: "Stanket eo an enskrivadur war ar pod diaspora*-mañ"
     create:

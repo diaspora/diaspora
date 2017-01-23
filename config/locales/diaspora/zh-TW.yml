@@ -556,7 +556,7 @@ zh-TW:
       byline: "你能掌控的線上社交世界"
       choose_your_audience: "選擇聽眾"
       choose_your_audience_info: "diaspora* 用社交面來讓你選擇要分享的對象。可以非常公開，也可以非常私密。比如說跟全世界分享一張好笑的相片，或是只和你的密友分享一個大祕密。都在你的掌控中。"
-      headline: "歡迎來到%{pod_name}"
+      headline: "歡迎來到 %{pod_name}"
       own_your_data: "控制自己的資料"
       own_your_data_info: "很多社群網路用你的資料來賺錢，像是分析使用行為，然後用這些資訊來對你做廣告推銷。diaspora* 只會用你的資料來讓你和別人聯繫和分享，不會拿來做其他用途。"
     podmin:
@@ -618,6 +618,8 @@ zh-TW:
   likes:
     create:
       error: "按讚失敗。"
+    destroy:
+      error: "收回讚失敗。"
   limited: "受限"
   more: "更多"
   no_results: "搜尋沒有結果"
@@ -648,7 +650,7 @@ zh-TW:
       mark_all_shown_as_read: "把目前顯示的都標示成讀過了"
       mark_read: "標示為看過了"
       mark_unread: "標示為沒看過"
-      mentioned: "被提到"
+      mentioned: "被提到了"
       no_notifications: "目前還沒有任何通知。"
       notifications: "通知"
       reshared: "被轉貼"
@@ -695,11 +697,13 @@ zh-TW:
       subject: "請開通你新的電子信箱 %{unconfirmed_email}"
     csrf_token_fail:
       body: |-
-          %{name}你好，
+          %{name} 你好，
 
-          diaspora* 偵測到可能是未經授權而試圖存取你的登入狀態的行為。雖然這有可能無害，但也有可能是跨網站的偽造請求(cross-site request forgery; CSRF)。為了防止你的資料可能會外洩，我們就將你登出了。
+          diaspora* 偵測到可能是試圖未經授權就存取你的登入狀態的行為。為了防止你的資料可能會外洩，我們已經將你登出了。不用擔心，現在你還是可以安全地重新登入。
 
-          造成資料請求中沒有 CSRF 信物，或是該信物不正確的情形可能有：
+          有問題的請求中沒有 CSRF 信物，或是該信物資料不正確。
+          雖然有可能是正常狀況，但也有可能是一種網路攻擊：跨網站的偽造請求(cross-site request forgery; CSRF)。
+          可能的情形有：
           - 有瀏覽器附加元件修改了資料請求，或是發出了沒有該信物的請求；
           - 有之前登入的分頁或是視窗沒有關閉；
           - 有其他網站發出了資料請求，不論是否經過你的同意；
@@ -707,7 +711,6 @@ zh-TW:
           - 有惡意程式試圖要存取你的資料；
           有關 CSRF 的更多資訊請見[%{link}](%{link})。
 
-          不用擔心，現在你還是可以安全地重新登入。
           但是如果你持續收到這個訊息，請檢查以上因素，包含你所使用的瀏覽器附加元件。
 
           謝謝。
@@ -901,9 +904,6 @@ zh-TW:
       failed: "個人檔案更新失敗"
       updated: "個人檔案已經更新了"
   public: "公開"
-  reactions:
-    other: "有%{count}個回應"
-    zero: "沒有回應"
   registrations:
     closed: "這個 diaspora* 豆莢不開放註冊。"
     create:
@@ -923,12 +923,12 @@ zh-TW:
       terms_link: "服務條款"
       username: "使用者名稱"
   report:
-    comment_label: "<b>留言</b>:<br>%{data}"
+    comment_label: "<b>留言</b>: %{data}"
     confirm_deletion: "確定要刪除這一項嗎？"
     delete_link: "刪除項目"
     not_found: "<u>目標貼文或留言找不到了。可能已經被主人給刪掉了！</u>"
-    post_label: "<b>貼文</b>: %{title}"
-    reason_label: "理由: %{text}"
+    post_label: "<b>貼文</b>: %{content}"
+    reason_label: "理由:"
     reported_label: "<b>回報人<b> %{person}"
     reported_user_details: "被舉報使用者的詳細資料"
     review_link: "標記為看過了"
@@ -1051,6 +1051,7 @@ zh-TW:
     activity:
       title: "我的活動"
     aspects:
+      all: "所有社交面"
       title: "我的社交面"
     aspects_stream: "社交面"
     comment_stream:
@@ -1058,6 +1059,7 @@ zh-TW:
     community_spotlight_stream: "社群焦點"
     followed_tag:
       add_a_tag: "新增標籤"
+      all: "所有標籤"
       follow: "追蹤"
       title: "#追蹤中的標籤"
     followed_tags_stream: "#追蹤中的標籤"

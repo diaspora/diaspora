@@ -255,10 +255,6 @@ cs:
       original_post_deleted: "Původní příspěvek byl odstraněn svým autorem."
       permalink: "trvalý odkaz"
       public: "Veřejný"
-      reactions:
-        few: "<%= count%> reakcí"
-        one: "<%= count%> reakce"
-        other: "<%= count%> reakcí"
       reshare: "Sdílet"
       reshares:
         few: "<%= count %> uživatelé to sdíleli"

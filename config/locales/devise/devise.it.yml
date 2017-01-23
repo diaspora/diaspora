@@ -52,15 +52,15 @@ it:
         confirm_password: "Conferma password"
         new_password: "Nuova password"
       new:
-        email: "Indirizzo e-mail"
+        email: "Indirizzo email"
         forgot_password: "Hai dimenticato la password?"
         no_account: "Non esiste un account con questo indirizzo email"
-        reset_password: "Resetta password"
+        reset_password: "Azzera password"
         send_password_instructions: "Inviami le istruzioni per reimpostare la password."
       send_instructions: "Tra pochi minuti riceverai una email con le istruzioni su come cambiare la tua password."
       updated: "La tua password è stata modificata. Hai appena effettuato l'accesso."
     registrations:
-      destroyed: "Ciao! Il tuo account è stato rimosso. Speriamo tornerai a trovarci presto."
+      destroyed: "Ciao! Il tuo account è stato rimosso. Speriamo che tornerai a trovarci presto."
       signed_up: "Iscrizione eseguita. Se il servizio è disponibile, riceverai una conferma via email."
       updated: "Hai aggiornato il tuo account."
     sessions:

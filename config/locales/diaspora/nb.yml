@@ -50,6 +50,7 @@ nb:
               taken: "er allerede tatt."
   admins:
     admin_bar:
+      dashboard: "Dashbord"
       pages: "Sider"
       pod_stats: "Serverstatistikk"
       report: "Rapporter"
@@ -805,13 +806,6 @@ nb:
       failed: "Kunne ikke oppdatere profil"
       updated: "Profil oppdatert"
   public: "Offentlig"
-  reactions:
-    few: "%{count} reaksjoner"
-    many: "%{count} reaksjoner"
-    one: "1 reaksjon"
-    other: "%{count} reaksjoner"
-    two: "%{count} reaksjoner"
-    zero: "0 reaksjoner"
   registrations:
     closed: "Registreringer er stengt på denne diaspora*-serveren."
     create:
@@ -836,7 +830,7 @@ nb:
     delete_link: "Slett element"
     not_found: "<u>Fant ikke innlegget/kommentaren. Det ser ut til at den ble slettet av brukeren!</u>"
     post_label: "<b>Post</b>: %{title}"
-    reason_label: "Årsak: %{text}"
+    reason_label: "Årsak:"
     reported_label: "<b>Rapportert av</b> %{person}"
     review_link: "Markert som verifisert"
     status:

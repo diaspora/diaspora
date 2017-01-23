@@ -468,10 +468,6 @@ he:
       failed: "אירע כשל בעדכון הפרופיל"
       updated: "הפרופיל עודכן"
   public: "ציבורי"
-  reactions:
-    one: "תגובה אחת"
-    other: "%{count} תגובות"
-    zero: "0 תגובות"
   registrations:
     closed: "ההרשמה סגורה בפוד זה של דיאספורה*."
     create:

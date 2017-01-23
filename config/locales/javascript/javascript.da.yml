@@ -105,11 +105,15 @@ da:
       remove_contact: "Fjern kontakt"
       search_no_results: "Ingen kontakter fundet"
     conversation:
+      create:
+        no_recipient: "Husk at tilføje en modtager!"
       new:
         no_contacts: "Du skal tilføje en eller flere kontakter før du kan starte en samtale."
     create: "Opret"
     delete: "Slet"
     edit: "Rediger"
+    errors:
+      connection: "Kan ikke forbinde til serveren."
     failed_to_post_message: "Kunne ikke indsende besked!"
     failed_to_remove: "Det lykkedes ikke at fjerne indlægget!"
     getting_started:
@@ -147,6 +151,9 @@ da:
     notifications:
       mark_read: "Marker som læst"
       mark_unread: "Marker som ulæst"
+      new_notifications:
+        one: "Du har <%= count %> ulæst notifikation"
+        other: "Du har <%= count %> ulæste notifikationer"
     people:
       edit_my_profile: "Rediger min profil"
       helper:
@@ -237,6 +244,10 @@ da:
     show_more: "Vis mere"
     stream:
       comment: "Kommenter"
+      comments:
+        one: "<%= count %> kommentar"
+        other: "<%= count %> kommentarer"
+        zero: "<%= count %> kommentarer"
       disable_post_notifications: "Slå notifikationer fra for dette indlæg"
       enable_post_notifications: "Slå notifikationer til for dette indlæg"
       follow: "Følg"
@@ -266,10 +277,6 @@ da:
       original_post_deleted: "Oprindeligt indlæg er slettet af forfatteren"
       permalink: "Permalink"
       public: "Offentlig"
-      reactions:
-        one: "<%= count%> reaktion"
-        other: "<%= count%> reaktioner"
-        zero: "<%= count%> reaktioner"
       reshare: "Videredel"
       reshares:
         few: "<%= count %> videredelinger"

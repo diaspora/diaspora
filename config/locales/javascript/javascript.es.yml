@@ -236,6 +236,10 @@ es:
     show_more: "mostrar más"
     stream:
       comment: "Comentar"
+      comments:
+        one: "<%= count %> comentario"
+        other: "<%= count %> comentarios"
+        zero: "<%= count %> comentarios"
       disable_post_notifications: "Desactiva los avisos para esta publicación"
       enable_post_notifications: "Activa los avisos para esta publicación"
       follow: "Seguir"
@@ -259,10 +263,6 @@ es:
       original_post_deleted: "Publicación original borrada por el autor."
       permalink: "Enlace permanente"
       public: "Público"
-      reactions:
-        one: "<%= count%> reacción"
-        other: "<%= count%> reacciones"
-        zero: "<%= count%> reacciones"
       reshare: "Compartir"
       reshares:
         one: "Compartido <%= count %> vez"

@@ -624,6 +624,8 @@ fr:
   likes:
     create:
       error: "Impossible d'aimer."
+    destroy:
+      error: "Impossible de ne plus aimer."
   limited: "Limité"
   more: "Plus"
   no_results: "Aucun résultat trouvé"
@@ -658,7 +660,6 @@ fr:
       mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
       mentioned: "Vous mentionnant"
-      mentioned_in_comment: "Vous mentionnant dans un commentaire"
       no_notifications: "Vous n'avez pas encore de notifications."
       notifications: "Notifications"
       reshared: "Repartagé"
@@ -681,12 +682,6 @@ fr:
       one: "%{actors} vous a mentionné dans un message supprimé."
       other: "%{actors} vous ont mentionné dans un message supprimé."
       zero: "Personne ne vous a mentionné dans un message supprimé."
-    mentioned_in_comment:
-      one: "%{actors} vous a mentionné dans un <a href=%{comment_path}>commentaire</a> sur le message %{post_link}."
-      other: "%{actors} vous ont mentionné dans un <a href=%{comment_path}>commentaire</a> sur le message %{post_link}."
-    mentioned_in_comment_deleted:
-      one: "%{actors} vous a mentionné sur un commentaire supprimé."
-      other: "%{actors} vous ont mentionné sur un commentaire supprimé."
     post: "message"
     private_message:
       one: "%{actors} vous a envoyé un message."
@@ -788,7 +783,7 @@ fr:
       message: |-
           Bonjour !
 
-          Vous avez été invité-e par %{diaspora_id} à rejoindre diaspora* !
+          Vous avez été invité par %{diaspora_id} à rejoindre diaspora* !
 
           Cliquez sur ce lien pour vous lancer dans l'aventure :
 
@@ -812,9 +807,6 @@ fr:
     mentioned:
       limited_post: "Vous avez été mentionné dans une publication restreinte."
       subject: "%{name} vous a mentionné(e) sur diaspora*"
-    mentioned_in_comment:
-      limited_post: "Vous avez été mentionné dans un commentaire sur une publication restreinte."
-      reply: "Répondre ou voir cette conversation >"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
       subject: "Vous avez un nouveau message privé"
@@ -948,10 +940,6 @@ fr:
       failed: "Impossible de mettre à jour le profil"
       updated: "Profil mis à jour"
   public: "Public"
-  reactions:
-    one: "1 réaction"
-    other: "%{count} réactions"
-    zero: "Pas de réaction"
   registrations:
     closed: "Les inscriptions sont fermées sur ce pod diaspora*."
     create:
@@ -976,7 +964,7 @@ fr:
     delete_link: "Supprimer l’élément"
     not_found: "<u>Le message/commentaire n'a pas été trouvé. On dirait qu'il a été supprimé par l'utilisateur !</u>"
     post_label: "<b>Message</b>: %{title}"
-    reason_label: "Raison : %{text}"
+    reason_label: "Raison :"
     reported_label: "<b>Signalé par</b> %{person}"
     reported_user_details: "Détails sur l'utilisateur signalé"
     review_link: "Marqué comme revu."
@@ -1101,6 +1089,7 @@ fr:
     activity:
       title: "Mon activité"
     aspects:
+      all: "Tous les aspects"
       title: "Mes aspects"
     aspects_stream: "Aspects"
     comment_stream:
@@ -1108,6 +1097,7 @@ fr:
     community_spotlight_stream: "Actualités de la communauté"
     followed_tag:
       add_a_tag: "Ajouter un tag"
+      all: "Tous les tags"
       follow: "Suivre"
       title: "#Tags suivis"
     followed_tags_stream: "#Tags suivis"
@@ -1179,7 +1169,6 @@ fr:
       last_exported_at: "(Dernière mise à jour à %{timestamp})"
       liked: "…quelqu'un a aimé votre message."
       mentioned: "…l'on vous mentionne dans un message."
-      mentioned_in_comment: "…vous êtes mentionné dans un commentaire"
       new_password: "Nouveau mot de passe"
       private_message: "…vous recevez un message privé."
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"

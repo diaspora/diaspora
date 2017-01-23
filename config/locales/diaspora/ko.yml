@@ -452,13 +452,6 @@ ko:
       failed: "프로필 업데이트 실패"
       updated: "프로필을 업데이트했습니다"
   public: "공개"
-  reactions:
-    few: "반응 %{count}개"
-    many: "반응 %{count}개"
-    one: "반응 한 개"
-    other: "반응 %{count}개"
-    two: "반응 %{count}개"
-    zero: "반응 %{count}개"
   registrations:
     closed: "우리 디아스포라 팓은 가입이 닫혀있습니다."
     create:

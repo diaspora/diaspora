@@ -626,6 +626,8 @@ de:
   likes:
     create:
       error: "Gefällt mir ist fehlgeschlagen."
+    destroy:
+      error: "Gefällt mir nicht mehr ist fehlgeschlagen."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -663,7 +665,6 @@ de:
       mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
       mentioned: "In Beitrag erwähnt"
-      mentioned_in_comment: "In Kommentar erwähnt"
       no_notifications: "Du hast noch keine Benachrichtigungen."
       notifications: "Benachrichtigungen"
       reshared: "Weitergesagt"
@@ -684,20 +685,9 @@ de:
     mentioned:
       one: "%{actors} hat dich im Beitrag %{post_link} erwähnt."
       other: "%{actors} haben dich im Beitrag %{post_link} erwähnt."
-      zero: "%{actors} hat dich in dem Beitrag %{post_link} erwähnt."
     mentioned_deleted:
-      few: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
-      many: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
       one: "%{actors} hat dich in einem gelöschten Beitrag erwähnt."
       other: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
-      two: "%{actors} hat dich in einem bereits gelöschten Beitrag erwähnt."
-      zero: "Niemand hat dich in einem gelöschten Beitrag erwähnt."
-    mentioned_in_comment:
-      one: "%{actors} hat dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
-      other: "%{actors} haben dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
-    mentioned_in_comment_deleted:
-      one: "%{actors} hat dich in einem gelöschten Kommentar erwähnt."
-      other: "%{actors} haben dich in einem gelöschten Kommentar erwähnt."
     post: "Beitrag"
     private_message:
       few: "%{actors} haben dir eine Nachricht gesendet."
@@ -831,9 +821,6 @@ de:
     mentioned:
       limited_post: "Du wurdest in einem begrenzten Beitrag erwähnt."
       subject: "%{name} hat dich auf diaspora* erwähnt"
-    mentioned_in_comment:
-      limited_post: "Du wurdest in einem Kommentar zu einem begrenzten Beitrag erwähnt."
-      reply: "Auf diese Unterhaltung antworten oder sie ansehen >"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
       subject: "Es gibt eine neue private Nachricht für dich"
@@ -971,13 +958,6 @@ de:
       failed: "Fehler beim Aktualisieren deines Profils"
       updated: "Profil aktualisiert"
   public: "Öffentlich"
-  reactions:
-    few: "%{count} Reaktionen"
-    many: "%{count} Reaktionen"
-    one: "Eine Reaktion"
-    other: "%{count} Reaktionen"
-    two: "%{count} Reaktionen"
-    zero: "Keine Reaktionen"
   registrations:
     closed: "Neuregistrierungen sind auf diesem diaspora*-Pod geschlossen."
     create:
@@ -997,12 +977,12 @@ de:
       terms_link: "Nutzungsbedingungen"
       username: "Benutzername"
   report:
-    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    comment_label: "<b>Kommentar</b>: %{data}"
     confirm_deletion: "Bist du dir sicher, dass du das Objekt löschen willst?"
     delete_link: "Lösche Element"
     not_found: "<u>Der Beitrag/Kommentar wurde nicht gefunden. Es sieht so aus, als ob er vom Benutzer gelöscht wurde!</u>"
-    post_label: "<b>Beitrag</b>: %{title}"
-    reason_label: "Grund: %{text}"
+    post_label: "<b>Beitrag</b>: %{content}"
+    reason_label: "Grund:"
     reported_label: "<b>Gemeldet von</b> %{person}"
     reported_user_details: "Details des gemeldeten Benutzers"
     review_link: "Als überprüft markieren"
@@ -1127,6 +1107,7 @@ de:
     activity:
       title: "Meine Aktivitäten"
     aspects:
+      all: "Alle Aspekte"
       title: "Meine Aspekte"
     aspects_stream: "Aspekte"
     comment_stream:
@@ -1134,6 +1115,7 @@ de:
     community_spotlight_stream: "Gemeinschafts-Schaukasten"
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
+      all: "Alle Tags"
       follow: "Folgen"
       title: "#Tags, denen du folgst"
     followed_tags_stream: "#Tags, denen du folgst"
@@ -1193,7 +1175,7 @@ de:
       comment_on_post: "jemand deinen Beitrag kommentiert"
       current_password: "Derzeitiges Kennwort"
       current_password_expl: "das mit dem Du dich anmeldest..."
-      default_post_visibility: "Zum Teilen vorausgewählte Aspekte"
+      default_post_visibility: "Vorausgewählte Aspekte beim Erstellen von Beiträgen"
       download_export: "Mein Profil herunterladen"
       download_export_photos: "Meine Fotos herunterladen"
       edit_account: "Konto bearbeiten"
@@ -1205,7 +1187,6 @@ de:
       last_exported_at: "(Zuletzt aktualisiert: %{timestamp})"
       liked: "jemandem dein Beitrag gefällt"
       mentioned: "du in einem Beitrag erwähnt wirst"
-      mentioned_in_comment: "du bist in einem Kommentar erwähnt"
       new_password: "Neues Kennwort"
       private_message: "du eine private Nachricht erhältst"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
@@ -1217,7 +1198,7 @@ de:
       show_community_spotlight: "„Gemeinschafts-Schaukasten” im Stream anzeigen"
       show_getting_started: "Einstiegshinweise wieder aktivieren"
       someone_reported: "jemand einen Beitrag meldet"
-      started_sharing: "jemand anfägt mit dir zu teilen"
+      started_sharing: "jemand anfängt, mit dir zu teilen"
       stream_preferences: "Stream-Einstellungen"
       your_email: "Deine E-Mail-Adresse"
       your_email_private: "Deine E-Mail wird niemals von anderen Nutzern gesehen werden."

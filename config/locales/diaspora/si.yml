@@ -137,10 +137,6 @@ si:
       your_photo: "ඔබගේ පින්තූරය"
       your_tags: "ඔබ ගැන වචන 5 කින් විස්තර කරන්න"
   public: "පොදු"
-  reactions:
-    one: "එක ප්‍රතිචාරයක් "
-    other: "ප්‍රතිචාර %{count} "
-    zero: "ප්‍රතිචාර නැත"
   registrations:
     new:
       enter_email: "email එක ඇතුලත් කරන්න"

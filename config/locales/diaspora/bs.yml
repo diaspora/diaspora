@@ -506,12 +506,6 @@ bs:
       failed: "Neuspješno ažuriranje profila"
       updated: "Profil ažuriran"
   public: "Javno"
-  reactions:
-    few: "%{count} reakcija"
-    many: "%{count} reakcija"
-    one: "%{count} reakcija"
-    other: "%{count} reakcije"
-    zero: "0 reakcija"
   registrations:
     closed: "Prijave su zatvorene na ovom Diaspora podu."
     create:

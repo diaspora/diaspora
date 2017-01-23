@@ -245,6 +245,10 @@ de:
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentar"
+      comments:
+        one: "<%= count %> Kommentar"
+        other: "<%= count %> Kommentare"
+        zero: "<%= count %> Kommentare"
       disable_post_notifications: "Benachrichtigungen für diesen Beitrag deaktivieren"
       enable_post_notifications: "Benachrichtigungen für diesen Beitrag aktivieren"
       follow: "Folgen"
@@ -271,10 +275,6 @@ de:
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       permalink: "Permanentlink"
       public: "Öffentlich"
-      reactions:
-        one: "<%= count%> Reaktion"
-        other: "<%= count%> Reaktionen"
-        zero: "<%= count%> Reaktionen"
       reshare: "Weitersagen"
       reshares:
         few: "<%= count %> mal weitergesagt"

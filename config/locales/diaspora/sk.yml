@@ -537,11 +537,6 @@ sk:
       failed: "Nepodarilo sa aktualizovať profil"
       updated: "Profil aktualizovaný"
   public: "Verejný"
-  reactions:
-    few: "%{count} reakcie"
-    one: "1 reakcia"
-    other: "%{count} reakcií"
-    zero: "Žiadne reakcie"
   registrations:
     closed: "Registrácie sú na tomto serveri diaspory* pozastavené."
     create:
@@ -563,7 +558,7 @@ sk:
     confirm_deletion: "Určite chceš vymazať túto položku?"
     delete_link: "Vymazať položku"
     post_label: "<b>Príspevok:</b> %{title}"
-    reason_label: "Dôvod: %{text}"
+    reason_label: "Dôvod:"
     reported_label: "<b>Nahlásil(a)</b> %{person}"
     review_link: "Označiť ako skontrolované"
     title: "Prehľad správ"

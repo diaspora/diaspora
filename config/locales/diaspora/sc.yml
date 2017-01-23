@@ -135,10 +135,6 @@ sc:
   privacy: "Privadesa"
   profile: "Profilu"
   public: "Pùblicu"
-  reactions:
-    one: "1 reatzione"
-    other: "%{count} reatziones"
-    zero: "Peruna reatzione"
   search: "Chirca"
   settings: "Impostatziones"
   username: "Nùmene impitadore"

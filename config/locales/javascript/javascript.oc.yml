@@ -65,7 +65,7 @@ oc:
       mobile_row_unchecked: "<%= name %> (apondre)"
       select_aspects: "Seleccionar los aspèctes"
       started_sharing_with: "Avètz començat de partejar amb <%= name %>."
-      stopped_sharing_with: "Avètz arrestat de partejar amb <%= name %>."
+      stopped_sharing_with: "Avètz quitat de partejar amb <%= name %>."
       toggle:
         one: "Dins <%= count %> aspècte"
         other: "Dins <%= count %> aspèctes"
@@ -99,18 +99,22 @@ oc:
       add_contact: "Apondre aqueste contacte"
       aspect_chat_is_enabled: "Los contactes d'aqueste aspècte pòdon discutir amb vos."
       aspect_chat_is_not_enabled: "Los contactes d'aqueste aspècte pòdon pas discutir amb vos."
-      aspect_list_is_not_visible: "Los contactes d'aquesta facieta se pòdon pas veire entre eles."
+      aspect_list_is_not_visible: "Los contactes d'aquest aspècte se pòdon pas veire entre eles."
       aspect_list_is_visible: "Los contactes d'aqueste aspècte se pòdon veire entre eles."
       error_add: "Impossible d'apondre <%= name %> a aquesta facieta :("
       error_remove: "Impossible de levar <%= name %> a aquesta facieta :("
       remove_contact: "Levar aqueste contacte"
       search_no_results: "Cap de contact pas trobat"
     conversation:
+      create:
+        no_recipient: "Ei, vos cal apondre un destinari d'en primièr !"
       new:
         no_contacts: "Vos cal apondre de contactes abans de poder aviar una conversacion."
     create: "Crear"
     delete: "Suprimir"
     edit: "Editar"
+    errors:
+      connection: "Impossible de se conectar al servidor."
     failed_to_post_message: "Impossible de partejar lo messatge !"
     failed_to_remove: "L'entrada a pas pogut èsser suprimida"
     getting_started:
@@ -148,6 +152,10 @@ oc:
     notifications:
       mark_read: "Marcar coma legit"
       mark_unread: "Marcar coma pas legit"
+      new_notifications:
+        one: "Avètz <%= count %> notificacion pas legida"
+        other: "Avètz <%= count %> notificacions pas legidas"
+        zero: "Avètz pas cap de notificacion pas legida"
     people:
       edit_my_profile: "Modificar mon perfil"
       helper:
@@ -162,7 +170,7 @@ oc:
       empty: "{file} es void, mercé de seleccionar d'autres fichièrs."
       error: "Un problèma s'es produit pendent lo mandadís del fichièr <%= file %>"
       invalid_ext: "{file} a una extension invalida, Solas {extensions} son permesas."
-      looking_good: "Impressionant, avètz un super look !"
+      looking_good: "Impressionant, avètz un super estil !"
       size_error: "{file} es tròp gròs, la talha maximala es de {sizeLimit}."
     poll:
       answer_count:
@@ -180,7 +188,7 @@ oc:
       show_result: "Afichar lo resultat"
       vote: "Vòte"
     profile:
-      add_some: "apondre"
+      add_some: "N'apondre"
       bio: "Biografia"
       born: "Anniversari"
       contacts: "Contactes"
@@ -189,9 +197,10 @@ oc:
       location: "Localizacion"
       photos: "Fòtos"
       posts: "Publicacions"
-      you_have_no_tags: "avètz pas de tag !"
+      you_have_no_tags: "Avètz pas d'etiquetas !"
     publisher:
       add_option: "Apondre una responsa"
+      limited: "Limitat : vòstra publicacion serà solament vista pel mond amb qui partejatz"
       markdown_editor:
         preview: "Apercebut"
         texts:
@@ -237,14 +246,18 @@ oc:
       successful: "Lo messatge es estat repartejat !"
     show_more: "N'afichar mai"
     stream:
-      comment: "Comentari"
+      comment: "Comentar"
+      comments:
+        one: "<%= count %> comentari"
+        other: "<%= count %> comentaris"
+        zero: "Pas cap de comentari"
       disable_post_notifications: "Desactivar las notificacions per aqueste messatge"
       enable_post_notifications: "Activar las notificacions per aqueste messatge"
       follow: "Seguir"
       followed_tag:
         add_a_tag: "Apondre una etiqueta"
         follow: "Seguir"
-        title: "#tags seguits"
+        title: "#etiquetas seguidas"
       hide: "Amagar"
       hide_nsfw_posts: "Amagar los messatges #nsfw"
       like: "M'agrada"
@@ -261,11 +274,7 @@ oc:
       original_post_deleted: "Lo messatge original es estat escafat per son autor."
       permalink: "Permaligam"
       public: "Public"
-      reactions:
-        one: "<%= count%> reaccion"
-        other: "<%= count%> reaccions"
-        zero: "<%= count%> reaccion"
-      reshare: "Repartejat"
+      reshare: "Tornar partejar"
       reshares:
         one: "<%= count %> repartiment"
         other: "<%= count %> repartiments"
@@ -276,8 +285,8 @@ oc:
         follow: "Seguir #<%= tag %>"
         follow_error: "Impossible de seguir <%= tag %> :("
         following: "Seguiment de #<%= tag %>"
-        stop_following: "Arrestar de seguir <%= tag %>"
-        stop_following_confirm: "Arrestar de seguir <%= tag %> ?"
+        stop_following: "Quitar de seguir <%= tag %>"
+        stop_following_confirm: "Quitar de seguir <%= tag %> ?"
         stop_following_error: "Impossible d'arrestar de seguir <%= tag %> :("
       unfollow: "Seguir pas mai"
       unlike: "M'agrada pas mai"
@@ -305,7 +314,7 @@ oc:
       prefixAgo: "i a"
       prefixFromNow: "d'aicí"
       seconds: "mens d'una minuta"
-      suffixAgo: ""
+      suffixAgo: "fa"
       suffixFromNow: "ara"
       year: "environ un an"
       years:
