@@ -237,6 +237,8 @@ zh-TW:
     show_more: "顯示更多"
     stream:
       comment: "留言"
+      comments:
+        other: "有<%= count %>則留言"
       disable_post_notifications: "關閉貼文的最新通知"
       enable_post_notifications: "開啟貼文的最新通知"
       follow: "追蹤"
@@ -258,9 +260,6 @@ zh-TW:
       original_post_deleted: "原貼文已經被作者刪除了"
       permalink: "永久連結"
       public: "公開"
-      reactions:
-        other: "有<%= count%>個回應"
-        zero: "沒有回應"
       reshare: "轉貼"
       reshares:
         other: "被轉貼<%= count %>次"

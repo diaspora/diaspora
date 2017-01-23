@@ -246,6 +246,10 @@ fr:
     show_more: "Voir plus"
     stream:
       comment: "Commenter"
+      comments:
+        one: "<%= count %> commantaire"
+        other: "<%= count %> commantaires"
+        zero: "<%= count %> commantaire"
       disable_post_notifications: "Désactiver les notifications pour ce message"
       enable_post_notifications: "Activer les notifications pour ce message"
       follow: "Suivre"
@@ -272,10 +276,6 @@ fr:
       original_post_deleted: "Le message original a été effacé par son auteur."
       permalink: "Lien permanent"
       public: "Public"
-      reactions:
-        one: "<%= count%> réaction"
-        other: "<%= count%> réactions"
-        zero: "<%= count%> réactions"
       reshare: "Repartager"
       reshares:
         few: "<%= count %> repartages"

@@ -12,6 +12,7 @@ en_valspeak:
         resend_confirmation: "Resend meh teh stuff to confirm mah stuff plz."
       send_instructions: "U will like, receive an email tellin u how 2 confirm ur account in a few min. So just liek, chillax n watch netflix r somethin, kay? Kay."
     failure:
+      already_authenticated: "Ur already logged in bruh!"
       inactive: "Ur account is like... not activate yet. U should like, get on that. Kay?"
       invalid: "Thats like... a invalid usahname or passwerd, kay?"
       invalid_token: "sry, like, invalid authenty tokennn </3"
@@ -34,6 +35,8 @@ en_valspeak:
         accept_at: "so like, @ %{url} u can accept it through the link below. Kay? <3"
         has_invited_you: "%{name}"
         have_invited_you: "so like, %{names} have invited u to join diaspora*!!! :DDD"
+      password_change:
+        subject: "Secret password changed! Open sesame! [;"
       reset_password_instructions:
         change: "Change mah passwerd"
         ignore: "So like, if u didnt want this email, plz just like, ignore it. Kthx!!!<33"
@@ -64,6 +67,7 @@ en_valspeak:
       signed_up: "U have signed up n its all good bro. so like, if enabled, a thingy was sent 2 ur email, kay?"
       updated: "Ur account was liek, updated!!! YAY! <33333"
     sessions:
+      already_signed_out: "Logged out!! Kbai!!! ;*"
       new:
         login: "Check in!!"
         modern_browsers: "only supports like... browsers that arent like... junk n weird. sry bout that :\\"

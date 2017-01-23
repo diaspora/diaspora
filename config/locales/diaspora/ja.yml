@@ -618,6 +618,8 @@ ja:
   likes:
     create:
       error: "いいね！に失敗しました。"
+    destroy:
+      error: "いいね！の取消に失敗しました。"
   limited: "限定公開"
   more: "続き"
   no_results: "結果が見つかりません"
@@ -645,7 +647,6 @@ ja:
       mark_read: "既読にする"
       mark_unread: "未読にする"
       mentioned: "メンションされました"
-      mentioned_in_comment: "コメントでメンションしました"
       no_notifications: "まだ通知は何もありません"
       notifications: "通知"
       reshared: "リシェアしました"
@@ -664,10 +665,6 @@ ja:
     mentioned_deleted:
       other: "%{actors}さんが削除された投稿であなたにメンションしました。"
       zero: "%{actors}さんが削除された投稿であなたにメンションしました。"
-    mentioned_in_comment:
-      other: "%{actors} が、投稿 %{post_link} に <a href='%{comment_path}'>コメント</a> でメンションしました。"
-    mentioned_in_comment_deleted:
-      other: "%{actors} が、削除したコメントでメンションしました。"
     post: "（投稿で）"
     private_message:
       other: "%{actors}さんが、あなたにメッセージを送信しました。"
@@ -788,9 +785,6 @@ ja:
     mentioned:
       limited_post: "あなたは限定公開の投稿でメンションされました。"
       subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
-    mentioned_in_comment:
-      limited_post: "限定公開の投稿にコメントでメンションされました。"
-      reply: "この会話に返信、または表示 >"
     private_message:
       reply_to_or_view: "この会話に返信、または表示 >"
       subject: "あなたに新しい非公開メッセージがあります"
@@ -923,9 +917,6 @@ ja:
       failed: "プロフィール更新に失敗しました"
       updated: "プロフィールを更新しました"
   public: "公開"
-  reactions:
-    other: "%{count} リアクション"
-    zero: "0 リアクション"
   registrations:
     closed: "このダイアスポラ＊ポッドでは新規登録を受け付けていません。"
     create:
@@ -950,7 +941,7 @@ ja:
     delete_link: "項目を削除"
     not_found: "<u>投稿/コメントは見つかりませんでした。ユーザーによって削除されたようです！</u>"
     post_label: "<b>投稿</b>: %{title}"
-    reason_label: "理由: %{text}"
+    reason_label: "理由:"
     reported_label: "<b>報告者</b> %{person}"
     reported_user_details: "報告ユーザーの詳細"
     review_link: "レビュー済としてマーク"
@@ -1075,6 +1066,7 @@ ja:
     activity:
       title: "マイ アクティビティ"
     aspects:
+      all: "すべてのアスペクト"
       title: "マイ アスペクト"
     aspects_stream: "アスペクト"
     comment_stream:
@@ -1082,6 +1074,7 @@ ja:
     community_spotlight_stream: "コミュニティスポットライト"
     followed_tag:
       add_a_tag: "タグを追加する"
+      all: "すべてのタグ"
       follow: "フォロー"
       title: "フォローしたタグ"
     followed_tags_stream: "フォローしたタグ"
@@ -1152,7 +1145,6 @@ ja:
       last_exported_at: "(最終更新 %{timestamp})"
       liked: "あなたの投稿をいいね！したとき"
       mentioned: "投稿に自分がメンションされたとき"
-      mentioned_in_comment: "コメントでメンションされました"
       new_password: "新しいパスワード"
       private_message: "非公開メッセージが届いたとき"
       receive_email_notifications: "通知メールの送信設定"

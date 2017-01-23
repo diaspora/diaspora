@@ -449,12 +449,6 @@ sl:
       failed: "Posodobitev profila ni uspela"
       updated: "Profil posodobljen"
   public: "Javni"
-  reactions:
-    few: "%{count} odzivi"
-    one: "1 odziv"
-    other: "%{count} odzivov"
-    two: "%{count} odziva"
-    zero: "0 odzivov"
   registrations:
     closed: "Za ta Pod Diaspore registracije trenutno niso mogoče."
     create:

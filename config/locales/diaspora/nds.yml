@@ -609,10 +609,6 @@ nds:
       failed: "Kun Profil nich aktualisieren"
       updated: "Profil aktualisiert"
   public: "Öffentlich"
-  reactions:
-    one: "1 Reaktion"
-    other: "%{count} Reaktionen"
-    zero: "Keene Reaktionen"
   registrations:
     closed: "Registrerungen sind op dissen diaspora*-Pod schloten."
     create:
@@ -634,7 +630,7 @@ nds:
     confirm_deletion: "Bist du di sicher, dat du den Indrag löschen willst?"
     delete_link: "Indrag löschen"
     post_label: "<b>Bidrag:</b>: %{title}"
-    reason_label: "Grund: %{text}"
+    reason_label: "Grund:"
     reported_label: "<b>Meld von</b> %{person}"
     status:
       destroyed: "De Bidrag is löscht worn"

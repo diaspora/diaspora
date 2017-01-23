@@ -478,13 +478,6 @@ el:
       failed: "Αποτυχία ενημέρωσης προφίλ"
       updated: "Το προφίλ ενημερώθηκε"
   public: "Δημόσιο"
-  reactions:
-    few: "%{count} αντιδράσεις"
-    many: "%{count} αντιδράσεις"
-    one: "1 αντίδραση"
-    other: "%{count} αντιδράσεις"
-    two: "%{count} αντιδράσεις"
-    zero: "0 αντιδράσεις"
   registrations:
     closed: "Οι εγγραφές είναι κλειστές σε αυτό το pod του diaspora*."
     create:

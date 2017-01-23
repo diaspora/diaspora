@@ -889,11 +889,6 @@ cs:
       failed: "Nepodařilo se aktualizovat profil"
       updated: "Profil aktualizován"
   public: "Veřejné"
-  reactions:
-    few: "%{count} reakce"
-    one: "1 reakce"
-    other: "%{count} reakcí"
-    zero: "žádná reakce"
   registrations:
     closed: "Přihlášky nejsou otevřeny na tomto podu Diaspory."
     create:
@@ -918,7 +913,7 @@ cs:
     delete_link: "Smazat položku"
     not_found: "<u>Příspěvek/komentář nebyl nalezen. Zdá se,že byl svým tvůrcem smazán.</u>"
     post_label: "<b>Příspěvek</b>: %{title}"
-    reason_label: "Důvod: %{text}"
+    reason_label: "Důvod:"
     reported_label: "<b>Oznámil/а</b> %{person}"
     reported_user_details: "Detaily reportujícího uživatele"
     review_link: "Označit jako zkontrolované"

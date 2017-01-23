@@ -583,10 +583,6 @@ te:
       failed: "ప్రవరను నవీకరించుటలో విఫలమయ్యాము"
       updated: "ప్రవర నవీకరించబడింది"
   public: "బహిరంగం"
-  reactions:
-    one: "1 ప్రతిస్పందన"
-    other: "%{count} ప్రతిస్పందనలు"
-    zero: "ఏ ప్రతిస్పందనలు లేవు"
   registrations:
     closed: "ఈ డయాస్పోరా* పాడ్ పై కొత్త ప్రవేశాలు మూసివేయబడ్డాయి."
     create:
@@ -609,7 +605,7 @@ te:
     confirm_deletion: "మీరు ఖచ్ఛితంగా అంశాన్ని తొలగించాలనుకున్నారా?"
     delete_link: "అంశాన్ని తొలగించు"
     post_label: "<b>టపా</b>:%{title}"
-    reason_label: "కారణం: %{text}"
+    reason_label: "కారణం:"
     reported_label: "%{person} <b>చే నివేదించబడింది</b>"
     review_link: "సమీక్షించినట్లు గుర్తుపెట్టు"
     status:

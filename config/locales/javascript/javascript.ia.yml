@@ -256,10 +256,6 @@ ia:
       original_post_deleted: "Le entrata original ha essite delite per le autor."
       permalink: "Permaligamine"
       public: "Public"
-      reactions:
-        one: "<%= count%> reaction"
-        other: "<%= count%> reactiones"
-        zero: "<%= count%> reactiones"
       reshare: "Repeter"
       show_nsfw_post: "Monstrar entrata"
       show_nsfw_posts: "Monstrar totes"

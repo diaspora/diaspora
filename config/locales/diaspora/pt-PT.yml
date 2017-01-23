@@ -576,10 +576,6 @@ pt-PT:
       failed: "Falhou ao atualizar o perfil"
       updated: "Perfil atualizado"
   public: "Público"
-  reactions:
-    one: "1 reação"
-    other: "%{count} reações"
-    zero: "Sem reações"
   registrations:
     closed: "Os registos estão encerrados neste pod do diaspora*."
     create:

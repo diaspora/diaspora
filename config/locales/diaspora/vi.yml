@@ -397,9 +397,6 @@ vi:
       failed: "Cập nhật hồ sơ thất bại"
       updated: "Đã cập nhật hồ sơ"
   public: "Công khai"
-  reactions:
-    other: "%{count} phản hồi"
-    zero: "Không có phản hồi"
   registrations:
     closed: "Pod DIASPORA này không cho đăng kí nữa."
     create:

@@ -435,13 +435,6 @@ eu:
       failed: "Huts profila eguneratzean"
       updated: "Profila eguneratu duzu."
   public: "Publikoa"
-  reactions:
-    few: "%{count} erreakzio"
-    many: "%{count} erreakzio"
-    one: "erreakzio 1"
-    other: "%{count} erreakzio"
-    two: "%{count} erreakzio"
-    zero: "erreakziorik ez"
   registrations:
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
     create:
