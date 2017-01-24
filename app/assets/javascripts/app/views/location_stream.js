@@ -8,6 +8,7 @@ app.views.LocationStream = app.views.Base.extend({
 
   toggleMap: function () {
     var mapContainer = this.$el.find(".mapContainer");
+    var footerContainer = this.el.parentNode.parentNode;
 
     if (mapContainer.hasClass("empty")) {
       var location = this.model.get("location");
@@ -21,10 +22,12 @@ app.views.LocationStream = app.views.Base.extend({
 
         L.marker(location).addTo(map);
         mapContainer.removeClass("empty");
+        footerContainer.classList.add("open");
         return map;
       }
     } else {
         mapContainer.toggle();
+        footerContainer.classList.remove("open");
     }
   }
 });

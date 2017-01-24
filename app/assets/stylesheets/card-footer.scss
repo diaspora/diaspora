@@ -11,27 +11,30 @@
   width: 100%;
 
   .footer-container {
-    padding: 1px 5px;
-
     a {
       color: $text-grey;
       font-weight: normal;
       margin-right: 4px;
+      padding: 1px 5px;
     }
   }
-  .status-message-location {
-//    margin-top: -3ex;                 //TODO: Place icon next to time
-    .address { display: none; }
-  }
+
+  .timebox { display: none; }
 }
 
 // gallery-picture specific styles for card-footer
 .media {
   .gallery-picture img { margin-bottom: $line-height-computed + 2; }
 
-  .card-footer .footer-container {
-    font-size: $font-size-base;
-//    .timeago { float: left; width: 95% } //TODO: Place icon next to time
-   }
+  .footer-container:not(.open) {
+    .status-message-location {
+      float: right;
+      width: 5%;
+    }
+
+    .address { display: none; }
+
+    .timebox { display: inline; }
+  }
 }
 
