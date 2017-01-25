@@ -160,6 +160,8 @@ en:
       tag_name: "Tag name: %{name_tag} Count: %{count_tag}"
     pods:
       pod_network: "Pod network"
+      pod_desktop_view: "This page is not available on mobile view, please switch to"
+      pod_desktop_link: "desktop view."
   aspects:
     edit:
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
