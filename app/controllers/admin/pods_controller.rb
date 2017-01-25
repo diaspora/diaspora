@@ -1,7 +1,7 @@
 
 module Admin
   class PodsController < AdminController
-    respond_to :html, :json
+    respond_to :html, :json, :mobile
 
     def index
       pods_json = PodPresenter.as_collection(Pod.all)
@@ -15,6 +15,7 @@ module Admin
 
           render "admins/pods"
         end
+        format.mobile { render "admins/pods" }
         format.json { render json: pods_json }
       end
     end
@@ -26,6 +27,7 @@ module Admin
       respond_with do |format|
         format.html { redirect_to admin_pods_path }
         format.json { render json: PodPresenter.new(pod).as_json }
+        format.mobile { redirect_to admin_pods_path }
       end
     end
   end

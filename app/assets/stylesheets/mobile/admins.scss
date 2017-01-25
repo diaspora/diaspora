@@ -1,0 +1,14 @@
+#app {
+  .btn-block,
+  input {
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+}
+
+#admin-nav li a {
+  &:hover,
+  &:focus {
+    background-color: $gray-light;
+  }
+}
