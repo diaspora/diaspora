@@ -18,7 +18,27 @@ three &quot;Eve&gt; E.
 STR
   end
 
-  describe "#format" do
+  describe ".mention_attrs" do
+    it "returns name and diaspora ID" do
+      name, diaspora_id = Diaspora::Mentionable.mention_attrs("@{#{@names[0]}; #{@people[0].diaspora_handle}}")
+      expect(name).to eq(@names[0])
+      expect(diaspora_id).to eq(@people[0].diaspora_handle)
+    end
+
+    it "returns only diaspora-ID when no name is included" do
+      name, diaspora_id = Diaspora::Mentionable.mention_attrs("@{#{@people[0].diaspora_handle}}")
+      expect(diaspora_id).to eq(@people[0].diaspora_handle)
+      expect(name).to be_nil
+    end
+
+    it "trims the name if available" do
+      name, diaspora_id = Diaspora::Mentionable.mention_attrs("@{#{@names[0]} ; #{@people[0].diaspora_handle}}")
+      expect(name).to eq(@names[0])
+      expect(diaspora_id).to eq(@people[0].diaspora_handle)
+    end
+  end
+
+  describe ".format" do
     context "html output" do
       it "adds the links to the formatted message" do
         fmt_msg = Diaspora::Mentionable.format(@test_txt, @people)
@@ -64,10 +84,22 @@ STR
     end
   end
 
-  describe "#people_from_string" do
+  describe ".people_from_string" do
     it "extracts the mentioned people from the text" do
       ppl = Diaspora::Mentionable.people_from_string(@test_txt)
       expect(ppl).to match_array(@people)
+    end
+
+    it "extracts the mentioned people from the text without name" do
+      text = "test @{#{@people[0].diaspora_handle}} test"
+      ppl = Diaspora::Mentionable.people_from_string(text)
+      expect(ppl).to match_array([@people[0]])
+    end
+
+    it "extracts the mentioned people from the text mixed mentions (with and without name)" do
+      text = "@{#{@people[0].diaspora_handle}} and @{#{@names[1]}; #{@people[1].diaspora_handle}}"
+      ppl = Diaspora::Mentionable.people_from_string(text)
+      expect(ppl).to match_array([@people[0], @people[1]])
     end
 
     describe "returns an empty array if nobody was found" do
@@ -102,7 +134,7 @@ STR
     end
   end
 
-  describe "#filter_people" do
+  describe ".filter_people" do
     before do
       @user_a = FactoryGirl.create(:user_with_aspect, username: "user_a")
       @user_b = FactoryGirl.create(:user, username: "user_b")

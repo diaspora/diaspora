@@ -1,23 +1,20 @@
 
 module Diaspora::Mentionable
 
-  # regex for finding mention markup in plain text
-  # ex.
+  # regex for finding mention markup in plain text:
+  #   "message @{user@pod.net} text"
+  # it can also contain a name, which gets used as the link text:
   #   "message @{User Name; user@pod.net} text"
   #   will yield "User Name" and "user@pod.net"
-  REGEX = /(@\{(.+?; [^\}]+)\})/
+  REGEX = /@\{(?:([^\}]+?); )?([^\} ]+)\}/
 
   # class attribute that will be added to all mention html links
   PERSON_HREF_CLASS = "mention hovercardable"
 
   def self.mention_attrs(mention_str)
-    mention = mention_str.match(REGEX)[2]
-    del_pos = mention.rindex(/;/)
+    name, diaspora_id = mention_str.match(REGEX).captures
 
-    name = mention[0..(del_pos - 1)].strip
-    handle = mention[(del_pos + 1)..-1].strip
-
-    [name, handle]
+    [name.try(:strip), diaspora_id.strip]
   end
 
   # takes a message text and returns the text with mentions in (html escaped)
@@ -46,7 +43,7 @@ module Diaspora::Mentionable
   # @return [Array<Person>] array of people
   def self.people_from_string(msg_text)
     identifiers = msg_text.to_s.scan(REGEX).map do |match_str|
-      _, identifier = mention_attrs(match_str.first)
+      identifier = match_str.second.strip
       identifier if Validation::Rule::DiasporaId.new.valid_value?(identifier)
     end
 
@@ -71,8 +68,6 @@ module Diaspora::Mentionable
       mention || match_str
     }
   end
-
-  private
 
   private_class_method def self.find_or_fetch_person_by_identifier(identifier)
     Person.find_or_fetch_by_identifier(identifier)
@@ -113,5 +108,4 @@ module Diaspora::Mentionable
       "[#{display_name.presence || person.name}](#{local_or_remote_person_path(person)})"
     end
   end
-
 end
