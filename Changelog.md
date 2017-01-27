@@ -8,6 +8,7 @@
 
 ## Features
 * Add support for [Liberapay](https://liberapay.com) donations [#7290](https://github.com/diaspora/diaspora/pull/7290)
+* Added a link to the community guidelines :) [#7298](https://github.com/diaspora/diaspora/pull/7298)
 
 # 0.6.3.0
 
