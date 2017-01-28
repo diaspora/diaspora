@@ -7,7 +7,7 @@ describe("Diaspora.Mobile.Comments", function(){
 
   describe("initialize", function() {
     it("calls submitComment when the comment form has been submitted", function() {
-      spyOn(Diaspora.Mobile.Comments, "submitComment");
+      spyOn(Diaspora.Mobile.Comments, "submitComment").and.returnValue(false);
       Diaspora.Mobile.Comments.initialize();
       Diaspora.Mobile.Comments.showCommentBox($(".stream .comment-action").first());
       $(".stream .new_comment").first().submit();
