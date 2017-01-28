@@ -175,4 +175,29 @@ STR
       expect(txt).to include(@mention_b)
     end
   end
+
+  describe ".backport_mention_syntax" do
+    it "replaces the new syntax with the old syntax" do
+      text = "mention @{#{@people[0].diaspora_handle}} text"
+      expected_text = "mention @{#{@people[0].name}; #{@people[0].diaspora_handle}} text"
+      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(expected_text)
+    end
+
+    it "does not change the text, when the mention includes a name" do
+      text = "mention @{#{@names[0]}; #{@people[0].diaspora_handle}} text"
+      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(text)
+    end
+
+    it "does not change the text, when the person is not found" do
+      text = "mention @{non_existing_user@example.org} text"
+      expect(Person).to receive(:find_or_fetch_by_identifier).with("non_existing_user@example.org").and_return(nil)
+      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(text)
+    end
+
+    it "does not change the text, when the diaspora ID is invalid" do
+      text = "mention @{invalid_diaspora_id} text"
+      expect(Person).not_to receive(:find_or_fetch_by_identifier)
+      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(text)
+    end
+  end
 end
