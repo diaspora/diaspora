@@ -591,7 +591,7 @@ describe("app.views.Publisher", function() {
     });
 
     context('photo removal', function() {
-      beforeEach(function() {
+      beforeEach(function(done) {
         this.view = new app.views.Publisher();
         this.view.wrapperEl.addClass("with_attachments");
         this.view.photozoneEl.html(
@@ -603,6 +603,7 @@ describe("app.views.Publisher", function() {
         );
 
         spyOn(jQuery, 'ajax').and.callFake(function(opts) { opts.success(); });
+        this.view.viewUploader.on("change", done);
         this.view.photozoneEl.find(".x").click();
       });
 

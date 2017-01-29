@@ -43,7 +43,7 @@ app.views.Publisher = Backbone.View.extend({
     // if there is data in the publisher we ask for a confirmation
     // before the user is able to leave the page
     $(window).on("beforeunload", _.bind(this._beforeUnload, this));
-    $(window).unload(this.clear.bind(this));
+    $(window).on("unload", this.clear.bind(this));
 
     // hide close and preview buttons and manage services link
     // in case publisher is standalone
