@@ -56,7 +56,7 @@ app.views.Base = Backbone.View.extend({
       .attr("data-template", _.last(this.templateName.split("/")));
 
     // add avatar fallback if it can't be loaded
-    this.$el.find(this.avatars.selector).error(this.avatars.fallback);
+    this.$el.find(this.avatars.selector).on("error", this.avatars.fallback);
 
     // add placeholder support for old browsers
     this.$("input, textarea").placeholder();
