@@ -79,7 +79,7 @@ module Diaspora
       end
 
       def make_mentions_plain_text
-        @message = Diaspora::Mentionable.format message, [], plain_text: true
+        @message = Diaspora::Mentionable.format message, options[:mentioned_people], plain_text: true
       end
 
       def render_tags
