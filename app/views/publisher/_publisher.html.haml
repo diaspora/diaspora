@@ -5,8 +5,6 @@
       %params
         .publisher-textarea-wrapper#publisher_textarea_wrapper
           .mentions-input-box
-            .mentions-box
-              .mentions
             - if current_user.getting_started?
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text),
                 :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",

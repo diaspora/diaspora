@@ -14,10 +14,6 @@
       display: none !important;
     }
 
-    .mentions-box {
-      margin-top: 0;
-    }
-
     #publisher_textarea_wrapper { border: 1px solid $border-grey !important; }
   }
 
@@ -248,19 +244,12 @@
     .locator { display: none; }
   }
 
-  &.submitting .mentions-box { display: none; }
-
   .twitter-typeahead {
     left: -1px;
     // Override inline rule of Typeahead
     // scss-lint:disable ImportantRule
     position: absolute !important;
     // scss-lint:enable ImportantRule
-  }
-
-  .mentions-box {
-    // Leave space for markdown editor header
-    margin-top: 42px;
   }
 }
 

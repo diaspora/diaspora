@@ -201,19 +201,6 @@ describe("app.views.PublisherMention", function() {
       this.view.updateMessageTexts();
       expect(this.view.inputBox.data("messageText")).toBe("@user1 Text before @{user1@pod.tld}\ntext after");
     });
-
-    it("formats overlay text to HTML", function() {
-      this.view.updateMessageTexts();
-      expect(this.view.mentionsBox.find(".mentions").html())
-        .toBe("@user1 Text before @{user1@pod.tld}\ntext after");
-    });
-
-    it("properly escapes the user input", function() {
-      this.view.inputBox.val("<img src=\"/default.png\"> @user1 Text before @{user1@pod.tld}\ntext after");
-      this.view.updateMessageTexts();
-      expect(this.view.mentionsBox.find(".mentions").html())
-        .toBe("&lt;img src=\"/default.png\"&gt; @user1 Text before @{user1@pod.tld}\ntext after");
-    });
   });
 
   describe("updateTypeaheadInput", function() {

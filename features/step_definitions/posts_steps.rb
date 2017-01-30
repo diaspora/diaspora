@@ -32,6 +32,10 @@ Then /^I should not be able to submit the publisher$/ do
   expect(publisher_submittable?).to be false
 end
 
+Then /^I should see "([^"]*)" in the publisher$/ do |text|
+  expect(page).to have_field("status_message[fake_text]", with: text)
+end
+
 Given /^I have a limited post with text "([^\"]*)" in the aspect "([^"]*)"$/ do |text, aspect_name|
   @me.post :status_message, text: text, to: @me.aspects.where(name: aspect_name).first.id
 end
