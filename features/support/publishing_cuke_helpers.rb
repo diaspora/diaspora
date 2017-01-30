@@ -27,6 +27,8 @@ module PublishingCukeHelpers
     txt = find("#publisher #status_message_text").value
     find("#publisher .btn-primary").click
     # wait for the content to appear
+    expect(find("#publisher")).not_to have_css(".btn-primary")
+    expect(find("#publisher")).not_to have_css("#publisher_spinner")
     expect(find("#main_stream")).to have_content(txt)
   end
 
