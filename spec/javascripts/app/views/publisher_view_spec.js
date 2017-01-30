@@ -203,12 +203,6 @@ describe("app.views.Publisher", function() {
     });
 
     describe("createStatusMessage", function(){
-      it("calls handleTextchange to complete missing mentions", function(){
-        spyOn(this.view, "handleTextchange");
-        this.view.createStatusMessage($.Event());
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
       it("adds the status message to the stream", function() {
         app.stream = { addNow: $.noop };
         spyOn(app.stream, "addNow");
@@ -221,14 +215,6 @@ describe("app.views.Publisher", function() {
         expect(this.view.wrapperEl).not.toHaveClass("submitting");
         this.view.createStatusMessage($.Event());
         expect(this.view.wrapperEl).toHaveClass("submitting");
-      });
-    });
-
-    describe("createPostPreview", function(){
-      it("calls handleTextchange to complete missing mentions", function(){
-        spyOn(this.view, "handleTextchange");
-        this.view.createPostPreview();
-        expect(this.view.handleTextchange).toHaveBeenCalled();
       });
     });
 

@@ -229,6 +229,22 @@ describe("app.views.PublisherMention", function() {
       expect(this.view.closeSuggestions).not.toHaveBeenCalled();
       expect(this.view.typeaheadInput.val()).toBe("user");
     });
+
+    it("doesn't call 'cleanMentionedPeople' if there is no '@' in front of the caret", function() {
+      spyOn(this.view, "cleanMentionedPeople");
+      this.view.inputBox.val("user1337 Text before @user1 text after");
+      this.view.inputBox[0].setSelectionRange(9, 9);
+      this.view.updateTypeaheadInput();
+      expect(this.view.cleanMentionedPeople).not.toHaveBeenCalled();
+    });
+
+    it("calls 'cleanMentionedPeople' if there is an '@' in front of the caret", function() {
+      spyOn(this.view, "cleanMentionedPeople");
+      this.view.inputBox.val("@user1337 Text before @user1 text after");
+      this.view.inputBox[0].setSelectionRange(9, 9);
+      this.view.updateTypeaheadInput();
+      expect(this.view.cleanMentionedPeople).toHaveBeenCalled();
+    });
   });
 
   describe("prefillMention", function() {
@@ -352,12 +368,6 @@ describe("app.views.PublisherMention", function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
     });
 
-    it("calls 'cleanMentionedPeople'", function() {
-      spyOn(this.view, "cleanMentionedPeople");
-      this.view.onInputBoxInput();
-      expect(this.view.cleanMentionedPeople).toHaveBeenCalled();
-    });
-
     it("calls 'updateTypeaheadInput'", function() {
       spyOn(this.view, "updateTypeaheadInput");
       this.view.onInputBoxInput();
@@ -420,6 +430,24 @@ describe("app.views.PublisherMention", function() {
       expect(this.view.$(".tt-menu").is(":visible")).toBe(false);
       expect(this.view.$(".tt-menu .tt-suggestion").length).toBe(0);
       expect(this.view.typeaheadInput.val()).toBe("");
+    });
+  });
+
+  describe("getMentionedPeople", function() {
+    beforeEach(function() {
+      this.view = new app.views.PublisherMention({el: "#publisher"});
+    });
+
+    it("calls 'cleanMentionedPeople'", function() {
+      spyOn(this.view, "cleanMentionedPeople");
+      this.view.getMentionedPeople();
+      expect(this.view.cleanMentionedPeople).toHaveBeenCalled();
+    });
+
+    it("returns the cleaned mentionedPeople", function() {
+      this.view.inputBox.val("@{user1@pod.tld} user2@pod.tld");
+      this.view.mentionedPeople = [{name: "user1", handle: "user1@pod.tld"}, {name: "user2", handle: "user2@pod.tld"}];
+      expect(this.view.getMentionedPeople()).toEqual([{name: "user1", handle: "user1@pod.tld"}]);
     });
   });
 });

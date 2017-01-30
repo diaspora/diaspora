@@ -192,9 +192,6 @@ app.views.Publisher = Backbone.View.extend({
     // empty poll answer and failing validation.
     this.viewPollCreator.removeLastAnswer();
 
-    //add missing mentions at end of post:
-    this.handleTextchange();
-
     var serializedForm = $(evt.target).closest("form").serializeObject();
     // disable input while posting, must be after the form is serialized
     this.setInputEnabled(false);
@@ -320,13 +317,10 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   createPostPreview: function() {
-    //add missing mentions at end of post:
-    this.handleTextchange();
-
     var serializedForm = $("#new_status_message").serializeObject();
     var text = serializedForm["status_message[text]"];
     var photos = this.getUploadedPhotos();
-    var mentionedPeople = this.mention.mentionedPeople;
+    var mentionedPeople = this.mention.getMentionedPeople();
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
     if(!locationCoords || locationCoords === "") {

@@ -80,6 +80,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       return;
     }
 
+    this.cleanMentionedPeople();
+
     // result[1] is the string between the last '@' and the current caret position
     this.typeaheadInput.typeahead("val", result[1]);
     this.typeaheadInput.typeahead("open");
@@ -122,7 +124,6 @@ app.views.PublisherMention = app.views.SearchBase.extend({
    * Listens for user input and opens results dropdown when input contains the trigger char
    */
   onInputBoxInput: function() {
-    this.cleanMentionedPeople();
     this.updateTypeaheadInput();
   },
 
@@ -178,5 +179,10 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
   isVisible: function() {
     return this.$(".tt-menu").is(":visible");
+  },
+
+  getMentionedPeople: function() {
+    this.cleanMentionedPeople();
+    return this.mentionedPeople;
   }
 });
