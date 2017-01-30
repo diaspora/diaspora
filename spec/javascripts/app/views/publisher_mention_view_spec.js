@@ -189,7 +189,7 @@ describe("app.views.PublisherMention", function() {
 
     it("sets the correct messageText", function() {
       this.view.updateMessageTexts();
-      expect(this.view.inputBox.data("messageText")).toBe("@user1 Text before @{user1 ; user1@pod.tld}\ntext after");
+      expect(this.view.inputBox.data("messageText")).toBe("@user1 Text before @{user1@pod.tld}\ntext after");
     });
 
     it("formats overlay text to HTML", function() {
@@ -468,7 +468,7 @@ describe("app.views.PublisherMention", function() {
       this.view.typeaheadInput.typeahead("val", "user");
       this.view.typeaheadInput.typeahead("open");
       this.view.$(".tt-suggestion").first().click();
-      expect(this.view.getTextForSubmit()).toBe("@{user1 ; user1@pod.tld}");
+      expect(this.view.getTextForSubmit()).toBe("@{user1@pod.tld}");
     });
 
     it("returns normal text if nobody has been mentioned", function() {

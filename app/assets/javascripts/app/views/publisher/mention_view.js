@@ -6,7 +6,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   mentionRegex: /@([^@\s]+)$/,
 
   templates: {
-    mentionItemSyntax: _.template("@{<%= name %> ; <%= handle %>}"),
+    mentionItemSyntax: _.template("@{<%= handle %>}"),
     mentionItemHighlight: _.template("<strong><span><%= name %></span></strong>")
   },
 
