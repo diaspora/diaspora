@@ -324,7 +324,7 @@ app.views.Publisher = Backbone.View.extend({
     this.handleTextchange();
 
     var serializedForm = $("#new_status_message").serializeObject();
-    var text = this.mention.getTextForSubmit();
+    var text = serializedForm["status_message[text]"];
     var photos = this.getUploadedPhotos();
     var mentionedPeople = this.mention.mentionedPeople;
     var poll = this.getPollData(serializedForm);

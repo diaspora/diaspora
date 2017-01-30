@@ -177,29 +177,10 @@ describe("app.views.PublisherMention", function() {
       expect(this.view.inputBox.val()).toBe("@{user1@pod.tld} 123 user2 @{user2@pod.tld} 456 @{user3@pod.tld} 789");
     });
 
-    it("calls updateMessageTexts", function() {
-      spyOn(this.view, "updateMessageTexts");
-      this.view.onSuggestionSelection({name: "user1337", handle: "user1@pod.tld"});
-      expect(this.view.updateMessageTexts).toHaveBeenCalled();
-    });
-
     it("places the caret at the right position", function() {
       this.view.onSuggestionSelection({"name": "user1WithLongName", "handle": "user1@pod.tld"});
       var expectedCaretPosition = ("@user1337 Text before @{user1@pod.tld}").length;
       expect(this.view.inputBox[0].selectionStart).toBe(expectedCaretPosition);
-    });
-  });
-
-  describe("updateMessageTexts", function() {
-    beforeEach(function() {
-      this.view = new app.views.PublisherMention({ el: "#publisher" });
-      this.view.inputBox.val("@user1 Text before @{user1@pod.tld}\ntext after");
-      this.view.mentionedPeople.push({"name": "user1", "handle": "user1@pod.tld"});
-    });
-
-    it("sets the correct messageText", function() {
-      this.view.updateMessageTexts();
-      expect(this.view.inputBox.data("messageText")).toBe("@user1 Text before @{user1@pod.tld}\ntext after");
     });
   });
 
@@ -254,13 +235,11 @@ describe("app.views.PublisherMention", function() {
     beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
       spyOn(this.view, "addPersonToMentions");
-      spyOn(this.view, "updateMessageTexts");
     });
 
     it("prefills one mention", function() {
       this.view.prefillMention([{"name": "user1", "handle": "user1@pod.tld"}]);
       expect(this.view.addPersonToMentions).toHaveBeenCalledWith({"name": "user1", "handle": "user1@pod.tld"});
-      expect(this.view.updateMessageTexts).toHaveBeenCalled();
       expect(this.view.inputBox.val()).toBe("@{user1@pod.tld}");
     });
 
@@ -272,7 +251,6 @@ describe("app.views.PublisherMention", function() {
 
       expect(this.view.addPersonToMentions).toHaveBeenCalledWith({"name": "user1", "handle": "user1@pod.tld"});
       expect(this.view.addPersonToMentions).toHaveBeenCalledWith({"name": "user2", "handle": "user2@pod.tld"});
-      expect(this.view.updateMessageTexts).toHaveBeenCalled();
       expect(this.view.inputBox.val()).toBe("@{user1@pod.tld} @{user2@pod.tld}");
     });
   });
@@ -380,12 +358,6 @@ describe("app.views.PublisherMention", function() {
       expect(this.view.cleanMentionedPeople).toHaveBeenCalled();
     });
 
-    it("calls 'updateMessageTexts'", function() {
-      spyOn(this.view, "updateMessageTexts");
-      this.view.onInputBoxInput();
-      expect(this.view.updateMessageTexts).toHaveBeenCalled();
-    });
-
     it("calls 'updateTypeaheadInput'", function() {
       spyOn(this.view, "updateTypeaheadInput");
       this.view.onInputBoxInput();
@@ -448,30 +420,6 @@ describe("app.views.PublisherMention", function() {
       expect(this.view.$(".tt-menu").is(":visible")).toBe(false);
       expect(this.view.$(".tt-menu .tt-suggestion").length).toBe(0);
       expect(this.view.typeaheadInput.val()).toBe("");
-    });
-  });
-
-  describe("getTextForSubmit", function() {
-    beforeEach(function() {
-      this.view = new app.views.PublisherMention({ el: "#publisher" });
-      this.view.bloodhound.add([
-        {person: true, name: "user1", handle: "user1@pod.tld"}
-      ]);
-    });
-
-    it("returns text with mention if someone has been mentioned", function() {
-      this.view.inputBox.val("@user");
-      this.view.inputBox[0].setSelectionRange(5, 5);
-      this.view.typeaheadInput.typeahead("val", "user");
-      this.view.typeaheadInput.typeahead("open");
-      this.view.$(".tt-suggestion").first().click();
-      expect(this.view.getTextForSubmit()).toBe("@{user1@pod.tld}");
-    });
-
-    it("returns normal text if nobody has been mentioned", function() {
-      this.view.inputBox.data("messageText", "Bad text");
-      this.view.inputBox.val("Good text");
-      expect(this.view.getTextForSubmit()).toBe("Good text");
     });
   });
 });

@@ -14,8 +14,6 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
   initialize: function() {
     this.mentionedPeople = [];
-
-    // has a data-messageText attribute with the original text
     this.inputBox = this.$("#status_message_text");
     this.typeaheadInput = this.$(".typeahead-mention-box");
     this.bindTypeaheadEvents();
@@ -67,16 +65,9 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     messageText = messageText.substring(0, triggerCharPosition) + mentionText + messageText.substring(caretPosition);
 
     this.inputBox.val(messageText);
-    this.updateMessageTexts();
-
     this.inputBox.focus();
     var newCaretPosition = triggerCharPosition + mentionText.length;
     this.inputBox[0].setSelectionRange(newCaretPosition, newCaretPosition);
-  },
-
-  updateMessageTexts: function() {
-    var messageText = this.inputBox.val();
-    this.inputBox.data("messageText", messageText);
   },
 
   updateTypeaheadInput: function() {
@@ -107,7 +98,6 @@ app.views.PublisherMention = app.views.SearchBase.extend({
         text = this.inputBox.val() + " " + text;
       }
       this.inputBox.val(text);
-      this.updateMessageTexts();
     }, this);
   },
 
@@ -133,7 +123,6 @@ app.views.PublisherMention = app.views.SearchBase.extend({
    */
   onInputBoxInput: function() {
     this.cleanMentionedPeople();
-    this.updateMessageTexts();
     this.updateTypeaheadInput();
   },
 
@@ -189,9 +178,5 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
   isVisible: function() {
     return this.$(".tt-menu").is(":visible");
-  },
-
-  getTextForSubmit: function() {
-    return this.mentionedPeople.length ? this.inputBox.data("messageText") : this.inputBox.val();
   }
 });
