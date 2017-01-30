@@ -75,7 +75,7 @@ module Diaspora::Mentionable
     text.to_s.gsub(NEW_SYNTAX_REGEX) do |match_str|
       _, diaspora_id = mention_attrs(match_str)
       person = find_or_fetch_person_by_identifier(diaspora_id)
-      old_syntax = "@{#{person.name}; #{diaspora_id}}" if person
+      old_syntax = "@{#{person.name.delete('{}')}; #{diaspora_id}}" if person
       old_syntax || match_str
     end
   end

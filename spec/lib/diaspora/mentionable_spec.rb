@@ -183,6 +183,14 @@ STR
       expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(expected_text)
     end
 
+    it "removes curly braces from name of the mentioned person when adding it" do
+      profile = FactoryGirl.build(:profile, first_name: "{Alice}", last_name: "(Smith) [123]")
+      person = FactoryGirl.create(:person, profile: profile)
+      text = "mention @{#{person.diaspora_handle}} text"
+      expected_text = "mention @{Alice (Smith) [123]; #{person.diaspora_handle}} text"
+      expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(expected_text)
+    end
+
     it "does not change the text, when the mention includes a name" do
       text = "mention @{#{@names[0]}; #{@people[0].diaspora_handle}} text"
       expect(Diaspora::Mentionable.backport_mention_syntax(text)).to eq(text)
