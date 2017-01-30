@@ -363,18 +363,6 @@ describe("app.views.PublisherMention", function() {
     });
   });
 
-  describe("onInputBoxInput", function() {
-    beforeEach(function() {
-      this.view = new app.views.PublisherMention({ el: "#publisher" });
-    });
-
-    it("calls 'updateTypeaheadInput'", function() {
-      spyOn(this.view, "updateTypeaheadInput");
-      this.view.onInputBoxInput();
-      expect(this.view.updateTypeaheadInput).toHaveBeenCalled();
-    });
-  });
-
   describe("onInputBoxClick", function() {
     beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
@@ -402,13 +390,13 @@ describe("app.views.PublisherMention", function() {
   describe("reset", function() {
     beforeEach(function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
-      spyOn(this.view, "onInputBoxInput");
+      spyOn(this.view, "updateTypeaheadInput");
     });
 
     it("resets the mention box", function() {
       this.view.reset();
       expect(this.view.inputBox.val()).toBe("");
-      expect(this.view.onInputBoxInput).toHaveBeenCalled();
+      expect(this.view.updateTypeaheadInput).toHaveBeenCalled();
     });
   });
 

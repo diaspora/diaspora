@@ -7,7 +7,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
   events: {
     "keydown #status_message_text": "onInputBoxKeyDown",
-    "input #status_message_text": "onInputBoxInput",
+    "input #status_message_text": "updateTypeaheadInput",
     "click #status_message_text": "onInputBoxClick",
     "blur #status_message_text": "onInputBoxBlur"
   },
@@ -120,13 +120,6 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.typeaheadInput.trigger($.Event("keydown", {keyCode: e.keyCode, which: e.which}));
   },
 
-  /**
-   * Listens for user input and opens results dropdown when input contains the trigger char
-   */
-  onInputBoxInput: function() {
-    this.updateTypeaheadInput();
-  },
-
   onInputBoxKeyDown: function(e) {
     // This also matches HOME/END on OSX which is CMD+LEFT, CMD+RIGHT
     if(e.which === Keycodes.LEFT || e.which === Keycodes.RIGHT ||
@@ -169,7 +162,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
   reset: function() {
     this.inputBox.val("");
-    this.onInputBoxInput();
+    this.updateTypeaheadInput();
   },
 
   closeSuggestions: function() {
