@@ -6,18 +6,17 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   mentionSyntaxTemplate: function(person) { return "@{" + person.handle + "}"; },
 
   events: {
-    "keydown #status_message_fake_text": "onInputBoxKeyDown",
-    "input #status_message_fake_text": "onInputBoxInput",
-    "click #status_message_fake_text": "onInputBoxClick",
-    "blur #status_message_fake_text": "onInputBoxBlur"
+    "keydown #status_message_text": "onInputBoxKeyDown",
+    "input #status_message_text": "onInputBoxInput",
+    "click #status_message_text": "onInputBoxClick",
+    "blur #status_message_text": "onInputBoxBlur"
   },
 
   initialize: function() {
     this.mentionedPeople = [];
 
-    // contains the 'fake text' displayed to the user
-    // also has a data-messageText attribute with the original text
-    this.inputBox = this.$("#status_message_fake_text");
+    // has a data-messageText attribute with the original text
+    this.inputBox = this.$("#status_message_text");
     this.typeaheadInput = this.$(".typeahead-mention-box");
     this.bindTypeaheadEvents();
 

@@ -82,9 +82,9 @@ describe("app.views.Publisher", function() {
       });
 
       it("resets the element's height", function() {
-        $(this.view.el).find("#status_message_fake_text").height(100);
+        $(this.view.el).find("#status_message_text").height(100);
         this.view.close($.Event());
-        expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
+        expect($(this.view.el).find("#status_message_text").attr("style")).not.toContain("height");
       });
 
       it("calls autosize.update", function() {
@@ -235,9 +235,7 @@ describe("app.views.Publisher", function() {
     describe('#setText', function() {
       it("sets the content text", function() {
         this.view.setText("FOO bar");
-
         expect(this.view.inputEl.val()).toEqual("FOO bar");
-        expect(this.view.hiddenInputEl.val()).toEqual("FOO bar");
       });
     });
 
@@ -248,7 +246,6 @@ describe("app.views.Publisher", function() {
 
         expect(this.view.disabled).toBeTruthy();
         expect(this.view.inputEl.prop("disabled")).toBeTruthy();
-        expect(this.view.hiddenInputEl.prop("disabled")).toBeTruthy();
       });
 
       it("disables submitting", function() {

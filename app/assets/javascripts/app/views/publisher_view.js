@@ -18,11 +18,11 @@ app.views.Publisher = Backbone.View.extend({
   el : "#publisher",
 
   events : {
-    "keydown #status_message_fake_text" : "keyDown",
+    "keydown #status_message_text": "keyDown",
     "focus textarea" : "open",
     "submit form" : "createStatusMessage",
     "click #submit" : "createStatusMessage",
-    "textchange #status_message_fake_text": "handleTextchange",
+    "textchange #status_message_text": "handleTextchange",
     "click #locator" : "showLocation",
     "click #poll_creator" : "togglePollCreator",
     "click #hide_location" : "destroyLocation",
@@ -35,8 +35,7 @@ app.views.Publisher = Backbone.View.extend({
     this.disabled   = false;
 
     // init shortcut references to the various elements
-    this.inputEl = this.$("#status_message_fake_text");
-    this.hiddenInputEl = this.$("#status_message_text");
+    this.inputEl = this.$("#status_message_text");
     this.wrapperEl = this.$("#publisher_textarea_wrapper");
     this.submitEl = this.$("input[type=submit], button#submit");
     this.photozoneEl = this.$("#photodropzone");
@@ -45,14 +44,6 @@ app.views.Publisher = Backbone.View.extend({
     // before the user is able to leave the page
     $(window).on("beforeunload", _.bind(this._beforeUnload, this));
     $(window).unload(this.clear.bind(this));
-
-    // sync textarea content
-    if( this.hiddenInputEl.val() === "" ) {
-      this.hiddenInputEl.val( this.inputEl.val() );
-    }
-    if( this.inputEl.val() === "" ) {
-      this.inputEl.val( this.hiddenInputEl.val() );
-    }
 
     // hide close and preview buttons and manage services link
     // in case publisher is standalone
@@ -175,7 +166,6 @@ app.views.Publisher = Backbone.View.extend({
   // inject content into the publisher textarea
   setText: function(txt) {
     this.inputEl.val(txt);
-    this.hiddenInputEl.val(txt);
     this.prefillText = txt;
 
     this.inputEl.trigger("input");
@@ -381,11 +371,10 @@ app.views.Publisher = Backbone.View.extend({
     // remove mentions
     this.mention.reset();
 
-    // clear text(s)
+    // clear text
     this.inputEl.val("");
-    this.hiddenInputEl.val("");
     this.inputEl.trigger("keyup")
-                 .trigger("keydown");
+                .trigger("keydown");
     autosize.update(this.inputEl);
 
     // remove photos
@@ -421,7 +410,6 @@ app.views.Publisher = Backbone.View.extend({
 
     // force textchange plugin to update lastValue
     this.inputEl.data("lastValue", "");
-    this.hiddenInputEl.data("lastValue", "");
 
     return this;
   },
@@ -487,10 +475,8 @@ app.views.Publisher = Backbone.View.extend({
   setInputEnabled: function(bool) {
     if (bool) {
       this.inputEl.removeAttr("disabled");
-      this.hiddenInputEl.removeAttr("disabled");
     } else {
       this.inputEl.prop("disabled", true);
-      this.hiddenInputEl.prop("disabled", true);
     }
   },
 
@@ -505,7 +491,6 @@ app.views.Publisher = Backbone.View.extend({
 
   handleTextchange: function() {
     this.checkSubmitAvailability();
-    this.hiddenInputEl.val(this.mention.getTextForSubmit());
   },
 
   _beforeUnload: function(e) {
