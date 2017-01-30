@@ -22,7 +22,7 @@ app.views.Publisher = Backbone.View.extend({
     "focus textarea" : "open",
     "submit form" : "createStatusMessage",
     "click #submit" : "createStatusMessage",
-    "textchange #status_message_text": "handleTextchange",
+    "textchange #status_message_text": "checkSubmitAvailability",
     "click #locator" : "showLocation",
     "click #poll_creator" : "togglePollCreator",
     "click #hide_location" : "destroyLocation",
@@ -154,7 +154,7 @@ app.views.Publisher = Backbone.View.extend({
     this.viewPollCreator.render();
 
     if (this.prefillMention) {
-      this.handleTextchange();
+      this.checkSubmitAvailability();
     }
   },
 
@@ -170,7 +170,7 @@ app.views.Publisher = Backbone.View.extend({
 
     this.inputEl.trigger("input");
     autosize.update(this.inputEl);
-    this.handleTextchange();
+    this.checkSubmitAvailability();
   },
 
   // show the "getting started" popups around the publisher
@@ -242,7 +242,7 @@ app.views.Publisher = Backbone.View.extend({
         self.setButtonsEnabled(true);
         self.setInputEnabled(true);
         self.wrapperEl.removeClass("submitting");
-        self.handleTextchange();
+        self.checkSubmitAvailability();
         autosize.update(self.inputEl);
       }
     });
@@ -318,9 +318,7 @@ app.views.Publisher = Backbone.View.extend({
 
   createPostPreview: function() {
     var serializedForm = $("#new_status_message").serializeObject();
-    var text = serializedForm["status_message[text]"];
     var photos = this.getUploadedPhotos();
-    var mentionedPeople = this.mention.getMentionedPeople();
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
     if(!locationCoords || locationCoords === "") {
@@ -336,12 +334,12 @@ app.views.Publisher = Backbone.View.extend({
 
     var previewMessage = {
       "id": 0,
-      "text": text,
+      "text": serializedForm["status_message[text]"],
       "public": serializedForm["aspect_ids[]"] === "public",
       "created_at": new Date().toISOString(),
       "interacted_at": new Date().toISOString(),
       "author": app.currentUser ? app.currentUser.attributes : {},
-      "mentioned_people": mentionedPeople,
+      "mentioned_people": this.mention.getMentionedPeople(),
       "photos": photos,
       "title": serializedForm["status_message[text]"],
       "location": location,
@@ -454,8 +452,7 @@ app.views.Publisher = Backbone.View.extend({
   setEnabled: function(bool) {
     this.setInputEnabled(bool);
     this.disabled = !bool;
-
-    this.handleTextchange();
+    this.checkSubmitAvailability();
   },
 
   setButtonsEnabled: function(bool) {
@@ -481,10 +478,6 @@ app.views.Publisher = Backbone.View.extend({
         isValidPoll = this.viewPollCreator.validatePoll();
 
     return (!onlyWhitespaces || isPhotoAttached) && isValidPoll && !this.disabled;
-  },
-
-  handleTextchange: function() {
-    this.checkSubmitAvailability();
   },
 
   _beforeUnload: function(e) {

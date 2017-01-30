@@ -43,17 +43,11 @@ describe("app.views.Publisher", function() {
     });
 
     describe("#initSubviews", function() {
-      it("calls handleTextchange if the publisher is prefilled with mentions", function() {
-        spyOn(this.view, "handleTextchange");
+      it("calls checkSubmitAvailability if the publisher is prefilled with mentions", function() {
+        spyOn(this.view, "checkSubmitAvailability");
         this.view.prefillMention = "user@example.org";
         this.view.initSubviews();
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
-      it("doesn't call handleTextchange if there are no prefilled mentions", function() {
-        spyOn(this.view, "handleTextchange");
-        this.view.initSubviews();
-        expect(this.view.handleTextchange).not.toHaveBeenCalled();
+        expect(this.view.checkSubmitAvailability).toHaveBeenCalled();
       });
     });
 
