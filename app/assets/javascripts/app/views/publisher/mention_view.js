@@ -2,13 +2,8 @@
 
 app.views.PublisherMention = app.views.SearchBase.extend({
   triggerChar: "@",
-  invisibleChar: "\u200B", // zero width space
   mentionRegex: /@([^@\s]+)$/,
-
-  templates: {
-    mentionItemSyntax: _.template("@{<%= handle %>}"),
-    mentionItemHighlight: _.template("<strong><span><%= name %></span></strong>")
-  },
+  mentionSyntaxTemplate: function(person) { return "@{" + person.handle + "}"; },
 
   events: {
     "keydown #status_message_fake_text": "onInputBoxKeyDown",
@@ -55,8 +50,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   cleanMentionedPeople: function() {
     var inputText = this.inputBox.val();
     this.mentionedPeople = this.mentionedPeople.filter(function(person) {
-      return person.name && inputText.indexOf(person.name) > -1;
-    });
+      return person.handle && inputText.indexOf(this.mentionSyntaxTemplate(person)) > -1;
+    }.bind(this));
     this.ignoreDiasporaIds = this.mentionedPeople.map(function(person) { return person.handle; });
   },
 
@@ -70,39 +65,22 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.addPersonToMentions(person);
     this.closeSuggestions();
 
-    messageText = messageText.substring(0, triggerCharPosition) +
-      this.invisibleChar + person.name + messageText.substring(caretPosition);
+    var mentionText = this.mentionSyntaxTemplate(person);
+
+    messageText = messageText.substring(0, triggerCharPosition) + mentionText + messageText.substring(caretPosition);
 
     this.inputBox.val(messageText);
     this.updateMessageTexts();
 
     this.inputBox.focus();
-    var newCaretPosition = triggerCharPosition + person.name.length + 1;
+    var newCaretPosition = triggerCharPosition + mentionText.length;
     this.inputBox[0].setSelectionRange(newCaretPosition, newCaretPosition);
   },
 
-  /**
-   * Replaces every combination of this.invisibleChar + mention.name by the
-   * correct syntax for both hidden text and visible one.
-   *
-   * For instance, the text "Hello \u200Buser1" will be tranformed to
-   * "Hello @{user1 ; user1@pod.tld}" in the hidden element and
-   * "Hello <strong><span>user1</span></strong>" in the element visible to the user.
-   */
   updateMessageTexts: function() {
-    var fakeMessageText = this.inputBox.val(),
-        mentionBoxText = _.escape(fakeMessageText),
-        messageText = fakeMessageText;
-
-    this.mentionedPeople.forEach(function(person) {
-      var mentionName = this.invisibleChar + person.name;
-      messageText = messageText.replace(mentionName, this.templates.mentionItemSyntax(person));
-      var textHighlight = this.templates.mentionItemHighlight({name: _.escape(person.name)});
-      mentionBoxText = mentionBoxText.replace(mentionName, textHighlight);
-    }, this);
-
+    var messageText = this.inputBox.val();
     this.inputBox.data("messageText", messageText);
-    this.mentionsBox.find(".mentions").html(mentionBoxText);
+    this.mentionsBox.find(".mentions").html(_.escape(messageText));
   },
 
   updateTypeaheadInput: function() {
@@ -128,7 +106,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   prefillMention: function(persons) {
     persons.forEach(function(person) {
       this.addPersonToMentions(person);
-      var text = this.invisibleChar + person.name;
+      var text = this.mentionSyntaxTemplate(person);
       if(this.inputBox.val().length !== 0) {
         text = this.inputBox.val() + " " + text;
       }
