@@ -1,70 +1,85 @@
 
 %li.user.media
-  %div.pull-left
+  .pull-left
     - if user.person
       %span.media-object
         = person_image_tag(user.person, size: :thumb_small)
 
-  %div.media-body.row
-    %div.pull-right
+  .media-body.row
+    .pull-right
       %span.label.label-default
-        = t('.id')
+        = t(".id")
         = user.id
       %span.label.label-info
-        = t('.guid')
+        = t(".guid")
         = user.person.guid if user.person
 
     %h4.media-heading
       = user.person.name if user.person
 
-    %div.pull-right
+    .pull-right.block-admin
       .unstyled.text-right.actions
-        = link_to t('admins.user_search.view_profile'), person_path(user.person), class: 'btn btn-default btn-block btn-xs'
-        = link_to t('admins.user_search.add_invites'), add_invites_path(user.invitation_code), class: 'btn btn-info btn-block btn-xs'
+        = link_to t("admins.user_search.view_profile"),
+          person_path(user.person),
+          class: "btn btn-default btn-block block-admin btn-xs"
+        = link_to t("admins.user_search.add_invites"),
+          add_invites_path(user.invitation_code),
+          class: "btn btn-info btn-block block-admin btn-xs"
         - unless user.person.closed_account
-          = link_to t('admins.user_search.close_account'), admin_close_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure') }, class: 'btn btn-danger btn-block btn-xs'
+          = link_to t("admins.user_search.close_account"),
+            admin_close_account_path(user),
+            method: :post, data: {confirm: t("admins.user_search.are_you_sure")},
+            class: "btn btn-danger btn-block block-admin btn-xs"
 
         - unless user.closed_account?
           - unless user.access_locked?
-            = link_to t('admins.user_search.lock_account'), admin_lock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_lock_account') }, class: 'btn btn-danger btn-block btn-xs'
+            = link_to t("admins.user_search.lock_account"),
+              admin_lock_account_path(user),
+              method: :post,
+              data: {confirm: t("admins.user_search.are_you_sure_lock_account")},
+              class: "btn btn-danger btn-block block-admin btn-xs"
           - else
-            = link_to t('admins.user_search.unlock_account'), admin_unlock_account_path(user), method: :post, data: { confirm: t('admins.user_search.are_you_sure_unlock_account') }, class: 'btn btn-danger btn-block btn-xs'
+            = link_to t("admins.user_search.unlock_account"),
+            admin_unlock_account_path(user),
+            method: :post,
+            data: {confirm: t("admins.user_search.are_you_sure_unlock_account")},
+            class: "btn btn-danger btn-block block-admin btn-xs"
 
-    %div.row
-      %div.col-md-5
+    .row
+      .col-md-5
         %dl.dl-horizontal
-          %dt= t('username')
+          %dt= t("username")
           %dd= user.username
-          %dt= t('.email')
+          %dt= t(".email")
           %dd= user.email
-          %dt= t('.diaspora_handle')
+          %dt= t(".diaspora_handle")
           %dd= user.person.diaspora_handle
-          %dt= t('.last_seen')
-          %dd= user.last_seen || t('.unknown')
+          %dt= t(".last_seen")
+          %dd= user.last_seen || t(".unknown")
           -if user.invited_by.present?
-            %dt= t('.invite_token')
+            %dt= t(".invite_token")
             %dd= invite_code_url(user.invited_by.invitation_code)
-          %dt= t('.account_closed')
+          %dt= t(".account_closed")
           %dd
             - if user.person.closed_account
-              %span.label.label-warning= t('.yes')
+              %span.label.label-warning= t(".yes")
             - else
-              %span.label.label-success= t('.no')
-          %dt= t('.nsfw')
+              %span.label.label-success= t(".no")
+          %dt= t(".nsfw")
           %dd
             - if user.person.profile.nsfw
-              %span.label.label-warning= t('.yes')
+              %span.label.label-warning= t(".yes")
             - else
-              %span.label.label-success= t('.no')
+              %span.label.label-success= t(".no")
 
-        %h4= t('layouts.header.profile')
+        %h4= t("layouts.header.profile")
 
         %dl.dl-horizontal
-          %dt= t('people.profile_sidebar.born')
+          %dt= t("people.profile_sidebar.born")
           %dd= user.person.profile.birthday
-          %dt= t('people.profile_sidebar.gender')
+          %dt= t("people.profile_sidebar.gender")
           %dd= user.person.profile.gender
-          %dt= t('people.profile_sidebar.location')
+          %dt= t("people.profile_sidebar.location")
           %dd= user.person.profile.location
-          %dt= t('people.profile_sidebar.bio')
+          %dt= t("people.profile_sidebar.bio")
           %dd= user.person.profile.bio
