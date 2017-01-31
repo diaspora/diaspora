@@ -1,5 +1,5 @@
 #app {
-  .btn-block,
+  .pull-right,
   input {
     margin-bottom: 5px;
     margin-top: 5px;
@@ -10,5 +10,19 @@
   &:hover,
   &:focus {
     background-color: $gray-light;
+  }
+}
+
+@media(max-width: $screen-xs-max) {
+  #app {
+    .block-admin {
+      display: block;
+      float: none;
+      font-size: 13px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      padding: 6px 12px;
+      width: 100%;
+    }
   }
 }

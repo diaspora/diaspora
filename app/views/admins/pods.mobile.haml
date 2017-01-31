@@ -5,5 +5,4 @@
         = t(".pod_network")
 
       .alert.alert-warning
-        = t(".pod_desktop_view")
-        = link_to t(".pod_desktop_link"), toggle_mobile_path
+        != t(".pod_desktop_view", desktop_link: link_to(t(".pod_desktop_link"), toggle_mobile_path))

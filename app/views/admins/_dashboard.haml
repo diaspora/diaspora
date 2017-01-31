@@ -1,0 +1,12 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
+.col-md-9
+  #pod-status
+    %h2
+      = t(".pod_status")
+    .alert.alert-info.pod-version.hidden-xs{role: "alert"}
+      = t(".fetching_diaspora_version")
+    - if unreviewed_reports_count > 0
+      .alert.alert-warning.reports-warning{role: "alert"}
+        = t("report.unreviewed_reports", count: unreviewed_reports_count)
