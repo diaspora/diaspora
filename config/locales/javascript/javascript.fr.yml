@@ -238,7 +238,7 @@ fr:
       prompt: "Merci de saisir un motif :"
       prompt_default: "Contenu offensant"
       status:
-        created: "Le signalement a été crée avec succès."
+        created: "Le signalement a été créé avec succès."
         exists: "Le signalement existe déjà"
     reshares:
       post: "Repartager le message de <%= name %> ?"
