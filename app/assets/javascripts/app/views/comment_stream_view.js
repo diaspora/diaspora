@@ -152,6 +152,7 @@ app.views.CommentStream = app.views.Base.extend({
   closeForm: function() {
     this.$("form").removeClass("open");
     this.$(".md-editor").removeClass("active");
+    this.commentBox.blur();
     autosize.update(this.commentBox);
   },
 

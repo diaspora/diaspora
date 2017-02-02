@@ -21,10 +21,13 @@ describe("app.views.CommentStream", function(){
     });
 
     it("calls onFormBlur when clicking outside the comment box", function() {
-      spyOn(app.views.CommentStream.prototype, "onFormBlur");
+      // remove existing event handlers
+      $(document.body).off("click");
+
+      spyOn(this.view, "onFormBlur");
       this.view.setupBindings();
       $(document.body).click();
-      expect(app.views.CommentStream.prototype.onFormBlur).toHaveBeenCalled();
+      expect(this.view.onFormBlur).toHaveBeenCalled();
     });
   });
 
