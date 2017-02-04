@@ -26,8 +26,8 @@ app.views.LocationStream = app.views.Base.extend({
         return map;
       }
     } else {
-        mapContainer.toggle();
-        footerContainer.classList.remove("open");
+      mapContainer.toggle();
+      footerContainer.classList.remove("open");
     }
   }
 });

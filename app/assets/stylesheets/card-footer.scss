@@ -11,11 +11,12 @@
   width: 100%;
 
   .footer-container {
+    padding: 1px 5px;
+
     a {
       color: $text-grey;
       font-weight: normal;
       margin-right: 4px;
-      padding: 1px 5px;
     }
   }
 
