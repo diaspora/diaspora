@@ -2,6 +2,8 @@
 
 ## Refactor
 
+* Make the mention syntax more flexible [#7305](https://github.com/diaspora/diaspora/pull/7305)
+
 ## Bug fixes
 
 ## Features

@@ -14,7 +14,7 @@ module Diaspora::Mentionable
   def self.mention_attrs(mention_str)
     name, diaspora_id = mention_str.match(REGEX).captures
 
-    [name.try(:strip), diaspora_id.strip]
+    [name.try(:strip).presence, diaspora_id.strip]
   end
 
   # takes a message text and returns the text with mentions in (html escaped)
@@ -32,7 +32,7 @@ module Diaspora::Mentionable
       name, diaspora_id = mention_attrs(match_str)
       person = people.find {|p| p.diaspora_handle == diaspora_id }
 
-      ERB::Util.h(MentionsInternal.mention_link(person, name, opts))
+      ERB::Util.h(MentionsInternal.mention_link(person, name, diaspora_id, opts))
     }
   end
 
@@ -60,9 +60,12 @@ module Diaspora::Mentionable
     msg_text.to_s.gsub(REGEX) {|match_str|
       name, diaspora_id = mention_attrs(match_str)
       person = mentioned_ppl.find {|p| p.diaspora_handle == diaspora_id }
-      mention = MentionsInternal.profile_link(person, name) unless allowed_people.include?(person.id)
 
-      mention || match_str
+      if person && allowed_people.include?(person.id)
+        match_str
+      else
+        MentionsInternal.profile_link(person, name, diaspora_id)
+      end
     }
   end
 
@@ -75,7 +78,7 @@ module Diaspora::Mentionable
     text.to_s.gsub(NEW_SYNTAX_REGEX) do |match_str|
       _, diaspora_id = mention_attrs(match_str)
       person = find_or_fetch_person_by_identifier(diaspora_id)
-      old_syntax = "@{#{person.name}; #{diaspora_id}}" if person
+      old_syntax = "@{#{person.name.delete('{}')}; #{diaspora_id}}" if person
       old_syntax || match_str
     end
   end
@@ -97,11 +100,11 @@ module Diaspora::Mentionable
     # @param [Person] AR Person
     # @param [String] display name
     # @param [Hash] formatting options
-    def self.mention_link(person, display_name, opts)
-      return display_name unless person.present?
+    def self.mention_link(person, display_name, diaspora_id, opts)
+      return display_name || diaspora_id unless person.present?
 
       if opts[:plain_text]
-        display_name.presence || person.name
+        display_name || person.name
       else
         person_link(person, class: PERSON_HREF_CLASS, display_name: display_name)
       end
@@ -113,10 +116,10 @@ module Diaspora::Mentionable
     # @param [Person] AR Person
     # @param [String] display name
     # @return [String] markdown person link
-    def self.profile_link(person, display_name)
-      return display_name unless person.present?
+    def self.profile_link(person, display_name, diaspora_id)
+      return display_name || diaspora_id unless person.present?
 
-      "[#{display_name.presence || person.name}](#{local_or_remote_person_path(person)})"
+      "[#{display_name || person.name}](#{local_or_remote_person_path(person)})"
     end
   end
 end
