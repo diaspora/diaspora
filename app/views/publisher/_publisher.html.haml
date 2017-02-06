@@ -42,7 +42,7 @@
 
       - if public_selected?(selected_aspects)
         = hidden_field_tag "aspect_ids[]", "public"
-      - elsif all_aspects_selected?(all_aspects, selected_aspects)
+      - elsif all_aspects_selected?(selected_aspects)
         = hidden_field_tag "aspect_ids[]", "all_aspects"
       - else
         - for aspect_id in aspect_ids
