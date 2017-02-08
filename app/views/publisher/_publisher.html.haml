@@ -1,4 +1,4 @@
-.row.publisher#publisher{class: ((aspect == :profile || publisher_open) ? "mention_popup" : "closed")}
+.row.publisher#publisher{class: ((aspect == :profile || publisher_open?) ? "mention_popup" : "closed")}
   .content_creation
     = form_for(StatusMessage.new) do |status|
       = status.error_messages
@@ -42,7 +42,7 @@
 
       - if public_selected?(selected_aspects)
         = hidden_field_tag "aspect_ids[]", "public"
-      - elsif all_aspects_selected?(all_aspects, selected_aspects)
+      - elsif all_aspects_selected?(selected_aspects)
         = hidden_field_tag "aspect_ids[]", "all_aspects"
       - else
         - for aspect_id in aspect_ids

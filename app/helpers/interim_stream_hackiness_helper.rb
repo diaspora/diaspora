@@ -38,12 +38,4 @@ module InterimStreamHackinessHelper
      []
     end
   end
-
-  def publisher_method(method)
-    @stream.try(:publisher).try(method) == true
-  end
-
-  def publisher_open
-    publisher_method(:open)
-  end
 end

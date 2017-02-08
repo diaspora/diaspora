@@ -15,7 +15,7 @@
     - else
       %i.entypo-lock.small#visibility-icon
       %span.text
-        - if all_aspects_selected?(all_aspects, selected_aspects)
+        - if all_aspects_selected?(selected_aspects)
           = t("all_aspects")
         - elsif selected_aspects.size == 1
           = selected_aspects.first.name
@@ -31,7 +31,7 @@
         %span.text
           = t("public")
     %li.all_aspects.radio{"data-aspect_id" => "all_aspects",
-      :class => ("selected" if all_aspects_selected?(all_aspects, selected_aspects))}
+      :class => ("selected" if all_aspects_selected?(selected_aspects))}
       %a
         %span.status_indicator
           %i.glyphicon.glyphicon-ok
@@ -40,7 +40,7 @@
     %li.divider
     - all_aspects.each do |aspect|
       %li.aspect_selector{"data-aspect_id" => aspect.id,
-        :class => ("selected" if aspect_selected?(aspect, all_aspects, selected_aspects))}
+        :class => ("selected" if aspect_selected?(aspect, selected_aspects))}
         %a
           %span.status_indicator
             %i.glyphicon.glyphicon-ok
