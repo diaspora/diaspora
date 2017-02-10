@@ -83,7 +83,7 @@
         color: #f55f5a;
       }
       i.entypo-reshare:hover {
-        color: #3f8fba;
+        color: $blue;
       }
       time {
         float: right;
@@ -115,7 +115,7 @@
   .no-comments { text-align: center; }
 
   a {
-    color: $blue;
+    color: $link-color;
   }
   .count {
     float: left;
