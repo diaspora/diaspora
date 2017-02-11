@@ -107,10 +107,10 @@ $default-border-radius: 3px;
       opacity: 0.9;
 
       a {
-        color: lighten($blue, 25%);
+        color: lighten($link-color, 25%);
       }
       a:visited {
-        color: $blue;
+        color: $link-color;
       }
     }
     .desc {

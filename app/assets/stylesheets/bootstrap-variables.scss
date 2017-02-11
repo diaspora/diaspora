@@ -33,7 +33,7 @@ $brand-success: #8EDE3D !default;
 // $text-color:            $gray-dark
 
 //** Global textual link color.
-$link-color: rgb(42,156,235) !default;
+$link-color: $blue !default;
 //** Link hover color set via `darken()` function.
 // $link-hover-color:      darken($link-color, 15%)
 //** Link hover decoration.
@@ -676,7 +676,7 @@ $list-group-border: transparent;
 $list-group-border-radius: 0;
 
 //** Background color of single list items on hover
-$list-group-hover-bg: $blue;
+$list-group-hover-bg: $brand-primary;
 //** Text color of active list items
 $list-group-active-color: $white;
 //** Background color of active list items

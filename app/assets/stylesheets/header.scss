@@ -53,7 +53,7 @@
           color: $gray-light;
           padding-left: 55px;
           &:hover {
-            background-color: $link-color;
+            background-color: $brand-primary;
             color: $gray-lighter;
           }
         }
@@ -105,7 +105,7 @@
         }
       }
       .view_all {
-        background-color: $link-color;
+        background-color: $brand-primary;
         border-top: 3px solid $dropdown-bg;
         text-align: center;
         a {

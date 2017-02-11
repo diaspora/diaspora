@@ -115,7 +115,7 @@
   > li {
     > a { padding: 7px 15px; }
 
-    &:not(.active) * { color: $brand-primary; }
+    &:not(.active) * { color: $link-color; }
 
     &.active * { color: $black; }
   }
