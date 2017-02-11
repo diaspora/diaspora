@@ -1,6 +1,7 @@
 # 0.6.4.0
 
 ## Refactor
+* Unify link colors [#7318](https://github.com/diaspora/diaspora/pull/7318)
 
 ## Bug fixes
 * Fix path to `bundle` in `script/server` [#7281](https://github.com/diaspora/diaspora/pull/7281)
