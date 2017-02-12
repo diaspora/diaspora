@@ -1,10 +1,12 @@
 describe("app.views.Header", function() {
   beforeEach(function() {
-    this.userAttrs = {name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}};
+    this.userAttrs = {name: "alice", avatar: {small: "http://avatar.com/photo.jpg"}, guid: "foo" };
 
     loginAs(this.userAttrs);
 
     spec.loadFixture("aspects_index");
+    gon.appConfig = {settings: {podname: "MyPod"}};
+    app.notificationsCollection = new app.collections.Notifications();
     this.view = new app.views.Header().render();
   });
 
@@ -13,14 +15,14 @@ describe("app.views.Header", function() {
       it("displays a count when the current user has a notification", function(){
         loginAs(_.extend(this.userAttrs, {notifications_count : 1}));
         this.view.render();
-        expect(this.view.$("#notification_badge .badge_count").hasClass('hidden')).toBe(false);
-        expect(this.view.$("#notification_badge .badge_count").text()).toContain("1");
+        expect(this.view.$(".notifications-link .badge").hasClass("hidden")).toBe(false);
+        expect(this.view.$(".notifications-link .badge").text()).toContain("1");
       });
 
       it("does not display a count when the current user has a notification", function(){
         loginAs(_.extend(this.userAttrs, {notifications_count : 0}));
         this.view.render();
-        expect(this.view.$("#notification_badge .badge_count").hasClass('hidden')).toBe(true);
+        expect(this.view.$(".notifications-link .badge").hasClass("hidden")).toBe(true);
       });
     });
 
@@ -28,14 +30,14 @@ describe("app.views.Header", function() {
       it("displays a count when the current user has a notification", function(){
         loginAs(_.extend(this.userAttrs, {unread_messages_count : 1}));
         this.view.render();
-        expect(this.view.$("#conversations_badge .badge_count").hasClass('hidden')).toBe(false);
-        expect(this.view.$("#conversations_badge .badge_count").text()).toContain("1");
+        expect(this.view.$("#conversations-link .badge").hasClass("hidden")).toBe(false);
+        expect(this.view.$("#conversations-link .badge").text()).toContain("1");
       });
 
       it("does not display a count when the current user has a notification", function(){
         loginAs(_.extend(this.userAttrs, {unread_messages_count : 0}));
         this.view.render();
-        expect(this.view.$("#conversations_badge .badge_count").hasClass('hidden')).toBe(true);
+        expect(this.view.$("#conversations-link .badge").hasClass("hidden")).toBe(true);
       });
     });
 
@@ -50,56 +52,6 @@ describe("app.views.Header", function() {
         loginAs(_.extend(this.userAttrs, {admin : false}));
         this.view.render();
         expect(this.view.$("#user_menu").html()).not.toContain("/admins");
-      });
-    });
-  });
-
-  describe("#toggleUserDropdown", function() {
-    it("adds the class 'active'", function() {
-      expect(this.view.$(".dropdown")).not.toHaveClass("active");
-      this.view.toggleUserDropdown($.Event());
-      expect(this.view.$(".dropdown")).toHaveClass("active");
-    });
-  });
-
-  describe("#hideUserDropdown", function() {
-    it("removes the class 'active' if the user clicks anywhere that isn't the menu element", function() {
-      this.view.toggleUserDropdown($.Event());
-      expect(this.view.$(".dropdown")).toHaveClass("active");
-
-      this.view.hideUserDropdown($.Event());
-      expect(this.view.$(".dropdown")).not.toHaveClass("active");
-    });
-  });
-
-
-  describe("search", function() {
-    var input;
-
-    beforeEach(function() {
-      $('#jasmine_content').html(this.view.el);
-      input = $(this.view.el).find('#q');
-    });
-
-    describe("focus", function() {
-      beforeEach(function(done){
-        input.trigger('focusin');
-        done();
-      });
-
-      it("adds the class 'active' when the user focuses the text field", function() {
-        expect(input).toHaveClass("active");
-      });
-    });
-
-    describe("blur", function() {
-      beforeEach(function(done) {
-        input.trigger('focusin').trigger('focusout');
-        done();
-      });
-
-      it("removes the class 'active' when the user blurs the text field", function() {
-        expect(input).not.toHaveClass("active");
       });
     });
   });

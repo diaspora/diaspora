@@ -39,13 +39,7 @@ When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
   end
 end
 
-When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
-  with_scope(selector) do
-    fill_in(field, :with => value)
-  end
-end
-
-When /^(?:|I )fill in "([^"]*)" for "([^"]*)"(?: within "([^"]*)")?$/ do |value, field, selector|
+When /^(?:|I )fill in "([^"]*)" (?:for|with) "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
   with_scope(selector) do
     fill_in(field, :with => value)
   end
@@ -156,16 +150,32 @@ end
 
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should be checked$/ do |label, selector|
   with_scope(selector) do
-    field_checked = find_field(label)['checked']
-    field_checked.should eq('true')
+    expect(find_field(label)["checked"]).to be_truthy
   end
 end
 
 Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |label, selector|
   with_scope(selector) do
-    field_checked = find_field(label)['checked']
-    field_checked.should be_falsey
+    expect(find_field(label)["checked"]).to be_falsey
   end
+end
+
+Then /^"([^"]*)" should be selected from "([^"]*)"(?: within "([^"]*)")?$/ do |value, field, selector|
+  with_scope(selector) do
+    expect(page).to have_select(field, selected: value)
+  end
+end
+
+Then /^the "([^"]*)" bootstrap-switch should be (on|off)$/ do |label, state|
+  if state == "on"
+    expect(page.evaluate_script("$('#{label}').bootstrapSwitch('state')")).to be_truthy
+  else
+    expect(page.evaluate_script("$('#{label}').bootstrapSwitch('state')")).to be_falsey
+  end
+end
+
+Then /^I toggle the "([^"]*)" bootstrap-switch$/ do |label|
+  page.execute_script("return $('#{label}').bootstrapSwitch('toggleState')")
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|

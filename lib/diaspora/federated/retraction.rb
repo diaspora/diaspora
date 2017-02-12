@@ -1,74 +1,72 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+
 class Retraction
   include Diaspora::Federated::Base
+  include Diaspora::Logging
 
-  xml_accessor :post_guid
-  xml_accessor :diaspora_handle
-  xml_accessor :type
+  attr_reader :subscribers, :data
 
-  attr_accessor :person, :object, :subscribers
-
-  def subscribers(user)
-    unless self.type == 'Person'
-      @subscribers ||= self.object.subscribers(user)
-      @subscribers -= self.object.resharers unless self.object.is_a?(Photo)
-      @subscribers
-    else
-      raise 'HAX: you must set the subscribers manaully before unfriending' if @subscribers.nil?
-      @subscribers
-    end
+  def initialize(data, subscribers, target=nil)
+    @data = data
+    @subscribers = subscribers
+    @target = target
   end
 
-  def self.for(object)
-    retraction = self.new
-    if object.is_a? User
-      retraction.post_guid = object.person.guid
-      retraction.type = object.person.class.to_s
-    else
-      retraction.post_guid = object.guid
-      retraction.type = object.class.to_s
-      retraction.object = object
-    end
-    retraction.diaspora_handle = object.diaspora_handle
-    retraction
+  def self.for(target, sender=nil)
+    federation_retraction = case target
+                            when Diaspora::Relayable
+                              Diaspora::Federation::Entities.relayable_retraction(target, sender)
+                            when Post
+                              Diaspora::Federation::Entities.signed_retraction(target, sender)
+                            else
+                              Diaspora::Federation::Entities.retraction(target)
+                            end
+
+    new(federation_retraction.to_h, target.subscribers.select(&:remote?), target)
   end
 
-  def target
-    @target ||= self.type.constantize.where(:guid => post_guid).first
+  def defer_dispatch(user, include_target_author=true)
+    subscribers = dispatch_subscribers(include_target_author)
+    sender = dispatch_sender(user)
+    Workers::DeferredRetraction.perform_async(sender.id, data, subscribers.map(&:id), service_opts(user))
   end
 
-  def perform receiving_user
-    logger.debug "Performing retraction for #{post_guid}"
-
-    self.target.destroy if self.target
-    logger.info "event=retraction status=complete type=#{type} guid=#{post_guid}"
+  def perform
+    logger.debug "Performing retraction for #{target.class.base_class}:#{target.guid}"
+    target.destroy!
+    logger.info "event=retraction status=complete target=#{data[:target_type]}:#{data[:target_guid]}"
   end
 
-  def correct_authorship?
-    if target.respond_to?(:relayable?) && target.relayable?
-      [target.author, target.parent.author].include?(person)
-    else
-      target.author == person
-    end
+  def public?
+    # TODO: backward compatibility for pre 0.6 pods, they don't relay public retractions
+    data[:target][:public] == "true" && (!data[:target][:parent] || data[:target][:parent][:local] == "true")
   end
 
-  def receive(user, person)
-    if self.type == 'Person'
-      unless self.person.guid.to_s == self.post_guid.to_s
-        logger.warn "event=receive status=abort reason='sender is not the person he is trying to retract' " \
-                    "recipient=#{diaspora_handle} sender=#{self.person.diaspora_handle} " \
-                    "payload_type=#{self.class} retraction_type=person"
-        return
+  private
+
+  attr_reader :target
+
+  def dispatch_subscribers(include_target_author)
+    subscribers << target.author if target.is_a?(Diaspora::Relayable) && include_target_author && target.author.remote?
+    subscribers
+  end
+
+  # @deprecated This is only needed for pre 0.6 pods
+  def dispatch_sender(user)
+    target.try(:sender_for_dispatch) || user
+  end
+
+  def service_opts(user)
+    return {} unless target.is_a?(StatusMessage)
+
+    user.services.each_with_object(service_types: []) do |service, opts|
+      service_opts = service.post_opts(target)
+      if service_opts
+        opts.merge!(service_opts)
+        opts[:service_types] << service.class.to_s
       end
-      user.disconnected_by(self.target)
-    elsif target.nil? || !correct_authorship?
-      logger.warn "event=retraction status=abort reason='no post found authored by retractor' " \
-                  "sender=#{person.diaspora_handle} post_guid=#{post_guid}"
-    else
-      self.perform(user)
     end
-    self
   end
 end

@@ -1,4 +1,6 @@
-.media { margin: 10px; }
+.media {
+  margin: 10px;
+}
 
 .media,
 .bd {
@@ -10,8 +12,8 @@
 .media .img {
   float: left;
   margin-right: 10px;
+
+  img { display: block; }
 }
 
-.media .img img { display: block }
 .media .imgEt { float: right; margin-left: 10px; }
-

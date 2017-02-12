@@ -7,30 +7,32 @@ Feature: show photos
       | Bob Jones     | bob@bob.bob         |
       | Alice Smith   | alice@alice.alice   |
       | Robert Grimm  | robert@grimm.grimm  |
+    And "robert@grimm.grimm" has posted a status message with a photo
     And I sign in as "robert@grimm.grimm"
-
-    Given I expand the publisher
-    And I have turned off jQuery effects
-    And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
-    And I press "Share"
-    Then I should see a "img" within ".stream_element div.photo_attachments"
 
     Scenario: see my own photos
       When I am on "robert@grimm.grimm"'s page
-      #TODO: find out why images don't show on first load
-      And I am on "robert@grimm.grimm"'s page
       And I press the first "#photos_link"
       Then I should be on person_photos page
 
     Scenario: I cannot see photos of people who don't share with me
       When I sign in as "alice@alice.alice"
       And I am on "robert@grimm.grimm"'s page
-      Then I should not see "Photos" within "#profile_horizontal_bar"
+      Then I should not see "Photos" within "#profile-horizontal-bar"
+
+    Scenario: I can see public photos of people who share with me
+      When "robert@grimm.grimm" has posted a public status message with a photo
+      And I sign in as "alice@alice.alice"
+      And I am on "robert@grimm.grimm"'s page
+      Then I should see "Photos" within "#profile-horizontal-bar"
+      When I press the first "#photos_link"
+      Then I should be on "robert@grimm.grimm"'s photos page
+      And I should see "Photos" within "#profile-horizontal-bar"
 
     Scenario: I delete a photo
       When I am on "robert@grimm.grimm"'s photos page
-      And I delete a photo
-      And I confirm the alert
-      Then I should not see a ".stream"
+      Then I should see a ".thumbnail" within "#main_stream"
+      When I confirm the alert after I delete a photo
+      Then I should not see a ".thumbnail" within "#main_stream"
       When I am on "robert@grimm.grimm"'s page
-      Then I should not see "Photos" within "#profile_horizontal_bar"
+      Then I should not see "Photos" within "#profile-horizontal-bar"

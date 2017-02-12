@@ -1,14 +1,14 @@
 language: ruby
 
 rvm:
+  - 2.3.1
   - 2.1
-  - 2.0
 
 env:
-  - DB=postgres BUILD_TYPE=other
-  - DB=mysql BUILD_TYPE=other
-  - DB=postgres BUILD_TYPE=cucumber
+  - DB=postgresql BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=cucumber
+  - DB=postgresql BUILD_TYPE=other
+  - DB=mysql BUILD_TYPE=other
 
 sudo: false
 cache:
@@ -19,11 +19,17 @@ cache:
 branches:
   only:
     - 'master'
-    - 'stable'
+    - 'next-minor'
     - 'develop'
 
-before_install: gem install bundler
-bundler_args: "--without development production heroku --jobs 3 --retry 3"
+before_install:
+  - gem install bundler
+  - mkdir travis-phantomjs
+  - wget http://cifiles.diasporafoundation.org/phantomjs-2.1.1-linux-x86_64.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2
+  - tar -xvf $PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis-phantomjs
+  - export PATH=$PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64/bin:$PATH
+
+bundler_args: "--deployment --without development production --with mysql postgresql --jobs 3 --retry 3"
 
 script: "./script/ci/build.sh"
 

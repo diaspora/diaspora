@@ -1,84 +1,56 @@
-body {
-  margin-top: 50px;
-  background-color: white;
-  background-image : none;
-}
+.page-home {
+  background-color: $main-background;
 
-li {
-  list-style: none;
-}
+  h3 {
+    border-bottom: 1px dashed $border-grey;
+    font-weight: bold;
+    margin: 0 0 15px;
+    padding-bottom: 15px;
+  }
 
-footer h3 {
-  margin-bottom: 25px;
-  text-align: center;
-}
+  .container-fluid.home-user {
+    padding-bottom: 75px;
+    padding-top: 75px;
+  }
 
-footer {
-  margin-bottom: 12px;
-  padding: 42px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  width: auto
-}
+  .dandelion-background {
+    background: image-url('dandelion.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-#header {
-  /* Hack to hide the header */
-  box-shadow:none;
-  border:none;
-  background:none;
+  .jumbotron {
+    background-color: rgba($black, .4);
+    margin-bottom: 0;
 
-  left: 0px;
-  padding: 15px 0px;
-}
+    h1,
+    h2 {
+      color: $white;
+      font-weight: bold;
+      text-shadow: 0 2px 2px $black;
+    }
+  }
 
-#header img {
-  margin-left: 15px;
-}
+  .landing-info-card {
+    background-color: $framed-background;
+    border: 1px solid $border-grey;
+    box-shadow: $card-shadow;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    min-height: 150px;
+    padding: 15px;
+  }
 
-#login-link {
-  float: right;
-  margin-right: 15px;
-}
+  .login-form {
+    fieldset { background: none; }
 
-#steps {
-  text-align: center;
-}
-
-#banner {
-  border-bottom : 1px solid #ccc;
-  border-top : 1px solid #eee;
-  padding : 30px;
-  margin-top: 20px;
-  text-align: center;
-
-  box-shadow : 0 9px 15px -10px rgba(0,0,0,0.7);
-}
-
-#links {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-#links .section {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  vertical-align: top;
-  width: 24%;
-  max-width: 24%;
-}
-
-#change-page {
-  color: #999;
-  text-align: center;
-  font-style: italic;
-}
-
-.helpful {
-  cursor: help;
-}
-
-.row {
-  margin-bottom: 60px;
+    .block-form {
+      background-color: rgba($white, .25);
+      border-radius: 5px;
+      margin: 0;
+      max-width: 400px;
+      padding: 1em;
+    }
+  }
 }

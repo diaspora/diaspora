@@ -1,16 +1,14 @@
-
-require "spec_helper"
-
 describe Diaspora::Mentionable do
   include PeopleHelper
 
   before do
     @people = [alice, bob, eve].map(&:person)
+    @names = %w(Alice\ A Bob\ B "Eve>\ E)
     @test_txt = <<-STR
 This post contains a lot of mentions
-one @{Alice A; #{@people[0].diaspora_handle}},
-two @{Bob B; #{@people[1].diaspora_handle}} and finally
-three @{"Eve> E; #{@people[2].diaspora_handle}}.
+one @{#{@names[0]}; #{@people[0].diaspora_handle}},
+two @{#{@names[1]}; #{@people[1].diaspora_handle}} and finally
+three @{#{@names[2]}; #{@people[2].diaspora_handle}}.
 STR
     @test_txt_plain = <<-STR
 This post contains a lot of mentions
@@ -18,53 +16,50 @@ one Alice A,
 two Bob B and finally
 three &quot;Eve&gt; E.
 STR
-    @status_msg = FactoryGirl.build(:status_message, text: @test_txt)
   end
 
   describe "#format" do
     context "html output" do
       it "adds the links to the formatted message" do
-        fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
+        fmt_msg = Diaspora::Mentionable.format(@test_txt, @people)
 
-        @people.each do |person|
-          expect(fmt_msg).to include person_link(person, class: "mention hovercardable")
+        [@people, @names].transpose.each do |person, name|
+          expect(fmt_msg).to include person_link(person, class: "mention hovercardable", display_name: name)
         end
       end
 
       it "should work correct when message is escaped html" do
-        raw_msg = @status_msg.raw_message
-        fmt_msg = Diaspora::Mentionable.format(CGI.escapeHTML(raw_msg), @people)
+        fmt_msg = Diaspora::Mentionable.format(CGI.escapeHTML(@test_txt), @people)
 
-        @people.each do |person|
-          expect(fmt_msg).to include person_link(person, class: "mention hovercardable")
+        [@people, @names].transpose.each do |person, name|
+          expect(fmt_msg).to include person_link(person, class: "mention hovercardable", display_name: name)
         end
       end
 
       it "escapes the link title (name)" do
-        p = @people[0].profile
-        p.first_name = "</a><script>alert('h')</script>"
-        p.save!
+        name = "</a><script>alert('h')</script>"
+        test_txt = "two @{#{name}; #{@people[0].diaspora_handle}} and finally"
 
-        fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people)
+        fmt_msg = Diaspora::Mentionable.format(test_txt, @people)
 
-        expect(fmt_msg).not_to include(p.first_name)
+        expect(fmt_msg).not_to include(name)
         expect(fmt_msg).to include("&gt;", "&lt;", "&#39;") # ">", "<", "'"
       end
     end
 
     context "plain text output" do
       it "removes mention markup and displays unformatted name" do
-        fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, @people, plain_text: true)
+        fmt_msg = Diaspora::Mentionable.format(@test_txt, @people, plain_text: true)
 
-        @people.each do |person|
-          expect(fmt_msg).to include person.first_name
+        @names.each do |name|
+          expect(fmt_msg).to include CGI.escapeHTML(name)
         end
         expect(fmt_msg).not_to include "<a", "</a>", "hovercardable"
       end
     end
 
-    it "leaves the name of people that cannot be found" do
-      fmt_msg = Diaspora::Mentionable.format(@status_msg.raw_message, [])
+    it "leaves the names of people that cannot be found" do
+      fmt_msg = Diaspora::Mentionable.format(@test_txt, [])
       expect(fmt_msg).to eql @test_txt_plain
     end
   end
@@ -72,7 +67,7 @@ STR
   describe "#people_from_string" do
     it "extracts the mentioned people from the text" do
       ppl = Diaspora::Mentionable.people_from_string(@test_txt)
-      expect(ppl).to include(*@people)
+      expect(ppl).to match_array(@people)
     end
 
     describe "returns an empty array if nobody was found" do
@@ -82,7 +77,26 @@ STR
       end
 
       it "gets a post with invalid handles" do
-        ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx} @{b; yyy@yyyy.yyy} @{...} @{bla; blubb}")
+        ppl = Diaspora::Mentionable.people_from_string("@{...} @{bla; blubb}")
+        expect(ppl).to be_empty
+      end
+
+      it "filters duplicate handles" do
+        ppl = Diaspora::Mentionable.people_from_string("@{a; #{alice.diaspora_handle}} @{a; #{alice.diaspora_handle}}")
+        expect(ppl).to eq([alice.person])
+      end
+
+      it "fetches unknown handles" do
+        person = FactoryGirl.build(:person)
+        expect(Person).to receive(:find_or_fetch_by_identifier).with("xxx@xxx.xx").and_return(person)
+        ppl = Diaspora::Mentionable.people_from_string("@{a; xxx@xxx.xx}")
+        expect(ppl).to eq([person])
+      end
+
+      it "handles DiscoveryError" do
+        expect(Person).to receive(:find_or_fetch_by_identifier).with("yyy@yyy.yy")
+          .and_raise(DiasporaFederation::Discovery::DiscoveryError)
+        ppl = Diaspora::Mentionable.people_from_string("@{b; yyy@yyy.yy}")
         expect(ppl).to be_empty
       end
     end
@@ -111,7 +125,7 @@ STR
       aspect_id = @user_a.aspects.where(name: "generic").first.id
       txt = Diaspora::Mentionable.filter_for_aspects(@test_txt_c, @user_a, aspect_id)
 
-      expect(txt).to include(@user_c.person.name)
+      expect(txt).to include("user C")
       expect(txt).to include(local_or_remote_person_path(@user_c.person))
       expect(txt).not_to include("href")
       expect(txt).not_to include(@mention_c)

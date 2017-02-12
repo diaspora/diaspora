@@ -1,13 +1,14 @@
-.media.stream_element{:id => person.id}
+.media.stream-element{id: person.id}
   .pull-right
-    = render :partial => 'people/relationship_action',
-             :locals => { :person => person, :contact => contact,
+    = render partial: 'people/relationship_action',
+             locals: { person: person,
                           :current_user => current_user }
   .media-object.pull-left
-    = person_image_link(person)
+    = person_image_link(person, size: :thumb_small)
   .media-body
     = person_link(person)
     .info.diaspora_handle
       = person.diaspora_handle
     .info.tags
       = Diaspora::Taggable.format_tags(person.profile.tag_string)
+  .clearfix

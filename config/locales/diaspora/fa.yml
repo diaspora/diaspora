@@ -6,10 +6,7 @@
 
 fa:
   _applications: "برنامه‌های کاربردی"
-  _comments: "دیدگاه‌ها"
   _contacts: "مخاطبین"
-  _home: "خانه"
-  _photos: "عکس‌ها"
   _services: "سرویس‌ها"
   account: "حساب کاربری"
   activerecord:
@@ -40,13 +37,7 @@ fa:
             username:
               invalid: "نامعتبر است. فقط می‌توانید از حروف، اعداد، و خط تیره استفاده کنید."
               taken: "درحال حاظر گرفته‌شده."
-  ago: "‎%{time}‎ پیش"
   all_aspects: "تمام منظرها"
-  application:
-    helper:
-      unknown_person: "شخص ناشناس"
-      video_title:
-        unknown: "عنوان ناشناس ویدئو"
   are_you_sure: "مطمئن هستید؟"
   are_you_sure_delete_account: "مطمئن هستید که می‌خواهید حساب کاربریتان را ببندید؟ این کار غیرقابل بازگشت است!"
   aspects:
@@ -55,16 +46,8 @@ fa:
       success: "مخاطب با موفقیت به منظر اضافه شد."
     aspect_listings:
       add_an_aspect: "+اضافه کردن منظر"
-      deselect_all: "لغو انتخاب همه"
-      edit_aspect: "ویرایش ‎%{name}‎"
-      select_all: "انتخاب همه"
     aspect_stream:
       stay_updated: "بروز بمانید"
-    contacts_not_visible: "مخاطبینی که در این منظر قرار دارند قادرند یکدیگر را ببینند."
-    contacts_visible: "مخاطبینی که در این منظر قرار دارند قادرند یکدیگر را ببینند."
-    create:
-      failure: "خطا در ساخت منظر"
-      success: "منظر جدید شما، ‎%{name}‎ ساخته شد"
     destroy:
       failure: "‎%{name}‎ خالی نیست و نمی‌توانید حذفش کنید."
       success: "‎%{name}‎ با موفقیت حذف شد."
@@ -72,21 +55,13 @@ fa:
       aspect_list_is_not_visible: "لیست منظر برای افراد دیگر در این منظر مخفی است"
       aspect_list_is_visible: "لیست منظر برای افراد دیگر در این منظر قابل مشاهده است"
       confirm_remove_aspect: "مطمئن هستید می‌خواهید این منظر را حذف کنید؟"
-      make_aspect_list_visible: "مخاطبینی که در این منظر هستند برای یکدیگر قابل مشاهده باشند؟"
-      remove_aspect: "حذف این منظر"
       rename: "تغییر نام"
       update: "بروزرسانی"
       updating: "در حال بروزرسانی"
     index:
-      diaspora_id:
-        content_1: "آدرس شناسایی دیاسپورای شما:"
-        content_2: "در اختیار هرکسی که قادر به یافتن شما در دیاسپورا هست قرار دهید."
-        heading: "آدرس شناسایی دیاسپورا"
       donate: "کمک مالی"
-      handle_explanation: "این آدرس شناسایی دیاسپورای شماست. مثل تمامی آدرس‌های رایانامه، می‌توانید آن را برای رسیدن به خودتان به مردم بدهید."
       help:
         do_you: "آیا شما:"
-        email_feedback: "اگر ترجیح می‌دهید، ‎%{link}‎ پاسخ شما"
         feature_suggestion: "یک پیشنهاد ‎%{link}‎ دارید؟"
         find_a_bug: "یک ‎%{link}‎ یافتید؟"
         have_a_question: "یک %{link} دارید؟"
@@ -100,25 +75,15 @@ fa:
         follow: "‎%{link}‎ دبنلا کنید و به کاربران جدید دیاسپورا* خوش آمد بگوئید!"
         learn_more: "بیشتر بدانید"
         title: "خوش آمد گویی به کاربران جدید"
-      no_contacts: "بدون مخاطب"
-      no_tags: "+یافتن یک تگ برای دنبال کردن"
-      people_sharing_with_you: "افراد با شما به اشتراک گذاشتن"
-      post_a_message: "ارسال پیام >>"
       services:
         content: "شما می‌توانید سرویس‌های زیر را به دیاسپورا متصل کنید:"
         heading: "اتصال سرویس‌ها"
-      unfollow_tag: "لغو دنبال کردن #‎%{tag}‎"
       welcome_to_diaspora: "%{name}، به دیاسپورا خوش آمدی!"
-    new:
-      create: "ساختن"
-      name: "نام (فقط برای شما قابل مشاهده است)"
     no_contacts_message:
       community_spotlight: "کانون توجه جامعه"
       or_spotlight: "یا می توانید با ‎%{link}‎ به اشترام بگذارید"
       try_adding_some_more_contacts: "شما می‌توانید مخاطبین بیشتری را جستجو یا دعوت کنید."
       you_should_add_some_more_contacts: "شما باید مخاطبین بیشتری اضافه کنید!"
-    no_posts_message:
-      start_talking: "هنوز کسی چیطی نگفته!"
     seed:
       acquaintances: "آشنایان"
       family: "خانواده"
@@ -127,34 +92,22 @@ fa:
     update:
       failure: "منظر ‎%{name}‎، نامش برای ذخیره سازی طولانی هست."
       success: "منظر ‎%{name}‎، با موفقیت ویرایش شد."
-  back: "عقب"
   cancel: "لفو"
   delete: "حذف"
   email: "رایانامه"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "خطاها را درست کرده و دوباره تلاش کنید."
-      invalid_fields: "فیلدهای نامعتبر"
   fill_me_out: "پر کنید"
   find_people: "یافتن افراد یا #تگ‌ها"
-  hide: "مخفی"
   limited: "محدود"
   more: "بیشتر"
-  next: "بعدی"
   no_results: "نتیجه‌ای یافت نشد"
   nsfw: "NSFW"
   ok: "قبول"
-  or: "یا"
-  password: "رمز عبور"
-  password_confirmation: "تایید رمز عبور"
-  previous: "قبلی"
   privacy: "حریم خصوصی"
-  privacy_policy: "سیاست حفظ حریم خصوصی"
   profile: "نمایه"
   public: "عمومی"
   search: "جستجو"
   settings: "تنظیمات"
-  terms_and_conditions: "شرایط و ظوابط"
-  undo: "برگشت؟"
   username: "نام‌کاربری"
-  welcome: "خوش آمدید!"

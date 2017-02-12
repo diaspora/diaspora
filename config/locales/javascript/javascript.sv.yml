@@ -6,6 +6,56 @@
 
 sv:
   javascripts:
+    admin:
+      pods:
+        actions: "Handlingar"
+        added: "Tillagd"
+        check: "utför anslutningstest"
+        errors:
+          one: "Anslutningstestet misslyckades för en pod."
+          other: "Anslutningstestet misslyckades för <%= count %> poddar."
+        follow_link: "öppna länk i webbläsare"
+        last_check: "senaste besiktningen:"
+        more_info: "visa mer information"
+        ms:
+          one: "<%= count %> ms"
+          other: "<%= count %> ms"
+        no_info: "Ingen ytterligare information finns tillgänglig nu."
+        not_available: "ej tillgänglig"
+        offline_since: "nedkopplad sedan:"
+        pod: "Pod"
+        recheck:
+          failure: "Någon besiktning utfördes icke."
+          success: "Podden besiktigades just igen."
+        response_time: "Svarstid:"
+        server_software: "Servermjukvara:"
+        ssl: "SSL"
+        ssl_disabled: "SSL är inte i stånd"
+        ssl_enabled: "SSL är i stånd"
+        states:
+          dns_failed: "DNS-namnupplösningen misslyckades."
+          http_failed: "Förbindelseupprättelse med HTTP misslyckades."
+          net_failed: "Förbindelseupprättelsen misslyckades."
+          no_errors: "I sin ordning"
+          ssl_failed: "SSL-förbindelseupprättelse misslyckades"
+          unchecked: "Okontrollerad"
+          unknown_error: "Ett oförutsett fel uppstod under besiktningen."
+          version_failed: "Oförmögen att hämta mjukvaruversion."
+        status: "Tillstånd"
+        unchecked:
+          one: "En pod kvar att besiktiga."
+          other: "<%= count %> poddar kvar att besiktiga."
+        unknown: "okänd"
+        version_failed:
+          one: "Det finns en pod utan version (gammal pod, ingen NodeInfo)."
+          other: "Det finns <%= count %> poddar utan version (gamla poddar, ingen NodeInfo)."
+          zero: "Det finns inga poddar utan version."
+    admins:
+      dashboard:
+        compare_versions: "Senaste utgåvan av Diaspora* är <%= latestVersion %> och din pod är av <%= podVersion %>."
+        error: "Oförmögen att bestämma vilken version av Diaspora* som är den senaste."
+        outdated: "Din pod år föråldrad."
+        up_to_date: "Din pod är av senaste utgåva."
     and: "och"
     aspect_dropdown:
       add_to_aspect: "Lägg till kontakt"
@@ -18,12 +68,8 @@ sv:
       started_sharing_with: "Du har börjat dela med <%= name %>!"
       stopped_sharing_with: "Du har slutat dela med <%= name %>."
       toggle:
-        few: "I <%= count %> aspekter"
-        many: "I <%= count %> aspekter"
         one: "I <%= count %> aspekt"
         other: "I <%= count %> aspekter"
-        two: "I <%= count %> aspekter"
-        zero: "Välj aspekter"
       updating: "uppdaterar..."
     aspect_navigation:
       add_an_aspect: "+ Lägg till en aspekt"
@@ -45,12 +91,14 @@ sv:
     comma: ","
     comments:
       hide: "Dölj kommentarer"
-      no_comments: "Inga kommentarer finns ännu."
+      no_comments: "Inga kommentarer har gjorts."
       show: "Visa alla kommentarer"
     confirm_dialog: "Är du säker?"
     confirm_unload: "Bekräfta att du vill gå från sidan. Du har osparad information här."
     contacts:
       add_contact: "Lägg till kontakt"
+      aspect_chat_is_enabled: "Kontakter i den här aspekten får chatta med dig"
+      aspect_chat_is_not_enabled: "Kontakter i den här aspekten får inte chatta med dig"
       aspect_list_is_not_visible: "Aspektens kontakter kan inte se vilka andra som tillhör aspekten."
       aspect_list_is_visible: "Aspektens kontakter kan se varandra."
       error_add: "Kunde inte lägga till <%= name %> till aspekten. :-("
@@ -58,16 +106,17 @@ sv:
       remove_contact: "Ta bort kontakt"
       search_no_results: "Inga kontakter hittade"
     conversation:
+      create:
+        no_recipient: "Hörru! Du måste lägga till en mottagare först."
       new:
         no_contacts: "Du behöver några kontakter innan du kan påbörja konversationer."
-      participants: "Deltagare"
     create: "Skapa"
     delete: "Radera"
     edit: "Ändra"
-    failed_to_like: "Misslyckades med att gilla. Ignorerar författaren dig?"
+    errors:
+      connection: "Kunde inte ansluta till servern."
     failed_to_post_message: "Misslyckades att posta meddelande!"
     failed_to_remove: "Misslyckades med att borttaga inlägget!"
-    failed_to_reshare: "Kunde inte dela vidare!"
     getting_started:
       alright_ill_wait: "Okej, jag väntar."
       hey: "Hej, <%= name %>!"
@@ -88,15 +137,14 @@ sv:
       recent_notifications: "Tidigare notiser"
       search: "Sök"
       settings: "Inställningar"
+      toggle_mobile: "Växla mobiltelefonanpassning"
+      toggle_navigation: "Växla navigation"
       view_all: "Visa alla"
     hide_post: "Vill du dölja inlägget?"
     hide_post_failed: "Misslyckades med att dölja inlägget"
     ignore: "Ignorera"
     ignore_failed: "Lyckades inte ignorera denna användare"
     ignore_user: "Vill du ignorera den här användaren?"
-    infinite_scroll:
-      no_more: "Inga fler inlägg."
-      no_more_contacts: "Inga fler kontakter."
     my_activity: "Min aktivitet"
     my_aspects: "Mina aspekter"
     my_stream: "Ström"
@@ -104,6 +152,10 @@ sv:
     notifications:
       mark_read: "Lästmärk"
       mark_unread: "Olästmarkera"
+      new_notifications:
+        one: "Du har en oläst notifikation"
+        other: "Du har <%= count %> olästa notifikationer"
+        zero: "Du har inga olästa notifikationer"
     people:
       edit_my_profile: "Ändra min profil"
       helper:
@@ -121,12 +173,16 @@ sv:
       looking_good: "OMG, du ser grym ut!"
       size_error: "{file} är för stor, den största tillåtna filstorleken är {sizeLimit}."
     poll:
+      answer_count:
+        one: "En röst"
+        other: "<%=count%> röster"
+        zero: "Inga röster"
       close_result: "Göm resultat"
       count:
         one: "<%=count%> röst lagd"
         other: "<%=count%> röster lagda"
       go_to_original_post: "Du kan rösta hos <%= original_post_link %>"
-      original_post: "det ursprungliga inlägget"
+      original_post: "ursprungligt inlägg"
       result: "Resultat"
       show_result: "Visa resultat"
       vote: "Rösta"
@@ -137,15 +193,41 @@ sv:
       contacts: "Kontakter"
       edit: "Ändra"
       gender: "Kön"
-      ignoring: "Du ignorerar alla inlägg från <%= name %>."
       location: "Plats"
       photos: "Foton"
       posts: "Inlägg"
       you_have_no_tags: "Du har inga taggar!"
     publisher:
       add_option: "Lägg till alternativ"
-      at_least_one_aspect: "Du måste publicera till minst en aspekt."
       limited: "Begränsat: ditt inlägg visas endast för personer som du delar med"
+      markdown_editor:
+        preview: "Förhandsgranska"
+        texts:
+          code: "kod här"
+          heading: "rubriktext"
+          insert_image_description_text: "fyll i bildbeskrivning här"
+          insert_image_help_text: "Fyll i bildlänk här"
+          insert_image_title: "fyll i bildrubrik här"
+          insert_link_description_text: "fyll i länkbeskrivning här"
+          insert_link_help_text: "Fyll i länk här"
+          italic: "kursiv text"
+          list: "lista text här"
+          quote: "citerad text här"
+          strong: "fet text"
+        tooltips:
+          bold: "Fet"
+          cancel: "Avbryt meddelande"
+          code: "Infoga kod"
+          heading: "Rubrik"
+          insert_image: "Infoga bild"
+          insert_link: "Infoga länk"
+          insert_ordered_list: "Lägg till sorterad lista"
+          insert_unordered_list: "Lägg till osorterad lista"
+          italic: "Kursiv"
+          preview: "Förhandsgranska meddelande"
+          quote: "Infoga citat"
+          write: "Ändra meddelande"
+        write: "Skriv"
       near_from: "Sänt från: <%= location %>"
       option: "Alternativ"
       public: "Publikt: ditt inlägg visas för alla och i söktjänster"
@@ -159,13 +241,15 @@ sv:
         created: "Anmälan skapad"
         exists: "Anmälan finns redan"
     reshares:
-      duplicate: "Du gillar detta va? Du har nämligen redan delat vidare detta inlägg!"
       post: "Vill du dela vidare inlägget av <%= name %>?"
       successful: "Lyckades med att dela vidare inlägget."
-    search_for: "Sök efter <%= name %>"
     show_more: "Visa mer"
     stream:
       comment: "Kommentera"
+      comments:
+        one: "En kommentar"
+        other: "<%= count %> kommentarer"
+        zero: "Inga kommentarer"
       disable_post_notifications: "Inaktivera notifikationer för detta inlägg"
       enable_post_notifications: "Tillåt notifikationer för detta inlägg"
       follow: "Följ"
@@ -185,7 +269,9 @@ sv:
         one: "Visa en kommentar till"
         other: "Visa <%= count %> kommentarer till"
         zero: "Visa inga fler kommentarer"
+      no_posts_yet: "Det finns inga inlägg än."
       original_post_deleted: "Det ursprungliga inlägget har blivit borttaget av författaren."
+      permalink: "Permanent länk"
       public: "Publik"
       reshare: "Dela vidare"
       reshares:
@@ -208,13 +294,22 @@ sv:
       wasnt_that_interesting: "Ok, jag antar att #<%= tagName %> inte var så intressant..."
     timeago:
       day: "en dag"
-      days: "%d dagar"
+      days:
+        one: "1 dag"
+        other: "%d dagar"
       hour: "ungefär en timme"
-      hours: "ungefär %d timmar"
+      hours:
+        one: "ungefär 1 timme"
+        other: "ungefär %d timmar"
+      inPast: "när som helst nu"
       minute: "ungefär en minut"
-      minutes: "%d minuter"
+      minutes:
+        one: "1 minut"
+        other: "%d minuter"
       month: "ungefär en månad"
-      months: "%d månader"
+      months:
+        one: "1 månad"
+        other: "%d månader"
       prefixAgo: "för"
       prefixFromNow: "om"
       seconds: "mindre än en minut"
@@ -222,17 +317,9 @@ sv:
       suffixFromNow: "från nu"
       wordSeparator: " "
       year: "ungefär ett år"
-      years: "%d år"
+      years:
+        one: "1 år"
+        other: "%d år"
     unblock_failed: "Misslyckades med att häva blockeringen"
-    videos:
-      unknown: "Okänd videotyp"
-      watch: "Se den här videon på <%= provider %>"
     viewer:
-      comment: "Kommentera"
-      follow_post: "Följ inlägg"
-      home: "Hem"
-      like: "Gilla"
-      reshare: "Dela vidare"
       reshared: "Återdelad"
-      stop_following_post: "Sluta att följa inlägg"
-      unlike: "Sluta gilla"

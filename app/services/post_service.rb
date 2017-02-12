@@ -1,65 +1,66 @@
 class PostService
-  attr_reader :post
-
-  def initialize(params)
-    @id = params[:id]
-    @user = params[:user]
-    @oembed = params[:oembed] || {}
-    assign_post
+  def initialize(user=nil)
+    @user = user
   end
 
-  def assign_post
+  def find(id)
     if user
-      @post = Post.find_non_public_by_guid_or_id_with_user(id, user)
+      user.find_visible_shareable_by_id(Post, id)
     else
-      @post = Post.find_public(id)
+      Post.find_by_id_and_public(id, true)
     end
   end
 
-  def present_json
-    PostPresenter.new(post, user)
+  def find!(id_or_guid)
+    if user
+      find_non_public_by_guid_or_id_with_user!(id_or_guid)
+    else
+      find_public!(id_or_guid)
+    end
   end
 
-  def present_interactions_json
-    PostInteractionPresenter.new(post, user)
+  def mark_user_notifications(post_id)
+    return unless user
+    mark_comment_reshare_like_notifications_read(post_id)
+    mark_mention_notifications_read(post_id)
   end
 
-  def present_oembed
-    OEmbedPresenter.new(post, oembed)
-  end
-
-  def mark_user_notifications
-    mark_corresponding_notifications_read if user
-  end
-
-  def retract_post
-    raise Diaspora::NotMine unless user_owns_post?
-    user.retract(@post)
+  def destroy(post_id)
+    post = find!(post_id)
+    raise Diaspora::NotMine unless post.author == user.person
+    user.retract(post)
   end
 
   private
 
-  attr_reader :user, :id, :oembed
+  attr_reader :user
 
-  def user_owns_post?
-    post.author == user.person
-  end
-
-  def mark_corresponding_notifications_read
-    mark_comment_reshare_like_notifications_read
-    mark_mention_notifications_read
-  end
-
-  def mark_comment_reshare_like_notifications_read
-    notification = Notification.where(recipient_id: user.id, target_type: "Post", target_id: post.id, unread: true)
-    notification.each do |notification|
-      notification.set_read_state(true)
+  def find_public!(id_or_guid)
+    Post.where(post_key(id_or_guid) => id_or_guid).first.tap do |post|
+      raise ActiveRecord::RecordNotFound, "could not find a post with id #{id_or_guid}" unless post
+      raise Diaspora::NonPublic unless post.public?
     end
   end
 
-  def mark_mention_notifications_read
-    mention = post.mentions.where(person_id: user.person_id).first
-    Notification.where(recipient_id: user.id, target_type: "Mention", target_id: mention.id, unread: true)
-      .first.try(:set_read_state, true) if mention
+  def find_non_public_by_guid_or_id_with_user!(id_or_guid)
+    user.find_visible_shareable_by_id(Post, id_or_guid, key: post_key(id_or_guid)).tap do |post|
+      raise ActiveRecord::RecordNotFound, "could not find a post with id #{id_or_guid} for user #{user.id}" unless post
+    end
+  end
+
+  # We can assume a guid is at least 16 characters long as we have guids set to hex(8) since we started using them.
+  def post_key(id_or_guid)
+    id_or_guid.to_s.length < 16 ? :id : :guid
+  end
+
+  def mark_comment_reshare_like_notifications_read(post_id)
+    Notification.where(recipient_id: user.id, target_type: "Post", target_id: post_id, unread: true)
+      .update_all(unread: false)
+  end
+
+  def mark_mention_notifications_read(post_id)
+    mention_id = Mention.where(post_id: post_id, person_id: user.person_id).pluck(:id)
+    Notification.where(recipient_id: user.id, target_type: "Mention", target_id: mention_id, unread: true)
+      .update_all(unread: false) if mention_id
   end
 end

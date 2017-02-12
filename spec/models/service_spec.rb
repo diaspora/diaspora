@@ -1,7 +1,4 @@
-require 'spec_helper'
-
 describe Service, :type => :model do
-
   before do
     @post = alice.post(:status_message, :text => "hello", :to => alice.aspects.first.id)
     @service = Services::Facebook.new(:access_token => "yeah", :uid => 1)

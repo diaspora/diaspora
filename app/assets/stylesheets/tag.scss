@@ -22,27 +22,30 @@ h1.tag {
     &:hover { border-bottom: 1px solid $border-dark-grey; }
   }
 }
+.page-tags {
+  #tags_show {
+    .sidebar {
+      h3 {
+        font-size: 13px;
+        line-height: 1.1;
+      }
 
-#tags_show {
-  .span3 {
-    h4 { margin: 25px 0 15px; }
-    .side_stream #people_stream {
-      .name { display: block; }
-      .name, .diaspora_handle, .tags {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+      .side_stream #people_stream {
+        .name { display: block; }
+        .name, .diaspora_handle {
+          word-break: break-all;
+        }
       }
     }
-  }
-  .span7 {
-    .tag-following-action {
-      max-width: 100%;
-      input[type="submit"] {
-        overflow: hidden;
-        text-overflow: ellipsis;
+    .col-md-9 {
+      .tag-following-action {
         max-width: 100%;
-      }    
+        input[type="submit"] {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
+        }
+      }
     }
   }
 }

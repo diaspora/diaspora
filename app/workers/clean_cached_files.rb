@@ -1,13 +1,9 @@
 module Workers
   class CleanCachedFiles < Base
-    include Sidetiq::Schedulable
-
-    sidekiq_options queue: :maintenance
-
-    recurrence { daily }
+    sidekiq_options queue: :low
 
     def perform
       CarrierWave.clean_cached_files!
     end
-  end 
+  end
 end

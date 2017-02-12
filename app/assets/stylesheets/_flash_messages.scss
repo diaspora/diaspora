@@ -1,53 +1,30 @@
-
-@import 'new_styles/animations';
-
-#flash_notice,
-#flash_alert,
-#flash_error {
-  position : fixed;
+.flash-body {
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: -100px;
   z-index: 999;
-  top : -100px;
-  left : 0;
-  width : 100%;
+  width: 100%;
+  pointer-events: none;
+  &.expose {  @include animation(expose, 10s) }
 
-  text-align : center;
-  color: $text-dark-grey;
-
-  &.expose {
-    @include animation(expose, 10s)
-  }
-
-  .message {
+  .flash-message {
+    border-radius: 0;
     box-shadow: 0 1px 4px rgba(0,0,0,0.8);
-
-    display : inline-block;
-    padding: 10px 12px;
-    min-width: 400px;
-    max-width: 800px;
-
-    color : #fff;
-    background-color : rgba(0,0,0,0.8);
-    border : 1px solid rgba(255,255,255,0.7);
-    border-radius: 6px;
-
+    display: inline-block;
     font-weight: bold;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    max-width: 800px;
+    min-width: 500px;
+    padding: 10px 12px;
+    &.alert-danger { border: 1px solid darken($state-danger-bg, 10%); }
+    &.alert-success { border: 1px solid darken($state-success-bg, 10%); }
+    &.alert-warning { border: 1px solid darken($state-warning-bg, 10%); }
   }
-}
 
-#flash_notice {
-  .message {
-    color: $text-dark-grey;
-    background-color: #F4F899;
-    border-color: darken(#F4F899, 40%);
-  }
-}
-
-#flash_error,
-#flash_alert {
-  .message {
-    background-color: #CA410B;
-    border-color: darken(#CA410B, 10%);
+  @media (max-width: $grid-float-breakpoint-max) {
+    .flash-message {
+      max-width: 80%;
+      min-width: 80%;
+    }
   }
 }

@@ -1,2 +1,2 @@
-Haml::Template.options[:format] = :html5
-Haml::Template.options[:escape_html] = true
+Hamlit::Engine.options[:format] = :html
+Hamlit::Engine.options[:escape_html] = true

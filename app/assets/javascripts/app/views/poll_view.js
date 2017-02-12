@@ -89,8 +89,8 @@ app.views.Poll = app.views.Base.extend({
   },
 
   toggleElements: function() {
-    this.$('.percentage').toggle();
-    this.$('.progress').toggle();
+    this.$(".poll-result").toggle();
+    this.$(".progress").toggle();
   },
 
   clickSubmit: function(evt) {
@@ -117,4 +117,3 @@ app.views.Poll = app.views.Base.extend({
 
 });
 // @license-end
-

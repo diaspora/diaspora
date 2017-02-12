@@ -1,107 +1,186 @@
-describe('app.views.NotificationDropdown', function() {
-  beforeEach(function (){
-    spec.loadFixture('notifications');
+describe("app.views.NotificationDropdown", function() {
+  beforeEach(function() {
+    spec.loadFixture("notifications");
+    gon.appConfig = {settings: {podname: "MyPod"}};
     this.header = new app.views.Header();
     $("header").prepend(this.header.el);
+    loginAs({guid: "foo"});
     this.header.render();
-    this.view = new app.views.NotificationDropdown({el: '#notification_badge'});
+    this.collection = new app.collections.Notifications();
+    this.view = new app.views.NotificationDropdown({el: "#notification-dropdown", collection: this.collection});
   });
 
-  context('showDropdown', function(){
-    it('Calls resetParam()', function(){
-      spyOn(this.view, 'resetParams');
+  describe("bindCollectionEvents", function() {
+    beforeEach(function() {
+      this.view.collection.off("pushFront");
+      this.view.collection.off("pushBack");
+      this.view.collection.off("finishedLoading");
+      this.view.collection.off("change:note_html");
+      spyOn(this.view, "onPushFront");
+      spyOn(this.view, "onPushBack");
+      spyOn(this.view, "finishLoading");
+      spyOn(this.view, "onNotificationChange");
+    });
+
+    it("binds collection events", function() {
+      this.view.bindCollectionEvents();
+
+      this.collection.trigger("pushFront");
+      this.collection.trigger("pushBack");
+      this.collection.trigger("finishedLoading");
+      this.collection.trigger("change:note_html");
+
+      expect(this.view.onPushFront).toHaveBeenCalled();
+      expect(this.view.onPushBack).toHaveBeenCalled();
+      expect(this.view.finishLoading).toHaveBeenCalled();
+      expect(this.view.onNotificationChange).toHaveBeenCalled();
+    });
+  });
+
+  describe("showDropdown", function() {
+    it("Calls updateScrollbar", function() {
+      spyOn(this.view, "updateScrollbar");
       this.view.showDropdown();
-      expect(this.view.resetParams).toHaveBeenCalled();
+      expect(this.view.updateScrollbar).toHaveBeenCalled();
     });
-    it('Changes CSS', function(){
+    it("Changes CSS", function() {
+      expect($("#notification-dropdown")).not.toHaveClass("dropdown-open");
       this.view.showDropdown();
-      expect($('#notification_dropdown').css('display')).toBe('block');
+      expect($("#notification-dropdown")).toHaveClass("dropdown-open");
     });
-    it('Calls getNotifications()', function(){
-      spyOn(this.view, 'getNotifications');
+    it("Calls collection#fetch", function() {
+      spyOn(this.collection, "fetch");
       this.view.showDropdown();
-      expect(this.view.getNotifications).toHaveBeenCalled();
+      expect(this.collection.fetch).toHaveBeenCalled();
     });
   });
 
-  context('dropdownScroll', function(){
-    it('Calls getNotifications if is at the bottom and has more notifications to load', function(){
-      this.view.isBottom = function(){ return true; };
-      this.view.hasMoreNotifs = true;
-      spyOn(this.view, 'getNotifications');
+  describe("dropdownScroll", function() {
+    it("Calls collection#fetchMore if it is at the bottom", function() {
+      this.view.isBottom = function() { return true; };
+      spyOn(this.collection, "fetchMore");
       this.view.dropdownScroll();
-      expect(this.view.getNotifications).toHaveBeenCalled();
+      expect(this.collection.fetchMore).toHaveBeenCalled();
     });
 
-    it("Doesn't call getNotifications if is not at the bottom", function(){
-      this.view.isBottom = function(){ return false; };
-      this.view.hasMoreNotifs = true;
-      spyOn(this.view, 'getNotifications');
+    it("Doesn't call collection#fetchMore if it is not at the bottom", function() {
+      this.view.isBottom = function() { return false; };
+      spyOn(this.collection, "fetchMore");
       this.view.dropdownScroll();
-      expect(this.view.getNotifications).not.toHaveBeenCalled();
-    });
-
-    it("Doesn't call getNotifications if is not at the bottom", function(){
-      this.view.isBottom = function(){ return true; };
-      this.view.hasMoreNotifs = false;
-      spyOn(this.view, 'getNotifications');
-      this.view.dropdownScroll();
-      expect(this.view.getNotifications).not.toHaveBeenCalled();
+      expect(this.collection.fetchMore).not.toHaveBeenCalled();
     });
   });
 
-  context('getNotifications', function(){
-    it('Has more notifications', function(){
-      var response = ['', '', '', '', ''];
-      spyOn($, 'getJSON').and.callFake(function(url, callback){ callback(response); });
-      this.view.getNotifications();
-      expect(this.view.hasMoreNotifs).toBe(true);
+  describe("updateScrollbar", function() {
+    it("Initializes perfectScrollbar", function() {
+      this.view.perfectScrollbarInitialized = false;
+      spyOn($.fn, "perfectScrollbar");
+      this.view.updateScrollbar();
+      expect($.fn.perfectScrollbar).toHaveBeenCalledWith();
+      expect($.fn.perfectScrollbar.calls.mostRecent().object).toEqual(this.view.dropdownNotifications);
+      expect(this.view.perfectScrollbarInitialized).toBeTruthy();
     });
-    it('Has no more notifications', function(){
-      spyOn($, 'getJSON').and.callFake(function(url, callback){ callback([]); });
-      this.view.getNotifications();
-      expect(this.view.hasMoreNotifs).toBe(false);
-    });
-    it('Correctly sets the next page', function(){
-      spyOn($, 'getJSON').and.callFake(function(url, callback){ callback([]); });
-      expect(typeof this.view.nextPage).toBe('undefined');
-      this.view.getNotifications();
-      expect(this.view.nextPage).toBe(3);
-    });
-    it('Increase the page count', function(){
-      var response = ['', '', '', '', ''];
-      spyOn($, 'getJSON').and.callFake(function(url, callback){ callback(response); });
-      this.view.getNotifications();
-      expect(this.view.nextPage).toBe(3);
-      this.view.getNotifications();
-      expect(this.view.nextPage).toBe(4);
-    });
-    it('Calls renderNotifications()', function(){
-      spyOn($, 'getJSON').and.callFake(function(url, callback){ callback([]); });
-      spyOn(this.view, 'renderNotifications');
-      this.view.getNotifications();
-      expect(this.view.renderNotifications).toHaveBeenCalled();
-    });
-    it('Adds the notifications to this.notifications', function(){
-      var response = ['', '', '', '', ''];
-      this.view.notifications.length = 0;
-      spyOn($, 'getJSON').and.callFake(function(url, callback){ callback(response); });
-      this.view.getNotifications();
-      expect(this.view.notifications).toEqual(response);
+
+    it("Updates perfectScrollbar", function() {
+      this.view.perfectScrollbarInitialized = true;
+      this.view.dropdownNotifications.perfectScrollbar();
+      spyOn($.fn, "perfectScrollbar");
+      this.view.updateScrollbar();
+      expect($.fn.perfectScrollbar).toHaveBeenCalledWith("update");
+      expect($.fn.perfectScrollbar.calls.mostRecent().object).toEqual(this.view.dropdownNotifications);
+      expect(this.view.perfectScrollbarInitialized).toBeTruthy();
     });
   });
 
-  context('renderNotifications', function(){
-    it('Removes the previous notifications', function(){
-      this.view.dropdownNotifications.append('<div class="media stream_element">Notification</div>');
-      expect(this.view.dropdownNotifications.find('.media.stream_element').length).toBe(1);
-      this.view.renderNotifications();
-      expect(this.view.dropdownNotifications.find('.media.stream_element').length).toBe(0);
+  describe("destroyScrollbar", function() {
+    it("destroys perfectScrollbar", function() {
+      this.view.perfectScrollbarInitialized = true;
+      this.view.dropdownNotifications.perfectScrollbar();
+      spyOn($.fn, "perfectScrollbar");
+      this.view.destroyScrollbar();
+      expect($.fn.perfectScrollbar).toHaveBeenCalledWith("destroy");
+      expect($.fn.perfectScrollbar.calls.mostRecent().object).toEqual(this.view.dropdownNotifications);
+      expect(this.view.perfectScrollbarInitialized).toBeFalsy();
     });
-    it('Calls hideAjaxLoader()', function(){
-      spyOn(this.view, 'hideAjaxLoader');
-      this.view.renderNotifications();
-      expect(this.view.hideAjaxLoader).toHaveBeenCalled();
+
+    it("doesn't destroy perfectScrollbar if it isn't initialized", function() {
+      this.view.perfectScrollbarInitialized = false;
+      spyOn($.fn, "perfectScrollbar");
+      this.view.destroyScrollbar();
+      expect($.fn.perfectScrollbar).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("notification changes", function() {
+    beforeEach(function() {
+      this.collection.fetch();
+      jasmine.Ajax.requests.mostRecent().respondWith({
+        status: 200,
+        responseText: spec.readFixture("notifications_collection")
+      });
+      this.notification = factory.notification({
+        "id": 1337,
+        "note_html": "<div class='stream-element' data-guid='1337'>This is a notification</div>"
+      });
+      expect(this.collection.length).toBeGreaterThan(0);
+      expect(this.view.$(".notifications .stream-element").length).toBe(this.collection.length);
+    });
+
+    describe("onPushBack", function() {
+      it("adds the notification at the end of the rendered list", function() {
+        this.view.onPushBack(this.notification);
+        expect(this.view.$(".notifications .stream-element").length).toBe(this.collection.length + 1);
+        expect(this.view.$(".notifications .stream-element").last().text()).toBe("This is a notification");
+      });
+
+      it("calls afterNotificationChanges", function() {
+        spyOn(this.view, "afterNotificationChanges");
+        this.view.onPushBack(this.notification);
+        expect(this.view.afterNotificationChanges).toHaveBeenCalled();
+        var node = this.view.afterNotificationChanges.calls.mostRecent().args[0];
+        expect(node.text()).toBe("This is a notification");
+      });
+    });
+
+    describe("onPushFront", function() {
+      it("adds the notification to the beginning of the rendered list", function() {
+        this.view.onPushFront(this.notification);
+        expect(this.view.$(".notifications .stream-element").length).toBe(this.collection.length + 1);
+        expect(this.view.$(".notifications .stream-element").first().text()).toBe("This is a notification");
+      });
+
+      it("calls afterNotificationChanges", function() {
+        spyOn(this.view, "afterNotificationChanges");
+        this.view.onPushFront(this.notification);
+        expect(this.view.afterNotificationChanges).toHaveBeenCalled();
+        var node = this.view.afterNotificationChanges.calls.mostRecent().args[0];
+        expect(node.text()).toBe("This is a notification");
+      });
+    });
+
+    describe("onNotificationChange", function() {
+      beforeEach(function() {
+        // create a notification which replaces the first in the collection
+        var firstNoteId = this.collection.models[0].attributes.id;
+        this.notification = factory.notification({
+          "id": firstNoteId,
+          "note_html": "<div class='stream-element' data-guid='" + firstNoteId + "'>This is a notification</div>"
+        });
+      });
+
+      it("replaces the notification in the rendered list", function() {
+        this.view.onNotificationChange(this.notification);
+        expect(this.view.$(".notifications .stream-element").length).toBe(this.collection.length);
+        expect(this.view.$(".notifications .stream-element").first().text()).toBe("This is a notification");
+      });
+
+      it("calls afterNotificationChanges", function() {
+        spyOn(this.view, "afterNotificationChanges");
+        this.view.onNotificationChange(this.notification);
+        expect(this.view.afterNotificationChanges).toHaveBeenCalled();
+        var node = this.view.afterNotificationChanges.calls.mostRecent().args[0];
+        expect(node.text()).toBe("This is a notification");
+      });
     });
   });
 });

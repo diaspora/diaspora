@@ -3,15 +3,12 @@
 var realXMLHttpRequest = window.XMLHttpRequest;
 
 // matches flash messages with success/error and contained text
-var flashMatcher = function(flash, id, text) {
+var flashMatcher = function(flash, klass, text) {
   var textContained = true;
-  if( text ) {
-    textContained = (flash.text().indexOf(text) !== -1);
+  if(text) {
+    textContained = (flash.text().trim().indexOf(text) !== -1);
   }
-
-  return flash.is(id) &&
-          flash.hasClass('expose') &&
-          textContained;
+  return flash.hasClass(klass) && flash.parent().hasClass("expose") && textContained;
 };
 
 // information for jshint
@@ -24,7 +21,7 @@ var customMatchers = {
     return {
       compare: function(actual, expected) {
         var result = {};
-        result.pass = flashMatcher(actual, '#flash_notice', expected);
+        result.pass = flashMatcher(actual, "alert-success", expected);
         return result;
       }
     };
@@ -33,17 +30,14 @@ var customMatchers = {
     return {
       compare: function(actual, expected) {
         var result = {};
-        result.pass = flashMatcher(actual, '#flash_error', expected);
+        result.pass = flashMatcher(actual, "alert-danger", expected);
         return result;
       }
     };
   }
 };
 
-
 beforeEach(function() {
-  $('#jasmine_content').html(spec.readFixture("underscore_templates"));
-
   jasmine.clock().install();
   jasmine.Ajax.install();
 
@@ -57,23 +51,38 @@ beforeEach(function() {
   var Page = Diaspora.Pages["TestPage"];
   $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
-  Diaspora.I18n.load({}, 'en', {});
-
   Diaspora.page = new Page();
   Diaspora.page.publish("page/ready", [$(document.body)]);
 
+  // don't change window.location in jasmine tests
+  app._changeLocation = function() { /* noop */ };
+  Diaspora.Mobile.changeLocation = function() { /* noop */ };
+
   // add custom matchers for flash messages
   jasmine.addMatchers(customMatchers);
+
+  // PhantomJS 1.9.8 doesn't support bind yet
+  // See https://github.com/ariya/phantomjs/issues/10522
+  // and https://github.com/colszowka/phantomjs-gem
+  /* jshint -W121 */
+  Function.prototype.bind = Function.prototype.bind || function (thisp) {
+    var fn = this;
+    return function () {
+      return fn.apply(thisp, arguments);
+    };
+  };
+  /* jshint +W121 */
 });
 
 afterEach(function() {
-  //spec.clearLiveEventBindings();
-
   jasmine.clock().uninstall();
   jasmine.Ajax.uninstall();
 
+  $(".modal").removeClass("fade").modal("hide");
   $("#jasmine_content").empty();
   expect(spec.loadFixtureCount).toBeLessThan(2);
+  expect($(".modal-backdrop").length).toBe(0);
+  $(".modal-backdrop").remove();
   spec.loadFixtureCount = 0;
 });
 
@@ -100,49 +109,13 @@ window.logout = function logout(){
   return app.currentUser;
 };
 
-window.hipsterIpsumFourParagraphs = "Mcsweeney's mumblecore irony fugiat, ex iphone brunch helvetica eiusmod retro" +
-  " sustainable mlkshk. Pop-up gentrify velit readymade ad exercitation 3 wolf moon. Vinyl aute laboris artisan irony, " +
-  "farm-to-table beard. Messenger bag trust fund pork belly commodo tempor street art, nihil excepteur PBR lomo laboris." +
-  " Cosby sweater american apparel occupy, locavore odio put a bird on it fixie kale chips. Pariatur semiotics flexitarian " +
-  "veniam, irure freegan irony tempor. Consectetur sriracha pour-over vice, umami exercitation farm-to-table master " +
-  "cleanse art party." + "\n" +
-
-  "Quinoa nostrud street art helvetica et single-origin coffee, stumptown bushwick selvage skateboard enim godard " +
-  "before they sold out tumblr. Portland aesthetic freegan pork belly, truffaut occupy assumenda banksy 3 wolf moon " +
-  "irure forage terry richardson nulla. Anim nostrud selvage sartorial organic. Consequat pariatur aute fugiat qui, " +
-  "organic marfa sunt gluten-free mcsweeney's elit hella whatever wayfarers. Leggings pariatur chambray, ullamco " +
-  "flexitarian esse sed iphone pinterest messenger bag Austin cred DIY. Duis enim squid mcsweeney's, nisi lo-fi " +
-  "sapiente. Small batch vegan thundercats locavore williamsburg, non aesthetic trust fund put a bird on it gluten-free " +
-  "consectetur." + "\n" +
-
-  "Viral reprehenderit iphone sapiente exercitation. Enim nostrud letterpress, tempor typewriter dreamcatcher tattooed." +
-  " Ex godard pariatur voluptate est, polaroid hoodie ea nulla umami pickled tempor portland. Nostrud food truck" +
-  "single-origin coffee skateboard. Fap enim tumblr retro, nihil twee trust fund pinterest non jean shorts veniam " +
-  "fingerstache small batch. Cred whatever photo booth sed, et dolore gastropub duis freegan. Authentic quis butcher, " +
-  "fanny pack art party cupidatat readymade semiotics kogi consequat polaroid shoreditch ad four loko." + "\n" +
-
-  "PBR gluten-free ullamco exercitation narwhal in godard occaecat bespoke street art veniam aesthetic jean shorts " +
-  "mlkshk assumenda. Typewriter terry richardson pork belly, cupidatat tempor craft beer tofu sunt qui gentrify eiusmod " +
-  "id. Letterpress pitchfork wayfarers, eu sunt lomo helvetica pickled dreamcatcher bicycle rights. Aliqua banksy " +
-  "cliche, sapiente anim chambray williamsburg vinyl cardigan. Pork belly mcsweeney's anim aliqua. DIY vice portland " +
-  "thundercats est vegan etsy, gastropub helvetica aliqua. Artisan jean shorts american apparel duis esse trust fund.";
-
-spec.clearLiveEventBindings = function() {
-  var events = jQuery.data(document, "events");
-  for (var prop in events) {
-    if(events.hasOwnProperty(prop)) {
-      delete events[prop];
-    }
-  }
-};
-
 spec.content = function() {
-  return $('#jasmine_content');
+  return $("#jasmine_content");
 };
 
 // Loads fixure markup into the DOM as a child of the jasmine_content div
 spec.loadFixture = function(fixtureName) {
-  var $destination = $('#jasmine_content');
+  var $destination = $("#jasmine_content");
 
   // get the markup, inject it into the dom
   $destination.html(spec.fixtureHtml(fixtureName));
@@ -169,7 +142,7 @@ spec.fixtureHtml = function(fixtureName) {
 spec.retrieveFixture = function(fixtureName) {
 
   // construct a path to the fixture, including a cache-busting timestamp
-  var path = '/tmp/js_dom_fixtures/' + fixtureName + ".fixture.html?" + new Date().getTime();
+  var path = "/tmp/js_dom_fixtures/" + fixtureName + ".fixture.html?" + new Date().getTime();
   var xhr;
 
   // retrieve the fixture markup via xhr request to jasmine server
@@ -188,6 +161,8 @@ spec.retrieveFixture = function(fixtureName) {
   return xhr.responseText;
 };
 
-
 spec.loadFixtureCount = 0;
 spec.cachedFixtures = {};
+
+spec.defaultLocale = JSON.parse(spec.readFixture("locale_en_javascripts_json"));
+Diaspora.I18n.reset(spec.defaultLocale);

@@ -2,6 +2,7 @@ describe('app.Router', function () {
   describe('followed_tags', function() {
     beforeEach(function() {
       factory.preloads({tagFollowings: []});
+      spec.loadFixture("aspects_index");
     });
 
     it('decodes name before passing it into TagFollowingAction', function () {
@@ -25,6 +26,16 @@ describe('app.Router', function () {
       expect(followed_tags).toHaveBeenCalled();
       expect(tag_following_action).toHaveBeenCalledWith({tagText: 'somethingwithcapitalletters'});
     });
+
+    it("does not add the TagFollowingAction if not logged in", function() {
+      var followedTags = spyOn(app.router, "followed_tags").and.callThrough();
+      var tagFollowingAction = spyOn(app.views, "TagFollowingAction");
+      logout();
+
+      app.router.followed_tags("some_tag");
+      expect(followedTags).toHaveBeenCalled();
+      expect(tagFollowingAction).not.toHaveBeenCalled();
+    });
   });
 
   describe("when routing to /stream and hiding inactive stream lists", function() {
@@ -38,7 +49,7 @@ describe('app.Router', function () {
 
     it('hides the aspects list', function(){
       setFixtures('<div id="aspects_list" />');
-      aspects = new app.collections.Aspects([
+      aspects = new app.collections.AspectSelections([
         factory.aspectAttrs({selected:true}),
         factory.aspectAttrs()
       ]);
@@ -79,6 +90,30 @@ describe('app.Router', function () {
     });
   });
 
+  describe("conversations", function() {
+    beforeEach(function() {
+      this.router = new app.Router();
+    });
+
+    it("doesn't do anything if no conversation id is passed", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations();
+      expect(app.views.ConversationsInbox.prototype.renderConversation).not.toHaveBeenCalled();
+    });
+
+    it("doesn't do anything if id is not a readable number", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations("yolo");
+      expect(app.views.ConversationsInbox.prototype.renderConversation).not.toHaveBeenCalled();
+    });
+
+    it("renders the conversation if id is a readable number", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations("12");
+      expect(app.views.ConversationsInbox.prototype.renderConversation).toHaveBeenCalledWith("12");
+    });
+  });
+
   describe("stream", function() {
     it("calls _initializeStreamView", function() {
       spyOn(app.router, "_initializeStreamView");
@@ -87,11 +122,24 @@ describe('app.Router', function () {
     });
   });
 
+  describe("gettingStarted", function() {
+    it("renders app.pages.GettingStarted", function() {
+      app.router.navigate("/getting_started", {trigger: true});
+      expect(app.page.$el.selector).toEqual("#hello-there");
+    });
+
+    it("renders app.pages.GettingStarted when the URL has a trailing slash", function() {
+      app.router.navigate("/getting_started/", {trigger: true});
+      expect(app.page.$el.selector).toEqual("#hello-there");
+    });
+  });
+
   describe("_initializeStreamView", function() {
     beforeEach(function() {
       delete app.page;
       delete app.publisher;
       delete app.shortcuts;
+      spec.loadFixture("aspects_index");
     });
 
     it("sets app.page", function() {
@@ -110,6 +158,12 @@ describe('app.Router', function () {
       app.publisher = { jasmineTestValue: 42 };
       app.router._initializeStreamView();
       expect(app.publisher.jasmineTestValue).toEqual(42);
+    });
+
+    it("doesn't set app.publisher if there is no publisher element in page", function() {
+      $("#publisher").remove();
+      app.router._initializeStreamView();
+      expect(app.publisher).toBeUndefined();
     });
 
     it("sets app.shortcuts", function() {

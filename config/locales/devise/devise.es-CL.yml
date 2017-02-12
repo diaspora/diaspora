@@ -11,10 +11,13 @@ es-CL:
       new:
         resend_confirmation: "Reenviar las instrucciones de confirmación"
       send_instructions: "Recibirás un correo con instrucciones acerca de como confirmar tu cuenta en pocos minutos."
+      send_paranoid_instructions: "Si tu dirección de correo electrónico ya existe en nuestra base de datos, recibirás un correo electrónico con instrucciones sobre cómo confirmar tu dirección de correo electrónico en unos pocos minutos."
     failure:
+      already_authenticated: "Ya iniciaste sesión."
       inactive: "Tu cuenta aún no ha sido activada."
       invalid: "Nombre de usuario o contraseña incorrecta."
       invalid_token: "Identificador de autenticación inválido."
+      last_attempt: "Tiene un intento más antes de que tu cuenta sea bloqueada."
       locked: "Tu cuenta está bloqueada."
       timeout: "Tu sesión caducó, debes acceder de nuevo para continuar."
       unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
@@ -33,6 +36,8 @@ es-CL:
         accept_at: "en %{url}, puedes aceptar en el enlace inferior."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} te ha invitado a unirte a Diaspora*"
+      password_change:
+        subject: "Contraseña cambiada"
       reset_password_instructions:
         change: "Cambiar mi contraseña"
         ignore: "Si no has solicitado esto, por favor, ignora este correo."
@@ -45,6 +50,9 @@ es-CL:
         subject: "Instrucciones para desbloquear tu cuenta"
         unlock: "Desbloquear mi cuenta"
       welcome: "Bienvenid@ %{email}!"
+    omniauth_callbacks:
+      failure: "No se pudo autenticar desde %{kind} porque \"%{reason}\"."
+      success: "Autenticado correctamente desde %{kind} cuenta."
     passwords:
       edit:
         change_password: "Cambiar mi contraseña"
@@ -52,11 +60,15 @@ es-CL:
         forgot_password: "¿Olvidaste tu contraseña?"
         no_account: "No existe una cuenta asociada con ese email. Si estas esperando una invitación, la enviaremos a la brevedad"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
+      no_token: "No puedes acceder a esta página sino viene de un correo electrónico de restablecimiento de contraseña. Si viene de un correo electrónico de restablecimiento de contraseña, por favor asegúrese de que utilizó la URL completa proporcionada."
       send_instructions: "Recibirás un correo con instrucciones para restablecer tu contraseña en pocos minutos."
+      send_paranoid_instructions: "Si su dirección de email existe en nuestra base de datos, usted recibirá un correo electrónico con un enlace para la recuperación de la contraseña."
       updated: "Tu contraseña ha sido modificada. Ya has entrado a tu cuenta."
+      updated_not_active: "Tu contraseña ha sido cambiada exitosamente."
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
       signed_up: "Te has registrado correctamente. Te hemos enviado un correo de confirmación."
+      signed_up_but_inactive: "Te has registrado con éxito. Sin embargo, no podemos dejarte ingresar porque tu cuenta todavía no está activada."
       updated: "Tu cuenta ha sido actualizada."
     sessions:
       new:

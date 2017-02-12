@@ -1,7 +1,9 @@
-#span-24
-  %h3
-    #settings_nav
-      %ul
-        %li= link_to_unless_current t('profile'), edit_profile_path
-        |
-        %li= link_to_unless_current t('account'), edit_user_path
+#settings_nav
+  %h2= t("settings")
+  %nav
+    %ul
+      %li= link_to_unless_current t("profile"), edit_profile_path
+      %li= link_to_unless_current t("account"), edit_user_path
+      %li= link_to_unless_current t("privacy"), privacy_settings_path
+      %li= link_to_unless_current t("_services"), services_path
+      %li= link_to_unless_current t("_applications"), api_openid_connect_user_applications_path

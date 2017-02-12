@@ -24,18 +24,23 @@ class ConversationsController < ApplicationController
     gon.contacts = contacts_data
 
     respond_with do |format|
-      format.html
+      format.html { render "index", locals: {no_contacts: current_user.contacts.mutual.empty?} }
       format.json { render json: @visibilities.map(&:conversation), status: 200 }
     end
   end
 
   def create
-    contact_ids = params[:contact_ids]
+    # Contacts autocomplete does not work the same way on mobile and desktop
+    # Mobile returns contact ids array while desktop returns person id
+    # This will have to be removed when mobile autocomplete is ported to Typeahead
+    recipients_param, column = [%i(contact_ids id), %i(person_ids person_id)].find {|param, _| params[param].present? }
+    if recipients_param
+      person_ids = current_user.contacts.mutual.where(column => params[recipients_param].split(",")).pluck(:person_id)
+    end
 
-    # Can't split nil
-    if contact_ids
-      contact_ids = contact_ids.split(',') if contact_ids.is_a? String
-      person_ids = current_user.contacts.where(id: contact_ids).pluck(:person_id)
+    unless person_ids.present?
+      render text: I18n.t("javascripts.conversation.create.no_recipient"), status: 422
+      return
     end
 
     opts = params.require(:conversation).permit(:subject)
@@ -43,28 +48,19 @@ class ConversationsController < ApplicationController
     opts[:message] = { text: params[:conversation][:text] }
     @conversation = current_user.build_conversation(opts)
 
-    @response = {}
-    if person_ids.present? && @conversation.save
-      Postzord::Dispatcher.build(current_user, @conversation).post
-      @response[:success] = true
-      @response[:message] = I18n.t('conversations.create.sent')
-      @response[:conversation_id] = @conversation.id
+    if @conversation.save
+      Diaspora::Federation::Dispatcher.defer_dispatch(current_user, @conversation)
+      flash[:notice] = I18n.t("conversations.create.sent")
+      render json: {id: @conversation.id}
     else
-      @response[:success] = false
-      @response[:message] = I18n.t('conversations.create.fail')
-      if person_ids.blank?
-        @response[:message] = I18n.t('conversations.create.no_contact')
-      end
-    end
-    respond_to do |format|
-      format.js
+      render text: I18n.t("conversations.create.fail"), status: 422
     end
   end
 
   def show
     respond_to do |format|
       format.html do
-        redirect_to conversations_path(:conversation_id => params[:id])
+        redirect_to conversations_path(conversation_id: params[:id])
         return
       end
 
@@ -72,11 +68,21 @@ class ConversationsController < ApplicationController
         @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
         @conversation.set_read(current_user)
 
-        format.js
         format.json { render :json => @conversation, :status => 200 }
       else
         redirect_to conversations_path
       end
+    end
+  end
+
+  def raw
+    @conversation = current_user.conversations.where(id: params[:conversation_id]).first
+    if @conversation
+      @first_unread_message_id = @conversation.first_unread_message(current_user).try(:id)
+      @conversation.set_read(current_user)
+      render partial: "conversations/show", locals: {conversation: @conversation}
+    else
+      render nothing: true, status: 404
     end
   end
 
@@ -86,17 +92,23 @@ class ConversationsController < ApplicationController
       return
     end
 
-    @contacts_json = contacts_data.to_json
-    @contact_ids = ""
-
-    if params[:contact_id]
-      @contact_ids = current_user.contacts.find(params[:contact_id]).id
-    elsif params[:aspect_id]
-      @contact_ids = current_user.aspects.find(params[:aspect_id]).contacts.map{|c| c.id}.join(',')
-    end
     if session[:mobile_view] == true && request.format.html?
+      @contacts_json = contacts_data.to_json
+
+      @contact_ids = if params[:contact_id]
+                       current_user.contacts.find(params[:contact_id]).id
+                     elsif params[:aspect_id]
+                       current_user.aspects.find(params[:aspect_id]).contacts.pluck(:id).join(",")
+                     end
+
       render :layout => true
     else
+      if params[:contact_id]
+        gon.push conversation_prefill: [current_user.contacts.find(params[:contact_id]).person.as_json]
+      elsif params[:aspect_id]
+        gon.push conversation_prefill: current_user.aspects
+                                                   .find(params[:aspect_id]).contacts.map {|c| c.person.as_json }
+      end
       render :layout => false
     end
   end
@@ -104,7 +116,7 @@ class ConversationsController < ApplicationController
   private
 
   def contacts_data
-    current_user.contacts.sharing.joins(person: :profile)
+    current_user.contacts.mutual.joins(person: :profile)
       .pluck(*%w(contacts.id profiles.first_name profiles.last_name people.diaspora_handle))
       .map {|contact_id, *name_attrs|
         {value: contact_id, name: ERB::Util.h(Person.name_from_attrs(*name_attrs)) }

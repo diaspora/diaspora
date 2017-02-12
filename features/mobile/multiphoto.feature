@@ -6,27 +6,36 @@ Feature: viewing photos on the mobile main page
 
   Background:
     Given a user with username "bob"
-    When I sign in as "bob@bob.bob" on the mobile website
-    And I click on selector "#compose_badge"
+    And I sign in as "bob@bob.bob" on the mobile website
 
   Scenario: view full size image
-    Given I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
+    Given I visit the mobile publisher page
+    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload-publisher"
+    Then I should see "button.png completed"
+    And I should see an uploaded image within the photo drop zone
 
     When I press "Share"
+    And I go to the stream page
     And I click on selector "img.stream-photo"
-    Then I should see a "img" within "#show_content"
-    And I should not see a "#right" within "#main"
+    Then I should see a "img" within ".photos"
+    And I should not see a "#arrow-right" within "#main"
+    And I should not see a "#arrow-left" within "#main"
 
   Scenario: view multiphoto post
-    Given I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload-publisher"
-    And I attach the file "spec/fixtures/button.gif" to hidden "file" within "#file-upload-publisher"
+    Given I visit the mobile publisher page
+    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload-publisher"
+    Then I should see "button.png completed"
+    When I attach the file "spec/fixtures/button.gif" to hidden "qqfile" within "#file-upload-publisher"
+    Then I should see "button.gif completed"
 
     When I press "Share"
+    And I go to the stream page
     Then I should see "+ 1" within ".additional_photo_count"
 
     When I click on selector "img.stream-photo"
-    Then I should see a "#right" within "tbody"
+    Then I should see a "#arrow-right" within "#main"
+    And I should not see a "#arrow-left" within "#main"
 
-    When I click on selector "img#arrow-right"
-    And I should see a "#left" within "tbody"
-    And I should not see a "#right" within "tbody"
+    When I click on selector "#arrow-right"
+    Then I should see a "#arrow-left" within "#main"
+    And I should not see a "#arrow-right" within "#main"

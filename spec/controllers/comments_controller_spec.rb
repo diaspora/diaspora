@@ -2,12 +2,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe CommentsController, :type => :controller do
   before do
     allow(@controller).to receive(:current_user).and_return(alice)
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe '#create' do
@@ -67,6 +65,7 @@ describe CommentsController, :type => :controller do
       expect(alice).not_to receive(:comment)
       post :create, comment_hash
       expect(response.code).to eq("404")
+      expect(response.body).to eq(I18n.t("comments.create.error"))
     end
   end
 
@@ -79,7 +78,7 @@ describe CommentsController, :type => :controller do
     context 'your post' do
       before do
         allow(@controller).to receive(:current_user).and_return(bob)
-        sign_in :user, bob
+        sign_in bob, scope: :user
       end
 
       it 'lets the user delete his comment' do
@@ -140,7 +139,7 @@ describe CommentsController, :type => :controller do
       comments = [alice, bob, eve].map{ |u| u.comment!(@message, "hey") }
 
       get :index, :post_id => @message.id, :format => :json
-      expect(assigns[:comments].map(&:id)).to match_array(comments.map(&:id))
+      expect(JSON.parse(response.body).map {|comment| comment["id"] }).to match_array(comments.map(&:id))
     end
 
     it 'returns a 404 on a nonexistent post' do

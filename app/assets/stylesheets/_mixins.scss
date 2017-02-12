@@ -21,6 +21,9 @@ $default-border-radius: 3px;
   @include linear-gradient(lighten($color,20%), darken($color,15%));
 }
 
+@mixin header-gradient($color) {
+  @include linear-gradient(lighten($color, 2%), darken($color, 2%), 0%, 80%);
+}
 
 @mixin linear-gradient($from, $to, $start:0%, $end:100%){
   background: mix($from,$to);
@@ -62,7 +65,7 @@ $default-border-radius: 3px;
       size : 60px 60px;
     }
 
-    border-radius: 70px 10px 10px 70px;
+    border-radius: 40px 10px 10px 40px;
     box-shadow: 0 0 32px rgba(255,255,255,.5);
 
     position : absolute;
@@ -70,7 +73,7 @@ $default-border-radius: 3px;
     left : 10%;
     right : 10%;
 
-    height: 60px;
+    height: 80px;
     margin-top: -40px;
     padding: 10px 7px 10px 80px;
     overflow: hidden;
@@ -115,5 +118,23 @@ $default-border-radius: 3px;
       line-height: .97em;
       max-height: 35px;
     }
+  }
+}
+
+@mixin selectable-list() {
+  .glyphicon-ok,
+  .glyphicon-refresh {
+    display: none;
+    padding-right: 5px;
+  }
+
+  &.selected {
+    .glyphicon-ok { display: inline-block;}
+    .glyphicon-refresh { display: none;}
+  }
+
+  &.loading {
+    .glyphicon-refresh { display: inline-block;}
+    .glyphicon-ok { display: none;}
   }
 }

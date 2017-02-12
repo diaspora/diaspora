@@ -1,36 +1,42 @@
 - content_for :page_title do
-  = t('.title')
+  = t(".title")
 
 .container-fluid#contacts_container
-  .row-fluid
-    .span3
-      = render 'contacts/sidebar'
+  .row
+    .col-md-3
+      .sidebar
+        = render "contacts/sidebar"
 
-    .span9
-      #people_stream.stream.contacts
-        = render 'contacts/header'
+    .col-md-9
+      .stream.contacts.framed-content#people_stream
+        = render "contacts/header"
 
         - if @contacts_size > 0
           - if @aspect && @aspect.contacts.length == 0
             .well
-              = t('.no_contacts_in_aspect')
+              = t(".no_contacts_in_aspect")
           #contact_stream
             -# JS
 
         - else
           .no_contacts
             %h3
-              = t('.no_contacts')
+              = t(".no_contacts")
+            - if AppConfig.settings.community_spotlight.enable?
+              %p
+                != t(".no_contacts_message",
+                     community_spotlight: link_to(t(".community_spotlight"), community_spotlight_path))
             %p
-              != t('.no_contacts_message',
-                   :community_spotlight => link_to(t('.community_spotlight'), community_spotlight_path))
-            %p
-              .btn.btn-link{ 'data-toggle' => 'modal', 'data-target' => '#invitationsModal'}
-                = t('invitations.new.invite_someone_to_join')
+              .btn.btn-link{"data-toggle" => "modal"}
+                = t("invitations.new.invite_someone_to_join")
+
+      #paginate
+        .loader.hidden
+          .spinner
 
 -if @aspect
-  #new_conversation_pane
-    = render 'shared/modal',
-        :path => new_conversation_path(:aspect_id => @aspect.id, :name => @aspect.name, :modal => true),
-        :title => t('conversations.index.new_conversation'),
-        :id => 'conversationModal'
+  .conversations-form-container#new_conversation_pane
+    = render "shared/modal",
+        path: new_conversation_path(aspect_id: @aspect.id, name: @aspect.name, modal: true),
+        title: t("conversations.index.new_conversation"),
+        id: "conversationModal"

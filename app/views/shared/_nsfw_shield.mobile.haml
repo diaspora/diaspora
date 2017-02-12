@@ -1,0 +1,6 @@
+- if post.respond_to?(:nsfw) && post.nsfw
+  .nsfw-shield
+    .shield
+      %strong #NSFW
+      |
+      = link_to t("javascripts.stream.show_nsfw_post"), "#", class: "toggle_nsfw_state"

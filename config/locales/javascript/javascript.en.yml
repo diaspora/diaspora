@@ -29,6 +29,56 @@ en:
     edit: "Edit"
     no_results: "No results found"
 
+    admins:
+      dashboard:
+        up_to_date: "Your pod is up to date!"
+        outdated: "Your pod is outdated."
+        compare_versions: "The latest diaspora* release is <%= latestVersion %>, your pod is running <%= podVersion %>."
+        error: "Unable to determine latest diaspora* version."
+    admin:
+      pods:
+        pod: "Pod"
+        ssl: "SSL"
+        ssl_enabled: "SSL enabled"
+        ssl_disabled: "SSL disabled"
+        added: "Added"
+        status: "Status"
+        states:
+          unchecked: "Unchecked"
+          no_errors: "OK"
+          dns_failed: "Name resolution (DNS) failed"
+          net_failed: "Connection attempt failed"
+          ssl_failed: "Secure connection (SSL) failed"
+          http_failed: "HTTP connection failed"
+          version_failed: "Unable to retrieve software version"
+          unknown_error: "An unspecified error has happened during the check"
+        actions: "Actions"
+        offline_since: "offline since:"
+        last_check: "last check:"
+        more_info: "show more information"
+        check: "perform connection test"
+        recheck:
+          success: "The pod was just checked again."
+          failure: "The check was not performed."
+        follow_link: "open link in browser"
+        no_info: "No additional information available at this point"
+        server_software: "Server software:"
+        response_time: "Response time:"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        unknown: "unknown"
+        not_available: "not available"
+        unchecked:
+          one: "There is still one pod that hasn't been checked at all."
+          other: "There are still <%= count %> pods that haven't been checked at all."
+        version_failed:
+          one: "There is one pod that has no version (old pod, no NodeInfo)."
+          other: "There are <%= count %> pods that have no version (old pods, no NodeInfo)."
+        errors:
+          one: "The connection test returned an error for one pod."
+          other: "The connection test returned an error for <%= count %> pods."
+
     aspects:
       make_aspect_list_visible: "Make contacts in this aspect visible to each other?"
       name: "Name"
@@ -37,26 +87,42 @@ en:
         success: "Your new aspect <%= name %> was created"
         failure: "Aspect creation failed."
 
+    errors:
+      connection: "Unable to connect to the server."
+
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
       suffixAgo: "ago"
       suffixFromNow: "from now"
+      inPast: "any moment now"
       seconds: "less than a minute"
       minute: "about a minute"
-      minutes: "%d minutes"
+      minutes:
+        one: "1 minute"
+        other: "%d minutes"
       hour: "about an hour"
-      hours: "about %d hours"
+      hours:
+        one: "about 1 hour"
+        other: "about %d hours"
       day: "a day"
-      days: "%d days"
+      days:
+        one: "1 day"
+        other: "%d days"
       month: "about a month"
-      months: "%d months"
+      months:
+        one: "1 month"
+        other: "%d months"
       year: "about a year"
-      years: "%d years"
+      years:
+        one: "1 year"
+        other: "%d years"
       wordSeparator: " "
 
     contacts:
       add_contact: "Add contact"
+      aspect_chat_is_enabled: "Contacts in this aspect are able to chat with you."
+      aspect_chat_is_not_enabled: "Contacts in this aspect are not able to chat with you."
       aspect_list_is_visible: "Contacts in this aspect are able to see each other."
       aspect_list_is_not_visible: "Contacts in this aspect are not able to see each other."
       remove_contact: "Remove contact"
@@ -68,25 +134,46 @@ en:
     my_stream: "Stream"
     my_aspects: "My aspects"
 
-    videos:
-      watch: "Watch this video on <%= provider %>"
-      unknown: "Unknown video type"
-    search_for: "Search for <%= name %>"
     publisher:
-      at_least_one_aspect: "You must publish to at least one aspect"
       limited: "Limited: your post will only be seen by people you are sharing with"
       public: "Public: your post will be visible to everyone and found by search engines"
       near_from: "Posted from: <%= location %>"
       option: "Answer"
       add_option: "Add an answer"
       question: "Question"
+      markdown_editor:
+        preview: "Preview"
+        write: "Write"
+        tooltips:
+          bold: "Bold"
+          italic: "Italic"
+          heading: "Heading"
+          insert_link: "Insert link"
+          insert_image: "Insert image"
+          insert_ordered_list: "Insert ordered list"
+          insert_unordered_list: "Insert unordered list"
+          preview: "Preview message"
+          write: "Edit message"
+          cancel: "Cancel message"
+          quote: "Insert quotation"
+          code: "Insert code"
+        texts:
+          strong: "strong text"
+          italic: "italic text"
+          heading: "heading text"
+          insert_link_description_text: "enter link description here"
+          insert_link_help_text: "Insert link here"
+          insert_image_description_text: "enter image description here"
+          insert_image_help_text: "Insert image link here"
+          insert_image_title: "enter image title here"
+          list: "list text here"
+          quote: "quotation text here"
+          code: "code here"
+
     bookmarklet:
       post_something: "Post to diaspora*"
       post_submit: "Submitting post..."
       post_success: "Posted! Closing popup window..."
-    infinite_scroll:
-      no_more: "No more posts."
-      no_more_contacts: "No more contacts."
     aspect_dropdown:
       add_to_aspect: "Add contact"
       select_aspects: "Select aspects"
@@ -99,12 +186,9 @@ en:
       error: "Couldn’t start sharing with <%= name %>.  Are you ignoring them?"
       error_remove: "Couldn’t remove <%= name %> from the aspect :("
       toggle:
-        zero: "Select aspects"
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspects"
     show_more: "Show more"
-    failed_to_like: "Failed to like!"
-    failed_to_reshare: "Failed to reshare!"
     failed_to_post_message: "Failed to post message!"
     failed_to_remove: "Failed to remove the entry!"
     comments:
@@ -112,7 +196,6 @@ en:
       hide: "Hide comments"
       no_comments: "There are no comments yet."
     reshares:
-      duplicate: "That good, eh?  You’ve already reshared that post!"
       successful: "The post was successfully reshared!"
       post: "Reshare <%= name %>’s post?"
     aspect_navigation:
@@ -147,7 +230,6 @@ en:
       edit: "Edit"
       add_some: "Add some"
       you_have_no_tags: "You have no tags!"
-      ignoring: "You are ignoring all posts from <%= name %>."
       bio: "Bio"
       location: "Location"
       gender: "Gender"
@@ -157,13 +239,17 @@ en:
       posts: "Posts"
 
     conversation:
-      participants: "Participants"
+      create:
+        no_recipient: "Hey, you need to add a recipient first!"
       new:
         no_contacts: "You need to add some contacts before you can start a conversation."
 
     notifications:
       mark_read: "Mark read"
       mark_unread: "Mark unread"
+      new_notifications:
+        one: "You have <%= count %> unread notification"
+        other: "You have <%= count %> unread notifications"
 
     stream:
       hide: "Hide"
@@ -181,7 +267,9 @@ en:
       unfollow: "Unfollow"
       enable_post_notifications: "Enable notifications for this post"
       disable_post_notifications: "Disable notifications for this post"
+      permalink: "Permalink"
       via: "via <%= provider %>"
+      no_posts_yet: "There are no posts to display here yet."
 
       likes:
         zero: "<%= count %> Likes"
@@ -192,6 +280,11 @@ en:
         zero: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+
+      comments:
+        zero: "<%= count %> comments"
+        one: "<%= count %> comment"
+        other: "<%= count %> comments"
 
       more_comments:
         zero: "Show <%= count %> more comments"
@@ -220,6 +313,8 @@ en:
       admin: "Admin"
       moderator: "Moderator"
       log_out: "Log out"
+      toggle_navigation: "Toggle navigation"
+      toggle_mobile: "Toggle mobile"
 
       notifications: "Notifications"
       conversations: "Conversations"
@@ -232,14 +327,7 @@ en:
       close: "Close"
 
     viewer:
-      stop_following_post: "Stop following post"
-      follow_post: "Follow post"
-      like: "Like"
-      unlike: "Unlike"
-      reshare: "Reshare"
       reshared: "Reshared"
-      comment: "Comment"
-      home: "Home"
 
     poll:
       vote: "Vote"
@@ -249,5 +337,9 @@ en:
       count:
         one: "1 vote so far"
         other: "<%=count%> votes so far"
+      answer_count:
+        zero: "0 votes"
+        one: "1 vote"
+        other: "<%=count%> votes"
       show_result: "Show result"
       close_result: "Hide result"

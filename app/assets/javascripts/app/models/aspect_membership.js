@@ -5,7 +5,11 @@
  * (only valid for the context of the current user)
  */
 app.models.AspectMembership = Backbone.Model.extend({
-  urlRoot: "/aspect_memberships"
+  urlRoot: "/aspect_memberships",
+
+  belongsToAspect: function(aspectId) {
+    var aspect = this.get("aspect");
+    return aspect && aspect.id === aspectId;
+  }
 });
 // @license-end
-

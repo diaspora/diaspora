@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe User, :type => :model do
   context "relations" do
     context "#conversations" do
@@ -108,21 +106,6 @@ describe User, :type => :model do
       user.last_seen = Time.now - 7.month
       user.save
       expect(User.halfyear_actives).not_to include user
-    end
-  end
-
-  context 'callbacks' do
-    describe '#save_person!' do
-      it 'saves the corresponding user if it has changed' do
-        alice.person.url = "http://stuff.com"
-        expect_any_instance_of(Person).to receive(:save)
-        alice.save
-      end
-
-      it 'does not save the corresponding user if it has not changed' do
-        expect_any_instance_of(Person).not_to receive(:save)
-        alice.save
-      end
     end
   end
 
@@ -317,8 +300,16 @@ describe User, :type => :model do
       end
 
       it "requires a valid email address" do
-        alice.email = "somebody@anywhere"
+        alice.email = "somebodyanywhere"
         expect(alice).not_to be_valid
+      end
+
+      it "resets a matching unconfirmed_email and confirm_email_token on save" do
+        eve.update_attributes(unconfirmed_email: "new@example.com", confirm_email_token: SecureRandom.hex(15))
+        alice.update_attribute(:email, "new@example.com")
+        eve.reload
+        expect(eve.unconfirmed_email).to eql(nil)
+        expect(eve.confirm_email_token).to eql(nil)
       end
     end
 
@@ -331,13 +322,18 @@ describe User, :type => :model do
       end
 
       it "does NOT require a unique unconfirmed_email address" do
-        eve.update_attribute :unconfirmed_email, "new@email.com"
-        alice.unconfirmed_email = "new@email.com"
+        eve.update_attribute :unconfirmed_email, "new@example.com"
+        alice.unconfirmed_email = "new@example.com"
         expect(alice).to be_valid
       end
 
+      it "requires an unconfirmed_email address which is not another user's email address" do
+        alice.unconfirmed_email = eve.email
+        expect(alice).not_to be_valid
+      end
+
       it "requires a valid unconfirmed_email address" do
-        alice.unconfirmed_email = "somebody@anywhere"
+        alice.unconfirmed_email = "somebodyanywhere"
         expect(alice).not_to be_valid
       end
     end
@@ -362,6 +358,13 @@ describe User, :type => :model do
         I18n.locale = :fr
         user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password', :language => 'de')
         expect(user.language).to eq('de')
+      end
+    end
+
+    describe "of color_theme" do
+      it "requires availability" do
+        alice.color_theme = "some invalid theme"
+        expect(alice).not_to be_valid
       end
     end
   end
@@ -490,12 +493,6 @@ describe User, :type => :model do
     it "does not preserve case" do
       expect(User.find_for_database_authentication(:username => alice.username.upcase)).to eq(alice)
     end
-
-    it 'errors out when passed a non-hash' do
-      expect {
-        User.find_for_database_authentication(alice.username)
-      }.to raise_error
-    end
   end
 
   describe '#update_profile' do
@@ -506,16 +503,14 @@ describe User, :type => :model do
       }
     end
 
-    it 'dispatches the profile when tags are set' do
-      @params = {:tag_string => '#what #hey'}
-      mailman = Postzord::Dispatcher.build(alice, Profile.new)
-      expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
+    it "dispatches the profile when tags are set" do
+      @params = {tag_string: '#what #hey'}
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile, {})
       expect(alice.update_profile(@params)).to be true
     end
 
-    it 'sends a profile to their contacts' do
-      mailman = Postzord::Dispatcher.build(alice, Profile.new)
-      expect(Postzord::Dispatcher).to receive(:build).and_return(mailman)
+    it "sends a profile to their contacts" do
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, alice.profile, {})
       expect(alice.update_profile(@params)).to be true
     end
 
@@ -568,50 +563,8 @@ describe User, :type => :model do
     end
   end
 
-  describe '#notify_if_mentioned' do
-    before do
-      @post = FactoryGirl.build(:status_message, :author => bob.person)
-    end
-
-    it 'notifies the user if the incoming post mentions them' do
-      expect(@post).to receive(:mentions?).with(alice.person).and_return(true)
-      expect(@post).to receive(:notify_person).with(alice.person)
-
-      alice.notify_if_mentioned(@post)
-    end
-
-    it 'does not notify the user if the incoming post does not mention them' do
-      expect(@post).to receive(:mentions?).with(alice.person).and_return(false)
-      expect(@post).not_to receive(:notify_person)
-
-      alice.notify_if_mentioned(@post)
-    end
-
-    it 'does not notify the user if the post author is not a contact' do
-      @post = FactoryGirl.build(:status_message, :author => eve.person)
-      allow(@post).to receive(:mentions?).and_return(true)
-      expect(@post).not_to receive(:notify_person)
-
-      alice.notify_if_mentioned(@post)
-    end
-  end
-
   describe 'account deletion' do
     describe '#destroy' do
-      it 'removes invitations from the user' do
-        FactoryGirl.create(:invitation, :sender => alice)
-        expect {
-          alice.destroy
-        }.to change {alice.invitations_from_me(true).count }.by(-1)
-      end
-
-      it 'removes invitations to the user' do
-        Invitation.new(:sender => eve, :recipient => alice, :identifier => alice.email, :aspect => eve.aspects.first).save(:validate => false)
-        expect {
-          alice.destroy
-        }.to change {alice.invitations_to_me(true).count }.by(-1)
-      end
-
       it 'removes all service connections' do
         Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
         expect {
@@ -644,26 +597,6 @@ describe User, :type => :model do
        alice.reload
        expect(Workers::Mail::StartedSharing).not_to receive(:perform_async)
       alice.mail(Workers::Mail::StartedSharing, alice.id, 'contactrequestid')
-    end
-  end
-
-  context "aspect management" do
-    before do
-      @contact = alice.contact_for(bob.person)
-      @original_aspect = alice.aspects.where(:name => "generic").first
-      @new_aspect = alice.aspects.create(:name => 'two')
-    end
-
-    describe "#add_contact_to_aspect" do
-      it 'adds the contact to the aspect' do
-        expect {
-          alice.add_contact_to_aspect(@contact, @new_aspect)
-        }.to change(@new_aspect.contacts, :count).by(1)
-      end
-
-      it 'returns true if they are already in the aspect' do
-        expect(alice.add_contact_to_aspect(@contact, @original_aspect)).to be true
-      end
     end
   end
 
@@ -839,36 +772,17 @@ describe User, :type => :model do
   end
 
 
-  describe '#retract' do
-    before do
-      @retraction = double
-      @post = FactoryGirl.build(:status_message, :author => bob.person, :public => true)
-    end
+  describe "#retract" do
+    let(:retraction) { double }
+    let(:post) { FactoryGirl.build(:status_message, author: bob.person, public: true) }
 
     context "posts" do
-      before do
-        allow(SignedRetraction).to receive(:build).and_return(@retraction)
-        allow(@retraction).to receive(:perform)
-      end
+      it "sends a retraction" do
+        expect(Retraction).to receive(:for).with(post, bob).and_return(retraction)
+        expect(retraction).to receive(:defer_dispatch).with(bob)
+        expect(retraction).to receive(:perform)
 
-      it 'sends a retraction' do
-        dispatcher = double
-        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
-        expect(dispatcher).to receive(:post)
-
-        bob.retract(@post)
-      end
-
-      it 'adds resharers of target post as additional subsctibers' do
-        person = FactoryGirl.create(:person)
-        reshare = FactoryGirl.create(:reshare, :root => @post, :author => person)
-        @post.reshares << reshare
-
-        dispatcher = double
-        expect(Postzord::Dispatcher).to receive(:build).with(bob, @retraction, {:additional_subscribers => [person], :services => anything}).and_return(dispatcher)
-        expect(dispatcher).to receive(:post)
-
-        bob.retract(@post)
+        bob.retract(post)
       end
     end
   end
@@ -1015,47 +929,46 @@ describe User, :type => :model do
         end
       end
 
-      it 'disables mail' do
+      it "disables mail" do
         @user.disable_mail = false
         @user.clear_account!
         expect(@user.reload.disable_mail).to be true
       end
 
-      it 'sets getting_started and show_community_spotlight_in_stream fields to false' do
+      it "sets getting_started and show_community_spotlight_in_stream and post_default_public fields to false" do
         @user.clear_account!
         expect(@user.reload.getting_started).to be false
         expect(@user.reload.show_community_spotlight_in_stream).to be false
+        expect(@user.reload.post_default_public).to be false
       end
     end
 
     describe "#clearable_attributes" do
-      it 'returns the clearable fields' do
+      it "returns the clearable fields" do
         user = FactoryGirl.create :user
-        expect(user.send(:clearable_fields).sort).to eq(%w{
-          language
-          invitation_token
-          invitation_sent_at
-          reset_password_sent_at
-          reset_password_token
-          remember_created_at
-          sign_in_count
-          current_sign_in_at
-          last_sign_in_at
-          current_sign_in_ip
-          hidden_shareables
-          last_sign_in_ip
-          invitation_service
-          invitation_identifier
-          invitation_limit
-          invited_by_id
-          invited_by_type
-          authentication_token
-          auto_follow_back
-          auto_follow_back_aspect_id
-          unconfirmed_email
-          confirm_email_token
-          last_seen
-        }.sort)
+        expect(user.send(:clearable_fields)).to match_array(
+          %w(
+            language
+            reset_password_sent_at
+            reset_password_token
+            remember_created_at
+            sign_in_count
+            current_sign_in_at
+            last_sign_in_at
+            current_sign_in_ip
+            hidden_shareables
+            last_sign_in_ip
+            invited_by_id
+            authentication_token
+            auto_follow_back
+            auto_follow_back_aspect_id
+            unconfirmed_email
+            confirm_email_token
+            last_seen
+            color_theme
+            post_default_public
+          )
+        )
       end
     end
   end
@@ -1180,12 +1093,8 @@ describe User, :type => :model do
 
   describe "active" do
     before do
-      invited_user = FactoryGirl.build(:user, username: nil)
-      invited_user.save(validate: false)
-
       closed_account = FactoryGirl.create(:user)
-      closed_account.person.closed_account = true
-      closed_account.save
+      closed_account.person.lock_access!
     end
 
     it "returns total_users excluding closed accounts & users without usernames" do

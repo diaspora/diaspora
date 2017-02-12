@@ -1,0 +1,12 @@
+.media.blocked-person{id: person.id}
+  .pull-right
+    = link_to t("users.privacy_settings.stop_ignoring"), block_path(block),  class: "btn btn-danger", method: :delete
+  .media-object.pull-left
+    = person_image_link(person, size: :thumb_small)
+  .media-body
+    = person_link(person)
+    .info.diaspora_handle
+      = block.person.diaspora_handle
+    .info.tags
+      = Diaspora::Taggable.format_tags(person.profile.tag_string)
+  .clearfix

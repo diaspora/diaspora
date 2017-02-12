@@ -2,11 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe MessagesController, :type => :controller do
   before do
-    sign_in :user, alice
+    sign_in(alice, scope: :user)
   end
 
   describe '#create' do
@@ -38,6 +36,11 @@ describe MessagesController, :type => :controller do
           }.to change(Message, :count).by(1)
           expect(response.status).to eq(302)
           expect(response).to redirect_to(conversations_path(:conversation_id => @conversation))
+        end
+
+        it "dispatches the message" do
+          expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, instance_of(Message))
+          post :create, @message_params
         end
       end
 
@@ -93,6 +96,24 @@ describe MessagesController, :type => :controller do
 
         post :create, @message_params
         expect(old_message.reload.text).to eq('hello')
+      end
+
+      it "dispatches the message" do
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, instance_of(Message))
+        post :create, @message_params
+      end
+
+      it "dispatches the message twice if the conversation author is local and it has remote users" do
+        @conversation_params[:participant_ids] = [bob.person.id, alice.person.id, remote_raphael.id]
+        conversation = Conversation.create!(@conversation_params)
+        @message_params[:conversation_id] = conversation.id
+
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, instance_of(Message))
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(
+          bob, instance_of(Message), subscriber_ids: [remote_raphael.id]
+        )
+
+        post :create, @message_params
       end
     end
 

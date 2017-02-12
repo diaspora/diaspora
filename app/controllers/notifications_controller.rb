@@ -38,9 +38,6 @@ class NotificationsController < ApplicationController
 
       pager.replace(result)
     end
-    @notifications.each do |note|
-      note.note_html = render_to_string( :partial => 'notification', :locals => { :note => note } )
-    end
     @group_days = @notifications.group_by{|note| note.created_at.strftime('%Y-%m-%d')}
 
     @unread_notification_count = current_user.unread_notifications.count
@@ -54,9 +51,17 @@ class NotificationsController < ApplicationController
     respond_to do |format|
       format.html
       format.xml { render :xml => @notifications.to_xml }
-      format.json { render :json => @notifications.to_json }
+      format.json {
+        render json: render_as_json(@unread_notification_count, @grouped_unread_notification_counts, @notifications)
+      }
     end
+  end
 
+  def default_serializer_options
+    {
+      context: self,
+      root:    false
+    }
   end
 
   def read_all
@@ -77,4 +82,15 @@ class NotificationsController < ApplicationController
     end
   end
 
+  private
+
+  def render_as_json(unread_count, unread_count_by_type, notification_list)
+    {
+      unread_count:         unread_count,
+      unread_count_by_type: unread_count_by_type,
+      notification_list:    notification_list.map {|note|
+        NotificationSerializer.new(note, default_serializer_options).as_json
+      }
+    }.as_json
+  end
 end

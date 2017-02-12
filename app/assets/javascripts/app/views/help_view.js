@@ -210,15 +210,15 @@ app.views.Help = app.views.StaticContentView.extend({
   },
 
   chatEnabled: function(){
-    return gon.chatEnabled;
+    return gon.appConfig.chat.enabled;
   },
 
   getChatIcons: function(){
-    return '<div class="help-chat-icons">' +
-           '  <i class="entypo lock-open"></i>' +
-           '  <i class="entypo chat"></i>' +
-           '  <i class="entypo trash"></i>' +
-           '</div>';
+    return "<div class=\"help-chat-icons\">" +
+           "  <i class=\"entypo-lock-open\"></i>" +
+           "  <i class=\"entypo-chat\"></i>" +
+           "  <i class=\"entypo-trash\"></i>" +
+           "</div>";
   }
 });
 // @license-end

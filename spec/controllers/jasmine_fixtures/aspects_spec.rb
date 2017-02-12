@@ -2,12 +2,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe StreamsController, :type => :controller do
   describe '#aspects' do
     before do
-      sign_in :user, alice
+      sign_in alice, scope: :user
       @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
 
       request.env["HTTP_REFERER"] = 'http://' + request.host
@@ -56,6 +54,27 @@ describe StreamsController, :type => :controller do
         5.times { bob.comment!(message, "what") }
         get :aspects
         save_fixture(html_for("body"), "aspects_index_post_with_comments")
+      end
+
+      it "generates a mobile jasmine fixture with a post with comments", fixture: true do
+        message = bob.post(:status_message, text: "HALO WHIRLED", to: @bob.aspects.where(name: "generic").first.id)
+        5.times { bob.comment!(message, "what") }
+        get :aspects, format: :mobile
+        save_fixture(html_for("body"), "aspects_index_mobile_post_with_comments")
+      end
+
+      it "generates a mobile jasmine fixture with a public post", fixture: true do
+        message = bob.post(:status_message, text: "HALO WHIRLED", public: true)
+        5.times { bob.comment!(message, "what") }
+        get :aspects, format: :mobile
+        save_fixture(html_for("body"), "aspects_index_mobile_public_post")
+      end
+
+      it "generates a mobile jasmine fixture with an NSFW post", fixture: true do
+        message = bob.post(:status_message, text: "#NSFW", to: @bob.aspects.where(name: "generic").first.id)
+        5.times { bob.comment!(message, "what") }
+        get :aspects, format: :mobile
+        save_fixture(html_for("body"), "aspects_index_mobile_nsfw_post")
       end
 
       it 'generates a jasmine fixture with a followed tag', :fixture => true do

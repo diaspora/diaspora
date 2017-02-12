@@ -6,6 +6,55 @@
 
 es:
   javascripts:
+    admin:
+      pods:
+        actions: "Acciones"
+        added: "Añadido"
+        check: "ejectutar test de conexión"
+        errors:
+          one: "El test de conexión ha devuelto un error en un pod."
+          other: "El test de conexión ha devuelto un error de <%= count %> pods."
+        follow_link: "abre enlace en el navegador"
+        last_check: "último chequeo:"
+        more_info: "muestra más información"
+        ms:
+          one: "<%= count %> ms"
+          other: "<%= count %> ms"
+        no_info: "No hay información adicional en este momento"
+        not_available: "no disponible"
+        offline_since: "Desconectado desde:"
+        pod: "Pod"
+        recheck:
+          failure: "No se ejecutó el chequeo."
+          success: "El pod se acaba de chequear."
+        response_time: "Tiempo de respuesta:"
+        server_software: "Software del servidor:"
+        ssl: "SSL"
+        ssl_disabled: "SSL desactivado"
+        ssl_enabled: "SSL activado"
+        states:
+          dns_failed: "Falló la resolución de nombres (DNS)"
+          http_failed: "Falló la conexión HTTP"
+          net_failed: "Falló el intento de conexión"
+          no_errors: "OK"
+          ssl_failed: "Falló la conexión segura (SSL)"
+          unchecked: "Desmarcado"
+          unknown_error: "Un error no identificado ha ocurrido durante el chequeo."
+          version_failed: "Imposible determinar la versión del software"
+        status: "Estado"
+        unchecked:
+          one: "Todavía hay un pod que no ha sido chequeado del todo."
+          other: "Todavía hay <%= count %> pods que no han sido chequeados del todo."
+        unknown: "desconocido"
+        version_failed:
+          one: "Hay un pod que no tiene versión (pod viejo, sin NodeInfo)."
+          other: "Hay <%= count %> pods que no tienen versión (pods viejos, sin NodeInfo)."
+    admins:
+      dashboard:
+        compare_versions: "La última versión de diaspora* es <%= latestVersion %>, tu pod está ejecutando <%= podVersion %>."
+        error: "Imposible determinar la última versión de diaspora*."
+        outdated: "Tu pod está obsoleto."
+        up_to_date: "¡Tu pod está actualizado!"
     and: "y"
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
@@ -57,14 +106,11 @@ es:
     conversation:
       new:
         no_contacts: "Necesitas añadir algún contacto antes de empezar una conversación."
-      participants: "Participantes"
     create: "Crear"
     delete: "Eliminar"
     edit: "Editar"
-    failed_to_like: "\"Me gusta\" no ha funcionado."
     failed_to_post_message: "¡Error al publicar el mensaje!"
     failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
-    failed_to_reshare: "¡Error al compartir!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, <%= name %>!"
@@ -85,15 +131,14 @@ es:
       recent_notifications: "Notificaciones recientes"
       search: "Buscar"
       settings: "Ajustes"
+      toggle_mobile: "Interfaz móvil"
+      toggle_navigation: "Cambiar navegación"
       view_all: "Ver todo"
     hide_post: "Ocultar esta publicación?"
     hide_post_failed: "Imposible ocultar esta publicación"
     ignore: "Ignorar"
     ignore_failed: "Imposible ignorar a este usuario"
     ignore_user: "¿Ignorar a este usuario?"
-    infinite_scroll:
-      no_more: "No hay más publicaciones."
-      no_more_contacts: "No hay más contactos."
     my_activity: "Mi Actividad"
     my_aspects: "Mis aspectos"
     my_stream: "Portada"
@@ -118,6 +163,10 @@ es:
       looking_good: "¡Guau, estás increíble!"
       size_error: "{file} es demasiado grande, el tamaño máximo es de {sizeLimit}."
     poll:
+      answer_count:
+        one: "1 voto"
+        other: "<%=count%> votos"
+        zero: "Sin votos"
       close_result: "Ocultar resultados"
       count:
         one: "<%=count%> voto por ahora"
@@ -134,15 +183,41 @@ es:
       contacts: "Contactos"
       edit: "editar"
       gender: "Sexo"
-      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
       location: "Ubicación"
       photos: "Fotos"
       posts: "Mensajes"
       you_have_no_tags: "¡no tienes etiquetas!"
     publisher:
       add_option: "Añadir una respuesta"
-      at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
       limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
+      markdown_editor:
+        preview: "Previsualización"
+        texts:
+          code: "código aquí"
+          heading: "texto de encabezado"
+          insert_image_description_text: "introduce la descripción de la imagen aquí"
+          insert_image_help_text: "Inserta el enlace de la imagen aquí"
+          insert_image_title: "introduce el título de la imagen aquí"
+          insert_link_description_text: "introduce la descripción del enlace aquí"
+          insert_link_help_text: "Insertar enlace aquí"
+          italic: "texto en cursiva"
+          list: "lista el texto aquí"
+          quote: "texto entrecomillado aquí"
+          strong: "texto en negrita"
+        tooltips:
+          bold: "Negritas"
+          cancel: "Cancelar mensaje"
+          code: "Insertar código"
+          heading: "Encabezando"
+          insert_image: "Insertar imagen"
+          insert_link: "Insertar enlace"
+          insert_ordered_list: "Insertar lista ordenada"
+          insert_unordered_list: "Insertar lista sin ordenar"
+          italic: "Cursiva"
+          preview: "Previsualizar mensaje"
+          quote: "Insertar comillas"
+          write: "Editar mensaje"
+        write: "Escribir"
       near_from: "Cerca de: <%= location %>"
       option: "Respuesta"
       public: "Público - tu publicación es visible para todos, incluyendo buscadores"
@@ -156,13 +231,15 @@ es:
         created: "El informe fue creado correctamente"
         exists: "El informe ya existe"
     reshares:
-      duplicate: "¿Verdad que te ha gustado? Pero ya has esa publicación."
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡Publicación compartida con éxito!"
-    search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:
       comment: "Comentar"
+      comments:
+        one: "<%= count %> comentario"
+        other: "<%= count %> comentarios"
+        zero: "<%= count %> comentarios"
       disable_post_notifications: "Desactiva los avisos para esta publicación"
       enable_post_notifications: "Activa los avisos para esta publicación"
       follow: "Seguir"
@@ -182,7 +259,9 @@ es:
         one: "Mostrar <%= count %> comentario más"
         other: "Mostrar <%= count %> comentarios más"
         zero: "Mostrar <%= count %> comentarios más"
+      no_posts_yet: "Todavía no hay post para mostrar aquí."
       original_post_deleted: "Publicación original borrada por el autor."
+      permalink: "Enlace permanente"
       public: "Público"
       reshare: "Compartir"
       reshares:
@@ -205,13 +284,17 @@ es:
       wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
       day: "1 día"
-      days: "%d días"
+      days:
+        other: "%d días"
       hour: "1 hora aproximadamente"
-      hours: "%d horas aproximadamente"
+      hours:
+        other: "%d horas aproximadamente"
       minute: "1 minuto aproximadamente"
-      minutes: "%d minutos"
+      minutes:
+        other: "%d minutos"
       month: "1 mes aproximadamente"
-      months: "%d meses"
+      months:
+        other: "%d meses"
       prefixAgo: "Hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
@@ -219,17 +302,8 @@ es:
       suffixFromNow: ""
       wordSeparator: " "
       year: "un año aproximadamente"
-      years: "%d años"
+      years:
+        other: "%d años"
     unblock_failed: "Falló el desbloqueo del usuario"
-    videos:
-      unknown: "Tipo de vídeo desconocido"
-      watch: "Ver este video con <%= provider %>"
     viewer:
-      comment: "Comentar"
-      follow_post: "Seguir"
-      home: "INICIO"
-      like: "Me gusta"
-      reshare: "Compartir"
       reshared: "Compartido"
-      stop_following_post: "Dejar de seguir"
-      unlike: "No me gusta"

@@ -17,7 +17,7 @@ app.models.StreamAspects = app.models.Stream.extend({
   },
 
   fetch: function() {
-    if(this.isFetching()){ return false }
+    if(this.isFetching()) { return false; }
     var url = this.url();
     var ids = this.aspects_ids;
     this.deferred = this.items.fetch(this._fetchOpts({url : url, data : { 'a_ids': ids }}))
@@ -26,10 +26,9 @@ app.models.StreamAspects = app.models.Stream.extend({
 
   fetchDone: function() {
     this.triggerFetchedEvents();
-    if (app.aspects) {
-      app.aspects.trigger('aspectStreamFetched');
+    if (app.aspectSelections) {
+      app.aspectSelections.trigger("aspectStreamFetched");
     }
   }
 });
 // @license-end
-

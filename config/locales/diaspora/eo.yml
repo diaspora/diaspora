@@ -6,11 +6,8 @@
 
 eo:
   _applications: "Aplikaĵoj"
-  _comments: "Komentoj"
   _contacts: "Kontaktoj"
   _help: "Helpo"
-  _home: "Hejmo"
-  _photos: "bildoj"
   _services: "Servoj"
   account: "Konto"
   activerecord:
@@ -45,6 +42,7 @@ eo:
     admin_bar:
       pages: "Paĝoj"
       pod_stats: "Statistiko de 'pod' (Diaspora-servilo)"
+      sidekiq_monitor: "Sidekiq monitoro"
       user_search: "Serĉo de uzanto"
       weekly_user_stats: "Semajna statistiko de uzanto"
     stats:
@@ -89,15 +87,9 @@ eo:
         other: "Kiomo de novaj uzantoj ĉi-semajne: %{count}"
         zero: "Kiomo de novaj uzantoj ĉi-semajne: %{count}"
       current_server: "Aktuala dato de servilo estas %{date}"
-  ago: "antaŭ %{time}"
   all_aspects: "Ĉiuj aspektoj"
-  application:
-    helper:
-      unknown_person: "nekonata persono"
-      video_title:
-        unknown: "Nekonata titolo de filmeto"
   are_you_sure: "Ĉu vi certas?"
-  are_you_sure_delete_account: "Ĉu vi certe volas forigi vian konton? Vi ne povas malfari tion!"
+  are_you_sure_delete_account: "Ĉu vi certe volas forigi vian konton? Vi ne povos malfari tion!"
   aspect_memberships:
     destroy:
       failure: "Forigi personon el aspekto malsukcesis"
@@ -109,18 +101,10 @@ eo:
       success: "Sukcese aldonis kontakton al aspekto."
     aspect_listings:
       add_an_aspect: "+ Aldoni aspekton"
-      deselect_all: "Malelekti ĉion"
-      edit_aspect: "Redakti %{name}"
-      select_all: "Elekti ĉion"
     aspect_stream:
       make_something: "Faru ion"
       stay_updated: "Restu ĝisdatigata"
       stay_updated_explanation: "Via ĉefa torento enhavas ĉiujn viajn kontaktojn, sekvatajn etikedojn kaj afiŝojn de kelkaj kreemaj anoj de la komunumo."
-    contacts_not_visible: "Kontaktoj en ĉi tiu aspekto ne povos vidi unu la alian."
-    contacts_visible: "Kontaktoj en ĉi tiu aspekto povos vidi unu la alian."
-    create:
-      failure: "Aspekto ne kreeblas."
-      success: "Via nova aspekto %{name} kreiĝis"
     destroy:
       failure: "%{name} ne malplenas kaj do ne povis esti forigita."
       success: "%{name} estis sukcese forigita."
@@ -128,24 +112,15 @@ eo:
       aspect_list_is_not_visible: "la aspekto-listo estas kaŝita al la aliaj en ĉi tiu aspekto"
       aspect_list_is_visible: "la aspekto-listo estas montrata al la aliaj en ĉi tiu aspekto"
       confirm_remove_aspect: "Ĉu vi certe volas forigi ĉi tiun aspekton?"
-      make_aspect_list_visible: "Ĉu kontaktoj en ĉi tiu aspekto povu vidi unu la alian?"
-      remove_aspect: "Forigi ĉi tiun aspekton"
-      rename: "alinomigi"
+      rename: "Renomigi"
       update: "ĝisdatigi"
-      updating: "ĝisdatigante"
+      updating: "ĝisdatigado"
     index:
-      diaspora_id:
-        content_1: "Via DIASPORA* uzantnomo estas:"
-        content_2: "Donu ĝin al iu ajn, kaj tiu povos trovi vin ĉe DIASPORA*."
-        heading: "DIASPORA* uzantnomo"
       donate: "Donaci"
-      handle_explanation: "Tiu ĉi estas via DIASPORA*-uzantnomo. Vi povas doni ĝin al aliaj homoj same kiel retpoŝtan adreson, por ke ili vin kontaktu."
       help:
         any_problem: "Ĉu iu problemo?"
         contact_podmin: "Kontaktu vian pod-estron!"
         do_you: "Ĉu vi:"
-        email_feedback: "%{link} viajn respondojn, se vi volas"
-        email_link: "Retpoŝtadreso"
         feature_suggestion: "... havas %{link} proponon?"
         find_a_bug: "... trovis %{link}n?"
         have_a_question: "... havas %{link}n?"
@@ -158,31 +133,20 @@ eo:
         tutorial_link_text: "Enkondukoj"
         tutorials_and_wiki: "%{faq}, %{tutorial} kaj %{wiki}: helpoj por via unuaj paŝoj."
       introduce_yourself: "Tio estas via torento. Ensaltu kaj prezentu vin mem."
-      keep_diaspora_running: "Tenu la DIASPORA-evoluadon rapida per monata donacado!"
       keep_pod_running: "Helpu al %{pod} rapide funkcii kaj aĉeti por niaj servistoj ilian \"kaforiparon\" per ĉiumonata donacado!"
       new_here:
         follow: "Sekvu %{link} kaj bonvenigu novajn uzantojn al Diaspora*!"
         learn_more: "Lerni pli"
-        title: "Bonvenigu novajn uzantojn"
-      no_contacts: "neniuj kontaktoj"
-      no_tags: "+ Trovi etikedon aboni"
-      people_sharing_with_you: "Homoj, kiuj konigas al vi"
-      post_a_message: "Afiŝu mesaĝon »"
+        title: "Bonvenu novajn uzantojn"
       services:
         content: "Vi povas konekti la postajn servojn kun DIASPORA*:"
         heading: "Konekti Servojn"
-      unfollow_tag: "Ne plu abonas #%{tag}."
       welcome_to_diaspora: "Bonvenon al diaspora*, %{name}!"
-    new:
-      create: "Krei"
-      name: "Nomo (nur videblas de vi)"
     no_contacts_message:
       community_spotlight: "en komunuma ĉeflumo"
       or_spotlight: "Aŭ vi povas kunhavigi kun %{link}"
       try_adding_some_more_contacts: "Vi povas serĉi aŭ inviti pliajn kontaktojn."
       you_should_add_some_more_contacts: "Vi devus aldoni pliajn kontaktojn!"
-    no_posts_message:
-      start_talking: "Ankoraŭ neniu diris ion ajn!"
     seed:
       acquaintances: "Konatoj"
       family: "Familio"
@@ -191,7 +155,6 @@ eo:
     update:
       failure: "Via aspekto, %{name}, havis tro longan nomon por konserviĝi."
       success: "Via aspekto, %{name}, sukcese redaktiĝis."
-  back: "Malantaŭen"
   blocks:
     create:
       failure: "Mi ne povis ignori tiun uzanton. #evasion"
@@ -203,21 +166,14 @@ eo:
     explanation: "Vi povas afiŝi en DIASPORA* de ĉie ajn per paĝosigno montranta al %{link}."
     heading: "Legosigneto"
     post_something: "Afiŝi ion en DIASPORA*"
-    post_success: "Afiŝita! Fermanta!"
   cancel: "Nuligi"
   comments:
     new_comment:
       comment: "Komenti"
       commenting: "Komentanta..."
-    one: "1 komento"
-    other: "%{count} komentoj"
-    zero: "neniuj komentoj"
   contacts:
-    create:
-      failure: "Ne povis krei kontakton"
     index:
       add_a_new_aspect: "Aldoni novan aspekton"
-      add_to_aspect: "aldoni kontaktojn al %{name}"
       all_contacts: "Ĉiuj kontaktoj"
       community_spotlight: "En la ĉeflumo de la komunumo"
       my_contacts: "Miaj kontaktoj"
@@ -226,30 +182,17 @@ eo:
       only_sharing_with_me: "Nur koniganta al mi"
       start_a_conversation: "Komenci interparoladon"
       title: "Kontaktoj"
-      your_contacts: "Viaj kontaktoj"
-    sharing:
-      people_sharing: "Homoj, kiuj konigas al vi:"
     spotlight:
       community_spotlight: "Komunuma ĉeflumo"
       suggest_member: "Sugesti membron"
   conversations:
-    conversation:
-      participants: "Partoprenantoj"
     create:
       fail: "Malĝusta mesaĝo"
-      no_contact: "Hej, unue devas vi aldoni la kontakton."
       sent: "Mesaĝo sendiĝis."
-    helper:
-      new_messages:
-        one: "1 nova mesaĝo"
-        other: "%{count} novaj mesaĝoj"
-        zero: "Neniuj novaj mesaĝoj"
     index:
       inbox: "Poŝtujo"
-      no_conversation_selected: "neniu interparolado elektita"
       no_messages: "neniuj mesaĝoj"
     new:
-      abandon_changes: "Ĉu forlasi ŝanĝojn?"
       send: "Sendi"
       sending: "Poŝtanta..."
       subject: "temo"
@@ -268,17 +211,19 @@ eo:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Ĝustigu la sekvajn erarojn kaj reprovu."
-      invalid_fields: "Nevalidaj kampoj"
-    login_try_again: "Bonvole <a href='%{login_link}'>ensalutu</a> kaj provu denove."
-    post_not_public: "La afiŝo, kiun vi klopodas vidi, ne estas publika!"
+    need_javascript: "Ĉi tiu retejo postulas JavaScript por funkcii ĝuste. Se vi malebligis JavaScript, bonvole reebligu ĝin kaj reŝarĝu la paĝon."
   fill_me_out: "Plenumigu min"
   find_people: "Trovi homojn aŭ #etikedojn"
   help:
     foundation_website: "Retejo de Fondaĵo Diaspora"
     getting_help:
+      get_support_a_irc: "aliĝu al ni en %{irc} (rektbabilejo)"
       get_support_a_website: "vizitu nian %{link}"
+      get_support_a_wiki: "serĉi en %{link}"
       getting_started_a: "Vi bonŝancas. Provu la %{tutorial_series} en nia projektrejejo. Ĝi enkondukos vin paŝo post paŝo tra la aliĝilon kaj instruos vin ĉiujn bazajn bezonatajn informojn pri la uzado de diaspora*."
       getting_started_q: "Help! Mi bezonas bazan helpon por komenci!"
+      title: "Ricevo de helpo"
+    getting_started_tutorial: "\"Instrukcio por komencantoj\""
     here: "ĉi tie"
     irc: "IRC"
     markdown: "Markdown"
@@ -286,44 +231,24 @@ eo:
     tutorial: "enkonduko"
     tutorials: "enkondukoj"
     wiki: "vikio"
-  hide: "Kaŝi"
-  invitation_codes:
-    excited: "%{name} estas ĝojega vidi vin ĉi tie."
   invitations:
-    a_facebook_user: "Facebook-uzanto"
-    check_token:
-      not_found: "Ne povis trovi invitan ĵetonon"
     create:
-      already_contacts: "Vi jam konektiĝis kun tiu persono."
-      already_sent: "Vi jam invitis tiun personon."
       empty: "Bonvole tajpu almenaŭ unu retpoŝtadreson."
       no_more: "Vi ne plu havas invitojn."
       note_already_sent: "Invitiloj estas jam senditaj al: %{emails}"
-      own_address: "Vi ne povas sendi inviton al via propra adreso."
       rejected: "La postaj retpoŝtadresoj estis problemaj:"
       sent: "Invitoj estas senditaj al: %{emails}"
-    edit:
-      accept_your_invitation: "Akcepti vian inviton"
-      your_account_awaits: "Via konto atendas!"
     new:
-      already_invited: "Tiuj homoj ankoraŭ ne akceptis vian inviton:"
-      aspect: "Aspekto"
-      check_out_diaspora: "Esploru en DIASPORA!"
       codes_left:
         one: "%{count} invito restas por tiu ĉi kodo"
         other: "%{count} invitoj restas por tiu ĉi kodo"
         zero: "%{count} invitoj restas por tiu ĉi kodo"
       comma_separated_plz: "Vi povas enmeti plurajn retpoŝtadresojn disigitajn per komoj."
-      if_they_accept_info: "se tiu akceptos, tiu aldoniĝos al la aspekto, en kiun vi invitis tiun."
       invite_someone_to_join: "Invitu iun aniĝi al DIASPORA*!"
       language: "Lingvo"
       paste_link: "Konigu ĉi tiun ligon kun viaj amikoj por inviti ilin al DIASPORA* aŭ rekte retmesaĝu al ili la ligon."
-      personal_message: "Persona mesaĝo"
-      resend: "Resendi"
       send_an_invitation: "Sendu inviton"
-      send_invitation: "Sendu la inviton"
       sending_invitation: "Sendado de invito..."
-      to: "Al"
   layouts:
     application:
       back_to_top: "Reen al la supro"
@@ -332,37 +257,13 @@ eo:
       source_package: "elŝutu la pakaĵon kun la fontkodo"
       toggle: "ŝalti inter tiu kaj poŝtelefona versio"
       whats_new: "kio estas nova?"
-      your_aspects: "viaj aspektoj"
     header:
-      admin: "administranto"
-      blog: "blogo"
       code: "kodo"
-      login: "ensaluti"
       logout: "Elsaluti"
       profile: "Profilo"
-      recent_notifications: "Freŝaj sciigoj"
       settings: "Agordoj"
-      view_all: "Vidi ĉiujn"
-  likes:
-    likes:
-      people_dislike_this:
-        one: "%{count} malŝato"
-        other: "%{count} malŝatoj"
-        zero: "neniuj malŝatoj"
-      people_like_this:
-        few: "%{count} ŝatantoj"
-        many: "%{count} ŝatantoj"
-        one: "%{count} ŝatanto"
-        other: "%{count} ŝatantoj"
-        two: "%{count} ŝatadoj"
-        zero: "neniuj ŝatantoj"
-      people_like_this_comment:
-        one: "%{count} ŝato"
-        other: "%{count} ŝatoj"
-        zero: "neniuj ŝatoj"
   limited: "Limigita"
   more: "Pli"
-  next: "sekva"
   no_results: "Neniuj rezultoj trovitaj"
   notifications:
     also_commented:
@@ -383,14 +284,6 @@ eo:
       other: "%{actors} komentis pri via %{post_link}."
       two: "%{actors} komentis pri via %{post_link}."
       zero: "%{actors} komentis pri via %{post_link}."
-    helper:
-      new_notifications:
-        few: "%{count} novaj sciigoj"
-        many: "%{count} novaj sciigoj"
-        one: "1 nova sciigo"
-        other: "%{count} novaj sciigoj"
-        two: "%{count} novaj sciigoj"
-        zero: "neniuj novaj sciigoj"
     index:
       and: "kaj"
       and_others:
@@ -447,7 +340,6 @@ eo:
       zero: "%{actors} komencis konigi al vi."
   notifier:
     a_post_you_shared: "afiŝo."
-    accept_invite: "Akceptu vian DIASPORA*-inviton!"
     click_here: "klaku tie ĉi"
     comment_on_post:
       reply: "Respondi aŭ vidi afiŝon de %{name} >"
@@ -477,7 +369,6 @@ eo:
       liked: "%{name} ŝatas vian afiŝon"
       view_post: "Vidi afiŝon >"
     mentioned:
-      mentioned: "menciis vin en afiŝo:"
       subject: "%{name} menciis vin ĉe DIASPORA*"
     private_message:
       reply_to_or_view: "Respondi al aŭ vidi tiun ĉi interparoladon >"
@@ -495,106 +386,39 @@ eo:
     to_change_your_notification_settings: "ŝanĝi viajn sciigajn agordojn"
   nsfw: "NSĈL"
   ok: "Bone"
-  or: "aŭ"
-  password: "Pasvorto"
-  password_confirmation: "Konfirmado de pasvorto"
   people:
     add_contact:
       invited_by: "vi estis invitita de"
-    add_contact_small:
-      add_contact_from_tag: "aldoni kontakton de etikedo"
-    aspect_list:
-      edit_membership: "redakti membraron de aspekto"
-    helper:
-      is_not_sharing: "%{name} ne kunhavigas kun vi"
-      is_sharing: "%{name} nun kunhavigas kun vi"
-      results_for: "rezultoj por %{params}"
     index:
       looking_for: "Ĉu vi serĉas afiŝojn etikeditaj %{tag_link}?"
       no_one_found: "...kaj neniu troviĝis."
       no_results: "Hej! Vi devas serĉi ion."
       results_for: "serĉrezultoj por"
       searching: "serĉanta, bv. pacienci..."
-    one: "1 persono"
-    other: "%{count} personoj"
     person:
-      add_contact: "aldoni kontakton"
-      already_connected: "Jam ligita"
-      pending_request: "Pritraktata peto"
       thats_you: "Jen vi!"
     profile_sidebar:
       bio: "pri mi"
       born: "naskiĝtago"
-      edit_my_profile: "Redakti mian profilon"
       gender: "sekso"
-      in_aspects: "en aspektoj"
       location: "loko"
-      photos: "Fotoj"
-      remove_contact: "forigi kontakton"
-      remove_from: "Ĉu forigi %{name} de %{aspect}?"
     show:
       closed_account: "Tiu ĉi konto estas fermita."
       does_not_exist: "Persono ne ekzistas!"
       has_not_shared_with_you_yet: "%{name} ne jam konigis iun ajn afiŝon al vi!"
-      ignoring: "Vi estas ignoranta ĉiujn afiŝojn de %{name}."
-      incoming_request: "%{name} volas konigi al vi"
-      mention: "Mencii"
-      message: "Mesaĝo"
-      not_connected: "Vi ne estas koniganta al tiu ĉi homo"
-      recent_posts: "Freŝaj Afiŝoj"
-      recent_public_posts: "Freŝaj Publikaj Afiŝoj"
-      return_to_aspects: "Reiri al via aspekto-paĝo"
-      see_all: "Vidu ĉion"
-      start_sharing: "komencu konigi"
-      to_accept_or_ignore: "por akcepti aŭ ignori ĝin."
-    sub_header:
-      add_some: "aldoni iujn"
-      edit: "redakti"
-      you_have_no_tags: "vi ne havas etikedojn!"
-    webfinger:
-      fail: "Ni bedaŭras, sed ni ne povis trovi je %{handle}."
-    zero: "neniuj personoj"
   photos:
-    comment_email_subject: "la bildo de %{name}"
     create:
       integrity_error: "Alŝuti bildon malsukcesis. Ĉu vi certas, ke tiu estis bilda dosiero?"
       runtime_error: "Alŝuti bildon malsukcesis. Probable estis la farado de unu el tiuj Volapukistoj."
       type_error: "Alŝuti bildon malsukcesis. Ĉu vi certas, ke vi aldonis bildon?"
     destroy:
       notice: "Bildo forviŝiĝis."
-    edit:
-      editing: "Redaktanta"
-    new:
-      back_to_list: "Revenu al Listo"
-      new_photo: "Nova bildo"
-      post_it: "afiŝu ĝin!"
-    new_photo:
-      empty: "{file} malplenas; bonvolu reelekti dosierojn sen ĝi."
-      invalid_ext: "{file} havas malvalidan sufikson. Nur {extensions} estas validaj."
-      size_error: "{file} estas tro granda; la maksimuma dosiergrandeco estas {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "aŭ elektu unu el viaj jam ekzistantaj %{photos}"
       upload: "Alŝutu novan profilbildon!"
-    photo:
-      view_all: "Vidi ĉiujn bildojn de %{name}"
-    show:
-      collection_permalink: "konstanta ligilo de la kolekto"
-      delete_photo: "Forviŝu bildon"
-      edit: "redakti"
-      edit_delete_photo: "Redakti bildpriskribon / forviŝi bildon"
-      make_profile_photo: "estigi profilbildon"
-      show_original_post: "Montri originan afiŝon."
-      update_photo: "Ĝisdatigi bildon"
-    update:
-      error: "Ne povis redakti bildon."
-      notice: "Bildo sukcese ĝisdatiĝis."
   posts:
     presenter:
       title: "Mesaĝo de %{name}"
     show:
-      destroy: "Forviŝi"
-      not_found: "Ni bedaŭras, sed ni ne povis trovi tiun afiŝon."
-      permalink: "daŭra ligilo"
       photos_by:
         few: "%{count} bildoj de %{author}"
         many: "%{count} bildoj de %{author}"
@@ -603,14 +427,11 @@ eo:
         two: "Du bildoj de %{author}"
         zero: "Neniuj bildoj de %{author}"
       reshare_by: "Rekonigo de %{author}"
-  previous: "antaŭa"
   privacy: "Privateco"
-  privacy_policy: "Politiko pri privateco"
   profile: "Profilo"
   profiles:
     edit:
       allow_search: "Permesu al homoj serĉi vin ene de DIASPORA*"
-      edit_profile: "Redakti profilon"
       first_name: "Persona nomo"
       last_name: "Familinomo"
       update_profile: "Ĝisdatigi profilon"
@@ -620,81 +441,33 @@ eo:
       your_location: "Via loko"
       your_name: "Via nomo"
       your_photo: "Via bildo"
-      your_private_profile: "Via nepublika profilo"
-      your_public_profile: "Via publika profilo"
       your_tags: "Per kvin vortoj priskribu vin mem."
       your_tags_placeholder: "ekz. #filmoj #katidoj #vojaĝi #instruisto #novjorko"
     update:
       failed: "Ne povis ĝisdatigi profilon"
       updated: "Profilo ĝisdatigita"
   public: "Publika"
-  reactions:
-    one: "1 reago"
-    other: "%{count} reagoj"
-    zero: "0 reagoj"
   registrations:
     closed: "Registrado estas fermita ĉe tiu ĉi DIASPORA* 'pod' (servilo)."
     create:
       success: "Vi aniĝis al DIASPORA*!"
-    edit:
-      cancel_my_account: "Forviŝi mian konton"
-      edit: "Redakti je %{name}"
-      leave_blank: "(lasu blanka, se vi ne volas ŝanĝi ĝin)"
-      password_to_confirm: "(ni bezonas vian nunan pasvorton por konfirmi viajn ŝanĝojn)"
-      unhappy: "ĉu vi malfeliĉas?"
-      update: "Ĝisdatigi"
     invalid_invite: "La invitoligilo, kiun vi donis, ne plu validas!"
     new:
-      create_my_account: "Krei mian konton!"
       email: "Retpoŝtadreso"
       enter_email: "Enskribu retpoŝtadreson"
       enter_password: "Enskribu kodvorton (almenaŭ 6 signoj)"
       enter_password_again: "Enskribu la saman pasvorton, kiel antaŭe"
       enter_username: "Elektu uzantnomon (nur literojn, nombrojn, kaj substrekojn)"
-      join_the_movement: "Aniĝu je la movado!"
       password: "Pasvorto"
       password_confirmation: "KONFIRMADO DE PASVORTO"
       sign_up: "Enskribiĝi"
-      sign_up_message: "Interkona retkonektado kun ♥"
       username: "Uzantnomo"
-  requests:
-    create:
-      sending: "Sendanta"
-      sent: "Vi petis konigi al %{name}. Via peto al ili videblos ĉe ilia venonta ensaluto en DIASPORA*."
-    destroy:
-      error: "Bonvolu elekti aspekton!"
-      ignore: "Ignoris kontaktan peton."
-      success: "Vi nun konigas."
-    helper:
-      new_requests:
-        few: "%{count} novaj petoj!"
-        many: "%{count} novaj petoj!"
-        one: "nova peto!"
-        other: "%{count} novaj petoj!"
-        two: "%{count} novaj petoj!"
-        zero: "neniuj novaj petoj"
-    manage_aspect_contacts:
-      existing: "Ekzistantaj kontaktoj"
-      manage_within: "Administri kontaktojn ene de"
-    new_request_to_person:
-      sent: "sendita!"
   reshares:
     comment_email_subject: "Rekonigo de %{resharer} de la afiŝo de %{author}"
-    create:
-      failure: "Estis eraro dum rekonigado de ĉi tiu afiŝo."
     reshare:
       deleted: "Originala afiŝo forviŝiĝis de l' afiŝinto."
-      reshare:
-        few: "%{count} rekonigoj"
-        many: "%{count} rekonigoj"
-        one: "1 rekonigo"
-        other: "%{count} rekonigoj"
-        two: "%{count} rekonigoj"
-        zero: "Rekonigi"
       reshare_confirmation: "Ĉu rekonigi la afiŝon de %{author}?"
-      reshare_original: "Rekonigi la originalon"
       reshared_via: "rekonigita per"
-      show_original: "Montri la originalon"
   search: "Serĉi"
   services:
     create:
@@ -705,38 +478,16 @@ eo:
       success: "Sukcese forigis identigon."
     failure:
       error: "estis eraro, kiam ni provis konekti tiun servon"
-    finder:
-      fetching_contacts: "Diaspora estas okupita akcepti viajn %{service} amikojn, bv. reveni post kelkaj minutoj."
-      no_friends: "Neniuj Facebook amikoj trovitaj."
-      service_friends: "%{service} Amikoj"
     index:
       disconnect: "malkonekti"
       edit_services: "Redakti servojn"
       logged_in_as: "ensalutinta kiel"
       really_disconnect: "ĉu vi volas malkonekti %{service}?"
       services_explanation: "Konektiĝo al servoj ebligas al vi publikigi viajn afisojn al tiuj, dum vi en diaspora* verkas ilin."
-    inviter:
-      click_link_to_accept_invitation: "Sekvu tiun ligilon por akcepti vian inviton"
-      join_me_on_diaspora: "Renkontu min ĉe DIASPORA*"
-    remote_friend:
-      invite: "inviti"
-      not_on_diaspora: "Ne jam ĉe DIASPORA*"
-      resend: "resendi"
+      share_to: "Havigi al %{provider}"
   settings: "Agordoj"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "La afiŝo de %{name} kaŝiĝis kaj sciigoj malŝaltiĝis."
-      see_it_on_their_profile: "Se vi volas vidi ĝisdatigojn pri tiu afiŝo, vizitu la profilon de %{name}."
   shared:
-    add_contact:
-      add_new_contact: "Aldoni novan kontakton"
-      create_request: "Trovi per DIASPORA* uzantnomo"
-      diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "Enmetu DIASPORA* uzantnomon:"
-      know_email: "Ĉu vi scias iliajn retpoŝtadresojn? Vi devus inviti ilin"
-      your_diaspora_username_is: "Via DIASPORA* uzantnomo estas: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Aldoni kontakton"
       toggle:
         few: "En %{count} aspektoj"
         many: "En %{count} aspektoj"
@@ -744,23 +495,11 @@ eo:
         other: "En %{count} aspektoj"
         two: "En %{count} aspektoj"
         zero: "Aldoni kontakton"
-    contact_list:
-      all_contacts: "Ĉiuj kontaktoj"
-    footer:
-      logged_in_as: "ensalutinta, kiel %{name}"
-      your_aspects: "viaj aspektoj"
     invitations:
       by_email: "Per retpoŝto"
-      dont_have_now: "Vi ne havas iujn ajn nun, sed pli da invitoj baldaŭ venos!"
-      from_facebook: "El Facebook"
-      invitations_left: "ankoraŭ %{count}"
-      invite_someone: "Inviti iun"
       invite_your_friends: "Invitu viajn amikojn"
       invites: "Invitoj"
-      invites_closed: "Invitoj aktuale ne eblas ĉe tiu ĉi DIASPORA* 'pod' (servilo)"
       share_this: "Konigi tiun ĉi ligilon per retmesaĝo, reta taglibro aŭ via ŝatata socia reto!"
-    notification:
-      new: "Nova %{type} de %{from}"
     public_explain:
       atom_feed: "'Atoma' abonrilato"
       control_your_audience: "Kontrolu vian spektantaron"
@@ -772,60 +511,26 @@ eo:
       title: "Agordi ligitajn servojn"
       visibility_dropdown: "Uzu tiun falmenuon por ŝanĝi videblecon de via afiŝo. (Ni sugestas, ke vi igu publika tiun unuan afiŝon.)"
     publisher:
-      all: "ĉiuj"
-      all_contacts: "ĉiuj kontaktoj"
       discard_post: "Forviŝi afiŝon"
       get_location: "Obteni lokadon"
-      make_public: "publikigi"
       new_user_prefill:
         hello: "Saluton al ĉiu, mi estas #%{new_user_tag}. "
         i_like: "Mi interesiĝas pri %{tags}."
         invited_by: "Dankon pro la invito,"
         newhere: "NewHere"
-      post_a_message_to: "Afiŝi al %{aspect}"
       posting: "Afiŝanta..."
-      preview: "Antaŭrigardo"
-      publishing_to: "koniganta al: "
       share: "Konigi"
-      share_with: "konigi al"
       upload_photos: "Alŝuti bildojn"
       whats_on_your_mind: "Kion vi nun pensas?"
-    reshare:
-      reshare: "Rekonigi"
     stream_element:
-      connect_to_comment: "konektiĝu al tiu uzanto por komenti pri ties afiŝo"
-      currently_unavailable: "komentado aktuale ne eblas"
-      dislike: "Malŝati"
-      hide_and_mute: "Kaŝi kaj silentigi afiŝon"
-      ignore_user: "Ignori %{name}"
-      ignore_user_description: "Ignori kaj forigi uzanton el ĉiuj aspektoj?"
-      like: "Ŝati"
-      nsfw: "Ĉi tiun afiŝon la aŭtoro markis kiel NSFW (ne sekura). %{link}"
-      shared_with: "Partoprenita kun: %{aspect_names}"
-      show: "montri"
-      unlike: "Ne plu ŝati"
       via: "per %{link}"
       via_mobile: "per poŝtelefono"
-      viewable_to_anyone: "Tiu ĉi afiŝo videblas de iu ajn en la reto"
   status_messages:
     create:
       success: "Sukcese menciis: %{names}"
-    destroy:
-      failure: "forviŝi afiŝon malsukcesis"
-    helper:
-      no_message_to_display: "Neniu afiŝo montrenda."
     new:
       mentioning: "Mencianta: %{person}"
     too_long: "{\"one\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\", \"other\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\", \"zero\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\"}"
-  stream_helper:
-    hide_comments: "kaŝi ĉiujn komentojn"
-    show_comments:
-      few: "Montri %{count} pliajn komentojn"
-      many: "Montri %{count} pliajn komentojn"
-      one: "Montri unu plian komenton"
-      other: "Montri %{count} pliajn komentojn"
-      two: "Montri du pliajn komentojn"
-      zero: "Neniuj pliaj komentoj"
   streams:
     activity:
       title: "Mia aktiveco"
@@ -851,22 +556,11 @@ eo:
       title: "publika aktiveco"
     tags:
       title: "Afiŝoj etikeditaj: %{tags}"
-  tag_followings:
-    create:
-      failure: "Malsukcesis aboni je #%{name}. Ĉu vi jam sekvas ĝin?"
-      none: "Vi ne povas sekvi senenhavan etikedon!"
-      success: "Hura! Vi nun sekvas je #%{name}."
-    destroy:
-      failure: "Ne povis malaboni je #%{name}. Ĉu eble vi jam malabonis?"
-      success: "Nu! Vi ne plu sekvas je #%{name}."
   tags:
     show:
       follow: "Aboni al #%{tag}"
-      following: "Abonita al #%{tag}"
       none: "Malplena etikedo ne ekzistas!"
       stop_following: "Malaboni de #%{tag}"
-  terms_and_conditions: "Reguloj kaj kondiĉoj"
-  undo: "Ĉu malfari?"
   username: "Uzantnomo"
   users:
     confirm_email:
@@ -887,7 +581,6 @@ eo:
       character_minimum_expl: "devas havi minimume ses signojn"
       close_account:
         dont_go: "Hej, bv. ne foriri!"
-        if_you_want_this: "Se vi vere volas tion ĉi, tajpu vian kodvorton sube kaj klaku al 'Close Account'/'Fermi konton'"
         lock_username: "Tio ĉi baros vian uzantonomon kaze ke vi decidas reensaluti."
         locked_out: "Vi elsalutos kaj estos barita de via konto."
         make_diaspora_better: "Ni deziras helpi al vi plibonigi DIASPORA-on, do vi prefere helpu al ni anstataŭ ol foriri. Se vi vere deziras foriri, ni volas informi vin, kio sekve okazas."
@@ -898,12 +591,10 @@ eo:
       comment_on_post: "...iu komentas pri via afiŝo?"
       current_password: "Nuna pasvorto"
       current_password_expl: "tiu per kiu vi ensalutis..."
-      download_photos: "elŝuti miajn bildojn"
       edit_account: "Redakti konton"
       email_awaiting_confirmation: "Ni sendis al vi aktivigan ligilon ĉe %{unconfirmed_email}.  Ĝis kiam vi klakos tiun ĉi ligilon kaj aktivigos la novan repoŝtadreson, ni uzados vian ĝisnunan retpoŝtadreson %{email}."
       export_data: "Eksporti datumojn"
       following: "Agordoj pri sekvado"
-      getting_started: "Novaj uzanto-agordoj"
       liked: "...iu ŝatis vian afiŝon?"
       mentioned: "...vi estas menciita en afiŝo?"
       new_password: "Nova pasvorto"
@@ -922,7 +613,6 @@ eo:
       connect_to_facebook_link: "Konektante vian Facebook-konton"
       hashtag_explanation: "Etikedoj permesas al vi priparoli kaj aboni viajn interesojn. Ili estas ankaŭ bona metodo por trovi novajn homojn ĉe DIASPORA*."
       hashtag_suggestions: "Provu sekvi etikedojn kiel #arto, #filmoj, #gif, ktp."
-      saved: "Konservita!"
       well_hello_there: "Bone, saluton al vi tie!"
       what_are_you_in_to: "Pri kio vi ŝatokupiĝas?"
       who_are_you: "Kiu vi estas?"
@@ -944,13 +634,6 @@ eo:
       settings_updated: "Agordoj ĝisdatiĝis"
       unconfirmed_email_changed: "Retpoŝtadreso ŝanĝiĝis.  Bezonas aktivigadon."
       unconfirmed_email_not_changed: "Ŝanĝo de retpoŝtadreso malsukcesis."
-  webfinger:
-    fetch_failed: "ne povas alporti webfinger-an profilon por %{profile_url}"
-    hcard_fetch_failed: "estis problemo venigi la hcard-on de @{account}"
-    no_person_constructed: "Neniu persono povis esti kreita per tiu ĉi hcard."
-    not_enabled: "'webfinger' ŝajne ne estas ŝaltita por la servilo de %{account}"
-    xrd_fetch_failed: "estis eraro dum la venigado de 'xrd' de konto %{account}"
-  welcome: "Bonvenon!"
   will_paginate:
     next_label: "sekva &raquo;"
     previous_label: "« antaŭa"

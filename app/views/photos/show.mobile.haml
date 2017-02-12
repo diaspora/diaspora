@@ -5,27 +5,33 @@
 :css
   footer{display: none;}
 
-#show_content.photos
+.photos
   .photo
     = image_tag photo.url(:scaled_full)
-  .stream_element{:class => "photo_mobile"}
+  .stream-element.photo_mobile
     .content
-      .from
-        = person_image_link(photo.author, :size => :thumb_small)
-        = person_link(photo.author)
-        .info
-          %span
-            = link_to(post_path(photo)) do
-              = timeago(photo.created_at)
+      .from.media
+        .media-left
+          = person_image_link(photo.author, class: "media-object", size: :thumb_small)
+        .media-body
+          = person_link(photo.author)
+          .info
+            %span
+              - if photo.status_message
+                = link_to(post_path(photo.status_message)) do
+                  = timeago(photo.created_at)
+              - else
+                = timeago(photo.created_at)
 
 -if additional_photos && additional_photos.length > 1
-  #photo_controls
-  %table
-    %tr
-      %td
-        - if previous_photo != additional_photos.last
-          = link_to(image_tag("mobile/arrow-left.png", id: "arrow-left"), person_photo_path(previous_photo.author, previous_photo), rel: "prefetch", class: "arrow", id: "left")
-      %td{:width => '100%'}
-      %td
-        - if next_photo == additional_photos[additional_photos.index(photo)+1]
-          = link_to(image_tag("mobile/arrow-right.png", id: "arrow-right"), person_photo_path(next_photo.author, next_photo), rel: "prefetch", class: "arrow", id: "right")
+  .photo-controls
+    - if previous_photo != additional_photos.last
+      = link_to(content_tag(:i, nil, id: "arrow-left", class: "entypo-chevron-left"),
+                person_photo_path(previous_photo.author, previous_photo),
+                rel:   "prefetch",
+                class: "arrow left")
+    - if next_photo == additional_photos[additional_photos.index(photo)+1]
+      = link_to(content_tag(:i, nil, id: "arrow-right", class: "entypo-chevron-right"),
+                person_photo_path(next_photo.author, next_photo),
+                rel: "prefetch",
+                class: "arrow right")

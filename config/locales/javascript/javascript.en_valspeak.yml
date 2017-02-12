@@ -6,6 +6,9 @@
 
 en_valspeak:
   javascripts:
+    admins:
+      dashboard:
+        outdated: "ur pod is old bruh.. :/"
     and: "n"
     aspect_dropdown:
       add_to_aspect: "Add BFF"
@@ -19,15 +22,21 @@ en_valspeak:
         one: "In <%= count %> aspect <3"
         other: "In like, <%= count %> aspectz"
         zero: "Pick aspectz"
+      updating: "updatin..."
     aspect_navigation:
       add_an_aspect: "+ Add an aspect!!!"
       deselect_all: "Unhighlight all"
       no_aspects: "No aspectz picked"
       select_all: "Highlight all"
+    aspects:
+      create:
+        add_a_new_aspect: "Add a new aspectttttt"
+      name: "Nameee"
     bookmarklet:
       post_something: "Make a postie to d*!!"
       post_submit: "Submitting postie... hold up..."
       post_success: "Posted!!! Closin popup windowww... <3"
+    cancel: "Cancleee"
     comma: ","
     comments:
       hide: "hide commentz"
@@ -42,10 +51,10 @@ en_valspeak:
       error_remove: "Couldnt like... trash <%= name %> from the aspect :(("
       remove_contact: "Remove BFF"
     conversation:
-      participants: "Ppl up in here"
+      new:
+        no_contacts: "So like, u got to add some ppl before u can start a convo..."
     delete: "Trash"
     edit: "Edit!"
-    failed_to_like: "Ur <3 didnt work :("
     failed_to_post_message: "so like, i couldnt post txt... sry bout tht... :\\"
     failed_to_remove: "So like, there was an issue when removin the entry... sry bout that :\\"
     getting_started:
@@ -69,12 +78,11 @@ en_valspeak:
       search: "Look for"
       settings: "Settins"
       view_all: "Look at all"
+    hide_post: "hide the postie?"
+    hide_post_failed: "Cant hide this postie :/"
     ignore: "Block"
     ignore_failed: "Cant block this h8ter :\\"
     ignore_user: "Ignore this h8ter?"
-    infinite_scroll:
-      no_more: "No moar posties :("
-      no_more_contacts: "No more besties :("
     my_activity: "My Happenins"
     my_aspects: "My Aspectz"
     my_stream: "Wall"
@@ -113,19 +121,43 @@ en_valspeak:
       contacts: "BFFs <33"
       edit: "edit!"
       gender: "So Im like..."
-      ignoring: "U r ignorin all posties from <%= name %>."
       location: "My crib"
       photos: "Pics and selfies <3"
       posts: "Posties!!"
       you_have_no_tags: "u like... have no tagz!"
     publisher:
       add_option: "Like, add an ansah!"
-      at_least_one_aspect: "U like... must add to at least 1 group"
       limited: "Limited - ur postie will only b seen by ppl u r sharin wit"
+      markdown_editor:
+        preview: "show!!"
+        texts:
+          code: "code here"
+          heading: "headin text"
+          insert_image_description_text: "put the pic description here!!"
+          insert_image_help_text: "Put pic linky here!!"
+          insert_image_title: "put pic title here!!"
+          insert_link_description_text: "enter the linky's description here!!"
+          insert_link_help_text: "add linky here"
+          italic: "slanty text"
+          list: "list txt here!!"
+          quote: "quote txt here!!"
+          strong: "buff text"
+        tooltips:
+          bold: "Bowled"
+          code: "Add some code bruh"
+          heading: "Headingg!!"
+          insert_image: "Add a pic!!"
+          insert_link: "Add a linky!"
+          insert_ordered_list: "Add an ordered listy!"
+          insert_unordered_list: "Add an unordered listy!!"
+          italic: "Slanted"
+          quote: "Add a quote or two!![:"
+        write: "Type!!"
       near_from: "Postie from: <%= location %>"
       option: "Mah ansah<3"
       public: "Internetz - ur postie will b seen by any1 on the internet"
       question: "Question!!!"
+    remove_post: "Remove the postie?"
     report:
       name: "Tattle on"
       prompt: "Plz say y:"
@@ -134,10 +166,8 @@ en_valspeak:
         created: "The report was like, created. Yay."
         exists: "The report like, already existz..."
     reshares:
-      duplicate: "OMG that gr8t eh?  uve like, already reshared tht postie!! :P"
       post: "do u wanna like, reshare <%= name %>'s postie?"
       successful: "The postie was reshared!!! :D"
-    search_for: "Look for <%= name %>"
     show_more: "show moar"
     stream:
       comment: "Comment!!"
@@ -151,7 +181,7 @@ en_valspeak:
       like: "<3"
       likes:
         one: "<%= count %> like!!(:"
-        other: "OMG! u got like... <%= count %> likez!!! :DDD"
+        other: "OMG! dis got like... <%= count %> likez!!! :DDD"
         zero: "<%= count %> likes :("
       limited: "Limitedd"
       more_comments:
@@ -171,6 +201,7 @@ en_valspeak:
         follow: "Follow #<%= tag %>!!"
         following: "Followin #<%= tag %>"
         stop_following: "Stop followin #<%= tag %>"
+        stop_following_confirm: "quit followin #<%= tag %>?  :o"
       unfollow: "Stop stalkin"
       unlike: "</3"
       via: "like, via <%= provider %>"
@@ -178,13 +209,17 @@ en_valspeak:
       wasnt_that_interesting: "K, I guess #<%= tagName %> wasnt all that gr8. Whatev."
     timeago:
       day: "like... a day"
-      days: "like... %d dayz"
+      days:
+        other: "like... %d dayz"
       hour: "bout an hr"
-      hours: "bout %d hrs"
+      hours:
+        other: "bout %d hrs"
       minute: "bout a min"
-      minutes: "%d mins"
+      minutes:
+        other: "%d mins"
       month: "bout like... a month"
-      months: "like %d months"
+      months:
+        other: "like %d months"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "less than a min"
@@ -192,17 +227,8 @@ en_valspeak:
       suffixFromNow: "from nao"
       wordSeparator: " "
       year: "bout like... a yr"
-      years: "like %d yrs"
+      years:
+        other: "like %d yrs"
     unblock_failed: "Unblockin this h8ter didnt work :("
-    videos:
-      unknown: "i dunno what kinda vid this is :("
-      watch: "Watch this vid on <%= provider %>"
     viewer:
-      comment: "Comment!!"
-      follow_post: "Follow postie"
-      home: "HOOOMMMMEEEE"
-      like: "<3"
-      reshare: "Reshare!!"
       reshared: "Reshared<33"
-      stop_following_post: "Stop followin postie"
-      unlike: "</3"

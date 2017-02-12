@@ -2,11 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe NotificationsController, :type => :controller do
   before do
-    sign_in :user, alice
+    sign_in alice, scope: :user
   end
 
   describe '#update' do
@@ -68,15 +66,24 @@ describe NotificationsController, :type => :controller do
       expect(assigns[:notifications].count).to eq(1)
     end
 
-    it 'succeeds for notification dropdown' do
+    it "succeeds for notification dropdown" do
       Timecop.travel(6.seconds.ago) do
         @notification.touch
       end
-      get :index, :format => :json
+      get :index, format: :json
       expect(response).to be_success
-      note_html = JSON.parse(response.body)[0]["also_commented"]["note_html"]
-      note_html = Nokogiri::HTML(note_html)
+      response_json = JSON.parse(response.body)
+      note_html = Nokogiri::HTML(response_json["notification_list"][0]["also_commented"]["note_html"])
       timeago_content = note_html.css("time")[0]["data-time-ago"]
+      expect(response_json["unread_count"]).to be(1)
+      expect(response_json["unread_count_by_type"]).to eq(
+        "also_commented"  => 1,
+        "comment_on_post" => 0,
+        "liked"           => 0,
+        "mentioned"       => 0,
+        "reshared"        => 0,
+        "started_sharing" => 0
+      )
       expect(timeago_content).to include(@notification.updated_at.iso8601)
       expect(response.body).to match(/note_html/)
     end
@@ -111,7 +118,7 @@ describe NotificationsController, :type => :controller do
         eve.share_with(alice.person, eve.aspects.first)
         get :index, "per_page" => 5
 
-        expect(Nokogiri(response.body).css('.aspect_membership')).not_to be_empty
+        expect(Nokogiri(response.body).css(".aspect_membership_dropdown")).not_to be_empty
       end
 
       it 'succeeds on mobile' do

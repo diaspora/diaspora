@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe NodeInfoPresenter do
   let(:presenter) { NodeInfoPresenter.new("1.0") }
   let(:hash) { presenter.as_json.as_json }
@@ -31,7 +29,7 @@ describe NodeInfoPresenter do
         },
         "services"          => {
           "inbound"  => [],
-          "outbound" => ["facebook"]
+          "outbound" => AppConfig.configured_services.map(&:to_s)
         },
         "openRegistrations" => AppConfig.settings.enable_registrations?,
         "usage"             => {

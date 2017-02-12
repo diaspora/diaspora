@@ -1,29 +1,33 @@
 #paste_link
-  = t('.paste_link')
+  = t(".paste_link")
   %span#codes_left
-    = '(' + t('.codes_left', :count => @invite_code.count) + ')'
+    = "(" + t(".codes_left", count: @invite_code.count) + ")" unless AppConfig.settings.enable_registrations?
 .form-horizontal
   .control-group
-    .controls
-      = invite_link(@invite_code)
+    = invite_link(@invite_code)
 
-#email_invitation
-  = form_tag new_user_invitation_path, :class => 'form-horizontal' do
-    
-    .control-group
-      %label.control-label{ :for => 'email_inviter_emails' }
-        = t('email')
-      .controls
-        = text_field_tag 'email_inviter[emails]', @invalid_emails, :title => t('.comma_separated_plz'), :placeholder => 'foo@bar.com, max@foo.com...'
-        #already_sent
-          = t('invitations.create.note_already_sent', :emails => @valid_emails) unless @valid_emails.empty?
-    
-    .control-group
-      %label.control-label{ :for => 'email_inviter_locale' }
-        = t('.language')
-      .controls
-        = select_tag('email_inviter[locale]',  options_from_collection_for_select(available_language_options, "second", "first", :selected => current_user.language))
-    
-    .control-group
-      .controls
-        = submit_tag t('.send_an_invitation'), class: 'btn btn-primary creation', data: {disable_with: t('.sending_invitation')}
+- if AppConfig.mail.enable?
+  #email_invitation
+    = form_tag new_user_invitation_path, class: "form-horizontal" do
+
+      .form-group
+        %label.col-sm-2.control-label{for: "email_inviter_emails"}
+          = t("email")
+        .col-sm-10
+          = text_field_tag "email_inviter[emails]", @invalid_emails, title: t(".comma_separated_plz"),
+              placeholder: "foo@bar.com, max@foo.com...", class: "form-control"
+          #already_sent
+            = t("invitations.create.note_already_sent", emails: @valid_emails) unless @valid_emails.empty?
+
+      .form-group
+        %label.col-sm-2.control-label{for: "email_inviter_locale"}
+          = t(".language")
+        .col-sm-10
+          = select_tag "email_inviter[locale]", options_from_collection_for_select(available_language_options,
+              "second", "first", selected: current_user.language), class: "form-control"
+
+      .form-group
+        .pull-right.col-md-12
+          = submit_tag t(".send_an_invitation"), class: "btn btn-primary pull-right",
+              data: {disable_with: t(".sending_invitation")}
+        .clearfix

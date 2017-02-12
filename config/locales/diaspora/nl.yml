@@ -6,11 +6,8 @@
 
 nl:
   _applications: "Applicaties"
-  _comments: "Reacties"
   _contacts: "Contacten"
   _help: "Help"
-  _home: "Home"
-  _photos: "Foto's"
   _services: "Diensten"
   _statistics: "Statistieken"
   _terms: "Voorwaarden"
@@ -53,12 +50,19 @@ nl:
               taken: "is al in gebruik."
   admins:
     admin_bar:
+      dashboard: "Dashboard"
       pages: "Pagina's"
+      pod_network: "Pod netwerk"
       pod_stats: "Pod Statistieken"
       report: "Meldingen"
       sidekiq_monitor: "Sidekiq monitor"
       user_search: "Gebruiker Zoeken"
       weekly_user_stats: "Wekelijkse Gebruikersstatistieken"
+    dashboard:
+      fetching_diaspora_version: "Bepalen laatste versie van diaspora*..."
+      pod_status: "Pod status"
+    pods:
+      pod_network: "Pod netwerk"
     stats:
       2weeks: "2 weken"
       50_most: "50 meest populaire tags"
@@ -92,6 +96,7 @@ nl:
       email: "E-mailadres"
       guid: "GUID"
       id: "ID"
+      invite_token: "Uitnodig token"
       last_seen: "Laatst gezien"
       ? "no"
       : Nee
@@ -109,7 +114,10 @@ nl:
       are_you_sure_unlock_account: "Weet je zeker dat je dit account wilt deblokkeren?"
       close_account: "Afsluiten account"
       email_to: "E-mail om uit te nodigen"
+      invite: "Nodig uit"
+      lock_account: "Blokkeer account"
       under_13: "Toon gebruikers onder de 13 (COPPA)"
+      unlock_account: "Deblokkeer account"
       users:
         one: "%{count} gebruiker gevonden"
         other: "%{count} gebruikers gevonden"
@@ -125,13 +133,63 @@ nl:
         other: "Aantal nieuwe gebruikers deze week: %{count}"
         zero: "Aantal nieuwe gebruikers deze week: geen"
       current_server: "Huidige server datum is %{date}"
-  ago: "%{time} geleden"
   all_aspects: "Alle aspecten"
-  application:
-    helper:
-      unknown_person: "Onbekende persoon"
-      video_title:
-        unknown: "Onbekende Videotitel"
+  api:
+    openid_connect:
+      authorizations:
+        destroy:
+          fail: "De poging om de autorisatie met ID %{id} in te trekken is mislukt"
+        new:
+          access: "%{name} wil toegang tot"
+          approve: "Toestaan"
+          bad_request: "Ontbrekende client id of redirect URI"
+          client_id_not_found: "Geen client met client_id %{client_id} met doorverwijzing URI %{redirect_uri} gevonden"
+          deny: "Weigeren"
+          no_requirement: "%{name} vereist geen permissies"
+          redirection_message: "Weet je zeker dat je toegang wilt verlenen tot %{redirect_uri}"
+      error_page:
+        contact_developer: "Neem contact op met de ontwikkelaar van de applicatie en voeg de gedetailleerde foutboodschap bij:"
+        could_not_authorize: "De applicatie kon niet worden geautoriseerd"
+        login_required: "Je moet eerst inloggen voordat je deze applicatie kunt autoriseren"
+        title: "Ohhh! Er ging iets verkeerd :("
+      scopes:
+        aud:
+          description: "Dit verleent aud toegang tot de applicatie"
+          name: "aud"
+        name:
+          description: "Dit verleent naam toegang tot de applicatie"
+          name: "naam"
+        nickname:
+          description: "Dit verleent bijnaam toegang tot de applicatie"
+          name: "bijnaam"
+        openid:
+          description: "Dit staat de applicatie toe om je basisprofiel te bekijken"
+          name: "basisprofiel"
+        picture:
+          description: "Dit verleent afbeelding toegang tot de applicatie"
+          name: "afbeelding"
+        profile:
+          description: "Dit staat de applicatie toe je uitgebreide profiel te zien"
+          name: "uitgebreid profiel"
+        read:
+          description: "Dit staat de applicatie toe je stream, je gesprekken en je complete profiel te zien"
+          name: "lees profiel, stream en gesprekken"
+        sub:
+          description: "Dit verleent sub toegang tot de applicatie"
+          name: "sub"
+        write:
+          description: "Dit staat de applicatie toe nieuwe berichten te plaatsen, gesprekken te schrijven en reacties in te sturen"
+          name: "bekijk berichten, gesprekken en reacties"
+      user_applications:
+        index:
+          access: "%{name} heeft toegang tot:"
+          edit_applications: "Applicaties"
+          no_requirement: "%{name} heeft geen permissies nodig"
+          title: "Toegestane applicaties"
+        no_applications: "Je hebt geen geautoriseerde applicaties"
+        policy: "Zie het privacystatement van de app"
+        revoke_autorization: "Intrekken"
+        tos: "Zie de gebruiksvoorwaarden van de app"
   are_you_sure: "Weet je het zeker?"
   are_you_sure_delete_account: "Weet je zeker dat je jouw account wil sluiten? Dit kan niet teruggedraaid worden!"
   aspect_memberships:
@@ -147,48 +205,27 @@ nl:
       success: "Contact is met succes toegevoegd aan aspect."
     aspect_listings:
       add_an_aspect: "+ Voeg aspect toe"
-      deselect_all: "Deselecteer alles"
-      edit_aspect: "Bewerk %{name}"
-      select_all: "Selecteer alles"
     aspect_stream:
       make_something: "Schrijf iets"
       stay_updated: "Blijf op de hoogte"
       stay_updated_explanation: "De standaard stream is gevuld met berichten van al je contacten, met alle tags die je volgt en met berichten van een aantal creatieve leden van de community."
-    contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
-    contacts_visible: "Contacten in dit aspect zullen elkaar kunnen zien."
-    create:
-      failure: "Aanmaken van aspect is mislukt."
-      success: "Je nieuwe aspect %{name} is aangemaakt"
     destroy:
       failure: "%{name} kon niet worden verwijderd."
       success: "%{name} is met succes verwijderd."
       success_auto_follow_back: "%{name} is succesvol verwijderd. Je gebruikte dit aspect voor automatisch teruggevolgde gebruikers. Selecteer in je instellingen een nieuw aspect waarin je automatisch teruggevolgde gebruikers kunt plaatsen."
     edit:
-      aspect_chat_is_enabled: "Contacten binnen dit aspect kunnen met jou chatten."
-      aspect_chat_is_not_enabled: "Contacten binnen dit aspect kunnen niet met jou chatten."
       aspect_list_is_not_visible: "Contacten in dit aspect kunnen elkaar niet zien:"
       aspect_list_is_visible: "contactlijst van aspect is zichtbaar voor anderen in aspect"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
-      grant_contacts_chat_privilege: "Contacten in aspect chat autorisatie verlenen?"
-      make_aspect_list_visible: "Contacten in dit aspect voor elkaar zichtbaar maken?"
-      remove_aspect: "Verwijder dit aspect"
       rename: "Hernoemen"
-      set_visibility: "Instellen zichtbaarheid"
       update: "Bijwerken"
       updating: "Aan het bijwerken"
     index:
-      diaspora_id:
-        content_1: "Jouw diaspora* ID is:"
-        content_2: "Geef dit aan anderen, zodat ze je op diaspora* kunnen vinden."
-        heading: "diaspora* ID"
       donate: "Doneer"
-      handle_explanation: "Dit is jouw diaspora* ID. Net als een e-mailadres kun je dit aan anderen geven zodat ze je kunnen bereiken."
       help:
         any_problem: "Problemen?"
         contact_podmin: "Neem contact op met je podbeheerder!"
         do_you: "Heb je:"
-        email_feedback: "%{link} jouw feedback, als dat jou voorkeur heeft."
-        email_link: "E-mail"
         feature_suggestion: "... een %{link} suggestie?"
         find_a_bug: "... een %{link} gevonden?"
         have_a_question: "... een %{link}?"
@@ -201,31 +238,21 @@ nl:
         tutorial_link_text: "Instructies"
         tutorials_and_wiki: "%{faq}, %{tutorial}, %{wiki}: hulp voor je eerste stappen."
       introduce_yourself: "Dit is jouw Stream.  Spring erin en introduceer jezelf."
-      keep_diaspora_running: "Houdt de diaspora* ontwikkeling gaande met een maandelijkse bijdrage!"
       keep_pod_running: "Hou %{pod} draaiend en koop een cafeïneshot voor de servers met een maandelijkse donatie."
       new_here:
         follow: "Volg %{link} en verwelkom nieuwe diaspora* gebruikers!"
         learn_more: "Meer informatie"
         title: "Nieuwe gebruikers verwelkomen"
-      no_contacts: "Geen contacten"
-      no_tags: "+ Vind een tag"
-      people_sharing_with_you: "Mensen die met jou delen"
-      post_a_message: "Plaats een bericht >>"
       services:
         content: "Je kunt de volgende services met diaspora* verbinden:"
         heading: "Verbind diensten"
-      unfollow_tag: "Stop met volgen van #%{tag}"
       welcome_to_diaspora: "Welkom bij diaspora*, %{name}!"
-    new:
-      create: "Aanmaken"
-      name: "Naam (alleen zichtbaar voor jou)"
     no_contacts_message:
       community_spotlight: "Community aanrader"
+      invite_link_text: "uitnodigen"
       or_spotlight: "Of je kan delen met %{link}\n"
       try_adding_some_more_contacts: "Je kunt zoeken of %{invite_link} meer contacten uitnodigen."
       you_should_add_some_more_contacts: "Voeg wat meer contacten toe!"
-    no_posts_message:
-      start_talking: "Nog niemand heeft iets gezegd!"
     seed:
       acquaintances: "Kennissen"
       family: "Familie"
@@ -234,34 +261,28 @@ nl:
     update:
       failure: "De naam van je aspect, %{name}, is te lang om op te slaan."
       success: "Je aspect, %{name}, is succesvol aangepast."
-  back: "Terug"
   blocks:
     create:
       failure: "Ik kon die gebruiker niet negeren. #vermijding"
       success: "Oké, deze gebruiker zul je niet meer in je stream zien. #silencio!"
     destroy:
-      failure: "Ik kon niet stoppen die gebruiker te negeren.  #vermijding\n"
+      failure: "Ik kon niet stoppen die gebruiker te negeren. #vermijding"
       success: "Eens zien wat ze te zeggen hebben! #zeghallo"
   bookmarklet:
     explanation: "Publiceer van overal naar diaspora* door deze bladwijzer op te slaan => %{link}."
     heading: "Bookmarklet"
     post_something: "Publiceer op diaspora*"
-    post_success: "Gepost!"
   cancel: "Annuleren"
   comments:
+    create:
+      error: "Reageren mislukt."
     new_comment:
       comment: "Reactie"
       commenting: "Reageren..."
-    one: "1 reactie"
-    other: "%{count} reacties"
-    zero: "Geen reacties"
   contacts:
-    create:
-      failure: "Verbinding maken mislukt"
     index:
       add_a_new_aspect: "Voeg een aspect toe"
       add_contact: "Toevoegen contactpersoon"
-      add_to_aspect: "Voeg contacten toe aan %{name}"
       all_contacts: "Alle contacten"
       community_spotlight: "Community aanrader"
       my_contacts: "Mijn contacten"
@@ -269,40 +290,28 @@ nl:
       no_contacts_in_aspect: "Je hebt nog geen contacten in dit aspect. Hieronder staat de lijst met je huidige contacten die je aan dit aspect kunt toevoegen."
       no_contacts_message: "Bekijk %{community_spotlight} eens"
       only_sharing_with_me: "Delen alleen met mij"
-      remove_contact: "Verwijderen contactpersoon"
       start_a_conversation: "Plaats een bericht"
       title: "Contacten"
       user_search: "Zoek gebruiker"
-      your_contacts: "Jouw contacten"
-    sharing:
-      people_sharing: "Mensen die met jou delen:"
     spotlight:
       community_spotlight: "Community aanrader"
+      no_members: "Er zijn nog geen leden"
       suggest_member: "Suggereer een lid"
   conversations:
-    conversation:
-      participants: "Deelnemers"
     create:
       fail: "Ongeldig bericht"
-      no_contact: "Hallo, je moet wel eerst een contactpersoon toevoegen!"
       sent: "Privébericht verzonden"
     destroy:
       delete_success: "De conversatie is verwijderd"
       hide_success: "De conversatie is verborgen"
-    helper:
-      new_messages:
-        one: "1 nieuw bericht"
-        other: "%{count} nieuwe berichten\n"
-        zero: "Geen nieuwe berichten"
     index:
       conversations_inbox: "Conversaties - inbakje"
-      create_a_new_conversation: "Start een nieuwe conversatie"
       inbox: "Postvak In"
       new_conversation: "Nieuwe conversatie"
-      no_conversation_selected: "Geen privégesprek geselecteerd"
+      no_contacts: "Je moet een paar contactpersonen toevoegen om een conversatie te starten"
       no_messages: "Geen privéberichten"
     new:
-      abandon_changes: "Wijzigingen annuleren?"
+      message: "Bericht"
       send: "Verstuur"
       sending: "Verzenden..."
       subject: "Onderwerp"
@@ -313,6 +322,7 @@ nl:
     show:
       delete: "Verwijder gesprek"
       hide: "Verberg en onderdruk gesprekken"
+      last_message: "Laatste bericht ontvangen %{timeago}"
       reply: "Beantwoorden"
       replying: "Beantwoorden..."
   date:
@@ -323,12 +333,10 @@ nl:
   delete: "Verwijderen"
   email: "E-mail"
   error_messages:
+    csrf_token_fail: "Het CSRF token is ongeldig. Log opnieuw in en probeer het nog eens."
     helper:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
-      invalid_fields: "Ongeldige velden"
-    login_try_again: "<a href='%{login_link}'>Log in</a> en probeer het opnieuw."
-    post_not_public: "Het bericht dat je probeert de bekijken is niet openbaar!"
-    post_not_public_or_not_exist: "Het bericht dat je wilt bekijken is niet openbaar, of het bestaat niet!"
+    need_javascript: "Deze website vereist JavaScript om goed te kunnen werken. Als je JavaScript hebt uitgeschakeld, adviseren we om het te activeren en deze pagina te herladen."
   fill_me_out: "Vul me in!"
   find_people: "Zoek mensen of #tags"
   help:
@@ -552,84 +560,78 @@ nl:
     tutorial: "instructie"
     tutorials: "instructies"
     wiki: "wiki"
-  hide: "Verbergen"
-  ignore: "Negeren"
+  home:
+    default:
+      be_who_you_want_to_be: "Wees wie je wilt zijn"
+      be_who_you_want_to_be_info: "Heel veel netwerken willen dat je je echte identiteit gebruikt. diaspora* niet. Hier kun je zelf bepalen wie je wilt zijn en zo veel, of zo weinig delen als je wilt. Je maakt hier helemaal zelf uit hoeveel je wilt interacteren met andere mensen."
+      byline: "De sociale online wereld waar jij in control bent"
+      choose_your_audience: "Kies je publiek"
+      choose_your_audience_info: "diaspora*'s aspecten maken het mogelijk om uitsluitend te delen met de mensen waarmee jij dat wilt. Je kunt zo openbaar of privé zijn als je wilt. Deel een grappige foto met de hele wereld, of een groot geheim alleen met je beste vrienden. Jij bent in control."
+      headline: "Welkom op %{pod_name}"
+      own_your_data: "Beschik over je eigen gegevens"
+      own_your_data_info: "Veel netwerken verdienen hun geld door jouw gedrag en interacties vanuit jouw gegevens te analyseren om 'op maat gesneden' advertenties te serveren. diaspora* gebruikt je data alleen om je in de gelegenheid te stellen te communiceren en te delen met anderen."
+    podmin:
+      byline: "Je staat op het punt om het internet te veranderen. Zullen we daar maar eens mee beginnen?"
+      configuration_info: "Open %{database_path} en %{diaspora_path} in je voorkeurs teksteditor en bestudeer ze grondig. Ze zijn rijkelijk voorzien van commentaar."
+      configure_your_pod: "Configureer je pod"
+      contact_irc: "bereik op op IRC"
+      contribute: "Draag bij"
+      contribute_info: "Maak diaspora* nog beter! Als je bugs vind, %{report_bugs}"
+      create_an_account: "Creëer een account"
+      create_an_account_info: "%{sign_up_link} voor een nieuw account."
+      faq_for_podmins: "FAQ voor pod beheerders in onze wiki"
+      getting_help: "Hulp vragen"
+      getting_help_info: "We namen een paar %{faq} inclusief aanvullende tips en trucs op en oplossingen voor de meest voorkomende problemen. En kom gerust op %{irc}."
+      headline: "Welkom, vriend."
+      make_yourself_an_admin: "Maak jezelf beheerder"
+      make_yourself_an_admin_info: "Je kunt instructies vinden in de %{wiki}. Dit zou een \"Beheer\" link aan he gebruikersmenu in de kop moeten toevoegen als je bent ingelogd. Het geeft je dingen als Zoeken gebruiker en stats voor je pod. Voor uitgebreide details over de operationele zaken van de pod ga je naar %{admin_panel}."
+      report_bugs: "meld ze"
+      update_instructions: "update instructies in de diaspora* wiki"
+      update_your_pod: "Update je pod"
+      update_your_pod_info: "Je vind %{update_instructions}"
   invitation_codes:
-    excited: "%{name} is blij je hier te zien."
+    already_logged_in: "Je bent door %{inviter} uitgenodigd om lid te worden van deze pod, maar je bent al ingelogd."
     not_valid: "Deze uitnodigingscode is niet langer geldig"
   invitations:
-    a_facebook_user: "Een Facebook gebruiker"
-    check_token:
-      not_found: "Uitnodigingstoken niet gevonden"
     create:
-      already_contacts: "Je bent al verbonden met deze persoon"
-      already_sent: "Je hebt deze persoon al uitgenodigd."
+      closed: "Uitnodigingen zijn gesloten op deze diaspora* pod"
       empty: "Gelieve minstens 1 e-mailadres toe te voegen."
       no_more: "Je hebt geen uitnodigingen meer."
       note_already_sent: "Er zijn al uitnodigingen verstuurd naar: %{emails}"
-      own_address: "Het is niet mogelijk om een uitnodiging naar je eigen adres te sturen."
       rejected: "De volgende e-mailadressen gaven problemen: "
       sent: "Uitnodigingen zijn verzonden aan:"
-    edit:
-      accept_your_invitation: "Accepteer de uitnodiging"
-      your_account_awaits: "Jou account wacht op je!"
     new:
-      already_invited: "De volgende mensen hebben je uitnodiging niet geaccepteerd:"
-      aspect: "Aspect"
-      check_out_diaspora: "Kijk eens naar diaspora*!"
       codes_left:
         one: "Nog één uitnodiging over op deze code"
         other: "Nog %{count} uitnodigingen over op deze code"
         zero: "Geen uitnodigingen over op deze code"
       comma_separated_plz: "Je kan meerdere e-mail adressen toevoegen door ze te scheiden door komma's"
-      if_they_accept_info: "als hij of zij accepteert zal hij of zij toegevoegd worden aan het aspect waarvoor je hem of haar uitgenodigd hebt."
       invite_someone_to_join: "Nodig iemand uit om lid te worden van diaspora*!"
       language: "Taal"
       paste_link: "Deel deze link met je vrienden om ze uit te nodigen voor diaspora*, of e-mail ze de link direct."
-      personal_message: "Persoonlijk bericht"
-      resend: "Stuur opnieuw"
       send_an_invitation: "Stuur een uitnodiging"
-      send_invitation: "Verstuur uitnodiging"
       sending_invitation: "Versturen uitnodiging..."
-      to: "Aan"
   layouts:
     application:
       back_to_top: "Terug naar top"
+      be_excellent: "Wees uitmuntend voor elkaar! ♥"
       powered_by: "Powered by diaspora*"
       public_feed: "Publieke diaspora* kanaal van %{name}"
       source_package: "Download het broncode pakket"
       statistics_link: "Pod statistieken"
       toggle: "Switch mobiele versie"
       whats_new: "Wat is nieuw op Diaspora?"
-      your_aspects: "Jouw aspecten"
     header:
-      admin: "Beheer"
-      blog: "Blog"
       code: "Code"
-      help: "Help"
-      login: "Inloggen"
       logout: "Uitloggen"
       profile: "Profiel"
-      recent_notifications: "Recente notificaties"
       settings: "Instellingen"
-      view_all: "Bekijk alles"
+      toggle_navigation: "Switchen navigatie"
   likes:
-    likes:
-      people_dislike_this:
-        one: "%{count} persoon vindt dit niet leuk"
-        other: "%{count} mensen vinden dit niet leuk"
-        zero: "Niemand vindt dit niet leuk"
-      people_like_this:
-        one: "%{count} persoon vindt dit leuk"
-        other: "%{count} mensen vinden dit leuk"
-        zero: "Niemand vindt dit leuk"
-      people_like_this_comment:
-        one: "%{count} persoon vindt dit leuk"
-        other: "%{count} mensen vinden dit leuk"
-        zero: "Niemand vindt dit leuk"
+    create:
+      error: "Leuk vinden mislukt"
   limited: "Beperkt"
   more: "Meer"
-  next: "Volgende"
   no_results: "Geen resultaten gevonden"
   notifications:
     also_commented:
@@ -647,14 +649,6 @@ nl:
       one: "%{actors} heeft op jouw %{post_link} gereageerd."
       other: "%{actors} hebben op jouw %{post_link} gereageerd."
       zero: "%{actors} hebben op jouw %{post_link} gereageerd."
-    helper:
-      new_notifications:
-        few: "%{count} nieuwe notificaties"
-        many: "%{count} nieuwe notificaties"
-        one: "1 nieuwe notificatie"
-        other: "%{count} nieuwe notificaties"
-        two: "%{count} nieuwe notificaties"
-        zero: "Geen nieuwe notificaties"
     index:
       all_notifications: "Alle meldingen"
       also_commented: "Reageerde ook"
@@ -719,7 +713,6 @@ nl:
     a_limited_post_comment: "Er is een nieuwe reactie op een besloten bericht in diaspora* dat je even moet beoordelen."
     a_post_you_shared: "een bericht."
     a_private_message: "Er is een nieuw privébericht voor jou in diaspora*."
-    accept_invite: "Accepteer je diaspora* uitnodiging!"
     also_commented:
       limited_subject: "Er is een nieuwe reactie bij een bericht waar je eerder op reageerde"
     click_here: "Klik hier"
@@ -777,11 +770,14 @@ nl:
       message: |-
           Hallo!
 
-          Je bent uitgenodigd om lid te worden van diaspora*!
+          Je bent door %{diaspora_id} uitgenodigd om lid te worden van diaspora*!
 
           Klik op deze link om te starten
 
           [%{invite_url}][1]
+
+          Of je kunt %{diaspora_id} aan je contactpersonen toevoegen als je al een account hebt.
+
 
           Veel plezier,
 
@@ -798,10 +794,10 @@ nl:
       view_post: "Bekijk bericht >"
     mentioned:
       limited_post: "Je werd vermeld in een beperkt geplaatst bericht"
-      mentioned: "heeft jou vermeld in een bericht:"
       subject: "%{name} heeft jou vermeld op diaspora*"
     private_message:
       reply_to_or_view: "Reageer op of bekijk dit privégesprek >"
+      subject: "Er is een nieuw privébericht voor je"
     remove_old_user:
       body: |-
           Hallo,
@@ -828,11 +824,13 @@ nl:
 
           [%{url}][1]
 
-          Beoordeel het zo snel mogelijk.
+          Beoordeel het zo snel mogelijk!
+
 
           Groetjes,
 
           De diaspora* e-mailrobot!
+
           [1]: %{url}
       subject: "Een nieuw %{type} is als aanstootgevend gemarkeerd"
       type:
@@ -852,20 +850,9 @@ nl:
     to_change_your_notification_settings: "om je notificatie instellingen te wijzigen"
   nsfw: "NSFW"
   ok: "OK"
-  or: "of"
-  password: "Wachtwoord"
-  password_confirmation: "Wachtwoordbevestiging"
   people:
     add_contact:
       invited_by: "Je bent uitgenodigd door"
-    add_contact_small:
-      add_contact_from_tag: "Contact toevoegen van tag"
-    aspect_list:
-      edit_membership: "Bewerken aspect lidmaatschap"
-    helper:
-      is_not_sharing: "%{name} deelt niet met jou"
-      is_sharing: "%{name} deelt met jou"
-      results_for: "resultaten voor %{params}"
     index:
       couldnt_find_them: "Kon je ze niet vinden?"
       looking_for: "Op zoek naar berichten getagd met %{tag_link}?\n"
@@ -875,87 +862,37 @@ nl:
       search_handle: "Gebruik hun diaspora* ID (gebruikersnaam@pod.tld) om je vrienden te vinden."
       searching: "Zoeken, even geduld..."
       send_invite: "Nog steeds niets? Stuur een uitnodiging!"
-    one: "1 persoon"
-    other: "%{count} mensen"
     person:
-      add_contact: "Voeg contact toe"
-      already_connected: "Al verbonden"
-      pending_request: "Openstaand verzoek"
       thats_you: "Dat ben jij!"
     profile_sidebar:
       bio: "bio"
       born: "geboortedatum"
-      edit_my_profile: "Bewerk mijn profiel"
       gender: "geslacht"
-      in_aspects: "In de aspecten"
       location: "locatie"
-      photos: "Foto's"
-      remove_contact: "Verwijder contact"
-      remove_from: "Verwijder %{name} uit %{aspect}?"
     show:
       closed_account: "Deze account is gesloten."
       does_not_exist: "Die persoon bestaat niet!"
       has_not_shared_with_you_yet: "%{name} heeft nog geen berichten met je gedeeld!"
-      ignoring: "Je negeert alle berichten van %{name}."
-      incoming_request: "%{name} wil met je delen"
-      mention: "Noemen"
-      message: "Bericht"
-      not_connected: "Je deelt niet met deze persoon"
-      recent_posts: "Recente berichten"
-      recent_public_posts: "Recente openbare berichten"
-      return_to_aspects: "Ga terug naar je aspecten pagina"
-      see_all: "Zie alles"
-      start_sharing: "Start met delen"
-      to_accept_or_ignore: "om te accepteren of te negeren."
-    sub_header:
-      add_some: "Voeg wat toe"
-      edit: "Bewerken"
-      you_have_no_tags: "Je hebt geen tags!"
-    webfinger:
-      fail: "Sorry, we konden %{handle} niet vinden."
-    zero: "Niemand"
   photos:
-    comment_email_subject: "%{name}'s foto"
     create:
       integrity_error: "Foto uploaden mislukt. Weet je zeker dat het een afbeelding was?"
       runtime_error: "Foto uploaden mislukt. Weet je zeker dat je je gordel omhebt?"
       type_error: "Foto uploaden mislukt. Weet je zeker dat je een afbeelding toegevoegd hebt?"
     destroy:
       notice: "Foto verwijderd."
-    edit:
-      editing: "Bewerken"
-    new:
-      back_to_list: "Terug naar de lijst"
-      new_photo: "Nieuwe foto"
-      post_it: "Plaats het!"
-    new_photo:
-      empty: "{file} is leeg, selecteer de bestanden opnieuw zonder deze."
-      invalid_ext: "{file} heeft een ongeldige extensie. Alleen {extensions} zijn toegestaan."
-      size_error: "{file} is te groot, de maximale bestandsgrootte is {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "of selecteer een van je al bestaande %{photos}\n"
       upload: "Upload een nieuwe profielfoto!"
-    photo:
-      view_all: "Bekijk al %{name}'s foto's"
-    show:
-      collection_permalink: "Permalink collectie"
-      delete_photo: "Verwijderen foto"
-      edit: "Bewerken"
-      edit_delete_photo: "Bewerk foto-omschrijving / verwijder foto"
-      make_profile_photo: "Maak profielfoto"
-      show_original_post: "Toon origineel bericht"
-      update_photo: "Bijwerken foto"
-    update:
-      error: "Foto veranderen niet gelukt."
-      notice: "Foto succesvol veranderd."
+  polls:
+    votes:
+      one: "%{count} stem tot nu"
+      other: "%{count} stemmen tot nu"
+      zero: "%{count} stemmen tot nu"
   posts:
     presenter:
       title: "Een bericht van %{name}"
     show:
-      destroy: "Verwijder"
       forbidden: "Je mag dit niet doen"
-      not_found: "Sorry, dat bericht konden we niet vinden."
-      permalink: "Permalink"
+      location: "Geplaats vanaf: %{location}"
       photos_by:
         few: "%{count} foto's door %{author}"
         many: "%{count} foto's door %{author}"
@@ -964,19 +901,24 @@ nl:
         two: "Twee foto's door %{author}"
         zero: "Geen foto's van %{author}"
       reshare_by: "Doorgegeven door %{author}"
-  previous: "Vorige"
   privacy: "Privacy"
-  privacy_policy: "Privacybeleid"
   profile: "Profiel"
   profiles:
     edit:
       allow_search: "Sta mensen toe je op te zoeken binnen diaspora*"
-      edit_profile: "Bewerk profiel"
+      basic: "Mijn basisprofiel"
+      basic_hint: "Ieder onderwerp in je profiel is optioneel. Je basisprofiel is altijd openbaar"
+      extended: "Mijn uitgebreide profiel"
+      extended_hint: "Klik op de schakelaar om de zichtbaarheid van je uitgebreide profiel te switchen. Openbaar betekent zichtbaar voor het internet, beperkt betekent alleen zichtbaar voor de personen met wie je wilt delen."
+      extended_visibility_text: "Zichtbaarheid van je uitgebreide profiel:"
       first_name: "Voornaam"
       last_name: "Achternaam"
+      limited: "Beperkt"
       nsfw_check: "Markeer al mijn berichten als NSFW"
       nsfw_explanation: "NSFW ('not safe for work') is de standaard waarmee de diaspora* gemeenschap er zelf voor zorgt om mogelijk aanstootgevende berichten te markeren en af te schermen. Als je vaak materiaal plaatst dat anderen aanstootgevend zouden kunnen vinden, kun je het beste deze optie in je profiel aankruisen, zodat de berichten niet in de stream van anderen zichtbaar zijn, tenzij zij er zelf voor kiezen om de berichten wel te willen zien."
       nsfw_explanation2: "Als je deze optie niet selecteert, voeg dan de tag #nsfw toe aan ieder mogelijk aanstootgevend bericht."
+      public: "Openbaar"
+      settings: "Profielinstellingen"
       update_profile: "Profiel bijwerken"
       your_bio: "Jouw bio"
       your_birthday: "Je verjaardag"
@@ -984,42 +926,26 @@ nl:
       your_location: "Jouw locatie"
       your_name: "Je naam"
       your_photo: "Je profielfoto"
-      your_private_profile: "Je privé-profiel"
-      your_public_profile: "Je openbare profiel"
       your_tags: "Jezelf: in 5 #tags"
       your_tags_placeholder: "b.v. #diaspora #strijken #kittens #muziek"
     update:
       failed: "Profiel bijwerken mislukt"
       updated: "Profiel bijgewerkt"
   public: "Openbaar"
-  reactions:
-    one: "1 reactie"
-    other: "%{count} reacties"
-    zero: "Geen reacties"
   registrations:
     closed: "Registratie op deze diaspora* pod is niet mogelijk."
     create:
       success: "Je bent nu lid van diaspora*!"
-    edit:
-      cancel_my_account: "Annuleer mijn account"
-      edit: "Bewerk %{name}"
-      leave_blank: "(leeg laten als je niets wilt wijzigen)"
-      password_to_confirm: "(we hebben je huidige wachtwoord nodig om de wijzigingen te bevestigen)"
-      unhappy: "Ontevreden?"
-      update: "Bijwerken"
     invalid_invite: "De uitnodigingslink die je gebruikt is niet langer geldig!"
     new:
-      create_my_account: "Maak mijn account aan!"
       email: "E-mail"
       enter_email: "Vul je e-mailadres in"
       enter_password: "Vul een wachtwoord in (zes karakters minimaal)"
       enter_password_again: "Vul hetzelfde wachtwoord nogmaals in"
       enter_username: "Kies een gebruikersnaam (alleen letters, nummers, en underscores)"
-      join_the_movement: "Sluit je aan!"
       password: "Wachtwoord"
       password_confirmation: "Wachtwoordbevestiging"
-      sign_up: "Aanmelden"
-      sign_up_message: "Sociaal networken met een ♥"
+      sign_up: "Creëer een account"
       submitting: "Verwerken..."
       terms: "Door het aanmaken van een account accepteer je de %{terms_link}."
       terms_link: "gebruiksvoorwaarden"
@@ -1030,47 +956,26 @@ nl:
     delete_link: "Verwijder bericht"
     not_found: "<u>Bericht/Reactie niet gevonden. Het lijkt erop dat de gebruiker het al heeft verwijderd!</u>"
     post_label: "<b>Bericht</b>: %{title}"
-    reason_label: "Reden: %{text}"
+    reason_label: "Reden:"
     reported_label: "<b>Gemeld door</b> %{person}"
+    reported_user_details: "Details over gerapporteerde gebruiker"
     review_link: "Markeren als beoordeeld"
     status:
-      created: "Er is een melding gemaakt"
       destroyed: "Het bericht is vernietigd"
       failed: "Er ging iets verkeerd"
-      marked: "De melding is gemarkeerd als beoordeeld"
     title: "Meldingenoverzicht"
-  requests:
-    create:
-      sending: "Versturen..."
-      sent: "Je hebt gevraagd te delen met %{name}. Hij of zij zou het de eerstvolgende keer dat hij of zij inlogt op diaspora* moeten zien."
-    destroy:
-      error: "Selecteer een aspect!"
-      ignore: "Contactverzoek genegeerd."
-      success: "Jullie delen nu."
-    helper:
-      new_requests:
-        one: "Nieuw verzoek!"
-        other: "%{count} nieuwe verzoeken!"
-        zero: "Geen nieuwe verzoeken"
-    manage_aspect_contacts:
-      existing: "Bestaande contacten"
-      manage_within: "Beheer contacten in"
-    new_request_to_person:
-      sent: "Verzonden!"
+    unreviewed_reports:
+      one: "Er is %{count} onbeoordeelde melding."
+      other: "Er zijn %{count} onbeoordeelde meldingen."
+      zero: "Er zijn geen onbeoordeelde meldingen."
   reshares:
     comment_email_subject: "%{resharer}'s doorgifte van %{author}'s post"
     create:
-      failure: "Er is een fout opgetreden bij het herdelen van deze post."
+      error: "Doordelen mislukt."
     reshare:
       deleted: "Het originele bericht is verwijderd door de auteur."
-      reshare:
-        one: "1 keer doorgegeven"
-        other: "%{count} keer doorgegeven"
-        zero: "Doorgeven"
       reshare_confirmation: "%{author}'s bericht doorgeven?"
-      reshare_original: "Origineel doorgeven"
       reshared_via: "Doorgegeven via"
-      show_original: "Toon origineel"
   search: "Zoek"
   services:
     create:
@@ -1082,10 +987,6 @@ nl:
       success: "Authenticatie succesvol vernietigd."
     failure:
       error: "Er ging iets mis bij het verbinden met die service"
-    finder:
-      fetching_contacts: "diaspora* is je %{service} vrienden aan het invullen, probeer het over een paar minuten nog een keer."
-      no_friends: "Geen Facebook vrienden gevonden."
-      service_friends: "%{service} vrienden"
     index:
       connect: "Verbinden"
       disconnect: "Loskoppelen"
@@ -1094,34 +995,17 @@ nl:
       no_services_available: "Er zijn geen services beschikbaar op deze pod."
       not_logged_in: "Momenteel niet ingelogd."
       really_disconnect: "Verbreek verbinding met %{service}?"
-      services_explanation: "Verbinden met andere diensten biedt je de mogelijkheid om je diaspora* berichten ook daar te plaatsen"
-    inviter:
-      click_link_to_accept_invitation: "Klik op deze link om de uitnodiging te accepteren"
-      join_me_on_diaspora: "Volg me op diaspora*"
+      services_explanation: "Verbinden met diensten van derde partijen biedt je de mogelijkheid om je diaspora* berichten ook daar te plaatsen"
+      share_to: "Delen via %{provider}"
+      title: "Beheren verbonden diensten"
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
       twitter: "Twitter"
       wordpress: "WordPress"
-    remote_friend:
-      invite: "Uitnodigen"
-      not_on_diaspora: "Nog niet op diaspora*"
-      resend: "Opnieuw versturen"
   settings: "Instellingen"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "%{name}'s bericht is verborgen en notificaties worden niet getoond."
-      see_it_on_their_profile: "Als je updates van dit bericht wilt zien, bezoek %{name}'s profiel pagina."
   shared:
-    add_contact:
-      add_new_contact: "Voeg een contact toe"
-      create_request: "Vind via diaspora* ID"
-      diaspora_handle: "gebruikersnaam@pod.org"
-      enter_a_diaspora_username: "Vul een diaspora* gebruikersnaam in:"
-      know_email: "Weet je hun e-mailadres? Je zou ze uit moeten nodigen"
-      your_diaspora_username_is: "Jouw diaspora* gebruikersnaam is: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Voeg contact toe"
       mobile_row_checked: "%{name} (verwijderen)"
       mobile_row_unchecked: "%{name} (toevoegen)"
       toggle:
@@ -1131,23 +1015,11 @@ nl:
         other: "In %{count} aspecten"
         two: "In %{count} aspecten"
         zero: "Voeg contact toe"
-    contact_list:
-      all_contacts: "Alle contacten"
-    footer:
-      logged_in_as: "Ingelogd als %{name}"
-      your_aspects: "Jouw aspecten"
     invitations:
       by_email: "Via e-mail"
-      dont_have_now: "Momenteel heb je er geen, maar meer uitnodigingen volgen spoedig!"
-      from_facebook: "Via Facebook"
-      invitations_left: "%{count} over"
-      invite_someone: "Nodig iemand uit"
       invite_your_friends: "Nodig je vrienden uit"
       invites: "Uitnodigingen"
-      invites_closed: "Uitnodigingen zijn momenteel gesloten voor deze diaspora* pod"
       share_this: "Deel deze link via e-mail, blog, of favoriet sociaal netwerk"
-    notification:
-      new: "Nieuw %{type} van %{from}"
     public_explain:
       atom_feed: "Atom feed"
       control_your_audience: "Beheer je publiek"
@@ -1159,12 +1031,9 @@ nl:
       title: "Stel verbonden services in"
       visibility_dropdown: "Gebruik dit dropdown menu om de zichtbaarheid van je post aan te selecteren. (We suggereren je eerste post publiek te maken.)"
     publisher:
-      all: "Alle"
-      all_contacts: "Alle contacten"
       discard_post: "Maak veld leeg"
       formatWithMarkdown: "Je kunt %{markdown_link} gebruiken om je bericht op te maken"
       get_location: "Haal je locatie op"
-      make_public: "Maak openbaar"
       new_user_prefill:
         hello: "Hallo iedereen, ik ben #%{new_user_tag}. "
         i_like: "Ik ben geïnteresseerd in %{tags}."
@@ -1172,36 +1041,14 @@ nl:
         newhere: "NieuwHier"
       poll:
         add_a_poll: "Plaatsen peiling"
-        add_poll_answer: "Toevoegen keuzemogelijkheid"
-        option: "Keuze 1"
-        question: "Vraag"
-        remove_poll_answer: "Verwijderen keuzemogelijkheid"
-      post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
-      preview: "Voorbeeld"
-      publishing_to: "Publiceren naar: "
       remove_location: "Verwijder locatie"
       share: "Delen"
-      share_with: "Delen met"
       upload_photos: "Upload fotos"
       whats_on_your_mind: "Waar denk je aan?"
-    reshare:
-      reshare: "Doorgeven"
     stream_element:
-      connect_to_comment: "Verbind met deze gebruiker om op zijn of haar berichten te reageren"
-      currently_unavailable: "Reageren nu niet beschikbaar"
-      dislike: "Vind ik niet meer leuk"
-      hide_and_mute: "Verberg en blokkeer bericht"
-      ignore_user: "Negeer %{name}"
-      ignore_user_description: "Gebruiker negeren en hem uit alle aspecten verwijderen?"
-      like: "Vind ik leuk"
-      nsfw: "Dit bericht is aangemerkt als NSFW door de auteur.  %{link}"
-      shared_with: "Gedeeld met: %{aspect_names}"
-      show: "Laat zien"
-      unlike: "vind ik niet meer leuk"
       via: "Via %{link}"
       via_mobile: "Via mobiel"
-      viewable_to_anyone: "Deze post is zichtbaar voor iedereen op het internet"
   simple_captcha:
     label: "Voer de code in dit veld in:"
     message:
@@ -1227,24 +1074,12 @@ nl:
   status_messages:
     create:
       success: "Succesvol vermeld: %{names}"
-    destroy:
-      failure: "Verwijderen van post mislukt"
-    helper:
-      no_message_to_display: "Geen bericht om te weergeven."
     new:
       mentioning: "Noem: %{person}"
     too_long: "Zorg ervoor dat je statusbericht korter is dan %{count} tekens. Nu is het %{current_length} tekens lang"
   stream_helper:
-    hide_comments: "Verberg alle reacties"
     no_more_posts: "Je bent aan het eind van je stream beland."
     no_posts_yet: "Er zijn nog geen berichten."
-    show_comments:
-      few: "Toon nog %{count} andere reacties."
-      many: "Toon nog %{count} andere reacties."
-      one: "Toon nog één andere reactie."
-      other: "Toon nog %{count} andere reacties"
-      two: "Toon nog twee andere reacties."
-      zero: "Geen andere reacties meer"
   streams:
     activity:
       title: "Mijn activiteit"
@@ -1271,13 +1106,6 @@ nl:
     tags:
       title: "Posts getagged: %{tags}"
   tag_followings:
-    create:
-      failure: "Volgen van #%{name} mislukt. Misschien volg je het al?"
-      none: "Je kan geen blanco tag volgen!"
-      success: "Hoera! Vanaf nu volg je #%{name}."
-    destroy:
-      failure: "Het is niet gelukt om te stoppen met het volgen van #%{name}. Misschien ben je al succesvol gestopt met volgen?"
-      success: "Jammer! Je bent gestopt met het volgen van #%{name}."
     manage:
       no_tags: "Je volgt geen tags."
       title: "Beheren van gevolgde tags"
@@ -1285,15 +1113,12 @@ nl:
     name_too_long: "Zorg ervoor dat je tagnaam korter is dan %{count} tekens. Nu is dat %{current_length} tekens."
     show:
       follow: "Volg #%{tag}"
-      following: "Volgt #%{tag}"
       none: "Deze lege tag bestaat niet!"
       stop_following: "Stop met volgen van #%{tag}"
       tagged_people:
         one: "1 persoon heeft getagged met %{tag}"
         other: "%{count} personen hebben getagged met %{tag}"
         zero: "Niemand heeft getagged met %{tag}"
-  terms_and_conditions: "Algemene voorwaarden"
-  undo: "Ongedaan maken?"
   username: "Gebruikersnaam"
   users:
     confirm_email:
@@ -1308,13 +1133,13 @@ nl:
       auto_follow_aspect: "Aspect voor automatisch gevolgde gebruikers:"
       auto_follow_back: "Automatisch terugvolgen wanneer iemand jou volgt"
       change: "Verander"
+      change_color_theme: "Wijzigen kleurenschema"
       change_email: "Verander e-mailadres"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
       character_minimum_expl: "moet ten minste zes karakters bevatten"
       close_account:
         dont_go: "He daar, ga alsjeblieft niet weg!"
-        if_you_want_this: "Als je dit echt wilt, typ je wachtwoord hieronder in en klik op 'Sluit Account'"
         lock_username: "Dit vergrendelt je gebruikersnaam. Je kunt op deze pod later niet een nieuw account met dezelfde ID maken."
         locked_out: "Je wordt afgemeld en afgesloten van je account totdat het is verwijderd."
         make_diaspora_better: "We zouden liever willen dat je ons helpt om diaspora* te verbeteren dan dat je weggaat. Als je echt weg wilt gaan, dan vertellen we je wat er dan gebeurt:"
@@ -1327,14 +1152,12 @@ nl:
       current_password_expl: "het wachtwoord waar je mee inlogt..."
       download_export: "Download mijn profiel"
       download_export_photos: "Download mijn foto's"
-      download_photos: "Download mijn foto's"
       edit_account: "Bewerk account"
       email_awaiting_confirmation: "We hebben een activatielink verzonden naar %{unconfirmed_email}. Totdat je het adres geactiveerd hebt zullen we je originele adress blijven gebruiken %{email}."
       export_data: "Exporteer data"
       export_in_progress: "We zijn bezig je aanvraag te verwerken. Controleer het opnieuw over een paar ogenblikken."
       export_photos_in_progress: "We verwerken nu je foto's. Kom zometeen terug."
       following: "Volgvoorkeuren"
-      getting_started: "Nieuwe gebruikersvoorkeuren"
       last_exported_at: "(Laatst bijgewerkt op %{timestamp})"
       liked: "iemand je bericht leuk vindt"
       mentioned: "je vermeld wordt in een bericht"
@@ -1361,7 +1184,6 @@ nl:
       connect_to_facebook_link: "Verbinden met je Facebook account"
       hashtag_explanation: "Hashtags maken het je makkelijk je interesses volgen. Bovendien kunnen ze je helpen bij het vinden van nieuwe contacten op diaspora*."
       hashtag_suggestions: "Probeer het volgen van tags zoals #art, #movies, #gif, etc. eens uit."
-      saved: "Opgeslagen!"
       well_hello_there: "O, hallo daar!"
       what_are_you_in_to: "Wat interesseert je?"
       who_are_you: "Wie ben je?"
@@ -1374,6 +1196,8 @@ nl:
     public:
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update:
+      color_theme_changed: "Kleurenschema succesvol gewijzigd."
+      color_theme_not_changed: "Er trad een fout op bij het wijzigen van het kleurenschema."
       email_notifications_changed: "E-mailnotificaties gewijzigd"
       follow_settings_changed: "Volgvoorkeuren aangepast"
       follow_settings_not_changed: "Aanpassing aan de volgvoorkeuren is mislukt."
@@ -1385,13 +1209,6 @@ nl:
       settings_updated: "Instellingen aangepast"
       unconfirmed_email_changed: "E-mail gewijzigd. Nog te activeren."
       unconfirmed_email_not_changed: "E-mail wijzigen mislukt"
-  webfinger:
-    fetch_failed: "Ophalen van webfinger profiel voor %{profile_url} is mislukt."
-    hcard_fetch_failed: "Er was een probleem bij het ophalen van de hcard voor %{account}"
-    no_person_constructed: "Er kon geen persoon worden gemaakt van deze hcard."
-    not_enabled: "Webfinger lijkt niet aan te staan voor %{account}'s provider"
-    xrd_fetch_failed: "Er was een probleem bij het verkrijgen van de xrd van het account %{account}"
-  welcome: "Welkom!"
   will_paginate:
     next_label: "volgende &raquo;"
     previous_label: "&laquo; vorige"

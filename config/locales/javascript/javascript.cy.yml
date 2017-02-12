@@ -27,7 +27,6 @@ cy:
       hide: "cuddio sylwadau"
       show: "ddangos sylwadau i gŷd"
     confirm_dialog: "Chi'n siwr?"
-    failed_to_like: "Wedi methu i hoffi!"
     failed_to_post_message: "Methwyd i bostio neges!"
     getting_started:
       alright_ill_wait: "O'r gorau - 'dwi'n aros..."
@@ -36,13 +35,8 @@ cy:
       preparing_your_stream: "Preparing your personalised stream..."
     header:
       search: "Find people or #tags"
-    infinite_scroll:
-      no_more: "Dim mwy o swyddi."
     photo_uploader:
       looking_good: "OMG, rydych chi'n ymddangos yn neis iawn!"
-    reshares:
-      duplicate: "Mae hynny'n dda, eh? Rydych chi wedi rhannu'r bost eisoes!"
-    search_for: "Chwilio am <%= name %>"
     show_more: "dangos mwy"
     stream:
       likes:
@@ -70,20 +64,22 @@ cy:
       wasnt_that_interesting: "OK, mae'n debyg nid yw #<%= tagName %> yn ddiddorol iawn..."
     timeago:
       day: "diwrnod"
-      days: "%d diwrnod"
+      days:
+        other: "%d diwrnod"
       hour: "awr"
-      hours: "%d awr"
+      hours:
+        other: "%d awr"
       minute: "tua funud"
-      minutes: "%d munud"
+      minutes:
+        other: "%d munud"
       month: "mis"
-      months: "%d mis"
+      months:
+        other: "%d mis"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "rhai na munud"
       suffixAgo: "yn ôl"
       suffixFromNow: "o hŷd"
       year: "tua flwyddyn"
-      years: "%d blyddynoedd"
-    videos:
-      unknown: "Math o fideo anhysbys"
-      watch: "Gwyliwch y fideo ar <%= provider %>"
+      years:
+        other: "%d blyddynoedd"

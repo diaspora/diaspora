@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe ExportMailer, :type => :mailer do
   describe '#export_complete_for' do
     it "should deliver successfully" do

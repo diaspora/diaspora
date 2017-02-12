@@ -5,10 +5,7 @@
 
 
 pa:
-  _comments: "ਟਿੱਪਣੀਆਂ"
   _contacts: "ਸੰਪਰਕ"
-  _home: "ਘਰ"
-  _photos: "ਫੋਟੋ"
   _services: "ਸਰਵਿਸਾਂ"
   account: "ਅਕਾਊਂਟ"
   activerecord:
@@ -22,32 +19,22 @@ pa:
           attributes:
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
-  ago: "%{time} ਪਹਿਲਾਂ"
   all_aspects: "All aspects"
   are_you_sure: "ਕੀ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ?"
   aspects:
     edit:
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
       rename: "ਨਾਂ-ਬਦਲੋ"
     index:
-      handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       help:
         here_to_help: "Diaspora community is here to help!"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      no_contacts: "ਕੋਈ ਸੰਪਰਕ ਨਹੀਂ"
-      no_tags: "No tags"
-    new:
-      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-    no_posts_message:
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
     seed:
       family: "ਪਰਿਵਾਰ"
       work: "ਕੰਮ"
-  back: "ਪਿੱਛੇ"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     heading: "Diaspora Bookmarklet"
@@ -58,59 +45,20 @@ pa:
       commenting: "ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
   contacts:
     index:
-      add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-  conversations:
-    helper:
-      new_messages:
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
-        zero: "no new messages"
   delete: "ਹਟਾਓ"
   email: "ਈਮੇਲ"
   find_people: "Find people"
-  invitations:
-    new:
-      already_invited: "Already invited"
   layouts:
     application:
       toggle: "toggle mobile site"
       whats_new: "ਨਵਾਂ ਕੀ ਹੈ?"
     header:
-      blog: "ਬਲੌਗ"
       code: "ਕੋਡ"
-      login: "ਲਾਗਇਨ"
       logout: "ਲਾਗਆਉਟ"
       profile: "profile"
       settings: "settings"
-  likes:
-    likes:
-      people_dislike_this:
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        two: "%{count} dislikes"
-        zero: "no people disliked this"
-      people_like_this:
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        two: "%{count} likes"
-        zero: "no people liked this"
-      people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
   more: "ਹੋਰ"
-  next: "ਅੱਗੇ"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -133,14 +81,6 @@ pa:
       other: "%{actors} commented on your %{post_link}."
       two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
-    helper:
-      new_notifications:
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        two: "%{count} new notifications"
-        zero: "no new notifications"
     index:
       and_others:
         few: "and %{count} others"
@@ -218,21 +158,9 @@ pa:
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
   ok: "ਠੀਕ ਹੈ"
-  or: "ਜਾਂ"
-  password: "ਪਾਸਵਰਡ"
-  password_confirmation: "ਪਾਸਵਰਡ ਪੁਸ਼ਟੀ"
   people:
-    helper:
-      results_for: "%{params} ਲਈ ਨਤੀਜੇ"
-    one: "1 person"
-    other: "%{count} people"
     person:
-      add_contact: "ਸੰਪਰਕ ਸ਼ਾਮਲ"
-      already_connected: "ਪਹਿਲਾਂ ਹੀ ਕੁਨੈਕਟ ਹੈ"
-      pending_request: "pending request"
       thats_you: "thats you!"
-    show:
-      not_connected: "You are not sharing with %{name}"
   posts:
     show:
       photos_by:
@@ -242,73 +170,27 @@ pa:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: "ਪਿੱਛੇ"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
   registrations:
-    edit:
-      cancel_my_account: "ਮੇਰਾ ਅਕਾਊਂਟ ਰੱਦ ਕਰੋ"
-      edit: "%{name} ਸੋਧ"
-      unhappy: "ਖੁਸ਼ ਨਹੀਂ?"
-      update: "ਅੱਪਡੇਟ"
     new:
-      create_my_account: "Create my account"
       enter_email: "ਈਮੇਲ ਦਿਓ"
       enter_password: "ਪਾਸਵਰਡ ਦਿਓ"
       enter_password_again: "ਪਹਿਲਾਂ ਵਾਲਾ ਪਾਸਵਰਡ ਦਿਓ"
       enter_username: "ਯੂਜ਼ਰ ਨਾਂ ਚੁਣੋ (ਕੇਵਲ ਅੱਖਰ, ਅੰਕ ਅਤੇ ਹੇਠਾਂ ਲਾਈਨ)"
-      sign_up_message: "Social Networking with a <3"
-  requests:
-    destroy:
-      success: "ਹੁਣ ਤੁਸੀਂ ਦੋਸਤ ਹੋ।"
-    helper:
-      new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
-    new_request_to_person:
-      sent: "ਭੇਜਿਆ!"
   reshares:
     reshare:
-      reshare:
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
-        two: "%{count} reshares"
-        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
   search: "ਖੋਜ"
   services:
     index:
       disconnect: "ਕੁਨੈਕਸ਼ਨ ਖਤਮ ਕਰੋ"
       edit_services: "ਸਰਵਿਸ ਸੋਧ"
       logged_in_as: "ਇੰਝ ਲਾਗ ਕਰੋ"
-    inviter:
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
-    remote_friend:
-      invite: "ਸੱਦਾ"
-      resend: "ਮੁੜ-ਭੇਜੋ"
   shared:
-    add_contact:
-      create_request: "Find by Diaspora handle"
-      diaspora_handle: "diaspora@handle.org"
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
       toggle:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
@@ -316,50 +198,22 @@ pa:
         other: "In %{count} aspects"
         two: "In %{count} aspects"
         zero: "Add to aspect"
-    contact_list:
-      all_contacts: "ਸਭ ਸੰਪਰਕ"
     invitations:
       by_email: "by Email"
-      invitations_left: "(%{count} left)"
     public_explain:
       title: "You are about to post a public message!"
     publisher:
-      all: "ਸਭ"
-      all_contacts: "ਸਭ ਸੰਪਰਕਾਂ ਨਾਲ"
-      make_public: "ਪਬਲਿਕ ਬਣਾਓ"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       posting: "ਪੋਸਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
       whats_on_your_mind: "ਤੁਹਾਡੇ ਦਿਮਾਗ 'ਚ ਕੀ ਹੈ?"
-    stream_element:
-      dislike: "I dislike this"
-      hide_and_mute: "Hide and Mute"
-      like: "I like this"
   status_messages:
-    helper:
-      no_message_to_display: "ਵੇਖਾਉਣ ਲਈ ਕੋਈ ਸੁਨੇਹਾ ਨਹੀਂ ਹੈ।"
     too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
-  stream_helper:
-    hide_comments: "ਟਿੱਪਣੀਆਂ ਓਹਲੇ ਕਰੋ"
-    show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
   streams:
     aspects:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-  tag_followings:
-    create:
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
-    destroy:
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
   username: "ਯੂਜ਼ਰ ਨਾਂ"
   users:
     confirm_email:

@@ -32,9 +32,7 @@ ar:
     contacts:
       search_no_results: "لم يُعثر على متراسلين"
     delete: "احذف"
-    failed_to_like: "فشل في [أعجبني]"
     failed_to_post_message: "فشل في نشر رسالة!"
-    failed_to_reshare: "فشلت إعادة المشاركة!"
     getting_started:
       alright_ill_wait: "حسناً ، سأنتظر."
       hey: "انتبه <%= name %>"
@@ -55,20 +53,14 @@ ar:
     hide_post: "أأخفِ هذه التدوينة؟"
     hide_post_failed: "تعذّر إخفاء هذه التدوينة"
     ignore: "تجاهل"
-    infinite_scroll:
-      no_more: "لا توجد مشاركات أخرى,"
     my_activity: "نشاطى"
     my_stream: "ساحة المشاركات"
     photo_uploader:
       looking_good: "يا إلهى , تبدو رائعاً !"
     publisher:
-      at_least_one_aspect: "حدد فئة واحدة على الأقل"
       limited: "محدودة - مشاركتك ستكون متاحة لجهات إتصالك فقط"
       public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     remove_post: "أأزيل هذه التدوينة؟"
-    reshares:
-      duplicate: "رائع، أليس كذلك؟ أعدت نشر هذه المشاركة مسبقا"
-    search_for: "إبحث عن <%= name %>"
     show_more: "المزيد"
     stream:
       comment: "تعليق"
@@ -109,27 +101,22 @@ ar:
       wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "يوم"
-      days: "%d أيام"
+      days:
+        other: "%d أيام"
       hour: "ساعة تقريباً"
-      hours: "منذ %d ساعات"
+      hours:
+        other: "منذ %d ساعات"
       minute: "دقيقة تقريباً"
-      minutes: "%d دقائق"
+      minutes:
+        other: "%d دقائق"
       month: "شهر تقريباً"
-      months: "%d شهور"
+      months:
+        other: "%d شهور"
       prefixAgo: "قبل"
       prefixFromNow: "من الآن"
       seconds: "أقل من دقيقة"
       suffixAgo: "مضت"
       suffixFromNow: "من اﻵن"
       year: "عام تقريباً"
-      years: "%d أعوام"
-    videos:
-      unknown: "نوع فيديو غير معروف"
-      watch: "شاهد هذا الفيديو عبر <%= provider %>"
-    viewer:
-      comment: "تعليق"
-      follow_post: "اتبع المشاركة"
-      like: "أعجبنى"
-      reshare: "أعد المشاركة"
-      stop_following_post: "توقف عن متابعة المشاركة"
-      unlike: "إلغاء إعجابى"
+      years:
+        other: "%d أعوام"

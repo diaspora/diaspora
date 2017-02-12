@@ -20,9 +20,6 @@ en_pirate:
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "Find people or #tags"
-    reshares:
-      duplicate: "You've already reshared that post!"
-    search_for: "Search for <%= name %>"
     stream:
       likes:
         few: "<%= count %> Likes"
@@ -52,5 +49,3 @@ en_pirate:
       prefixFromNow: ""
       suffixAgo: ""
       suffixFromNow: ""
-    videos:
-      watch: "Watch this video on <%= provider %>"

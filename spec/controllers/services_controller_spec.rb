@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe ServicesController, :type => :controller do
   let(:omniauth_auth) do
     { 'provider' => 'facebook',
@@ -14,7 +12,7 @@ describe ServicesController, :type => :controller do
   let(:user) { alice }
 
   before do
-    sign_in :user, user
+    sign_in user, scope: :user
     allow(@controller).to receive(:current_user).and_return(user)
   end
 
@@ -75,11 +73,11 @@ describe ServicesController, :type => :controller do
       context 'when the access-level is read-only' do
 
         let(:header) { { 'x-access-level' => 'read' } }
-        let(:access_token) { double('access_token') } 
+        let(:access_token) { double("access_token") }
         let(:extra) { {'extra' => { 'access_token' => access_token }} }
         let(:provider) { {'provider' => 'twitter'} }
 
-        before do 
+        before do
           allow(access_token).to receive_message_chain(:response, :header).and_return header
           request.env['omniauth.auth'] = omniauth_auth.merge!( provider).merge!( extra )
         end

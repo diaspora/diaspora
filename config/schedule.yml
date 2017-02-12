@@ -1,0 +1,15 @@
+clean_cached_files:
+  cron: "0 0 * * *"
+  class: "Workers::CleanCachedFiles"
+
+queue_users_for_removal:
+  cron: "0 0 * * *"
+  class: "Workers::QueueUsersForRemoval"
+
+recurring_pod_check:
+  cron: "0 0 * * *"
+  class: "Workers::RecurringPodCheck"
+
+recheck_scheduled_pods:
+  cron: "*/30 * * * *"
+  class: "Workers::RecheckScheduledPods"

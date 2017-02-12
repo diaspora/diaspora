@@ -12,6 +12,8 @@ module ApplicationHelper
   end
 
   def changelog_url
+    return AppConfig.settings.changelog_url.get if AppConfig.settings.changelog_url.present?
+
     url = "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
     url.sub!('/master/', "/#{AppConfig.git_revision}/") if AppConfig.git_revision.present?
     url
@@ -25,16 +27,10 @@ module ApplicationHelper
     timeago_tag(time, options.merge(:class => 'timeago', :title => time.iso8601, :force => true)) if time
   end
 
-  def bookmarklet_url( height = 400, width = 620)
-    "javascript:(function(){f='#{AppConfig.pod_uri.to_s}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=yes,toolbar=no,width=#{width},height=#{height}'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
-  end
-
-  def contacts_link
-    if current_user.contacts.size > 0
-      contacts_path
-    else
-      community_spotlight_path
-    end
+  def bookmarklet_code(height=400, width=620)
+    "javascript:" +
+      BookmarkletRenderer.body +
+      "bookmarklet('#{bookmarklet_url}', #{width}, #{height});"
   end
 
   def all_services_connected?
@@ -50,15 +46,15 @@ module ApplicationHelper
   def jquery_include_tag
     buf = []
     if AppConfig.privacy.jquery_cdn?
-      version = Jquery::Rails::JQUERY_VERSION
-      buf << [ javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js") ]
-      buf << [ javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag("jquery")}'));") ]
+      version = Jquery::Rails::JQUERY_2_VERSION
+      buf << [javascript_include_tag("//code.jquery.com/jquery-#{version}.min.js")]
+      buf << [nonced_javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag('jquery2')}'));")]
     else
-      buf << [ javascript_include_tag('jquery') ]
+      buf << [javascript_include_tag("jquery2")]
     end
-    buf << [ javascript_include_tag('jquery_ujs') ]
-    buf << [ javascript_tag("jQuery.ajaxSetup({'cache': false});") ]
-    buf << [ javascript_tag("$.fx.off = true;") ] if Rails.env.test?
+    buf << [javascript_include_tag("jquery_ujs")]
+    buf << [nonced_javascript_tag("jQuery.ajaxSetup({'cache': false});")]
+    buf << [nonced_javascript_tag("$.fx.off = true;")] if Rails.env.test?
     buf.join("\n").html_safe
   end
 end

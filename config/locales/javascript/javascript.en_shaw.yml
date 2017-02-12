@@ -19,20 +19,12 @@ en_shaw:
       hide: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
       show: "𐑖𐑴 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
-    failed_to_like: "𐑓𐑱𐑤𐑛 𐑑 𐑤𐑲𐑒!"
     failed_to_post_message: "𐑓𐑱𐑤𐑛 𐑑 𐑐𐑴𐑕𐑑 𐑥𐑧𐑕𐑩𐑡!"
     getting_started:
       hey: "Hey, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "Find people or #tags"
-    infinite_scroll:
-      no_more: "𐑯𐑴 𐑥𐑹 𐑐𐑴𐑕𐑑𐑕."
-    publisher:
-      at_least_one_aspect: "𐑿 𐑥𐑳𐑕𐑑 𐑐𐑳𐑚𐑤𐑦𐑖 𐑑 𐑨𐑑 𐑤𐑰𐑕𐑑 𐑢𐑳𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
-    reshares:
-      duplicate: "𐑿𐑝 𐑷𐑤𐑮𐑧𐑛𐑦 𐑮𐑦𐑖𐑺𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑!"
-    search_for: "𐑕𐑻𐑗 𐑓𐑹 <%= name %>"
     show_more: "𐑖𐑴 𐑥𐑹"
     stream:
       likes:
@@ -60,20 +52,22 @@ en_shaw:
       wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
     timeago:
       day: "𐑩 𐑛𐑱"
-      days: "%d 𐑛𐑱𐑟"
+      days:
+        other: "%d 𐑛𐑱𐑟"
       hour: "𐑩𐑚𐑬𐑑 𐑩𐑯 𐑬𐑮"
-      hours: "𐑩𐑚𐑬𐑑 %d 𐑬𐑮𐑟"
+      hours:
+        other: "𐑩𐑚𐑬𐑑 %d 𐑬𐑮𐑟"
       minute: "𐑩𐑚𐑬𐑑 𐑩 𐑥𐑦𐑯𐑩𐑑"
-      minutes: "%d 𐑥𐑦𐑯𐑩𐑑𐑕"
+      minutes:
+        other: "%d 𐑥𐑦𐑯𐑩𐑑𐑕"
       month: "𐑩𐑚𐑬𐑑 𐑩 𐑥𐑳𐑯𐑔"
-      months: "%d 𐑥𐑳𐑯𐑔𐑕"
+      months:
+        other: "%d 𐑥𐑳𐑯𐑔𐑕"
       prefixAgo: "𐑩𐑜𐑴"
       prefixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"
       seconds: "𐑤𐑧𐑕 𐑞𐑨𐑯 𐑩 𐑥𐑦𐑯𐑩𐑑"
       suffixAgo: "𐑩𐑜𐑴"
       suffixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"
       year: "𐑩𐑚𐑬𐑑 𐑩 𐑘𐑽"
-      years: "%d 𐑘𐑽𐑟"
-    videos:
-      unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑐"
-      watch: "𐑢𐑷𐑗 𐑞𐑦𐑕 𐑝𐑦𐑛𐑦𐑴 𐑪𐑯 <%= provider %>"
+      years:
+        other: "%d 𐑘𐑽𐑟"

@@ -1,7 +1,4 @@
-require 'spec_helper'
-
 describe Services::Facebook, :type => :model do
-
   before do
     @user = alice
     @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :public =>true, :photos => [])
@@ -13,14 +10,6 @@ describe Services::Facebook, :type => :model do
     it 'posts a status message to facebook' do
       stub_request(:post, "https://graph.facebook.com/me/feed").
           to_return(:status => 200, :body => '{"id": "12345"}', :headers => {})
-      @service.post(@post)
-    end
-
-    it 'swallows exception raised by facebook always being down' do
-      skip "temporarily disabled to figure out while some requests are failing"
-
-      stub_request(:post,"https://graph.facebook.com/me/feed").
-        to_raise(StandardError)
       @service.post(@post)
     end
 
@@ -78,14 +67,25 @@ describe Services::Facebook, :type => :model do
     end
   end
 
-  describe '#delete_post' do
-    it 'removes a post from facebook' do
+  describe "#post_opts" do
+    it "returns the facebook_id of the post" do
       @post.facebook_id = "2345"
-      url="https://graph.facebook.com/#{@post.facebook_id}/"
-      stub_request(:delete, "#{url}?access_token=#{@service.access_token}").to_return(:status => 200)
-      expect(@service).to receive(:delete_from_facebook).with(url, {access_token: @service.access_token})
+      expect(@service.post_opts(@post)).to eq(facebook_id: "2345")
+    end
 
-      @service.delete_post(@post)
+    it "returns nil when the post has no facebook_id" do
+      expect(@service.post_opts(@post)).to be_nil
+    end
+  end
+
+  describe "#delete_from_service" do
+    it "removes a post from facebook" do
+      facebook_id = "2345"
+      url = "https://graph.facebook.com/#{facebook_id}/"
+      stub_request(:delete, "#{url}?access_token=#{@service.access_token}").to_return(status: 200)
+      expect(@service).to receive(:delete_from_facebook).with(url, access_token: @service.access_token)
+
+      @service.delete_from_service(facebook_id: facebook_id)
     end
   end
 end

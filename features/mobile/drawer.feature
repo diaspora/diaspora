@@ -9,92 +9,103 @@ Feature: Navigate between pages using the header menu and the drawer
       | Bob Jones    | bob@bob.bob       |
       | Alice Smith  | alice@alice.alice |
 
-    And I sign in as "alice@alice.alice"
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+    And I sign in as "alice@alice.alice" on the mobile website
 
   Scenario: navigate to the stream page
-    When I open the drawer
-    And I follow "My activity"
-    And I click on selector "#header_title"
-    Then I should see "There are no posts yet." within "#main_stream"
+    When I go to the activity stream page
+    And I click on selector "#header-title"
+    Then I should be on the stream page
 
   Scenario: navigate to the notification page
-    When I click on selector "#notification_badge"
-    Then I should see "Notifications" within "#main"
+    When I click on selector "#notification-badge"
+    Then I should be on the notifications page
 
   Scenario: navigate to the conversation page
-    When I click on selector "#conversations_badge"
-    Then I should see "Inbox" within "#main"
+    When I click on selector "#conversations-badge"
+    Then I should be on the conversations page
 
   Scenario: navigate to the publisher page
-    When I click on selector "#compose_badge"
-    Then I should see "All aspects" within "#new_status_message"
+    When I click on selector "#compose-badge"
+    Then I should be on the new status message page
 
   Scenario: search a user
     When I open the drawer
-    And I search for "Bob"
+    Then I should see a "#q" within "#drawer"
+    When I search for "Bob"
     Then I should see "Users matching Bob" within "#search_title"
 
   Scenario: search for a tag
     When I open the drawer
-    And I search for "#bob"
-    Then I should see "#bob" within "#main > h1"
+    Then I should see a "#q" within "#drawer"
+    When I search for "#bob"
+    Then I should be on the tag page for "bob"
+
+  Scenario: navigate to the stream page
+    When I open the drawer
+    And I click on "Stream" in the drawer
+    Then I should be on the stream page
 
   Scenario: navigate to my activity page
     When I open the drawer
-    And I follow "My activity"
-    Then I should see "My activity" within "#main"
+    And I click on "My activity" in the drawer
+    Then I should be on the activity stream page
 
   Scenario: navigate to my mentions page
-    Given Alice has a post mentioning Bob
-    And I sign in as "bob@bob.bob"
     When I open the drawer
-    And I follow "@Mentions"
-    Then I should see "Bob Jones" within ".stream_element"
+    And I click on "@Mentions" in the drawer
+    Then I should be on the mentioned stream page
 
-  Scenario: navigate to my aspects page
+  Scenario: navigate to aspects pages
     Given "bob@bob.bob" has a public post with text "bob's text"
+    Given I have a limited post with text "Hi you!" in the aspect "Besties"
     When I open the drawer
-    And I follow "My aspects"
-    Then I should see "Besties" within "#all_aspects + li > ul"
-    And I follow "Besties"
-    Then I should see "bob's text" within "#main_stream"
+    And I click on "My aspects" in the drawer
+    And I click on "All aspects" in the drawer
+    Then I should be on the aspects page
+    And I should see "Hi you!" within "#main_stream"
+    When I open the drawer
+    And I click on "My aspects" in the drawer
+    And I click on "Unicorns" in the drawer
+    And I should not see "Hi you!" within "#main_stream"
 
   Scenario: navigate to the followed tags page
-    Given "bob@bob.bob" has a public post with text "bob is da #boss"
-    And I toggle the mobile view
-    And I search for "#boss"
-    And I press "Follow #boss"
-    And I toggle the mobile view
-    When I open the drawer
-    And I follow "#Followed tags"
-    Then I should see "#boss" within "#followed_tags + li > ul"
-    And I follow "#boss"
-    Then I should see "bob is da #boss" within "#main_stream"
+    When I follow the "boss" tag
+    And I go to the stream page
+    And I open the drawer
+    And I click on "#Followed tags" in the drawer
+    And I click on "All tags" in the drawer
+    Then I should be on the followed tags stream page
 
-  Scenario: navigate to the manage followed tags page
-    Given "bob@bob.bob" has a public post with text "bob is da #boss"
-    And I toggle the mobile view
-    And I search for "#boss"
-    And I press "Follow #boss"
-    And I toggle the mobile view
+  Scenario: navigate to the boss tag page
+    When I follow the "boss" tag
+    And I go to the stream page
+    And I open the drawer
+    And I click on "#Followed tags" in the drawer
+    And I click on "#boss" in the drawer
+    Then I should be on the tag page for "boss"
+
     When I open the drawer
-    And I follow "#Followed tags"
-    Then I should see "Manage followed tags" within "#followed_tags + li > ul"
-    And I follow "Manage followed tags"
-    Then I should see "#boss" within "ul.followed_tags"
+    And I click on "#Followed tags" in the drawer
+    And I click on "Manage followed tags" in the drawer
+    Then I should be on the manage tag followings page
+
+  Scenario: navigate to the public stream page
+    When I open the drawer
+    And I click on "Public activity" in the drawer
+    Then I should be on the public stream page
 
   Scenario: navigate to my profile page
     When I open the drawer
-    And I follow "Profile"
-    Then I should see "Alice" within "#author_info"
+    And I click on "Profile" in the drawer
+    Then I should be on my profile page
 
-  Scenario: navigate to my mentions page
+  Scenario: navigate to my contacts page
     When I open the drawer
-    And I follow "Contacts"
-    Then I should see "Contacts" within "#main"
+    And I click on "Contacts" in the drawer
+    Then I should be on the contacts page
 
-  Scenario: navigate to my mentions page
+  Scenario: navigate to my settings page
     When I open the drawer
-    And I follow "Settings"
-    Then I should see "Settings" within "#main"
+    And I click on "Settings" in the drawer
+    Then I should be on my account settings page

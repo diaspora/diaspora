@@ -18,14 +18,13 @@ Diaspora.I18n = {
   },
 
   updateLocale: function(locale, data) {
-    locale.data = $.extend(locale.data, data);
+    locale.data = $.extend({}, locale.data, data);
 
-    var rule = this._resolve(locale, ['pluralization_rule']);
-    if (rule !== "") {
-      /* jshint evil:true */
-      // TODO change this to `locale.pluralizationKey = rule`?
+    var rule = locale.data.pluralization_rule;
+    if (typeof rule !== "undefined") {
+      /* eslint-disable no-eval */
       eval("locale.pluralizationKey = "+rule);
-      /* jshint evil:false */
+      /* eslint-enable no-eval */
     }
   },
 
@@ -46,14 +45,9 @@ Diaspora.I18n = {
         : locale.data[nextNamespace];
 
       if(typeof translatedMessage === "undefined") {
-        if (typeof locale.fallback === "undefined") {
-          return "";
-        } else {
-          return this._resolve(locale.fallback, originalItems);
-        }
+        throw new Error("Missing translation: " + originalItems.join("."));
       }
     }
-
     return translatedMessage;
   },
 
@@ -68,7 +62,7 @@ Diaspora.I18n = {
       return _.template(this._resolve(locale, items))(views || {});
     } catch (e) {
       if (typeof locale.fallback === "undefined") {
-        return "";
+        throw e;
       } else {
         return this._render(locale.fallback, originalItems, views);
       }
@@ -77,10 +71,12 @@ Diaspora.I18n = {
 
   reset: function() {
     this.locale.data = {};
+    this.locale.fallback.data = {};
 
-    if( arguments.length > 0 && !(_.isEmpty(arguments[0])) )
+    if(arguments.length > 0 && !(_.isEmpty(arguments[0]))) {
       this.locale.data = arguments[0];
+      this.locale.fallback.data = arguments[0];
+    }
   }
 };
 // @license-end
-

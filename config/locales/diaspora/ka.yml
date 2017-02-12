@@ -6,10 +6,7 @@
 
 ka:
   _applications: "აპლიკაციები"
-  _comments: "კომენტარები"
   _contacts: "კონტაქტები"
-  _home: "სახლი"
-  _photos: "ფოტოები"
   _services: "მომსახურებები"
   account: "ანგარიში"
   activerecord:
@@ -44,13 +41,7 @@ ka:
     stats:
       50_most: "50 ყველაზე პოპულარული თაგი"
       tag_name: "თაგი: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
-  ago: "%{time} წინ"
   all_aspects: "ყველა ასპექტი"
-  application:
-    helper:
-      unknown_person: "უცნობი ადამიანი"
-      video_title:
-        unknown: "ვიდეოს სათაური უცნობია"
   are_you_sure: "დარწმუნებული ხართ?"
   are_you_sure_delete_account: "დარწმუნებული ხართ რომ თქვენი ანგარიშის დახურვა გსურთ? ამის დაბრუნება შეუძლებელია!"
   aspect_memberships:
@@ -64,17 +55,9 @@ ka:
       success: "კონტაქტი წარმატებით დაემატა ასპექტში."
     aspect_listings:
       add_an_aspect: "+ ასპექტის დამატება"
-      deselect_all: "ყველა მონიშვნის მოხსნა"
-      edit_aspect: "%{name}-ს რედაქტირება"
-      select_all: "ყველას არჩევა"
     aspect_stream:
       stay_updated: "იყავი ინფორმირებული"
       stay_updated_explanation: "შენ გვერდზე არის შენი კონტაქტები, ტაგები რომლებსაც მიყვები და პოსტები საზოგადოების კრეატიული წევრებისგან."
-    contacts_not_visible: "ამ ასპექტებში არსებული კონტაქტები ვერ შეძლებენ ერთმანეთის დანახვას."
-    contacts_visible: "ამ ასპექტში არსებული კონტაქტები შეძლებენ ერთმანეთის დანახვას."
-    create:
-      failure: "ასპექტის შექმნა ჩაიშალა"
-      success: "თქვენი ახალი ასპექტი %{name} შეიქმნა"
     destroy:
       failure: "%{name} ცარიელი არ არის და მას ვერ წაშლით."
       success: "%{name} წარმატებით წაიშალა."
@@ -82,22 +65,13 @@ ka:
       aspect_list_is_not_visible: "ასპექტის სია დამალულია ამ ასპექტში მყოფთათვის."
       aspect_list_is_visible: "ასპექტის სია ხილულია ამ ასპექტში მყოფთათვის"
       confirm_remove_aspect: "დარწმუნებული ხართ რომ ამ ასპექტის წაშლა გსურთ?"
-      make_aspect_list_visible: "გახდნენ ამ ასპექტში არსებული კონტაქტები ერთმანეთისთვის ხილულნი?"
-      remove_aspect: "ამ ასპექტის წაშლა"
       rename: "გადარქმევა"
       update: "განახლება"
       updating: "ნახლდება"
     index:
-      diaspora_id:
-        content_1: "თქვენი Diaspora-ს ID არის:"
-        content_2: "გაუზიარეთ ის ნებისმიერ ადამიანს და ის შეძლებს თქვენს პოვნას Diaspora-ზე."
-        heading: "Diaspora ID"
       donate: "ფულის შეწირვა"
-      handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help:
         do_you: "თქვენ:"
-        email_feedback: "%{link} თქვენი უკუკავშირი, თუ გსურთ"
-        email_link: "ელ-ფოსტა"
         feature_suggestion: "... გაქვთ %{link} რჩევა?"
         find_a_bug: "... იპოვეთ %{link}?"
         have_a_question: "გააქვს %{link}?"
@@ -111,24 +85,14 @@ ka:
         follow: "გაყევი %{link} და მიესალმე აახალ დიასპორა*-ს მომხმარებლებს"
         learn_more: "მეტის გაგება"
         title: "მიესალმე ახალ მომხმარებლებს"
-      no_contacts: "არ არის კონტაქტები"
-      no_tags: "მოძებნე ტაგი რომ გაყვე მას"
-      people_sharing_with_you: "ხალხი, რომელიც აზიარებს შენთან"
-      post_a_message: "დაწერე მესიჯი >>"
       services:
         content: "დიასპორაში შეგიძლია დაუკავშირდე შემდეგ სერვისებს:"
         heading: "სერვისებთან დაკავშირება"
-      unfollow_tag: "შეწყვიტე გაყოლა #%{tag}"
-    new:
-      create: "შექმნა"
-      name: "სახელი (ხედავთ მხოლოდ თქვენ)"
     no_contacts_message:
       community_spotlight: "ყურადღების ცენტრში"
       or_spotlight: "ან თქვენ შეგიძლიათ გააზიაროთ %{link}-ის გამოყენებით"
       try_adding_some_more_contacts: "თქვენ შეგიძლიათ მოძებნოთ ან მოიწვიოთ მეტი კონტაქტი."
       you_should_add_some_more_contacts: "თქვენ უნდა დაამატოთ მეტი კონტაქტი!"
-    no_posts_message:
-      start_talking: "ჯერ არავის არაფერი არ უთქვამს!"
     seed:
       acquaintances: "ნაცნობები"
       family: "ოჯახი"
@@ -137,7 +101,6 @@ ka:
     update:
       failure: "თქვენს ასპექტს, %{name}, აქვს ძალიან დიდი სახელი და არ შეიძლება მისი შენახვა"
       success: "თქვენი ასპექტი, %{name}, წარმატებით დარედაქტირდა."
-  back: "უკან"
   blocks:
     create:
       failure: "მე არ ვაიგნორებ ამ მომხმარებელს  #evasion"
@@ -146,21 +109,14 @@ ka:
     explanation: "გამოაქვეყნე დიასპორაზე ნებისმიერი ადგილიდან ამ ბმულის ჩანიშვნით  =>%{link}."
     heading: "სანიშნე"
     post_something: "გამოაქვეყნე დიასპორაზე"
-    post_success: "გამოქვეყნდა! იხურება!"
   cancel: "გაუქმება"
   comments:
     new_comment:
       comment: "კომენტარი"
       commenting: "დაკომენტარება"
-    one: "1 კომენტარი"
-    other: "%{count} კომენტარი"
-    zero: "კომენტარები არ არის"
   contacts:
-    create:
-      failure: "კომენატარის შექმნა ვერ მოხერხდა"
     index:
       add_a_new_aspect: "დაამატე ახალი ასპექტი"
-      add_to_aspect: "%{name} დაამატე კონტაქტებში"
       all_contacts: "ყველა კონტაქტი"
       community_spotlight: "საზოგადოების ყურადღების ცენტრში"
       my_contacts: "ჩემი კონტაქტები"
@@ -169,29 +125,16 @@ ka:
       only_sharing_with_me: "აზიარებს მხოლოდ ჩემთან"
       start_a_conversation: "დაიწყე საუბარი"
       title: "კონტაქტები"
-      your_contacts: "შენი კონტაქტები"
-    sharing:
-      people_sharing: "ხალხი, რომელიც აზიარებს შენთან:"
     spotlight:
       community_spotlight: "Community Spotlight"
   conversations:
     create:
       fail: "არასწორი წერილი"
       sent: "წერილი გაგზავნილია"
-    helper:
-      new_messages:
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
-        zero: "No new messages"
     index:
       inbox: "შემოსული"
-      no_conversation_selected: "საუბარი არ არის მონიშნული"
       no_messages: "წერილები არ არის"
     new:
-      abandon_changes: "არ მოვახდინო ცვლილება?"
       send: "გაგზავნა"
       sending: "იგზავნება..."
       subject: "თემა"
@@ -210,36 +153,17 @@ ka:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "გამოასწორეთ შემდეგი შეცდომები და ხელახლა ცადეთ."
-      invalid_fields: "არასწორი ველები"
   fill_me_out: "შევსება"
   find_people: "იპოვეთ ადამიანები ან #ტეგები"
-  hide: "დამალვა"
   invitations:
-    a_facebook_user: "Facebook-ის მომხმარებელი"
-    check_token:
-      not_found: "მოწვევა არ არის ნაპოვნი"
     create:
-      already_contacts: "თქვენ უკვე დაკავშირებული ხართ ამ პიროვნებასთან"
-      already_sent: "თქვენ უკვე მოიწვიეთ ეს პიროვნება"
       no_more: "თქვენ ამოგეწურათ მოსაწვევები."
-      own_address: "თქვენ არ შეგიძლიათ მოსაწვევის გაგზავნა საკუთარ მისამართზე."
       rejected: "შემდეგ ელ-ფოსტებს აქვთ პრობლემა: "
       sent: "მოსაწვევები გაგზავნილია: "
-    edit:
-      accept_your_invitation: "მიიღე შენი მოწვევა"
-      your_account_awaits: "თქვენი მოსაწვევი გელოდებათ!"
     new:
-      already_invited: "შემდეგ ხალხს არ მიუღია თქვენი მოწვევა:"
-      aspect: "ასპექტი"
-      check_out_diaspora: "შეამოწმე დიასპორა!"
-      if_they_accept_info: "თუ მოწვევას მიიღებენ, ისინი დაემატებიან იმ ასპექტში რომელშიც თქვენ მოიწვიეთ."
       invite_someone_to_join: "მოიწვიე ვინმე რომ შემოუერთდეს დიასპორას!"
       language: "ენა"
-      personal_message: "პირადი წერილი"
-      resend: "ხელახლა გაგზავნა"
       send_an_invitation: "მოწვევის გაგზავნა"
-      send_invitation: "მოწვევის გაგზავნა"
-      to: "ვის"
   layouts:
     application:
       back_to_top: "დასაწყისში დაბრუნება"
@@ -247,39 +171,13 @@ ka:
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "გახდი მობილური"
       whats_new: "რა არის ახალი?"
-      your_aspects: "შენი ასპექტები"
     header:
-      admin: "ადმინისტრატორი"
-      blog: "ბლოგი"
       code: "კოდი"
-      login: "შესვლა"
       logout: "გამოსვლა"
       profile: "პროფილი"
-      recent_notifications: "ბოლო შეტყობინებები"
       settings: "პარამეტრები"
-      view_all: "ყველას ჩვენება"
-  likes:
-    likes:
-      people_dislike_this:
-        few: "%{count} dislikes"
-        many: "%{count} dislikes"
-        one: "%{count} dislike"
-        other: "%{count} dislikes"
-        two: "%{count} dislikes"
-        zero: "no dislikes"
-      people_like_this:
-        other: "%{count} მოწონება"
-        zero: "no likes"
-      people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
   limited: "შეზღუდული"
   more: "მეტი"
-  next: "შემდეგი"
   no_results: "შედეგი ვერ მოიძებნა"
   notifications:
     also_commented:
@@ -303,14 +201,6 @@ ka:
       other: "%{actors} commented on your %{post_link}."
       two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
-    helper:
-      new_notifications:
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notification"
-        other: "%{count} new notifications"
-        two: "%{count} new notifications"
-        zero: "No new notifications"
     index:
       and: "და"
       and_others:
@@ -393,7 +283,6 @@ ka:
       liked: "%{name} მოიწონა შენი პოსტი"
       view_post: "პოსტის ნახვა >"
     mentioned:
-      mentioned: "გახსენა პოსტში:"
       subject: "%{name} გახსენა დიასპორაში*"
     private_message:
       reply_to_or_view: "უპასუხე ან ნახე ეს საუბარი >"
@@ -411,98 +300,34 @@ ka:
     to_change_your_notification_settings: "რომ შეცვალოთ თქვენი შეტყობინების პარამეტრები"
   nsfw: "18+"
   ok: "OK"
-  or: "ან"
-  password: "პაროლი"
-  password_confirmation: "პაროლის დადასტურება"
   people:
-    add_contact_small:
-      add_contact_from_tag: "დაამატე კონტაქტი თაგიდან"
-    aspect_list:
-      edit_membership: "edit aspect membership"
-    helper:
-      results_for: " რეზულტატი %{params}-სთვის"
     index:
       looking_for: "ეძებ %{tag_link} დათაგულ პოსტებს?"
       no_one_found: "...და ვერავინ ვერ მოიძებნა."
       no_results: "რამე უნდა მოძებნო!"
       results_for: "მოძებნე რეზულტატები"
-    one: "1 პერსონა"
-    other: "%{count} ადამიანს"
     person:
-      add_contact: "დაამატე კონტაქტი"
-      already_connected: "უკვე დაკავშირებულია"
-      pending_request: "მიმდინარე მოთხოვნა"
       thats_you: "ეს შენ ხარ!"
     profile_sidebar:
       bio: "ბიოგრაფია"
       born: "დაბადების დღე"
-      edit_my_profile: "ჩემი პროფილის რედაქტირება"
       gender: "სქესი"
-      in_aspects: "ასპექტებში"
       location: "მდებარეობა"
-      remove_contact: "კონტაქტის ამოშლა"
-      remove_from: "ამოშლა %{name} %{aspect}-დან?"
     show:
       closed_account: "ეს ანგარიში დახურულია."
       does_not_exist: "პიროვნება არ არსებობს!"
       has_not_shared_with_you_yet: "%{name} არ აქვს პოსტები შენთან გაზიარებული"
-      ignoring: "იგნორირებას უკეთებთ %{name}-ის ყველა პოსტს"
-      incoming_request: "%{name} wants to share with you"
-      mention: "ხსენება"
-      message: "შეტყობინება"
-      not_connected: "არ აზიარებთ ამ პერსონასთან"
-      recent_posts: "ახალი პოსტები"
-      recent_public_posts: "ბოლო საჯარო პოსტები"
-      return_to_aspects: "დაბრუნდით თქვენი ასპექტების გვერდზე"
-      see_all: "ყველას ნახვა"
-      start_sharing: "დაიწყე გაზიარება"
-      to_accept_or_ignore: "რომ დაადასტუროთ ან უარყოთ ის"
-    sub_header:
-      add_some: "დაამატე"
-      edit: "რედაქტირება"
-      you_have_no_tags: "შენ არ გაქვს თაგები!"
-    webfinger:
-      fail: "ბოდიში, ვერ ვიპოვეთ %{handle}."
-    zero: "არ არის ხალხი"
   photos:
-    comment_email_subject: "%{name}-ის სურათი"
     create:
       integrity_error: "ფოტოს ატვირთვა ვერ მოხერხდა.  დარწმუნებული ხარ რომ სურათია?"
       runtime_error: "ფოტოს ატვირთვა ვერ მოხერხდა.  დარწმუნებული ხარ რომ უსაფრთხოების ღვედები შეკრული გაქვს?"
       type_error: "ფოტოს ატვირთვა ვერ მოხერხდა.  დარწმუნებული ხარ რომ სურათი დაამატე?"
     destroy:
       notice: "სურათი წაშლილია."
-    edit:
-      editing: "შესწორება"
-    new:
-      back_to_list: "სიაში დაბრუნება"
-      new_photo: "ახალი ფოტო"
-      post_it: "გამოაქვეყნე!"
-    new_photo:
-      empty: "{file} არის ცარიელი, გთხოვთ აირჩიოთ ფაილები მის გარეშე"
-      invalid_ext: "{file} აქვს არასწორი გაფართოება. მხოლოდ {extensions} გაფართოებები არის დაშვებული."
-      size_error: "{file} ზომაზე დიდია, მაქსიმალური ზომა არის {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "ან აირჩიეთ უკვე არსებული %{photos}"
       upload: "ახალი პროფილის ფოტოს ატვირთვა!"
-    photo:
-      view_all: "დაათვარიელე %{name}-ს ყველა ფოტო"
-    show:
-      collection_permalink: "პერმაბმულის კოლექცია"
-      delete_photo: "სურათის წაშლა"
-      edit: "რედაქტირება"
-      edit_delete_photo: "ფოტოს აღწერის რედაქტირება / ფოტოს წაშლა"
-      make_profile_photo: "დააყენე სურათი პროფილზე"
-      show_original_post: "ორიგინალი პოსტის ჩვენება"
-      update_photo: "სურათის განახლება"
-    update:
-      error: "ფოტოს რედაქტირება ვერ მოხერხდა."
-      notice: "ფოტო წარმატებით განახლდა."
   posts:
     show:
-      destroy: "წაშლა"
-      not_found: "ბოდიში, ვერ ვიპოვეთ მოთხოვნილი პოსტი."
-      permalink: "პერმაბმული"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -511,14 +336,11 @@ ka:
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
       reshare_by: "თავიდან გამოქვეყნება by %{author}"
-  previous: "წინა"
   privacy: "კონფიდენციალურობა"
-  privacy_policy: "კონფიდენციალურობის პოლიტიკა"
   profile: "პროფილი"
   profiles:
     edit:
       allow_search: "მიეცეს ხალხს დიასპორაში თქვენი მოძებნის საშუალება"
-      edit_profile: "პროფილის რედაქტირება"
       first_name: "სახელი"
       last_name: "გვარი"
       update_profile: "პროფილის განახლება"
@@ -528,80 +350,29 @@ ka:
       your_location: "თქვენი მდებარეობა"
       your_name: "თქვენი სახელი"
       your_photo: "თქვენი ფოტო"
-      your_private_profile: "თქვენი პირადი პროფილი"
-      your_public_profile: "თქვენი საჯარო პროფილი"
       your_tags: "აღწერეთ თქვენი თავი 5 სიტყვით"
       your_tags_placeholder: "მომწონს #ფილმები #კატები #მოგზაურობა # მასწავლებელი #მადრიდი"
     update:
       failed: "პროფილის განახლება ვერ მოხერხდა"
       updated: "პროფილი განახლდა"
   public: "საჯაროდ"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
   registrations:
     closed: "რეგისტრაცია დახურულია დიასპორას ამ პოდზე."
     create:
       success: "თქვენ შეუერთდით დიასპორას!"
-    edit:
-      cancel_my_account: "ჩემი ანგარიშის გაუქმება"
-      edit: "%{name}-ს რედაქტირება"
-      leave_blank: "(დატოვე ცარიელი თუ არ გინდა მისი შეცვლა)"
-      password_to_confirm: "(ჩვენ თქვენი მიმდინარე პაროლი ცვილელების დასადასტურებლად გვჭირდება)"
-      unhappy: "Unhappy?"
-      update: "განახლება"
     new:
-      create_my_account: "შექმენი ჩემი ანგარიში!"
       enter_email: "შეიყვანეთ ელ-ფოსტა"
       enter_password: "შეიყვანეთ პაროლი (მინიმუმ 6 სიმბოლო)"
       enter_password_again: "შეივყანეთ იგივე პაროლი რაც წინაზე"
       enter_username: "აირჩიე მომხმარებლის სახელი (მხოლოდ ასოები, ციფრები და ტირე)"
-      join_the_movement: "შეუერთდი მოძრაობას!"
       password: "პაროლი"
-      sign_up_message: "სოციალური ქსელი ♥-ით"
       username: "მომხმარებლის სახელი"
-  requests:
-    create:
-      sending: "იგზავნება..."
-      sent: "შენ ითხოვე %{name}-თან გაზიარება.  ის ნახავს თხოვნას როდესაც შევა დიასპორაში."
-    destroy:
-      error: "აირჩიეთ ასპექტი!"
-      ignore: "იგნორირებული კონტაქტების თხოვნები."
-      success: "ახლა აზიარებ."
-    helper:
-      new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
-    manage_aspect_contacts:
-      existing: "არსებული კონტაქტები"
-      manage_within: "კონტაქტების მართვა"
-    new_request_to_person:
-      sent: "გაგზავნიალია!"
   reshares:
     comment_email_subject: "%{resharer}'s reshare of %{author} პოსტი"
-    create:
-      failure: "მოხდა შეცდომა ამ პოსტის თავიდან გაზიარებისას."
     reshare:
       deleted: "ორიგინალი პოსტი წაშლილია ავტორის მიერ."
-      reshare:
-        few: "%{count} reshares"
-        many: "%{count} reshares"
-        one: "1 reshare"
-        other: "%{count} reshares"
-        two: "%{count} reshares"
-        zero: "Reshare"
       reshare_confirmation: "გსურს %{author}-ს პოსტის თავიდან გაზიარება?"
-      reshare_original: "ორიგინალის თავიდან გაზიარება"
       reshared_via: "თავიდან გაზიარება"
-      show_original: "ორიგინალის ჩვენება"
   search: "ძებნა"
   services:
     create:
@@ -612,36 +383,14 @@ ka:
       success: "აუტენტიფიკაცია წარმატებით წაიშალა"
     failure:
       error: "მოხდა შეცდომა ამ სერვისთან დაკავშირებისას"
-    finder:
-      no_friends: "ვერცერთი ფეისბუქის მეგობარი ვერ იქნა ნაპოვნი"
-      service_friends: "%{service} მეგობრები"
     index:
       disconnect: "გამოსვლა"
       edit_services: "სერვისის დამატება"
       logged_in_as: "შესული ხარ როგორც"
       really_disconnect: "გამოვიდე %{service} ?"
-    inviter:
-      click_link_to_accept_invitation: "მიყევით ბმულს რომ დათანხმდეთ მოწვევას"
-      join_me_on_diaspora: "შემომიერთდი დიასპორაზე*"
-    remote_friend:
-      invite: "მოწვევა"
-      not_on_diaspora: "ჯერ არ ხართ დიასპორაზე?"
-      resend: "ხელახლა გაგზავნა"
   settings: "პარამეტრები"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "%{name} პოსტები დამალულია და განახლებები გამორთული"
-      see_it_on_their_profile: "თუ გინდა განახლებების ნახვა, ეწვიე %{name} გვერდს"
   shared:
-    add_contact:
-      add_new_contact: "დაამატე ახალი კონტაქტი"
-      create_request: "მოძებნე დიასპორას სახელით"
-      diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "შეიყვანეთ დიასპორას მომხმარებლის სახელი:"
-      know_email: "იცი მათი ელ-ფოსტა? მოიწვიე ისინი"
-      your_diaspora_username_is: "თქვენი დიასპორას მომხმარებლის სახელი არის: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "კონტაქტის დამატება"
       toggle:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
@@ -649,23 +398,11 @@ ka:
         other: "In %{count} aspects"
         two: "In %{count} aspects"
         zero: "Add contact"
-    contact_list:
-      all_contacts: "ყველა კონტაქტი"
-    footer:
-      logged_in_as: "შემოსული ხარ როგორც %{name}"
-      your_aspects: "შენი ასპექტები"
     invitations:
       by_email: "ელ-ფოსტით"
-      dont_have_now: "თქვენ არ გაქვთ არცერთი ახლა, მეტი მოსაწვევები იქნება მალე!"
-      from_facebook: "ფეისბუქიდან"
-      invitations_left: "დარჩა %{count}"
-      invite_someone: "მოიწვიე ვინმე"
       invite_your_friends: "მოიწვიეთ თქვენი მეგობრები"
       invites: "მოსაწვევები"
-      invites_closed: "ამ მომენტისთვის მოწვევა დახურულია დიასპორას ამ პოდზე"
       share_this: "გააზიარე ეს ბმული ელ-ფოსტით, ბლოგით ან საყვარელი სოციალური ქსელით!"
-    notification:
-      new: "ახალი {from}%{type} from %{from}"
     public_explain:
       atom_feed: "Atom feed"
       control_your_audience: "აკონტროლე შენი აუდიენცია"
@@ -677,59 +414,27 @@ ka:
       title: "Set up connected services"
       visibility_dropdown: "გამოიყენე ჩამოსაშლელი მენიუ რომ აირჩიო ვის ექნება პოსტის ნახვის საშუალება (ჩვენ გირჩევთ რომ პირველი პოსტი იყოს სახალხო)"
     publisher:
-      all: "ყველა"
-      all_contacts: "ყველა კონტაქტი"
       discard_post: "წაშალე პოსტი"
-      make_public: "გაასაჯაროვე"
       new_user_prefill:
         hello: "ყველას მოგესალმებით, მე ვარ #%{new_user_tag}. "
         i_like: "მე მაინტერესებს %{tags}. "
         invited_by: "მადლობა მოწვევისთვის, "
         newhere: "ახალი"
-      post_a_message_to: "დაპოსტე შეტყობინება%{aspect}"
       posting: "დაპოსტვა"
       share: "გაზიარება"
-      share_with: "გააზიარე ვინმესთან"
       upload_photos: "ფოტოების ატვირთვა"
       whats_on_your_mind: "რას ფიქრობ ?"
-    reshare:
-      reshare: "თავიდან გაზიარება"
     stream_element:
-      connect_to_comment: "დაუკავშირდი ამ მომხმარებელს რომ ნახო მისი პოსტები"
-      currently_unavailable: "კომენტარის გაკეთება ამ მომენტისთვის შეუძლებელია"
-      dislike: "არ მომწონს"
-      hide_and_mute: "დამალე პოსტი"
-      ignore_user: "გაუკეთე იგნორირება %{name}"
-      ignore_user_description: "წავშალო მომხმარებელი ყველა ასპექტიდან?"
-      like: "მომწონს"
-      nsfw: "ეს პოსტი მისმა ავტორმა მონიშნა როგორც 18+. %{link}"
-      shared_with: "გაზიარებულია : %{aspect_names}"
-      show: "ჩვენება"
-      unlike: "აღარ მომწონს"
       via: "via %{link}"
-      viewable_to_anyone: "ამ პოსტის ნახვა შეუძლია ყველას ინტერნეტში"
   status_messages:
     create:
       success: "წარმატებით აღნიშნე: %{names}"
-    helper:
-      no_message_to_display: "არ არის მესიჯები."
     new:
       mentioning: "Mentioning: %{person}"
     too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
-  stream_helper:
-    hide_comments: "დამალე ყველა კომენატარი"
-    show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
   streams:
     aspects:
       title: "Your Aspects"
-  terms_and_conditions: "ვადები და პირობები"
-  undo: "დაბრუნება?"
   username: "მომხმარებლის სახელი"
   users:
     destroy:
@@ -743,13 +448,11 @@ ka:
       character_minimum_expl: "უნდა შეიცავდეს მინიმუმ ექვს სიმბოლოს"
       close_account:
         dont_go: "ჰეი, გთხოვ არ წახვიდე!"
-        if_you_want_this: "თუ მართლა გსურთ ამის გაკეთება, ჩაწერეთ თქვენი პაროლი ქვემოთ და დააწკაპუნეთ ღილაკს \"ანგარიშის დახურვა\""
         locked_out: "თქვენ გამოხვალთ და თქვენი ანგარიში დაიბლოკება"
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "ანგარიშის დახურვა"
       current_password: "მიმდინარე პაროლი"
       current_password_expl: "რომლითაც შემოდიხართ..."
-      download_photos: "ჩემი სურათების გადმოწერა"
       edit_account: "ანგარიშის რედაქტირება"
       new_password: "ახალი პაროლი"
       show_community_spotlight: "გსურთ რეკომენდებული მომხმარებლების ნახვა ნაკადში?"
@@ -765,4 +468,3 @@ ka:
       language_not_changed: "ენის შეცვლა ვერ მოხერხდა"
       password_changed: "პაროლი შეიცვალა. თქვენ ახლა უკვე შეგიძლიათ თქვენი ახალი პაროლით შესვლა"
       unconfirmed_email_not_changed: "ელ-ფოსტის შეცვლა ვერ მოხერხდა"
-  welcome: "მოგესალმებით!"

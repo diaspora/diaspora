@@ -24,6 +24,10 @@ describe("Diaspora.I18n", function() {
     Diaspora.I18n.reset();   // run tests with clean locale
   });
 
+  afterEach(function() {
+    Diaspora.I18n.load(spec.defaultLocale, "en"); // leave the tests with the default locale
+  });
+
   describe("::load", function() {
     it("sets the class's locale variable", function() {
       Diaspora.I18n.load(locale, "en", locale);
@@ -40,6 +44,28 @@ describe("Diaspora.I18n", function() {
       Diaspora.I18n.load(data, "en", data);
 
       expect(Diaspora.I18n.locale.data).toEqual(extended);
+    });
+
+    it("overrides existing translations", function() {
+      var oldLocale = {name: "Bob"};
+      var newLocale = {name: "Alice"};
+      Diaspora.I18n.load(oldLocale, "en");
+      expect(Diaspora.I18n.locale.data.name).toBe("Bob");
+      Diaspora.I18n.load(newLocale, "en");
+      expect(Diaspora.I18n.locale.data.name).toBe("Alice");
+
+      Diaspora.I18n.reset(oldLocale);
+      expect(Diaspora.I18n.locale.data.name).toBe("Bob");
+      Diaspora.I18n.load(newLocale, "en");
+      expect(Diaspora.I18n.locale.data.name).toBe("Alice");
+    });
+
+    it("doesn't change locale objects given in ealier calls", function() {
+      var oldLocale = {name: "Bob"};
+      var newLocale = {name: "Alice"};
+      Diaspora.I18n.reset(oldLocale);
+      Diaspora.I18n.load(newLocale, "en");
+      expect(oldLocale.name).toBe("Bob");
     });
   });
 
@@ -65,8 +91,10 @@ describe("Diaspora.I18n", function() {
       expect(translation).toEqual("it works!");
     });
 
-    it("returns an empty string if the translation is not found", function() {
-      expect(Diaspora.I18n.t("missing.locale")).toEqual("");
+    it("throws an error if the translation is not found", function() {
+      expect(function() {
+        return Diaspora.I18n.t("missing.locale");
+      }).toThrowError("Missing translation: missing.locale");
     });
 
     it("falls back on missing key", function() {
@@ -90,6 +118,7 @@ describe("Diaspora.I18n", function() {
       Diaspora.I18n.load(locale, "en", locale);
       Diaspora.I18n.reset();
       expect(Diaspora.I18n.locale.data).toEqual({});
+      expect(Diaspora.I18n.locale.fallback.data).toEqual({});
     });
 
     it("sets the locale to only a specific value", function() {
@@ -97,6 +126,7 @@ describe("Diaspora.I18n", function() {
       Diaspora.I18n.load(locale, "en", locale);
       Diaspora.I18n.reset(data);
       expect(Diaspora.I18n.locale.data).toEqual(data);
+      expect(Diaspora.I18n.locale.fallback.data).toEqual(data);
     });
   });
 });

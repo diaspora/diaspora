@@ -14,11 +14,15 @@ class ContactsController < ApplicationController
       # Used by the mobile site
       format.mobile { set_up_contacts_mobile }
 
-      # Used to populate mentions in the publisher
+      # Used for mentions in the publisher and pagination on the contacts page
       format.json {
-        aspect_ids = params[:aspect_ids] || current_user.aspects.map(&:id)
-        @people = Person.all_from_aspects(aspect_ids, current_user).for_json
-        render :json => @people.to_json
+        @people = if params[:q].present?
+                    mutual = params[:mutual].present? && params[:mutual]
+                    Person.search(params[:q], current_user, only_contacts: true, mutual: mutual).limit(15)
+                  else
+                    set_up_contacts_json
+                  end
+        render json: @people
       }
     end
   end
@@ -31,30 +35,54 @@ class ContactsController < ApplicationController
   private
 
   def set_up_contacts
-    type = params[:set].presence
-    type ||= "by_aspect" if params[:a_id].present?
-    type ||= "receiving"
+    if params[:a_id].present?
+      @aspect = current_user.aspects.find(params[:a_id])
+      gon.preloads[:aspect] = AspectPresenter.new(@aspect).as_json
+    end
+    @contacts_size = current_user.contacts.size
+  end
 
-    @contacts = contacts_by_type(type)
-    @contacts_size = @contacts.length
-    gon.preloads[:contacts] = @contacts.map{ |c| ContactPresenter.new(c, current_user).full_hash_with_person }
+  def set_up_contacts_json
+    type = params[:set].presence
+    if params[:a_id].present?
+      type ||= "by_aspect"
+      @aspect = current_user.aspects.find(params[:a_id])
+    end
+    type ||= "receiving"
+    contacts_by_type(type).paginate(page: params[:page], per_page: 25)
+                          .map {|c| ContactPresenter.new(c, current_user).full_hash_with_person }
   end
 
   def contacts_by_type(type)
-    case type
+    order = ["profiles.first_name ASC", "profiles.last_name ASC", "profiles.diaspora_handle ASC"]
+    contacts = case type
       when "all"
+        order.unshift "receiving DESC"
         current_user.contacts
       when "only_sharing"
         current_user.contacts.only_sharing
       when "receiving"
         current_user.contacts.receiving
       when "by_aspect"
-        @aspect = current_user.aspects.find(params[:a_id])
-        gon.preloads[:aspect] = AspectPresenter.new(@aspect).as_json
-        current_user.contacts
+        order.unshift "contact_id IS NOT NULL DESC"
+        contacts_by_aspect(@aspect.id)
       else
         raise ArgumentError, "unknown type #{type}"
       end
+    contacts.includes(person: :profile)
+            .order(order)
+  end
+
+  def contacts_by_aspect(aspect_id)
+    contacts = current_user.contacts.arel_table
+    aspect_memberships = AspectMembership.arel_table
+    current_user.contacts.joins(
+      contacts.outer_join(aspect_memberships).on(
+        aspect_memberships[:aspect_id].eq(aspect_id).and(
+          aspect_memberships[:contact_id].eq(contacts[:id])
+        )
+      ).join_sources
+    )
   end
 
   def set_up_contacts_mobile

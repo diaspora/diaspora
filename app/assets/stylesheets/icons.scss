@@ -1,0 +1,13 @@
+[class^="entypo-"], [class*="entypo-"] {
+  font-style: normal;
+  color: $icon-color;
+
+  &.red { color: #A40802; }
+  &.white { color: white; }
+  &.gray { color: #aaa; }
+  &.blue { color: #3f8fba; }
+
+  &.small { font-size: 1em; }
+  &.middle { font-size: 1.5em; }
+  &.large { font-size: 2.5em; }
+}

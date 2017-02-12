@@ -5,8 +5,8 @@
 class Comment < ActiveRecord::Base
 
   include Diaspora::Federated::Base
-
-  include Diaspora::Guid
+  include Diaspora::Fields::Guid
+  include Diaspora::Fields::Author
   include Diaspora::Relayable
 
   include Diaspora::Taggable
@@ -16,12 +16,9 @@ class Comment < ActiveRecord::Base
   extract_tags_from :text
   before_create :build_tags
 
-  xml_attr :text
-  xml_attr :diaspora_handle
-
   belongs_to :commentable, :touch => true, :polymorphic => true
   alias_attribute :post, :commentable
-  belongs_to :author, :class_name => 'Person'
+  alias_attribute :parent, :commentable
 
   delegate :name, to: :author, prefix: true
   delegate :comment_email_subject, to: :parent
@@ -30,6 +27,10 @@ class Comment < ActiveRecord::Base
   validates :text, :presence => true, :length => {:maximum => 65535}
   validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
+  has_many :reports, as: :item
+
+  has_one :signature, class_name: "CommentSignature", dependent: :delete
+
   scope :including_author, -> { includes(:author => :profile) }
   scope :for_a_stream,  -> { including_author.merge(order('created_at ASC')) }
 
@@ -37,46 +38,15 @@ class Comment < ActiveRecord::Base
     self.text.strip! unless self.text.nil?
   end
 
-  after_save do
-    self.post.touch
-  end
-
-  after_commit :on => :create do
-    self.parent.update_comments_counter
+  after_commit on: :create do
+    parent.update_comments_counter
+    parent.touch(:interacted_at) if parent.respond_to?(:interacted_at)
   end
 
   after_destroy do
     self.parent.update_comments_counter
-  end
-
-  def diaspora_handle
-    self.author.diaspora_handle
-  end
-
-  def diaspora_handle= nh
-    self.author = Person.find_or_fetch_by_identifier(nh)
-  end
-
-  def notification_type(user, person)
-    if self.post.author == user.person
-      return Notifications::CommentOnPost
-    elsif user.participations.where(:target_id => self.post).exists? && self.author_id != user.person.id
-      return Notifications::AlsoCommented
-    else
-      return false
-    end
-  end
-
-  def parent_class
-    Post
-  end
-
-  def parent
-    self.post
-  end
-
-  def parent= parent
-    self.post = parent
+    participation = author.participations.where(target_id: post.id).first
+    participation.unparticipate! if participation.present?
   end
 
   def message
@@ -87,14 +57,13 @@ class Comment < ActiveRecord::Base
      self[:text] = text.to_s.strip #to_s if for nil, for whatever reason
   end
 
-  class Generator < Federated::Generator
+  class Generator < Diaspora::Federated::Generator
     def self.federated_class
       Comment
     end
 
     def initialize(person, target, text)
       @text = text
-      @dispatcher_opts = {additional_subscribers: target.comments_authors.where.not(id: person.id)}
       super(person, target)
     end
 

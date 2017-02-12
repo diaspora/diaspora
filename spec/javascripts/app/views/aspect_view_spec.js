@@ -9,8 +9,8 @@ describe("app.views.Aspect", function(){
       this.view.render();
     });
 
-    it('should show the aspect selected', function(){
-      expect(this.view.$el.children('.entypo.check').hasClass('selected')).toBeTruthy();
+    it("should show the aspect selected", function(){
+      expect(this.view.$el.find(".entypo-check").hasClass("selected")).toBeTruthy();
     });
 
     it('should show the name of the aspect', function(){

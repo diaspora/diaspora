@@ -6,10 +6,7 @@
 
 lt:
   _applications: "Programos"
-  _comments: "Komentarai"
   _contacts: "Kontaktai"
-  _home: "Pradžia"
-  _photos: "Nuotraukos"
   _services: "Paslaugos"
   account: "Paskyra"
   activerecord:
@@ -40,13 +37,7 @@ lt:
             username:
               invalid: "Neteisingas. Galima naudoti tik raides, skaičius ir apatinį brūkšnelį_"
               taken: "Užimtas"
-  ago: "%{time} prieš"
   all_aspects: "Visos kategorijos"
-  application:
-    helper:
-      unknown_person: "Nežinomas asmuo"
-      video_title:
-        unknown: "Netinkamas video įrašo tipas."
   are_you_sure: "Ar jūs įsitikinęs?"
   are_you_sure_delete_account: "Ar Jūs įsitikinęs, kad norite ištrinti savo paskyrą? Šio veiksmo negalėsite atšaukti!"
   aspect_memberships:
@@ -60,17 +51,9 @@ lt:
       success: "Kontaktas sėkmingai priskirtas kategorijai."
     aspect_listings:
       add_an_aspect: "Pridėti kategoriją"
-      deselect_all: "Nepasirinkti nieko"
-      edit_aspect: "Redaguoti %{name}"
-      select_all: "Pasirinkti viską"
     aspect_stream:
       stay_updated: "Sekite naujienas"
       stay_updated_explanation: "Jūsų pagrindiniame sraute galite rasti visus savo kontaktus, Jūsų sekamas žymes, ir išradingų bendruomenės narių įrašus."
-    contacts_not_visible: "Šios kategorijos kontaktai negalės matyti vienas kito."
-    contacts_visible: "Šios kategorijos kontaktai galės matyti vienas kitą."
-    create:
-      failure: "Kategorijos sukurti nepavyko."
-      success: "Nauja kategorija  %{name} sukurta."
     destroy:
       failure: "%{name} negali būti pašalintas, nes nėra tuščias."
       success: "%{name} sėkmingai pašalintas."
@@ -78,21 +61,13 @@ lt:
       aspect_list_is_not_visible: "Kategorijų sąrašo nemato kiti esantys šioje kategorijoje"
       aspect_list_is_visible: "Kategorijų sąrašas matomas kietiems esantiems šioje kategorijoje"
       confirm_remove_aspect: "Ar tikrai norite ištrinti šią kategoriją?"
-      make_aspect_list_visible: "Ar leisti šios kategorijos kontaktams matyti vienas kitą?"
-      remove_aspect: "Ištrinti kategoriją"
       rename: "Pervardinti"
       update: "Atnaujinti"
       updating: "Atnaujinama..."
     index:
-      diaspora_id:
-        content_1: "Jūsų unikalus Diaspora ID:"
-        content_2: "Jo pagalba Jus galima surasti Diaspora tinkle."
-        heading: "Unikalus Diaspora ID"
       donate: "Aukoti dabar"
-      handle_explanation: "Tai tavo unikalus numeris Diaspora tinkle. Jis, kaip ir el. pašto adresas, leidžia kitiems žmonėms surasti Jus tinkle."
       help:
         do_you: "Ar:"
-        email_feedback: "%{link} Jūsų atsiliepimai"
         feature_suggestion: "... galite pasiūlyti %{link}?"
         find_a_bug: "...randate %{link}?"
         have_a_question: "... turite %{link}?"
@@ -106,25 +81,15 @@ lt:
         follow: "Sekti %{link} ir pasveikinti naujus tinklapio Diaspora* vartotojus!"
         learn_more: "Sužinoti daugiau"
         title: "Pasveikinkite naujus vartotojus"
-      no_contacts: "Kontaktų nėra"
-      no_tags: "No tags"
-      people_sharing_with_you: "Žmonės dalijasi su jumis"
-      post_a_message: "Parašyti žinutę"
       services:
         content: "Jūs galite prijungti šias paslaugas prie savo Diaspora tinklapio:"
         heading: "Prijungti paslaugas"
-      unfollow_tag: "Sustabdyti sekimą #%{tag}"
       welcome_to_diaspora: "Sveiki atvykę į tinklapį Diaspora, %{name}!"
-    new:
-      create: "Sukurti"
-      name: "Vardas (matomas tik Jums)"
     no_contacts_message:
       community_spotlight: "Bendruomenės dėmesio centre"
       or_spotlight: "Arba galite dalintis su %{link}"
       try_adding_some_more_contacts: "Jūs galite ieškoti arba pakviesti daugiau žmonių."
       you_should_add_some_more_contacts: "Pridėkite daugiau kontaktų!"
-    no_posts_message:
-      start_talking: "Dar niekas nepasisakė. Pradėkite pokalbį pats!"
     seed:
       acquaintances: "Pažintys"
       family: "Šeima"
@@ -133,26 +98,18 @@ lt:
     update:
       failure: "Kategorijos %{name} pavadinimas yra per ilgas."
       success: "Kategorija %{name} sėkmingai pakeista."
-  back: "Atgal"
   bookmarklet:
     explanation: "Paskelbkite tinkle Diaspora %{link} paspausdami šią nuorodą => %{link}"
     heading: "Diaspora žymelės"
     post_something: "Paskelbti Diaspora"
-    post_success: "Įrašas išsiųstas!"
   cancel: "Atšaukti"
   comments:
     new_comment:
       comment: "Komentuoti"
       commenting: "Siunčiamas komentaras..."
-    one: "1 komentaras"
-    other: "%{count} komentarų"
-    zero: "Komentarų nėra"
   contacts:
-    create:
-      failure: "Nepavyko sukurti kontakto"
     index:
       add_a_new_aspect: "Sukurti kategoriją"
-      add_to_aspect: "Pridėti kontaktus į kategoriją %{name}"
       all_contacts: "Visi kontaktai"
       community_spotlight: "Bendruomenės dėmesio centre"
       my_contacts: "Mano kontaktai"
@@ -161,27 +118,16 @@ lt:
       only_sharing_with_me: "Tik tie, kurie su manimi dalijasi"
       start_a_conversation: "Pradėti pokalbį"
       title: "Kontaktai"
-      your_contacts: "Jūsų kontaktai"
-    sharing:
-      people_sharing: "Žmonės dalijasi su jumis:"
     spotlight:
       community_spotlight: "Bendruomenės dėmesio centre"
   conversations:
     create:
       fail: "Netinkamas pranešimas"
       sent: "Pranešimas išsiųstas"
-    helper:
-      new_messages:
-        few: "%{count} nauji pranešimai"
-        one: "1 naujas pranešimas"
-        other: "%{count} naujų pranešimų"
-        zero: "Nėra naujų pranešimų"
     index:
       inbox: "Gauta"
-      no_conversation_selected: "Nepasirinktas joks pokalbis"
       no_messages: "Nėra pranešimų"
     new:
-      abandon_changes: "Atsisakyti pakeitimų?"
       send: "Siųsti"
       sending: "Siunčiama..."
       subject: "Tema"
@@ -199,36 +145,17 @@ lt:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Ištaisykite šias klaidas ir bandykite vėl."
-      invalid_fields: "Neteisingai suvesta"
   fill_me_out: "Užpildykite"
   find_people: "Rasti žmones arba žymes"
-  hide: "Slėpti"
   invitations:
-    a_facebook_user: "Facebook vartotojas"
-    check_token:
-      not_found: "Pakvietimo raktas nerastas"
     create:
-      already_contacts: "Šis žmogus jau yra jūsų kontaktuose"
-      already_sent: "Šiam žmogui pakvietimą jau siuntėte"
       no_more: "Daugiau pakvietimų neturi."
-      own_address: "Jūs negalite siųsti pakvietimo sau."
       rejected: "Šie el. pašto adresai neveikė: "
       sent: "Pakvietimas išsiųstas."
-    edit:
-      accept_your_invitation: "Patvirtinti kvietimą"
-      your_account_awaits: "Jūsų paskyra tikrinama!"
     new:
-      already_invited: "Already invited"
-      aspect: "Kategorija"
-      check_out_diaspora: "Užeik į tinklą Diaspora!"
-      if_they_accept_info: "Kvietimus priėmę žmonės bus pridėti prie kategorijos į kurią kvietėte."
       invite_someone_to_join: "Pakviesk ką nors prisijungti prie Diasporos!"
       language: "Kalba"
-      personal_message: "Asmeninė žinutė"
-      resend: "Siųsti dar kartą"
       send_an_invitation: "Nusiųsk kvietimą"
-      send_invitation: "Siųsti kvietimą"
-      to: "Kam"
   layouts:
     application:
       back_to_top: "Į viršų"
@@ -236,37 +163,13 @@ lt:
       public_feed: "Viešas atsiliepimas apie Diaspora %{name}"
       toggle: "toggle mobile site"
       whats_new: "Kas naujo?"
-      your_aspects: "Jūsų kategorijos"
     header:
-      admin: "Administruoti"
-      blog: "blog'as"
       code: "kodas"
-      login: "prisijungti"
       logout: "atsijungti"
       profile: "profile"
-      recent_notifications: "Siųsti įspėjimą dar kartą"
       settings: "settings"
-      view_all: "Rodyti viską"
-  likes:
-    likes:
-      people_dislike_this:
-        few: "%{count} žmonės nemėgsta"
-        one: "1 žmogus nemėgsta"
-        other: "%{count} žmonių nemėgsta"
-        zero: "Nėra nemėgstančių"
-      people_like_this:
-        few: "%{count} žmonių mėgta"
-        one: "1 žmogus mėgsta"
-        other: "%{count} žmonių mėgsta"
-        zero: "Niekam nepatiko"
-      people_like_this_comment:
-        few: "%{count} mėgsta"
-        one: "%{count} mėgsta"
-        other: "%{count} mėgsta"
-        zero: "niekas nemėgsta"
   limited: "Ribotas"
   more: "Daugiau"
-  next: "Sekantis"
   no_results: "Nieko nerasta"
   notifications:
     also_commented:
@@ -284,12 +187,6 @@ lt:
       one: "%{actors} pakomentavo Jūsų %{post_link}."
       other: "%{actors} pakomentavo Jūsų %{post_link}."
       zero: "%{actors} pakomentavo Jūsų %{post_link}."
-    helper:
-      new_notifications:
-        few: "%{count} nauji įspėjimai"
-        one: "1 naujas įspėjimas"
-        other: "%{count} naujų įspėjimų"
-        zero: "nėra naujų įspėjimų"
     index:
       and: "ir"
       and_others:
@@ -354,7 +251,6 @@ lt:
       liked: "%{name} has just liked your post: "
       view_post: "parodyti įrašą"
     mentioned:
-      mentioned: "paminėjo Jus įraše:"
       subject: "%{name} paminėjo Jus Diaspora* tinkle"
     private_message:
       reply_to_or_view: "Atrašyti arba parodyti pokalbį"
@@ -372,62 +268,22 @@ lt:
     to_change_your_notification_settings: "kad pakeisti savo įspėjimų nustatymus"
   nsfw: "Nesaugus"
   ok: "Gerai"
-  or: "arba"
-  password: "Slaptažodis"
-  password_confirmation: "Slaptažodžio patvirtinimas"
   people:
-    helper:
-      results_for: " \"%{params}\" rezultatai"
     index:
       no_one_found: "... ir nieko nepavyko rasti."
       no_results: "Labas! Nieko nerasta."
       results_for: "ieškoti rezultatų pagal"
-    one: "1 person"
-    other: "%{count} people"
     person:
-      add_contact: "pridėti kontaktą"
-      already_connected: "Jau prisijungtas"
-      pending_request: "laukiamas prašymas"
       thats_you: "tai tu!"
     profile_sidebar:
       bio: "biografija"
       born: "gimimo data"
-      edit_my_profile: "Redaguoti mano profilį"
       gender: "lytis"
-      in_aspects: "aspektuose"
-      remove_contact: "pašalinti kontaktą"
-      remove_from: "Ar pašalinti kontaktą \"%{name}\" iš aspekto \"%{aspect}\"?"
     show:
       does_not_exist: "Asmuo neegzistuoja!"
-      incoming_request: "Jūs gavote pakvietimą iš šio asmens."
-      not_connected: "You are not connected with this person"
-      return_to_aspects: "Grįžti į aspektų puslapį"
-      to_accept_or_ignore: "priimti arba ignoruoti."
-    zero: "no people"
   photos:
     destroy:
       notice: "Nuotrauka pašalinta."
-    edit:
-      editing: "Redagavimas"
-    new:
-      back_to_list: "Atgal į sąrašą"
-      new_photo: "Nauja nuotrauka"
-      post_it: "paskelbti!"
-    new_photo:
-      empty: "{file} yra tuščias, pasirink failus iš naujo."
-      invalid_ext: "{file} turi neteisingą galūnę. Yra leidžiamos tik {extensions}."
-      size_error: "{file} yra per didelis, maksimalus failo dydis yra {sizeLimit}."
-    photo:
-      view_all: "rodyti visas nuotraukas, kurias įkėlė %{name}"
-    show:
-      delete_photo: "Pašalinti nuotrauką"
-      edit: "redaguoti"
-      edit_delete_photo: "Redaguoti nuotraukos aprašymą / pašalinti nuotrauką"
-      make_profile_photo: "padaryti profilio nuotrauką"
-      update_photo: "Atnaujinti nuotrauką"
-    update:
-      error: "Nuotraukos atnaujinti nepavyko."
-      notice: "Nuotrauka atnaujinta sėkmingai."
   posts:
     show:
       photos_by:
@@ -435,66 +291,25 @@ lt:
         one: "%{author} nuotrauka"
         other: "%{count} %{author} nuotraukų"
         zero: "Nėra %{author} nuotraukų"
-  previous: "Ankstesnis"
   privacy: "Privatumas"
-  privacy_policy: "Privatumo politika"
   profile: "Anketa"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
   public: "Viešas"
-  reactions:
-    few: "%{count} reakcijos"
-    one: "1 reakcija"
-    other: "%{count} reakcijų"
-    zero: "0 reakcijų"
   registrations:
     closed: "Naujų paskyrų kūrimas šiame Diasporos serveryje yra uždarytas."
     create:
       success: "Prisijungei prie Diasporos!"
-    edit:
-      cancel_my_account: "Atšaukti mano paskyrą"
-      edit: "Redaguoti %{name}"
-      leave_blank: "(palik tuščią, jei nenori pakeisti)"
-      password_to_confirm: "(tavo slaptažodis reikalingas, kad patvirtintume pakeitimus)"
-      unhappy: "Nesmagu?"
-      update: "Atnaujinimas"
     new:
-      create_my_account: "Create my account"
       enter_email: "Enter an e-mail"
       enter_password: "Įveskite slaptažodį"
       enter_password_again: "Įveskite tą patį slaptažodį kaip ir anksčiau"
       enter_username: "Pasirinkite naudotojo vardą (naudokite tik raides, skaičius ir pabraukimus)"
-      sign_up_message: "Social Networking with a <3"
-  requests:
-    create:
-      sending: "Siunčiama"
-    destroy:
-      error: "Pasirink aspektą!"
-      ignore: "Ignoruotas prašymas draugauti."
-      success: "Susidraugavai."
-    helper:
-      new_requests:
-        few: "%{count} nauji prašymai!"
-        one: "naujas prašymas!"
-        other: "%{count} naujų prašymų!"
-        zero: "nėra naujų prašymų"
-    manage_aspect_contacts:
-      existing: "Egzistuojantys kontaktai"
-      manage_within: "Valdyti kontaktus ties"
-    new_request_to_person:
-      sent: "išsiųsta!"
   reshares:
     reshare:
-      reshare:
-        few: "%{count} pasidalino"
-        one: "1 pasidalino"
-        other: "%{count} pasidalino"
-        zero: "Niekas nepasidalino"
       reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
   search: "Paieška"
   services:
     create:
@@ -505,79 +320,34 @@ lt:
       disconnect: "atjungti"
       logged_in_as: "sujungta su"
       really_disconnect: "atjungti %{service}?"
-    inviter:
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
   settings: "Nustatymai"
   shared:
-    add_contact:
-      create_request: "Rask pagal Diaspora naudotojo vardą"
-      diaspora_handle: "diaspora@handle.org"
-      enter_a_diaspora_username: "Įveskite naudotojo vardą:"
-      your_diaspora_username_is: "Tavo Diaspora tinklo naudotojo vardas yra: %{diaspora_handle}"
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
       toggle:
         few: "%{count} kategorijose"
         one: "%{count} kategorijoje"
         other: "%{count} kategorijų"
         zero: "Pridėti kontaktą prie kategorijos"
-    contact_list:
-      all_contacts: "Visi kontaktai"
     invitations:
       by_email: "by Email"
-      dont_have_now: "Tu neturi jokių pakvietimų dabar, tačiau netrukus gausi daugiau!"
-      invitations_left: "(liko %{count})"
-      invite_someone: "Pakviesk ką nors"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
-    notification:
-      new: "Naujas %{type} iš naudotojo \"%{from}\""
     public_explain:
       logged_in: "Prisijungta į %{service}"
       manage: "valdyti prijungtus tinklus"
       outside: "Viešos žinutės bus matomos kitiems už Diasporos ribų."
       title: "Tu ketini skelbti viešą žinutę!"
     publisher:
-      all: "viskas"
-      all_contacts: "visi kontaktai"
-      make_public: "paviešinti"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
-      post_a_message_to: "Parašyti žinutę į aspektą \"%{aspect}\""
       posting: "Rašoma..."
       share: "Skelbti"
-      share_with: "Skelbti aspekte \"%{aspect}\""
       whats_on_your_mind: "what's on your mind?"
-    reshare:
-      reshare: "Skelbti papildomai"
-    stream_element:
-      dislike: "I dislike this"
-      hide_and_mute: "Hide and Mute"
-      like: "I like this"
   status_messages:
-    helper:
-      no_message_to_display: "Žinučių nėra."
     too_long: "{\"few\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklais\", \"one\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklu\", \"other\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklų\", \"zero\"=>\"Sutrumpinkite savo statuso pranešimą %{count} ženklų\"}"
-  stream_helper:
-    hide_comments: "Slėpti visus komentarus"
-    show_comments:
-      few: "Rodyti dar %{count} komentarus"
-      one: "Rodyti dar vieną komentarą"
-      other: "Rodyti dar %{count} komentarų"
-      zero: "Daugiau komentarų nėra"
   streams:
     aspects:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-  tag_followings:
-    create:
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
-    destroy:
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
-  terms_and_conditions: "Nuostatos ir sąlygos"
-  undo: "Atšaukti"
   username: "Vartotojo vardas"
   users:
     confirm_email:
@@ -590,7 +360,6 @@ lt:
       change_password: "Keisti slaptažodį"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      download_photos: "atsisiųsti mano nuotraukas"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Eksportuoti duomenis"
       new_password: "Naujas slaptažodis"
@@ -607,6 +376,3 @@ lt:
       password_not_changed: "Slaptažodžio pakeisti nepavyko"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
-  webfinger:
-    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
-  welcome: "Sveiki atvykę!"

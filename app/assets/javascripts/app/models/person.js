@@ -6,8 +6,13 @@ app.models.Person = Backbone.Model.extend({
   },
 
   initialize: function() {
-    if( this.get('profile') )
-      this.profile = new app.models.Profile(this.get('profile'));
+    if (this.get("profile")) {
+      this.profile = new app.models.Profile(this.get("profile"));
+    }
+    if (this.get("contact")) {
+      this.contact = new app.models.Contact(this.get("contact"));
+      this.contact.person = this;
+    }
   },
 
   isSharing: function() {

@@ -38,9 +38,17 @@ app.views.Base = Backbone.View.extend({
   renderTemplate : function(){
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter;
     this.template = HandlebarsTemplates[this.templateName+"_tpl"];
-    if(!this.template) {
-      console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified");
+
+    if (this.templateName === false) {
       return;
+    }
+
+    if (!this.templateName) {
+      throw new Error("No templateName set, set to false to ignore.");
+    }
+
+    if (!this.template) {
+      throw new Error("Invalid templateName provided: " + this.templateName);
     }
 
     this.$el
@@ -53,16 +61,20 @@ app.views.Base = Backbone.View.extend({
     // add placeholder support for old browsers
     this.$("input, textarea").placeholder();
 
+    // init autosize plugin
+    autosize(this.$("textarea"));
+
     this.postRenderTemplate();
   },
 
-  postRenderTemplate : $.noop, //hella callbax yo
+  postRenderTemplate: $.noop, //hella callbax yo
 
   renderSubviews : function(){
     var self = this;
     _.each(this.subviews, function(property, selector){
       var view = _.isFunction(self[property]) ? self[property]() : self[property];
-      if(view) {
+      if (view && self.$(selector).length > 0) {
+        self.$(selector).empty();
         self.$(selector).html(view.render().el);
         view.delegateEvents();
       }
@@ -108,38 +120,30 @@ app.views.Base = Backbone.View.extend({
     var report = new app.models.Report();
     report.save(data, {
       success: function() {
-        Diaspora.page.flashMessages.render({
-          success: true,
-          notice: Diaspora.I18n.t('report.status.created')
-        });
+        app.flashMessages.success(Diaspora.I18n.t("report.status.created"));
       },
       error: function() {
-        Diaspora.page.flashMessages.render({
-          success: false,
-          notice: Diaspora.I18n.t('report.status.exists')
-        });
+        app.flashMessages.error(Diaspora.I18n.t("report.status.exists"));
       }
     });
   },
 
+  destroyConfirmMsg: function() { return Diaspora.I18n.t("confirm_dialog"); },
+
   destroyModel: function(evt) {
     evt && evt.preventDefault();
     var self = this;
-    var url = this.model.urlRoot + '/' + this.model.id;
+    var url = this.model.urlRoot + "/" + this.model.id;
 
-    if (confirm(Diaspora.I18n.t("confirm_dialog"))) {
-      this.$el.addClass('deleting');
+    if( confirm(_.result(this, "destroyConfirmMsg")) ) {
+      this.$el.addClass("deleting");
       this.model.destroy({ url: url })
         .done(function() {
           self.remove();
         })
         .fail(function() {
-          self.$el.removeClass('deleting');
-          var flash = new Diaspora.Widgets.FlashMessages();
-          flash.render({
-            success: false,
-            notice: Diaspora.I18n.t('failed_to_remove')
-          });
+          self.$el.removeClass("deleting");
+          app.flashMessages.error(Diaspora.I18n.t("failed_to_remove"));
         });
     }
   },
@@ -153,7 +157,6 @@ app.views.Base = Backbone.View.extend({
 });
 
 app.views.StaticContentView = app.views.Base.extend({
-
   initialize : function(options) {
     this.templateName = options.templateName;
     this.data = options.data;

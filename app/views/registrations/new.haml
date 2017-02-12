@@ -1,12 +1,12 @@
 #registration
-  .container-fluid
-    .row-fluid
-      .span10.offset1
-        .span7.hidden-phone
+  .container
+    .row
+      .col-md-10.offset1
+        .col-md-7.hidden-phone
           %h1.ball
-        .span5.v-center
+        .col-md-5.v-center
           .content.text-center
             %h2#pod-name
               = AppConfig.settings.pod_name
 
-            = render partial: 'form'
+            = render partial: "form", locals: {mobile: false}

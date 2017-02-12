@@ -1,56 +1,96 @@
 /* This file contains the CSS code corresponding to the header and the drawer (including the menu) of the mobile version */
 
-header {
-  position: fixed;
-  height: 45px;
-  top: 0px;
-  z-index: 10;
-  background: image-url('header-bg-long.jpg') rgb(40,35,35);
-  box-shadow: 0 1px 2px #333;
-  border-bottom: 1px solid #222;
-}
+$drawer-width: 400px;
+$drawer-width-offset: $drawer-width + 50px;
+$mobile-navbar-height: 46px;
 
-#main_nav {
+#main-nav.navbar-fixed-top {
   width: 100%;
+  height: $mobile-navbar-height !important;
+  min-height: $mobile-navbar-height !important;
+  max-height: $mobile-navbar-height !important;
 
-  #header_title {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    padding: 7px;
+  .login {
+    color: $white;
+    font-weight: bold;
+    padding: 13px;
   }
 
-  #nav_badges {
-    float: right;
-    margin: 7px 0px;
-    display: inline-block;
+  .navbar {
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-height: $mobile-navbar-height;
+  }
 
-    .badge {
-      display: inline;
-      margin: 0px 4px;
-      padding: 10px 6px;
-      font-weight: bold;
-      font-size: smaller;
+  .navbar-right {
+    float: right;
+  }
+
+  .navbar-nav {
+    margin-bottom: 0;
+    margin-top: 0;
+    li { float: left; }
+  }
+
+  #header-title {
+    padding: 7px 15px;
+    margin: 0 0 0 -15px;
+    height: $mobile-navbar-height;
+  }
+
+  #nav-badges {
+    float: right;
+    margin: 0 -15px;
+    display: inline-flex;
+
+    li > a, li > button {
       background-color: transparent;
 
-      img {
-        height: 30px;
-        width: 30px;
+      &.badge-link {
+        font-size: 26px;
+        padding: 14px 6px;
+        text-align: center;
+        width: $mobile-navbar-height;
+        height: $mobile-navbar-height;
+
+        [class^="entypo-"], [class^="diaspora-custom-"] {
+          color: $white;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+
+          &.entypo-bell, &.diaspora-custom-compose {
+            text-align: center;
+            font-size: 22px;
+
+            &:before {
+              position: relative;
+              top: -2px;
+            }
+          }
+        }
       }
     }
 
-    .badge_count {
-      border-radius: 2px;
-      z-index: 3;
-      position: absolute;
-      top: 3px;
-      padding: 1px 3px;
-      background-color: $red;
-      margin-left: -8px;
+    .navbar-toggle {
+      display: block;
+      margin: 6px 15px;
     }
 
-    #conversation_icon {
-      height: 18px;
+    .badge {
+      z-index: 3;
+      top: 6px;
+      right: 6px;
+      padding: 2px 6px;
+      position: absolute;
+      background-color: $red;
+    }
+  }
+  #header-title{
+    img {
+      height: 30px;
+      width: 30px;
     }
   }
 }
@@ -59,38 +99,34 @@ header {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: $drawer-width;
+  @media (max-width: $drawer-width-offset) {
+    width: 80%;
+  }
   left: 100%;
   background-color: #444;
-  box-shadow: -2px 0px 2px 1px #333;
+  box-shadow: none;
 
   header {
-    position: static;
-    left: 100%;
-    right: -80%;
+    width: 100%;
+    position: absolute;
+    height: $mobile-navbar-height;
+    background-color: $navbar-inverse-bg;
+    border-bottom: solid $navbar-inverse-border 1px;
 
-    #global_search {
-      position: relative;
-
+    #global-search {
       form {
-        position: absolute;
-        left: 5px;
-        right: 22%;
+        padding: 0 15px;
+        width: 100%;
 
         input {
-          box-shadow: 0 1px 1px #444;
-          border-radius: 15px;
-          width: 100%;
           margin-top: 7px;
-          background-color: #444;
-          border: 1px solid #222;
+          background-color: $navbar-inverse-bg;
           font-size: 13px;
-          padding: 4px;
           color: black;
 
           &.active {
-            background-color: $highlight-white;
-            background-color: rgba(160,160,160,0.6);
+            background-color: $white;
           }
 
           &:focus {
@@ -106,26 +142,25 @@ header {
 
   nav {
     position: absolute;
-    top: 45px;
-    bottom: 0px;
+    top: $mobile-navbar-height;
+    bottom: 0;
     overflow: auto;
     width: 100%;
 
     li {
-      font-size: 25px;
-      line-height: 25px;
-      font-weight: bold;
+      font-size: 1.8rem;
+      line-height: 2rem;
       color: $light-grey;
-      border-bottom: solid rgb(53, 53, 53) 2px;
+      border-bottom: solid $navbar-inverse-border 1px;
     }
 
     li:hover {
       background-color: $link-grey;
     }
 
-    .no_border {
-      padding: 0px;
-      border-bottom: 0px;
+    .no-border {
+      padding: 0;
+      border-bottom: 0;
 
       &:hover {
         background-color: transparent;
@@ -144,7 +179,7 @@ header {
     .avatar {
       height: 35px;
       width: 35px;
-      margin: -5px 5px;
+      margin: -7px 5px;
       float: right;
     }
   }
@@ -158,11 +193,27 @@ header {
 
   ul {
     list-style: none;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
   }
 }
 
+#main-nav, #drawer {
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
 /* This class is added when the user open the drawer */
-#app.draw > * {
-          transform: translateX(-80%);
+#app.draw {
+  #main-nav, #drawer {
+    transform: translateX(-$drawer-width);
+  }
+  @media (max-width: $drawer-width-offset) {
+    #main-nav {
+      transform: translateX(-80%);
+    }
+    #drawer {
+      transform: translateX(-100%);
+    }
+  }
 }

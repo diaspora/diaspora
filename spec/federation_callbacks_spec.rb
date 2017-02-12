@@ -1,4 +1,3 @@
-require "spec_helper"
 require "diaspora_federation/test"
 
 describe "diaspora federation callbacks" do
@@ -20,6 +19,19 @@ describe "diaspora federation callbacks" do
 
     it "returns nil if the person was not found" do
       wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, "unknown@example.com")
+      expect(wf).to be_nil
+    end
+
+    it "returns nil for a remote person" do
+      person = FactoryGirl.create(:person)
+      wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, person.diaspora_handle)
+      expect(wf).to be_nil
+    end
+
+    it "returns nil for a closed account" do
+      user = FactoryGirl.create(:user)
+      user.person.lock_access!
+      wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, user.diaspora_handle)
       expect(wf).to be_nil
     end
   end
@@ -54,6 +66,19 @@ describe "diaspora federation callbacks" do
       hcard = DiasporaFederation.callbacks.trigger(:fetch_person_for_hcard, "1234567890abcdef")
       expect(hcard).to be_nil
     end
+
+    it "returns nil for a remote person" do
+      person = FactoryGirl.create(:person)
+      hcard = DiasporaFederation.callbacks.trigger(:fetch_person_for_hcard, person.guid)
+      expect(hcard).to be_nil
+    end
+
+    it "returns nil for a closed account" do
+      user = FactoryGirl.create(:user)
+      user.person.lock_access!
+      hcard = DiasporaFederation.callbacks.trigger(:fetch_person_for_hcard, user.guid)
+      expect(hcard).to be_nil
+    end
   end
 
   describe ":save_person_after_webfinger" do
@@ -83,7 +108,8 @@ describe "diaspora federation callbacks" do
           FactoryGirl.attributes_for(
             :federation_person_from_webfinger,
             profile: DiasporaFederation::Entities::Profile.new(
-              FactoryGirl.attributes_for(:federation_profile_from_hcard_with_image_url))
+              FactoryGirl.attributes_for(:federation_profile_from_hcard_with_image_url)
+            )
           )
         )
 
@@ -102,6 +128,15 @@ describe "diaspora federation callbacks" do
         expect(profile_entity.image_url_medium).to eq(profile.image_url_medium)
         expect(profile_entity.image_url_small).to eq(profile.image_url_small)
         expect(profile_entity.searchable).to eq(profile.searchable)
+      end
+
+      it "raises an error if a person with the same GUID already exists" do
+        person_data = FactoryGirl.attributes_for(:federation_person_from_webfinger).merge(guid: alice.guid)
+        person = DiasporaFederation::Entities::Person.new(person_data)
+
+        expect {
+          DiasporaFederation.callbacks.trigger(:save_person_after_webfinger, person)
+        }.to raise_error ActiveRecord::RecordInvalid, /Person with same GUID already exists: #{alice.diaspora_handle}/
       end
     end
 
@@ -152,148 +187,212 @@ describe "diaspora federation callbacks" do
 
   let(:local_person) { FactoryGirl.create(:user).person }
   let(:remote_person) { FactoryGirl.create(:person) }
-  let(:post_by_a_local_person) { FactoryGirl.create(:status_message, author: local_person) }
-  let(:post_by_a_remote_person) { FactoryGirl.create(:status_message, author: remote_person) }
 
-  describe ":fetch_private_key_by_diaspora_id" do
+  describe ":fetch_private_key" do
     it "returns a private key for a local user" do
-      key = DiasporaFederation.callbacks.trigger(:fetch_private_key_by_diaspora_id, local_person.diaspora_handle)
+      key = DiasporaFederation.callbacks.trigger(:fetch_private_key, local_person.diaspora_handle)
       expect(key).to be_a(OpenSSL::PKey::RSA)
       expect(key.to_s).to eq(local_person.owner.serialized_private_key)
     end
 
     it "returns nil for a remote user" do
       expect(
-        DiasporaFederation.callbacks.trigger(:fetch_private_key_by_diaspora_id, remote_person.diaspora_handle)
+        DiasporaFederation.callbacks.trigger(:fetch_private_key, remote_person.diaspora_handle)
       ).to be_nil
     end
 
     it "returns nil for an unknown id" do
       expect(
-        DiasporaFederation.callbacks.trigger(:fetch_private_key_by_diaspora_id, FactoryGirl.generate(:diaspora_id))
+        DiasporaFederation.callbacks.trigger(:fetch_private_key, FactoryGirl.generate(:diaspora_id))
       ).to be_nil
     end
   end
 
-  describe ":fetch_author_private_key_by_entity_guid" do
-    it "returns a private key for a post by a local user" do
-      key = DiasporaFederation.callbacks.trigger(:fetch_author_private_key_by_entity_guid,
-                                                 "Post", post_by_a_local_person.guid)
-      expect(key).to be_a(OpenSSL::PKey::RSA)
-      expect(key.to_s).to eq(post_by_a_local_person.author.owner.serialized_private_key)
-    end
-
-    it "returns nil for a post by a remote user" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:fetch_author_private_key_by_entity_guid,
-                                             "Post", post_by_a_remote_person.guid)
-      ).to be_nil
-    end
-
-    it "returns nil for an unknown post" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:fetch_author_private_key_by_entity_guid,
-                                             "Post", FactoryGirl.generate(:guid))
-      ).to be_nil
-    end
-  end
-
-  describe ":fetch_public_key_by_diaspora_id" do
+  describe ":fetch_public_key" do
     it "returns a public key for a person" do
-      key = DiasporaFederation.callbacks.trigger(:fetch_public_key_by_diaspora_id, remote_person.diaspora_handle)
+      key = DiasporaFederation.callbacks.trigger(:fetch_public_key, remote_person.diaspora_handle)
       expect(key).to be_a(OpenSSL::PKey::RSA)
       expect(key.to_s).to eq(remote_person.serialized_public_key)
     end
 
-    it "returns nil for an unknown person" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:fetch_public_key_by_diaspora_id, FactoryGirl.generate(:diaspora_id))
-      ).to be_nil
-    end
-  end
+    it "fetches an unknown user" do
+      person = FactoryGirl.build(:person)
+      expect(Person).to receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
 
-  describe ":fetch_author_public_key_by_entity_guid" do
-    it "returns a public key for a known post" do
-      key = DiasporaFederation.callbacks.trigger(:fetch_author_public_key_by_entity_guid,
-                                                 "Post", post_by_a_remote_person.guid)
+      key = DiasporaFederation.callbacks.trigger(:fetch_public_key, person.diaspora_handle)
       expect(key).to be_a(OpenSSL::PKey::RSA)
-      expect(key.to_s).to eq(post_by_a_remote_person.author.serialized_public_key)
+      expect(key.to_s).to eq(person.serialized_public_key)
     end
 
-    it "returns nil for an unknown post" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:fetch_author_public_key_by_entity_guid,
-                                             "Post", FactoryGirl.generate(:guid))
-      ).to be_nil
-    end
-  end
+    it "returns nil for an unknown person" do
+      diaspora_id = FactoryGirl.generate(:diaspora_id)
+      expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
+        .and_raise(DiasporaFederation::Discovery::DiscoveryError)
 
-  describe ":entity_author_is_local?" do
-    it "returns true for a post by a local user" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:entity_author_is_local?, "Post", post_by_a_local_person.guid)
-      ).to be_truthy
-    end
-
-    it "returns false for a post by a remote user" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:entity_author_is_local?, "Post", post_by_a_remote_person.guid)
-      ).to be_falsey
-    end
-
-    it "returns false for a unknown post" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:entity_author_is_local?, "Post", FactoryGirl.generate(:diaspora_id))
-      ).to be_falsey
+      expect {
+        DiasporaFederation.callbacks.trigger(:fetch_public_key, diaspora_id)
+      }.to raise_error DiasporaFederation::Discovery::DiscoveryError
     end
   end
 
-  describe ":fetch_entity_author_id_by_guid" do
-    it "returns id for a existing guid" do
-      expect(
-        DiasporaFederation.callbacks.trigger(:fetch_entity_author_id_by_guid, "Post", post_by_a_remote_person.guid)
-      ).not_to eq(post_by_a_remote_person.author_id)
+  describe ":fetch_related_entity" do
+    it "returns related entity for an existing local post" do
+      post = FactoryGirl.create(:status_message, author: local_person)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", post.guid)
+      expect(entity.author).to eq(post.diaspora_handle)
+      expect(entity.local).to be_truthy
+      expect(entity.public).to be_falsey
+      expect(entity.parent).to be_nil
+    end
+
+    it "returns related entity for an existing remote post" do
+      post = FactoryGirl.create(:status_message, author: remote_person)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", post.guid)
+      expect(entity.author).to eq(post.diaspora_handle)
+      expect(entity.local).to be_falsey
+      expect(entity.public).to be_falsey
+      expect(entity.parent).to be_nil
+    end
+
+    it "returns related entity for an existing public post" do
+      post = FactoryGirl.create(:status_message, author: local_person, public: true)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", post.guid)
+      expect(entity.author).to eq(post.diaspora_handle)
+      expect(entity.local).to be_truthy
+      expect(entity.public).to be_truthy
+      expect(entity.parent).to be_nil
+    end
+
+    it "returns related entity for an existing comment" do
+      post = FactoryGirl.create(:status_message, author: local_person, public: true)
+      comment = FactoryGirl.create(:comment, author: remote_person, parent: post)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Comment", comment.guid)
+      expect(entity.author).to eq(comment.diaspora_handle)
+      expect(entity.local).to be_falsey
+      expect(entity.public).to be_truthy
+      expect(entity.parent.author).to eq(post.diaspora_handle)
+      expect(entity.parent.local).to be_truthy
+      expect(entity.parent.public).to be_truthy
+      expect(entity.parent.parent).to be_nil
+    end
+
+    it "returns related entity for an existing conversation" do
+      conversation = FactoryGirl.create(:conversation, author: local_person)
+      entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Conversation", conversation.guid)
+      expect(entity.author).to eq(local_person.diaspora_handle)
+      expect(entity.local).to be_truthy
+      expect(entity.public).to be_falsey
+      expect(entity.parent).to be_nil
+    end
+
+    it "returns related entity for an existing person" do
+      entity = DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Person", remote_person.guid)
+      expect(entity.author).to eq(remote_person.diaspora_handle)
+      expect(entity.local).to be_falsey
+      expect(entity.public).to be_falsey
+      expect(entity.parent).to be_nil
     end
 
     it "returns nil for a non-existing guid" do
       expect(
-        DiasporaFederation.callbacks.trigger(:fetch_entity_author_id_by_guid, "Post", FactoryGirl.generate(:guid))
+        DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", FactoryGirl.generate(:guid))
       ).to be_nil
     end
   end
 
   describe ":queue_public_receive" do
-    it "enqueues a ReceiveUnencryptedSalmon job" do
-      xml = "<diaspora/>"
-      expect(Workers::ReceiveUnencryptedSalmon).to receive(:perform_async).with(xml)
+    it "enqueues a ReceivePublic job" do
+      data = "<diaspora/>"
+      expect(Workers::ReceivePublic).to receive(:perform_async).with(data, true)
 
-      DiasporaFederation.callbacks.trigger(:queue_public_receive, xml)
+      DiasporaFederation.callbacks.trigger(:queue_public_receive, data, true)
     end
   end
 
   describe ":queue_private_receive" do
-    let(:xml) { "<diaspora/>" }
+    let(:data) { "<diaspora/>" }
 
     it "returns true if the user is found" do
-      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, xml)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, data)
       expect(result).to be_truthy
     end
 
-    it "enqueues a ReceiveEncryptedSalmon job" do
-      expect(Workers::ReceiveEncryptedSalmon).to receive(:perform_async).with(alice.id, xml)
+    it "enqueues a ReceivePrivate job" do
+      expect(Workers::ReceivePrivate).to receive(:perform_async).with(alice.id, data, true)
 
-      DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, xml)
+      DiasporaFederation.callbacks.trigger(:queue_private_receive, alice.person.guid, data, true)
     end
 
     it "returns false if the no user is found" do
       person = FactoryGirl.create(:person)
-      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, person.guid, xml)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, person.guid, data, true)
       expect(result).to be_falsey
     end
 
     it "returns false if the no person is found" do
-      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, "2398rq3948yftn", xml)
+      result = DiasporaFederation.callbacks.trigger(:queue_private_receive, "2398rq3948yftn", data, true)
       expect(result).to be_falsey
+    end
+  end
+
+  describe ":receive_entity" do
+    it "receives an AccountDeletion" do
+      account_deletion = FactoryGirl.build(:account_deletion_entity, author: remote_person.diaspora_handle)
+
+      expect(Diaspora::Federation::Receive).to receive(:account_deletion).with(account_deletion)
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+
+      DiasporaFederation.callbacks.trigger(:receive_entity, account_deletion, account_deletion.author, nil)
+    end
+
+    it "receives a Retraction" do
+      retraction = FactoryGirl.build(:retraction_entity, author: remote_person.diaspora_handle)
+
+      expect(Diaspora::Federation::Receive).to receive(:retraction).with(retraction, 42)
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+
+      DiasporaFederation.callbacks.trigger(:receive_entity, retraction, retraction.author, 42)
+    end
+
+    it "receives a entity" do
+      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+      persisted = FactoryGirl.create(:status_message)
+
+      expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
+      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
+
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, nil)
+    end
+
+    it "calls schedule_check_if_needed on the senders pod" do
+      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+      persisted = FactoryGirl.create(:status_message)
+
+      expect(Person).to receive(:by_account_identifier).with(received.author).and_return(remote_person)
+      expect(remote_person.pod).to receive(:schedule_check_if_needed)
+      expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
+      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [])
+
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, nil)
+    end
+
+    it "receives a entity for a recipient" do
+      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+      persisted = FactoryGirl.create(:status_message)
+
+      expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
+      expect(Workers::ReceiveLocal).to receive(:perform_async).with(persisted.class.to_s, persisted.id, [42])
+
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, 42)
+    end
+
+    it "does not trigger a ReceiveLocal job if Receive.perform returned nil" do
+      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+
+      expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(nil)
+      expect(Workers::ReceiveLocal).not_to receive(:perform_async)
+
+      DiasporaFederation.callbacks.trigger(:receive_entity, received, received.author, nil)
     end
   end
 
@@ -342,11 +441,75 @@ describe "diaspora federation callbacks" do
 
   describe ":fetch_person_url_to" do
     it "returns the url with with the pod of the person" do
-      person = FactoryGirl.create(:person, url: "https://example.org")
+      pod = FactoryGirl.create(:pod)
+      person = FactoryGirl.create(:person, pod: pod)
 
       expect(
         DiasporaFederation.callbacks.trigger(:fetch_person_url_to, person.diaspora_handle, "/path/on/pod")
-      ).to eq("https://example.org/path/on/pod")
+      ).to eq("https://#{pod.host}/path/on/pod")
+    end
+
+    it "fetches an unknown user" do
+      pod = FactoryGirl.build(:pod)
+      person = FactoryGirl.build(:person, pod: pod)
+      expect(Person).to receive(:find_or_fetch_by_identifier).with(person.diaspora_handle).and_return(person)
+
+      expect(
+        DiasporaFederation.callbacks.trigger(:fetch_person_url_to, person.diaspora_handle, "/path/on/pod")
+      ).to eq("https://#{pod.host}/path/on/pod")
+    end
+
+    it "forwards the DiscoveryError" do
+      diaspora_id = FactoryGirl.generate(:diaspora_id)
+      expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
+        .and_raise(DiasporaFederation::Discovery::DiscoveryError)
+
+      expect {
+        DiasporaFederation.callbacks.trigger(:fetch_person_url_to, diaspora_id, "/path/on/pod")
+      }.to raise_error DiasporaFederation::Discovery::DiscoveryError
+    end
+  end
+
+  describe ":update_pod" do
+    let(:pod) { FactoryGirl.create(:pod) }
+    let(:pod_url) { pod.url_to("/") }
+
+    it "sets the correct error for curl-errors" do
+      pod = FactoryGirl.create(:pod)
+
+      DiasporaFederation.callbacks.trigger(:update_pod, pod.url_to("/"), :ssl_cacert)
+
+      updated_pod = Pod.find_or_create_by(url: pod.url_to("/"))
+      expect(Pod.statuses[updated_pod.status]).to eq(Pod.statuses[:ssl_failed])
+      expect(updated_pod.error).to eq("FederationError: ssl_cacert")
+    end
+
+    it "sets :no_errors to a pod that was down but up now and return code 202" do
+      pod = FactoryGirl.create(:pod, status: :unknown_error)
+
+      DiasporaFederation.callbacks.trigger(:update_pod, pod.url_to("/"), 202)
+
+      updated_pod = Pod.find_or_create_by(url: pod.url_to("/"))
+      expect(Pod.statuses[updated_pod.status]).to eq(Pod.statuses[:no_errors])
+    end
+
+    it "does not change a pod that has status :version_failed and was successful" do
+      pod = FactoryGirl.create(:pod, status: :version_failed)
+
+      DiasporaFederation.callbacks.trigger(:update_pod, pod.url_to("/"), 202)
+
+      updated_pod = Pod.find_or_create_by(url: pod.url_to("/"))
+      expect(Pod.statuses[updated_pod.status]).to eq(Pod.statuses[:version_failed])
+    end
+
+    it "sets :http_failed if it has an unsuccessful http status code" do
+      pod = FactoryGirl.create(:pod)
+
+      DiasporaFederation.callbacks.trigger(:update_pod, pod.url_to("/"), 404)
+
+      updated_pod = Pod.find_or_create_by(url: pod.url_to("/"))
+      expect(Pod.statuses[updated_pod.status]).to eq(Pod.statuses[:http_failed])
+      expect(updated_pod.error).to eq("FederationError: HTTP status code was: 404")
     end
   end
 end

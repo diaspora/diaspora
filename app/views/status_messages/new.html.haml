@@ -4,15 +4,3 @@
                       :selected_aspects => @aspects_with_person,
                       :person => @person }
 
-:javascript
-  $(function() {
-    app.publisher = new app.views.Publisher({
-      standalone: true
-    });
-    app.publisher.open();
-    $("#publisher").bind('ajax:success', function(){
-      $("#mentionModal").modal('hide');
-      app.publisher.clear();
-      location.reload();
-    });
-  });

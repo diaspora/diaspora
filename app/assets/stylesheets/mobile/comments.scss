@@ -1,0 +1,104 @@
+.bottom-bar {
+  border-radius: 0 0 5px 5px;
+  z-index: 3;
+  display: block;
+  position: relative;
+  padding: 8px 10px 10px;
+  background: $background-grey;
+  margin-top: 10px;
+  border-top: 1px solid $border-grey;
+  min-height: 22px;
+  overflow: hidden;
+
+  > a,
+  .show-comments,
+  .show-comments > [class^="entypo"] {
+    @include transition(color);
+    color: $text-grey;
+    font-weight: bold;
+  }
+
+  .show-comments {
+    position: relative;
+    top: 3px;
+
+    > [class^="entypo"] { margin-left: .5em; }
+
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+      text-decoration: none;
+    }
+
+    &.active:not(.bottom_collapse),
+    &.active:not(.bottom_collapse) > [class^="entypo"] {
+      color: $text-color;
+    }
+  }
+
+  .post-stats {
+    float: right;
+    position: relative;
+    display: flex;
+
+    .count {
+      line-height: 22px;
+      margin-left: 5px;
+      z-index: 2;
+    }
+
+    .icon-count-group {
+      display: flex;
+      margin: 0 7px;
+    }
+
+    [class^="entypo"] {
+      color: $text-grey;
+      font-size: 24px;
+      line-height: 24px;
+      margin: 0;
+      width: 100%;
+    }
+
+    [class^="entypo"]:hover,
+    [class^="entypo"]:active,
+    [class^="entypo"]:focus {
+      text-decoration: none;
+    }
+
+    .entypo-reshare.active { color: $blue; }
+
+    .entypo-heart.active { color: $red; }
+  }
+
+  .post-action {
+    .disabled { color: $medium-gray; }
+  }
+
+  .add-comment-switcher { padding-top: 10px; }
+
+  &.inactive {
+    padding-bottom: 8px;
+
+    .comment-container {
+      display: none;
+    }
+  }
+}
+
+.stream-element .comments {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  width: 100%;
+
+  .content { padding: 0; }
+
+  .comment {
+    border-top: 1px solid $border-medium-grey;
+    padding: 10px 0 0;
+
+    &:first-child { padding-top: 20px; }
+  }
+}

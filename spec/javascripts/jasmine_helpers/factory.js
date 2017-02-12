@@ -21,6 +21,16 @@ var factory = {
     return _.extend(defaultAttrs, overrides);
   },
 
+  aspectMembershipAttrs: function(overrides) {
+    var id = this.id.next();
+    var defaultAttrs = {
+      "id": id,
+      "aspect": factory.aspectAttrs()
+    };
+
+    return _.extend(defaultAttrs, overrides);
+  },
+
   comment : function(overrides) {
     var defaultAttrs = {
       "created_at" : "2012-01-04T00:55:30Z",
@@ -31,6 +41,35 @@ var factory = {
     };
 
     return new app.models.Comment(_.extend(defaultAttrs, overrides));
+  },
+
+  contact: function(overrides) {
+    var person = factory.personAttrs();
+    var attrs = {
+      "id": this.id.next(),
+      "person_id": person.id,
+      "person": person,
+      "aspect_memberships": factory.aspectMembershipAttrs()
+    };
+
+    return new app.models.Contact(_.extend(attrs, overrides));
+  },
+
+  notification: function(overrides) {
+    var noteId = this.id.next();
+    var defaultAttrs = {
+      "type": "reshared",
+      "id": noteId,
+      "target_type": "Post",
+      "target_id": this.id.next(),
+      "recipient_id": this.id.next(),
+      "unread": true,
+      "created_at": "2012-01-04T00:55:30Z",
+      "updated_at": "2012-01-04T00:55:30Z",
+      "note_html": "This is a notification!"
+    };
+
+    return new app.models.Notification(_.extend(defaultAttrs, overrides));
   },
 
   user : function(overrides) {
@@ -54,18 +93,17 @@ var factory = {
 
   postAttrs : function(){
     return  {
+      "author": {},
       "provider_display_name" : null,
       "created_at" : "2012-01-03T19:53:13Z",
       "interacted_at" : '2012-01-03T19:53:13Z',
       "public" : false,
       "guid" : this.guid(),
-      "image_url" : null,
       "o_embed_cache" : null,
       "open_graph_cache": null,
       "photos" : [],
       "text" : "jasmine is bomb",
       "id" : this.id.next(),
-      "object_url" : null,
       "root" : null,
       "post_type" : "StatusMessage",
       "interactions" : {
@@ -148,6 +186,14 @@ var factory = {
     }, overrides);
   },
 
+  location : function() {
+    return {
+      address: "Starco Mart, Mission Street, San Francisco, Kalifornien, 94103, Vereinigte Staaten von Amerika",
+      lat: 37.78,
+      lng: -122.41
+    };
+  },
+
   post :  function(overrides) {
     var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));
@@ -181,6 +227,7 @@ var factory = {
   aspectAttrs: function(overrides) {
     var names = ['Work','School','Family','Friends','Just following','People','Interesting'];
     var defaultAttrs = {
+      id: this.id.next(),
       name: names[Math.floor(Math.random()*names.length)]+' '+Math.floor(Math.random()*100),
       selected: false
     };
@@ -203,6 +250,24 @@ var factory = {
 
     window.gon = { preloads: {} };
     _.extend(window.gon.preloads, defaults, overrides);
+  },
+
+  pod: function(overrides) {
+    var defaultAttrs = {
+      "id": 4,
+      "host": "pod.example.org",
+      "port": null,
+      "ssl": true,
+      "status": "no_errors",
+      "checked_at": "2020-01-01T13:37:00.000Z",
+      "response_time": 100,
+      "offline": false,
+      "offline_since": null,
+      "created_at": "2010-01-01T13:37:00.000Z",
+      "software": "diaspora 1.2.3.0",
+      "error": "ConnectionTester::Failure: #<Faraday::TimeoutError>"
+    };
+    return new app.models.Pod(_.extend(defaultAttrs, overrides));
   }
 };
 

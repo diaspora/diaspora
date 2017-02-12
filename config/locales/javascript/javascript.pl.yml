@@ -60,14 +60,11 @@ pl:
     conversation:
       new:
         no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kontakty"
-      participants: "Uczestnicy"
     create: "Utwórz"
     delete: "Usuń"
     edit: "Edycja"
-    failed_to_like: "Nie udało się pulubić!"
     failed_to_post_message: "Nie można wysłać wiadomości!"
     failed_to_remove: "Nie udało się usunąć wartości!"
-    failed_to_reshare: "Nie udało się przekazać dalej!"
     getting_started:
       alright_ill_wait: "Dobrze, poczekam."
       hey: "Hej, <%= name %>!"
@@ -93,9 +90,6 @@ pl:
     ignore: "Ignoruj"
     ignore_failed: "Nie można zignorować tego użytkownika"
     ignore_user: "Zignorować tego użytkownika?"
-    infinite_scroll:
-      no_more: "Nie ma więcej wpisów."
-      no_more_contacts: "Brak kontaktów."
     my_activity: "Moja aktywność"
     my_aspects: "Moje aspekty"
     my_stream: "Strumień"
@@ -139,14 +133,12 @@ pl:
       contacts: "Kontakty"
       edit: "zmień"
       gender: "Płeć"
-      ignoring: "Ignorujesz wszystkie wpisy od <%= name %>."
       location: "Miejsce"
       photos: "Zdjęcia"
       posts: "Wpisy"
       you_have_no_tags: "nie masz tagów!"
     publisher:
       add_option: "Dodaj odpowiedź"
-      at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
       near_from: "Blisko <%= location %>"
       option: "Odpowiedź"
@@ -161,10 +153,8 @@ pl:
         created: "Zgłoszenie zostało pomyślnie utworzone"
         exists: "Zgłoszenie już istnieje"
     reshares:
-      duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
       post: "Przesłać dalej wpis użytkownika <%= name %>?"
       successful: "Wpis został pomyślnie przesłany dalej!"
-    search_for: "Znajdź: <%= name %>"
     show_more: "wyświetl więcej"
     stream:
       comment: "Skomentuj"
@@ -216,13 +206,17 @@ pl:
       wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:
       day: "dzień"
-      days: "%d dni"
+      days:
+        other: "%d dni"
       hour: "około godziny"
-      hours: "około %d godzin"
+      hours:
+        other: "około %d godzin"
       minute: "około minuty"
-      minutes: "%d minut"
+      minutes:
+        other: "%d minut"
       month: "około miesiąca"
-      months: "%d miesięcy"
+      months:
+        other: "%d miesięcy"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "mniej niż minutę"
@@ -230,17 +224,8 @@ pl:
       suffixFromNow: "od teraz"
       wordSeparator: " "
       year: "około roku"
-      years: "%d lat"
+      years:
+        other: "%d lat"
     unblock_failed: "Nie udało się odblokować tego użytkownika"
-    videos:
-      unknown: "Nieznany typ wideo"
-      watch: "Zobacz ten film na <%= provider %>"
     viewer:
-      comment: "Skomentuj"
-      follow_post: "Obserwuj wpis"
-      home: "GŁÓWNA"
-      like: "Lubię to!"
-      reshare: "Przekaż dalej"
       reshared: "Przekazano dalej"
-      stop_following_post: "Przestań obserwować wpis"
-      unlike: "Nie lubię"

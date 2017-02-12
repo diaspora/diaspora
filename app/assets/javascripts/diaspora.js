@@ -49,7 +49,7 @@
       $.extend(Diaspora.Widgets[Widget].prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
       var widget = new Diaspora.Widgets[Widget](),
-        args = Array.prototype.slice.call(arguments, 1);
+          args = Array.prototype.slice.call(arguments, 1);
 
       widget.publish("widget/ready", args);
 
@@ -70,7 +70,6 @@
     $.extend(this, {
       directionDetector: this.instantiate("DirectionDetector"),
       events: function() { return Diaspora.page.eventsContainer.data("events"); },
-      flashMessages: this.instantiate("FlashMessages"),
       header: this.instantiate("Header", body.find("header")),
       timeAgo: this.instantiate("TimeAgo")
     });
@@ -86,7 +85,7 @@
       Diaspora.page = new Page();
     }
 
-    if(!$.mobile)//why does this need this?
+    if(!$.mobile) // why does this need this?
       $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
     Diaspora.page.publish("page/ready", [$(document.body)]);
   };

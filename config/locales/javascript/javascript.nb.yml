@@ -57,14 +57,11 @@ nb:
     conversation:
       new:
         no_contacts: "Du må legge til noen kontakter før du kan starte en samtale."
-      participants: "Deltakere"
     create: "Lag"
     delete: "Slett"
     edit: "Rediger"
-    failed_to_like: "Klarte ikke å like!"
     failed_to_post_message: "Klarte ikke å publisere post!"
     failed_to_remove: "Noe gikk galt i forsøket på å fjerne innlegget!"
-    failed_to_reshare: "Kunne ikke videredele"
     getting_started:
       alright_ill_wait: "Greit, jeg venter."
       hey: "Hei, <%= name %>!"
@@ -91,9 +88,6 @@ nb:
     ignore: "Ignorer"
     ignore_failed: "Ikke mulig å ignorere brukeren"
     ignore_user: "Overse denne brukeren?"
-    infinite_scroll:
-      no_more: "Ingen flere innlegg."
-      no_more_contacts: "Ingen flere kontakter."
     my_activity: "Min aktivitet"
     my_aspects: "Mine aspekter"
     my_stream: "Strøm"
@@ -135,15 +129,40 @@ nb:
       contacts: "Kontakter"
       edit: "Endre"
       gender: "Kjønn"
-      ignoring: "Du vil ignorere alle innlegg fra <%= name %>."
       location: "Lokasjon"
       photos: "Bilder"
       posts: "Innlegg"
       you_have_no_tags: "Du har ingen tagger!"
     publisher:
       add_option: "Legg til valg"
-      at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"
+      markdown_editor:
+        preview: "Forhåndsvis"
+        texts:
+          code: "kode her"
+          heading: "Tekst for overskrift"
+          insert_image_description_text: "legg til bildebeskrivelse her"
+          insert_image_help_text: "Sett inn bildelink her"
+          insert_image_title: "legg til bildetittel her"
+          insert_link_description_text: "legg til lenkebeskrivelse her"
+          insert_link_help_text: "sett inn lenke her"
+          italic: "Kursiv tekst"
+          quote: "sitert tekst her"
+          strong: "Uthevet tekst"
+        tooltips:
+          bold: "Fet skrift"
+          cancel: "Avbryt melding"
+          code: "Sett inn kode"
+          heading: "Overskrift"
+          insert_image: "Sett inn bilde"
+          insert_link: "Sett inn link"
+          insert_ordered_list: "Sett inn kronologisk liste"
+          insert_unordered_list: "Sett inn uordnet liste"
+          italic: "Kursiv"
+          preview: "Forhåndsvis melding"
+          quote: "Sett inn sitat"
+          write: "Rediger melding"
+        write: "Skriv"
       near_from: "Publisert fra: <%= location %>"
       option: "Valg <%= nr %>"
       public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
@@ -157,10 +176,8 @@ nb:
         created: "Rapporten er opprettet"
         exists: "Rapporten eksisterer allerede"
     reshares:
-      duplicate: "du har allerede delt denne posten!"
       post: "Videredel <%= name %> sitt innhold?"
       successful: "Dette innholdet ble videredelt"
-    search_for: "Søk etter <%= name %>"
     show_more: "vis mer"
     stream:
       comment: "Kommenter"
@@ -183,6 +200,7 @@ nb:
         one: "Vis <%= count %> kommentar til"
         other: "Vis <%= count %> komentarer til"
         zero: "Ikke flere kommentarer"
+      no_posts_yet: "Det er ingen poster å vise her ennå"
       original_post_deleted: "Den opprinnelige posten er slettet av forfatteren."
       public: "Offentlig"
       reshare: "Del"
@@ -206,13 +224,17 @@ nb:
       wasnt_that_interesting: "OK, jeg skjønner at #<%= tagName %> ikke var så spennende likevel ..."
     timeago:
       day: "en dag"
-      days: "%d dager"
+      days:
+        other: "%d dager"
       hour: "ca. en time"
-      hours: "ca. %d timer"
+      hours:
+        other: "ca. %d timer"
       minute: "ca. et minutt"
-      minutes: "%d minutter"
+      minutes:
+        other: "%d minutter"
       month: "ca. en måned"
-      months: "%d måneder"
+      months:
+        other: "%d måneder"
       prefixAgo: "for"
       prefixFromNow: "om"
       seconds: "under ett minutt"
@@ -220,17 +242,8 @@ nb:
       suffixFromNow: "fra nå"
       wordSeparator: " "
       year: "ca. et år"
-      years: "%d år"
+      years:
+        other: "%d år"
     unblock_failed: "Feilet i å stoppe blokkering"
-    videos:
-      unknown: "Ukjent videotype"
-      watch: "Se denne videoen på <%= provider %>"
     viewer:
-      comment: "Kommenter"
-      follow_post: "Følg post"
-      home: "HJEM"
-      like: "Liker"
-      reshare: "Del"
       reshared: "Delt med andre"
-      stop_following_post: "Slutt å følge post"
-      unlike: "Fjern liker"

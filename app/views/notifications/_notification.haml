@@ -1,9 +1,12 @@
-.media.stream_element{:data=>{:guid => note.id, :type => (Notification.types.key(note.type) || '') }, :class => (note.unread ? 'unread' : 'read')}
+.media.stream-element{data: {guid: note.id, type: (Notification.types.key(note.type) || "")},
+                      class: (note.unread ? "unread" : "read")}
   .unread-toggle.pull-right
-    %i.entypo.eye{ :title => (note.unread ? t('notifications.index.mark_read') : t('notifications.index.mark_unread')) }
-  - if note.type == "Notifications::StartedSharing" && contact = current_user.contact_for(note.effective_target)
-    .pull-right
-      = aspect_membership_dropdown(contact, note.effective_target, 'left')
+    %i.entypo-eye{title: (note.unread ? t("notifications.index.mark_read") : t("notifications.index.mark_unread"))}
+  - if note.type == "Notifications::StartedSharing" && (!defined?(no_aspect_dropdown) || !no_aspect_dropdown)
+    - if note.target.present?
+      - gon_load_contact(note.contact)
+      .pull-right
+        .aspect_membership_dropdown.placeholder{data: {person_id: note.target.id}}
 
   .media-object.pull-left
     = person_image_link note.actors.first, :size => :thumb_small, :class => 'hovercardable'

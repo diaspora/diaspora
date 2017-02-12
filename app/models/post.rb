@@ -7,29 +7,28 @@ class Post < ActiveRecord::Base
 
   include ApplicationHelper
 
-  include Diaspora::Federated::Shareable
+  include Diaspora::Federated::Base
 
   include Diaspora::Likeable
   include Diaspora::Commentable
   include Diaspora::Shareable
 
   has_many :participations, dependent: :delete_all, as: :target, inverse_of: :target
+  has_many :participants, class_name: "Person", through: :participations, source: :author
 
   attr_accessor :user_like
 
-  xml_attr :provider_display_name
+  has_many :reports, as: :item
 
-  has_many :mentions, :dependent => :destroy
+  has_many :mentions, dependent: :destroy
 
-  has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
-  has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
+  has_many :reshares, class_name: "Reshare", foreign_key: :root_guid, primary_key: :guid
+  has_many :resharers, class_name: "Person", through: :reshares, source: :author
 
   belongs_to :o_embed_cache
   belongs_to :open_graph_cache
 
   validates_uniqueness_of :id
-
-  validates :author, presence: true
 
   after_create do
     self.touch(:interacted_at)
@@ -44,6 +43,7 @@ class Post < ActiveRecord::Base
     ) #note should include root and photos, but i think those are both on status_message
   }
 
+  scope :all_public, -> { where(public: true) }
 
   scope :commented_by, ->(person)  {
     select('DISTINCT posts.*')
@@ -55,20 +55,11 @@ class Post < ActiveRecord::Base
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
-  def self.visible_from_author(author, current_user=nil)
-    if current_user.present?
-      current_user.posts_from(author)
-    else
-      author.posts.all_public
-    end
-  end
-
   def post_type
     self.class.name
   end
 
   def root; end
-  def raw_message; ""; end
   def mentioned_people; []; end
   def photos; []; end
 
@@ -103,11 +94,17 @@ class Post < ActiveRecord::Base
     excluding_blocks(user).excluding_hidden_shareables(user)
   end
 
-  def self.for_a_stream(max_time, order, user=nil)
+  def self.for_a_stream(max_time, order, user=nil, ignore_blocks=false)
     scope = self.for_visible_shareable_sql(max_time, order).
       includes_for_a_stream
 
-    scope = scope.excluding_hidden_content(user) if user.present?
+    if user.present?
+      if ignore_blocks
+        scope = scope.excluding_hidden_shareables(user)
+      else
+        scope = scope.excluding_hidden_content(user)
+      end
+    end
 
     scope
   end
@@ -124,22 +121,13 @@ class Post < ActiveRecord::Base
 
   #############
 
+  # @return [Integer]
+  def update_reshares_counter
+    self.class.where(id: id).update_all(reshares_count: reshares.count)
+  end
+
   def self.diaspora_initialize(params)
-    new_post = self.new params.to_hash.stringify_keys.slice(*self.column_names)
-    new_post.author = params[:author]
-    new_post.public = params[:public] if params[:public]
-    new_post.pending = params[:pending] if params[:pending]
-    new_post.diaspora_handle = new_post.author.diaspora_handle
-    new_post
-  end
-
-  # @return Returns true if this Post will accept updates (i.e. updates to the caption of a photo).
-  def mutable?
-    false
-  end
-
-  def activity_streams?
-    false
+    new(params.to_hash.stringify_keys.slice(*column_names, "author"))
   end
 
   def comment_email_subject
@@ -150,20 +138,9 @@ class Post < ActiveRecord::Base
     self.author.profile.nsfw?
   end
 
-  def self.find_public(id)
-    where(post_key(id) => id).includes(:author, comments: :author).first.tap do |post|
-      raise ActiveRecord::RecordNotFound.new("could not find a post with id #{id}") unless post
-      raise Diaspora::NonPublic unless post.public?
+  def subscribers
+    super.tap do |subscribers|
+      subscribers.concat(resharers).concat(participants) if public?
     end
-  end
-
-  def self.find_non_public_by_guid_or_id_with_user(id, user)
-    user.find_visible_shareable_by_id(Post, id, key: post_key(id)).tap do |post|
-      raise ActiveRecord::RecordNotFound.new("could not find a post with id #{id}") unless post
-    end
-  end
-
-  def self.post_key(id)
-    id.to_s.length <= 8 ? :id : :guid
   end
 end

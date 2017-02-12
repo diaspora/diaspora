@@ -1,0 +1,23 @@
+// flash message animations - header height is about 50px
+@keyframes expose {
+  0% { top: -100px; }
+  12% { top: $navbar-height; }
+  88% { top: $navbar-height; }
+  100% { top: -100px; }
+}
+
+// spinner animation
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulsate {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: .1;
+  }
+}

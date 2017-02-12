@@ -4,12 +4,8 @@
 
 module Workers
   class QueueUsersForRemoval < Base
-    include Sidetiq::Schedulable
-    
-    sidekiq_options queue: :maintenance
-    
-    recurrence { daily }
-    
+    sidekiq_options queue: :low
+
     def perform
       # Queue users for removal due to inactivity
       if AppConfig.settings.maintenance.remove_old_users.enable?
@@ -37,5 +33,5 @@ module Workers
         end
       end
     end
-  end 
+  end
 end

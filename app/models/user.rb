@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class User < ActiveRecord::Base
-  include Encryptor::Private
+  include AuthenticationToken
   include Connecting
   include Querying
   include SocialActions
@@ -15,29 +15,33 @@ class User < ActiveRecord::Base
   scope :daily_actives, ->(time = Time.now) { logged_in_since(time - 1.day) }
   scope :yearly_actives, ->(time = Time.now) { logged_in_since(time - 1.year) }
   scope :halfyear_actives, ->(time = Time.now) { logged_in_since(time - 6.month) }
-  scope :active, -> { joins(:person).where(people: {closed_account: false}).where.not(username: nil) }
+  scope :active, -> { joins(:person).where(people: {closed_account: false}) }
 
-  devise :token_authenticatable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
+  before_validation :set_default_color_theme, on: :create
 
   validates :username, :presence => true, :uniqueness => true
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
   validates_exclusion_of :username, :in => AppConfig.settings.username_blacklist
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+  validates :color_theme, inclusion: {in: AVAILABLE_COLOR_THEME_CODES}, allow_blank: true
   validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
 
-  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
+  validate :unconfirmed_email_quasiuniqueness
+
+  validates :person, presence: true
   validates_associated :person
   validate :no_person_with_same_username
 
   serialize :hidden_shareables, Hash
 
-  has_one :person, :foreign_key => :owner_id
+  has_one :person, inverse_of: :owner, foreign_key: :owner_id
   has_one :profile, through: :person
 
   delegate :guid, :public_key, :posts, :photos, :owns?, :image_url,
@@ -45,8 +49,6 @@ class User < ActiveRecord::Base
            :first_name, :last_name, :gender, :participations, to: :person
   delegate :id, :guid, to: :person, prefix: true
 
-  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
-  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
   has_many :aspects, -> { order('order_id ASC') }
 
   belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
@@ -74,8 +76,15 @@ class User < ActiveRecord::Base
 
   has_many :reports
 
-  before_save :guard_unconfirmed_email,
-              :save_person!
+  has_many :pairwise_pseudonymous_identifiers, class_name: "Api::OpenidConnect::PairwisePseudonymousIdentifier"
+  has_many :authorizations, class_name: "Api::OpenidConnect::Authorization"
+  has_many :o_auth_applications, through: :authorizations, class_name: "Api::OpenidConnect::OAuthApplication"
+
+  has_many :share_visibilities
+
+  before_save :guard_unconfirmed_email
+
+  after_save :remove_invalid_unconfirmed_emails
 
   def self.all_sharing_with_person(person)
     User.joins(:contacts).where(:contacts => {:person_id => person.id})
@@ -89,20 +98,10 @@ class User < ActiveRecord::Base
     ConversationVisibility.where(person_id: self.person_id).sum(:unread)
   end
 
-  #@deprecated
-  def ugly_accept_invitation_code
-    begin
-      self.invitations_to_me.first.sender.invitation_code
-    rescue Exception => e
-      nil
-    end
-  end
-
   def process_invite_acceptence(invite)
     self.invited_by = invite.user
-    invite.use!
+    invite.use! unless AppConfig.settings.enable_registrations?
   end
-
 
   def invitation_code
     InvitationCode.find_or_create_by(user_id: self.id)
@@ -198,6 +197,10 @@ class User < ActiveRecord::Base
     self.language = I18n.locale.to_s if self.language.blank?
   end
 
+  def set_default_color_theme
+    self.color_theme ||= AppConfig.settings.default_color_theme
+  end
+
   # This override allows a user to enter either their email address or their username into the username field.
   # @return [User] The user that matches the username/email condition.
   # @return [nil] if no user matches that condition.
@@ -216,16 +219,9 @@ class User < ActiveRecord::Base
     save
   end
 
-  ######### Aspects ######################
-  def add_contact_to_aspect(contact, aspect)
-    return true if AspectMembership.exists?(:contact_id => contact.id, :aspect_id => aspect.id)
-    contact.aspect_memberships.create!(:aspect => aspect)
-  end
-
   ######## Posting ########
   def build_post(class_name, opts={})
-    opts[:author] = self.person
-    opts[:diaspora_handle] = opts[:author].diaspora_handle
+    opts[:author] = person
 
     model_class = class_name.to_s.camelize.constantize
     model_class.diaspora_initialize(opts)
@@ -233,7 +229,7 @@ class User < ActiveRecord::Base
 
   def dispatch_post(post, opts={})
     logger.info "user:#{id} dispatching #{post.class}:#{post.guid}"
-    Postzord::Dispatcher.defer_build_and_post(self, post, opts)
+    Diaspora::Federation::Dispatcher.defer_dispatch(self, post, opts)
   end
 
   def update_post(post, post_hash={})
@@ -241,12 +237,6 @@ class User < ActiveRecord::Base
       post.update_attributes(post_hash)
       self.dispatch_post(post)
     end
-  end
-
-  def notify_if_mentioned(post)
-    return unless self.contact_for(post.author) && post.respond_to?(:mentions?)
-
-    post.notify_person(self.person) if post.mentions? self.person
   end
 
   def add_to_streams(post, aspects_to_insert)
@@ -260,6 +250,21 @@ class User < ActiveRecord::Base
       self.aspects
     else
       aspects.where(:id => aspect_ids).to_a
+    end
+  end
+
+  def post_default_aspects
+    if post_default_public
+      ["public"]
+    else
+      aspects.where(post_default: true).to_a
+    end
+  end
+
+  def update_post_default_aspects(post_default_aspect_ids)
+    aspects.each do |aspect|
+      enable = post_default_aspect_ids.include?(aspect.id.to_s)
+      aspect.update_attribute(:post_default, enable)
     end
   end
 
@@ -323,34 +328,7 @@ class User < ActiveRecord::Base
   end
 
   def perform_export_photos!
-    temp_zip = Tempfile.new([username, '_photos.zip'])
-    begin
-      Zip::OutputStream.open(temp_zip.path) do |zos|
-        photos.each do |photo|
-          begin
-            photo_file = photo.unprocessed_image.file
-            if photo_file
-              photo_data = photo_file.read
-              zos.put_next_entry(photo.remote_photo_name)
-              zos.print(photo_data)
-            else
-              logger.info "Export photos error: No file for #{photo.remote_photo_name} not found"
-            end
-          rescue Errno::ENOENT
-            logger.info "Export photos error: #{photo.unprocessed_image.file.path} not found"
-          end
-        end
-      end
-    ensure
-      temp_zip.close
-    end
-
-    begin
-      update exported_photos_file: temp_zip, exported_photos_at: Time.zone.now if temp_zip.present?
-    ensure
-      restore_attributes if invalid? || temp_zip.present?
-      update exporting_photos: false
-    end
+    PhotoExporter.new(self).perform
   end
 
   ######### Mailer #######################
@@ -367,26 +345,10 @@ class User < ActiveRecord::Base
   end
 
   ######### Posts and Such ###############
-  def retract(target, opts={})
-    if target.respond_to?(:relayable?) && target.relayable?
-      retraction = RelayableRetraction.build(self, target)
-    elsif target.is_a? Post
-      retraction = SignedRetraction.build(self, target)
-    else
-      retraction = Retraction.for(target)
-    end
-
-   if target.is_a?(Post)
-     opts[:additional_subscribers] = target.resharers
-     opts[:services] = self.services
-   end
-
-    mailman = Postzord::Dispatcher.build(self, retraction, opts)
-    mailman.post
-
-    retraction.perform(self)
-
-    retraction
+  def retract(target)
+    retraction = Retraction.for(target, self)
+    retraction.defer_dispatch(self)
+    retraction.perform
   end
 
   ########### Profile ######################
@@ -412,8 +374,8 @@ class User < ActiveRecord::Base
     update_profile( self.profile.from_omniauth_hash( user_info ) )
   end
 
-  def deliver_profile_update
-    Postzord::Dispatcher.build(self, profile).post
+  def deliver_profile_update(opts={})
+    Diaspora::Federation::Dispatcher.defer_dispatch(self, profile, opts)
   end
 
   def basic_profile_present?
@@ -432,6 +394,8 @@ class User < ActiveRecord::Base
     self.email = opts[:email]
     self.language = opts[:language]
     self.language ||= I18n.locale.to_s
+    self.color_theme = opts[:color_theme]
+    self.color_theme ||= AppConfig.settings.default_color_theme
     self.valid?
     errors = self.errors
     errors.delete :person
@@ -442,7 +406,6 @@ class User < ActiveRecord::Base
   end
 
   def set_person(person)
-    person.url = AppConfig.pod_uri.to_s
     person.diaspora_handle = "#{self.username}#{User.diaspora_id_host}"
     self.person = person
   end
@@ -471,10 +434,10 @@ class User < ActiveRecord::Base
     conversation = sender.build_conversation(
       participant_ids: [sender.person.id, person.id],
       subject:         AppConfig.settings.welcome_message.subject.get,
-      message:         {text: AppConfig.settings.welcome_message.text.get % {username: username}})
-    if conversation.save
-      Postzord::Dispatcher.build(sender, conversation).post
-    end
+      message:         {text: AppConfig.settings.welcome_message.text.get % {username: username}}
+    )
+
+    Diaspora::Federation::Dispatcher.build(sender, conversation).dispatch if conversation.save
   end
 
   def encryption_key
@@ -502,6 +465,13 @@ class User < ActiveRecord::Base
   end
 
 
+  # Ensure that the unconfirmed email isn't already someone's email
+  def unconfirmed_email_quasiuniqueness
+    if User.exists?(["id != ? AND email = ?", id, unconfirmed_email])
+      errors.add(:unconfirmed_email, I18n.t("errors.messages.taken"))
+    end
+  end
+
   def guard_unconfirmed_email
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
 
@@ -510,26 +480,21 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Whenever email is set, clear all unconfirmed emails which match
+  def remove_invalid_unconfirmed_emails
+    User.where(unconfirmed_email: email).update_all(unconfirmed_email: nil, confirm_email_token: nil) if email_changed?
+  end
+
   # Generate public/private keys for User and associated Person
   def generate_keys
-    key_size = (Rails.env == 'test' ? 512 : 4096)
+    key_size = (Rails.env == "test" ? 512 : 4096)
 
-    self.serialized_private_key = OpenSSL::PKey::RSA::generate(key_size).to_s if self.serialized_private_key.blank?
+    self.serialized_private_key = OpenSSL::PKey::RSA.generate(key_size).to_s if serialized_private_key.blank?
 
     if self.person && self.person.serialized_public_key.blank?
       self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key.to_s
     end
   end
-
-  # Sometimes we access the person in a strange way and need to do this
-  # @note we should make this method depricated.
-  #
-  # @return [Person]
-  def save_person!
-    self.person.save if self.person && self.person.changed?
-    self.person
-  end
-
 
   def no_person_with_same_username
     diaspora_id = "#{self.username}#{User.diaspora_id_host}"
@@ -553,7 +518,8 @@ class User < ActiveRecord::Base
       self[field] = nil
     end
     [:getting_started,
-     :show_community_spotlight_in_stream].each do |field|
+     :show_community_spotlight_in_stream,
+     :post_default_public].each do |field|
       self[field] = false
     end
     self[:disable_mail] = true
@@ -593,12 +559,10 @@ class User < ActiveRecord::Base
   private
 
   def clearable_fields
-    self.attributes.keys - ["id", "username", "encrypted_password",
-                            "created_at", "updated_at", "locked_at",
-                            "serialized_private_key", "getting_started",
-                            "disable_mail", "show_community_spotlight_in_stream",
-                            "strip_exif", "email", "remove_after",
-                            "export", "exporting", "exported_at",
-                            "exported_photos_file", "exporting_photos", "exported_photos_at"]
+    attributes.keys - %w(id username encrypted_password created_at updated_at locked_at
+                         serialized_private_key getting_started
+                         disable_mail show_community_spotlight_in_stream
+                         strip_exif email remove_after export exporting exported_at
+                         exported_photos_file exporting_photos exported_photos_at)
   end
 end

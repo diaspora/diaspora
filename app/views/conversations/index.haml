@@ -1,39 +1,35 @@
-- content_for :head do
-  = javascript_include_tag :inbox
-
 - content_for :page_title do
-  = t('.conversations_inbox')
+  = t(".conversations_inbox")
 
-.container-fluid#conversations_container
-  .row-fluid
-    .span4
-      #left_pane
-        #left_pane_header
+.container-fluid#conversations-container
+  .row
+    .col-md-4
+      .sidebar#left_pane
+        .sidebar-header.clearfix#left_pane_header
+          .pull-right
+            = link_to t(".new_conversation"), conversations_path, class: "new-conversation-btn btn btn-default"
           %h3
-            .pull-right{ class: ("hidden" unless @visibilities)}
-              = link_to t('.new_conversation'), conversations_path, class: 'btn btn-default'
-            = t('.inbox')
+            = t(".inbox")
 
-        #conversation_inbox
-          .stream.conversations
+        .conversation-inbox#conversation-inbox
+          .conversations-form-container.stream.conversations
             - if @visibilities.count > 0
-              = render partial: "conversations/conversation", collection: @visibilities, as: :visibility, locals: {authors: @authors, ordered_participants: @ordered_participants, unread_counts: @unread_counts, selected_conversation_id: @conversation.try(:id)}
+              = render partial: "conversations/conversation", collection: @visibilities, as: :visibility
             - else
-              #no_conversations
-                = t('.no_messages')
-            = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;",inner_window: 1,
-                renderer: WillPaginate::ActionView::BootstrapLinkRenderer
-
-    .span8
-      - if @conversation
-        .stream_container
-          #conversation_show
-            = render 'conversations/show', :conversation => @conversation
-      - else
-        .stream_container.hidden
-          #conversation_show
-        #conversation_new.row-fluid
-          %h3.text-center
-            = t('conversations.index.new_conversation')
-          .span10.offset
-            = render 'conversations/new'
+              .no-conversations
+                = t(".no_messages")
+            .pagination-container
+              = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;", inner_window: 1,
+                  renderer: WillPaginate::ActionView::BootstrapLinkRenderer
+    .col-md-8
+      .conversations-form-container.stream_container
+        #conversation-show{class: @conversation ? "" : "hidden"}
+          - if @conversation
+            = render 'conversations/show', conversation: @conversation
+        #conversation-new{class: @conversation ? "framed-content clearfix hidden" : "framed-content clearfix"}
+          .new-conversation
+            %h3.text-center= t("conversations.index.new_conversation")
+            - if no_contacts
+              .well.text-center= t("javascripts.conversation.new.no_contacts")
+            - else
+              = render "conversations/new"

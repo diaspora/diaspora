@@ -3,7 +3,7 @@ Feature: Change password
 
   Scenario: Change my password
     Given I am signed in
-    When I go to the users edit page
+    When I go to the edit user page
     And I fill out change password section with my password and "newsecret" and "newsecret"
     And I press "Change password"
     Then I should see "Password changed"
@@ -27,8 +27,8 @@ Feature: Change password
     And I submit forgot password form
     Then I should see "You will receive an email with instructions"
     When I follow the "Change my password" link from the last sent email
-    When I fill out reset password form with "supersecret" and "supersecret"
-    And I submit reset password form
+    When I fill out the password reset form with "supersecret" and "supersecret"
+    And I submit the password reset form
     Then I should be on the stream page
     And I sign out manually
     And I sign in manually as "georges_abitbol" with password "supersecret"
@@ -40,7 +40,7 @@ Feature: Change password
     When I fill out forgot password form with "forgetful@users.net"
     And I submit forgot password form
     When I follow the "Change my password" link from the last sent email
-    When I fill out reset password form with "too" and "short"
+    When I fill out the password reset form with "too" and "short"
     And I press "Change my password"
     Then I should be on the user password page
     And I should see "Password is too short"

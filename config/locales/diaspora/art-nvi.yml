@@ -6,10 +6,7 @@
 
 art-nvi:
   _applications: "Lapo aydiaspora"
-  _comments: "Aysäplltxevi"
   _contacts: "Eylan"
-  _home: "Kelutral"
-  _photos: "ayrel"
   _services: "Hìte'e"
   account: "Ngeyä Diaspora"
   activerecord:
@@ -22,21 +19,13 @@ art-nvi:
   admins:
     stats:
       go: "salew"
-  ago: "%{time} kam"
   all_aspects: "Nìwotx Aypongu"
-  application:
-    helper:
-      unknown_person: "tute astxong"
   are_you_sure: "Nga lu law srak?"
   are_you_sure_delete_account: "Nga lu law tsnì new tspivang ngeyä Diasporati srak? fìkem ke laytem mawkrr!"
   aspects:
     destroy:
       success: "%{name}l 'ìlmaku fìtsengeta."
     index:
-      diaspora_id:
-        content_1: "Ngeyä Diaspora Tstxo lu:"
-        content_2: "Fpe' fì'u"
-        heading: "Diaspora Tstxo"
       donate: "Tìng"
       help:
         feature_suggestion: "... %{link} tìmok srak?"
@@ -51,22 +40,12 @@ art-nvi:
         follow: "Sutx %{link}it ulte zola'u nìprrte' sute amip ne Diaspora*!"
         learn_more: "nume nì'ul"
         title: "Zola'u nìprrte' ma sute amip"
-      no_contacts: "Kea 'eylan"
-      post_a_message: "plltxe 'upxareit >>"
-      unfollow_tag: "Ke serutx #%{tag}"
       welcome_to_diaspora: "Zola'u nìprrte' ne Diaspora ma %{name}!"
-    new:
-      create: "Ngop"
     seed:
       family: "Soaia"
       friends: "Eylan"
       work: "Tìkangkem"
-  back: "ne'ìm"
   cancel: "Ftang"
-  comments:
-    one: "1 säplltxevi"
-    other: "%{count} aysäplltxevi"
-    zero: "Kea aysäplltxevi"
   contacts:
     index:
       add_a_new_aspect: "Ngop ponguti amip"
@@ -74,14 +53,10 @@ art-nvi:
       my_contacts: "Oeyä Eylan"
       start_a_conversation: "Ngal sngä'i tìpängkxoti"
       title: "Eylan"
-      your_contacts: "Ngeyä Eylan"
   conversations:
     create:
       fail: "kxeyey 'upxare"
       sent: "'Upxare fpìme'"
-    helper:
-      new_messages:
-        zero: "kea 'upxare amip"
     index:
       inbox: "'Upxare tsenge"
       no_messages: "Kea upxare"
@@ -95,19 +70,15 @@ art-nvi:
   email: "Ikran lì'u"
   fill_me_out: "Pamrel si mì oe"
   find_people: "Run suteti fu #säsulìnit"
-  hide: "Wan"
   invitations:
     new:
       language: "Lì'fya"
   layouts:
     header:
-      blog: "pìlok"
       logout: "Hum"
       profile: "Txin"
-      recent_notifications: "Upxare asop"
       settings: "Sìfkeytok"
   more: "nì'ul"
-  next: "hay"
   no_results: "Ke rìmun."
   notifications:
     index:
@@ -116,13 +87,7 @@ art-nvi:
     single_admin:
       subject: "'Upxare teri ngeyä Diaspora:"
   ok: "Tam"
-  or: "fu"
-  password: "Ftemlì'u"
-  password_confirmation: "Ftemlì'u latem"
   people:
-    helper:
-      results_for: " u %{params}ir"
-    one: "Tute"
     person:
       thats_you: "Fì'u nga lu!"
     profile_sidebar:
@@ -130,32 +95,10 @@ art-nvi:
       born: "ftxozä"
       gender: "fnepe tokx"
       location: "Kelku"
-      remove_from: "'aku %{name}it ta %{aspect} srak?"
-    show:
-      message: "'upxare"
-      recent_posts: "Upxare asop"
-      see_all: "Tse'a nìwotx"
-    sub_header:
-      edit: "latem"
-    zero: "Kea sute"
   photos:
-    comment_email_subject: "%{name}yä rel"
     destroy:
       notice: "Relìl 'aìmku"
-    edit:
-      editing: "leratem"
-    new:
-      new_photo: "Rel amip"
-    show:
-      delete_photo: "'aku relit"
-      edit: "latem"
-      edit_delete_photo: "latem relit tìsla'tsuti fu 'aku relit"
-  posts:
-    show:
-      destroy: "'aku"
-  previous: "ham"
   privacy: "Le'aw 'awpoä Sìfkeytok"
-  privacy_policy: "Le'aw 'awpoä sìfkeytok aysänume"
   profile: "Txin"
   profiles:
     edit:
@@ -166,29 +109,15 @@ art-nvi:
       your_name: "ngeyä tstxo"
       your_photo: "ngeyä rel"
   public: "Frapo tsun tsive'a fì'u"
-  registrations:
-    edit:
-      edit: "Latem %{name}it"
-      unhappy: "Nga lu keftxo srak?"
-    new:
-      sign_up_message: "Tsenge eylanìri tsnì zamunge ♥"
-  requests:
-    create:
-      sending: "fpere'"
-    new_request_to_person:
-      sent: "fpìme'!"
   search: "Fwew"
   settings: "Sìfkeytok"
   shared:
     invitations:
       by_email: "ìlä email"
-      from_facebook: "Ta Facebook"
       invite_your_friends: "pawm ngeyä eylanti fìtseng"
     publisher:
       upload_photos: "Fpe' relit"
     stream_element:
-      like: "Sunu"
-      unlike: "Ke Sunu"
       via: "ìlä %{link}"
   streams:
     activity:
@@ -204,8 +133,6 @@ art-nvi:
       title: "@plltxole"
     multi:
       title: "Payfya"
-  terms_and_conditions: "Horen"
-  undo: "Tätxaw srefxiset?"
   username: "Tstxo"
   users:
     edit:
@@ -227,4 +154,3 @@ art-nvi:
       title: "Le'aw 'awpoä Sìfkeytok"
     update:
       language_changed: "lì'fyal lìmatem"
-  welcome: "Zola'u nìprrte'!"

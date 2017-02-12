@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Conversation, :type => :model do
   let(:user1) { alice }
   let(:user2) { bob }
@@ -67,67 +65,6 @@ describe Conversation, :type => :model do
       expect(conversation.conversation_visibilities.where(person_id: user1.person.id).first.unread).to eq(2)
       conversation.set_read(user1)
       expect(conversation.conversation_visibilities.where(person_id: user1.person.id).first.unread).to eq(0)
-    end
-  end
-
-  context "transport" do
-    let(:conversation_message) { conversation.messages.first }
-    let(:xml) { conversation.to_diaspora_xml }
-
-    before do
-      conversation
-    end
-
-    describe "serialization" do
-      it "serializes the message" do
-        expect(xml.gsub(/\s/, "")).to include(conversation_message.to_xml.to_s.gsub(/\s/, ""))
-      end
-
-      it "serializes the participants" do
-        create_hash[:participant_ids].each do |id|
-          expect(xml).to include(Person.find(id).diaspora_handle)
-        end
-      end
-
-      it "serializes the created_at time" do
-        expect(xml).to include(conversation_message.created_at.to_s)
-      end
-    end
-
-    describe "#subscribers" do
-      it "returns the recipients for the post owner" do
-        expect(conversation.subscribers(user1)).to eq(user1.contacts.map(&:person))
-      end
-    end
-
-    describe "#receive" do
-      before do
-        Message.destroy_all
-        Conversation.destroy_all
-      end
-
-      it "creates a message" do
-        expect {
-          Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
-        }.to change(Message, :count).by(1)
-      end
-      it "creates a conversation" do
-        expect {
-          Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
-        }.to change(Conversation, :count).by(1)
-      end
-      it "creates appropriate visibilities" do
-        expect {
-          Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
-        }.to change(ConversationVisibility, :count).by(participant_ids.size)
-      end
-      it "does not save before receive" do
-        expect(Diaspora::Parser.from_xml(xml).persisted?).to be false
-      end
-      it "notifies for the message" do
-        expect(Notification).to receive(:notify).once
-        Diaspora::Parser.from_xml(xml).receive(user1, user2.person)
-      end
     end
   end
 

@@ -7,6 +7,15 @@ describe("app.models.Person", function() {
     this.blockedContact = factory.person({relationship: "blocked", block: {id: 1}});
   });
 
+  describe("initialize", function() {
+    it("sets contact object with person reference", function() {
+      var contact = {id: factory.id.next()};
+      var person = factory.person({contact: contact});
+      expect(person.contact.get("id")).toEqual(contact.id);
+      expect(person.contact.person).toEqual(person);
+    });
+  });
+
   context("#isSharing", function() {
     it("indicates if the person is sharing", function() {
       expect(this.mutualContact.isSharing()).toBeTruthy();

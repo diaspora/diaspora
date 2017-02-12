@@ -6,10 +6,7 @@
 
 id:
   _applications: "Aplikasi"
-  _comments: "Komentar"
   _contacts: "Kontak"
-  _home: "Beranda"
-  _photos: "foto"
   _services: "Layanan"
   account: "Akun"
   activerecord:
@@ -40,13 +37,7 @@ id:
             username:
               invalid: "tidak valid. Hanya boleh huruf, angka dan garis bawah."
               taken: "sudah dipakai"
-  ago: "%{time} yang lalu"
   all_aspects: "Semua Hal"
-  application:
-    helper:
-      unknown_person: "orang tak dikenal"
-      video_title:
-        unknown: "Judul Video Tidak Diketahui"
   are_you_sure: "Anda yakin?"
   are_you_sure_delete_account: "Anda yakin akan menghapus akun anda? ini tidak dapat di batalkan!"
   aspect_memberships:
@@ -62,17 +53,9 @@ id:
       success: "Successfully added friend to aspect."
     aspect_listings:
       add_an_aspect: "+ Tambah satu aspek"
-      deselect_all: "Batalkan semua pilihan"
-      edit_aspect: "Ubah %{name}"
-      select_all: "Pilih semua"
     aspect_stream:
       stay_updated: "Selalu Terbarui"
       stay_updated_explanation: "Aliran utamamu dipenuhi oleh semua kontakmu, tandai yang kamu ikuti, dan kirimkan beberapa anggota komunitas."
-    contacts_not_visible: "Kontak di aspek ini tidak dapat saling melihat."
-    contacts_visible: "Kontak di aspek ini dapat saling melihat."
-    create:
-      failure: "Aspek gagal dibuat."
-      success: "Klik pada tanda plus di sisi kiri untuk memberitahu Diaspora siapa yang dapat melihat aspek baru Anda."
     destroy:
       failure: "%{name} tidak terisi dan tidak dapat dihapus."
       success: "%{name} berhasil dihapus."
@@ -80,21 +63,13 @@ id:
       aspect_list_is_not_visible: "Kontak di dalam aspek ini tidak dapat saling melihat"
       aspect_list_is_visible: "Kontak di dalam aspek ini dapat saling melihat."
       confirm_remove_aspect: "Anda yakin ingin menghapus aspek ini?"
-      make_aspect_list_visible: "make aspect list visible?"
-      remove_aspect: "Hapus aspek ini"
       rename: "Ganti nama"
       update: "Perbarui"
       updating: "Memperbarui"
     index:
-      diaspora_id:
-        content_1: "ID diaspora* anda:"
-        content_2: "Berikan ke semua orang dan mereka akan dapat menemukanmu di diaspora*"
-        heading: "ID diaspora*"
       donate: "Donasi"
-      handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help:
         do_you: "Apakah kamu:"
-        email_feedback: "%{link} timbal balik, jika anda ingin"
         feature_suggestion: "... punya %{link} anjuran?"
         find_a_bug: ".... menemukan %{link}"
         have_a_question: "... punya %{link}"
@@ -108,25 +83,15 @@ id:
         follow: "Ikuti %{link} dan selamat datang di diaspora*!"
         learn_more: "Pelajari"
         title: "Selamat Datang Pengguna Baru"
-      no_contacts: "Tak ada kontak"
-      no_tags: "No tags"
-      people_sharing_with_you: "Orang orang yang berbagi dengan anda"
-      post_a_message: "Kirim pesan"
       services:
         content: "Anda dapat menyambungkan layanan berikut ke diaspora*:"
         heading: "Sambungkan Layanan"
-      unfollow_tag: "Berhenti mengikuti #%{tag}"
       welcome_to_diaspora: "Selamat datang di diaspora*, %{name}"
-    new:
-      create: "Buat"
-      name: "Name"
     no_contacts_message:
       community_spotlight: "Sorotan komunitas"
       or_spotlight: "Atau anda dapat berbagi dengan %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "Anda perlu menambahkan beberapa kontak baru!"
-    no_posts_message:
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
     seed:
       acquaintances: "Kenalan"
       family: "Keluarga"
@@ -135,26 +100,18 @@ id:
     update:
       failure: "Nama aspek anda, %{name}, terlalu panjang untuk disimpan."
       success: "Aspek anda, %{name}, telah berhasil diubah."
-  back: "Kembali"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     heading: "Diaspora Bookmarklet"
     post_something: "Kirimkan ke diaspora*"
-    post_success: "Terkirim! Menutup!"
   cancel: "Batal"
   comments:
     new_comment:
       comment: "Komentar"
       commenting: "Mengomentari"
-    one: "1 komentar"
-    other: "%{count} komentar"
-    zero: "tak ada komentar"
   contacts:
-    create:
-      failure: "gagal membuat kontak"
     index:
       add_a_new_aspect: "Tambahkan aspek baru"
-      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Semua Kontak"
       community_spotlight: "Sorotan komunitas"
       my_contacts: "Kontakku"
@@ -163,29 +120,16 @@ id:
       only_sharing_with_me: "Hanya berbagi dengan saya"
       start_a_conversation: "Mulai pembicaraan"
       title: "Kontak"
-      your_contacts: "Kontakmu"
-    sharing:
-      people_sharing: "Orang-orang yang berbagi dengan anda"
     spotlight:
       community_spotlight: "Sorotan Komunitas"
   conversations:
     create:
       fail: "Pesan tak valid"
       sent: "Pesan terkirim"
-    helper:
-      new_messages:
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
-        zero: "no new messages"
     index:
       inbox: "Kotak Masuk"
-      no_conversation_selected: "tidak ada pembicaraan yang dipilih"
       no_messages: "tak ada pesan"
     new:
-      abandon_changes: "Abaikan perubahan?"
       send: "Kirim"
       sending: "Mengirim..."
       subject: "subjek"
@@ -204,81 +148,32 @@ id:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Perbaiki kesalahan berikut dan coba lagi."
-      invalid_fields: "Field tidak valid"
   fill_me_out: "Isi di sini"
   find_people: "Temukan orang"
-  hide: "Sembunyikan"
   invitation_codes:
     not_valid: "Kode undangan sudah tidak valid."
   invitations:
-    a_facebook_user: "Seorang pengguna Facebook"
-    check_token:
-      not_found: "Token undangan tidak ditemukan"
     create:
-      already_contacts: "Kamu sudah tersambung dengan orang ini"
-      already_sent: "Kamu sudah mengajak orang ini"
       no_more: "Anda tidak dapat memberikan undangan lagi."
-      own_address: "Kamu tidak dapat mengirim undangan ke alamatmu sendiri."
       rejected: "Alamat email berikut bermasalah dengan: "
       sent: "Undangan telah dikirimkan ke:"
-    edit:
-      accept_your_invitation: "Terima undanganmu"
-      your_account_awaits: "Akunmu sudah menunggu!"
     new:
-      already_invited: "Already invited"
-      aspect: "Aspek"
-      check_out_diaspora: "Lihat diaspora*!"
-      if_they_accept_info: "Jika mereka menerima, mereka akan ditambahkan ke Aspek yang kamu undang."
       invite_someone_to_join: "Undang seseorang untuk bergabung di Diaspora!"
       language: "Bahasa"
-      personal_message: "Pesan pribadi"
-      resend: "Kirim ulang"
       send_an_invitation: "Kirim sebuah undangan"
-      send_invitation: "Kirim undangan"
-      to: "Ke"
   layouts:
     application:
       back_to_top: "Kembali ke atas"
       powered_by: "DIDUKUNG OLEH diaspora*"
       toggle: "toggle mobile site"
       whats_new: "apa yang baru?"
-      your_aspects: "Aspekmu"
     header:
-      admin: "Admin"
-      blog: "blog"
       code: "Kode"
-      login: "login"
       logout: "logout"
       profile: "profile"
-      recent_notifications: "Pemberitahuan baru-baru ini"
       settings: "settings"
-      view_all: "Lihat semua"
-  likes:
-    likes:
-      people_dislike_this:
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        two: "%{count} dislikes"
-        zero: "no people disliked this"
-      people_like_this:
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        two: "%{count} likes"
-        zero: "no people liked this"
-      people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
   limited: "Terbatas"
   more: "lainnya"
-  next: "Selanjutnya"
   no_results: "Tidak ada hasil yang ditemukan."
   notifications:
     also_commented:
@@ -302,14 +197,6 @@ id:
       other: "%{actors} commented on your %{post_link}."
       two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
-    helper:
-      new_notifications:
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        two: "%{count} new notifications"
-        zero: "no new notifications"
     index:
       and: "dan"
       and_others:
@@ -392,7 +279,6 @@ id:
       liked: "%{name} has just liked your post: "
       view_post: "Lihat kiriman >"
     mentioned:
-      mentioned: "menyebut anda di kiriman:"
       subject: "%{name} menyebutmu di diaspora*"
     private_message:
       reply_to_or_view: "Balas atau lihat pembicaraan ini >"
@@ -410,59 +296,23 @@ id:
     to_change_your_notification_settings: "untuk mengganti pengaturan pemberitahuan"
   nsfw: "Konten Dewasa"
   ok: "Oke"
-  or: "atau"
-  password: "Kata sandi"
-  password_confirmation: "Pengesahan kata sandi"
   people:
-    add_contact_small:
-      add_contact_from_tag: "tambah kontak dari tag"
-    aspect_list:
-      edit_membership: "sunting keanggotaan Aspek"
-    helper:
-      results_for: " hasil untuk %{params}"
     index:
       looking_for: "Mencari kiriman dengan tag %{tag_link}"
       no_one_found: "...dan tak menemukan siapapun."
       no_results: "Hei! Kamu harus cari sesuatu."
       results_for: "hasil pencarian untuk"
-    one: "1 person"
-    other: "%{count} people"
     person:
-      add_contact: "tambah kontak"
-      already_connected: "Sudah terhubung"
-      pending_request: "permintaan tertunda"
       thats_you: "Itu anda!"
     profile_sidebar:
       bio: "Biografi"
       born: "born"
-      edit_my_profile: "Sunting profil saya"
       gender: "Gender"
-      in_aspects: "pada Aspek"
       location: "Lokasi"
-      remove_contact: "hapus kontak"
-      remove_from: "hapus %{name} dari %{aspect}?"
     show:
       closed_account: "Akun ini telah ditutup."
       does_not_exist: "Orang tidak ada!"
       has_not_shared_with_you_yet: "%{name} belum berbagi apapun dengan kamu!"
-      ignoring: "Kamu mengabaikan semua kiriman dari %{name}"
-      incoming_request: "You have an incoming request from this person."
-      mention: "Panggilan"
-      message: "Pesan"
-      not_connected: "You are not connected with this person"
-      recent_posts: "Kiriman baru-baru ini"
-      recent_public_posts: "Kiriman Publik baru-baru ini"
-      return_to_aspects: "Kembali ke laman Aspek-mu"
-      see_all: "Lihat semua"
-      start_sharing: "mulai berbagi"
-      to_accept_or_ignore: "terima atau abaikan"
-    sub_header:
-      add_some: "tambah beberapa"
-      edit: "sunting"
-      you_have_no_tags: "kamu tak punya tag!"
-    webfinger:
-      fail: "Maaf, kita tak dapat mencari %{handle}"
-    zero: "no people"
   photos:
     create:
       integrity_error: "Pengunggahan foto gagal.  Itu tadi beneran gambar?"
@@ -470,29 +320,6 @@ id:
       type_error: "Pengunggahan foto gagal.  Kamu yakin sudah menambahkan gambar?"
     destroy:
       notice: "Foto dihapus."
-    edit:
-      editing: "Mengubah"
-    new:
-      back_to_list: "Kembali ke Daftar"
-      new_photo: "Foto Baru"
-      post_it: "posting!"
-    new_photo:
-      empty: "{file} kosong, mohon pilih berkas lagi tanpanya."
-      invalid_ext: "ekstensi {file} tak valid. Hanya {extensions} yang diperbolehkan."
-      size_error: "{file} terlalu besar, ukuran maksimal berkas adalah {sizeLimit}"
-    photo:
-      view_all: "lihat semua foto %{name}"
-    show:
-      collection_permalink: "koleksi permalink"
-      delete_photo: "Hapus Foto"
-      edit: "sunting"
-      edit_delete_photo: "Sunting deskripsi foto / hapus foto"
-      make_profile_photo: "membuat foto profil"
-      show_original_post: "Perlihatkan kiriman asli"
-      update_photo: "Perbarui Foto"
-    update:
-      error: "Gagal mengubah foto."
-      notice: "Foto berhasil diperbarui."
   posts:
     show:
       forbidden: "Kamu tidak boleh melakukannya"
@@ -503,71 +330,30 @@ id:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: "Sebelumnya"
   privacy: "Privasi"
-  privacy_policy: "Kebijakan Privasi"
   profile: "Profil"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
   public: "Umum"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
   registrations:
     create:
       success: "Anda telah bergabung dengan Diaspora!"
     new:
-      create_my_account: "Create my account"
       enter_email: "Enter an e-mail"
-      sign_up_message: "Social Networking with a <3"
-  requests:
-    create:
-      sending: "Sending..."
-    destroy:
-      error: "Silahkan pilih sebuah aspek!"
-      ignore: "Permintaan pertemanan yang diabaikan."
-      success: "Anda sekarang berteman."
-    helper:
-      new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
   reshares:
     reshare:
-      reshare:
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
-        two: "%{count} reshares"
-        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
   search: "Cari"
   services:
     destroy:
       success: "Successfully destroyed authentication."
     index:
       logged_in_as: "telah masuk sebagai"
-    inviter:
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
   settings: "Pengaturan"
   shared:
-    add_contact:
-      create_request: "Find by Diaspora handle"
-      diaspora_handle: "Diaspora handle"
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
       toggle:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
@@ -577,49 +363,20 @@ id:
         zero: "Add to aspect"
     invitations:
       by_email: "by Email"
-      invitations_left: "(%{count} left)"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
-    notification:
-      new: "%{type} baru dari %{from}"
     public_explain:
       title: "You are about to post a public message!"
     publisher:
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       share: "Bagikan"
-      share_with: "Share with %{aspect}"
       whats_on_your_mind: "what's on your mind?"
-    stream_element:
-      dislike: "I dislike this"
-      hide_and_mute: "Hide and Mute"
-      like: "I like this"
   status_messages:
-    helper:
-      no_message_to_display: "Tidak ada pesan yang dapat ditampilkan."
     too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
-  stream_helper:
-    hide_comments: "hide comments"
-    show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
   streams:
     aspects:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-  tag_followings:
-    create:
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
-    destroy:
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
-  terms_and_conditions: "Syarat dan Ketentuan"
-  undo: "Batalkan?"
   username: "Username"
   users:
     confirm_email:
@@ -632,7 +389,6 @@ id:
       change_password: "Change Password"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      download_photos: "Unduh foto-fotoku"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       new_password: "New Password"
       receive_email_notifications: "Receive email notificaions?"
@@ -645,6 +401,3 @@ id:
       password_not_changed: "Password Change Failed"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
-  webfinger:
-    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
-  welcome: "Selamat Datang!"

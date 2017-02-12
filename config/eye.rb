@@ -7,15 +7,26 @@ end
 
 Eye.application("diaspora") do
   working_dir Rails.root.to_s
-  env "DB" => ENV["DB"], "RAILS_ENV" => rails_env
+  env "RAILS_ENV" => rails_env
   stdout "log/eye_processes_stdout.log" unless rails_env == "development"
   stderr "log/eye_processes_stderr.log"
 
   process :web do
-    start_command "bin/bundle exec unicorn -c config/unicorn.rb"
-    daemonize true
-    pid_file "tmp/pids/web.pid"
+    unicorn_command = "bin/bundle exec unicorn -c config/unicorn.rb"
+
+    if rails_env == "production"
+      start_command "#{unicorn_command} -D"
+      daemonize false
+      restart_command "kill -USR2 {PID}"
+      restart_grace 10.seconds
+    else
+      start_command unicorn_command
+      daemonize true
+    end
+
+    pid_file AppConfig.server.pid.get
     stop_signals [:TERM, 10.seconds]
+
     env "PORT" => ENV["PORT"]
 
     monitor_children do
@@ -40,7 +51,7 @@ Eye.application("diaspora") do
 
   with_condition(AppConfig.chat.enabled? && AppConfig.chat.server.enabled?) do
     process :xmpp do
-      start_command "bin/bundle exec vines start"
+      start_command "bin/bundle exec rails runner Prosody.start"
       daemonize true
       pid_file "tmp/pids/xmpp.pid"
       stop_signals [:TERM, 10.seconds, :KILL]

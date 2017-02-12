@@ -1,8 +1,13 @@
 When(/^I unfollow the "(.*?)" tag$/) do |tag|
-  within("#tags_list") do
-    li = find('li', text: tag)
-    li.hover
-    li.find('.delete_tag_following').click
+  accept_alert do
+    within("#tags_list") do
+      li = find("li", text: tag)
+      li.hover
+      li.find(".delete-tag-following").click
+    end
   end
-  step 'I confirm the alert'
+end
+
+When /^I follow the "(.*?)" tag$/ do |tag|
+  TagFollowing.create!(tag: FactoryGirl.create(:tag, name: tag), user: @me)
 end

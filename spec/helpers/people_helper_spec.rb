@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe PeopleHelper, :type => :helper do
   before do
     @user = alice
@@ -77,6 +75,11 @@ describe PeopleHelper, :type => :helper do
     it 'links by id for a local user' do
       expect(person_link(@user.person)).to include "href='#{person_path(@user.person)}'"
     end
+
+    it "recognizes the 'display_name' option" do
+      display_name = "string used as a name"
+      expect(person_link(@person, display_name: display_name)).to match(%r{<a [^>]+>#{display_name}</a>})
+    end
   end
 
   describe '#local_or_remote_person_path' do
@@ -86,10 +89,8 @@ describe PeopleHelper, :type => :helper do
 
     it "links by id if there is a period in the user's username" do
       @user.username = "invalid.username"
-      expect(@user.save(:validate => false)).to eq(true)
-      person = @user.person
-      person.diaspora_handle = "#{@user.username}@#{AppConfig.pod_uri.authority}"
-      person.save!
+      @user.person.diaspora_handle = "#{@user.username}@#{AppConfig.pod_uri.authority}"
+      expect(@user.save(validate: false)).to eq(true)
 
       expect(local_or_remote_person_path(@user.person)).to eq(person_path(@user.person))
     end

@@ -6,10 +6,7 @@
 
 be:
   _applications: "праграмы"
-  _comments: "каментары"
   _contacts: "кантакты"
-  _home: "home"
-  _photos: "Фатаграфіі"
   _services: "паслугі"
   account: "Аккаунт"
   activerecord:
@@ -41,11 +38,6 @@ be:
               invalid: "Памылка. Дазваляюцца літары, лічбы і падкрэсліванні."
               taken: "ужо існуе."
   all_aspects: "усе катыгорыі"
-  application:
-    helper:
-      unknown_person: "невядомая асоба"
-      video_title:
-        unknown: "невядомае відэа"
   are_you_sure: "сапраўды?"
   are_you_sure_delete_account: "Вы сапраўды хочаце выдаліць Ваш акаўнт? Гэта не магчыма будзе адмяніць!"
   aspects:
@@ -54,14 +46,6 @@ be:
       success: "Кантакты паспяхова дададзены ў аспект."
     aspect_listings:
       add_an_aspect: "+ дадаць катыгорыю"
-      deselect_all: "Ачысціць выбранае"
-      edit_aspect: "змяніць %{name}"
-      select_all: "Адзначыць усё"
-    contacts_not_visible: "у гэтай катыгорыі катакты не могуць бачыць адзін аднаго."
-    contacts_visible: "у гэтай катыгорыі катакты могуць бачыць адзін аднаго."
-    create:
-      failure: "Памылка пры стварэнні аспекта."
-      success: "Твой новы аспект %{name} створан."
     destroy:
       failure: "%{name} не пустая і не можа быць выдалена."
       success: "%{name} паспяхова выдалена"
@@ -69,17 +53,11 @@ be:
       aspect_list_is_not_visible: "спіс катыгорый не бачны для ўсіх"
       aspect_list_is_visible: "спіс катыгорый бачны для ўсіх"
       confirm_remove_aspect: "ты сапраўды жадаешь выдаліць гэтую катыгорыю?"
-      make_aspect_list_visible: "зрабіць катакты ў гэтай катыгорыі адкрытымі?"
-      remove_aspect: "выдаліць катыгорыю"
       rename: "перайменаваць"
       update: "абнавіць"
       updating: "абнаўляю ..."
     index:
-      diaspora_id:
-        content_1: "твой Diaspora ID:"
-        heading: "Diaspora ID"
       donate: "падзяка"
-      handle_explanation: "Гэта твой Diaspora ID. Як і адрас электроннай пошты, ты можаш даць яго людзям, каб яны маглі з табой звязацца."
       help:
         do_you: "Гэта тычыцца:"
         here_to_help: "Супольнасці Diaspora тут!"
@@ -90,20 +68,12 @@ be:
         follow: "Сачы за %{link} і вітай новых карыстальнікаў diaspora*!"
         learn_more: "паказаць больш"
         title: "Прывітанне, Новы Ўдзельнік!(чалавек)"
-      no_contacts: "намя кантактаў"
-      post_a_message: "напісаць паведамленне >>"
-      unfollow_tag: "больш не сачыць за #%{tag}"
       welcome_to_diaspora: "Вітаем ў Diaspora, %{name}!"
-    new:
-      create: "Стварыць"
-      name: "імя (бачна толькі табе)"
     no_contacts_message:
       community_spotlight: "супольны прагляд"
       or_spotlight: "ты можаш таксама падзяліцца %{link}"
       try_adding_some_more_contacts: "ты можаш знайсці ці дадаць новыя катракты"
       you_should_add_some_more_contacts: "спачатку дадай пару кантактаў"
-    no_posts_message:
-      start_talking: "пакуль ніхто нічога не казаў"
     seed:
       acquaintances: "знаёмыя"
       family: "сям'я"
@@ -112,18 +82,12 @@ be:
     update:
       failure: "не магчыма захаваць катыгорыю %{name}, занадта дліная назва."
       success: "катыгорыя %{name} была паспяхова выдалена"
-  back: "назад"
   cancel: "адмяніць"
-  comments:
-    one: "1 каментар"
-    zero: "каментароў няма"
   contacts:
     index:
       all_contacts: "усе кантакты"
-      your_contacts: "твае кантакты"
   conversations:
     new:
-      abandon_changes: "скасаваць змены"
       send: "даслаць"
       sending: "адсылаю ..."
   delete: "выдаліць"
@@ -131,10 +95,8 @@ be:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "спраўляй памылкі і паспрабуй зноў."
-      invalid_fields: "недапушчальныя радкі"
   fill_me_out: "запоўні мяне"
   find_people: "Пошук людзей ці #тэгаў"
-  hide: "Схаваць"
   invitations:
     new:
       invite_someone_to_join: "запрасі каго-небудзь да Diaspora!"
@@ -144,21 +106,12 @@ be:
       settings: "налады"
   limited: "абмежавана"
   more: "больш"
-  next: "далей"
   no_results: "нічога не знайшлось"
   nsfw: "не дзеля ўсіх вачэй"
   ok: "ok"
-  or: "ці"
-  password: "пароль"
-  password_confirmation: "падцвердзіць пароль"
-  previous: "назад"
   privacy: "Прыватнасць"
-  privacy_policy: "Выкарастанне асабістых дадзенных"
   profile: "Прафіль"
   public: "адкрыта"
   search: "Пошук"
   settings: "Налады"
-  terms_and_conditions: "Умовы выкарастоўвання"
-  undo: "назад"
   username: "Імя карыстальніка"
-  welcome: "Прывітанне!"

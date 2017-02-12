@@ -16,6 +16,7 @@ app.views.InfScroll = app.views.Base.extend({
     this.showLoader();
     this.bind("loadMore", this.fetchAndshowLoader, this);
     this.stream.bind("fetched", this.finishedLoading, this);
+    this.stream.bind("allItemsLoaded", this.showNoPostsInfo, this);
     this.stream.bind("allItemsLoaded", this.unbindInfScroll, this);
 
     this.collection.bind("add", this.addPostView, this);
@@ -27,10 +28,6 @@ app.views.InfScroll = app.views.Base.extend({
   _resetPostFragments: function() {
     this.appendedPosts  = document.createDocumentFragment();
     this.prependedPosts = document.createDocumentFragment();
-  },
-
-  postRenderTemplate : function() {
-    if(this.stream.isFetching()) { this.showLoader() }
   },
 
   createPostView : function(post){
@@ -51,6 +48,13 @@ app.views.InfScroll = app.views.Base.extend({
         this.prependedPosts.insertBefore(el, this.prependedPosts.firstChild);
     } else {
         this.appendedPosts.appendChild(el);
+    }
+  },
+
+  showNoPostsInfo: function() {
+    if (this.postViews.length === 0) {
+      var noPostsInfo = new app.views.NoPostsInfo();
+      this.$el.append(noPostsInfo.render().el);
     }
   },
 
@@ -86,6 +90,7 @@ app.views.InfScroll = app.views.Base.extend({
     this.$el.prepend(this.prependedPosts);
     this.$el.append(this.appendedPosts);
     this._resetPostFragments();
+    this.postRenderTemplate();
   },
 
   finishedLoading: function() {

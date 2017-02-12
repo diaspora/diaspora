@@ -6,6 +6,16 @@
 
 ru:
   javascripts:
+    admin:
+      pods:
+        states:
+          no_errors: "Хорошо"
+        status: "Статус"
+        version_failed:
+          few: "<%= count %> пода не имеют информации о версии (старые поды, нет NodeInfo)"
+          many: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
+          one: "<%= count %> под не имеет информации о версии (старые поды, нет NodeInfo)"
+          other: "<%= count %> подов не имеют информации о версии (старые поды, нет NodeInfo)"
     and: "и"
     aspect_dropdown:
       add_to_aspect: "Добавить контакт"
@@ -60,14 +70,11 @@ ru:
     conversation:
       new:
         no_contacts: "Нужно добавить кого-нибудь в список контактов, перед тем, как заводить разговор."
-      participants: "Участники"
     create: "Создать"
     delete: "Удалить"
     edit: "Изменить"
-    failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
     failed_to_remove: "Удаление не завершено!"
-    failed_to_reshare: "Не удалось поделиться!"
     getting_started:
       alright_ill_wait: "Хорошо, я подожду."
       hey: "Привет, <%= name %>!"
@@ -94,9 +101,6 @@ ru:
     ignore: "Блокировать"
     ignore_failed: "Невозможно игнорировать этого пользователя"
     ignore_user: "Игнорировать этого пользователя?"
-    infinite_scroll:
-      no_more: "Больше записей нет."
-      no_more_contacts: "Контактов больше нет."
     my_activity: "Моя активность"
     my_aspects: "Мои аспекты"
     my_stream: "Поток"
@@ -140,15 +144,40 @@ ru:
       contacts: "Контакты"
       edit: "Редактировать"
       gender: "Пол"
-      ignoring: "Вы игнорируете все записи пользователя  <%= name %>."
       location: "Местоположение"
       photos: "Фотографии"
       posts: "Записи"
       you_have_no_tags: "у вас нет меток!"
     publisher:
       add_option: "Добавить вариант"
-      at_least_one_aspect: "Вам надо создать как минимум один аспект"
       limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
+      markdown_editor:
+        preview: "Предпросмотр"
+        texts:
+          code: "код"
+          heading: "заголовок"
+          insert_image_description_text: "введите сюда описание изображения"
+          insert_image_help_text: "Вставьте ссылку на изображение сюда"
+          insert_image_title: "введите сюда заголовок изображения"
+          insert_link_description_text: "введите сюда описание ссылки"
+          insert_link_help_text: "Вставьте ссылку сюда"
+          italic: "текст курсивом"
+          list: "текст списка"
+          quote: "текст цитаты"
+          strong: "жирный текст"
+        tooltips:
+          bold: "Жирный"
+          cancel: "Отменить сообщение"
+          code: "Вставить код"
+          heading: "Заголовок"
+          insert_image: "Вставить изображение"
+          insert_link: "Вставить ссылку"
+          insert_ordered_list: "Вставить нумерованный список"
+          insert_unordered_list: "Вставить маркированный список"
+          italic: "Курсив"
+          preview: "Предпросмотр сообщения"
+          quote: "Вставить цитату"
+          write: "Редактировать сообщение"
       near_from: "Отправлено из: <%= location %>"
       option: "Вариант <%= nr %>"
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
@@ -162,13 +191,17 @@ ru:
         created: "Донос успешно отправлен"
         exists: "Донос уже отправлен"
     reshares:
-      duplicate: "Здорово, да? Вы уже поделились этой записью!"
       post: "Поделиться записью пользователя <%= name %>?"
       successful: "Вы успешно поделились записью!"
-    search_for: "Искать <%= name %>"
     show_more: "показать больше"
     stream:
       comment: "Комментировать"
+      comments:
+        few: "<%= count %> комментария"
+        many: "<%= count %> комментариев"
+        one: "<%= count %> комментарий"
+        other: "<%= count %> комментариев"
+        zero: "<%= count %> комментариев"
       disable_post_notifications: "Отключить уведомления на эту запись"
       enable_post_notifications: "Включить уведомления на эту запись"
       follow: "Следить"
@@ -193,6 +226,7 @@ ru:
         one: "Ещё <%= count %> комментарий"
         other: "Ещё <%= count %> комментариев"
         zero: "Ещё <%= count %> комментариев"
+      no_posts_yet: "Здесь пока не видно записей."
       original_post_deleted: "Исходная запись удалена автором."
       public: "Публичная"
       reshare: "Поделиться"
@@ -218,13 +252,17 @@ ru:
       wasnt_that_interesting: "Что ж, видимо, метка #<%= tagName %> была не такой уж интересной..."
     timeago:
       day: "день"
-      days: "%d дней[-я]"
+      days:
+        other: "%d дней[-я]"
       hour: "около часа"
-      hours: "около %d часов"
+      hours:
+        other: "около %d часов"
       minute: "около минуты"
-      minutes: "%d минут[-ы]"
+      minutes:
+        other: "%d минут[-ы]"
       month: "около месяца"
-      months: "%d месяца[-ев]"
+      months:
+        other: "%d месяца[-ев]"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "меньше минуты"
@@ -232,17 +270,8 @@ ru:
       suffixFromNow: "с этого момента"
       wordSeparator: " "
       year: "около года"
-      years: "%d лет"
+      years:
+        other: "%d лет"
     unblock_failed: "Разблокировка пользователя не удалась"
-    videos:
-      unknown: "Неизвестный тип видео"
-      watch: "Смотреть этот ролик на <%= provider %>"
     viewer:
-      comment: "Комментировать"
-      follow_post: "Следить за записью"
-      home: "ДОМОЙ"
-      like: "Нравится"
-      reshare: "Поделиться"
       reshared: "Поделились"
-      stop_following_post: "Не следить за записью"
-      unlike: "Не нравится"

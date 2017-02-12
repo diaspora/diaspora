@@ -2,7 +2,9 @@
 
 app.collections.Reshares = Backbone.Collection.extend({
   model: app.models.Reshare,
-  url : "/reshares"
+
+  initialize: function(models, options) {
+    this.url = "/posts/" + options.post.id + "/reshares";
+  }
 });
 // @license-end
-

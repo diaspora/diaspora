@@ -6,6 +6,7 @@ describe("app.views.StreamPost", function(){
     this.collection = new app.collections.Posts(posts);
     this.statusMessage = this.collection.models[0];
     this.reshare = this.collection.models[1];
+    app.stream = new app.models.Stream();
   });
 
   describe("events", function(){
@@ -52,32 +53,18 @@ describe("app.views.StreamPost", function(){
 
     beforeEach(function(){
       loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
-
-      Diaspora.I18n.load({stream : {
-        reshares : {
-          one : "<%= count %> reshare",
-          other : "<%= count %> reshares"
-        },
-        likes : {
-          zero : "<%= count %> Likes",
-          one : "<%= count %> Like",
-          other : "<%= count %> Likes"
-        }
-      }});
     });
 
-    context("reshare", function(){
+    context("reshares", function(){
       it("displays a reshare count", function(){
-        this.statusMessage.set({ interactions: {reshares_count : 2 }});
+        this.statusMessage.interactions.set({"reshares_count": 2});
         var view = new this.PostViewClass({model : this.statusMessage}).render();
-
         expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}));
       });
 
       it("does not display a reshare count for 'zero'", function(){
-        this.statusMessage.interactions.set({ interactions: { reshares_count : 0}} );
+        this.statusMessage.interactions.set({"reshares_count": 0});
         var view = new this.PostViewClass({model : this.statusMessage}).render();
-
         expect($(view.el).html()).not.toContain("0 Reshares");
       });
     });
@@ -86,13 +73,12 @@ describe("app.views.StreamPost", function(){
       it("displays a like count", function(){
         this.statusMessage.interactions.set({likes_count : 1});
         var view = new this.PostViewClass({model : this.statusMessage}).render();
-
         expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.likes', {count: 1}));
       });
+
       it("does not display a like count for 'zero'", function(){
         this.statusMessage.interactions.set({likes_count : 0});
         var view = new this.PostViewClass({model : this.statusMessage}).render();
-
         expect($(view.el).html()).not.toContain("0 Likes");
       });
     });

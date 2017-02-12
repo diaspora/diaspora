@@ -1,0 +1,69 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%hr
+%h3.inline
+  = t("profiles.edit.extended")
+= t("profiles.edit.extended_visibility_text")
+= check_box_tag "profile[public_details]", true, profile.public_details, {"data-size" => "mini", "data-on-text" => t("profiles.edit.public"), "data-off-text" => t("profiles.edit.limited")}
+%span.profile-visibility-hint{ title: t("profiles.edit.extended_hint") }
+  %i.entypo-circled-help.visibility-hint-icon
+.small-horizontal-spacer
+
+%h4= t('profiles.edit.your_bio')
+
+.clearfix
+  = text_area_tag 'profile[bio]', profile.bio, rows: 5, placeholder: t('fill_me_out'), class: 'col-md-12 form-control'
+
+.small-horizontal-spacer
+.row
+  .col-md-6
+    %h4= t('profiles.edit.your_location')
+    = text_field_tag 'profile[location]', profile.location, placeholder: t('fill_me_out'), class: 'col-md-12 form-control'
+  .col-md-6
+    %h4= t('profiles.edit.your_gender')
+    = text_field_tag 'profile[gender]', profile.gender, placeholder: t("fill_me_out"), class: 'col-md-12 form-control'
+
+.small-horizontal-spacer
+
+%h4= t('profiles.edit.your_birthday')
+
+#birth-date.form-inline
+  = select_date profile.birthday, { prompt: true, default: true, order: t('date.order'),
+      start_year: upper_limit_date_of_birth, end_year: lower_limit_date_of_birth, prefix: 'profile[date]' },
+      { class: 'form-control'}
+
+.small-horizontal-spacer
+
+%hr
+%h3.inline
+  = t('profiles.edit.settings')
+
+.small-horizontal-spacer
+
+%h4= t('search')
+
+.well.checkbox
+  = label_tag 'profile[searchable]', class: "checkbox-inline" do
+    = check_box_tag 'profile[searchable]', true, profile.searchable
+    = t('profiles.edit.allow_search')
+
+.small-horizontal-spacer
+
+%h4= t('nsfw')
+%p
+  = t('profiles.edit.nsfw_explanation')
+.well.checkbox
+  = label_tag 'profile[nsfw]', class: "checkbox-inline" do
+    = check_box_tag 'profile[nsfw]', true, profile.nsfw?
+    = t('profiles.edit.nsfw_check')
+
+.small-horizontal-spacer
+
+= t('profiles.edit.nsfw_explanation2')
+
+.small-horizontal-spacer
+
+.submit_block.form-group
+  = yield(:submit_block)

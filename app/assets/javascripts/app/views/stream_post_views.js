@@ -2,40 +2,36 @@
 
 app.views.StreamPost = app.views.Post.extend({
   templateName: "stream-element",
-  className : "stream_element loaded",
+  className: "stream-element loaded",
 
   subviews : {
-    ".feedback" : "feedbackView",
-    ".likes" : "likesInfoView",
-    ".comments" : "commentStreamView",
-    ".post-content" : "postContentView",
-    ".oembed" : "oEmbedView",
-    ".opengraph" : "openGraphView",
-    ".poll" : "pollView",
-    ".status-message-location" : "postLocationStreamView"
+    ".feedback": "feedbackView",
+    ".comments": "commentStreamView",
+    ".likes": "likesInfoView",
+    ".reshares": "resharesInfoView",
+    ".post-controls": "postControlsView",
+    ".post-content": "postContentView",
+    ".oembed": "oEmbedView",
+    ".opengraph": "openGraphView",
+    ".poll": "pollView",
+    ".status-message-location": "postLocationStreamView"
   },
 
   events: {
     "click .focus_comment_textarea": "focusCommentTextarea",
     "click .show_nsfw_post": "removeNsfwShield",
-    "click .toggle_nsfw_state": "toggleNsfwState",
-
-    "click .remove_post": "destroyModel",
-    "click .hide_post": "hidePost",
-    "click .post_report": "report",
-    "click .block_user": "blockUser",
-
-    "click .create_participation": "createParticipation",
-    "click .destroy_participation": "destroyParticipation"
+    "click .toggle_nsfw_state": "toggleNsfwState"
   },
 
-  tooltipSelector : ".timeago, .post_scope, .post_report, .block_user, .delete, .create_participation, .destroy_participation",
+  tooltipSelector : [".timeago",
+                     ".post_scope",
+                     ".permalink"].join(", "),
 
   initialize : function(){
-    var personId = this.model.get('author').id;
-    app.events.on('person:block:'+personId, this.remove, this);
+    var personId = this.model.get("author").id;
+    app.events.on("person:block:"+personId, this.remove, this);
 
-    this.model.on('remove', this.remove, this);
+    this.model.on("remove", this.remove, this);
     //subviews
     this.commentStreamView = new app.views.CommentStream({model : this.model});
     this.oEmbedView = new app.views.OEmbed({model : this.model});
@@ -43,9 +39,16 @@ app.views.StreamPost = app.views.Post.extend({
     this.pollView = new app.views.Poll({model : this.model});
   },
 
+  postControlsView: function() {
+    return new app.views.PostControls({model: this.model, post: this});
+  },
 
   likesInfoView : function(){
     return new app.views.LikesInfo({model : this.model});
+  },
+
+  resharesInfoView : function(){
+    return new app.views.ResharesInfo({model : this.model});
   },
 
   feedbackView : function(){
@@ -75,73 +78,18 @@ app.views.StreamPost = app.views.Post.extend({
     app.currentUser.toggleNsfwState();
   },
 
-
-  blockUser: function(evt){
-    if(evt) { evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t('ignore_user'))) { return }
-
-    this.model.blockAuthor()
-      .fail(function() {
-        Diaspora.page.flashMessages.render({
-          success: false,
-          notice: Diaspora.I18n.t('ignore_failed')
-        });
-      });
-  },
-
   remove : function() {
     $(this.el).slideUp(400, _.bind(function(){this.$el.remove()}, this));
     app.stream.remove(this.model);
     return this;
   },
 
-  hidePost : function(evt) {
-    if(evt) { evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t('confirm_dialog'))) { return }
-
-    var self = this;
-    $.ajax({
-      url : "/share_visibilities/42",
-      type : "PUT",
-      data : {
-        post_id : this.model.id
-      }
-    }).done(function() {
-        self.remove();
-      })
-      .fail(function() {
-        Diaspora.page.flashMessages.render({
-          success: false,
-          notice: Diaspora.I18n.t('hide_post_failed')
-        });
-      });
-  },
-
-  createParticipation: function (evt) {
-    if(evt) { evt.preventDefault(); }
-    var that = this;
-    $.post(Routes.postParticipation(this.model.get("id")), {}, function () {
-      that.model.set({participation: true});
-      that.render();
-    });
-  },
-
-  destroyParticipation: function (evt) {
-    if(evt) { evt.preventDefault(); }
-    var that = this;
-    $.post(Routes.postParticipation(this.model.get("id")), { _method: "delete" }, function () {
-      that.model.set({participation: false});
-      that.render();
-    });
-  },
-
   focusCommentTextarea: function(evt){
     evt.preventDefault();
-    this.$(".new_comment_form_wrapper").removeClass("hidden");
+    this.$(".new-comment-form-wrapper").removeClass("hidden");
     this.$(".comment_box").focus();
 
     return this;
   }
-
 });
 // @license-end

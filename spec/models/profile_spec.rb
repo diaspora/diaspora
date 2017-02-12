@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Profile, :type => :model do
   describe 'validation' do
     describe "of first_name" do
@@ -161,42 +159,6 @@ describe Profile, :type => :model do
     end
   end
 
-  describe '#from_xml' do
-    it 'should make a valid profile object' do
-      @profile = FactoryGirl.build(:profile)
-      @profile.tag_string = '#big #rafi #style'
-      xml = @profile.to_xml
-
-      new_profile = Profile.from_xml(xml.to_s)
-      expect(new_profile.tag_string).not_to be_blank
-      expect(new_profile.tag_string).to include('#rafi')
-    end
-  end
-
-  describe 'serialization' do
-    let(:person) {FactoryGirl.build(:person,:diaspora_handle => "foobar" )}
-
-    it 'should include persons diaspora handle' do
-      xml = person.profile.to_diaspora_xml
-      expect(xml).to include "foobar"
-    end
-
-    it 'includes tags' do
-      person.profile.tag_string = '#one'
-      person.profile.build_tags
-      person.profile.save
-      xml = person.profile.to_diaspora_xml
-      expect(xml).to include "#one"
-    end
-
-    it 'includes location' do
-      person.profile.location = 'Dark Side, Moon'
-      person.profile.save
-      xml = person.profile.to_diaspora_xml
-      expect(xml).to include "Dark Side, Moon"
-    end
-  end
-
   describe '#image_url' do
     before do
       @profile = FactoryGirl.build(:profile)
@@ -219,7 +181,7 @@ describe Profile, :type => :model do
 
   describe '#subscribers' do
     it 'returns all non-pending contacts for a user' do
-      expect(bob.profile.subscribers(bob).map{|s| s.id}).to match_array([alice.person, eve.person].map{|s| s.id})
+      expect(bob.profile.subscribers.map(&:id)).to match_array([alice.person, eve.person].map(&:id))
     end
   end
 
@@ -319,18 +281,6 @@ describe Profile, :type => :model do
 
   end
 
-  describe '#receive' do
-    it 'updates the profile in place' do
-      local_luke, local_leia, remote_raphael = set_up_friends
-      new_profile = FactoryGirl.build :profile
-      expect{
-        new_profile.receive(local_leia, remote_raphael)
-      }.not_to change(Profile, :count)
-      expect(remote_raphael.last_name).to eq(new_profile.last_name)
-    end
-
-  end
-
   describe "#tombstone!" do
     before do
       @profile = bob.person.profile
@@ -356,18 +306,19 @@ describe Profile, :type => :model do
       profile = FactoryGirl.build :profile
       expect(profile.send(:clearable_fields).sort).to eq(
       ["diaspora_handle",
-      "first_name",
-      "last_name",
-      "image_url",
-      "image_url_small",
-      "image_url_medium",
-      "birthday",
-      "gender",
-      "bio",
-      "searchable",
-      "nsfw",
-      "location",
-      "full_name"].sort
+       "first_name",
+       "last_name",
+       "image_url",
+       "image_url_small",
+       "image_url_medium",
+       "birthday",
+       "gender",
+       "bio",
+       "searchable",
+       "nsfw",
+       "location",
+       "public_details",
+       "full_name"].sort
       )
     end
   end

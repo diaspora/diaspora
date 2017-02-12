@@ -1,22 +1,23 @@
 # diaspora*
 ### A privacy-aware, distributed, open source social network
 
-**master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.png?branch=master)](http://travis-ci.org/diaspora/diaspora)
-**stable:** [![Build Status stable](https://secure.travis-ci.org/diaspora/diaspora.png?branch=stable)](http://travis-ci.org/diaspora/diaspora) |
-**develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.png?branch=develop)](http://travis-ci.org/diaspora/diaspora) |
-[![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
-[![Code Climate](https://codeclimate.com/github/diaspora/diaspora.png)](https://codeclimate.com/github/diaspora/diaspora)
+**master:** [![Build Status master](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=master)](http://travis-ci.org/diaspora/diaspora)
+**next-minor:** [![Build Status next-minor](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=next-minor)](http://travis-ci.org/diaspora/diaspora)
+[![Coverage Status next-minor](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=next-minor)](https://coveralls.io/github/diaspora/diaspora?branch=next-minor)|
+**develop:** [![Build Status develop](https://secure.travis-ci.org/diaspora/diaspora.svg?branch=develop)](http://travis-ci.org/diaspora/diaspora)
+[![Coverage Status develop](https://coveralls.io/repos/github/diaspora/diaspora/badge.svg?branch=develop)](https://coveralls.io/github/diaspora/diaspora?branch=develop) |
+[![Dependency Status](https://gemnasium.com/badges/github.com/diaspora/diaspora.svg)](https://gemnasium.com/diaspora/diaspora)
+[![Code Climate](https://codeclimate.com/github/diaspora/diaspora/badges/gpa.svg)](https://codeclimate.com/github/diaspora/diaspora)
 
 [Project site](https://diasporafoundation.org) |
 [Wiki](https://wiki.diasporafoundation.org) |
-[Bugtracker](http://github.com/diaspora/diaspora/issues) |
+[Bugtracker](https://github.com/diaspora/diaspora/issues) |
 [Discussions](https://www.loomio.org/groups/194) |
 [Mailing lists](https://wiki.diasporafoundation.org/How_We_Communicate#Mailing_Lists) |
 [License](/COPYRIGHT) |
 [Authors](https://github.com/diaspora/diaspora/contributors)
 
 ## Installation
-
 
 You don't have to install diaspora* to use the network. There are many servers connected to diaspora*s network which are open to anyone, and you can create an account on one of these servers. Have a look at our [tips for finding a home](https://wiki.diasporafoundation.org/Choosing_a_pod), or you can just go straight to the [list of open servers](http://podupti.me) to sign up.
 
@@ -36,5 +37,4 @@ Everyone interacting in diaspora’s codebases, issue trackers, chat rooms, mail
 
 ## Security
 
-Found a security issue? Please disclose it responsibly. We have a team of developers listening to [security@diasporafoundation.org](mailto:security@diasporafoundation.org). The PGP fingerprint is [AB0D AB02 0FC5 D398 03AB 3CE1 6F70 243F 27AD 886A](http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x6F70243F27AD886A)
-
+Found a security issue? Please disclose it responsibly. We have a team of developers listening to [security@diasporafoundation.org](mailto:security@diasporafoundation.org). The PGP fingerprint is [AB0D AB02 0FC5 D398 03AB 3CE1 6F70 243F 27AD 886A](https://pgp.mit.edu/pks/lookup?op=get&search=0x6F70243F27AD886A).

@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 
 class InvitationsController < ApplicationController
-
-  before_action :authenticate_user!, :only => [:new, :create]
+  before_action :authenticate_user!
+  before_action :check_invitations_available!, only: :create
 
   def new
     @invite_code = current_user.invitation_code
@@ -14,79 +14,50 @@ class InvitationsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        render 'invitations/new', layout: false
+        render "invitations/new", layout: false
       end
-    end
-  end
-
-  # this is  for legacy invites.  We try to look the person who sent them the
-  # invite, and use their new invite code
-  # owe will be removing this eventually
-  # @depreciated
-  def edit
-    user = User.find_by_invitation_token(params[:invitation_token])
-    invitation_code = user.ugly_accept_invitation_code
-    redirect_to invite_code_path(invitation_code)
-  end
-
-  def email
-    @invitation_code =
-      if params[:invitation_token]
-        # this is  for legacy invites.
-        user = User.find_by_invitation_token(params[:invitation_token])
-
-        user.ugly_accept_invitation_code if user
-      else
-        params[:invitation_code]
-      end
-    @inviter = user || InvitationCode.where(id: params[:invitation_code]).first.try(:user)
-    if @invitation_code.present?
-      render 'notifier/invite', :layout => false
-    else
-      flash[:error] = t('invitations.check_token.not_found')
-
-      redirect_to root_url
     end
   end
 
   def create
-    emails = inviter_params[:emails].split(',').map(&:strip).uniq
+    emails = inviter_params[:emails].split(",").map(&:strip).uniq
 
-    valid_emails, invalid_emails = emails.partition { |email| valid_email?(email) }
+    valid_emails, invalid_emails = emails.partition {|email| valid_email?(email) }
 
     session[:valid_email_invites] = valid_emails
     session[:invalid_email_invites] = invalid_emails
 
     unless valid_emails.empty?
-      Workers::Mail::InviteEmail.perform_async(valid_emails.join(','),
-                                               current_user.id,
-                                               inviter_params)
+      Workers::Mail::InviteEmail.perform_async(valid_emails.join(","), current_user.id, inviter_params)
     end
 
     if emails.empty?
-      flash[:error] = t('invitations.create.empty')
+      flash[:error] = t("invitations.create.empty")
     elsif invalid_emails.empty?
-      flash[:notice] =  t('invitations.create.sent', :emails => valid_emails.join(', '))
+      flash[:notice] = t("invitations.create.sent", emails: valid_emails.join(", "))
     elsif valid_emails.empty?
-      flash[:error] = t('invitations.create.rejected') +  invalid_emails.join(', ')
+      flash[:error] = t("invitations.create.rejected", emails: invalid_emails.join(", "))
     else
-      flash[:error] = t('invitations.create.sent', :emails => valid_emails.join(', '))
-      flash[:error] << '. '
-      flash[:error] << t('invitations.create.rejected') +  invalid_emails.join(', ')
+      flash[:error] = t("invitations.create.sent", emails: valid_emails.join(", ")) + ". " +
+        t("invitations.create.rejected", emails: invalid_emails.join(", "))
     end
 
     redirect_to :back
   end
 
-  def check_if_invites_open
-    unless AppConfig.settings.invitations.open?
-      flash[:error] = I18n.t 'invitations.create.no_more'
+  private
 
-      redirect_to :back
-    end
+  def check_invitations_available!
+    return true if AppConfig.settings.enable_registrations? || current_user.invitation_code.can_be_used?
+
+    flash[:error] = if AppConfig.settings.invitations.open?
+                      t("invitations.create.no_more")
+                    else
+                      t("invitations.create.closed")
+                    end
+    redirect_to :back
   end
 
-  private
   def valid_email?(email)
     User.email_regexp.match(email).present?
   end
@@ -94,9 +65,9 @@ class InvitationsController < ApplicationController
   def html_safe_string_from_session_array(key)
     return "" unless session[key].present?
     return "" unless session[key].respond_to?(:join)
-    value = session[key].join(', ').html_safe
+    value = session[key].join(", ").html_safe
     session[key] = nil
-    return value
+    value
   end
 
   def inviter_params

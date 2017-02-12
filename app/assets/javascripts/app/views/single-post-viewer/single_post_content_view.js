@@ -1,17 +1,17 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
 app.views.SinglePostContent = app.views.Base.extend({
-  templateName: 'single-post-viewer/single-post-content',
+  templateName: "single-post-viewer/single-post-content",
   tooltipSelector: "time, .post_scope",
+  className: "framed-content",
 
   subviews : {
     "#single-post-actions" : "singlePostActionsView",
-    '#single-post-moderation': "singlePostModerationView",
-    '#real-post-content' : 'postContentView',
+    "#single-post-moderation": "singlePostModerationView",
+    "#real-post-content" : "postContentView",
     ".oembed" : "oEmbedView",
     ".opengraph" : "openGraphView",
-    ".status-message-location" : "postLocationStreamView",
-    '.poll': 'pollView',
+    ".poll": "pollView",
   },
 
   initialize : function() {
@@ -23,8 +23,25 @@ app.views.SinglePostContent = app.views.Base.extend({
     this.pollView = new app.views.Poll({ model: this.model });
   },
 
-  postLocationStreamView : function(){
-    return new app.views.LocationStream({ model : this.model});
+  map : function(){
+    if (this.$(".mapContainer").length < 1){ return; }
+
+    // find and set height of mapContainer to max size of the container
+    // which is necessary to have all necessary tiles prerendered
+    var mapContainer = this.$(".mapContainer");
+    mapContainer.css("height", "200px");
+
+    // get location data and render map
+    var location = this.model.get("location");
+
+    var map = L.map(mapContainer[0]).setView([location.lat, location.lng], 14);
+    var tiles = app.helpers.locations.getTiles();
+
+    tiles.addTo(map);
+
+    // put marker on map
+    L.marker(location).addTo(map);
+    return map;
   },
 
   presenter : function() {
@@ -37,6 +54,10 @@ app.views.SinglePostContent = app.views.Base.extend({
 
   showPost : function() {
     return (app.currentUser.get("showNsfw")) || !this.model.get("nsfw");
+  },
+
+  postRenderTemplate : function(){
+    _.defer(_.bind(this.map, this));
   }
 });
 // @license-end

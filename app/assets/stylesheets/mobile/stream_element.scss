@@ -1,0 +1,16 @@
+.stream-element {
+  .location {
+    color: $text-grey;
+    font-size: $font-size-small;
+    white-space: normal;
+  }
+
+  .poll {
+    border-top: 1px solid $border-grey;
+    margin-top: 20px;
+    padding-top: 10px;
+    .poll-head .question {
+      font-weight: bold;
+    }
+  }
+}

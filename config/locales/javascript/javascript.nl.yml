@@ -6,6 +6,55 @@
 
 nl:
   javascripts:
+    admin:
+      pods:
+        actions: "Acties"
+        added: "Toegevoegd"
+        check: "voer verbindingstest uit"
+        errors:
+          one: "De verbindingstest gaf een foutmelding voor een pod."
+          other: "De verbindingstest gaf een foutmelding voor <%= count %> pods."
+        follow_link: "open link in browser"
+        last_check: "laatst gecontroleerd:"
+        more_info: "toon meer informatie"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "Op dit punt is geen extra informatie beschikbaar"
+        not_available: "niet beschikbaar"
+        offline_since: "offline sinds:"
+        pod: "Pod"
+        recheck:
+          failure: "De controle is niet uitgevoerd."
+          success: "De pod is net weer gecontroleerd."
+        response_time: "Responsetijd"
+        server_software: "Serversoftware:"
+        ssl: "SSL"
+        ssl_disabled: "SSL gedeactiveerd"
+        ssl_enabled: "SSL geactiveerd"
+        states:
+          dns_failed: "Naam resolutie (DNS) mislukt"
+          http_failed: "HTTP verbinding mislukt"
+          net_failed: "Verbindingspoging mislukt"
+          no_errors: "OK"
+          ssl_failed: "Beveiligde verbinding (SSL) mislukt"
+          unchecked: "Uitgevinkt"
+          unknown_error: "Er trad een niet-gedefnieerde fout op tijdens de controle"
+          version_failed: "Kan de softwareversie niet ophalen"
+        status: "Status"
+        unchecked:
+          one: "Er nog steeds een pod die niet is gecontroleerd."
+          other: "Er nog steeds <%= count %> pods die niet zijn gecontroleerd."
+        unknown: "onbekend"
+        version_failed:
+          one: "Er is een pod zonder versie (oude pod, geen NodeInfo)."
+          other: "Er zijn <%= count %> pods zonder versie (oude pods, geen NodeInfo)."
+    admins:
+      dashboard:
+        compare_versions: "De laatste diaspora* release is <%= latestVersion %>, jouw pod draait nog <%= podVersion %>."
+        error: "Kan de laatste diaspora* versie niet bepalen."
+        outdated: "Je pod is verouderd."
+        up_to_date: "Je pod is bijgewerkt!"
     and: "en"
     aspect_dropdown:
       add_to_aspect: "Voeg contact toe"
@@ -51,6 +100,8 @@ nl:
     confirm_unload: "Bevestig dat je deze pagina wilt verlaten - gegevens die je hebt ingevoerd, worden niet bewaard."
     contacts:
       add_contact: "Toevoegen contact"
+      aspect_chat_is_enabled: "Contactpersonen in dit aspect kunnen met jou chatten."
+      aspect_chat_is_not_enabled: "Contactpersonen in dit aspect kunnen niet met jou chatten."
       aspect_list_is_not_visible: "Contactpersonen in dit aspect kunnen elkaar niet zien."
       aspect_list_is_visible: "Contactpersonen in dit aspect kunnen elkaar zien."
       error_add: "Kon <%= name %> niet toevoegen aan het aspect :("
@@ -60,14 +111,11 @@ nl:
     conversation:
       new:
         no_contacts: "Je moet een paar contactpersonen opgeven om een conversatie te kunnen starten."
-      participants: "Deelnemers"
     create: "Creëren"
     delete: "Verwijder"
     edit: "Bewerken"
-    failed_to_like: "Leuk vinden mislukt! Misschien negeert de schrijver jou?"
     failed_to_post_message: "Bericht plaatsen mislukt!"
     failed_to_remove: "Kon het bericht niet verwijderen!"
-    failed_to_reshare: "Doorgeven mislukt!"
     getting_started:
       alright_ill_wait: "Prima, ik wacht wel."
       hey: "Hallo, <%= name %>!"
@@ -88,15 +136,14 @@ nl:
       recent_notifications: "Recente meldingen"
       search: "Zoek"
       settings: "Instellingen"
+      toggle_mobile: "Omschakelen mobiel"
+      toggle_navigation: "Omschakelen navigatie"
       view_all: "Bekijk alle"
     hide_post: "Dit bericht verbergen?"
     hide_post_failed: "Kon bericht niet verbergen"
     ignore: "Negeer"
     ignore_failed: "Kan deze gebruiker niet negeren"
     ignore_user: "Wilt u deze gebruiker negeren?"
-    infinite_scroll:
-      no_more: "Geen berichten meer."
-      no_more_contacts: "Geen contacten meer."
     my_activity: "Mijn activiteit"
     my_aspects: "Mijn aspecten"
     my_stream: "Stream"
@@ -104,6 +151,9 @@ nl:
     notifications:
       mark_read: "Markeren als gelezen"
       mark_unread: "Markeren als ongelezen"
+      new_notifications:
+        one: "Je hebt <%= count %> ongelezen melding"
+        other: "Je hebt <%= count %> ongelezen meldingen"
     people:
       edit_my_profile: "Bewerk mijn profiel"
       helper:
@@ -121,6 +171,10 @@ nl:
       looking_good: "Wow, wat ben je knap!"
       size_error: "{file} is te groot, maximum omvang is {sizeLimit}."
     poll:
+      answer_count:
+        one: "1 stem"
+        other: "<%=count%> stemmen"
+        zero: "0 stemmen"
       close_result: "Verberg resultaat"
       count:
         one: "1 stem tot dit moment"
@@ -137,15 +191,37 @@ nl:
       contacts: "Contacten"
       edit: "Bewerken"
       gender: "Geslacht"
-      ignoring: "Je negeert alle berichten van <%= name %>"
       location: "Locatie"
       photos: "Foto's"
       posts: "Berichten"
       you_have_no_tags: "Je hebt geen tags!"
     publisher:
       add_option: "Keuzemogelijkheid toevoegen"
-      at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
       limited: "Gelimiteerd - je bericht is alleen zichtbaar voor de mensen waarmee je hem deelt"
+      markdown_editor:
+        preview: "Voorbeeld"
+        texts:
+          code: "code hier"
+          heading: "Koptekst"
+          insert_image_title: "voeg hier afbeeldingstekst in"
+          italic: "Cursieve tekst"
+          list: "lijst tekst hier"
+          quote: "quote hier"
+          strong: "Benadrukte tekst"
+        tooltips:
+          bold: "Vet"
+          cancel: "Annuleren bericht"
+          code: "Invoegen code"
+          heading: "Koptekst"
+          insert_image: "Invoegen afbeelding"
+          insert_link: "Invoegen link"
+          insert_ordered_list: "Invoegen genummerde lijst"
+          insert_unordered_list: "Invoegen ongenummerde lijst"
+          italic: "Cursief"
+          preview: "Voorbeeld bericht"
+          quote: "Invoegen quote"
+          write: "Bewerk bericht"
+        write: "Schrijven"
       near_from: "Geplaatst vanaf: <%= location %>"
       option: "Keuze <%= nr %>"
       public: "Openbaar - je bericht is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
@@ -159,10 +235,8 @@ nl:
         created: "Het is succesvol gemeld"
         exists: "De melding bestaat al"
     reshares:
-      duplicate: "Je hebt dit bericht al doorgegeven! Is het echt zo goed?"
       post: "Doorgeven <%= name %>'s bericht?"
       successful: "Het bericht is gedeeld!"
-    search_for: "Zoek naar <%= name %>"
     show_more: "Laat meer zien"
     stream:
       comment: "Reageren"
@@ -186,6 +260,7 @@ nl:
         other: "Toon nog <%= count %> reacties"
         zero: "Toon nog <%= count %> reacties"
       original_post_deleted: "Originele bericht verwijderd door de auteur."
+      permalink: "Permalink"
       public: "Openbaar"
       reshare: "Doorgeven"
       reshares:
@@ -208,13 +283,18 @@ nl:
       wasnt_that_interesting: "#<%= tagName %> zal dan toch niet zo interessant geweest zijn..."
     timeago:
       day: "een dag"
-      days: "%d dagen"
+      days:
+        other: "%d dagen"
       hour: "ongeveer een uur"
-      hours: "ongeveer %d uur"
+      hours:
+        other: "ongeveer %d uur"
+      inPast: "op elk moment nu"
       minute: "ongeveer een minuut"
-      minutes: "%d minuten"
+      minutes:
+        other: "%d minuten"
       month: "ongeveer een maand"
-      months: "%d maanden"
+      months:
+        other: "%d maanden"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "iets minder dan een minuut"
@@ -222,17 +302,8 @@ nl:
       suffixFromNow: "vanaf nu"
       wordSeparator: " "
       year: "ongeveer een jaar"
-      years: "%d jaar"
+      years:
+        other: "%d jaar"
     unblock_failed: "Deblokkeren van deze gebruiker is mislukt"
-    videos:
-      unknown: "Onbekend video type"
-      watch: "Bekijk deze video op <%= provider %>"
     viewer:
-      comment: "Reageren"
-      follow_post: "Volgen"
-      home: "Home"
-      like: "Vind ik leuk"
-      reshare: "Doorgeven"
       reshared: "Doorgegeven"
-      stop_following_post: "Niet meer volgen"
-      unlike: "Niet meer leuk"

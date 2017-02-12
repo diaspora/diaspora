@@ -4,7 +4,7 @@
 
 - conversation = visibility.conversation
 .conversation-wrapper{ :"data-conversation-path" => conversation_path(conversation) }
-  .stream_element.conversation{data:  {guid: conversation.id},
+  .stream-element.conversation{data:  {guid: conversation.id},
                                class: conversation_class(conversation, visibility.unread, @conversation.try(:id))}
     .media
       .img
@@ -16,10 +16,10 @@
               = other_participants.count - 1
 
       .bg
-        .badge.badge-dafault.message_count
+        .badge.badge-default.message-count.pull-right
           = conversation.messages.size
         - if visibility.unread > 0
-          .badge.badge-important.unread_message_count
+          .badge.badge-important.unread-message-count.pull-right
             = visibility.unread
         .subject
           %div{ :class => direction_for(conversation.subject) }
@@ -32,7 +32,7 @@
         .last_message
           - if conversation.messages.present?
             %em
-              = conversation.messages.last.text
+              = conversation.messages.last.message.plain_text_without_markdown
         - if other_participants.count > 1
           .participants
             - other_participants.drop(1).take(15).each do |participant|

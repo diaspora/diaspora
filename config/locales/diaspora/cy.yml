@@ -6,7 +6,6 @@
 
 cy:
   _contacts: "Cysylltiadau"
-  _photos: "Photos"
   activerecord:
     errors:
       models:
@@ -25,19 +24,11 @@ cy:
       success: "Successfully added friend to aspect."
     aspect_listings:
       add_an_aspect: "+ Ychwanegu agwedd"
-    create:
-      failure: "Creu Agwedd wedi methu."
-      success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     destroy:
       success: "%{name} cael ei dynnu yn llwyddiannol."
     edit:
       confirm_remove_aspect: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
-      make_aspect_list_visible: "make aspect list visible?"
-      remove_aspect: "Dileu yr agwedd hwn"
     index:
-      diaspora_id:
-        heading: "ID Diaspora"
-      handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help:
         do_you: "Ydych chi:"
         have_a_question: "... yn cael cwestion %{link}?"
@@ -46,18 +37,11 @@ cy:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      no_contacts: "Dim cysylltiadau"
-      no_tags: "No tags"
-    new:
-      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "Dylech chi ychwanegu mwy o gysylltiadau!"
-    no_posts_message:
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
     update:
       success: "Eich aspect, %{name},  wedi bod yn golygu yn llwyddiannus."
-  back: "Yn ôl"
   blocks:
     create:
       success: "Ôlreit, ni fyddwch yn gweld y defnyddiwr yn eich ffrwd yn y dyfodol. #silencio!"
@@ -71,68 +55,27 @@ cy:
   contacts:
     index:
       add_a_new_aspect: "Ychwanegwch agwedd newydd"
-      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Cysylltiadau i gŷd"
       my_contacts: "Fy nghysylltiadau"
       no_contacts: "No contacts."
       title: "Cysylltiadau"
-      your_contacts: "Eich Cysylltiadau chi"
   conversations:
     create:
       sent: "Neges wedi anfon"
-    helper:
-      new_messages:
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
-        zero: "no new messages"
   delete: "Dileu"
   email: "E-bost"
   find_people: "Dod o hyd i bobl neu # tagiau"
   invitations:
     create:
       sent: "Your invitation has been sent."
-    new:
-      already_invited: "Already invited"
-      aspect: "Agwedd"
-      to: "I"
   layouts:
     application:
       toggle: "toggle mobile site"
-      your_aspects: "eich agweddau"
     header:
-      login: "login"
       logout: "Allgofnodi"
       profile: "profile"
       settings: "Gosodiadau"
-      view_all: "Gweld popeth"
-  likes:
-    likes:
-      people_dislike_this:
-        few: "%{count} people disliked this"
-        many: "%{count} o bobl ddim yn hoffi hwn"
-        one: "%{count} dislike"
-        other: "%{count} people disliked this"
-        two: "%{count} dislikes"
-        zero: "no people disliked this"
-      people_like_this:
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 unigolyn yn hoffi hyn"
-        other: "%{count} pobl yn hoffi hyn"
-        two: "%{count} likes"
-        zero: "no people liked this"
-      people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
   limited: "Cyfyngedig"
-  next: "nesaf"
   notifications:
     also_commented:
       few: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
@@ -155,14 +98,6 @@ cy:
       other: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       two: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       zero: "Mae %{actors} wedi sylwi ar eich %{post_link}."
-    helper:
-      new_notifications:
-        few: "%{count} hysbysiadau newydd"
-        many: "%{count} hysbysiadau newydd"
-        one: "1 new notification"
-        other: "%{count} hysbysiadau newydd"
-        two: "%{count} new notifications"
-        zero: "no new notifications"
     index:
       and: "a"
       and_others:
@@ -252,43 +187,18 @@ cy:
       sharing: "wedi dechrau rhannu gyda chi!"
       subject: "Mae %{name} wedi dechrau rhannu gyda chi i mewn Diaspora*"
     thanks: "Diolch,"
-  or: "neu"
-  password: "Cyfrinair"
-  password_confirmation: "Cadarnhad Cyfrinair"
   people:
-    one: "1 unigolyn"
-    other: "%{count} pobl"
     person:
-      add_contact: "anadu cysylltiad"
-      pending_request: "pending request"
       thats_you: "chi sy hyn!"
     profile_sidebar:
       born: "born"
-      in_aspects: "i mewn agweddau"
-      remove_contact: "dileu cysylltiad"
     show:
       does_not_exist: "Dydy'r unigolyn ddim yn bodoli!"
-      incoming_request: "You have an incoming request from this person."
-      message: "Neges"
-      not_connected: "You are not connected with this person"
-      return_to_aspects: "Mynd yn ôl i dudalen agweddau"
-      see_all: "Gweld popeth"
-      start_sharing: "dechrau rhannu"
-    sub_header:
-      edit: "golygu"
-    zero: "no people"
   photos:
-    comment_email_subject: "ffoto %{name}"
     create:
       type_error: "Mae ffoto wedi methu llwytho i fyny. A ydych yn sicr delwedd ei ychwanegu?"
     destroy:
       notice: "Ffoto wedi dileu."
-    new:
-      back_to_list: "Nôl i'r Rhestr"
-    photo:
-      view_all: "gweld lluniau %{name} i gŷd"
-    show:
-      delete_photo: "Dileu'r Llun"
   posts:
     show:
       photos_by:
@@ -298,85 +208,36 @@ cy:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: "blaenorol"
   profile: "Proffil"
   profiles:
     edit:
-      edit_profile: "Golygu proffil"
       your_birthday: "Eich penblwydd"
       your_name: "Eich enw"
       your_photo: "Eich ffoto"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
   registrations:
     create:
       success: "Rydych chi wedi ymuno Diaspora!"
     new:
-      create_my_account: "Create my account"
       enter_email: "Enter an e-mail"
-      sign_up_message: "Social Networking with a <3"
-  requests:
-    create:
-      sending: "Sending..."
-      sent: "Rydych chi wedi gofyn i rannu gyda %{name}. Dylen nhw ei weld tro nesaf y byddant yn mewngofnodi i Diaspora."
-    destroy:
-      error: "Dewiswch agwedd!"
-      ignore: "Ignored friend request."
-      success: "Ffrindiau ydych chi!"
-    helper:
-      new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
   reshares:
-    create:
-      failure: "Roedd camgymeriad yn rhannu y swydd hon."
     reshare:
       deleted: "Post gwreiddiol wedi cael ei ddileu gan yr awdur."
-      reshare:
-        few: "rhannwyd %{count} waith"
-        many: "rhannwyd %{count} waith"
-        one: "Rhannwyd unwaith"
-        other: "rhannwyd %{count} waith"
-        two: "rhannwyd %{count} waith"
-        zero: "Ailrhannu"
       reshare_confirmation: "Ailrhannu post %{author}?"
-      reshare_original: "Ailrhannu"
       reshared_via: "ailrhannwyd gan"
-      show_original: "Dangos yr wreiddiol"
   services:
     create:
       success: "Dilysu llwyddiannus."
     destroy:
       success: "Successfully destroyed authentication."
-    finder:
-      no_friends: "Dim ffrindiau Facebook wedi darganfod."
-      service_friends: "Ffrindiau %{service}"
     index:
       disconnect: "datgysylltu"
       logged_in_as: "mewngofnodi fel"
       really_disconnect: "datgysylltu %{service}?"
-    inviter:
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
-      join_me_on_diaspora: "Cysylltu gyda fi mewn DIASPORA*"
   settings: "Gosodiadau"
   shared:
-    add_contact:
-      create_request: "Find by Diaspora handle"
-      diaspora_handle: "Diaspora handle"
-      your_diaspora_username_is: "%{diaspora_handle} ydy eich enw Diaspora"
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
       toggle:
         few: "Mewn %{count} agweddau"
         many: "Mewn %{count} agweddau"
@@ -384,49 +245,16 @@ cy:
         other: "Mewn %{count} agweddau"
         two: "Mewn %{count} agweddau"
         zero: "Add to aspect"
-    contact_list:
-      all_contacts: "Cysylltiadau i gŷd"
-    footer:
-      your_aspects: "eich agweddau"
     invitations:
       by_email: "gan e-bost"
-      from_facebook: "O Facebook"
-      invitations_left: "(%{count} left)"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
-    notification:
-      new: "%{type} newydd o %{from}"
     public_explain:
       title: "You are about to post a public message!"
     publisher:
-      all_contacts: "cysylltiadau i gŷd"
-      make_public: "gwneud yn gyhoeddus"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
-      post_a_message_to: "Post neges i %{aspect}"
-      share_with: "Share with %{aspect}"
       whats_on_your_mind: "Am be' dych chi'n meddwl?"
-    reshare:
-      reshare: "Rhannu eto"
-    stream_element:
-      connect_to_comment: "Cysylltu i ddefnyddiwr hwn i sylwi ar eu swydd"
-      dislike: "'Dwi ddim yn hoffi hyn"
-      hide_and_mute: "Hide and Mute"
-      like: "Dwi'n hoffi hyn"
-      unlike: "Dim hoffi"
-      viewable_to_anyone: "Mae'r post hon yn weladwy i unrhyw un ar y we"
   status_messages:
-    helper:
-      no_message_to_display: "Dim neges i arddangos."
     too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
-  stream_helper:
-    hide_comments: "hide comments"
-    show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
   streams:
     aspects:
       title: "Eich Agweddau"
@@ -439,13 +267,6 @@ cy:
       title: "Your Mentions"
     multi:
       title: "Ffrwd"
-  tag_followings:
-    create:
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
-    destroy:
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
   username: "Enw Defnyddiwr"
   users:
     confirm_email:
@@ -477,6 +298,3 @@ cy:
       settings_not_updated: "Mae diweddaru gosodiadau wedi methu "
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
-  webfinger:
-    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
-    no_person_constructed: "Ni allai unrhyw berson yn cael ei adeiladu o'r hcard hyn."

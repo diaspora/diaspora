@@ -35,11 +35,8 @@ sk:
       no_comments: "Ešte tu nie sú žiadne príspevky."
       show: "Zobraziť všetky komentáre"
     confirm_dialog: "Určite?"
-    conversation:
-      participants: "Účastníci"
     delete: "Odstrániť"
     edit: "Upraviť"
-    failed_to_like: "Nepodarilo sa označiť, že sa ti to páči!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
       alright_ill_wait: "V poriadku, počkám."
@@ -63,9 +60,6 @@ sk:
       view_all: "Zobraziť všetko"
     ignore: "Ignorovať"
     ignore_user: "Ignorovať tohto používateľa?"
-    infinite_scroll:
-      no_more: "Žiadne ďalšie príspevky."
-      no_more_contacts: "Žiadne ďalšie kontakty."
     my_activity: "Moja aktivita"
     my_aspects: "Moje kategórie"
     my_stream: "Nástenka"
@@ -91,7 +85,6 @@ sk:
       vote: "Hlasovať"
     publisher:
       add_option: "Pridať možnosť"
-      at_least_one_aspect: "Musíš publikovať aspoň jednu kategóriu"
       limited: "Vyhradený – tvoj príspevok uvidia len ľudia, s ktorými sa oň podelíš"
       near_from: "Odoslané z obce:<%= location %>"
       option: "Možnosť <%= nr %>"
@@ -105,10 +98,8 @@ sk:
         created: "Úspešne si vytvoril(a) správu"
         exists: "Správa už existuje"
     reshares:
-      duplicate: "Je to dobré, čo? O tento príspevok si sa už raz znova podelil(a)!"
       post: "Znova ukázať priateľom príspevok, ktorý napísal(a) <%= name %>?"
       successful: "Tento príspevok si úspešne znova ukázal(a) priateľom!"
-    search_for: "Hľadať <%= name %>"
     show_more: "Zobraziť viac"
     stream:
       comment: "Okomentovať"
@@ -153,29 +144,24 @@ sk:
       wasnt_that_interesting: "OK, značka #<%= tagName %> asi vôbec nebola zaujímavá."
     timeago:
       day: "včera"
-      days: "pred %d dňami"
+      days:
+        other: "pred %d dňami"
       hour: "asi pred hodinou"
-      hours: "asi pred %d hodinami"
+      hours:
+        other: "asi pred %d hodinami"
       minute: "asi pred minútou"
-      minutes: "pred %d minútami"
+      minutes:
+        other: "pred %d minútami"
       month: "asi pred mesiacom"
-      months: "pred %d mesiacmi"
+      months:
+        other: "pred %d mesiacmi"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "pred menej ako minútou"
       suffixAgo: ""
       suffixFromNow: ""
       year: "asi pred rokom"
-      years: "pred %d rokmi"
-    videos:
-      unknown: "Neznámy typ videa"
-      watch: "Sleduj toto video na <%= provider %>"
+      years:
+        other: "pred %d rokmi"
     viewer:
-      comment: "Komentár"
-      follow_post: "Sledovať príspevok"
-      home: "ÚVODNÁ STRÁNKA"
-      like: "Páči sa mi to"
-      reshare: "Ukázať príspevok priateľom"
       reshared: "Znova ukázané"
-      stop_following_post: "Prestať sledovať príspevok"
-      unlike: "Už sa mi to nepáči"

@@ -21,6 +21,8 @@ FactoryGirl.define do
     gender "robot"
     location "Earth"
     birthday Date.today
+    tag_string "#one #two"
+    association :person
   end
 
   factory :profile_with_image_url, :parent => :profile do
@@ -31,7 +33,7 @@ FactoryGirl.define do
 
   factory(:person, aliases: %i(author)) do
     sequence(:diaspora_handle) {|n| "bob-person-#{n}#{r_str}@example.net" }
-    url AppConfig.pod_uri.to_s
+    pod { Pod.find_or_create_by(url: "http://example.net") }
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     after(:build) do |person|
       unless person.profile.first_name.present?
@@ -50,12 +52,6 @@ FactoryGirl.define do
     end
   end
 
-  factory :searchable_person, :parent => :person do
-    after(:build) do |person|
-      person.profile = FactoryGirl.build(:profile, :person => person, :searchable => true)
-    end
-  end
-
   factory :like do
     association :author, :factory => :person
     association :target, :factory => :status_message
@@ -69,10 +65,10 @@ FactoryGirl.define do
     password_confirmation { |u| u.password }
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
     after(:build) do |u|
-      u.person = FactoryGirl.build(:person, :profile => FactoryGirl.build(:profile),
-                                  :owner_id => u.id,
-                                  :serialized_public_key => u.encryption_key.public_key.export,
-                                  :diaspora_handle => "#{u.username}#{User.diaspora_id_host}")
+      u.person = FactoryGirl.build(:person,
+                                   pod:                   nil,
+                                   serialized_public_key: u.encryption_key.public_key.export,
+                                   diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
     end
     after(:create) do |u|
       u.person.save
@@ -92,13 +88,16 @@ FactoryGirl.define do
   factory(:status_message, aliases: %i(status_message_without_participation)) do
     sequence(:text) {|n| "jimmy's #{n} whales" }
     author
-    after(:build) do |sm|
-      sm.diaspora_handle = sm.author.diaspora_handle
-    end
 
     factory(:status_message_with_poll) do
       after(:build) do |sm|
         FactoryGirl.create(:poll, status_message: sm)
+      end
+    end
+
+    factory(:status_message_with_location) do
+      after(:build) do |sm|
+        FactoryGirl.create(:location, status_message: sm)
       end
     end
 
@@ -137,25 +136,41 @@ FactoryGirl.define do
   end
 
   factory(:location) do
-    lat 1
-    lng 2
+    address "Fernsehturm Berlin, Berlin, Germany"
+    lat 52.520645
+    lng 13.409779
+  end
+
+  factory :participation do
+    association :author, factory: :person
+    association :target, factory: :status_message
   end
 
   factory(:poll) do
-    sequence(:question) { |n| "What do you think about #{n} ninjas?" }
+    sequence(:question) {|n| "What do you think about #{n} ninjas?" }
+    association :status_message
     after(:build) do |p|
-      p.poll_answers << FactoryGirl.build(:poll_answer)
-      p.poll_answers << FactoryGirl.build(:poll_answer)
+      p.poll_answers << FactoryGirl.build(:poll_answer, poll: p)
+      p.poll_answers << FactoryGirl.build(:poll_answer, poll: p)
     end
   end
 
   factory(:poll_answer) do
-    sequence(:answer) { |n| "#{n} questionmarks" }
+    sequence(:answer) {|n| "#{n} questionmarks" }
+    association :poll
+  end
+
+  factory :poll_participation do
+    association :author, factory: :person
+    association :poll_answer
+    after(:build) {|p| p.poll = p.poll_answer.poll }
   end
 
   factory(:photo) do
     sequence(:random_string) {|n| SecureRandom.hex(10) }
     association :author, :factory => :person
+    height 42
+    width 23
     after(:build) do |p|
       p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
       p.update_remote_path
@@ -206,6 +221,11 @@ FactoryGirl.define do
     photo_url "/assets/user/adams.jpg"
   end
 
+  factory :pod do
+    sequence(:host) {|n| "pod#{n}.example#{r_str}.com" }
+    ssl true
+  end
+
   factory(:comment) do
     sequence(:text) {|n| "#{n} cats"}
     association(:author, :factory => :person)
@@ -237,6 +257,7 @@ FactoryGirl.define do
     title "Some article"
     ob_type "article"
     description "This is the article lead"
+    video_url "http://example.com/videos/123.html"
   end
 
   factory(:tag_following) do
@@ -256,7 +277,7 @@ FactoryGirl.define do
 
   factory(:conversation) do
     association(:author, factory: :person)
-    sequence(:subject) { |n| "conversation ##{n}" }
+    sequence(:subject) {|n| "conversation ##{n}" }
 
     after(:build) do |c|
       c.participants << c.author
@@ -264,32 +285,40 @@ FactoryGirl.define do
   end
 
   factory(:conversation_with_message, parent: :conversation) do
-    after(:build) do |c|
-      msg = FactoryGirl.build(:message)
+    after(:create) do |c|
+      msg = FactoryGirl.build(:message, author: c.author)
       msg.conversation_id = c.id
-      c.participants << msg.author
       msg.save
     end
   end
 
   factory(:message) do
-    association(:author, factory: :person)
-    sequence(:text) { |n| "message text ##{n}" }
+    association :author, factory: :person
+    association :conversation
+    sequence(:text) {|n| "message text ##{n}" }
+    after(:build) {|m| m.conversation.participants << m.author }
   end
 
-  factory(:message_with_conversation, parent: :message) do
-    after(:build) do |msg|
-      c = FactoryGirl.build(:conversation)
-      c.participants << msg.author
-      msg.conversation_id = c.id
-    end
+  factory(:signature_order) do
+    order "guid parent_guid text author"
   end
 
-  #templates
-  factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
+  factory(:comment_signature) do
+    author_signature "some signature"
+    association :signature_order, order: "guid parent_guid text author new_property"
+    additional_data { {"new_property" => "some text"} }
+  end
 
-  factory(:photo_backdrop, :parent => :status_message_with_photo) do
-    text ""
+  factory(:like_signature) do
+    author_signature "some signature"
+    association :signature_order, order: "positive guid parent_type parent_guid author new_property"
+    additional_data { {"new_property" => "some text"} }
+  end
+
+  factory(:poll_participation_signature) do
+    author_signature "some signature"
+    association :signature_order, order: "guid parent_guid author poll_answer_guid new_property"
+    additional_data { {"new_property" => "some text"} }
   end
 
   factory(:note, :parent => :status_message) do
@@ -298,12 +327,74 @@ FactoryGirl.define do
 
   factory(:status, :parent => :status_message)
 
+  factory :o_auth_application, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris %w(http://localhost:3000/)
+  end
+
+  factory :o_auth_application_with_image, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris %w(http://localhost:3000/)
+    logo_uri "/assets/user/default.png"
+  end
+
+  factory :o_auth_application_with_ppid, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris %w(http://localhost:3000/)
+    ppid true
+    sector_identifier_uri "https://example.com/uri"
+  end
+
+  factory :o_auth_application_with_ppid_with_specific_id, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris %w(http://localhost:3000/)
+    ppid true
+    sector_identifier_uri "https://example.com/uri"
+  end
+
+  factory :o_auth_application_with_multiple_redirects, class: Api::OpenidConnect::OAuthApplication do
+    client_name "Diaspora Test Client"
+    redirect_uris %w(http://localhost:3000/ http://localhost/)
+  end
+
+  factory :o_auth_application_with_xss, class: Api::OpenidConnect::OAuthApplication do
+    client_name "<script>alert(0);</script>"
+    redirect_uris %w(http://localhost:3000/)
+  end
+
+  factory :auth_with_read, class: Api::OpenidConnect::Authorization do
+    o_auth_application
+    user
+    scopes %w(openid sub aud profile picture nickname name read)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
+  end
+
+  factory :auth_with_read_and_ppid, class: Api::OpenidConnect::Authorization do
+    association :o_auth_application, factory: :o_auth_application_with_ppid
+    user
+    scopes %w(openid sub aud profile picture nickname name read)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
+  end
+
+  factory :auth_with_read_and_write, class: Api::OpenidConnect::Authorization do
+    o_auth_application
+    user
+    scopes %w(openid sub aud profile picture nickname name read write)
+    after(:build) {|m|
+      m.redirect_uri = m.o_auth_application.redirect_uris[0]
+    }
+  end
+
   # Factories for the DiasporaFederation-gem
 
   factory(:federation_person_from_webfinger, class: DiasporaFederation::Entities::Person) do
     sequence(:guid) { UUID.generate :compact }
     sequence(:diaspora_id) {|n| "bob-person-#{n}#{r_str}@example.net" }
-    url AppConfig.pod_uri.to_s
+    url "https://example.net/"
     exported_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     profile {
       DiasporaFederation::Entities::Profile.new(

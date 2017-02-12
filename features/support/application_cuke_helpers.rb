@@ -1,14 +1,14 @@
 module ApplicationCukeHelpers
   def flash_message_success?
-    flash_message(selector: "notice").visible?
+    flash_message(selector: "success").visible?
   end
 
   def flash_message_failure?
-    flash_message(selector: "error").visible?
+    flash_message(selector: "danger").visible?
   end
 
   def flash_message_alert?
-    flash_message(selector: "alert").visible?
+    flash_message(selector: "danger").visible?
   end
 
   def flash_message_containing?(text)
@@ -17,21 +17,19 @@ module ApplicationCukeHelpers
 
   def flash_message(opts={})
     selector = opts.delete(:selector)
-    selector &&= "#flash_#{selector}"
-    find(selector || '.message', {match: :first}.merge(opts))
+    selector &&= ".alert-#{selector}"
+    find(selector || ".flash-message", {match: :first}.merge(opts))
   end
 
   def confirm_form_validation_error(element)
-    is_invalid = page.evaluate_script("$('#{element}').is(':invalid')")
-    expect(is_invalid).to be true
+    expect(page.evaluate_script("$('#{element}')[0].checkValidity();")).to be false
   end
 
   def check_fields_validation_error(field_list)
-    field_list.split(',').each do |f|
-      confirm_form_validation_error('input#'+f.strip)
+    field_list.split(",").each do |f|
+      confirm_form_validation_error("input##{f.strip}")
     end
   end
-
 end
 
 World(ApplicationCukeHelpers)

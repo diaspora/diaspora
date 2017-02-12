@@ -1,5 +1,4 @@
 describe("app.helpers.dateFormatter", function(){
-
   beforeEach(function(){
     this.statusMessage = factory.post();
     this.formatter = app.helpers.dateFormatter;

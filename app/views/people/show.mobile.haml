@@ -2,33 +2,28 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span12
-  #author_info
-    = person_image_tag @person, :thumb_medium
-    .content
-      %h2
-        = @person.name
-      %span.description
-        = @person.diaspora_handle
-      - if user_signed_in? && @person != current_user.person
-        = render 'aspect_memberships/aspect_membership_dropdown'
-      .clear
-    .bottom_bar
-      - if !@person.tag_string.blank? && user_signed_in?
-        = Diaspora::Taggable.format_tags(@person.tag_string)
+#author_info.header-full-width
+  = person_image_tag @person, :thumb_medium
+  .content
+    %h2
+      = @person.name
+    %span.description
+      = @person.diaspora_handle
+    - if user_signed_in? && @person != current_user.person
+      = render 'aspect_memberships/aspect_membership_dropdown'
+    .clear
+  .bottom-bar
+    - if !@person.tag_string.blank? && user_signed_in?
+      = Diaspora::Taggable.format_tags(@person.tag_string)
 
-.span12.profile_stream
-  - if @post_type == :photos
-    = render "photos/index", photos: @posts
-  - else
+- if @post_type == :photos
+  = render "photos/index", photos: @posts
+- else
+  .stream#main_stream
     - if @stream.stream_posts.length > 0
-      #main_stream.stream
-        = render "shared/stream", posts: @stream.stream_posts
-        = render "shared/stream_more_button"
+      = render "shared/stream", posts: @stream.stream_posts
+      = render "shared/stream_more_button"
     - else
-      #main_stream
-        .dull
-        - if @block.present?
-          = t(".ignoring", name: @person.first_name)
-        - elsif user_signed_in? && (current_user.person != @person)
-          = t(".has_not_shared_with_you_yet", name: @person.first_name)
+      .dull
+      - if user_signed_in? && (current_user.person != @person)
+        = t(".has_not_shared_with_you_yet", name: @person.first_name)

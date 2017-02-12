@@ -1,21 +1,34 @@
+.page-contacts {
+  .sidebar { padding-bottom: 10px; }
+
+  .stream.contacts .header {
+    border-bottom: 1px solid $border-grey;
+    min-height: 55px;
+    form { margin: 0; }
+    input,
+    .btn {
+      margin-bottom: 11px;
+      margin-top: 11px;
+    }
+  }
+
+  .stream.contacts .aspect-controls {
+    margin-bottom: 7px;
+    margin-left: 30px;
+    margin-right: -10px;
+    margin-top: 7px;
+  }
+}
+
 #contacts_container {
   #people_stream.contacts {
     .header {
-      border-bottom: 1px solid $border-grey;
-      margin-top: 10px;
-      min-height: 53px;
       #change_aspect_name { cursor: pointer; }
       #aspect_name_form {
         display: none;
-        form { margin: 0px; }
-        input {
-          margin-bottom: 0px;
-          margin-top: 10px;
-        }
-        .btn { margin-top: 10px; }
       }
       #contact_list_search {
-        margin: 6px 30px 0 0;
+        margin: 11px 0 0;
         width: 150px;
         &:focus { width: 250px; }
       }
@@ -25,39 +38,39 @@
         margin-right: 25px;
       }
       #chat_privilege_toggle > .enabled {
-        color: #000;
+        color: $text-color-active;
       }
-      .entypo.contacts-header-icon {
+      .contacts-header-icon {
         font-size: 24.5px;
         line-height: 40px;
-        color: lighten($black,75%);
-        &:hover { color: $black; }
+        color: $text-color-pale;
+        &:hover { color: $text-color; }
       }
       #suggest_member.btn { margin-top: 8px; }
     }
 
-    .stream_element {
+    .stream-element {
       .contact_remove-from-aspect, .contact_add-to-aspect {
         text-decoration: none;
         cursor: pointer;
         font-size: 20px;
         line-height: 50px;
-        margin: 10px;
-        color: lighten($black,75%);
-        &:hover { color: $black; }
+        margin: 0 10px;
+        color: $text-color-pale;
+        &:hover { color: $text-color; }
       }
       &.in_aspect {
-        border-left: 3px solid $green;
-        background-color: lighten($green,35%);
+        border-left: 3px solid $brand-success;
+        background-color: lighten($brand-success,35%);
       }
-      &:not(.in_aspect) { border-left: 3px solid $white; }
+      &:not(.in_aspect) { border-left: 3px solid $framed-background; }
     }
 
     .no_contacts {
       text-align: center;
       margin-top: 50px;
     }
-    .well { margin: 20px 0 10px; }
+    .well { margin: 10px; }
   }
 }
 

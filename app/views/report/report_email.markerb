@@ -1,2 +1,5 @@
-<%= t('notifier.report_email.body', url: resource[:url], type: resource[:type], id: resource[:id]) %>
-
+<%= t("notifier.report_email.body",
+      url: resource[:url],
+      type: resource[:type],
+      id: resource[:id],
+      reason: resource[:reason]) %>

@@ -6,9 +6,7 @@
 
 ast:
   _applications: "Aplicaciones"
-  _comments: "Comentarios"
   _contacts: "Contactos"
-  _photos: "fotos"
   _services: "Servicios"
   account: "Cuenta"
   activerecord:
@@ -39,13 +37,7 @@ ast:
             username:
               invalid: "ye inválidu. Sólo se permiten lletres, númberos y guiones baxos."
               taken: "yá ta ocupáu."
-  ago: "hai %{time}"
   all_aspects: "Tolos aspeutos"
-  application:
-    helper:
-      unknown_person: "persona desconocida"
-      video_title:
-        unknown: "Títulu de videu desconocíu"
   are_you_sure: "¿Tas seguru?"
   are_you_sure_delete_account: "¿Tas seguru de que quies zarrar la cuenta? ¡Esto nun pue desfacese!"
   aspect_memberships:
@@ -59,17 +51,9 @@ ast:
       success: "Amestóse'l contautu al aspeutu correutamente."
     aspect_listings:
       add_an_aspect: "+ Amestar un aspeutu"
-      deselect_all: "Nun seleicionar nada"
-      edit_aspect: "Editar %{name}"
-      select_all: "Seleicionar too"
     aspect_stream:
       stay_updated: "Sigui al día"
       stay_updated_explanation: "Na to canal principal apaecen los tos contautos, etiquetes que sigues, y publicaciones d'algunos miembros creativos de la comunidá."
-    contacts_not_visible: "Los contactos d'esti aspeutu nun podrán vese unos a otros."
-    contacts_visible: "Los contactos d'esti aspeutu podrán vese unos a otros."
-    create:
-      failure: "Falló la creación del aspeutu."
-      success: "Creóse'l nuevu aspeutu %{name}"
     destroy:
       failure: "%{name} nun ta baleru nun pudo desaniciase."
       success: "%{name} desanicióse correutamente."
@@ -77,21 +61,13 @@ ast:
       aspect_list_is_not_visible: "Los contactos d'esti aspeutu nun puen vese unos a otros."
       aspect_list_is_visible: "Los contactos d'esti aspeutu puen vese unos a otros."
       confirm_remove_aspect: "¿Tas seguru de que quies desaniciar esti aspeutu?"
-      make_aspect_list_visible: "¿facer los contactos d'esti aspeutu visibles ente ellos?"
-      remove_aspect: "Desaniciar esti aspeutu"
       rename: "renomar"
       update: "anovar"
       updating: "anovando"
     index:
-      diaspora_id:
-        content_1: "La to ID de diaspora* ye:"
-        content_2: "Compártila per uquiera y podrán alcontrate'n Diaspora*."
-        heading: "ID de diaspora*"
       donate: "Donar"
-      handle_explanation: "Esta ye la to ID de diaspora*. Como una direición de corréu, pues dala pa que la xente t'alcuentre."
       help:
         do_you: "¿Seique:"
-        email_feedback: "Si lo prefieres, manda la to opinión %{link}"
         feature_suggestion: "... tienes %{link} que suxerir?"
         find_a_bug: "... alcuentres %{link}?"
         have_a_question: "... tienes %{link}?"
@@ -105,25 +81,15 @@ ast:
         follow: "¡Sigui %{link} y da la bienvenida a diaspora* a los usuarios nuevos!"
         learn_more: "Más información"
         title: "Da la bienvenida a los usuarios nuevos"
-      no_contacts: "Nun hai contautos"
-      no_tags: "+ Alcontrar una etiqueta pa siguila"
-      people_sharing_with_you: "Persones que comparten contigo"
-      post_a_message: "publica un mensaxe >>"
       services:
         content: "Pues coneutar los servicios siguientes a diaspora*:"
         heading: "Coneutar servicios"
-      unfollow_tag: "Dexar de siguir #%{tag}"
       welcome_to_diaspora: "¡Afáyati en diaspora*, %{name}!"
-    new:
-      create: "Crear"
-      name: "Nome (visible pa ti namái)"
     no_contacts_message:
       community_spotlight: "destacao de la comunidá"
       or_spotlight: "O pues compartir con %{link}"
       try_adding_some_more_contacts: "Pues guetar o convidar a más contautos."
       you_should_add_some_more_contacts: "¡Tendríes d'amestar más contautos!"
-    no_posts_message:
-      start_talking: "¡Inda naide dixo nada!"
     seed:
       acquaintances: "Conocíos"
       family: "Familia"
@@ -132,53 +98,30 @@ ast:
     update:
       failure: "El to aspeutu, %{name}, tenía un nome llargu enforma pa poder guardalu."
       success: "Editóse correutamente'l to aspeutu, %{name}."
-  back: "Anterior"
   bookmarklet:
     explanation: "Publicar en diaspora* dende uquiera poniendo esti enllaz nos marcadores => %{link}."
     heading: "Bookmarklet"
     post_something: "Publicar en diaspora*"
-    post_success: "¡Publicao! Zarrando."
   cancel: "Encaboxar"
   comments:
     new_comment:
       comment: "Comentariu"
       commenting: "Comentando..."
-    one: "1 comentariu"
-    other: "%{count} comentarios"
-    zero: "nun hai comentarios"
-  contacts:
-    create:
-      failure: "Nun pudo crease'l contautu"
   delete: "Desaniciar"
   email: "Corréu electrónicu"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrixi los errores siguientes y vuelvi a intentalo."
-      invalid_fields: "Campos inválidos"
   fill_me_out: "Escribir equí"
   find_people: "Alcontrar persones o #etiquetes"
-  hide: "Tapecer"
   limited: "Llendáu"
   more: "Más"
-  next: "siguiente"
   no_results: "Nun s'alcontraron resultaos"
   nsfw: "Inseguro nel trabayu (NSFW)"
   ok: "Aceutar"
-  or: "o"
-  password: "Contraseña"
-  password_confirmation: "Confirmación de contraseña"
-  previous: "anterior"
   privacy: "Intimidá"
-  privacy_policy: "Política d'intimidá"
   profile: "Perfil"
   public: "Públicu"
-  reactions:
-    one: "1 reacción"
-    other: "%{count} reacciones"
-    zero: "0 reacciones"
   search: "Guetar"
   settings: "Preferencies"
-  terms_and_conditions: "Términos y condiciones"
-  undo: "¿Desfacer?"
   username: "Nome d'usuariu"
-  welcome: "¡Afáyati!"

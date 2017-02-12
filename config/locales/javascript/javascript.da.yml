@@ -6,6 +6,55 @@
 
 da:
   javascripts:
+    admin:
+      pods:
+        actions: "Handlinger"
+        added: "Tilføjet"
+        check: "lav en tilslutningstest"
+        errors:
+          one: "Forbindelses-testen viser fejl på en pod. "
+          other: "Forbindelses-testen viser fejl på <%= count %> pod-servere. "
+        follow_link: "åben link i browser"
+        last_check: "seneste check:"
+        more_info: "vis mere information"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "Ingen yderligere information til rådighed på dette tidspunkt"
+        not_available: "ikke tilgængelig"
+        offline_since: "offline siden:"
+        pod: "Pod"
+        recheck:
+          failure: "Checket blev ikke gennemført."
+          success: "Pod-serveren er blevet markeret igen."
+        response_time: "Svartid:"
+        server_software: "Server software:"
+        ssl: "SSL"
+        ssl_disabled: "SSL er slået fra"
+        ssl_enabled: "SSL er slået til"
+        states:
+          dns_failed: "Name resolution (DNS) fejlede"
+          http_failed: "HTTP tilslutning fejlede"
+          net_failed: "Tilslutningsforsøg fejlede"
+          no_errors: "OK"
+          ssl_failed: "Sikker forbindelse (SSL) fejlede"
+          unchecked: "Ikke markeret"
+          unknown_error: "Der er sket en uspecificeret fejl under checket"
+          version_failed: "Ude af stand til at hente software version"
+        status: "Status"
+        unchecked:
+          one: "Der er stadig en pod der slet ikke er blevet checket."
+          other: "Der er stadig <%= count %> pod-servere der slet ikke er blevet checket."
+        unknown: "ukendt"
+        version_failed:
+          one: "Der er en pod der ikke har versions-info (en gammel pod, eller en uden node-info)."
+          other: "Der er <%= count %> poder der ikke har versions-info (en gammel pod, eller en uden node-info)."
+    admins:
+      dashboard:
+        compare_versions: "Den seneste Diaspora udgave er <%= latestVersion %>, og din pod kører <%= podVersion %>."
+        error: "Ude af stand til at bestemme den seneste Diaspora-version."
+        outdated: "Din pod er ikke opdateret."
+        up_to_date: "Din pod er opdateret!"
     and: "og"
     aspect_dropdown:
       add_to_aspect: "Tilføj kontakt"
@@ -18,12 +67,8 @@ da:
       started_sharing_with: "Du er begyndt at dele med <%= name %>!"
       stopped_sharing_with: "Du deler ikke længere med <%= name %>."
       toggle:
-        few: "I <%= count %> aspekter"
-        many: "I <%= count %> aspekter"
         one: "I <%= count %> aspekt"
         other: "I <%= count %> aspekter"
-        two: "I <%= count %> aspekter"
-        zero: "Vælg aspekter"
       updating: "opdaterer ..."
     aspect_navigation:
       add_an_aspect: "+ Tilføj et aspekt"
@@ -51,6 +96,8 @@ da:
     confirm_unload: "Bekræft venligst at du ønsker at forlade denne side - data, du har indtastet, vil ikke blive gemt."
     contacts:
       add_contact: "Tilføj kontakt"
+      aspect_chat_is_enabled: "Kontakter i dette aspekt kan chatte med dig."
+      aspect_chat_is_not_enabled: "Kontakter i dette aspekt kan ikke chatte med dig."
       aspect_list_is_not_visible: "Kontakter i dette aspekt kan ikke se hinanden"
       aspect_list_is_visible: "Kontakter i dette aspekt kan se hinanden"
       error_add: "Kunne ikke tilføje <%= name %> til aspektet :("
@@ -58,16 +105,17 @@ da:
       remove_contact: "Fjern kontakt"
       search_no_results: "Ingen kontakter fundet"
     conversation:
+      create:
+        no_recipient: "Husk at tilføje en modtager!"
       new:
         no_contacts: "Du skal tilføje en eller flere kontakter før du kan starte en samtale."
-      participants: "Deltagere"
     create: "Opret"
     delete: "Slet"
     edit: "Rediger"
-    failed_to_like: "Kunne ikke synes om!"
+    errors:
+      connection: "Kan ikke forbinde til serveren."
     failed_to_post_message: "Kunne ikke indsende besked!"
     failed_to_remove: "Det lykkedes ikke at fjerne indlægget!"
-    failed_to_reshare: "Kunne ikke dele indlægget!"
     getting_started:
       alright_ill_wait: "Okay, jeg venter."
       hey: "Hej <%= name %>!"
@@ -88,15 +136,14 @@ da:
       recent_notifications: "Seneste notifikationer"
       search: "Søg"
       settings: "Indstillinger"
+      toggle_mobile: "Slå mobil til/fra"
+      toggle_navigation: "Slå navigation til/fra"
       view_all: "Se alle"
     hide_post: "Skjul dette indlæg?"
     hide_post_failed: "Kan ikke skjule indlæg"
     ignore: "Ignorer"
     ignore_failed: "Kan ikke ignorere denne bruger"
     ignore_user: "Ignorer denne bruger?"
-    infinite_scroll:
-      no_more: "Ikke flere indlæg."
-      no_more_contacts: "Ikke flere kontakter."
     my_activity: "Min aktivitet"
     my_aspects: "Mine aspekter"
     my_stream: "Strøm"
@@ -104,6 +151,9 @@ da:
     notifications:
       mark_read: "Marker som læst"
       mark_unread: "Marker som ulæst"
+      new_notifications:
+        one: "Du har <%= count %> ulæst notifikation"
+        other: "Du har <%= count %> ulæste notifikationer"
     people:
       edit_my_profile: "Rediger min profil"
       helper:
@@ -118,9 +168,13 @@ da:
       empty: "{file} er tom. Vælg venligst filer igen uden den."
       error: "Der er opstået et problem med at lægge filen <%= file %> op."
       invalid_ext: "{file} har en ugyldig filtype. Kun {extensions} er tilladt."
-      looking_good: "OMG, du ser sej ud!"
+      looking_good: "Du ser virkelig pæn ud!"
       size_error: "{file} er for stor. Maksimal filstørrelse er {sizeLimit}."
     poll:
+      answer_count:
+        one: "1 stemme"
+        other: "<%=count%> stemmer"
+        zero: "0 stemmer"
       close_result: "Gem resultat"
       count:
         one: "<%=count%> stemme, indtil nu"
@@ -137,15 +191,41 @@ da:
       contacts: "Kontakter"
       edit: "Rediger"
       gender: "Køn"
-      ignoring: "Du ignorerer alle indlæg fra <%= name %>"
       location: "Sted"
       photos: "Fotos"
       posts: "Indlæg"
       you_have_no_tags: "Du har ingen tags!"
     publisher:
       add_option: "Tilføj et svar"
-      at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
+      markdown_editor:
+        preview: "Forhåndsvisning"
+        texts:
+          code: "kode her"
+          heading: "Overskriftstekst"
+          insert_image_description_text: "skriv billedbeskrivelse her"
+          insert_image_help_text: "indsæt billed-link her"
+          insert_image_title: "skriv billedtitel her"
+          insert_link_description_text: "skriv link-beskrivelse her"
+          insert_link_help_text: "Indsæt link her"
+          italic: "tekst i kursiv"
+          list: "listetekst her"
+          quote: "citattekst her"
+          strong: "fed tekst"
+        tooltips:
+          bold: "Fed"
+          cancel: "Annuller besked"
+          code: "Indsæt kode"
+          heading: "Overskrift"
+          insert_image: "Indsæt billede"
+          insert_link: "Indsæt link"
+          insert_ordered_list: "Indsæt ordnet liste"
+          insert_unordered_list: "Indsæt uordnet liste"
+          italic: "Kursiv"
+          preview: "Forhåndsvisning af besked"
+          quote: "Indsæt citat"
+          write: "Rediger besked"
+        write: "Skriv"
       near_from: "Sendt fra: <%= location %>"
       option: "Svar"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
@@ -159,13 +239,15 @@ da:
         created: "Der blev lavet en rapport"
         exists: "Der eksisterer allerede en rapport"
     reshares:
-      duplicate: "Du har allerede delt indlægget!"
       post: "Videredel <%= name %>s indlæg?"
       successful: "Indlægget er blevet videredelt!"
-    search_for: "Søg efter <%= name %>"
     show_more: "Vis mere"
     stream:
-      comment: "Kommentér"
+      comment: "Kommenter"
+      comments:
+        one: "<%= count %> kommentar"
+        other: "<%= count %> kommentarer"
+        zero: "<%= count %> kommentarer"
       disable_post_notifications: "Slå notifikationer fra for dette indlæg"
       enable_post_notifications: "Slå notifikationer til for dette indlæg"
       follow: "Følg"
@@ -191,7 +273,9 @@ da:
         other: "Vis <%= count %> ekstra kommentarer"
         two: "Vis <%= count %> ekstra kommentarer"
         zero: "Vis <%= count %> ekstra kommentarer"
+      no_posts_yet: "Der er endnu ikke nogen indlæg at vise."
       original_post_deleted: "Oprindeligt indlæg er slettet af forfatteren"
+      permalink: "Permalink"
       public: "Offentlig"
       reshare: "Videredel"
       reshares:
@@ -217,13 +301,22 @@ da:
       wasnt_that_interesting: "OK, #<%= tagName %> var ikke var så spændende alligevel ..."
     timeago:
       day: "en dag"
-      days: "%d dage"
+      days:
+        one: "1 dag"
+        other: "%d dage"
       hour: "ca. en time"
-      hours: "ca. %d timer"
+      hours:
+        one: "omkring en time"
+        other: "omkring %d timer"
+      inPast: "når som helst"
       minute: "ca. et minut"
-      minutes: "%d minutter"
+      minutes:
+        one: "1 minut"
+        other: "%d minutter"
       month: "ca. en måned"
-      months: "%d måneder"
+      months:
+        one: "1 måned"
+        other: "%d måneder"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "mindre end et minut"
@@ -231,17 +324,9 @@ da:
       suffixFromNow: "fra nu"
       wordSeparator: " "
       year: "ca. et år"
-      years: "%d år"
+      years:
+        one: "1 år"
+        other: "%d år"
     unblock_failed: "Det lykkedes ikke at afblokere denne bruger"
-    videos:
-      unknown: "Ukendt videotype"
-      watch: "Se denne video på <%= provider %>"
     viewer:
-      comment: "Kommentér"
-      follow_post: "Følg indlæg"
-      home: "Hjem"
-      like: "Synes om"
-      reshare: "Videredel"
       reshared: "Videredelt"
-      stop_following_post: "Ophør med at følge indlæg"
-      unlike: "Unlike"

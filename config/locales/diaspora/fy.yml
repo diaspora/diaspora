@@ -6,20 +6,14 @@
 
 fy:
   _applications: "Tapassingen"
-  _comments: "Reaksjes"
   _contacts: "Kontakten"
-  _home: "Thús"
-  _photos: "foto's"
   account: "Akkount"
-  ago: "%{time} lyn"
   are_you_sure: "Bisto wis?"
   aspects:
     edit:
       update: "fernij"
       updating: "fernije"
     index:
-      diaspora_id:
-        content_1: "Dyn Diaspora ID is:"
       help:
         find_a_bug: "... in %{link} fine?"
         have_a_question: "... in %{link} hawwe?"
@@ -27,37 +21,24 @@ fy:
       new_here:
         learn_more: "Lês mear"
         title: "Wolkom Nije Brûkers"
-      no_contacts: "Gjin kontakten"
-      post_a_message: "stjoer in berjocht >>"
       welcome_to_diaspora: "Wolkom by Diaspora, %{name}!"
-    new:
-      create: "Oanmeitsje"
     seed:
       acquaintances: "Bekenden"
       family: "Famylje"
       friends: "Freonen"
       work: "Wurk"
-  back: "Tebek"
   cancel: "Annulearje"
   comments:
     new_comment:
       comment: "Reaksje"
       commenting: "Reagearje..."
   contacts:
-    create:
-      failure: "Koe gjin kontakt oanmeitsje"
     index:
       all_contacts: "Alle Kontakten"
       title: "Kontakten"
-      your_contacts: "Dyn Kontakten"
   conversations:
     create:
       sent: "Berjocht ferstjoerd"
-    helper:
-      new_messages:
-        one: "1 nij berjocht"
-        other: "%{count} nije berjochten"
-        zero: "Gjin nije berjochten"
     index:
       inbox: "Ynbox"
       no_messages: "gjin berjochten"
@@ -77,32 +58,20 @@ fy:
   delete: "Fuortsmite"
   email: "E-mail"
   find_people: "Minsken of #labels Sykje"
-  hide: "Ferbergje"
   invitations:
-    a_facebook_user: "In Facebook brûker"
     new:
       invite_someone_to_join: "Immen útnoadigje foar Diaspora!"
       language: "Taal"
-      personal_message: "Persoanlik berjocht"
-      resend: "Opnij ferstjoere"
       send_an_invitation: "In útnoeging ferstjoere"
-      send_invitation: "Útnoeging ferstjoerd"
-      to: "Oan"
   layouts:
     application:
       powered_by: "MEA MOOGLIK MAKKE TROCH DIASPORA*"
     header:
-      admin: "behearder"
-      blog: "bloch"
       code: "koade"
-      login: "ynlogge"
       logout: "Útlogge"
       profile: "Profyl"
-      recent_notifications: "Resinte notifikaasjes"
       settings: "Ynstellingen"
-      view_all: "Toan alle"
   more: "Mear"
-  next: "folgjende"
   no_results: "Gjin Risseltaten Fûn"
   notifications:
     post: "berjocht"
@@ -115,20 +84,9 @@ fy:
     thanks: "Tige Tank,"
   nsfw: "Net Feilich Foar Wurk"
   ok: "Okee"
-  or: "of"
-  password: "Wachtwurd"
-  password_confirmation: "Wachtwurd konfirmaasje"
-  people:
-    one: "1 persoan"
-    zero: "gjin minsken"
-  previous: "foarrige"
   privacy: "Privacy"
-  privacy_policy: "Privacybelied"
   profile: "Profyl"
   public: "Iepenbier"
   search: "Sykje"
   settings: "Ynstellingen"
-  terms_and_conditions: "Algemiene Betingsten"
-  undo: "Ûngedien meitsje?"
   username: "Brûkersnamme"
-  welcome: "Wolkom!"

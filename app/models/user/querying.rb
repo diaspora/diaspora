@@ -13,90 +13,12 @@ module User::Querying
   def visible_shareables(klass, opts={})
     opts = prep_opts(klass, opts)
     shareable_ids = visible_shareable_ids(klass, opts)
-    klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table]).order(klass.table_name+".id DESC")
+    klass.where(id: shareable_ids).select("DISTINCT #{klass.table_name}.*")
+      .limit(opts[:limit]).order(opts[:order_with_table])
   end
 
   def visible_shareable_ids(klass, opts={})
-    opts = prep_opts(klass, opts)
-    visible_ids_from_sql(klass, opts)
-  end
-
-  # @return [Array<Integer>]
-  def visible_ids_from_sql(klass, opts={})
-    opts = prep_opts(klass, opts)
-    opts[:klass] = klass
-    opts[:by_members_of] ||= self.aspect_ids
-
-    post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map(&:to_i)
-    post_ids += klass.connection.select_values("#{construct_public_followings_sql(opts).to_sql} LIMIT #{opts[:limit]}").map {|id| id.to_i }
-  end
-
-  def visible_shareable_sql(klass, opts={})
-    table = klass.table_name
-    opts = prep_opts(klass, opts)
-    opts[:klass] = klass
-
-    shareable_from_others = construct_shareable_from_others_query(opts)
-    shareable_from_self = construct_shareable_from_self_query(opts)
-
-    "(#{shareable_from_others.to_sql} LIMIT #{opts[:limit]}) UNION ALL (#{shareable_from_self.to_sql} LIMIT #{opts[:limit]}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
-  end
-
-  def ugly_select_clause(query, opts)
-    klass = opts[:klass]
-    select_clause ='DISTINCT %s.id, %s.updated_at AS updated_at, %s.created_at AS created_at' % [klass.table_name, klass.table_name, klass.table_name]
-    query.select(select_clause).order(opts[:order_with_table]).where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
-  end
-
-  def construct_shareable_from_others_query(opts)
-    conditions = {
-        :pending => false,
-        :share_visibilities => {:hidden => opts[:hidden]},
-        :contacts => {:user_id => self.id, :receiving => true}
-    }
-
-    conditions[:type] = opts[:type] if opts.has_key?(:type)
-
-    query = opts[:klass].joins(:contacts).where(conditions)
-
-    if opts[:by_members_of]
-      query = query.joins(:contacts => :aspect_memberships).where(
-        :aspect_memberships => {:aspect_id => opts[:by_members_of]})
-    end
-
-    ugly_select_clause(query, opts)
-  end
-
-  def construct_public_followings_sql(opts)
-    logger.debug "[EVIL-QUERY] user.construct_public_followings_sql"
-
-    # For PostgreSQL and MySQL/MariaDB we use a different query
-    # see issue: https://github.com/diaspora/diaspora/issues/5014
-    if AppConfig.postgres?
-      query = opts[:klass].where(:author_id => Person.in_aspects(opts[:by_members_of]).select("people.id"), :public => true, :pending => false)
-    else
-      aspects = Aspect.where(:id => opts[:by_members_of])
-      person_ids = Person.connection.select_values(people_in_aspects(aspects).select("people.id").to_sql)
-      query = opts[:klass].where(:author_id => person_ids, :public => true, :pending => false)
-    end
-
-    unless(opts[:klass] == Photo)
-      query = query.where(:type => opts[:type])
-    end
-
-    ugly_select_clause(query, opts)
-  end
-
-  def construct_shareable_from_self_query(opts)
-    conditions = {:pending => false, :author_id => self.person_id }
-    conditions[:type] = opts[:type] if opts.has_key?(:type)
-    query = opts[:klass].where(conditions)
-
-    if opts[:by_members_of]
-      query = query.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
-    end
-
-    ugly_select_clause(query, opts)
+    visible_ids_from_sql(klass, prep_opts(klass, opts))
   end
 
   def contact_for(person)
@@ -144,17 +66,90 @@ module User::Querying
   end
 
   def posts_from(person)
-    ::EvilQuery::ShareablesFromPerson.new(self, Post, person).make_relation!
+    Post.from_person_visible_by_user(self, person).order("posts.created_at desc")
   end
 
   def photos_from(person, opts={})
     opts = prep_opts(Photo, opts)
-    ::EvilQuery::ShareablesFromPerson.new(self, Photo, person).make_relation!
+    Photo.from_person_visible_by_user(self, person)
       .by_max_time(opts[:max_time])
       .limit(opts[:limit])
   end
 
   protected
+
+  # @return [Array<Integer>]
+  def visible_ids_from_sql(klass, opts)
+    opts[:klass] = klass
+    opts[:by_members_of] ||= aspect_ids
+
+    klass.connection.select_values(visible_shareable_sql(opts)).map(&:to_i)
+  end
+
+  def visible_shareable_sql(opts)
+    shareable_from_others = construct_shareable_from_others_query(opts)
+    shareable_from_self = construct_shareable_from_self_query(opts)
+
+    "(#{shareable_from_others.to_sql} LIMIT #{opts[:limit]}) " \
+    "UNION ALL (#{shareable_from_self.to_sql} LIMIT #{opts[:limit]}) " \
+    "ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
+  end
+
+  def construct_shareable_from_others_query(opts)
+    logger.debug "[EVIL-QUERY] user.construct_shareable_from_others_query"
+
+    query = visible_shareables_query(posts_from_aspects_query(opts), opts)
+
+    query = query.where(type: opts[:type]) unless opts[:klass] == Photo
+
+    ugly_select_clause(query, opts)
+  end
+
+  # For PostgreSQL and MySQL/MariaDB we use a different query
+  # see issue: https://github.com/diaspora/diaspora/issues/5014
+  def posts_from_aspects_query(opts)
+    if AppConfig.postgres?
+      opts[:klass].where(author_id: Person.in_aspects(opts[:by_members_of]).select("people.id"))
+    else
+      person_ids = Person.connection.select_values(Person.in_aspects(opts[:by_members_of]).select("people.id").to_sql)
+      opts[:klass].where(author_id: person_ids)
+    end
+  end
+
+  def visible_shareables_query(query, opts)
+    query.with_visibility.where(
+      visible_private_shareables(opts).or(opts[:klass].arel_table[:public].eq(true))
+    )
+  end
+
+  def visible_private_shareables(opts)
+    ShareVisibility.arel_table[:user_id].eq(id)
+      .and(ShareVisibility.arel_table[:shareable_type].eq(opts[:klass].to_s))
+      .and(ShareVisibility.arel_table[:hidden].eq(opts[:hidden]))
+  end
+
+  def construct_shareable_from_self_query(opts)
+    conditions = {author_id: person_id}
+    conditions[:type] = opts[:type] if opts.has_key?(:type)
+    query = opts[:klass].where(conditions)
+
+    unless opts[:all_aspects?]
+      query = query.with_aspects.where(
+        AspectVisibility.arel_table[:aspect_id].in(opts[:by_members_of])
+          .or(opts[:klass].arel_table[:public].eq(true))
+      )
+    end
+
+    ugly_select_clause(query, opts)
+  end
+
+  def ugly_select_clause(query, opts)
+    klass = opts[:klass]
+    table = klass.table_name
+    select_clause = "DISTINCT %s.id, %s.updated_at AS updated_at, %s.created_at AS created_at" % [table, table, table]
+    query.select(select_clause).order(opts[:order_with_table])
+      .where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
+  end
 
   # @return [Hash]
   def prep_opts(klass, opts)

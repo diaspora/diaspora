@@ -41,10 +41,7 @@ ms:
       error_add: "Tidak dapat menambah <%= name %> kepada aspek :("
       error_remove: "Tidak dapat membuang <%= name %> dari aspek :("
       remove_contact: "Buang kenalan"
-    conversation:
-      participants: "Peserta"
     edit: "Edit"
-    failed_to_like: "Gagal untuk suka!"
     failed_to_post_message: "Gagal untuk pos mesej!"
     failed_to_remove: "Gagal membuang catatan!"
     getting_started:
@@ -59,9 +56,6 @@ ms:
       search: "Find people or #tags"
     ignore_failed: "Tidak boleh mengabaikan pengguna ini"
     ignore_user: "Abaikan pengguna ini?"
-    infinite_scroll:
-      no_more: "Tiada lagi pos."
-      no_more_contacts: "Tiada lagi kenalan."
     my_aspects: "Aspek-aspek saya"
     no_results: "Tiada Hasil Dijumpai"
     notifications:
@@ -98,14 +92,12 @@ ms:
       contacts: "Kenalan-kenalan"
       edit: "edit"
       gender: "Jantina"
-      ignoring: "Anda mengabaikan semua siaran daripada <%= name %>."
       location: "Lokasi"
       photos: "Gambar"
       posts: "Catatan"
       you_have_no_tags: "anda tidak mempunyai tag!"
     publisher:
       add_option: "Tambah jawapan"
-      at_least_one_aspect: "Anda perlu menerbitkan sekurang-kurangnya satu aspek"
       limited: "Terhad - catatan anda hanya akan dilihat oleh orang-orang yang berkongsi dengan anda"
       near_from: "Dicatatkan dari: <%= location %>"
       option: "Jawapan"
@@ -119,10 +111,8 @@ ms:
         created: "Laporan itu sudah wujud"
         exists: "Laporan itu sudah wujud"
     reshares:
-      duplicate: "Yang baik, kan? Anda telah berkongsi semula pos itu!"
       post: "Kongsi semula catatan <%= name %>?"
       successful: "Catatan berjaya dikongsi semula!"
-    search_for: "Mencari <%= name %>"
     show_more: "tunjuk lagi"
     stream:
       followed_tag:
@@ -159,21 +149,23 @@ ms:
       wasnt_that_interesting: "OK, saya mengandaikan #<%= tagName %> tidak semua yang menarik..."
     timeago:
       day: "sehari"
-      days: "%d hari"
+      days:
+        other: "%d hari"
       hour: "kira-kira sejam"
-      hours: "kira-kira %d jam"
+      hours:
+        other: "kira-kira %d jam"
       minute: "kira-kira satu minit"
-      minutes: "%d minit"
+      minutes:
+        other: "%d minit"
       month: "kira-kira sebulan"
-      months: "%d bulan"
+      months:
+        other: "%d bulan"
       prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "kurang daripada satu minit"
       suffixAgo: "lalu"
       suffixFromNow: "dari sekarang"
       year: "kira-kira setahun"
-      years: "%d tahun"
+      years:
+        other: "%d tahun"
     unblock_failed: "Membuang sekatan pada pengguna ini telah gagal"
-    videos:
-      unknown: "Jenis video tidak diketahui"
-      watch: "Tonton video ini di <%= provider %>"

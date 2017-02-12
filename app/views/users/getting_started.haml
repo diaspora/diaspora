@@ -1,6 +1,6 @@
 .container
   .row
-    %section#hello-there.span12
+    %section#hello-there.col-md-12
       .hero-unit
         %h1.text-center
           = t('.well_hello_there')
@@ -9,32 +9,37 @@
 
         = invited_by_message
 
-        %h2
+        .small-horizontal-spacer
+
+        %h3
           = t(".who_are_you")
 
         - if AppConfig.configured_services.include? :facebook
           %p
-            != t('.connect_to_facebook', :link => link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
+            != t('.connect_to_facebook', link: link_to(t('.connect_to_facebook_link'), "auth/facebook?callback_url=#{getting_started_url}"))
 
-        = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do
+        = form_tag profile_path, method: :put, remote: true, id: 'edit_profile' do
           %fieldset
-            = label_tag 'profile[first_name]', t('profiles.edit.your_name')
-            = text_field_tag 'profile[first_name]', current_user.first_name
-            = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
-            = label_tag :your_photo, t('profiles.edit.your_photo')
-            = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
+            .form-group
+              = label_tag 'profile[first_name]', t('profiles.edit.your_name')
+              = text_field_tag 'profile[first_name]', current_user.first_name, class: "form-control"
+            .form-group
+              #gs-name-form-spinner.hidden
+                .loader
+                  .spinner
+              = label_tag :your_photo, t('profiles.edit.your_photo')
+              = render 'photos/new_profile_photo', aspect: :getting_started, person: current_user.person
 
-        %h2
+        %h3
           = t('.what_are_you_in_to')
 
         %p
           = t('.hashtag_explanation')
 
-        = form_tag(tag_followings_path, :method => 'get', :class => "tag_input search_form") do
+        = form_tag(tag_followings_path, method: 'get', class: "tag_input search_form") do
           %fieldset
             = label_tag 'follow_tags', t('.hashtag_suggestions')
             #tags_list
-              = text_field_tag 'follow_tags', nil, :class => "nostrap"
-
-        .awesome
-          = link_to "#{t('.awesome_take_me_to_diaspora')} »", stream_path, :id => "awesome_button", :class => "btn creation"
+              = text_field_tag 'follow_tags', nil, class: "nostrap form-control"
+        .text-center.awesome
+          = link_to "#{t('.awesome_take_me_to_diaspora')} >>", stream_path, id: "awesome_button", class: "btn btn-default btn-lg btn-primary"

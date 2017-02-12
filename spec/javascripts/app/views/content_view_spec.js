@@ -24,5 +24,10 @@ describe("app.views.Content", function(){
       this.post.set({post_type : "Reshare"});
       expect(this.view.presenter().isReshare).toBeTruthy();
     });
+
+    it("provides location", function(){
+      this.post.set({location : factory.location()});
+      expect(this.view.presenter().location).toEqual(factory.location());
+    });
   });
 });

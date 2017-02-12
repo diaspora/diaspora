@@ -22,6 +22,7 @@ hu:
         other: "<%= count %> csoportban"
         two: "<%= count %> csoportban"
         zero: "Csoportok kiválasztása"
+      updating: "frissítés..."
     aspect_navigation:
       add_an_aspect: "+ Új csoport"
       deselect_all: "Összes kijelölés megszüntetése"
@@ -31,6 +32,7 @@ hu:
       post_something: "Hozz létre bejegyzést"
       post_submit: "Bejegyzés közzététele..."
       post_success: "Közzétéve! A felugró ablak bezáródik..."
+    cancel: "Mégsem"
     comma: ","
     comments:
       hide: "hozzászólások elrejtése"
@@ -42,11 +44,10 @@ hu:
       aspect_list_is_not_visible: "A csoport tagjai nem láthatják egymást."
       aspect_list_is_visible: "A csoport tagjai láthatják egymást."
       remove_contact: "Ismerős eltávolítása"
-    conversation:
-      participants: "Résztvevők"
+      search_no_results: "Nincsenek kapcsolatok"
+    create: "Létrehozás"
     delete: "Töröl"
     edit: "Szerkesztés"
-    failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
     failed_to_remove: "Nem sikerült eltávolítani az elemet!"
     getting_started:
@@ -69,12 +70,11 @@ hu:
       search: "Keresés"
       settings: "Beállítások"
       view_all: "Összes"
+    hide_post: "Bejegyzés elrejetése?"
+    hide_post_failed: "Bejegyzés elrejtése nem lehetséges"
     ignore: "Mellőzés"
     ignore_failed: "Nem sikerült mellőzni ezt a felhasználót"
     ignore_user: "Felhasználó mellőzése?"
-    infinite_scroll:
-      no_more: "Nincs több bejegyzés."
-      no_more_contacts: "Nincs több ismerős."
     my_activity: "Tevékenységeim"
     my_aspects: "Csoportjaim"
     my_stream: "Hírfolyam"
@@ -99,6 +99,7 @@ hu:
       close_result: "Eredmény rejtése"
       count:
         other: "<%=count%> szavazat eddig"
+      original_post: "eredeti bejegyzés"
       result: "Eredmény"
       show_result: "Eredmény mutatása"
       vote: "Szavazás"
@@ -109,19 +110,24 @@ hu:
       contacts: "ismerősök"
       edit: "szerkesztés"
       gender: "nem"
-      ignoring: "<%= name %> minden hozzászólását mellőzöd"
       location: "lakóhely"
       photos: "képek"
       posts: "bejegyzések"
       you_have_no_tags: "nincsenek címkéid!"
     publisher:
       add_option: "Válasz hozzáadása"
-      at_least_one_aspect: "Legalább egy csoporttal meg kell osztanod!"
-      limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
+      limited: "Korlátozott: csak azok láthatják, akikkel megosztasz tartalmakat"
+      markdown_editor:
+        preview: "Előnézet"
+        tooltips:
+          insert_image: "Kép beillesztése"
+          insert_link: "Hivatkozás beillesztése"
+        write: "Szöveg"
       near_from: "<%= location %> közelében"
       option: "Válasz"
-      public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
+      public: "Nyilvános: bárki láthatja és keresőrobotok is megtalálhatják"
       question: "Kérdés"
+    remove_post: "Bejegyzés törlése?"
     report:
       name: "Jelentés"
       prompt: "Kérünk adj meg egy indokot:"
@@ -130,10 +136,8 @@ hu:
         created: "A jelentés sikeresen létrehozva"
         exists: "A jelentés már létezik"
     reshares:
-      duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
       post: "Szeretnéd újra megosztani <%= name %> bejegyzését?"
       successful: "A bejegyzés újraosztása sikeres!"
-    search_for: "<%= name %> keresése."
     show_more: "tovább"
     stream:
       comment: "Hozzászólás"
@@ -179,13 +183,17 @@ hu:
       wasnt_that_interesting: "Oké, azt hiszem a #<%= tagName %> nem volt annyira érdekes."
     timeago:
       day: "egy nappal"
-      days: "%d nappal"
+      days:
+        other: "%d nappal"
       hour: "körülbelül egy órával"
-      hours: "körülbelül %d órával"
+      hours:
+        other: "körülbelül %d órával"
       minute: "körülbelül egy perccel"
-      minutes: "%d perccel"
+      minutes:
+        other: "%d perccel"
       month: "körülbelül egy hónappal"
-      months: "%d hónappal"
+      months:
+        other: "%d hónappal"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "kevesebb mint egy perccel"
@@ -193,16 +201,7 @@ hu:
       suffixFromNow: "mostantól"
       wordSeparator: " "
       year: "körülbelül egy évvel"
-      years: "%d évvel"
-    videos:
-      unknown: "Ismeretlen videó tipus"
-      watch: "Videó megtekintése itt: <%= provider %>"
+      years:
+        other: "%d évvel"
     viewer:
-      comment: "Hozzászólás"
-      follow_post: "Követem"
-      home: "KEZDŐLAP"
-      like: "Tetszik"
-      reshare: "Megosztás"
       reshared: "Megosztva"
-      stop_following_post: "Nem követem többé"
-      unlike: "Nem tetszik"

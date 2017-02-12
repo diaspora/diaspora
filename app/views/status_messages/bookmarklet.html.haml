@@ -1,5 +1,7 @@
-.container-fluid#bookmarklet
-  .row-fluid
-    %h4
-      =t('bookmarklet.post_something')
-    = render :partial => 'publisher/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
+#bookmarklet
+  .container
+    .row
+      .col-md-12
+        %h4
+          =t('bookmarklet.post_something')
+        = render partial: "publisher/publisher", locals: publisher_aspects_for(nil)

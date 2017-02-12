@@ -1,16 +1,15 @@
-require 'spec_helper'
-
-
-describe NotificationsHelper, :type => :helper do
+describe NotificationsHelper, type: :helper do
   include ApplicationHelper
 
   before do
     @user = FactoryGirl.create(:user)
     @person = FactoryGirl.create(:person)
-    @post = FactoryGirl.create(:status_message, :author => @user.person)
+    @post = FactoryGirl.create(:status_message, author: @user.person)
     @person2 = FactoryGirl.create(:person)
-    @notification = Notification.notify(@user, FactoryGirl.create(:like, :author => @person, :target => @post), @person)
-    @notification =  Notification.notify(@user, FactoryGirl.create(:like, :author => @person2, :target => @post), @person2)
+    Notifications::Liked.notify(FactoryGirl.create(:like, author: @person, target: @post), [])
+    Notifications::Liked.notify(FactoryGirl.create(:like, author: @person2, target: @post), [])
+
+    @notification = Notifications::Liked.find_by(target: @post, recipient: @user)
   end
 
   describe '#notification_people_link' do
@@ -63,7 +62,6 @@ describe NotificationsHelper, :type => :helper do
       end
     end
   end
-
 
   describe '#object_link' do
     describe 'for a like' do

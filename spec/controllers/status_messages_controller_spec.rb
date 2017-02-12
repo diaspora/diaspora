@@ -2,14 +2,12 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe StatusMessagesController, :type => :controller do
   before do
     @aspect1 = alice.aspects.first
 
     request.env["HTTP_REFERER"] = ""
-    sign_in :user, alice
+    sign_in alice, scope: :user
     allow(@controller).to receive(:current_user).and_return(alice)
     alice.reload
   end
@@ -49,12 +47,12 @@ describe StatusMessagesController, :type => :controller do
   end
 
   describe '#create' do
+    let(:text) { "facebook, is that you?" }
     let(:status_message_hash) {
-      { :status_message => {
-        :public  => "true",
-        :text => "facebook, is that you?",
-      },
-      :aspect_ids => [@aspect1.id.to_s] }
+      {
+        status_message: {text: text},
+        aspect_ids:     [@aspect1.id.to_s]
+      }
     }
 
     it 'creates with valid html' do
@@ -96,14 +94,52 @@ describe StatusMessagesController, :type => :controller do
       post :create, status_message_hash
     end
 
-    it 'takes public in aspect ids' do
-      post :create, status_message_hash.merge(:aspect_ids => ['public'])
-      expect(response.status).to eq(302)
-    end
+    context "with aspect_ids" do
+      before do
+        @aspect2 = alice.aspects.create(name: "another aspect")
+      end
 
-    it 'takes all_aspects in aspect ids' do
-      post :create, status_message_hash.merge(:aspect_ids => ['all_aspects'])
-      expect(response.status).to eq(302)
+      it "takes one aspect as array in aspect_ids" do
+        post :create, status_message_hash
+        expect(response.status).to eq(302)
+        status_message = StatusMessage.find_by_text(text)
+        expect(status_message.aspect_visibilities.map(&:aspect)).to eq([@aspect1])
+      end
+
+      it "takes one aspect as string in aspect_ids" do
+        post :create, status_message_hash.merge(aspect_ids: @aspect1.id.to_s)
+        expect(response.status).to eq(302)
+        status_message = StatusMessage.find_by_text(text)
+        expect(status_message.aspect_visibilities.map(&:aspect)).to eq([@aspect1])
+      end
+
+      it "takes public as array in aspect_ids" do
+        post :create, status_message_hash.merge(aspect_ids: ["public"])
+        expect(response.status).to eq(302)
+        status_message = StatusMessage.find_by_text(text)
+        expect(status_message.public).to be_truthy
+      end
+
+      it "takes public as string in aspect_ids" do
+        post :create, status_message_hash.merge(aspect_ids: "public")
+        expect(response.status).to eq(302)
+        status_message = StatusMessage.find_by_text(text)
+        expect(status_message.public).to be_truthy
+      end
+
+      it "takes all_aspects as array in aspect_ids" do
+        post :create, status_message_hash.merge(aspect_ids: ["all_aspects"])
+        expect(response.status).to eq(302)
+        status_message = StatusMessage.find_by_text(text)
+        expect(status_message.aspect_visibilities.map(&:aspect)).to match_array([@aspect1, @aspect2])
+      end
+
+      it "takes all_aspects as string in aspect_ids" do
+        post :create, status_message_hash.merge(aspect_ids: "all_aspects")
+        expect(response.status).to eq(302)
+        status_message = StatusMessage.find_by_text(text)
+        expect(status_message.aspect_visibilities.map(&:aspect)).to match_array([@aspect1, @aspect2])
+      end
     end
 
     it "dispatches the post to the specified services" do
@@ -127,7 +163,7 @@ describe StatusMessagesController, :type => :controller do
     it "doesn't overwrite author_id" do
       status_message_hash[:status_message][:author_id] = bob.person.id
       post :create, status_message_hash
-      new_message = StatusMessage.find_by_text(status_message_hash[:status_message][:text])
+      new_message = StatusMessage.find_by_text(text)
       expect(new_message.author_id).to eq(alice.person.id)
     end
 
@@ -138,9 +174,9 @@ describe StatusMessagesController, :type => :controller do
       expect(old_status_message.reload.text).to eq('hello')
     end
 
-    it 'calls dispatch post once subscribers is set' do
-      expect(alice).to receive(:dispatch_post){|post, opts|
-        expect(post.subscribers(alice)).to eq([bob.person])
+    it "calls dispatch post once subscribers is set" do
+      expect(alice).to receive(:dispatch_post) {|post, _opts|
+        expect(post.subscribers).to eq([bob.person])
       }
       post :create, status_message_hash
     end
@@ -152,11 +188,11 @@ describe StatusMessagesController, :type => :controller do
       expect(StatusMessage.first.provider_display_name).to eq('mobile')
     end
 
-# disabled to fix federation
-#    it 'sends the errors in the body on js' do
-#      post :create, status_message_hash.merge!(:format => 'js', :status_message => {:text => ''})
-#      response.body.should include('Status message requires a message or at least one photo')
-#    end
+    it "has no participation" do
+      post :create, status_message_hash
+      new_message = StatusMessage.find_by_text(text)
+      expect(new_message.participations.count).to eq(0)
+    end
 
     context 'with photos' do
       before do
@@ -178,7 +214,8 @@ describe StatusMessagesController, :type => :controller do
 
       it "attaches all referenced photos" do
         post :create, @hash
-        expect(assigns[:status_message].photos.map(&:id)).to match_array([@photo1, @photo2].map(&:id))
+        status_message = StatusMessage.find_by_text(text)
+        expect(status_message.photos.map(&:id)).to match_array([@photo1, @photo2].map(&:id))
       end
 
       it "sets the pending bit of referenced photos" do

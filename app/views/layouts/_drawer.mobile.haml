@@ -1,0 +1,39 @@
+#drawer
+  %header
+    #global-search
+      = form_tag("/search", :method => "get", :class => "search_form", "accept-charset" => "UTF-8") do
+        %div
+          = hidden_field_tag "utf8", "✓"
+          = search_field_tag "q", nil, id: "q", placeholder: t("search"), results: "5",
+                              autocomplete: "off", class: "ac_input form-control"
+  %nav.navbar-inverse
+    %ul
+      %li= link_to t("streams.multi.title"), stream_path
+      %li= link_to t("streams.activity.title"), activity_stream_path
+      %li= link_to t("streams.mentions.title"), mentioned_stream_path
+      %li#all_aspects
+        = link_to t("streams.aspects.title"), "#"
+      %li.no-border.hide
+        %ul
+          %li= link_to t("streams.aspects.all"), aspects_stream_path
+          - current_user.aspects.each do |aspect|
+            %li= link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
+      %li#followed_tags
+        = link_to t("streams.followed_tag.title"), "#"
+      %li.no-border.hide
+        %ul
+          %li= link_to t("streams.followed_tag.all"), followed_tags_stream_path
+          - current_user.followed_tags.each do |tag|
+            %li= tag_link(tag)
+          - if current_user.followed_tags.length > 0
+            %li.manage-followed-tags
+              = link_to t("tag_followings.manage.title"), manage_tag_followings_path
+      %li= link_to t("streams.public.title"), public_stream_path
+      %li
+        = link_to user_profile_path(current_user.username) do
+          = t("layouts.header.profile")
+          = person_image_tag(current_user, size: :thumb_small)
+      %li= link_to t("_contacts"), contacts_path
+      %li= link_to t("layouts.header.settings"), edit_user_path
+      %li= link_to t("layouts.application.toggle"), toggle_mobile_path
+      %li= link_to t("layouts.header.logout"), destroy_user_session_path, method: :delete

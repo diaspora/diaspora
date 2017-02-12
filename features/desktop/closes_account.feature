@@ -6,11 +6,12 @@ Feature: Close account
 
   Scenario: user closes account
     Given I am signed in
-    When I go to the users edit page
+    When I go to the edit user page
     And I click on selector "#close_account"
-    And I put in my password in "close_account_password"
-    And I press "close_account_confirm"
-    And I confirm the alert
+    Then I should see a modal
+    And I should see "Hey, please don’t go!" within "#closeAccountModal"
+    When I put in my password in "close_account_password"
+    And I confirm the alert after I press "Close account" in the modal
     Then I should be on the new user session page
 
     When I try to sign in manually

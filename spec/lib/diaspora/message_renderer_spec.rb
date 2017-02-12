@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Diaspora::MessageRenderer do
   MESSAGE_NORMALIZTIONS = {
     "\u202a#\u200eUSA\u202c" => "#USA",
@@ -169,7 +167,7 @@ describe Diaspora::MessageRenderer do
       it 'should process text with both a hashtag and a link' do
         expect(
           message("Test #tag?\nhttps://joindiaspora.com\n").markdownified
-        ).to eq %{<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" rel="nofollow" target="_blank">https://joindiaspora.com</a></p>\n}
+        ).to eq %{<p>Test <a class="tag" href="/tags/tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" rel="nofollow noopener noreferrer" target="_blank">https://joindiaspora.com</a></p>\n}
       end
 
       it 'should process text with a header' do

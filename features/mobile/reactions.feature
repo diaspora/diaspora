@@ -14,26 +14,32 @@ Feature: reactions mobile post
     And I sign in as "bob@bob.bob" on the mobile website
 
   Scenario: like on a mobile post
-    When I should see "No reactions" within ".show_comments"
-    And I click on selector "span.show_comments"
-    And I click on selector "a.image_link.like_action.inactive"
-    Then I should see a "a.image_link.like_action.active"
+    When I click on selector "a.like-action.inactive"
+    Then I should see a "a.like-action.active"
+    And I should see "1" within ".like-count"
     When I go to the stream page
-    And I should see "1 reaction" within ".show_comments"
-    And I click on selector "a.show_comments"
-    Then I should see "1" within ".like_count"
+    Then I should see a "a.like-action.active"
+    And I should see "1" within ".like-count"
+
+  Scenario: liking from the profile view
+    When I am on "alice@alice.alice"'s page
+    And I click on selector "a.like-action.inactive"
+    Then I should see a "a.like-action.active"
+    And I should see "1" within ".like-count"
+    When I go to the stream page
+    Then I should see a "a.like-action.active"
+    And I should see "1" within ".like-count"
 
   Scenario: comment and delete a mobile post
-    When I click on selector "a.image_link.comment_action.inactive"
+    When I click on selector "a.comment-action.inactive"
     And I fill in the following:
         | text            | is that a poodle?    |
     And I press "Comment"
-    Then I should see "is that a poodle?"
+    Then I should see "is that a poodle?" within ".comment-container"
     When I go to the stream page
-    And I should see "1 reaction" within ".show_comments"
-    And I click on selector "a.show_comments"
-    And I should see "1" within ".comment_count"
-    When I click on selector "a.image_link.comment_action.inactive"
-    And I click on selector "a.remove"
-    And I confirm the alert
-    Then I should not see "1 reaction" within ".show_comments"
+    And I should see "1 comment" within ".show-comments"
+    And I should see "1" within ".comment-count"
+    When I click on selector "a.show-comments"
+    And I click on selector "a.comment-action"
+    And I confirm the alert after I click on selector "a.remove"
+    Then I should see "0 comments" within ".show-comments"

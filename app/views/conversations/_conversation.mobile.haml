@@ -1,9 +1,9 @@
 - conversation = visibility.conversation
 %a.conversation{ :href => conversation_path(conversation) }
-  .stream_element.conversation{data: {guid: conversation.id}, class: ("unread" if visibility.unread > 0)}
+  .stream-element.conversation{data: {guid: conversation.id}, class: ("unread" if visibility.unread > 0)}
     .media
       .img
-        = person_image_tag(conversation.author)
+        = person_image_tag(conversation.author, size: :thumb_small)
 
       .bg
         = render partial: "conversation_subject",

@@ -31,7 +31,6 @@ nn:
     confirm_dialog: "Er du sikker?"
     delete: "Slett"
     edit: "Endra"
-    failed_to_like: "Like-funksjonen feila."
     failed_to_post_message: "Klarte ikkje å senda meldinga."
     getting_started:
       alright_ill_wait: "Greitt, eg ventar."
@@ -53,8 +52,6 @@ nn:
       view_all: "Syn alle"
     ignore: "Oversjå"
     ignore_user: "Oversjå denne brukaren?"
-    infinite_scroll:
-      no_more: "Ingen fleire meldingar."
     my_activity: "Min aktivitet"
     my_aspects: "Aspekta mine"
     my_stream: "Straum"
@@ -64,14 +61,11 @@ nn:
       completed: "<%= file %> ferdig"
       looking_good: "Du verda, du ser flott ut!"
     publisher:
-      at_least_one_aspect: "Du må offentleggjera til minst eitt aspekt"
       limited: "Avgrensa - berre personar du deler med vil kunna sjå meldinga"
       public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
     reshares:
-      duplicate: "Så bra, altså? Men du har allereie delt meldinga :-)"
       post: "Vil du dele <%= name %> sin post?"
       successful: "Hurra, posten vart delt!"
-    search_for: "Leit etter <%= name %>"
     show_more: "syn meir"
     stream:
       comment: "Kommenter"
@@ -111,29 +105,24 @@ nn:
       wasnt_that_interesting: "Greitt, #<%= tagName %> var vel kanskje ikkje så interessant …"
     timeago:
       day: "i går"
-      days: "%d dagar"
+      days:
+        other: "%d dagar"
       hour: "om lag ein time"
-      hours: "om lag %d timar"
+      hours:
+        other: "om lag %d timar"
       minute: "om lag eit minutt"
-      minutes: "%d minutt"
+      minutes:
+        other: "%d minutt"
       month: "om lag ein månad"
-      months: "%d månader"
+      months:
+        other: "%d månader"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "mindre enn eit minutt"
       suffixAgo: "sidan"
       suffixFromNow: "frå no"
       year: "om lag eit år"
-      years: "%d år"
-    videos:
-      unknown: "Ukjend videotype"
-      watch: "Sjå denne videoen hos <%= provider %>"
+      years:
+        other: "%d år"
     viewer:
-      comment: "Kommenter"
-      follow_post: "Følg innlegg"
-      home: "HEIM"
-      like: "Lik"
-      reshare: "Del"
       reshared: "Delt"
-      stop_following_post: "Ikkje følg innlegg meir"
-      unlike: "Lik ikkje lenger"

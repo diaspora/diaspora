@@ -12,6 +12,12 @@ class ContactPresenter < BasePresenter
   end
 
   def full_hash_with_person
-    full_hash.merge(person: PersonPresenter.new(person, current_user).full_hash_with_profile)
+    full_hash.merge(person: person_without_contact)
+  end
+
+  private
+
+  def person_without_contact
+    PersonPresenter.new(person, current_user).as_json.except!(:contact)
   end
 end

@@ -12,17 +12,22 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = CommentService.new(post_id: params[:post_id], text: params[:text], user: current_user).create_comment
-    if @comment
-      respond_create_success
+    begin
+      comment = comment_service.create(params[:post_id], params[:text])
+    rescue ActiveRecord::RecordNotFound
+      render text: I18n.t("comments.create.error"), status: 404
+      return
+    end
+
+    if comment
+      respond_create_success(comment)
     else
-      render nothing: true, status: 404
+      render text: I18n.t("comments.create.error"), status: 422
     end
   end
 
   def destroy
-    service = CommentService.new(comment_id: params[:id], user: current_user)
-    if service.destroy_comment
+    if comment_service.destroy(params[:id])
       respond_destroy_success
     else
       respond_destroy_error
@@ -36,22 +41,24 @@ class CommentsController < ApplicationController
   end
 
   def index
-    service = CommentService.new(post_id: params[:post_id], user: current_user)
-    @post = service.post
-    @comments = service.comments
+    comments = comment_service.find_for_post(params[:post_id])
     respond_with do |format|
-      format.json  { render json: CommentPresenter.as_collection(@comments), status: 200 }
-      format.mobile { render layout: false }
+      format.json { render json: CommentPresenter.as_collection(comments), status: 200 }
+      format.mobile { render layout: false, locals: {comments: comments} }
     end
   end
 
   private
 
-  def respond_create_success
+  def comment_service
+    @comment_service ||= CommentService.new(current_user)
+  end
+
+  def respond_create_success(comment)
     respond_to do |format|
-      format.json { render json: CommentPresenter.new(@comment), status: 201 }
+      format.json { render json: CommentPresenter.new(comment), status: 201 }
       format.html { render nothing: true, status: 201 }
-      format.mobile { render partial: "comment", locals: {post: @comment.post, comment: @comment} }
+      format.mobile { render partial: "comment", locals: {comment: comment} }
     end
   end
 

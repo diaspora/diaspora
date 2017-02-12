@@ -6,6 +6,55 @@
 
 de:
   javascripts:
+    admin:
+      pods:
+        actions: "Aktionen"
+        added: "Hinzugefügt"
+        check: "Verbindungstest durchführen"
+        errors:
+          one: "Der Verbindungstest meldete für einen Pod einen Fehler."
+          other: "Der Verbindungstest meldete für <%= count %> Pods einen Fehler."
+        follow_link: "Link im Browser öffnen"
+        last_check: "letzte Überprüfung:"
+        more_info: "zeige weitere Informationen"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "Zur Zeit keine weiteren Informationen verfügbar"
+        not_available: "nicht verfügbar"
+        offline_since: "offline seit:"
+        pod: "Pod"
+        recheck:
+          failure: "Die Überprüfung wurde nicht durchgeführt."
+          success: "Der Pod wurde soeben erneut überprüft."
+        response_time: "Antwortzeit:"
+        server_software: "Server-Software:"
+        ssl: "SSL"
+        ssl_disabled: "SSL deaktiviert"
+        ssl_enabled: "SSL aktiviert"
+        states:
+          dns_failed: "Namensauflösung (DNS) fehlgeschlagen"
+          http_failed: "HTTP-Verbindung fehlgeschlagen"
+          net_failed: "Verbindungsversuch fehlgeschlagen"
+          no_errors: "OK"
+          ssl_failed: "Sichere Verbindung (SSL) fehlgeschlagen"
+          unchecked: "Nicht überprüft"
+          unknown_error: "Während der Überprüfung ist ein nicht angegebener Fehler aufgetreten"
+          version_failed: "Konnte Software-Version nicht ermitteln"
+        status: "Status"
+        unchecked:
+          one: "Es gibt noch immer einen Pod, der gar nicht überprüft wurde."
+          other: "Es gibt noch immer <%= count %> Pods, die gar nicht überprüft wurden."
+        unknown: "unbekannt"
+        version_failed:
+          one: "Es gibt einen Pod, der keine Version hat (alter Pod, kein NodeInfo)."
+          other: "Es gibt <%= count %> Pods, die keine Version haben (alte Pods, kein NodeInfo)."
+    admins:
+      dashboard:
+        compare_versions: "Die neueste diaspora*-Version ist <%= latestVersion %>, dein Pod verwendet <%= podVersion %>."
+        error: "Konnte neueste diaspora*-Version nicht ermitteln."
+        outdated: "Dein Pod ist veraltet."
+        up_to_date: "Dein Pod ist auf dem neuesten Stand!"
     and: "und"
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
@@ -18,12 +67,9 @@ de:
       started_sharing_with: "Du hast angefangen, mit <%= name %> zu teilen!"
       stopped_sharing_with: "Du hast aufgehört, mit <%= name %> zu teilen!"
       toggle:
-        few: "In <%= count %> Aspekten"
-        many: "In <%= count %> Aspekten"
         one: "In einem Aspekt"
         other: "In <%= count %> Aspekten"
-        two: "In <%= count %> Aspekten"
-        zero: "Aspekt auswählen"
+        zero: "In keinem Aspekt"
       updating: "aktualisiere..."
     aspect_navigation:
       add_an_aspect: "+ Aspekt hinzufügen"
@@ -51,6 +97,8 @@ de:
     confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst - Daten, welche du eingegeben hast würden nicht gespeichert werden."
     contacts:
       add_contact: "Kontakt hinzufügen"
+      aspect_chat_is_enabled: "Kontakte in diesem Aspekt können mit dir chatten."
+      aspect_chat_is_not_enabled: "Kontakte in diesem Aspekt können nicht mit dir chatten."
       aspect_list_is_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
       aspect_list_is_visible: "Kontakte in diesem Aspekt können einander sehen"
       error_add: "Konnte <%= name %> nicht zum Aspekt hinzufügen :("
@@ -58,16 +106,17 @@ de:
       remove_contact: "Kontakt entfernen"
       search_no_results: "Keine Kontakte gefunden"
     conversation:
+      create:
+        no_recipient: "Hey, du musst erst einen Empfänger hinzufügen!"
       new:
         no_contacts: "Du musst einige Kontakte hinzufügen, bevor du eine Konversation anfangen kannst."
-      participants: "Teilnehmer"
     create: "Erstellen"
     delete: "Löschen"
     edit: "Bearbeiten"
-    failed_to_like: "Gefällt mir fehlgeschlagen. Vielleicht ignoriert dich der Autor?"
+    errors:
+      connection: "Konnte keine Verbindung mit dem Server aufbauen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     failed_to_remove: "Fehler beim Entfernen des Beitrags!"
-    failed_to_reshare: "Fehler beim Weitersagen!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, <%= name %>!"
@@ -88,15 +137,14 @@ de:
       recent_notifications: "Neuste Benachrichtigungen"
       search: "Suchen"
       settings: "Einstellungen"
+      toggle_mobile: "Mobile Ansicht umschalten"
+      toggle_navigation: "Navigation umschalten"
       view_all: "Alle anzeigen"
     hide_post: "Diesen Beitrag ausblenden?"
     hide_post_failed: "Ausblenden des Beitrags nicht möglich"
     ignore: "Ignorieren"
     ignore_failed: "Konnte Benutzer nicht ignorieren"
     ignore_user: "Benutzer ignorieren?"
-    infinite_scroll:
-      no_more: "Keine weiteren Beiträge."
-      no_more_contacts: "Keine weiteren Kontakte."
     my_activity: "Meine Aktivitäten"
     my_aspects: "Meine Aspekte"
     my_stream: "Stream"
@@ -104,6 +152,9 @@ de:
     notifications:
       mark_read: "Als gelesen markieren"
       mark_unread: "Als ungelesen markieren"
+      new_notifications:
+        one: "Du hast <%= count %> ungelesene Benachrichtigung"
+        other: "Du hast <%= count %> ungelesene Benachrichtigungen"
     people:
       edit_my_profile: "Mein Profil bearbeiten"
       helper:
@@ -121,6 +172,10 @@ de:
       looking_good: "OMG, du siehst toll aus!"
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     poll:
+      answer_count:
+        one: "1 Stimme"
+        other: "<%=count%> Stimmen"
+        zero: "0 Stimmen"
       close_result: "Ergebnis ausblenden"
       count:
         one: "Bisher eine Stimme"
@@ -137,15 +192,41 @@ de:
       contacts: "Kontakte"
       edit: "Bearbeiten"
       gender: "Geschlecht"
-      ignoring: "Du ignorierst sämtliche Beiträge von <%= name %>."
       location: "Ort"
       photos: "Fotos"
       posts: "Beiträge"
       you_have_no_tags: "Du hast keine Tags!"
     publisher:
       add_option: "Antwortmöglichkeit hinzufügen"
-      at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
+      markdown_editor:
+        preview: "Vorschau"
+        texts:
+          code: "Code hier"
+          heading: "Überschrift"
+          insert_image_description_text: "Bildbeschreibung hier eingeben"
+          insert_image_help_text: "Bildlink hier einfügen"
+          insert_image_title: "Bildtitel hier eingeben"
+          insert_link_description_text: "Linkbeschreibung hier eingeben"
+          insert_link_help_text: "Link hier einfügen"
+          italic: "kursive Schrift"
+          list: "Listentext hier"
+          quote: "Zitattext hier"
+          strong: "wichtiger Text"
+        tooltips:
+          bold: "Fett"
+          cancel: "Nachricht verwerfen"
+          code: "Code einfügen"
+          heading: "Überschrift"
+          insert_image: "Bild einfügen"
+          insert_link: "Link einfügen"
+          insert_ordered_list: "Geordnete Liste einfügen"
+          insert_unordered_list: "Ungeordnete Liste einfügen"
+          italic: "Kursiv"
+          preview: "Vorschau der Nachricht ansehen"
+          quote: "Zitat einfügen"
+          write: "Nachricht bearbeiten"
+        write: "Verfassen"
       near_from: "Gesendet aus <%= location %>"
       option: "Antwort"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
@@ -159,13 +240,15 @@ de:
         created: "Die Meldung wurde erfolgreich erstellt"
         exists: "Die Meldung existiert bereits"
     reshares:
-      duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
       post: "<%= name %>s Beitrag weitersagen?"
       successful: "Der Beitrag wurde erfolgreich weitergesagt!"
-    search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentar"
+      comments:
+        one: "<%= count %> Kommentar"
+        other: "<%= count %> Kommentare"
+        zero: "<%= count %> Kommentare"
       disable_post_notifications: "Benachrichtigungen für diesen Beitrag deaktivieren"
       enable_post_notifications: "Benachrichtigungen für diesen Beitrag aktivieren"
       follow: "Folgen"
@@ -188,7 +271,9 @@ de:
         one: "Zeige einen weiteren Kommentar"
         other: "Zeige <%= count %> weitere Kommentare"
         zero: "Keine weiteren Kommentare"
+      no_posts_yet: "Es gibt noch keine Beiträge, die hier angezeigt werden könnten."
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
+      permalink: "Permanentlink"
       public: "Öffentlich"
       reshare: "Weitersagen"
       reshares:
@@ -214,13 +299,22 @@ de:
       wasnt_that_interesting: "OK, #<%= tagName %> war wohl doch nicht so interessant..."
     timeago:
       day: "einem Tag"
-      days: "%d Tagen"
+      days:
+        one: "einem Tag"
+        other: "%d Tagen"
       hour: "etwa einer Stunde"
-      hours: "etwa %d Stunden"
+      hours:
+        one: "etwa einer Stunde"
+        other: "etwa %d Stunden"
+      inPast: "jeden Moment"
       minute: "etwa einer Minute"
-      minutes: "%d Minuten"
+      minutes:
+        one: "einer Minute"
+        other: "%d Minuten"
       month: "etwa einem Monat"
-      months: "%d Monaten"
+      months:
+        one: "einem Monat"
+        other: "%d Monaten"
       prefixAgo: "vor"
       prefixFromNow: "in"
       seconds: "weniger als eine Minute"
@@ -228,17 +322,9 @@ de:
       suffixFromNow: "ab jetzt"
       wordSeparator: " "
       year: "etwa einem Jahr"
-      years: "%d Jahren"
+      years:
+        one: "einem Jahr"
+        other: "%d Jahren"
     unblock_failed: "Den Benutzer zu entblocken ist fehlgeschlagen."
-    videos:
-      unknown: "Unbekanntes Videoformat"
-      watch: "Dieses Video auf <%= provider %> ansehen"
     viewer:
-      comment: "Kommentieren"
-      follow_post: "Diesen Beitrag verfolgen"
-      home: "Start"
-      like: "Gefällt mir"
-      reshare: "Weitersagen"
       reshared: "Weitergesagt"
-      stop_following_post: "Diesen Beitrag nicht mehr verfolgen"
-      unlike: "Gefällt mir nicht mehr"

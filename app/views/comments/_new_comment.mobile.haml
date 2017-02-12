@@ -2,9 +2,14 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= form_tag( post_comments_path(post_id), :id => "new_comment_on_#{post_id}", :class => 'new_comment', :autocomplete => "off") do
-  %fieldset
-    .control-group
-      = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
-      = text_area_tag :text, nil, :class => "span12 comment_box", :id => "comment_text_on_#{post_id}", :placeholder => t('.comment'), :autofocus => true
-      = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", 'data-disable-with' => t('.commenting'), :class => "btn primary"
+.add_comment_bottom_link_container
+  - if user_signed_in?
+    = form_tag(post_comments_path(post_id), id: "new-comment-on-#{post_id}",
+        class: "new_comment", autocomplete: "off") do
+      %fieldset
+        = hidden_field_tag :post_id, post_id, id: "post-id-on-#{post_id}"
+        .form-group.clearfix
+          = text_area_tag :text, nil, class: "col-md-12 comment_box form-control",
+              id: "comment-text-on-#{post_id}", placeholder: t(".comment")
+        = submit_tag t(".comment"), :id => "comment-submit-#{post_id}", "data-disable-with" => t(".commenting"),
+            "data-reset-with" => t(".comment"), :class => "btn btn-primary btn-block comment-button"

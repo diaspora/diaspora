@@ -33,11 +33,8 @@ it:
       no_comments: "Non ci sono commenti al momento."
       show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
-    conversation:
-      participants: "Partecipanti"
     delete: "Elimina"
     edit: "Modifica"
-    failed_to_like: "Errore, il \"mi piace\" non è stato inviato!"
     failed_to_post_message: "Invio messaggio fallito!"
     getting_started:
       alright_ill_wait: "Perfetto, aspetterò."
@@ -61,9 +58,6 @@ it:
       view_all: "Vedi tutti"
     ignore: "Ignora"
     ignore_user: "Ignora utente?"
-    infinite_scroll:
-      no_more: "Non ci sono altri post."
-      no_more_contacts: "Non ci sono altri contatti."
     my_activity: "Attività"
     my_aspects: "I miei aspetti"
     my_stream: "Stream"
@@ -76,15 +70,12 @@ it:
       looking_good: "Accidenti, sei in splendida forma!"
       size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
     publisher:
-      at_least_one_aspect: "Devi scegliere almeno un aspetto"
       limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
       near_from: "Vicino a: <%= location %>"
       public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares:
-      duplicate: "Bello eh? Ma hai già condiviso quel post!"
       post: "Vuoi condividere il post di <%= name %>?"
       successful: "Il post è stato condiviso!"
-    search_for: "Cerca su <%= name %>"
     show_more: "continua..."
     stream:
       comment: "Commenta"
@@ -130,29 +121,24 @@ it:
       wasnt_that_interesting: "OK, immagino che #<%= tagName %> non fosse così interessante..."
     timeago:
       day: "un giorno"
-      days: "%d giorni"
+      days:
+        other: "%d giorni"
       hour: "circa un'ora"
-      hours: "circa %d ore"
+      hours:
+        other: "circa %d ore"
       minute: "circa un minuto"
-      minutes: "%d minuti"
+      minutes:
+        other: "%d minuti"
       month: "circa un mese"
-      months: "%d mesi"
+      months:
+        other: "%d mesi"
       prefixAgo: ""
       prefixFromNow: "fra"
       seconds: "meno di un minuto"
       suffixAgo: "fa"
       suffixFromNow: "da ora"
       year: "circa un anno"
-      years: "%d anni"
-    videos:
-      unknown: "Tipo di video sconosciuto"
-      watch: "Guarda questo video su <%= provider %>"
+      years:
+        other: "%d anni"
     viewer:
-      comment: "Commenta"
-      follow_post: "Segui il post"
-      home: "HOME"
-      like: "Mi piace"
-      reshare: "Condividi"
       reshared: "Condiviso"
-      stop_following_post: "Smetti di seguire il post"
-      unlike: "Non mi piace più"

@@ -1,21 +1,12 @@
 #reports {
-  padding-top: 2em;
+  .reason-label {
+    font-weight: bold;
+  }
+
   .content {
-    float: left;
-    span {
-      display: block;
-    }
-    span.text {
-      padding-bottom: 1em;
-    }
+    padding-bottom: 20px;
   }
-  .options {
-    float: right;
-  }
-  .clear {
-    clear: both;
-    border-bottom: 1px solid #808080;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
+  form input {
+    margin-right: 5px;
   }
 }

@@ -1,28 +1,8 @@
-$highlight-white: #FAFAFA;
+.gray {
+  color: $text-grey;
 
-$background-white: #FFFFFF;
-$background-grey: #EEEEEE;
-$background-blue: #E7F2F7;
-
-$grey: #2B2B2B;
-$light-grey: #DDDDDD;
-
-$border-grey: #DDDDDD;
-$border-dark-grey: #999999;
-
-$link-blue : rgb(42,156,235);
-$link-grey: #777777;
-$link-disabled-grey: #999999;
-
-$text-grey: #999999;
-$text-dark-grey: #666666;
-$text: #333333;
-
-$white: white;
-$black: black;
-$green: #8EDE3D;
-$light-green: lighten($green,20%);
-$red: #A80000;
-$blue: #3F8FBA;
-$dark-blue: darken(#0984C8,10%);
-$creation-blue: #0097FF;
+  [class^="entypo-"],
+  [class*="entypo-"] {
+    color: $text-grey;
+  }
+}

@@ -25,12 +25,6 @@ class AspectMembershipsController < ApplicationController
     success = membership.destroy
 
     # set the flash message
-    if success
-      flash.now[:notice] = I18n.t "aspect_memberships.destroy.success"
-    else
-      flash.now[:error] = I18n.t "aspect_memberships.destroy.failure"
-    end
-
     respond_to do |format|
       format.json do
         if success
@@ -40,7 +34,14 @@ class AspectMembershipsController < ApplicationController
         end
       end
 
-      format.all { redirect_to :back }
+      format.all do
+        if success
+          flash.now[:notice] = I18n.t "aspect_memberships.destroy.success"
+        else
+          flash.now[:error] = I18n.t "aspect_memberships.destroy.failure"
+        end
+        redirect_to :back
+      end
     end
   end
 
@@ -51,19 +52,29 @@ class AspectMembershipsController < ApplicationController
     @contact = current_user.share_with(@person, @aspect)
 
     if @contact.present?
-      flash.now[:notice] = I18n.t("aspects.add_to_aspect.success")
-      respond_with do |format|
+      respond_to do |format|
         format.json do
           render json: AspectMembershipPresenter.new(
             AspectMembership.where(contact_id: @contact.id, aspect_id: @aspect.id).first)
           .base_hash
         end
 
-        format.all { redirect_to :back }
+        format.all do
+          flash.now[:notice] = I18n.t("aspects.add_to_aspect.success")
+          redirect_to :back
+        end
       end
     else
-      flash.now[:error] = I18n.t("contacts.create.failure")
-      render nothing: true, status: 409
+      respond_to do |format|
+        format.json do
+          render text: I18n.t("aspects.add_to_aspect.failure"), status: 409
+        end
+
+        format.all do
+          flash.now[:error] = I18n.t("aspects.add_to_aspect.failure")
+          render nothing: true, status: 409
+        end
+      end
     end
   end
 

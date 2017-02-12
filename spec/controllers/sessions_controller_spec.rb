@@ -2,11 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe SessionsController, type: :controller do
-  include Devise::TestHelpers
-
   let(:mock_access_token) { Object.new }
 
   before do
@@ -34,7 +30,7 @@ describe SessionsController, type: :controller do
 
   describe "#destroy" do
     before do
-      sign_in :user, @user
+      sign_in @user, scope: :user
     end
     it "redirects to / for a non-mobile user" do
       delete :destroy
@@ -51,7 +47,7 @@ describe SessionsController, type: :controller do
   describe "#reset_authentication_token" do
     context "for a logged in user" do
       before do
-        sign_in :user, @user
+        sign_in @user, scope: :user
       end
 
       it "succeeds" do

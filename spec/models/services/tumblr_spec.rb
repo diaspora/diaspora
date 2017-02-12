@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Services::Tumblr, type: :model do
   let(:user) { alice }
   let(:post) { user.post(:status_message, text: "hello", to: user.aspects.first.id) }
@@ -25,7 +23,7 @@ describe Services::Tumblr, type: :model do
 
       it "posts a status message to the primary blog and stores the id" do
         stub = stub_request(:post, "http://api.tumblr.com/v2/blog/bar.tumblr.com/post")
-         .with(post_request).to_return(post_response)
+               .with(post_request).to_return(post_response)
 
         expect(post).to receive(:tumblr_ids=).with({"bar.tumblr.com" => post_id}.to_json)
 
@@ -40,7 +38,7 @@ describe Services::Tumblr, type: :model do
 
       it "posts a status message to the returned blog" do
         stub = stub_request(:post, "http://api.tumblr.com/v2/blog/foo.tumblr.com/post")
-         .with(post_request).to_return(post_response)
+               .with(post_request).to_return(post_response)
 
         service.post(post)
 
@@ -49,13 +47,24 @@ describe Services::Tumblr, type: :model do
     end
   end
 
-  describe "#delete_post" do
-    it "removes posts from tumblr" do
+  describe "#post_opts" do
+    it "returns the tumblr_ids of the post" do
       post.tumblr_ids = {"foodbar.tumblr.com" => post_id}.to_json
-      stub = stub_request(:post, "http://api.tumblr.com/v2/blog/foodbar.tumblr.com/post/delete")
-        .with(body: {"id" => post_id}).to_return(status: 200)
+      expect(service.post_opts(post)).to eq(tumblr_ids: post.tumblr_ids)
+    end
 
-      service.delete_post(post)
+    it "returns nil when the post has no tumblr_ids" do
+      expect(service.post_opts(post)).to be_nil
+    end
+  end
+
+  describe "#delete_from_service" do
+    it "removes posts from tumblr" do
+      tumblr_ids = {"foodbar.tumblr.com" => post_id}.to_json
+      stub = stub_request(:post, "http://api.tumblr.com/v2/blog/foodbar.tumblr.com/post/delete")
+             .with(body: {"id" => post_id}).to_return(status: 200)
+
+      service.delete_from_service(tumblr_ids: tumblr_ids)
 
       expect(stub).to have_been_requested
     end

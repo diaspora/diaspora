@@ -31,12 +31,17 @@ fi:
       no_aspects: "Näkymiä ei ole valittu"
       select_all: "Valitse kaikki"
     aspects:
+      create:
+        add_a_new_aspect: "Lisää näkymä"
+        failure: "Näkymän luominen epäonnistui."
+        success: "Uusi näkymäsi <%= name %> on luotu"
       make_aspect_list_visible: "Salli tämän näkymän kontaktien nähdä toisensa?"
       name: "Nimi"
     bookmarklet:
       post_something: "Lähetä julkaisu Diasporaan"
       post_submit: "Lähettää julkaisua..."
       post_success: "Julkaistu! Suljetaan ponnahdusikkuna"
+    cancel: "Peru"
     comma: ","
     comments:
       hide: "Piilota kommentit"
@@ -53,14 +58,13 @@ fi:
       remove_contact: "Poista kontakti"
       search_no_results: "Kontakteja ei löytynyt"
     conversation:
-      participants: "Osallistujat"
+      new:
+        no_contacts: "Sinun pitää lisätä muutamia kontakteja ennen kuin voit aloittaa keskustelun."
     create: "Luo"
     delete: "Poista"
     edit: "Muokkaa"
-    failed_to_like: "Tykkääminen epäonnistui!"
     failed_to_post_message: "Viestin lähetys epäonnistui!"
     failed_to_remove: "Lisäyksen poistaminen epäonnistui!"
-    failed_to_reshare: "Uudelleen jakaminen epäonnistui!"
     getting_started:
       alright_ill_wait: "Okei, minä odotan."
       hey: "Hei <%= name %>!"
@@ -75,6 +79,7 @@ fi:
       home: "Koti"
       log_out: "Kirjaudu ulos"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
+      moderator: "Ylläpitäjä"
       notifications: "Ilmoitukset"
       profile: "Profiili"
       recent_notifications: "Tuoreet ilmoitukset"
@@ -86,9 +91,6 @@ fi:
     ignore: "Sivuuta"
     ignore_failed: "Tämän käyttäjän sivuuttaminen ei onnistu"
     ignore_user: "Sivuuta tämä käyttäjä?"
-    infinite_scroll:
-      no_more: "Ei enempää viestejä."
-      no_more_contacts: "Ei enempää yhteystietoja."
     my_activity: "Oma toimintani"
     my_aspects: "Omat näkymäni"
     my_stream: "Virta"
@@ -117,6 +119,7 @@ fi:
       count:
         one: "<%=count%> ääni tähän mennessä"
         other: "<%=count%> ääntä tähän mennessä"
+      go_to_original_post: "Voit osallistua tähän kyselyyn sivulla <%= original_post_link %>"
       original_post: "alkuperäinen julkaisu"
       result: "Tulos"
       show_result: "Näytä tulokset"
@@ -128,14 +131,12 @@ fi:
       contacts: "Kontaktit"
       edit: "Muokkaa"
       gender: "Sukupuoli"
-      ignoring: "Sivuutat nyt kaikki julkaisut, jotka <%= name %> lähettää."
       location: "Sijainti"
       photos: "Kuvat"
       posts: "Julkaisut"
       you_have_no_tags: "Sinulla ei ole tageja!"
     publisher:
       add_option: "Lisää vastaus"
-      at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
       limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"
       near_from: "Lähetetty sijainnista: <%= location %>"
       option: "Vastaus"
@@ -150,10 +151,8 @@ fi:
         created: "Ilmoitus luotiin onnistuneesti"
         exists: "Ilmoitus on jo olemassa"
     reshares:
-      duplicate: "Olet jo uudelleenjakanut tämän julkaisun!"
       post: "Jaa käyttäjän <%= name %> julkaisu?"
       successful: "Julkaisu jaettiin onnistuneesti!"
-    search_for: "Etsi nimellä <%= name %>"
     show_more: "Näytä lisää"
     stream:
       comment: "Kommentoi"
@@ -196,9 +195,11 @@ fi:
       show_nsfw_posts: "Näytä kaikki"
       tags:
         follow: "Seuraa #<%= tag %>"
+        follow_error: "Tagin <%= tag %> seuraaminen epäonnistui :("
         following: "Seurataan tagia #<%= tag %>"
         stop_following: "Lopeta tagin #<%= tag %> seuraaminen"
         stop_following_confirm: "Lopetetaanko tagin #<%= tag %> seuraaminen?"
+        stop_following_error: "Tagin <%= tag %> seuraamisen lopettaminen epäonnistui :("
       unfollow: "Lopeta seuraaminen"
       unlike: "Peru tykkäys"
       via: "<%= provider %> kautta"
@@ -206,13 +207,17 @@ fi:
       wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:
       day: "päivä"
-      days: "%d päivää"
+      days:
+        other: "%d päivää"
       hour: "noin tunti"
-      hours: "noin %d tuntia"
+      hours:
+        other: "noin %d tuntia"
       minute: "noin minuutti"
-      minutes: "%d minuuttia"
+      minutes:
+        other: "%d minuuttia"
       month: "noin kuukausi"
-      months: "%d kuukautta"
+      months:
+        other: "%d kuukautta"
       prefixAgo: ""
       prefixFromNow: "tästä alkaen"
       seconds: "alle minuutti"
@@ -220,17 +225,8 @@ fi:
       suffixFromNow: "tästä alkaen"
       wordSeparator: " "
       year: "noin vuosi"
-      years: "%d vuotta"
+      years:
+        other: "%d vuotta"
     unblock_failed: "Tämän käyttäjän torjumisen peruminen on epäonnistunut"
-    videos:
-      unknown: "Tuntematon videomuoto"
-      watch: "Katso video palvelussa <%= provider %>"
     viewer:
-      comment: "Kommentoi"
-      follow_post: "Seuraa julkaisua"
-      home: "KOTI"
-      like: "Tykkää"
-      reshare: "Jaa uudelleen"
       reshared: "Jaettu uudelleen"
-      stop_following_post: "Lopeta julkaisun seuraaminen"
-      unlike: "Peru tykkäys"

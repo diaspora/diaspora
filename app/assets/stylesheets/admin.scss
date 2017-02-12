@@ -1,30 +1,8 @@
-@import 'colors';
+@import 'color-variables';
+@import 'bootstrap-variables';
+@import 'animations';
 
 /** ADMIN STYlES **/
-
-body > div.container {
-  margin-top: 40px;
-  padding-top: 1em;
-}
-
-#admin_nav {
-  font-size: 1em;
-  border-bottom: 2px solid #777;
-  margin-bottom: 20px;
-
-  ul {
-    display: inline;
-  }
-
-  li {
-    font-size: 0.8em;
-    display: inline;
-    margin-right: 0.5em;
-
-    a { color: $blue; }
-  }
-}
-
 /** user search **/
 
 .users {
@@ -40,12 +18,56 @@ body > div.container {
       height: 50px;
     }
 
-    .actions li {
-      margin-top: .3em;
-    }
+    .actions{ width: 150px; }
+
+    .pull-right .label{ display: inline-block; }
+  }
+}
+
+/** Invites panel **/
+.more_invites{
+  #add-invites-section{
+    line-height: 34px;
+    margin-bottom: 15px;
   }
 }
 
 /** reported posts **/
 
-@import 'report'
+@import 'report';
+
+/** pod list **/
+
+#pod-list {
+  .pod-title {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  th.added,
+  td.added,
+  td.actions { white-space: nowrap; }
+
+  tr.deleting {
+    opacity: .5;
+  }
+
+  tr.checking .recheck i {
+    animation-duration: .4s;
+    animation-name: pulsate;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  td.actions {
+    text-align: right;
+
+    a { color: inherit; }
+  }
+
+  pre.details {
+    margin-top: 1em;
+    white-space: normal;
+  }
+}

@@ -1,72 +1,77 @@
 .container-fluid#notifications_container
-  .row-fluid
-    .span3
-      %h3
-        = t('.notifications')
-      %ul.nav.nav-tabs.nav-stacked
-        %li{ :class => ('active' unless params[:type] && @grouped_unread_notification_counts.has_key?(params[:type])) }
-          %a{ :href => '/notifications' + (params[:show] == 'unread' ? '?show=unread' : '') }
-            %span.pull-right.badge{:class => (@unread_notification_count > 0 ? 'badge-important' : 'badge-default')}
+  .row
+    .col-md-3
+      .sidebar
+        .sidebar-header.clearfix
+          %h3
+            = t(".notifications")
+        .list-group
+          %a.list-group-item{href: "/notifications" + (params[:show] == "unread" ? "?show=unread" : ""),
+              class: ("active" unless params[:type] && @grouped_unread_notification_counts.has_key?(params[:type])),
+              data: {type: "all"}}
+            %span.pull-right.badge{class: ("hidden" unless @unread_notification_count > 0)}
               = @unread_notification_count
-            = t('.all_notifications')
-        - @grouped_unread_notification_counts.each do |key, count|
-          %li{ :class => ('active' if params[:type] == key), :data => { :type => key } }
-            %a{ :href => '/notifications?type=' + key + (params[:show] == 'unread' ? '&show=unread' : '') }
-              %span.pull-right.badge{ :class => (count > 0 ? 'badge-important' :'badge-default') }
+            = t(".all_notifications")
+          - @grouped_unread_notification_counts.each do |key, count|
+            %a.list-group-item{class: ("active" if params[:type] == key),
+                data: {type: key},
+                href: "/notifications?type=" + key + (params[:show] == "unread" ? "&show=unread" : "")}
+              %span.pull-right.badge{class: ("hidden" unless count > 0)}
                 = count
               - case key
-                - when 'also_commented', 'comment_on_post'
-                  %i.entypo.comment
-                - when 'liked'
-                  %i.entypo.heart
-                - when 'mentioned'
+                - when "also_commented", "comment_on_post"
+                  %i.entypo-comment
+                - when "liked"
+                  %i.entypo-heart
+                - when "mentioned"
                   %span.mentionIcon
                     @
-                - when 'reshared'
-                  %i.entypo.retweet
-                - when 'started_sharing'
-                  %i.entypo.add-user
-              = t('.'+key)
+                - when "reshared"
+                  %i.entypo-reshare
+                - when "started_sharing"
+                  %i.entypo-add-user
+              = t("." + key)
 
-    .span9.stream.notifications
-      .row-fluid.header
-        .span12
-          .btn-toolbar.pull-right
-            .btn-group
-              %a.btn.btn-default{ :class => ('active' unless params[:show] == 'unread'), :href => '/notifications' + (params[:type] ? '?type=' + params[:type] : '') }
-                = t('.show_all')
-              %a.btn.btn-default{ :class => ('active' if params[:show] == 'unread'), :href => '/notifications?show=unread' + (params[:type] ? '&type=' + params[:type] : '') }
-                = t('.show_unread')
-            %a.btn.btn-default{:href => read_all_notifications_path(:type => params[:type] ), :class => ('disabled' unless @unread_notification_count > 0)}
-              -if params[:type]
-                = t('.mark_all_shown_as_read')
-              -else
-                = t('.mark_all_as_read')
-      - if @group_days.length > 0
-        - year = nil
-        - @group_days.each do |date, notes|
-          - if display_year?(year, date)
-            - year = the_year(date)
-            .row-fluid.year_container
-              .span4.offset4.year= year
+    .col-md-9.stream.notifications
+      .framed-content
+        .row
+          .col-md-12
+            .header.clearfix
+              .btn-toolbar.pull-right
+                .btn-group
+                  %a.btn.btn-default{class: ("active" unless params[:show] == "unread"),
+                      href: "/notifications" + (params[:type] ? "?type=" + params[:type] : "")}
+                    = t(".show_all")
+                  %a.btn.btn-default{class: ("active" if params[:show] == "unread"),
+                      href: "/notifications?show=unread" + (params[:type] ? "&type=" + params[:type] : "")}
+                    = t(".show_unread")
+                %a.btn.btn-default.btn-group{href: read_all_notifications_path(type: params[:type]),
+                    class: ("disabled" unless @unread_notification_count > 0)}
+                  - if params[:type]
+                    = t(".mark_all_shown_as_read")
+                  - else
+                    = t(".mark_all_as_read")
+        - if @group_days.length > 0
+          - year = nil
+          - @group_days.each do |date, notes|
+            - if display_year?(year, date)
+              - year = the_year(date)
+              .row.year_container
+                .col-md-4.col-md-offset-4.year= year
 
-          .day_group.row-fluid
-            .date.span2
-              .day= the_day(date)
-              .month= the_month(date)
+            .day_group.row
+              .date.col-md-2
+                .day= the_day(date)
+                .month= the_month(date)
 
-            .notifications_for_day.span10
-              - notes.each do |note|
-                = render :partial => 'notifications/notification', :locals => { :note => note }
+              .notifications_for_day.col-md-10
+                - notes.each do |note|
+                  = render partial: "notifications/notification", locals: {note: note}
 
-        = will_paginate @notifications, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+          .center-block.text-center
+            = will_paginate @notifications, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
 
-      - else
-        .no_notifications.well
-          %h4
-            = t('.no_notifications')
-
-:javascript
-  $(document).ready(function(){
-    new app.views.Notifications({ el: '#notifications_container' });
-  });
+        - else
+          .no-notifications.well
+            %h4
+              = t(".no_notifications")

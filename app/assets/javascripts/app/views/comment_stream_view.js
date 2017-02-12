@@ -13,24 +13,20 @@ app.views.CommentStream = app.views.Base.extend({
     "click .toggle_post_comments": "expandComments"
   },
 
-  initialize: function(options) {
-    this.commentTemplate = options.commentTemplate;
-
+  initialize: function() {
+    this.CommentView = app.views.Comment;
     this.setupBindings();
   },
 
   setupBindings: function() {
-    this.model.comments.bind('add', this.appendComment, this);
-    this.model.bind("commentsExpanded", this.storeTextareaValue, this);
-    this.model.bind("commentsExpanded", this.render, this);
+    this.model.comments.bind("add", this.appendComment, this);
+    this.model.comments.bind("remove", this.removeComment, this);
   },
 
   postRenderTemplate : function() {
     this.model.comments.each(this.appendComment, this);
-
-    // add autoexpanders to new comment textarea
-    this.$("textarea").autoResize({'extraSpace' : 10});
-    this.$('textarea').val(this.textareaValue);
+    this.commentBox = this.$(".comment_box");
+    this.commentSubmitButton = this.$("input[name='commit']");
   },
 
   presenter: function(){
@@ -43,56 +39,100 @@ app.views.CommentStream = app.views.Base.extend({
 
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
-    
-    var commentText = $.trim(this.$('.comment_box').val());
-    this.$(".comment_box").val("");
-    this.$(".comment_box").css("height", "");
-    if(commentText) {
-      this.model.comment(commentText);
-      return this;
-    } else {
-      this.$(".comment_box").focus();
+
+    var commentText = $.trim(this.commentBox.val());
+    if (commentText === "") {
+      this.commentBox.focus();
+      return;
     }
+
+    this.disableCommentBox();
+
+    this.model.comment(commentText, {
+      success: function() {
+        this.commentBox.val("");
+        this.enableCommentBox();
+        autosize.update(this.commentBox);
+      }.bind(this),
+      error: function() {
+        this.enableCommentBox();
+        this.commentBox.focus();
+      }.bind(this)
+    });
+  },
+
+  disableCommentBox: function() {
+    this.commentBox.prop("disabled", true);
+    this.commentSubmitButton.prop("disabled", true);
+  },
+
+  enableCommentBox: function() {
+    this.commentBox.removeAttr("disabled");
+    this.commentSubmitButton.removeAttr("disabled");
   },
 
   keyDownOnCommentBox: function(evt) {
-    if(evt.keyCode === 13 && evt.ctrlKey) {
+    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
       this.$("form").submit();
       return false;
     }
   },
-  
+
+  _insertPoint: 0, // An index of the comment added in the last call of this.appendComment
+
+  // This adjusts this._insertPoint according to timestamp value
+  _moveInsertPoint: function(timestamp, commentBlocks) {
+    if (commentBlocks.length === 0) {
+      this._insertPoint = 0;
+      return;
+    }
+
+    if (this._insertPoint > commentBlocks.length) {
+      this._insertPoint = commentBlocks.length;
+    }
+
+    while (this._insertPoint > 0 && timestamp < commentBlocks.eq(this._insertPoint - 1).find("time").attr("datetime")) {
+      this._insertPoint--;
+    }
+    while (this._insertPoint < commentBlocks.length &&
+        timestamp > commentBlocks.eq(this._insertPoint).find("time").attr("datetime")) {
+      this._insertPoint++;
+    }
+  },
+
   appendComment: function(comment) {
     // Set the post as the comment's parent, so we can check
     // on post ownership in the Comment view.
     comment.set({parent : this.model.toJSON()});
 
-    this.$(".comments").append(new app.views.Comment({
-      model: comment
-    }).render().el);
+    var commentHtml = new this.CommentView({model: comment}).render().el;
+    var commentBlocks = this.$(".comments div.comment.media");
+    this._moveInsertPoint(comment.get("created_at"), commentBlocks);
+    if (this._insertPoint >= commentBlocks.length) {
+      this.$(".comments").append(commentHtml);
+    } else if (this._insertPoint <= 0) {
+      this.$(".comments").prepend(commentHtml);
+    } else {
+      commentBlocks.eq(this._insertPoint).before(commentHtml);
+    }
+  },
+
+  removeComment: function(comment) {
+    this.$("#" + comment.get("guid")).closest(".comment.media").remove();
   },
 
   commentTextareaFocused: function(){
     this.$("form").removeClass('hidden').addClass("open");
   },
 
-  storeTextareaValue: function(){
-    this.textareaValue = this.$('textarea').val();
-  },
-
   expandComments: function(evt){
+    this.$(".loading-comments").removeClass("hidden");
     if(evt){ evt.preventDefault(); }
-    var self = this;
-
     this.model.comments.fetch({
-      success : function(resp){
-        self.model.set({
-          comments : resp.models,
-          all_comments_loaded : true
-        });
-
-        self.model.trigger("commentsExpanded", self);
-      }
+      success: function() {
+        this.$("div.comment.show_comments").addClass("hidden");
+        this.$(".loading-comments").addClass("hidden");
+      }.bind(this)
     });
   }
 });

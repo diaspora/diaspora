@@ -2,26 +2,32 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.from
-  = person_image_link(post.author, :size => :thumb_small)
-  = person_link(post.author)
+.from.media
+  .media-left
+    = person_image_link(post.author, size: :thumb_small, class: "media-object")
+  .media-body
+    .pull-left
+      = person_link(post.author)
 
-  .remove_post
-    - if user_signed_in? && post.author == current_user.person
-      = link_to(image_tag("mobile/deletelabel.png"), post_path(post), method: :delete, data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
+    .remove_post.pull-right
+      - if user_signed_in? && post.author == current_user.person
+        = link_to(raw("<i class='entypo-trash'></i>"), post_path(post), method: :delete,
+                data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
+    .clearfix
 
-  .info
-    %span
-      = link_to(post_path(post)) do
-        = timeago(post.created_at)
-    %span.via
-      - if post.activity_streams?
-        = t('shared.stream_element.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
-      - elsif post.provider_display_name == 'mobile'
-        = t('shared.stream_element.via_mobile', :link => nil)
-    &ndash;
-    %span.scope_scope
-      - if post.public?
-        = t('public')
-      - else
-        = t('limited')
+    .info
+      %span
+        = link_to(post_path(post)) do
+          = timeago(post.created_at)
+      %span.via
+        - if post.provider_display_name == "mobile"
+          = t("shared.stream_element.via_mobile", link: nil)
+      &ndash;
+      %span.scope_scope
+        - if post.public?
+          = t('public')
+        - else
+          = t('limited')
+    - if !post.is_a?(Reshare) and post.location
+      .location.nsfw-hidden
+        = t("posts.show.location", location: post.location.address)

@@ -1,25 +1,28 @@
 %h3
-  = t('.notifications')
+  = t(".notifications")
 
-.right
+.pull-right
   -if params[:type]
-    = link_to t('.mark_all_shown_as_read'), read_all_notifications_path(:type => params[:type] ), :class => 'btn'
+    = link_to t(".mark_all_shown_as_read"), read_all_notifications_path(type: params[:type] ), class: "btn btn-default"
   -else
-    = link_to t('.mark_all_as_read'), read_all_notifications_path, :class => 'btn'
+    = link_to t(".mark_all_as_read"), read_all_notifications_path, class: "btn btn-default"
 %ul.notifications
   - @group_days.each do |date, notes|
     %li
       .notification_day_header
-        %span.label
+        %span.label.label-default
           = locale_date(date)
       %ul.notifications_for_day
         - notes.each do |note|
-          .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : 'read'}"}
+          .stream-element{data: {guid: note.id}, class: (note.unread ? "unread" : "read")}
             .content.from
-              =person_image_link(note.actors.last)
-              = notification_message_for(note)
-              .time_notif
-                = timeago(note.created_at)
+              .media
+                .media-left
+                  = person_image_link(note.actors.last,  size: :thumb_small, class: "media-object")
+                .media-body
+                  = notification_message_for(note)
+                  .time_notif
+                    = timeago(note.created_at)
 
   = will_paginate @notifications,
     previous_label: "&laquo;",

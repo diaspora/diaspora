@@ -6,10 +6,7 @@
 
 sr:
   _applications: "Апликације"
-  _comments: "Коментари"
   _contacts: "Контакти"
-  _home: "Почетна"
-  _photos: "Фотографије"
   _services: "Услуге"
   account: "Налог"
   activerecord:
@@ -40,13 +37,7 @@ sr:
             username:
               invalid: "је неисправно. Дозвољени су само слова, бројеви и доње црте."
               taken: "је већ заузето."
-  ago: "пре %{time}"
   all_aspects: "Сви погледи"
-  application:
-    helper:
-      unknown_person: "непозната особа"
-      video_title:
-        unknown: "непознат наслов видеа"
   are_you_sure: "Јесте ли сигурни?"
   are_you_sure_delete_account: "Јесте ли сигурни да желите да затворите налог? Ово се не може повратити!"
   aspect_memberships:
@@ -60,16 +51,8 @@ sr:
       success: "Особа успешно додата у поглед."
     aspect_listings:
       add_an_aspect: "+ Додај поглед"
-      deselect_all: "Не означи ни један"
-      edit_aspect: "Измени %{name}"
-      select_all: "Означи све"
     aspect_stream:
       stay_updated: "Буди у току"
-    contacts_not_visible: "Контакти у овом погледу неће моћи да виде једни друге."
-    contacts_visible: "Контакти у овом погледу ће моћи да виде једни друге."
-    create:
-      failure: "Неуспешно прављење погледа."
-      success: "Твој нови поглед %{name} је направљен."
     destroy:
       failure: "%{name} није празан и не може се уклонити."
       success: "Поглед %{name} је успешно уклоњен."
@@ -77,21 +60,13 @@ sr:
       aspect_list_is_not_visible: "списак погледа је невидљив осталима у погледу"
       aspect_list_is_visible: "списак погледа је видљив осталима у погледу"
       confirm_remove_aspect: "Јесте ли сигурни да желите да обришете овај поглед?"
-      make_aspect_list_visible: "Учини контакте у овом погледу видљиве једне другима?"
-      remove_aspect: "Обриши овај поглед"
       rename: "Преименуј"
       update: "Ажурирај"
       updating: "ажурирање"
     index:
-      diaspora_id:
-        content_1: "Твој Дијаспора ИД је:"
-        content_2: "Дај га било коме и моћи ће да те нађе на Дијаспори."
-        heading: "Дијаспора ИД"
       donate: "Донирај"
-      handle_explanation: "Ово је твој Дијаспора ИД. Можеш га дати људима као и имејл адресу, да могу да те нађу."
       help:
         do_you: "Да ли:"
-        email_feedback: "Ако више волиш, пошаљи нам %{link}"
         feature_suggestion: "...имаш %{link}?"
         find_a_bug: "...сте нашли %{link}?"
         have_a_question: "...имаш %{link}?"
@@ -105,25 +80,15 @@ sr:
         follow: "Прати %{link} и поздрављај нове кориснике Дијаспоре*!"
         learn_more: "Научи више"
         title: "Поздрави нове кориснике"
-      no_contacts: "Нема контаката"
-      no_tags: "+ Нађи ознаке за праћење"
-      people_sharing_with_you: "Људи који деле са тобом"
-      post_a_message: "објави поруку >>"
       services:
         content: "Можеш повезати следеће сајтове са Дијаспором:"
         heading: "Повежи сајтове"
-      unfollow_tag: "Не прати више #%{tag}"
       welcome_to_diaspora: "Добродошли на Дијаспору, %{name}!"
-    new:
-      create: "Направи"
-      name: "Име (видљиво само теби)"
     no_contacts_message:
       community_spotlight: "заједницом"
       or_spotlight: "Или можеш поделити са %{link}"
       try_adding_some_more_contacts: "Можеш тражити или позвати још контаката."
       you_should_add_some_more_contacts: "Требало би да додаш контакте!"
-    no_posts_message:
-      start_talking: "Још нико ништа није рекао!"
     seed:
       acquaintances: "Познаници"
       family: "Породица"
@@ -132,20 +97,14 @@ sr:
     update:
       failure: "Твој поглед, %{name}, има предугачак назив да би се сачувао."
       success: "Твој поглед, %{name}, је успешно измењен."
-  back: "Назад"
   bookmarklet:
     post_something: "Објави на Дијаспори"
-    post_success: "Објављено! Затварам!"
   cancel: "Откажи"
   comments:
     new_comment:
       comment: "Коментариши"
       commenting: "Коментарише се..."
-    one: "1 коментар"
-    zero: "Нема коментара"
   contacts:
-    create:
-      failure: "Неуспело креирање контакта"
     index:
       all_contacts: "Сви контакти"
       community_spotlight: "Погледи заједнице"
@@ -154,9 +113,6 @@ sr:
       only_sharing_with_me: "Деле само са вама:"
       start_a_conversation: "Започни разговор"
       title: "Контакти"
-      your_contacts: "Твоји контакти"
-    sharing:
-      people_sharing: "Људи који деле са вама:"
     spotlight:
       community_spotlight: "Погледи заједнице"
   conversations:
@@ -165,10 +121,8 @@ sr:
       sent: "Порука послата"
     index:
       inbox: "Сандуче"
-      no_conversation_selected: "Разговор није означен"
       no_messages: "Нема порука"
     new:
-      abandon_changes: "Откажи промене:"
       send: "Пошаљи"
       sending: "Шаљем..."
       subject: "наслов"
@@ -182,33 +136,16 @@ sr:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Исправи следеће грешке и покушај поново."
-      invalid_fields: "Погрешно попуњена поља"
   fill_me_out: "Испуни ме"
   find_people: "Тражи људе или #тагове"
-  hide: "Сакриј"
   invitations:
-    a_facebook_user: "Фејсбук корисник"
-    check_token:
-      not_found: "Токен позивнице није пронађен"
     create:
-      already_contacts: "Већ сте повезани са овом особом."
-      already_sent: "Већ сте позвали ову особу."
       no_more: "Немате више позивница."
-      own_address: "Не можете послати позивницу на своју адресу."
       rejected: "Ове email адресе имају проблеме: "
-    edit:
-      accept_your_invitation: "Прихвати позивницу"
-      your_account_awaits: "Ваш налог чека!"
     new:
-      already_invited: "Сљедеће особе нису прихватиле вашу позивницу:"
-      check_out_diaspora: "Провјери diaspora*!"
       invite_someone_to_join: "Позовите некога да се придружи diaspora*!"
       language: "Језик"
-      personal_message: "Лична порука"
-      resend: "Пошаљи поново"
       send_an_invitation: "Пошаљи позивницу"
-      send_invitation: "Пошаљи позивницу"
-      to: "За"
   layouts:
     application:
       back_to_top: "Назад на врх"
@@ -216,18 +153,12 @@ sr:
       toggle: "Мобилна верзија"
       whats_new: "Ново"
     header:
-      admin: "Администратор"
-      blog: "Блог"
       code: "Код"
-      login: "Пријава"
       logout: "Одјава"
       profile: "Профил"
-      recent_notifications: "Недавна обавештења"
       settings: "Подешавања"
-      view_all: "Прикажи све"
   limited: "Ограничено"
   more: "Још"
-  next: "следеће"
   no_results: "Нема резултата"
   notifications:
     index:
@@ -240,8 +171,6 @@ sr:
     click_here: "Кликните овде"
     liked:
       view_post: "Погледајте објаву"
-    mentioned:
-      mentioned: "споменуо/ла вас у објави:"
     private_message:
       reply_to_or_view: "Одговорите или погледајте овај разговор:"
     reshared:
@@ -255,43 +184,20 @@ sr:
     to_change_your_notification_settings: "да бисте променили подешавање обавештења"
   nsfw: "Није пригодно за посао"
   ok: "У реду"
-  or: "или"
-  password: "Лозинка"
-  password_confirmation: "Понови лозинку"
   people:
-    add_contact_small:
-      add_contact_from_tag: "Додај контакт из ознаке"
     index:
       no_one_found: "...и нико није пронађен."
       no_results: "Хеј! Требате нешто потражити."
-    one: "1 особа"
     person:
-      add_contact: "Додајте контакт"
-      already_connected: "Већ сте повезани"
-      pending_request: "Захтеви на чекању"
       thats_you: "То сте ви!"
     profile_sidebar:
       bio: "Биографија"
       born: "Дат.рођења"
-      edit_my_profile: "Уреди сопствени профил"
       gender: "Пол"
       location: "Локација"
-      remove_contact: "Уклони контакт"
     show:
       closed_account: "Овај налог је затворен."
       does_not_exist: "Особа не постоји!"
-      mention: "Споменуо/ла вас у објави"
-      message: "Порука"
-      not_connected: "Не делите са овом особом"
-      recent_posts: "Недавне објаве"
-      recent_public_posts: "Недавне јавне објаве"
-      see_all: "Погледајте све"
-      start_sharing: "Почните делити"
-    sub_header:
-      add_some: "Додајте неке"
-      edit: "Уреди"
-      you_have_no_tags: "Немате ознака!"
-    zero: "Без особа"
   photos:
     create:
       integrity_error: "Ажурирање слике није успело. Јесте ли сигурни да је то слика?"
@@ -299,36 +205,13 @@ sr:
       type_error: "Ажурирање слике није успело. Јесте ли сигурни да сте слику додали?"
     destroy:
       notice: "Слика обрисана"
-    edit:
-      editing: "Уређивање"
-    new:
-      back_to_list: "Назад ка листи"
-      new_photo: "Нова слика"
-      post_it: "Објави!"
     new_profile_photo:
       upload: "Додајте нову профилну слику!"
-    show:
-      delete_photo: "Обриши слику"
-      edit: "Уреди"
-      edit_delete_photo: "Уреди опис слике / обриши слику"
-      make_profile_photo: "Постави профилну слику"
-      show_original_post: "Прикажи оригиналну објаву"
-      update_photo: "Ажурирај слику"
-    update:
-      error: "Неуспело уређивање слике"
-      notice: "Слика успешно ажурирана."
-  posts:
-    show:
-      destroy: "Обриши"
-      not_found: "Жао нам је, нисмо успели пронаћи такву објаву."
-  previous: "претходно"
   privacy: "Приватност"
-  privacy_policy: "Политика приватности"
   profile: "Профил"
   profiles:
     edit:
       allow_search: "Дозволите особама да вас траже унутар diaspora*"
-      edit_profile: "Уреди профил"
       first_name: "Име"
       last_name: "Презиме"
       update_profile: "Ажурирај профил"
@@ -338,8 +221,6 @@ sr:
       your_location: "Ваша локација"
       your_name: "Ваше име"
       your_photo: "Ваша слика"
-      your_private_profile: "Ваш приватни профил"
-      your_public_profile: "Ваш јавни профил"
       your_tags: "Опишите себе у 5 ријечи"
     update:
       failed: "Неуспело ажурирање профила"
@@ -349,108 +230,41 @@ sr:
     closed: "Регистрације су затворене за овај diaspora* под"
     create:
       success: "Придружили сте се diaspora*"
-    edit:
-      cancel_my_account: "Поништи мој налог"
-      leave_blank: "(оставите празно ако не желите да промените)"
-      password_to_confirm: "(треба нам ваша тренутна лозинка да потврди ваше промене)"
-      unhappy: "Несрећни?"
-      update: "Ажурирај"
     new:
-      create_my_account: "Креирај мој налог!"
       enter_email: "Унесите email"
       enter_password: "Унесите лозинку (шест знакова минимално)"
       enter_password_again: "Поновите лозинку"
       enter_username: "Изаберите корисничко име (само слова, бројеви и доње линије)"
-      join_the_movement: "Придружи се покрету!"
-      sign_up_message: "Друштвена мрежа са ♥"
-  requests:
-    create:
-      sending: "Шаљем"
-    destroy:
-      success: "Сада делите."
-    manage_aspect_contacts:
-      existing: "Постојећи контакти"
-    new_request_to_person:
-      sent: "Послато"
   reshares:
-    create:
-      failure: "Десила се грешка приликом делења ове објаве"
     reshare:
       deleted: "Изворна објава обрисана од стране аутора"
-      reshare_original: "Подели оригинал"
       reshared_via: "Дељено путем"
-      show_original: "Прикажи оригинал"
   search: "Претрага"
   services:
     failure:
       error: "Грешка у току повезивања сервиса"
-    finder:
-      no_friends: "Фејсбук пријатељи нису пронађени."
     index:
       disconnect: "Прекини везу"
       edit_services: "Уреди сервисе"
       logged_in_as: "Пријављен као"
-    inviter:
-      click_link_to_accept_invitation: "Следи ову везу да прихватиш своју позивницу"
-      join_me_on_diaspora: "Придружи ми се на diaspora*"
-    remote_friend:
-      invite: "Позови"
-      not_on_diaspora: "Није још на diaspora*"
-      resend: "Пошаљи поново"
   settings: "Подешавања"
   shared:
-    add_contact:
-      add_new_contact: "Додај нови контакт"
-      create_request: "Пронађи помоћу diaspora* ID"
-      diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "Унеси diaspora* корисничко име:"
-      know_email: "Знате њихову email адресу? Требали бисте их позвати"
-    aspect_dropdown:
-      add_to_aspect: "Додај контакт"
-    contact_list:
-      all_contacts: "Сви контакти"
     invitations:
       by_email: "Помоћу email"
-      dont_have_now: "Тренутно нема, али ускоро стиже још позивница!"
-      from_facebook: "Са Фејсбука"
-      invite_someone: "Позовите некога"
       invite_your_friends: "Позовите пријатеље"
       invites: "Захтеви"
-      invites_closed: "Захтеви су тренутно затворени за овај diaspora под"
     public_explain:
       outside: "Јавне поруке биће видљиве ван diaspora*."
       share: "Подели"
       title: "Уреди повезане сервисе"
       visibility_dropdown: "Користите овај падајући мени како бисте променили видљивост вашег поста.  (Предлажемо да први буде јаван.)"
     publisher:
-      all: "Сви"
-      all_contacts: "Сви контакти"
       discard_post: "Одбаци објаву"
-      make_public: "Учини јавним"
       new_user_prefill:
         invited_by: "Хвала на позиву, "
       posting: "Објављујем..."
-      publishing_to: "Објави ка: "
       share: "Дели"
-      share_with: "Дели са"
       whats_on_your_mind: "Шта вам је на уму?"
-    reshare:
-      reshare: "Подели"
-    stream_element:
-      connect_to_comment: "Повежите се са овим корисником како бисте коментарисали њихову објаву"
-      currently_unavailable: "Коментарисање тренутно недоступно"
-      dislike: "Не свиђа ми се"
-      hide_and_mute: "Сакриј и утишај објаву"
-      like: "Свиђа ми се"
-      show: "Прикажи"
-      unlike: "Не свиђа ми се"
-  status_messages:
-    destroy:
-      failure: "Неуспело брисање објаве"
-    helper:
-      no_message_to_display: "Нема порука за приказати."
-  stream_helper:
-    hide_comments: "Сакриј све коментаре"
   streams:
     comment_stream:
       title: "Коментарисане објаве"
@@ -459,14 +273,9 @@ sr:
       follow: "Пратите"
     public:
       title: "Јавна активност"
-  tag_followings:
-    create:
-      none: "Не можете пратити празну објаву!"
   tags:
     show:
       none: "Празна ознака не постоји!"
-  terms_and_conditions: "Услови коришћења"
-  undo: "Врати?"
   username: "Корисничко име"
   users:
     edit:
@@ -475,9 +284,7 @@ sr:
       change_password: "Промени лозинку"
       close_account_text: "Затвори налог"
       current_password: "Тренутна лозинка"
-      download_photos: "Преузми моје фотографије"
       edit_account: "Уреди налог"
       new_password: "Нова лозинка"
       your_email: "Ваш email"
       your_handle: "Ваш diaspora* ID"
-  welcome: "Добородошли!"

@@ -1,15 +1,17 @@
 class ReportMailer < ActionMailer::Base
   default from: AppConfig.mail.sender_address
 
-  def self.new_report(type, id)
-    Role.moderators.map {|role| super(type, id, role) }
+  def self.new_report(report_id)
+    report = Report.find_by_id(report_id)
+    Role.moderators.map {|role| super(report.item_type, report.item_id, report.text, role) }
   end
 
-  def new_report(type, id, role)
+  def new_report(type, id, reason, role)
     resource = {
-      url:  report_index_url,
-      type: I18n.t("notifier.report_email.type." + type),
-      id:   id
+      url:    report_index_url,
+      type:   I18n.t("notifier.report_email.type.#{type.downcase}"),
+      id:     id,
+      reason: reason
     }
     person = Person.find(role.person_id)
     return unless person.local?

@@ -1,0 +1,45 @@
+.tt-menu {
+  background-color: $navbar-inverse-bg;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.navbar.navbar-fixed-top .tt-menu {
+  margin-top: ($navbar-height - $input-height-small) / 2;
+  width: 300px;
+}
+
+.tt-suggestion {
+  border-top: 1px solid $gray-dark;
+  color: $white;
+  cursor: pointer;
+  line-height: 20px;
+  &.tt-cursor {
+    background-color: $brand-primary;
+    border-top: 1px solid $brand-primary;
+  }
+
+  &.search-suggestion-person {
+    padding: 8px;
+    .avatar {
+      height: 40px;
+      margin-right: 8px;
+      width: 40px;
+    }
+    .diaspora-id { font-size: $font-size-small; }
+  }
+  &.search-suggestion-hashtag {
+    padding: 8px 20px;
+    .name { line-height: 25px; }
+  }
+
+  &.search-suggestion-person,
+  &.search-suggestion-hashtag {
+    display: block;
+
+    &:hover,
+    *:hover {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}

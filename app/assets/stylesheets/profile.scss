@@ -1,15 +1,15 @@
 #profile_container {
   .profile_header {
-    margin-bottom: 20px;
-    border-left: 1px solid #dddddd;
+    margin-bottom: 15px;
+    background-color: $framed-background;
     padding-left: 10px;
+    padding-right: 10px;
     padding-top: 20px;
-    margin-left: -10px;
     margin-top: -20px;
+    box-shadow: $card-shadow;
 
     #edit_profile, #unblock_user_button, .aspect_dropdown {
-      margin-top: 5px;
-      margin-right: 10px;
+      margin-top: 15px;
     }
 
     #author_info {
@@ -22,7 +22,7 @@
         font-weight: 700;
       }
       #diaspora_handle {
-        color: $text-grey;
+        color: $text-color-pale;
         font-size: 20px;
       }
       #sharing_message {
@@ -32,18 +32,18 @@
           color: $text-grey;
           &:before { content: '\26aa'; }
         }
-        &.entypo.check { color: darken($green,20%); }
+        &.entypo-check { color: darken($brand-success,20%); }
       }
       .description {
         margin-bottom: 20px;
         .tag {
           background-color: transparent;
-          font-size: $font-size-text;
+          font-size: $font-size-base;
         }
-        .tag:not(.entypo) {
+        .tag {
           font-weight: 700;
         }
-        .entypo.tag {
+        .entypo-tag {
           margin: 0 5px;
           font-weight: normal;
           &:hover {text-decoration: none;}
@@ -51,9 +51,8 @@
       }
     }
 
-    #profile_horizontal_bar {
+    #profile-horizontal-bar {
       border-top: 1px dashed $border-grey;
-      border-bottom: 1px solid $border-grey;
       min-height: 50px;
       margin-top: 10px;
       #profile_buttons {
@@ -62,11 +61,11 @@
           text-decoration: none;
           cursor: pointer;
           margin-right: 25px;
-          .entypo.profile-header-icon, .profile-header-icon {
+          .profile-header-icon {
             font-size: 24.5px;
             line-height: 30px;
-            color: lighten($black,75%);
-            &:hover { color: $black; }
+            color: $text-color-pale;
+            &:hover { color: $text-color; }
           }
           #mention_button { font-weight: 700; }
         }
@@ -75,13 +74,18 @@
       ul#profile_nav {
         list-style: none;
         margin: 0;
+        padding: 0;
         > li {
           display: inline-block;
           &.active {
-            border-bottom: 3px solid $creation-blue;
+            border-bottom: 3px solid $brand-primary;
             a {
-              color: $black;
-              .entypo { color: $black; }
+              color: $text-color-active;
+
+              [class^="entypo-"],
+              [class*="entypo-"] {
+                color: $text-color-active;
+              }
             }
           }
           a {
@@ -89,14 +93,18 @@
             font-size: 16px;
             line-height: 46px;
             color: lighten($black,50%);
-            .entypo {
+            [class^="entypo-"], [class*="entypo-"] {
               color: lighten($black,50%);
               margin-right: 2px;
             }
             &:hover {
-              color: $black;
-              .entypo { color: $black; }
+              color: $text-color-active;
               text-decoration: none;
+
+              [class^="entypo-"],
+              [class*="entypo-"] {
+                color: $text-color-active;
+              }
             }
           }
         }
@@ -105,16 +113,19 @@
   }
 
   #profile {
-    padding: 10px 20px;
+    padding: 20px;
+    margin-bottom: 35px;
+
     #profile_photo {
       margin-top: 10px;
       padding-bottom: 10px;
-      border-bottom: 1px dashed $border-grey;
       text-align: center;
     }
 
     ul#profile_information {
+      border-top: 1px dashed $border-grey;
       margin: 0;
+      padding: 0;
       list-style: none;
       overflow-x: hidden;
       word-wrap: break-word;
@@ -127,4 +138,32 @@
   }
 
   .stream_container > .pagination { text-align: center; }
+
+  #people_stream {
+    background-color: $white;
+    box-shadow: $card-shadow;
+  }
+}
+
+#email-form{
+  padding: 0;
+  .form-group{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+#birth-date{
+  text-align: center;
+  select{
+    width: 32%;
+    display: inline;
+    &:first-of-type{ float: left; }
+    &:last-of-type{ float: right; }
+  }
+}
+
+#update_profile_form {
+  .profile-visibility-hint { margin-left: 10px; }
+  .visibility-hint-icon { cursor: default; }
 }

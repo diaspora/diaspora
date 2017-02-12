@@ -14,8 +14,8 @@ module Diaspora::Mentionable
     mention = mention_str.match(REGEX)[2]
     del_pos = mention.rindex(/;/)
 
-    name   = mention[0..(del_pos-1)].strip
-    handle = mention[(del_pos+1)..-1].strip
+    name = mention[0..(del_pos - 1)].strip
+    handle = mention[(del_pos + 1)..-1].strip
 
     [name, handle]
   end
@@ -46,12 +46,11 @@ module Diaspora::Mentionable
   # @return [Array<Person>] array of people
   def self.people_from_string(msg_text)
     identifiers = msg_text.to_s.scan(REGEX).map do |match_str|
-      _, handle = mention_attrs(match_str.first)
-      handle
+      _, identifier = mention_attrs(match_str.first)
+      identifier if Validation::Rule::DiasporaId.new.valid_value?(identifier)
     end
 
-    return [] if identifiers.empty?
-    Person.where(diaspora_handle: identifiers)
+    identifiers.compact.uniq.map {|identifier| find_or_fetch_person_by_identifier(identifier) }.compact
   end
 
   # takes a message text and converts mentions for people that are not in the
@@ -81,37 +80,43 @@ module Diaspora::Mentionable
 
   private
 
+  private_class_method def self.find_or_fetch_person_by_identifier(identifier)
+    Person.find_or_fetch_by_identifier(identifier)
+  rescue DiasporaFederation::Discovery::DiscoveryError
+    nil
+  end
+
   # inline module for namespacing
   module MentionsInternal
     extend ::PeopleHelper
 
-    # output a formatted mention link as defined by the given options,
-    # use the fallback name if the person is unavailable
+    # output a formatted mention link as defined by the given arguments.
+    # if the display name is blank, falls back to the person's name.
     # @see Diaspora::Mentions#format
     #
     # @param [Person] AR Person
-    # @param [String] fallback name
+    # @param [String] display name
     # @param [Hash] formatting options
-    def self.mention_link(person, fallback_name, opts)
-      return fallback_name unless person.present?
+    def self.mention_link(person, display_name, opts)
+      return display_name unless person.present?
 
       if opts[:plain_text]
-        person.name
+        display_name.presence || person.name
       else
-        person_link(person, class: PERSON_HREF_CLASS)
+        person_link(person, class: PERSON_HREF_CLASS, display_name: display_name)
       end
     end
 
-    # output a markdown formatted link to the given person or the given fallback
-    # string, in case the person is not present
+    # output a markdown formatted link to the given person with the display name as the link text.
+    # if the display name is blank, falls back to the person's name.
     #
     # @param [Person] AR Person
-    # @param [String] fallback name
+    # @param [String] display name
     # @return [String] markdown person link
-    def self.profile_link(person, fallback_name)
-      return fallback_name unless person.present?
+    def self.profile_link(person, display_name)
+      return display_name unless person.present?
 
-      "[#{person.name}](#{local_or_remote_person_path(person)})"
+      "[#{display_name.presence || person.name}](#{local_or_remote_person_path(person)})"
     end
 
     # takes a user and an array of aspect ids or an array containing "all" as

@@ -6,6 +6,55 @@
 
 es-AR:
   javascripts:
+    admin:
+      pods:
+        actions: "Acciones"
+        added: "Agregado"
+        check: "ejectutar test de conexión"
+        errors:
+          one: "El test de conexión devolvió un error para un pod."
+          other: "El test de conexión devolvió un error para <%= count %> pods."
+        follow_link: "abrir enlace en el navegador"
+        last_check: "último chequeo:"
+        more_info: "mostrar más información"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "No hay información adicional en este momento"
+        not_available: "no disponible"
+        offline_since: "desconectado desde:"
+        pod: "Pod"
+        recheck:
+          failure: "No se ejecutó el chequeo."
+          success: "El pod se acaba de chequear."
+        response_time: "Tiempo de respuesta:"
+        server_software: "Software del servidor:"
+        ssl: "SSL"
+        ssl_disabled: "SSL desactivado"
+        ssl_enabled: "SSL activado"
+        states:
+          dns_failed: "Falló la resolución de nombres (DNS)"
+          http_failed: "Falló la conexión HTTP"
+          net_failed: "Falló el intento de conexión"
+          no_errors: "OK"
+          ssl_failed: "Falló la conexión segura (SSL)"
+          unchecked: "No verificado"
+          unknown_error: "Un error no identificado ha ocurrido durante el chequeo"
+          version_failed: "Imposible determinar la versión del software"
+        status: "Estado"
+        unchecked:
+          one: "Todavía hay un pod que no ha sido comprobado en absoluto."
+          other: "Todavía hay <%= count %> pods que no han sido comprobados en absoluto."
+        unknown: "desconocido"
+        version_failed:
+          one: "Hay un pod que no tiene versión (servidor antiguo, no hay información del nodo)."
+          other: "Hay <%= count %> pods que no tienen versión (servidores antiguos, no hay información de los nodos)."
+    admins:
+      dashboard:
+        compare_versions: "La última versión de diaspora* es la <%= latestVersion %>, tu pod está ejecutando la <%= podVersion %>."
+        error: "Imposible determinar la última versión de diaspora*."
+        outdated: "Tu pod está desactualizado."
+        up_to_date: "¡Tu pod está actualizado!"
     and: "y"
     aspect_dropdown:
       add_to_aspect: "Agregar contacto"
@@ -20,7 +69,7 @@ es-AR:
       toggle:
         one: "En <%= count %> aspecto"
         other: "En <%= count %> aspectos"
-        zero: "Seleccionar aspectos"
+        zero: "En <%= count %> aspectos"
       updating: "actualizando…"
     aspect_navigation:
       add_an_aspect: "+ Agregar un aspecto"
@@ -48,6 +97,8 @@ es-AR:
     confirm_unload: "Por favor, confirmá que deseás salir de esta página. Los datos que has ingresado no serán guardados."
     contacts:
       add_contact: "Agregar contacto"
+      aspect_chat_is_enabled: "Los contactos de este aspecto pueden chatear con vos."
+      aspect_chat_is_not_enabled: "Los contactos de este aspecto no pueden chatear con vos."
       aspect_list_is_not_visible: "La lista de contactos de este aspecto no es visible."
       aspect_list_is_visible: "La lista de contactos de este aspecto es visible."
       error_add: "No se puede agregar a <%= name %> a este aspecto :("
@@ -55,16 +106,17 @@ es-AR:
       remove_contact: "Eliminar contacto"
       search_no_results: "No se han encontrado contactos con ese nombre."
     conversation:
+      create:
+        no_recipient: "¡Hey! primero tenes que agregar un destinatario"
       new:
         no_contacts: "Necesitas agregar algunos contactos antes de iniciar una conversación."
-      participants: "Participantes"
     create: "Crear"
     delete: "Borrar"
     edit: "Editar"
-    failed_to_like: "¡No pudo marcarse como 'Me gusta'!"
+    errors:
+      connection: "No es posible conectarse al servidor."
     failed_to_post_message: "¡No pudo publicarse el mensaje!"
     failed_to_remove: "Fallo al eliminar la entrada!"
-    failed_to_reshare: "Error al volver a compartir"
     getting_started:
       alright_ill_wait: "Todo bien, voy a esperar."
       hey: "¡Hola, <%= name %>!"
@@ -85,15 +137,14 @@ es-AR:
       recent_notifications: "Notificaciones recientes"
       search: "Buscar"
       settings: "Opciones"
+      toggle_mobile: "Interfaz móvil"
+      toggle_navigation: "Cambiar navegación"
       view_all: "Ver todo"
     hide_post: "¿Ocultar esta publicación?"
     hide_post_failed: "No se puede ocultar esta publicación"
     ignore: "Ignorar"
     ignore_failed: "No es posible ignorar este usuario"
     ignore_user: "¿Ignorar a este usuario?"
-    infinite_scroll:
-      no_more: "No hay más publicaciones."
-      no_more_contacts: "No hay más contactos."
     my_activity: "Mi actividad"
     my_aspects: "Mis aspectos"
     my_stream: "Entrada"
@@ -101,6 +152,9 @@ es-AR:
     notifications:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
+      new_notifications:
+        one: "Tenés una notificación sin leer"
+        other: "Tenés <%= count %> notificaciones sin leer"
     people:
       edit_my_profile: "Editar mi perfil"
       helper:
@@ -118,6 +172,10 @@ es-AR:
       looking_good: "¡Apa, te ves muy bien!"
       size_error: "El archivo {file} es demasiado grande, el tamaño máximo permitido es {sizeLimit}."
     poll:
+      answer_count:
+        one: "1 voto"
+        other: "<%=count%> votos"
+        zero: "0 votos"
       close_result: "Ocultar resultados"
       count:
         one: "<%=count%> voto hasta ahora"
@@ -134,15 +192,41 @@ es-AR:
       contacts: "Contactos"
       edit: "Editar"
       gender: "Género"
-      ignoring: "Estás ignorando todas las publicaciones de <%= name %>."
       location: "Ubicación"
       photos: "Fotos"
       posts: "Publicaciones"
       you_have_no_tags: "¡No tenés etiquetas!"
     publisher:
       add_option: "Añadir respuesta"
-      at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
       limited: "Limitada: tu publicación será vista solo por la gente con quien la compartes"
+      markdown_editor:
+        preview: "Vista previa"
+        texts:
+          code: "texto de código"
+          heading: "texto de encabezamiento"
+          insert_image_description_text: "ingresa aquí la descripción de la imagen"
+          insert_image_help_text: "Inserta aquí el enlace de la imagen"
+          insert_image_title: "ingresa aquí el título de la imagen"
+          insert_link_description_text: "ingresa aquí la descripción del enlace"
+          insert_link_help_text: "Inserta aquí el enlace"
+          italic: "texto en cursiva"
+          list: "texto de la lista"
+          quote: "texto de la cita"
+          strong: "texto en negrita"
+        tooltips:
+          bold: "Negrita"
+          cancel: "Cancelar post"
+          code: "Insertar Código"
+          heading: "Encabezamiento"
+          insert_image: "Insertar imagen"
+          insert_link: "Insertar enlace"
+          insert_ordered_list: "Insertar lista ordenada"
+          insert_unordered_list: "Insertar lista sin ordenar"
+          italic: "Cursiva"
+          preview: "Vista previa del post"
+          quote: "Insertar cita"
+          write: "Editar post"
+        write: "Escribir"
       near_from: "Cerca de: <%= location %>"
       option: "Respuesta"
       public: "Publica: tu publicación será visible para cualquiera en Internet y los buscadores podrán encontrarla"
@@ -156,13 +240,15 @@ es-AR:
         created: "El reporte se ha creado exitosamente"
         exists: "El reporte ya existe"
     reshares:
-      duplicate: "¿Te gustó eh? ¡Ya habías compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡La publicación se compartió correctamente!"
-    search_for: "Buscar a <%= name %>"
     show_more: "Mostrar más"
     stream:
       comment: "Comentar"
+      comments:
+        one: "<%= count %> comentario"
+        other: "<%= count %> comentarios"
+        zero: "<%= count %> comentarios"
       disable_post_notifications: "Desactivar las notificaciones para esta publicación"
       enable_post_notifications: "Activar las notificaciones para esta publicación"
       follow: "Seguir"
@@ -182,7 +268,9 @@ es-AR:
         one: "Mostrar <%= count %> comentario más"
         other: "Mostrar <%= count %> comentarios más"
         zero: "Mostrar <%= count %> comentarios más"
+      no_posts_yet: "No hay posts para mostrar aquí todavía."
       original_post_deleted: "La publicación original fue eliminada por el autor"
+      permalink: "Enlace permanente"
       public: "Pública"
       reshare: "Compartir"
       reshares:
@@ -205,13 +293,22 @@ es-AR:
       wasnt_that_interesting: "Bueno, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
       day: "un día"
-      days: "%d días"
+      days:
+        one: "1 día"
+        other: "%d días"
       hour: "cerca de una hora"
-      hours: "cerca de %d horas"
+      hours:
+        one: "1 hora"
+        other: "%d horas"
+      inPast: "cualquier momento"
       minute: "aproximadamente un minuto"
-      minutes: "%d minutos"
+      minutes:
+        one: "1 minuto"
+        other: "%d minutos"
       month: "cerca de un mes"
-      months: "%d meses"
+      months:
+        one: "1 mes"
+        other: "%d meses"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "menos de un minuto"
@@ -219,17 +316,9 @@ es-AR:
       suffixFromNow: "desde ahora"
       wordSeparator: " "
       year: "cerca de un año"
-      years: "%d años"
+      years:
+        one: "1 año"
+        other: "%d años"
     unblock_failed: "Falló el desbloqueo del usuario"
-    videos:
-      unknown: "Tipo de video desconocido"
-      watch: "Ver este video en <%= provider %>"
     viewer:
-      comment: "Comentar"
-      follow_post: "Seguir esta publicación"
-      home: "Inicio"
-      like: "Me gusta"
-      reshare: "Compartir"
       reshared: "Compartido"
-      stop_following_post: "Dejar de seguir esta publicación"
-      unlike: "No me gusta"

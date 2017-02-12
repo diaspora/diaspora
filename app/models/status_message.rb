@@ -8,33 +8,21 @@ class StatusMessage < Post
   include PeopleHelper
 
   acts_as_taggable_on :tags
-  extract_tags_from :raw_message
+  extract_tags_from :text
 
   validates_length_of :text, :maximum => 65535, :message => proc {|p, v| I18n.t('status_messages.too_long', :count => 65535, :current_length => v[:value].length)}
 
   # don't allow creation of empty status messages
-  validate :presence_of_content, on: :create, if: proc {|sm| sm.author && sm.author.local? }
-
-  xml_name :status_message
-  xml_attr :raw_message
-  xml_attr :photos, :as => [Photo]
-  xml_attr :location, :as => Location
-  xml_attr :poll, :as => Poll
+  validate :presence_of_content, on: :create
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   has_one :location
   has_one :poll, autosave: true
 
-
-  # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
-  # therefore, we put the validation in a before_destory callback instead of a validation
-  before_destroy :absence_of_content
-
   attr_accessor :oembed_url
   attr_accessor :open_graph_url
 
-  before_create :filter_mentions
   after_create :create_mentions
   after_commit :queue_gather_oembed_data, :on => :create, :if => :contains_oembed_url_in_text?
   after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
@@ -49,42 +37,30 @@ class StatusMessage < Post
   end
 
   def self.user_tag_stream(user, tag_ids)
-    owned_or_visible_by_user(user).
-      tag_stream(tag_ids)
+    owned_or_visible_by_user(user).tag_stream(tag_ids)
   end
 
   def self.public_tag_stream(tag_ids)
-    all_public.
-      tag_stream(tag_ids)
+    all_public.tag_stream(tag_ids)
   end
 
-  def raw_message
-    read_attribute(:text)
-  end
-
-  def raw_message=(text)
-    write_attribute(:text, text)
-  end
-
-  def attach_photos_by_ids(photo_ids)
-    return [] unless photo_ids.present?
-    self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id)
+  def self.tag_stream(tag_ids)
+    joins(:taggings).where("taggings.tag_id IN (?)", tag_ids)
   end
 
   def nsfw
-    self.raw_message.match(/#nsfw/i) || super
+    text.try(:match, /#nsfw/i) || super
   end
 
   def message
-    @message ||= Diaspora::MessageRenderer.new raw_message, mentioned_people: mentioned_people
+    @message ||= Diaspora::MessageRenderer.new(text, mentioned_people: mentioned_people)
   end
 
   def mentioned_people
     if self.persisted?
-      create_mentions if self.mentions.empty?
       self.mentions.includes(:person => :profile).map{ |mention| mention.person }
     else
-      Diaspora::Mentionable.people_from_string(self.raw_message)
+      Diaspora::Mentionable.people_from_string(text)
     end
   end
 
@@ -96,7 +72,7 @@ class StatusMessage < Post
   ## ---- ----
 
   def create_mentions
-    ppl = Diaspora::Mentionable.people_from_string(self.raw_message)
+    ppl = Diaspora::Mentionable.people_from_string(text)
     ppl.each do |person|
       self.mentions.find_or_create_by(person_id: person.id)
     end
@@ -104,28 +80,6 @@ class StatusMessage < Post
 
   def mentions?(person)
     mentioned_people.include? person
-  end
-
-  def notify_person(person)
-    self.mentions.where(:person_id => person.id).first.try(:notify_recipient)
-  end
-
-  def after_dispatch(sender)
-    self.update_and_dispatch_attached_photos(sender)
-  end
-
-  def update_and_dispatch_attached_photos(sender)
-    if self.photos.any?
-      logger.info "dispatch photos for StatusMessage:#{guid}"
-      Photo.where(status_message_guid: guid).update_all(:public => self.public)
-      self.photos.each do |photo|
-        if photo.pending
-          sender.add_to_streams(photo, self.aspects)
-          sender.dispatch_post(photo)
-        end
-      end
-      Photo.where(status_message_guid: guid).update_all(:pending => false)
-    end
   end
 
   def comment_email_subject
@@ -137,7 +91,7 @@ class StatusMessage < Post
   end
 
   def text_and_photos_blank?
-    self.raw_message.blank? && self.photos.blank?
+    text.blank? && photos.blank?
   end
 
   def queue_gather_oembed_data
@@ -158,40 +112,24 @@ class StatusMessage < Post
     self.open_graph_url = self.message.urls[0]
   end
 
-  def address
-    location.try(:address)
+  def post_location
+    {
+      address: location.try(:address),
+      lat:     location.try(:lat),
+      lng:     location.try(:lng)
+    }
   end
 
-  protected
-  def presence_of_content
-    if text_and_photos_blank?
-      errors[:base] << "Cannot create a StatusMessage without content"
-    end
-  end
+  def receive(recipient_user_ids)
+    super(recipient_user_ids)
 
-  def absence_of_content
-    unless text_and_photos_blank?
-      errors[:base] << "Cannot destory a StatusMessage with text and/or photos present"
-    end
-  end
-
-  def filter_mentions
-    return if self.public? || self.aspects.empty?
-
-    author_usr = self.author.try(:owner)
-    aspect_ids = self.aspects.map(&:id)
-
-    self.raw_message = Diaspora::Mentionable.filter_for_aspects(self.raw_message, author_usr, *aspect_ids)
+    photos.each {|photo| photo.receive(recipient_user_ids) }
   end
 
   private
-  def self.tag_stream(tag_ids)
-    joins(:taggings).where('taggings.tag_id IN (?)', tag_ids)
-  end
 
-  def after_parse
-    # Make sure already received photos don't invalidate the model
-    self.photos = photos.select(&:valid?)
+  def presence_of_content
+    errors[:base] << "Cannot create a StatusMessage without content" if text_and_photos_blank?
   end
 end
 

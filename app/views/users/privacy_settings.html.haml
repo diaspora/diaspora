@@ -5,47 +5,11 @@
 - content_for :page_title do
   = t('.title')
 
-.container
-  .row-fluid
-    .span12
-      #section_header
-        %h2
-          = t('privacy')
-        = render 'shared/settings_nav'
-
-  .row-fluid
-    .span3
-    .span5
-      %h3
-        = t('.title')
-
-      = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
-        = f.error_messages
-
-        = f.fields_for :stream_preferences do |type|
-          #stream_prefs
-          = f.label :strip_exif, :class => "checkbox" do
-            = f.check_box :strip_exif
-            = t('.strip_exif')
-
-          .small-horizontal-spacer
-          = f.submit t('users.edit.change'), :class => 'btn'
-
-      %hr
-
-  .row-fluid
-    .span3
-    .span5
-      %h3
-        = t('.ignored_users')
-
-      - if @blocks.length.zero?
-        = t('.no_user_ignored_message')
-
-      - @blocks.each do |block|
-        = block.person_name
-        \-
-        = link_to t('.stop_ignoring'), block_path(block),
-          :method => :delete
-        %br
-    .span3
+.container-fluid
+  .row
+    .col-md-3
+      .sidebar
+        = render "shared/settings_nav"
+    .col-md-9
+      .framed-content
+        = render "privacy_settings"

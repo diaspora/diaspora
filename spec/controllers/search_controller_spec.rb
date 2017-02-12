@@ -1,16 +1,11 @@
-require 'spec_helper'
-
 describe SearchController, :type => :controller do
   before do
     @user = alice
     @aspect = @user.aspects.first
-    sign_in :user, @user
+    sign_in @user, scope: :user
   end
 
   describe 'query is a person' do
-    @lola = FactoryGirl.create(:person, :diaspora_handle => "lola@example.org",
-                                         :profile => FactoryGirl.build(:profile, :first_name => "Lola",
-                                                                   :last_name => "w", :searchable => false))
     it 'goes to people index page' do
       get :search, :q => 'eugene'
       expect(response).to be_redirect
@@ -23,7 +18,7 @@ describe SearchController, :type => :controller do
       get :search, :q => '#cats'
       expect(response).to redirect_to(tag_path('cats'))
     end
-    
+
     it 'removes dots from the query' do
       get :search, :q => '#cat.s'
       expect(response).to redirect_to(tag_path('cats'))

@@ -1,6 +1,6 @@
-require 'spec_helper'
-
 describe Diaspora::Markdownify::Email do
+  include Rails.application.routes.url_helpers
+
   describe '#preprocess' do
     before do
       @html = Diaspora::Markdownify::Email.new
@@ -8,12 +8,14 @@ describe Diaspora::Markdownify::Email do
 
     it 'should autolink a hashtag' do
       markdownified = @html.preprocess("#tag")
-      expect(markdownified).to eq("[#tag](http://localhost:9887/tags/tag)")
+      expect(markdownified).to eq("[#tag](#{AppConfig.url_to(tag_path('tag'))})")
     end
 
     it 'should autolink multiple hashtags' do
       markdownified = @html.preprocess("oh #l #loL")
-      expect(markdownified).to eq("oh [#l](http://localhost:9887/tags/l) [#loL](http://localhost:9887/tags/lol)")
+      expect(markdownified).to eq(
+        "oh [#l](#{AppConfig.url_to(tag_path('l'))}) [#loL](#{AppConfig.url_to(tag_path('lol'))})"
+      )
     end
 
     it 'should not autolink headers' do
@@ -30,7 +32,10 @@ describe Diaspora::Markdownify::Email do
 
     it 'should render the message' do
       rendered = @markdown.render(@sample_text).strip
-      expect(rendered).to eq("<h1>Header</h1>\n\n<p><a href=\"http://localhost:9887/tags/messages\">#messages</a> containing <a href=\"http://localhost:9887/tags/hashtags\">#hashtags</a> should render properly</p>")
+      expect(rendered).to eq(
+        "<h1>Header</h1>\n\n<p><a href=\"#{AppConfig.url_to(tag_path('messages'))}\">#messages</a>\
+ containing <a href=\"#{AppConfig.url_to(tag_path('hashtags'))}\">#hashtags</a> should render properly</p>"
+      )
     end
   end
 end

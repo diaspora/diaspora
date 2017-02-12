@@ -1,21 +1,23 @@
-footer {
-  width: 100%;
-  left: 0;
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body { margin-bottom: 150px; }
+
+footer.footer {
+  background-color: $background-grey;
+  border-top: 1px solid $border-grey;
   bottom: 0;
-  color: $text-grey;
+  max-height: 130px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: absolute;
+  width: 100%;
 
-  .container {
-    width: 95%;
-    margin: 4em auto 0 auto;
-    padding: 0.5em 0 1em 0;
-    border-top: 1px solid $border-grey;
-  }
-
-  .logos-powered_by_diaspora {
-    display: inline-block;
-    margin-top: 3px;
-    height: 11px;
-    width: 145px;
+  .powered-by-diaspora {
+    color: $link-grey;
+    font-weight: bold;
   }
 
   ul#footer_powered {
@@ -38,7 +40,6 @@ footer {
     margin: 0;
     padding: 0;
     display: inline-block;
-    float: right;
 
     > li {
       display: inline;

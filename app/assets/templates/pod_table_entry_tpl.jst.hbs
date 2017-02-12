@@ -1,0 +1,41 @@
+
+<td class="ssl-status"">
+  {{#if ssl}}
+    <i title="{{t 'admin.pods.ssl_enabled'}}" class="entypo-check">
+  {{else}}
+    <i title="{{t 'admin.pods.ssl_disabled'}}" class="entypo-block">
+  {{/if}}
+  </i>
+</td>
+<td class="pod-title" title="{{host}}">{{host}}</td>
+<td class="added">
+  <small><time datetime="{{created_at}}" title="{{localTime created_at}}" /></small>
+</td>
+<td>
+  {{#if has_no_errors}}
+    <i title="{{status_text}}" class="glyphicon glyphicon-ok"></i>
+  {{else}}
+    {{status_text}}
+  {{/if}}
+  {{#unless is_unchecked}}
+    <br><small>{{t 'admin.pods.last_check'}} <time datetime="{{checked_at}}" title="{{localTime checked_at}}" /></small>
+  {{/unless}}
+  {{#if offline}}
+    | <small>{{t 'admin.pods.offline_since'}} <time datetime="{{offline_since}}" title="{{localTime offline_since}}" /></small>
+  {{/if}}
+  {{#if is_unchecked}}<br><small class="text-muted">{{t 'admin.pods.no_info'}}</small>{{/if}}
+  <pre class="details" style="display: none;">
+    {{#unless is_unchecked}}
+      {{t 'admin.pods.server_software'}} {{#if software}}{{software}}{{else}}{{t 'admin.pods.unknown'}}{{/if}}
+      <br>{{t 'admin.pods.response_time'}} {{response_time_fmt}}
+      {{#if has_errors}}<br>{{error}}{{/if}}
+    {{/unless}}
+  </pre>
+</td>
+<td class="actions">
+  {{#unless is_unchecked}}
+    <a class="more" href="#"><i title="{{t 'admin.pods.more_info'}}" class="entypo-circled-help"></i></a>
+  {{/unless}}
+  <a class="recheck" href="{{urlTo 'adminPodRecheck' id}}"><i title="{{t 'admin.pods.check'}}" class="entypo-cycle"></i></a>
+  <a href="{{pod_url}}" target="_blank"><i title="{{t 'admin.pods.follow_link'}}" class="entypo-forward"></i></a>
+</td>

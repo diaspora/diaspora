@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Notifier, type: :mailer do
   let(:person) { FactoryGirl.create(:person) }
 
@@ -73,11 +71,7 @@ describe Notifier, type: :mailer do
     end
 
     it "has the name of person sending the request" do
-      expect(request_mail.body.encoded.include?(person.name)).to be true
-    end
-
-    it "has the css" do
-      request_mail.body.encoded.include?("<style type='text/css'>")
+      expect(request_mail.body.encoded).to include(person.name)
     end
   end
 
@@ -96,6 +90,11 @@ describe Notifier, type: :mailer do
 
     it "SUBJECT: has the name of person mentioning in the subject" do
       expect(@mail.subject).to include(@post.author.name)
+    end
+
+    it "IN-REPLY-TO and REFERENCES: references the mentioning post" do
+      expect(@mail.in_reply_to).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
     end
 
     it "has the post text in the body" do
@@ -174,6 +173,11 @@ describe Notifier, type: :mailer do
       expect(@mail.to).to eq([alice.email])
     end
 
+    it "IN-REPLY-TO and REFERENCES: references the reshared post" do
+      expect(@mail.in_reply_to).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@post.guid}@#{AppConfig.pod_uri.host}")
+    end
+
     it "BODY: contains the truncated original post" do
       expect(@mail.body.encoded).to include(@post.message.plain_text)
     end
@@ -212,15 +216,17 @@ describe Notifier, type: :mailer do
       expect(@mail["From"].to_s).to eq("\"#{@cnv.author.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
     end
 
-    it "SUBJECT: has a snippet of the post contents" do
-      expect(@mail.subject).to eq(@cnv.subject)
+    it "should use a generic subject" do
+      expect(@mail.subject).to eq(I18n.translate("notifier.private_message.subject"))
     end
 
-    it "SUBJECT: has 'Re:' if not the first message in a conversation" do
-      @cnv.messages << Message.new(text: "yo", author: eve.person)
-      @mail = Notifier.private_message(bob.id, @cnv.author.id, @cnv.messages.last.id)
+    it "SUBJECT: should not has a snippet of the private message contents" do
+      expect(@mail.subject).not_to include(@cnv.subject)
+    end
 
-      expect(@mail.subject).to eq("Re: #{@cnv.subject}")
+    it "IN-REPLY-TO and REFERENCES: references the containing conversation" do
+      expect(@mail.in_reply_to).to eq("#{@cnv.guid}@#{AppConfig.pod_uri.host}")
+      expect(@mail.references).to eq("#{@cnv.guid}@#{AppConfig.pod_uri.host}")
     end
 
     it "BODY: does not contain the message text" do
@@ -261,8 +267,8 @@ describe Notifier, type: :mailer do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
-        it "contains the original post's link" do
-          expect(comment_mail.body.encoded.include?("#{comment.post.id}")).to be true
+        it "contains the original post's link with comment anchor" do
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
         end
 
         it "should not include translation fallback" do
@@ -297,13 +303,18 @@ describe Notifier, type: :mailer do
         expect(comment_mail.subject).to eq("Re: Headline")
       end
 
+      it "IN-REPLY-TO and REFERENCES: references the commented post" do
+        expect(comment_mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+        expect(comment_mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+      end
+
       context "BODY" do
         it "contains the comment" do
           expect(comment_mail.body.encoded).to include(comment.text)
         end
 
-        it "contains the original post's link" do
-          expect(comment_mail.body.encoded).to include("#{comment.post.id}")
+        it "contains the original post's link with comment anchor" do
+          expect(comment_mail.body.encoded).to include("#{comment.post.id}##{comment.guid}")
         end
 
         it "should not include translation fallback" do
@@ -372,6 +383,11 @@ describe Notifier, type: :mailer do
           expect(mail.subject).not_to include("Limited headline")
         end
 
+        it "IN-REPLY-TO and REFERENCES: references the commented post" do
+          expect(mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+          expect(mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+        end
+
         it "BODY: does not show the limited post" do
           expect(mail.body.encoded).not_to include("Limited headline")
         end
@@ -396,6 +412,11 @@ describe Notifier, type: :mailer do
 
       it "SUBJECT: does not show the limited post" do
         expect(mail.subject).not_to include("Limited headline")
+      end
+
+      it "IN-REPLY-TO and REFERENCES: references the liked post" do
+        expect(mail.in_reply_to).to eq("#{like.parent.guid}@#{AppConfig.pod_uri.host}")
+        expect(mail.references).to eq("#{like.parent.guid}@#{AppConfig.pod_uri.host}")
       end
 
       it "BODY: does not show the limited post" do
@@ -439,12 +460,36 @@ describe Notifier, type: :mailer do
     end
   end
 
+  describe ".csrf_token_fail" do
+    let(:email) { Notifier.csrf_token_fail(alice.id) }
+
+    it "goes to the right person" do
+      expect(email.to).to eq([alice.email])
+    end
+
+    it "has the correct subject" do
+      expect(email.subject).to eq(I18n.translate("notifier.csrf_token_fail.subject", name: alice.name))
+    end
+
+    it "has the receivers name in the body" do
+      expect(email.body.encoded).to include(alice.person.profile.first_name)
+    end
+
+    it "has some informative text in the body" do
+      email.body.parts.each do |part|
+        expect(part.decoded).to include("https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)")
+      end
+    end
+  end
+
   describe "hashtags" do
     it "escapes hashtags" do
       mails = Notifier.admin("#Welcome to bureaucracy!", [bob])
       expect(mails.length).to eq(1)
       mail = mails.first
-      expect(mail.body.encoded).to match "<p><a href=\"http://localhost:9887/tags/welcome\">#Welcome</a> to bureaucracy!</p>"
+      expect(mail.body.encoded).to match(
+        "<p><a href=\"#{AppConfig.url_to(tag_path('welcome'))}\">#Welcome</a> to bureaucracy!</p>"
+      )
     end
   end
 

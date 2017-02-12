@@ -2,12 +2,47 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe AdminsController, :type => :controller do
   before do
     @user = FactoryGirl.create :user
-    sign_in :user, @user
+    sign_in @user, scope: :user
+  end
+
+  describe "#dashboard" do
+    context "admin not signed in" do
+      it "is behind redirect_unless_admin" do
+        get :dashboard
+        expect(response).to redirect_to stream_path
+      end
+    end
+
+    context "admin signed in" do
+      before do
+        Role.add_admin(@user.person)
+        @post = bob.post(:status_message, text: "hello", to: bob.aspects.first.id)
+        @post_report = alice.reports.create(
+          item_id: @post.id, item_type: "Post",
+          text: "offensive content"
+        )
+      end
+
+      it "succeeds" do
+        get :dashboard
+        expect(response).to be_success
+      end
+
+      it "warns the user about unreviewed reports" do
+        get :dashboard
+        expect(response.body).to match("reports-warning")
+        expect(response.body).to include(I18n.t("report.unreviewed_reports", count: 1))
+      end
+
+      it "doesn't show a report warning if there are no unreviewed reports" do
+        @post_report.mark_as_reviewed
+        get :dashboard
+        expect(response.body).not_to match("reports-warning")
+      end
+    end
   end
 
   describe '#user_search' do
@@ -86,6 +121,12 @@ describe AdminsController, :type => :controller do
         expect(response).to redirect_to user_search_path
         expect(flash.notice).to include("invitation sent")
       end
+
+      it "doesn't invite an existing user" do
+        get :admin_inviter, identifier: bob.email
+        expect(response).to redirect_to user_search_path
+        expect(flash.notice).to include("error sending invite")
+      end
     end
   end
 
@@ -94,10 +135,27 @@ describe AdminsController, :type => :controller do
       Role.add_admin(@user.person)
     end
 
-    it 'succeeds and renders stats' do
+    it "succeeds and renders stats" do
       get :stats
       expect(response).to be_success
       expect(response).to render_template(:stats)
+      expect(response.body).to include(
+        I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.daily"))
+      )
+    end
+
+    it "succeeds and renders stats for different ranges" do
+      %w(week 2weeks month).each do |range|
+        get :stats, range: range
+        expect(response).to be_success
+        expect(response).to render_template(:stats)
+        expect(response.body).not_to include(
+          I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.daily"))
+        )
+        expect(response.body).to include(
+          I18n.translate("admins.stats.display_results", segment: I18n.translate("admins.stats.#{range}"))
+        )
+      end
     end
   end
 end

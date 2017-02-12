@@ -3,9 +3,7 @@
 #   the COPYRIGHT file.
 
 class Person < ActiveRecord::Base
-  include ROXML
-  include Encryptor::Public
-  include Diaspora::Guid
+  include Diaspora::Fields::Guid
 
   # NOTE API V1 to be extracted
   acts_as_api
@@ -23,15 +21,10 @@ class Person < ActiveRecord::Base
     }, :as => :avatar
   end
 
-  xml_attr :diaspora_handle
-  xml_attr :url
-  xml_attr :profile, :as => Profile
-  xml_attr :exported_key
-
   has_one :profile, dependent: :destroy
   delegate :last_name, :image_url, :tag_string, :bio, :location,
            :gender, :birthday, :formatted_birthday, :tags, :searchable,
-           to: :profile
+           :public_details?, to: :profile
   accepts_nested_attributes_for :profile
 
   before_validation :downcase_diaspora_handle
@@ -50,20 +43,22 @@ class Person < ActiveRecord::Base
   has_many :roles
 
   belongs_to :owner, :class_name => 'User'
+  belongs_to :pod
 
   has_many :notification_actors
   has_many :notifications, :through => :notification_actors
 
   has_many :mentions, :dependent => :destroy
 
-  before_validation :clean_url
-
-  validates :url, :presence => true
+  validate :owner_xor_pod
+  validate :other_person_with_same_guid, on: :create
   validates :profile, :presence => true
   validates :serialized_public_key, :presence => true
   validates :diaspora_handle, :uniqueness => true
 
-  scope :searchable, -> { joins(:profile).where(:profiles => {:searchable => true}) }
+  scope :searchable, -> (user) {
+    joins(:profile).where("profiles.searchable = true OR contacts.user_id = ?", user.id)
+  }
   scope :remote, -> { where('people.owner_id IS NULL') }
   scope :local, -> { where('people.owner_id IS NOT NULL') }
   scope :for_json, -> {
@@ -150,27 +145,26 @@ class Person < ActiveRecord::Base
     [where_clause, q_tokens]
   end
 
-  def self.search(query, user)
-    return self.where("1 = 0") if query.to_s.blank? || query.to_s.length < 2
+  def self.search(search_str, user, only_contacts: false, mutual: false)
+    search_str.strip!
+    return none if search_str.blank? || search_str.size < 2
 
-    sql, tokens = self.search_query_string(query)
+    sql, tokens = search_query_string(search_str)
 
-    Person.searchable.where(sql, *tokens).joins(
-      "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
-    ).includes(:profile
-    ).order(search_order)
-  end
+    query = if only_contacts
+              joins(:contacts).where(contacts: {user_id: user.id})
+            else
+              joins(
+                "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
+              ).searchable(user)
+            end
 
-  # @return [Array<String>] postgreSQL and mysql deal with null values in orders differently, it seems.
-  def self.search_order
-    @search_order ||= Proc.new {
-      order = if AppConfig.postgres?
-        "ASC"
-      else
-        "DESC"
-      end
-      ["contacts.user_id #{order}", "profiles.last_name ASC", "profiles.first_name ASC"]
-    }.call
+    query = query.where(contacts: {sharing: true, receiving: true}) if mutual
+
+    query.where(closed_account: false)
+         .where(sql, *tokens)
+         .includes(:profile)
+         .order(["contacts.user_id IS NULL", "profiles.last_name ASC", "profiles.first_name ASC"])
   end
 
   def name(opts = {})
@@ -199,14 +193,16 @@ class Person < ActiveRecord::Base
     @username ||= owner ? owner.username : diaspora_handle.split("@")[0]
   end
 
+  def author
+    self
+  end
+
   def owns?(obj)
     self.id == obj.author_id
   end
 
   def url
     url_to "/"
-  rescue
-    self[:url]
   end
 
   def profile_url
@@ -219,6 +215,12 @@ class Person < ActiveRecord::Base
 
   def receive_url
     url_to "/receive/users/#{guid}"
+  end
+
+  # @param path [String]
+  # @return [String]
+  def url_to(path)
+    local? ? AppConfig.url_to(path) : pod.url_to(path)
   end
 
   def public_key_hash
@@ -239,30 +241,20 @@ class Person < ActiveRecord::Base
   end
 
   # discovery (webfinger)
-  def self.find_or_fetch_by_identifier(account)
+  def self.find_or_fetch_by_identifier(diaspora_id)
     # exiting person?
-    person = by_account_identifier(account)
+    person = by_account_identifier(diaspora_id)
     return person if person.present? && person.profile.present?
 
     # create or update person from webfinger
-    logger.info "webfingering #{account}, it is not known or needs updating"
-    DiasporaFederation::Discovery::Discovery.new(account).fetch_and_save
+    logger.info "webfingering #{diaspora_id}, it is not known or needs updating"
+    DiasporaFederation::Discovery::Discovery.new(diaspora_id).fetch_and_save
 
-    by_account_identifier(account)
+    by_account_identifier(diaspora_id)
   end
 
-  # database calls
-  def self.by_account_identifier(identifier)
-    identifier = identifier.strip.downcase.sub("acct:", "")
-    find_by(diaspora_handle: identifier)
-  end
-
-  def self.find_local_by_diaspora_handle(handle)
-    where(diaspora_handle: handle, closed_account: false).where.not(owner: nil).take
-  end
-
-  def self.find_local_by_guid(guid)
-    where(guid: guid, closed_account: false).where.not(owner: nil).take
+  def self.by_account_identifier(diaspora_id)
+    find_by(diaspora_handle: diaspora_id.strip.downcase)
   end
 
   def remote?
@@ -290,23 +282,6 @@ class Person < ActiveRecord::Base
     json
   end
 
-  # Update an array of people given a url, and set it as the new destination_url
-  # @param people [Array<People>]
-  # @param url [String]
-  def self.url_batch_update(people, url)
-    people.each do |person|
-      person.update_url(url)
-    end
-  end
-
-  # @param person [Person]
-  # @param url [String]
-  def update_url(url)
-    @uri = URI.parse(url)
-    @uri.path = "/"
-    update_attributes(:url => @uri.to_s)
-  end
-
   def lock_access!
     self.closed_account = true
     self.save
@@ -317,32 +292,20 @@ class Person < ActiveRecord::Base
     self
   end
 
-  protected
-
-  def clean_url
-    if self.url
-      self.url = 'http://' + self.url unless self.url.match(/https?:\/\//)
-      self.url = self.url + '/' if self.url[-1, 1] != '/'
-    end
-  end
-
   private
-
-  # @return [URI]
-  def uri
-    @uri ||= URI.parse(self[:url])
-    @uri.dup
-  end
-
-  # @param path [String]
-  # @return [String]
-  def url_to(path)
-    uri.tap {|uri| uri.path = path }.to_s
-  end
 
   def fix_profile
     logger.info "fix profile for account: #{diaspora_handle}"
     DiasporaFederation::Discovery::Discovery.new(diaspora_handle).fetch_and_save
     reload
+  end
+
+  def owner_xor_pod
+    errors.add(:base, "Specify an owner or a pod, not both") unless owner.blank? ^ pod.blank?
+  end
+
+  def other_person_with_same_guid
+    diaspora_id = Person.where(guid: guid).where.not(diaspora_handle: diaspora_handle).pluck(:diaspora_handle).first
+    errors.add(:base, "Person with same GUID already exists: #{diaspora_id}") if diaspora_id
   end
 end

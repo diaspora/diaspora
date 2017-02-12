@@ -1,12 +1,17 @@
-.modal.hide.fade{ :id => id, 
-                  :tabindex => '-1', 
-                  :role => 'dialog', 
-                  'aria-labelledby' => "#{id}Label", 
-                  'aria-hidden' => 'true', 
-                  'data-remote' => path}
-  .modal-header
-    %button.close{:type => 'button', 'data-dismiss' => 'modal', 'aria-hidden' => 'true' }
-      &times;
-    %h3{ :id => "#{id}Label"}
-      = title
-  .modal-body
+.modal.fade{"id" => id,
+            "tabindex" => "-1",
+            "role" => "dialog",
+            "aria-labelledby" => "#{id}Label",
+            "aria-hidden" => "true",
+            "href" => path}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"type" => "button", "data-dismiss" => "modal", "aria-hidden" => "true"}
+          &times;
+        %h3.modal-title{id: "#{id}Label"}
+          = title
+      .modal-body
+        #modalWaiter.text-center
+          .loader
+            .spinner

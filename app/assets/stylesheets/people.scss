@@ -3,15 +3,16 @@
     .term { font-weight: 700; }
     small { margin-left: 15px; }
   }
+  #invitations-button { padding-left: 0; }
 }
 #people_stream {
   .media, .media-body {
     overflow: visible;
   }
-  .stream_element.media {
+  .stream-element.media {
     border-bottom: 1px solid $border-grey;
     padding: 10px;
-    margin: 0px;
+    margin: 0;
     font-size: 13px;
     line-height: 16px;
     min-height: 50px;
@@ -24,6 +25,23 @@
       line-height: 50px;
       margin-right: 10px;
     }
-    .info { font-size: 11px; }
+    .info { font-size: $font-size-small; }
+  }
+}
+#blocked_people {
+  .blocked-person {
+    border-bottom: 1px solid $border-grey;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 0;
+    min-height: 50px;
+    padding: 10px 0;
+    &:last-of-type { border-bottom: 0; }
+    .avatar {
+      width: 50px;
+      height: 50px;
+    }
+    .info { font-size: $font-size-small; }
+    .btn-danger { margin-top: 9px; }
   }
 }

@@ -5,7 +5,7 @@ class EmailInviter
     options = options.symbolize_keys
     self.message = options[:message]
     self.locale = options.fetch(:locale, 'en')
-    self.inviter = inviter 
+    self.inviter = inviter
     self.emails = emails
   end
 
@@ -16,7 +16,7 @@ class EmailInviter
   end
 
   def invitation_code
-    @invitation_code ||= inviter.invitation_code 
+    @invitation_code ||= inviter.invitation_code
   end
 
   def send!
@@ -26,6 +26,6 @@ class EmailInviter
   private
 
   def mail(email)
-    Notifier.invite(email, message, inviter, invitation_code, locale).deliver_now!
+    Notifier.invite(email, message, inviter, invitation_code, locale).deliver_now
   end
 end

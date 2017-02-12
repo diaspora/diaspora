@@ -2,13 +2,11 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe AspectsController, :type => :controller do
   before do
     alice.getting_started = false
     alice.save
-    sign_in :user, alice
+    sign_in alice, scope: :user
     @alices_aspect_1 = alice.aspects.where(:name => "generic").first
     @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
 

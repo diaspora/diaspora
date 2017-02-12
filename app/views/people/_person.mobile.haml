@@ -2,12 +2,13 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.stream_element{:id => person.id}
-
+.stream-element{id: person.id}
   .content
-    =person_image_link(person)
-    %span.from
-      =person_link(person)
-
-    .info
-      = link_to person.diaspora_handle, local_or_remote_person_path(person), :class => 'black'
+    .media
+      .media-left
+        = person_image_link(person, size: :thumb_small, class: "media-object")
+      .media-body
+        %span.from
+          = person_link(person, size: :thumb_small)
+        .info
+          = link_to person.diaspora_handle, local_or_remote_person_path(person), class: "black"

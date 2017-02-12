@@ -1,8 +1,8 @@
 .subject
-  .badge.badge-dafault.message_count
+  .badge.badge-default.message-count.pull-right
     = conversation.messages.size
   - if unread_count > 0
-    .badge.badge-important.unread_message_count
+    .badge.badge-important.unread-message-count.pull-right
       = unread_count
 
   %div{ :class => direction_for(conversation.subject) }

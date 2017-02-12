@@ -3,10 +3,21 @@
 app.views.ProfileHeader = app.views.Base.extend({
   templateName: 'profile_header',
 
+  subviews: {
+    ".aspect_membership_dropdown": "aspectMembershipView"
+  },
+
+  events: {
+    "click #mention_button": "showMentionModal",
+    "click #message_button": "showMessageModal"
+  },
+
   initialize: function(opts) {
-    app.events.on('aspect:create', this.postRenderTemplate, this);
     this.photos = _.has(opts, 'photos') ? opts.photos : null;
     this.contacts = _.has(opts, 'contacts') ? opts.contacts : null;
+    this.model.on("change", this.render, this);
+    $("#mentionModal").on("modal:loaded", this.mentionModalLoaded.bind(this));
+    $("#mentionModal").on("hidden.bs.modal", this.mentionModalHidden);
   },
 
   presenter: function() {
@@ -24,6 +35,10 @@ app.views.ProfileHeader = app.views.Base.extend({
     });
   },
 
+  aspectMembershipView: function() {
+    return new app.views.AspectMembership({person: this.model, dropdownMayCreateNewAspect: true});
+  },
+
   _hasTags: function() {
     return (this.model.get('profile')['tags'].length > 0);
   },
@@ -33,29 +48,42 @@ app.views.ProfileHeader = app.views.Base.extend({
   },
 
   _shouldShowPhotos: function() {
-    return (this.photos && this.photos.count > 0);
+    return (this.photos && this.photos > 0);
   },
 
   _shouldShowContacts: function() {
-    return (this.contacts && this.contacts.count > 0);
+    return (this.contacts && this.contacts > 0);
   },
 
-  postRenderTemplate: function() {
-    var dropdownEl = this.$('.aspect_membership_dropdown.placeholder');
-    if( dropdownEl.length === 0 ) {
-      return;
-    }
+  showMentionModal: function() {
+    app.helpers.showModal("#mentionModal");
+  },
 
-    // TODO render me client side!!!
-    var href = this.model.url() + '/aspect_membership_button?create=true&size=normal';
-
-    $.get(href, function(resp) {
-      dropdownEl.html(resp);
-      new app.views.AspectMembership({el: $('.aspect_dropdown',dropdownEl)});
-
-      // UGLY (re-)attach the facebox
-      self.$('a[rel*=facebox]').facebox();
+  mentionModalLoaded: function() {
+    app.publisher = new app.views.Publisher({
+      standalone: true,
+      prefillMention: _.extend({handle: this.model.get("diaspora_id")}, this.model.attributes)
     });
+    app.publisher.open();
+    $("#publisher").bind("ajax:success", function() {
+      $("#mentionModal").modal("hide");
+      app.publisher.clear();
+      app.publisher.remove();
+      location.reload();
+    });
+  },
+
+  mentionModalHidden: function() {
+    app.publisher.clear();
+    app.publisher.remove();
+    $("#mentionModal .modal-body").empty();
+  },
+
+  showMessageModal: function(){
+    $("#conversationModal").on("modal:loaded", function() {
+      new app.views.ConversationsForm({prefill: gon.conversationPrefill});
+    });
+    app.helpers.showModal("#conversationModal");
   }
 });
 // @license-end

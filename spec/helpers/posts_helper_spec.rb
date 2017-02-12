@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe PostsHelper, :type => :helper do
 
   describe '#post_page_title' do
@@ -32,7 +30,7 @@ describe PostsHelper, :type => :helper do
     end
 
     it "returns an iframe containing the post" do
-      expect(post_iframe_url(@post.id)).to include "src='http://localhost:9887#{post_path(@post)}'"
+      expect(post_iframe_url(@post.id)).to include "src='#{AppConfig.url_to(post_path(@post))}'"
     end
   end
 end

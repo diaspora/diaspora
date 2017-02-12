@@ -4,56 +4,163 @@
 
 - content_for :head do
   - if AppConfig.chat.enabled?
-    = javascript_include_tag :jsxc, :id => 'jsxc',
-      :data => { :endpoint => get_bosh_endpoint }
+    = javascript_include_tag :jsxc, id: 'jsxc',
+      data: { endpoint: get_bosh_endpoint }
 
 - if current_user.getting_started?
   #welcome-to-diaspora
     .container-fluid
-      .row-fluid
-        .span8.offset1
+      .row
+        .col-md-9
           %h1
-            = t('aspects.index.welcome_to_diaspora', :name => current_user.first_name)
+            = t('aspects.index.welcome_to_diaspora', name: current_user.first_name)
           %h3
             = t('aspects.index.introduce_yourself')
-        .span2
+        .col-md-3
           .pull-right
-            = link_to '&times;'.html_safe, getting_started_completed_path, :id => "gs-skip-x", :class => "close"
+            = link_to '&times;'.html_safe, getting_started_completed_path, id: "gs-skip-x", class: "close"
 
 .container-fluid
-  .row-fluid
-    .offset1.span2#leftNavBar
-      #home_user_badge
-        = owner_image_link
-        %h4
-          = link_to current_user.first_name, local_or_remote_person_path(current_user.person)
+  .row
+    .col-md-3
+      .sidebar.left-navbar
+        %ul#stream_selection
+          %li{data: {stream: "stream"}}
+            = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
+          %li{data: {stream: "activity"}}
+            = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
+          %li{data: {stream: "mentions"}}
+            = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
+          %li.all-aspects
+            = render "aspects/aspect_listings", stream: @stream
+          %li.followed-tags-sidebar
+            = render "tags/followed_tags_listings"
+          %li{data: {stream: "public"}}
+            = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
 
-      %ul#stream_selection
-        %li{data: {stream: "stream"}}
-          = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
-        %li{data: {stream: "activity"}}
-          = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
-        %li{data: {stream: "mentions"}}
-          = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
-        %li.all_aspects
-          = render "aspects/aspect_listings", stream: @stream
-        %li
-          = render "tags/followed_tags_listings"
-        %li{data: {stream: "public"}}
-          = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
+      .sidebar.info-bar.hidden-xs
+        - if AppConfig.settings.invitations.open?
+          .section.collapsed
+            .title
+              %h5.title-header
+                .entypo-triangle-right
+                .entypo-triangle-down
+                = t("shared.invitations.invite_your_friends")
+            .content
+              = render "shared/invitations"
 
-    .span6
-      #aspect_stream_container.stream_container
-        = render 'aspects/aspect_stream', :stream => @stream
+        .section.collapsed
+          .title
+            %h5.title-header
+              .entypo-triangle-right
+              .entypo-triangle-down
+              = t("aspects.index.new_here.title")
+          .content
+            != t("aspects.index.new_here.follow",
+              link: link_to("#" + t("shared.publisher.new_user_prefill.newhere"),
+              tag_path(name: t("shared.publisher.new_user_prefill.newhere"))))
+            %br
+            = link_to(t("aspects.index.new_here.learn_more"),
+              "http://wiki.diasporafoundation.org/Welcoming_Committee")
 
-    .span2.rightBar
-      #selected_aspect_contacts.section
-        .title.no_icon
-          %h5.stream_title
-            = @stream.title
-        .content
+        .section.collapsed
+          .title
+            %h5.title-header
+              .entypo-triangle-right
+              .entypo-triangle-down
+              = t("aspects.index.help.need_help")
+          .content
+            %p
+              = t("aspects.index.help.here_to_help")
+            %p
+              = t("aspects.index.help.do_you")
+            %ul
+              %li
+                != t("aspects.index.help.have_a_question",
+                  link: link_to("#" + t("aspects.index.help.tag_question"),
+                  tag_path(name: t("aspects.index.help.tag_question"))))
+              %li
+                != t("aspects.index.help.find_a_bug",
+                  link: link_to(t("aspects.index.help.tag_bug"),
+                  "https://wiki.diasporafoundation.org/How_to_report_a_bug"))
+              %li
+                != t("aspects.index.help.feature_suggestion",
+                  link: link_to("#" + t("aspects.index.help.tag_feature"),
+                  tag_path(name: t("aspects.index.help.tag_feature"))))
+            %p
+              != t("aspects.index.help.tutorials_and_wiki",
+                faq: link_to(t("_help"), help_path),
+                tutorial: link_to(t("aspects.index.help.tutorial_link_text"),
+                  "https://diasporafoundation.org/tutorials", target: "_blank"),
+                wiki: link_to("Wiki", "http://wiki.diasporafoundation.org",
+                  target: "_blank"),
+                target: "_blank")
 
-      = render 'shared/right_sections'
+        - unless AppConfig.configured_services.blank? || all_services_connected?
+          .section.collapsed
+            .title
+              %h5.title-header
+                .entypo-triangle-right
+                .entypo-triangle-down
+                = t("aspects.index.services.heading")
+            .content
+              %div
+                = t("aspects.index.services.content")
 
-      %a{:id=>"back-to-top", :title=>"#{t('layouts.application.back_to_top')}", :href=>"#"}
-        &#8679;
+              .right-service-icons
+                - AppConfig.configured_services.each do |service|
+                  - if AppConfig.show_service?(service, current_user)
+                    - unless current_user.services.any? {|x| x.provider == service }
+                      = link_to(content_tag(:div, nil,
+                        class: "social-media-logos-#{service.to_s.downcase}-24x24",
+                        title: service.to_s.titleize), "/auth/#{service}")
+
+        .section.collapsed
+          .title
+            %h5.title-header
+              .entypo-triangle-right
+              .entypo-triangle-down
+              = t("bookmarklet.heading")
+          .content
+            != t("bookmarklet.explanation", link: link_to(t("bookmarklet.post_something"), bookmarklet_code))
+
+        - if AppConfig.settings.paypal_donations.enable? || AppConfig.bitcoin_donation_address
+          .section.collapsed
+            .title
+              %h5.title-header
+                .entypo-triangle-right
+                .entypo-triangle-down
+                = t("aspects.index.donate")
+            .content
+              %p
+                = t("aspects.index.keep_pod_running", pod: AppConfig.pod_uri.host)
+              = render "shared/donatepod"
+
+        - if AppConfig.admins.podmin_email.present?
+          .section.collapsed
+            .title
+              %h5.title-header
+                .entypo-triangle-right
+                .entypo-triangle-down
+                = t("aspects.index.help.any_problem")
+            .content
+              %p
+                = t("aspects.index.help.contact_podmin")
+              %p
+                = link_to t("aspects.index.help.mail_podmin"), "mailto:#{AppConfig.admins.podmin_email}"
+
+        .excellence-box
+          .content
+            %p
+              = t("layouts.application.be_excellent")
+
+        .info-links
+          .content
+            %ul
+              = render "shared/links"
+
+    .col-md-9
+      .stream_container#aspect_stream_container
+        = render "aspects/aspect_stream", stream: @stream
+
+      %a.entypo-chevron-up.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}

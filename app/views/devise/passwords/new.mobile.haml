@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 #main_stream.stream
-  #login_form
+  .login-form
     .login-container
       = form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
         %fieldset
@@ -18,10 +18,10 @@
               = f.text_field :email
 
           .controls
-            = f.submit t('devise.passwords.new.send_password_instructions'), :class => 'btn'
+            = f.submit t("devise.passwords.new.send_password_instructions"), class: "btn btn-primary"
 
 %footer
-  - if display_registration_link?    
+  - if display_registration_link?
     = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
 
   = link_to t('devise.sessions.new.sign_in'), new_user_session_path()

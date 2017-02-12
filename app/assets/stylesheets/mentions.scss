@@ -20,6 +20,8 @@
     box-sizing: border-box;
   }
 
+  .form-control[disabled] { background-color: transparent; }
+
   .mentions-autocomplete-list {
     background: white;
     display: none;
@@ -69,28 +71,21 @@
     bottom: 0px;
     left: 0px;
     top: 0px;
-    padding: 4px 6px;
+    padding: $padding-base-vertical $padding-base-horizontal;
   }
 
   .mentions {
-    color: white;
-    font-size: 14px;
+    color: transparent;
+    font-size: $font-size-base;
     font-family: Arial, Helvetica, sans-serif;
-    line-height: normal;
     overflow: hidden;
     width: 100%;
     white-space: pre-wrap;
     word-wrap: break-word;
 
-    > div {
-      color: white;
-      white-space: pre-wrap;
-      width: 100%;
-
-      strong {
-        background: #d8dfea;
-        font-weight: normal;
-      }
+    > strong {
+      background: $background-blue;
+      font-weight: normal;
     }
   }
 }

@@ -2,164 +2,140 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
-describe InvitationsController, :type => :controller do
-
-  before do
-    AppConfig.settings.invitations.open = true
-    @user   = alice
-    @invite = {'email_inviter' => {'message' => "test", 'emails' => "abc@example.com"}}
-  end
-
+describe InvitationsController, type: :controller do
   describe "#create" do
+    let(:referer) { "http://test.host/cats/foo" }
+    let(:invite_params) { {email_inviter: {emails: "abc@example.com"}} }
+
     before do
-      sign_in :user, @user
-      allow(@controller).to receive(:current_user).and_return(@user)
-      @referer = 'http://test.host/cats/foo'
-      request.env["HTTP_REFERER"] = @referer
+      sign_in alice, scope: :user
+      request.env["HTTP_REFERER"] = referer
     end
 
     context "no emails" do
-      before do
-        @invite = {'email_inviter' => {'message' => "test", 'emails' => ""}}
-      end
+      let(:invite_params) { {email_inviter: {emails: ""}} }
 
-      it 'does not create an EmailInviter' do
+      it "does not create an EmailInviter" do
         expect(Workers::Mail::InviteEmail).not_to receive(:perform_async)
-        post :create,  @invite
+        post :create, invite_params
       end
 
-      it 'returns to the previous page' do
-        post :create, @invite
-        expect(response).to redirect_to @referer
+      it "returns to the previous page" do
+        post :create, invite_params
+        expect(response).to redirect_to referer
       end
 
-      it 'flashes an error' do
-        post :create, @invite
+      it "flashes an error" do
+        post :create, invite_params
         expect(flash[:error]).to eq(I18n.t("invitations.create.empty"))
       end
     end
 
-    context 'only valid emails' do
-      before do
-        @emails = 'mbs@gmail.com'
-        @invite = {'email_inviter' => {'message' => "test", 'emails' => @emails}}
+    context "only valid emails" do
+      let(:emails) { "mbs@gmail.com" }
+      let(:invite_params) { {email_inviter: {emails: emails}} }
+
+      it "creates an InviteEmail worker" do
+        expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(
+          emails, alice.id, invite_params[:email_inviter]
+        )
+        post :create, invite_params
       end
 
-      it 'creates an InviteEmail worker'  do
-        inviter = double(:emails => [@emails], :send! => true)
-        expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(@invite['email_inviter']['emails'], @user.id, @invite['email_inviter'])
-        post :create,  @invite
+      it "returns to the previous page on success" do
+        post :create, invite_params
+        expect(response).to redirect_to referer
       end
 
-      it 'returns to the previous page on success' do
-        post :create, @invite
-        expect(response).to redirect_to @referer
-      end
-
-      it 'flashes a notice' do
-        post :create, @invite
-        expected =  I18n.t('invitations.create.sent', :emails => @emails.split(',').join(', '))
+      it "flashes a notice" do
+        post :create, invite_params
+        expected = I18n.t("invitations.create.sent", emails: emails)
         expect(flash[:notice]).to eq(expected)
       end
     end
 
-    context 'only invalid emails' do
-      before do
-        @emails = 'invalid_email'
-        @invite = {'email_inviter' => {'message' => "test", 'emails' => @emails}}
-      end
+    context "only invalid emails" do
+      let(:emails) { "invalid_email" }
+      let(:invite_params) { {email_inviter: {emails: emails}} }
 
-      it 'does not create an InviteEmail worker' do
+      it "does not create an InviteEmail worker" do
         expect(Workers::Mail::InviteEmail).not_to receive(:perform_async)
-        post :create,  @invite
+        post :create, invite_params
       end
 
-      it 'returns to the previous page' do
-        post :create, @invite
-        expect(response).to redirect_to @referer
+      it "returns to the previous page" do
+        post :create, invite_params
+        expect(response).to redirect_to referer
       end
 
-      it 'flashes an error' do
-        post :create, @invite
+      it "flashes an error" do
+        post :create, invite_params
 
-        expected =  I18n.t('invitations.create.rejected') + @emails.split(',').join(', ')
+        expected = I18n.t("invitations.create.rejected", emails: emails)
         expect(flash[:error]).to eq(expected)
       end
     end
 
-    context 'mixed valid and invalid emails' do
+    context "mixed valid and invalid emails" do
+      let(:valid_emails) { "foo@bar.com,mbs@gmail.com" }
+      let(:invalid_emails) { "invalid_email" }
+      let(:invite_params) { {email_inviter: {emails: valid_emails + "," + invalid_emails}} }
+
+      it "creates an InviteEmail worker" do
+        expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(
+          valid_emails, alice.id, invite_params[:email_inviter]
+        )
+        post :create, invite_params
+      end
+
+      it "returns to the previous page" do
+        post :create, invite_params
+        expect(response).to redirect_to referer
+      end
+
+      it "flashes a notice" do
+        post :create, invite_params
+        expected = I18n.t("invitations.create.sent", emails: valid_emails.split(",").join(", ")) + ". " +
+          I18n.t("invitations.create.rejected", emails: invalid_emails)
+        expect(flash[:error]).to eq(expected)
+      end
+    end
+
+    context "with registration disabled" do
       before do
-        @valid_emails = 'foo@bar.com,mbs@gmail.com'
-        @invalid_emails = 'invalid'
-        @invite = {'email_inviter' => {'message' => "test", 'emails' =>
-                                       @valid_emails + ',' + @invalid_emails}}
+        AppConfig.settings.enable_registrations = false
       end
 
-      it 'creates an InviteEmail worker'  do
-        inviter = double(:emails => [@emails], :send! => true)
-        expect(Workers::Mail::InviteEmail).to receive(:perform_async).with(@valid_emails, @user.id, @invite['email_inviter'])
-        post :create,  @invite
+      it "displays an error if invitations are closed" do
+        AppConfig.settings.invitations.open = false
+
+        post :create, invite_params
+
+        expect(flash[:error]).to eq(I18n.t("invitations.create.closed"))
       end
 
-      it 'returns to the previous page' do
-        post :create, @invite
-        expect(response).to redirect_to @referer
-      end
+      it "displays an error when no invitations are left" do
+        alice.invitation_code.update_attributes(count: 0)
 
-      it 'flashes a notice' do
-        post :create, @invite
-        expected =  I18n.t('invitations.create.sent', :emails =>
-                          @valid_emails.split(',').join(', ')) +
-                          '. ' + I18n.t('invitations.create.rejected') +
-                          @invalid_emails.split(',').join(', ')
-        expect(flash[:error]).to eq(expected)
+        post :create, invite_params
+
+        expect(flash[:error]).to eq(I18n.t("invitations.create.no_more"))
       end
     end
 
-    it 'redirects if invitations are closed' do
-      AppConfig.settings.invitations.open =  false
+    it "does not display an error when registration is open" do
+      AppConfig.settings.invitations.open = false
+      alice.invitation_code.update_attributes(count: 0)
 
-      post :create, @invite
-      expect(response).to be_redirect
-    end
-  end
+      post :create, invite_params
 
-  describe '#email' do
-
-    it 'succeeds' do
-      get :email, :invitation_code => "anycode"
-      expect(response).to be_success
-    end
-
-    context 'legacy invite tokens' do
-      def get_email
-        get :email, :invitation_token => @invitation_token
-      end
-
-      context 'invalid token' do
-        @invitation_token = "invalidtoken"
-
-        it 'redirects and flashes if the invitation token is invalid' do
-          get_email
-
-          expect(response).to be_redirect
-          expect(response).to redirect_to root_url
-        end
-
-        it 'flashes an error if the invitation token is invalid' do
-          get_email
-
-          expect(flash[:error]).to eq(I18n.t("invitations.check_token.not_found"))
-        end
-      end
+      expect(flash[:error]).to be_nil
     end
   end
 
   describe '#new' do
     it 'renders' do
-      sign_in :user, @user
+      sign_in alice, scope: :user
       get :new
     end
   end

@@ -1,5 +1,5 @@
 #invite_code {
-  background-color: $white;
+  background-color: $framed-background;
   cursor: text;
   display: block;
   margin-top: 5px;
@@ -7,14 +7,13 @@
 
 #invitationsModal {
   .modal-header, .modal-body {
-    color: $text;
-    font-size: $font-size-text;
+    color: $text-color;
+    font-size: $font-size-base;
     text-align: initial;
   }
   #paste_link { font-weight: 700; }
   #invite_code { margin-top: 10px; }
-  #codes_left { color: $text-grey; }
-  .control-label { width: 120px; }
+  #codes_left { color: $text-color-pale; }
   .controls { margin-left: 140px; }
   #email_invitation {
     padding-top: 10px;
@@ -22,7 +21,7 @@
     border-top: 1px dashed $border-grey;
     label { font-weight: 700; }
     #already_sent {
-      color: $text-grey;
+      color: $text-color-pale;
       font-size: 12px;
     }
   }

@@ -1,0 +1,65 @@
+.conversations-title {
+  margin: 0 0 20px 0;
+  h3 { display: inline; }
+}
+.conversation {
+  .conversation-participants {
+    padding: 1rem 1.2rem;
+
+    h3 { margin: 0; }
+
+    .delete_conversation {
+      font-size: 2rem;
+
+      [class^="entypo-"], [class*="entypo-"] {
+        color: $link-grey;
+      }
+    }
+
+    .avatars {
+      margin: 0 -0.15rem;
+      .avatar {
+        margin: 0.15rem;
+        float: left;
+
+        img {
+          height: 50px;
+          width: 50px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  .stream .stream-element .timeago,
+  .conversation-participants .last-message-timeago {
+    display: block;
+    font-style: italic;
+    color: $text-grey;
+  }
+
+  .stream .stream-element {
+    padding: 0.5rem;
+
+    .ltr {
+      padding-left: 0px;
+    }
+  }
+}
+
+.conversations {
+  img.avatar {
+    margin: 10px;
+    float: left;
+  }
+  .no-messages {
+    text-align: center;
+    margin-top: 40px;
+  }
+}
+
+.subject { padding: 0 10px; }
+
+.message-count, .unread-message-count { margin: 10px 2px; }
+
+.new-conversation .as-selections { background-color: transparent; }

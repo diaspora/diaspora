@@ -4,155 +4,46 @@
 
 module Diaspora
   module Relayable
-    include Encryptable
-
     def self.included(model)
       model.class_eval do
-        #these fields must be in the schema for a relayable model
-        xml_attr :parent_guid
-        xml_attr :parent_author_signature
-        xml_attr :author_signature
-
         validates_associated :parent
-        validates :author, :presence => true
         validate :author_is_not_ignored
 
         delegate :public?, to: :parent
         delegate :author, :diaspora_handle, to: :parent, prefix: true
-
-        after_commit :on => :create do
-          parent.touch(:interacted_at) if parent.respond_to?(:interacted_at)
-        end
-
       end
     end
 
     def author_is_not_ignored
-      if self.new_record? && self.parent.present?
-        post_author = self.parent.author
-        relayable_author = self.author
-
-        if post_author.local? && post_author.owner.ignored_people.include?(relayable_author)
-          self.errors.add(:author_id, 'This person is ignored by the post author')
-          #post_author.owner.retract(self)
-        end
+      unless new_record? && parent.present? && parent.author.local? &&
+        parent.author.owner.ignored_people.include?(author)
+        return
       end
-    end
 
-    # @return [Boolean] true
-    def relayable?
-      true
-    end
-
-    # @return [String]
-    def parent_guid
-      return nil unless parent.present?
-      self.parent.guid
-    end
-
-    def parent_guid= new_parent_guid
-      @parent_guid = new_parent_guid
-      self.parent = parent_class.where(guid: new_parent_guid).first
+      errors.add(:author_id, "This relayable author is ignored by the post author")
     end
 
     # @return [Array<Person>]
-    def subscribers(user)
-      if user.owns?(self.parent)
-        self.parent.subscribers(user)
-      elsif user.owns?(self)
-        [self.parent.author]
+    def subscribers
+      if parent.author.local?
+        if author.local?
+          parent.subscribers
+        else
+          parent.subscribers.select(&:remote?).reject {|person| person.pod_id == author.pod_id }
+        end
       else
-        []
+        [parent.author, author]
       end
     end
 
-    def receive(user, person=nil)
-      comment_or_like = self.class.where(guid: self.guid).first || self
-
-      unless comment_or_like.signature_valid?
-        logger.warn "event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} "\
-                    "sender=#{comment_or_like.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
-        return
-      end
-
-      # Check to make sure the signature of the comment or like comes from the person claiming to author it
-      unless comment_or_like.parent_author == user.person || comment_or_like.verify_parent_author_signature
-        logger.warn "event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} "\
-                    "sender=#{parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{parent.id}"
-        return
-      end
-
-      # As the owner of the post being liked or commented on, you need to add your own signature in order to
-      # pass it to the people who received your original post
-      if user.owns? comment_or_like.parent
-        comment_or_like.parent_author_signature = comment_or_like.sign_with_key(user.encryption_key)
-        comment_or_like.save!
-      end
-
-      # Dispatch object DOWNSTREAM, received it via UPSTREAM
-      unless user.owns?(comment_or_like)
-        comment_or_like.save!
-        Postzord::Dispatcher.build(user, comment_or_like).post
-      end
-
-      if comment_or_like.after_receive(user, person)
-        comment_or_like
-      end
-    end
-
-    # @return [Object]
-    def after_receive(user, person)
-      self
-    end
-
-    def initialize_signatures
-      #sign relayable as model creator
-      self.author_signature = self.sign_with_key(author.owner.encryption_key)
-
-      if !self.parent.blank? && self.author.owns?(self.parent)
-        #sign relayable as parent object owner
-        self.parent_author_signature = sign_with_key(author.owner.encryption_key)
-      end
-    end
-
-    # @return [Boolean]
-    def verify_parent_author_signature
-      verify_signature(self.parent_author_signature, self.parent.author)
-    end
-
-    # @return [Boolean]
-    def signature_valid?
-      verify_signature(self.author_signature, self.author)
+    # @deprecated This is only needed for pre 0.6 pods
+    def sender_for_dispatch
+      parent.author.owner if parent.author.local?
     end
 
     # @abstract
-    # @return [Class]
-    def parent_class
-      raise NotImplementedError.new('you must override parent_class in order to enable relayable on this model')
-    end
-
-    # @abstract
-    # @return An instance of Relayable#parent_class
     def parent
       raise NotImplementedError.new('you must override parent in order to enable relayable on this model')
-    end
-
-    # @abstract
-    # @param parent An instance of Relayable#parent_class
-    def parent= parent
-      raise NotImplementedError.new('you must override parent= in order to enable relayable on this model')
-    end
-
-    # ROXML hook ensuring our own hooks are called
-    def after_parse
-      if @parent_guid
-        self.parent ||= fetch_parent(@parent_guid)
-      end
-    end
-
-    # Childs should override this to support fetching a missing parent
-    # @param guid the parents guid
-    def fetch_parent guid
     end
   end
 end

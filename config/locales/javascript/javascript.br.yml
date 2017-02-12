@@ -30,11 +30,8 @@ br:
       no_comments: "Evezhiadenn ebet evit ar mare"
       show: "Diskwel an holl evezhiadennoù"
     confirm_dialog: "Ha sur oc'h ?"
-    conversation:
-      participants: "Perzhidi"
     delete: "Diverkañ"
     edit: "Kemmañ"
-    failed_to_like: "C'hwitet merkañ plijus !"
     failed_to_post_message: "N'eus ket bet gallet embann ar gemennadenn !"
     failed_to_remove: "N'eus ket bet gallet lemel en enmont kuit !"
     getting_started:
@@ -59,9 +56,6 @@ br:
       view_all: "Gwelet pep tra"
     ignore: "Na ober van"
     ignore_user: "Na ober van ouzh an implijer-mañ ?"
-    infinite_scroll:
-      no_more: "Kemennadenn all ebet"
-      no_more_contacts: "Darempred ebet ken"
     my_activity: "Ma obererezh"
     my_aspects: "Ma strolladoù"
     my_stream: "Red darvoudoù"
@@ -93,21 +87,17 @@ br:
       contacts: "Darempredoù"
       edit: "Embann"
       gender: "Jener"
-      ignoring: "Ne rit ket van eus an holl postoù gant <%= name %>"
       location: "Lec'hiadur"
       photos: "Skeudennoù"
       posts: "Postoù"
       you_have_no_tags: "N'ho peus tiked ebet !"
     publisher:
       add_option: "Ouzhpennañ un dibarzh"
-      at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
       option: "Dibarzh <%= nr %>"
       question: "Goulenn"
     reshares:
-      duplicate: "Kaset eo bet an destenn-mañ pelloc'h ganeoc'h c'hoazh !"
       post: "Rannañ pelloc'h embannadenn <%= name %> ?"
       successful: "Rannet pelloc'h eo bet an embannadenn ervat !"
-    search_for: "Klask war-lerc'h <%= name %>"
     show_more: "Gwelet muioc'h"
     stream:
       comment: "Ober un evezhiadenn"
@@ -148,29 +138,24 @@ br:
       wasnt_that_interesting: "Mat eo, moarvat ne oa ket gwall zedennus #<%= tagName %>..."
     timeago:
       day: "un devezh"
-      days: "%d a zevezhioù"
+      days:
+        other: "%d a zevezhioù"
       hour: "war-dro un eurvezh"
-      hours: "war-dro %d eurvezh"
+      hours:
+        other: "war-dro %d eurvezh"
       minute: "war-dro ur vunutenn"
-      minutes: "%d a vunutennoù"
+      minutes:
+        other: "%d a vunutennoù"
       month: "war-dro miz"
-      months: "%d miz"
+      months:
+        other: "%d miz"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "dindan ur vunutenn"
       suffixAgo: "zo"
       suffixFromNow: "diwar-vremañ"
       year: "war-dro bloaz"
-      years: "%d bloaz"
-    videos:
-      unknown: "Dianav eo seurt ar video"
-      watch: "Sellet ouzh ar video gant <%= provider %>"
+      years:
+        other: "%d bloaz"
     viewer:
-      comment: "Evezhiadenn"
-      follow_post: "Heuliañ an embannadenn-mañ"
-      home: "Degemer"
-      like: "Plijus"
-      reshare: "Rannañ pelloc'h"
       reshared: "Rannet pelloc'h"
-      stop_following_post: "Paouez da heuliañ an embannadenn-mañ"
-      unlike: "Displijus"

@@ -1,0 +1,14 @@
+- content_for :page_title do
+  = t(".edit_applications")
+
+.container-fluid.applications-page
+  .row
+    .col-md-3
+      .sidebar
+        = render "shared/settings_nav"
+    .col-md-9
+      .framed-content.clearfix
+        %h3= t(".title")
+        .row
+          .col-md-12
+            = render "add_remove_applications"

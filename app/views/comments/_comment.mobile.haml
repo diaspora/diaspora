@@ -2,18 +2,22 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.comment{:data=>{:guid=>comment.id}, :class => ("hidden" if(defined? hidden))}
+%li.comment{data:{guid:comment.id}, class: ("hidden" if(defined? hidden))}
   .content
-    .remove_comment
-      .right
-        - if user_signed_in? && comment.author == current_user.person
-          = link_to(image_tag("mobile/deletelabel.png"), comment_path(comment), method: :delete, data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
-    .from
-      = person_image_link(comment.author)
-      = person_link(comment.author)
-      .info
-        %span
-          = timeago(comment.created_at ? comment.created_at : Time.now)
+    .media
+      .media-left
+        = person_image_link(comment.author, size: :thumb_small, class: "media-object")
+      .media-body
+        .from.pull-left
+          = person_link(comment.author)
+          .info
+            %span
+              = timeago(comment.created_at ? comment.created_at : Time.now)
+        .remove_comment
+          .pull-right
+            - if user_signed_in? && comment.author == current_user.person
+              = link_to(raw("<i class='entypo-trash'></i>"), comment_path(comment), method: :delete,
+                          data: { confirm: "#{t('are_you_sure')}" }, class: "remove")
 
-    %div{:class => direction_for(comment.text)}
+    %div{class: direction_for(comment.text)}
       = comment.message.markdownified

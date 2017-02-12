@@ -1,6 +1,13 @@
-%footer
+%footer.footer
   .container
+<<<<<<< HEAD
     %ul#footer_powered
       = render :partial =>'shared/powered'
     %ul#footer_nav
+=======
+    .pull-left
+      .powered-by-diaspora
+        =t("layouts.application.powered_by")
+    %ul#footer_nav.pull-right
+>>>>>>> upstream/master
       = render :partial =>'shared/links'

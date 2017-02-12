@@ -1,15 +1,10 @@
 describe("app.views.AspectsList", function(){
   beforeEach(function(){
     setFixtures('<ul id="aspects_list"></ul>');
-    Diaspora.I18n.load({ aspect_navigation : {
-      'select_all' : 'Select all',
-      'deselect_all' : 'Deselect all'
-    }});
-
     var aspects  = [{ name: 'Work',          selected: true  },
                    { name: 'Friends',       selected: false },
                    { name: 'Acquaintances', selected: false }];
-    this.aspects = new app.collections.Aspects(aspects);
+    this.aspects = new app.collections.AspectSelections(aspects);
     this.view    = new app.views.AspectsList({ collection: this.aspects });
   });
 
@@ -18,17 +13,17 @@ describe("app.views.AspectsList", function(){
       this.view.render();
     });
 
-    it('should show the corresponding aspects selected', function(){
-      expect(this.view.$('.selected').length).toBe(1);
-      expect(this.view.$('.selected + a.selectable').text()).toMatch('Work');
+    it("should show the corresponding aspects selected", function(){
+      expect(this.view.$(".selected").length).toBe(1);
+      expect(this.view.$(".selected").parent().text()).toMatch("Work");
     });
 
-    it('should show all the aspects', function(){
-      var aspect_selectors = this.view.$('.entypo.check + a.selectable');
-      expect(aspect_selectors.length).toBe(3);
-      expect(aspect_selectors[0].text).toMatch('Work');
-      expect(aspect_selectors[1].text).toMatch('Friends');
-      expect(aspect_selectors[2].text).toMatch('Acquaintances');
+    it("should show all the aspects", function(){
+      var aspectSelectors = this.view.$(".entypo-check").parent();
+      expect(aspectSelectors.length).toBe(3);
+      expect(aspectSelectors[0].text).toMatch("Work");
+      expect(aspectSelectors[1].text).toMatch("Friends");
+      expect(aspectSelectors[2].text).toMatch("Acquaintances");
     });
 
     it('should show \'Select all\' link', function(){

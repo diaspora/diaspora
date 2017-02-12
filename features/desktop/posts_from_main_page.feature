@@ -24,7 +24,8 @@ Feature: posting from the main page
       When I expand the publisher
       Then I should see "You can use Markdown to format your post" within ".markdownIndications"
       Then I should see "All aspects" within ".options_and_submit"
-      Then I should see "Preview" within ".options_and_submit"
+      Then I should see a ".md-write-tab" within ".md-header"
+      Then I should see a ".md-preview-tab" within ".md-header"
 
     Scenario: post a text-only message to all aspects
       Given I expand the publisher
@@ -77,26 +78,26 @@ Feature: posting from the main page
       When I write the status message "Look at this dog"
       And I submit the publisher
       And I go to the aspects page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
-      And I should see "Look at this dog" within ".stream_element"
+      Then I should see a "img" within ".stream-element div.photo_attachments"
+      And I should see "Look at this dog" within ".stream-element"
       When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
-      And I should see "Look at this dog" within ".stream_element"
+      Then I should see a "img" within ".stream-element div.photo_attachments"
+      And I should see "Look at this dog" within ".stream-element"
 
     Scenario: post a photo without text
       Given I expand the publisher
       And I attach "spec/fixtures/button.png" to the publisher
       Then I should see an uploaded image within the photo drop zone
       When I press "Share"
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo_attachments"
       When I go to the aspects page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo_attachments"
       When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
-      Then I should see a "img" within ".stream_element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo_attachments"
 
     Scenario: back out of posting a photo-only post
       Given I expand the publisher
@@ -135,7 +136,7 @@ Feature: posting from the main page
       And I sign in as "alice@alice.alice"
       And I am on "bob@bob.bob"'s page
 
-      And I hover over the ".stream_element"
+      And I hover over the ".stream-element"
       And I click to hide the first post
       And I go to "bob@bob.bob"'s page
       Then I should not see "Here is a post for you to hide"
@@ -147,7 +148,7 @@ Feature: posting from the main page
       When I write the status message "I am eating a yogurt"
       And I submit the publisher
       And I go to the aspects page
-      And I hover over the ".stream_element"
+      And I hover over the ".stream-element"
       And I click to delete the first post
       And I go to the aspects page
       Then I should not see "I am eating a yogurt"
@@ -156,6 +157,7 @@ Feature: posting from the main page
       When I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "PostingTo"
+      And I press the aspect dropdown
       And I append "I am eating a yogurt" to the publisher
       And I submit the publisher
 
@@ -171,12 +173,14 @@ Feature: posting from the main page
       When I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "PostingTo"
+      And I press the aspect dropdown
       And I append "I am eating a yogurt" to the publisher
       And I submit the publisher
 
       And I expand the publisher
       And I press the aspect dropdown
       And I toggle the aspect "Besties"
+      And I press the aspect dropdown
       And I append "And cornflakes also" to the publisher
       And I submit the publisher
 
@@ -193,13 +197,18 @@ Feature: posting from the main page
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt" and "And cornflakes also"
 
+    Scenario: Write html in the publisher
+      When I expand the publisher
+      Then I should not see any alert after I write the status message "<script>alert();</script>"
+      When I submit the publisher
+      Then "<script>alert();</script>" should be post 1
+
     # (NOTE) make this a jasmine spec
     Scenario: reject deletion one of my posts
       When I expand the publisher
       When I write the status message "I am eating a yogurt"
       And I submit the publisher
 
-      And I hover over the ".stream_element"
-      And I prepare the deletion of the first post
-      And I reject the alert
+      And I hover over the ".stream-element"
+      And I reject the alert after I prepare the deletion of the first post
       Then I should see "I am eating a yogurt"

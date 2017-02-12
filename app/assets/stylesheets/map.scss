@@ -1,0 +1,21 @@
+.mapContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.stream-element .near-from:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.leaflet-control-zoom {
+  display: none;
+}
+
+.leaflet-bottom .leaflet-control {
+  margin-bottom: 0;
+}
+
+.leaflet-right .leaflet-control {
+  margin-right: 0;
+}

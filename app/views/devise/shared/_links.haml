@@ -1,13 +1,13 @@
 - if controller_name != 'sessions'
   = link_to t('.sign_in'), new_session_path(resource_name)
   %br/
-- if AppConfig.settings.enable_registrations? && devise_mapping.registerable? && controller_name != 'registrations'
+- if display_registration_link?
   = link_to t('.sign_up'), new_registration_path(resource_name)
   %br/
 - else
   %b= t('.sign_up_closed')
   %br/
-- if devise_mapping.recoverable? && controller_name != 'passwords'
+- if display_password_reset_link?
   = link_to t('.forgot_your_password'), new_password_path(resource_name)
   %br/
 - if devise_mapping.confirmable? && controller_name != 'confirmations'

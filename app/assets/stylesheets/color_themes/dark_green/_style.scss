@@ -1,0 +1,13 @@
+/* Main color(s) */
+$brand-primary: #009900;
+
+/* Shades */
+$main-color-essence: fade-out($brand-primary, 0.8);
+$main-color-dark: darken($brand-primary, 20%);
+
+/* Bootstrap Variables */
+$btn-primary-bg: $brand-primary;
+$link-color: $brand-primary;
+$navbar-inverse-bg: $main-color-dark;
+
+@import 'color_themes/color_theme_override';

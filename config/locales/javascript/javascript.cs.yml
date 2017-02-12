@@ -6,6 +6,47 @@
 
 cs:
   javascripts:
+    admin:
+      pods:
+        actions: "Akce"
+        added: "Přidáno"
+        check: "Provést test spojení"
+        follow_link: "otevřít odkaz v prohlížeči"
+        last_check: "poslední kontrola:"
+        more_info: "Zobrazit více informací"
+        ms:
+          few: "<%= count %>ms"
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "Nyní nejsou dostupné žádné další informace"
+        not_available: "Není k dispozici"
+        offline_since: "Odpojený od doby:"
+        recheck:
+          failure: "Kontrola nebyla provedena"
+        response_time: "Doba odezvy:"
+        server_software: "Software serveru:"
+        ssl: "SSL"
+        ssl_disabled: "SSL vypnuto"
+        ssl_enabled: "SSL zapnuté"
+        states:
+          dns_failed: "Selhalo rozpoznání jména (DNS)"
+          http_failed: "Selhalo spojení HTTP"
+          net_failed: "Pokus o spojení selhal"
+          no_errors: "Budiž"
+          ssl_failed: "Selhalo bezpečné spojení (SSL)"
+          unchecked: "Neoznačené"
+          unknown_error: "Během kontroly se objevila nespecifikovaná chyba"
+          version_failed: "Nebylo možné zjistit verzi software"
+        status: "Stav"
+        unknown: "Neznámý"
+        version_failed:
+          few: "<%= count %> pody nemají verzi (staré pody, žádné NodeInfo)"
+          one: "Jeden pod nemá verzi (starý pod, žádné NodeInfo)."
+          other: "<%= count %> podů nemá verzi (staré pody, žádné NodeInfo)"
+          zero: "Není pod, který by neměl verzi."
+    admins:
+      dashboard:
+        error: "Není možné zjistit poslední verzi diaspora*."
     and: "a"
     aspect_dropdown:
       add_to_aspect: "Přidat kontakt"
@@ -58,14 +99,11 @@ cs:
     conversation:
       new:
         no_contacts: "Musíte si přidat nějaké kontakty, než budete moci začít konveraci."
-      participants: "Účastníci"
     create: "Vytvořit"
     delete: "Odstranit"
     edit: "Upravit"
-    failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
     failed_to_remove: "Odstranění záznamu selhalo!"
-    failed_to_reshare: "Znovusdílení selhalo"
     getting_started:
       alright_ill_wait: "Dobrá, počkám."
       hey: "Ahoj, <%= name %>!"
@@ -86,15 +124,14 @@ cs:
       recent_notifications: "Poslední oznámení"
       search: "Hledat"
       settings: "Nastavení"
+      toggle_mobile: "Vybrat mobil"
+      toggle_navigation: "Vybrat navigaci"
       view_all: "Zobrazit vše"
     hide_post: "Skrýt tento příspěvek"
     hide_post_failed: "Není možné tento příspěvek skrýt"
     ignore: "Ignorovat"
     ignore_failed: "Tohoto uživatele se nedaří ignorovat"
     ignore_user: "Ignorovat tohoto uživatele?"
-    infinite_scroll:
-      no_more: "Žádné další příspěvky."
-      no_more_contacts: "Žádné další kontakty."
     my_activity: "Moje aktivita"
     my_aspects: "Moje aspekty"
     my_stream: "Proud"
@@ -119,6 +156,11 @@ cs:
       looking_good: "Tedy, vypadáte úžasně!"
       size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
     poll:
+      answer_count:
+        few: "<%=count%>  hlasů"
+        one: "1 hlas"
+        other: "<%=count%>  hlasů"
+        zero: "0 hlasů"
       close_result: "Skrýt výsledky"
       count:
         few: "zatím <%=count%> hlasy"
@@ -136,15 +178,41 @@ cs:
       contacts: "Kontakty"
       edit: "upravit"
       gender: "Pohlaví"
-      ignoring: "Ignorujete všechny příspěvky od <%= name %>."
       location: "Pozice"
       photos: "Fotky"
       posts: "Příspěvky"
       you_have_no_tags: "Nemáte žádné štítky"
     publisher:
       add_option: "Přidejte odpověď"
-      at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
       limited: "Omezený — váš příspěvek bude přístupný pouze lidem, se kterými sdílíte"
+      markdown_editor:
+        preview: "Náhled"
+        texts:
+          code: "zde kód"
+          heading: "text záhlaví"
+          insert_image_description_text: "zde popište obrázek"
+          insert_image_help_text: "zde vložte odkaz na obrázek"
+          insert_image_title: "vložte titulek k obrázku"
+          insert_link_description_text: "zde popište odkaz"
+          insert_link_help_text: "zde vložte odkaz"
+          italic: "text kurzívou"
+          list: "zde textový seznam"
+          quote: "zde text v uvozovkách"
+          strong: "tučný text"
+        tooltips:
+          bold: "Tučně"
+          cancel: "Zrušit zprávu"
+          code: "Vložit kód"
+          heading: "Záhlaví"
+          insert_image: "Vložit obrázek"
+          insert_link: "Vložit odkaz"
+          insert_ordered_list: "Vložit tříděný seznam"
+          insert_unordered_list: "Vložit netříděný seznam"
+          italic: "Kurzíva"
+          preview: "Náhled zprávy"
+          quote: "Vložit uvozovky"
+          write: "Upravit zprávu"
+        write: "Zápis"
       near_from: "Odesláno z: <%= location %>"
       option: "Odpověď"
       public: "Veřejný — váš příspěvek si bude moci přečíst kdokoliv a může být nalezen vyhledávači"
@@ -158,10 +226,8 @@ cs:
         created: "Zpráva byla úspěšně založena"
         exists: "Zpráva již existuje"
     reshares:
-      duplicate: "Tento příspěvek už sdílíte!"
       post: "Sdílet příspěvek uživatele <%= name %>?"
       successful: "Příspěvek je sdílen!"
-    search_for: "Hledat <%= name %>"
     show_more: "zobrazit více"
     stream:
       comment: "Okomentovat"
@@ -187,6 +253,7 @@ cs:
         other: "Zobrazit <%= count %> dalších komentářů"
         zero: "Zobrazit <%= count %> dalších komentářů"
       original_post_deleted: "Původní příspěvek byl odstraněn svým autorem."
+      permalink: "trvalý odkaz"
       public: "Veřejný"
       reshare: "Sdílet"
       reshares:
@@ -210,13 +277,18 @@ cs:
       wasnt_that_interesting: "Dobře, předpokládám, že #<%= tagName %> nebyl zase tak zajímavý…"
     timeago:
       day: "1 dnem"
-      days: "%d dny"
+      days:
+        other: "%d dny"
       hour: "hodinou"
-      hours: "%d hodinami"
+      hours:
+        other: "%d hodinami"
+      inPast: "Jakýkoli moment"
       minute: "minutou"
-      minutes: "%d minutami"
+      minutes:
+        other: "%d minutami"
       month: "1 měsícem"
-      months: "%d měsíci"
+      months:
+        other: "%d měsíci"
       prefixAgo: "před"
       prefixFromNow: "za"
       seconds: "méně než minutou"
@@ -224,17 +296,8 @@ cs:
       suffixFromNow: ""
       wordSeparator: " "
       year: "1 rokem"
-      years: "%d roky"
+      years:
+        other: "%d roky"
     unblock_failed: "Odblokování tohoto uživatele selhalo"
-    videos:
-      unknown: "Neznámý typ videa"
-      watch: "Podívejte se na tohle video na <%= provider %>"
     viewer:
-      comment: "Komentovat"
-      follow_post: "Sledovat příspěvek"
-      home: "Domů"
-      like: "To se mi líbí"
-      reshare: "Sdílet"
       reshared: "Sdíleno"
-      stop_following_post: "Přestat sledovat příspěvek"
-      unlike: "To se mi nelíbí"

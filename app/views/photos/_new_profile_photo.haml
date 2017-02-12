@@ -2,72 +2,15 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
-- content_for :head do
-  :javascript
-    function createUploader(){
-     var uploader = new qq.FileUploaderBasic({
-         element: document.getElementById('file-upload'),
-         params: {'photo' : {'pending' : true, 'aspect_ids' : "all", 'set_profile_photo': true}},
-         allowedExtensions: ['jpg', 'jpeg', 'png'],
-         action: "#{photos_path}",
-         button: document.getElementById('file-upload'),
-         sizeLimit: 4194304,
-
-         onProgress: function(id, fileName, loaded, total){
-          var progress = Math.round(loaded / total * 100 );
-           $('#fileInfo').text(fileName + ' ' + progress + '%');
-         },
-
-         messages: {
-             typeError: "#{t('photos.new_photo.invalid_ext')}",
-             sizeError: "#{t('photos.new_photo.size_error')}",
-             emptyError: "#{t('photos.new_photo.empty')}"
-         },
-
-         onSubmit: function(id, fileName){
-          $('#file-upload').addClass("loading");
-          $("#profile_photo_upload").find(".avatar").addClass('loading');
-          $("#file-upload-spinner").removeClass("hidden");
-         },
-
-         onComplete: function(id, fileName, responseJSON){
-          $("#file-upload-spinner").addClass("hidden");
-          $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
-          $('#file-upload').removeClass("loading");
-
-          /* flash message prompt */
-          var message = Diaspora.I18n.t("photo_uploader.looking_good");
-          Diaspora.page.flashMessages.render({success: true, notice: message});
-
-          var id = responseJSON.data.photo.id;
-          var url = responseJSON.data.photo.unprocessed_image.url;
-          var oldPhoto = $('#photo_id');
-          if(oldPhoto.length == 0) {
-            $('#update_profile_form').prepend("<input type='hidden' value='" + id + "' id='photo_id' name='photo_id'/>");
-          }else{
-            oldPhoto.val(id);
-          }
-
-          $("#profile_photo_upload").find(".avatar").removeClass('loading');
-          $("#profile_photo_upload").find(".avatar").attr("src",url);
-          $(".avatar[data-person_id=#{current_user.person.id}]").attr("src",url);
-         }
-     });
-    }
-    window.onload = createUploader;
-
-#profile_photo_upload
+.profile-photo-upload#profile_photo_upload
   = owner_image_tag(:thumb_large)
-
+  .small-horizontal-spacer
   .clearfix
-
-  #file-upload.btn
-    =t('.upload')
+    .text-center
+      #file-upload.btn.btn-primary
+        =t('.upload')
 
   = image_tag('mobile-spinner.gif', :class => 'hidden', :style => "z-index:-1", :id => 'file-upload-spinner')
 
   %p
     #fileInfo
-
-  #publisher_photo_upload

@@ -4,7 +4,7 @@ app.views.Photo = app.views.Base.extend({
 
   templateName: "photo",
 
-  className : "photo loaded",
+  className : "photo loaded col-md-4 col-sm-6 clearfix",
 
   events: {
     "click .remove_post": "destroyModel"
@@ -19,7 +19,7 @@ app.views.Photo = app.views.Base.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      authorIsCurrentUser : app.currentUser.isAuthorOf(this.model),
+      authorIsCurrentUser : app.currentUser.isAuthorOf(this.model)
     });
   }
 });

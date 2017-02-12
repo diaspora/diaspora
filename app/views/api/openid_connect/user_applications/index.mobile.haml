@@ -1,0 +1,9 @@
+.container-fluid.settings-container.applications-page
+  .row
+    .col-md-12
+      - content_for :page_title do
+        = t(".edit_applications")
+      = render "shared/settings_nav"
+  .row
+    .col-md-12
+      = render "add_remove_applications"

@@ -7,9 +7,9 @@ Feature: User manages contacts
   Scenario: creating an aspect from contacts index
     Given I am signed in
     And I am on the contacts page
-    And I follow "+ Add an aspect"
+    And I follow "Add an aspect"
     And I fill in "aspect_name" with "Dorm Mates" in the aspect creation modal
-    And I click on selector ".btn.creation" in the aspect creation modal
+    And I click on selector ".btn-primary" in the aspect creation modal
     Then I should see "Dorm Mates" within "#aspect_nav"
 
   Scenario: creating an aspect from homepage
@@ -17,16 +17,16 @@ Feature: User manages contacts
     And I go to the aspects page
     When I follow "Add an aspect"
     And I fill in "aspect_name" with "losers" in the aspect creation modal
-    And I click on selector ".btn.creation" in the aspect creation modal
-    Then I should see "losers" within "#aspect_nav"
+    And I click on selector ".btn-primary" in the aspect creation modal
+    Then I should be on the contacts page
+    And I should see "losers" within "#aspect_nav"
 
   Scenario: deleting an aspect from contacts index
     Given I am signed in
     And I have an aspect called "People"
     When I am on the contacts page
     And I follow "People"
-    And I click on selector "#delete_aspect"
-    And I confirm the alert
+    And I confirm the alert after I click on selector "#delete_aspect"
     Then I should be on the contacts page
     And I should not see "People" within "#aspect_nav"
 
@@ -35,8 +35,7 @@ Feature: User manages contacts
     And I have an aspect called "People"
     When I am on the aspects page
     And I click on "People" aspect edit icon
-    And I click on selector "#delete_aspect"
-    And I confirm the alert
+    And I confirm the alert after I click on selector "#delete_aspect"
     Then I should be on the contacts page
     And I should not see "People" within "#aspect_nav"
 
@@ -62,26 +61,15 @@ Feature: User manages contacts
     And I press "Update"
     Then I should see "Unicorn People" within "#aspect_name"
 
-  Scenario: clicking on the contacts link in the header with zero contacts directs a user to the featured users page
-    Given I am signed in
-    And I have 0 contacts
-    And I click on my name in the header
-    When I follow "Contacts"
-    Then I should see "Community spotlight" within ".span9"
-
-  Scenario: clicking on the contacts link in the header with contacts does not send a user to the featured users page
-    Given I am signed in
-    And I have 2 contacts
-    And I click on my name in the header
-    When I follow "Contacts"
-    Then I should not see "Community spotlight" within ".span9"
-
   Scenario: sorting the aspects
     Given I am signed in
     And I have an aspect called "People"
     And I have an aspect called "Cat People"
     When I am on the contacts page
+    And I have turned off jQuery effects
     And I drag "Cat People" up
-    And I go to the contacts page
+    Then I should see "Cat People" as 2. aspect
+    And I should see "People" as 3. aspect
+    When I go to the contacts page
     Then I should see "Cat People" as 2. aspect
     And I should see "People" as 3. aspect

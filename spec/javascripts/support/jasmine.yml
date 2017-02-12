@@ -13,6 +13,7 @@ src_files:
   # Precompile all scripts together for the test environment
   - assets/jasmine-load-all.js
   - assets/jasmine-jquery.js
+  - assets/bookmarklet.js
 
 # stylesheets
 #
@@ -26,9 +27,7 @@ src_files:
 #   - stylesheets/*.css
 #
 stylesheets:
-  - assets/bootstrap.css
-  - assets/default.css
-  - assets/application.css
+  - assets/color_themes/original/desktop.css
 
 # helpers
 #
@@ -54,6 +53,7 @@ helpers:
 #   - **/*[sS]pec.js
 #
 spec_files:
+  - onerror-fail.js
   - "**/**/*[sS]pec.js"
 
 # src_dir

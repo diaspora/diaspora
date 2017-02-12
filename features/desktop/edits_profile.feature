@@ -25,21 +25,29 @@ Feature: editing your profile
     And the "profile_gender" field should contain "Fearless"
     And the "profile_first_name" field should contain "Boba"
     And the "profile_last_name" field should contain "Fett"
-    And I should see "This is a bio"
+    And the "profile_bio" field should contain "This is a bio"
     And the "profile_date_year" field should be filled with "1986"
     And the "profile_date_month" field should be filled with "11"
     And the "profile_date_day" field should be filled with "30"
     And the "profile_location" field should be filled with "Kamino"
     And I should see "#starwars" within "ul#as-selections-tags"
+    And the "#profile_public_details" bootstrap-switch should be off
 
     When I fill in "profile[tag_string]" with "#kamino"
     And I press the first ".as-result-item" within ".as-results"
+    And I toggle the "#profile_public_details" bootstrap-switch
 
     And I press "update_profile"
     Then I should see "#kamino" within "ul#as-selections-tags"
     And I should see "#starwars" within "ul#as-selections-tags"
+    And the "#profile_public_details" bootstrap-switch should be on
 
-    When I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-    And I confirm the alert
-    And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+    When I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload"
+    Then I should see a flash message indicating failure
+
+    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload"
+    Then I should see "button.png completed"
+    And I should see a "img" within "#profile_photo_upload"
+
+    When I go to my edit profile page
     Then I should see a "img" within "#profile_photo_upload"

@@ -4,22 +4,21 @@ app.views.AspectCreate = app.views.Base.extend({
   templateName: "aspect_create_modal",
 
   events: {
-    "click .btn.creation": "createAspect"
+    "click .btn.btn-primary": "createAspect",
+    "keypress input#aspect_name": "inputKeypress"
   },
 
   initialize: function(opts) {
-    this._personId = _.has(opts, "personId") ? opts.personId : null;
+    if (opts && opts.person) {
+      this.person = opts.person;
+      this._personId = opts.person.id;
+    }
   },
 
   presenter: function() {
     return _.extend(this.defaultPresenter(), {
-      addPersonId: this._personId !== null,
       personId : this._personId
     });
-  },
-
-  postRenderTemplate: function() {
-    this.modal = this.$(".modal");
   },
 
   _contactsVisible: function() {
@@ -30,34 +29,59 @@ app.views.AspectCreate = app.views.Base.extend({
     return this.$("#aspect_name").val();
   },
 
+  inputKeypress: function(evt) {
+    if(evt.which === Keycodes.ENTER) {
+      evt.preventDefault();
+      this.createAspect();
+    }
+  },
+
+  postRenderTemplate: function() {
+    this.$(".modal").on("hidden.bs.modal", null, this, function(e) {
+      e.data.ensureEventsOrder();
+    });
+  },
+
   createAspect: function() {
-    var aspect = new app.models.Aspect({
-      "person_id": this._personId,
+    this._eventsCounter = 0;
+
+    this.$(".modal").modal("hide");
+
+    this.listenToOnce(app.aspects, "sync", function(response) {
+      var aspectName = response.get("name"),
+          membership = response.get("aspect_membership");
+
+      this._newAspectId = response.get("id");
+
+      if (membership) {
+        if (!this.person.contact) {
+          this.person.contact = new app.models.Contact();
+        }
+        this.person.contact.aspectMemberships.add([membership]);
+      }
+
+      this.ensureEventsOrder();
+      app.flashMessages.success(Diaspora.I18n.t("aspects.create.success", {"name": aspectName}));
+    });
+
+    this.listenToOnce(app.aspects, "error", function() {
+      app.flashMessages.error(Diaspora.I18n.t("aspects.create.failure"));
+      this.stopListening(app.aspects, "sync");
+    });
+
+    app.aspects.create({
+      "person_id": this._personId || null,
       "name": this._name(),
       "contacts_visible": this._contactsVisible()
     });
+  },
 
-    var self = this;
-    aspect.on("sync", function(response) {
-      var aspectId   = response.get("id"),
-          aspectName = response.get("name");
-
-      self.modal.modal("hide");
-      app.events.trigger("aspect:create", aspectId);
-      Diaspora.page.flashMessages.render({
-        "success": true,
-        "notice": Diaspora.I18n.t("aspects.create.success", {"name": aspectName})
-      });
-    });
-
-    aspect.on("error", function() {
-      self.modal.modal("hide");
-      Diaspora.page.flashMessages.render({
-        "success": false,
-        "notice": Diaspora.I18n.t("aspects.create.failure")
-      });
-    });
-    return aspect.save();
+  // ensure that we trigger the aspect:create event only after both hidden.bs.modal and and aspects sync happens
+  ensureEventsOrder: function() {
+    this._eventsCounter++;
+    if (this._eventsCounter > 1) {
+      app.events.trigger("aspect:create", this._newAspectId);
+    }
   }
 });
 // @license-end

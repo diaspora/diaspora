@@ -25,7 +25,6 @@ tr:
       show: "tüm yorumları görüntüle"
     confirm_dialog: "Emin misiniz?"
     delete: "Sil"
-    failed_to_like: "Beğenme başarısız oldu!"
     failed_to_post_message: "Gönderi başarısız oldu!"
     getting_started:
       alright_ill_wait: "Tamam, ben bekleyeceğim."
@@ -47,8 +46,6 @@ tr:
       view_all: "Tümünü gör"
     ignore: "Yoksay"
     ignore_failed: "Bu kullanıcı ihmal edilemiyor"
-    infinite_scroll:
-      no_more: "Daha fazla gönderi yok."
     my_activity: "Etkinliklerim"
     my_stream: "Akış"
     people:
@@ -56,14 +53,39 @@ tr:
     photo_uploader:
       looking_good: "OMG, harika görünüyorsun!"
     publisher:
-      at_least_one_aspect: "En az bir yönünün yayınlanması zorunludur"
       limited: "Sınırlı - gönderi sadece paylaşılan kişiler tarafından görünür"
+      markdown_editor:
+        preview: "Önizle"
+        texts:
+          code: "buraya kodu"
+          heading: "başlığı metni"
+          insert_image_description_text: "buraya imaj açıklama girin"
+          insert_image_help_text: "buraya imaj bağlantısını sokun"
+          insert_image_title: "buraya imaj başlığı girin"
+          insert_link_description_text: "Burada link açıklama girin"
+          insert_link_help_text: "buraya linki sokun"
+          italic: "eğik metin"
+          list: "buraya listesinde metni"
+          quote: "buraya alıntı metni"
+          strong: "gçlü metin"
+        tooltips:
+          bold: "Kalın"
+          cancel: "iletiyi iptal"
+          code: "kesici uç kodu"
+          heading: "başlığı"
+          insert_image: "Resim ekle"
+          insert_link: "Bağlantı ekle"
+          insert_ordered_list: "Ekle sıralı listesi"
+          insert_unordered_list: "Sırasız liste ekleme"
+          italic: "Eğik"
+          preview: "Önizleme mesajı"
+          quote: "Ekle tırnak"
+          write: "düzenle mesajı"
+        write: "yazma"
       public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
     reshares:
-      duplicate: "Bu iyi, değil mi? Zaten bu gönderiyi tekrar paylaştın!"
       post: "<%= name %> kişisinin gönderisini yeniden paylaşamak istiyor musun?"
       successful: "Gönderi başarıyla yeniden paylaşıldı!"
-    search_for: "<%= name %> Ara"
     show_more: "daha fazlasını göster"
     stream:
       comment: "Yorum"
@@ -78,6 +100,7 @@ tr:
       more_comments:
         other: "Diğer <%= count %> yorumu gör"
         zero: "Diğer <%= count %> yorumu gör"
+      no_posts_yet: "burada henüz görüntülemek hiç mesaj yok."
       original_post_deleted: "İleti yazarı tarafından silindi."
       public: "Genel"
       reshare: "Yeniden paylaş"
@@ -92,29 +115,24 @@ tr:
       wasnt_that_interesting: "Tamam, benim #<%= tagName %> o kadar da ilginç değil..."
     timeago:
       day: "1 gün"
-      days: "%d gün"
+      days:
+        other: "%d gün"
       hour: "yaklaşık 1 saat"
-      hours: "yaklaşık %d saat"
+      hours:
+        other: "yaklaşık %d saat"
       minute: "yaklaşık 1 dakika"
-      minutes: "%d dakika"
+      minutes:
+        other: "%d dakika"
       month: "yaklaşık 1 ay"
-      months: "%d ay"
+      months:
+        other: "%d ay"
       prefixAgo: "önce"
       prefixFromNow: "önce"
       seconds: "1 dakikadan az"
       suffixAgo: "önce"
       suffixFromNow: "şimdi"
       year: "yaklaşık 1 yıl"
-      years: "%d yıl"
-    videos:
-      unknown: "Bilinmeyen video tipi"
-      watch: "Bu videoyu <%= provider %>'da izle"
+      years:
+        other: "%d yıl"
     viewer:
-      comment: "Yorum"
-      follow_post: "İletiyi izle"
-      home: "ANA SAYFA"
-      like: "Beğen"
-      reshare: "Yeniden paylaş"
       reshared: "Yeniden paylaştı"
-      stop_following_post: "İletiyi izlemeyi durdur"
-      unlike: "Beğenme"

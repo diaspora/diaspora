@@ -1,0 +1,34 @@
+$white: #fff;
+$black: #000;
+
+$text-grey: #999;
+$text-dark-grey: #666;
+$text-color-pale: $text-grey !default;
+$text-color-active: $black !default;
+
+$background-grey: #eee !default;
+$background-blue: #e7f2f7 !default;
+
+$grey: #2b2b2b;
+$medium-gray: #ccc;
+$light-grey: #ddd;
+
+$border-grey: $light-grey !default;
+$border-medium-grey: $medium-gray !default;
+$border-dark-grey: $text-grey !default;
+
+$link-grey: #777;
+
+$icon-color: $black !default;
+
+$green: #8ede3d !default;
+$light-green: lighten($green, 20%);
+$red: #a80000 !default;
+$blue: #3f8fba !default;
+
+$main-background: darken($white, 6%) !default;
+$framed-background: $white !default;
+$left-navbar-drawer-background: darken($white, 6%) !default;
+$hovercard-background: $white !default;
+
+$card-shadow: 0 1px 2px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !default;

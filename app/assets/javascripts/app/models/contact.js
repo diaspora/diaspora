@@ -2,12 +2,15 @@
 
 app.models.Contact = Backbone.Model.extend({
   initialize : function() {
-    this.aspect_memberships = new app.collections.AspectMemberships(this.get('aspect_memberships'));
-    if( this.get('person') ) this.person = new app.models.Person(this.get('person'));
+    this.aspectMemberships = new app.collections.AspectMemberships(this.get("aspect_memberships"));
+    if (this.get("person")) {
+      this.person = new app.models.Person(this.get("person"));
+      this.person.contact = this;
+    }
   },
 
   inAspect : function(id) {
-    return this.aspect_memberships.any(function(membership){ return membership.get('aspect').id === id; });
+    return this.aspectMemberships.any(function(membership) { return membership.belongsToAspect(id); });
   }
 });
 // @license-end

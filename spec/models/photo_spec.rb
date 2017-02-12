@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 def with_carrierwave_processing(&block)
   UnprocessedImage.enable_processing = true
   val = yield
@@ -32,10 +30,6 @@ describe Photo, :type => :model do
 
       @photo.save!
     end
-  end
-
-  it 'is mutable' do
-    expect(@photo.mutable?).to eq(true)
   end
 
   it 'has a random string key' do
@@ -189,53 +183,23 @@ describe Photo, :type => :model do
 
   end
 
-  describe 'serialization' do
-    before do
-      @saved_photo = with_carrierwave_processing do
-         @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
-      end
-      @xml = @saved_photo.to_xml.to_s
-    end
-
-    it 'serializes the url' do
-      expect(@xml.include?(@saved_photo.remote_photo_path)).to be true
-      expect(@xml.include?(@saved_photo.remote_photo_name)).to be true
-    end
-
-    it 'serializes the diaspora_handle' do
-      expect(@xml.include?(@user.diaspora_handle)).to be true
-    end
-
-    it 'serializes the height and width' do
-      expect(@xml).to include 'height'
-      expect(@xml.include?('width')).to be true
-      expect(@xml.include?('40')).to be true
-    end
-  end
-
-  describe 'remote photos' do
-    before do
-      Workers::ProcessPhoto.new.perform(@saved_photo.id)
-    end
-
-    it 'should set the remote_photo on marshalling' do
-      user2 = FactoryGirl.create(:user)
-      aspect2 = user2.aspects.create(:name => "foobars")
-      connect_users(@user, @aspect, user2, aspect2)
-
+  describe "remote photos" do
+    it "should set the remote_photo on marshalling" do
       url = @saved_photo.url
       thumb_url = @saved_photo.url :thumb_medium
 
-      xml = @saved_photo.to_diaspora_xml
+      @saved_photo.height = 42
+      @saved_photo.width = 23
+
+      federation_photo = Diaspora::Federation::Entities.photo(@saved_photo)
 
       @saved_photo.destroy
-      zord = Postzord::Receiver::Private.new(user2, :person => @photo.author)
-      zord.parse_and_receive(xml)
 
-      new_photo = Photo.where(:guid => @saved_photo.guid).first
-      expect(new_photo.url.nil?).to be false
-      expect(new_photo.url.include?(url)).to be true
-      expect(new_photo.url(:thumb_medium).include?(thumb_url)).to be true
+      Diaspora::Federation::Receive.photo(federation_photo)
+
+      new_photo = Photo.find_by(guid: @saved_photo.guid)
+      expect(new_photo.url).to eq(url)
+      expect(new_photo.url(:thumb_medium)).to eq(thumb_url)
     end
   end
 
@@ -284,26 +248,16 @@ describe Photo, :type => :model do
     end
   end
 
-  describe "#receive_public" do
-    it "updates the photo if it is already persisted" do
-      allow(@photo).to receive(:persisted_shareable).and_return(@photo2)
-      expect(@photo2).to receive(:update_attributes)
-      @photo.receive_public
-    end
-
-    it "does not update the photo if the author mismatches" do
-      @photo.author = bob.person
-      allow(@photo).to receive(:persisted_shareable).and_return(@photo2)
-      expect(@photo).not_to receive(:update_existing_sharable)
-      @photo.receive_public
-    end
-  end
-
   describe "#visible" do
     context "with a current user" do
       it "calls photos_from" do
         expect(@user).to receive(:photos_from).with(@user.person, limit: :all, max_time: nil).and_call_original
         Photo.visible(@user, @user.person)
+      end
+
+      it "does not contain pending photos" do
+        pending_photo = @user.post(:photo, pending: true, user_file: File.open(photo_fixture_name), to: @aspect)
+        expect(Photo.visible(@user, @user.person).ids).not_to include(pending_photo.id)
       end
     end
 

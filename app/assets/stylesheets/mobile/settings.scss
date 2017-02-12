@@ -1,0 +1,59 @@
+#settings_nav {
+  border-bottom: 1px solid $border-grey;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+
+  ul {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  li {
+    display: inline;
+    font-size: 1.7rem;
+    padding: 0px 0.3rem;
+
+    &:first-child { padding-left: 0px; }
+    &:last-child { padding-right: 0px; }
+  }
+}
+
+.services_page {
+  h3 {
+    margin: 1rem 0px;
+  }
+
+  .services_explanation {
+    border-top: 1px solid $border-grey;
+    margin-top: 1rem;
+    padding: 1rem 0;
+  }
+}
+
+.applications-page .applications-explanation {
+  margin-bottom: 15px;
+}
+
+.application-img {
+  margin: auto;
+  max-width: 150px;
+  text-align: center;
+
+  .entypo-browser {
+    font-size: 137px;
+    height: 160px;
+    margin-top: -45px;
+  }
+}
+
+.settings-container {
+  .blocked-person {
+    margin: 0;
+    padding: 10px 0;
+
+    .avatar {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}

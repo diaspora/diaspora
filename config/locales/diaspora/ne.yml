@@ -5,13 +5,7 @@
 
 
 ne:
-  _home: "गृहपृष्ठ"
-  _photos: "तस्वीरहरु"
   _services: "सेवाहरु"
-  ago: "%{time} अघि"
-  application:
-    helper:
-      unknown_person: "अपरिचित व्यक्ति"
   aspects:
     index:
       help:
@@ -28,13 +22,9 @@ ne:
       send: "पठाउनुहोस्"
   delete: "मेट्नुहोस्"
   email: "ईमेल"
-  hide: "लुकाउनुहोस्"
   invitations:
-    a_facebook_user: "फेसबुक प्रयोगकर्ता"
     new:
       language: "भाषा"
-      personal_message: "व्यक्तिगत सन्देश"
-      resend: "पुनः पठाउनुहोस्"
   notifications:
     index:
       and: "र"
@@ -42,12 +32,7 @@ ne:
     hello: "नमस्कार %{name} !"
     thanks: "धन्यवाद,"
   ok: "ठीक छ"
-  or: "वा"
-  password: "गोप्य शब्द"
-  photos:
-    comment_email_subject: "%{name}को तस्वीर"
   privacy: "गोपनीयता"
-  privacy_policy: "गोपनीयता नीति"
   profiles:
     edit:
       first_name: "थर"
@@ -58,12 +43,6 @@ ne:
       your_photo: "तपाईको तस्वीर"
   public: "सार्वजनिक"
   search: "खोज"
-  services:
-    finder:
-      service_friends: "%{service}का साथीहरु"
-    remote_friend:
-      invite: "निम्तो पठाउनुहोस्"
-      resend: "पुनः पठाउनुहोस्"
   username: "प्रयोगकर्ता नाम"
   users:
     edit:
@@ -71,7 +50,5 @@ ne:
       change_language: "भाषा परिवर्तन गर्नुहोस्"
       change_password: "गोप्य शब्द परिवर्तन गर्नुहोस्"
       current_password: "हालको गोप्य शब्द"
-      download_photos: "आफ्नो तस्विरहरु डाउनलोड गर्नुहोस्"
       new_password: "नयाँ गोप्य शब्द"
       your_email: "तपाईको ईमेल"
-  welcome: "स्वागतम !"

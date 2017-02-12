@@ -1,7 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-Bundler.require(:default, Rails.env)
+Bundler.require(:default, *Bundler.settings.with, Rails.env)
 
 # Do not dump the limit of boolean fields on MySQL,
 # since that generates a db/schema.rb that's incompatible
@@ -65,34 +65,23 @@ module Diaspora
     config.assets.initialize_on_precompile = false
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w{
-      aspect-contacts.js
+    config.assets.precompile += %w(
       contact-list.js
       ie.js
-      inbox.js
-      jquery.js
+      jquery2.js
       jquery_ujs.js
-      jquery-textchange.js
       main.js
       jsxc.js
+      mobile/bookmarklet.js
       mobile/mobile.js
-      people.js
-      publisher.js
       templates.js
-      validation.js
 
-      bootstrap.css
-      bootstrap-complete.css
-      bootstrap-responsive.css
       error_pages.css
       admin.css
-      mobile/mobile.css
       rtl.css
-      home.css
-
-      # images from facebox gem
-      facebox/*
-    }
+      color_themes/*/desktop.css
+      color_themes/*/mobile.css
+    )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
@@ -112,5 +101,15 @@ module Diaspora
       host:     AppConfig.pod_uri.authority
     }
     config.action_mailer.asset_host = AppConfig.pod_uri.to_s
+
+    config.action_view.raise_on_missing_translations = true
+
+    config.middleware.use Rack::OAuth2::Server::Resource::Bearer, "OpenID Connect" do |req|
+      Api::OpenidConnect::OAuthAccessToken
+        .valid(Time.zone.now.utc).find_by(token: req.access_token) || req.invalid_token!
+    end
   end
 end
+
+Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
+Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port

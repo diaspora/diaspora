@@ -3,125 +3,39 @@
 -# the COPYRIGHT file.
 
 !!!
-%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
-  %head{:prefix => og_prefix}
-    %title
-      = pod_name
+%html{lang: I18n.locale.to_s, dir: (rtl? ? "rtl" : "ltr")}
+  %head{prefix: og_prefix}
+    - content_for :javascript do
+      = javascript_include_tag "mobile/mobile"
+      = load_javascript_locales
 
-    %meta{:name => "description", :content => "diaspora* mobile"}/
-    %meta{:name => "author", :content => "Diaspora, Inc."}/
-    %meta{:charset => 'utf-8'}/
+    = render "head"
+    = include_color_theme "mobile"
 
-    / Viewport scale
-    %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1 maximum-scale=1"}/
-    %meta{:name => "HandheldFriendly", :content => "True"}/
-    %meta{:name => "MobileOptimized", :content => "320"}/
-    / Force cleartype on WP7
-    %meta{'http-equiv' => "cleartype", :content => 'on'}/
-
-    / Home screen icon (sized for retina displays)
-    %link{rel: "apple-touch-icon", href: image_path("apple-touch-icon.png")}
-    / For Nokia devices
-    %link{rel: "shortcut icon", href: image_path("apple-touch-icon.png")}
+    %meta{name: "viewport", content: "width=device-width, minimum-scale=1 maximum-scale=1"}/
+    %meta{name: "HandheldFriendly", content: "True"}/
+    %meta{name: "MobileOptimized", content: "320"}/
+    %meta{"http-equiv" => "cleartype", :content => "on"}/
 
     / iOS mobile web app indicator
     / NOTE(we will enable these once we don't have to rely on back/forward buttons anymore)
     /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
 
-    = render 'layouts/open_graph'
-
-    = chartbeat_head_block
-
-    / Stylesheets
-
-    = stylesheet_link_tag 'mobile/mobile', :format => 'all'
-    = yield(:custom_css)
-
-
-    = csrf_meta_tag
-
-    - if rtl?
-      = stylesheet_link_tag :rtl, :media => 'all'
-
-    = yield(:head)
-
-    = include_gon(:camel_case => true)
   %body
     #app
+      = render "layouts/header"
       - if user_signed_in?
-        %header#main_nav
-          #nav_badges
-            -# Notifications
-            = link_to notifications_path, class: "badge", id: "notification_badge" do
-              = image_tag("mobile/notifications_white.png")
-              - if current_user.unread_notifications.size > 0
-                %span.badge_count{id: "notification"}
-                  = current_user.unread_notifications.size
-            -# Conversations
-            = link_to conversations_path, class: "badge", id: "conversations_badge" do
-              = image_tag("mobile/mail_white.png", id: "conversation_icon")
-              - if current_user.unread_message_count > 0
-                %span.badge_count{id: "conversation"}
-                  = current_user.unread_message_count
-            -# Publisher
-            = link_to(image_tag("mobile/compose_mobile.png"), new_status_message_path, class: "badge", id: "compose_badge")
-            -# Menu
-            = link_to(image_tag("mobile/menu.png"), "#", id: "menu_badge", class: "badge")
-          = link_to(image_tag("mobile/asterisk_white_mobile.png"), stream_path, id: "header_title")
+        = render "layouts/drawer"
 
-      - if user_signed_in?
-        #drawer
-          %header
-            #global_search
-              = form_tag('/search', method: 'get', class: 'search_form', "accept-charset" => "UTF-8") do
-                %div
-                  = hidden_field_tag "utf8", "✓"
-                  = search_field_tag "q", nil, id: "q", placeholder: t("search"), results: "5", autocomplete: "off", class: "ac_input"
-          %nav
-            %ul
-              %li
-                = link_to t("streams.activity.title"), activity_stream_path
-              %li
-                = link_to t("streams.mentions.title"), mentioned_stream_path
-              %li#all_aspects
-                = link_to t('streams.aspects.title'), "#"
-              %li.no_border.hide
-                %ul
-                  - current_user.aspects.each do |aspect|
-                    %li
-                      = link_to aspect.name, aspects_stream_path(a_ids: [aspect.id])
-              %li#followed_tags
-                = link_to t('streams.followed_tag.title'), "#"
-              %li.no_border.hide
-                %ul
-                  - current_user.followed_tags.each do |tag|
-                    %li
-                      = tag_link(tag)
-                  - if current_user.followed_tags.length > 0
-                    %li.manage_followed_tags
-                      = link_to t("tag_followings.manage.title"), manage_tag_followings_path
-              %li
-                = link_to user_profile_path(current_user.username) do
-                  = t('layouts.header.profile')
-                  = person_image_tag(current_user)
-              %li
-                = link_to t('_contacts'), contacts_path
-              %li
-                = link_to t('layouts.header.settings'), users_edit_path
-              %li
-                = link_to t('layouts.application.toggle'), toggle_mobile_path
-              %li
-                = link_to t('layouts.header.logout'), destroy_user_session_path, method: :delete
+      .flash-messages-container
+        .flash-messages#flash-messages
 
       #main{:role => "main"}
         - if current_page?(:activity_stream)
           %h3
-            = t('streams.activity.title')
+            = t("streams.activity.title")
         = yield
 
-    / javascripts at the bottom
-    = jquery_include_tag
-    = javascript_include_tag "mobile/mobile"
-    = load_javascript_locales
     = include_chartbeat
+    = include_mixpanel_guid

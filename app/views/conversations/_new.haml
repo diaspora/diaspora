@@ -1,18 +1,31 @@
-= form_for Conversation.new, html: {class: "form-horizontal form_do_not_clear"}, remote: true do |conversation|
-  .control-group
-    %label.control-label{:for => 'contact_ids'}
-      = t('.to')
-    .controls
-      = text_field_tag "contact_autocomplete"
-  .control-group
-    %label.control-label{:for => 'conversation_subject'}
-      = t('.subject')
-    .controls
-      = conversation.text_field :subject, :class => 'input-block-level'
-  .control-group
-    .controls
-      = text_area_tag "conversation[text]", '', :rows => 5, :class => 'input-block-level'
-  .control-group
-    .controls
-      .pull-right
-        = conversation.submit t('.send'), 'data-disable-with' => t('.sending'), :class => 'btn btn-primary creation'
+.container-fluid
+  = form_for Conversation.new, html: {id: "new-conversation",
+    class: "new-conversation form-horizontal"}, remote: true do |conversation|
+    .form-group
+      %label#to-label{for: "contacts-search-input"}= t(".to")
+      .recipients-tag-list.clearfix#recipients-tag-list
+      = text_field_tag "contact_autocomplete", nil, id: "contacts-search-input", class: "form-control"
+      - unless defined?(mobile) && mobile
+        = text_field_tag "person_ids", nil, id: "contact-ids", type: "hidden",
+                                            aria: {labelledby: "to-label"}
+
+    .form-group
+      %label#subject-label{for: "conversation-subject"}
+        = t(".subject")
+      = conversation.text_field :subject,
+                                id: "conversation-subject",
+                                class: "input-block-level form-control",
+                                aria:  {labelledby: "subject-label"},
+                                value: "",
+                                placeholder: t("conversations.new.subject_default")
+
+    .form-group
+      %label.sr-only#message-label{for: "new-message-text"}= t(".message")
+      = text_area_tag "conversation[text]", "",
+                                rows: 5,
+                                id: "new-message-text",
+                                class: "conversation-message-text input-block-level form-control",
+                                aria: {labelledby: "message-label"}
+
+    .form-group
+      = conversation.submit t(".send"), "data-disable-with" => t(".sending"), :class => "btn btn-primary pull-right"

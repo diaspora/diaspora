@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe TagFollowingsController, type: :controller do
   describe "#manage" do
     context "not signed in" do
@@ -15,7 +13,7 @@ describe TagFollowingsController, type: :controller do
     end
     context "signed in" do
       before do
-        sign_in :user, alice
+        sign_in alice, scope: :user
       end
 
       it "redirects html requests" do

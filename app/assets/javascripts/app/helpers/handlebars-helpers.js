@@ -47,7 +47,7 @@ Handlebars.registerHelper("sharingMessage", function(person) {
   var icon = "circle";
   if( person.is_sharing ) {
     i18nScope = "people.helper.is_sharing";
-    icon = "entypo check";
+    icon = "entypo-check";
   }
 
   var title = Diaspora.I18n.t(i18nScope, {name: _.escape(person.name)});
@@ -60,11 +60,8 @@ Handlebars.registerHelper("sharingMessage", function(person) {
 
 // allow hovercards for users that are not the current user.
 // returns the html class name used to trigger hovercards.
-Handlebars.registerHelper('hovercardable', function(person) {
-  if( app.currentUser.get('guid') !== person.guid ) {
-    return 'hovercardable';
-  }
-  return '';
+Handlebars.registerHelper("hovercardable", function(person) {
+  return app.currentUser.get("guid") === person.guid ? "" : "hovercardable";
 });
 
 Handlebars.registerHelper('personImage', function(person, size, imageClass) {
@@ -78,10 +75,11 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
   size = ( !_.isString(size) ) ? "small" : size;
   imageClass = ( !_.isString(imageClass) ) ? size : imageClass;
 
-  return _.template('<img src="<%= src %>" class="avatar <%= img_class %>" title="<%= title %>" alt="<%= title %>" />')({
-    'src': avatar[size],
-    'img_class': imageClass,
-    'title': _.escape(name)
+  return _.template("<img src=\"<%= src %>\" class=\"<%= imageClass %>\" " +
+      "title=\"<%= title %>\" alt=\"<%= title %>\" />")({
+    src: avatar[size],
+    imageClass: imageClass + " avatar img-responsive center-block",
+    title: _.escape(name)
   });
 });
 
@@ -120,7 +118,7 @@ Handlebars.registerHelper("isCurrentProfilePage", function(id, diasporaHandle, o
 Handlebars.registerHelper('aspectMembershipIndicator', function(contact,in_aspect) {
   if(!app.aspect || !app.aspect.get('id')) return '<div class="aspect_membership_dropdown placeholder"></div>';
 
-  var html = '<i class="entypo ';
+  var html = "<i class=\"entypo-";
   if( in_aspect === 'in_aspect' ) {
     html += 'circled-cross contact_remove-from-aspect" ';
     html += 'title="' + Diaspora.I18n.t('contacts.remove_contact') + '" ';

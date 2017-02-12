@@ -2,11 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe ContactsController, :type => :controller do
   before do
-    sign_in :user, bob
+    sign_in bob, scope: :user
     allow(@controller).to receive(:current_user).and_return(bob)
   end
 
@@ -24,50 +22,108 @@ describe ContactsController, :type => :controller do
         expect(response).to be_success
       end
 
-      it "assigns contacts" do
+      it "doesn't assign contacts" do
         get :index
         contacts = assigns(:contacts)
-        expect(contacts.to_set).to eq(bob.contacts.to_set)
-      end
-
-      it "shows only contacts a user is sharing with" do
-        contact = bob.contacts.first
-        contact.update_attributes(:sharing => false)
-
-        get :index
-        contacts = assigns(:contacts)
-        expect(contacts.to_set).to eq(bob.contacts.receiving.to_set)
-      end
-
-      it "shows all contacts (sharing and receiving)" do
-        contact = bob.contacts.first
-        contact.update_attributes(:sharing => false)
-
-        get :index, :set => "all"
-        contacts = assigns(:contacts)
-        expect(contacts.to_set).to eq(bob.contacts.to_set)
+        expect(contacts).to be_nil
       end
     end
 
-    context 'format json' do
-      it 'assumes all aspects if none are specified' do
-        get :index, :format => 'json'
-        expect(assigns[:people].map(&:id)).to match_array(bob.contacts.map { |c| c.person.id })
-        expect(response).to be_success
+    context "format json" do
+      context "for the contacts search" do
+        before do
+          @person1 = FactoryGirl.create(:person)
+          bob.share_with(@person1, bob.aspects.first)
+          @person2 = FactoryGirl.create(:person)
+          @person3 = FactoryGirl.create(:person)
+          bob.contacts.create(person: @person3, aspects: [bob.aspects.first], receiving: true, sharing: true)
+        end
+
+        it "succeeds" do
+          get :index, q: @person1.first_name, format: "json"
+          expect(response).to be_success
+        end
+
+        it "responds with json" do
+          get :index, q: @person1.first_name, format: "json"
+          expect(response.body).to eq([@person1].to_json)
+        end
+
+        it "only returns contacts" do
+          get :index, q: @person2.first_name, format: "json"
+          expect(response.body).to eq([].to_json)
+        end
+
+        it "only returns mutual contacts when mutual parameter is true" do
+          get :index, q: @person1.first_name, mutual: true, format: "json"
+          expect(response.body).to eq([].to_json)
+          get :index, q: @person2.first_name, mutual: true, format: "json"
+          expect(response.body).to eq([].to_json)
+          get :index, q: @person3.first_name, mutual: true, format: "json"
+          expect(response.body).to eq([@person3].to_json)
+        end
       end
 
-      it 'returns the contacts for multiple aspects' do
-        get :index, :aspect_ids => bob.aspect_ids, :format => 'json'
-        expect(assigns[:people].map(&:id)).to match_array(bob.contacts.map { |c| c.person.id })
-        expect(response).to be_success
-      end
+      context "for pagination on the contacts page" do
+        context "without parameters" do
+          it "returns contacts" do
+            get :index, format: "json", page: "1"
+            contact_ids = JSON.parse(response.body).map {|c| c["id"] }
+            expect(contact_ids.to_set).to eq(bob.contacts.map(&:id).to_set)
+          end
 
-      it 'does not return duplicate contacts' do
-        aspect = bob.aspects.create(:name => 'hilarious people')
-        aspect.contacts << bob.contact_for(eve.person)
-        get :index, :format => 'json', :aspect_ids => bob.aspect_ids
-        expect(assigns[:people].map { |p| p.id }.uniq).to eq(assigns[:people].map { |p| p.id })
-        expect(assigns[:people].map(&:id)).to match_array(bob.contacts.map { |c| c.person.id })
+          it "returns only contacts which are receiving (the user is sharing with them)" do
+            contact = bob.contacts.first
+            contact.update_attributes(receiving: false)
+
+            get :index, format: "json", page: "1"
+            contact_ids = JSON.parse(response.body).map {|c| c["id"] }
+            expect(contact_ids.to_set).to eq(bob.contacts.receiving.map(&:id).to_set)
+            expect(contact_ids).not_to include(contact.id)
+          end
+        end
+
+        context "set: all" do
+          before do
+            contact = bob.contacts.first
+            contact.update_attributes(receiving: false)
+          end
+
+          it "returns all contacts (sharing and receiving)" do
+            get :index, format: "json", page: "1", set: "all"
+            contact_ids = JSON.parse(response.body).map {|c| c["id"] }
+            expect(contact_ids.to_set).to eq(bob.contacts.map(&:id).to_set)
+          end
+
+          it "sorts contacts by receiving status" do
+            get :index, format: "json", page: "1", set: "all"
+            contact_ids = JSON.parse(response.body).map {|c| c["id"] }
+            expect(contact_ids).to eq(bob.contacts.order("receiving DESC").map(&:id))
+            expect(contact_ids.last).to eq(bob.contacts.first.id)
+          end
+        end
+
+        context "with an aspect id" do
+          before do
+            @aspect = bob.aspects.create(name: "awesome contacts")
+            @person = FactoryGirl.create(:person)
+            bob.share_with(@person, @aspect)
+          end
+
+          it "returns all contacts" do
+            get :index, format: "json", a_id: @aspect.id, page: "1"
+            contact_ids = JSON.parse(response.body).map {|c| c["id"] }
+            expect(contact_ids.to_set).to eq(bob.contacts.map(&:id).to_set)
+          end
+
+          it "sorts contacts by aspect memberships" do
+            get :index, format: "json", a_id: @aspect.id, page: "1"
+            expect(JSON.parse(response.body).first["person"]["id"]).to eq(@person.id)
+
+            get :index, format: "json", a_id: bob.aspects.first.id, page: "1"
+            expect(JSON.parse(response.body).first["person"]["id"]).not_to eq(@person.id)
+          end
+        end
       end
     end
   end

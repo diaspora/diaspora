@@ -2,15 +2,21 @@
 -# licensed under the Affero General Public License version 3 or later. See
 -# the COPYRIGHT file.
 
+.settings-container.container-fluid
+  .row
+    .col-md-12
+      = render "shared/settings_nav"
 
-#section_header
-  %h3
-    = t('settings')
-  = render 'shared/settings_nav'
+  .row
+    .col-md-12
+      - content_for :submit_block do
+        = link_to t("cancel"), local_or_remote_person_path(current_user.person), class: "btn btn-default"
+        = submit_tag t(".update_profile"), class: "btn btn-primary pull-right", id: "update_profile"
 
-.span-12.prepend-5.last
-  - content_for :submit_block do
-    = link_to t('cancel'), local_or_remote_person_path(current_user.person), :class => "button"
-    = submit_tag t('.update_profile'), :class => "btn", :id => "update_profile"
-  = render :partial => 'edit', :locals => {:person => @person,
-    :profile => @profile, :aspect => @aspect, :step => @step}
+      - flash.each do |name, msg|
+        .alert{class: "alert-#{flash_class name}", role: "alert"}
+          = msg
+
+      = form_tag profile_path, method: :put, multipart: true, id: "update_profile_form" do
+        = render "edit_public", profile: @profile, aspect: @aspect, person: @person
+        = render "edit_private", person: @person, profile: @profile, aspect: @aspect, step: @step

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Location, :type => :model do
   describe 'before validation' do
     it 'should create new location when it has coordinates' do

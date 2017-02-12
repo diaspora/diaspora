@@ -33,11 +33,8 @@ el:
     contacts:
       add_contact: "Προσθήκη επαφής"
       remove_contact: "Διαγραφή επαφής"
-    conversation:
-      participants: "Συμμετέχοντες"
     delete: "Διαγραφή"
     edit: "Επεξεργασία"
-    failed_to_like: "Αποτυχία!"
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     getting_started:
       alright_ill_wait: "Εντάξει, θα περιμένω."
@@ -61,8 +58,6 @@ el:
       view_all: "Προβολή όλων"
     ignore: "Αγνόησε"
     ignore_user: "Να αγνοηθεί αυτός ο χρήστης;"
-    infinite_scroll:
-      no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
     my_activity: "Η δραστηριότητα μου"
     my_aspects: "Οι πτυχές μου"
     my_stream: "Ροή"
@@ -89,7 +84,6 @@ el:
       photos: "Φωτογραφίες"
     publisher:
       add_option: "Πρόσθεσε μια απάντηση"
-      at_least_one_aspect: "Πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
       limited: "Περιορισμένο - οι δημοσιεύσεις σας θα είναι ορατές μόνο από τα άτομα με τα οποία διαμοιράζεστε"
       near_from: "Αναρτήθηκε από: <%= location %>"
       public: "Δημόσιο - οι δημοσιεύσεις σας θα είναι ορατές στον καθένα και θα μπορούν να βρεθούν από τις μηχανές αναζήτησης"
@@ -97,10 +91,8 @@ el:
     report:
       name: "Αναφορά"
     reshares:
-      duplicate: "Αυτό είναι τόσο καλό ε; Έχετε ήδη κοινοποιήσει αυτή τη δημοσίευση!"
       post: "Κοινοποίηση της ανάρτησης του <%= name %>;"
       successful: "Η ανάρτηση κοινοποιήθηκε επιτυχώς!"
-    search_for: "Αναζήτηση για <%= name %>"
     show_more: "Προβολή περισσότερων"
     stream:
       comment: "Σχολιάστε"
@@ -140,29 +132,24 @@ el:
       wasnt_that_interesting: "OK, φαντάζομαι πως το #<%= tagName %> δεν ήταν και τόσο ενδιαφέρον τελικά..."
     timeago:
       day: "μία μέρα"
-      days: "%d μέρες"
+      days:
+        other: "%d μέρες"
       hour: "περίπου μία ώρα"
-      hours: "περίπου %d ώρες"
+      hours:
+        other: "περίπου %d ώρες"
       minute: "περίπου ένα λεπτό"
-      minutes: "%d λεπτά"
+      minutes:
+        other: "%d λεπτά"
       month: "περίπου ένα μήνα"
-      months: "%d μήνες"
+      months:
+        other: "%d μήνες"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "λιγότερο από ένα λεπτό"
       suffixAgo: "πριν"
       suffixFromNow: "από τώρα"
       year: "περίπου ένα χρόνο"
-      years: "%d χρόνια"
-    videos:
-      unknown: "Άγνωστος τύπος βίντεο"
-      watch: "Δείτε το βίντεο στο <%= provider %>"
+      years:
+        other: "%d χρόνια"
     viewer:
-      comment: "Σχολιάστε"
-      follow_post: "Παρακολούθησης δημοσιεύσεων"
-      home: "ΑΡΧΙΚΗ"
-      like: "Μου αρέσει"
-      reshare: "Κοινοποιήστε"
       reshared: "Κοινοποιήθηκε"
-      stop_following_post: "Παύση παρακολούθησης δημοσιεύσεων"
-      unlike: "Δεν μου αρέσει"

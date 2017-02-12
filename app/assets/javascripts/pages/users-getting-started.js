@@ -18,7 +18,7 @@ Diaspora.Pages.UsersGettingStarted = function() {
 
       /* flash message prompt */
       var message = Diaspora.I18n.t("getting_started.hey", {'name': $("#profile_first_name").val()});
-      Diaspora.page.flashMessages.render({success: true, notice: message});
+      app.flashMessages.success(message);
     });
 
     $("#profile_first_name").bind("change", function(){
@@ -45,41 +45,20 @@ Diaspora.Pages.UsersGettingStarted = function() {
         confirmation = confirm(confirmMessage);
       }
 
-      Diaspora.page.flashMessages.render({success: true, notice: message});
+      app.flashMessages.success(message);
       return confirmation;
     });
 
-    /* ------ */
-    var autocompleteInput = $("#follow_tags");
     var tagFollowings = new app.collections.TagFollowings();
-
-    autocompleteInput.autoSuggest("/tags", {
-      selectedItemProp: "name",
-      selectedValuesProp: "name",
-      searchObjProps: "name",
-      asHtmlID: "tags",
-      neverSubmit: true,
-      retrieveLimit: 10,
-      selectionLimit: false,
-      minChars: 2,
-      keyDelay: 200,
-      startText: "",
-      emptyText: "no_results",
+    new Diaspora.TagsAutocomplete("#follow_tags", {
+      preFill: gon.preloads.tagsArray,
       selectionAdded: function(elem){tagFollowings.create({"name":$(elem[0]).text().substring(2)})},
-      selectionRemoved: function(elem){ 
+      selectionRemoved: function(elem){
         tagFollowings.where({"name":$(elem[0]).text().substring(2)})[0].destroy();
         elem.remove();
       }
-      });
-
-    autocompleteInput.bind('keydown', function(evt){
-      if(evt.keyCode === 13 || evt.keyCode === 9 || evt.keyCode === 32){
-        evt.preventDefault();
-        if( $('li.as-result-item.active').length === 0 ){
-          $('li.as-result-item').first().click();
-        }
-      }
     });
+    new Diaspora.ProfilePhotoUploader();
   });
 };
 // @license-end

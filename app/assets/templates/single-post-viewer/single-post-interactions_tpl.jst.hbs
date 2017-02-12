@@ -1,44 +1,4 @@
-{{#if resharesCount}}
-  <div id='reshares'>
-    <span class="count">
-      <i class='entypo retweet middle gray'></i>
-      <span>{{resharesCount}}</span>
-    </span>
-    <span>
-      {{#each reshares}}
-        {{#linkToAuthor author}}
-          {{{personImage this 'small' 'micro'}}}
-        {{/linkToAuthor}}
-      {{/each}}
-    </span>
-  </div>
-{{/if}}
-{{#if likesCount}}
-  <div id='likes'>
-    <span class="count">
-      <i class='entypo heart middle gray'></i>
-      <span>{{likesCount}}</span>
-    </span>
-    <span>
-      {{#each likes}}
-        {{#linkToAuthor author}}
-          {{{personImage this 'small' 'micro'}}}
-        {{/linkToAuthor}}
-      {{/each}}
-    </span>
-  </div>
-{{/if}}
-{{#if commentsCount}}
-  <div id='comments-meta'>
-    <span class='count'>
-      <i class='entypo comment middle gray'></i>
-      <span>{{commentsCount}}</span>
-    </span>
-  </div>
-{{else}}
-  <div class='no_comments'>
-    <h4>{{t "comments.no_comments" }}</h4>
-  </div>
-{{/if}}
-<div id='comments'>
+<div id="interaction-counts">
+</div>
+<div id="comments">
 </div>

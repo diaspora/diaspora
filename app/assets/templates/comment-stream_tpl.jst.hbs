@@ -1,17 +1,23 @@
-{{#unless all_comments_loaded}}
-  <div class="show_comments comment {{#unless showExpandCommentsLink}} hidden {{/unless}}">
-    <div class="media">
-      <a href="/posts/{{id}}#comments" class="toggle_post_comments">
-        {{t "stream.more_comments" count=moreCommentsCount}}
-      </a>
+<div class="show_comments comment {{#unless showExpandCommentsLink}} hidden {{/unless}}">
+  <div class="media">
+    <a href="/posts/{{id}}#comments" class="toggle_post_comments">
+      {{t "stream.more_comments" count=moreCommentsCount}}
+    </a>
+  </div>
+</div>
+
+<div class="loading-comments comment text-center hidden">
+  <div class="media">
+    <div class="loader">
+      <div class="spinner"></div>
     </div>
   </div>
-{{/unless}}
+</div>
 
 <div class="comments"> </div>
 
 {{#if loggedIn}}
-  <div class="comment media new_comment_form_wrapper {{#unless commentsCount}} hidden {{/unless}}">
+  <div class="comment media new-comment-form-wrapper {{#unless commentsCount}} hidden {{/unless}}">
     {{#with current_user}}
       <a href="/people/{{guid}}" class="img">
         {{{personImage this}}}
@@ -20,9 +26,9 @@
 
     <div class="bd">
       <form accept-charset="UTF-8" action="/posts/{{id}}/comments" class="new_comment" id="new_comment_on_{{id}}" method="post">
-        <textarea class="comment_box" id="comment_text_on_{{id}}" name="text" rows="2" required placeholder="{{t "stream.comment"}}" />
+        <textarea class="comment_box form-control" id="comment_text_on_{{id}}" name="text" rows="1" required placeholder="{{t "stream.comment"}}" />
         <div class="submit_button">
-          <input class="btn creation" id="comment_submit_{{id}}" name="commit" type="submit" value="{{t "stream.comment"}}" />
+          <input class="btn btn-primary" id="comment_submit_{{id}}" name="commit" type="submit" value="{{t "stream.comment"}}" />
         </div>
       </form>
     </div>

@@ -1,0 +1,200 @@
+.left-navbar {
+  padding: 0;
+  padding-bottom: 10px;
+
+  a {
+    text-decoration: none;
+    outline: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hoverable {
+    color: $link-grey;
+    display: block;
+    padding: 10px 20px;
+    font-weight: bold;
+
+    a {
+      color: $link-grey;
+    }
+
+    &:hover, &:hover a, &:hover [class^="entypo"] {
+      background-color: $blue;
+      border-color: $blue;
+      color: $white;
+    }
+  }
+
+  .all-aspects .hoverable.selected,
+  .followed-tags-sidebar .hoverable.selected,
+  .selected > .hoverable {
+    color: $white;
+    background: $gray;
+    border-color: $gray;
+  }
+
+  .all-aspects ul,
+  .followed-tags-sidebar ul {
+    background: $left-navbar-drawer-background;
+    li { padding: 0; }
+    .entypo-check { visibility: hidden; }
+    .entypo-check.selected { visibility: visible; }
+    .selectable {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 10px 20px 10px 40px;
+    }
+    .hoverable > .action {
+      position: relative;
+      bottom: 30px;
+      right: 20px;
+      visibility: hidden;
+    }
+    .hoverable:hover > .action { visibility: visible; }
+  }
+
+  #tags_list {
+    #new_tag_following {
+      padding: 10px 20px 10px 30px;
+    }
+
+    /* ---- override app/stylesheets/vendor/autoSuggest.css ---- */
+    .as-original{ width: 100%; }
+    .tag_input {
+      line-height: $font-size-base;
+      vertical-align: top;
+      width: 100%;
+    }
+
+    .as-result {
+      margin-top: -1px;
+      margin-left: 1px;
+    }
+
+    .as-list {
+      em {
+        background-color: #aabbcc;
+        color: black;
+        padding: 0px;
+      }
+
+      color: black;
+      position: static; /* override absolute */
+      margin: 0px;
+      border-radius: 0px 0px 3px 3px;
+      box-shadow: 0px 1px 1px #666;
+    }
+
+    .as-result-item.active {
+      color: black;
+      text-shadow: none;
+      background-color: $background-blue;
+      border-color: $background-blue;
+    }
+    /* ---- end override app/stylesheets/vendor/autoSuggest.css ---- */
+  }
+}
+
+.info-bar {
+  margin-top: 20px;
+  padding: 10px 20px 0;
+
+  .excellence-box,
+  .info-links {
+    border-top: 1px solid $border-grey;
+    padding: 5px;
+  }
+
+  .excellence-box {
+    margin-top: 10px;
+
+    .content {
+      font-size: $font-size-base;
+    }
+  }
+
+  .section {
+    margin-top: 10px;
+
+    &:last-child {
+      margin-bottom: 10px;
+    }
+
+    &:not(.collapsed) .entypo-triangle-right,
+    &.collapsed .entypo-triangle-down,
+    &.collapsed .content {
+      display: none;
+    }
+
+    &.collapsed .title h5 {
+      font-weight: normal;
+    }
+  }
+
+  .title {
+    cursor: pointer;
+    padding-bottom: 5px;
+
+    h5 {
+      color: $text-dark-grey;
+      font-size: $font-size-base;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  .content {
+    color: $text-grey;
+    font-size: $font-size-small;
+    line-height: 18px;
+    padding: 10px 0;
+
+    p,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 5px;
+      padding-left: 0;
+    }
+
+    .btn-link {
+      font-size: $font-size-small;
+      padding-left: 0;
+    }
+
+    > [name="invite_code"] {
+      box-sizing: border-box;
+      font-size: $font-size-small;
+      height: 30px;
+      width: 100%;
+    }
+  }
+
+  .right-service-icons {
+    padding: 10px {
+      bottom: 0;
+    }
+    text-align: center;
+
+    .social-media-logos-facebook-24x24,
+    .social-media-logos-twitter-24x24,
+    .social-media-logos-tumblr-24x24,
+    .social-media-logos-wordpress-24x24 {
+      height: 24px;
+      width: 24px;
+    }
+
+    a {
+      display: inline-block;
+    }
+  }
+}

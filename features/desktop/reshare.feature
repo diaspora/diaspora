@@ -18,8 +18,7 @@ Feature: public repost
     Given I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     And I open the show page of the "reshare this!" post
-    And I click on selector "a.reshare"
-    And I confirm the alert
+    And I confirm the alert after I click on selector "a.reshare"
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
 
@@ -28,8 +27,7 @@ Feature: public repost
     And I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
     And I open the show page of the "reshare this!" post
-    And I click on selector "a.reshare"
-    And I confirm the alert
+    And I confirm the alert after I click on selector "a.reshare"
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
 
@@ -44,12 +42,25 @@ Feature: public repost
     And I sign in as "bob@bob.bob"
     Then I should see "Original post deleted by author" within ".reshare"
 
-  # should be covered in rspec, so testing that the post is added to
-  # app.stream in jasmine should be enough coverage
-  Scenario: When I reshare, it shows up on my profile page
-    Given I sign in as "alice@alice.alice"
-    And I follow "Reshare"
-    And I confirm the alert
+  Scenario: Reshare a post from the stream
+    When I sign in as "alice@alice.alice"
+    Then I should see a ".reshare" within ".feedback"
+    When I confirm the alert after I follow "Reshare"
     Then I should see a flash message indicating success
     And I should see a flash message containing "successfully"
     And I should not see a ".reshare" within ".feedback"
+
+  Scenario: Reshare a post from another user's profile
+    When I sign in as "alice@alice.alice"
+    And I am on "bob@bob.bob"'s page
+    Then I should see a ".reshare" within ".feedback"
+    When I confirm the alert after I follow "Reshare"
+    Then I should see a flash message indicating success
+    And I should see a flash message containing "successfully"
+    And I should not see a ".reshare" within ".feedback"
+
+  Scenario: Try to reshare an already reshared post from another user's profile
+    Given the post with text "reshare this!" is reshared by "alice@alice.alice"
+    When I sign in as "alice@alice.alice"
+    And I am on "bob@bob.bob"'s page
+    Then I should not see a ".reshare" within ".feedback"

@@ -2,7 +2,7 @@
   = "#{AppConfig.settings.pod_name} - #{t('devise.passwords.new.forgot_password')}"
 
 #forgot_password
-  .container-fluid
+  .container
     .text-center
       .logos-asterisk
       %h1
@@ -14,11 +14,19 @@
           %i
             = t('devise.passwords.new.no_account') # this is an error message and should not be displayed as a legend
       %fieldset
-        %label{for: "user_email"}
-          = t('devise.passwords.new.email')
-        %i.entypo.mail
-        = f.text_field :email, class: "input-block-level form-control", required: true, autocapitalize: "off", placeholder: t('devise.passwords.new.email'), autocorrect: "off", autofocus: true
-      = f.submit t('devise.passwords.new.send_password_instructions'), class: "btn btn-block"
+        %label#emailLabel.sr-only{for: "user_email"}
+          = t("devise.passwords.new.email")
+        %i.entypo-mail
+        = f.text_field :email,
+                       class:          "input-block-level form-control",
+                       required:       true,
+                       autocapitalize: "none",
+                       placeholder:    t("devise.passwords.new.email"),
+                       autocorrect:    "off",
+                       autofocus:      true,
+                       aria:           {labelledby: "emailLabel"}
+
+      = f.submit t("devise.passwords.new.send_password_instructions"), class: "btn btn-block btn-primary"
 
     .text-center
       = link_to t('devise.shared.links.sign_in'), new_session_path(resource_name)

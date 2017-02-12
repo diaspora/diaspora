@@ -6,10 +6,7 @@
 
 ur-PK:
   _applications: "ایپلی کیشنز"
-  _comments: "تبصرے"
   _contacts: "رابطے"
-  _home: "صفحہ اول"
-  _photos: "تصاویر"
   _services: "سہولیات"
   account: "اکاؤنٹ"
   activerecord:
@@ -40,13 +37,7 @@ ur-PK:
             username:
               invalid: "غلط ہے. ہم صرف حروف ، ہندسوں اور مرتب کی اجازت دیتے ہیں"
               taken: ".پہلے ہی لیا جا چکا ہے"
-  ago: "%{قبل {وقت"
   all_aspects: "تمام پہلو"
-  application:
-    helper:
-      unknown_person: "نامعلوم شخص"
-      video_title:
-        unknown: "نامعلوم ویڈیو عنوان"
   are_you_sure: "کیا آپکو یقین ہے؟"
   aspect_memberships:
     destroy:
@@ -59,11 +50,6 @@ ur-PK:
       success: "رابطہ کامیابی سے پہلو میں شامل کر دیا گیا ہے۔"
     aspect_listings:
       add_an_aspect: "ایک پہلو شامل کریں +"
-    contacts_not_visible: "اس پہلو میں رابطے ایک دوسرے کو دیکھ نہیں سکیں گے۔"
-    contacts_visible: "اس پہلو میں رابطے ایک دوسرے کو دیکھ سکیں گے۔"
-    create:
-      failure: "پہلو بنانے میں ناکامی۔"
-      success: "آپکا نیا پہلو ٪ {name} تشکیل دے دیا گیا"
     destroy:
       failure: "%{name} .خالی نہیں ہے اور اسے ختم نہیں کیا جا سکتا"
       success: "%{name} کامیابی سے ہٹا دیا گیا۔"
@@ -71,39 +57,22 @@ ur-PK:
       aspect_list_is_not_visible: "پہلو کی فہرست' پہلو میں دوسروں سے چھپی ہوئ ہے'"
       aspect_list_is_visible: "پہلو کی فہرست' پہلو میں دوسروں کو دکھائی دے رہی ہے'"
       confirm_remove_aspect: "کیا آپکو یقین ہے کہ آپ اس پہلو کو خذف کرنا چاہتے ہیں؟"
-      make_aspect_list_visible: "کیا پہلو کی فہرست نظر آۓ؟"
-      remove_aspect: "پہلو حذف کریں"
       rename: "نام تبدیل کریں"
       update: "تازہ"
       updating: "تازہ کیا جا رھا ہے"
     index:
-      diaspora_id:
-        content_1: "آپکی ڈایسپورا شناخت"
-        content_2: "یہ کسی کو بھی دیں تو وہ آپکو تلاش کر لے گا۔"
-        heading: "ڈایسپورا شناخت"
       donate: "عطیہ دیجیے"
-      handle_explanation: "یہ آپ کی ڈایسپورا شناخت ہے۔ ایک ای میل ایڈریس کی طرح، آپ اسے لوگوں کو خود تک پہنچنے کے لئے دے سکتے ہیں۔"
       help:
         here_to_help: "Diaspora community is here to help!"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      no_contacts: "کوئ رابطہ نہیں"
-      no_tags: "پیروی کرنے کے لئے ایک اصطلاح تلاش کریں +"
-      people_sharing_with_you: "آپ کے ساتھ اشتراک کرنے والے افراد"
-      post_a_message: "ایک پیغام شائع کیجیے"
       services:
         content: "آپ ڈایسپورا کے لئے مندرجہ ذیل خدمات شامل کر سکتے ہیں :"
         heading: "خدمات کو جوڑیے"
-      unfollow_tag: "پیروی بند کیجیے #%{tag}"
-    new:
-      create: "بنایۓ"
-      name: "نام"
     no_contacts_message:
       try_adding_some_more_contacts: "آب مزید رابطے تلاش (top) یا مدعو (right) کر سکتے ہیں۔"
       you_should_add_some_more_contacts: "آپ کو کچھ مزید رابطے شامل کرنا چاہیئں!"
-    no_posts_message:
-      start_talking: "ابھی تک کسی نے کچھ نہیں کہا!"
     seed:
       acquaintances: "جاننے والے"
       family: "خاندان"
@@ -112,20 +81,9 @@ ur-PK:
     update:
       failure: "آپکے پہلو کا نام, %{name}, محفوظ کرنے کی حد سے لمبا ہے۔"
       success: "آپکے پہلو, %{name}, میں ترمیم ہو گئ ہے۔"
-  back: "واپس"
   contacts:
     index:
-      add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-  conversations:
-    helper:
-      new_messages:
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
-        zero: "No new messages"
   layouts:
     application:
       toggle: "toggle mobile site"
@@ -133,29 +91,6 @@ ur-PK:
       logout: "log out"
       profile: "profile"
       settings: "settings"
-  likes:
-    likes:
-      people_dislike_this:
-        few: "%{count} dislikes"
-        many: "%{count} dislikes"
-        one: "%{count} dislike"
-        other: "%{count} dislikes"
-        two: "%{count} dislikes"
-        zero: "no dislikes"
-      people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
-      people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -178,14 +113,6 @@ ur-PK:
       other: "%{actors} commented on your %{post_link}."
       two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
-    helper:
-      new_notifications:
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        two: "%{count} new notifications"
-        zero: "No new notifications"
     index:
       and_others:
         few: "and %{count} others"
@@ -266,41 +193,8 @@ ur-PK:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
-  registrations:
-    new:
-      create_my_account: "Create my account"
-      sign_up_message: "Social Networking with a <3"
-  requests:
-    helper:
-      new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
-  reshares:
-    reshare:
-      reshare:
-        few: "%{count} reshares"
-        many: "%{count} reshares"
-        one: "1 reshare"
-        other: "%{count} reshares"
-        two: "%{count} reshares"
-        zero: "Reshare"
-  services:
-    inviter:
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
   shared:
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
       toggle:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
@@ -311,30 +205,13 @@ ur-PK:
     publisher:
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
-    stream_element:
-      hide_and_mute: "Hide and Mute"
   status_messages:
     too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"
-  stream_helper:
-    show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
   streams:
     aspects:
       title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-  tag_followings:
-    create:
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
-    destroy:
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
   users:
     edit:
       auto_follow_back: "Automatically follow back if a someone follows you"
