@@ -3,6 +3,7 @@
 ## Refactor
 
 * Make the mention syntax more flexible [#7305](https://github.com/diaspora/diaspora/pull/7305)
+* Display @ before mentions [#7324](https://github.com/diaspora/diaspora/pull/7324)
 
 ## Bug fixes
 

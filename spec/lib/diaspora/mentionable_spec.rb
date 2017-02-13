@@ -44,7 +44,8 @@ STR
         fmt_msg = Diaspora::Mentionable.format(test_text_with_names, people)
 
         [people, names].transpose.each do |person, name|
-          expect(fmt_msg).to include person_link(person, class: "mention hovercardable", display_name: name)
+          link = person_link(person, class: "mention hovercardable", display_name: name)
+          expect(fmt_msg).to include "@#{link}"
         end
       end
 
@@ -52,7 +53,8 @@ STR
         fmt_msg = Diaspora::Mentionable.format(test_text_without_names, people)
 
         people.each do |person|
-          expect(fmt_msg).to include person_link(person, class: "mention hovercardable", display_name: person.name)
+          link = person_link(person, class: "mention hovercardable", display_name: person.name)
+          expect(fmt_msg).to include "@#{link}"
         end
       end
 
@@ -80,7 +82,7 @@ STR
         fmt_msg = Diaspora::Mentionable.format(test_text_with_names, people, plain_text: true)
 
         names.each do |name|
-          expect(fmt_msg).to include CGI.escapeHTML(name)
+          expect(fmt_msg).to include "@#{CGI.escapeHTML(name)}"
         end
         expect(fmt_msg).not_to include "<a", "</a>", "hovercardable"
       end
@@ -89,9 +91,9 @@ STR
     it "leaves the names of people that cannot be found" do
       test_txt_plain = <<-STR
 This post contains a lot of mentions
-one Alice A,
-two Bob B and finally
-three &quot;Eve&gt; E.
+one @Alice A,
+two @Bob B and finally
+three @&quot;Eve&gt; E.
 STR
 
       fmt_msg = Diaspora::Mentionable.format(test_text_with_names, [])
@@ -101,9 +103,9 @@ STR
     it "uses the diaspora ID when the person cannot be found" do
       test_txt_plain = <<-STR
 This post contains a lot of mentions
-one #{people[0].diaspora_handle},
-two #{people[1].diaspora_handle} and finally
-three #{people[2].diaspora_handle}.
+one @#{people[0].diaspora_handle},
+two @#{people[1].diaspora_handle} and finally
+three @#{people[2].diaspora_handle}.
 STR
 
       fmt_msg = Diaspora::Mentionable.format(test_text_without_names, [])
@@ -180,8 +182,7 @@ STR
         user_a.aspects.where(name: "generic").first.contacts.map(&:person_id)
       )
 
-      expect(txt).to include("user C")
-      expect(txt).to include(local_or_remote_person_path(user_c.person))
+      expect(txt).to include("@[user C](#{local_or_remote_person_path(user_c.person)}")
       expect(txt).not_to include("href")
       expect(txt).not_to include(mention)
     end
@@ -203,7 +204,7 @@ STR
       mention = "@{non_existing_user@example.org}"
       txt = Diaspora::Mentionable.filter_people("mentioning #{mention}", [])
 
-      expect(txt).to eq "mentioning non_existing_user@example.org"
+      expect(txt).to eq "mentioning @non_existing_user@example.org"
     end
   end
 

@@ -32,7 +32,7 @@ module Diaspora::Mentionable
       name, diaspora_id = mention_attrs(match_str)
       person = people.find {|p| p.diaspora_handle == diaspora_id }
 
-      ERB::Util.h(MentionsInternal.mention_link(person, name, diaspora_id, opts))
+      "@#{ERB::Util.h(MentionsInternal.mention_link(person, name, diaspora_id, opts))}"
     }
   end
 
@@ -64,7 +64,7 @@ module Diaspora::Mentionable
       if person && allowed_people.include?(person.id)
         match_str
       else
-        MentionsInternal.profile_link(person, name, diaspora_id)
+        "@#{MentionsInternal.profile_link(person, name, diaspora_id)}"
       end
     }
   end
