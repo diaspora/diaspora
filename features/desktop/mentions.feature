@@ -54,3 +54,15 @@ Feature: Mentions
     Then I should see "Bob Jones" within ".stream-element"
     When I follow "Bob Jones"
     Then I should see "Bob Jones"
+
+  Scenario: A user mentions another user in a comment and it displays correctly
+    Given following users exist:
+      | username     | email             |
+      | Bob Jones    | bob@bob.bob       |
+      | Alice Smith  | alice@alice.alice |
+    And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+    And "alice@alice.alice" has a public post with text "check this out!"
+    And "alice@alice.alice" has commented mentioning "bob@bob.bob" on "check this out!"
+    When I sign in as "alice@alice.alice"
+    And I follow "Bob Jones"
+    Then I should see "Bob Jones"
