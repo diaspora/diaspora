@@ -7,7 +7,6 @@
     border-bottom: 1px solid $border-grey;
     padding: 10px 0;
     #post-info {
-      .author{ color: $grey; }
       .info {
         color: lighten($text-grey,10%);
         font-size: 12px;
@@ -22,6 +21,9 @@
         padding-left: 10px;
       }
     }
+
+    .author-name { color: $grey; }
+
     .near-from {
       color: $text-grey;
       font-size: 12px;

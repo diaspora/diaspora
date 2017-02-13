@@ -4,6 +4,7 @@
 * Unify link colors [#7318](https://github.com/diaspora/diaspora/pull/7318)
 * Increase time to wait before showing the hovercard [#7319](https://github.com/diaspora/diaspora/pull/7319)
 * Remove some unused color-theme overrides [#7325](https://github.com/diaspora/diaspora/pull/7325)
+* Change color of author-name on hover [#7326](https://github.com/diaspora/diaspora/pull/7326)
 
 ## Bug fixes
 * Fix path to `bundle` in `script/server` [#7281](https://github.com/diaspora/diaspora/pull/7281)
