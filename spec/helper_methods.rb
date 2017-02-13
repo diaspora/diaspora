@@ -47,7 +47,7 @@ module HelperMethods
 
   def text_mentioning(*people)
     people.map {|person|
-      "this is a text mentioning @{#{person.name}; #{person.diaspora_handle}} ... have fun testing!"
+      "this is a text mentioning @{#{person.diaspora_handle}} ... have fun testing!"
     }.join(" ")
   end
 
