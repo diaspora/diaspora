@@ -10,6 +10,7 @@
 ## Features
 * Add support for mentions in comments to the backend [#6818](https://github.com/diaspora/diaspora/pull/6818)
 * Add support for new mention syntax [#7300](https://github.com/diaspora/diaspora/pull/7300)
+* Render mentions as links in comments [#7327](https://github.com/diaspora/diaspora/pull/7327)
 
 # 0.6.4.0
 
