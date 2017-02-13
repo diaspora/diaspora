@@ -50,7 +50,7 @@ body {
   @import 'highlightjs/darcula';
 
   #single-post-content .head {
-    #post-info .author { color: lighten($gray-lighter, 27%); }
+    .author-name { color: lighten($gray-lighter, 27%); }
     #single-post-actions i.entypo-heart.red:hover { color: $red; }
   }
 
