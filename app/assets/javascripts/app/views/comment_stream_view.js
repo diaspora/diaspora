@@ -27,6 +27,7 @@ app.views.CommentStream = app.views.Base.extend({
     this.model.comments.each(this.appendComment, this);
     this.commentBox = this.$(".comment_box");
     this.commentSubmitButton = this.$("input[name='commit']");
+    new app.views.CommentMention({el: this.$el, postId: this.model.get("id")});
   },
 
   presenter: function(){

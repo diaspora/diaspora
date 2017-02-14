@@ -12,7 +12,7 @@
                 :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
                 "data-title" => popover_with_close_html("1. " + t("shared.public_explain.share")),
                 "data-content" => t("shared.public_explain.new_user_welcome_message"),
-                "class" => "form-control"
+                "class" => "form-control mention-fake-textarea"
             - else
               = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text),
                 :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",
