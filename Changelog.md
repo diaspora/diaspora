@@ -10,6 +10,7 @@
 * Fix path to `bundle` in `script/server` [#7281](https://github.com/diaspora/diaspora/pull/7281)
 * Update comment in database example config [#7282](https://github.com/diaspora/diaspora/pull/7282)
 * Make the \#newhere post public again [#7311](https://github.com/diaspora/diaspora/pull/7311)
+* Remove whitespace from author link [#7330](https://github.com/diaspora/diaspora/pull/7330)
 
 ## Features
 * Add support for [Liberapay](https://liberapay.com) donations [#7290](https://github.com/diaspora/diaspora/pull/7290)
