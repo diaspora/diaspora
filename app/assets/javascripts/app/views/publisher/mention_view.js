@@ -2,29 +2,19 @@
 
 app.views.PublisherMention = app.views.SearchBase.extend({
   triggerChar: "@",
-  invisibleChar: "\u200B", // zero width space
   mentionRegex: /@([^@\s]+)$/,
-
-  templates: {
-    mentionItemSyntax: _.template("@{<%= name %> ; <%= handle %>}"),
-    mentionItemHighlight: _.template("<strong><span><%= name %></span></strong>")
-  },
+  mentionSyntaxTemplate: function(person) { return "@{" + person.handle + "}"; },
 
   events: {
-    "keydown #status_message_fake_text": "onInputBoxKeyDown",
-    "input #status_message_fake_text": "onInputBoxInput",
-    "click #status_message_fake_text": "onInputBoxClick",
-    "blur #status_message_fake_text": "onInputBoxBlur"
+    "keydown #status_message_text": "onInputBoxKeyDown",
+    "input #status_message_text": "updateTypeaheadInput",
+    "click #status_message_text": "onInputBoxClick",
+    "blur #status_message_text": "onInputBoxBlur"
   },
 
   initialize: function() {
     this.mentionedPeople = [];
-
-    // contains the 'fake text' displayed to the user
-    // also has a data-messageText attribute with the original text
-    this.inputBox = this.$("#status_message_fake_text");
-    // contains the mentions displayed to the user
-    this.mentionsBox = this.$(".mentions-box");
+    this.inputBox = this.$("#status_message_text");
     this.typeaheadInput = this.$(".typeahead-mention-box");
     this.bindTypeaheadEvents();
 
@@ -55,8 +45,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   cleanMentionedPeople: function() {
     var inputText = this.inputBox.val();
     this.mentionedPeople = this.mentionedPeople.filter(function(person) {
-      return person.name && inputText.indexOf(person.name) > -1;
-    });
+      return person.handle && inputText.indexOf(this.mentionSyntaxTemplate(person)) > -1;
+    }.bind(this));
     this.ignoreDiasporaIds = this.mentionedPeople.map(function(person) { return person.handle; });
   },
 
@@ -70,39 +60,14 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.addPersonToMentions(person);
     this.closeSuggestions();
 
-    messageText = messageText.substring(0, triggerCharPosition) +
-      this.invisibleChar + person.name + messageText.substring(caretPosition);
+    var mentionText = this.mentionSyntaxTemplate(person);
+
+    messageText = messageText.substring(0, triggerCharPosition) + mentionText + messageText.substring(caretPosition);
 
     this.inputBox.val(messageText);
-    this.updateMessageTexts();
-
     this.inputBox.focus();
-    var newCaretPosition = triggerCharPosition + person.name.length + 1;
+    var newCaretPosition = triggerCharPosition + mentionText.length;
     this.inputBox[0].setSelectionRange(newCaretPosition, newCaretPosition);
-  },
-
-  /**
-   * Replaces every combination of this.invisibleChar + mention.name by the
-   * correct syntax for both hidden text and visible one.
-   *
-   * For instance, the text "Hello \u200Buser1" will be tranformed to
-   * "Hello @{user1 ; user1@pod.tld}" in the hidden element and
-   * "Hello <strong><span>user1</span></strong>" in the element visible to the user.
-   */
-  updateMessageTexts: function() {
-    var fakeMessageText = this.inputBox.val(),
-        mentionBoxText = _.escape(fakeMessageText),
-        messageText = fakeMessageText;
-
-    this.mentionedPeople.forEach(function(person) {
-      var mentionName = this.invisibleChar + person.name;
-      messageText = messageText.replace(mentionName, this.templates.mentionItemSyntax(person));
-      var textHighlight = this.templates.mentionItemHighlight({name: _.escape(person.name)});
-      mentionBoxText = mentionBoxText.replace(mentionName, textHighlight);
-    }, this);
-
-    this.inputBox.data("messageText", messageText);
-    this.mentionsBox.find(".mentions").html(mentionBoxText);
   },
 
   updateTypeaheadInput: function() {
@@ -114,6 +79,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       this.closeSuggestions();
       return;
     }
+
+    this.cleanMentionedPeople();
 
     // result[1] is the string between the last '@' and the current caret position
     this.typeaheadInput.typeahead("val", result[1]);
@@ -128,12 +95,11 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   prefillMention: function(persons) {
     persons.forEach(function(person) {
       this.addPersonToMentions(person);
-      var text = this.invisibleChar + person.name;
+      var text = this.mentionSyntaxTemplate(person);
       if(this.inputBox.val().length !== 0) {
         text = this.inputBox.val() + " " + text;
       }
       this.inputBox.val(text);
-      this.updateMessageTexts();
     }, this);
   },
 
@@ -152,15 +118,6 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     this.typeaheadInput.typeahead("activate");
     this.typeaheadInput.typeahead("open");
     this.typeaheadInput.trigger($.Event("keydown", {keyCode: e.keyCode, which: e.which}));
-  },
-
-  /**
-   * Listens for user input and opens results dropdown when input contains the trigger char
-   */
-  onInputBoxInput: function() {
-    this.cleanMentionedPeople();
-    this.updateMessageTexts();
-    this.updateTypeaheadInput();
   },
 
   onInputBoxKeyDown: function(e) {
@@ -205,7 +162,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
 
   reset: function() {
     this.inputBox.val("");
-    this.onInputBoxInput();
+    this.updateTypeaheadInput();
   },
 
   closeSuggestions: function() {
@@ -217,7 +174,8 @@ app.views.PublisherMention = app.views.SearchBase.extend({
     return this.$(".tt-menu").is(":visible");
   },
 
-  getTextForSubmit: function() {
-    return this.mentionedPeople.length ? this.inputBox.data("messageText") : this.inputBox.val();
+  getMentionedPeople: function() {
+    this.cleanMentionedPeople();
+    return this.mentionedPeople;
   }
 });

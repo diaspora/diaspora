@@ -64,28 +64,4 @@
       }
     }
   }
-
-  .mentions-box {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    top: 0px;
-    padding: $padding-base-vertical $padding-base-horizontal;
-  }
-
-  .mentions {
-    color: transparent;
-    font-size: $font-size-base;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
-    width: 100%;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-
-    > strong {
-      background: $background-blue;
-      font-weight: normal;
-    }
-  }
 }

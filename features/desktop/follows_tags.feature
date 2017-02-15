@@ -16,7 +16,7 @@ Feature: posting
     Then I should see a ".tag-following-action .followed"
 
   Scenario: can post a message from the tag page
-    Then I should see "#boss" within "#publisher"
+    Then I should see "#boss " in the publisher
     When I click the publisher and post "#boss from the tag page"
     And I go to the tag page for "boss"
     Then I should see "#boss from the tag page"

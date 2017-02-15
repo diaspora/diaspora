@@ -21,16 +21,6 @@ module InterimStreamHackinessHelper
     end
   end
 
-  def publisher_hidden_text
-    if params[:prefill].present?
-      params[:prefill]
-    elsif defined?(@stream)
-      @stream.publisher.prefill
-    else
-      nil
-    end
-  end
-
   def from_group(post)
     if defined?(@stream) && params[:controller] == 'multis'
       @stream.post_from_group(post)

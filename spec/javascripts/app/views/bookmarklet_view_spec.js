@@ -29,23 +29,18 @@ describe("app.views.Bookmarklet", function() {
 
   it("prefills the publisher", function() {
     init_bookmarklet(test_data);
-
     expect($.trim(app.publisher.inputEl.val())).not.toEqual("");
-    expect($.trim(app.publisher.hiddenInputEl.val())).not.toEqual("");
   });
 
   it("handles dirty input well", function() {
     init_bookmarklet(evil_test_data);
-
     expect($.trim(app.publisher.inputEl.val())).not.toEqual("");
-    expect($.trim(app.publisher.hiddenInputEl.val())).not.toEqual("");
   });
 
   it("allows changing a prefilled publisher", function() {
     init_bookmarklet(test_data);
     app.publisher.setText(app.publisher.inputEl.val()+"A");
-
-    expect(app.publisher.hiddenInputEl.val()).toMatch(/.+A$/);
+    expect(app.publisher.inputEl.val()).toMatch(/.+A$/);
   });
 
   it("keeps the publisher disabled after successful post creation", function() {
