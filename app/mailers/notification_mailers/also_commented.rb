@@ -7,7 +7,6 @@ module NotificationMailers
       @comment = Comment.find_by_id(comment_id)
 
       if mail?
-        @headers[:from] = "\"#{@comment.author_name} (diaspora*)\" <#{AppConfig.mail.sender_address}>"
         @headers[:in_reply_to] = @headers[:references] = "<#{@comment.parent.guid}@#{AppConfig.pod_uri.host}>"
         if @comment.public?
           @headers[:subject] = "Re: #{@comment.comment_email_subject}"
