@@ -120,6 +120,11 @@ describe Notifier, type: :mailer do
       expect(mail.subject).to include(comment.author.name)
     end
 
+    it "IN-REPLY-TO and REFERENCES: references the commented post" do
+      expect(mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+      expect(mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+    end
+
     it "has the comment link in the body" do
       expect(mail.body.encoded).to include(post_url(comment.parent, anchor: comment.guid))
     end
