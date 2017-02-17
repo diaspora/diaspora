@@ -76,8 +76,6 @@ defaults:
       enable: false
       host:
       site_id:
-    mixpanel_uid:
-    chartbeat_uid:
     statistics:
       user_counts: false
       post_counts: false

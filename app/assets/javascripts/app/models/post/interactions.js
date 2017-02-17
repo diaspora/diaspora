@@ -76,8 +76,6 @@ app.models.Post.Interactions = Backbone.Model.extend({
         app.flashMessages.handleAjaxError(response);
       }
     });
-
-    app.instrument("track", "Like");
   },
 
   unlike : function() {
@@ -87,8 +85,6 @@ app.models.Post.Interactions = Backbone.Model.extend({
       self.set({"likes_count" : self.get("likes_count") - 1});
       self.likes.trigger("change");
     }});
-
-    app.instrument("track", "Unlike");
   },
 
   comment: function(text, options) {
@@ -104,8 +100,6 @@ app.models.Post.Interactions = Backbone.Model.extend({
       self.trigger('change'); //updates after sync
       if (options.success) { options.success(); }
     });
-
-    app.instrument("track", "Comment");
   },
 
   reshare : function(){
@@ -126,8 +120,6 @@ app.models.Post.Interactions = Backbone.Model.extend({
       .fail(function(response) {
         app.flashMessages.handleAjaxError(response);
       });
-
-    app.instrument("track", "Reshare");
   },
 
   userCanReshare : function(){

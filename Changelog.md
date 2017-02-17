@@ -5,6 +5,7 @@
 * Make the mention syntax more flexible [#7305](https://github.com/diaspora/diaspora/pull/7305)
 * Display @ before mentions [#7324](https://github.com/diaspora/diaspora/pull/7324)
 * Simplify mentions in the publisher [#7302](https://github.com/diaspora/diaspora/pull/7302)
+* Remove chartbeat and mixpanel support [#7280](https://github.com/diaspora/diaspora/pull/7280)
 
 ## Bug fixes
 
