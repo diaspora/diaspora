@@ -22,8 +22,8 @@ class PostPresenter < BasePresenter
   def with_initial_interactions
     as_json.tap do |post|
       post[:interactions].merge!(
-        likes:    LikeService.new(current_user).find_for_post(@post.id).as_api_response(:backbone),
-        reshares: ReshareService.new(current_user).find_for_post(@post.id).as_api_response(:backbone)
+        likes:    LikeService.new(current_user).find_for_post(@post.id).limit(30).as_api_response(:backbone),
+        reshares: ReshareService.new(current_user).find_for_post(@post.id).limit(30).as_api_response(:backbone)
       )
     end
   end
