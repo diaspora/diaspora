@@ -87,12 +87,12 @@ describe LikesController, type: :controller do
     it "returns an array of likes for a post" do
       bob.like!(@message)
       get :index, post_id: @message.id
-      expect(assigns[:likes].map(&:id)).to eq(@message.likes.map(&:id))
+      expect(JSON.parse(response.body).map {|h| h["id"] }).to match_array(@message.likes.map(&:id))
     end
 
     it "returns an empty array for a post with no likes" do
       get :index, post_id: @message.id
-      expect(assigns[:likes]).to eq([])
+      expect(JSON.parse(response.body).map(&:id)).to eq([])
     end
   end
 
