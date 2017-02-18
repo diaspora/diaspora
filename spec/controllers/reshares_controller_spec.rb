@@ -31,8 +31,9 @@ describe ResharesController, :type => :controller do
         }.to change(Reshare, :count).by(1)
       end
 
-      it 'calls dispatch' do
-        expect(bob).to receive(:dispatch_post)
+      it "federates" do
+        allow_any_instance_of(Participation::Generator).to receive(:create!)
+        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
         post_request!
       end
 
