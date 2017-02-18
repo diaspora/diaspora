@@ -11,59 +11,34 @@ class LikesController < ApplicationController
              :json
 
   def create
-    begin
-      @like = if target
-        current_user.like!(target)
-      end
-    rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid => e
-      # do nothing
-    end
-
-    if @like
-      respond_to do |format|
-        format.html { render :nothing => true, :status => 201 }
-        format.mobile { redirect_to post_path(@like.post_id) }
-        format.json { render :json => @like.as_api_response(:backbone), :status => 201 }
-      end
-    else
-      render text: I18n.t("likes.create.error"), status: 422
+    like = like_service.create(params[:post_id])
+  rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid
+    render text: I18n.t("likes.create.error"), status: 422
+  else
+    respond_to do |format|
+      format.html { render nothing: true, status: 201 }
+      format.mobile { redirect_to post_path(like.post_id) }
+      format.json { render json: like.as_api_response(:backbone), status: 201 }
     end
   end
 
   def destroy
-    begin
-      @like = Like.find_by_id_and_author_id!(params[:id], current_user.person.id)
-    rescue ActiveRecord::RecordNotFound
+    if like_service.destroy(params[:id])
+      render nothing: true, status: 204
+    else
       render text: I18n.t("likes.destroy.error"), status: 404
-      return
-    end
-
-    current_user.retract(@like)
-    respond_to do |format|
-      format.json { render :nothing => true, :status => 204 }
     end
   end
 
-  #I can go when the old stream goes.
   def index
-    @likes = target.likes.includes(:author => :profile)
-    @people = @likes.map(&:author)
-
-    respond_to do |format|
-      format.all { render :layout => false }
-      format.json { render :json => @likes.as_api_response(:backbone) }
-    end
+    render json: like_service.find_for_post(params[:post_id])
+      .includes(author: :profile)
+      .as_api_response(:backbone)
   end
 
   private
 
-  def target
-    @target ||= if params[:post_id]
-      current_user.find_visible_shareable_by_id(Post, params[:post_id]) || raise(ActiveRecord::RecordNotFound.new)
-    else
-      Comment.find(params[:comment_id]).tap do |comment|
-       raise(ActiveRecord::RecordNotFound.new) unless current_user.find_visible_shareable_by_id(Post, comment.commentable_id)
-      end
-    end
+  def like_service
+    @like_service ||= LikeService.new(current_user)
   end
 end

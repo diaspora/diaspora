@@ -26,7 +26,7 @@ describe CommentService do
 
     it "fail if the user can not see the post" do
       expect {
-        CommentService.new(eve).create("unknown id", "hi")
+        CommentService.new(eve).create(post.id, "hi")
       }.to raise_error ActiveRecord::RecordNotFound
     end
   end
