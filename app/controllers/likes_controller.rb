@@ -31,13 +31,9 @@ class LikesController < ApplicationController
   end
 
   def index
-    @likes = like_service.find_for_post(params[:post_id]).includes(author: :profile)
-    @people = @likes.map(&:author)
-
-    respond_to do |format|
-      format.all { render :layout => false }
-      format.json { render :json => @likes.as_api_response(:backbone) }
-    end
+    render json: like_service.find_for_post(params[:post_id])
+      .includes(author: :profile)
+      .as_api_response(:backbone)
   end
 
   private
