@@ -28,6 +28,7 @@
 * Update comment in database example config [#7282](https://github.com/diaspora/diaspora/pull/7282)
 * Make the \#newhere post public again [#7311](https://github.com/diaspora/diaspora/pull/7311)
 * Remove whitespace from author link [#7330](https://github.com/diaspora/diaspora/pull/7330)
+* Fix autosize in modals [#7339](https://github.com/diaspora/diaspora/pull/7339)
 
 ## Features
 * Add support for [Liberapay](https://liberapay.com) donations [#7290](https://github.com/diaspora/diaspora/pull/7290)
