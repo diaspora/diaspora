@@ -63,7 +63,7 @@
 #main_stream .stream-element {
   margin-bottom: 20px;
   border: 1px solid $border-grey;
-  box-shadow: $card-shadow;
+  border-radius: 3px;
 
   &.highlighted {
     border-left: 3px solid $brand-primary;

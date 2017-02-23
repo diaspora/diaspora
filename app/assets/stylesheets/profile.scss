@@ -1,12 +1,11 @@
 #profile_container {
   .profile_header {
     margin-bottom: 15px;
-    background-color: $framed-background;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    margin-top: -20px;
-    box-shadow: $card-shadow;
+    background-color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid $border-grey;
+    border-radius: 3px;
 
     #edit_profile, #unblock_user_button, .aspect_dropdown {
       margin-top: 15px;
@@ -15,7 +14,7 @@
     #author_info {
       h2 {
         line-height: 35px;
-        margin-top: 10px;
+        margin-top: 0px;
         margin-bottom: 0px;
       }
       #name {
@@ -23,7 +22,8 @@
       }
       #diaspora_handle {
         color: $text-color-pale;
-        font-size: 20px;
+        font-size: 15px;
+        font-weight: 300;
       }
       #sharing_message {
         cursor: default;
@@ -52,7 +52,7 @@
     }
 
     #profile-horizontal-bar {
-      border-top: 1px dashed $border-grey;
+      border-top: 1px solid $border-grey;
       min-height: 50px;
       margin-top: 10px;
       #profile_buttons {
@@ -113,7 +113,6 @@
   }
 
   #profile {
-    padding: 20px;
     margin-bottom: 35px;
 
     #profile_photo {
@@ -123,9 +122,8 @@
     }
 
     ul#profile_information {
-      border-top: 1px dashed $border-grey;
       margin: 0;
-      padding: 0;
+      padding: 10px;
       list-style: none;
       overflow-x: hidden;
       word-wrap: break-word;

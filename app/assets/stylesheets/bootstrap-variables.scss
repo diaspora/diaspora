@@ -17,7 +17,7 @@ $gray:                   lighten($gray-base, 33.5%); // #555
 // $gray-lighter:           lighten($gray-base, 93.5%) // #eee
 
 $brand-primary: darken(#0097FF,5%) !default; // darker creation-blue
-$brand-success: #8EDE3D !default;
+$brand-success: #627d47 !default;
 // $brand-info:            #5bc0de
 // $brand-warning:         #f0ad4e
 // $brand-danger:          #d9534f
@@ -158,9 +158,9 @@ $font-size-small: 11px !default;
 // $btn-primary-bg:                 $brand-primary
 // $btn-primary-border:             darken($btn-primary-bg, 5%)
 
-$btn-success-color: #333 !default;
-// $btn-success-bg:                 $brand-success
-// $btn-success-border:             darken($btn-success-bg, 5%)
+$btn-success-color: #95c179 !default;
+$btn-success-bg:                 $brand-success;
+$btn-success-border:             #627d47;
 
 // $btn-info-color:                 #fff
 // $btn-info-bg:                    $brand-info

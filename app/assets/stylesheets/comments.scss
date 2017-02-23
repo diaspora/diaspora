@@ -1,4 +1,7 @@
 .comment_stream {
+    border: 1px solid #efefef;
+    border-radius: 3px;
+    background: #f9f8f8;
   .show_comments {
     border-top: 1px solid $border-grey;
     line-height: $line-height-computed;
@@ -22,15 +25,18 @@
     .media { margin: 5px; }
   }
 
+.comments > .comment {
+  padding: 10px 0px 10px 10px;
+  margin: 4px 10px 0px 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
   .comments > .comment,
   .comment.new-comment-form-wrapper {
     .avatar {
       height: 35px;
       width: 35px;
     }
-    margin: 0;
-    border-top: 1px dotted $border-grey;
-    padding: 10px 0;
 
     .info {
       margin-top: 5px;
@@ -44,7 +50,11 @@
     }
   }
 
-  .comment.new-comment-form-wrapper { padding-bottom: 0; }
+  .comment.new-comment-form-wrapper {
+    padding-bottom: 0;
+    background-color: #fff;
+    border-radius: 0;
+  }
 
   .submit_button {
     margin-top: 10px;
