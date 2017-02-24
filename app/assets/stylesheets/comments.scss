@@ -1,6 +1,5 @@
 .comment_stream {
-    border: 1px solid #efefef;
-    border-radius: 3px;
+    border-top: 1px solid #efefef;
     background: #f9f8f8;
   .show_comments {
     border-top: 1px solid $border-grey;
@@ -26,7 +25,7 @@
   }
 
 .comments > .comment {
-  padding: 10px 0px 10px 10px;
+  padding: 10px 0px 10px 0px;
   margin: 4px 10px 0px 10px;
   border-bottom: 1px solid #eaeaea;
 }
@@ -52,7 +51,6 @@
 
   .comment.new-comment-form-wrapper {
     padding-bottom: 0;
-    background-color: #fff;
     border-radius: 0;
   }
 
@@ -69,7 +67,7 @@
     resize: none;
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
-    border-color: $border-dark-grey;
+    border-color: #e6e6e6;
     & + .submit_button { display: block; }
     min-height: 35px;
     box-shadow: none;

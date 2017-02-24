@@ -62,8 +62,6 @@
 
 #main_stream .stream-element {
   margin-bottom: 20px;
-  border: 1px solid $border-grey;
-  border-radius: 3px;
 
   &.highlighted {
     border-left: 3px solid $brand-primary;
@@ -72,15 +70,25 @@
 }
 
 .stream-element {
-  background-color: $framed-background;
   padding: 10px;
+
+  .post-wrapper {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f9f8f8;
+  }
+
+  .post-content-wrapper {
+    padding: 10px;
+    background-color: #fff;
+  }
 
   & > .media {
     &.shield-active .nsfw-hidden { display: none; }
     &:not(.shield-active) .nsfw-shield { display: none; }
     &:not(.shield-off) .nsfw-off { display: none; }
     & > .img > .avatar {
-      margin-top: 5px;
+      margin-top: 2px;
       &.small {
         height: 50px;
         width: 50px;
