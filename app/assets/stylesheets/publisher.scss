@@ -1,8 +1,11 @@
 .publisher {
   z-index: 1;
-  color: $text-grey;
+  color: #999;
   margin: 0;
   margin-bottom: 20px;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
 
   &.closed {
     #button_container,

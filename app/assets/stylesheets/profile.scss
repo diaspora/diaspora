@@ -7,6 +7,7 @@
 
     #edit_profile, #unblock_user_button, .aspect_dropdown {
       margin-top: 15px;
+      text-shadow: none;
     }
 
     #author_info {
@@ -50,9 +51,8 @@
     }
 
     #profile-horizontal-bar {
-      border-top: 1px solid $border-grey;
       min-height: 50px;
-      margin-top: 10px;
+      text-shadow: none;
       #profile_buttons {
         padding: 10px 0;
         > .profile_button {
@@ -73,6 +73,10 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        display: inline-block;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #dadada;
         > li {
           display: inline-block;
           &.active {
