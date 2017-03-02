@@ -101,7 +101,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "9.7.0"
+  gem "rails-assets-highlightjs",                         "9.9.0"
 
   gem "rails-assets-backbone",                            "1.3.3"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
