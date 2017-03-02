@@ -651,7 +651,7 @@ GEM
     scss_lint (0.49.0)
       rake (>= 0.9, < 12)
       sass (~> 3.4.20)
-    secure_headers (3.5.0)
+    secure_headers (3.6.1)
       useragent
     securecompare (1.0.0)
     shellany (0.0.1)
@@ -898,7 +898,7 @@ DEPENDENCIES
   ruby-oembed (= 0.10.1)
   rubyzip (= 1.2.1)
   sass-rails (= 5.0.6)
-  secure_headers (= 3.5.0)
+  secure_headers (= 3.6.1)
   shoulda-matchers (= 3.1.1)
   sidekiq (= 4.2.2)
   sidekiq-cron (= 0.4.4)
