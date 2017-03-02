@@ -335,7 +335,7 @@ GEM
     js_image_paths (0.1.0)
       rails (~> 4.0)
     json (1.8.6)
-    json-jwt (1.6.3)
+    json-jwt (1.7.1)
       activesupport
       bindata
       multi_json (>= 1.3)
