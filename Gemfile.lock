@@ -421,9 +421,9 @@ GEM
     omniauth-tumblr (1.2)
       multi_json
       omniauth-oauth (~> 1.0)
-    omniauth-twitter (1.2.1)
-      json (~> 1.3)
+    omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
+      rack
     omniauth-wordpress (0.2.2)
       omniauth-oauth2 (>= 1.1.0)
     open_graph_reader (0.6.1)
@@ -846,7 +846,7 @@ DEPENDENCIES
   omniauth (= 1.4.2)
   omniauth-facebook (= 4.0.0)
   omniauth-tumblr (= 1.2)
-  omniauth-twitter (= 1.2.1)
+  omniauth-twitter (= 1.4.0)
   omniauth-wordpress (= 0.2.2)
   open_graph_reader (= 0.6.1)
   openid_connect (= 0.12.0)
