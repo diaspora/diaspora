@@ -81,7 +81,7 @@ gem "uuid", "2.3.8"
 
 # Icons
 
-gem "entypo-rails", "3.0.0.pre.rc2"
+gem "entypo-rails", "3.0.0"
 
 # JavaScript
 
