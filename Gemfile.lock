@@ -196,7 +196,7 @@ GEM
       rake
     ethon (0.10.1)
       ffi (>= 1.3.0)
-    excon (0.54.0)
+    excon (0.55.0)
     execjs (2.7.0)
     eye (0.9.1)
       celluloid (~> 0.17.3)
