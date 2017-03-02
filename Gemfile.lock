@@ -442,7 +442,7 @@ GEM
       validate_url
       webfinger (>= 1.0.1)
     orm_adapter (0.5.0)
-    parser (2.3.1.4)
+    parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.19.0)
     phantomjs (2.1.1.0)
