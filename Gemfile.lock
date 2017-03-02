@@ -55,7 +55,7 @@ GEM
       unf
     ast (2.3.0)
     attr_required (1.0.1)
-    autoprefixer-rails (6.5.1)
+    autoprefixer-rails (6.7.6)
       execjs
     bcrypt (3.1.11)
     bindata (2.3.1)
@@ -791,7 +791,7 @@ DEPENDENCIES
   acts_as_api (= 1.0.0)
   addressable (= 2.4.0)
   asset_sync (= 2.0.0)
-  autoprefixer-rails (= 6.5.1)
+  autoprefixer-rails (= 6.7.6)
   bootstrap-sass (= 3.3.7)
   bootstrap-switch-rails (= 3.3.3)
   capybara (= 2.10.1)
