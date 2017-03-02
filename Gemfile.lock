@@ -252,7 +252,7 @@ GEM
       json
       multi_json
       request_store (>= 1.0)
-    guard (2.14.0)
+    guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
       lumberjack (~> 1.0)
@@ -365,7 +365,7 @@ GEM
       logging (>= 1.8)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    lumberjack (1.0.10)
+    lumberjack (1.0.11)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
     mail (2.6.4)
@@ -633,7 +633,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-oembed (0.10.1)
     ruby-progressbar (1.8.1)
-    ruby_dep (1.3.1)
+    ruby_dep (1.5.0)
     rubyzip (1.2.1)
     rufus-scheduler (3.3.4)
       tzinfo
@@ -818,7 +818,7 @@ DEPENDENCIES
   fog-aws (= 1.2.0)
   fuubar (= 2.2.0)
   gon (= 6.1.0)
-  guard (= 2.14.0)
+  guard (= 2.14.1)
   guard-cucumber (= 2.1.2)
   guard-rspec (= 4.7.3)
   guard-rubocop (= 1.2.0)
