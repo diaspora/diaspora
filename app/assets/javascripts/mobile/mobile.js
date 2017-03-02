@@ -10,7 +10,7 @@
 //= require autosize
 //= require keycodes
 //= require jquery.autoSuggest.custom
-//= require fineuploader-dist/dist/fine-uploader.core
+//= require fine-uploader/fine-uploader.core
 //= require rails-timeago
 //= require underscore
 //= require bootstrap
