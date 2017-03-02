@@ -348,7 +348,7 @@ GEM
       rspec (>= 2.0, < 4.0)
     jsonpath (0.5.8)
       multi_json
-    jwt (1.5.4)
+    jwt (1.5.6)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
