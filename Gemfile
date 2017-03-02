@@ -151,7 +151,7 @@ gem "secure_headers", "3.5.0"
 gem "omniauth",           "1.4.2"
 gem "omniauth-facebook",  "4.0.0"
 gem "omniauth-tumblr",    "1.2"
-gem "omniauth-twitter",   "1.2.1"
+gem "omniauth-twitter",   "1.4.0"
 gem "twitter",            "5.16.0"
 gem "omniauth-wordpress", "0.2.2"
 
