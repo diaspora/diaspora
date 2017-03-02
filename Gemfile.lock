@@ -766,7 +766,7 @@ GEM
       activesupport (>= 3)
       railties (>= 3)
       yard (~> 0.7)
-    warden (1.2.6)
+    warden (1.2.7)
       rack (>= 1.0)
     webfinger (1.0.2)
       activesupport
