@@ -101,7 +101,7 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
-    chunky_png (1.3.6)
+    chunky_png (1.3.8)
     cliver (0.3.2)
     coderay (1.1.1)
     coffee-rails (4.2.1)
