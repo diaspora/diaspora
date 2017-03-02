@@ -37,8 +37,9 @@
     var hashtagPlugin = window.markdownitHashtag;
     md.use(hashtagPlugin, {
       // compare tag_text_regexp in app/models/acts_as_taggable_on-tag.rb
-      hashtagRegExp: "[" + PosixBracketExpressions.alnum + "_\\-]+|<3",
-      // compare tag_strings in lib/diaspora/taggabe.rb
+      hashtagRegExp: "[" + PosixBracketExpressions.word +
+							"\u055b\u055c\u055e\u058a_\\-]+|<3",
+      // compare tag_strings in lib/diaspora/taggable.rb
       preceding: "^|\\s"
     });
 

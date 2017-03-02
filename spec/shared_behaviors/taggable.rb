@@ -12,24 +12,34 @@ shared_examples_for "it is taggable" do
 
   describe '.format_tags' do
     before do
-      @str = '#what #hey #vöglein'
+      @str = "#what #hey #vöglein #ինչո՞ւ #այո՜ո #սեւ֊սպիտակ #գժանո՛ց #മലയാണ്മ"
       @object.send(@object.class.field_with_tags_setter, @str)
       @object.build_tags
       @object.save!
     end
 
     it "supports non-ascii characters" do
-      expect(@object.tags(true).map(&:name)).to include('vöglein')
+      expect(@object.tags(true).map(&:name)).to include("vöglein")
+      expect(@object.tags(true).map(&:name)).to include("ինչո՞ւ")
+      expect(@object.tags(true).map(&:name)).to include("այո՜ո")
+      expect(@object.tags(true).map(&:name)).to include("սեւ֊սպիտակ")
+      expect(@object.tags(true).map(&:name)).to include("գժանո՛ց")
+      expect(@object.tags(true).map(&:name)).to include("മലയാണ്മ")
     end
 
-    it 'links each tag' do
+    it "links each tag" do
       formatted_string = Diaspora::Taggable.format_tags(@str)
-      expect(formatted_string).to include(tag_link('what'))
-      expect(formatted_string).to include(tag_link('hey'))
-      expect(formatted_string).to include(tag_link('vöglein'))
+      expect(formatted_string).to include(tag_link("what"))
+      expect(formatted_string).to include(tag_link("hey"))
+      expect(formatted_string).to include(tag_link("vöglein"))
+      expect(formatted_string).to include(tag_link("ինչո՞ւ"))
+      expect(formatted_string).to include(tag_link("այո՜ո"))
+      expect(formatted_string).to include(tag_link("սեւ֊սպիտակ"))
+      expect(formatted_string).to include(tag_link("գժանո՛ց"))
+      expect(formatted_string).to include(tag_link("മലയാണ്മ"))
     end
 
-    it 'responds to plain_text' do
+    it "responds to plain_text" do
       expect(Diaspora::Taggable.format_tags(@str, :plain_text => true)).to eq(@str)
     end
 
@@ -137,7 +147,12 @@ shared_examples_for "it is taggable" do
         '#-initialhyphen'        => '-initialhyphen',
         '#-initialhyphen tag'    => '-initialhyphen',
         '#-initial-hyphen'       => '-initial-hyphen',
-        "\u202a#\u200eUSA\u202c" => 'USA'
+        "\u202a#\u200eUSA\u202c" => "USA",
+        "test #ինչո՞ւ test"      => "ինչո՞ւ",
+        "test #այո՜ո test"       => "այո՜ո",
+        "test #սեւ֊սպիտակ test"  => "սեւ֊սպիտակ",
+        "test #գժանո՛ց test"     => "գժանո՛ց",
+        "test #മലയാണ്മ test"      => "മലയാണ്മ"
       }
 
       expected.each do |text,hashtag|
