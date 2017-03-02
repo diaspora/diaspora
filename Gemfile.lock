@@ -737,7 +737,7 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.2)
+    uglifier (3.1.2)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
@@ -916,7 +916,7 @@ DEPENDENCIES
   twitter (= 5.16.0)
   twitter-text (= 1.14.5)
   typhoeus (= 1.1.2)
-  uglifier (= 3.0.2)
+  uglifier (= 3.1.2)
   unicorn (= 5.1.0)
   unicorn-worker-killer (= 0.4.4)
   uuid (= 2.3.8)
