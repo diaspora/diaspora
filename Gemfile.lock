@@ -33,7 +33,7 @@ GEM
       activemodel (= 4.2.8)
       activesupport (= 4.2.8)
       arel (~> 6.0)
-    activerecord-import (0.15.0)
+    activerecord-import (0.17.1)
       activerecord (>= 3.2)
     activesupport (4.2.8)
       i18n (~> 0.7)
@@ -786,7 +786,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (= 0.9.5)
-  activerecord-import (= 0.15.0)
+  activerecord-import (= 0.17.1)
   acts-as-taggable-on (= 3.5.0)
   acts_as_api (= 0.4.3)
   addressable (= 2.4.0)
