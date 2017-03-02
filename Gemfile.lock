@@ -551,7 +551,7 @@ GEM
     rails-assets-jquery.ui (1.11.4)
       rails-assets-jquery (>= 1.6)
     rails-assets-markdown-it--markdown-it-for-inline (0.1.1)
-    rails-assets-markdown-it (8.2.2)
+    rails-assets-markdown-it (8.3.0)
     rails-assets-markdown-it-diaspora-mention (1.1.1)
     rails-assets-markdown-it-hashtag (0.4.0)
     rails-assets-markdown-it-sanitizer (0.4.3)
@@ -881,7 +881,7 @@ DEPENDENCIES
   rails-assets-jquery (= 2.2.4)!
   rails-assets-jquery-placeholder (= 2.3.1)!
   rails-assets-jquery-textchange (= 0.2.3)!
-  rails-assets-markdown-it (= 8.2.2)!
+  rails-assets-markdown-it (= 8.3.0)!
   rails-assets-markdown-it--markdown-it-for-inline (= 0.1.1)!
   rails-assets-markdown-it-diaspora-mention (= 1.1.1)!
   rails-assets-markdown-it-hashtag (= 0.4.0)!
