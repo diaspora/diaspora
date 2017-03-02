@@ -349,7 +349,7 @@ GEM
     jsonpath (0.5.8)
       multi_json
     jwt (1.5.6)
-    kaminari (0.16.3)
+    kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.11.0)
