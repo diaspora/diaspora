@@ -246,11 +246,11 @@ group :development do
   # Linters
   gem "rubocop",        "0.40.0"
   gem "haml_lint",      "0.18.2"
-  gem "pronto",         "0.7.1"
-  gem "pronto-eslint",  "0.7.0"
-  gem "pronto-rubocop", "0.7.0"
-  gem "pronto-haml",    "0.7.0"
-  gem "pronto-scss",    "0.7.0", require: false
+  gem "pronto",         "0.8.2"
+  gem "pronto-eslint",  "0.8.0"
+  gem "pronto-rubocop", "0.8.0"
+  gem "pronto-haml",    "0.8.0"
+  gem "pronto-scss",    "0.8.0", require: false
 
   # Preloading environment
 
