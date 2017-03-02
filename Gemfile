@@ -106,7 +106,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-backbone",                            "1.3.3"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
   gem "rails-assets-corejs-typeahead",                    "1.1.1"
-  gem "rails-assets-fineuploader-dist",                   "5.11.0"
+  gem "rails-assets-fine-uploader",                       "5.13.0"
 
   # jQuery plugins
 
