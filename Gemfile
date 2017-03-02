@@ -112,7 +112,7 @@ source "https://rails-assets.org" do
 
   gem "rails-assets-jquery-placeholder",            "2.3.1"
   gem "rails-assets-jquery-textchange",             "0.2.3"
-  gem "rails-assets-perfect-scrollbar",             "0.6.12"
+  gem "rails-assets-perfect-scrollbar",             "0.6.16"
   gem "rails-assets-autosize",                      "3.0.20"
   gem "rails-assets-blueimp-gallery",               "2.25.0"
 end
