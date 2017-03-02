@@ -240,7 +240,7 @@ group :development do
   gem "guard-cucumber", "2.1.2", require: false
   gem "guard-rspec",    "4.7.3", require: false
   gem "guard-rubocop",  "1.2.0", require: false
-  gem "rb-fsevent",     "0.9.7", require: false
+  gem "rb-fsevent",     "0.9.8", require: false
   gem "rb-inotify",     "0.9.7", require: false
 
   # Linters
