@@ -136,7 +136,7 @@ gem "nokogiri",          "1.7.0.1"
 gem "redcarpet",         "3.4.0"
 gem "twitter-text",      "1.14.5"
 gem "ruby-oembed",       "0.10.1"
-gem "open_graph_reader", "0.6.1"
+gem "open_graph_reader", "0.6.2" # also update User-Agent in features/support/webmock.rb
 
 # RTL support
 
