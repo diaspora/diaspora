@@ -28,7 +28,7 @@ gem "devise_lastseenable", "0.0.6"
 
 # Captcha
 
-gem "simple_captcha2", "0.4.0", require: "simple_captcha"
+gem "simple_captcha2", "0.4.3", require: "simple_captcha"
 
 # Background processing
 
