@@ -203,10 +203,10 @@ GEM
       sigar (~> 0.7.3)
       state_machines
       thor
-    factory_girl (4.7.0)
+    factory_girl (4.8.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.7.0)
-      factory_girl (~> 4.7.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
@@ -810,7 +810,7 @@ DEPENDENCIES
   diaspora_federation-test (= 0.1.7)
   entypo-rails (= 3.0.0.pre.rc2)
   eye (= 0.9.1)
-  factory_girl_rails (= 4.7.0)
+  factory_girl_rails (= 4.8.0)
   faraday (= 0.9.2)
   faraday-cookie_jar (= 0.0.6)
   faraday_middleware (= 0.10.0)
