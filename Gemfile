@@ -152,7 +152,7 @@ gem "omniauth",           "1.4.2"
 gem "omniauth-facebook",  "4.0.0"
 gem "omniauth-tumblr",    "1.2"
 gem "omniauth-twitter",   "1.4.0"
-gem "twitter",            "5.16.0"
+gem "twitter",            "6.1.0"
 gem "omniauth-wordpress", "0.2.2"
 
 # OpenID Connect
@@ -173,7 +173,7 @@ gem "acts-as-taggable-on", "3.5.0"
 # URIs and HTTP
 
 gem "addressable",        "2.5.0", require: "addressable/uri"
-gem "faraday",            "0.9.2"
+gem "faraday",            "0.11.0" # also update User-Agent in OpenID specs
 gem "faraday_middleware", "0.11.0.1"
 gem "faraday-cookie_jar", "0.0.6"
 gem "typhoeus",           "1.1.2"
