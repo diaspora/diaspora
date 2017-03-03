@@ -245,7 +245,7 @@ group :development do
 
   # Linters
   gem "rubocop",        "0.47.1"
-  gem "haml_lint",      "0.18.2"
+  gem "haml_lint",      "0.21.0"
   gem "pronto",         "0.8.2"
   gem "pronto-eslint",  "0.8.0"
   gem "pronto-rubocop", "0.8.0"
