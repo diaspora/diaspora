@@ -244,7 +244,7 @@ group :development do
   gem "rb-inotify",     "0.9.8", require: false
 
   # Linters
-  gem "rubocop",        "0.40.0"
+  gem "rubocop",        "0.47.1"
   gem "haml_lint",      "0.18.2"
   gem "pronto",         "0.8.2"
   gem "pronto-eslint",  "0.8.0"
