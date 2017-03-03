@@ -52,11 +52,11 @@ gem "rack-cors", "0.4.1", require: "rack/cors"
 
 # CSS
 
-gem "bootstrap-sass", "3.3.7"
-gem "compass-rails",  "2.0.5"
-gem "sass-rails",     "5.0.6"
-gem "autoprefixer-rails", "6.7.6"
+gem "autoprefixer-rails",     "6.7.6"
+gem "bootstrap-sass",         "3.3.7"
 gem "bootstrap-switch-rails", "3.3.3"
+gem "compass-rails",          "2.0.5"
+gem "sass-rails",             "5.0.6"
 
 # Database
 
@@ -88,12 +88,13 @@ gem "entypo-rails", "3.0.0"
 gem "handlebars_assets", "0.23.1"
 gem "jquery-rails",      "4.2.1"
 gem "jquery-ui-rails",   "5.0.5"
-gem "js_image_paths",    "0.1.0"
 gem "js-routes",         "1.3.3"
+gem "js_image_paths",    "0.1.0"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "2.2.4" # Should be kept in sync with jquery-rails
 
+  gem "rails-assets-highlightjs",                         "9.9.0"
   gem "rails-assets-markdown-it",                         "8.3.0"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "1.2.0"
@@ -101,7 +102,6 @@ source "https://rails-assets.org" do
   gem "rails-assets-markdown-it--markdown-it-for-inline", "0.1.1"
   gem "rails-assets-markdown-it-sub",                     "1.0.0"
   gem "rails-assets-markdown-it-sup",                     "1.0.0"
-  gem "rails-assets-highlightjs",                         "9.9.0"
 
   gem "rails-assets-backbone",                            "1.3.3"
   gem "rails-assets-bootstrap-markdown",                  "2.10.0"
@@ -110,11 +110,11 @@ source "https://rails-assets.org" do
 
   # jQuery plugins
 
-  gem "rails-assets-jquery-placeholder",            "2.3.1"
-  gem "rails-assets-jquery-textchange",             "0.2.3"
-  gem "rails-assets-perfect-scrollbar",             "0.6.16"
-  gem "rails-assets-autosize",                      "3.0.20"
-  gem "rails-assets-blueimp-gallery",               "2.25.0"
+  gem "rails-assets-autosize",                            "3.0.20"
+  gem "rails-assets-blueimp-gallery",                     "2.25.0"
+  gem "rails-assets-jquery-placeholder",                  "2.3.1"
+  gem "rails-assets-jquery-textchange",                   "0.2.3"
+  gem "rails-assets-perfect-scrollbar",                   "0.6.16"
 end
 
 # Localization
@@ -133,10 +133,10 @@ gem "leaflet-rails",       "0.7.7"
 # Parsing
 
 gem "nokogiri",          "1.7.0.1"
-gem "redcarpet",         "3.4.0"
-gem "twitter-text",      "1.14.5"
-gem "ruby-oembed",       "0.10.1"
 gem "open_graph_reader", "0.6.2" # also update User-Agent in features/support/webmock.rb
+gem "redcarpet",         "3.4.0"
+gem "ruby-oembed",       "0.10.1"
+gem "twitter-text",      "1.14.5"
 
 # RTL support
 
@@ -244,13 +244,13 @@ group :development do
   gem "rb-inotify",     "0.9.8", require: false
 
   # Linters
-  gem "rubocop",        "0.47.1"
   gem "haml_lint",      "0.21.0"
   gem "pronto",         "0.8.2"
   gem "pronto-eslint",  "0.8.0"
-  gem "pronto-rubocop", "0.8.0"
   gem "pronto-haml",    "0.8.0"
+  gem "pronto-rubocop", "0.8.0"
   gem "pronto-scss",    "0.8.0", require: false
+  gem "rubocop",        "0.47.1"
 
   # Preloading environment
 
