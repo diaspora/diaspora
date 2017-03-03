@@ -4,10 +4,10 @@
   text-decoration: none;
   font-style: normal;
   margin: 10px 0px 10px 0px;
-  border-top: solid 1px $border-grey;
-  border-bottom: solid 1px $border-grey;
-  padding: 10px 0px 5px 0px;
+  border: solid 1px #ddd;
+  padding: 0px;
   overflow: hidden;
+  border-radius: 3px;
   a {
     color: #000;
     .og-title {
@@ -20,9 +20,9 @@
 
   .thumb {
     float: left;
-    margin: 5px;
+    margin: 0px;
     margin-left: 0;
-    max-width: 150px;
+    max-width: 200px;
     padding-right: 5px;
 
     .video-overlay {
