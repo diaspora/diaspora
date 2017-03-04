@@ -203,6 +203,12 @@ gem "minitest"
 
 gem "versionist", "1.5.0"
 
+# Prevent accidental upgrades of thor
+# TODO: remove this when either all gems depending on thor have fixed the warnings
+#       or thor released a version where they are clearly marked as warnings
+# see: https://github.com/erikhuda/thor/issues/538
+gem "thor", "0.19.1"
+
 # Windows and OSX have an execjs compatible runtime built-in, Linux users should
 # install Node.js or use "therubyracer".
 #
