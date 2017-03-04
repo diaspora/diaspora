@@ -10,23 +10,35 @@ shared_examples_for "it is taggable" do
     link_to  "##{s}", "/tags/#{s}", :class => 'tag'
   end
 
-  describe '.format_tags' do
+  describe ".format_tags" do
+    let(:tag_list) {
+      [
+        "what",
+        "hey",
+        "vöglein",
+        "മലയാണ്മ",
+        "գժանո՛ց"
+      ]
+    }
+
     before do
-      @str = '#what #hey #vöglein'
+      @str = tag_list.map {|tag| "##{tag}" }.join(" ")
       @object.send(@object.class.field_with_tags_setter, @str)
       @object.build_tags
       @object.save!
     end
 
     it "supports non-ascii characters" do
-      expect(@object.tags(true).map(&:name)).to include('vöglein')
+      tag_list.each do |tag|
+        expect(@object.tags(true).map(&:name)).to include(tag)
+      end
     end
 
-    it 'links each tag' do
+    it "links each tag" do
       formatted_string = Diaspora::Taggable.format_tags(@str)
-      expect(formatted_string).to include(tag_link('what'))
-      expect(formatted_string).to include(tag_link('hey'))
-      expect(formatted_string).to include(tag_link('vöglein'))
+      tag_list.each do |tag|
+        expect(formatted_string).to include(tag_link(tag))
+      end
     end
 
     it 'responds to plain_text' do
