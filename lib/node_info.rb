@@ -6,6 +6,7 @@ module NodeInfo
   SCHEMAS = {}
   private_constant :VERSIONS, :SCHEMAS
 
+  # rubocop:disable Metrics/BlockLength
   Document = Struct.new(:version, :software, :protocols, :services, :open_registrations, :usage, :metadata) do
     Software = Struct.new(:name, :version) do
       def initialize(name=nil, version=nil)
@@ -132,6 +133,7 @@ module NodeInfo
       end
     end
   end
+  # rubocop:enable Metrics/BlockLength
 
   def self.schema(version)
     SCHEMAS[version] ||= JSON.parse(

@@ -2,7 +2,7 @@
 //= require handlebars.runtime
 //= require templates
 //= require main
-//= require fineuploader-dist/dist/fine-uploader.core
+//= require fine-uploader/fine-uploader.core
 //= require mobile/mobile
 //= require jquery.autoSuggest.custom
 //= require contact-list
