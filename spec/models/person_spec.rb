@@ -24,16 +24,6 @@ describe Person, :type => :model do
           Person.for_json.first.serialized_public_key
         }.to raise_error ActiveModel::MissingAttributeError
       end
-
-      it 'selects distinct people' do
-        aspect = bob.aspects.create(:name => 'hilarious people')
-        aspect.contacts << bob.contact_for(eve.person)
-        person_ids = Person.for_json.joins(:contacts => :aspect_memberships).
-          where(:contacts => {:user_id => bob.id},
-               :aspect_memberships => {:aspect_id => bob.aspect_ids}).map{|p| p.id}
-
-        expect(person_ids.uniq).to eq(person_ids)
-      end
     end
 
     describe '.local' do
@@ -131,9 +121,17 @@ describe Person, :type => :model do
         ).to match_array([alice, bob, eve, kate].map(&:person_id))
       end
 
+      it "selects distinct people" do
+        alice.comment!(status_bob, "hi")
+        alice.comment!(status_bob, "how are you?")
+        expect(
+          Person.allowed_to_be_mentioned_in_a_comment_to(status_bob).ids
+        ).to match_array([alice, bob].map(&:person_id))
+      end
+
       it "returns all for public posts" do
         status_bob.update(public: true) # set parent public
-        expect(Person.allowed_to_be_mentioned_in_a_comment_to(status_bob)).to eq(Person.all)
+        expect(Person.allowed_to_be_mentioned_in_a_comment_to(status_bob).ids).to match_array(Person.ids)
       end
     end
 

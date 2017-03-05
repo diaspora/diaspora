@@ -5,6 +5,7 @@ module NotificationMailers
     def set_headers(target_id) # rubocop:disable Style/AccessorMethodName
       @comment = Mention.find_by_id(target_id).mentions_container
 
+      @headers[:in_reply_to] = @headers[:references] = "<#{@comment.parent.guid}@#{AppConfig.pod_uri.host}>"
       @headers[:subject] = I18n.t("notifier.mentioned.subject", name: @sender.name)
     end
   end

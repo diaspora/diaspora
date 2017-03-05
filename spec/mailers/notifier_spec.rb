@@ -120,6 +120,11 @@ describe Notifier, type: :mailer do
       expect(mail.subject).to include(comment.author.name)
     end
 
+    it "IN-REPLY-TO and REFERENCES: references the commented post" do
+      expect(mail.in_reply_to).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+      expect(mail.references).to eq("#{comment.parent.guid}@#{AppConfig.pod_uri.host}")
+    end
+
     it "has the comment link in the body" do
       expect(mail.body.encoded).to include(post_url(comment.parent, anchor: comment.guid))
     end
@@ -276,7 +281,9 @@ describe Notifier, type: :mailer do
     let(:comment) { eve.comment!(commented_post, "Totally is") }
 
     describe ".comment_on_post" do
-      let(:comment_mail) { Notifier.send_notification("comment_on_post", bob.id, person.id, comment.id).deliver_now }
+      let(:comment_mail) {
+        Notifier.send_notification("comment_on_post", bob.id, eve.person.id, comment.id).deliver_now
+      }
 
       it "TO: goes to the right person" do
         expect(comment_mail.to).to eq([bob.email])
@@ -317,7 +324,7 @@ describe Notifier, type: :mailer do
     end
 
     describe ".also_commented" do
-      let(:comment_mail) { Notifier.send_notification("also_commented", bob.id, person.id, comment.id) }
+      let(:comment_mail) { Notifier.send_notification("also_commented", bob.id, eve.person.id, comment.id) }
 
       it "TO: goes to the right person" do
         expect(comment_mail.to).to eq([bob.email])

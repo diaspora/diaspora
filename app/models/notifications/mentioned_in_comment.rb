@@ -11,7 +11,7 @@ module Notifications
     end
 
     def self.filter_mentions(mentions, mentionable, _recipient_user_ids)
-      mentions.joins(:person).merge(Person.allowed_to_be_mentioned_in_a_comment_to(mentionable.parent))
+      mentions.includes(:person).merge(Person.allowed_to_be_mentioned_in_a_comment_to(mentionable.parent))
     end
 
     def mail_job

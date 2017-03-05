@@ -376,6 +376,18 @@ describe "mentioning", type: :request do
           end
         end
       end
+
+      it "only creates one notification for the mentioned person, when mentioned person commented twice before" do
+        parent = FactoryGirl.create(:status_message_in_aspect, author: author.person)
+        mentioned_user = FactoryGirl.create(:user_with_aspect, friends: [author])
+        mentioned_user.comment!(parent, "test comment 1")
+        mentioned_user.comment!(parent, "test comment 2")
+        comment = inlined_jobs do
+          author.comment!(parent, text_mentioning(mentioned_user))
+        end
+
+        expect(notifications_about_mentioning(mentioned_user, comment).count).to eq(1)
+      end
     end
   end
 end
