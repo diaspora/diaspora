@@ -61,11 +61,7 @@ class Person < ActiveRecord::Base
   }
   scope :remote, -> { where('people.owner_id IS NULL') }
   scope :local, -> { where('people.owner_id IS NOT NULL') }
-  scope :for_json, -> {
-    select("people.id, people.guid, people.diaspora_handle")
-      .distinct
-      .includes(:profile)
-  }
+  scope :for_json, -> { select("people.id, people.guid, people.diaspora_handle").includes(:profile) }
 
   # @note user is passed in here defensively
   scope :all_from_aspects, ->(aspect_ids, user) {
@@ -131,12 +127,13 @@ class Person < ActiveRecord::Base
   # @param [Post] the post for which we query mentionable in comments people
   # @return [Person::ActiveRecord_Relation]
   scope :allowed_to_be_mentioned_in_a_comment_to, ->(post) {
-    if post.public?
-      all
-    else
-      left_join_visible_post_interactions_on_authorship(post.id)
-        .where("comments.id IS NOT NULL OR likes.id IS NOT NULL OR people.id = #{post.author_id}")
-    end
+    allowed = if post.public?
+                all
+              else
+                left_join_visible_post_interactions_on_authorship(post.id)
+                  .where("comments.id IS NOT NULL OR likes.id IS NOT NULL OR people.id = #{post.author_id}")
+              end
+    allowed.distinct
   }
 
   # This scope adds sorting of people in the order, appropriate for suggesting to a user (current user) who
