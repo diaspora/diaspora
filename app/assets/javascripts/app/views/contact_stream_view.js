@@ -18,7 +18,7 @@ app.views.ContactStream = Backbone.View.extend({
     $("#paginate .loader").removeClass("hidden");
     $.ajax(this._fetchUrl(), {
       context: this
-    }).success(function(response) {
+    }).done(function(response) {
       if (response.length === 0) {
         this.onEmptyResponse();
       } else {

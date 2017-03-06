@@ -96,7 +96,7 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   afterNotificationChanges: function(node) {
     node.find(".unread-toggle .entypo-eye").tooltip("destroy").tooltip();
-    node.find(this.avatars.selector).error(this.avatars.fallback);
+    node.find(this.avatars.selector).on("error", this.avatars.fallback);
   },
 
   finishLoading: function() {

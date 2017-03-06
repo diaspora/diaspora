@@ -6,7 +6,7 @@ app.views.Tags = Backbone.View.extend({
       app.publisher.setText("#"+ opts.hashtagName + " ");
     }
     // add avatar fallback if it can't be loaded
-    $(app.views.Base.prototype.avatars.selector).error(app.views.Base.prototype.avatars.fallback);
+    $(app.views.Base.prototype.avatars.selector).on("error", app.views.Base.prototype.avatars.fallback);
   }
 });
 // @license-end

@@ -18,6 +18,7 @@
 
 ## Refactor
 * Remove unused setPreload function [#7354](https://github.com/diaspora/diaspora/pull/7354)
+* Remove jQuery deprecations [#7356](https://github.com/diaspora/diaspora/pull/7356)
 
 ## Bug fixes
 

@@ -8,7 +8,7 @@ describe("Diaspora.Mobile", function(){
     it("calls autosize for textareas", function(){
       Diaspora.Mobile.initialize();
       expect(window.autosize).toHaveBeenCalled();
-      expect(window.autosize.calls.mostRecent().args[0].selector).toBe("textarea");
+      expect(window.autosize.calls.mostRecent().args[0].is($("textarea"))).toBe(true);
     });
 
     it("deactivates shield", function(){
