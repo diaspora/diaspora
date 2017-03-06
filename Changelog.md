@@ -17,6 +17,7 @@
 # 0.6.5.0
 
 ## Refactor
+* Remove unused setPreload function [#7354](https://github.com/diaspora/diaspora/pull/7354)
 
 ## Bug fixes
 

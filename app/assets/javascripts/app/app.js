@@ -60,11 +60,6 @@ var app = {
     return !!(window.gon.preloads && window.gon.preloads[prop]); //returning boolean variable so that parsePreloads, which cleans up properly is used instead
   },
 
-  setPreload : function(prop, val) {
-    window.gon.preloads = window.gon.preloads || {};
-    window.gon.preloads[prop] = val;
-  },
-
   parsePreload : function(prop) {
       if(!app.hasPreload(prop)) { return; }
 
