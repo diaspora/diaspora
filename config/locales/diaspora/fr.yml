@@ -218,6 +218,7 @@ fr:
       updating: "En cours de mise à jour"
     index:
       donate: "Faire un don"
+      donate_liberapay: "Faire un don avec liberapay"
       help:
         any_problem: "Un problème ?"
         contact_podmin: "Contacter l'administrateur de votre pod !"
@@ -288,7 +289,7 @@ fr:
       only_sharing_with_me: "Partage uniquement avec moi"
       start_a_conversation: "Démarrer une conversation"
       title: "Contacts"
-      user_search: "Checher un contact"
+      user_search: "Chercher un contact"
     spotlight:
       community_spotlight: "Actualités de la communauté"
       no_members: "Il n'y a encore aucun membre."

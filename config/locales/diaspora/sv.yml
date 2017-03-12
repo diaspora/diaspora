@@ -222,6 +222,7 @@ sv:
       updating: "Uppdaterar"
     index:
       donate: "Donera"
+      donate_liberapay: "Donera till liberapay"
       help:
         any_problem: "Har du något problem?"
         contact_podmin: "Kontakta din pods administratör."

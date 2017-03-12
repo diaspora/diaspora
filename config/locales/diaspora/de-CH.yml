@@ -192,14 +192,19 @@ de-CH:
   help:
     account_and_data_management:
       close_account_a: "Gang as Endi vo dine Konto-Iistellige und druck uf \"Konto schlüsse\". Zum das abzschlüsse wirsch du denn ufgforderet dis Passwort iizgäh. Denk drah: Wenn du dis Konto schlüssisch chasch du dich uf dem Pod <strong>nie meh</strong> mit em gliiche Benutzername registriere."
+      close_account_q: "Wie chan ich mis konto lösche?"
       data_other_podmins_a: "Wenn du mit jemandem auf einem anderen Pod teilst, werden alle Beiträge, die du teilst, und eine Kopie deiner Profildaten auf dessen Pod gespeichert (\"gecached\") und sind dem Datenbankadministrator des Pods zugänglich. Wenn du einen Beitrag oder deine Profildaten löschst, geschieht dies auch auf allen anderen Pods, auf denen die Daten bisher gespeichert waren. Deine Bilder werden nur auf deinen eigenen Pod gespeichert; nur Links, die zu ihnen führen, werden anderen Pods übermittelt."
       data_other_podmins_q: "Chönd d'Admins vo andere Pods mini Informatione gseh?"
       data_visible_to_podmin_a: "Die Kommunikation *zwischen* Pods läuft immer verschlüsselt ab (via SSL und diaspora*s eigener Transport-Verschlüsselung), aber gespeichert werden die Daten unverschlüsselt. Wenn er wollte, könnte der Datenbank-Administrator deines Pods (normalerweise die Person, die den Pod betreibt) auf deine gesamten Kontodaten und alles, was du postest, zugreifen (wie auch bei den meisten anderen Webseiten, die Benutzerdaten speichern). Das Betreiben eines eigenen Pods gibt dir mehr Sicherheit, weil du dann den Zugriff auf die Datenbank kontrollierst."
       data_visible_to_podmin_q: "Wievil Informatione gseht de Administrator vo mim Pod?"
       download_data_a: "Jo, und im bereich Konto i dine Iistellige sind zwei Schaltfläche mit dene du dini Date oder Fotis abelade chasch."
+      download_data_q: "Chan ich ali date wo i uf mim Konto gspeicheret sind abelade?"
       move_pods_a: "In Zuekunft wirsch du d'Möglichkeit haa dis Konto z'exportiere und ufeme andere Pod z'importiere, aber das funktioniert im moment nonig. Du chasch jedoch es neus Konto eröffne dini Kontäkt neu hinzuefüege und sie aafroge wiederum mit dir z'teile."
       move_pods_q: "Wie chan i mis Konto uf en andere Pod verschiebe?"
       title: "Konto- und Dateverwaltig"
+    aspects:
+      title: "Aspekt"
+      what_is_an_aspect_q: "Was isch en Aspekt?"
     foundation_website: "D'Webite vo de diaspora* Stiftig"
     getting_help:
       get_support_a_hashtag: "Stell uf diaspora* e frog mithilf vomene öffentliche post du de hashtag %{question} beinhaltet"
@@ -227,6 +232,10 @@ de-CH:
       rejected: "Bi folgende Adresse het's Problem geh: %{emails}"
       sent: "Illadige sind a folgendi Adresse gschickt worde: %{emails}"
     new:
+      codes_left:
+        one: "Ei Iiladig übrig mit dem Code"
+        other: "%{count} Iiladige übrig mit dem Code"
+        zero: "Kei Iiladige meh übrig mit dem Code"
       comma_separated_plz: "Du chasch mehreri E-Mail-Adresse iigeh, wenns dur es Komma trennsch."
       invite_someone_to_join: "Lad öpper zu diaspora* ii!"
       language: "Sproch"
@@ -242,6 +251,7 @@ de-CH:
       toggle: "Mobiili Aasicht umschalte"
       whats_new: "Was git's neus?"
     header:
+      code: "Code"
       logout: "Abmelde"
       profile: "Profil"
       settings: "Iistellige"
@@ -249,13 +259,22 @@ de-CH:
   more: "Meh"
   no_results: "Kei Ergebnis gfunde"
   notifications:
+    also_commented:
+      one: "%{actors} het au de post %{post_link} vom %{post_author} kommentiert"
+      other: "%{actors} hend au de post %{post_link} vom %{post_author} kommentiert"
     comment_on_post:
       one: "%{actors} het din Biitrag %{post_link} kommentiert."
       other: "%{actors} hend din Biitrag %{post_link} kommentiert."
       zero: "Niemer het din Biitrag %{post_link} kommentiert."
     index:
       and: "und"
+      and_others:
+        one: "und öpper meh"
+        other: "und %{count} anderi"
+        zero: "und niemer susch"
+      mark_all_as_read: "Ali als glese markiere"
       mark_unread: "als ungläsä markiere"
+      notifications: "Benochtichtigunge"
     liked:
       one: "%{actors} gfallt din Biitrag %{post_link}."
       other: "%{actors} gfallt din Biitrag %{post_link}."
@@ -379,7 +398,7 @@ de-CH:
     update:
       failed: "Aktualisierä vom Profil isch fehlgschlage"
       updated: "Pofil aktualisiert"
-  public: "Öffetlich"
+  public: "Öffentlich"
   registrations:
     closed: "Uf dem pod isch d'Registrierig deaktiviert"
     create:
@@ -419,6 +438,10 @@ de-CH:
       services_explanation: "D'Verbindig mit Drittabüter-Dientsch git dir d'Möglichkeit zum dini Biiträg vo diaspora* döt grad mitzveröffentliche."
   settings: "Iistelige"
   shared:
+    aspect_dropdown:
+      toggle:
+        one: "I %{count} aspekt"
+        other: "I %{count} aspekt"
     invitations:
       by_email: "Lad Lüüt per email ii"
       invite_your_friends: "Lad dini Kollege ii"
@@ -438,7 +461,7 @@ de-CH:
       discard_post: "Biitrag verwärfe"
       get_location: "Standort ermittle"
       new_user_prefill:
-        hello: "Hoi zämä I bi %{new_user_tag}. "
+        hello: "Hoi zämä I bi #%{new_user_tag}. "
         i_like: "I intressier mich für %{tags}. "
         invited_by: "Danke für d'Iilagig, "
         newhere: "neudo"
@@ -495,7 +518,7 @@ de-CH:
       success: "Dis Konto isch gschperrt. Es chan bis zu 20 Minute goh bis din Account endgültig gschlosse isch. Danke das du diaspora* uusprobiert hesch."
       wrong_password: "Das Passwort stimmt nöd mit dim aktuelle Passwort überein."
     edit:
-      also_commented: "öpper en Biitrag kommentiert wo du scho kommentiert häsch"
+      also_commented: "öpper en Biitrag kommentiert wo du au scho kommentiert häsch"
       auto_follow_aspect: "Aspekt für Benutzer mit dene du automatisch afangsch teile:"
       auto_follow_back: "Automatisch mit Benutzer zruggteile wo agfange hend mit dir z'teile"
       change: "Ändere"

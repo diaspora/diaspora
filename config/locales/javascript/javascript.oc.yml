@@ -283,11 +283,11 @@ oc:
       show_nsfw_posts: "Afichar tot"
       tags:
         follow: "Seguir #<%= tag %>"
-        follow_error: "Impossible de seguir <%= tag %> :("
+        follow_error: "Impossible de seguir #<%= tag %> :("
         following: "Seguiment de #<%= tag %>"
-        stop_following: "Quitar de seguir <%= tag %>"
-        stop_following_confirm: "Quitar de seguir <%= tag %> ?"
-        stop_following_error: "Impossible d'arrestar de seguir <%= tag %> :("
+        stop_following: "Quitar de seguir #<%= tag %>"
+        stop_following_confirm: "Quitar de seguir #<%= tag %> ?"
+        stop_following_error: "Impossible de quitar de seguir #<%= tag %> :("
       unfollow: "Seguir pas mai"
       unlike: "M'agrada pas mai"
       via: "via <%= provider %>"
@@ -296,29 +296,30 @@ oc:
     timeago:
       day: "un jorn"
       days:
-        one: "1 jorn"
+        one: "un jorn"
         other: "%d jorns"
       hour: "environ una ora"
       hours:
-        one: "environ 1 ora"
+        one: "environ una ora"
         other: "environ %d oras"
       inPast: "lèu lèu"
       minute: "environ una minuta"
       minutes:
-        one: "1 minuta"
+        one: "una minuta"
         other: "%d minutas"
       month: "environ un mes"
       months:
-        one: "1 mes"
+        one: "un mes"
         other: "%d meses"
-      prefixAgo: "i a"
+      prefixAgo: "fa"
       prefixFromNow: "d'aicí"
       seconds: "mens d'una minuta"
-      suffixAgo: "fa"
+      suffixAgo: ""
       suffixFromNow: "ara"
+      wordSeparator: ""
       year: "environ un an"
       years:
-        one: "1 an"
+        one: "un an"
         other: "%d ans"
     unblock_failed: "Impossible de desblocar aqueste utilizaire"
     viewer:

@@ -687,11 +687,8 @@ es-AR:
       other: "%{actors} te mencionaron en la publicación %{post_link}."
       zero: "%{actors} te mencionaron en la publicación %{post_link}."
     mentioned_deleted:
-      few: "%{actors} te mencionaron en una publicación eliminada."
-      many: "%{actors} te mencionaron en una publicación eliminada."
       one: "%{actors} te mencionó en una publicación eliminada."
       other: "%{actors} te mencionaron en una publicación eliminada."
-      two: "%{actors} te mencionó en un mensaje eliminado."
       zero: "%{actors} te mencionaron en una publicación eliminada."
     post: "publicación"
     private_message:
