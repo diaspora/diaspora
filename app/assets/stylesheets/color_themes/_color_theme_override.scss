@@ -1,18 +1,5 @@
 /* Raw CSS */
 body {
-  a,
-  a.tag,
-  .btn-link,
-  #main_stream .stream-element > .media a.author-name,
-  #hovercard h4 a,
-  .stream-element .from a.self {
-    color: $link-color;
-
-    &:hover, &:focus {
-      color: darken($link-color, 10%);
-    }
-  }
-
   #publisher_textarea_wrapper > #button_container > span.markdownIndications > a {
     color: fade-out($link-color, 0.4);
   }

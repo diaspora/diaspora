@@ -222,6 +222,7 @@ oc:
       updating: "En cors de mesa a jorn"
     index:
       donate: "Far un don"
+      donate_liberapay: "Far un don a liberapay"
       help:
         any_problem: "Avètz agut un problèma ?"
         contact_podmin: "Contactar l'administrator de vòstre pod !"
@@ -269,7 +270,7 @@ oc:
       failure: "Ai pas pogut quitar d'ignorar aqueste utilizaire. #evasion"
       success: "Vejam çò qu'an a dire ! #digatzbonjorn"
   bookmarklet:
-    explanation: "Publicatz sus diaspora* dempuèi oont que siá en apondent %{link} a vòstres marcapaginas."
+    explanation: "Publicatz sus diaspora* d'ont que siá en apondent %{link} a vòstres marcapaginas."
     heading: "Publicacion rapida"
     post_something: "Publicatz sus diaspora*"
   cancel: "Anullar"
@@ -289,7 +290,7 @@ oc:
       no_contacts: "Sembla que vos cal apondre mai de contactes !"
       no_contacts_in_aspect: "Avètz pas encara de contactes dins aqueste aspècte. Çai-jos i a una lista de vòstre contactes que podètz apondre a aqueste aspècte."
       no_contacts_message: "Consultatz %{community_spotlight}"
-      only_sharing_with_me: "Solament partejat amb ieu"
+      only_sharing_with_me: "Partejan solament amb ieu"
       start_a_conversation: "Començar una conversacion"
       title: "Contactes"
       user_search: "Cercar un contacte"
@@ -341,7 +342,7 @@ oc:
   find_people: "Recercar de personas o de #tags"
   help:
     account_and_data_management:
-      close_account_a: "Rensètz-vos en bas de la pagina e clicatz sul boton \"Clausurar lo compte\". Vòstre senhal vos serà demandat per acabar lo processus. Vos rapelam que se tampatz vòstre compte, ne poiretz pas mai tornar crear sus aqueste pod amb aqueste nom d'utilizaire."
+      close_account_a: "Rensètz-vos en bas de la pagina e clicatz sul boton « Tampar lo compte ». Vòstre senhal vos serà demandat per acabar lo processus. Vos rapelam que se tampatz vòstre compte, ne poiretz <strong>pas mai</strong> tornar crear sus aqueste pod amb aqueste nom d'utilizaire."
       close_account_q: "Cossí pòdi suprimir mon compte ?"
       data_other_podmins_a: "A partir del moment que partejatz amb qualqu'un d'un autre pod, totas las publicacions que partejatz amb eles e una còpia de vòstre perfil seràn gardadas (en cache) sus lor pod e seràn accessiblas a l'administrator de la basa de donadas d'aquel pod. Quand suprimissètz una publicacion o una donada del perfil, es suprimit de vòstre pod e una demanda de supression es mandada a totes los pods ont son estadas gardadas. Vòstres imatges son pas jamai gardats sus d'autres pods ; i a pas que lo ligam cap a eles qu'es transmet als autres pods."
       data_other_podmins_q: "Los administrators dels autres pods pòdon veire mas informacions ?"
@@ -349,7 +350,7 @@ oc:
       data_visible_to_podmin_q: "Quina quantitat de mas informacions l'administrator del pod pòt veire ?"
       download_data_a: "Òc. En dejòs de los paramètres de Compte trobaretz dos botons : un per telecargar vòstras donadas e un per telecargar vòstras fotos."
       download_data_q: "Pòdi telecargar una còpia de totas las donadas contengudas dins mon compte ?"
-      move_pods_a: "Dins lo futur poiretz exportar vòstra grana - seed - dempuèi un pod e l'importar dins un autre, mai pel moment es pas possible. Podètz totjorn dubrir un nòu compte e ajustar vòstres contactes sus aquela nòva grana, e lor demandar de vos ajustar sus lors aspèctes amb vòstra nòva grana."
+      move_pods_a: "Dins lo futur poiretz exportar vòstra grana - seed - d'un pod e l'importar dins un autre, mai pel moment es pas possible. Podètz totjorn dubrir un nòu compte e ajustar vòstres contactes sus aquela nòva grana, e lor demandar de vos ajustar sus lors aspèctes amb vòstra nòva grana."
       move_pods_q: "Cossí desplaçar mon compte d'un pod a un autre ?"
       title: "Gestion del compte e de las donadas"
     aspects:
@@ -357,15 +358,19 @@ oc:
       change_aspect_of_post_q: "Un còp qu'ai publiat quicòm, pòdi cambiar los aspècte(s) qu'o pòdon veire ?"
       contacts_know_aspect_a: "Non pas. Pòdon pas veire lo nom de l'aspècte qualqu'arribe."
       contacts_know_aspect_q: "Mos contactes pòdon saber sus quin aspècte los ai mes ?"
+      contacts_visible_a: "Se causissètz aquesta opcion alara vòstres contactes d'aqueste aspècte poiràn veire qual es dedins, sus l'onglet « Contactes » de vòstra pagina de perfil. Es de melhor far de causir aquesta opcion solament se los contactes d'aqueste aspècte se coneisson entre eles, per exemple se l'aspècte es per un club o societat de la quala apertenètz. Ça que la poiràn pas veire cossí s'apèla l'aspècte."
       contacts_visible_q: "Qué significa « rendre los contactes dins aqueste aspècte visibles entre eles » ?"
+      delete_aspect_a: "Clicatz « Mos aspèctes » dins la barra dins la vista del flux d'actualitat e clicatz l'icòna del gredon a costat del aspècte que volètz suprimir, o anatz sus vòstra pagina de Contactes e seleccionatz l'aspècte concernit. Puèi clicatz l'icòna del bordilhièr amont a man drecha de la pagina."
       delete_aspect_q: "Cossí pòdi suprimir un aspècte ?"
+      person_multiple_aspects_a: "Òc-ben. Anatz a vòstra pagina de contactes e clicatz sus « Mos contactes ».  Per cada contacte podètz utilizar lo menú a man drecha per lo apondre (o levar) a tan d'aspèctes que volètz. O podètz los apondre a un novèl aspècte (o los levar d'un aspècte) en clicant sul boton de seleccion d'aspècte sus lor pagina de perfil. O podètz tanben solament bolegar lo puntaire sus lor nom ont lo vesètz dins vòstre flux d'actualitat, un cadron apareissarà. Podètz cambiar l'aspècte ont son d'aquí."
       person_multiple_aspects_q: "Pòdi apondre una persona a mantun aspècte ?"
-      post_multiple_aspects_a: "Òc. Quand publicatz una publicacion, utilizatz lo boton per causir los aspèctes. \"Totes los aspèctes\" es la causida per defaut dins los paramaètres. Podètz tanben causir los aspèctes dins la barra de menú. Quand publicactz, lo(s) aspèctes qu'avètz causits dins la lista a man esquèrra seràn automaticament seleccionats per las publicacions venentas."
+      post_multiple_aspects_a: "Òc. Quand publicatz una publicacion, utilizatz lo boton per causir los aspèctes. « Totes los aspèctes » es la causida per defaut dins los paramaètres. Podètz tanben causir los aspèctes dins la barra de menú. Quand publicactz, lo(s) aspèctes qu'avètz causits dins la lista a man esquèrra seràn automaticament seleccionats per las publicacions venentas."
       post_multiple_aspects_q: "Pòdi mandar un messatge a mantun aspècte a l'encòp ?"
       remove_notification_a: "Non. Tanpauc seràn pas avisats se los ajustatz dins mai aspèctes, del moment que ja partejatz amb eles."
       remove_notification_q: "Se suprimissi qualqu'un d'un de mos aspèctes, o totas las personas d'un aspècte, son prevengudas ?"
-      rename_aspect_a: "Clicatz \"Mos aspèctes\" sul costat esquèrra de la pagina de flux e clicatz sul gredonèl \"editar\" sus la dreita de l'aspècte de renomenar. Podètz tanben anar sus la pagina \"Contactes\" e seleccionar l'aspècte concernit. Clicatz alara sus l'icòna \"editar\" al costat del nom amont de la pagina, cambiatz lo nom e clicatz \"Metre a jorn\"."
+      rename_aspect_a: "Clicatz « Mos aspèctes » sul costat esquèrra de la pagina de flux e clicatz sul gredonèl « editar » sus la dreita de l'aspècte de renomenar. Podètz tanben anar sus la pagina « Contactes » e seleccionar l'aspècte concernit. Clicatz alara sus l'icòna « editar » al costat del nom amont de la pagina, cambiatz lo nom e clicatz « Metre a jorn »."
       rename_aspect_q: "Pòdi tornar nommar un aspècte ?"
+      restrict_posts_i_see_a: "Òc-ben. Clicatz « Mos aspèctes » sus la barra e puèi clicatz sus cada aspècte dins la lista per los seleccionar o deseleccionar. Pas que las publicacions del mond dels aspèctes seleccionats seràn dins vòstre flux."
       restrict_posts_i_see_q: "Pòdi afichar unicament los messatges de certans aspèctes ?"
       title: "Aspèctes"
       what_is_an_aspect_a: "Los aspèctes son lo biais qu'avètz d'amassar vòstres contactes sus diaspora*. Un aspècte es una de las fàcias que fasètz veire al mond. Pòt èsser vos al trabalh, o qual sètz per vòtra familha, o qual sètz per vòstres amics d'un club ont sètz marcat."
@@ -373,6 +378,9 @@ oc:
       who_sees_post_a: "Se fasètz una publicacion limitad, serà visibla pas que pel mond qu'avètz plaçat dins aqueste aspècte (o aspèctes, s'es fach per mai d'un aspècte) abans de publicar. Los contactes qu'avètz e que son pas dins l'aspècte, an pas cap de biais de veire la publicacion. Las publicacions limitadas seràn pas jamai visiblas pel mond qu'avètz pas plaçat dins vòstres aspèctes."
       who_sees_post_q: "Quand publiqui sus un aspècte, qual pòt o veire ?"
     chat:
+      add_contact_roster_a: |-
+          D'en primièr, vos cal activar la conversacion per un aspècte ont es la persona. Per aquò far, anatz sus %{contacts_page}, seleccionatz l'aspècte que volètz e clicatz l'icòna de conversacion per l'activar sus l'aspècte.
+          %{toggle_privilege} Poiriatz, se vos agrada mai, crear un aspècte especial apelat « Chat » e i ajustar lo mond amb qui volètz parlar. Un còp fach, dobrissètz l'interfàcia de conversacion e causissètz la persona amb qui volètz parlar.
       add_contact_roster_q: "Cossí discutir amb qualqu'un dins diaspora* ?"
       contacts_page: "pagina dels contactes"
       title: "Chat"
@@ -386,10 +394,10 @@ oc:
       get_support_a_website: "Visitatz nòstre %{link}"
       get_support_a_wiki: "Recercatz dins lo %{link}"
       get_support_q: "De qué far se ma question a pas de responsa dins la FAQ ? A quines autres endreits pòdi obténer de documentcion ?"
-      getting_started_a: "Sètz astruc. Ensajatz las %{tutorial_series} sul site de nòstre projècte. Vos ajudarà pas a pas dempuèi l'inscripcion cap a las causas basicas que vos cal saber per utilizar diaspora*."
+      getting_started_a: "Sètz astruc. Ensajatz las %{tutorial_series} sul site de nòstre projècte. Vos ajudarà pas a pas de l'inscripcion cap a las causas basicas que vos cal saber per utilizar diaspora*."
       getting_started_q: "Ajudatz-me ! Ai besonh d'ajuda per debutar !"
       title: "Obténer d'ajuda"
-    getting_started_tutorial: "Seria de tutorials \"Mos primièrs passes\""
+    getting_started_tutorial: "Seria de tutorials « Mos primièrs passes »"
     here: "aicí"
     irc: "IRC"
     keyboard_shortcuts:
@@ -406,25 +414,29 @@ oc:
       title: "Acorchis de clavièr"
     markdown: "Markdown"
     mentions:
+      how_to_mention_a: "Picatz lo signe « @ » e començatz a escriure lor nom. Una lista desrotlanta deuriá aparéisser per vos permetre de los causir mai simplament. Notatz qu'es solament possible de mencionar de mond qu'avètz aponduts a un aspècte."
       how_to_mention_q: "Cossí pòdi mencionar qualqu'un quand escrivi un messatge ?"
       mention_in_comment_a: "Non pas, pel moment."
       mention_in_comment_q: "Pòdi mencionar qualqu'un dins un comentari ?"
-      see_mentions_a: "Òc, clicatz sus \"@Mencions\" dins la colomna d'esquèrra de vòstra pagina d'acuèlh"
+      see_mentions_a: "Òc, clicatz sus « @Mencions » dins la colomna d'esquèrra de vòstra pagina d'acuèlh."
       see_mentions_q: "I a un biais de veire las publicacions que soi mencionat dedins ?"
       title: "Mencions"
-      what_is_a_mention_a: "Una mencion es un ligam cap al perfil d'una persona qu'apareis sus una publicacion. Quand qualqu'un es mencionat, receb una notificacion per atirar lor atencion sus la publicacion."
-      what_is_a_mention_q: "De qué es una “mencion” ?"
+      what_is_a_mention_a: "Una mencion es un ligam cap al perfil d'una persona qu'apareis sus una publicacion. Quand qualqu'un es mencionat, receb una notificacion per atirar son atencion sus la publicacion."
+      what_is_a_mention_q: "De qué es una « mencion » ?"
     miscellaneous:
       back_to_top_a: "Òc. Aprèp aver davalat la pagina, clicatz sus la flècha en gris qu'apareisserà a man drecha dins lo cunh de la fenèstra."
       back_to_top_q: "I a una manièra rapida per tornar amont de la pagina un còp arribat aval ?"
+      diaspora_app_a: "I a agut un molon d'aplicacions Android desvolopadas per de membres de la comunautat. Qualques son abandonadas dempuèi un brave temps e doncas foncionan pas tròp ben amb la version actuala de diaspora*. N'esperetz pas tròp d'aquelas pel moment. D'aquela passa i a pas cap d'aplicacion iOS. La melhora manièra d'accedir a diaspora* d'un mobil es amb un navigator, pr'amor qu'avèm creat una version mobila del site que deu foncionar sul màger mobil, encara qu'i aja pas totas las foncionalitats."
       diaspora_app_q: "Existís una aplicacion diaspora* per Android o iOS ?"
       photo_albums_a: "Pas pel moment. Pasmens, podètz veire los imatges mandats d'una persona dins l'onglet Fòtos de lor pagina de perfil."
       photo_albums_q: "I a d'albums de fòtos o de vidèos ?"
       subscribe_feed_q: "Me pòdi inscriure als messatges publics d'una persona amb un lector de fluxes ?"
       title: "Divèrs"
     pods:
+      find_people_a: "Se volètz convidar vòstres amics a venir sus diaspora*, utilizatz lo ligam d'invitacion o lo ligam per corrièl. Seguètz d'#etiquetas per conéisser de mond que partejan vòstres interèsses , e ajustatz aqueles que publican de causas que vos interèssan a un aspècte. Cridatz fòrt que sètz #novèlaquí dins una publicacion publica."
       find_people_q: "Veni de rejónher un pod, cossí pòdi trobar de monde per partejar amb eles ?"
       title: "Pods"
+      use_search_box_a: "Se coneissètz lor ID diaspora* complet (ex. : utilizaire@nomdelpod.org), podètz los trobar en los cercant. Se sètz sul meteis servidor, podètz los trobar sonque amb los noms d'utilizaire. Autrament podètz los cercar amb lor nom de perfil (lo nom que vesètz sus l'ecran). Se una recèrca capita pas lo primièr còp, tornatz ensajar."
       use_search_box_q: "Cossí me cal utilizar lo camp de recèrca per trobar qualqu'un en particular ?"
       what_is_a_pod_q: "Qu'es aquò un pod ?"
     posts_and_posting:
@@ -434,6 +446,7 @@ oc:
       embed_multimedia_q: "Cossí pòdi inserir un contengut vidèo, àudio, o multimèdia dins una publicacion ?"
       format_text_a: "N'emplegant un sistèma simplifiat apelat %{markdown}. Podètz trapar tota la sintaxi de Markdown %{here}. Lo boton d'apercebut pòt èsser de bona ajuda, permet de veire vòstre messatge coma serà afichat abans de o partejar."
       format_text_q: "Cossí pòdi formatar lo tèxte dins as publicacions (gras, italic, etc.) ?"
+      hide_posts_a: "Se posicionatz la mirga de naut d'una publicacion, una X aprareis a man drecha. Clicatz-la per escondre la publicacion e metre en silenci las notificacions ligadas a aquela. Podètz totjorn veire la publicacion se visitatz lo perfil de la persona que la publiquèt."
       hide_posts_q: "Cossí escondi una publicacion ?"
       image_text: "tèxte de l'imatge"
       image_url: "url de l'imatge"
@@ -442,11 +455,13 @@ oc:
       insert_images_comments_a2: "aquò pòt èsser utiizat per inserir d'imatges a partir del web dins los comentaris o los messatges."
       insert_images_comments_q: "Pòdi inserir d'imatges dins un comentari ?"
       insert_images_q: "Cossí pòdi inserir d'imatges dins un messatge ?"
+      post_location_a: "Clicatz dins l'aisina d'edicion l'icòna de l'espilla a costat de la camerà. Aquò inserirà vòstre emplaçament d'OpenStreetMap. Podètz modificar vòstre emplaçament – benlèu que volètz pas qu'indicar la vila ont sètz e non pas l'adreça amb la carrièra."
       post_location_q: "Cossí pòdi apondre ma posicion a un messatge ?"
       post_notification_a: "Trobaretz l'icòna d'una campana prèp de la X a man drecha de la publicacion. Clicatz-la per activar o desactivar las notificacions per aquesta publicacion."
       post_notification_q: "Cossí pòdi activar o desactivar las notificacions per un messatge ?"
       post_poll_a: "Clicatz sus l'icòna graf per generar un sondatge. Picatz una question e almens doas responsas. Doblidetz pas de far vòstre publicacion publica se volètz que tot lo mond pòsca participar a vòstre sondatge."
       post_poll_q: "Cossí pòdi apondre un sondatge a mon messatge ?"
+      post_report_a: "Clicatz l'icòna del triangle d'alèrta amont a man drecha de la publicacion per la senhalar a vòstre podmin. Marcatz la rason del senhalament d'aquela publicacion dins la zòna de tèxte."
       post_report_q: "Cossí pòdi senhalar un messatge ofensant ?"
       size_of_images_a: "Non. Los imatges son retalhats automaticament per marcar ben sul flux d'actualitat o sus la vista de la publicacion. I a pas de còdi Markdown per donar una talha a un imatge."
       size_of_images_q: "Pòdi personalizar la talha dels imatges dins los messatges o los comentaris ?"
@@ -455,7 +470,7 @@ oc:
           Las publicacions del mond que partejatz, i a doas categorias :
           las publicacions publicas e las publicacions limitadas a un aspècte que ne fasètz partit. Per levar aquelas publicacions de vòstre flux d'actualitat, vos cal pas que quitar de partejar amb aquela persona.
       stream_full_of_posts_li2: "Los messatges publics contenon un dels tags que seguissètz. Per los suprimir, daissatz de seguir lo tag."
-      stream_full_of_posts_li3: "Las publicacions publicas del mond listat dins las actualitat de la comunitat. Pòdon èsser levadas ne clicant sus l'opcion \"Afichar las novèlas de la comunitat dins la flux ?\" dins l'onglet Compte de vòstre Paramètres."
+      stream_full_of_posts_li3: "Las publicacions publicas del mond listat dins las actualitat de la comunitat. Pòdon èsser levadas en clicant sus l'opcion « Afichar las novèlas de la comunitat dins la flux ? » dins l'onglet Compte de vòstre Paramètres."
       stream_full_of_posts_q: "Perqué mon flux es plen de messatges que provenon de monde que coneissi pas e amb las qualas partegi pas ?"
       title: "Publicacions e publicar"
     private_posts:
@@ -463,7 +478,7 @@ oc:
       can_comment_q: "Qual pòt comentar o a qual pòt agradar un messatge privat ?"
       can_reshare_a: "Degun. Las publicacions privadas se pòdon pas tornar partejar. Los utilizaires connectats dins aqueste aspècte pòdon potencialament o copiar e pegar pasmens. Depend de vos se vos fisatz d'aqueste monde !"
       can_reshare_q: "Qual pòt repartejar mos messatges privats ?"
-      see_comment_a: "Solament lo mond amb qui la publicacion es partejada (lo mond qu'es dins l'aspècte causit per lo prim publicaire) pòdon veire sos comentaris e mencion \"m'agrada\"."
+      see_comment_a: "Solament lo mond amb qui la publicacion es partejada (lo mond qu'es dins l'aspècte causit per lo prim publicaire) pòdon veire sos comentaris e mencion « m'agrada ». "
       see_comment_q: "Quand comenti un messatge privat o que marqui que m'agrada , qual o pòt veire ?"
       title: "Publicacions privadas"
       who_sees_post_a: "Solament los utilizaires de diaspora* connectats qu'avètz plaçats dins aquel aspècte abans de passar la publicacion privada pòdon la veire."
@@ -489,7 +504,9 @@ oc:
       title: "Perfils publics"
       what_do_tags_do_a: "Ajudan lo mond a vos conéisser. Vòstra fòto de perfil  apareisserà tanben a man esquèrra d'aquelas paginas d'etiquetas, entre los demai qu'an tanben aquestas etiquetas dins lors perfil public."
       what_do_tags_do_q: "De qué fan los tags sus mon perfil public ?"
+      whats_in_profile_a: "Vòstre perfil public conten vòstre nom, las cinc etiquetas qu'avètz causidas per vos descriure, e vòstras fotografias, s'avètz garnit aquelas seccions. Totas aquelas informacions son opcionalas – causissètz vosautres meteisses de las donar. Podètz far venir aquelas informacions de perfil tan identificablas o anonimas coma volètz. Vòstre perfil mòstra tanben las publicacions publicas qu'avètz fachas."
       whats_in_profile_q: "Qué i a sul meu perfil public ?"
+      who_sees_profile_a: "Tot utilizaire connectat a diaspora*, e tot lo grand Internet, pòt veire aquò. Cada perfil ten una URL dirècta que permet d'i anar directament a partir d'autres sites. Los motors de recèrca pòdon l'indexar."
       who_sees_profile_q: "Qual vei mon perfil public ?"
       who_sees_updates_a: "Qual que siá pòt veire aqueles cambiaments en visitant vòstra pagina de perfil."
       who_sees_updates_q: "Qual pòt veire las mesas a jorn de mon perfil public ?"
@@ -501,17 +518,20 @@ oc:
       title: "Repartejar los messatges."
     sharing:
       add_to_aspect_a1: "Direm que l'Amy apond lo Bena un aspècte, mai Ben a pas (encara) apondut Amy a un aspècte :"
+      add_to_aspect_a2: "Aquò es conegut coma un partage asimetric. Se e quand Ben ajusta tanben Amy a un aspècte alara vendrà un partatge mutual, quand tan las publicacions publicas a Amy que las a Ben e que de publicacions privadas apareisson dins lors flux d'actualitat, e Amy poiriá veire lo perfil privat de Ben. Poiràn tanben s'enviar de messatges privats."
       add_to_aspect_li1: "Ben recebrà una notificacion que l'Amy a \"començat a partejar\" amb Ben."
       add_to_aspect_li2: "Amy començarà de veire los messatges publics de Ben dins son flux."
       add_to_aspect_li3: "Amy veirà pas cap dels messatges privats de Ben."
       add_to_aspect_li4: "Ben veirà pas las publicacions publicas o privadas de l'Amy dins son flux d'actualitat."
       add_to_aspect_li5: "Mai se Ben va sus la pagina de perfil d'Amy, alara veirà las publicacions qu'Amy a causit de partejat amb lo mond de l'aspècte ont a mes Ben (e tanben sas publicacions publicas que tot lo monde pòt veire aquí)."
       add_to_aspect_li6: "Ben serà autorizat a veire lo perfil privat d'Amy (bio, localizacion, sèxe, anniversari)."
-      add_to_aspect_li7: "L'Amy apareisserà coma «Solament parteja amb ieu » sus la pagina de contact del Ben."
+      add_to_aspect_li7: "L'Amy apareisserà coma « Partejan solament amb ieu » sus la pagina de contact del Ben."
       add_to_aspect_li8: "Amy serà tanben capabla de @mencionar Ben dins un messatge."
       add_to_aspect_q: "Qué passa quand apondi qualqu'un a un de mos aspèctes, o quand qualqu'un m'apond als seus aspèctes ?"
+      list_not_sharing_a: "Non pas, mas podètz veire se qualqu'un parteja amb vos en visitant sa pagina de perfil. Se parteja amb vos, lo boton que mòstra lo(s) aspecète(s) ont l'avètz mes serà verd, autrament serà gris."
       list_not_sharing_q: "I a una lista del mond qu'ai apondut sus un de mos aspèctes mai que m'an pas apondut de lor costat ?"
-      only_sharing_q: "Qui son los listats dins \"Solament partejan amb ieu\" sus ma pagina de contactes ?"
+      only_sharing_a: "Son lo mond que vos an apondut a lor aspècte, mai que son pas - encara - dins vòstres aspèctes. Dich autrament, partejan amb vos, mai partejatz pas amb eles : podètz o pensar aissí, vos « seguisson ». Se los apondètz a un aspècte, pareisseràn dins aqueste e non pas coma « Partejan solament amb ieu ». Veire çai-jos."
+      only_sharing_q: "Qui son los listats dins « Partejan solament amb ieu » sus ma pagina de contactes ?"
       see_old_posts_a: "Non. Poiràn pas que veire las novèlas publicacions dins aqueste aspècte. Pòdon veire vòstras vièlhas publicacions sus vòstra pagina de perfil, e benlèu tanben dins lor flux d'actualitat."
       see_old_posts_q: "Quand apondi qualqu'un a un aspècte, pòdon veire mas ancianas publicacions qu'ai ja publicadas a aqueste aspècte ?"
       sharing_notification_a: "Deuriatz recebre una notificacion a cada còp que qualqu'un comença de partejar amb vos."
@@ -526,6 +546,7 @@ oc:
       tags_in_comments_a: "Una etiqueta aponduda a un comentari apareisserà coma un ligam cap a la pagina d'etiquetas correspondenta, mai farà pas aparéisser la publicacion (o comentari) dins aquela pagina. Aquò fonciona pas qu'amb las etiquetas sus las publicacions."
       tags_in_comments_q: "Pòdi inserir de tags dins un comentari o sonque dins de messatges ?"
       title: "Etiquetas"
+      what_are_tags_for_a: "Las etiquetas son un biais de triar una publicacion, sovent un tèma. Cercar una etiqueta ensenha las publicacions, tan publicas coma privadas, amb aquesta etiqueta qu'avètz la permission de veire. Aquò permet al mond qu'es interessat per un tèma de trobar de publicacions ligadas a aquò."
       what_are_tags_for_q: "A qué servisson las etiquetas ?"
     third_party_tools: "Aisinas tèrças"
     title_header: "Ajuda"
@@ -535,11 +556,13 @@ oc:
   home:
     default:
       be_who_you_want_to_be: "Siatz lo que volètz èsser"
+      be_who_you_want_to_be_info: "Un fum de malhums insistisson per que donetz vòstra identitat reala. diaspora* non o fa. Aquí podètz causir qual volètz èsser, e partejar tan o pas tan d'informacion vos tocant. Dépend vertadièrament de cossí volètz interagir amb la gent."
       byline: "La ret sociala ont gardatz lo contraròtle."
       choose_your_audience: "Causissètz vòstre public"
       choose_your_audience_info: "Los aspèctes de diaspora* vos permeton de partejar solament amb lo mond que volètz. Podètz èsser public o privat tan que volètz. Partejatz una fòto divertissenta amb lo mond complet, o un grand secrèt amb vòstre melhors amics. Avètz lo contraròtle."
       headline: "Benvenguda sus %{pod_name}"
       own_your_data: "Siatz proprietari de vòstras donadas"
+      own_your_data_info: "Mantun rets emplegan vòstras donadas per se far de moneda en analisant vòstras interaccions e en emplegant aquelas informacions per vos far de reclama. diaspora* utilizant pas vòstras donadas que per vos permetre de comunicar e partejar amb lo mond."
     podmin:
       byline: "Sètz a mand de cambiar la fàcia d'internet. Prèst a vos lançar ?"
       configuration_info: "Dobrissètz %{database_path} e %{diaspora_path} dins vòstre editor de tèxte favorit e relegissètz-los menimosament, son comentats abondament."
@@ -686,7 +709,7 @@ oc:
       click_link: "Per activar vòstre novèla adreça de corrièl %{unconfirmed_email}, seguissètz aqueste ligam :"
       subject: "Mercés d'activar vòstre novèl corrièl %{unconfirmed_email}"
     csrf_token_fail:
-      subject: "Avèm recebut una demanda sens autorizacion dempuèi vòstre compte, %{name}"
+      subject: "Avèm recebut una demanda sens autorizacion de vòstre compte, %{name}"
     email_sent_by_diaspora: "Aqueste corrièl es estat mandaat per %{pod_name}. Se volètz pas mai de corrièls atal,"
     export_email:
       body: |-
@@ -753,7 +776,7 @@ oc:
           [2] : %{diasporafoundation_url}
     invited_you: "%{name} vos a convidat sus diaspora*"
     liked:
-      liked: "a %{name}, li a agradat vòstra publicacion"
+      liked: "A %{name}, li a agradat vòstra publicacion"
       limited_post: "A %{name}, li a agradat vòstra publicacion restrenta"
       view_post: "Veire la publicacion >"
     mentioned:
@@ -855,7 +878,7 @@ oc:
       title: "Una publicacion de %{name}"
     show:
       forbidden: "Sètz pas autorizat a far aquò"
-      location: "Publicat dempuèi : %{location}"
+      location: "Publicat de : %{location}"
       photos_by:
         one: "Una fòto per %{author}"
         other: "%{author} fòtos per %{count}"
@@ -869,11 +892,13 @@ oc:
       basic: "Mon perfil basic"
       basic_hint: "Totes los elements de vòstre perfil son opcionals. Vòstre perfil basic serà totjorn visible publicament."
       extended: "Mon perfil espandit"
+      extended_hint: "Clicatz sul boton per definir la visibilitat de vòstre perfil complet. Public significa qu'es visible per tot Internet, limitat significa solament lo mond amb qui partejatz poiràn veire aquelas informacions."
       extended_visibility_text: "Visibilitat de vòstre perfil complet."
       first_name: "Pichon nom"
       last_name: "Nom d'ostal"
       limited: "Limitat"
       nsfw_check: "Amagar tot çò que pòsti coma #NSFW"
+      nsfw_explanation: "NSFW (“not safe for work” pas conselhat al trabalh) in diaspora* es un estandard gerit per la comunautat pel cotengut qu'es pas apropriat d'agachar al trabalh. S'avètz previst de ne partejar sovent, mercés de causir aquesta opcion per que tot çò que partejatz siaque escondut dins lo flux del mond qu'an pas causit de veire aquò."
       nsfw_explanation2: "Se causissètz pas de seleccionar aquesta opcion, mercés d'apondre l'etiqueta #nsfw cada còp que partejatz de material d'aqueste tip."
       public: "Public"
       settings: "Paramètres del perfil"
@@ -900,7 +925,7 @@ oc:
       enter_email: "Picatz vòstra adreça de corrièl"
       enter_password: "Picatz un senhal (sièis caractèrs minimum)"
       enter_password_again: "Picatz lo meteis senhal coma de per abans"
-      enter_username: "Picatz un escais (sonque letras, chifras e jonhent bas _)"
+      enter_username: "Picatz un nom d'utilizaire (sonque letras, chifras e jonhent bas _)"
       password: "Senhal"
       password_confirmation: "Confirmacion del senhal"
       sign_up: "Marcatz-vos"
@@ -955,7 +980,7 @@ oc:
       really_disconnect: "Se desconnectar de %{service} ?"
       services_explanation: "Se connectar a de servicis tèrç vos permet de publicar vòstras publicacions suls aqueles servicis quand n'escrivètz sus diaspora*."
       share_to: "Partejar amb %{provider}"
-      title: "Geir los servicis connectats"
+      title: "Gerir los servicis connectats"
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
@@ -1003,7 +1028,7 @@ oc:
       whats_on_your_mind: "A qué pensatz ?"
     stream_element:
       via: "Via %{link}"
-      via_mobile: "Mandat dempuèi un mobil"
+      via_mobile: "Enviat d'un mobil"
   simple_captcha:
     label: "Entratz lo còdi dins lo camp"
     message:
@@ -1071,7 +1096,7 @@ oc:
     show:
       follow: "Seguir #%{tag}"
       none: "L'etiqueta voida existís pas !"
-      stop_following: "Arrectar de seguir #%{tag}"
+      stop_following: "Quitar de seguir #%{tag}"
       tagged_people:
         one: "1 persona marcada amb %{tag}"
         other: "%{count} personas marcadas amb %{tag}"
@@ -1117,7 +1142,7 @@ oc:
       export_photos_in_progress: "Sèm a tractar vòstras fòtos. Tornatz aicí dins un momenton."
       following: "Paramètres de partiment"
       last_exported_at: "(Darrièra mesa a jorn a %{timestamp})"
-      liked: "a qualqu'un li a agradat vòstra publicacion"
+      liked: "A qualqu'un li a agradat vòstra publicacion"
       mentioned: "...se vos menciona dins un messatge."
       new_password: "Senhal novèl"
       private_message: "Avètz recebut un messatge privat."

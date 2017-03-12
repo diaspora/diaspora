@@ -4,7 +4,7 @@ module ActsAsTaggableOn
     self.include_root_in_json = false
 
     def self.tag_text_regexp
-      @@tag_text_regexp ||= "[[:alnum:]]_-"
+      @tag_text_regexp ||= "[[:word:]]\u055b\u055c\u055e\u058a_-"
     end
 
     def self.autocomplete(name)

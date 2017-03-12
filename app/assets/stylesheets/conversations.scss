@@ -73,7 +73,7 @@
     }
 
     &:hover, &.unread:hover, &.selected:hover {
-      background-color: lighten($blue,5%);
+      background-color: lighten($brand-primary, 5%);
       cursor: pointer;
       .participants {
         border-color: rgba($border-grey, 1);
@@ -84,7 +84,7 @@
     }
 
     &.unread { background-color: $background-grey; }
-    &.selected { background-color: $blue; }
+    &.selected { background-color: $brand-primary; }
 
     .last_author, .last_message {
       font-size: 12px;
@@ -144,7 +144,7 @@
       float: right;
       line-height: normal;
       font-weight: normal;
-      color: $blue;
+      color: $link-color;
     }
   }
 

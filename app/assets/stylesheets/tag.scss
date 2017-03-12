@@ -3,15 +3,15 @@
   font-weight: bold;
   &:hover {
     text-decoration: underline;
-    background-color: lighten($blue, 47%);
+    background-color: lighten($link-color, 47%);
   }
 }
 
-a.tag { color: $blue; }
+a.tag { color: $link-color; }
 
 h1.tag {
-  border-bottom: 2px dotted $blue;
-  &:hover { border-bottom: 2px dotted $blue; }
+  border-bottom: 2px dotted $link-color;
+  &:hover { border-bottom: 2px dotted $link-color; }
 }
 
 .info {

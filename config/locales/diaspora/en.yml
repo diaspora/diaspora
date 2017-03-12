@@ -138,7 +138,7 @@ en:
       daily: "Daily"
       usage_statistic: "Usage statistics"
       go: "Go"
-      display_results: "Displaying results from the <b>%{segment}</b> segment"
+      display_results: "Displaying results from the %{segment} segment"
       posts:
         zero: "%{count} posts"
         one: "%{count} post"
@@ -155,9 +155,9 @@ en:
         zero: "%{count} users"
         one: "%{count} user"
         other: "%{count} users"
-      current_segment: "The current segment is averaging <b>%{post_yest}</b> posts per user, from <b>%{post_day}</b>"
+      current_segment: "The current segment is averaging %{post_yest} posts per user, from %{post_day}"
       50_most: "50 most popular tags"
-      tag_name: "Tag name: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
+      tag_name: "Tag name: %{name_tag} Count: %{count_tag}"
     pods:
       pod_network: "Pod network"
   aspects:
@@ -194,6 +194,7 @@ en:
     index:
       donate: "Donate"
       keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
+      donate_liberapay: "Donate to liberapay"
       welcome_to_diaspora: "Welcome to diaspora*, %{name}!"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
 
@@ -943,7 +944,7 @@ en:
     delete_link: "Delete item"
     reported_user_details: "Details on reported user"
     confirm_deletion: "Are you sure to delete the item?"
-    not_found: "<u>The post/comment was not found. It seems that it was deleted by the user!</u>"
+    not_found: "The post/comment was not found. It seems that it was deleted by the user!"
     status:
       destroyed: "The post was destroyed"
       failed: "Something went wrong"

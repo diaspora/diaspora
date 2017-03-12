@@ -13,10 +13,10 @@ de-CH:
         other: "%d Täg"
       hour: "öpe einere Stund"
       hours:
-        one: "öpe einere Stund"
+        one: "öpe enere Stund"
         other: "öpe %d Stunde"
       inPast: "jede Moment"
-      minute: "öpe einere Minute"
+      minute: "öpe ere Minute"
       minutes:
         one: "einere Minute"
         other: "%d Minute"

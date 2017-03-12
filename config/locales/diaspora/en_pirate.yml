@@ -8,6 +8,7 @@ en_pirate:
   _applications: "Applications"
   _contacts: "Mateys"
   _services: "Ye Services"
+  _terms: "Terms matey"
   account: "Ye account"
   activerecord:
     errors:
@@ -43,6 +44,9 @@ en_pirate:
       pod_stats: "Ship stats"
       user_search: "Matey search"
       weekly_user_stats: "Weekly matey stats"
+    user_search:
+      add_invites: "Add ye old invites"
+      email_to: "Email to invite mateys"
   all_aspects: "Yer Crews"
   are_you_sure: "Are ye sure?"
   are_you_sure_delete_account: "Are ye sure you want t' walk the plank? Yer account will be shark bait!"
@@ -79,6 +83,7 @@ en_pirate:
         find_a_bug: "... ye find a %{link}?"
         have_a_question: "do ye have a %{link}?"
         here_to_help: "Diaspora community is here to help!"
+        mail_podmin: "Cap'n's email"
         need_help: "S.O.S."
         tag_bug: "blunder"
         tag_feature: "addition"
@@ -125,6 +130,7 @@ en_pirate:
   contacts:
     index:
       add_a_new_aspect: "Add a new crew"
+      add_contact: "Add matey"
       all_contacts: "All yer mateys"
       community_spotlight: "Crew spotlight"
       my_contacts: "Me Mateys"
@@ -142,12 +148,15 @@ en_pirate:
       sent: "Letter sent"
     index:
       inbox: "Pigeon's nest"
+      new_conversation: "New letter"
       no_messages: "no letters"
     new:
       send: "Fire"
       sending: "Sendin'..."
       subject: "Subject"
       to: "'t"
+    new_conversation:
+      fail: "Yargh! Invalid letter matey! Re-ink ye feather!"
     show:
       delete: "scuttle and batten down the discussion"
       reply: "send a letter back"
@@ -179,6 +188,7 @@ en_pirate:
       language: "What do ye speak?"
       paste_link: "Share this link with ye crew to invite them aboard to diaspora*, or email them the link via an email cannonball. Argh!"
       send_an_invitation: "Send n' invitation"
+      sending_invitation: "Sending ye invite via pigeon..."
   layouts:
     application:
       back_to_top: "Back to crow's nest"
@@ -226,9 +236,12 @@ en_pirate:
         other: "'n %{count} others"
         two: "'n %{count} others"
         zero: "'n nobody else"
+      liked: "Liked"
       mark_all_as_read: "Mark that ye read all"
       mark_unread: "Mark unread"
       notifications: "Notifications"
+      reshared: "Reposted"
+      started_sharing: "Started sharin'"
     liked:
       few: "%{actors} has just liked yer %{post_link}."
       many: "%{actors} has just liked yer %{post_link}."
@@ -325,6 +338,8 @@ en_pirate:
       subject: "%{name} has mention'd ye on diaspora*"
     private_message:
       reply_to_or_view: "Reply 't or read this conversation >"
+    report_email:
+      subject: "Ahoy there matey! A new %{type} was marked offensive!"
     reshared:
       reshared: "%{name} just reshare'd yer post"
       view_post: "Read post >"
@@ -343,6 +358,7 @@ en_pirate:
     add_contact:
       invited_by: "Ye were invited by"
     index:
+      couldnt_find_them: "Nothin' from the crow's nest?"
       looking_for: "Lookin' fer posts tagged %{tag_link}?"
       no_one_found: "...and no landblubbers were found."
       no_results: "Ahoy! Ye need 't search fer somethin'."
@@ -384,6 +400,7 @@ en_pirate:
       allow_search: "Allow fer scallywags to search fer ye within diaspora*"
       first_name: "Ye first name"
       last_name: "Ye last name"
+      nsfw_check: "Mark everythin' I share as Not Safe For Scalawags"
       update_profile: "Update duffle"
       your_bio: "Ye story"
       your_birthday: "Yer day o' birth"
@@ -408,7 +425,14 @@ en_pirate:
       enter_password: "Enter ye secret phrase (six letters max ye scalawag)"
       enter_password_again: "Enter ye same secret phrase again matey"
       enter_username: "Pick ye username (only letters, numbers, and ye old underscores)"
+      password: "Ye password"
+      sign_up: "Create ye olde account"
+      submitting: "Submittin'..."
       username: "Ye username"
+  report:
+    delete_link: "Make it walk the plank"
+    status:
+      destroyed: "Sunk the post! Ya har har har har!"
   reshares:
     comment_email_subject: "%{resharer}'s reshare of matey %{author}'s post"
     reshare:
@@ -456,6 +480,7 @@ en_pirate:
       visibility_dropdown: "Use this dropdown t' change the visibility of yer post.  (It's good idear ye make this first one sea-wide.)"
     publisher:
       discard_post: "Scuttle post"
+      formatWithMarkdown: "Ye can use ye olde %{markdown_link} to pretty up ye post"
       get_location: "Get ye coordinates"
       new_user_prefill:
         hello: "Ahoy there matey's! I be #%{new_user_tag}. "
@@ -463,12 +488,17 @@ en_pirate:
         invited_by: "Thanks for invite matey, "
         newhere: "NewMatey"
       posting: "Firin!"
+      remove_location: "Eye patch ye location!"
       share: "Fire!"
       upload_photos: "Hang up portraits"
       whats_on_your_mind: "What be botherin' you?"
     stream_element:
       via: "Via %{link}"
       via_mobile: "Via bird"
+  simple_captcha:
+    label: "Enter the secret in ye olde box:"
+    message:
+      default: "Blargh! Ye secret code didint match with the image ye scalawag!"
   status_messages:
     create:
       success: "Ye've successfully mentioned: %{names}"
@@ -554,6 +584,7 @@ en_pirate:
     getting_started:
       awesome_take_me_to_diaspora: "Yo ho ho! Take me to diaspora*"
       community_welcome: "diaspora*'s crew be happy to have ye aboard matey! ARGH!"
+      connect_to_facebook_link: "Hookin' up ye Facebook ship."
       hashtag_explanation: "Hashtags allow ye to talk about and follow ye interests.  They be a great way to find new mateys on diaspora*."
       hashtag_suggestions: "Try followin things like #treasure, #rum, #wenches, etc."
       well_hello_there: "Ya har me matey!"

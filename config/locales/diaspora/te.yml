@@ -42,6 +42,7 @@ te:
               taken: "ఇప్పటికే తిసుకోబడినది"
   admins:
     admin_bar:
+      dashboard: "డాష్‌బోర్డు"
       pages: "పుటలు"
       pod_stats: "పాడ్ గణాంకాలు"
       report: "నివేదికలు"
@@ -107,6 +108,20 @@ te:
         zero: "ఈ వారంలో కొత్త వాడుకరుల సంఖ్య: ఎవరూలేరు"
       current_server: "ప్రస్తుత సేవకం తేదీ %{date}"
   all_aspects: "అన్ని కోణాలు"
+  api:
+    openid_connect:
+      authorizations:
+        new:
+          approve: "ఆమోదించు"
+          deny: "తిరస్కరించు"
+      scopes:
+        name:
+          name: "పేరు"
+        nickname:
+          name: "ముద్దుపేరు"
+      user_applications:
+        index:
+          edit_applications: "అనువర్తనాలు"
   are_you_sure: "మీరు కచ్చితంగా ఉన్నారా?"
   are_you_sure_delete_account: "మీరు నిజంగానే మీ ఖాతాని మూసివేయాలి అనుకుంటున్నారా? ఒకసారి మూసివేస్తే ఇక తిరిగిరాదు!"
   aspect_memberships:
@@ -162,6 +177,7 @@ te:
       welcome_to_diaspora: "%{name}, డయాస్పొరా*కు స్వాగతం!"
     no_contacts_message:
       community_spotlight: "సంఘపు స్పాట్​లైట్"
+      invite_link_text: "ఆహ్వానించండి"
       or_spotlight: "లేకపోతే %{link} తో పంచుకోవచ్చు"
       try_adding_some_more_contacts: "మీరు మరికొన్ని పరిచయాల్ని వెతకవచ్చు లేక ఆహ్వానించవచ్చు."
       you_should_add_some_more_contacts: "మీరు ఇంకొంత మంది పరిచయాల్ని చేర్చుకోవాలి!"
@@ -218,6 +234,7 @@ te:
       new_conversation: "కొత్త సంభాషణ"
       no_messages: "సందేశాలేమి లేవు"
     new:
+      message: "సందేశం"
       send: "పంపండి"
       sending: "పంపుతున్నాము..."
       subject: "విషయం"
@@ -302,6 +319,7 @@ te:
       image_url: "బొమ్మ url"
       insert_images_comments_q: "వ్యాఖ్యలలో బొమ్మలను పెట్ట‍డం ఎలా?"
       insert_images_q: "జాబులలో బొమ్మలను పెట్టడ‍ం ఎలా?"
+      post_location_q: "టపాలకు నా ప్రాంతాన్ని ఎలా చేర్చవచ్చు?"
       title: "టపాలు మరియు టపాలు వేయుట"
     private_posts:
       can_comment_q: "నా రహస్య టపాలను ఎవరు ఇష్టపడవచ్చు లేదా వ్యాఖ్యలను ఉంచవచ్చు?"
@@ -337,6 +355,11 @@ te:
     tutorial: "ఉపశిక్షణ"
     tutorials: "ఉపశిక్షణ"
     wiki: "వికీ"
+  home:
+    default:
+      headline: "%{pod_name}‌కి స్వాగతం"
+    podmin:
+      headline: "మిత్రమా, స్వాగతం."
   invitations:
     create:
       empty: "దయచేసి ఒక్క ఈమెయిలు చిరునామానైనా ఇవ్వండి."
@@ -393,6 +416,7 @@ te:
         other: "మరియు ఇంకా %{count} ఇతరులు"
         zero: "ఇంకెవరూ లేరు"
       comment_on_post: "జాబుపై వ్యాఖ్య"
+      liked: "మెచ్చుకున్నారు"
       mark_all_as_read: "అన్నీ చదివినట్లుగా గుర్తుపెట్టు"
       mark_all_shown_as_read: "చూపించినవన్నీ చదివినట్లుగా గుర్తుపెట్టు"
       mark_read: "చదివినట్టుగా గుర్తుపెట్టు"
@@ -402,6 +426,7 @@ te:
       reshared: "మరలాపంచుకున్నవి"
       show_all: "అన్నీ చూపించు"
       show_unread: "చదవనివి చూపించు"
+      started_sharing: "పంచుకోవడం మొదలుపెట్టారు"
     liked:
       one: "%{actors} మీ %{post_link}ను మెచ్చుకున్నారు."
       other: "%{actors} మీ %{post_link}ను మెచ్చుకున్నారు."
@@ -568,8 +593,10 @@ te:
       allow_search: "మీ కోసం డయాస్పోరా*లో వెతకడానికి వ్యక్తులను అనుమతించండి"
       first_name: "మొదటి పేరు"
       last_name: "ఇంటి పేరు"
+      limited: "పరిమితం"
       nsfw_check: "నేను పంచుకునే ప్రతీదీ ఎన్‌ఎస్ఎఫ్‌డబ్ల్యూ వలె గుర్తుపెట్టు"
       nsfw_explanation2: "ఒకవేళ ఈ ఎంపికను వద్దనుకుంటే, అటువంటి సామాగ్రిని పంచుకునే ప్రతీసారీ దయచేసి #nsfw ట్యాగును చేర్చండి."
+      public: "బహిరంగం"
       update_profile: "ప్రవరను నవీకరించండి"
       your_bio: "మీ జీవితచరిత్ర"
       your_birthday: "మీ పుట్టినరోజు"
@@ -718,6 +745,7 @@ te:
     community_spotlight_stream: "సంఘపు స్పాట్​లైట్"
     followed_tag:
       add_a_tag: "ఒక కొసను జతచేయండి"
+      all: "అన్ని ట్యాగులు"
       follow: "అనుసరించు"
       title: "#అనుసరించే కొసలు"
     followed_tags_stream: "#అనుసరించే కొసలు"
@@ -728,6 +756,8 @@ te:
       title: "ప్రవాహం"
     public:
       title: "బహిరంగ క్రియాశీలత"
+    tags:
+      title: "%{tags} అనే ట్యాగు ఉన్న టపాలు:"
   tag_followings:
     manage:
       no_tags: "మీరు ఎటువంటి కొసలను అనుసరించుటలేరు."
@@ -747,10 +777,11 @@ te:
       success: "మీ ఖాతా తాళం వేయబడింది.  మీ ఖాతాను మూసివేయుటకు మాకు 20 నిమిషాలు పట్టవచ్చు.  డయాస్పోరా*ను ప్రయత్నించినందుకు ధన్యవాదములు."
       wrong_password: "మీరు ఇచ్చిన సంకేతపదం మీ ప్రస్తుత సంకేతపదంలో సరిపోలలేదు."
     edit:
-      also_commented: "మీరు వ్యాఖ్యానించిన టపాపై ఎవరో వ్యాఖ్యను పెట్టారు"
+      also_commented: "మీరు వ్యాఖ్యానించిన టపాపై మరొకరు వ్యాఖ్యానించినప్పుడు"
       auto_follow_aspect: "స్వయంచాలకంగా జతచేయబడిన పరిచయాల కోణం:"
       auto_follow_back: "మీతో పంచుకోవడం ప్రారంభించిన వాడుకరులతో స్వయంచాలకంగా పంచుకొనుము"
       change: "మార్చు"
+      change_color_theme: "రంగుల మిశ్రమాన్ని మార్చు"
       change_email: "ఈమెయిల్ మార్చండి"
       change_language: "భాష మార్పు"
       change_password: "సంకేతపదం మార్పు"
@@ -763,7 +794,7 @@ te:
         mr_wiggles: "మీ నిష్క్రమణ మిస్టర్ విగిల్స్‌కు విచారం కలిగిస్తుంది"
         no_turning_back: "ప్రస్తుతం, తిరిగి వెనక్కి వెళ్ళడమనేది లేదు."
       close_account_text: "ఖాతాను మూసివేయి"
-      comment_on_post: "ఎవరో మీ టపాపై వ్యాఖ్యానించారు"
+      comment_on_post: "ఎవరైనా మీ టపాపై వ్యాఖ్యానించినప్పుడు"
       current_password: "ప్రస్తుత సంకేతపదం"
       current_password_expl: "మీరు ప్రవేశించే దానితో..."
       download_export: "నా ప్రవరను దింపు"
@@ -772,20 +803,21 @@ te:
       email_awaiting_confirmation: "మేము మీకొక క్రియాశీలించు లంకెను %{unconfirmed_email} కు పంపాము. మీరు ఈ లంకెను అనుసరించి కొత్త చిరునామాను క్రియాశీలించేంతవరకూ, మీ అసలు చిరునామా %{email} ను వాడతాము."
       export_data: "దత్తాంశాన్ని ఎగుమతించు"
       following: "పంచుకోలు అమరికలు"
-      liked: "ఎవరో మీ టపాను మెచ్చుకున్నారు"
-      mentioned: "మీరు టపాలో ప్రస్తావించబడ్డారు"
+      last_exported_at: "(చివరి మార్పు %{timestamp})"
+      liked: "ఎవరైనా మీ టపాను మెచ్చుకున్నప్పుడు"
+      mentioned: "ఎవరైనా మిమ్మల్ని టపాలో ప్రస్తావించినప్పుడు"
       new_password: "కొత్త సంకేతపదం"
-      private_message: "మీకు రహస్య సందేశం వచ్చింది"
+      private_message: "ఎవరైనా మీకు అంతరంగిక సందేశం పంపించినపుడు"
       receive_email_notifications: "ఈమెయిలు గమనింపులను ఎప్పుడు అందుకుంటారు:"
       request_export: "నా ప్రవర దత్తాంశాన్ని అభ్యర్థించు"
       request_export_photos: "నా ఛాయాచిత్రాలను అభ్యర్థించు"
       request_export_photos_update: "నా ఛాయాచిత్రాలను తాజాపరుచు"
       request_export_update: "నా ప్రవర దత్తాంశాన్ని తాజాపరుచు"
-      reshared: "ఎవరో మీ టపాను మరలా పంచుకున్నారు"
+      reshared: "మీ టపాను ఎవరైనా తిరిగి పంచుకున్నప్పుడు"
       show_community_spotlight: "ప్రవాహంలో \"సంఘపు స్పాట్‌లైట్‌ను\" చూపించు"
       show_getting_started: "“ఆరంభించు” సూచనలను చూపించు"
       someone_reported: "ఎవరో ఒకరు నివేదిక పంపారు"
-      started_sharing: "ఎవరో మీతో పంచుకోవడం మొదలుపెట్టారు"
+      started_sharing: "మీతో ఎవరైనా పంచుకోవడం మొదలుపెట్టినప్పుడు"
       stream_preferences: "ప్రవాహపు అభిరుచులు"
       your_email: "మీ ఈమెయిలు"
       your_email_private: "మీ ఈమెయిలును ఇతరులు ఎప్పటికీ చూడలేరు"

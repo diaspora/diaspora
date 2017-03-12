@@ -23,6 +23,12 @@ module ApplicationHelper
     AppConfig.settings.source_url.presence || "#{root_path.chomp('/')}/source.tar.gz"
   end
 
+  def donations_enabled?
+    AppConfig.settings.paypal_donations.enable? ||
+    AppConfig.settings.liberapay_username.present? ||
+    AppConfig.bitcoin_donation_address.present?
+  end
+
   def timeago(time, options={})
     timeago_tag(time, options.merge(:class => 'timeago', :title => time.iso8601, :force => true)) if time
   end

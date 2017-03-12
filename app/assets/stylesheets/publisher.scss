@@ -102,7 +102,7 @@
         padding-left: 10px;
         margin-bottom: 0;
         color: lighten($text-grey,20%);
-        a { color: lighten($blue,20%); }
+        a { color: lighten($link-color, 20%); }
       }
 
       &.with_attachments #photodropzone_container {

@@ -2,14 +2,18 @@
   %h3
     = t("contacts.index.title")
 = render "contacts/aspect_listings"
-%hr
-- if AppConfig.settings.community_spotlight.enable?
-  .text-center.spotlight
-    = link_to t("contacts.spotlight.community_spotlight"), community_spotlight_path, class: "btn btn-link"
-.text-center
-  #invitations-button.btn.btn-link{ "data-toggle" => "modal" }
-    = t("invitations.new.invite_someone_to_join")
-  = render "shared/modal",
-      path: new_user_invitation_path,
-      id: "invitationsModal",
-      title: t("invitations.new.invite_someone_to_join")
+- if AppConfig.settings.community_spotlight.enable? || AppConfig.settings.invitations.open?
+  %hr
+  - if AppConfig.settings.community_spotlight.enable?
+    .text-center.spotlight
+      = link_to t("contacts.spotlight.community_spotlight"),
+          community_spotlight_path,
+          class: "btn btn-link"
+  - if AppConfig.settings.invitations.open?
+    .text-center
+      .btn.btn-link#invitations-button{"data-toggle" => "modal"}
+        = t("invitations.new.invite_someone_to_join")
+      = render "shared/modal",
+          path: new_user_invitation_path,
+          id: "invitationsModal",
+          title: t("invitations.new.invite_someone_to_join")

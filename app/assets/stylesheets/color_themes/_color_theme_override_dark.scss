@@ -50,13 +50,13 @@ body {
   @import 'highlightjs/darcula';
 
   #single-post-content .head {
-    #post-info .author { color: lighten($gray-lighter, 27%); }
+    .author-name { color: lighten($gray-lighter, 27%); }
     #single-post-actions i.entypo-heart.red:hover { color: $red; }
   }
 
   .opengraph a { color: lighten($gray-lighter, 27%); }
 
-  .tag:hover { background-color: desaturate(darken($blue, 35%), 20%); }
+  .tag:hover { background-color: desaturate(darken($link-color, 35%), 20%); }
 
   #profile_container .profile_header {
     #author_info #sharing_message.entypo-check { color: lighten($green, 10%); }

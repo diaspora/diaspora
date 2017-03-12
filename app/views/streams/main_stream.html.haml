@@ -124,7 +124,7 @@
           .content
             != t("bookmarklet.explanation", link: link_to(t("bookmarklet.post_something"), bookmarklet_code))
 
-        - if AppConfig.settings.paypal_donations.enable? || AppConfig.bitcoin_donation_address
+        - if donations_enabled?
           .section.collapsed
             .title
               %h5.title-header
@@ -152,7 +152,7 @@
         .excellence-box
           .content
             %p
-              = t("layouts.application.be_excellent")
+              = link_to t("layouts.application.be_excellent"), "https://diasporafoundation.org/community_guidelines"
 
         .info-links
           .content

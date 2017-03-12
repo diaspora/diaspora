@@ -7,7 +7,6 @@
     border-bottom: 1px solid $border-grey;
     padding: 10px 0;
     #post-info {
-      .author{ color: $grey; }
       .info {
         color: lighten($text-grey,10%);
         font-size: 12px;
@@ -22,6 +21,9 @@
         padding-left: 10px;
       }
     }
+
+    .author-name { color: $grey; }
+
     .near-from {
       color: $text-grey;
       font-size: 12px;
@@ -83,7 +85,7 @@
         color: #f55f5a;
       }
       i.entypo-reshare:hover {
-        color: #3f8fba;
+        color: $blue;
       }
       time {
         float: right;
@@ -115,7 +117,7 @@
   .no-comments { text-align: center; }
 
   a {
-    color: $blue;
+    color: $link-color;
   }
   .count {
     float: left;

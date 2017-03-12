@@ -24,8 +24,8 @@
     }
 
     &:hover, &:hover a, &:hover [class^="entypo"] {
-      background-color: $blue;
-      border-color: $blue;
+      background-color: $brand-primary;
+      border-color: $brand-primary;
       color: $white;
     }
   }
@@ -116,6 +116,11 @@
 
     .content {
       font-size: $font-size-base;
+    }
+
+    a,
+    a:hover {
+      color: $link-grey;
     }
   }
 

@@ -91,7 +91,7 @@ app.views.Hovercard = app.views.Base.extend({
     this.parent = el;
     this._positionHovercard();
     this._populateHovercard();
-  }, 700),
+  }, 1000),
 
   _populateHovercard: function() {
     var href = this.href();

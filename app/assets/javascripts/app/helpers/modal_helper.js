@@ -7,6 +7,7 @@
 
     modalBody.load(url, function(){
       $(id).find("#modalWaiter").remove();
+      autosize($("textarea", modalBody));
       $(id).trigger("modal:loaded");
     });
   };

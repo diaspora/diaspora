@@ -13,7 +13,7 @@ module ReportHelper
         post_path(item.post.id, anchor: item.guid)
       ))
     else
-      raw t("report.not_found")
+      t("report.not_found")
     end
   end
 

@@ -11,7 +11,7 @@ module AspectGlobalHelper
     options
   end
 
-  def publisher_aspects_for(stream=nil)
+  def publisher_aspects_for(stream)
     if stream
       aspects = stream.aspects
       aspect = stream.aspect
@@ -24,17 +24,5 @@ module AspectGlobalHelper
       return {}
     end
     {selected_aspects: aspects, aspect: aspect, aspect_ids: aspect_ids}
-  end
-
-  def public_selected?(selected_aspects)
-    "public" == selected_aspects.try(:first)
-  end
-
-  def all_aspects_selected?(aspects, selected_aspects)
-    !aspects.empty? && aspects.size == selected_aspects.size && !public_selected?(selected_aspects)
-  end
-
-  def aspect_selected?(aspect, aspects, selected_aspects)
-    selected_aspects.include?(aspect) && !all_aspects_selected?(aspects, selected_aspects)
   end
 end

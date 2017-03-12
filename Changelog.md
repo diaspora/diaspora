@@ -1,3 +1,26 @@
+# 0.6.4.0
+
+## Refactor
+* Unify link colors [#7318](https://github.com/diaspora/diaspora/pull/7318)
+* Increase time to wait before showing the hovercard [#7319](https://github.com/diaspora/diaspora/pull/7319)
+* Remove some unused color-theme overrides [#7325](https://github.com/diaspora/diaspora/pull/7325)
+* Change color of author-name on hover [#7326](https://github.com/diaspora/diaspora/pull/7326)
+* Add like and reshare services [#7337](https://github.com/diaspora/diaspora/pull/7337)
+
+## Bug fixes
+* Fix path to `bundle` in `script/server` [#7281](https://github.com/diaspora/diaspora/pull/7281)
+* Update comment in database example config [#7282](https://github.com/diaspora/diaspora/pull/7282)
+* Make the \#newhere post public again [#7311](https://github.com/diaspora/diaspora/pull/7311)
+* Remove whitespace from author link [#7330](https://github.com/diaspora/diaspora/pull/7330)
+* Fix autosize in modals [#7339](https://github.com/diaspora/diaspora/pull/7339)
+* Only display invite link on contacts page if invitations are enabled [#7342](https://github.com/diaspora/diaspora/pull/7342)
+* Fix regex for hashtags for some languages [#7350](https://github.com/diaspora/diaspora/pull/7350)
+* Create asterisk.png without digest after precompile [#7322](https://github.com/diaspora/diaspora/pull/7322)
+
+## Features
+* Add support for [Liberapay](https://liberapay.com) donations [#7290](https://github.com/diaspora/diaspora/pull/7290)
+* Added a link to the community guidelines :) [#7298](https://github.com/diaspora/diaspora/pull/7298)
+
 # 0.6.3.0
 
 ## Refactor
