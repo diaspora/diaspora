@@ -52,8 +52,8 @@ oc:
         unlock: "Desverrolhar mon compte"
       welcome: "Benvenguda %{email} !"
     omniauth_callbacks:
-      failure: "Impossible de vos indentificar dempuèi %{kind} perque %{reason}"
-      success: "Autentificacion capitada dempuèi lo compte %{kind}."
+      failure: "Impossible de vos indentificar de %{kind} perque %{reason}"
+      success: "Autentificacion capitada de lo compte %{kind}."
     passwords:
       edit:
         change_password: "Cambiar mon senhal"

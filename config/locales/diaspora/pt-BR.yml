@@ -70,9 +70,9 @@ pt-BR:
         one: "%{count} comentário"
         other: "%{count} comentários"
         zero: "%{count} comentário"
-      current_segment: "O período atual tem em média <b>%{post_yest}</b> publicações por usuário, de  <b>%{post_day}</b>"
+      current_segment: "O período atual tem em média %{post_yest} publicações por usuário, de %{post_day}"
       daily: "Diaramente"
-      display_results: "Mostrando resultados do período <b>%{segment}</b>"
+      display_results: "Mostrando resultados do período %{segment}"
       go: "Ir"
       month: "Mês"
       posts:
@@ -83,7 +83,7 @@ pt-BR:
         one: "%{count} compartilhamento"
         other: "%{count} compartilhamentos"
         zero: "%{count} compartilhamento"
-      tag_name: "Nome da tag: <b>%{name_tag}</b> Contagem: <b>%{count_tag}</b>"
+      tag_name: "Nome da tag: %{name_tag} Contagem: %{count_tag}"
       usage_statistic: "Estatísticas de uso"
       users:
         one: "%{count} usuário"
@@ -222,6 +222,7 @@ pt-BR:
       updating: "Atualizando"
     index:
       donate: "Faça uma Doação"
+      donate_liberapay: "Doe para o Liberapay"
       help:
         any_problem: "Algum problema?"
         contact_podmin: "Entre em contato com a administração do seu servidor!"
@@ -610,12 +611,12 @@ pt-BR:
   layouts:
     application:
       back_to_top: "Voltar ao topo"
-      be_excellent: "Tratem-se com carinho! ♥"
+      be_excellent: "Sejam uns amores! ♥"
       powered_by: "Desenvolvido por diaspora*"
       public_feed: "Feed público de diaspora* para %{name}"
       source_package: "Baixar pacote do código-fonte"
       statistics_link: "Estatísticas do servidor"
-      toggle: "Versão para celular"
+      toggle: "Versão móvel"
       whats_new: "O que há de novo?"
     header:
       code: "Código"
@@ -960,7 +961,7 @@ pt-BR:
     comment_label: "<b>Comentário</b>: %{data}"
     confirm_deletion: "Tem certeza que quer apagar o item?"
     delete_link: "Apagar item"
-    not_found: "<u>A publicação ou comentário não foi encontrado. Ao que parece, ele foi apagado pelo autor!</u>"
+    not_found: "A publicação ou comentário não foi encontrado. Ao que parece, ele foi apagado pelo autor!"
     post_label: "<b>Publicação</b>: %{content}"
     reason_label: "Motivo:"
     reported_label: "<b>Relatado por</b> %{person}"
@@ -1183,7 +1184,7 @@ pt-BR:
       your_email_private: "Seu e-mail não será visto por outros usuários"
       your_handle: "Sua diaspora* ID"
     getting_started:
-      awesome_take_me_to_diaspora: "Incrível! Leve-me ao Diaspora*."
+      awesome_take_me_to_diaspora: "Incrível! Quero ir para a diaspora*"
       community_welcome: "A comunidade diaspora* está feliz em ter você a bordo!"
       connect_to_facebook: "Podemos acelerar um pouco as coisas %{link} a diaspora*. Seu nome e foto serão recuperados, e a publicação simultânea, habilitada."
       connect_to_facebook_link: "Conectando seu Facebook"
@@ -1195,7 +1196,7 @@ pt-BR:
     privacy_settings:
       ignored_users: "Usuários ignorados"
       no_user_ignored_message: "Você não está ignorando nenhum outro usuário"
-      stop_ignoring: "Deixar de ignorar"
+      stop_ignoring: "Parar de ignorar"
       strip_exif: "Remover metadados como local, autor e modelo da câmera antes de fazer upload de imagens (recomendado)"
       title: "Configurações de privacidade"
     public:

@@ -6,6 +6,13 @@
 
 te:
   javascripts:
+    admin:
+      pods:
+        actions: "చర్యలు"
+        not_available: "అందుబాటులో లేదు"
+        states:
+          no_errors: "సరే"
+        status: "స్థితి"
     and: "మరియు"
     aspect_dropdown:
       add_to_aspect: "పరిచయాన్ని జతచేయి"
@@ -116,6 +123,10 @@ te:
     publisher:
       add_option: "ఒక సమాధానాన్ని జతచేయి"
       limited: "పరిమితం: మీరు ఎవరితోనైతే పంచుకుంటున్నారో వారు మాత్రమే మీ టపాను చూడగలరు"
+      markdown_editor:
+        tooltips:
+          bold: "బొద్దు"
+          italic: "వాలు"
       near_from: "ఇక్కడి నుండి టపా వేసారు: <%= location %>"
       option: "సమాధానం"
       public: "బహిరంగం: మీ టపా అందరికీ కనిపిస్తుంది మరియు వెతుకులాట యంత్రాలలో కూడా కనపడుతుంది"
@@ -131,6 +142,10 @@ te:
     show_more: "ఇంకా చూపించు"
     stream:
       comment: "వ్యాఖ్య"
+      comments:
+        one: "<%= count %> వ్యాఖ్య"
+        other: "<%= count %> వ్యాఖ్యలు"
+        zero: "<%= count %> వ్యాఖ్యలు"
       disable_post_notifications: "ఈ టపాకు గమనింపులను అచేతనించు"
       enable_post_notifications: "ఈ టపాకు గమనింపులను చేతనించు"
       follow: "అనుసరించు"
@@ -149,6 +164,7 @@ te:
         one: "మరో <%= count %> వ్యాఖ్యను చూపించు"
         other: "మరో <%= count %> వ్యాఖ్యలను చూపించు"
         zero: "మరో <%= count %> వ్యాఖ్యలను చూపించు"
+      permalink: "స్థిరలంకె"
       public: "బహిరంగం"
       reshare: "మరలపంచుకొను"
       reshares:

@@ -70,9 +70,9 @@ da:
         one: "%{count} kommentar"
         other: "%{count} kommentarer"
         zero: "%{count} kommentarer"
-      current_segment: "Det nuværende segment ligger omkring <b>%{post_yest}</b> indlæg pr. bruger, fra <b>%{post_day}</b>"
+      current_segment: "Det nuværende segment ligger omkring %{post_yest} indlæg pr. bruger, fra %{post_day}"
       daily: "Daglig"
-      display_results: "Viser resultater fra <b>%{segment}</b>-segmentet"
+      display_results: "Viser resultater fra %{segment}-segmentet"
       go: "Udfør"
       month: "Måned"
       posts:
@@ -83,7 +83,7 @@ da:
         one: "%{count} deling"
         other: "%{count} delinger"
         zero: "%{count} delinger"
-      tag_name: "Tag navn: <b>%{name_tag}</b> Antal: <b>%{count_tag}</b>"
+      tag_name: "Tag navn: %{name_tag} Antal: %{count_tag}"
       usage_statistic: "Bruger statistik"
       users:
         one: "%{count} bruger"
@@ -219,6 +219,7 @@ da:
       updating: "Opdaterer"
     index:
       donate: "Doner"
+      donate_liberapay: "Doner til Liberapay"
       help:
         any_problem: "Problemer?"
         contact_podmin: "Kontakt din pods administrator!"
@@ -980,7 +981,7 @@ da:
     comment_label: "<b>Kommentar</b>: %{data}"
     confirm_deletion: "Er du sikker på at du vil slette det valgte?"
     delete_link: "Slet det valgte"
-    not_found: "<u>Indlægget/kommentaren blev ikke fundet. Det ser ud til at være blevet slettet af brugeren!</u>"
+    not_found: "Indlægget/kommentaren blev ikke fundet. Det ser ud til at være blevet slettet af brugeren!"
     post_label: "<b>Indlæg</b>: %{content}"
     reason_label: "Begrundelse:"
     reported_label: "<b>Indrapporteret af</b> %{person}"

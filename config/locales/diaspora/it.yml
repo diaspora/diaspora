@@ -126,6 +126,7 @@ it:
       updating: "Aggiornamento in corso"
     index:
       donate: "Fai una donazione"
+      donate_liberapay: "Dona a liberapay"
       help:
         any_problem: "Qualche problema?"
         contact_podmin: "Contatta l'amministratore del tuo pod!"

@@ -66,6 +66,7 @@ sc:
       updating: "Agiornande"
     index:
       donate: "Dona"
+      donate_liberapay: "Agiuda a liberapay"
       help:
         do_you: "Boles..."
         feature_suggestion: "propònnere una %{link}?"
@@ -108,7 +109,10 @@ sc:
       commenting: "Cummentende..."
   contacts:
     index:
+      add_a_new_aspect: "Annanghe un'aspetu nou"
+      no_contacts: "Paret chi tue tèngias bisòngiu de annànghere carchi cuntatu in prus!"
       start_a_conversation: "Incumintza un'arresonu"
+      title: "Cuntatos"
   delete: "Burra"
   email: "P. eletr. (e-mail)"
   error_messages:

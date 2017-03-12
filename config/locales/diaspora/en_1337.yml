@@ -7,6 +7,7 @@
 en_1337:
   _applications: "4ppz"
   _contacts: "n0obz"
+  _help: "H3LP"
   _services: "53rv!c35"
   account: "4cc0un7"
   activerecord:
@@ -73,6 +74,7 @@ en_1337:
     user_search:
       add_invites: "4DD 1NV1735"
       email_to: "3M41L 2 1NV173"
+      under_13: "SH0W N00BZ UND3R 13 (C0PP4)"
       users:
         one: "%{count} N00B F0UND"
         other: "%{count} N00B5 F0UND"
@@ -114,11 +116,13 @@ en_1337:
     index:
       donate: "D0N473!"
       help:
+        any_problem: "PR0BL3M? -TROLL FACE-"
         do_you: "D0 U:"
         feature_suggestion: "... H4V3 4 %{link} 5UGG35710N?"
         find_a_bug: "... F0UND 4 %{link}?"
         have_a_question: "... H4V3 4 %{link}?"
         here_to_help: "45K PR0G4M3R5!"
+        mail_podmin: "4DM1N 3M41L"
         need_help: "N33D H3LP?"
         tag_bug: "#bug"
         tag_feature: "#feature"
@@ -203,6 +207,9 @@ en_1337:
       correct_the_following_errors_and_try_again: "3rr0rz! r37ry!"
   fill_me_out: "!npu7 73x7 h3r3"
   find_people: "Ctrl+F n0obz, #74g5"
+  help:
+    irc: "1RC"
+    wiki: "W1K1"
   invitations:
     create:
       no_more: "U H4V3 N0 M0R3 1NV174710N5!"
@@ -223,6 +230,7 @@ en_1337:
       back_to_top: "8@ck 2 ^"
       powered_by: "P0W3R3D BY D*"
       public_feed: "PUBL1C D* F33D F0R %{name}"
+      source_package: "D0WNL04D 7H3 5AUC3"
       toggle: "70GGL3 M0B1L3"
       whats_new: "WH475 N3W?"
     header:
@@ -450,6 +458,7 @@ en_1337:
       enter_password_again: "3N73R 17 4G41N!"
       enter_username: "P1CK 4 N1CK (0NLY L3773R5 NUMB3R5 4ND UND3R5C0R35!)"
       password: "*****"
+      password_confirmation: "P455WD 4G41N"
       sign_up: "CR3473 4CC0UN7"
       username: "U53RN4M3"
   reshares:
@@ -500,6 +509,7 @@ en_1337:
       visibility_dropdown: "U53 7H15 DR0PD0WN 2 CH4N63 V151B1L17Y 0F Y0UR P057. (W3 5U66357 U M4K3 7H15 F1R57 1 PUBL1C.)"
     publisher:
       discard_post: "D15C4RD P057"
+      get_location: "G37 Y0UR ~/"
       new_user_prefill:
         hello: "H3Y 3V3RY0N3, 1'M #%{new_user_tag}. "
         i_like: "1 575LK: %{tags}."
@@ -597,6 +607,7 @@ en_1337:
     getting_started:
       awesome_take_me_to_diaspora: "4W350M3! 74K3 M3 2 D145P0RA*"
       community_welcome: "7H3 D* C0MMUN17Y 15 H4PPY 2 H4V3 U 4B04RD!"
+      connect_to_facebook_link: "H00K UP FB"
       hashtag_explanation: "H45H74G5 4LL0W U 2 74LK 4B0U7 4ND F0LL0W Y0UR 1N73R3575! 7H3YR3 4L50 4 GR347 W4Y 2 F1ND N3W N00B5 0N D*!"
       hashtag_suggestions: "7RY F0110W1NG 74G5 L1K3 #linux, #rms, #bsd, etc."
       well_hello_there: "W3LL, H3LL0 7H3R3!"

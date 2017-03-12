@@ -82,7 +82,7 @@ pt-BR:
         add_a_new_aspect: "Adicionar novo aspecto"
         failure: "A criação do aspecto falhou."
         success: "Seu novo aspecto <%= name %> foi criado"
-      make_aspect_list_visible: "Deseja tornar os contatos deste aspecto visíveis entre si?"
+      make_aspect_list_visible: "Tornar os contatos deste aspecto visíveis entre si?"
       name: "Nome"
     bookmarklet:
       post_something: "Publicar em diaspora*"
@@ -138,7 +138,7 @@ pt-BR:
       recent_notifications: "Notificações recentes"
       search: "Encontrar pessoas ou #tags"
       settings: "Configurações"
-      toggle_mobile: "Versão para celular"
+      toggle_mobile: "Versão móvel"
       toggle_navigation: "Alternar navegação"
       view_all: "Ver todas"
     hide_post: "Esconder esta publicação?"

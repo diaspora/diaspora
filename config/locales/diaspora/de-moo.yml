@@ -1,0 +1,632 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+de-moo:
+  _applications: "Anwendungen"
+  _contacts: "Mitkühe"
+  _services: "Dienste"
+  account: "Konto"
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "muss innerhalb der Kontakte dieses Benutzers einzigartig sein."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "wird schon benutzt."
+        request:
+          attributes:
+            from_id:
+              taken: "wurde schon einmal angefordert."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Ziemlich gut, was? Du hast diesen Beitrag bereits wiedergekäut!"
+        user:
+          attributes:
+            email:
+              taken: "ist schon vergeben."
+            person:
+              invalid: "ist ungültig."
+            username:
+              invalid: "ist ungültig. Es sind nur Buchstaben, Zahlen und Unterstriche erlaubt."
+              taken: "ist schon vergeben."
+  admins:
+    admin_bar:
+      pages: "Seiten"
+      pod_stats: "Bauernhof Statistik"
+      sidekiq_monitor: "Sidekiq-Monitor"
+      user_search: "Kuh Suche"
+      weekly_user_stats: "Wöchentliche Kuhstatistik"
+    stats:
+      2weeks: "2 Wochen"
+      50_most: "Die 50 populärsten Tags"
+      comments:
+        one: "%{count} Kommentar"
+        other: "%{count} Kommentare"
+        zero: "%{count} Kommentare"
+      current_segment: "Das aktuelle Segment hat durchschnittlich <b>%{post_yest}</b> Beiträge pro Kuh, seit dem <b>%{post_day}</b>"
+      daily: "täglich"
+      display_results: "Zeige Ergebnisse aus dem Segment <b>%{segment}</b>"
+      go: "los"
+      month: "Monat"
+      posts:
+        one: "Ein Beitrag"
+        other: "%{count} Beiträge"
+        zero: "Kein Beitrag"
+      shares:
+        one: "Ein mal geteilt."
+        other: "%{count} mal geteilt."
+        zero: "Noch nicht geteilt."
+      tag_name: "Tag Name: <b>%{name_tag}</b> Anzahl: <b>%{count_tag}</b>"
+      usage_statistic: "Nutzungsstatistik"
+      users:
+        one: "%{count} Kuh"
+        other: "%{count} Kühe"
+        zero: "%{count} Kühe"
+      week: "Woche"
+    user_search:
+      add_invites: "Einladungen hinzufügen"
+      email_to: "per E-Mail einladen"
+      users:
+        one: "%{count} Kuh gefunden"
+        other: "%{count} Kühe gefunden"
+        zero: "%{count} Kühe gefunden"
+      you_currently:
+        other: "Du hast noch %{user_invitation} Einladungen übrig %{link}"
+    weekly_user_stats:
+      amount_of:
+        one: "Anzahl neuer Kühe diese Woche: Einer"
+        other: "Anzahl neuer Kühe diese Woche: %{count}"
+        zero: "Anzahl neuer Kühe diese Woche: Keiner"
+      current_server: "Das aktuelle Serverdatum ist %{date}"
+  all_aspects: "Alle Herden"
+  are_you_sure: "Bist du dir sicher?"
+  are_you_sure_delete_account: "Möchtest du dein Konto wirklich schließen? Dieser Schritt kann nicht rückgängig gemacht werden!"
+  aspect_memberships:
+    destroy:
+      failure: "Die Kuh konnte nicht aus der Herde entfernt werden"
+      no_membership: "Konnte die ausgewählte Kuh in dieser Herde leider nicht finden"
+      success: "Die Kuh wurde erfolgreich aus der Herde entfernt"
+  aspects:
+    add_to_aspect:
+      failure: "Fehler beim Hinzufügen der Kuh zur Herde."
+      success: "Kuh erfolgreich zur Herde hinzugefügt."
+    aspect_listings:
+      add_an_aspect: "+ Herde hinzufügen"
+    aspect_stream:
+      make_something: "Mache etwas"
+      stay_updated: "Bleibe auf dem Laufenden"
+      stay_updated_explanation: "Deine Weide ist gefüllt mit all deinen Mitkühen, Tags, denen du folgst, sowie Beiträgen einiger kreativer Kühe der Gemeinschaft."
+    destroy:
+      failure: "%{name} ist nicht leer und konnte nicht entfernt werden."
+      success: "%{name} wurde erfolgreich entfernt."
+    edit:
+      aspect_list_is_not_visible: "Die Herdenliste wird vor anderen in der Herde versteckt"
+      aspect_list_is_visible: "Die Herdenliste ist für andere in der Herde sichtbar"
+      confirm_remove_aspect: "Bist du dir sicher, dass du diese Herde löschen möchtest?"
+      rename: "umbenennen"
+      update: "Ändern"
+      updating: "Ändere …"
+    index:
+      donate: "Spenden"
+      help:
+        any_problem: "Gibt's ein Problem?"
+        contact_podmin: "Kontaktiere die Leitkuh deines Bauernhofs!"
+        do_you: "Hast du:"
+        feature_suggestion: "… eine Idee für eine %{link}?"
+        find_a_bug: "… ein %{link}?"
+        have_a_question: "… eine %{link}?"
+        here_to_help: "Die Diaspora-Gemeinschaft ist für dich da!"
+        mail_podmin: "Leitkuh E-Mail"
+        need_help: "Benötigst du Hilfe?"
+        tag_bug: "Problem"
+        tag_feature: "Verbesserung"
+        tag_question: "Frage"
+      introduce_yourself: "Das ist deine Weide. Leg los und stell dich vor."
+      keep_pod_running: "Halte Bauernhof %{pod} am Leben und sorge für ausreichend Heu!"
+      new_here:
+        follow: "Folge %{link} und begrüße neue Kühe bei Diaspora*!"
+        learn_more: "mehr erfahren"
+        title: "Begrüße neue Kühe"
+      services:
+        content: "Du kannst die folgenden Dienste mit Diaspora verbinden:"
+        heading: "Verbinde Dienste"
+      welcome_to_diaspora: "Willkommen bei Diaspora, %{name}!"
+    no_contacts_message:
+      community_spotlight: "Gemeinschafts-Schaukasten"
+      or_spotlight: "Du kannst auch mit %{link} teilen"
+      try_adding_some_more_contacts: "Du kannst weitere Kühe suchen oder welche einladen."
+      you_should_add_some_more_contacts: "Du solltest ein paar neue Kühe hinzufügen!"
+    seed:
+      acquaintances: "Bekannte"
+      family: "Familie"
+      friends: "Freunde"
+      work: "Arbeit"
+    update:
+      failure: "%{name} ist ein zu langer Name, um gespeichert zu werden."
+      success: "Herde %{name} erfolgreich bearbeitet."
+  blocks:
+    create:
+      failure: "Ich konnte diese Kuh nicht ignorieren. #evasion"
+      success: "Alles klar, Du wirst diese Kuh nicht mehr in deiner Weide sehen. #silencio!"
+    destroy:
+      failure: "Ich konnte das Ignorieren dieser Kuh nicht beenden.  #evasion"
+      success: "Mal sehen was sie zu sagen haben! #sayhello"
+  bookmarklet:
+    explanation: "Erstelle von überall einen Beitrag in Diaspora, indem du %{link} als Lesezeichen speicherst."
+    heading: "Lesezeichen"
+    post_something: "Erstelle einen Beitrag in Diaspora"
+  cancel: "Abbrechen"
+  comments:
+    new_comment:
+      comment: "Kommentieren"
+      commenting: "Kommentieren …"
+  contacts:
+    index:
+      add_a_new_aspect: "Eine neue Herde hinzufügen"
+      all_contacts: "Alle Mitkühe"
+      community_spotlight: "Gemeinschafts-Focus"
+      my_contacts: "Meine Herden"
+      no_contacts: "Sieht so aus, als müsstest du einige Kühe hinzufügen!"
+      no_contacts_message: "Guck’ in den %{community_spotlight}"
+      only_sharing_with_me: "Nur mit dir Teilende"
+      start_a_conversation: "Beginne eine Unterhaltung"
+      title: "Mitkühe"
+    spotlight:
+      community_spotlight: "Gemeinschafts-Schaukasten"
+      suggest_member: "Ein Mitglied vorschlagen"
+  conversations:
+    create:
+      fail: "Ungültige Nachricht"
+      sent: "Nachricht versendet"
+    index:
+      inbox: "Eingang"
+      no_messages: "Keine Nachrichten"
+    new:
+      send: "Senden"
+      sending: "Senden …"
+      subject: "Betreff"
+      to: "An"
+    show:
+      delete: "Diese Konversation löschen und blockieren"
+      reply: "Antworten"
+      replying: "Antworten …"
+  date:
+    formats:
+      birthday: "%d. %B"
+      birthday_with_year: "%d. %B %Y"
+      fullmonth_day: "%d. %B"
+  delete: "Löschen"
+  email: "E-Mail"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
+  fill_me_out: "Füll mich aus"
+  find_people: "Leute oder #Tags finden"
+  invitations:
+    create:
+      empty: "Bitte mindestens eine E-Mail-Adresse eingeben."
+      no_more: "Du hast keine Einladungen mehr."
+      note_already_sent: "Es wurde bereits eine Einladung an %{emails} gesendet"
+      rejected: "Mit diesen E-Mail-Adressen gab es Probleme:"
+      sent: "Einladungen wurden an %{emails} verschickt."
+    new:
+      codes_left:
+        one: "%{count} Einladung auf diesem Code übrig."
+        other: "%{count} Einladungen auf diesem Code übrig."
+        zero: "Keine Einladung mehr auf diesem Code übrig."
+      comma_separated_plz: "Du kannst mehrere Emailadressen, getrennt durch Kommas, eingeben."
+      invite_someone_to_join: "Lade jemanden zu Diaspora ein!"
+      language: "Sprache"
+      paste_link: "Teile diesen Link mit deinen Freunden, um sie zu Diaspora* einzuladen oder schick' ihnen den Link direkt per Email."
+      send_an_invitation: "Eine Einladung senden"
+  layouts:
+    application:
+      back_to_top: "Zurück zum Anfang"
+      powered_by: "BETRIEBEN MIT DIASPORA*"
+      public_feed: "Öffentlicher Diaspora Feed von %{name}"
+      source_package: "Quelltextpaket runterladen"
+      toggle: "Mobile Ansicht umschalten"
+      whats_new: "Was gibt's Neues?"
+    header:
+      code: "Code"
+      logout: "Abmelden"
+      profile: "Profil"
+      settings: "Einstellungen"
+  limited: "Begrenzt"
+  more: "Mehr"
+  no_results: "Keine Ergebnisse gefunden."
+  notifications:
+    also_commented:
+      few: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
+      many: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
+      one: "%{actors} hat auch %{post_author}s %{post_link} kommentiert."
+      other: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
+      two: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
+      zero: "%{actors} hat auch %{post_author}s %{post_link} kommentiert."
+    also_commented_deleted:
+      few: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
+      many: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
+      one: "%{actors} hat einen inzwischen gelöschten Beitrag kommentiert."
+      other: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
+      two: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
+      zero: "Niemand hat einen inzwischen gelöschten Beitrag kommentiert."
+    comment_on_post:
+      few: "%{actors} haben deinen %{post_link} kommentiert."
+      many: "%{actors} haben deinen %{post_link} kommentiert."
+      one: "%{actors} hat deinen %{post_link} kommentiert."
+      other: "%{actors} haben deinen %{post_link} kommentiert."
+      two: "%{actors} hat deinen %{post_link} kommentiert."
+      zero: "Niemand hat deinen %{post_link} kommentiert."
+    index:
+      and: "und"
+      and_others:
+        few: "und %{count} anderen"
+        many: "und %{count} anderen"
+        one: "und einem anderen"
+        other: "und %{count} anderen"
+        two: "und %{count} andere"
+        zero: "und niemand sonst"
+      mark_all_as_read: "Markiere alle als gelesen"
+      mark_unread: "als ungelesen markieren"
+      notifications: "Benachrichtigungen"
+    liked:
+      few: "%{actors} gefällt dein %{post_link}."
+      many: "%{actors} gefällt dein %{post_link}."
+      one: "%{actors} gefällt dein %{post_link}."
+      other: "%{actors} gefällt dein %{post_link}."
+      two: "%{actors} gefällt dein %{post_link}."
+      zero: "Niemandem gefällt dein %{post_link}."
+    liked_post_deleted:
+      few: "%{actors} gefällt dein gelöschter Beitrag."
+      many: "%{actors} gefällt dein gelöschter Beitrag."
+      one: "%{actors} gefällt dein gelöschter Beitrag."
+      other: "%{actors} gefällt dein gelöschter Beitrag."
+      two: "%{actors} gefällt dein gelöschter Beitrag."
+      zero: "Niemandem gefällt dein gelöschter Beitrag."
+    mentioned:
+      few: "%{actors} haben dich in einem %{post_link} erwähnt."
+      many: "%{actors} haben dich in einem %{post_link} erwähnt."
+      one: "%{actors} hat dich in einem %{post_link} erwähnt."
+      other: "%{actors} haben dich in einem %{post_link} erwähnt."
+      two: "%{actors} hat dich in einem %{post_link} erwähnt."
+      zero: "Niemand hat dich in einem %{post_link} erwähnt."
+    mentioned_deleted:
+      few: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
+      many: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
+      one: "%{actors} hat dich in einem gelöschten Beitrag erwähnt."
+      other: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
+      two: "%{actors} hat dich in einem bereits gelöschten Beitrag erwähnt."
+      zero: "Niemand hat dich in einem gelöschten Beitrag erwähnt."
+    post: "Beitrag"
+    private_message:
+      few: "%{actors} haben dir eine Nachricht gesendet."
+      many: "%{actors} haben dir eine Nachricht gesendet."
+      one: "%{actors} hat dir eine Nachricht gesendet."
+      other: "%{actors} haben dir eine Nachricht gesendet."
+      two: "%{actors} hat dir eine Nachricht geschickt."
+      zero: "%{actors} hat dir eine Nachricht gesendet."
+    reshared:
+      few: "%{actors} haben deinen %{post_link} wiedergekäut."
+      many: "%{actors} haben deinen %{post_link} wiedergekäut."
+      one: "%{actors} hat deinen %{post_link} wiedergekäut."
+      other: "%{actors} haben deinen %{post_link} wiedergekäut."
+      two: "%{actors} hat deinen %{post_link} weitergeleitet."
+      zero: "%{actors} haben deinen %{post_link} wiedergekäut."
+    reshared_post_deleted:
+      few: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
+      many: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
+      one: "%{actors} hat deinen gelöschten Beitrag wiedergekäut."
+      other: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
+      two: "%{actors} hat deinen bereits gelöschten Beitrag weitergeleitet."
+      zero: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
+    started_sharing:
+      few: "%{actors} haben angefangen mit dir zu teilen."
+      many: "%{actors} haben angefangen mit dir zu teilen."
+      one: "%{actors} hat angefangen mit dir zu teilen."
+      other: "%{actors} haben angefangen mit dir zu teilen."
+      two: "%{actors} haben angefangen mit dir zu teilen."
+      zero: "Niemand hat angefangen mit dir zu teilen."
+  notifier:
+    a_post_you_shared: "ein Beitrag."
+    click_here: "Hier klicken"
+    comment_on_post:
+      reply: "Antworte oder schau dir %{name}s Beitrag an >"
+    confirm_email:
+      click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicke bitte auf diesen Link:"
+      subject: "Bitte aktiviere deine neue E-Mail-Adresse %{unconfirmed_email}"
+    email_sent_by_diaspora: "Diese E-Mail wurde von %{pod_name} verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
+    hello: "Hallo %{name}!"
+    invite:
+      message: |-
+          Hallo!
+
+          Du wurdest eingeladen Diaspora* beizutreten!
+
+          Klick auf diesen Link um loszulegen
+
+          %{invite_url}
+
+
+          Alles Liebe,
+
+          der Diaspora* E-Mail Roboter!
+    invited_you: "%{name} hat Dich zu Diaspora* eingeladen"
+    liked:
+      liked: "%{name} gefällt dein Beitrag"
+      view_post: "Beitrag betrachten >"
+    mentioned:
+      subject: "%{name} hat dich auf Diaspora* erwähnt"
+    private_message:
+      reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
+    reshared:
+      reshared: "%{name} hat deinen Beitrag wiedergekäut"
+      view_post: "Beitrag anzeigen >"
+    single_admin:
+      admin: "Dein Diaspora Administrator"
+      subject: "Eine Nachricht über dein Diaspora Konto:"
+    started_sharing:
+      sharing: "hat angefangen mit dir zu teilen!"
+      subject: "%{name} hat angefangen mit dir auf Diaspora* zu teilen"
+      view_profile: "Schau dir %{name}s Profil an"
+    thanks: "Danke,"
+    to_change_your_notification_settings: "um deine Benachrichtigungs-Einstellungen zu ändern"
+  nsfw: "NSFW (unpassend für den Arbeitsplatz)"
+  ok: "OK"
+  people:
+    add_contact:
+      invited_by: "Du wurdest eingeladen von"
+    index:
+      looking_for: "Suchst du mit %{tag_link} getaggte Beiträge?"
+      no_one_found: "… und niemand wurde gefunden."
+      no_results: "Hey! Du musst nach etwas suchen."
+      results_for: "Suchergebnisse für"
+      searching: "suche, bitte warten..."
+    person:
+      thats_you: "Das bist du!"
+    profile_sidebar:
+      bio: "Beschreibung"
+      born: "Geburtstag"
+      gender: "Geschlecht"
+      location: "Ort"
+    show:
+      closed_account: "Dieses Konto wurde geschlossen."
+      does_not_exist: "Diese Kuh existiert nicht!"
+      has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit dir geteilt!"
+  photos:
+    create:
+      integrity_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass es eine Bilddatei war?"
+      runtime_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass du deinen Morgenkaffee hattest?"
+      type_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass ein Bild hinzugefügt wurde?"
+    destroy:
+      notice: "Foto gelöscht."
+    new_profile_photo:
+      upload: "Ein neues Profilfoto hochladen"
+  posts:
+    presenter:
+      title: "Ein Beitrag von %{name}"
+    show:
+      photos_by:
+        few: "%{count} Fotos von %{author}"
+        many: "%{count} Fotos von %{author}"
+        one: "Ein Foto von %{author}"
+        other: "%{count} Fotos von %{author}"
+        two: "Zwei Fotos von %{author}"
+        zero: "Keine Fotos von %{author}"
+      reshare_by: "Wiedergekäut von %{author}"
+  privacy: "Privatsphäre"
+  profile: "Profil"
+  profiles:
+    edit:
+      allow_search: "Anderen erlauben, auf Diaspora nach dir zu suchen"
+      first_name: "Vorname"
+      last_name: "Nachname"
+      update_profile: "Profil aktualisieren"
+      your_bio: "Deine Beschreibung"
+      your_birthday: "Dein Geburtstag"
+      your_gender: "Dein Geschlecht"
+      your_location: "Dein Ort"
+      your_name: "Dein Name"
+      your_photo: "Dein Profilbild"
+      your_tags: "Beschreibe dich in 5 Worten"
+      your_tags_placeholder: "Zum Beispiel: #Diaspora #lustig #Kätzchen #Musik"
+    update:
+      failed: "Fehler beim Aktualisieren deines Profils"
+      updated: "Profil aktualisiert"
+  public: "Öffentlich"
+  registrations:
+    closed: "Neuregistrierungen sind auf diesem Bauernhof geschlossen."
+    create:
+      success: "Du bist Diaspora beigetreten!"
+    invalid_invite: "Der von dir erstellte Einladungs-Link ist nicht mehr gültig!"
+    new:
+      email: "EMAIL"
+      enter_email: "Gib eine E-Mail-Adresse an"
+      enter_password: "Gib ein Kennwort ein (mindestens sechs Zeichen)"
+      enter_password_again: "Gib das gleiche Kennwort wie zuvor ein"
+      enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
+      password: "PASSWORT"
+      password_confirmation: "PASSWORT BESTÄTIGEN"
+      sign_up: "REGISTRIEREN"
+      username: "BENUTZERNAME"
+  reshares:
+    comment_email_subject: "%{resharer}s Version von %{author}s Beitrag"
+    reshare:
+      deleted: "Originalbeitrag wurde vom Autor entfernt."
+      reshare_confirmation: "%{author}s Beitrag wiederkäuen?"
+      reshared_via: "wiedergekäut durch"
+  search: "Suche"
+  services:
+    create:
+      already_authorized: "Ein anderer Nutzer mit der Diaspora ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
+      failure: "Authentifizierung fehlgeschlagen."
+      success: "Authentifizierung erfolgreich."
+    destroy:
+      success: "Authentifizierung erfolgreich gelöscht."
+    failure:
+      error: "Es gab einen Fehler der Verbindung mit dem Dienst."
+    index:
+      disconnect: "Verbindung entfernen"
+      edit_services: "Dienste bearbeiten"
+      logged_in_as: "angemeldet als"
+      really_disconnect: "Verbindung mit %{service} entfernen?"
+  settings: "Einstellungen"
+  shared:
+    aspect_dropdown:
+      toggle:
+        few: "In %{count} Herden"
+        many: "In %{count} Herden"
+        one: "In einer Herde"
+        other: "In %{count} Herden"
+        two: "In %{count} Herden"
+        zero: "Zu Herde hinzufügen"
+    invitations:
+      by_email: "Per E-Mail"
+      invite_your_friends: "Lade deine Freunde ein"
+      invites: "Einladungen"
+      share_this: "Teile diesen Link per Email, Blog oder deinem beliebtesten sozialen Netzwerk!"
+    public_explain:
+      atom_feed: "Atom-Feed"
+      control_your_audience: "Kontrolliere deine Zielgruppe"
+      logged_in: "Eingeloggt in %{service}"
+      manage: "Verbundene Dienste verwalten"
+      new_user_welcome_message: "Benutze #Hashtags, um deine Beiträge einzuordnen und Leute zu finden, die deine Interessen teilen. Benenne tolle Leute mit @Mentions"
+      outside: "Öffentliche Nachrichten werden für andere außerhalb von Diaspora sichtbar sein."
+      share: "Teilen"
+      title: "Verbundene Dienste verwalten"
+      visibility_dropdown: "Benutze dieses Auswahlmenü, um die Sichtbarkeit deines Beitrags zu ändern. (Wir empfehlen Dir, diesen ersten Beitrag öffentlich zu machen.)"
+    publisher:
+      discard_post: "Beitrag verwerfen"
+      get_location: "Deinen Standort ermitteln"
+      new_user_prefill:
+        hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
+        i_like: "Ich interessiere mich für %{tags}."
+        invited_by: "Danke für die Einladung,"
+        newhere: "NeuHier"
+      posting: "Senden …"
+      share: "Teilen"
+      upload_photos: "Fotos hochladen"
+      whats_on_your_mind: "Woran denkst du gerade?"
+    stream_element:
+      via: "via %{link}"
+      via_mobile: "über mobil"
+  status_messages:
+    create:
+      success: "Erfolgreich erwähnt: %{names}"
+    new:
+      mentioning: "Erwähnt: %{person}"
+    too_long: "{\"few\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\", \"many\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\", \"one\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\", \"other\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\", \"two\"=>\"Bitte kürze deinen Beitrag auf unter %{count} Zeichen.\", \"zero\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\"}"
+  streams:
+    activity:
+      title: "Meine Aktivitäten"
+    aspects:
+      title: "Meine Herden"
+    aspects_stream: "Herden"
+    comment_stream:
+      title: "Kommentierte Beiträge"
+    community_spotlight_stream: "Gemeinschafts-Fokus"
+    followed_tag:
+      add_a_tag: "Füge einen Tag hinzu"
+      follow: "Folgen"
+      title: "#Tags, denen du folgst"
+    followed_tags_stream: "#Tags, denen du folgst"
+    like_stream:
+      title: "\"Gefällt mir\"-Weide"
+    mentioned_stream: "@Erwähnungen"
+    mentions:
+      title: "@Erwähnungen"
+    multi:
+      title: "Weide"
+    public:
+      title: "Öffentliche Aktivität"
+    tags:
+      title: "Getaggte Beiträge: %{tags}"
+  tags:
+    show:
+      follow: "#%{tag} folgen"
+      none: "Der leere Tag existiert nicht!"
+      stop_following: "#%{tag} nicht mehr folgen"
+  username: "Benutzername"
+  users:
+    confirm_email:
+      email_confirmed: "E-Mail %{email} wurde aktiviert"
+      email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
+    destroy:
+      no_password: "Bitte gib dein Kennwort ein, um deinen Account zu schließen."
+      success: "Dein Account wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis dein Account endgültig geschlossen ist. Vielen Dank, dass du Diaspora ausprobiert hast."
+      wrong_password: "Das eingegebene Kennwort stimmt nicht mit deinem aktuellen Kennwort überein."
+    edit:
+      also_commented: "… jemand ebenfalls den Beitrag einer Mitkuh kommentiert?"
+      auto_follow_aspect: "Herde für automatisch gefolgten Kühe:"
+      auto_follow_back: "Folge Kühen automatisch, wenn sie dir folgen"
+      change: "Ändern"
+      change_email: "E-Mail-Adresse ändern"
+      change_language: "Sprache ändern"
+      change_password: "Kennwort ändern"
+      character_minimum_expl: "bitte mindestens sechs Zeichen eingeben"
+      close_account:
+        dont_go: "Hey, bitte geh nicht!"
+        lock_username: "Das wird deinen Benutzernamen sperren, falls du dich dazu entscheidest, dich neu anzumelden."
+        locked_out: "Du wirst abgemeldet und von deinem Account ausgesperrt."
+        make_diaspora_better: "Wir möchten, dass du uns dabei hilfst Diaspora besser zumachen, anstatt zu gehen. Wenn du wirklich gehen möchtest, wollen wir dich auf dem Laufenden halten."
+        mr_wiggles: "Mr. Wiggles wird traurig sein, wenn du gehst"
+        no_turning_back: "Momentan gibt es kein Zurück."
+        what_we_delete: "Wir löschen alle deine Beiträge und dein Profil so schnell wie möglich. Deine Kommentare bleiben hier, werden jedoch mit deinem Diaspora-Handle verbunden."
+      close_account_text: "Konto schließen"
+      comment_on_post: "… jemand deinen Beitrag kommentiert?"
+      current_password: "Derzeitiges Kennwort"
+      current_password_expl: "das mit dem Du dich anmeldest..."
+      edit_account: "Konto bearbeiten"
+      email_awaiting_confirmation: "Wir haben dir einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange du dem Link nicht gefolgt bist und die neue Adresse aktiviert hast, werden wir weiterhin deine ursprüngliche E-Mail-Adresse %{email} verwenden."
+      export_data: "Daten exportieren"
+      following: "Folgen-Einstellungen"
+      liked: "… wenn jemandem dein Beitrag gefällt?"
+      mentioned: "… du in einem Beitrag erwähnt wirst?"
+      new_password: "Neues Kennwort"
+      private_message: "… du eine private Nachricht erhältst?"
+      receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
+      reshared: "… jemand deinen Beitrag weitersagt?"
+      show_community_spotlight: "Gemeinschafts-Schaukasten in Weide anzeigen?"
+      show_getting_started: "Einstiegshinweise wieder aktivieren"
+      started_sharing: "… jemand mit dir zu teilen anfängt?"
+      stream_preferences: "Weiden-Einstellungen"
+      your_email: "Deine E-Mail-Adresse"
+      your_handle: "Deine Diaspora ID"
+    getting_started:
+      awesome_take_me_to_diaspora: "Super! Bring mich zu Diaspora*"
+      community_welcome: "Diasporas Gemeinschaft ist froh, dich an Bord zu haben!"
+      connect_to_facebook: "Wir können das Ganze etwas beschleunigen, indem du %{link}. So werden dein Name und dein Profilbild hier eingefügt und die Crossposting-Funktion aktiviert."
+      connect_to_facebook_link: "dein Facebook-Konto mit Diaspora verlinkst"
+      hashtag_explanation: "Hashtags ermöglichen dir, über deine Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei Diaspora zu treffen!"
+      hashtag_suggestions: "Probier mal Tags wie #kunst, #musik oder #gif zu folgen."
+      well_hello_there: "Also, Hallöchen!"
+      what_are_you_in_to: "Was machst du so?"
+      who_are_you: "Wer bist Du?"
+    privacy_settings:
+      ignored_users: "Kühe, die ignoriert werden"
+      stop_ignoring: "Aufhören, zu ignorieren"
+      title: "Privatsphären-Einstellungen"
+    public:
+      does_not_exist: "Kuh %{username} existiert nicht!"
+    update:
+      email_notifications_changed: "E-Mail-Benachrichtigungen geändert"
+      follow_settings_changed: "Folgen-Einstellungen geändert"
+      follow_settings_not_changed: "Ändern der Folgen-Einstellungen fehlgeschlagen."
+      language_changed: "Sprache geändert"
+      language_not_changed: "Fehler beim Ändern der Sprache."
+      password_changed: "Kennwort geändert. Du kannst dich nun mit deinem neuen Kennwort anmelden."
+      password_not_changed: "Fehler beim Ändern des Kennworts."
+      settings_not_updated: "Aktualisierung der Einstellungen fehlgeschlagen"
+      settings_updated: "Einstellungen aktualisiert"
+      unconfirmed_email_changed: "E-Mail-Adresse geändert. Benötigt Aktivierung."
+      unconfirmed_email_not_changed: "Fehler bei Änderung der E-Mail-Adresse"
+  will_paginate:
+    next_label: "nächstes &raquo;"
+    previous_label: "&laquo; voriges"
