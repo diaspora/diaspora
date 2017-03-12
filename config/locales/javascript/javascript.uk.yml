@@ -318,18 +318,14 @@ uk:
       wasnt_that_interesting: "Гаразд, мабуть, стежити за міткою #<%= tagName %> було не так вже цікаво..."
     timeago:
       day: "день"
-      days:
-        other: "%d днів[-i]"
+      days: "%d днів[-i]"
       hour: "близько години"
-      hours:
-        other: "близько %d годин"
+      hours: "близько %d годин"
       inPast: "в будь-який момент"
       minute: "близько хвилини"
-      minutes:
-        other: "%d хвилин[-и]"
+      minutes: "%d хвилин[-и]"
       month: "близько місяця"
-      months:
-        other: "%d місяця[-ів]"
+      months: "%d місяця[-ів]"
       prefixAgo: ""
       prefixFromNow: "через"
       seconds: "декілька секунд"
@@ -337,8 +333,7 @@ uk:
       suffixFromNow: "з цієї миті"
       wordSeparator: " "
       year: "близько року"
-      years:
-        other: "%d років"
+      years: "%d років"
     unblock_failed: "Не вдалось розблокувати цього користувача"
     viewer:
       reshared: "Поділилися"

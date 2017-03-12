@@ -215,6 +215,7 @@ ja:
       updating: "更新中"
     index:
       donate: "寄付"
+      donate_liberapay: "liberapayに寄付"
       help:
         any_problem: "問題がありますか？"
         contact_podmin: "あなたのポッドの管理者に連絡してください！"
