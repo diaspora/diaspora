@@ -44,7 +44,7 @@ SecureHeaders::Configuration.default do |config|
 
   if AppConfig.settings.csp.report_only?
     config.csp = SecureHeaders::OPT_OUT
-    config.csp_report_only = csp
+    config.csp_report_only = csp if AppConfig.settings.csp.report_uri.present?
   else
     config.csp = csp
   end
