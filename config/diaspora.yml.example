@@ -565,6 +565,7 @@ configuration: ## Section
     ## does not work with Google analytics or Piwik, because they inject JS code that
     ## is blocked by CSP.
     csp:
+
       ## Report-Only header (default=true)
       ## By default diaspora* adds only a "Content-Security-Policy-Report-Only" header. If you set
       ## this to false, the "Content-Security-Policy" header is added instead.
