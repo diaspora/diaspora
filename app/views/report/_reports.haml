@@ -2,6 +2,9 @@
   #reports
     %h1
       = t("report.title")
+    - if @reports.size == 0
+      %p
+        = t("report.unreviewed_reports", count: 0)
     - @reports.each do |report|
       - if report.item
         .panel.panel-default
