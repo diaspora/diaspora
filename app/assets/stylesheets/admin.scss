@@ -16,9 +16,8 @@
     .avatar {
       width: 50px;
       height: 50px;
+      max-width: none;
     }
-
-    .actions{ width: 150px; }
 
     .pull-right .label{ display: inline-block; }
   }
@@ -32,9 +31,25 @@
   }
 }
 
+// Pod stats
+.segment-selection {
+  select,
+  [type=submit] {
+    margin-top: 10px;
+  }
+}
+
 /** reported posts **/
 
-@import 'report';
+.reports {
+  .reason-label {
+    font-weight: bold;
+  }
+
+  .content {
+    padding-bottom: 20px;
+  }
+}
 
 /** pod list **/
 
