@@ -1,6 +1,4 @@
-- content_for :head do
-  = stylesheet_link_tag :admin
-
+%h2= t(".pages")
 %ul.nav.nav-pills.nav-stacked#admin-nav
   %li{role: "presentation", class: current_page?(admin_dashboard_path) && "active"}
     = link_to t(".dashboard"), admin_dashboard_path

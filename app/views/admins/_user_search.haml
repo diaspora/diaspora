@@ -1,3 +1,6 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
 .col-md-9
   .row
     .user_search.col-md-12
@@ -19,13 +22,12 @@
             = f.text_field :guid, class: "form-control"
 
         .form-group
-          .col-sm-offset-2.col-sm-10
+          .col-md-offset-2.col-md-8.col-sm-12
             = f.label :under13 do
               = f.check_box :under13
               = t(".under_13")
-        .form-group
-          .clearfix.col-sm-12
-            = submit_tag t("admins.stats.go"), class: "btn btn-primary pull-right block-admin"
+          .col-md-2.col-sm-12
+            = submit_tag t("admins.stats.go"), class: "btn btn-block btn-primary"
 
   .row
     .col-md-12
@@ -48,10 +50,9 @@
 
       = form_tag "admin_inviter", method: :get, class: "form-horizontal" do
         .form-group
-          %label.col-sm-4.control-label
+          %label.col-xs-12.col-md-2.control-label
             = t(".email_to")
-          .col-sm-8
+          .col-xs-12.col-md-8
             = text_field_tag "identifier", nil, class: "form-control"
-        .form-group
-          .clearfix.col-md-12
-            = submit_tag t(".invite"), class: "btn btn-default pull-right block-admin"
+          .col-xs-12.col-md-2
+            = submit_tag t(".invite"), class: "btn btn-block btn-primary"

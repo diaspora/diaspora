@@ -1,21 +1,27 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
 .col-md-9
   %h1= t(".usage_statistic")
 
-  .pull-right.block-admin
-    = form_tag("/admins/stats", method: "get", class: "form-inline") do
-      %select.form-control{name: "range"}
-        %option{value: "daily", selected: ("selected" if params[:range] == "daily")}
-          = t(".daily")
-        %option{value: "week", selected: ("selected" if params[:range] == "week")}
-          = t(".week")
-        %option{value: "2weeks", selected: ("selected" if params[:range] == "2weeks")}
-          = t(".2weeks")
-        %option{value: "month", selected: ("selected" if params[:range] == "month")}
-          = t(".month")
+  .row
+    = form_tag("/admins/stats", method: "get", class: "form-inline segment-selection") do
+      .col-sm-2.col-sm-push-8
+        %select.form-control{name: "range"}
+          %option{value: "daily", selected: ("selected" if params[:range] == "daily")}
+            = t(".daily")
+          %option{value: "week", selected: ("selected" if params[:range] == "week")}
+            = t(".week")
+          %option{value: "2weeks", selected: ("selected" if params[:range] == "2weeks")}
+            = t(".2weeks")
+          %option{value: "month", selected: ("selected" if params[:range] == "month")}
+            = t(".month")
+      .col-sm-2.col-sm-push-8
+        = submit_tag t(".go"), class: "btn btn-primary btn-block"
 
-      = submit_tag t(".go"), class: "btn btn-primary block-admin"
-  %h3
-    != t("admins.stats.display_results", segment: content_tag(:strong, @segment))
+    .col-sm-8.col-sm-pull-4
+      %h4
+        != t("admins.stats.display_results", segment: content_tag(:strong, @segment))
 
   .row
     - %i(posts comments aspect_memberships users).each do |name|
