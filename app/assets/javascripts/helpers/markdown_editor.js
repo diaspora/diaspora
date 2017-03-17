@@ -65,7 +65,7 @@ Diaspora.MarkdownEditor.prototype = {
     var tabElement = $("<ul class='nav nav-tabs btn-group write-preview-tabs'></ul>");
 
     var writeTab = $("<li class='active full-height' role='presentation'></li>");
-    this.writeLink = $("<a class='full-height md-write-tab' href='#'></a>")
+    this.writeLink = $("<a class='full-height md-write-tab' href='#' data-target=' '></a>")
       .attr("title", Diaspora.I18n.t("publisher.markdown_editor.tooltips.write"));
 
     this.writeLink.append($("<i class='visible-sm visible-xs visible-md diaspora-custom-compose'></i>"));
@@ -80,7 +80,7 @@ Diaspora.MarkdownEditor.prototype = {
     writeTab.append(this.writeLink);
 
     var previewTab = $("<li class='full-height' role='presentation'></li>");
-    this.previewLink = $("<a class='full-height md-preview-tab' href='#'></a>")
+    this.previewLink = $("<a class='full-height md-preview-tab' href='#' data-target=' '></a>")
       .attr("title", Diaspora.I18n.t("publisher.markdown_editor.tooltips.preview"));
 
     this.previewLink.append($("<i class='visible-sm visible-xs visible-md entypo-search'>"));
