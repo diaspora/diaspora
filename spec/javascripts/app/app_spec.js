@@ -62,6 +62,10 @@ describe("app", function() {
   });
 
   describe("setupAjaxErrorRedirect", function() {
+    beforeEach(function() {
+      app.setupAjaxErrorRedirect();
+    });
+
     it("redirects to /users/sign_in on 401 ajax responses", function() {
       spyOn(app, "_changeLocation");
       $.ajax("/test");
@@ -115,7 +119,6 @@ describe("app", function() {
       beforeEach(function() {
         app.stream = {basePath: function() { return "/stream"; }};
         app.notificationsCollection = {fetch: $.noop};
-        spyOn(Backbone.history, "start");
         this.link = $("<a href='/backbone-link' rel='backbone'>");
         spec.content().append(this.link);
         app.setupBackboneLinks();
@@ -123,6 +126,7 @@ describe("app", function() {
 
       afterEach(function() {
         app.stream = undefined;
+        Backbone.history.stop();
       });
 
       it("calls Backbone.history.navigate", function() {
