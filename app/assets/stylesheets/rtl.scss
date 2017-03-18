@@ -3,11 +3,6 @@ body {
   text-align: right;
 }
 
-.stream-element .content {
-  padding-right: 60px;
-  padding-left: 0;
-}
-
 ul.as-selections li {
   float: right;
 }
@@ -39,21 +34,6 @@ label {
 ul, ol {
   margin: 0 0 1.5em 1.5em;
   padding-right: 3.333em;
-}
-
-.stream .stream-element time {
-  right: auto;
-  left: 20px;
-}
-
-.stream-element.conversation .message-count {
-  right: auto;
-  left: 10px;
-}
-
-.stream-element.conversation .timestamp {
-  right: auto;
-  left: 10px;
 }
 
 div.content span.rtl {
