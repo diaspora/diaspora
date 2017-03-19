@@ -7,6 +7,7 @@
 
 ## Bug fixes
 * Don't hide posts when blocking someone from the profile [#7379](https://github.com/diaspora/diaspora/pull/7379)
+* Disable autocomplete for the conversation form recipient input [#7375](https://github.com/diaspora/diaspora/pull/7375)
 
 ## Features
 * Add links to liked and commented pages [#5502](https://github.com/diaspora/diaspora/pull/5502)
