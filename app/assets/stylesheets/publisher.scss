@@ -74,6 +74,10 @@
       background-color: white;
       border-radius: 3px;
       border: 1px solid $border-dark-grey;
+      
+      &.active > .mentions-input-box {
+        overflow-y: hidden;
+      }
 
       input[type='text']#status_message_text {
         border: none;
