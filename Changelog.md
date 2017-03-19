@@ -5,6 +5,7 @@
 * Remove jQuery deprecations [#7356](https://github.com/diaspora/diaspora/pull/7356)
 * Use empty selector where "#" was used as a selector before (prepare jQuery 3 upgrade) [#7372](https://github.com/diaspora/diaspora/pull/7372)
 * Increase maximal height of large thumbnail on mobile [#7383](https://github.com/diaspora/diaspora/pull/7383)
+* Reduce conversation recipient size [#7376](https://github.com/diaspora/diaspora/pull/7376)
 
 ## Bug fixes
 * Don't hide posts when blocking someone from the profile [#7379](https://github.com/diaspora/diaspora/pull/7379)
