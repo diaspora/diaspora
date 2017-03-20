@@ -1158,6 +1158,12 @@ en:
 
     activity:
       title: "My activity"
+
+    liked:
+      title: "Liked posts"
+
+    commented:
+      title: "Commented posts"
   users:
     edit:
       edit_account: "Edit account"
