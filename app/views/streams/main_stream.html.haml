@@ -27,13 +27,19 @@
         %ul#stream_selection
           %li{data: {stream: "stream"}}
             = link_to t("streams.multi.title"), stream_path, rel: "backbone", class: "hoverable"
-          %li{data: {stream: "activity"}}
+          %li.nested-list.my-activity{data: {stream: "activity"}}
             = link_to t("streams.activity.title"), activity_stream_path, rel: "backbone", class: "hoverable"
+            %ul
+              %li{data: {stream: "liked"}}
+                = link_to t("streams.liked.title"), liked_stream_path, rel: "backbone", class: "hoverable selectable"
+              %li{data: {stream: "commented"}}
+                = link_to t("streams.commented.title"), commented_stream_path,
+                  rel: "backbone", class: "hoverable selectable"
           %li{data: {stream: "mentions"}}
             = link_to t("streams.mentions.title"), mentioned_stream_path, rel: "backbone", class: "hoverable"
-          %li.all-aspects
+          %li.nested-list.all-aspects
             = render "aspects/aspect_listings", stream: @stream
-          %li.followed-tags-sidebar
+          %li.nested-list
             = render "tags/followed_tags_listings"
           %li{data: {stream: "public"}}
             = link_to t("streams.public.title"), public_stream_path, rel: "backbone", class: "hoverable"
