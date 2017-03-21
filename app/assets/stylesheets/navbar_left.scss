@@ -30,16 +30,14 @@
     }
   }
 
-  .all-aspects .hoverable.selected,
-  .followed-tags-sidebar .hoverable.selected,
+  .nested-list .hoverable.selected,
   .selected > .hoverable {
     color: $white;
     background: $gray;
     border-color: $gray;
   }
 
-  .all-aspects ul,
-  .followed-tags-sidebar ul {
+  .nested-list ul {
     background: $left-navbar-drawer-background;
     li { padding: 0; }
     .entypo-check { visibility: hidden; }
@@ -57,6 +55,16 @@
       visibility: hidden;
     }
     .hoverable:hover > .action { visibility: visible; }
+  }
+
+  .my-activity {
+    ul {
+      display: none;
+    }
+
+    &.activity-stream-selected ul {
+      display: block;
+    }
   }
 
   #tags_list {
