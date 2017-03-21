@@ -7,7 +7,6 @@ body {
   }
 
   .publisher {
-    .mentions-input-box { background-color: $gray; }
     form {
       #publisher_textarea_wrapper { background-color: $gray; }
       .btn.btn-link.question_mark:hover .entypo-cog { color: $gray-light; }

@@ -196,6 +196,8 @@
 }
 
 .publisher-textarea-wrapper {
+  position: relative;
+
   &:not(.with-location) .location-container,
   &.markdown-preview .location-container,
   &:not(.with-poll) .poll-creator-container,
