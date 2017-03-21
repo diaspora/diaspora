@@ -52,6 +52,7 @@ Feature: Invitations
   Scenario: sends an invitation from the stream
     When I sign in as "alice@alice.alice"
     And I press the first "a.invitations-link" within "#no_contacts"
+    Then I should see "Invite someone to join diaspora*!" within "#invitationsModalLabel"
     And I fill in the following:
       | email_inviter_emails         | alex@example.com    |
     And I press "Send an invitation"
