@@ -92,12 +92,6 @@ describe PersonPresenter do
     end
 
     context "relationship" do
-      it "is blocked?" do
-        allow(current_user).to receive(:block_for) { double(id: 1) }
-        allow(current_user).to receive(:contact_for) { non_contact }
-        expect(@p.full_hash[:relationship]).to be(:blocked)
-      end
-
       it "is mutual?" do
         allow(current_user).to receive(:contact_for) { mutual_contact }
         expect(@p.full_hash[:relationship]).to be(:mutual)
@@ -116,6 +110,19 @@ describe PersonPresenter do
       it "isn't sharing?" do
         allow(current_user).to receive(:contact_for) { non_contact }
         expect(@p.full_hash[:relationship]).to be(:not_sharing)
+      end
+    end
+
+    describe "block" do
+      it "contains the block id if it exists" do
+        allow(current_user).to receive(:contact_for) { non_contact }
+        allow(current_user).to receive(:block_for) { double(id: 1) }
+        expect(@p.full_hash[:block][:id]).to be(1)
+      end
+
+      it "is false if no block is present" do
+        allow(current_user).to receive(:contact_for) { non_contact }
+        expect(@p.full_hash[:block]).to be(false)
       end
     end
   end
