@@ -18,16 +18,15 @@ class ProcessedImage < CarrierWave::Uploader::Base
   end
 
   version :thumb_small do
-    process :resize_to_fill => [50,50]
+    process resize_to_fill: [50, 50]
   end
   version :thumb_medium do
-    process :resize_to_limit => [100,100]
+    process resize_to_limit: [100, 100]
   end
   version :thumb_large do
-    process :resize_to_limit => [300,300]
+    process resize_to_limit: [300, 1500]
   end
   version :scaled_full do
-    process :resize_to_limit => [700,nil]
+    process resize_to_limit: [700, nil]
   end
-
 end
