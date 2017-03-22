@@ -4,7 +4,8 @@
     margin: 0px;
   }
   &.deleting {
-    > .media { opacity: 0.3; }
+    opacity: .3;
+
     .control-icons { display: none !important; }
   }
 }
