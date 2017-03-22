@@ -4,6 +4,7 @@
 * Remove unused setPreload function [#7354](https://github.com/diaspora/diaspora/pull/7354)
 * Remove jQuery deprecations [#7356](https://github.com/diaspora/diaspora/pull/7356)
 * Use empty selector where "#" was used as a selector before (prepare jQuery 3 upgrade) [#7372](https://github.com/diaspora/diaspora/pull/7372)
+* Increase maximal height of large thumbnail on mobile [#7383](https://github.com/diaspora/diaspora/pull/7383)
 
 ## Bug fixes
 * Don't hide posts when blocking someone from the profile [#7379](https://github.com/diaspora/diaspora/pull/7379)
