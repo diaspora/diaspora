@@ -34,6 +34,7 @@ describe("app.views.ConversationsInbox", function() {
       spyOn($, "ajax").and.callThrough();
       spyOn(app.views.ConversationsInbox.prototype, "selectConversation");
       spyOn(app.views.ConversationsInbox.prototype, "setupConversation");
+      spyOn(app.views.ConversationsForm.prototype, "renderMarkdownEditor");
       this.target.renderConversation(this.conversationId);
       jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200,
@@ -44,6 +45,7 @@ describe("app.views.ConversationsInbox", function() {
       expect(jasmine.Ajax.requests.mostRecent().url).toBe("/conversations/" + this.conversationId + "/raw");
       expect(app.views.ConversationsInbox.prototype.selectConversation).toHaveBeenCalledWith(this.conversationId);
       expect(app.views.ConversationsInbox.prototype.setupConversation).toHaveBeenCalled();
+      expect(app.views.ConversationsForm.prototype.renderMarkdownEditor).toHaveBeenCalled();
       expect($("#conversation-new")).toHaveClass("hidden");
       expect($("#conversation-show")).not.toHaveClass("hidden");
       expect($("#conversation-show #fake-conversation-content").length).toBe(1);

@@ -12,12 +12,15 @@ body {
       #publisher_textarea_wrapper { background-color: $gray; }
       .btn.btn-link.question_mark:hover .entypo-cog { color: $gray-light; }
     }
-
-    .write-preview-tabs > li.active * { color: $text-color; }
-    .md-preview { background-color: $gray; }
-    .md-cancel:hover .entypo-cross { color: $gray-light; }
     .publisher-buttonbar .btn.btn-link:hover i { color: $gray-light; }
   }
+
+
+  .write-preview-tabs > li.active * { color: $text-color; }
+  .md-cancel:hover .entypo-cross { color: $gray-light; }
+
+  .comment_box,
+  .md-preview { background-color: $gray; }
 
   .aspect_dropdown li a .text { color: $dropdown-link-color; }
 
