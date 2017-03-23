@@ -50,6 +50,13 @@ describe("app.views.CommentStream", function(){
       expect(this.view.commentSubmitButton).toBeDefined();
       expect(this.view.commentSubmitButton).toEqual(this.view.$("input[name='commit']"));
     });
+
+    it("initializes CommentMention view", function() {
+      spyOn(app.views.CommentMention.prototype, "initialize");
+      this.view.postRenderTemplate();
+      var call = app.views.CommentMention.prototype.initialize.calls.mostRecent();
+      expect(call.args[0]).toEqual({el: this.view.$el, postId: this.view.model.id});
+    });
   });
 
   describe("createComment", function() {

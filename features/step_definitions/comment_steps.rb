@@ -38,3 +38,7 @@ Given /^"([^"]*)" has commented a lot on "([^"]*)"$/ do |email, post_text|
     end
   end
 end
+
+When /^I enter "([^"]*)" in the comment field$/ do |comment_text|
+  find("textarea.comment_box.mention-textarea").native.send_keys(comment_text)
+end
