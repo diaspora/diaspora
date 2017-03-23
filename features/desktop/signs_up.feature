@@ -13,8 +13,9 @@ Feature: new user registration
       | profile_first_name | O             |
     And I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
+    And the publisher should be expanded
     And I close the publisher
-    And I should not see "awesome_button"
+    Then I should not see "awesome_button"
     And I should not see any posts in my stream
 
   Scenario: new user tries to XSS itself
@@ -35,17 +36,21 @@ Feature: new user registration
   Scenario: new user skips the setup wizard
     When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
-    And I close the publisher
+    And the publisher should be expanded
 
   Scenario: first status message is public
     When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
+    And the publisher should be expanded
     And I should see "Public" within ".aspect_dropdown"
 
   Scenario: new user without any tags posts first status message
     When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
-    When I submit the publisher
+    And the publisher should be expanded
+    When I wait for the popovers to appear
+    And I click close on all the popovers
+    And I submit the publisher
     Then "Hey everyone, I’m #newhere." should be post 1
 
   Scenario: new user with some tags posts first status message
@@ -55,7 +60,10 @@ Feature: new user registration
     And I press the first ".as-result-item" within "#as-results-tags"
     And I follow "awesome_button"
     Then I should be on the stream page
-    When I submit the publisher
+    And the publisher should be expanded
+    When I wait for the popovers to appear
+    And I click close on all the popovers
+    And I submit the publisher
     Then "Hey everyone, I’m #newhere. I’m interested in #rockstar." should be post 1
 
   Scenario: closing a popover clears getting started
