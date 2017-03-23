@@ -48,7 +48,9 @@ Feature: new user registration
     When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
     And the publisher should be expanded
-    When I submit the publisher
+    When I wait for the popovers to appear
+    And I click close on all the popovers
+    And I submit the publisher
     Then "Hey everyone, I’m #newhere." should be post 1
 
   Scenario: new user with some tags posts first status message
@@ -59,6 +61,8 @@ Feature: new user registration
     And I follow "awesome_button"
     Then I should be on the stream page
     And the publisher should be expanded
+    When I wait for the popovers to appear
+    And I click close on all the popovers
     And I submit the publisher
     Then "Hey everyone, I’m #newhere. I’m interested in #rockstar." should be post 1
 
