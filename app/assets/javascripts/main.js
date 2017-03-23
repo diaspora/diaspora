@@ -10,7 +10,6 @@
 //= require charcount
 //= require jquery-placeholder
 //= require rails-timeago
-//= require jquery.events.input
 //= require jquery.infinitescroll-custom
 //= require jquery-ui/core
 //= require jquery-ui/widget
