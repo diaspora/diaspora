@@ -46,7 +46,7 @@
 
   .comment.new-comment-form-wrapper { padding-bottom: 0; }
 
-  .submit_button {
+  .submit-button {
     margin-top: 10px;
     input {
       float: right;
@@ -60,7 +60,7 @@
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
-    & + .submit_button { display: block; }
+    ~ .submit-button { display: block; }
     min-height: 35px;
     box-shadow: none;
   }

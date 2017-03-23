@@ -19,12 +19,6 @@
 
   .container-fluid{ padding: 0; }
 
-  .twitter-typeahead {
-    width: calc(100% + 2px);
-
-    .tt-menu { width: 100%; }
-  }
-
   form {
     margin: 0;
     #fileInfo { display: none !important; }
@@ -245,7 +239,6 @@
   }
 
   .twitter-typeahead {
-    left: -1px;
     // Override inline rule of Typeahead
     // scss-lint:disable ImportantRule
     position: absolute !important;

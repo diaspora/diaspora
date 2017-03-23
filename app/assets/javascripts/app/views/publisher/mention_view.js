@@ -6,15 +6,16 @@ app.views.PublisherMention = app.views.SearchBase.extend({
   mentionSyntaxTemplate: function(person) { return "@{" + person.handle + "}"; },
 
   events: {
-    "keydown #status_message_text": "onInputBoxKeyDown",
-    "input #status_message_text": "updateTypeaheadInput",
-    "click #status_message_text": "onInputBoxClick",
-    "blur #status_message_text": "onInputBoxBlur"
+    "keydown .mention-textarea": "onInputBoxKeyDown",
+    "input .mention-textarea": "updateTypeaheadInput",
+    "click .mention-textarea": "onInputBoxClick",
+    "blur .mention-textarea": "onInputBoxBlur"
   },
 
-  initialize: function() {
+  initialize: function(opts) {
     this.mentionedPeople = [];
-    this.inputBox = this.$("#status_message_text");
+    var url = (opts && opts.url) || "/contacts";
+    this.inputBox = this.$(".mention-textarea");
     this.typeaheadInput = this.$(".typeahead-mention-box");
     this.bindTypeaheadEvents();
 
@@ -22,7 +23,7 @@ app.views.PublisherMention = app.views.SearchBase.extend({
       typeaheadInput: this.typeaheadInput,
       customSearch: true,
       autoselect: true,
-      remoteRoute: {url: "/contacts"}
+      remoteRoute: {url: url}
     });
   },
 
