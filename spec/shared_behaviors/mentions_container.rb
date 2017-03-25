@@ -18,6 +18,13 @@ shared_examples_for "it is mentions container" do
       obj.save
       expect(obj.text).to eq(expected_text)
     end
+
+    it "doesn't backport mention syntax if author is not local" do
+      text = "mention @{#{people[0].diaspora_handle}} text"
+      obj = FactoryGirl.build(described_class.to_s.underscore.to_sym, text: text, author: remote_raphael)
+      obj.save
+      expect(obj.text).to eq(text)
+    end
   end
 
   describe ".after_create" do
