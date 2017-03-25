@@ -2,8 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'sidekiq/web'
+require "sidekiq/web"
 require "sidekiq/cron/web"
+Sidekiq::Web.set :sessions, false # disable rack session cookie
 
 Diaspora::Application.routes.draw do
 
