@@ -76,11 +76,12 @@
       }
 
       textarea {
+        background: transparent;
         border: 0 solid $light-grey;
-        margin: 0;
         box-shadow: none;
-        resize: none;
         height: 50px;
+        margin: 0;
+        resize: none;
       }
 
       &.active textarea {
@@ -195,6 +196,8 @@
 }
 
 .publisher-textarea-wrapper {
+  position: relative;
+
   &:not(.with-location) .location-container,
   &.markdown-preview .location-container,
   &:not(.with-poll) .poll-creator-container,
