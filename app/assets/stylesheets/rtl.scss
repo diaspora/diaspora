@@ -3,21 +3,6 @@ body {
   text-align: right;
 }
 
-.right {
-  left: 0;
-  right: auto;
-}
-
-.stream-element .content {
-  padding-right: 60px;
-  padding-left: 0;
-}
-
-.stream-element .right {
-  left: 12px;
-  right: auto;
-}
-
 ul.as-selections li {
   float: right;
 }
@@ -31,63 +16,9 @@ ul.as-selections li.as-selection-item {
   padding: 3px 6px 3px 0;
 }
 
-#profile_photo_upload img {
-  left: auto;
-  right: 0;
-}
-
-#profile_photo_upload {
-  padding-left: 0;
-  padding-right: 120px;
-}
-
-form p.checkbox_select label {
-  right: 20px;
-  left: auto;
-}
-
-#update_profile_form h4 textarea[placeholder] {
-  right: -9999px;
-  left: auto;
-}
-
-label {
-  right: 0.48em;
-  left: auto;
-}
-
 ul, ol {
   margin: 0 0 1.5em 1.5em;
   padding-right: 3.333em;
-}
-
-.last {
-  margin-left: 0;
-}
-
-ul.comments li .content, ul.show_comments li .content, div.likes li .content, div.dislikes li .content {
-  padding-left: 10px;
-  padding-right: 36px;
-}
-
-ul.comments li form p, ul.show_comments li form p, div.likes li form p, div.dislikes li form p {
-  left: auto;
-  right: 35px;
-}
-
-.stream .stream-element time {
-  right: auto;
-  left: 20px;
-}
-
-.stream-element.conversation .message-count {
-  right: auto;
-  left: 10px;
-}
-
-.stream-element.conversation .timestamp {
-  right: auto;
-  left: 10px;
 }
 
 div.content span.rtl {

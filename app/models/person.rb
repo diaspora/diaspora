@@ -337,12 +337,12 @@ class Person < ActiveRecord::Base
   def as_json( opts = {} )
     opts ||= {}
     json = {
-      :id => self.id,
-      :guid => self.guid,
-      :name => self.name,
-      :avatar => self.profile.image_url(:thumb_medium),
-      :handle => self.diaspora_handle,
-      :url => Rails.application.routes.url_helpers.person_path(self),
+      id:     id,
+      guid:   guid,
+      name:   name,
+      avatar: profile.image_url(:thumb_small),
+      handle: diaspora_handle,
+      url:    Rails.application.routes.url_helpers.person_path(self)
     }
     json.merge!(:tags => self.profile.tags.map{|t| "##{t.name}"}) if opts[:includes] == "tags"
     json

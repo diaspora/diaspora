@@ -76,6 +76,10 @@ app.views.PostControls = app.views.Base.extend({
     $.post(Routes.postParticipation(this.model.get("id")), {_method: "delete"}, function() {
       this.model.set({participation: false});
     }.bind(this));
+  },
+
+  destroyModel: function() {
+    this.post.destroyModel();
   }
 });
 // @license-end

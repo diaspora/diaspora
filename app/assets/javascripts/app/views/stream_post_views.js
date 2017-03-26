@@ -33,7 +33,6 @@ app.views.StreamPost = app.views.Post.extend({
       var personId = this.model.get("author").id;
       app.events.on("person:block:" + personId, this.remove, this);
     }
-    this.model.on("remove", this.remove, this);
     //subviews
     this.commentStreamView = new app.views.CommentStream({model : this.model});
     this.oEmbedView = new app.views.OEmbed({model : this.model});

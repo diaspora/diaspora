@@ -132,19 +132,20 @@ app.views.Base = Backbone.View.extend({
 
   destroyModel: function(evt) {
     evt && evt.preventDefault();
-    var self = this;
     var url = this.model.urlRoot + "/" + this.model.id;
 
     if( confirm(_.result(this, "destroyConfirmMsg")) ) {
       this.$el.addClass("deleting");
-      this.model.destroy({ url: url })
-        .done(function() {
-          self.remove();
-        })
-        .fail(function() {
-          self.$el.removeClass("deleting");
+      this.model.destroy({
+        url: url,
+        success: function() {
+          this.remove();
+        }.bind(this),
+        error: function() {
+          this.$el.removeClass("deleting");
           app.flashMessages.error(Diaspora.I18n.t("failed_to_remove"));
-        });
+        }.bind(this)
+      });
     }
   },
 

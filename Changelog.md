@@ -23,11 +23,15 @@
 * Remove unused setPreload function [#7354](https://github.com/diaspora/diaspora/pull/7354)
 * Remove jQuery deprecations [#7356](https://github.com/diaspora/diaspora/pull/7356)
 * Use empty selector where "#" was used as a selector before (prepare jQuery 3 upgrade) [#7372](https://github.com/diaspora/diaspora/pull/7372)
+* Increase maximal height of large thumbnail on mobile [#7383](https://github.com/diaspora/diaspora/pull/7383)
+* Reduce conversation recipient size [#7376](https://github.com/diaspora/diaspora/pull/7376)
+* Cleanup rtl css [#7374](https://github.com/diaspora/diaspora/pull/7374)
 
 ## Bug fixes
 * Don't hide posts when blocking someone from the profile [#7379](https://github.com/diaspora/diaspora/pull/7379)
 * Disable autocomplete for the conversation form recipient input [#7375](https://github.com/diaspora/diaspora/pull/7375)
 * Fix sharing indicator on profile page for blocked users [#7382](https://github.com/diaspora/diaspora/pull/7382)
+* Remove post only after a successful deletion on the server [#7385](https://github.com/diaspora/diaspora/pull/7385)
 
 ## Features
 * Add links to liked and commented pages [#5502](https://github.com/diaspora/diaspora/pull/5502)
