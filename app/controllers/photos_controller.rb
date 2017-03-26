@@ -49,27 +49,30 @@ class PhotosController < ApplicationController
 
   def make_profile_photo
     author_id = current_user.person_id
-    @photo = Photo.where(:id => params[:photo_id], :author_id => author_id).first
+    @photo = Photo.where(id: params[:photo_id], author_id: author_id).first
 
     if @photo
-      profile_hash = {:image_url        => @photo.url(:thumb_large),
-                      :image_url_medium => @photo.url(:thumb_medium),
-                      :image_url_small  => @photo.url(:thumb_small)}
+      profile_hash = {image_url:        @photo.url(:thumb_large),
+                      image_url_medium: @photo.url(:thumb_medium),
+                      image_url_small:  @photo.url(:thumb_small)}
 
       if current_user.update_profile(profile_hash)
         respond_to do |format|
-          format.js{ render :json => { :photo_id  => @photo.id,
-                                       :image_url => @photo.url(:thumb_large),
-                                       :image_url_medium => @photo.url(:thumb_medium),
-                                       :image_url_small  => @photo.url(:thumb_small),
-                                       :author_id => author_id},
-                            :status => 201}
+          format.js {
+            render json: {
+              photo_id:         @photo.id,
+              image_url:        @photo.url(:thumb_large),
+              image_url_medium: @photo.url(:thumb_medium),
+              image_url_small:  @photo.url(:thumb_small),
+              author_id:        author_id
+            }, status: 201
+          }
         end
       else
-        render :nothing => true, :status => 422
+        render nothing: true, status: 422
       end
     else
-      render :nothing => true, :status => 422
+      render nothing: true, status: 422
     end
   end
 

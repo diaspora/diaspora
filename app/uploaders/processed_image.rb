@@ -17,17 +17,27 @@ class ProcessedImage < CarrierWave::Uploader::Base
     model.random_string + File.extname(@filename) if @filename
   end
 
-  version :thumb_small do
-    process :resize_to_fill => [50,50]
-  end
-  version :thumb_medium do
-    process :resize_to_limit => [100,100]
-  end
-  version :thumb_large do
-    process :resize_to_limit => [300,300]
-  end
-  version :scaled_full do
-    process :resize_to_limit => [700,nil]
+  def resize_and_crop(width, height)
+    resize_to_limit(width, nil) do |img|
+      _cols, rows = img[:dimensions]
+      if rows > height
+        img.gravity "Center"
+        img.crop "#{width}x#{height}>+0+#{(height / 2)}"
+      end
+      img
+    end
   end
 
+  version :thumb_small do
+    process resize_to_fill: [50, 50]
+  end
+  version :thumb_medium do
+    process resize_to_limit: [100, 100]
+  end
+  version :thumb_large do
+    process resize_and_crop: [300, 500]
+  end
+  version :scaled_full do
+    process resize_to_limit: [700, nil]
+  end
 end
