@@ -7,6 +7,7 @@
 * Simplify mentions in the publisher [#7302](https://github.com/diaspora/diaspora/pull/7302)
 * Remove chartbeat and mixpanel support [#7280](https://github.com/diaspora/diaspora/pull/7280)
 * Upgrade to jQuery 3 [#7303](https://github.com/diaspora/diaspora/pull/7303)
+* Add i18n for color themes [#7369](https://github.com/diaspora/diaspora/pull/7369)
 
 ## Bug fixes
 

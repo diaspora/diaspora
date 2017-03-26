@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   validates_length_of :username, :maximum => 32
   validates_exclusion_of :username, :in => AppConfig.settings.username_blacklist
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
-  validates :color_theme, inclusion: {in: AVAILABLE_COLOR_THEME_CODES}, allow_blank: true
+  validates :color_theme, inclusion: {in: AVAILABLE_COLOR_THEMES}, allow_blank: true
   validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
 
   validate :unconfirmed_email_quasiuniqueness
