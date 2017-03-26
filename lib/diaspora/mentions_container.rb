@@ -5,7 +5,7 @@ module Diaspora
     included do
       before_create do
         # TODO: remove when most of the posts can handle the new syntax
-        self.text = Diaspora::Mentionable.backport_mention_syntax(text) if text
+        self.text = Diaspora::Mentionable.backport_mention_syntax(text) if text && author.local?
       end
 
       after_create :create_mentions
