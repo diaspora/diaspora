@@ -64,4 +64,12 @@
     min-height: 35px;
     box-shadow: none;
   }
+
+  .twitter-typeahead {
+    // typeahead sets this to `display: inline-block` which adds additional space between
+    // the comment textarea and the submit button.
+    // scss-lint:disable ImportantRule
+    display: block !important;
+    // scss-lint:enable ImportantRule
+  }
 }
