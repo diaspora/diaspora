@@ -53,7 +53,6 @@ class StatusMessagesController < ApplicationController
       public:     normalize_public_flag
     )
     status_message = StatusMessageCreationService.new(current_user).create(normalized_params)
-    handle_mention_feedback(status_message)
     respond_to do |format|
       format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
@@ -76,11 +75,6 @@ class StatusMessagesController < ApplicationController
       format.mobile { redirect_to stream_path }
       format.json { render text: error.message, status: 403 }
     end
-  end
-
-  def handle_mention_feedback(status_message)
-    return unless comes_from_others_profile_page?
-    flash[:notice] = t("status_messages.create.success", names: status_message.mentioned_people_names)
   end
 
   def comes_from_others_profile_page?

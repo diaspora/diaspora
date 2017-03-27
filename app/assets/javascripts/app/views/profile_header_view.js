@@ -69,8 +69,8 @@ app.views.ProfileHeader = app.views.Base.extend({
       $("#mentionModal").modal("hide");
       app.publisher.clear();
       app.publisher.remove();
-      location.reload();
-    });
+      app.flashMessages.success(Diaspora.I18n.t("publisher.mention_success", {names: this.model.get("name")}));
+    }.bind(this));
   },
 
   mentionModalHidden: function() {
