@@ -169,6 +169,7 @@ en:
           list: "list text here"
           quote: "quotation text here"
           code: "code here"
+      mention_success: "Successfully mentioned: <%= names %>"
 
     bookmarklet:
       post_something: "Post to diaspora*"
