@@ -45,7 +45,8 @@ STR
 
         [people, names].transpose.each do |person, name|
           link = person_link(person, class: "mention hovercardable", display_name: name)
-          expect(fmt_msg).to include "@#{link}"
+          expect(link).to include ">@"
+          expect(fmt_msg).to include link
         end
       end
 
@@ -54,7 +55,8 @@ STR
 
         people.each do |person|
           link = person_link(person, class: "mention hovercardable", display_name: person.name)
-          expect(fmt_msg).to include "@#{link}"
+          expect(link).to include ">@"
+          expect(fmt_msg).to include link
         end
       end
 
@@ -182,7 +184,7 @@ STR
         user_a.aspects.where(name: "generic").first.contacts.map(&:person_id)
       )
 
-      expect(txt).to include("@[user C](#{local_or_remote_person_path(user_c.person)}")
+      expect(txt).to include("[user C](#{local_or_remote_person_path(user_c.person)}")
       expect(txt).not_to include("href")
       expect(txt).not_to include(mention)
     end
@@ -204,7 +206,7 @@ STR
       mention = "@{non_existing_user@example.org}"
       txt = Diaspora::Mentionable.filter_people("mentioning #{mention}", [])
 
-      expect(txt).to eq "mentioning @non_existing_user@example.org"
+      expect(txt).to eq "mentioning non_existing_user@example.org"
     end
   end
 

@@ -29,7 +29,7 @@ module PeopleHelper
     opts[:class] << " hovercardable" if defined?(user_signed_in?) && user_signed_in? && current_user.person != person
     remote_or_hovercard_link = Rails.application.routes.url_helpers.person_path(person).html_safe
     "<a data-hovercard='#{remote_or_hovercard_link}' href='#{remote_or_hovercard_link}' class='#{opts[:class]}'>"\
-      "#{html_escape_once(opts[:display_name] || person.name)}</a>"\
+      "@#{html_escape_once(opts[:display_name] || person.name)}</a>"\
       .html_safe
   end
 
