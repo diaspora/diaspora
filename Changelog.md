@@ -8,6 +8,7 @@
 * Remove chartbeat and mixpanel support [#7280](https://github.com/diaspora/diaspora/pull/7280)
 * Upgrade to jQuery 3 [#7303](https://github.com/diaspora/diaspora/pull/7303)
 * Add i18n for color themes [#7369](https://github.com/diaspora/diaspora/pull/7369)
+* Remove deprecated statistics.json [#7399](https://github.com/diaspora/diaspora/pull/7399)
 
 ## Bug fixes
 
