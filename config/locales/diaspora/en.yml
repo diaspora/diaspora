@@ -1106,8 +1106,6 @@ en:
   status_messages:
     new:
       mentioning: "Mentioning: %{person}"
-    create:
-      success: "Successfully mentioned: %{names}"
     too_long: "Please make your status message fewer than %{count} characters. Right now it is %{current_length} characters"
 
   stream_helper:
