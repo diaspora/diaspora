@@ -3,8 +3,9 @@
   p:last-child { margin-bottom: 0; }
 
   ul, ol {
-    margin-top:0.8em;
-    margin-bottom:0.8em;
+    margin-bottom: .8em;
+    margin-top: .8em;
+    li { margin-bottom: .5em; }
     &:first-child { margin-top: 0; }
     &:last-child { margin-bottom: 0; }
   }
