@@ -13,6 +13,9 @@ class NodeInfoController < ApplicationController
   end
 
   def statistics
-    @statistics = NodeInfoPresenter.new("1.0")
+    respond_to do |format|
+      format.json { head :not_acceptable }
+      format.all { @statistics = NodeInfoPresenter.new("1.0") }
+    end
   end
 end
