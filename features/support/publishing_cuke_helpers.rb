@@ -27,7 +27,7 @@ module PublishingCukeHelpers
     txt = find("#publisher #status_message_text").value
     find("#publisher .btn-primary").click
     # wait for the publisher to be closed
-    expect(find("#publisher")["class"]).to include("closed")
+    expect(find("#publisher.closed")).to be_present
     # wait for the content to appear
     expect(find("#main_stream")).to have_content(txt)
   end
