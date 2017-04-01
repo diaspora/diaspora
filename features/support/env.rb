@@ -16,7 +16,6 @@ require "capybara/session"
 require "capybara/poltergeist"
 
 require "cucumber/api_steps"
-require "json_spec/cucumber"
 
 # Ensure we know the appservers port
 Capybara.server_port = AppConfig.pod_uri.port
