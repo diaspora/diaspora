@@ -73,7 +73,7 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   keyDownOnCommentBox: function(evt) {
-    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
+    if(evt.which === Keycodes.ENTER && (evt.metaKey || evt.ctrlKey)) {
       this.$("form").submit();
       return false;
     }
