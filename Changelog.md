@@ -28,6 +28,7 @@
 * Reduce conversation recipient size [#7376](https://github.com/diaspora/diaspora/pull/7376)
 * Cleanup rtl css [#7374](https://github.com/diaspora/diaspora/pull/7374)
 * Increase visual spacing between list items [#7401](https://github.com/diaspora/diaspora/pull/7401)
+* Remove unused gem and cucumber step [#7410](https://github.com/diaspora/diaspora/pull/7410)
 
 ## Bug fixes
 * Don't hide posts when blocking someone from the profile [#7379](https://github.com/diaspora/diaspora/pull/7379)
