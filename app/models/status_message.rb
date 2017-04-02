@@ -19,6 +19,7 @@ class StatusMessage < Post
 
   has_one :location
   has_one :poll, autosave: true
+  has_many :poll_participations, through: :poll
 
   attr_accessor :oembed_url
   attr_accessor :open_graph_url
