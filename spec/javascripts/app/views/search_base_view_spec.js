@@ -57,6 +57,12 @@ describe("app.views.SearchBase", function() {
       this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q"), autoselect: true});
       expect(app.views.SearchBase.prototype.setupAutoselect).toHaveBeenCalled();
     });
+
+    it("calls setupTypeaheadAvatarFallback", function() {
+      spyOn(app.views.SearchBase.prototype, "setupTypeaheadAvatarFallback");
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+      expect(app.views.SearchBase.prototype.setupTypeaheadAvatarFallback).toHaveBeenCalled();
+    });
   });
 
   describe("bloodhoundTokenizer", function() {
@@ -258,6 +264,19 @@ describe("app.views.SearchBase", function() {
       this.search(this.view, "user");
       expect($(".tt-suggestion:eq(0)")).toHaveClass("tt-cursor");
       expect($(".tt-suggestion:eq(1)")).not.toHaveClass("tt-cursor");
+    });
+  });
+
+  describe("setupTypeaheadAvatarFallback", function() {
+    beforeEach(function() {
+      this.view = new app.views.SearchBase({el: "#search_people_form", typeaheadInput: $("#q")});
+    });
+
+    it("calls setupAvatarFallback when showing the results", function() {
+      spyOn(this.view, "setupAvatarFallback");
+      this.view.setupTypeaheadAvatarFallback();
+      this.search(this.view, "user");
+      expect(this.view.setupAvatarFallback).toHaveBeenCalled();
     });
   });
 
