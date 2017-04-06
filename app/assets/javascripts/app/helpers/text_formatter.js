@@ -45,7 +45,7 @@
                            "_" +
                            "\\-" +
                      "]+|<3",
-      // compare tag_strings in lib/diaspora/taggabe.rb
+      // compare tag_strings in lib/diaspora/taggable.rb
       preceding: "^|\\s"
     });
 
