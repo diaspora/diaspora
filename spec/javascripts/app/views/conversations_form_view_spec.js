@@ -60,6 +60,12 @@ describe("app.views.ConversationsForm", function() {
       this.target.addRecipient({name: "diaspora user", handle: "diaspora-user@pod.tld"});
       expect($(".conversation-recipient-tag").length).toBe(1);
     });
+
+    it("calls setupAvatarFallback", function() {
+      spyOn(this.target, "setupAvatarFallback");
+      this.target.addRecipient({name: "diaspora user", handle: "diaspora-user@pod.tld"});
+      expect(this.target.setupAvatarFallback).toHaveBeenCalled();
+    });
   });
 
   describe("prefill", function() {

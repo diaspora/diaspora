@@ -1,6 +1,6 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-app.views.ConversationsForm = Backbone.View.extend({
+app.views.ConversationsForm = app.views.Base.extend({
   el: ".conversations-form-container",
 
   events: {
@@ -39,8 +39,9 @@ app.views.ConversationsForm = Backbone.View.extend({
     this.conversationRecipients.push(person);
     this.updateContactIdsListInput();
     /* eslint-disable camelcase */
-    this.tagListElement.append(HandlebarsTemplates.conversation_recipient_tag_tpl(person));
+    var personEl = $(HandlebarsTemplates.conversation_recipient_tag_tpl(person)).appendTo(this.tagListElement);
     /* eslint-enable camelcase */
+    this.setupAvatarFallback(personEl);
   },
 
   prefill: function(handles) {
