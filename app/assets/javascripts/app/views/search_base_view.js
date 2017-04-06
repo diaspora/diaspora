@@ -7,6 +7,7 @@ app.views.SearchBase = app.views.Base.extend({
     if(options.customSearch) { this.setupCustomSearch(); }
     this.setupTypeahead();
     if(options.autoselect) { this.setupAutoselect(); }
+    this.setupTypeaheadAvatarFallback();
   },
 
   bloodhoundTokenizer: function(str) {
@@ -108,6 +109,12 @@ app.views.SearchBase = app.views.Base.extend({
     this.typeaheadInput.on("typeahead:render", function() {
       self._selectSuggestion(self.$(".tt-menu .tt-suggestion").first());
     });
+  },
+
+  setupTypeaheadAvatarFallback: function() {
+    this.typeaheadInput.on("typeahead:render", function() {
+      this.setupAvatarFallback(this.$el);
+    }.bind(this));
   },
 
   ignorePersonForSuggestions: function(person) {
