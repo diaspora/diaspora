@@ -37,6 +37,7 @@
 * Fix sharing indicator on profile page for blocked users [#7382](https://github.com/diaspora/diaspora/pull/7382)
 * Remove post only after a successful deletion on the server [#7385](https://github.com/diaspora/diaspora/pull/7385)
 * Fix an issue where pod admins could get logged out when using sidekiq-web [#7395](https://github.com/diaspora/diaspora/pull/7395)
+* Add avatar fallback for typeahead and conversations [#7414](https://github.com/diaspora/diaspora/pull/7414)
 
 ## Features
 * Add links to liked and commented pages [#5502](https://github.com/diaspora/diaspora/pull/5502)

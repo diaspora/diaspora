@@ -163,5 +163,11 @@ describe("app.views.Base", function(){
       expect(window.autosize).toHaveBeenCalled();
       expect(window.autosize.calls.mostRecent().args[0].is("textarea")).toBe(true);
     });
+
+    it("calls setupAvatarFallback", function() {
+      spyOn(this.view, "setupAvatarFallback");
+      this.view.renderTemplate();
+      expect(this.view.setupAvatarFallback).toHaveBeenCalled();
+    });
   });
 });
