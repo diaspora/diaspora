@@ -26,6 +26,8 @@
           }
         });
       }
+
+      $.timeago.settings.autoDispose = false;
     });
   };
 })();
