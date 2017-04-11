@@ -4,6 +4,7 @@
 
 describe UsersController, :type => :controller do
   include_context :gon
+  include PostsHelper
 
   before do
     @user = alice
@@ -46,20 +47,40 @@ describe UsersController, :type => :controller do
   end
 
   describe '#public' do
-    it 'renders xml if atom is requested' do
-      sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
-      get :public, :username => @user.username, :format => :atom
-      expect(response.body).to include(sm.text)
-    end
-
-    it 'renders xml if atom is requested with clickalbe urls' do
-      sm = FactoryGirl.create(:status_message, :public => true, :author => @user.person)
-      @user.person.posts.each do |p|
-        p.text = "Goto http://diasporaproject.org/ now!"
-        p.save
+    context "entry xml contents" do
+      before do
+        @sm = FactoryGirl.create(
+          :status_message,
+          public: true,
+          author: @user.person,
+          text:   "Go to http://diasporafoundation.org/ now!"
+        )
       end
-      get :public, :username => @user.username, :format => :atom
-      expect(response.body).to include('a href')
+
+      it "contains the text" do
+        get :public, username: @user.username, format: :atom
+        doc = Nokogiri::XML(response.body)
+        expect(doc.css("entry content")[0].content).to eq(@sm.message.markdownified(disable_hovercards: true))
+      end
+
+      it "contains the title" do
+        get :public, username: @user.username, format: :atom
+        doc = Nokogiri::XML(response.body)
+        expect(doc.css("entry title")[0].content).to eq(post_page_title(@sm))
+      end
+
+      it "contains the author" do
+        get :public, username: @user.username, format: :atom
+        doc = Nokogiri::XML(response.body)
+        expect(doc.css("entry author name")[0].content).to eq(@sm.author_name)
+      end
+
+      it "contains the original author for reshares" do
+        FactoryGirl.create(:reshare, root: @sm, author: bob.person)
+        get :public, username: bob.username, format: :atom
+        doc = Nokogiri::XML(response.body)
+        expect(doc.css("entry author name")[0].content).to eq(@sm.author_name)
+      end
     end
 
     it 'includes reshares in the atom feed' do
