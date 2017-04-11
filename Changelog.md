@@ -18,6 +18,14 @@
 * Render mentions as links in comments [#7327](https://github.com/diaspora/diaspora/pull/7327)
 * Add support for mentions in comments to the front-end [#7386](https://github.com/diaspora/diaspora/pull/7386)
 
+# 0.6.6.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.6.5.0
 
 ## Refactor
