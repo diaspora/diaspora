@@ -1,3 +1,11 @@
+# 0.6.6.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.6.5.0
 
 ## Refactor
