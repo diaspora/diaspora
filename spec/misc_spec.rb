@@ -78,7 +78,7 @@ describe 'making sure the spec runner works' do
 
   describe "#create_conversation_with_message" do
     it 'creates a conversation and a message' do
-      conversation = create_conversation_with_message(alice, bob.person, "Subject", "Hey Bob")
+      conversation = create_conversation_with_message(alice.person, bob.person, "Subject", "Hey Bob")
 
       expect(conversation.participants).to eq([alice.person, bob.person])
       expect(conversation.subject).to eq("Subject")

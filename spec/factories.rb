@@ -342,6 +342,11 @@ FactoryGirl.define do
     additional_data { {"new_property" => "some text"} }
   end
 
+  factory :role do
+    association :person
+    name "moderator"
+  end
+
   factory(:poll_participation_signature) do
     author_signature "some signature"
     association :signature_order, order: "guid parent_guid author poll_answer_guid new_property"
