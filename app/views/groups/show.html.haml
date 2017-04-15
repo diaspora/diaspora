@@ -1,0 +1,44 @@
+- content_for :head do
+  = include_javascripts :home
+  = include_javascripts :inbox
+
+.span-6
+  = render :partial => 'groups/group_sidebar', :locals => {:group => @group}
+
+.span-18.last
+  .stream_container
+    #group_info
+      %h2
+        = @group.name
+      %span.group_identifier
+        = @group.identifier_full
+
+      - if current_user
+        #group_buttons
+          - if current_user.admin_of?(@group)
+            = link_to t('.edit_group'), edit_group_path(@group), :class => 'button'
+
+          - if current_user.member_of?(@group)
+            = link_to t('.private_message'), new_conversation_path('group_id' => @group.id), :class => 'button', :rel => 'facebox'
+
+          - if ! current_user.member_of?(@group)
+            - if @group.has_membership_request_from?(current_user)
+              = t('.pending')
+              = link_to t('.join_group'), '#', :class => 'button disabled'
+            - elsif @group.admission == 'open' || @group.admission == 'on-approval'
+              = link_to t('.join_group'), group_join_path(@group), :class => 'button', :method => 'POST'
+            - elsif @group.admission == 'manual'
+              = t('.private_membership')
+              = link_to t('.join_group'), '#', :class => 'button disabled'
+
+      .description
+        = markdownify(@group.description)
+
+    - if current_user
+      = render 'shared/publisher', :selected_aspects => @stream.aspects, :aspect_ids => @stream.aspect_ids, :aspect => @stream.aspect, :publisher_public => true
+
+    - if @stream && @stream.stream_posts.length > 0
+      #main_stream.stream
+        = render 'shared/stream', :posts => @stream.stream_posts
+        -# #pagination
+          -# =link_to(t('more'), next_page_path, :class => 'paginate')
