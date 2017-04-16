@@ -1037,7 +1037,7 @@ Read more about [specifying arguments to Rake tasks](http://stackoverflow.com/a/
 ## Ensure account deletions are run
 
 A regression caused accounts deletions to not properly perform in some cases, see [#4792](https://github.com/diaspora/diaspora/issues/4792).
-To ensure these are reexecuted properly, please run `RAILS_ENV=production bundle exec rake accounts:run_deletions`
+To ensure these are reexecuted properly, please run `RAILS_ENV=production bundle exec rake db:migrate` and `RAILS_ENV=production bundle exec rake accounts:run_deletions`
 after you've upgraded.
 
 ## Change in guid generation
