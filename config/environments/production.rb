@@ -77,4 +77,6 @@ Diaspora::Application.configure do
   if AppConfig.environment.assets.host.present?
     config.action_controller.asset_host = AppConfig.environment.assets.host.get
   end
+
+  config.middleware.use UndigestedAssets
 end
