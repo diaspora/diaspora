@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 18.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Calendar"
+   x="0px"
+   y="0px"
+   viewBox="0 0 100 100"
+   enable-background="new 0 0 20 20"
+   xml:space="preserve"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="calendar-100.svg"
+   width="100"
+   height="100"><metadata
+     id="metadata9"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs7" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="702"
+     id="namedview5"
+     showgrid="false"
+     inkscape:zoom="11.8"
+     inkscape:cx="9"
+     inkscape:cy="15.779661"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Calendar"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><path
+     d="m 88.888889,11.111111 -5.555556,0 0,11.111111 -16.666666,0 0,-11.111111 -33.333334,0 0,11.111111 -16.666666,0 0,-11.111111 -5.555556,0 C 4.9944444,11.111111 0,16.111111 0,22.222222 L 0,88.888889 C 0,95 4.9944444,100 11.111111,100 l 77.777778,0 C 95,100 100,95 100,88.888889 l 0,-66.666667 C 100,16.111111 95,11.111111 88.888889,11.111111 Z m 0,77.777778 -77.777778,0 0,-44.444445 77.777778,0 0,44.444445 z M 30.555556,0 19.444444,0 l 0,19.444444 11.111112,0 0,-19.444444 z m 50,0 -11.111112,0 0,19.444444 11.111112,0 0,-19.444444 z"
+     id="path3"
+     inkscape:connector-curvature="0" /></svg>
