@@ -30,6 +30,8 @@
               = link_to t("tag_followings.manage.title"), manage_tag_followings_path
       %li= link_to t("streams.public.title"), public_stream_path
       %li
+        = link_to t("streams.public.title"), public_stream_path
+      %li
         = link_to user_profile_path(current_user.username) do
           = t("layouts.header.profile")
           = person_image_tag(current_user, size: :thumb_small)
