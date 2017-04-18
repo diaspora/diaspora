@@ -151,9 +151,17 @@ es:
         login_required: "Tienes que identificarte antes de autorizar esta aplicación"
         title: "¡Oh! Algo salió mal :("
       scopes:
+        aud:
+          description: ""
+        name:
+          name: "nombre"
+        nickname:
+          name: "apodo"
         openid:
           description: "Permite que la aplicación lea tu perfil básico"
           name: "perfil básico"
+        picture:
+          name: "fotografía"
         read:
           description: "Esto permite a la aplicación leer tu portada, tus conversaciones y tu perfil completo"
           name: "leer perfil, portada y conversaciones"
@@ -202,6 +210,7 @@ es:
       updating: "Actualizando"
     index:
       donate: "Donar"
+      donate_liberapay: "Donar a Liberapay"
       help:
         any_problem: "¿Algún problema?"
         contact_podmin: "¡Contacta con el administrador de tu pod!"
@@ -1023,8 +1032,6 @@ es:
     total_users: "Usuarios totales"
     version: "Versión"
   status_messages:
-    create:
-      success: "Se ha mencionado con éxito a: %{names}"
     new:
       mentioning: "Menciones: %{person}"
     too_long: "Por favor, pon un mensaje de estado menor de %{count} caracteres. Actualmente ocupa %{current_length} caracteres."
@@ -1040,6 +1047,8 @@ es:
     aspects_stream: "Aspectos"
     comment_stream:
       title: "Publicaciones comentadas"
+    commented:
+      title: "Publicaciones comentadas"
     community_spotlight_stream: "Lo más destacado"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
@@ -1049,6 +1058,8 @@ es:
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
       title: "Me gusta"
+    liked:
+      title: "Publicaciones que te han gustado"
     mentioned_stream: "@Menciones"
     mentions:
       title: "@Menciones"

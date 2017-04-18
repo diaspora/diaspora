@@ -226,6 +226,7 @@ de_formal:
           quote: "Zitat einfügen"
           write: "Nachricht bearbeiten"
         write: "Verfassen"
+      mention_success: "Erfolgreich erwähnt: <%= names %>"
       near_from: "In der Nähe von <%= location %>"
       option: "Antwort"
       public: "Öffentlich: Ihr Beitrag wird von allen gesehen und von Suchmaschinen gefunden werden können"

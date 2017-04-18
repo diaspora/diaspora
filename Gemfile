@@ -288,7 +288,6 @@ group :test do
   gem "poltergeist",        "1.13.0"
 
   gem "cucumber-api-steps", "0.13", require: false
-  gem "json_spec", "1.1.4"
 
   # General helpers
 

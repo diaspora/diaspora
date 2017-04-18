@@ -149,7 +149,7 @@ app.views.PublisherUploader = Backbone.View.extend({
       dataType: "json",
       type: "DELETE",
       success: function() {
-        $.when(photo.fadeOut(400)).then(function(){
+        photo.fadeOut(400, function() {
           photo.remove();
 
           if( self.publisher.$(".publisher_photo").length === 0 ) {

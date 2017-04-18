@@ -9,6 +9,8 @@ de-CH:
   _contacts: "Kontäkt"
   _help: "Hilf"
   _services: "Dienscht"
+  _statistics: "Statistike"
+  _terms: "Konditione"
   account: "Konto"
   activerecord:
     errors:
@@ -21,6 +23,14 @@ de-CH:
           attributes:
             diaspora_handle:
               taken: "isch scho vergeh."
+        poll:
+          attributes:
+            poll_answers:
+              not_enough_poll_answers: "Nöd gnueg Antwortmöglichkeite aageh."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Du hesch bi dere Umfrog scho mitgmacht!"
         request:
           attributes:
             from_id:
@@ -42,25 +52,48 @@ de-CH:
     admin_bar:
       pages: "Siitä"
       pod_stats: "Pod Statistik"
+      report: "Uswertige"
       sidekiq_monitor: "Sidekiq-Monitor"
       user_search: "Benutzer Suechi"
       weekly_user_stats: "Wöchentlichi Benutzerstatistik"
     stats:
       2weeks: "2 Wuche"
       50_most: "50 meischt-benutzti Tags"
+      comments:
+        one: "ein Kommentar"
+        other: "%{count} Kommentär"
       current_segment: "S'aktuelle Segment het durchschnittlich <b>%{post_yest}</b> Biiträg pro Benutzer, sit em <b>%{post_day}</b>"
       daily: "Täglich"
       display_results: "Zeig d'Ergäbnis usem Segment <b>%{segment}</b>"
       go: "Los!"
       month: "Monet"
+      posts:
+        one: "ein Biitrag"
+        other: "%{count} Biiträg"
+      shares:
+        one: "EIn share"
+        other: "%{count} share's"
       tag_name: "Tag Name: <b>%{name_tag}</b> Azahl: <b>%{count_tag}</b>"
       usage_statistic: "Nutzigsstatistik"
+      users:
+        one: "Ein Benutzer"
+        other: "%{count} Benutzer"
       week: "Wuche"
     user_search:
       add_invites: "IIladige hinzuefüege"
+      are_you_sure_lock_account: "Bisch sicher das da Konto sperre wötsch?"
       email_to: "per E-Mail iilade"
       under_13: "Benutzer aazeige wo under 13ni sind (COPPA)"
+      users:
+        one: "Ein Benutzer gfunde"
+        other: "%{count} Benutzer gfunde"
+      you_currently:
+        one: "Du hesch momentan ei Iiladig vorig %{link}"
+        other: "Du hesch momentan %{count} Iiladige vorig %{link}"
     weekly_user_stats:
+      amount_of:
+        one: "Ein neue Benutzer i dere Wuche"
+        other: "%{count} neui Benutzer i dere Wuche"
       current_server: "S'Momentane Serverdatum isch %{date}"
   all_aspects: "Ali Aspekt"
   are_you_sure: "Bisch sicher?"
@@ -68,6 +101,8 @@ de-CH:
   aspect_memberships:
     destroy:
       failure: "Person us em Aspekt entferne isch gschiiteret."
+      forbidden: "Da dörfsch du nöd."
+      invalid_statement: "Dopplete Iintrag abglehnt."
       no_membership: "Die usgwählt Person isch i dem Aspekt nöd gfinde worde."
       success: "Person erfolgriich us em Aspekt entfernt."
   aspects:
@@ -149,14 +184,17 @@ de-CH:
   contacts:
     index:
       add_a_new_aspect: "en neue Aspekt mache"
+      add_contact: "Kontakt hinzuefüege"
       all_contacts: "Ali Kontäkt"
       community_spotlight: "Intressanti Lüt"
       my_contacts: "Mini Kontäkt"
       no_contacts: "Gseht uus als möstisch es paar Kontäkt hinzuefüege!"
+      no_contacts_in_aspect: "Du hesch no kei Kontäkt i dem Apekt bis etz. Une isch e Lischte vo dine existierende Kontäkt wo du chasch zu dem Aspekt hinzuefüege."
       no_contacts_message: "Lueg mal di %{community_spotlight} aa"
       only_sharing_with_me: "Eisiitig mit mir teilendi"
       start_a_conversation: "Start es Gspröch"
       title: "Kontäkt"
+      user_search: "Kontakt Suechi"
     spotlight:
       community_spotlight: "Intressanti Lüt"
       suggest_member: "Mitglied vorschloh"
@@ -164,16 +202,25 @@ de-CH:
     create:
       fail: "Ungültigi Nochricht"
       sent: "Nochricht verschickt"
+    destroy:
+      delete_success: "Gspröch erfolgriich glöscht"
+      hide_success: "Gspröch erfolgriich versteckt"
     index:
+      conversations_inbox: "Underhaltige - Iigang"
       inbox: "Poschtigang"
+      new_conversation: "Neui Underhaltig"
       no_messages: "Kei Nochrichte"
     new:
       send: "Abschicke"
       sending: "Wird gschickt..."
       subject: "Um was goht's?"
+      subject_default: "Kein Betreff"
       to: "Empfänger"
+    new_conversation:
+      fail: "Ungültigi Nochricht"
     show:
       delete: "Gspröch lösche"
+      hide: "S'Gpröch verstecke und stumm schalte"
       last_message: "Letschti Nochricht empfange %{timeago}"
       reply: "Antworte"
       replying: "Am Antworte..."
@@ -192,19 +239,22 @@ de-CH:
   help:
     account_and_data_management:
       close_account_a: "Gang as Endi vo dine Konto-Iistellige und druck uf \"Konto schlüsse\". Zum das abzschlüsse wirsch du denn ufgforderet dis Passwort iizgäh. Denk drah: Wenn du dis Konto schlüssisch chasch du dich uf dem Pod <strong>nie meh</strong> mit em gliiche Benutzername registriere."
-      close_account_q: "Wie chan ich mis konto lösche?"
+      close_account_q: "Wie chan i mis Konto lösche?"
       data_other_podmins_a: "Wenn du mit jemandem auf einem anderen Pod teilst, werden alle Beiträge, die du teilst, und eine Kopie deiner Profildaten auf dessen Pod gespeichert (\"gecached\") und sind dem Datenbankadministrator des Pods zugänglich. Wenn du einen Beitrag oder deine Profildaten löschst, geschieht dies auch auf allen anderen Pods, auf denen die Daten bisher gespeichert waren. Deine Bilder werden nur auf deinen eigenen Pod gespeichert; nur Links, die zu ihnen führen, werden anderen Pods übermittelt."
       data_other_podmins_q: "Chönd d'Admins vo andere Pods mini Informatione gseh?"
       data_visible_to_podmin_a: "Die Kommunikation *zwischen* Pods läuft immer verschlüsselt ab (via SSL und diaspora*s eigener Transport-Verschlüsselung), aber gespeichert werden die Daten unverschlüsselt. Wenn er wollte, könnte der Datenbank-Administrator deines Pods (normalerweise die Person, die den Pod betreibt) auf deine gesamten Kontodaten und alles, was du postest, zugreifen (wie auch bei den meisten anderen Webseiten, die Benutzerdaten speichern). Das Betreiben eines eigenen Pods gibt dir mehr Sicherheit, weil du dann den Zugriff auf die Datenbank kontrollierst."
       data_visible_to_podmin_q: "Wievil Informatione gseht de Administrator vo mim Pod?"
       download_data_a: "Jo, und im bereich Konto i dine Iistellige sind zwei Schaltfläche mit dene du dini Date oder Fotis abelade chasch."
-      download_data_q: "Chan ich ali date wo i uf mim Konto gspeicheret sind abelade?"
+      download_data_q: "Chan ich ali Date wo i uf mim Konto gspeicheret sind abelade?"
       move_pods_a: "In Zuekunft wirsch du d'Möglichkeit haa dis Konto z'exportiere und ufeme andere Pod z'importiere, aber das funktioniert im moment nonig. Du chasch jedoch es neus Konto eröffne dini Kontäkt neu hinzuefüege und sie aafroge wiederum mit dir z'teile."
       move_pods_q: "Wie chan i mis Konto uf en andere Pod verschiebe?"
       title: "Konto- und Dateverwaltig"
     aspects:
       title: "Aspekt"
+      what_is_an_aspect_a: "Apekt sind e Möglichkeit dini diaspora*-Kontäkt z'gruppiere. Du chasch Aspekt nutze für Lüüt a dim Arbetsplatz, für dini Familie oder für dini Fründe."
       what_is_an_aspect_q: "Was isch en Aspekt?"
+      who_sees_post_a: "Wenn du en begrenzte Biitrag erstellsch, wird er nur für d'Benutzer sichtbar sii wo du i din Aspekt tue hesch (Oder i dini Aspekt, wennd mehreri usgwählt häsch). Benutzer wo nöd i dem oder dene Apekt sind hend kei Möglichkeit din begrenzte Biitrag z'gseh."
+      who_sees_post_q: "Wer gseht en Biitrag won ich miteme Aspekt teile?"
     foundation_website: "D'Webite vo de diaspora* Stiftig"
     getting_help:
       get_support_a_hashtag: "Stell uf diaspora* e frog mithilf vomene öffentliche post du de hashtag %{question} beinhaltet"
@@ -219,11 +269,22 @@ de-CH:
     getting_started_tutorial: "\"Erschti Schritt\" Aaleitige"
     here: "do"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_li5: "r - de aktivi Biitrag wiitersägä"
+      keyboard_shortcuts_li6: "m - de aktivi Biitrag ufklappe"
+      keyboard_shortcuts_li7: "o - de erscht Link im Biitrag ufmache"
+      keyboard_shortcuts_li8: "Ctrl + Enter - Send d'Nochricht wo'd am schriibe bisch"
+      title: "Tastaturchürzel"
     markdown: "Markdown"
+    mentions:
+      title: "Erwähnige"
+      what_is_a_mention_q: "Was isch en \"Erwähnig\"?"
     third_party_tools: "Drittaawendige"
     tutorial: "Aaleitig"
     tutorials: "Aaleitige"
     wiki: "Wiki"
+  invitation_codes:
+    not_valid: "De Iiladigscode isch nüm gültig"
   invitations:
     create:
       empty: "Bitte mindestens ei E-Mail-Adresse iigä"
@@ -248,6 +309,7 @@ de-CH:
       powered_by: "Es lauft mit diaspora*"
       public_feed: "Öffentliche diaspora* Feed vo %{name}"
       source_package: "Lad's Quellcodepaket abe"
+      statistics_link: "Pod Statistike"
       toggle: "Mobiili Aasicht umschalte"
       whats_new: "Was git's neus?"
     header:
@@ -262,27 +324,48 @@ de-CH:
     also_commented:
       one: "%{actors} het au de post %{post_link} vom %{post_author} kommentiert"
       other: "%{actors} hend au de post %{post_link} vom %{post_author} kommentiert"
+    also_commented_deleted:
+      one: "%{actors} het en glöschte Biitrag kommentiert."
+      other: "%{actors} hend en glöschte Biitrag kommentiert."
     comment_on_post:
       one: "%{actors} het din Biitrag %{post_link} kommentiert."
       other: "%{actors} hend din Biitrag %{post_link} kommentiert."
       zero: "Niemer het din Biitrag %{post_link} kommentiert."
     index:
+      all_notifications: "Alli Benochritigunge"
+      also_commented: "Au kommentiert"
       and: "und"
       and_others:
         one: "und öpper meh"
         other: "und %{count} anderi"
         zero: "und niemer susch"
+      comment_on_post: "Kommentar bim Biitrag"
+      liked: "Gfallt"
       mark_all_as_read: "Ali als glese markiere"
-      mark_unread: "als ungläsä markiere"
+      mark_all_shown_as_read: "Alli als glese markiere"
+      mark_read: "Als glese markiere"
+      mark_unread: "Als unglese markiere"
+      mentioned: "Erwähnt"
+      no_notifications: "Du hesch kei Benochrichtigunge bis etz."
       notifications: "Benochtichtigunge"
+      reshared: "Wiitergseit"
+      show_all: "Alli aazeige"
+      show_unread: "Ungleseni aazeige"
+      started_sharing: "Mit teile aagfange"
     liked:
       one: "%{actors} gfallt din Biitrag %{post_link}."
       other: "%{actors} gfallt din Biitrag %{post_link}."
       zero: "%{actors} gfallt din Biitrag %{post_link}."
+    liked_post_deleted:
+      one: "%{actors} gfallt din glöschte Biitrag."
+      other: "%{actors} gfallt din glöschte Biitrag."
     mentioned:
       one: "%{actors} het di im Biitrag %{post_link} erwähnt."
       other: "%{actors} hend di im Biitrag %{post_link} erwähnt."
       zero: "%{actors} het di im Biitrag %{post_link} erwähnt."
+    mentioned_deleted:
+      one: "%{actors} het dich imene glöschte Biitrag erwähnt."
+      other: "%{actors} hend dich imene glöschte Biitrag erwähnt."
     private_message:
       one: "%{actors} het dir e Nochricht gschickt."
       other: "%{actors} hend dir e Nochricht gschickt."
@@ -290,12 +373,17 @@ de-CH:
     reshared:
       one: "%{actors} het din Biitrag %{post_link} wiitergseit."
       other: "%{actors} hend din Biitrag %{post_link} wiitergseit."
+    reshared_post_deleted:
+      one: "%{actors} het din glöschte Biitrag wiitergseit."
+      other: "%{actors} hend din glöschte Biitrag wiitergseit."
     started_sharing:
       one: "%{actors} het agfange mit dir z'teile."
       other: "%{actors} hend agfange mit dir z'teile."
       zero: "Niemer het agfange mit dir z'teile."
   notifier:
+    a_limited_post_comment: "Es git en neue Kommentar zumene limitierte Biitrag uf diaspora*"
     a_post_you_shared: "en Biitrag."
+    a_private_message: "Es git e neue pivati Nochricht für dich uf diaspora*"
     click_here: "druck do"
     comment_on_post:
       reply: "Schriib en Antwort oder lueg der de Biitrag vo %{name} aa >"
@@ -303,6 +391,31 @@ de-CH:
       click_link: "Klick uf dä Link zum dini neu E-Mail-Adresse %{unconfirmed_email} z'aktiviere:"
       subject: "Bitte aktivier dini neu E-Mail-Adresse %{unconfirmed_email}"
     email_sent_by_diaspora: "Das E-Mail isch vo %{pod_name} gschickt worde. Wenn du kei söttigi E-Mails me willsch,"
+    export_email:
+      subject: "Dini persönliche Date sind bereit zum abelade, %{name}."
+    export_failure_email:
+      subject: "Tschuldigung %{name}, aber es git es Problem mit dini Date"
+    export_photos_email:
+      body: |-
+          Hallo %{name}
+
+          Dini Fotis sind verarbeitet und parat zum abelade. Benutz [de Link](%{url}).
+
+          Alles Gueti
+
+          De diaspora* E-Mail Roboter!
+      subject: "Dini Fotis sind parat zum abelade, %{name}"
+    export_photos_failure_email:
+      body: |-
+          Hallo %{name}
+
+          Mir hend es Problem mitem verarbeite vo dine Fotis für de download.
+          Bitte versuechs namal
+
+          Sorry!
+
+          De diaspora* E-Mail Roboter!
+      subject: "%{name} es het es Problem mit dine Fotis geh"
     hello: "Hoi %{name}!"
     invite:
       message: |-
@@ -331,6 +444,26 @@ de-CH:
       subject: "%{name} het di uf diaspora* erwähnt"
     private_message:
       reply_to_or_view: "Schrib en Antwort oder lueg s'Gspröch aa >"
+    report_email:
+      body: |-
+          Hallo
+
+          de %{type} mit ID %{id} isch als beleidigend markiert worde.
+
+          Grund: "%{reason}"
+          [%{url}][1]
+
+          Bitte so schnell wie möglich aaluege!
+
+          Beschti Grüess
+
+          De diaspora* E-Mail Roboter!
+
+          [1]: %{url}
+      subject: "En neue %{type} isch als beleidigend markiert worde."
+      type:
+        comment: "Kommentar"
+        post: "Biitrag"
     reshared:
       reshared: "%{name} het din Biitrag wiitergseit"
       view_post: "Biitrag aaluege >"
@@ -349,11 +482,14 @@ de-CH:
     add_contact:
       invited_by: "Du bisch iglade worde vo"
     index:
-      looking_for: "Bisch uf de Suech noch mit %{tag_link} täggde Biiträg?"
+      couldnt_find_them: "Hesch's nöd gfunde?"
+      looking_for: "Bisch uf de Suechi noch mit %{tag_link} täggde Biiträg?"
       no_one_found: "...und niemer isch gfunde worde."
       no_results: "Hey! Du muesch noch öppisem sueche."
       results_for: "Suechergebnis für %{search_term}"
+      search_handle: "Benutz d'diaspora* ID (username@pod.tld) zum sichergoh dini fründe z'finde."
       searching: "Sueche, bitte bis geduldig..."
+      send_invite: "Immerno nüt? Versend en iiladig!"
     person:
       thats_you: "Das bisch du!"
     profile_sidebar:
@@ -378,6 +514,10 @@ de-CH:
     presenter:
       title: "En Biitrag vo %{name}"
     show:
+      photos_by:
+        one: "Eis Foti vo %{author}"
+        other: " %{count} Fotis vo %{author}"
+        zero: "Kei Fotis vo %{author}"
       reshare_by: "Wiitergseits vo %{author}"
   privacy: "Privatsphäre"
   profile: "Profil"
@@ -386,6 +526,11 @@ de-CH:
       allow_search: "Andere lüüt innerhalb vo diaspora* erlaube noch dir z'sueche"
       first_name: "Vorname"
       last_name: "Nochname"
+      nsfw_check: "Alles was ich teile als NSFW markiere"
+      nsfw_explanation: |-
+          NSFW (“not safe for work”) isch de selbstverwalteti Community Standard uf diaspora* zum Inhält z'markiere wo am Arbetsplatz nöd aabrocht sind.
+          Wenn du vor hesch söttigi Inhält regelmässig z'teile bitte aktivier die Option demit ali Inhält vo dir i de Streams vo de Mitbenutzer versteckt aazeigt werdet und sie selber chönd entscheide öbses jetzt wönd gseh oder nöd.
+      nsfw_explanation2: "Wenn du die Option nöd aktiviere wötsch bitte benutz de #nsfw Tag jedesmol wenn du söttigi Inhält teilsch."
       update_profile: "Profil aktualisierä"
       your_bio: "Dini Beschriibig"
       your_birthday: "Din Geburtstag"
@@ -413,8 +558,22 @@ de-CH:
       password: "Passwort"
       password_confirmation: "Passwort bestätigung"
       sign_up: "Konto mache"
+      submitting: "Übermittle..."
+      terms: "Wenn du en neue Account machsch akzeptiersch du d'%{terms_link}"
+      terms_link: "AGB's"
       username: "Benutzername"
+  report:
+    comment_label: "<b>Kommentar</b>: %{data}"
+    confirm_deletion: "Bisch sicher de Iitrag z'lösche?"
+    delete_link: "Iitrag lösche"
+    not_found: "De Biitrag/Kommentar isch nöd gfunde worde. Gseht us als wär er vom Benutzer glöscht worde!"
+    post_label: "<b>Biitrag</b>: %{content}"
+    reason_label: "Grund:"
+    reported_label: "<b>gmeldet vo</b> %{person}"
+    review_link: "Als glese markiere"
+    title: "Meldigsübersicht"
   reshares:
+    comment_email_subject: "%{resharer} Reshare vo %{author}'s Biitrag"
     reshare:
       deleted: "Originalbiitrag isch vom Verfasser glöscht worde."
       reshare_confirmation: "%{author}'s Biitrag wiitersägä?"
@@ -439,6 +598,8 @@ de-CH:
   settings: "Iistelige"
   shared:
     aspect_dropdown:
+      mobile_row_checked: "%{name} (entferne)"
+      mobile_row_unchecked: "%{name} (hinzuefüege)"
       toggle:
         one: "I %{count} aspekt"
         other: "I %{count} aspekt"
@@ -459,25 +620,52 @@ de-CH:
       visibility_dropdown: "Zum iistelle wär din post gseh dörf benutz s'dropdown menü. (Mer empfehled din erschtä Biitrag öffentlich z'mache, wellen susch niemert gseht ^^ )"
     publisher:
       discard_post: "Biitrag verwärfe"
+      formatWithMarkdown: "Du chasch din Biitrag mit %{markdown_link} formatiere"
       get_location: "Standort ermittle"
       new_user_prefill:
         hello: "Hoi zämä I bi #%{new_user_tag}. "
         i_like: "I intressier mich für %{tags}. "
         invited_by: "Danke für d'Iilagig, "
         newhere: "neudo"
+      poll:
+        add_a_poll: "E Umfrog hinzuefüege"
       posting: "Abschicke..."
+      remove_location: "Standort entferne"
       share: "Teilä"
       upload_photos: "Fotis Uelade"
       whats_on_your_mind: "Was lauft?"
     stream_element:
       via: "via %{link}"
       via_mobile: "über's Händy"
+  simple_captcha:
+    label: "De Code i d'Box iigäh:"
+    message:
+      default: "De Gheimcode het nöd mit em Bild übereingstimt."
+      failed: "Menschlichkeits überprüefig isch fehlgschlage"
+      user: "S'Gheimbild und de Code sind underschiedlich gsi"
+    placeholder: "Gib di dargstellte Zeiche ii"
+  statistics:
+    active_users_halfyear: "Aktivi Benutzer im letschte halbe Johr"
+    active_users_monthly: "Aktivi Benutzer im letschte Monet"
+    closed: "Zue"
+    disabled: "Nöd verfüegbar"
+    enabled: "Verfüegbar"
+    local_comments: "Lokali Kommentär"
+    local_posts: "Lokali Biiträg"
+    name: "Name"
+    network: "Netzwerk"
+    open: "Offe"
+    registrations: "Registrierige"
+    services: "Dienst"
+    total_users: "Total Benutzer"
+    version: "Version"
   status_messages:
-    create:
-      success: "Erfolgriich erwähnt: %{names}"
     new:
       mentioning: "Erwähnt: %{person}"
     too_long: "Bitte chürz din post uf weniger als %{count} Zeichä. Im Moment het er %{current_length}."
+  stream_helper:
+    no_more_posts: "Du bisch am Endi vom Stream aacho."
+    no_posts_yet: "Es git no kei Biiträg."
   streams:
     activity:
       title: "Mini Aktivitätä"
@@ -504,10 +692,15 @@ de-CH:
     tags:
       title: "Täggti Biiträg: %{tags}"
   tags:
+    name_too_long: "Bitte mach din Tag-Name chürzer als %{count} Zeiche. Im Moment isch er %{current_length} Zeiche lang."
     show:
       follow: "#%{tag} folge"
       none: "De läär Tag existiert nöd!"
       stop_following: "Ufhöre #%{tag} z'folge"
+      tagged_people:
+        one: "Öpper isch mit %{tag} taggt"
+        other: "%{count} Lüüt sind mit %{tag} taggt"
+        zero: "Niemert isch taggt mit %{tag}"
   username: "Benutzername"
   users:
     confirm_email:
@@ -522,6 +715,7 @@ de-CH:
       auto_follow_aspect: "Aspekt für Benutzer mit dene du automatisch afangsch teile:"
       auto_follow_back: "Automatisch mit Benutzer zruggteile wo agfange hend mit dir z'teile"
       change: "Ändere"
+      change_color_theme: "Farbthema ändere"
       change_email: "E-Mail-Adresse ändere"
       change_language: "Sproch ändere"
       change_password: "Passwort ändere"
@@ -538,21 +732,33 @@ de-CH:
       comment_on_post: "öpper en Biitrag vo dir kommentiert"
       current_password: "Aktuell's Passwort"
       current_password_expl: "Das mit demm du di aameldisch..."
+      default_post_visibility: "Vorusgwählti Aspekt bim erstelle vo Biiträg"
+      download_export: "Mis Profil abelade"
+      download_export_photos: "Mini Fotis abelade"
       edit_account: "Account bearbeite"
       email_awaiting_confirmation: "Mer hend dir en Link a %{unconfirmed_email} gschikt. Bis du de enthalteni Link göffnet hesch und so die neu Adresse aktiviersch, sendemer wiiterhin a dini alt Adresse %{email}"
       export_data: "Date exportiere"
+      export_in_progress: "Mir verarbeitet grad dini Date. Bitte chum in es paar Moment wieder verbii."
+      export_photos_in_progress: "Mier verarbeitet grad dini Fotis, bitte lueg chli spöter nomal verbii."
       following: "\"Teile\"-Iistelige"
+      last_exported_at: "Z'lescht aktualisiert am %{timestamp}"
       liked: "öpperem en Biitrag vo dir gfallt"
       mentioned: "du @erwähnt wirsch"
       new_password: "Neus Passwort"
       private_message: "du e privati Nochricht überchunsch"
       receive_email_notifications: "E-Mail-Benochritigunge empfange wänn:"
+      request_export: "Mini Profildate aafordere"
+      request_export_photos: "Mini Fotis aafordere"
+      request_export_photos_update: "Mini Fotis aktualisiere"
+      request_export_update: "Mini Profildate aktualisiere"
       reshared: "öpper din Biitrag wiiterseit"
       show_community_spotlight: "Kommunity Schiiwörferliecht im stream aazeige"
       show_getting_started: "Iistiiger hiiwiis wieder aktivierä"
+      someone_reported: "öpper en Biitrag meldet"
       started_sharing: "öpper mit dir aafangt teile"
       stream_preferences: "Stream-Iistellige"
       your_email: "Dini E-Mail-Adresse"
+      your_email_private: "Dini E-Mail wird nie andere Benutzer aazeigt"
       your_handle: "Dini diaspora* ID"
     getting_started:
       awesome_take_me_to_diaspora: "Grossartig! Bring mi zu diaspora*"
@@ -566,11 +772,15 @@ de-CH:
       who_are_you: "Wär bisch du?"
     privacy_settings:
       ignored_users: "Ignorierti Benutzer"
+      no_user_ignored_message: "Du ignoriersch im Moment kei anderi Benutzer."
       stop_ignoring: "Ignoriere ufhebe"
+      strip_exif: "Entfern Metadate, wie din Ort, Autor und Kameramodell vo ufegladene Bilder (empfohle)"
       title: "Privatsphäre-Iistelige"
     public:
       does_not_exist: "Benutzer %{username} existiert nöd!"
     update:
+      color_theme_changed: "Farbthema erfolgriich g'änderet."
+      color_theme_not_changed: "Bim ändere vom Farbthema isch en Fähler passiert."
       email_notifications_changed: "E-Mail Benochrichtigunge g'änderet"
       follow_settings_changed: "Folge-Iistelige g'änderet"
       follow_settings_not_changed: "Änderig vo de Folge-Iistelige fehlgschlage."

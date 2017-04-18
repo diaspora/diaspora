@@ -344,9 +344,6 @@ GEM
       url_safe_base64
     json-schema (2.8.0)
       addressable (>= 2.4)
-    json_spec (1.1.4)
-      multi_json (~> 1.0)
-      rspec (>= 2.0, < 4.0)
     jsonpath (0.5.8)
       multi_json
     jwt (1.5.6)
@@ -837,7 +834,6 @@ DEPENDENCIES
   js_image_paths (= 0.1.0)
   json (= 1.8.6)
   json-schema (= 2.8.0)
-  json_spec (= 1.1.4)
   leaflet-rails (= 0.7.7)
   logging-rails (= 0.5.0)
   markerb (= 1.1.0)

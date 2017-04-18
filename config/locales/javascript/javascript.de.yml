@@ -227,6 +227,7 @@ de:
           quote: "Zitat einfügen"
           write: "Nachricht bearbeiten"
         write: "Verfassen"
+      mention_success: "Erfolgreich erwähnt: <%= names %>"
       near_from: "Gesendet aus <%= location %>"
       option: "Antwort"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
@@ -244,7 +245,7 @@ de:
       successful: "Der Beitrag wurde erfolgreich weitergesagt!"
     show_more: "Mehr zeigen"
     stream:
-      comment: "Kommentar"
+      comment: "Kommentieren"
       comments:
         one: "<%= count %> Kommentar"
         other: "<%= count %> Kommentare"

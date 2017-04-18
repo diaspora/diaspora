@@ -95,13 +95,6 @@ When /^(?:|I )attach the file "([^"]*)" to (?:hidden )?"([^"]*)"(?: within "([^"
   end
 end
 
-Then /^(?:|I )should see JSON:$/ do |expected_json|
-  require 'json'
-  expected = JSON.pretty_generate(JSON.parse(expected_json))
-  actual   = JSON.pretty_generate(JSON.parse(response.body))
-  expected.should == actual
-end
-
 Then /^(?:|I )should see (\".+?\"[\s]*)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars, selector|
   vars.scan(/"([^"]+?)"/).flatten.each do |text|
     with_scope(selector) do

@@ -16,7 +16,7 @@ describe("app.views.PublisherMention", function() {
       this.view = new app.views.PublisherMention({ el: "#publisher" });
       expect(app.views.SearchBase.prototype.initialize).toHaveBeenCalled();
       var call = app.views.SearchBase.prototype.initialize.calls.mostRecent();
-      expect(call.args[0].typeaheadInput.selector).toBe("#publisher .typeahead-mention-box");
+      expect(call.args[0].typeaheadInput.is($("#publisher .typeahead-mention-box"))).toBe(true);
       expect(call.args[0].customSearch).toBeTruthy();
       expect(call.args[0].autoselect).toBeTruthy();
       expect(call.args[0].remoteRoute).toEqual({url: "/contacts"});

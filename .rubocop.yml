@@ -6,6 +6,10 @@ AllCops:
 Rails:
   Enabled: true
 
+# Disable for rails 4
+Rails/HttpPositionalArguments:
+  Enabled: false
+
 # Commonly used screens these days easily fit more than 80 characters.
 Metrics/LineLength:
   Max: 120

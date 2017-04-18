@@ -270,7 +270,7 @@ oc:
       failure: "Ai pas pogut quitar d'ignorar aqueste utilizaire. #evasion"
       success: "Vejam çò qu'an a dire ! #digatzbonjorn"
   bookmarklet:
-    explanation: "Publicatz sus diaspora* d'ont que siá en apondent %{link} a vòstres marcapaginas."
+    explanation: "Publicatz sus diaspora* d'ont que siá en apondent aqueste ligam => %{link}."
     heading: "Publicacion rapida"
     post_something: "Publicatz sus diaspora*"
   cancel: "Anullar"
@@ -430,6 +430,7 @@ oc:
       diaspora_app_q: "Existís una aplicacion diaspora* per Android o iOS ?"
       photo_albums_a: "Pas pel moment. Pasmens, podètz veire los imatges mandats d'una persona dins l'onglet Fòtos de lor pagina de perfil."
       photo_albums_q: "I a d'albums de fòtos o de vidèos ?"
+      subscribe_feed_a: "Òc, mai es pas encara una foncion lustrada e lo format dels resultats es totjorn un pauc brut. S'avètz enveja d'ensajar aquò, anatz sus la pagina de perfil de qualqu'un e clicatz sul boton de flux dins vòstre navigador, o podètz copiar l'URL del perfil (ex. https://nomdelpod.org/mond/unnumero) e pegatz aquò dins un lector de flux. L'adreça del flux semblarà a aquò :  https://podname.org/public/username.atom – diaspora* utiliza Atom e non pas RSS."
       subscribe_feed_q: "Me pòdi inscriure als messatges publics d'una persona amb un lector de fluxes ?"
       title: "Divèrs"
     pods:
@@ -438,11 +439,14 @@ oc:
       title: "Pods"
       use_search_box_a: "Se coneissètz lor ID diaspora* complet (ex. : utilizaire@nomdelpod.org), podètz los trobar en los cercant. Se sètz sul meteis servidor, podètz los trobar sonque amb los noms d'utilizaire. Autrament podètz los cercar amb lor nom de perfil (lo nom que vesètz sus l'ecran). Se una recèrca capita pas lo primièr còp, tornatz ensajar."
       use_search_box_q: "Cossí me cal utilizar lo camp de recèrca per trobar qualqu'un en particular ?"
+      what_is_a_pod_a: "Un pod es un servidor qu’executa lo programa diaspora* e qu’es connectat al malhum diaspora*. « Pod » es una metafòra que fa referéncia a l'anglés, que significa dòlça, perque conten de grans coma lo servidor que conten de comptes d'utilizaires. I a un melon de pods. Podètz apondre d’amics d’autres pods e comunicar amb eles. Cal pas dobrir de compte suls diferents pods ! Cal pas qu’un compte – d’aquel biais podètz pensar un pod coma un fornisseire de corrièls. I a de pods publics, de pods privats, e amb un bocin d’esfòrces podètz aver lo vòstre."
       what_is_a_pod_q: "Qu'es aquò un pod ?"
     posts_and_posting:
+      char_limit_services_a: "En aquel cas deuriatz restrénher vòstras publicacions al nombre de caractèrs autorizats pel servici (140 per Twitter, 1000 per Tumblr), lo nombre de caractèrs demòran s’aficharà se l’icòna del servici es seleccionada. Podètz pr’aquò escriure de tèxtes mai grands, mai lo tèxte serà talhat e un ligam plaçat cap a la publicacion sus diaspora*."
       char_limit_services_q: "Quin es lo limit de caractèrs pels messatges partejats amb un servici qu'a un limit de caractèrs mai pichon ?"
       character_limit_a: "65 535 caractèrs. Son 65 395 caractèrs de mai que Twitter ! :)"
       character_limit_q: "Qual es lo limit de caractèrs per las publicacions ?"
+      embed_multimedia_a: "Normalament pas cal pas que pegar l’URL (ex. http://www.youtube.com/watch?v=nnnnnnnnnnn) dins vòstra publicacion e la vidèo o l’àudio serà apondut automaticament. Aqueste site es compatible amb : YouTube, Vimeo, SoundCloud, Flickr e qualques mai. diaspora* emplega oEmbed per aquesta foncionalitat. Cada còp sèm compatibles amb mai sorgas de mèdias. Remembratz-vos de totjorn publicar l’URL completa – pas cap de ligams acorchits – e esperatz un momenton abans d’actualizar la pagina aprèp aver publicat per tal de veire l’ulhada."
       embed_multimedia_q: "Cossí pòdi inserir un contengut vidèo, àudio, o multimèdia dins una publicacion ?"
       format_text_a: "N'emplegant un sistèma simplifiat apelat %{markdown}. Podètz trapar tota la sintaxi de Markdown %{here}. Lo boton d'apercebut pòt èsser de bona ajuda, permet de veire vòstre messatge coma serà afichat abans de o partejar."
       format_text_q: "Cossí pòdi formatar lo tèxte dins as publicacions (gras, italic, etc.) ?"
@@ -485,6 +489,7 @@ oc:
       who_sees_post_q: "Quand mandi un messatge a un aspècte (es a dire un messatge privat), qual o pòt veire ?"
     private_profiles:
       title: "Perfils privats"
+      whats_in_profile_a: "Vòstre perfil privat conten vòstra biografia, emplaçament, gendre, e data d’anniversari s’avètz garnit aquelas seccions. Totas aquelas informacions son opcionalas – causissètz o pas de las fornir. Lo mond connectats al site e qu’avètz aponduts a vòstres aspèctes son los solets a poder veire vòstre perfil privat. Quand visitan vòstra pagina de perfil veiràn tanben vòstras publicacions privadas ligadas al(s) aspèctes ont son, mescladas a vòstras publicacions publicas."
       whats_in_profile_q: "Qu'es aquò mon perfil privat ?"
       who_sees_profile_a: "Solament los utilizaires connectats e que partejatz amb eles (vòl dire, qu'avètz apondut a un de vòstres aspèctes). Pasmens, lo mond que vos sèc, mai que seguètz pas, veiràn pas que vòstras informacions publicas."
       who_sees_profile_q: "Qual pòt veire mon perfil privat ?"
@@ -493,7 +498,9 @@ oc:
     public_posts:
       can_comment_reshare_like_a: "Quin utilizaire connectat a diaspora* que siá, pòt comentar, repartejar vòstre messatge public o marcar que li agrada."
       can_comment_reshare_like_q: "Qual pòt comentar, repartejar, o marcar que li agrada mon messatge public ?"
+      deselect_aspect_posting_a: "Deseleccionar d’aspèctes càmbia pas res per las publicacions publicas. Demoraràn publicas e apareisseràn dins lo flux d’actualitat de vòstres contactes. Per far venir visibla una publicacion dins un aspècte especific, vos cal seleccionar los aspèctes al moment de publicar sul selector d’aspècte jos l’editor."
       deselect_aspect_posting_q: "Qué passa quand deseleccioni un o mai aspèctes al moment d'escriure una publicacion publica ?"
+      find_public_post_a: "Vòstras publicacions publicas apareisseràn dins lo flux d’actualitat de qual que siá que vos sèc. S’ajustatz unas #etiquetas a vòstra publicacion, qual que siá que sèc aquelas etiquetas trobarà vòstra publicacion dins lor flux. Totas las publicacions publicas an una URL especifica que tot lo mond pòdon veire, amai se son pas connectats – doncas las publicacions publicas pòdon èsser ligadas directament de Twitter, blogs, etc. Los robòts de recèrca pòdon tanben las indexar."
       find_public_post_q: "Cossí las autras personas pòdon trobar mos messatges publics ?"
       see_comment_reshare_like_a: "Los comentaris, mencions \"m'agrada\", e repartiments de publicacions publicas son tanben publics. Tot utilizaire connectat dins diaspora* e qual que siasgue d'Internet pòt veire vòstras interaccions amb una publicacion publica."
       see_comment_reshare_like_q: "Quand comenti, tòrni partejar, o aimi una publicacion publica, qual pòt o veire ?"
@@ -540,6 +547,7 @@ oc:
     tags:
       filter_tags_a: "Aquesta foncion es pas directament disponibla dins diaspora*, mai unes %{third_party_tools} son estats escrichs per far o."
       filter_tags_q: "Cossí pòdi filtrar/exclure certans tags de mon flux ?"
+      followed_tags_a: "Aprèp aver cercat una etiqueta podètz clicar sul boton amont de la pagina de las etiquetas per « seguir »aquesta etiqueta. Apareisserà dins vòstre lista d’etiquetas seguidas sul menú a man drecha. En clicant sus una de vòstras etiquetas seguidas aquò vos menarà sus la pagina d’aquesta etiqueta per veire las publicacions recentas que contenon aquesta etiqueta. Clicatz sus #Etiquetas seguidas per veire un flux de publicacions que contenon totes las etiquetas que seguissètz."
       followed_tags_q: "De qué son los \"#Tags Seguits\" e cossí pòdi seguir un tag ?"
       people_tag_page_a: "I a monde qu'an listat aqueste tag per se descriure eles-meteisses dins lor perfil public."
       people_tag_page_q: "Qualas son las personas listadas sus la partida d'esquèrra d'una pagina de tag ?"
@@ -663,9 +671,9 @@ oc:
       show_unread: "Afichar los que son pas legits"
       started_sharing: "A començat de partejar"
     liked:
-      one: "Vòstra publicacion %{post_link} agrada a %{actors} persona."
-      other: "Vòstra publicacion %{post_link} agrada a %{actors} personas."
-      zero: "Vòstra publicacion %{post_link} agrada a %{actors} persona."
+      one: "Vòstra publicacion %{post_link} agrada a %{actors}."
+      other: "Vòstra publicacion %{post_link} agrada a %{actors}."
+      zero: "Vòstra publicacion %{post_link} agrada a %{actors}."
     liked_post_deleted:
       one: "Vòstra publicacion suprimida a pas agradat %{actors} persona."
       other: "Vòstra publicacion suprimida a pas agradat %{actors} personas."
@@ -710,7 +718,7 @@ oc:
       subject: "Mercés d'activar vòstre novèl corrièl %{unconfirmed_email}"
     csrf_token_fail:
       subject: "Avèm recebut una demanda sens autorizacion de vòstre compte, %{name}"
-    email_sent_by_diaspora: "Aqueste corrièl es estat mandaat per %{pod_name}. Se volètz pas mai de corrièls atal,"
+    email_sent_by_diaspora: "Aqueste corrièl es estat mandat per %{pod_name}. Se volètz pas mai de corrièls atal,"
     export_email:
       body: |-
           Bonjorn %{name},
@@ -1052,8 +1060,6 @@ oc:
     total_users: "Total d'utilizaires"
     version: "Version"
   status_messages:
-    create:
-      success: "Mencion de : %{names}"
     new:
       mentioning: "Menciona : %{person}"
     too_long: "Avisatz-vos d'escriure un messatge d'estatut de %{count} caractèrs maximum. Compta actualament %{current_length} caractèrs."
@@ -1069,6 +1075,8 @@ oc:
     aspects_stream: "Aspèctes"
     comment_stream:
       title: "Publicacions comentadas"
+    commented:
+      title: "Publicacions comentadas"
     community_spotlight_stream: "Actualitat de la comunitat"
     followed_tag:
       add_a_tag: "Apondre una etiqueta"
@@ -1078,6 +1086,8 @@ oc:
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
       title: "Flux dels elements qu'agradan"
+    liked:
+      title: "Publicacions aimadas"
     mentioned_stream: "@Mencions"
     mentions:
       title: "@Mencions"
@@ -1142,7 +1152,7 @@ oc:
       export_photos_in_progress: "Sèm a tractar vòstras fòtos. Tornatz aicí dins un momenton."
       following: "Paramètres de partiment"
       last_exported_at: "(Darrièra mesa a jorn a %{timestamp})"
-      liked: "A qualqu'un li a agradat vòstra publicacion"
+      liked: "a qualqu'un li a agradat vòstra publicacion"
       mentioned: "...se vos menciona dins un messatge."
       new_password: "Senhal novèl"
       private_message: "Avètz recebut un messatge privat."

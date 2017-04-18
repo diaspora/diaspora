@@ -74,12 +74,15 @@ describe("app.views.PostControls", function() {
     });
 
     it("calls destroyModel when removing a post", function() {
-      spyOn(app.views.PostControls.prototype, "destroyModel");
+      spyOn(app.views.PostControls.prototype, "destroyModel").and.callThrough();
+      spyOn(app.views.Post.prototype, "destroyModel");
       app.currentUser = new app.models.User(this.model.attributes.author);
-      this.view = new app.views.PostControls({model: this.model});
+      this.postView = new app.views.Post({model: this.model});
+      this.view = new app.views.PostControls({model: this.model, post: this.postView});
       this.view.render();
       this.view.$(".remove_post.delete").click();
       expect(app.views.PostControls.prototype.destroyModel).toHaveBeenCalled();
+      expect(app.views.Post.prototype.destroyModel).toHaveBeenCalled();
     });
 
     it("calls hidePost when hiding a post", function() {

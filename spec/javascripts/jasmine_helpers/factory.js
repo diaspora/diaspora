@@ -153,6 +153,7 @@ var factory = {
       "name": "Bob Grimm",
       "diaspora_id": "bob@localhost:3000",
       "relationship": "sharing",
+      "block": false,
       "is_own_profile": false
     };
     return _.extend({}, defaults, overrides);

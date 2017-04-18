@@ -927,8 +927,6 @@ en_valspeak:
     total_users: "Total ppl"
     version: "Ver"
   status_messages:
-    create:
-      success: "YAY! %{names} has been mentioned!! :D"
     new:
       mentioning: "Mentionin: %{person}"
     too_long: "Plz make ur status txt smaller than %{count} key presses. Right nao its like... %{current_length} key presses"

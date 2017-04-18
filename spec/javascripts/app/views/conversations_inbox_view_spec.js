@@ -100,6 +100,13 @@ describe("app.views.ConversationsInbox", function() {
         $(".conversation-wrapper > .conversation.unread").addClass("selected");
       });
 
+      it("calls setupAvatarFallback", function() {
+        this.view = new app.views.ConversationsInbox();
+        spyOn(this.view, "setupAvatarFallback");
+        this.view.setupConversation();
+        expect(this.view.setupAvatarFallback).toHaveBeenCalled();
+      });
+
       it("removes the unread class from the conversation", function() {
         expect($(".conversation-wrapper > .conversation.selected")).toHaveClass("unread");
         new app.views.ConversationsInbox();

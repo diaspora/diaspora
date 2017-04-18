@@ -28,10 +28,11 @@ app.views.StreamPost = app.views.Post.extend({
                      ".permalink"].join(", "),
 
   initialize : function(){
-    var personId = this.model.get("author").id;
-    app.events.on("person:block:"+personId, this.remove, this);
-
-    this.model.on("remove", this.remove, this);
+    // If we are on a user page, we don't want to remove posts on block
+    if (!app.page.model.has("profile")) {
+      var personId = this.model.get("author").id;
+      app.events.on("person:block:" + personId, this.remove, this);
+    }
     //subviews
     this.commentStreamView = new app.views.CommentStream({model : this.model});
     this.oEmbedView = new app.views.OEmbed({model : this.model});

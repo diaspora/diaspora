@@ -46,16 +46,19 @@ Feature: Invitations
     And I fill in the following:
       | email_inviter_emails         | alex@example.com    |
     And I press "Send an invitation"
-    Then I should have 1 Devise email delivery
+    Then I should see a flash message indicating success
+    And I should have 1 Devise email delivery
     And I should not see "change your notification settings" in the last sent email
 
   Scenario: sends an invitation from the stream
     When I sign in as "alice@alice.alice"
     And I press the first "a.invitations-link" within "#no_contacts"
+    Then I should see "Invite someone to join diaspora*!" within "#invitationsModalLabel"
     And I fill in the following:
       | email_inviter_emails         | alex@example.com    |
     And I press "Send an invitation"
-    Then I should have 1 Devise email delivery
+    Then I should see a flash message indicating success
+    And I should have 1 Devise email delivery
     And I should not see "change your notification settings" in the last sent email
 
   Scenario: sends an invitation from the people search page

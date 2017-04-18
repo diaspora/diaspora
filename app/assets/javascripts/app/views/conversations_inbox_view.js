@@ -1,6 +1,6 @@
 // @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt AGPL-v3-or-Later
 
-app.views.ConversationsInbox = Backbone.View.extend({
+app.views.ConversationsInbox = app.views.Base.extend({
   el: "#conversations-container",
 
   events: {
@@ -46,6 +46,7 @@ app.views.ConversationsInbox = Backbone.View.extend({
   setupConversation: function() {
     app.helpers.timeago($(this.el));
     $(".control-icons a").tooltip({placement: "bottom"});
+    this.setupAvatarFallback(this.$el);
 
     var conv = $(".conversation-wrapper .stream-element.selected"),
         cBadge = $("#conversations-link .badge");

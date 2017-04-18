@@ -524,8 +524,6 @@ nn:
       via: "via %{link}"
       via_mobile: "via mobiltelefon"
   status_messages:
-    create:
-      success: "Nemnde: %{names}"
     new:
       mentioning: "Nemner: %{person}"
     too_long: "{\"few\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"many\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"one\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"other\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"two\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\", \"zero\"=>\"sjå til at statusmeldingane dine har færre enn %{count} teikn\"}"

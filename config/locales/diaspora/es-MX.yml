@@ -672,8 +672,6 @@ es-MX:
       user: "La imagen secreta y el código son distintos."
     placeholder: "Introduce el valor de la imagen"
   status_messages:
-    create:
-      success: "Se mencionó exitosamente a: %{names}"
     new:
       mentioning: "Mencionar a: %{person}"
     too_long: "{\"one\"=>\"por favor, haz que tu mensaje de estado tenga un carácter menos\", \"other\"=>\"por favor, haz que tu mensaje de estado tenga %{count} caracteres menos\", \"zero\"=>\"por favor, haz que tu mensaje de estado tenga %{count} caracteres menos\"}"

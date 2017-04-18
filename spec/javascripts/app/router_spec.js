@@ -123,14 +123,18 @@ describe('app.Router', function () {
   });
 
   describe("gettingStarted", function() {
+    beforeEach(function() {
+      spec.content().append($("<div id='hello-there'>"));
+    });
+
     it("renders app.pages.GettingStarted", function() {
       app.router.navigate("/getting_started", {trigger: true});
-      expect(app.page.$el.selector).toEqual("#hello-there");
+      expect(app.page.$el.is($("#hello-there"))).toBe(true);
     });
 
     it("renders app.pages.GettingStarted when the URL has a trailing slash", function() {
       app.router.navigate("/getting_started/", {trigger: true});
-      expect(app.page.$el.selector).toEqual("#hello-there");
+      expect(app.page.$el.is($("#hello-there"))).toBe(true);
     });
   });
 

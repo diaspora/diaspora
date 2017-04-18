@@ -141,6 +141,7 @@ hu:
     show_more: "tovább"
     stream:
       comment: "Hozzászólás"
+      disable_post_notifications: "A bejegyzésről szóló értesítések kikapcsolása"
       follow: "Követem"
       followed_tag:
         add_a_tag: "Címke hozzáadása"

@@ -119,42 +119,55 @@ describe("app.views.Base", function(){
 
     context("calling out to third party plugins", function() {
       it("replaces .time with relative time ago in words", function() {
+        this.view.templateName = false;
         spyOn($.fn, "timeago");
+        this.view.$el.append("<time/>");
         this.view.render();
         expect($.fn.timeago).toHaveBeenCalled();
-        expect($.fn.timeago.calls.mostRecent().object.selector).toBe("time");
+        expect($.fn.timeago.calls.mostRecent().object.first().is("time")).toBe(true);
       });
 
       it("initializes tooltips declared with the view's tooltipSelector property", function(){
+        this.view.templateName = false;
         this.view.tooltipSelector = ".christopher_columbus, .barrack_obama, .block_user";
+        this.view.$el.append("<div class='christopher_columbus barrack_obama block_user'/>");
 
         spyOn($.fn, "tooltip");
         this.view.render();
-        expect($.fn.tooltip.calls.mostRecent().object.selector).toBe(".christopher_columbus, .barrack_obama, .block_user");
-      });
-
-      it("applies infield labels", function(){
-        spyOn($.fn, "placeholder");
-        this.view.render();
-        expect($.fn.placeholder).toHaveBeenCalled();
-        expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("input, textarea");
+        expect(
+          $.fn.tooltip.calls.mostRecent().object.is(".christopher_columbus, .barrack_obama, .block_user")
+        ).toBe(true);
       });
     });
   });
 
   describe("#renderTemplate", function(){
+    beforeEach(function() {
+      this.view.$el.htmlOriginal = this.view.$el.html;
+      spyOn(this.view.$el, "html").and.callFake(function() {
+        this.htmlOriginal("<input><textarea/></input>");
+        return this;
+      });
+    });
+
     it("calls jQuery.placeholder() for inputs", function() {
       spyOn($.fn, "placeholder");
       this.view.renderTemplate();
       expect($.fn.placeholder).toHaveBeenCalled();
-      expect($.fn.placeholder.calls.mostRecent().object.selector).toBe("input, textarea");
+      expect($.fn.placeholder.calls.mostRecent().object.is("input, textarea")).toBe(true);
     });
 
     it("initializes autosize for textareas", function(){
       spyOn(window, "autosize");
       this.view.renderTemplate();
       expect(window.autosize).toHaveBeenCalled();
-      expect(window.autosize.calls.mostRecent().args[0].selector).toBe("textarea");
+      expect(window.autosize.calls.mostRecent().args[0].is("textarea")).toBe(true);
+    });
+
+    it("calls setupAvatarFallback", function() {
+      spyOn(this.view, "setupAvatarFallback");
+      this.view.renderTemplate();
+      expect(this.view.setupAvatarFallback).toHaveBeenCalled();
     });
   });
 });
