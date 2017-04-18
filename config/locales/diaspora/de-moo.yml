@@ -518,8 +518,6 @@ de-moo:
       via: "via %{link}"
       via_mobile: "über mobil"
   status_messages:
-    create:
-      success: "Erfolgreich erwähnt: %{names}"
     new:
       mentioning: "Erwähnt: %{person}"
     too_long: "{\"few\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\", \"many\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\", \"one\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\", \"other\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\", \"two\"=>\"Bitte kürze deinen Beitrag auf unter %{count} Zeichen.\", \"zero\"=>\"Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen.\"}"

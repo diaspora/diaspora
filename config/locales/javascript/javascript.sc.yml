@@ -8,6 +8,8 @@ sc:
   javascripts:
     header:
       moderator: "Moderatore"
+    publisher:
+      mention_success: "Etichetados curretamente: <%= names %>"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""

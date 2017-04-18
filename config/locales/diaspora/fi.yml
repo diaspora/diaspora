@@ -915,8 +915,6 @@ fi:
     total_users: "Käyttäjiä yhteensä"
     version: "Versio"
   status_messages:
-    create:
-      success: "Onnistuneesti mainittu: %{names}"
     new:
       mentioning: "Mainitse: %{person}"
     too_long: "Sinun täytyy lyhentää tilapäivitystäsi, sillä se voi sisältää enimmillään %{count} merkkiä. Tällä hetkellä päivityksessäsi on %{current_length} merkkiä."

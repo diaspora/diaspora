@@ -629,8 +629,6 @@ sk:
       default: "Tajný kód nie je rovnaký ako ten na obrázku"
       user: "Tajný obrázok a kód sa odlišujú."
   status_messages:
-    create:
-      success: "Úspešne sa spomína: %{names}"
     new:
       mentioning: "Spomína sa: %{person}"
     too_long: "Prosím, skráť svoju správu v statuse na menej ako %{count} znakov. Momentálne má %{current_length} znakov."

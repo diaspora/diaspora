@@ -1053,8 +1053,6 @@ ja:
     total_users: "合計ユーザー数"
     version: "バージョン"
   status_messages:
-    create:
-      success: "%{names}を参照するのに成功しました。"
     new:
       mentioning: "%{person}さんのメンション"
     too_long: |-
@@ -1072,6 +1070,8 @@ ja:
     aspects_stream: "アスペクト"
     comment_stream:
       title: "コメントした投稿"
+    commented:
+      title: "コメントした投稿"
     community_spotlight_stream: "コミュニティスポットライト"
     followed_tag:
       add_a_tag: "タグを追加する"
@@ -1081,6 +1081,8 @@ ja:
     followed_tags_stream: "フォローしたタグ"
     like_stream:
       title: "ストリーム、いいね！"
+    liked:
+      title: "いいね！した投稿"
     mentioned_stream: "@メンション"
     mentions:
       title: "@メンション"

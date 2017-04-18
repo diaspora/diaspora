@@ -228,6 +228,7 @@ pt-BR:
           quote: "Inserir citação"
           write: "Editar mensagem"
         write: "Escrever"
+      mention_success: "Mencionados com sucesso: <%= names %>"
       near_from: "Publicado de: <%= location %>"
       option: "Resposta"
       public: "Pública: a sua publicação será totalmente visível na Web e poderá ser encontrada por meio de mecanismos de buscas"

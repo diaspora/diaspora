@@ -1027,8 +1027,6 @@ ia:
     total_users: "Total de usatores"
     version: "Version"
   status_messages:
-    create:
-      success: "Ha essite mentionate: %{names}"
     new:
       mentioning: "Mentiona: %{person}"
     too_long: "Per favor, non scribe plus de %{count} characteres in tu message de stato. In iste momento illo ha %{current_length} characteres."

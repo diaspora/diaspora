@@ -226,6 +226,7 @@ da:
           quote: "Indsæt citat"
           write: "Rediger besked"
         write: "Skriv"
+      mention_success: "<%= names %> blev omtalt."
       near_from: "Sendt fra: <%= location %>"
       option: "Svar"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"

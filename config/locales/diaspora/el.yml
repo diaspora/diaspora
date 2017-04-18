@@ -558,8 +558,6 @@ el:
       via: "Μέσω %{link}"
       via_mobile: "από κινητό"
   status_messages:
-    create:
-      success: "Αναφέρθηκαν επιτυχώς: %{names}"
     new:
       mentioning: "Αναφορά σε: %{person}"
     too_long: "Παρακαλώ μετέτρεψε το μήνυμα κατάστασης σου σε λιγότερους από %{count} χαρακτήρες. Τώρα είναι %{current_length} χαρακτήρες."

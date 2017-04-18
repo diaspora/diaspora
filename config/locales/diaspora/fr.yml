@@ -1078,8 +1078,6 @@ fr:
     total_users: "Total d'utilisateurs"
     version: "Version"
   status_messages:
-    create:
-      success: "Mention de : %{names}"
     new:
       mentioning: "Mentionne : %{person}"
     too_long: "Veillez à écrire un message de statut de %{count} caractères maximum. Il compte actuellement %{current_length} caractères."
@@ -1095,6 +1093,8 @@ fr:
     aspects_stream: "Aspects"
     comment_stream:
       title: "Messages commentés"
+    commented:
+      title: "Messages commentés"
     community_spotlight_stream: "Actualités de la communauté"
     followed_tag:
       add_a_tag: "Ajouter un tag"
@@ -1104,6 +1104,8 @@ fr:
     followed_tags_stream: "#Tags suivis"
     like_stream:
       title: "Flux des éléments aimés"
+    liked:
+      title: "Messages aimés"
     mentioned_stream: "@Mentions"
     mentions:
       title: "@Mentions"

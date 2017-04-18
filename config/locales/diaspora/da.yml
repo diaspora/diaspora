@@ -1095,8 +1095,6 @@ da:
     total_users: "Antal brugere"
     version: "Version"
   status_messages:
-    create:
-      success: "%{names} nævnt med succes"
     new:
       mentioning: "Nævnt: %{person}"
     too_long: "Lav venligst en statusopdatering på under %{count} tegn. Lige nu er der %{current_length} tegn."
@@ -1112,6 +1110,8 @@ da:
     aspects_stream: "Aspekter"
     comment_stream:
       title: "Kommenterede indlæg"
+    commented:
+      title: "Kommenterede inlæg"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
       add_a_tag: "Tilføj et tag"
@@ -1121,6 +1121,8 @@ da:
     followed_tags_stream: "#Fulgte tags"
     like_stream:
       title: "'Synes om' strøm"
+    liked:
+      title: "Indlæg nogen syntes om"
     mentioned_stream: "@Omtaler"
     mentions:
       title: "Dine omtaler"

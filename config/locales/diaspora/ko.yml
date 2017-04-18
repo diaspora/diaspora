@@ -534,8 +534,6 @@ ko:
       via: "%{link}에서"
       via_mobile: "via 모바일"
   status_messages:
-    create:
-      success: "%{names}님을 성공적으로 멘션했습니다."
     new:
       mentioning: "%{person}님을 멘션합니다"
     too_long: "{\"other\"=>\"상태 메시지를 %{count}자보다 적게 줄여주세요\", \"zero\"=>\"상태 메시지를 %{count}자보다 적게 줄여주세요\"}"

@@ -1081,8 +1081,6 @@ sv:
     total_users: "Totala antalet användare"
     version: "Version"
   status_messages:
-    create:
-      success: "Lyckades nämna: %{names}"
     new:
       mentioning: "Nämner: %{person}"
     too_long: "Var god håll längden på meddelandet under %{count} tecken. Just nu är det %{current_length} tecken långt."
