@@ -722,8 +722,6 @@ it:
       user: "L'immagine segreta e il codice non coincidono"
     placeholder: "Inserisci il valore dell'immagine"
   status_messages:
-    create:
-      success: "Menzionati con successo: %{names}"
     new:
       mentioning: "Stai menzionando: %{person}"
     too_long: "Per favore, commenta con meno di %{count} carattere. Al momento sono %{current_length} caratteri"

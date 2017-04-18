@@ -652,8 +652,6 @@ pt-PT:
       via: "Via %{link}"
       via_mobile: "Via telemóvel"
   status_messages:
-    create:
-      success: "Mencionou com sucesso: %{names}"
     new:
       mentioning: "A mencionar: %{person}"
     too_long: "Por favor, não utilize mais de %{count} carateres nas suas mensagens de estado\". De momento tem %{current_length} carateres"

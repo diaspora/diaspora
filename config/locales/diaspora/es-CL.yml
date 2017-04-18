@@ -664,8 +664,6 @@ es-CL:
       via: "vía %{link}"
       via_mobile: "vía celular"
   status_messages:
-    create:
-      success: "Se ha mencionado con éxito a: %{names}"
     new:
       mentioning: "Mencionar a: %{person}"
     too_long: "{\"few\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"many\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"one\"=>\"Tu mensaje de estado debe tener menos de %{count} caracter\", \"other\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\", \"two\"=>\"tu mensaje de estado tiene que tener menos de %{count} caracteres\", \"zero\"=>\"Tu mensaje de estado debe tener menos de %{count} caracteres\"}"

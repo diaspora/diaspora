@@ -989,8 +989,6 @@ pl:
     total_users: "W sumie użytkowników"
     version: "Wersja"
   status_messages:
-    create:
-      success: "Pomyślnie wspomniano o: %{names}"
     new:
       mentioning: "Wspominasz o: %{person}"
     too_long: "Skróć swój status do mniej niż %{count} znaków. Obecnie jej długość to %{current_length} znaków."

@@ -53,7 +53,7 @@ de:
       dashboard: "Übersicht"
       pages: "Seiten"
       pod_network: "Pod-Netzwerk"
-      pod_stats: "Pod Statistik"
+      pod_stats: "Pod-Statistik"
       report: "Meldungen"
       sidekiq_monitor: "Sidekiq-Monitor"
       user_search: "Benutzersuche"
@@ -231,7 +231,7 @@ de:
         find_a_bug: "… ein %{link}?"
         have_a_question: "… eine %{link}?"
         here_to_help: "Die diaspora*-Gemeinschaft ist für dich da!"
-        mail_podmin: "Podmin E-Mail"
+        mail_podmin: "Podmin-E-Mail"
         need_help: "Benötigst du Hilfe?"
         tag_bug: "Problem"
         tag_feature: "Verbesserung"
@@ -344,11 +344,11 @@ de:
     account_and_data_management:
       close_account_a: "Gehe an das Ende deiner Konto-Einstellungen und drücke auf die Schaltfläche „Konto schließen“. Um den Vorgang abzuschließen, wirst du dann aufgefordert, dein Kennwort einzugeben. Denk dran: Wenn du dein Konto schließt, kannst du dich auf diesem Pod <strong>nie wieder</strong> mit dem gleichen Benutzernamen registrieren."
       close_account_q: "Wie kann ich mein Konto löschen?"
-      data_other_podmins_a: "Wenn du mit jemandem auf einem anderen Pod teilst, werden alle Beiträge, die du teilst, und eine Kopie deiner Profildaten auf dessen Pod gespeichert (\"gecached\") und sind dem Datenbankadministrator des Pods zugänglich. Wenn du einen Beitrag oder deine Profildaten löschst, geschieht dies auch auf allen anderen Pods, auf denen die Daten bisher gespeichert waren. Deine Bilder werden nur auf deinen eigenen Pod gespeichert; nur Links, die zu ihnen führen, werden anderen Pods übermittelt."
+      data_other_podmins_a: "Wenn du mit jemandem auf einem anderen Pod teilst, werden alle Beiträge, die du teilst, und eine Kopie deiner Profildaten auf dessen Pod gespeichert („gecached“) und sind dem Datenbankadministrator des Pods zugänglich. Wenn du einen Beitrag oder deine Profildaten löschst, geschieht dies auch auf allen anderen Pods, auf denen die Daten bisher gespeichert waren. Deine Bilder werden nur auf deinen eigenen Pod gespeichert; nur Links, die zu ihnen führen, werden anderen Pods übermittelt."
       data_other_podmins_q: "Können die Administratoren anderer Pods meine Informationen sehen?"
-      data_visible_to_podmin_a: "Die Kommunikation *zwischen* Pods läuft immer verschlüsselt ab (via SSL und diaspora*s eigener Transport-Verschlüsselung), aber gespeichert werden die Daten unverschlüsselt. Wenn er wollte, könnte der Datenbank-Administrator deines Pods (normalerweise die Person, die den Pod betreibt) auf deine gesamten Kontodaten und alles, was du postest, zugreifen (wie auch bei den meisten anderen Webseiten, die Benutzerdaten speichern). Das Betreiben eines eigenen Pods gibt dir mehr Sicherheit, weil du dann den Zugriff auf die Datenbank kontrollierst."
+      data_visible_to_podmin_a: "Kurzum: alles. Die Kommunikation zwischen Pods läuft immer verschlüsselt ab (mittels SSL und diaspora*s eigener Übertragungsverschlüsselung), aber gespeichert werden die Daten unverschlüsselt. Wenn er wollte, könnte der Datenbank-Administrator deines Pods (normalerweise die Person, die den Pod betreibt) auf deine gesamten Kontodaten und alles, was du postest, zugreifen (wie auch bei den meisten anderen Webseiten, die Benutzerdaten speichern). Das ist der Grund dafür, dass wir dich auswählen lassen, auf welchem Pod du dich registrierst, damit du einen Pod auswählen kannst, dessen Admin du deine Daten gerne anvertraust. Das Betreiben eines eigenen Pods gibt dir mehr Sicherheit, weil du dann den Zugriff auf die Datenbank kontrollierst."
       data_visible_to_podmin_q: "Wie viele Informationen kann der Administrator meines Pods sehen?"
-      download_data_a: "Ja. Unten im Bereich \"Konto\" deiner Einstellungen sind zwei Schaltflächen, mit denen du deine Daten oder Fotos herunterladen kannst."
+      download_data_a: "Ja. Unten im Bereich „Konto“ deiner Einstellungen sind zwei Schaltflächen, mit denen du deine Daten oder Fotos herunterladen kannst."
       download_data_q: "Kann ich alle Daten, welche auf meinem Konto gespeichert wurden, herunterladen?"
       move_pods_a: "In Zukunft wirst du deine Daten von einem Pod exportieren und in einem anderen importieren können, aber im Moment ist das noch nicht möglich. Du kannst aber natürlich jederzeit ein neues Konto erstellen, deine Kontakte dort erneut zu Aspekten hinzufügen und sie fragen, ob sie dich ebenfalls wieder zu ihren Aspekten hinzufügen wollen."
       move_pods_q: "Wie kann ich mein Konto auf einen anderen Pod verschieben?"
@@ -360,22 +360,22 @@ de:
       contacts_know_aspect_q: "Wissen meine Kontakte in welchem Aspekt von mir sie sind?"
       contacts_visible_a: "Wenn du diese Option anwählst, werden die Kontakte dieses Aspekts die Möglichkeit haben, auf Ihrem Profil unter Ihrem Profilbild, zu sehen wer sonst noch in diesem Aspekt ist. Es ist am besten diese Option nur anzuwählen, wenn sich alle Kontakte in diesem Aspekt untereinander kennen. Sie werden aber trotzdem nicht erfahren, wie dieser Aspekt heißt."
       contacts_visible_q: "Was bewirkt „Kontakte aus diesem Aspekt öffentlich machen“?"
-      delete_aspect_a: "Klicke in der Seitenleiste der Stream-Ansicht auf „Meine Aspekte” und dann auf das Stiftsymbol bei dem Aspekt, den du löschen möchtest, oder gehe zu deiner Kontaktseite und wähle den entsprechenden Aspekt aus. Dann klicke auf das Mülleimersymbol oben rechts auf der Seite."
+      delete_aspect_a: "Klicke in der Seitenleiste der Stream-Ansicht auf „Meine Aspekte“ und dann auf das Stiftsymbol bei dem Aspekt, den du löschen möchtest, oder gehe zu deiner Kontaktseite und wähle den entsprechenden Aspekt aus. Dann klicke auf das Mülleimersymbol oben rechts auf der Seite."
       delete_aspect_q: "Wie kann ich einen Aspekt löschen?"
       person_multiple_aspects_a: "Ja. Geh dazu auf deine Kontakte-Seite und klicke auf „Meine Kontakte“. Für jeden Kontakt kannst du das Menü auf der rechten Seite benutzen, um sie zu so vielen Aspekten hinzuzufügen (oder sie daraus zu entfernen), wie du willst. Du kannst außerdem die entsprechende Schaltfläche auf deren Profilseite verwenden. Oder du platzierst deinen Mauszeiger über deren Namen im Stream und änderst die Aspektzugehörigkeit auf der „Hovercard“, die daraufhin erscheint."
       person_multiple_aspects_q: "Kann ich eine Person zu mehreren Aspekten hinzufügen?"
-      post_multiple_aspects_a: "Ja. Benutze dazu, wenn du einen Beitrag erstellst, die Aspekt-Auswahlschaltfläche um Aspekte an- oder abzuwählen. Die Standardauswahl ist „Alle Aspekte”. Dein Beitrag wird wird für alle Aspekte, die du auswählst, sichtbar sein. Außerdem kannst du die Aspekte, mit denen du teilen willst, in der Seitenleiste auswählen. Wenn du einen neuen Beitrag verfasst, werden die Aspekte, die du in der Liste ausgewählt hast, automatisch auch im Aspektwähler ausgewählt."
+      post_multiple_aspects_a: "Ja. Benutze dazu, wenn du einen Beitrag erstellst, die Aspekt-Auswahlschaltfläche um Aspekte an- oder abzuwählen. Die Standardauswahl ist „Alle Aspekte“. Dein Beitrag wird wird für alle Aspekte, die du auswählst, sichtbar sein. Außerdem kannst du die Aspekte, mit denen du teilen willst, in der Seitenleiste auswählen. Wenn du einen neuen Beitrag verfasst, werden die Aspekte, die du in der Liste ausgewählt hast, automatisch auch im Aspektwähler ausgewählt."
       post_multiple_aspects_q: "Kann ich einen Beitrag in mehreren Aspekten gleichzeitig erstellen?"
       remove_notification_a: "Nein. Sie werden auch nicht benachrichtigt, wenn du sie zu mehr Aspekten hinzufügst, während du schon mit ihnen teilst."
       remove_notification_q: "Wird ein Kontakt informiert, wenn ich ihn aus einem oder mehreren Aspekten entferne?"
-      rename_aspect_a: "Klicke in der Stream-Ansicht in der Seitenleiste auf „Meine Aspekte” und dann auf das Stiftsymbol bei dem Aspekt, den du umbenennen möchtest, oder gehe zu deiner „Kontakte”-Seite und wähle den entsprechenden Aspekt aus. Klicke dann auf das Bearbeitungssymbol neben dem Aspektnamen oben auf der Seite, ändere den Namen und klicke auf „Ändern”."
+      rename_aspect_a: "Klicke in der Stream-Ansicht in der Seitenleiste auf „Meine Aspekte“ und dann auf das Stiftsymbol bei dem Aspekt, den du umbenennen möchtest, oder gehe zu deiner „Kontakte“-Seite und wähle den entsprechenden Aspekt aus. Klicke dann auf das Bearbeitungssymbol neben dem Aspektnamen oben auf der Seite, ändere den Namen und klicke auf „Ändern“."
       rename_aspect_q: "Wie benenne ich einen Aspekt um?"
       restrict_posts_i_see_a: "Ja. Klicke dazu in der Seitenleiste erst auf „Meine Aspekte“ und anschließend auf einzelne Aspekte, um diese aus- oder abzuwählen. Anschließend werden nur noch Beiträge von Personen aus den ausgewählten Aspekten im Stream angezeigt werden."
       restrict_posts_i_see_q: "Kann ich angezeigte Beiträge in meinem Stream auf bestimmte Aspekte beschränken?"
       title: "Aspekte"
       what_is_an_aspect_a: "Um deine Kontakte in diaspora* in Gruppen einzuteilen, kannst du Aspekte anlegen. Zum Beispiel kannst du einen Aspekt für die Leute aus deiner Arbeit, einen für die Leute aus deiner Familie und einen für deine Freunde verwenden."
       what_is_an_aspect_q: "Was sind Aspekte?"
-      who_sees_post_a: "Wenn du einen begrenzten Beitrag postest, wird dieser nur für Leute sichtbar sein, die sich in dem ausgewählten Aspekt (oder in den ausgewählten Aspekten, falls du mehrere ausgewählt hast) befinden. Deine anderen Kontakte werden ihn nicht sehen, es sei denn, du machst ihn öffentlich. Ausschließlich öffentliche Beiträge werden auch für Leute sichtbar sein, die sich in keinem deiner Aspekte befinden."
+      who_sees_post_a: "Wenn du einen begrenzten Beitrag erstellst, wird dieser nur für Leute sichtbar sein, die du dem ausgewählten Aspekt (oder den ausgewählten Aspekten, falls du mehrere ausgewählt hast) vor dem Erstellen des Beitrags hinzugefügt hast. Kontakte, die du hast, die aber nicht in dem Aspekt sind, haben keine Möglichkeit den Beitrag zu sehen. Begrenzte Beiträge werden nie für Leute sichtbar sein, die du nicht einem deiner Aspekte hinzugefügt hast."
       who_sees_post_q: "Wenn ich einen Beitrag an einen Aspekt poste, wer sieht ihn dann?"
     chat:
       add_contact_roster_a: "Zuerst musst du den Chat für einen der Aspekte aktivieren, in denen sich die Person befindet. Dafür gehst du zur %{contacts_page}, wählst den gewünschten Aspekt aus und klickst auf das Chat-Icon, um den Chat für den Aspekt zu aktivieren. %{toggle_privilege} Wenn es dir lieber ist, kannst du auch einen speziellen Aspekt namens 'Chat' erstellen und zu ihm die Leute hinzufügen, mit denen du chatten willst. Wenn du damit fertig bist, öffnest du die Chatoberfläche und wählst die Person aus, mit der du chatten willst."
@@ -412,11 +412,11 @@ de:
       title: "Tastenkürzel"
     markdown: "Markdown"
     mentions:
-      how_to_mention_a: "Tippe das \"@\"-Zeichen und beginne, den zu erwähnenden Namen einzugeben. Ein Dropdown-Menü sollte erscheinen, um das Einfügen zu erleichtern. Beachte, dass du nur Leute erwähnen kannst, die du zu einem deiner Aspekte hinzugefügt hast."
+      how_to_mention_a: "Tippe das „@“-Zeichen und beginne, den zu erwähnenden Namen einzugeben. Ein Dropdown-Menü sollte erscheinen, um das Einfügen zu erleichtern. Beachte, dass du nur Leute erwähnen kannst, die du zu einem deiner Aspekte hinzugefügt hast."
       how_to_mention_q: "Wie erwähne ich jemand in einem Beitrag?"
       mention_in_comment_a: "Nein, momentan nicht."
       mention_in_comment_q: "Kann ich in den Kommentaren jemanden erwähnen?"
-      see_mentions_a: "Ja, klicke dazu in der linken Spalte deiner Startseite auf \"Erwähnungen\"."
+      see_mentions_a: "Ja, klicke dazu in der linken Spalte deiner Startseite auf „@Erwähnungen“."
       see_mentions_q: "Gibt es eine Möglichkeit, Beiträge zu finden, in denen ich erwähnt wurde?"
       title: "Erwähnungen"
       what_is_a_mention_a: "Eine Erwähnung ist ein Link zu der Profilseite einer Person, der in einem Beitrag erscheint. Wenn jemand erwähnt wird, erhält er eine Benachrichtigung, die seine Aufmerksamkeit auf den Beitrag lenkt."
@@ -470,7 +470,7 @@ de:
       stream_full_of_posts_a1: "Dein Stream ist zusammengesetzt aus drei Arten von Beiträgen:"
       stream_full_of_posts_li1: "Beiträge von Leuten, mit denen du teilst, von denen es zwei Arten gibt: Öffentliche Beiträge und begrenzte Beiträge, die mit einem Aspekt geteilt wurden, in dem du dich befindest. Um diese Beiträge aus deinem Stream zu entfernen, höre einfach auf, mit den jeweiligen Leuten zu teilen."
       stream_full_of_posts_li2: "Öffentliche Beiträge, die Tags enthalten, denen du folgst. Um diese zu entfernen, musst du aufhören den entsprechenden Tags zu folgen."
-      stream_full_of_posts_li3: "Öffentliche Posts von Leuten die im \"Gemeinschafts-Schaukasten\" gelisted sind. Diese können durch abwählen der \"Zeige Gemeinschafts-Schaukasten im Stream\"-Option im Konto-Tab in den Einstellungen entfernt werden."
+      stream_full_of_posts_li3: "Öffentliche Beiträge von Leuten, die im „Gemeinschafts-Schaukasten“ gelistet sind. Diese können durch Abwählen der Option „‚Gemeinschafts-Schaukasten‘ im Stream anzeigen“ im Konto-Tab deiner Einstellungen entfernt werden."
       stream_full_of_posts_q: "Warum ist mein Stream voll mit Beiträgen von Leuten, die ich nicht kenne und mit denen ich nicht teile?"
       title: "Beiträge und Posten"
     private_posts:
@@ -521,7 +521,7 @@ de:
       title: "Beiträge weitersagen."
     sharing:
       add_to_aspect_a1: "Nehmen wir an, dass Amy Ben zu einem ihrer Aspekten hinzufügt, aber Ben Amy (noch) nicht hinzugefügt hat:"
-      add_to_aspect_a2: "Dies ist als asymmetrisches Teilen bekannt. Wenn Ben Amy ebenfalls zu einem seiner Aspekte hinzufügt, wird es gegenseitiges Teilen, und sowohl Bens als auch Amys öffentliche, sowie private Beiträge, erscheinen im Stream des jeweils Anderen, etc. "
+      add_to_aspect_a2: "Das nennt man asymmetrisches Teilen. Wenn Ben allerdings Amy ebenfalls zu einem seiner Aspekte hinzufügt, wird es zu gegenseitigem Teilen. Es erscheinen also sowohl bei Ben als auch bei Amy die Beiträge, die die jeweils andere mit ihnen geteilt hat, im Stream. Amy kann nun auch Bens privates Profil einsehen. Außerdem können sie sich nun gegenseitig private Nachrichten senden."
       add_to_aspect_li1: "Ben wird eine Benachrichtigung erhalten, dass Amy angefangen hat mit ihm zu teilen."
       add_to_aspect_li2: "Amy sieht nun Bens öffentliche Beiträge in ihrem Stream."
       add_to_aspect_li3: "Amy kann keine privaten Beiträge Bens sehen."
@@ -720,7 +720,7 @@ de:
   notifier:
     a_limited_post_comment: "Auf diaspora* gibt es einen neuen Kommentar zu einem begrenzten Beitrag."
     a_post_you_shared: "ein Beitrag."
-    a_private_message: "Auf diaspora* gibt eine neue Private Nachricht für dich."
+    a_private_message: "Du hast soeben eine private Nachricht auf diaspora* erhalten."
     also_commented:
       limited_subject: "Es gibt einen neuen Kommentar zu einem Beitrag, den du kommentiert hast."
     click_here: "Hier klicken"
@@ -734,24 +734,24 @@ de:
       body: |-
           Hallo %{name},
 
-          diaspora* hat einen Versuch, auf dein Konto zuzugreifen, erkannt, der eventuell unbefugt war. Um auszuschließen, dass deine Daten gefährdet werden, bist du abgemeldet worden. Mach dir keine Sorgen; Du kannst dich jetzt wieder sicher anmelden.
+          diaspora* hat einen Versuch, auf dein Konto zuzugreifen, erkannt, der eventuell unbefugt war. Um auszuschließen, dass deine Daten gefährdet werden, bist du abgemeldet worden. Mach dir keine Sorgen; du kannst dich jetzt wieder sicher anmelden.
 
           Eine Anfrage ist mit ungültigem oder fehlendem CSRF-Token gesendet worden. Das könnte vollkommen harmlos sein, aber es könnte sich auch auch um einen Cross-Site-Request-Forgery-Angriff (CSRF-Angriff) handeln.
 
-          Das könnte verursacht worden sein von:
+          Das könnte verursacht worden sein durch:
 
-            - Einem Add-on, das die Anfrage manipuliert oder Anfragen ohne das Token durchführt;
-            - Einem offen gelassenen Tab aus einer früheren Sitzung;
-            - Einer anderen Website, die mit oder ohne deine Genehmigung Anfragen durchführt;
-            - Verschiedenen anderen externen Werkzeugen;
-            - Schädlichen Code, der versucht, auf deine Daten zuzugreifen.
+            - ein Add-on, das die Anfrage manipuliert oder Anfragen ohne das Token durchführt
+            - ein offen gelassenenes Tab aus einer früheren Sitzung
+            - eine andere Website, die mit oder ohne deine Genehmigung Anfragen durchführt
+            - verschiedene andere externe Werkzeuge
+            - schädlichen Code, der versucht, auf deine Daten zuzugreifen
 
           Für mehr Informationen zu CSRF, siehe [%{link}](%{link}).
 
           Falls du diese Nachricht wiederholt siehst, prüfe bitte die oben stehenden Punkte, einschließlich aller Browser-Add-ons.
 
-          Danke,
-          Der diaspora* E-Mail-Roboter!
+          Dir dankt
+          Der diaspora*-E-Mail-Roboter!
       subject: "Wir haben eine unbefugte Anfrage von deinem Konto empfangen, %{name}"
     email_sent_by_diaspora: "Diese E-Mail wurde von %{pod_name} verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
     export_email:
@@ -802,20 +802,19 @@ de:
 
           Du wurdest von %{diaspora_id} eingeladen, diaspora* beizutreten!
 
-          Klicke auf diesen Link, um loszulegen
+          Klicke auf folgenden Link, um loszulegen.
 
           [%{invite_url}][1]
 
-          Falls du bereits eine Konto hast, kannst du %{diaspora_id} zu deinen Kontakten hinzufügen.
+          Falls du bereits ein Konto besitzt, kannst du %{diaspora_id} zu deinen Kontakten hinzufügen.
 
-          Alles Liebe,
+          Alles Liebe
+          der diaspora*-E-Mail-Automat
 
-          der diaspora* E-Mail Roboter!
-
-          PS: Nur für den Fall, dass du (noch) nicht weißt, was diaspora* ist, [hier][2] gibt es die Antwort.
+          P.S. Nur für den Fall, dass du (noch) nicht weißt, was diaspora* ist: [Hier][2] erklären wir es dir.
 
           [1]: %{invite_url}
-          [2]%{diasporafoundation_url}
+          [2]: %{diasporafoundation_url}
     invited_you: "%{name} hat dich zu diaspora* eingeladen"
     liked:
       liked: "%{name} gefällt dein Beitrag"
@@ -826,7 +825,7 @@ de:
       subject: "%{name} hat dich auf diaspora* erwähnt"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
-      subject: "Es gibt eine neue private Nachricht für dich"
+      subject: "Neue private Nachricht"
     remove_old_user:
       body: |-
           Hallo,
@@ -1042,7 +1041,7 @@ de:
         other: "In %{count} Aspekten"
         zero: "In keinem Aspekt"
     invitations:
-      by_email: "Lade Leute per E-Mail ein"
+      by_email: "Einladung per E-Mail verschicken"
       invite_your_friends: "Lade deine Freunde ein"
       invites: "Einladungen"
       share_this: "Teile diesen Link per Email, Blog oder sozialen Netzwerken!"
@@ -1098,8 +1097,6 @@ de:
     total_users: "Gesamtzahl Benutzer"
     version: "Version"
   status_messages:
-    create:
-      success: "Erfolgreich erwähnt: %{names}"
     new:
       mentioning: "Erwähnt: %{person}"
     too_long: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen. Im Moment enthält er %{current_length} Zeichen"
@@ -1115,6 +1112,8 @@ de:
     aspects_stream: "Aspekte"
     comment_stream:
       title: "Kommentierte Beiträge"
+    commented:
+      title: "Kommentierte Beiträge"
     community_spotlight_stream: "Gemeinschafts-Schaukasten"
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
@@ -1123,7 +1122,9 @@ de:
       title: "#Tags, denen du folgst"
     followed_tags_stream: "#Tags, denen du folgst"
     like_stream:
-      title: "\"Gefällt mir\"-Stream"
+      title: "„Gefällt mir“-Stream"
+    liked:
+      title: "Beiträge, die dir gefallen"
     mentioned_stream: "@Erwähnungen"
     mentions:
       title: "@Erwähnungen"
@@ -1177,7 +1178,7 @@ de:
       close_account_text: "Konto schließen"
       comment_on_post: "jemand deinen Beitrag kommentiert"
       current_password: "Derzeitiges Kennwort"
-      current_password_expl: "das mit dem Du dich anmeldest..."
+      current_password_expl: "das mit dem du dich anmeldest …"
       default_post_visibility: "Vorausgewählte Aspekte beim Erstellen von Beiträgen"
       download_export: "Mein Profil herunterladen"
       download_export_photos: "Meine Fotos herunterladen"
@@ -1198,7 +1199,7 @@ de:
       request_export_photos_update: "Meine Fotos aktualisieren"
       request_export_update: "Meine Profildaten aktualisieren"
       reshared: "jemand deinen Beitrag weitersagt"
-      show_community_spotlight: "„Gemeinschafts-Schaukasten” im Stream anzeigen"
+      show_community_spotlight: "„Gemeinschafts-Schaukasten“ im Stream anzeigen"
       show_getting_started: "Einstiegshinweise wieder aktivieren"
       someone_reported: "jemand einen Beitrag meldet"
       started_sharing: "jemand anfängt, mit dir zu teilen"
@@ -1210,7 +1211,7 @@ de:
       awesome_take_me_to_diaspora: "Super! Bring mich zu diaspora*"
       community_welcome: "diaspora*s Gemeinschaft ist froh, dich an Bord zu haben!"
       connect_to_facebook: "Wir können das Ganze etwas beschleunigen, indem du %{link}. So werden dein Name und dein Profilbild hier eingefügt und die Crossposting-Funktion aktiviert."
-      connect_to_facebook_link: "Dein Facebook-Konto mit diaspora* verlinkst"
+      connect_to_facebook_link: "dein Facebook-Konto mit diaspora* verknüpfst"
       hashtag_explanation: "Hashtags ermöglichen dir, über deine Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei diaspora* zu treffen!"
       hashtag_suggestions: "Probier mal Tags wie #kunst, #musik oder #gif zu folgen."
       well_hello_there: "Also, Hallöchen!"
@@ -1219,7 +1220,7 @@ de:
     privacy_settings:
       ignored_users: "Benutzer, die ignoriert werden"
       no_user_ignored_message: "Du ignorierst momentan keinen anderen Benutzer"
-      stop_ignoring: "Aufhören, zu ignorieren"
+      stop_ignoring: "Aufhören zu ignorieren"
       strip_exif: "Entferne Metadaten wie Ort, Autor und Kameramodell von hochgeladenen Bildern (empfohlen)"
       title: "Privatsphäre-Einstellungen"
     public:

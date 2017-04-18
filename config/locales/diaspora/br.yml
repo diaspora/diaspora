@@ -609,8 +609,6 @@ br:
       user: "Disheñvel e oa ar skeudenn guzh diouzh ar c'hod"
     placeholder: "Merkañ talvoud ar skeudenn"
   status_messages:
-    create:
-      success: "Meneget gant berzh : %{names}"
     new:
       mentioning: "Menegiñ : %{person}"
     too_long: "{\"one\"=>\"Lezit ho kemennadennoù statud dindan %{count}\", \"other\"=>\"Lezit ho kemennadennoù statud dindan %{count}\", \"zero\"=>\"Lezit ho kemennadennoù statud dindan %{count}\"}"

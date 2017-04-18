@@ -1090,8 +1090,6 @@ de_formal:
     total_users: "Gesamtzahl Benutzer"
     version: "Version"
   status_messages:
-    create:
-      success: "Erfolgreich erwähnt: %{names}"
     new:
       mentioning: "Erwähnt: %{person}"
     too_long: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen. Im Moment enthält er %{current_length} Zeichen"
@@ -1107,6 +1105,8 @@ de_formal:
     aspects_stream: "Aspekte"
     comment_stream:
       title: "Kommentierte Beiträge"
+    commented:
+      title: "Kommentierte Beiträge"
     community_spotlight_stream: "Gemeinschafts-Schaukasten"
     followed_tag:
       add_a_tag: "Fügen Sie einen Tag hinzu"
@@ -1116,6 +1116,8 @@ de_formal:
     followed_tags_stream: "#Tags, denen Sie folgen"
     like_stream:
       title: "„Gefällt mir”-Stream"
+    liked:
+      title: "Mit „Gefällt mir“ bewertete Beiträge"
     mentioned_stream: "@Erwähnungen"
     mentions:
       title: "Ihre Erwähnungen"

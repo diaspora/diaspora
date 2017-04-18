@@ -526,8 +526,6 @@ eo:
       via: "per %{link}"
       via_mobile: "per poŝtelefono"
   status_messages:
-    create:
-      success: "Sukcese menciis: %{names}"
     new:
       mentioning: "Mencianta: %{person}"
     too_long: "{\"one\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\", \"other\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\", \"zero\"=>\"bonvolu igi viajn afiŝojn malpli longaj ol %{count} signoj\"}"

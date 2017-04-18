@@ -227,6 +227,7 @@ es-AR:
           quote: "Insertar cita"
           write: "Editar post"
         write: "Escribir"
+      mention_success: "Mencionados exitosamente: <%= names %>"
       near_from: "Cerca de: <%= location %>"
       option: "Respuesta"
       public: "Publica: tu publicación será visible para cualquiera en Internet y los buscadores podrán encontrarla"

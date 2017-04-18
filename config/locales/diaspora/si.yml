@@ -163,8 +163,6 @@ si:
     stream_element:
       via_mobile: "ජංගම දුරකථනය හරහා"
   status_messages:
-    create:
-      success: "සාර්ථක ලෙස සදහන්කරා: %{names}"
     new:
       mentioning: "සදහන්කරන්න: %{person}"
   username: "පරිශ්‍රීලක නම"

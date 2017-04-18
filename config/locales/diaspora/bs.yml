@@ -584,8 +584,6 @@ bs:
       via: "putem %{link}"
       via_mobile: "putem mobitela"
   status_messages:
-    create:
-      success: "Uspješno spomenuti: %{names}"
     new:
       mentioning: "Spominje %{person}"
     too_long: "{\"few\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"many\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"one\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karakter\", \"other\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\", \"zero\"=>\"molimo da vaše poruke statusa sadrže manje nego %{count} karaktera\"}"
