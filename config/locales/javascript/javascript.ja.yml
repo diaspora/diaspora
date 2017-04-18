@@ -218,6 +218,7 @@ ja:
           quote: "引用の挿入"
           write: "メッセージを編集"
         write: "書く"
+      mention_success: "メンションしました: <%= names %>"
       near_from: "<%= location %>からの投稿"
       option: "回答"
       public: "公開 - 投稿は全ての人から見ることができ、検索エンジンで見つかるようになります"

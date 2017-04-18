@@ -427,8 +427,6 @@ ka:
     stream_element:
       via: "via %{link}"
   status_messages:
-    create:
-      success: "წარმატებით აღნიშნე: %{names}"
     new:
       mentioning: "Mentioning: %{person}"
     too_long: "{\"few\"=>\"please make your status messages less than %{count} characters\", \"many\"=>\"please make your status messages less than %{count} characters\", \"one\"=>\"please make your status messages less than %{count} character\", \"other\"=>\"please make your status messages less than %{count} characters\", \"two\"=>\"please make your status messages less than %{count} characters\", \"zero\"=>\"please make your status messages less than %{count} characters\"}"

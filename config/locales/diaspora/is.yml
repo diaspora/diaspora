@@ -69,9 +69,9 @@ is:
   are_you_sure_delete_account: "Ertu viss um að þú viljir loka aðganginum þínum? Þetta er óafturkræf aðgerð!"
   aspect_memberships:
     destroy:
-      failure: "Ekki tókst að fjarlægja persónu af ásýnd"
-      no_membership: "Valda manneskjan fannst ekki í þeirri ásýnd"
-      success: "Það heppnaðist að fjarlægja persónu af ásýnd"
+      failure: "Ekki tókst að fjarlægja persónu af ásýnd."
+      no_membership: "Valda manneskjan fannst ekki í þeirri ásýnd."
+      success: "Það heppnaðist að fjarlægja persónu af ásýnd."
   aspects:
     add_to_aspect:
       failure: "Ekki tókst að bæta tengilið við ásýnd."
@@ -82,7 +82,7 @@ is:
       stay_updated: "Fylgstu með"
     destroy:
       failure: "%{name} er ekki hægt að fjarlægja."
-      success: "það heppnaðist að fjarlægja %{name}."
+      success: "Það heppnaðist að fjarlægja %{name}."
     edit:
       aspect_list_is_not_visible: "Tengiliðir í þessari ásýnd geta ekki séð hvern annan."
       aspect_list_is_visible: "Tengiliðir í þessari ásýnd geta séð hvern annan."
@@ -108,10 +108,11 @@ is:
         learn_more: "Vita meira"
         title: "Bjóða nýja notendur velkomna"
       services:
+        content: "Þú getur tengt eftirfarandi þjónustur við diaspora*:"
         heading: "Tengja þjónustur"
       welcome_to_diaspora: "Velkomin í Diaspora* %{name}!"
     no_contacts_message:
-      community_spotlight: "efst á baugi í samfélaginu"
+      community_spotlight: "Efst á baugi í samfélaginu"
       or_spotlight: "Eða þú getur deilt með %{link}"
       try_adding_some_more_contacts: "Þú getur leitað eða %{invite_link} fleiri tengiliðum."
       you_should_add_some_more_contacts: "Þú ættir að bæta við tengiliðum!"
@@ -134,10 +135,12 @@ is:
       commenting: "Athugasemd gerð..."
   contacts:
     index:
+      add_a_new_aspect: "Bæta við nýrri ásýnd"
       all_contacts: "Allir tengiliðir"
       community_spotlight: "Efst á baugi í samfélaginu"
       my_contacts: "Tengiliðirnir mínir"
       no_contacts: "No contacts."
+      no_contacts_message: "Skoðaðu %{community_spotlight}"
       start_a_conversation: "Hefja umræðu"
       title: "Tengiliðir"
     spotlight:
@@ -152,16 +155,17 @@ is:
     new:
       send: "Senda"
       sending: "Sendi..."
-      subject: "efni"
-      to: "til"
+      subject: "Efni"
+      to: "við"
     show:
+      delete: "Eyða samtali"
       reply: "svar"
       replying: "Svara..."
   date:
     formats:
       birthday: "%B %d"
-      birthday_with_year: "%d %B %Y"
-      fullmonth_day: "%d %B"
+      birthday_with_year: "%d. %B %Y"
+      fullmonth_day: "%d. %B"
   delete: "Eyða"
   email: "Netfang"
   error_messages:
@@ -190,7 +194,7 @@ is:
       whats_in_profile_a: "Ferilskráin, staðsetning, kyn og fæðingardagur.  Þetta eru allt hlutir sem eru neðst á Síðunni Þinni.  Þú ræður hvort þú setur upplýsingar þar inn.  Eingöngu einstaklingar sem þú hefur bætt í eina af þínum sýnum, og eru skráðir inn, geta séð þessar upplýsingar.  Þegar þeir fara á síðuna þína geta þeir séð þau skeyti sem þú hefur deilt með öllum, sem og þau skeyti sem þú hefur valið að deila með sýnum sem þeir eru í."
   invitations:
     create:
-      no_more: "Ekki eru til fleiri boðsmiðar."
+      no_more: "Ekki eru fleiri boðsmiðar."
       rejected: "Eftirfarandi netföng ollu vandræðum: "
       sent: "Boðsmiðar hafa verið sendir til: %{emails}"
     new:
@@ -202,6 +206,7 @@ is:
     application:
       back_to_top: "Fara efst"
       powered_by: "Keyrt með díaspora*"
+      public_feed: "Opinbert diaspora*-streymi fyrir %{name}"
       toggle: "Víxla farsímavef af/á"
       whats_new: "Hvað er að frétta?"
     header:
@@ -322,7 +327,7 @@ is:
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
     liked:
-      liked: "%{name} has just liked your post: "
+      liked: "%{name} líkaði við færsluna þína"
       view_post: "Skoða færslu >"
     mentioned:
       subject: "%{name} hefur getið þín á Diaspora*"
@@ -340,7 +345,7 @@ is:
     add_contact:
       invited_by: "Þér var boðið af"
     index:
-      no_one_found: "...og enginn fannst."
+      no_one_found: "...og ekkert fannst."
       no_results: "Hey! Þú þarft að leita að einhverju."
       results_for: "Notendur sem samsvara %{search_term}"
     person:
@@ -351,6 +356,7 @@ is:
       gender: "Kyn"
       location: "Staðsetning"
     show:
+      closed_account: "Þessum aðgangi hefur verið lokað."
       does_not_exist: "Manneskjan er ekki til!"
   photos:
     create:
@@ -367,6 +373,7 @@ is:
         one: "Ein mynd frá %{author}"
         other: "%{count} myndir frá %{author}"
         zero: "Engar myndir frá %{author}"
+      reshare_by: "Endurdeilt af %{author}"
   privacy: "Gagnaleynd"
   profile: "Síðan mín"
   profiles:
@@ -405,6 +412,7 @@ is:
   reshares:
     reshare:
       reshare_confirmation: "Endurdeila frá %{author}?"
+      reshared_via: "Endurdeilt með"
   search: "Leita"
   services:
     create:
@@ -455,6 +463,8 @@ is:
       title: "Ásýndirnar þínar"
     aspects_stream: "Ásýndir"
     community_spotlight_stream: "Efst á baugi í samfélaginu"
+    followed_tag:
+      follow: "Fylgjast með"
   tags:
     show:
       follow: "Fylgjast með #%{tag}"
@@ -472,9 +482,11 @@ is:
       change_password: "Breyta lykilorði"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Loka aðgangi"
       current_password: "Núverandi lykilorð"
       edit_account: "Breyta notandastillingum"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      export_data: "Flytja út gögn"
       new_password: "Nýtt lykilorð"
       receive_email_notifications: "Fá tilkynningar í tölvupósti þegar:"
       your_email: "Netfangið þitt"

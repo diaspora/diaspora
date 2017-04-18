@@ -52,7 +52,7 @@ de:
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
     omniauth_callbacks:
-      failure: "Konnte dich nicht mittels %{kind} authentifizieren, denn „%{reason}”."
+      failure: "Konnte dich nicht mittels %{kind} authentifizieren, denn „%{reason}“."
       success: "Erfolgreich authentifiziert mittels %{kind}-Konto."
     passwords:
       edit:

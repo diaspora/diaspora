@@ -228,6 +228,7 @@ fr:
           quote: "Insérer une citation"
           write: "Modifier le message"
         write: "Écrire"
+      mention_success: "Mentions réussies : <%= names %>"
       near_from: "Posté à : <%= location %>"
       option: "Choix"
       public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"

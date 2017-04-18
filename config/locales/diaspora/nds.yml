@@ -720,8 +720,6 @@ nds:
     total_users: "Bruker insgesamt"
     version: "Version"
   status_messages:
-    create:
-      success: "Erfolgriek erwähnt: %{names}"
     new:
       mentioning: "Erwähn: %{person}"
     too_long: "Bidde mok dien Bidrag kötter as %{count} Teken. In Moment is he %{current_length} Teken lang"

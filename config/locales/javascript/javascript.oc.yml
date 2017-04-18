@@ -229,6 +229,7 @@ oc:
           quote: "Inserir una citacion"
           write: "Modificar lo messatge"
         write: "Escriure"
+      mention_success: "Es ben estat mencionat : <%= names %>"
       near_from: "Postat a : <%= location %>"
       option: "Responsa"
       public: "Public - vòstre messatge serà visible de totes e trobat pels motors de recèrca"
@@ -316,7 +317,7 @@ oc:
       seconds: "mens d'una minuta"
       suffixAgo: ""
       suffixFromNow: "ara"
-      wordSeparator: ""
+      wordSeparator: " "
       year: "environ un an"
       years:
         one: "un an"

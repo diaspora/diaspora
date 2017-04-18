@@ -218,6 +218,7 @@ es:
           quote: "Insertar comillas"
           write: "Editar mensaje"
         write: "Escribir"
+      mention_success: "Mencionaste correctamente <%= names %>"
       near_from: "Cerca de: <%= location %>"
       option: "Respuesta"
       public: "Público - tu publicación es visible para todos, incluyendo buscadores"

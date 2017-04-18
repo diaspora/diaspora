@@ -70,9 +70,9 @@ es-AR:
         one: "%{count} comentario"
         other: "%{count} comentarios"
         zero: "%{count} comentarios"
-      current_segment: "Este período tiente un promedio de <b>%{post_yest}</b> publicaciones por usuario, desde <b>%{post_day}</b>"
+      current_segment: "Este período tiente un promedio de %{post_yest} publicaciones por usuario, desde %{post_day}"
       daily: "Diario"
-      display_results: "Mostrando los resultados del período <b>%{segment}</b>"
+      display_results: "Mostrando los resultados del período %{segment}"
       go: "Ir"
       month: "Mes"
       posts:
@@ -83,7 +83,7 @@ es-AR:
         one: "Compartido %{count} vez"
         other: "Compartido %{count} veces"
         zero: "Compartido %{count} veces"
-      tag_name: "Nombre de la etiqueta: <b>%{name_tag}</b> Cantidad: <b>%{count_tag}</b>"
+      tag_name: "Nombre de la etiqueta: %{name_tag} Cantidad: %{count_tag}"
       usage_statistic: "Estadísticas de uso"
       users:
         one: "%{count} usuario"
@@ -222,6 +222,7 @@ es-AR:
       updating: "Actualizando"
     index:
       donate: "Donar"
+      donate_liberapay: "Donar a liberapay"
       help:
         any_problem: "¿Algún problema?"
         contact_podmin: "Contacta al administrador de tu pod!"
@@ -977,7 +978,7 @@ es-AR:
     comment_label: "<b>Comentario</b>: %{data}"
     confirm_deletion: "¿Está seguro de borrar el item?"
     delete_link: "Borrar item"
-    not_found: "<u>No se ha encontrado la publicación/comentario. ¡Al parecer ha sido borrada por el usuario!</u>"
+    not_found: "No se ha encontrado la publicación/comentario. ¡Al parecer ha sido borrada por el usuario!"
     post_label: "<b>Publicación</b>: %{content}"
     reason_label: "Motivo:"
     reported_label: "<b>Reportada por</b> %{person}"
@@ -1092,8 +1093,6 @@ es-AR:
     total_users: "Usuarios totales"
     version: "Versión"
   status_messages:
-    create:
-      success: "Se mencionó a: %{names}"
     new:
       mentioning: "Mencionar a: %{person}"
     too_long: "Por favor haz que tu mensaje de estado tenga menos de %{count} caracteres. En este momento el máximo permitido es de %{current_length} caracteres."
@@ -1109,6 +1108,8 @@ es-AR:
     aspects_stream: "Aspectos"
     comment_stream:
       title: "Posts Comentados"
+    commented:
+      title: "Posts comentados"
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
@@ -1118,6 +1119,8 @@ es-AR:
     followed_tags_stream: "#Etiquetas que sigues"
     like_stream:
       title: "Tus preferidos"
+    liked:
+      title: "Posts con ''Me gusta''"
     mentioned_stream: "@Menciones"
     mentions:
       title: "@Menciones"

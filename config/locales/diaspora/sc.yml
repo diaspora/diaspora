@@ -110,9 +110,37 @@ sc:
   contacts:
     index:
       add_a_new_aspect: "Annanghe un'aspetu nou"
+      all_contacts: "Totu sos cuntatos"
+      community_spotlight: "In evidèntzia in sa comunidade"
+      my_contacts: "Cuntatos meos"
       no_contacts: "Paret chi tue tèngias bisòngiu de annànghere carchi cuntatu in prus!"
+      no_contacts_message: "Abbàida %{community_spotlight}"
+      only_sharing_with_me: "Cumpartzint petzi cun mie"
       start_a_conversation: "Incumintza un'arresonu"
       title: "Cuntatos"
+    spotlight:
+      community_spotlight: "In evidèntzia in sa comunidade"
+  conversations:
+    create:
+      fail: "Messàgiu non vàlidu"
+      sent: "Messàgiu imbiadu"
+    index:
+      inbox: "Casella de posta"
+      no_messages: "Perunu messàgiu"
+    new:
+      send: "Imbia"
+      sending: "Imbiende..."
+      subject: "Sugetu"
+      to: "A"
+    show:
+      delete: "Iscantzella s'arresonu"
+      reply: "Risponde"
+      replying: "Rispondende..."
+  date:
+    formats:
+      birthday: "%d de %B"
+      birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d de %B"
   delete: "Burra"
   email: "P. eletr. (e-mail)"
   error_messages:
@@ -120,6 +148,24 @@ sc:
       correct_the_following_errors_and_try_again: "Currege custos errore e torra a proare."
   fill_me_out: "Iscrie inoghe"
   find_people: "Agata pessonas o #etichetas"
+  invitations:
+    create:
+      no_more: "Non tenes prus invitos."
+      rejected: "Custos indiritzos de posta eletrònica ant tentu problemas: %{emails}"
+      sent: "Sos invitos sunt istados imbiados a: %{emails}"
+    new:
+      invite_someone_to_join: "Invita calicunu a intrare in diaspora*!"
+      language: "Limba"
+      send_an_invitation: "Imbia un'invitu"
+  layouts:
+    application:
+      powered_by: "Suportadu dae diaspora*"
+      whats_new: "Ite b'est de nou?"
+    header:
+      code: "Còdighe"
+      logout: "Essi"
+      profile: "Profilu"
+      settings: "Impostatziones"
   limited: "Limitadu"
   more: "Àteru"
   no_results: "Perunu resurtadu agatadu"
@@ -141,6 +187,11 @@ sc:
   public: "Pùblicu"
   search: "Chirca"
   settings: "Impostatziones"
+  streams:
+    commented:
+      title: "Messàgios pùblicos cummentados"
+    liked:
+      title: "Messàgios pùblicos agradados"
   username: "Nùmene impitadore"
   users:
     edit:

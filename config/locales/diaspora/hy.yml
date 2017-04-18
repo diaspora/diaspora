@@ -921,7 +921,7 @@ hy:
     comment_label: "<b>Մեկնաբանություն</b>․<br>%{data}"
     confirm_deletion: "Համոզվա՞ծ ես, որ պետք է ջնջել սա։"
     delete_link: "Ջնջել սա"
-    not_found: "<u>Գրառումը/մեկնաբանությունը չգտնվեց։ Կարծես թե օգտատերը ջնջել է դա։<del></del></u>"
+    not_found: "Գրառումը/մեկնաբանությունը չգտնվեց։ Կարծես թե օգտատերը ջնջել է դա։"
     post_label: "<b>Գրառում</b>․ %{title}"
     reason_label: "Պատճառաբանությունը՝"
     reported_label: "<b>Բողոքողը՝</b> %{person}"
@@ -1029,8 +1029,6 @@ hy:
     total_users: "Ընդհանուր օգտատերեր"
     version: "Վարկած"
   status_messages:
-    create:
-      success: "Բարեհաջող նշվեց(ին)` %{names}"
     new:
       mentioning: "Նշում ես %{person}-ին"
     too_long: "Գրառումդ չպետք է գերազանցի %{count} նիշը։ Այն այժմ %{current_length} նիշից է բաղկացած։"

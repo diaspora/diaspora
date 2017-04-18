@@ -1072,8 +1072,6 @@ nl:
     total_users: "Aantal gebruikers"
     version: "Versie"
   status_messages:
-    create:
-      success: "Succesvol vermeld: %{names}"
     new:
       mentioning: "Noem: %{person}"
     too_long: "Zorg ervoor dat je statusbericht korter is dan %{count} tekens. Nu is het %{current_length} tekens lang"

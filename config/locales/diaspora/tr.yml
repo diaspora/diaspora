@@ -692,8 +692,6 @@ tr:
       user: "Gizli Resim ve kod farklıydı"
     placeholder: "Resimdeki değeri girin"
   status_messages:
-    create:
-      success: "Başarıyla bahsedildi: %{names}"
     new:
       mentioning: "Bahseden: %{person}"
     too_long: "{\"other\"=>\"durum mesajları %{count} karakterden az olmalıdır.\", \"zero\"=>\"durum mesajları %{count} karakterden az olmalıdır.\"}"
@@ -705,6 +703,8 @@ tr:
     aspects_stream: "Yönler"
     comment_stream:
       title: "Yorumlanan gönderiler"
+    commented:
+      title: "yorumladı mesajlar"
     community_spotlight_stream: "Topluluk Spotlight"
     followed_tag:
       add_a_tag: "Etiket ekle"
@@ -713,6 +713,8 @@ tr:
     followed_tags_stream: "#Takip Edilen Etiketler"
     like_stream:
       title: "İğnelenenler akışı"
+    liked:
+      title: "mesajlar gibi"
     mentioned_stream: "@Bahsedenler"
     mentions:
       title: "@Bahsedenler"

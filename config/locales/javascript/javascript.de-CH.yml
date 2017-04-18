@@ -6,6 +6,49 @@
 
 de-CH:
   javascripts:
+    confirm_dialog: "Bisch sicher?"
+    delete: "Lösche"
+    header:
+      contacts: "Kontäkt"
+      conversations: "Nochrichte"
+      help: "Hilf"
+      log_out: "Abmelde"
+      notifications: "Benochtichtigunge"
+      profile: "Profil"
+      search: "Sueche"
+      settings: "Iistellige"
+      view_all: "Alli aazeige"
+    ignore: "Ignoriere"
+    my_activity: "Mini Aktivitätä"
+    photo_uploader:
+      looking_good: "OMG, du gsesch super us!"
+    poll:
+      vote: "Abstimme"
+    profile:
+      bio: "Beschriibig"
+      born: "Geburi"
+      contacts: "Kontäkt"
+      gender: "Gschlächt"
+      location: "Ort"
+      photos: "Fotis"
+      posts: "Biiträg"
+    show_more: "Meh aazeige"
+    stream:
+      comment: "Kommentiere"
+      follow: "Folge"
+      hide: "Verstecke"
+      like: "Gfallt mer"
+      likes:
+        one: "Öpperem gfällt da"
+        other: "<%= count %> Lüüt gfällt da"
+        zero: "Niemertem gfällt da"
+      limited: "Begrenzt"
+      public: "Öffentlich"
+      reshare: "Wiitersägä"
+      show_nsfw_post: "Biitrag aazeige"
+      show_nsfw_posts: "Alli aazeige"
+      unfollow: "Nüm folge"
+      unlike: "Gfallt mer nüme"
     timeago:
       day: "eim Tag"
       days:
