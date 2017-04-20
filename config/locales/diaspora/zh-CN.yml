@@ -527,6 +527,7 @@ zh-CN:
       started_sharing: "…当有人开始与您分享内容？"
       stream_preferences: "动态设置"
       your_email: "您的电子邮箱"
+      your_email_private: "您的保密邮箱"
       your_handle: "您的 Diaspora 帐号"
     getting_started:
       awesome_take_me_to_diaspora: "棒极了！带我去 Diaspora*"
