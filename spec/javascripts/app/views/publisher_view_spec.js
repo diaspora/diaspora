@@ -87,6 +87,12 @@ describe("app.views.Publisher", function() {
         expect(autosize.update).toHaveBeenCalledWith(this.view.inputEl);
       });
 
+      it("calls autosize.update", function() {
+        spyOn(autosize, "update");
+        this.view.close($.Event());
+        expect(autosize.update).toHaveBeenCalledWith(this.view.inputEl);
+      });
+
       it("should hide the poll container correctly", function() {
         this.view.$el.find(".poll-creator").click();
         expect(this.view.$el.find(".publisher-textarea-wrapper")).toHaveClass("with-poll");
