@@ -5,634 +5,231 @@
 
 
 zh-CN:
-  _applications: 应用
-  _contacts: 好友
-  _help: 帮助
-  _services: 服务
-  _statistics: 统计
-  _terms: 条款
-  account: 帐号
+  _applications: "应用"
+  _contacts: "好友"
+  _services: "服务"
+  account: "帐号"
   activerecord:
     errors:
       models:
         contact:
           attributes:
             person_id:
-              taken: 在好友中必须是唯一的。
+              taken: "在好友中必须是唯一的。"
         person:
           attributes:
             diaspora_handle:
-              taken: 已被注册。
-        poll:
-          attributes:
-            poll_answers:
-              not_enough_poll_answers: 调查问卷需提供足够选项。
-        poll_participation:
-          attributes:
-            poll:
-              already_participated: 您已经参与过该调查。
+              taken: "已被注册。"
         request:
           attributes:
             from_id:
-              taken: 与已存在的请求重复。
+              taken: "与已存在的请求重复。"
         reshare:
           attributes:
             root_guid:
-              taken: 您已经转发过了。
+              taken: "您已经转发过了。"
         user:
           attributes:
             email:
-              taken: 已被注册。
+              taken: "已被注册。"
             person:
-              invalid: 不合法。
+              invalid: "不合法。"
             username:
-              invalid: 不合法。用户名中只允许包含字母，数字和下划线。
-              taken: 已被注册。
+              invalid: "不合法。用户名中只允许包含字母，数字和下划线。"
+              taken: "已被注册。"
   admins:
     admin_bar:
-      dashboard: 仪表盘
-      pages: 分页
-      pod_network: Pod 网络
-      pod_stats: Pod 统计资料
-      report: 报表
-      sidekiq_monitor: Sidekiq 监控器
-      user_search: 搜索用户
-      weekly_user_stats: 用户统计周报
-    dashboard:
-      fetching_diaspora_version: 正在检测diaspora*的最新版本……
-      pod_status: Pod 状态
-    pods:
-      pod_network: Pod 网络
+      pages: "分页"
+      pod_stats: "Pod 统计资料"
+      user_search: "搜索用户"
+      weekly_user_stats: "用户统计周报"
     stats:
-      2weeks: 两周
-      50_most: 50个最流行的标签
+      2weeks: "两周"
+      50_most: "50个最流行的标签"
       comments:
         other: "%{count} 个意见"
         zero: "%{count} 个意见"
-      current_segment: 目前时间区间有 <b>%{post_day}</b> 天，平均每个使用者有 <b>%{post_yest}</b> 篇内容
-      daily: 一天
-      display_results: 显示时间在 <b>%{segment}</b> 内的结果
-      go: 好
-      month: 一月
+      current_segment: "目前时间区间有 <b>%{post_day}</b> 天，平均每个使用者有 <b>%{post_yest}</b> 篇内容"
+      daily: "一天"
+      display_results: "显示时间在 <b>%{segment}</b> 内的结果"
+      go: "好"
+      month: "一月"
       posts:
         other: "%{count} 篇内容"
         zero: "%{count} 篇内容"
       shares:
-        other: 分享 %{count} 次
-        zero: 分享 %{count} 次
-      tag_name: 标签名： <b>%{name_tag}</b> 数目：<b>%{count_tag}</b>
-      usage_statistic: 使用状况统计
+        other: "分享 %{count} 次"
+        zero: "分享 %{count} 次"
+      tag_name: "标签名： <b>%{name_tag}</b> 数目：<b>%{count_tag}</b>"
+      usage_statistic: "使用状况统计"
       users:
         other: "%{count} 个用户"
         zero: "%{count} 个用户"
-      week: 一周
-    user_entry:
-      account_closed: 账号已关闭
-      diaspora_handle: diaspora* 处理
-      email: 电子邮件
-      guid: GUID
-      id: ID
-      invite_token: 非法 token
-      last_seen: 最后阅读 seen
-      'no':  "No"
-      nsfw: '#nsfw'
-      unknown: 未知
-      'yes': "Yes"
+      week: "一周"
     user_search:
-      account_closing_scheduled: "名为 %{name} 的账户已经在提交关停请求，即将处理……"
-      account_locking_scheduled: "名为 %{name} 的账户已经在提交锁定请求，即将处理……"
-      account_unlocking_scheduled: "名为 %{name} 的账户已经在提交解锁请求，即将处理……"
-      add_invites: 增加邀请次数
-      are_you_sure: "您确定要关停该账号？"
-      are_you_sure_lock_account: "您确定要锁定该账号？"
-      are_you_sure_unlock_account: "您确定要解锁该账号？"
-      close_account: "关停账号"
-      email_to: 寄电子邮件邀请
-      invite: "邀请"
-      lock_account: "锁定账号"
-      under_13: "显示13岁以下用户 (COPPA)"
-      unlock_account: "解锁账号"
+      add_invites: "增加邀请次数"
+      email_to: "寄电子邮件邀请"
       users:
-        other: 找到 %{count} 个用户
-        zero: 找到 %{count} 个用户
-      view_profile: "查看资料"
+        other: "找到 %{count} 个用户"
+        zero: "找到 %{count} 个用户"
       you_currently:
-        other: 您目前还可以邀请 %{user_invitation} 次 %{link}
+        other: "您目前还可以邀请 %{user_invitation} 次 %{link}"
     weekly_user_stats:
       amount_of:
-        other: 本周新用户数目：%{count}
-        zero: 本周新用户数目：0
-      current_server: 服务器当前日期：%{date}
-  all_aspects: 所有分组
-  api:
-    openid_connect:
-      authorizations:
-        destroy:
-          fail: 解除ID为 %{id}的授权失败
-        new:
-          access: ' %{name} 正在请求访问:'
-          approve: "批准"
-          bad_request: "缺少client id或者重定向URI"
-          client_id_not_found: "从 URI %{redirect_uri} 中未找到 client_id %{client_id}"
-          deny: "拒绝"
-          no_requirement:  "%{name} 无需额外授权"
-          redirection_message: "请确认授权 %{redirect_uri} 访问"
-      error_page:
-        contact_developer: '请联系应用程序开发者，并附上如下信息:'
-        could_not_authorize: 该应用程序无法授权
-        login_required: 授权该应用前请先登录
-        title: 我的妈呀！出问题了 :(
-      scopes:
-        aud:
-          description: 赋予 aud 权限
-          name: aud
-        name:
-          description: 赋予 name 权限
-          name: name
-        nickname:
-          description: 赋予 nickname 权限
-          name: nickname
-        openid:
-          description: 允许应用读取基本资料
-          name: basic profile
-        picture:
-          description: 允许应用操作图片
-          name: picture
-        profile:
-          description: 允许应用读取扩展资料
-          name: extended profile
-        read:
-          description: 允许应用读取信息流、聊天记录以及完整的个人资料
-          name: read profile, stream and conversations
-        sub:
-          description: 赋予 sub 权限
-          name: sub
-        write:
-          description: 允许应用发布文章、聊天消息以及响应
-          name: send posts, conversations and reactions
-      user_applications:
-        index:
-          access: '%{name} 有如下访问权限:'
-          edit_applications: 应用程序
-          no_requirement: "%{name} 无需额外授权"
-          title: "授权的应用程序"
-        no_applications: "尚无已授权的应用程序"
-        policy: "查看保密政策"
-        revoke_autorization: 召回
-        tos: "查看服务条款"
-  are_you_sure: 您确定吗？
-  are_you_sure_delete_account: 您真的确定要关闭您的帐号吗? 此操作不可撤销。
+        other: "本周新用户数目：%{count}"
+        zero: "本周新用户数目：0"
+      current_server: "服务器当前日期：%{date}"
+  all_aspects: "所有分组"
+  are_you_sure: "您确定吗？"
+  are_you_sure_delete_account: "您真的确定要关闭您的帐号吗? 此操作不可撤销。"
   aspect_memberships:
     destroy:
-      failure: 从分组中移除好友失败
-      forbidden: "无权进行此操作"
-      invalid_statement: 重复记录，已拒绝。
-      no_membership: 在分组中找不到选择的好友
-      success: 从分组中移除好友成功
+      failure: "从分组中移除好友失败"
+      no_membership: "在分组中找不到选择的好友"
+      success: "从分组中移除好友成功"
   aspects:
     add_to_aspect:
-      failure: 将好友添加到分组失败。
-      success: 将好友添加到分组成功。
+      failure: "将好友添加到分组失败。"
+      success: "将好友添加到分组成功。"
     aspect_listings:
       add_an_aspect: "+ 新增分组"
     aspect_stream:
-      make_something: 做点什么
-      stay_updated: 随时更新
-      stay_updated_explanation: 您的主动态会充满您的好友，您关注的标签，和有趣的群的内容。
-    create:
-      failure: '失败'
-      success: '成功'
+      make_something: "做点什么"
+      stay_updated: "随时更新"
+      stay_updated_explanation: "您的主动态会充满您的好友，您关注的标签，和有趣的群的内容。"
     destroy:
-      failure: 无法删除 %{name} ，它不是空的。
-      success: 删除 %{name} 成功。
-      success_auto_follow_back:  "%{name} 已经移除。这种方式帮助你自动回粉用户。查看你的用户设置以重新设置回粉方式"
+      failure: "无法删除 %{name} ，它不是空的。"
+      success: "删除 %{name} 成功。"
     edit:
-      aspect_list_is_not_visible: 分组中的好友不能看见此分组的好友列表
-      aspect_list_is_visible: 分组中的好友能够看见此分组的好友列表
-      confirm_remove_aspect: 您确定要删除这个分组？
-      rename: 重命名
-      update: 更新
-      updating: 更新中
+      aspect_list_is_not_visible: "分组中的好友不能看见此分组的好友列表"
+      aspect_list_is_visible: "分组中的好友能够看见此分组的好友列表"
+      confirm_remove_aspect: "您确定要删除这个分组？"
+      rename: "重命名"
+      update: "更新"
+      updating: "更新中"
     index:
-      donate: 捐助
-      donate_liberapay: "为了自由捐献"
+      donate: "捐助"
       help:
-        any_problem: "还有问题？"
-        contact_podmin: "请联系管理员！"
-        do_you: 您是否：
+        do_you: "您是否："
         feature_suggestion: "...想建议 %{link}?"
         find_a_bug: "...找到一只 %{link}？"
         have_a_question: "...有 %{link} ？"
-        here_to_help: Diaspora 社区很高兴帮助您！
-        mail_podmin: Podmin email
-        need_help: 需要帮助吗？
+        here_to_help: "Diaspora 社区很高兴帮助您！"
+        need_help: "需要帮助吗？"
         tag_bug: "#bug"
         tag_feature: "#特色"
         tag_question: "#问题"
-        tutorial_link_text: 教程
-        tutorials_and_wiki: '%{faq}, %{tutorial} & %{wiki}: 帮助你顺利开始。'
-      introduce_yourself: 这是您的动态。介绍一下自己吧！
-      keep_pod_running: 让 %{pod} 高速运转，需要您的每月捐助，供应服务器的耗材！
+      introduce_yourself: "这是您的动态。介绍一下自己吧！"
+      keep_pod_running: "让 %{pod} 高速运转，需要您的每月捐助，供应服务器的耗材！"
       new_here:
-        follow: 关注 %{link} 。欢迎新用户！
-        learn_more: 了解更多
-        title: 欢迎新用户！
+        follow: "关注 %{link} 。欢迎新用户！"
+        learn_more: "了解更多"
+        title: "欢迎新用户！"
       services:
-        content: 您可以将以下服务连接至 Diaspora：
-        heading: 连接服务
+        content: "您可以将以下服务连接至 Diaspora："
+        heading: "连接服务"
       welcome_to_diaspora: "%{name}，欢迎加入 Diaspora!"
     no_contacts_message:
-      community_spotlight: 社区热点
-      invite_link_text:  invite
-      or_spotlight: 或者您也可以和 %{link} 分享内容
-      try_adding_some_more_contacts: 您可以在顶端搜索，或者在右侧邀请更多好友。
-      you_should_add_some_more_contacts: 添加更多好友！
+      community_spotlight: "社区热点"
+      or_spotlight: "或者您也可以和 %{link} 分享内容"
+      try_adding_some_more_contacts: "您可以在顶端搜索，或者在右侧邀请更多好友。"
+      you_should_add_some_more_contacts: "添加更多好友！"
     seed:
-      acquaintances: 熟人
-      family: 家人
-      friends: 朋友
-      work: 同事
+      acquaintances: "熟人"
+      family: "家人"
+      friends: "朋友"
+      work: "同事"
     update:
-      failure: 分组 %{name} 名称太长了，不能保存
-      success: 分组 %{name} 编辑成功。
+      failure: "分组 %{name} 名称太长了，不能保存"
+      success: "分组 %{name} 编辑成功。"
   blocks:
     create:
-      failure: 无法忽略用户。#借口
-      success: 您不会再在动态中看到此用户了。#安静！
+      failure: "无法忽略用户。#借口"
+      success: "您不会再在动态中看到此用户了。#安静！"
     destroy:
-      failure: 无法停止忽略用户。#借口
-      success: 看看他们说什么！#打招呼
+      failure: "无法停止忽略用户。#借口"
+      success: "看看他们说什么！#打招呼"
   bookmarklet:
-    explanation: 收藏<a href='%{link}'>这个链接</a>，即可随时发布新内容
-    heading: Diaspora 收藏夹
-    post_something: 发布新内容到 Diaspora
-    post_success: ' '
-  cancel: 取消
-  color_themes:
-    dark: 深色
-    dark_green:  深绿色
-    egyptian_blue: 埃及蓝
-    magenta: 品红色
-    original: 原始灰
-    original_white: 白色背景
+    explanation: "收藏<a href='%{link}'>这个链接</a>，即可随时发布新内容"
+    heading: "Diaspora 收藏夹"
+    post_something: "发布新内容到 Diaspora"
+  cancel: "取消"
   comments:
-    create:
-      error: 回复失败
     new_comment:
-      comment: 回复
-      commenting: 回复中……
+      comment: "回复"
+      commenting: "回复中……"
   contacts:
     index:
-      add_a_new_aspect: 加入新分组
-      add_contact: 添加联系人
-      all_contacts: 所有好友
-      community_spotlight: 社区热点
-      my_contacts: 我的好友
-      no_contacts: 尚未添加好友
-      no_contacts_in_aspect: 该分组还没有联系人，从下面联系人中选择？
-      no_contacts_message: 来看看 %{community_spotlight}
-      only_sharing_with_me: 和我分享内容的人
-      start_a_conversation: 开始对话
-      title: 好友
-      user_search: 搜索联系人
+      add_a_new_aspect: "加入新分组"
+      all_contacts: "所有好友"
+      community_spotlight: "社区热点"
+      my_contacts: "我的好友"
+      no_contacts: "尚未添加好友"
+      no_contacts_message: "来看看 %{community_spotlight}"
+      only_sharing_with_me: "和我分享内容的人"
+      start_a_conversation: "开始对话"
+      title: "好友"
     spotlight:
-      community_spotlight: 社区热点
-      no_members: 尚无成员
-      suggest_member: 推荐成员
+      community_spotlight: "社区热点"
   conversations:
     create:
-      fail: 无效的信息
-      sent: 消息发送成功
-    destroy:
-      delete_success: 会话已经删除
-      hide_success: 会话已经隐藏
+      fail: "无效的信息"
+      sent: "消息发送成功"
     index:
-      conversations_inbox: 聊天 – 收件箱
-      inbox: 收件箱
-      new_conversation: 新聊天
-      no_contacts: （空虚寂寞冷啊）开始聊天前，请先添加联系人
-      no_messages: 没消息
+      inbox: "收件箱"
+      no_messages: "没消息"
     new:
-      message: 消息
-      send: 发送
-      sending: 发送中...
-      subject: 主题
-      subject_default: 说点啥好呢？
-      to: 收件人
-    new_conversation:
-      fail: 无效消息
+      send: "发送"
+      sending: "发送中..."
+      subject: "主题"
+      to: "收件人"
     show:
-      delete: 删除并中止对话
-      hide: 不在提示该对话，并且隐藏之。
-      last_message: 上一条消息时间 %{timeago}
-      reply: 回复
-      replying: 回复中...
+      delete: "删除并中止对话"
+      reply: "回复"
+      replying: "回复中..."
   date:
     formats:
       birthday: "%m-%d"
       birthday_with_year: "%Y-%m-%d"
       fullmonth_day: "%B%d日"
-  delete: 删除
-  email: 电子邮件
+  delete: "删除"
+  email: "电子邮件"
   error_messages:
-    csrf_token_fail: CSRF token 无效，请重新登录。
     helper:
-      correct_the_following_errors_and_try_again: 修正以下错误后重试。
-    need_javascript: 该网站需要Javascript才能正确运行，如果你关闭了浏览器该功能，请启用它，并尝试刷新页面。
-  fill_me_out: 补全信息
-  find_people: 找人或#标签
-  help:
-    account_and_data_management:
-      close_account_a:  Go to the bottom of your settings page and click the “Close account” button. You will be asked to enter your password to complete the process. Remember, if you close your account, you will <strong>never</strong> be able to re-register your username on that pod.
-      close_account_q:  How do I delete my seed (account)?
-      data_other_podmins_a:  Once you are sharing with someone on another pod, any posts you share with them and a copy of your profile data are stored (cached) on their pod, and are accessible to that pod’s database administrator. When you delete a post or profile data it is deleted from your pod and a delete request is sent to any other pods where it had previously been stored. Your images are never stored on any pod but your own; only links to them are transmitted to other pods.
-      data_other_podmins_q:  Can the administrators of other pods see my information?
-      data_visible_to_podmin_a: ' In short: everything. Communication between pods is always encrypted (using SSL and diaspora*’s own transport encryption), but the storage of data on pods is not encrypted. If they wanted to, the database administrator for your pod (usually the person running the pod) could access all your profile data and everything that you post (as is the case for most websites that store user data). This is why we give you the choice which pod you sign up to, so you can choose a pod whose admin you are happy to trust with your data. Running your own pod provides more privacy since you then control access to the database.'
-      data_visible_to_podmin_q:  How much of my information can my pod administrator see?
-      download_data_a: ' Yes. At the bottom of the Account tab of your settings page you will find two buttons: one for downloading your data and one for downloading your photos.'
-      download_data_q:  Can I download a copy of all of my data contained in my seed (account)?
-      move_pods_a:  In the future you will be able to export your seed from a pod and import it on another, but this is not currently possible. You could always open a new account and add your contacts to aspects on that new seed, and ask them to add your new seed to their aspects.
-      move_pods_q:  How do I move my seed (account) from one pod to another?
-      title:  Account and data management
-    aspects:
-      change_aspect_of_post_a:  No, but you can always make a new post with the same content and post it to a different aspect.
-      change_aspect_of_post_q:  Once I have posted something, can I change the aspect(s) that can see it?
-      contacts_know_aspect_a:  No. They cannot see the name of the aspect under any circumstances.
-      contacts_know_aspect_q:  Do my contacts know which aspects I have put them in?
-      contacts_visible_a:  If you check this option then contacts from that aspect will be able to see who else is in it, in the “Contacts” tab on your profile page. It’s best to select this option only if the contacts in that aspect all know each other, for example if the aspect is for a club or society you belong to. They still won’t be able to see what the aspect is called.
-      contacts_visible_q:  What does “make contacts in this aspect visible to each other” mean?
-      delete_aspect_a:  Click “My aspects” in the side-bar from a stream view and click the pencil icon by the aspect you want to delete, or go to your Contacts page and select the relevant aspect. Then click the trash icon in the top right of the page.
-      delete_aspect_q:  How do I delete an aspect?
-      person_multiple_aspects_a:  Yes. Go to your contacts page and click on “My contacts”. For each contact you can use the menu on the right to add them to (or remove them from) as many aspects as you want. Or you can add them to a new aspect (or remove them from an aspect) by clicking the aspect selector button on their profile page. Or you can even just move the pointer over their name where you see it in the stream, and a “hovercard” will appear. You can change the aspects they are in right there.
-      person_multiple_aspects_q:  Can I add a person to multiple aspects?
-      post_multiple_aspects_a:  Yes. When you are making a post, use the aspect selector button to select or deselect aspects. “All aspects” is the default setting. Your post will be visible to all the aspects you select. You could also select the aspects you want to post to in the side-bar. When you post, the aspect(s) that you have selected in the list on the left will automatically be selected in the aspect selector when you start to make a new post.
-      post_multiple_aspects_q:  Can I post content to multiple aspects at once?
-      remove_notification_a:  No. They are also not notified if you add them to more aspects, when you are already sharing with them.
-      remove_notification_q:  If I remove someone from an aspect, or all of my aspects, are they notified of this?
-      rename_aspect_a:  Click “My aspects” in the side-bar from a stream view and click the pencil icon by the aspect you want to rename, or go to your Contacts page and select the relevant aspect. Then click the edit icon next to the aspect name at the top of this page, change the name and press “Update”.
-      rename_aspect_q:  How do I rename an aspect?
-      restrict_posts_i_see_a:  Yes. Click “My aspects” in the side-bar and then click individual aspects in the list to select or deselect them. Only the posts by people in the selected aspects will appear in your stream.
-      restrict_posts_i_see_q:  Can I restrict the posts in my stream to just those from certain aspects?
-      title:  Aspects
-      what_is_an_aspect_a:  Aspects are the way you group your contacts on diaspora*. An aspect is one of the faces you show to the world. It might be who you are at work, or who you are to your family, or who you are to your friends in a club you belong to.
-      what_is_an_aspect_q:  What is an aspect?
-      who_sees_post_a:  If you make a limited post, it will only be visible to the people you had placed in that aspect (or aspects, if it is made to multiple aspects) before making the post. Contacts you have who aren’t in the aspect have no way of seeing the post. Limited posts will never be visible to anyone who you haven’t placed into one of your aspects.
-      who_sees_post_q:  When I post to an aspect, who sees it?
-    chat:
-      add_contact_roster_a:  First, you need to enable chat for one of the aspects that person is in. To do so, go to the %{contacts_page}, select the aspect you want and click on the chat icon to enable chat for the aspect. %{toggle_privilege} You could, if you prefer, create a special aspect called “Chat” and add the people you want to chat with to that aspect. Once you’ve done this, open the chat interface and select the person you want to chat with.
-      add_contact_roster_q:  How do I chat with someone in diaspora*?
-      contacts_page:  contacts page
-      title:  Chat
-    faq:  FAQ
-    foundation_website:  diaspora* foundation website
-    getting_help:
-      get_support_a_faq:  Read our %{faq} page on wiki
-      get_support_a_hashtag:  Ask in a public post on diaspora* using the %{question} hashtag
-      get_support_a_irc:  Join us on %{irc} (live chat)
-      get_support_a_tutorials:  Check out our %{tutorials}
-      get_support_a_website:  Visit our %{link}
-      get_support_a_wiki:  Search the %{link}
-      get_support_q:  What if my question is not answered in this FAQ? Where else can I get support?
-      getting_started_a:  You’re in luck. Try the %{tutorial_series} on our project site. It will take you step-by-step through the registration process and teach you all the basic things you need to know about using diaspora*.
-      getting_started_q:  Help! I need some basic help to get me started!
-      title:  Getting help
-    getting_started_tutorial:  ”Getting started” tutorial series
-    here:  here
-    irc:  IRC
-    keyboard_shortcuts:
-      keyboard_shortcuts_a1: ' In the stream view you can use the following keyboard shortcuts:'
-      keyboard_shortcuts_li1:  j – Jump to the next post
-      keyboard_shortcuts_li2:  k – Jump to the previous post
-      keyboard_shortcuts_li3:  c – Comment on the current post
-      keyboard_shortcuts_li4:  l – Like the current post
-      keyboard_shortcuts_li5:  r – Reshare the current post
-      keyboard_shortcuts_li6:  m – Expand the current post
-      keyboard_shortcuts_li7:  o – Open the first link in the current post
-      keyboard_shortcuts_li8:  Ctrl+Enter – Send the message you are writing
-      keyboard_shortcuts_q:  What keyboard shortcuts are available?
-      title:  Keyboard shortcuts
-    markdown:  Markdown
-    mentions:
-      how_to_mention_a:  Type the “@” sign and start typing their name. A drop-down menu should appear to let you select them more easily. Note that it is only possible to mention people you have added to an aspect.
-      how_to_mention_q:  How do I mention someone when making a post?
-      mention_in_comment_a:  No, not currently.
-      mention_in_comment_q:  Can I mention someone in a comment?
-      see_mentions_a:  Yes, click “@Mentions” in the left-hand column on your home page.
-      see_mentions_q:  Is there a way to see the posts in which I have been mentioned?
-      title:  Mentions
-      what_is_a_mention_a:  A mention is a link to a person’s profile page that appears in a post. When someone is mentioned they receive a notification that calls their attention to the post.
-      what_is_a_mention_q:  What is a “mention”?
-    miscellaneous:
-      back_to_top_a:  Yes. After scrolling down a page, click on the grey arrow that appears in the bottom right-hand corner of your browser window.
-      back_to_top_q:  Is there a quick way to go back to the top of a page after I scroll down?
-      diaspora_app_a:  There have been several Android apps in development by community members. Some are long-abandoned projects and so do not work well with the current version of diaspora*. Don’t expect much from these apps at the moment. There is currently no app for iOS. The best way to access diaspora* from your mobile device is through a browser, because we’ve designed a mobile version of the site which should work well on all devices, although it does not yet have complete functionality.
-      diaspora_app_q:  Is there a diaspora* app for Android or iOS?
-      photo_albums_a:  No, not currently. However you can view a person’s uploaded pictures under the Photos tab of their profile page.
-      photo_albums_q:  Are there photo or video albums?
-      subscribe_feed_a: ' Yes, but this is still not a polished feature and the formatting of the results is still pretty rough. If you want to try it anyway, go to someone’s profile page and click the feed button in your browser, or you can copy the profile URL (e.g. https://podname.org/people/somenumber) and paste it into a feed reader. The resulting feed address looks like this: https://podname.org/public/username.atom – diaspora* uses Atom rather than RSS.'
-      subscribe_feed_q:  Can I subscribe to someone’s public posts with a feed reader?
-      title:  Miscellaneous
-    pods:
-      find_people_a: ' If you want to invite your friends to join diaspora*, use the invitation link or the email link in the side-bar. Follow #tags to discover others who share your interests, and add those who post things that interest you to an aspect. Shout out that you’re #newhere in a public post.'
-      find_people_q:  I just joined a pod, how can I find people to share with?
-      title:  Pods
-      use_search_box_a:  If you know their full diaspora* ID (e.g. username@podname.org), you can find them by searching for it. If you are on the same pod you can search for just their username. Alternatively you can search for them by their profile name (the name you see on screen). If a search does not work the first time, try it again.
-      use_search_box_q:  How do I use the search box to find particular individuals?
-      what_is_a_pod_a:  A pod is a server running the diaspora* software and connected to the diaspora* network. “Pod” is a metaphor referring to pods on plants which contain seeds, in the way that a server contains a number of user accounts. There are many different pods. You can add friends from other pods and communicate with them. There’s no need to open an account on different pods! One is enough – in this way, you can think of a diaspora* pod as similar to an email provider. There are public pods, private pods, and with some effort you can even run your own.
-      what_is_a_pod_q:  What is a pod?
-    posts_and_posting:
-      char_limit_services_a:  In that case you should restrict your post to the smaller character count (140 in the case of Twitter; 1000 in the case of Tumblr), and the number of characters you have left to use is displayed when that service’s icon is highlighted. You can still post to these services if your post is longer than their limit, but the text will be truncated on those services with a link to the post on diaspora*.
-      char_limit_services_q:  What if I'm sharing my post with a connected service with a smaller character count?
-      character_limit_a:  65,535 characters. That’s 65,395 more characters than you get on Twitter! ;)
-      character_limit_q:  What is the character limit for posts?
-      embed_multimedia_a: ' You can usually just paste the URL (e.g. http://www.youtube.com/watch?v=nnnnnnnnnnn ) into your post and the video or audio will be embedded automatically. The sites supported include: YouTube, Vimeo, SoundCloud, Flickr and a few more. diaspora* uses oEmbed for this feature. We’re supporting more media sources all the time. Remember to always post simple, full links – no shortened links; no operators after the base URL – and give it a little time before you refresh the page after posting for seeing the preview.'
-      embed_multimedia_q:  How do I embed a video, audio, or other multimedia content into a post?
-      format_text_a:  By using a simplified system called %{markdown}. You can find the full Markdown syntax %{here}. The preview button is really helpful here, as you can see how your message will look before you share it.
-      format_text_q:  How can I format the text in my posts (bold, italics, etc.)?
-      hide_posts_a:  If you point your mouse at the top of a post, an X appears on the right. Click it to hide the post and mute notifications about it. You can still see the post if you visit the profile page of the person who posted it.
-      hide_posts_q:  How do I hide a post?
-      image_text:  image text
-      image_url:  image url
-      insert_images_a:  Click the little camera icon to insert an image into a post. Press the camera icon again to add another photo, or you can select multiple photos to upload in one go.
-      insert_images_comments_a1:  You cannot upload images into comments, but the following Markdown code
-      insert_images_comments_a2:  can be used to insert images from the web into comments as well as posts.
-      insert_images_comments_q:  Can I insert images into comments?
-      insert_images_q:  How do I insert images into posts?
-      post_location_a:  Click the pin icon next to the camera in the publisher. This will insert your location from OpenStreetMap. You can edit your location – you might only want to include the city you’re in rather than the specific street address.
-      post_location_q:  How do I add my location to a post?
-      post_notification_a:  You will find a bell icon next to the X at the top right of a post. Click this to enable or disable notifications for that post.
-      post_notification_q:  How do I get notifications, or stop getting notifications, about a post?
-      post_poll_a:  Click the graph icon to generate a poll. Type a question and at least two answers. Don’t forget to make your post public if you want everyone to be able to participate in your poll.
-      post_poll_q:  How do I add a poll to my post?
-      post_report_a:  Click the alert triangle icon at the top right of the post to report it to your podmin. Enter a reason for reporting this post in the dialog box.
-      post_report_q:  How do I report an offensive post?
-      size_of_images_a:  No. Images are resized automatically to fit the stream or single-post view. Markdown does not have a code for specifying the size of an image.
-      size_of_images_q:  Can I customize the size of images in posts or comments?
-      stream_full_of_posts_a1: ' Your stream is made up of three types of posts:'
-      stream_full_of_posts_li1: ' Posts by people you are sharing with, which come in two types: public posts and limited posts shared with an aspect that you are part of. To remove these posts from your stream, simply stop sharing with the person.'
-      stream_full_of_posts_li2:  Public posts containing one of the tags that you follow. To remove these, stop following that tag.
-      stream_full_of_posts_li3:  Public posts by people listed in the community spotlight. These can be removed by unchecking the “Show community spotlight in stream?” option in the Account tab of your Settings.
-      stream_full_of_posts_q:  Why is my stream full of posts from people I don’t know and don’t share with?
-      title:  Posts and posting
-    private_posts:
-      can_comment_a:  Only logged-in diaspora* users you had placed in that aspect before making the private post can comment on or like it.
-      can_comment_q:  Who can comment on or like my private post?
-      can_reshare_a:  Nobody. Private posts are not resharable. Logged-in diaspora* users in that aspect can potentially copy and paste it, however. It’s up to you whether you trust those people!
-      can_reshare_q:  Who can reshare my private post?
-      see_comment_a: ' Only the people that the post was shared with (the people who are in the aspects selected by the original poster) can see its comments and likes. '
-      see_comment_q:  When I comment on or like a private post, who can see it?
-      title:  Private posts
-      who_sees_post_a:  Only logged-in diaspora* users you had placed in that aspect before making the private post can see it.
-      who_sees_post_q:  When I post a message to an aspect (i.e., a private post), who can see it?
-    private_profiles:
-      title:  Private profiles
-      whats_in_profile_a:  Your private profile contains your biography, location, gender, and birthday, if you have completed these sections. All this information is optional – it’s up to you whether you provide it. Logged-in users who you have added to your aspects are the only people who can see your private profile. When they visit your profile page they will also see the private posts that made to the aspect(s) they are in, mixed in with your public posts.
-      whats_in_profile_q:  What’s in my private profile?
-      who_sees_profile_a:  Any logged-in user that you are sharing with (meaning, you have added them to one of your aspects). However, people following you, but whom you do not follow, will see only your public information.
-      who_sees_profile_q:  Who sees my private profile?
-      who_sees_updates_a: ' Anyone in your aspects sees changes to your private profile. '
-      who_sees_updates_q:  Who sees updates to my private profile?
-    public_posts:
-      can_comment_reshare_like_a:  Any logged-in diaspora* user can comment on, reshare, or like your public post.
-      can_comment_reshare_like_q:  Who can comment on, reshare, or like my public post?
-      deselect_aspect_posting_a:  Deselecting aspects does not affect a public post. It will still be public and will appear in the streams of all of your contacts. To make a post visible only to specific aspects, you need to select those aspects from the aspect selector under the publisher.
-      deselect_aspect_posting_q:  What happens when I deselect one or more aspects when making a public post?
-      find_public_post_a: ' Your public posts will appear in the streams of anyone following you. If you included #tags in your public post, anyone following those tags will find your post in their streams. Every public post also has a specific URL that anyone can view, even if they’re not logged in – thus public posts may be linked to directly from Twitter, blogs, etc. Public posts may also be indexed by search engines.'
-      find_public_post_q:  How can other people find my public post?
-      see_comment_reshare_like_a:  Comments, likes, and reshares of public posts are also public. Any logged-in diaspora* user and anyone else on the internet can see your interactions with a public post.
-      see_comment_reshare_like_q:  When I comment on, reshare, or like a public post, who can see it?
-      title:  Public posts
-      who_sees_post_a:  Anyone using the internet can potentially see a post you mark public, so make sure you really do want your post to be public. It’s a great way of reaching out to the world.
-      who_sees_post_q:  When I post something publicly, who can see it?
-    public_profiles:
-      title:  Public profiles
-      what_do_tags_do_a:  They help people get to know you. Your profile picture will also appear on the left-hand side of those particular tag pages, along with anyone else who has them in their public profile.
-      what_do_tags_do_q:  What do the tags on my public profile do?
-      whats_in_profile_a:  Your public profile contains your name, the five tags you chose to describe yourself, and your photo, if you have completed these sections. All this information is optional – it’s up to you whether you provide it. You can make this profile information as identifiable or anonymous as you like. Your profile page also shows any public posts you have made.
-      whats_in_profile_q:  What’s in my public profile?
-      who_sees_profile_a:  Any logged-in diaspora* user, as well as the wider internet, can see it. Each profile has a direct URL, so it may be linked to directly from outside sites. It may be indexed by search engines.
-      who_sees_profile_q:  Who sees my public profile?
-      who_sees_updates_a:  Anyone can see changes if they visit your profile page.
-      who_sees_updates_q:  Who sees updates to my public profile?
-    resharing_posts:
-      reshare_private_post_aspects_a:  No, it is not possible to reshare any private post. This is to respect the intentions of the original poster, who shared it only with a particular group of people.
-      reshare_private_post_aspects_q:  Can I reshare a private post to selected aspects?
-      reshare_public_post_aspects_a:  No, when you reshare a public post it automatically becomes one of your public posts. To share it with certain aspects, copy and paste the contents of the post into a new, limited post.
-      reshare_public_post_aspects_q:  Can I reshare a public post to selected aspects?
-      title:  Resharing posts
-    sharing:
-      add_to_aspect_a1: ' Let’s say that Amy adds Ben to an aspect, but Ben has not (yet) added Amy to an aspect:'
-      add_to_aspect_a2:  This is known as asymmetrical sharing. If and when Ben also adds Amy to an aspect then it would become mutual sharing, with both Amy’s and Ben’s public posts and relevant private posts appearing in each other’s streams, and Amy would be able to view Ben’s private profile. They would then also be able to send each other private messages.
-      add_to_aspect_li1:  Ben will receive a notification that Amy has “started sharing” with Ben.
-      add_to_aspect_li2:  Amy will start to see Ben’s public posts in her stream.
-      add_to_aspect_li3:  Amy will not see any of Ben’s private posts.
-      add_to_aspect_li4:  Ben will not see Amy’s public or private posts in his stream.
-      add_to_aspect_li5:  But if Ben goes to Amy’s profile page, then he will see the private posts that Amy makes to the aspect that she has placed him in (as well as her public posts, which anyone can see there).
-      add_to_aspect_li6:  Ben will be able to see Amy’s private profile (biography, location, gender, birthday).
-      add_to_aspect_li7:  Amy will appear under “Only sharing with me” on Ben’s contacts page.
-      add_to_aspect_li8:  Amy will also be able to @mention Ben in a post.
-      add_to_aspect_q:  What happens when I add someone to one of my aspects, or when someone adds me to one of their aspects?
-      list_not_sharing_a:  No, but you can see whether or not someone is sharing with you by visiting their profile page. If they are, the button showing the aspect(s) in which you have placed them will be green; if not, it’ll be gray.
-      list_not_sharing_q:  Is there a list of people whom I have added to one of my aspects, but who have not added me to one of theirs?
-      only_sharing_a: ' These are people that have added you to one of their aspects, but who are not (yet) in any of your aspects. In other words, they are sharing with you, but you are not sharing with them: you can think of this as them “following” you. If you add them to an aspect, they will then appear under that aspect and not under “Only sharing with me”. See above.'
-      only_sharing_q:  Who are the people listed under “Only sharing with me” on my contacts page?
-      see_old_posts_a:  No. They will only be able to see new posts to that aspect. They (and everyone else) can see your older public posts on your profile page, and they may also see them in their stream.
-      see_old_posts_q:  When I add someone to an aspect, can they see older posts that I have already posted to that aspect?
-      sharing_notification_a:  You should receive a notification each time someone starts sharing with you.
-      sharing_notification_q:  How do I know when someone starts sharing with me?
-      title:  Sharing
-    tags:
-      filter_tags_a:  This is not yet available directly through diaspora*, but some %{third_party_tools} have been written that might provide this.
-      filter_tags_q:  How can I filter/exclude some tags from my stream?
-      followed_tags_a: ' After searching for a tag you can click the button at the top of the tag’s page to “follow” that tag. It will then appear in your list of followed tags in the left-hand menu. Clicking one of your followed tags takes you to that tag’s page so you can see recent posts containing that tag. Click on #Followed Tags to see a stream of posts that include any one of your followed tags.'
-      followed_tags_q:  What are “#Followed Tags” and how do I follow a tag?
-      people_tag_page_a:  They are people who have listed that tag to describe themselves in their public profile.
-      people_tag_page_q:  Who are the people listed on the left-hand side of a tag page?
-      tags_in_comments_a:  A tag added to a comment will still appear as a link to that tag’s page, but it will not make that post (or comment) appear on that tag page. This only works for tags in posts.
-      tags_in_comments_q:  Can I put tags in comments or just in posts?
-      title:  Tags
-      what_are_tags_for_a:  Tags are a way to categorize a post, usually by topic. Searching for a tag shows all posts, both public and private, with that tag that you have permission to see. This lets people who are interested in a given topic find public posts about it.
-      what_are_tags_for_q:  What are tags for?
-    third_party_tools:  Third-party tools
-    title_header:  Help
-    tutorial:  tutorial
-    tutorials:  tutorials
-    wiki:  wiki
-  home:
-    default:
-      be_who_you_want_to_be:  Be who you want to be
-      be_who_you_want_to_be_info:  A lot of networks insist that you use your real identity. Not diaspora*. Here you can choose who you want to be, and share as much or as little about yourself as you want. It really is up to you how you want to interact with other people.
-      byline:  The online social world where you are in control
-      choose_your_audience:  Choose your audience
-      choose_your_audience_info:  diaspora*’s aspects allow you to share with just those people you want to. You can be as public or as private as you like. Share a funny photo with the whole world, or a deep secret just with your closest friends. You’re in control.
-      headline:  Welcome to %{pod_name}
-      own_your_data:  Own your own data
-      own_your_data_info:  Many networks use your data to make money by analysing your interactions and using this information to advertise things to you. diaspora* doesn’t use your data for any purpose other than allowing you to connect and share with others.
-    podmin:
-      byline:  You’re about to change the Internet. Let’s get you set up, shall we?
-      configuration_info:  Open %{database_path} and %{diaspora_path} in your favourite text editor and carefully review them, they are extensively commented.
-      configure_your_pod:  Configure your pod
-      contact_irc:  contact us on IRC
-      contribute:  Contribute
-      contribute_info:  Make diaspora* even better! If you find any bugs please %{report_bugs}.
-      create_an_account:  Create an account
-      create_an_account_info:  %{sign_up_link} for a new account.
-      faq_for_podmins:  FAQ for pod maintainers in our wiki
-      getting_help:  Getting help
-      getting_help_info:  We listed some %{faq} including some additional tips and tricks and solutions for the most common problems. Also feel free to %{irc}.
-      headline:  Welcome, friend.
-      make_yourself_an_admin:  Make yourself an admin
-      make_yourself_an_admin_info:  You can find instructions in the %{wiki}. This should add an “%{admin_dashboard}” link to your user menu in the header when you are logged in. It gives you stuff like user search and stats for your pod.
-      report_bugs: 报bug
-      update_instructions: diaspora* wiki中有更新指南
-      update_your_pod: 更新Pod
-      update_your_pod_info: 在此查看更新指南 %{update_instructions}.
-  ignore: ' '
-  invitation_codes:
-    already_logged_in: "%{inviter} 邀请你加入，然而你已经登录了"
-    not_valid: 邀请码已失效
+      correct_the_following_errors_and_try_again: "修正以下错误后重试。"
+  fill_me_out: "补全信息"
+  find_people: "找人或#标签"
   invitations:
     create:
-      closed: 该Pod没有开通邀请。
-      empty: 请至少填写一个邮箱
-      no_more: 您暂无邀请函。
-      note_already_sent: '邀请已经发送至下列邮箱: %{emails}'
-      rejected: '下列电子信箱有问题: '
-      sent: '邀请函已经寄给: '
+      empty: "请至少填写一个邮箱"
+      no_more: "您暂无邀请函。"
+      rejected: "下列电子信箱有问题: "
+      sent: "邀请函已经寄给: "
     new:
       codes_left:
-        other: 还可以邀请 %{count} 人
-        zero: 您已没有邀请函
-      comma_separated_plz: 可以通过逗号分割输入多个电子邮箱
-      invite_someone_to_join: 邀请好友加入 Diaspora！
-      language: 语言
-      paste_link: 将这个链接分享给您的朋友，邀请他们加入 Diaspora*，或者直接用电子邮件发送给他们。
-      send_an_invitation: 发送邀请函
-      sending_invitation: 正在发送邀请...
+        other: "还可以邀请 %{count} 人"
+        zero: "您已没有邀请函"
+      comma_separated_plz: "可以通过逗号分割输入多个电子邮箱"
+      invite_someone_to_join: "邀请好友加入 Diaspora！"
+      language: "语言"
+      paste_link: "将这个链接分享给您的朋友，邀请他们加入 Diaspora*，或者直接用电子邮件发送给他们。"
+      send_an_invitation: "发送邀请函"
   layouts:
     application:
-      back_to_top: 回到上面
-      be_excellent: Be excellent to each other! ♥
-      powered_by: Powered by DIASPORA*
+      back_to_top: "回到上面"
+      powered_by: "Powered by DIASPORA*"
       public_feed: "%{name} 的 Diaspora RSS 订阅"
-      source_package: 下载源代码包
-      statistics_link: Pod 统计
-      toggle: 切换到手机版
-      whats_new: 有什么新鲜事？
+      source_package: "下载源代码包"
+      toggle: "切换到手机版"
+      whats_new: "有什么新鲜事？"
     header:
-      code: 源码
-      logout: 登出
-      profile: 个人档案
-      settings: 设置
-      toggle_navigation: 切换导航
-  likes:
-    create:
-      error: 点赞失败
-    destroy:
-      error: 取消赞失败
-  limited: 限制
-  more: 更多
-  no_results: 没有找到符合条件的内容
+      code: "源码"
+      logout: "登出"
+      profile: "个人档案"
+      settings: "设置"
+  limited: "限制"
+  more: "更多"
+  no_results: "没有找到符合条件的内容"
   notifications:
     also_commented:
       other: "%{actors} 也对 %{post_author} 的 %{post_link} 发表了评论。"
@@ -644,26 +241,13 @@ zh-CN:
       other: "%{actors} 回复了您的 %{post_link}。"
       zero: "%{actors} 回复了您的 %{post_link}。"
     index:
-      all_notifications: 所有通知
-      also_commented: 也评论了
-      and: 和
+      and: "和"
       and_others:
-        other: 和另 %{count} 人
-        zero: 一人
-      comment_on_post: 评论
-      liked: 已赞
-      mark_all_as_read: 全部标示为已读
-      mark_all_shown_as_read: 标记显示的为已读
-      mark_read: 标记为已读
-      mark_unread: 标记为未读
-      mentioned: 在文章中提到
-      mentioned_in_comment: 在评论中提到
-      no_notifications: 没有任何通知
-      notifications: 消息
-      reshared: Reshared
-      show_all: 显示所有
-      show_unread: 显示未读
-      started_sharing: 已经开始分享
+        other: "和另 %{count} 人"
+        zero: "一人"
+      mark_all_as_read: "全部标示为已读"
+      mark_unread: "标记为未读"
+      notifications: "消息"
     liked:
       other: "%{actors} 刚刚赞了您的 %{post_link}."
       zero: "%{actors} 刚刚赞了您的 %{post_link}."
@@ -676,13 +260,7 @@ zh-CN:
     mentioned_deleted:
       other: "%{actors} 在已删除的内容中提到了您。"
       zero: "%{actors} 在已删除的内容中提到了您。"
-    mentioned_in_comment:
-      one: "%{actors} 在这篇 <a href='%{comment_path}'>评论</a> 提到了你，文章是 %{post_link}."
-      other: "%{actors} 在这篇 <a href='%{comment_path}'>评论</a> 提到了你，文章是 %{post_link}."
-    mentioned_in_comment_deleted:
-      one: "%{actors} 在某篇删除的评论里提到过你。"
-      other: "%{actors} 在某篇删除的评论里提到过你。"
-    post: 日志。
+    post: "日志。"
     private_message:
       other: "%{actors} 向您发了一条信息。"
       zero: "%{actors} 向您发了一条信息。"
@@ -696,522 +274,286 @@ zh-CN:
       other: "%{actors} 开始与您分享内容。"
       zero: "%{actors} 开始与您分享内容。"
   notifier:
-    a_limited_post_comment: 受限的内容中有人评论。
-    a_post_you_shared: 一篇内容。
-    a_private_message: 有人私聊你
-    also_commented:
-      limited_subject: 你评论的文章有了新评论
-    click_here: 点这里
+    a_post_you_shared: "一篇内容。"
+    click_here: "点这里"
     comment_on_post:
-      limited_subject: 你的某篇文章收到评论
-      reply: 回复或查看 %{name} 的内容
+      reply: "回复或查看 %{name} 的内容"
     confirm_email:
-      click_link: 请点击以下链接激活您的电子邮箱地址 %{unconfirmed_email} ：
-      subject: 请激活您的电子邮箱地址 %{unconfirmed_email}
-    csrf_token_fail:
-      body: |-
-        亲爱的 %{name},
-
-        我们检测到有人试着访问你的数据。为了避免数据泄漏，我们已经把你退出登录了。别担心，你还能继续登录。
-
-        因为我们收到了CSRF token错误的请求。这可能完全是虚惊一场，不过也可能是跨站攻击。
-
-        原因可能是如下几条：
-
-          - An add-on manipulating the request or making requests without the token;
-          - A tab left open from a past session;
-          - Another website making requests, with or without your permission;
-          - Various other external tools;
-          - Malicious code trying to access your data.
-
-        关于 CSRF 的更多信息看这里 [%{link}](%{link})。
-
-        如果还是出现同样的问题，请查看上述原因，以及您安装的浏览器插件。
-
-        感谢,
-        diaspora* 邮件机器人!
-      subject: We received an unauthorized request from your account, %{name}
-    email_sent_by_diaspora: 这封电子邮件是由 %{pod_name} 寄出的。如果您不希望收到此类邮件，
-    export_email:
-      body: |-
-        亲爱的 %{name},
-
-        你的数据已经准备好了，请点击 [这里](%{url}) 下载。
-
-        Cheers,
-
-        diaspora* 邮件机器人!
-      subject: "%{name}, 你的个人信息数据已经可以下载了"
-    export_failure_email:
-      body: |-
-        亲爱的 %{name},
-
-        在处理你的个人数据下载包时遇到了一点问题，请重试。
-
-        深表歉意,
-
-        diaspora* 邮件机器人!
-      subject: "%{name}, 抱歉，你的数据出了点问题"
-    export_photos_email:
-      body: |-
-        亲爱的 %{name}，
-
-        你的照片已经好了，并且可以下载，点击 [该链接](%{url})。
-
-        致礼,
-
-        diaspora* 邮件机器人!
-      subject:  Your photos are ready for download, %{name}
-    export_photos_failure_email:
-      body: |-
-        亲爱的 %{name}，
-
-        在处理你要下载的照片过程中遇到了点麻烦，请重试！
-
-        抱歉,
-
-        diaspora* 邮件机器人!
-      subject: "%{name}， 你发表的照片有点问题"
-    hello: 您好 %{name}！
+      click_link: "请点击以下链接激活您的电子邮箱地址 %{unconfirmed_email} ："
+      subject: "请激活您的电子邮箱地址 %{unconfirmed_email}"
+    email_sent_by_diaspora: "这封电子邮件是由 %{pod_name} 寄出的。如果您不希望收到此类邮件，"
+    hello: "您好 %{name}！"
     invite:
       message: |-
-        您好！
+          您好！
 
-        您被邀请加入 Diaspora* 了
+          您被邀请加入 Diaspora* 了
 
-        请点击这个链接开始使用
+          请点击这个链接开始使用
 
-        [%{invite_url}][1]
+          [%{invite_url}][1]
 
-        祝您好运！
+          祝您好运！
 
-        Diaspora* 电子邮件机器人敬上。
+          Diaspora* 电子邮件机器人敬上。
 
-        [1]: %{invite_url}
+          [1]: %{invite_url}
     invited_you: "%{name} 邀请您使用 Diaspora*"
     liked:
       liked: "%{name} 刚赞了您发布的内容："
-      limited_post: "%{name} 赞了你的受限文章"
-      view_post: 查看内容 >
+      view_post: "查看内容 >"
     mentioned:
-      limited_post: 你在受限的文章中被艾特了。
       subject: "%{name} 在 Diaspora* 上发布的内容中提到了您"
-    mentioned_in_comment:
-      limited_post: 你被在一篇受限阅读的评论中艾特@了
-      reply: 回复或者查看对话 >
     private_message:
-      reply_to_or_view: 回复或查看对话 >
-      subject: 你有新的秘密消息
-    remove_old_user:
-      body: |-
-        Hello,
-
-        It looks as though you no longer want your account at %{pod_url}, as you haven’t used it for %{after_days} days. To ensure our active users get the best performance from this diaspora* pod, we’d like to remove unwanted accounts from our database.
-
-        We’d love you to stay part of diaspora*’s community, and you’re welcome to keep your account live if you want to.
-
-        If you want to keep your account live, all you need to do is to sign in to your account before %{remove_after}. When you sign in, take a moment to have a look around diaspora*. It has changed a lot since you last looked in, and we think you’ll like the improvements we’ve made. Follow some #tags to find content you love.
-
-        Sign in here: %{login_url}. If you’ve forgotten your sign-in details, you can ask for a reminder on that page.
-
-        Hoping to see you again,
-
-        The diaspora* email robot!
-      subject: 你的 diaspora* 已被标记为可删除，因为长时间不活跃
-    report_email:
-      body: |-
-        亲,
-
-        %{type} ID 为 %{id} 的人被标记为侵犯性ID.
-
-        原因是: %{reason}
-
-        [%{url}][1]
-
-        请尽快处理!
-
-
-        致礼,
-
-        diaspora* 邮件机器人!
-
-        [1]: %{url}
-      subject: 一个新的类型 %{type} 被标记为有进攻性
-      type:
-        comment: comment
-        post: post
+      reply_to_or_view: "回复或查看对话 >"
     reshared:
       reshared: "%{name} 转发了您的内容。"
-      view_post: 查看内容 >
+      view_post: "查看内容 >"
     single_admin:
-      admin: 为您服务的 Diaspora 管理员
-      subject: '关于您 Diaspora 帐号的信息:'
+      admin: "为您服务的 Diaspora 管理员"
+      subject: "关于您 Diaspora 帐号的信息:"
     started_sharing:
-      sharing: 刚开始与您分享内容！
+      sharing: "刚开始与您分享内容！"
       subject: "%{name} 刚开始在 Diaspora* 中与您分享内容"
-      view_profile: 看 %{name} 的个人资料
-    thanks: 谢谢，
-    to_change_your_notification_settings: 来修改消息通知的设置
-  nsfw: NSFW(工作不宜)
-  ok: 确定
+      view_profile: "看 %{name} 的个人资料"
+    thanks: "谢谢，"
+    to_change_your_notification_settings: "来修改消息通知的设置"
+  nsfw: "NSFW(工作不宜)"
+  ok: "确定"
   people:
     add_contact:
-      invited_by: 邀请您的用户
+      invited_by: "邀请您的用户"
     index:
-      couldnt_find_them: 找不到他们？
-      looking_for: 在找标记为 %{tag_link} 的内容吗？
-      no_one_found: 找不到相关内容。
-      no_results: 嘿！ 搜索必须要有目标呀。
-      results_for: 搜索结果：
-      search_handle: 用他们的diaspora* Id(username@pod.tld) 来寻找你的好友
-      searching: 搜索中，请稍候…
-      send_invite: 发送邀请
+      looking_for: "在找标记为 %{tag_link} 的内容吗？"
+      no_one_found: "找不到相关内容。"
+      no_results: "嘿！ 搜索必须要有目标呀。"
+      results_for: "搜索结果："
+      searching: "搜索中，请稍候…"
     person:
-      thats_you: 这是您自己！
+      thats_you: "这是您自己！"
     profile_sidebar:
-      bio: 自我介绍
-      born: 生日
-      gender: 性别
-      location: 位置
+      bio: "自我介绍"
+      born: "生日"
+      gender: "性别"
+      location: "位置"
     show:
-      closed_account: 此帐号已经关闭
-      does_not_exist: 好友不存在！
+      closed_account: "此帐号已经关闭"
+      does_not_exist: "好友不存在！"
       has_not_shared_with_you_yet: "%{name} 暂未和您分享内容！"
   photos:
     create:
-      integrity_error: 照片上传失败。您确定它是图片吗？
-      runtime_error: 照片上传失败。您确定有扣安全带吗？
-      type_error: 照片上传失败。您确定有选择任何图片吗？
+      integrity_error: "照片上传失败。您确定它是图片吗？"
+      runtime_error: "照片上传失败。您确定有扣安全带吗？"
+      type_error: "照片上传失败。您确定有选择任何图片吗？"
     destroy:
-      notice: 照片删除成功。
+      notice: "照片删除成功。"
     new_profile_photo:
-      upload: 上传新的头像！
-  polls:
-    votes:
-      one: "已有 %{count} 条投票"
-      other: "已有 %{count} 条投票"
-      zero: "已有 %{count} 条投票"
+      upload: "上传新的头像！"
   posts:
     presenter:
-      title: 来自 %{name} 的内容
+      title: "来自 %{name} 的内容"
     show:
-      forbidden: 无权进行此操作
-      location: '发自: %{location}'
       photos_by:
         other: "%{author} 的 %{count} 张照片"
-        zero: 暂无来自 %{author} 的照片
+        zero: "暂无来自 %{author} 的照片"
       reshare_by: "%{author} 转发"
-  privacy: 隐私
-  profile: 个人档案
+  privacy: "隐私"
+  profile: "个人档案"
   profiles:
     edit:
-      allow_search: 允许别人在 Diaspora* 中搜索到您
-      basic: 我的基本资料
-      basic_hint: 您信息中的每一项都是可选的，请注意，你的基本资料都是公开的。
-      extended: 我的扩展资料
-      extended_hint: Click the switch to set your extended profile data visibility. Public means it is visible to the internet, limited means only people who you share with will see this information.
-      extended_visibility_text: '扩展资料的可见性:'
-      first_name: 名
-      last_name: 姓
-      limited: 受限的
-      nsfw_check: 把所有我分享的东西都标记为 NSFW
-      nsfw_explanation: NSFW (“not safe for work”) is diaspora*’s self-governing community standard for content which may not be suitable to view while at work. If you plan to share such material frequently, please check this option so that everything you share will be hidden from people’s streams unless they choose to view them.
-      nsfw_explanation2: '如果不选择该选项，请在发布该类信息时手工添加 #nsfw 标签。'
-      public: 公开
-      settings: 基本资料设置
-      update_profile: 更新个人档案
-      your_bio: 您的自我介绍
-      your_birthday: 您的生日
-      your_gender: 您的性别
-      your_location: 您的位置
-      your_name: 您的名字
-      your_photo: 您的照片
-      your_tags: 用五个#标签 描述您自己
-      your_tags_placeholder: '比如 #diaspora #烫发 #猫咪 #音乐'
+      allow_search: "允许别人在 Diaspora* 中搜索到您"
+      first_name: "名"
+      last_name: "姓"
+      update_profile: "更新个人档案"
+      your_bio: "您的自我介绍"
+      your_birthday: "您的生日"
+      your_gender: "您的性别"
+      your_location: "您的位置"
+      your_name: "您的名字"
+      your_photo: "您的照片"
+      your_tags: "用五个#标签 描述您自己"
+      your_tags_placeholder: "比如 #diaspora #烫发 #猫咪 #音乐"
     update:
-      failed: 个人档案更新失败
-      updated: 个人档案更新成功
-  public: 公开
+      failed: "个人档案更新失败"
+      updated: "个人档案更新成功"
+  public: "公开"
   registrations:
-    closed: 此 Diaspora pod 不开放注册。
+    closed: "此 Diaspora pod 不开放注册。"
     create:
-      success: 您已成功加入 Diaspora 了！
-    invalid_invite: 您提供的邀请链接已失效
+      success: "您已成功加入 Diaspora 了！"
+    invalid_invite: "您提供的邀请链接已失效"
     new:
-      email: 电子邮箱
-      enter_email: 输入电子邮箱
-      enter_password: 输入密码（至少6个字符）
-      enter_password_again: 再输入一遍密码
-      enter_username: 输入用户名(名称只能包含字母，数字和下划线“_”)
-      password: 密码
-      password_confirmation: 密保信息
-      sign_up: 注册
-      submitting: 正在提交...
-      terms: 创建用户意味着你同意 %{terms_link}.
-      terms_link: 服务条款
-      username: 用户名
-  report:
-    comment_label: '<b>评论</b>: %{data}'
-    confirm_deletion: 确认删除？
-    delete_link: 删除
-    not_found: 文章／评论未找到，似乎用户已经把它删了
-    post_label: '<b>内容</b>: %{content}'
-    reason_label: '原因:'
-    reported_label: <b>提交者</b> %{person}
-    reported_user_details: 报告的用户详情
-    review_link: 标记为已读
-    status:
-      created: ' '
-      destroyed: 报告已经删除
-      failed: 出问题了
-    title: 报告纵览
-    unreviewed_reports:
-      one: 有一篇未评审的报告。
-      other: 有 %{count} 篇未评审的报告。
-      zero: 没有未评审的报告。
+      email: "电子邮箱"
+      enter_email: "输入电子邮箱"
+      enter_password: "输入密码（至少6个字符）"
+      enter_password_again: "再输入一遍密码"
+      enter_username: "输入用户名(名称只能包含字母，数字和下划线“_”)"
+      password: "密码"
+      password_confirmation: "密保信息"
+      sign_up: "注册"
+      username: "用户名"
   reshares:
     comment_email_subject: "%{resharer} 转发了 %{author} 的内容"
-    create:
-      error: reshare失败。
     reshare:
-      deleted: 原内容已被作者删除
-      reshare_confirmation: 您要转发 %{author} 的内容吗？
-      reshared_via: 转发自
-  search: 搜索
+      deleted: "原内容已被作者删除"
+      reshare_confirmation: "您要转发 %{author} 的内容吗？"
+      reshared_via: "转发自"
+  search: "搜索"
   services:
     create:
-      already_authorized: 已经有 Diaspora 通行证为 %{diaspora_id} 的用户被授权使用 %{service_name} 帐号了
-      failure: 认证失败
-      read_only_access: 只有制度全新，请重试授权
-      success: 验证成功。
+      already_authorized: "已经有 Diaspora 通行证为 %{diaspora_id} 的用户被授权使用 %{service_name} 帐号了"
+      failure: "认证失败"
+      success: "验证成功。"
     destroy:
-      success: 验证删除成功。
+      success: "验证删除成功。"
     failure:
-      error: 与该服务连接时有错误
+      error: "与该服务连接时有错误"
     index:
-      connect: 连接
-      disconnect: 断开连接
-      edit_services: 编辑服务
-      logged_in_as: 登录为
-      no_services_available: 该Pod没有可用服务。
-      not_logged_in: 尚未登录
-      really_disconnect: 切断与 %{service} 的连接？
-      services_explanation: 连接到第三方分享服务后，你可以在这里写，然后发送到第三方平台。
-      share_to: 分享至 %{provider}
-      title: 管理已连接的服务
-    provider:
-      facebook: Facebook
-      tumblr: Tumblr
-      twitter: Twitter
-      wordpress: WordPress
-  settings: 设置
+      disconnect: "断开连接"
+      edit_services: "编辑服务"
+      logged_in_as: "登录为"
+      really_disconnect: "切断与 %{service} 的连接？"
+  settings: "设置"
   shared:
     aspect_dropdown:
-      mobile_row_checked: "%{name} (移除)"
-      mobile_row_unchecked: "%{name} (添加)"
       toggle:
-        other: 在 %{count} 个分组中
-        zero: 添加到分组
+        other: "在 %{count} 个分组中"
+        zero: "添加到分组"
     invitations:
-      by_email: 通过电子邮件
-      invite_your_friends: 邀请您的好友
-      invites: 邀请
-      share_this: 用这个链接来分享在电子邮件，博客或其他您喜爱的社交网络上！
+      by_email: "通过电子邮件"
+      invite_your_friends: "邀请您的好友"
+      invites: "邀请"
+      share_this: "用这个链接来分享在电子邮件，博客或其他您喜爱的社交网络上！"
     public_explain:
-      atom_feed: Atom 订阅
-      control_your_audience: 控制您的听众
-      logged_in: 成功登录到 %{service}
-      manage: 管理已连线的服务
-      new_user_welcome_message: '用 #标签 来区分您的内容，并找到和您有共同兴趣的人。用 @提到 别人。'
-      outside: 不使用 Diaspora 的人也能看到公开讯息。
-      share: 分享
-      title: 设定连线服务
-      visibility_dropdown: 用这个下拉菜单来改变内容的可见范围。  （建议您的第一篇内容为公开）
+      atom_feed: "Atom 订阅"
+      control_your_audience: "控制您的听众"
+      logged_in: "成功登录到 %{service}"
+      manage: "管理已连线的服务"
+      new_user_welcome_message: "用 #标签 来区分您的内容，并找到和您有共同兴趣的人。用 @提到 别人。"
+      outside: "不使用 Diaspora 的人也能看到公开讯息。"
+      share: "分享"
+      title: "设定连线服务"
+      visibility_dropdown: "用这个下拉菜单来改变内容的可见范围。  （建议您的第一篇内容为公开）"
     publisher:
-      discard_post: 丢弃内容
-      formatWithMarkdown: 可以用 %{markdown_link} 格式
-      get_location: 获取地理信息
+      discard_post: "丢弃内容"
       new_user_prefill:
-        hello: '大家好，我是 #%{new_user_tag}。 '
-        i_like: '我对 %{tags} 感兴趣。 '
-        invited_by: '谢谢您的邀请， '
-        newhere: 新用户
-      poll:
-        add_a_poll: 创建问卷
-      posting: 发布中……
-      remove_location: 移除地址信息
-      share: 分享
-      upload_photos: 上载照片
-      whats_on_your_mind: 您想到了什么？
+        hello: "大家好，我是 #%{new_user_tag}。 "
+        i_like: "我对 %{tags} 感兴趣。 "
+        invited_by: "谢谢您的邀请， "
+        newhere: "新用户"
+      posting: "发布中……"
+      share: "分享"
+      upload_photos: "上载照片"
+      whats_on_your_mind: "您想到了什么？"
     stream_element:
-      via: 通过 %{link}
-      via_mobile: 通过移动设备
-  simple_captcha:
-    label: '输入code:'
-    message:
-      default: code与图片不符
-      failed: 机器人验证失败
-      user: 图票与code不一致
-    placeholder: Enter the image value
-  statistics:
-    active_users_halfyear: 半年活跃用户数
-    active_users_monthly: 月活跃用户
-    closed: Closed
-    disabled: Not available
-    enabled: Available
-    local_comments: 本地评论
-    local_posts: 本地推文
-    name: 名字
-    network: 网络
-    open: Open
-    registrations: 注册人数
-    services: 服务
-    total_users: 总用户数
-    version: 版本
+      via: "通过 %{link}"
+      via_mobile: "通过移动设备"
   status_messages:
     new:
-      mentioning: '提及发布中: %{person}'
-    too_long: '{"other"=>"请确保您的状态信息不超过 %{count} 个字符", "zero"=>"请确保您的状态信息不超过 %{count} 个字符"}'
-  stream_helper:
-    no_more_posts: 已经看完所有信息流了。
-    no_posts_yet: 还没有发表任何推文
+      mentioning: "提及发布中: %{person}"
+    too_long: "{\"other\"=>\"请确保您的状态信息不超过 %{count} 个字符\", \"zero\"=>\"请确保您的状态信息不超过 %{count} 个字符\"}"
   streams:
     activity:
-      title: 我的活动
+      title: "我的活动"
     aspects:
-      all: 所有分组
-      title: 我的视窗
-    aspects_stream: 分组
+      title: "我的视窗"
+    aspects_stream: "分组"
     comment_stream:
-      title: 有评论的内容
-    commented:
-      title: 评论过的推文
-    community_spotlight_stream: 社区热点
+      title: "有评论的内容"
+    community_spotlight_stream: "社区热点"
     followed_tag:
-      add_a_tag: 新增标签
-      all:  所有标签
-      follow: 关注
+      add_a_tag: "新增标签"
+      follow: "关注"
       title: "#关注的标签"
     followed_tags_stream: "#关注的标签"
     like_stream:
-      title: 赞的动态
-    liked:
-      title: 已点赞的推文
+      title: "赞的动态"
     mentioned_stream: "@提到的"
     mentions:
       title: "@提到的"
     multi:
-      title: 动态
+      title: "动态"
     public:
-      title: 公开活动
+      title: "公开活动"
     tags:
-      title: 有以下标签的内容：%{tags}
-  tag_followings:
-    manage:
-      no_tags: 你还没有关注任何标签
-      title: 管理已关注的表情
+      title: "有以下标签的内容：%{tags}"
   tags:
-    name_too_long: 标签名太长了，请不超过 %{count} 个字，现在已经有 %{current_length} 个字了。
     show:
-      follow: '关注 #%{tag}'
-      none: 不存在空白标签！
-      stop_following: '停止关注 #%{tag}'
-      tagged_people:
-        one:  1 位小伙伴被标记为 %{tag}
-        other: %{count} 位小伙伴被标记为 %{tag}
-        zero: 还没有人被标注 %{tag}
-  username: 帐号
+      follow: "关注 #%{tag}"
+      none: "不存在空白标签！"
+      stop_following: "停止关注 #%{tag}"
+  username: "帐号"
   users:
     confirm_email:
-      email_confirmed: 电子邮箱地址 %{email} 已激活
-      email_not_confirmed: 电子邮箱地址无法激活。链接错误？
+      email_confirmed: "电子邮箱地址 %{email} 已激活"
+      email_not_confirmed: "电子邮箱地址无法激活。链接错误？"
     destroy:
-      no_password: 请输入您目前的密码关闭帐号。
-      success: 您的帐号已经锁定。完成关闭大约需要 20 分钟的时间。感谢您使用 Diaspora。
-      wrong_password: 输入的密码与您的密码不符。
+      no_password: "请输入您目前的密码关闭帐号。"
+      success: "您的帐号已经锁定。完成关闭大约需要 20 分钟的时间。感谢您使用 Diaspora。"
+      wrong_password: "输入的密码与您的密码不符。"
     edit:
       also_commented: "…当有人对您的好友的内容发表评论时？"
-      auto_follow_aspect: 自动关注的用户的分组：
-      auto_follow_back: 自动关注关注您的人
-      change: 更改
-      change_color_theme: 更改主题颜色
-      change_email: 修改电子邮箱地址
-      change_language: 更改语言
-      change_password: 更改密码
-      character_minimum_expl: 至少需要六个字符。
+      auto_follow_aspect: "自动关注的用户的分组："
+      auto_follow_back: "自动关注关注您的人"
+      change: "更改"
+      change_email: "修改电子邮箱地址"
+      change_language: "更改语言"
+      change_password: "更改密码"
+      character_minimum_expl: "至少需要六个字符。"
       close_account:
-        dont_go: 请不要离开！
-        lock_username: 您的用户名会被锁定，不能重新注册。
-        locked_out: 接下来您会被退出，帐号将关闭。
-        make_diaspora_better: 希望您能帮助我们让 Diaspora 更好，而不是选择离开。如果您坚持，我们也希望让您知道未来的发展。
-        mr_wiggles: Mr Wiggles 会对于您的离开很难过。
-        no_turning_back: 现在已经不能后悔了。
-        what_we_delete: 我们会尽快删除您发布的内容和个人资料。您的评论会保留，但没有您的个人信息。
-      close_account_text: 关闭帐号
+        dont_go: "请不要离开！"
+        lock_username: "您的用户名会被锁定，不能重新注册。"
+        locked_out: "接下来您会被退出，帐号将关闭。"
+        make_diaspora_better: "希望您能帮助我们让 Diaspora 更好，而不是选择离开。如果您坚持，我们也希望让您知道未来的发展。"
+        mr_wiggles: "Mr Wiggles 会对于您的离开很难过。"
+        no_turning_back: "现在已经不能后悔了。"
+        what_we_delete: "我们会尽快删除您发布的内容和个人资料。您的评论会保留，但没有您的个人信息。"
+      close_account_text: "关闭帐号"
       comment_on_post: "…当有人对您的内容发表评论时？"
-      current_password: 当前密码
-      current_password_expl: 登入的那个…
-      default_post_visibility: 默认发送给这个组
-      download_export: 下载我的个人资料
-      download_export_photos: 下载我的照片
-      edit_account: 编辑帐号
-      email_awaiting_confirmation: 我们将向 %{unconfirmed_email} 发送一个确认邮件。在确认之前，我们将沿用 %{email} 这个联系方式。
-      export_data: 资料导出
-      export_in_progress: 我们正在处理你的数据，请稍后回来查看。
-      export_photos_in_progress: 我们正在处理你的照片，请稍后回来查看。
-      following: 关注设置
-      last_exported_at: (上次更新 %{timestamp})
+      current_password: "当前密码"
+      current_password_expl: "登入的那个…"
+      edit_account: "编辑帐号"
+      email_awaiting_confirmation: "我们将向 %{unconfirmed_email} 发送一个确认邮件。在确认之前，我们将沿用 %{email} 这个联系方式。"
+      export_data: "资料导出"
+      following: "关注设置"
       liked: "…当有人赞您发布的内容？"
       mentioned: "…当贴文中提到您时？"
-      mentioned_in_comment: 有评论中@提到了你
-      new_password: 新密码
+      new_password: "新密码"
       private_message: "…当收到私人信息时？"
-      receive_email_notifications: 是否要在以下情况收到电子邮件通知……
-      request_export: 请求我的资料数据
-      request_export_photos: 请求我的照片
-      request_export_photos_update: 刷新我的照片
-      request_export_update: 刷新我的个人资料
+      receive_email_notifications: "是否要在以下情况收到电子邮件通知……"
       reshared: "…有人转发您的内容时？"
-      show_community_spotlight: 在动态中显示社区热点？
-      show_getting_started: 显示新手指南
-      someone_reported: 有人发送了报告
+      show_community_spotlight: "在动态中显示社区热点？"
+      show_getting_started: "显示新手指南"
       started_sharing: "…当有人开始与您分享内容？"
-      stream_preferences: 动态设置
-      your_email: 您的电子邮箱
-      your_email_private: 您的保密邮箱
-      your_handle: 您的 Diaspora 帐号
+      stream_preferences: "动态设置"
+      your_email: "您的电子邮箱"
+      your_handle: "您的 Diaspora 帐号"
     getting_started:
-      awesome_take_me_to_diaspora: 棒极了！带我去 Diaspora*
-      community_welcome: Diaspora 社区欢迎您的到来
-      connect_to_facebook: 我们可以通过 %{link}  让网站加速，这会抓取你的名字及照片，以及启用跨站推文。
-      connect_to_facebook_link: 关联你的facebook账号
-      hashtag_explanation: 标签让您可以讨论关注您的兴趣。并且也是在 Diaspora 找到新朋友的好办法。
-      hashtag_suggestions: '试试看关注如 #艺术，#电影, #gif 之类的标签。'
-      well_hello_there: 嗨，您好！
-      what_are_you_in_to: 您对什么有兴趣？
-      who_are_you: 您是哪位？
+      awesome_take_me_to_diaspora: "棒极了！带我去 Diaspora*"
+      community_welcome: "Diaspora 社区欢迎您的到来"
+      hashtag_explanation: "标签让您可以讨论关注您的兴趣。并且也是在 Diaspora 找到新朋友的好办法。"
+      hashtag_suggestions: "试试看关注如 #艺术，#电影, #gif 之类的标签。"
+      well_hello_there: "嗨，您好！"
+      what_are_you_in_to: "您对什么有兴趣？"
+      who_are_you: "您是哪位？"
     privacy_settings:
-      ignored_users: 被屏蔽的用户
-      no_user_ignored_message: 还没有被屏幕的用户
-      stop_ignoring: 停止忽略
-      strip_exif: 上传前，请去掉元信息，比如地址、作者及相机型号(推荐)
-      title: 隐私设置
+      ignored_users: "忽略的用户"
+      stop_ignoring: "停止忽略"
+      title: "隐私设置"
     public:
-      does_not_exist: 不存在 %{username} 这个用户！
+      does_not_exist: "不存在 %{username} 这个用户！"
     update:
-      color_theme_changed: 主题修改成功
-      color_theme_not_changed: 修改主题失败
-      email_notifications_changed: 邮件通知更改成功
-      follow_settings_changed: 关注设置已更新
-      follow_settings_not_changed: 关注设置更新失败
-      language_changed: 语言更改成功
-      language_not_changed: 语言更改失败
-      password_changed: 密码更改成功
-      password_not_changed: 密码更改失败
-      settings_not_updated: 设置更新失败
-      settings_updated: 设置已更新
-      unconfirmed_email_changed: 电子邮箱地址已修改，需要激活。
-      unconfirmed_email_not_changed: 电子邮箱地址修改失败
+      email_notifications_changed: "邮件通知更改成功"
+      follow_settings_changed: "关注设置已更新"
+      follow_settings_not_changed: "关注设置更新失败"
+      language_changed: "语言更改成功"
+      language_not_changed: "语言更改失败"
+      password_changed: "密码更改成功"
+      password_not_changed: "密码更改失败"
+      settings_not_updated: "设置更新失败"
+      settings_updated: "设置已更新"
+      unconfirmed_email_changed: "电子邮箱地址已修改，需要激活。"
+      unconfirmed_email_not_changed: "电子邮箱地址修改失败"
   will_paginate:
-    next_label: 后面 &raquo;
+    next_label: "后面 &raquo;"
     previous_label: "&laquo; 前面"
