@@ -11,7 +11,7 @@
 //= require keycodes
 //= require jquery.autoSuggest.custom
 //= require fine-uploader/fine-uploader.core
-//= require rails-timeago
+//= require jquery.timeago
 //= require underscore
 //= require bootstrap
 //= require diaspora
