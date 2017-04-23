@@ -28,6 +28,10 @@
       }
 
       $.timeago.settings.autoDispose = false;
+
+      $(function() {
+        $("time[data-time-ago]").timeago();
+      });
     });
   };
 })();
