@@ -9,7 +9,7 @@
 //= require autosize
 //= require charcount
 //= require jquery-placeholder
-//= require rails-timeago
+//= require jquery.timeago
 //= require jquery-ui/core
 //= require jquery-ui/widget
 //= require jquery-ui/mouse
