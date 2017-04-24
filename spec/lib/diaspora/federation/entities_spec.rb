@@ -19,7 +19,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.text).to eq(diaspora_entity.text)
       expect(federation_entity.author_signature).to be_nil
       expect(federation_entity.xml_order).to be_nil
-      expect(federation_entity.additional_xml_elements).to be_empty
+      expect(federation_entity.additional_data).to be_empty
     end
 
     it "builds a comment with signature" do
@@ -33,7 +33,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.text).to eq(diaspora_entity.text)
       expect(federation_entity.author_signature).to eq(diaspora_entity.signature.author_signature)
       expect(federation_entity.xml_order).to eq(diaspora_entity.signature.signature_order.order.split)
-      expect(federation_entity.additional_xml_elements).to eq(diaspora_entity.signature.additional_data)
+      expect(federation_entity.additional_data).to eq(diaspora_entity.signature.additional_data)
     end
 
     it "builds a contact (request)" do
@@ -86,7 +86,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.positive).to eq(diaspora_entity.positive)
       expect(federation_entity.author_signature).to be_nil
       expect(federation_entity.xml_order).to be_nil
-      expect(federation_entity.additional_xml_elements).to be_empty
+      expect(federation_entity.additional_data).to be_empty
     end
 
     it "builds a like with signature" do
@@ -100,7 +100,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.positive).to eq(diaspora_entity.positive)
       expect(federation_entity.author_signature).to eq(diaspora_entity.signature.author_signature)
       expect(federation_entity.xml_order).to eq(diaspora_entity.signature.signature_order.order.split)
-      expect(federation_entity.additional_xml_elements).to eq(diaspora_entity.signature.additional_data)
+      expect(federation_entity.additional_data).to eq(diaspora_entity.signature.additional_data)
     end
 
     it "builds a message" do
@@ -154,7 +154,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.poll_answer_guid).to eq(diaspora_entity.poll_answer.guid)
       expect(federation_entity.author_signature).to be_nil
       expect(federation_entity.xml_order).to be_nil
-      expect(federation_entity.additional_xml_elements).to be_empty
+      expect(federation_entity.additional_data).to be_empty
     end
 
     it "builds a poll participation with signature" do
@@ -169,7 +169,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.poll_answer_guid).to eq(diaspora_entity.poll_answer.guid)
       expect(federation_entity.author_signature).to eq(signature.author_signature)
       expect(federation_entity.xml_order).to eq(signature.signature_order.order.split)
-      expect(federation_entity.additional_xml_elements).to eq(signature.additional_data)
+      expect(federation_entity.additional_data).to eq(signature.additional_data)
     end
 
     it "builds a profile" do
