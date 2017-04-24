@@ -3,12 +3,13 @@ module Diaspora
     # This class allows to query posts where a person made any activity (submitted comments,
     # likes, participations or poll participations).
     class PostsWithActivity
-      # TODO: docs
+      # @param user [User] user who the activity belongs to (the one who liked, commented posts, etc)
       def initialize(user)
         @user = user
       end
 
-      # TODO: docs
+      # Create a request of posts with activity
+      # @return [Post::ActiveRecord_Relation]
       def query
         Post.from("(#{sql_union_all_activities}) AS posts")
       end
@@ -26,7 +27,7 @@ module Diaspora
       end
 
       def all_activities
-        [comments_activity, likes_activity, subscriptions, polls_activity].compact
+        [comments_activity, likes_activity, subscriptions, polls_activity, reshares_activity]
       end
 
       def likes_activity
@@ -39,6 +40,10 @@ module Diaspora
 
       def subscriptions
         other_people_posts.subscribed_by(user)
+      end
+
+      def reshares_activity
+        other_people_posts.reshared_by(person)
       end
 
       def polls_activity

@@ -15,6 +15,7 @@ require "webmock/rspec"
 require "factory_girl"
 require "sidekiq/testing"
 require "shoulda/matchers"
+require "diaspora_federation/schemas"
 
 include HelperMethods
 
@@ -133,6 +134,16 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.include JSON::SchemaMatchers
+  config.json_schemas[:archive_schema] = "lib/schemas/archive-format.json"
+
+  JSON::Validator.add_schema(
+    JSON::Schema.new(
+      DiasporaFederation::Schemas.federation_entities,
+      Addressable::URI.parse(DiasporaFederation::Schemas::FEDERATION_ENTITIES_URI)
+    )
+  )
 end
 
 Shoulda::Matchers.configure do |config|

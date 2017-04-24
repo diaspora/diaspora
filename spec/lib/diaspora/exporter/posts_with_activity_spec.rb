@@ -8,7 +8,8 @@ describe Diaspora::Exporter::PostsWithActivity do
         user.person.likes.first.target,
         user.person.comments.first.parent,
         user.person.poll_participations.first.parent.status_message,
-        user.person.participations.first.target
+        user.person.participations.first.target,
+        user.person.posts.reshares.first.root
       ]
     }
 

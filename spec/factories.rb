@@ -149,9 +149,9 @@ FactoryGirl.define do
   end
 
   factory(:location) do
-    address "Fernsehturm Berlin, Berlin, Germany"
-    lat 52.520645
-    lng 13.409779
+    sequence(:address) {|n| "Fernsehturm Berlin, #{n}, Berlin, Germany" }
+    sequence(:lat) {|n| 52.520645 + 0.0000001 * n }
+    sequence(:lng) {|n| 13.409779 + 0.0000001 * n }
   end
 
   factory :participation do

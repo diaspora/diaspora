@@ -1,0 +1,255 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://diaspora.github.io/diaspora/schemas/archive_format.json",
+  "type": "object",
+  "properties": {
+    "user": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "language": { "type": "string" },
+        "username": { "type": "string" },
+        "private_key": { "type": "string" },
+        "disable_mail": { "type": "boolean" },
+        "show_community_spotlight_in_stream": { "type": "boolean" },
+        "auto_follow_back": { "type": "boolean" },
+        "auto_follow_back_aspect": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "strip_exif": { "type": "boolean" },
+
+        "profile": {
+          "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#definitions/profile"
+        },
+
+        "contact_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "contacts_visible": { "type": "boolean" },
+              "chat_enabled": { "type": "boolean" }
+            },
+            "required": [
+              "name"
+            ]
+          }
+        },
+
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sharing": { "type": "boolean" },
+              "following": { "type": "boolean" },
+              "receiving": { "type": "boolean" },
+              "followed": { "type": "boolean" },
+              "account_id": { "type": "string" },
+              "contact_groups_membership": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "person_name": { "type": "string" },
+              "person_guid": {
+                "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/guid"
+              },
+              "public_key": { "type": "string" }
+            },
+            "required": [
+              "sharing",
+              "following",
+              "receiving",
+              "followed",
+              "account_id",
+              "contact_groups_membership"
+            ]
+          }
+        },
+
+        "posts": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/posts"
+              },
+              {
+                "oneOf": [
+                  { "$ref": "#/definitions/remote_subscription/public" },
+                  { "$ref": "#/definitions/remote_subscription/private" }
+                ]
+              }
+            ]
+
+          }
+        },
+
+        "relayables": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/comment"
+              },
+              {
+                "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/like"
+              },
+              {
+                "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/poll_participation"
+              }
+            ]
+          }
+        },
+
+        "followed_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+
+        "post_subscriptions": {
+          "type": "array",
+          "description": "GUIDs of posts for which changes we want to be subscribed",
+          "items": {
+            "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/guid"
+          }
+        }
+      },
+      "required": [
+        "username",
+        "email",
+        "private_key",
+        "profile"
+      ]
+    },
+    "others_data": {
+      "type": "object",
+      "properties": {
+        "relayables": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "oneOf": [
+                  {
+                    "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/comment"
+                  },
+                  {
+                    "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/like"
+                  },
+                  {
+                    "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/poll_participation"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+
+        "non_contact_authors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "account_id": {
+                "type": "string"
+              },
+              "guid": {
+                "type": "string"
+              },
+              "public_key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "account_id",
+              "guid",
+              "public_key"
+            ]
+          }
+        },
+
+        "posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/posts"
+          }
+        }
+      }
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^2\.0$"
+    }
+  },
+  "required": [
+    "user",
+    "version"
+  ],
+  "definitions": {
+    "posts": {
+      "oneOf": [
+        { "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/status_message" },
+        { "$ref": "https://diaspora.github.io/diaspora_federation/schemas/federation_entities.json#/definitions/reshare" }
+      ]
+    },
+
+    "remote_subscription": {
+      "public": {
+        "type": "object",
+        "properties": {
+          "subscribed_pods_uris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "entity_data": {
+            "type": "object",
+            "properties": {
+              "public": {
+                "enum": [ true ]
+              }
+            },
+            "required": [
+              "public"
+            ]
+          }
+        },
+        "required": [
+          "entity_data"
+        ]
+      },
+
+      "private": {
+        "type": "object",
+        "properties": {
+          "subscribed_users_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+
+          "entity_data": {
+            "type": "object",
+            "properties": {
+              "public": {
+                "enum": [ false ]
+              }
+            },
+            "required": [
+              "public"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
