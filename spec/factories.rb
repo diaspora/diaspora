@@ -245,10 +245,9 @@ FactoryGirl.define do
     association(:post, factory: :status_message)
   end
 
-  factory(:notification) do
+  factory(:notification, class: Notifications::AlsoCommented) do
     association :recipient, :factory => :user
     association :target, :factory => :comment
-    type 'Notifications::AlsoCommented'
 
     after(:build) do |note|
       note.actors << FactoryGirl.build(:person)
