@@ -36,7 +36,7 @@ def create_relayable_entity(entity_name, parent, diaspora_id)
   ).at_least(1).times.and_return(nil) if parent == local_parent
 
   parent_guid = parent.guid
-  FactoryGirl.build(
+  Fabricate(
     entity_name,
     conversation_guid: parent_guid,
     parent_guid:       parent_guid,

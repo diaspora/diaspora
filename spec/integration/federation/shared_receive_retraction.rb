@@ -1,5 +1,5 @@
 def retraction_entity(entity_name, target_object, sender)
-  FactoryGirl.build(
+  Fabricate(
     entity_name,
     author:      sender.diaspora_handle,
     target_guid: target_object.guid,

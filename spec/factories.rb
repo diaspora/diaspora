@@ -10,8 +10,7 @@ def r_str
   SecureRandom.hex(3)
 end
 
-require "diaspora_federation/test"
-DiasporaFederation::Test::Factories.federation_factories
+require "diaspora_federation/test/factories"
 
 FactoryGirl.define do
   factory :profile do

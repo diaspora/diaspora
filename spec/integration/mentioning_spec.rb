@@ -73,7 +73,7 @@ module MentioningSpecHelpers
   end
 
   def receive_status_message_via_federation(text, *recipients)
-    entity = FactoryGirl.build(
+    entity = Fabricate(
       :status_message_entity,
       author: remote_raphael.diaspora_handle,
       text:   text,

@@ -21,7 +21,7 @@ describe "Receive federation messages feature" do
     end
 
     it "rejects account deletion with wrong diaspora_id" do
-      delete_id = FactoryGirl.generate(:diaspora_id)
+      delete_id = Fabricate.sequence(:diaspora_id)
       post_message(generate_xml(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: delete_id), sender))
 
       expect(AccountDeletion.exists?(diaspora_handle: delete_id)).to be_falsey
@@ -31,7 +31,7 @@ describe "Receive federation messages feature" do
     context "reshare" do
       it "reshare of public post passes" do
         post = FactoryGirl.create(:status_message, author: alice.person, public: true)
-        reshare = FactoryGirl.build(
+        reshare = Fabricate(
           :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id)
 
         expect(Participation::Generator).to receive(:new).with(
@@ -46,7 +46,7 @@ describe "Receive federation messages feature" do
 
       it "reshare of private post fails" do
         post = FactoryGirl.create(:status_message, author: alice.person, public: false)
-        reshare = FactoryGirl.build(
+        reshare = Fabricate(
           :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id)
         expect {
           post_message(generate_xml(reshare, sender))
@@ -74,7 +74,7 @@ describe "Receive federation messages feature" do
     let(:recipient) { alice }
 
     it "treats sharing request recive correctly" do
-      entity = FactoryGirl.build(:request_entity, author: sender_id, recipient: alice.diaspora_handle)
+      entity = Fabricate(:request_entity, author: sender_id, recipient: alice.diaspora_handle)
 
       expect(Workers::ReceiveLocal).to receive(:perform_async).and_call_original
 
@@ -105,7 +105,7 @@ describe "Receive federation messages feature" do
       it_behaves_like "messages which can't be send without sharing"
 
       it "treats profile receive correctly" do
-        entity = FactoryGirl.build(:profile_entity, author: sender_id)
+        entity = Fabricate(:profile_entity, author: sender_id)
         post_message(generate_xml(entity, sender, alice), alice)
 
         received_profile = sender.profile.reload
@@ -115,7 +115,7 @@ describe "Receive federation messages feature" do
       end
 
       it "receives conversation correctly" do
-        entity = FactoryGirl.build(
+        entity = Fabricate(
           :conversation_entity,
           author:       sender_id,
           participants: "#{sender_id};#{alice.diaspora_handle}"
