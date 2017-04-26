@@ -1073,7 +1073,6 @@ en:
       formatWithMarkdown: "You can use %{markdown_link} to format your post"
       posting: "Posting..."
       share: "Share"
-      upload_photos: "Upload photos"
       get_location: "Get your location"
       remove_location: "Remove location"
       whats_on_your_mind: "What’s on your mind?"

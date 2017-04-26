@@ -23,6 +23,7 @@
 ## Refactor
 
 ## Bug fixes
+* Make photo upload button hover text translatable [#7429](https://github.com/diaspora/diaspora/pull/7429)
 
 ## Features
 
