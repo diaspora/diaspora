@@ -23,6 +23,9 @@ function createUploader(){
       sizeLimit: 4194304
     },
     button: document.getElementById("file-upload-publisher"),
+    text: {
+      fileInputTitle: Diaspora.I18n.t("photo_uploader.upload_photos")
+    },
 
     callbacks: {
       onProgress: function(id, fileName, loaded, total) {
