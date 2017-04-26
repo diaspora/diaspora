@@ -210,6 +210,7 @@ en:
       alright_ill_wait: "All right, I’ll wait."
       preparing_your_stream: "Preparing your personalized stream..."
     photo_uploader:
+      upload_photos: "Upload photos"
       looking_good: "OMG, you look awesome!"
       completed: "<%= file %> completed"
       error: "A problem occurred while uploading file <%= file %>"
