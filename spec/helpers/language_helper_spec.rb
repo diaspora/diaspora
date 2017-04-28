@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe LanguageHelper, type: :helper do
   describe "#get_javascript_strings_for" do
     it "generates a jasmine fixture", fixture: true do

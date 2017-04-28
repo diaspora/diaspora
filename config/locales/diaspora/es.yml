@@ -151,9 +151,17 @@ es:
         login_required: "Tienes que identificarte antes de autorizar esta aplicación"
         title: "¡Oh! Algo salió mal :("
       scopes:
+        aud:
+          description: ""
+        name:
+          name: "nombre"
+        nickname:
+          name: "apodo"
         openid:
           description: "Permite que la aplicación lea tu perfil básico"
           name: "perfil básico"
+        picture:
+          name: "fotografía"
         read:
           description: "Esto permite a la aplicación leer tu portada, tus conversaciones y tu perfil completo"
           name: "leer perfil, portada y conversaciones"
@@ -202,6 +210,7 @@ es:
       updating: "Actualizando"
     index:
       donate: "Donar"
+      donate_liberapay: "Donar a Liberapay"
       help:
         any_problem: "¿Algún problema?"
         contact_podmin: "¡Contacta con el administrador de tu pod!"
@@ -254,6 +263,8 @@ es:
     post_something: "Publica en Diaspora*"
   cancel: "Cancelar"
   comments:
+    create:
+      error: "Hubo un error al comentar."
     new_comment:
       comment: "Comentar"
       commenting: "Comentando..."
@@ -278,7 +289,6 @@ es:
   conversations:
     create:
       fail: "Mensaje no válido"
-      no_contact: "¡Eh, primero tienes que añadir al contacto!"
       sent: "Mensaje enviado"
     destroy:
       delete_success: "Conversación correctamente borrada"
@@ -287,6 +297,7 @@ es:
       conversations_inbox: "Conversaciones – Bandeja de entrada"
       inbox: "Bandeja de entrada"
       new_conversation: "Nueva conversación"
+      no_contacts: "Necesitas añadir algunos contactos antes de empezar una conversación"
       no_messages: "Ningún mensaje"
     new:
       message: "Mensaje"
@@ -544,7 +555,6 @@ es:
       own_your_data: "Sé el dueño de tus datos"
       own_your_data_info: "Muchas redes usan tus datos para hacer dinero analizando tus interacciones y usando esa información para mostrarte anuncios. diaspora* no usa tus datos para ningún propósito distinto que permitirte estar en contacto con otros."
     podmin:
-      admin_panel: "panel de administración"
       byline: "Estas a punto de cambiar internet. Vamos a configurarlo, ¿de acuerdo?"
       configuration_info: "Abre %{database_path} y %{diaspora_path} en tu editor de texto favorito y revisalos cuidadosamente, están comentados al detalle."
       configure_your_pod: "Configura tu pod"
@@ -566,10 +576,8 @@ es:
   invitation_codes:
     not_valid: "Ese código de invitación ya no es válido"
   invitations:
-    a_facebook_user: "Un usuario de Facebook"
-    check_token:
-      not_found: "Identificación de invitación no encontrada"
     create:
+      closed: "Las invitaciones están desactivadas en este pod de diaspora*."
       empty: "Por favor, introduce al menos una dirección de correo electrónico."
       no_more: "No tienes más invitaciones."
       note_already_sent: "Las invitaciones han sido enviadas a: %{emails}"
@@ -602,6 +610,9 @@ es:
       profile: "Perfil"
       settings: "Ajustes"
       toggle_navigation: "Cambiar navegación"
+  likes:
+    destroy:
+      error: "Ocurrió un error al quitar el \"Me gusta\""
   limited: "Limitado"
   more: "Más"
   no_results: "No hay resultados"
@@ -841,14 +852,8 @@ es:
       type_error: "Error subiendo la foto. ¿Seguro que añadiste la imagen?"
     destroy:
       notice: "Foto eliminada."
-    new_photo:
-      empty: "{file} está vacío, por favor selecciona otros archivos."
-      invalid_ext: "{file} tiene una extensión inválida. Sólo {extensions} están permitidas."
-      size_error: "{file} es demasiado largo, el tamaño máximo por archivo es de {sizeLimit}."
     new_profile_photo:
       upload: "¡Sube una foto nueva de perfil!"
-    show:
-      show_original_post: "Mostrar la publicación original"
   polls:
     votes:
       one: "%{count} voto por ahora"
@@ -896,10 +901,6 @@ es:
       failed: "Error actualizando el perfil"
       updated: "Perfil actualizado"
   public: "Público"
-  reactions:
-    one: "1 reacción"
-    other: "%{count} reacciones"
-    zero: "Sin reacciones"
   registrations:
     closed: "Los registros están cerrados en este servidor de Diaspora."
     create:
@@ -924,7 +925,7 @@ es:
     delete_link: "Borrar"
     not_found: "No se encontró la noticia o comentario. ¡Parece que fue borrado por el usuario!"
     post_label: "<b>Publicación</b>: %{title}"
-    reason_label: "Razón: %{text}"
+    reason_label: "Razón:"
     reported_label: "<b>Reportado por</b> %{person}"
     reported_user_details: "Detalles del usuario denunciado"
     review_link: "Marcar como revisado"
@@ -1031,8 +1032,6 @@ es:
     total_users: "Usuarios totales"
     version: "Versión"
   status_messages:
-    create:
-      success: "Se ha mencionado con éxito a: %{names}"
     new:
       mentioning: "Menciones: %{person}"
     too_long: "Por favor, pon un mensaje de estado menor de %{count} caracteres. Actualmente ocupa %{current_length} caracteres."
@@ -1043,18 +1042,24 @@ es:
     activity:
       title: "Mi actividad"
     aspects:
+      all: "Todos los aspectos"
       title: "Mis aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
       title: "Publicaciones comentadas"
+    commented:
+      title: "Publicaciones comentadas"
     community_spotlight_stream: "Lo más destacado"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
+      all: "Todas las etiquetas"
       follow: "Seguir"
       title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
       title: "Me gusta"
+    liked:
+      title: "Publicaciones que te han gustado"
     mentioned_stream: "@Menciones"
     mentions:
       title: "@Menciones"

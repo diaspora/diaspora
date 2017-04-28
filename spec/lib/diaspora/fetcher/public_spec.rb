@@ -2,12 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 # Tests fetching public posts of a person on a remote server
 describe Diaspora::Fetcher::Public do
   before do
-
     # the fixture is taken from an actual json request.
     # it contains 10 StatusMessages and 5 Reshares, all of them public
     # the guid of the person is "7445f9a0a6c28ebb"

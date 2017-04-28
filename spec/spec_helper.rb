@@ -24,8 +24,6 @@ end
 
 ProcessedImage.enable_processing = false
 UnprocessedImage.enable_processing = false
-Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
-Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
 def alice
   @alice ||= User.find_by(username: "alice")
@@ -141,5 +139,11 @@ Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
+  end
+end
+
+shared_context suppress_csrf_verification: :none do
+  before do
+    ActionController::Base.allow_forgery_protection = true
   end
 end

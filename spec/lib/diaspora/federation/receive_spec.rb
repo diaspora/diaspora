@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Diaspora::Federation::Receive do
   let(:sender) { FactoryGirl.create(:person) }
   let(:post) { FactoryGirl.create(:status_message, text: "hello", public: true, author: alice.person) }
@@ -17,17 +15,15 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".comment" do
-    let(:comment_data) {
-      FactoryGirl.attributes_for(
-        :comment_entity,
-        author:           sender.diaspora_handle,
-        parent_guid:      post.guid,
-        author_signature: "aa"
-      )
-    }
     let(:comment_entity) {
-      DiasporaFederation::Entities::Comment.new(
-        comment_data, [:author, :guid, :parent_guid, :text, "new_property"], "new_property" => "data"
+      build_relayable_federation_entity(
+        :comment,
+        {
+          author:           sender.diaspora_handle,
+          parent_guid:      post.guid,
+          author_signature: "aa"
+        },
+        "new_property" => "data"
       )
     }
 
@@ -59,7 +55,7 @@ describe Diaspora::Federation::Receive do
       expect(comment.signature).not_to be_nil
       expect(comment.signature.author_signature).to eq("aa")
       expect(comment.signature.additional_data).to eq("new_property" => "data")
-      expect(comment.signature.order).to eq(%w(author guid parent_guid text new_property))
+      expect(comment.signature.order).to eq(comment_entity.xml_order.map(&:to_s))
     end
 
     let(:entity) { comment_entity }

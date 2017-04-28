@@ -1,8 +1,22 @@
 describe("Diaspora.Mobile.Comments", function(){
+  beforeEach(function() {
+    spec.loadFixture("aspects_index_mobile_post_with_comments");
+    this.bottomBar = $(".bottom-bar").first();
+    this.link = $(".stream .show-comments").first();
+  });
+
+  describe("initialize", function() {
+    it("calls submitComment when the comment form has been submitted", function() {
+      spyOn(Diaspora.Mobile.Comments, "submitComment").and.returnValue(false);
+      Diaspora.Mobile.Comments.initialize();
+      Diaspora.Mobile.Comments.showCommentBox($(".stream .comment-action").first());
+      $(".stream .new_comment").first().submit();
+      expect(Diaspora.Mobile.Comments.submitComment).toHaveBeenCalled();
+    });
+  });
+
   describe("toggleComments", function() {
     beforeEach(function() {
-      spec.loadFixture("aspects_index_mobile_post_with_comments");
-      this.link = $(".stream .show-comments").first();
       spyOn(Diaspora.Mobile.Comments, "showComments");
       spyOn(Diaspora.Mobile.Comments, "hideComments");
     });
@@ -30,9 +44,6 @@ describe("Diaspora.Mobile.Comments", function(){
 
   describe("showUnloadedComments", function() {
     beforeEach(function() {
-      spec.loadFixture("aspects_index_mobile_post_with_comments");
-      this.link = $(".stream .show-comments").first();
-      this.bottomBar = this.link.closest(".bottom-bar").first();
       this.commentActionLink = this.bottomBar.find("a.comment-action");
     });
 
@@ -68,7 +79,7 @@ describe("Diaspora.Mobile.Comments", function(){
         contentType: "text/plain",
         responseText: "<div class=\"commentContainerForTest\">new comments</div>"
       });
-      expect($(".stream .stream_element").first()).toContainElement(".commentContainerForTest");
+      expect($(".stream .stream-element").first()).toContainElement(".commentContainerForTest");
     });
 
     it("shows and hides the mobile spinner", function(){
@@ -79,52 +90,75 @@ describe("Diaspora.Mobile.Comments", function(){
     });
   });
 
-  describe("createComment", function () {
+  describe("submitComment", function() {
     beforeEach(function() {
-      spec.loadFixture("aspects_index_mobile_post_with_comments");
-      var link = $(".stream .comment-action").first();
-      Diaspora.Mobile.Comments.showCommentBox(link);
-      $(".stream .new_comment").submit(Diaspora.Mobile.Comments.submitComment);
+      Diaspora.Mobile.Comments.initialize();
+      Diaspora.Mobile.Comments.showCommentBox($(".stream .comment-action").first());
     });
 
     it("doesn't submit an empty comment", function() {
-      var form = $(".stream .new_comment").first();
-      spyOn(jQuery, "ajax");
-      form.submit();
-      expect(jQuery.ajax).not.toHaveBeenCalled();
+      $(".stream .new_comment").first().submit();
+      expect(jasmine.Ajax.requests.count()).toBe(0);
+    });
+
+    it("submits comments with text", function() {
+      $(".stream .new_comment textarea").val("comment text");
+      $(".stream .new_comment").first().submit();
+      expect(jasmine.Ajax.requests.mostRecent().data().text).toEqual(["comment text"]);
+    });
+
+    it("calls updateStream on success", function() {
+      spyOn(Diaspora.Mobile.Comments, "updateStream");
+      $(".stream .new_comment textarea").val("comment text");
+      $(".stream .new_comment").first().submit();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 200, responseText: "foo"});
+      expect(Diaspora.Mobile.Comments.updateStream).toHaveBeenCalledWith($(".stream .new_comment").first(), "foo");
+    });
+
+    it("lets Diaspora.Mobile.Alert handle AJAX errors", function() {
+      spyOn(Diaspora.Mobile.Alert, "handleAjaxError");
+      $(".stream .new_comment textarea").val("comment text");
+      $(".stream .new_comment").first().submit();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "oh noez! comment failed!"});
+      expect(Diaspora.Mobile.Alert.handleAjaxError).toHaveBeenCalled();
+      expect(Diaspora.Mobile.Alert.handleAjaxError.calls.argsFor(0)[0].responseText).toBe("oh noez! comment failed!");
+    });
+
+    it("calls resetCommentBox on errors", function() {
+      spyOn(Diaspora.Mobile.Comments, "resetCommentBox");
+      $(".stream .new_comment textarea").val("comment text");
+      $(".stream .new_comment").first().submit();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 400, responseText: "oh noez! comment failed!"});
+      expect(Diaspora.Mobile.Comments.resetCommentBox).toHaveBeenCalledWith($(".stream .new_comment").first());
     });
   });
 
   describe("increaseReactionCount", function(){
     beforeEach(function() {
-      spec.loadFixture("aspects_index_mobile_post_with_comments");
-      this.bottomBar = $(".bottom-bar").first();
       this.toggleReactionsLink = this.bottomBar.find(".show-comments").first();
     });
 
     it("Increase reaction count from 1", function(){
-      expect(this.toggleReactionsLink.text().trim()).toBe("5 reactions");
+      expect(this.toggleReactionsLink.text().trim()).toBe("5 comments");
       Diaspora.Mobile.Comments.increaseReactionCount(this.bottomBar);
-      expect(this.toggleReactionsLink.text().trim()).toBe("6 reactions");
+      expect(this.toggleReactionsLink.text().trim()).toBe("6 comments");
     });
 
     it("Creates the reaction link when no reactions", function(){
       var parent = this.toggleReactionsLink.parent();
-      var postGuid = this.bottomBar.parents(".stream_element").data("guid");
+      var postGuid = this.bottomBar.parents(".stream-element").data("guid");
       this.toggleReactionsLink.remove();
-      parent.prepend($("<span/>", {"class": "show-comments"}).text("No reaction"));
+      parent.prepend($("<span/>", {"class": "show-comments"}).text("0 comments"));
 
       Diaspora.Mobile.Comments.increaseReactionCount(this.bottomBar);
       this.toggleReactionsLink = this.bottomBar.find(".show-comments").first();
-      expect(this.toggleReactionsLink.text().trim()).toBe("1 reaction");
+      expect(this.toggleReactionsLink.text().trim()).toBe("1 comment");
       expect(this.toggleReactionsLink.attr("href")).toBe("/posts/" + postGuid + "/comments.mobile");
     });
   });
 
   describe("bottomBarLazy", function(){
     beforeEach(function() {
-      spec.loadFixture("aspects_index_mobile_post_with_comments");
-      this.bottomBar = $(".bottom-bar").first();
       this.bottomBarLazy = Diaspora.Mobile.Comments.bottomBarLazy(this.bottomBar);
     });
 

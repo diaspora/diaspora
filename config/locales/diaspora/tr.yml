@@ -22,6 +22,10 @@ tr:
           attributes:
             diaspora_handle:
               taken: "önceden alınmış."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Bu oylamada zaten oyunuz var!"
         request:
           attributes:
             from_id:
@@ -70,16 +74,21 @@ tr:
         zero: "%{count} kişi"
       week: "Hafta"
     user_entry:
+      account_closed: "Hesap kapandı"
       diaspora_handle: "diaspora* kaydı"
       guid: "GUID"
       id: "kimlik"
       ? "no"
       : Hayır
+      nsfw: "#nsfw"
       unknown: "Bilinmiyor"
       ? "yes"
       : Evet
     user_search:
+      account_closing_scheduled: "%{name} hesabı birkaç dakika içinde kapanacak."
       add_invites: "davetiye ekle"
+      are_you_sure: "Hesabı kapatmak istediğinize emin misiniz?"
+      close_account: "Hesabı kapat"
       email_to: "E-posta ile Davet"
       under_13: "13'ün altındaki kullanıcıları göster (COPPA)"
       users:
@@ -195,7 +204,6 @@ tr:
   conversations:
     create:
       fail: "Geçersiz mesaj"
-      no_contact: "Hey, önce bir bağlantı ekleyin!"
       sent: "Mesaj gönderildi"
     index:
       conversations_inbox: "Yazışmalar — Gelen kutusu"
@@ -288,6 +296,10 @@ tr:
       title: "Anılmalar"
       what_is_a_mention_q: "\"Birisini anmak\" nedir?"
     miscellaneous:
+      diaspora_app_a: "Toplıluk üyelerince çeşitli Android uygulamaları geliştirilmektedir. Bazıları çoktan terk edlimiş ve mevcut diaspora* yazılımına uygun değildir. Bunlardan çok bir şey beklemeyin. Şu an için bir iOS uygulaması yok. diaspora*ya mobilden erişmenin en iyi yolu bir tarayıcı, çünkü mobil siteyi tüm cihazlarda, işlevselliği henüz tam olmamakla birlikte, düzgün çalışacak şekilde tasarladık."
+      diaspora_app_q: "Android ve iOS için diaspora* uygulamaları var mı?"
+      photo_albums_a: "Henüz değil. Ama, birisinin yüklediği resimlerini profil sayfasındaki Fotoğraflar sekmesinden görebilirsin."
+      photo_albums_q: "Fotoğraf ve video albümleri var mı?"
       title: "Çeşitli"
     pods:
       find_people_a: "Kenar çubuğundaki e-mektup bağlantısına tıklayın. İlgi alanlarınızı paylaşan kişileri #etiketler ile takip edin, ve onlardan ilgilendiğiniz şeyler gönderenleri bir bakışa ekleyin. Genel bir gönderide #buradayeniyim diye bağırın."
@@ -310,8 +322,10 @@ tr:
       hide_posts_q: "Gönderilerimi nasıl gizlerim?"
       image_text: "resim metni"
       image_url: "resim url'si"
+      insert_images_a: "Ufak kamera simgesine tıklayarak bunu yapabilirsiniz. Başka bir görüntü yüklemek için kamera simgesine tekrar tıklayabilir veya birden fazlasını tek seferde yükleyebilirsiniz."
       insert_images_comments_a1: "Aşağıda not düşülen kod"
       insert_images_comments_q: "Yorumlara resim ekleyebilir miyim?"
+      insert_images_q: "Gönderilere nasıl görüntü eklerim?"
       size_of_images_a: "Yapamazsınız. Resimler kendiliğinden akış genişliğine uyacak şekilde boyutlandırılırlar. Markdown içinde resim boyutunu belirleyecek bir kod yoktur."
       size_of_images_q: "Gönderi ve yorumlardaki resimleri nasıl boyutlandırabilirim?"
       stream_full_of_posts_a1: "Akışınız üç türlü gönderiden meydana gelir:"
@@ -327,6 +341,8 @@ tr:
     private_profiles:
       title: "Özel profiller"
       whats_in_profile_q: "Ne benim özel profil var?"
+      who_sees_profile_a: "Paylaşımda bulunduğunuz (bakışlarınızdan birinde olan) her hangi kullanıcı, adıyla girdiğinde görebilir. Ancak sizin takip etmediğiniz takipçiler, ancak herkese açık bilgilerinizi görür."
+      who_sees_profile_q: "Özel profilimi kimler görür?"
       who_sees_updates_a: "Bakışlarınızdaki herkes özel profilinizdeki değişiklikleri görebilir. "
       who_sees_updates_q: "Özel profilimin güncelllemelerini kim görebilir?"
     public_posts:
@@ -336,6 +352,8 @@ tr:
       whats_in_profile_a: "Adınız, kendinizi tanımladığınız beş etiket, fotoğrafınız. Profili düzenleme sayfasının üstündeki şeyler. Profil bilgilerini tanımlanabilir ya da anonim olarak tanımlayabilirsiniz. Profil sayfası ayrıca tüm genel gönderilerinizi gösterir."
       whats_in_profile_q: "Genel profilimin içinde ne var"
     resharing_posts:
+      reshare_private_post_aspects_a: "Hayır, bu mümkün değildir. Böyle bir şey, gönderenin, yalnızca belirli bir kitle ile paylaşmak niyetine ters düşerdi."
+      reshare_private_post_aspects_q: "Özel bir gönderiyi yeniden paylaşabilir miyim?"
       reshare_public_post_aspects_a: "Hayır, onları yeniden paylaştığınızda kendiliğinden genel gönderi olarak paylaşılırlar. Belirli bakışlarla paylaşmak için, kopyala-yapıştır yöntemini kullanabilirsiniz. diaspora* nın kopyala-yapıştır koruması yoktur."
       reshare_public_post_aspects_q: "Genel bir gönderiyi belli bakışlarla yeniden paylaşabilir miyim?"
       title: "Gönderileri yeniden paylaşmak"
@@ -344,17 +362,17 @@ tr:
       see_old_posts_q: "Birisini bir bakışa eklediğimde, benim daha önce oraya gönderdiklerimi görebilir mi?"
       title: "Paylaşım"
     tags:
+      tags_in_comments_a: "Bir yoruma eklenen etiket, etiketin sayfasına bir bağlantı üretecektir, ancak o gönderi (ve yorumunu) o sayfada göstertmeyecektir. Bu yalnızca gönderi etiketlerinde çalışır."
+      tags_in_comments_q: "Yorumları etiketleyebilir miyim, yoksa bu gönderilere özgü bir şey mi?"
       title: "Etiketler"
       what_are_tags_for_a: "Etiketler gönderileri, genellikle konularına göre, sınıflandırmanın bir yoludur. Bir etiketi aratarak onu içeren tüm görebileceğiniz gönderileri (genel ve özel) bulabilirsiniz. Bu belli bir konu ile ilgilenenlerin onunla ilgili genel gönderileri bulabilmesini sağlar."
       what_are_tags_for_q: "Etiketler ne işe yarar?"
     third_party_tools: "üçüncü taraf araçları"
+    title_header: "Yardım"
     tutorial: "öğretici"
     tutorials: "öğreticiler"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Bir Facebook kullanıcısı"
-    check_token:
-      not_found: "Davetiye bulunamadı."
     create:
       empty: "En az bir e-posta adresi girin."
       no_more: "Başka davetiyeniz yok."
@@ -402,6 +420,8 @@ tr:
       other: "%{actors} %{post_link} gönderinizi yorumladı."
       zero: "%{actors} %{post_link} gönderinizi yorumladı."
     index:
+      all_notifications: "Tüm bildirimler"
+      also_commented: "Bunlar da yorumladı"
       and: "ve"
       and_others:
         other: "ve %{count} diğer kişi"
@@ -411,6 +431,8 @@ tr:
       mark_read: "Okundu"
       mark_unread: "Okunmadı olarak işaretle"
       notifications: "Bildirimler"
+      show_all: "Tümünü göster"
+      show_unread: "Okunmamışları göster"
     liked:
       other: "%{actors} senin %{post_link} gönderini beğendi."
       zero: "%{actors} senin %{post_link} gönderini beğendi."
@@ -491,6 +513,10 @@ tr:
           diaspora* elektronik mektup robotu
 
           [1]: %{url}
+      subject: "Yeni %{type} ağır dil olarak işaretlendi"
+      type:
+        comment: "yorum"
+        post: "gönderi"
     reshared:
       reshared: "%{name} gönderini tekrar paylaştı"
       view_post: "Gönderiyi görüntüle>"
@@ -509,6 +535,7 @@ tr:
     add_contact:
       invited_by: "tarafından davet edildin"
     index:
+      couldnt_find_them: "Aradığını bulamadın mı?"
       looking_for: "%{tag_link} ile etiketlenmiş gönderileri mi arıyorsun?"
       no_one_found: "...ve hiç kimse bulunamadı."
       no_results: "Hey! Bir şeyi araman lazım."
@@ -534,14 +561,8 @@ tr:
       type_error: "Fotoğraf yüklemesi başarısız oldu. Bir görüntünün eklendiğinden emin misin?"
     destroy:
       notice: "Fotoğraf silindi."
-    new_photo:
-      empty: "{file} boş bir dosya, bu olmadan dosyaları tekrar seçin."
-      invalid_ext: "{file} geçersiz uzantıya sahip. sadece {extensions} uzantılarına izin verilir."
-      size_error: "{file} çok büyük, en büyük dosya boyutu {sizeLimit}."
     new_profile_photo:
       upload: "Yeni bir profil fotoğrafı yükle!"
-    show:
-      show_original_post: "Orijinal gönderiyi göster"
   posts:
     presenter:
       title: "%{name} 'den bir gönderi"
@@ -573,9 +594,6 @@ tr:
       failed: "Profil güncellemesi başarısız"
       updated: "Profil güncellendi"
   public: "Genel"
-  reactions:
-    other: "%{count} tepki"
-    zero: "tepki yok"
   registrations:
     closed: "Üyelik bu Diaspora'da kapandı."
     create:
@@ -594,6 +612,16 @@ tr:
       terms: "Bir hesap oluşturarak %{terms_link}'teki koşulları kabul etmiş sayılırsınız."
       terms_link: "hizmet koşulları"
       username: "KULLANICI ADI"
+  report:
+    comment_label: "<b>Yorum</b>:<br>%{data}"
+    confirm_deletion: "Öğeyi silmek istediğinizden emin misiniz?"
+    delete_link: "Öğeyi sil"
+    post_label: "<b>Gönderi</b>: %{title}"
+    reason_label: "Sebep:"
+    reported_label: "%{person} <b>raporladı</b>"
+    status:
+      failed: "Bir şeyler yanlış gitti"
+    title: "Raporlara bakış"
   reshares:
     comment_email_subject: "%{resharer}, %{author} kişisinin gönderisini tekrar paylaştı"
     reshare:
@@ -647,6 +675,8 @@ tr:
         i_like: "İlgimi çeken şunlardır: %{tags}."
         invited_by: "Davet için teşekkürler, "
         newhere: "YeniyimBurada"
+      poll:
+        add_a_poll: "Oylama ekle"
       posting: "Gönderiliyor..."
       share: "Paylaş"
       upload_photos: "Fotoğraf yükle"
@@ -662,8 +692,6 @@ tr:
       user: "Gizli Resim ve kod farklıydı"
     placeholder: "Resimdeki değeri girin"
   status_messages:
-    create:
-      success: "Başarıyla bahsedildi: %{names}"
     new:
       mentioning: "Bahseden: %{person}"
     too_long: "{\"other\"=>\"durum mesajları %{count} karakterden az olmalıdır.\", \"zero\"=>\"durum mesajları %{count} karakterden az olmalıdır.\"}"
@@ -675,6 +703,8 @@ tr:
     aspects_stream: "Yönler"
     comment_stream:
       title: "Yorumlanan gönderiler"
+    commented:
+      title: "yorumladı mesajlar"
     community_spotlight_stream: "Topluluk Spotlight"
     followed_tag:
       add_a_tag: "Etiket ekle"
@@ -683,6 +713,8 @@ tr:
     followed_tags_stream: "#Takip Edilen Etiketler"
     like_stream:
       title: "İğnelenenler akışı"
+    liked:
+      title: "mesajlar gibi"
     mentioned_stream: "@Bahsedenler"
     mentions:
       title: "@Bahsedenler"

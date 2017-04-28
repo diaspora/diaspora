@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Api::OpenidConnect::DiscoveryController, type: :controller do
   describe "#webfinger" do
     before do

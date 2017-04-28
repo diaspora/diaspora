@@ -10,7 +10,6 @@ app.views.Content = app.views.Base.extend({
       text : app.helpers.textFormatter(this.model.get("text"), this.model.get("mentioned_people")),
       largePhoto : this.largePhoto(),
       smallPhotos : this.smallPhotos(),
-      location: this.location(),
       isReshare : this.model.get("post_type") === "Reshare"
     });
   },
@@ -36,11 +35,6 @@ app.views.Content = app.views.Base.extend({
       el.css('height','auto');
     });
     $(evt.currentTarget).hide();
-  },
-
-  location: function(){
-    var location = this.model.get("location")? this.model.get("location") : "";
-    return location;
   },
 
   collapseOversized : function() {

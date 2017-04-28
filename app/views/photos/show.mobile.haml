@@ -5,10 +5,10 @@
 :css
   footer{display: none;}
 
-#show_content.photos
+.photos
   .photo
     = image_tag photo.url(:scaled_full)
-  .stream_element{:class => "photo_mobile"}
+  .stream-element.photo_mobile
     .content
       .from.media
         .media-left
@@ -17,11 +17,14 @@
           = person_link(photo.author)
           .info
             %span
-              = link_to(post_path(photo)) do
+              - if photo.status_message
+                = link_to(post_path(photo.status_message)) do
+                  = timeago(photo.created_at)
+              - else
                 = timeago(photo.created_at)
 
 -if additional_photos && additional_photos.length > 1
-  #photo_controls
+  .photo-controls
     - if previous_photo != additional_photos.last
       = link_to(content_tag(:i, nil, id: "arrow-left", class: "entypo-chevron-left"),
                 person_photo_path(previous_photo.author, previous_photo),

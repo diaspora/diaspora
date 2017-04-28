@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Export::CommentSerializer do
   let(:comment) { create(:comment) }
   subject(:json_output) { Export::CommentSerializer.new(comment).to_json }

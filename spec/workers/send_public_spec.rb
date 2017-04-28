@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Workers::SendPublic do
   let(:sender_id) { "any_user@example.org" }
   let(:obj_str) { "status_message@guid" }

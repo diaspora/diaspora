@@ -31,7 +31,6 @@ nn:
     confirm_dialog: "Er du sikker?"
     delete: "Slett"
     edit: "Endra"
-    failed_to_like: "Like-funksjonen feila."
     failed_to_post_message: "Klarte ikkje å senda meldinga."
     getting_started:
       alright_ill_wait: "Greitt, eg ventar."
@@ -65,7 +64,6 @@ nn:
       limited: "Avgrensa - berre personar du deler med vil kunna sjå meldinga"
       public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
     reshares:
-      duplicate: "Så bra, altså? Men du har allereie delt meldinga :-)"
       post: "Vil du dele <%= name %> sin post?"
       successful: "Hurra, posten vart delt!"
     show_more: "syn meir"

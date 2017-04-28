@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Conversation, :type => :model do
   let(:user1) { alice }
   let(:user2) { bob }

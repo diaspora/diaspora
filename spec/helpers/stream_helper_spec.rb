@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe StreamHelper, type: :helper do
   describe "next_page_path" do
     def build_controller controller_class
@@ -39,6 +37,20 @@ describe StreamHelper, type: :helper do
       expect(helper).to receive(:current_page?).with(:activity_stream).and_return(true)
       allow(helper).to receive(:controller).and_return(build_controller(StreamsController))
       expect(helper.next_page_path).to include activity_stream_path
+    end
+
+    it "works for commented page when current page is commented stream" do
+      allow(helper).to receive(:current_page?).and_return(false)
+      expect(helper).to receive(:current_page?).with(:commented_stream).and_return(true)
+      allow(helper).to receive(:controller).and_return(build_controller(StreamsController))
+      expect(helper.next_page_path).to include commented_stream_path
+    end
+
+    it "works for liked page when current page is liked stream" do
+      allow(helper).to receive(:current_page?).and_return(false)
+      expect(helper).to receive(:current_page?).with(:liked_stream).and_return(true)
+      allow(helper).to receive(:controller).and_return(build_controller(StreamsController))
+      expect(helper.next_page_path).to include liked_stream_path
     end
 
     it "works for mentioned page when current page is mentioned stream" do

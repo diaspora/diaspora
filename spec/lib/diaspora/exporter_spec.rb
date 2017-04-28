@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
 require Rails.root.join('lib', 'diaspora', 'exporter')
 
 describe Diaspora::Exporter do

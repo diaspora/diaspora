@@ -200,7 +200,6 @@ sl:
   conversations:
     create:
       fail: "Neveljavno sporočilo"
-      no_contact: "Hej, najprej moraš dodati stike!"
       sent: "Sporočilo poslano"
     index:
       inbox: "Prejeto"
@@ -227,9 +226,6 @@ sl:
   fill_me_out: "Izpolni me"
   find_people: "Poišči ljudi ali #zaznamke"
   invitations:
-    a_facebook_user: "Facebook uporabnik"
-    check_token:
-      not_found: "Povabilo ni bilo najdeno"
     create:
       empty: "Prosim vnesite vsaj en elektronski poštni naslov."
       no_more: "Nimate več povabil."
@@ -420,14 +416,8 @@ sl:
       type_error: "Nalaganje slike ni uspelo.  Ste prepričani, da je bila dodana slika?"
     destroy:
       notice: "Slika izbrisana."
-    new_photo:
-      empty: "Datoteka {file} je prazna, prosimo ponovno izberite datoteke brez nje."
-      invalid_ext: "Datoteka {file} ni veljavna. Dovoljene so samo naslednje vrste datotek {extensions}."
-      size_error: "Datoteka {file} je prevelika, največja dovoljena velikost je {sizeLimit}."
     new_profile_photo:
       upload: "Naloži novo sliko profila!"
-    show:
-      show_original_post: "Prikaži originalno objavo"
   posts:
     presenter:
       title: "Objava osebe %{name}"
@@ -459,12 +449,6 @@ sl:
       failed: "Posodobitev profila ni uspela"
       updated: "Profil posodobljen"
   public: "Javni"
-  reactions:
-    few: "%{count} odzivi"
-    one: "1 odziv"
-    other: "%{count} odzivov"
-    two: "%{count} odziva"
-    zero: "0 odzivov"
   registrations:
     closed: "Za ta Pod Diaspore registracije trenutno niso mogoče."
     create:
@@ -541,8 +525,6 @@ sl:
       via: "preko %{link}"
       via_mobile: "preko mobilnika"
   status_messages:
-    create:
-      success: "Uspešno omenjeni: %{names}"
     new:
       mentioning: "Omembe: %{person}"
     too_long: "{\"few\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znake\", \"one\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znak\", \"other\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov\", \"two\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znaka\", \"zero\"=>\"vaše spročilo o stanju morajo vsebovati manj kot %{count} znakov\"}"

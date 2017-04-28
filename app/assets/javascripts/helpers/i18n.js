@@ -18,7 +18,7 @@ Diaspora.I18n = {
   },
 
   updateLocale: function(locale, data) {
-    locale.data = $.extend(locale.data, data);
+    locale.data = $.extend({}, locale.data, data);
 
     var rule = locale.data.pluralization_rule;
     if (typeof rule !== "undefined") {

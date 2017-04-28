@@ -26,6 +26,16 @@ describe('app.Router', function () {
       expect(followed_tags).toHaveBeenCalled();
       expect(tag_following_action).toHaveBeenCalledWith({tagText: 'somethingwithcapitalletters'});
     });
+
+    it("does not add the TagFollowingAction if not logged in", function() {
+      var followedTags = spyOn(app.router, "followed_tags").and.callThrough();
+      var tagFollowingAction = spyOn(app.views, "TagFollowingAction");
+      logout();
+
+      app.router.followed_tags("some_tag");
+      expect(followedTags).toHaveBeenCalled();
+      expect(tagFollowingAction).not.toHaveBeenCalled();
+    });
   });
 
   describe("when routing to /stream and hiding inactive stream lists", function() {
@@ -80,6 +90,30 @@ describe('app.Router', function () {
     });
   });
 
+  describe("conversations", function() {
+    beforeEach(function() {
+      this.router = new app.Router();
+    });
+
+    it("doesn't do anything if no conversation id is passed", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations();
+      expect(app.views.ConversationsInbox.prototype.renderConversation).not.toHaveBeenCalled();
+    });
+
+    it("doesn't do anything if id is not a readable number", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations("yolo");
+      expect(app.views.ConversationsInbox.prototype.renderConversation).not.toHaveBeenCalled();
+    });
+
+    it("renders the conversation if id is a readable number", function() {
+      spyOn(app.views.ConversationsInbox.prototype, "renderConversation");
+      this.router.conversations("12");
+      expect(app.views.ConversationsInbox.prototype.renderConversation).toHaveBeenCalledWith("12");
+    });
+  });
+
   describe("stream", function() {
     it("calls _initializeStreamView", function() {
       spyOn(app.router, "_initializeStreamView");
@@ -89,14 +123,18 @@ describe('app.Router', function () {
   });
 
   describe("gettingStarted", function() {
+    beforeEach(function() {
+      spec.content().append($("<div id='hello-there'>"));
+    });
+
     it("renders app.pages.GettingStarted", function() {
       app.router.navigate("/getting_started", {trigger: true});
-      expect(app.page.$el.selector).toEqual("#hello-there");
+      expect(app.page.$el.is($("#hello-there"))).toBe(true);
     });
 
     it("renders app.pages.GettingStarted when the URL has a trailing slash", function() {
       app.router.navigate("/getting_started/", {trigger: true});
-      expect(app.page.$el.selector).toEqual("#hello-there");
+      expect(app.page.$el.is($("#hello-there"))).toBe(true);
     });
   });
 

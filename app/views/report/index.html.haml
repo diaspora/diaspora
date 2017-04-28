@@ -17,11 +17,14 @@
               .panel-heading
                 .reporter.pull-right
                   = raw t("report.reported_label", person: link_to(username, user_profile_path(username)))
-                .title
-                  = report_content(report)
-              .panel-body
                 .reason
-                  = t("report.reason_label", text: report.text)
+                  %span.reason-label
+                    = t("report.reason_label")
+                  %span
+                    = report.text
+              .panel-body
+                .content
+                  = report_content(report)
 
                 = button_to t("report.reported_user_details"),
                   user_search_path(admins_controller_user_search: {guid: report.reported_author.guid}),

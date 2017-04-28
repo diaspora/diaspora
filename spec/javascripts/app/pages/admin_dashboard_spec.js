@@ -139,28 +139,28 @@ describe("app.pages.AdminDashboard", function(){
       spyOn(this.view, "podUpToDate").and.returnValue(true);
       this.view.latestVersion = [0, 5, 1, 1];
       this.view.updatePodStatusSuccess();
-      expect($("#pod-status .alert")).toHaveClass("alert-success");
-      expect($("#pod-status .alert").text()).toContain("up to date");
-      expect($("#pod-status .alert").text()).toContain("release is v0.5.1.1");
-      expect($("#pod-status .alert").text()).toContain("pod is running v0.5.1.2");
+      expect($("#pod-status .alert.pod-version")).toHaveClass("alert-success");
+      expect($("#pod-status .alert.pod-version").text()).toContain("up to date");
+      expect($("#pod-status .alert.pod-version").text()).toContain("release is v0.5.1.1");
+      expect($("#pod-status .alert.pod-version").text()).toContain("pod is running v0.5.1.2");
     });
 
     it("adds a 'danger' alert if the pod is up to date", function() {
       spyOn(this.view, "podUpToDate").and.returnValue(false);
       this.view.latestVersion = [0, 5, 1, 3];
       this.view.updatePodStatusSuccess();
-      expect($("#pod-status .alert")).toHaveClass("alert-danger");
-      expect($("#pod-status .alert").text()).toContain("outdated");
-      expect($("#pod-status .alert").text()).toContain("release is v0.5.1.3");
-      expect($("#pod-status .alert").text()).toContain("pod is running v0.5.1.2");
+      expect($("#pod-status .alert.pod-version")).toHaveClass("alert-danger");
+      expect($("#pod-status .alert.pod-version").text()).toContain("outdated");
+      expect($("#pod-status .alert.pod-version").text()).toContain("release is v0.5.1.3");
+      expect($("#pod-status .alert.pod-version").text()).toContain("pod is running v0.5.1.2");
     });
   });
 
   describe("updatePodStatusFail", function() {
     it("adds a 'warning' alert", function() {
       this.view.updatePodStatusFail();
-      expect($("#pod-status .alert")).toHaveClass("alert-warning");
-      expect($("#pod-status .alert").text()).toContain("Unable to determine");
+      expect($("#pod-status .alert.pod-version")).toHaveClass("alert-warning");
+      expect($("#pod-status .alert.pod-version").text()).toContain("Unable to determine");
     });
   });
 });

@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Diaspora::Taggable do
   include Rails.application.routes.url_helpers
 
@@ -27,6 +25,42 @@ describe Diaspora::Taggable do
       it "autolinks the hashtags" do
         text = Diaspora::Taggable.format_tags("#l #lol")
         expect(text).to eq("<a class=\"tag\" href=\"/tags/l\">#l</a> <a class=\"tag\" href=\"/tags/lol\">#lol</a>")
+      end
+    end
+
+    context "good tags" do
+      it "autolinks" do
+        good_tags = [
+          "tag",
+          "diaspora",
+          "PARTIES",
+          "diaspora-dev",
+          "diaspora_dev",
+          # issue #5765
+          "മലയാണ്മ",
+          # issue #5815
+          "ինչո՞ւ",
+          "այո՜ո",
+          "սեւ֊սպիտակ",
+          "գժանո՛ց"
+        ]
+        good_tags.each do |tag|
+          text = Diaspora::Taggable.format_tags("#newhashtag ##{tag} #newhashtag")
+          expect(text).to match("<a class=\"tag\" href=\"/tags/#{tag}\">##{tag}</a>")
+        end
+      end
+    end
+
+    context "bad tags" do
+      it "doesn't autolink" do
+        bad_tags = [
+          "tag.tag",
+          "hash:tag"
+        ]
+        bad_tags.each do |tag|
+          text = Diaspora::Taggable.format_tags("#newhashtag ##{tag} #newhashtag")
+          expect(text).not_to match("<a class=\"tag\" href=\"/tags/#{tag}\">##{tag}</a>")
+        end
       end
     end
   end

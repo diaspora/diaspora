@@ -23,12 +23,7 @@ class ProfilesController < ApplicationController
     @aspect  = :person_edit
     @profile = @person.profile
 
-    @tags = @profile.tags
-    @tags_array = []
-    @tags.each do |obj|
-      @tags_array << { :name => ("#"+obj.name),
-        :value => ("#"+obj.name)}
-      end
+    gon.preloads[:tagsArray] = @profile.tags.map {|tag| {name: "##{tag.name}", value: "##{tag.name}"} }
   end
 
   def update

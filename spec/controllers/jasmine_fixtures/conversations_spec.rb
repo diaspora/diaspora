@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ConversationsController, :type => :controller do
   describe '#index' do
     before do
@@ -29,6 +27,18 @@ describe ConversationsController, :type => :controller do
 
       get :index, :conversation_id => @conv1.id
       save_fixture(html_for("body"), "conversations_read")
+    end
+  end
+
+  describe "#new" do
+    before do
+      sign_in alice, scope: :user
+    end
+
+    it "generates a jasmine fixture", fixture: true do
+      session[:mobile_view] = true
+      get :new, format: :mobile
+      save_fixture(html_for("body"), "conversations_new_mobile")
     end
   end
 end

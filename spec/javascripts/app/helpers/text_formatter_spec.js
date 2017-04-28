@@ -9,19 +9,44 @@ describe("app.helpers.textFormatter", function(){
   // https://github.com/svbergerem/markdown-it-hashtag/tree/master/test
   context("hashtags", function() {
     beforeEach(function() {
-      this.tags = [
+      this.goodTags = [
         "tag",
         "diaspora",
         "PARTIES",
-        "<3"
+        "<3",
+        "diaspora-dev",
+        "diaspora_dev",
+        // issue #5765
+        "മലയാണ്മ",
+        // issue #5815
+        "ինչո՞ւ",
+        "այո՜ո",
+        "սեւ֊սպիտակ",
+        "գժանո՛ց"
+      ];
+
+      this.badTags = [
+        "tag.tag",
+        "hash:tag",
+        "hash*tag"
       ];
     });
 
-    it("renders tags as links", function() {
-      var formattedText = this.formatter('#'+this.tags.join(" #"));
-      _.each(this.tags, function(tag) {
-        var link ='<a href="/tags/'+tag.toLowerCase()+'" class="tag">#'+tag.replace("<","&lt;")+'</a>';
+    it("renders good tags as links", function() {
+      var self = this;
+      this.goodTags.forEach(function(tag) {
+        var formattedText = self.formatter("#newhashtag #" + tag + " test");
+        var link = "<a href=\"/tags/" + tag.toLowerCase() + "\" class=\"tag\">#" + tag.replace("<", "&lt;") + "</a>";
         expect(formattedText).toContain(link);
+      });
+    });
+
+    it("doesn't render bad tags as links", function() {
+      var self = this;
+      this.badTags.forEach(function(tag) {
+        var formattedText = self.formatter("#newhashtag #" + tag + " test");
+        var link = "<a href=\"/tags/" + tag.toLowerCase() + "\" class=\"tag\">#" + tag.replace("<", "&lt;") + "</a>";
+        expect(formattedText).not.toContain(link);
       });
     });
   });
@@ -85,6 +110,25 @@ describe("app.helpers.textFormatter", function(){
       var wrapper = $("<div>").html(formattedText);
       expect(wrapper.find("a[href='/people/" + this.alice.guid + "']")).not.toHaveClass('hovercardable');
       expect(wrapper.find("a[href='/people/" + this.bob.guid + "']")).toHaveClass('hovercardable');
+    });
+
+    it("supports mentions without a given name", function() {
+      this.statusMessage.set({text: "hey there @{alice@example.com} and @{bob@example.com}"});
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
+      var wrapper = $("<div>").html(formattedText);
+
+      _.each([this.alice, this.bob], function(person) {
+        expect(wrapper.find("a[href='/people/" + person.guid + "']").text()).toContain(person.name);
+      });
+    });
+
+    it("it uses the name given in the mention if it exists", function() {
+      this.statusMessage.set({text: "hey there @{Alice Awesome; alice@example.com} and @{bob@example.com}"});
+      var formattedText = this.formatter(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"));
+      var wrapper = $("<div>").html(formattedText);
+
+      expect(wrapper.find("a[href='/people/" + this.alice.guid + "']").text()).toContain("Alice Awesome");
+      expect(wrapper.find("a[href='/people/" + this.bob.guid + "']").text()).toContain(this.bob.name);
     });
   });
 

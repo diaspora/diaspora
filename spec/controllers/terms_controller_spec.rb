@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe TermsController, type: :controller do
   describe "#index" do
     it "succeeds" do

@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Notifications::AlsoCommented, type: :model do
   let(:sm) { FactoryGirl.build(:status_message, author: alice.person, public: true) }
   let(:comment) { FactoryGirl.create(:comment, commentable: sm) }

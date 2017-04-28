@@ -106,6 +106,6 @@ class Services::Twitter < Service
   end
 
   def delete_from_twitter service_post_id
-    client.status_destroy service_post_id
+    client.destroy_status service_post_id
   end
 end

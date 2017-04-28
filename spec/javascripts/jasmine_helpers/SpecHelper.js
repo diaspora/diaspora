@@ -54,6 +54,10 @@ beforeEach(function() {
   Diaspora.page = new Page();
   Diaspora.page.publish("page/ready", [$(document.body)]);
 
+  // don't change window.location in jasmine tests
+  app._changeLocation = function() { /* noop */ };
+  Diaspora.Mobile.changeLocation = function() { /* noop */ };
+
   // add custom matchers for flash messages
   jasmine.addMatchers(customMatchers);
 
@@ -74,8 +78,11 @@ afterEach(function() {
   jasmine.clock().uninstall();
   jasmine.Ajax.uninstall();
 
+  $(".modal").removeClass("fade").modal("hide");
   $("#jasmine_content").empty();
   expect(spec.loadFixtureCount).toBeLessThan(2);
+  expect($(".modal-backdrop").length).toBe(0);
+  $(".modal-backdrop").remove();
   spec.loadFixtureCount = 0;
 });
 

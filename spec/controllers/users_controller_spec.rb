@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe UsersController, :type => :controller do
   include_context :gon
 
@@ -186,20 +184,24 @@ describe UsersController, :type => :controller do
       end
     end
 
-    describe 'email settings' do
-      it 'lets the user turn off mail' do
-        par = {:id => @user.id, :user => {:email_preferences => {'mentioned' => 'true'}}}
-        expect{
-          put :update, par
-        }.to change(@user.user_preferences, :count).by(1)
-      end
+    describe "email settings" do
+      UserPreference::VALID_EMAIL_TYPES.each do |email_type|
+        context "for #{email_type}" do
+          it "lets the user turn off mail" do
+            par = {id: @user.id, user: {email_preferences: {email_type => "true"}}}
+            expect {
+              put :update, par
+            }.to change(@user.user_preferences, :count).by(1)
+          end
 
-      it 'lets the user get mail again' do
-        @user.user_preferences.create(:email_type => 'mentioned')
-        par = {:id => @user.id, :user => {:email_preferences => {'mentioned' => 'false'}}}
-        expect{
-          put :update, par
-        }.to change(@user.user_preferences, :count).by(-1)
+          it "lets the user get mail again" do
+            @user.user_preferences.create(email_type: email_type)
+            par = {id: @user.id, user: {email_preferences: {email_type => "false"}}}
+            expect {
+              put :update, par
+            }.to change(@user.user_preferences, :count).by(-1)
+          end
+        end
       end
     end
 
@@ -242,11 +244,11 @@ describe UsersController, :type => :controller do
       expect(assigns[:email_prefs]['mentioned']).to be false
     end
 
-    it 'does allow token auth' do
+    it "does not allow token auth" do
       sign_out :user
       bob.reset_authentication_token!
       get :edit, :auth_token => bob.authentication_token
-      expect(response.status).to eq(200)
+      expect(response).to redirect_to new_user_session_path
     end
   end
 

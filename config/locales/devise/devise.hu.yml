@@ -7,7 +7,7 @@
 hu:
   devise:
     confirmations:
-      confirmed: "Fiókod megerősítve. Be vagy jelentkezve."
+      confirmed: "Az e-mail címedet sikeresen megerősítetted."
       new:
         resend_confirmation: "Megerősítési utasítások újraküldése"
       send_instructions: "Pár percen belül kapsz egy e-mailt, benne a megerősítéshez szükséges utasításokkal."
@@ -18,12 +18,12 @@ hu:
       locked: "A fiókod zárolva van."
       not_found_in_database: "Érvénytelen e-mail cím vagy jelszó"
       timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
-      unauthenticated: "A továbblépéshez jelentkezz be vagy iratkozz fel."
+      unauthenticated: "A továbblépéshez bejelentkezés vagy regisztráció szükséges."
       unconfirmed: "Előbb meg kell erősítened fiókodat."
     invitations:
       invitation_token_invalid: "Sajnáljuk, de a meghívás nem érvényes."
       send_instructions: "A meghívód elküldve."
-      updated: "A jelszó módosítva. Be vagy jelentkezve."
+      updated: "A jelszó beállítva. Bejelentkeztél."
     mailer:
       confirmation_instructions:
         confirm: "Fiókom megerősítése"
@@ -56,9 +56,9 @@ hu:
         forgot_password: "Elfelejtetted a jelszavad?"
         no_account: "Ehhez az e-mail címhez nem tartozik fiók."
         reset_password: "Jelszó visszaállítása"
-        send_password_instructions: "Küldd el nekem a jelszó alaphelyzetbe állításához szükséges utasításokat"
+        send_password_instructions: "Új jelszót igénylek"
       send_instructions: "Néhány perc múlva kapsz egy e-mailt arról, hogyan állíthatod alaphelyzetbe a jelszavadat."
-      updated: "A jelszavad megváltozott. Be vagy jelentkezve vele."
+      updated: "A jelszavad megváltozott. Sikeresen bejelentkeztél."
     registrations:
       destroyed: "Viszlát! A fiókod törölve. Reméljük hamarosan újra látunk. =)"
       signed_up: "Sikeresen feliratkoztál. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk."
@@ -79,13 +79,13 @@ hu:
         receive_confirmation: "Nem kaptál megerősítési utasítást?"
         receive_unlock: "Nem kaptad meg feloldási utasítást?"
         sign_in: "Bejelentkezés"
-        sign_up: "Feliratkozás"
-        sign_up_closed: "Nincs nyílt feliratkozási lehetőség jelenleg."
+        sign_up: "Fiók létrehozása"
+        sign_up_closed: "A nyílt regisztrálás jelenleg nem hozzáférhető."
     unlocks:
       new:
         resend_unlock: "Feloldási utasítások újraküldése"
       send_instructions: "Pár percen belül kapsz egy e-mailt, benne a feloldáshoz szükséges utasításokkal."
-      unlocked: "A fiókod sikeresen feloldva. Be vagy jelentkezve."
+      unlocked: "A fiókod sikeresen feloldva. Jelentkezz be a folytatáshoz."
   errors:
     messages:
       already_confirmed: "már megerősítette"

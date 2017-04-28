@@ -33,7 +33,6 @@ ko:
     confirm_dialog: "확실합니까?"
     delete: "지우기"
     edit: "고치기"
-    failed_to_like: "좋아요를 실패했습니다!"
     failed_to_post_message: "메시지 게시를 실패하였습니다!"
     getting_started:
       alright_ill_wait: "기다릴게요."
@@ -78,7 +77,6 @@ ko:
       public: "공개 - 내 게시물을 누구나 볼 수 있고 검색 엔진으로 찾을 수 있습니다"
       question: "질문"
     reshares:
-      duplicate: "이미 재공유된 게시물입니다!"
       post: "<%= name %>님의 게시물을 재공유할까요?"
       successful: "해당 게시물이 성공적으로 재공유되었습니다!"
     show_more: "더 보기"

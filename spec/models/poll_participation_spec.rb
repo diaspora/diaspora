@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe PollParticipation, type: :model do
   before do
     @alices_aspect = alice.aspects.first

@@ -1,4 +1,3 @@
-require 'spec_helper'
 require Rails.root.join('spec', 'shared_behaviors', 'stream')
 
 describe Stream::Likes do

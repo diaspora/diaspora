@@ -216,7 +216,6 @@ nds:
   conversations:
     create:
       fail: "Ungültige Noricht"
-      no_contact: "He, du muss erst Kontakt schluten!"
       sent: "Noricht afschickt"
     destroy:
       delete_success: "Schnack erfolgriek löscht"
@@ -389,9 +388,6 @@ nds:
     tutorials: "Anleidungen"
     wiki: "Wiki"
   invitations:
-    a_facebook_user: "Een Facebook-Bruker"
-    check_token:
-      not_found: "Inlodungstoken nich funnen"
     create:
       empty: "Bidde geev minstens eene E-Mail-Adress in."
       no_more: "Du kannst keene Inlodungen mehr schicken."
@@ -580,14 +576,8 @@ nds:
       type_error: "Hoochloden von dat Bild fehlschloon.  Bist du di sicher, dat du een Bild dortaudoon hest?"
     destroy:
       notice: "Bild löscht."
-    new_photo:
-      empty: "{file} is leer, bidde wähl de Dateien noch mol ohne er ut."
-      invalid_ext: "{file} het een ungültiges Enn. Nur {extensions} sind erlaubt."
-      size_error: "{file} is to groot, Dateien dröfft höchstens {sizeLimit} groot ween."
     new_profile_photo:
       upload: "Nee’es Profilbild hoochloden!"
-    show:
-      show_original_post: "Originalbidrag anzeigen"
   posts:
     presenter:
       title: "Een Bidrag von %{name}"
@@ -619,10 +609,6 @@ nds:
       failed: "Kun Profil nich aktualisieren"
       updated: "Profil aktualisiert"
   public: "Öffentlich"
-  reactions:
-    one: "1 Reaktion"
-    other: "%{count} Reaktionen"
-    zero: "Keene Reaktionen"
   registrations:
     closed: "Registrerungen sind op dissen diaspora*-Pod schloten."
     create:
@@ -644,7 +630,7 @@ nds:
     confirm_deletion: "Bist du di sicher, dat du den Indrag löschen willst?"
     delete_link: "Indrag löschen"
     post_label: "<b>Bidrag:</b>: %{title}"
-    reason_label: "Grund: %{text}"
+    reason_label: "Grund:"
     reported_label: "<b>Meld von</b> %{person}"
     status:
       destroyed: "De Bidrag is löscht worn"
@@ -734,8 +720,6 @@ nds:
     total_users: "Bruker insgesamt"
     version: "Version"
   status_messages:
-    create:
-      success: "Erfolgriek erwähnt: %{names}"
     new:
       mentioning: "Erwähn: %{person}"
     too_long: "Bidde mok dien Bidrag kötter as %{count} Teken. In Moment is he %{current_length} Teken lang"

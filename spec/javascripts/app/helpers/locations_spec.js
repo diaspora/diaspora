@@ -15,13 +15,13 @@ describe("app.helpers.locations", function() {
     context("with mapbox enabled", function() {
       beforeEach(function() {
         /* eslint-disable camelcase */
-        gon.appConfig = {map: {mapbox: {enabled: true, id: "yourID", access_token: "yourAccessToken"}}};
+        gon.appConfig = {map: {mapbox: {enabled: true, style: "mapbox/streets-v9", access_token: "yourAccessToken"}}};
         /* eslint-enable camelcase */
       });
 
       it("returns tiles from mapbox", function() {
         var tiles = app.helpers.locations.getTiles();
-        expect(tiles._url).toMatch("https://api.tiles.mapbox.com/");
+        expect(tiles._url).toMatch("https://api.mapbox.com/");
         expect(tiles._url).not.toMatch("http://korona.geog.uni-heidelberg.de/");
       });
     });

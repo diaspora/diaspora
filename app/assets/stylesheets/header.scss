@@ -53,7 +53,7 @@
           color: $gray-light;
           padding-left: 55px;
           &:hover {
-            background-color: $link-color;
+            background-color: $brand-primary;
             color: $gray-lighter;
           }
         }
@@ -87,7 +87,7 @@
         position: relative;
         max-height: 350px;
       }
-      .stream_element.media {
+      .stream-element.media {
         padding: 5px;
         .tooltip { position: fixed; }
         .unread-toggle {
@@ -105,8 +105,8 @@
         }
       }
       .view_all {
-        background-color: $link-color;
-        border-top: 3px solid $white;
+        background-color: $brand-primary;
+        border-top: 3px solid $dropdown-bg;
         text-align: center;
         a {
           color: $white;

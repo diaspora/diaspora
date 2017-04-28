@@ -60,11 +60,6 @@ var app = {
     return !!(window.gon.preloads && window.gon.preloads[prop]); //returning boolean variable so that parsePreloads, which cleans up properly is used instead
   },
 
-  setPreload : function(prop, val) {
-    window.gon.preloads = window.gon.preloads || {};
-    window.gon.preloads[prop] = val;
-  },
-
   parsePreload : function(prop) {
       if(!app.hasPreload(prop)) { return; }
 
@@ -90,6 +85,7 @@ var app = {
 
   setupHeader: function() {
     if(app.currentUser.authenticated()) {
+      app.notificationsCollection = new app.collections.Notifications();
       app.header = new app.views.Header();
       $("header").prepend(app.header.el);
       app.header.render();
@@ -114,6 +110,7 @@ var app = {
       // so we use Backbone.history.navigate instead.
       var change = Backbone.history.navigate(link.attr("href").substring(1) ,true);
       if(change === undefined) { Backbone.history.loadUrl(link.attr("href").substring(1)); }
+      app.notificationsCollection.fetch();
     });
   },
 
@@ -122,12 +119,6 @@ var app = {
     app.sidebar = new app.views.Sidebar();
     app.backToTop = new app.views.BackToTop({el: $(document)});
     app.flashMessages = new app.views.FlashMessages({el: $("#flash-container")});
-  },
-
-  /* mixpanel wrapper function */
-  instrument : function(type, name, object, callback) {
-    if(!window.mixpanel) { return; }
-    window.mixpanel[type](name, object, callback);
   },
 
   setupDisabledLinks: function() {

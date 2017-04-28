@@ -35,7 +35,6 @@ eo:
     confirm_dialog: "Ĉu vi certas?"
     delete: "Forviŝi"
     edit: "Redakti"
-    failed_to_like: "Ne povis ŝati!"
     failed_to_post_message: "Ne povis afiŝi mesaĝon!"
     getting_started:
       alright_ill_wait: "En ordo, mi atendos."
@@ -68,7 +67,6 @@ eo:
       limited: "Malpublika - via afiŝo nur videblos de homoj, al kiuj vi konigas aferojn"
       public: "Publika - via afiŝo videblos al ĉiuj kaj troveblos de retserĉprogramoj."
     reshares:
-      duplicate: "Nu, ĉu tiel bone? Vi jam rekonigis tiun afiŝon!"
       post: "Ĉu vi deziras rekonigi la mesaĝon de <%= name %>?"
       successful: "La afiŝo estis sukcese rekonigita!"
     show_more: "vidi plu"

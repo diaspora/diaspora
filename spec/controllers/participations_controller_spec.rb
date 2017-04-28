@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ParticipationsController, :type => :controller do
   before do
     allow(@controller).to receive(:current_user).and_return(alice)

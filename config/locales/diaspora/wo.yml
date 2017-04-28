@@ -44,7 +44,6 @@ wo:
       to: "ci"
   email: "Email"
   invitations:
-    a_facebook_user: "Facebooku jëfandikukat"
     new:
       language: "Làkk"
   layouts:

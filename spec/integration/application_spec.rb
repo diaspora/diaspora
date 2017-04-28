@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe ApplicationController, type: :request do
   describe "csrf token validation" do
     context "without a current user" do

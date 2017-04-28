@@ -1,17 +1,4 @@
 class CleanupDuplicatesAndAddUniqueIndexes < ActiveRecord::Migration
-  class Post < ActiveRecord::Base
-  end
-
-  class StatusMessage < Post
-  end
-
-  class Photo < ActiveRecord::Base
-    belongs_to :status_message, foreign_key: :status_message_guid, primary_key: :guid
-  end
-
-  class ShareVisibility < ActiveRecord::Base
-  end
-
   def up
     # temporary index to speed up the migration
     add_index :photos, :guid, length: 191
@@ -34,12 +21,6 @@ class CleanupDuplicatesAndAddUniqueIndexes < ActiveRecord::Migration
     %i(conversations messages photos polls poll_answers poll_participations).each do |table|
       delete_duplicates_and_create_unique_index(table)
     end
-
-    # fix photo public flag again ...
-    Photo.joins(:status_message).where(posts: {public: true}).update_all(public: true)
-
-    ShareVisibility.joins("INNER JOIN photos ON photos.id = share_visibilities.shareable_id")
-                   .where(shareable_type: "Photo", photos: {public: true}).delete_all
   end
 
   def down

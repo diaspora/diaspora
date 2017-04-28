@@ -10,7 +10,6 @@
     .framed-content { padding-bottom: 10px; }
 
     .year {
-      background-color: $white;
       color: $text-grey;
       font-size: 40px;
       line-height: 40px;
@@ -62,7 +61,7 @@
 }
 
 #notifications_container .stream, header .nav-badges .notifications {
-  .stream_element.media {
+  .stream-element.media {
     padding: 10px;
     margin: 0px;
     line-height: 18px;
@@ -73,7 +72,7 @@
       background-color: $background-grey;
       .unread-toggle {
         opacity: 1 !important;
-        .entypo-eye { color: $black; }
+        .entypo-eye { color: $text-color-active; }
       }
     }
 
@@ -90,7 +89,7 @@
       padding: 9px 5px;
       .entypo-eye {
         cursor: pointer;
-        color: lighten($black,75%);
+        color: $text-color-pale;
         font-size: 17px;
         line-height: 17px;
       }

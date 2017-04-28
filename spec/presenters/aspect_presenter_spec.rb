@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe AspectPresenter do
   before do
     @presenter = AspectPresenter.new(bob.aspects.first)

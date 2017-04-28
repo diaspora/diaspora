@@ -36,8 +36,7 @@ Feature: resharing from the mobile
     And I am on "alice@alice.alice"'s page
     And I click to delete the first post
     And I log out
-    And I toggle the mobile view
-    And I sign in as "bob@bob.bob"
+    And I sign in as "bob@bob.bob" on the mobile website
     Then I should see "Original post deleted by author" within ".reshare"
     And I log out
     And I sign in as "eve@eve.eve" on the mobile website

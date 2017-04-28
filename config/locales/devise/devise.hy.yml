@@ -13,6 +13,7 @@ hy:
       send_instructions: "Րոպեների ընթացքում նամակ կստանաս՝ էլ․հասցեդ հաստատելու ցուցումներով։"
       send_paranoid_instructions: "Եթե քո էլ․հասցեն կա մեր տվյալների բազայում, րոպեների ընթացքում նամակ կստանաս՝ էլ․հասցեդ հաստատելու ցուցումներով։"
     failure:
+      already_authenticated: "Արդեն մուտք գործած ես։"
       inactive: "Քո հաշիվը դեռ ակտիվացված չէ։"
       invalid: "Սխալ %{authentication_keys} կամ գաղտնաբառ։"
       invalid_token: "Նույնականացման սխալ։"
@@ -99,5 +100,10 @@ hy:
   errors:
     messages:
       already_confirmed: "արդեն հաստատվել է, փորձիր մուտք գործել"
+      confirmation_period_expired: "պետք է հաստատվի %{period}վա ընթացքում, խնդրում ենք նորը հայցիր"
+      expired: "լրացել է, խնդրում ենք նորը հայցիր"
       not_found: "չի գտնվել"
-      not_locked: "կողպված չէ"
+      not_locked: "արգելափակված չէր"
+      not_saved:
+        one: "1 սխալանք խոչընդոտեց այս %{resource}֊ի պահպանվելուն․"
+        other: "%{count} սխալանք խոչընդոտեցին այս %{resource}֊ի պահպանվելուն․"

@@ -229,7 +229,6 @@ fi:
   conversations:
     create:
       fail: "Virheellinen viesti"
-      no_contact: "Hei, sinun on ensin lisättävä vastaanottaja!"
       sent: "Viesti lähetetty"
     destroy:
       delete_success: "Keskustelun poistaminen onnistui"
@@ -483,9 +482,6 @@ fi:
   invitation_codes:
     not_valid: "Kutsukoodi ei ole enää voimassa"
   invitations:
-    a_facebook_user: "Facebook-käyttäjä"
-    check_token:
-      not_found: "Kutsun tunnusta ei löytynyt"
     create:
       empty: "Ole hyvä kirjoita vähintään yksi sähköpostiosoite."
       no_more: "Sinulla ei ole enempää kutsuja."
@@ -756,14 +752,8 @@ fi:
       type_error: "Kuvan lataus epäonnistui. Lisäsitkö varmasti kuvan?"
     destroy:
       notice: "Kuva poistettu."
-    new_photo:
-      empty: "{file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa."
-      invalid_ext: "{file} sisältää viallisen tiedostopäätteen. Tuetut muodot ovat {extensions}."
-      size_error: "{file} on liian suuri, suurin tiedostokoko on {sizeLimit}."
     new_profile_photo:
       upload: "Lisää uusi profiilikuva!"
-    show:
-      show_original_post: "Näytä alkuperäinen julkaisu"
   posts:
     presenter:
       title: "Julkaisu käyttäjältä %{name}"
@@ -797,10 +787,6 @@ fi:
       failed: "Profiilin päivitys epäonnistui"
       updated: "Profiili päivitetty"
   public: "Julkinen"
-  reactions:
-    one: "1 reaktio"
-    other: "%{count} reaktiota"
-    zero: "Ei reaktioita"
   registrations:
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create:
@@ -825,7 +811,7 @@ fi:
     delete_link: "Poista kohde"
     not_found: "<u>Julkaisua tai kommenttia ei löytynyt. Vaikuttaa siltä, että käyttäjä on poistanut sen!</u>"
     post_label: "<b>Julkaisu</b>: %{title}"
-    reason_label: "Syy: %{text}"
+    reason_label: "Syy:"
     reported_label: "<b>Ilmoituksen teki</b> %{person}"
     review_link: "Merkitse tarkistetuksi"
     status:
@@ -929,8 +915,6 @@ fi:
     total_users: "Käyttäjiä yhteensä"
     version: "Versio"
   status_messages:
-    create:
-      success: "Onnistuneesti mainittu: %{names}"
     new:
       mentioning: "Mainitse: %{person}"
     too_long: "Sinun täytyy lyhentää tilapäivitystäsi, sillä se voi sisältää enimmillään %{count} merkkiä. Tällä hetkellä päivityksessäsi on %{current_length} merkkiä."

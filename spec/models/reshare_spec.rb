@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Reshare, type: :model do
   it "has a valid Factory" do
     expect(FactoryGirl.build(:reshare)).to be_valid

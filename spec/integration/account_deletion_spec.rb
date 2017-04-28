@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe "deleteing your account", type: :request do
   context "user" do
     before do

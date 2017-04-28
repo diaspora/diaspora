@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe ConversationVisibility, type: :model do
   let(:user1) { alice }
   let(:participant_ids) { [user1.contacts.first.person.id, user1.person.id] }

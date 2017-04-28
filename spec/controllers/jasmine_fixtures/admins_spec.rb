@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe AdminsController, type: :controller do
   describe "#dashboard" do
     before do

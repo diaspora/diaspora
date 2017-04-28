@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe MetaDataHelper, type: :helper do
   describe "#meta_tag" do
     it "returns an empty string if passed an empty hash" do

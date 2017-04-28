@@ -50,6 +50,7 @@ nb:
               taken: "er allerede tatt."
   admins:
     admin_bar:
+      dashboard: "Dashbord"
       pages: "Sider"
       pod_stats: "Serverstatistikk"
       report: "Rapporter"
@@ -229,7 +230,6 @@ nb:
   conversations:
     create:
       fail: "Ugyldig melding"
-      no_contact: "Heisann, du må legge til kontakten først."
       sent: "Melding sendt"
     destroy:
       delete_success: "Samtalen ble slettet suksessfullt"
@@ -484,9 +484,6 @@ nb:
   invitation_codes:
     not_valid: "Den invitasjonskoden er ikke lenger gyldig"
   invitations:
-    a_facebook_user: "En Facebook-bruker"
-    check_token:
-      not_found: "Invitasjonsnøkkelen finnes ikke"
     create:
       empty: "Vennligst angi i hvertfall en e-post adresse"
       no_more: "Du har ikke flere invitasjoner."
@@ -774,14 +771,8 @@ nb:
       type_error: "Bildeopplastning mislyktes. ER du sikker på at et bilde ble lagt til?"
     destroy:
       notice: "Bildet er sletta."
-    new_photo:
-      empty: "{file} er tom, vennligst velg filer igjen uten den"
-      invalid_ext: "{file} er en ugyldig filtype. Bare {extensions} er tillatt."
-      size_error: "{file} er for stor, maks filstørrelse er {sizeLimit}."
     new_profile_photo:
       upload: "Last opp et nytt profilbilde!"
-    show:
-      show_original_post: "Vis originalpost"
   posts:
     presenter:
       title: "En post fra %{name}"
@@ -815,13 +806,6 @@ nb:
       failed: "Kunne ikke oppdatere profil"
       updated: "Profil oppdatert"
   public: "Offentlig"
-  reactions:
-    few: "%{count} reaksjoner"
-    many: "%{count} reaksjoner"
-    one: "1 reaksjon"
-    other: "%{count} reaksjoner"
-    two: "%{count} reaksjoner"
-    zero: "0 reaksjoner"
   registrations:
     closed: "Registreringer er stengt på denne diaspora*-serveren."
     create:
@@ -846,7 +830,7 @@ nb:
     delete_link: "Slett element"
     not_found: "<u>Fant ikke innlegget/kommentaren. Det ser ut til at den ble slettet av brukeren!</u>"
     post_label: "<b>Post</b>: %{title}"
-    reason_label: "Årsak: %{text}"
+    reason_label: "Årsak:"
     reported_label: "<b>Rapportert av</b> %{person}"
     review_link: "Markert som verifisert"
     status:
@@ -950,8 +934,6 @@ nb:
     total_users: "Totalt antall brukere"
     version: "Versjon"
   status_messages:
-    create:
-      success: "Nevnte :%{navn}"
     new:
       mentioning: "Nevner: %{person}"
     too_long: "{\"few\"=>\"du bør begrense statusmeldingene dine til %{count} tegn\", \"many\"=>\"Du bør begrense statusmeldingene dine til %{count} characters\", \"one\"=>\"du bør begrense statusmeldingene dine til %{count} tegn\", \"other\"=>\"du må gjøre statusmeldingene dine kortere enn %{count} tegn\", \"two\"=>\"vær så snill og skriv statusoppdateringer som er under %{count} tegn\", \"zero\"=>\"Statusmeldinger må være lengre enn ingenting.\"}"

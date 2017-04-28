@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Diaspora::Federation::Entities do
   describe ".build" do
     it "builds an account deletion" do

@@ -88,8 +88,8 @@ And /^I hover over the "([^"]+)"$/ do |element|
 end
 
 When /^I prepare the deletion of the first post$/ do
-  find(".stream .stream_element", match: :first).hover
-  within(find(".stream .stream_element", match: :first)) do
+  find(".stream .stream-element", match: :first).hover
+  within(find(".stream .stream-element", match: :first)) do
     ctrl = find(".control-icons")
     ctrl.hover
     ctrl.find(".remove_post").click
@@ -97,8 +97,8 @@ When /^I prepare the deletion of the first post$/ do
 end
 
 When /^I prepare hiding the first post$/ do
-  find(".stream .stream_element", match: :first).hover
-  within(find(".stream .stream_element", match: :first)) do
+  find(".stream .stream-element", match: :first).hover
+  within(find(".stream .stream-element", match: :first)) do
     ctrl = find(".control-icons")
     ctrl.hover
     ctrl.find(".hide_post").click
@@ -176,7 +176,7 @@ end
 
 Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    current_scope.should have_css selector
+    expect(current_scope).to have_css(selector)
   end
 end
 
@@ -204,40 +204,15 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
-  has_css?("#people_stream .stream_element", :count => n_posts.to_i).should be true
+  has_css?("#people_stream .stream-element", count: n_posts.to_i).should be true
 end
 
 And /^I scroll down$/ do
   page.execute_script("window.scrollBy(0,3000000)")
 end
-And /^I scroll down on the notifications dropdown$/ do
-  page.execute_script("$('.notifications').scrollTop(350)")
-end
 
 Then /^I should have scrolled down$/ do
   expect(page.evaluate_script("window.pageYOffset")).to be > 0
-end
-
-Then /^I should have scrolled down on the notification dropdown$/ do
-  expect(page.evaluate_script("$('.notifications').scrollTop()")).to be > 0
-end
-
-
-Then /^the notification dropdown should be visible$/ do
-  expect(find(:css, "#notification-dropdown")).to be_visible
-end
-
-Then /^the notification dropdown scrollbar should be visible$/ do
-  find(:css, ".ps-active-y").should be_visible
-end
-
-Then /^there should be (\d+) notifications loaded$/ do |n|
-  result = page.evaluate_script("$('.media.stream_element').length")
-  result.should == n.to_i
-end
-
-And "I wait for notifications to load" do
-  page.should_not have_selector(".loading")
 end
 
 When /^I resize my window to 800x600$/ do
@@ -245,11 +220,11 @@ When /^I resize my window to 800x600$/ do
 end
 
 Then 'I should see an image attached to the post' do
-  step %{I should see a "img" within ".stream_element div.photo_attachments"}
+  step %(I should see a "img" within ".stream-element div.photo_attachments")
 end
 
 Then 'I press the attached image' do
-  step %{I press the 1st "img" within ".stream_element div.photo_attachments"}
+  step %(I press the 1st "img" within ".stream-element div.photo_attachments")
 end
 
 And "I wait for the popovers to appear" do
@@ -313,6 +288,14 @@ Then /^I should see the Bitcoin address$/ do
   find("#bitcoin_address")['value'].should == "AAAAAA"
 end
 
+Given /^I have configured a Liberapay username$/ do
+  AppConfig.settings.liberapay_username = "BBBBBB"
+end
+
+Then /^I should see the Liberapay donate button$/ do
+  find("#liberapay-button")["href"].should == "https://liberapay.com/BBBBBB/donate"
+end
+
 Given /^"([^"]*)" is hidden$/ do |selector|
   page.should have_selector(selector, visible: false)
   page.should_not have_selector(selector)
@@ -320,9 +303,4 @@ end
 
 Then(/^I should have a validation error on "(.*?)"$/) do |field_list|
   check_fields_validation_error field_list
-end
-
-And /^I activate the first hovercard after loading the notifications page$/ do
-  page.should have_css '.notifications .hovercardable'
-  first('.notifications .hovercardable').hover
 end

@@ -69,14 +69,14 @@ zh-TW:
     aspect_navigation:
       add_an_aspect: "+ 新增社交面"
       deselect_all: "全不選"
-      no_aspects: "沒選任何一面"
+      no_aspects: "沒選任何社交面"
       select_all: "全選"
     aspects:
       create:
         add_a_new_aspect: "新增社交面"
         failure: "造社交面失敗。"
         success: "新社交面<%= name %>已經造出來了"
-      make_aspect_list_visible: "要讓這一面中的聯絡人可以看得到彼此嗎？"
+      make_aspect_list_visible: "要讓這個社交面中的聯絡人可以看得到彼此嗎？"
       name: "名稱"
     bookmarklet:
       post_something: "貼到 diaspora*"
@@ -92,25 +92,26 @@ zh-TW:
     confirm_unload: "請確認要離開這個頁面。你目前輸入的資料將不會保留。"
     contacts:
       add_contact: "加聯絡人"
-      aspect_chat_is_enabled: "這一面的聯絡人可以跟你聊天。"
-      aspect_chat_is_not_enabled: "這一面的聯絡人不能跟你聊天。"
-      aspect_list_is_not_visible: "這一面中的連絡人無法互相看見。"
-      aspect_list_is_visible: "這一面中的連絡人可以互相看見。"
-      error_add: "沒辦法把 <%= name %> 加進這一面 :("
-      error_remove: "沒辦法把 <%= name %> 從這一面中移除 :("
+      aspect_chat_is_enabled: "這個社交面中的聯絡人可以跟你聊天。"
+      aspect_chat_is_not_enabled: "這個社交面中的聯絡人不能跟你聊天。"
+      aspect_list_is_not_visible: "這個社交面中的連絡人無法互相看見。"
+      aspect_list_is_visible: "這個社交面中的連絡人可以互相看見。"
+      error_add: "沒辦法把 <%= name %> 加進這個社交面 :("
+      error_remove: "沒辦法把 <%= name %> 從這個社交面中移除 :("
       remove_contact: "刪聯絡人"
       search_no_results: "沒找到聯絡人"
     conversation:
+      create:
+        no_recipient: "欸，必須要有收訊人 ！"
       new:
         no_contacts: "\x1f開始對話前你必須先加一些聯絡人"
     create: "建立"
     delete: "刪除"
     edit: "編輯"
-    failed_to_comment: "發表意見失敗。作者可能正在忽視你。"
-    failed_to_like: "說讚失敗。也許是因為作者正在忽視你。"
+    errors:
+      connection: "沒辦法跟伺服器連線。"
     failed_to_post_message: "貼文失敗！"
     failed_to_remove: "刪掉這個項目的動作失敗了！"
-    failed_to_reshare: "轉貼失敗！"
     getting_started:
       alright_ill_wait: "好，再說吧。"
       hey: "嗨，<%= name %>！"
@@ -146,6 +147,8 @@ zh-TW:
     notifications:
       mark_read: "標示為看過了"
       mark_unread: "標示為沒看過"
+      new_notifications:
+        other: "有<%= count %>則還沒看過的通知"
     people:
       edit_my_profile: "編輯自己的個人檔案"
       helper:
@@ -216,6 +219,7 @@ zh-TW:
           quote: "加入引用文字"
           write: "編輯訊息"
         write: "編寫"
+      mention_success: "指指點點成功: <%= names %>"
       near_from: "貼文地點：<%= location %>"
       option: "答案"
       public: "公開：所有人都能看到你的貼文，包括搜尋引擎"
@@ -229,12 +233,13 @@ zh-TW:
         created: "成功產生回報了"
         exists: "已經有這筆回報了"
     reshares:
-      duplicate: "很棒對吧？你已經轉貼過該篇貼文了！"
       post: "要轉貼 <%= name %> 的貼文嗎？"
       successful: "貼文轉貼成功！"
     show_more: "顯示更多"
     stream:
       comment: "留言"
+      comments:
+        other: "有<%= count %>則留言"
       disable_post_notifications: "關閉貼文的最新通知"
       enable_post_notifications: "開啟貼文的最新通知"
       follow: "追蹤"
@@ -256,9 +261,6 @@ zh-TW:
       original_post_deleted: "原貼文已經被作者刪除了"
       permalink: "永久連結"
       public: "公開"
-      reactions:
-        other: "有<%= count%>個回應"
-        zero: "沒有回應"
       reshare: "轉貼"
       reshares:
         other: "被轉貼<%= count %>次"

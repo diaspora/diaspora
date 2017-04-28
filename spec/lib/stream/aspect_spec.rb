@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Stream::Aspect do
   describe '#aspects' do
     it 'queries the user given initialized aspect ids' do

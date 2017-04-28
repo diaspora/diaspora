@@ -12,11 +12,17 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = comment_service.create(params[:post_id], params[:text])
+    begin
+      comment = comment_service.create(params[:post_id], params[:text])
+    rescue ActiveRecord::RecordNotFound
+      render text: I18n.t("comments.create.error"), status: 404
+      return
+    end
+
     if comment
       respond_create_success(comment)
     else
-      render nothing: true, status: 404
+      render text: I18n.t("comments.create.error"), status: 422
     end
   end
 

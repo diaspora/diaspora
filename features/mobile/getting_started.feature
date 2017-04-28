@@ -17,8 +17,8 @@ Feature: editing the getting started in the mobile view
     And I should not see "awesome_button"
 
   Scenario: new user adds a profile photo and tags
-    When I confirm the alert after I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-    And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+    When I confirm the alert after I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload"
+    And I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload"
     Then I should see a "img" within "#profile_photo_upload"
 
     When I fill in "follow_tags" with "#men"

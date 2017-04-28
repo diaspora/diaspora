@@ -43,17 +43,11 @@ describe("app.views.Publisher", function() {
     });
 
     describe("#initSubviews", function() {
-      it("calls handleTextchange if the publisher is prefilled with mentions", function() {
-        spyOn(this.view, "handleTextchange");
+      it("calls checkSubmitAvailability if the publisher is prefilled with mentions", function() {
+        spyOn(this.view, "checkSubmitAvailability");
         this.view.prefillMention = "user@example.org";
         this.view.initSubviews();
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
-      it("doesn't call handleTextchange if there are no prefilled mentions", function() {
-        spyOn(this.view, "handleTextchange");
-        this.view.initSubviews();
-        expect(this.view.handleTextchange).not.toHaveBeenCalled();
+        expect(this.view.checkSubmitAvailability).toHaveBeenCalled();
       });
     });
 
@@ -82,9 +76,15 @@ describe("app.views.Publisher", function() {
       });
 
       it("resets the element's height", function() {
-        $(this.view.el).find("#status_message_fake_text").height(100);
+        $(this.view.el).find("#status_message_text").height(100);
         this.view.close($.Event());
-        expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
+        expect($(this.view.el).find("#status_message_text").attr("style")).not.toContain("height");
+      });
+
+      it("calls autosize.update", function() {
+        spyOn(autosize, "update");
+        this.view.close($.Event());
+        expect(autosize.update).toHaveBeenCalledWith(this.view.inputEl);
       });
 
       it("should hide the poll container correctly", function() {
@@ -197,12 +197,6 @@ describe("app.views.Publisher", function() {
     });
 
     describe("createStatusMessage", function(){
-      it("calls handleTextchange to complete missing mentions", function(){
-        spyOn(this.view, "handleTextchange");
-        this.view.createStatusMessage($.Event());
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
       it("adds the status message to the stream", function() {
         app.stream = { addNow: $.noop };
         spyOn(app.stream, "addNow");
@@ -218,20 +212,10 @@ describe("app.views.Publisher", function() {
       });
     });
 
-    describe("createPostPreview", function(){
-      it("calls handleTextchange to complete missing mentions", function(){
-        spyOn(this.view, "handleTextchange");
-        this.view.createPostPreview();
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-    });
-
     describe('#setText', function() {
       it("sets the content text", function() {
         this.view.setText("FOO bar");
-
         expect(this.view.inputEl.val()).toEqual("FOO bar");
-        expect(this.view.hiddenInputEl.val()).toEqual("FOO bar");
       });
     });
 
@@ -242,7 +226,6 @@ describe("app.views.Publisher", function() {
 
         expect(this.view.disabled).toBeTruthy();
         expect(this.view.inputEl.prop("disabled")).toBeTruthy();
-        expect(this.view.hiddenInputEl.prop("disabled")).toBeTruthy();
       });
 
       it("disables submitting", function() {
@@ -506,11 +489,11 @@ describe("app.views.Publisher", function() {
       );
     });
 
-    it('initializes the file uploader plugin', function() {
-      spyOn(qq, 'FileUploaderBasic');
+    it("initializes the FineUploader plugin", function() {
+      spyOn(qq, "FineUploaderBasic");
       new app.views.Publisher();
 
-      expect(qq.FileUploaderBasic).toHaveBeenCalled();
+      expect(qq.FineUploaderBasic).toHaveBeenCalled();
     });
 
     context('event handlers', function() {
@@ -608,7 +591,7 @@ describe("app.views.Publisher", function() {
     });
 
     context('photo removal', function() {
-      beforeEach(function() {
+      beforeEach(function(done) {
         this.view = new app.views.Publisher();
         this.view.wrapperEl.addClass("with_attachments");
         this.view.photozoneEl.html(
@@ -620,6 +603,7 @@ describe("app.views.Publisher", function() {
         );
 
         spyOn(jQuery, 'ajax').and.callFake(function(opts) { opts.success(); });
+        this.view.viewUploader.on("change", done);
         this.view.photozoneEl.find(".x").click();
       });
 

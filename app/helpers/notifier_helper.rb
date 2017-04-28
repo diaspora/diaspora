@@ -5,7 +5,7 @@ module NotifierHelper
   # @return [String] The formatted post.
   def post_message(post, opts={})
     if post.respond_to? :message
-      post.message.plain_text_without_markdown
+      post.message.try(:plain_text_without_markdown) || post_page_title(post)
     else
       I18n.translate 'notifier.a_post_you_shared'
     end

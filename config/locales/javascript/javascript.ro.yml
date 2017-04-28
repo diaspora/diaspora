@@ -31,7 +31,6 @@ ro:
     confirm_dialog: "Sunteţi sigur?"
     delete: "Şterge"
     edit: "Modifică"
-    failed_to_like: "Nu sa reusit operatia de \"imi place\"!"
     failed_to_post_message: "Nu sa reusit trimiterea mesajului!"
     getting_started:
       alright_ill_wait: "In regulă, o să aștept."
@@ -65,8 +64,6 @@ ro:
       limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
       near_from: "Publicat din <%= location %>"
       public: "Public - articolul tău va fi vizibil tuturor şi va fi accesibilă prin motoarele de căutare"
-    reshares:
-      duplicate: "E chiar asa de tare, hmm?  Ati mai raspandit o data aceasta publicatie!"
     show_more: "arată mai mult"
     stream:
       comment: "Comentariu"

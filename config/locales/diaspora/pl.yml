@@ -276,7 +276,6 @@ pl:
   conversations:
     create:
       fail: "Nieprawidłowa wiadomość"
-      no_contact: "Hej! Najpierw należy dodać kontakt!"
       sent: "Wiadomość została wysłana"
     destroy:
       delete_success: "Rozmowa usunięta"
@@ -531,9 +530,6 @@ pl:
     tutorials: "samouczki"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Użytkownik Facebooka"
-    check_token:
-      not_found: "Nie odnaleziono identyfikatora zaproszenia"
     create:
       empty: "Podaj przynajmniej jeden adres e-mail."
       no_more: "Nie masz więcej zaproszeń."
@@ -826,14 +822,8 @@ pl:
       type_error: "Nie udało się przesłać zdjęcia.  Czy na pewno doda@{m:łeś|f:łaś|n:no} obraz?"
     destroy:
       notice: "Usunięto zdjęcie."
-    new_photo:
-      empty: "Plik {file} jest pusty. Wybierz proszę jeszcze raz odpowiednie pliki, pomijając ten."
-      invalid_ext: "Plik {file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia: {extensions}"
-      size_error: "Plik {file} jest zbyt duży, maksymalny rozmiar to {sizeLimit}."
     new_profile_photo:
       upload: "Prześlij nowe zdjęcie profilowe!"
-    show:
-      show_original_post: "Wyświetl oryginalny wpis"
   posts:
     presenter:
       title: "Wpis od %{name}"
@@ -869,12 +859,6 @@ pl:
       failed: "Aktualizacja profilu nie powiodła się"
       updated: "Profil został pomyślnie zaktualizowany"
   public: "Publiczny"
-  reactions:
-    few: "%{count} reakcje"
-    many: "%{count} reakcji"
-    one: "1 reakcja"
-    other: "%{count} reakcji"
-    zero: "Brak reakcji"
   registrations:
     closed: "Ten pod diaspory* nie zezwala na rejestrację nowych użytkowników."
     create:
@@ -899,7 +883,7 @@ pl:
     delete_link: "Usuń element"
     not_found: "<u>Ten wpis/komentarz nie został znaleziony. Wygląda na to, że został usunięty przez autora!</u>"
     post_label: "<b>Wpis</b>: %{title}"
-    reason_label: "Powód: %{text}"
+    reason_label: "Powód:"
     reported_label: "<b>Zgłoszony przez</b> %{person}"
     review_link: "Oznacz jako sprawdzony"
     status:
@@ -1005,8 +989,6 @@ pl:
     total_users: "W sumie użytkowników"
     version: "Wersja"
   status_messages:
-    create:
-      success: "Pomyślnie wspomniano o: %{names}"
     new:
       mentioning: "Wspominasz o: %{person}"
     too_long: "Skróć swój status do mniej niż %{count} znaków. Obecnie jej długość to %{current_length} znaków."

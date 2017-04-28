@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe NodeInfoPresenter do
   let(:presenter) { NodeInfoPresenter.new("1.0") }
   let(:hash) { presenter.as_json.as_json }

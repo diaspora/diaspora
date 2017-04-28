@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe AvatarPresenter do
   describe "#base_hash" do
     it "calls image_url() for the avatars" do

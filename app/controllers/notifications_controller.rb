@@ -23,8 +23,8 @@ class NotificationsController < ApplicationController
 
   def index
     conditions = {:recipient_id => current_user.id}
-    if params[:type] && Notification.types.has_key?(params[:type])
-      conditions[:type] = Notification.types[params[:type]]
+    if params[:type] && types.has_key?(params[:type])
+      conditions[:type] = types[params[:type]]
     end
     if params[:show] == "unread" then conditions[:unread] = true end
     page = params[:page] || 1
@@ -44,7 +44,7 @@ class NotificationsController < ApplicationController
 
     @grouped_unread_notification_counts = {}
 
-    Notification.types.each_with_object(current_user.unread_notifications.group_by(&:type)) {|(name, type), notifications|
+    types.each_with_object(current_user.unread_notifications.group_by(&:type)) {|(name, type), notifications|
       @grouped_unread_notification_counts[name] = notifications.has_key?(type) ? notifications[type].count : 0
     }
 
@@ -52,7 +52,7 @@ class NotificationsController < ApplicationController
       format.html
       format.xml { render :xml => @notifications.to_xml }
       format.json {
-        render json: @notifications, each_serializer: NotificationSerializer
+        render json: render_as_json(@unread_notification_count, @grouped_unread_notification_counts, @notifications)
       }
     end
   end
@@ -65,7 +65,7 @@ class NotificationsController < ApplicationController
   end
 
   def read_all
-    current_type = Notification.types[params[:type]]
+    current_type = types[params[:type]]
     notifications = Notification.where(recipient_id: current_user.id, unread: true)
     notifications = notifications.where(type: current_type) if params[:type]
     notifications.update_all(unread: false)
@@ -82,4 +82,28 @@ class NotificationsController < ApplicationController
     end
   end
 
+  private
+
+  def render_as_json(unread_count, unread_count_by_type, notification_list)
+    {
+      unread_count:         unread_count,
+      unread_count_by_type: unread_count_by_type,
+      notification_list:    notification_list.map {|note|
+        NotificationSerializer.new(note, default_serializer_options).as_json
+      }
+    }.as_json
+  end
+
+  def types
+    {
+      "also_commented"       => "Notifications::AlsoCommented",
+      "comment_on_post"      => "Notifications::CommentOnPost",
+      "liked"                => "Notifications::Liked",
+      "mentioned"            => "Notifications::MentionedInPost",
+      "mentioned_in_comment" => "Notifications::MentionedInComment",
+      "reshared"             => "Notifications::Reshared",
+      "started_sharing"      => "Notifications::StartedSharing"
+    }
+  end
+  helper_method :types
 end

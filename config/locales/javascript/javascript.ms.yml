@@ -42,7 +42,6 @@ ms:
       error_remove: "Tidak dapat membuang <%= name %> dari aspek :("
       remove_contact: "Buang kenalan"
     edit: "Edit"
-    failed_to_like: "Gagal untuk suka!"
     failed_to_post_message: "Gagal untuk pos mesej!"
     failed_to_remove: "Gagal membuang catatan!"
     getting_started:
@@ -112,7 +111,6 @@ ms:
         created: "Laporan itu sudah wujud"
         exists: "Laporan itu sudah wujud"
     reshares:
-      duplicate: "Yang baik, kan? Anda telah berkongsi semula pos itu!"
       post: "Kongsi semula catatan <%= name %>?"
       successful: "Catatan berjaya dikongsi semula!"
     show_more: "tunjuk lagi"

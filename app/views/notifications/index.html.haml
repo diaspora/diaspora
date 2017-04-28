@@ -7,7 +7,8 @@
             = t(".notifications")
         .list-group
           %a.list-group-item{href: "/notifications" + (params[:show] == "unread" ? "?show=unread" : ""),
-              class: ("active" unless params[:type] && @grouped_unread_notification_counts.has_key?(params[:type]))}
+              class: ("active" unless params[:type] && @grouped_unread_notification_counts.has_key?(params[:type])),
+              data: {type: "all"}}
             %span.pull-right.badge{class: ("hidden" unless @unread_notification_count > 0)}
               = @unread_notification_count
             = t(".all_notifications")
@@ -22,7 +23,7 @@
                   %i.entypo-comment
                 - when "liked"
                   %i.entypo-heart
-                - when "mentioned"
+                - when "mentioned", "mentioned_in_comment"
                   %span.mentionIcon
                     @
                 - when "reshared"

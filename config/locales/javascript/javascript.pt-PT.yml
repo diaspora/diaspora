@@ -31,7 +31,6 @@ pt-PT:
     confirm_dialog: "Tem a certeza?"
     delete: "Eliminar"
     edit: "Editar"
-    failed_to_like: "Falhou em gostar!"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started:
       alright_ill_wait: "Tudo bem, eu esperarei."
@@ -69,7 +68,6 @@ pt-PT:
       near_from: "Publicado em: <%= location %>"
       public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares:
-      duplicate: "Que bom, hein? Você já republicou essa mensagem!"
       post: "Repartilhar a publicação de <%= name %>?"
       successful: "A publicação foi repartilhada com sucesso!"
     show_more: "mostrar mais"

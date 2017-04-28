@@ -35,7 +35,6 @@ it:
     confirm_dialog: "Sei sicuro?"
     delete: "Elimina"
     edit: "Modifica"
-    failed_to_like: "Errore, il \"mi piace\" non è stato inviato!"
     failed_to_post_message: "Invio messaggio fallito!"
     getting_started:
       alright_ill_wait: "Perfetto, aspetterò."
@@ -75,7 +74,6 @@ it:
       near_from: "Vicino a: <%= location %>"
       public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares:
-      duplicate: "Bello eh? Ma hai già condiviso quel post!"
       post: "Vuoi condividere il post di <%= name %>?"
       successful: "Il post è stato condiviso!"
     show_more: "continua..."

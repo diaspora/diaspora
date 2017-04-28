@@ -104,7 +104,7 @@ class PostPresenter < BasePresenter
   end
 
   def user_reshare
-    @post.reshare_for(current_user)
+    @post.reshare_for(current_user).try(:as_api_response, :backbone)
   end
 
   def already_participated_in_poll

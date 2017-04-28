@@ -91,7 +91,6 @@ si:
   email: "විද්‍යුත් තැපෑල"
   find_people: "පුද්ගයින් සෙවීම හෝ #tags"
   invitations:
-    a_facebook_user: "Facebook පරිශීලකයෙක්"
     create:
       no_more: "ඔබ සතුව තවත් අරාධනාවන් නැත."
     new:
@@ -138,10 +137,6 @@ si:
       your_photo: "ඔබගේ පින්තූරය"
       your_tags: "ඔබ ගැන වචන 5 කින් විස්තර කරන්න"
   public: "පොදු"
-  reactions:
-    one: "එක ප්‍රතිචාරයක් "
-    other: "ප්‍රතිචාර %{count} "
-    zero: "ප්‍රතිචාර නැත"
   registrations:
     new:
       enter_email: "email එක ඇතුලත් කරන්න"
@@ -168,8 +163,6 @@ si:
     stream_element:
       via_mobile: "ජංගම දුරකථනය හරහා"
   status_messages:
-    create:
-      success: "සාර්ථක ලෙස සදහන්කරා: %{names}"
     new:
       mentioning: "සදහන්කරන්න: %{person}"
   username: "පරිශ්‍රීලක නම"

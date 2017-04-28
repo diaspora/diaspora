@@ -206,9 +206,6 @@ eu:
   fill_me_out: "Bete nazazu"
   find_people: "Jendea edo #etiketak aurkitu"
   invitations:
-    a_facebook_user: "Facebook erabiltzaile bat"
-    check_token:
-      not_found: "Gonbidapena ez da aurkitu"
     create:
       no_more: "Ez daukazu gonbidapen gehiago."
       rejected: "Hurrengo e-posta hauek arazoak sortu dituzte:"
@@ -404,14 +401,8 @@ eu:
       type_error: "Argazki igoerak huts egin du. Ziur al zaude irudia gehitu duzunaz?"
     destroy:
       notice: "Argazkia ezabatu duzu."
-    new_photo:
-      empty: "{file} hutsik dago, mesedez aukera itzazu fitxategiak hura kenduta."
-      invalid_ext: "{file}(r)en luzapena ez da onartu. {extensions} dira onartuak soilik."
-      size_error: "{file} pisutsuegia da, fitxategi baten gehiengo pisua {sizeLimit} da."
     new_profile_photo:
       upload: "Igo ezazu profil argazki berri bat!"
-    show:
-      show_original_post: "Jatorrizko mezua erakutsi"
   posts:
     presenter:
       title: ""
@@ -444,13 +435,6 @@ eu:
       failed: "Huts profila eguneratzean"
       updated: "Profila eguneratu duzu."
   public: "Publikoa"
-  reactions:
-    few: "%{count} erreakzio"
-    many: "%{count} erreakzio"
-    one: "erreakzio 1"
-    other: "%{count} erreakzio"
-    two: "%{count} erreakzio"
-    zero: "erreakziorik ez"
   registrations:
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
     create:
@@ -523,8 +507,6 @@ eu:
       via: "%{link}(r)en bidez"
       via_mobile: "mugikorraren bidez"
   status_messages:
-    create:
-      success: "Arrakastaz aipatu dituzu: %{names}"
     new:
       mentioning: "Aipatzen: %{person}"
     too_long: "{\"few\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"many\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"one\"=>\"mesedez, egin itzazu zure mezuak karaktere %{count} baino motzagoak\", \"other\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\", \"two\"=>\"mesedez egin itzazu zure mezuak %{count} laraktere baino motzagoak\", \"zero\"=>\"mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak\"}"

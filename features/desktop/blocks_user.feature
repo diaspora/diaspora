@@ -18,6 +18,7 @@ Feature: Blocking a user from the stream
   Scenario: Blocking a user from the profile page
     When I am on "alice@alice.alice"'s page
     And I confirm the alert after I click on the profile block button
-    Then "All your base are belong to us!" should be post 1
+    Then I should see "Stop ignoring" within "#unblock_user_button"
+    And "All your base are belong to us!" should be post 1
     When I go to the home page
     Then I should not see any posts in my stream

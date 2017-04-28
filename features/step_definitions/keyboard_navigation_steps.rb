@@ -1,11 +1,11 @@
 When /^I press the "([^\"]*)" key somewhere$/ do |key|
   within("#main_stream") do
-    find("div.stream_element", match: :first).native.send_keys(key)
+    find("div.stream-element", match: :first).native.send_keys(key)
   end
 end
 
 When /^I press the "([^\"]*)" key in the publisher$/ do |key|
-  find("#status_message_fake_text").native.send_key(key)
+  find("#status_message_text").native.send_key(key)
 end
 
 Then /^post (\d+) should be highlighted$/ do |position|

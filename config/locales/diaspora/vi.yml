@@ -176,7 +176,6 @@ vi:
   conversations:
     create:
       fail: "Tin nhắn không hợp lệ"
-      no_contact: "Bạn cần phải thêm liên lạc trước đã!"
       sent: "Đã gửi tin nhắn"
     index:
       inbox: "Hộp thư đến"
@@ -211,9 +210,6 @@ vi:
     tutorials: "hướng dẫn"
     wiki: "wiki"
   invitations:
-    a_facebook_user: "Người dùng Facebook"
-    check_token:
-      not_found: "Không tìm thấy khoá mời"
     create:
       empty: "Nhập ít nhất một địa chỉ thư điện tử."
       no_more: "Bạn đã hết thư mời."
@@ -371,14 +367,8 @@ vi:
       type_error: "Tải ảnh lên thất bại,  Bạn có chắc ảnh đã được thêm?"
     destroy:
       notice: "Đã xóa ảnh."
-    new_photo:
-      empty: "{file} rỗng, chọn lại tập tin."
-      invalid_ext: "{file} có phần mở rộng không hợp lệ. Chỉ chấp nhận phần mở rộng {extensions}."
-      size_error: "{file} quá to, dung lượng tối đa cho phép là {sizeLimit}."
     new_profile_photo:
       upload: "Tải lên ảnh mới"
-    show:
-      show_original_post: "Xem bài đăng gốc"
   posts:
     presenter:
       title: "Một bài đăng từ %{name}"
@@ -407,9 +397,6 @@ vi:
       failed: "Cập nhật hồ sơ thất bại"
       updated: "Đã cập nhật hồ sơ"
   public: "Công khai"
-  reactions:
-    other: "%{count} phản hồi"
-    zero: "Không có phản hồi"
   registrations:
     closed: "Pod DIASPORA này không cho đăng kí nữa."
     create:
@@ -485,8 +472,6 @@ vi:
       via: "thông qua %{link}"
       via_mobile: "qua di động"
   status_messages:
-    create:
-      success: "Đã nhắc đến: %{names}"
     new:
       mentioning: "Đang nhắc đến: %{person}"
     too_long: "{\"other\"=>\"trạng thái của bạn phải có ít hơn %{count} kí tự\", \"zero\"=>\"trạng thái của bạn phải có ít hơn %{count} kí tự\"}"

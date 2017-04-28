@@ -161,7 +161,11 @@ class ApplicationController < ActionController::Base
     gon.push(appConfig: {
                chat:     {enabled: AppConfig.chat.enabled?},
                settings: {podname: AppConfig.settings.pod_name},
-               map:      {mapbox: AppConfig.map.mapbox}
+               map:      {mapbox: {
+                 enabled:      AppConfig.map.mapbox.enabled?,
+                 access_token: AppConfig.map.mapbox.access_token,
+                 style:        AppConfig.map.mapbox.style
+               }}
              })
   end
 

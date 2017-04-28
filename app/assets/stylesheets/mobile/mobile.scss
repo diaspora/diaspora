@@ -11,6 +11,7 @@
 @import "mobile/header";
 @import "mobile/tags";
 @import "mobile/conversations";
+@import 'mobile/flash_messages';
 @import "mobile/settings";
 @import "mobile/stream_element";
 @import "mobile/comments";
@@ -49,7 +50,7 @@ textarea { resize: vertical; }
 
 .badge-important { background-color: $red; }
 
-.stream_element,
+.stream-element,
 .comments {
   overflow: auto;
   position: relative;
@@ -108,14 +109,6 @@ textarea { resize: vertical; }
   width: 100%;
 }
 
-.stream_element:not(.shield-active) .shield{
-  display: none;
-}
-
-.stream_element.shield-active .nsfw-hidden{
-  display: none;
-}
-
 .login_error,
 .login_alert {
   color: #DF0101;
@@ -126,7 +119,7 @@ textarea { resize: vertical; }
   color: rgb(10, 150, 10);
   text-shadow: 1px 1px 20px rgb(126, 240, 77); }
 
-#login_form {
+.login-form {
   /* ensure url bar is banished from view on iOS */
   margin-bottom: 40px !important;
 
@@ -152,20 +145,20 @@ footer {
   }
 }
 
-.settings_container,
-.stream_element,
-#login_form {
+.settings-container,
+.stream-element,
+.login-form {
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
-  background-color: #fff;
+  background-color: $framed-background;
   margin-bottom: 10px;
 
   border: 1px solid #bbb;
   border-bottom-color: #aaa;
 }
 
-.stream_element {
+.stream-element {
   padding: 0px;
 
   div.img img.avatar {
@@ -184,7 +177,7 @@ footer {
     border-radius: 3px 3px 0 0;
 
     border: {
-      bottom: 1px solid #ccc;
+      bottom: 1px solid $border-medium-grey;
     }
 
     img.big-stream-photo {
@@ -194,6 +187,11 @@ footer {
     a {
       padding: 0; }
     margin-top: 0;
+  }
+
+  &.shield-active .nsfw-hidden,
+  &:not(.shield-active) .shield {
+    display: none;
   }
 }
 
@@ -272,11 +270,8 @@ footer {
   font-size: 14px;
 }
 
-#show_content {
+.photos {
   padding-bottom: 24px;
-  border-bottom: 1px solid #bbb;
-  font-size: larger;
-  text-align: center;
 
   img:not(.avatar) {
     max-width: 100%;
@@ -284,48 +279,41 @@ footer {
 
   .photo {
     text-align: center;
-    background-color: #FFFFFF;
+    background-color: $framed-background;
     border-style: solid;
     border-width: 1px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     border-color: #DDDDDD #BBBBBB #AAAAAA;
     border-bottom-width: 0px;
-    margin-top: 12px;
     min-height: 100px;
-    line-height: 5;
-  }
-
-  .controls {
-    font: {
-      size: smaller; };
-  }
-
-  &.photos {
-    border-bottom: 0 !important;
   }
 }
 
-#photo_controls {
-  .arrow {
-    font-size: 10em;
-    text-decoration: none;
-    text-shadow: 0 0 3px $white;
-    position: fixed;
-    bottom: -0.2em;
-    z-index: 1;
-    &.left {
-      left: -0.2em;
-    }
-    &.right {
-      right: -0.2em;
-      text-align: right;
-    }
-    .entypo-chevron-left, .entypo-chevron-right { margin-right: 0; }
+.photo-controls .arrow {
+  bottom: -.2em;
+  font-size: 10em;
+  position: fixed;
+  text-decoration: none;
+  text-shadow: 0 0 3px $white;
+  z-index: 1;
+
+  &.left {
+    left: -.2em;
+  }
+
+  &.right {
+    right: -.2em;
+    text-align: right;
+  }
+
+  .entypo-chevron-left,
+  .entypo-chevron-right {
+    margin-right: 0;
   }
 }
 
 .header-full-width {
-  background-color: #fff;
+  background-color: $framed-background;
   border-bottom: 1px solid #aaa;
   margin: -10px; // Counter the #main padding
   margin-bottom: 10px;
@@ -465,7 +453,7 @@ select {
       font-weight: bold;
       color: $text-grey;
       background: {
-        color: #fff;
+        color: $framed-background;
       }
     }
   }
@@ -575,7 +563,7 @@ form#new_user.new_user input.btn {
   }
 }
 
-.read.stream_element {
+.read.stream-element {
   color: dimGray;
   .from {
     a {
@@ -597,7 +585,8 @@ form#new_user.new_user input.btn {
   text-shadow: 1px 1px 20px rgb(126, 240, 77);
 }
 
-#conversation_inbox, .notifications {
+.conversation-inbox,
+.notifications {
   div.pagination {
     width: 100%;
     margin-left: auto;
@@ -634,20 +623,6 @@ form#new_user.new_user input.btn {
 h1.session {
   font-size: 40px;
   font-weight: 200;
-}
-
-form p.checkbox_select {
-  position: relative;
-  label {
-    left: 25px;
-    top: 4px;
-    position: absolute;
-    font-size: 1em;
-  }
-  img {
-    position: relative;
-    top: 6px;
-  }
 }
 
 #profile_photo_upload {
@@ -735,7 +710,7 @@ select#aspect_ids_ {
 #publisher_textarea_wrapper {
   border-radius: 2px;
   margin: 12px 0px;
-  background: #fff;
+  background: $framed-background;
   position: relative;
   padding-right: 10px;
 
@@ -768,7 +743,7 @@ select#aspect_ids_ {
 
   &.with_attachments {
     padding-bottom: 55px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid $border-medium-grey;
   }
 
   #photodropzone {

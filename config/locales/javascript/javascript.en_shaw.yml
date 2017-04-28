@@ -19,15 +19,12 @@ en_shaw:
       hide: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
       show: "𐑖𐑴 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
-    failed_to_like: "𐑓𐑱𐑤𐑛 𐑑 𐑤𐑲𐑒!"
     failed_to_post_message: "𐑓𐑱𐑤𐑛 𐑑 𐑐𐑴𐑕𐑑 𐑥𐑧𐑕𐑩𐑡!"
     getting_started:
       hey: "Hey, <%= name %>!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "Find people or #tags"
-    reshares:
-      duplicate: "𐑿𐑝 𐑷𐑤𐑮𐑧𐑛𐑦 𐑮𐑦𐑖𐑺𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑!"
     show_more: "𐑖𐑴 𐑥𐑹"
     stream:
       likes:

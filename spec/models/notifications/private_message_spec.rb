@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Notifications::PrivateMessage, type: :model do
   let(:conversation) {
     conv_guid = FactoryGirl.generate(:guid)

@@ -170,16 +170,16 @@ describe("app.views.ContactStream", function() {
     });
 
     it("renders all added contacts", function() {
-      expect(this.view.$(".stream_element.contact").length).toBe(0);
+      expect(this.view.$(".stream-element.contact").length).toBe(0);
       this.view.appendContactViews(this.contactsData);
-      expect(this.view.$(".stream_element.contact").length).toBe(this.contactsData.length);
+      expect(this.view.$(".stream-element.contact").length).toBe(this.contactsData.length);
     });
 
     it("appends contacts to an existing contact list", function() {
       this.view.appendContactViews([this.contactsData[0]]);
-      expect(this.view.$(".stream_element.contact").length).toBe(1);
+      expect(this.view.$(".stream-element.contact").length).toBe(1);
       this.view.appendContactViews(_.rest(this.contactsData));
-      expect(this.view.$(".stream_element.contact").length).toBe(this.contactsData.length);
+      expect(this.view.$(".stream-element.contact").length).toBe(this.contactsData.length);
     });
   });
 

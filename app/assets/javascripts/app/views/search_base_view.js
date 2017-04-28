@@ -2,12 +2,12 @@ app.views.SearchBase = app.views.Base.extend({
   initialize: function(options) {
     this.ignoreDiasporaIds = [];
     this.typeaheadInput = options.typeaheadInput;
+    this.suggestionLink = options.suggestionLink || false;
     this.setupBloodhound(options);
     if(options.customSearch) { this.setupCustomSearch(); }
     this.setupTypeahead();
-    // TODO: Remove this as soon as corejavascript/typeahead.js has its first release
-    this.setupMouseSelectionEvents();
     if(options.autoselect) { this.setupAutoselect(); }
+    this.setupTypeaheadAvatarFallback();
   },
 
   bloodhoundTokenizer: function(str) {
@@ -29,11 +29,15 @@ app.views.SearchBase = app.views.Base.extend({
     };
 
     // Allow bloodhound to look for remote results if there is a route given in the options
-    if(options.remoteRoute) {
+    if (options.remoteRoute && options.remoteRoute.url) {
+      var extraParameters = "";
+      if (options.remoteRoute.extraParameters) {
+        extraParameters += "&" + options.remoteRoute.extraParameters;
+      }
       bloodhoundOptions.remote = {
-        url: options.remoteRoute + ".json?q=%QUERY",
+        url: options.remoteRoute.url + ".json?q=%QUERY" + extraParameters,
         wildcard: "%QUERY",
-        transform: this.transformBloodhoundResponse
+        transform: this.transformBloodhoundResponse.bind(this)
       };
     }
 
@@ -77,6 +81,7 @@ app.views.SearchBase = app.views.Base.extend({
       // person
       if(data.handle) {
         data.person = true;
+        data.link = this.suggestionLink;
         return data;
       }
 
@@ -86,7 +91,7 @@ app.views.SearchBase = app.views.Base.extend({
         name: data.name,
         url: Routes.tag(data.name.substring(1))
       };
-    });
+    }.bind(this));
   },
 
   _deselectAllSuggestions: function() {
@@ -98,19 +103,6 @@ app.views.SearchBase = app.views.Base.extend({
     suggestion.addClass("tt-cursor");
   },
 
-  // TODO: Remove this as soon as corejavascript/typeahead.js has its first release
-  setupMouseSelectionEvents: function() {
-    var self = this,
-        selectSuggestion = function(e) { self._selectSuggestion($(e.target).closest(".tt-suggestion")); },
-        deselectAllSuggestions = function() { self._deselectAllSuggestions(); };
-
-    this.typeaheadInput.on("typeahead:render", function() {
-      self.$(".tt-menu .tt-suggestion").off("mouseover").on("mouseover", selectSuggestion);
-      self.$(".tt-menu .tt-suggestion *").off("mouseover").on("mouseover", selectSuggestion);
-      self.$(".tt-menu .tt-suggestion").off("mouseleave").on("mouseleave", deselectAllSuggestions);
-    });
-  },
-
   // Selects the first result when the result dropdown opens
   setupAutoselect: function() {
     var self = this;
@@ -119,7 +111,13 @@ app.views.SearchBase = app.views.Base.extend({
     });
   },
 
+  setupTypeaheadAvatarFallback: function() {
+    this.typeaheadInput.on("typeahead:render", function() {
+      this.setupAvatarFallback(this.$el);
+    }.bind(this));
+  },
+
   ignorePersonForSuggestions: function(person) {
     if(person.handle) { this.ignoreDiasporaIds.push(person.handle); }
-  },
+  }
 });

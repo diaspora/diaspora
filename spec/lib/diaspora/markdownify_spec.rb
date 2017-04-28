@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Diaspora::Markdownify::HTML do
   describe "#autolink" do
     before do

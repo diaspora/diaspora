@@ -266,9 +266,6 @@ ms:
   privacy: "Privasi"
   profile: "Profil"
   public: "Awam"
-  reactions:
-    other: "%{count} reactions"
-    zero: "0 reaksi"
   search: "Cari"
   settings: "Tetapan"
   shared:

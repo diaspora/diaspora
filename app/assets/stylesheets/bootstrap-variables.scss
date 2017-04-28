@@ -33,7 +33,7 @@ $brand-success: #8EDE3D !default;
 // $text-color:            $gray-dark
 
 //** Global textual link color.
-$link-color: rgb(42,156,235) !default;
+$link-color: $blue !default;
 //** Link hover color set via `darken()` function.
 // $link-hover-color:      darken($link-color, 15%)
 //** Link hover decoration.
@@ -187,9 +187,9 @@ $btn-success-color: #333 !default;
 // $input-bg-disabled:              $gray-lighter
 
 //** Text color for `<input>`s
-// $input-color:                    $gray
+$input-color: $text-dark-grey !default;
 //** `<input>` border color
-// $input-border:                   #ccc
+$input-border: $border-grey !default;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -202,6 +202,7 @@ $btn-success-color: #333 !default;
 
 //** Border color for inputs on focus
 // $input-border-focus:             #66afe9
+$input-border-focus: $input-border !default;
 
 //** Placeholder text color
 // $input-color-placeholder:        #999
@@ -668,14 +669,14 @@ $navbar-collapse-max-height: 480px;
 //
 //##
 //** Background color on `.list-group-item`
-$list-group-bg: $white;
+$list-group-bg: $white !default;
 //** `.list-group-item` border color
 $list-group-border: transparent;
 //** List group border radius
 $list-group-border-radius: 0;
 
 //** Background color of single list items on hover
-$list-group-hover-bg: $blue;
+$list-group-hover-bg: $brand-primary;
 //** Text color of active list items
 $list-group-active-color: $white;
 //** Background color of active list items

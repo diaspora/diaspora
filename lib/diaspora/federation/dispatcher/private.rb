@@ -12,7 +12,9 @@ module Diaspora
         end
 
         def targets(people, salmon_slap)
-          people.map {|person| [person.receive_url, salmon_slap.generate_xml(person.public_key)] }.to_h
+          active, inactive = people.partition {|person| person.pod.active? }
+          logger.info "ignoring inactive pods: #{inactive.map(&:diaspora_handle).join(', ')}" if inactive.any?
+          active.map {|person| [person.receive_url, salmon_slap.generate_xml(person.public_key)] }.to_h
         end
 
         def salmon_slap(entity)

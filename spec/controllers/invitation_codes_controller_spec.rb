@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe InvitationCodesController, type: :controller do
   describe "#show" do
     it "redirects to the root page if the invitation code is invalid" do

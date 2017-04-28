@@ -29,7 +29,7 @@ describe("app.views.Contact", function(){
       this.view.$el.append($("<div id='flash-container'/>"));
       app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
       this.button = this.view.$el.find(".contact_add-to-aspect");
-      this.contact = this.view.$el.find(".stream_element.contact");
+      this.contact = this.view.$el.find(".stream-element.contact");
       this.aspectMembership = {id: 42, aspect: app.aspect.toJSON()};
       this.response = JSON.stringify(this.aspectMembership);
     });
@@ -93,7 +93,7 @@ describe("app.views.Contact", function(){
       this.view.$el.append($("<div id='flash-container'/>"));
       app.flashMessages = new app.views.FlashMessages({ el: this.view.$("#flash-container") });
       this.button = this.view.$el.find(".contact_remove-from-aspect");
-      this.contact = this.view.$el.find(".stream_element.contact");
+      this.contact = this.view.$el.find(".stream-element.contact");
       this.aspectMembership = this.model.aspectMemberships.first().toJSON();
       this.response = JSON.stringify(this.aspectMembership);
     });

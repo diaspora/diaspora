@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Post, :type => :model do
   describe 'scopes' do
     describe '.owned_or_visible_by_user' do

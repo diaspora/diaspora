@@ -10,6 +10,10 @@ class ShareVisibility < ActiveRecord::Base
     where(user_id: user.id)
   }
 
+  scope :for_shareable, ->(shareable) {
+    where(shareable_id: shareable.id, shareable_type: shareable.class.base_class.to_s)
+  }
+
   validate :not_public
 
   # Perform a batch import, given a set of users and a shareable
@@ -18,8 +22,17 @@ class ShareVisibility < ActiveRecord::Base
   # @param share [Shareable]
   # @return [void]
   def self.batch_import(user_ids, share)
-    return false unless ShareVisibility.new(shareable_id: share.id, shareable_type: share.class.to_s).valid?
+    return false unless ShareVisibility.new(shareable_id: share.id, shareable_type: share.class.base_class.to_s).valid?
 
+    user_ids -= ShareVisibility.for_shareable(share).where(user_id: user_ids).pluck(:user_id)
+    return false if user_ids.empty?
+
+    create_visilities(user_ids, share)
+  end
+
+  private
+
+  private_class_method def self.create_visilities(user_ids, share)
     if AppConfig.postgres?
       user_ids.each do |user_id|
         ShareVisibility.find_or_create_by(
@@ -35,8 +48,6 @@ class ShareVisibility < ActiveRecord::Base
       ShareVisibility.import(%i(user_id shareable_id shareable_type), new_share_visibilities_data)
     end
   end
-
-  private
 
   def not_public
     errors[:base] << "Cannot create visibility for a public object" if shareable.public?

@@ -2,15 +2,13 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Mention, type: :model do
   describe "after destroy" do
     it "destroys a notification" do
       sm = alice.post(:status_message, text: "hi", to: alice.aspects.first)
-      mention = Mention.create!(person: bob.person, post: sm)
+      mention = Mention.create!(person: bob.person, mentions_container: sm)
 
-      Notifications::Mentioned.notify(sm, [bob.id])
+      Notifications::MentionedInPost.notify(sm, [bob.id])
 
       expect {
         mention.destroy

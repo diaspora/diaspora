@@ -42,8 +42,10 @@ Feature: editing your profile
     And I should see "#starwars" within "ul#as-selections-tags"
     And the "#profile_public_details" bootstrap-switch should be on
 
-    When I confirm the alert after I attach the file "spec/fixtures/bad_urls.txt" to "file" within "#file-upload"
-    And I attach the file "spec/fixtures/button.png" to hidden "file" within "#file-upload"
+    When I attach the file "spec/fixtures/bad_urls.txt" to "qqfile" within "#file-upload"
+    Then I should see a flash message indicating failure
+
+    When I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload"
     Then I should see "button.png completed"
     And I should see a "img" within "#profile_photo_upload"
 

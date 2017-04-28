@@ -21,19 +21,23 @@ describe("app.views.LikesInfo", function(){
 
     it("fires on a model change", function(){
       spyOn(this.view, "postRenderTemplate");
-      this.view.model.interactions.trigger('change');
+      this.view.model.interactions.likes.trigger("change");
       expect(this.view.postRenderTemplate).toHaveBeenCalled();
     });
   });
 
   describe("showAvatars", function(){
-    beforeEach(function(){
-      spyOn(this.post.interactions, "fetch").and.callThrough();
+    it("calls fetch on the model's like collection", function() {
+      spyOn(this.post.interactions.likes, "fetch").and.callThrough();
+      this.view.showAvatars();
+      expect(this.post.interactions.likes.fetch).toHaveBeenCalled();
     });
 
-    it("calls fetch on the model's like collection", function(){
+    it("triggers 'change' on the likes collection", function() {
+      spyOn(this.post.interactions.likes, "trigger");
       this.view.showAvatars();
-      expect(this.post.interactions.fetch).toHaveBeenCalled();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 200, responseText: "{\"id\": 1}"});
+      expect(this.post.interactions.likes.trigger).toHaveBeenCalledWith("change");
     });
 
     it("sets 'displayAvatars' to true", function(){

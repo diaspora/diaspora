@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe OpenGraphCache, type: :model do
   describe "fetch_and_save_opengraph_data!" do
     context "with an unsecure video url" do

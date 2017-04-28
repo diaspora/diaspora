@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Services::Wordpress, type: :model do
   before do
     @user = alice

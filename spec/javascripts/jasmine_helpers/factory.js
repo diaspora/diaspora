@@ -55,6 +55,23 @@ var factory = {
     return new app.models.Contact(_.extend(attrs, overrides));
   },
 
+  notification: function(overrides) {
+    var noteId = this.id.next();
+    var defaultAttrs = {
+      "type": "reshared",
+      "id": noteId,
+      "target_type": "Post",
+      "target_id": this.id.next(),
+      "recipient_id": this.id.next(),
+      "unread": true,
+      "created_at": "2012-01-04T00:55:30Z",
+      "updated_at": "2012-01-04T00:55:30Z",
+      "note_html": "This is a notification!"
+    };
+
+    return new app.models.Notification(_.extend(defaultAttrs, overrides));
+  },
+
   user : function(overrides) {
     return new app.models.User(factory.userAttrs(overrides));
   },
@@ -136,6 +153,7 @@ var factory = {
       "name": "Bob Grimm",
       "diaspora_id": "bob@localhost:3000",
       "relationship": "sharing",
+      "block": false,
       "is_own_profile": false
     };
     return _.extend({}, defaults, overrides);

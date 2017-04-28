@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe PeopleController, type: :request do
   context "for the current user" do
     before do

@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
-
 describe Aspect, :type => :model do
   describe "creation" do
     let(:name) { alice.aspects.first.name }

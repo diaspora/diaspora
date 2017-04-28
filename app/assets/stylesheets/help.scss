@@ -98,9 +98,9 @@ ul#help_nav {
         line-height: 70px;
 
         [class^="entypo-"], [class*="entypo-"] {
-          color: #bfbfbf;
+          color: $text-color-pale;
 
-          &.entypo-chat{ color: #000000; }
+          &.entypo-chat { color: $text-color-active; }
         }
       }
     }

@@ -1,6 +1,3 @@
-
-require "spec_helper"
-
 describe Admin::PodsController, type: :controller do
   before do
     @user = FactoryGirl.create :user

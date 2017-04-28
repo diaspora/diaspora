@@ -1,11 +1,2 @@
-:javascript
-  $(document).ready(function () {
-    var data = $.parseJSON( "#{escape_javascript(@contacts_json)}" );
-    new app.views.ConversationsForm({
-      contacts: data,
-      prefillName: "#{h params[:name]}",
-      prefillValue: "#{@contact_ids}"
-    });
-  });
-
+= include_gon camel_case: true
 = render 'conversations/new'

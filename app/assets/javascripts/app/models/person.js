@@ -30,7 +30,7 @@ app.models.Person = Backbone.Model.extend({
   },
 
   isBlocked: function() {
-    return (this.get('relationship') === 'blocked');
+    return (this.get("block") !== false);
   },
 
   block: function() {

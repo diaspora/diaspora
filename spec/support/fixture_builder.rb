@@ -1,5 +1,3 @@
-require File.join(File.dirname(__FILE__), "user_methods.rb")
-
 FixtureBuilder.configure do |fbuilder|
 
   # rebuild fixtures automatically when these files change:

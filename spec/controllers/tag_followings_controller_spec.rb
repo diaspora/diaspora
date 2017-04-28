@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe TagFollowingsController, type: :controller do
   describe "#manage" do
     context "not signed in" do

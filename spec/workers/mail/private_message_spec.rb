@@ -2,11 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe Workers::Mail::PrivateMessage do
-  describe '#perfom_delegate' do
-    it 'should call .deliver on the notifier object' do
+  describe "#perform" do
+    it "should call .deliver on the notifier object" do
       user1 = alice
       user2 = bob
       participant_ids = [user1.contacts.first.person.id, user1.person.id]
@@ -19,9 +17,10 @@ describe Workers::Mail::PrivateMessage do
 
       mail_double = double()
       expect(mail_double).to receive(:deliver_now)
-      expect(Notifier).to receive(:mentioned).with(user2.id, user1.person.id, message.id).and_return(mail_double)
+      expect(Notifier).to receive(:send_notification)
+        .with("private_message", user2.id, user1.person.id, message.id).and_return(mail_double)
 
-      Workers::Mail::Mentioned.new.perform(user2.id, user1.person.id, message.id)
+      Workers::Mail::PrivateMessage.new.perform(user2.id, user1.person.id, message.id)
     end
   end
 end

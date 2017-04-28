@@ -32,9 +32,7 @@ ar:
     contacts:
       search_no_results: "لم يُعثر على متراسلين"
     delete: "احذف"
-    failed_to_like: "فشل في [أعجبني]"
     failed_to_post_message: "فشل في نشر رسالة!"
-    failed_to_reshare: "فشلت إعادة المشاركة!"
     getting_started:
       alright_ill_wait: "حسناً ، سأنتظر."
       hey: "انتبه <%= name %>"
@@ -63,8 +61,6 @@ ar:
       limited: "محدودة - مشاركتك ستكون متاحة لجهات إتصالك فقط"
       public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     remove_post: "أأزيل هذه التدوينة؟"
-    reshares:
-      duplicate: "رائع، أليس كذلك؟ أعدت نشر هذه المشاركة مسبقا"
     show_more: "المزيد"
     stream:
       comment: "تعليق"

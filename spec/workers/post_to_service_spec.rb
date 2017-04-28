@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Workers::PostToService do
   it 'calls service#post with the given service' do
     user = alice

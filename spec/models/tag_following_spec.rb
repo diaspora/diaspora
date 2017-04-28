@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe TagFollowing, :type => :model do
   before do
     @tag = FactoryGirl.build(:tag)

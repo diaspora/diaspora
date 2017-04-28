@@ -86,3 +86,6 @@ diaspora.iml
 
 # Dolphin's directory's preferences files
 *.directory
+
+# WebTranslateIt
+.wti

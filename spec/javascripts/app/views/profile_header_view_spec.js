@@ -11,6 +11,34 @@ describe("app.views.ProfileHeader", function() {
     loginAs(factory.userAttrs());
   });
 
+  describe("initialize", function() {
+    it("calls #render when the model changes", function() {
+      spyOn(app.views.ProfileHeader.prototype, "render");
+      this.view.initialize();
+      expect(app.views.ProfileHeader.prototype.render).not.toHaveBeenCalled();
+      this.view.model.trigger("change");
+      expect(app.views.ProfileHeader.prototype.render).toHaveBeenCalled();
+    });
+
+    it("calls #mentionModalLoaded on modal:loaded", function() {
+      spec.content().append("<div id='mentionModal'></div>");
+      spyOn(app.views.ProfileHeader.prototype, "mentionModalLoaded");
+      this.view.initialize();
+      expect(app.views.ProfileHeader.prototype.mentionModalLoaded).not.toHaveBeenCalled();
+      $("#mentionModal").trigger("modal:loaded");
+      expect(app.views.ProfileHeader.prototype.mentionModalLoaded).toHaveBeenCalled();
+    });
+
+    it("calls #mentionModalHidden on hidden.bs.modal", function() {
+      spec.content().append("<div id='mentionModal'></div>");
+      spyOn(app.views.ProfileHeader.prototype, "mentionModalHidden");
+      this.view.initialize();
+      expect(app.views.ProfileHeader.prototype.mentionModalHidden).not.toHaveBeenCalled();
+      $("#mentionModal").trigger("hidden.bs.modal");
+      expect(app.views.ProfileHeader.prototype.mentionModalHidden).toHaveBeenCalled();
+    });
+  });
+
   context("#presenter", function() {
     it("contains necessary elements", function() {
       expect(this.view.presenter()).toEqual(jasmine.objectContaining({
@@ -28,6 +56,32 @@ describe("app.views.ProfileHeader", function() {
           tags: ['test']
         })
       }));
+    });
+  });
+
+  describe("showMessageModal", function() {
+    beforeEach(function() {
+      spec.content().append("<div id='conversationModal' class='modal fade'><div class='modal-body'></div></div>");
+    });
+
+    it("calls app.helpers.showModal", function() {
+      spyOn(app.helpers, "showModal");
+      this.view.showMessageModal();
+      expect(app.helpers.showModal).toHaveBeenCalled();
+    });
+
+    it("initializes app.views.ConversationsForm with correct parameters when modal is loaded", function() {
+      gon.conversationPrefill = [
+        {id: 1, name: "diaspora user", handle: "diaspora-user@pod.tld"},
+        {id: 2, name: "other diaspora user", handle: "other-diaspora-user@pod.tld"},
+        {id: 3, name: "user@pod.tld", handle: "user@pod.tld"}
+      ];
+
+      spyOn(app.views.ConversationsForm.prototype, "initialize");
+      spyOn($.fn, "load").and.callFake(function(url, callback) { callback(); });
+      this.view.showMessageModal();
+      expect(app.views.ConversationsForm.prototype.initialize)
+        .toHaveBeenCalledWith({prefill: gon.conversationPrefill});
     });
   });
 });

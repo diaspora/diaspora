@@ -1,0 +1,20 @@
+.flash-messages-container {
+  background-color: rgba($black, .5);
+  padding: 0 10px;
+  position: fixed;
+  top: $mobile-navbar-height;
+  width: 100%;
+  z-index: 9;
+
+  .flash-messages {
+    width: 100%;
+  }
+
+  .alert {
+    margin-bottom: 10px;
+  }
+
+  .alert:first-of-type {
+    margin-top: 10px;
+  }
+}

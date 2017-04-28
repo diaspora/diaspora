@@ -85,18 +85,6 @@ class Stream::Aspect < Stream::Base
     @all_aspects ||= aspect_ids.length == user.aspects.size
   end
 
-  # Provides a link to the user to the contacts page that corresponds with
-  # the stream's active aspects.
-  #
-  # @return [String] Link to contacts
-  def contacts_link
-    if for_all_aspects? || aspect_ids.size > 1
-      Rails.application.routes.url_helpers.contacts_path
-    else
-      Rails.application.routes.url_helpers.contacts_path(:a_id => aspect.id)
-    end
-  end
-
   # This is perfomance optimization, as everyone in your aspect stream you have
   # a contact.
   #

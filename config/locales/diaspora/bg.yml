@@ -150,9 +150,6 @@ bg:
   fill_me_out: "Попълнете ме"
   find_people: "Намерете хора или #марки"
   invitations:
-    a_facebook_user: "Потребител на Facebook"
-    check_token:
-      not_found: "Данните за поканата не са намерени"
     create:
       no_more: "Не разполагате с повече покани."
       rejected: "Възникна проблем със следната ел. поща: "
@@ -293,14 +290,8 @@ bg:
       type_error: "Снимката не бе качена. Сигурни ли сте, че е добавено изображение?"
     destroy:
       notice: "Снимката е изтрита."
-    new_photo:
-      empty: "{file} е празен. Моля, изберете наново файловете без празния."
-      invalid_ext: "{file} е с невалидно разширение. Позволени са само: {extensions}."
-      size_error: "{file} е твърде голям. Максималният разрешен размер е {sizeLimit}."
     new_profile_photo:
       upload: "Качете нова снимка за профила!"
-    show:
-      show_original_post: "Оригиналната публикация"
   posts:
     show:
       photos_by:
@@ -330,13 +321,6 @@ bg:
       failed: "Профилът не бе обновен"
       updated: "Профилът е обновен"
   public: "Публична"
-  reactions:
-    few: "%{count} отзива"
-    many: "%{count} отзива"
-    one: "1 отзив"
-    other: "%{count} отзива"
-    two: "%{count} отзива"
-    zero: "0 отзива"
   registrations:
     closed: "Нови регистрации не са възможни на този pod на Diaspora."
     create:
@@ -404,8 +388,6 @@ bg:
     stream_element:
       via: "чрез %{link}"
   status_messages:
-    create:
-      success: "Споменахте успешно: %{names}"
     new:
       mentioning: "Споменаване на %{person}"
     too_long: "{\"few\"=>\", моля съкратете съобщението си до %{count} знака\", \"many\"=>\", моля съкратете съобщението си до %{count} знака\", \"one\"=>\", моля съкратете съобщението си до %{count} знака\", \"other\"=>\", моля съкратете съобщението си до %{count} знака\", \"two\"=>\", моля съкратете съобщението си до %{count} знака\", \"zero\"=>\", моля съкратете съобщението си до %{count} знака\"}"

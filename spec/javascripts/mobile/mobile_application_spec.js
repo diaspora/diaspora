@@ -8,12 +8,12 @@ describe("Diaspora.Mobile", function(){
     it("calls autosize for textareas", function(){
       Diaspora.Mobile.initialize();
       expect(window.autosize).toHaveBeenCalled();
-      expect(window.autosize.calls.mostRecent().args[0].selector).toBe("textarea");
+      expect(window.autosize.calls.mostRecent().args[0].is($("textarea"))).toBe(true);
     });
 
     it("deactivates shield", function(){
       Diaspora.Mobile.initialize();
-      var $shield = $(".stream_element").first();
+      var $shield = $(".stream-element").first();
       expect($shield).toHaveClass("shield-active");
       $shield.find(".shield a").click();
       expect($shield).not.toHaveClass("shield-active");

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Poll, :type => :model do
   before do
     @poll = Poll.new(:question => "What do you think about apples?")

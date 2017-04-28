@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Diaspora::Shareable do
   describe "scopes" do
     context "having multiple objects with equal db IDs" do

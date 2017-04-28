@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe StatusMessagesController, :type => :controller do
   before do
     @aspect1 = alice.aspects.first

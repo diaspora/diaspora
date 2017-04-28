@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Services::Tumblr, type: :model do
   let(:user) { alice }
   let(:post) { user.post(:status_message, text: "hello", to: user.aspects.first.id) }

@@ -15,6 +15,7 @@ app.views.ProfileHeader = app.views.Base.extend({
   initialize: function(opts) {
     this.photos = _.has(opts, 'photos') ? opts.photos : null;
     this.contacts = _.has(opts, 'contacts') ? opts.contacts : null;
+    this.model.on("change", this.render, this);
     $("#mentionModal").on("modal:loaded", this.mentionModalLoaded.bind(this));
     $("#mentionModal").on("hidden.bs.modal", this.mentionModalHidden);
   },
@@ -68,8 +69,8 @@ app.views.ProfileHeader = app.views.Base.extend({
       $("#mentionModal").modal("hide");
       app.publisher.clear();
       app.publisher.remove();
-      location.reload();
-    });
+      app.flashMessages.success(Diaspora.I18n.t("publisher.mention_success", {names: this.model.get("name")}));
+    }.bind(this));
   },
 
   mentionModalHidden: function() {
@@ -79,8 +80,11 @@ app.views.ProfileHeader = app.views.Base.extend({
   },
 
   showMessageModal: function(){
+    $("#conversationModal").on("modal:loaded", function() {
+      new app.views.ConversationsForm({prefill: gon.conversationPrefill});
+    });
     app.helpers.showModal("#conversationModal");
-  },
+  }
 });
 // @license-end
 

@@ -101,9 +101,6 @@ mk:
   fill_me_out: "Пополни ме"
   find_people: "Пронајди пријатели или #тагови"
   invitations:
-    a_facebook_user: "Facebook корисник"
-    check_token:
-      not_found: "Токенот за поканата не е пронајден"
     create:
       no_more: "Немате повеќе покани."
       rejected: "Следните е-маил адреси имаа проблем:"
@@ -238,10 +235,6 @@ mk:
   photos:
     destroy:
       notice: "Сликата е избришана."
-    new_photo:
-      empty: "{file} е празен, изберете датотеки без него."
-      invalid_ext: "{file} има невалидна екстензија. Само овие {extensions} се дозволени."
-      size_error: "{file} е премногу голема, максимална големина на датотека е {sizeLimit}."
   posts:
     show:
       photos_by:
@@ -258,13 +251,6 @@ mk:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
   public: "Јавно"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
   registrations:
     closed: "Регистрирањето е затворено."
     create:

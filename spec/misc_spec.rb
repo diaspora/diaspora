@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe 'making sure the spec runner works' do
   it 'factory creates a user with a person saved' do
     user = FactoryGirl.create(:user)

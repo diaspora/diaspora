@@ -105,16 +105,17 @@ da:
       remove_contact: "Fjern kontakt"
       search_no_results: "Ingen kontakter fundet"
     conversation:
+      create:
+        no_recipient: "Husk at tilføje en modtager!"
       new:
         no_contacts: "Du skal tilføje en eller flere kontakter før du kan starte en samtale."
     create: "Opret"
     delete: "Slet"
     edit: "Rediger"
-    failed_to_comment: "Din kommentar blev ikke lagt op. Måske ignorerer indlæggets ophavsmand dig?"
-    failed_to_like: "Kunne ikke synes om! Måske ignorere ophavsmanden dig?"
+    errors:
+      connection: "Kan ikke forbinde til serveren."
     failed_to_post_message: "Kunne ikke indsende besked!"
     failed_to_remove: "Det lykkedes ikke at fjerne indlægget!"
-    failed_to_reshare: "Kunne ikke dele indlægget!"
     getting_started:
       alright_ill_wait: "Okay, jeg venter."
       hey: "Hej <%= name %>!"
@@ -150,6 +151,9 @@ da:
     notifications:
       mark_read: "Marker som læst"
       mark_unread: "Marker som ulæst"
+      new_notifications:
+        one: "Du har <%= count %> ulæst notifikation"
+        other: "Du har <%= count %> ulæste notifikationer"
     people:
       edit_my_profile: "Rediger min profil"
       helper:
@@ -197,10 +201,16 @@ da:
       markdown_editor:
         preview: "Forhåndsvisning"
         texts:
+          code: "kode her"
           heading: "Overskriftstekst"
+          insert_image_description_text: "skriv billedbeskrivelse her"
+          insert_image_help_text: "indsæt billed-link her"
+          insert_image_title: "skriv billedtitel her"
           insert_link_description_text: "skriv link-beskrivelse her"
           insert_link_help_text: "Indsæt link her"
           italic: "tekst i kursiv"
+          list: "listetekst her"
+          quote: "citattekst her"
           strong: "fed tekst"
         tooltips:
           bold: "Fed"
@@ -216,6 +226,7 @@ da:
           quote: "Indsæt citat"
           write: "Rediger besked"
         write: "Skriv"
+      mention_success: "<%= names %> blev omtalt."
       near_from: "Sendt fra: <%= location %>"
       option: "Svar"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
@@ -229,12 +240,15 @@ da:
         created: "Der blev lavet en rapport"
         exists: "Der eksisterer allerede en rapport"
     reshares:
-      duplicate: "Du har allerede delt indlægget!"
       post: "Videredel <%= name %>s indlæg?"
       successful: "Indlægget er blevet videredelt!"
     show_more: "Vis mere"
     stream:
       comment: "Kommenter"
+      comments:
+        one: "<%= count %> kommentar"
+        other: "<%= count %> kommentarer"
+        zero: "<%= count %> kommentarer"
       disable_post_notifications: "Slå notifikationer fra for dette indlæg"
       enable_post_notifications: "Slå notifikationer til for dette indlæg"
       follow: "Følg"
@@ -264,10 +278,6 @@ da:
       original_post_deleted: "Oprindeligt indlæg er slettet af forfatteren"
       permalink: "Permalink"
       public: "Offentlig"
-      reactions:
-        one: "<%= count%> reaktion"
-        other: "<%= count%> reaktioner"
-        zero: "<%= count%> reaktioner"
       reshare: "Videredel"
       reshares:
         few: "<%= count %> videredelinger"

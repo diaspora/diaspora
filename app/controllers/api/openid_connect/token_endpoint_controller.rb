@@ -1,6 +1,8 @@
 module Api
   module OpenidConnect
     class TokenEndpointController < ApplicationController
+      skip_before_action :verify_authenticity_token
+
       def create
         req = Rack::Request.new(request.env)
         if req["client_assertion_type"] == "urn:ietf:params:oauth:client-assertion-type:jwt-bearer"

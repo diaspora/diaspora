@@ -1,6 +1,4 @@
-require "spec_helper"
-
-describe Api::OpenidConnect::ClientsController, type: :controller do
+describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf_verification: :none do
   describe "#create" do
     context "when valid parameters are passed" do
       it "should return a client id" do
@@ -8,7 +6,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller do
           .with(headers: {
                   "Accept"          => "*/*",
                   "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-                  "User-Agent"      => "Faraday v0.9.2"
+                  "User-Agent"      => "Faraday v0.11.0"
                 })
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
         post :create, redirect_uris: ["http://localhost"], client_name: "diaspora client",
@@ -28,7 +26,8 @@ describe Api::OpenidConnect::ClientsController, type: :controller do
           .with(headers: {
                   "Accept"          => "*/*",
                   "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-                  "User-Agent"      => "Faraday v0.9.2"})
+                  "User-Agent"      => "Faraday v0.11.0"
+                })
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
         post :create, redirect_uris: ["http://localhost"], client_name: "diaspora client",
              response_types: [], grant_types: [], application_type: "web", contacts: [],
@@ -85,14 +84,18 @@ describe Api::OpenidConnect::ClientsController, type: :controller do
     context "when valid parameters with jwks_uri is passed" do
       it "should return a client id" do
         stub_request(:get, "http://example.com/uris")
-          .with(headers: {"Accept"          => "*/*",
-                          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-                          "User-Agent"      => "Faraday v0.9.2"})
+          .with(headers: {
+                  "Accept"          => "*/*",
+                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+                  "User-Agent"      => "Faraday v0.11.0"
+                })
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
         stub_request(:get, "https://kentshikama.com/api/openid_connect/jwks.json")
-          .with(headers: {"Accept"          => "*/*",
-                          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-                          "User-Agent"      => "Faraday v0.9.2"})
+          .with(headers: {
+                  "Accept"          => "*/*",
+                  "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+                  "User-Agent"      => "Faraday v0.11.0"
+                })
           .to_return(status: 200,
                      body: "{\"keys\":[{\"kty\":\"RSA\",\"e\":\"AQAB\",\"n\":\"qpW\",\"use\":\"sig\"}]}", headers: {})
         post :create, redirect_uris: ["http://localhost"], client_name: "diaspora client",

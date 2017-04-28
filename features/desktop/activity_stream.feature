@@ -15,10 +15,20 @@ Feature: The activity stream
     Then I should see "Look at this dog"
     And I should see "is that a poodle?"
 
+    When I go to the commented stream page
+    Then I should see "Look at this dog"
+    And I should see "is that a poodle?"
+
+    When I go to the liked stream page
+    Then I should not see "Look at this dog"
+
     When I am on "alice@alice.alice"'s page
     And I confirm the alert after I click to delete the first comment
 
     And I go to the activity stream page
+    Then I should not see "Look at this dog"
+
+    When I go to the commented stream page
     Then I should not see "Look at this dog"
 
   Scenario: unliking a post
@@ -30,7 +40,16 @@ Feature: The activity stream
     And I go to the activity stream page
     Then I should see "Look at this dog"
 
+    When I go to the commented stream page
+    Then I should not see "Look at this dog"
+
+    When I go to the liked stream page
+    Then I should see "Look at this dog"
+
     When I am on "alice@alice.alice"'s page
     And I unlike the post "Look at this dog" in the stream
     And I go to the activity stream page
+    Then I should not see "Look at this dog"
+
+    When I go to the liked stream page
     Then I should not see "Look at this dog"

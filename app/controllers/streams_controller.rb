@@ -28,7 +28,8 @@ class StreamsController < ApplicationController
   end
 
   def multi
-      stream_responder(Stream::Multi)
+    gon.preloads[:getting_started] = current_user.getting_started
+    stream_responder(Stream::Multi)
   end
 
   def commented

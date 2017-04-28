@@ -13,9 +13,8 @@ app.views.CommentStream = app.views.Base.extend({
     "click .toggle_post_comments": "expandComments"
   },
 
-  initialize: function(options) {
-    this.commentTemplate = options.commentTemplate;
-
+  initialize: function() {
+    this.CommentView = app.views.Comment;
     this.setupBindings();
   },
 
@@ -26,6 +25,9 @@ app.views.CommentStream = app.views.Base.extend({
 
   postRenderTemplate : function() {
     this.model.comments.each(this.appendComment, this);
+    this.commentBox = this.$(".comment_box");
+    this.commentSubmitButton = this.$("input[name='commit']");
+    new app.views.CommentMention({el: this.$el, postId: this.model.get("id")});
   },
 
   presenter: function(){
@@ -39,15 +41,35 @@ app.views.CommentStream = app.views.Base.extend({
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
 
-    var commentText = $.trim(this.$('.comment_box').val());
-    this.$(".comment_box").val("");
-    this.$(".comment_box").css("height", "");
-    if(commentText) {
-      this.model.comment(commentText);
-      return this;
-    } else {
-      this.$(".comment_box").focus();
+    var commentText = $.trim(this.commentBox.val());
+    if (commentText === "") {
+      this.commentBox.focus();
+      return;
     }
+
+    this.disableCommentBox();
+
+    this.model.comment(commentText, {
+      success: function() {
+        this.commentBox.val("");
+        this.enableCommentBox();
+        autosize.update(this.commentBox);
+      }.bind(this),
+      error: function() {
+        this.enableCommentBox();
+        this.commentBox.focus();
+      }.bind(this)
+    });
+  },
+
+  disableCommentBox: function() {
+    this.commentBox.prop("disabled", true);
+    this.commentSubmitButton.prop("disabled", true);
+  },
+
+  enableCommentBox: function() {
+    this.commentBox.removeAttr("disabled");
+    this.commentSubmitButton.removeAttr("disabled");
   },
 
   keyDownOnCommentBox: function(evt) {
@@ -84,7 +106,7 @@ app.views.CommentStream = app.views.Base.extend({
     // on post ownership in the Comment view.
     comment.set({parent : this.model.toJSON()});
 
-    var commentHtml = new app.views.Comment({model: comment}).render().el;
+    var commentHtml = new this.CommentView({model: comment}).render().el;
     var commentBlocks = this.$(".comments div.comment.media");
     this._moveInsertPoint(comment.get("created_at"), commentBlocks);
     if (this._insertPoint >= commentBlocks.length) {
@@ -105,10 +127,12 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   expandComments: function(evt){
+    this.$(".loading-comments").removeClass("hidden");
     if(evt){ evt.preventDefault(); }
     this.model.comments.fetch({
       success: function() {
         this.$("div.comment.show_comments").addClass("hidden");
+        this.$(".loading-comments").addClass("hidden");
       }.bind(this)
     });
   }

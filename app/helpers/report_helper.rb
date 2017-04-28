@@ -6,14 +6,18 @@ module ReportHelper
   def report_content(report)
     case (item = report.item)
     when Post
-      raw t("report.post_label", title: link_to(post_page_title(item), post_path(item.id)))
+      raw t("report.post_label", content: link_to(post_message(item), post_path(item.id)))
     when Comment
       raw t("report.comment_label", data: link_to(
         h(comment_message(item)),
-        post_path(item.post.id, anchor: item.author.guid)
+        post_path(item.post.id, anchor: item.guid)
       ))
     else
-      raw t("report.not_found")
+      t("report.not_found")
     end
+  end
+
+  def unreviewed_reports_count
+    @unreviewed_reports_count ||= Report.where(reviewed: false).size
   end
 end

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe NotificationsController, :type => :controller do
   describe '#index' do
     before do
@@ -14,6 +12,8 @@ describe NotificationsController, :type => :controller do
     it "generates a jasmine fixture", :fixture => true do
       get :index
       save_fixture(html_for("body"), "notifications")
+      get :index, format: :json
+      save_fixture(response.body, "notifications_collection")
     end
   end
 end

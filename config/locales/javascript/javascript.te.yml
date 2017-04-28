@@ -6,6 +6,13 @@
 
 te:
   javascripts:
+    admin:
+      pods:
+        actions: "చర్యలు"
+        not_available: "అందుబాటులో లేదు"
+        states:
+          no_errors: "సరే"
+        status: "స్థితి"
     and: "మరియు"
     aspect_dropdown:
       add_to_aspect: "పరిచయాన్ని జతచేయి"
@@ -50,10 +57,8 @@ te:
     create: "సృష్టించు"
     delete: "తొలగించు"
     edit: "సవరించు"
-    failed_to_like: "ఇష్టపడుటలో విఫలమైంది!"
     failed_to_post_message: "సందేశాన్ని పోస్టుచేయుటలో విఫలమైంది!"
     failed_to_remove: "ప్రవేశాన్ని తొలగించుటలో విఫలమైంది!"
-    failed_to_reshare: "మళ్ళీ పంచుకోవడంలో విఫలమైంది!"
     getting_started:
       alright_ill_wait: "పరవాలేదు, నేను వేచివుంటాను."
       hey: "ఓయ్, <%= name %>!"
@@ -118,6 +123,10 @@ te:
     publisher:
       add_option: "ఒక సమాధానాన్ని జతచేయి"
       limited: "పరిమితం: మీరు ఎవరితోనైతే పంచుకుంటున్నారో వారు మాత్రమే మీ టపాను చూడగలరు"
+      markdown_editor:
+        tooltips:
+          bold: "బొద్దు"
+          italic: "వాలు"
       near_from: "ఇక్కడి నుండి టపా వేసారు: <%= location %>"
       option: "సమాధానం"
       public: "బహిరంగం: మీ టపా అందరికీ కనిపిస్తుంది మరియు వెతుకులాట యంత్రాలలో కూడా కనపడుతుంది"
@@ -130,11 +139,13 @@ te:
       status:
         created: "ఫిర్యాదు విజయవంతంగా సృష్టించబడింది"
         exists: "ఫిర్యాదు ఇదివరకే ఉంది"
-    reshares:
-      duplicate: "అంత బాగుందా?  ఆ టపాని మీరు ఇప్పటికే పంచుకున్నారు!"
     show_more: "ఇంకా చూపించు"
     stream:
       comment: "వ్యాఖ్య"
+      comments:
+        one: "<%= count %> వ్యాఖ్య"
+        other: "<%= count %> వ్యాఖ్యలు"
+        zero: "<%= count %> వ్యాఖ్యలు"
       disable_post_notifications: "ఈ టపాకు గమనింపులను అచేతనించు"
       enable_post_notifications: "ఈ టపాకు గమనింపులను చేతనించు"
       follow: "అనుసరించు"
@@ -153,6 +164,7 @@ te:
         one: "మరో <%= count %> వ్యాఖ్యను చూపించు"
         other: "మరో <%= count %> వ్యాఖ్యలను చూపించు"
         zero: "మరో <%= count %> వ్యాఖ్యలను చూపించు"
+      permalink: "స్థిరలంకె"
       public: "బహిరంగం"
       reshare: "మరలపంచుకొను"
       reshares:
@@ -169,16 +181,20 @@ te:
     timeago:
       day: "ఒక రోజు"
       days:
-        other: "%d రోజుల"
+        one: "1 రోజు"
+        other: "%d రోజులు"
       hour: "దాదాపు గంట"
       hours:
-        other: "దాదాపు %d గంటల"
+        one: "దాదాపు 1 గంట"
+        other: "దాదాపు %d గంటలు"
       minute: "దాదాపు నిమిషం"
       minutes:
-        other: "%d నిమిషాల"
+        one: "1 నిమిషం"
+        other: "%d నిమిషాలు"
       month: "దాదాపు నెల"
       months:
-        other: "%d నెలల"
+        one: "1 నెల"
+        other: "%d నెలలు"
       prefixAgo: " "
       prefixFromNow: ""
       seconds: "కొన్ని క్షణాల"
@@ -186,4 +202,5 @@ te:
       suffixFromNow: "ఇప్పటి నుండి"
       year: "దాదాపు సంవత్సరం"
       years:
-        other: "%d సంవత్సరాల"
+        one: "1 సంవత్సరం"
+        other: "%d సంవత్సరాలు"

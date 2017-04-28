@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require "spec_helper"
 require "integration/federation/federation_helper"
 
 describe "attack vectors", type: :request do

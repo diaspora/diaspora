@@ -30,4 +30,10 @@ var List = {
     setTimeout( "List.runDelayedSearch('" + theSearch + "')", 10000);
   }
 };
+
+$(document).ready(function() {
+  if (gon.preloads.background_query) {
+    List.startSearchDelay(gon.preloads.background_query);
+  }
+});
 // @license-end

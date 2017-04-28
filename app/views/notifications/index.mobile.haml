@@ -14,7 +14,7 @@
           = locale_date(date)
       %ul.notifications_for_day
         - notes.each do |note|
-          .stream_element{data: {guid: note.id}, class: "#{note.unread ? "unread" : "read"}"}
+          .stream-element{data: {guid: note.id}, class: (note.unread ? "unread" : "read")}
             .content.from
               .media
                 .media-left

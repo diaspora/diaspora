@@ -125,6 +125,7 @@ module Api
         session[:response_type] = @response_type
         session[:redirect_uri] = @redirect_uri
         session[:scopes] = scopes_as_space_seperated_values
+        session[:state] = params[:state]
         session[:nonce] = params[:nonce]
       end
 
@@ -149,6 +150,7 @@ module Api
         session.delete(:response_type)
         session.delete(:redirect_uri)
         session.delete(:scopes)
+        session.delete(:state)
         session.delete(:nonce)
       end
 
@@ -162,6 +164,7 @@ module Api
         req.update_param("redirect_uri", session[:redirect_uri])
         req.update_param("response_type", response_type_as_space_seperated_values)
         req.update_param("scope", session[:scopes])
+        req.update_param("state", session[:state])
         req.update_param("nonce", session[:nonce])
       end
 

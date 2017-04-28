@@ -63,10 +63,8 @@ fi:
     create: "Luo"
     delete: "Poista"
     edit: "Muokkaa"
-    failed_to_like: "Tykkääminen epäonnistui!"
     failed_to_post_message: "Viestin lähetys epäonnistui!"
     failed_to_remove: "Lisäyksen poistaminen epäonnistui!"
-    failed_to_reshare: "Uudelleen jakaminen epäonnistui!"
     getting_started:
       alright_ill_wait: "Okei, minä odotan."
       hey: "Hei <%= name %>!"
@@ -153,7 +151,6 @@ fi:
         created: "Ilmoitus luotiin onnistuneesti"
         exists: "Ilmoitus on jo olemassa"
     reshares:
-      duplicate: "Olet jo uudelleenjakanut tämän julkaisun!"
       post: "Jaa käyttäjän <%= name %> julkaisu?"
       successful: "Julkaisu jaettiin onnistuneesti!"
     show_more: "Näytä lisää"

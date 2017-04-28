@@ -87,6 +87,9 @@ en:
         success: "Your new aspect <%= name %> was created"
         failure: "Aspect creation failed."
 
+    errors:
+      connection: "Unable to connect to the server."
+
     timeago:
       prefixAgo: ""
       prefixFromNow: ""
@@ -166,6 +169,7 @@ en:
           list: "list text here"
           quote: "quotation text here"
           code: "code here"
+      mention_success: "Successfully mentioned: <%= names %>"
 
     bookmarklet:
       post_something: "Post to diaspora*"
@@ -186,9 +190,6 @@ en:
         one: "In <%= count %> aspect"
         other: "In <%= count %> aspects"
     show_more: "Show more"
-    failed_to_like: "Failed to like. Maybe the author is ignoring you?"
-    failed_to_reshare: "Failed to reshare!"
-    failed_to_comment: "Failed to comment. Maybe the author is ignoring you?"
     failed_to_post_message: "Failed to post message!"
     failed_to_remove: "Failed to remove the entry!"
     comments:
@@ -196,7 +197,6 @@ en:
       hide: "Hide comments"
       no_comments: "There are no comments yet."
     reshares:
-      duplicate: "That good, eh?  You’ve already reshared that post!"
       successful: "The post was successfully reshared!"
       post: "Reshare <%= name %>’s post?"
     aspect_navigation:
@@ -210,6 +210,7 @@ en:
       alright_ill_wait: "All right, I’ll wait."
       preparing_your_stream: "Preparing your personalized stream..."
     photo_uploader:
+      upload_photos: "Upload photos"
       looking_good: "OMG, you look awesome!"
       completed: "<%= file %> completed"
       error: "A problem occurred while uploading file <%= file %>"
@@ -240,12 +241,17 @@ en:
       posts: "Posts"
 
     conversation:
+      create:
+        no_recipient: "Hey, you need to add a recipient first!"
       new:
         no_contacts: "You need to add some contacts before you can start a conversation."
 
     notifications:
       mark_read: "Mark read"
       mark_unread: "Mark unread"
+      new_notifications:
+        one: "You have <%= count %> unread notification"
+        other: "You have <%= count %> unread notifications"
 
     stream:
       hide: "Hide"
@@ -277,6 +283,11 @@ en:
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
 
+      comments:
+        zero: "<%= count %> comments"
+        one: "<%= count %> comment"
+        other: "<%= count %> comments"
+
       more_comments:
         zero: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
@@ -294,11 +305,6 @@ en:
         stop_following_confirm: "Stop following #<%= tag %>?"
         follow_error: "Couldn’t follow #<%= tag %> :("
         stop_following_error: "Couldn’t stop following #<%= tag %> :("
-
-      reactions:
-        zero: "<%= count%> reactions"
-        one: "<%= count%> reaction"
-        other: "<%= count%> reactions"
 
     header:
       home: "Home"

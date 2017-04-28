@@ -36,20 +36,20 @@ module MobileHelper
     link_to "", new_post_comment_path(post), class: "entypo-comment comment-action inactive"
   end
 
-  def reactions_link(post, klass="")
-    reactions_count = post.comments_count + post.likes_count
+  def show_comments_link(post, klass="")
     if klass == "active"
       entypo_class = "entypo-chevron-up"
     else
       entypo_class = "entypo-chevron-down"
     end
-    if reactions_count > 0
-      link_to "#{t('reactions', count: reactions_count)}<i class='#{entypo_class}'></i>".html_safe,
+
+    if post.comments_count > 0
+      link_to "#{t('admins.stats.comments', count: post.comments_count)}<i class='#{entypo_class}'></i>".html_safe,
               post_comments_path(post, format: "mobile"),
               class: "show-comments #{klass}"
     else
       html = "<span class='show-comments'>"
-      html << "#{t('reactions', count: reactions_count)}"
+      html << t("admins.stats.comments", count: post.comments_count)
       html << "</span>"
     end
   end

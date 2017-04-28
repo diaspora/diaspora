@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe NotificationSerializer do
   let(:notifications_controller) { NotificationsController.new }
 

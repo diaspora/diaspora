@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Export::PostSerializer do
   let(:post) { create(:status_message_with_photo) }
   subject(:json_output) { Export::PostSerializer.new(post).to_json }

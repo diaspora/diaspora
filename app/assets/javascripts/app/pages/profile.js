@@ -31,7 +31,6 @@ app.pages.Profile = app.views.Base.extend({
     this.streamCollection = _.has(opts, "streamCollection") ? opts.streamCollection : null;
     this.streamViewClass = _.has(opts, "streamView") ? opts.streamView : null;
 
-    this.model.on("change", this.render, this);
     this.model.on("sync", this._done, this);
 
     // bind to global events

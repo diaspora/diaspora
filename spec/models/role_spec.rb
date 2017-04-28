@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Role do
   let!(:person) { create(:person) }
   let!(:admin) { create(:person) }

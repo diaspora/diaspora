@@ -1,13 +1,27 @@
 .comment_stream {
   .show_comments {
-    margin-top: 5px;
     border-top: 1px solid $border-grey;
+    line-height: $line-height-computed;
+    margin-top: 5px;
     a {
       color: $text-grey;
       font-size: 13px;
     }
     .media { margin-top: 10px; }
   }
+
+  .loading-comments {
+    height: $line-height-computed + 11px; // height of .show_comments: line-height, 10px margin, 1px border
+    margin-top: -$line-height-computed - 11px;
+
+    .loader {
+      height: 20px;
+      width: 20px;
+    }
+
+    .media { margin: 5px; }
+  }
+
   .comments > .comment,
   .comment.new-comment-form-wrapper {
     .avatar {
@@ -25,11 +39,14 @@
     }
 
     >.highlighted {
-      border-left: 3px solid $blue;
+      border-left: 3px solid $link-color;
       padding-left: 3px;
     }
   }
-  .submit_button {
+
+  .comment.new-comment-form-wrapper { padding-bottom: 0; }
+
+  .submit-button {
     margin-top: 10px;
     input {
       float: right;
@@ -43,8 +60,16 @@
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
-    & + .submit_button { display: block; }
+    ~ .submit-button { display: block; }
     min-height: 35px;
     box-shadow: none;
+  }
+
+  .twitter-typeahead {
+    // typeahead sets this to `display: inline-block` which adds additional space between
+    // the comment textarea and the submit button.
+    // scss-lint:disable ImportantRule
+    display: block !important;
+    // scss-lint:enable ImportantRule
   }
 }

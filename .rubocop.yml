@@ -6,6 +6,10 @@ AllCops:
 Rails:
   Enabled: true
 
+# Disable for rails 4
+Rails/HttpPositionalArguments:
+  Enabled: false
+
 # Commonly used screens these days easily fit more than 80 characters.
 Metrics/LineLength:
   Max: 120
@@ -24,6 +28,15 @@ Metrics/ModuleLength:
 # Raise AbcSize from 15 to 20
 Metrics/AbcSize:
   Max: 20
+
+# Some blocks are longer.
+Metrics/BlockLength:
+  ExcludedMethods:
+    - "namespace"
+    - "create_table"
+  Exclude:
+    - "config/**/*.rb"
+    - "spec/**/*.rb"
 
 # No space makes the method definition shorter and differentiates
 # from a regular assignment.
@@ -51,7 +64,7 @@ Style/HashSyntax:
  EnforcedStyle: ruby19_no_mixed_keys
 
 # has_key? and has_value? are far more readable than key? and value?
-Style/DeprecatedHashMethods:
+Style/PreferredHashMethods:
   Enabled: false
 
 # String#% is by far the least verbose and only object oriented variant.
@@ -147,7 +160,20 @@ Style/OpMethod:
 Lint/Debugger:
   Enabled: false
 
+# We used comparison everywhere.
+Style/NumericPredicate:
+  EnforcedStyle: comparison
 
 # Reset some HoundCI changes back to Rubocop defaults
 Style/DotPosition:
   EnforcedStyle: leading
+
+### backward compatibility
+
+# only with ruby >= 2.3
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# only with ruby >= 2.4
+Performance/RegexpMatch:
+  Enabled: false

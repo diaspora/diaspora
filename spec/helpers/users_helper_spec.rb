@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe UsersHelper, type: :helper do
   include Devise::Test::ControllerHelpers
 

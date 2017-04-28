@@ -55,8 +55,7 @@ app.views.Base = Backbone.View.extend({
       .html(this.template(presenter))
       .attr("data-template", _.last(this.templateName.split("/")));
 
-    // add avatar fallback if it can't be loaded
-    this.$el.find(this.avatars.selector).error(this.avatars.fallback);
+    this.setupAvatarFallback(this.$el);
 
     // add placeholder support for old browsers
     this.$("input, textarea").placeholder();
@@ -132,19 +131,20 @@ app.views.Base = Backbone.View.extend({
 
   destroyModel: function(evt) {
     evt && evt.preventDefault();
-    var self = this;
     var url = this.model.urlRoot + "/" + this.model.id;
 
     if( confirm(_.result(this, "destroyConfirmMsg")) ) {
       this.$el.addClass("deleting");
-      this.model.destroy({ url: url })
-        .done(function() {
-          self.remove();
-        })
-        .fail(function() {
-          self.$el.removeClass("deleting");
+      this.model.destroy({
+        url: url,
+        success: function() {
+          this.remove();
+        }.bind(this),
+        error: function() {
+          this.$el.removeClass("deleting");
           app.flashMessages.error(Diaspora.I18n.t("failed_to_remove"));
-        });
+        }.bind(this)
+      });
     }
   },
 
@@ -153,6 +153,10 @@ app.views.Base = Backbone.View.extend({
       $(this).attr("src", ImagePaths.get("user/default.png"));
     },
     selector: "img.avatar"
+  },
+
+  setupAvatarFallback: function(el) {
+    el.find(this.avatars.selector).on("error", this.avatars.fallback);
   }
 });
 

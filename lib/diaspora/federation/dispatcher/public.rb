@@ -19,7 +19,9 @@ module Diaspora
         end
 
         def target_urls(people)
-          Pod.where(id: people.map(&:pod_id).uniq).map {|pod| pod.url_to("/receive/public") }
+          active, inactive = Pod.where(id: people.map(&:pod_id).uniq).partition(&:active?)
+          logger.info "ignoring inactive pods: #{inactive.join(', ')}" if inactive.any?
+          active.map {|pod| pod.url_to("/receive/public") }
         end
 
         def additional_target_urls

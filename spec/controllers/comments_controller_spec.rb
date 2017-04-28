@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
 describe CommentsController, :type => :controller do
   before do
     allow(@controller).to receive(:current_user).and_return(alice)
@@ -67,6 +65,7 @@ describe CommentsController, :type => :controller do
       expect(alice).not_to receive(:comment)
       post :create, comment_hash
       expect(response.code).to eq("404")
+      expect(response.body).to eq(I18n.t("comments.create.error"))
     end
   end
 

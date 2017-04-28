@@ -25,7 +25,6 @@ id:
       show: "tampilkan semua komentar"
     confirm_dialog: "Anda yakin ?"
     delete: "Menghapus"
-    failed_to_like: "Gagal untuk 'like'!"
     failed_to_post_message: "Gagal memposting pesan!"
     getting_started:
       alright_ill_wait: "Baiklah, Saya akan menunggu"
@@ -42,8 +41,6 @@ id:
     publisher:
       limited: "Di Limitasi - Apa yang anda publikasi hanya dapat di lihat oleh orang-orang yang berbagi dengan anda."
       public: "Publik - Apa yang anda publikasi dapat di lihat oleh siapa saja dan dapat di temukan oleh mesin pencari."
-    reshares:
-      duplicate: "Menarik ? Anda telah membagikan ulang posting tersebut!"
     show_more: "Tampilkan lebih banyak lagi"
     stream:
       comment: "Komentar"

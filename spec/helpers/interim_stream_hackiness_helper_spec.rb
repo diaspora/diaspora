@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe InterimStreamHackinessHelper, type: :helper do
   describe "commenting_disabled?" do
     include Devise::Test::ControllerHelpers

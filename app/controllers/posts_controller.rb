@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: :destroy
+  before_action :authenticate_user!, only: %i(destroy mentionable)
   before_action :set_format_if_malformed_from_status_net, only: :show
 
   respond_to :html, :mobile, :json, :xml
@@ -41,8 +41,28 @@ class PostsController < ApplicationController
   end
 
   def interactions
-    post = post_service.find!(params[:id])
-    respond_with PostInteractionPresenter.new(post, current_user)
+    respond_to do |format|
+      format.json {
+        post = post_service.find!(params[:id])
+        render json: PostInteractionPresenter.new(post, current_user)
+      }
+      format.any { render nothing: true, status: 406 }
+    end
+  end
+
+  def mentionable
+    respond_to do |format|
+      format.json {
+        if params[:id].present? && params[:q].present?
+          render json: post_service.mentionable_in_comment(params[:id], params[:q])
+        else
+          render nothing: true, status: 204
+        end
+      }
+      format.any { render nothing: true, status: 406 }
+    end
+  rescue ActiveRecord::RecordNotFound
+    render nothing: true, status: 404
   end
 
   def destroy
