@@ -84,11 +84,12 @@
 @import 'stream';
 @import 'stream_element';
 @import 'comments';
-@import 'diaspora_jsxc';
-@import 'chat';
 @import 'markdown-content';
 @import 'oembed';
 @import 'post-content';
+
+// chat
+@import 'converse.js/css/converse';
 
 // contacts
 @import 'contacts';

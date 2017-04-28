@@ -169,7 +169,7 @@ gem "active_model_serializers", "0.9.7"
 
 # XMPP chat dependencies
 gem "diaspora-prosody-config",    "0.0.7"
-gem "rails-assets-diaspora_jsxc", "0.1.5.develop.7", source: "https://rails-assets.org"
+gem "rails-assets-converse.js", "3.2.1", source: "https://rails-assets.org"
 
 # Tags
 
