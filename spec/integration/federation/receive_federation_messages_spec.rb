@@ -15,14 +15,14 @@ describe "Receive federation messages feature" do
     let(:recipient) { nil }
 
     it "receives account deletion correctly" do
-      post_message(generate_xml(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: sender_id), sender))
+      post_message(generate_payload(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: sender_id), sender))
 
       expect(AccountDeletion.exists?(diaspora_handle: sender_id)).to be_truthy
     end
 
     it "rejects account deletion with wrong diaspora_id" do
       delete_id = Fabricate.sequence(:diaspora_id)
-      post_message(generate_xml(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: delete_id), sender))
+      post_message(generate_payload(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: delete_id), sender))
 
       expect(AccountDeletion.exists?(diaspora_handle: delete_id)).to be_falsey
       expect(AccountDeletion.exists?(diaspora_handle: sender_id)).to be_falsey
@@ -38,7 +38,7 @@ describe "Receive federation messages feature" do
           alice, instance_of(Reshare)
         ).and_return(double(create!: true))
 
-        post_message(generate_xml(reshare, sender))
+        post_message(generate_payload(reshare, sender))
 
         expect(Reshare.exists?(root_guid: post.guid)).to be_truthy
         expect(Reshare.where(root_guid: post.guid).last.diaspora_handle).to eq(sender_id)
@@ -49,7 +49,7 @@ describe "Receive federation messages feature" do
         reshare = Fabricate(
           :reshare_entity, root_author: alice.diaspora_handle, root_guid: post.guid, author: sender_id)
         expect {
-          post_message(generate_xml(reshare, sender))
+          post_message(generate_payload(reshare, sender))
         }.to raise_error ActiveRecord::RecordInvalid, "Validation failed: Only posts which are public may be reshared."
 
         expect(Reshare.exists?(root_guid: post.guid)).to be_falsey
@@ -78,7 +78,7 @@ describe "Receive federation messages feature" do
 
       expect(Workers::ReceiveLocal).to receive(:perform_async).and_call_original
 
-      post_message(generate_xml(entity, sender, alice), alice)
+      post_message(generate_payload(entity, sender, alice), alice)
 
       expect(alice.contacts.count).to eq(2)
       new_contact = alice.contacts.find {|c| c.person.diaspora_handle == sender_id }
@@ -106,7 +106,7 @@ describe "Receive federation messages feature" do
 
       it "treats profile receive correctly" do
         entity = Fabricate(:profile_entity, author: sender_id)
-        post_message(generate_xml(entity, sender, alice), alice)
+        post_message(generate_payload(entity, sender, alice), alice)
 
         received_profile = sender.profile.reload
 
@@ -120,7 +120,7 @@ describe "Receive federation messages feature" do
           author:       sender_id,
           participants: "#{sender_id};#{alice.diaspora_handle}"
         )
-        post_message(generate_xml(entity, sender, alice), alice)
+        post_message(generate_payload(entity, sender, alice), alice)
 
         expect(Conversation.exists?(guid: entity.guid)).to be_truthy
       end

@@ -44,30 +44,29 @@ def create_relayable_entity(entity_name, parent, diaspora_id)
   )
 end
 
-def generate_xml(entity, remote_user, recipient=nil)
+def generate_payload(entity, remote_user, recipient=nil)
+  magic_env = DiasporaFederation::Salmon::MagicEnvelope.new(
+    entity,
+    remote_user.diaspora_handle
+  ).envelop(remote_user.encryption_key)
+
   if recipient
-    DiasporaFederation::Salmon::EncryptedSlap.prepare(
-      remote_user.diaspora_handle,
-      remote_user.encryption_key,
-      entity
-    ).generate_xml(recipient.encryption_key)
+    DiasporaFederation::Salmon::EncryptedMagicEnvelope.encrypt(magic_env, recipient.encryption_key)
   else
-    DiasporaFederation::Salmon::Slap.generate_xml(
-      remote_user.diaspora_handle,
-      remote_user.encryption_key,
-      entity
-    )
+    magic_env.to_xml
   end
 end
 
-def post_message(xml, recipient=nil)
+def post_message(payload, recipient=nil)
   if recipient
     inlined_jobs do
-      post "/receive/users/#{recipient.guid}", guid: recipient.guid, xml: xml
+      headers = {"CONTENT_TYPE" => "application/json"}
+      post "/receive/users/#{recipient.guid}", payload, headers
     end
   else
     inlined_jobs do
-      post "/receive/public", xml: xml
+      headers = {"CONTENT_TYPE" => "application/magic-envelope+xml"}
+      post "/receive/public", payload, headers
     end
   end
 end
