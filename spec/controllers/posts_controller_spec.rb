@@ -76,12 +76,6 @@ describe PostsController, type: :controller do
           expect(response.body).to match "hello"
         end
 
-        it "responds with diaspora xml if format is xml" do
-          get :show, id: public.guid, format: :xml
-          expected_xml = DiasporaFederation::Salmon::XmlPayload.pack(Diaspora::Federation::Entities.post(public)).to_xml
-          expect(response.body).to eq(expected_xml)
-        end
-
         it "includes the correct uniques meta tags" do
           presenter = PostPresenter.new(public)
           methods_properties = {
