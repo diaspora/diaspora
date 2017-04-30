@@ -268,10 +268,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def salmon(post)
-    Salmon::EncryptedSlap.create_by_user_and_activity(self, post.to_diaspora_xml)
-  end
-
   # Check whether the user has liked a post.
   # @param [Post] post
   def liked?(target)
