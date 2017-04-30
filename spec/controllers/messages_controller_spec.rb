@@ -102,19 +102,6 @@ describe MessagesController, :type => :controller do
         expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, instance_of(Message))
         post :create, @message_params
       end
-
-      it "dispatches the message twice if the conversation author is local and it has remote users" do
-        @conversation_params[:participant_ids] = [bob.person.id, alice.person.id, remote_raphael.id]
-        conversation = Conversation.create!(@conversation_params)
-        @message_params[:conversation_id] = conversation.id
-
-        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, instance_of(Message))
-        expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(
-          bob, instance_of(Message), subscriber_ids: [remote_raphael.id]
-        )
-
-        post :create, @message_params
-      end
     end
 
     context 'on a post from a stranger' do

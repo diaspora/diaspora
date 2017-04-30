@@ -39,11 +39,6 @@ describe Message, type: :model do
       message = Message.create(author: local_luke.person, text: "yo", conversation: remote_conv)
       expect(message.subscribers).to match_array([local_luke.person, local_leia.person, remote_raphael])
     end
-
-    it "returns only remote participants, if the conversation is local, but the author is remote" do
-      message = Message.create(author: remote_raphael, text: "yo", conversation: local_conv)
-      expect(message.subscribers).to match_array([remote_raphael])
-    end
   end
 
   describe "#increase_unread" do

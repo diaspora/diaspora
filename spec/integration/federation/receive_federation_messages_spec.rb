@@ -126,24 +126,59 @@ describe "Receive federation messages feature" do
       end
 
       context "with message" do
-        let(:local_parent) {
-          FactoryGirl.build(:conversation, author: alice.person).tap do |target|
-            target.participants << remote_user_on_pod_b.person
-            target.participants << remote_user_on_pod_c.person
-            target.save
-          end
-        }
-        let(:remote_parent) {
-          FactoryGirl.build(:conversation, author: remote_user_on_pod_b.person).tap do |target|
-            target.participants << alice.person
-            target.participants << remote_user_on_pod_c.person
-            target.save
-          end
-        }
-        let(:entity_name) { :message_entity }
-        let(:klass) { Message }
+        context "local" do
+          let(:parent) {
+            FactoryGirl.build(:conversation, author: alice.person).tap do |target|
+              target.participants << remote_user_on_pod_b.person
+              target.participants << remote_user_on_pod_c.person
+              target.save
+            end
+          }
+          let(:message) {
+            Fabricate(
+              :message_entity,
+              conversation_guid: parent.guid,
+              author:            sender_id,
+              parent:            Diaspora::Federation::Entities.related_entity(parent)
+            )
+          }
 
-        it_behaves_like "it deals correctly with a relayable"
+          it "receives the message correctly" do
+            expect(Workers::ReceiveLocal).to receive(:perform_async)
+            post_message(generate_payload(message, sender, recipient), recipient)
+
+            received_message = Message.find_by(guid: message.guid)
+            expect(received_message).not_to be_nil
+            expect(received_message.author.diaspora_handle).to eq(sender_id)
+          end
+        end
+
+        context "remote" do
+          let(:parent) {
+            FactoryGirl.build(:conversation, author: remote_user_on_pod_b.person).tap do |target|
+              target.participants << alice.person
+              target.participants << remote_user_on_pod_c.person
+              target.save
+            end
+          }
+          let(:message) {
+            Fabricate(
+              :message_entity,
+              conversation_guid: parent.guid,
+              author:            remote_user_on_pod_c.diaspora_handle,
+              parent:            Diaspora::Federation::Entities.related_entity(parent)
+            )
+          }
+
+          it "receives the message correctly" do
+            expect(Workers::ReceiveLocal).to receive(:perform_async)
+            post_message(generate_payload(message, remote_user_on_pod_c, recipient), recipient)
+
+            received_message = Message.find_by(guid: message.guid)
+            expect(received_message).not_to be_nil
+            expect(received_message.author.diaspora_handle).to eq(remote_user_on_pod_c.diaspora_handle)
+          end
+        end
       end
     end
   end

@@ -98,10 +98,7 @@ module Diaspora
           guid:              message.guid,
           text:              message.text,
           created_at:        message.created_at,
-          parent_guid:       message.conversation.guid,
-          conversation_guid: message.conversation.guid,
-          author_signature:  message.author_signature,
-          parent:            related_entity(message.conversation)
+          conversation_guid: message.conversation.guid
         )
       end
 

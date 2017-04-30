@@ -104,7 +104,7 @@ describe Diaspora::Federation::Entities do
     end
 
     it "builds a message" do
-      diaspora_entity = FactoryGirl.create(:message, author_signature: "abc")
+      diaspora_entity = FactoryGirl.create(:message)
       federation_entity = described_class.build(diaspora_entity)
 
       expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Message)
@@ -113,7 +113,6 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.conversation_guid).to eq(diaspora_entity.conversation.guid)
       expect(federation_entity.text).to eq(diaspora_entity.text)
       expect(federation_entity.created_at).to eq(diaspora_entity.created_at)
-      expect(federation_entity.author_signature).to eq(diaspora_entity.author_signature)
     end
 
     it "builds a participation" do

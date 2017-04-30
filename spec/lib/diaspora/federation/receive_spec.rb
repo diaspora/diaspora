@@ -271,7 +271,6 @@ describe Diaspora::Federation::Receive do
 
     let(:entity) { message_entity }
     it_behaves_like "it ignores existing object received twice", Message
-    it_behaves_like "it relays relayables", Message
   end
 
   describe ".participation" do

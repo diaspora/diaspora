@@ -59,7 +59,9 @@ module Diaspora
       end
 
       def self.message(entity)
-        save_message(entity).tap {|message| relay_relayable(message) if message }
+        ignore_existing_guid(Message, entity.guid, author_of(entity)) do
+          build_message(entity).tap(&:save!)
+        end
       end
 
       def self.participation(entity)
@@ -211,15 +213,6 @@ module Diaspora
               guid:   answer.guid,
               answer: answer.answer
             )
-          end
-        end
-      end
-
-      private_class_method def self.save_message(entity)
-        ignore_existing_guid(Message, entity.guid, author_of(entity)) do
-          build_message(entity).tap do |message|
-            message.author_signature = entity.author_signature if message.conversation.author.local?
-            message.save!
           end
         end
       end
