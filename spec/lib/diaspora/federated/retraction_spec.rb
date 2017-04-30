@@ -42,7 +42,7 @@ describe Retraction do
     it "creates a retraction for a contact" do
       contact = FactoryGirl.create(:contact)
 
-      expect(Diaspora::Federation::Entities).to receive(:retraction).with(contact)
+      expect(Diaspora::Federation::Entities).to receive(:retraction_data_for).with(contact)
 
       Retraction.for(contact, contact.user)
     end

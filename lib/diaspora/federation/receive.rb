@@ -25,7 +25,7 @@ module Diaspora
 
       def self.contact(entity)
         recipient = Person.find_by(diaspora_handle: entity.recipient).owner
-        if entity.sharing.to_s == "true"
+        if entity.sharing
           Contact.create_or_update_sharing_contact(recipient, author_of(entity))
         else
           recipient.disconnected_by(author_of(entity))

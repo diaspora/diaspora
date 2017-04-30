@@ -21,10 +21,10 @@ class Retraction
                             when Post
                               Diaspora::Federation::Entities.signed_retraction(target, sender)
                             else
-                              Diaspora::Federation::Entities.retraction(target)
+                              Diaspora::Federation::Entities.retraction_data_for(target)
                             end
 
-    new(federation_retraction.to_h, target.subscribers.select(&:remote?), target)
+    new(federation_retraction, target.subscribers.select(&:remote?), target)
   end
 
   def defer_dispatch(user, include_target_author=true)

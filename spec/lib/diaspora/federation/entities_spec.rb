@@ -36,13 +36,15 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.additional_data).to eq(diaspora_entity.signature.additional_data)
     end
 
-    it "builds a contact (request)" do
-      diaspora_entity = FactoryGirl.build(:contact)
+    it "builds a contact" do
+      diaspora_entity = FactoryGirl.build(:contact, receiving: true)
       federation_entity = described_class.build(diaspora_entity)
 
-      expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Request)
+      expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)
       expect(federation_entity.author).to eq(diaspora_entity.user.diaspora_handle)
       expect(federation_entity.recipient).to eq(diaspora_entity.person.diaspora_handle)
+      expect(federation_entity.sharing).to be_truthy
+      expect(federation_entity.following).to be_truthy
     end
 
     context "Conversation" do
@@ -205,6 +207,31 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.provider_display_name).to eq(diaspora_entity.provider_display_name)
     end
 
+    context "Retraction" do
+      it "builds a Retraction entity for a Photo retraction" do
+        target = FactoryGirl.create(:photo, author: alice.person)
+        retraction = Retraction.for(target)
+        federation_entity = described_class.build(retraction)
+
+        expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Retraction)
+        expect(federation_entity.author).to eq(target.author.diaspora_handle)
+        expect(federation_entity.target_guid).to eq(target.guid)
+        expect(federation_entity.target_type).to eq("Photo")
+      end
+
+      it "builds a Contact for a Contact retraction" do
+        target = FactoryGirl.create(:contact, receiving: false)
+        retraction = Retraction.for(target)
+        federation_entity = described_class.build(retraction)
+
+        expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)
+        expect(federation_entity.author).to eq(target.user.diaspora_handle)
+        expect(federation_entity.recipient).to eq(target.person.diaspora_handle)
+        expect(federation_entity.sharing).to be_falsey
+        expect(federation_entity.following).to be_falsey
+      end
+    end
+
     context "StatusMessage" do
       it "builds a status message" do
         diaspora_entity = FactoryGirl.create(:status_message)
@@ -274,88 +301,25 @@ describe Diaspora::Federation::Entities do
     end
   end
 
-  describe ".build_retraction" do
-    context "Retraction" do
-      it "builds a Retraction for a Photo" do
-        target = FactoryGirl.create(:photo, author: alice.person)
-        retraction = Retraction.for(target, alice)
-        federation_retraction = described_class.build_retraction(retraction)
+  describe ".retraction_data_for" do
+    it "returns the data for a Photo retraction" do
+      target = FactoryGirl.create(:photo, author: alice.person)
+      retraction_data = described_class.retraction_data_for(target)
 
-        expect(federation_retraction).to be_instance_of(DiasporaFederation::Entities::Retraction)
-        expect(federation_retraction.author).to eq(target.author.diaspora_handle)
-        expect(federation_retraction.target_guid).to eq(target.guid)
-        expect(federation_retraction.target_type).to eq("Photo")
-      end
-
-      it "builds a Retraction for a Contact" do
-        target = FactoryGirl.create(:contact)
-        retraction = Retraction.for(target, target.user)
-        federation_retraction = described_class.build_retraction(retraction)
-
-        expect(federation_retraction).to be_instance_of(DiasporaFederation::Entities::Retraction)
-        expect(federation_retraction.author).to eq(target.user.diaspora_handle)
-        expect(federation_retraction.target_guid).to eq(target.user.guid)
-        expect(federation_retraction.target_type).to eq("Person")
-      end
+      expect(retraction_data[:author]).to eq(target.author.diaspora_handle)
+      expect(retraction_data[:target_guid]).to eq(target.guid)
+      expect(retraction_data[:target_type]).to eq("Photo")
     end
 
-    context "SignedRetraction" do
-      it "builds a SignedRetraction for a StatusMessage" do
-        target = FactoryGirl.create(:status_message, author: alice.person)
-        retraction = Retraction.for(target, alice)
-        federation_retraction = described_class.build_retraction(retraction)
+    it "returns the data for a Contact entity" do
+      target = FactoryGirl.create(:contact, receiving: false)
+      retraction_data = described_class.retraction_data_for(target)
 
-        expect(federation_retraction).to be_instance_of(DiasporaFederation::Entities::SignedRetraction)
-        expect(federation_retraction.author).to eq(target.author.diaspora_handle)
-        expect(federation_retraction.target_guid).to eq(target.guid)
-        expect(federation_retraction.target_type).to eq("Post")
-      end
-
-      it "builds a SignedRetraction for a Reshare" do
-        target = FactoryGirl.create(:reshare, author: alice.person)
-        retraction = Retraction.for(target, alice)
-        federation_retraction = described_class.build_retraction(retraction)
-
-        expect(federation_retraction).to be_instance_of(DiasporaFederation::Entities::SignedRetraction)
-        expect(federation_retraction.author).to eq(target.author.diaspora_handle)
-        expect(federation_retraction.target_guid).to eq(target.guid)
-        expect(federation_retraction.target_type).to eq("Post")
-      end
-    end
-
-    context "RelayableRetraction" do
-      it "builds a RelayableRetraction for a Comment" do
-        target = FactoryGirl.create(:comment, author: alice.person)
-        retraction = Retraction.for(target, alice)
-        federation_retraction = described_class.build_retraction(retraction)
-
-        expect(federation_retraction).to be_instance_of(DiasporaFederation::Entities::RelayableRetraction)
-        expect(federation_retraction.author).to eq(alice.diaspora_handle)
-        expect(federation_retraction.target_guid).to eq(target.guid)
-        expect(federation_retraction.target_type).to eq("Comment")
-      end
-
-      it "builds a RelayableRetraction for a Like" do
-        target = FactoryGirl.create(:like, author: alice.person)
-        retraction = Retraction.for(target, alice)
-        federation_retraction = described_class.build_retraction(retraction)
-
-        expect(federation_retraction).to be_instance_of(DiasporaFederation::Entities::RelayableRetraction)
-        expect(federation_retraction.author).to eq(alice.diaspora_handle)
-        expect(federation_retraction.target_guid).to eq(target.guid)
-        expect(federation_retraction.target_type).to eq("Like")
-      end
-
-      it "builds a RelayableRetraction for a PollParticipation" do
-        target = FactoryGirl.create(:poll_participation, author: alice.person)
-        retraction = Retraction.for(target, alice)
-        federation_retraction = described_class.build_retraction(retraction)
-
-        expect(federation_retraction).to be_instance_of(DiasporaFederation::Entities::RelayableRetraction)
-        expect(federation_retraction.author).to eq(alice.diaspora_handle)
-        expect(federation_retraction.target_guid).to eq(target.guid)
-        expect(federation_retraction.target_type).to eq("PollParticipation")
-      end
+      expect(retraction_data[:author]).to eq(target.user.diaspora_handle)
+      expect(retraction_data[:recipient]).to eq(target.person.diaspora_handle)
+      expect(retraction_data[:sharing]).to be_falsey
+      expect(retraction_data[:following]).to be_falsey
+      expect(retraction_data[:target_type]).to eq("Contact")
     end
   end
 end

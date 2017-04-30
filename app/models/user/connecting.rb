@@ -34,6 +34,7 @@ class User
       if contact.person.local?
         contact.person.owner.disconnected_by(contact.user.person)
       else
+        contact.receiving = false
         Retraction.for(contact).defer_dispatch(self)
       end
 

@@ -103,7 +103,7 @@ describe Diaspora::Federation::Receive do
           :contact_entity,
           author:    sender.diaspora_handle,
           recipient: alice.diaspora_handle,
-          sharing:   "false"
+          sharing:   false
         )
       }
 

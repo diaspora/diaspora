@@ -49,9 +49,10 @@ describe "attack vectors", type: :request do
 
     it "should not receive retractions where the retractor and the salmon author do not match" do
       original_message = eve.post(:status_message, text: "store this!", to: eves_aspect.id)
+      retraction = Retraction.for(original_message)
 
       expect {
-        post_message(generate_xml(Diaspora::Federation::Entities.retraction(original_message), alice, bob), bob)
+        post_message(generate_xml(Diaspora::Federation::Entities.retraction(retraction), alice, bob), bob)
       }.to_not change { bob.visible_shareables(Post).count(:all) }
     end
 
@@ -61,7 +62,7 @@ describe "attack vectors", type: :request do
       contact = bob.contacts(true).find_by(person_id: eve.person.id)
       expect(contact).to be_sharing
 
-      post_message(generate_xml(Diaspora::Federation::Entities.retraction(contact), alice, bob), bob)
+      post_message(generate_xml(Diaspora::Federation::Entities.retraction(Retraction.for(contact)), alice, bob), bob)
 
       expect(bob.contacts(true).find_by(person_id: eve.person.id)).to be_sharing
     end

@@ -5,17 +5,6 @@ module Diaspora
         public_send(Mappings.builder_for(entity.class), entity)
       end
 
-      def self.build_retraction(retraction)
-        case retraction.data[:target_type]
-        when "Comment", "Like", "PollParticipation"
-          DiasporaFederation::Entities::RelayableRetraction.new(retraction.data)
-        when "Post"
-          DiasporaFederation::Entities::SignedRetraction.new(retraction.data)
-        else
-          DiasporaFederation::Entities::Retraction.new(retraction.data)
-        end
-      end
-
       def self.post(post)
         case post
         when StatusMessage
@@ -50,10 +39,11 @@ module Diaspora
       end
 
       def self.contact(contact)
-        # TODO: use DiasporaFederation::Entities::Contact
-        DiasporaFederation::Entities::Request.new(
+        DiasporaFederation::Entities::Contact.new(
           author:    contact.user.diaspora_handle,
-          recipient: contact.person.diaspora_handle
+          recipient: contact.person.diaspora_handle,
+          sharing:   contact.receiving,
+          following: contact.receiving
         )
       end
 
@@ -182,7 +172,7 @@ module Diaspora
           target_type: Mappings.entity_name_for(target),
           target:      related_entity(target),
           author:      sender.diaspora_handle
-        )
+        ).to_h
       end
 
       def self.reshare(reshare)
@@ -197,24 +187,30 @@ module Diaspora
         )
       end
 
-      def self.retraction(target)
+      def self.retraction(retraction)
+        case retraction.data[:target_type]
+        when "Comment", "Like", "PollParticipation"
+          DiasporaFederation::Entities::RelayableRetraction.new(retraction.data)
+        when "Post"
+          DiasporaFederation::Entities::SignedRetraction.new(retraction.data)
+        when "Contact"
+          DiasporaFederation::Entities::Contact.new(retraction.data)
+        else
+          DiasporaFederation::Entities::Retraction.new(retraction.data)
+        end
+      end
+
+      def self.retraction_data_for(target)
         case target
         when Contact
-          # TODO: deprecated
-          author = target.user.diaspora_handle
-          DiasporaFederation::Entities::Retraction.new(
-            target_guid: target.user.guid,
-            target_type: "Person",
-            target:      DiasporaFederation::Entities::RelatedEntity.new(author: author, local: true),
-            author:      author
-          )
+          contact(target).to_h.tap {|data| data[:target_type] = "Contact" }
         else
           DiasporaFederation::Entities::Retraction.new(
             target_guid: target.guid,
             target_type: Mappings.entity_name_for(target),
             target:      related_entity(target),
             author:      target.diaspora_handle
-          )
+          ).to_h
         end
       end
 
@@ -225,7 +221,7 @@ module Diaspora
           target_type: Mappings.entity_name_for(target),
           target:      related_entity(target),
           author:      sender.diaspora_handle
-        )
+        ).to_h
       end
 
       def self.status_message(status_message)

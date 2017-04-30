@@ -73,8 +73,8 @@ describe "Receive federation messages feature" do
   context "with private receive" do
     let(:recipient) { alice }
 
-    it "treats sharing request recive correctly" do
-      entity = Fabricate(:request_entity, author: sender_id, recipient: alice.diaspora_handle)
+    it "treats sharing request receive correctly" do
+      entity = Fabricate(:contact_entity, author: sender_id, recipient: alice.diaspora_handle)
 
       expect(Workers::ReceiveLocal).to receive(:perform_async).and_call_original
 
