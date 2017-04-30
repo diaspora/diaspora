@@ -101,18 +101,6 @@ describe Retraction do
       retraction.defer_dispatch(local_luke)
     end
 
-    it "uses the author of the target parent as sender for a comment-retraction if the parent is local" do
-      post = local_luke.post(:status_message, text: "hello", public: true)
-      comment = local_leia.comment!(post, "destroy!")
-      federation_retraction = Diaspora::Federation::Entities.retraction(comment)
-
-      expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, federation_retraction.to_h, [remote_raphael.id], {}
-      )
-
-      Retraction.for(comment).defer_dispatch(local_leia)
-    end
-
     context "relayable" do
       let(:post) { local_luke.post(:status_message, text: "hello", public: true) }
       let(:comment) { FactoryGirl.create(:comment, post: post, author: remote_raphael) }
@@ -158,10 +146,10 @@ describe Retraction do
       expect(Retraction.for(comment).public?).to be_truthy
     end
 
-    it "returns false for a public comment if parent post is not local" do
-      remote_post = FactoryGirl.create(:status_message, author: remote_raphael)
+    it "returns true for a public comment if parent post is not local" do
+      remote_post = FactoryGirl.create(:status_message, author: remote_raphael, public: true)
       comment = alice.comment!(remote_post, "destroy!")
-      expect(Retraction.for(comment).public?).to be_falsey
+      expect(Retraction.for(comment).public?).to be_truthy
     end
 
     it "returns false for a private target" do

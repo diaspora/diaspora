@@ -21,8 +21,7 @@ class Retraction
 
   def defer_dispatch(user, include_target_author=true)
     subscribers = dispatch_subscribers(include_target_author)
-    sender = dispatch_sender(user)
-    Workers::DeferredRetraction.perform_async(sender.id, data, subscribers.map(&:id), service_opts(user))
+    Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id), service_opts(user))
   end
 
   def perform
@@ -32,8 +31,7 @@ class Retraction
   end
 
   def public?
-    # TODO: backward compatibility for pre 0.6 pods, they don't relay public retractions
-    data[:target][:public] == true && (!data[:target][:parent] || data[:target][:parent][:local] == true)
+    data[:target][:public]
   end
 
   private
@@ -43,11 +41,6 @@ class Retraction
   def dispatch_subscribers(include_target_author)
     subscribers << target.author if target.is_a?(Diaspora::Relayable) && include_target_author && target.author.remote?
     subscribers
-  end
-
-  # @deprecated This is only needed for pre 0.6 pods
-  def dispatch_sender(user)
-    target.try(:sender_for_dispatch) || user
   end
 
   def service_opts(user)
