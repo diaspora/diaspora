@@ -16,6 +16,10 @@ class PostsController < ApplicationController
     render text: I18n.t("posts.show.forbidden"), status: 403
   end
 
+  rescue_from Diaspora::NotMine do
+    render text: "You are not allowed to do that", status: 403
+  end
+
   def show
     post = post_service.find!(params[:id])
     post_service.mark_user_notifications(post.id)
