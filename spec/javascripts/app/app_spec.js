@@ -142,4 +142,47 @@ describe("app", function() {
       });
     });
   });
+
+  describe("setupAjaxErrorRedirect", function() {
+    it("redirects to /users/sign_in on 401 ajax responses", function() {
+      spyOn(app, "_changeLocation");
+      $.ajax("/test");
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 401});
+      expect(app._changeLocation).toHaveBeenCalledWith("/users/sign_in");
+    });
+
+    it("doesn't redirect on other responses", function() {
+      spyOn(app, "_changeLocation");
+
+      [200, 201, 400, 404, 500].forEach(function(code) {
+        $.ajax("/test");
+        jasmine.Ajax.requests.mostRecent().respondWith({status: code});
+        expect(app._changeLocation).not.toHaveBeenCalled();
+      });
+    });
+
+    it("doesn't redirect when error handling is suppressed", function() {
+      spyOn(app, "_changeLocation");
+      $.ajax("/test", {preventGlobalErrorHandling: true});
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 401});
+      expect(app._changeLocation).not.toHaveBeenCalled();
+
+      $.ajax("/test", {preventGlobalErrorHandling: false});
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 401});
+      expect(app._changeLocation).toHaveBeenCalledWith("/users/sign_in");
+    });
+
+    it("doesn't redirect when global ajax events are disabled", function() {
+      spyOn(app, "_changeLocation");
+      $.ajaxSetup({global: false});
+      $.ajax("/test");
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 401});
+      expect(app._changeLocation).not.toHaveBeenCalled();
+
+      $.ajaxSetup({global: true});
+      $.ajax("/test");
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 401});
+      expect(app._changeLocation).toHaveBeenCalledWith("/users/sign_in");
+    });
+  });
 });
