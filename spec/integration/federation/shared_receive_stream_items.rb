@@ -62,7 +62,14 @@ shared_examples_for "messages which are indifferent about sharing fact" do
     end
 
     context "with participations" do
-      let(:entity) { create_relayable_entity(:participation_entity, local_parent, sender_id) }
+      let(:entity) {
+        Fabricate(
+          :participation_entity,
+          author:      sender_id,
+          parent_guid: local_parent.guid,
+          parent:      Diaspora::Federation::Entities.related_entity(local_parent)
+        )
+      }
 
       it "treats participation receive correctly" do
         expect(Workers::ReceiveLocal).to receive(:perform_async)
