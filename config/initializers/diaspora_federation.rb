@@ -20,9 +20,7 @@ DiasporaFederation.configure do |config|
           profile_url:   person.profile_url,
           atom_url:      person.atom_url,
           salmon_url:    person.receive_url,
-          subscribe_url: AppConfig.url_to("/people?q={uri}"),
-          guid:          person.guid,
-          public_key:    person.serialized_public_key
+          subscribe_url: AppConfig.url_to("/people?q={uri}")
         )
       end
     end

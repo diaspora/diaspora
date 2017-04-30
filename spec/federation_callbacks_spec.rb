@@ -13,8 +13,6 @@ describe "diaspora federation callbacks" do
       expect(wf.atom_url).to eq(person.atom_url)
       expect(wf.salmon_url).to eq(person.receive_url)
       expect(wf.subscribe_url).to eq(AppConfig.url_to("/people?q={uri}"))
-      expect(wf.guid).to eq(person.guid)
-      expect(wf.public_key).to eq(person.serialized_public_key)
     end
 
     it "returns nil if the person was not found" do
