@@ -778,7 +778,7 @@ describe User, :type => :model do
 
     context "posts" do
       it "sends a retraction" do
-        expect(Retraction).to receive(:for).with(post, bob).and_return(retraction)
+        expect(Retraction).to receive(:for).with(post).and_return(retraction)
         expect(retraction).to receive(:defer_dispatch).with(bob)
         expect(retraction).to receive(:perform)
 

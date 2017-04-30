@@ -165,16 +165,6 @@ module Diaspora
         )
       end
 
-      # @deprecated
-      def self.relayable_retraction(target, sender)
-        DiasporaFederation::Entities::RelayableRetraction.new(
-          target_guid: target.guid,
-          target_type: Mappings.entity_name_for(target),
-          target:      related_entity(target),
-          author:      sender.diaspora_handle
-        ).to_h
-      end
-
       def self.reshare(reshare)
         DiasporaFederation::Entities::Reshare.new(
           root_author:           reshare.root_diaspora_id,
@@ -189,10 +179,6 @@ module Diaspora
 
       def self.retraction(retraction)
         case retraction.data[:target_type]
-        when "Comment", "Like", "PollParticipation"
-          DiasporaFederation::Entities::RelayableRetraction.new(retraction.data)
-        when "Post"
-          DiasporaFederation::Entities::SignedRetraction.new(retraction.data)
         when "Contact"
           DiasporaFederation::Entities::Contact.new(retraction.data)
         else
@@ -212,16 +198,6 @@ module Diaspora
             author:      target.diaspora_handle
           ).to_h
         end
-      end
-
-      # @deprecated
-      def self.signed_retraction(target, sender)
-        DiasporaFederation::Entities::SignedRetraction.new(
-          target_guid: target.guid,
-          target_type: Mappings.entity_name_for(target),
-          target:      related_entity(target),
-          author:      sender.diaspora_handle
-        ).to_h
       end
 
       def self.status_message(status_message)

@@ -14,17 +14,9 @@ class Retraction
     @target = target
   end
 
-  def self.for(target, sender=nil)
-    federation_retraction = case target
-                            when Diaspora::Relayable
-                              Diaspora::Federation::Entities.relayable_retraction(target, sender)
-                            when Post
-                              Diaspora::Federation::Entities.signed_retraction(target, sender)
-                            else
-                              Diaspora::Federation::Entities.retraction_data_for(target)
-                            end
-
-    new(federation_retraction, target.subscribers.select(&:remote?), target)
+  def self.for(target)
+    federation_retraction_data = Diaspora::Federation::Entities.retraction_data_for(target)
+    new(federation_retraction_data, target.subscribers.select(&:remote?), target)
   end
 
   def defer_dispatch(user, include_target_author=true)
