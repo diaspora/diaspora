@@ -18,7 +18,6 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.parent_guid).to eq(diaspora_entity.post.guid)
       expect(federation_entity.text).to eq(diaspora_entity.text)
       expect(federation_entity.author_signature).to be_nil
-      expect(federation_entity.xml_order).to be_nil
       expect(federation_entity.additional_data).to be_empty
     end
 
@@ -32,7 +31,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.parent_guid).to eq(diaspora_entity.post.guid)
       expect(federation_entity.text).to eq(diaspora_entity.text)
       expect(federation_entity.author_signature).to eq(diaspora_entity.signature.author_signature)
-      expect(federation_entity.xml_order).to eq(diaspora_entity.signature.signature_order.order.split)
+      expect(federation_entity.signature_order.map(&:to_s)).to eq(diaspora_entity.signature.signature_order.order.split)
       expect(federation_entity.additional_data).to eq(diaspora_entity.signature.additional_data)
     end
 
@@ -87,7 +86,6 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.parent_guid).to eq(diaspora_entity.target.guid)
       expect(federation_entity.positive).to eq(diaspora_entity.positive)
       expect(federation_entity.author_signature).to be_nil
-      expect(federation_entity.xml_order).to be_nil
       expect(federation_entity.additional_data).to be_empty
     end
 
@@ -101,7 +99,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.parent_guid).to eq(diaspora_entity.target.guid)
       expect(federation_entity.positive).to eq(diaspora_entity.positive)
       expect(federation_entity.author_signature).to eq(diaspora_entity.signature.author_signature)
-      expect(federation_entity.xml_order).to eq(diaspora_entity.signature.signature_order.order.split)
+      expect(federation_entity.signature_order.map(&:to_s)).to eq(diaspora_entity.signature.signature_order.order.split)
       expect(federation_entity.additional_data).to eq(diaspora_entity.signature.additional_data)
     end
 
@@ -154,7 +152,6 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.parent_guid).to eq(diaspora_entity.poll_answer.poll.guid)
       expect(federation_entity.poll_answer_guid).to eq(diaspora_entity.poll_answer.guid)
       expect(federation_entity.author_signature).to be_nil
-      expect(federation_entity.xml_order).to be_nil
       expect(federation_entity.additional_data).to be_empty
     end
 
@@ -169,7 +166,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.parent_guid).to eq(diaspora_entity.poll_answer.poll.guid)
       expect(federation_entity.poll_answer_guid).to eq(diaspora_entity.poll_answer.guid)
       expect(federation_entity.author_signature).to eq(signature.author_signature)
-      expect(federation_entity.xml_order).to eq(signature.signature_order.order.split)
+      expect(federation_entity.signature_order.map(&:to_s)).to eq(signature.signature_order.order.split)
       expect(federation_entity.additional_data).to eq(signature.additional_data)
     end
 

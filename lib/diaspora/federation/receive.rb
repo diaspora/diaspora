@@ -257,7 +257,7 @@ module Diaspora
         klass.reflect_on_association(:signature).klass.new(
           author_signature: entity.author_signature,
           additional_data:  entity.additional_data,
-          signature_order:  SignatureOrder.find_or_create_by!(order: entity.xml_order.join(" "))
+          signature_order:  SignatureOrder.find_or_create_by!(order: entity.signature_order.join(" "))
         )
       end
 

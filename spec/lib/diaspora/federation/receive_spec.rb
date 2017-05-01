@@ -55,7 +55,7 @@ describe Diaspora::Federation::Receive do
       expect(comment.signature).not_to be_nil
       expect(comment.signature.author_signature).to eq("aa")
       expect(comment.signature.additional_data).to eq("new_property" => "data")
-      expect(comment.signature.order).to eq(comment_entity.xml_order.map(&:to_s))
+      expect(comment.signature.order).to eq(comment_entity.signature_order.map(&:to_s))
     end
 
     let(:entity) { comment_entity }
