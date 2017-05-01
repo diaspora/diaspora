@@ -31,7 +31,7 @@ class Retraction
   end
 
   def public?
-    data[:target][:public]
+    data[:target] && data[:target][:public]
   end
 
   private

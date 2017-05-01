@@ -40,7 +40,7 @@ describe Retraction do
     end
 
     it "creates a retraction for a contact" do
-      contact = FactoryGirl.create(:contact)
+      contact = FactoryGirl.build(:contact, receiving: false)
 
       expect(Diaspora::Federation::Entities).to receive(:retraction_data_for).with(contact)
 
@@ -155,6 +155,11 @@ describe Retraction do
     it "returns false for a private target" do
       private_post = alice.post(:status_message, text: "destroy!", to: alice.aspects.first.id)
       expect(Retraction.for(private_post).public?).to be_falsey
+    end
+
+    it "returns false for a contact retraction" do
+      contact = FactoryGirl.create(:contact, receiving: false)
+      expect(Retraction.for(contact).public?).to be_falsey
     end
   end
 end
