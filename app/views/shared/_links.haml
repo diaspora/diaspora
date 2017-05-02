@@ -1,3 +1,5 @@
+- if AppConfig.admins.podmin_email.present?
+  %li= link_to t('aspects.index.help.mail_podmin'), "mailto:#{AppConfig.admins.podmin_email}" 
 %li= link_to 'diasporafoundation.org', "https://diasporafoundation.org"
 %li= link_to 'Wiki', "https://wiki.diasporafoundation.org"
 %li= link_to t('layouts.application.whats_new'), changelog_url
