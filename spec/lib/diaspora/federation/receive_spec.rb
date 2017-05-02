@@ -183,17 +183,15 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".like" do
-    let(:like_data) {
-      Fabricate.attributes_for(
-        :like_entity,
-        author:           sender.diaspora_handle,
-        parent_guid:      post.guid,
-        author_signature: "aa"
-      )
-    }
     let(:like_entity) {
-      DiasporaFederation::Entities::Like.new(
-        like_data, [:author, :guid, :parent_guid, :parent_type, :positive, "new_property"], "new_property" => "data"
+      build_relayable_federation_entity(
+        :like,
+        {
+          author:           sender.diaspora_handle,
+          parent_guid:      post.guid,
+          author_signature: "aa"
+        },
+        "new_property" => "data"
       )
     }
 
@@ -224,7 +222,7 @@ describe Diaspora::Federation::Receive do
       expect(like.signature).not_to be_nil
       expect(like.signature.author_signature).to eq("aa")
       expect(like.signature.additional_data).to eq("new_property" => "data")
-      expect(like.signature.order).to eq(%w(author guid parent_guid parent_type positive new_property))
+      expect(like.signature.order).to eq(like_entity.signature_order.map(&:to_s))
     end
 
     let(:entity) { like_entity }
@@ -351,19 +349,15 @@ describe Diaspora::Federation::Receive do
 
   describe ".poll_participation" do
     let(:post_with_poll) { FactoryGirl.create(:status_message_with_poll, author: alice.person) }
-    let(:poll_participation_data) {
-      Fabricate.attributes_for(
-        :poll_participation_entity,
-        author:           sender.diaspora_handle,
-        parent_guid:      post_with_poll.poll.guid,
-        poll_answer_guid: post_with_poll.poll.poll_answers.first.guid,
-        author_signature: "aa"
-      )
-    }
     let(:poll_participation_entity) {
-      DiasporaFederation::Entities::PollParticipation.new(
-        poll_participation_data,
-        [:author, :guid, :parent_guid, :poll_answer_guid, "new_property"],
+      build_relayable_federation_entity(
+        :poll_participation,
+        {
+          author:           sender.diaspora_handle,
+          parent_guid:      post_with_poll.poll.guid,
+          poll_answer_guid: post_with_poll.poll.poll_answers.first.guid,
+          author_signature: "aa"
+        },
         "new_property" => "data"
       )
     }
@@ -395,7 +389,7 @@ describe Diaspora::Federation::Receive do
       expect(poll_participation.signature).not_to be_nil
       expect(poll_participation.signature.author_signature).to eq("aa")
       expect(poll_participation.signature.additional_data).to eq("new_property" => "data")
-      expect(poll_participation.signature.order).to eq(%w(author guid parent_guid poll_answer_guid new_property))
+      expect(poll_participation.signature.order).to eq(poll_participation_entity.signature_order.map(&:to_s))
     end
 
     let(:entity) { poll_participation_entity }
