@@ -568,7 +568,7 @@ GEM
     rails-i18n (4.0.8)
       i18n (~> 0.7)
       railties (~> 4.0)
-    rails-timeago (2.11.0)
+    rails-timeago (2.16.0)
       actionpack (>= 3.1)
       activesupport (>= 3.1)
     rails_admin (0.8.1)
@@ -734,7 +734,7 @@ GEM
       unf (~> 0.1.0)
     typhoeus (1.1.2)
       ethon (>= 0.9.0)
-    tzinfo (1.2.2)
+    tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.1.2)
       execjs (>= 0.3.0, < 3)
@@ -886,7 +886,7 @@ DEPENDENCIES
   rails-assets-markdown-it-sup (= 1.0.0)!
   rails-assets-perfect-scrollbar (= 0.6.16)!
   rails-i18n (= 4.0.8)
-  rails-timeago (= 2.11.0)
+  rails-timeago (= 2.16.0)
   rails_admin (= 0.8.1)
   rb-fsevent (= 0.9.8)
   rb-inotify (= 0.9.8)
