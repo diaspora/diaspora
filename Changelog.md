@@ -4,6 +4,7 @@
 
 ## Bug fixes
 * Make photo upload button hover text translatable [#7429](https://github.com/diaspora/diaspora/pull/7429)
+* Fix first comment in mobile view with french locale [#7441](https://github.com/diaspora/diaspora/pull/7441)
 
 ## Features
 
