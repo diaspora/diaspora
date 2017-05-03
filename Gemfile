@@ -217,10 +217,6 @@ gem "thor", "0.19.1"
 # gem "therubyracer", :platform => :ruby
 
 group :production do # we don"t install these on travis to speed up test runs
-  # Administration
-
-  gem "rails_admin", "0.8.1"
-
   # Analytics
 
   gem "rack-google-analytics", "1.2.0"
