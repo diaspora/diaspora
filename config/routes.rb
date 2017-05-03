@@ -10,10 +10,6 @@ Diaspora::Application.routes.draw do
 
   resources :report, except: %i(edit new show)
 
-  if Rails.env.production?
-    mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
-  end
-
   constraints ->(req) { req.env["warden"].authenticate?(scope: :user) &&
                         req.env['warden'].user.admin? } do
     mount Sidekiq::Web => '/sidekiq', :as => 'sidekiq'
