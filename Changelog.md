@@ -21,6 +21,7 @@
 # 0.6.6.0
 
 ## Refactor
+* Remove rails\_admin [#7440](https://github.com/diaspora/diaspora/pull/7440)
 
 ## Bug fixes
 * Make photo upload button hover text translatable [#7429](https://github.com/diaspora/diaspora/pull/7429)
