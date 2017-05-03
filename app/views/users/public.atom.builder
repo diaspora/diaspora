@@ -30,7 +30,7 @@ atom_feed("xmlns:thr"       => "http://purl.org/syndication/thread/1.0",
     feed.entry post, :url => "#{@user.url}p/#{post.id}",
       :id => "#{@user.url}p/#{post.id}" do |entry|
 
-      entry.title post.message.title
+      entry.title post.message.title(length: 50)
       entry.content post.message.markdownified(disable_hovercards: true), :type => 'html'
       entry.tag! 'activity:verb', 'http://activitystrea.ms/schema/1.0/post'
       entry.tag! 'activity:object-type', 'http://activitystrea.ms/schema/1.0/note'
