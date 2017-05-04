@@ -250,12 +250,12 @@ group :development do
   gem "rb-inotify",     "0.9.8", require: false
 
   # Linters
-  gem "haml_lint",      "0.21.0"
-  gem "pronto",         "0.8.2"
-  gem "pronto-eslint",  "0.8.0"
-  gem "pronto-haml",    "0.8.0"
-  gem "pronto-rubocop", "0.8.0"
-  gem "pronto-scss",    "0.8.0", require: false
+  gem "haml_lint",      "0.24.0", require: false
+  gem "pronto",         "0.9.3", require: false
+  gem "pronto-eslint",  "0.9.1", require: false
+  gem "pronto-haml",    "0.9.0", require: false
+  gem "pronto-rubocop", "0.9.0", require: false
+  gem "pronto-scss",    "0.9.1", require: false
   gem "rubocop",        "0.47.1"
 
   # Preloading environment
