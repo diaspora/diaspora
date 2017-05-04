@@ -252,7 +252,7 @@ group :development do
   gem "pronto-haml",    "0.9.0", require: false
   gem "pronto-rubocop", "0.9.0", require: false
   gem "pronto-scss",    "0.9.1", require: false
-  gem "rubocop",        "0.47.1"
+  gem "rubocop",        "0.48.1", require: false
 
   # Preloading environment
 
