@@ -17,21 +17,16 @@ atom_feed("xmlns:thr"       => "http://purl.org/syndication/thread/1.0",
 	    'media:height' => '100', :href => "#{@user.image_url}"
   feed.tag! :link, :href => "#{AppConfig.environment.pubsub_server}", :rel => 'hub'
 
-  feed.author do |author|
-    author.name @user.name
-    author.uri local_or_remote_person_path(@user.person, :absolute => true)
-
-    author.tag! 'activity:object-type', 'http://activitystrea.ms/schema/1.0/person'
-    author.tag! 'poco:preferredUsername', @user.username
-    author.tag! 'poco:displayName', @user.name
-  end
+  add_activitystreams_author(feed, @user.person)
 
   @posts.each do |post|
     feed.entry post, :url => "#{@user.url}p/#{post.id}",
       :id => "#{@user.url}p/#{post.id}" do |entry|
 
-      entry.title post.message.title
+      entry.title post_page_title(post)
       entry.content post.message.markdownified(disable_hovercards: true), :type => 'html'
+      add_activitystreams_author(entry, post.author)
+
       entry.tag! 'activity:verb', 'http://activitystrea.ms/schema/1.0/post'
       entry.tag! 'activity:object-type', 'http://activitystrea.ms/schema/1.0/note'
     end
