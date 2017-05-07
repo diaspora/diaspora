@@ -222,7 +222,7 @@ de_formal:
       updating: "Ändere…"
     index:
       donate: "Spenden"
-      donate_liberapay: "An liberapay spenden"
+      donate_liberapay: "Via liberapay spenden"
       help:
         any_problem: "Gibt es ein Problem?"
         contact_podmin: "Kontaktieren Sie den Administrator Ihres Pods!"
@@ -238,8 +238,8 @@ de_formal:
         tag_question: "#question"
         tutorial_link_text: "Anleitungen"
         tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Hilfe für Ihre ersten Schritte."
-      introduce_yourself: "Das ist ihr Stream. Legen Sie los und stellen Sie sich vor."
-      keep_pod_running: "Helfen Sie %{pod} schneller zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
+      introduce_yourself: "Das ist Ihr Stream. Legen Sie los und stellen Sie sich vor."
+      keep_pod_running: "Helfen Sie %{pod}, schneller zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here:
         follow: "Folgen Sie %{link} und heißen Sie neue Benutzer auf diaspora* willkommen!"
         learn_more: "Mehr erfahren"
@@ -395,7 +395,7 @@ de_formal:
       getting_started_a: "Sie haben Glück! Schauen Sie sich die %{tutorial_series} auf unserer Projektseite an. Sie wird Sie Schritt für Schritt durch den Registrierungsprozess begleiten und Ihnen alles Notwendige über diaspora* beibringen."
       getting_started_q: "Hilfe! Ich brauche grundlegende Hilfe um anzufangen!"
       title: "Erhalten Sie Hilfe"
-    getting_started_tutorial: "„Erste Schritte“ Anleitungsreihe"
+    getting_started_tutorial: "„Erste Schritte“-Anleitungsreihe"
     here: "hier"
     irc: "IRC"
     keyboard_shortcuts:
@@ -412,7 +412,7 @@ de_formal:
       title: "Tastenkürzel"
     markdown: "Markdown"
     mentions:
-      how_to_mention_a: "Tippen Sie das „@”-Zeichen und beginnen Sie seinen Namen einzugeben. Ein Dropdown-Menü sollte erscheinen, um das Einfügen zu erleichtern. Beachten Sie, dass Sie nur Leute erwähnen können, die Sie zu einem Ihrer Aspekte hinzugefügt haben."
+      how_to_mention_a: "Tippen Sie das „@”-Zeichen und beginnen Sie den zu erwähnenden Namen einzugeben. Ein Dropdown-Menü sollte erscheinen, um das Einfügen zu erleichtern. Beachten Sie, dass Sie nur Leute erwähnen können, die Sie zu einem Ihrer Aspekte hinzugefügt haben."
       how_to_mention_q: "Wie erwähne ich jemanden in einem Beitrag?"
       mention_in_comment_a: "Nein, momentan nicht."
       mention_in_comment_q: "Kann ich in den Kommentaren jemanden erwähnen?"
@@ -435,7 +435,7 @@ de_formal:
       find_people_a: "Benutzen Sie um Ihre Freunde dazu einzuladen, diaspora* beizutreten, den Einladungs- oder den E-Mail-Link in der Seitenleiste. Folgen Sie #Tags, um andere zu entdecken, die Ihre Interessen teilen und fügen Sie Leute zu Ihren Aspekten hinzu, die für Sie interessante Sachen posten. Schreiben Sie in einem öffentlichen Post, dass Sie #NeuHier sind."
       find_people_q: "Ich bin gerade erst einem Pod beigetreten, wie finde ich nun Leute zum Teilen?"
       title: "Pods"
-      use_search_box_a: "Wenn Sie deren vollständige diaspora* ID (z.B. benutzername@podname.org) kennen, können Sie sie finden, indem Sie danach suchen. Wenn Sie sich auf dem selben Pod befinden, reicht es, wenn Sie nur nach dem Benutzernamen suchen. Alternativ können Sie auch nach ihrem Profilnamen (dem angezeigten Namen) suchen. Wenn eine Suche beim ersten Mal keine Ergebnisse liefert, dann versuchen Sie es nochmal."
+      use_search_box_a: "Wenn Sie deren vollständige diaspora*-ID (z.B. benutzername@podname.org) kennen, können Sie sie finden, indem Sie danach suchen. Wenn Sie sich auf dem selben Pod befinden, reicht es, wenn Sie nur nach dem Benutzernamen suchen. Alternativ können Sie auch nach ihrem Profilnamen (dem angezeigten Namen) suchen. Wenn eine Suche beim ersten Mal keine Ergebnisse liefert, dann versuchen Sie es nochmal."
       use_search_box_q: "Wie benutze ich das Suchfeld, um bestimmte Personen zu finden?"
       what_is_a_pod_a: "Ein Pod ist ein Server, auf dem die diaspora*-Software läuft und der mit dem diaspora*-Netzwerk verbunden ist. „Pod“ ist eine Metapher für Hülsen von Pflanzen, die mehrere Samen enthalten, so wie der Server mehrere Benutzerkonten enthält. Es gibt viele verschiedene Pods. Sie können Kontakte von anderen Pods hinzufügen und mit ihnen kommunizieren. Es ist nicht nötig, Konten auf verschiedenen Pods zu erstellen! Einer reicht – So gesehen können Sie sich einen diaspora*-Pod wie einen E-Mail-Anbieter vorstellen. Es gibt öffentliche Pods, private Pods, und mit ein wenig Aufwand können Sie sogar Ihren eigenen betreiben."
       what_is_a_pod_q: "Was ist ein Pod?"
@@ -520,8 +520,8 @@ de_formal:
       reshare_public_post_aspects_q: "Kann ich einen öffentlichen Beitrag an ausgewählte Aspekte weitersagen?"
       title: "Beiträge weitersagen"
     sharing:
-      add_to_aspect_a1: "Nehmen wir an, dass Amy Ben zu einem ihrer Aspekten hinzufügt, aber Ben Amy (noch) nicht hinzugefügt hat:"
-      add_to_aspect_a2: "Dies ist als asymmetrisches Teilen bekannt. Falls und wenn Ben Amy ebenfalls zu einem seiner Aspekte hinzufügen würde, würde es gegenseitiges Teilen, und sowohl Bens als auch Amys öffentliche sowie private Beiträge erschienen im Stream des jeweils anderen und Amy könnte Bens privates Profil sehen. Sie könnten sich dann auch gegenseitig private Nachrichten senden."
+      add_to_aspect_a1: "Nehmen wir an, dass Amy Ben zu einem ihrer Aspekte hinzufügt, aber Ben Amy (noch) nicht hinzugefügt hat:"
+      add_to_aspect_a2: "Dies ist als asymmetrisches Teilen bekannt. Wenn Ben allerdings Amy ebenfalls zu einem seiner Aspekte hinzufügt, wird es zu gegenseitigem Teilen. Es erscheinen also sowohl bei Ben als auch bei Amy die Beiträge, die die jeweils andere mit ihnen geteilt hat, im Stream. Amy kann nun auch Bens privates Profil einsehen. Außerdem können sie sich nun gegenseitig private Nachrichten senden."
       add_to_aspect_li1: "Ben wird eine Benachrichtigung darüber bekommen, dass Amy angefangen hat, mit ihm zu teilen."
       add_to_aspect_li2: "Amy sieht von nun an Bens öffentliche Beiträge in ihrem Stream."
       add_to_aspect_li3: "Amy kann keine privaten Beiträge von Ben sehen."
@@ -533,7 +533,7 @@ de_formal:
       add_to_aspect_q: "Was passiert, wenn ich jemanden zu meinen Aspekten hinzufüge oder wenn mich jemand zu seinen Aspekten hinzufügt?"
       list_not_sharing_a: "Nein, aber Sie können nachsehen, ob jemand ihnen folgt, indem sie dessen Profilseite besuchen. Falls das der Fall ist, wird die Schaltfläche, die die Aspekte zeigt, zu dem Sie die Person hinzugefügt haben, grün sein; falls nicht wird sie grau sein."
       list_not_sharing_q: "Gibt es eine Liste mit Leuten, die ich zu einem meiner Aspekte hinzugefügt habe, die mich aber noch nicht zu einem ihrer Aspekte hinzugefügt haben?"
-      only_sharing_a: "Das sind Leute, die Sie zu einem ihrer Aspekte hinzugefügt haben, die sich aber (noch) nicht in einem Ihrer Aspekte befinden. Anders gesagt: Sie teilen mit Ihnen, aber Sie nicht mit ihnen: Sie können sich dies so vorstellen, dass sie Ihnen „folgen”. Wenn Sie sie zu einem Aspekt hinzufügen, werden sie in jenem Aspekt und nicht unter „Nur mit Ihnen Teilende“ zu sehen sein. Siehe oben."
+      only_sharing_a: "Das sind Leute, die Sie zu einem <span aria-label="ihrer, klein geschrieben">ihrer</span> Aspekte hinzugefügt haben, die sich aber (noch) nicht in einem <span aria-label="Ihrer, groß geschrieben">Ihrer</span> Aspekte befinden. Anders gesagt: Sie teilen mit Ihnen, aber Sie nicht mit ihnen: Sie können sich dies so vorstellen, dass sie Ihnen „folgen”. Wenn Sie sie zu einem Aspekt hinzufügen, werden sie in jenem Aspekt und nicht unter „Nur mit Ihnen Teilende“ zu sehen sein. Siehe oben."
       only_sharing_q: "Wer sind die Leute, die auf der Kontakteseite unter „Nur mit Ihnen Teilende” gelistet sind?"
       see_old_posts_a: "Nein. Er wird ausschließlich neue Beiträge für diesen Aspekt sehen. Er (und alle anderen) können aber alle älteren öffentlichen Beiträge von Ihnen auf Ihrer Profilseite oder in ihrem Stream sehen."
       see_old_posts_q: "Wenn ich jemanden zu einem Aspekt hinzufüge, sieht er dann auch ältere, bereits geschriebene Beiträge in diesem Aspekt?"
@@ -541,7 +541,7 @@ de_formal:
       sharing_notification_q: "Wie erfahre ich es, wenn jemand anfängt, mit mir zu teilen?"
       title: "Teilen"
     tags:
-      filter_tags_a: "Dass ist in in diaspora* derzeit nicht möglich, aber einige %{third_party_tools} wurden geschrieben um dies zu ermöglichen."
+      filter_tags_a: "Das ist in in diaspora* derzeit nicht möglich, aber einige %{third_party_tools} wurden geschrieben um dies zu ermöglichen."
       filter_tags_q: "Wie kann ich Tags aus meinem Stream herausfiltern?"
       followed_tags_a: "Nachdem Sie nach einem Tag gesucht haben, können Sie die Schaltfläche oben auf der Seite des Tags benutzen, um dem Tag zu „folgen“. Anschließend wird es links in der Liste der von Ihnen gefolgten Tags erscheinen. Wenn Sie auf eines der Tags klicken, gelangen Sie zu dessen Seite und können die Beiträge, die das Tag enthalten, sehen. Klicken Sie auf „#Tags, denen Sie folgen“, um einen Stream mit Beiträgen zu sehen, die irgendeines der von Ihnen gefolgten Tags enthalten."
       followed_tags_q: "Was sind „#Tags, denen Sie folgen“ und wie folge ich einem Tag?"
@@ -579,7 +579,7 @@ de_formal:
       faq_for_podmins: "häufig gestellte Fragen für Pod-Verwalter in unserem Wiki"
       getting_help: "Erhalten Sie Hilfe"
       getting_help_info: "Wir haben einige %{faq} aufgelistet, einschließlich einiger zusätzlicher Tipps und Tricks und Lösungen für die häufigsten Probleme. Kontaktieren Sie uns gerne auch %{irc}."
-      headline: "Willkommen, Freund."
+      headline: "Willkommen."
       make_yourself_an_admin: "Machen Sie sich zum Admin"
       make_yourself_an_admin_info: "Sie können Anweisungen im %{wiki} finden. Das sollte Ihrem Benutzermenü in der Kopfleiste einen Link „%{admin_dashboard}“ hinzufügen, wenn Sie angemeldet sind. Er stellt Ihnen Dinge wie Benutzersuche und Statistiken für Ihren Pod zur Verfügung."
       report_bugs: "melden Sie sie"
@@ -626,9 +626,9 @@ de_formal:
       toggle_navigation: "Navigation umschalten"
   likes:
     create:
-      error: "Gefällt mir ist fehlgeschlagen."
+      error: "„Gefällt mir“ ist fehlgeschlagen."
     destroy:
-      error: "Gefällt mir nicht mehr ist fehlgeschlagen."
+      error: "„Gefällt mir nicht mehr“ ist fehlgeschlagen."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -659,7 +659,7 @@ de_formal:
         other: "und %{count} anderen"
         two: "und %{count} andere"
         zero: "und niemand sonst"
-      comment_on_post: "Einen Beitrag Kommentiert"
+      comment_on_post: "Einen Beitrag kommentiert"
       liked: "Gefällt"
       mark_all_as_read: "Markiere alle als gelesen"
       mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
@@ -725,7 +725,7 @@ de_formal:
       limited_subject: "Es gibt einen neuen Kommentar auf einen Ihrer Beiträge"
       reply: "Antworten Sie oder schauen Sie sich %{name}s Beitrag an >"
     confirm_email:
-      click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicken Sie bitte auf diesen Link:"
+      click_link: "Um Ihre neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicken Sie bitte auf diesen Link:"
       subject: "Bitte aktivieren Sie Ihre neue E-Mail-Adresse %{unconfirmed_email}"
     csrf_token_fail:
       body: |-
@@ -797,7 +797,7 @@ de_formal:
       message: |-
           Hallo!
 
-          Sie wurden eingeladen diaspora* beizutreten!
+          Sie wurden eingeladen, diaspora* beizutreten!
 
           Klicken Sie auf diesen Link um loszulegen
 
@@ -830,9 +830,9 @@ de_formal:
 
           da Sie Ihr Konto unter %{pod_url} seit %{after_days} nicht mehr benutzt haben, sieht es so aus, als ob Sie es nicht mehr möchten. Um unseren aktiven Nutzern auf diesem Pod die bestmögliche Leistung zu bieten, würden wir ungewollte Konten gerne aus unserer Datenbank entfernen.
 
-          Es würde uns sehr gefallen, wenn Sie ein Teil der diaspora*-Gemeinschaft bleiben, und wenn Sie möchten können Sie ihr Konto behalten.
+          Es würde uns sehr gefallen, wenn Sie ein Teil der diaspora*-Gemeinschaft bleiben und wenn Sie möchten können Sie ihr Konto behalten.
 
-          Wenn Sie Ihr Konto behalten möchten, müssen Sie sich nur vor %{remove_after} anmelden. Wenn Sie sich angemeldet haben, nehmen Sie sich einen Augenblick Zeit, um sich auf diaspora* umzusehen. Es hat sich seit Ihrem letzten Besuch stark verändert und wir glauben, dass Ihnen die Verbesserungen, die wir vorgenommen haben, gefallen werden. Folgen Sie einigen #Tags, um Inhalte zu finden, die Ihnen gefallen.
+          Wenn Sie Ihr Konto behalten möchten, müssen Sie sich nur vor %{remove_after} anmelden. Wenn Sie sich angemeldet haben, nehmen Sie sich bitte einen Augenblick Zeit, um sich auf diaspora* umzusehen. Es hat sich seit Ihrem letzten Besuch stark verändert und wir glauben, dass Ihnen die Verbesserungen, die wir vorgenommen haben, gefallen werden. Folgen Sie einigen #Tags, um Inhalte zu finden, die Ihnen gefallen.
 
           Melden Sie sich hier an: %{login_url}. Falls Sie Ihre Zugangsdaten vergessen haben, können Sie sich auf der Seite eine Erinnerung zuschicken lassen.
 
@@ -882,11 +882,11 @@ de_formal:
       couldnt_find_them: "Sie konnten sie nicht finden?"
       looking_for: "Suchen Sie mit %{tag_link} getaggte Beiträge?"
       no_one_found: "… und niemand wurde gefunden."
-      no_results: "Hey! Sie müssen nach etwas suchen."
+      no_results: "Sie müssen schon nach etwas suchen."
       results_for: "Suchergebnisse für %{search_term}"
-      search_handle: "Nutzen Sie die diaspora* ID (nutzername@pod.tld) Ihrer Freunde, um sie leichter zu finden."
-      searching: "Suche, bitte warten..."
-      send_invite: "Immer noch nichts? Verschicken Sie eine Einladung!"
+      search_handle: "Nutzen Sie die diaspora*-ID (nutzername@pod.tld) Ihrer Freunde, um sie leichter zu finden."
+      searching: "Suche, bitte warten …"
+      send_invite: "Immer noch nichts? Verschicken Sie bitte eine Einladung!"
     person:
       thats_you: "Das sind Sie!"
     profile_sidebar:
@@ -901,7 +901,7 @@ de_formal:
   photos:
     create:
       integrity_error: "Hochladen des Fotos fehlgeschlagen. Sind Sie sicher, dass es eine Bilddatei war?"
-      runtime_error: "Hochladen des Fotos fehlgeschlagen. Sind Sie sicher, dass Sie ihre Morgenkaffee hatten?"
+      runtime_error: "Hochladen des Fotos fehlgeschlagen. Sind Sie sicher, dass Sie Ihren Morgenkaffee hatten?"
       type_error: "Hochladen des Fotos fehlgeschlagen. Sind Sie sicher, dass ein Bild hinzugefügt wurde?"
     destroy:
       notice: "Foto gelöscht."
@@ -1001,7 +1001,7 @@ de_formal:
   search: "Suche"
   services:
     create:
-      already_authorized: "Ein anderer Nutzer mit der diaspora* ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
+      already_authorized: "Ein anderer Nutzer mit der diaspora*-ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
       failure: "Authentifizierung fehlgeschlagen."
       read_only_access: "Die Zugriffsebene ist schreibgeschützt. Bitte versuchen Sie sich später noch einmal anzumelden."
       success: "Authentifizierung erfolgreich."
@@ -1145,7 +1145,7 @@ de_formal:
   users:
     confirm_email:
       email_confirmed: "E-Mail %{email} wurde aktiviert"
-      email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
+      email_not_confirmed: "Die E-Mail-Adresse konnte leider nicht aktiviert werden. Haben Sie vielleicht den falschen Link angeklickt?"
     destroy:
       no_password: "Bitte geben Sie Ihr Passwort ein, um Ihr Konto zu schließen."
       success: "Ihr Konto wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis Ihr Konto endgültig geschlossen ist. Vielen Dank, dass Sie diaspora* ausprobiert haben."
@@ -1159,26 +1159,26 @@ de_formal:
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
-      character_minimum_expl: "bitte mindestens sechs Zeichen eingeben"
+      character_minimum_expl: "Bitte geben Sie mindestens sechs Zeichen ein!"
       close_account:
         dont_go: "Bitte gehen Sie nicht!"
         lock_username: "Ihr Benutzername wird gesperrt werden. Sie werden auf diesem Pod kein neues Konto mit derselben ID erstellen können."
         locked_out: "Sie werden abgemeldet und von Ihrem Konto ausgesperrt, bis es gelöscht wurde."
         make_diaspora_better: "Wir würden uns freuen, wenn Sie bleiben und uns helfen, diaspora* besser zu machen, anstatt uns zu verlassen. Wenn Sie uns jedoch wirklich verlassen möchten, wird folgendes passieren:"
         mr_wiggles: "Mr. Wiggles wird traurig sein, wenn Sie gehen"
-        no_turning_back: "Es gibt kein Zurück! Wenn Sie sich wirklich sicher sind, geben Sie Ihr Passwort unten ein."
-        what_we_delete: "Wir löschen alle Ihre Beiträge und Ihr Profil so schnell wie möglich. Ihre Kommentare auf Beiträge anderer Leute werden noch angezeigt, aber Sie werden mit Ihrer diaspora*-ID anstatt mit Ihrem Namen verknüpft."
+        no_turning_back: "Es gibt kein Zurück! Wenn Sie sich wirklich sicher sind, geben Sie bitte Ihr Passwort unten ein."
+        what_we_delete: "Wir löschen alle Ihre Beiträge und Ihr Profil so schnell wie möglich. Ihre Kommentare auf Beiträge anderer Leute werden noch angezeigt, aber sie werden mit Ihrer diaspora*-ID anstatt mit Ihrem Namen verknüpft."
       close_account_text: "Konto schließen"
       comment_on_post: "jemand Ihren Beitrag kommentiert"
       current_password: "Derzeitiges Passwort"
-      current_password_expl: "das mit dem Sie sich anmelden..."
+      current_password_expl: "das, mit dem Sie sich anmelden …"
       default_post_visibility: "Zum Teilen vorausgewählte Aspekte"
       download_export: "Mein Profil herunterladen"
       download_export_photos: "Meine Fotos herunterladen"
       edit_account: "Konto bearbeiten"
       email_awaiting_confirmation: "Wir haben Ihnen einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange Sie dem Link nicht gefolgt sind und die neue Adresse aktiviert haben, werden wir weiterhin Ihre ursprüngliche E-Mail-Adresse %{email} verwenden."
       export_data: "Daten exportieren"
-      export_in_progress: "Vorbereitung Ihrer Daten läuft - schauen Sie etwas später noch mal vorbei."
+      export_in_progress: "Vorbereitung Ihrer Daten läuft – schauen Sie etwas später noch mal vorbei."
       export_photos_in_progress: "Ihre Fotos werden derzeit verarbeitet. Bitte sehen Sie in wenigen Augenblicken erneut nach."
       following: "Teilen-Einstellungen"
       last_exported_at: "(Zuletzt aktualisiert um %{timestamp})"
@@ -1199,7 +1199,7 @@ de_formal:
       stream_preferences: "Stream-Einstellungen"
       your_email: "Ihre E-Mail-Adresse"
       your_email_private: "Ihre E-Mail-Adresse wird niemals von anderen Nutzern gesehen werden"
-      your_handle: "Ihre diaspora* ID"
+      your_handle: "Ihre diaspora*-ID"
     getting_started:
       awesome_take_me_to_diaspora: "Super! Bring mich zu diaspora*"
       community_welcome: "diaspora*s Gemeinschaft freut sich, Sie an Bord zu haben!"

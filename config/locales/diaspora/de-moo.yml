@@ -40,9 +40,9 @@ de-moo:
   admins:
     admin_bar:
       pages: "Seiten"
-      pod_stats: "Bauernhof Statistik"
+      pod_stats: "Bauernhof-Statistik"
       sidekiq_monitor: "Sidekiq-Monitor"
-      user_search: "Kuh Suche"
+      user_search: "Kuh-Suche"
       weekly_user_stats: "Wöchentliche Kuhstatistik"
     stats:
       2weeks: "2 Wochen"
@@ -82,9 +82,9 @@ de-moo:
         other: "Du hast noch %{user_invitation} Einladungen übrig %{link}"
     weekly_user_stats:
       amount_of:
-        one: "Anzahl neuer Kühe diese Woche: Einer"
+        one: "Anzahl neuer Kühe diese Woche: Eine"
         other: "Anzahl neuer Kühe diese Woche: %{count}"
-        zero: "Anzahl neuer Kühe diese Woche: Keiner"
+        zero: "Anzahl neuer Kühe diese Woche: Keine"
       current_server: "Das aktuelle Serverdatum ist %{date}"
   all_aspects: "Alle Herden"
   are_you_sure: "Bist du dir sicher?"
@@ -123,7 +123,7 @@ de-moo:
         feature_suggestion: "… eine Idee für eine %{link}?"
         find_a_bug: "… ein %{link}?"
         have_a_question: "… eine %{link}?"
-        here_to_help: "Die Diaspora-Gemeinschaft ist für dich da!"
+        here_to_help: "Die diaspora*-Gemeinschaft ist für dich da!"
         mail_podmin: "Leitkuh E-Mail"
         need_help: "Benötigst du Hilfe?"
         tag_bug: "Problem"
@@ -132,13 +132,13 @@ de-moo:
       introduce_yourself: "Das ist deine Weide. Leg los und stell dich vor."
       keep_pod_running: "Halte Bauernhof %{pod} am Leben und sorge für ausreichend Heu!"
       new_here:
-        follow: "Folge %{link} und begrüße neue Kühe bei Diaspora*!"
+        follow: "Folge %{link} und begrüße neue Kühe bei diaspora*!"
         learn_more: "mehr erfahren"
         title: "Begrüße neue Kühe"
       services:
-        content: "Du kannst die folgenden Dienste mit Diaspora verbinden:"
+        content: "Du kannst die folgenden Dienste mit diaspora* verbinden:"
         heading: "Verbinde Dienste"
-      welcome_to_diaspora: "Willkommen bei Diaspora, %{name}!"
+      welcome_to_diaspora: "Willkommen bei diaspora*, %{name}!"
     no_contacts_message:
       community_spotlight: "Gemeinschafts-Schaukasten"
       or_spotlight: "Du kannst auch mit %{link} teilen"
@@ -157,12 +157,12 @@ de-moo:
       failure: "Ich konnte diese Kuh nicht ignorieren. #evasion"
       success: "Alles klar, Du wirst diese Kuh nicht mehr in deiner Weide sehen. #silencio!"
     destroy:
-      failure: "Ich konnte das Ignorieren dieser Kuh nicht beenden.  #evasion"
+      failure: "Ich konnte das Ignorieren dieser Kuh nicht beenden. #evasion"
       success: "Mal sehen was sie zu sagen haben! #sayhello"
   bookmarklet:
-    explanation: "Erstelle von überall einen Beitrag in Diaspora, indem du %{link} als Lesezeichen speicherst."
+    explanation: "Erstelle von überall einen Beitrag in diaspora*, indem du %{link} als Lesezeichen speicherst."
     heading: "Lesezeichen"
-    post_something: "Erstelle einen Beitrag in Diaspora"
+    post_something: "Erstelle einen Beitrag in diaspora*"
   cancel: "Abbrechen"
   comments:
     new_comment:
@@ -172,7 +172,7 @@ de-moo:
     index:
       add_a_new_aspect: "Eine neue Herde hinzufügen"
       all_contacts: "Alle Mitkühe"
-      community_spotlight: "Gemeinschafts-Focus"
+      community_spotlight: "Gemeinschafts-Fokus"
       my_contacts: "Meine Herden"
       no_contacts: "Sieht so aus, als müsstest du einige Kühe hinzufügen!"
       no_contacts_message: "Guck’ in den %{community_spotlight}"
@@ -208,7 +208,7 @@ de-moo:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
-  fill_me_out: "Füll mich aus"
+  fill_me_out: "Füll’ mich aus"
   find_people: "Leute oder #Tags finden"
   invitations:
     create:
@@ -223,15 +223,15 @@ de-moo:
         other: "%{count} Einladungen auf diesem Code übrig."
         zero: "Keine Einladung mehr auf diesem Code übrig."
       comma_separated_plz: "Du kannst mehrere Emailadressen, getrennt durch Kommas, eingeben."
-      invite_someone_to_join: "Lade jemanden zu Diaspora ein!"
+      invite_someone_to_join: "Lade jemanden zu diaspora* ein!"
       language: "Sprache"
-      paste_link: "Teile diesen Link mit deinen Freunden, um sie zu Diaspora* einzuladen oder schick' ihnen den Link direkt per Email."
+      paste_link: "Teile diesen Link mit deinen Freunden, um sie zu diaspora* einzuladen oder schick' ihnen den Link direkt per Email."
       send_an_invitation: "Eine Einladung senden"
   layouts:
     application:
       back_to_top: "Zurück zum Anfang"
       powered_by: "BETRIEBEN MIT DIASPORA*"
-      public_feed: "Öffentlicher Diaspora Feed von %{name}"
+      public_feed: "Öffentlicher diaspora*-Feed von %{name}"
       source_package: "Quelltextpaket runterladen"
       toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt's Neues?"
@@ -318,14 +318,14 @@ de-moo:
       many: "%{actors} haben deinen %{post_link} wiedergekäut."
       one: "%{actors} hat deinen %{post_link} wiedergekäut."
       other: "%{actors} haben deinen %{post_link} wiedergekäut."
-      two: "%{actors} hat deinen %{post_link} weitergeleitet."
+      two: "%{actors} hat deinen %{post_link} wiedergekäut."
       zero: "%{actors} haben deinen %{post_link} wiedergekäut."
     reshared_post_deleted:
       few: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
       many: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
       one: "%{actors} hat deinen gelöschten Beitrag wiedergekäut."
       other: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
-      two: "%{actors} hat deinen bereits gelöschten Beitrag weitergeleitet."
+      two: "%{actors} hat deinen bereits gelöschten Beitrag wiedergekäut."
       zero: "%{actors} haben deinen gelöschten Beitrag wiedergekäut."
     started_sharing:
       few: "%{actors} haben angefangen mit dir zu teilen."
@@ -348,7 +348,7 @@ de-moo:
       message: |-
           Hallo!
 
-          Du wurdest eingeladen Diaspora* beizutreten!
+          Du wurdest eingeladen diaspora* beizutreten!
 
           Klick auf diesen Link um loszulegen
 
@@ -357,24 +357,24 @@ de-moo:
 
           Alles Liebe,
 
-          der Diaspora* E-Mail Roboter!
-    invited_you: "%{name} hat Dich zu Diaspora* eingeladen"
+          der diaspora* E-Mail Roboter!
+    invited_you: "%{name} hat Dich zu diaspora* eingeladen"
     liked:
       liked: "%{name} gefällt dein Beitrag"
       view_post: "Beitrag betrachten >"
     mentioned:
-      subject: "%{name} hat dich auf Diaspora* erwähnt"
+      subject: "%{name} hat dich auf diaspora* erwähnt"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
     reshared:
       reshared: "%{name} hat deinen Beitrag wiedergekäut"
       view_post: "Beitrag anzeigen >"
     single_admin:
-      admin: "Dein Diaspora Administrator"
-      subject: "Eine Nachricht über dein Diaspora Konto:"
+      admin: "Dein diaspora*-Administrator"
+      subject: "Eine Nachricht über dein diaspora*-Konto:"
     started_sharing:
       sharing: "hat angefangen mit dir zu teilen!"
-      subject: "%{name} hat angefangen mit dir auf Diaspora* zu teilen"
+      subject: "%{name} hat angefangen mit dir auf diaspora* zu teilen"
       view_profile: "Schau dir %{name}s Profil an"
     thanks: "Danke,"
     to_change_your_notification_settings: "um deine Benachrichtigungs-Einstellungen zu ändern"
@@ -388,7 +388,7 @@ de-moo:
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
-      searching: "suche, bitte warten..."
+      searching: "Suche, bitte warten …"
     person:
       thats_you: "Das bist du!"
     profile_sidebar:
@@ -403,7 +403,7 @@ de-moo:
   photos:
     create:
       integrity_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass es eine Bilddatei war?"
-      runtime_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass du deinen Morgenkaffee hattest?"
+      runtime_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass du dein morgentliches Kraftfutter hattest?"
       type_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass ein Bild hinzugefügt wurde?"
     destroy:
       notice: "Foto gelöscht."
@@ -425,7 +425,7 @@ de-moo:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Anderen erlauben, auf Diaspora nach dir zu suchen"
+      allow_search: "Anderen erlauben, auf diaspora* nach dir zu suchen"
       first_name: "Vorname"
       last_name: "Nachname"
       update_profile: "Profil aktualisieren"
@@ -444,7 +444,7 @@ de-moo:
   registrations:
     closed: "Neuregistrierungen sind auf diesem Bauernhof geschlossen."
     create:
-      success: "Du bist Diaspora beigetreten!"
+      success: "Du bist diaspora* beigetreten!"
     invalid_invite: "Der von dir erstellte Einladungs-Link ist nicht mehr gültig!"
     new:
       email: "EMAIL"
@@ -465,7 +465,7 @@ de-moo:
   search: "Suche"
   services:
     create:
-      already_authorized: "Ein anderer Nutzer mit der Diaspora ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
+      already_authorized: "Ein anderer Nutzer mit der diaspora*-ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
       failure: "Authentifizierung fehlgeschlagen."
       success: "Authentifizierung erfolgreich."
     destroy:
@@ -498,7 +498,7 @@ de-moo:
       logged_in: "Eingeloggt in %{service}"
       manage: "Verbundene Dienste verwalten"
       new_user_welcome_message: "Benutze #Hashtags, um deine Beiträge einzuordnen und Leute zu finden, die deine Interessen teilen. Benenne tolle Leute mit @Mentions"
-      outside: "Öffentliche Nachrichten werden für andere außerhalb von Diaspora sichtbar sein."
+      outside: "Öffentliche Nachrichten werden für andere außerhalb von diaspora* sichtbar sein."
       share: "Teilen"
       title: "Verbundene Dienste verwalten"
       visibility_dropdown: "Benutze dieses Auswahlmenü, um die Sichtbarkeit deines Beitrags zu ändern. (Wir empfehlen Dir, diesen ersten Beitrag öffentlich zu machen.)"
@@ -558,7 +558,7 @@ de-moo:
       email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
     destroy:
       no_password: "Bitte gib dein Kennwort ein, um deinen Account zu schließen."
-      success: "Dein Account wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis dein Account endgültig geschlossen ist. Vielen Dank, dass du Diaspora ausprobiert hast."
+      success: "Dein Account wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis dein Account endgültig geschlossen ist. Vielen Dank, dass du diaspora* ausprobiert hast."
       wrong_password: "Das eingegebene Kennwort stimmt nicht mit deinem aktuellen Kennwort überein."
     edit:
       also_commented: "… jemand ebenfalls den Beitrag einer Mitkuh kommentiert?"
@@ -573,14 +573,14 @@ de-moo:
         dont_go: "Hey, bitte geh nicht!"
         lock_username: "Das wird deinen Benutzernamen sperren, falls du dich dazu entscheidest, dich neu anzumelden."
         locked_out: "Du wirst abgemeldet und von deinem Account ausgesperrt."
-        make_diaspora_better: "Wir möchten, dass du uns dabei hilfst Diaspora besser zumachen, anstatt zu gehen. Wenn du wirklich gehen möchtest, wollen wir dich auf dem Laufenden halten."
+        make_diaspora_better: "Wir möchten, dass du uns dabei hilfst diaspora* besser zumachen, anstatt zu gehen. Wenn du wirklich gehen möchtest, wollen wir dich auf dem Laufenden halten."
         mr_wiggles: "Mr. Wiggles wird traurig sein, wenn du gehst"
         no_turning_back: "Momentan gibt es kein Zurück."
-        what_we_delete: "Wir löschen alle deine Beiträge und dein Profil so schnell wie möglich. Deine Kommentare bleiben hier, werden jedoch mit deinem Diaspora-Handle verbunden."
+        what_we_delete: "Wir löschen alle deine Beiträge und dein Profil so schnell wie möglich. Deine Kommentare bleiben hier, werden jedoch mit deinem diaspora-Handle verbunden."
       close_account_text: "Konto schließen"
       comment_on_post: "… jemand deinen Beitrag kommentiert?"
       current_password: "Derzeitiges Kennwort"
-      current_password_expl: "das mit dem Du dich anmeldest..."
+      current_password_expl: "das, mit dem du dich anmeldest …"
       edit_account: "Konto bearbeiten"
       email_awaiting_confirmation: "Wir haben dir einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange du dem Link nicht gefolgt bist und die neue Adresse aktiviert hast, werden wir weiterhin deine ursprüngliche E-Mail-Adresse %{email} verwenden."
       export_data: "Daten exportieren"
@@ -590,18 +590,18 @@ de-moo:
       new_password: "Neues Kennwort"
       private_message: "… du eine private Nachricht erhältst?"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
-      reshared: "… jemand deinen Beitrag weitersagt?"
+      reshared: "… jemand deinen Beitrag wiederkäut?"
       show_community_spotlight: "Gemeinschafts-Schaukasten in Weide anzeigen?"
       show_getting_started: "Einstiegshinweise wieder aktivieren"
       started_sharing: "… jemand mit dir zu teilen anfängt?"
       stream_preferences: "Weiden-Einstellungen"
       your_email: "Deine E-Mail-Adresse"
-      your_handle: "Deine Diaspora ID"
+      your_handle: "Deine diaspora*-ID"
     getting_started:
-      awesome_take_me_to_diaspora: "Super! Bring mich zu Diaspora*"
-      community_welcome: "Diasporas Gemeinschaft ist froh, dich an Bord zu haben!"
+      awesome_take_me_to_diaspora: "Super! Bring mich zu diaspora*"
+      community_welcome: "diaspora*s Gemeinschaft ist froh, dich an Bord zu haben!"
       connect_to_facebook: "Wir können das Ganze etwas beschleunigen, indem du %{link}. So werden dein Name und dein Profilbild hier eingefügt und die Crossposting-Funktion aktiviert."
-      connect_to_facebook_link: "dein Facebook-Konto mit Diaspora verlinkst"
+      connect_to_facebook_link: "dein Facebook-Konto mit diaspora* verlinkst"
       hashtag_explanation: "Hashtags ermöglichen dir, über deine Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei Diaspora zu treffen!"
       hashtag_suggestions: "Probier mal Tags wie #kunst, #musik oder #gif zu folgen."
       well_hello_there: "Also, Hallöchen!"
