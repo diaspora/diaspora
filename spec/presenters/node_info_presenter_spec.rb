@@ -129,6 +129,16 @@ describe NodeInfoPresenter do
       end
     end
 
+    context "when admin account is set" do
+      before do
+        AppConfig.admins.account = "podmin"
+      end
+
+      it "adds the admin account username" do
+        expect(hash).to include "metadata" => include("adminAccount" => "podmin")
+      end
+    end
+
     context "version 2.0" do
       it "provides generic pod data in json" do
         expect(NodeInfoPresenter.new("2.0").as_json.as_json).to eq(
