@@ -26,8 +26,7 @@ class NodeInfoPresenter
 
   def add_static_data(doc)
     doc.software.name = "diaspora"
-    doc.protocols.inbound << "diaspora"
-    doc.protocols.outbound << "diaspora"
+    doc.protocols.protocols << "diaspora"
   end
 
   def add_user_counts(doc)
