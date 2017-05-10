@@ -72,8 +72,7 @@ DiasporaFederation.configure do |config|
     end
 
     on :fetch_public_key do |diaspora_id|
-      key = Person.find_or_fetch_by_identifier(diaspora_id).serialized_public_key
-      OpenSSL::PKey::RSA.new(key) unless key.nil?
+      Person.find_or_fetch_by_identifier(diaspora_id).public_key
     end
 
     on :fetch_related_entity do |entity_type, guid|
