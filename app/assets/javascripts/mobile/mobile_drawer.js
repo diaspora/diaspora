@@ -5,7 +5,7 @@
         evt.preventDefault();
         $("#app").toggleClass("draw");
       });
-        $("#all_aspects, #followed_tags, #admin").bind("tap click", function(evt) {
+      $("#all_aspects, #followed_tags, #admin").bind("tap click", function(evt) {
         evt.preventDefault();
         $(this).find("+ li").toggleClass("hide");
       });

@@ -67,8 +67,6 @@
             admin_close_account_path(user),
             method: :post, data: {confirm: t("admins.user_search.are_you_sure")},
             class: "btn btn-danger btn-block"
-
-        - unless user.closed_account?
           - if user.access_locked?
             = link_to t("admins.user_search.unlock_account"),
               admin_unlock_account_path(user),

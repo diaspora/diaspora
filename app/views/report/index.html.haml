@@ -3,4 +3,5 @@
     .col-md-3
       - if current_user.admin?
         = render partial: "admins/admin_bar"
-    = render partial: "report/reports"
+    .col-md-9
+      = render partial: "report/reports"

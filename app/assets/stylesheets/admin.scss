@@ -31,6 +31,11 @@
   }
 }
 
+// Weekly stats
+.week-selector {
+  margin-top: 18px;
+}
+
 // Pod stats
 .segment-selection {
   select,
@@ -48,6 +53,10 @@
 
   .content {
     padding-bottom: 20px;
+  }
+
+  .panel-body .btn-info {
+    margin-right: 5px;
   }
 }
 
