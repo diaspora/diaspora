@@ -27,7 +27,6 @@ module Admin
       respond_with do |format|
         format.html { redirect_to admin_pods_path }
         format.json { render json: PodPresenter.new(pod).as_json }
-        format.mobile { redirect_to admin_pods_path }
       end
     end
   end
