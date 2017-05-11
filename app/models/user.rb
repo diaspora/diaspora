@@ -431,6 +431,7 @@ class User < ActiveRecord::Base
     return unless AppConfig.settings.welcome_message.enabled? && AppConfig.admins.account?
     sender_username = AppConfig.admins.account.get
     sender = User.find_by(username: sender_username)
+    return if sender.nil?
     conversation = sender.build_conversation(
       participant_ids: [sender.person.id, person.id],
       subject:         AppConfig.settings.welcome_message.subject.get,
