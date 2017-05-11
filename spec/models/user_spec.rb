@@ -875,6 +875,12 @@ describe User, :type => :model do
         user.send_welcome_message
         expect(user.conversations.count).to eq 0
       end
+
+      it "should send no welcome message if podmin is invalid" do
+        AppConfig.admins.account = "invalid"
+        user.send_welcome_message
+        expect(user.conversations.count).to eq 0
+      end
     end
 
     context "with welcome message disabled" do
