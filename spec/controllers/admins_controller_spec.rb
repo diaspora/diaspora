@@ -18,6 +18,7 @@ describe AdminsController, :type => :controller do
 
     context "admin signed in" do
       before do
+        Report.destroy_all
         Role.add_admin(@user.person)
         @post = bob.post(:status_message, text: "hello", to: bob.aspects.first.id)
         @post_report = alice.reports.create(

@@ -344,6 +344,21 @@ FactoryGirl.define do
     additional_data { {"new_property" => "some text"} }
   end
 
+  factory :report do
+    sequence(:text) {|n| "#{n} offensive content" }
+    association :user
+  end
+
+  factory :report_on_post, parent: :report do
+    association :item, factory: :status_message
+    item_type "Post"
+  end
+
+  factory :role do
+    association :person
+    name "moderator"
+  end
+
   factory(:poll_participation_signature) do
     author_signature "some signature"
     association :signature_order, order: "guid parent_guid author poll_answer_guid new_property"
@@ -357,7 +372,7 @@ FactoryGirl.define do
   factory(:status, :parent => :status_message)
 
   factory :o_auth_application, class: Api::OpenidConnect::OAuthApplication do
-    client_name "Diaspora Test Client"
+    sequence(:client_name) {|n| "Diaspora Test Client #{n}#{r_str}" }
     redirect_uris %w(http://localhost:3000/)
   end
 

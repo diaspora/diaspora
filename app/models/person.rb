@@ -37,8 +37,13 @@ class Person < ActiveRecord::Base
   has_many :posts, :foreign_key => :author_id, :dependent => :destroy # This person's own posts
   has_many :photos, :foreign_key => :author_id, :dependent => :destroy # This person's own photos
   has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
+  has_many :likes, foreign_key: :author_id, dependent: :destroy # This person's own likes
   has_many :participations, :foreign_key => :author_id, :dependent => :destroy
+  has_many :poll_participations, foreign_key: :author_id, dependent: :destroy
   has_many :conversation_visibilities
+  has_many :messages, foreign_key: :author_id
+  has_many :conversations, foreign_key: :author_id
+  has_many :blocks
 
   has_many :roles
 

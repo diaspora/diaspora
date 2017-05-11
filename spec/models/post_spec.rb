@@ -91,7 +91,7 @@ describe Post, :type => :model do
       end
 
       it 'returns posts if you dont have any blocks' do
-        expect(Post.excluding_blocks(alice).count).to eq(2)
+        expect(Post.excluding_blocks(alice).count).to eq(Post.count)
       end
     end
 
@@ -119,6 +119,7 @@ describe Post, :type => :model do
 
     context 'having some posts' do
       before do
+        Post.destroy_all
         time_interval = 1000
         time_past = 1000000
         @posts = (1..5).map do |n|

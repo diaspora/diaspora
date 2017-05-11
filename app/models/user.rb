@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
            :first_name, :last_name, :gender, :participations, to: :person
   delegate :id, :guid, to: :person, prefix: true
 
+  has_many :invitation_codes
   has_many :aspects, -> { order('order_id ASC') }
 
   belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'

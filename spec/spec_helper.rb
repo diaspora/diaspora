@@ -33,6 +33,10 @@ def bob
   @bob ||= User.find_by(username: "bob")
 end
 
+def carol
+  @carol ||= User.find_by(username: "carol")
+end
+
 def eve
   @eve ||= User.find_by(username: "eve")
 end

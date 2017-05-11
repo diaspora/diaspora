@@ -18,7 +18,7 @@ class AccountDeleter
   attr_accessor :person, :user
 
   def initialize(diaspora_handle)
-    self.person = Person.where(:diaspora_handle => diaspora_handle).first
+    self.person = Person.by_account_identifier(diaspora_handle)
     self.user = self.person.owner
   end
 
@@ -45,7 +45,7 @@ class AccountDeleter
   #user deletions
   def normal_ar_user_associates_to_delete
     %i(tag_followings services aspects user_preferences
-       notifications blocks authorizations o_auth_applications pairwise_pseudonymous_identifiers)
+       notifications blocks authorizations o_auth_applications pairwise_pseudonymous_identifiers invitation_codes)
   end
 
   def special_ar_user_associations
@@ -101,7 +101,8 @@ class AccountDeleter
   end
 
   def ignored_or_special_ar_person_associations
-    %i(comments contacts notification_actors notifications owner profile conversation_visibilities pod)
+    %i(comments likes contacts notification_actors notifications owner profile conversation_visibilities pod
+       messages conversations poll_participations blocks)
   end
 
   def mark_account_deletion_complete

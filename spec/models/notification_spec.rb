@@ -60,11 +60,14 @@ describe Notification, :type => :model do
     end
 
     it "creates a new notification if the notification is unread" do
-      @note.unread = false
-      @note.save
-      expect(Notification.count).to eq(1)
-      Notification.concatenate_or_create(@note.recipient, @note.target, eve.person)
-      expect(Notification.count).to eq(2)
+      expect {
+        @note.unread = false
+        @note.save
+      }.to change(Notification, :count).by(1)
+
+      expect {
+        Notification.concatenate_or_create(@note.recipient, @note.target, @note.actors.first)
+      }.to change(Notification, :count).by(1)
     end
 
     it "appends the actors to the already existing notification" do

@@ -167,20 +167,21 @@ describe NotificationsController, :type => :controller do
   describe "#read_all" do
     it 'marks all notifications as read' do
       request.env["HTTP_REFERER"] = "I wish I were spelled right"
-      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
-      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+      FactoryGirl.create(:notification, recipient: alice, target: @post)
+      FactoryGirl.create(:notification, recipient: alice, target: @post)
 
-      expect(Notification.where(:unread => true).count).to eq(2)
+      expect(Notification.where(unread: true, recipient: alice).count).to eq(2)
       get :read_all
-      expect(Notification.where(:unread => true).count).to eq(0)
+      expect(Notification.where(unread: true, recipient: alice).count).to eq(0)
     end
     it 'marks all notifications in the current filter as read' do
       request.env["HTTP_REFERER"] = "I wish I were spelled right"
-      FactoryGirl.create(:notification, :recipient => alice, :target => @post)
-      FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
-      expect(Notification.where(:unread => true).count).to eq(2)
-      get :read_all, "type" => "started_sharing"
-      expect(Notification.where(:unread => true).count).to eq(1)
+      FactoryGirl.create(:notification, recipient: alice, target: @post)
+      FactoryGirl.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
+
+      expect(Notification.where(unread: true, recipient: alice).count).to eq(2)
+      get :read_all, type: "started_sharing"
+      expect(Notification.where(unread: true, recipient: alice).count).to eq(1)
     end
     it "should redirect back in the html version if it has > 0 notifications" do
       FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")

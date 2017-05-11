@@ -144,14 +144,14 @@ describe ConversationsController, :type => :controller do
         it "responds with the conversation id as JSON" do
           post :create, @hash
           expect(response).to be_success
-          expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
+          expect(JSON.parse(response.body)["id"]).to eq(Conversation.last.id)
         end
 
         it "sets the author to the current_user" do
           @hash[:author] = FactoryGirl.create(:user)
           post :create, @hash
-          expect(Message.first.author).to eq(alice.person)
-          expect(Conversation.first.author).to eq(alice.person)
+          expect(Message.last.author).to eq(alice.person)
+          expect(Conversation.last.author).to eq(alice.person)
         end
 
         it "dispatches the conversation" do
@@ -183,7 +183,7 @@ describe ConversationsController, :type => :controller do
         it "responds with the conversation id as JSON" do
           post :create, @hash
           expect(response).to be_success
-          expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
+          expect(JSON.parse(response.body)["id"]).to eq(Conversation.last.id)
         end
       end
 
@@ -314,14 +314,14 @@ describe ConversationsController, :type => :controller do
         it "responds with the conversation id as JSON" do
           post :create, @hash
           expect(response).to be_success
-          expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
+          expect(JSON.parse(response.body)["id"]).to eq(Conversation.last.id)
         end
 
         it "sets the author to the current_user" do
           @hash[:author] = FactoryGirl.create(:user)
           post :create, @hash
-          expect(Message.first.author).to eq(alice.person)
-          expect(Conversation.first.author).to eq(alice.person)
+          expect(Message.last.author).to eq(alice.person)
+          expect(Conversation.last.author).to eq(alice.person)
         end
 
         it "dispatches the conversation" do
@@ -353,7 +353,7 @@ describe ConversationsController, :type => :controller do
         it "responds with the conversation id as JSON" do
           post :create, @hash
           expect(response).to be_success
-          expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
+          expect(JSON.parse(response.body)["id"]).to eq(Conversation.last.id)
         end
       end
 

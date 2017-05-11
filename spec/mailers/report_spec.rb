@@ -32,29 +32,28 @@ describe Report, type: :mailer do
     it "should be added to the delivery queue" do
       expect {
         ReportMailer.new_report(@post_report.id).each(&:deliver_now)
-      }.to change(ActionMailer::Base.deliveries, :size).by(2)
+      }.to change(ActionMailer::Base.deliveries, :size).by(Role.count)
     end
 
     it "should include correct recipient" do
       ReportMailer.new_report(@post_report.id).each(&:deliver_now)
-      expect(ActionMailer::Base.deliveries[0].to[0]).to include(@user.email)
-      expect(ActionMailer::Base.deliveries[1].to[0]).to include(@user2.email)
+      moderators_emails = ActionMailer::Base.deliveries.map(&:to).flatten
+      expect(moderators_emails).to include(@user.email)
+      expect(moderators_emails).to include(@user2.email)
     end
 
     it "should send mail in recipent's prefered language" do
       ReportMailer.new_report(@post_report.id).each(&:deliver_now)
-      expect(ActionMailer::Base.deliveries[0].subject).to match("Ein neuer post wurde als anstößig markiert")
-      expect(ActionMailer::Base.deliveries[1].subject).to match("A new post was marked as offensive")
-    end
-
-    it "should find correct post translation" do
-      ReportMailer.new_report(@post_report.id).each(&:deliver_now)
-      expect(ActionMailer::Base.deliveries[0].subject).not_to match("translation missing")
+      expect(ActionMailer::Base.deliveries.find {|msg| msg.to[0] == @user.email }.subject)
+        .to match("Ein neuer post wurde als anstößig markiert")
+      expect(ActionMailer::Base.deliveries.find {|msg| msg.to[0] == @user2.email }.subject)
+        .to match("A new post was marked as offensive")
     end
 
     it "should find correct comment translation" do
       ReportMailer.new_report(@comment_report.id).each(&:deliver_now)
-      expect(ActionMailer::Base.deliveries[0].subject).not_to match("translation missing")
+      expect(ActionMailer::Base.deliveries.find {|msg| msg.to[0] == @user.email }.subject)
+        .not_to match("translation missing")
     end
   end
 end

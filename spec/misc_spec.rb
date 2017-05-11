@@ -12,6 +12,10 @@ describe 'making sure the spec runner works' do
   describe 'fixtures' do
     it 'loads fixtures' do
       expect(User.count).not_to eq(0)
+      expect(TagFollowing.count).not_to eq(0)
+      expect(Role.count).not_to eq(0)
+      expect(Report.count).not_to eq(0)
+      expect(Api::OpenidConnect::OAuthApplication.count).not_to eq(0)
     end
   end
 
@@ -78,7 +82,7 @@ describe 'making sure the spec runner works' do
 
   describe "#create_conversation_with_message" do
     it 'creates a conversation and a message' do
-      conversation = create_conversation_with_message(alice, bob.person, "Subject", "Hey Bob")
+      conversation = create_conversation_with_message(alice.person, bob.person, "Subject", "Hey Bob")
 
       expect(conversation.participants).to eq([alice.person, bob.person])
       expect(conversation.subject).to eq("Subject")
