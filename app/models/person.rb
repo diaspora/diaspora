@@ -295,6 +295,8 @@ class Person < ActiveRecord::Base
 
   def public_key
     OpenSSL::PKey::RSA.new(serialized_public_key)
+  rescue OpenSSL::PKey::RSAError
+    nil
   end
 
   def exported_key
