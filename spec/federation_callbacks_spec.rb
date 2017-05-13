@@ -6,13 +6,20 @@ describe "diaspora federation callbacks" do
       person = alice.person
       wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, alice.diaspora_handle)
       expect(wf.acct_uri).to eq("acct:#{person.diaspora_handle}")
-      expect(wf.alias_url).to eq(AppConfig.url_to("/people/#{person.guid}"))
       expect(wf.hcard_url).to eq(AppConfig.url_to("/hcard/users/#{person.guid}"))
       expect(wf.seed_url).to eq(AppConfig.pod_uri)
       expect(wf.profile_url).to eq(person.profile_url)
       expect(wf.atom_url).to eq(person.atom_url)
       expect(wf.salmon_url).to eq(person.receive_url)
       expect(wf.subscribe_url).to eq(AppConfig.url_to("/people?q={uri}"))
+    end
+
+    it "contains the OpenID issuer" do
+      wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, alice.diaspora_handle)
+      links = wf.additional_data[:links]
+      openid_issuer = links.find {|l| l[:rel] == OpenIDConnect::Discovery::Provider::Issuer::REL_VALUE }
+      expect(openid_issuer).not_to be_nil
+      expect(openid_issuer[:href]).to eq(Rails.application.routes.url_helpers.root_url)
     end
 
     it "returns nil if the person was not found" do
