@@ -44,6 +44,11 @@ Feature: new user registration
     And the publisher should be expanded
     And I should see "Public" within ".aspect_dropdown"
 
+  Scenario: first status message is public
+    When I confirm the alert after I follow "awesome_button"
+    Then I should be on the stream page
+    And I should see "Public" within ".aspect_dropdown"
+
   Scenario: new user without any tags posts first status message
     When I confirm the alert after I follow "awesome_button"
     Then I should be on the stream page
