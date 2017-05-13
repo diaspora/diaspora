@@ -103,6 +103,7 @@ Fixes a possible Remote Code Execution ([CVE-2016-4658](https://cve.mitre.org/cg
 ## Features
 * Add links to the aspects and followed tags pages on mobile [#7265](https://github.com/diaspora/diaspora/pull/7265)
 * diaspora\* is now available in Gàidhlig, Occitan, and Schwiizerdütsch
+* admins cannot be blocked anymore [#7279](https://github.com/diaspora/diaspora/issues/7297)
 
 # 0.6.2.0
 
