@@ -39,11 +39,11 @@
             {{/if}}
             <span class="post-time">
               {{#if root}}
-                <a href="/posts/{{root.id}}">
+                <a href="/posts/{{root.guid}}">
                   <time datetime="{{root.created_at}}" title="{{localTime root.created_at}}" />
                 </a>
               {{else}}
-                <a href="/posts/{{id}}">
+                <a href="/posts/{{guid}}">
                   <time datetime="{{created_at}}" title="{{localTime created_at}}" />
                 </a>
               {{/if}}
@@ -91,7 +91,7 @@
           </span>
           <div class="post-context">
             <span class="post-time">
-              <a href="/posts/{{id}}">
+              <a href="/posts/{{guid}}">
                 <time datetime="{{created_at}}" title="{{localTime created_at}}" />
               </a>
             </span>

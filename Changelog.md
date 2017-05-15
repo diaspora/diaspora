@@ -22,6 +22,7 @@
 
 ## Refactor
 * Remove rails\_admin [#7440](https://github.com/diaspora/diaspora/pull/7440)
+* Use guid instead of id at permalink and in SPV [#7453](https://github.com/diaspora/diaspora/pull/7453)
 
 ## Bug fixes
 * Make photo upload button hover text translatable [#7429](https://github.com/diaspora/diaspora/pull/7429)
