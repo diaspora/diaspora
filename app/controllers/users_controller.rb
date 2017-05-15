@@ -220,15 +220,23 @@ class UsersController < ApplicationController
   end
 
   def change_email(user_data)
-    @user.unconfirmed_email = user_data[:email]
-    if @user.save
-      @user.send_confirm_email
-      if @user.unconfirmed_email
+    if AppConfig.mail.enable?
+      @user.unconfirmed_email = user_data[:email]
+      if @user.save
+        @user.send_confirm_email
         flash.now[:notice] = t("users.update.unconfirmed_email_changed")
+      else
+        @user.reload # match user object with the database
+        flash.now[:error] = t("users.update.unconfirmed_email_not_changed")
       end
     else
-      @user.reload # match user object with the database
-      flash.now[:error] = t("users.update.unconfirmed_email_not_changed")
+      @user.email = user_data[:email]
+      if @user.save
+        flash.now[:notice] = t("users.update.settings_updated")
+      else
+        @user.reload
+        flash.now[:error] = t("users.update.unconfirmed_email_not_changed")
+      end
     end
   end
 
