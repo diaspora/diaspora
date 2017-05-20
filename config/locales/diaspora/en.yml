@@ -308,6 +308,7 @@ en:
     destroy:
       delete_success: "Conversation successfully deleted"
       hide_success: "Conversation successfully hidden"
+    not_found: "Conversation not found"
   date:
     formats:
       fullmonth_day: "%B %d"
@@ -917,6 +918,10 @@ en:
         contact_developer: "You should contact the developer of the application and include the following detailed error message:"
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
+
+  error:
+    not_found: "No record found for given id."
+    wrong_parameters: "Some parameters are wrong or missing."
 
   people:
     person:
