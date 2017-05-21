@@ -23,7 +23,7 @@ module Api
       end
 
       def destroy
-        @like = Like.find_by_id_and_author_id!(params[:id], current_user.person.id)
+        @like = Like.find_by!(id: params[:id], author_id: current_user.person.id)
         current_user.retract(@like)
         render nothing: true, status: 204
       end

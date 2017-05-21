@@ -16,7 +16,7 @@ describe Api::V0::LikesController do
     end
 
     it "fails on random post id" do
-      post api_v0_post_likes_path(post_id: 9999999), access_token: access_token
+      post api_v0_post_likes_path(post_id: 99_999_999), access_token: access_token
       expect(response.body).to eq("Post or like not found")
     end
   end
@@ -33,7 +33,7 @@ describe Api::V0::LikesController do
     end
 
     it "fails on random like id" do
-      delete api_v0_post_like_path(post_id: @status.id, id: 99999999), access_token: access_token
+      delete api_v0_post_like_path(post_id: @status.id, id: 99_999_999), access_token: access_token
       expect(response.body).to eq("Post or like not found")
     end
   end
