@@ -18,7 +18,10 @@ describe Api::V0::PostsController do
 
     context "comment too long" do
       before do
-        post api_v0_post_comments_path(post_id: @status.id), text: "This is a long comment" * 99999, access_token: access_token
+        post(
+          api_v0_post_comments_path(post_id: @status.id),
+          text: "This is a long comment" * 99_999, access_token: access_token
+        )
       end
 
       it "fails with appropriate error message" do
@@ -46,7 +49,7 @@ describe Api::V0::PostsController do
       end
 
       it "fails to delete" do
-        delete api_v0_post_comment_path(id: 1234567), access_token: access_token
+        delete api_v0_post_comment_path(id: 1_234_567), access_token: access_token
         expect(response.body).to eq("Post or comment not found")
       end
     end

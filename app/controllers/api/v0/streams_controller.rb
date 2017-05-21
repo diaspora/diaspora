@@ -1,7 +1,6 @@
 module Api
   module V0
     class StreamsController < Api::V0::BaseController
-
       before_action do
         require_access_token %w(read)
       end
@@ -43,12 +42,11 @@ module Api
       private
 
       def stream_responder(stream_klass=nil)
-
         if stream_klass.present?
           @stream ||= stream_klass.new(current_user, max_time: max_time)
         end
 
-        render json: @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user))}
+        render json: @stream.stream_posts.map {|p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }
       end
     end
   end
