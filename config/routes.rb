@@ -213,6 +213,26 @@ Diaspora::Application.routes.draw do
   root :to => 'home#show'
   get "podmin", to: "home#podmin"
 
+  api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
+    match "user", to: "users#show", via: %i(get post)
+    resources :posts, only: %i(show create destroy) do
+      resources :comments, only: %i(create destroy)
+      resources :likes, only: %i(create destroy)
+    end
+    resources :conversations, only: %i(show index create destroy) do
+      delete "visibility" => "conversation_visibilities#destroy"
+      resources :messages, only: %i(create)
+    end
+    get "activity" => "streams#activity", :as => "activity_stream"
+    get "stream" => "streams#multi", :as => "stream"
+    get "public" => "streams#public", :as => "public_stream"
+    get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
+    get "mentions" => "streams#mentioned", :as => "mentioned_stream"
+    get "liked" => "streams#liked", :as => "liked_stream"
+    get "commented" => "streams#commented", :as => "commented_stream"
+    get "aspects" => "streams#aspects", :as => "aspects_stream"
+  end
+
   namespace :api do
     namespace :openid_connect do
       resources :clients, only: :create

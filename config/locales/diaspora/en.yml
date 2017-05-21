@@ -254,6 +254,12 @@ en:
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
+    create:
+      fail: "Comment creation has failed"
+    destroy:
+      success: "Comment %{id} has been successfully deleted"
+      fail: "Comment deletion has failed"
+    not_found: "Post or comment not found"
 
   contacts:
     index:
@@ -302,6 +308,7 @@ en:
     destroy:
       delete_success: "Conversation successfully deleted"
       hide_success: "Conversation successfully hidden"
+    not_found: "Conversation not found"
   date:
     formats:
       fullmonth_day: "%B %d"
@@ -600,8 +607,22 @@ en:
   likes:
     create:
       error: "Failed to like."
+      fail: "Like creation has failed"
     destroy:
       error: "Failed to unlike."
+    people_like_this:
+      zero: "No likes"
+      one: "%{count} like"
+      other: "%{count} likes"
+    people_like_this_comment:
+      zero: "No likes"
+      one: "%{count} like"
+      other: "%{count} likes"
+    people_dislike_this:
+      zero: "No dislikes"
+      one: "%{count} dislike"
+      other: "%{count} dislikes"
+    not_found: "Post or like not found"
 
   notifications:
     started_sharing:
@@ -897,6 +918,10 @@ en:
         contact_developer: "You should contact the developer of the application and include the following detailed error message:"
         login_required: "You must first login before you can authorize this application"
         could_not_authorize: "The application could not be authorized"
+
+  error:
+    not_found: "No record found for given id."
+    wrong_parameters: "Some parameters are wrong or missing."
 
   people:
     person:
