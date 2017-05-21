@@ -128,5 +128,40 @@ describe NodeInfoPresenter do
         expect(hash).to include "metadata" => include("xmppChat" => true)
       end
     end
+
+    context "when admin account is set" do
+      before do
+        AppConfig.admins.account = "podmin"
+      end
+
+      it "adds the admin account username" do
+        expect(hash).to include "metadata" => include("adminAccount" => "podmin")
+      end
+    end
+
+    context "version 2.0" do
+      it "provides generic pod data in json" do
+        expect(NodeInfoPresenter.new("2.0").as_json.as_json).to eq(
+          "version"           => "2.0",
+          "software"          => {
+            "name"    => "diaspora",
+            "version" => AppConfig.version_string
+          },
+          "protocols"         => ["diaspora"],
+          "services"          => {
+            "inbound"  => [],
+            "outbound" => AppConfig.configured_services.map(&:to_s)
+          },
+          "openRegistrations" => AppConfig.settings.enable_registrations?,
+          "usage"             => {
+            "users" => {}
+          },
+          "metadata"          => {
+            "nodeName" => AppConfig.settings.pod_name,
+            "xmppChat" => AppConfig.chat.enabled?
+          }
+        )
+      end
+    end
   end
 end

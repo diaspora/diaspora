@@ -33,6 +33,8 @@
 
 ## Features
 
+* Add support for Nodeinfo 2.0 [#7447](https://github.com/diaspora/diaspora/pull/7447)
+
 # 0.6.5.0
 
 ## Refactor

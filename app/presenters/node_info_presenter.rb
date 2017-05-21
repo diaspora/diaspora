@@ -17,17 +17,17 @@ class NodeInfoPresenter
   end
 
   def add_configuration(doc)
-    doc.software.version     = version
-    doc.services.outbound    = available_services
-    doc.open_registrations   = open_registrations?
-    doc.metadata["nodeName"] = name
-    doc.metadata["xmppChat"] = chat_enabled?
+    doc.software.version         = version
+    doc.services.outbound        = available_services
+    doc.open_registrations       = open_registrations?
+    doc.metadata["nodeName"]     = name
+    doc.metadata["xmppChat"]     = chat_enabled?
+    doc.metadata["adminAccount"] = admin_account
   end
 
   def add_static_data(doc)
     doc.software.name = "diaspora"
-    doc.protocols.inbound << "diaspora"
-    doc.protocols.outbound << "diaspora"
+    doc.protocols.protocols << "diaspora"
   end
 
   def add_user_counts(doc)
@@ -69,6 +69,10 @@ class NodeInfoPresenter
 
   def chat_enabled?
     AppConfig.chat.enabled?
+  end
+
+  def admin_account
+    AppConfig.admins.account if AppConfig.admins.account?
   end
 
   def available_services
