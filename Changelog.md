@@ -18,6 +18,14 @@
 * Render mentions as links in comments [#7327](https://github.com/diaspora/diaspora/pull/7327)
 * Add support for mentions in comments to the front-end [#7386](https://github.com/diaspora/diaspora/pull/7386)
 
+# 0.6.7.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.6.6.0
 
 ## Refactor
@@ -32,7 +40,6 @@
 * Fix welcome message when podmin is set to an invalid username [#7452](https://github.com/diaspora/diaspora/pull/7452)
 
 ## Features
-
 * Add support for Nodeinfo 2.0 [#7447](https://github.com/diaspora/diaspora/pull/7447)
 
 # 0.6.5.0
