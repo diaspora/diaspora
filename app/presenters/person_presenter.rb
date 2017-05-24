@@ -40,10 +40,6 @@ class PersonPresenter < BasePresenter
     }
   end
 
-  def self.people_names(people)
-    people.map(&:name).join(", ")
-  end
-
   protected
 
   def own_profile?
