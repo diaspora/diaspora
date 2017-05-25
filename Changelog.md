@@ -25,6 +25,7 @@
 ## Bug fixes
 
 ## Features
+* Change email without confirmation when mail is disabled [#7455](https://github.com/diaspora/diaspora/pull/7455)
 
 # 0.6.6.0
 
