@@ -12,11 +12,7 @@ describe Api::V0::ConversationsController do
     @conversation = {
       author_id:    auth.user.id,
       subject:      "new conversation",
-      text:         "first message",
-      messages:     [{
-        author: auth.user,
-        text:   "first message"
-      }],
+      body:         "first message",
       recipients:   [alice.person.id],
       access_token: access_token
     }
@@ -26,12 +22,13 @@ describe Api::V0::ConversationsController do
     context "with valid data" do
       it "creates the conversation" do
         post api_v0_conversations_path, @conversation
-        response_body = JSON.parse(response.body)["conversation"]
+        conversation = JSON.parse(response.body)["conversation"]
 
         expect(response.status).to eq 201
-        expect(response_body["messages"][0]["id"]).to_not be_nil
-        expect(response_body["id"]).to_not be_nil
-        expect(response_body["participants"].length).to eq 2
+        expect(conversation["guid"]).to_not be_nil
+        expect(conversation["subject"]).to eq @conversation[:subject]
+        expect(conversation["created_at"]).to_not be_nil
+        expect(conversation["participants"].length).to eq 2
       end
     end
 
@@ -63,14 +60,18 @@ describe Api::V0::ConversationsController do
       end
 
       it "returns the corresponding conversation" do
-        conversation_id = JSON.parse(response.body)["conversation"]["id"]
+        conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
         get(
-          api_v0_conversation_path(conversation_id),
+          api_v0_conversation_path(conversation_guid),
           access_token: access_token
         )
         expect(response.status).to eq 200
-        result_id = JSON.parse(response.body)["conversation"]["id"]
-        expect(result_id).to eq conversation_id
+        conversation = JSON.parse(response.body)["conversation"]
+        expect(conversation["guid"]).to eq conversation_guid
+        expect(conversation["subject"]).to eq @conversation[:subject]
+        expect(conversation["created_at"]).to_not be_nil
+        expect(conversation["participants"].length).to eq 2
+        expect(conversation["read"]).to eq true
       end
     end
 
@@ -86,20 +87,20 @@ describe Api::V0::ConversationsController do
   end
 
   describe "#delete" do
-    context "valid conversation ID" do
+    context "valid conversation GUID" do
       before do
         post api_v0_conversations_path, @conversation
       end
 
       it "deletes the conversation" do
-        conversation_id = JSON.parse(response.body)["conversation"]["id"]
+        conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
         delete(
-          api_v0_conversation_path(conversation_id),
+          api_v0_conversation_path(conversation_guid),
           access_token: access_token
         )
         expect(response.status).to eq 204
         get(
-          api_v0_conversation_path(conversation_id),
+          api_v0_conversation_path(conversation_guid),
           access_token: access_token
         )
         expect(response.status).to eq 404

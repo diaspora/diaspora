@@ -1,17 +1,17 @@
 class ConversationPresenter < BasePresenter
-  def initialize(conversation)
-    @conversation = conversation
-  end
 
-  def as_json
+  def as_api_json
+    read =
+        @presentable.conversation_visibilities.length > 0 and
+        @presentable.conversation_visibilities[0].unread == 0
     {
-      id:           @conversation.id,
-      guid:         @conversation.guid,
-      created_at:   @conversation.created_at,
-      subject:      @conversation.subject,
-      messages:     @conversation.messages.map {|x| x.as_json["message"] },
-      author:       @conversation.author,
-      participants: @conversation.participants
+      guid:         @presentable.guid,
+      subject:      @presentable.subject,
+      created_at:   @presentable.created_at,
+      read:         read,
+      participants: @presentable.participants.map {
+          |x| PersonPresenter.new(x).as_api_json
+      }
     }
   end
 end

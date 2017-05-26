@@ -9,13 +9,13 @@ describe ConversationService do
 
   describe "#find!" do
     it "returns the conversation, if it is the user's conversation" do
-      expect(alice_conversation_service.find!(conversation.id)).to eq(
+      expect(alice_conversation_service.find!(conversation.guid)).to eq(
         conversation
       )
     end
 
     it "returns the conversation, if the user is recipient" do
-      expect(bob_conversation_service.find!(conversation.id)).to eq(
+      expect(bob_conversation_service.find!(conversation.guid)).to eq(
         conversation
       )
     end
@@ -28,7 +28,7 @@ describe ConversationService do
 
     it "raises RecordNotFound if the user is not recipient" do
       expect {
-        eve_conversation_service.find!(conversation.id)
+        eve_conversation_service.find!(conversation.guid)
       }.to raise_error ActiveRecord::RecordNotFound
     end
   end
@@ -61,7 +61,7 @@ describe ConversationService do
 
   describe "#get_visibility" do
     it "returns visibility for current user" do
-      visibility = alice_conversation_service.get_visibility(conversation.id)
+      visibility = alice_conversation_service.get_visibility(conversation.guid)
       expect(visibility).to_not be_nil
     end
 
@@ -74,9 +74,9 @@ describe ConversationService do
 
   describe "#destroy!" do
     it "deletes the conversation, when it is the user conversation" do
-      alice_conversation_service.destroy!(conversation.id)
+      alice_conversation_service.destroy!(conversation.guid)
       expect {
-        alice_conversation_service.find!(conversation.id)
+        alice_conversation_service.find!(conversation.guid)
       }.to raise_error ActiveRecord::RecordNotFound
     end
 
@@ -88,7 +88,7 @@ describe ConversationService do
 
     it "raises RecordNotFound if the user is not part of the conversation" do
       expect {
-        eve_conversation_service.destroy!(conversation.id)
+        eve_conversation_service.destroy!(conversation.guid)
       }.to raise_error ActiveRecord::RecordNotFound
     end
   end

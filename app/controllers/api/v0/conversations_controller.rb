@@ -30,7 +30,7 @@ module Api
       def create
         conversation = conversation_service.build(
           params[:subject],
-          params[:text],
+          params[:body],
           params[:recipients]
         )
         conversation.save!
@@ -54,7 +54,7 @@ module Api
       end
 
       def conversation_as_json(conversation)
-        ConversationPresenter.new(conversation).as_json
+        ConversationPresenter.new(conversation).as_api_json
       end
     end
   end
