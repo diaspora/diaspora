@@ -10,6 +10,15 @@ class PersonPresenter < BasePresenter
     }
   end
 
+  def as_api_json
+    {
+      guid:        guid,
+      diaspora_id: diaspora_handle,
+      name:        name,
+      avatar:      AvatarPresenter.new(@presentable).medium,
+    }
+  end
+
   def full_hash
     base_hash_with_contact.merge(
       relationship:      relationship,

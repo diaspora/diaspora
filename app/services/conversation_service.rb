@@ -4,7 +4,12 @@ class ConversationService
   end
 
   def all_for_user
-    Conversation.where(author_id: @user.person.id).all
+    Conversation.where(author_id: @user.person.id)
+                .joins(:conversation_visibilities)
+                .where(conversation_visibilities: {
+                  person_id: @user.person_id
+                })
+                .all
   end
 
   def build(subject, text, recipients)
@@ -22,24 +27,26 @@ class ConversationService
     @user.build_conversation(opts)
   end
 
-  def find!(conversation_id)
+  def find!(conversation_guid)
+    conversation = Conversation.find_by!({guid: conversation_guid})
     @user.conversations
          .joins(:conversation_visibilities)
          .where(conversation_visibilities: {
                   person_id:       @user.person_id,
-                  conversation_id: conversation_id
+                  conversation_id: conversation.id
                 }).first!
   end
 
-  def destroy!(conversation_id)
-    conversation = find!(conversation_id)
+  def destroy!(conversation_guid)
+    conversation = find!(conversation_guid)
     conversation.destroy!
   end
 
-  def get_visibility(conversation_id)
+  def get_visibility(conversation_guid)
+    conversation = find!(conversation_guid)
     ConversationVisibility.where(
       person_id:       @user.person.id,
-      conversation_id: conversation_id
+      conversation_id: conversation.id
     ).first!
   end
 end
