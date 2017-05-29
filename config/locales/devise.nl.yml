@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+nl:
+  errors:
+    messages:
+      not_found: "niet gevonden"
+      already_confirmed: "is al geactiveerd"
+      not_locked: "is niet geblokkeerd"
+
+  devise:
+    failure:
+      unauthenticated: 'Log in of registreer om verder te gaan.'
+      unconfirmed: 'Activeer je account om verder te gaan.'
+      locked: 'Je account is geblokkeerd.'
+      invalid: 'Ongeldige email of wachtwoord.'
+      invalid_token: 'Ongeldige authenticatie token.'
+      timeout: 'Je sessie is verlopen, log opnieuw in om verder te gaan.'
+      inactive: 'Je account is nog niet geactiveerd.'
+    sessions:
+      signed_in: 'Succesvol ingelogd.'
+      signed_out: 'Succesvol uitgelogd.'
+    passwords:
+      send_instructions: 'Je ontvangt binnen een paar minuten een email met instructies om je wachtwoord opnieuw in te stellen.'
+      updated: 'Je wachtwoord is veranderd. Je bent nu ingelogd.'
+    confirmations:
+      send_instructions: 'Je ontvangt binnen een paar minuten een email met instructies om je account te activeren.'
+      confirmed: 'Je account is geactiveerd. Je bent nu ingelogd.'
+    registrations:
+      signed_up: 'Je bent succesvol geregisteerd. Indien geactiveerd, ontvang je een bevestingsemail.'
+      updated: 'Je account is bijgewerkt.'
+      destroyed: 'Tot ziens! Je account is verwijderd. We hopen je snel terug te zien.'
+    unlocks:
+      send_instructions: 'Je ontvant binnen een paar minuten een email met instructies om je account te deblokkeren.'
+      unlocked: 'Je account is gedeblokkeeerd. Je bent nu ingelogd.'
+    mailer:
+      confirmation_instructions: 'Activering instructies'
+      reset_password_instructions: 'Wachtwoord reset instructies'
+      unlock_instructions: 'Deblokkeer instructies'
