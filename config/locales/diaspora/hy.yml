@@ -1001,7 +1001,6 @@ hy:
       posting: "Գրառվում է..."
       remove_location: "Ջնջել տեղակայությունը"
       share: "Կիսվել"
-      upload_photos: "Նկարներ վերբեռնել"
       whats_on_your_mind: "Ի՞նչ կա մտքիդ։"
     stream_element:
       via: "Էստեղից` %{link}"

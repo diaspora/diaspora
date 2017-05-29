@@ -115,8 +115,6 @@ art-nvi:
     invitations:
       by_email: "ìlä email"
       invite_your_friends: "pawm ngeyä eylanti fìtseng"
-    publisher:
-      upload_photos: "Fpe' relit"
     stream_element:
       via: "ìlä %{link}"
   streams:

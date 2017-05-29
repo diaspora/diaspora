@@ -13,7 +13,7 @@ gem "unicorn-worker-killer", "0.4.4"
 
 # Federation
 
-gem "diaspora_federation-rails", "0.1.8"
+gem "diaspora_federation-rails", "0.1.9"
 
 # API and JSON
 
@@ -132,7 +132,7 @@ gem "leaflet-rails",       "0.7.7"
 
 # Parsing
 
-gem "nokogiri",          "1.7.1"
+gem "nokogiri",          "1.7.2"
 gem "open_graph_reader", "0.6.2" # also update User-Agent in features/support/webmock.rb
 gem "redcarpet",         "3.4.0"
 gem "ruby-oembed",       "0.10.1"
@@ -183,8 +183,8 @@ gem "typhoeus",           "1.1.2"
 gem "gon",                     "6.1.0"
 gem "hamlit",                  "2.8.0"
 gem "mobile-fu",               "1.3.1"
+gem "rails-timeago",           "2.16.0"
 gem "will_paginate",           "3.1.5"
-gem "rails-timeago",           "2.11.0"
 
 # Logging
 
@@ -217,10 +217,6 @@ gem "thor", "0.19.1"
 # gem "therubyracer", :platform => :ruby
 
 group :production do # we don"t install these on travis to speed up test runs
-  # Administration
-
-  gem "rails_admin", "0.8.1"
-
   # Analytics
 
   gem "rack-google-analytics", "1.2.0"
@@ -250,13 +246,13 @@ group :development do
   gem "rb-inotify",     "0.9.8", require: false
 
   # Linters
-  gem "haml_lint",      "0.21.0"
-  gem "pronto",         "0.8.2"
-  gem "pronto-eslint",  "0.8.0"
-  gem "pronto-haml",    "0.8.0"
-  gem "pronto-rubocop", "0.8.0"
-  gem "pronto-scss",    "0.8.0", require: false
-  gem "rubocop",        "0.47.1"
+  gem "haml_lint",      "0.24.0", require: false
+  gem "pronto",         "0.9.3", require: false
+  gem "pronto-eslint",  "0.9.1", require: false
+  gem "pronto-haml",    "0.9.0", require: false
+  gem "pronto-rubocop", "0.9.0", require: false
+  gem "pronto-scss",    "0.9.1", require: false
+  gem "rubocop",        "0.48.1", require: false
 
   # Preloading environment
 
@@ -296,7 +292,7 @@ group :test do
   gem "webmock",            "2.3.2", require: false
   gem "shoulda-matchers",   "3.1.1"
 
-  gem "diaspora_federation-test", "0.1.8"
+  gem "diaspora_federation-test", "0.1.9"
 
   # Coverage
   gem 'coveralls', require: false

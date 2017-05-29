@@ -596,7 +596,6 @@ br:
       posting: "Oc'h embann..."
       remove_location: "Lemel kuit al lec'hiadur"
       share: "Kenrannañ"
-      upload_photos: "Pellgargañ skeudennoù"
       whats_on_your_mind: "E petra emaoc'h o soñjal ?"
     stream_element:
       via: "dre %{link}"

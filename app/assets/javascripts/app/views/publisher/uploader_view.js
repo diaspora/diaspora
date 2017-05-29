@@ -14,6 +14,9 @@ app.views.PublisherUploader = Backbone.View.extend({
       element: this.el,
       button: this.el,
 
+      text: {
+        fileInputTitle: Diaspora.I18n.t("photo_uploader.upload_photos")
+      },
       request: {
         endpoint: Routes.photos(),
         params: {

@@ -512,7 +512,6 @@ de-moo:
         newhere: "NeuHier"
       posting: "Senden …"
       share: "Teilen"
-      upload_photos: "Fotos hochladen"
       whats_on_your_mind: "Woran denkst du gerade?"
     stream_element:
       via: "via %{link}"

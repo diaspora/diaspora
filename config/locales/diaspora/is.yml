@@ -451,7 +451,6 @@ is:
         newhere: "nýr hér"
       posting: "Senda..."
       share: "Deila"
-      upload_photos: "Senda inn myndir"
       whats_on_your_mind: "Hvað er þér efst í huga?"
     stream_element:
       via: "með %{link}"

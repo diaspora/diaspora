@@ -1,3 +1,20 @@
+# 0.6.6.0
+
+## Refactor
+* Remove rails\_admin [#7440](https://github.com/diaspora/diaspora/pull/7440)
+* Use guid instead of id at permalink and in SPV [#7453](https://github.com/diaspora/diaspora/pull/7453)
+
+## Bug fixes
+* Make photo upload button hover text translatable [#7429](https://github.com/diaspora/diaspora/pull/7429)
+* Fix first comment in mobile view with french locale [#7441](https://github.com/diaspora/diaspora/pull/7441)
+* Use post page title and post author in atom feed [#7420](https://github.com/diaspora/diaspora/pull/7420)
+* Handle broken public keys when receiving posts [#7448](https://github.com/diaspora/diaspora/pull/7448)
+* Fix welcome message when podmin is set to an invalid username [#7452](https://github.com/diaspora/diaspora/pull/7452)
+
+## Features
+
+* Add support for Nodeinfo 2.0 [#7447](https://github.com/diaspora/diaspora/pull/7447)
+
 # 0.6.5.0
 
 ## Refactor

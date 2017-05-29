@@ -1,5 +1,5 @@
 @javascript @mobile
-Feature: Viewing my activity on the steam mobile page
+Feature: Viewing my activity on the stream mobile page
   In order to navigate Diaspora*
   As a mobile user
   I want to view my activity stream

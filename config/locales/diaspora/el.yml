@@ -552,7 +552,6 @@ el:
         newhere: "ΝέοςΕδώ"
       posting: "Ανάρτηση..."
       share: "Κοινοποίηση"
-      upload_photos: "Μεταφόρτωση εικόνων"
       whats_on_your_mind: "Τι σκέφτεσαι;"
     stream_element:
       via: "Μέσω %{link}"

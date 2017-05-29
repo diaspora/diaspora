@@ -172,6 +172,7 @@ oc:
       invalid_ext: "{file} a una extension invalida, Solas {extensions} son permesas."
       looking_good: "Impressionant, avètz un super estil !"
       size_error: "{file} es tròp gròs, la talha maximala es de {sizeLimit}."
+      upload_photos: "Mandar de fotografias"
     poll:
       answer_count:
         one: "1 vòte"

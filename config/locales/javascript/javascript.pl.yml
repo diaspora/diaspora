@@ -6,6 +6,42 @@
 
 pl:
   javascripts:
+    admin:
+      pods:
+        actions: "Akcje"
+        added: "Dodane"
+        check: "wykonaj test połączenia"
+        follow_link: "otwórz łącze w przeglądarce"
+        last_check: "ostatnio sprawdzone:"
+        more_info: "pokaż więcej informacji"
+        no_info: "Jak dotąd nie ma dodatkowych informacji"
+        not_available: "niedostępne"
+        offline_since: "offline od:"
+        pod: "Pod"
+        recheck:
+          failure: "Nie udało się sprawdzić."
+          success: "Pod został właśnie ponownie sprawdzony."
+        response_time: "Czas odpowiedzi:"
+        server_software: "Oprogramowanie serwera:"
+        ssl: "SSL"
+        ssl_disabled: "SSL wyłączone"
+        ssl_enabled: "SSL włączone"
+        states:
+          dns_failed: "Rozwiązanie nazwy domenowej (DNS) nie powiodło się"
+          http_failed: "Nie udało się nawiązać połączenia HTTP"
+          net_failed: "Nie udało się połączyć"
+          no_errors: "OK"
+          ssl_failed: "Nie udało się połączyć poprzez SSL"
+          unknown_error: "Podczas sprawdzania wystąpił nieoczekiwany błąd"
+          version_failed: "Nie udało się pobrać wersji oprogramowania"
+        status: "Status"
+        unknown: "nieznane"
+    admins:
+      dashboard:
+        compare_versions: "Najnowsza wersja diaspory* to <%= latestVersion %>, a Twój pod używa <%= podVersion %>."
+        error: "Nie udało się sprawdzić jaka jest najnowsza wersja diaspory*."
+        outdated: "Twój pod wymaga aktualizacji."
+        up_to_date: "Twój pod nie wymaga aktualizacji!"
     and: "i"
     aspect_dropdown:
       add_to_aspect: "Dodaj kontakt"
@@ -58,11 +94,15 @@ pl:
       remove_contact: "Usuń kontakt"
       search_no_results: "Nie znaleziono użytkowników"
     conversation:
+      create:
+        no_recipient: "Hej, najpierw musisz dodać odbiorcę!"
       new:
         no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kontakty"
     create: "Utwórz"
     delete: "Usuń"
     edit: "Edycja"
+    errors:
+      connection: "Nie udało się połączyć z serwerem."
     failed_to_post_message: "Nie można wysłać wiadomości!"
     failed_to_remove: "Nie udało się usunąć wartości!"
     getting_started:
@@ -79,11 +119,14 @@ pl:
       home: "Strona główna"
       log_out: "Wyloguj"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
+      moderator: "Moderator"
       notifications: "Powiadomienia"
       profile: "Profil"
       recent_notifications: "Ostatnie powiadomienia"
       search: "Szukaj"
       settings: "Ustawienia"
+      toggle_mobile: "Przełącz widok mobilny"
+      toggle_navigation: "Przełącz nawigację"
       view_all: "Wyświetl wszystko"
     hide_post: "Ukryj wpis?"
     hide_post_failed: "Nie można ukryć tego wpisu"
@@ -113,6 +156,7 @@ pl:
       invalid_ext: "{file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia to: {extensions}."
       looking_good: "O rety! Świetnie wyglądasz!"
       size_error: "{file} jest za duży. Maksymalny rozmiar pliku to {sizeLimit}."
+      upload_photos: "Prześlij zdjęcia"
     poll:
       close_result: "Ukryj wynik"
       count:
@@ -140,6 +184,34 @@ pl:
     publisher:
       add_option: "Dodaj odpowiedź"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
+      markdown_editor:
+        preview: "Podgląd"
+        texts:
+          code: "tutaj wpisz kod"
+          heading: "tekst nagłówka"
+          insert_image_description_text: "podaj opis obrazu"
+          insert_image_help_text: "Podaj odnośnik obrazu"
+          insert_image_title: "podaj tytuł obrazu"
+          insert_link_description_text: "podaj opis odnośnika"
+          insert_link_help_text: "Podaj odnośnik"
+          italic: "pochyły tekst"
+          list: "podaj treść elementu listy"
+          quote: "podaj treść cytatu"
+          strong: "pogrubiony tekst"
+        tooltips:
+          bold: "Pogrubienie"
+          cancel: "Anuluj tworzenie wiadomości"
+          code: "Wstaw kod"
+          heading: "Nagłówek"
+          insert_image: "Wstaw obraz"
+          insert_link: "Wstaw odnośnik"
+          insert_ordered_list: "Wstaw listę uporządkowaną"
+          insert_unordered_list: "Wstaw listę nieuporządkowaną"
+          italic: "Kursywa"
+          preview: "Zobacz jak wpis będzie wyglądać"
+          quote: "Wstaw cytat"
+          write: "Edytuj wpis"
+        write: "Edycja"
       near_from: "Blisko <%= location %>"
       option: "Odpowiedź"
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
@@ -181,7 +253,9 @@ pl:
         one: "Wyświetl <%= count %> komentarz więcej"
         other: "Wyświetl <%= count %> komentarzy więcej"
         zero: "Wyświetl <%= count %> komentarzy więcej"
+      no_posts_yet: "Nie ma jeszcze wpisów które można by tu wyświetlić."
       original_post_deleted: "Oryginalny wpis został usunięty przez autora."
+      permalink: "Łącze bezpośrednie"
       public: "Publiczny"
       reshare: "Przekaż dalej"
       reshares:
@@ -211,6 +285,7 @@ pl:
       hour: "około godziny"
       hours:
         other: "około %d godzin"
+      inPast: "w każdej chwili"
       minute: "około minuty"
       minutes:
         other: "%d minut"

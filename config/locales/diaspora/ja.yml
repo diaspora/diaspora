@@ -1025,7 +1025,6 @@ ja:
       posting: "投稿中"
       remove_location: "所在地を削除"
       share: "シェア"
-      upload_photos: "写真をアップロード"
       whats_on_your_mind: "いま何を考えている？"
     stream_element:
       via: "%{link} で"

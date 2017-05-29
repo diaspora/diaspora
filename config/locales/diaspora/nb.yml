@@ -906,7 +906,6 @@ nb:
       posting: "Publiserer ..."
       remove_location: "Fjern lokasjon"
       share: "Del"
-      upload_photos: "Last opp bilder"
       whats_on_your_mind: "Hva tenker du på?"
     stream_element:
       via: "via %{link}"

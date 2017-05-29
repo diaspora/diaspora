@@ -361,7 +361,6 @@ en_shaw:
         i_like: "I'm interested in %{tags}."
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
       share: "𐑖𐑺"
-      upload_photos: "𐑳𐑐𐑤𐑴𐑛 𐑓𐑴𐑑𐑴𐑟"
       whats_on_your_mind: "𐑢𐑳𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑥𐑲𐑯𐑛?"
     stream_element:
       via: "𐑝𐑾 %{link}"

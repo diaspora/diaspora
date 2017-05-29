@@ -82,7 +82,7 @@ configuration: ## Section
       ## Number of times a job is retried (default=10).
       ## There's an exponential effect to this: if you set this too high you
       ## might get too many jobs building up in the queue.
-      ## Set it to false to disable it completely.
+      ## Set it to 0 to disable it completely.
       #retry: 10
 
       ## Lines of backtrace that are stored on failure (default=15).

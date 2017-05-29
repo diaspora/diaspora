@@ -618,7 +618,6 @@ sk:
       posting: "Posiela sa..."
       remove_location: "Odstrániť umiestnenie"
       share: "Uverejniť"
-      upload_photos: "Nahrať fotky"
       whats_on_your_mind: "Na čo myslíš?"
     stream_element:
       via: "na %{link}"

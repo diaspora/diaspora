@@ -201,7 +201,7 @@
     increaseReactionCount: function(bottomBar) {
       var toggleReactionsLink = bottomBar.find(".show-comments").first();
       var count = toggleReactionsLink.text().match(/.*(\d+).*/);
-      count = parseInt(count, 10);
+      count = parseInt(count, 10) || 0;
       var text = Diaspora.I18n.t("stream.comments", {count: count + 1});
 
       // No previous comment

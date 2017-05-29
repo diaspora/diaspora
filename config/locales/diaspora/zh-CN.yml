@@ -443,7 +443,6 @@ zh-CN:
         newhere: "新用户"
       posting: "发布中……"
       share: "分享"
-      upload_photos: "上载照片"
       whats_on_your_mind: "您想到了什么？"
     stream_element:
       via: "通过 %{link}"

@@ -479,6 +479,19 @@ describe Person, :type => :model do
     end
   end
 
+  describe "#public_key" do
+    it "returns the public key for the person" do
+      key = @person.public_key
+      expect(key).to be_a(OpenSSL::PKey::RSA)
+      expect(key.to_s).to eq(@person.serialized_public_key)
+    end
+
+    it "handles broken keys and returns nil" do
+      @person.update_attributes(serialized_public_key: "broken")
+      expect(@person.public_key).to be_nil
+    end
+  end
+
   context 'people finders for webfinger' do
     let(:user) { FactoryGirl.create(:user) }
     let(:person) { FactoryGirl.create(:person) }

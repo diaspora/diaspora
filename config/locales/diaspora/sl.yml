@@ -519,7 +519,6 @@ sl:
         newhere: "NovTukaj"
       posting: "Objavljanje ..."
       share: "Objavi"
-      upload_photos: "Naložite slike"
       whats_on_your_mind: "Kaj tuhtate?"
     stream_element:
       via: "preko %{link}"
