@@ -1004,7 +1004,6 @@ es:
       posting: "Publicando..."
       remove_location: "Eliminar ubicación"
       share: "Compartir"
-      upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Qué estás pensando?"
     stream_element:
       via: "Vía %{link}"

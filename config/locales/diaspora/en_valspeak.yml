@@ -899,7 +899,6 @@ en_valspeak:
       posting: "Postin..."
       remove_location: "Trash where u r"
       share: "Share!!!"
-      upload_photos: "Upload picz!!"
       whats_on_your_mind: "Sup dude?"
     stream_element:
       via: "like... via %{link}"

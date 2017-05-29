@@ -1067,7 +1067,6 @@ da:
       posting: "Sender ..."
       remove_location: "Fjern placering"
       share: "Del"
-      upload_photos: "Upload fotos"
       whats_on_your_mind: "Hvad har du på hjertet?"
     stream_element:
       via: "Via %{link}"

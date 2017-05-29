@@ -52,7 +52,7 @@ de-CH:
     admin_bar:
       pages: "Siitä"
       pod_stats: "Pod Statistik"
-      report: "Uswertige"
+      report: "Meldige"
       sidekiq_monitor: "Sidekiq-Monitor"
       user_search: "Benutzer Suechi"
       weekly_user_stats: "Wöchentlichi Benutzerstatistik"
@@ -234,6 +234,7 @@ de-CH:
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Korrigier folgendi Fähler und versuechs nomel."
+    need_javascript: "Die Website brucht JavaScript damit si suuber funktioniert. Wenn du JavaScript deaktiviert hesch, bitte aktivier's und lad d'Siite neu."
   fill_me_out: "Füll mi uus"
   find_people: "Find Mensche oder #Tags"
   help:
@@ -366,6 +367,7 @@ de-CH:
     mentioned_deleted:
       one: "%{actors} het dich imene glöschte Biitrag erwähnt."
       other: "%{actors} hend dich imene glöschte Biitrag erwähnt."
+    post: "Biitrag"
     private_message:
       one: "%{actors} het dir e Nochricht gschickt."
       other: "%{actors} hend dir e Nochricht gschickt."
@@ -381,7 +383,7 @@ de-CH:
       other: "%{actors} hend agfange mit dir z'teile."
       zero: "Niemer het agfange mit dir z'teile."
   notifier:
-    a_limited_post_comment: "Es git en neue Kommentar zumene limitierte Biitrag uf diaspora*"
+    a_limited_post_comment: "Es git en neue Kommentar zumene begrenzte Biitrag uf diaspora*"
     a_post_you_shared: "en Biitrag."
     a_private_message: "Es git e neue pivati Nochricht für dich uf diaspora*"
     click_here: "druck do"
@@ -498,7 +500,7 @@ de-CH:
       gender: "Gschlächt"
       location: "Ort"
     show:
-      closed_account: "Dä Konto isch gschlosse worde."
+      closed_account: "Da Konto isch gschlosse worde."
       does_not_exist: "Die Person existiert nöd!"
       has_not_shared_with_you_yet: "%{name} het bis etz no kei Biiträg mit dir teilt!"
   photos:
@@ -601,8 +603,8 @@ de-CH:
       mobile_row_checked: "%{name} (entferne)"
       mobile_row_unchecked: "%{name} (hinzuefüege)"
       toggle:
-        one: "I %{count} aspekt"
-        other: "I %{count} aspekt"
+        one: "I %{count} Aspekt"
+        other: "I %{count} Aspekt"
     invitations:
       by_email: "Lad Lüüt per email ii"
       invite_your_friends: "Lad dini Kollege ii"
@@ -632,7 +634,6 @@ de-CH:
       posting: "Abschicke..."
       remove_location: "Standort entferne"
       share: "Teilä"
-      upload_photos: "Fotis Uelade"
       whats_on_your_mind: "Was lauft?"
     stream_element:
       via: "via %{link}"
@@ -678,8 +679,8 @@ de-CH:
     followed_tag:
       add_a_tag: "En Tag hinzuefüege"
       follow: "Folge"
-      title: "#tags wo du folgsch"
-    followed_tags_stream: "#tags wo du folgsch"
+      title: "#tags dene du folgsch"
+    followed_tags_stream: "#tags dene du folgsch"
     like_stream:
       title: "\"gfallt mer\"-Stream"
     mentioned_stream: "@Erwähnige"

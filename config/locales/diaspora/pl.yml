@@ -154,19 +154,30 @@ pl:
           approve: "Zatwierdź"
           deny: "Odmów"
           no_requirement: "%{name} nie wymaga żadnego pozwolenia"
+      error_page:
+        contact_developer: "Powinieneś skontaktować się z twórcą aplikacji i wysłać mu następującą, szczegółową informację o błędzie:"
+        could_not_authorize: "Autoryzacja aplikacji się nie powiodła"
+        login_required: "By autoryzować tę aplikację musisz się najpierw zalogować"
+        title: "O nie! Coś poszło nie tak :("
       scopes:
         openid:
           description: "Pozwala aplikacji na czytanie profilu podstawowego"
           name: "Profil podstawowy"
+        profile:
+          description: "Pozwala aplikacji na czytanie profilu poszerzonego"
+          name: "rozszerzony profil"
         read:
+          description: "Pozwala aplikacji czytać Twój strumień, rozmowy oraz cały profil."
           name: "Czytaj profil, strumień i rozmowy"
+        write:
+          description: "Pozwala aplikacji dodawać nowe wpisy i reakcje oraz uczestniczyć w rozmowach."
       user_applications:
         index:
           access: "%{name} ma dostęp do:"
           edit_applications: "Aplikacje"
           no_requirement: "%{name} nie wymaga pozwolenia"
           title: "Autoryzowane aplikacje"
-        no_applications: "Nie masz pozwolonych aplikacji"
+        no_applications: "Nie autoryzowałeś/łaś żadnych aplikacji"
         policy: "Sprawdź warunki prywatności aplikacji"
         revoke_autorization: "Odwołuj"
         tos: "Sprawdź warunki obsługi aplikacji"
@@ -176,6 +187,7 @@ pl:
     destroy:
       failure: "Nie udało się usunąć osoby z aspektu"
       forbidden: "Nie masz pozwolenia by to zrobić."
+      invalid_statement: "Odrzucono zduplikowany rekord."
       no_membership: "Nie udało się odnaleźć wskazanej osoby w tym aspekcie"
       success: "Pomyślnie usunięto osobę z aspektu"
   aspects:
@@ -201,6 +213,7 @@ pl:
       updating: "Aktualizowanie"
     index:
       donate: "Wspomóż"
+      donate_liberapay: "Wesprzyj poprzez liberapay"
       help:
         any_problem: "Jakiś problem?"
         contact_podmin: "Skontaktuj się z administratorem swojego poda!"
@@ -253,6 +266,8 @@ pl:
     post_something: "Opublikuj w Diasporze"
   cancel: "Anuluj"
   comments:
+    create:
+      error: "Nie udało się dodać komentarza."
     new_comment:
       comment: "Skomentuj"
       commenting: "Dodawanie komentarza..."
@@ -272,6 +287,7 @@ pl:
       user_search: "Wyszukiwanie użytkowników"
     spotlight:
       community_spotlight: "W centrum uwagi społeczności"
+      no_members: "Nie ma jeszcze żadnych członków."
       suggest_member: "Zasugeruj członka"
   conversations:
     create:
@@ -284,6 +300,7 @@ pl:
       conversations_inbox: "Rozmowy - Skrzynka Odbiorcza"
       inbox: "Skrzynka odbiorcza"
       new_conversation: "Nowa rozmowa"
+      no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kilka kontaktów"
       no_messages: "Brak wiadomości"
     new:
       message: "Wiadomość"
@@ -308,8 +325,10 @@ pl:
   delete: "Usuń"
   email: "E-mail"
   error_messages:
+    csrf_token_fail: "Token CSRF jest niepoprawny. Zaloguj się i spróbuj ponownie."
     helper:
       correct_the_following_errors_and_try_again: "Popraw poniższe błędy i spróbuj ponownie."
+    need_javascript: "Strona do poprawnego działania wymaga obsługi JavaScriptu. Jeśli ją wyłączyłeś, proszę byś ją włączył i odświeżył stronę."
   fill_me_out: "Wypełnij mnie"
   find_people: "Znajdź osoby lub #znaczniki"
   help:
@@ -529,8 +548,26 @@ pl:
     tutorial: "samouczek"
     tutorials: "samouczki"
     wiki: "wiki"
+  home:
+    default:
+      be_who_you_want_to_be: "Bądź kimkolwiek chcesz być"
+      byline: "Wirtualna sieć społecznościowa nad którą to Ty masz kontrolę"
+      choose_your_audience: "Wybierz swoich słuchaczy"
+      headline: "Witaj na %{pod_name}"
+      own_your_data: "Twoje dane należą do Ciebie"
+    podmin:
+      configure_your_pod: "Skonfiguruj swój pod"
+      contact_irc: "porozmawiaj z nami na IRC-u"
+      contribute: "Współtwórz"
+      create_an_account: "Stwórz konto"
+      headline: "Witaj, przyjacielu."
+      update_your_pod: "Zaktualizuj swój pod"
+  invitation_codes:
+    already_logged_in: "%{inviter} zaprosił Cię na ten pod, ale jesteś już zalogowany."
+    not_valid: "Kod zaproszenia wygasł"
   invitations:
     create:
+      closed: "Wysyłanie zaproszeń jest obecnie wyłączone na tym podzie diaspory*."
       empty: "Podaj przynajmniej jeden adres e-mail."
       no_more: "Nie masz więcej zaproszeń."
       note_already_sent: "Zaproszenia zostały już wysłane do: %{emails}"
@@ -564,6 +601,11 @@ pl:
       profile: "Profil"
       settings: "Ustawienia"
       toggle_navigation: "Przełącz nawigację"
+  likes:
+    create:
+      error: "Nie udało się polubić."
+    destroy:
+      error: "Nie udało się usunąć polubienia."
   limited: "Ograniczone"
   more: "Więcej"
   no_results: "Niczego nie znaleziono"
@@ -744,6 +786,7 @@ pl:
       subject: "%{name} wspomniał o Tobie na diasporze*"
     private_message:
       reply_to_or_view: "Odpowiedz lub wyświetl wątek >"
+      subject: "Masz nową prywatną wiadomość"
     remove_old_user:
       body: |-
           Witaj,
@@ -829,6 +872,7 @@ pl:
       title: "Wpis od %{name}"
     show:
       forbidden: "Nie masz pozwolenia by to zrobić."
+      location: "Wysłano z: %{location}"
       photos_by:
         few: "%{count} zdjęcia od %{author}"
         many: "%{count} zdjęć od %{author}"
@@ -841,11 +885,19 @@ pl:
   profiles:
     edit:
       allow_search: "Pozwól innym użytkownikom diaspory* na wyszukanie ciebie"
+      basic: "Mój podstawowy profil"
+      basic_hint: "Wszystkie elementy Twojego profilu są opcjonalne. Twój podstawowy profil zawsze będzie publicznie dostępny."
+      extended: "Mój rozszerzony profil"
+      extended_hint: "Użyj przełącznika by ustawić widoczność Twojego rozszerzonego profilu. Publiczna oznacza, że będzie widoczny dla każdego z internecie, ograniczona, że tylko dla osób z którymi dzielisz się na Diasporze."
+      extended_visibility_text: "Widoczność Twojego rozszerzonego profilu:"
       first_name: "Imię"
       last_name: "Nazwisko"
+      limited: "Ograniczona"
       nsfw_check: "Oznacz wszystko co udostępniam jako NSFW"
       nsfw_explanation: "NSFW (‘nieodpowiedni w pracy’, ang. 'not safe for work') jest standardem ustalanym przez samorządną społeczność diaspory* określającym zawartość, która może nie być odpowiednia do przeglądania w czasie pracy. Jeśli planujesz często udostępniać taką zawartość, prosimy zaznacz to pole - sprawi to, że te wpisy będą zasłonięte w strumieniu dopóki użytkownik nie zdecyduje się ich zobaczyć."
       nsfw_explanation2: "Jeśli zdecydujesz się nie zaznaczać tej opcji, prosimy dodawaj tag #nsfw za każdym razem kiedy udostępniasz taką zawartość."
+      public: "Publiczna"
+      settings: "Ustawienia profilu"
       update_profile: "Aktualizuj profil"
       your_bio: "O Tobie"
       your_birthday: "Twoje urodziny"
@@ -885,6 +937,7 @@ pl:
     post_label: "<b>Wpis</b>: %{title}"
     reason_label: "Powód:"
     reported_label: "<b>Zgłoszony przez</b> %{person}"
+    reported_user_details: "Szczegółowe informacje odnośnie zgłoszonego użytkownika"
     review_link: "Oznacz jako sprawdzony"
     status:
       destroyed: "Wpis został zniszczony"
@@ -892,6 +945,8 @@ pl:
     title: "Przegląd zgłoszeń"
   reshares:
     comment_email_subject: "%{resharer} przekazał/a dalej wpis %{author}"
+    create:
+      error: "Nie udało się przekazać dalej."
     reshare:
       deleted: "Oryginał został usunięty przez autora."
       reshare_confirmation: "Przekazać dalej wpis użytkownika %{author}?"
@@ -916,6 +971,7 @@ pl:
       not_logged_in: "Nie zalogowany."
       really_disconnect: "Odłączyć %{service}?"
       services_explanation: "Podłączenie usług umożliwia jednoczesne publikowanie w nich wpisów, które udostępniasz w sieci Diaspora*."
+      title: "Zarządzaj podłączonymi usługami"
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
@@ -950,7 +1006,7 @@ pl:
     publisher:
       discard_post: "Porzuć wpis"
       formatWithMarkdown: "Możesz użyć %{markdown_link} aby sformatować swój wpis"
-      get_location: "Ustal twoją lokalizację"
+      get_location: "Ustal Twoją lokalizację"
       new_user_prefill:
         hello: "Witajcie wszyscy, jestem #%{new_user_tag}. "
         i_like: "Interesują mnie %{tags}."
@@ -961,7 +1017,6 @@ pl:
       posting: "Publikowanie..."
       remove_location: "Usuń lokalizację"
       share: "Udostępnij"
-      upload_photos: "Prześlij zdjęcia"
       whats_on_your_mind: "O czym myślisz?"
     stream_element:
       via: "Przez %{link}"
@@ -999,25 +1054,31 @@ pl:
     activity:
       title: "Moja aktywność"
     aspects:
+      all: "Wszystkie aspekty"
       title: "Moje aspekty"
     aspects_stream: "Aspekty"
     comment_stream:
       title: "Skomentowane wpisy"
+    commented:
+      title: "Skomentowane wpisy"
     community_spotlight_stream: "W centrum uwagi społeczności"
     followed_tag:
       add_a_tag: "Dodaj znacznik"
+      all: "Wszystkie znaczniki"
       follow: "Obserwuj"
       title: "#Obserwowane znaczniki"
     followed_tags_stream: "#Obserwowane znaczniki"
     like_stream:
       title: "Strumień polubionych"
+    liked:
+      title: "Polubione wpisy"
     mentioned_stream: "@Wzmianki"
     mentions:
       title: "@Wzmianki"
     multi:
       title: "Strumień"
     public:
-      title: "Działalność publiczna"
+      title: "Aktywność publiczna"
     tags:
       title: "Oznaczone wpisy: %{tags}"
   tag_followings:
@@ -1050,6 +1111,7 @@ pl:
       auto_follow_aspect: "Aspekt dla automatycznie dodanych użytkowników:"
       auto_follow_back: "Automatycznie zacznij udostępniać gdy ktoś zaczyna udostępniać mnie"
       change: "Zmień"
+      change_color_theme: "Zmień wariant kolorystyczny"
       change_email: "Zmiana adresu e-mail"
       change_language: "Zmiana języka"
       change_password: "Zmiana hasła"
@@ -1066,6 +1128,7 @@ pl:
       comment_on_post: "...ktoś dodał komentarz do mojego wpisu"
       current_password: "Bieżące hasło"
       current_password_expl: "to, którego używasz do logowania"
+      default_post_visibility: "Domyślne aspekty dla nowych wpisów"
       download_export: "Pobierz mój profil"
       download_export_photos: "Pobierz moje zdjęcia"
       edit_account: "Edycja konta"
@@ -1112,6 +1175,8 @@ pl:
     public:
       does_not_exist: "Użytkownik %{username} nie istnieje!"
     update:
+      color_theme_changed: "Wariant kolorystyczny został zmieniony."
+      color_theme_not_changed: "Podczas próby zmiany wariantu kolorystycznego wystąpił błąd."
       email_notifications_changed: "Ustawienia powiadomień e-mail zostały zmienione"
       follow_settings_changed: "Ustawienia obserwowania zostały zmienione"
       follow_settings_not_changed: "Nie udało się zmienić ustawień obserwowania."

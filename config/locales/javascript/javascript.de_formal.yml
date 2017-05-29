@@ -170,6 +170,7 @@ de_formal:
       invalid_ext: "{file} hat eine ungültige Erweiterung. Nur {extensions} sind erlaubt."
       looking_good: "OMG, Sie sehen toll aus!"
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
+      upload_photos: "Fotos hochladen"
     poll:
       answer_count:
         one: "Eine Stimme"

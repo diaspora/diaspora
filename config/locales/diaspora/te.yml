@@ -702,7 +702,6 @@ te:
       posting: "టపాకడుతూంది..."
       remove_location: "స్థానాన్ని తీసివేయి"
       share: "పంచుకోండి"
-      upload_photos: "ఛాయాచిత్రాలను ఎక్కించండి"
       whats_on_your_mind: "మీ బుర్రలో ఏం మెదులుతోంది?"
     stream_element:
       via: "%{link} ద్వారా"

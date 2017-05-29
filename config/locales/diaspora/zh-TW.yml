@@ -1012,7 +1012,6 @@ zh-TW:
       posting: "發表中..."
       remove_location: "移除位置資訊"
       share: "分享"
-      upload_photos: "上傳相片"
       whats_on_your_mind: "在想什麼呢？"
     stream_element:
       via: "經由%{link}"

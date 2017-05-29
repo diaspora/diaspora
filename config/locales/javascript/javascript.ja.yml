@@ -165,6 +165,7 @@ ja:
       invalid_ext: "{file}の拡張子は正しくありません。{extensions}以外の拡張子は使えません。"
       looking_good: "なんてこったー！あなたは素晴らしいですね！"
       size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
+      upload_photos: "写真をアップロード"
     poll:
       answer_count:
         other: "<%=count%> 投票"

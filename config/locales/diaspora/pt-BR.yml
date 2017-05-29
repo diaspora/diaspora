@@ -1047,7 +1047,6 @@ pt-BR:
       posting: "Publicando..."
       remove_location: "Localização remota"
       share: "Compartilhar"
-      upload_photos: "Enviar fotos"
       whats_on_your_mind: "O que você quer compartilhar agora?"
     stream_element:
       via: "Via %{link}"

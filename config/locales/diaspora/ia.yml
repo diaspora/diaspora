@@ -999,7 +999,6 @@ ia:
       posting: "Invio in curso…"
       remove_location: "Remover loco"
       share: "Divider"
-      upload_photos: "Incargar photos"
       whats_on_your_mind: "De que pensa tu?"
     stream_element:
       via: "Via %{link}"

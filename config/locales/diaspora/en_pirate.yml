@@ -490,7 +490,6 @@ en_pirate:
       posting: "Firin!"
       remove_location: "Eye patch ye location!"
       share: "Fire!"
-      upload_photos: "Hang up portraits"
       whats_on_your_mind: "What be botherin' you?"
     stream_element:
       via: "Via %{link}"

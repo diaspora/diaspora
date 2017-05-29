@@ -520,7 +520,6 @@ eo:
         newhere: "NewHere"
       posting: "Afiŝanta..."
       share: "Konigi"
-      upload_photos: "Alŝuti bildojn"
       whats_on_your_mind: "Kion vi nun pensas?"
     stream_element:
       via: "per %{link}"

@@ -993,7 +993,6 @@ cs:
       posting: "Odesílám…"
       remove_location: "Odstranit pozici"
       share: "Sdílet"
-      upload_photos: "Nahrát fotky"
       whats_on_your_mind: "Co máte na mysli?"
     stream_element:
       via: "skrz %{link}"

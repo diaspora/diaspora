@@ -646,7 +646,6 @@ pt-PT:
         newhere: "Novo Aqui"
       posting: "A publicar..."
       share: "Partilhar"
-      upload_photos: "Carregar fotos"
       whats_on_your_mind: "Em que está a pensar?"
     stream_element:
       via: "Via %{link}"

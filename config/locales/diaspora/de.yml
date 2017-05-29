@@ -1014,7 +1014,7 @@ de:
     destroy:
       success: "Authentifizierung erfolgreich gelöscht."
     failure:
-      error: "Es gab einen Fehler beim Verbinden mit dem Dienst."
+      error: "Es gab einen Fehler beim Verbinden mit diesem Dienst."
     index:
       connect: "Verbinde"
       disconnect: "Verbindung entfernen"
@@ -1069,7 +1069,6 @@ de:
       posting: "Senden …"
       remove_location: "Ort entfernen"
       share: "Teilen"
-      upload_photos: "Fotos hochladen"
       whats_on_your_mind: "Woran denkst du gerade?"
     stream_element:
       via: "via %{link}"

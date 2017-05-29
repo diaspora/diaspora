@@ -383,7 +383,6 @@ bg:
         newhere: "НовТук"
       posting: "Публикуване..."
       share: "Споделете"
-      upload_photos: "Качете снимки"
       whats_on_your_mind: "За какво мислите?"
     stream_element:
       via: "чрез %{link}"

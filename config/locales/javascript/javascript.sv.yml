@@ -228,6 +228,7 @@ sv:
           quote: "Infoga citat"
           write: "Ändra meddelande"
         write: "Skriv"
+      mention_success: "Lyckades nämna: <%= names %>"
       near_from: "Sänt från: <%= location %>"
       option: "Alternativ"
       public: "Publikt: ditt inlägg visas för alla och i söktjänster"

@@ -8,6 +8,8 @@ sc:
   javascripts:
     header:
       moderator: "Moderatore"
+    photo_uploader:
+      upload_photos: "Càrriga fotografias"
     publisher:
       mention_success: "Etichetados curretamente: <%= names %>"
     timeago:
