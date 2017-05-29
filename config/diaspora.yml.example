@@ -569,7 +569,7 @@ configuration: ## Section
       ## Report-Only header (default=true)
       ## By default diaspora* adds only a "Content-Security-Policy-Report-Only" header. If you set
       ## this to false, the "Content-Security-Policy" header is added instead.
-      #report_only: false
+      report_only: false
 
       ## CSP report URI (default=)
       ## You can set an URI here, where the user agent reports violations as JSON document via a POST request.
