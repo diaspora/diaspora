@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+de:
+  errors:
+    messages:
+      not_found: "nicht gefunden"
+      already_confirmed: "wurde bereits bestätigt"
+      not_locked: "war nicht gelockt"
+
+  devise:
+    failure:
+      unauthenticated: 'Sie müssen sich einloggen oder sich anmelden bevor Sie fortfahren können.'
+      unconfirmed: 'Sie müssen Ihren Account bestätigen bevor Sie fortfahren können.'
+      locked: 'Ihr Account ist gelockt.'
+      invalid: 'Ungültige E-Mail oder Passwort.'
+      invalid_token: 'Ungültiges Authentifizierungstoken.'
+      timeout: 'Ihre Session ist abgelaufen, bitte loggen Sie sich erneut ein um fortzufahren.'
+      inactive: 'Ihr Account wurde noch nicht aktiviert.'
+    sessions:
+      signed_in: 'Einloggen erfolgreich.'
+      signed_out: 'Sie haben sich erfolgreich ausgeloggt'
+    passwords:
+      send_instructions: 'Sie werden in wenigen Minuten eine E-Mail mit Instruktionen zum Zurücksetzen Ihres Passwortes erhalten.'
+      updated: 'Ihr Passwort wurde erfolgreich geändert. Sie sind nun eingeloggt.'
+    confirmations:
+      send_instructions: 'Sie werden in wenigen Minuten eine E-Mail mit Instruktionen zum Bestätigen Ihres Accounts erhalten.'
+      confirmed: 'Ihr Account wurde erfolgreich bestätigt. Sie sind nun eingeloggt.'
+    registrations:
+      signed_up: 'Sie haben sich erfolgreich angemeldet. Wenn aktiviert, wird Ihnen eine E-Mail zur Bestätigung zugeschickt.'
+      updated: 'Sie haben Ihren Account erfolgreich aktualisiert.'
+      destroyed: 'Auf Wiedersehen! Ihr Account wurde erfolgreich entfernt. Wir hoffen Sie bald wieder zu sehen.'
+    unlocks:
+      send_instructions: 'Sie werden in wenigen Minuten eine E-Mail mit Instruktionen erhalten wie sie Ihren Account entsperren können erhalten.'
+      unlocked: 'Ihr Account wurde erfolgreich entsperrt. SIe sind nun eingeloggt.'
+    mailer:
+      confirmation_instructions: 'Instruktionen zum Bestätigen'
+      reset_password_instructions: 'Instruktionen zum zurücksetzen Ihres Passworts'
+      unlock_instructions: 'Instruktionen zum Entsperren'
