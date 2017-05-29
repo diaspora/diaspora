@@ -25,6 +25,7 @@ class OEmbedCache < ActiveRecord::Base
     else
       self.data = response.fields
       self.data['trusted_endpoint_url'] = response.provider.endpoint
+      self.fix_embed_code
       self.save
     end
   end
@@ -44,5 +45,20 @@ class OEmbedCache < ActiveRecord::Base
       :width => self.data.fetch(prefix + 'width', ''),
       :alt => self.data.fetch('title', ''),
     }
+  end
+
+  def fix_embed_code
+    if ['video', 'rich'].include? self.data['type'] and self.is_trusted_and_has_html?
+      subs = [
+        # youtube
+        { :from => /("http:\/\/www\.youtube\.com\/embed\/.{11}\?)/,
+          :to   => '\1wmode=transparent&' },
+        # soundcloud
+        { :from => /(<object height=".+" width=".+">\s*)(<param name="movie" value="http:\/\/player\.soundcloud\.com\/player\.swf)/,
+          :to   => '\1<param name="wmode" value="transparent"></param>\2' },
+      ]
+
+      subs.each {|s| self.data['html'].gsub!(s[:from], s[:to])}
+    end
   end
 end
