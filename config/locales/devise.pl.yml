@@ -1,0 +1,43 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+#    
+#   Author: Jan Domański jandom@gmail.com
+#   Comments: translation is based on the Polish locales for other social networking services
+
+en:
+  errors:
+    messages:
+      not_found: "nie znaleziono"
+      already_confirmed: "zostało już potwierdzone"
+      not_locked: "nie zostało zablokowane"
+
+  devise:
+    failure:
+      unauthenticated: 'Zarejestruj się lub zaloguj, aby kontynuować.'
+      unconfirmed: 'Musisz aktywować swoje konto, aby kontynuować.'
+      locked: 'Twoje konto jest zablokowane.'
+      invalid: 'Niewłaściwy email lub hasło.'
+      invalid_token: 'Niewłaściwy kod dostępu.'
+      timeout: 'Twoja sesja wygasła, zaloguj się ponownie.'
+      inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
+    sessions:
+      signed_in: 'Zalogowano pomyślne.'
+      signed_out: 'Wylogowano pomyślne.'
+    passwords:
+      send_instructions: 'Otrzymasz wiadomość email z informacją jak zresetować swoje hasło w przeciągu paru minut.'
+      updated: 'Twoje hasło zostało zmienione. Zostałeś zalogowany.'
+    confirmations:
+      send_instructions: 'Otrzymasz wiadomość email z informacją jak potwierdzić swoje konto w przeciągu paru minut.'
+      confirmed: 'Twoje konto zostało aktywowane. Zostałeś zalogowany.'
+    registrations:
+      signed_up: 'Twoje konto zostało zarejestrowane. Jeśli wyraziłeś zgodę, mail aktywujący został wysłany na Twój email.'
+      updated: 'Konto zostało zaktualizowane.'
+      destroyed: 'Papa! Twoje konto zostało usunięte. Liczymy, że jeszcze Cię zobaczymy.'
+    unlocks:
+      send_instructions: 'Otrzymasz wiadomość mail z informacją jak odblokować Twoje konto w przeciągu paru minut.'
+      unlocked: 'Twoje konto zostało odblokowane. Zostałeś zalogowany.'
+    mailer:
+      confirmation_instructions: 'Aktywacja konta'
+      reset_password_instructions: 'Resetowanie hasła'
+      unlock_instructions: 'Odblokowywanie konta'
