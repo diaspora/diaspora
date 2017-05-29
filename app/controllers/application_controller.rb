@@ -93,6 +93,7 @@ class ApplicationController < ActionController::Base
       locale = http_accept_language.language_region_compatible_from AVAILABLE_LANGUAGE_CODES
       locale ||= DEFAULT_LANGUAGE
       I18n.locale = locale
+      I18n.locale = params[:lang] if params[:lang].present? && AVAILABLE_LANGUAGE_CODES.include? params[:lang]
     end
   end
 
