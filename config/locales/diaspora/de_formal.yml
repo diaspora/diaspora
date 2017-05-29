@@ -1062,7 +1062,6 @@ de_formal:
       posting: "Senden …"
       remove_location: "Position entfernen"
       share: "Teilen"
-      upload_photos: "Fotos hochladen"
       whats_on_your_mind: "Woran denken Sie gerade?"
     stream_element:
       via: "Via %{link}"

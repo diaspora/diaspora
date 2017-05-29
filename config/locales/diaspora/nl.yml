@@ -1044,7 +1044,6 @@ nl:
       posting: "Plaatsen..."
       remove_location: "Verwijder locatie"
       share: "Delen"
-      upload_photos: "Upload fotos"
       whats_on_your_mind: "Waar denk je aan?"
     stream_element:
       via: "Via %{link}"

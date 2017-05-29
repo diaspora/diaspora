@@ -800,7 +800,6 @@ hu:
       posting: "Küldés..."
       remove_location: "Tartózkodási hely eltávolítása"
       share: "Megosztás"
-      upload_photos: "Képek feltöltése"
       whats_on_your_mind: "Mi jár a fejedben?"
     stream_element:
       via: "ezen keresztül: %{link}"

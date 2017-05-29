@@ -501,7 +501,6 @@ eu:
         newhere: "Berria"
       posting: "Partekatzen..."
       share: "Partekatu"
-      upload_photos: "Argazkiak igo"
       whats_on_your_mind: "Zer ari zara pentsatzen?"
     stream_element:
       via: "%{link}(r)en bidez"

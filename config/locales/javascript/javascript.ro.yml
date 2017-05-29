@@ -6,6 +6,9 @@
 
 ro:
   javascripts:
+    admin:
+      pods:
+        follow_link: "deschide legătura în browser"
     and: "și"
     aspect_dropdown:
       add_to_aspect: "Adaugă la contacte"
@@ -58,6 +61,7 @@ ro:
       invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
       looking_good: "WOW, arati super!"
       size_error: "{file} este prea mare, mărimea maximă a unui fişier este {sizeLimit}."
+      upload_photos: "Încarcă fotografii"
     profile:
       posts: "Postări"
     publisher:
@@ -67,10 +71,11 @@ ro:
     show_more: "arată mai mult"
     stream:
       comment: "Comentariu"
-      follow: "Urmează"
+      follow: "Urmărește"
       followed_tag:
         add_a_tag: "Adaugă o etichetă"
-        follow: "Urmează"
+        follow: "Urmărește"
+        title: "Etichetele #urmărite"
       hide: "Ascunde"
       hide_nsfw_posts: "Ascunde #nsfw articole"
       like: "Îmi place"
@@ -102,7 +107,9 @@ ro:
       show_nsfw_post: "Afișare articol"
       show_nsfw_posts: "Arată tot"
       tags:
-        following: "Urmărind #<%= tag %>"
+        follow: "Urmărește #<%= tag %>"
+        following: "Urmărești #<%= tag %>"
+        stop_following: "Nu mai urmări #<%= tag %>"
         stop_following_confirm: "Să nu mai urmăresc #<%= tag %>?"
       unfollow: "Nu mai urmări"
       unlike: "Nu ȋmi place"

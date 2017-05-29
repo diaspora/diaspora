@@ -93,7 +93,8 @@ nn:
   are_you_sure_delete_account: "Er du heilt sikker på at du vil stenge kontoen din? Dette kan ikkje gjerast om!"
   aspect_memberships:
     destroy:
-      failure: "Klarte ikkje å fjerna personen frå aspektet"
+      failure: "Fekk ikkje fjerna personen frå aspektet"
+      forbidden: "Du har ikkje lov til å gjere det."
       no_membership: "Fann ikkje den valde personen i det aspektet"
       success: "Fjerna personen frå aspektet"
   aspects:
@@ -118,6 +119,7 @@ nn:
       updating: "oppdaterer"
     index:
       donate: "Doner"
+      donate_liberapay: "Doner med Liberapay"
       help:
         any_problem: "Har du eit problem?"
         contact_podmin: "Ta kontakt med administratoren (podminen) på poden din."
@@ -169,6 +171,8 @@ nn:
     post_something: "denne lenkja"
   cancel: "Avbryt"
   comments:
+    create:
+      error: "Fekk ikkje kommentert."
     new_comment:
       comment: "Kommenter"
       commenting: "Kommenterer …"
@@ -215,6 +219,10 @@ nn:
   fill_me_out: "Fyll meg ut"
   find_people: "Finn personar eller #grindmerke"
   help:
+    account_and_data_management:
+      close_account_q: "Korleis slettar eg kontoen min?"
+      data_visible_to_podmin_q: "Kor mykje av informasjonen min kan pod-administratoren min sjå?"
+      move_pods_q: "Korleis flyttar eg kontoen min frå ein pod til ein annan?"
     getting_help:
       getting_started_q: "Hjelp! Eg treng nokon til å hjelpe meg i gang!"
       title: "Få hjelp"
@@ -226,8 +234,11 @@ nn:
     tutorial: "innføring"
     tutorials: "innføringar"
     wiki: "wiki"
+  invitation_codes:
+    already_logged_in: "Du er blitt invitert til å registrere deg på denne poden av %{inviter}, men du er allereie logga inn."
   invitations:
     create:
+      closed: "Det er ikkje mogleg å invitere nokon til denne Diaspora*-poden."
       empty: "Skriv inn minst ei e-post-adresse."
       no_more: "Du har ingen fleire invitasjonar."
       note_already_sent: "Invitasjonar er allereie sende til: %{emails}"
@@ -257,6 +268,11 @@ nn:
       logout: "Logg ut"
       profile: "Profil"
       settings: "Innstillingar"
+  likes:
+    create:
+      error: "Fekk ikkje likt."
+    destroy:
+      error: "Likar framleis."
   limited: "Avgrensa"
   more: "Meir"
   no_results: "Fann ingen resultat"
@@ -464,6 +480,8 @@ nn:
       username: "BRUKARNAMN"
   reshares:
     comment_email_subject: "%{resharer} si deling av %{author} sitt innlegg"
+    create:
+      error: "Fekk ikkje delt."
     reshare:
       deleted: "Forfattaren har sletta originalinnlegget."
       reshare_confirmation: "Vil du dele %{author} sitt innlegg?"
@@ -518,7 +536,6 @@ nn:
         newhere: "NyHer"
       posting: "Sender …"
       share: "Del"
-      upload_photos: "Last opp bilete"
       whats_on_your_mind: "Kva tenkjer du på?"
     stream_element:
       via: "via %{link}"
@@ -531,6 +548,7 @@ nn:
     activity:
       title: "Min aktivitet"
     aspects:
+      all: "Alle aspekta"
       title: "Aspekta mine"
     aspects_stream: "Aspektar"
     comment_stream:

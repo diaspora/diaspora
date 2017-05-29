@@ -528,7 +528,6 @@ ko:
       posting: "올리는 중···"
       remove_location: "위치 삭제"
       share: "공유"
-      upload_photos: "사진 올리기"
       whats_on_your_mind: "무슨 생각해요?"
     stream_element:
       via: "%{link}에서"

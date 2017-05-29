@@ -171,6 +171,7 @@ fr:
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont permises."
       looking_good: "Impressionnant, vous avez un super look !"
       size_error: "{file} est trop gros, la taille maximum est de {sizeLimit}."
+      upload_photos: "Envoyer des photos"
     poll:
       answer_count:
         one: "<%=count%> vote"

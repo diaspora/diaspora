@@ -70,9 +70,9 @@ sv:
         one: "En kommentar"
         other: "%{count} kommentarer"
         zero: "Inga kommentarer"
-      current_segment: "Medelantalet inlägg per användare för segmentet <b>%{post_day}</b> är <b>%{post_yest}</b>"
+      current_segment: "Medelantalet inlägg per användare för segmentet %{post_day} är %{post_yest}"
       daily: "Dagligen"
-      display_results: "Visar resultat från segmentet <b>%{segment}</b>"
+      display_results: "Visar resultat från segmentet %{segment}"
       go: "Kör"
       month: "Månad"
       posts:
@@ -83,7 +83,7 @@ sv:
         one: "En delning"
         other: "%{count} delningar"
         zero: "Inga delningar"
-      tag_name: "Taggnamn: <b>%{name_tag}</b> Antal: <b>%{count_tag}</b>"
+      tag_name: "Taggnamn: %{name_tag} Antal: %{count_tag}"
       usage_statistic: "Användningsstatistik"
       users:
         one: "En användare"
@@ -334,7 +334,7 @@ sv:
   delete: "Ta bort"
   email: "E-post"
   error_messages:
-    csrf_token_fail: "Ogiltigt CSRF-insegel. Vanligen logga in och försök igen."
+    csrf_token_fail: "Ogiltigt CSRF-pollett. Vänligen logga in och försök igen."
     helper:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
     need_javascript: "Denna webbplats behöver JavaScript för att fungera ordentligt. Har du inaktiverat JavaScript, får du vara så snäll att aktivera det och ladda om sidan."
@@ -662,7 +662,7 @@ sv:
       mark_all_shown_as_read: "Märk allt som läst"
       mark_read: "Lästmärk"
       mark_unread: "Markera som oläst"
-      mentioned: "Omnämnd i inlägg"
+      mentioned: "Omnämnd"
       no_notifications: "Du har inga notifikationer än."
       notifications: "Notiser"
       reshared: "Återdelad"
@@ -964,10 +964,10 @@ sv:
       terms_link: "användarvillkor"
       username: "Användarnamn"
   report:
-    comment_label: "<b>Kommentar</b>:<br>%{data}"
+    comment_label: "<b>Kommentar</b>:%{data}"
     confirm_deletion: "Vill de radera objektet?"
     delete_link: "Radera objekt"
-    not_found: "<u>Inlägget eller kommentaren fanns inte. Det tycks har blivit borttaget av användaren.</u>"
+    not_found: "Inlägget eller kommentaren fanns inte. Det tycks har blivit borttaget av användaren."
     post_label: "<b>Inlägg</b>: %{title}"
     reason_label: "Orsak:"
     reported_label: "<b>Anmält av</b> %{person}"
@@ -1053,7 +1053,6 @@ sv:
       posting: "Skickar..."
       remove_location: "Ta bort platsen"
       share: "Dela"
-      upload_photos: "Ladda upp foton"
       whats_on_your_mind: "Vad har du på hjärtat?"
     stream_element:
       via: "Via %{link}"
@@ -1096,6 +1095,8 @@ sv:
     aspects_stream: "Aspekter"
     comment_stream:
       title: "Kommenterade inlägg"
+    commented:
+      title: "Kommenterade inlägg"
     community_spotlight_stream: "Gemenskapens rampljus"
     followed_tag:
       add_a_tag: "Lägg till en tagg"
@@ -1105,6 +1106,8 @@ sv:
     followed_tags_stream: "#Följda taggar"
     like_stream:
       title: "Gilla flöde"
+    liked:
+      title: "Gillade inlägg"
     mentioned_stream: "@Omnämnanden"
     mentions:
       title: "@Omnämnanden"

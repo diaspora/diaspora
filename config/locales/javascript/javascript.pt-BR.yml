@@ -170,8 +170,9 @@ pt-BR:
       empty: "{file} está vazio, por favor selecione arquivos novamente sem este."
       error: "Ocorreu um problema ao fazer upload do arquivo <%= file %>"
       invalid_ext: "{file} possui extensão inválida. Somente {extensions} são permitidas."
-      looking_good: "OMG, veja você é incrível!"
+      looking_good: "Uau, arrasou!"
       size_error: "{file} é muito grande, o tamanho máximo do arquivo é {sizeLimit}."
+      upload_photos: "Subir fotos"
     poll:
       answer_count:
         one: "Um voto"

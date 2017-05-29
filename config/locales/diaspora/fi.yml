@@ -887,7 +887,6 @@ fi:
       posting: "Lähetetään..."
       remove_location: "Poista sijainti"
       share: "Jaa"
-      upload_photos: "Lisää kuvia"
       whats_on_your_mind: "Mitä mielessä?"
     stream_element:
       via: "%{link} kautta"

@@ -717,6 +717,26 @@ oc:
       click_link: "Per activar vòstre novèla adreça de corrièl %{unconfirmed_email}, seguissètz aqueste ligam :"
       subject: "Mercés d'activar vòstre novèl corrièl %{unconfirmed_email}"
     csrf_token_fail:
+      body: |-
+          Adissiatz %{name}, 
+
+          diaspora* a detectat un ensag d’accès a vòstre sesilha que poiriá èsser pas autorizat. Per evitar que vòstras donadas siasguen gastadas sètz estat desconnectat. Vos copetz pas lo cap, vos podètz tornar connectar en seguretat ara. 
+           
+          Una demanda es estada facha n’emplegant un geton CSRF incorrècte o absent. Aquò poiriá èsser completament innocent, mai aquò pòt tanben èsser un atac apelat Cross-site request forgery (CSRF). 
+           
+          Aquò pòt venir de : 
+           
+            - una extension que manipula la demanda o que fa de demanda sens lo geton;
+            - un onglet daissat dubèrt d’una anciana sesilha;
+            - un fum d’aisinas extèrnas;
+            - un marrit còdi qu’ensaja d'accedir a vòstras donadas. 
+           
+          Per mai informacion subre l’atac CSRF vejatz [%{link}](%{link}). 
+           
+          Se tenètz vist aqueste messatge, mercés de verificar los punts al dessús, inclús las extensions de qual que siague navigador. 
+           
+          Mercés, 
+          Lo robòt de corrièl a diaspora* !
       subject: "Avèm recebut una demanda sens autorizacion de vòstre compte, %{name}"
     email_sent_by_diaspora: "Aqueste corrièl es estat mandat per %{pod_name}. Se volètz pas mai de corrièls atal,"
     export_email:
@@ -1032,8 +1052,7 @@ oc:
       posting: "Publicacion..."
       remove_location: "Suprimir l'emplaçament"
       share: "Partejar"
-      upload_photos: "Mandar de fòtos"
-      whats_on_your_mind: "A qué pensatz ?"
+      whats_on_your_mind: "A de qué pensatz ?"
     stream_element:
       via: "Via %{link}"
       via_mobile: "Enviat d'un mobil"
@@ -1176,7 +1195,7 @@ oc:
       connect_to_facebook: "Podèm accelerar un pauc las causas de %{link} sus diaspora*. Aquò botarà vòstre nom e foto, e activar la publicacion multiplataforma."
       connect_to_facebook_link: "Connexion amb vòtre compte Facebook en cors"
       hashtag_explanation: "Las etiquetas vos permeton de charrar e seguir vòstres interèsses.  Son tanben una bona manièra de trobar de mond novèl sus diaspora*."
-      hashtag_suggestions: "Ensejatz etiquetas coma aquestas #art #filmes #gif, etc."
+      hashtag_suggestions: "Ensajatz etiquetas coma aquestas #art #filmes #gif, etc."
       well_hello_there: "E ben, adiu monde !"
       what_are_you_in_to: "Qué vos interèssa ?"
       who_are_you: "Qual sètz ?"

@@ -659,7 +659,6 @@ es-MX:
         newhere: "Hola"
       posting: "Publicando…"
       share: "Comparte"
-      upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Qué tienes en mente?"
     stream_element:
       via: "vía %{link}"

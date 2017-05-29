@@ -6,23 +6,91 @@
 
 de-CH:
   javascripts:
+    and: "und"
+    aspect_dropdown:
+      add_to_aspect: "Kontakt hinzuefüege"
+      all_aspects: "Ali Aspekt"
+      error: "Teile mit <%= name %> isch fehlgschlage. Ignoriersch du das Individuum?"
+      error_remove: "<%= name %> us dim Aspekt entferne het nöd klappet :("
+      select_aspects: "Aspekt uswählä"
+      started_sharing_with: "Du hesch aagfange mit <%= name %> z'teile!"
+      stopped_sharing_with: "Du hesch mit <%= name %> ufghöhrt z'teile."
+      toggle:
+        one: "I eim Aspekt"
+        other: "I <%= count %> Aspekt"
+    aspect_navigation:
+      add_an_aspect: "+ Aspekt hinzuefüege"
+      deselect_all: "Ali abwähle"
+      no_aspects: "Kei Aspekt usgwählt"
+      select_all: "Ali aawähle"
+    bookmarklet:
+      post_something: "Erstell en Biitrag i diaspora*"
+      post_submit: "Biitrag wird übermittlet..."
+      post_success: "Teilt! Popup-Fenster wird etz zuegmacht..."
+    comma: ","
+    comments:
+      hide: "Kommentär verstecke"
+      no_comments: "Kei Kommentär bis etz."
+      show: "Ali Kommentär aazeige"
     confirm_dialog: "Bisch sicher?"
+    contacts:
+      add_contact: "Kontakt hinzuefüege"
+      aspect_list_is_not_visible: "Kontäkt i dem Aspekt gsehnd sich gegesiitig nöd."
+      aspect_list_is_visible: "Kontäkt i dem Aspekt chönd sich gegesiitig gseh."
+      error_add: "<%= name %> het nöd chöne zum Aspekt hinzuegfüegt werde."
+      error_remove: "<%= name %> het nöd chöne vom Aspekt entfernt werde."
+      remove_contact: "Kontakt entferne"
     delete: "Lösche"
+    edit: "bearbeite"
+    failed_to_post_message: "Biitrag absende isch fehlgschlage!"
+    failed_to_remove: "Enferne vom Biitrag isch fehlgschlage!"
+    getting_started:
+      alright_ill_wait: "Ok, ich warte."
+      hey: "Hey, <%= name %>!"
+      no_tags: "Hey, du folgsch no kei Tags! Trotzdem wiitermache?"
+      preparing_your_stream: "Din persönliche Stream wird vorbereitet..."
     header:
+      admin: "Admin"
+      close: "Schlüsse"
       contacts: "Kontäkt"
       conversations: "Nochrichte"
       help: "Hilf"
+      home: "Home"
       log_out: "Abmelde"
+      mark_all_as_read: "Ali als glese markiere"
       notifications: "Benochtichtigunge"
       profile: "Profil"
+      recent_notifications: "Chürzlichi Benochrichtigunge"
       search: "Sueche"
       settings: "Iistellige"
       view_all: "Alli aazeige"
     ignore: "Ignoriere"
+    ignore_failed: "Benutzer ignoriere isch fehlgschlage"
+    ignore_user: "De Benutzer ignoriere?"
     my_activity: "Mini Aktivitätä"
+    my_aspects: "Mini Aspekt"
+    my_stream: "Stream"
+    no_results: "Kei Ergebnis gfunde."
+    notifications:
+      mark_read: "Als glese markiere"
+      mark_unread: "Als unglese markiere"
+    people:
+      not_found: "...niemer isch gfunde worde."
     photo_uploader:
+      completed: "<%= file %> ueglade"
+      empty: "{file} isch läär bitte wähl d'Datei nomol uus."
+      error: "En Fehler isch bim ufelade vo <%= file %> passiert"
+      invalid_ext: "{file} het e ungültigi Dateiendig. Erlaubt sind nur: {extensions}"
       looking_good: "OMG, du gsesch super us!"
+      size_error: "{file} isch z'gross, di maximali Grössi isch {sizeLimit}."
+      upload_photos: "Fotis ufelade"
     poll:
+      close_result: "Ergebnis usblende"
+      count:
+        one: "Ei Stimm bis etz"
+        other: "<%=count%> Stimme bis etz"
+      result: "Ergebnis"
+      show_result: "Ergebnis aazeige"
       vote: "Abstimme"
     profile:
       bio: "Beschriibig"
@@ -32,23 +100,59 @@ de-CH:
       location: "Ort"
       photos: "Fotis"
       posts: "Biiträg"
+    publisher:
+      add_option: "Antwort hinzuefüege"
+      limited: "Limitiert: din post wird nur vo lüüt iisehbar sii mit dene du teilsch"
+      near_from: "Gschickt i de Nöchi vo <%= location %>"
+      option: "Antwort"
+      public: "Öffentlich: din biitrag wird für ali iisehbar si und vo suechmaschine gfunde werde."
+      question: "Frog"
+    report:
+      name: "Melde"
+      prompt: "Bitte en Grund aageh:"
+      prompt_default: "zB. astössige Inhalt."
+      status:
+        created: "D'Meldig isch erfolgriich erstellt worde."
+        exists: "Die Meldig existiert scho"
+    reshares:
+      post: "De Biitrag vo <%= name %> wiitersägä?"
+      successful: "De Biitrag isch erfolgriich wiitergseit worde."
     show_more: "Meh aazeige"
     stream:
       comment: "Kommentiere"
       follow: "Folge"
+      followed_tag:
+        add_a_tag: "Täg hinzuefüge"
+        follow: "Folge"
+        title: "#tags dene du folgsch"
       hide: "Verstecke"
+      hide_nsfw_posts: "Versteck #nsfw Biiträg"
       like: "Gfallt mer"
       likes:
         one: "Öpperem gfällt da"
         other: "<%= count %> Lüüt gfällt da"
         zero: "Niemertem gfällt da"
       limited: "Begrenzt"
+      more_comments:
+        one: "Ein zuesätzliche Kommentar aazeige"
+        other: "<%= count %> zuesätzlichi Kommentär aazeige"
+      original_post_deleted: "Original-Biitrag vom Verfasser glöscht."
       public: "Öffentlich"
       reshare: "Wiitersägä"
+      reshares:
+        one: "Ein Reshare"
+        other: "<%= count %> Reshares"
       show_nsfw_post: "Biitrag aazeige"
       show_nsfw_posts: "Alli aazeige"
+      tags:
+        follow: "Folg #<%= tag %>"
+        following: "Du folgsch #<%= tag %>"
+        stop_following: "Hör uf #<%= tag %> z'folge"
       unfollow: "Nüm folge"
       unlike: "Gfallt mer nüme"
+      via: "via <%= provider %>"
+    tags:
+      wasnt_that_interesting: "Ok gseht us als wär <%= tagName %> doch ned so interessant..."
     timeago:
       day: "eim Tag"
       days:
@@ -77,3 +181,5 @@ de-CH:
       years:
         one: "eim Johr"
         other: "%d Johr"
+    viewer:
+      reshared: "Wiitergseit"

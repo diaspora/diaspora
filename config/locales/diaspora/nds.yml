@@ -695,7 +695,6 @@ nds:
         newhere: "neehier"
       posting: "Schriev..."
       share: "Deelen"
-      upload_photos: "Biller hoochloden"
       whats_on_your_mind: "Wat geiht di dörch den Kopp?"
     stream_element:
       via: "Öber %{link}"

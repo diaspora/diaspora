@@ -164,7 +164,7 @@ ar:
       subject: "موضوع"
       to: "إلى"
     show:
-      delete: "احْذِف واحْظُر المحادثة"
+      delete: "احْذِف  المحادثة"
       reply: "رُدَّ"
       replying: "يُجيب..."
   date:
@@ -242,7 +242,7 @@ ar:
         other: "و %{count} آخرون"
         two: "و %{count} آخران"
         zero: "و لا أحد"
-      mark_all_as_read: "وضع الجميع كمقروء"
+      mark_all_as_read: "تحديد الكل  كمقروء"
       mark_unread: "غير مقروء"
       no_notifications: "ليس هناك أيّ إخطار بعد."
       notifications: "تنبيهات"
@@ -399,12 +399,12 @@ ar:
       title: "مشاركة من %{name}"
     show:
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} صور بواسطة %{author}"
+        many: "%{count} صور بواسطة %{author}"
+        one: "صورة بواسطة %{author}"
+        other: "%{count} صور بواسطة %{author}"
+        two: "صورتين بواسطة %{author}"
+        zero: "صورة واحدة بواسطة %{author}"
       reshare_by: "أعيد مشاركتها بواسطة %{author}"
   privacy: "الخصوصيّة"
   profile: "الملفّ الشخصيّ"
@@ -429,11 +429,11 @@ ar:
   registrations:
     closed: "التسجيلات مغلقة على هذه المنصة"
     create:
-      success: "سجل في دياسبرا"
+      success: "لقد انضممت الى دياسبرا "
     new:
       email: "الإيميـــل"
       enter_email: "أدخل عنوان بريد إلكتروني"
-      enter_password: "أدخل كلمة مرور"
+      enter_password: "أدخل كلمة مرور (على الاقل ستة حروف)"
       enter_password_again: "أعد إدخال كلمة المرور"
       enter_username: "اختر معرف (فقط حروف, أرقام, و الإشارات الخطية)"
       password: "كلمة السر"
@@ -488,12 +488,11 @@ ar:
       discard_post: "تجاهل المشاركة"
       new_user_prefill:
         hello: "مرحبًا جميعًا، أنا #%{new_user_tag}. "
-        i_like: "I'm interested in %{tags}."
+        i_like: "انا مهتم بـ %{tags}."
         invited_by: "شكراً على الدعوة، "
         newhere: "جديد هنا"
       posting: "يَنشُر ..."
       share: "شَارِك"
-      upload_photos: "حمل الصور"
       whats_on_your_mind: "ماذا يجول في خاطرك؟"
     stream_element:
       via: "بواسطة %{link}"
@@ -506,12 +505,14 @@ ar:
   status_messages:
     new:
       mentioning: "ذكر %{person}"
-    too_long: "{\"few\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"many\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"one\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\", \"other\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\", \"two\"=>\"المرجو ان تكون رسالتك أقل من %{count} حرف\", \"zero\"=>\"المرجو ان تكون رسالتك أقل من %{count} حروف\"}"
+    too_long: |-
+        يجب ان تكون رسالتك أقل من %{count} حرف
+        تم استخدام %{current_length}حتى الآن
   streams:
     activity:
       title: "نشاطى"
     aspects:
-      title: "Your Aspects"
+      title: "فئاتي"
     aspects_stream: "الفئات"
     comment_stream:
       title: "المشاركات التى تم التعليق عليها"
@@ -551,6 +552,7 @@ ar:
       close_account:
         dont_go: "عزيزى , من فضلك لا تذهب"
         mr_wiggles: "الاستاذ . ويجليس سيكون حزين لانه يراك تذهب"
+        what_we_delete: "سنحذف جميع مشاركاتك وبيانات ملفك الشخصي في أقرب وقت ممكن. ستظل تعليقاتك على مشاركات الأشخاص الآخرين تظهر، ولكن سيتم ربطها مع حسابك  بدلا من اسمك "
       close_account_text: "أغلق الحساب"
       comment_on_post: "...علق أحدهم على مشاركتك"
       current_password: "كلمة المرور الحالية"
@@ -572,11 +574,12 @@ ar:
       started_sharing: "...بدأ أحدهم المشاركة معك؟"
       stream_preferences: "تفضيلات ساحة المشاركة"
       your_email: "بريدك الإلكتروني"
-      your_handle: "وسيط ديسبورا الخاص بك"
+      your_handle: "حساب ديسبورا الخاص بك"
     getting_started:
-      awesome_take_me_to_diaspora: "مدهش! خذنى إلى دياسبرا*"
+      awesome_take_me_to_diaspora: "مدهش! انقلني إلى دياسبرا*"
       hashtag_explanation: "الوسوم تسمح لك بالحديث عن اهتماماتك ومتابعتها.  وهي أيضا طريقة عبقرية للعثور على أناس جدد بدياسبرا."
       hashtag_suggestions: "جرب الوسوم التالية احب #فن، #أفلام، #صور، إلخ."
+      well_hello_there: "حسنا مرحبا جميعا"
       who_are_you: "من أنت؟"
     privacy_settings:
       ignored_users: "المستخدمين الذين تم تجاهلهم"
@@ -587,6 +590,7 @@ ar:
     update:
       email_notifications_changed: "فشل تغيير اللغة"
       follow_settings_changed: "تم تغيير إعدادات المتابعة"
+      follow_settings_not_changed: "لم يتم تعديل إعدادات المتابعة"
       language_changed: "غُيِّرت اللغة بنجاح"
       language_not_changed: "فشل تغيير اللغة"
       password_changed: "غُيِّرت كلمة المرور بنجاح. يمكنك الولوج بكلمة سرك الجديدة."

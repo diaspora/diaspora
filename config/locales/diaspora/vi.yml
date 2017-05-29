@@ -466,7 +466,6 @@ vi:
         newhere: "NewHere"
       posting: "Đăng bài..."
       share: "Chia sẻ"
-      upload_photos: "Tải ảnh lên"
       whats_on_your_mind: "Bạn đang nghĩ gì?"
     stream_element:
       via: "thông qua %{link}"

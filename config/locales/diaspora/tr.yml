@@ -679,7 +679,6 @@ tr:
         add_a_poll: "Oylama ekle"
       posting: "Gönderiliyor..."
       share: "Paylaş"
-      upload_photos: "Fotoğraf yükle"
       whats_on_your_mind: "Ne düşünüyorsun?"
     stream_element:
       via: "%{link} ile"

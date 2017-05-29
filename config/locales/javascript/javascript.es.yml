@@ -162,6 +162,7 @@ es:
       invalid_ext: "{file} tiene una extensión inválida. Solo se permiten {extensions}."
       looking_good: "¡Guau, estás increíble!"
       size_error: "{file} es demasiado grande, el tamaño máximo es de {sizeLimit}."
+      upload_photos: "Subir fotos"
     poll:
       answer_count:
         one: "1 voto"
