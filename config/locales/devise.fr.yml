@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+fr:
+  errors:
+    messages:
+      not_found: "introuvable"
+      already_confirmed: "a déjà été confirmé"
+      not_locked: "n'a pas été vérouillé"
+
+  devise:
+    failure:
+      unauthenticated: 'Vous devez être connecté ou créer un compte pour continuer.'
+      unconfirmed: 'Vous devez confirmer votre compte avant de poursuivre.'
+      locked: 'Votre compte est verouillé.'
+      invalid: 'Email ou mot de passe non valide.'
+      invalid_token: "Jeton d'authentification non valide."
+      timeout: 'Votre session a expirée. Veuillez vous reconnecter pour continuer.'
+      inactive: "Votre compte n'a pas encore été activé."
+    sessions:
+      signed_in: 'Connecté avec succès.'
+      signed_out: 'Deconnecté avec succès.'
+    passwords:
+      send_instructions: 'Vous allez recevoir dans quelques instants un courrier électronique avec les instructions pour réinitialiser votre mot de passe.'
+      updated: 'Votre mot de passe a été réinitialiser avec succès. Vous êtes maintenant connecté.'
+    confirmations:
+      send_instructions: 'Vous allez recevoir dans quelques instants un courrier électronique avec les instructions pour confirmer la creation de votre compte.'
+      confirmed: 'Votre compte a été créé avec succès. Vous êtes maintenant connecté.'
+    registrations:
+      signed_up: "Votre compte a été créé avec succès. S'il est actif, un courrier électronique de confirmation vous a été envoyé."
+      updated: 'Votre compte a été mis a jour avec succès.'
+      destroyed: 'Votre compte a été supprimé avec succès. En esperant vous revoir prochainement.'
+    unlocks:
+      send_instructions: 'Vous allez recevoir dans quelques instants un courrier électronique avec les instructions pour dévérouiller votre compte.'
+      unlocked: 'Votre compte a été dévérouillé avec succès. Vous êtes maintenant connecté.'
+    mailer:
+      confirmation_instructions: 'Confirmation de votre compte'
+      reset_password_instructions: 'Reinitialisation de votre mot de passe'
+      unlock_instructions: 'Deverouillage de votre compte'
