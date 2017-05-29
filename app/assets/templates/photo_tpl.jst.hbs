@@ -25,13 +25,20 @@
 
   <div class="card-footer">
     <div class="footer-container">
-      {{#if status_message}}
-        <a href="{{urlTo "post" status_message.id}}">
-          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
-        </a>
-      {{else}}
-          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+      <span class="timebox">
+        {{#if status_message}}
+          <a href="{{urlTo "post" status_message.id}}">
+            <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+          </a>
+        {{else}}
+            <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
+        {{/if}}
+      </span>
+
+      {{#if location}}
+         <div class="status-message-location" />
       {{/if}}
     </div>
   </div>
+
 </div>

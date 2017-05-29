@@ -19,11 +19,23 @@
       margin-right: 4px;
     }
   }
+
+  .timebox { display: none; }
 }
 
 // gallery-picture specific styles for card-footer
 .media {
   .gallery-picture img { margin-bottom: $line-height-computed + 2; }
 
-  .card-footer .footer-container {  font-size: $font-size-base; }
+  .footer-container:not(.open) {
+    .status-message-location {
+      float: right;
+      width: 5%;
+    }
+
+    .address { display: none; }
+
+    .timebox { display: inline; }
+  }
 }
+

@@ -6,6 +6,10 @@ app.views.Photo = app.views.Base.extend({
 
   className : "photo loaded col-md-4 col-sm-6 clearfix",
 
+  subviews: {
+    ".status-message-location": "postLocationStreamView"
+  },
+
   events: {
     "click .remove_post": "destroyModel"
   },
@@ -21,6 +25,10 @@ app.views.Photo = app.views.Base.extend({
     return _.extend(this.defaultPresenter(), {
       authorIsCurrentUser : app.currentUser.isAuthorOf(this.model)
     });
+  },
+
+  postLocationStreamView: function(){
+    return new app.views.LocationStream({model:this.model});
   }
 });
 // @license-end

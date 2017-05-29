@@ -32,19 +32,30 @@ class Photo < ActiveRecord::Base
         id: photo.status_message.id
       } if photo.status_message
     }, as: :status_message
+    t.add lambda { |photo|
+      {
+        address: photo.location.address,
+        lat:     photo.location.lat,
+        lng:     photo.location.lng
+      } if photo.location
+    }, as: :location
   end
 
   mount_uploader :processed_image, ProcessedImage
   mount_uploader :unprocessed_image, UnprocessedImage
 
   belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
+  has_one :location, as: :localizable
+
   validates_associated :status_message
   delegate :author_name, to: :status_message, prefix: true
 
   validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture
-  after_destroy :clear_empty_status_message
+  after_destroy :clear_empty_status_message_and_location
+
+  before_create :update_location
 
   after_commit :on => :create do
     queue_processing_job if self.author.local?
@@ -55,7 +66,9 @@ class Photo < ActiveRecord::Base
     where(:status_message_guid => post_guids)
   }
 
-  def clear_empty_status_message
+  def clear_empty_status_message_and_location
+    location.destroy if location
+
     if self.status_message && self.status_message.text_and_photos_blank?
       self.status_message.destroy
     else
@@ -143,4 +156,41 @@ class Photo < ActiveRecord::Base
              end
     photos.where(pending: false).order("created_at DESC")
   end
+
+  def coords_to_float(coords)
+    deg, min, sec = *(coords.split(", ").map(&:to_r))
+    (deg + min / 60 + sec / 3600).to_f
+  end
+
+  def determine_location(image)
+    exif_gps_latitude  = image.exif["GPSLatitude"]
+    return nil unless exif_gps_latitude
+
+    exif_gps_longitude = image.exif["GPSLongitude"]
+    return nil unless exif_gps_longitude
+
+    lat = coords_to_float(exif_gps_latitude) * (image.exif["GPSLatitudeRef"] == "S" ? -1 : 1)
+    lng = coords_to_float(exif_gps_longitude) * (image.exif["GPSLongitudeRef"] == "W" ? -1 : 1)
+
+    nominatim_request =
+      Typhoeus.get("https://nominatim.openstreetmap.org/reverse?" +
+                   "format=json&lat=%f&lon=%f&addressdetails=3" % [lat, lng],
+                   headers: {"User-Agent": "diaspora*/%s" % [AppConfig.pod_uri.host]})
+
+    address =
+      if nominatim_request.response_code == 200
+        JSON.parse(nominatim_request.response_body)["display_name"]
+      else
+        "_"
+      end
+
+    Location.new(lat: lat, lng: lng, address: address)
+  end
+
+  def update_location
+    unless unprocessed_image.strip_exif
+      self.location = determine_location(MiniMagick::Image.open(unprocessed_image.path))
+    end
+  end
 end
+
