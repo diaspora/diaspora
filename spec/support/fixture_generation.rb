@@ -1,4 +1,27 @@
 module JasmineFixtureGeneration
+   # update js/css/image paths so page
+   # so application looks and behaves as in application 
+   def update_path input
+      regex = { 
+        :js_regex => /\/assets\/[^'"]*?\.js['"]/,
+        :css_regex => /\/assets\/[^'"]*?\.css['"]/,
+        :img_regex => /\/assets\/[^'"]*?\.(:?gif|png|jpg|jpeg|tif)['"]/
+      }   
+  
+      line = input
+  
+      if regex[:css_regex].match input
+        puts "#{input} matches  #{regex[:css_regex]}"
+        line = input.gsub(/\/assets\//, '../../app/assets/stylesheets/')
+      elsif regex[:img_regex].match input
+        line = input.gsub(/\/assets\//, '../../app/assets/images/')
+      elsif regex[:js_regex].match input
+        line = input.gsub(/\/assets\//, '../../app/assets/javascripts/')
+      end 
+      line
+    end 
+
+  #
   # Saves the markup to a fixture file using the given name
   def save_fixture(markup, name, fixture_path=nil )
     fixture_path = Rails.root.join('tmp', 'js_dom_fixtures') unless fixture_path
@@ -6,7 +29,11 @@ module JasmineFixtureGeneration
 
     fixture_file = fixture_path.join("#{name}.fixture.html")
     File.open(fixture_file, 'w') do |file|
-      file.puts(markup)
+      markups = []
+      markup.split('>').each do |line|
+        markups.push( update_path( line ) )
+      end
+      file.puts(markups.join('>'))
     end
   end
 
