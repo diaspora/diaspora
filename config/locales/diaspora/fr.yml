@@ -1050,7 +1050,6 @@ fr:
       posting: "Publication…"
       remove_location: "Supprimer l'emplacement"
       share: "Partager"
-      upload_photos: "Envoyer des photos"
       whats_on_your_mind: "Exprimez-vous..."
     stream_element:
       via: "Via %{link}"

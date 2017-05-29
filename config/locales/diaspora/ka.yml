@@ -422,7 +422,6 @@ ka:
         newhere: "ახალი"
       posting: "დაპოსტვა"
       share: "გაზიარება"
-      upload_photos: "ფოტოების ატვირთვა"
       whats_on_your_mind: "რას ფიქრობ ?"
     stream_element:
       via: "via %{link}"

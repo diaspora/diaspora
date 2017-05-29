@@ -165,6 +165,7 @@ zh-TW:
       invalid_ext: "檔案 {file} 的副檔名不合格。僅接受 {extensions}。"
       looking_good: "天啊，你看起來真帥！"
       size_error: "檔案 {file} 太大了，上限是{sizeLimit}。"
+      upload_photos: "上傳相片"
     poll:
       answer_count:
         other: "有<%=count%>個人投票"

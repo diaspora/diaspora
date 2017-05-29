@@ -545,7 +545,6 @@ he:
       posting: "בפרסום..."
       remove_location: "הסרת מיקום"
       share: "שיתוף"
-      upload_photos: "העלאת תמונות"
       whats_on_your_mind: "על מה אתם חושבים?"
     stream_element:
       via: "באמצעות %{link}"

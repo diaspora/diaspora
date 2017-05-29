@@ -63,7 +63,7 @@ sc:
       confirm_remove_aspect: "Seguru ses de bòlere burrare custa cara?"
       rename: "Càmbia nùmene"
       update: "Agiorna"
-      updating: "Agiornande"
+      updating: "Agiornende"
     index:
       donate: "Dona"
       donate_liberapay: "Agiuda a liberapay"
@@ -169,6 +169,15 @@ sc:
   limited: "Limitadu"
   more: "Àteru"
   no_results: "Perunu resurtadu agatadu"
+  notifications:
+    private_message:
+      one: "%{actors} t'at imbiadu unu messàgiu."
+      other: "%{actors} t'ant imbiadu unu messàgiu."
+      zero: "%{actors} t'at imbiadu unu messàgiu."
+    started_sharing:
+      one: "%{actors} at incumintzadu a cumpartzire cun tie."
+      other: "%{actors} ant incumintzadu a cumpartzire cun tie."
+      zero: "%{actors} at incumintzadu a cumpartzire cun tie."
   notifier:
     export_photos_email:
       body: |-
@@ -182,6 +191,9 @@ sc:
       subject: "B'est unu messàgiu privadu nou pro tie"
   nsfw: "NSFW (no est adatu pro unu logu de traballu)"
   ok: "AB"
+  photos:
+    new_profile_photo:
+      upload: "Càrriga una fotografia de profilu noa!"
   privacy: "Privadesa"
   profile: "Profilu"
   public: "Pùblicu"

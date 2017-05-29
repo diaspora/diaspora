@@ -578,7 +578,6 @@ bs:
         newhere: "NoviOvdje"
       posting: "Objavljujem..."
       share: "Dijeli"
-      upload_photos: "Objavi fotografije"
       whats_on_your_mind: "Šta vam je na umu?"
     stream_element:
       via: "putem %{link}"

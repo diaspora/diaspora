@@ -170,6 +170,7 @@ da:
       invalid_ext: "{file} har en ugyldig filtype. Kun {extensions} er tilladt."
       looking_good: "Du ser virkelig pæn ud!"
       size_error: "{file} er for stor. Maksimal filstørrelse er {sizeLimit}."
+      upload_photos: "Upload fotografier"
     poll:
       answer_count:
         one: "1 stemme"

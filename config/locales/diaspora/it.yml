@@ -710,7 +710,6 @@ it:
       posting: "Invio in corso..."
       remove_location: "Rimuovi posizione"
       share: "Condividi"
-      upload_photos: "Carica foto"
       whats_on_your_mind: "A cosa stai pensando?"
     stream_element:
       via: "via %{link}"

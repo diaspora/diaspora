@@ -972,7 +972,6 @@ ru:
       posting: "Отправка..."
       remove_location: "Удалить местонахождение"
       share: "Поделиться"
-      upload_photos: "Загрузить фотографии"
       whats_on_your_mind: "О чём вы думаете?"
     stream_element:
       via: "через %{link}"
