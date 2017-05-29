@@ -1,0 +1,40 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+de:
+  errors:
+    messages:
+      not_found: "nicht gefunden"
+      already_confirmed: "wurde schon bestätigt"
+      not_locked: "war nicht gesperrt"
+
+  devise:
+    failure:
+      unauthenticated: 'Sie müssen sich anmelden oder registrieren um fortzufahren.'
+      unconfirmed: 'Bestätigen Sie Ihre Registrierung um fortzufahren.'
+      locked: 'Ihr Benutzerkonto ist gesperrt.'
+      invalid: 'Ungültige E-Mail-Adresse oder Passwort.'
+      invalid_token: 'Ungültiges Token zur Authentifizierung.'
+      timeout: 'Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an um fortzufahren.'
+      inactive: 'Ihr Benutzerkonto wurde noch nicht aktiviert.'
+    sessions:
+      signed_in: 'Erfolgreich angemeldet.'
+      signed_out: 'Erfolgreich abgemeldet.'
+    passwords:
+      send_instructions: 'Eine E-Mail wird Sie in wenigen Minuten darüber informieren wie Sie Ihr Passwort rücksetzen können.'
+      updated: 'Die Änderung Ihres Passwortes war erfolgreich. Sie sind nun angemledet.'
+    confirmations:
+      send_instructions: 'Eine E-Mail wird Sie in wenigen Minuten darüber informieren wie Sie ihr Passwort bestätigen können.'
+      confirmed: 'Die Bestätigung Ihres Benutzerkontos war erfolgreich. Sie sind nun angemeldet.'
+    registrations:
+      signed_up: 'Ihre Registrierung war erfolgreich. Sofern aktiviert, wurde eine E-Mail zur bestätigung an Ihre Adresse gesendet.'
+      updated: 'Ihr Benutzerkonto wurde erfolgreich geändert.'
+      destroyed: 'Bis bald! Ihr Benutzerkonto wurde gelöscht. Wir hoffen Sie bald wieder zu sehen.'
+    unlocks:
+      send_instructions: 'Eine E-Mail wird Sie in wenigen Minuten darüber informieren wie Sie Ihr Benutzerkonto entsperren können.'
+      unlocked: 'Ihr Benutzerkonto wurde erfolgreich entsperrt. Sie sind nun angemeldet.'
+    mailer:
+      confirmation_instructions: 'Hinweise zur Konfiguration'
+      reset_password_instructions: 'Hinweise zum Zurücksetzen des Passwortes'
+      unlock_instructions: 'Hinweise zur Entsperrung'
