@@ -222,7 +222,7 @@ de:
       updating: "Wird geändert …"
     index:
       donate: "Spenden"
-      donate_liberapay: "An liberapay spenden"
+      donate_liberapay: "Via liberapay spenden"
       help:
         any_problem: "Gibt's ein Problem?"
         contact_podmin: "Kontaktiere den Administrator deines Pods!"
@@ -239,7 +239,7 @@ de:
         tutorial_link_text: "Anleitungen"
         tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki} helfen dir bei deinen ersten Schritten."
       introduce_yourself: "Das ist dein Stream. Leg los und stell dich vor."
-      keep_pod_running: "Hilf %{pod} schnell zu arbeiten und kauf unseren Servern ihren monatlichen Schuss Kaffee!"
+      keep_pod_running: "Hilf %{pod}, schnell zu arbeiten und kauf unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here:
         follow: "Folge %{link} und begrüße neue Benutzer bei diaspora*!"
         learn_more: "mehr erfahren"
@@ -338,7 +338,7 @@ de:
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
     need_javascript: "Diese Website benötigt Javascript, um richtig zu funktionieren. Falls du Javascript deaktiviert haben solltest, bitte aktiviere es und aktualisiere diese Seite."
-  fill_me_out: "Füll mich aus"
+  fill_me_out: "Füll’ mich aus"
   find_people: "Leute oder #Tags finden"
   help:
     account_and_data_management:
@@ -395,7 +395,7 @@ de:
       getting_started_a: "Du hast Glück! Schau dir die %{tutorial_series} auf unserer Projektseite an. Sie wird dich Schritt für Schritt durch den Anmeldeprozess begleiten und dir alles notwendige über die Nutzung von diaspora* beibringen."
       getting_started_q: "Hilfe! Ich brauche grundlegende Hilfe um anzufangen!"
       title: "Erhalte Hilfe"
-    getting_started_tutorial: "„Erste Schritte“ Anleitungsreihe"
+    getting_started_tutorial: "„Erste Schritte“-Anleitungsreihe"
     here: "hier"
     irc: "IRC"
     keyboard_shortcuts:
@@ -435,7 +435,7 @@ de:
       find_people_a: "Lade deine Freunde mit dem E-Mail-Link in der Seitenleiste ein. Folge #Tags, um Andere zu entdecken, die deine Interessen teilen und füge Leute, die Sachen posten, die dich interessieren, zu deinen Aspekten hinzu. Schreibe in einem öffentlichen Post, dass du #NeuHier bist."
       find_people_q: "Ich bin gerade erst einem Pod beigetreten, wie finde ich nun Leute zum Teilen?"
       title: "Pods"
-      use_search_box_a: "Kennst du deren vollständige diaspora* ID (z.B. benutzername@podname.org), kannst du sie durch suchen finden. Bist du auf dem selben Pod, kannst du direkt nach dem Benutzernamen suchen. Alternativ kannst du auch nach ihrem Profilnamen (dem angezeigten Namen) suchen. Wenn eine Suche beim ersten Mal keine Ergebnisse liefert, dann versuch es nochmal."
+      use_search_box_a: "Kennst du deren vollständige diaspora*-ID (z.B. benutzername@podname.org), kannst du sie durch suchen finden. Bist du auf dem selben Pod, kannst du direkt nach dem Benutzernamen suchen. Alternativ kannst du auch nach ihrem Profilnamen (dem angezeigten Namen) suchen. Wenn eine Suche beim ersten Mal keine Ergebnisse liefert, dann versuch es nochmal."
       use_search_box_q: "Wie benutze ich das Suchfeld, um bestimmte Personen zu finden?"
       what_is_a_pod_a: "Ein Pod ist ein Server, auf dem die diaspora*-Software läuft und der mit dem diaspora*-Netzwerk verbunden ist. „Pod“ ist eine Metapher für Hülsen von Pflanzen, die mehrere Samen enthalten, so wie der Server mehrere Benutzerkonten enthält. Es gibt viele verschiedene Pods. Du kannst Kontakte von anderen Pods hinzufügen und mit ihnen kommunizieren. Du musst nicht Benutzerkonten auf verschiedenen Pods erstellen! (Du kannst dir einen diaspora*-Pod wie einen Mail-Anbieter vorstellen: Es gibt öffentliche Pods, private Pods, und mit ein wenig Aufwand kannst du deinen eigenen betreiben.)"
       what_is_a_pod_q: "Was ist ein Pod?"
@@ -520,7 +520,7 @@ de:
       reshare_public_post_aspects_q: "Kann ich einen öffentlichen Beitrag in einen einzelnen Aspekt weitersagen?"
       title: "Beiträge weitersagen."
     sharing:
-      add_to_aspect_a1: "Nehmen wir an, dass Amy Ben zu einem ihrer Aspekten hinzufügt, aber Ben Amy (noch) nicht hinzugefügt hat:"
+      add_to_aspect_a1: "Nehmen wir an, dass Amy Ben zu einem ihrer Aspekte hinzufügt, aber Ben Amy (noch) nicht hinzugefügt hat:"
       add_to_aspect_a2: "Das nennt man asymmetrisches Teilen. Wenn Ben allerdings Amy ebenfalls zu einem seiner Aspekte hinzufügt, wird es zu gegenseitigem Teilen. Es erscheinen also sowohl bei Ben als auch bei Amy die Beiträge, die die jeweils andere mit ihnen geteilt hat, im Stream. Amy kann nun auch Bens privates Profil einsehen. Außerdem können sie sich nun gegenseitig private Nachrichten senden."
       add_to_aspect_li1: "Ben wird eine Benachrichtigung erhalten, dass Amy angefangen hat mit ihm zu teilen."
       add_to_aspect_li2: "Amy sieht nun Bens öffentliche Beiträge in ihrem Stream."
@@ -541,7 +541,7 @@ de:
       sharing_notification_q: "Wie erfahre ich es, wenn jemand anfängt, mit mir zu teilen?"
       title: "Teilen"
     tags:
-      filter_tags_a: "Dass ist in in diaspora* derzeit nicht möglich, aber einige %{third_party_tools} wurde geschrieben um dies zu ermöglichen."
+      filter_tags_a: "Das ist in in diaspora* derzeit nicht möglich, aber einige %{third_party_tools} wurde geschrieben um dies zu ermöglichen."
       filter_tags_q: "Wie kann ich Tags aus meinem Stream herausfiltern?"
       followed_tags_a: "Nachdem du nach einem Tag gesucht hast, kannst du die Schaltfläche oben auf der Seite des Tags benutzen, um dem Tag zu „folgen“. Anschließend wird es links in der Liste der von dir gefolgten Tags erscheinen. Wenn du auf eines der Tags klickst, gelangst du zu dessen Seite und kannst die Beiträge sehen, die das Tag enthalten. Klicke auf „#Tags, denen du folgst“, um einen Stream mit Beiträgen zu sehen, die eines der von dir gefolgten Tags enthalten. "
       followed_tags_q: "Was sind „#Tags, denen du folgst“ und wie folge ich einem Tag?"
@@ -626,9 +626,9 @@ de:
       toggle_navigation: "Navigation umschalten"
   likes:
     create:
-      error: "Gefällt mir ist fehlgeschlagen."
+      error: "„Gefällt mir“ ist fehlgeschlagen."
     destroy:
-      error: "Gefällt mir nicht mehr ist fehlgeschlagen."
+      error: "„Gefällt mir nicht mehr“ ist fehlgeschlagen."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -659,7 +659,7 @@ de:
         other: "und %{count} anderen"
         two: "und %{count} andere"
         zero: "und niemand sonst"
-      comment_on_post: "Einen Beitrag Kommentiert"
+      comment_on_post: "Einen Beitrag kommentiert"
       liked: "Gefällt"
       mark_all_as_read: "Markiere alle als gelesen"
       mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
@@ -887,8 +887,8 @@ de:
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für %{search_term}"
-      search_handle: "Nutze die diaspora* ID (nutzername@pod.tld) deiner Freunde, um sie leichter zu finden."
-      searching: "Suche, bitte warten..."
+      search_handle: "Nutze die diaspora*-ID (nutzername@pod.tld) deiner Freunde, um sie leichter zu finden."
+      searching: "Suche, bitte warten …"
       send_invite: "Immer noch nichts? Verschicke eine Einladung!"
     person:
       thats_you: "Das bist du!"
@@ -943,7 +943,7 @@ de:
       last_name: "Nachname"
       limited: "Begrenzt"
       nsfw_check: "Markiere alles, was ich teile, als NSFW"
-      nsfw_explanation: "NSFW („Not safe for work“, dt. „Unpassend für den Arbeitsplatz“) ist Diasporas sich selbst verwaltender Gemeinschafts-Standard für Inhalte, die für das Ansehen während der Arbeit möglicherweise ungeeignet sind. Bitte aktiviere diese Option, wenn du häufig derartiges Material teilen möchtest, damit es in den Streams anderer Leute, die es nicht sehen wollen, ausgeblendet wird."
+      nsfw_explanation: "NSFW („Not safe for work“, dt. „Unpassend für den Arbeitsplatz“) ist diaspora*s sich selbst verwaltender Gemeinschafts-Standard für Inhalte, die für das Ansehen während der Arbeit möglicherweise ungeeignet sind. Bitte aktiviere diese Option, wenn du häufig derartiges Material teilen möchtest, damit es in den Streams anderer Leute, die es nicht sehen wollen, ausgeblendet wird."
       nsfw_explanation2: "Wenn du diese Option nicht auswählst, markiere deine entsprechenden Beiträge dann bitte jeweils mit dem Tag #nsfw."
       public: "Öffentlich"
       settings: "Profileinstellungen"
@@ -1007,7 +1007,7 @@ de:
   search: "Suche"
   services:
     create:
-      already_authorized: "Ein anderer Nutzer mit der diaspora* ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
+      already_authorized: "Ein anderer Nutzer mit der diaspora*-ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
       failure: "Authentifizierung fehlgeschlagen."
       read_only_access: "Die Zugriffsebene ist schreibgeschützt. Bitte versuche dich später noch einmal anzumelden."
       success: "Authentifizierung erfolgreich."
@@ -1177,14 +1177,14 @@ de:
       close_account_text: "Konto schließen"
       comment_on_post: "jemand deinen Beitrag kommentiert"
       current_password: "Derzeitiges Kennwort"
-      current_password_expl: "das mit dem du dich anmeldest …"
+      current_password_expl: "das, mit dem du dich anmeldest …"
       default_post_visibility: "Vorausgewählte Aspekte beim Erstellen von Beiträgen"
       download_export: "Mein Profil herunterladen"
       download_export_photos: "Meine Fotos herunterladen"
       edit_account: "Konto bearbeiten"
       email_awaiting_confirmation: "Wir haben dir einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange du dem Link nicht gefolgt bist und die neue Adresse aktiviert hast, werden wir weiterhin deine ursprüngliche E-Mail-Adresse %{email} verwenden."
       export_data: "Daten exportieren"
-      export_in_progress: "Wir verarbeiten momentan deine Daten - schau etwas später noch einmal vorbei."
+      export_in_progress: "Wir verarbeiten momentan deine Daten – schau etwas später noch einmal vorbei."
       export_photos_in_progress: "Wir sind gerade dabei, deine Fotos zu verarbeiten. Bitte guck in ein paar Augenblicken noch mal vorbei."
       following: "Folgen-Einstellungen"
       last_exported_at: "(Zuletzt aktualisiert: %{timestamp})"
@@ -1205,7 +1205,7 @@ de:
       stream_preferences: "Stream-Einstellungen"
       your_email: "Deine E-Mail-Adresse"
       your_email_private: "Deine E-Mail wird niemals von anderen Nutzern gesehen werden."
-      your_handle: "Deine diaspora* ID"
+      your_handle: "Deine diaspora*-ID"
     getting_started:
       awesome_take_me_to_diaspora: "Super! Bring mich zu diaspora*"
       community_welcome: "diaspora*s Gemeinschaft ist froh, dich an Bord zu haben!"
