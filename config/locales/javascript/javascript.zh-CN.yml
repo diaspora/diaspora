@@ -106,4 +106,249 @@ zh-CN:
       years:
         other: "%d 年"
     viewer:
-      reshared: "转发的"
+      reshared: "转发的"ero: 添加到分组
+      updating: updating...
+    aspect_navigation:
+      add_an_aspect: + Add an aspect
+      deselect_all: 清空选择
+      no_aspects: 尚未选择任何一个分组
+      select_all: 全选
+    aspects:
+      create:
+        add_a_new_aspect: Add a new aspect
+        failure: Aspect creation failed.
+        success: Your new aspect <%= name %> was created
+      make_aspect_list_visible: Make contacts in this aspect visible to each other?
+      name: Name
+    bookmarklet:
+      post_something: Post to diaspora*
+      post_submit: Submitting post...
+      post_success: Posted! Closing popup window...
+    cancel: Cancel
+    comma: ,
+    comments:
+      hide: 隐藏评论
+      no_comments: There are no comments yet.
+      show: 显示所有评论
+    confirm_dialog: 您确定吗？
+    confirm_unload: Please confirm that you want to leave this page. Data you have entered won’t be saved.
+    contacts:
+      add_contact: Add contact
+      aspect_chat_is_enabled: Contacts in this aspect are able to chat with you.
+      aspect_chat_is_not_enabled: Contacts in this aspect are not able to chat with you.
+      aspect_list_is_not_visible: Contacts in this aspect are not able to see each other.
+      aspect_list_is_visible: Contacts in this aspect are able to see each other.
+      error_add: Couldn’t add <%= name %> to the aspect :(
+      error_remove: Couldn’t remove <%= name %> from the aspect :(
+      remove_contact: Remove contact
+      search_no_results: No contacts found
+    conversation:
+      create:
+        no_recipient: Hey, you need to add a recipient first!
+      new:
+        no_contacts: You need to add some contacts before you can start a conversation.
+    create: Create
+    delete: 删除
+    edit: Edit
+    errors:
+      connection: Unable to connect to the server.
+    failed_to_post_message: 发布消息失败！
+    failed_to_remove: Failed to remove the entry!
+    getting_started:
+      alright_ill_wait: 以后再说
+      hey: 您好，<%= name %>！
+      no_tags: 嘿，您尚未关注任何标签！要下一步吗？
+      preparing_your_stream: 正在准备您的个人消息流。
+    header:
+      admin: 管理
+      close: 关闭
+      contacts: 好友
+      conversations: Conversations
+      help: Help
+      home: 首页
+      log_out: 退出
+      mark_all_as_read: 全部标记已读
+      moderator: Moderator
+      notifications: 提示
+      profile: 个人资料
+      recent_notifications: 新提示
+      search: 搜索
+      settings: 设置
+      toggle_mobile: Toggle mobile
+      toggle_navigation: Toggle navigation
+      view_all: 查看所有
+    hide_post: Hide this post?
+    hide_post_failed: Unable to hide this post
+    ignore: 忽略
+    ignore_failed: Unable to ignore this user
+    ignore_user: 忽略此用户？
+    my_activity: 我的活动
+    my_aspects: My aspects
+    my_stream: 动态
+    no_results: No results found
+    notifications:
+      mark_read: Mark read
+      mark_unread: Mark unread
+      new_notifications:
+        one: You have <%= count %> unread notification
+        other: You have <%= count %> unread notifications
+    people:
+      edit_my_profile: Edit my profile
+      helper:
+        is_not_sharing: <%= name %> is not sharing with you
+        is_sharing: <%= name %> is sharing with you
+      mention: Mention
+      message: Message
+      not_found: 找不到任何人…
+      stop_ignoring: Stop ignoring
+    photo_uploader:
+      completed: <%= file %> completed
+      empty: {file} is empty, please select files again without it.
+      error: A problem occurred while uploading file <%= file %>
+      invalid_ext: {file} has invalid extension. Only {extensions} are allowed.
+      looking_good: 天啊，您太棒了！
+      size_error: {file} is too large, maximum file size is {sizeLimit}.
+    poll:
+      answer_count:
+        one: 1 vote
+        other: <%=count%> votes
+        zero: 0 votes
+      close_result: Hide result
+      count:
+        one: 1 vote so far
+        other: <%=count%> votes so far
+      go_to_original_post: You can participate in this poll on the <%= original_post_link %>.
+      original_post: original post
+      result: Result
+      show_result: Show result
+      vote: Vote
+    profile:
+      add_some: Add some
+      bio: Bio
+      born: Birthday
+      contacts: Contacts
+      edit: Edit
+      gender: Gender
+      location: Location
+      photos: Photos
+      posts: Posts
+      you_have_no_tags: You have no tags!
+    publisher:
+      add_option: Add an answer
+      limited: 限制 - 只有您想分享的人才看得到您的内容
+      markdown_editor:
+        preview: Preview
+        texts:
+          code: code here
+          heading: heading text
+          insert_image_description_text: enter image description here
+          insert_image_help_text: Insert image link here
+          insert_image_title: enter image title here
+          insert_link_description_text: enter link description here
+          insert_link_help_text: Insert link here
+          italic: italic text
+          list: list text here
+          quote: quotation text here
+          strong: strong text
+        tooltips:
+          bold: Bold
+          cancel: Cancel message
+          code: Insert code
+          heading: Heading
+          insert_image: Insert image
+          insert_link: Insert link
+          insert_ordered_list: Insert ordered list
+          insert_unordered_list: Insert unordered list
+          italic: Italic
+          preview: Preview message
+          quote: Insert quotation
+          write: Edit message
+        write: Write
+      mention_success: 'Successfully mentioned: <%= names %>'
+      near_from: 'Posted from: <%= location %>'
+      option: Answer
+      public: 公开 - 所有人都能看到您的内容，包括搜索引擎
+      question: Question
+    remove_post: Remove this post?
+    report:
+      name: Report
+      prompt: 'Please enter a reason:'
+      prompt_default: e.g. offensive content
+      status:
+        created: The report has successfully been created
+        exists: The report already exists
+    reshares:
+      post: 要转发 <%= name %> 的内容吗？
+      successful: 转发成功
+    show_more: 查看更多
+    stream:
+      comment: 评论
+      comments:
+        one: <%= count %> comment
+        other: <%= count %> comments
+        zero: <%= count %> comments
+      disable_post_notifications: Disable notifications for this post
+      enable_post_notifications: Enable notifications for this post
+      follow: 关注
+      followed_tag:
+        add_a_tag: Add a tag
+        follow: Follow
+        title: '#Followed tags'
+      hide: 隐藏
+      hide_nsfw_posts: '隐藏 #nsfw (工作不宜)的内容'
+      like: 赞
+      likes:
+        other: "<%= count %> 个赞"
+        zero: "<%= count %> 个赞"
+      limited: 限制
+      more_comments:
+        other: 显示剩余的 <%= count %> 个评论
+        zero: 显示剩余的 <%= count %> 个评论
+      no_posts_yet: There are no posts to display here yet.
+      original_post_deleted: 原内容已被作者删除。
+      permalink: Permalink
+      public: 公开
+      reshare: 转发
+      reshares:
+        other: "<%= count %> 次转发"
+        zero: "<%= count %> 次转发"
+      show_nsfw_post: 显示内容
+      show_nsfw_posts: 全部显示
+      tags:
+        follow: 'Follow #<%= tag %>'
+        follow_error: 'Couldn’t follow #<%= tag %> :('
+        following: 'Following #<%= tag %>'
+        stop_following: 'Stop following #<%= tag %>'
+        stop_following_confirm: 'Stop following #<%= tag %>?'
+        stop_following_error: 'Couldn’t stop following #<%= tag %> :('
+      unfollow: 取消关注
+      unlike: 取消赞
+      via: via <%= provider %>
+    tags:
+      wasnt_that_interesting: '我想 #<%= tagName %> 并不全那么有趣。'
+    timeago:
+      day: 1 天
+      days:
+        other: "%d 天"
+      hour: 约 1 小时
+      hours:
+        other: 约 %d 小时
+      inPast: any moment now
+      minute: 约 1 分钟
+      minutes:
+        other: "%d 分钟"
+      month: 约 1 个月
+      months:
+        other: "%d 个月"
+      prefixAgo: 在
+      prefixFromNow: 距今
+      seconds: 少于 1 分钟
+      suffixAgo: 前
+      suffixFromNow: 后
+      wordSeparator: ' '
+      year: 约 1 年
+      years:
+        other: "%d 年"
+    unblock_failed: Unblocking this user has failed
+    viewer:
+      reshared: 转发的
