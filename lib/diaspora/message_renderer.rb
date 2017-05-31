@@ -210,6 +210,8 @@ module Diaspora
     # @option opts [Integer] :length (70) Truncate the title to
     #   this length. If not given defaults to 70.
     def title opts={}
+      @text = "" if @text.nil?
+
       # Setext-style header
       heading = if /\A(?<setext_content>.{1,200})\n(?:={1,200}|-{1,200})(?:\r?\n|$)/ =~ @text.lstrip
                   setext_content
