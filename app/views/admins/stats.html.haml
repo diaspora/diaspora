@@ -3,4 +3,4 @@
     .col-md-3
       = render partial: "admins/admin_bar"
     .col-md-9
-      = render partial: "admins/stats"
+      = render partial: "admins/stats", locals: {segment: @segment, posts: @posts, user_count: @user_count.to_f}
