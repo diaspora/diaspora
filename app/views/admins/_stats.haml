@@ -7,7 +7,7 @@
   = form_tag("/admins/stats", method: "get", class: "col-sm-12 form-inline segment-selection") do
     .col-sm-2.col-sm-push-8
       %select.form-control{name: "range"}
-        - ["daily", "week", "2weeks", "month"].each do |range|
+        - %w(daily week 2weeks month).each do |range|
           %option{value: range, selected: ("selected" if params[:range] == range)}
             = t(".#{range}")
     .col-sm-2.col-sm-push-8
@@ -15,15 +15,14 @@
 
   .col-sm-8.col-sm-pull-4
     %h4
-      != t("admins.stats.display_results", segment: content_tag(:strong, @segment))
+      != t("admins.stats.display_results", segment: content_tag(:strong, segment))
 
 .row
   - %i(posts comments aspect_memberships users).each do |name|
-    - model = instance_variable_get("@#{name}")
-    - if name == :aspect_memberships
-      - name = t(".shares", count: model[:yesterday])
-    - else
-      - name = t(".#{name}", count: model[:yesterday])
+    :ruby
+      model = instance_variable_get("@#{name}")
+      count = model[:yesterday]
+      name = name == :aspect_memberships ? t(".shares", count: count) : t(".#{name}", count: count)
 
     .col-md-3
       %h2{style: "font-weight:bold;"}
@@ -36,8 +35,8 @@
 .row
   %p.col-md-12.alert.alert-info.text-center{role: "alert"}
     != t("admins.stats.current_segment",
-      post_yest: content_tag(:strong, @posts[:yesterday] / @user_count.to_f),
-      post_day: content_tag(:strong, @posts[:day_before] / @user_count.to_f))
+      post_yest: content_tag(:strong, posts[:yesterday] / user_count),
+      post_day: content_tag(:strong, posts[:day_before] / user_count))
 
 .row
   .col-md-12
