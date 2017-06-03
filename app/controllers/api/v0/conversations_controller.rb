@@ -45,7 +45,8 @@ module Api
       end
 
       def destroy
-        conversation_service.destroy!(params[:id])
+        vis = conversation_service.get_visibility(params[:id])
+        vis.destroy!
         head :no_content
       end
 
