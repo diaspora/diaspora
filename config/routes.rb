@@ -229,7 +229,7 @@ Rails.application.routes.draw do
     end
     resources :conversations, only: %i(show index create destroy) do
       delete "visibility" => "conversation_visibilities#destroy"
-      resources :messages, only: %i(create)
+      resources :messages, only: %i(index create)
     end
     get "activity" => "streams#activity", :as => "activity_stream"
     get "stream" => "streams#multi", :as => "stream"

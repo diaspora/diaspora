@@ -13,53 +13,90 @@ describe Api::V0::MessagesController do
     @conversation = {
       author_id:    auth.user.id,
       subject:      "new conversation",
-      text:         "first message",
-      messages:     [{
-        author: auth.user,
-        text:   "first message"
-      }],
+      body:         "first message",
       recipients:   [alice.person.id],
       access_token: access_token
     }
 
     @message = {
-      text: "reply to first message"
+      body: "reply to first message"
     }
   end
 
   describe "#create " do
     before do
       post api_v0_conversations_path, @conversation
-      @conversation_id = JSON.parse(response.body)["conversation"]["id"]
+      @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
     end
 
     context "with valid data" do
       it "creates the message in the conversation scope" do
         post(
-          api_v0_conversation_messages_path(@conversation_id),
-          message: @message, access_token: access_token
+          api_v0_conversation_messages_path(@conversation_guid),
+          body: @message, access_token: access_token
         )
         expect(response.status).to eq 201
-        expect(JSON.parse(response.body)["message"]["id"]).to_not be_nil
+
+        message = JSON.parse(response.body)
+        expect(message["guid"]).to_not be_nil
+        expect(message["author"]).to_not be_nil
+        expect(message["created_at"]).to_not be_nil
+        expect(message["body"]).to_not be_nil
+
         get(
-          api_v0_conversation_path(@conversation_id),
+          api_v0_conversation_messages_path(@conversation_guid),
           access_token: access_token
         )
-        response_body = JSON.parse(response.body)["conversation"]
-        expect(response_body["messages"].length).to eq 2
-        text = response_body["messages"][1]["text"]
-        expect(text).to eq "reply to first message"
+        messages = JSON.parse(response.body)
+        expect(messages.length).to eq 2
+        text = messages[1]["body"]
+        expect(text).to eq @message[:body]
       end
     end
 
     context "without valid data" do
       it "returns a wrong parameter error (400)" do
         post(
-          api_v0_conversation_messages_path(@conversation_id),
+          api_v0_conversation_messages_path(@conversation_guid),
           access_token: access_token
         )
         expect(response.status).to eq 400
       end
     end
+
+    context "with wrong conversation id" do
+      it "returns a a not found error (404)" do
+        post(
+          api_v0_conversation_messages_path(42),
+          access_token: access_token
+        )
+        expect(response.status).to eq 404
+      end
+    end
   end
+
+  describe "#index " do
+    before do
+      post api_v0_conversations_path, @conversation
+      @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
+    end
+
+    context "retrieving messages" do
+      it "returns all messages related to conversation" do
+        get(
+          api_v0_conversation_messages_path(@conversation_guid),
+          access_token: access_token
+        )
+        messages = JSON.parse(response.body)
+        expect(messages.length).to eq 1
+
+        message = messages[0]
+        expect(message["guid"]).to_not be_nil
+        expect(message["author"]).to_not be_nil
+        expect(message["created_at"]).to_not be_nil
+        expect(message["body"]).to_not be_nil
+      end
+    end
+  end
+
 end
