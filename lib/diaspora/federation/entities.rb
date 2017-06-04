@@ -178,26 +178,7 @@ module Diaspora
       end
 
       def self.retraction(retraction)
-        case retraction.data[:target_type]
-        when "Contact"
-          DiasporaFederation::Entities::Contact.new(retraction.data)
-        else
-          DiasporaFederation::Entities::Retraction.new(retraction.data)
-        end
-      end
-
-      def self.retraction_data_for(target)
-        case target
-        when Contact
-          contact(target).to_h.tap {|data| data[:target_type] = "Contact" }
-        else
-          DiasporaFederation::Entities::Retraction.new(
-            target_guid: target.guid,
-            target_type: Mappings.entity_name_for(target),
-            target:      related_entity(target),
-            author:      target.diaspora_handle
-          ).to_h
-        end
+        retraction.class.entity_class.new(retraction.data)
       end
 
       def self.status_message(status_message)

@@ -50,6 +50,7 @@ module Diaspora
         Profile           => :profile,
         Reshare           => :reshare,
         Retraction        => :retraction,
+        ContactRetraction => :retraction,
         StatusMessage     => :status_message
       }.freeze
 

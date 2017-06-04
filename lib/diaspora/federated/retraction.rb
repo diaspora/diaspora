@@ -14,14 +14,27 @@ class Retraction
     @target = target
   end
 
+  def self.entity_class
+    DiasporaFederation::Entities::Retraction
+  end
+
+  def self.retraction_data_for(target)
+    DiasporaFederation::Entities::Retraction.new(
+      target_guid: target.guid,
+      target:      Diaspora::Federation::Entities.related_entity(target),
+      target_type: Diaspora::Federation::Mappings.entity_name_for(target),
+      author:      target.diaspora_handle
+    ).to_h
+  end
+
   def self.for(target)
-    federation_retraction_data = Diaspora::Federation::Entities.retraction_data_for(target)
+    federation_retraction_data = retraction_data_for(target)
     new(federation_retraction_data, target.subscribers.select(&:remote?), target)
   end
 
   def defer_dispatch(user, include_target_author=true)
     subscribers = dispatch_subscribers(include_target_author)
-    Workers::DeferredRetraction.perform_async(user.id, data, subscribers.map(&:id), service_opts(user))
+    Workers::DeferredRetraction.perform_async(user.id, self.class.to_s, data, subscribers.map(&:id), service_opts(user))
   end
 
   def perform
@@ -31,7 +44,7 @@ class Retraction
   end
 
   def public?
-    data[:target] && data[:target][:public]
+    data[:target][:public]
   end
 
   private
