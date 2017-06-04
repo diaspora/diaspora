@@ -7,6 +7,7 @@
 ## Features
 * Change email without confirmation when mail is disabled [#7455](https://github.com/diaspora/diaspora/pull/7455)
 * Warn users if they leave the profile editing page with unsaved changes [#7473](https://github.com/diaspora/diaspora/pull/7473)
+* Add admin pages to the mobile interface [#7295](https://github.com/diaspora/diaspora/pull/7295)
 
 # 0.6.6.0
 

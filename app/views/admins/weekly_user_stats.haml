@@ -4,5 +4,4 @@
       = render partial: "admins/admin_bar"
     .col-md-9
       = render partial: "admins/weekly_user_stats",
-        locals: {created_users_by_week: @created_users_by_week.keys.reverse,
-          selected_week: @selected_week, counter: @counter}
+        locals: {created_users_by_week: @created_users_by_week, selected_week: @selected_week, counter: @counter}
