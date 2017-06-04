@@ -117,7 +117,7 @@ en:
       id: "ID"
       guid: "GUID"
       email: "Email"
-      diaspora_handle: "diaspora* handle"
+      diaspora_handle: "diaspora* ID"
       last_seen: "Last seen"
       account_closed: "Account closed"
       nsfw: "#nsfw"

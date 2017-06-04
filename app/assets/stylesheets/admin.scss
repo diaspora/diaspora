@@ -2,9 +2,9 @@
 @import 'bootstrap-variables';
 @import 'animations';
 
-/** ADMIN STYlES **/
-/** user search **/
+// ADMIN STYlES
 
+// user search
 .users {
   li.user {
     border-bottom: 1px solid $light-grey;
@@ -23,7 +23,7 @@
   }
 }
 
-/** Invites panel **/
+// Invites panel
 .more_invites{
   #add-invites-section{
     line-height: 34px;
@@ -31,9 +31,13 @@
   }
 }
 
+.invite-emails {
+  margin-bottom: 10px;
+}
+
 // Weekly stats
 .week-selector {
-  margin-top: 18px;
+  margin-top: 10px;
 }
 
 // Pod stats
@@ -44,8 +48,17 @@
   }
 }
 
-/** reported posts **/
+.percent-change {
+  &.increase {
+    color: $increase;
+  }
 
+  &.decrease {
+    color: $decrease;
+  }
+}
+
+// reported posts
 .reports {
   .reason-label {
     font-weight: bold;
@@ -60,8 +73,7 @@
   }
 }
 
-/** pod list **/
-
+// pod list
 #pod-list {
   .pod-title {
     max-width: 200px;
