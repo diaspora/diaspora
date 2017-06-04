@@ -218,7 +218,7 @@ describe Diaspora::Federation::Entities do
 
       it "builds a Contact for a Contact retraction" do
         target = FactoryGirl.create(:contact, receiving: false)
-        retraction = Retraction.for(target)
+        retraction = ContactRetraction.for(target)
         federation_entity = described_class.build(retraction)
 
         expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)
@@ -295,28 +295,6 @@ describe Diaspora::Federation::Entities do
         expect(federation_answer2.guid).to eq(diaspora_answer2.guid)
         expect(federation_answer2.answer).to eq(diaspora_answer2.answer)
       end
-    end
-  end
-
-  describe ".retraction_data_for" do
-    it "returns the data for a Photo retraction" do
-      target = FactoryGirl.create(:photo, author: alice.person)
-      retraction_data = described_class.retraction_data_for(target)
-
-      expect(retraction_data[:author]).to eq(target.author.diaspora_handle)
-      expect(retraction_data[:target_guid]).to eq(target.guid)
-      expect(retraction_data[:target_type]).to eq("Photo")
-    end
-
-    it "returns the data for a Contact entity" do
-      target = FactoryGirl.create(:contact, receiving: false)
-      retraction_data = described_class.retraction_data_for(target)
-
-      expect(retraction_data[:author]).to eq(target.user.diaspora_handle)
-      expect(retraction_data[:recipient]).to eq(target.person.diaspora_handle)
-      expect(retraction_data[:sharing]).to be_falsey
-      expect(retraction_data[:following]).to be_falsey
-      expect(retraction_data[:target_type]).to eq("Contact")
     end
   end
 end

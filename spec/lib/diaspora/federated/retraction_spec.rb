@@ -18,15 +18,36 @@ describe Retraction do
 
   describe "#data" do
     it "contains the hash with all data from the federation-retraction" do
-      federation_retraction_data = Diaspora::Federation::Entities.retraction_data_for(post)
+      expect(retraction.data[:target_guid]).to eq(post.guid)
+      expect(retraction.data[:target]).to eq(Diaspora::Federation::Entities.related_entity(post).to_h)
+      expect(retraction.data[:target_type]).to eq("Post")
+      expect(retraction.data[:author]).to eq(alice.diaspora_handle)
+    end
+  end
 
-      expect(retraction.data).to eq(federation_retraction_data)
+  describe ".retraction_data_for" do
+    it "creates the retraction data for a post" do
+      data = Retraction.retraction_data_for(post)
+      expect(data[:target_guid]).to eq(post.guid)
+      expect(data[:target]).to eq(Diaspora::Federation::Entities.related_entity(post).to_h)
+      expect(data[:target_type]).to eq("Post")
+      expect(data[:author]).to eq(alice.diaspora_handle)
+    end
+
+    it "creates the retraction data for a relayable" do
+      comment = FactoryGirl.create(:comment, author: alice.person, post: post)
+
+      data = Retraction.retraction_data_for(comment)
+      expect(data[:target_guid]).to eq(comment.guid)
+      expect(data[:target]).to eq(Diaspora::Federation::Entities.related_entity(comment).to_h)
+      expect(data[:target_type]).to eq("Comment")
+      expect(data[:author]).to eq(alice.diaspora_handle)
     end
   end
 
   describe ".for" do
     it "creates a retraction for a post" do
-      expect(Diaspora::Federation::Entities).to receive(:retraction_data_for).with(post)
+      expect(Retraction).to receive(:retraction_data_for).with(post)
 
       Retraction.for(post)
     end
@@ -34,17 +55,9 @@ describe Retraction do
     it "creates a retraction for a relayable" do
       comment = FactoryGirl.create(:comment, author: alice.person, post: post)
 
-      expect(Diaspora::Federation::Entities).to receive(:retraction_data_for).with(comment)
+      expect(Retraction).to receive(:retraction_data_for).with(comment)
 
       Retraction.for(comment)
-    end
-
-    it "creates a retraction for a contact" do
-      contact = FactoryGirl.build(:contact, receiving: false)
-
-      expect(Diaspora::Federation::Entities).to receive(:retraction_data_for).with(contact)
-
-      Retraction.for(contact)
     end
   end
 
@@ -55,7 +68,7 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, federation_retraction.to_h, [remote_raphael.id], service_types: []
+        local_luke.id, "Retraction", federation_retraction.to_h, [remote_raphael.id], service_types: []
       )
 
       retraction.defer_dispatch(local_luke)
@@ -71,7 +84,7 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        alice.id, federation_retraction.to_h, [], service_types: ["Services::Twitter"], tweet_id: "123"
+        alice.id, "Retraction", federation_retraction.to_h, [], service_types: ["Services::Twitter"], tweet_id: "123"
       )
 
       retraction.defer_dispatch(alice)
@@ -82,7 +95,7 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        alice.id, federation_retraction.to_h, [], service_types: []
+        alice.id, "Retraction", federation_retraction.to_h, [], service_types: []
       )
 
       retraction.defer_dispatch(alice)
@@ -95,7 +108,7 @@ describe Retraction do
       federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
       expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-        local_luke.id, federation_retraction.to_h, [remote_raphael.id], {}
+        local_luke.id, "Retraction", federation_retraction.to_h, [remote_raphael.id], {}
       )
 
       retraction.defer_dispatch(local_luke)
@@ -110,7 +123,7 @@ describe Retraction do
         federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
         expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-          local_luke.id, federation_retraction.to_h, [remote_raphael.id], {}
+          local_luke.id, "Retraction", federation_retraction.to_h, [remote_raphael.id], {}
         )
 
         retraction.defer_dispatch(local_luke)
@@ -121,7 +134,7 @@ describe Retraction do
         federation_retraction = Diaspora::Federation::Entities.retraction(retraction)
 
         expect(Workers::DeferredRetraction).to receive(:perform_async).with(
-          local_luke.id, federation_retraction.to_h, [], {}
+          local_luke.id, "Retraction", federation_retraction.to_h, [], {}
         )
 
         retraction.defer_dispatch(local_luke, false)
@@ -155,11 +168,6 @@ describe Retraction do
     it "returns false for a private target" do
       private_post = alice.post(:status_message, text: "destroy!", to: alice.aspects.first.id)
       expect(Retraction.for(private_post).public?).to be_falsey
-    end
-
-    it "returns false for a contact retraction" do
-      contact = FactoryGirl.create(:contact, receiving: false)
-      expect(Retraction.for(contact).public?).to be_falsey
     end
   end
 end

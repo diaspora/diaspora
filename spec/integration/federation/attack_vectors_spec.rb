@@ -63,7 +63,7 @@ describe "attack vectors", type: :request do
       expect(contact).to be_sharing
 
       post_message(
-        generate_payload(Diaspora::Federation::Entities.retraction(Retraction.for(contact)), alice, bob), bob
+        generate_payload(Diaspora::Federation::Entities.retraction(ContactRetraction.for(contact)), alice, bob), bob
       )
 
       expect(bob.contacts(true).find_by(person_id: eve.person.id)).to be_sharing
