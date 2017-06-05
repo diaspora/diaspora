@@ -383,6 +383,10 @@ class User < ActiveRecord::Base
     tag_followings.any? || profile[:image_url]
   end
 
+  def basic_profile_present?
+    tag_followings.any? || profile[:image_url]
+  end
+
   ###Helpers############
   def self.build(opts = {})
     u = User.new(opts.except(:person, :id))
