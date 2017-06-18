@@ -170,6 +170,11 @@
             %ul
               = render "shared/links"
 
+        .powered-box
+          .content
+            .powered-by-diaspora.text-center
+              = link_to t("layouts.application.powered_by"), "https://diasporafoundation.org"
+
     .col-md-9
       .stream_container#aspect_stream_container
         = render "aspects/aspect_stream", stream: @stream
