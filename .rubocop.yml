@@ -164,16 +164,6 @@ Lint/Debugger:
 Style/NumericPredicate:
   EnforcedStyle: comparison
 
-# Old defaults from rubocop < 0.48.1
-Style/PercentLiteralDelimiters:
-  PreferredDelimiters:
-    default: '()'
-    '%i': '()'
-    '%I': '()'
-    '%r': '{}'
-    '%w': '()'
-    '%W': '()'
-
 # Reset some HoundCI changes back to Rubocop defaults
 Style/DotPosition:
   EnforcedStyle: leading
