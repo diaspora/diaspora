@@ -14,6 +14,7 @@ app.pages.Settings = Backbone.View.extend({
       el: $(".aspect_dropdown"),
       form: $("#post-default-aspects")
     });
+    $("#update_profile_form").areYouSure();
   }
 });
 // @license-end
