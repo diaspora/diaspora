@@ -97,8 +97,7 @@ module Diaspora
           author:      participation.diaspora_handle,
           guid:        participation.guid,
           parent_guid: participation.target.guid,
-          parent_type: Mappings.entity_name_for(participation.target),
-          parent:      related_entity(participation.target)
+          parent_type: Mappings.entity_name_for(participation.target)
         )
       end
 
