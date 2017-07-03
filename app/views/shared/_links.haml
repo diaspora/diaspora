@@ -1,8 +1,9 @@
-%li= link_to 'diasporafoundation.org', "https://diasporafoundation.org"
-%li= link_to 'Wiki', "https://wiki.diasporafoundation.org"
-%li= link_to t('layouts.application.whats_new'), changelog_url
-%li= link_to t('layouts.header.code') + " " + pod_version, "#{source_url}", {:title => t('layouts.application.source_package')}
+%li= link_to t("layouts.application.discourse"), "https://discourse.diasporafoundation.org"
+%li= link_to t("layouts.application.whats_new"), changelog_url
+%li= link_to t("layouts.header.code") + " " + pod_version,
+  source_url.to_s,
+  title: t("layouts.application.source_package")
 %li= link_to t("layouts.application.statistics_link"), statistics_path
-%li= link_to(t('layouts.application.toggle'), toggle_mobile_path)
+%li= link_to t("layouts.application.toggle"), toggle_mobile_path
 - if AppConfig.settings.terms.enable?
-    %li= link_to(t('_terms'), terms_path)
+  %li= link_to t("_terms"), terms_path
