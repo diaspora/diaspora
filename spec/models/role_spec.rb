@@ -33,38 +33,38 @@ describe Role do
     end
   end
 
-  describe ".is_admin?" do
+  describe ".admin?" do
     it "defaults to false" do
-      expect(Role.is_admin?(person)).to be false
+      expect(Role.admin?(person.id)).to be false
     end
 
     context "when the person is an admin" do
       it "is true" do
-        expect(Role.is_admin?(admin)).to be true
+        expect(Role.admin?(admin.id)).to be true
       end
     end
 
     context "when the person is a moderator" do
       it "is false" do
-        expect(Role.is_admin?(moderator)).to be false
+        expect(Role.admin?(moderator.id)).to be false
       end
     end
   end
 
   describe ".moderator?" do
     it "defaults to false" do
-      expect(Role.moderator?(person)).to be false
+      expect(Role.moderator?(person.id)).to be false
     end
 
     context "when the person is a moderator" do
       it "is true" do
-        expect(Role.moderator?(moderator)).to be true
+        expect(Role.moderator?(moderator.id)).to be true
       end
     end
 
     context "when the person is an admin" do
       it "is true" do
-        expect(Role.moderator?(admin)).to be true
+        expect(Role.moderator?(admin.id)).to be true
       end
     end
   end

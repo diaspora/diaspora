@@ -37,6 +37,11 @@
           %dd= user.username
           %dt= t('.email')
           %dd= user.email
+          %dt= t(".role.label")
+          %dd
+            = [(t(".role.spotlight") if Role.spotlight? user.person_id),
+               (t(".role.moderator") if Role.moderator? user.person_id),
+               (t(".role.admin") if Role.admin? user.person_id)].reject(&:blank?).join ", "
           %dt= t('.diaspora_handle')
           %dd= user.person.diaspora_handle
           %dt= t('.last_seen')
