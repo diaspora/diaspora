@@ -41,5 +41,6 @@
 //= require blueimp-gallery/blueimp-gallery-indicator
 //= require leaflet
 //= require api/authorization_page
-// = require bootstrap-markdown/bootstrap-markdown
-// = require helpers/markdown_editor
+//= require bootstrap-markdown/bootstrap-markdown
+//= require helpers/markdown_editor
+//= require jquery.are-you-sure
