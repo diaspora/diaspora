@@ -117,7 +117,7 @@ en:
       id: "ID"
       guid: "GUID"
       email: "Email"
-      diaspora_handle: "diaspora* handle"
+      diaspora_handle: "diaspora* ID"
       last_seen: "Last seen"
       account_closed: "Account closed"
       nsfw: "#nsfw"
@@ -160,6 +160,8 @@ en:
       tag_name: "Tag name: %{name_tag} Count: %{count_tag}"
     pods:
       pod_network: "Pod network"
+      pod_desktop_view: "This page is not available on mobile view, please switch to %{desktop_link}."
+      pod_desktop_link: "desktop view"
   aspects:
     edit:
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
@@ -1147,6 +1149,9 @@ en:
       add_a_tag: "Add a tag"
       follow: "Follow"
       all: "All tags"
+
+    admin:
+      title: "Admin"
 
     tags:
       title: "Posts tagged: %{tags}"
