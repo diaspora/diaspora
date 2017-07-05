@@ -25,6 +25,11 @@ Given /^a nsfw user with email "([^\"]*)"$/ do |email|
   user.profile.update_attributes(:nsfw => true)
 end
 
+Given /^a moderator with email "([^\"]*)"$/ do |email|
+  user = create_user(email: email)
+  Role.add_moderator(user)
+end
+
 Given /^an admin with email "([^\"]*)"$/ do |email|
   user = create_user(email: email)
   Role.add_admin(user)

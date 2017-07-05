@@ -106,10 +106,20 @@ Feature: Navigate between pages using the header menu and the drawer
     And I click on "Settings" in the drawer
     Then I should be on my account settings page
 
+  Scenario: navigate to the moderation page
+    Given a moderator with email "bob@bob.bob"
+    And I sign in as "bob@bob.bob" on the mobile website
+    When I open the drawer
+    Then I should not see "Admin" within "#drawer"
+    And I should see "Reports" within "#drawer"
+    When I click on "Reports" in the drawer
+    Then I should see "Reports overview" within "#main h1"
+
   Scenario: navigate to the admin pages
     Given an admin with email "bob@bob.bob"
     And I sign in as "bob@bob.bob" on the mobile website
     When I open the drawer
+    Then I should not see "Reports" within "#drawer"
     Then I should not see "Dashboard" within "#drawer"
     When I click on "Admin" in the drawer
     And I click on "Dashboard" in the drawer
@@ -131,3 +141,8 @@ Feature: Navigate between pages using the header menu and the drawer
     Then I should see "Pod network " within "#main h2"
     When I click on "Admin" in the drawer
     Then I should see "Sidekiq monitor" within "#drawer"
+
+  Scenario: users doesn't have access to the admin pages
+    When I open the drawer
+    Then I should not see "Admin" within "#drawer"
+    Then I should not see "Reports" within "#drawer"
