@@ -32,7 +32,7 @@ module UserCukeHelpers
   # integration_sessions controller (automatic)
   def automatic_login
     @me ||= FactoryGirl.create(:user_with_aspect, :getting_started => false)
-    visit(new_integration_sessions_path(:user_id => @me.id))
+    visit(new_integration_sessions_path(user_id: @me.id))
     click_button "Login"
   end
 
