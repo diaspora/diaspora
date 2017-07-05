@@ -52,5 +52,12 @@
                 = t("admins.admin_bar.report")
             %li= link_to t("admins.admin_bar.pod_network"), admin_pods_path
             %li= link_to t("admins.admin_bar.sidekiq_monitor"), sidekiq_path
+      - elsif current_user.moderator?
+        %li
+          %a{href: report_index_path}
+            - if unreviewed_reports_count > 0
+              .pull-right.badge
+                = unreviewed_reports_count
+            = t("admins.admin_bar.report")
       %li= link_to t("layouts.application.toggle"), toggle_mobile_path
       %li= link_to t("layouts.header.logout"), destroy_user_session_path, method: :delete
