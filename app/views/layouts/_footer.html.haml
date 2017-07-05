@@ -1,7 +1,6 @@
 %footer.footer
   .container
-    .pull-left
-      .powered-by-diaspora
-        =t("layouts.application.powered_by")
+    .powered-by-diaspora.pull-left
+      = link_to t("layouts.application.powered_by"), "https://diasporafoundation.org"
     %ul#footer_nav.pull-right
-      = render :partial =>'shared/links'
+      = render partial: "shared/links"

@@ -18,15 +18,24 @@
 * Render mentions as links in comments [#7327](https://github.com/diaspora/diaspora/pull/7327)
 * Add support for mentions in comments to the front-end [#7386](https://github.com/diaspora/diaspora/pull/7386)
 
-# 0.6.7.0
+# 0.6.8.0
 
 ## Refactor
 
 ## Bug fixes
 
 ## Features
+
+# 0.6.7.0
+
+## Refactor
+* Cleanup some translations [#7465](https://github.com/diaspora/diaspora/pull/7465)
+
+## Features
 * Change email without confirmation when mail is disabled [#7455](https://github.com/diaspora/diaspora/pull/7455)
 * Warn users if they leave the profile editing page with unsaved changes [#7473](https://github.com/diaspora/diaspora/pull/7473)
+* Add admin pages to the mobile interface [#7295](https://github.com/diaspora/diaspora/pull/7295)
+* Add links to discourse to footer and sidebar [#7446](https://github.com/diaspora/diaspora/pull/7446)
 
 # 0.6.6.0
 

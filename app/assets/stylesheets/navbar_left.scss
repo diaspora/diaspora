@@ -114,7 +114,8 @@
   padding: 10px 20px 0;
 
   .excellence-box,
-  .info-links {
+  .info-links,
+  .powered-box {
     border-top: 1px solid $border-grey;
     padding: 5px;
   }
@@ -175,7 +176,6 @@
 
     ul {
       list-style: none;
-      margin-bottom: 5px;
       padding-left: 0;
     }
 

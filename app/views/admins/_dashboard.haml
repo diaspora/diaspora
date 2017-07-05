@@ -1,0 +1,11 @@
+#pod-status
+  %h2
+    = t(".pod_status")
+  .alert.alert-info.pod-version{role: "alert"}
+    = t(".fetching_diaspora_version")
+  - if unreviewed_reports_count > 0
+    .alert.alert-warning.reports-warning{role: "alert"}
+      = t("report.unreviewed_reports", count: unreviewed_reports_count)
+  - else
+    %p
+      = t("report.unreviewed_reports", count: 0)

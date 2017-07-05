@@ -5,6 +5,11 @@ html {
 
 body { margin-bottom: 150px; }
 
+.powered-by-diaspora a {
+  color: $link-grey;
+  font-weight: bold;
+}
+
 footer.footer {
   background-color: $background-grey;
   border-top: 1px solid $border-grey;
@@ -14,11 +19,6 @@ footer.footer {
   padding-bottom: 15px;
   position: absolute;
   width: 100%;
-
-  .powered-by-diaspora {
-    color: $link-grey;
-    font-weight: bold;
-  }
 
   ul#footer_nav {
     margin: 0;
