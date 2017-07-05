@@ -3,8 +3,6 @@
 ## Refactor
 * Cleanup some translations [#7465](https://github.com/diaspora/diaspora/pull/7465)
 
-## Bug fixes
-
 ## Features
 * Change email without confirmation when mail is disabled [#7455](https://github.com/diaspora/diaspora/pull/7455)
 * Warn users if they leave the profile editing page with unsaved changes [#7473](https://github.com/diaspora/diaspora/pull/7473)
