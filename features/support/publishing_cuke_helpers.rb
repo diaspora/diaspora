@@ -29,6 +29,8 @@ module PublishingCukeHelpers
     # wait for the publisher to be closed
     expect(find("#publisher")["class"]).to include("closed")
     # wait for the content to appear
+    expect(find("#publisher")).not_to have_css(".btn-primary")
+    expect(find("#publisher")).not_to have_css("#publisher_spinner")
     expect(find("#main_stream")).to have_content(txt)
   end
 
