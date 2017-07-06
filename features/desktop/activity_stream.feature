@@ -6,11 +6,11 @@ Feature: The activity stream
       | Bob Jones   | bob@bob.bob       |
       | Alice Smith | alice@alice.alice |
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
-    When "alice@alice.alice" has posted a status message with a photo
+    And "alice@alice.alice" has posted a status message with a photo
 
   Scenario: delete a comment
-    When "bob@bob.bob" has commented "is that a poodle?" on "Look at this dog"
-    And I sign in as "bob@bob.bob"
+    Given "bob@bob.bob" has commented "is that a poodle?" on "Look at this dog"
+    When I sign in as "bob@bob.bob"
     And I go to the activity stream page
     Then I should see "Look at this dog"
     And I should see "is that a poodle?"
