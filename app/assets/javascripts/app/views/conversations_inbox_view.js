@@ -24,6 +24,7 @@ app.views.ConversationsInbox = app.views.Base.extend({
         self.selectConversation(conversationId);
         self.setupConversation();
         self.conversationForm.renderMarkdownEditor("#conversation-show .conversation-message-text");
+        autosize(self.$("#conversation-show textarea"));
       }
     });
   },

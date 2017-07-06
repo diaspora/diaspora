@@ -35,6 +35,7 @@ describe("app.views.ConversationsInbox", function() {
       spyOn(app.views.ConversationsInbox.prototype, "selectConversation");
       spyOn(app.views.ConversationsInbox.prototype, "setupConversation");
       spyOn(app.views.ConversationsForm.prototype, "renderMarkdownEditor");
+      spyOn(window, "autosize");
       this.target.renderConversation(this.conversationId);
       jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200,
@@ -46,6 +47,8 @@ describe("app.views.ConversationsInbox", function() {
       expect(app.views.ConversationsInbox.prototype.selectConversation).toHaveBeenCalledWith(this.conversationId);
       expect(app.views.ConversationsInbox.prototype.setupConversation).toHaveBeenCalled();
       expect(app.views.ConversationsForm.prototype.renderMarkdownEditor).toHaveBeenCalled();
+      expect(window.autosize).toHaveBeenCalled();
+      expect(window.autosize.calls.mostRecent().args[0].is($("#conversation-show textarea")));
       expect($("#conversation-new")).toHaveClass("hidden");
       expect($("#conversation-show")).not.toHaveClass("hidden");
       expect($("#conversation-show #fake-conversation-content").length).toBe(1);
