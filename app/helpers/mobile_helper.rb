@@ -43,15 +43,12 @@ module MobileHelper
       entypo_class = "entypo-chevron-down"
     end
 
-    if post.comments_count > 0
-      link_to "#{t('admins.stats.comments', count: post.comments_count)}<i class='#{entypo_class}'></i>".html_safe,
-              post_comments_path(post, format: "mobile"),
-              class: "show-comments #{klass}"
-    else
-      html = "<span class='show-comments'>"
-      html << t("admins.stats.comments", count: post.comments_count)
-      html << "</span>"
-    end
+    link_to safe_join([
+                        t("admins.stats.comments", count: post.comments_count),
+                        content_tag(:i, nil, class: entypo_class)
+                      ]),
+            post_comments_path(post, format: "mobile"),
+            class: "show-comments #{klass}"
   end
 
   def additional_photos
