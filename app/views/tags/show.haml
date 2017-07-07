@@ -10,15 +10,6 @@
 
 .container-fluid#tags_show
   .row
-    .col-md-3.hidden-xs
-      .sidebar
-        .sidebar-header.clearfix
-          %h3
-            = t(".tagged_people", count: @stream.tagged_people_count, tag: @stream.display_tag_name)
-
-        .side_stream.stream
-          = render partial: "people/index", locals: {people: @stream.tagged_people}
-
     .col-md-9
       .stream_container
         #author_info
@@ -35,3 +26,12 @@
             .spinner
 
       %a.entypo-chevron-up.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}
+    .col-md-3.hidden-xs
+      .sidebar
+        .sidebar-header.clearfix
+          %h3
+            = t(".tagged_people", count: @stream.tagged_people_count, tag: @stream.display_tag_name)
+
+        .side_stream.stream
+          = render partial: "people/index", locals: {people: @stream.tagged_people}
+
