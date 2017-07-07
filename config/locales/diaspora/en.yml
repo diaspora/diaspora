@@ -807,7 +807,7 @@ en:
       message: |-
         Hello!
 
-        You have been invited to join diaspora* by %{diaspora_id}!
+        You have been invited to join diaspora* by %{user}!
 
         Click this link to get started
 
