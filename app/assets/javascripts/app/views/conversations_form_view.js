@@ -26,12 +26,6 @@ app.views.ConversationsForm = app.views.Base.extend({
 
     this.newConversationMdEditor = this.renderMarkdownEditor("#new-message-text");
 
-    // Creates another markdown editor in case of displaying conversation
-    var responseTextarea = $("#conversation-show .conversation-message-text");
-    if (responseTextarea.length === 1) {
-      this.renderMarkdownEditor(responseTextarea);
-    }
-
     this.bindTypeaheadEvents();
 
     this.tagListElement.empty();
@@ -45,9 +39,7 @@ app.views.ConversationsForm = app.views.Base.extend({
 
   renderMarkdownEditor: function(element) {
     return new Diaspora.MarkdownEditor($(element), {
-      onPreview: function($mdInstance) {
-        return "<div class='preview-content'>" + app.helpers.textFormatter($mdInstance.getContent()) + "</div>";
-      }
+      onPreview: Diaspora.MarkdownEditor.simplePreview
     });
   },
 

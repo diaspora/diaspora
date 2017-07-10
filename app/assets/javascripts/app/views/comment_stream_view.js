@@ -31,9 +31,7 @@ app.views.CommentStream = app.views.Base.extend({
     new app.views.CommentMention({el: this.$el, postId: this.model.get("id")});
 
     this.mdEditor = new Diaspora.MarkdownEditor(this.$(".comment_box"), {
-      onPreview: function($mdInstance) {
-        return "<div class='preview-content'>" + app.helpers.textFormatter($mdInstance.getContent()) + "</div>";
-      },
+      onPreview: Diaspora.MarkdownEditor.simplePreview,
       onFocus: this.openForm.bind(this)
     });
   },
@@ -156,8 +154,15 @@ app.views.CommentStream = app.views.Base.extend({
     autosize.update(this.commentBox);
   },
 
+  isCloseAllowed: function() {
+    if (this.mdEditor === undefined) {
+      return true;
+    }
+    return !this.mdEditor.isPreviewMode() && !this.mdEditor.userInputNotEmpty();
+  },
+
   onFormBlur: function(evt) {
-    if (this.mdEditor !== undefined && this.mdEditor.isPreviewOrTexareaNotEmpty()) {
+    if (!this.isCloseAllowed()) {
       return;
     }
 

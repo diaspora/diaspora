@@ -17,6 +17,14 @@ describe("app.views.ConversationsInbox", function() {
       new app.views.ConversationsInbox();
       expect(app.views.ConversationsInbox.prototype.setupConversation).toHaveBeenCalled();
     });
+
+    it("creates markdown editor for an existing conversation", function() {
+      spyOn(app.views.ConversationsForm.prototype, "renderMarkdownEditor");
+      new app.views.ConversationsInbox(1);
+      expect(app.views.ConversationsForm.prototype.renderMarkdownEditor).toHaveBeenCalledWith(
+        "#conversation-show .conversation-message-text"
+      );
+    });
   });
 
   describe("renderConversation", function() {
