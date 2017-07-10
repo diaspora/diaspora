@@ -130,11 +130,12 @@ Diaspora.MarkdownEditor.prototype = {
     }
   },
 
-  isPreviewOrTexareaNotEmpty: function() {
-    if (this.instance === undefined) {
-      return false;
-    }
-    return (this.instance.$editor.find(".md-preview").length > 0) || (this.instance.getContent().length > 0);
+  isPreviewMode: function() {
+    return this.instance !== undefined && this.instance.$editor.find(".md-preview").length > 0;
+  },
+
+  userInputEmpty: function() {
+    return this.instance === undefined || this.instance.getContent().length === 0;
   },
 
   localize: function() {
@@ -166,4 +167,8 @@ Diaspora.MarkdownEditor.prototype = {
 
     return locale;
   }
+};
+
+Diaspora.MarkdownEditor.simplePreview = function($mdInstance) {
+  return "<div class='preview-content'>" + app.helpers.textFormatter($mdInstance.getContent()) + "</div>";
 };

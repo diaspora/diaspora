@@ -41,13 +41,6 @@ describe("app.views.ConversationsForm", function() {
       this.target.initialize();
       expect(this.target.renderMarkdownEditor).toHaveBeenCalledWith("#new-message-text");
     });
-
-    it("creates markdown editor for an existing conversation", function() {
-      spyOn(this.target, "renderMarkdownEditor");
-      this.target.initialize();
-      expect(this.target.renderMarkdownEditor).toHaveBeenCalledWith(
-        $("#conversation-show .conversation-message-text"));
-    });
   });
 
   describe("renderMarkdownEditor", function() {
