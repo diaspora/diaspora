@@ -246,7 +246,7 @@ describe Notifier, type: :mailer do
     end
 
     it "FROM: contains the sender's name" do
-      expect(@mail["From"].to_s).to eq("\"#{@cnv.author.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+      expect(@mail["From"].to_s).to eq("\"Diaspora* (#{@cnv.author.name})\" <#{AppConfig.mail.sender_address}>")
     end
 
     it "should use a generic subject" do
@@ -290,7 +290,7 @@ describe Notifier, type: :mailer do
       end
 
       it "FROM: contains the sender's name" do
-        expect(comment_mail["From"].to_s).to eq("\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+        expect(comment_mail["From"].to_s).to eq("\"Diaspora* (#{eve.name})\" <#{AppConfig.mail.sender_address}>")
       end
 
       it "SUBJECT: has a snippet of the post contents, without markdown and without newlines" do
@@ -331,7 +331,7 @@ describe Notifier, type: :mailer do
       end
 
       it "FROM: has the name of person commenting as the sender" do
-        expect(comment_mail["From"].to_s).to eq("\"#{eve.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+        expect(comment_mail["From"].to_s).to eq("\"Diaspora* (#{eve.name})\" <#{AppConfig.mail.sender_address}>")
       end
 
       it "SUBJECT: has a snippet of the post contents, without markdown and without newlines" do
@@ -386,7 +386,7 @@ describe Notifier, type: :mailer do
         end
 
         it "FROM: contains the sender's name" do
-          expect(mail["From"].to_s).to eq("\"#{bob.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+          expect(mail["From"].to_s).to eq("\"Diaspora* (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
         end
 
         it "SUBJECT: does not show the limited post" do
@@ -411,7 +411,7 @@ describe Notifier, type: :mailer do
         end
 
         it "FROM: contains the sender's name" do
-          expect(mail["From"].to_s).to eq("\"#{bob.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+          expect(mail["From"].to_s).to eq("\"Diaspora* (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
         end
 
         it "SUBJECT: does not show the limited post" do
@@ -442,7 +442,7 @@ describe Notifier, type: :mailer do
       end
 
       it "FROM: contains the sender's name" do
-        expect(mail["From"].to_s).to eq("\"#{bob.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>")
+        expect(mail["From"].to_s).to eq("\"Diaspora* (#{bob.name})\" <#{AppConfig.mail.sender_address}>")
       end
 
       it "SUBJECT: does not show the limited post" do
@@ -478,7 +478,11 @@ describe Notifier, type: :mailer do
       expect(@confirm_email.to).to eq([bob.unconfirmed_email])
     end
 
-    it "has the unconfirmed emil in the subject" do
+    it "FROM: header should be the default sender address" do
+      expect(@confirm_email["From"].to_s).to eq(AppConfig.mail.sender_address.to_s)
+    end
+
+    it "has the unconfirmed email in the subject" do
       expect(@confirm_email.subject).to include(bob.unconfirmed_email)
     end
 
@@ -500,6 +504,10 @@ describe Notifier, type: :mailer do
 
     it "goes to the right person" do
       expect(email.to).to eq([alice.email])
+    end
+
+    it "FROM: header should be the default sender address" do
+      expect(email["From"].to_s).to eq(AppConfig.mail.sender_address.to_s)
     end
 
     it "has the correct subject" do
@@ -534,6 +542,12 @@ describe Notifier, type: :mailer do
       expect {
         Notifier.send_notification("started_sharing", bob.id, person.id)
       }.to_not raise_error
+    end
+
+    it "FROM: header should be 'Diaspora* (username)' when there is no first and last name" do
+      bob.person.profile.update_attributes(first_name: "", last_name: "")
+      mail = Notifier.send_notification("started_sharing", alice.id, bob.person.id)
+      expect(mail["From"].to_s).to eq("\"Diaspora* (#{bob.person.username})\" <#{AppConfig.mail.sender_address}>")
     end
   end
 end
