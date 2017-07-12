@@ -20,10 +20,6 @@ fa:
           attributes:
             diaspora_handle:
               taken: "درحال حاظر گرفته‌شده."
-        request:
-          attributes:
-            from_id:
-              taken: "با درخواست قبلی تکراری هست."
         reshare:
           attributes:
             root_guid:

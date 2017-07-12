@@ -132,7 +132,7 @@ zh-TW:
       recent_notifications: "最新消息"
       search: "搜尋"
       settings: "設定"
-      toggle_mobile: "行動檢視切換"
+      toggle_mobile: "切換行動版頁面"
       toggle_navigation: "瀏覽模式切換"
       view_all: "看全部"
     hide_post: "要隱藏貼文嗎？"
@@ -191,7 +191,6 @@ zh-TW:
       you_have_no_tags: "你沒有任何標籤！"
     publisher:
       add_option: "增加答案"
-      limited: "設限 - 只有你想分享的人才看得到你的貼文"
       markdown_editor:
         preview: "預覽"
         texts:
@@ -223,7 +222,6 @@ zh-TW:
       mention_success: "指指點點成功: <%= names %>"
       near_from: "貼文地點：<%= location %>"
       option: "答案"
-      public: "公開：所有人都能看到你的貼文，包括搜尋引擎"
       question: "問題"
     remove_post: "要移除貼文嗎？"
     report:

@@ -31,10 +31,6 @@ de-CH:
           attributes:
             poll:
               already_participated: "Du hesch bi dere Umfrog scho mitgmacht!"
-        request:
-          attributes:
-            from_id:
-              taken: "isch es duplikat vonere scho existierende aafrog."
         reshare:
           attributes:
             root_guid:
@@ -127,6 +123,7 @@ de-CH:
       updating: "wird gänderet..."
     index:
       donate: "Spende"
+      donate_liberapay: "A liberapay spende"
       help:
         any_problem: "Git's es Problem?"
         contact_podmin: "Kontaktier de Admin vo dim Pod!"
@@ -183,7 +180,6 @@ de-CH:
       commenting: "Wird kommentiert..."
   contacts:
     index:
-      add_a_new_aspect: "en neue Aspekt mache"
       add_contact: "Kontakt hinzuefüege"
       all_contacts: "Ali Kontäkt"
       community_spotlight: "Intressanti Lüt"
@@ -318,6 +314,9 @@ de-CH:
       logout: "Abmelde"
       profile: "Profil"
       settings: "Iistellige"
+  likes:
+    destroy:
+      error: "Gfallt mer nüme isch fehlgschlage."
   limited: "Begrenzt"
   more: "Meh"
   no_results: "Kei Ergebnis gfunde"
@@ -367,7 +366,6 @@ de-CH:
     mentioned_deleted:
       one: "%{actors} het dich imene glöschte Biitrag erwähnt."
       other: "%{actors} hend dich imene glöschte Biitrag erwähnt."
-    post: "Biitrag"
     private_message:
       one: "%{actors} het dir e Nochricht gschickt."
       other: "%{actors} hend dir e Nochricht gschickt."
@@ -576,6 +574,8 @@ de-CH:
     title: "Meldigsübersicht"
   reshares:
     comment_email_subject: "%{resharer} Reshare vo %{author}'s Biitrag"
+    create:
+      error: "Wiitersägä isch fehlgschlage"
     reshare:
       deleted: "Originalbiitrag isch vom Verfasser glöscht worde."
       reshare_confirmation: "%{author}'s Biitrag wiitersägä?"
@@ -671,18 +671,24 @@ de-CH:
     activity:
       title: "Mini Aktivitätä"
     aspects:
+      all: "Ali Aspekt"
       title: "Mini Aspekt"
     aspects_stream: "Aspekt"
     comment_stream:
       title: "Kommentierti Biiträg"
+    commented:
+      title: "Komentierti Biiträg"
     community_spotlight_stream: "Kommunity Schiiwörferliecht"
     followed_tag:
       add_a_tag: "En Tag hinzuefüege"
+      all: "Ali Tags"
       follow: "Folge"
       title: "#tags dene du folgsch"
     followed_tags_stream: "#tags dene du folgsch"
     like_stream:
       title: "\"gfallt mer\"-Stream"
+    liked:
+      title: "Biiträg wo dir gfalled"
     mentioned_stream: "@Erwähnige"
     mentions:
       title: "@Erwähnige"

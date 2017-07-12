@@ -59,7 +59,7 @@ da:
     aspect_dropdown:
       add_to_aspect: "Tilføj kontakt"
       all_aspects: "Alle aspekter"
-      error: "Kunne ikke begynde at dele med <%= name %>.  Ignorerer du vedkommende?"
+      error: "Kunne ikke begynde at dele med <%= name %>. Ignorerer du vedkommende?"
       error_remove: "Kunne ikke fjerne <%= name %> fra aspektet. :("
       mobile_row_checked: "<%= name %> (fjern)"
       mobile_row_unchecked: "<%= name %> (tilføj)"
@@ -119,7 +119,7 @@ da:
     getting_started:
       alright_ill_wait: "Okay, jeg venter."
       hey: "Hej <%= name %>!"
-      no_tags: "Du har ikke fulgt nogen tags!  Vil du fortsætte alligevel?"
+      no_tags: "Du har ikke fulgt nogen tags! Vil du fortsætte alligevel?"
       preparing_your_stream: "Forbereder din personlige strøm..."
     header:
       admin: "Admin"
@@ -198,7 +198,6 @@ da:
       you_have_no_tags: "Du har ingen tags!"
     publisher:
       add_option: "Tilføj et svar"
-      limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
       markdown_editor:
         preview: "Forhåndsvisning"
         texts:
@@ -230,7 +229,6 @@ da:
       mention_success: "<%= names %> blev omtalt."
       near_from: "Sendt fra: <%= location %>"
       option: "Svar"
-      public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
       question: "Spørgsmål"
     remove_post: "Fjern dette indlæg?"
     report:

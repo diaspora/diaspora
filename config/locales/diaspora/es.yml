@@ -30,10 +30,6 @@ es:
           attributes:
             poll:
               already_participated: "¡Ya has participado en esta encuesta!"
-        request:
-          attributes:
-            from_id:
-              taken: "es un duplicado de una solicitud que ya existe."
         reshare:
           attributes:
             root_guid:
@@ -61,6 +57,8 @@ es:
       fetching_diaspora_version: "Averiguando la última versión de diaspora*..."
       pod_status: "Estado del pod"
     pods:
+      pod_desktop_link: "vista de escritorio"
+      pod_desktop_view: "Esta página no está disponible en la vista movil, por favor cambia a %{desktop_link}"
       pod_network: "Red POD"
     stats:
       2weeks: "2 semanas"
@@ -221,6 +219,8 @@ es:
         here_to_help: "¡La comunidad Diaspora* está aquí!"
         mail_podmin: "Correo del administrador"
         need_help: "¿Necesitas ayuda?"
+        support_forum: "También puedes acceder al %{support_forum}"
+        support_forum_link: "foro de soporte"
         tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
@@ -270,7 +270,6 @@ es:
       commenting: "Comentando..."
   contacts:
     index:
-      add_a_new_aspect: "Añade un nuevo aspecto"
       add_contact: "Añadir contacto"
       all_contacts: "Todos los contactos"
       community_spotlight: "Lo más destacado"
@@ -598,6 +597,7 @@ es:
     application:
       back_to_top: "Volver arriba"
       be_excellent: "¡Sed buenos! ♥"
+      discourse: "Discusión y soporte del proyecto"
       powered_by: "Impulsado por Diaspora*"
       public_feed: "Canal público de %{name} "
       source_package: "Descargar el paquete del código fuente"
@@ -666,7 +666,6 @@ es:
       one: "%{actors} te ha mencionado en una publicación eliminada."
       other: "%{actors} te han mencionado en una publicación eliminada."
       zero: "%{actors} te han mencionado en una publicación eliminada."
-    post: "publicación"
     private_message:
       one: "%{actors} te ha escrito"
       other: "%{actors} te han escrito."
@@ -1040,6 +1039,8 @@ es:
   streams:
     activity:
       title: "Mi actividad"
+    admin:
+      title: "Administrador"
     aspects:
       all: "Todos los aspectos"
       title: "Mis aspectos"

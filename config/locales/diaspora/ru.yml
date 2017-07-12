@@ -31,10 +31,6 @@ ru:
           attributes:
             poll:
               already_participated: "Вы уже участвовали в этом опросе!"
-        request:
-          attributes:
-            from_id:
-              taken: "дубликат предыдущих запросов."
         reshare:
           attributes:
             root_guid:
@@ -242,7 +238,6 @@ ru:
       commenting: "Комментирование..."
   contacts:
     index:
-      add_a_new_aspect: "Новый аспект"
       add_contact: "Добавить контакт"
       all_contacts: "Все контакты"
       community_spotlight: "Рекомендованные пользователи"
@@ -650,7 +645,6 @@ ru:
       one: "%{actors} упомянул(а) вас в удаленной записи."
       other: "%{actors} упомянули вас в удаленной записи."
       zero: "%{actors} упомянули вас в удаленной записи."
-    post: "запись"
     private_message:
       few: "%{actors} послали вам сообщение."
       many: "%{actors} послали вам сообщение."

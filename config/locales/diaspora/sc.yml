@@ -20,14 +20,10 @@ sc:
           attributes:
             diaspora_handle:
               taken: "est giai istadu pigadu."
-        request:
-          attributes:
-            from_id:
-              taken: "est una còpia de un'àtera rechesta giai esistente."
         reshare:
           attributes:
             root_guid:
-              taken: "Bellu a beru, eh?  Ma as giai cumpartzidu cussu post!"
+              taken: "Bellu a beru, eh? Ma as giai cumpartzidu cussa publicatzione!"
         user:
           attributes:
             email:
@@ -53,7 +49,7 @@ sc:
       add_an_aspect: "+ Annanghe una cara"
     aspect_stream:
       stay_updated: "Abarra agiornadu"
-      stay_updated_explanation: "In su flussu tuo bi sunt totu sos cuntatos tuos, sas etichetas chi sighis e sos messàgios pùblicos de sos membros prus creativos de sa comunidade."
+      stay_updated_explanation: "In su flussu tuo bi sunt totu sos cuntatos tuos, sas etichetas chi sighis e sas publicatziones de sos membros prus creativos de sa comunidade."
     destroy:
       failure: "No est istadu possìbile bogare %{name}."
       success: "%{name} est istada bogada."
@@ -74,6 +70,7 @@ sc:
         have_a_question: "fàghere una %{link}?"
         here_to_help: "Sa comunidade de diaspora* est inoghe!"
         need_help: "Tenes bisòngiu de agiudu?"
+        support_forum_link: "forum de suportu"
         tag_bug: "errore"
         tag_feature: "funtzionalidade"
         tag_question: "pregunta"
@@ -109,7 +106,6 @@ sc:
       commenting: "Cummentende..."
   contacts:
     index:
-      add_a_new_aspect: "Annanghe un'aspetu nou"
       all_contacts: "Totu sos cuntatos"
       community_spotlight: "In evidèntzia in sa comunidade"
       my_contacts: "Cuntatos meos"
@@ -159,7 +155,9 @@ sc:
       send_an_invitation: "Imbia un'invitu"
   layouts:
     application:
+      back_to_top: "Torra a s'incumintzu"
       powered_by: "Suportadu dae diaspora*"
+      public_feed: "Flussu de diaspora* pùblicu de %{name}"
       whats_new: "Ite b'est de nou?"
     header:
       code: "Còdighe"
@@ -170,15 +168,56 @@ sc:
   more: "Àteru"
   no_results: "Perunu resurtadu agatadu"
   notifications:
+    also_commented:
+      one: "Fintzas %{actors} at cummentadu sa publicatzione %{post_link} de %{post_author}."
+      other: "Fintzas %{actors} ant cummentadu sa publicatzione %{post_link} de %{post_author}."
+      zero: "%{actors} at cummentadu sa publicatzione %{post_link} de %{post_author}."
+    also_commented_deleted:
+      one: "%{actors} at cummentadu una publicatzione chi est istada iscantzellada."
+      other: "%{actors} ant cummentadu una publicatzione chi est istada iscantzellada."
+      zero: "%{actors} at cummentadu una publicatzione chi est istada iscantzellada."
+    comment_on_post:
+      one: "%{actors} at cummentadu sa publicatzione tua %{post_link}."
+      other: "%{actors} ant cummentadu sa publicatzione tua %{post_link}."
+      zero: "%{actors} at cummentadu sa publicatzione tua %{post_link}."
+    index:
+      and: "e"
+      notifications: "Notìficas"
+    liked:
+      one: "A %{actors} agradat sa publicatzione tua %{post_link}."
+      other: "A %{actors} agradat sa publicatzione tua %{post_link}."
+      zero: "A %{actors} agradat sa publicatzione tua %{post_link}."
+    liked_post_deleted:
+      one: "A %{actors} l'agradaiat sa publicatzione chi as iscantzelladu."
+      other: "A %{actors} lis agradaiat sa publicatzione chi as iscantzelladu."
+      zero: "A %{actors} l'agradaiat sa publicatzione chi as iscantzelladu."
+    mentioned:
+      one: "%{actors} t'at numenadu in sa publicatzione %{post_link}."
+      other: "%{actors} t'ant numenadu in sa publicatzione %{post_link}."
+      zero: "%{actors} t'at numenadu in sa publicatzione %{post_link}."
+    mentioned_deleted:
+      one: "%{actors} t'at numenadu in una publicatzione chi est istada iscantzellada."
+      other: "%{actors} t'ant numenadu in una publicatzione chi est istada iscantzellada."
+      zero: "%{actors} t'at numenadu in una publicatzione chi est istada iscantzellada."
     private_message:
       one: "%{actors} t'at imbiadu unu messàgiu."
       other: "%{actors} t'ant imbiadu unu messàgiu."
       zero: "%{actors} t'at imbiadu unu messàgiu."
+    reshared:
+      one: "%{actors} at cumpartzidu sa publicatzione tua %{post_link}."
+      other: "%{actors} ant cumpartzidu sa publicatzione tua %{post_link}."
+      zero: "%{actors} at cumpartzidu sa publicatzione tua %{post_link}."
+    reshared_post_deleted:
+      one: "%{actors} at cumpartzidu sa publicatzione chi as iscantzelladu."
+      other: "%{actors} ant cumpartzidu sa publicatzione chi as iscantzelladu."
+      zero: "%{actors} at cumpartzidu sa publicatzione chi as iscantzelladu."
     started_sharing:
       one: "%{actors} at incumintzadu a cumpartzire cun tie."
       other: "%{actors} ant incumintzadu a cumpartzire cun tie."
       zero: "%{actors} at incumintzadu a cumpartzire cun tie."
   notifier:
+    a_post_you_shared: "una publicatzione."
+    click_here: "Incarca inoghe"
     export_photos_email:
       body: |-
           Salude, %{name},
@@ -187,11 +226,24 @@ sc:
 
           Saludos,
           Su robot de sa posta eletrònica de diaspora*!
+    hello: "Salude %{name}!"
+    liked:
+      liked: "A %{name} l'agradat sa publicatzione tua"
     private_message:
       subject: "B'est unu messàgiu privadu nou pro tie"
+    started_sharing:
+      view_profile: "Abbista su profilu de %{name}"
+    thanks: "Gràtzias,"
   nsfw: "NSFW (no est adatu pro unu logu de traballu)"
   ok: "AB"
+  people:
+    profile_sidebar:
+      born: "Die de nàschida"
+      gender: "Gènere"
+      location: "Logu"
   photos:
+    destroy:
+      notice: "Fotografia iscantzellada."
     new_profile_photo:
       upload: "Càrriga una fotografia de profilu noa!"
   privacy: "Privadesa"
@@ -200,10 +252,12 @@ sc:
   search: "Chirca"
   settings: "Impostatziones"
   streams:
+    admin:
+      title: "Amministradore"
     commented:
-      title: "Messàgios pùblicos cummentados"
+      title: "Publicatziones cummentadas"
     liked:
-      title: "Messàgios pùblicos agradados"
+      title: "Publicatziones agradadas"
   username: "Nùmene impitadore"
   users:
     edit:

@@ -197,7 +197,6 @@ nl:
       you_have_no_tags: "Je hebt geen tags!"
     publisher:
       add_option: "Keuzemogelijkheid toevoegen"
-      limited: "Gelimiteerd - je bericht is alleen zichtbaar voor de mensen waarmee je hem deelt"
       markdown_editor:
         preview: "Voorbeeld"
         texts:
@@ -224,7 +223,6 @@ nl:
         write: "Schrijven"
       near_from: "Geplaatst vanaf: <%= location %>"
       option: "Keuze <%= nr %>"
-      public: "Openbaar - je bericht is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
       question: "Vraag"
     remove_post: "Dit bericht verwijderen?"
     report:

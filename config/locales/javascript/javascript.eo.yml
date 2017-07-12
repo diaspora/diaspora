@@ -63,9 +63,6 @@ eo:
     photo_uploader:
       completed: "<%= file %> kompletita"
       looking_good: "Diable, vi aspektas bonege!"
-    publisher:
-      limited: "Malpublika - via afiŝo nur videblos de homoj, al kiuj vi konigas aferojn"
-      public: "Publika - via afiŝo videblos al ĉiuj kaj troveblos de retserĉprogramoj."
     reshares:
       post: "Ĉu vi deziras rekonigi la mesaĝon de <%= name %>?"
       successful: "La afiŝo estis sukcese rekonigita!"

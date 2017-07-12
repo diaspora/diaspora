@@ -31,10 +31,6 @@ fi:
           attributes:
             poll:
               already_participated: "Olet jo osallistunut tähän kyselyyn."
-        request:
-          attributes:
-            from_id:
-              taken: "on jo tehdyn pyynnön kaksoiskappale."
         reshare:
           attributes:
             root_guid:
@@ -211,7 +207,6 @@ fi:
       commenting: "Kommentoidaan..."
   contacts:
     index:
-      add_a_new_aspect: "Lisää näkymä"
       add_contact: "Lisää kontakti"
       all_contacts: "Kaikki kontaktit"
       community_spotlight: "Yhteisön valokeila"
@@ -569,7 +564,6 @@ fi:
       one: "%{actors} mainitsi sinut poistetussa julkaisussa."
       other: "%{actors} mainitsivat sinut poistetussa julkaisussa."
       zero: "%{actors} mainitsi sinut poistetussa julkaisussa."
-    post: "viesti"
     private_message:
       one: "%{actors} lähetti sinulle viestin."
       other: "%{actors} lähettivät sinulle viestin."

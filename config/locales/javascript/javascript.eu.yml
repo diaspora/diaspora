@@ -52,9 +52,6 @@ eu:
       not_found: "eta ez da inor aurkitu..."
     photo_uploader:
       looking_good: "Ene bada, oso jatorra dirudizu!"
-    publisher:
-      limited: "Mugatua - zure mezua aukeratu duzun jendeak bakarrik ikusiko du"
-      public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
     reshares:
       post: "Birpartekatu nahi al duzu <%= name %>(r)en mezua?"
       successful: "Mezua arrakastaz birpartekatu da!"

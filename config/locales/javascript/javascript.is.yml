@@ -70,9 +70,7 @@ is:
       result: "Niðurstaða"
       show_result: "Birta niðurstöður"
     publisher:
-      limited: "Takmarkað - skeytið verður eingögnu sýnilegt þeim sem þú veitir leyfi"
       near_from: "Sennt inn nálægt: <%= location %>"
-      public: "Opinbert - skeytið verður sýnilegt öllum, leitarvélar geta einnig fundið póstinn"
     reshares:
       post: "Deila áfram færslu frá <%= name %>?"
       successful: "Tókst að deila þessu skeyti áfram!"

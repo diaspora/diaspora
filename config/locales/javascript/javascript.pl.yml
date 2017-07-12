@@ -183,7 +183,6 @@ pl:
       you_have_no_tags: "nie masz tagów!"
     publisher:
       add_option: "Dodaj odpowiedź"
-      limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
       markdown_editor:
         preview: "Podgląd"
         texts:
@@ -214,7 +213,6 @@ pl:
         write: "Edycja"
       near_from: "Blisko <%= location %>"
       option: "Odpowiedź"
-      public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
       question: "Pytanie"
     remove_post: "Usunąć ten wpis?"
     report:

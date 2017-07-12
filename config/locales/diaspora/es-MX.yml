@@ -21,10 +21,6 @@ es-MX:
           attributes:
             diaspora_handle:
               taken: "ya está ocupado."
-        request:
-          attributes:
-            from_id:
-              taken: "es un duplicado de una solicitud preexistente."
         reshare:
           attributes:
             root_guid:
@@ -174,7 +170,6 @@ es-MX:
       commenting: "Comentando…"
   contacts:
     index:
-      add_a_new_aspect: "Añade un nuevo aspecto"
       all_contacts: "Todos los contactos"
       community_spotlight: "Lo más destacado de la comunidad"
       my_contacts: "Mis contactos"
@@ -461,7 +456,6 @@ es-MX:
       one: "%{actors} te mencionó en una publicación eliminada."
       other: "%{actors} te mencionaron en una publicación eliminada."
       zero: "%{actors} te mencionó en una publicación eliminada."
-    post: "publicación"
     private_message:
       one: "%{actors} te envió un mensaje."
       other: "%{actors} te enviaron un mensaje."

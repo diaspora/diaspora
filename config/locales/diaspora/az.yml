@@ -16,10 +16,6 @@ az:
           attributes:
             diaspora_handle:
               taken: ""
-        request:
-          attributes:
-            from_id:
-              taken: ""
         user:
           attributes:
             email:
@@ -65,7 +61,6 @@ az:
         tag_bug: ""
         tag_feature: ""
         tag_question: ""
-      introduce_yourself: ""
       new_here:
         follow: ""
         learn_more: ""

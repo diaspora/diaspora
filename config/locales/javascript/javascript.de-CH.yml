@@ -102,10 +102,9 @@ de-CH:
       posts: "Biiträg"
     publisher:
       add_option: "Antwort hinzuefüege"
-      limited: "Limitiert: din post wird nur vo lüüt iisehbar sii mit dene du teilsch"
+      mention_success: "Erflogrich <%= names %> erwähnt"
       near_from: "Gschickt i de Nöchi vo <%= location %>"
       option: "Antwort"
-      public: "Öffentlich: din biitrag wird für ali iisehbar si und vo suechmaschine gfunde werde."
       question: "Frog"
     report:
       name: "Melde"
@@ -120,6 +119,9 @@ de-CH:
     show_more: "Meh aazeige"
     stream:
       comment: "Kommentiere"
+      comments:
+        one: "ein Kommentar"
+        other: "<%= count %> Kommentär"
       follow: "Folge"
       followed_tag:
         add_a_tag: "Täg hinzuefüge"

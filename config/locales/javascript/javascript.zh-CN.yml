@@ -52,9 +52,6 @@ zh-CN:
       not_found: "找不到任何人…"
     photo_uploader:
       looking_good: "天啊，您太棒了！"
-    publisher:
-      limited: "限制 - 只有您想分享的人才看得到您的内容"
-      public: "公开 - 所有人都能看到您的内容，包括搜索引擎"
     reshares:
       post: "要转发 <%= name %> 的内容吗？"
       successful: "转发成功"

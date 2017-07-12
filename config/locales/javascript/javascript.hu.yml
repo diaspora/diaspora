@@ -116,7 +116,6 @@ hu:
       you_have_no_tags: "nincsenek címkéid!"
     publisher:
       add_option: "Válasz hozzáadása"
-      limited: "Korlátozott: csak azok láthatják, akikkel megosztasz tartalmakat"
       markdown_editor:
         preview: "Előnézet"
         tooltips:
@@ -125,7 +124,6 @@ hu:
         write: "Szöveg"
       near_from: "<%= location %> közelében"
       option: "Válasz"
-      public: "Nyilvános: bárki láthatja és keresőrobotok is megtalálhatják"
       question: "Kérdés"
     remove_post: "Bejegyzés törlése?"
     report:

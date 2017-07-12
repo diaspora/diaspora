@@ -97,7 +97,6 @@ lv:
       commenting: "Komentē..."
   contacts:
     index:
-      add_a_new_aspect: "Pievienot jaunai grupai"
       all_contacts: "Visi kontakti"
       start_a_conversation: "Sākt sarunu"
       title: "Kontakti"
