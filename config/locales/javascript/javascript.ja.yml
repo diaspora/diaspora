@@ -190,7 +190,6 @@ ja:
       you_have_no_tags: "タグがありません！"
     publisher:
       add_option: "回答を追加"
-      limited: "限定公開 - 投稿はあなたがシェアしている人だけが見られるようになります"
       markdown_editor:
         preview: "プレビュー"
         texts:
@@ -222,7 +221,6 @@ ja:
       mention_success: "メンションしました: <%= names %>"
       near_from: "<%= location %>からの投稿"
       option: "回答"
-      public: "公開 - 投稿は全ての人から見ることができ、検索エンジンで見つかるようになります"
       question: "質問"
     remove_post: "この投稿を削除しますか？"
     report:

@@ -31,10 +31,6 @@ sv:
           attributes:
             poll:
               already_participated: "Du har redan deltagit i denna undersökning."
-        request:
-          attributes:
-            from_id:
-              taken: "är en kopia av en tidigare förfrågan."
         reshare:
           attributes:
             root_guid:
@@ -282,7 +278,6 @@ sv:
       commenting: "Kommenterar..."
   contacts:
     index:
-      add_a_new_aspect: "Lägg till en ny aspekt"
       add_contact: "Lägg till kontakt"
       all_contacts: "Alla kontakter"
       community_spotlight: "Gemenskapens rampljus"
@@ -685,7 +680,6 @@ sv:
       one: "%{actors} har nämnt dig i ett raderat inlägg."
       other: "%{actors} har nämnt dig i ett raderat inlägg."
       zero: "inga inlägg där du är nämnd har raderats."
-    post: "inlägg"
     private_message:
       one: "%{actors} har skickat dig ett meddelande."
       other: "%{actors} har skickat dig ett meddelande."

@@ -65,9 +65,7 @@ ro:
     profile:
       posts: "Postări"
     publisher:
-      limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
       near_from: "Publicat din <%= location %>"
-      public: "Public - articolul tău va fi vizibil tuturor şi va fi accesibilă prin motoarele de căutare"
     show_more: "arată mai mult"
     stream:
       comment: "Comentariu"

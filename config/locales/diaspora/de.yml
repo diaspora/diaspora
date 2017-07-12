@@ -31,10 +31,6 @@ de:
           attributes:
             poll:
               already_participated: "Du hast an dieser Umfrage bereits teilgenommen!"
-        request:
-          attributes:
-            from_id:
-              taken: "wurde schon einmal angefordert."
         reshare:
           attributes:
             root_guid:
@@ -62,6 +58,8 @@ de:
       fetching_diaspora_version: "Ermittle neueste diaspora*-Version"
       pod_status: "Pod-Status"
     pods:
+      pod_desktop_link: "Desktop-Ansicht"
+      pod_desktop_view: "Diese Seite ist in der mobilen Ansicht nicht verfügbar, bitte wechsele zur %{desktop_link}."
       pod_network: "Pod-Netzwerk"
     stats:
       2weeks: "2 Wochen"
@@ -233,6 +231,8 @@ de:
         here_to_help: "Die diaspora*-Gemeinschaft ist für dich da!"
         mail_podmin: "Podmin-E-Mail"
         need_help: "Benötigst du Hilfe?"
+        support_forum: "Du kannst auch dem %{support_forum} beitreten."
+        support_forum_link: "Hilfe-Forum"
         tag_bug: "Problem"
         tag_feature: "Verbesserung"
         tag_question: "Frage"
@@ -282,7 +282,6 @@ de:
       commenting: "Kommentieren …"
   contacts:
     index:
-      add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_contact: "Kontakt hinzufügen"
       all_contacts: "Alle Kontakte"
       community_spotlight: "Gemeinschafts-Schaukasten"
@@ -612,6 +611,7 @@ de:
     application:
       back_to_top: "Zurück zum Anfang"
       be_excellent: "Seid nett zueinander! ♥"
+      discourse: "Projektdiskussionen und Hilfe"
       powered_by: "Betrieben mit diaspora*"
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket runterladen"
@@ -661,7 +661,7 @@ de:
         zero: "und niemand sonst"
       comment_on_post: "Einen Beitrag Kommentiert"
       liked: "Gefällt"
-      mark_all_as_read: "Markiere alle als gelesen"
+      mark_all_as_read: "Alle als gelesen markieren"
       mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
       mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
@@ -691,7 +691,6 @@ de:
       one: "%{actors} hat dich in einem gelöschten Beitrag erwähnt."
       other: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
       zero: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
-    post: "Beitrag"
     private_message:
       few: "%{actors} haben dir eine Nachricht gesendet."
       many: "%{actors} haben dir eine Nachricht gesendet."
@@ -1105,6 +1104,8 @@ de:
   streams:
     activity:
       title: "Meine Aktivitäten"
+    admin:
+      title: "Administration"
     aspects:
       all: "Alle Aspekte"
       title: "Meine Aspekte"

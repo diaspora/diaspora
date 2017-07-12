@@ -21,10 +21,6 @@ gd:
           attributes:
             diaspora_handle:
               taken: "’s e aig cuideigin eile mu thràth."
-        request:
-          attributes:
-            from_id:
-              taken: "’s e ’na dhùblachadh air iarrtas a tha ann mu thràth."
         reshare:
           attributes:
             root_guid:
@@ -128,7 +124,6 @@ gd:
   notifications:
     index:
       and: "agus"
-    post: "brath"
     private_message:
       one: "Tha %{actors} air teachdaireachd a chur thugad."
       other: "Tha %{actors} air teachdaireachd a chur thugad."

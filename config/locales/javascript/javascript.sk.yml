@@ -85,10 +85,8 @@ sk:
       vote: "Hlasovať"
     publisher:
       add_option: "Pridať možnosť"
-      limited: "Vyhradený – tvoj príspevok uvidia len ľudia, s ktorými sa oň podelíš"
       near_from: "Odoslané z obce:<%= location %>"
       option: "Možnosť <%= nr %>"
-      public: "Verejný – tvoj príspevok pomocou vyhľadávačov uvidí a nájde každý"
       question: "Otázka"
     report:
       name: "Správa"

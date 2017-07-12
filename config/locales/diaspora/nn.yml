@@ -21,10 +21,6 @@ nn:
           attributes:
             diaspora_handle:
               taken: "er allereie i bruk"
-        request:
-          attributes:
-            from_id:
-              taken: "er ein kopi av førespurnad som finst frå før."
         reshare:
           attributes:
             root_guid:
@@ -178,7 +174,6 @@ nn:
       commenting: "Kommenterer …"
   contacts:
     index:
-      add_a_new_aspect: "Legg til eit nytt aspekt"
       all_contacts: "Alle kontaktane"
       community_spotlight: "Kreative medlemer"
       my_contacts: "Kontaktane mine"
@@ -337,7 +332,6 @@ nn:
       other: "%{actors} nemnde deg i eit sletta innlegg."
       two: "%{actors} nemnde deg i eit sletta innlegg."
       zero: "%{actors} nemnde deg i eit sletta innlegg."
-    post: "innlegg"
     private_message:
       few: "%{actors} sende deg ei melding."
       many: "%{actors} sende deg ei melding."

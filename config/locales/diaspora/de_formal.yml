@@ -31,10 +31,6 @@ de_formal:
           attributes:
             poll:
               already_participated: "Sie haben an dieser Umfrage bereits teilgenommen!"
-        request:
-          attributes:
-            from_id:
-              taken: "wurde schon einmal angefordert."
         reshare:
           attributes:
             root_guid:
@@ -62,6 +58,8 @@ de_formal:
       fetching_diaspora_version: "Ermittle neueste diaspora*-Version"
       pod_status: "Pod-Status"
     pods:
+      pod_desktop_link: "Desktop-Ansicht"
+      pod_desktop_view: "Diese Seite ist in der mobilen Ansicht nicht verfügbar, bitte wechseln Sie zur %{desktop_link}."
       pod_network: "Pod-Netzwerk"
     stats:
       2weeks: "2 Wochen"
@@ -224,7 +222,7 @@ de_formal:
       donate: "Spenden"
       donate_liberapay: "An liberapay spenden"
       help:
-        any_problem: "Gibt es ein Problem?"
+        any_problem: "Sie sind auf ein Problem gestoßen?"
         contact_podmin: "Kontaktieren Sie den Administrator Ihres Pods!"
         do_you: "Haben Sie:"
         feature_suggestion: "… einen %{link} Vorschlag?"
@@ -233,17 +231,19 @@ de_formal:
         here_to_help: "Die diaspora*-Gemeinschaft ist für Sie da!"
         mail_podmin: "Podmin E-Mail"
         need_help: "Benötigen Sie Hilfe?"
+        support_forum: "Sie können auch dem %{support_forum} beitreten."
+        support_forum_link: "Hilfe-Forum"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
         tutorial_link_text: "Anleitungen"
         tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: Hilfe für Ihre ersten Schritte."
       introduce_yourself: "Das ist ihr Stream. Legen Sie los und stellen Sie sich vor."
-      keep_pod_running: "Helfen Sie %{pod} schneller zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
+      keep_pod_running: "Mit einer monatlichen Spende helfen Sie %{pod} dabei, leistungsfähig zu bleiben und die Server mit ausreichend Kaffee zu versorgen!"
       new_here:
-        follow: "Folgen Sie %{link} und heißen Sie neue Benutzer auf diaspora* willkommen!"
+        follow: "Folgen Sie %{link} und begrüßen Sie neue Benutzer auf diaspora*!"
         learn_more: "Mehr erfahren"
-        title: "Heißen Sie neue Benutzer willkommen"
+        title: "Begrüßen Sie neue Benutzer"
       services:
         content: "Sie können die folgenden Dienste mit diaspora* verbinden:"
         heading: "Dienste verbinden"
@@ -282,7 +282,6 @@ de_formal:
       commenting: "Kommentieren …"
   contacts:
     index:
-      add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_contact: "Kontakt hinzufügen"
       all_contacts: "Alle Kontakte"
       community_spotlight: "Gemeinschafts-Schaukasten"
@@ -291,7 +290,7 @@ de_formal:
       no_contacts_in_aspect: "Sie haben noch keine Kontakte in diesem Aspekt. Unten befindet sich eine Liste Ihrer bestehenden Kontakte, die Sie zu diesem Aspekt hinzufügen können."
       no_contacts_message: "Erkunden Sie den %{community_spotlight}"
       only_sharing_with_me: "Nur mit Ihnen Teilende"
-      start_a_conversation: "Starten Sie eine Unterhaltung"
+      start_a_conversation: "Beginnen Sie eine Unterhaltung"
       title: "Kontakte"
       user_search: "Kontaktsuche"
     spotlight:
@@ -605,13 +604,14 @@ de_formal:
       comma_separated_plz: "Sie können mehrere E-Mail-Adressen, getrennt durch Kommas, eingeben."
       invite_someone_to_join: "Laden Sie jemanden zu diaspora* ein!"
       language: "Sprache"
-      paste_link: "Teilen Sie diesen Link mit Ihren Freunden, um sie zu diaspora* einzuladen oder schicken Sie ihnen den Link direkt per E-Mail."
+      paste_link: "Teilen Sie diesen Link mit Ihren Freunden, um sie zu diaspora* einzuladen, oder schicken Sie Ihnen den Link direkt per E-Mail."
       send_an_invitation: "Eine Einladung senden"
       sending_invitation: "Sende Einladung..."
   layouts:
     application:
       back_to_top: "Nach oben"
       be_excellent: "Seien Sie nett zueinander! ♥"
+      discourse: "Projektdiskussionen und Hilfe"
       powered_by: "Betrieben mit diaspora*"
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket herunterladen"
@@ -691,7 +691,6 @@ de_formal:
       one: "%{actors} hat Sie in einem gelöschten Beitrag erwähnt."
       other: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
       zero: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
-    post: "Beitrag"
     private_message:
       few: "%{actors} haben Ihnen eine Nachricht gesendet."
       many: "%{actors} haben Ihnen eine Nachricht gesendet."
@@ -1034,10 +1033,10 @@ de_formal:
         one: "In einem Aspekt"
         other: "In %{count} Aspekten"
     invitations:
-      by_email: "Lade Leute per E-Mail ein"
+      by_email: "Leute per E-Mail einladen"
       invite_your_friends: "Laden Sie Ihre Freunde ein"
       invites: "Einladungen"
-      share_this: "Teilen Sie diesen Link per E-Mail, Blog oder soziale Netzwerke!"
+      share_this: "Teilen Sie diesen Link per E-Mail, Blog oder über die sozialen Netzwerke!"
     public_explain:
       atom_feed: "Atom-Feed"
       control_your_audience: "Kontrollieren Sie Ihre Zielgruppe"
@@ -1098,6 +1097,8 @@ de_formal:
   streams:
     activity:
       title: "Ihre Aktivitäten"
+    admin:
+      title: "Administration"
     aspects:
       all: "Alle Aspekte"
       title: "Ihre Aspekte"
@@ -1180,14 +1181,14 @@ de_formal:
       export_in_progress: "Vorbereitung Ihrer Daten läuft - schauen Sie etwas später noch mal vorbei."
       export_photos_in_progress: "Ihre Fotos werden derzeit verarbeitet. Bitte sehen Sie in wenigen Augenblicken erneut nach."
       following: "Teilen-Einstellungen"
-      last_exported_at: "(Zuletzt aktualisiert um %{timestamp})"
+      last_exported_at: "(Zuletzt aktualisiert am %{timestamp})"
       liked: "wenn jemandem Ihr Beitrag gefällt"
       mentioned: "Sie in einem Beitrag erwähnt werden"
       new_password: "Neues Passwort"
       private_message: "Sie eine private Nachricht erhalten"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn:"
       request_export: "Meine Profildaten anfordern"
-      request_export_photos: "Meine Fotos anfragen"
+      request_export_photos: "Meine Fotos anfordern"
       request_export_photos_update: "Meine Fotos aktualisieren"
       request_export_update: "Meine Profildaten aktualisieren"
       reshared: "jemand Ihren Beitrag weitersagt"
@@ -1213,7 +1214,7 @@ de_formal:
       ignored_users: "Ignorierte Benutzer"
       no_user_ignored_message: "Sie ignorieren momentan keine anderen Benutzer"
       stop_ignoring: "Ignorieren beenden"
-      strip_exif: "Entferne Metadaten z.B. Ort, Autor und Kameramodell von hochgeladenen Bildern (empfohlen)"
+      strip_exif: "Metadaten (z. B. Ort, Autor oder Kameramodell) von hochgeladenen Bildern entfernen (empfohlen)"
       title: "Privatsphäre-Einstellungen"
     public:
       does_not_exist: "Benutzer %{username} existiert nicht!"

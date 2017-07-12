@@ -29,10 +29,6 @@ br:
           attributes:
             poll:
               already_participated: "Kemeret hoc'h eus perzh er votadeg-mañ c'hoazh !"
-        request:
-          attributes:
-            from_id:
-              taken: "a zo un eilad eus ur reked a oa bet savet c'hoazh"
         reshare:
           attributes:
             root_guid:
@@ -186,7 +182,6 @@ br:
       commenting: "Oc'h embann..."
   contacts:
     index:
-      add_a_new_aspect: "Ouzhpennañ ur strollad nevez"
       all_contacts: "An holl zarempredoù"
       community_spotlight: "Nevezenti ar rouedad"
       my_contacts: "Ma darempredoù"
@@ -394,7 +389,6 @@ br:
       one: "Meneget e oac'h bet en un destenn diverket gant %{actors}."
       other: "Meneget e oac'h bet en un destenn diverket gant %{actors}."
       zero: "Meneget e oac'h bet en un destenn diverket gant %{actors}."
-    post: "embann"
     private_message:
       one: "Kaset ez eus bet ur gemennadenn deoc'h gant %{actors}."
       other: "Kaset ez eus bet ur gemennadenn deoc'h gant %{actors}."

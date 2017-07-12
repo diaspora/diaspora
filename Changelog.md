@@ -1,3 +1,14 @@
+# 0.6.7.0
+
+## Refactor
+* Cleanup some translations [#7465](https://github.com/diaspora/diaspora/pull/7465)
+
+## Features
+* Change email without confirmation when mail is disabled [#7455](https://github.com/diaspora/diaspora/pull/7455)
+* Warn users if they leave the profile editing page with unsaved changes [#7473](https://github.com/diaspora/diaspora/pull/7473)
+* Add admin pages to the mobile interface [#7295](https://github.com/diaspora/diaspora/pull/7295)
+* Add links to discourse to footer and sidebar [#7446](https://github.com/diaspora/diaspora/pull/7446)
+
 # 0.6.6.0
 
 ## Refactor
@@ -12,7 +23,6 @@
 * Fix welcome message when podmin is set to an invalid username [#7452](https://github.com/diaspora/diaspora/pull/7452)
 
 ## Features
-
 * Add support for Nodeinfo 2.0 [#7447](https://github.com/diaspora/diaspora/pull/7447)
 
 # 0.6.5.0

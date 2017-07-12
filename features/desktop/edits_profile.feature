@@ -33,6 +33,10 @@ Feature: editing your profile
     And I should see "#starwars" within "ul#as-selections-tags"
     And the "#profile_public_details" bootstrap-switch should be off
 
+    When I fill in "profile_bio" with "This is a new awesome bio"
+    And I reject the alert after I follow "My activity"
+    Then I should be on my edit profile page
+
     When I fill in "profile[tag_string]" with "#kamino"
     And I press the first ".as-result-item" within ".as-results"
     And I toggle the "#profile_public_details" bootstrap-switch

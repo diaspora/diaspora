@@ -20,10 +20,6 @@ ka:
           attributes:
             diaspora_handle:
               taken: "უკვე დაკავებულია."
-        request:
-          attributes:
-            from_id:
-              taken: "არის უკვე არსებული მოთხოვნის ასლი."
         reshare:
           attributes:
             root_guid:
@@ -116,7 +112,6 @@ ka:
       commenting: "დაკომენტარება"
   contacts:
     index:
-      add_a_new_aspect: "დაამატე ახალი ასპექტი"
       all_contacts: "ყველა კონტაქტი"
       community_spotlight: "საზოგადოების ყურადღების ცენტრში"
       my_contacts: "ჩემი კონტაქტები"
@@ -240,7 +235,6 @@ ka:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "გამოქვეყნება"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."

@@ -127,7 +127,6 @@ en_valspeak:
       you_have_no_tags: "u like... have no tagz!"
     publisher:
       add_option: "Like, add an ansah!"
-      limited: "Limited - ur postie will only b seen by ppl u r sharin wit"
       markdown_editor:
         preview: "show!!"
         texts:
@@ -155,7 +154,6 @@ en_valspeak:
         write: "Type!!"
       near_from: "Postie from: <%= location %>"
       option: "Mah ansah<3"
-      public: "Internetz - ur postie will b seen by any1 on the internet"
       question: "Question!!!"
     remove_post: "Remove the postie?"
     report:

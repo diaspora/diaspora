@@ -21,10 +21,6 @@ el:
           attributes:
             diaspora_handle:
               taken: "είναι ήδη σε χρήση"
-        request:
-          attributes:
-            from_id:
-              taken: "είναι αντίγραφο ενός προϋπάρχοντος αιτήματος."
         reshare:
           attributes:
             root_guid:
@@ -182,7 +178,6 @@ el:
       commenting: "Σχολιάζει..."
   contacts:
     index:
-      add_a_new_aspect: "Πρόσθεσε μια νέα πτυχή"
       all_contacts: "Όλες οι επαφές"
       community_spotlight: "Δημοσιεύσεις κοινότητας"
       my_contacts: "Οι επαφές μου"
@@ -352,7 +347,6 @@ el:
       one: "Ο/Η %{actors} σου ανέφερε σε μια διαγραμμένη δημοσίευση."
       other: "Οι %{actors} σου ανέφεραν σε μια διαγραμμένη δημοσίευση."
       zero: "Ο/Η %{actors} σου ανέφερε σε μια διαγραμμένη δημοσίευση."
-    post: "ανάρτηση"
     private_message:
       one: "Ο/Η %{actors} σου έστειλε ένα μήνυμα."
       other: "Οι %{actors} σου έστειλαν ένα μήνυμα."

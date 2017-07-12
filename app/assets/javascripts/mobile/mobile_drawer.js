@@ -1,17 +1,11 @@
-(function(){
+(function() {
   Diaspora.Mobile.Drawer = {
-    initialize: function(){
-      $("#all_aspects").bind("tap click", function(evt){
-        evt.preventDefault();
-        $(this).find("+ li").toggleClass("hide");
-      });
-
-      $("#menu-badge").bind("tap click", function(evt){
+    initialize: function() {
+      $("#menu-badge").bind("tap click", function(evt) {
         evt.preventDefault();
         $("#app").toggleClass("draw");
       });
-
-      $("#followed_tags").bind("tap click", function(evt){
+      $("#all_aspects, #followed_tags, #admin").bind("tap click", function(evt) {
         evt.preventDefault();
         $(this).find("+ li").toggleClass("hide");
       });

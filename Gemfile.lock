@@ -529,6 +529,8 @@ GEM
       rails-assets-jquery (>= 1.6)
     rails-assets-jquery-textchange (0.2.3)
       rails-assets-jquery
+    rails-assets-jquery.are-you-sure (1.9.0)
+      rails-assets-jquery (>= 1.4.2)
     rails-assets-jquery.slimscroll (1.3.8)
     rails-assets-jquery.ui (1.11.4)
       rails-assets-jquery (>= 1.6)
@@ -847,6 +849,7 @@ DEPENDENCIES
   rails-assets-jquery (= 2.2.4)!
   rails-assets-jquery-placeholder (= 2.3.1)!
   rails-assets-jquery-textchange (= 0.2.3)!
+  rails-assets-jquery.are-you-sure (= 1.9.0)!
   rails-assets-markdown-it (= 8.3.0)!
   rails-assets-markdown-it--markdown-it-for-inline (= 0.1.1)!
   rails-assets-markdown-it-diaspora-mention (= 1.1.1)!

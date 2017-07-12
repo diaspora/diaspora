@@ -114,13 +114,15 @@
   padding: 10px 20px 0;
 
   .excellence-box,
-  .info-links {
+  .info-links,
+  .powered-box {
     border-top: 1px solid $border-grey;
     padding: 5px;
   }
 
   .excellence-box {
     margin-top: 10px;
+    text-align: center;
 
     .content {
       font-size: $font-size-base;
@@ -175,7 +177,6 @@
 
     ul {
       list-style: none;
-      margin-bottom: 5px;
       padding-left: 0;
     }
 

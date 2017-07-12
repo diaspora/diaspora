@@ -20,10 +20,6 @@ ast:
           attributes:
             diaspora_handle:
               taken: "yá ta ocupáu."
-        request:
-          attributes:
-            from_id:
-              taken: "ye un duplicáu d'una solicitú preesistente."
         reshare:
           attributes:
             root_guid:

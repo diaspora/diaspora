@@ -35,5 +35,29 @@
           = person_image_tag(current_user, size: :thumb_small)
       %li= link_to t("_contacts"), contacts_path
       %li= link_to t("layouts.header.settings"), edit_user_path
+      - if current_user.admin?
+        %li#admin
+          = link_to t("streams.admin.title"), "#"
+        %li.no-border.hide
+          %ul
+            %li= link_to t("admins.admin_bar.dashboard"), admin_dashboard_path
+            %li= link_to t("admins.admin_bar.user_search"), user_search_path
+            %li= link_to t("admins.admin_bar.weekly_user_stats"), weekly_user_stats_path
+            %li= link_to t("admins.admin_bar.pod_stats"), pod_stats_path
+            %li
+              %a{href: report_index_path}
+                - if unreviewed_reports_count > 0
+                  .pull-right.badge
+                    = unreviewed_reports_count
+                = t("admins.admin_bar.report")
+            %li= link_to t("admins.admin_bar.pod_network"), admin_pods_path
+            %li= link_to t("admins.admin_bar.sidekiq_monitor"), sidekiq_path
+      - elsif current_user.moderator?
+        %li
+          %a{href: report_index_path}
+            - if unreviewed_reports_count > 0
+              .pull-right.badge
+                = unreviewed_reports_count
+            = t("admins.admin_bar.report")
       %li= link_to t("layouts.application.toggle"), toggle_mobile_path
       %li= link_to t("layouts.header.logout"), destroy_user_session_path, method: :delete

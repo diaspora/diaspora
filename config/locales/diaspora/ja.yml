@@ -31,10 +31,6 @@ ja:
           attributes:
             poll:
               already_participated: "あなたはすでにこの投票に参加しました！"
-        request:
-          attributes:
-            from_id:
-              taken: "既存のリクエストと重複しています。"
         reshare:
           attributes:
             root_guid:
@@ -275,7 +271,6 @@ ja:
       commenting: "コメント投稿中…"
   contacts:
     index:
-      add_a_new_aspect: "新しいアスペクトを追加する"
       add_contact: "連絡先を追加する"
       all_contacts: "すべての連絡先"
       community_spotlight: "コミュニティスポットライト"
@@ -666,7 +661,6 @@ ja:
     mentioned_deleted:
       other: "%{actors}さんが削除された投稿であなたにメンションしました。"
       zero: "%{actors}さんが削除された投稿であなたにメンションしました。"
-    post: "（投稿で）"
     private_message:
       other: "%{actors}さんが、あなたにメッセージを送信しました。"
       zero: "%{actors}さんが、あなたにメッセージを送信しました。"

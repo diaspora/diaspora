@@ -70,9 +70,7 @@ it:
       looking_good: "Accidenti, sei in splendida forma!"
       size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
     publisher:
-      limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
       near_from: "Vicino a: <%= location %>"
-      public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares:
       post: "Vuoi condividere il post di <%= name %>?"
       successful: "Il post è stato condiviso!"

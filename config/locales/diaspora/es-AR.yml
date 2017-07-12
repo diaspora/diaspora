@@ -31,10 +31,6 @@ es-AR:
           attributes:
             poll:
               already_participated: "¡Ya has participado en esta encuesta!"
-        request:
-          attributes:
-            from_id:
-              taken: "es un duplicado de una solicitud preexistente."
         reshare:
           attributes:
             root_guid:
@@ -62,6 +58,8 @@ es-AR:
       fetching_diaspora_version: "Determinando la última versión de diaspora*..."
       pod_status: "Estado del pod"
     pods:
+      pod_desktop_link: "vista de escritorio"
+      pod_desktop_view: "Esta página no está disponible en la versión móvil, por favor cambia a %{desktop_link}."
       pod_network: "Red de pods"
     stats:
       2weeks: "2 semanas"
@@ -92,7 +90,7 @@ es-AR:
       week: "Semana"
     user_entry:
       account_closed: "Cuenta de usuario cerrada"
-      diaspora_handle: "Dirección diaspora*"
+      diaspora_handle: "Tu ID de diaspora*"
       email: "Correo electrónico"
       guid: "GUID"
       id: "Identificador ID"
@@ -233,12 +231,14 @@ es-AR:
         here_to_help: "¡La comunidad de diaspora* está aquí para ayudarte!"
         mail_podmin: "Correo electrónico del administrador del pod"
         need_help: "¿Necesitás ayuda?"
+        support_forum: "También puedes acceder al %{support_forum}."
+        support_forum_link: "foro de ayuda"
         tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
         tutorial_link_text: "Tutoriales"
         tutorials_and_wiki: "%{faq}, %{tutorial} y %{wiki}: Ayuda para tus primeros pasos en diaspora*."
-      introduce_yourself: "Este es tu stream.  Zambullite en el y presentate."
+      introduce_yourself: "Esta es tu Entrada. Zambúllete en ella y preséntate ante la comunidad de diaspora*."
       keep_pod_running: "¡Haz que %{pod} siga corriendo rápido, y compra a nuestros servidores su dosis de café con una donación mensual!"
       new_here:
         follow: "Sigue la etiqueta %{link} y da la bienvenida a los nuevos usuarios de Diaspora*!"
@@ -282,7 +282,6 @@ es-AR:
       commenting: "Comentando..."
   contacts:
     index:
-      add_a_new_aspect: "Añadir un nuevo aspecto"
       add_contact: "Agregar contacto"
       all_contacts: "Todos los contactos"
       community_spotlight: "Comunidad Creativa"
@@ -612,6 +611,7 @@ es-AR:
     application:
       back_to_top: "Volver al inicio"
       be_excellent: "¡La cruzada por una red social Libre! ♥"
+      discourse: "Discusión y soporte del proyecto"
       powered_by: "Impulsado por diaspora*"
       public_feed: "Canal público para %{name}"
       source_package: "Descargar el paquete con el código fuente"
@@ -691,7 +691,6 @@ es-AR:
       one: "%{actors} te mencionó en una publicación eliminada."
       other: "%{actors} te mencionaron en una publicación eliminada."
       zero: "%{actors} te mencionaron en una publicación eliminada."
-    post: "publicación"
     private_message:
       few: "%{actors} te enviaron un mensaje."
       many: "%{actors} te enviaron un mensaje."
@@ -1046,11 +1045,11 @@ es-AR:
       control_your_audience: "Controlá tu audiencia"
       logged_in: "Conectado a %{service}"
       manage: "Gestionar servicios conectados"
-      new_user_welcome_message: "Usa #hashtags para clasificar tus publicaciones y encontrar gente que comparte tus intereses.  Llama a gente interesante usando las @Menciones"
+      new_user_welcome_message: "Usa las #etiquetas para clasificar tus publicaciones y encontrar gente que comparte tus intereses. Llama la atención de gente interesante usando las @Menciones"
       outside: "Las publicaciones públicas podrán ser vistas por otros fuera de diaspora*."
       share: "Comparte"
       title: "Gestioná los servicios conectados"
-      visibility_dropdown: "Usa este menú para cambiar la visibilidad de tu publicación.  (Sugerimos hacer público el primero.)"
+      visibility_dropdown: "Utiliza este menú para cambiar la visibilidad de tu publicación. (Sugerimos hacer pública la primera)"
     publisher:
       discard_post: "Descartar publicación"
       formatWithMarkdown: "Puedes usar %{markdown_link} para darle formato a tu publicación"
@@ -1101,6 +1100,8 @@ es-AR:
   streams:
     activity:
       title: "Mi actividad"
+    admin:
+      title: "Administrar"
     aspects:
       all: "Todos los aspectos"
       title: "Mis aspectos"
@@ -1228,7 +1229,7 @@ es-AR:
       follow_settings_not_changed: "Error al cambiar la configuración de seguimiento."
       language_changed: "El idioma se ha cambiado"
       language_not_changed: "No pudo cambiarse el idioma"
-      password_changed: "Tu contraseña se cambió.  Ya podés conectarte con tu nueva contraseña."
+      password_changed: "Tu contraseña se cambió. Ya podés conectarte con tu nueva contraseña."
       password_not_changed: "No pudo cambiarse tu contraseña"
       settings_not_updated: "Error actualizando la configuración"
       settings_updated: "Configuración actualizada"

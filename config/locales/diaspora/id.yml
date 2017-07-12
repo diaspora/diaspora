@@ -20,10 +20,6 @@ id:
           attributes:
             diaspora_handle:
               taken: "sudah dipakai"
-        request:
-          attributes:
-            from_id:
-              taken: "ada duplikasi dengan permintaan sebelumnya."
         reshare:
           attributes:
             root_guid:
@@ -111,7 +107,6 @@ id:
       commenting: "Mengomentari"
   contacts:
     index:
-      add_a_new_aspect: "Tambahkan aspek baru"
       all_contacts: "Semua Kontak"
       community_spotlight: "Sorotan komunitas"
       my_contacts: "Kontakku"
@@ -236,7 +231,6 @@ id:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "kirim"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."

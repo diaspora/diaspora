@@ -16,10 +16,6 @@ kn:
           attributes:
             person_id:
               taken: "ಈ ಬಳಕೆದಾರರ ಸಂಪರ್ಕಗಳ ನಡುವೆ ಅನನ್ಯ ಇರಬೇಕು."
-        request:
-          attributes:
-            from_id:
-              taken: "ಒಂದು ಪೂರ್ವ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ವಿನಂತಿಯ ನಕಲು ಇದೆ."
         user:
           attributes:
             person:

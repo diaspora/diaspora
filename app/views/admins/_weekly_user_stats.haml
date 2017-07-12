@@ -1,0 +1,21 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
+.row
+  .col-md-9.col-xs-12
+    %h2
+      = t(".current_server", date: Time.zone.now.to_date)
+
+  .col-md-3.col-xs-12
+    = form_tag("/admins/weekly_user_stats", method: "get", class: "form-inline week-selector row") do
+      .col-xs-9.center
+        = select_tag(:week,
+          options_for_select(created_users_by_week.keys.reverse, selected_week),
+          class: "form-control")
+      .col-xs-3.center
+        = submit_tag t("admins.stats.go"), class: "btn btn-primary"
+
+= t(".amount_of", count: counter)
+%br
+- created_users_by_week[selected_week].each do |m|
+  = link_to m, "/u/#{m}"

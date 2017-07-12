@@ -203,6 +203,13 @@ describe UsersController, :type => :controller do
         expect(Workers::Mail::ConfirmEmail).to receive(:perform_async).with(@user.id).once
         put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
       end
+
+      it "saves unconfirmed_email when podmail is disabled" do
+        AppConfig.mail.enable = false
+        put(:update, id: @user.id, user: {email: "my@newemail.com"})
+        @user.reload
+        expect(@user.email).to eql("my@newemail.com")
+      end
     end
 
     describe 'email settings' do

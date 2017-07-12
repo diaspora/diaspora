@@ -16,10 +16,6 @@ bg:
           attributes:
             diaspora_handle:
               taken: "вече е зает."
-        request:
-          attributes:
-            from_id:
-              taken: "е дубликат на вече съществуваща заявка."
         reshare:
           attributes:
             root_guid:
@@ -111,7 +107,6 @@ bg:
       commenting: "Коментиране..."
   contacts:
     index:
-      add_a_new_aspect: "Създаване на аспект"
       all_contacts: "Всички контакти"
       my_contacts: "Моите контакти"
       no_contacts: "Изглежда трябва да добавите контакти!"
@@ -219,7 +214,6 @@ bg:
       one: "%{actors} Ви спомена в изтрита публикация."
       other: "%{actors} Ви спомена в изтрита публикация."
       zero: "%{actors} Ви спомена в изтрита публикация."
-    post: "публикация"
     private_message:
       one: "%{actors} Ви изпрати съобщение."
       other: "%{actors} Ви изпратиха съобщение."

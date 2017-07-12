@@ -117,7 +117,6 @@ pa:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "ਪੋਸਟ"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."

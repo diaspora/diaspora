@@ -50,9 +50,6 @@ lt:
     my_stream: "Srautas"
     photo_uploader:
       looking_good: "Wow, Jūs atrodote nuostabiai!"
-    publisher:
-      limited: "Ribotas - Jūsų įrašą galės peržiūrėti tik žmonės, su kuriais Jūs dalijatės"
-      public: "Viešas - Jūsų įrašus galės peržiūrėti visi, taip pat jie bus randami paieškos sistemose."
     show_more: "Rodyti daugiau"
     stream:
       comment: "Komentuoti"

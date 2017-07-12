@@ -20,10 +20,6 @@ ms:
           attributes:
             diaspora_handle:
               taken: "sudah diambil."
-        request:
-          attributes:
-            from_id:
-              taken: "adalah salinan permintaan yang sedia ada."
         reshare:
           attributes:
             root_guid:
@@ -109,7 +105,6 @@ ms:
       commenting: "Mengulas..."
   contacts:
     index:
-      add_a_new_aspect: "Tambah aspek baru"
       all_contacts: "Semua Kenalan"
       my_contacts: "Kenalan Saya"
       only_sharing_with_me: "Hanya berkongsi dengan saya"

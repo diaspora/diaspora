@@ -70,7 +70,6 @@ nn:
       completed: "<%= file %> ferdig"
       looking_good: "Du verda, du ser flott ut!"
     publisher:
-      limited: "Avgrensa - berre personar du deler med vil kunna sjå meldinga"
       markdown_editor:
         preview: "Førehandsvis"
         texts:
@@ -93,7 +92,6 @@ nn:
           quote: "Set inn sitat"
           write: "Endre melding"
         write: "Skriv"
-      public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
     reshares:
       post: "Vil du dele <%= name %> sin post?"
       successful: "Hurra, posten vart delt!"

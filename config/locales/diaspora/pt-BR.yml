@@ -31,14 +31,10 @@ pt-BR:
           attributes:
             poll:
               already_participated: "Você já participou desta enquete!"
-        request:
-          attributes:
-            from_id:
-              taken: "é uma duplicata de um pedido de pré-existentes."
         reshare:
           attributes:
             root_guid:
-              taken: "Que bom, hein? Mas você já recompartilhou esta publicação!"
+              taken: "Que bom, mas você já recompartilhou esta publicação!"
         user:
           attributes:
             email:
@@ -62,6 +58,8 @@ pt-BR:
       fetching_diaspora_version: "Buscando versão mais recente de diaspora*..."
       pod_status: "Estado do servidor"
     pods:
+      pod_desktop_link: "versão desktop"
+      pod_desktop_view: "Esta página não está disponível na versão móvel. Por favor, mude para a %{desktop_link}."
       pod_network: "Rede"
     stats:
       2weeks: "2 semanas"
@@ -233,6 +231,8 @@ pt-BR:
         here_to_help: "A comunidade diaspora* está aqui!"
         mail_podmin: "E-mail da administração"
         need_help: "Precisa de ajuda?"
+        support_forum: "Você também pode entrar para o %{support_forum}."
+        support_forum_link: "fórum de suporte"
         tag_bug: "bug"
         tag_feature: "recurso"
         tag_question: "pergunta"
@@ -282,7 +282,6 @@ pt-BR:
       commenting: "Comentando..."
   contacts:
     index:
-      add_a_new_aspect: "Adicione um novo aspecto"
       add_contact: "Adicionar contato"
       all_contacts: "Todos os Contatos"
       community_spotlight: "Destaque da Comunidade"
@@ -612,6 +611,7 @@ pt-BR:
     application:
       back_to_top: "Voltar ao topo"
       be_excellent: "Sejam uns amores! ♥"
+      discourse: "Discussão de projetos e suporte"
       powered_by: "Desenvolvido por diaspora*"
       public_feed: "Feed público de diaspora* para %{name}"
       source_package: "Baixar pacote do código-fonte"
@@ -683,7 +683,6 @@ pt-BR:
     mentioned_deleted:
       one: "%{actors} mencionou você em uma publicação deletada."
       other: "%{actors} mencionaram você em uma publicação deletada."
-    post: "publicação"
     private_message:
       one: "%{actors} te enviou uma mensagem."
       other: "%{actors} te enviaram uma mensagem."
@@ -1028,7 +1027,7 @@ pt-BR:
       control_your_audience: "Controle seu público"
       logged_in: "Entrou no %{service}"
       manage: "Gerenciar serviços conectados"
-      new_user_welcome_message: "Use #hashtags para classificar suas publicações e encontrar pessoas que compartilham de seus interesses. Chame as pessoas interessantes com @Menções"
+      new_user_welcome_message: "Use #hashtags para classificar suas publicações e encontrar pessoas que compartilham de seus interesses. Chame a atenção de pessoas interessantes com as @Menções"
       outside: "Mensagens públicas estarão disponíveis para serem visualizadas por pessoas que estão fora de diaspora*."
       share: "Compartilhar"
       title: "Configurar serviços conectados"
@@ -1083,6 +1082,8 @@ pt-BR:
   streams:
     activity:
       title: "Minha Atividade"
+    admin:
+      title: "Admin"
     aspects:
       all: "Todos os aspectos"
       title: "Meus Aspectos"
@@ -1189,7 +1190,7 @@ pt-BR:
       community_welcome: "A comunidade diaspora* está feliz em ter você a bordo!"
       connect_to_facebook: "Podemos acelerar um pouco as coisas %{link} a diaspora*. Seu nome e foto serão recuperados, e a publicação simultânea, habilitada."
       connect_to_facebook_link: "Conectando seu Facebook"
-      hashtag_explanation: "Hashtags permitem a você compartilhar e acompanhar seus interesses. Elas também são uma ótima maneira de conhecer novas pessoas."
+      hashtag_explanation: "Hashtags permitem que você compartilhe e acompanhe seus interesses. Elas também são uma ótima maneira de conhecer novas pessoas na diaspora*."
       hashtag_suggestions: "Tente tags como #arte, #cinema, #gif, etc."
       well_hello_there: "Bem, olá!"
       what_are_you_in_to: "Onde você está?"
@@ -1210,7 +1211,7 @@ pt-BR:
       follow_settings_not_changed: "A alteração das configurações de seguimento falhou."
       language_changed: "Idioma alterado"
       language_not_changed: "Alteração do idioma falhou!"
-      password_changed: "Senha alterada com sucesso! Agora você poderá se conectar com a sua nova senha."
+      password_changed: "Senha alterada com sucesso! Agora você pode usar sua nova senha para entrar no sistema."
       password_not_changed: "Alteração da senha falhou!"
       settings_not_updated: "Atualização de configurações falhou"
       settings_updated: "Configurações atualizadas"

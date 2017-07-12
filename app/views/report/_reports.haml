@@ -1,0 +1,44 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
+.reports
+  %h1
+    = t("report.title")
+  - if @reports.empty?
+    %p
+      = t("report.unreviewed_reports", count: 0)
+  - @reports.each do |report|
+    - if report.item
+      .panel.panel-default
+        - username = report.user.username
+        .panel-heading
+          .reporter.pull-right
+            != t("report.reported_label", person: link_to(username, user_profile_path(username)))
+          .reason
+            %span.reason-label
+              = t("report.reason_label")
+            %span
+              = report.text
+        .panel-body
+          .content
+            = report_content(report)
+          .segment-selection
+            = button_to t("report.reported_user_details"),
+              user_search_path(admins_controller_user_search: {guid: report.reported_author.guid}),
+              class: "btn pull-left btn-info btn-small col-md-3 col-xs-12", method: :post
+            = button_to t("report.review_link"), report_path(report.id, type: report.item_type),
+              class: "btn pull-left btn-info btn-small col-md-3 col-xs-12", method: :put
+            = button_to t("report.delete_link"), report_path(report.id, type: report.item_type),
+              data: {confirm: t("report.confirm_deletion")},
+              class: "btn pull-right btn-danger btn-small col-md-3 col-xs-12", method: :delete
+    - else
+      .panel.panel-default
+        - username = report.user.username
+        .panel-heading
+          .reporter.pull-right
+            != t("report.reported_label", person: link_to(username, user_profile_path(username)))
+          .title
+            = report_content(report)
+        .panel-body
+          = button_to t("report.review_link"), report_path(report.id, type: report.item_type),
+            class: "btn pull-left btn-info btn-small", method: :put

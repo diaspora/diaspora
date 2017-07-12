@@ -21,10 +21,6 @@ sk:
           attributes:
             diaspora_handle:
               taken: "je už obsadené."
-        request:
-          attributes:
-            from_id:
-              taken: "je duplikátom existujúcej požiadavky."
         reshare:
           attributes:
             root_guid:
@@ -182,7 +178,6 @@ sk:
       commenting: "Komentár sa posiela…"
   contacts:
     index:
-      add_a_new_aspect: "Pridať novú kategóriu"
       all_contacts: "Všetky kontakty"
       community_spotlight: "Aktuality z komunity"
       my_contacts: "Moje kontakty"
@@ -401,7 +396,6 @@ sk:
       one: "%{actors} ťa spomenul(a) vo vymazanom príspevku."
       other: "%{actors} ťa spomenuli vo vymazanom príspevku."
       zero: "%{actors} ťa spomenulo vo vymazanom príspevku."
-    post: "príspevok"
     private_message:
       few: "%{actors} ti poslali správu."
       one: "%{actors} ti poslal(a) správu."

@@ -1,0 +1,52 @@
+- content_for :head do
+  = stylesheet_link_tag :admin
+
+.container-fluid
+  .row
+    .col-sm-9
+      %h1= t(".usage_statistic")
+    .col-sm-3
+      = form_tag("/admins/stats", method: "get", class: "row form-inline segment-selection") do
+        .col-sm-8
+          %select.form-control{name: "range"}
+            - %w(daily week 2weeks month).each do |range|
+              %option{value: range, selected: ("selected" if params[:range] == range)}
+                = t(".#{range}")
+        .col-sm-4
+          = submit_tag t(".go"), class: "btn btn-primary btn-block"
+
+  .row
+    .col-xs-12
+      %h4
+        != t("admins.stats.display_results", segment: content_tag(:strong, segment))
+
+  .row
+    - %i(posts comments aspect_memberships users).each do |name|
+      :ruby
+        model = instance_variable_get("@#{name}")
+        count = model[:yesterday]
+        label_with_count = name == :aspect_memberships ? t(".shares", count: count) : t(".#{name}", count: count)
+
+      .col-md-3
+        %h2{style: "font-weight:bold;"}
+          = label_with_count
+        %h4
+          = model[:day_before]
+          %span.percent-change{class: (model[:change] > 0 ? "increase" : "decrease")}
+            = "(#{model[:change]}%)"
+
+  .row
+    %p.col-md-12.alert.alert-info.text-center{role: "alert"}
+      != t("admins.stats.current_segment",
+        post_yest: content_tag(:strong, posts[:yesterday] / user_count),
+        post_day: content_tag(:strong, posts[:day_before] / user_count))
+
+  .row
+    .col-md-12
+      %h3= t(".50_most")
+      %ul
+      - @popular_tags.each do |name, count|
+        %li
+          != t("admins.stats.tag_name",
+            name_tag: content_tag(:strong, name),
+            count_tag: content_tag(:strong, count))

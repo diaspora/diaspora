@@ -55,14 +55,10 @@ en:
           attributes:
             person_id:
               taken: "must be unique among this user’s contacts."
-        request:
-          attributes:
-            from_id:
-              taken: "is a duplicate of a pre-existing request."
         reshare:
           attributes:
             root_guid:
-              taken: "That good, eh?  You've already reshared that post!"
+              taken: "That good, eh? You've already reshared that post!"
         poll:
           attributes:
             poll_answers:
@@ -117,7 +113,7 @@ en:
       id: "ID"
       guid: "GUID"
       email: "Email"
-      diaspora_handle: "diaspora* handle"
+      diaspora_handle: "diaspora* ID"
       last_seen: "Last seen"
       account_closed: "Account closed"
       nsfw: "#nsfw"
@@ -160,6 +156,8 @@ en:
       tag_name: "Tag name: %{name_tag} Count: %{count_tag}"
     pods:
       pod_network: "Pod network"
+      pod_desktop_view: "This page is not available on mobile view, please switch to %{desktop_link}."
+      pod_desktop_link: "desktop view"
   aspects:
     edit:
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
@@ -172,7 +170,7 @@ en:
       you_should_add_some_more_contacts: "You should add some more contacts!"
       try_adding_some_more_contacts: "You can search or %{invite_link} more contacts."
       invite_link_text: "invite"
-      or_spotlight:  "Or you can share with %{link}"
+      or_spotlight: "Or you can share with %{link}"
       community_spotlight: "Community spotlight"
     aspect_listings:
       add_an_aspect: "+ Add an aspect"
@@ -196,7 +194,7 @@ en:
       keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
       donate_liberapay: "Donate to liberapay"
       welcome_to_diaspora: "Welcome to diaspora*, %{name}!"
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
+      introduce_yourself: "This is your stream. Jump in and introduce yourself."
 
       new_here:
         title: "Welcome new users"
@@ -215,6 +213,8 @@ en:
         tag_feature: "feature"
         tutorials_and_wiki: "%{faq}, %{tutorial} & %{wiki}: help for your first steps."
         tutorial_link_text: "Tutorials"
+        support_forum: "You can also join the %{support_forum}."
+        support_forum_link: "support forum"
         any_problem: "Got a problem?"
         contact_podmin: "Contact the administrator of your pod!"
         mail_podmin: "Podmin email"
@@ -250,7 +250,6 @@ en:
   contacts:
     index:
       start_a_conversation: "Start a conversation"
-      add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
       no_contacts: "Looks like you need to add some contacts!"
       no_contacts_message: "Check out %{community_spotlight}"
@@ -568,9 +567,9 @@ en:
       sending_invitation: "Sending invitation..."
       paste_link: "Share this link with your friends to invite them to diaspora*, or email them the link directly."
       codes_left:
-        zero:  "No invites left on this code"
-        one:  "One invite left on this code"
-        other:  "%{count} invites left on this code"
+        zero: "No invites left on this code"
+        one: "One invite left on this code"
+        other: "%{count} invites left on this code"
 
   layouts:
     header:
@@ -583,6 +582,7 @@ en:
       powered_by: "Powered by diaspora*"
       whats_new: "What’s new?"
       statistics_link: "Pod statistics"
+      discourse: "Project discussions and support"
       toggle: "Toggle mobile"
       public_feed: "Public diaspora* feed for %{name}"
       back_to_top: "Back to top"
@@ -624,7 +624,6 @@ en:
       zero: "%{actors} have reshared your post %{post_link}."
       one: "%{actors} has reshared your post %{post_link}."
       other: "%{actors} have reshared your post %{post_link}."
-    post: "post"
     also_commented_deleted:
       zero: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
@@ -908,9 +907,9 @@ en:
 
   photos:
     create:
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
-      type_error: "Photo upload failed.  Are you sure an image was added?"
+      runtime_error: "Photo upload failed. Are you sure that your seatbelt is fastened?"
+      integrity_error: "Photo upload failed. Are you sure that was an image?"
+      type_error: "Photo upload failed. Are you sure an image was added?"
     destroy:
       notice: "Photo deleted."
     new_profile_photo:
@@ -1075,8 +1074,8 @@ en:
       share_this: "Share this link via email, blog, or social networks!"
     public_explain:
       control_your_audience: "Control your audience"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
+      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests. Call out awesome people with @Mentions"
+      visibility_dropdown: "Use this dropdown to change visibility of your post. (We suggest you make this first one public.)"
       title: "Set up connected services"
       share: "Share"
       outside: "Public messages will be available for others outside of diaspora* to see."
@@ -1131,6 +1130,9 @@ en:
       add_a_tag: "Add a tag"
       follow: "Follow"
       all: "All tags"
+
+    admin:
+      title: "Admin"
 
     tags:
       title: "Posts tagged: %{tags}"
@@ -1226,11 +1228,11 @@ en:
       connect_to_facebook: "We can speed things up a bit by %{link} to diaspora*. This will pull your name and photo, and enable cross-posting."
       connect_to_facebook_link: "Hooking up your Facebook account"
       what_are_you_in_to: "What are you into?"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They’re also a great way to find new people on diaspora*."
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests. They’re also a great way to find new people on diaspora*."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
 
     update:
-      password_changed: "Password changed.  You can now log in with your new password."
+      password_changed: "Password changed. You can now log in with your new password."
       password_not_changed: "Password change failed"
 
       language_changed: "Language changed"

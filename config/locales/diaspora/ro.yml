@@ -21,10 +21,6 @@ ro:
           attributes:
             diaspora_handle:
               taken: "e folosit deja."
-        request:
-          attributes:
-            from_id:
-              taken: "este o dublura a unei cereri pre-existente."
         user:
           attributes:
             email:
@@ -123,7 +119,6 @@ ro:
       commenting: "Comentând..."
   contacts:
     index:
-      add_a_new_aspect: "Adaugă un aspect nou"
       all_contacts: "Toate contactele"
       community_spotlight: "reflectorul comunității"
       my_contacts: "Contactele mele"
@@ -272,7 +267,6 @@ ro:
       other: "%{actors} te-au amintit intro publicatie deja stearsa."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "publicaţie"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."

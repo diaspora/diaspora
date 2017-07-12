@@ -31,10 +31,6 @@ nl:
           attributes:
             poll:
               already_participated: "Je hebt al gestemd bij deze peiling!"
-        request:
-          attributes:
-            from_id:
-              taken: "is een duplicaat van een reeds bestaande aanvraag."
         reshare:
           attributes:
             root_guid:
@@ -281,7 +277,6 @@ nl:
       commenting: "Reageren..."
   contacts:
     index:
-      add_a_new_aspect: "Voeg een aspect toe"
       add_contact: "Toevoegen contactpersoon"
       all_contacts: "Alle contacten"
       community_spotlight: "Community aanrader"
@@ -689,7 +684,6 @@ nl:
       one: "%{actors} heeft jou vermeld in een verwijderde post."
       other: "%{actors} hebben jou vermeld in een verwijderde post."
       zero: "%{actors} heeft jou vermeld in een verwijderde post."
-    post: "bericht"
     private_message:
       one: "%{actors} heeft je een bericht gestuurd."
       other: "%{actors} hebben je een bericht gestuurd."

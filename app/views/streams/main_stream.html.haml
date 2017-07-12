@@ -91,8 +91,8 @@
                   "https://wiki.diasporafoundation.org/How_to_report_a_bug"))
               %li
                 != t("aspects.index.help.feature_suggestion",
-                  link: link_to("#" + t("aspects.index.help.tag_feature"),
-                  tag_path(name: t("aspects.index.help.tag_feature"))))
+                  link: link_to(t("aspects.index.help.tag_feature"),
+                  "https://discourse.diasporafoundation.org/c/features-and-ideas"))
             %p
               != t("aspects.index.help.tutorials_and_wiki",
                 faq: link_to(t("_help"), help_path),
@@ -101,6 +101,11 @@
                 wiki: link_to("Wiki", "http://wiki.diasporafoundation.org",
                   target: "_blank"),
                 target: "_blank")
+
+            %p
+              != t("aspects.index.help.support_forum",
+                support_forum: link_to(t("aspects.index.help.support_forum_link"),
+                "https://discourse.diasporafoundation.org/c/support", target: "_blank"))
 
         - unless AppConfig.configured_services.blank? || all_services_connected?
           .section.collapsed
@@ -164,6 +169,11 @@
           .content
             %ul
               = render "shared/links"
+
+        .powered-box
+          .content
+            .powered-by-diaspora.text-center
+              = link_to t("layouts.application.powered_by"), "https://diasporafoundation.org"
 
     .col-md-9
       .stream_container#aspect_stream_container

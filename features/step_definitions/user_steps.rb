@@ -25,6 +25,15 @@ Given /^a nsfw user with email "([^\"]*)"$/ do |email|
   user.profile.update_attributes(:nsfw => true)
 end
 
+Given /^a moderator with email "([^\"]*)"$/ do |email|
+  user = create_user(email: email)
+  Role.add_moderator(user)
+end
+
+Given /^an admin with email "([^\"]*)"$/ do |email|
+  user = create_user(email: email)
+  Role.add_admin(user)
+end
 
 Given /^(?:|[tT]hat )?following user[s]?(?: exist[s]?)?:$/ do |table|
   table.hashes.each do |hash|
@@ -37,7 +46,6 @@ Given /^(?:|[tT]hat )?following user[s]?(?: exist[s]?)?:$/ do |table|
     end
   end
 end
-
 
 Given /^I have been invited by an admin$/ do
   admin = FactoryGirl.create(:user)

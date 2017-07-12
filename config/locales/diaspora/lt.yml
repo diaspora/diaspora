@@ -20,10 +20,6 @@ lt:
           attributes:
             diaspora_handle:
               taken: "Užimtas"
-        request:
-          attributes:
-            from_id:
-              taken: "Šis reikalavimas kartojasi"
         reshare:
           attributes:
             root_guid:
@@ -109,7 +105,6 @@ lt:
       commenting: "Siunčiamas komentaras..."
   contacts:
     index:
-      add_a_new_aspect: "Sukurti kategoriją"
       all_contacts: "Visi kontaktai"
       community_spotlight: "Bendruomenės dėmesio centre"
       my_contacts: "Mano kontaktai"
@@ -216,7 +211,6 @@ lt:
       one: "%{actors} paminėjo Jus ištrintame įraše."
       other: "%{actors} paminėjo Jus ištrintame įraše."
       zero: "%{actors} paminėjo Jus ištrintame įraše."
-    post: "Siųsti"
     private_message:
       few: "Atsiuntė %{actors} pranešimus"
       one: "Atsiuntė %{actors} pranešimą"

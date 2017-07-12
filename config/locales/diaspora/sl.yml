@@ -21,10 +21,6 @@ sl:
           attributes:
             diaspora_handle:
               taken: "je že zaseden."
-        request:
-          attributes:
-            from_id:
-              taken: "je dvojnik vloge, ki že obstaja."
         reshare:
           attributes:
             root_guid:
@@ -185,7 +181,6 @@ sl:
       commenting: "Pisanje mnenja ..."
   contacts:
     index:
-      add_a_new_aspect: "Dodaj nov vidik"
       all_contacts: "Vsi stiki"
       community_spotlight: "Središče pozornosti skupnosti"
       my_contacts: "Moji stiki"
@@ -316,7 +311,6 @@ sl:
       other: "%{actors} je omenilo vas v izbrisani objavi."
       two: "%{actors} sta vas omenila v izbrisani objavi."
       zero: "%{actors} vas je omenilo v izbrisani objavi."
-    post: "objava"
     private_message:
       few: "%{actors} so vam poslali sporočilo."
       one: "%{actors} vam je poslal sporočilo."

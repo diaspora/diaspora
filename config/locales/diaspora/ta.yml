@@ -20,10 +20,6 @@ ta:
           attributes:
             diaspora_handle:
               taken: "ஏற்கனவே எடுக்கப்பட்டுவிட்டது"
-        request:
-          attributes:
-            from_id:
-              taken: "இது முன் இருக்கும் கோரிக்கையின் நகல் ஆகும்."
         reshare:
           attributes:
             root_guid:

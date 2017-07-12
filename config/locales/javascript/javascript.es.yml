@@ -190,7 +190,6 @@ es:
       you_have_no_tags: "¡no tienes etiquetas!"
     publisher:
       add_option: "Añadir una respuesta"
-      limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
       markdown_editor:
         preview: "Previsualización"
         texts:
@@ -222,7 +221,6 @@ es:
       mention_success: "Mencionaste correctamente <%= names %>"
       near_from: "Cerca de: <%= location %>"
       option: "Respuesta"
-      public: "Público - tu publicación es visible para todos, incluyendo buscadores"
       question: "Pregunta"
     remove_post: "Borrar esta publicación?"
     report:
