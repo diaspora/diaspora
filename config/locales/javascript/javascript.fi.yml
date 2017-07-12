@@ -137,10 +137,8 @@ fi:
       you_have_no_tags: "Sinulla ei ole tageja!"
     publisher:
       add_option: "Lisää vastaus"
-      limited: "Rajoitettu - julkaisusi näkyy vain ihmisille, joiden kanssa jaat"
       near_from: "Lähetetty sijainnista: <%= location %>"
       option: "Vastaus"
-      public: "Julkinen - julkaisusi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
       question: "Kysymys"
     remove_post: "Poista tämä julkaisu?"
     report:

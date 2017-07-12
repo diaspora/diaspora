@@ -31,10 +31,6 @@ en_valspeak:
           attributes:
             poll:
               already_participated: "uve like... already voted on this poll!! derp."
-        request:
-          attributes:
-            from_id:
-              taken: "is like...  the same as another thing.."
         reshare:
           attributes:
             root_guid:
@@ -209,7 +205,6 @@ en_valspeak:
       commenting: "sayin somethin"
   contacts:
     index:
-      add_a_new_aspect: "add a new aspect!"
       add_contact: "Add BFF <3"
       all_contacts: "All BFFs!!"
       community_spotlight: "d* celebz <33"
@@ -570,7 +565,6 @@ en_valspeak:
       one: "%{actors} like... mentioned u in a trashed postie."
       other: "%{actors} like... mentioned u in a trashed postie."
       zero: "%{actors} like... mentioned u in a trashed postie."
-    post: "postie!!"
     private_message:
       one: "%{actors} sent u a txt"
       other: "%{actors} sent u a txt"

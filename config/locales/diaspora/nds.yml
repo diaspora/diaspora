@@ -31,10 +31,6 @@ nds:
           attributes:
             poll:
               already_participated: "Du hest an disse Ümfroog schon deelnommen!"
-        request:
-          attributes:
-            from_id:
-              taken: "is een Dubbel von een Anfroog, de dat schon gift."
         reshare:
           attributes:
             root_guid:
@@ -199,7 +195,6 @@ nds:
       commenting: "Kommenteer..."
   contacts:
     index:
-      add_a_new_aspect: "Dau een nee’en Kontakt dortau"
       add_contact: "Kontakt schluten"
       all_contacts: "Alle Kontakte"
       community_spotlight: "vörstellten Gemeenschaftsmitglieder"
@@ -466,7 +461,6 @@ nds:
       one: "%{actors} het di in een löschten Bidrag erwähnt."
       other: "%{actors} hebbt di in een löschten Bidrag erwähnt."
       zero: "Keener het di in een löschten Bidrag erwähnt."
-    post: "Bidrag"
     private_message:
       one: "%{actors} het di eene Noricht schickt"
       other: "%{actors} hebbt di eene Noricht schickt"

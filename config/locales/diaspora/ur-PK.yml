@@ -20,10 +20,6 @@ ur-PK:
           attributes:
             diaspora_handle:
               taken: ".پہلے ہی لیا جا چکا ہے"
-        request:
-          attributes:
-            from_id:
-              taken: ".پہلے سے موجود ایک درخواست کی نقل ہے"
         reshare:
           attributes:
             root_guid:

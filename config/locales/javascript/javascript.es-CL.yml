@@ -52,9 +52,6 @@ es-CL:
       not_found: "y nadie fue encontrado..."
     photo_uploader:
       looking_good: "¡Guau, te ves genial!"
-    publisher:
-      limited: "Limitada - tu publicación sólo será visto por gente con la que compartes"
-      public: "Público - tu post será visible para todos y encontrado por mecanismos de búsqueda"
     reshares:
       successful: "¡La publicación se compartió correctamente!"
     show_more: "mostrar más"

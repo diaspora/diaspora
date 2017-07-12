@@ -98,10 +98,8 @@ ms:
       you_have_no_tags: "anda tidak mempunyai tag!"
     publisher:
       add_option: "Tambah jawapan"
-      limited: "Terhad - catatan anda hanya akan dilihat oleh orang-orang yang berkongsi dengan anda"
       near_from: "Dicatatkan dari: <%= location %>"
       option: "Jawapan"
-      public: "Awam - Pos anda akan dilihat oleh semua orang dan dijumpai oleh enjin carian"
       question: "Soalan"
     report:
       name: "Lapor"

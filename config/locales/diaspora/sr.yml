@@ -20,10 +20,6 @@ sr:
           attributes:
             diaspora_handle:
               taken: "је већ заузето."
-        request:
-          attributes:
-            from_id:
-              taken: "је дупликат већ постојећег захтева."
         reshare:
           attributes:
             root_guid:
@@ -165,7 +161,6 @@ sr:
       and: "и"
       mark_all_as_read: "Означи све као прочитано"
       notifications: "Обавештења"
-    post: "објава"
   notifier:
     a_post_you_shared: "објава"
     click_here: "Кликните овде"

@@ -21,10 +21,6 @@ pt-PT:
           attributes:
             diaspora_handle:
               taken: "já foi escolhido."
-        request:
-          attributes:
-            from_id:
-              taken: "é um duplicado de um pedido pré-existente."
         reshare:
           attributes:
             root_guid:
@@ -176,7 +172,6 @@ pt-PT:
       commenting: "A comentar..."
   contacts:
     index:
-      add_a_new_aspect: "Adicionar um novo grupo"
       all_contacts: "Todos os contactos"
       community_spotlight: "Destaques da comunidade"
       my_contacts: "Meus contactos"
@@ -447,7 +442,6 @@ pt-PT:
       other: "%{actors} mencionaram-no numa publicação apagada."
       two: "%{actors} mencionaram-no numa publicação apagada."
       zero: "%{actors} mencionaram-no numa publicação apagada."
-    post: "publicação"
     private_message:
       one: "%{actors} enviou-lhe uma mensagem."
       other: "%{actors} enviaram-lhe uma mensagem."

@@ -135,7 +135,6 @@ nb:
       you_have_no_tags: "Du har ingen tagger!"
     publisher:
       add_option: "Legg til valg"
-      limited: "Begrenset - posten din vil bare være synlig for de du deler med"
       markdown_editor:
         preview: "Forhåndsvis"
         texts:
@@ -165,7 +164,6 @@ nb:
         write: "Skriv"
       near_from: "Publisert fra: <%= location %>"
       option: "Valg <%= nr %>"
-      public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
       question: "Spørsmål"
     remove_post: "Fjern dette innlegget?"
     report:

@@ -171,6 +171,7 @@ es-AR:
       invalid_ext: "El archivo {file} tiene una extensión inválida. Solo las extensiones {extensions} están permitidas."
       looking_good: "¡Apa, te ves muy bien!"
       size_error: "El archivo {file} es demasiado grande, el tamaño máximo permitido es {sizeLimit}."
+      upload_photos: "Subir fotos"
     poll:
       answer_count:
         one: "1 voto"
@@ -198,7 +199,6 @@ es-AR:
       you_have_no_tags: "¡No tenés etiquetas!"
     publisher:
       add_option: "Añadir respuesta"
-      limited: "Limitada: tu publicación será vista solo por la gente con quien la compartes"
       markdown_editor:
         preview: "Vista previa"
         texts:
@@ -230,7 +230,6 @@ es-AR:
       mention_success: "Mencionados exitosamente: <%= names %>"
       near_from: "Cerca de: <%= location %>"
       option: "Respuesta"
-      public: "Publica: tu publicación será visible para cualquiera en Internet y los buscadores podrán encontrarla"
       question: "Pregunta"
     remove_post: "¿Eliminar esta publicación?"
     report:

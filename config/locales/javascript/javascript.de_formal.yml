@@ -198,7 +198,6 @@ de_formal:
       you_have_no_tags: "Sie haben keine Tags!"
     publisher:
       add_option: "Antwortmöglichkeit hinzufügen"
-      limited: "Eingeschränkt: Ihr Beitrag wird nur von Leuten gesehen werden können, mit denen Sie teilen"
       markdown_editor:
         preview: "Vorschau"
         texts:
@@ -230,7 +229,6 @@ de_formal:
       mention_success: "Erfolgreich erwähnt: <%= names %>"
       near_from: "In der Nähe von <%= location %>"
       option: "Antwort"
-      public: "Öffentlich: Ihr Beitrag wird von allen gesehen und von Suchmaschinen gefunden werden können"
       question: "Frage"
     remove_post: "Diesen Beitrag löschen?"
     report:
@@ -273,7 +271,7 @@ de_formal:
       original_post_deleted: "Originalbeitrag wurde vom Autor gelöscht"
       permalink: "Permalink"
       public: "Öffentlich"
-      reshare: "Weitersagen"
+      reshare: "Teilen"
       reshares:
         one: "<%= count %> mal weitergeteilt"
         other: "<%= count %> mal weitergeteilt"

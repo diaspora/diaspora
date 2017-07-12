@@ -31,10 +31,6 @@ hu:
           attributes:
             poll:
               already_participated: "Már részt vettél ebben a körkérdésben!"
-        request:
-          attributes:
-            from_id:
-              taken: "már létező kérés."
         reshare:
           attributes:
             root_guid:
@@ -214,7 +210,6 @@ hu:
       commenting: "Hozzászólok.."
   contacts:
     index:
-      add_a_new_aspect: "Új csoport"
       add_contact: "Ismerős hozzáadása"
       all_contacts: "Összes ismerős"
       community_spotlight: "A figyelem középpontjában"
@@ -417,6 +412,7 @@ hu:
       be_who_you_want_to_be_info: "Sok közösségi hálózat ragaszkodik ahhoz, hogy a valódi identitásod használd. A diaspora* nem. Itt az lehetsz, aki csak akarsz, és te döntöd el, hogy mennyi információt osztasz meg magadról. Itt tényleg rajtad áll a döntés, hogyan lépsz kapcsolatba másokkal."
       byline: "Az online közösség, ahol tiéd az irányítás."
       choose_your_audience: "Válaszd meg közönséged"
+      headline: "Üdvözöl a(z) %{pod_name}"
   invitation_codes:
     not_valid: "Ez a meghívó kód már nem érvényes"
   invitations:
@@ -510,7 +506,6 @@ hu:
       other: "%{actors} megemlített téged egy, már törölt bejegyzésben."
       two: "%{actors} megemlített téged egy törölt bejegyzésben."
       zero: "%{actors} megemlített téged egy, már törölt bejegyzésben."
-    post: "bejegyzés"
     private_message:
       few: "%{actors} üzenetet küldött neked."
       many: "%{actors} üzenetet küldött neked."

@@ -20,10 +20,6 @@ be:
           attributes:
             diaspora_handle:
               taken: "ужо існуе."
-        request:
-          attributes:
-            from_id:
-              taken: "было аднойчы ўжо запатрабавана."
         reshare:
           attributes:
             root_guid:

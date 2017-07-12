@@ -40,9 +40,6 @@ et:
     my_stream: "Voog"
     photo_uploader:
       looking_good: "OMG, sa näed vinge välja!"
-    publisher:
-      limited: "Piiratud - sinu postitust näidatakse vaid neile inimestele kellega sa oled seda jaganud"
-      public: "Avalik - sinu postitus on nähtav kõigile ja leitav otsingumootorite poolt"
     show_more: "näita veel"
     stream:
       comment: "Kommenteeri"

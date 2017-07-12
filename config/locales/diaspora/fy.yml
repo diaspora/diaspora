@@ -73,8 +73,6 @@ fy:
       settings: "Ynstellingen"
   more: "Mear"
   no_results: "Gjin Risseltaten Fûn"
-  notifications:
-    post: "berjocht"
   notifier:
     a_post_you_shared: "in berjocht."
     click_here: "klik hjirre"

@@ -21,10 +21,6 @@ en_pirate:
           attributes:
             diaspora_handle:
               taken: "has been hornswaggled!"
-        request:
-          attributes:
-            from_id:
-              taken: "is a another one of something that already exists ye scallywag!"
         reshare:
           attributes:
             root_guid:
@@ -129,7 +125,6 @@ en_pirate:
       commenting: "Commentin'"
   contacts:
     index:
-      add_a_new_aspect: "Add a new crew"
       add_contact: "Add matey"
       all_contacts: "All yer mateys"
       community_spotlight: "Crew spotlight"
@@ -270,7 +265,6 @@ en_pirate:
       other: "%{actors} mentioned you in a scuttled post."
       two: "%{actors} mentioned you in a scuttled post."
       zero: "%{actors} mentioned you in a scuttled post."
-    post: "post"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."

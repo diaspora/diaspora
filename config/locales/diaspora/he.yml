@@ -29,10 +29,6 @@ he:
           attributes:
             poll:
               already_participated: "כבר השתתפת בסקר זה!"
-        request:
-          attributes:
-            from_id:
-              taken: "זהה לבקשה שהתקבלה קודם."
         reshare:
           attributes:
             root_guid:
@@ -184,7 +180,6 @@ he:
       commenting: "התגובה נשלחת..."
   contacts:
     index:
-      add_a_new_aspect: "הוספת היבט חדש"
       all_contacts: "כל אנשי הקשר"
       community_spotlight: "פרסומים חשובים בקהילה"
       my_contacts: "אנשי הקשר שלי"
@@ -344,7 +339,6 @@ he:
       one: "%{actors} הזכיר/ה אותך בהודעה שנמחקה."
       other: "%{actors} הזכירו אותך בהודעה שנמחקה."
       zero: "%{actors} הזכירו אותך בהודעה שנמחקה."
-    post: "הודעה"
     private_message:
       one: "%{actors} שלח/ה לך הודעה."
       other: "%{actors} שלחו לך הודעה."

@@ -20,10 +20,6 @@ is:
           attributes:
             diaspora_handle:
               taken: "er þegar í notkun."
-        request:
-          attributes:
-            from_id:
-              taken: "er afrit af fyrirliggjandi beiðni."
         reshare:
           attributes:
             root_guid:
@@ -135,7 +131,6 @@ is:
       commenting: "Athugasemd gerð..."
   contacts:
     index:
-      add_a_new_aspect: "Bæta við nýrri ásýnd"
       all_contacts: "Allir tengiliðir"
       community_spotlight: "Efst á baugi í samfélaginu"
       my_contacts: "Tengiliðirnir mínir"
@@ -275,7 +270,6 @@ is:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "setja inn"
     private_message:
       one: "%{actors} hefur sent þér skilaboð."
       other: "%{actors} hafa sent þér skilaboð."

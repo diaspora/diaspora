@@ -199,7 +199,6 @@ de:
       you_have_no_tags: "Du hast keine Tags!"
     publisher:
       add_option: "Antwortmöglichkeit hinzufügen"
-      limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
       markdown_editor:
         preview: "Vorschau"
         texts:
@@ -231,11 +230,10 @@ de:
       mention_success: "Erfolgreich erwähnt: <%= names %>"
       near_from: "Gesendet aus <%= location %>"
       option: "Antwort"
-      public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
       question: "Frage"
     remove_post: "Diesen Beitrag löschen?"
     report:
-      name: "Meldung"
+      name: "Beitrag melden"
       prompt: "Bitte gib einen Grund an:"
       prompt_default: "z.B. anstößiger Inhalt"
       status:
@@ -267,7 +265,7 @@ de:
         one: " Einer Person gefällt das"
         other: "<%= count %> Personen gefällt das"
         two: "<%= count %> Personen gefällt das"
-        zero: "Keinem gefällt das"
+        zero: "Niemandem gefällt das"
       limited: "Begrenzt"
       more_comments:
         one: "Zeige einen weiteren Kommentar"

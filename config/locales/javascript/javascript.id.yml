@@ -38,9 +38,6 @@ id:
     my_stream: "Stream"
     photo_uploader:
       looking_good: "Puji Tuhan, anda terlihat luar biasa!"
-    publisher:
-      limited: "Di Limitasi - Apa yang anda publikasi hanya dapat di lihat oleh orang-orang yang berbagi dengan anda."
-      public: "Publik - Apa yang anda publikasi dapat di lihat oleh siapa saja dan dapat di temukan oleh mesin pencari."
     show_more: "Tampilkan lebih banyak lagi"
     stream:
       comment: "Komentar"

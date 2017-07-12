@@ -199,7 +199,6 @@ sv:
       you_have_no_tags: "Du har inga taggar!"
     publisher:
       add_option: "Lägg till alternativ"
-      limited: "Begränsat: ditt inlägg visas endast för personer som du delar med"
       markdown_editor:
         preview: "Förhandsgranska"
         texts:
@@ -231,7 +230,6 @@ sv:
       mention_success: "Lyckades nämna: <%= names %>"
       near_from: "Sänt från: <%= location %>"
       option: "Alternativ"
-      public: "Publikt: ditt inlägg visas för alla och i söktjänster"
       question: "Fråga"
     remove_post: "Vill du ta bort detta inlägg?"
     report:

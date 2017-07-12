@@ -20,10 +20,6 @@ zh-CN:
           attributes:
             diaspora_handle:
               taken: "已被注册。"
-        request:
-          attributes:
-            from_id:
-              taken: "与已存在的请求重复。"
         reshare:
           attributes:
             root_guid:
@@ -160,7 +156,6 @@ zh-CN:
       commenting: "回复中……"
   contacts:
     index:
-      add_a_new_aspect: "加入新分组"
       all_contacts: "所有好友"
       community_spotlight: "社区热点"
       my_contacts: "我的好友"
@@ -260,7 +255,6 @@ zh-CN:
     mentioned_deleted:
       other: "%{actors} 在已删除的内容中提到了您。"
       zero: "%{actors} 在已删除的内容中提到了您。"
-    post: "日志。"
     private_message:
       other: "%{actors} 向您发了一条信息。"
       zero: "%{actors} 向您发了一条信息。"

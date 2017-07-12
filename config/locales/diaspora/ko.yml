@@ -21,10 +21,6 @@ ko:
           attributes:
             diaspora_handle:
               taken: ": 이미 쓰이고 있습니다."
-        request:
-          attributes:
-            from_id:
-              taken: ": 이미 존재하는 요청과 중복입니다."
         reshare:
           attributes:
             root_guid:
@@ -167,7 +163,6 @@ ko:
       commenting: "댓글 다는 중···"
   contacts:
     index:
-      add_a_new_aspect: "새 애스펙 추가"
       all_contacts: "모든 컨택"
       community_spotlight: "커뮤니티 스포트라이트"
       my_contacts: "내 컨택"
@@ -316,7 +311,6 @@ ko:
       other: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       two: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
       zero: "%{actors}님이 지워진 게시물에서 나를 멘션했습니다."
-    post: "게시물"
     private_message:
       few: "%{actors}님이 쪽지를 보냈습니다."
       many: "%{actors}님이 쪽지를 보냈습니다."

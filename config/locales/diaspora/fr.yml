@@ -31,10 +31,6 @@ fr:
           attributes:
             poll:
               already_participated: "Vous avez déjà participé à ce sondage !"
-        request:
-          attributes:
-            from_id:
-              taken: "est un doublon d'une requête déjà existante."
         reshare:
           attributes:
             root_guid:
@@ -62,6 +58,8 @@ fr:
       fetching_diaspora_version: "Entrain de déterminer la dernière version de diaspora*..."
       pod_status: "État du pod"
     pods:
+      pod_desktop_link: "Voir en mode ordinateur de bureau"
+      pod_desktop_view: "Cette page n'est pas disponible pour un affichage sur appareil mobile, veuillez choisir la version %{desktop_link}."
       pod_network: "Réseau du pod"
     stats:
       2weeks: "Deux semaines"
@@ -229,6 +227,8 @@ fr:
         here_to_help: "La communauté diaspora* est là !"
         mail_podmin: "E-mail du podmin"
         need_help: "Besoin d'aide ?"
+        support_forum: "Vous pouvez également parcourir le %{support_forum}."
+        support_forum_link: "Forum d'assistance"
         tag_bug: "bug"
         tag_feature: "suggestion"
         tag_question: "question"
@@ -278,7 +278,6 @@ fr:
       commenting: "Commentaire en cours d'envoi..."
   contacts:
     index:
-      add_a_new_aspect: "Ajouter un nouvel aspect"
       add_contact: "Ajouter ce contact"
       all_contacts: "Tous les contacts"
       community_spotlight: "Actualités de la communauté"
@@ -338,13 +337,13 @@ fr:
   find_people: "Rechercher des personnes ou des #tags"
   help:
     account_and_data_management:
-      close_account_a: "Rendez-vous en bas de la page de vos paramètres et cliquez sur le bouton \"Clôturer le compte\". Votre mot de passe vous sera demandé pour achever le processus. Nous vous rappelons que si vous fermez votre compte, vous ne pourrez plus en recréer sur ce pod avec ce nom d'utilisateur."
+      close_account_a: "Rendez-vous en bas de la page de vos paramètres et cliquez sur le bouton « Clôturer le compte ». Votre mot de passe vous sera demandé pour achever le processus. Nous vous rappelons que si vous fermez votre compte, vous ne pourrez plus en recréer sur ce pod avec ce nom d'utilisateur."
       close_account_q: "Comment puis-je supprimer mon compte ?"
       data_other_podmins_a: "Une fois que vous avez partagé avec des personnes d'un autre pod, chacun des messages que vous partagez avec eux ainsi qu'une copie des informations de votre profil sont stockées (mises en cache) sur leur pod, et accessibles à l'administrateur de la base de données de ce pod. Quand vous supprimez un message ou des informations de votre profil, ces données sont supprimées de votre pod et une demande de suppression est envoyée à tous les autres pods sur lesquels elles étaient stockées. Vos images ne sont jamais stockées sur un autre pod que le vôtre, seuls les liens y menant leur sont transmis."
       data_other_podmins_q: "Est-ce que les administrateurs des autres pods peuvent voir mes informations ?"
-      data_visible_to_podmin_a: "En bref : tout. La communication *entre* les pods est toujours chiffrée (en utilisant SSL et le propre chiffrage d'échange de diaspora*), mais le stockage des données sur les pods n'est pas chiffré. S'il le veut, l'administrateur de la base de données de votre pod (généralement la personne qui gère le pod) peut accéder à toutes les données de votre profil et à tout ce que vous avez publié (comme c'est le cas pour la plupart des sites web qui stockent des données d'utilisateurs). C'est pourquoi nous vous permettons de choisir le pod sur lequel vous vous inscrivez. Vous pouvez ainsi choisir un pod dont l'administrateur vous inspire confiance vis-à-vis de vos données. Utiliser votre propre pod garantit plus de confidentialité parce que vous avez le contrôle de l'accès à la base de données."
+      data_visible_to_podmin_a: "En bref : tout. La communication entre les pods est toujours chiffrée (en utilisant SSL et le propre chiffrage d'échange de diaspora*), mais le stockage des données sur les pods n'est pas chiffré. S'il le veut, l'administrateur de la base de données de votre pod (généralement la personne qui gère le pod) peut accéder à toutes les données de votre profil et à tout ce que vous avez publié (comme c'est le cas pour la plupart des sites web qui stockent des données d'utilisateurs). C'est pourquoi nous vous permettons de choisir le pod sur lequel vous vous inscrivez. Vous pouvez ainsi choisir un pod dont l'administrateur vous inspire confiance vis-à-vis de vos données. Utiliser votre propre pod garantit plus de confidentialité parce que vous avez le contrôle de l'accès à la base de données."
       data_visible_to_podmin_q: "Quelle quantité de mes informations l'administrateur du pod peut-il voir ?"
-      download_data_a: "Oui. En bas de l'onglet 'Compte' de votre page de paramètres il y a deux boutons : l'un pour télécharger vos données, l'autre pour télécharger vos photos."
+      download_data_a: "Oui. En bas de l'onglet 'Compte' de votre page de paramètres, il y a deux boutons : l'un pour télécharger vos données, l'autre pour télécharger vos photos."
       download_data_q: "Puis-je télécharger une copie de toutes les données contenues dans mon compte ?"
       move_pods_a: "Dans le futur vous pourrez exporter votre compte provenant d'un pod et l'importer dans un autre, mais ce n'est pas possible pour l'instant. Vous pouvez toujours ouvrir un nouveau compte et ajouter les contacts de vos aspects dans celui-ci, et leur demander d'ajouter le nouveau compte à leurs aspects."
       move_pods_q: "Comment déplacer mon compte d'un pod à un autre ?"
@@ -393,7 +392,7 @@ fr:
       getting_started_a: "Vous avez de la chance. Essayez la %{tutorial_series} sur le site web du projet. Elle vous guidera pas à pas dans les étapes d'inscription et vous apprendra toutes les bases concernant l'utilisation de diaspora*."
       getting_started_q: "Aidez-moi ! J'ai besoin d'un peu d'aide pour débuter !"
       title: "Obtenir de l'aide"
-    getting_started_tutorial: "Série de tutoriels \"Mes premiers pas\""
+    getting_started_tutorial: "Série de tutoriels « Mes premiers pas »"
     here: "ici"
     irc: "IRC"
     keyboard_shortcuts:
@@ -610,6 +609,7 @@ fr:
     application:
       back_to_top: "Retour en haut"
       be_excellent: "Soyez bienveillant envers chacun ! ♥"
+      discourse: "Discussions sur le projet et assistance"
       powered_by: "Propulsé par diaspora*"
       public_feed: "Flux diaspora* public de %{name}"
       source_package: "Téléchargez le code source"
@@ -683,7 +683,6 @@ fr:
       one: "%{actors} vous a mentionné dans un message supprimé."
       other: "%{actors} vous ont mentionné dans un message supprimé."
       zero: "Personne ne vous a mentionné dans un message supprimé."
-    post: "message"
     private_message:
       one: "%{actors} vous a envoyé un message."
       other: "%{actors} vous ont envoyé un message."
@@ -784,13 +783,14 @@ fr:
       message: |-
           Bonjour !
 
-          Vous avez été invité par %{diaspora_id} à rejoindre diaspora* !
+          Vous avez été invité·e par %{diaspora_id} à rejoindre diaspora* !
 
           Cliquez sur ce lien pour vous lancer dans l'aventure :
 
           [%{invite_url}][1]
 
           Ou si vous avez déjà un compte, vous pouvez ajouter %{diaspora_id} à vos contacts.
+
 
           Amicalement,
 
@@ -954,7 +954,7 @@ fr:
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
       password: "Mot de passe"
       password_confirmation: "Confirmation du mot de passe"
-      sign_up: "Inscrivez-vous"
+      sign_up: "Créer un compte"
       submitting: "Envoi en cours…"
       terms: "En créant un compte, vous acceptez les %{terms_link}"
       terms_link: "conditions d'utilisation"
@@ -1025,7 +1025,7 @@ fr:
       by_email: "Par courriel"
       invite_your_friends: "Invitez vos amis"
       invites: "Invitations"
-      share_this: "Partagez ce lien par courriel, sur un blog ou via votre réseau social favori !"
+      share_this: "Partagez ce lien par courriel, sur un blog ou via les réseaux sociaux !"
     public_explain:
       atom_feed: "Flux Atom"
       control_your_audience: "Contrôlez votre audience"
@@ -1086,6 +1086,8 @@ fr:
   streams:
     activity:
       title: "Mon activité"
+    admin:
+      title: "Admin"
     aspects:
       all: "Tous les aspects"
       title: "Mes aspects"

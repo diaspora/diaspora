@@ -184,7 +184,6 @@ cs:
       you_have_no_tags: "Nemáte žádné štítky"
     publisher:
       add_option: "Přidejte odpověď"
-      limited: "Omezený — váš příspěvek bude přístupný pouze lidem, se kterými sdílíte"
       markdown_editor:
         preview: "Náhled"
         texts:
@@ -215,7 +214,6 @@ cs:
         write: "Zápis"
       near_from: "Odesláno z: <%= location %>"
       option: "Odpověď"
-      public: "Veřejný — váš příspěvek si bude moci přečíst kdokoliv a může být nalezen vyhledávači"
       question: "Otázka"
     remove_post: "Odstranit tento příspěvek?"
     report:

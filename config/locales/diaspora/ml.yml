@@ -21,10 +21,6 @@ ml:
           attributes:
             diaspora_handle:
               taken: "മുൻപേ ഉപയോഗത്തിലുണ്ട്."
-        request:
-          attributes:
-            from_id:
-              taken: "നിലവിലുള്ള ഒരു അപേക്ഷയുടെ പകര്‍പ്പാണ്."
         reshare:
           attributes:
             root_guid:
@@ -174,7 +170,6 @@ ml:
       commenting: "അഭിപ്രായം രേഖപ്പെടുത്തുന്നു..."
   contacts:
     index:
-      add_a_new_aspect: "പുതിയ പരിചയം ചേര്‍ക്കൂ"
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
       community_spotlight: "സാമൂഹിക പ്രാധാന്യം"
       my_contacts: "എന്റെ സമ്പര്‍ക്കങ്ങള്‍"
@@ -432,7 +427,6 @@ ml:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "കുറിപ്പ്"
     private_message:
       one: "%{actors} താങ്കള്‍ക്ക് ഒരു സന്ദേശം അയച്ചു."
       other: "%{actors} താങ്കള്‍ക്ക് ഒരു സന്ദേശം അയച്ചു."

@@ -200,7 +200,6 @@ pt-BR:
       you_have_no_tags: "Você não tem tags!"
     publisher:
       add_option: "Adicionar uma resposta"
-      limited: "Limitada: a sua publicação será visível apenas para as pessoas com quem você compartilha."
       markdown_editor:
         preview: "Pré-visualizar"
         texts:
@@ -232,7 +231,6 @@ pt-BR:
       mention_success: "Mencionados com sucesso: <%= names %>"
       near_from: "Publicado de: <%= location %>"
       option: "Resposta"
-      public: "Pública: a sua publicação será totalmente visível na Web e poderá ser encontrada por meio de mecanismos de buscas"
       question: "Pergunta"
     remove_post: "Remover esta publicação?"
     report:

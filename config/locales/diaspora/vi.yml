@@ -21,10 +21,6 @@ vi:
           attributes:
             diaspora_handle:
               taken: "đã được thực hiện."
-        request:
-          attributes:
-            from_id:
-              taken: "là bản sao của một yêu cầu có trước."
         reshare:
           attributes:
             root_guid:
@@ -161,7 +157,6 @@ vi:
       commenting: "Đang gửi bình luận..."
   contacts:
     index:
-      add_a_new_aspect: "Thêm mối quan hệ mới"
       all_contacts: "Tất cả liên lạc"
       community_spotlight: "Nổi bật từ cộng đồng"
       my_contacts: "Liên lạc của tôi"
@@ -276,7 +271,6 @@ vi:
     mentioned_deleted:
       other: "%{actors} nhắc đến bạn trong một bài đăng đã bị xóa."
       zero: "Không có ai nhắc đến bạn trong một bài đăng đã bị xóa."
-    post: "bài đăng"
     private_message:
       other: "%{actors} đã gửi cho bạn một tin nhắn."
       zero: "Không có ai gửi tin nhắn cho bạn."

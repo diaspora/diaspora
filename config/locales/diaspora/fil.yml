@@ -20,10 +20,6 @@ fil:
           attributes:
             diaspora_handle:
               taken: "ay mayroon ng nagmamay-ari."
-        request:
-          attributes:
-            from_id:
-              taken: "ay kaparis na ng huling kahilingan."
         reshare:
           attributes:
             root_guid:

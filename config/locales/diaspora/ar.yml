@@ -21,10 +21,6 @@ ar:
           attributes:
             diaspora_handle:
               taken: "مأخوذ بالفعل."
-        request:
-          attributes:
-            from_id:
-              taken: "مكرّر لطلب موجود مسبقًا."
         reshare:
           attributes:
             root_guid:
@@ -140,7 +136,6 @@ ar:
       commenting: "جارى التعليق..."
   contacts:
     index:
-      add_a_new_aspect: "أضف فئة جديدة"
       all_contacts: "كل جهات الاتصال"
       community_spotlight: "ضوء المجتمع"
       my_contacts: "جهات الاتصال الخاصة بي"
@@ -274,7 +269,6 @@ ar:
       other: "%{actors} أشاروا إليك في مشاركة محذوفة."
       two: "%{actors} أشارا إليك في مشاركة محذوفة."
       zero: "%{actors} أشار إليك في مشاركة محذوفة."
-    post: "مشاركة"
     private_message:
       few: "%{actors} راسلوك."
       many: "%{actors} راسلوك."

@@ -20,10 +20,6 @@ es-BO:
           attributes:
             diaspora_handle:
               taken: "ya está ocupado."
-        request:
-          attributes:
-            from_id:
-              taken: "es un duplicado de una solicitud preexistente."
         reshare:
           attributes:
             root_guid:

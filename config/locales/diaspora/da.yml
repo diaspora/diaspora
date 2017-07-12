@@ -31,10 +31,6 @@ da:
           attributes:
             poll:
               already_participated: "Du har allerede deltaget i denne afstemning!"
-        request:
-          attributes:
-            from_id:
-              taken: "er en kopi af en allerede eksisterende forespørgsel."
         reshare:
           attributes:
             root_guid:
@@ -62,6 +58,8 @@ da:
       fetching_diaspora_version: "Bestem seneste Diaspora version ..."
       pod_status: "Pod status"
     pods:
+      pod_desktop_link: "skrivebordsvisning"
+      pod_desktop_view: "Denne side er ikke tilgængelig på mobil-visning, skift til %{desktop_link}."
       pod_network: "Pod netværk"
     stats:
       2weeks: "2 uger"
@@ -92,7 +90,7 @@ da:
       week: "Uge"
     user_entry:
       account_closed: "Konto lukket"
-      diaspora_handle: "Dit Diaspora-navn"
+      diaspora_handle: "Diaspora ID"
       email: "E-mail"
       guid: "GUID"
       id: "ID"
@@ -230,6 +228,8 @@ da:
         here_to_help: "Diaspora-samfundet er lige her!"
         mail_podmin: "Podmins e-mail"
         need_help: "Brug for hjælp?"
+        support_forum: "Du kan også gå ind på %{support_forum}"
+        support_forum_link: "support forum"
         tag_bug: "fejl"
         tag_feature: "feature"
         tag_question: "spørgsmål"
@@ -279,7 +279,6 @@ da:
       commenting: "Kommenterer ..."
   contacts:
     index:
-      add_a_new_aspect: "Tilføj nyt aspekt"
       add_contact: "Tilføj kontakt"
       all_contacts: "Alle kontakter"
       community_spotlight: "Community Spotlight"
@@ -609,6 +608,7 @@ da:
     application:
       back_to_top: "Tilbage til toppen"
       be_excellent: "Vær gode ved hinanden! ♥"
+      discourse: "Projekt diskussion og support"
       powered_by: "Kører på Diaspora"
       public_feed: "Offentligt Diaspora-nyhedsfeed for %{name}"
       source_package: "Download kildekoden"
@@ -688,7 +688,6 @@ da:
       one: "%{actors} har nævnt dig i et slettet indlæg."
       other: "%{actors} har nævnt dig i et slettet indlæg."
       zero: "%{actors} har nævnt dig i et slettet indlæg."
-    post: "indlæg"
     private_message:
       few: "%{actors} har sendt dig en besked."
       many: "%{actors} har sendt dig en besked."
@@ -1103,6 +1102,8 @@ da:
   streams:
     activity:
       title: "Min aktivitet"
+    admin:
+      title: "Admin"
     aspects:
       all: "Alle aspekter"
       title: "Dine aspekter"
@@ -1230,7 +1231,7 @@ da:
       follow_settings_not_changed: "Ændring af følgeskabsindstillinger mislykkedes."
       language_changed: "Sprog ændret"
       language_not_changed: "Kunne ikke ændre sprog"
-      password_changed: "Adgangskode ændret"
+      password_changed: "Adgangskode ændret. Du kan nu logge ind med din nye adgangskode."
       password_not_changed: "Kunne ikke ændre adgangskode"
       settings_not_updated: "Der opstod en fejl ved opdatering af indstillinger"
       settings_updated: "Indstillingerne blev opdateret"
