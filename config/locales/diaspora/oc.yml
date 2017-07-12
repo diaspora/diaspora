@@ -31,10 +31,6 @@ oc:
           attributes:
             poll:
               already_participated: "Avètz ja paticipat a aquel sondatge !"
-        request:
-          attributes:
-            from_id:
-              taken: "es un doblon d'una requèsta qu'existís ja."
         reshare:
           attributes:
             root_guid:
@@ -62,6 +58,8 @@ oc:
       fetching_diaspora_version: "A determinar la darrièra version de diaspora*..."
       pod_status: "Estat del pod"
     pods:
+      pod_desktop_link: "vista complèta"
+      pod_desktop_view: "Aquesta pagina es pas disponibla en vista pel mobil, mercés de cambiar per la %{desktop_link}."
       pod_network: "Ret del pod"
     stats:
       2weeks: "2 setmanas"
@@ -233,6 +231,8 @@ oc:
         here_to_help: "La comunautat diaspora* es aquí !"
         mail_podmin: "Corrièl del podmin"
         need_help: "Besonh d'ajuda ?"
+        support_forum: "Podètz tanben contactar lo %{support_forum}."
+        support_forum_link: "forum d’assisténcia"
         tag_bug: "bug"
         tag_feature: "suggestion"
         tag_question: "question"
@@ -282,7 +282,6 @@ oc:
       commenting: "Comentari en cors de mandadís..."
   contacts:
     index:
-      add_a_new_aspect: "Apondre un aspècte novèl"
       add_contact: "Apondre un contacte"
       all_contacts: "Totes los contactes"
       community_spotlight: "Actualitat de la comunautat"
@@ -616,6 +615,7 @@ oc:
     application:
       back_to_top: "Tornar amont"
       be_excellent: "Siatz benvolent amb cadun !"
+      discourse: "Discutidas e assisténcia del projècte"
       powered_by: "Propulsat per dispora*"
       public_feed: "Flux diaspora* public per %{name}"
       source_package: "Telecargatz lo còdi font"
@@ -686,7 +686,6 @@ oc:
       one: "%{actors} vos a mencionat sus una publicacion suprimida."
       other: "%{actors} vos an mencionat sus una publicacion suprimida."
       zero: "%{actors} vos a mencionat sus una publicacion suprimida."
-    post: "publicacion"
     private_message:
       one: "%{actors} vos a mandat un messatge."
       other: "%{actors} vos an mandat un messatge."
@@ -1088,6 +1087,8 @@ oc:
   streams:
     activity:
       title: "Mon activitat"
+    admin:
+      title: "Administracion"
     aspects:
       all: "Totes los aspèctes"
       title: "Mos aspèctes"

@@ -21,10 +21,6 @@ it:
           attributes:
             diaspora_handle:
               taken: "è già stato preso."
-        request:
-          attributes:
-            from_id:
-              taken: "è un duplicato di una richiesta pre-esistente."
         reshare:
           attributes:
             root_guid:
@@ -183,7 +179,6 @@ it:
       commenting: "Invio commento in corso..."
   contacts:
     index:
-      add_a_new_aspect: "Aggiungi un aspetto"
       all_contacts: "Tutti i contatti"
       community_spotlight: "In evidenza nella comunità"
       my_contacts: "I miei contatti"
@@ -497,7 +492,6 @@ it:
       one: "%{actors} ti ha menzionato in un post che è stato eliminato."
       other: "%{actors} ti hanno menzionato in un post che è stato eliminato."
       zero: "%{actors} ti ha menzionato in un post che è stato eliminato."
-    post: "post"
     private_message:
       one: "%{actors} ti ha inviato un messaggio."
       other: "%{actors} ti hanno inviato un messaggio."

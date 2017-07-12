@@ -66,6 +66,9 @@ ia:
       select_aspects: "Seliger aspectos"
       started_sharing_with: "Tu ha comenciate a divider con <%= name %>!"
       stopped_sharing_with: "Tu ha cessate de divider con <%= name %>."
+      toggle:
+        one: "In <%= count %> aspecto"
+        other: "In <%= count %> aspectos"
       updating: "actualisa…"
     aspect_navigation:
       add_an_aspect: "+ Adder un aspecto"
@@ -86,9 +89,9 @@ ia:
     cancel: "Cancellar"
     comma: ","
     comments:
-      hide: "celar commentos"
+      hide: "Celar commentos"
       no_comments: "Il non ha ancora commentos."
-      show: "revelar tote le commentos"
+      show: "Monstrar tote le commentos"
     confirm_dialog: "Es tu secur?"
     confirm_unload: "Per favor, confirma que tu vole quitar iste pagina. Le datos que tu ha inserite non essera salveguardate."
     contacts:
@@ -120,7 +123,7 @@ ia:
       preparing_your_stream: "Fluxo personalisate in preparation..."
     header:
       admin: "Administration"
-      close: "clauder"
+      close: "Clauder"
       contacts: "Contactos"
       conversations: "Conversationes"
       help: "Adjuta"
@@ -158,7 +161,7 @@ ia:
         is_sharing: "<%= name %> divide cosas con te"
       mention: "Mention"
       message: "Message"
-      not_found: "e nemo ha essite trovate..."
+      not_found: "... e nemo ha essite trovate"
       stop_ignoring: "Cessar de ignorar"
     photo_uploader:
       completed: "<%= file %> complete"
@@ -167,6 +170,7 @@ ia:
       invalid_ext: "{file} ha un extension inadmissibile. Solmente {extensions} es permittite."
       looking_good: "Oh, tu pare splendide!"
       size_error: "{file} es troppo grande. Le dimension maxime es {sizeLimit}."
+      upload_photos: "Incargar photos"
     poll:
       answer_count:
         one: "1 voto"
@@ -182,19 +186,18 @@ ia:
       show_result: "Monstrar resultato"
       vote: "Votar"
     profile:
-      add_some: "adder alcunes"
+      add_some: "Adder alcunes"
       bio: "Bio"
       born: "Data de nascentia"
       contacts: "Contactos"
-      edit: "modificar"
+      edit: "Modificar"
       gender: "Sexo"
       location: "Loco"
       photos: "Photos"
       posts: "Entratas"
-      you_have_no_tags: "tu non ha etiquettas!"
+      you_have_no_tags: "Tu non ha etiquettas."
     publisher:
       add_option: "Adder un responsa"
-      limited: "Limitate: le message es visibile solmente pro le personas con qui tu lo divide"
       markdown_editor:
         preview: "Previsualisar"
         texts:
@@ -223,24 +226,28 @@ ia:
           quote: "Inserer citation"
           write: "Modificar message"
         write: "Scriber"
+      mention_success: "Ha essite mentionate: <%= names %>"
       near_from: "Inviate ab: <%= location %>"
       option: "Responsa"
-      public: "Public: le message es visibile pro tote le mundo e trovabile pro motores de recerca"
       question: "Question"
     remove_post: "Remover iste entrata?"
     report:
       name: "Reportar"
       prompt: "Specifica un motivo:"
-      prompt_default: "contento offensive"
+      prompt_default: "p.ex. contento offensive"
       status:
         created: "Le creation del reporto ha succedite"
         exists: "Le reporto jam existe"
     reshares:
       post: "Repeter le entrata de <%= name %>?"
       successful: "Le entrata ha essite repetite con successo."
-    show_more: "monstrar plus"
+    show_more: "Monstrar plus"
     stream:
       comment: "Commentar"
+      comments:
+        one: "<%= count %> commento"
+        other: "<%= count %> commentos"
+        zero: "<%= count %> commentos"
       disable_post_notifications: "Disactivar le notificationes pro iste entrata"
       enable_post_notifications: "Activar le notificationes pro iste entrata"
       follow: "Sequer"
@@ -253,7 +260,7 @@ ia:
       like: "Appreciar"
       limited: "Limitate"
       no_posts_yet: "Il non ha ancora entratas a monstrar hic."
-      original_post_deleted: "Le entrata original ha essite delite per le autor."
+      original_post_deleted: "Entrata original delite per autor"
       permalink: "Permaligamine"
       public: "Public"
       reshare: "Repeter"
@@ -274,16 +281,20 @@ ia:
     timeago:
       day: "un die"
       days:
+        one: "1 die"
         other: "%d dies"
       hour: "circa un hora"
       hours:
+        one: "circa 1 hora"
         other: "circa %d horas"
       inPast: "a qualcunque momento"
       minute: "circa un minuta"
       minutes:
+        one: "1 minuta"
         other: "%d minutas"
       month: "circa un mense"
       months:
+        one: "1 mense"
         other: "%d menses"
       prefixAgo: ""
       prefixFromNow: ""
@@ -293,6 +304,7 @@ ia:
       wordSeparator: " "
       year: "circa un anno"
       years:
+        one: "1 anno"
         other: "%d annos"
     unblock_failed: "Le action de disblocar iste usator ha fallite"
     viewer:

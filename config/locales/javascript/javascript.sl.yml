@@ -54,9 +54,6 @@ sl:
       not_found: "nikogar ni bilo mogoče najti ..."
     photo_uploader:
       looking_good: "OMG, izgledaš super!"
-    publisher:
-      limited: "Omejeno - Vaša objava bo vidna le ljudem, s katerimi delite"
-      public: "Javno - Vaša objava bo vidna vsem, prikazana bo tudi v spletnih iskalnikih"
     reshares:
       post: "Ponovno deli objavo osebe <%= name %>?"
       successful: "Objavo ste uspešno ponovno delili!"

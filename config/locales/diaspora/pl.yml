@@ -31,10 +31,6 @@ pl:
           attributes:
             poll:
               already_participated: "Ankieta już zawiera Twoją odpowiedź!"
-        request:
-          attributes:
-            from_id:
-              taken: "jest powieleniem istniejącego zapytania."
         reshare:
           attributes:
             root_guid:
@@ -62,6 +58,8 @@ pl:
       fetching_diaspora_version: "Ustalanie najnowszej wersji diaspory*"
       pod_status: "Stan poda"
     pods:
+      pod_desktop_link: "pełna wersja strony"
+      pod_desktop_view: "Ta strona nie jest dostępna w mobilnej wersji strony, proszę przełączyć się na %{desktop_link}."
       pod_network: "Sieć poda"
     stats:
       2weeks: "2 tygodnie"
@@ -224,6 +222,8 @@ pl:
         here_to_help: "Społeczność diaspory* jest tutaj!"
         mail_podmin: "Adres e-mail administratora"
         need_help: "Potrzebujesz pomocy?"
+        support_forum: "Możesz także dołączyć do %{support_forum}."
+        support_forum_link: "forum wsparcia technicznego"
         tag_bug: "błąd"
         tag_feature: "funkcja"
         tag_question: "pytanie"
@@ -273,7 +273,6 @@ pl:
       commenting: "Dodawanie komentarza..."
   contacts:
     index:
-      add_a_new_aspect: "Dodaj aspekt"
       add_contact: "Dodaj kontakt"
       all_contacts: "Wszystkie kontakty"
       community_spotlight: "W centrum uwagi"
@@ -675,7 +674,6 @@ pl:
       one: "%{actors} wspomniał/ła o Tobie w usuniętym już wpisie."
       other: "%{actors} wspomnieli/ły o Tobie w usuniętym już wpisie."
       zero: "%{actors} wspomnieli o Tobie w usuniętym już wpisie."
-    post: "wpis"
     private_message:
       few: "%{actors} wysłali/ły Ci wiadomość."
       many: "%{actors} wysłali/ły Ci wiadomość."
@@ -1053,6 +1051,8 @@ pl:
   streams:
     activity:
       title: "Moja aktywność"
+    admin:
+      title: "Administrator"
     aspects:
       all: "Wszystkie aspekty"
       title: "Moje aspekty"

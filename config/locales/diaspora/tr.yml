@@ -26,10 +26,6 @@ tr:
           attributes:
             poll:
               already_participated: "Bu oylamada zaten oyunuz var!"
-        request:
-          attributes:
-            from_id:
-              taken: "çift ya da hâlihazırda mevcut bir istektir."
         reshare:
           attributes:
             root_guid:
@@ -189,7 +185,6 @@ tr:
       commenting: "Yorumlanıyor..."
   contacts:
     index:
-      add_a_new_aspect: "Yeni yön ekle"
       all_contacts: "Tüm Kişiler"
       community_spotlight: "Topluluk Haberleri"
       my_contacts: "Kişilerim"
@@ -445,7 +440,6 @@ tr:
     mentioned_deleted:
       other: "%{actors} silinmiş gönderide senden bahsetti."
       zero: "%{actors} silinmiş gönderide senden bahsetti."
-    post: "gönderi"
     private_message:
       other: "%{actors} ileti gönderdi."
       zero: "%{actors} ileti gönderdi."

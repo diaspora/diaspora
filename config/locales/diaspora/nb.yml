@@ -31,10 +31,6 @@ nb:
           attributes:
             poll:
               already_participated: "Du har allerede deltatt i denne spørreundersøkelsen!"
-        request:
-          attributes:
-            from_id:
-              taken: "er en kopi av en pre-eksisterende forespørsel."
         reshare:
           attributes:
             root_guid:
@@ -212,7 +208,6 @@ nb:
       commenting: "Kommenterer ..."
   contacts:
     index:
-      add_a_new_aspect: "Legg til nytt aspekt"
       add_contact: "Legg til kontakt"
       all_contacts: "Alle Kontakter"
       community_spotlight: "Fremhevet av Fellesskapet"
@@ -583,7 +578,6 @@ nb:
       other: "%{actors} nevnte deg i en slettet post."
       two: "%{actors} nevnte deg i en slettet post."
       zero: "%{actors} nevnte deg i en slettet post."
-    post: "innlegg"
     private_message:
       few: "%{actors} sendte deg en melding."
       many: "%{actors} sendte deg en melding."

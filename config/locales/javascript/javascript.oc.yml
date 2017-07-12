@@ -201,7 +201,6 @@ oc:
       you_have_no_tags: "Avètz pas d'etiquetas !"
     publisher:
       add_option: "Apondre una responsa"
-      limited: "Limitat : vòstra publicacion serà solament vista pel mond amb qui partejatz"
       markdown_editor:
         preview: "Apercebut"
         texts:
@@ -233,7 +232,6 @@ oc:
       mention_success: "Es ben estat mencionat : <%= names %>"
       near_from: "Postat a : <%= location %>"
       option: "Responsa"
-      public: "Public - vòstre messatge serà visible de totes e trobat pels motors de recèrca"
       question: "Question"
     remove_post: "Suprimir aqueste messatge ?"
     report:

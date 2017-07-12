@@ -64,9 +64,7 @@ pt-PT:
       looking_good: "OMD, tu estás fantástico(a)!"
       size_error: "O {file} é muito grande, o tamanho máximo do ficheiro é {sizeLimit}."
     publisher:
-      limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
       near_from: "Publicado em: <%= location %>"
-      public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares:
       post: "Repartilhar a publicação de <%= name %>?"
       successful: "A publicação foi repartilhada com sucesso!"

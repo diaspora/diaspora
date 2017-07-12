@@ -31,10 +31,6 @@ cs:
           attributes:
             poll:
               already_participated: "Této ankety jste se již účastnil."
-        request:
-          attributes:
-            from_id:
-              taken: "je duplicitní k dříve existující žádosti."
         reshare:
           attributes:
             root_guid:
@@ -274,7 +270,6 @@ cs:
       commenting: "Komentování..."
   contacts:
     index:
-      add_a_new_aspect: "Přidat nový aspekt"
       add_contact: "Přidej kontakt"
       all_contacts: "Všechny kontakty"
       community_spotlight: "Aktuality z komunity"
@@ -658,7 +653,6 @@ cs:
       one: "%{actors} vás zmínil(a) ve smazaném příspěvku."
       other: "%{actors} vás zmínili ve smazaném příspěvku."
       zero: "%{actors} vás zmínili ve smazaném příspěvku."
-    post: "příspěvek"
     private_message:
       few: "%{actors} vám poslali zprávu."
       one: "%{actors} vám poslal(a) zprávu."

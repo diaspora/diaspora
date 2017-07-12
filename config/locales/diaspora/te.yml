@@ -23,10 +23,6 @@ te:
           attributes:
             diaspora_handle:
               taken: "ఇప్పటికే తీసుకోబడినది."
-        request:
-          attributes:
-            from_id:
-              taken: "గత విన్నపం యొక్క నకిలీ"
         reshare:
           attributes:
             root_guid:
@@ -207,7 +203,6 @@ te:
       commenting: "వ్యాఖ్యానిస్తున్నాము..."
   contacts:
     index:
-      add_a_new_aspect: "ఒక కొత్త కోణాన్ని జతచేయి"
       add_contact: "పరిచయాన్ని జతచేయి"
       all_contacts: "అన్ని పరిచయాలు"
       community_spotlight: "సంఘపు స్పాట్​లైట్"
@@ -443,7 +438,6 @@ te:
       one: "%{actors} మిమ్మల్ని ఒక తొలగించిన టపాలో ప్రస్తావించారు."
       other: "%{actors} మిమ్మల్ని ఒక తొలగించిన టపాలో ప్రస్తావించారు."
       zero: "%{actors} మిమ్మల్ని ఒక తొలగించిన టపాలో ప్రస్తావించారు."
-    post: "టపా"
     private_message:
       one: "%{actors} మీకొక సందేశాన్ని పంపారు."
       other: "%{actors} మీకొక సందేశాన్ని పంపారు."

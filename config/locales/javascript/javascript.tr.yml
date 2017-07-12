@@ -53,7 +53,6 @@ tr:
     photo_uploader:
       looking_good: "OMG, harika görünüyorsun!"
     publisher:
-      limited: "Sınırlı - gönderi sadece paylaşılan kişiler tarafından görünür"
       markdown_editor:
         preview: "Önizle"
         texts:
@@ -82,7 +81,6 @@ tr:
           quote: "Ekle tırnak"
           write: "düzenle mesajı"
         write: "yazma"
-      public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
     reshares:
       post: "<%= name %> kişisinin gönderisini yeniden paylaşamak istiyor musun?"
       successful: "Gönderi başarıyla yeniden paylaşıldı!"

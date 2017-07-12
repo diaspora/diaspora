@@ -21,10 +21,6 @@ bs:
           attributes:
             diaspora_handle:
               taken: "je već uzeto."
-        request:
-          attributes:
-            from_id:
-              taken: "je duplikat već postojećeg zahtjeva."
         reshare:
           attributes:
             root_guid:
@@ -186,7 +182,6 @@ bs:
       commenting: "Komentarišem..."
   contacts:
     index:
-      add_a_new_aspect: "Dodaj novi aspekt"
       all_contacts: "Svi Kontakti"
       community_spotlight: "U Centru Pažnje"
       my_contacts: "Moji Kontakti"
@@ -373,7 +368,6 @@ bs:
       one: "%{actors} vas je spomenulo u izbrisanoj objavi."
       other: "%{actors} su vas spomenuli u izbrisanoj objavi."
       zero: "%{actors} vas je spomenulo u izbrisanoj objavi."
-    post: "objava"
     private_message:
       few: "%{actors} vam je poslalo poruku."
       many: "%{actors} vam je poslalo poruku."

@@ -57,9 +57,6 @@ ar:
     my_stream: "ساحة المشاركات"
     photo_uploader:
       looking_good: "يا إلهى , تبدو رائعاً !"
-    publisher:
-      limited: "محدودة - مشاركتك ستكون متاحة لجهات إتصالك فقط"
-      public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     remove_post: "أأزيل هذه التدوينة؟"
     show_more: "المزيد"
     stream:

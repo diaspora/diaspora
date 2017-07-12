@@ -68,9 +68,7 @@ es-MX:
       looking_good: "¡Ah, te ves increíble!"
       size_error: "El archivo {file} es demasiado grande, el tamaño máximo de un archivo es {sizeLimit}."
     publisher:
-      limited: "Limitado – tu publicación solo será vista por ia gente con quien compartes"
       near_from: "Publicado desde: <%= location %>"
-      public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
     reshares:
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡La publicación se compartió exitosamente!"

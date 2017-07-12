@@ -21,10 +21,6 @@ eo:
           attributes:
             diaspora_handle:
               taken: "estas jam prenita."
-        request:
-          attributes:
-            from_id:
-              taken: "estas duoblo de jam ekzistanta peto."
         reshare:
           attributes:
             root_guid:
@@ -173,7 +169,6 @@ eo:
       commenting: "Komentanta..."
   contacts:
     index:
-      add_a_new_aspect: "Aldoni novan aspekton"
       all_contacts: "Ĉiuj kontaktoj"
       community_spotlight: "En la ĉeflumo de la komunumo"
       my_contacts: "Miaj kontaktoj"
@@ -318,7 +313,6 @@ eo:
       other: "%{actors} menciis vin en forigita afiŝo."
       two: "%{actors} menciis vin en foritan afiŝon."
       zero: "%{actors} menciis vin en forigita afiŝo."
-    post: "afiŝo"
     private_message:
       few: "%{actors} sendis al vi poŝton."
       many: "%{actors} sendis al vi poŝton."

@@ -20,10 +20,6 @@ eu:
           attributes:
             diaspora_handle:
               taken: "erabilpenean dago jada."
-        request:
-          attributes:
-            from_id:
-              taken: "lehenago egindako eskaera baten bikoizketa bat da."
         reshare:
           attributes:
             root_guid:
@@ -166,7 +162,6 @@ eu:
       commenting: "Iruzkintzen..."
   contacts:
     index:
-      add_a_new_aspect: "Arlo berria gehitu"
       all_contacts: "Adiskide Guztiak"
       community_spotlight: "Komunitateko nabarmenduak"
       my_contacts: "Nire Adiskideak"
@@ -297,7 +292,6 @@ eu:
       other: "%{actors}(e)k mezu ezabatu batean aipatu zaitu(zte)."
       two: "%{actors}(e)k mezu ezabatu batean aipatu zaitu(zte)."
       zero: "%{actors}(e)k mezu ezabatu batean aipatu zaitu(zte)."
-    post: "mezua"
     private_message:
       few: "%{actors}(e)k mezu bat bidali dizu(te)."
       many: "%{actors}(e)k mezu bat bidali dizu(te)."
