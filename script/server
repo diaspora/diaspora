@@ -150,7 +150,7 @@ then
 fi
 
 # Check if assets are precompiled
-if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets -maxdepth 1 -name 'main-*.js' -print -quit 2>/dev/null)" ]
+if [ "$RAILS_ENV" = "production" -a -z "$(find public/assets/ -maxdepth 1 -name 'main-*.js' -print -quit 2>/dev/null)" ]
 then
   fatal "You're running in production mode without having assets
 precompiled. Now and after each update before you restart the
