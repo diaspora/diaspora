@@ -26,7 +26,6 @@ class PostsController < ApplicationController
         render locals: {post: presenter}
       end
       format.mobile { render locals: {post: post} }
-      format.xml { render xml: DiasporaFederation::Salmon::XmlPayload.pack(Diaspora::Federation::Entities.post(post)) }
       format.json { render json: presenter }
     end
   end

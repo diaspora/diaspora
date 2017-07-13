@@ -48,7 +48,9 @@ describe Diaspora::Federation::Dispatcher::Public do
     end
 
     context "deliver to remote user" do
-      let(:salmon_xml) { "<diaspora/>" }
+      let(:encryption_key) { double }
+      let(:magic_env) { double }
+      let(:magic_env_xml) { double(to_xml: "<diaspora/>") }
 
       it "queues a public send job" do
         alice.share_with(remote_raphael, alice.aspects.first)
@@ -57,10 +59,14 @@ describe Diaspora::Federation::Dispatcher::Public do
           expect(user_id).to eq(alice.id)
           expect(urls.size).to eq(1)
           expect(urls[0]).to eq(remote_raphael.pod.url_to("/receive/public"))
-          expect(xml).to eq(salmon_xml)
+          expect(xml).to eq(magic_env_xml.to_xml)
         end
 
-        expect(DiasporaFederation::Salmon::Slap).to receive(:generate_xml).and_return(salmon_xml)
+        expect(alice).to receive(:encryption_key).and_return(encryption_key)
+        expect(DiasporaFederation::Salmon::MagicEnvelope).to receive(:new).with(
+          instance_of(DiasporaFederation::Entities::StatusMessage), alice.diaspora_handle
+        ).and_return(magic_env)
+        expect(magic_env).to receive(:envelop).with(encryption_key).and_return(magic_env_xml)
 
         Diaspora::Federation::Dispatcher.build(alice, post).dispatch
       end
@@ -76,11 +82,14 @@ describe Diaspora::Federation::Dispatcher::Public do
           expect(user_id).to eq(alice.id)
           expect(urls.size).to eq(1)
           expect(urls[0]).to eq(remote_raphael.pod.url_to("/receive/public"))
-          expect(xml).to eq(salmon_xml)
+          expect(xml).to eq(magic_env_xml.to_xml)
         end
 
-        expect(DiasporaFederation::Salmon::Slap).to receive(:generate_xml).and_return(salmon_xml)
-
+        expect(alice).to receive(:encryption_key).and_return(encryption_key)
+        expect(DiasporaFederation::Salmon::MagicEnvelope).to receive(:new).with(
+          instance_of(DiasporaFederation::Entities::StatusMessage), alice.diaspora_handle
+        ).and_return(magic_env)
+        expect(magic_env).to receive(:envelop).with(encryption_key).and_return(magic_env_xml)
         Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [remote_raphael]).dispatch
       end
 
@@ -92,10 +101,14 @@ describe Diaspora::Federation::Dispatcher::Public do
           expect(user_id).to eq(alice.id)
           expect(urls.size).to eq(1)
           expect(urls[0]).to eq(remote_raphael.pod.url_to("/receive/public"))
-          expect(xml).to eq(salmon_xml)
+          expect(xml).to eq(magic_env_xml.to_xml)
         end
 
-        expect(DiasporaFederation::Salmon::Slap).to receive(:generate_xml).and_return(salmon_xml)
+        expect(alice).to receive(:encryption_key).and_return(encryption_key)
+        expect(DiasporaFederation::Salmon::MagicEnvelope).to receive(:new).with(
+          instance_of(DiasporaFederation::Entities::StatusMessage), alice.diaspora_handle
+        ).and_return(magic_env)
+        expect(magic_env).to receive(:envelop).with(encryption_key).and_return(magic_env_xml)
 
         Diaspora::Federation::Dispatcher.build(alice, post, subscribers: [remote_raphael, offline_person]).dispatch
       end

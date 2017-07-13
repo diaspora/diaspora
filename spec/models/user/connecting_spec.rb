@@ -87,6 +87,7 @@ describe User::Connecting, type: :model do
         contact = local_leia.contact_for(remote_raphael)
         retraction = double
 
+        expect(contact).to receive(:receiving=).with(false)
         expect(Retraction).to receive(:for).with(contact).and_return(retraction)
         expect(retraction).to receive(:defer_dispatch).with(local_leia)
 

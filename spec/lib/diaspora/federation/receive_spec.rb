@@ -3,7 +3,7 @@ describe Diaspora::Federation::Receive do
   let(:post) { FactoryGirl.create(:status_message, text: "hello", public: true, author: alice.person) }
 
   describe ".account_deletion" do
-    let(:account_deletion_entity) { FactoryGirl.build(:account_deletion_entity, author: sender.diaspora_handle) }
+    let(:account_deletion_entity) { Fabricate(:account_deletion_entity, author: sender.diaspora_handle) }
 
     it "saves the account deletion" do
       Diaspora::Federation::Receive.account_deletion(account_deletion_entity)
@@ -55,7 +55,7 @@ describe Diaspora::Federation::Receive do
       expect(comment.signature).not_to be_nil
       expect(comment.signature.author_signature).to eq("aa")
       expect(comment.signature.additional_data).to eq("new_property" => "data")
-      expect(comment.signature.order).to eq(comment_entity.xml_order.map(&:to_s))
+      expect(comment.signature.order).to eq(comment_entity.signature_order.map(&:to_s))
     end
 
     let(:entity) { comment_entity }
@@ -66,7 +66,7 @@ describe Diaspora::Federation::Receive do
 
   describe ".contact" do
     let(:contact_entity) {
-      FactoryGirl.build(:contact_entity, author: sender.diaspora_handle, recipient: alice.diaspora_handle)
+      Fabricate(:contact_entity, author: sender.diaspora_handle, recipient: alice.diaspora_handle)
     }
 
     it "creates the contact if it doesn't exist" do
@@ -99,11 +99,11 @@ describe Diaspora::Federation::Receive do
 
     context "sharing=false" do
       let(:unshare_contact_entity) {
-        FactoryGirl.build(
+        Fabricate(
           :contact_entity,
           author:    sender.diaspora_handle,
           recipient: alice.diaspora_handle,
-          sharing:   "false"
+          sharing:   false
         )
       }
 
@@ -128,9 +128,9 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".conversation" do
-    let(:conv_guid) { FactoryGirl.generate(:guid) }
+    let(:conv_guid) { Fabricate.sequence(:guid) }
     let(:message_entity) {
-      FactoryGirl.build(
+      Fabricate(
         :message_entity,
         author:            alice.diaspora_handle,
         parent_guid:       conv_guid,
@@ -138,7 +138,7 @@ describe Diaspora::Federation::Receive do
       )
     }
     let(:conversation_entity) {
-      FactoryGirl.build(
+      Fabricate(
         :conversation_entity,
         guid:         conv_guid,
         author:       alice.diaspora_handle,
@@ -183,17 +183,15 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".like" do
-    let(:like_data) {
-      FactoryGirl.attributes_for(
-        :like_entity,
-        author:           sender.diaspora_handle,
-        parent_guid:      post.guid,
-        author_signature: "aa"
-      )
-    }
     let(:like_entity) {
-      DiasporaFederation::Entities::Like.new(
-        like_data, [:author, :guid, :parent_guid, :parent_type, :positive, "new_property"], "new_property" => "data"
+      build_relayable_federation_entity(
+        :like,
+        {
+          author:           sender.diaspora_handle,
+          parent_guid:      post.guid,
+          author_signature: "aa"
+        },
+        "new_property" => "data"
       )
     }
 
@@ -224,7 +222,7 @@ describe Diaspora::Federation::Receive do
       expect(like.signature).not_to be_nil
       expect(like.signature.author_signature).to eq("aa")
       expect(like.signature.additional_data).to eq("new_property" => "data")
-      expect(like.signature.order).to eq(%w(author guid parent_guid parent_type positive new_property))
+      expect(like.signature.order).to eq(like_entity.signature_order.map(&:to_s))
     end
 
     let(:entity) { like_entity }
@@ -241,7 +239,7 @@ describe Diaspora::Federation::Receive do
       end
     }
     let(:message_entity) {
-      FactoryGirl.build(
+      Fabricate(
         :message_entity,
         author:            sender.diaspora_handle,
         parent_guid:       conversation.guid,
@@ -271,12 +269,11 @@ describe Diaspora::Federation::Receive do
 
     let(:entity) { message_entity }
     it_behaves_like "it ignores existing object received twice", Message
-    it_behaves_like "it relays relayables", Message
   end
 
   describe ".participation" do
     let(:participation_entity) {
-      FactoryGirl.build(:participation_entity, author: sender.diaspora_handle, parent_guid: post.guid)
+      Fabricate(:participation_entity, author: sender.diaspora_handle, parent_guid: post.guid)
     }
 
     it "saves the participation" do
@@ -303,7 +300,7 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".photo" do
-    let(:photo_entity) { FactoryGirl.build(:photo_entity, author: sender.diaspora_handle) }
+    let(:photo_entity) { Fabricate(:photo_entity, author: sender.diaspora_handle) }
 
     it "saves the photo if it does not already exist" do
       received = Diaspora::Federation::Receive.perform(photo_entity)
@@ -352,19 +349,15 @@ describe Diaspora::Federation::Receive do
 
   describe ".poll_participation" do
     let(:post_with_poll) { FactoryGirl.create(:status_message_with_poll, author: alice.person) }
-    let(:poll_participation_data) {
-      FactoryGirl.attributes_for(
-        :poll_participation_entity,
-        author:           sender.diaspora_handle,
-        parent_guid:      post_with_poll.poll.guid,
-        poll_answer_guid: post_with_poll.poll.poll_answers.first.guid,
-        author_signature: "aa"
-      )
-    }
     let(:poll_participation_entity) {
-      DiasporaFederation::Entities::PollParticipation.new(
-        poll_participation_data,
-        [:author, :guid, :parent_guid, :poll_answer_guid, "new_property"],
+      build_relayable_federation_entity(
+        :poll_participation,
+        {
+          author:           sender.diaspora_handle,
+          parent_guid:      post_with_poll.poll.guid,
+          poll_answer_guid: post_with_poll.poll.poll_answers.first.guid,
+          author_signature: "aa"
+        },
         "new_property" => "data"
       )
     }
@@ -396,7 +389,7 @@ describe Diaspora::Federation::Receive do
       expect(poll_participation.signature).not_to be_nil
       expect(poll_participation.signature.author_signature).to eq("aa")
       expect(poll_participation.signature.additional_data).to eq("new_property" => "data")
-      expect(poll_participation.signature.order).to eq(%w(author guid parent_guid poll_answer_guid new_property))
+      expect(poll_participation.signature.order).to eq(poll_participation_entity.signature_order.map(&:to_s))
     end
 
     let(:entity) { poll_participation_entity }
@@ -406,7 +399,7 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".profile" do
-    let(:profile_entity) { FactoryGirl.build(:profile_entity, author: sender.diaspora_handle) }
+    let(:profile_entity) { Fabricate(:profile_entity, author: sender.diaspora_handle) }
 
     it "updates the profile of the person" do
       received = Diaspora::Federation::Receive.perform(profile_entity)
@@ -426,7 +419,7 @@ describe Diaspora::Federation::Receive do
   end
 
   describe ".reshare" do
-    let(:reshare_entity) { FactoryGirl.build(:reshare_entity, author: sender.diaspora_handle, root_guid: post.guid) }
+    let(:reshare_entity) { Fabricate(:reshare_entity, author: sender.diaspora_handle, root_guid: post.guid) }
 
     it "saves the reshare" do
       received = Diaspora::Federation::Receive.perform(reshare_entity)
@@ -456,7 +449,7 @@ describe Diaspora::Federation::Receive do
     it "destroys the post" do
       remote_post = FactoryGirl.create(:status_message, author: sender, public: true)
 
-      retraction = FactoryGirl.build(
+      retraction = Fabricate(
         :retraction_entity,
         author:      sender.diaspora_handle,
         target_guid: remote_post.guid,
@@ -471,12 +464,7 @@ describe Diaspora::Federation::Receive do
     end
 
     it "raises when the post does not exist" do
-      retraction = FactoryGirl.build(
-        :retraction_entity,
-        author:      sender.diaspora_handle,
-        target_guid: FactoryGirl.generate(:guid),
-        target_type: "Post"
-      )
+      retraction = Fabricate(:retraction_entity, author: sender.diaspora_handle, target_type: "Post")
 
       expect {
         Diaspora::Federation::Receive.retraction(retraction, nil)
@@ -486,7 +474,7 @@ describe Diaspora::Federation::Receive do
     it "disconnects on Person-Retraction" do
       alice.contacts.find_or_initialize_by(person_id: sender.id, receiving: true, sharing: true).save!
 
-      retraction = FactoryGirl.build(
+      retraction = Fabricate(
         :retraction_entity,
         author:      sender.diaspora_handle,
         target_guid: sender.guid,
@@ -506,16 +494,16 @@ describe Diaspora::Federation::Receive do
         local_post = FactoryGirl.create(:status_message, author: alice.person, public: true)
         remote_comment = FactoryGirl.create(:comment, author: sender, post: local_post)
 
-        retraction = FactoryGirl.build(
+        retraction = Fabricate(
           :retraction_entity,
           author:      sender.diaspora_handle,
           target_guid: remote_comment.guid,
           target_type: "Comment"
         )
 
-        comment_retraction = Retraction.for(remote_comment, alice)
+        comment_retraction = Retraction.for(remote_comment)
 
-        expect(Retraction).to receive(:for).with(instance_of(Comment), alice).and_return(comment_retraction)
+        expect(Retraction).to receive(:for).with(instance_of(Comment)).and_return(comment_retraction)
         expect(comment_retraction).to receive(:defer_dispatch).with(alice, false)
         expect(comment_retraction).to receive(:perform).and_call_original
         expect_any_instance_of(Comment).to receive(:destroy!).and_call_original
@@ -529,7 +517,7 @@ describe Diaspora::Federation::Receive do
         remote_post = FactoryGirl.create(:status_message, author: sender, public: true)
         remote_comment = FactoryGirl.create(:comment, author: sender, post: remote_post)
 
-        retraction = FactoryGirl.build(
+        retraction = Fabricate(
           :retraction_entity,
           author:      sender.diaspora_handle,
           target_guid: remote_comment.guid,
@@ -547,7 +535,7 @@ describe Diaspora::Federation::Receive do
 
   describe ".status_message" do
     context "basic status message" do
-      let(:status_message_entity) { FactoryGirl.build(:status_message_entity, author: sender.diaspora_handle) }
+      let(:status_message_entity) { Fabricate(:status_message_entity, author: sender.diaspora_handle) }
 
       it "saves the status message" do
         received = Diaspora::Federation::Receive.perform(status_message_entity)
@@ -583,7 +571,7 @@ describe Diaspora::Federation::Receive do
       end
 
       it "finds the correct author if the author is not lowercase" do
-        status_message_entity = FactoryGirl.build(:status_message_entity, author: sender.diaspora_handle.upcase)
+        status_message_entity = Fabricate(:status_message_entity, author: sender.diaspora_handle.upcase)
 
         received = Diaspora::Federation::Receive.perform(status_message_entity)
 
@@ -595,9 +583,9 @@ describe Diaspora::Federation::Receive do
     end
 
     context "with poll" do
-      let(:poll_entity) { FactoryGirl.build(:poll_entity) }
+      let(:poll_entity) { Fabricate(:poll_entity) }
       let(:status_message_entity) {
-        FactoryGirl.build(:status_message_entity, author: sender.diaspora_handle, poll: poll_entity)
+        Fabricate(:status_message_entity, author: sender.diaspora_handle, poll: poll_entity)
       }
 
       it "saves the status message" do
@@ -616,9 +604,9 @@ describe Diaspora::Federation::Receive do
     end
 
     context "with location" do
-      let(:location_entity) { FactoryGirl.build(:location_entity) }
+      let(:location_entity) { Fabricate(:location_entity) }
       let(:status_message_entity) {
-        FactoryGirl.build(:status_message_entity, author: sender.diaspora_handle, location: location_entity)
+        Fabricate(:status_message_entity, author: sender.diaspora_handle, location: location_entity)
       }
 
       it "saves the status message" do
@@ -636,15 +624,15 @@ describe Diaspora::Federation::Receive do
     end
 
     context "with photos" do
-      let(:status_message_guid) { FactoryGirl.generate(:guid) }
+      let(:status_message_guid) { Fabricate.sequence(:guid) }
       let(:photo1) {
-        FactoryGirl.build(:photo_entity, author: sender.diaspora_handle, status_message_guid: status_message_guid)
+        Fabricate(:photo_entity, author: sender.diaspora_handle, status_message_guid: status_message_guid)
       }
       let(:photo2) {
-        FactoryGirl.build(:photo_entity, author: sender.diaspora_handle, status_message_guid: status_message_guid)
+        Fabricate(:photo_entity, author: sender.diaspora_handle, status_message_guid: status_message_guid)
       }
       let(:status_message_entity) {
-        FactoryGirl.build(
+        Fabricate(
           :status_message_entity,
           author: sender.diaspora_handle,
           guid:   status_message_guid,

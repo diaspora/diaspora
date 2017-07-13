@@ -49,7 +49,8 @@ module Diaspora
         PollParticipation => :poll_participation,
         Profile           => :profile,
         Reshare           => :reshare,
-        Retraction        => :build_retraction,
+        Retraction        => :retraction,
+        ContactRetraction => :retraction,
         StatusMessage     => :status_message
       }.freeze
 

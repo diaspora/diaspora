@@ -25,7 +25,7 @@ module Diaspora
 
       def self.contact(entity)
         recipient = Person.find_by(diaspora_handle: entity.recipient).owner
-        if entity.sharing.to_s == "true"
+        if entity.sharing
           Contact.create_or_update_sharing_contact(recipient, author_of(entity))
         else
           recipient.disconnected_by(author_of(entity))
@@ -59,7 +59,9 @@ module Diaspora
       end
 
       def self.message(entity)
-        save_message(entity).tap {|message| relay_relayable(message) if message }
+        ignore_existing_guid(Message, entity.guid, author_of(entity)) do
+          build_message(entity).tap(&:save!)
+        end
       end
 
       def self.participation(entity)
@@ -149,7 +151,7 @@ module Diaspora
         when Diaspora::Relayable
           if object.parent.author.local?
             parent_author = object.parent.author.owner
-            retraction = Retraction.for(object, parent_author)
+            retraction = Retraction.for(object)
             retraction.defer_dispatch(parent_author, false)
             retraction.perform
           else
@@ -215,15 +217,6 @@ module Diaspora
         end
       end
 
-      private_class_method def self.save_message(entity)
-        ignore_existing_guid(Message, entity.guid, author_of(entity)) do
-          build_message(entity).tap do |message|
-            message.author_signature = entity.author_signature if message.conversation.author.local?
-            message.save!
-          end
-        end
-      end
-
       private_class_method def self.save_photo(entity)
         Photo.create!(
           author:              author_of(entity),
@@ -263,8 +256,8 @@ module Diaspora
       private_class_method def self.build_signature(klass, entity)
         klass.reflect_on_association(:signature).klass.new(
           author_signature: entity.author_signature,
-          additional_data:  entity.additional_xml_elements,
-          signature_order:  SignatureOrder.find_or_create_by!(order: entity.xml_order.join(" "))
+          additional_data:  entity.additional_data,
+          signature_order:  SignatureOrder.find_or_create_by!(order: entity.signature_order.join(" "))
         )
       end
 
@@ -272,7 +265,7 @@ module Diaspora
         parent_author = relayable.parent.author.owner
         return unless parent_author && parent_author.ignored_people.include?(relayable.author)
 
-        retraction = Retraction.for(relayable, parent_author)
+        retraction = Retraction.for(relayable)
         Diaspora::Federation::Dispatcher.build(parent_author, retraction, subscribers: [relayable.author]).dispatch
 
         raise Diaspora::Federation::AuthorIgnored

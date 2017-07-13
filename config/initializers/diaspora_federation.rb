@@ -13,16 +13,22 @@ DiasporaFederation.configure do |config|
       person = Person.where(diaspora_handle: diaspora_id, closed_account: false).where.not(owner: nil).first
       if person
         DiasporaFederation::Discovery::WebFinger.new(
-          acct_uri:      "acct:#{person.diaspora_handle}",
-          alias_url:     AppConfig.url_to("/people/#{person.guid}"),
-          hcard_url:     AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
-          seed_url:      AppConfig.pod_uri,
-          profile_url:   person.profile_url,
-          atom_url:      person.atom_url,
-          salmon_url:    person.receive_url,
-          subscribe_url: AppConfig.url_to("/people?q={uri}"),
-          guid:          person.guid,
-          public_key:    person.serialized_public_key
+          {
+            acct_uri:      "acct:#{person.diaspora_handle}",
+            hcard_url:     AppConfig.url_to(DiasporaFederation::Engine.routes.url_helpers.hcard_path(person.guid)),
+            seed_url:      AppConfig.pod_uri,
+            profile_url:   person.profile_url,
+            atom_url:      person.atom_url,
+            salmon_url:    person.receive_url,
+            subscribe_url: AppConfig.url_to("/people?q={uri}")
+          },
+          aliases: [AppConfig.url_to("/people/#{person.guid}")],
+          links:   [
+            {
+              rel:  OpenIDConnect::Discovery::Provider::Issuer::REL_VALUE,
+              href: Rails.application.routes.url_helpers.root_url
+            }
+          ]
         )
       end
     end

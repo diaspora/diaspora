@@ -230,6 +230,5 @@ Diaspora::Application.routes.draw do
     end
   end
 
-  get ".well-known/webfinger", to: "api/openid_connect/discovery#webfinger"
   get ".well-known/openid-configuration", to: "api/openid_connect/discovery#configuration"
 end

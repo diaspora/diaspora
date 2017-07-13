@@ -10,8 +10,7 @@ def r_str
   SecureRandom.hex(3)
 end
 
-require "diaspora_federation/test"
-DiasporaFederation::Test::Factories.federation_factories
+require "diaspora_federation/test/factories"
 
 FactoryGirl.define do
   factory :profile do
@@ -246,10 +245,9 @@ FactoryGirl.define do
     association(:post, factory: :status_message)
   end
 
-  factory(:notification) do
+  factory(:notification, class: Notifications::AlsoCommented) do
     association :recipient, :factory => :user
     association :target, :factory => :comment
-    type 'Notifications::AlsoCommented'
 
     after(:build) do |note|
       note.actors << FactoryGirl.build(:person)

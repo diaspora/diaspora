@@ -51,11 +51,11 @@ module HelperMethods
     }.join(" ")
   end
 
-  def build_relayable_federation_entity(type, data={}, additional_xml_elements={})
-    attributes = FactoryGirl.attributes_for("#{type}_entity".to_sym, data)
-    entity_class = "DiasporaFederation::Entities::#{type.capitalize}".constantize
-    signable_fields = attributes.keys - [:author_signature]
+  def build_relayable_federation_entity(type, data={}, additional_data={})
+    attributes = Fabricate.attributes_for("#{type}_entity".to_sym, data)
+    entity_class = "DiasporaFederation::Entities::#{type.to_s.camelize}".constantize
+    signable_fields = attributes.keys - %i[author_signature parent]
 
-    entity_class.new(attributes, [*signable_fields, *additional_xml_elements.keys], additional_xml_elements)
+    entity_class.new(attributes, [*signable_fields, *additional_data.keys], additional_data)
   end
 end
