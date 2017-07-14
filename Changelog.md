@@ -9,8 +9,12 @@
 * Upgrade to jQuery 3 [#7303](https://github.com/diaspora/diaspora/pull/7303)
 * Add i18n for color themes [#7369](https://github.com/diaspora/diaspora/pull/7369)
 * Remove deprecated statistics.json [#7399](https://github.com/diaspora/diaspora/pull/7399)
+* Always link comment count text on mobile [#7483](https://github.com/diaspora/diaspora/pull/7483)
+* Switch to new federation protocol [#7436](https://github.com/diaspora/diaspora/pull/7436)
 
 ## Bug fixes
+
+* Fix height too high on mobile SPV [#7480](https://github.com/diaspora/diaspora/pull/7480)
 
 ## Features
 * Add support for mentions in comments to the backend [#6818](https://github.com/diaspora/diaspora/pull/6818)
