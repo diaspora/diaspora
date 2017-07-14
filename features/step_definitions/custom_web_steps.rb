@@ -78,6 +78,7 @@ end
 
 And /^I want to mention (?:him|her) from the profile$/ do
   find('#mention_button').click
+  expect(find("#publisher")).to be_visible
   within('#mentionModal') do
     click_publisher
   end
