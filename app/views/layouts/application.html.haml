@@ -17,8 +17,8 @@
       = javascript_include_tag :main, :templates
       = load_javascript_locales
 
-    = render "head"
     = include_color_theme
+    = render "head"
     = translation_missing_warnings
 
   %body{class: "page-#{controller_name} action-#{action_name}"}
