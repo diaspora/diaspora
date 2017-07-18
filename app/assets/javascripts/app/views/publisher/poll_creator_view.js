@@ -2,7 +2,7 @@
 
 app.views.PublisherPollCreator = app.views.Base.extend({
   templateName: "poll_creator",
-  
+
   events: {
     'keypress input:last': 'addAnswer',
     'click .remove-answer': 'removeAnswer',
@@ -22,7 +22,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
       this.addAnswerInput();
     }
   },
-  
+
   addAnswerInput: function(){
     this.inputCount++;
     var input_wrapper = this.$('.poll-answer:first').clone();
@@ -91,6 +91,7 @@ app.views.PublisherPollCreator = app.views.Base.extend({
   validatePoll: function() {
     var _this = this;
     var inputs = this.$('input:visible');
+    console.log("Validating " + inputs.length + " poll inputs...");
     var pollValid = true;
 
     _.each(inputs, function(input, i){
@@ -98,11 +99,12 @@ app.views.PublisherPollCreator = app.views.Base.extend({
       // question field and two options
       if( i !== inputs.length - 1 || inputs.length <= 3) {
         if(_this.validateInput($(input)) === false) pollValid = false;
-      }      
+      }
     });
+
+    console.log("Poll is" + (pollValid ? '' : ' not') + " valid");
 
     return pollValid;
   }
 });
 // @license-end
-
