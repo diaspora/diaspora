@@ -182,6 +182,9 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   createStatusMessage : function(evt) {
+
+    console.log("'Post' button has been clicked...");
+
     this.setButtonsEnabled(false);
     var self = this;
 
@@ -476,6 +479,12 @@ app.views.Publisher = Backbone.View.extend({
     var onlyWhitespaces = ($.trim(this.inputEl.val()) === ""),
         isPhotoAttached = (this.photozoneEl.children().length > 0),
         isValidPoll = this.viewPollCreator.validatePoll();
+
+    console.log("Checking if post can be submitted:");
+    console.log("Post has text or photo: " + (!onlyWhitespaces||isPhotoAttached));
+    console.log("Post poll does not exist or is invalid: " + (isValidPoll));
+    var canSubmit = (!onlyWhitespaces || isPhotoAttached) && isValidPoll && !this.disabled
+    console.log("Post is" + (canSubmit ? '' : ' not') + " submittable.")
 
     return (!onlyWhitespaces || isPhotoAttached) && isValidPoll && !this.disabled;
   },
