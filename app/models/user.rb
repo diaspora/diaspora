@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 
   delegate :guid, :public_key, :posts, :photos, :owns?, :image_url,
            :diaspora_handle, :name, :atom_url, :profile_url, :profile, :url,
-           :first_name, :last_name, :gender, :participations, to: :person
+           :first_name, :last_name, :full_name, :gender, :participations, to: :person
   delegate :id, :guid, to: :person, prefix: true
 
   has_many :aspects, -> { order('order_id ASC') }
