@@ -41,9 +41,10 @@ describe Report, type: :mailer do
       expect(ActionMailer::Base.deliveries[1].to[0]).to include(@user2.email)
     end
 
-    it "FROM: header should be the default sender address" do
+    it "FROM: header should be the pod name + default sender address" do
       ReportMailer.new_report(@post_report.id).each(&:deliver_now)
-      expect(ReportMailer.default[:from].to_s).to eq(AppConfig.mail.sender_address.to_s)
+      pod_name = AppConfig.settings.pod_name
+      expect(ReportMailer.default[:from].to_s).to eq("\"#{pod_name}\" <#{AppConfig.mail.sender_address}>")
     end
 
     it "should send mail in recipent's prefered language" do
