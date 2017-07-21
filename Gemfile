@@ -65,7 +65,7 @@ group :mysql, optional: true do
   gem "mysql2", "0.4.8"
 end
 group :postgresql, optional: true do
-  gem "pg",     "0.19.0"
+  gem "pg",     "0.21.0"
 end
 
 
