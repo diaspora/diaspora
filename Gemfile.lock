@@ -550,7 +550,7 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-i18n (4.0.8)
+    rails-i18n (4.0.9)
       i18n (~> 0.7)
       railties (~> 4.0)
     rails-timeago (2.16.0)
@@ -855,7 +855,7 @@ DEPENDENCIES
   rails-assets-markdown-it-sub (= 1.0.0)!
   rails-assets-markdown-it-sup (= 1.0.0)!
   rails-assets-perfect-scrollbar (= 0.6.16)!
-  rails-i18n (= 4.0.8)
+  rails-i18n (= 4.0.9)
   rails-timeago (= 2.16.0)
   rb-fsevent (= 0.9.8)
   rb-inotify (= 0.9.8)
