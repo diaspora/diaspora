@@ -339,7 +339,8 @@ GEM
       multi_json
     jwt (1.5.6)
     kgio (2.11.0)
-    leaflet-rails (0.7.7)
+    leaflet-rails (1.1.0)
+      rails (>= 4.2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -803,7 +804,7 @@ DEPENDENCIES
   js_image_paths (= 0.1.0)
   json (= 2.1.0)
   json-schema (= 2.8.0)
-  leaflet-rails (= 0.7.7)
+  leaflet-rails (= 1.1.0)
   logging-rails (= 0.5.0)
   markerb (= 1.1.0)
   mini_magick (= 4.8.0)
