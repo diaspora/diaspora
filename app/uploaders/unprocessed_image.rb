@@ -6,7 +6,7 @@ class UnprocessedImage < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   attr_accessor :strip_exif
-  
+
   def strip_exif
     @strip_exif || false
   end
@@ -15,8 +15,8 @@ class UnprocessedImage < CarrierWave::Uploader::Base
     "uploads/images"
   end
 
-  def extension_white_list
-    %w(jpg jpeg png gif)
+  def extension_whitelist
+    %w[jpg jpeg png gif]
   end
 
   def filename
@@ -38,7 +38,7 @@ class UnprocessedImage < CarrierWave::Uploader::Base
   version :thumb_medium
   version :thumb_large
   version :scaled_full do
-    process :get_version_dimensions 
+    process :get_version_dimensions
   end
 
   def get_version_dimensions
