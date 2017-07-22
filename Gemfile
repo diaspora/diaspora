@@ -162,7 +162,7 @@ gem "openid_connect", "1.1.2"
 
 # Serializers
 
-gem "active_model_serializers", "0.9.5"
+gem "active_model_serializers", "0.9.7"
 
 # XMPP chat dependencies
 gem "diaspora-prosody-config",    "0.0.7"
