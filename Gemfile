@@ -183,7 +183,7 @@ gem "typhoeus",           "1.1.2"
 # Views
 
 gem "gon",                     "6.1.0"
-gem "hamlit",                  "2.8.0"
+gem "hamlit",                  "2.8.4"
 gem "mobile-fu",               "1.3.1"
 gem "rails-timeago",           "2.16.0"
 gem "will_paginate",           "3.1.5"
