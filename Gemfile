@@ -190,7 +190,7 @@ gem "will_paginate",           "3.1.6"
 
 # Logging
 
-gem "logging-rails", "0.5.0", require: "logging/rails"
+gem "logging-rails", "0.6.0", require: "logging/rails"
 
 # Reading and writing zip files
 
