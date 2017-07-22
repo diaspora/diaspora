@@ -96,7 +96,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jquery.ui",                           "1.11.4"
 
   gem "rails-assets-highlightjs",                         "9.12.0"
-  gem "rails-assets-markdown-it",                         "8.3.0"
+  gem "rails-assets-markdown-it",                         "8.3.1"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "1.2.0"
   gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
