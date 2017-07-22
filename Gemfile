@@ -249,7 +249,7 @@ group :development do
 
   # Linters
   gem "haml_lint",      "0.24.0", require: false
-  gem "pronto",         "0.9.3", require: false
+  gem "pronto",         "0.9.4", require: false
   gem "pronto-eslint",  "0.9.1", require: false
   gem "pronto-haml",    "0.9.0", require: false
   gem "pronto-rubocop", "0.9.0", require: false
