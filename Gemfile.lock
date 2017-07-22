@@ -50,10 +50,10 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (6.0.4)
-    asset_sync (2.0.0)
-      activemodel
+    asset_sync (2.2.0)
+      activemodel (>= 4.1.0)
       fog-core
-      mime-types
+      mime-types (>= 2.99)
       unf
     ast (2.3.0)
     attr_required (1.0.1)
@@ -761,7 +761,7 @@ DEPENDENCIES
   acts-as-taggable-on (= 3.5.0)
   acts_as_api (= 1.0.0)
   addressable (= 2.5.1)
-  asset_sync (= 2.0.0)
+  asset_sync (= 2.2.0)
   autoprefixer-rails (= 7.1.2.3)
   bootstrap-sass (= 3.3.7)
   bootstrap-switch-rails (= 3.3.3)

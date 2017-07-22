@@ -235,7 +235,7 @@ group :production do # we don"t install these on travis to speed up test runs
 
   # Third party asset hosting
 
-  gem "asset_sync", "2.0.0", require: false
+  gem "asset_sync", "2.2.0", require: false
 end
 
 group :development do
