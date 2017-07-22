@@ -498,7 +498,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.9)
       sprockets-rails
-    rails-assets-autosize (3.0.20)
+    rails-assets-autosize (4.0.0)
     rails-assets-backbone (1.3.3)
       rails-assets-underscore (>= 1.8.3)
     rails-assets-blueimp-gallery (2.25.0)
@@ -836,7 +836,7 @@ DEPENDENCIES
   rack-rewrite (= 1.5.1)
   rack-ssl (= 1.4.1)
   rails (= 4.2.9)
-  rails-assets-autosize (= 3.0.20)!
+  rails-assets-autosize (= 4.0.0)!
   rails-assets-backbone (= 1.3.3)!
   rails-assets-blueimp-gallery (= 2.25.0)!
   rails-assets-bootstrap-markdown (= 2.10.0)!
