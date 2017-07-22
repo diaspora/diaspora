@@ -689,7 +689,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.6)
     tilt (1.4.1)
-    timecop (0.8.1)
+    timecop (0.9.1)
     timers (4.1.2)
       hitimes
     tins (1.13.2)
@@ -885,7 +885,7 @@ DEPENDENCIES
   string-direction (= 1.2.0)
   test_after_commit (= 1.1.0)
   thor (= 0.19.1)
-  timecop (= 0.8.1)
+  timecop (= 0.9.1)
   turbo_dev_assets (= 0.0.2)
   twitter (= 6.1.0)
   twitter-text (= 1.14.7)
