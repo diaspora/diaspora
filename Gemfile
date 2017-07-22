@@ -150,7 +150,7 @@ gem "secure_headers", "3.6.7"
 
 # Services
 
-gem "omniauth",           "1.4.2"
+gem "omniauth",           "1.6.1"
 gem "omniauth-facebook",  "4.0.0"
 gem "omniauth-tumblr",    "1.2"
 gem "omniauth-twitter",   "1.4.0"
