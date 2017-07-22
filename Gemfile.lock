@@ -567,7 +567,7 @@ GEM
       rake
     raindrops (0.18.0)
     rake (12.0.0)
-    rb-fsevent (0.9.8)
+    rb-fsevent (0.10.2)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
     redcarpet (3.4.0)
@@ -859,7 +859,7 @@ DEPENDENCIES
   rails-assets-perfect-scrollbar (= 0.6.16)!
   rails-i18n (= 4.0.9)
   rails-timeago (= 2.16.0)
-  rb-fsevent (= 0.9.8)
+  rb-fsevent (= 0.10.2)
   rb-inotify (= 0.9.8)
   redcarpet (= 3.4.0)
   responders (= 2.4.0)
