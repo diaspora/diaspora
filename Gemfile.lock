@@ -151,7 +151,7 @@ GEM
       nokogiri (~> 1.5)
       railties (>= 3, < 5.1)
     cucumber-wire (0.0.1)
-    database_cleaner (1.5.3)
+    database_cleaner (1.6.1)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -775,7 +775,7 @@ DEPENDENCIES
   coveralls
   cucumber-api-steps (= 0.13)
   cucumber-rails (= 1.4.5)
-  database_cleaner (= 1.5.3)
+  database_cleaner (= 1.6.1)
   devise (= 4.3.0)
   devise_lastseenable (= 0.0.6)
   diaspora-prosody-config (= 0.0.7)
