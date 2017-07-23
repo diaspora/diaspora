@@ -178,7 +178,7 @@ describe Photo, :type => :model do
       file = File.open(@fail_fixture_name)
       expect {
         @photo.unprocessed_image.store! file
-      }.to raise_error CarrierWave::IntegrityError, 'You are not allowed to upload "xml" files, allowed types: jpg, jpeg, png, gif'
+      }.to raise_error CarrierWave::IntegrityError
     end
 
   end

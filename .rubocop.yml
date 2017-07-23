@@ -40,7 +40,7 @@ Metrics/BlockLength:
 
 # No space makes the method definition shorter and differentiates
 # from a regular assignment.
-Style/SpaceAroundEqualsInParameterDefault:
+Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
 # Single quotes being faster is hardly measurable and only affects parse time.
@@ -55,7 +55,7 @@ Style/SymbolArray:
   Enabled: true
 
 # Most readable form.
-Style/AlignHash:
+Layout/AlignHash:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
@@ -92,7 +92,7 @@ Style/RaiseArgs:
 
 # Indenting the chained dots beneath each other is not supported by this cop,
 # see https://github.com/bbatsov/rubocop/issues/1633
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   Enabled: false
 
 # Fail is an alias of raise. Avoid aliases, it's more cognitive load for no gain.
@@ -107,7 +107,7 @@ Style/SignalException:
 Lint/HandleExceptions:
   Enabled: false
 
-Style/SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces:
   # The space here provides no real gain in readability while consuming
   # horizontal space that could be used for a better parameter name.
   # Also {| differentiates better from a hash than { | does.
@@ -115,7 +115,7 @@ Style/SpaceInsideBlockBraces:
 
 # No trailing space differentiates better from the block:
 # foo} means hash, foo } means block.
-Style/SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
 # { ... } for multi-line blocks is okay, follow Weirichs rule instead:
@@ -165,7 +165,7 @@ Style/NumericPredicate:
   EnforcedStyle: comparison
 
 # Reset some HoundCI changes back to Rubocop defaults
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: leading
 
 ### backward compatibility
