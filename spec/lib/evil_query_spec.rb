@@ -28,6 +28,18 @@ describe EvilQuery::MultiStream do
       expect(evil_query.make_relation!.map(&:id)).not_to include(public_post.id)
       expect(evil_query.make_relation!.map(&:id)).not_to include(private_post.id)
     end
+
+    it "doesn't include posts with tags from ignored users" do
+      tag = ActsAsTaggableOn::Tag.find_or_create_by(name: "test")
+      alice.tag_followings.create(tag_id: tag.id)
+      alice.blocks.create(person_id: eve.person_id)
+
+      bob_post = bob.post(:status_message, text: "public #test post 1", to: "all", public: true)
+      eve_post = eve.post(:status_message, text: "public #test post 2", to: "all", public: true)
+
+      expect(evil_query.make_relation!.map(&:id)).to include(bob_post.id)
+      expect(evil_query.make_relation!.map(&:id)).not_to include(eve_post.id)
+    end
   end
 end
 
