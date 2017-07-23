@@ -185,6 +185,18 @@ describe Profile, :type => :model do
     end
   end
 
+  describe "public?" do
+    it "is public if public_details is true" do
+      profile = FactoryGirl.build(:profile, public_details: true)
+      expect(profile.public?).to be_truthy
+    end
+
+    it "is not public if public_details is false" do
+      profile = FactoryGirl.build(:profile, public_details: false)
+      expect(profile.public?).to be_falsey
+    end
+  end
+
   describe 'date=' do
     let(:profile) { FactoryGirl.build(:profile) }
 

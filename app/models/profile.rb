@@ -40,6 +40,10 @@ class Profile < ActiveRecord::Base
     Person.joins(:contacts).where(contacts: {user_id: person.owner_id})
   end
 
+  def public?
+    public_details?
+  end
+
   def diaspora_handle
     #get the parent diaspora handle, unless we want to access a profile without a person
     (self.person) ? self.person.diaspora_handle : self[:diaspora_handle]
