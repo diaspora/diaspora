@@ -188,6 +188,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.searchable).to eq(diaspora_entity.searchable)
       expect(federation_entity.nsfw).to eq(diaspora_entity.nsfw)
       expect(federation_entity.tag_string.split(" ")).to match_array(diaspora_entity.tag_string.split(" "))
+      expect(federation_entity.public).to eq(diaspora_entity.public_details)
     end
 
     it "builds a reshare" do

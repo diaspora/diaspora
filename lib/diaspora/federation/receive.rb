@@ -122,7 +122,8 @@ module Diaspora
             location:         entity.location,
             searchable:       entity.searchable,
             nsfw:             entity.nsfw,
-            tag_string:       entity.tag_string
+            tag_string:       entity.tag_string,
+            public_details:   entity.public
           )
         end
       end

@@ -160,7 +160,8 @@ module Diaspora
           location:         profile.location,
           searchable:       profile.searchable,
           nsfw:             profile.nsfw,
-          tag_string:       profile.tag_string
+          tag_string:       profile.tag_string,
+          public:           profile.public_details
         )
       end
 
