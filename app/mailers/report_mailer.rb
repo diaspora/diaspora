@@ -1,5 +1,5 @@
 class ReportMailer < ActionMailer::Base
-  default from: AppConfig.mail.sender_address
+  default from: "\"#{AppConfig.settings.pod_name}\" <#{AppConfig.mail.sender_address}>"
 
   def self.new_report(report_id)
     report = Report.find_by_id(report_id)

@@ -17,6 +17,7 @@ Ruby 2.1 is no longer officially supported.
 * Always link comment count text on mobile [#7483](https://github.com/diaspora/diaspora/pull/7483)
 * Switch to new federation protocol [#7436](https://github.com/diaspora/diaspora/pull/7436)
 * Send public profiles publicly [#7501](https://github.com/diaspora/diaspora/pull/7501)
+* Change sender for mails [#7495](https://github.com/diaspora/diaspora/pull/7495)
 
 ## Bug fixes
 
