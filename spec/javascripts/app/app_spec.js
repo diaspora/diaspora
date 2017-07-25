@@ -1,4 +1,9 @@
 describe("app", function() {
+  afterAll(function() {
+    Backbone.history.stop();
+    app.initialize();
+  });
+
   describe("initialize", function() {
     it("calls several setup functions", function() {
       spyOn(app.Router.prototype, "initialize");
@@ -109,6 +114,10 @@ describe("app", function() {
   });
 
   describe("setupBackboneLinks", function() {
+    beforeEach(function() {
+      Backbone.history.stop();
+    });
+
     it("calls Backbone.history.start", function() {
       spyOn(Backbone.history, "start");
       app.setupBackboneLinks();
@@ -126,7 +135,6 @@ describe("app", function() {
 
       afterEach(function() {
         app.stream = undefined;
-        Backbone.history.stop();
       });
 
       it("calls Backbone.history.navigate", function() {

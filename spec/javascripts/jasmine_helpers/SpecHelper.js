@@ -72,6 +72,24 @@ beforeEach(function() {
     };
   };
   /* jshint +W121 */
+
+  // add gon defaults
+  window.gon = {
+    appConfig: {
+      chat: {enabled: false},
+      settings: {podname: "MyPod"},
+      map: {
+        mapbox: {
+          enabled: false,
+          /* eslint-disable camelcase */
+          access_token: null,
+          /* eslint-enable camelcase */
+          style: "mapbox/streets-v9"
+        }
+      }
+    },
+    preloads: {}
+  };
 });
 
 afterEach(function() {
