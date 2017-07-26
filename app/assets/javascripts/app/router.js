@@ -182,7 +182,7 @@ app.Router = Backbone.Router.extend({
   },
 
   singlePost: function(id) {
-    this.renderPage(function() { return new app.pages.SinglePostViewer({id: id}); });
+    this.renderPage(function() { return new app.pages.SinglePostViewer({id: id, el: $("#container")}); });
   },
 
   spotlight: function() {
