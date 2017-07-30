@@ -463,8 +463,6 @@ GEM
       byebug (~> 9.0)
       pry (~> 0.10)
     public_suffix (2.0.5)
-    quiet_assets (1.1.0)
-      railties (>= 3.1, < 5.0)
     rack (1.6.8)
     rack-cors (1.0.1)
     rack-google-analytics (1.2.0)
@@ -826,7 +824,6 @@ DEPENDENCIES
   pronto-scss (= 0.9.1)
   pry
   pry-byebug
-  quiet_assets (= 1.1.0)
   rack-cors (= 1.0.1)
   rack-google-analytics (= 1.2.0)
   rack-piwik (= 0.3.0)
