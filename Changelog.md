@@ -43,6 +43,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Support direct links to comments on mobile [#7508](https://github.com/diaspora/diaspora/pull/7508)
 * Add inviter first and last name in the invitation e-mail [#7484](https://github.com/diaspora/diaspora/pull/7484)
 * Add markdown editor for comments and conversations [#7482](https://github.com/diaspora/diaspora/pull/7482)
+* Improve responsive header in desktop version [#7509](https://github.com/diaspora/diaspora/pull/7509)
 
 # 0.6.8.0
 

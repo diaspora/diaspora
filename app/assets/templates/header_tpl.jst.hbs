@@ -10,46 +10,24 @@
             <span class="icon-bar"></span>
           </button>
           <a href="/stream" class="navbar-brand" data-stream-title="{{t "my_stream"}}">
-            {{ podname }}
+            <span class="hidden-xs">{{ podname }}</span>
+            <span id="header-title" class="visible-xs">
+              <img src="/assets/branding/logos/asterisk_white_mobile.png" alt="{{ podname }}" />
+            </span>
           </a>
-          <ul class="nav nav-badges visible-sm">
-            <li>
-              <a href="/notifications" title="{{t "header.notifications"}}" class="notifications-link nav-badge">
-                <i class="entypo-bell"></i>
-                <span class="badge badge-important {{#unless current_user.notifications_count}} hidden {{/unless}}">
-                  {{current_user.notifications_count}}
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="/conversations" title="{{t "header.conversations"}}" class="conversations-link nav-badge">
-                <i class="entypo-mail"></i>
-                <span class="badge badge-important {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
-                  {{current_user.unread_messages_count}}
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav navbar-left">
+          <ul class="nav navbar-nav hidden-xs">
             <li><a href="/stream">{{t "my_stream"}}</a></li>
             <li><a href="/activity">{{t "my_activity"}}</a></li>
-            <li class="visible-xs"><a href="/notifications">{{t "header.notifications"}}</a></li>
-            <li class="visible-xs"><a href="/conversations">{{t "header.conversations"}}</a></li>
-            <li class="visible-sm visible-xs"><a href="/mobile/toggle">{{t "header.toggle_mobile"}}</a></li>
           </ul>
-
-          <ul class="nav navbar-nav navbar-left nav-badges hidden-sm hidden-xs">
+          <ul class="nav navbar-nav nav-badges">
             <li class="dropdown" id="notification-dropdown">
-              <a id="notifications-link" href="/notifications" title="{{t "header.notifications"}}" class="notifications-link nav-badge hidden-sm hidden-xs" role="button" data-toggle="dropdown" aria-expanded="false" data-target=" ">
+              <a id="notifications-link" href="/notifications" title="{{t "header.notifications"}}" class="notifications-link nav-badge"
+                role="button" data-toggle="dropdown" aria-expanded="false" data-target=" ">
                 <i class="entypo-bell"></i>
                 <span class="badge badge-important {{#unless current_user.notifications_count}} hidden {{/unless}}">
                   {{current_user.notifications_count}}
                 </span>
               </a>
-
               <ul class="dropdown-menu" role="menu">
                 <div class="header">
                   <div class="pull-right">
@@ -71,17 +49,22 @@
                   </a>
                 </div>
               </ul>
-
             </li>
-
             <li>
-              <a id="conversations-link" href="/conversations" title="{{t "header.conversations"}}" class="conversations-link nav-badge hidden-sm hidden-xs">
+              <a href="/conversations" title="{{t "header.conversations"}}" class="conversations-link nav-badge">
                 <i class="entypo-mail"></i>
                 <span class="badge badge-important {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
                   {{current_user.unread_messages_count}}
                 </span>
               </a>
             </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-left visible-sm visible-xs">
+            <li class="visible-xs"><a href="/stream">{{t "my_stream"}}</a></li>
+            <li class="visible-xs"><a href="/activity">{{t "my_activity"}}</a></li>
+            <li><a href="/mobile/toggle">{{t "header.toggle_mobile"}}</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

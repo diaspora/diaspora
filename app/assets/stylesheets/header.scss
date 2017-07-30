@@ -6,63 +6,47 @@
   .navbar-brand {
     font-weight: bold;
     font-size: $font-size-h3;
+    margin-left: -15px;
   }
 
-  @media (max-width: $grid-float-breakpoint-max) {
-    .navbar-header > .nav li { display: inline-block !important; }
-    .nav-badge {
-      color: $navbar-inverse-link-color;
-      padding-left: 12px;
-      padding-right: 12px;
-      &:hover { color: $navbar-inverse-link-hover-color; }
-      &:hover,
-      &:focus {
-        background-color: transparent;
-      }
+  #header-title {
+    margin-top: -7px;
+
+    img {
+      height: 32px;
+      opacity: .7;
     }
-    #navbar-collapse {
-      .form-group, .twitter-typeahead  {
-        display: block !important;
-        margin-bottom: 0;
-        &, & input { width: 100% }
-      }
+    img:hover {
+      opacity: 1;
     }
   }
-  @media (min-width: $grid-float-breakpoint) {
-    input[type="search"] {
-      @include transition(width);
-      margin-top: 2px;
-      width: 200px;
-      &:not(.active) {
-        background-color: $navbar-inverse-bg;
-        border-color: $gray-light;
-        width: 150px;
-      }
-    }
-    #user_menu {
-      &.open .dropdown-toggle { background-color: darken($navbar-inverse-bg, 7%); }
-      .dropdown-toggle {
-        margin: 0 1px;
-        min-width: 160px;
-      }
-      .dropdown-menu {
-        background-color: darken($navbar-inverse-bg, 7%);
-        border-top: none;
-        width: 100%;
-        & > li > a {
-          color: $gray-light;
-          padding-left: 55px;
-          &:hover {
-            background-color: $brand-primary;
-            color: $gray-lighter;
-          }
-        }
-      }
+
+  .navbar-header > ul,
+  .navbar-header > ul li {
+    float: left;
+  }
+
+  [class^="entypo-"],
+  [class*="entypo-"] {
+    color: inherit;
+    font-size: $font-size-h3;
+    vertical-align: middle;
+  }
+
+  .nav-badge {
+    padding: 16px 12px;
+
+    .badge {
+      position: absolute;
+      right: 10px;
+      top: 10px;
     }
   }
 
   .navbar-nav:not(.nav-badges) > li > a { font-weight: bold; }
   .nav-badges {
+    margin: 0;
+
     li { height: $navbar-height; }
     .dropdown-open {
       background-color: $dropdown-bg;
@@ -118,19 +102,6 @@
       }
     }
   }
-  [class^="entypo-"], [class*="entypo-"] {
-    color: inherit;
-    font-size: $font-size-h3;
-    vertical-align: middle;
-  }
-  .nav-badge {
-    margin-bottom: -2px;
-    .badge {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-    }
-  }
 
   #user_menu {
     .avatar {
@@ -143,6 +114,77 @@
       margin-bottom: -$navbar-padding-vertical;
       margin-top: -$navbar-padding-vertical;
       margin-right: 10px;
+    }
+  }
+
+  @media (max-width: $grid-float-breakpoint-max) {
+
+    .navbar-nav.hidden-xs {
+      margin: 0;
+      margin-top: 6px;
+    }
+
+    .nav-badge {
+      color: $navbar-inverse-link-color;
+      &:hover { color: $navbar-inverse-link-hover-color; }
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+    }
+
+    #navbar-collapse {
+      .form-group,
+      .twitter-typeahead {
+        display: block !important;
+        margin-bottom: 0;
+
+        &,
+        input { width: 100%; }
+      }
+    }
+
+    .nav-badges .dropdown-menu {
+      width: 300px;
+    }
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
+
+    [type="search"] {
+      @include transition(width);
+      margin-top: 2px;
+      width: 200px;
+
+      &:not(.active) {
+        background-color: $navbar-inverse-bg;
+        border-color: $gray-light;
+        width: 150px;
+      }
+    }
+
+    #user_menu {
+      &.open .dropdown-toggle { background-color: darken($navbar-inverse-bg, 7%); }
+      .dropdown-toggle {
+        margin: 0 1px;
+        min-width: 160px;
+      }
+
+      .dropdown-menu {
+        background-color: darken($navbar-inverse-bg, 7%);
+        border-top: 0;
+        width: 100%;
+
+        > li > a {
+          color: $gray-light;
+          padding-left: 55px;
+
+          &:hover {
+            background-color: $brand-primary;
+            color: $gray-lighter;
+          }
+        }
+      }
     }
   }
 }
