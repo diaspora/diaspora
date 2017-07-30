@@ -19,6 +19,9 @@ Diaspora::Application.configure do
   # No assets request logging
   config.assets.quiet = true
 
+  # Precompile poltergeist_disable_transition.css for tests
+  config.assets.precompile += %w[poltergeist_disable_transition.css]
+
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
