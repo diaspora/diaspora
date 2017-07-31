@@ -117,6 +117,16 @@
     }
   }
 
+  .not-connected-menu {
+    .navbar-left {
+      float: left;
+    }
+    .navbar-right,
+    .navbar-right li {
+      float: right;
+    }
+  }
+
   @media (max-width: $grid-float-breakpoint-max) {
 
     .navbar-nav.hidden-xs {
