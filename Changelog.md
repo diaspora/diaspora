@@ -29,6 +29,7 @@ Ruby 2.1 is no longer officially supported.
 * Add support for new mention syntax [#7300](https://github.com/diaspora/diaspora/pull/7300) [#7394](https://github.com/diaspora/diaspora/pull/7394)
 * Render mentions as links in comments [#7327](https://github.com/diaspora/diaspora/pull/7327)
 * Add support for mentions in comments to the front-end [#7386](https://github.com/diaspora/diaspora/pull/7386)
+* Support direct links to comments on mobile [#7508](https://github.com/diaspora/diaspora/pull/7508)
 
 # 0.6.8.0
 
