@@ -72,6 +72,7 @@ module Diaspora
       jquery_ujs.js
       main.js
       jsxc.js
+      bookmarklet.js
       mobile/bookmarklet.js
       mobile/mobile.js
       templates.js

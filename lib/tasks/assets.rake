@@ -5,11 +5,6 @@ namespace :assets do
     renderer.render
   end
 
-  desc "Uglify bookmarklet snippet"
-  task :uglify_bookmarklet => :environment do
-    BookmarkletRenderer.compile
-  end
-
   desc "Create non digest assets"
   task non_digest_assets: :environment do
     logger = ::Logging::Logger["assets:non_digest_assets"]
@@ -35,7 +30,6 @@ namespace :assets do
   # Augment precompile with error page generation
   task :precompile do
     Rake::Task["assets:generate_error_pages"].invoke
-    Rake::Task["assets:uglify_bookmarklet"].invoke
     Rake::Task["assets:non_digest_assets"].invoke
   end
 end
