@@ -1,7 +1,11 @@
 .navbar.navbar-fixed-top {
   border-bottom: none;
   box-shadow: 1px 0 2px $black;
-  a:focus {outline: 0 none; }
+  a:focus { outline: 0 none; }
+
+  .in {
+    overflow-y: visible; // Avoid search result dropdown to be hidden
+  }
 
   .navbar-brand {
     font-weight: bold;

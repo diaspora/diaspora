@@ -9,4 +9,11 @@
         .container-fluid
           .row
             .col-md-12
-              = render "layouts/header_not_connected"
+              .not-connected-menu
+                .navbar-header.navbar-left
+                  .hidden-xs
+                    = link_to AppConfig.settings.pod_name, root_path, class: "navbar-brand"
+                  .visible-xs.header-title
+                    = link_to(image_tag("branding/logos/asterisk_white_mobile.png", class: "img-responsive"),
+                        root_path, class: "navbar-brand")
+                = render "layouts/header_not_connected"
