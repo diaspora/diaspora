@@ -15,7 +15,7 @@ namespace :assets do
     logger = ::Logging::Logger["assets:non_digest_assets"]
 
     non_digest_assets = Diaspora::Application.config.assets.non_digest_assets
-    manifest_path = Dir.glob(File.join(Rails.root, "public/assets/manifest-*.json")).first
+    manifest_path = Dir.glob(Rails.root.join("public", "assets", ".sprockets-manifest-*.json")).first
 
     JSON.load(File.new(manifest_path))["assets"].each do |logical_path, digested_path|
       logical_pathname = Pathname.new(logical_path)

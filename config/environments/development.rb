@@ -32,6 +32,9 @@ Diaspora::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # No assets request logging
+  config.assets.quiet = true
+
   # Set the logging destination(s)
   config.log_to = %w[stdout file]
 

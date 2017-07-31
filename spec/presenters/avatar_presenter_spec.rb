@@ -10,11 +10,10 @@ describe AvatarPresenter do
     it "returns the default images if no images set" do
       @profile = FactoryGirl.create(:profile, person: alice.person)
       @presenter = AvatarPresenter.new(@profile)
-      expect(@presenter.base_hash).to eq(
-        small:  "/assets/user/default.png",
-        medium: "/assets/user/default.png",
-        large:  "/assets/user/default.png"
-      )
+      expect(@presenter.base_hash.keys).to eq(%i[small medium large])
+      expect(@presenter.base_hash[:small]).to match(%r{/assets/user/default-[0-9a-f]{64}\.png})
+      expect(@presenter.base_hash[:medium]).to match(%r{/assets/user/default-[0-9a-f]{64}\.png})
+      expect(@presenter.base_hash[:large]).to match(%r{/assets/user/default-[0-9a-f]{64}\.png})
     end
   end
 end

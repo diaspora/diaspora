@@ -103,3 +103,10 @@ Logging::Rails.configure do |config|
     end
   end
 end
+
+# Include LoggerSilence from ActiveSupport. This is needed to silent assets
+# requests with `config.assets.quiet`, because the default silence method of
+# the logging gem is no-op. See: https://github.com/TwP/logging/issues/11
+Logging::Logger.send :alias_method, :local_level, :level
+Logging::Logger.send :alias_method, :local_level=, :level=
+Logging::Logger.send :include, LoggerSilence

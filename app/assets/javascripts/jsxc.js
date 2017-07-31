@@ -1,5 +1,5 @@
 //= require emojione
-//= require favico.js
+//= require favico.js/favico
 
 //= require jquery.ui/ui/resizable
 //= require jquery.ui/ui/draggable

@@ -57,7 +57,7 @@ gem "bootstrap-sass",         "3.3.7"
 gem "bootstrap-switch-rails", "3.3.3"
 gem "compass-rails",          "3.0.2"
 gem "sass-rails",             "5.0.6"
-gem "sprockets",              "2.12.4"
+gem "sprockets-rails",        "3.2.0"
 
 # Database
 
@@ -312,7 +312,4 @@ group :development, :test do
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "3.3.1", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.15.0"
-
-  # silence assets
-  gem "quiet_assets", "1.1.0"
 end

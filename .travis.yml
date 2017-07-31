@@ -15,7 +15,7 @@ cache:
   bundler: true
   directories:
     - app/assets/images
-    - tmp/cache/assets/test
+    - tmp/cache/assets
 
 branches:
   only:

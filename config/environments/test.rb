@@ -16,6 +16,20 @@ Diaspora::Application.configure do
   config.serve_static_files = true
   config.static_cache_control = "public, max-age=3600"
 
+  # No assets request logging
+  config.assets.quiet = true
+
+  # Precompile poltergeist_disable_transition.css for tests
+  config.assets.precompile += %w[poltergeist_disable_transition.css]
+
+  # Don't precompile all themes for tests
+  config.assets.precompile -= %w[color_themes/*/desktop.css color_themes/*/mobile.css]
+  config.assets.precompile += %w[
+    color_themes/original/desktop.css
+    color_themes/dark_green/desktop.css
+    color_themes/original/mobile.css
+  ]
+
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
