@@ -147,6 +147,28 @@
     .nav-badges .dropdown-menu {
       width: 300px;
     }
+
+    #user_menu .dropdown-menu {
+      display: block;
+      position: static;
+      width: 100%;
+      background-color: transparent;
+      box-shadow: none;
+      border: 0;
+      padding: 0;
+      margin-top: -8px; // To compensate parent ul margin
+
+      a {
+        color: #9d9d9d;
+        font-weight: bold;
+        padding: 10px 15px;
+
+        &:hover {
+          color: #fff;
+          background-color: transparent;
+        }
+      }
+    }
   }
 
   @media (min-width: $grid-float-breakpoint) {
