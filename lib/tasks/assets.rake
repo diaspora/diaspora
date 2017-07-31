@@ -10,14 +10,13 @@ namespace :assets do
     logger = ::Logging::Logger["assets:non_digest_assets"]
 
     non_digest_assets = Diaspora::Application.config.assets.non_digest_assets
-    manifest_path = Dir.glob(Rails.root.join("public", "assets", ".sprockets-manifest-*.json")).first
 
-    JSON.load(File.new(manifest_path))["assets"].each do |logical_path, digested_path|
+    Rails.application.assets_manifest.assets.each do |logical_path, digested_path|
       logical_pathname = Pathname.new(logical_path)
       next unless non_digest_assets.any? {|testpath| logical_pathname.fnmatch?(testpath, File::FNM_PATHNAME) }
 
-      full_digested_path     = File.join(Rails.root, "public/assets", digested_path)
-      full_non_digested_path = File.join(Rails.root, "public/assets", logical_path)
+      full_digested_path     = Rails.root.join("public", "assets", digested_path)
+      full_non_digested_path = Rails.root.join("public", "assets", logical_path)
 
       next unless FileUtils.uptodate?(full_digested_path, [full_non_digested_path])
 
