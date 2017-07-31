@@ -2,7 +2,7 @@
   .container-fluid
     .navbar
       = link_to(image_tag("branding/logos/asterisk_white_mobile.png", class: "img-responsive"),
-          stream_path, id: "header-title", class: "navbar-brand")
+          stream_path, class: "navbar-brand header-title")
 
       - if user_signed_in?
         %ul.nav.navbar-nav#nav-badges

@@ -11,7 +11,7 @@
           </button>
           <a href="/stream" class="navbar-brand" data-stream-title="{{t "my_stream"}}">
             <span class="hidden-xs">{{ podname }}</span>
-            <span id="header-title" class="visible-xs">
+            <span class="visible-xs header-title">
               <img src="/assets/branding/logos/asterisk_white_mobile.png" alt="{{ podname }}" />
             </span>
           </a>
@@ -68,7 +68,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown" id="user_menu">
+            <li class="dropdown" id="user-menu">
               <a href="{{urlTo "person" current_user.guid}}" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown" role="button" aria-expanded="false">
                 <span class="user-avatar pull-left">
                   {{{personImage current_user "small"}}}
@@ -77,7 +77,7 @@
                 <span class="caret"></span>
               </a>
 
-              <ul class="dropdown-menu" role="menu">
+              <ul class="dropdown-menu user-menu-dropdown" role="menu">
                 <li><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
                 <li><a href="/contacts">{{t "header.contacts"}}</a></li>
                 <li><a href="/user/edit">{{t "header.settings"}}</a></li>
