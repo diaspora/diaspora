@@ -12,7 +12,7 @@
           <a href="/stream" class="navbar-brand" data-stream-title="{{t "my_stream"}}">
             <span class="hidden-xs">{{ podname }}</span>
             <span class="visible-xs header-title">
-              <img src="/assets/branding/logos/asterisk_white_mobile.png" alt="{{ podname }}" />
+              <img src="{{imageUrl 'branding/logos/asterisk_white_mobile.png'}}" alt="{{ podname }}" />
             </span>
           </a>
           <ul class="nav navbar-nav hidden-xs">
@@ -51,7 +51,7 @@
               </ul>
             </li>
             <li>
-              <a href="/conversations" title="{{t "header.conversations"}}" class="conversations-link nav-badge">
+              <a id="conversations-link" href="/conversations" title="{{t "header.conversations"}}" class="conversations-link nav-badge">
                 <i class="entypo-mail"></i>
                 <span class="badge badge-important {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
                   {{current_user.unread_messages_count}}
@@ -68,7 +68,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown" id="user-menu">
+            <li class="dropdown user-menu" id="user-menu">
               <a href="{{urlTo "person" current_user.guid}}" class="dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown" role="button" aria-expanded="false">
                 <span class="user-avatar pull-left">
                   {{{personImage current_user "small"}}}

@@ -119,6 +119,10 @@
     }
   }
 
+  .user-menu-dropdown {
+    padding: 0;
+  }
+
   .user-avatar {
     height: $navbar-height;
     margin-bottom: -$navbar-padding-vertical;
@@ -197,7 +201,7 @@
       }
     }
 
-    #user-menu {
+    .user-menu {
       &.open .dropdown-toggle { background-color: darken($navbar-inverse-bg, 7%); }
       .dropdown-toggle {
         margin: 0 1px;
@@ -218,6 +222,10 @@
           background-color: $brand-primary;
           color: $gray-lighter;
         }
+      }
+
+      li:last-child a {
+        padding-bottom: 6px;
       }
     }
   }
