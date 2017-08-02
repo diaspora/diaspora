@@ -11,7 +11,7 @@ module MetaDataHelper
   end
 
   def default_image_url
-    asset_url "assets/branding/logos/asterisk.png"
+    asset_url("assets/branding/logos/asterisk.png", skip_pipeline: true)
   end
 
   def default_author_name
