@@ -5,6 +5,11 @@
 This release recommends using Ruby 2.4, while retaining Ruby 2.3 as an officially supported version.
 Ruby 2.1 is no longer officially supported.
 
+## Delete public/.well-known/
+
+Before upgrading, please check if your `public/` folder contains a hidden `.well-known/` folder.
+If so, please delete it since it will prevent the federation from working properly.
+
 ## Refactor
 
 * Make the mention syntax more flexible [#7305](https://github.com/diaspora/diaspora/pull/7305)
