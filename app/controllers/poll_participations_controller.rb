@@ -1,6 +1,6 @@
 class PollParticipationsController < ApplicationController
   include ApplicationHelper
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     answer = PollAnswer.find(params[:poll_answer_id])
