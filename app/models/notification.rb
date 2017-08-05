@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
-class Notification < ActiveRecord::Base
+class Notification < ApplicationRecord
   belongs_to :recipient, class_name: "User"
   has_many :notification_actors, dependent: :destroy
   has_many :actors, class_name: "Person", through: :notification_actors, source: :person

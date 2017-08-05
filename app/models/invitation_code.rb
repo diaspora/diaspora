@@ -1,4 +1,4 @@
-class InvitationCode < ActiveRecord::Base
+class InvitationCode < ApplicationRecord
   belongs_to :user
 
   validates_presence_of :user

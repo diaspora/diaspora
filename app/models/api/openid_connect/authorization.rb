@@ -2,7 +2,7 @@
 
 module Api
   module OpenidConnect
-    class Authorization < ActiveRecord::Base
+    class Authorization < ApplicationRecord
       belongs_to :user
       belongs_to :o_auth_application
 

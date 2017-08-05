@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include AuthenticationToken
   include Connecting
   include Querying

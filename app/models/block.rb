@@ -1,4 +1,4 @@
-class Block < ActiveRecord::Base
+class Block < ApplicationRecord
   belongs_to :person
   belongs_to :user
 

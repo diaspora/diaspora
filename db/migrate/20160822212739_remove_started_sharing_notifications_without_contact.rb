@@ -1,5 +1,5 @@
 class RemoveStartedSharingNotificationsWithoutContact < ActiveRecord::Migration
-  class Notification < ActiveRecord::Base
+  class Notification < ApplicationRecord
   end
 
   def up

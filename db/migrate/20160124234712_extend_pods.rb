@@ -1,5 +1,5 @@
 class ExtendPods < ActiveRecord::Migration
-  class Pod < ActiveRecord::Base
+  class Pod < ApplicationRecord
     has_many :people
 
     DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
@@ -18,7 +18,7 @@ class ExtendPods < ActiveRecord::Migration
     end
   end
 
-  class Person < ActiveRecord::Base
+  class Person < ApplicationRecord
     belongs_to :owner, class_name: "User"
     belongs_to :pod
 
@@ -27,7 +27,7 @@ class ExtendPods < ActiveRecord::Migration
     end
   end
 
-  class User < ActiveRecord::Base
+  class User < ApplicationRecord
     has_one :person, inverse_of: :owner, foreign_key: :owner_id
   end
 

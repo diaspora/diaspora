@@ -1,4 +1,4 @@
-class OpenGraphCache < ActiveRecord::Base
+class OpenGraphCache < ApplicationRecord
   validates :title, :presence => true
   validates :ob_type, :presence => true
   validates :image, :presence => true

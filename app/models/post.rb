@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   self.include_root_in_json = false
 
   include ApplicationHelper

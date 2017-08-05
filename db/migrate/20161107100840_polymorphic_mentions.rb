@@ -17,10 +17,10 @@ class PolymorphicMentions < ActiveRecord::Migration
     reversible(&method(:up_down))
   end
 
-  class Mention < ActiveRecord::Base
+  class Mention < ApplicationRecord
   end
 
-  class Notification < ActiveRecord::Base
+  class Notification < ApplicationRecord
   end
 
   def up_down(change)

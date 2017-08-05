@@ -1,5 +1,5 @@
 class CleanupParticipations < ActiveRecord::Migration
-  class Participation < ActiveRecord::Base
+  class Participation < ApplicationRecord
   end
 
   def up

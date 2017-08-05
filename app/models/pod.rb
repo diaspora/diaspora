@@ -1,4 +1,4 @@
-class Pod < ActiveRecord::Base
+class Pod < ApplicationRecord
   enum status: %i(
     unchecked
     no_errors

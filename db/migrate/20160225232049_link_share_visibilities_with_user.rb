@@ -1,5 +1,5 @@
 class LinkShareVisibilitiesWithUser < ActiveRecord::Migration
-  class ShareVisibility < ActiveRecord::Base
+  class ShareVisibility < ApplicationRecord
   end
 
   def up

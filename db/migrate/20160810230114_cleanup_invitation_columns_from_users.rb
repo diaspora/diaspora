@@ -1,8 +1,8 @@
 class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
-  class InvitationCode < ActiveRecord::Base
+  class InvitationCode < ApplicationRecord
   end
 
-  class User < ActiveRecord::Base
+  class User < ApplicationRecord
   end
 
   def change

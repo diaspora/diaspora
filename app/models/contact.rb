@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Contact < ActiveRecord::Base
+class Contact < ApplicationRecord
   include Diaspora::Federated::Base
 
   belongs_to :user

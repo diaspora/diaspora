@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
 
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid

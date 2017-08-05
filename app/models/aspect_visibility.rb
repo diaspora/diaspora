@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class AspectVisibility < ActiveRecord::Base
+class AspectVisibility < ApplicationRecord
 
   belongs_to :aspect
   validates :aspect, :presence => true

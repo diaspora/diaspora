@@ -1,5 +1,5 @@
 class CleanupAspectVisibility < ActiveRecord::Migration
-  class AspectVisibility < ActiveRecord::Base
+  class AspectVisibility < ApplicationRecord
   end
 
   def up

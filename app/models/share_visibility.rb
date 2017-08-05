@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class ShareVisibility < ActiveRecord::Base
+class ShareVisibility < ApplicationRecord
   belongs_to :user
   belongs_to :shareable, polymorphic: :true
 

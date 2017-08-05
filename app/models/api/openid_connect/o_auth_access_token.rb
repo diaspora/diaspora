@@ -23,7 +23,7 @@
 
 module Api
   module OpenidConnect
-    class OAuthAccessToken < ActiveRecord::Base
+    class OAuthAccessToken < ApplicationRecord
       belongs_to :authorization
 
       before_validation :setup, on: :create

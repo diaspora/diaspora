@@ -1,4 +1,4 @@
-class Participation < ActiveRecord::Base
+class Participation < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
   include Diaspora::Fields::Author

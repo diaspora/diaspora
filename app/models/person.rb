@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   include Diaspora::Fields::Guid
 
   # NOTE API V1 to be extracted

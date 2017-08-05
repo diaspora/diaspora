@@ -1,5 +1,5 @@
 class RemoveInvalidUnconfirmedEmails < ActiveRecord::Migration
-  class User < ActiveRecord::Base
+  class User < ApplicationRecord
   end
 
   def up

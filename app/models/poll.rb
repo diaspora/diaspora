@@ -1,4 +1,4 @@
-class Poll < ActiveRecord::Base
+class Poll < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
 

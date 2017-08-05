@@ -1,6 +1,6 @@
 # NOTE add the person object you want to attach role to...
 
-class Role < ActiveRecord::Base
+class Role < ApplicationRecord
   belongs_to :person
 
   validates :person, presence: true

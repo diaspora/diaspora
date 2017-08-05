@@ -1,8 +1,8 @@
 class FixPhotosShareVisibilities < ActiveRecord::Migration
-  class Photo < ActiveRecord::Base
+  class Photo < ApplicationRecord
   end
 
-  class ShareVisibility < ActiveRecord::Base
+  class ShareVisibility < ApplicationRecord
   end
 
   def up
