@@ -26,10 +26,9 @@ module Api
     class PairwisePseudonymousIdentifier < ApplicationRecord
       self.table_name = "ppid"
 
-      belongs_to :o_auth_application
+      belongs_to :o_auth_application, optional: true
       belongs_to :user
 
-      validates :user, presence: true
       validates :identifier, presence: true, uniqueness: {scope: :user}
       validates :guid, presence: true, uniqueness: true
 

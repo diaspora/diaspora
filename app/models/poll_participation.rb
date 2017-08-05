@@ -12,7 +12,6 @@ class PollParticipation < ApplicationRecord
 
   alias_attribute :parent, :poll
 
-  validates :poll_answer, presence: true
   validate :not_already_participated
 
   def poll_answer_guid=(new_poll_answer_guid)

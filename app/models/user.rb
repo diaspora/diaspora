@@ -51,8 +51,8 @@ class User < ApplicationRecord
 
   has_many :aspects, -> { order('order_id ASC') }
 
-  belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
-  belongs_to :invited_by, :class_name => 'User'
+  belongs_to :auto_follow_back_aspect, class_name: "Aspect", optional: true
+  belongs_to :invited_by, class_name: "User", optional: true
 
   has_many :aspect_memberships, :through => :aspects
 

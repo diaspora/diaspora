@@ -29,7 +29,6 @@ module Api
       before_validation :setup, on: :create
 
       validates :token, presence: true, uniqueness: true
-      validates :authorization, presence: true
 
       scope :valid, ->(time) { where("expires_at >= ?", time) }
 

@@ -6,7 +6,12 @@ describe Role do
   let!(:moderator_role) { moderator.roles.create(name: "moderator") }
 
   describe "validations" do
-    it { should validate_presence_of(:person) }
+    it "validates the presence of the person" do
+      role = Role.new(name: "admin")
+      role.valid?
+      expect(role.errors.full_messages).to include "Person must exist"
+    end
+
     it { should validate_uniqueness_of(:name).scoped_to(:person_id) }
     it { should validate_inclusion_of(:name).in_array(%w(admin spotlight moderator)) }
   end

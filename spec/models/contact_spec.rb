@@ -20,12 +20,12 @@ describe Contact, type: :model do
 
     it "requires a user" do
       contact.valid?
-      expect(contact.errors.full_messages).to include "User can't be blank"
+      expect(contact.errors.full_messages).to include "User must exist"
     end
 
     it "requires a person" do
       contact.valid?
-      expect(contact.errors.full_messages).to include "Person can't be blank"
+      expect(contact.errors.full_messages).to include "Person must exist"
     end
 
     it "validates uniqueness" do

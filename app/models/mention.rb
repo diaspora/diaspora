@@ -5,8 +5,6 @@
 class Mention < ApplicationRecord
   belongs_to :mentions_container, polymorphic: true
   belongs_to :person
-  validates :mentions_container, presence: true
-  validates :person, presence: true
 
   scope :local, -> {
     joins(:person).where.not(people: {owner_id: nil})

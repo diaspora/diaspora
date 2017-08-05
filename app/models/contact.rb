@@ -6,10 +6,7 @@ class Contact < ApplicationRecord
   include Diaspora::Federated::Base
 
   belongs_to :user
-  validates :user, presence: true
-
   belongs_to :person
-  validates :person, presence: true
 
   validates :person_id, uniqueness: {scope: :user_id}
 

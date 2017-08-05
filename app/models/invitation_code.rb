@@ -1,8 +1,6 @@
 class InvitationCode < ApplicationRecord
   belongs_to :user
 
-  validates_presence_of :user
-
   before_create :generate_token, :set_default_invite_count
 
   delegate :name, to: :user, prefix: true

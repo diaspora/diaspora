@@ -3,5 +3,4 @@ class CommentSignature < ApplicationRecord
 
   self.primary_key = :comment_id
   belongs_to :comment
-  validates :comment, presence: true
 end

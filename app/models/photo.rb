@@ -37,7 +37,7 @@ class Photo < ApplicationRecord
   mount_uploader :processed_image, ProcessedImage
   mount_uploader :unprocessed_image, UnprocessedImage
 
-  belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
+  belongs_to :status_message, foreign_key: :status_message_guid, primary_key: :guid, optional: true
   validates_associated :status_message
   delegate :author_name, to: :status_message, prefix: true
 

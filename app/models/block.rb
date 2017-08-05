@@ -4,8 +4,7 @@ class Block < ApplicationRecord
 
   delegate :name, to: :person, prefix: true
 
-  validates :user_id, :presence => true
-  validates :person_id, :presence => true, :uniqueness => { :scope => :user_id }
+  validates :person_id, uniqueness: {scope: :user_id}
 
   validate :not_blocking_yourself
 

@@ -26,7 +26,6 @@ class Comment < ApplicationRecord
   delegate :author_name, to: :parent, prefix: true
 
   validates :text, :presence => true, :length => {:maximum => 65535}
-  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   has_many :reports, as: :item
 

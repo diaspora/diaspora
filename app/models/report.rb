@@ -9,8 +9,8 @@ class Report < ApplicationRecord
   validate :post_or_comment_does_exist, :on => :create
 
   belongs_to :user
-  belongs_to :post
-  belongs_to :comment
+  belongs_to :post, optional: true
+  belongs_to :comment, optional: true
   belongs_to :item, polymorphic: true
 
   after_commit :send_report_notification, :on => :create

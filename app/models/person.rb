@@ -44,8 +44,8 @@ class Person < ApplicationRecord
 
   has_many :roles
 
-  belongs_to :owner, :class_name => 'User'
-  belongs_to :pod
+  belongs_to :owner, class_name: "User", optional: true
+  belongs_to :pod, optional: true
 
   has_many :notification_actors
   has_many :notifications, :through => :notification_actors

@@ -6,6 +6,7 @@ module Diaspora
   module Relayable
     def self.included(model)
       model.class_eval do
+        validates :parent, presence: true
         validates_associated :parent
         validate :author_is_not_ignored
 
