@@ -71,6 +71,6 @@ class InvitationsController < ApplicationController
   end
 
   def inviter_params
-    params.require(:email_inviter).permit(:message, :locale, :emails)
+    params.require(:email_inviter).permit(:message, :locale, :emails).to_h
   end
 end

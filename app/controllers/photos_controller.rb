@@ -125,27 +125,28 @@ class PhotosController < ApplicationController
   end
 
   def legacy_create
-    if params[:photo][:aspect_ids] == "all"
-      params[:photo][:aspect_ids] = current_user.aspects.collect { |x| x.id }
-    elsif params[:photo][:aspect_ids].is_a?(Hash)
-      params[:photo][:aspect_ids] = params[:photo][:aspect_ids].values
+    photo_params = params.require(:photo).permit(:pending, :set_profile_photo, aspect_ids: [])
+    if photo_params[:aspect_ids] == "all"
+      photo_params[:aspect_ids] = current_user.aspects.map(&:id)
+    elsif photo_params[:aspect_ids].is_a?(Hash)
+      photo_params[:aspect_ids] = params[:photo][:aspect_ids].values
     end
 
-    params[:photo][:user_file] = file_handler(params)
+    photo_params[:user_file] = file_handler(params)
 
-    @photo = current_user.build_post(:photo, params[:photo])
+    @photo = current_user.build_post(:photo, photo_params)
 
     if @photo.save
 
       unless @photo.pending
         unless @photo.public?
-          aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
+          aspects = current_user.aspects_from_ids(photo_params[:aspect_ids])
           current_user.add_to_streams(@photo, aspects)
         end
-        current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
+        current_user.dispatch_post(@photo, to: photo_params[:aspect_ids])
       end
 
-      if params[:photo][:set_profile_photo]
+      if photo_params[:set_profile_photo]
         profile_params = {:image_url => @photo.url(:thumb_large),
                           :image_url_medium => @photo.url(:thumb_medium),
                           :image_url_small => @photo.url(:thumb_small)}

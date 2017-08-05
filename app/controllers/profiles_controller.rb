@@ -77,6 +77,6 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :gender, :bio,
                                     :location, :searchable, :tag_string, :nsfw,
-                                    :public_details, date: %i(year month day)) || {}
+                                    :public_details, date: %i[year month day]).to_h || {}
   end
 end
