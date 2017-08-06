@@ -186,3 +186,9 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then /^I wait until ajax requests finished$/ do
+  Timeout.timeout(Capybara.default_max_wait_time) do
+    loop until page.evaluate_script("jQuery.active") == 0
+  end
+end

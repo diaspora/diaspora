@@ -21,7 +21,8 @@ Feature: Viewing my activity on the stream mobile page
   Scenario: Show liked post on my activity
     When I sign in as "bob@bob.bob" on the mobile website
     When I click on selector "a.like-action.inactive"
-    And I go to the activity stream page
+    Then I should see an element "a.like-action.active"
+    When I go to the activity stream page
     Then I should see "My activity" within "#main"
     And I should see "Hello! I am #newhere" within ".ltr"
 
