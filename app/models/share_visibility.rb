@@ -22,7 +22,7 @@ class ShareVisibility < ApplicationRecord
   # @param share [Shareable]
   # @return [void]
   def self.batch_import(user_ids, share)
-    return false unless ShareVisibility.new(shareable_id: share.id, shareable_type: share.class.base_class.to_s).valid?
+    return false if share.public?
 
     user_ids -= ShareVisibility.for_shareable(share).where(user_id: user_ids).pluck(:user_id)
     return false if user_ids.empty?
