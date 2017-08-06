@@ -66,7 +66,7 @@ class StatusMessagesController < ApplicationController
     logger.debug error
     respond_to do |format|
       format.mobile { redirect_to stream_path }
-      format.json { render text: error.message, status: 403 }
+      format.json { render plain: error.message, status: 403 }
     end
   end
 

@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   rescue_from Diaspora::NotMine do
-    render text: I18n.t("posts.show.forbidden"), status: 403
+    render plain: I18n.t("posts.show.forbidden"), status: 403
   end
 
   def show

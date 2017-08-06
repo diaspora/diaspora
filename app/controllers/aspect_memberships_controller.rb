@@ -30,7 +30,7 @@ class AspectMembershipsController < ApplicationController
         if success
           render json: AspectMembershipPresenter.new(membership).base_hash
         else
-          render text: membership.errors.full_messages, status: 403
+          render plain: membership.errors.full_messages, status: 403
         end
       end
     end
@@ -53,21 +53,21 @@ class AspectMembershipsController < ApplicationController
     else
       respond_to do |format|
         format.json do
-          render text: I18n.t("aspects.add_to_aspect.failure"), status: 409
+          render plain: I18n.t("aspects.add_to_aspect.failure"), status: 409
         end
       end
     end
   end
 
   rescue_from ActiveRecord::StatementInvalid do
-    render text: I18n.t("aspect_memberships.destroy.invalid_statement"), status: 400
+    render plain: I18n.t("aspect_memberships.destroy.invalid_statement"), status: 400
   end
 
   rescue_from ActiveRecord::RecordNotFound do
-    render text: I18n.t("aspect_memberships.destroy.no_membership"), status: 404
+    render plain: I18n.t("aspect_memberships.destroy.no_membership"), status: 404
   end
 
   rescue_from Diaspora::NotMine do
-    render text: I18n.t("aspect_memberships.destroy.forbidden"), status: 403
+    render plain: I18n.t("aspect_memberships.destroy.forbidden"), status: 403
   end
 end
