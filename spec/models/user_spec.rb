@@ -1078,7 +1078,7 @@ describe User, :type => :model do
     end
 
     it "#flags user for removal" do
-      remove_at = Time.now+5.days
+      remove_at = Time.now.change(usec: 0).utc + 5.days
       @user.flag_for_removal(remove_at)
       expect(@user.remove_after).to eq(remove_at)
     end
