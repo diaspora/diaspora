@@ -31,7 +31,7 @@ class ReportController < ApplicationController
     if report.save
       render json: true, status: 200
     else
-      render nothing: true, status: 409
+      head :conflict
     end
   end
 

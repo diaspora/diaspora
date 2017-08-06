@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   respond_to :html, :mobile, :json
 
   rescue_from ActiveRecord::RecordNotFound do
-    render nothing: true, status: 404
+    head :not_found
   end
 
   def create
@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
   def respond_create_success(comment)
     respond_to do |format|
       format.json { render json: CommentPresenter.new(comment), status: 201 }
-      format.html { render nothing: true, status: 201 }
+      format.html { head :created }
       format.mobile { render partial: "comment", locals: {comment: comment} }
     end
   end
@@ -65,16 +65,16 @@ class CommentsController < ApplicationController
   def respond_destroy_success
     respond_to do |format|
       format.mobile { redirect_back fallback_location: stream_path }
-      format.js { render nothing: true, status: 204 }
-      format.json { render nothing: true, status: 204 }
+      format.js { head :no_content }
+      format.json { head :no_content }
     end
   end
 
   def respond_destroy_error
     respond_to do |format|
       format.mobile { redirect_back fallback_location: stream_path }
-      format.js { render nothing: true, status: 403 }
-      format.json { render nothing: true, status: 403 }
+      format.js { head :forbidden }
+      format.json { head :forbidden }
     end
   end
 end

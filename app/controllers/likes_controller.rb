@@ -16,7 +16,7 @@ class LikesController < ApplicationController
     render text: I18n.t("likes.create.error"), status: 422
   else
     respond_to do |format|
-      format.html { render nothing: true, status: 201 }
+      format.html { head :created }
       format.mobile { redirect_to post_path(like.post_id) }
       format.json { render json: like.as_api_response(:backbone), status: 201 }
     end
@@ -24,7 +24,7 @@ class LikesController < ApplicationController
 
   def destroy
     if like_service.destroy(params[:id])
-      render nothing: true, status: 204
+      head :no_content
     else
       render text: I18n.t("likes.destroy.error"), status: 404
     end

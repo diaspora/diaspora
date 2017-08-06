@@ -66,10 +66,10 @@ class PhotosController < ApplicationController
                             :status => 201}
         end
       else
-        render :nothing => true, :status => 422
+        head :unprocessable_entity
       end
     else
-      render :nothing => true, :status => 422
+      head :unprocessable_entity
     end
   end
 
@@ -80,7 +80,7 @@ class PhotosController < ApplicationController
       current_user.retract(photo)
 
       respond_to do |format|
-        format.json{ render :nothing => true, :status => 204 }
+        format.json { head :no_content }
         format.html do
           flash[:notice] = I18n.t 'photos.destroy.notice'
           if StatusMessage.find_by_guid(photo.status_message_guid)

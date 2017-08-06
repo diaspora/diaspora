@@ -9,7 +9,7 @@ class BlocksController < ApplicationController
     disconnect_if_contact(block.person) if block.save
 
     respond_with do |format|
-      format.json{ render :nothing => true, :status => 204 }
+      format.json { head :no_content }
     end
   end
 
@@ -17,7 +17,7 @@ class BlocksController < ApplicationController
     current_user.blocks.find(params[:id]).delete
 
     respond_with do |format|
-      format.json{ render :nothing => true, :status => 204 }
+      format.json { head :no_content }
     end
   end
 

@@ -11,7 +11,7 @@ class PollParticipationsController < ApplicationController
   rescue ActiveRecord::RecordInvalid
     respond_to do |format|
       format.mobile { redirect_to stream_path }
-      format.json { render :nothing => true, :status => 403 }
+      format.json { head :forbidden }
     end
   end
 

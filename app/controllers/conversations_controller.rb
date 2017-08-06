@@ -82,7 +82,7 @@ class ConversationsController < ApplicationController
       @conversation.set_read(current_user)
       render partial: "conversations/show", locals: {conversation: @conversation}
     else
-      render nothing: true, status: 404
+      head :not_found
     end
   end
 
