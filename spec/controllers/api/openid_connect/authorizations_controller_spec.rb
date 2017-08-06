@@ -1,7 +1,5 @@
 describe Api::OpenidConnect::AuthorizationsController, type: :request do
   let!(:client) { FactoryGirl.create(:o_auth_application) }
-  let!(:client_with_xss) { FactoryGirl.create(:o_auth_application_with_xss) }
-  let!(:client_with_multiple_redirects) { FactoryGirl.create(:o_auth_application_with_multiple_redirects) }
 
   before do
     sign_in alice, scope: :user
@@ -92,6 +90,8 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
 
       context "when multiple redirect URLs are pre-registered" do
         it "should return an invalid request error" do
+          client_with_multiple_redirects =
+            FactoryGirl.create(:o_auth_application, redirect_uris: %w[http://localhost:3000/ http://localhost/])
           post api_openid_connect_authorizations_new_path, params: {client_id: client_with_multiple_redirects.client_id,
                response_type: "id_token", scope: "openid", nonce: SecureRandom.hex(16), state: SecureRandom.hex(16)}
           expect(response.body).to include("The request was malformed")
@@ -186,6 +186,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
 
       context "when XSS script is passed as name" do
         it "should escape html" do
+          client_with_xss = FactoryGirl.create(:o_auth_application_with_xss)
           post api_openid_connect_authorizations_new_path, params: {client_id: client_with_xss.client_id,
                redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", nonce: SecureRandom.hex(16), state: SecureRandom.hex(16)}
