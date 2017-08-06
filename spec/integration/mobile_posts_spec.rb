@@ -3,7 +3,7 @@ describe PostsController, type: :request do
     let(:sm) { FactoryGirl.build(:status_message_with_poll, public: true) }
 
     it "displays the poll" do
-      get "/posts/#{sm.id}", format: :mobile
+      get "/posts/#{sm.id}", params: {format: :mobile}
 
       expect(response.status).to eq(200)
       expect(response.body).to match(/div class='poll'/)
@@ -13,7 +13,7 @@ describe PostsController, type: :request do
     it "displays the correct percentage for the answers" do
       alice.participate_in_poll!(sm, sm.poll.poll_answers.first)
       bob.participate_in_poll!(sm, sm.poll.poll_answers.last)
-      get "/posts/#{sm.id}", format: :mobile
+      get "/posts/#{sm.id}", params: {format: :mobile}
 
       expect(response.status).to eq(200)
       expect(response.body).to match(/div class='percentage pull-right'>\n50%/)
@@ -24,7 +24,7 @@ describe PostsController, type: :request do
     let(:sm) { FactoryGirl.build(:status_message_with_location, public: true) }
 
     it "displays the location" do
-      get "/posts/#{sm.id}", format: :mobile
+      get "/posts/#{sm.id}", params: {format: :mobile}
 
       expect(response.status).to eq(200)
       expect(response.body).to match(/'location nsfw-hidden'/)
