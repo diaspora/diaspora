@@ -14,7 +14,7 @@ describe PeopleController, :type => :controller do
     end
 
     it "generates a jasmine fixture trying an external search", :fixture => true do
-      get :index, :q => "sample@diaspor.us"
+      get :index, params: {q: "sample@diaspor.us"}
       save_fixture(html_for("body"), "pending_external_people_search")
     end
   end

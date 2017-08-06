@@ -6,18 +6,18 @@ describe BlocksController, :type => :controller do
   describe "#create" do
     it "creates a block" do
       expect {
-        post :create, format: :json, block: {person_id: eve.person.id}
+        post :create, params: {block: {person_id: eve.person.id}}, format: :json
       }.to change { alice.blocks.count }.by(1)
     end
 
     it "responds with 204" do
-      post :create, format: :json, block: {person_id: eve.person.id}
+      post :create, params: {block: {person_id: eve.person.id}}, format: :json
       expect(response.status).to eq(204)
     end
 
     it "calls #disconnect_if_contact" do
       expect(@controller).to receive(:disconnect_if_contact).with(bob.person)
-      post :create, format: :json, block: {person_id: bob.person.id}
+      post :create, params: {block: {person_id: bob.person.id}}, format: :json
     end
   end
 
@@ -27,13 +27,13 @@ describe BlocksController, :type => :controller do
     end
 
     it "responds with 204" do
-      delete :destroy, format: :json, id: @block.id
+      delete :destroy, params: {id: @block.id}, format: :json
       expect(response.status).to eq(204)
     end
 
     it "removes a block" do
       expect {
-        delete :destroy, format: :json, id: @block.id
+        delete :destroy, params: {id: @block.id}, format: :json
       }.to change { alice.blocks.count }.by(-1)
     end
   end

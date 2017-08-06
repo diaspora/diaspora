@@ -12,13 +12,13 @@ describe TagsController, :type => :controller do
     end
 
     it 'responds with json' do
-      get :index, :q => "ra", :format => 'json'
+      get :index, params: {q: "ra"}, format: :json
       #parse json
       expect(response.body).to include("#rad")
     end
 
     it 'requires at least two characters' do
-      get :index, :q => "c", :format => 'json'
+      get :index, params: {q: "c"}, format: :json
       expect(response.body).not_to include("#cats")
     end
 
@@ -28,7 +28,7 @@ describe TagsController, :type => :controller do
     end
 
     it 'does not allow json requestors to party' do
-      get :index, :format => :json
+      get :index, format: :json
       expect(response.status).to eq(422)
     end
   end
@@ -40,7 +40,7 @@ describe TagsController, :type => :controller do
       end
 
       it 'redirect to the downcase tag uri' do
-        get :show, :name => 'DiasporaRocks!'
+        get :show, params: {name: "DiasporaRocks!"}
         expect(response).to redirect_to(:action => :show, :name => 'diasporarocks!')
       end
     end
@@ -53,7 +53,7 @@ describe TagsController, :type => :controller do
       end
 
       it 'includes the tagged user' do
-        get :show, :name => 'cats'
+        get :show, params: {name: "cats"}
         expect(response.body).to include(bob.diaspora_handle)
       end
     end
@@ -69,40 +69,40 @@ describe TagsController, :type => :controller do
         end
 
         it 'assigns a Stream::Tag object with the current_user' do
-          get :show, :name => 'yes'
+          get :show, params: {name: "yes"}
           expect(assigns[:stream].user).to eq(alice)
         end
 
         it 'succeeds' do
-          get :show, :name => 'hellyes'
+          get :show, params: {name: "hellyes"}
           expect(response.status).to eq(200)
         end
 
         it 'includes the tagged post' do
-          get :show, :name => 'foo'
+          get :show, params: {name: "foo"}
           expect(assigns[:stream].posts.first.text).to include("tagged post")
         end
 
         it 'includes comments of the tagged post' do
           alice.comment!(@post, "comment on a tagged post")
-          get :show, :name => 'foo', :format => 'json'
+          get :show, params: {name: "foo"}, format: :json
           expect(response.body).to include("comment on a tagged post")
         end
       end
 
       context "not signed in" do
         it 'assigns a Stream::Tag object with no user' do
-          get :show, :name => 'yes'
+          get :show, params: {name: "yes"}
           expect(assigns[:stream].user).to be_nil
         end
 
         it 'succeeds' do
-          get :show, :name => 'hellyes'
+          get :show, params: {name: "hellyes"}
           expect(response.status).to eq(200)
         end
 
         it 'succeeds with mobile' do
-          get :show, :name => 'foo', :format => :mobile
+          get :show, params: {name: "foo"}, format: :mobile
           expect(response).to be_success
         end
 
@@ -113,7 +113,7 @@ describe TagsController, :type => :controller do
             public:     true,
             created_at: @post.created_at - 1.day
           )
-          get :show, name: "what", max_time: @post.created_at, format: :json
+          get :show, params: {name: "what", max_time: @post.created_at.to_i}, format: :json
           expect(JSON.parse(response.body).size).to be(1)
           expect(JSON.parse(response.body).first["guid"]).to eq(post2.guid)
         end
@@ -122,7 +122,7 @@ describe TagsController, :type => :controller do
       it "includes the correct meta tags" do
         tag_url = tag_url "yes", host: AppConfig.pod_uri.host, port: AppConfig.pod_uri.port
 
-        get :show, name: "yes"
+        get :show, params: {name: "yes"}
 
         expect(response.body).to include('<meta name="keywords" content="yes" />')
         expect(response.body).to include(

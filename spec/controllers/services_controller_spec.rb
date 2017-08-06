@@ -35,12 +35,12 @@ describe ServicesController, :type => :controller do
 
     it 'creates a new service and associates it with the current user' do
       expect {
-        post :create, :provider => 'facebook'
+        post :create, params: {provider: "facebook"}
       }.to change(user.services, :count).by(1)
     end
 
     it 'saves the provider' do
-      post :create, :provider => 'facebook'
+      post :create, params: {provider: "facebook"}
       expect(user.reload.services.first.class.name).to eq("Services::Facebook")
     end
 
@@ -49,7 +49,7 @@ describe ServicesController, :type => :controller do
 
       it "imports the profile photo from the service" do
         expect(Workers::FetchProfilePhoto).to receive(:perform_async)
-        post :create, :provider => 'facebook'
+        post :create, params: {provider: "facebook"}
       end
     end
 
@@ -58,12 +58,12 @@ describe ServicesController, :type => :controller do
 
       it 'doesnt create a new service' do
         service_count = Service.count
-        post :create, :provider => 'twitter'
+        post :create, params: {provider: "twitter"}
         expect(Service.count).to eq(service_count)
       end
 
       it 'flashes an already_authorized error with the diaspora handle for the user'  do
-        post :create, :provider => 'twitter'
+        post :create, params: {provider: "twitter"}
         expect(flash[:error].include?(user.profile.diaspora_handle)).to be true
         expect(flash[:error].include?( 'already authorized' )).to be true
       end
@@ -84,12 +84,12 @@ describe ServicesController, :type => :controller do
 
         it 'doesnt create a new service' do
           service_count = Service.count
-          post :create, :provider => 'twitter'
+          post :create, params: {provider: "twitter"}
           expect(Service.count).to eq(service_count)
         end
 
         it 'flashes an read-only access error'  do
-          post :create, :provider => 'twitter'
+          post :create, params: {provider: "twitter"}
           expect(flash[:error].include?( 'Access level is read-only' )).to be true
         end
       end
@@ -103,7 +103,7 @@ describe ServicesController, :type => :controller do
 
       it "doesn't break when twitter-specific extras aren't available in omniauth hash" do
         expect {
-          post :create, :provider => 'facebook'
+          post :create, params: {provider: "facebook"}
         }.to change(user.services, :count).by(1)
       end
     end
@@ -121,7 +121,7 @@ describe ServicesController, :type => :controller do
 
         expect(Workers::FetchProfilePhoto).not_to receive(:perform_async)
 
-        post :create, :provider => 'twitter'
+        post :create, params: {provider: "twitter"}
       end
 
       it 'queues a job to save user photo if the photo does not exist' do
@@ -129,7 +129,7 @@ describe ServicesController, :type => :controller do
 
         expect(Workers::FetchProfilePhoto).to receive(:perform_async).with(user.id, anything(), "https://service.com/fallback_lowres.jpg")
 
-        post :create, :provider => 'twitter'
+        post :create, params: {provider: "twitter"}
       end
     end
   end
@@ -141,7 +141,7 @@ describe ServicesController, :type => :controller do
 
     it 'destroys a service selected by id' do
       expect{
-        delete :destroy, :id => @service1.id
+        delete :destroy, params: {id: @service1.id}
       }.to change(user.services, :count).by(-1)
     end
   end

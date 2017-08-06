@@ -12,7 +12,7 @@ describe Admin::UsersController, :type => :controller do
       expect(other_user).to receive(:close_account!)
       allow(User).to receive(:find).and_return(other_user)
 
-      post :close_account, id: other_user.id
+      post :close_account, params: {id: other_user.id}
     end
   end
 

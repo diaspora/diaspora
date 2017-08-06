@@ -15,7 +15,7 @@ describe ProfilesController, :type => :controller do
       expect(Person).to receive(:find_by_guid!).with("12345").and_return(mock_person)
       expect(PersonPresenter).to receive(:new).with(mock_person, eve).and_return(mock_presenter)
 
-      get :show, :id => 12345, :format => :json
+      get :show, params: {id: 12_345}, format: :json
       expect(response.body).to eq({:rock_star => "Jamie Cai"}.to_json)
     end
   end
@@ -44,17 +44,19 @@ describe ProfilesController, :type => :controller do
 
   describe '#update' do
     it "sets the flash" do
-      put :update, :profile => {
-          :image_url  => "",
-          :first_name => "Will",
-          :last_name  => "Smith"
+      put :update, params: {
+        profile: {
+          image_url:  "",
+          first_name: "Will",
+          last_name:  "Smith"
         }
+      }
       expect(flash[:notice]).not_to be_blank
     end
 
     it "sets nsfw" do
       expect(eve.person(true).profile.nsfw).to eq(false)
-      put :update, :profile => { :id => eve.person.id, :nsfw => "1" }
+      put :update, params: {profile: {id: eve.person.id, nsfw: "1"}}
       expect(eve.person(true).profile.nsfw).to eq(true)
     end
 
@@ -63,7 +65,7 @@ describe ProfilesController, :type => :controller do
       eve.person.profile.save
 
       expect(eve.person(true).profile.nsfw).to eq(true)
-      put :update, :profile => { :id => eve.person.id }
+      put :update, params: {profile: {id: eve.person.id}}
       expect(eve.person(true).profile.nsfw).to eq(false)
     end
 
@@ -72,7 +74,7 @@ describe ProfilesController, :type => :controller do
                  :tags => '#apples #oranges',
                  :profile => {:tag_string => ''} }
 
-      put :update, params
+      put :update, params: params
       expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges'].to_set)
     end
 
@@ -81,7 +83,7 @@ describe ProfilesController, :type => :controller do
                  :tags => ',#apples,#oranges,',
                  :profile => {:tag_string => '#pears'} }
 
-      put :update, params
+      put :update, params: params
       expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges', 'pears'].to_set)
     end
 
@@ -90,7 +92,7 @@ describe ProfilesController, :type => :controller do
                  :tags => ',#apples,#oranges,',
                  :profile => {:tag_string => 'bananas'} }
 
-      put :update, params
+      put :update, params: params
       expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges', 'bananas'].to_set)
     end
 
@@ -102,7 +104,7 @@ describe ProfilesController, :type => :controller do
                      :month => '02',
                      :day => '28' } } }
 
-      put :update, params
+      put :update, params: params
       expect(eve.person(true).profile.birthday.year).to eq(2001)
       expect(eve.person(true).profile.birthday.month).to eq(2)
       expect(eve.person(true).profile.birthday.day).to eq(28)
@@ -116,7 +118,7 @@ describe ProfilesController, :type => :controller do
                      :month => '02',
                      :day => '31' } } }
 
-      put :update, params
+      put :update, params: params
       expect(flash[:error]).not_to be_blank
     end
 
@@ -134,7 +136,7 @@ describe ProfilesController, :type => :controller do
 
       it "doesn't overwrite the profile photo when an empty string is passed in" do
         image_url = eve.person.profile.image_url
-        put :update, @params
+        put :update, params: @params
 
         expect(Person.find(eve.person.id).profile.image_url).to eq(image_url)
       end
@@ -150,12 +152,12 @@ describe ProfilesController, :type => :controller do
       it 'person_id' do
         person = eve.person
         profile = person.profile
-        put :update, @profile_params
+        put :update, params: @profile_params
         expect(profile.reload.person_id).to eq(person.id)
       end
 
       it 'diaspora handle' do
-        put :update, @profile_params
+        put :update, params: @profile_params
         expect(Person.find(eve.person.id).profile[:diaspora_handle]).not_to eq('abc@a.com')
       end
     end

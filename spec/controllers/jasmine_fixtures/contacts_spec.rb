@@ -13,12 +13,12 @@ describe ContactsController, :type => :controller do
     end
 
     it "generates the aspects_manage fixture", :fixture => true do
-      get :index, :a_id => @aspect.id
+      get :index, params: {a_id: @aspect.id}
       save_fixture(html_for("body"), "aspects_manage")
     end
 
     it "generates the aspects_manage_contacts_json fixture", fixture: true do
-      get :index, format: :json, a_id: @aspect.id, page: "1"
+      get :index, params: {a_id: @aspect.id, page: "1"}, format: :json
       save_fixture(response.body, "aspects_manage_contacts_json")
     end
 

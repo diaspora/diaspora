@@ -22,10 +22,10 @@ describe ConversationsController, :type => :controller do
     end
 
     it "generates a jasmine fixture", :fixture => true do
-      get :index, :conversation_id => @conv1.id
+      get :index, params: {conversation_id: @conv1.id}
       save_fixture(html_for("body"), "conversations_unread")
 
-      get :index, :conversation_id => @conv1.id
+      get :index, params: {conversation_id: @conv1.id}
       save_fixture(html_for("body"), "conversations_read")
     end
   end
