@@ -161,7 +161,6 @@ describe Contact, type: :model do
   describe "#contacts" do
     before do
       bob.aspects.create(name: "next")
-      bob.aspects(true)
 
       @original_aspect = bob.aspects.where(name: "generic").first
       @new_aspect = bob.aspects.where(name: "next").first

@@ -36,7 +36,7 @@ describe "attack vectors", type: :request do
 
       post_message(generate_payload(Diaspora::Federation::Entities.profile(profile), alice, bob), bob)
 
-      expect(eve.profile(true).first_name).not_to eq("Not BOB")
+      expect(eve.profile.reload.first_name).not_to eq("Not BOB")
     end
 
     it "public post should not be spoofed from another author" do
@@ -59,14 +59,14 @@ describe "attack vectors", type: :request do
     it "should not receive contact retractions from another person" do
       # we are banking on bob being friends with alice and eve
       # here, alice is trying to disconnect bob and eve
-      contact = bob.contacts(true).find_by(person_id: eve.person.id)
+      contact = bob.contacts.reload.find_by(person_id: eve.person.id)
       expect(contact).to be_sharing
 
       post_message(
         generate_payload(Diaspora::Federation::Entities.retraction(ContactRetraction.for(contact)), alice, bob), bob
       )
 
-      expect(bob.contacts(true).find_by(person_id: eve.person.id)).to be_sharing
+      expect(bob.contacts.reload.find_by(person_id: eve.person.id)).to be_sharing
     end
   end
 

@@ -55,18 +55,18 @@ describe ProfilesController, :type => :controller do
     end
 
     it "sets nsfw" do
-      expect(eve.person(true).profile.nsfw).to eq(false)
+      expect(eve.person.reload.profile.nsfw).to eq(false)
       put :update, params: {profile: {id: eve.person.id, nsfw: "1"}}
-      expect(eve.person(true).profile.nsfw).to eq(true)
+      expect(eve.person.reload.profile.nsfw).to eq(true)
     end
 
     it "unsets nsfw" do
       eve.person.profile.nsfw = true
       eve.person.profile.save
 
-      expect(eve.person(true).profile.nsfw).to eq(true)
+      expect(eve.person.reload.profile.nsfw).to eq(true)
       put :update, params: {profile: {id: eve.person.id}}
-      expect(eve.person(true).profile.nsfw).to eq(false)
+      expect(eve.person.reload.profile.nsfw).to eq(false)
     end
 
     it 'sets tags' do
@@ -75,7 +75,7 @@ describe ProfilesController, :type => :controller do
                  :profile => {:tag_string => ''} }
 
       put :update, params: params
-      expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges'].to_set)
+      expect(eve.person.reload.profile.tag_list.to_set).to eq(%w[apples oranges].to_set)
     end
 
     it 'sets plaintext tags' do
@@ -84,7 +84,7 @@ describe ProfilesController, :type => :controller do
                  :profile => {:tag_string => '#pears'} }
 
       put :update, params: params
-      expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges', 'pears'].to_set)
+      expect(eve.person.reload.profile.tag_list.to_set).to eq(%w[apples oranges pears].to_set)
     end
 
     it 'sets plaintext tags without #' do
@@ -93,7 +93,7 @@ describe ProfilesController, :type => :controller do
                  :profile => {:tag_string => 'bananas'} }
 
       put :update, params: params
-      expect(eve.person(true).profile.tag_list.to_set).to eq(['apples', 'oranges', 'bananas'].to_set)
+      expect(eve.person.reload.profile.tag_list.to_set).to eq(%w[apples oranges bananas].to_set)
     end
 
     it 'sets valid birthday' do
@@ -105,9 +105,10 @@ describe ProfilesController, :type => :controller do
                      :day => '28' } } }
 
       put :update, params: params
-      expect(eve.person(true).profile.birthday.year).to eq(2001)
-      expect(eve.person(true).profile.birthday.month).to eq(2)
-      expect(eve.person(true).profile.birthday.day).to eq(28)
+      birthday = eve.person.reload.profile.birthday
+      expect(birthday.year).to eq(2001)
+      expect(birthday.month).to eq(2)
+      expect(birthday.day).to eq(28)
     end
 
     it 'displays error for invalid birthday' do
