@@ -2,7 +2,7 @@ module Diaspora
   module Federation
     module Entities
       def self.build(entity)
-        public_send(Mappings.builder_for(entity.class), entity)
+        public_send(Mappings.builder_for(entity), entity)
       end
 
       def self.post(post)
