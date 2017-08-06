@@ -106,10 +106,6 @@ class Profile < ApplicationRecord
     end
   end
 
-  def formatted_birthday
-    birthday.to_s(:long).gsub(/, 100[0|4]/, "") if birthday.present?
-  end
-
   def bio_message
     @bio_message ||= Diaspora::MessageRenderer.new(bio)
   end

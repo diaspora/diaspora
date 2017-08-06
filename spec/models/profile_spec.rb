@@ -269,30 +269,6 @@ describe Profile, :type => :model do
     it_should_behave_like 'it is taggable'
   end
 
-  describe '#formatted_birthday' do
-    before do
-      @profile = FactoryGirl.build(:profile)
-      @profile_hash =  { 'year' => '2000', 'month' => '01', 'day' => '01' }
-      @profile.date = @profile_hash
-    end
-
-    it 'returns a formatted date' do
-      expect(@profile.formatted_birthday).to eq("January  1, 2000")
-    end
-
-    it 'removes nil year birthdays' do
-      @profile_hash.delete('year')
-      @profile.date = @profile_hash
-      expect(@profile.formatted_birthday).to eq('January  1')
-    end
-
-    it 'retuns nil if no birthday is set' do
-      @profile.date = {}
-      expect(@profile.formatted_birthday).to eq(nil)
-    end
-
-  end
-
   describe "#tombstone!" do
     before do
       @profile = bob.person.profile
