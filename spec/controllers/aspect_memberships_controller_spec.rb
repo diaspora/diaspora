@@ -44,12 +44,6 @@ describe AspectMembershipsController, type: :controller do
       }.by(1)
     end
 
-    it "failure flashes error" do
-      expect(alice).to receive(:share_with).and_return(nil)
-      post :create, format: :mobile, person_id: @person.id, aspect_id: @aspect0.id
-      expect(flash[:error]).not_to be_blank
-    end
-
     it "does not 500 on a duplicate key error" do
       params = {format: :json, person_id: @person.id, aspect_id: @aspect0.id}
       post :create, params
@@ -80,14 +74,6 @@ describe AspectMembershipsController, type: :controller do
       membership = alice.add_contact_to_aspect(@contact, @aspect1)
       delete :destroy, format: :json, id: membership.id
       expect(response).to be_success
-      @aspect1.reload
-      expect(@aspect1.contacts.to_a).not_to include @contact
-    end
-
-    it "does not 500 on an html request" do
-      membership = alice.add_contact_to_aspect(@contact, @aspect1)
-      delete :destroy, id: membership.id
-      expect(response).to redirect_to :back
       @aspect1.reload
       expect(@aspect1.contacts.to_a).not_to include @contact
     end

@@ -42,7 +42,7 @@ class InvitationsController < ApplicationController
         t("invitations.create.rejected", emails: invalid_emails.join(", "))
     end
 
-    redirect_to :back
+    redirect_back fallback_location: stream_path
   end
 
   private
@@ -55,7 +55,7 @@ class InvitationsController < ApplicationController
                     else
                       t("invitations.create.closed")
                     end
-    redirect_to :back
+    redirect_back fallback_location: stream_path
   end
 
   def valid_email?(email)

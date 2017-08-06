@@ -55,18 +55,6 @@ describe StatusMessagesController, :type => :controller do
       }
     }
 
-    it 'creates with valid html' do
-      post :create, status_message_hash
-      expect(response.status).to eq(302)
-      expect(response).to be_redirect
-    end
-
-    it 'creates with invalid html' do
-      post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 })
-      expect(response.status).to eq(302)
-      expect(response).to be_redirect
-    end
-
     it 'creates with valid json' do
       post :create, status_message_hash.merge(:format => 'json')
       expect(response.status).to eq(201)

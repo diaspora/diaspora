@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       flash[:error] = t("users.update.settings_not_updated")
     end
 
-    redirect_to :back
+    redirect_back fallback_location: privacy_settings_path
   end
 
   def destroy
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
       else
         flash[:error] = t "users.destroy.no_password"
       end
-      redirect_to :back
+      redirect_back fallback_location: edit_user_path
     end
   end
 

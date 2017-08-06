@@ -6,7 +6,7 @@
 class AspectMembershipsController < ApplicationController
   before_action :authenticate_user!
 
-  respond_to :html, :json
+  respond_to :json
 
   def destroy
     aspect = current_user.aspects.joins(:aspect_memberships).where(aspect_memberships: {id: params[:id]}).first
@@ -33,15 +33,6 @@ class AspectMembershipsController < ApplicationController
           render text: membership.errors.full_messages, status: 403
         end
       end
-
-      format.all do
-        if success
-          flash.now[:notice] = I18n.t "aspect_memberships.destroy.success"
-        else
-          flash.now[:error] = I18n.t "aspect_memberships.destroy.failure"
-        end
-        redirect_to :back
-      end
     end
   end
 
@@ -58,21 +49,11 @@ class AspectMembershipsController < ApplicationController
             AspectMembership.where(contact_id: @contact.id, aspect_id: @aspect.id).first)
           .base_hash
         end
-
-        format.all do
-          flash.now[:notice] = I18n.t("aspects.add_to_aspect.success")
-          redirect_to :back
-        end
       end
     else
       respond_to do |format|
         format.json do
           render text: I18n.t("aspects.add_to_aspect.failure"), status: 409
-        end
-
-        format.all do
-          flash.now[:error] = I18n.t("aspects.add_to_aspect.failure")
-          render nothing: true, status: 409
         end
       end
     end

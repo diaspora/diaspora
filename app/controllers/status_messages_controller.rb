@@ -49,7 +49,6 @@ class StatusMessagesController < ApplicationController
   def create
     status_message = StatusMessageCreationService.new(current_user).create(normalize_params)
     respond_to do |format|
-      format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
       format.json { render json: PostPresenter.new(status_message, current_user), status: 201 }
     end
@@ -66,7 +65,6 @@ class StatusMessagesController < ApplicationController
   def handle_create_error(error)
     logger.debug error
     respond_to do |format|
-      format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
       format.json { render text: error.message, status: 403 }
     end

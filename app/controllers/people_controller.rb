@@ -19,7 +19,7 @@ class PeopleController < ApplicationController
 
   rescue_from Diaspora::AccountClosed do
     respond_to do |format|
-      format.any { redirect_to :back, :notice => t("people.show.closed_account") }
+      format.any { redirect_back fallback_location: root_path, notice: t("people.show.closed_account") }
       format.json { render :nothing => true, :status => 410 } # 410 GONE
     end
   end

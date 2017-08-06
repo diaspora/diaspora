@@ -64,7 +64,7 @@ class CommentsController < ApplicationController
 
   def respond_destroy_success
     respond_to do |format|
-      format.mobile { redirect_to :back }
+      format.mobile { redirect_back fallback_location: stream_path }
       format.js { render nothing: true, status: 204 }
       format.json { render nothing: true, status: 204 }
     end
@@ -72,7 +72,7 @@ class CommentsController < ApplicationController
 
   def respond_destroy_error
     respond_to do |format|
-      format.mobile { redirect_to :back }
+      format.mobile { redirect_back fallback_location: stream_path }
       format.js { render nothing: true, status: 403 }
       format.json { render nothing: true, status: 403 }
     end
