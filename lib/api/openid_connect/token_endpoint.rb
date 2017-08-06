@@ -50,7 +50,7 @@ module Api
       end
 
       def app_valid?(o_auth_app, req)
-        o_auth_app.client_secret == req.client_secret
+        o_auth_app.try(:client_secret) == req.client_secret
       end
     end
   end
