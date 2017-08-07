@@ -27,6 +27,12 @@ public/404.html
 public/422.html
 public/500.html
 
+# the db/schema.rb. Although this is contrary to rails best-practises, we
+# cannot provide a schema.rb that works for both MySQL and PostgreSQL, so we
+# have no choice. Our migrations are maintained, so it should always be
+# possible to get back to a "clean" database schema anyway.
+db/schema.rb
+
 # Sprites
 app/assets/images/branding-*.png
 app/assets/images/branding/logos-*.png
