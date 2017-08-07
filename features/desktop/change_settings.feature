@@ -53,3 +53,8 @@ Feature: Change settings
     And I go to the stream page
     And I expand the publisher
     Then I should see "Public" within ".aspect_dropdown"
+
+  Scenario: exporting profile data
+    When I click on the first selector "#account_data a"
+    Then I should see "Download my profile"
+    And I should have 1 email delivery
