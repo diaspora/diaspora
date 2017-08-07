@@ -175,13 +175,13 @@
       width: 100%;
 
       a {
-        color: #9d9d9d;
+        color: $navbar-inverse-link-color;
         font-weight: bold;
         padding: 10px 15px;
 
         &:hover {
-          background-color: transparent;
-          color: #fff;
+          background-color: $navbar-inverse-link-hover-bg;
+          color: $navbar-inverse-link-hover-color;
         }
       }
     }
@@ -215,12 +215,12 @@
       width: 100%;
 
       a {
-        color: $gray-light;
+        color: $navbar-inverse-link-color;
         padding-left: 55px;
 
         &:hover {
-          background-color: $brand-primary;
-          color: $gray-lighter;
+          background-color: $list-group-hover-bg;
+          color: $list-group-link-hover-color;
         }
       }
 
