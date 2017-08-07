@@ -34,7 +34,7 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration[4.2]
         InvitationCode.where("count < 0").update_all(count: new_counter)
 
         # remove old invitation-users
-        User.delete_all(username: nil)
+        User.where(username: nil).delete_all
         change_column :users, :username, :string, null: false
       end
 

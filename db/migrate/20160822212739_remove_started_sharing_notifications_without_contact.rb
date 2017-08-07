@@ -7,6 +7,7 @@ class RemoveStartedSharingNotificationsWithoutContact < ActiveRecord::Migration[
                 .joins("INNER JOIN people ON people.id = notifications.target_id")
                 .joins("LEFT OUTER JOIN contacts ON contacts.person_id = people.id " \
                        "AND contacts.user_id = notifications.recipient_id")
-                .delete_all("contacts.id IS NULL")
+                .where("contacts.id IS NULL")
+                .delete_all
   end
 end

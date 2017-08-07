@@ -52,7 +52,7 @@ class ExtendPods < ActiveRecord::Migration[4.2]
     end
 
     # cleanup unused pods
-    Pod.joins("LEFT OUTER JOIN people ON pods.id = people.pod_id").delete_all("people.id is NULL")
+    Pod.joins("LEFT OUTER JOIN people ON pods.id = people.pod_id").where("people.id is NULL").delete_all
 
     remove_column :people, :url
   end

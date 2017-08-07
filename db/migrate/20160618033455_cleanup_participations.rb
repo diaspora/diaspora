@@ -39,6 +39,6 @@ class CleanupParticipations < ActiveRecord::Migration[4.2]
     end
 
     Participation.joins("LEFT OUTER JOIN posts ON posts.id = participations.target_id")
-                 .where(target_type: "Post").delete_all("posts.id is NULL")
+                 .where(target_type: "Post").where("posts.id is NULL").delete_all
   end
 end
