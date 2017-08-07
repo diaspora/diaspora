@@ -211,9 +211,9 @@ var factory = {
   },
 
   postWithPoll :  function(overrides) {
-    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
-    defaultAttrs = _.extend(defaultAttrs,  {"already_participated_in_poll" : false});
-    defaultAttrs = _.extend(defaultAttrs,  {"poll" : factory.poll()});
+    var defaultAttrs = _.extend(factory.postAttrs(), {"author": this.author()});
+    defaultAttrs = _.extend(defaultAttrs, {"poll_participation_answer_id": null});
+    defaultAttrs = _.extend(defaultAttrs, {"poll": factory.poll()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));
   },
 
