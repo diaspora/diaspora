@@ -501,6 +501,37 @@ describe Notifier, type: :mailer do
     end
   end
 
+  describe ".invite" do
+    let(:email) { Notifier.invite(alice.email, nil, bob, "1234", "en") }
+
+    it "goes to the right person" do
+      expect(email.to).to eq([alice.email])
+    end
+
+    it "FROM: header should be the pod name + default sender address" do
+      expect(email["From"].to_s).to eq("#{pod_name} <#{AppConfig.mail.sender_address}>")
+    end
+
+    it "has the correct subject" do
+      expect(email.subject).to eq(I18n.translate("notifier.invited_you", name: bob.name))
+    end
+
+    it "has the inviter name in the body" do
+      expect(email.body.encoded).to include("#{bob.name} (#{bob.diaspora_handle})")
+    end
+
+    it "has the inviter id if the name is nil" do
+      bob.person.profile.update_attributes(first_name: "", last_name: "")
+      mail = Notifier.invite(alice.email, nil, bob, "1234", "en")
+      expect(email.body.encoded).to_not include("#{bob.name} (#{bob.diaspora_handle})")
+      expect(mail.body.encoded).to include(bob.person.diaspora_handle)
+    end
+
+    it "has the invitation code in the body" do
+      expect(email.body.encoded).to include("/i/1234")
+    end
+  end
+
   describe ".csrf_token_fail" do
     let(:email) { Notifier.send_notification("csrf_token_fail", alice.id) }
 

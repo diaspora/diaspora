@@ -44,9 +44,9 @@ class Notifier < ActionMailer::Base
     @invitation_code = invitation_code
 
     I18n.with_locale(locale) do
-      mail_opts = {:to => email, :from => AppConfig.mail.sender_address,
-                 :subject => I18n.t('notifier.invited_you', :name => @inviter.name),
-                 :host => AppConfig.pod_uri.host}
+      mail_opts = {to: email, from: "\"#{AppConfig.settings.pod_name}\" <#{AppConfig.mail.sender_address}>",
+                 subject: I18n.t("notifier.invited_you", name: @inviter.name),
+                 host: AppConfig.pod_uri.host}
 
       mail(mail_opts) do |format|
         format.text { render :layout => nil }
