@@ -168,10 +168,14 @@ Then /^I should have (\d+) email delivery$/ do |n|
   ActionMailer::Base.deliveries.length.should == n.to_i
 end
 
-Then /^I should not see "([^\"]*)" in the last sent email$/ do |text|
+Then /^I should( not)? see "([^\"]*)" in the last sent email$/ do |negate, text|
   email_text = Devise.mailer.deliveries.first.body.to_s
   email_text = Devise.mailer.deliveries.first.html_part.body.raw_source if email_text.blank?
-  email_text.should_not match(text)
+  if negate
+    expect(email_text).to_not have_content(text)
+  else
+    expect(email_text).to have_content(text)
+  end
 end
 
 When /^"([^\"]+)" has posted a (public )?status message with a photo$/ do |email, public_status|

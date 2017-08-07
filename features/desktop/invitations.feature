@@ -59,6 +59,7 @@ Feature: Invitations
     And I press "Send an invitation"
     Then I should see a flash message indicating success
     And I should have 1 Devise email delivery
+    And I should see "You have been invited to join diaspora* by Alice Smith" in the last sent email
     And I should not see "change your notification settings" in the last sent email
 
   Scenario: sends an invitation from the people search page
