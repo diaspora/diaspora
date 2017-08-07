@@ -1,4 +1,4 @@
-class FixPhotosShareVisibilities < ActiveRecord::Migration
+class FixPhotosShareVisibilities < ActiveRecord::Migration[4.2]
   class Photo < ApplicationRecord
   end
 

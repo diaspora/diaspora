@@ -1,4 +1,4 @@
-class FixOpenGraphData < ActiveRecord::Migration
+class FixOpenGraphData < ActiveRecord::Migration[4.2]
   def self.up
     change_column :open_graph_caches, :url, :text
     change_column :open_graph_caches, :image, :text

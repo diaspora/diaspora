@@ -1,4 +1,4 @@
-class FixWrongOnlySharing < ActiveRecord::Migration
+class FixWrongOnlySharing < ActiveRecord::Migration[4.2]
   def up
     Contact.where(sharing: true, receiving: false)
       .where(id: AspectMembership.select(:contact_id))

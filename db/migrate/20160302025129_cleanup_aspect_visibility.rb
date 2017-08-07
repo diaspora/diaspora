@@ -1,4 +1,4 @@
-class CleanupAspectVisibility < ActiveRecord::Migration
+class CleanupAspectVisibility < ActiveRecord::Migration[4.2]
   class AspectVisibility < ApplicationRecord
   end
 

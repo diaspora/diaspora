@@ -1,4 +1,4 @@
-class DropOpenGraphCachesWithInvalidUrls < ActiveRecord::Migration
+class DropOpenGraphCachesWithInvalidUrls < ActiveRecord::Migration[4.2]
   def up
     OpenGraphCache.where(url: 'http://').delete_all
   end

@@ -1,4 +1,4 @@
-class ParticipationCounter < ActiveRecord::Migration
+class ParticipationCounter < ActiveRecord::Migration[4.2]
   class Comment < ApplicationRecord
   end
 

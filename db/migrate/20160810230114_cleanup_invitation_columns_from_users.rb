@@ -1,4 +1,4 @@
-class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
+class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration[4.2]
   class InvitationCode < ApplicationRecord
   end
 

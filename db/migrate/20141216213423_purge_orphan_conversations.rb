@@ -1,4 +1,4 @@
-class PurgeOrphanConversations < ActiveRecord::Migration
+class PurgeOrphanConversations < ActiveRecord::Migration[4.2]
   def up
     Conversation.where(id: Conversation.joins("LEFT JOIN conversation_visibilities ON conversation_visibilities.conversation_id = conversations.id")
 		                       .group('conversations.id')

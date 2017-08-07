@@ -1,6 +1,6 @@
 # Inspired by https://github.com/nov/openid_connect_sample/blob/master/db/migrate/20110829023826_create_clients.rb
 
-class CreateOAuthApplications < ActiveRecord::Migration
+class CreateOAuthApplications < ActiveRecord::Migration[4.2]
   def change
     create_table :o_auth_applications do |t|
       t.belongs_to :user, index: true

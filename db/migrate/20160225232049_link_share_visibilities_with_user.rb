@@ -1,4 +1,4 @@
-class LinkShareVisibilitiesWithUser < ActiveRecord::Migration
+class LinkShareVisibilitiesWithUser < ActiveRecord::Migration[4.2]
   class ShareVisibility < ApplicationRecord
   end
 

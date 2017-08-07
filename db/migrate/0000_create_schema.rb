@@ -1,4 +1,4 @@
-class CreateSchema < ActiveRecord::Migration
+class CreateSchema < ActiveRecord::Migration[4.2]
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
     t.integer "person_id"

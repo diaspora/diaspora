@@ -1,4 +1,4 @@
-class CreateSignatureTables < ActiveRecord::Migration
+class CreateSignatureTables < ActiveRecord::Migration[4.2]
   class SignatureOrder < ApplicationRecord
   end
 

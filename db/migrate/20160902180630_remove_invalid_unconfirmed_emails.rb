@@ -1,4 +1,4 @@
-class RemoveInvalidUnconfirmedEmails < ActiveRecord::Migration
+class RemoveInvalidUnconfirmedEmails < ActiveRecord::Migration[4.2]
   class User < ApplicationRecord
   end
 

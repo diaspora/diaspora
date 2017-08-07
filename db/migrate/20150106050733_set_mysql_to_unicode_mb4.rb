@@ -1,4 +1,4 @@
-class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
+class SetMysqlToUnicodeMb4 < ActiveRecord::Migration[4.2]
   # Converts the tables and strings columns to utf8mb4, which is the true, full
   # unicode support in MySQl
 

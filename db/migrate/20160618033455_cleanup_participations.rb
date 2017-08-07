@@ -1,4 +1,4 @@
-class CleanupParticipations < ActiveRecord::Migration
+class CleanupParticipations < ActiveRecord::Migration[4.2]
   class Participation < ApplicationRecord
   end
 

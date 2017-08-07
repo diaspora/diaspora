@@ -1,4 +1,4 @@
-class ExtendPods < ActiveRecord::Migration
+class ExtendPods < ActiveRecord::Migration[4.2]
   class Pod < ApplicationRecord
     has_many :people
 

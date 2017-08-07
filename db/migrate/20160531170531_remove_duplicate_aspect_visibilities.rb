@@ -1,4 +1,4 @@
-class RemoveDuplicateAspectVisibilities < ActiveRecord::Migration
+class RemoveDuplicateAspectVisibilities < ActiveRecord::Migration[4.2]
   def up
     where = "WHERE a1.aspect_id = a2.aspect_id AND a1.shareable_id = a2.shareable_id AND "\
       "a1.shareable_type = a2.shareable_type AND a1.id > a2.id"

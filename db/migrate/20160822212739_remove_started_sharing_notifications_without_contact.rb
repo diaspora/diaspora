@@ -1,4 +1,4 @@
-class RemoveStartedSharingNotificationsWithoutContact < ActiveRecord::Migration
+class RemoveStartedSharingNotificationsWithoutContact < ActiveRecord::Migration[4.2]
   class Notification < ApplicationRecord
   end
 

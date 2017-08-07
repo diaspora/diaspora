@@ -1,4 +1,4 @@
-class RemoveDuplicateAndEmptyPods < ActiveRecord::Migration
+class RemoveDuplicateAndEmptyPods < ActiveRecord::Migration[4.2]
   def up
     remove_dupes
     remove_empty_or_nil
