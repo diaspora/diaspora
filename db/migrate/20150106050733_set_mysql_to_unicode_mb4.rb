@@ -86,9 +86,6 @@ class SetMysqlToUnicodeMb4 < ActiveRecord::Migration
     remove_index 'rails_admin_histories', :name => 'index_rails_admin_histories'
     add_index 'rails_admin_histories', ["item", "table", "month", "year"], :name => 'index_rails_admin_histories', length: {"table"=>188}, :using => :btree
 
-    remove_index 'schema_migrations', :name => 'unique_schema_migrations'
-    add_index 'schema_migrations', ["version"], :name => 'unique_schema_migrations', length: {"version"=>191}, :using => :btree
-
     remove_index 'services', :name => 'index_services_on_type_and_uid'
     add_index 'services', ["type", "uid"], :name => 'index_services_on_type_and_uid', length: {"type"=>64, "uid"=>127}, :using => :btree
 
