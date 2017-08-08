@@ -10,7 +10,7 @@ app.views.Help = app.views.StaticContentView.extend({
     "click .faq-link-posts-and-posting" : "postsAndPosting",
     "click .faq-link-tags": "tags",
     "click .faq-link-keyboard-shortcuts" : "keyboardShortcuts",
-    "click .faq-link-chat" :  "chat"
+    "click .faq-link-chat" : "chat"
   },
 
   initialize : function() {
@@ -21,7 +21,8 @@ app.views.Help = app.views.StaticContentView.extend({
       get_support_a_wiki: { link: this.linkHtml("https://wiki.diasporafoundation.org/Special:Search", Diaspora.I18n.t( 'wiki' ))},
       get_support_a_irc: { irc: this.linkHtml("https://wiki.diasporafoundation.org/How_We_Communicate#IRC", Diaspora.I18n.t( 'irc' ))},
       get_support_a_faq: { faq: this.linkHtml("https://wiki.diasporafoundation.org/FAQ_for_users", Diaspora.I18n.t( 'faq' ))},
-      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")}
+      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")},
+      get_support_a_discourse: { discourse: this.linkHtml("https://discourse.diasporafoundation.org/c/support", "discussions & support")}
 	};
 
     this.POSTS_AND_POSTING_SUBS = {

@@ -330,6 +330,7 @@ en:
       get_support_a_irc: "Join us on %{irc} (live chat)"
       get_support_a_faq: "Read our %{faq} page on wiki"
       get_support_a_hashtag: "Ask in a public post on diaspora* using the %{question} hashtag"
+      get_support_a_discourse: "Search for existing discussions relating to your enquiry or open a new thread in our %{discourse} platform"
     account_and_data_management:
       title: "Account and data management"
       move_pods_q: "How do I move my seed (account) from one pod to another?"
