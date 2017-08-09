@@ -103,6 +103,10 @@
           },
           success: function() {
             Diaspora.Mobile.PostActions.toggleActive(link);
+            var reshareCounter = $(evt.target).closest(".stream-element").find(".reshare-count");
+            if (reshareCounter) {
+              reshareCounter.text(parseInt(reshareCounter.text(), 10) + 1);
+            }
           },
           error: function(response) {
             Diaspora.Mobile.Alert.handleAjaxError(response);
