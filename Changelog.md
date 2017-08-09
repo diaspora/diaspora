@@ -24,6 +24,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Send public profiles publicly [#7501](https://github.com/diaspora/diaspora/pull/7501)
 * Change sender for mails [#7495](https://github.com/diaspora/diaspora/pull/7495)
 * Move back to top to the right to avoid misclicks [#7516](https://github.com/diaspora/diaspora/pull/7516)
+* Include count in mobile post action link [#7520](https://github.com/diaspora/diaspora/pull/7520)
 
 ## Bug fixes
 
@@ -31,6 +32,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Improve stream when ignoring a person who posts a lot of tagged posts [#7503](https://github.com/diaspora/diaspora/pull/7503)
 * Fix order of comments across pods [#7436](https://github.com/diaspora/diaspora/pull/7436)
 * Prevent publisher from closing in preview mode [#7518](https://github.com/diaspora/diaspora/pull/7518)
+* Increase reshare counter after reshare on mobile [#7520](https://github.com/diaspora/diaspora/pull/7520)
 
 ## Features
 * Add support for mentions in comments to the backend [#6818](https://github.com/diaspora/diaspora/pull/6818)
