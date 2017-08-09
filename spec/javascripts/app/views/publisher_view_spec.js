@@ -252,6 +252,31 @@ describe("app.views.Publisher", function() {
       });
     });
 
+    describe("tryClose", function() {
+      it("doesn't close the publisher if it is submittable", function() {
+        spyOn(this.view, "_submittable").and.returnValue(true);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).not.toHaveBeenCalled();
+      });
+
+      it("doesn't close the publisher if it is in preview mode", function() {
+        spyOn(this.view, "_submittable").and.returnValue(false);
+        spyOn(this.view.markdownEditor, "isPreviewMode").and.returnValue(true);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).not.toHaveBeenCalled();
+      });
+
+      it("closes the publisher if it is neither submittable nor in preview mode", function() {
+        spyOn(this.view, "_submittable").and.returnValue(false);
+        spyOn(this.view.markdownEditor, "isPreviewMode").and.returnValue(false);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).toHaveBeenCalled();
+      });
+    });
+
     describe("_beforeUnload", function(){
       it("calls _submittable", function(){
         spyOn(this.view, "_submittable");
