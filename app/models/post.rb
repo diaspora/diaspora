@@ -54,6 +54,17 @@ class Post < ActiveRecord::Base
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
+  scope :subscribed_by, ->(user) {
+    joins(:participations).where(participations: {author_id: user.person_id})
+  }
+
+  scope :reshares, -> { where(type: "Reshare") }
+
+  scope :reshared_by, ->(person) {
+    # we join on the same table, Rails renames "posts" to "reshares_posts" for the right table
+    joins(:reshares).where(reshares_posts: {author_id: person.id})
+  }
+
   def post_type
     self.class.name
   end
