@@ -134,8 +134,8 @@ Diaspora.MarkdownEditor.prototype = {
     return this.instance !== undefined && this.instance.$editor.find(".md-preview").length > 0;
   },
 
-  userInputNotEmpty: function() {
-    return this.instance !== undefined && this.instance.getContent().length > 0;
+  userInputEmpty: function() {
+    return this.instance === undefined || this.instance.getContent().length === 0;
   },
 
   localize: function() {

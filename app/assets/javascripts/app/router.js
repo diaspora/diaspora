@@ -9,7 +9,7 @@ app.Router = Backbone.Router.extend({
     "commented(/)": "stream",
     "community_spotlight(/)": "spotlight",
     "contacts(/)": "contacts",
-    "conversations(/)(:id)(/)(?conversation_id=:conversation_id)": "conversations",
+    "conversations(/)(:id)(?conversation_id=:conversation_id)(/)": "conversations",
     "followed_tags(/)": "followed_tags",
     "getting_started(/)": "gettingStarted",
     "help(/)": "help",

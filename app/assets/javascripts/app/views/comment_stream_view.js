@@ -158,7 +158,7 @@ app.views.CommentStream = app.views.Base.extend({
     if (this.mdEditor === undefined) {
       return true;
     }
-    return !this.mdEditor.isPreviewMode() && !this.mdEditor.userInputNotEmpty();
+    return !this.mdEditor.isPreviewMode() && this.mdEditor.userInputEmpty();
   },
 
   onFormBlur: function(evt) {

@@ -371,7 +371,7 @@ describe("app.views.CommentStream", function(){
     it("does not call closeForm if markdown editor is in preview mode", function() {
       spyOn(this.view, "closeForm");
       spyOn(this.view.mdEditor, "isPreviewMode").and.returnValue(true);
-      spyOn(this.view.mdEditor, "userInputNotEmpty").and.returnValue(false);
+      spyOn(this.view.mdEditor, "userInputEmpty").and.returnValue(true);
       this.view.onFormBlur();
       expect(this.view.closeForm).not.toHaveBeenCalled();
     });
@@ -379,7 +379,7 @@ describe("app.views.CommentStream", function(){
     it("does not call closeForm if markdown editor contains text", function() {
       spyOn(this.view, "closeForm");
       spyOn(this.view.mdEditor, "isPreviewMode").and.returnValue(false);
-      spyOn(this.view.mdEditor, "userInputNotEmpty").and.returnValue(true);
+      spyOn(this.view.mdEditor, "userInputEmpty").and.returnValue(false);
       this.view.onFormBlur();
       expect(this.view.closeForm).not.toHaveBeenCalled();
     });
@@ -387,7 +387,7 @@ describe("app.views.CommentStream", function(){
     it("does not call closeForm when the form is clicked", function() {
       spyOn(this.view, "closeForm");
       spyOn(this.view.mdEditor, "isPreviewMode").and.returnValue(false);
-      spyOn(this.view.mdEditor, "userInputNotEmpty").and.returnValue(false);
+      spyOn(this.view.mdEditor, "userInputEmpty").and.returnValue(true);
       this.view.onFormBlur($.Event("click", {target: $(".new-comment")}));
       expect(this.view.closeForm).not.toHaveBeenCalled();
       this.view.onFormBlur($.Event("click", {target: $(".focus_comment_textarea")}));
@@ -397,7 +397,7 @@ describe("app.views.CommentStream", function(){
     it("calls closeForm when the user clicks outside of the form", function() {
       spyOn(this.view, "closeForm");
       spyOn(this.view.mdEditor, "isPreviewMode").and.returnValue(false);
-      spyOn(this.view.mdEditor, "userInputNotEmpty").and.returnValue(false);
+      spyOn(this.view.mdEditor, "userInputEmpty").and.returnValue(true);
       this.view.onFormBlur($.Event("click", {target: $("body")}));
       expect(this.view.closeForm).toHaveBeenCalled();
     });

@@ -230,25 +230,35 @@ describe("Diaspora.MarkdownEditor", function() {
       expect(this.target.isPreviewMode()).toBe(false);
     });
 
+    it("returns false if the editor is in write (default) mode", function() {
+      expect(this.target.instance).toBeDefined();
+      expect(this.target.isPreviewMode()).toBe(false);
+    });
+
     it("returns true if editor is in preview mode", function() {
       this.target.showPreview();
       expect(this.target.isPreviewMode()).toBe(true);
     });
   });
 
-  describe("userInputNotEmpty", function() {
+  describe("userInputEmpty", function() {
     beforeEach(function() {
       this.target = new Diaspora.MarkdownEditor(this.$el, {onPreview: $.noop, onPostPreview: $.noop()});
     });
 
-    it("return false if editor is not visible yet", function() {
+    it("return true if editor is not visible yet", function() {
       this.target.instance = undefined;
-      expect(this.target.userInputNotEmpty()).toBe(false);
+      expect(this.target.userInputEmpty()).toBe(true);
     });
 
-    it("returns true if editor has content", function() {
+    it("returns true if editor has no content", function() {
+      $("textarea").text("");
+      expect(this.target.userInputEmpty()).toBe(true);
+    });
+
+    it("returns false if editor has content", function() {
       $("textarea").text("Yolo");
-      expect(this.target.userInputNotEmpty()).toBe(true);
+      expect(this.target.userInputEmpty()).toBe(false);
     });
   });
 
