@@ -75,7 +75,7 @@
 
     onLike: function(evt){
       evt.preventDefault();
-      var link = $(evt.target),
+      var link = $(evt.target).closest(".like-action"),
           likeCounter = $(evt.target).closest(".stream-element").find(".like-count");
 
       if(!link.hasClass("loading") && link.hasClass("inactive")) {
@@ -89,7 +89,7 @@
     onReshare: function(evt) {
       evt.preventDefault();
 
-      var link = $(this),
+      var link = $(this).closest(".reshare-action"),
           href = link.attr("href"),
           confirmText = link.attr("title");
 
