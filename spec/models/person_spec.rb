@@ -175,6 +175,27 @@ describe Person, :type => :model do
         expect(result[1].id).to eq(person1.id)
       end
     end
+
+    describe ".in_aspects" do
+      it "returns person that is in the aspect" do
+        aspect = FactoryGirl.create(:aspect)
+        contact = FactoryGirl.create(:contact, user: aspect.user)
+        aspect.contacts << contact
+        expect(Person.in_aspects([aspect.id])).to include(contact.person)
+      end
+
+      it "returns same person in multiple aspects only once" do
+        user = bob
+        contact = FactoryGirl.create(:contact, user: user)
+        ids = Array.new(2) do
+          aspect = FactoryGirl.create(:aspect, user: user, name: r_str)
+          aspect.contacts << contact
+          aspect.id
+        end
+
+        expect(Person.in_aspects(ids)).to eq([contact.person])
+      end
+    end
   end
 
   describe "delegating" do

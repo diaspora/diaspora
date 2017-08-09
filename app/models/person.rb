@@ -78,8 +78,8 @@ class Person < ActiveRecord::Base
 
   #not defensive
   scope :in_aspects, ->(aspect_ids) {
-    joins(:contacts => :aspect_memberships).
-        where(:aspect_memberships => {:aspect_id => aspect_ids})
+    joins(contacts: :aspect_memberships)
+      .where(aspect_memberships: {aspect_id: aspect_ids}).distinct
   }
 
   scope :profile_tagged_with, ->(tag_name) {
