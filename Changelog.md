@@ -23,6 +23,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Switch to new federation protocol [#7436](https://github.com/diaspora/diaspora/pull/7436)
 * Send public profiles publicly [#7501](https://github.com/diaspora/diaspora/pull/7501)
 * Change sender for mails [#7495](https://github.com/diaspora/diaspora/pull/7495)
+* Move back to top to the right to avoid misclicks [#7516](https://github.com/diaspora/diaspora/pull/7516)
 
 ## Bug fixes
 
