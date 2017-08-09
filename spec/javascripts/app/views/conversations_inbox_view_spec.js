@@ -17,6 +17,14 @@ describe("app.views.ConversationsInbox", function() {
       new app.views.ConversationsInbox();
       expect(app.views.ConversationsInbox.prototype.setupConversation).toHaveBeenCalled();
     });
+
+    it("creates markdown editor for an existing conversation", function() {
+      spyOn(app.views.ConversationsForm.prototype, "renderMarkdownEditor");
+      new app.views.ConversationsInbox(1);
+      expect(app.views.ConversationsForm.prototype.renderMarkdownEditor).toHaveBeenCalledWith(
+        "#conversation-show .conversation-message-text"
+      );
+    });
   });
 
   describe("renderConversation", function() {
@@ -34,6 +42,8 @@ describe("app.views.ConversationsInbox", function() {
       spyOn($, "ajax").and.callThrough();
       spyOn(app.views.ConversationsInbox.prototype, "selectConversation");
       spyOn(app.views.ConversationsInbox.prototype, "setupConversation");
+      spyOn(app.views.ConversationsForm.prototype, "renderMarkdownEditor");
+      spyOn(window, "autosize");
       this.target.renderConversation(this.conversationId);
       jasmine.Ajax.requests.mostRecent().respondWith({
         status: 200,
@@ -44,6 +54,9 @@ describe("app.views.ConversationsInbox", function() {
       expect(jasmine.Ajax.requests.mostRecent().url).toBe("/conversations/" + this.conversationId + "/raw");
       expect(app.views.ConversationsInbox.prototype.selectConversation).toHaveBeenCalledWith(this.conversationId);
       expect(app.views.ConversationsInbox.prototype.setupConversation).toHaveBeenCalled();
+      expect(app.views.ConversationsForm.prototype.renderMarkdownEditor).toHaveBeenCalled();
+      expect(window.autosize).toHaveBeenCalled();
+      expect(window.autosize.calls.mostRecent().args[0].is($("#conversation-show textarea")));
       expect($("#conversation-new")).toHaveClass("hidden");
       expect($("#conversation-show")).not.toHaveClass("hidden");
       expect($("#conversation-show #fake-conversation-content").length).toBe(1);

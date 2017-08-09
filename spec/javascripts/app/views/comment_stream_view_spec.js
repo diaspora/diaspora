@@ -19,6 +19,16 @@ describe("app.views.CommentStream", function(){
       this.view.model.comments.pop();
       expect(this.view.removeComment).toHaveBeenCalled();
     });
+
+    it("calls onFormBlur when clicking outside the comment box", function() {
+      // remove existing event handlers
+      $(document.body).off("click");
+
+      spyOn(this.view, "onFormBlur");
+      this.view.setupBindings();
+      $(document.body).click();
+      expect(this.view.onFormBlur).toHaveBeenCalled();
+    });
   });
 
   describe("postRenderTemplate", function() {
@@ -56,6 +66,14 @@ describe("app.views.CommentStream", function(){
       this.view.postRenderTemplate();
       var call = app.views.CommentMention.prototype.initialize.calls.mostRecent();
       expect(call.args[0]).toEqual({el: this.view.$el, postId: this.view.model.id});
+    });
+
+    it("creates the markdown editor", function() {
+      spyOn(Diaspora.MarkdownEditor.prototype, "initialize");
+      this.view.mdEditor = undefined;
+      this.view.postRenderTemplate();
+      expect(Diaspora.MarkdownEditor.prototype.initialize).toHaveBeenCalled();
+      expect(this.view.mdEditor).toBeDefined();
     });
   });
 
@@ -117,6 +135,18 @@ describe("app.views.CommentStream", function(){
           this.request.respondWith({status: 200, responseText: "[]"});
           expect(autosize.update).toHaveBeenCalledWith(this.view.commentBox);
         });
+
+        it("hides the markdown preview", function() {
+          spyOn(this.view.mdEditor, "hidePreview");
+          this.request.respondWith({status: 200, responseText: "[]"});
+          expect(this.view.mdEditor.hidePreview).toHaveBeenCalled();
+        });
+
+        it("closes the form", function() {
+          spyOn(this.view, "closeForm");
+          this.request.respondWith({status: 200, responseText: "[]"});
+          expect(this.view.closeForm).toHaveBeenCalled();
+        });
       });
 
       context("on error", function() {
@@ -134,6 +164,18 @@ describe("app.views.CommentStream", function(){
           spyOn(this.view, "enableCommentBox");
           this.request.respondWith({status: 500});
           expect(this.view.enableCommentBox).toHaveBeenCalled();
+        });
+
+        it("hides the markdown preview", function() {
+          spyOn(this.view.mdEditor, "hidePreview");
+          this.request.respondWith({status: 500, responseText: "[]"});
+          expect(this.view.mdEditor.hidePreview).toHaveBeenCalled();
+        });
+
+        it("opens the form", function() {
+          spyOn(this.view, "openForm");
+          this.request.respondWith({status: 500, responseText: "[]"});
+          expect(this.view.openForm).toHaveBeenCalled();
         });
       });
     });
@@ -280,6 +322,84 @@ describe("app.views.CommentStream", function(){
         status: 200, responseText: JSON.stringify([])
       });
       expect(this.view.$(".loading-comments")).toHaveClass("hidden");
+    });
+  });
+
+  describe("openForm", function() {
+    beforeEach(function() {
+      this.view.render();
+    });
+
+    it("adds the 'open' class to form", function() {
+      this.view.$("form").removeClass("open");
+      this.view.openForm();
+      expect(this.view.$("form")).toHaveClass("open");
+    });
+
+    it("adds the 'active' class to markdown editor", function() {
+      this.view.$(".md-editor").removeClass("active");
+      this.view.openForm();
+      expect(this.view.$(".md-editor")).toHaveClass("active");
+    });
+  });
+
+  describe("closeForm", function() {
+    beforeEach(function() {
+      this.view.render();
+    });
+
+    it("removes the 'open' class to form", function() {
+      this.view.$("form").addClass("open");
+      this.view.closeForm();
+      expect(this.view.$("form")).not.toHaveClass("open");
+    });
+
+    it("removes the 'active' class to markdown editor", function() {
+      this.view.$(".md-editor").addClass("active");
+      this.view.closeForm();
+      expect(this.view.$(".md-editor")).not.toHaveClass("active");
+    });
+  });
+
+  describe("onFormBlur", function() {
+    beforeEach(function() {
+      this.view.render();
+      this.view.postRenderTemplate();
+      spec.content().html("<div class='new-comment'/><div class='focus_comment_textarea'/>");
+    });
+
+    it("does not call closeForm if markdown editor is in preview mode", function() {
+      spyOn(this.view, "closeForm");
+      spyOn(this.view.mdEditor, "isPreviewMode").and.returnValue(true);
+      spyOn(this.view.mdEditor, "userInputEmpty").and.returnValue(true);
+      this.view.onFormBlur();
+      expect(this.view.closeForm).not.toHaveBeenCalled();
+    });
+
+    it("does not call closeForm if markdown editor contains text", function() {
+      spyOn(this.view, "closeForm");
+      spyOn(this.view.mdEditor, "isPreviewMode").and.returnValue(false);
+      spyOn(this.view.mdEditor, "userInputEmpty").and.returnValue(false);
+      this.view.onFormBlur();
+      expect(this.view.closeForm).not.toHaveBeenCalled();
+    });
+
+    it("does not call closeForm when the form is clicked", function() {
+      spyOn(this.view, "closeForm");
+      spyOn(this.view.mdEditor, "isPreviewMode").and.returnValue(false);
+      spyOn(this.view.mdEditor, "userInputEmpty").and.returnValue(true);
+      this.view.onFormBlur($.Event("click", {target: $(".new-comment")}));
+      expect(this.view.closeForm).not.toHaveBeenCalled();
+      this.view.onFormBlur($.Event("click", {target: $(".focus_comment_textarea")}));
+      expect(this.view.closeForm).not.toHaveBeenCalled();
+    });
+
+    it("calls closeForm when the user clicks outside of the form", function() {
+      spyOn(this.view, "closeForm");
+      spyOn(this.view.mdEditor, "isPreviewMode").and.returnValue(false);
+      spyOn(this.view.mdEditor, "userInputEmpty").and.returnValue(true);
+      this.view.onFormBlur($.Event("click", {target: $("body")}));
+      expect(this.view.closeForm).toHaveBeenCalled();
     });
   });
 

@@ -5,7 +5,7 @@
 .add_comment_bottom_link_container
   - if user_signed_in?
     = form_tag(post_comments_path(post_id), id: "new-comment-on-#{post_id}",
-        class: "new_comment", autocomplete: "off") do
+        class: "new-comment", autocomplete: "off") do
       %fieldset
         = hidden_field_tag :post_id, post_id, id: "post-id-on-#{post_id}"
         .form-group.clearfix

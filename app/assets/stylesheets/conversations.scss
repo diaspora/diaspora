@@ -238,3 +238,9 @@
 }
 
 .new-conversation.form-horizontal .form-group:last-of-type { margin-bottom: 0; }
+
+// This rule is required until we switch to the newer release of bootstrap-markdown with
+// the following commit in: https://github.com/toopay/bootstrap-markdown/commit/14a21c3837140144b27efc19c795d1a37fad70fb
+.conversations-form-container .md-preview {
+  min-height: 105px;
+}

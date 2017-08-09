@@ -102,6 +102,7 @@ afterEach(function() {
   expect($(".modal-backdrop").length).toBe(0);
   $(".modal-backdrop").remove();
   spec.loadFixtureCount = 0;
+  $(document.body).off();
 });
 
 
