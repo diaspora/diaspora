@@ -13,7 +13,7 @@ gem "unicorn-worker-killer", "0.4.4"
 
 # Federation
 
-gem "diaspora_federation-rails", "0.2.0"
+gem "diaspora_federation-rails", "0.2.1"
 
 # API and JSON
 
@@ -294,7 +294,7 @@ group :test do
   gem "timecop",            "0.9.1"
   gem "webmock",            "3.0.1", require: false
 
-  gem "diaspora_federation-test", "0.2.0"
+  gem "diaspora_federation-test", "0.2.1"
 
   # Coverage
   gem 'coveralls', require: false
