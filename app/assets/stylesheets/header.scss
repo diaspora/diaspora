@@ -247,4 +247,12 @@
       }
     }
   }
+
+  @media (max-width: $screen-xs-max) {
+    .nav-badges .dropdown-menu {
+      position: fixed;
+      top: $navbar-height;
+      width: 100%;
+    }
+  }
 }
