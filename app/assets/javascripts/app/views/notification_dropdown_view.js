@@ -26,7 +26,6 @@ app.views.NotificationDropdown = app.views.Base.extend({
 
   toggleDropdown: function(evt){
     evt.stopPropagation();
-    if (!$("#notifications-link .entypo-bell:visible").length) { return true; }
     evt.preventDefault();
     if(this.dropdownShowing()){ this.hideDropdown(evt); }
     else{ this.showDropdown(); }

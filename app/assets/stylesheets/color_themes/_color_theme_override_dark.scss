@@ -1,11 +1,6 @@
 // Only overriding existing selectors here, so disable some lint rules
 // scss-lint:disable IdSelector, SelectorFormat, NestingDepth, SelectorDepth, QualifyingElement
 body {
-  .navbar.navbar-fixed-top #user_menu .dropdown-menu > li > a {
-    color: $text-color;
-    &:hover { color: $white; }
-  }
-
   .publisher {
     form {
       #publisher_textarea_wrapper { background-color: $gray; }

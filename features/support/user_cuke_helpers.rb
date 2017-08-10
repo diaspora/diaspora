@@ -47,7 +47,7 @@ module UserCukeHelpers
     if mobile
       expect(page).to have_css "#menu-badge"
     else
-      expect(find("#user_menu")).to have_content "#{@me.first_name} #{@me.last_name}"
+      expect(find("#user-menu")).to have_content "#{@me.first_name} #{@me.last_name}"
     end
   end
 
@@ -58,8 +58,8 @@ module UserCukeHelpers
 
   # go to user menu, expand it, and click logout
   def manual_logout
-    find("#user_menu .dropdown-toggle").click
-    find("#user_menu li:last-child a").click
+    find("#user-menu .dropdown-toggle").click
+    find("#user-menu li:last-child a").click
   end
 
   def manual_logout_mobile

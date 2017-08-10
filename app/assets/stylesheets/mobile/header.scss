@@ -33,10 +33,15 @@ $mobile-navbar-height: 46px;
     li { float: left; }
   }
 
-  #header-title {
+  .header-title {
     padding: 7px 15px;
     margin: 0 0 0 -15px;
     height: $mobile-navbar-height;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
   }
 
   #nav-badges {
@@ -85,12 +90,6 @@ $mobile-navbar-height: 46px;
       padding: 2px 6px;
       position: absolute;
       background-color: $red;
-    }
-  }
-  #header-title{
-    img {
-      height: 30px;
-      width: 30px;
     }
   }
 }

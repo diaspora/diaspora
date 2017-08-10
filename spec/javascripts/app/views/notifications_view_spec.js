@@ -142,18 +142,13 @@ describe("app.views.Notifications", function() {
         });
 
         it("changes the header notifications count", function() {
-          var badge1 = $(".notifications-link:eq(0) .badge");
-          var badge2 = $(".notifications-link:eq(1) .badge");
+          var badge = $(".notifications-link .badge");
 
-          expect(parseInt(badge1.text(), 10)).toBe(this.collection.unreadCount);
-          expect(parseInt(badge2.text(), 10)).toBe(this.collection.unreadCount);
+          expect(parseInt(badge.text(), 10)).toBe(this.collection.unreadCount);
 
           this.collection.unreadCount++;
           this.view.updateView();
-          expect(parseInt(badge1.text(), 10)).toBe(this.collection.unreadCount);
-
-          this.view.updateView();
-          expect(parseInt(badge2.text(), 10)).toBe(this.collection.unreadCount);
+          expect(parseInt(badge.text(), 10)).toBe(this.collection.unreadCount);
         });
 
         it("disables the mark-all-read-link button", function() {
