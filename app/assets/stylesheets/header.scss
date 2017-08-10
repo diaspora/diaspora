@@ -136,6 +136,8 @@
     }
   }
 
+  .navbar-form .form-control { display: inline-block; }
+
   @media (max-width: $grid-float-breakpoint-max) {
 
     .navbar-nav.hidden-xs {
