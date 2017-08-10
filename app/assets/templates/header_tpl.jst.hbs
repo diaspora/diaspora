@@ -11,9 +11,9 @@
           </button>
           <a href="/stream" class="navbar-brand" data-stream-title="{{t "my_stream"}}">
             <span class="hidden-xs">{{ podname }}</span>
-            <span class="visible-xs header-title">
+            <div class="visible-xs-block header-title">
               <img src="{{imageUrl 'branding/logos/asterisk_white_mobile.png'}}" alt="{{ podname }}" />
-            </span>
+            </div>
           </a>
           <ul class="nav navbar-nav hidden-xs">
             <li><a href="/stream">{{t "my_stream"}}</a></li>
@@ -61,9 +61,9 @@
           </ul>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav navbar-left visible-sm visible-xs">
-            <li class="visible-xs"><a href="/stream">{{t "my_stream"}}</a></li>
-            <li class="visible-xs"><a href="/activity">{{t "my_activity"}}</a></li>
+          <ul class="nav navbar-nav navbar-left visible-sm-block visible-xs-block">
+            <li class="visible-xs-block"><a href="/stream">{{t "my_stream"}}</a></li>
+            <li class="visible-xs-block"><a href="/activity">{{t "my_activity"}}</a></li>
             <li><a href="/mobile/toggle">{{t "header.toggle_mobile"}}</a></li>
           </ul>
 
