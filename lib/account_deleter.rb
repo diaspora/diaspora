@@ -101,7 +101,8 @@ class AccountDeleter
   end
 
   def ignored_or_special_ar_person_associations
-    %i(comments contacts notification_actors notifications owner profile conversation_visibilities pod)
+    %i[comments likes poll_participations contacts notification_actors notifications owner profile
+       conversation_visibilities pod]
   end
 
   def mark_account_deletion_complete

@@ -149,9 +149,9 @@ FactoryGirl.define do
   end
 
   factory(:location) do
-    address "Fernsehturm Berlin, Berlin, Germany"
-    lat 52.520645
-    lng 13.409779
+    sequence(:address) {|n| "Fernsehturm Berlin, #{n}, Berlin, Germany" }
+    sequence(:lat) {|n| 52.520645 + 0.0000001 * n }
+    sequence(:lng) {|n| 13.409779 + 0.0000001 * n }
   end
 
   factory :participation do
@@ -340,6 +340,11 @@ FactoryGirl.define do
     author_signature "some signature"
     association :signature_order, order: "positive guid parent_type parent_guid author new_property"
     additional_data { {"new_property" => "some text"} }
+  end
+
+  factory :role do
+    association :person
+    name "moderator"
   end
 
   factory(:poll_participation_signature) do

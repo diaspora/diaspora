@@ -6,22 +6,23 @@ module Diaspora
 
   class Exporter
 
-    SERIALIZED_VERSION = '1.0'
+    SERIALIZED_VERSION = "2.0".freeze
 
     def initialize(user)
       @user = user
     end
 
     def execute
-      @export ||= JSON.generate serialized_user.merge(version: SERIALIZED_VERSION)
+      JSON.generate full_archive
     end
 
     private
 
-    def serialized_user
-      @serialized_user ||= Export::UserSerializer.new(@user).as_json
+    def full_archive
+      {version: SERIALIZED_VERSION}
+        .merge(Export::UserSerializer.new(@user).as_json)
+        .merge(Export::OthersDataSerializer.new(@user).as_json)
     end
-
   end
 
 end

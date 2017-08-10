@@ -9,6 +9,10 @@ describe StatusMessage, type: :model do
   let!(:aspect) { user.aspects.first }
   let(:status) { build(:status_message) }
 
+  it_behaves_like "a shareable" do
+    let(:object) { status }
+  end
+
   describe "scopes" do
     describe ".where_person_is_mentioned" do
       it "returns status messages where the given person is mentioned" do

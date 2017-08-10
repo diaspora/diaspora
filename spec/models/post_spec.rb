@@ -174,6 +174,50 @@ describe Post, :type => :model do
         end
       end
     end
+
+    describe ".subscribed_by" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      context "when the user has a participation on a post" do
+        let(:post) { FactoryGirl.create(:status_message_with_participations, participants: [user]) }
+
+        it "includes the post to the result set" do
+          expect(Post.subscribed_by(user)).to eq([post])
+        end
+      end
+
+      context "when the user doens't have a participation on a post" do
+        before do
+          FactoryGirl.create(:status_message)
+        end
+
+        it "returns empty result set" do
+          expect(Post.subscribed_by(user)).to be_empty
+        end
+      end
+    end
+
+    describe ".reshared_by" do
+      let(:person) { FactoryGirl.create(:person) }
+
+      context "when the person has a reshare for a post" do
+        let(:post) { FactoryGirl.create(:reshare, author: person).root }
+
+        it "includes the post to the result set" do
+          expect(Post.reshared_by(person)).to eq([post])
+        end
+      end
+
+      context "when the person has no reshare for a post" do
+        before do
+          FactoryGirl.create(:status_message)
+        end
+
+        it "returns empty result set" do
+          expect(Post.reshared_by(person)).to be_empty
+        end
+      end
+    end
   end
 
   describe 'validations' do
