@@ -31,6 +31,7 @@ describe("Diaspora.MarkdownEditor", function() {
 
     it("call $.fn.markdown with correct default options", function() {
       spyOn($.fn, "markdown");
+      spyOn(autosize, "update");
       this.target.initialize(this.$el, {});
       expect($.fn.markdown).toHaveBeenCalled();
       var args = $.fn.markdown.calls.mostRecent().args[0];
@@ -40,6 +41,9 @@ describe("Diaspora.MarkdownEditor", function() {
       expect(args.onPostPreview).toBe($.noop);
       expect(args.fullscreen).toEqual({enable: false, icons: {}});
       expect(args.hiddenButtons).toEqual(["cmdPreview"]);
+
+      args.onChange({$textarea: "el"});
+      expect(autosize.update).toHaveBeenCalledWith("el");
     });
 
     it("overrides fullscreen, hiddenButtons, language and onShow options", function() {

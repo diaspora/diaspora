@@ -9,7 +9,8 @@ Diaspora.MarkdownEditor.prototype = {
     this.options = {
       resize: "none",
       onHidePreview: $.noop,
-      onPostPreview: $.noop
+      onPostPreview: $.noop,
+      onChange: function(e) { autosize.update(e.$textarea); }
     };
 
     $.extend(this.options, opts);
