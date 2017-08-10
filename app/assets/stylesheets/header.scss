@@ -25,7 +25,7 @@
   }
 
   .header-title {
-    margin-top: -7px;
+    margin: (($navbar-height - 32px - 2 * $navbar-padding-vertical) / 2) 0;
 
     img {
       height: 32px;
@@ -50,7 +50,7 @@
   }
 
   .nav-badge {
-    padding: 16px 12px;
+    padding: $navbar-padding-vertical 12px;
 
     .badge {
       position: absolute;
@@ -140,7 +140,11 @@
 
     .navbar-nav.hidden-xs {
       margin: 0;
-      margin-top: 6px;
+
+      a {
+        padding-bottom: $navbar-padding-vertical;
+        padding-top: $navbar-padding-vertical;
+      }
     }
 
     .nav-badge {
@@ -164,12 +168,20 @@
       width: 300px;
     }
 
+    .navbar-collapse {
+      padding-top: $navbar-padding-vertical / 2;
+
+      .navbar-nav {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+
     .user-menu-dropdown {
       background-color: transparent;
       border: 0;
       box-shadow: none;
       display: block;
-      margin-top: -8px; // To compensate parent ul margin
       padding: 0;
       position: static;
       width: 100%;
@@ -177,7 +189,7 @@
       a {
         color: $navbar-inverse-link-color;
         font-weight: bold;
-        padding: 10px 15px;
+        padding: $nav-link-padding;
 
         &:hover {
           background-color: $navbar-inverse-link-hover-bg;
@@ -189,9 +201,13 @@
 
   @media (min-width: $grid-float-breakpoint) {
 
+    .navbar-form { // set correct margin for small inputs
+      margin-bottom: ($navbar-height - $input-height-small) / 2;
+      margin-top: ($navbar-height - $input-height-small) / 2;
+    }
+
     [type="search"] {
       @include transition(width);
-      margin-top: 2px;
       width: 200px;
 
       &:not(.active) {
