@@ -410,23 +410,34 @@ describe("app.views.CommentStream", function(){
       submitCallback = jasmine.createSpy().and.returnValue(false);
     });
 
-    it("should not submit the form when enter key is pressed", function(){
+    it("should not submit the form without the ctrl or cmd keys", function() {
       this.view.render();
       var form = this.view.$("form");
       form.submit(submitCallback);
 
-      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: false });
+      var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false, metaKey: false});
       this.view.keyDownOnCommentBox(e);
 
       expect(submitCallback).not.toHaveBeenCalled();
     });
 
-    it("should submit the form when enter is pressed with ctrl", function(){
+    it("should submit the form when enter is pressed with ctrl", function() {
       this.view.render();
       var form = this.view.$("form");
       form.submit(submitCallback);
 
-      var e = $.Event("keydown", { which: Keycodes.ENTER, ctrlKey: true });
+      var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: true});
+      this.view.keyDownOnCommentBox(e);
+
+      expect(submitCallback).toHaveBeenCalled();
+    });
+
+    it("should submit the form when enter is pressed with cmd", function() {
+      this.view.render();
+      var form = this.view.$("form");
+      form.submit(submitCallback);
+
+      var e = $.Event("keydown", {which: Keycodes.ENTER, metaKey: true});
       this.view.keyDownOnCommentBox(e);
 
       expect(submitCallback).toHaveBeenCalled();
