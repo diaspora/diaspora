@@ -177,6 +177,5 @@ Feature: Notifications
     When I wait for notifications to load
     Then there should be 10 notifications loaded
     When I scroll down on the notifications dropdown
-    Then the notification dropdown should load more notifications
     When I wait for notifications to load
     Then there should be 15 notifications loaded
