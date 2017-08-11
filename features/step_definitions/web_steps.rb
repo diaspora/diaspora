@@ -93,6 +93,8 @@ When /^(?:|I )attach the file "([^"]*)" to (?:hidden )?"([^"]*)"(?: within "([^"
     page.execute_script("$(\"input[name='#{field}']\").css('opacity', '1');")
     attach_file(field, Rails.root.join(path).to_s)
   end
+  # wait for the image to be ready
+  page.assert_selector(".loading", count: 0)
 end
 
 Then /^(?:|I )should see (\".+?\"[\s]*)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars, selector|

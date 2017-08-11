@@ -33,7 +33,6 @@ function createUploader(){
         $("#fileInfo-publisher").text(fileName + " " + progress + "%");
       },
       onSubmit: function() {
-        $("#file-upload-publisher").addClass("loading");
         $("#publisher_textarea_wrapper").addClass("with_attachments");
         $("#photodropzone").append(
           "<li class='publisher_photo loading' style='position:relative;'>" +
