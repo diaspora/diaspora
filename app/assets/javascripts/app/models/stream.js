@@ -13,8 +13,16 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   collectionOptions :function(){
-      var order = this.sortOrder();
-      return { comparator : function(item) { return -item[order](); } };
+    var order = this.sortOrder();
+    return {
+      comparator: function(item1, item2) {
+        if (item1[order]() < item2[order]()) { return 1; }
+        if (item1[order]() > item2[order]()) { return -1; }
+        if (item1.id < item2.id) { return 1; }
+        if (item1.id > item2.id) { return -1; }
+        return 0;
+      }
+    };
   },
 
   url : function(){
