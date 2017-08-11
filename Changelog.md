@@ -26,6 +26,8 @@ If so, please delete it since it will prevent the federation from working proper
 * Move back to top to the right to avoid misclicks [#7516](https://github.com/diaspora/diaspora/pull/7516)
 * Include count in mobile post action link [#7520](https://github.com/diaspora/diaspora/pull/7520)
 * Update the user data export archive format [#6726](https://github.com/diaspora/diaspora/pull/6726)
+* Use id as fallback when sorting posts [#7523](https://github.com/diaspora/diaspora/pull/7523)
+* Remove no-posts-info when adding posts to the stream [#7523](https://github.com/diaspora/diaspora/pull/7523)
 
 ## Bug fixes
 

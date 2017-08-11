@@ -51,6 +51,12 @@ app.views.InfScroll = app.views.Base.extend({
     }
   },
 
+  postRenderTemplate: function() {
+    if (this.postViews.length > 0) {
+      this.$(".no-posts-info").closest(".stream-element").remove();
+    }
+  },
+
   showNoPostsInfo: function() {
     if (this.postViews.length === 0) {
       var noPostsInfo = new app.views.NoPostsInfo();
