@@ -476,7 +476,7 @@ en:
       only_sharing_q: "Who are the people listed under “Only sharing with me” on my contacts page?"
       only_sharing_a: "These are people that have added you to one of their aspects, but who are not (yet) in any of your aspects. In other words, they are sharing with you, but you are not sharing with them: you can think of this as them “following” you. If you add them to an aspect, they will then appear under that aspect and not under “Only sharing with me”. See above."
       list_not_sharing_q: "Is there a list of people whom I have added to one of my aspects, but who have not added me to one of theirs?"
-      list_not_sharing_a: "No, but you can see whether or not someone is sharing with you by visiting their profile page. If they are, the button showing the aspect(s) in which you have placed them will be green; if not, it’ll be gray."
+      list_not_sharing_a: "No, but you can see whether or not someone is sharing with you by visiting their profile page. If they are, there will be a green tick next to their diaspora* ID. If they are not, there will be a gray circle."
       see_old_posts_q: "When I add someone to an aspect, can they see older posts that I have already posted to that aspect?"
       see_old_posts_a: "No. They will only be able to see new posts to that aspect. They (and everyone else) can see your older public posts on your profile page, and they may also see them in their stream."
     tags:
@@ -486,7 +486,7 @@ en:
       tags_in_comments_q: "Can I put tags in comments or just in posts?"
       tags_in_comments_a: "A tag added to a comment will still appear as a link to that tag’s page, but it will not make that post (or comment) appear on that tag page. This only works for tags in posts."
       followed_tags_q: "What are “#Followed Tags” and how do I follow a tag?"
-      followed_tags_a: "After searching for a tag you can click the button at the top of the tag’s page to “follow” that tag. It will then appear in your list of followed tags in the left-hand menu. Clicking one of your followed tags takes you to that tag’s page so you can see recent posts containing that tag. Click on #Followed Tags to see a stream of posts that include any one of your followed tags."
+      followed_tags_a: "After searching for a tag you can click the button at the top of the tag’s page to “follow” that tag. It will then appear in your list of followed tags in the left-hand menu. Clicking one of your followed tags takes you to that tag’s page so you can see recent posts containing that tag. Click on #Followed Tags to see a stream of posts that include any one of your followed tags. Posts containing that tag will also be included in your main stream."
       people_tag_page_q: "Who are the people listed on the left-hand side of a tag page?"
       people_tag_page_a: "They are people who have listed that tag to describe themselves in their public profile."
       filter_tags_q: "How can I filter/exclude some tags from my stream?"
