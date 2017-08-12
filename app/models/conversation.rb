@@ -1,4 +1,4 @@
-class Conversation < ActiveRecord::Base
+class Conversation < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
   include Diaspora::Fields::Author

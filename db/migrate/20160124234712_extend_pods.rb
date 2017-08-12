@@ -1,5 +1,5 @@
-class ExtendPods < ActiveRecord::Migration
-  class Pod < ActiveRecord::Base
+class ExtendPods < ActiveRecord::Migration[4.2]
+  class Pod < ApplicationRecord
     has_many :people
 
     DEFAULT_PORTS = [URI::HTTP::DEFAULT_PORT, URI::HTTPS::DEFAULT_PORT]
@@ -18,7 +18,7 @@ class ExtendPods < ActiveRecord::Migration
     end
   end
 
-  class Person < ActiveRecord::Base
+  class Person < ApplicationRecord
     belongs_to :owner, class_name: "User"
     belongs_to :pod
 
@@ -27,7 +27,7 @@ class ExtendPods < ActiveRecord::Migration
     end
   end
 
-  class User < ActiveRecord::Base
+  class User < ApplicationRecord
     has_one :person, inverse_of: :owner, foreign_key: :owner_id
   end
 
@@ -52,7 +52,7 @@ class ExtendPods < ActiveRecord::Migration
     end
 
     # cleanup unused pods
-    Pod.joins("LEFT OUTER JOIN people ON pods.id = people.pod_id").delete_all("people.id is NULL")
+    Pod.joins("LEFT OUTER JOIN people ON pods.id = people.pod_id").where("people.id is NULL").delete_all
 
     remove_column :people, :url
   end

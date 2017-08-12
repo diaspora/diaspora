@@ -1,4 +1,4 @@
-class AddPhotosExportToUser < ActiveRecord::Migration
+class AddPhotosExportToUser < ActiveRecord::Migration[4.2]
   def up
     add_column :users, :exported_photos_file, :string
     add_column :users, :exported_photos_at, :datetime

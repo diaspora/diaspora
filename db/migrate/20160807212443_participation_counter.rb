@@ -1,18 +1,18 @@
-class ParticipationCounter < ActiveRecord::Migration
-  class Comment < ActiveRecord::Base
+class ParticipationCounter < ActiveRecord::Migration[4.2]
+  class Comment < ApplicationRecord
   end
 
-  class Like < ActiveRecord::Base
+  class Like < ApplicationRecord
   end
 
-  class Participation < ActiveRecord::Base
+  class Participation < ApplicationRecord
     belongs_to :author, class_name: "Person"
   end
 
-  class Poll < ActiveRecord::Base
+  class Poll < ApplicationRecord
   end
 
-  class PollParticipation < ActiveRecord::Base
+  class PollParticipation < ApplicationRecord
     belongs_to :poll
   end
 

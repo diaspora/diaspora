@@ -52,7 +52,7 @@ Capybara.default_max_wait_time = 30
 ActionController::Base.allow_rescue = false
 
 Cucumber::Rails::Database.autorun_database_cleaner = true
-Cucumber::Rails::World.use_transactional_fixtures = false
+Cucumber::Rails::World.use_transactional_tests = false
 
 require File.join(File.dirname(__FILE__), "integration_sessions_controller")
 require File.join(File.dirname(__FILE__), "poor_mans_webmock")

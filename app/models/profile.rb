@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Profile < ActiveRecord::Base
+class Profile < ApplicationRecord
   self.include_root_in_json = false
 
   include Diaspora::Federated::Base
@@ -104,10 +104,6 @@ class Profile < ActiveRecord::Base
     elsif %w(year month day).all? {|key| params[key].blank? }
       self.birthday = nil
     end
-  end
-
-  def formatted_birthday
-    birthday.to_s(:long).gsub(/, 100[0|4]/, "") if birthday.present?
   end
 
   def bio_message

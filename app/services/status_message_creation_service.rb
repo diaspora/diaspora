@@ -36,7 +36,8 @@ class StatusMessageCreationService
     if params[:poll_question].present?
       status_message.build_poll(question: params[:poll_question])
       [*params[:poll_answers]].each do |poll_answer|
-        status_message.poll.poll_answers.build(answer: poll_answer)
+        answer = status_message.poll.poll_answers.build(answer: poll_answer)
+        answer.poll = status_message.poll
       end
     end
   end

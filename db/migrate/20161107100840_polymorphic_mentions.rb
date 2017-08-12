@@ -1,4 +1,4 @@
-class PolymorphicMentions < ActiveRecord::Migration
+class PolymorphicMentions < ActiveRecord::Migration[4.2]
   def change
     remove_index :mentions, column: %i(post_id)
     remove_index :mentions, column: %i(person_id post_id), unique: true
@@ -17,10 +17,10 @@ class PolymorphicMentions < ActiveRecord::Migration
     reversible(&method(:up_down))
   end
 
-  class Mention < ActiveRecord::Base
+  class Mention < ApplicationRecord
   end
 
-  class Notification < ActiveRecord::Base
+  class Notification < ApplicationRecord
   end
 
   def up_down(change)

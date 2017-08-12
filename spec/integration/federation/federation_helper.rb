@@ -61,12 +61,12 @@ def post_message(payload, recipient=nil)
   if recipient
     inlined_jobs do
       headers = {"CONTENT_TYPE" => "application/json"}
-      post "/receive/users/#{recipient.guid}", payload, headers
+      post "/receive/users/#{recipient.guid}", params: payload, headers: headers
     end
   else
     inlined_jobs do
       headers = {"CONTENT_TYPE" => "application/magic-envelope+xml"}
-      post "/receive/public", payload, headers
+      post "/receive/public", params: payload, headers: headers
     end
   end
 end

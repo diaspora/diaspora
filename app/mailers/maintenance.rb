@@ -1,6 +1,4 @@
-class Maintenance < ActionMailer::Base
-  default :from => AppConfig.mail.sender_address
-
+class Maintenance < ApplicationMailer
   def account_removal_warning(user)
     @user = user
     @login_url  = new_user_session_url

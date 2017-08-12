@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   include Diaspora::Fields::Guid
 
   # NOTE API V1 to be extracted
@@ -44,8 +44,8 @@ class Person < ActiveRecord::Base
 
   has_many :roles
 
-  belongs_to :owner, :class_name => 'User'
-  belongs_to :pod
+  belongs_to :owner, class_name: "User", optional: true
+  belongs_to :pod, optional: true
 
   has_many :notification_actors
   has_many :notifications, :through => :notification_actors
@@ -100,10 +100,12 @@ class Person < ActiveRecord::Base
   # @return [Person::ActiveRecord_Relation]
   scope :find_by_substring, ->(search_str) {
     search_str.strip!
-    return none if search_str.blank? || search_str.size < 2
-
-    sql, tokens = search_query_string(search_str)
-    joins(:profile).where(sql, *tokens)
+    if search_str.blank? || search_str.size < 2
+      none
+    else
+      sql, tokens = search_query_string(search_str)
+      joins(:profile).where(sql, *tokens)
+    end
   }
 
   # Left joins likes and comments to a specific post where people are authors of these comments and likes

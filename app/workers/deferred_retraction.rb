@@ -10,7 +10,7 @@ module Workers
       user = User.find(user_id)
       subscribers = Person.where(id: recipient_ids)
       object = retraction_class.constantize.new(retraction_data.deep_symbolize_keys, subscribers)
-      opts = HashWithIndifferentAccess.new(opts)
+      opts = ActiveSupport::HashWithIndifferentAccess.new(opts)
 
       Diaspora::Federation::Dispatcher.build(user, object, opts).dispatch
     end

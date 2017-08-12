@@ -48,7 +48,7 @@ class ProfilesController < ApplicationController
     end
 
     respond_to do |format|
-      format.js { render :nothing => true, :status => 200 }
+      format.js { head :ok }
       format.any {
         if current_user.getting_started?
           redirect_to getting_started_path
@@ -77,6 +77,6 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :gender, :bio,
                                     :location, :searchable, :tag_string, :nsfw,
-                                    :public_details, date: %i(year month day)) || {}
+                                    :public_details, date: %i[year month day]).to_h || {}
   end
 end

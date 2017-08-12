@@ -193,7 +193,7 @@ describe StatusMessage, type: :model do
 
     it "should queue a GatherOembedData if it includes a link" do
       status_message
-      expect(Workers::GatherOEmbedData).to receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
+      expect(Workers::GatherOEmbedData).to receive(:perform_async).with(kind_of(Integer), instance_of(String))
       status_message.save
     end
 
@@ -214,7 +214,7 @@ describe StatusMessage, type: :model do
 
     it "should queue a GatherOpenGraphData if it includes a link" do
       status_message
-      expect(Workers::GatherOpenGraphData).to receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
+      expect(Workers::GatherOpenGraphData).to receive(:perform_async).with(kind_of(Integer), instance_of(String))
       status_message.save
     end
 

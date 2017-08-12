@@ -7,7 +7,7 @@ describe SearchController, :type => :controller do
 
   describe 'query is a person' do
     it 'goes to people index page' do
-      get :search, :q => 'eugene'
+      get :search, params: {q: "eugene"}
       expect(response).to be_redirect
     end
   end
@@ -15,17 +15,17 @@ describe SearchController, :type => :controller do
 
   describe 'query is a tag' do
     it 'goes to a tag page' do
-      get :search, :q => '#cats'
+      get :search, params: {q: "#cats"}
       expect(response).to redirect_to(tag_path('cats'))
     end
 
     it 'removes dots from the query' do
-      get :search, :q => '#cat.s'
+      get :search, params: {q: "#cat.s"}
       expect(response).to redirect_to(tag_path('cats'))
     end
 
     it 'stay on the page if you search for the empty hash' do
-      get :search, :q => '#'
+      get :search, params: {q: "#"}
       expect(flash[:error]).to be_present
     end
   end

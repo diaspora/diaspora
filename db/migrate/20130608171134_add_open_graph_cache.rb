@@ -1,4 +1,4 @@
-class AddOpenGraphCache < ActiveRecord::Migration
+class AddOpenGraphCache < ActiveRecord::Migration[4.2]
   def up
     create_table :open_graph_caches do |t|
       t.string :title

@@ -25,10 +25,6 @@ And "I scroll down on the notifications dropdown" do
   page.execute_script("$('.notifications').scrollTop(350)")
 end
 
-Then "the notification dropdown should load more notifications" do
-  expect(find("#notification-dropdown")).to have_css(".loading")
-end
-
 Then "the notification dropdown should be visible" do
   expect(find(:css, "#notification-dropdown")).to be_visible
 end

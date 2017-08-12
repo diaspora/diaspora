@@ -1,5 +1,5 @@
-class CreateSignatureTables < ActiveRecord::Migration
-  class SignatureOrder < ActiveRecord::Base
+class CreateSignatureTables < ActiveRecord::Migration[4.2]
+  class SignatureOrder < ApplicationRecord
   end
 
   RELAYABLES = %i(comment like poll_participation).freeze

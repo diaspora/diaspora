@@ -1,4 +1,4 @@
-class RemoveSignaturesFromRelayables < ActiveRecord::Migration
+class RemoveSignaturesFromRelayables < ActiveRecord::Migration[4.2]
   def change
     remove_column :comments, :parent_author_signature, :text
     remove_column :poll_participations, :parent_author_signature, :text

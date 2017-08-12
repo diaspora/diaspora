@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
   self.include_root_in_json = false
 
   include ApplicationHelper
@@ -24,8 +24,8 @@ class Post < ActiveRecord::Base
   has_many :reshares, class_name: "Reshare", foreign_key: :root_guid, primary_key: :guid
   has_many :resharers, class_name: "Person", through: :reshares, source: :author
 
-  belongs_to :o_embed_cache
-  belongs_to :open_graph_cache
+  belongs_to :o_embed_cache, optional: true
+  belongs_to :open_graph_cache, optional: true
 
   validates_uniqueness_of :id
 

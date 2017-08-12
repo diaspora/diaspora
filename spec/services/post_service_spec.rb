@@ -299,7 +299,7 @@ describe PostService do
           include_context "with a current user's friend"
 
           it "returns mention suggestions in the correct order" do
-            result = post_service.mentionable_in_comment(post.id, "Ro")
+            result = post_service.mentionable_in_comment(post.id, "Ro").to_a
             expect(result.size).to be > 7
             # participants: post author, comments, likers
             expect(result[0..4]).to eq([post_author, commenter1, commenter2, liker1, liker2])
@@ -396,8 +396,10 @@ describe PostService do
       end
 
       it "calls Person.limit" do
-        expect_any_instance_of(Person::ActiveRecord_Relation).to receive(:limit).with(15).and_call_original
-        post_service.mentionable_in_comment(post.id, "whatever")
+        16.times {
+          FactoryGirl.create(:comment, author: FactoryGirl.create(:person, first_name: "Ro#{r_str}"), post: post)
+        }
+        expect(post_service.mentionable_in_comment(post.id, "Ro").length).to eq(15)
       end
 
       it "contains a constraint on a current user" do

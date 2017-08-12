@@ -1,7 +1,7 @@
 describe ResharesController, :type => :controller do
   describe '#create' do
     let(:post_request!) {
-      post :create, :format => :json, :root_guid => @post_guid
+      post :create, params: {root_guid: @post_guid}, format: :json
     }
 
     before do
@@ -74,13 +74,13 @@ describe ResharesController, :type => :controller do
       it "returns a 404 for a post not visible to the user" do
         sign_in(eve, scope: :user)
         expect {
-          get :index, post_id: @post.id, format: :json
+          get :index, params: {post_id: @post.id}, format: :json
         }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
       it "returns an empty array for a post visible to the user" do
         sign_in(bob, scope: :user)
-        get :index, post_id: @post.id, format: :json
+        get :index, params: {post_id: @post.id}, format: :json
         expect(JSON.parse(response.body)).to eq([])
       end
     end
@@ -93,12 +93,12 @@ describe ResharesController, :type => :controller do
 
       it "returns an array of reshares for a post" do
         bob.reshare!(@post)
-        get :index, post_id: @post.id, format: :json
+        get :index, params: {post_id: @post.id}, format: :json
         expect(JSON.parse(response.body).map {|h| h["id"] }).to eq(@post.reshares.map(&:id))
       end
 
       it "returns an empty array for a post with no reshares" do
-        get :index, post_id: @post.id, format: :json
+        get :index, params: {post_id: @post.id}, format: :json
         expect(JSON.parse(response.body)).to eq([])
       end
     end

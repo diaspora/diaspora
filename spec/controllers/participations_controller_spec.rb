@@ -9,7 +9,7 @@ describe ParticipationsController, :type => :controller do
 
     shared_examples 'on a visible post' do
       it 'creates the participation' do
-        post :create, post_id: @post.id
+        post :create, params: {post_id: @post.id}
         expect(alice.participations.where(:target_id => @post.id)).to exist
         expect(response.code).to eq('201')
       end
@@ -47,7 +47,7 @@ describe ParticipationsController, :type => :controller do
       end
 
       it 'should not create the participation' do
-        post :create, post_id: @post.id
+        post :create, params: {post_id: @post.id}
         expect(alice.participations.where(:target_id => @post.id)).not_to exist
         expect(response.code).to eq('403')
       end
@@ -61,7 +61,7 @@ describe ParticipationsController, :type => :controller do
       before { alice.participate! post }
 
       it 'should remove participation' do
-        delete :destroy, post_id: post.id
+        delete :destroy, params: {post_id: post.id}
         expect(alice.participations.where(:target_id => post.id)).not_to exist
         expect(response.code).to eq('200')
       end
@@ -69,7 +69,7 @@ describe ParticipationsController, :type => :controller do
 
     context 'on a post you do not partecipate to' do
       it 'says it is an unprocessable request' do
-        delete :destroy, post_id: post.id
+        delete :destroy, params: {post_id: post.id}
         expect(response.code).to eq('422')
       end
     end

@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include AuthenticationToken
   include Connecting
   include Querying
@@ -51,8 +51,8 @@ class User < ActiveRecord::Base
 
   has_many :aspects, -> { order('order_id ASC') }
 
-  belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
-  belongs_to :invited_by, :class_name => 'User'
+  belongs_to :auto_follow_back_aspect, class_name: "Aspect", optional: true
+  belongs_to :invited_by, class_name: "User", optional: true
 
   has_many :aspect_memberships, :through => :aspects
 
@@ -473,14 +473,17 @@ class User < ActiveRecord::Base
   def guard_unconfirmed_email
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
 
-    if unconfirmed_email_changed?
-      self.confirm_email_token = unconfirmed_email ? SecureRandom.hex(15) : nil
-    end
+    return unless will_save_change_to_unconfirmed_email?
+
+    self.confirm_email_token = unconfirmed_email ? SecureRandom.hex(15) : nil
   end
 
   # Whenever email is set, clear all unconfirmed emails which match
   def remove_invalid_unconfirmed_emails
-    User.where(unconfirmed_email: email).update_all(unconfirmed_email: nil, confirm_email_token: nil) if email_changed?
+    return unless saved_change_to_email?
+    # rubocop:disable Rails/SkipsModelValidations
+    User.where(unconfirmed_email: email).update_all(unconfirmed_email: nil, confirm_email_token: nil)
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   # Generate public/private keys for User and associated Person

@@ -1,4 +1,4 @@
-class EnableColorThemes < ActiveRecord::Migration
+class EnableColorThemes < ActiveRecord::Migration[4.2]
   def up
     add_column(:users, :color_theme, :string)
   end

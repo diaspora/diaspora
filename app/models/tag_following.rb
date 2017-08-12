@@ -1,4 +1,4 @@
-class TagFollowing < ActiveRecord::Base
+class TagFollowing < ApplicationRecord
   belongs_to :user
   belongs_to :tag, :class_name => "ActsAsTaggableOn::Tag"
 

@@ -1,4 +1,4 @@
-class Message < ActiveRecord::Base
+class Message < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
   include Diaspora::Fields::Author
@@ -7,7 +7,6 @@ class Message < ActiveRecord::Base
 
   delegate :name, to: :author, prefix: true
 
-  validates :conversation, presence: true
   validates :text, presence: true
   validate :participant_of_parent_conversation
 

@@ -95,7 +95,9 @@ module PublishingCukeHelpers
 
   def like_stream_post(post_text)
     within_post(post_text) do
-      find(:css, 'a.like').click
+      action = find(:css, "a.like").text
+      find(:css, "a.like").click
+      expect(find(:css, "a.like")).not_to have_text(action)
     end
   end
 

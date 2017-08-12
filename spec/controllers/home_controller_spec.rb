@@ -40,7 +40,7 @@ describe HomeController, type: :controller do
 
     it "redirects to the stream if the user is signed in" do
       sign_in alice
-      get :show, home: true
+      get :show
       expect(response).to redirect_to(stream_path)
     end
   end

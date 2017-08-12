@@ -58,6 +58,7 @@ Feature: new user registration
       | profile_first_name | some name        |
     And I fill in "tags" with "#rockstar"
     And I press the first ".as-result-item" within "#as-results-tags"
+    And I wait until ajax requests finished
     And I follow "awesome_button"
     Then I should be on the stream page
     And the publisher should be expanded

@@ -142,6 +142,7 @@ describe Pod, type: :model do
     before do
       @pod = FactoryGirl.create(:pod)
       @result = double("result")
+      @now = Time.zone.now
 
       allow(@result).to receive(:rt) { 123 }
       allow(@result).to receive(:software_version) { "diaspora a.b.c.d" }
@@ -158,7 +159,7 @@ describe Pod, type: :model do
       expect(@pod.status).to eq("no_errors")
       expect(@pod.offline?).to be_falsy
       expect(@pod.response_time).to eq(123)
-      expect(@pod.checked_at).to be_within(1.second).of Time.zone.now
+      expect(@pod.checked_at).to be_within(1.second).of @now
     end
 
     it "resets the scheduled_check flag" do
@@ -177,7 +178,7 @@ describe Pod, type: :model do
       @pod.test_connection!
 
       expect(@pod.offline?).to be_truthy
-      expect(@pod.offline_since).to be_within(1.second).of Time.zone.now
+      expect(@pod.offline_since).to be_within(1.second).of @now
     end
 
     it "preserves the original offline timestamp" do
@@ -185,13 +186,12 @@ describe Pod, type: :model do
       expect(@result).to receive(:error).at_least(:once) { ConnectionTester::NetFailure.new }
       @pod.test_connection!
 
-      now = Time.zone.now
-      expect(@pod.offline_since).to be_within(1.second).of now
+      expect(@pod.offline_since).to be_within(1.second).of @now
 
       Timecop.travel(Time.zone.today + 30.days) do
         @pod.test_connection!
-        expect(@pod.offline_since).to be_within(1.second).of now
-        expect(Time.zone.now).to be_within(1.day).of(now + 30.days)
+        expect(@pod.offline_since).to be_within(1.second).of @now
+        expect(Time.zone.now).to be_within(1.day).of(@now + 30.days)
       end
     end
   end
@@ -215,19 +215,22 @@ describe Pod, type: :model do
     end
 
     it "handles a failed status" do
+      now = Time.zone.now
+
       pod.status = :unknown_error
       pod.update_offline_since
 
       expect(pod.offline?).to be_truthy
-      expect(pod.offline_since).to be_within(1.second).of Time.zone.now
+      expect(pod.offline_since).to be_within(1.second).of now
     end
 
     it "preserves the original offline timestamp" do
+      now = Time.zone.now
+
       pod.status = :unknown_error
       pod.update_offline_since
       pod.save
 
-      now = Time.zone.now
       expect(pod.offline_since).to be_within(1.second).of now
 
       Timecop.travel(Time.zone.today + 30.days) do

@@ -1,5 +1,5 @@
-class MigrateActivityStreamToStatusMessage < ActiveRecord::Migration
-  class Post < ActiveRecord::Base; self.inheritance_column = false; end
+class MigrateActivityStreamToStatusMessage < ActiveRecord::Migration[4.2]
+  class Post < ApplicationRecord; self.inheritance_column = false; end
   def up
     posts_stream_photos = Post.where(type: 'ActivityStreams::Photo')
     posts_stream_photos.each do |p|

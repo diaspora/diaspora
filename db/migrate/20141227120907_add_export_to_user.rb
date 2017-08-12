@@ -1,4 +1,4 @@
-class AddExportToUser < ActiveRecord::Migration
+class AddExportToUser < ActiveRecord::Migration[4.2]
   def change
     add_column :users, :export, :string
     add_column :users, :exported_at, :datetime

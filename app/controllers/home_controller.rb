@@ -33,7 +33,7 @@ class HomeController < ApplicationController
   def toggle_mobile
     session[:mobile_view] = session[:mobile_view].nil? ? true : !session[:mobile_view]
 
-    redirect_to :back
+    redirect_back fallback_location: root_path
   end
 
   def force_mobile

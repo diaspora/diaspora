@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class AccountDeletion < ActiveRecord::Base
+class AccountDeletion < ApplicationRecord
   include Diaspora::Federated::Base
 
   scope :uncompleted, -> { where('completed_at is null') }

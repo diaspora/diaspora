@@ -18,7 +18,7 @@ describe LikesController, type: :controller do
     context "on my own post" do
       it "succeeds" do
         @target = alice.post :status_message, text: "AWESOME", to: @alices_aspect.id
-        post :create, like_hash.merge(format: :json)
+        post :create, params: like_hash, format: :json
         expect(response.code).to eq("201")
       end
     end
@@ -29,13 +29,13 @@ describe LikesController, type: :controller do
       end
 
       it "likes" do
-        post :create, like_hash
+        post :create, params: like_hash
         expect(response.code).to eq("201")
       end
 
       it "doesn't post multiple times" do
         alice.like!(@target)
-        post :create, like_hash
+        post :create, params: like_hash
         expect(response.code).to eq("422")
       end
     end
@@ -47,7 +47,7 @@ describe LikesController, type: :controller do
 
       it "doesn't post" do
         expect(alice).not_to receive(:like!)
-        post :create, like_hash
+        post :create, params: like_hash
         expect(response.code).to eq("422")
       end
     end
@@ -58,8 +58,7 @@ describe LikesController, type: :controller do
       end
 
       it "should be catched when it means that the target is not found" do
-        params = like_hash.merge(format: :json, post_id: -1)
-        post :create, params
+        post :create, params: {post_id: -1}, format: :json
         expect(response.code).to eq("422")
       end
 
@@ -67,7 +66,7 @@ describe LikesController, type: :controller do
         @target = alice.post :status_message, text: "AWESOME", to: @alices_aspect.id
         allow(alice).to receive(:like!).and_raise("something")
         allow(@controller).to receive(:current_user).and_return(alice)
-        expect { post :create, like_hash.merge(format: :json) }.to raise_error("something")
+        expect { post :create, params: like_hash, format: :json }.to raise_error("something")
       end
     end
   end
@@ -80,18 +79,18 @@ describe LikesController, type: :controller do
     it "returns a 404 for a post not visible to the user" do
       sign_in eve
       expect {
-        get :index, post_id: @message.id
+        get :index, params: {post_id: @message.id}
       }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it "returns an array of likes for a post" do
       bob.like!(@message)
-      get :index, post_id: @message.id
+      get :index, params: {post_id: @message.id}
       expect(JSON.parse(response.body).map {|h| h["id"] }).to match_array(@message.likes.map(&:id))
     end
 
     it "returns an empty array for a post with no likes" do
-      get :index, post_id: @message.id
+      get :index, params: {post_id: @message.id}
       expect(JSON.parse(response.body).map(&:id)).to eq([])
     end
   end
@@ -106,7 +105,7 @@ describe LikesController, type: :controller do
       current_user = controller.send(:current_user)
       expect(current_user).to receive(:retract).with(@like)
 
-      delete :destroy, format: :json, post_id: @message.id, id: @like.id
+      delete :destroy, params: {post_id: @message.id, id: @like.id}, format: :json
       expect(response.status).to eq(204)
     end
 
@@ -114,7 +113,7 @@ describe LikesController, type: :controller do
       like2 = eve.like!(@message)
       like_count = Like.count
 
-      delete :destroy, format: :json, post_id: @message.id, id: like2.id
+      delete :destroy, params: {post_id: @message.id, id: like2.id}, format: :json
       expect(response.status).to eq(404)
       expect(response.body).to eq(I18n.t("likes.destroy.error"))
       expect(Like.count).to eq(like_count)

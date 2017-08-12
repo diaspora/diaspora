@@ -1,8 +1,8 @@
-class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
-  class InvitationCode < ActiveRecord::Base
+class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration[4.2]
+  class InvitationCode < ApplicationRecord
   end
 
-  class User < ActiveRecord::Base
+  class User < ApplicationRecord
   end
 
   def change
@@ -34,7 +34,7 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
         InvitationCode.where("count < 0").update_all(count: new_counter)
 
         # remove old invitation-users
-        User.delete_all(username: nil)
+        User.where(username: nil).delete_all
         change_column :users, :username, :string, null: false
       end
 
@@ -47,7 +47,7 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
   end
 
   def create_invitations_table
-    # rubocop:disable Style/ExtraSpacing
+    # rubocop:disable Layout/ExtraSpacing
     create_table :invitations, force: :cascade do |t|
       t.text     :message,      limit: 65_535
       t.integer  :sender_id,    limit: 4
@@ -60,7 +60,7 @@ class CleanupInvitationColumnsFromUsers < ActiveRecord::Migration
       t.boolean  :admin,                      default: false
       t.string   :language,     limit: 255,   default: "en"
     end
-    # rubocop:enable Style/ExtraSpacing
+    # rubocop:enable Layout/ExtraSpacing
 
     add_index :invitations, :aspect_id, name: :index_invitations_on_aspect_id, using: :btree
     add_index :invitations, :recipient_id, name: :index_invitations_on_recipient_id, using: :btree

@@ -28,6 +28,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Update the user data export archive format [#6726](https://github.com/diaspora/diaspora/pull/6726)
 * Use id as fallback when sorting posts [#7523](https://github.com/diaspora/diaspora/pull/7523)
 * Remove no-posts-info when adding posts to the stream [#7523](https://github.com/diaspora/diaspora/pull/7523)
+* Upgrade to rails 5.1 [#7514](https://github.com/diaspora/diaspora/pull/7514)
 
 ## Bug fixes
 

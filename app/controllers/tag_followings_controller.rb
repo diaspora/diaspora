@@ -15,7 +15,7 @@ class TagFollowingsController < ApplicationController
     name_normalized = ActsAsTaggableOn::Tag.normalize(params['name'])
 
     if name_normalized.nil? || name_normalized.empty?
-      render :nothing => true, :status => 403
+      head :forbidden
     else
       @tag = ActsAsTaggableOn::Tag.find_or_create_by(name: name_normalized)
       @tag_following = current_user.tag_followings.new(:tag_id => @tag.id)
@@ -23,7 +23,7 @@ class TagFollowingsController < ApplicationController
       if @tag_following.save
         render :json => @tag.to_json, :status => 201
       else
-        render :nothing => true, :status => 403
+        head :forbidden
       end
     end
   end
@@ -35,11 +35,11 @@ class TagFollowingsController < ApplicationController
 
     if tag_following && tag_following.destroy
       respond_to do |format|
-        format.any(:js, :json) { render :nothing => true, :status => 204 }
+        format.any(:js, :json) { head :no_content }
       end
     else
       respond_to do |format|
-        format.any(:js, :json) {render :nothing => true, :status => 403}
+        format.any(:js, :json) { head :forbidden }
       end
     end
   end

@@ -39,7 +39,7 @@ class ConversationsController < ApplicationController
     end
 
     unless person_ids.present?
-      render text: I18n.t("javascripts.conversation.create.no_recipient"), status: 422
+      render plain: I18n.t("javascripts.conversation.create.no_recipient"), status: 422
       return
     end
 
@@ -53,7 +53,7 @@ class ConversationsController < ApplicationController
       flash[:notice] = I18n.t("conversations.create.sent")
       render json: {id: @conversation.id}
     else
-      render text: I18n.t("conversations.create.fail"), status: 422
+      render plain: I18n.t("conversations.create.fail"), status: 422
     end
   end
 
@@ -82,7 +82,7 @@ class ConversationsController < ApplicationController
       @conversation.set_read(current_user)
       render partial: "conversations/show", locals: {conversation: @conversation}
     else
-      render nothing: true, status: 404
+      head :not_found
     end
   end
 

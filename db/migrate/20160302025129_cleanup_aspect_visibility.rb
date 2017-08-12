@@ -1,16 +1,16 @@
-class CleanupAspectVisibility < ActiveRecord::Migration
-  class AspectVisibility < ActiveRecord::Base
+class CleanupAspectVisibility < ActiveRecord::Migration[4.2]
+  class AspectVisibility < ApplicationRecord
   end
 
   def up
     AspectVisibility.joins("LEFT OUTER JOIN posts ON posts.id = aspect_visibilities.shareable_id")
-      .where(shareable_type: "Post").delete_all("posts.id is NULL")
+                    .where(shareable_type: "Post").where("posts.id is NULL").delete_all
     AspectVisibility.joins("LEFT OUTER JOIN photos ON photos.id = aspect_visibilities.shareable_id")
-      .where(shareable_type: "Photo").delete_all("photos.id is NULL")
+                    .where(shareable_type: "Photo").where("photos.id is NULL").delete_all
     AspectVisibility.joins("INNER JOIN posts ON posts.id = aspect_visibilities.shareable_id")
-      .where(shareable_type: "Post").delete_all(posts: {public: true})
+                    .where(shareable_type: "Post").where(posts: {public: true}).delete_all
     AspectVisibility.joins("INNER JOIN photos ON photos.id = aspect_visibilities.shareable_id")
-      .where(shareable_type: "Photo").delete_all(photos: {public: true})
+                    .where(shareable_type: "Photo").where(photos: {public: true}).delete_all
 
     remove_columns :aspect_visibilities, :created_at, :updated_at
   end

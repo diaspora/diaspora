@@ -4,7 +4,7 @@ module Diaspora
       extend Diaspora::Logging
 
       def self.perform(entity)
-        public_send(Mappings.receiver_for(entity.class), entity)
+        public_send(Mappings.receiver_for(entity), entity)
       end
 
       def self.account_deletion(entity)
@@ -212,7 +212,8 @@ module Diaspora
           poll.poll_answers = entity.poll_answers.map do |answer|
             PollAnswer.new(
               guid:   answer.guid,
-              answer: answer.answer
+              answer: answer.answer,
+              poll:   poll
             )
           end
         end

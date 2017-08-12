@@ -1,4 +1,4 @@
-class UserPrefStripExif < ActiveRecord::Migration
+class UserPrefStripExif < ActiveRecord::Migration[4.2]
   def up
     add_column :users, :strip_exif, :boolean, default: true
   end

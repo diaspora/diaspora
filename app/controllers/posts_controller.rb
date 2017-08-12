@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   rescue_from Diaspora::NotMine do
-    render text: I18n.t("posts.show.forbidden"), status: 403
+    render plain: I18n.t("posts.show.forbidden"), status: 403
   end
 
   def show
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     oembed = params.slice(:format, :maxheight, :minheight)
     render json: OEmbedPresenter.new(post, oembed)
   rescue
-    render nothing: true, status: 404
+    head :not_found
   end
 
   def interactions
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
         post = post_service.find!(params[:id])
         render json: PostInteractionPresenter.new(post, current_user)
       }
-      format.any { render nothing: true, status: 406 }
+      format.any { head :not_acceptable }
     end
   end
 
@@ -55,19 +55,19 @@ class PostsController < ApplicationController
         if params[:id].present? && params[:q].present?
           render json: post_service.mentionable_in_comment(params[:id], params[:q])
         else
-          render nothing: true, status: 204
+          head :no_content
         end
       }
-      format.any { render nothing: true, status: 406 }
+      format.any { head :not_acceptable }
     end
   rescue ActiveRecord::RecordNotFound
-    render nothing: true, status: 404
+    head :not_found
   end
 
   def destroy
     post_service.destroy(params[:id])
     respond_to do |format|
-      format.json { render nothing: true, status: 204 }
+      format.json { head :no_content }
       format.any { redirect_to stream_path }
     end
   end

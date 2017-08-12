@@ -25,7 +25,7 @@ require "digest"
 
 module Api
   module OpenidConnect
-    class OAuthApplication < ActiveRecord::Base
+    class OAuthApplication < ApplicationRecord
       has_many :authorizations, dependent: :destroy
       has_many :user, through: :authorizations
 

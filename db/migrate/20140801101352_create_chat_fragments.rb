@@ -1,4 +1,4 @@
-class CreateChatFragments < ActiveRecord::Migration
+class CreateChatFragments < ActiveRecord::Migration[4.2]
   def up
     create_table :chat_fragments do |t|
       t.integer :user_id, null: false

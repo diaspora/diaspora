@@ -65,12 +65,12 @@ describe Post, :type => :model do
 
       it 'calls includes_for_a_stream' do
         expect(Post).to receive(:includes_for_a_stream)
-        Post.for_a_stream(double, double)
+        Post.for_a_stream(Time.zone.now, "created_at")
       end
 
       it 'calls excluding_blocks if a user is present' do
         expect(Post).to receive(:excluding_blocks).with(alice).and_return(Post)
-        Post.for_a_stream(double, double, alice)
+        Post.for_a_stream(Time.zone.now, "created_at", alice)
       end
     end
 
@@ -168,7 +168,7 @@ describe Post, :type => :model do
           it "returns them in reverse creation order" do
             posts = Post.for_visible_shareable_sql(Time.now + 1, "created_at")
             expect(posts.first.text).to eq("second")
-            expect(posts.at(1).text).to eq("first")
+            expect(posts.second.text).to eq("first")
             expect(posts.last.text).to eq("alice - 5")
           end
         end

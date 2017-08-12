@@ -1,4 +1,4 @@
-class FixDefaultImageUrlFromProfile < ActiveRecord::Migration
+class FixDefaultImageUrlFromProfile < ActiveRecord::Migration[4.2]
   def up
     execute("UPDATE profiles SET image_url = REPLACE(image_url, 'images', 'assets'), image_url_small = REPLACE(image_url_small, 'images', 'assets'), image_url_medium = REPLACE(image_url_medium, 'images', 'assets') WHERE image_url LIKE '%images/user/default.png';")
   end

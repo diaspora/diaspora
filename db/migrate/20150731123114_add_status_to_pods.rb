@@ -1,4 +1,4 @@
-class AddStatusToPods < ActiveRecord::Migration
+class AddStatusToPods < ActiveRecord::Migration[4.2]
   def change
     add_column :pods, :status, :integer, default: 0
     add_column :pods, :checked_at, :datetime, default: Time.zone.at(0)

@@ -1,4 +1,4 @@
-class DeviseAddLastseenableUser < ActiveRecord::Migration
+class DeviseAddLastseenableUser < ActiveRecord::Migration[4.2]
   def self.up
     add_column :users, :last_seen, :datetime
     User.find_each do |user|

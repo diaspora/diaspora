@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.9"
+gem "rails", "5.1.3"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -90,7 +90,7 @@ gem "entypo-rails", "3.0.0"
 gem "handlebars_assets", "0.23.2"
 gem "jquery-rails",      "4.3.1"
 gem "js-routes",         "1.3.3"
-gem "js_image_paths",    "0.1.0"
+gem "js_image_paths",    "0.1.1"
 
 source "https://rails-assets.org" do
   gem "rails-assets-jquery",                              "3.2.1" # Should be kept in sync with jquery-rails
@@ -124,7 +124,7 @@ end
 
 gem "http_accept_language", "2.1.1"
 gem "i18n-inflector-rails", "1.0.7"
-gem "rails-i18n",           "4.0.9"
+gem "rails-i18n",           "5.0.4"
 
 # Mail
 
@@ -185,7 +185,7 @@ gem "typhoeus",           "1.1.2"
 
 gem "gon",                     "6.1.0"
 gem "hamlit",                  "2.8.4"
-gem "mobile-fu",               "1.3.1"
+gem "mobile_fu",               "1.4.0"
 gem "rails-timeago",           "2.16.0"
 gem "will_paginate",           "3.1.6"
 
@@ -280,7 +280,6 @@ group :test do
   gem "fuubar",            "2.2.0"
   gem "json-schema-rspec", "0.0.4"
   gem "rspec-json_expectations", "~> 2.1"
-  gem "test_after_commit", "1.1.0"
 
   # Cucumber (integration tests)
 
@@ -315,4 +314,7 @@ group :development, :test do
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "3.3.1", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.15.0"
+
+  # For `assigns` in controller specs
+  gem "rails-controller-testing", "1.0.2"
 end

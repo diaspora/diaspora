@@ -1,4 +1,4 @@
-class RemoveLimitFromRootGuidInPosts < ActiveRecord::Migration
+class RemoveLimitFromRootGuidInPosts < ActiveRecord::Migration[4.2]
   def up
     remove_index 'posts', :name => 'index_posts_on_root_guid'
     remove_index 'posts', :name => 'index_posts_on_author_id_and_root_guid'

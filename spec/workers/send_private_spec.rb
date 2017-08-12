@@ -23,7 +23,7 @@ describe Workers::SendPrivate do
       sender_id, obj_str, targets
     ).and_return(failing_targets)
     expect(Workers::SendPrivate).to receive(:perform_in).with(
-      kind_of(Fixnum), sender_id, obj_str, failing_targets, 1
+      kind_of(Integer), sender_id, obj_str, failing_targets, 1
     )
 
     Workers::SendPrivate.new.perform(sender_id, obj_str, targets)

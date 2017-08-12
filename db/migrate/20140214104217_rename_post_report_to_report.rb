@@ -1,4 +1,4 @@
-class RenamePostReportToReport < ActiveRecord::Migration
+class RenamePostReportToReport < ActiveRecord::Migration[4.2]
   def self.up
     rename_table :post_reports, :reports
   end

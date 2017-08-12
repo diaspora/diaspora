@@ -16,7 +16,7 @@ describe PostsController, type: :controller do
         it "succeeds" do
           expect_any_instance_of(PostService).to receive(:mark_user_notifications).with(post.id)
 
-          get :show, id: post.id
+          get :show, params: {id: post.id}
           expect(response).to be_success
         end
 
@@ -29,12 +29,12 @@ describe PostsController, type: :controller do
           expect(msg.mentioned_people.count).to eq(1)
           user.destroy
 
-          get :show, id: msg.id
+          get :show, params: {id: msg.id}
           expect(response).to be_success
         end
 
         it "renders the application layout on mobile" do
-          get :show, id: post.id, format: :mobile
+          get :show, params: {id: post.id}, format: :mobile
           expect(response).to render_template("layouts/application")
         end
 
@@ -42,7 +42,7 @@ describe PostsController, type: :controller do
           reshare_id = FactoryGirl.create(:reshare, author: alice.person).id
           expect_any_instance_of(PostService).to receive(:mark_user_notifications).with(reshare_id)
 
-          get :show, id: reshare_id, format: :mobile
+          get :show, params: {id: reshare_id}, format: :mobile
           expect(response).to be_success
         end
       end
@@ -54,7 +54,7 @@ describe PostsController, type: :controller do
 
         it "returns a 404" do
           expect {
-            get :show, id: post.id
+            get :show, params: {id: post.id}
           }.to raise_error ActiveRecord::RecordNotFound
         end
       end
@@ -66,13 +66,13 @@ describe PostsController, type: :controller do
         let(:public_with_tags) { alice.post(:status_message, text: "#hi #howareyou", public: true) }
 
         it "shows a public post" do
-          get :show, id: public.id
+          get :show, params: {id: public.id}
           expect(response.body).to match "hello"
         end
 
         it "succeeds for statusnet" do
           @request.env["HTTP_ACCEPT"] = "application/html+xml,text/html"
-          get :show, id: public.id
+          get :show, params: {id: public.id}
           expect(response.body).to match "hello"
         end
 
@@ -88,7 +88,7 @@ describe PostsController, type: :controller do
             author_name:            {html_attribute: "property", name: "og:article:author"}
           }
 
-          get :show, id: public.id, format: :html
+          get :show, params: {id: public.id}, format: :html
 
           methods_properties.each do |method, property|
             value = presenter.send(method)
@@ -99,7 +99,7 @@ describe PostsController, type: :controller do
         end
 
         it "includes the correct multiple meta tags" do
-          get :show, id: public_with_tags.id, format: :html
+          get :show, params: {id: public_with_tags.id}, format: :html
 
           expect(response.body).to include('<meta property="og:article:tag" content="hi" />')
           expect(response.body).to include('<meta property="og:article:tag" content="howareyou" />')
@@ -108,7 +108,7 @@ describe PostsController, type: :controller do
 
       context "given a limited post" do
         it "forces the user to sign" do
-          get :show, id: post.id
+          get :show, params: {id: post.id}
           expect(response).to be_redirect
           expect(response).to redirect_to new_user_session_path
         end
@@ -119,12 +119,12 @@ describe PostsController, type: :controller do
   describe "oembed" do
     it "works when you can see it" do
       sign_in alice
-      get :oembed, url: "/posts/#{post.id}"
+      get :oembed, params: {url: "/posts/#{post.id}"}
       expect(response.body).to match /iframe/
     end
 
     it "returns a 404 response when the post is not found" do
-      get :oembed, url: "/posts/#{post.id}"
+      get :oembed, params: {url: "/posts/#{post.id}"}
       expect(response.status).to eq(404)
     end
   end
@@ -132,13 +132,13 @@ describe PostsController, type: :controller do
   describe "#interactions" do
     context "user not signed in" do
       it "returns a 401 for private posts and format json" do
-        get :interactions, id: post.id, format: :json
+        get :interactions, params: {id: post.id}, format: :json
         expect(response.status).to eq(401)
         expect(JSON.parse(response.body)["error"]).to eq(I18n.t("devise.failure.unauthenticated"))
       end
 
       it "returns a 406 for private posts and format html" do
-        get :interactions, id: post.id
+        get :interactions, params: {id: post.id}
         expect(response.status).to eq(406)
       end
     end
@@ -149,13 +149,13 @@ describe PostsController, type: :controller do
       end
 
       it "shows interactions of a post as json" do
-        get :interactions, id: post.id, format: :json
+        get :interactions, params: {id: post.id}, format: :json
         expect(response.body).to eq(PostInteractionPresenter.new(post, alice).to_json)
       end
 
       it "returns a 406 for format html" do
         sign_in alice
-        get :interactions, id: post.id
+        get :interactions, params: {id: post.id}
         expect(response.status).to eq(406)
       end
     end
@@ -168,12 +168,12 @@ describe PostsController, type: :controller do
       end
 
       it "returns status 204 without a :q parameter" do
-        get :mentionable, id: post.id, format: :json
+        get :mentionable, params: {id: post.id}, format: :json
         expect(response.status).to eq(204)
       end
 
       it "responses status 406 (not acceptable) on html request" do
-        get :mentionable, id: post.id, q: "whatever", format: :html
+        get :mentionable, params: {id: post.id, q: "whatever"}, format: :html
         expect(response.status).to eq(406)
       end
 
@@ -181,13 +181,13 @@ describe PostsController, type: :controller do
         expect(post_service).to receive(:find!) do
           raise ActiveRecord::RecordNotFound
         end
-        get :mentionable, id: post.id, q: "whatever", format: :json
+        get :mentionable, params: {id: post.id, q: "whatever"}, format: :json
         expect(response.status).to eq(404)
       end
 
       it "calls PostService#mentionable_in_comment and passes the result as a response" do
         expect(post_service).to receive(:mentionable_in_comment).with(post.id.to_s, "whatever").and_return([bob.person])
-        get :mentionable, id: post.id, q: "whatever", format: :json
+        get :mentionable, params: {id: post.id, q: "whatever"}, format: :json
         expect(response.status).to eq(200)
         expect(response.body).to eq([bob.person].to_json)
       end
@@ -196,7 +196,7 @@ describe PostsController, type: :controller do
     context "without a user signed in" do
       it "returns 401" do
         allow(post_service).to receive(:mentionable_in_comment).and_return([])
-        get :mentionable, id: post.id, q: "whatever", format: :json
+        get :mentionable, params: {id: post.id, q: "whatever"}, format: :json
         expect(response.status).to eq(401)
         expect(JSON.parse(response.body)["error"]).to eq(I18n.t("devise.failure.unauthenticated"))
       end
@@ -212,12 +212,12 @@ describe PostsController, type: :controller do
       it "works when it is your post" do
         expect_any_instance_of(PostService).to receive(:destroy).with(post.id.to_s)
 
-        delete :destroy, format: :json, id: post.id
+        delete :destroy, params: {id: post.id}, format: :json
         expect(response.status).to eq(204)
       end
 
       it "redirects to stream on mobile" do
-        delete :destroy, format: :mobile, id: post.id
+        delete :destroy, params: {id: post.id}, format: :mobile
         expect(response).to be_redirect
         expect(response).to redirect_to stream_path
       end
@@ -227,7 +227,7 @@ describe PostsController, type: :controller do
       it "will respond with a 403" do
         sign_in bob, scope: :user
 
-        delete :destroy, format: :json, id: post.id
+        delete :destroy, params: {id: post.id}, format: :json
         expect(response.body).to eq("You are not allowed to do that")
         expect(response.status).to eq(403)
       end
@@ -236,7 +236,7 @@ describe PostsController, type: :controller do
         sign_in eve, scope: :user
 
         expect {
-          delete :destroy, format: :json, id: post.id
+          delete :destroy, params: {id: post.id}, format: :json
         }.to raise_error ActiveRecord::RecordNotFound
       end
     end

@@ -14,13 +14,13 @@ describe ShareVisibilitiesController, :type => :controller do
       end
 
       it 'succeeds' do
-        put :update, :format => :js, :id => 42, :post_id => @status.id
+        put :update, params: {id: 42, post_id: @status.id}, format: :js
         expect(response).to be_success
       end
 
       it 'it calls toggle_hidden_shareable' do
         expect(@controller.current_user).to receive(:toggle_hidden_shareable).with(an_instance_of(StatusMessage))
-        put :update, :format => :js, :id => 42, :post_id => @status.id
+        put :update, params: {id: 42, post_id: @status.id}, format: :js
       end
     end
 
@@ -31,14 +31,14 @@ describe ShareVisibilitiesController, :type => :controller do
 
       it "raises an error" do
         expect {
-          put :update, format: :js, id: 42, post_id: @status.id
+          put :update, params: {id: 42, post_id: @status.id}, format: :js
         }.to raise_error ActiveRecord::RecordNotFound
       end
 
       it "it doesn't call toggle_hidden_shareable" do
         expect(@controller.current_user).not_to receive(:toggle_hidden_shareable).with(an_instance_of(StatusMessage))
         begin
-          put :update, format: :js, id: 42, post_id: @status.id
+          put :update, params: {id: 42, post_id: @status.id}, format: :js
         rescue ActiveRecord::RecordNotFound
         end
       end

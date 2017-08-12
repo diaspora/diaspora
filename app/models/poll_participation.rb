@@ -1,4 +1,4 @@
-class PollParticipation < ActiveRecord::Base
+class PollParticipation < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
   include Diaspora::Fields::Author
@@ -12,7 +12,6 @@ class PollParticipation < ActiveRecord::Base
 
   alias_attribute :parent, :poll
 
-  validates :poll_answer, presence: true
   validate :not_already_participated
 
   def poll_answer_guid=(new_poll_answer_guid)

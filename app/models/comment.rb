@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
 
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
@@ -26,7 +26,6 @@ class Comment < ActiveRecord::Base
   delegate :author_name, to: :parent, prefix: true
 
   validates :text, :presence => true, :length => {:maximum => 65535}
-  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   has_many :reports, as: :item
 

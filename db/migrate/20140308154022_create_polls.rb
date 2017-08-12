@@ -1,4 +1,4 @@
-class CreatePolls < ActiveRecord::Migration
+class CreatePolls < ActiveRecord::Migration[4.2]
   def up
     create_table :polls do |t|
       t.string :question, :null => false

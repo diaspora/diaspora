@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class Reshare < Post
-  belongs_to :root, :class_name => 'Post', :foreign_key => :root_guid, :primary_key => :guid
+  belongs_to :root, class_name: "Post", foreign_key: :root_guid, primary_key: :guid, optional: true
   validate :root_must_be_public
   validates_presence_of :root, :on => :create
   validates_uniqueness_of :root_guid, :scope => :author_id
