@@ -389,7 +389,7 @@ en:
       find_people_q: "I just joined a pod, how can I find people to share with?"
       find_people_a: "If you want to invite your friends to join diaspora*, use the invitation link or the email link in the side-bar. Follow #tags to discover others who share your interests, and add those who post things that interest you to an aspect. Shout out that you’re #newhere in a public post."
       use_search_box_q: "How do I use the search box to find particular individuals?"
-      use_search_box_a: "If you know their full diaspora* ID (e.g. username@podname.org), you can find them by searching for it. If you are on the same pod you can search for just their username. Alternatively you can search for them by their profile name (the name you see on screen). If a search does not work the first time, try it again."
+      use_search_box_a: "You can search for people by entering their username or their diaspora* name (the name that is shown on their profile). If neither of these methods work, enter their full diaspora* ID (username@podname.org). If your search doesn’t work the first time, it could be due to network latency. Try it again."
     posts_and_posting:
       title: "Posts and posting"
       stream_full_of_posts_q: "Why is my stream full of posts from people I don’t know and don’t share with?"
