@@ -409,7 +409,7 @@ en:
       char_limit_services_q: "What if I'm sharing my post with a connected service with a smaller character count?"
       char_limit_services_a: "In that case you should restrict your post to the smaller character count (140 in the case of Twitter; 1000 in the case of Tumblr), and the number of characters you have left to use is displayed when that service’s icon is highlighted. You can still post to these services if your post is longer than their limit, but the text will be truncated on those services with a link to the post on diaspora*."
       format_text_q: "How can I format the text in my posts (bold, italics, etc.)?"
-      format_text_a: "By using a simplified system called %{markdown}. You can find the full Markdown syntax %{here}. The preview button is really helpful here, as you can see how your message will look before you share it."
+      format_text_a: "diaspora* uses a simplified system called %{markdown}. The publisher has buttons to make it easy to format your text. If you want to format your post manually, you can find the full Markdown syntax %{here}. The preview tab means you can see how your message will look before you share it. Remember that you can’t edit it once posted, so use the preview to make sure it’s perfect before pressing Share!"
       insert_images_q: "How do I insert images into posts?"
       insert_images_a: "Click the little camera icon to insert an image into a post. Press the camera icon again to add another photo, or you can select multiple photos to upload in one go."
       insert_images_comments_q: "Can I insert images into comments?"
