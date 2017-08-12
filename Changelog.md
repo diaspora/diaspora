@@ -29,6 +29,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Use id as fallback when sorting posts [#7523](https://github.com/diaspora/diaspora/pull/7523)
 * Remove no-posts-info when adding posts to the stream [#7523](https://github.com/diaspora/diaspora/pull/7523)
 * Upgrade to rails 5.1 [#7514](https://github.com/diaspora/diaspora/pull/7514)
+* Refactoring single post view interactions [#7182](https://github.com/diaspora/diaspora/pull/7182)
 
 ## Bug fixes
 

@@ -7,7 +7,9 @@ app.views.SinglePostCommentStream = app.views.CommentStream.extend({
     this.CommentView = app.views.ExpandedComment;
     $(window).on('hashchange',this.highlightPermalinkComment);
     this.setupBindings();
-    this.model.comments.on("reset", this.render, this);
+    this.model.comments.fetch({success: function() {
+      setTimeout(this.highlightPermalinkComment, 0);
+    }.bind(this)});
   },
 
   highlightPermalinkComment: function() {
@@ -17,14 +19,13 @@ app.views.SinglePostCommentStream = app.views.CommentStream.extend({
       $(".highlighted").removeClass("highlighted");
       element.addClass("highlighted");
       var pos = element.offset().top - headerSize;
-      window.scroll(0, pos);
+      $("html,body").animate({scrollTop: pos});
     }
   },
 
   postRenderTemplate: function() {
     app.views.CommentStream.prototype.postRenderTemplate.apply(this);
     this.$(".new-comment-form-wrapper").removeClass("hidden");
-    _.defer(this.highlightPermalinkComment);
   },
 
   presenter: function(){

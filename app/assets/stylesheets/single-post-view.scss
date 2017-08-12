@@ -152,5 +152,16 @@
 
   .interaction-avatars {
     overflow: hidden;
+
+    .author-name:focus,
+    .author-name:hover {
+      text-decoration: none;
+    }
+
+    .loader {
+      height: $line-height-computed;
+      vertical-align: text-bottom;
+      width: $line-height-computed;
+    }
   }
 }

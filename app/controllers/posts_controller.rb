@@ -22,11 +22,11 @@ class PostsController < ApplicationController
     presenter = PostPresenter.new(post, current_user)
     respond_to do |format|
       format.html do
-        gon.post = presenter
+        gon.post = presenter.with_initial_interactions
         render locals: {post: presenter}
       end
       format.mobile { render locals: {post: post} }
-      format.json { render json: presenter }
+      format.json { render json: presenter.with_interactions }
     end
   end
 
@@ -37,16 +37,6 @@ class PostsController < ApplicationController
     render json: OEmbedPresenter.new(post, oembed)
   rescue
     head :not_found
-  end
-
-  def interactions
-    respond_to do |format|
-      format.json {
-        post = post_service.find!(params[:id])
-        render json: PostInteractionPresenter.new(post, current_user)
-      }
-      format.any { head :not_acceptable }
-    end
   end
 
   def mentionable

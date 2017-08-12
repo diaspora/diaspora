@@ -3,10 +3,6 @@
 //require ../post
 
 app.models.Post.Interactions = Backbone.Model.extend({
-  url : function(){
-    return this.post.url() + "/interactions";
-  },
-
   initialize : function(options){
     this.post = options.post;
     this.comments = new app.collections.Comments(this.get("comments"), {post : this.post});
@@ -14,33 +10,16 @@ app.models.Post.Interactions = Backbone.Model.extend({
     this.reshares = new app.collections.Reshares(this.get("reshares"), {post : this.post});
   },
 
-  parse : function(resp){
-    this.comments.reset(resp.comments);
-    this.likes.reset(resp.likes);
-    this.reshares.reset(resp.reshares);
-
-    var comments = this.comments
-      , likes = this.likes
-      , reshares = this.reshares;
-
-    return {
-      comments : comments,
-      likes : likes,
-      reshares : reshares,
-      fetched : true
-    };
-  },
-
   likesCount : function(){
-    return this.get("fetched") ? this.likes.models.length : this.get("likes_count");
+    return this.get("likes_count");
   },
 
   resharesCount : function(){
-    return this.get("fetched") ? this.reshares.models.length : this.get("reshares_count");
+    return this.get("reshares_count");
   },
 
   commentsCount : function(){
-    return this.get("fetched") ? this.comments.models.length : this.get("comments_count");
+    return this.get("comments_count");
   },
 
   userLike : function(){

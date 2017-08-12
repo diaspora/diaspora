@@ -9,14 +9,6 @@ describe("app.views.SinglePostCommentStream", function() {
       expect(this.view.CommentView).toBe(app.views.ExpandedComment);
     });
 
-    it("calls render when the comments collection has been resetted", function() {
-      spyOn(app.views.SinglePostCommentStream.prototype, "render");
-      this.view.initialize();
-      expect(app.views.SinglePostCommentStream.prototype.render).not.toHaveBeenCalled();
-      this.post.comments.reset();
-      expect(app.views.SinglePostCommentStream.prototype.render).toHaveBeenCalled();
-    });
-
     it("calls setupBindings", function() {
       spyOn(app.views.SinglePostCommentStream.prototype, "setupBindings");
       this.view.initialize();

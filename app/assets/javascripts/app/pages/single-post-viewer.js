@@ -9,9 +9,8 @@ app.pages.SinglePostViewer = app.views.Base.extend({
   },
 
   initialize : function() {
-    this.model = new app.models.Post({ id : gon.post.id });
-    this.model.preloadOrFetch().done(_.bind(this.initViews, this));
-    this.model.interactions.fetch(); //async, yo, might want to throttle this later.
+    this.model = new app.models.Post(gon.post);
+    this.initViews();
   },
 
   initViews : function() {
