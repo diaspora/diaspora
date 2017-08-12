@@ -250,6 +250,19 @@ describe("app.views.Publisher", function() {
         expect(submitCallback).toHaveBeenCalled();
         expect($(this.view.el)).not.toHaveClass("closed");
       });
+
+      it("should submit the form when cmd+enter is pressed", function() {
+        this.view.render();
+        var form = this.view.$("form");
+        var submitCallback = jasmine.createSpy().and.returnValue(false);
+        form.submit(submitCallback);
+
+        var e = $.Event("keydown", {which: Keycodes.ENTER, metaKey: true});
+        this.view.keyDown(e);
+
+        expect(submitCallback).toHaveBeenCalled();
+        expect($(this.view.el)).not.toHaveClass("closed");
+      });
     });
 
     describe("tryClose", function() {

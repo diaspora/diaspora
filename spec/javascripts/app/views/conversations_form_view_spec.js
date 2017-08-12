@@ -164,9 +164,16 @@ describe("app.views.ConversationsForm", function() {
         expect(this.submitCallback).toHaveBeenCalled();
       });
 
-      it("shouldn't submit the form without the ctrl key", function() {
+      it("should submit the form with cmd+enter", function() {
         $("#new-conversation").submit(this.submitCallback);
-        var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false});
+        var e = $.Event("keydown", {which: Keycodes.ENTER, metaKey: true});
+        $("#new-message-text").trigger(e);
+        expect(this.submitCallback).toHaveBeenCalled();
+      });
+
+      it("shouldn't submit the form without the ctrl or cmd key", function() {
+        $("#new-conversation").submit(this.submitCallback);
+        var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false, metaKey: false});
         $("#new-message-text").trigger(e);
         expect(this.submitCallback).not.toHaveBeenCalled();
       });
@@ -185,9 +192,16 @@ describe("app.views.ConversationsForm", function() {
         expect(this.submitCallback).toHaveBeenCalled();
       });
 
-      it("shouldn't submit the form without the ctrl key", function() {
+      it("should submit the form with cmd+enter", function() {
         $("#response-message").submit(this.submitCallback);
-        var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false});
+        var e = $.Event("keydown", {which: Keycodes.ENTER, metaKey: true});
+        $("#response-message-text").trigger(e);
+        expect(this.submitCallback).toHaveBeenCalled();
+      });
+
+      it("shouldn't submit the form without the ctrl or cmd key", function() {
+        $("#response-message").submit(this.submitCallback);
+        var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false, metaKey: false});
         $("#response-message-text").trigger(e);
         expect(this.submitCallback).not.toHaveBeenCalled();
       });
