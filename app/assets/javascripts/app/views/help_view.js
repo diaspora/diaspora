@@ -26,6 +26,7 @@ app.views.Help = app.views.StaticContentView.extend({
 	};
 
     this.POSTS_AND_POSTING_SUBS = {
+      post_report_a: {community_guidelines: this.linkHtml("https://diasporafoundation.org/community_guidelines", Diaspora.I18n.t("community_guidelines"))},
       format_text_a: {
         markdown: this.linkHtml("http://diasporafoundation.org/formatting", Diaspora.I18n.t( 'markdown' )),
         here: this.linkHtml("http://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' ))

@@ -319,6 +319,7 @@ en:
     foundation_website: "diaspora* foundation website"
     third_party_tools: "Third-party tools"
     getting_started_tutorial: "”Getting started” tutorial series"
+    community_guidelines: "community guidelines"
     getting_help:
       title: "Getting help"
       getting_started_q: "Help! I need some basic help to get me started!"
@@ -402,7 +403,7 @@ en:
       post_notification_q: "How do I get notifications, or stop getting notifications, about a post?"
       post_notification_a: "You will find a bell icon next to the X at the top right of a post. Click this to enable or disable notifications for that post."
       post_report_q: "How do I report an offensive post?"
-      post_report_a: "Click the alert triangle icon at the top right of the post to report it to your podmin. Enter a reason for reporting this post in the dialog box."
+      post_report_a: "Click the alert triangle icon at the top right of the post to report it to your podmin. Enter a reason for reporting this post in the dialog box. Please only report posts that break our %{community_guidelines} or your pod’s terms of service, for example posts containing illegal content, or which are abusive or spam."
       character_limit_q: "What is the character limit for posts?"
       character_limit_a: "65,535 characters. That’s 65,395 more characters than you get on Twitter! ;)"
       char_limit_services_q: "What if I'm sharing my post with a connected service with a smaller character count?"
