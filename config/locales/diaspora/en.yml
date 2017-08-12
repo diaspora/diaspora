@@ -439,10 +439,10 @@ en:
       find_public_post_q: "How can other people find my public post?"
       find_public_post_a: "Your public posts will appear in the streams of anyone following you. If you included #tags in your public post, anyone following those tags will find your post in their streams. Every public post also has a specific URL that anyone can view, even if they’re not logged in – thus public posts may be linked to directly from Twitter, blogs, etc. Public posts may also be indexed by search engines."
       can_comment_reshare_like_q: "Who can comment on, reshare, or like my public post?"
-      can_comment_reshare_like_a: "Any logged-in diaspora* user can comment on, reshare, or like your public post."
+      can_comment_reshare_like_a: "Any logged-in diaspora* user can comment on, reshare, or like your public post. The exception to this is people you have ignored, who won’t be able to like or comment on your posts."
       see_comment_reshare_like_q: "When I comment on, reshare, or like a public post, who can see it?"
       see_comment_reshare_like_a: "Comments, likes, and reshares of public posts are also public. Any logged-in diaspora* user and anyone else on the internet can see your interactions with a public post."
-      deselect_aspect_posting_q: "What happens when I deselect one or more aspects when making a public post?"
+      deselect_aspect_posting_q: "What happens when I deselect one or more aspects in the left-hand column when making a public post?"
       deselect_aspect_posting_a: "Deselecting aspects does not affect a public post. It will still be public and will appear in the streams of all of your contacts. To make a post visible only to specific aspects, you need to select those aspects from the aspect selector under the publisher."
     profile:
       title: "Profile"
