@@ -334,7 +334,7 @@ en:
     account_and_data_management:
       title: "Account and data management"
       move_pods_q: "How do I move my seed (account) from one pod to another?"
-      move_pods_a: "In the future you will be able to export your seed from a pod and import it on another, but this is not currently possible. You could always open a new account and add your contacts to aspects on that new seed, and ask them to add your new seed to their aspects."
+      move_pods_a: "Version 0.7.0.0 of diaspora* provides the first stage of account migration: you can now export all your data from the “Account” section of the user settings. Keep your data safely! In a future release you will be able to migrate your whole account, including posts and contacts, to another pod."
       download_data_q: "Can I download a copy of all of my data contained in my seed (account)?"
       download_data_a: "Yes. At the bottom of the Account tab of your settings page you will find two buttons: one for downloading your data and one for downloading your photos."
       close_account_q: "How do I delete my seed (account)?"
