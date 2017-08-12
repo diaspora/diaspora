@@ -42,6 +42,7 @@
 
   .btn-group {
     margin-bottom: 8px;
+    &:first-child { margin-left: 0; }
 
     [class^="entypo-"],
     [class*="entypo-"] {
