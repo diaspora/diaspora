@@ -379,7 +379,7 @@ en:
       how_to_mention_q: "How do I mention someone when making a post?"
       how_to_mention_a: "Type the “@” sign and start typing their name. A drop-down menu should appear to let you select them more easily. Note that it is only possible to mention people you have added to an aspect."
       mention_in_comment_q: "Can I mention someone in a comment?"
-      mention_in_comment_a: "No, not currently."
+      mention_in_comment_a: "Since version 0.7.0.0, yes! You can mention someone in a comment the same way you would do it in a post, by typing “@” and then start typing their name. Please note that when you comment on a post which is not public, you can only mention users who have already interacted with the post."
       see_mentions_q: "Is there a way to see the posts in which I have been mentioned?"
       see_mentions_a: "Yes, click “@Mentions” in the left-hand column on your home page."
     pods:
