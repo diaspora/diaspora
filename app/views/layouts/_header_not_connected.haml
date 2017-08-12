@@ -1,4 +1,5 @@
 %ul.nav.navbar-nav.navbar-right
   - if AppConfig.settings.enable_registrations? && !current_page?(controller: "/registrations", action: :new)
     %li= link_to t("devise.shared.links.sign_up"), new_user_registration_path, class: "login"
-  %li= link_to t("devise.shared.links.sign_in"), new_user_session_path, class: "login"
+  - unless current_page?(controller: "/sessions", action: :new)
+    %li= link_to t("devise.shared.links.sign_in"), new_user_session_path, class: "login"
