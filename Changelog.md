@@ -30,6 +30,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Remove no-posts-info when adding posts to the stream [#7523](https://github.com/diaspora/diaspora/pull/7523)
 * Upgrade to rails 5.1 [#7514](https://github.com/diaspora/diaspora/pull/7514)
 * Refactoring single post view interactions [#7182](https://github.com/diaspora/diaspora/pull/7182)
+* Update help pages [#7528](https://github.com/diaspora/diaspora/pull/7528)
 
 ## Bug fixes
 

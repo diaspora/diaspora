@@ -52,24 +52,19 @@ describe("app.views.Help", function(){
       expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_private_posts')).toBeTruthy();
     });
 
-    it('should show private profiles section', function(){
-      this.view.$el.find('a[data-section=private_profiles]').trigger('click');
-      expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_private_profiles')).toBeTruthy();
-    });
-
     it('should show public posts section', function(){
       this.view.$el.find('a[data-section=public_posts]').trigger('click');
       expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_public_posts')).toBeTruthy();
     });
 
-    it('should show public profiles section', function(){
-      this.view.$el.find('a[data-section=public_profiles]').trigger('click');
-      expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_public_profiles')).toBeTruthy();
-    });
-
     it('should show resharing posts section', function(){
       this.view.$el.find('a[data-section=resharing_posts]').trigger('click');
       expect(this.view.$el.find('#faq').children().first().hasClass('faq_question_resharing_posts')).toBeTruthy();
+    });
+
+    it("should show profile section", function() {
+      this.view.$el.find("a[data-section=profile]").trigger("click");
+      expect(this.view.$el.find("#faq").children().first().hasClass("faq_question_profile")).toBeTruthy();
     });
 
     it('should show sharing section', function(){
