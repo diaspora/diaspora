@@ -16,7 +16,7 @@ describe AccountDeletion, type: :model do
 
   describe "#perform!" do
     it "creates a deleter" do
-      expect(AccountDeleter).to receive(:new).with(alice.person.diaspora_handle).and_return(double(perform!: true))
+      expect(AccountDeleter).to receive(:new).with(alice.person).and_return(double(perform!: true))
       account_deletion.perform!
     end
 

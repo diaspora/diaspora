@@ -18,7 +18,7 @@ class AccountDeletion < ApplicationRecord
 
   def perform!
     Diaspora::Federation::Dispatcher.build(person.owner, self).dispatch if person.local?
-    AccountDeleter.new(diaspora_handle).perform!
+    AccountDeleter.new(person).perform!
   end
 
   def subscribers
