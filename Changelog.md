@@ -31,6 +31,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Upgrade to rails 5.1 [#7514](https://github.com/diaspora/diaspora/pull/7514)
 * Refactoring single post view interactions [#7182](https://github.com/diaspora/diaspora/pull/7182)
 * Update help pages [#7528](https://github.com/diaspora/diaspora/pull/7528)
+* Disable rendering logging in production [#7529](https://github.com/diaspora/diaspora/pull/7529)
 
 ## Bug fixes
 
