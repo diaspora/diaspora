@@ -204,7 +204,7 @@ gem "rubyzip", "1.2.1", require: "zip"
 # https://github.com/discourse/discourse/pull/238
 gem "minitest"
 
-gem "versionist", "1.5.0"
+gem "versionist", "1.6.0"
 
 # Prevent accidental upgrades of thor
 # TODO: remove this when either all gems depending on thor have fixed the warnings
