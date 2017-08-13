@@ -342,7 +342,7 @@ GEM
     json-schema-rspec (0.0.4)
       json-schema (~> 2.5)
       rspec
-    jsonpath (0.8.5)
+    jsonpath (0.8.7)
       multi_json
     jwt (1.5.6)
     kgio (2.11.0)
