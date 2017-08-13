@@ -6,6 +6,7 @@ module Diaspora
       # used in Diaspora::Federation::Receive
       def self.receiver_for(federation_entity)
         case federation_entity
+        when DiasporaFederation::Entities::AccountMigration  then :account_migration
         when DiasporaFederation::Entities::Comment           then :comment
         when DiasporaFederation::Entities::Contact           then :contact
         when DiasporaFederation::Entities::Conversation      then :conversation
@@ -24,6 +25,7 @@ module Diaspora
       # used in Diaspora::Federation::Entities
       def self.builder_for(diaspora_entity)
         case diaspora_entity
+        when AccountMigration  then :account_migration
         when AccountDeletion   then :account_deletion
         when Comment           then :comment
         when Contact           then :contact

@@ -9,7 +9,7 @@ describe "Receive federation messages feature" do
   end
 
   let(:sender) { remote_user_on_pod_b }
-  let(:sender_id) { remote_user_on_pod_b.diaspora_handle }
+  let(:sender_id) { sender.diaspora_handle }
 
   context "with public receive" do
     let(:recipient) { nil }
@@ -26,6 +26,80 @@ describe "Receive federation messages feature" do
         expect {
           post_message(generate_payload(DiasporaFederation::Entities::AccountDeletion.new(author: delete_id), sender))
         }.not_to change(AccountDeletion, :count)
+      end
+    end
+
+    context "account migration" do
+      # In case when sender is unknown we should just ignore the migration
+      # but this depends on https://github.com/diaspora/diaspora_federation/issues/72
+      # which is low-priority, so we just discover the sender profile in this case.
+      # But there won't be a spec for that.
+
+      let(:entity) { create_account_migration_entity(sender_id, new_user) }
+
+      def run_migration
+        post_message(generate_payload(entity, sender))
+      end
+
+      context "with undiscovered new user profile" do
+        before do
+          allow_callbacks(%i[fetch_public_key])
+          allow_private_key_fetch(new_user)
+          expect_person_discovery(new_user)
+        end
+
+        let(:new_user) { create_undiscovered_user("example.org") }
+
+        it "receives account migration correctly" do
+          run_migration
+          expect(AccountMigration.where(old_person: sender.person, new_person: new_user.person)).to exist
+          expect(AccountMigration.find_by(old_person: sender.person, new_person: new_user.person)).to be_performed
+        end
+
+        it "doesn't accept the same migration for the second time" do
+          run_migration
+          expect {
+            run_migration
+          }.to raise_error(ActiveRecord::RecordInvalid)
+        end
+
+        it "doesn't accept second migration for the same sender" do
+          run_migration
+          expect {
+            entity = create_account_migration_entity(sender_id, create_remote_user("example.org"))
+            post_message(generate_payload(entity, sender))
+          }.to raise_error(ActiveRecord::RecordInvalid)
+        end
+
+        it "doesn't accept second migration for the same new user profile" do
+          run_migration
+          expect {
+            sender = create_remote_user("example.org")
+            entity = create_account_migration_entity(sender.diaspora_handle, new_user)
+            post_message(generate_payload(entity, sender))
+          }.to raise_error(ActiveRecord::RecordInvalid)
+        end
+
+        context "when our pod was left" do
+          let(:sender) { FactoryGirl.create(:user) }
+
+          it "locks the old user account access" do
+            run_migration
+            expect(sender.reload.access_locked?).to be_truthy
+          end
+        end
+      end
+
+      context "with discovered profile" do
+        let(:new_user) { create_remote_user("example.org") }
+
+        it "updates person profile with data from entity" do
+          new_user.profile.bio = "my updated biography"
+          expect(entity.profile.bio).to eq("my updated biography")
+          expect(new_user.profile.reload.bio).not_to eq("my updated biography")
+          run_migration
+          expect(new_user.profile.reload.bio).to eq("my updated biography")
+        end
       end
     end
 

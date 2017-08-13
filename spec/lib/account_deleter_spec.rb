@@ -14,12 +14,6 @@ describe AccountDeleter do
   end
 
   describe '#perform' do
-    user_removal_methods = %i[
-      delete_standard_user_associations
-      remove_share_visibilities_on_contacts_posts
-      disconnect_contacts tombstone_user
-    ]
-
     person_removal_methods = %i[
       delete_contacts_of_me
       delete_standard_person_associations
@@ -32,7 +26,7 @@ describe AccountDeleter do
         @account_deletion.perform!
       end
 
-      (user_removal_methods + person_removal_methods).each do |method|
+      [*person_removal_methods, :close_user].each do |method|
 
         it "calls ##{method.to_s}" do
           expect(@account_deletion).to receive(method)
@@ -64,11 +58,8 @@ describe AccountDeleter do
         @person_deletion.perform!
       end
 
-      (user_removal_methods).each do |method|
-
-        it "does not call ##{method.to_s}" do
-          expect(@person_deletion).not_to receive(method)
-        end
+      it "does not call #close_user" do
+        expect(@person_deletion).not_to receive(:close_user)
       end
 
       (person_removal_methods).each do |method|
@@ -79,6 +70,24 @@ describe AccountDeleter do
       end
     end
 
+  end
+
+  describe "#close_user" do
+    user_removal_methods = %i[
+      delete_standard_user_associations
+      remove_share_visibilities_on_contacts_posts
+      disconnect_contacts tombstone_user
+    ]
+
+    after do
+      @account_deletion.perform!
+    end
+
+    user_removal_methods.each do |method|
+      it "calls ##{method}" do
+        expect(@account_deletion).to receive(method)
+      end
+    end
   end
 
   describe "#delete_standard_user_associations" do

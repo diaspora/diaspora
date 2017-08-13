@@ -11,6 +11,14 @@ module Diaspora
         AccountDeletion.create!(person: author_of(entity))
       end
 
+      def self.account_migration(entity)
+        profile = profile(entity.profile)
+        AccountMigration.create!(
+          old_person: Person.by_account_identifier(entity.author),
+          new_person: profile.person
+        )
+      end
+
       def self.comment(entity)
         receive_relayable(Comment, entity) do
           Comment.new(

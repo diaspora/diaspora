@@ -54,6 +54,8 @@ class User < ApplicationRecord
   belongs_to :auto_follow_back_aspect, class_name: "Aspect", optional: true
   belongs_to :invited_by, class_name: "User", optional: true
 
+  has_many :invited_users, class_name: "User", inverse_of: :invited_by, foreign_key: :invited_by_id
+
   has_many :aspect_memberships, :through => :aspects
 
   has_many :contacts

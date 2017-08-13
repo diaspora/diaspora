@@ -126,6 +126,7 @@ class Profile < ApplicationRecord
   end
 
   def tombstone!
+    @tag_string = nil
     self.taggings.delete_all
     clearable_fields.each do |field|
       self[field] = nil
