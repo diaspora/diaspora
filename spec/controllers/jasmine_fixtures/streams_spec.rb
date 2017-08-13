@@ -5,6 +5,7 @@
 describe StreamsController, :type => :controller do
   describe '#multi' do
     before do
+      allow(Workers::SendPublic).to receive(:perform_async)
       sign_in alice, scope: :user
     end
 
