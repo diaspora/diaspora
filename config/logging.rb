@@ -85,6 +85,7 @@ Logging::Rails.configure do |config|
   Logging.logger.root.level = config.log_level
 
   # log-levels from the diaspora.yml for SQL and federation debug-logging
+  Logging.logger[ActionView::Base].level = Rails.env.development? ? :debug : :warn
   Logging.logger[ActiveRecord::Base].level = AppConfig.environment.logging.debug.sql? ? :debug : :info
   Logging.logger[DiasporaFederation::Salmon::MagicEnvelope].level =
     AppConfig.environment.logging.debug.federation? ? :debug : :info
