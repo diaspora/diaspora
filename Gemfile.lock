@@ -422,7 +422,7 @@ GEM
     open_graph_reader (0.6.2)
       faraday (>= 0.9.0)
       nokogiri (~> 1.6)
-    openid_connect (1.1.2)
+    openid_connect (1.1.3)
       activemodel
       attr_required (>= 1.0.0)
       json (>= 1.4.3)
@@ -826,7 +826,7 @@ DEPENDENCIES
   omniauth-twitter (= 1.4.0)
   omniauth-wordpress (= 0.2.2)
   open_graph_reader (= 0.6.2)
-  openid_connect (= 1.1.2)
+  openid_connect (= 1.1.3)
   pg (= 0.21.0)
   poltergeist (= 1.15.0)
   pronto (= 0.9.4)
