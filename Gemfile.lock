@@ -291,7 +291,7 @@ GEM
       tilt (>= 1.2)
     hashdiff (0.3.5)
     hashie (3.5.6)
-    hitimes (1.2.5)
+    hitimes (1.2.6)
     http (2.2.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
