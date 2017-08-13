@@ -8,9 +8,7 @@ describe Diaspora::Federation::Receive do
     it "saves the account deletion" do
       Diaspora::Federation::Receive.account_deletion(account_deletion_entity)
 
-      account_deletion = AccountDeletion.find_by!(diaspora_handle: sender.diaspora_handle)
-
-      expect(account_deletion.person).to eq(sender)
+      expect(AccountDeletion.exists?(person: sender)).to be_truthy
     end
   end
 

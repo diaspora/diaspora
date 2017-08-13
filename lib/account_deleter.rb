@@ -106,6 +106,6 @@ class AccountDeleter
   end
 
   def mark_account_deletion_complete
-    AccountDeletion.where(:diaspora_handle => self.person.diaspora_handle).where(:person_id => self.person.id).update_all(["completed_at = ?", Time.now])
+    AccountDeletion.find_by(person: person)&.update_attributes(completed_at: Time.now.utc)
   end
 end
