@@ -283,7 +283,7 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "capybara",           "2.14.4"
+  gem "capybara",           "2.15.1"
   gem "database_cleaner",   "1.6.1"
   gem "poltergeist",        "1.15.0"
 
