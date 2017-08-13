@@ -18,7 +18,7 @@ gem "diaspora_federation-rails", "0.2.1"
 
 # API and JSON
 
-gem "acts_as_api", "1.0.0"
+gem "acts_as_api", "1.0.1"
 gem "json",        "2.1.0"
 gem "json-schema", "2.8.0"
 
@@ -53,7 +53,7 @@ gem "rack-cors", "1.0.1", require: "rack/cors"
 
 # CSS
 
-gem "autoprefixer-rails",     "7.1.2.3"
+gem "autoprefixer-rails",     "7.1.2.4"
 gem "bootstrap-sass",         "3.3.7"
 gem "bootstrap-switch-rails", "3.3.3"
 gem "compass-rails",          "3.0.2"
@@ -63,7 +63,7 @@ gem "sprockets-rails",        "3.2.0"
 # Database
 
 group :mysql, optional: true do
-  gem "mysql2", "0.4.8"
+  gem "mysql2", "0.4.9"
 end
 group :postgresql, optional: true do
   gem "pg",     "0.21.0"
@@ -159,7 +159,7 @@ gem "twitter",            "6.1.0"
 gem "omniauth-wordpress", "0.2.2"
 
 # OpenID Connect
-gem "openid_connect", "1.1.2"
+gem "openid_connect", "1.1.3"
 
 # Serializers
 
@@ -204,7 +204,7 @@ gem "rubyzip", "1.2.1", require: "zip"
 # https://github.com/discourse/discourse/pull/238
 gem "minitest"
 
-gem "versionist", "1.5.0"
+gem "versionist", "1.6.0"
 
 # Prevent accidental upgrades of thor
 # TODO: remove this when either all gems depending on thor have fixed the warnings
@@ -283,9 +283,9 @@ group :test do
 
   # Cucumber (integration tests)
 
-  gem "capybara",           "2.14.4"
+  gem "capybara",           "2.15.1"
   gem "database_cleaner",   "1.6.1"
-  gem "poltergeist",        "1.15.0"
+  gem "poltergeist",        "1.16.0"
 
   gem "cucumber-api-steps", "0.13", require: false
 
@@ -304,13 +304,13 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "3.6.0"
+  gem "rspec-rails", "3.6.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "1.5.0", require: false
 
   # Jasmine (client side application tests (JS))
-  gem "jasmine",                   "2.6.0"
+  gem "jasmine",                   "2.7.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "3.3.1", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.15.0"
