@@ -61,11 +61,13 @@ describe("app.views.CommentStream", function(){
       expect(this.view.commentSubmitButton).toEqual(this.view.$("input[name='commit']"));
     });
 
-    it("initializes CommentMention view", function() {
+    it("sets mentions", function() {
       spyOn(app.views.CommentMention.prototype, "initialize");
+      this.view.mentions = undefined;
       this.view.postRenderTemplate();
       var call = app.views.CommentMention.prototype.initialize.calls.mostRecent();
       expect(call.args[0]).toEqual({el: this.view.$el, postId: this.view.model.id});
+      expect(this.view.mentions).toBeDefined();
     });
 
     it("creates the markdown editor", function() {
@@ -74,6 +76,21 @@ describe("app.views.CommentStream", function(){
       this.view.postRenderTemplate();
       expect(Diaspora.MarkdownEditor.prototype.initialize).toHaveBeenCalled();
       expect(this.view.mdEditor).toBeDefined();
+    });
+
+    it("adds a preview method to the markdown editor that renders mentions", function() {
+      this.view.postRenderTemplate();
+      var mdInstance = {getContent: function() { return "@{test@example.org}"; }};
+      spyOn(this.view.mentions, "getMentionedPeople").and.returnValue([{
+        name: "Alice Awesome",
+        handle: "test@example.org",
+        id: "4",
+        guid: "123abc"
+      }]);
+      var renderedPreview = this.view.mdEditor.options.onPreview(mdInstance),
+          renderedText = app.helpers.textFormatter("@{test@example.org}", this.view.mentions.getMentionedPeople());
+      expect(renderedPreview).toBe("<div class='preview-content'>" + renderedText + "</div>");
+      expect(renderedPreview).toContain("Alice Awesome");
     });
   });
 
