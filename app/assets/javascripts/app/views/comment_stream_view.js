@@ -28,10 +28,13 @@ app.views.CommentStream = app.views.Base.extend({
     this.model.comments.each(this.appendComment, this);
     this.commentBox = this.$(".comment_box");
     this.commentSubmitButton = this.$("input[name='commit']");
-    new app.views.CommentMention({el: this.$el, postId: this.model.get("id")});
+    this.mentions = new app.views.CommentMention({el: this.$el, postId: this.model.get("id")});
 
     this.mdEditor = new Diaspora.MarkdownEditor(this.$(".comment_box"), {
-      onPreview: Diaspora.MarkdownEditor.simplePreview,
+      onPreview: function($mdInstance) {
+        var renderedText = app.helpers.textFormatter($mdInstance.getContent(), this.mentions.getMentionedPeople());
+        return "<div class='preview-content'>" + renderedText + "</div>";
+      }.bind(this),
       onFocus: this.openForm.bind(this)
     });
   },
