@@ -37,6 +37,8 @@ app.views.CommentStream = app.views.Base.extend({
       }.bind(this),
       onFocus: this.openForm.bind(this)
     });
+
+    this.$("form").areYouSure();
   },
 
   presenter: function(){
