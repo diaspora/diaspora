@@ -1,11 +1,12 @@
 describe "deleteing account", type: :request do
   def account_removal_method
-    AccountDeleter.new(subject.diaspora_handle).perform!
+    AccountDeleter.new(person).perform!
     subject.reload
   end
 
   context "of local user" do
     subject(:user) { FactoryGirl.create(:user_with_aspect) }
+    let(:person) { user.person }
 
     before do
       DataGenerator.create(subject, :generic_user_data)
@@ -29,9 +30,7 @@ describe "deleteing account", type: :request do
         }.to(eq([true] * user.send(:clearable_fields).count)))
     end
 
-    it_behaves_like "it removes the person associations" do
-      subject(:person) { user.person }
-    end
+    it_behaves_like "it removes the person associations"
   end
 
   context "of remote person" do

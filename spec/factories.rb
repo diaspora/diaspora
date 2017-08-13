@@ -51,9 +51,6 @@ FactoryGirl.define do
 
   factory :account_deletion do
     association :person
-    after(:build) do |delete|
-      delete.diaspora_handle = delete.person.diaspora_handle
-    end
   end
 
   factory :like do

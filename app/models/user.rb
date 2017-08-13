@@ -507,7 +507,7 @@ class User < ApplicationRecord
   def close_account!
     self.person.lock_access!
     self.lock_access!
-    AccountDeletion.create(:person => self.person)
+    AccountDeletion.create(person: person)
   end
 
   def closed_account?

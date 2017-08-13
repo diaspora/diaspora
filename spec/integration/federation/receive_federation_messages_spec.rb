@@ -14,18 +14,19 @@ describe "Receive federation messages feature" do
   context "with public receive" do
     let(:recipient) { nil }
 
-    it "receives account deletion correctly" do
-      post_message(generate_payload(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: sender_id), sender))
+    context "account deletion" do
+      it "receives account deletion correctly" do
+        post_message(generate_payload(DiasporaFederation::Entities::AccountDeletion.new(author: sender_id), sender))
 
-      expect(AccountDeletion.exists?(diaspora_handle: sender_id)).to be_truthy
-    end
+        expect(AccountDeletion.exists?(person: sender.person)).to be_truthy
+      end
 
-    it "rejects account deletion with wrong diaspora_id" do
-      delete_id = Fabricate.sequence(:diaspora_id)
-      post_message(generate_payload(DiasporaFederation::Entities::AccountDeletion.new(diaspora_id: delete_id), sender))
-
-      expect(AccountDeletion.exists?(diaspora_handle: delete_id)).to be_falsey
-      expect(AccountDeletion.exists?(diaspora_handle: sender_id)).to be_falsey
+      it "rejects account deletion with wrong author" do
+        delete_id = Fabricate.sequence(:diaspora_id)
+        expect {
+          post_message(generate_payload(DiasporaFederation::Entities::AccountDeletion.new(author: delete_id), sender))
+        }.not_to change(AccountDeletion, :count)
+      end
     end
 
     context "reshare" do
