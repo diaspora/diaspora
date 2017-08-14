@@ -58,14 +58,6 @@ If so, please delete it since it will prevent the federation from working proper
 * Mark as "Mobile Web App Capable" on Android [#7534](https://github.com/diaspora/diaspora/pull/7534)
 * Add support for receiving account migrations [#6750](https://github.com/diaspora/diaspora/pull/6750)
 
-# 0.6.8.0
-
-## Refactor
-
-## Bug fixes
-
-## Features
-
 # 0.6.7.0
 
 ## Refactor
