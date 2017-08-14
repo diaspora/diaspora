@@ -34,6 +34,7 @@ class AccountDeleter
         #user deletion methods
         remove_share_visibilities_on_contacts_posts
         delete_standard_user_associations
+        disconnect_contacts
         tombstone_user
       end
 
@@ -66,6 +67,10 @@ class AccountDeleter
     normal_ar_person_associates_to_delete.each do |asso|
       self.person.send(asso).destroy_all
     end
+  end
+
+  def disconnect_contacts
+    user.contacts.reload.destroy_all
   end
 
   # Currently this would get deleted due to the db foreign key constrainsts,
