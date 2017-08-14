@@ -41,6 +41,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Fix order of comments across pods [#7436](https://github.com/diaspora/diaspora/pull/7436)
 * Prevent publisher from closing in preview mode [#7518](https://github.com/diaspora/diaspora/pull/7518)
 * Increase reshare counter after reshare on mobile [#7520](https://github.com/diaspora/diaspora/pull/7520)
+* Reset stuck exports and handle errors [#7535](https://github.com/diaspora/diaspora/pull/7535)
 
 ## Features
 * Add support for mentions in comments to the backend [#6818](https://github.com/diaspora/diaspora/pull/6818)
