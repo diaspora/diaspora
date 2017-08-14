@@ -30,16 +30,18 @@ class AccountDeleter
       delete_contacts_of_me
       tombstone_person_and_profile
 
-      if self.user
-        #user deletion methods
-        remove_share_visibilities_on_contacts_posts
-        delete_standard_user_associations
-        disconnect_contacts
-        tombstone_user
-      end
+      close_user if user
 
       mark_account_deletion_complete
     end
+  end
+
+  # user deletion methods
+  def close_user
+    remove_share_visibilities_on_contacts_posts
+    disconnect_contacts
+    delete_standard_user_associations
+    tombstone_user
   end
 
   #user deletions
@@ -53,7 +55,7 @@ class AccountDeleter
   end
 
   def ignored_ar_user_associations
-    %i[followed_tags invited_by contact_people aspect_memberships
+    %i[followed_tags invited_by invited_users contact_people aspect_memberships
        ignored_people share_visibilities conversation_visibilities conversations reports]
   end
 
@@ -70,7 +72,7 @@ class AccountDeleter
   end
 
   def disconnect_contacts
-    user.contacts.reload.destroy_all
+    user.contacts.destroy_all
   end
 
   # Currently this would get deleted due to the db foreign key constrainsts,
@@ -97,12 +99,12 @@ class AccountDeleter
   end
 
   def normal_ar_person_associates_to_delete
-    %i[posts photos mentions participations roles]
+    %i[posts photos mentions participations roles blocks]
   end
 
   def ignored_or_special_ar_person_associations
     %i[comments likes poll_participations contacts notification_actors notifications owner profile
-       conversation_visibilities pod]
+       conversation_visibilities pod conversations messages]
   end
 
   def mark_account_deletion_complete

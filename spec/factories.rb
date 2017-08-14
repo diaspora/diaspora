@@ -53,6 +53,11 @@ FactoryGirl.define do
     association :person
   end
 
+  factory :account_migration do
+    association :old_person, factory: :person
+    association :new_person, factory: :person
+  end
+
   factory :like do
     association :author, :factory => :person
     association :target, :factory => :status_message
@@ -145,6 +150,11 @@ FactoryGirl.define do
     end
   end
 
+  factory(:share_visibility) do
+    user
+    association :shareable, factory: :status_message
+  end
+
   factory(:location) do
     sequence(:address) {|n| "Fernsehturm Berlin, #{n}, Berlin, Germany" }
     sequence(:lat) {|n| 52.520645 + 0.0000001 * n }
@@ -222,13 +232,8 @@ FactoryGirl.define do
     sequence(:uid)           { |token| "00000#{token}" }
     sequence(:access_token)  { |token| "12345#{token}" }
     sequence(:access_secret) { |token| "98765#{token}" }
-  end
 
-  factory :service_user do
-    sequence(:uid) { |id| "a#{id}"}
-    sequence(:name) { |num| "Rob Fergus the #{num.ordinalize}" }
-    association :service
-    photo_url "/assets/user/adams.jpg"
+    user
   end
 
   factory :pod do
@@ -354,7 +359,18 @@ FactoryGirl.define do
     text SecureRandom.hex(1000)
   end
 
-  factory(:status, :parent => :status_message)
+  factory(:status, parent: :status_message)
+
+  factory :block do
+    user
+    person
+  end
+
+  factory :report do
+    user
+    association :item, factory: :status_message
+    text "offensive content"
+  end
 
   factory :o_auth_application, class: Api::OpenidConnect::OAuthApplication do
     client_name { "Diaspora Test Client #{r_str}" }

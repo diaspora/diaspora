@@ -40,7 +40,10 @@ class Person < ApplicationRecord
   has_many :likes, foreign_key: :author_id, dependent: :destroy # This person's own likes
   has_many :participations, :foreign_key => :author_id, :dependent => :destroy
   has_many :poll_participations, foreign_key: :author_id, dependent: :destroy
-  has_many :conversation_visibilities
+  has_many :conversation_visibilities, dependent: :destroy
+  has_many :messages, foreign_key: :author_id, dependent: :destroy
+  has_many :conversations, foreign_key: :author_id, dependent: :destroy
+  has_many :blocks, dependent: :destroy
 
   has_many :roles
 
@@ -305,11 +308,6 @@ class Person < ApplicationRecord
 
   def exported_key
     serialized_public_key
-  end
-
-  def exported_key= new_key
-    raise "Don't change a key" if serialized_public_key
-    serialized_public_key = new_key
   end
 
   # discovery (webfinger)

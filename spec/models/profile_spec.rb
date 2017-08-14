@@ -287,6 +287,12 @@ describe Profile, :type => :model do
       expect(@profile.taggings).to receive(:delete_all)
       @profile.tombstone!
     end
+
+    it "doesn't recreate taggings if tag string was requested" do
+      @profile.tag_string
+      @profile.tombstone!
+      expect(@profile.taggings).to be_empty
+    end
   end
 
   describe "#clearable_fields" do

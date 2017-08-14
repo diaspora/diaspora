@@ -106,8 +106,6 @@ RSpec.configure do |config|
     I18n.locale = :en
     stub_request(:post, "https://pubsubhubbub.appspot.com/")
     $process_queue = false
-    allow(Workers::SendPublic).to receive(:perform_async)
-    allow(Workers::SendPrivate).to receive(:perform_async)
   end
 
   config.expect_with :rspec do |expect_config|

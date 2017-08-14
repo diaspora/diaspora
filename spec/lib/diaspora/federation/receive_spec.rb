@@ -12,6 +12,20 @@ describe Diaspora::Federation::Receive do
     end
   end
 
+  describe ".account_migration" do
+    let(:new_person) { FactoryGirl.create(:person) }
+    let(:profile_entity) { Fabricate(:profile_entity, author: new_person.diaspora_handle) }
+    let(:account_migration_entity) {
+      Fabricate(:account_migration_entity, author: sender.diaspora_handle, profile: profile_entity)
+    }
+
+    it "saves the account deletion" do
+      Diaspora::Federation::Receive.account_migration(account_migration_entity)
+
+      expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
+    end
+  end
+
   describe ".comment" do
     let(:comment_entity) {
       build_relayable_federation_entity(
