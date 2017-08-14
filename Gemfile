@@ -262,7 +262,7 @@ group :development do
   gem "pry-byebug"
 
   # test coverage
-  gem "simplecov", "0.12.0", require: false
+  gem "simplecov", "0.14.1", require: false
 
   gem "turbo_dev_assets", "0.0.2"
 end
@@ -293,7 +293,7 @@ group :test do
   gem "diaspora_federation-test", "0.2.1"
 
   # Coverage
-  gem 'coveralls', require: false
+  gem "coveralls", "0.8.21", require: false
 end
 
 group :development, :test do
