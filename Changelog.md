@@ -1,3 +1,11 @@
+# 0.7.1.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.0.0
 
 ## Supported Ruby versions
