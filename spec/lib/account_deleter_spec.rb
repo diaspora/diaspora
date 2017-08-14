@@ -17,7 +17,7 @@ describe AccountDeleter do
     user_removal_methods = %i[
       delete_standard_user_associations
       remove_share_visibilities_on_contacts_posts
-      tombstone_user
+      disconnect_contacts tombstone_user
     ]
 
     person_removal_methods = %i[
@@ -105,6 +105,15 @@ describe AccountDeleter do
       end
 
       @account_deletion.delete_standard_person_associations
+    end
+  end
+
+  context "user associations" do
+    describe "#disconnect_contacts" do
+      it "deletes all of user's contacts" do
+        expect(bob.contacts).to receive(:destroy_all)
+        @account_deletion.disconnect_contacts
+      end
     end
   end
 

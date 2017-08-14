@@ -60,7 +60,8 @@ class DataGenerator
   end
 
   def conversations
-    a_friend = person.contacts.first.user.person
+    a_friend = FactoryGirl.create(:contact, person: person).user.person
+    FactoryGirl.create(:contact, user: user, person: a_friend) unless user.nil?
     create_conversation_with_message(a_friend, person, "Subject", "Hey #{person.name}")
     create_conversation_with_message(person, a_friend, "Subject", "Hey #{a_friend.name}")
   end
