@@ -206,12 +206,6 @@ gem "minitest"
 
 gem "versionist", "1.6.0"
 
-# Prevent accidental upgrades of thor
-# TODO: remove this when either all gems depending on thor have fixed the warnings
-#       or thor released a version where they are clearly marked as warnings
-# see: https://github.com/erikhuda/thor/issues/538
-gem "thor", "0.19.1"
-
 # Windows and OSX have an execjs compatible runtime built-in, Linux users should
 # install Node.js or use "therubyracer".
 #
@@ -268,7 +262,7 @@ group :development do
   gem "pry-byebug"
 
   # test coverage
-  gem "simplecov", "0.12.0", require: false
+  gem "simplecov", "0.14.1", require: false
 
   gem "turbo_dev_assets", "0.0.2"
 end
@@ -299,7 +293,7 @@ group :test do
   gem "diaspora_federation-test", "0.2.1"
 
   # Coverage
-  gem 'coveralls', require: false
+  gem "coveralls", "0.8.21", require: false
 end
 
 group :development, :test do
