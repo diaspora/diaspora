@@ -55,6 +55,7 @@ If so, please delete it since it will prevent the federation from working proper
 * Improve responsive header in desktop version [#7509](https://github.com/diaspora/diaspora/pull/7509)
 * Support cmd+enter to submit posts, comments and conversations [#7524](https://github.com/diaspora/diaspora/pull/7524)
 * Add markdown editor for posts, comments and conversations on mobile [#7235](https://github.com/diaspora/diaspora/pull/7235)
+* Mark as "Mobile Web App Capable" on Android [#7534](https://github.com/diaspora/diaspora/pull/7534)
 
 # 0.6.8.0
 
