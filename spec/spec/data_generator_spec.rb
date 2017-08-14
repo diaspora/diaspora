@@ -14,6 +14,7 @@ describe DataGenerator do
       generator.generic_user_data
       expect(user.aspects).not_to be_empty
       expect(Post.subscribed_by(user)).not_to be_empty
+      expect(Contact.where(user: user).mutual).not_to be_empty
     end
   end
 
