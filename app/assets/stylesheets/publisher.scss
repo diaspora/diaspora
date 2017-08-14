@@ -197,10 +197,16 @@
     border: 0;
   }
 
-  // This rule is required until we switch to the newer release of bootstrap-markdown with
-  // the following commit in:
-  // https://github.com/toopay/bootstrap-markdown/commit/14a21c3837140144b27efc19c795d1a37fad70fb
-  .md-preview { min-height: 90px; }
+  .md-preview {
+    // This rule is required until we switch to the newer release of bootstrap-markdown with
+    // the following commit in:
+    // https://github.com/toopay/bootstrap-markdown/commit/14a21c3837140144b27efc19c795d1a37fad70fb
+    min-height: 90px;
+
+    .stream-element .post-content .markdown-content {
+      padding-top: 0;
+    }
+  }
 }
 
 .publisher-textarea-wrapper {

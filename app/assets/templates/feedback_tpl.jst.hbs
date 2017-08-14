@@ -13,29 +13,17 @@
   –
 </span>
 
-
-{{#if preview}}
-  <span>{{t "stream.like"}}</span>
-{{else}}
-  <a href="#" class="like" rel='nofollow'>
-    {{~#if userLike~}}
-      {{~t "stream.unlike"~}}
-    {{~else~}}
-      {{~t "stream.like"~}}
-    {{~/if~}}
-  </a>
-{{/if}}
+<a href="#" class="like" rel='nofollow'>
+  {{~#if userLike~}}
+    {{~t "stream.unlike"~}}
+  {{~else~}}
+    {{~t "stream.like"~}}
+  {{~/if~}}
+</a>
 ·
-{{#if preview}}
-  <span>{{t "stream.reshare"}}</span>
-  ·
-{{else if userCanReshare}}
+{{#if userCanReshare}}
   <a href="#" class="reshare" rel='nofollow'>{{t "stream.reshare"}}</a>
   ·
 {{/if}}
 
-{{#if preview}}
-  <span>{{t "stream.comment"}}</span>
-{{else}}
-  <a href="#" class="focus_comment_textarea" rel="nofollow">{{t "stream.comment"}}</a>
-{{/if}}
+<a href="#" class="focus_comment_textarea" rel="nofollow">{{t "stream.comment"}}</a>

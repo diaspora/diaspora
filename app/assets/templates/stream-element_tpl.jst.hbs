@@ -1,25 +1,26 @@
 <div class="media {{#if showPost}} {{#if nsfw}} shield-off {{/if}} {{else}} shield-active {{/if}}">
-  {{#with author}}
-    <a href="/people/{{guid}}" class="img {{{hovercardable this}}}">
-      {{{personImage this}}}
-    </a>
-  {{/with}}
+
+  {{#unless preview}}
+    {{#with author}}
+      <a href="/people/{{guid}}" class="img {{{hovercardable this}}}">
+        {{{personImage this}}}
+      </a>
+    {{/with}}
+  {{/unless}}
 
   <div class="bd">
-    {{#if loggedIn}}
-      <div class="post-controls"></div>
-    {{/if}}
+    {{#unless preview}}
+      {{#if loggedIn}}
+        <div class="post-controls"></div>
+      {{/if}}
 
-    <div>
-      {{#linkToAuthor author}}
-        {{~name~}}
-      {{/linkToAuthor}}
+      <div>
+        {{#linkToAuthor author}}
+          {{~name~}}
+        {{/linkToAuthor}}
 
-      <span class="details gray">
-        -
-        {{#if preview}}
-          <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
-        {{else}}
+        <span class="details gray">
+          -
           <a href="/posts/{{id}}">
             <time class="timeago" data-original-title="{{{localTime created_at}}}" datetime="{{created_at}}" />
           </a>
@@ -27,16 +28,18 @@
           <a href="/posts/{{guid}}" class="permalink" title="{{t "stream.permalink"}}">
             <i class="entypo-link"></i>
           </a>
-        {{/if}}
-      </span>
-    </div>
+        </span>
+      </div>
+    {{/unless}}
 
     <div class="post-content"> </div>
     <div class="status-message-location nsfw-hidden"> </div>
 
-    <div class="feedback nsfw-hidden"> </div>
-    <div class="likes nsfw-hidden"> </div>
-    <div class="reshares nsfw-hidden"> </div>
-    <div class="comments nsfw-hidden"> </div>
+    {{#unless preview}}
+      <div class="feedback nsfw-hidden"> </div>
+      <div class="likes nsfw-hidden"> </div>
+      <div class="reshares nsfw-hidden"> </div>
+      <div class="comments nsfw-hidden"> </div>
+    {{/unless}}
   </div>
 </div>
