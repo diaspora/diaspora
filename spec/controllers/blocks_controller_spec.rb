@@ -26,9 +26,24 @@ describe BlocksController, :type => :controller do
       @block = alice.blocks.create(:person => eve.person)
     end
 
-    it "responds with 204" do
+    it "redirects back" do
+      delete :destroy, params: {id: @block.id}
+      expect(response).to be_redirect
+    end
+
+    it "notifies the user" do
+      delete :destroy, params: {id: @block.id}
+      expect(flash).not_to be_empty
+    end
+
+    it "responds with 204 with json" do
       delete :destroy, params: {id: @block.id}, format: :json
       expect(response.status).to eq(204)
+    end
+
+    it "redirects back on mobile" do
+      delete :destroy, params: {id: @block.id}, format: :mobile
+      expect(response).to be_redirect
     end
 
     it "removes a block" do
