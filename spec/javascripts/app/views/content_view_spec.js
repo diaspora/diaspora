@@ -4,10 +4,16 @@ describe("app.views.Content", function(){
     this.view = new app.views.Content({model : this.post});
   });
 
-  describe("rendering", function(){
+  describe("smallPhotos", function() {
     it("should return all but the first photo from the post", function() {
       this.post.set({photos : [1,2]}); // set 2 Photos
       expect(this.view.smallPhotos().length).toEqual(1);
+    });
+
+    it("shouldn't change the photos array", function() {
+      this.post.set({photos: [1, 2]}); // set 2 Photos
+      this.view.smallPhotos();
+      expect(this.post.get("photos").length).toEqual(2);
     });
   });
 
