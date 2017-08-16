@@ -33,7 +33,7 @@ describe BlocksController, :type => :controller do
 
     it "notifies the user" do
       delete :destroy, params: {id: @block.id}
-      expect(flash).not_to be_empty
+      expect(flash[:notice]).to eq(I18n.t("blocks.destroy.success"))
     end
 
     it "responds with 204 with json" do
@@ -50,6 +50,11 @@ describe BlocksController, :type => :controller do
       expect {
         delete :destroy, params: {id: @block.id}, format: :json
       }.to change { alice.blocks.count }.by(-1)
+    end
+
+    it "handles when the block to delete doesn't exist" do
+      delete :destroy, params: {id: -1}
+      expect(flash[:error]).to eq(I18n.t("blocks.destroy.failure"))
     end
   end
 
