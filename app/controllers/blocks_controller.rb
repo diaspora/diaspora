@@ -1,23 +1,26 @@
 class BlocksController < ApplicationController
   before_action :authenticate_user!
 
-  respond_to :json
-
   def create
     block = current_user.blocks.new(block_params)
 
     disconnect_if_contact(block.person) if block.save
 
-    respond_with do |format|
+    respond_to do |format|
       format.json { head :no_content }
     end
   end
 
   def destroy
-    current_user.blocks.find(params[:id]).delete
+    notice = if current_user.blocks.find_by(id: params[:id])&.delete
+               {notice: t("blocks.destroy.success")}
+             else
+               {error: t("blocks.destroy.failure")}
+             end
 
-    respond_with do |format|
+    respond_to do |format|
       format.json { head :no_content }
+      format.any { redirect_back fallback_location: privacy_settings_path, flash: notice }
     end
   end
 
