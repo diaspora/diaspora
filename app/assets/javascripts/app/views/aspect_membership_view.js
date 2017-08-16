@@ -144,7 +144,7 @@ app.views.AspectMembership = app.views.Base.extend({
 
     this.render();
     // we just removed the last aspect, inform the user with a flash message
-    // that he is no longer sharing with that person
+    // that they are no longer sharing with that person
     if (this.$el.find("li.selected").length === 0) {
       var msg = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", { "name": this._name() });
       stopSharing = true;
