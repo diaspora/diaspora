@@ -173,7 +173,7 @@ describe PhotosController, :type => :controller do
   end
 
   describe '#destroy' do
-    it 'let a user delete his message' do
+    it "lets a user delete their message" do
       delete :destroy, params: {id: @alices_photo.id}
       expect(Photo.find_by_id(@alices_photo.id)).to be_nil
     end

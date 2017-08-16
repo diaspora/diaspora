@@ -81,7 +81,7 @@ describe CommentsController, :type => :controller do
         sign_in bob, scope: :user
       end
 
-      it 'lets the user delete his comment' do
+      it "lets the user delete their comment" do
         comment = bob.comment!(@message, "hey")
 
         expect(bob).to receive(:retract).with(comment)
@@ -99,7 +99,7 @@ describe CommentsController, :type => :controller do
     end
 
     context "another user's post" do
-      it 'let the user delete his comment' do
+      it "lets the user delete their comment" do
         comment = alice.comment!(@message, "hey")
 
         expect(alice).to receive(:retract).with(comment)
@@ -107,7 +107,7 @@ describe CommentsController, :type => :controller do
         expect(response.status).to eq(204)
       end
 
-      it 'does not let the user destroy comments he does not own' do
+      it "does not let the user destroy comments they do not own" do
         comment1 = bob.comment!(@message, "hey")
         comment2 = eve.comment!(@message, "hey")
 
