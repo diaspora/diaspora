@@ -12,7 +12,7 @@ class BlocksController < ApplicationController
   end
 
   def destroy
-    notice = if current_user.blocks.find(params[:id]).delete
+    notice = if current_user.blocks.find_by(id: params[:id])&.delete
                {notice: t("blocks.destroy.success")}
              else
                {error: t("blocks.destroy.failure")}
@@ -20,7 +20,7 @@ class BlocksController < ApplicationController
 
     respond_to do |format|
       format.json { head :no_content }
-      format.any { redirect_back notice.merge(fallback_location: privacy_settings_path) }
+      format.any { redirect_back fallback_location: privacy_settings_path, flash: notice }
     end
   end
 
