@@ -332,7 +332,7 @@ describe PostService do
           end
         end
 
-        shared_examples "current user can't mention himself" do
+        shared_examples "current user can't mention themself" do
           before do
             current_user.profile.update(first_name: "Ro#{r_str}")
           end
@@ -345,7 +345,7 @@ describe PostService do
         context "when current user is a post author" do
           let(:post_author) { current_user.person }
 
-          include_examples "current user can't mention himself"
+          include_examples "current user can't mention themself"
         end
 
         context "current user is a participant" do
@@ -354,11 +354,11 @@ describe PostService do
             current_user.comment!(post, "hello")
           end
 
-          include_examples "current user can't mention himself"
+          include_examples "current user can't mention themself"
         end
 
         context "current user is a stranger matching a search pattern" do
-          include_examples "current user can't mention himself"
+          include_examples "current user can't mention themself"
         end
 
         it "doesn't fail when the post author doesn't match the requested pattern" do
