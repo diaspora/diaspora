@@ -46,8 +46,13 @@ end
 
 When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   click_link "My aspects"
+  expect(find("#aspect_stream_container")).to have_css(".loader.hidden", visible: false)
   within("#aspects_list") do
-    all(".selected").each {|node| node.find(:xpath, "..").click }
+    all(".selected").each do |node|
+      aspect_item = node.find(:xpath, "..")
+      aspect_item.click
+      expect(aspect_item).to have_no_css ".selected"
+    end
     expect(current_scope).to have_no_css ".selected"
   end
   step %Q(I select "#{aspect_name}" aspect as well)
