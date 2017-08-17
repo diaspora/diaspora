@@ -267,6 +267,14 @@ describe("app.views.CommentStream", function(){
       expect(this.view.$(".comments div.comment.media").length).toEqual(6);
       expect(this.view.$(".comments div.comment.media div.comment-content p").text()).toEqual("123456");
     });
+
+    it("calls renderPluginWidgets", function() {
+      var comment = factory.comment();
+      this.view.CommentView = app.views.Comment;
+      spyOn(app.views.Comment.prototype, "renderPluginWidgets");
+      this.view.appendComment(comment);
+      expect(app.views.Comment.prototype.renderPluginWidgets).toHaveBeenCalled();
+    });
   });
 
   describe("removeComment", function() {
