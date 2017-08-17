@@ -14,7 +14,7 @@ describe Notifications::Mentioned do
 
     it "calls filter_mentions on self" do
       expect(TestNotification).to receive(:filter_mentions).with(
-        Mention.where(mentions_container: status_message, person: [alice, bob].map(&:person)),
+        match_array(Mention.where(mentions_container: status_message, person: [alice, bob].map(&:person))),
         status_message,
         [alice.id, bob.id]
       ).and_return([])
