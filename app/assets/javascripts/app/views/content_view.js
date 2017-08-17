@@ -17,15 +17,14 @@ app.views.Content = app.views.Base.extend({
 
   largePhoto : function() {
     var photos = this.model.get("photos");
-    if(!photos || photos.length === 0) { return }
+    if (!photos || photos.length === 0) { return false; }
     return photos[0];
   },
 
   smallPhotos : function() {
     var photos = this.model.get("photos");
-    if(!photos || photos.length < 2) { return }
-    photos.splice(0, 1); // remove first photo as it is already shown as largePhoto
-    return photos;
+    if (!photos || photos.length < 2) { return false; }
+    return photos.slice(1); // remove first photo as it is already shown as largePhoto
   },
 
   expandPost: function(evt) {
