@@ -4,6 +4,7 @@
 app.views.Comment = app.views.Content.extend({
   templateName: "comment",
   className : "comment media",
+  tooltipSelector: "time",
 
   events : function() {
     return _.extend({}, app.views.Content.prototype.events, {
