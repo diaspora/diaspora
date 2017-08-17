@@ -118,7 +118,8 @@ app.views.CommentStream = app.views.Base.extend({
     // on post ownership in the Comment view.
     comment.set({parent : this.model.toJSON()});
 
-    var commentHtml = new this.CommentView({model: comment}).render().el;
+    var commentView = new this.CommentView({model: comment});
+    var commentHtml = commentView.render().el;
     var commentBlocks = this.$(".comments div.comment.media");
     this._moveInsertPoint(comment.get("created_at"), commentBlocks);
     if (this._insertPoint >= commentBlocks.length) {
@@ -128,6 +129,7 @@ app.views.CommentStream = app.views.Base.extend({
     } else {
       commentBlocks.eq(this._insertPoint).before(commentHtml);
     }
+    commentView.renderPluginWidgets();
   },
 
   removeComment: function(comment) {
