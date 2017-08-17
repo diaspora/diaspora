@@ -109,6 +109,7 @@ When /^I click to delete the first post$/ do
   accept_alert do
     step "I prepare the deletion of the first post"
   end
+  expect(find(".stream")).to have_no_css(".stream-element.loaded.deleting")
 end
 
 When /^I click to hide the first post$/ do
