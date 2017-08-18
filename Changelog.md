@@ -1,6 +1,7 @@
 # 0.7.1.0
 
 ## Refactor
+* Remove title from profile photo upload button [#7551](https://github.com/diaspora/diaspora/pull/7551)
 
 ## Bug fixes
 
