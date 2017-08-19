@@ -243,13 +243,14 @@ fr:
     reshares:
       post: "Repartager le message de <%= name %> ?"
       successful: "Le message a été repartagé !"
+    show_all: "Afficher tout"
     show_more: "Voir plus"
     stream:
       comment: "Commenter"
       comments:
-        one: "<%= count %> commantaire"
-        other: "<%= count %> commantaires"
-        zero: "<%= count %> commantaire"
+        one: "<%= count %> commentaire"
+        other: "<%= count %> commentaires"
+        zero: "<%= count %> commentaire"
       disable_post_notifications: "Désactiver les notifications pour ce message"
       enable_post_notifications: "Activer les notifications pour ce message"
       follow: "Suivre"

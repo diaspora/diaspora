@@ -179,6 +179,12 @@ tr:
     heading: "Diaspora yer işareti"
     post_something: "Diaspora için bir şey gönder"
   cancel: "İptal Et"
+  color_themes:
+    dark_green: "Koyu yeşil"
+    egyptian_blue: "Mısır mavisi"
+    magenta: "Macenta"
+    original: "Asıl gri"
+    original_white: "Asıl beyaz arkaplan"
   comments:
     new_comment:
       comment: "Yorum yaz"
@@ -284,7 +290,6 @@ tr:
     mentions:
       how_to_mention_a: "@ yazın ve kullanıcının adını yazmaya başlayın. Açılır menü, seçiminizi kolaylaştırmak üzere belirecektir. Yalnızca bir bakışa eklediğiniz kişiden bahsedebilirsiniz."
       how_to_mention_q: "Gönderi yaparken birisini nasıl anabilirim?"
-      mention_in_comment_a: "Hayır, henüz değil."
       mention_in_comment_q: "Bir yorumun içinde birisini anabilir miyim?"
       see_mentions_a: "Evet. Ana sayfanızın sol sütunundaki \"Anılmalar\"ı tıklayın."
       see_mentions_q: "Benim anıldığım gönderileri görmenin bir yolu var mı?"
@@ -315,10 +320,7 @@ tr:
       format_text_q: "Gönderilerimi nasıl biçimlendirebilirim(kalın, İtalik, vs.)?"
       hide_posts_a: "Fareyi gönderinin üzerinde getirdiğinizde sağ tarafta X belirir. Ona tıkladığınızda gönderiyi gizleyip bildirimleri susturmuş olursunuz. Ancak bu, gönderenin profilini ziyaret ettiğinizde gönderiyi görmenizi engellemez."
       hide_posts_q: "Gönderilerimi nasıl gizlerim?"
-      image_text: "resim metni"
-      image_url: "resim url'si"
       insert_images_a: "Ufak kamera simgesine tıklayarak bunu yapabilirsiniz. Başka bir görüntü yüklemek için kamera simgesine tekrar tıklayabilir veya birden fazlasını tek seferde yükleyebilirsiniz."
-      insert_images_comments_a1: "Aşağıda not düşülen kod"
       insert_images_comments_q: "Yorumlara resim ekleyebilir miyim?"
       insert_images_q: "Gönderilere nasıl görüntü eklerim?"
       size_of_images_a: "Yapamazsınız. Resimler kendiliğinden akış genişliğine uyacak şekilde boyutlandırılırlar. Markdown içinde resim boyutunu belirleyecek bir kod yoktur."
@@ -333,19 +335,8 @@ tr:
       can_reshare_a: "Hiç kimse. Özel gönderiler yeniden paylaşılamaz, ancak diaspora* nın kopyala-yapıştır koruması yoktur."
       can_reshare_q: "Özel gönderimi kim paylaşabilir?"
       title: "Özel gönderiler"
-    private_profiles:
-      title: "Özel profiller"
-      whats_in_profile_q: "Ne benim özel profil var?"
-      who_sees_profile_a: "Paylaşımda bulunduğunuz (bakışlarınızdan birinde olan) her hangi kullanıcı, adıyla girdiğinde görebilir. Ancak sizin takip etmediğiniz takipçiler, ancak herkese açık bilgilerinizi görür."
-      who_sees_profile_q: "Özel profilimi kimler görür?"
-      who_sees_updates_a: "Bakışlarınızdaki herkes özel profilinizdeki değişiklikleri görebilir. "
-      who_sees_updates_q: "Özel profilimin güncelllemelerini kim görebilir?"
     public_posts:
       title: "Genel gönderiler"
-    public_profiles:
-      title: "Genel profiller"
-      whats_in_profile_a: "Adınız, kendinizi tanımladığınız beş etiket, fotoğrafınız. Profili düzenleme sayfasının üstündeki şeyler. Profil bilgilerini tanımlanabilir ya da anonim olarak tanımlayabilirsiniz. Profil sayfası ayrıca tüm genel gönderilerinizi gösterir."
-      whats_in_profile_q: "Genel profilimin içinde ne var"
     resharing_posts:
       reshare_private_post_aspects_a: "Hayır, bu mümkün değildir. Böyle bir şey, gönderenin, yalnızca belirli bir kitle ile paylaşmak niyetine ters düşerdi."
       reshare_private_post_aspects_q: "Özel bir gönderiyi yeniden paylaşabilir miyim?"

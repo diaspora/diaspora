@@ -6,12 +6,15 @@
 
 sc:
   javascripts:
+    aspects:
+      make_aspect_list_visible: "Permìtere a sos cuntatos in custa cara de si bìdere unu cun s'àteru?"
     header:
       moderator: "Moderatore"
     photo_uploader:
       upload_photos: "Càrriga fotografias"
     publisher:
       mention_success: "Etichetados curretamente: <%= names %>"
+    show_all: "Ammustra totu"
     timeago:
       prefixAgo: ""
       prefixFromNow: ""

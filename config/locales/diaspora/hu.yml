@@ -291,14 +291,14 @@ hu:
     foundation_website: "diaspora* alapítvány"
     getting_help:
       get_support_a_faq: "tekintsd meg %{faq} oldalunkat"
-      get_support_a_hashtag: "kérdezz magyarul a közösségi hálón, nyilvános bejegyzésben a %{question} címke használatával"
+      get_support_a_hashtag: "kérdezz nyilvános bejegyzésben a közösségi hálón a %{question} (vagy magyarul a #kérdés) címke használatával"
       get_support_a_irc: "kapcsolódj be %{irc}-en az élő csevegésbe"
       get_support_a_tutorials: "nézd át az általunk készített %{tutorials}at"
       get_support_a_website: "látogasd meg a %{link} honlapját"
       get_support_a_wiki: "kutass a %{link} adattárunkban"
       get_support_q: "Mit tegyek, ha a kérdésemre itt nem találok választ? Hol kaphatok még felvilágosítást?"
-      getting_started_a: "Szerencséd van. %{tutorial_series} nevű bemutató oldalunk lépésről lépésre végigvezet téged a regisztrációs eljáráson és megismerteti a diaspora* használatához szükséges alapvető tudnivalókat."
-      getting_started_q: "Húha! A kezdéshez elkélne némi alapvető segítség!"
+      getting_started_a: "Szerencséd van. %{tutorial_series} nevű bemutató oldalunk lépésről lépésre végigvezet téged a regisztrációs folyamaton és megismerteti a diaspora* használatához szükséges alapvető tudnivalókat."
+      getting_started_q: "Segítség! A kezdéshez elkélne egy kis útmutatás!"
       title: "Források a tájékozódáshoz"
     getting_started_tutorial: "'Kezdő lépések'"
     here: "itt"
@@ -311,7 +311,6 @@ hu:
     mentions:
       how_to_mention_a: "Írj le egy \"@\" jelet és kezdd el gépelni az illető nevét. Egy legördülő menü fog megjelenni annak érdekében, hogy könnyebben választhass. Fontos, hogy csak azokat az embereket tudod megemlíteni, akiket hozzáadtál valamely csoporthoz."
       how_to_mention_q: "Hogyan említhetek meg valakit, amikor bejegyzést írok?"
-      mention_in_comment_a: "Jelenleg ez még nem lehetséges."
       mention_in_comment_q: "Megemlíthetek valakit egy hozzászólásban?"
       see_mentions_a: "Igen, kattints a \"Megemlítettek\" feliratra a kezdőlapod bal oldalán."
       see_mentions_q: "Van rá mód, hogy megtekinthessem azokat a bejegyzéseket, melyekben megemlítettek engem?"
@@ -337,11 +336,7 @@ hu:
       embed_multimedia_q: "Hogyan ágyazhatok be mozgóképet, hangot vagy más multimédiás tartalmat a bejegyzésembe?"
       format_text_a: "A %{markdown} nevű egyszerűsített leíró rendszer segítségével, melynek pontos alaki követelményeit %{here} találod. Az előnézet gomb ekkor különösen hasznosnak bizonyulhat, hiszen segítségével láthatod, hogyan fog kinézni az üzeneted mielőtt megosztod azt."
       format_text_q: "Hogyan formázhatom meg a bejegyzéseim szövegét (kövér, dőlt, stb.)?"
-      image_text: "kép szövege"
-      image_url: "kép url"
       insert_images_a: "Kattints a kis fényképezőgép jelére, ha képet szeretnél beszúrni a bejegyzésedbe. Nyomd meg az ikont ismételten, ha újabbat is szeretnél hozzáadni. Lehetőséged van több képet is egyszerre kiválasztani."
-      insert_images_comments_a1: "Nem tudsz képeket feltölteni hozzászólásokba, de a következő markdown kód"
-      insert_images_comments_a2: "használható a világhálóról származó képek bejegyzésekbe és hozzászólásokba való beillesztéséhez"
       insert_images_comments_q: "Beilleszthetek képeket a hozzászólásaimba?"
       insert_images_q: "Hogyan helyezhetek el képeket a bejegyzésemben?"
       size_of_images_a: "Nem. A képek automatikusan átméreteződnek, hogy megfelelően épülhessenek be a hírfolyamba. A markdown nem támogatja a képek átméretezését szolgáló kódok semmilyen formáját."
@@ -349,6 +344,7 @@ hu:
       stream_full_of_posts_a1: "A hírfolyamod három fajta bejegyzésből áll:"
       stream_full_of_posts_li3: "Végül olyan nyilvános bejegyzések, melyek az úgymond \"figyelem középpontjában\" álló, vagyis a közösség által javasolt népszerű tagoktól származnak. Az ilyen bejegyzések bármikor elrejthetőek, ha azt a beállításainkban kikapcsoljuk (fiók fül - \"A figyelem középpontjában szereplő tartalmak megjelenítése a hírfolyamban\")."
       stream_full_of_posts_q: "Miért van tele a hírfolyamom olyan emberek bejegyzéseivel, akiket nem ismerek és nem is osztok meg velük semmit?"
+      title: "Bejegyzések"
     private_posts:
       can_comment_a: "Csak azok a bejelentkezett diaspora* felhasználók tehetik meg ezt, akiket az érintett csoportba helyeztél."
       can_comment_q: "Ki nyilváníthatja ki tetszését a magánjellegű bejegyzéseimre és ki szólhat hozzájuk?"
@@ -357,29 +353,14 @@ hu:
       see_comment_a: "Csak azok az emberek láthatják a hozzászólásokat és tetszésnyilvánításokat, akik szerepeltek a tartalmat eredetileg megosztó felhasználó általa kiválasztott csoportjaiban. "
       see_comment_q: "Ki láthatja azt, ha hozzászólok egy bejegyzéshez vagy tetszést nyilvánítok?"
       title: "Személyes bejegyzések"
-    private_profiles:
-      title: "Személyes adatlapok"
-      whats_in_profile_a: "Rövid önéletrajzot, tartózkodási helyet, nemet és születésnapot. Az \"adatlap szerkesztése\" oldal alsó részén található. Az adatok megadása nem kötelező - rajtad múlik, hogy kitöltöd-e vagy sem. Kizárólag azok a bejelentkezett felhasználók láthatják a személyes adatlapodat, akiket hozzáadtál valamelyik csoportodhoz. Amikor valaki meglátogatja az adatlapodat, a nyilvános bejegyzéseiddel egyetemben azokat a személyes bejegyzéseket is látni fogja, amelyek azon csoport(ok) számára íródtak, ahová az illetőt soroltad."
-      whats_in_profile_q: "Mit tartalmaz a személyes adatlapom?"
-      who_sees_profile_a: "Bármely bejelentkezett felhasználó, akivel megosztasz (vagyis akit hozzáadtál valamely csoportodhoz). Ugyanakkor, azok a személyek, akik téged követnek, de te nem követed őket, csak a nyilvános adataidat láthatják."
-      who_sees_profile_q: "Ki láthatja a személyes adatlapomat?"
-      who_sees_updates_a: "A csoportjaidból bárki láthatja a személyes adatlapod változásait. "
-      who_sees_updates_q: "Ki látja a személyes adatlapom frissítéseit?"
     public_posts:
       find_public_post_a: "Nyilvános bejegyzéseid megjelennek minden téged követő személy hírfolyamában. Ha #címkéket is elhelyeztél benne, akkor bárki, aki követi azokat, meg fogja találni a bejegyzéseidet a saját folyamában. Ezen kívül minden nyilvános bejegyzés egy meghatározott elérési úttal is rendelkezik, amit bárki megnyithat - még akkor is, ha nincs bejelentkezve - így az ilyen bejegyzések közvetlenül lehivatkozhatóak Twitterből, blogokból, stb. Nem mellékesen a különböző internetes keresők is nyilvántartásba vehetik őket."
       find_public_post_q: "Hogy találhatják meg mások a nyilvános bejegyzésemet?"
       title: "Nyilvános bejegyzések"
       who_sees_post_a: "Elviekben bármely internet felhasználó láthatja az ilyen bejegyzéseidet, ezért gondold meg, hogy biztosan a széles nyilvánosságnak szánod-e az adott tartalmat. Ugyanakkor jó lehetőség, hogy elérd üzeneteddel a tágas világot."
       who_sees_post_q: "Ki láthatja a nyilvánosnak jelölt bejegyzésemet?"
-    public_profiles:
-      title: "Nyilvános adatlapok"
-      what_do_tags_do_a: "Segítenek abban, hogy mások megismerhessenek téged. Az önarcképed is meg fog jelenni az egyes címkék oldalainak bal szélén, azokkal egyetemben, akik szintén megadtak a nyilvános adatlapjukon ilyeneket."
-      what_do_tags_do_q: "Mi a szerepük a címkéknek a nyilvános adatlapomon?"
-      whats_in_profile_a: "A nevedet, az öt címkét, melyet saját magad jellemzésére választhatsz és a fényképedet. Mindezek az 'adatlapom szerkesztése' oldal felső részén találhatóak. Te döntöd el, hogy névtelen szeretnél lenni, vagy könnyedén azonosítható. Az adatlapod oldala ezen kívül az összes nyilvános bejegyzésedet is tartalmazza."
-      whats_in_profile_q: "Mit tartalmaz a nyilvános adatlapom?"
-      who_sees_profile_q: "Ki láthatja a nyilvános adatlapomat?"
-      who_sees_updates_a: "Bárki láthatja a változásokat, ha meglátogatják az adatlapodat."
-      who_sees_updates_q: "Ki láthatja a nyilvános adatlapom frissítéseit?"
+    resharing_posts:
+      title: "Bejegyzések újramegosztása"
     sharing:
       add_to_aspect_a1: "Tegyük fel, hogy Anna hozzáadja Bencét egy csoportjához, de ekkor Bence (még) nem adta hozzá Annát egyetlen csoporthoz sem. Ekkor:"
       add_to_aspect_a2: "Mindez egyoldalú megosztásként ismert. Abban a pillanatban, hogy Bence szintén hozzáadja Annát valamely csoportjába, kölcsönössé válik a megosztás, vagyis mind Anna és mind Bence összes nyilvános- és kapcsolódó magánbejegyzése meg fog jelenni a másik hírfolyamában. "
@@ -427,7 +408,7 @@ hu:
         other: "%{count} meghívó maradt még ezen a kódon"
         zero: "Nem maradt több meghívó ezen a kódon"
       comma_separated_plz: "Megadhatsz több e-mail címet is vesszővel elválasztva."
-      invite_someone_to_join: "Hívj meg valakit, hogy csatlakozzon a diaspora*-hoz!"
+      invite_someone_to_join: "Hívj meg valakit a diaspora* közösségbe!"
       language: "Nyelv"
       paste_link: "Ha szeretnéd meghívni a barátaidat a diaspora*-ra, oszd meg velük ezt a hivatkozást vagy küldd el nekik közvetlenül levélben."
       send_an_invitation: "Küldj egy meghívót"
@@ -436,7 +417,8 @@ hu:
     application:
       back_to_top: "Vissza az elejére"
       be_excellent: "Legyetek mindig jók egymáshoz! ♥"
-      powered_by: "diaspora* - fordította adamex & danielwine"
+      discourse: "fórum és támogatás"
+      powered_by: "diaspora* által hajtva"
       public_feed: "%{name} nyilvános diaspora* hírfolyama"
       source_package: "forráskódcsomag letöltése"
       statistics_link: "pod statisztika"
@@ -836,6 +818,8 @@ hu:
     aspects_stream: "Csoportok"
     comment_stream:
       title: "Kommentált bejegyzések"
+    commented:
+      title: "Kommentált bejegyzések"
     community_spotlight_stream: "A figyelem középpontjában"
     followed_tag:
       add_a_tag: "Címke hozzáadása"
@@ -844,6 +828,8 @@ hu:
     followed_tags_stream: "#követett címkék"
     like_stream:
       title: "Kedveled"
+    liked:
+      title: "Kedvelt bejegyzések"
     mentioned_stream: "@említések"
     mentions:
       title: "@Megemlítettek"

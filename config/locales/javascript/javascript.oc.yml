@@ -54,7 +54,7 @@ oc:
         compare_versions: "La darrièra version de diaspora* es <%= latestVersion %>, vòstre pod vira jos la version <%= podVersion %>."
         error: "Impossible de determinar la darrièra version de diaspora*."
         outdated: "Vòstre pod es pas a jorn."
-        up_to_date: "Vòstre pod es a jorn !"
+        up_to_date: "Vòstre pod es a jorn !"
     and: "e"
     aspect_dropdown:
       add_to_aspect: "Apondre un contacte"
@@ -86,7 +86,7 @@ oc:
     bookmarklet:
       post_something: "Publicar sus diaspora*"
       post_submit: "Messatge en cors de publicacion..."
-      post_success: "Publicat ! Tampadura de la fenèstra popup..."
+      post_success: "Publicat ! Tampadura de la fenèstra popup…"
     cancel: "Anullar"
     comma: ","
     comments:
@@ -107,7 +107,7 @@ oc:
       search_no_results: "Cap de contact pas trobat"
     conversation:
       create:
-        no_recipient: "Ei, vos cal apondre un destinari d'en primièr !"
+        no_recipient: "Ei, vos cal apondre un destinari d'en primièr !"
       new:
         no_contacts: "Vos cal apondre de contactes abans de poder aviar una conversacion."
     create: "Crear"
@@ -115,12 +115,12 @@ oc:
     edit: "Editar"
     errors:
       connection: "Impossible de se conectar al servidor."
-    failed_to_post_message: "Impossible de partejar lo messatge !"
+    failed_to_post_message: "Impossible de partejar lo messatge !"
     failed_to_remove: "L'entrada a pas pogut èsser suprimida"
     getting_started:
       alright_ill_wait: "Bon, vau esperar."
       hey: "Adiu, <%= name %>"
-      no_tags: "È, seguissètz pas cap de tag ! Contunar malgrat tot ?"
+      no_tags: "È, seguissètz pas cap d’etiquetas ! Contunhar malgrat tot ?"
       preparing_your_stream: "Preparacion de vòstre flux personalizat..."
     header:
       admin: "Administracion"
@@ -170,7 +170,7 @@ oc:
       empty: "{file} es void, mercé de seleccionar d'autres fichièrs."
       error: "Un problèma s'es produit pendent lo mandadís del fichièr <%= file %>"
       invalid_ext: "{file} a una extension invalida, Solas {extensions} son permesas."
-      looking_good: "Impressionant, avètz un super estil !"
+      looking_good: "Impressionant, avètz un super estil !"
       size_error: "{file} es tròp gròs, la talha maximala es de {sizeLimit}."
       upload_photos: "Mandar de fotografias"
     poll:
@@ -198,7 +198,7 @@ oc:
       location: "Localizacion"
       photos: "Fòtos"
       posts: "Publicacions"
-      you_have_no_tags: "Avètz pas d'etiquetas !"
+      you_have_no_tags: "Avètz pas d'etiquetas !"
     publisher:
       add_option: "Apondre una responsa"
       markdown_editor:
@@ -229,8 +229,8 @@ oc:
           quote: "Inserir una citacion"
           write: "Modificar lo messatge"
         write: "Escriure"
-      mention_success: "Es ben estat mencionat : <%= names %>"
-      near_from: "Postat a : <%= location %>"
+      mention_success: "Es ben estat mencionat : <%= names %>"
+      near_from: "Postat a : <%= location %>"
       option: "Responsa"
       question: "Question"
     remove_post: "Suprimir aqueste messatge ?"
@@ -243,7 +243,8 @@ oc:
         exists: "Lo senhalament existís ja"
     reshares:
       post: "Repartejar lo messatge de <%= name %> ?"
-      successful: "Lo messatge es estat repartejat !"
+      successful: "Lo messatge es estat repartejat !"
+    show_all: "Afichar tot"
     show_more: "N'afichar mai"
     stream:
       comment: "Comentar"

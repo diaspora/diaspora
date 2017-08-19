@@ -271,6 +271,13 @@ da:
     heading: "Bogmærke"
     post_something: "Skriv indlæg til Diaspora"
   cancel: "Annuller"
+  color_themes:
+    dark: "Mørk"
+    dark_green: "Mørk grøn"
+    egyptian_blue: "Ægyptisk blå"
+    magenta: "Magenta"
+    original: "Original grå"
+    original_white: "Original hvid baggrund"
   comments:
     create:
       error: "Du kunne ikke kommentere."
@@ -346,7 +353,7 @@ da:
       data_visible_to_podmin_q: "Hvor meget af min information kan min pod-administrator se?"
       download_data_a: "Ja. I bunden af din kontofane i Indstillinger er der to knapper. Den ene er til at downloade dine data, den andentil at downloade dine billeder."
       download_data_q: "Kan jeg downloade en kopi af alle de data der er indeholdt i min seed (konto)?"
-      move_pods_a: "I fremtiden vil du være i stand til at eksportere dine seed fra en pod og importere dem på en anden, men dette er ikke på nuværende tidspunkt muligt. Du kan altid åbne en ny konto og tilføje kontakter til aspekter der, og så bede dem om at tilføje din nye konto til deres aspekter."
+      move_pods_a: "Version 0.7.0.0 af Diaspora indleder den første fase af konto migration: Du kan nu eksportere alle dine data fra \"Konto\" sektionen af brugerindstillingerne. Hold dine data i sikkerhed! I en fremtidig udgivelse vil du kunne overføre hele din konto, herunder indlæg og kontakter, til en anden pod."
       move_pods_q: "Hvordan flytter jeg min seed (konto) fra en pod til en anden?"
       title: "Konto og data-administration"
     aspects:
@@ -354,7 +361,7 @@ da:
       change_aspect_of_post_q: "Når jeg har lagt et indlæg op kan jeg så ændre det aspekt (de aspekter) der kan se det?"
       contacts_know_aspect_a: "Nej. De kan ikke under nogen omstændigheder se aspektets navn."
       contacts_know_aspect_q: "Ved mine kontakter hvilke aspekter jeg har placeret dem i?"
-      contacts_visible_a: "Hvis du vælger denne indstilling så vil kontakter fra dette aspekt under dit billede på din profilside være i stand til at se, hvem der ellers er i aspektet. Det er bedst at vælge denne mulighed, hvis kontakterne alle kender hinanden, f.eks. hvis de alle er del af din familie eller af en fælles forening eller klub. De vil stadig ikke være i stand til at se hvad du har kaldt aspektet."
+      contacts_visible_a: "Hvis du vælger denne indstilling så vil kontakter fra dette aspekt under dit billede på din profilside være i stand til at se, hvem der ellers er i aspektet. (I øjeblikket er kun de af dine kontakter der er på samme pod som du vil kunne se fanen \"Kontakter\" på din profil.) Det er bedst at vælge denne mulighed, hvis kontakterne alle kender hinanden, f.eks. hvis de alle er del af din familie eller af en fælles forening eller klub. De vil stadig ikke være i stand til at se hvad du har kaldt aspektet."
       contacts_visible_q: "Hvad betyder: \"gør kontakter i dette aspekt synlige for hinanden?\""
       delete_aspect_a: "Tryk på \"Mine aspekter\" i venstre sidemenu i din strøm og tryk på blyants-ikonet ved det aspekt du vil slette, eller gå til din kontaktside og vælg det relevante aspekt. Klik på papirkurvs-ikonet øverst til højre på siden."
       delete_aspect_q: "Hvordan sletter jeg et aspekt?"
@@ -378,9 +385,11 @@ da:
       add_contact_roster_q: "Hvordan chatter jeg med nogen i Diaspora?"
       contacts_page: "kontakt side"
       title: "Chat"
+    community_guidelines: "Sociale retningslinier"
     faq: "FAQ"
     foundation_website: "Diaspora-stiftelsens hjemmeside"
     getting_help:
+      get_support_a_discourse: "Søg efter eksisterende diskussioner vedrørende din forespørgsel, eller åbn en ny tråd på vores %{discourse} platform"
       get_support_a_faq: "Læs vores %{faq} side på wikien"
       get_support_a_hashtag: "Spørg i et offentlig indlæg på Diaspora og brug %{question} hashtagget"
       get_support_a_irc: "Slut dig til os på %{irc} (live chat)"
@@ -410,7 +419,7 @@ da:
     mentions:
       how_to_mention_a: "Skriv \"@\" efterfulgt af deres navn. En rullemenu skulle herefter nemt lade dig vælge dem. Bemærk at det kun er muligt at nævne folk som du har tilføjet til et af dine aspekter."
       how_to_mention_q: "Hvordan \"nævner\" jeg nogen når jeg laver et indlæg?"
-      mention_in_comment_a: "Nej, ikke på nuværende tidspunkt"
+      mention_in_comment_a: "Siden version 0.7.0.0, ja! Du kan nævne en person i en kommentar på samme måde som du ville gøre det i et indlæg ved at skrive \"@\" og derefter begynde at skrive deres navn. Bemærk, at når du kommenterer et indlæg der ikke er offentligt kan du kun nævne brugere der allerede har interageret med indlægget."
       mention_in_comment_q: "Kan jeg \"nævne\" nogen i en kommentar?"
       see_mentions_a: "Ja. tryk på knappen \"Dine omtaler\" i venstre kolonne på din startside."
       see_mentions_q: "Er der en måde at se de indlæg hvor jeg er blevet nævnt?"
@@ -431,7 +440,7 @@ da:
       find_people_a: "Hvis du vil invitere dine venner til Diaspora, brug invitationslinket eller e-mail-linket i side-baren. Følg #tags for at finde andre som du deler interesser med, og tilføj dem hvis indlæg interesserer dig til et af dine aspekter. Sørg for at alle ved at du er ny ved at sætte tagget #newhere i et offentligt indlæg."
       find_people_q: "Jeg har lige tilsluttet mig en pod, hvordan kan jeg finde folk at dele med?"
       title: "Pods"
-      use_search_box_a: "Hvis du kender deres fulde Diaspora-ID (f.eks brugernavn@podnavn.org), kan du finde dem ved at søge efter det. Hvis du er på samme pod kan du nøjes med at søge efter deres brugernavn. Et alternativ er at søge efter dem ved at søge på deres profilnavn (det navn, du ser på skærmen). Hvis en søgning ikke virker første gang, så prøv igen."
+      use_search_box_a: "Du kan søge efter personer ved at indtaste deres brugernavn eller deres Diaspora-navn (navnet, der vises på deres profil). Hvis ingen af disse metoder virker, skal du indtaste deres fulde Diaspora-ID (brugernavn@podname.org). Hvis din søgning ikke virker første gang, kan det skyldes netværksforsinkelse. Prøv igen."
       use_search_box_q: "Hvordan bruger jeg søgefeltet til at finde bestemte personer?"
       what_is_a_pod_a: "En pod er en server der kører Diaspora-softwaren og er forbundet til Diaspora-netværket. \"Pod\" er engelsk ord for en plantebælg og er således en metafor: En bælg indeholder frø på samme måde som en server indeholder brugerkonti. Der er mange forskellige pods. Du kan tilføje venner fra andre pods og kommunikere med dem. Så der er ingen grund til at oprette en profil på flere pods - en er nok. Du kan tænke på en Diaspora pod som du tænker på en e-mailudbyder: Der er offentlige pods, private pods og med en vis indsats kan du endda køre din egen."
       what_is_a_pod_q: "Hvad er en pod?"
@@ -442,15 +451,12 @@ da:
       character_limit_q: "Hvad er grænsen for hvor mange tegn der må være i et indlæg?"
       embed_multimedia_a: "Du kan som regel bare indsætte URL-adressen (f.eks http://www.youtube.com/watch?v=nnnnnnnnnnn) i dit indlæg og så vil video eller lyd blive indlejret automatisk. Nogle af de sider, der understøttes er: YouTube, Vimeo, SoundCloud, Flickr og et par mere. Diaspora bruger oEmbed til denne funktion. Vi understøtter løbende nye medie-typer. Husk altid at skrive enkle, fulde links: ingen forkortede links, ingen operatorer efter grund-URLen - og giv det lidt tid, før du opdaterer siden for at se din forhåndsvisning."
       embed_multimedia_q: "Hvordan kan jeg indlejre en video, lyd eller andet multimedieindhold i et indlæg?"
-      format_text_a: "Ved at bruge et simplificeret system kaldet %{markdown}. Du kan finde en komplet introduktion til Markdown syntaks %{here}. Forhåndsvisning-knappen er virkelig praktisk her, da du kan se hvordan dit indlæg vil komme til at se ud inden du deler det."
+      format_text_a: "Diaspora bruger et forenklet system kaldet %{markdown}. Over indlægsteksten er der knapper, der gør det nemt at formatere din tekst. Hvis du vil formatere dit indlæg manuelt, kan du finde den fulde Markdown-syntaks %{here}. Forhåndsvisning fanen betyder, at du kan se, hvordan din besked vil se ud, før du deler den. Husk, at du ikke kan redigere, når først indlægget er blevet lagt ud, så brug previewen for at sikre, at det er perfekt, før du trykker på del!"
       format_text_q: "Hvordan kan jeg formatere teksten i mine indlæg (fed, kursiv, osv.)?"
       hide_posts_a: "Hvis du peger med musen på toppen af et indlæg vil et X dukke op til højre. Tryk på det for at skjule indlægget og fjerne notifikationer om det. Du kan stadig se indlægget hvis du besøger den person der lavede indlæggets profilside."
       hide_posts_q: "Hvordan skjuler jeg et indlæg?"
-      image_text: "Billedtekst"
-      image_url: "Billed-URL"
-      insert_images_a: "Klik på det lille kameraikon for at indsætte et billede. Du kan trykke flere gange og derved indsætte flere billeder, og du kan også vælge at uploade flere billeder på en gang."
-      insert_images_comments_a1: "Man kan ikke uploade billeder til kommentarer, men den følgende Markdown-kode"
-      insert_images_comments_a2: "kan bruges til at indsætte billeder fra internettet i kommentarer samt indlæg."
+      insert_images_a: "Hvis du vil medtage et billede gemt på din computer i dit indlæg, skal du klikke på ikonet med det lille kamera nederst på indtastningfeltet. Du kan også trække og slippe et billede eller flere billeder fra din computer til det ikon. Hvis du vil indsætte et billede fra internettet i dit indlæg, skal du klikke på billedknappen øverst på indtastningfeltet, som vil oprette Markdown-koden for dig."
+      insert_images_comments_a: "Du kan bruge Markdown til at indsætte et billede fra internettet i en kommentar, ligesom du gør i indlæg. Du kan dog ikke uploade billeder fra din computer direkte til kommentarer. Upload dem til en billed-hosting-tjeneste, og indsæt dem ved hjælp af billedknappen over send-knappen."
       insert_images_comments_q: "Kan jeg indsætte billeder i kommentarer?"
       insert_images_q: "Hvordan indsætter jeg et billede i et indlæg?"
       post_location_a: "Tryk på knappenåls-ikonet ved siden af kameraet i feltet hvor du skriver dine indlæg. Det vil indsætte din placering fra OpenStreetMap. Du kan redigere din placering - måske ønsker du bare at vise hvilken by du er i og ikke hvilken gade."
@@ -459,7 +465,7 @@ da:
       post_notification_q: "Hvordan sørger jeg for at få notifikationer, eller at stoppe med at få notifikationer, om et indlæg?"
       post_poll_a: "Tryk på det ikon der ligner en graf for at lave en afstemning. Skriv et spørgsmål og mindst to mulige svar. Husk at gøre dit indløg offentligt hvis du vil have at alle skal kunne deltage i din afstemning."
       post_poll_q: "Hvordan tilføjer jeg en afstemning til et indlæg?"
-      post_report_a: "Tryk på advarselstrekanten i det øvre højre hjørne af indlægget for at anmelde det til din podmin. Skriv grunden til at du anmelder indlægget i dialog-boksen."
+      post_report_a: "Tryk på advarselstrekanten i det øvre højre hjørne af indlægget for at anmelde det til din podmin. Skriv grunden til at du anmelder indlægget i dialog-boksen. Du skal kun rapportere indlæg, der bryder vores %{community_guidelines} eller din pods servicevilkår, f.eks. indlæg med ulovligt indhold, verbale overgreb eller spam."
       post_report_q: "Hvordan anmelder jeg et anstødeligt indlæg?"
       size_of_images_a: "Nej. Billederne skaleres automatisk til at passe til strømmen. Markdown har ikke en kode til angivelse af størrelsen af et billede."
       size_of_images_q: "Kan jeg tilpasse størrelsen på ​​billeder i indlæg eller kommentarer?"
@@ -479,19 +485,19 @@ da:
       title: "Private indlæg"
       who_sees_post_a: "Kun Diaspora-brugere der er logget ind, og som du har placeret i dette aspekt inden du skrev dit begrænsede indlæg kan se det."
       who_sees_post_q: "Når jeg sender en besked til et aspekt (dvs. en privat indlæg), hvem kan så se det?"
-    private_profiles:
-      title: "Private profiler"
-      whats_in_profile_a: "Din private profil indeholder biografi, placering, køn og fødselsdag. Det er de ting i den nederste del af profilredigeringssiden. Disse oplysninger er valgfri - det er op til dig om du vil udfylde dem. Indloggede brugere som du har føjet til dine aspekter er de eneste, der kan se din private profil. Når de besøger din profilside kan de også se de indlæg du skrevet til de aspekt(er) de er i og dine offentlige indlæg."
-      whats_in_profile_q: "Hvad indeholder min private profil?"
-      who_sees_profile_a: "Enhver bruger der er logged ind og som du deler med (en du har tilføjet til et aspekt). Folk der følger dig men som du ikke følger, vil dog kun kunne se din offentlige information."
-      who_sees_profile_q: "Hvem kan se min private profil?"
-      who_sees_updates_a: "Alle der er i et af dine aspekter kan se ændringer i din private profil. "
-      who_sees_updates_q: "Hvem kan se når jeg opdaterer min private profil?"
+    profile:
+      title: "Profil"
+      what_do_tags_do_a: "De hjælper folk med at lære dig at kende. Dit profilbillede vises også på venstre side af disse tags strøm-sider sammen med andre der har dem i deres basis profil."
+      what_do_tags_do_q: "Hvad gør de tags der er i min basisprofil?"
+      whats_in_profile_a: "Din profil er opdelt i to dele: Din basis profil og din udvidede profil. Din basis profil indeholder dit navn, de fem tags, du valgte at beskrive dig selv og dit billede. Din udvidede profil indeholder din biografi, placering, køn og fødselsdag. Alle disse oplysninger er valgfri - det er op til dig, og du kan gøre denne profilinformation så identificerbar eller anonym som du vil. Din udvidede profil vises i den venstre kolonne på din profilside under dit profilbillede."
+      whats_in_profile_q: "Hvad er der i min profil?"
+      who_sees_profile_a: "Din basis profil (navn, profilbillede og #tags) er offentligt. Din udvidede profil er som standard privat, men du kan gøre det tilgængeligt for offentligheden, hvis du vil. Kun personer, du deler med (hvilket betyder, du har tilføjet dem til et af dine aspekter) kan se din udvidede profil, hvis du holder den privat. Andre mennesker vil kun se dine offentlige oplysninger. Eventuelle profiloplysninger du offentliggør, kan ses af alle der bruger internettet og kan indekseres af søgemaskiner"
+      who_sees_profile_q: "Hvem ser min profil?"
     public_posts:
       can_comment_reshare_like_a: "Enhver der er logget på Diaspora kan kommentere, videredele eller like dine offentlige indlæg."
       can_comment_reshare_like_q: "Hvem kan kommentere, videredele eller like mine offentlige indlæg?"
       deselect_aspect_posting_a: "Det påvirker ikke offentlige indlæg at fravælge aspekter. Indlægget vil stadig være offentligt, og vil stadig være synligt i strømmen hos alle dine kontakter. For at begrænse adgangen til specifikke aspekter, skal du vælge de aspekter du ønsker skal kunne se indlægget med aspekt-menuen under indlægget."
-      deselect_aspect_posting_q: "Hvad sker der, når jeg fravælger et eller flere aspekter, når jeg laver et offentligt indlæg?"
+      deselect_aspect_posting_q: "Hvad sker der, når jeg fravælger et eller flere aspekter i den venstre kolonne, når jeg laver et offentligt indlæg?"
       find_public_post_a: "Dine offentlige indlæg vises i strømmen hos alle der følger dig. Hvis du har inkluderet #tags i dine offentlige indlæg, vil enhver der følger disse tags kunne se dit indlæg i deres strøm. Hvert offentligt indlæg har også en specifik webadresse som alle kan se, også selvom de er ikke logget ind på Diaspora - dermed kan man linke til offentlige indlæg direkte fra Twitter, blogs osv. Offentlige indlæg kan også blive indekseret af søgemaskiner."
       find_public_post_q: "Hvordan kan folk finde mine offentlige indlæg?"
       see_comment_reshare_like_a: "Kommentarer, synes om og videredelinger af offentlige indlæg er også offentlige. Enhver der er logget på Diaspora og alle andre på internettet kan se hvad du skriver og kommenterer i et offentligt indlæg."
@@ -499,16 +505,6 @@ da:
       title: "Offentlige indlæg"
       who_sees_post_a: "Alle der bruger internettet vil kunne se dine offentlige indlæg, så vær sikker på at du virkelig ønsker at det skal være offentligt. Det er en fin måde at række hånden ud mod verden."
       who_sees_post_q: "Når jeg laver et offentligt indlæg hvem kan så se det?"
-    public_profiles:
-      title: "Offentlige profiler"
-      what_do_tags_do_a: "De hjælper folk til at få et indtryk af dig. Dit profilbillede vil også kunne ses i den venstre side af det specifikke tags side sammen med alle de andre der har dem i deres offentlige profil."
-      what_do_tags_do_q: "Hvad bruges de tags jeg har skrevet på min personlige profil til?"
-      whats_in_profile_a: "Din offentlige profil indeholder dit navn, de fem tags du valgte til at beskrive dig selv og dit portræt, hvis du altså har udfyldt disse felter. Al denne information er valgfri - det er helt op til dig hvad du ønsker at folk skal kunne se. Du kan gøre denne information lige så identificerbar eller anonym som du selv synes. Din profil vil også vise de offentlige indlæg du har lavet."
-      whats_in_profile_q: "Hvad indeholder min offentlige profil?"
-      who_sees_profile_a: "Alle Diaspora-brugere der er logget ind og hele resten af internettet kan se det. Hver profil har en direkte URL, så man kan linke direkte til siden også fra andre sites. Det kan også indekseres af søgemaskiner."
-      who_sees_profile_q: "Hvem kan se min offentlige profil?"
-      who_sees_updates_a: "Alle kan se ændringer hvis de besøger din profilside."
-      who_sees_updates_q: "Hvem kan se når jeg opdaterer min offentlige profil?"
     resharing_posts:
       reshare_private_post_aspects_a: "Nej, det er ikke muligt at videredele et privat indlæg. Dette er for at respektere intentionen hos det oprindelige indlægs forfatter der jo havde valgt kun at dele indlægget med en begrænset gruppe."
       reshare_private_post_aspects_q: "Kan jeg videredele et begrænset indlæg til udvalgte aspekter?"
@@ -527,7 +523,7 @@ da:
       add_to_aspect_li7: "Amy vil blive vist under \"Deler kun med mig\" på Bens kontaktside."
       add_to_aspect_li8: "Amy vil også kunne @nævne Ben i et indlæg."
       add_to_aspect_q: "Hvad sker der, når jeg tilføjer en person til et af ​​mine aspekter, eller når nogen føjer mig til et af ​​deres aspekter?"
-      list_not_sharing_a: "Nej, men du kan se om nogen deler med dig eller ej, ved at besøge deres profilside. Hvis de gør, vil knappen der viser det (eller de) aspekter du har placeret dem i være grøn. Hvis ikke er den grå."
+      list_not_sharing_a: "Nej, men du kan se, om nogen deler med dig ved at besøge deres profilside. Hvis de er, vil der være en grøn kryds ved siden af deres Diaspora-ID. Hvis ikke, vil der være en grå cirkel."
       list_not_sharing_q: "Findes der en liste over folk som jeg har tilføjet til et af ​​mine aspekter, men som ikke har tilføjet mig til en af ​​deres?"
       only_sharing_a: "Dette er brugere der har tilføjet dig til en af ​​deres aspekter, men som ikke (endnu) er i et af ​​dine aspekter. Med andre ord, de deler med dig, men du deler ikke med dem. Du kan tænke på det som nogen der følger med i hvad du laver. Hvis du føjer dem til et aspekt vil de blive vist under dette aspekt og ikke længere under \"deler kun med mig\". Se ovenfor."
       only_sharing_q: "Hvem er de mennesker, der er anført i \"Deler kun med mig\" på min kontakt side?"
@@ -539,7 +535,7 @@ da:
     tags:
       filter_tags_a: "Dette er endnu ikke tilgængelig direkte via Diaspora, men der er blevet skrevet %{third_party_tools} som kan tilbyde dette."
       filter_tags_q: "Hvordan kan jeg filtrere/fjerne tags fra min strøm?"
-      followed_tags_a: "Når du har søgt efter et tag, kan du klikke på knappen øverst på tag-siden for at \"følge\" det tag. Det vil herefter blive vist i din liste over fulgte tags i den venstre menu. Hvis du klikker på en af ​​dine fulgte tags kommer du til det tags side, hvor du kan se de seneste indlæg der indeholder dette tag. Klik på #fulgte tags for at se en strøm med indlæg, der omfatter et eller flere af ​​dine fulgte tags."
+      followed_tags_a: "Når du har søgt efter et tag, kan du klikke på knappen øverst på tag-siden for at \"følge\" det tag. Det vil herefter blive vist i din liste over fulgte tags i den venstre menu. Hvis du klikker på en af ​​dine fulgte tags kommer du til det tags side, hvor du kan se de seneste indlæg der indeholder dette tag. Klik på #fulgte tags for at se en strøm med indlæg, der omfatter et eller flere af ​​dine fulgte tags.  Indlæg indeholdende det pågældende tag vil også blive inkluderet i din hovedstrøm."
       followed_tags_q: "Hvad er #Fulgte tags\" og hvordan kan jeg følge et tag?"
       people_tag_page_a: "Det er folk der har skrevet det som et tag til at beskrive sig selv i deres offentlige profil."
       people_tag_page_q: "Hvem er de mennesker der er anført på den venstre side af en tag-side?"
@@ -663,6 +659,7 @@ da:
       mark_read: "Marker som læst"
       mark_unread: "Marker som ulæst"
       mentioned: "Omtalt i indlæg"
+      mentioned_in_comment: "Nævnt i kommentar"
       no_notifications: "Du har endnu ikke fået nogen notifikationer."
       notifications: "Notifikationer"
       reshared: "Delt"
@@ -688,6 +685,12 @@ da:
       one: "%{actors} har nævnt dig i et slettet indlæg."
       other: "%{actors} har nævnt dig i et slettet indlæg."
       zero: "%{actors} har nævnt dig i et slettet indlæg."
+    mentioned_in_comment:
+      one: "%{actors} har nævnt dig i en <a href=\"%{comment_path}\">kommentar</a> til dette indlæg: %{post_link}."
+      other: "%{actors} har nævnt dig i en <a href=\"%{comment_path}\">kommentar</a> til dette indlæg: %{post_link}."
+    mentioned_in_comment_deleted:
+      one: "%{actors} har nævnt dig i en slettet kommentar. "
+      other: "%{actors} har nævnt dig i en slettet kommentar. "
     private_message:
       few: "%{actors} har sendt dig en besked."
       many: "%{actors} har sendt dig en besked."
@@ -797,13 +800,14 @@ da:
       message: |-
           Hej!
 
-          Du er blevet inviteret af %{diaspora_id} til at deltage på Diaspora!
+          Du er blevet inviteret af %{user} til at deltage på Diaspora!
 
           Tryk på dette link for at komme i gang:
 
           [%{invite_url}][1]
 
           Eller tilføj %{diaspora_id} til dine kontakter hvis du allerede har en konto.
+
 
           Kærlig hilsen
 
@@ -821,6 +825,9 @@ da:
     mentioned:
       limited_post: "Du blev nævnt i et lukket indlæg."
       subject: "%{name} har omtalt dig på Diaspora"
+    mentioned_in_comment:
+      limited_post: "Du er blevet nævnt i en kommentar i et lukket indlæg."
+      reply: "Se eller skriv et svar til denne samtale >"
     private_message:
       reply_to_or_view: "Besvar eller se denne samtale >"
       subject: "Der er en ny privat meddelelse til dig"
@@ -1189,6 +1196,7 @@ da:
       last_exported_at: "(sidst opdateret %{timestamp})"
       liked: "... nogen synes om dit indlæg."
       mentioned: "... du er nævnt i et indlæg."
+      mentioned_in_comment: "Du er blevet nævnt i en kommentar."
       new_password: "Nyt adgangskode"
       private_message: "... du har modtaget en privat besked."
       receive_email_notifications: "Modtag en besked på e-mail når:"
