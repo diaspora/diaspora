@@ -13,6 +13,7 @@
 ## Bug fixes
 
 ## Features
+* Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
 
 # 0.7.0.0
 

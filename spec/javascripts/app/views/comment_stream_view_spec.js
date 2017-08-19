@@ -92,6 +92,12 @@ describe("app.views.CommentStream", function(){
       expect(renderedPreview).toBe("<div class='preview-content'>" + renderedText + "</div>");
       expect(renderedPreview).toContain("Alice Awesome");
     });
+
+    it("calls jQuery.AreYouSure()", function() {
+      spyOn($.fn, "areYouSure");
+      this.view.postRenderTemplate();
+      expect($.fn.areYouSure).toHaveBeenCalled();
+    });
   });
 
   describe("createComment", function() {
