@@ -10,18 +10,17 @@ describe User, :type => :model do
 
   describe '#add_to_streams' do
     before do
-      @params = {:text => "hey", :to => [@aspect.id, @aspect1.id]}
-      @post = alice.build_post(:status_message, @params)
+      @post = alice.build_post(:status_message, text: "hey")
       @post.save
-      @aspect_ids = @params[:to]
+      @aspect_ids = [@aspect.id, @aspect1.id]
       @aspects = alice.aspects_from_ids(@aspect_ids)
     end
 
     it 'saves post into visible post ids' do
       expect {
         alice.add_to_streams(@post, @aspects)
-      }.to change{alice.visible_shareables(Post, :by_members_of => @aspects).length}.by(1)
-      expect(alice.visible_shareables(Post, :by_members_of => @aspects)).to include @post
+      }.to change { alice.visible_shareables(Post, by_members_of: @aspect_ids).length }.by(1)
+      expect(alice.visible_shareables(Post, by_members_of: @aspect_ids)).to include @post
     end
 
     it 'saves post into each aspect in aspect_ids' do

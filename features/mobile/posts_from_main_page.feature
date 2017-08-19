@@ -20,7 +20,7 @@ Feature: posting from the mobile main page
 
   Scenario: post and delete some text
     Given I visit the mobile publisher page
-    And I append "I am eating yogurt" to the mobile publisher
+    And I append "I am eating yogurt" to the publisher
     And I select "Unicorns" from "aspect_ids_"
     And I press "Share"
     When I go to the stream page
@@ -52,7 +52,7 @@ Feature: posting from the mobile main page
 
   Scenario: back out of uploading a picture when another has been attached
     Given I visit the mobile publisher page
-    And I append "I am eating yogurt" to the mobile publisher
+    And I append "I am eating yogurt" to the publisher
     And I attach the file "spec/fixtures/button.gif" to hidden "qqfile" within "#file-upload-publisher"
     And I attach the file "spec/fixtures/button.png" to hidden "qqfile" within "#file-upload-publisher"
     And I click to delete the first uploaded photo

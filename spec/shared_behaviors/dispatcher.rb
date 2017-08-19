@@ -17,7 +17,7 @@ shared_examples "a dispatcher" do
         opts = {service_types: "Services::Twitter", tweet_id: "123"}
         expect(Workers::DeletePostFromService).to receive(:perform_async).with(twitter.id, opts)
 
-        retraction = Retraction.for(post, alice)
+        retraction = Retraction.for(post)
         Diaspora::Federation::Dispatcher.build(alice, retraction, opts).dispatch
       end
 
@@ -35,7 +35,7 @@ shared_examples "a dispatcher" do
       it "does not deliver a Retraction of a Comment to services" do
         expect(Workers::DeletePostFromService).not_to receive(:perform_async)
 
-        retraction = Retraction.for(comment, alice)
+        retraction = Retraction.for(comment)
         Diaspora::Federation::Dispatcher.build(alice, retraction).dispatch
       end
     end

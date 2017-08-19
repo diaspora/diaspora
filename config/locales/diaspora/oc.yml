@@ -30,11 +30,11 @@ oc:
         poll_participation:
           attributes:
             poll:
-              already_participated: "Avètz ja paticipat a aquel sondatge !"
+              already_participated: "Avètz ja paticipat a aquel sondatge !"
         reshare:
           attributes:
             root_guid:
-              taken: "Es tròp crane non ? Avètz ja partejat aquesta publicacion !"
+              taken: "Es tròp crane non ? Avètz ja partejat aquesta publicacion !"
         user:
           attributes:
             email:
@@ -81,7 +81,7 @@ oc:
         one: "%{count} partiment"
         other: "%{count} partiments"
         zero: "Pas cap de partiment"
-      tag_name: "Nom de l'etiqueta : <b>%{name_tag}</b> Nombre : <b>%{count_tag}</b>"
+      tag_name: "Nom de l'etiqueta : %{name_tag} Nombre : %{count_tag}"
       usage_statistic: "Estatisticas d'utilizacion"
       users:
         one: "%{count} utilizaire"
@@ -128,7 +128,7 @@ oc:
     weekly_user_stats:
       amount_of:
         one: "%{count} novèl utilizaire aquesta setmana"
-        other: "Nombre de novèls utilizaires aquesta setmana : %{count}"
+        other: "Nombre de novèls utilizaires aquesta setmana : %{count}"
         zero: "Pas cap de novèl utilizaire aquesta setmana "
       current_server: "La data actuala del servidor es %{date}"
   all_aspects: "Totes los aspèctes"
@@ -149,7 +149,7 @@ oc:
         contact_developer: "Deuriatz contactar lo desvolopaire de l'aplicacion e inclure lo messatge d'error detalhat seguent :"
         could_not_authorize: "L'aplicacion a pas pugut èsser autorizada"
         login_required: "D'en primièr, vos cal vos connectar per fin de poder autorizar aquesta aplicacion"
-        title: "Ops ! Quicòm a trucat :("
+        title: "Ops ! Quicòm a trucat :("
       scopes:
         aud:
           description: "Aquò dòna la permission aud a l'aplicacion"
@@ -189,7 +189,7 @@ oc:
         revoke_autorization: "Revocar"
         tos: "Veire las condicions d'utilizacion de l'aplicacion"
   are_you_sure: "Sètz segur ?"
-  are_you_sure_delete_account: "Sètz segur que volètz tampar vòstre compte ? Aquò se pòt pas anullar !"
+  are_you_sure_delete_account: "Sètz segur que volètz tampar vòstre compte ? Aquò se pòt pas anullar !"
   aspect_memberships:
     destroy:
       failure: "La persona a pas pogut èsser levada de l'aspècte amb succès."
@@ -223,12 +223,12 @@ oc:
       donate_liberapay: "Far un don a liberapay"
       help:
         any_problem: "Avètz agut un problèma ?"
-        contact_podmin: "Contactar l'administrator de vòstre pod !"
+        contact_podmin: "Contactar l'administrator de vòstre pod !"
         do_you: "Volètz :"
         feature_suggestion: "... far una suggestion de %{link} ?"
         find_a_bug: "... signalar %{link} ?"
         have_a_question: "... pausar una %{link} ?"
-        here_to_help: "La comunautat diaspora* es aquí !"
+        here_to_help: "La comunautat diaspora* es aquí !"
         mail_podmin: "Corrièl del podmin"
         need_help: "Besonh d'ajuda ?"
         support_forum: "Podètz tanben contactar lo %{support_forum}."
@@ -237,23 +237,23 @@ oc:
         tag_feature: "suggestion"
         tag_question: "question"
         tutorial_link_text: "Tutorials"
-        tutorials_and_wiki: "%{faq}, %{tutorial} e %{wiki} : vos ajudan per vòstres primièrs passes."
+        tutorials_and_wiki: "%{faq}, %{tutorial} e %{wiki} : vos ajudan per vòstres primièrs passes."
       introduce_yourself: "Es vòstre flux. Rejonhètz-nos e presentatz-vos."
-      keep_pod_running: "Permetètz a %{pod} de foncionar rapidament e ofrissètz una dòsi de cafè mesadièra a nòstres servidors !"
+      keep_pod_running: "Permetètz a %{pod} de foncionar rapidament e ofrissètz una dòsi de cafè mesadièra a nòstres servidors !"
       new_here:
-        follow: "Seguissètz %{link} e aculhissètz los novèls utilizaires de diaspora* !"
+        follow: "Seguissètz %{link} e aculhissètz los novèls utilizaires de diaspora* !"
         learn_more: "Ne saber mai"
         title: "Aculhir los novèls venguts"
       services:
         content: "Podètz connectar aqueles servicis a diaspora* :"
         heading: "Connectar de servicis"
-      welcome_to_diaspora: "Benvenguda dins diaspora*, %{name} !"
+      welcome_to_diaspora: "Benvenguda dins diaspora*, %{name} !"
     no_contacts_message:
       community_spotlight: "Actualitat de la comunautat"
       invite_link_text: "convidar"
       or_spotlight: "O podètz partejar amb %{link}"
       try_adding_some_more_contacts: "Podètz recercar o %{invite_link} mai de contactes."
-      you_should_add_some_more_contacts: "Vos cal apondre un pauc mai de contactes !"
+      you_should_add_some_more_contacts: "Vos cal apondre un pauc mai de contactes !"
     seed:
       acquaintances: "Coneissenças"
       family: "Familha"
@@ -265,15 +265,22 @@ oc:
   blocks:
     create:
       failure: "Ai pas pogut ignorar aqueste utilizaire. #evasion"
-      success: "D'acòrdi, tornaretz pas veire aqueste utilizaire dins vòstre flux. #silenci !"
+      success: "D'acòrdi, tornaretz pas veire aqueste utilizaire dins vòstre flux. #silenci !"
     destroy:
       failure: "Ai pas pogut quitar d'ignorar aqueste utilizaire. #evasion"
-      success: "Vejam çò qu'an a dire ! #digatzbonjorn"
+      success: "Vejam çò qu'an a dire ! #digatzbonjorn"
   bookmarklet:
     explanation: "Publicatz sus diaspora* d'ont que siá en apondent aqueste ligam => %{link}."
     heading: "Publicacion rapida"
     post_something: "Publicatz sus diaspora*"
   cancel: "Anullar"
+  color_themes:
+    dark: "Escur"
+    dark_green: "Verd escur"
+    egyptian_blue: "Blau egipcian"
+    magenta: "Magenta"
+    original: "Gris d’origina"
+    original_white: "Fons blanc d’origina"
   comments:
     create:
       error: "Fracàs al moment de comentar."
@@ -286,7 +293,7 @@ oc:
       all_contacts: "Totes los contactes"
       community_spotlight: "Actualitat de la comunautat"
       my_contacts: "Mos contactes"
-      no_contacts: "Sembla que vos cal apondre mai de contactes !"
+      no_contacts: "Sembla que vos cal apondre mai de contactes !"
       no_contacts_in_aspect: "Avètz pas encara de contactes dins aqueste aspècte. Çai-jos i a una lista de vòstre contactes que podètz apondre a aqueste aspècte."
       no_contacts_message: "Consultatz %{community_spotlight}"
       only_sharing_with_me: "Partejan solament amb ieu"
@@ -338,7 +345,7 @@ oc:
       correct_the_following_errors_and_try_again: "Corregissètz las errors seguentas, e tornatz ensajar."
     need_javascript: "Aqueste site Internet requerís JavaScript per foncionar coma cal. Se avètz desactivat JavaScript, mercés de l'activar e d'actualizar aquesta pagina."
   fill_me_out: "Escriure aicí"
-  find_people: "Recercar de personas o de #tags"
+  find_people: "Recercar de personas o de #etiquetas"
   help:
     account_and_data_management:
       close_account_a: "Rensètz-vos en bas de la pagina e clicatz sul boton « Tampar lo compte ». Vòstre senhal vos serà demandat per acabar lo processus. Vos rapelam que se tampatz vòstre compte, ne poiretz <strong>pas mai</strong> tornar crear sus aqueste pod amb aqueste nom d'utilizaire."
@@ -347,7 +354,7 @@ oc:
       data_other_podmins_q: "Los administrators dels autres pods pòdon veire mas informacions ?"
       data_visible_to_podmin_a: "En un mot: tot. La comunicacion entre los pods es totjorn chifrada (en utilizant SSL e lo pròpri transpòrt chifrat de diaspora*), mai las donadas enregistradas suls pods son pas chifradas.Se volián los administrators de la basa de donada de vòstre pod (sovent la persona en carga del pod) poiriá accedir a totas las donadas de vòstre perfil e a tot çò que publicatz (come es lo cas per lo màger dels sites qu'enregistran las informacions dels utilizaires). Aquò explica perque vos donem la possibilitat de causir sus quin pod vos marcar, pr'amor podètz causir un pod que l'administrator li fisatz vòstras donadas. Executar vòstre pod vos dòna mai de confidencialitat perque auretz lo contraròtle sus la basa de donadas."
       data_visible_to_podmin_q: "Quina quantitat de mas informacions l'administrator del pod pòt veire ?"
-      download_data_a: "Òc. En dejòs de los paramètres de Compte trobaretz dos botons : un per telecargar vòstras donadas e un per telecargar vòstras fotos."
+      download_data_a: "Òc. En dejós de los paramètres de Compte trobaretz dos botons : un per telecargar vòstras donadas e un per telecargar vòstras fotos."
       download_data_q: "Pòdi telecargar una còpia de totas las donadas contengudas dins mon compte ?"
       move_pods_a: "Dins lo futur poiretz exportar vòstra grana - seed - d'un pod e l'importar dins un autre, mai pel moment es pas possible. Podètz totjorn dubrir un nòu compte e ajustar vòstres contactes sus aquela nòva grana, e lor demandar de vos ajustar sus lors aspèctes amb vòstra nòva grana."
       move_pods_q: "Cossí desplaçar mon compte d'un pod a un autre ?"
@@ -383,9 +390,11 @@ oc:
       add_contact_roster_q: "Cossí discutir amb qualqu'un dins diaspora* ?"
       contacts_page: "pagina dels contactes"
       title: "Chat"
+    community_guidelines: "règlas de comportament de la comunautat"
     faq: "FAQ"
     foundation_website: "site internet de la fondacion diaspora*"
     getting_help:
+      get_support_a_discourse: "Cercar de discutidas ligadas a vòstra demanda o dobrir un novèl subjècte dins nòstra plataforma %{discourse}"
       get_support_a_faq: "Legir la pagina %{faq} de nòstre wiki"
       get_support_a_hashtag: "Pausatz una question dins un messatge public sus diaspora* en utilizant l'hashtag %{question}"
       get_support_a_irc: "Rejonhètz-nos sus %{irc} (Chat instantanèu)"
@@ -394,7 +403,7 @@ oc:
       get_support_a_wiki: "Recercatz dins lo %{link}"
       get_support_q: "De qué far se ma question a pas de responsa dins la FAQ ? A quines autres endreits pòdi obténer de documentcion ?"
       getting_started_a: "Sètz astruc. Ensajatz las %{tutorial_series} sul site de nòstre projècte. Vos ajudarà pas a pas de l'inscripcion cap a las causas basicas que vos cal saber per utilizar diaspora*."
-      getting_started_q: "Ajudatz-me ! Ai besonh d'ajuda per debutar !"
+      getting_started_q: "Ajudatz-me ! Ai besonh d'ajuda per debutar !"
       title: "Obténer d'ajuda"
     getting_started_tutorial: "Seria de tutorials « Mos primièrs passes »"
     here: "aicí"
@@ -415,7 +424,7 @@ oc:
     mentions:
       how_to_mention_a: "Picatz lo signe « @ » e començatz a escriure lor nom. Una lista desrotlanta deuriá aparéisser per vos permetre de los causir mai simplament. Notatz qu'es solament possible de mencionar de mond qu'avètz aponduts a un aspècte."
       how_to_mention_q: "Cossí pòdi mencionar qualqu'un quand escrivi un messatge ?"
-      mention_in_comment_a: "Non pas, pel moment."
+      mention_in_comment_a: "Dempuèi la version 0.7.0.0 podètz ! Podètz mencionar qualqu’un dins un comentari del meteis biais qu’o fasètz dins una publicacion, n’utilizar “@” e començatz a picar lor nom. Notatz que per las publicacions pas publicas, podètz pas que mencionar qualqu’un qu’a interagit amb la publicacion."
       mention_in_comment_q: "Pòdi mencionar qualqu'un dins un comentari ?"
       see_mentions_a: "Òc, clicatz sus « @Mencions » dins la colomna d'esquèrra de vòstra pagina d'acuèlh."
       see_mentions_q: "I a un biais de veire las publicacions que soi mencionat dedins ?"
@@ -429,40 +438,37 @@ oc:
       diaspora_app_q: "Existís una aplicacion diaspora* per Android o iOS ?"
       photo_albums_a: "Pas pel moment. Pasmens, podètz veire los imatges mandats d'una persona dins l'onglet Fòtos de lor pagina de perfil."
       photo_albums_q: "I a d'albums de fòtos o de vidèos ?"
-      subscribe_feed_a: "Òc, mai es pas encara una foncion lustrada e lo format dels resultats es totjorn un pauc brut. S'avètz enveja d'ensajar aquò, anatz sus la pagina de perfil de qualqu'un e clicatz sul boton de flux dins vòstre navigador, o podètz copiar l'URL del perfil (ex. https://nomdelpod.org/mond/unnumero) e pegatz aquò dins un lector de flux. L'adreça del flux semblarà a aquò :  https://podname.org/public/username.atom – diaspora* utiliza Atom e non pas RSS."
+      subscribe_feed_a: "Òc, mai es pas encara una foncion lustrada e lo format dels resultats es totjorn un pauc brut. S'avètz enveja d'ensajar aquò, anatz sus la pagina de perfil de qualqu'un e clicatz sul boton de flux dins vòstre navigador, o podètz copiar l'URL del perfil (ex. https://nomdelpod.org/mond/unnumero) e pegatz aquò dins un lector de flux. L'adreça del flux semblarà a aquò : https://podname.org/public/username.atom – diaspora* utiliza Atom e non pas RSS."
       subscribe_feed_q: "Me pòdi inscriure als messatges publics d'una persona amb un lector de fluxes ?"
       title: "Divèrs"
     pods:
-      find_people_a: "Se volètz convidar vòstres amics a venir sus diaspora*, utilizatz lo ligam d'invitacion o lo ligam per corrièl. Seguètz d'#etiquetas per conéisser de mond que partejan vòstres interèsses , e ajustatz aqueles que publican de causas que vos interèssan a un aspècte. Cridatz fòrt que sètz #novèlaquí dins una publicacion publica."
+      find_people_a: "Se volètz convidar vòstres amics a venir sus diaspora*, utilizatz lo ligam d’invitacion o lo ligam per corrièl. Seguètz d’#etiquetas per conéisser de mond que partejan vòstres interèsses , e ajustatz aqueles que publican de causas que vos interèssan a un aspècte. Cridatz fòrt que sètz #novèlaquí dins una publicacion publica."
       find_people_q: "Veni de rejónher un pod, cossí pòdi trobar de monde per partejar amb eles ?"
       title: "Pods"
-      use_search_box_a: "Se coneissètz lor ID diaspora* complet (ex. : utilizaire@nomdelpod.org), podètz los trobar en los cercant. Se sètz sul meteis servidor, podètz los trobar sonque amb los noms d'utilizaire. Autrament podètz los cercar amb lor nom de perfil (lo nom que vesètz sus l'ecran). Se una recèrca capita pas lo primièr còp, tornatz ensajar."
+      use_search_box_a: "Se coneissètz lor ID diaspora* complet (ex. : utilizaire@nomdelpod.org), podètz los trobar en los cercant. Se sètz sul meteis servidor, podètz los trobar sonque amb los noms d'utilizaire. Autrament podètz los cercar amb lor nom de perfil (lo nom que vesètz sus l'ecran). Se una recèrca capita pas lo primièr còp, tornatz ensajar."
       use_search_box_q: "Cossí me cal utilizar lo camp de recèrca per trobar qualqu'un en particular ?"
-      what_is_a_pod_a: "Un pod es un servidor qu’executa lo programa diaspora* e qu’es connectat al malhum diaspora*. « Pod » es una metafòra que fa referéncia a l'anglés, que significa dòlça, perque conten de grans coma lo servidor que conten de comptes d'utilizaires. I a un melon de pods. Podètz apondre d’amics d’autres pods e comunicar amb eles. Cal pas dobrir de compte suls diferents pods ! Cal pas qu’un compte – d’aquel biais podètz pensar un pod coma un fornisseire de corrièls. I a de pods publics, de pods privats, e amb un bocin d’esfòrces podètz aver lo vòstre."
+      what_is_a_pod_a: "Un pod es un servidor qu’executa lo programa diaspora* e qu’es connectat al malhum diaspora*. « Pod » es una metafòra que fa referéncia a l'anglés, que significa dòlça, perque conten de grans coma lo servidor que conten de comptes d'utilizaires. I a un melon de pods. Podètz apondre d’amics d’autres pods e comunicar amb eles. Cal pas dobrir de compte suls diferents pods ! Cal pas qu’un compte – d’aquel biais podètz pensar un pod coma un fornisseire de corrièls. I a de pods publics, de pods privats, e amb un bocin d’esfòrces podètz aver lo vòstre."
       what_is_a_pod_q: "Qu'es aquò un pod ?"
     posts_and_posting:
       char_limit_services_a: "En aquel cas deuriatz restrénher vòstras publicacions al nombre de caractèrs autorizats pel servici (140 per Twitter, 1000 per Tumblr), lo nombre de caractèrs demòran s’aficharà se l’icòna del servici es seleccionada. Podètz pr’aquò escriure de tèxtes mai grands, mai lo tèxte serà talhat e un ligam plaçat cap a la publicacion sus diaspora*."
       char_limit_services_q: "Quin es lo limit de caractèrs pels messatges partejats amb un servici qu'a un limit de caractèrs mai pichon ?"
-      character_limit_a: "65 535 caractèrs. Son 65 395 caractèrs de mai que Twitter ! :)"
+      character_limit_a: "65 535 caractèrs. Son 65 395 caractèrs de mai que Twitter ! :)"
       character_limit_q: "Qual es lo limit de caractèrs per las publicacions ?"
-      embed_multimedia_a: "Normalament pas cal pas que pegar l’URL (ex. http://www.youtube.com/watch?v=nnnnnnnnnnn) dins vòstra publicacion e la vidèo o l’àudio serà apondut automaticament. Aqueste site es compatible amb : YouTube, Vimeo, SoundCloud, Flickr e qualques mai. diaspora* emplega oEmbed per aquesta foncionalitat. Cada còp sèm compatibles amb mai sorgas de mèdias. Remembratz-vos de totjorn publicar l’URL completa – pas cap de ligams acorchits – e esperatz un momenton abans d’actualizar la pagina aprèp aver publicat per tal de veire l’ulhada."
+      embed_multimedia_a: "Normalament pas cal pas que pegar l’URL (ex. http://www.youtube.com/watch?v=nnnnnnnnnnn) dins vòstra publicacion e la vidèo o l’àudio serà apondut automaticament. Aqueste site es compatible amb : YouTube, Vimeo, SoundCloud, Flickr e qualques mai. diaspora* emplega oEmbed per aquesta foncionalitat. Cada còp sèm compatibles amb mai sorgas de mèdias. Remembratz-vos de totjorn publicar l’URL completa – pas cap de ligams acorchits – e esperatz un momenton abans d’actualizar la pagina aprèp aver publicat per tal de veire l’ulhada."
       embed_multimedia_q: "Cossí pòdi inserir un contengut vidèo, àudio, o multimèdia dins una publicacion ?"
       format_text_a: "N'emplegant un sistèma simplifiat apelat %{markdown}. Podètz trapar tota la sintaxi de Markdown %{here}. Lo boton d'apercebut pòt èsser de bona ajuda, permet de veire vòstre messatge coma serà afichat abans de o partejar."
       format_text_q: "Cossí pòdi formatar lo tèxte dins as publicacions (gras, italic, etc.) ?"
       hide_posts_a: "Se posicionatz la mirga de naut d'una publicacion, una X aprareis a man drecha. Clicatz-la per escondre la publicacion e metre en silenci las notificacions ligadas a aquela. Podètz totjorn veire la publicacion se visitatz lo perfil de la persona que la publiquèt."
       hide_posts_q: "Cossí escondi una publicacion ?"
-      image_text: "tèxte de l'imatge"
-      image_url: "url de l'imatge"
       insert_images_a: "Clicatz sus la pichona icòna camerà per inserir un imatge dins una publicacion. Tornatz clicar sus l'icòna per apondre una fòto mai, o ne podètz seleccionar mantun per enviar d'un còp."
-      insert_images_comments_a1: "Podètz pas mandar d'imatges dins los comentaris mas lo còdi Markdown seguent"
-      insert_images_comments_a2: "aquò pòt èsser utiizat per inserir d'imatges a partir del web dins los comentaris o los messatges."
+      insert_images_comments_a: "Podètz utilisar la sintaxi Markdown per inserir un imatge del web sus un comentari, coma per las publicacions. Pr’aquò, podètz pas enviar un imatge directament dempuèi vòstre ordenador. Mandatz-lo a un servici d’albergament en linha puèi inserissètz l’imatge en utilizar lo boton al dessús de l’editor."
       insert_images_comments_q: "Pòdi inserir d'imatges dins un comentari ?"
       insert_images_q: "Cossí pòdi inserir d'imatges dins un messatge ?"
       post_location_a: "Clicatz dins l'aisina d'edicion l'icòna de l'espilla a costat de la camerà. Aquò inserirà vòstre emplaçament d'OpenStreetMap. Podètz modificar vòstre emplaçament – benlèu que volètz pas qu'indicar la vila ont sètz e non pas l'adreça amb la carrièra."
       post_location_q: "Cossí pòdi apondre ma posicion a un messatge ?"
       post_notification_a: "Trobaretz l'icòna d'una campana prèp de la X a man drecha de la publicacion. Clicatz-la per activar o desactivar las notificacions per aquesta publicacion."
       post_notification_q: "Cossí pòdi activar o desactivar las notificacions per un messatge ?"
-      post_poll_a: "Clicatz sus l'icòna graf per generar un sondatge. Picatz una question e almens doas responsas. Doblidetz pas de far vòstre publicacion publica se volètz que tot lo mond pòsca participar a vòstre sondatge."
+      post_poll_a: "Clicatz sus l'icòna graf per generar un sondatge. Picatz una question e almens doas responsas. Oblidetz pas de far vòstre publicacion publica se volètz que tot lo mond pòsca participar a vòstre sondatge."
       post_poll_q: "Cossí pòdi apondre un sondatge a mon messatge ?"
       post_report_a: "Clicatz l'icòna del triangle d'alèrta amont a man drecha de la publicacion per la senhalar a vòstre podmin. Marcatz la rason del senhalament d'aquela publicacion dins la zòna de tèxte."
       post_report_q: "Cossí pòdi senhalar un messatge ofensant ?"
@@ -472,28 +478,28 @@ oc:
       stream_full_of_posts_li1: |-
           Las publicacions del mond que partejatz, i a doas categorias :
           las publicacions publicas e las publicacions limitadas a un aspècte que ne fasètz partit. Per levar aquelas publicacions de vòstre flux d'actualitat, vos cal pas que quitar de partejar amb aquela persona.
-      stream_full_of_posts_li2: "Los messatges publics contenon un dels tags que seguissètz. Per los suprimir, daissatz de seguir lo tag."
+      stream_full_of_posts_li2: "Los messatges publics contenon una de las etiquetas que seguissètz. Per los suprimir, quitatz de seguir l’etiqueta."
       stream_full_of_posts_li3: "Las publicacions publicas del mond listat dins las actualitat de la comunitat. Pòdon èsser levadas en clicant sus l'opcion « Afichar las novèlas de la comunitat dins la flux ? » dins l'onglet Compte de vòstre Paramètres."
       stream_full_of_posts_q: "Perqué mon flux es plen de messatges que provenon de monde que coneissi pas e amb las qualas partegi pas ?"
       title: "Publicacions e publicar"
     private_posts:
       can_comment_a: "Solament los utilizaires de diaspora* connectats qu'avètz plaçats dins aquel aspècte abans de passar la publicacion privada pòdon la comentar o l'aimar."
       can_comment_q: "Qual pòt comentar o a qual pòt agradar un messatge privat ?"
-      can_reshare_a: "Degun. Las publicacions privadas se pòdon pas tornar partejar. Los utilizaires connectats dins aqueste aspècte pòdon potencialament o copiar e pegar pasmens. Depend de vos se vos fisatz d'aqueste monde !"
+      can_reshare_a: "Degun. Las publicacions privadas se pòdon pas tornar partejar. Los utilizaires connectats dins aqueste aspècte pòdon potencialament o copiar e pegar pasmens. Depend de vos se vos fisatz d'aqueste monde !"
       can_reshare_q: "Qual pòt repartejar mos messatges privats ?"
       see_comment_a: "Solament lo mond amb qui la publicacion es partejada (lo mond qu'es dins l'aspècte causit per lo prim publicaire) pòdon veire sos comentaris e mencion « m'agrada ». "
       see_comment_q: "Quand comenti un messatge privat o que marqui que m'agrada , qual o pòt veire ?"
       title: "Publicacions privadas"
       who_sees_post_a: "Solament los utilizaires de diaspora* connectats qu'avètz plaçats dins aquel aspècte abans de passar la publicacion privada pòdon la veire."
       who_sees_post_q: "Quand mandi un messatge a un aspècte (es a dire un messatge privat), qual o pòt veire ?"
-    private_profiles:
-      title: "Perfils privats"
-      whats_in_profile_a: "Vòstre perfil privat conten vòstra biografia, emplaçament, gendre, e data d’anniversari s’avètz garnit aquelas seccions. Totas aquelas informacions son opcionalas – causissètz o pas de las fornir. Lo mond connectats al site e qu’avètz aponduts a vòstres aspèctes son los solets a poder veire vòstre perfil privat. Quand visitan vòstra pagina de perfil veiràn tanben vòstras publicacions privadas ligadas al(s) aspèctes ont son, mescladas a vòstras publicacions publicas."
-      whats_in_profile_q: "Qu'es aquò mon perfil privat ?"
-      who_sees_profile_a: "Solament los utilizaires connectats e que partejatz amb eles (vòl dire, qu'avètz apondut a un de vòstres aspèctes). Pasmens, lo mond que vos sèc, mai que seguètz pas, veiràn pas que vòstras informacions publicas."
-      who_sees_profile_q: "Qual pòt veire mon perfil privat ?"
-      who_sees_updates_a: "Qual que siá dins vòstres aspèctes pòt veire las modificacions de vòstre perdil privat."
-      who_sees_updates_q: "Qual pòt veire las mesas a jorn de mon perfil privat ?"
+    profile:
+      title: "Perfil"
+      what_do_tags_do_a: "Ajudan al monde a vos conéisser. Vòstra fotografia de perfil apareisserà a man esquèrra de la pagina d’actualitat d’aquelas etiquetas, demest lo monde que las tenon dins lor perfil de basa."
+      what_do_tags_do_q: "Per que servisson las etiquetas dins mon perfil de basa ?"
+      whats_in_profile_a: "Vòstre perfil es en doas parts : vòstre perfil basic e vòstre perfil espandit. Vòstre perfil basic conten vòstre nom, las cinc etiquetas qu'avètz causidas per vos descriure e vòstra fotografia. Vòstre perfil espandit conten vòstra biografia, vòstre emplaçament, gendre e vòstre aniversari. Totas aquelas informacions son opcionalas – causissètz vosautres meteisses de las donar e causissètz de las far venir tantas identificablas o anonimas, coma o volètz. Vòstre perfil espandit se mòstra en vòstre pagina de perfil a man esquèrra, jos vòstre fotografia."
+      whats_in_profile_q: "Que i a dins mon perfil ?"
+      who_sees_profile_a: "Vòstre perfil basic (nom, fotografia de perfil e #etiquetas) es public. Vòstre perfil espandit es privat per defaut, podètz cambiar la confidencialitat coma vos agrade. Solament lo monde que partejan amb vos (valent a dire : los avètz aponduts a un de vòstres aspèctes) pòdon veire vòstre perfil espandit se lo mantenètz privat. La rèsta del monde veson pas que las informacions de vòstre perfil public. Tota informacion que fasètz publica pòt èsser vista per qual que siá sus Internet, e pòt èsser indexada pels motors de recèrca."
+      who_sees_profile_q: "Qual vei mon perfil public ?"
     public_posts:
       can_comment_reshare_like_a: "Quin utilizaire connectat a diaspora* que siá, pòt comentar, repartejar vòstre messatge public o marcar que li agrada."
       can_comment_reshare_like_q: "Qual pòt comentar, repartejar, o marcar que li agrada mon messatge public ?"
@@ -506,16 +512,6 @@ oc:
       title: "Publicacions publicas"
       who_sees_post_a: "Qual que siague qu'utiliza internet pòt potencialament veire una publicacion que marcatz publica, doncas asseguratz-vos de voler vertadièrament qu'una publicacion siague publica. Es una manièra de las bonas per aténher de mond."
       who_sees_post_q: "Quand publiqui quicòm publicament, qual pòt veire ?"
-    public_profiles:
-      title: "Perfils publics"
-      what_do_tags_do_a: "Ajudan lo mond a vos conéisser. Vòstra fòto de perfil  apareisserà tanben a man esquèrra d'aquelas paginas d'etiquetas, entre los demai qu'an tanben aquestas etiquetas dins lors perfil public."
-      what_do_tags_do_q: "De qué fan los tags sus mon perfil public ?"
-      whats_in_profile_a: "Vòstre perfil public conten vòstre nom, las cinc etiquetas qu'avètz causidas per vos descriure, e vòstras fotografias, s'avètz garnit aquelas seccions. Totas aquelas informacions son opcionalas – causissètz vosautres meteisses de las donar. Podètz far venir aquelas informacions de perfil tan identificablas o anonimas coma volètz. Vòstre perfil mòstra tanben las publicacions publicas qu'avètz fachas."
-      whats_in_profile_q: "Qué i a sul meu perfil public ?"
-      who_sees_profile_a: "Tot utilizaire connectat a diaspora*, e tot lo grand Internet, pòt veire aquò. Cada perfil ten una URL dirècta que permet d'i anar directament a partir d'autres sites. Los motors de recèrca pòdon l'indexar."
-      who_sees_profile_q: "Qual vei mon perfil public ?"
-      who_sees_updates_a: "Qual que siá pòt veire aqueles cambiaments en visitant vòstra pagina de perfil."
-      who_sees_updates_q: "Qual pòt veire las mesas a jorn de mon perfil public ?"
     resharing_posts:
       reshare_private_post_aspects_a: "Non, es pas possible de tornar partejar una publicacion privada. Aquò es per respectar las intencions del prim publicaire, que l'a partejada amb un gropon especial de personas."
       reshare_private_post_aspects_q: "Pòdi repartejar un messatge privat unicament amb certans aspèctes ?"
@@ -536,7 +532,7 @@ oc:
       add_to_aspect_q: "Qué passa quand apondi qualqu'un a un de mos aspèctes, o quand qualqu'un m'apond als seus aspèctes ?"
       list_not_sharing_a: "Non pas, mas podètz veire se qualqu'un parteja amb vos en visitant sa pagina de perfil. Se parteja amb vos, lo boton que mòstra lo(s) aspecète(s) ont l'avètz mes serà verd, autrament serà gris."
       list_not_sharing_q: "I a una lista del mond qu'ai apondut sus un de mos aspèctes mai que m'an pas apondut de lor costat ?"
-      only_sharing_a: "Son lo mond que vos an apondut a lor aspècte, mai que son pas - encara - dins vòstres aspèctes. Dich autrament, partejan amb vos, mai partejatz pas amb eles : podètz o pensar aissí, vos « seguisson ». Se los apondètz a un aspècte, pareisseràn dins aqueste e non pas coma « Partejan solament amb ieu ». Veire çai-jos."
+      only_sharing_a: "Son lo mond que vos an apondut a lor aspècte, mai que son pas - encara - dins vòstres aspèctes. Dich autrament, partejan amb vos, mai partejatz pas amb eles : podètz o pensar aissí, vos « seguisson ». Se los apondètz a un aspècte, pareisseràn dins aqueste e non pas coma « Partejan solament amb ieu ». Veire çai-jos."
       only_sharing_q: "Qui son los listats dins « Partejan solament amb ieu » sus ma pagina de contactes ?"
       see_old_posts_a: "Non. Poiràn pas que veire las novèlas publicacions dins aqueste aspècte. Pòdon veire vòstras vièlhas publicacions sus vòstra pagina de perfil, e benlèu tanben dins lor flux d'actualitat."
       see_old_posts_q: "Quand apondi qualqu'un a un aspècte, pòdon veire mas ancianas publicacions qu'ai ja publicadas a aqueste aspècte ?"
@@ -545,13 +541,13 @@ oc:
       title: "Partatge"
     tags:
       filter_tags_a: "Aquesta foncion es pas directament disponibla dins diaspora*, mai unes %{third_party_tools} son estats escrichs per far o."
-      filter_tags_q: "Cossí pòdi filtrar/exclure certans tags de mon flux ?"
+      filter_tags_q: "Cossí pòdi filtrar/exclure certanas etiquetas de mon flux ?"
       followed_tags_a: "Aprèp aver cercat una etiqueta podètz clicar sul boton amont de la pagina de las etiquetas per « seguir »aquesta etiqueta. Apareisserà dins vòstre lista d’etiquetas seguidas sul menú a man drecha. En clicant sus una de vòstras etiquetas seguidas aquò vos menarà sus la pagina d’aquesta etiqueta per veire las publicacions recentas que contenon aquesta etiqueta. Clicatz sus #Etiquetas seguidas per veire un flux de publicacions que contenon totes las etiquetas que seguissètz."
-      followed_tags_q: "De qué son los \"#Tags Seguits\" e cossí pòdi seguir un tag ?"
-      people_tag_page_a: "I a monde qu'an listat aqueste tag per se descriure eles-meteisses dins lor perfil public."
-      people_tag_page_q: "Qualas son las personas listadas sus la partida d'esquèrra d'una pagina de tag ?"
+      followed_tags_q: "De qué son las \"#Etiquetas Seguidas\" e cossí pòdi seguir una etiqueta ?"
+      people_tag_page_a: "I a monde qu'an listat aquesta etiqueta per se descriure eles-meteisses dins lor perfil public."
+      people_tag_page_q: "Qualas son las personas listadas sus la partida d'esquèrra d'una pagina d'etiquetas ?"
       tags_in_comments_a: "Una etiqueta aponduda a un comentari apareisserà coma un ligam cap a la pagina d'etiquetas correspondenta, mai farà pas aparéisser la publicacion (o comentari) dins aquela pagina. Aquò fonciona pas qu'amb las etiquetas sus las publicacions."
-      tags_in_comments_q: "Pòdi inserir de tags dins un comentari o sonque dins de messatges ?"
+      tags_in_comments_q: "Pòdi inserir d'etiquetas dins un comentari o sonque dins de messatges ?"
       title: "Etiquetas"
       what_are_tags_for_a: "Las etiquetas son un biais de triar una publicacion, sovent un tèma. Cercar una etiqueta ensenha las publicacions, tan publicas coma privadas, amb aquesta etiqueta qu'avètz la permission de veire. Aquò permet al mond qu'es interessat per un tèma de trobar de publicacions ligadas a aquò."
       what_are_tags_for_q: "A qué servisson las etiquetas ?"
@@ -576,7 +572,7 @@ oc:
       configure_your_pod: "Configuratz vòstre pod"
       contact_irc: "nos contactar sus IRC"
       contribute: "Contribuissètz"
-      contribute_info: "Rendètz diaspora* encara melhor ! Se rencontratz de bugs, %{report_bugs} se vos plai."
+      contribute_info: "Rendètz diaspora* encara melhor ! Se rencontratz de bugs, %{report_bugs} se vos plai."
       create_an_account: "Creatz un compte"
       create_an_account_info: "%{sign_up_link} per un novèl compte"
       faq_for_podmins: "FAQ pels podmins sus nòstre wiki"
@@ -597,8 +593,8 @@ oc:
       closed: "Los convits son tampats sus aqueste pod diaspora*."
       empty: "Mercés de picar almens una adreça de corrièl."
       no_more: "Avètz pas mai de convits."
-      note_already_sent: "Las invitacions son ja estadas mandadas a : %{emails}"
-      rejected: "Las adreças de corrièr electronic seguentas an rencontrat un problèma : %{emails}"
+      note_already_sent: "Las invitacions son ja estadas mandadas a : %{emails}"
+      rejected: "Las adreças de corrièr electronic seguentas an rencontrat un problèma : %{emails}"
       sent: "Los convits son estats mandats a %{emails}"
     new:
       codes_left:
@@ -606,7 +602,7 @@ oc:
         other: "Encara %{count} convits de disponibles amb aqueste còdi."
         zero: "Pas mai de convit de disponible amb aqueste còdi."
       comma_separated_plz: "Podètz entrar mantuna adreça de corrièl separadas per de virgulas."
-      invite_someone_to_join: "Convidar qualqu'un a rejónher diaspora* !"
+      invite_someone_to_join: "Convidar qualqu'un a rejónher diaspora* !"
       language: "Lenga"
       paste_link: "Partejatz aqueste ligam amb vòstres amics per los convidar dins diaspora*, o mandatz-lor aqueste ligam dirèctament per corrièl."
       send_an_invitation: "Mandar un convit"
@@ -614,7 +610,7 @@ oc:
   layouts:
     application:
       back_to_top: "Tornar amont"
-      be_excellent: "Siatz benvolent amb cadun !"
+      be_excellent: "Siatz benvolent amb cadun !"
       discourse: "Discutidas e assisténcia del projècte"
       powered_by: "Propulsat per dispora*"
       public_feed: "Flux diaspora* public per %{name}"
@@ -664,6 +660,7 @@ oc:
       mark_read: "Marcar coma legit"
       mark_unread: "Marcar coma pas legit"
       mentioned: "Mencionat dins una publicacion"
+      mentioned_in_comment: "Mencionat dins un comentari"
       no_notifications: "Avètz pas encara cap de notificacion."
       notifications: "Notificacions"
       reshared: "Repartejat"
@@ -686,6 +683,12 @@ oc:
       one: "%{actors} vos a mencionat sus una publicacion suprimida."
       other: "%{actors} vos an mencionat sus una publicacion suprimida."
       zero: "%{actors} vos a mencionat sus una publicacion suprimida."
+    mentioned_in_comment:
+      one: "%{actors} vos a mencionat dins un <a href='%{comment_path}'>comentari</a> a la publicacion %{post_link}."
+      other: "%{actors} vos an mencionat dins un <a href='%{comment_path}'>comentari</a> a la publicacion%{post_link}."
+    mentioned_in_comment_deleted:
+      one: "%{actors} vos a mencionat dins un comentari suprimit."
+      other: "%{actors} vos an mencionat dins un comentari suprimit."
     private_message:
       one: "%{actors} vos a mandat un messatge."
       other: "%{actors} vos an mandat un messatge."
@@ -719,23 +722,23 @@ oc:
       body: |-
           Adissiatz %{name}, 
 
-          diaspora* a detectat un ensag d’accès a vòstre sesilha que poiriá èsser pas autorizat. Per evitar que vòstras donadas siasguen gastadas sètz estat desconnectat. Vos copetz pas lo cap, vos podètz tornar connectar en seguretat ara. 
+          diaspora* a detectat un ensag d’accès a vòstre sesilha que poiriá èsser pas autorizat. Per evitar que vòstras donadas sián gastadas sètz estat desconnectat. Vos copetz pas lo cap, vos podètz tornar connectar en seguretat ara. 
            
           Una demanda es estada facha n’emplegant un geton CSRF incorrècte o absent. Aquò poiriá èsser completament innocent, mai aquò pòt tanben èsser un atac apelat Cross-site request forgery (CSRF). 
            
-          Aquò pòt venir de : 
+          Aquò pòt venir de :
            
             - una extension que manipula la demanda o que fa de demanda sens lo geton;
-            - un onglet daissat dubèrt d’una anciana sesilha;
+            - un onglet daissat dubèrt d’una anciana session;
             - un fum d’aisinas extèrnas;
             - un marrit còdi qu’ensaja d'accedir a vòstras donadas. 
            
           Per mai informacion subre l’atac CSRF vejatz [%{link}](%{link}). 
            
-          Se tenètz vist aqueste messatge, mercés de verificar los punts al dessús, inclús las extensions de qual que siague navigador. 
+          Se tenètz vist aqueste messatge, mercés de verificar los punts al dessús, inclús las extensions de qual que siá navigador. 
            
           Mercés, 
-          Lo robòt de corrièl a diaspora* !
+          Lo robòt de corrièl a diaspora* !
       subject: "Avèm recebut una demanda sens autorizacion de vòstre compte, %{name}"
     email_sent_by_diaspora: "Aqueste corrièl es estat mandat per %{pod_name}. Se volètz pas mai de corrièls atal,"
     export_email:
@@ -780,27 +783,28 @@ oc:
 
           Lo messatgièr automatic de diaspora*
       subject: "I a agut un problèma amb vòstras fòtos, %{name}"
-    hello: "Adiu %{name} !"
+    hello: "Adiu %{name} !"
     invite:
       message: |-
-          Bonjorn !
+          Bonjorn !
 
-          %{diaspora_id} vos a convidat a rejónher diaspora* !
+          %{user} vos a convidat a rejónher diaspora* !
 
           Clicatz sul ligam per començar
 
           %{invite_url}[1]
 
-          O podètz apondre %{diaspora_id} amb vòstres contactes se avètz ja un compte.
+          O podètz apondre %{diaspora_id} amb vòstres contactes s’avètz ja un compte.
+
 
           Amistats,
 
-          Lo messatgièr automatic de diaspora* !
+          Lo messatgièr automatic de diaspora* !
 
-          P.S : En cas que coneisseriatz pas (encara) çò qu'es diapora*, aicí[2] i a la responsa !
+          P.S : En cas que coneisseriatz pas (encara) çò qu’es diapora*, aicí[2] i a la responsa !
 
-          [1] : %{invite_url}
-          [2] : %{diasporafoundation_url}
+          [1] : %{invite_url}
+          [2] : %{diasporafoundation_url}
     invited_you: "%{name} vos a convidat sus diaspora*"
     liked:
       liked: "A %{name}, li a agradat vòstra publicacion"
@@ -809,23 +813,25 @@ oc:
     mentioned:
       limited_post: "Sètz estat mencionat dins una publicacion restenta."
       subject: "%{name} vos a mencionat sus diaspora*"
+    mentioned_in_comment:
+      limited_post: "Sètz mencionat dins un comentari al accès limitat."
+      reply: "Respondre o veire la conversacion >"
     private_message:
       reply_to_or_view: "Respondre o afichar aquela conversacion >"
       subject: "Avètz un novèl messatge privat"
     remove_old_user:
       body: |-
           Bonjorn,
-
           En rason de l'inactivitat de vòstre compte diaspora* %{pod_url}, planhèm de vos informar que lo sistèma l'a identificat coma devent èsser suprimit automaticament. Aquesta procedura se desenclava aprèp un periòde d'inactivitat superior a %{after_days} jorns.
 
           Podètz evitar la pèrda de vòstre compte en vos connectant a aqueste abans %{remove_after}, dins aqueste cas la procedura de supression serà automaticament anullada.
 
-          Aquesta mantenença es efectuada per assegurar als utilizaires actius lo mehor foncionament possible d'aquesta instància de diaspora*. Vos mercejam de vòstra compreneson.
+          Aquesta mantenença es efectuada per assegurar als utilizaires actius lo melhor foncionament possible d'aquesta instància de diaspora*. Vos mercejam de vòstra compreneson.
 
-          Se volètz conservar vòstre compte, identificatz-vos aicí :
+          Se volètz conservar vòstre compte, identificatz-vos aicí : 
           %{login_url}
 
-          Esperam vos reveire lèu !
+          Esperam vos reveire lèu !
 
           Lo messatgièr automatic de diaspora*
       subject: "Vòstre compte diaspora* es estat senhalat coma devent èsser suprimit en rason de son inactivitat"
@@ -835,16 +841,18 @@ oc:
 
           lo %{type} amb l'identificant %{id} es estat marcat coma ofensant.
 
+          Rason : %{reason}
+
           [%{url}][1]
 
-          Mercé de lo verificar tre que possible !
+          Mercé de lo verificar tre que possible !
 
 
           Coralament,
 
           Lo messatgièr automatic de diaspora*
 
-          [1]: %{url}
+          [1] : %{url}
       subject: "Un novèl %{type} es estat marcat coma ofensant"
       type:
         comment: "comentari"
@@ -856,7 +864,7 @@ oc:
       admin: "Vòstre administrator diaspora*"
       subject: "Un messatge subre vòstre compte diaspora*"
     started_sharing:
-      sharing: "a començat a partejar amb vos !"
+      sharing: "a començat a partejar amb vos !"
       subject: "%{name} a començat a partejar amb vos sus diaspora*"
       view_profile: "Veire lo perfil de %{name}"
     thanks: "Mercé,"
@@ -870,13 +878,13 @@ oc:
       couldnt_find_them: "Los trobatz pas ?"
       looking_for: "Recercar publicacions marcadas %{tag_link}"
       no_one_found: "... e pas cap trobat."
-      no_results: "E ben ! Vos cal cercar quicòm."
+      no_results: "E ben ! Vos cal cercar quicòm."
       results_for: "Utilizaires que correspondon a %{search_term}"
       search_handle: "Utilizatz lor ID diaspora* (nomdutiliaire@pod.tld) per èsser segur de trobar vòstres amics."
       searching: "Recèrca en cors, mercés d'esperar..."
-      send_invite: "Pas res encara ? Mandatz-lor un convit !"
+      send_invite: "Pas res encara ? Mandatz-lor un convit !"
     person:
-      thats_you: "Sètz vosautres !"
+      thats_you: "Sètz vosautres !"
     profile_sidebar:
       bio: "Biografia"
       born: "Anniversari"
@@ -884,8 +892,8 @@ oc:
       location: "Localizacion"
     show:
       closed_account: "Aqueste compte es estat tampat"
-      does_not_exist: "Aquesta persona existís pas !"
-      has_not_shared_with_you_yet: "%{name} a pas encara partejar cap de publicacions amb vos !"
+      does_not_exist: "Aquesta persona existís pas !"
+      has_not_shared_with_you_yet: "%{name} a pas encara partejar cap de publicacions amb vos !"
   photos:
     create:
       integrity_error: "Fracàs al moment de mandar l'imatge.  Sètz segur qu'èra un imatge ?"
@@ -894,7 +902,7 @@ oc:
     destroy:
       notice: "Fòto suprimida"
     new_profile_photo:
-      upload: "Mandatz una novèla fòto de perfil !"
+      upload: "Mandatz una novèla fòto de perfil !"
   polls:
     votes:
       one: "%{count} vòte pel moment"
@@ -905,7 +913,7 @@ oc:
       title: "Una publicacion de %{name}"
     show:
       forbidden: "Sètz pas autorizat a far aquò"
-      location: "Publicat de : %{location}"
+      location: "Publicat de : %{location}"
       photos_by:
         one: "Una fòto per %{author}"
         other: "%{author} fòtos per %{count}"
@@ -946,7 +954,7 @@ oc:
     closed: "Las inscripcions son tampadas sus aqueste pod diaspora*."
     create:
       success: "Avètz rejunt diaspora*!"
-    invalid_invite: "Lo ligam de convit donat es pas mai valid !"
+    invalid_invite: "Lo ligam de convit donat es pas mai valid !"
     new:
       email: "Adreça electronica"
       enter_email: "Picatz vòstra adreça de corrièl"
@@ -964,7 +972,7 @@ oc:
     comment_label: "<b>Comentari</b>:<br>%{data}"
     confirm_deletion: "Sètz segur que volètz suprimir aqueste element ?"
     delete_link: "Suprimir l'element"
-    not_found: "<u>La publicacion/comentari es pas estat trobat. Sembla qu'es estat suprimit per l'utilizaire !</u>"
+    not_found: "La publicacion/comentari es pas estat trobat. Sembla qu'es estat suprimit per l'utilizaire !"
     post_label: "<b>Publicacion</b>: %{title}"
     reason_label: "Rason :"
     reported_label: "<b>Senhalat per</b> %{person}"
@@ -1026,7 +1034,7 @@ oc:
       by_email: "Convidar de monde per corrièl"
       invite_your_friends: "Convidatz vòstres amics"
       invites: "Convits"
-      share_this: "Partejatz aqueste ligam via corrièl, blog, o malhums socials !"
+      share_this: "Partejatz aqueste ligam via corrièl, blog, o malhums socials !"
     public_explain:
       atom_feed: "Flux Atom"
       control_your_audience: "Contrarotlatz vòstra audiéncia"
@@ -1079,7 +1087,7 @@ oc:
     version: "Version"
   status_messages:
     new:
-      mentioning: "Menciona : %{person}"
+      mentioning: "Menciona : %{person}"
     too_long: "Avisatz-vos d'escriure un messatge d'estatut de %{count} caractèrs maximum. Compta actualament %{current_length} caractèrs."
   stream_helper:
     no_more_posts: "Avètz atent la fin d'aqueste flux."
@@ -1116,16 +1124,16 @@ oc:
     public:
       title: "Activitat publica"
     tags:
-      title: "Messatges etiquetats : %{tags}"
+      title: "Messatges etiquetats : %{tags}"
   tag_followings:
     manage:
-      no_tags: "Seguissètz pas cap de tag."
-      title: "Gerir los tags seguits."
+      no_tags: "Seguissètz pas cap d'etiquetas."
+      title: "Gerir las etiquetas"
   tags:
     name_too_long: "Vòstre tag deu far mens de %{count} caractèrs ( actualament, %{current_length})"
     show:
       follow: "Seguir #%{tag}"
-      none: "L'etiqueta voida existís pas !"
+      none: "L'etiqueta voida existís pas !"
       stop_following: "Quitar de seguir #%{tag}"
       tagged_people:
         one: "1 persona marcada amb %{tag}"
@@ -1147,16 +1155,16 @@ oc:
       change: "Modificar"
       change_color_theme: "Cambiar lo tèma de color"
       change_email: "Cambiar de corrièl"
-      change_language: "Cambiar de lenga"
+      change_language: "Cambiar la lenga"
       change_password: "Cambiar lo senhal"
       character_minimum_expl: "deu conténer sièis caractèrs al minim"
       close_account:
-        dont_go: "E, se vos plai, patiscatz pas !"
+        dont_go: "E, se vos plai, patiscatz pas !"
         lock_username: "Vòstre nom d'utilizaire serà verrolhat. Poiretz pas crear un novèl compte sus aqueste pod amb lo meteis ID."
         locked_out: "Seretz desconnectat e vòstre compte serà inaccessible fins a sa supression."
         make_diaspora_better: "Nos agradariá fòrça que demorèssetz e nos ajudèssetz a far un melhor diaspora* puslèu que de nos daissar. Se volètz vertadièrament partir, pasmens, vaquí çò que se va passar :"
         mr_wiggles: "Mossur Wiggles serà triste de vos veire partir."
-        no_turning_back: "Es pas possible de tornar en arrièr ! Se sètz segur de vos, sasissètz vòstre senhal çaijós."
+        no_turning_back: "Es pas possible de tornar en arrièr ! Se sètz segur de vos, sasissètz vòstre senhal çaijós."
         what_we_delete: "Suprimirem totas vòstras publicacions e informacions de perfil tre que possible. Vòstres comentaris sus la publicacion del mond desapareisseràn, mai seràn associats a vòstre ID diaspora* al lòc de vòstre nom."
       close_account_text: "Tampar lo compte"
       comment_on_post: "qualqu'un comenta vòstra publicacion"
@@ -1174,6 +1182,7 @@ oc:
       last_exported_at: "(Darrièra mesa a jorn a %{timestamp})"
       liked: "a qualqu'un li a agradat vòstra publicacion"
       mentioned: "...se vos menciona dins un messatge."
+      mentioned_in_comment: "sètz mencionat dins un comentari"
       new_password: "Senhal novèl"
       private_message: "Avètz recebut un messatge privat."
       receive_email_notifications: "Recebre una notificacion per corrièl quand :"
@@ -1191,13 +1200,13 @@ oc:
       your_email_private: "Vòstre email serà pas jamai vist per d'autres utilizaires"
       your_handle: "Vòstre ID diaspora*"
     getting_started:
-      awesome_take_me_to_diaspora: "Òsca ! Mena-me cap a diaspora*"
+      awesome_take_me_to_diaspora: "Òsca ! Mena-me cap a diaspora*"
       community_welcome: "La comunautat diaspora* es contenta de vos aver a bòrd."
       connect_to_facebook: "Podèm accelerar un pauc las causas de %{link} sus diaspora*. Aquò botarà vòstre nom e foto, e activar la publicacion multiplataforma."
       connect_to_facebook_link: "Connexion amb vòtre compte Facebook en cors"
-      hashtag_explanation: "Las etiquetas vos permeton de charrar e seguir vòstres interèsses.  Son tanben una bona manièra de trobar de mond novèl sus diaspora*."
+      hashtag_explanation: "Las etiquetas vos permeton de charrar e seguir vòstres interèsses. Son tanben una bona manièra de trobar de mond novèl sus diaspora*."
       hashtag_suggestions: "Ensajatz etiquetas coma aquestas #art #filmes #gif, etc."
-      well_hello_there: "E ben, adiu monde !"
+      well_hello_there: "E ben, adiu monde !"
       what_are_you_in_to: "Qué vos interèssa ?"
       who_are_you: "Qual sètz ?"
     privacy_settings:
@@ -1207,7 +1216,7 @@ oc:
       strip_exif: "Levar dels imatges mandats las metadonadas talas coma luòc de presa, autor o modèl d'aparelh fòto (recomandat)"
       title: "Reglatges de confidencialitat"
     public:
-      does_not_exist: "L'utilizaire %{username} existís pas !"
+      does_not_exist: "L’utilizaire %{username} existís pas !"
     update:
       color_theme_changed: "Tèma de color cambiat."
       color_theme_not_changed: "Una error s'es produita pendent lo cambiament de tèma de color."

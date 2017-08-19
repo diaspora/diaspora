@@ -19,8 +19,8 @@ class PeopleController < ApplicationController
 
   rescue_from Diaspora::AccountClosed do
     respond_to do |format|
-      format.any { redirect_to :back, :notice => t("people.show.closed_account") }
-      format.json { render :nothing => true, :status => 410 } # 410 GONE
+      format.any { redirect_back fallback_location: root_path, notice: t("people.show.closed_account") }
+      format.json { head :gone }
     end
   end
 
@@ -115,15 +115,15 @@ class PeopleController < ApplicationController
   def retrieve_remote
     if params[:diaspora_handle]
       Workers::FetchWebfinger.perform_async(params[:diaspora_handle])
-      render :nothing => true
+      head :ok
     else
-      render :nothing => true, :status => 422
+      head :unprocessable_entity
     end
   end
 
   def contacts
     respond_to do |format|
-      format.json { render nothing: true, status: 406 }
+      format.json { head :not_acceptable }
 
       format.any do
         @person = Person.find_by_guid(params[:person_id])

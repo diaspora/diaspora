@@ -1,30 +1,23 @@
 module Notifications
-  class Mentioned < Notification
-    def mail_job
-      Workers::Mail::Mentioned
-    end
-
-    def popup_translation_key
-      "notifications.mentioned"
-    end
-
-    def deleted_translation_key
-      "notifications.mentioned_deleted"
-    end
+  module Mentioned
+    extend ActiveSupport::Concern
 
     def linked_object
-      target.post
+      target.mentions_container
     end
 
-    def self.notify(mentionable, recipient_user_ids)
-      actor = mentionable.author
+    module ClassMethods
+      def notify(mentionable, recipient_user_ids)
+        actor = mentionable.author
+        relevant_mentions = filter_mentions(
+          mentionable.mentions.local.where.not(person: actor),
+          mentionable,
+          recipient_user_ids
+        )
 
-      mentionable.mentions.select {|mention| mention.person.local? }.each do |mention|
-        recipient = mention.person
-
-        next if recipient == actor || !(mentionable.public || recipient_user_ids.include?(recipient.owner_id))
-
-        create_notification(recipient.owner, mention, actor).try(:email_the_user, mention, actor)
+        relevant_mentions.each do |mention|
+          create_notification(mention.person.owner, mention, actor).try(:email_the_user, mention, actor)
+        end
       end
     end
   end

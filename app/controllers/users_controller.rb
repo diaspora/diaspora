@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       flash[:error] = t("users.update.settings_not_updated")
     end
 
-    redirect_to :back
+    redirect_back fallback_location: privacy_settings_path
   end
 
   def destroy
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
       else
         flash[:error] = t "users.destroy.no_password"
       end
-      redirect_to :back
+      redirect_back fallback_location: edit_user_path
     end
   end
 
@@ -150,16 +150,7 @@ class UsersController < ApplicationController
       :auto_follow_back_aspect_id,
       :getting_started,
       :post_default_public,
-      email_preferences: %i(
-        someone_reported
-        also_commented
-        mentioned
-        comment_on_post
-        private_message
-        started_sharing
-        liked
-        reshared
-      )
+      email_preferences: UserPreference::VALID_EMAIL_TYPES.map(&:to_sym)
     )
   end
   # rubocop:enable Metrics/MethodLength

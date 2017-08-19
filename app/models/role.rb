@@ -1,9 +1,8 @@
 # NOTE add the person object you want to attach role to...
 
-class Role < ActiveRecord::Base
+class Role < ApplicationRecord
   belongs_to :person
 
-  validates :person, presence: true
   validates :name, uniqueness: {scope: :person_id}
   validates :name, inclusion: {in: %w(admin moderator spotlight)}
 

@@ -9,16 +9,21 @@ describe StatusMessage, type: :model do
   let!(:aspect) { user.aspects.first }
   let(:status) { build(:status_message) }
 
+  it_behaves_like "a shareable" do
+    let(:object) { status }
+  end
+
   describe "scopes" do
     describe ".where_person_is_mentioned" do
       it "returns status messages where the given person is mentioned" do
         @bob = bob.person
         @test_string = "@{Daniel; #{@bob.diaspora_handle}} can mention people like Raph"
+        post1 = FactoryGirl.create(:status_message, text: @test_string, public: true)
+        post2 = FactoryGirl.create(:status_message, text: @test_string, public: true)
         FactoryGirl.create(:status_message, text: @test_string)
-        FactoryGirl.create(:status_message, text: @test_string)
-        FactoryGirl.create(:status_message)
+        FactoryGirl.create(:status_message, public: true)
 
-        expect(StatusMessage.where_person_is_mentioned(bob).count).to eq(2)
+        expect(StatusMessage.where_person_is_mentioned(@bob).ids).to match_array([post1.id, post2.id])
       end
     end
 
@@ -81,14 +86,6 @@ describe StatusMessage, type: :model do
     end
   end
 
-  describe ".after_create" do
-    it "calls create_mentions" do
-      status = FactoryGirl.build(:status_message, text: "text @{Test; #{alice.diaspora_handle}}")
-      expect(status).to receive(:create_mentions).and_call_original
-      status.save
-    end
-  end
-
   context "emptiness" do
     it "needs either a message or at least one photo" do
       post = user.build_post(:status_message, text: nil)
@@ -131,57 +128,20 @@ describe StatusMessage, type: :model do
     expect(status_message).not_to be_valid
   end
 
-  describe "mentions" do
-    let(:people) { [alice, bob, eve].map(&:person) }
-    let(:test_string) {
-      "@{Raphael; #{people[0].diaspora_handle}} can mention people like Raphael @{Ilya; #{people[1].diaspora_handle}}
-    can mention people like Raphaellike Raphael @{Daniel; #{people[2].diaspora_handle}} can mention people like Raph"
-    }
-    let(:status_message) { create(:status_message, text: test_string) }
+  it_behaves_like "it is mentions container"
 
-    describe "#create_mentions" do
-      it "creates a mention for everyone mentioned in the message" do
-        status_message
-        expect(Diaspora::Mentionable).to receive(:people_from_string).and_return(people)
-        status_message.mentions.delete_all
-        status_message.create_mentions
-        expect(status_message.mentions(true).map(&:person).to_set).to eq(people.to_set)
-      end
+  describe "#people_allowed_to_be_mentioned" do
+    it "returns only aspects members for private posts" do
+      sm = FactoryGirl.build(:status_message_in_aspect)
+      sm.author.owner.share_with(alice.person, sm.author.owner.aspects.first)
+      sm.author.owner.share_with(eve.person, sm.author.owner.aspects.first)
+      sm.save!
 
-      it "does not barf if it gets called twice" do
-        status_message.create_mentions
-
-        expect {
-          status_message.create_mentions
-        }.to_not raise_error
-      end
+      expect(sm.people_allowed_to_be_mentioned).to match_array([alice.person_id, eve.person_id])
     end
 
-    describe "#mentioned_people" do
-      it "does not call create_mentions if there are no mentions in the db" do
-        status_message.mentions.delete_all
-        expect(status_message).not_to receive(:create_mentions)
-        status_message.mentioned_people
-      end
-
-      it "returns the mentioned people" do
-        expect(status_message.mentioned_people.to_set).to eq(people.to_set)
-      end
-
-      it "does not call create_mentions if there are mentions in the db" do
-        expect(status_message).not_to receive(:create_mentions)
-        status_message.mentioned_people
-      end
-    end
-
-    describe "#mentions?" do
-      it "returns true if the person was mentioned" do
-        expect(status_message.mentions?(people[0])).to be true
-      end
-
-      it "returns false if the person was not mentioned" do
-        expect(status_message.mentions?(FactoryGirl.build(:person))).to be false
-      end
+    it "returns :all for public posts" do
+      expect(FactoryGirl.create(:status_message, public: true).people_allowed_to_be_mentioned).to eq(:all)
     end
   end
 
@@ -233,7 +193,7 @@ describe StatusMessage, type: :model do
 
     it "should queue a GatherOembedData if it includes a link" do
       status_message
-      expect(Workers::GatherOEmbedData).to receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
+      expect(Workers::GatherOEmbedData).to receive(:perform_async).with(kind_of(Integer), instance_of(String))
       status_message.save
     end
 
@@ -254,7 +214,7 @@ describe StatusMessage, type: :model do
 
     it "should queue a GatherOpenGraphData if it includes a link" do
       status_message
-      expect(Workers::GatherOpenGraphData).to receive(:perform_async).with(instance_of(Fixnum), instance_of(String))
+      expect(Workers::GatherOpenGraphData).to receive(:perform_async).with(kind_of(Integer), instance_of(String))
       status_message.save
     end
 

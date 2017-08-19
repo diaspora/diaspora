@@ -8,7 +8,8 @@ module Api
         if req["client_assertion_type"] == "urn:ietf:params:oauth:client-assertion-type:jwt-bearer"
           handle_jwt_bearer(req)
         end
-        self.status, response.headers, self.response_body = Api::OpenidConnect::TokenEndpoint.new.call(request.env)
+        self.status, headers, self.response_body = Api::OpenidConnect::TokenEndpoint.new.call(request.env)
+        headers.each {|name, value| response.headers[name] = value }
         nil
       end
 

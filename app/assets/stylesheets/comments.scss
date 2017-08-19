@@ -46,13 +46,12 @@
 
   .comment.new-comment-form-wrapper { padding-bottom: 0; }
 
-  .submit_button {
+  .submit-button {
     margin-top: 10px;
     input {
       float: right;
     }
     padding-left: 12px;
-    display: none;
   }
   .comment_box {
     height: 35px;
@@ -60,8 +59,27 @@
   }
   textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
     border-color: $border-dark-grey;
-    & + .submit_button { display: block; }
-    min-height: 35px;
     box-shadow: none;
   }
+
+  .twitter-typeahead {
+    // typeahead sets this to `display: inline-block` which adds additional space between
+    // the comment textarea and the submit button.
+    // scss-lint:disable ImportantRule
+    display: block !important;
+    // scss-lint:enable ImportantRule
+  }
+}
+
+.new-comment {
+  &:not(.open) .submit-button,
+  &:not(.open) .md-header {
+    display: none;
+  }
+
+  // The rule for .md-preview is required until we switch to the newer release of bootstrap-markdown with
+  // the following commit in:
+  // https://github.com/toopay/bootstrap-markdown/commit/14a21c3837140144b27efc19c795d1a37fad70fb
+  .md-preview,
+  &.open .md-editor textarea { min-height: 70px; }
 }

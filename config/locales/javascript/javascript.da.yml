@@ -241,6 +241,7 @@ da:
     reshares:
       post: "Videredel <%= name %>s indlæg?"
       successful: "Indlægget er blevet videredelt!"
+    show_all: "Vis alle"
     show_more: "Vis mere"
     stream:
       comment: "Kommenter"

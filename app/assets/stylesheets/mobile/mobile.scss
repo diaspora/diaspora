@@ -16,6 +16,8 @@
 @import "mobile/stream_element";
 @import "mobile/comments";
 @import 'mobile/openid_connect_error_page';
+@import 'markdown-editor';
+@import 'mobile/markdown_editor';
 
 @import 'typography';
 
@@ -42,8 +44,6 @@ h3 {  margin-top: 0; }
 .clear { clear: both; }
 #main { padding: 56px 10px 0 10px; }
 
-textarea { resize: vertical; }
-
 .avatar {
   border-radius: 4px;
 }
@@ -55,7 +55,6 @@ textarea { resize: vertical; }
   overflow: auto;
   position: relative;
   text-align: left;
-  min-height: 34px;
   padding: 10px 0 0 0;
   list-style: none;
 
@@ -404,11 +403,6 @@ footer {
   .counter {
     font-size: 14px;
   }
-
-  textarea {
-    min-width: 100%;
-    max-width: 100%;
-  }
 }
 
 select {
@@ -537,13 +531,6 @@ form#new_conversation.new_conversation {
     font-weight: normal;
     line-height: 20px;
   }
-}
-
-textarea#conversation_text {
-  font-size: larger;
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
 }
 
 .registrations_error,
@@ -713,33 +700,6 @@ select#aspect_ids_ {
   background: $framed-background;
   position: relative;
   padding-right: 10px;
-
-  #hide_publisher  {
-    opacity: 0.3;
-    z-index: 5;
-    padding: 3px;
-    position: absolute;
-    right: 6px;
-    top: 0;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  &.active {
-    border: 1px solid $border-dark-grey;
-  }
-
-  textarea {
-    z-index: 2;
-    border: none;
-
-    &:focus {
-      outline: 0;
-      background: transparent;
-    }
-  }
 
   &.with_attachments {
     padding-bottom: 55px;

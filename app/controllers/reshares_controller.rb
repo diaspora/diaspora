@@ -5,9 +5,9 @@ class ResharesController < ApplicationController
   def create
     reshare = reshare_service.create(params[:root_guid])
   rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid
-    render text: I18n.t("reshares.create.error"), status: 422
+    render plain: I18n.t("reshares.create.error"), status: 422
   else
-    render json: ExtremePostPresenter.new(reshare, current_user), status: 201
+    render json: PostPresenter.new(reshare, current_user).with_interactions, status: 201
   end
 
   def index

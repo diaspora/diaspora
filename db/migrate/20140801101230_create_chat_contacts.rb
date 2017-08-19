@@ -1,4 +1,4 @@
-class CreateChatContacts < ActiveRecord::Migration
+class CreateChatContacts < ActiveRecord::Migration[4.2]
   def up
     create_table :chat_contacts do |t|
       t.integer :user_id,                  null: false

@@ -17,8 +17,8 @@
       = javascript_include_tag :main, :templates
       = load_javascript_locales
 
-    = render "head"
     = include_color_theme
+    = render "head"
     = translation_missing_warnings
 
   %body{class: "page-#{controller_name} action-#{action_name}"}
@@ -31,9 +31,6 @@
     = content_for?(:content) ? yield(:content) : yield
 
     = yield :after_content
-
-    = include_chartbeat
-    = include_mixpanel_guid
 
     .blueimp-gallery.blueimp-gallery-controls#blueimp-gallery
       .slides

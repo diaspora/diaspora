@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.6.7.0" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.7.0.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -76,8 +76,6 @@ defaults:
       enable: false
       host:
       site_id:
-    mixpanel_uid:
-    chartbeat_uid:
     statistics:
       user_counts: false
       post_counts: false

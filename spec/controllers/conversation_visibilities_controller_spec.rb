@@ -19,7 +19,7 @@ describe ConversationVisibilitiesController, :type => :controller do
   describe '#destroy' do
     it 'deletes the visibility' do
       expect {
-        delete :destroy, :conversation_id => @conversation.id
+        delete :destroy, params: {conversation_id: @conversation.id}
       }.to change(ConversationVisibility, :count).by(-1)
     end
 
@@ -28,20 +28,20 @@ describe ConversationVisibilitiesController, :type => :controller do
       sign_in user2, scope: :user
 
       expect {
-        delete :destroy, :conversation_id => @conversation.id
+        delete :destroy, params: {conversation_id: @conversation.id}
       }.not_to change(ConversationVisibility, :count)
     end
 
     it 'returns "hidden"' do
-      get :destroy, :conversation_id => @conversation.id
+      get :destroy, params: {conversation_id: @conversation.id}
       expect(flash.notice).to include("hidden")
     end
 
     it 'returns "deleted" when last participant' do
-      get :destroy, :conversation_id => @conversation.id
+      get :destroy, params: {conversation_id: @conversation.id}
       sign_out :user
       sign_in bob, scope: :user
-      get :destroy, :conversation_id => @conversation.id
+      get :destroy, params: {conversation_id: @conversation.id}
       expect(flash.notice).to include("deleted")
     end
   end

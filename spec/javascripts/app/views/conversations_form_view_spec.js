@@ -35,6 +35,21 @@ describe("app.views.ConversationsForm", function() {
       this.target.initialize({prefill: {}});
       expect(app.views.ConversationsForm.prototype.prefill).toHaveBeenCalledWith({});
     });
+
+    it("creates markdown editor for new conversations", function() {
+      spyOn(this.target, "renderMarkdownEditor");
+      this.target.initialize();
+      expect(this.target.renderMarkdownEditor).toHaveBeenCalledWith("#new-message-text");
+    });
+  });
+
+  describe("renderMarkdownEditor", function() {
+    it("creates MarkdownEditor", function() {
+      spec.content().html("<form><textarea id='new-message-text'/></form>");
+      var mdEditor = this.target.renderMarkdownEditor("#new-message-text");
+      expect(mdEditor).toEqual(jasmine.any(Diaspora.MarkdownEditor));
+      expect($("#new-message-text")).toHaveClass("md-input");
+    });
   });
 
   describe("addRecipient", function() {
@@ -149,9 +164,16 @@ describe("app.views.ConversationsForm", function() {
         expect(this.submitCallback).toHaveBeenCalled();
       });
 
-      it("shouldn't submit the form without the ctrl key", function() {
+      it("should submit the form with cmd+enter", function() {
         $("#new-conversation").submit(this.submitCallback);
-        var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false});
+        var e = $.Event("keydown", {which: Keycodes.ENTER, metaKey: true});
+        $("#new-message-text").trigger(e);
+        expect(this.submitCallback).toHaveBeenCalled();
+      });
+
+      it("shouldn't submit the form without the ctrl or cmd key", function() {
+        $("#new-conversation").submit(this.submitCallback);
+        var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false, metaKey: false});
         $("#new-message-text").trigger(e);
         expect(this.submitCallback).not.toHaveBeenCalled();
       });
@@ -170,9 +192,16 @@ describe("app.views.ConversationsForm", function() {
         expect(this.submitCallback).toHaveBeenCalled();
       });
 
-      it("shouldn't submit the form without the ctrl key", function() {
+      it("should submit the form with cmd+enter", function() {
         $("#response-message").submit(this.submitCallback);
-        var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false});
+        var e = $.Event("keydown", {which: Keycodes.ENTER, metaKey: true});
+        $("#response-message-text").trigger(e);
+        expect(this.submitCallback).toHaveBeenCalled();
+      });
+
+      it("shouldn't submit the form without the ctrl or cmd key", function() {
+        $("#response-message").submit(this.submitCallback);
+        var e = $.Event("keydown", {which: Keycodes.ENTER, ctrlKey: false, metaKey: false});
         $("#response-message-text").trigger(e);
         expect(this.submitCallback).not.toHaveBeenCalled();
       });
@@ -252,6 +281,12 @@ describe("app.views.ConversationsForm", function() {
       this.view = new app.views.ConversationsForm();
       $("#new-conversation").trigger("ajax:success", [{id: 23}]);
       expect(app._changeLocation).toHaveBeenCalledWith(Routes.conversation(23));
+    });
+
+    it("hides the preview", function() {
+      spyOn(Diaspora.MarkdownEditor.prototype, "hidePreview");
+      $("#new-conversation").trigger("ajax:success", [{id: 23}]);
+      expect(Diaspora.MarkdownEditor.prototype.hidePreview).toHaveBeenCalled();
     });
   });
 

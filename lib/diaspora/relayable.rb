@@ -6,6 +6,7 @@ module Diaspora
   module Relayable
     def self.included(model)
       model.class_eval do
+        validates :parent, presence: true
         validates_associated :parent
         validate :author_is_not_ignored
 
@@ -36,7 +37,6 @@ module Diaspora
       end
     end
 
-    # @deprecated This is only needed for pre 0.6 pods
     def sender_for_dispatch
       parent.author.owner if parent.author.local?
     end

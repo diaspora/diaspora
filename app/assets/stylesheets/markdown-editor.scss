@@ -1,3 +1,18 @@
+.md-editor {
+  border: 1px solid $border-grey;
+  border-radius: $border-radius-small;
+  overflow: hidden;
+
+  &.active { border: 1px solid $border-dark-grey; }
+
+  textarea,
+  textarea:focus {
+    border: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+}
+
 .md-footer,
 .md-header {
   background: $white;
@@ -27,6 +42,7 @@
 
   .btn-group {
     margin-bottom: 8px;
+    &:first-child { margin-left: 0; }
 
     [class^="entypo-"],
     [class*="entypo-"] {
@@ -77,13 +93,11 @@
 
 
 .md-preview {
-  background: $white;
   color: $text-color;
   // !important is needed to override the CSS rules dynamically added to the element
   // scss-lint:disable ImportantRule
   height: auto !important;
   // scss-lint:enable ImportantRule
-  min-height: 90px;
   overflow: auto;
   position: relative;
   // !important is needed to override the CSS rules dynamically added to the element
@@ -91,6 +105,8 @@
   width: 100% !important;
   // scss-lint:enable ImportantRule
   z-index: 10;
+
+  .preview-content { padding: 10px; }
 }
 
 .md-controls {

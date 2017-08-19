@@ -112,6 +112,13 @@ describe('app.Router', function () {
       this.router.conversations("12");
       expect(app.views.ConversationsInbox.prototype.renderConversation).toHaveBeenCalledWith("12");
     });
+
+    it("passes conversation_id parameter to ConversationsInbox initializer when passed in URL", function() {
+      app.conversations = undefined;
+      spyOn(app.views.ConversationsInbox.prototype, "initialize");
+      this.router.navigate("/conversations?conversation_id=45", {trigger: true});
+      expect(app.views.ConversationsInbox.prototype.initialize).toHaveBeenCalledWith("45");
+    });
   });
 
   describe("stream", function() {

@@ -142,6 +142,11 @@
                   = t(".mentioned")
                 .small-horizontal-spacer
 
+                = type.label :mentioned_in_comment, class: "checkbox-inline" do
+                  = type.check_box :mentioned_in_comment, {checked: @email_prefs["mentioned_in_comment"]}, false, true
+                  = t(".mentioned_in_comment")
+                .small-horizontal-spacer
+
                 = type.label :liked, class: "checkbox-inline" do
                   = type.check_box :liked, {checked: @email_prefs["liked"]}, false, true
                   = t(".liked")

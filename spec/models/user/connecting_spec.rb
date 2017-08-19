@@ -21,7 +21,7 @@ describe User::Connecting, type: :model do
 
         expect {
           eve.disconnected_by(alice.person)
-        }.to change(eve.contacts(true), :count).by(-1)
+        }.to change(eve.contacts, :count).by(-1)
       end
 
       it "does not remove contact if disconnect twice" do
@@ -31,7 +31,7 @@ describe User::Connecting, type: :model do
         expect {
           bob.disconnected_by(alice.person)
           bob.disconnected_by(alice.person)
-        }.not_to change(bob.contacts(true), :count)
+        }.not_to change(bob.contacts, :count)
 
         contact.reload
         expect(contact).not_to be_sharing
@@ -50,7 +50,7 @@ describe User::Connecting, type: :model do
       it "removes a contacts receiving flag" do
         expect(bob.contacts.find_by(person_id: alice.person.id)).to be_receiving
         bob.disconnect(bob.contact_for(alice.person))
-        expect(bob.contacts(true).find_by(person_id: alice.person.id)).not_to be_receiving
+        expect(bob.contacts.reload.find_by(person_id: alice.person.id)).not_to be_receiving
       end
 
       it "removes contact if not sharing" do
@@ -58,7 +58,7 @@ describe User::Connecting, type: :model do
 
         expect {
           alice.disconnect(contact)
-        }.to change(alice.contacts(true), :count).by(-1)
+        }.to change(alice.contacts, :count).by(-1)
       end
 
       it "does not remove contact if disconnect twice" do
@@ -68,7 +68,7 @@ describe User::Connecting, type: :model do
         expect {
           alice.disconnect(contact)
           alice.disconnect(contact)
-        }.not_to change(bob.contacts(true), :count)
+        }.not_to change(bob.contacts, :count)
 
         contact.reload
         expect(contact).not_to be_receiving
@@ -87,6 +87,7 @@ describe User::Connecting, type: :model do
         contact = local_leia.contact_for(remote_raphael)
         retraction = double
 
+        expect(contact).to receive(:receiving=).with(false)
         expect(Retraction).to receive(:for).with(contact).and_return(retraction)
         expect(retraction).to receive(:defer_dispatch).with(local_leia)
 
@@ -99,7 +100,7 @@ describe User::Connecting, type: :model do
 
         expect {
           alice.disconnect(contact)
-        }.to change(contact.aspects(true), :count).from(2).to(0)
+        }.to change(contact.aspects, :count).from(2).to(0)
       end
     end
   end

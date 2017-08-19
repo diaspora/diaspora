@@ -43,14 +43,13 @@
     display: flex;
 
     .count {
+      color: $text-color;
+      font-family: $font-family-base;
+      font-size: $font-size-base;
       line-height: 22px;
       margin-left: 5px;
+      vertical-align: top;
       z-index: 2;
-    }
-
-    .icon-count-group {
-      display: flex;
-      margin: 0 7px;
     }
 
     [class^="entypo"] {
@@ -73,6 +72,9 @@
   }
 
   .post-action {
+    display: flex;
+    margin: 0 7px;
+
     .disabled { color: $medium-gray; }
   }
 

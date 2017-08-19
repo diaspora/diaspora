@@ -191,6 +191,23 @@ describe Diaspora::MessageRenderer do
       text = "#hashtag message"
       expect(message(text).plain_text_without_markdown).to eq text
     end
+
+    context "with mention" do
+      it "contains the name of the mentioned person" do
+        msg = message("@{#{alice.diaspora_handle}} is cool", mentioned_people: alice.person)
+        expect(msg.plain_text_without_markdown).to eq "@#{alice.name} is cool"
+      end
+
+      it "uses the name from mention when the mention contains a name" do
+        msg = message("@{Alice; #{alice.diaspora_handle}} is cool", mentioned_people: alice.person)
+        expect(msg.plain_text_without_markdown).to eq "@Alice is cool"
+      end
+
+      it "uses the diaspora ID when the person cannot be found" do
+        msg = message("@{#{alice.diaspora_handle}} is cool", mentioned_people: [])
+        expect(msg.plain_text_without_markdown).to eq "@#{alice.diaspora_handle} is cool"
+      end
+    end
   end
 
   describe "#urls" do

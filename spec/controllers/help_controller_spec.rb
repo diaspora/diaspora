@@ -8,7 +8,7 @@ describe HelpController, type: :controller do
     it "fails on mobile" do
       expect {
         get :faq, format: :mobile
-      }.to raise_error ActionView::MissingTemplate
+      }.to raise_error ActionController::UnknownFormat
     end
   end
 end

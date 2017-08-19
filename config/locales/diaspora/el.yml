@@ -258,12 +258,9 @@ el:
     pods:
       use_search_box_q: "Πώς μπορώ να χρησιμοποιήσω το πλαίσιο αναζήτησης για να βρω συγκεκριμένα άτομα;"
     posts_and_posting:
-      image_text: "κείμενο εικόνας"
       insert_images_q: "Πώς μπορώ να εισάγω εικόνες στις αναρτήσεις;"
     private_posts:
       title: "Ιδιωτικές αναρτήσεις"
-    private_profiles:
-      title: "Ιδιωτικά προφίλ"
     third_party_tools: "Εργαλεία τρίτων"
     title_header: "Βοήθεια"
     tutorial: "οδηγός"

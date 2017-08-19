@@ -109,6 +109,7 @@ When /^I click to delete the first post$/ do
   accept_alert do
     step "I prepare the deletion of the first post"
   end
+  expect(find(".stream")).to have_no_css(".stream-element.loaded.deleting")
 end
 
 When /^I click to hide the first post$/ do
@@ -176,7 +177,7 @@ end
 
 Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    current_scope.should have_css selector
+    expect(current_scope).to have_css(selector)
   end
 end
 

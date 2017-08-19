@@ -1,4 +1,4 @@
-class OEmbedCache < ActiveRecord::Base
+class OEmbedCache < ApplicationRecord
   serialize :data
   validates :data, :presence => true
 

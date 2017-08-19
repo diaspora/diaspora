@@ -178,7 +178,7 @@ describe Photo, :type => :model do
       file = File.open(@fail_fixture_name)
       expect {
         @photo.unprocessed_image.store! file
-      }.to raise_error CarrierWave::IntegrityError, 'You are not allowed to upload "xml" files, allowed types: jpg, jpeg, png, gif'
+      }.to raise_error CarrierWave::IntegrityError
     end
 
   end
@@ -200,12 +200,6 @@ describe Photo, :type => :model do
       new_photo = Photo.find_by(guid: @saved_photo.guid)
       expect(new_photo.url).to eq(url)
       expect(new_photo.url(:thumb_medium)).to eq(thumb_url)
-    end
-  end
-
-  context "commenting" do
-    it "accepts comments if there is no parent status message" do
-      expect{ @user.comment!(@photo, "big willy style") }.to change(@photo.comments, :count).by(1)
     end
   end
 

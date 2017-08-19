@@ -23,7 +23,7 @@ Rails.application.routes.default_url_options[:host] = AppConfig.pod_uri.host
 Rails.application.routes.default_url_options[:port] = AppConfig.pod_uri.port
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, timeout: 80)
+  Capybara::Poltergeist::Driver.new(app, timeout: 30)
 end
 
 Capybara.javascript_driver = :poltergeist
@@ -52,7 +52,7 @@ Capybara.default_max_wait_time = 30
 ActionController::Base.allow_rescue = false
 
 Cucumber::Rails::Database.autorun_database_cleaner = true
-Cucumber::Rails::World.use_transactional_fixtures = false
+Cucumber::Rails::World.use_transactional_tests = false
 
 require File.join(File.dirname(__FILE__), "integration_sessions_controller")
 require File.join(File.dirname(__FILE__), "poor_mans_webmock")

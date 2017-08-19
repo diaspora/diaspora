@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Service < ActiveRecord::Base
+class Service < ApplicationRecord
   attr_accessor :provider, :info, :access_level
 
   belongs_to :user

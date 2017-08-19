@@ -9,7 +9,7 @@ Feature: Navigate between pages using the header menu and the drawer
 
   Scenario: navigate to the stream page
     When I go to the activity stream page
-    And I click on selector "#header-title"
+    And I click on selector ".header-title"
     Then I should be on the stream page
 
   Scenario: navigate to the notification page

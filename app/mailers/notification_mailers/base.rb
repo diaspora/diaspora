@@ -34,12 +34,13 @@ module NotificationMailers
 
     def default_headers
       headers = {
-        from: AppConfig.mail.sender_address.get,
+        from: "\"#{AppConfig.settings.pod_name}\" <#{AppConfig.mail.sender_address}>",
         host: "#{AppConfig.pod_uri.host}",
         to:   name_and_address(@recipient.name, @recipient.email)
       }
-
-      headers[:from] = "\"#{@sender.name} (diaspora*)\" <#{AppConfig.mail.sender_address}>" if @sender.present?
+      return headers if @sender.blank?
+      sender_in_header = @sender.profile.full_name.empty? ? @sender.username : @sender.name
+      headers[:from] = "\"#{AppConfig.settings.pod_name} (#{sender_in_header})\" <#{AppConfig.mail.sender_address}>"
 
       headers
     end

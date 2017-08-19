@@ -72,14 +72,14 @@ module Diaspora
         end
 
         if options[:disable_hovercards] || options[:link_all_mentions]
-          @message = Diaspora::Mentionable.filter_for_aspects message, nil
+          @message = Diaspora::Mentionable.filter_people message, []
         else
           make_mentions_plain_text
         end
       end
 
       def make_mentions_plain_text
-        @message = Diaspora::Mentionable.format message, [], plain_text: true
+        @message = Diaspora::Mentionable.format message, options[:mentioned_people], plain_text: true
       end
 
       def render_tags

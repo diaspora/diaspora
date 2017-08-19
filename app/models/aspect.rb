@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Aspect < ActiveRecord::Base
+class Aspect < ApplicationRecord
   belongs_to :user
 
   has_many :aspect_memberships, :dependent => :destroy

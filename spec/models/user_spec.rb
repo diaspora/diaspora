@@ -778,7 +778,7 @@ describe User, :type => :model do
 
     context "posts" do
       it "sends a retraction" do
-        expect(Retraction).to receive(:for).with(post, bob).and_return(retraction)
+        expect(Retraction).to receive(:for).with(post).and_return(retraction)
         expect(retraction).to receive(:defer_dispatch).with(bob)
         expect(retraction).to receive(:perform)
 
@@ -981,63 +981,84 @@ describe User, :type => :model do
 
   describe "queue_export" do
     it "queues up a job to perform the export" do
-      user = FactoryGirl.create :user
+      user = FactoryGirl.create(:user)
+      user.update export: Tempfile.new([user.username, ".json.gz"]), exported_at: Time.zone.now
       expect(Workers::ExportUser).to receive(:perform_async).with(user.id)
       user.queue_export
       expect(user.exporting).to be_truthy
+      expect(user.export).not_to be_present
+      expect(user.exported_at).to be_nil
     end
   end
 
   describe "perform_export!" do
+    let(:user) { FactoryGirl.create(:user, exporting: true) }
+
     it "saves a json export to the user" do
-      user = FactoryGirl.create :user, exporting: true
       user.perform_export!
       expect(user.export).to be_present
       expect(user.exported_at).to be_present
       expect(user.exporting).to be_falsey
-      expect(user.export.filename).to match /.json/
+      expect(user.export.filename).to match(/.json/)
       expect(ActiveSupport::Gzip.decompress(user.export.file.read)).to include user.username
     end
 
     it "compresses the result" do
-      user = FactoryGirl.create :user, exporting: true
       expect(ActiveSupport::Gzip).to receive :compress
       user.perform_export!
+    end
+
+    it "resets exporting to false when failing" do
+      expect_any_instance_of(Diaspora::Exporter).to receive(:execute).and_raise("Unexpected error!")
+      user.perform_export!
+      expect(user.exporting).to be_falsey
+      expect(user.export).not_to be_present
     end
   end
 
   describe "queue_export_photos" do
     it "queues up a job to perform the export photos" do
-      user = FactoryGirl.create :user
+      user = FactoryGirl.create(:user)
+      user.update exported_photos_file: Tempfile.new([user.username, ".zip"]), exported_photos_at: Time.zone.now
       expect(Workers::ExportPhotos).to receive(:perform_async).with(user.id)
       user.queue_export_photos
       expect(user.exporting_photos).to be_truthy
+      expect(user.exported_photos_file).not_to be_present
+      expect(user.exported_photos_at).to be_nil
     end
   end
 
   describe "perform_export_photos!" do
+    let(:user) { FactoryGirl.create(:user_with_aspect, exporting: true) }
+
     before do
-      @user = alice
-      filename  = 'button.png'
-      image = File.join(File.dirname(__FILE__), '..', 'fixtures', filename)
-      @saved_image = @user.build_post(:photo, :user_file => File.open(image), :to => alice.aspects.first.id)
+      image = File.join(File.dirname(__FILE__), "..", "fixtures", "button.png")
+      @saved_image = user.build_post(:photo, user_file: File.open(image), to: user.aspects.first.id)
       @saved_image.save!
     end
 
     it "saves a zip export to the user" do
-      @user.perform_export_photos!
-      expect(@user.exported_photos_file).to be_present
-      expect(@user.exported_photos_at).to be_present
-      expect(@user.exporting_photos).to be_falsey
-      expect(@user.exported_photos_file.filename).to match /.zip/
-      expect(Zip::File.open(@user.exported_photos_file.path).entries.count).to eq(1)
+      user.perform_export_photos!
+      expect(user.exported_photos_file).to be_present
+      expect(user.exported_photos_at).to be_present
+      expect(user.exporting_photos).to be_falsey
+      expect(user.exported_photos_file.filename).to match(/.zip/)
+      expect(Zip::File.open(user.exported_photos_file.path).entries.count).to eq(1)
     end
 
     it "does not add empty entries when photo not found" do
-      File.unlink @user.photos.first.unprocessed_image.path
-      @user.perform_export_photos!
-      expect(@user.exported_photos_file.filename).to match /.zip/
-      expect(Zip::File.open(@user.exported_photos_file.path).entries.count).to eq(0)
+      File.unlink user.photos.first.unprocessed_image.path
+      user.perform_export_photos!
+      expect(user.exporting_photos).to be_falsey
+      expect(user.exported_photos_file.filename).to match(/.zip/)
+      expect(Zip::File.open(user.exported_photos_file.path).entries.count).to eq(0)
+    end
+
+    it "resets exporting_photos to false when failing" do
+      expect_any_instance_of(PhotoExporter).to receive(:perform).and_raise("Unexpected error!")
+      user.perform_export_photos!
+      expect(user.exporting_photos).to be_falsey
+      expect(user.exported_photos_file).not_to be_present
     end
   end
 
@@ -1078,7 +1099,7 @@ describe User, :type => :model do
     end
 
     it "#flags user for removal" do
-      remove_at = Time.now+5.days
+      remove_at = Time.now.change(usec: 0).utc + 5.days
       @user.flag_for_removal(remove_at)
       expect(@user.remove_after).to eq(remove_at)
     end

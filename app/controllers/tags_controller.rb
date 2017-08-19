@@ -24,8 +24,8 @@ class TagsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.json{ render :nothing => true, :status => 422 }
-        format.html{ redirect_to tag_path('partytimeexcellent') }
+        format.json { head :unprocessable_entity }
+        format.html { redirect_to tag_path("partytimeexcellent") }
       end
     end
   end

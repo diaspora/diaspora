@@ -9,7 +9,8 @@ Diaspora.MarkdownEditor.prototype = {
     this.options = {
       resize: "none",
       onHidePreview: $.noop,
-      onPostPreview: $.noop
+      onPostPreview: $.noop,
+      onChange: function(e) { autosize.update(e.$textarea); }
     };
 
     $.extend(this.options, opts);
@@ -130,6 +131,14 @@ Diaspora.MarkdownEditor.prototype = {
     }
   },
 
+  isPreviewMode: function() {
+    return this.instance !== undefined && this.instance.$editor.find(".md-preview").length > 0;
+  },
+
+  userInputEmpty: function() {
+    return this.instance === undefined || this.instance.getContent().length === 0;
+  },
+
   localize: function() {
     var locale = Diaspora.I18n.language;
 
@@ -159,4 +168,8 @@ Diaspora.MarkdownEditor.prototype = {
 
     return locale;
   }
+};
+
+Diaspora.MarkdownEditor.simplePreview = function($mdInstance) {
+  return "<div class='preview-content'>" + app.helpers.textFormatter($mdInstance.getContent()) + "</div>";
 };

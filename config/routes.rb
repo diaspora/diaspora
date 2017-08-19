@@ -6,7 +6,8 @@ require "sidekiq/web"
 require "sidekiq/cron/web"
 Sidekiq::Web.set :sessions, false # disable rack session cookie
 
-Diaspora::Application.routes.draw do
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :report, except: %i(edit new show)
 
@@ -28,7 +29,7 @@ Diaspora::Application.routes.draw do
 
   resources :posts, only: %i(show destroy) do
     member do
-      get :interactions
+      get :mentionable
     end
 
     resource :participation, only: %i(create destroy)
@@ -229,6 +230,5 @@ Diaspora::Application.routes.draw do
     end
   end
 
-  get ".well-known/webfinger", to: "api/openid_connect/discovery#webfinger"
   get ".well-known/openid-configuration", to: "api/openid_connect/discovery#configuration"
 end

@@ -6,25 +6,18 @@ describe BlocksController, :type => :controller do
   describe "#create" do
     it "creates a block" do
       expect {
-        post :create, :block => {:person_id => eve.person.id}
+        post :create, params: {block: {person_id: eve.person.id}}, format: :json
       }.to change { alice.blocks.count }.by(1)
     end
 
-    it "redirects back" do
-      post :create, :block => { :person_id => 2 }
-
-      expect(response).to be_redirect
-    end
-
-    it "notifies the user" do
-      post :create, :block => { :person_id => 2 }
-
-      expect(flash).not_to be_empty
+    it "responds with 204" do
+      post :create, params: {block: {person_id: eve.person.id}}, format: :json
+      expect(response.status).to eq(204)
     end
 
     it "calls #disconnect_if_contact" do
       expect(@controller).to receive(:disconnect_if_contact).with(bob.person)
-      post :create, :block => {:person_id => bob.person.id}
+      post :create, params: {block: {person_id: bob.person.id}}, format: :json
     end
   end
 
@@ -34,14 +27,34 @@ describe BlocksController, :type => :controller do
     end
 
     it "redirects back" do
-      delete :destroy, :id => @block.id
+      delete :destroy, params: {id: @block.id}
+      expect(response).to be_redirect
+    end
+
+    it "notifies the user" do
+      delete :destroy, params: {id: @block.id}
+      expect(flash[:notice]).to eq(I18n.t("blocks.destroy.success"))
+    end
+
+    it "responds with 204 with json" do
+      delete :destroy, params: {id: @block.id}, format: :json
+      expect(response.status).to eq(204)
+    end
+
+    it "redirects back on mobile" do
+      delete :destroy, params: {id: @block.id}, format: :mobile
       expect(response).to be_redirect
     end
 
     it "removes a block" do
       expect {
-        delete :destroy, :id => @block.id
+        delete :destroy, params: {id: @block.id}, format: :json
       }.to change { alice.blocks.count }.by(-1)
+    end
+
+    it "handles when the block to delete doesn't exist" do
+      delete :destroy, params: {id: -1}
+      expect(flash[:error]).to eq(I18n.t("blocks.destroy.failure"))
     end
   end
 

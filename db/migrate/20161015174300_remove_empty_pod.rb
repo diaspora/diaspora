@@ -1,6 +1,6 @@
-class RemoveEmptyPod < ActiveRecord::Migration
+class RemoveEmptyPod < ActiveRecord::Migration[4.2]
   def up
-    Pod.delete_all("host IS NULL")
+    Pod.where("host IS NULL").delete_all
 
     change_column :pods, :host, :string, null: false
   end

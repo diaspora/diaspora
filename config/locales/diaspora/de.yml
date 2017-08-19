@@ -90,7 +90,7 @@ de:
       week: "Woche"
     user_entry:
       account_closed: "Konto wurde geschlossen."
-      diaspora_handle: "diaspora*-Handle"
+      diaspora_handle: "diaspora* ID"
       email: "E-Mail"
       guid: "GUID"
       id: "ID"
@@ -274,6 +274,13 @@ de:
     heading: "Lesezeichen"
     post_something: "Erstelle einen Beitrag in diaspora*"
   cancel: "Abbrechen"
+  color_themes:
+    dark: "Dunkel"
+    dark_green: "Dunkelgrün"
+    egyptian_blue: "Ägyptisch Blau"
+    magenta: "Magenta"
+    original: "Ursprünglich grau"
+    original_white: "Ursprünglich weißer Hintergrund"
   comments:
     create:
       error: "Konnte nicht kommentieren."
@@ -381,9 +388,11 @@ de:
       add_contact_roster_q: "Wie kann ich auf diaspora* mit jemandem chatten?"
       contacts_page: "Kontaktseite"
       title: "Chat"
+    community_guidelines: "Community-Richtlinien"
     faq: "FAQ"
     foundation_website: "Webseite der diaspora*-Stiftung"
     getting_help:
+      get_support_a_discourse: "Suche nach bestehenden Diskussionen im Bezug auf deine Frage oder eröffne ein neues Thema auf unserer %{discourse}-Plattform"
       get_support_a_faq: "Lies unsere %{faq}-Seite im Wiki"
       get_support_a_hashtag: "Stelle auf diaspora* in einem öffentlichen Beitrag eine Frage anhand des Hashtags %{question}."
       get_support_a_irc: "Nehme am %{irc} (Live Chat) teil"
@@ -413,7 +422,7 @@ de:
     mentions:
       how_to_mention_a: "Tippe das „@“-Zeichen und beginne, den zu erwähnenden Namen einzugeben. Ein Dropdown-Menü sollte erscheinen, um das Einfügen zu erleichtern. Beachte, dass du nur Leute erwähnen kannst, die du zu einem deiner Aspekte hinzugefügt hast."
       how_to_mention_q: "Wie erwähne ich jemand in einem Beitrag?"
-      mention_in_comment_a: "Nein, momentan nicht."
+      mention_in_comment_a: "Seit Version 0.7.0.0, ja! Du kannst jemanden in einem Kommentar genau so erwähnen, wie du es in einem Beitrag tun würdest, indem du „@“ eingibst und dann anfängst den Namen einzugeben. Wohlgemerkt kannst du, wenn du einen nicht öffentlichen Beitrag kommentierst, nur Benutzer erwähnen, die schon mit dem Beitrag interagiert haben."
       mention_in_comment_q: "Kann ich in den Kommentaren jemanden erwähnen?"
       see_mentions_a: "Ja, klicke dazu in der linken Spalte deiner Startseite auf „@Erwähnungen“."
       see_mentions_q: "Gibt es eine Möglichkeit, Beiträge zu finden, in denen ich erwähnt wurde?"
@@ -449,11 +458,8 @@ de:
       format_text_q: "Wie kann ich einen Beitrag formatieren (Fett, kursiv, etc.)?"
       hide_posts_a: "Wenn du deinen Mauszeiger über einem Beitrag positionierst, erscheint rechts ein kleines ×. Klicke darauf, um den Beitrag zu verstecken und die Benachrichtigungen zu ihm zu deaktivieren. Du kannst den Beitrag weiterhin auf der Profilseite der Person betrachten, die ihn gepostet hat."
       hide_posts_q: "Wie blende ich einen Beitrag aus?"
-      image_text: "Bildtext"
-      image_url: "Bildlink"
       insert_images_a: "Klicke auf das kleine Kamera-Symbol, um ein Foto zu einem Beitrag hinzuzufügen. Klicke erneut darauf, um weitere Fotos hinzuzufügen, oder wähle mehrere Fotos aus, um sie alle auf einmal hinzuzufügen."
-      insert_images_comments_a1: "Du kannst Bilder nicht in Kommentare hochladen, aber der folgende Markdown-Code"
-      insert_images_comments_a2: "kann sowohl in Kommentaren, als auch in Beiträgen, dazu benutzt werden, Bilder aus dem Internet einzufügen."
+      insert_images_comments_a: "Du kannst Markdown verwenden, um ein Bild aus dem Internet in einen Kommentar einzufügen, genau wie in Beiträgen. Du kannst allerdings keine Bilder von deinem Computer direkt in Kommentare hochladen. Lade sie auf einen Bilder-Hosting-Dienst hoch und füge sie dann mittels der Bild-Schaltfläche über dem Eingabefeld ein."
       insert_images_comments_q: "Kann ich Bilder in Kommentare einfügen?"
       insert_images_q: "Wie füge ich einem Beitrag Fotos hinzu?"
       post_location_a: "Klicke auf das Stecknadelsymbol neben der Kamera im Eingabefeld für Veröffentlichungen. Das wird deine Position von OpenStreetMap einfügen. Du kannst deine Position bearbeiten – vielleicht möchtest du nur die Stadt, in der du dich befindest, einbinden, und nicht die genaue Adresse."
@@ -482,14 +488,14 @@ de:
       title: "Private Beiträge"
       who_sees_post_a: "Nur eingeloggte diaspora*-Nutzer, welche du vorher diesem privaten Aspekt zugeordnet hast, können den Beitrag sehen."
       who_sees_post_q: "Wenn ich einen Beitrag in einen Aspekt schreibe (privat), wer kann ihn sehen?"
-    private_profiles:
-      title: "Private Profile"
-      whats_in_profile_a: "Deine Beschreibung, dein Ort, Geschlecht und Geburtstag. Das sind die Dinge aus dem unteren Bereich der Profileinstellungen. Alle diese Informationen sind freiwillig – Du entscheidest, ob du sie preisgibst. Angemeldete Benutzer, aus deinen Aspekten, sind die Einzigen, die dein privates Profil sehen können. Sie werden auf deiner Profilseite außerdem neben deinen öffentlichen Beiträgen auch private Beiträge von dir sehen können, die an Aspekte gerichtet sind, in denen sie sich befinden."
-      whats_in_profile_q: "Was ist in meinem privaten Profil zu sehen?"
-      who_sees_profile_a: "Jeder angemeldete Benutzer, mit dem du teilst (den du zu einem deiner Aspekte hinzugefügt hast). Leute, die dir folgen, denen du aber nicht folgst, werden nur deine öffentlichen Informationen sehen."
-      who_sees_profile_q: "Wer kann mein privates Profil sehen?"
-      who_sees_updates_a: "Jeder deiner Kontakte, der sich in deinen Aspekten befindet, sieht Veränderungen in deinem privaten Profil. "
-      who_sees_updates_q: "Wer sieht Neuerungen auf meinem privaten Profil?"
+    profile:
+      title: "Profil"
+      what_do_tags_do_a: "Sie helfen Leuten, dich kennenzulernen. Außerdem wird dein Profilbild auf der linken Seite der Stream-Seiten dieser Tags angezeigt, zusammen mit allen anderen, die sie in ihrem grundlegenden Profil haben."
+      what_do_tags_do_q: "Was tun die Tags in meinem grundlegenden Profil?"
+      whats_in_profile_a: "Dein Profil besteht aus zwei Teilen: deinem grundlegenden Profil und deinem erweiterten Profil. Dein grundlegendes Profil enthält deinen Namen, die fünf Tags, die du ausgesucht hast um dich zu beschreiben, und dein Foto. Dein erweitertes Profil enthält deine Beschreibung, Ort, Geschlecht und Geburtstag. Diese Informationen sind alle freiwillig – es hängt von dir ab, ob du sie angibst, und du kannst diese Profilinformationen so identifizierbar oder anonym gestalten, wie du möchtest. Dein erweitertes Profil wird in der linken Spalte deiner Profilseite, unter deinem Profilbild, angezeigt."
+      whats_in_profile_q: "Was ist in meinem Profil?"
+      who_sees_profile_a: "Dein grundlegendes Profil (Name, Profilbild und #Tags) ist öffentlich. Dein erweitertes Profil ist standardmäßig privat, aber du kannst es komplett öffentlich zugänglich machen, wenn du möchtest. Nur Leute, mit denen du teilst (das heißt du hast sie zu einem deiner Aspekte hinzugefügt), können dein erweitertes Profil sehen, wenn du es privat hältst. Andere Leute werden nur deine öffentlichen Informationen sehen. Jede Profilinformation, die du öffentlich machst, kann von jedem im Internet gesehen und von Suchmaschinen indexiert werden"
+      who_sees_profile_q: "Wer sieht mein Profil?"
     public_posts:
       can_comment_reshare_like_a: "Jeder angemeldete diaspora*-Nutzer kann öffentliche Beiträge weitersagen, kommentieren, beziehungsweise „Gefällt mir“ drücken."
       can_comment_reshare_like_q: "Wer kann meinen öffentlichen Beitrag kommentieren, weitersagen oder bei ihm auf „Gefällt mir“ drücken?"
@@ -502,16 +508,6 @@ de:
       title: "Öffentliche Beiträge"
       who_sees_post_a: "Jeder, der das Internet nutzt, kann öffentliche Beiträge sehen. Sei also vorsichtig, wenn du etwas öffentlich schreibst. Es ist aber auch eine tolle Möglichkeit, um die Welt da draußen zu erreichen."
       who_sees_post_q: "Wer kann öffentliche Beiträge sehen?"
-    public_profiles:
-      title: "Öffentliche Profile"
-      what_do_tags_do_a: "Sie helfen Leuten, dich besser kennen zu lernen. Außerdem wird dein Profilbild auf der linken Seite der entsprechenden Tag-Seiten erscheinen, zusammen mit denen Anderer, die sie zu ihrem öffentlichen Profil hinzugefügt haben."
-      what_do_tags_do_q: "Wozu sind die Tags in meinem öffentlichen Profil?"
-      whats_in_profile_a: "Dein Name, die fünf Tags, die du gewählt hast, um dich selbst zu beschreiben und dein Profilbild. Das sind die Sachen im oberen Bereich der Profileinstellungen. Du kannst diese Informationen so spezifisch oder anonym gestalten, wie du willst. Auf deiner Profilseite sind ebenfalls all deine öffentlichen Beiträge zu sehen."
-      whats_in_profile_q: "Was steht in meinem öffentlichen Profil?"
-      who_sees_profile_a: "Jeder angemeldete diaspora*-Nutzer, aber auch alle Anderen, können es sehen. Jedes Profil besitzt eine eindeutige URL, sodass es von außerhalb verlinkt werden kann. Außerdem kann es von Suchmaschinen indexiert werden."
-      who_sees_profile_q: "Wer sieht mein öffentliches Profil?"
-      who_sees_updates_a: "Jeder, der dein Profil besucht."
-      who_sees_updates_q: "Wer sieht Änderungen in meinem öffentlichen Profil?"
     resharing_posts:
       reshare_private_post_aspects_a: "Nein, es ist nicht möglich, einen privaten Beitrag weiterzusagen. Dies ist so, um die Absichten des Originalautors zu respektieren, welcher nur mit einer bestimmten Gruppe von Leuten teilen wollte."
       reshare_private_post_aspects_q: "Kann ich einen privaten Beitrag für bestimmte Aspekte weitersagen?"
@@ -665,7 +661,8 @@ de:
       mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
       mark_read: "Als gelesen markieren"
       mark_unread: "als ungelesen markieren"
-      mentioned: "Erwähnt"
+      mentioned: "In Beitrag erwähnt"
+      mentioned_in_comment: "In Kommentar erwähnt"
       no_notifications: "Du hast noch keine Benachrichtigungen."
       notifications: "Benachrichtigungen"
       reshared: "Weitergesagt"
@@ -686,11 +683,15 @@ de:
     mentioned:
       one: "%{actors} hat dich im Beitrag %{post_link} erwähnt."
       other: "%{actors} haben dich im Beitrag %{post_link} erwähnt."
-      zero: "%{actors} haben dich im Beitrag %{post_link} erwähnt."
     mentioned_deleted:
       one: "%{actors} hat dich in einem gelöschten Beitrag erwähnt."
       other: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
-      zero: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
+    mentioned_in_comment:
+      one: "%{actors} hat dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
+      other: "%{actors} haben dich in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
+    mentioned_in_comment_deleted:
+      one: "%{actors} hat dich in einem gelöschten Kommentar erwähnt."
+      other: "%{actors} haben dich in einem gelöschten Kommentar erwähnt."
     private_message:
       few: "%{actors} haben dir eine Nachricht gesendet."
       many: "%{actors} haben dir eine Nachricht gesendet."
@@ -799,18 +800,20 @@ de:
       message: |-
           Hallo!
 
-          Du wurdest von %{diaspora_id} eingeladen, diaspora* beizutreten!
+          Du wurdest von %{user} eingeladen, diaspora* beizutreten!
 
-          Klicke auf folgenden Link, um loszulegen.
+          Klicke auf folgenden Link, um loszulegen
 
           [%{invite_url}][1]
 
-          Falls du bereits ein Konto besitzt, kannst du %{diaspora_id} zu deinen Kontakten hinzufügen.
+          Oder du kannst %{diaspora_id} zu deinen Kontakten hinzufügen, falls du bereits ein Konto besitzt.
 
-          Alles Liebe
-          der diaspora*-E-Mail-Automat
 
-          P.S. Nur für den Fall, dass du (noch) nicht weißt, was diaspora* ist: [Hier][2] erklären wir es dir.
+          Alles Liebe,
+
+          Der diaspora* E-Mail-Roboter!
+
+          P.S.: Nur für den Fall, dass du (noch) nicht weißt, was diaspora* ist: [Hier][2] ist die Antwort.
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
@@ -822,6 +825,9 @@ de:
     mentioned:
       limited_post: "Du wurdest in einem begrenzten Beitrag erwähnt."
       subject: "%{name} hat dich auf diaspora* erwähnt"
+    mentioned_in_comment:
+      limited_post: "Du wurdest in einem Kommentar zu einem begrenzten Beitrag erwähnt."
+      reply: "Auf diese Unterhaltung antworten oder sie ansehen >"
     private_message:
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
       subject: "Neue private Nachricht"
@@ -1049,7 +1055,7 @@ de:
       control_your_audience: "Kontrolliere deine Zielgruppe"
       logged_in: "Eingeloggt in %{service}"
       manage: "Verbundene Dienste verwalten"
-      new_user_welcome_message: "Benutze #Hashtags, um deine Beiträge einzuordnen und Leute zu finden, die deine Interessen teilen. Benenne tolle Leute mit @Mentions"
+      new_user_welcome_message: "Benutze #Hashtags, um deine Beiträge einzuordnen und Leute zu finden, die deine Interessen teilen. Benenne tolle Leute mit @Erwähnungen"
       outside: "Öffentliche Nachrichten werden für andere außerhalb von diaspora* sichtbar sein."
       share: "Teilen"
       title: "Verbundene Dienste verwalten"
@@ -1191,6 +1197,7 @@ de:
       last_exported_at: "(Zuletzt aktualisiert: %{timestamp})"
       liked: "jemandem dein Beitrag gefällt"
       mentioned: "du in einem Beitrag erwähnt wirst"
+      mentioned_in_comment: "du in einem Kommentar erwähnt wirst"
       new_password: "Neues Kennwort"
       private_message: "du eine private Nachricht erhältst"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"

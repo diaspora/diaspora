@@ -31,13 +31,7 @@ SecureHeaders::Configuration.default do |config|
     end
   end
 
-  if AppConfig.privacy.mixpanel_uid.present?
-    csp[:script_src] << "api.mixpanel.com"
-    csp[:connect_src] << "api.mixpanel.com"
-  end
-
   csp[:script_src] << "code.jquery.com" if AppConfig.privacy.jquery_cdn?
-  csp[:script_src] << "static.chartbeat.com" if AppConfig.privacy.chartbeat_uid.present?
   csp[:form_action] << "www.paypal.com" if AppConfig.settings.paypal_donations.enable?
 
   csp[:report_uri] = [AppConfig.settings.csp.report_uri] if AppConfig.settings.csp.report_uri.present?

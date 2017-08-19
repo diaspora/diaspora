@@ -71,7 +71,7 @@ module EvilQuery
 
     def followed_tags_posts!
       logger.debug("[EVIL-QUERY] followed_tags_posts!")
-      StatusMessage.public_tag_stream(@user.followed_tag_ids)
+      StatusMessage.public_tag_stream(@user.followed_tag_ids).excluding_hidden_content(@user)
     end
 
     def mentioned_posts

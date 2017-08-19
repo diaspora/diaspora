@@ -1,7 +1,10 @@
 require_relative 'boot'
 
 require 'rails/all'
-Bundler.require(:default, *Bundler.settings.with, Rails.env)
+
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups(*Bundler.settings.with))
 
 # Do not dump the limit of boolean fields on MySQL,
 # since that generates a db/schema.rb that's incompatible
@@ -24,13 +27,16 @@ require_relative 'asset_sync'
 
 module Diaspora
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths      += %W{#{config.root}/app}
-    config.autoload_once_paths += %W{#{config.root}/lib}
+    config.autoload_paths      += %W[#{config.root}/app]
+    config.autoload_once_paths += %W[#{config.root}/lib]
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -64,14 +70,16 @@ module Diaspora
     # Speed up precompile by not loading the environment
     config.assets.initialize_on_precompile = false
 
-    # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w(
+    # Precompile additional assets.
+    # (application.js, application.css, and all non-JS/CSS in the app/assets are already added)
+    config.assets.precompile += %w[
       contact-list.js
       ie.js
-      jquery2.js
+      jquery3.js
       jquery_ujs.js
       main.js
       jsxc.js
+      bookmarklet.js
       mobile/bookmarklet.js
       mobile/mobile.js
       templates.js
@@ -81,10 +89,7 @@ module Diaspora
       rtl.css
       color_themes/*/desktop.css
       color_themes/*/mobile.css
-    )
-
-    # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    ]
 
     # See lib/tasks/assets.rake: non_digest_assets
     config.assets.non_digest_assets = %w(branding/logos/asterisk.png)
@@ -94,9 +99,6 @@ module Diaspora
       g.template_engine :haml
       g.test_framework  :rspec
     end
-
-    # Will be default with Rails 5
-    config.active_record.raise_in_transactional_callbacks = true
 
     # Setup action mailer early
     config.action_mailer.default_url_options = {

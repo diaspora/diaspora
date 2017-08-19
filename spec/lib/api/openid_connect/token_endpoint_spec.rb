@@ -5,7 +5,7 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
       o_auth_application: client, user: bob, redirect_uri: "http://localhost:3000/", scopes: ["openid"])
   }
   let!(:code) { auth.create_code }
-  let!(:client_with_specific_id) { FactoryGirl.create(:o_auth_application_with_ppid_with_specific_id) }
+  let!(:client_with_specific_id) { FactoryGirl.create(:o_auth_application_with_ppid) }
   let!(:auth_with_specific_id) do
     client_with_specific_id.client_id = "14d692cd53d9c1a9f46fd69e0e57443e"
     client_with_specific_id.jwks = File.read(jwks_file_path)
@@ -19,9 +19,9 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
   describe "the authorization code grant type" do
     context "when the authorization code is valid" do
       before do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              client_id: client.client_id, client_secret: client.client_secret,
-             redirect_uri: "http://localhost:3000/", code: code
+             redirect_uri: "http://localhost:3000/", code: code}
       end
 
       it "should return a valid id token" do
@@ -53,26 +53,26 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
       it "should not allow code to be reused" do
         auth.reload
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              client_id: client.client_id, client_secret: client.client_secret,
-             redirect_uri: "http://localhost:3000/", code: code
+             redirect_uri: "http://localhost:3000/", code: code}
         expect(JSON.parse(response.body)["error"]).to eq("invalid_grant")
       end
 
       it "should not allow a nil code" do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              client_id: client.client_id, client_secret: client.client_secret,
-             redirect_uri: "http://localhost:3000/", code: nil
+             redirect_uri: "http://localhost:3000/", code: nil}
         expect(JSON.parse(response.body)["error"]).to eq("invalid_request")
       end
     end
 
     context "when the authorization code is valid with jwt bearer" do
       before do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: File.read(valid_client_assertion_path)
+             client_assertion: File.read(valid_client_assertion_path)}
       end
 
       it "should return a valid id token" do
@@ -97,27 +97,27 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
       it "should not allow code to be reused" do
         auth_with_specific_id.reload
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              client_id: client.client_id, client_secret: client.client_secret,
-             redirect_uri: "http://localhost:3000/", code: code_with_specific_id
+             redirect_uri: "http://localhost:3000/", code: code_with_specific_id}
         expect(JSON.parse(response.body)["error"]).to eq("invalid_grant")
       end
     end
 
     context "when the authorization code is not valid" do
       it "should return an invalid grant error" do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
-             client_id: client.client_id, client_secret: client.client_secret, code: "123456"
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
+             client_id: client.client_id, client_secret: client.client_secret, code: "123456"}
         expect(response.body).to include "invalid_grant"
       end
     end
 
     context "when the client assertion is in an invalid format" do
       before do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: "invalid_client_assertion.random"
+             client_assertion: "invalid_client_assertion.random"}
       end
 
       it "should return an error" do
@@ -127,10 +127,10 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
     context "when the client assertion is not matching with jwks keys" do
       before do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: File.read(client_assertion_with_tampered_sig_path)
+             client_assertion: File.read(client_assertion_with_tampered_sig_path)}
       end
 
       it "should return an error" do
@@ -140,10 +140,10 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
     context "when kid doesn't exist in jwks keys" do
       before do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: File.read(client_assertion_with_nonexistent_kid_path)
+             client_assertion: File.read(client_assertion_with_nonexistent_kid_path)}
       end
 
       it "should return an error" do
@@ -153,18 +153,18 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
     context "when the client is unregistered" do
       it "should return an error" do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code", code: auth.refresh_token,
-             client_id: SecureRandom.hex(16).to_s, client_secret: client.client_secret
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code", code: auth.refresh_token,
+             client_id: SecureRandom.hex(16).to_s, client_secret: client.client_secret}
         expect(response.body).to include "invalid_client"
       end
     end
 
     context "when the client is unregistered with jwks keys" do
       before do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
              redirect_uri: "http://localhost:3000/", code: code_with_specific_id,
              client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-             client_assertion: File.read(client_assertion_with_nonexistent_client_id_path)
+             client_assertion: File.read(client_assertion_with_nonexistent_client_id_path)}
       end
 
       it "should return an error" do
@@ -174,16 +174,16 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
     context "when the code field is missing" do
       it "should return an invalid request error" do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code",
-             client_id: client.client_id, client_secret: client.client_secret
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code",
+             client_id: client.client_id, client_secret: client.client_secret}
         expect(response.body).to include "invalid_request"
       end
     end
 
     context "when the client_secret doesn't match" do
       it "should return an invalid client error" do
-        post api_openid_connect_access_tokens_path, grant_type: "authorization_code", code: auth.refresh_token,
-             client_id: client.client_id, client_secret: "client.client_secret"
+        post api_openid_connect_access_tokens_path, params: {grant_type: "authorization_code", code: auth.refresh_token,
+             client_id: client.client_id, client_secret: "client.client_secret"}
         expect(response.body).to include "invalid_client"
       end
     end
@@ -191,8 +191,8 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
   describe "an unsupported grant type" do
     it "should return an unsupported grant type error" do
-      post api_openid_connect_access_tokens_path, grant_type: "noexistgrant", username: "bob",
-           password: "bluepin7", client_id: client.client_id, client_secret: client.client_secret, scope: "read"
+      post api_openid_connect_access_tokens_path, params: {grant_type: "noexistgrant", username: "bob",
+           password: "bluepin7", client_id: client.client_id, client_secret: client.client_secret, scope: "read"}
       expect(response.body).to include "unsupported_grant_type"
     end
   end
@@ -200,8 +200,8 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
   describe "the refresh token grant type" do
     context "when the refresh token is valid" do
       it "should return an access token" do
-        post api_openid_connect_access_tokens_path, grant_type: "refresh_token",
-             client_id: client.client_id, client_secret: client.client_secret, refresh_token: auth.refresh_token
+        post api_openid_connect_access_tokens_path, params: {grant_type: "refresh_token",
+             client_id: client.client_id, client_secret: client.client_secret, refresh_token: auth.refresh_token}
         json = JSON.parse(response.body)
         expect(response.body).to include "expires_in"
         expect(json["access_token"].length).to eq(64)
@@ -211,32 +211,34 @@ describe Api::OpenidConnect::TokenEndpoint, type: :request do
 
     context "when the refresh token is not valid" do
       it "should return an invalid grant error" do
-        post api_openid_connect_access_tokens_path, grant_type: "refresh_token",
-             client_id: client.client_id, client_secret: client.client_secret, refresh_token: "123456"
+        post api_openid_connect_access_tokens_path, params: {grant_type: "refresh_token",
+             client_id: client.client_id, client_secret: client.client_secret, refresh_token: "123456"}
         expect(response.body).to include "invalid_grant"
       end
     end
 
     context "when the client is unregistered" do
       it "should return an error" do
-        post api_openid_connect_access_tokens_path, grant_type: "refresh_token", refresh_token: auth.refresh_token,
-             client_id: SecureRandom.hex(16).to_s, client_secret: client.client_secret
+        post api_openid_connect_access_tokens_path, params: {grant_type: "refresh_token",
+             refresh_token: auth.refresh_token,
+             client_id: SecureRandom.hex(16).to_s, client_secret: client.client_secret}
         expect(response.body).to include "invalid_client"
       end
     end
 
     context "when the refresh_token field is missing" do
       it "should return an invalid request error" do
-        post api_openid_connect_access_tokens_path, grant_type: "refresh_token",
-             client_id: client.client_id, client_secret: client.client_secret
+        post api_openid_connect_access_tokens_path, params: {grant_type: "refresh_token",
+             client_id: client.client_id, client_secret: client.client_secret}
         expect(response.body).to include "'refresh_token' required"
       end
     end
 
     context "when the client_secret doesn't match" do
       it "should return an invalid client error" do
-        post api_openid_connect_access_tokens_path, grant_type: "refresh_token", refresh_token: auth.refresh_token,
-             client_id: client.client_id, client_secret: "client.client_secret"
+        post api_openid_connect_access_tokens_path, params: {grant_type: "refresh_token",
+             refresh_token: auth.refresh_token,
+             client_id: client.client_id, client_secret: "client.client_secret"}
         expect(response.body).to include "invalid_client"
       end
     end

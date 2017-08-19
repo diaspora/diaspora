@@ -6,15 +6,20 @@ describe "diaspora federation callbacks" do
       person = alice.person
       wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, alice.diaspora_handle)
       expect(wf.acct_uri).to eq("acct:#{person.diaspora_handle}")
-      expect(wf.alias_url).to eq(AppConfig.url_to("/people/#{person.guid}"))
       expect(wf.hcard_url).to eq(AppConfig.url_to("/hcard/users/#{person.guid}"))
       expect(wf.seed_url).to eq(AppConfig.pod_uri)
       expect(wf.profile_url).to eq(person.profile_url)
       expect(wf.atom_url).to eq(person.atom_url)
       expect(wf.salmon_url).to eq(person.receive_url)
       expect(wf.subscribe_url).to eq(AppConfig.url_to("/people?q={uri}"))
-      expect(wf.guid).to eq(person.guid)
-      expect(wf.public_key).to eq(person.serialized_public_key)
+    end
+
+    it "contains the OpenID issuer" do
+      wf = DiasporaFederation.callbacks.trigger(:fetch_person_for_webfinger, alice.diaspora_handle)
+      links = wf.additional_data[:links]
+      openid_issuer = links.find {|l| l[:rel] == OpenIDConnect::Discovery::Provider::Issuer::REL_VALUE }
+      expect(openid_issuer).not_to be_nil
+      expect(openid_issuer[:href]).to eq(Rails.application.routes.url_helpers.root_url)
     end
 
     it "returns nil if the person was not found" do
@@ -203,7 +208,7 @@ describe "diaspora federation callbacks" do
 
     it "returns nil for an unknown id" do
       expect(
-        DiasporaFederation.callbacks.trigger(:fetch_private_key, FactoryGirl.generate(:diaspora_id))
+        DiasporaFederation.callbacks.trigger(:fetch_private_key, Fabricate.sequence(:diaspora_id))
       ).to be_nil
     end
   end
@@ -225,7 +230,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "returns nil for an unknown person" do
-      diaspora_id = FactoryGirl.generate(:diaspora_id)
+      diaspora_id = Fabricate.sequence(:diaspora_id)
       expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
         .and_raise(DiasporaFederation::Discovery::DiscoveryError)
 
@@ -295,7 +300,7 @@ describe "diaspora federation callbacks" do
 
     it "returns nil for a non-existing guid" do
       expect(
-        DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", FactoryGirl.generate(:guid))
+        DiasporaFederation.callbacks.trigger(:fetch_related_entity, "Post", Fabricate.sequence(:guid))
       ).to be_nil
     end
   end
@@ -337,7 +342,7 @@ describe "diaspora federation callbacks" do
 
   describe ":receive_entity" do
     it "receives an AccountDeletion" do
-      account_deletion = FactoryGirl.build(:account_deletion_entity, author: remote_person.diaspora_handle)
+      account_deletion = Fabricate(:account_deletion_entity, author: remote_person.diaspora_handle)
 
       expect(Diaspora::Federation::Receive).to receive(:account_deletion).with(account_deletion)
       expect(Workers::ReceiveLocal).not_to receive(:perform_async)
@@ -346,7 +351,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "receives a Retraction" do
-      retraction = FactoryGirl.build(:retraction_entity, author: remote_person.diaspora_handle)
+      retraction = Fabricate(:retraction_entity, author: remote_person.diaspora_handle)
 
       expect(Diaspora::Federation::Receive).to receive(:retraction).with(retraction, 42)
       expect(Workers::ReceiveLocal).not_to receive(:perform_async)
@@ -355,7 +360,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "receives a entity" do
-      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+      received = Fabricate(:status_message_entity, author: remote_person.diaspora_handle)
       persisted = FactoryGirl.create(:status_message)
 
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
@@ -365,7 +370,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "calls schedule_check_if_needed on the senders pod" do
-      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+      received = Fabricate(:status_message_entity, author: remote_person.diaspora_handle)
       persisted = FactoryGirl.create(:status_message)
 
       expect(Person).to receive(:by_account_identifier).with(received.author).and_return(remote_person)
@@ -377,7 +382,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "receives a entity for a recipient" do
-      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+      received = Fabricate(:status_message_entity, author: remote_person.diaspora_handle)
       persisted = FactoryGirl.create(:status_message)
 
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(persisted)
@@ -387,7 +392,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "does not trigger a ReceiveLocal job if Receive.perform returned nil" do
-      received = FactoryGirl.build(:status_message_entity, author: remote_person.diaspora_handle)
+      received = Fabricate(:status_message_entity, author: remote_person.diaspora_handle)
 
       expect(Diaspora::Federation::Receive).to receive(:perform).with(received).and_return(nil)
       expect(Workers::ReceiveLocal).not_to receive(:perform_async)
@@ -460,7 +465,7 @@ describe "diaspora federation callbacks" do
     end
 
     it "forwards the DiscoveryError" do
-      diaspora_id = FactoryGirl.generate(:diaspora_id)
+      diaspora_id = Fabricate.sequence(:diaspora_id)
       expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
         .and_raise(DiasporaFederation::Discovery::DiscoveryError)
 

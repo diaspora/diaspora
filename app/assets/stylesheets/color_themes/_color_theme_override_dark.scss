@@ -1,23 +1,19 @@
 // Only overriding existing selectors here, so disable some lint rules
 // scss-lint:disable IdSelector, SelectorFormat, NestingDepth, SelectorDepth, QualifyingElement
 body {
-  .navbar.navbar-fixed-top #user_menu .dropdown-menu > li > a {
-    color: $text-color;
-    &:hover { color: $white; }
-  }
-
   .publisher {
-    .mentions-input-box { background-color: $gray; }
     form {
       #publisher_textarea_wrapper { background-color: $gray; }
       .btn.btn-link.question_mark:hover .entypo-cog { color: $gray-light; }
     }
-
-    .write-preview-tabs > li.active * { color: $text-color; }
-    .md-preview { background-color: $gray; }
-    .md-cancel:hover .entypo-cross { color: $gray-light; }
     .publisher-buttonbar .btn.btn-link:hover i { color: $gray-light; }
   }
+
+  .write-preview-tabs > li.active * { color: $text-color; }
+  .md-cancel:hover .entypo-cross { color: $gray-light; }
+
+  .md-input,
+  .md-preview { background-color: $gray; }
 
   .aspect_dropdown li a .text { color: $dropdown-link-color; }
 
@@ -96,6 +92,7 @@ body {
 
   #welcome-to-diaspora { background: $orange; }
 
+  .md-editor,
   .block-form fieldset .form-control:focus { border-color: $input-border; }
 
   &.page-registrations.action-new,

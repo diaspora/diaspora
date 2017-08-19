@@ -4,6 +4,8 @@
 %meta{charset: "utf-8"}/
 = content_for?(:meta_data) ? yield(:meta_data) : metas_tags
 
+%meta{content: "yes", name: "mobile-web-app-capable"}/
+
 / favicon
 / For Apple devices
 %link{rel: "apple-touch-icon", href: image_path("apple-touch-icon.png")}
@@ -22,9 +24,7 @@
 = include_gon(camel_case: true, nonce: content_security_policy_nonce(:script))
 = yield(:javascript)
 
-= chartbeat_head_block
 = csrf_meta_tag
 = current_user_atom_tag
-= include_mixpanel
 
 = yield(:head)

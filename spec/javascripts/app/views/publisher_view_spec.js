@@ -43,17 +43,11 @@ describe("app.views.Publisher", function() {
     });
 
     describe("#initSubviews", function() {
-      it("calls handleTextchange if the publisher is prefilled with mentions", function() {
-        spyOn(this.view, "handleTextchange");
+      it("calls checkSubmitAvailability if the publisher is prefilled with mentions", function() {
+        spyOn(this.view, "checkSubmitAvailability");
         this.view.prefillMention = "user@example.org";
         this.view.initSubviews();
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
-      it("doesn't call handleTextchange if there are no prefilled mentions", function() {
-        spyOn(this.view, "handleTextchange");
-        this.view.initSubviews();
-        expect(this.view.handleTextchange).not.toHaveBeenCalled();
+        expect(this.view.checkSubmitAvailability).toHaveBeenCalled();
       });
     });
 
@@ -82,9 +76,9 @@ describe("app.views.Publisher", function() {
       });
 
       it("resets the element's height", function() {
-        $(this.view.el).find("#status_message_fake_text").height(100);
+        $(this.view.el).find("#status_message_text").height(100);
         this.view.close($.Event());
-        expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
+        expect($(this.view.el).find("#status_message_text").attr("style")).not.toContain("height");
       });
 
       it("calls autosize.update", function() {
@@ -203,12 +197,6 @@ describe("app.views.Publisher", function() {
     });
 
     describe("createStatusMessage", function(){
-      it("calls handleTextchange to complete missing mentions", function(){
-        spyOn(this.view, "handleTextchange");
-        this.view.createStatusMessage($.Event());
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-
       it("adds the status message to the stream", function() {
         app.stream = { addNow: $.noop };
         spyOn(app.stream, "addNow");
@@ -224,20 +212,10 @@ describe("app.views.Publisher", function() {
       });
     });
 
-    describe("createPostPreview", function(){
-      it("calls handleTextchange to complete missing mentions", function(){
-        spyOn(this.view, "handleTextchange");
-        this.view.createPostPreview();
-        expect(this.view.handleTextchange).toHaveBeenCalled();
-      });
-    });
-
     describe('#setText', function() {
       it("sets the content text", function() {
         this.view.setText("FOO bar");
-
         expect(this.view.inputEl.val()).toEqual("FOO bar");
-        expect(this.view.hiddenInputEl.val()).toEqual("FOO bar");
       });
     });
 
@@ -248,7 +226,6 @@ describe("app.views.Publisher", function() {
 
         expect(this.view.disabled).toBeTruthy();
         expect(this.view.inputEl.prop("disabled")).toBeTruthy();
-        expect(this.view.hiddenInputEl.prop("disabled")).toBeTruthy();
       });
 
       it("disables submitting", function() {
@@ -272,6 +249,44 @@ describe("app.views.Publisher", function() {
 
         expect(submitCallback).toHaveBeenCalled();
         expect($(this.view.el)).not.toHaveClass("closed");
+      });
+
+      it("should submit the form when cmd+enter is pressed", function() {
+        this.view.render();
+        var form = this.view.$("form");
+        var submitCallback = jasmine.createSpy().and.returnValue(false);
+        form.submit(submitCallback);
+
+        var e = $.Event("keydown", {which: Keycodes.ENTER, metaKey: true});
+        this.view.keyDown(e);
+
+        expect(submitCallback).toHaveBeenCalled();
+        expect($(this.view.el)).not.toHaveClass("closed");
+      });
+    });
+
+    describe("tryClose", function() {
+      it("doesn't close the publisher if it is submittable", function() {
+        spyOn(this.view, "_submittable").and.returnValue(true);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).not.toHaveBeenCalled();
+      });
+
+      it("doesn't close the publisher if it is in preview mode", function() {
+        spyOn(this.view, "_submittable").and.returnValue(false);
+        spyOn(this.view.markdownEditor, "isPreviewMode").and.returnValue(true);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).not.toHaveBeenCalled();
+      });
+
+      it("closes the publisher if it is neither submittable nor in preview mode", function() {
+        spyOn(this.view, "_submittable").and.returnValue(false);
+        spyOn(this.view.markdownEditor, "isPreviewMode").and.returnValue(false);
+        spyOn(this.view, "close");
+        this.view.tryClose();
+        expect(this.view.close).toHaveBeenCalled();
       });
     });
 

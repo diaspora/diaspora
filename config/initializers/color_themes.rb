@@ -8,12 +8,10 @@ if color_themes_file.exist?
   # else include the original theme.
   AVAILABLE_COLOR_THEMES =
     if color_themes["available"].length > 0
-      color_themes["available"]
+      color_themes["available"].freeze
     else
-      {"original" => "Original Gray"}
+      ["original"].freeze
     end
 else
-  AVAILABLE_COLOR_THEMES = {"original" => "Original Gray"}.freeze
+  AVAILABLE_COLOR_THEMES = ["original"].freeze
 end
-# Get all codes from available themes into a separate variable, so that they can be called easier.
-AVAILABLE_COLOR_THEME_CODES = AVAILABLE_COLOR_THEMES.keys

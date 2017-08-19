@@ -24,6 +24,8 @@ app.views.ConversationsForm = app.views.Base.extend({
       remoteRoute: {url: "/contacts", extraParameters: "mutual=true"}
     });
 
+    this.newConversationMdEditor = this.renderMarkdownEditor("#new-message-text");
+
     this.bindTypeaheadEvents();
 
     this.tagListElement.empty();
@@ -31,8 +33,14 @@ app.views.ConversationsForm = app.views.Base.extend({
       this.prefill(opts.prefill);
     }
 
-    this.$("form#new-conversation").on("ajax:success", this.conversationCreateSuccess);
+    this.$("form#new-conversation").on("ajax:success", this.conversationCreateSuccess.bind(this));
     this.$("form#new-conversation").on("ajax:error", this.conversationCreateError);
+  },
+
+  renderMarkdownEditor: function(element) {
+    return new Diaspora.MarkdownEditor($(element), {
+      onPreview: Diaspora.MarkdownEditor.simplePreview
+    });
   },
 
   addRecipient: function(person) {
@@ -66,7 +74,7 @@ app.views.ConversationsForm = app.views.Base.extend({
   },
 
   keyDown: function(evt) {
-    if (evt.which === Keycodes.ENTER && evt.ctrlKey) {
+    if (evt.which === Keycodes.ENTER && (evt.metaKey || evt.ctrlKey)) {
       $(evt.target).parents("form").submit();
     }
   },
@@ -84,6 +92,7 @@ app.views.ConversationsForm = app.views.Base.extend({
   },
 
   conversationCreateSuccess: function(evt, data) {
+    this.newConversationMdEditor.hidePreview();
     app._changeLocation(Routes.conversation(data.id));
   },
 

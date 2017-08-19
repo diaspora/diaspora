@@ -10,27 +10,15 @@ app/assets/images/custom/
 
 # Configuration files
 config/diaspora.yml
-config/heroku.yml
 config/initializers/secret_token.rb
-config/redis.conf
-config/deploy_config.yml
-config/schedule.rb
 .bundle
 vendor/bundle/
 vendor/cache/
 config/database.yml
-.rvmrc_custom
-.rvmrc.local
 config/oidc_key.pem
-
-# Mailing list stuff
-config/email_offset
-config/mailing_list.csv
 
 # Generated files
 log/
-public/stylesheets/*.css
-public/diaspora
 spec/fixtures/*.y*ml
 spec/fixtures/*.fixture.*
 coverage/
@@ -38,6 +26,12 @@ xml_locales/
 public/404.html
 public/422.html
 public/500.html
+
+# the db/schema.rb. Although this is contrary to rails best-practises, we
+# cannot provide a schema.rb that works for both MySQL and PostgreSQL, so we
+# have no choice. Our migrations are maintained, so it should always be
+# possible to get back to a "clean" database schema anyway.
+db/schema.rb
 
 # Sprites
 app/assets/images/branding-*.png
@@ -53,17 +47,13 @@ doc/
 public/uploads/
 public/assets/
 public/source.tar*
-public/.well-known
-tmp/**/
 tmp/
-*.sqlite3
 
 # Temporary files of every sort
 .sass-cache/
 .DS_Store
 .idea
 .redcar
-.rvmrc
 .stgit*
 *.swap
 *.swo
@@ -76,7 +66,6 @@ tmp/
 nbproject
 patches-*
 capybara-*.html
-dump.rdb
 
 # Rubinius's JIT
 *.rbc

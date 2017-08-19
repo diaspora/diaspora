@@ -1,4 +1,4 @@
-class RenamePostColumnsToItem < ActiveRecord::Migration
+class RenamePostColumnsToItem < ActiveRecord::Migration[4.2]
   def up
     rename_column :reports, :post_id, :item_id
     rename_column :reports, :post_type, :item_type

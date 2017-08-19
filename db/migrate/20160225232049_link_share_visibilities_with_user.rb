@@ -1,5 +1,5 @@
-class LinkShareVisibilitiesWithUser < ActiveRecord::Migration
-  class ShareVisibility < ActiveRecord::Base
+class LinkShareVisibilitiesWithUser < ActiveRecord::Migration[4.2]
+  class ShareVisibility < ApplicationRecord
   end
 
   def up
@@ -26,7 +26,7 @@ class LinkShareVisibilitiesWithUser < ActiveRecord::Migration
     remove_column :share_visibilities, :contact_id
 
     ShareVisibility.joins("LEFT OUTER JOIN users ON users.id = share_visibilities.user_id")
-      .delete_all("users.id is NULL")
+                   .where("users.id is NULL").delete_all
 
     change_column :share_visibilities, :user_id, :integer, null: false
 
@@ -73,8 +73,8 @@ class LinkShareVisibilitiesWithUser < ActiveRecord::Migration
 
   def cleanup_deleted_share_visibilities
     ShareVisibility.joins("LEFT OUTER JOIN posts ON posts.id = share_visibilities.shareable_id")
-      .where(shareable_type: "Post").delete_all("posts.id is NULL")
+                   .where(shareable_type: "Post").where("posts.id is NULL").delete_all
     ShareVisibility.joins("LEFT OUTER JOIN photos ON photos.id = share_visibilities.shareable_id")
-      .where(shareable_type: "Photo").delete_all("photos.id is NULL")
+                   .where(shareable_type: "Photo").where("photos.id is NULL").delete_all
   end
 end

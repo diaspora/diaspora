@@ -54,13 +54,13 @@ describe ApplicationHelper, :type => :helper do
       end
 
       it 'includes jquery.js from asset pipeline' do
-        expect(helper.jquery_include_tag).to match(/jquery2\.js/)
+        expect(helper.jquery_include_tag).to match(/jquery3-[0-9a-f]{64}\.js/)
         expect(helper.jquery_include_tag).not_to match(/jquery\.com/)
       end
     end
 
     it 'inclues jquery_ujs.js' do
-      expect(helper.jquery_include_tag).to match(/jquery_ujs\.js/)
+      expect(helper.jquery_include_tag).to match(/jquery_ujs-[0-9a-f]{64}\.js/)
     end
 
     it "disables ajax caching" do

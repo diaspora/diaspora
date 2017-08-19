@@ -1,4 +1,9 @@
 describe("app", function() {
+  afterAll(function() {
+    Backbone.history.stop();
+    app.initialize();
+  });
+
   describe("initialize", function() {
     it("calls several setup functions", function() {
       spyOn(app.Router.prototype, "initialize");
@@ -62,6 +67,10 @@ describe("app", function() {
   });
 
   describe("setupAjaxErrorRedirect", function() {
+    beforeEach(function() {
+      app.setupAjaxErrorRedirect();
+    });
+
     it("redirects to /users/sign_in on 401 ajax responses", function() {
       spyOn(app, "_changeLocation");
       $.ajax("/test");
@@ -105,6 +114,10 @@ describe("app", function() {
   });
 
   describe("setupBackboneLinks", function() {
+    beforeEach(function() {
+      Backbone.history.stop();
+    });
+
     it("calls Backbone.history.start", function() {
       spyOn(Backbone.history, "start");
       app.setupBackboneLinks();
@@ -115,7 +128,6 @@ describe("app", function() {
       beforeEach(function() {
         app.stream = {basePath: function() { return "/stream"; }};
         app.notificationsCollection = {fetch: $.noop};
-        spyOn(Backbone.history, "start");
         this.link = $("<a href='/backbone-link' rel='backbone'>");
         spec.content().append(this.link);
         app.setupBackboneLinks();

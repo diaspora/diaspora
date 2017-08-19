@@ -4,35 +4,29 @@
 
 describe AccountDeleter do
   before do
-    @account_deletion = AccountDeleter.new(bob.person.diaspora_handle)
+    @account_deletion = AccountDeleter.new(bob.person)
     @account_deletion.user = bob
   end
 
   it "attaches the user" do
-    expect(AccountDeleter.new(bob.person.diaspora_handle).user).to eq(bob)
-    expect(AccountDeleter.new(remote_raphael.diaspora_handle).user).to eq(nil)
+    expect(AccountDeleter.new(bob.person).user).to eq(bob)
+    expect(AccountDeleter.new(remote_raphael).user).to eq(nil)
   end
 
   describe '#perform' do
-    user_removal_methods = %i(
-      delete_standard_user_associations
-      remove_share_visibilities_on_contacts_posts
-      disconnect_contacts tombstone_user
-    )
-
-    person_removal_methods = %i(
+    person_removal_methods = %i[
       delete_contacts_of_me
       delete_standard_person_associations
       tombstone_person_and_profile
       remove_conversation_visibilities
-    )
+    ]
 
     context "user deletion" do
       after do
         @account_deletion.perform!
       end
 
-      (user_removal_methods + person_removal_methods).each do |method|
+      [*person_removal_methods, :close_user].each do |method|
 
         it "calls ##{method.to_s}" do
           expect(@account_deletion).to receive(method)
@@ -42,7 +36,7 @@ describe AccountDeleter do
 
     context "profile deletion" do
       before do
-        @profile_deletion = AccountDeleter.new(remote_raphael.diaspora_handle)
+        @profile_deletion = AccountDeleter.new(remote_raphael)
         @profile = remote_raphael.profile
       end
 
@@ -57,18 +51,15 @@ describe AccountDeleter do
 
     context "person deletion" do
       before do
-        @person_deletion = AccountDeleter.new(remote_raphael.diaspora_handle)
+        @person_deletion = AccountDeleter.new(remote_raphael)
       end
 
       after do
         @person_deletion.perform!
       end
 
-      (user_removal_methods).each do |method|
-
-        it "does not call ##{method.to_s}" do
-          expect(@person_deletion).not_to receive(method)
-        end
+      it "does not call #close_user" do
+        expect(@person_deletion).not_to receive(:close_user)
       end
 
       (person_removal_methods).each do |method|
@@ -79,6 +70,24 @@ describe AccountDeleter do
       end
     end
 
+  end
+
+  describe "#close_user" do
+    user_removal_methods = %i[
+      delete_standard_user_associations
+      remove_share_visibilities_on_contacts_posts
+      disconnect_contacts tombstone_user
+    ]
+
+    after do
+      @account_deletion.perform!
+    end
+
+    user_removal_methods.each do |method|
+      it "calls ##{method}" do
+        expect(@account_deletion).to receive(method)
+      end
+    end
   end
 
   describe "#delete_standard_user_associations" do
@@ -108,14 +117,16 @@ describe AccountDeleter do
     end
   end
 
-  context 'person associations' do
-    describe '#disconnect_contacts' do
+  context "user associations" do
+    describe "#disconnect_contacts" do
       it "deletes all of user's contacts" do
         expect(bob.contacts).to receive(:destroy_all)
         @account_deletion.disconnect_contacts
       end
     end
+  end
 
+  context 'person associations' do
     describe '#delete_contacts_of_me' do
       it 'deletes all the local contact objects where deleted account is the person' do
         contacts = double

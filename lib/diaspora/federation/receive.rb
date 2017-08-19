@@ -4,11 +4,19 @@ module Diaspora
       extend Diaspora::Logging
 
       def self.perform(entity)
-        public_send(Mappings.receiver_for(entity.class), entity)
+        public_send(Mappings.receiver_for(entity), entity)
       end
 
       def self.account_deletion(entity)
-        AccountDeletion.create!(person: author_of(entity), diaspora_handle: entity.author)
+        AccountDeletion.create!(person: author_of(entity))
+      end
+
+      def self.account_migration(entity)
+        profile = profile(entity.profile)
+        AccountMigration.create!(
+          old_person: Person.by_account_identifier(entity.author),
+          new_person: profile.person
+        )
       end
 
       def self.comment(entity)
@@ -25,7 +33,7 @@ module Diaspora
 
       def self.contact(entity)
         recipient = Person.find_by(diaspora_handle: entity.recipient).owner
-        if entity.sharing.to_s == "true"
+        if entity.sharing
           Contact.create_or_update_sharing_contact(recipient, author_of(entity))
         else
           recipient.disconnected_by(author_of(entity))
@@ -59,7 +67,9 @@ module Diaspora
       end
 
       def self.message(entity)
-        save_message(entity).tap {|message| relay_relayable(message) if message }
+        ignore_existing_guid(Message, entity.guid, author_of(entity)) do
+          build_message(entity).tap(&:save!)
+        end
       end
 
       def self.participation(entity)
@@ -120,7 +130,8 @@ module Diaspora
             location:         entity.location,
             searchable:       entity.searchable,
             nsfw:             entity.nsfw,
-            tag_string:       entity.tag_string
+            tag_string:       entity.tag_string,
+            public_details:   entity.public
           )
         end
       end
@@ -149,7 +160,7 @@ module Diaspora
         when Diaspora::Relayable
           if object.parent.author.local?
             parent_author = object.parent.author.owner
-            retraction = Retraction.for(object, parent_author)
+            retraction = Retraction.for(object)
             retraction.defer_dispatch(parent_author, false)
             retraction.perform
           else
@@ -209,17 +220,9 @@ module Diaspora
           poll.poll_answers = entity.poll_answers.map do |answer|
             PollAnswer.new(
               guid:   answer.guid,
-              answer: answer.answer
+              answer: answer.answer,
+              poll:   poll
             )
-          end
-        end
-      end
-
-      private_class_method def self.save_message(entity)
-        ignore_existing_guid(Message, entity.guid, author_of(entity)) do
-          build_message(entity).tap do |message|
-            message.author_signature = entity.author_signature if message.conversation.author.local?
-            message.save!
           end
         end
       end
@@ -263,8 +266,8 @@ module Diaspora
       private_class_method def self.build_signature(klass, entity)
         klass.reflect_on_association(:signature).klass.new(
           author_signature: entity.author_signature,
-          additional_data:  entity.additional_xml_elements,
-          signature_order:  SignatureOrder.find_or_create_by!(order: entity.xml_order.join(" "))
+          additional_data:  entity.additional_data,
+          signature_order:  SignatureOrder.find_or_create_by!(order: entity.signature_order.join(" "))
         )
       end
 
@@ -272,7 +275,7 @@ module Diaspora
         parent_author = relayable.parent.author.owner
         return unless parent_author && parent_author.ignored_people.include?(relayable.author)
 
-        retraction = Retraction.for(relayable, parent_author)
+        retraction = Retraction.for(relayable)
         Diaspora::Federation::Dispatcher.build(parent_author, retraction, subscribers: [relayable.author]).dispatch
 
         raise Diaspora::Federation::AuthorIgnored

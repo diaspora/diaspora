@@ -31,6 +31,7 @@ describe("Diaspora.MarkdownEditor", function() {
 
     it("call $.fn.markdown with correct default options", function() {
       spyOn($.fn, "markdown");
+      spyOn(autosize, "update");
       this.target.initialize(this.$el, {});
       expect($.fn.markdown).toHaveBeenCalled();
       var args = $.fn.markdown.calls.mostRecent().args[0];
@@ -40,6 +41,9 @@ describe("Diaspora.MarkdownEditor", function() {
       expect(args.onPostPreview).toBe($.noop);
       expect(args.fullscreen).toEqual({enable: false, icons: {}});
       expect(args.hiddenButtons).toEqual(["cmdPreview"]);
+
+      args.onChange({$textarea: "el"});
+      expect(autosize.update).toHaveBeenCalledWith("el");
     });
 
     it("overrides fullscreen, hiddenButtons, language and onShow options", function() {
@@ -220,6 +224,48 @@ describe("Diaspora.MarkdownEditor", function() {
     });
   });
 
+  describe("isPreviewMode", function() {
+    beforeEach(function() {
+      this.target = new Diaspora.MarkdownEditor(this.$el, {onPreview: $.noop, onPostPreview: $.noop()});
+    });
+
+    it("return false if editor is not visible yet", function() {
+      this.target.instance = undefined;
+      expect(this.target.isPreviewMode()).toBe(false);
+    });
+
+    it("returns false if the editor is in write (default) mode", function() {
+      expect(this.target.instance).toBeDefined();
+      expect(this.target.isPreviewMode()).toBe(false);
+    });
+
+    it("returns true if editor is in preview mode", function() {
+      this.target.showPreview();
+      expect(this.target.isPreviewMode()).toBe(true);
+    });
+  });
+
+  describe("userInputEmpty", function() {
+    beforeEach(function() {
+      this.target = new Diaspora.MarkdownEditor(this.$el, {onPreview: $.noop, onPostPreview: $.noop()});
+    });
+
+    it("return true if editor is not visible yet", function() {
+      this.target.instance = undefined;
+      expect(this.target.userInputEmpty()).toBe(true);
+    });
+
+    it("returns true if editor has no content", function() {
+      $("textarea").text("");
+      expect(this.target.userInputEmpty()).toBe(true);
+    });
+
+    it("returns false if editor has content", function() {
+      $("textarea").text("Yolo");
+      expect(this.target.userInputEmpty()).toBe(false);
+    });
+  });
+
   describe("localize", function() {
     beforeEach(function() {
       this.target = new Diaspora.MarkdownEditor(this.$el, {});
@@ -232,6 +278,20 @@ describe("Diaspora.MarkdownEditor", function() {
     it("creates translation messages for the current locale", function() {
       this.target.localize();
       expect($.fn.markdown.messages[Diaspora.I18n.language]).toBeDefined();
+    });
+  });
+
+  describe("simplePreview", function() {
+    beforeEach(function() {
+      this.target = new Diaspora.MarkdownEditor(this.$el, {});
+    });
+
+    it("generates HTML for preview", function() {
+      spyOn(app.helpers, "textFormatter").and.callThrough();
+      this.$el[0].value = "<p>hello</p>";
+      var res = Diaspora.MarkdownEditor.simplePreview(this.target.instance);
+      expect(app.helpers.textFormatter).toHaveBeenCalledWith("<p>hello</p>");
+      expect(res).toBe("<div class='preview-content'><p>hello</p></div>");
     });
   });
 });

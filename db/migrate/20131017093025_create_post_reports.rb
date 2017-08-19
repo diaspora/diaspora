@@ -1,4 +1,4 @@
-class CreatePostReports < ActiveRecord::Migration
+class CreatePostReports < ActiveRecord::Migration[4.2]
   def change
     create_table :post_reports do |t|
       t.integer :post_id, :null => false

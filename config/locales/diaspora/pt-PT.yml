@@ -268,7 +268,6 @@ pt-PT:
     mentions:
       how_to_mention_a: "Insira o sinal \"@\" e comece a digitar o seu nome. Deverá aparecer uma lista de comandos para o deixar selecioná-los mais facilmente. Note que só é possível mencionar pessoas que adicionou num aspeto."
       how_to_mention_q: "Como é que menciono alguém quando coloco uma publicação?"
-      mention_in_comment_a: "Atualmente, não."
       mention_in_comment_q: "Posso mencionar alguém num comentário?"
       see_mentions_a: "Sim, clique em \"Menções\" na coluna à esquerda na sua página inicial."
       see_mentions_q: "Existe alguma maneira para ver as publicações nas quais eu tenha sido mencionado?"
@@ -296,11 +295,7 @@ pt-PT:
       format_text_q: "Como é que eu formato o texto nas minhas publicações (negrito, itálico, etc.)?"
       hide_posts_a: "Se apontar o seu rato no topo de uma publicação, aparece um X à direita. Clique-o para ocultar a publicação e cancelar as notificações sobre a mesma. Ainda pode continuar a ver a publicação se visitar a página de perfil da pessoas que a publicou."
       hide_posts_q: "Como é que eu oculto uma publicação? Como é que eu deixo de receber notificações sobre uma publicação com o meu comentário?"
-      image_text: "texto da imagem"
-      image_url: "url da imagem"
       insert_images_a: "Clique no ícone da câmara para inserir uma imagem numa publicação. Clique novamente no ícone da fotografia para adicionar outra fotografia, ou pode selecionar múltiplas fotografias para as enviar de uma vez."
-      insert_images_comments_a1: "O código seguinte \"Mardown\""
-      insert_images_comments_a2: "pode ser utilizado para inserir imagens da web para os comentários, bem como, nas publicações."
       insert_images_comments_q: "Eu posso inserir imagens nos comentários?"
       insert_images_q: "Como é que eu insiro imagens nas publicações?"
       size_of_images_a: "Não. As imagens são redimensionadas automaticamente para se ajustarem ao fluxo. A redução não tem um código para especificar o tamanho de uma imagem."
@@ -321,14 +316,6 @@ pt-PT:
       title: "Publicações Privadas"
       who_sees_post_a: "Apenas os utilizadores logados em diaspora* que associou a esse grupo podem ver a sua publicação privada."
       who_sees_post_q: "Quando eu publico uma mensagem num aspeto (ex.:, uma publicação privada), quem a pode ver?"
-    private_profiles:
-      title: "Perfis Privados"
-      whats_in_profile_a: "Biografia, localização, sexo, e data de nascimento. É o que aparece na parte de baixo da página de edição do perfil. Toda esta informação é opcional - depende de você preencher ou não. Os utilizadores logados que você tenha adicionado aos seus grupos são as únicas pessoas que podem ver o seu perfil privado. Eles também verão as publicações privadas feitas no(s) grupos(s) em que os colocou, misturadas com as publicações públicas feitas por si, quando visitarem a sua página de perfil."
-      whats_in_profile_q: "O que faz parte do meu perfil privado?"
-      who_sees_profile_a: "Qualquer utilizador logado com quem você esteja a compartilhar (significa que você os adicionou a um dos seus grupos). De qualquer forma, as pessoas que o seguem mas que você não segue, verão apenas a sua informação pública."
-      who_sees_profile_q: "Quem vê o meu perfil privado?"
-      who_sees_updates_a: "Qualquer pessoa nos seus aspetos, vê as alterações do seu perfil privado. "
-      who_sees_updates_q: "Quem vê as atualizações ao meu perfil privado?"
     public_posts:
       can_comment_reshare_like_a: "Qualquer utilizador do diaspora* com sessão iniciada, pode comentar, compartilhar ou gostar de uma publicação pública."
       can_comment_reshare_like_q: "Quem pode comentar, recompartilhar, ou gostar na minha publicação pública?"
@@ -339,12 +326,6 @@ pt-PT:
       title: "Publicações Públicas"
       who_sees_post_a: "Qualquer pessoa que utilize a internet pode potencialmente ver uma publicação marcada por si como pública, por isso assegure-se de que realmente quer que ela seja pública. É uma ótima forma de apelar ao mundo lá fora."
       who_sees_post_q: "Quando eu publico qualquer coisa publicamente, quem é que pode ver?"
-    public_profiles:
-      title: "Perfis públicos"
-      whats_in_profile_q: "O que está no meu perfil público"
-      who_sees_profile_q: "Quem vê o meu perfil público?"
-      who_sees_updates_a: "Qualquer pessoa pode ver alterações, se visitarem a página do seu perfil."
-      who_sees_updates_q: "Quem vê as atualizações ao meu perfil público?"
     resharing_posts:
       reshare_private_post_aspects_q: "Eu posso voltar a compartilhar uma publicação privada só com alguns aspetos?"
       reshare_public_post_aspects_q: "Eu posso voltar a compartilhar uma publicação pública só com alguns aspetos?"

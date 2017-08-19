@@ -1,44 +1,93 @@
 describe PostPresenter do
-  before do
-    @sm = FactoryGirl.create(:status_message, public: true)
-    @sm_with_poll = FactoryGirl.create(:status_message_with_poll, public: true)
-    @presenter = PostPresenter.new(@sm, bob)
-    @unauthenticated_presenter = PostPresenter.new(@sm)
-  end
+  let(:status_message) { FactoryGirl.create(:status_message, public: true) }
+  let(:status_message_with_poll) { FactoryGirl.create(:status_message_with_poll, public: true) }
+  let(:presenter) { PostPresenter.new(status_message, bob) }
+  let(:unauthenticated_presenter) { PostPresenter.new(status_message) }
 
   it "takes a post and an optional user" do
-    expect(@presenter).not_to be_nil
+    expect(presenter).not_to be_nil
   end
 
   describe "#as_json" do
     it "works with a user" do
-      expect(@presenter.as_json).to be_a Hash
+      expect(presenter.as_json).to be_a Hash
     end
 
     it "works without a user" do
-      expect(@unauthenticated_presenter.as_json).to be_a Hash
+      expect(unauthenticated_presenter.as_json).to be_a Hash
+    end
+  end
+
+  context "post with interactions" do
+    before do
+      bob.like!(status_message)
+      bob.reshare!(status_message)
+    end
+
+    describe "#with_interactions" do
+      it "works with a user" do
+        post_hash = presenter.with_interactions
+        expect(post_hash).to be_a Hash
+        expect(post_hash[:interactions]).to eq PostInteractionPresenter.new(status_message, bob).as_json
+      end
+
+      it "works without a user" do
+        post_hash = unauthenticated_presenter.with_interactions
+        expect(post_hash).to be_a Hash
+        expect(post_hash[:interactions]).to eq PostInteractionPresenter.new(status_message, nil).as_json
+      end
+    end
+
+    describe "#with_initial_interactions" do
+      it "works with a user" do
+        post_hash = presenter.with_initial_interactions
+        expect(post_hash).to be_a Hash
+        expect(post_hash[:interactions][:likes]).to eq(
+          LikeService.new(bob).find_for_post(status_message.id).as_api_response(:backbone)
+        )
+        expect(post_hash[:interactions][:reshares]).to eq(
+          ReshareService.new(bob).find_for_post(status_message.id).as_api_response(:backbone)
+        )
+      end
+
+      it "works without a user" do
+        post_hash = unauthenticated_presenter.with_initial_interactions
+        expect(post_hash).to be_a Hash
+        expect(post_hash[:interactions][:likes]).to eq(
+          LikeService.new.find_for_post(status_message.id).as_api_response(:backbone)
+        )
+        expect(post_hash[:interactions][:reshares]).to eq(
+          ReshareService.new.find_for_post(status_message.id).as_api_response(:backbone)
+        )
+      end
     end
   end
 
   describe "#user_like" do
+    before do
+      bob.like!(status_message)
+    end
+
     it "includes the users like" do
-      bob.like!(@sm)
-      expect(@presenter.send(:user_like)).to be_present
+      expect(presenter.send(:user_like)).to be_present
     end
 
     it "is nil if the user is not authenticated" do
-      expect(@unauthenticated_presenter.send(:user_like)).to be_nil
+      expect(unauthenticated_presenter.send(:user_like)).to be_nil
     end
   end
 
   describe "#user_reshare" do
+    before do
+      bob.reshare!(status_message)
+    end
+
     it "includes the users reshare" do
-      bob.reshare!(@sm)
-      expect(@presenter.send(:user_reshare)).to be_present
+      expect(presenter.send(:user_reshare)).to be_present
     end
 
     it "is nil if the user is not authenticated" do
-      expect(@unauthenticated_presenter.send(:user_reshare)).to be_nil
+      expect(unauthenticated_presenter.send(:user_reshare)).to be_nil
     end
   end
 
@@ -67,23 +116,23 @@ describe PostPresenter do
       it "delegates to message.title" do
         message = double(present?: true)
         expect(message).to receive(:title)
-        @presenter.post = double(message: message)
-        @presenter.send(:title)
+        presenter.post = double(message: message)
+        presenter.send(:title)
       end
     end
 
     context "with posts without text" do
       it "displays a messaage with the post class" do
-        @sm = double(message: double(present?: false), author: bob.person, author_name: bob.person.name)
-        @presenter.post = @sm
-        expect(@presenter.send(:title)).to eq("A post from #{@sm.author.name}")
+        sm = double(message: double(present?: false), author: bob.person, author_name: bob.person.name)
+        presenter.post = sm
+        expect(presenter.send(:title)).to eq("A post from #{sm.author.name}")
       end
     end
   end
 
   describe "#poll" do
     it "works without a user" do
-      presenter = PostPresenter.new(@sm_with_poll)
+      presenter = PostPresenter.new(status_message_with_poll)
       expect(presenter.as_json).to be_a(Hash)
     end
   end
@@ -126,23 +175,23 @@ describe PostPresenter do
 
     it "does not raise if the root of a reshare does not exist anymore" do
       reshare = FactoryGirl.create(:reshare)
-      reshare.root = nil
+      reshare.update(root: nil)
 
-      expect(PostPresenter.new(reshare).send(:description)).to eq(nil)
+      expect(PostPresenter.new(Post.find(reshare.id)).send(:description)).to eq(nil)
     end
   end
 
   describe "#build_open_graph_cache" do
     it "returns a dummy og cache if the og cache is missing" do
-      expect(@presenter.build_open_graph_cache.image).to be_nil
+      expect(presenter.build_open_graph_cache.image).to be_nil
     end
 
     context "with an open graph cache" do
       it "delegates to as_api_response" do
         og_cache = double("open_graph_cache")
         expect(og_cache).to receive(:as_api_response).with(:backbone)
-        @presenter.post = double(open_graph_cache: og_cache)
-        @presenter.send(:build_open_graph_cache)
+        presenter.post = double(open_graph_cache: og_cache)
+        presenter.send(:build_open_graph_cache)
       end
 
       it "returns the open graph cache data" do

@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
   include Diaspora::Fields::Guid
 
   # NOTE API V1 to be extracted
@@ -22,7 +22,7 @@ class Person < ActiveRecord::Base
   end
 
   has_one :profile, dependent: :destroy
-  delegate :last_name, :image_url, :tag_string, :bio, :location,
+  delegate :last_name, :full_name, :image_url, :tag_string, :bio, :location,
            :gender, :birthday, :formatted_birthday, :tags, :searchable,
            :public_details?, to: :profile
   accepts_nested_attributes_for :profile
@@ -37,13 +37,18 @@ class Person < ActiveRecord::Base
   has_many :posts, :foreign_key => :author_id, :dependent => :destroy # This person's own posts
   has_many :photos, :foreign_key => :author_id, :dependent => :destroy # This person's own photos
   has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
+  has_many :likes, foreign_key: :author_id, dependent: :destroy # This person's own likes
   has_many :participations, :foreign_key => :author_id, :dependent => :destroy
-  has_many :conversation_visibilities
+  has_many :poll_participations, foreign_key: :author_id, dependent: :destroy
+  has_many :conversation_visibilities, dependent: :destroy
+  has_many :messages, foreign_key: :author_id, dependent: :destroy
+  has_many :conversations, foreign_key: :author_id, dependent: :destroy
+  has_many :blocks, dependent: :destroy
 
   has_many :roles
 
-  belongs_to :owner, :class_name => 'User'
-  belongs_to :pod
+  belongs_to :owner, class_name: "User", optional: true
+  belongs_to :pod, optional: true
 
   has_many :notification_actors
   has_many :notifications, :through => :notification_actors
@@ -61,10 +66,7 @@ class Person < ActiveRecord::Base
   }
   scope :remote, -> { where('people.owner_id IS NULL') }
   scope :local, -> { where('people.owner_id IS NOT NULL') }
-  scope :for_json, -> {
-    select('DISTINCT people.id, people.guid, people.diaspora_handle')
-      .includes(:profile)
-  }
+  scope :for_json, -> { select("people.id, people.guid, people.diaspora_handle").includes(:profile) }
 
   # @note user is passed in here defensively
   scope :all_from_aspects, ->(aspect_ids, user) {
@@ -79,8 +81,8 @@ class Person < ActiveRecord::Base
 
   #not defensive
   scope :in_aspects, ->(aspect_ids) {
-    joins(:contacts => :aspect_memberships).
-        where(:aspect_memberships => {:aspect_id => aspect_ids})
+    joins(contacts: :aspect_memberships)
+      .where(aspect_memberships: {aspect_id: aspect_ids}).distinct
   }
 
   scope :profile_tagged_with, ->(tag_name) {
@@ -92,6 +94,81 @@ class Person < ActiveRecord::Base
   scope :who_have_reshared_a_users_posts, ->(user) {
     joins(:posts)
       .where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
+  }
+
+  # This scope selects people where the full name contains the search_str or diaspora ID
+  # starts with the search_str.
+  # However, if the search_str doesn't have more than 1 non-whitespace character, it'll return an empty set.
+  # @param [String] search substring
+  # @return [Person::ActiveRecord_Relation]
+  scope :find_by_substring, ->(search_str) {
+    search_str.strip!
+    if search_str.blank? || search_str.size < 2
+      none
+    else
+      sql, tokens = search_query_string(search_str)
+      joins(:profile).where(sql, *tokens)
+    end
+  }
+
+  # Left joins likes and comments to a specific post where people are authors of these comments and likes
+  # @param [String, Integer] post ID for which comments and likes should be joined
+  # @return [Person::ActiveRecord_Relation]
+  scope :left_join_visible_post_interactions_on_authorship, ->(post_id) {
+    comments_sql = <<-SQL
+      LEFT OUTER JOIN comments ON
+      comments.author_id = people.id AND comments.commentable_type = 'Post' AND comments.commentable_id = #{post_id}
+    SQL
+
+    likes_sql = <<-SQL
+      LEFT OUTER JOIN likes ON
+      likes.author_id = people.id AND likes.target_type = 'Post' AND likes.target_id = #{post_id}
+    SQL
+
+    joins(comments_sql).joins(likes_sql)
+  }
+
+  # Selects people who can be mentioned in a comment to a specific post. For public posts all people
+  # are allowed, so no additional constraints are added. For private posts selection is limited to
+  # people who have posted comments or likes for this post.
+  # @param [Post] the post for which we query mentionable in comments people
+  # @return [Person::ActiveRecord_Relation]
+  scope :allowed_to_be_mentioned_in_a_comment_to, ->(post) {
+    allowed = if post.public?
+                all
+              else
+                left_join_visible_post_interactions_on_authorship(post.id)
+                  .where("comments.id IS NOT NULL OR likes.id IS NOT NULL OR people.id = #{post.author_id}")
+              end
+    allowed.distinct
+  }
+
+  # This scope adds sorting of people in the order, appropriate for suggesting to a user (current user) who
+  # has requested a list of the people mentionable in a comment for a specific post.
+  # Sorts people in the following priority: post author > commenters > likers > contacts > non-contacts
+  # @param [Post] post for which the mentionable in comment people list is requested
+  # @param [User] user who requests the people list
+  # @return [Person::ActiveRecord_Relation]
+  scope :sort_for_mention_suggestion, ->(post, user) {
+    left_join_visible_post_interactions_on_authorship(post.id)
+      .joins("LEFT OUTER JOIN contacts ON people.id = contacts.person_id AND contacts.user_id = #{user.id}")
+      .joins(:profile)
+      .select(<<-SQL
+        people.id = #{unscoped { post.author_id }} AS is_author,
+        comments.id IS NOT NULL AS is_commenter,
+        likes.id IS NOT NULL AS is_liker,
+        contacts.id IS NOT NULL AS is_contact
+        SQL
+             )
+      .order(<<-SQL
+        is_author DESC,
+        is_commenter DESC,
+        is_liker DESC,
+        is_contact DESC,
+        profiles.full_name,
+        people.diaspora_handle
+        SQL
+            )
   }
 
   def self.community_spotlight
@@ -128,7 +205,7 @@ class Person < ActiveRecord::Base
     self.guid
   end
 
-  def self.search_query_string(query)
+  private_class_method def self.search_query_string(query)
     query = query.downcase
     like_operator = AppConfig.postgres? ? "ILIKE" : "LIKE"
 
@@ -146,15 +223,13 @@ class Person < ActiveRecord::Base
   end
 
   def self.search(search_str, user, only_contacts: false, mutual: false)
-    search_str.strip!
-    return none if search_str.blank? || search_str.size < 2
-
-    sql, tokens = search_query_string(search_str)
+    query = find_by_substring(search_str)
+    return query if query.is_a?(ActiveRecord::NullRelation)
 
     query = if only_contacts
-              joins(:contacts).where(contacts: {user_id: user.id})
+              query.joins(:contacts).where(contacts: {user_id: user.id})
             else
-              joins(
+              query.joins(
                 "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
               ).searchable(user)
             end
@@ -162,8 +237,6 @@ class Person < ActiveRecord::Base
     query = query.where(contacts: {sharing: true, receiving: true}) if mutual
 
     query.where(closed_account: false)
-         .where(sql, *tokens)
-         .includes(:profile)
          .order(["contacts.user_id IS NULL", "profiles.last_name ASC", "profiles.first_name ASC"])
   end
 
@@ -235,11 +308,6 @@ class Person < ActiveRecord::Base
 
   def exported_key
     serialized_public_key
-  end
-
-  def exported_key= new_key
-    raise "Don't change a key" if serialized_public_key
-    serialized_public_key = new_key
   end
 
   # discovery (webfinger)

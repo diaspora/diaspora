@@ -44,7 +44,7 @@ Feature: preview posts in the stream
       Given I expand the publisher
       And I attach "spec/fixtures/button.png" to the publisher
       When I fill in the following:
-          | status_message_fake_text    | Look at this dog    |
+          | status_message_text    | Look at this dog    |
       And I preview the post
       Then I should see a "img" within ".md-preview .stream-element .photo_attachments"
       And I should see "Look at this dog" within ".md-preview .stream-element"
@@ -63,7 +63,7 @@ Feature: preview posts in the stream
       Then I should see "Samuel Beckett"
       When I expand the publisher
       And I fill in the following:
-          | status_message_fake_text    | This preview rocks    |
+          | status_message_text    | This preview rocks    |
       And I preview the post
       Then I should see "This preview rocks" in the preview
       And I close the publisher
@@ -71,11 +71,11 @@ Feature: preview posts in the stream
     Scenario: preview a post with the poll
       Given I expand the publisher
       When I fill in the following:
-          | status_message_fake_text    | I am eating yogurt    |
+          | status_message_text    | I am eating yogurt    |
       And I click on selector "#poll_creator"
       When I fill in the following:
-          | status_message_fake_text    | I am eating yogurt |
-          | poll_question               | What kind of yogurt do you like? |
+          | status_message_text    | I am eating yogurt |
+          | poll_question          | What kind of yogurt do you like? |
       And I fill in the following for the options:
           | normal |
           | not normal  |
@@ -87,12 +87,12 @@ Feature: preview posts in the stream
     Scenario: preview a post with location
       Given I expand the publisher
       When I fill in the following:
-          | status_message_fake_text    | I am eating yogurt    |
+          | status_message_text    | I am eating yogurt    |
       And I allow geolocation
       And I click on selector "#locator"
       When I fill in the following:
-          | status_message_fake_text    | I am eating yogurt |
-          | location_address            | Some cool place |
+          | status_message_text    | I am eating yogurt |
+          | location_address       | Some cool place |
       And I preview the post
       Then I should see a ".near-from" within ".md-preview .stream-element"
       And I should see "Some cool place" within ".md-preview .stream-element .near-from"

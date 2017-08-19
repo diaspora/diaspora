@@ -185,6 +185,18 @@ describe Profile, :type => :model do
     end
   end
 
+  describe "public?" do
+    it "is public if public_details is true" do
+      profile = FactoryGirl.build(:profile, public_details: true)
+      expect(profile.public?).to be_truthy
+    end
+
+    it "is not public if public_details is false" do
+      profile = FactoryGirl.build(:profile, public_details: false)
+      expect(profile.public?).to be_falsey
+    end
+  end
+
   describe 'date=' do
     let(:profile) { FactoryGirl.build(:profile) }
 
@@ -257,30 +269,6 @@ describe Profile, :type => :model do
     it_should_behave_like 'it is taggable'
   end
 
-  describe '#formatted_birthday' do
-    before do
-      @profile = FactoryGirl.build(:profile)
-      @profile_hash =  { 'year' => '2000', 'month' => '01', 'day' => '01' }
-      @profile.date = @profile_hash
-    end
-
-    it 'returns a formatted date' do
-      expect(@profile.formatted_birthday).to eq("January  1, 2000")
-    end
-
-    it 'removes nil year birthdays' do
-      @profile_hash.delete('year')
-      @profile.date = @profile_hash
-      expect(@profile.formatted_birthday).to eq('January  1')
-    end
-
-    it 'retuns nil if no birthday is set' do
-      @profile.date = {}
-      expect(@profile.formatted_birthday).to eq(nil)
-    end
-
-  end
-
   describe "#tombstone!" do
     before do
       @profile = bob.person.profile
@@ -298,6 +286,12 @@ describe Profile, :type => :model do
     it 'removes all the tags from the profile' do
       expect(@profile.taggings).to receive(:delete_all)
       @profile.tombstone!
+    end
+
+    it "doesn't recreate taggings if tag string was requested" do
+      @profile.tag_string
+      @profile.tombstone!
+      expect(@profile.taggings).to be_empty
     end
   end
 

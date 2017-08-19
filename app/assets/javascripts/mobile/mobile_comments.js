@@ -11,6 +11,8 @@
     initialize: function() {
       var self = this;
 
+      new Diaspora.MarkdownEditor(".comment_box");
+
       this.stream().on("tap click", "a.show-comments", function(evt){
         evt.preventDefault();
         self.toggleComments($(this));
@@ -35,7 +37,7 @@
         self.scrollToOffset(commentContainer);
       });
 
-      this.stream().on("submit", ".new_comment", this.submitComment);
+      this.stream().on("submit", ".new-comment", this.submitComment);
     },
 
     submitComment: function(evt){

@@ -9,7 +9,7 @@ app.Router = Backbone.Router.extend({
     "commented(/)": "stream",
     "community_spotlight(/)": "spotlight",
     "contacts(/)": "contacts",
-    "conversations(/)(:id)(/)": "conversations",
+    "conversations(/)(:id)(?conversation_id=:conversation_id)(/)": "conversations",
     "followed_tags(/)": "followed_tags",
     "getting_started(/)": "gettingStarted",
     "help(/)": "help",
@@ -93,8 +93,8 @@ app.Router = Backbone.Router.extend({
     app.page = new app.pages.Contacts({stream: stream});
   },
 
-  conversations: function(id) {
-    app.conversations = app.conversations || new app.views.ConversationsInbox();
+  conversations: function(id, conversationId) {
+    app.conversations = app.conversations || new app.views.ConversationsInbox(conversationId);
     if (parseInt("" + id, 10)) {
       app.conversations.renderConversation(id);
     }
@@ -182,7 +182,7 @@ app.Router = Backbone.Router.extend({
   },
 
   singlePost: function(id) {
-    this.renderPage(function() { return new app.pages.SinglePostViewer({id: id}); });
+    this.renderPage(function() { return new app.pages.SinglePostViewer({id: id, el: $("#container")}); });
   },
 
   spotlight: function() {

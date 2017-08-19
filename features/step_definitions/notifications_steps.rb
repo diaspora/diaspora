@@ -3,7 +3,7 @@ When "I filter notifications by likes" do
 end
 
 When "I filter notifications by mentions" do
-  step %(I follow "Mentioned" within "#notifications_container .list-group")
+  step %(I follow "Mentioned in post" within "#notifications_container .list-group")
 end
 
 Then /^I should( not)? have activated notifications for the post( in the single post view)?$/ do |negate, spv|
@@ -23,10 +23,6 @@ end
 
 And "I scroll down on the notifications dropdown" do
   page.execute_script("$('.notifications').scrollTop(350)")
-end
-
-Then "the notification dropdown should load more notifications" do
-  expect(find("#notification-dropdown")).to have_css(".loading")
 end
 
 Then "the notification dropdown should be visible" do

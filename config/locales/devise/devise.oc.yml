@@ -24,7 +24,7 @@ oc:
       unauthenticated: "Vos cal vos connectar o vos inscriure abans de contunhar."
       unconfirmed: "Vos cal confirmar vòstre compte abans de contunhar."
     invitations:
-      invitation_token_invalid: "O planhèm ! Aqueste convit es pas valid."
+      invitation_token_invalid: "O planhèm ! Aqueste convit es pas valid."
       send_instructions: "Vòstre convit es estat mandat."
       updated: "Vòstre senhal es estat creat. Ara, sètz connectat."
     mailer:
@@ -32,7 +32,7 @@ oc:
         confirm: "Confirmar mon compte"
         subject: "Instruccions de confirmacion"
         you_can_confirm: "Podètz confirmar vòstre compte en clicant sul ligam çaijós :"
-      hello: "Adieusiatz %{email} !"
+      hello: "Adieusiatz %{email} !"
       inviter:
         accept_at: "a %{url}, lo podètz acceptar a travèrs lo ligal çaijós."
         has_invited_you: "%{name}"
@@ -50,7 +50,7 @@ oc:
         click_to_unlock: "Clicatz sul ligam çaijós per desblocar vòstre compte :"
         subject: "Instruccions de desverrolhatge"
         unlock: "Desverrolhar mon compte"
-      welcome: "Benvenguda %{email} !"
+      welcome: "Benvenguda %{email} !"
     omniauth_callbacks:
       failure: "Impossible de vos indentificar de %{kind} perque %{reason}"
       success: "Autentificacion capitada de lo compte %{kind}."
@@ -61,7 +61,7 @@ oc:
         new_password: "Senhal novèl"
       new:
         email: "Adreça de corrièl"
-        forgot_password: "Avètz doblidat vòstre senhal ?"
+        forgot_password: "Avètz oblidat vòstre senhal ?"
         no_account: "Cap de compte es pas associat a aquesta adreça de corrièr electronic."
         reset_password: "Reïnicializar lo senhal"
         send_password_instructions: "Mandar las instruccions de reïnicializacion de senhal"
@@ -71,7 +71,7 @@ oc:
       updated: "Vòstre senhal es estat modificat. Ara, sètz connectat."
       updated_not_active: "Vòstre senhal es estat cambiat amb succès."
     registrations:
-      destroyed: "Adissatz ! Vòstre compte es estat suprimit amb succès. Esperem vos tornar veire lèu."
+      destroyed: "Adissatz ! Vòstre compte es estat suprimit amb succès. Esperem vos tornar veire lèu."
       signed_up: "Vòstra inscripcion es estada efectuada. Se aquesta darrièra es activada, una confirmacion es estada mandada a vòstra adreça de corrièr electronic."
       signed_up_but_inactive: "Vos sètz inscrit amb succès. Pasmens, vos podètz pas connectar perque vòstre compte es pas encara activat."
       signed_up_but_locked: "Vos sètz inscrit amb succès. Pasmens, podètz pas vos connectar perque vòstre compte es verrolhat."
@@ -91,7 +91,7 @@ oc:
       signed_out: "Ara, sètz desconnectat."
     shared:
       links:
-        forgot_your_password: "Avètz doblidat vòstre senhal ?"
+        forgot_your_password: "Avètz oblidat vòstre senhal ?"
         receive_confirmation: "Avètz pas recebut las instruccions de confirmacion ?"
         receive_unlock: "Avètz pas recebut las instruccions de desblocatge ?"
         sign_in: "Connexion"

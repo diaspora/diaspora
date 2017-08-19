@@ -40,8 +40,8 @@ Feature: posting with a poll
       Given I expand the publisher
       And I click on selector "#poll_creator"
       When I fill in the following:
-          | status_message_fake_text    | I am eating yogurt |
-          | poll_question               | What kind of yogurt do you like? |
+          | status_message_text    | I am eating yogurt |
+          | poll_question          | What kind of yogurt do you like? |
       And I fill in the following for the options:
           | normal |
           | not normal  |
@@ -53,8 +53,8 @@ Feature: posting with a poll
       Given I expand the publisher
       And I click on selector "#poll_creator"
       When I fill in the following:
-          | status_message_fake_text    | I am eating yogurt |
-          | poll_question               | What kind of yogurt do you like? |
+          | status_message_text    | I am eating yogurt |
+          | poll_question          | What kind of yogurt do you like? |
       And I fill in the following for the options:
           | normal |
           | not normal  |
@@ -70,8 +70,8 @@ Feature: posting with a poll
     Given I expand the publisher
     And I click on selector "#poll_creator"
     When I fill in the following:
-        | status_message_fake_text    | I am eating yogurt |
-        | poll_question               | What kind of yogurt do you like? |
+        | status_message_text    | I am eating yogurt |
+        | poll_question          | What kind of yogurt do you like? |
     And I fill in the following for the options:
         | normal |
         | not normal  |
@@ -83,8 +83,8 @@ Feature: posting with a poll
     Given I expand the publisher
     And I click on selector "#poll_creator"
     When I fill in the following:
-        | status_message_fake_text    | I am eating yogurt |
-        | poll_question               | What kind of yogurt do you like? |
+        | status_message_text    | I am eating yogurt |
+        | poll_question          | What kind of yogurt do you like? |
     And I fill in the following for the options:
         | normal |
         |  |

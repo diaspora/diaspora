@@ -30,7 +30,7 @@ shared_examples_for "it is taggable" do
 
     it "supports non-ascii characters" do
       tag_list.each do |tag|
-        expect(@object.tags(true).map(&:name)).to include(tag)
+        expect(@object.tags.reload.map(&:name)).to include(tag)
       end
     end
 

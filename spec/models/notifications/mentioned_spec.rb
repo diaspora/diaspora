@@ -1,70 +1,53 @@
-describe Notifications::Mentioned, type: :model do
-  let(:sm) {
-    FactoryGirl.create(:status_message, author: alice.person, text: "hi @{bob; #{bob.diaspora_handle}}", public: true)
-  }
-  let(:mentioned_notification) { Notifications::Mentioned.new(recipient: bob) }
+describe Notifications::Mentioned do
+  class TestNotification < Notification
+    include Notifications::Mentioned
+
+    def self.filter_mentions(mentions, *)
+      mentions
+    end
+  end
 
   describe ".notify" do
-    it "calls create_notification with mention" do
-      expect(Notifications::Mentioned).to receive(:create_notification).with(
-        bob, sm.mentions.first, sm.author
-      ).and_return(mentioned_notification)
+    let(:status_message) {
+      FactoryGirl.create(:status_message, text: text_mentioning(remote_raphael, alice, bob, eve), author: eve.person)
+    }
 
-      Notifications::Mentioned.notify(sm, [])
+    it "calls filter_mentions on self" do
+      expect(TestNotification).to receive(:filter_mentions).with(
+        match_array(Mention.where(mentions_container: status_message, person: [alice, bob].map(&:person))),
+        status_message,
+        [alice.id, bob.id]
+      ).and_return([])
+
+      TestNotification.notify(status_message, [alice.id, bob.id])
     end
 
-    it "sends an email to the mentioned person" do
-      allow(Notifications::Mentioned).to receive(:create_notification).and_return(mentioned_notification)
-      expect(bob).to receive(:mail).with(Workers::Mail::Mentioned, bob.id, sm.author.id, sm.mentions.first.id)
-
-      Notifications::Mentioned.notify(sm, [])
-    end
-
-    it "does nothing if the mentioned person is not local" do
-      sm = FactoryGirl.create(
-        :status_message,
-        author: alice.person,
-        text:   "hi @{raphael; #{remote_raphael.diaspora_handle}}",
-        public: true
-      )
-      expect(Notifications::Mentioned).not_to receive(:create_notification)
-
-      Notifications::Mentioned.notify(sm, [])
-    end
-
-    it "does not notify if the author of the post is ignored" do
-      bob.blocks.create(person: sm.author)
-
-      expect_any_instance_of(Notifications::Mentioned).not_to receive(:email_the_user)
-
-      Notifications::Mentioned.notify(sm, [])
-
-      expect(Notifications::Mentioned.where(target: sm.mentions.first)).not_to exist
-    end
-
-    context "with private post" do
-      let(:private_sm) {
-        FactoryGirl.create(
-          :status_message,
-          author: remote_raphael,
-          text:   "hi @{bob; #{bob.diaspora_handle}}",
-          public: false
+    it "creates notification for each mention" do
+      [alice, bob].each do |recipient|
+        expect(TestNotification).to receive(:create_notification).with(
+          recipient,
+          Mention.where(mentions_container: status_message, person: recipient.person_id).first,
+          status_message.author
         )
-      }
-
-      it "calls create_notification if the mentioned person is a recipient of the post" do
-        expect(Notifications::Mentioned).to receive(:create_notification).with(
-          bob, private_sm.mentions.first, private_sm.author
-        ).and_return(mentioned_notification)
-
-        Notifications::Mentioned.notify(private_sm, [bob.id])
       end
 
-      it "does not call create_notification if the mentioned person is not a recipient of the post" do
-        expect(Notifications::Mentioned).not_to receive(:create_notification)
+      TestNotification.notify(status_message, nil)
+    end
 
-        Notifications::Mentioned.notify(private_sm, [alice.id])
-      end
+    it "creates email notification for mention" do
+      status_message = FactoryGirl.create(:status_message, text: text_mentioning(alice), author: eve.person)
+      expect_any_instance_of(TestNotification).to receive(:email_the_user).with(
+        Mention.where(mentions_container: status_message, person: alice.person_id).first,
+        status_message.author
+      )
+
+      TestNotification.notify(status_message, nil)
+    end
+
+    it "doesn't create notification if it was filtered out by filter_mentions" do
+      expect(TestNotification).to receive(:filter_mentions).and_return([])
+      expect(TestNotification).not_to receive(:create_notification)
+      TestNotification.notify(status_message, nil)
     end
   end
 end

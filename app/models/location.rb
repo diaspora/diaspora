@@ -1,4 +1,4 @@
-class Location < ActiveRecord::Base
+class Location < ApplicationRecord
   before_validation :split_coords, on: :create
   validates_presence_of :lat, :lng
 

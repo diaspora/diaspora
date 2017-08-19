@@ -101,6 +101,26 @@ Feature: Notifications
     Then I should see "mentioned you in the post"
     And I should have 1 email delivery
 
+  Scenario: someone mentioned me in a comment
+    Given "alice@alice.alice" has a public post with text "check this out!"
+    And "bob@bob.bob" has commented mentioning "alice@alice.alice" on "check this out!"
+    When I sign in as "alice@alice.alice"
+    And I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    And I should see "mentioned you in a comment"
+    And I should have 1 email delivery
+
+  Scenario: I mark a notification as read
+    Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+    And Alice has a post mentioning Bob
+    When I sign in as "bob@bob.bob"
+    And I follow "Notifications" in the header
+    Then the notification dropdown should be visible
+    And I wait for notifications to load
+    And I should see a ".unread .unread-toggle .entypo-eye"
+    When I click on selector ".unread .unread-toggle .entypo-eye"
+    Then I should see a ".read .unread-toggle"
+
   Scenario: filter notifications
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
@@ -157,6 +177,5 @@ Feature: Notifications
     When I wait for notifications to load
     Then there should be 10 notifications loaded
     When I scroll down on the notifications dropdown
-    Then the notification dropdown should load more notifications
     When I wait for notifications to load
     Then there should be 15 notifications loaded

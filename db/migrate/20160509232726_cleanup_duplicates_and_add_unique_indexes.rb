@@ -1,4 +1,4 @@
-class CleanupDuplicatesAndAddUniqueIndexes < ActiveRecord::Migration
+class CleanupDuplicatesAndAddUniqueIndexes < ActiveRecord::Migration[4.2]
   def up
     # temporary index to speed up the migration
     add_index :photos, :guid, length: 191

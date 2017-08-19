@@ -36,12 +36,6 @@ describe("app.views.PreviewPost", function() {
   });
 
   describe("render", function() {
-    it("calls feedbackView", function() {
-      spyOn(app.views.PreviewPost.prototype, "feedbackView");
-      this.view.render();
-      expect(app.views.PreviewPost.prototype.feedbackView).toHaveBeenCalled();
-    });
-
     it("calls postContentView", function() {
       spyOn(app.views.PreviewPost.prototype, "postContentView");
       this.view.render();
@@ -52,14 +46,6 @@ describe("app.views.PreviewPost", function() {
       spyOn(app.views.PreviewPost.prototype, "postLocationStreamView");
       this.view.render();
       expect(app.views.PreviewPost.prototype.postLocationStreamView).toHaveBeenCalled();
-    });
-  });
-
-  describe("feedbackView", function() {
-    it("calls app.views.Feedback.initialise", function() {
-      spyOn(app.views.Feedback.prototype, "initialize");
-      this.view.feedbackView();
-      expect(app.views.Feedback.prototype.initialize).toHaveBeenCalledWith({model: this.model});
     });
   });
 

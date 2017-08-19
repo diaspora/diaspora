@@ -8,7 +8,7 @@ module Workers
     def filter_errors_for_retry
       yield
     rescue DiasporaFederation::Entity::ValidationError,
-           DiasporaFederation::Entity::InvalidRootNode,
+           DiasporaFederation::Parsers::BaseParser::InvalidRootNode,
            DiasporaFederation::Entity::InvalidEntityName,
            DiasporaFederation::Entity::UnknownEntity,
            DiasporaFederation::Entities::Relayable::SignatureVerificationFailed,

@@ -9,11 +9,11 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
                   "User-Agent"      => "Faraday v0.11.0"
                 })
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
-        post :create, redirect_uris: ["http://localhost"], client_name: "diaspora client",
+        post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
              response_types: [], grant_types: [], application_type: "web", contacts: [],
              logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
              policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos",
-             sector_identifier_uri: "http://example.com/uris", subject_type: "pairwise"
+             sector_identifier_uri: "http://example.com/uris", subject_type: "pairwise"}
         client_json = JSON.parse(response.body)
         expect(client_json["client_id"].length).to eq(32)
         expect(client_json["ppid"]).to eq(true)
@@ -29,7 +29,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
                   "User-Agent"      => "Faraday v0.11.0"
                 })
           .to_return(status: 200, body: "[\"http://localhost\"]", headers: {})
-        post :create, redirect_uris: ["http://localhost"], client_name: "diaspora client",
+        post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
              response_types: [], grant_types: [], application_type: "web", contacts: [],
              logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
              policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos",
@@ -74,7 +74,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
                          kid: "a3"
                        }
                      ]
-             }
+             }}
         client_json = JSON.parse(response.body)
         expect(client_json["client_id"].length).to eq(32)
         expect(client_json["ppid"]).to eq(true)
@@ -98,13 +98,13 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
                 })
           .to_return(status: 200,
                      body: "{\"keys\":[{\"kty\":\"RSA\",\"e\":\"AQAB\",\"n\":\"qpW\",\"use\":\"sig\"}]}", headers: {})
-        post :create, redirect_uris: ["http://localhost"], client_name: "diaspora client",
+        post :create, params: {redirect_uris: ["http://localhost"], client_name: "diaspora client",
              response_types: [], grant_types: [], application_type: "web", contacts: [],
              logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
              policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos",
              sector_identifier_uri: "http://example.com/uris", subject_type: "pairwise",
              token_endpoint_auth_method: "private_key_jwt",
-             jwks_uri: "https://kentshikama.com/api/openid_connect/jwks.json"
+             jwks_uri: "https://kentshikama.com/api/openid_connect/jwks.json"}
         client_json = JSON.parse(response.body)
         expect(client_json["client_id"].length).to eq(32)
         expect(client_json["ppid"]).to eq(true)
@@ -113,9 +113,9 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
 
     context "when redirect uri is missing" do
       it "should return a invalid_client_metadata error" do
-        post :create, response_types: [], grant_types: [], application_type: "web", contacts: [],
+        post :create, params: {response_types: [], grant_types: [], application_type: "web", contacts: [],
           logo_uri: "http://example.com/logo.png", client_uri: "http://example.com/client",
-          policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos"
+          policy_uri: "http://example.com/policy", tos_uri: "http://example.com/tos"}
         client_json = JSON.parse(response.body)
         expect(client_json["error"]).to have_content("invalid_client_metadata")
       end
@@ -127,7 +127,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
 
     context "when an OIDC client already exists" do
       it "should return a client id" do
-        get :find, client_name: client.client_name
+        get :find, params: {client_name: client.client_name}
         client_id_json = JSON.parse(response.body)
         expect(client_id_json["client_id"]).to eq(client.client_id)
       end
@@ -135,7 +135,7 @@ describe Api::OpenidConnect::ClientsController, type: :controller, suppress_csrf
 
     context "when an OIDC client doesn't already exist" do
       it "should return the appropriate error" do
-        get :find, client_name: "random_name"
+        get :find, params: {client_name: "random_name"}
         client_id_json = JSON.parse(response.body)
         expect(client_id_json["error"]).to eq("Client with name random_name does not exist")
       end

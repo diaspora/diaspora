@@ -1,4 +1,4 @@
-class PollParticipation < ActiveRecord::Base
+class PollParticipation < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
   include Diaspora::Fields::Author
@@ -6,12 +6,12 @@ class PollParticipation < ActiveRecord::Base
 
   belongs_to :poll
   belongs_to :poll_answer, counter_cache: :vote_count
+  has_one :status_message, through: :poll
 
   has_one :signature, class_name: "PollParticipationSignature", dependent: :delete
 
   alias_attribute :parent, :poll
 
-  validates :poll_answer, presence: true
   validate :not_already_participated
 
   def poll_answer_guid=(new_poll_answer_guid)

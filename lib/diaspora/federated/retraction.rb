@@ -14,23 +14,27 @@ class Retraction
     @target = target
   end
 
-  def self.for(target, sender=nil)
-    federation_retraction = case target
-                            when Diaspora::Relayable
-                              Diaspora::Federation::Entities.relayable_retraction(target, sender)
-                            when Post
-                              Diaspora::Federation::Entities.signed_retraction(target, sender)
-                            else
-                              Diaspora::Federation::Entities.retraction(target)
-                            end
+  def self.entity_class
+    DiasporaFederation::Entities::Retraction
+  end
 
-    new(federation_retraction.to_h, target.subscribers.select(&:remote?), target)
+  def self.retraction_data_for(target)
+    DiasporaFederation::Entities::Retraction.new(
+      target_guid: target.guid,
+      target:      Diaspora::Federation::Entities.related_entity(target),
+      target_type: Diaspora::Federation::Mappings.entity_name_for(target),
+      author:      target.diaspora_handle
+    ).to_h
+  end
+
+  def self.for(target)
+    federation_retraction_data = retraction_data_for(target)
+    new(federation_retraction_data, target.subscribers.select(&:remote?), target)
   end
 
   def defer_dispatch(user, include_target_author=true)
     subscribers = dispatch_subscribers(include_target_author)
-    sender = dispatch_sender(user)
-    Workers::DeferredRetraction.perform_async(sender.id, data, subscribers.map(&:id), service_opts(user))
+    Workers::DeferredRetraction.perform_async(user.id, self.class.to_s, data, subscribers.map(&:id), service_opts(user))
   end
 
   def perform
@@ -40,8 +44,7 @@ class Retraction
   end
 
   def public?
-    # TODO: backward compatibility for pre 0.6 pods, they don't relay public retractions
-    data[:target][:public] == "true" && (!data[:target][:parent] || data[:target][:parent][:local] == "true")
+    data[:target][:public]
   end
 
   private
@@ -51,11 +54,6 @@ class Retraction
   def dispatch_subscribers(include_target_author)
     subscribers << target.author if target.is_a?(Diaspora::Relayable) && include_target_author && target.author.remote?
     subscribers
-  end
-
-  # @deprecated This is only needed for pre 0.6 pods
-  def dispatch_sender(user)
-    target.try(:sender_for_dispatch) || user
   end
 
   def service_opts(user)

@@ -1,8 +1,8 @@
 language: ruby
 
 rvm:
-  - 2.3.1
-  - 2.1
+  - 2.4.1
+  - 2.3.4
 
 env:
   - DB=postgresql BUILD_TYPE=cucumber
@@ -15,6 +15,7 @@ cache:
   bundler: true
   directories:
     - app/assets/images
+    - tmp/cache/assets
 
 branches:
   only:
@@ -29,7 +30,7 @@ before_install:
   - tar -xvf $PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis-phantomjs
   - export PATH=$PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64/bin:$PATH
 
-bundler_args: "--deployment --without development production --with mysql postgresql --jobs 3 --retry 3"
+bundler_args: "--deployment --without development --with mysql postgresql --jobs 3 --retry 3"
 
 script: "./script/ci/build.sh"
 

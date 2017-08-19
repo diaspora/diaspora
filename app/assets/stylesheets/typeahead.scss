@@ -43,3 +43,21 @@
     }
   }
 }
+
+.typeahead-mention-box-wrap .twitter-typeahead {
+  left: -1px;
+  width: calc(100% + 2px);
+
+  .tt-menu {
+    // Override inline rule of Typeahead
+    // If this is not overridden (`position: absolute` by default in Typeahead) then
+    // the box is cut when opened because of the `overflow: hidden` from parent classes of comment form styles. By
+    // having `position: relative` here we make it visible by inserting it in the flow.
+    // This has a side effect of "Comment" button move down when box is open, but it feels like the least evil.
+    // scss-lint:disable ImportantRule
+    position: relative !important;
+    // scss-lint:enable ImportantRule
+
+    width: 100%;
+  }
+}

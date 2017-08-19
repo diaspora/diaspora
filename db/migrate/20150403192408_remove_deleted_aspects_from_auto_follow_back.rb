@@ -1,4 +1,4 @@
-class RemoveDeletedAspectsFromAutoFollowBack < ActiveRecord::Migration
+class RemoveDeletedAspectsFromAutoFollowBack < ActiveRecord::Migration[4.2]
   def up
     User.where.not(auto_follow_back_aspect_id: Aspect.select(:id))
       .where(auto_follow_back: true)

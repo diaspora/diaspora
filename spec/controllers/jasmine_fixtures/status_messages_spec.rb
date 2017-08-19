@@ -25,7 +25,7 @@ describe StatusMessagesController, :type => :controller do
       aspect = alice.aspects.create(:name => 'people')
       contact.aspects << aspect
       contact.save
-      get :new, :person_id => bob.person.id
+      get :new, params: {person_id: bob.person.id}
       save_fixture(html_for("body"), "status_message_new")
     end
   end

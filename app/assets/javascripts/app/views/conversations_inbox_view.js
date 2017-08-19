@@ -8,9 +8,19 @@ app.views.ConversationsInbox = app.views.Base.extend({
     "click .new-conversation-btn": "displayNewConversation"
   },
 
-  initialize: function() {
-    new app.views.ConversationsForm();
+  initialize: function(conversationId) {
+    this.conversationForm = new app.views.ConversationsForm();
+
+    // Creates markdown editor in case of displaying preloaded conversation
+    if (conversationId != null) {
+      this.renderMarkdownEditor();
+    }
+
     this.setupConversation();
+  },
+
+  renderMarkdownEditor: function() {
+    this.conversationForm.renderMarkdownEditor("#conversation-show .conversation-message-text");
   },
 
   renderConversation: function(conversationId) {
@@ -23,6 +33,8 @@ app.views.ConversationsInbox = app.views.Base.extend({
         self.$el.find("#conversation-show").removeClass("hidden").html(data);
         self.selectConversation(conversationId);
         self.setupConversation();
+        self.renderMarkdownEditor();
+        autosize(self.$("#conversation-show textarea"));
       }
     });
   },

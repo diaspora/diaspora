@@ -88,7 +88,7 @@ describe("Diaspora.Mobile.PostActions", function(){
       spec.loadFixture("aspects_index_mobile_public_post");
       Diaspora.Mobile.PostActions.initialize();
       this.link = $(".stream .like-action").first();
-      this.likeCounter = this.link.closest(".stream-element").find(".like-count");
+      this.likeCounter = this.link.find(".like-count");
     });
 
     it("always calls showLoader before sending request", function(){
@@ -143,7 +143,7 @@ describe("Diaspora.Mobile.PostActions", function(){
       spec.loadFixture("aspects_index_mobile_public_post");
       Diaspora.Mobile.PostActions.initialize();
       this.link = $(".stream .like-action").first();
-      this.likeCounter = this.link.closest(".stream-element").find(".like-count");
+      this.likeCounter = this.link.find(".like-count");
       Diaspora.Mobile.PostActions.like(this.likeCounter, this.link);
       jasmine.Ajax.requests.mostRecent().respondWith({status: 201, responseText: "{\"id\": \"18\"}"});
     });
@@ -236,6 +236,17 @@ describe("Diaspora.Mobile.PostActions", function(){
       this.reshareLink.click();
       jasmine.Ajax.requests.mostRecent().respondWith({status: 201, responseText: "{}"});
       expect(Diaspora.Mobile.PostActions.toggleActive).toHaveBeenCalledWith(this.reshareLink);
+    });
+
+    it("increases the reshare count on success", function() {
+      spyOn(Diaspora.Mobile.PostActions, "toggleActive");
+      var reshareCounter = this.reshareLink.find(".reshare-count");
+      reshareCounter.text("8");
+
+      this.reshareLink.click();
+      jasmine.Ajax.requests.mostRecent().respondWith({status: 201, responseText: "{}"});
+      expect(Diaspora.Mobile.PostActions.toggleActive).toHaveBeenCalledWith(this.reshareLink);
+      expect(reshareCounter.text()).toBe("9");
     });
 
     it("lets Diaspora.Mobile.Alert handle AJAX errors", function() {

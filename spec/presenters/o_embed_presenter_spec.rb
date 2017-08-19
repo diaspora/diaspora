@@ -17,7 +17,7 @@ describe OEmbedPresenter do
 
   describe '#iframe_html' do
     it 'passes the height options to post_iframe_url' do
-      expect(@oembed).to receive(:post_iframe_url).with(instance_of(Fixnum), instance_of(Hash))
+      expect(@oembed).to receive(:post_iframe_url).with(kind_of(Integer), instance_of(Hash))
       @oembed.iframe_html
     end
   end

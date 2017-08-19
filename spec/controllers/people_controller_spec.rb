@@ -30,24 +30,24 @@ describe PeopleController, :type => :controller do
 
     describe 'via json' do
       it 'succeeds' do
-        get :index, :q => "Korth", :format => 'json'
+        get :index, params: {q: "Korth"}, format: :json
         expect(response).to be_success
       end
 
       it 'responds with json' do
-        get :index, :q => "Korth", :format => 'json'
+        get :index, params: {q: "Korth"}, format: :json
         expect(response.body).to eq([@korth].to_json)
       end
 
       it 'does not assign hashes' do
-        get :index, :q => "Korth", :format => 'json'
+        get :index, params: {q: "Korth"}, format: :json
         expect(assigns[:hashes]).to be_nil
       end
 
       it "doesn't include closed accounts" do
-        get :index, q: "Closed", format: "json"
+        get :index, params: {q: "Closed"}, format: :json
         expect(JSON.parse(response.body).size).to eq(0)
-        get :index, q: @closed.diaspora_handle, format: "json"
+        get :index, params: {q: @closed.diaspora_handle}, format: :json
         expect(JSON.parse(response.body).size).to eq(0)
       end
     end
@@ -60,39 +60,39 @@ describe PeopleController, :type => :controller do
                                                                    :last_name => "w", :searchable => false))
         end
         it 'finds people even if they have searchable off' do
-          get :index, :q => "eugene@example.org"
+          get :index, params: {q: "eugene@example.org"}
           expect(assigns[:people][0].id).to eq(@unsearchable_eugene.id)
         end
 
         it 'downcases the query term' do
-          get :index, :q => "Eugene@Example.ORG"
+          get :index, params: {q: "Eugene@Example.ORG"}
           expect(assigns[:people][0].id).to eq(@unsearchable_eugene.id)
         end
 
         it 'does not the background query task if the user is found' do
-          get :index, :q => "Eugene@Example.ORG"
+          get :index, params: {q: "Eugene@Example.ORG"}
           expect(assigns[:background_query]).to eq(nil)
         end
 
         it 'sets background query task if the user is not found' do
-          get :index, :q => "Eugene@Example1.ORG"
+          get :index, params: {q: "Eugene@Example1.ORG"}
           expect(assigns[:background_query]).to eq("eugene@example1.org")
         end
 
         it "doesn't include closed accounts" do
-          get :index, q: @closed.diaspora_handle
+          get :index, params: {q: @closed.diaspora_handle}
           expect(assigns[:people].size).to eq(0)
         end
       end
 
       context 'query is not a tag or a diaspora ID' do
         it 'assigns hashes' do
-          get :index, :q => "Korth"
+          get :index, params: {q: "Korth"}
           expect(assigns[:hashes]).not_to be_nil
         end
 
         it 'does not set the background query task' do
-          get :index, :q => "Korth"
+          get :index, params: {q: "Korth"}
           expect(assigns[:background_query]).not_to be_present
         end
 
@@ -100,29 +100,29 @@ describe PeopleController, :type => :controller do
           eugene2 = FactoryGirl.create(:person,
                             :profile => FactoryGirl.build(:profile, :first_name => "Eugene",
                                                       :last_name => "w"))
-          get :index, :q => "Eug"
+          get :index, params: {q: "Eug"}
           expect(assigns[:people].map { |x| x.id }).to match_array([@eugene.id, eugene2.id])
         end
 
         it "succeeds if there is exactly one match" do
-          get :index, :q => "Korth"
+          get :index, params: {q: "Korth"}
           expect(assigns[:people].length).to eq(1)
           expect(response).to be_success
         end
 
         it "succeeds if there are no matches" do
-          get :index, :q => "Korthsauce"
+          get :index, params: {q: "Korthsauce"}
           expect(assigns[:people].length).to eq(0)
           expect(response).to be_success
         end
 
         it 'succeeds if you search for the empty term' do
-          get :index, :q => ''
+          get :index, params: {q: ""}
           expect(response).to be_success
         end
 
         it 'succeeds if you search for punctuation' do
-          get :index, :q => '+'
+          get :index, params: {q: "+"}
           expect(response).to be_success
         end
 
@@ -130,12 +130,12 @@ describe PeopleController, :type => :controller do
           eugene2 = FactoryGirl.create(:person,
                             :profile => FactoryGirl.build(:profile, :first_name => "Eugene",
                                                       :last_name => "w", :searchable => false))
-          get :index, :q => "Eug"
+          get :index, params: {q: "Eug"}
           expect(assigns[:people]).not_to match_array([eugene2])
         end
 
         it "doesn't include closed accounts" do
-          get :index, q: "Closed"
+          get :index, params: {q: "Closed"}
           expect(assigns[:people].size).to eq(0)
         end
       end
@@ -164,7 +164,7 @@ describe PeopleController, :type => :controller do
 
     it 'takes time' do
       expect(Benchmark.realtime {
-        get :show, :id => @user.person.to_param
+        get :show, params: {id: @user.person.to_param}
       }).to be < 1.0
     end
   end
@@ -176,44 +176,44 @@ describe PeopleController, :type => :controller do
     end
 
     it "404s if the id is invalid" do
-      get :show, :id => 'delicious'
+      get :show, params: {id: "delicious"}
       expect(response.code).to eq("404")
     end
 
     it "404s if no person is found via id" do
-      get :show, :id => "3d920397846"
+      get :show, params: {id: "3d920397846"}
       expect(response.code).to eq("404")
     end
 
     it "404s if no person is found via username" do
-      get :show, :username => 'delicious'
+      get :show, params: {username: "delicious"}
       expect(response.code).to eq("404")
     end
 
     it "returns a person presenter" do
       expect(PersonPresenter).to receive(:new).with(@person, @user).and_return(@presenter)
-      get :show, username: @person.username
+      get :show, params: {username: @person.username}
       expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
     it 'finds a person via username' do
-      get :show, username: @person.username
+      get :show, params: {username: @person.username}
       expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
     it "404s if no person is found via diaspora handle" do
-      get :show, :username => 'delicious@pod.net'
+      get :show, params: {username: "delicious@pod.net"}
       expect(response.code).to eq("404")
     end
 
     it 'finds a person via diaspora handle' do
-      get :show, username: @person.diaspora_handle
+      get :show, params: {username: @person.diaspora_handle}
       expect(assigns(:presenter).to_json).to eq(@presenter.to_json)
     end
 
     it 'redirects home for closed account' do
       @person = FactoryGirl.create(:person, :closed_account => true)
-      get :show, :id => @person.to_param
+      get :show, params: {id: @person.to_param}
       expect(response).to be_redirect
       expect(flash[:notice]).not_to be_blank
     end
@@ -222,7 +222,7 @@ describe PeopleController, :type => :controller do
       user2 = bob
       profile = user2.profile
       profile.update_attribute(:first_name, "</script><script> alert('xss attack');</script>")
-      get :show, :id => user2.person.to_param
+      get :show, params: {id: user2.person.to_param}
       expect(response).to be_success
       expect(response.body).not_to include(profile.first_name)
     end
@@ -231,27 +231,27 @@ describe PeopleController, :type => :controller do
       16.times do |i|
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       end
-      get :show, :id => eve.person.to_param
+      get :show, params: {id: eve.person.to_param}
       expect(response.body).to include ',"photos_count":16'
 
       eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
-      get :show, :id => eve.person.to_param
+      get :show, params: {id: eve.person.to_param}
       expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
     end
 
     context "when the person is the current user" do
       it "succeeds" do
-        get :show, :id => @user.person.to_param
+        get :show, params: {id: @user.person.to_param}
         expect(response).to be_success
       end
 
       it 'succeeds on the mobile site' do
-        get :show, :id => @user.person.to_param, :format => :mobile
+        get :show, params: {id: @user.person.to_param}, format: :mobile
         expect(response).to be_success
       end
 
       it "assigns the right person" do
-        get :show, id: @person.to_param
+        get :show, params: {id: @person.to_param}
         expect(assigns(:presenter).id).to eq(@presenter.id)
       end
     end
@@ -263,25 +263,25 @@ describe PeopleController, :type => :controller do
       end
 
       it "succeeds" do
-        get :show, :id => @person.to_param
+        get :show, params: {id: @person.to_param}
         expect(response.status).to eq(200)
       end
 
       it 'succeeds on the mobile site' do
-        get :show, :id => @person.to_param, :format => :mobile
+        get :show, params: {id: @person.to_param}, format: :mobile
         expect(response).to be_success
       end
 
       it 'forces to sign in if the person is remote' do
         p = FactoryGirl.create(:person)
 
-        get :show, :id => p.to_param
+        get :show, params: {id: p.to_param}
         expect(response).to be_redirect
         expect(response).to redirect_to new_user_session_path
       end
 
       it "leaks no private profile info" do
-        get :show, id: @person.to_param
+        get :show, params: {id: @person.to_param}
         expect(response.body).not_to include(@person.profile.bio)
       end
 
@@ -296,7 +296,7 @@ describe PeopleController, :type => :controller do
           last_name:            {html_attribute: "property", name: "og:profile:last_name"}
         }
 
-        get :show, id: @person.to_param
+        get :show, params: {id: @person.to_param}
 
         methods_properties.each do |method, property|
           value = presenter.send(method)
@@ -313,12 +313,12 @@ describe PeopleController, :type => :controller do
       end
 
       it "succeeds" do
-        get :show, :id => @person.to_param
+        get :show, params: {id: @person.to_param}
         expect(response).to be_success
       end
 
       it 'succeeds on the mobile site' do
-        get :show, :id => @person.to_param, :format => :mobile
+        get :show, params: {id: @person.to_param}, format: :mobile
         expect(response).to be_success
       end
 
@@ -326,18 +326,18 @@ describe PeopleController, :type => :controller do
         note = FactoryGirl.create(:notification, :recipient => @user, :target => @person, :unread => true)
 
         expect {
-          get :show, :id => @person.to_param
+          get :show, params: {id: @person.to_param}
           note.reload
         }.to change(Notification.where(:unread => true), :count).by(-1)
       end
 
       it "includes private profile info" do
-        get :show, id: @person.to_param
+        get :show, params: {id: @person.to_param}
         expect(response.body).to include(@person.profile.bio)
       end
 
       it "preloads data using gon for the aspect memberships dropdown" do
-        get :show, id: @person.to_param
+        get :show, params: {id: @person.to_param}
         expect_gon_preloads_for_aspect_membership_dropdown(:person, true)
       end
     end
@@ -348,22 +348,22 @@ describe PeopleController, :type => :controller do
       end
 
       it "succeeds" do
-        get :show, :id => @person.to_param
+        get :show, params: {id: @person.to_param}
         expect(response).to be_success
       end
 
       it 'succeeds on the mobile site' do
-        get :show, :id => @person.to_param, :format => :mobile
+        get :show, params: {id: @person.to_param}, format: :mobile
         expect(response).to be_success
       end
 
       it "leaks no private profile info" do
-        get :show, id: @person.to_param
+        get :show, params: {id: @person.to_param}
         expect(response.body).not_to include(@person.profile.bio)
       end
 
       it "preloads data using gon for the aspect memberships dropdown" do
-        get :show, id: @person.to_param
+        get :show, params: {id: @person.to_param}
         expect_gon_preloads_for_aspect_membership_dropdown(:person, false)
       end
     end
@@ -376,7 +376,7 @@ describe PeopleController, :type => :controller do
       end
 
       it "leaks no private profile info" do
-        get :show, id: @person.to_param
+        get :show, params: {id: @person.to_param}
         expect(response.body).not_to include(@person.profile.bio)
       end
     end
@@ -384,7 +384,7 @@ describe PeopleController, :type => :controller do
 
   describe '#stream' do
     it "redirects non-json requests" do
-      get :stream, person_id: @user.person.to_param
+      get :stream, params: {person_id: @user.person.to_param}
       expect(response).to be_redirect
     end
 
@@ -395,7 +395,7 @@ describe PeopleController, :type => :controller do
         @user.post(:status_message, :text => "to all aspects", :to => 'all')
         @user.post(:status_message, :text => "public", :to => 'all', :public => true)
         expect(@user.reload.posts.length).to eq(3)
-        get :stream, person_id: @user.person.to_param, format: :json
+        get :stream, params: {person_id: @user.person.to_param}, format: :json
         expect(assigns(:stream).posts.map(&:id)).to match_array(@user.posts.map(&:id))
       end
 
@@ -403,7 +403,7 @@ describe PeopleController, :type => :controller do
         cmmt = 'I mean it'
         message = @user.post :status_message, :text => 'test more', :to => @aspect.id
         @user.comment!(message, cmmt)
-        get :stream, person_id: @user.person.to_param, format: :json
+        get :stream, params: {person_id: @user.person.to_param}, format: :json
         expect(response).to be_success
         expect(response.body).to include(cmmt)
       end
@@ -416,7 +416,7 @@ describe PeopleController, :type => :controller do
 
       it "includes reshares" do
         reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
-        get :stream, person_id: @user.person.to_param, format: :json
+        get :stream, params: {person_id: @user.person.to_param}, format: :json
         expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
       end
 
@@ -431,7 +431,7 @@ describe PeopleController, :type => :controller do
         posts_user_can_see << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
         expect(bob.reload.posts.length).to eq(4)
 
-        get :stream, person_id: @person.to_param, format: :json
+        get :stream, params: {person_id: @person.to_param}, format: :json
         expect(assigns(:stream).posts.map(&:id)).to match_array(posts_user_can_see.map(&:id))
       end
     end
@@ -448,13 +448,13 @@ describe PeopleController, :type => :controller do
         public_post = eve.post(:status_message, :text => "public", :to => 'all', :public => true)
         expect(eve.reload.posts.length).to eq(3)
 
-        get :stream, person_id: @person.to_param, format: :json
+        get :stream, params: {person_id: @person.to_param}, format: :json
         expect(assigns[:stream].posts.map(&:id)).to match_array([public_post].map(&:id))
       end
 
       it "posts include reshares" do
         reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
-        get :stream, person_id: @user.person.to_param, format: :json
+        get :stream, params: {person_id: @user.person.to_param}, format: :json
         expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
       end
     end
@@ -478,17 +478,17 @@ describe PeopleController, :type => :controller do
 
         it "posts include reshares" do
           reshare = @user.post(:reshare, :public => true, :root_guid => FactoryGirl.create(:status_message, :public => true).guid, :to => alice.aspect_ids)
-          get :stream, person_id: @user.person.to_param, format: :json
+          get :stream, params: {person_id: @user.person.to_param}, format: :json
           expect(assigns[:stream].posts.map { |x| x.id }).to include(reshare.id)
         end
 
         it "assigns only public posts" do
-          get :stream, person_id: @person.to_param, format: :json
+          get :stream, params: {person_id: @person.to_param}, format: :json
           expect(assigns[:stream].posts.map(&:id)).to match_array(@public_posts.map(&:id))
         end
 
         it 'is sorted by created_at desc' do
-          get :stream, person_id: @person.to_param, format: :json
+          get :stream, params: {person_id: @person.to_param}, format: :json
           expect(assigns[:stream].stream_posts).to eq(@public_posts.sort_by { |p| p.created_at }.reverse)
         end
       end
@@ -503,19 +503,19 @@ describe PeopleController, :type => :controller do
     end
 
     it 'redirects html requests' do
-      get :hovercard, :person_id => @hover_test.guid
+      get :hovercard, params: {person_id: @hover_test.guid}
       expect(response).to redirect_to person_path(:id => @hover_test.guid)
     end
 
     it 'returns json with profile stuff' do
-      get :hovercard, :person_id => @hover_test.guid, :format => 'json'
+      get :hovercard, params: {person_id: @hover_test.guid}, format: :json
       expect(JSON.parse(response.body)["diaspora_id"]).to eq(@hover_test.diaspora_handle)
     end
 
     it "returns contact when sharing" do
       alice.share_with(@hover_test, alice.aspects.first)
       expect(@controller).to receive(:current_user).at_least(:once).and_return(alice)
-      get :hovercard, person_id: @hover_test.guid, format: "json"
+      get :hovercard, params: {person_id: @hover_test.guid}, format: :json
       expect(JSON.parse(response.body)["contact"]).not_to be_falsy
     end
 
@@ -525,13 +525,13 @@ describe PeopleController, :type => :controller do
       end
 
       it "succeeds with local person" do
-        get :hovercard, person_id: bob.person.guid, format: :json
+        get :hovercard, params: {person_id: bob.person.guid}, format: :json
         expect(response.status).to eq(200)
         expect(JSON.parse(response.body)["diaspora_id"]).to eq(bob.diaspora_handle)
       end
 
       it "succeeds with remote person" do
-        get :hovercard, person_id: remote_raphael.guid, format: :json
+        get :hovercard, params: {person_id: remote_raphael.guid}, format: :json
         expect(response.status).to eq(200)
         expect(JSON.parse(response.body)["diaspora_id"]).to eq(remote_raphael.diaspora_handle)
       end
@@ -557,22 +557,22 @@ describe PeopleController, :type => :controller do
 
     describe "via json" do
       it "returns no data when a search fails" do
-        get :refresh_search, q: "weweweKorth", format: "json"
+        get :refresh_search, params: {q: "weweweKorth"}, format: :json
         expect(response.body).to eq({search_html: "", contacts: nil}.to_json)
       end
 
       it "returns no data unless a fully composed name is sent" do
-        get :refresh_search, q: "Korth"
+        get :refresh_search, params: {q: "Korth"}
         expect(response.body).to eq({search_html: "", contacts: nil}.to_json)
       end
 
       it "returns with a found name" do
-        get :refresh_search, q: @korth.diaspora_handle
+        get :refresh_search, params: {q: @korth.diaspora_handle}
         expect(JSON.parse(response.body)["contacts"].size).to eq(1)
       end
 
       it "doesn't include closed accounts" do
-        get :refresh_search, q: @closed.diaspora_handle
+        get :refresh_search, params: {q: @closed.diaspora_handle}
         expect(JSON.parse(response.body)["contacts"]).to be_nil
       end
     end
@@ -583,13 +583,13 @@ describe PeopleController, :type => :controller do
     it 'assigns the contacts of a person' do
       contact = alice.contact_for(bob.person)
       contacts = contact.contacts
-      get :contacts, :person_id => bob.person.to_param
+      get :contacts, params: {person_id: bob.person.to_param}
       expect(assigns(:contacts_of_contact).to_a).to eq(contacts.to_a)
       expect(response).to be_success
     end
 
     it 'shows an error when invalid person id' do
-      get :contacts, :person_id => 'foo'
+      get :contacts, params: {person_id: "foo"}
       expect(flash[:error]).to be_present
       expect(response).to redirect_to people_path
     end
@@ -598,16 +598,16 @@ describe PeopleController, :type => :controller do
       16.times do |i|
         eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
       end
-      get :contacts, :person_id => eve.person.to_param
+      get :contacts, params: {person_id: eve.person.to_param}
       expect(response.body).to include ',"photos_count":16'
 
       eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => false)
-      get :contacts, :person_id => eve.person.to_param
+      get :contacts, params: {person_id: eve.person.to_param}
       expect(response.body).to include ',"photos_count":16' # eve is not sharing with alice
     end
 
     it "returns a 406 for json format" do
-      get :contacts, person_id: "foo", format: :json
+      get :contacts, params: {person_id: "foo"}, format: :json
       expect(response.code).to eq("406")
     end
   end

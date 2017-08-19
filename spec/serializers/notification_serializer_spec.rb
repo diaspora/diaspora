@@ -3,7 +3,7 @@ describe NotificationSerializer do
 
   before do
     allow(notifications_controller).to receive(:current_user).and_return(notification.recipient)
-    notifications_controller.request = ActionController::TestRequest.new(host: AppConfig.pod_uri)
+    notifications_controller.request = ActionDispatch::TestRequest.new(host: AppConfig.pod_uri)
   end
 
   let(:notification) { FactoryGirl.create(:notification) }

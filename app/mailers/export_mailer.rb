@@ -1,6 +1,4 @@
-class ExportMailer < ActionMailer::Base
-  default from: AppConfig.mail.sender_address
-
+class ExportMailer < ApplicationMailer
   def export_complete_for(user)
     @user = user
 

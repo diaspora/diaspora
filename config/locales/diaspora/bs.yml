@@ -265,11 +265,6 @@ bs:
       can_reshare_q: "Ko može ponovo dijeliti moje privatne objave?"
       title: "Privatne objave"
       who_sees_post_q: "Kada objavim poruku na aspekt (tj. privatnu objavu), ko je može vidjeti?"
-    private_profiles:
-      title: "Privatni profili"
-      whats_in_profile_q: "Šta je u mojem privatnom profilu?"
-      who_sees_profile_q: "Ko vidi moj privatni profil?"
-      who_sees_updates_q: "Ko vidi ažuriranja na mojem privatnom profilu?"
     public_posts:
       can_comment_reshare_like_q: "Ko može komentarisati na, ponovo dijeliti, ili sviđati moju javnu objavu="
       find_public_post_q: "Kako drugi ljudi mogu pronaći moje javne objave?"

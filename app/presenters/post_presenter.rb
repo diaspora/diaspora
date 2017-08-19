@@ -14,6 +14,20 @@ class PostPresenter < BasePresenter
          .merge(non_directly_retrieved_attributes)
   end
 
+  def with_interactions
+    interactions = PostInteractionPresenter.new(@post, current_user)
+    as_json.merge!(interactions: interactions.as_json)
+  end
+
+  def with_initial_interactions
+    as_json.tap do |post|
+      post[:interactions].merge!(
+        likes:    LikeService.new(current_user).find_for_post(@post.id).limit(30).as_api_response(:backbone),
+        reshares: ReshareService.new(current_user).find_for_post(@post.id).limit(30).as_api_response(:backbone)
+      )
+    end
+  end
+
   def metas_attributes
     {
       keywords:             {name:     "keywords",       content: comma_separated_tags},

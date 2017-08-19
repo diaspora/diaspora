@@ -25,7 +25,7 @@ describe NodeInfoController do
   describe "#document" do
     context "invalid version" do
       it "responds with not found" do
-        get :document, version: "0.0", format: :json
+        get :document, params: {version: "0.0"}, format: :json
 
         expect(response.code).to eq "404"
       end
@@ -34,7 +34,7 @@ describe NodeInfoController do
     %w(1.0 2.0).each do |version|
       context "version #{version}" do
         it "responds to JSON" do
-          get :document, version: version, format: :json
+          get :document, params: {version: version}, format: :json
 
           expect(response).to be_success
         end
@@ -43,11 +43,11 @@ describe NodeInfoController do
           expect(NodeInfoPresenter).to receive(:new).with(version)
             .and_return(double(as_json: {}, content_type: "application/json"))
 
-          get :document, version: version, format: :json
+          get :document, params: {version: version}, format: :json
         end
 
         it "notes the schema in the content type" do
-          get :document, version: version, format: :json
+          get :document, params: {version: version}, format: :json
 
           expect(response.content_type)
             .to eq("application/json; profile=http://nodeinfo.diaspora.software/ns/schema/#{version}#")
@@ -57,15 +57,9 @@ describe NodeInfoController do
   end
 
   describe "#statistics" do
-    it "responds to format json" do
+    it "returns a 406 for json format" do
       get :statistics, format: "json"
-      expect(response.code).to eq("200")
-    end
-
-    it "contains json" do
-      get :statistics, format: "json"
-      json = JSON.parse(response.body)
-      expect(json["name"]).to be_present
+      expect(response.code).to eq("406")
     end
 
     it "responds to html" do

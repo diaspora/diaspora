@@ -17,17 +17,17 @@ describe ConversationsController, :type => :controller do
   describe "#new modal" do
     context "desktop" do
       it "succeeds" do
-        get :new, modal: true
+        get :new, params: {modal: true}
         expect(response).to be_success
       end
 
       it "assigns a contact if passed a contact id" do
-        get :new, contact_id: alice.contacts.first.id, modal: true
+        get :new, params: {contact_id: alice.contacts.first.id, modal: true}
         expect(controller.gon.conversation_prefill).to eq([alice.contacts.first.person.as_json])
       end
 
       it "assigns a set of contacts if passed an aspect id" do
-        get :new, aspect_id: alice.aspects.first.id, modal: true
+        get :new, params: {aspect_id: alice.aspects.first.id, modal: true}
         expect(controller.gon.conversation_prefill).to eq(alice.aspects.first.contacts.map {|c| c.person.as_json })
       end
     end
@@ -40,7 +40,7 @@ describe ConversationsController, :type => :controller do
       it "assigns a json list of contacts that are sharing with the person" do
         sharing_user = FactoryGirl.create(:user_with_aspect)
         sharing_user.share_with(alice.person, sharing_user.aspects.first)
-        get :new, modal: true
+        get :new, params: {modal: true}
         expect(assigns(:contacts_json))
           .to include(alice.contacts.where(sharing: true, receiving: true).first.person.name)
         alice.contacts << Contact.new(person_id: eve.person.id, user_id: alice.id, sharing: false, receiving: true)
@@ -51,7 +51,7 @@ describe ConversationsController, :type => :controller do
       it "does not allow XSS via the name parameter" do
         ["</script><script>alert(1);</script>",
          '"}]});alert(1);(function f() {var foo = [{b:"'].each do |xss|
-          get :new, modal: true, name: xss
+          get :new, params: {modal: true, name: xss}
           expect(response.body).not_to include xss
         end
       end
@@ -60,7 +60,7 @@ describe ConversationsController, :type => :controller do
         xss     = "<script>alert(0);</script>"
         contact = alice.contacts.first
         contact.person.profile.update_attribute(:first_name, xss)
-        get :new, modal: true
+        get :new, params: {modal: true}
         json = JSON.parse(assigns(:contacts_json)).first
         expect(json["value"].to_s).to eq(contact.id.to_s)
         expect(json["name"]).to_not include(xss)
@@ -101,7 +101,7 @@ describe ConversationsController, :type => :controller do
     end
 
     it "retrieves a conversation" do
-      get :index, conversation_id: @conversations.first.id
+      get :index, params: {conversation_id: @conversations.first.id}
       expect(response).to be_success
       expect(assigns[:visibilities]).to match_array(@visibilities)
       expect(assigns[:conversation]).to eq(@conversations.first)
@@ -109,7 +109,7 @@ describe ConversationsController, :type => :controller do
 
     it "does not let you access conversations where you are not a recipient" do
       sign_in eve, scope: :user
-      get :index, conversation_id: @conversations.first.id
+      get :index, params: {conversation_id: @conversations.first.id}
       expect(assigns[:conversation]).to be_nil
     end
 
@@ -125,31 +125,30 @@ describe ConversationsController, :type => :controller do
   describe "#create" do
     context "desktop" do
       context "with a valid conversation" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "text debug"},
             person_ids:   alice.contacts.first.person.id.to_s
           }
-        end
+        }
 
         it "creates a conversation" do
-          expect { post :create, @hash }.to change(Conversation, :count).by(1)
+          expect { post :create, params: params, format: :js }.to change(Conversation, :count).by(1)
         end
 
         it "creates a message" do
-          expect { post :create, @hash }.to change(Message, :count).by(1)
+          expect { post :create, params: params, format: :js }.to change(Message, :count).by(1)
         end
 
         it "responds with the conversation id as JSON" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).to be_success
           expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
         end
 
         it "sets the author to the current_user" do
-          @hash[:author] = FactoryGirl.create(:user)
-          post :create, @hash
+          params[:author] = FactoryGirl.create(:user)
+          post :create, params: params, format: :js
           expect(Message.first.author).to eq(alice.person)
           expect(Conversation.first.author).to eq(alice.person)
         end
@@ -159,130 +158,128 @@ describe ConversationsController, :type => :controller do
                               subject: "not spam", messages_attributes: [{author: alice.person, text: "cool stuff"}])
 
           expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
-          post :create, @hash
+          post :create, params: params, format: :js
         end
       end
 
       context "with empty subject" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: " ", text: "text debug"},
             person_ids:   alice.contacts.first.person.id.to_s
           }
-        end
+        }
 
         it "creates a conversation" do
-          expect { post :create, @hash }.to change(Conversation, :count).by(1)
+          expect { post :create, params: params, format: :js }.to change(Conversation, :count).by(1)
         end
 
         it "creates a message" do
-          expect { post :create, @hash }.to change(Message, :count).by(1)
+          expect { post :create, params: params, format: :js }.to change(Message, :count).by(1)
         end
 
         it "responds with the conversation id as JSON" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).to be_success
           expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
         end
       end
 
       context "with empty text" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "  "},
             person_ids:   alice.contacts.first.person.id.to_s
           }
-        end
+        }
 
         it "does not create a conversation" do
-          expect { post :create, @hash }.not_to change(Conversation, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          expect { post :create, @hash }.not_to change(Message, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).not_to be_success
           expect(response.body).to eq(I18n.t("conversations.create.fail"))
         end
       end
 
       context "with empty contact" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "text debug"},
             person_ids:   " "
           }
-        end
+        }
 
         it "does not create a conversation" do
-          expect { post :create, @hash }.not_to change(Conversation, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          expect { post :create, @hash }.not_to change(Message, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).not_to be_success
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
 
       context "with nil contact" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "text debug"},
             person_ids:   nil
           }
-        end
+        }
 
         it "does not create a conversation" do
-          expect { post :create, @hash }.not_to change(Conversation, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          expect { post :create, @hash }.not_to change(Message, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).not_to be_success
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
 
       context "with non-mutual contact" do
-        before do
-          @person1 = FactoryGirl.create(:person)
-          @person2 = FactoryGirl.create(:person)
-          alice.contacts.create!(receiving: false, sharing: true, person: @person2)
-          @person3 = FactoryGirl.create(:person)
-          alice.contacts.create!(receiving: true, sharing: false, person: @person3)
-          @hash = {
-            format:       :js,
+        let(:person1) { FactoryGirl.create(:person) }
+        let(:person2) { FactoryGirl.create(:person) }
+        let(:person3) { FactoryGirl.create(:person) }
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "text debug"},
-            person_ids:   [@person1.id, @person2.id, @person3.id].join(",")
+            person_ids:   [person1.id, person2.id, person3.id].join(",")
           }
+        }
+
+        before do
+          alice.contacts.create!(receiving: false, sharing: true, person: person2)
+          alice.contacts.create!(receiving: true, sharing: false, person: person3)
         end
 
         it "does not create a conversation" do
-          expect { post :create, @hash }.not_to change(Conversation, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          expect { post :create, @hash }.not_to change(Message, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).not_to be_success
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
@@ -295,31 +292,30 @@ describe ConversationsController, :type => :controller do
       end
 
       context "with a valid conversation" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "text debug"},
             contact_ids:  alice.contacts.first.id.to_s
           }
-        end
+        }
 
         it "creates a conversation" do
-          expect { post :create, @hash }.to change(Conversation, :count).by(1)
+          expect { post :create, params: params, format: :js }.to change(Conversation, :count).by(1)
         end
 
         it "creates a message" do
-          expect { post :create, @hash }.to change(Message, :count).by(1)
+          expect { post :create, params: params, format: :js }.to change(Message, :count).by(1)
         end
 
         it "responds with the conversation id as JSON" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).to be_success
           expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
         end
 
         it "sets the author to the current_user" do
-          @hash[:author] = FactoryGirl.create(:user)
-          post :create, @hash
+          params[:author] = FactoryGirl.create(:user)
+          post :create, params: params, format: :js
           expect(Message.first.author).to eq(alice.person)
           expect(Conversation.first.author).to eq(alice.person)
         end
@@ -329,127 +325,122 @@ describe ConversationsController, :type => :controller do
                               subject: "not spam", messages_attributes: [{author: alice.person, text: "cool stuff"}])
 
           expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch)
-          post :create, @hash
+          post :create, params: params, format: :js
         end
       end
 
       context "with empty subject" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: " ", text: "text debug"},
             contact_ids:  alice.contacts.first.id.to_s
           }
-        end
+        }
 
         it "creates a conversation" do
-          expect { post :create, @hash }.to change(Conversation, :count).by(1)
+          expect { post :create, params: params, format: :js }.to change(Conversation, :count).by(1)
         end
 
         it "creates a message" do
-          expect { post :create, @hash }.to change(Message, :count).by(1)
+          expect { post :create, params: params, format: :js }.to change(Message, :count).by(1)
         end
 
         it "responds with the conversation id as JSON" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).to be_success
           expect(JSON.parse(response.body)["id"]).to eq(Conversation.first.id)
         end
       end
 
       context "with empty text" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: " "},
             contact_ids:  alice.contacts.first.id.to_s
           }
-        end
+        }
 
         it "does not create a conversation" do
-          expect { post :create, @hash }.not_to change(Conversation, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          expect { post :create, @hash }.not_to change(Message, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).not_to be_success
           expect(response.body).to eq(I18n.t("conversations.create.fail"))
         end
       end
 
       context "with empty contact" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "text debug"},
             contact_ids:  " "
           }
-        end
+        }
 
         it "does not create a conversation" do
-          expect { post :create, @hash }.not_to change(Conversation, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          expect { post :create, @hash }.not_to change(Message, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).not_to be_success
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
 
       context "with nil contact" do
-        before do
-          @hash = {
-            format:       :js,
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "text debug"},
             contact_ids:  nil
           }
-        end
+        }
 
         it "does not create a conversation" do
-          expect { post :create, @hash }.not_to change(Conversation, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          expect { post :create, @hash }.not_to change(Message, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).not_to be_success
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
       end
 
       context "with non-mutual contact" do
-        before do
-          @contact1 = alice.contacts.create(receiving: false, sharing: true, person: FactoryGirl.create(:person))
-          @contact2 = alice.contacts.create(receiving: true, sharing: false, person: FactoryGirl.create(:person))
-          @hash = {
-            format:       :js,
+        let(:contact1) { alice.contacts.create(receiving: false, sharing: true, person: FactoryGirl.create(:person)) }
+        let(:contact2) { alice.contacts.create(receiving: true, sharing: false, person: FactoryGirl.create(:person)) }
+        let(:params) {
+          {
             conversation: {subject: "secret stuff", text: "text debug"},
-            person_ids:   [@contact1.id, @contact2.id].join(",")
+            contact_ids:  [contact1.id, contact2.id].join(",")
           }
-        end
+        }
 
         it "does not create a conversation" do
-          expect { post :create, @hash }.not_to change(Conversation, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Conversation, :count)
         end
 
         it "does not create a message" do
-          expect { post :create, @hash }.not_to change(Message, :count)
+          expect { post :create, params: params, format: :js }.not_to change(Message, :count)
         end
 
         it "responds with an error message" do
-          post :create, @hash
+          post :create, params: params, format: :js
           expect(response).not_to be_success
           expect(response.body).to eq(I18n.t("javascripts.conversation.create.no_recipient"))
         end
@@ -458,47 +449,45 @@ describe ConversationsController, :type => :controller do
   end
 
   describe "#show" do
-    before do
-      hash = {
+    let(:conversation) {
+      Conversation.create(
         author:              alice.person,
         participant_ids:     [alice.contacts.first.person.id, alice.person.id],
         subject:             "not spam",
         messages_attributes: [{author: alice.person, text: "cool stuff"}]
-      }
-      @conversation = Conversation.create(hash)
-    end
+      )
+    }
 
     it "succeeds with json" do
-      get :show, :id => @conversation.id, :format => :json
+      get :show, params: {id: conversation.id}, format: :json
       expect(response).to be_success
-      expect(assigns[:conversation]).to eq(@conversation)
-      expect(response.body).to include @conversation.guid
+      expect(assigns[:conversation]).to eq(conversation)
+      expect(response.body).to include conversation.guid
     end
 
     it "redirects to index" do
-      get :show, :id => @conversation.id
-      expect(response).to redirect_to(conversations_path(:conversation_id => @conversation.id))
+      get :show, params: {id: conversation.id}
+      expect(response).to redirect_to(conversations_path(conversation_id: conversation.id))
     end
   end
 
   describe "#raw" do
-    before do
-      hash = {
+    let(:conversation) {
+      Conversation.create(
         author:              alice.person,
         participant_ids:     [alice.contacts.first.person.id, alice.person.id],
         subject:             "not spam",
         messages_attributes: [{author: alice.person, text: "cool stuff"}]
-      }
-      @conversation = Conversation.create(hash)
-    end
+      )
+    }
 
     it "returns html of conversation" do
-      get :raw, conversation_id: @conversation.id
-      expect(response).to render_template(partial: "show", locals: {conversation: @conversation})
+      get :raw, params: {conversation_id: conversation.id}
+      expect(response).to render_template(partial: "show", locals: {conversation: conversation})
     end
 
     it "returns 404 when requesting non-existant conversation" do
-      get :raw, conversation_id: -1
+      get :raw, params: {conversation_id: -1}
       expect(response).to have_http_status(404)
     end
   end

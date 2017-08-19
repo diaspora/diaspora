@@ -2,31 +2,23 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class AccountDeletion < ActiveRecord::Base
+class AccountDeletion < ApplicationRecord
   include Diaspora::Federated::Base
 
-  scope :uncompleted, -> { where('completed_at is null') }
+  scope :uncompleted, -> { where("completed_at is null") }
 
   belongs_to :person
-  after_commit :queue_delete_account, :on => :create
+  after_commit :queue_delete_account, on: :create
 
-  def person=(person)
-    self[:diaspora_handle] = person.diaspora_handle
-    self[:person_id] = person.id
-  end
-
-  def diaspora_handle=(diaspora_handle)
-    self[:diaspora_handle] = diaspora_handle
-    self[:person_id] ||= Person.find_by_diaspora_handle(diaspora_handle).id
-  end
+  delegate :diaspora_handle, to: :person
 
   def queue_delete_account
-    Workers::DeleteAccount.perform_async(self.id)
+    Workers::DeleteAccount.perform_async(id)
   end
 
   def perform!
     Diaspora::Federation::Dispatcher.build(person.owner, self).dispatch if person.local?
-    AccountDeleter.new(diaspora_handle).perform!
+    AccountDeleter.new(person).perform!
   end
 
   def subscribers

@@ -234,6 +234,7 @@ zh-TW:
     reshares:
       post: "要轉貼 <%= name %> 的貼文嗎？"
       successful: "貼文轉貼成功！"
+    show_all: "看全部"
     show_more: "顯示更多"
     stream:
       comment: "留言"

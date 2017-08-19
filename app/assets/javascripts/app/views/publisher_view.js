@@ -18,11 +18,11 @@ app.views.Publisher = Backbone.View.extend({
   el : "#publisher",
 
   events : {
-    "keydown #status_message_fake_text" : "keyDown",
+    "keydown #status_message_text": "keyDown",
     "focus textarea" : "open",
     "submit form" : "createStatusMessage",
     "click #submit" : "createStatusMessage",
-    "textchange #status_message_fake_text": "handleTextchange",
+    "textchange #status_message_text": "checkSubmitAvailability",
     "click #locator" : "showLocation",
     "click #poll_creator" : "togglePollCreator",
     "click #hide_location" : "destroyLocation",
@@ -35,8 +35,7 @@ app.views.Publisher = Backbone.View.extend({
     this.disabled   = false;
 
     // init shortcut references to the various elements
-    this.inputEl = this.$("#status_message_fake_text");
-    this.hiddenInputEl = this.$("#status_message_text");
+    this.inputEl = this.$("#status_message_text");
     this.wrapperEl = this.$("#publisher_textarea_wrapper");
     this.submitEl = this.$("input[type=submit], button#submit");
     this.photozoneEl = this.$("#photodropzone");
@@ -45,14 +44,6 @@ app.views.Publisher = Backbone.View.extend({
     // before the user is able to leave the page
     $(window).on("beforeunload", _.bind(this._beforeUnload, this));
     $(window).on("unload", this.clear.bind(this));
-
-    // sync textarea content
-    if( this.hiddenInputEl.val() === "" ) {
-      this.hiddenInputEl.val( this.inputEl.val() );
-    }
-    if( this.inputEl.val() === "" ) {
-      this.inputEl.val( this.hiddenInputEl.val() );
-    }
 
     // hide close and preview buttons and manage services link
     // in case publisher is standalone
@@ -163,7 +154,7 @@ app.views.Publisher = Backbone.View.extend({
     this.viewPollCreator.render();
 
     if (this.prefillMention) {
-      this.handleTextchange();
+      this.checkSubmitAvailability();
     }
   },
 
@@ -175,12 +166,11 @@ app.views.Publisher = Backbone.View.extend({
   // inject content into the publisher textarea
   setText: function(txt) {
     this.inputEl.val(txt);
-    this.hiddenInputEl.val(txt);
     this.prefillText = txt;
 
     this.inputEl.trigger("input");
     autosize.update(this.inputEl);
-    this.handleTextchange();
+    this.checkSubmitAvailability();
   },
 
   // show the "getting started" popups around the publisher
@@ -201,9 +191,6 @@ app.views.Publisher = Backbone.View.extend({
     // typing in the last box. We'll delete the last one to avoid submitting an
     // empty poll answer and failing validation.
     this.viewPollCreator.removeLastAnswer();
-
-    //add missing mentions at end of post:
-    this.handleTextchange();
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
     // disable input while posting, must be after the form is serialized
@@ -255,7 +242,7 @@ app.views.Publisher = Backbone.View.extend({
         self.setButtonsEnabled(true);
         self.setInputEnabled(true);
         self.wrapperEl.removeClass("submitting");
-        self.handleTextchange();
+        self.checkSubmitAvailability();
         autosize.update(self.inputEl);
       }
     });
@@ -330,13 +317,8 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   createPostPreview: function() {
-    //add missing mentions at end of post:
-    this.handleTextchange();
-
     var serializedForm = $("#new_status_message").serializeObject();
-    var text = this.mention.getTextForSubmit();
     var photos = this.getUploadedPhotos();
-    var mentionedPeople = this.mention.mentionedPeople;
     var poll = this.getPollData(serializedForm);
     var locationCoords = serializedForm["location[coords]"];
     if(!locationCoords || locationCoords === "") {
@@ -352,12 +334,12 @@ app.views.Publisher = Backbone.View.extend({
 
     var previewMessage = {
       "id": 0,
-      "text": text,
+      "text": serializedForm["status_message[text]"],
       "public": serializedForm["aspect_ids[]"] === "public",
       "created_at": new Date().toISOString(),
       "interacted_at": new Date().toISOString(),
       "author": app.currentUser ? app.currentUser.attributes : {},
-      "mentioned_people": mentionedPeople,
+      "mentioned_people": this.mention.getMentionedPeople(),
       "photos": photos,
       "title": serializedForm["status_message[text]"],
       "location": location,
@@ -370,7 +352,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   keyDown : function(evt) {
-    if(evt.which === Keycodes.ENTER && evt.ctrlKey) {
+    if (evt.which === Keycodes.ENTER && (evt.metaKey || evt.ctrlKey)) {
       this.$("form").submit();
       this.open();
       return false;
@@ -381,11 +363,10 @@ app.views.Publisher = Backbone.View.extend({
     // remove mentions
     this.mention.reset();
 
-    // clear text(s)
+    // clear text
     this.inputEl.val("");
-    this.hiddenInputEl.val("");
     this.inputEl.trigger("keyup")
-                 .trigger("keydown");
+                .trigger("keydown");
     autosize.update(this.inputEl);
 
     // remove photos
@@ -421,14 +402,13 @@ app.views.Publisher = Backbone.View.extend({
 
     // force textchange plugin to update lastValue
     this.inputEl.data("lastValue", "");
-    this.hiddenInputEl.data("lastValue", "");
 
     return this;
   },
 
   tryClose : function(){
-    // if it is not submittable, close it.
-    if( !this._submittable() ){
+    // if it is not submittable and not in preview mode, close it.
+    if (!this._submittable() && !this.markdownEditor.isPreviewMode()) {
       this.close();
     }
   },
@@ -472,8 +452,7 @@ app.views.Publisher = Backbone.View.extend({
   setEnabled: function(bool) {
     this.setInputEnabled(bool);
     this.disabled = !bool;
-
-    this.handleTextchange();
+    this.checkSubmitAvailability();
   },
 
   setButtonsEnabled: function(bool) {
@@ -487,10 +466,8 @@ app.views.Publisher = Backbone.View.extend({
   setInputEnabled: function(bool) {
     if (bool) {
       this.inputEl.removeAttr("disabled");
-      this.hiddenInputEl.removeAttr("disabled");
     } else {
       this.inputEl.prop("disabled", true);
-      this.hiddenInputEl.prop("disabled", true);
     }
   },
 
@@ -501,11 +478,6 @@ app.views.Publisher = Backbone.View.extend({
         isValidPoll = this.viewPollCreator.validatePoll();
 
     return (!onlyWhitespaces || isPhotoAttached) && isValidPoll && !this.disabled;
-  },
-
-  handleTextchange: function() {
-    this.checkSubmitAvailability();
-    this.hiddenInputEl.val(this.mention.getTextForSubmit());
   },
 
   _beforeUnload: function(e) {

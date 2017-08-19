@@ -4,27 +4,29 @@ app.views.Help = app.views.StaticContentView.extend({
   templateName : "help",
 
   events : {
-    "click .faq-link" : "sectionClicked",
-    "click .faq-link-getting-help" : "gettingHelp",
-    "click .faq-link-sharing" : "sharing",
-    "click .faq-link-posts-and-posting" : "postsAndPosting",
+    "click .faq-link": "sectionClicked",
+    "click .faq-link-getting-help": "gettingHelp",
+    "click .faq-link-sharing": "sharing",
+    "click .faq-link-posts-and-posting": "postsAndPosting",
     "click .faq-link-tags": "tags",
-    "click .faq-link-keyboard-shortcuts" : "keyboardShortcuts",
-    "click .faq-link-chat" :  "chat"
+    "click .faq-link-keyboard-shortcuts": "keyboardShortcuts",
+    "click .faq-link-chat": "chat"
   },
 
   initialize : function() {
     this.GETTING_HELP_SUBS = {
-      getting_started_a: { tutorial_series: this.linkHtml("http://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t( 'getting_started_tutorial' )) },
-      get_support_a_website: { link: this.linkHtml("https://diasporafoundation.org/", Diaspora.I18n.t( 'foundation_website' ))},
-      get_support_a_tutorials: { tutorials: this.linkHtml("https://diasporafoundation.org/tutorials", Diaspora.I18n.t( 'tutorials' ))},
-      get_support_a_wiki: { link: this.linkHtml("https://wiki.diasporafoundation.org/Special:Search", Diaspora.I18n.t( 'wiki' ))},
-      get_support_a_irc: { irc: this.linkHtml("https://wiki.diasporafoundation.org/How_We_Communicate#IRC", Diaspora.I18n.t( 'irc' ))},
-      get_support_a_faq: { faq: this.linkHtml("https://wiki.diasporafoundation.org/FAQ_for_users", Diaspora.I18n.t( 'faq' ))},
-      get_support_a_hashtag: { question: this.linkHtml("/tags/question", "#question")}
+      getting_started_a: {tutorial_series: this.linkHtml("http://diasporafoundation.org/getting_started/sign_up", Diaspora.I18n.t("getting_started_tutorial"))},
+      get_support_a_website: {link: this.linkHtml("https://diasporafoundation.org/", Diaspora.I18n.t("foundation_website"))},
+      get_support_a_tutorials: {tutorials: this.linkHtml("https://diasporafoundation.org/tutorials", Diaspora.I18n.t("tutorials"))},
+      get_support_a_wiki: {link: this.linkHtml("https://wiki.diasporafoundation.org/Special:Search", Diaspora.I18n.t("wiki"))},
+      get_support_a_irc: {irc: this.linkHtml("https://wiki.diasporafoundation.org/How_We_Communicate#IRC", Diaspora.I18n.t("irc"))},
+      get_support_a_faq: {faq: this.linkHtml("https://wiki.diasporafoundation.org/FAQ_for_users", Diaspora.I18n.t("faq"))},
+      get_support_a_hashtag: {question: this.linkHtml("/tags/question", "#question")},
+      get_support_a_discourse: {discourse: this.linkHtml("https://discourse.diasporafoundation.org/c/support", "discussions & support")}
 	};
 
     this.POSTS_AND_POSTING_SUBS = {
+      post_report_a: {community_guidelines: this.linkHtml("https://diasporafoundation.org/community_guidelines", Diaspora.I18n.t("community_guidelines"))},
       format_text_a: {
         markdown: this.linkHtml("http://diasporafoundation.org/formatting", Diaspora.I18n.t( 'markdown' )),
         here: this.linkHtml("http://daringfireball.net/projects/markdown/syntax", Diaspora.I18n.t( 'here' ))
@@ -53,10 +55,9 @@ app.views.Help = app.views.StaticContentView.extend({
       title_pods: Diaspora.I18n.t( 'pods.title' ),
       title_posts_and_posting: Diaspora.I18n.t( 'posts_and_posting.title' ),
       title_private_posts: Diaspora.I18n.t( 'private_posts.title' ),
-      title_private_profiles: Diaspora.I18n.t( 'private_profiles.title' ),
       title_public_posts: Diaspora.I18n.t( 'public_posts.title' ),
-      title_public_profiles: Diaspora.I18n.t( 'public_profiles.title' ),
       title_resharing_posts: Diaspora.I18n.t( 'resharing_posts.title' ),
+      title_profile: Diaspora.I18n.t("profile.title"),
       title_sharing: Diaspora.I18n.t( 'sharing.title' ),
       title_tags: Diaspora.I18n.t( 'tags.title' ),
       title_keyboard_shortcuts: Diaspora.I18n.t( 'keyboard_shortcuts.title' ),

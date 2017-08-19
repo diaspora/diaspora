@@ -19,17 +19,17 @@ class StatusMessage < Post
 
   has_one :location
   has_one :poll, autosave: true
+  has_many :poll_participations, through: :poll
 
   attr_accessor :oembed_url
   attr_accessor :open_graph_url
 
-  after_create :create_mentions
   after_commit :queue_gather_oembed_data, :on => :create, :if => :contains_oembed_url_in_text?
   after_commit :queue_gather_open_graph_data, :on => :create, :if => :contains_open_graph_url_in_text?
 
   #scopes
   scope :where_person_is_mentioned, ->(person) {
-    joins(:mentions).where(:mentions => {:person_id => person.id})
+    owned_or_visible_by_user(person.owner).joins(:mentions).where(mentions: {person_id: person.id})
   }
 
   def self.guids_for_author(person)
@@ -50,36 +50,6 @@ class StatusMessage < Post
 
   def nsfw
     text.try(:match, /#nsfw/i) || super
-  end
-
-  def message
-    @message ||= Diaspora::MessageRenderer.new(text, mentioned_people: mentioned_people)
-  end
-
-  def mentioned_people
-    if self.persisted?
-      self.mentions.includes(:person => :profile).map{ |mention| mention.person }
-    else
-      Diaspora::Mentionable.people_from_string(text)
-    end
-  end
-
-  ## TODO ----
-  # don't put presentation logic in the model!
-  def mentioned_people_names
-    self.mentioned_people.map(&:name).join(', ')
-  end
-  ## ---- ----
-
-  def create_mentions
-    ppl = Diaspora::Mentionable.people_from_string(text)
-    ppl.each do |person|
-      self.mentions.find_or_create_by(person_id: person.id)
-    end
-  end
-
-  def mentions?(person)
-    mentioned_people.include? person
   end
 
   def comment_email_subject
@@ -124,6 +94,24 @@ class StatusMessage < Post
     super(recipient_user_ids)
 
     photos.each {|photo| photo.receive(recipient_user_ids) }
+  end
+
+  # Note: the next two methods can be safely removed once changes from #6818 are deployed on every pod
+  # see StatusMessageCreationService#dispatch
+  # Only includes those people, to whom we're going to send a federation entity
+  # (and doesn't define exhaustive list of people who can receive it)
+  def people_allowed_to_be_mentioned
+    @aspects_ppl ||=
+      if public?
+        :all
+      else
+        Contact.joins(:aspect_memberships).where(aspect_memberships: {aspect: aspects}).distinct.pluck(:person_id)
+      end
+  end
+
+  def filter_mentions
+    return if people_allowed_to_be_mentioned == :all
+    update(text: Diaspora::Mentionable.filter_people(text, people_allowed_to_be_mentioned))
   end
 
   private

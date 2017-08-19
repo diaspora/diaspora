@@ -47,14 +47,8 @@ class StatusMessagesController < ApplicationController
   end
 
   def create
-    normalized_params = params.merge(
-      services:   normalize_services,
-      aspect_ids: normalize_aspect_ids,
-      public:     normalize_public_flag
-    )
-    status_message = StatusMessageCreationService.new(current_user).create(normalized_params)
+    status_message = StatusMessageCreationService.new(current_user).create(normalize_params)
     respond_to do |format|
-      format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
       format.json { render json: PostPresenter.new(status_message, current_user), status: 201 }
     end
@@ -71,9 +65,8 @@ class StatusMessagesController < ApplicationController
   def handle_create_error(error)
     logger.debug error
     respond_to do |format|
-      format.html { redirect_to :back }
       format.mobile { redirect_to stream_path }
-      format.json { render text: error.message, status: 403 }
+      format.json { render plain: error.message, status: 403 }
     end
   end
 
@@ -89,8 +82,19 @@ class StatusMessagesController < ApplicationController
     request.env["HTTP_REFERER"].include?("/people/" + current_user.guid)
   end
 
-  def normalize_services
-    [*params[:services]].compact
+  def normalize_params
+    params.permit(
+      :location_address,
+      :location_coords,
+      :poll_question,
+      status_message: %i[text provider_display_name],
+      poll_answers:   []
+    ).to_h.merge(
+      services:   [*params[:services]].compact,
+      aspect_ids: normalize_aspect_ids,
+      public:     [*params[:aspect_ids]].first == "public",
+      photos:     [*params[:photos]].compact
+    )
   end
 
   def normalize_aspect_ids
@@ -100,10 +104,6 @@ class StatusMessagesController < ApplicationController
     else
       aspect_ids
     end
-  end
-
-  def normalize_public_flag
-    [*params[:aspect_ids]].first == "public"
   end
 
   def remove_getting_started

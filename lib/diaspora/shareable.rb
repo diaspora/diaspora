@@ -50,6 +50,14 @@ module Diaspora
       end
     end
 
+    # Remote pods which are known to be subscribed to the post. Must include all pods which received the post in the
+    # past.
+    #
+    # @return [Array<String>] The list of pods' URIs
+    def subscribed_pods_uris
+      Pod.find(subscribers.select(&:remote?).map(&:pod_id).uniq).map {|pod| pod.url_to("") }
+    end
+
     module QueryMethods
       def owned_or_visible_by_user(user)
         with_visibility.where(

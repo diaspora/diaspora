@@ -121,12 +121,6 @@ var app = {
     app.flashMessages = new app.views.FlashMessages({el: $("#flash-container")});
   },
 
-  /* mixpanel wrapper function */
-  instrument : function(type, name, object, callback) {
-    if(!window.mixpanel) { return; }
-    window.mixpanel[type](name, object, callback);
-  },
-
   setupDisabledLinks: function() {
     $("a.disabled").click(function(event) {
       event.preventDefault();

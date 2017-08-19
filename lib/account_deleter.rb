@@ -17,9 +17,9 @@ class AccountDeleter
 
   attr_accessor :person, :user
 
-  def initialize(diaspora_handle)
-    self.person = Person.where(:diaspora_handle => diaspora_handle).first
-    self.user = self.person.owner
+  def initialize(person)
+    self.person = person
+    self.user = person.owner
   end
 
   def perform!
@@ -30,31 +30,33 @@ class AccountDeleter
       delete_contacts_of_me
       tombstone_person_and_profile
 
-      if self.user
-        #user deletion methods
-        remove_share_visibilities_on_contacts_posts
-        delete_standard_user_associations
-        disconnect_contacts
-        tombstone_user
-      end
+      close_user if user
 
       mark_account_deletion_complete
     end
   end
 
+  # user deletion methods
+  def close_user
+    remove_share_visibilities_on_contacts_posts
+    disconnect_contacts
+    delete_standard_user_associations
+    tombstone_user
+  end
+
   #user deletions
   def normal_ar_user_associates_to_delete
-    %i(tag_followings services aspects user_preferences
-       notifications blocks authorizations o_auth_applications pairwise_pseudonymous_identifiers)
+    %i[tag_followings services aspects user_preferences
+       notifications blocks authorizations o_auth_applications pairwise_pseudonymous_identifiers]
   end
 
   def special_ar_user_associations
-    %i(person profile contacts auto_follow_back_aspect)
+    %i[person profile contacts auto_follow_back_aspect]
   end
 
   def ignored_ar_user_associations
-    %i(followed_tags invited_by contact_people aspect_memberships
-       ignored_people share_visibilities conversation_visibilities conversations reports)
+    %i[followed_tags invited_by invited_users contact_people aspect_memberships
+       ignored_people share_visibilities conversation_visibilities conversations reports]
   end
 
   def delete_standard_user_associations
@@ -97,14 +99,15 @@ class AccountDeleter
   end
 
   def normal_ar_person_associates_to_delete
-    %i(posts photos mentions participations roles)
+    %i[posts photos mentions participations roles blocks]
   end
 
   def ignored_or_special_ar_person_associations
-    %i(comments contacts notification_actors notifications owner profile conversation_visibilities pod)
+    %i[comments likes poll_participations contacts notification_actors notifications owner profile
+       conversation_visibilities pod conversations messages]
   end
 
   def mark_account_deletion_complete
-    AccountDeletion.where(:diaspora_handle => self.person.diaspora_handle).where(:person_id => self.person.id).update_all(["completed_at = ?", Time.now])
+    AccountDeletion.find_by(person: person)&.update_attributes(completed_at: Time.now.utc)
   end
 end

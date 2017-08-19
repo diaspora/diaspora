@@ -306,12 +306,6 @@ configuration: ## Section
       #host: 'stats.example.org'
       #site_id: 1
 
-    ## Mixpanel event tracking (disabled by default).
-    #mixpanel_uid:
-
-    ## Chartbeat tracking (disabled by default).
-    #chartbeat_uid:
-
     ## Statistics
     ## Your pod will report its name, software version and whether
     ## or not registrations are open via /statistics.json.

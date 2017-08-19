@@ -28,6 +28,7 @@ en:
     comma: ","
     edit: "Edit"
     no_results: "No results found"
+    show_all: "Show all"
 
     admins:
       dashboard:

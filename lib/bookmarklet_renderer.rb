@@ -2,27 +2,35 @@
 class BookmarkletRenderer
   class << self
     def cached_name
-      @cached ||= Rails.root.join("public", "assets", "bookmarklet.js")
+      @cached_name ||= if Rails.application.config.assets.compile
+                         "bookmarklet.js"
+                       else
+                         Rails.application.assets_manifest.assets["bookmarklet.js"]
+                       end
     end
 
-    def source_name
+    def cached_path
+      @cached_path ||= Rails.root.join("public", "assets", cached_name)
+    end
+
+    def source
       @source ||= Rails.application.assets["bookmarklet.js"].pathname.to_s
     end
 
     def body
-      if !File.exist?(cached_name) && Rails.env.production?
-        raise "please run the Rake task to compile the bookmarklet: `bundle exec rake assets:uglify_bookmarklet`"
+      unless File.exist?(cached_path) || Rails.application.config.assets.compile
+        raise "Please run the rake task to compile the bookmarklet: `bin/rake assets:precompile`"
       end
 
-      compile unless Rails.env.production? # don't make me re-run rake in development
-      @body ||= File.read(cached_name)
+      compile if Rails.application.config.assets.compile
+      @body ||= File.read(cached_path)
     end
 
     def compile
-      src = File.read(source_name)
+      src = File.read(source)
       @body = Uglifier.compile(src)
-      FileUtils.mkdir_p cached_name.dirname
-      File.open(cached_name, "w") {|f| f.write(@body) }
+      FileUtils.mkdir_p cached_path.dirname
+      File.open(cached_path, "w") {|f| f.write(@body) }
     end
   end
 end

@@ -1,4 +1,4 @@
-class CreateChatOfflineMessages < ActiveRecord::Migration
+class CreateChatOfflineMessages < ActiveRecord::Migration[4.2]
   def self.up
     create_table :chat_offline_messages do |t|
       t.string :from, :null => false

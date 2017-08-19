@@ -21,6 +21,16 @@ var factory = {
     return _.extend(defaultAttrs, overrides);
   },
 
+  reshare: function(overrides) {
+    var defaultAttrs = {
+      "created_at": "2012-01-04T00:55:30Z",
+      "author": this.author(),
+      "guid": this.guid(),
+      "id": this.id.next()
+    };
+    return _.extend(defaultAttrs, overrides);
+  },
+
   aspectMembershipAttrs: function(overrides) {
     var id = this.id.next();
     var defaultAttrs = {
@@ -204,6 +214,24 @@ var factory = {
     var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
     defaultAttrs = _.extend(defaultAttrs,  {"already_participated_in_poll" : false});
     defaultAttrs = _.extend(defaultAttrs,  {"poll" : factory.poll()});
+    return new app.models.Post(_.extend(defaultAttrs, overrides));
+  },
+
+  postWithInteractions: function(overrides) {
+    var likes = _.range(10).map(function() { return factory.like(); });
+    var reshares = _.range(15).map(function() { return factory.reshare(); });
+    var comments = _.range(20).map(function() { return factory.comment(); });
+    var defaultAttrs = _.extend(factory.postAttrs(), {
+      "author": this.author(),
+      "interactions": {
+        "reshares_count": 15,
+        "likes_count": 10,
+        "comments_count": 20,
+        "comments": comments,
+        "likes": likes,
+        "reshares": reshares
+      }
+    });
     return new app.models.Post(_.extend(defaultAttrs, overrides));
   },
 

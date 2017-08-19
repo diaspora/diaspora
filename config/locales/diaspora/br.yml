@@ -286,18 +286,10 @@ br:
       what_is_a_pod_a: "Un dafariad oc'h erounit ar meziant diaspora* ha kennasket d'ar rouedad diaspora eo ur pod. \"Pod\" a zo un dave d'ar ger Saoznek \"pod\", a dalv kement ha \"klorenn\", oc'h enderc'hel greun evel-mañ ma vez endalc'het kontoù gant an dafariad. Meur a pod a vez kavet. Gallout a rit ouzhpennañ mignoned adalek ar podoù all hag eskemm ganto. N'eus ezhomm ebet digeriñ kontoù war podoù disheñvel ! Unan 'zo trawalc'h. Gallout a rit soñjal eo ur pod disapora* evel ur pourchaser posteloù. Podoù foran a zo, reoù prevez, ha ma klaskit mat ez eus tu deoc'h erounit ho hini."
     posts_and_posting:
       char_limit_services_q: "Petra c'hoarvez ma rannan va fost gant ur servij kennasket gant ur vevenn arouezioù bihanoc'h ?"
-      image_text: "testenn ar skeudenn"
-      image_url: "URL ar skeudenn"
     private_posts:
       title: "Embannadennoù prevez"
-    private_profiles:
-      title: "aeladoù prevez"
     public_posts:
       title: "Embannadennoù foran"
-    public_profiles:
-      title: "Aeladoù foran"
-      whats_in_profile_q: "Ar pezh zo em aelad foran"
-      who_sees_profile_q: "Piv a wel ma aelad foran ?"
     sharing:
       title: "O rannañ"
     tags:

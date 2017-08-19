@@ -4,7 +4,7 @@
 
 describe Notifications::PrivateMessage, type: :model do
   let(:conversation) {
-    conv_guid = FactoryGirl.generate(:guid)
+    conv_guid = Fabricate.sequence(:guid)
 
     Conversation.create(
       guid:                conv_guid,

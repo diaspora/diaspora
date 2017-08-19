@@ -266,7 +266,6 @@ sk:
     mentions:
       how_to_mention_a: "Napíš znak \"@\" pred meno toho človeka (bez medzery). Malo by sa zobraziť rolovacie menu, aby si si mohol (-hla) ľahšie vybrať. Pamätaj si, že takto môžeš spomenúť iba ľudí, ktorých máš pridaných do kategórií."
       how_to_mention_q: "Ako môžem niekoho spomenúť, keď píšem príspevok?"
-      mention_in_comment_a: "Nie, nie v súčasnosti."
       mention_in_comment_q: "Môžem niekoho spomenúť v komentári?"
       title: "Zmienky"
       what_is_a_mention_a: "Zmienka je odkaz na niečiu stránku s profilom, ktorý sa objaví v príspevku. Keď niekoho spomeniete, dostane oznam, ktorý upriami jeho pozornosť na príspevok."
@@ -281,25 +280,15 @@ sk:
       character_limit_a: "65 535 znakov. To je o 65 395 znakov viac, ako Ti dá Twitter! ;)"
       character_limit_q: "Aký je limit znakov pre príspevok?"
       format_text_q: "Ako môžem formátovať text v mojom príspevku (hrúbku, kurzíva, atď.)?"
-      image_text: "text k obrázku"
-      image_url: "adresa obrázka"
       insert_images_comments_q: "Môžem vložiť obrázok do komentáru?"
       insert_images_q: "Ako môžem vložiť obrázok do príspevku?"
       size_of_images_q: "Môžem upraviť veľkosť obrázku v príspevku alebo komentári?"
       title: "Príspevky a ich posielanie"
     private_posts:
       title: "Súkromné príspevky"
-    private_profiles:
-      title: "Súkromné profily"
-      whats_in_profile_q: "Čo obsahuje môj súkromný profil?"
-      who_sees_profile_q: "Kto vidí môj osobný profil?"
     public_posts:
       find_public_post_q: "Ako môžu ľudia nájsť môj verejný príspevok?"
       title: "Verejné príspevky"
-    public_profiles:
-      title: "Verejné profily"
-      whats_in_profile_q: "Čo je môj verejný profil?"
-      who_sees_profile_q: "Kto vidí môj verejný profil?"
     sharing:
       title: "Zdieľanie"
     tags:

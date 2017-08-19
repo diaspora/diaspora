@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Profile < ActiveRecord::Base
+class Profile < ApplicationRecord
   self.include_root_in_json = false
 
   include Diaspora::Federated::Base
@@ -38,6 +38,10 @@ class Profile < ActiveRecord::Base
 
   def subscribers
     Person.joins(:contacts).where(contacts: {user_id: person.owner_id})
+  end
+
+  def public?
+    public_details?
   end
 
   def diaspora_handle
@@ -102,10 +106,6 @@ class Profile < ActiveRecord::Base
     end
   end
 
-  def formatted_birthday
-    birthday.to_s(:long).gsub(/, 100[0|4]/, "") if birthday.present?
-  end
-
   def bio_message
     @bio_message ||= Diaspora::MessageRenderer.new(bio)
   end
@@ -126,6 +126,7 @@ class Profile < ActiveRecord::Base
   end
 
   def tombstone!
+    @tag_string = nil
     self.taggings.delete_all
     clearable_fields.each do |field|
       self[field] = nil

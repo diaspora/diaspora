@@ -1,4 +1,4 @@
-class CleanupPostsTable < ActiveRecord::Migration
+class CleanupPostsTable < ActiveRecord::Migration[4.2]
   def change
     remove_index :posts, column: %i(status_message_guid pending),
                  name: :index_posts_on_status_message_guid_and_pending, length: {status_message_guid: 190}
