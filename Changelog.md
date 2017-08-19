@@ -21,6 +21,7 @@
 * Fix recipient prefill on contacts and profile page [#7599](https://github.com/diaspora/diaspora/pull/7599)
 * Display likes and reshares without login [#7583](https://github.com/diaspora/diaspora/pull/7583)
 * Fix invalid data in the database for user data export [#7614](https://github.com/diaspora/diaspora/pull/7614)
+* Fix local migration run without old private key [#7558](https://github.com/diaspora/diaspora/pull/7558)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
