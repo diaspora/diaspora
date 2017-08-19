@@ -10,10 +10,6 @@
     - content_for :javascript do
       = old_browser_js_support
 
-      <!--[if IE]>
-      = javascript_include_tag :ie
-      <![endif]-->
-
       = javascript_include_tag :main, :templates
       = load_javascript_locales
 
