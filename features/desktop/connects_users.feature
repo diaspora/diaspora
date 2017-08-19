@@ -35,8 +35,8 @@ Feature: following and being followed
 
     And I fill in "aspect_name" with "Super People" in the aspect creation modal
     And I click on selector ".btn-primary" in the aspect creation modal
+    And I wait until ajax requests finished
 
-    When I go to the home page
     Then I should have 1 contact in "Super People"
     Then I sign out
 
