@@ -129,7 +129,7 @@ de_formal:
       help: "Hilfe"
       home: "Startseite"
       log_out: "Abmelden"
-      mark_all_as_read: "Markiere alle als gelesen"
+      mark_all_as_read: "Alle als gelesen markieren"
       moderator: "Moderator"
       notifications: "Benachrichtigungen"
       profile: "Profil"
@@ -241,6 +241,7 @@ de_formal:
     reshares:
       post: "<%= name %>s Beitrag weitersagen?"
       successful: "Der Beitrag wurde erfolgreich weitergesagt!"
+    show_all: "Alle anzeigen"
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentieren"

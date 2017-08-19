@@ -97,6 +97,8 @@ es:
     confirm_unload: "Por favor, confirma que quieres abandonar esta página. Los datos que no hayas introducido, no serán guardados."
     contacts:
       add_contact: "Añadir contacto"
+      aspect_chat_is_enabled: "Los contactos de este \"aspecto\" pueden chatear contigo."
+      aspect_chat_is_not_enabled: "Los contactos de este \"aspecto\" no pueden chatear contigo."
       aspect_list_is_not_visible: "Los contactos de este aspecto no pueden verse entre ellos."
       aspect_list_is_visible: "Los contactos de este aspecto pueden verse entre ellos."
       error_add: "No se pudo añadir a <%= name %> al aspecto :("
@@ -104,11 +106,15 @@ es:
       remove_contact: "Eliminar contacto"
       search_no_results: "No se encontraron contactos"
     conversation:
+      create:
+        no_recipient: "¡Eh, primero tienes que agregar un destinatario!"
       new:
         no_contacts: "Necesitas añadir algún contacto antes de empezar una conversación."
     create: "Crear"
     delete: "Eliminar"
     edit: "Editar"
+    errors:
+      connection: "No ha sido posible conectarse al servidor."
     failed_to_post_message: "¡Error al publicar el mensaje!"
     failed_to_remove: "¡Se produjo un error al eliminar la entrada!"
     getting_started:
@@ -146,6 +152,9 @@ es:
     notifications:
       mark_read: "Marcar como leído"
       mark_unread: "Marcar como no leído"
+      new_notifications:
+        one: "Tienes <%= count %> notificación sin leer."
+        other: "Tienes <%= count %> notificaciones sin leer."
     people:
       edit_my_profile: "Editar mi perfil"
       helper:
@@ -233,6 +242,7 @@ es:
     reshares:
       post: "¿Compartir la publicación de <%= name %>?"
       successful: "¡Publicación compartida con éxito!"
+    show_all: "Mostrar todo"
     show_more: "mostrar más"
     stream:
       comment: "Comentar"
@@ -289,6 +299,7 @@ es:
       hour: "1 hora aproximadamente"
       hours:
         other: "%d horas aproximadamente"
+      inPast: "próximamente"
       minute: "1 minuto aproximadamente"
       minutes:
         other: "%d minutos"

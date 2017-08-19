@@ -108,7 +108,7 @@ pl:
     getting_started:
       alright_ill_wait: "Dobrze, poczekam."
       hey: "Hej, <%= name %>!"
-      no_tags: "Hej, nie obserwujesz żadnych znaczników! Kontynuować mimo to?"
+      no_tags: "Hej, nie obserwujesz żadnych tagów! Kontynuować mimo to?"
       preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
     header:
       admin: "Administrator"
@@ -225,6 +225,7 @@ pl:
     reshares:
       post: "Przesłać dalej wpis użytkownika <%= name %>?"
       successful: "Wpis został pomyślnie przesłany dalej!"
+    show_all: "Pokaż wszystkie"
     show_more: "wyświetl więcej"
     stream:
       comment: "Skomentuj"
@@ -232,9 +233,9 @@ pl:
       enable_post_notifications: "Włącz powiadomienia do tego wpisu"
       follow: "Obserwuj"
       followed_tag:
-        add_a_tag: "Dodaj znacznik"
+        add_a_tag: "Dodaj tag"
         follow: "Obserwuj"
-        title: "#Obserwowane znaczniki"
+        title: "#Obserwowane tagi"
       hide: "Ukryj"
       hide_nsfw_posts: "Ukryj wpisy #nsfw"
       like: "Lubię to!"
@@ -279,16 +280,25 @@ pl:
     timeago:
       day: "dzień"
       days:
-        other: "%d dni"
+        few: "%d dni temu"
+        many: "%d dni temu"
+        one: "1 dzień temu"
+        other: "%d dni temu"
       hour: "około godziny"
       hours:
-        other: "około %d godzin"
+        few: "około %d godziny"
+        many: "około %d godzin"
+        one: "około godzinę"
+        other: "około %d godziny"
       inPast: "w każdej chwili"
       minute: "około minuty"
       minutes:
         other: "%d minut"
       month: "około miesiąca"
       months:
+        few: "%d miesiące"
+        many: "%d miesięcy"
+        one: "miesiąc"
         other: "%d miesięcy"
       prefixAgo: ""
       prefixFromNow: ""

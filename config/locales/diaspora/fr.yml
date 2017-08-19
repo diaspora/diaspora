@@ -270,6 +270,13 @@ fr:
     heading: "Bookmarklet"
     post_something: "Publiez sur diaspora*"
   cancel: "Annuler"
+  color_themes:
+    dark: "Sombre"
+    dark_green: "Vert sombre"
+    egyptian_blue: "Bleu égyptien"
+    magenta: "Magenta"
+    original: "Gris par défaut"
+    original_white: "Fond blanc"
   comments:
     create:
       error: "Impossible de commenter."
@@ -379,9 +386,11 @@ fr:
       add_contact_roster_q: "Comment chatter avec quelqu'un dans diaspora* ?"
       contacts_page: "page des contacts"
       title: "Chat"
+    community_guidelines: "Lignes directrices pour la communauté"
     faq: "FAQ"
     foundation_website: "site Internet de la fondation diaspora*"
     getting_help:
+      get_support_a_discourse: "Cherchez des discussions en rapport avec votre demande ou ouvrez un nouveau fil de discussion sur notre plate-forme %{discourse}."
       get_support_a_faq: "Lire la page %{faq} de notre wiki"
       get_support_a_hashtag: "Posez une question dans un message public sur diaspora* en utilisant le hashtag %{question}"
       get_support_a_irc: "Rejoignez-nous sur %{irc} (Tchat instantané)"
@@ -411,7 +420,6 @@ fr:
     mentions:
       how_to_mention_a: "Tapez le symbole \"@\" et commencez à taper leur nom. Un menu déroulant devrait apparaître pour vous permettre de les choisir plus facilement. Notez qu'il n'est possible de mentionner que des gens que vous avez ajoutés à un aspect."
       how_to_mention_q: "Comment puis-je mentionner quelqu'un lorsque je rédige un message ?"
-      mention_in_comment_a: "Non, pas pour le moment."
       mention_in_comment_q: "Puis-je mentionner quelqu'un dans un commentaire ?"
       see_mentions_a: "Oui, cliquez sur \"@Mentions\" dans la colonne de gauche de votre page d'accueil."
       see_mentions_q: "Il y a t-il un moyen de voir les messages dans lesquels j'ai été mentionné ?"
@@ -447,11 +455,8 @@ fr:
       format_text_q: "Comment puis-je formater le texte de mes messages (gras, italique, etc.) ?"
       hide_posts_a: "Si vous pointez votre souris en haut d'un message, une croix apparaît sur la droite. Cliquez dessus pour masquer le message et empêcher toute notification le concernant. Vous pourrez toujours voir le message si vous visitez la page de profil de la personne qui l'a rédigé."
       hide_posts_q: "Comment puis-je masquer un message ?"
-      image_text: "texte de l'image"
-      image_url: "url de l'image"
       insert_images_a: "Cliquez sur la petite icône représentant un appareil photo pour insérer une image dans un message. Appuyez une seconde fois pour ajouter une autre photo, ou vous pouvez sélectionner de multiples photos à téléverser en une seule fois."
-      insert_images_comments_a1: "Vous ne pouvez pas téléverser des images dans les commentaires mais le code Markdown suivant"
-      insert_images_comments_a2: "cela peut être utilisé pour insérer des images à partir du web dans les commentaires ou les messages."
+      insert_images_comments_a: "Comme dans le cas des messages, vous pouvez utiliser la syntaxe Markdown pour insérer une image à partir du web dans un commentaire. Par contre, il n'est pas possible de téléverser une image stockée sur votre ordinateur. Dans ce cas, commencez par téléverser l'image sur un site d'hébergement d'images, puis insérez-la via l'icône d'insertion d'image de la barre d'outils dans la partie supérieure de la boîte de rédaction."
       insert_images_comments_q: "Puis-je insérer des images dans un commentaire ?"
       insert_images_q: "Comment puis-je insérer des images dans un message ?"
       post_location_a: "Dans l'éditeur, cliquez sur l'icône en forme d'épingle à côté de l'appareil photo. Ceci va insérer votre emplacement à partir d'OpenStreetMap. Vous pourrez modifier votre position - pour inclure uniquement la ville plutôt que la rue par exemple."
@@ -480,14 +485,14 @@ fr:
       title: "Messages privés"
       who_sees_post_a: "Seuls les utilisateurs placés dans cet aspect et connectés à diaspora* peuvent voir votre message privé."
       who_sees_post_q: "Lorsque j'envoie un message à un aspect (c'est-à-dire un message privé), qui peut le voir ?"
-    private_profiles:
-      title: "Profils privés"
-      whats_in_profile_a: "La biographie, la localisation, le genre, et l'anniversaire. Ce sont les éléments dans le bas de la section de l'édition de la page de profil. Toutes ces informations sont optionnelles — c'est à vous de décider si vous les renseignez ou non.  Les utilisateurs connectés que vous avez ajoutés à vos aspects sont les seuls qui peuvent lire votre profil privé. Ils verront aussi les messages privés publiés dans les aspects dont ils font partie, mélangés avec vos publications publiques, lorsqu'ils visiteront votre page de profil."
-      whats_in_profile_q: "Qu'est ce que mon profil privé ?"
-      who_sees_profile_a: "N'importe quel utilisateur connecté avec lequel vous partagez (ce qui signifie que vous l'avez ajouté dans l'un de vos aspects). Les gens qui vous suivent, mais que vous ne suivez pas, verrons uniquement vos informations publiques."
-      who_sees_profile_q: "Qui peut voir mon profil privé ?"
-      who_sees_updates_a: "N'importe qui dans vos aspects peut voir les modifications de votre profil privé. "
-      who_sees_updates_q: "Qui peut voir les mises à jour de mon profil privé ?"
+    profile:
+      title: "Profil"
+      what_do_tags_do_a: "Ces tags permettent aux gens de mieux vous connaître. Ils seront visibles, ainsi que votre image de profil, dans la partie gauche des pages de flux associées à ces tags ; le profil de base de toute autre personne dont le profil contient un tag identique à un des vôtres apparaîtra également dans la partie gauche."
+      what_do_tags_do_q: "Pourquoi fournir des tags dans mon profil ?"
+      whats_in_profile_a: "Votre profil est subdivisé en deux parties : un profil élémentaire (basique) et un profil complet. Votre profil basique comprend vos nom et prénom, les cinq tags que vous avez choisis pour vous décrire et votre photo. Votre profil complet comprend des informations d'ordre biographique, de localisation, de genre et de date d'anniversaire. Aucune de ces données n'est obligatoire ; vous êtes libre de les fournir ou pas, qu'elles soient authentiques ou imaginaires. Votre profil complet apparaît dans la colonne de gauche de votre page de profil, sous votre photo."
+      whats_in_profile_q: "Que trouve-t-on dans mon profil ?"
+      who_sees_profile_a: "Votre profil basique (nom, image du profil et #tags) est public. Par défaut, votre profil complet est privé, mais rien ne vous empêche de le rendre public. Un profil complet privé est uniquement visible par les personnes avec qui vous partagez (les personnes que vous avez ajoutées à un de vos aspects) ; les autres ne peuvent voir que vos données publiques ; celles-ci sont visibles par tout internaute et peuvent être indexées par des moteurs de recherche."
+      who_sees_profile_q: "Qui peut voir mon profil ?"
     public_posts:
       can_comment_reshare_like_a: "N'importe quel utilisateur connecté à diaspora* peut commenter, repartager, ou aimer votre message public."
       can_comment_reshare_like_q: "Qui peut commenter, repartager, ou aimer mon message public ?"
@@ -500,16 +505,6 @@ fr:
       title: "Messages publics"
       who_sees_post_a: "N'importe qui utilisant internet peut potentiellement voir un message que vous marquez comme public, donc soyez sûrs de vouloir rendre ce message public. C'est le meilleur moyen de s'ouvrir sur le monde."
       who_sees_post_q: "Lorsque je publie quelque chose publiquement, qui peut le voir ?"
-    public_profiles:
-      title: "Profils publics"
-      what_do_tags_do_a: "Ils aident les gens à mieux vous connaître. Votre photo de profil apparaîtra également dans le panneau latéral sur la gauche des pages de ces tags, avec tous ceux qui les ont dans leur profil public."
-      what_do_tags_do_q: "Qu'est ce que font les tags sur mon profil public ?"
-      whats_in_profile_a: "Votre nom, les cinq tags que vous choisissez pour vous décrire, et votre photo. C'est l'ensemble des éléments dans la partie haute de votre page d'édition de profil. Vous pouvez créer un profil avec des informations vous identifiant ou vous laissant anonyme selon votre souhait. Votre page de profil montre uniquement les messages publics que vous avez créés."
-      whats_in_profile_q: "Qu'y a-t-il dans mon profil public ?"
-      who_sees_profile_a: "N'importe quel utilisateur connecté à diaspora*, ainsi que le reste d'Internet, peut le voir. Chaque profil a une URL directe, permettant d'avoir un lien pointant dessus depuis des sites extérieurs. Il peut être indexé par les moteurs de recherche."
-      who_sees_profile_q: "Qui peut voir mon profil public ?"
-      who_sees_updates_a: "N'importe qui peut voir ces changements en visitant votre page de profil."
-      who_sees_updates_q: "Qui peut voir les mises à jour de mon profil public ?"
     resharing_posts:
       reshare_private_post_aspects_a: "Non, il n'est pas possible de repartager un message privé. Ceci dans le but de respecter les intentions du rédacteur initial qui souhaite uniquement partager avec un groupe particulier de personnes."
       reshare_private_post_aspects_q: "Puis-je repartager un message privé uniquement avec certains aspects ?"
@@ -661,6 +656,7 @@ fr:
       mark_read: "Marquer comme lu"
       mark_unread: "Marquer comme non lu"
       mentioned: "Vous mentionnant"
+      mentioned_in_comment: "Vous mentionnant dans un commentaire"
       no_notifications: "Vous n'avez pas encore de notifications."
       notifications: "Notifications"
       reshared: "Repartagé"
@@ -683,6 +679,12 @@ fr:
       one: "%{actors} vous a mentionné dans un message supprimé."
       other: "%{actors} vous ont mentionné dans un message supprimé."
       zero: "Personne ne vous a mentionné dans un message supprimé."
+    mentioned_in_comment:
+      one: "%{actors} vous a mentionné dans un <a href=%{comment_path}>commentaire</a> sur le message %{post_link}."
+      other: "%{actors} vous ont mentionné dans un <a href=%{comment_path}>commentaire</a> sur le message %{post_link}."
+    mentioned_in_comment_deleted:
+      one: "%{actors} vous a mentionné sur un commentaire supprimé."
+      other: "%{actors} vous ont mentionné sur un commentaire supprimé."
     private_message:
       one: "%{actors} vous a envoyé un message."
       other: "%{actors} vous ont envoyé un message."
@@ -808,6 +810,9 @@ fr:
     mentioned:
       limited_post: "Vous avez été mentionné dans une publication restreinte."
       subject: "%{name} vous a mentionné(e) sur diaspora*"
+    mentioned_in_comment:
+      limited_post: "Vous avez été mentionné dans un commentaire sur une publication restreinte."
+      reply: "Répondre ou voir cette conversation >"
     private_message:
       reply_to_or_view: "Répondre ou voir cette conversation >"
       subject: "Vous avez un nouveau message privé"
@@ -1173,6 +1178,7 @@ fr:
       last_exported_at: "(Dernière mise à jour à %{timestamp})"
       liked: "…quelqu'un a aimé votre message."
       mentioned: "…l'on vous mentionne dans un message."
+      mentioned_in_comment: "…vous êtes mentionné dans un commentaire"
       new_password: "Nouveau mot de passe"
       private_message: "…vous recevez un message privé."
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"

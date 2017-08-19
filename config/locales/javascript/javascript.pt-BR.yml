@@ -243,6 +243,7 @@ pt-BR:
     reshares:
       post: "Recompartilhar a publicação de <%= name %>?"
       successful: "A publicação foi recompartilhada com sucesso!"
+    show_all: "Mostrar tudo"
     show_more: "Mostrar mais"
     stream:
       comment: "Comentar"

@@ -233,6 +233,7 @@ ja:
     reshares:
       post: "<%= name %>さんの投稿をリシェアしますか?"
       successful: "投稿は正常にリシェアされました!"
+    show_all: "すべて表示"
     show_more: "さらに表示する"
     stream:
       comment: "コメント"

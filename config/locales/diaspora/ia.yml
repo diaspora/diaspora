@@ -409,7 +409,6 @@ ia:
     mentions:
       how_to_mention_a: "Scribe le signo \"@\" e comencia a scriber su nomine. Un menu disrolante deberea apparer que permitte seliger le nomine plus facilemente. Nota ben que il es solmente possibile mentionar personas que tu ha addite a un aspecto."
       how_to_mention_q: "Como mentionar un persona quando io scribe un entrata?"
-      mention_in_comment_a: "No, actualmente non."
       mention_in_comment_q: "Pote io mentionar qualcuno in un commento?"
       see_mentions_a: "Si, clicca sur \"@Mentiones\" in le columna sinistre in tu pagina principal."
       see_mentions_q: "Existe un maniera de vider le entratas in que on me ha mentionate?"
@@ -445,11 +444,7 @@ ia:
       format_text_q: "Como pote io formatar le texto in mi entratas (grasse, italic, etc.)?"
       hide_posts_a: "Si tu puncta le mouse verso le parte superior de un entrata, un × appare al dextra. Clicca sur illo pro celar le entrata e silentiar le notificationes sur illo. Tu pote ancora vider le entrata si tu visita le pagina de profilo del persona qui lo ha inviate."
       hide_posts_q: "Como cela io un entrata?"
-      image_text: "texto de imagine"
-      image_url: "URL de imagine"
       insert_images_a: "Clicca sur le micre icone de camera pro inserer un imagine in un entrata. Preme le icone de camera de novo pro adder un altere photo, o tu pote seliger plure photos a incargar insimul."
-      insert_images_comments_a1: "Non es possibile incargar imagines in commentos, ma le sequente codice Markdown"
-      insert_images_comments_a2: "pote esser usate pro inserer imagines ab le web in commentos e in entratas."
       insert_images_comments_q: "Pote io inserer imagines in commentos?"
       insert_images_q: "Como inserer imagines in entratas?"
       post_location_a: "Clicca sur le icone de spinula al latere del camera in le quadro de publication. Isto insere tu position geographic ab OpenStreetMap. Tu pote modificar tu position, per exemplo, si tu vole divulgar solmente le citate e non le adresse stratal exacte."
@@ -478,14 +473,6 @@ ia:
       title: "Entratas private"
       who_sees_post_a: "Solmente le usatores qui ha aperite session in disaspora* e que tu habeva placiate in ille aspecto ante de inviar le entrata private pote vider lo."
       who_sees_post_q: "Quando io invia un message a un aspecto (i.e. un entrata private), qui potera vider lo?"
-    private_profiles:
-      title: "Profilos private"
-      whats_in_profile_a: "Tu profilo private contine tu biographia, loco, sexo e data de nascentia, si tu ha completate iste sectiones. Tote iste information es optional; a te le decision de fornir lo o non. Le usatores qui ha aperite session e que tu ha addite a un de tu aspectos es le unic personas qui pote vider tu profilo private. Quando illes visita tu pagina de profilo, illes videra tamben le entratas private inviate al aspecto(s) in que illes es, miscite con tu entratas public."
-      whats_in_profile_q: "Que es in mi profilo private?"
-      who_sees_profile_a: "Omne usator qui ha aperite session e con qui tu divide cosas (i.e. que tu ha addite a un de tu aspectos) pote vider tu profilo private. Nonobstante, le personas qui te seque, ma que tu non seque, videra solmente tu information public."
-      who_sees_profile_q: "Qui vide mi profilo private?"
-      who_sees_updates_a: "Omne persona in tu aspectos vide le cambiamentos in tu profilo private. "
-      who_sees_updates_q: "Qui vide le actualisationes in mi profilo private?"
     public_posts:
       can_comment_reshare_like_a: "Omne usator qui ha aperite session in diaspora* pote commentar, repeter o appreciar tu entrata public."
       can_comment_reshare_like_q: "Qui pote commentar, repeter o appreciar mi entrata public?"
@@ -498,16 +485,6 @@ ia:
       title: "Entratas public"
       who_sees_post_a: "Qualcunque usator de internet poterea vider un entrata que tu marca como public, dunque, assecura te que tu vole vermente que tu message sia public. Isto es un excellente maniera de attinger le mundo."
       who_sees_post_q: "Quando io invia qualcosa publicamente, qui pote vider lo?"
-    public_profiles:
-      title: "Profilos public"
-      what_do_tags_do_a: "Illes adjuta le gente a cognoscer te. Tu imagine de profilo apparera etiam in le latere sinistre de iste paginas de etiquetta, con illos del alteres qui los ha in lor profilos public."
-      what_do_tags_do_q: "Que face le etiquettas in mi profilo public?"
-      whats_in_profile_a: "Le profilo public contine tu nomine, le cinque etiquettas que tu ha eligite pro describer te, e tu photo, si ti ha completate iste sectiones. Tote iste information es facultative; a te le decision de fornir lo o non. Tu pote render iste information de profilo tanto personal o tanto anonyme como tu vole. Tu pagina de profilo monstra etiam le entratas public que tu ha inviate."
-      whats_in_profile_q: "Que es in mi profilo public?"
-      who_sees_profile_a: "Omne usator de diapora* e del internet in general pote vider lo. Cata profilo ha un adresse URL directe, de sorta que on pote inserer ligamines a illo in sitos exterior. Le motores de recerca del web pote indexar lo."
-      who_sees_profile_q: "Qui vide mi profilo public?"
-      who_sees_updates_a: "Omnes pote vider le cambiamentos si illes visita tu pagina de profilo."
-      who_sees_updates_q: "Qui vide le actualisationes in mi profilo public?"
     resharing_posts:
       reshare_private_post_aspects_a: "No, il non es possibile repeter un entrata private. Isto es pro respectar le intentiones del autor original qui lo ha dividite solmente con un gruppo particular de personas."
       reshare_private_post_aspects_q: "Pote io repeter un entrata private solmente a certe aspectos?"
@@ -655,6 +632,7 @@ ia:
       mark_read: "Marcar como legite"
       mark_unread: "Marcar como non legite"
       mentioned: "Mentionate"
+      mentioned_in_comment: "Mentionate in commento"
       no_notifications: "Tu non ha ancora notificationes."
       notifications: "Notificationes"
       reshared: "Repetite"
@@ -677,6 +655,12 @@ ia:
       one: "%{actors} te ha mentionate in un entrata delite."
       other: "%{actors} te ha mentionate in un entrata delite."
       zero: "%{actors} te ha mentionate in un entrata delite."
+    mentioned_in_comment:
+      one: "%{actors} te ha mentionate in un <a href='%{comment_path}'>commento</a> sur le entrata %{post_link}."
+      other: "%{actors} te ha mentionate in un <a href='%{comment_path}'>commento</a> sur le entrata %{post_link}."
+    mentioned_in_comment_deleted:
+      one: "%{actors} te ha mentionate in un commento delite."
+      other: "%{actors} te ha mentionate in un commento delite."
     private_message:
       one: "%{actors} te ha inviate un message."
       other: "%{actors} te ha inviate un message."
@@ -802,6 +786,9 @@ ia:
     mentioned:
       limited_post: "Tu ha essite mentionate in un entrata limitate."
       subject: "%{name} te ha mentionate in diaspora*"
+    mentioned_in_comment:
+      limited_post: "Tu ha essite mentionate in un commento sur un entrata limitate."
+      reply: "Responder o leger iste conversation >"
     private_message:
       reply_to_or_view: "Responde o lege iste conversation >"
       subject: "Il ha un nove message private pro te"
@@ -1165,6 +1152,7 @@ ia:
       last_exported_at: "(Ultime actualisation: %{timestamp})"
       liked: "un persona apprecia un entrata tue"
       mentioned: "un persona te mentiona in un entrata sue"
+      mentioned_in_comment: "tu es mentionate in un commento"
       new_password: "Contrasigno nove"
       private_message: "tu recipe un message private"
       receive_email_notifications: "Reciper notificationes per e-mail quando:"
