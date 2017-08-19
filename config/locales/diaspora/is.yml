@@ -185,8 +185,6 @@ is:
       what_is_a_pod_a: "Belgur er miðlari sem keyrir diaspora* hugbúnaðinn og er tengdur diaspora* netinu.  \"Belgur\" er samlíking við fræbelgi á plöntum sem innihalda fræ á sama átt og miðlarinn hýsir marga notendur.  Það eru margir belgir til.  Þú getur bætt við vinum á öðrum belgjum og átt í samskiptum við þá.  (Þú getur hugsað belg á svipaðan hátt og tölvupóstþjón: það eru margir opnir belgir sem og lokaðir belgir , þú getur meira að segja hýst þinn eginn belg)."
     posts_and_posting:
       embed_multimedia_a: "Oftast er hægt að setja URLið (t.d. http://www.youtube.com/watch?v=nnnnnnnnnnn) beint inn í skilaboðin og myndin eða myndbandið verður fellt sjálfkrafa inn í skeytið.  Við styðjum meðal annars. YouTube, Vimeo, SoundCloud, Flickr ásamt nokkrum öðrum.  diaspora* notar oEmbed til að framkvæma innfellinguna sem gerir það að verkum að nýjar þjónustur eru stöðugt að bætast í hópinn.  Mundu að setja alltaf inn fulla slóð inn, ekki stytta hana né bæta aftan við sem og að smá stund getur tekið áður en innfellingin er verður sýnileg."
-    private_profiles:
-      whats_in_profile_a: "Ferilskráin, staðsetning, kyn og fæðingardagur.  Þetta eru allt hlutir sem eru neðst á Síðunni Þinni.  Þú ræður hvort þú setur upplýsingar þar inn.  Eingöngu einstaklingar sem þú hefur bætt í eina af þínum sýnum, og eru skráðir inn, geta séð þessar upplýsingar.  Þegar þeir fara á síðuna þína geta þeir séð þau skeyti sem þú hefur deilt með öllum, sem og þau skeyti sem þú hefur valið að deila með sýnum sem þeir eru í."
   invitations:
     create:
       no_more: "Ekki eru fleiri boðsmiðar."

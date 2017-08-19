@@ -170,6 +170,7 @@ cs:
           description: "To umožňuje aplikaci číst váš rozšířený profil"
           name: "Rozšířený profil"
         read:
+          description: "Toto umožňuje aplikaci číst Váš proud, Vaše konverzace a Váš celý profil."
           name: "číst profil, stream a konverzace"
         write:
           name: "posílat příspěvky, konverzace a reakce"
@@ -180,7 +181,9 @@ cs:
           no_requirement: "%{name} nevyžaduje oprávnění"
           title: "Povolené aplikace"
         no_applications: "Nemáte žádné autorizované aplikace"
+        policy: "Viz podmínky ochrany osobních údajů této aplikace"
         revoke_autorization: "Odebrat oprávnění"
+        tos: "Viz podmínky služby této aplikace"
   are_you_sure: "Jste si jisti?"
   are_you_sure_delete_account: "Opravdu chcete uzavřít svůj účet? Tuto operaci nelze vrátit!"
   aspect_memberships:
@@ -400,7 +403,7 @@ cs:
     mentions:
       how_to_mention_a: "Napište znak „@“ a začněte psát své jméno. Mělo by se zobrazit rozbalovací menu, které vám umožní je snadněji vybrat. Berte na vědomí, že je možné zmínit jen ty osoby, které máte v aspektech."
       how_to_mention_q: "Jak mohu někoho zmínit, když píšu příspěvek?"
-      mention_in_comment_a: "Ne, zatím ne."
+      mention_in_comment_a: "Ano, od verze 0.7.0.0 ! V komentáři můžete někoho zmínit úplně stejně jako v příspěvku. Napište \"@\" a začněte psát jméno. Nezapomeňte, že pokud komentujete příspěvek, který není veřejný, můžete zmiňovat jen uživatele, kteří již nějak s příspěvkem pracovali."
       mention_in_comment_q: "Dá se někdo zmínit v komentáři?"
       see_mentions_a: "Ano, klikněte „Zmínky“ v levém sloupci na své domovské stránce"
       see_mentions_q: "Je způsob, jak vidět příspěvky, v kterých jsem byl(a) zmíněn(a)?"
@@ -436,11 +439,7 @@ cs:
       format_text_q: "Jak mohu formátovat text ve svých příspěvcích (tučný text, kurzíva apod.)?"
       hide_posts_a: "Najedete-li myší na něčí příspěvek, objeví se vpravo nahoře malý křížek podobný písmenu x. Kliknutím na křížek příspěvek skryjete a zamezíte i e-mailovým upozorněním na něj. Při návštěvě profilové stránky autora tohoto příspěvku však příspěvek stále uvidíte."
       hide_posts_q: "Jak skrýt příspěvek ? / Jak vypnout zasílání upozornění o příspěvcích, které jsem okomentoval(a) ?"
-      image_text: "text k obrázku"
-      image_url: "url obrázku"
       insert_images_a: "Pro vložení obrázku do příspěvku klikněte na ikonku fotoaparátu vpravo dole. Klikněte na ikonku znova, pokud chcete vložit další obrázek, nebo můźete vybrat několik obrázků najednou."
-      insert_images_comments_a1: "Následující Markdown kód"
-      insert_images_comments_a2: "může být užito k vkládání obrázků z webu do komentářů i do příspěvků."
       insert_images_comments_q: "Můžu vkládat obrázky do komentářů?"
       insert_images_q: "Jak vkládat obrázky do příspěvků?"
       post_location_a: "Klikněte při publikaci na ikonu špendlíku vedle fotoaparátu. Tím přidáte Vaší geografickou pozici z OpenStreetMap. Svou pozici můžete dále upravit, např. zadat pouze město, ve kterém jste, a ne detailní adresu včetně ulice."
@@ -469,14 +468,6 @@ cs:
       title: "Soukromé příspěvky"
       who_sees_post_a: "Jen přihlášení uživatelé diaspory*, které jste umístil(a) do toho aspektu mohou vidět váš soukromý příspěvek."
       who_sees_post_q: "Co když odešlu zprávu aspektu (tj. soukromý příspěvek), kdo ji uvidí?"
-    private_profiles:
-      title: "Soukromé profily"
-      whats_in_profile_a: "Něco o Vás, poloha, pohlaví a datum narození. To jsou údaje ve spodní sekci při editaci osobního profilu. Všechny tyto položky jsou nepovinné, je na Vás, zda je vyplníte. Přihlášení uživatelé, kteří jsou v některém z Vašich aspektů, jsou jediní, kteří mohou vidět Váš profil. Při návštěǚe Vašeho profilu také uvidí příspěvky, které jste adresoval/a jejich aspektu společně s Vašimi veřejnými příspěvky."
-      whats_in_profile_q: "Co je v mém soukromém profilu?"
-      who_sees_profile_a: "Každý přihlášený uživatel, se kterým sdílíte (tj. přidal/a jste jej do jednoho ze svých aspektů). Lidé, kteří Vás sledují, ale které nesledujete Vy, uvidí pouze Vaše veřejné informace."
-      who_sees_profile_q: "Kdo vidí můj soukromý profil?"
-      who_sees_updates_a: "Všichni v tvých aspektech vidí změny tvého soukromého profilu. "
-      who_sees_updates_q: "Kdo vidí aktualizace mého soukromého profilu?"
     public_posts:
       can_comment_reshare_like_a: "Každý přihlášený diaspora* uživatel může komentovat, sdílet či lajkovat Váš  veřejný příspěvek."
       can_comment_reshare_like_q: "Kdo může komentovat, sdílet či lajkovat můj veřejný příspěvek ?"
@@ -489,16 +480,6 @@ cs:
       title: "Veřejné příspěvky"
       who_sees_post_a: "Každý uživatel internetu může teoreticky vidět příspěvek, který označíte jako veřejný. To je ideální cesta jak oslovit veřejnost."
       who_sees_post_q: "Pokud posílám veřejný příspěvek, kdo jej můźe vidět ?"
-    public_profiles:
-      title: "Veřejné profily"
-      what_do_tags_do_a: "Pomáhají lidem Vás poznat. Vaše profilová fotka se objeví na levé straně stránek těchto konkrétních štítků, společně s fotkami dalších uživatelů, kteří mají štítek na svém veřejném profilu."
-      what_do_tags_do_q: "Jakou funkci plní štítky na mém veřejném profilu?"
-      whats_in_profile_a: "Vaše jméno, pět štítků, které Vás popisují a Vaše fotografie. To jsou údaje v horní části editace profilové stránky. Tyto údaje můžete zadat velmi identifikujícím či velmi anonymním způsobem, volba je na Vás. Vaše profilová stránka také zobrazuje všechny Vaše veřejné příspěvky."
-      whats_in_profile_q: "Co je v mém veřejném profilu"
-      who_sees_profile_a: "Profil může vidět jakýkoliv přihlášený uživatel diaspora* a i všichni uživatelé internetu. Každý profil má svou přímou URL, která může být použita i ze stránek mimo diaspora*. Profil také mohou indexovat vyhledávače."
-      who_sees_profile_q: "Kdo vidí můj veřejný profil?"
-      who_sees_updates_a: "Kdokoliv může vidět změny, pokud navštíví Vaš profil."
-      who_sees_updates_q: "Kdo vidí aktualizace mého veřejného profilu?"
     resharing_posts:
       reshare_private_post_aspects_a: "Ne, není možné sdílet něčí soukromý příspěvek. Tím je respektován záměr původního autora sdílet příspěvek jen konkrétní skupině lidí."
       reshare_private_post_aspects_q: "Mohu (znovu)sdílet soukromý příspěvek jen s některými aspekty ?"

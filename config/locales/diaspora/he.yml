@@ -250,7 +250,6 @@ he:
     here: "כאן"
     irc: "IRC"
     mentions:
-      mention_in_comment_a: "לא, לא כרגע."
       mention_in_comment_q: "האם אני יכול להזכיר מישהו בהערה?"
       see_mentions_q: "האם יש דרך לראות פוסטים שבהם אני מוזכר?"
     third_party_tools: "כלים צד שלישי"

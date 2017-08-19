@@ -298,7 +298,6 @@ nds:
     markdown: "Markdown"
     mentions:
       how_to_mention_q: "Wie kann ik wen erwähnen, wenn ik een Bidrag schriev?"
-      mention_in_comment_a: "Nee, grood nich."
       mention_in_comment_q: "Kann ik wen in een Kommentar erwähnen?"
       see_mentions_a: "Ja, klick in de linke Spalte von diene Startsiet op „@Erwähnungen”."
       see_mentions_q: "Gift dat eene Mööglichkeit, de Bidräg to seen, in de ik erwähnt worn bin?"
@@ -321,10 +320,6 @@ nds:
       embed_multimedia_q: "Wie bau ik een Video, Toon oder annern Multimedia-Inhalt in miene Bidräg in?"
       format_text_q: "Wie kann ik den Text in miene Bidräg formatieren (fett, kursiv und so wieder)?"
       hide_posts_q: "Wie verstek ik een Bidrag?"
-      image_text: "Bildtext"
-      image_url: "Bildadress"
-      insert_images_comments_a1: "Du kannst keene Bilder in Kommentare hochloden, aber du kannst den folgenden Markdown-Code"
-      insert_images_comments_a2: "bruken üm Bilder ut’n Internet sowohl in Kommentare as uk in Bidräg intobringen."
       insert_images_comments_q: "Kan ik Bilder in Kommentare inbringen?"
       insert_images_q: "Wie kann ik Bilder in miene Bidräg inbringen?"
       size_of_images_a: "Nee. De Grött von Bilder ward automatisch so ännert, dat se in den Stream oder de Inkelbidragsansicht rinpasst. Markdown het keenen Code, um de Grött von een Bild antogeben."
@@ -342,14 +337,6 @@ nds:
       title: "Private Bidräg"
       who_sees_post_a: "Nur anmeldte Bruker von diaspora*, de du in den Aspekt rindoon haast, bevör du den Bidrag schreeben hest, künnt em sehn."
       who_sees_post_q: "Wenn ik een Bidrag an een Aspekt schriev (t.B. een privaten Bidrag), wer kann em sehn?"
-    private_profiles:
-      title: "Private Profile"
-      whats_in_profile_a: "In dien privates Profil sind diene Beschriebung, dien Ort, dien Geschlecht und dien Geburtsdag, falls du disse Felder utfüllt hest. Alle disse Informationen sind freewillig – Dat ligt in diene Hand, op du jüm bereetstellst. Anmeldte Bruker, de du to diene Aspekte dortaudoon hest, sind de eenzigen Lüüd, de dien privates Profil sehn künnt. Wenn se diene Profilsiet beseukt, ward se neben diene öffentlichen Bidräg uk diene privaten Bidräg sehn, de du an de Aspekte schreeben hest, in de du jüm insortiert hest."
-      whats_in_profile_q: "Wat is in mien privates Profil?"
-      who_sees_profile_a: "Jede anmeldte Bruker, mit den du deelst (dat heet, de du to een von diene Aspekte dortaudoon hest). Lüüd, de di folgt ohne dat du jüm folgst, ward aber nur diene öffentlichen Informationen sehn."
-      who_sees_profile_q: "Wer sütt mien privates Profil?"
-      who_sees_updates_a: "Jeder in diene Aspekte sütt Ännerungen an dien privates Profil. "
-      who_sees_updates_q: "Wer sütt Ännerungen an mien privates Profil?"
     public_posts:
       can_comment_reshare_like_a: "Jede anmeldte Bruker von diaspora* kann diene öffentlichen Bidräg kommentieren, widerseggen oder Gefallen an em bekunden."
       can_comment_reshare_like_q: "Wer kann mien öffentlichen Bidrag kommentieren, widerseggen oder Gefallen an em bekunden?"
@@ -358,13 +345,6 @@ nds:
       title: "Öffentliche Bidräg"
       who_sees_post_a: "Grundsätzlich kann jeder, de dat Internet brukt, een Bidrag sehn, den du as öffentlich markiert hest, also weest die sicher, dat dien Bidrag wirklich öffentlich ween schall. Dat is eene tolle Mööglichkeit, de wide Welt to erreichen."
       who_sees_post_q: "Wer sütt dat, wenn ik wat öffentlich schriev?"
-    public_profiles:
-      title: "Öffentliche Profile"
-      what_do_tags_do_q: "Wat mokt de Tags op mien öffentliches Profil?"
-      whats_in_profile_q: "Wat is in mien öffentliches Profil?"
-      who_sees_profile_q: "Wer sütt mien öffentliches Profil?"
-      who_sees_updates_a: "Jeder kann Ännerungen sehn, wen he diene Profilsiet besöcht."
-      who_sees_updates_q: "Wer sütt Ännerungen an mien öffentliches Profil?"
     resharing_posts:
       reshare_private_post_aspects_q: "Kan ik een privaten Bidrag an bestimmte Aspekte widerseggen?"
       reshare_public_post_aspects_q: "Kan ik een öffentlichen Bidrag an bestimmte Aspekte widerseggen?"

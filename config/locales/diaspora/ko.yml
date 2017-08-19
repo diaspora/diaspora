@@ -223,8 +223,6 @@ ko:
       title: "기타"
     private_posts:
       title: "혼자 보는 글"
-    private_profiles:
-      title: "개인 프로필"
     public_posts:
       title: "공개 게시물"
     sharing:

@@ -242,6 +242,7 @@ de:
     reshares:
       post: "<%= name %>s Beitrag weitersagen?"
       successful: "Der Beitrag wurde erfolgreich weitergesagt!"
+    show_all: "Alle anzeigen"
     show_more: "Mehr zeigen"
     stream:
       comment: "Kommentieren"
@@ -260,11 +261,8 @@ de:
       hide_nsfw_posts: "#nsfw-Beiträge verstecken"
       like: "Gefällt mir"
       likes:
-        few: "<%= count %> Personen gefällt das"
-        many: "<%= count %> Personen gefällt das"
         one: " Einer Person gefällt das"
         other: "<%= count %> Personen gefällt das"
-        two: "<%= count %> Personen gefällt das"
         zero: "Niemandem gefällt das"
       limited: "Begrenzt"
       more_comments:

@@ -58,6 +58,7 @@ available:
   pt-BR: "Português (Brasil)"
   ro: "Română"
   ru: "Русский"
+  sc: "Sardu"
   si: "සිංහල"
   sk: "Slovenčina"
   sl: "Slovenščina"
@@ -128,6 +129,10 @@ fallbacks:
     - "pt"
   pt-PT:
     - "pt"
+  oc:
+    - "it"
+  sc:
+    - "it"
 
 rtl:
   - "ar"
