@@ -944,9 +944,9 @@ en:
 
   report:
     title: "Reports overview"
-    post_label: "<b>Post</b>: %{content}"
-    comment_label: "<b>Comment</b>: %{data}"
-    reported_label: "<b>Reported by</b> %{person}"
+    post_label: "<strong>Post</strong>: %{content}"
+    comment_label: "<strong>Comment</strong>: %{data}"
+    reported_label: "<strong>Reported by</strong> %{person}"
     reason_label: "Reason:"
     review_link: "Mark as reviewed"
     delete_link: "Delete item"
