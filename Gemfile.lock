@@ -751,6 +751,10 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
+    webpacker (2.0)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -901,7 +905,8 @@ DEPENDENCIES
   uuid (= 2.3.8)
   versionist (= 1.6.0)
   webmock (= 3.0.1)
+  webpacker (= 2.0.0)
   will_paginate (= 3.1.6)
 
 BUNDLED WITH
-   1.15.3
+   1.15.4

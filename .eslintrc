@@ -5,6 +5,10 @@
     "jquery": true
   },
 
+  "parserOptions": {
+    "ecmaVersion": 7
+  },
+
   "globals": {
     "_": false,
     "autosize": false,
