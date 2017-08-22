@@ -3,6 +3,7 @@
 ## Refactor
 * Remove title from profile photo upload button [#7551](https://github.com/diaspora/diaspora/pull/7551)
 * Remove Internet Explorer workarounds [#7557](https://github.com/diaspora/diaspora/pull/7557)
+* Sort notifications by last interaction [#7568](https://github.com/diaspora/diaspora/pull/7568)
 
 ## Bug fixes
 * Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)
