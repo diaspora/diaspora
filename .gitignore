@@ -78,3 +78,5 @@ diaspora.iml
 
 # WebTranslateIt
 .wti
+/public/packs
+/node_modules
