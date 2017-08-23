@@ -74,7 +74,6 @@ module Diaspora
     # (application.js, application.css, and all non-JS/CSS in the app/assets are already added)
     config.assets.precompile += %w[
       contact-list.js
-      ie.js
       jquery3.js
       jquery_ujs.js
       main.js
