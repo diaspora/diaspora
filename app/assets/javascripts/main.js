@@ -44,3 +44,4 @@
 //= require bootstrap-markdown/bootstrap-markdown
 //= require helpers/markdown_editor
 //= require jquery.are-you-sure
+//= require cropperjs/dist/cropper.js
