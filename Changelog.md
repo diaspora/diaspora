@@ -8,6 +8,7 @@
 ## Bug fixes
 * Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)
 * Fix S3 support [#7566](https://github.com/diaspora/diaspora/pull/7566)
+* Fix mixed username and timestamp with LTR/RTL scripts [#7575](https://github.com/diaspora/diaspora/pull/7575)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
