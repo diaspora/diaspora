@@ -5,7 +5,7 @@
 // progress. Attaches previews of finished uploads to the publisher.
 
 app.views.PublisherUploader = Backbone.View.extend({
-  allowedExtensions: ["jpg", "jpeg", "png", "gif", "tif", "tiff"],
+  allowedExtensions: ["jpg", "jpeg", "png", "gif"],
   sizeLimit: 4194304,  // bytes
 
   initialize: function(opts) {
