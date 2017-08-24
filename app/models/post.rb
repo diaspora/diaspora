@@ -33,6 +33,10 @@ class Post < ApplicationRecord
     self.touch(:interacted_at)
   end
 
+  before_destroy do
+    reshares.update_all(root_guid: nil) # rubocop:disable Rails/SkipsModelValidations
+  end
+
   #scopes
   scope :includes_for_a_stream, -> {
     includes(:o_embed_cache,
