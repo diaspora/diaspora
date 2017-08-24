@@ -50,21 +50,6 @@ module LayoutHelper
     stylesheet_link_tag "#{current_color_theme}/#{view}", media: "all"
   end
 
-  def old_browser_js_support
-    nonced_javascript_tag do
-      <<-JS.html_safe
-        if(Array.isArray === undefined) {
-          Array.isArray = function (arg) {
-            return Object.prototype.toString.call(arg) == '[object Array]';
-          };
-        }
-        if ((window.history) && (window.history.pushState === undefined)) {
-          window.history.pushState = function() { };
-        }
-      JS
-    end
-  end
-
   def flash_messages
     flash.map do |name, msg|
       klass = flash_class name
