@@ -18,6 +18,7 @@
     box-shadow: 0 0 0;
     height: 10px;
     margin-bottom: 5px;
+    clear: both;
 
     .bar {
       background: $border-dark-grey none;
@@ -46,6 +47,7 @@
     font-weight: normal;
     margin-bottom: 5px;
     vertical-align: middle;
+    display: inline;
   }
 
   [type=radio],
