@@ -344,3 +344,4 @@ en:
         other: "<%=count%> votes"
       show_result: "Show result"
       close_result: "Hide result"
+      your_vote: "Your vote"
