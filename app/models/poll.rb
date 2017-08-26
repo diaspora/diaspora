@@ -21,19 +21,19 @@ class Poll < ApplicationRecord
 
   def as_json(options={})
     {
-      :poll_id => self.id,
-      :post_id => self.status_message.id,
-      :question => self.question,
-      :poll_answers => self.poll_answers,
-      :participation_count => self.participation_count,
+      poll_id:             id,
+      post_id:             status_message.id,
+      question:            question,
+      poll_answers:        poll_answers,
+      participation_count: participation_count
     }
+  end
+
+  def participation_answer(user)
+    poll_participations.find_by(author_id: user.person.id)
   end
 
   def participation_count
     poll_answers.sum("vote_count")
-  end
-
-  def already_participated?(user)
-    poll_participations.where(:author_id => user.person.id).present?
   end
 end

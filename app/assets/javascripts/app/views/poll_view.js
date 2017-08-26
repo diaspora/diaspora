@@ -17,15 +17,22 @@ app.views.Poll = app.views.Base.extend({
     var isReshare = (this.model.get('post_type') === 'Reshare');
     var showForm = defaultPresenter.loggedIn &&
                    !isReshare &&
-                   !this.model.get('already_participated_in_poll');
+                   !this.model.get("poll_participation_answer_id");
     var originalPostLink = isReshare && this.model.get('root') ?
       '<a href="/posts/' + this.model.get('root').id + '" class="root_post_link">' + Diaspora.I18n.t('poll.original_post') + '</a>' :
       '';
+    var answerGiven = this.model.get("poll_participation_answer_id");
+
+    if (defaultPresenter.poll && defaultPresenter.poll.poll_answers) {
+      defaultPresenter.poll.poll_answers.forEach(function(answer) {
+        _.extend(answer, {isCurrentUserVote: answerGiven ? answer.id === answerGiven : false});
+      });
+    }
 
     return _.extend(defaultPresenter, {
       show_form: showForm,
       is_reshare: isReshare,
-      original_post_link: originalPostLink
+      originalPostLink: originalPostLink
     });
   },
 

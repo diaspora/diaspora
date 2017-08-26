@@ -22,6 +22,7 @@ body {
   .poll_form .progress {
     background-color: $gray-dark;
     .bar { background-color: $gray-light; }
+    .users-vote { background-color: $brand-primary; }
   }
 
   .stream-element .collapsible {

@@ -387,4 +387,13 @@ describe Post, :type => :model do
       expect(post.interacted_at).not_to be_blank
     end
   end
+
+  describe "#before_destroy" do
+    it "removes root_guid from reshares" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      reshare = FactoryGirl.create(:reshare, author: bob.person, root: post)
+      post.destroy!
+      expect(reshare.reload.root_guid).to be_nil
+    end
+  end
 end

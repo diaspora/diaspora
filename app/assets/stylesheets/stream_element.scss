@@ -90,6 +90,7 @@
     .author-name {
       font-weight: bold;
       margin-bottom: 4px;
+      unicode-bidi: isolate;
     }
     .feedback {
       margin-top: 5px;

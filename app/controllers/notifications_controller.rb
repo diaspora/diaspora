@@ -32,7 +32,7 @@ class NotificationsController < ApplicationController
     @notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
       result = Notification.where(conditions)
                            .includes(:target, :actors => :profile)
-                           .order('created_at desc')
+                           .order("updated_at desc")
                            .limit(pager.per_page)
                            .offset(pager.offset)
 

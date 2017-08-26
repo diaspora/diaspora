@@ -26,6 +26,10 @@
       height: 100%;
       text-align: left;
     }
+
+    .users-vote {
+      background-color: $brand-primary;
+    }
   }
 
   .submit[disabled] {
