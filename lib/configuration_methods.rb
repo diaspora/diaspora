@@ -72,7 +72,7 @@ module Configuration
     def version_string
       return @version_string unless @version_string.nil?
       @version_string = version.number.to_s
-      @version_string << "-p#{git_revision[0..7]}" if git_available?
+      @version_string = "#{@version_string}-p#{git_revision[0..7]}" if git_available?
       @version_string
     end
 
