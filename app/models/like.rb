@@ -30,7 +30,7 @@ class Like < ApplicationRecord
 
   after_destroy do
     self.parent.update_likes_counter
-    participation = author.participations.where(target_id: target.id).first
+    participation = author.participations.find_by(target_id: target.id)
     participation.unparticipate! if participation.present?
   end
 
