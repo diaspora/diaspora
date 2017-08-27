@@ -20,11 +20,6 @@ describe ConversationsController, :type => :controller do
         get :new, params: {modal: true}
         expect(response).to be_success
       end
-
-      it "assigns a set of contacts if passed an aspect id" do
-        get :new, params: {aspect_id: alice.aspects.first.id, modal: true}
-        expect(controller.gon.conversation_prefill).to eq(alice.aspects.first.contacts.map {|c| c.person.as_json })
-      end
     end
 
     context "mobile" do

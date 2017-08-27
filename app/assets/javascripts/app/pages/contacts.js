@@ -80,7 +80,15 @@ app.pages.Contacts = Backbone.View.extend({
 
   showMessageModal: function(){
     $("#conversationModal").on("modal:loaded", function() {
-      new app.views.ConversationsForm({prefill: gon.conversationPrefill});
+      var people = app.contacts.filter(function(contact) {
+        return contact.inAspect(app.aspect.get("id"));
+      }).map(function(contact) {
+        return _.extend({
+          avatar: contact.person.get("profile").avatar.small,
+          handle: contact.person.get("diaspora_id")
+        }, contact.person.attributes);
+      });
+      new app.views.ConversationsForm({prefill: people});
     });
     app.helpers.showModal("#conversationModal");
   },
