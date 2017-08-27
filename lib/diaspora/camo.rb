@@ -5,7 +5,7 @@ module Diaspora
   module Camo
     def self.from_markdown(markdown_text)
       return unless markdown_text
-      markdown_text.gsub!(/(!\[(.*?)\]\s?\([ \t]*()<?(\S+?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/m) do |link|
+      markdown_text = markdown_text.gsub(/(!\[(.*?)\]\s?\([ \t]*()<?(\S+?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/m) do |link|
         link.gsub($4, self.image_url($4))
       end
       markdown_text.gsub(/src=(['"])(.+?)\1/m) do |link|
