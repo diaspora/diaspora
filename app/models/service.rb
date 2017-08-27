@@ -24,7 +24,7 @@ class Service < ApplicationRecord
 
     def first_from_omniauth( auth_hash )
       @@auth = auth_hash
-      where( type: service_type, uid: options[:uid] ).first
+      find_by(type: service_type, uid: options[:uid])
     end
 
     def initialize_from_omniauth( auth_hash )

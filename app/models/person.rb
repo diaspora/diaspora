@@ -191,7 +191,7 @@ class Person < ApplicationRecord
 
   def self.find_from_guid_or_username(params)
     p = if params[:id].present?
-          Person.where(:guid => params[:id]).first
+          Person.find_by(guid: params[:id])
         elsif params[:username].present? && u = User.find_by_username(params[:username])
           u.person
         else

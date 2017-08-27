@@ -124,12 +124,12 @@ class Post < ApplicationRecord
 
   def reshare_for(user)
     return unless user
-    reshares.where(:author_id => user.person.id).first
+    reshares.find_by(author_id: user.person.id)
   end
 
   def like_for(user)
     return unless user
-    likes.where(:author_id => user.person.id).first
+    likes.find_by(author_id: user.person.id)
   end
 
   #############
