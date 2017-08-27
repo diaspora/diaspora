@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #we dont have the environment, and it is not carring over from the migration
 unless defined?(Person)
   class Person < ApplicationRecord

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NodeInfoController < ApplicationController
   def jrd
     render json: NodeInfo.jrd(CGI.unescape(node_info_url("123.123").sub("123.123", "%{version}")))

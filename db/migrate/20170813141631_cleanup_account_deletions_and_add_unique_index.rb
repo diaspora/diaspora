@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CleanupAccountDeletionsAndAddUniqueIndex < ActiveRecord::Migration[5.1]
   def up
     remove_column :account_deletions, :diaspora_handle

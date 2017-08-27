@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe PostPresenter do
   let(:status_message) { FactoryGirl.create(:status_message, public: true) }
   let(:status_message_with_poll) { FactoryGirl.create(:status_message_with_poll, public: true) }

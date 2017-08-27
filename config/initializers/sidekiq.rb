@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sidekiq_middlewares'
 require 'sidekiq/middleware/i18n'
 

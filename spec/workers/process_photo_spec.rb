@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Workers::ProcessPhoto do
   before do
    @user = alice

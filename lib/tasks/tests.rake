@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :ci do
   namespace :travis do
     task prepare_db: %w[db:create db:migrate]

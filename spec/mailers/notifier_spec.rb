@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Notifier, type: :mailer do
   let(:person) { FactoryGirl.create(:person) }
   let(:pod_name) { AppConfig.settings.pod_name }

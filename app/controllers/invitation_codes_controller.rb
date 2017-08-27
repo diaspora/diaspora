@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InvitationCodesController < ApplicationController
   before_action :ensure_valid_invite_code
 

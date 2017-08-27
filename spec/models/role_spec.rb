@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Role do
   let!(:person) { create(:person) }
   let!(:admin) { create(:person) }

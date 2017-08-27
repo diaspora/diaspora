@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Api::OpenidConnect::IdTokensController, type: :controller do
   describe "#jwks" do
     before do

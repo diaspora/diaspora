@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Services::Tumblr < Service
   MAX_CHARACTERS = 1000
 

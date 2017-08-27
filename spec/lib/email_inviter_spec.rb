@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe EmailInviter do
   before do
     @user = double(invitation_code: "coolcodebro", present?: true, email: "foo@bar.com")

@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 module Diaspora::Mentionable
 
   # regex for finding mention markup in plain text:

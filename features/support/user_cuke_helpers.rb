@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UserCukeHelpers
 
   # creates a new user object from the factory with some default attributes

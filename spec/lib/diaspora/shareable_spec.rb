@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Shareable do
   describe "scopes" do
     context "having multiple objects with equal db IDs" do

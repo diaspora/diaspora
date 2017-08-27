@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given /^I am signed in( on the mobile website)?$/ do |mobile|
   automatic_login
   confirm_login mobile

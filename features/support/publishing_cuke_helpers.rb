@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PublishingCukeHelpers
   def write_in_publisher(txt)
     fill_in "status_message_text", with: txt

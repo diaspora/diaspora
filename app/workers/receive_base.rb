@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Workers
   class ReceiveBase < Base
     sidekiq_options queue: :urgent

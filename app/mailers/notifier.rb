@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Notifier < ApplicationMailer
   helper :application
   helper :notifier

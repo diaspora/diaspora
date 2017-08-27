@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Workers
   class RecurringPodCheck < Base
     sidekiq_options queue: :low

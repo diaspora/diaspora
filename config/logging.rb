@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Logging::Rails.configure do |config|
   # Configure the Logging framework with the default log levels
   Logging.init %w(debug info warn error fatal)

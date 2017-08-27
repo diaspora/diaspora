@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Workers::RemoveOldUser do
   describe 'remove_old_users is active' do
     before do

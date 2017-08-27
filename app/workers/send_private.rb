@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Workers
   class SendPrivate < SendBase
     def perform(sender_id, obj_str, targets, retry_count=0)

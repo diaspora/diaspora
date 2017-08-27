@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ReportHelper, type: :helper do
   before do
     @user = bob

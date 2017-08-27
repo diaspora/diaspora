@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 And /^Alice has a post mentioning Bob$/ do
   alice = User.find_by_email "alice@alice.alice"
   bob = User.find_by_email "bob@bob.bob"

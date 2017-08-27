@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OpenGraphCache < ApplicationRecord
   validates :title, :presence => true
   validates :ob_type, :presence => true

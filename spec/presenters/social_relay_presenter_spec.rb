@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe SocialRelayPresenter do
   before do
     @presenter = SocialRelayPresenter.new

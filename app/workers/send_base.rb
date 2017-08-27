@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Workers
   class SendBase < Base
     sidekiq_options queue: :medium, retry: 0

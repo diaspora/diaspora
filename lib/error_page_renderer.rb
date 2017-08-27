@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 # Inspired by https://github.com/route/errgent/blob/master/lib/errgent/renderer.rb
 class ErrorPageRenderer
   def initialize options={}

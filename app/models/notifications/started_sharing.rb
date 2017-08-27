@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Notifications
   class StartedSharing < Notification
     def mail_job

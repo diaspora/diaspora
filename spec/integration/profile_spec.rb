@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe PeopleController, type: :request do
   context "for the current user" do
     before do

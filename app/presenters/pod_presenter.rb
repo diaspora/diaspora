@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PodPresenter < BasePresenter
   def base_hash(*_arg)
     {

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Location < ApplicationRecord
   before_validation :split_coords, on: :create
   validates_presence_of :lat, :lng

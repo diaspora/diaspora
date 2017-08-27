@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Stream::Activity < Stream::Base
   def link(opts={})
     Rails.application.routes.url_helpers.activity_streams_path(opts)

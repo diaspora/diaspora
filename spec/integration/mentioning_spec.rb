@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MentioningSpecHelpers
   def notifications_about_mentioning(user, object)
     table = object.class.table_name

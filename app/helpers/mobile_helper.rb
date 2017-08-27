@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MobileHelper
   def mobile_reshare_icon(post)
     if (post.public? || reshare?(post)) && (user_signed_in? && post.author != current_user.person)

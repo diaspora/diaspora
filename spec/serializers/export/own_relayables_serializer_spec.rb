@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Export::OwnRelayablesSerializer do
   let(:comment) { FactoryGirl.create(:comment) }
   let!(:signature) { FactoryGirl.create(:comment_signature, comment: comment) }

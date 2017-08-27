@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "a federation entity serializer" do
   describe "#to_json" do
     it "contains JSON serialized entity object" do

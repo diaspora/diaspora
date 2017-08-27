@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationCukeHelpers
   def flash_message_success?
     flash_message(selector: "success").visible?

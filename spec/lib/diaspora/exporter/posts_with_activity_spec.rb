@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Exporter::PostsWithActivity do
   let(:user) { FactoryGirl.create(:user) }
   let(:instance) { Diaspora::Exporter::PostsWithActivity.new(user) }

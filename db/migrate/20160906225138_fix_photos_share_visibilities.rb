@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FixPhotosShareVisibilities < ActiveRecord::Migration[4.2]
   class Photo < ApplicationRecord
   end

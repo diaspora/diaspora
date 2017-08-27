@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples "a dispatcher" do
   describe "#dispatch" do
     context "deliver to user services" do

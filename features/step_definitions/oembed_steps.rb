@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given /^I have several oEmbed data in cache$/ do
   scenarios = {
     "photo" => {

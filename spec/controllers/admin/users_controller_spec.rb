@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Admin::UsersController, :type => :controller do
   before do
     @user = FactoryGirl.create :user

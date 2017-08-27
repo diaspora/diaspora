@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ScreenshotCukeHelpers
 
   def set_screenshot_location(path)

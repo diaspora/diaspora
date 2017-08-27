@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentService
   def initialize(user=nil)
     @user = user

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Configuration
   KNOWN_SERVICES = [:twitter, :tumblr, :facebook, :wordpress].freeze
 

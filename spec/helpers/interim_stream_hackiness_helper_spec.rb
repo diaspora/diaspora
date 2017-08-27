@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe InterimStreamHackinessHelper, type: :helper do
   describe "commenting_disabled?" do
     include Devise::Test::ControllerHelpers

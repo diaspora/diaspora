@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Services::Facebook, :type => :model do
   before do
     @user = alice
