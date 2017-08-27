@@ -104,7 +104,7 @@ class Person < ApplicationRecord
   # @param [String] search substring
   # @return [Person::ActiveRecord_Relation]
   scope :find_by_substring, ->(search_str) {
-    search_str.strip!
+    search_str = search_str.strip
     if search_str.blank? || search_str.size < 2
       none
     else
