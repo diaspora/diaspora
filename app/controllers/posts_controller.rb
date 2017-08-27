@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i(destroy mentionable)
   before_action :set_format_if_malformed_from_status_net, only: :show
 
-  respond_to :html, :mobile, :json, :xml
+  respond_to :html, :mobile, :json
 
   rescue_from Diaspora::NonPublic do
     authenticate_user!
