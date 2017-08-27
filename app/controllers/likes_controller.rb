@@ -4,7 +4,7 @@
 
 class LikesController < ApplicationController
   include ApplicationHelper
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
 
   respond_to :html,
              :mobile,
