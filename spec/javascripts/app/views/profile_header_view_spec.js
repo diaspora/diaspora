@@ -77,12 +77,9 @@ describe("app.views.ProfileHeader", function() {
       spyOn(app.views.ConversationsForm.prototype, "initialize");
       spyOn($.fn, "load").and.callFake(function(url, callback) { callback(); });
       this.view.showMessageModal();
-      expect(app.views.ConversationsForm.prototype.initialize).toHaveBeenCalled();
-      var prefill = app.views.ConversationsForm.prototype.initialize.calls.mostRecent().args[0].prefill;
-      expect(prefill.length).toBe(1);
-      expect(prefill[0].handle).toBe("my@pod");
-      expect(prefill[0].name).toBe("User Name");
-      expect(prefill[0].avatar).toBe("http://example.org/avatar.jpg");
+      expect(app.views.ConversationsForm.prototype.initialize).toHaveBeenCalledWith({
+        prefill: [this.model]
+      });
     });
   });
 });
