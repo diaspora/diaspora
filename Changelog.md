@@ -7,6 +7,7 @@
 * Remove tiff support from photos [#7576](https://github.com/diaspora/diaspora/pull/7576)
 * Remove reference from reshares when original post is deleted [#7578](https://github.com/diaspora/diaspora/pull/7578)
 * Merge migrations from before 0.6.0.0 to CreateSchema [#7580](https://github.com/diaspora/diaspora/pull/7580)
+* Remove auto detection of languages with highlightjs [#7591](https://github.com/diaspora/diaspora/pull/7591)
 
 ## Bug fixes
 * Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)

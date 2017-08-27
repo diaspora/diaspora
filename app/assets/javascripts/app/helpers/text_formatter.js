@@ -71,10 +71,6 @@
           } catch (__) {}
         }
 
-        try {
-          return hljs.highlightAuto(str).value;
-        } catch (__) {}
-
         return "";
       }
     });
