@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Diaspora
   # Takes a raw message text and converts it to
   # various desired target formats, respecting

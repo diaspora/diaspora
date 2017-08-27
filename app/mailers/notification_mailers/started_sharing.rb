@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailers
   class StartedSharing < NotificationMailers::Base
     def set_headers(*_args) # rubocop:disable Style/AccessorMethodName

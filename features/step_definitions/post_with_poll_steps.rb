@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then /^I should see ([1-9]+) options?$/ do |number|
   find("#poll_creator_container").all(".poll-answer").count.should eql(number.to_i)
 end

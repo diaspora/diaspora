@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MetaDataHelper
   include ActionView::Helpers::AssetUrlHelper
   include ActionView::Helpers::TagHelper

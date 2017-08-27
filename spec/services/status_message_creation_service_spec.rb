@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe StatusMessageCreationService do
   describe "#create" do
     let(:aspect) { alice.aspects.first }

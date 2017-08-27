@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe PostService do
   let(:post) { alice.post(:status_message, text: "ohai", to: alice.aspects.first) }
   let(:public) { alice.post(:status_message, text: "hey", public: true) }

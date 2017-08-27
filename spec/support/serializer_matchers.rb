@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file contains custom RSpec matchers for AMS.
 # NOTE: It was developed for AMS v0.9 and the API might be changed in future, so that should be examined when moving
 # between stable versions of AMS (e.g. 0.9 to 0.10, or 0.9 to a possible 1.0).

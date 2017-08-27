@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 module Admin
   class PodsController < AdminController
     respond_to :html, :json, :mobile

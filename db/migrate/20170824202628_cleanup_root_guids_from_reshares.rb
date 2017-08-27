@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CleanupRootGuidsFromReshares < ActiveRecord::Migration[5.1]
   def up
     # rubocop:disable Rails/SkipsModelValidations

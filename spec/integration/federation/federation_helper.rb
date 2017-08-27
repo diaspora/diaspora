@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def remote_user_on_pod_b
   @remote_on_b ||= create_remote_user("remote-b.net")
 end

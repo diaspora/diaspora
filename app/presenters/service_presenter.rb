@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ServicePresenter < BasePresenter
   def initialize(service)
     @service = service

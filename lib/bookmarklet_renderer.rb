@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 class BookmarkletRenderer
   class << self
     def cached_name

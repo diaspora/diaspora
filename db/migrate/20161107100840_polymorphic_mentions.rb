@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PolymorphicMentions < ActiveRecord::Migration[4.2]
   def change
     remove_index :mentions, column: %i(post_id)

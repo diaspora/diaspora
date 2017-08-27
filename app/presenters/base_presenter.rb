@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BasePresenter
   attr_reader :current_user
   include Rails.application.routes.url_helpers

@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 class ConnectionTester
   include Diaspora::Logging
 

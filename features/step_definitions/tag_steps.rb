@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When(/^I unfollow the "(.*?)" tag$/) do |tag|
   accept_alert do
     within("#tags_list") do

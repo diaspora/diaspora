@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Stream::Multi < Stream::Base
 
   # @return [String] URL

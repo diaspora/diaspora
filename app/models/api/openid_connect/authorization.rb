@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Inspired by https://github.com/nov/openid_connect_sample/blob/master/app/models/authorization.rb
 
 module Api

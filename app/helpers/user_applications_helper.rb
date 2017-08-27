@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UserApplicationsHelper
   def user_application_name(app)
     if app.name?

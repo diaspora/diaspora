@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe OpenGraphHelper, :type => :helper do
 
   describe 'og_html' do

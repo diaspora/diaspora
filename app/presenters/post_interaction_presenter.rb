@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostInteractionPresenter
   def initialize(post, current_user)
     @post = post

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "a shareable" do
   describe "#subscribed_pods_uris" do
     let(:pods) { Array.new(3) { FactoryGirl.create(:pod) } }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Notifications
   module Mentioned
     extend ActiveSupport::Concern

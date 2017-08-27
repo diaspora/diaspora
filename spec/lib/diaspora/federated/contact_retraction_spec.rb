@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ContactRetraction do
   let(:contact) { FactoryGirl.build(:contact, sharing: true, receiving: true) }
   let(:retraction) { ContactRetraction.for(contact) }

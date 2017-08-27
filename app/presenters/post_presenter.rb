@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostPresenter < BasePresenter
   include PostsHelper
   include MetaDataHelper

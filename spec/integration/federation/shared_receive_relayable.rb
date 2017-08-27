@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "it deals correctly with a relayable" do
   context "local" do
     let(:entity) { create_relayable_entity(entity_name, local_parent, sender_id) }

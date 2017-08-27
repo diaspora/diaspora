@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def retraction_entity(target_object, sender)
   Fabricate(
     :retraction_entity,

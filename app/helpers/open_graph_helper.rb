@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OpenGraphHelper
   def og_html(cache)
     "<a href=\"#{cache.url}\" target=\"_blank\">" +

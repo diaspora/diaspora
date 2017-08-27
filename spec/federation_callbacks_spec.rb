@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "diaspora_federation/test"
 
 describe "diaspora federation callbacks" do

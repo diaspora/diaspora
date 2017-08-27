@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Stream::Base
   TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare']
 

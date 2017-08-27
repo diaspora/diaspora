@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Api::OpenidConnect::DiscoveryController, type: :controller do
   describe "#configuration" do
     before do

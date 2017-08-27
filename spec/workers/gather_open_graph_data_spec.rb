@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Workers::GatherOpenGraphData do
   before do
     @ogsite_title = 'Homepage'

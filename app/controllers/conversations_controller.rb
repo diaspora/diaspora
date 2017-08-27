@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
   respond_to :html, :mobile, :json, :js

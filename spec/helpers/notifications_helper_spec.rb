@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe NotificationsHelper, type: :helper do
   include ApplicationHelper
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # implicitly requires OpenSSL
 module Diaspora
   module Camo

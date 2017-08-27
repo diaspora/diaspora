@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SecureUploader < CarrierWave::Uploader::Base
   protected
   def secure_token(bytes = 16)

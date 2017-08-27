@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # by "stream items" we mean everything that could appear in the stream - post, comment, like, poll, etc and therefore
 # could be send either publicly or privately
 shared_examples_for "messages which are indifferent about sharing fact" do

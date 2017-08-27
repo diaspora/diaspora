@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given /^a client with a provided picture exists for user "([^\"]*)"$/ do |email|
   app = FactoryGirl.create(:o_auth_application, logo_uri: "/assets/user/default.png")
   user = User.find_by(email: email)

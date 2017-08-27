@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PersonPresenter < BasePresenter
   def base_hash
     {

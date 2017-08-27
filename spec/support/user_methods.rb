@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User
   alias_method :share_with_original, :share_with
 

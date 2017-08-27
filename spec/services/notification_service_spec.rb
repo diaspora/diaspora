@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe NotificationService do
   describe "notification interrelation" do
     context "with mention in comment" do

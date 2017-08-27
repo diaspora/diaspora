@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EmailInviter
   attr_accessor :emails, :inviter, :locale
 

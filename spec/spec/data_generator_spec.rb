@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :have_subscribers do
   match do |posts|
     posts.map(&:subscribers).delete_if(&:empty?).any?

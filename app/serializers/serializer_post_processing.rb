@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This module encapsulates knowledge about the way AMS works with the serializable object.
 # The main responsibility of this module is to allow changing resulting object just before the
 # JSON serialization happens.

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailers
   class PrivateMessage < NotificationMailers::Base
     attr_accessor :message, :conversation, :participants

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for 'it is a stream' do
   context 'required methods for display' do
     it '#title' do

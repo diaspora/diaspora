@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module InterimStreamHackinessHelper
   def commenting_disabled?(post)
     return true unless user_signed_in?

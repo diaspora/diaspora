@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Notifications
   class Liked < Notification
     def mail_job

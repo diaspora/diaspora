@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Workers::Mail::Liked do
   describe "#perform" do
     it "should call .deliver_now on the notifier object" do

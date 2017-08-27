@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe UserPresenter do
   before do
     @presenter = UserPresenter.new(bob, [])
