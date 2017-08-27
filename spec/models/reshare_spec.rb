@@ -4,9 +4,14 @@ describe Reshare, type: :model do
   end
 
   context "validation" do
-    it "requires root" do
-      reshare = FactoryGirl.build(:reshare, root: nil)
+    it "requires root when the author is local" do
+      reshare = FactoryGirl.build(:reshare, root: nil, author: alice.person)
       expect(reshare).not_to be_valid
+    end
+
+    it "doesn't require root when the author is remote" do
+      reshare = FactoryGirl.build(:reshare, root: nil, author: remote_raphael)
+      expect(reshare).to be_valid
     end
 
     it "require public root" do
