@@ -10,6 +10,7 @@
 * Remove auto detection of languages with highlightjs [#7591](https://github.com/diaspora/diaspora/pull/7591)
 * Move enable/disable notification icon [#7592](https://github.com/diaspora/diaspora/pull/7592)
 * Use Bootstrap 3 progress-bar for polls [#7600](https://github.com/diaspora/diaspora/pull/7600)
+* Enable frozen string literals [#7595](https://github.com/diaspora/diaspora/pull/7595)
 
 ## Bug fixes
 * Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)

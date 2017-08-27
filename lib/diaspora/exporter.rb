@@ -5,10 +5,8 @@
 #   the COPYRIGHT file.
 
 module Diaspora
-
   class Exporter
-
-    SERIALIZED_VERSION = "2.0".freeze
+    SERIALIZED_VERSION = "2.0"
 
     def initialize(user)
       @user = user
@@ -26,5 +24,4 @@ module Diaspora
         .merge(Export::OthersDataSerializer.new(@user).as_json)
     end
   end
-
 end
