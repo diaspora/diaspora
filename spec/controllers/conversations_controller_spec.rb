@@ -483,7 +483,9 @@ describe ConversationsController, :type => :controller do
 
     it "returns html of conversation" do
       get :raw, params: {conversation_id: conversation.id}
-      expect(response).to render_template(partial: "show", locals: {conversation: conversation})
+      expect(response).to render_template(partial: "conversations/_show")
+      expect(response.body).to include conversation.subject
+      expect(response.body).to include conversation.messages.first.text
     end
 
     it "returns 404 when requesting non-existant conversation" do
