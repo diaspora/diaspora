@@ -297,13 +297,8 @@ describe("app.pages.Contacts", function(){
       expect(app.views.ConversationsForm.prototype.initialize).toHaveBeenCalled();
 
       var prefill = app.views.ConversationsForm.prototype.initialize.calls.mostRecent().args[0].prefill;
-      var people = app.contacts.filter(function(contact) { return contact.inAspect(app.aspect.get("id")); });
-      expect(prefill.length).toBe(people.length);
-
-      var person = app.contacts.first().person;
-      expect(prefill[0].handle).toBe(person.get("diaspora_id"));
-      expect(prefill[0].name).toBe(person.get("name"));
-      expect(prefill[0].avatar).toBe(person.get("profile").avatar.small);
+      var contacts = app.contacts.filter(function(contact) { return contact.inAspect(app.aspect.get("id")); });
+      expect(_.pluck(prefill, "id")).toEqual(contacts.map(function(contact) { return contact.person.id; }));
     });
   });
 });

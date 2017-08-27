@@ -138,9 +138,11 @@ var factory = {
       "full_name": "bob grimm",
       "gender": "robot",
       "id": id,
-      "image_url": "http://localhost:3000/assets/user/default.png",
-      "image_url_medium": "http://localhost:3000/assets/user/default.png",
-      "image_url_small": "http://localhost:3000/assets/user/default.png",
+      "avatar": {
+        "small": "http://localhost:3000/assets/user/default.png",
+        "medium": "http://localhost:3000/assets/user/default.png",
+        "large": "http://localhost:3000/assets/user/default.png"
+      },
       "last_name": "Grimm",
       "location": "Earth",
       "nsfw": false,
