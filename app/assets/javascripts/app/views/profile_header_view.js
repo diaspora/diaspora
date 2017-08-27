@@ -81,8 +81,13 @@ app.views.ProfileHeader = app.views.Base.extend({
 
   showMessageModal: function(){
     $("#conversationModal").on("modal:loaded", function() {
-      new app.views.ConversationsForm({prefill: gon.conversationPrefill});
-    });
+      new app.views.ConversationsForm({
+        prefill: [_.extend({
+          avatar: this.model.get("profile").avatar.small,
+          handle: this.model.get("diaspora_id")
+        }, this.model.attributes)]
+      });
+    }.bind(this));
     app.helpers.showModal("#conversationModal");
   }
 });
