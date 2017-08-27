@@ -10,6 +10,10 @@ class LikesController < ApplicationController
              :mobile,
              :json
 
+  rescue_from Diaspora::NonPublic do
+    authenticate_user!
+  end
+
   def create
     like = like_service.create(params[:post_id])
   rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordInvalid
