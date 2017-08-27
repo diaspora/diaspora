@@ -8,8 +8,7 @@
       breaks:      true,
       html:        true,
       linkify:     true,
-      typographer: true,
-      langPrefix:  ""
+      typographer: true
     });
 
     var inlinePlugin = window.markdownitForInline;
