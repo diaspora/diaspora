@@ -80,7 +80,7 @@ Feature: preview posts in the stream
           | normal |
           | not normal  |
       And I preview the post
-      Then I should see a ".poll_form" within ".md-preview .stream-element"
+      Then I should see a ".poll-form" within ".md-preview .stream-element"
       And I should see a "form" within ".md-preview .stream-element"
       And I close the publisher
 

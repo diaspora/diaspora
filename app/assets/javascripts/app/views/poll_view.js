@@ -5,7 +5,7 @@ app.views.Poll = app.views.Base.extend({
 
   events: {
     "click .submit" : "clickSubmit",
-    "click .toggle_result" : "toggleResult"
+    "click .toggle-result": "toggleResult"
   },
 
   initialize: function() {
@@ -55,7 +55,7 @@ app.views.Poll = app.views.Base.extend({
         percent = Math.round(answer.vote_count / participation_count * 100);
       }
 
-      var progressBar = _this.$(".poll_progress_bar[data-answerid="+answer.id+"]");
+      var progressBar = _this.$(".progress-bar[data-answerid=" + answer.id + "]");
 
       _this.setProgressBarData(progressBar, percent);
     });
@@ -68,8 +68,8 @@ app.views.Poll = app.views.Base.extend({
 
   pollButtons: function() {
     if(!this.poll || !this.poll.post_id) {
-      this.$('.submit').attr('disabled', true);
-      this.$('.toggle_result').attr('disabled', true);
+      this.$(".submit").attr("disabled", true);
+      this.$(".toggle-result").attr("disabled", true);
     }
   },
 
@@ -83,14 +83,14 @@ app.views.Poll = app.views.Base.extend({
     }
     this.toggleElements();
 
-    var toggle_result = this.$('.toggle_result');
+    var toggleResult = this.$(".toggle-result");
 
     if(!this.toggleMode) {
-      toggle_result.html(Diaspora.I18n.t("poll.close_result"));
+      toggleResult.html(Diaspora.I18n.t("poll.close_result"));
       this.toggleMode = 1;
     }
     else {
-      toggle_result.html(Diaspora.I18n.t("poll.show_result"));
+      toggleResult.html(Diaspora.I18n.t("poll.show_result"));
       this.toggleMode = 0;
     }
   },
