@@ -4,11 +4,15 @@
 
 class LikesController < ApplicationController
   include ApplicationHelper
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
 
   respond_to :html,
              :mobile,
              :json
+
+  rescue_from Diaspora::NonPublic do
+    authenticate_user!
+  end
 
   def create
     like = like_service.create(params[:post_id])

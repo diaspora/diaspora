@@ -4,7 +4,6 @@
 
 describe CommentsController, :type => :controller do
   before do
-    allow(@controller).to receive(:current_user).and_return(alice)
     sign_in alice, scope: :user
   end
 
@@ -62,6 +61,7 @@ describe CommentsController, :type => :controller do
       aspect_to_post = eve.aspects.where(:name => "generic").first
       @post = eve.post :status_message, :text => 'GIANTS', :to => aspect_to_post
 
+      allow(@controller).to receive(:current_user).and_return(alice)
       expect(alice).not_to receive(:comment)
       post :create, params: comment_hash
       expect(response.code).to eq("404")
@@ -102,6 +102,7 @@ describe CommentsController, :type => :controller do
       it "lets the user delete their comment" do
         comment = alice.comment!(@message, "hey")
 
+        allow(@controller).to receive(:current_user).and_return(alice)
         expect(alice).to receive(:retract).with(comment)
         delete :destroy, params: {post_id: 1, id: comment.id}, format: :js
         expect(response.status).to eq(204)
@@ -111,6 +112,7 @@ describe CommentsController, :type => :controller do
         comment1 = bob.comment!(@message, "hey")
         comment2 = eve.comment!(@message, "hey")
 
+        allow(@controller).to receive(:current_user).and_return(alice)
         expect(alice).not_to receive(:retract).with(comment1)
         delete :destroy, params: {post_id: 1, id: comment2.id}, format: :js
         expect(response.status).to eq(403)
@@ -153,6 +155,13 @@ describe CommentsController, :type => :controller do
       bob.comment!(@message, "hey")
       get :index, params: {post_id: message.id}, format: :json
       expect(response.status).to eq(404)
+    end
+
+    it "returns a 401 for a private post when logged out" do
+      bob.comment!(@message, "hey")
+      sign_out :user
+      get :index, params: {post_id: @message.id}, format: :json
+      expect(response.status).to eq(401)
     end
   end
 end

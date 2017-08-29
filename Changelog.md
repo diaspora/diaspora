@@ -25,6 +25,7 @@
 * Fix mixed username and timestamp with LTR/RTL scripts [#7575](https://github.com/diaspora/diaspora/pull/7575)
 * Prevent users from zooming in IE Mobile [#7589](https://github.com/diaspora/diaspora/pull/7589)
 * Fix recipient prefill on contacts and profile page [#7599](https://github.com/diaspora/diaspora/pull/7599)
+* Display likes and reshares without login [#7583](https://github.com/diaspora/diaspora/pull/7583)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
