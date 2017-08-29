@@ -101,6 +101,13 @@ describe ResharesController, :type => :controller do
         get :index, params: {post_id: @post.id}, format: :json
         expect(JSON.parse(response.body)).to eq([])
       end
+
+      it "returns reshares without login" do
+        bob.reshare!(@post)
+        sign_out :user
+        get :index, params: {post_id: @post.id}, format: :json
+        expect(JSON.parse(response.body).map {|h| h["id"] }).to match_array(@post.reshares.map(&:id))
+      end
     end
   end
 end

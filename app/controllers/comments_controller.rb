@@ -11,6 +11,10 @@ class CommentsController < ApplicationController
     head :not_found
   end
 
+  rescue_from Diaspora::NonPublic do
+    authenticate_user!
+  end
+
   def create
     begin
       comment = comment_service.create(params[:post_id], params[:text])
