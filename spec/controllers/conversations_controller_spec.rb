@@ -20,16 +20,6 @@ describe ConversationsController, :type => :controller do
         get :new, params: {modal: true}
         expect(response).to be_success
       end
-
-      it "assigns a contact if passed a contact id" do
-        get :new, params: {contact_id: alice.contacts.first.id, modal: true}
-        expect(controller.gon.conversation_prefill).to eq([alice.contacts.first.person.as_json])
-      end
-
-      it "assigns a set of contacts if passed an aspect id" do
-        get :new, params: {aspect_id: alice.aspects.first.id, modal: true}
-        expect(controller.gon.conversation_prefill).to eq(alice.aspects.first.contacts.map {|c| c.person.as_json })
-      end
     end
 
     context "mobile" do
@@ -483,7 +473,9 @@ describe ConversationsController, :type => :controller do
 
     it "returns html of conversation" do
       get :raw, params: {conversation_id: conversation.id}
-      expect(response).to render_template(partial: "show", locals: {conversation: conversation})
+      expect(response).to render_template(partial: "conversations/_show")
+      expect(response.body).to include conversation.subject
+      expect(response.body).to include conversation.messages.first.text
     end
 
     it "returns 404 when requesting non-existant conversation" do

@@ -3,12 +3,6 @@
     <i class="entypo-trash"></i>
   </a>
 {{else}}
-  <a href="#" rel="nofollow" data-type="Post" class="post_report" title="{{t "report.name"}}">
-    <i class="entypo-warning"></i>
-  </a>
-  <a href="#" rel="nofollow" class="block_user" title="{{t "ignore"}}">
-    <i class="entypo-block"></i>
-  </a>
   {{#if participation}}
     <a href="#" rel="nofollow" class="destroy_participation" title="{{t "stream.disable_post_notifications"}}">
       <i class="entypo-bell"></i>
@@ -18,6 +12,12 @@
       <i class="entypo-bell"></i>
     </a>
   {{/if}}
+  <a href="#" rel="nofollow" data-type="Post" class="post_report" title="{{t "report.name"}}">
+    <i class="entypo-warning"></i>
+  </a>
+  <a href="#" rel="nofollow" class="block_user" title="{{t "ignore"}}">
+    <i class="entypo-block"></i>
+  </a>
   <a href="#" rel="nofollow" class="delete hide_post" title="{{t "stream.hide"}}">
     <i class="entypo-cross"></i>
   </a>

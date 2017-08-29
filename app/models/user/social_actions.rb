@@ -49,7 +49,7 @@ module User::SocialActions
 
   def update_or_create_participation!(target)
     return if target.author == person
-    participation = participations.where(target_id: target).first
+    participation = participations.find_by(target_id: target)
     if participation.present?
       participation.update!(count: participation.count.next)
     else

@@ -8,8 +8,7 @@
       breaks:      true,
       html:        true,
       linkify:     true,
-      typographer: true,
-      langPrefix:  ""
+      typographer: true
     });
 
     var inlinePlugin = window.markdownitForInline;
@@ -71,10 +70,6 @@
             return hljs.highlight(lang, str).value;
           } catch (__) {}
         }
-
-        try {
-          return hljs.highlightAuto(str).value;
-        } catch (__) {}
 
         return "";
       }

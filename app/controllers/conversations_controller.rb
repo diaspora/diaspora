@@ -103,12 +103,6 @@ class ConversationsController < ApplicationController
 
       render :layout => true
     else
-      if params[:contact_id]
-        gon.push conversation_prefill: [current_user.contacts.find(params[:contact_id]).person.as_json]
-      elsif params[:aspect_id]
-        gon.push conversation_prefill: current_user.aspects
-                                                   .find(params[:aspect_id]).contacts.map {|c| c.person.as_json }
-      end
       render :layout => false
     end
   end

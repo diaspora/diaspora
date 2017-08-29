@@ -46,7 +46,7 @@ Feature: posting with a poll
           | normal |
           | not normal  |
       And I press "Share"
-      Then I should see a ".poll_form" within ".stream-element"
+      Then I should see a ".poll-form" within ".stream-element"
       And I should see a "form" within ".stream-element"
 
     Scenario: vote for an option
@@ -62,9 +62,9 @@ Feature: posting with a poll
 
       And I check the first option
       And I press "Vote" within ".stream-element"
-      Then I should see an element ".poll_progress_bar"
+      Then I should see an element ".progress-bar"
       And I should see an element ".percentage"
-      And I should see "1 vote so far" within ".poll_statistic"
+      And I should see "1 vote so far" within ".poll-statistic"
 
   Scenario: click to show result
     Given I expand the publisher
@@ -76,7 +76,7 @@ Feature: posting with a poll
         | normal |
         | not normal  |
     And I press "Share"
-    And I click on selector ".toggle_result"
+    And I click on selector ".toggle-result"
     Then I should see an element ".percentage"
 
   Scenario: validate answer input

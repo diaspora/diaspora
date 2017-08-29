@@ -15,15 +15,21 @@
 * Remove tiff support from photos [#7576](https://github.com/diaspora/diaspora/pull/7576)
 * Remove reference from reshares when original post is deleted [#7578](https://github.com/diaspora/diaspora/pull/7578)
 * Merge migrations from before 0.6.0.0 to CreateSchema [#7580](https://github.com/diaspora/diaspora/pull/7580)
+* Remove auto detection of languages with highlightjs [#7591](https://github.com/diaspora/diaspora/pull/7591)
+* Move enable/disable notification icon [#7592](https://github.com/diaspora/diaspora/pull/7592)
+* Use Bootstrap 3 progress-bar for polls [#7600](https://github.com/diaspora/diaspora/pull/7600)
 
 ## Bug fixes
 * Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)
 * Fix S3 support [#7566](https://github.com/diaspora/diaspora/pull/7566)
 * Fix mixed username and timestamp with LTR/RTL scripts [#7575](https://github.com/diaspora/diaspora/pull/7575)
+* Prevent users from zooming in IE Mobile [#7589](https://github.com/diaspora/diaspora/pull/7589)
+* Fix recipient prefill on contacts and profile page [#7599](https://github.com/diaspora/diaspora/pull/7599)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
 * Show users vote in polls [#7550](https://github.com/diaspora/diaspora/pull/7550)
+* Add explanation of ignore function to in-app help section [#7585](https://github.com/diaspora/diaspora/pull/7585)
 
 # 0.7.0.0
 

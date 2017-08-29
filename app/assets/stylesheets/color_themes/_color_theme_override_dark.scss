@@ -19,9 +19,9 @@ body {
 
   .info .tag { background-color: $gray-light; }
 
-  .poll_form .progress {
+  .poll-form .progress {
     background-color: $gray-dark;
-    .bar { background-color: $gray-light; }
+    .progress-bar { background-color: $gray-light; }
     .users-vote { background-color: $brand-primary; }
   }
 
