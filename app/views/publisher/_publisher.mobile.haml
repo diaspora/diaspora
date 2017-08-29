@@ -8,6 +8,7 @@
     = status.hidden_field :provider_display_name, value: 'mobile'
     = status.text_area :text, placeholder: t('shared.publisher.whats_on_your_mind'), rows: 4, autofocus: "autofocus", class: "form-control"
 
+  = hidden_field_tag "aspect_ids[]", "all_aspects"
   .form-group
     %span#publisher-service-icons
       - if current_user.services
@@ -16,16 +17,18 @@
             title: service.provider.titleize, class: "service_icon dim",
             id: "#{service.provider}", maxchar: "#{service.class::MAX_CHARACTERS}"
 
-    %select{id: "aspect_ids_", class: "form-control", name: "aspect_ids[]"}
-      %option{value: 'public'}
-        = t('public')
+    -# %select{id: "aspect_ids_", class: "form-control", name: "aspect_ids[]"}
+    -#   %option{value: 'public'}
+    -#     = t('public')
 
-      %option{value: 'all_aspects', selected: true}
-        = t('all_aspects')
+    -#   %option{value: 'all_aspects', selected: true}
+    -#     = t('all_aspects')
 
-      - current_user.aspects.each do |aspect|
-        %option{value: aspect.id}
-          = "· #{aspect.name}"
+    -#   - current_user.aspects.each do |aspect|
+    -#     %option{value: aspect.id}
+    -#       = "· #{aspect.name}"
+    .btn-toolbar.pull-right
+      = render partial: "aspects/aspect_dropdown"
 
     .clear
     #publisher-textarea-wrapper
