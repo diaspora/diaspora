@@ -658,7 +658,9 @@ form#update_profile_form {
   .submit_block { margin-bottom: 20px; }
 }
 
-select#user_language, select#user_color_theme, #user_auto_follow_back_aspect_id, #aspect_ids_ {
+select#user_language,
+select#user_color_theme,
+#user_auto_follow_back_aspect_id {
   padding: 3px;
 }
 
@@ -680,14 +682,39 @@ input#q.search {
   margin-bottom: 20px;
 }
 
-select#aspect_ids_ {
-  width: auto !important;
-  float: right;
-  margin: 0px;
+@mixin aspect-dropdown-link() {
+  $link-text-color: #333;
+
+  a {
+    cursor: pointer;
+    padding-left: 10px;
+
+    .text {
+      color: $link-text-color;
+      font-size: 128%;
+    }
+
+    &:hover {
+      background: $background-grey;
+    }
+  }
+}
+
+.aspect-dropdown {
+  li {
+    @include selectable-list;
+    @include aspect-dropdown-link;
+
+    .status-indicator {
+      display: inline-block;
+      height: 14px;
+      width: 19px;
+    }
+  }
 }
 
 #file-upload-spinner {
-  top: 0px;
+  top: 0;
 }
 
 #publisher_mobile {

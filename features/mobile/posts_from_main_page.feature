@@ -21,7 +21,9 @@ Feature: posting from the mobile main page
   Scenario: post and delete some text
     Given I visit the mobile publisher page
     And I append "I am eating yogurt" to the publisher
-    And I select "Unicorns" from "aspect_ids_"
+    And I press the aspect dropdown
+    And I toggle the aspect "Unicorns"
+    And I press the aspect dropdown
     And I press "Share"
     When I go to the stream page
     Then I should see "I am eating yogurt"
