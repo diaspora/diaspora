@@ -22,7 +22,7 @@
               = will_paginate @visibilities, previous_label: "&laquo;", next_label: "&raquo;", inner_window: 1,
                   renderer: WillPaginate::ActionView::BootstrapLinkRenderer
     .col-md-8
-      .conversations-form-container.stream_container
+      .conversations-form-container.stream-container
         #conversation-show{class: @conversation ? "" : "hidden"}
           - if @conversation
             = render 'conversations/show', conversation: @conversation

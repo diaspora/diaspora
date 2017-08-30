@@ -46,7 +46,7 @@ end
 
 When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   click_link "My aspects"
-  expect(find("#aspect_stream_container")).to have_css(".loader.hidden", visible: false)
+  expect(find("#aspect-stream-container")).to have_css(".loader.hidden", visible: false)
   within("#aspects_list") do
     all(".selected").each do |node|
       aspect_item = node.find(:xpath, "..")
