@@ -9,7 +9,7 @@
         = render partial: "conversation_subject",
                  locals:  { conversation: conversation, unread_count: visibility.unread }
 
-        .last_author
+        .last-author
           .timestamp
             = timeago(conversation.updated_at)
 
