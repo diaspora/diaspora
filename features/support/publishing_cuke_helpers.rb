@@ -30,7 +30,7 @@ module PublishingCukeHelpers
     # wait for the publisher to be closed
     expect(find("#publisher")["class"]).to include("closed")
     # wait for the content to appear
-    expect(find("#main_stream")).to have_content(txt)
+    expect(find("#main-stream")).to have_content(txt)
   end
 
   def click_and_post(text)

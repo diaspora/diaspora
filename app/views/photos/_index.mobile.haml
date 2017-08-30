@@ -2,6 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-#main_stream
+#main-stream
   - for photo in photos
     = link_to image_tag(photo.url(:thumb_large)), person_photo_path(photo.author, photo), class: "thumbnail"
