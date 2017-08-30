@@ -233,7 +233,7 @@ end
 
 And /^I should be able to friend "([^\"]*)"$/ do |email|
   user = User.find_by_email(email)
-  step 'I should see a ".aspect_dropdown"'
+  step 'I should see a ".aspect-dropdown"'
   step "I should see \"#{user.name}\""
 end
 

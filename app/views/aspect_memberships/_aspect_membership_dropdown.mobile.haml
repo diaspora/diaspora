@@ -1,5 +1,5 @@
 %div
-  %select.aspect_dropdown.form-control.user_aspects{"name" => "user_aspects", "data-person-id" => @person.id}
+  %select.aspect-dropdown.form-control.user_aspects{"name" => "user_aspects", "data-person-id" => @person.id}
     %option{value: 'list_cover', class: 'list_cover', disabled: 'true', selected: 'true'}
       = t("contacts.index.add_contact")
     - contact = current_user.contact_for(@person)

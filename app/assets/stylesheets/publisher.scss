@@ -53,8 +53,8 @@
         .btn-toolbar {
           width: 100%;
           display: flex;
-          .btn, .aspect_dropdown{ flex-grow: 1; }
-          .aspect_dropdown .btn { width: 100%; }
+          .btn, .aspect-dropdown{ flex-grow: 1; }
+          .aspect-dropdown .btn { width: 100%; }
         }
         .btn-group:first-child { margin: 0; }
         .dropdown-menu.pull-right {
@@ -183,7 +183,7 @@
     }
   }
 
-  .aspect_dropdown {
+  .aspect-dropdown {
     .radio {
       min-height: 0;
       padding-left: 0;

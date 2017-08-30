@@ -101,13 +101,13 @@ app.views.Publisher = Backbone.View.extend({
     });
 
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
-      el: this.$(".public_toggle .aspect_dropdown"),
+      el: this.$(".public_toggle .aspect-dropdown"),
       form: form
     });
 
     this.viewGettingStarted = new app.views.PublisherGettingStarted({
       firstMessageEl:  this.inputEl,
-      visibilityEl: this.$(".public_toggle .aspect_dropdown > .dropdown-toggle"),
+      visibilityEl: this.$(".public_toggle .aspect-dropdown > .dropdown-toggle"),
       streamEl:     $("#main-stream")
     });
 

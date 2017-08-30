@@ -36,7 +36,7 @@ Feature: Change settings
   Scenario: Change my post default aspects
     When I go to the stream page
     And I expand the publisher
-    Then I should see "All aspects" within ".aspect_dropdown"
+    Then I should see "All aspects" within ".aspect-dropdown"
     When I go to the edit user page
     And I press the aspect dropdown
     And I toggle the aspect "Family"
@@ -44,7 +44,7 @@ Feature: Change settings
     And I press "Change" within "#post-default-aspects"
     And I go to the stream page
     And I expand the publisher
-    Then I should see "Family" within ".aspect_dropdown"
+    Then I should see "Family" within ".aspect-dropdown"
 
   Scenario: Change my post default to public
     When I press the aspect dropdown
@@ -52,7 +52,7 @@ Feature: Change settings
     And I press "Change" within "#post-default-aspects"
     And I go to the stream page
     And I expand the publisher
-    Then I should see "Public" within ".aspect_dropdown"
+    Then I should see "Public" within ".aspect-dropdown"
 
   Scenario: exporting profile data
     When I click on the first selector "#account_data a"

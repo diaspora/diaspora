@@ -11,7 +11,7 @@ app.pages.Settings = Backbone.View.extend({
     new Diaspora.ProfilePhotoUploader();
 
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
-      el: $(".aspect_dropdown"),
+      el: $(".aspect-dropdown"),
       form: $("#post-default-aspects")
     });
     $("#update_profile_form").areYouSure();

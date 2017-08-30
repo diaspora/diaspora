@@ -9,7 +9,7 @@
  */
 app.views.AspectMembership = app.views.Base.extend({
   templateName: "aspect_membership_dropdown",
-  className: "btn-group aspect_dropdown aspect_membership_dropdown",
+  className: "btn-group aspect-dropdown aspect_membership_dropdown",
 
   subviews: {
     ".newAspectContainer": "aspectCreateView"
