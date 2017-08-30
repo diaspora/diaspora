@@ -6,7 +6,7 @@
   .photo_area
     - if post.is_a?(StatusMessage)
       -if post.photos.size > 0
-        .photo_attachments
+        .photo-attachments
           - if post.photos.size > 1
             .additional_photo_count
               = "+ #{post.photos.size-1}"

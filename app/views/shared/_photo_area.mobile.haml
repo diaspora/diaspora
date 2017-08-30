@@ -5,7 +5,7 @@
 .photo_area
   - if post.is_a?(StatusMessage)
     -if post.photos.size > 0
-      .photo_attachments
+      .photo-attachments
         = link_to person_photo_path(post.author, post.photos.first), class: "stream-photo-link" do
           - if post.photos.size > 1
             .additional_photo_count
