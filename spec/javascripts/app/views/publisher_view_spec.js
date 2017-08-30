@@ -519,7 +519,7 @@ describe("app.views.Publisher", function() {
       setFixtures(
         '<div id="publisher">'+
         '  <div class="content_creation"><form>'+
-        '    <div id="publisher_textarea_wrapper"></div>'+
+        '    <div id="publisher-textarea-wrapper"></div>'+
         '    <div id="photodropzone"></div>'+
         '    <input type="submit" />'+
         '  </form></div>'+
