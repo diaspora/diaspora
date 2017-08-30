@@ -35,11 +35,11 @@ Feature: posting from the mobile main page
     And I should see an uploaded image within the photo drop zone
     When I press "Share"
     When I go to the stream page
-    Then I should see a "img" within ".stream-element div.photo_attachments"
+    Then I should see a "img" within ".stream-element div.photo-attachments"
     When I log out
     And I sign in as "alice@alice.alice" on the mobile website
     When I go to the stream page
-    Then I should see a "img" within ".stream-element div.photo_attachments"
+    Then I should see a "img" within ".stream-element div.photo-attachments"
 
   Scenario: back out of posting a photo-only post
     Given I visit the mobile publisher page

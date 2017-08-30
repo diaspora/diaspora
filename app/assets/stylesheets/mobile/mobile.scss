@@ -83,7 +83,7 @@ h3 {  margin-top: 0; }
 
   > .content, .reshare > .content { padding: 6px; }
   .info{ margin-top: 0; }
-  .photo_attachments{ margin-top: 6px; }
+  .photo-attachments{ margin-top: 6px; }
   .timeago{ font-weight: normal; }
 }
 
@@ -172,7 +172,7 @@ footer {
     padding: 0;
   }
 
-  .photo_attachments {
+  .photo-attachments {
     border-radius: 3px 3px 0 0;
 
     border: {
@@ -194,7 +194,7 @@ footer {
   }
 }
 
-.photo_attachments {
+.photo-attachments {
   position: relative;
   left: 0;
   top: 0;

@@ -129,7 +129,7 @@ app.views.Publisher = Backbone.View.extend({
       },
 
       onPostPreview: function() {
-        var photoAttachments = self.wrapperEl.find(".photo_attachments");
+        var photoAttachments = self.wrapperEl.find(".photo-attachments");
         if (photoAttachments.length > 0) {
           new app.views.Gallery({el: photoAttachments});
         }
