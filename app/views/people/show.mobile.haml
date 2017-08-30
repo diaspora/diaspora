@@ -19,7 +19,7 @@
 - if @post_type == :photos
   = render "photos/index", photos: @posts
 - else
-  .stream#main_stream
+  .stream#main-stream
     - if @stream.stream_posts.length > 0
       = render "shared/stream", posts: @stream.stream_posts
       = render "shared/stream_more_button"

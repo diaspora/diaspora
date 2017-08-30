@@ -15,7 +15,7 @@ app.views.Photos = app.views.InfScroll.extend({
   },
 
   postRenderTemplate: function(){
-    var photoAttachments = $("#main_stream > div");
+    var photoAttachments = $("#main-stream > div");
     if(photoAttachments.length > 0) {
       new app.views.Gallery({ el: photoAttachments });
     }

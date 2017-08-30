@@ -220,7 +220,7 @@ app.Router = Backbone.Router.extend({
       app.page.setupAvatarFallback($(".main-stream-publisher"));
     }
 
-    $("#main_stream").html(app.page.render().el);
+    $("#main-stream").html(app.page.render().el);
     this._hideInactiveStreamLists();
   },
 
