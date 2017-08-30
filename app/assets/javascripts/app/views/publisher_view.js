@@ -36,7 +36,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // init shortcut references to the various elements
     this.inputEl = this.$("#status_message_text");
-    this.wrapperEl = this.$("#publisher_textarea_wrapper");
+    this.wrapperEl = this.$("#publisher-textarea-wrapper");
     this.submitEl = this.$("input[type=submit], button#submit");
     this.photozoneEl = this.$("#photodropzone");
 
@@ -87,7 +87,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initSubviews: function() {
-    this.mention = new app.views.PublisherMention({ el: this.$("#publisher_textarea_wrapper") });
+    this.mention = new app.views.PublisherMention({ el: this.$("#publisher-textarea-wrapper") });
     if(this.prefillMention) {
       this.mention.prefillMention([this.prefillMention]);
     }
