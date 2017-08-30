@@ -30,7 +30,7 @@ Feature: following and being followed
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    And I press the first ".aspect_membership_dropdown .dropdown-toggle"
+    And I press the first ".aspect-membership-dropdown .dropdown-toggle"
     And I press the first "a" within ".add_aspect"
 
     And I fill in "aspect_name" with "Super People" in the aspect creation modal

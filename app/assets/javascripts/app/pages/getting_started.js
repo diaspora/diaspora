@@ -5,7 +5,7 @@ app.pages.GettingStarted = app.views.Base.extend({
   templateName: false,
 
   subviews: {
-    ".aspect_membership_dropdown": "aspectMembershipView"
+    ".aspect-membership-dropdown": "aspectMembershipView"
   },
 
   initialize: function(opts) {
