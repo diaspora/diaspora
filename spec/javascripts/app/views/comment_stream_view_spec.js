@@ -51,7 +51,7 @@ describe("app.views.CommentStream", function(){
       this.view.commentBox = undefined;
       this.view.postRenderTemplate();
       expect(this.view.commentBox).toBeDefined();
-      expect(this.view.commentBox).toEqual(this.view.$(".comment_box"));
+      expect(this.view.commentBox).toEqual(this.view.$(".comment-box"));
     });
 
     it("sets commentSubmitButton", function() {
@@ -124,7 +124,7 @@ describe("app.views.CommentStream", function(){
 
     context("submission", function() {
       beforeEach(function() {
-        this.view.$(".comment_box").val('a new comment');
+        this.view.$(".comment-box").val('a new comment');
         this.view.createComment();
 
         this.request = jasmine.Ajax.requests.mostRecent();
