@@ -91,7 +91,22 @@ describe LikesController, type: :controller do
 
     it "returns an empty array for a post with no likes" do
       get :index, params: {post_id: @message.id}
-      expect(JSON.parse(response.body).map(&:id)).to eq([])
+      expect(JSON.parse(response.body)).to eq([])
+    end
+
+    it "returns likes for a public post without login" do
+      post = alice.post(:status_message, text: "hey", public: true)
+      bob.like!(post)
+      sign_out :user
+      get :index, params: {post_id: post.id}, format: :json
+      expect(JSON.parse(response.body).map {|h| h["id"] }).to match_array(post.likes.map(&:id))
+    end
+
+    it "returns a 401 for a private post when logged out" do
+      bob.like!(@message)
+      sign_out :user
+      get :index, params: {post_id: @message.id}, format: :json
+      expect(response.status).to eq(401)
     end
   end
 
