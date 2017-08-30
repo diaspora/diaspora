@@ -36,7 +36,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // init shortcut references to the various elements
     this.inputEl = this.$("#status_message_text");
-    this.wrapperEl = this.$("#publisher_textarea_wrapper");
+    this.wrapperEl = this.$("#publisher-textarea-wrapper");
     this.submitEl = this.$("input[type=submit], button#submit");
     this.photozoneEl = this.$("#photodropzone");
 
@@ -87,7 +87,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initSubviews: function() {
-    this.mention = new app.views.PublisherMention({ el: this.$("#publisher_textarea_wrapper") });
+    this.mention = new app.views.PublisherMention({ el: this.$("#publisher-textarea-wrapper") });
     if(this.prefillMention) {
       this.mention.prefillMention([this.prefillMention]);
     }
@@ -101,14 +101,14 @@ app.views.Publisher = Backbone.View.extend({
     });
 
     this.viewAspectSelector = new app.views.PublisherAspectSelector({
-      el: this.$(".public_toggle .aspect_dropdown"),
+      el: this.$(".public_toggle .aspect-dropdown"),
       form: form
     });
 
     this.viewGettingStarted = new app.views.PublisherGettingStarted({
       firstMessageEl:  this.inputEl,
-      visibilityEl: this.$(".public_toggle .aspect_dropdown > .dropdown-toggle"),
-      streamEl:     $("#main_stream")
+      visibilityEl: this.$(".public_toggle .aspect-dropdown > .dropdown-toggle"),
+      streamEl:     $("#main-stream")
     });
 
     this.viewUploader = new app.views.PublisherUploader({
@@ -129,7 +129,7 @@ app.views.Publisher = Backbone.View.extend({
       },
 
       onPostPreview: function() {
-        var photoAttachments = self.wrapperEl.find(".photo_attachments");
+        var photoAttachments = self.wrapperEl.find(".photo-attachments");
         if (photoAttachments.length > 0) {
           new app.views.Gallery({el: photoAttachments});
         }

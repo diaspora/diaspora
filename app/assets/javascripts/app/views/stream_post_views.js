@@ -88,7 +88,7 @@ app.views.StreamPost = app.views.Post.extend({
   focusCommentTextarea: function(evt){
     evt.preventDefault();
     this.$(".new-comment-form-wrapper").removeClass("hidden");
-    this.$(".comment_box").focus();
+    this.$(".comment-box").focus();
 
     return this;
   }

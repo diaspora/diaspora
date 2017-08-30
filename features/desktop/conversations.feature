@@ -24,12 +24,12 @@ Feature: private conversations
     And I should see "less than a minute ago" within "#conversation-show"
     And I should see "Alice Awesome" as a participant
     And "Alice Awesome" should be part of active conversation
-    And I should see "hello, alice!" within ".stream_container"
+    And I should see "hello, alice!" within ".stream-container"
     When I sign in as "alice@alice.alice"
     Then I should have 1 unread private message
     And I should have 1 email delivery
     When I reply with "hey, how you doing?"
-    Then I should see "hey, how you doing?" within ".stream_container"
+    Then I should see "hey, how you doing?" within ".stream-container"
 
   Scenario: send a message using keyboard shortcuts
     When I sign in as "bob@bob.bob"
@@ -37,9 +37,9 @@ Feature: private conversations
     Then I should see "Greetings" within "#conversation-inbox"
     And I should see "Greetings" within "#conversation-show"
     And "Alice Awesome" should be part of active conversation
-    And I should see "hello, alice!" within ".stream_container"
+    And I should see "hello, alice!" within ".stream-container"
     When I reply with "hey, how you doing?" using keyboard shortcuts
-    Then I should see "hey, how you doing?" within ".stream_container"
+    Then I should see "hey, how you doing?" within ".stream-container"
     When I sign in as "alice@alice.alice"
     Then I should have 2 unread private messages
     And I should have 2 email delivery
@@ -54,7 +54,7 @@ Feature: private conversations
     Then I should see "Greetings" within "#conversation-inbox"
     And I should see "Greetings" within "#conversation-show"
     And "Alice Awesome" should be part of active conversation
-    And I should see "hello, alice!" within ".stream_container"
+    And I should see "hello, alice!" within ".stream-container"
 
   Scenario: delete a conversation
     When I sign in as "bob@bob.bob"
@@ -66,7 +66,7 @@ Feature: private conversations
     Then I should have 1 unread private message
     And I should have 1 email delivery
     When I reply with "hey, how you doing?"
-    Then I should see "hey, how you doing?" within ".stream_container"
+    Then I should see "hey, how you doing?" within ".stream-container"
     When I sign in as "bob@bob.bob"
     Then I should have 1 email delivery
     And I should have no unread private messages

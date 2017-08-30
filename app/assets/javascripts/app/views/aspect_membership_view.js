@@ -9,7 +9,7 @@
  */
 app.views.AspectMembership = app.views.Base.extend({
   templateName: "aspect_membership_dropdown",
-  className: "btn-group aspect_dropdown aspect_membership_dropdown",
+  className: "btn-group aspect-dropdown aspect-membership-dropdown",
 
   subviews: {
     ".newAspectContainer": "aspectCreateView"
@@ -124,7 +124,7 @@ app.views.AspectMembership = app.views.Base.extend({
   // show an error flash msg
   _displayError: function(model, resp) {
     this._done();
-    this.dropdown.closest(".aspect_membership_dropdown").removeClass("open"); // close the dropdown
+    this.dropdown.closest(".aspect-membership-dropdown").removeClass("open"); // close the dropdown
     app.flashMessages.handleAjaxError(resp);
   },
 
