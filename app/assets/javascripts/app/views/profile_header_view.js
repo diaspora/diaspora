@@ -4,7 +4,7 @@ app.views.ProfileHeader = app.views.Base.extend({
   templateName: 'profile_header',
 
   subviews: {
-    ".aspect_membership_dropdown": "aspectMembershipView"
+    ".aspect-membership-dropdown": "aspectMembershipView"
   },
 
   events: {

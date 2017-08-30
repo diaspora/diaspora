@@ -15,13 +15,13 @@ module AspectCukeHelpers
   end
 
   def toggle_aspect_via_ui(aspect_name)
-    aspects_dropdown = find(".aspect_membership_dropdown .dropdown-toggle", match: :first)
+    aspects_dropdown = find(".aspect-membership-dropdown .dropdown-toggle", match: :first)
     aspects_dropdown.trigger "click"
-    selected_aspect_count = all(".aspect_membership_dropdown.open .dropdown-menu li.selected").length
-    aspect = find(".aspect_membership_dropdown.open .dropdown-menu li", text: aspect_name)
+    selected_aspect_count = all(".aspect-membership-dropdown.open .dropdown-menu li.selected").length
+    aspect = find(".aspect-membership-dropdown.open .dropdown-menu li", text: aspect_name)
     aspect_selected = aspect["class"].include? "selected"
     aspect.trigger "click"
-    expect(find(".aspect_membership_dropdown .dropdown-menu", visible: false)).to have_no_css(".loading")
+    expect(find(".aspect-membership-dropdown .dropdown-menu", visible: false)).to have_no_css(".loading")
 
     # close dropdown
     page.should have_no_css('#profile.loading')
@@ -31,7 +31,7 @@ module AspectCukeHelpers
   end
 
   def aspect_dropdown_visible?
-    expect(find('.aspect_membership_dropdown.open')).to be_visible
+    expect(find('.aspect-membership-dropdown.open')).to be_visible
   end
 end
 World(AspectCukeHelpers)

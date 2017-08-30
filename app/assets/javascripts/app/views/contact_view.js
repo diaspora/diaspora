@@ -4,7 +4,7 @@ app.views.Contact = app.views.Base.extend({
   templateName: 'contact',
 
   subviews: {
-    ".aspect_membership_dropdown": "AspectMembershipView"
+    ".aspect-membership-dropdown": "AspectMembershipView"
   },
 
   events: {
