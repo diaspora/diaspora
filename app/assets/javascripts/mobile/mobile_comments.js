@@ -11,7 +11,7 @@
     initialize: function() {
       var self = this;
 
-      new Diaspora.MarkdownEditor(".comment_box");
+      new Diaspora.MarkdownEditor(".comment-box");
 
       this.stream().on("tap click", "a.show-comments", function(evt){
         evt.preventDefault();
@@ -43,7 +43,7 @@
     submitComment: function(evt){
       evt.preventDefault();
       var form = $(this);
-      var commentBox = form.find(".comment_box");
+      var commentBox = form.find(".comment-box");
       var commentText = $.trim(commentBox.val());
       if(!commentText){
         commentBox.focus();
@@ -169,7 +169,7 @@
 
     showCommentBox: function(link){
       var bottomBar = link.closest(".bottom-bar").first();
-      var textArea = bottomBar.find("textarea.comment_box").first()[0];
+      var textArea = bottomBar.find("textarea.comment-box").first()[0];
       bottomBar.find(".add-comment-switcher").removeClass("hidden");
       autosize(textArea);
     },

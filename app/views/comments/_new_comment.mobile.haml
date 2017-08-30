@@ -9,7 +9,7 @@
       %fieldset
         = hidden_field_tag :post_id, post_id, id: "post-id-on-#{post_id}"
         .form-group.clearfix
-          = text_area_tag :text, nil, class: "col-md-12 comment_box form-control",
+          = text_area_tag :text, nil, class: "col-md-12 comment-box form-control",
               id: "comment-text-on-#{post_id}", placeholder: t(".comment")
         = submit_tag t(".comment"), :id => "comment-submit-#{post_id}", "data-disable-with" => t(".commenting"),
             "data-reset-with" => t(".comment"), :class => "btn btn-primary btn-block comment-button"
