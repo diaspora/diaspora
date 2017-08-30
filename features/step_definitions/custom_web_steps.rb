@@ -205,7 +205,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
-  has_css?("#people_stream .stream-element", count: n_posts.to_i).should be true
+  has_css?("#people-stream .stream-element", count: n_posts.to_i).should be true
 end
 
 And /^I scroll down$/ do

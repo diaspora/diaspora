@@ -9,7 +9,7 @@ var List = {
   },
 
   handleSearchRefresh: function( data ) {
-    var streamEl = $("#people_stream.stream");
+    var streamEl = $("#people-stream.stream");
     var string = data.search_html || $("<p>", {
         text : Diaspora.I18n.t("people.not_found")
       });
