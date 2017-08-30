@@ -25,8 +25,8 @@ Feature: show contacts
     Then I should see "Contacts" within "#profile-horizontal-bar"
 
     When I press the first "#contacts_link"
-    Then I should see "Bob Jones" within "#people_stream .media-body"
-    When I add the person to my "Besties" aspect within "#people_stream"
+    Then I should see "Bob Jones" within "#people-stream .media-body"
+    When I add the person to my "Besties" aspect within "#people-stream"
     Then I should see a flash message containing "You have started sharing with Bob Jones!"
 
   Scenario: don't see contacts of an invisible aspect list

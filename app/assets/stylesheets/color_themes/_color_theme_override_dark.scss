@@ -61,7 +61,7 @@ body {
 
   #invitationsModal #email_invitation { border-top: 1px dashed $gray-light; }
 
-  #contacts_container #people_stream.contacts .stream-element.in_aspect {
+  #contacts_container #people-stream.contacts .stream-element.in_aspect {
     background-color: $state-success-bg;
     border-left: 3px solid darken($state-success-bg, 10%);
   }
