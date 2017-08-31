@@ -17,7 +17,7 @@ app.pages.Contacts = Backbone.View.extend({
     this.chatToggle = $("#chat_privilege_toggle i");
     this.stream = opts.stream;
     this.stream.render();
-    $("#people_stream.contacts .header i").tooltip({"placement": "bottom"});
+    $("#people-stream.contacts .header i").tooltip({"placement": "bottom"});
     $(document).on("ajax:success", "form.edit_aspect", this.updateAspectName);
     app.events.on("aspect:create", function(){ window.location.reload() });
     app.events.on("aspect_membership:create", this.addAspectMembership, this);

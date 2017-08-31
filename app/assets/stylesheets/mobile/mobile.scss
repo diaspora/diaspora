@@ -83,7 +83,7 @@ h3 {  margin-top: 0; }
 
   > .content, .reshare > .content { padding: 6px; }
   .info{ margin-top: 0; }
-  .photo_attachments{ margin-top: 6px; }
+  .photo-attachments{ margin-top: 6px; }
   .timeago{ font-weight: normal; }
 }
 
@@ -172,7 +172,7 @@ footer {
     padding: 0;
   }
 
-  .photo_attachments {
+  .photo-attachments {
     border-radius: 3px 3px 0 0;
 
     border: {
@@ -194,7 +194,7 @@ footer {
   }
 }
 
-.photo_attachments {
+.photo-attachments {
   position: relative;
   left: 0;
   top: 0;
@@ -206,7 +206,7 @@ footer {
     padding: 0; } }
 
 
-#main_stream {
+#main-stream {
   .from {
     white-space: nowrap;
     overflow: hidden;
@@ -486,7 +486,7 @@ select {
   margin-bottom: 5px;
 }
 
-.last_author {
+.last-author {
   position: relative;
   margin: 10px 10px 2px;
   float: right;
@@ -694,7 +694,7 @@ select#aspect_ids_ {
   .entypo-camera { margin-right: 0; }
 }
 
-#publisher_textarea_wrapper {
+#publisher-textarea-wrapper {
   border-radius: 2px;
   margin: 12px 0px;
   background: $framed-background;
