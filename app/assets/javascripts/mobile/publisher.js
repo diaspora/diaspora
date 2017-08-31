@@ -50,19 +50,19 @@ $(document).ready(function(){
   new Diaspora.MarkdownEditor("#status_message_text");
 
   $(".dropdown-menu > li").bind("tap click", function(evt) {
-    var target = $(evt.target).closest('li');
+    var target = $(evt.target).closest("li");
 
     // visually toggle the aspect selection
-    if (target.is('.radio')) {
+    if (target.is(".radio")) {
       _toggleRadio(target);
-    } else if (target.is('.aspect_selector')) {
+    } else if (target.is(".aspect-selector")) {
       // don't close the dropdown
       evt.stopPropagation();
       _toggleCheckbox(target);
     }
 
     _updateSelectedAspectIds();
-    _updateButton('btn-default');
+    _updateButton("btn-default");
 
     // update the globe or lock icon
     var icon = $("#visibility-icon");
@@ -75,15 +75,15 @@ $(document).ready(function(){
     }
   });
 
-  function _toggleRadio (target) {
-    $('.dropdown-menu > li').removeClass('selected');
-    target.toggleClass('selected');
-  };
+  function _toggleRadio(target) {
+    $(".dropdown-menu > li").removeClass("selected");
+    target.toggleClass("selected");
+  }
 
-  function _toggleCheckbox (target) {
-    $('.dropdown-menu > li.radio').removeClass('selected');
-    target.toggleClass('selected');
-  };
+  function _toggleCheckbox(target) {
+    $(".dropdown-menu > li.radio").removeClass("selected");
+    target.toggleClass("selected");
+  }
 
   // take care of the form fields that will indicate the selected aspects
   function _updateSelectedAspectIds() {
@@ -93,33 +93,31 @@ $(document).ready(function(){
     form.find('input[name="aspect_ids[]"]').remove();
 
     // create fields for current selection
-    $('.dropdown-menu > li.selected').each(function() {
-      var uid = _.uniqueId('aspect_ids_');
-      var id = $(this).data('aspect_id');
-      form.append(
-        '<input id="'+uid+'" name="aspect_ids[]" type="hidden" value="'+id+'">'
-      );
+    form.find(".dropdown-menu > li.selected").each(function() {
+      var uid = _.uniqueId("aspect_ids_");
+      var id = $(this).data("aspect_id");
+      form.append('<input id="' + uid + '" name="aspect_ids[]" type="hidden" value="' + id + '">');
     });
-  };
+  }
 
   // change class and text of the dropdown button
   function _updateButton(inAspectClass) {
-    var button = $('.btn.dropdown-toggle'),
+    var button = $(".btn.dropdown-toggle"),
         selectedAspects = $(".dropdown-menu > li.selected").length,
         buttonText;
 
     if (selectedAspects === 0) {
-      button.removeClass(inAspectClass).addClass('btn-default');
+      button.removeClass(inAspectClass).addClass("btn-default");
       buttonText = Diaspora.I18n.t("aspect_dropdown.select_aspects");
     } else {
-      button.removeClass('btn-default').addClass(inAspectClass);
+      button.removeClass("btn-default").addClass(inAspectClass);
       if (selectedAspects === 1) {
         buttonText = this.$(".dropdown-menu > li.selected .text").first().text();
       } else {
-        buttonText = Diaspora.I18n.t("aspect_dropdown.toggle", { count: selectedAspects.toString() });
+        buttonText = Diaspora.I18n.t("aspect_dropdown.toggle", {count: selectedAspects.toString()});
       }
     }
 
-    button.find('.text').text(buttonText);
+    button.find(".text").text(buttonText);
   }
 });

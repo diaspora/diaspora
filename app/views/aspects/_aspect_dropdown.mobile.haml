@@ -16,21 +16,21 @@
 
     %li.public.radio{"data-aspect_id" => "public"}
       %a
-        %span.status_indicator
+        %span.status-indicator
           %i.glyphicon.glyphicon-ok
         %span.text
           = t("public")
-    %li.all_aspects.radio.selected{"data-aspect_id" => "all_aspects"}
+    %li.all-aspects.radio.selected{"data-aspect_id" => "all_aspects"}
       %a
-        %span.status_indicator
+        %span.status-indicator
           %i.glyphicon.glyphicon-ok
         %span.text
           = t("all_aspects")
     %li.divider
     - all_aspects.each do |aspect|
-      %li.aspect_selector{"data-aspect_id" => aspect.id}
+      %li.aspect-selector{"data-aspect_id" => aspect.id}
         %a
-          %span.status_indicator
+          %span.status-indicator
             %i.glyphicon.glyphicon-ok
           %span.text
             = aspect.name

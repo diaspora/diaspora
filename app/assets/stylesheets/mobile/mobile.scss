@@ -651,7 +651,9 @@ form#update_profile_form {
   .submit_block { margin-bottom: 20px; }
 }
 
-select#user_language, select#user_color_theme, #user_auto_follow_back_aspect_id {
+select#user_language,
+select#user_color_theme,
+#user_auto_follow_back_aspect_id {
   padding: 3px;
 }
 
@@ -673,41 +675,39 @@ input#q.search {
   margin-bottom: 20px;
 }
 
+@mixin aspect-dropdown-link() {
+  $link-text-color: #333;
+
+  a {
+    cursor: pointer;
+    padding-left: 10px;
+
+    .text {
+      color: $link-text-color;
+      font-size: 128%;
+    }
+
+    &:hover {
+      background: $background-grey;
+    }
+  }
+}
+
 .aspect_dropdown {
-
   li {
-    .glyphicon-ok,
-    .glyphicon-refresh {
-      display: none;
-      padding-right: 5px;
-    }
+    @include selectable-list;
+    @include aspect-dropdown-link;
 
-    &.selected {
-      .glyphicon-ok { display: inline-block;}
-      .glyphicon-refresh { display: none;}
-    }
-
-    .status_indicator {
-      width: 19px;
-      height: 14px;
+    .status-indicator {
       display: inline-block;
-    }
-
-    a {
-      .text {
-        color: #333333;
-      }
-      &:hover {
-        background: $background-grey;
-      }
-      cursor: pointer;
-      padding-left: 10px;
+      height: 14px;
+      width: 19px;
     }
   }
 }
 
 #file-upload-spinner {
-  top: 0px;
+  top: 0;
 }
 
 #publisher_mobile {
