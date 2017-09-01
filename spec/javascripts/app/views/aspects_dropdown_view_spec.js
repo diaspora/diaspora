@@ -1,7 +1,7 @@
 describe("app.views.AspectsDropdown", function(){
   beforeEach(function() {
     spec.loadFixture("bookmarklet");
-    this.view = new app.views.AspectsDropdown({el: $('.aspect_dropdown')});
+    this.view = new app.views.AspectsDropdown({el: $('.aspect-dropdown')});
   });
 
   context('_toggleCheckbox', function() {

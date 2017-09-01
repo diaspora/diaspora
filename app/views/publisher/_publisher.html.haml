@@ -3,7 +3,7 @@
     = form_for(StatusMessage.new) do |status|
       = status.error_messages
       %params
-        .publisher-textarea-wrapper#publisher_textarea_wrapper
+        .publisher-textarea-wrapper#publisher-textarea-wrapper
           - if current_user.getting_started?
             = status.text_area :text, :rows => 2, :value => h(publisher_formatted_text),
               :tabindex => 1, :placeholder => "#{t('contacts.index.start_a_conversation')}...",

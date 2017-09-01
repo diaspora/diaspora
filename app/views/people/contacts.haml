@@ -11,8 +11,8 @@
       .profile_header
         -# more JS
 
-      .stream_container
-        #people_stream.stream
+      .stream-container
+        #people-stream.stream
           - @hashes.each do |hash|
             = render partial: 'people/person', locals: hash
         = will_paginate @contacts_of_contact, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

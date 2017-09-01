@@ -31,7 +31,7 @@ Scenario: search for a user in background
   And I search for "user@pod.tld"
   And a person with ID "user@pod.tld" has been discovered
   Then I should see "user@pod.tld" within ".stream .info.diaspora_handle"
-  And I should see a ".aspect_dropdown" within ".stream"
+  And I should see a ".aspect-dropdown" within ".stream"
 
 Scenario: search for a not searchable user
   When I sign in as "carol@example.com"

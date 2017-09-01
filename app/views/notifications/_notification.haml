@@ -6,7 +6,7 @@
     - if note.target.present?
       - gon_load_contact(note.contact)
       .pull-right
-        .aspect_membership_dropdown.placeholder{data: {person_id: note.target.id}}
+        .aspect-membership-dropdown.placeholder{data: {person_id: note.target.id}}
 
   .media-object.pull-left
     = person_image_link note.actors.first, :size => :thumb_small, :class => 'hovercardable'

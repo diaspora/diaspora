@@ -58,11 +58,11 @@ Feature: Navigate between pages using the header menu and the drawer
     And I click on "My aspects" in the drawer
     And I click on "All aspects" in the drawer
     Then I should be on the aspects page
-    And I should see "Hi you!" within "#main_stream"
+    And I should see "Hi you!" within "#main-stream"
     When I open the drawer
     And I click on "My aspects" in the drawer
     And I click on "Unicorns" in the drawer
-    And I should not see "Hi you!" within "#main_stream"
+    And I should not see "Hi you!" within "#main-stream"
 
   Scenario: navigate to the followed tags page
     When I follow the "boss" tag

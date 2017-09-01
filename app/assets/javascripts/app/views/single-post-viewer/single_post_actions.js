@@ -26,8 +26,8 @@ app.views.SinglePostActions = app.views.Feedback.extend({
   },
 
   focusComment: function() {
-    $('.comment_stream .comment_box').focus();
-    $('html,body').animate({scrollTop: $('.comment_stream .comment_box').offset().top - ($('.comment_stream .comment_box').height() + 20)});
+    $('.comment_stream .comment-box').focus();
+    $('html,body').animate({scrollTop: $('.comment_stream .comment-box').offset().top - ($('.comment_stream .comment-box').height() + 20)});
     return false;
   },
 

@@ -8,10 +8,10 @@
   = render "publisher/publisher", publisher_aspects_for(stream)
 
 - if current_user.getting_started?
-  .stream#main_stream{:title => popover_with_close_html("3. #{t('.stay_updated')}"),
+  .stream#main-stream{:title => popover_with_close_html("3. #{t('.stay_updated')}"),
     "data-content" => t(".stay_updated_explanation")}
 - else
-  .stream#main_stream
+  .stream#main-stream
 
 #paginate
   .loader.hidden

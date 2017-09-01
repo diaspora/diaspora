@@ -220,7 +220,7 @@ app.Router = Backbone.Router.extend({
       app.page.setupAvatarFallback($(".main-stream-publisher"));
     }
 
-    $("#main_stream").html(app.page.render().el);
+    $("#main-stream").html(app.page.render().el);
     this._hideInactiveStreamLists();
   },
 
@@ -229,7 +229,7 @@ app.Router = Backbone.Router.extend({
   },
 
   renderAspectMembershipDropdowns: function($context) {
-    $context.find(".aspect_membership_dropdown.placeholder").each(function() {
+    $context.find(".aspect-membership-dropdown.placeholder").each(function() {
       var personId = $(this).data("personId");
       var view = new app.views.AspectMembership({person: app.contacts.findWhere({"person_id": personId}).person});
       $(this).html(view.render().$el);

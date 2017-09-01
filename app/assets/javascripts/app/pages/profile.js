@@ -11,7 +11,7 @@ app.pages.Profile = app.views.Base.extend({
   subviews: {
     "#profile": "sidebarView",
     ".profile_header": "headerView",
-    "#main_stream": "streamView"
+    "#main-stream": "streamView"
   },
 
   tooltipSelector: ".profile_button .profile-header-icon, .sharing_message_container",

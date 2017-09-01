@@ -78,12 +78,12 @@ Feature: posting from the main page
       When I write the status message "Look at this dog"
       And I submit the publisher
       And I go to the aspects page
-      Then I should see a "img" within ".stream-element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo-attachments"
       And I should see "Look at this dog" within ".stream-element"
       When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
-      Then I should see a "img" within ".stream-element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo-attachments"
       And I should see "Look at this dog" within ".stream-element"
 
     Scenario: post a photo without text
@@ -91,13 +91,13 @@ Feature: posting from the main page
       And I attach "spec/fixtures/button.png" to the publisher
       Then I should see an uploaded image within the photo drop zone
       When I press "Share"
-      Then I should see a "img" within ".stream-element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo-attachments"
       When I go to the aspects page
-      Then I should see a "img" within ".stream-element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo-attachments"
       When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
-      Then I should see a "img" within ".stream-element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo-attachments"
 
     Scenario: back out of posting a photo-only post
       Given I expand the publisher

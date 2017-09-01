@@ -65,7 +65,7 @@
 
     &:hover:not(.selected), &.selected {
       .subject,
-      .last_author,
+      .last-author,
       .last_message {
         color: $white;
       }
@@ -86,14 +86,14 @@
     &.unread { background-color: $background-grey; }
     &.selected { background-color: $brand-primary; }
 
-    .last_author, .last_message {
+    .last-author, .last_message {
       font-size: 12px;
       line-height: 15px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .last_author { color: $text-dark-grey; }
+    .last-author { color: $text-dark-grey; }
 
     .message-count, .unread-message-count {
       margin-left: 3px;
@@ -148,7 +148,7 @@
     }
   }
 
-  .stream_container .conversation-participants {
+  .stream-container .conversation-participants {
     margin-bottom: 20px;
 
     .hide_conversation, .delete_conversation {
