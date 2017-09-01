@@ -693,7 +693,7 @@ input#q.search {
   }
 }
 
-.aspect_dropdown {
+.aspect-dropdown {
   li {
     @include selectable-list;
     @include aspect-dropdown-link;
