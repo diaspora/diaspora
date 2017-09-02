@@ -367,6 +367,7 @@ GEM
       systemu (~> 2.6.2)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
+    markdown-it-html5-embed (1.0.0)
     markerb (1.1.0)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -815,6 +816,7 @@ DEPENDENCIES
   json-schema-rspec (= 0.0.4)
   leaflet-rails (= 1.2.0)
   logging-rails (= 0.6.0)
+  markdown-it-html5-embed (= 1.0.0)
   markerb (= 1.1.0)
   mini_magick (= 4.8.0)
   minitest

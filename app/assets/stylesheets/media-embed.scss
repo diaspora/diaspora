@@ -1,0 +1,21 @@
+$stub-bg-color: #ddd;
+
+.media-embed {
+  margin-top: 5px;
+
+  .thumb {
+    @include video-overlay;
+
+    background-color: $stub-bg-color;
+
+    video {
+      min-height: 60%;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+
+  audio {
+    width: 100%;
+  }
+}

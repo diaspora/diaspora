@@ -1,0 +1,19 @@
+<div class="media-embed">
+  {{#if needsCover}}
+  <div class="thumb">
+  {{/if}}
+
+    <{{mediaType}} {{{attributes}}}>
+      <source type="{{mimetype}}" src="{{sourceURL}}" />
+      {{title}}
+    </{{mediaType}}>
+
+  {{#if needsCover}}
+    <div class="video-overlay">
+      <div class="video-info">
+        <div class="title">{{title}}</div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</div>
