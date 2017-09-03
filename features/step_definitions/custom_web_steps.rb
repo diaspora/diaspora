@@ -12,8 +12,8 @@ module ScreenshotCukeHelpers
 
     sleep 0.5
 
-    browser.manage.window.resize_to(1280, 1024)
-    browser.save_screenshot(pic)
+    page.driver.resize(1280, 1024)
+    save_screenshot(pic)
   end
 
   def take_screenshots_without_login
@@ -29,16 +29,15 @@ module ScreenshotCukeHelpers
 
   def take_screenshots_with_login
     pages = {
-      'stream'        => 'stream',
-      'activity'      => 'activity_stream',
-      'mentions'      => 'mentioned_stream',
-      'aspects'       => 'aspects_stream',
-      'tags'          => 'followed_tags_stream',
-      'contacts'      => 'contacts',
-      'settings'      => 'edit_user',
-      'notifications' => 'notifications',
-      'conversations' => 'conversations',
-      'logout'        => 'destroy_user_session'
+      "stream"        => "stream",
+      "activity"      => "activity_stream",
+      "mentions"      => "mentioned_stream",
+      "aspects"       => "aspects_stream",
+      "tags"          => "followed_tags_stream",
+      "contacts"      => "contacts",
+      "settings"      => "edit_user",
+      "notifications" => "notifications",
+      "conversations" => "conversations"
     }
 
     pages.each do |name, path|
