@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # From http://jfire.io/blog/2012/04/30/how-to-securely-bootstrap-json-in-a-rails-view/
 # Remove on Rails 4.1 update
 

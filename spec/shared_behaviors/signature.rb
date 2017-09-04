@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "signature data" do
   let(:relayable) { FactoryGirl.create(relayable_type) }
   let(:signature) {

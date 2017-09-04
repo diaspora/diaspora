@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSchema < ActiveRecord::Migration[4.2]
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/LineLength, Layout/ExtraSpacing
   def up

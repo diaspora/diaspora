@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Publisher do
   before do
     @publisher = Publisher.new(alice)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Workers::SendBase do
   it "retries first time after at least 256 seconds" do
     retry_delay = Workers::SendBase.new.send(:seconds_to_delay, 1)

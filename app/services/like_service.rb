@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikeService
   def initialize(user=nil)
     @user = user

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 And /^I edit the post$/ do
   with_scope(".publisher-textarea-wrapper") do
     find(".md-write-tab").click

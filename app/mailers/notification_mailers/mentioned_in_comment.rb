@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailers
   class MentionedInComment < NotificationMailers::Base
     attr_reader :comment

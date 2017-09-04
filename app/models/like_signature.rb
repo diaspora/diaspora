@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikeSignature < ApplicationRecord
   include Diaspora::Signature
 

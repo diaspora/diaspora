@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :have_path do |expected|
   match do |actual|
     await_condition { actual.current_path == expected }

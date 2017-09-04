@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PhotoExporter
   attr_reader :user
 

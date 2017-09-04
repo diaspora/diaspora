@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailers
   class CsrfTokenFail < NotificationMailers::Base
     def set_headers

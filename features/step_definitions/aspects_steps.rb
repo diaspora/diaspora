@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AspectCukeHelpers
   def click_aspect_dropdown
     find(".aspect-dropdown .dropdown-toggle").trigger "click"

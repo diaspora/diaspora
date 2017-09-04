@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ReshareService do
   let(:post) { alice.post(:status_message, text: "hello", public: true) }
 

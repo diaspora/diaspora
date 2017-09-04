@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FixtureBuilder.configure do |fbuilder|
 
   # rebuild fixtures automatically when these files change:

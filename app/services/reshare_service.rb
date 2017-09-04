@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReshareService
   def initialize(user=nil)
     @user = user

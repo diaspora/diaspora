@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ResharesController, :type => :controller do
   describe '#create' do
     let(:post_request!) {

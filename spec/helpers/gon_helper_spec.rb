@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe GonHelper, type: :helper do
   include_context :gon
 

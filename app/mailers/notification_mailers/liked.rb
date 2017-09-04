@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailers
   class Liked < NotificationMailers::Base
     attr_accessor :like

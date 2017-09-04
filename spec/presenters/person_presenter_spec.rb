@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe PersonPresenter do
   let(:profile_user) { FactoryGirl.create(:user_with_aspect) }
   let(:person) { profile_user.person }

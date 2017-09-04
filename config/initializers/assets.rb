@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Be sure to restart your server when you modify this file.
 
 # bootstrap-markdown plugin relies on rails-assets-bootstrap gem but we use

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if AppConfig.environment.image_redirect_url.present?
   require 'rack-rewrite'
 

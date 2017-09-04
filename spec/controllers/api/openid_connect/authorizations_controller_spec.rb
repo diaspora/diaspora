@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Api::OpenidConnect::AuthorizationsController, type: :request do
   let!(:client) { FactoryGirl.create(:o_auth_application) }
 

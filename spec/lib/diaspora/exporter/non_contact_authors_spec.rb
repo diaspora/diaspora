@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Exporter::NonContactAuthors do
   describe "#query" do
     let(:user) { FactoryGirl.create(:user_with_aspect) }

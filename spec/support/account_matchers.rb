@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :be_a_discovered_person do
   match do |person|
     !Person.by_account_identifier(person.diaspora_handle).nil?

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AspectPresenter < BasePresenter
   def initialize(aspect)
     @aspect = aspect

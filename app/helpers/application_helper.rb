@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -15,8 +17,9 @@ module ApplicationHelper
     return AppConfig.settings.changelog_url.get if AppConfig.settings.changelog_url.present?
 
     url = "https://github.com/diaspora/diaspora/blob/master/Changelog.md"
-    url.sub!('/master/', "/#{AppConfig.git_revision}/") if AppConfig.git_revision.present?
-    url
+    return url if AppConfig.git_revision.blank?
+
+    url.sub("/master/", "/#{AppConfig.git_revision}/")
   end
 
   def source_url

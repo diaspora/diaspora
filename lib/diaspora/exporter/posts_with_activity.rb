@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Diaspora
   class Exporter
     # This class allows to query posts where a person made any activity (submitted comments,

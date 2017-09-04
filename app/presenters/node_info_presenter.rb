@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NodeInfoPresenter
   delegate :as_json, :content_type, to: :document
 

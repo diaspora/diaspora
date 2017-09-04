@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Workers
   class ResetPassword < Base
     sidekiq_options queue: :urgent

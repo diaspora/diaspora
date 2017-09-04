@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ApplicationController, type: :request do
   describe "csrf token validation" do
     context "without a current user" do

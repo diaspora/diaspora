@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Export::ContactSerializer do
   let(:contact) { FactoryGirl.create(:contact) }
   let(:serializer) { Export::ContactSerializer.new(contact) }

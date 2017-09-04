@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Export::UserSerializer do
   let(:user) { FactoryGirl.create(:user) }
   let(:serializer) { Export::UserSerializer.new(user, root: false) }

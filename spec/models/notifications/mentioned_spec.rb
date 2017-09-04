@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Notifications::Mentioned do
   class TestNotification < Notification
     include Notifications::Mentioned

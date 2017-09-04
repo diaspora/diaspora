@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "load_config"
 rails_env = ENV["RAILS_ENV"] || ENV["RACK_ENV"] || "development"
 

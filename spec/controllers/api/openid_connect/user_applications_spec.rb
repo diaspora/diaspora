@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Api::OpenidConnect::UserApplicationsController, type: :controller do
   before do
     @app = FactoryGirl.create(:o_auth_application_with_xss)

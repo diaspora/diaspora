@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe User::AuthenticationToken, type: :model do
   describe "#reset_authentication_token!" do
     it "sets the authentication token" do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe TagFollowingsController, type: :controller do
   describe "#manage" do
     context "not signed in" do

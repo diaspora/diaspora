@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then /^the post should be collapsed$/ do
   first_post_collapsed?
 end

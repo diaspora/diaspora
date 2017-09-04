@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 require Rails.root.join("spec", "support", "inlined_jobs")
 
 module HelperMethods

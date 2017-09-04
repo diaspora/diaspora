@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CleanupAspectsAndAddUniqueIndex < ActiveRecord::Migration[5.1]
   class Aspect < ApplicationRecord
   end

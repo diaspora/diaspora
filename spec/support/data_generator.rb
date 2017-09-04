@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This is a helper class for tests that is capable of generating different sets of data, which are possibly
 # interrelated.
 class DataGenerator

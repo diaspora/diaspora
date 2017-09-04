@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When /^I focus the comment field$/ do
   focus_comment_box
 end

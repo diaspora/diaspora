@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Workers
   class SendPublic < SendBase
     def perform(sender_id, obj_str, urls, xml, retry_count=0)

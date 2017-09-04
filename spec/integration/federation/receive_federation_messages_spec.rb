@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "integration/federation/federation_helper"
 require "integration/federation/shared_receive_relayable"
 require "integration/federation/shared_receive_retraction"

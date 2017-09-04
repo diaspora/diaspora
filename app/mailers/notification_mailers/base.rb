@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailers
   class Base
     include Diaspora::Logging
@@ -52,7 +54,7 @@ module NotificationMailers
     def log_mail(recipient_id, sender_id, type)
       log_string = "event=mail mail_type=#{type} recipient_id=#{recipient_id} sender_id=#{sender_id} " \
                    " recipient_handle=#{@recipient.diaspora_handle}"
-      log_string << " sender_handle=#{@sender.diaspora_handle}" if sender_id.present?
+      log_string = "#{log_string} sender_handle=#{@sender.diaspora_handle}" if sender_id.present?
 
       logger.info log_string
     end

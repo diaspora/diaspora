@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Export::PersonMetadataSerializer do
   let(:person) { FactoryGirl.create(:person) }
   let(:serializer) { Export::PersonMetadataSerializer.new(person) }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe NodeInfoController do
   describe "#jrd" do
     it "responds to JSON" do
