@@ -13,3 +13,7 @@ recurring_pod_check:
 recheck_scheduled_pods:
   cron: "*/30 * * * *"
   class: "Workers::RecheckScheduledPods"
+
+check_birthday:
+  cron: "0 0 * * *"
+  class: "Workers::CheckBirthday"
