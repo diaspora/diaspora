@@ -231,6 +231,23 @@ describe StatusMessage, type: :model do
     end
   end
 
+  describe "poll" do
+    it "destroys the poll (with all answers and participations) when the status message is destroyed" do
+      poll = FactoryGirl.create(:poll_participation).poll
+      status_message = poll.status_message
+
+      poll_id = poll.id
+      poll_answers = poll.poll_answers.map(&:id)
+      poll_participations = poll.poll_participations.map(&:id)
+
+      status_message.destroy
+
+      expect(Poll.where(id: poll_id)).not_to exist
+      poll_answers.each {|id| expect(PollAnswer.where(id: id)).not_to exist }
+      poll_participations.each {|id| expect(PollParticipation.where(id: id)).not_to exist }
+    end
+  end
+
   describe "validation" do
     let(:status_message) { build(:status_message, text: @message_text) }
 
