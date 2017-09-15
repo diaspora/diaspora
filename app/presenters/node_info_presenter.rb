@@ -22,6 +22,7 @@ class NodeInfoPresenter
     doc.open_registrations       = open_registrations?
     doc.metadata["nodeName"]     = name
     doc.metadata["xmppChat"]     = chat_enabled?
+    doc.metadata["camo"]         = camo_config
     doc.metadata["adminAccount"] = admin_account
   end
 
@@ -69,6 +70,14 @@ class NodeInfoPresenter
 
   def chat_enabled?
     AppConfig.chat.enabled?
+  end
+
+  def camo_config
+    {
+      markdown:    AppConfig.privacy.camo.proxy_markdown_images?,
+      opengraph:   AppConfig.privacy.camo.proxy_opengraph_thumbnails?,
+      remote_pods: AppConfig.privacy.camo.proxy_remote_pod_images?
+    }
   end
 
   def admin_account
