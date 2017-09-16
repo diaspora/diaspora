@@ -203,7 +203,7 @@ GEM
       sigar (~> 0.7.3)
       state_machines
       thor
-    fabrication (2.16.2)
+    fabrication (2.16.3)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.8.0)
