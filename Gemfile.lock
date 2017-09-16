@@ -526,7 +526,7 @@ GEM
     rails-assets-favico.js (0.3.10)
     rails-assets-fine-uploader (5.13.0)
     rails-assets-highlightjs (9.12.0)
-    rails-assets-jasmine (2.7.0)
+    rails-assets-jasmine (2.8.0)
     rails-assets-jasmine-ajax (3.3.1)
       rails-assets-jasmine (~> 2)
     rails-assets-jquery (3.2.1)
