@@ -657,7 +657,7 @@ GEM
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.1)
+    simplecov-html (0.10.2)
     sinon-rails (1.15.0)
       railties (>= 3.1)
     slop (3.6.0)
