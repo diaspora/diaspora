@@ -289,7 +289,7 @@ GEM
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
-    hashdiff (0.3.5)
+    hashdiff (0.3.6)
     hashie (3.5.6)
     hitimes (1.2.6)
     http (2.2.2)
