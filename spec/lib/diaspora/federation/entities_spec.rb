@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Federation::Entities do
   describe ".build" do
     it "builds an account deletion" do

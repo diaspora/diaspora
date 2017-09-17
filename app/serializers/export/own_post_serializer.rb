@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Export
   # This is a serializer for the user's own posts
   class OwnPostSerializer < FederationEntitySerializer

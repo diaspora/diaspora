@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe BlocksController, :type => :controller do
   before do
     sign_in alice

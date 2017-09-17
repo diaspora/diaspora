@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe SearchController, :type => :controller do
   before do
     @user = alice

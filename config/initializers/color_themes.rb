@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Generate the path to the .yml file with the available color themes.
 color_themes_file = Rails.root.join("config/color_themes.yml")
 # Check in case config/color_themes.yml does not exist.

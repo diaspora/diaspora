@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # configure the federation engine
 DiasporaFederation.configure do |config|
   # the pod url

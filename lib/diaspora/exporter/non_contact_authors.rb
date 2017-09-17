@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Diaspora
   class Exporter
     # This class is capable of quering a list of people from authors of given posts that are non-contacts of a given

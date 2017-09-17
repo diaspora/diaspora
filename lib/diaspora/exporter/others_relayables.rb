@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Diaspora
   class Exporter
     # This class implements methods that allow to query relayables (comments, likes, participations,

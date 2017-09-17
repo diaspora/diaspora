@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailers
   class Mentioned < NotificationMailers::Base
     attr_accessor :post

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if AppConfig.chat.enabled? && AppConfig.chat.server.enabled?
   db = Rails.application.config
     .database_configuration[Rails.env]

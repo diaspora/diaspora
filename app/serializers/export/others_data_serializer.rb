@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Export
   class OthersDataSerializer < ActiveModel::Serializer
     # Relayables of other people in the archive: comments, likes, participations, poll participations where author is

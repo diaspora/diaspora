@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 $:.unshift(ENV['JASMINE_GEM_PATH']) if ENV['JASMINE_GEM_PATH'] # for gem testing purposes
 
 ENV["JASMINE_BROWSER"] = "firefox"

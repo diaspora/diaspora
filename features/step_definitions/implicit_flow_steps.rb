@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 O_AUTH_QUERY_PARAMS = {
   redirect_uri:  "http://example.org/",
   response_type: "id_token token",

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When /^I toggle the mobile view$/ do
   visit("/mobile/toggle")
 end

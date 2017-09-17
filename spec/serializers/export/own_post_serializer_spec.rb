@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Export::OwnPostSerializer do
   let(:author) { FactoryGirl.create(:user_with_aspect).person }
 

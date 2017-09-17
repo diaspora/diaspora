@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Markdownify::HTML do
   describe "#autolink" do
     before do

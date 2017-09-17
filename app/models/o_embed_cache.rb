@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OEmbedCache < ApplicationRecord
   serialize :data
   validates :data, :presence => true

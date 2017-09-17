@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe PollParticipation, type: :model do
   let(:status) { bob.post(:status_message, text: "hello", to: bob.aspects.first.id) }
   let(:poll) { Poll.new(question: "Who is in charge?") }

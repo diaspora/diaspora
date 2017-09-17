@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then "I should see the photo lightbox" do
   step %(I should see a "#blueimp-gallery" within "body")
 end

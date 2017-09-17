@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe UsersController, type: :controller do
   before do
     sign_in alice, scope: :user

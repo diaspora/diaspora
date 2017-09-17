@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Federation::Receive do
   let(:sender) { FactoryGirl.create(:person) }
   let(:post) { FactoryGirl.create(:status_message, text: "hello", public: true, author: alice.person) }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ParticipationsController, :type => :controller do
   before do
     allow(@controller).to receive(:current_user).and_return(alice)

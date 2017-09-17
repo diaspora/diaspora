@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::MessageRenderer do
   MESSAGE_NORMALIZTIONS = {
     "\u202a#\u200eUSA\u202c" => "#USA",

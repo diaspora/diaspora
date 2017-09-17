@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -9,7 +11,6 @@ Coveralls.wear!('rails')
 
 require File.join(File.dirname(__FILE__), "..", "config", "environment")
 require Rails.root.join("spec", "helper_methods")
-require Rails.root.join("spec", "spec-doc")
 require "rspec/rails"
 require "webmock/rspec"
 require "factory_girl"

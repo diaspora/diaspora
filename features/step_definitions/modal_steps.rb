@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then /^I should see a modal$/ do
   step %{I should see a ".modal.in"}
 end

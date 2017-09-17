@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Api::OpenidConnect::IdToken, type: :model do
   describe "#to_jwt" do
     let(:auth) { FactoryGirl.create(:auth_with_read) }

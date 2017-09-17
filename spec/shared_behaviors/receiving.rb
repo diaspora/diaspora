@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "it ignores existing object received twice" do |klass|
   it "return nil if the #{klass} already exists" do
     expect(Diaspora::Federation::Receive.perform(entity)).not_to be_nil

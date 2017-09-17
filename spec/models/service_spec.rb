@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Service, :type => :model do
   before do
     @post = alice.post(:status_message, :text => "hello", :to => alice.aspects.first.id)

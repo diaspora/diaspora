@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe NotificationSerializer do
   let(:notifications_controller) { NotificationsController.new }
 

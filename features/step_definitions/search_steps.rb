@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When /^I enter "([^"]*)" in the search input$/ do |search_term|
   find("input#q").native.send_keys(search_term)
 end

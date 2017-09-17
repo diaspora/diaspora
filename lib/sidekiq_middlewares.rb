@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SidekiqMiddlewares
   class CleanAndShortBacktraces
     def call(worker, item, queue)

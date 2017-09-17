@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Participation < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid

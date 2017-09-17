@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ContactsHelper
   def start_a_conversation_link(aspect, contacts_size)
     conv_opts = { class: "conversation_button contacts_button"}

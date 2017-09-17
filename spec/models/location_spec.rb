@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Location, type: :model do
   describe "before validation" do
     let(:status) { FactoryGirl.create(:status_message) }

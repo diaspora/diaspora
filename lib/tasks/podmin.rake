@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :podmin do
   
   desc "Send an email to users as admin"

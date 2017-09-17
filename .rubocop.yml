@@ -170,10 +170,6 @@ Layout/DotPosition:
 
 ### backward compatibility
 
-# only with ruby >= 2.3
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 # only with ruby >= 2.4
 Performance/RegexpMatch:
   Enabled: false

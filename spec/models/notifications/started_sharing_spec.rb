@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Notifications::StartedSharing, type: :model do
   let(:contact) { alice.contact_for(bob.person) }
   let(:started_sharing_notification) { Notifications::StartedSharing.new(recipient: alice) }

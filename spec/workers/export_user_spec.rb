@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Workers::ExportUser do
   before do
     allow(User).to receive(:find).with(alice.id).and_return(alice)

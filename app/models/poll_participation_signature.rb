@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PollParticipationSignature < ApplicationRecord
   include Diaspora::Signature
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :assets do
   desc "Generate error pages"
   task :generate_error_pages => :environment do

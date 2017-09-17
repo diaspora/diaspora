@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ConversationsHelper, :type => :helper do
   before do
     @conversation = FactoryGirl.create(:conversation)

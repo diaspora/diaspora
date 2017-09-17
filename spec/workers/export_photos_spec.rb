@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Workers::ExportPhotos do
   before do
     allow(User).to receive(:find).with(alice.id).and_return(alice)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :generate do
   desc 'Generates a Session Secret Token'
   task :secret_token do

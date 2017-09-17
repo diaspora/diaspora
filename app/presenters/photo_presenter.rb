@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PhotoPresenter < BasePresenter
   def base_hash
     { id: id,

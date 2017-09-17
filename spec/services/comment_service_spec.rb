@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe CommentService do
   let(:post) { alice.post(:status_message, text: "hello", to: alice.aspects.first) }
 

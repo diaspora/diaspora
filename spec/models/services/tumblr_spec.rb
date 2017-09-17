@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Services::Tumblr, type: :model do
   let(:user) { alice }
   let(:post) { user.post(:status_message, text: "hello", to: user.aspects.first.id) }

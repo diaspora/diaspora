@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
   @me ||= FactoryGirl.create(:user, :username => username, :password => password,
                   :password_confirmation => password, :getting_started => false)

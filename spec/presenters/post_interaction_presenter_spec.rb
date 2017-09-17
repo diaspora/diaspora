@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe PostInteractionPresenter do
   let(:status_message_without_participation) {
     FactoryGirl.create(:status_message_without_participation)

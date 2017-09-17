@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Services
   class Wordpress < Service
     MAX_CHARACTERS = 1000

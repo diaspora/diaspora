@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe NotificationsController, :type => :controller do
   describe '#index' do
     before do

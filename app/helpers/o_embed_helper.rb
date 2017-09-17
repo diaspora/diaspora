@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OEmbedHelper
   def o_embed_html(cache)
     data = cache.data

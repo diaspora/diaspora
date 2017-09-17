@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GonHelper
   def gon_load_contact(contact)
     Gon.preloads[:contacts] ||= []

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Exporter::OthersRelayables do
   let(:status_message) { FactoryGirl.create(:status_message) }
   let(:person) { status_message.author }

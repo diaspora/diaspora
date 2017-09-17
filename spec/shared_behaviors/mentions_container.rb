@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "it is mentions container" do
   let(:people) { [alice, bob, eve].map(&:person) }
   let(:test_string) {

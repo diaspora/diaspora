@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then /^I should see the "(.*)" message$/ do |message|
   text = case message
            when "alice is excited"
