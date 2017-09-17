@@ -5,8 +5,8 @@ class Poll < ApplicationRecord
   include Diaspora::Fields::Guid
 
   belongs_to :status_message
-  has_many :poll_answers, -> { order 'id ASC' }
-  has_many :poll_participations
+  has_many :poll_answers, -> { order "id ASC" }, dependent: :destroy
+  has_many :poll_participations, dependent: :destroy
   has_one :author, through: :status_message
 
   #forward some requests to status message, because a poll is just attached to a status message and is not sharable itself
