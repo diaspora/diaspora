@@ -5,7 +5,6 @@
 #   the COPYRIGHT file.
 
 class ExportedPhotos < SecureUploader
-
   def store_dir
     "uploads/users"
   end
@@ -13,7 +12,4 @@ class ExportedPhotos < SecureUploader
   def filename
     "#{model.username}_photos_#{secure_token}.zip" if original_filename.present?
   end
-
-
-
 end
