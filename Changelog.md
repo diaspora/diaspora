@@ -23,6 +23,7 @@
 * Display likes and reshares without login [#7583](https://github.com/diaspora/diaspora/pull/7583)
 * Fix invalid data in the database for user data export [#7614](https://github.com/diaspora/diaspora/pull/7614)
 * Fix local migration run without old private key [#7558](https://github.com/diaspora/diaspora/pull/7558)
+* Fix export not downloadable because the filename was resetted on access [#7622](https://github.com/diaspora/diaspora/pull/7622)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)

@@ -14,6 +14,6 @@ class ExportedUser < SecureUploader
   end
 
   def filename
-    "#{model.username}_diaspora_data_#{secure_token}.json.gz"
+    "#{model.username}_diaspora_data_#{secure_token}.json.gz" if original_filename.present?
   end
 end
