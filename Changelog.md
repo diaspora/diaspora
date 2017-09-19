@@ -1,3 +1,7 @@
+# 0.7.0.1
+
+Update nokogiri to fix [multiple libxml2 vulnerabilities](https://usn.ubuntu.com/usn/usn-3424-1/).
+
 # 0.7.0.0
 
 ## Supported Ruby versions
