@@ -35,6 +35,10 @@
 * Show users vote in polls [#7550](https://github.com/diaspora/diaspora/pull/7550)
 * Add explanation of ignore function to in-app help section [#7585](https://github.com/diaspora/diaspora/pull/7585)
 
+# 0.7.0.1
+
+Update nokogiri to fix [multiple libxml2 vulnerabilities](https://usn.ubuntu.com/usn/usn-3424-1/).
+
 # 0.7.0.0
 
 ## Supported Ruby versions
