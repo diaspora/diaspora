@@ -374,7 +374,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.8.0)
     mini_mime (0.1.4)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.3)
     mobile_fu (1.4.0)
       rack-mobile-detect
@@ -387,8 +387,8 @@ GEM
     naught (1.1.0)
     nenv (0.3.0)
     nio4r (2.1.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -820,7 +820,7 @@ DEPENDENCIES
   minitest
   mobile_fu (= 1.4.0)
   mysql2 (= 0.4.9)
-  nokogiri (= 1.8.0)
+  nokogiri (= 1.8.1)
   omniauth (= 1.6.1)
   omniauth-facebook (= 4.0.0)
   omniauth-tumblr (= 1.2)
@@ -904,4 +904,4 @@ DEPENDENCIES
   will_paginate (= 3.1.6)
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
