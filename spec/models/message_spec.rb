@@ -52,4 +52,6 @@ describe Message, type: :model do
       expect(conf.reload.unread).to eq(1)
     end
   end
+
+  it_behaves_like "a reference source"
 end

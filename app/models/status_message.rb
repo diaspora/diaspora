@@ -7,6 +7,9 @@
 class StatusMessage < Post
   include Diaspora::Taggable
 
+  include Reference::Source
+  include Reference::Target
+
   include PeopleHelper
 
   acts_as_taggable_on :tags

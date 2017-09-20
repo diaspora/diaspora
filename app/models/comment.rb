@@ -14,6 +14,7 @@ class Comment < ApplicationRecord
   include Diaspora::Taggable
   include Diaspora::Likeable
   include Diaspora::MentionsContainer
+  include Reference::Source
 
   acts_as_taggable_on :tags
   extract_tags_from :text
