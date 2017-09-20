@@ -258,6 +258,11 @@ FactoryGirl.define do
     end
   end
 
+  factory :reference do
+    association :source, factory: :status_message
+    association :target, factory: :status_message
+  end
+
   factory(:notification, class: Notifications::AlsoCommented) do
     association :recipient, :factory => :user
     association :target, :factory => :comment
