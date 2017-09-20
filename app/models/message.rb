@@ -5,6 +5,8 @@ class Message < ApplicationRecord
   include Diaspora::Fields::Guid
   include Diaspora::Fields::Author
 
+  include Reference::Source
+
   belongs_to :conversation, touch: true
 
   delegate :name, to: :author, prefix: true
