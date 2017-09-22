@@ -7,6 +7,8 @@ DiasporaFederation.configure do |config|
 
   config.certificate_authorities = AppConfig.environment.certificate_authorities.get
 
+  config.webfinger_http_fallback = Rails.env == "development"
+
   config.http_concurrency = AppConfig.settings.typhoeus_concurrency.to_i
   config.http_verbose = AppConfig.settings.typhoeus_verbose?
 
