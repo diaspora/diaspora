@@ -9,7 +9,16 @@ class Reference < ApplicationRecord
     extend ActiveSupport::Concern
 
     included do
+      after_create :create_references
       has_many :references, as: :source, dependent: :destroy
+    end
+
+    def create_references
+      text&.scan(DiasporaFederation::Federation::DiasporaUrlParser::DIASPORA_URL_REGEX)&.each do |author, type, guid|
+        class_name = DiasporaFederation::Entity.entity_class(type).to_s.rpartition("::").last
+        entity = Diaspora::Federation::Mappings.model_class_for(class_name).find_by(guid: guid)
+        references.find_or_create_by(target: entity) if entity.diaspora_handle == author
+      end
     end
   end
 
