@@ -30,6 +30,9 @@
 * Show users vote in polls [#7550](https://github.com/diaspora/diaspora/pull/7550)
 * Add explanation of ignore function to in-app help section [#7585](https://github.com/diaspora/diaspora/pull/7585)
 * Add camo information to NodeInfo [#7617](https://github.com/diaspora/diaspora/pull/7617)
+* Add support for `diaspora://` links [#7625](https://github.com/diaspora/diaspora/pull/7625)
+* Add support to relay likes for comments [#7625](https://github.com/diaspora/diaspora/pull/7625)
+* Implement RFC 7033 WebFinger [#7625](https://github.com/diaspora/diaspora/pull/7625)
 
 # 0.7.0.1
 
