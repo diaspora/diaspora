@@ -15,7 +15,7 @@ shared_examples_for "it ignores existing object received twice" do |klass|
   end
 end
 
-shared_examples_for "it rejects if the parent author ignores the author" do |klass|
+shared_examples_for "it rejects if the root author ignores the author" do |klass|
   it "saves the relayable if the author is not ignored" do
     Diaspora::Federation::Receive.perform(entity)
 

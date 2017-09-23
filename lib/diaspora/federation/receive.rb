@@ -158,10 +158,10 @@ module Diaspora
         when Person
           User.find(recipient_id).disconnected_by(object)
         when Diaspora::Relayable
-          if object.parent.author.local?
-            parent_author = object.parent.author.owner
+          if object.root.author.local?
+            root_author = object.root.author.owner
             retraction = Retraction.for(object)
-            retraction.defer_dispatch(parent_author, false)
+            retraction.defer_dispatch(root_author, false)
             retraction.perform
           else
             object.destroy!
@@ -257,7 +257,7 @@ module Diaspora
           yield.tap do |relayable|
             retract_if_author_ignored(relayable)
 
-            relayable.signature = build_signature(klass, entity) if relayable.parent.author.local?
+            relayable.signature = build_signature(klass, entity) if relayable.root.author.local?
             relayable.save!
           end
         end
@@ -272,18 +272,18 @@ module Diaspora
       end
 
       private_class_method def self.retract_if_author_ignored(relayable)
-        parent_author = relayable.parent.author.owner
-        return unless parent_author && parent_author.ignored_people.include?(relayable.author)
+        root_author = relayable.root.author.owner
+        return unless root_author && root_author.ignored_people.include?(relayable.author)
 
         retraction = Retraction.for(relayable)
-        Diaspora::Federation::Dispatcher.build(parent_author, retraction, subscribers: [relayable.author]).dispatch
+        Diaspora::Federation::Dispatcher.build(root_author, retraction, subscribers: [relayable.author]).dispatch
 
         raise Diaspora::Federation::AuthorIgnored
       end
 
       private_class_method def self.relay_relayable(relayable)
-        parent_author = relayable.parent.author.owner
-        Diaspora::Federation::Dispatcher.defer_dispatch(parent_author, relayable) if parent_author
+        root_author = relayable.root.author.owner
+        Diaspora::Federation::Dispatcher.defer_dispatch(root_author, relayable) if root_author
       end
 
       # check if the object already exists, otherwise save it.
