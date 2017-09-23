@@ -142,12 +142,10 @@ module Diaspora
         author = author_of(entity)
         ignore_existing_guid(Reshare, entity.guid, author) do
           Reshare.create!(
-            author:                author,
-            guid:                  entity.guid,
-            created_at:            entity.created_at,
-            provider_display_name: entity.provider_display_name,
-            public:                entity.public,
-            root_guid:             entity.root_guid
+            author:     author,
+            guid:       entity.guid,
+            created_at: entity.created_at,
+            root_guid:  entity.root_guid
           )
         end
       end
