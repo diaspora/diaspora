@@ -83,7 +83,7 @@ describe Diaspora::Federation::Dispatcher::Private do
         expect(magic_env).to receive(:envelop).with(encryption_key).and_return(magic_env_xml)
         expect(DiasporaFederation::Salmon::EncryptedMagicEnvelope).to receive(:encrypt) do |magic_env, public_key|
           expect(magic_env).to eq(magic_env_xml)
-          expect(public_key.to_s).to eq(remote_raphael.public_key.to_s)
+          expect(public_key.to_s).to eq(remote_person.public_key.to_s)
           json
         end
 
@@ -109,7 +109,7 @@ describe Diaspora::Federation::Dispatcher::Private do
         expect(magic_env).to receive(:envelop).with(encryption_key).and_return(magic_env_xml)
         expect(DiasporaFederation::Salmon::EncryptedMagicEnvelope).to receive(:encrypt) do |magic_env, public_key|
           expect(magic_env).to eq(magic_env_xml)
-          expect(public_key.to_s).to eq(remote_raphael.public_key.to_s)
+          expect(public_key.to_s).to eq(remote_person.public_key.to_s)
           json
         end
 
