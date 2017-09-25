@@ -13,6 +13,6 @@ class FederationEntitySerializer < ActiveModel::Serializer
   end
 
   def entity
-    @entity ||= Diaspora::Federation::Entities.build(object)
+    Diaspora::Federation::Entities.build(object)
   end
 end
