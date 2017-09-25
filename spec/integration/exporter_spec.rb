@@ -201,7 +201,7 @@ describe Diaspora::Exporter do
       expect(json).to include_json(user: {posts: [serialized]})
     end
 
-    it "contains a reshare and its root" do
+    it "contains a reshare" do
       reshare = FactoryGirl.create(:reshare, author: user.person)
       serialized_reshare = {
         "subscribed_pods_uris": [reshare.root.author.pod.url_to(""), AppConfig.pod_uri.to_s],
@@ -216,21 +216,8 @@ describe Diaspora::Exporter do
         }
       }
 
-      status_message = reshare.root
-      serialized_parent = {
-        "entity_type": "status_message",
-        "entity_data": {
-          "author":     status_message.diaspora_handle,
-          "guid":       status_message.guid,
-          "created_at": status_message.created_at.iso8601,
-          "text":       status_message.text,
-          "public":     true
-        }
-      }
-
       expect(json).to include_json(
-        user:        {posts: [serialized_reshare]},
-        others_data: {posts: [serialized_parent]}
+        user: {posts: [serialized_reshare]}
       )
     end
 
@@ -244,7 +231,7 @@ describe Diaspora::Exporter do
       expect(json).to include_json(user: {post_subscriptions: [subscription.target.guid]})
     end
 
-    it "contains a comment and the commented post" do
+    it "contains a comment" do
       comment = FactoryGirl.create(:comment, author: user.person)
       serialized_comment = {
         "entity_type":    "comment",
@@ -258,25 +245,12 @@ describe Diaspora::Exporter do
         "property_order": %w[author guid parent_guid text created_at]
       }
 
-      status_message = comment.parent
-      serialized_post = {
-        "entity_type": "status_message",
-        "entity_data": {
-          "author":     status_message.diaspora_handle,
-          "guid":       status_message.guid,
-          "created_at": status_message.created_at.iso8601,
-          "text":       status_message.text,
-          "public":     false
-        }
-      }
-
       expect(json).to include_json(
-        user:        {relayables: [serialized_comment]},
-        others_data: {posts: [serialized_post]}
+        user: {relayables: [serialized_comment]}
       )
     end
 
-    it "contains a like and the liked post" do
+    it "contains a like" do
       like = FactoryGirl.create(:like, author: user.person)
       serialized_like = {
         "entity_type":    "like",
@@ -290,25 +264,12 @@ describe Diaspora::Exporter do
         "property_order": %w[author guid parent_guid parent_type positive]
       }
 
-      status_message = like.target
-      serialized_post = {
-        "entity_type": "status_message",
-        "entity_data": {
-          "author":     status_message.diaspora_handle,
-          "guid":       status_message.guid,
-          "created_at": status_message.created_at.iso8601,
-          "text":       status_message.text,
-          "public":     false
-        }
-      }
-
       expect(json).to include_json(
-        user:        {relayables: [serialized_like]},
-        others_data: {posts: [serialized_post]}
+        user: {relayables: [serialized_like]}
       )
     end
 
-    it "contains a poll participation and post with this poll" do
+    it "contains a poll participation" do
       poll_participation = FactoryGirl.create(:poll_participation, author: user.person)
       serialized_participation = {
         "entity_type":    "poll_participation",
@@ -321,38 +282,8 @@ describe Diaspora::Exporter do
         "property_order": %w[author guid parent_guid poll_answer_guid]
       }
 
-      poll = poll_participation.poll
-      status_message = poll_participation.status_message
-      serialized_post = {
-        "entity_type": "status_message",
-        "entity_data": {
-          "author":     status_message.diaspora_handle,
-          "guid":       status_message.guid,
-          "created_at": status_message.created_at.iso8601,
-          "text":       status_message.text,
-          "poll":       {
-            "entity_type": "poll",
-            "entity_data": {
-              "guid":         poll.guid,
-              "question":     poll.question,
-              "poll_answers": poll.poll_answers.map {|answer|
-                {
-                  "entity_type": "poll_answer",
-                  "entity_data": {
-                    "guid":   answer.guid,
-                    "answer": answer.answer
-                  }
-                }
-              }
-            }
-          },
-          "public":     false
-        }
-      }
-
       expect(json).to include_json(
-        user:        {relayables: [serialized_participation]},
-        others_data: {posts: [serialized_post]}
+        user: {relayables: [serialized_participation]}
       )
     end
 
@@ -407,23 +338,6 @@ describe Diaspora::Exporter do
       }
 
       expect(json).to include_json(others_data: {relayables: [serialized]})
-    end
-
-    it "contains metadata of a non-contact author of a post where we commented" do
-      comment = FactoryGirl.create(:comment, author: user.person)
-
-      author = comment.parent.author
-      expect(json).to include_json(
-        others_data: {
-          non_contact_authors: [
-            {
-              "guid":       author.guid,
-              "account_id": author.diaspora_handle,
-              "public_key": author.serialized_public_key
-            }
-          ]
-        }
-      )
     end
 
     def transform_value(value)

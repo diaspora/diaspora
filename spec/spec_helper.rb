@@ -82,9 +82,6 @@ def client_assertion_with_nonexistent_client_id_path
                                                            "client_assertion_with_nonexistent_client_id.txt")
 end
 
-# Force fixture rebuild
-FileUtils.rm_f(Rails.root.join("tmp", "fixture_builder.yml"))
-
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 fixture_builder_file = "#{File.dirname(__FILE__)}/support/fixture_builder.rb"
@@ -93,6 +90,9 @@ support_files.each {|f| require f }
 require fixture_builder_file
 
 RSpec.configure do |config|
+  config.fixture_path = Rails.root.join("spec", "fixtures")
+  config.global_fixtures = :all
+
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.mock_with :rspec

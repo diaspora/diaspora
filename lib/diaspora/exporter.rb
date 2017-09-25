@@ -20,8 +20,8 @@ module Diaspora
 
     def full_archive
       {version: SERIALIZED_VERSION}
-        .merge(Export::UserSerializer.new(@user).as_json)
-        .merge(Export::OthersDataSerializer.new(@user).as_json)
+        .merge(Export::UserSerializer.new(@user.id).as_json)
+        .merge(Export::OthersDataSerializer.new(@user.id).as_json)
     end
   end
 end
