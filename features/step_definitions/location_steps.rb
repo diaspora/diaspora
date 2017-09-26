@@ -9,5 +9,11 @@ When /^I allow geolocation$/ do
         }
       }
     };
+
+    $.getJSON = function(url, myCallback) {
+      if (url === "https://nominatim.openstreetmap.org/reverse?format=json&lat=42.42424242&lon=3.14159&addressdetails=3") {
+        return myCallback({display_name: "locator address"});
+      }
+    };
   JS
 end
