@@ -39,7 +39,12 @@ describe NodeInfoPresenter do
         },
         "metadata"          => {
           "nodeName" => AppConfig.settings.pod_name,
-          "xmppChat" => AppConfig.chat.enabled?
+          "xmppChat" => AppConfig.chat.enabled?,
+          "camo"     => {
+            "markdown"   => AppConfig.privacy.camo.proxy_markdown_images?,
+            "opengraph"  => AppConfig.privacy.camo.proxy_opengraph_thumbnails?,
+            "remotePods" => AppConfig.privacy.camo.proxy_remote_pod_images?
+          }
         }
       )
     end
@@ -131,6 +136,22 @@ describe NodeInfoPresenter do
       end
     end
 
+    context "when camo is enabled" do
+      before do
+        AppConfig.privacy.camo.proxy_markdown_images = true
+        AppConfig.privacy.camo.proxy_opengraph_thumbnails = true
+        AppConfig.privacy.camo.proxy_remote_pod_images = true
+      end
+
+      it "should list enabled camo options in the metadata as true" do
+        expect(hash).to include "metadata" => include("camo" => {
+                                                        "markdown"   => true,
+                                                        "opengraph"  => true,
+                                                        "remotePods" => true
+                                                      })
+      end
+    end
+
     context "when admin account is set" do
       before do
         AppConfig.admins.account = "podmin"
@@ -160,7 +181,12 @@ describe NodeInfoPresenter do
           },
           "metadata"          => {
             "nodeName" => AppConfig.settings.pod_name,
-            "xmppChat" => AppConfig.chat.enabled?
+            "xmppChat" => AppConfig.chat.enabled?,
+            "camo"     => {
+              "markdown"   => AppConfig.privacy.camo.proxy_markdown_images?,
+              "opengraph"  => AppConfig.privacy.camo.proxy_opengraph_thumbnails?,
+              "remotePods" => AppConfig.privacy.camo.proxy_remote_pod_images?
+            }
           }
         )
       end
