@@ -210,7 +210,6 @@ describe Diaspora::Exporter do
           "author":      user.diaspora_handle,
           "guid":        reshare.guid,
           "created_at":  reshare.created_at.iso8601,
-          "public":      true,
           "root_author": reshare.root_author.diaspora_handle,
           "root_guid":   reshare.root_guid
         }

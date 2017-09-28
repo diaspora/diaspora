@@ -21,6 +21,7 @@
 * Enable frozen string literals [#7595](https://github.com/diaspora/diaspora/pull/7595)
 * Remove `rails_admin_histories` table [#7597](https://github.com/diaspora/diaspora/pull/7597)
 * Optimize memory usage on profile export [#7627](https://github.com/diaspora/diaspora/pull/7627)
+* Limit the number of parallel exports [#7629](https://github.com/diaspora/diaspora/pull/7629)
 
 ## Bug fixes
 * Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)
@@ -32,12 +33,16 @@
 * Fix invalid data in the database for user data export [#7614](https://github.com/diaspora/diaspora/pull/7614)
 * Fix local migration run without old private key [#7558](https://github.com/diaspora/diaspora/pull/7558)
 * Fix export not downloadable because the filename was resetted on access [#7622](https://github.com/diaspora/diaspora/pull/7622)
+* Delete invalid oEmbed caches with binary titles [#7620](https://github.com/diaspora/diaspora/pull/7620)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
 * Show users vote in polls [#7550](https://github.com/diaspora/diaspora/pull/7550)
 * Add explanation of ignore function to in-app help section [#7585](https://github.com/diaspora/diaspora/pull/7585)
 * Add camo information to NodeInfo [#7617](https://github.com/diaspora/diaspora/pull/7617)
+* Add support for `diaspora://` links [#7625](https://github.com/diaspora/diaspora/pull/7625)
+* Add support to relay likes for comments [#7625](https://github.com/diaspora/diaspora/pull/7625)
+* Implement RFC 7033 WebFinger [#7625](https://github.com/diaspora/diaspora/pull/7625)
 
 # 0.7.0.1
 

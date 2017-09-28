@@ -62,4 +62,17 @@ describe Like, type: :model do
     let(:remote_object_on_local_parent) { FactoryGirl.create(:like, target: local_parent, author: remote_raphael) }
     let(:relayable) { Like::Generator.new(alice, status).build }
   end
+
+  context "like for a comment" do
+    it_behaves_like "it is relayable" do
+      let(:local_parent) { local_luke.post(:status_message, text: "hi", to: local_luke.aspects.first) }
+      let(:remote_parent) { FactoryGirl.create(:status_message, author: remote_raphael) }
+      let(:comment_on_local_parent) { FactoryGirl.create(:comment, post: local_parent) }
+      let(:comment_on_remote_parent) { FactoryGirl.create(:comment, post: remote_parent) }
+      let(:object_on_local_parent) { local_luke.like!(comment_on_local_parent) }
+      let(:object_on_remote_parent) { local_luke.like!(comment_on_remote_parent) }
+      let(:remote_object_on_local_parent) { FactoryGirl.create(:like, target: local_parent, author: remote_raphael) }
+      let(:relayable) { Like::Generator.new(alice, status).build }
+    end
+  end
 end

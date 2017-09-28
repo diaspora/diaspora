@@ -81,7 +81,8 @@
               {
                 "oneOf": [
                   { "$ref": "#/definitions/remote_subscription/public" },
-                  { "$ref": "#/definitions/remote_subscription/private" }
+                  { "$ref": "#/definitions/remote_subscription/private" },
+                  { "$ref": "#/definitions/remote_subscription/reshare" }
                 ]
               }
             ]
@@ -223,7 +224,7 @@
           }
         },
         "required": [
-          "entity_data"
+          "entity_data", "subscribed_pods_uris"
         ]
       },
 
@@ -248,7 +249,29 @@
               "public"
             ]
           }
-        }
+        },
+        "required": [
+          "entity_data", "subscribed_users_ids"
+        ]
+      },
+
+      "reshare": {
+        "type": "object",
+        "properties": {
+          "entity_type": {
+            "type": "string",
+            "pattern": "^reshare$"
+          },
+          "subscribed_pods_uris": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "entity_type", "subscribed_pods_uris"
+        ]
       }
     }
   }

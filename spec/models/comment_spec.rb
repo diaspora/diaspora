@@ -10,6 +10,7 @@ describe Comment, type: :model do
   let(:comment_alice) { alice.comment!(status_bob, "why so formal?") }
 
   it_behaves_like "it is mentions container"
+  it_behaves_like "a reference source"
 
   describe "#destroy" do
     it "should delete a participation" do

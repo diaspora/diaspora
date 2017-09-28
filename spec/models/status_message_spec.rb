@@ -147,6 +147,9 @@ describe StatusMessage, type: :model do
     end
   end
 
+  it_behaves_like "a reference source"
+  it_behaves_like "a reference target"
+
   describe "#nsfw" do
     it "returns MatchObject (true) if the post contains #nsfw (however capitalised)" do
       status = FactoryGirl.build(:status_message, text: "This message is #nSFw")
