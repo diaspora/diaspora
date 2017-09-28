@@ -13,6 +13,7 @@
 * Enable frozen string literals [#7595](https://github.com/diaspora/diaspora/pull/7595)
 * Remove `rails_admin_histories` table [#7597](https://github.com/diaspora/diaspora/pull/7597)
 * Optimize memory usage on profile export [#7627](https://github.com/diaspora/diaspora/pull/7627)
+* Limit the number of parallel exports [#7629](https://github.com/diaspora/diaspora/pull/7629)
 
 ## Bug fixes
 * Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)
