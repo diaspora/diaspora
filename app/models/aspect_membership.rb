@@ -5,7 +5,6 @@
 #   the COPYRIGHT file.
 
 class AspectMembership < ApplicationRecord
-
   belongs_to :aspect
   belongs_to :contact
   has_one :user, :through => :contact
