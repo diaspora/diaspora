@@ -565,16 +565,11 @@ describe User, :type => :model do
     end
   end
 
-  describe 'account deletion' do
-    describe '#destroy' do
-      it 'removes all service connections' do
-        Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
-        expect {
-          alice.destroy
-        }.to change {
-          alice.services.count
-        }.by(-1)
-      end
+  describe "#destroy" do
+    it "raises error" do
+      expect {
+        alice.destroy
+      }.to raise_error "Never destroy users!"
     end
   end
 
