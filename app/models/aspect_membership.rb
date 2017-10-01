@@ -11,9 +11,7 @@ class AspectMembership < ApplicationRecord
   has_one :person, :through => :contact
 
   before_destroy do
-    if self.contact && self.contact.aspects.size == 1
-      self.user.disconnect(self.contact)
-    end
+    user&.disconnect(contact) if contact&.aspects&.size == 1
     true
   end
 
