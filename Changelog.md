@@ -28,6 +28,7 @@
 * Delete invalid oEmbed caches with binary titles [#7620](https://github.com/diaspora/diaspora/pull/7620)
 * Delete invalid diaspora IDs from friendica [#7630](https://github.com/diaspora/diaspora/pull/7630)
 * Cleanup relayables where the signature is missing [#7637](https://github.com/diaspora/diaspora/pull/7637)
+* Avoid page to jump to top after a post deletion [#7638](https://github.com/diaspora/diaspora/pull/7638)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
