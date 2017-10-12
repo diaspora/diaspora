@@ -39,6 +39,7 @@ after you've upgraded.
 * Avoid page to jump to top after a post deletion [#7638](https://github.com/diaspora/diaspora/pull/7638)
 * Handle duplicate account deletions [#7639](https://github.com/diaspora/diaspora/pull/7639)
 * Handle duplicate account migrations [#7641](https://github.com/diaspora/diaspora/pull/7641)
+* Handle bugs related to missing users [#7632](https://github.com/diaspora/diaspora/pull/7632)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
