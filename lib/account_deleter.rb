@@ -48,21 +48,16 @@ class AccountDeleter
        notifications blocks authorizations o_auth_applications pairwise_pseudonymous_identifiers]
   end
 
-  def special_ar_user_associations
-    %i[person profile contacts auto_follow_back_aspect]
-  end
-
-  def ignored_ar_user_associations
-    %i[followed_tags invited_by invited_users contact_people aspect_memberships
-       ignored_people share_visibilities conversation_visibilities conversations reports]
-  end
-
   def delete_standard_user_associations
     normal_ar_user_associates_to_delete.each do |asso|
       user.send(asso).ids.each_slice(20) do |ids|
         User.reflect_on_association(asso).class_name.constantize.where(id: ids).destroy_all
       end
     end
+  end
+
+  def normal_ar_person_associates_to_delete
+    %i[posts photos mentions participations roles blocks conversation_visibilities]
   end
 
   def delete_standard_person_associations
@@ -94,15 +89,6 @@ class AccountDeleter
 
   def delete_contacts_of_me
     Contact.all_contacts_of_person(person).find_each(batch_size: 20, &:destroy)
-  end
-
-  def normal_ar_person_associates_to_delete
-    %i[posts photos mentions participations roles blocks conversation_visibilities]
-  end
-
-  def ignored_or_special_ar_person_associations
-    %i[comments likes poll_participations contacts notification_actors notifications owner profile
-       pod conversations messages]
   end
 
   def mark_account_deletion_complete
