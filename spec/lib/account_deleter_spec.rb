@@ -175,14 +175,20 @@ describe AccountDeleter do
     end
   end
 
-  it 'has all user association keys accounted for' do
-    all_keys = (@account_deletion.normal_ar_user_associates_to_delete + @account_deletion.special_ar_user_associations + @account_deletion.ignored_ar_user_associations)
-    expect(all_keys.sort{|x, y| x.to_s <=> y.to_s}).to eq(User.reflections.keys.sort{|x, y| x.to_s <=> y.to_s}.map(&:to_sym))
+  it "has all user association keys accounted for" do
+    special_ar_user_associations = %i[person profile contacts auto_follow_back_aspect]
+    ignored_ar_user_associations = %i[followed_tags invited_by invited_users contact_people aspect_memberships
+                                      ignored_people share_visibilities conversation_visibilities conversations reports]
+    all_keys = @account_deletion.normal_ar_user_associates_to_delete +
+      special_ar_user_associations + ignored_ar_user_associations
+    expect(all_keys.sort_by(&:to_s)).to eq(User.reflections.keys.sort_by(&:to_s).map(&:to_sym))
   end
 
-  it 'has all person association keys accounted for' do
-    all_keys = (@account_deletion.normal_ar_person_associates_to_delete + @account_deletion.ignored_or_special_ar_person_associations)
-    expect(all_keys.sort{|x, y| x.to_s <=> y.to_s}).to eq(Person.reflections.keys.sort{|x, y| x.to_s <=> y.to_s}.map(&:to_sym))
+  it "has all person association keys accounted for" do
+    ignored_or_special_ar_person_associations = %i[comments likes poll_participations contacts notification_actors
+                                                   notifications owner profile pod conversations messages]
+    all_keys = @account_deletion.normal_ar_person_associates_to_delete + ignored_or_special_ar_person_associations
+    expect(all_keys.sort_by(&:to_s)).to eq(Person.reflections.keys.sort_by(&:to_s).map(&:to_sym))
   end
 end
 
