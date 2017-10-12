@@ -25,17 +25,15 @@ class AccountDeleter
   end
 
   def perform!
-    ActiveRecord::Base.transaction do
-      #person
-      delete_standard_person_associations
-      remove_conversation_visibilities
-      delete_contacts_of_me
-      tombstone_person_and_profile
+    # close person
+    delete_standard_person_associations
+    remove_conversation_visibilities
+    delete_contacts_of_me
+    tombstone_person_and_profile
 
-      close_user if user
+    close_user if user
 
-      mark_account_deletion_complete
-    end
+    mark_account_deletion_complete
   end
 
   # user deletion methods
