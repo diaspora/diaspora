@@ -10,7 +10,11 @@ module Diaspora
       end
 
       def self.account_deletion(entity)
-        AccountDeletion.create!(person: author_of(entity))
+        person = author_of(entity)
+        AccountDeletion.create!(person: person) unless AccountDeletion.where(person: person).exists?
+      rescue => e # rubocop:disable Lint/RescueWithoutErrorClass
+        raise e unless AccountDeletion.where(person: person).exists?
+        logger.warn "ignoring error on receive AccountDeletion:#{entity.author}: #{e.class}: #{e.message}"
       end
 
       def self.account_migration(entity)

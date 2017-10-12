@@ -12,6 +12,27 @@ describe Diaspora::Federation::Receive do
 
       expect(AccountDeletion.exists?(person: sender)).to be_truthy
     end
+
+    it "ignores duplicate the account deletion" do
+      AccountDeletion.create(person: sender)
+
+      expect(AccountDeletion).not_to receive(:create!)
+
+      Diaspora::Federation::Receive.account_deletion(account_deletion_entity)
+
+      expect(AccountDeletion.exists?(person: sender)).to be_truthy
+    end
+
+    it "handles race conditions on parallel receive" do
+      expect(AccountDeletion).to receive(:create!) do
+        AccountDeletion.create(person: sender)
+        raise "Some database error"
+      end
+
+      Diaspora::Federation::Receive.account_deletion(account_deletion_entity)
+
+      expect(AccountDeletion.exists?(person: sender)).to be_truthy
+    end
   end
 
   describe ".account_migration" do
