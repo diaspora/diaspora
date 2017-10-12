@@ -6,7 +6,7 @@
 #
 class Notification < ApplicationRecord
   belongs_to :recipient, class_name: "User"
-  has_many :notification_actors, dependent: :destroy
+  has_many :notification_actors, dependent: :delete_all
   has_many :actors, class_name: "Person", through: :notification_actors, source: :person
   belongs_to :target, polymorphic: true
 
