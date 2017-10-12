@@ -96,8 +96,12 @@ describe AccountDeleter do
     it 'removes all standard user associaltions' do
       @account_deletion.normal_ar_user_associates_to_delete.each do |asso|
         association_double = double
-        expect(association_double).to receive(:destroy)
-        expect(bob).to receive(asso).and_return([association_double])
+        expect(association_double).to receive(:ids).and_return([42])
+        expect(bob).to receive(asso).and_return(association_double)
+        batch_double = double
+        expect(User.reflect_on_association(asso).class_name.constantize).to receive(:where)
+          .with(id: [42]).and_return(batch_double)
+        expect(batch_double).to receive(:destroy_all)
       end
 
       @account_deletion.delete_standard_user_associations
@@ -111,8 +115,12 @@ describe AccountDeleter do
     it 'removes all standard person associaltions' do
       @account_deletion.normal_ar_person_associates_to_delete.each do |asso|
         association_double = double
-        expect(association_double).to receive(:destroy_all)
+        expect(association_double).to receive(:ids).and_return([42])
         expect(bob.person).to receive(asso).and_return(association_double)
+        batch_double = double
+        expect(Person.reflect_on_association(asso).class_name.constantize).to receive(:where)
+          .with(id: [42]).and_return(batch_double)
+        expect(batch_double).to receive(:destroy_all)
       end
 
       @account_deletion.delete_standard_person_associations
@@ -133,7 +141,7 @@ describe AccountDeleter do
       it 'deletes all the local contact objects where deleted account is the person' do
         contacts = double
         expect(Contact).to receive(:all_contacts_of_person).with(bob.person).and_return(contacts)
-        expect(contacts).to receive(:destroy_all)
+        expect(contacts).to receive(:find_each).with(batch_size: 20)
         @account_deletion.delete_contacts_of_me
       end
     end
@@ -163,7 +171,7 @@ describe AccountDeleter do
     it "removes the share visibilities for a user" do
       s_vis = double
       expect(ShareVisibility).to receive(:for_a_user).with(bob).and_return(s_vis)
-      expect(s_vis).to receive(:destroy_all)
+      expect(s_vis).to receive(:find_each).with(batch_size: 20)
 
       @account_deletion.remove_share_visibilities_on_contacts_posts
     end
