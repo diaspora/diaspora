@@ -26,7 +26,6 @@ class AccountDeleter
   def perform!
     # close person
     delete_standard_person_associations
-    remove_conversation_visibilities
     delete_contacts_of_me
     tombstone_person_and_profile
 
@@ -84,10 +83,6 @@ class AccountDeleter
     ShareVisibility.for_a_user(user).find_each(batch_size: 20, &:destroy)
   end
 
-  def remove_conversation_visibilities
-    ConversationVisibility.where(:person_id => person.id).destroy_all
-  end
-
   def tombstone_person_and_profile
     person.lock_access!
     person.clear_profile!
@@ -102,12 +97,12 @@ class AccountDeleter
   end
 
   def normal_ar_person_associates_to_delete
-    %i[posts photos mentions participations roles blocks]
+    %i[posts photos mentions participations roles blocks conversation_visibilities]
   end
 
   def ignored_or_special_ar_person_associations
     %i[comments likes poll_participations contacts notification_actors notifications owner profile
-       conversation_visibilities pod conversations messages]
+       pod conversations messages]
   end
 
   def mark_account_deletion_complete

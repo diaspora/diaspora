@@ -20,7 +20,6 @@ describe AccountDeleter do
       delete_contacts_of_me
       delete_standard_person_associations
       tombstone_person_and_profile
-      remove_conversation_visibilities
     ]
 
     context "user deletion" do
@@ -155,14 +154,6 @@ describe AccountDeleter do
       it 'calls lock_access! on person' do
         expect(@account_deletion.person).to receive(:lock_access!)
         @account_deletion.tombstone_person_and_profile
-      end
-    end
-     describe "#remove_conversation_visibilities" do
-      it "removes the conversation visibility for the deleted user" do
-        vis = double
-        expect(ConversationVisibility).to receive(:where).with(hash_including(:person_id => bob.person.id)).and_return(vis)
-        expect(vis).to receive(:destroy_all)
-        @account_deletion.remove_conversation_visibilities
       end
     end
   end
