@@ -16,6 +16,13 @@
 
 # 0.7.1.0
 
+## Ensure account deletions are run
+
+There were some issues causing accounts deletions to not properly perform in some cases, see
+[#7631](https://github.com/diaspora/diaspora/issues/7631) and [#7639](https://github.com/diaspora/diaspora/pull/7639).
+To ensure these are reexecuted properly, please run `RAILS_ENV=production bin/rake migrations:run_account_deletions`
+after you've upgraded.
+
 ## Refactor
 * Remove title from profile photo upload button [#7551](https://github.com/diaspora/diaspora/pull/7551)
 * Remove Internet Explorer workarounds [#7557](https://github.com/diaspora/diaspora/pull/7557)
