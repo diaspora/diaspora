@@ -10,15 +10,22 @@ module Diaspora
       end
 
       def self.account_deletion(entity)
-        AccountDeletion.create!(person: author_of(entity))
+        person = author_of(entity)
+        AccountDeletion.create!(person: person) unless AccountDeletion.where(person: person).exists?
+      rescue => e # rubocop:disable Lint/RescueWithoutErrorClass
+        raise e unless AccountDeletion.where(person: person).exists?
+        logger.warn "ignoring error on receive AccountDeletion:#{entity.author}: #{e.class}: #{e.message}"
       end
 
       def self.account_migration(entity)
+        old_person = author_of(entity)
         profile = profile(entity.profile)
-        AccountMigration.create!(
-          old_person: Person.by_account_identifier(entity.author),
-          new_person: profile.person
-        )
+        return if AccountMigration.where(old_person: old_person, new_person: profile.person).exists?
+        AccountMigration.create!(old_person: old_person, new_person: profile.person)
+      rescue => e # rubocop:disable Lint/RescueWithoutErrorClass
+        raise e unless AccountMigration.where(old_person: old_person, new_person: profile.person).exists?
+        logger.warn "ignoring error on receive #{entity}: #{e.class}: #{e.message}"
+        nil
       end
 
       def self.comment(entity)

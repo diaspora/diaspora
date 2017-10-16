@@ -12,6 +12,27 @@ describe Diaspora::Federation::Receive do
 
       expect(AccountDeletion.exists?(person: sender)).to be_truthy
     end
+
+    it "ignores duplicate the account deletion" do
+      AccountDeletion.create(person: sender)
+
+      expect(AccountDeletion).not_to receive(:create!)
+
+      Diaspora::Federation::Receive.account_deletion(account_deletion_entity)
+
+      expect(AccountDeletion.exists?(person: sender)).to be_truthy
+    end
+
+    it "handles race conditions on parallel receive" do
+      expect(AccountDeletion).to receive(:create!) do
+        AccountDeletion.create(person: sender)
+        raise "Some database error"
+      end
+
+      Diaspora::Federation::Receive.account_deletion(account_deletion_entity)
+
+      expect(AccountDeletion.exists?(person: sender)).to be_truthy
+    end
   end
 
   describe ".account_migration" do
@@ -23,6 +44,27 @@ describe Diaspora::Federation::Receive do
 
     it "saves the account deletion" do
       Diaspora::Federation::Receive.account_migration(account_migration_entity)
+
+      expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
+    end
+
+    it "ignores duplicate the account migrations" do
+      AccountMigration.create(old_person: sender, new_person: new_person)
+
+      expect(AccountMigration).not_to receive(:create!)
+
+      expect(Diaspora::Federation::Receive.account_migration(account_migration_entity)).to be_nil
+
+      expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
+    end
+
+    it "handles race conditions on parallel receive" do
+      expect(AccountMigration).to receive(:create!) do
+        AccountMigration.create(old_person: sender, new_person: new_person)
+        raise "Some database error"
+      end
+
+      expect(Diaspora::Federation::Receive.account_migration(account_migration_entity)).to be_nil
 
       expect(AccountMigration.exists?(old_person: sender, new_person: new_person)).to be_truthy
     end

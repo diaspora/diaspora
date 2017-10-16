@@ -29,7 +29,7 @@ describe PostsController, type: :controller do
           msg = alice.post(:status_message, text: "Mention @{User ; #{user.diaspora_handle}}", public: true)
 
           expect(msg.mentioned_people.count).to eq(1)
-          user.destroy
+          user.close_account!
 
           get :show, params: {id: msg.id}
           expect(response).to be_success

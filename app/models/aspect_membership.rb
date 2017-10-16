@@ -5,16 +5,13 @@
 #   the COPYRIGHT file.
 
 class AspectMembership < ApplicationRecord
-
   belongs_to :aspect
   belongs_to :contact
   has_one :user, :through => :contact
   has_one :person, :through => :contact
 
   before_destroy do
-    if self.contact && self.contact.aspects.size == 1
-      self.user.disconnect(self.contact)
-    end
+    user&.disconnect(contact) if contact&.aspects&.size == 1
     true
   end
 
