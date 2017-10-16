@@ -38,6 +38,7 @@ after you've upgraded.
 * Cleanup relayables where the signature is missing [#7637](https://github.com/diaspora/diaspora/pull/7637)
 * Avoid page to jump to top after a post deletion [#7638](https://github.com/diaspora/diaspora/pull/7638)
 * Handle duplicate account deletions [#7639](https://github.com/diaspora/diaspora/pull/7639)
+* Handle duplicate account migrations [#7641](https://github.com/diaspora/diaspora/pull/7641)
 
 ## Features
 * Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
