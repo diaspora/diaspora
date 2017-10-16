@@ -90,6 +90,10 @@ class User < ApplicationRecord
 
   after_save :remove_invalid_unconfirmed_emails
 
+  before_destroy do
+    raise "Never destroy users!"
+  end
+
   def self.all_sharing_with_person(person)
     User.joins(:contacts).where(:contacts => {:person_id => person.id})
   end

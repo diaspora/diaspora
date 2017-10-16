@@ -26,5 +26,13 @@ describe AspectMembership, :type => :model do
       alice.add_contact_to_aspect(contact, aspect)
       aspect_membership.destroy
     end
+
+    it "doesn't fail destruction if the user entry was deleted in prior" do
+      aspect_membership.user.delete
+      id = aspect_membership.id
+
+      expect { AspectMembership.find(id).destroy }.not_to raise_error
+      expect(AspectMembership.where(id: id)).not_to exist
+    end
   end
 end

@@ -104,6 +104,16 @@ describe User::Connecting, type: :model do
           alice.disconnect(contact)
         }.to change(contact.aspects, :count).from(2).to(0)
       end
+
+      it "raises when a contact for an improperly deleted user was passed" do
+        contact = alice.contact_for(bob.person)
+
+        bob.delete
+        expect {
+          alice.disconnect(contact)
+        }.to raise_error "FATAL: user entry is missing from the DB. Aborting"
+        expect(Contact.where(id: contact.id)).to exist
+      end
     end
   end
 

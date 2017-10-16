@@ -34,6 +34,7 @@ class User
       logger.info "event=disconnect user=#{diaspora_handle} target=#{contact.person.diaspora_handle}"
 
       if contact.person.local?
+        raise "FATAL: user entry is missing from the DB. Aborting" if contact.person.owner.nil?
         contact.person.owner.disconnected_by(contact.user.person)
       else
         ContactRetraction.for(contact).defer_dispatch(self)
