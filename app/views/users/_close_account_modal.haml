@@ -34,7 +34,8 @@
           = f.error_messages
           .form-group
             = f.label :close_account_password, t("users.edit.current_password"), for: :close_account_password
-            = f.password_field :current_password, id: :close_account_password, class: "form-control"
+            = f.password_field :current_password, id: :close_account_password, class: "form-control",
+              autocomplete: "current-password"
         .modal-footer
           .btn.btn-default{type: "button", data: {dismiss: "modal"}, aria: {hidden: "true"}}
             = t("cancel")
