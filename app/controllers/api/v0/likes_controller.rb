@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Api
   module V0
     class LikesController < Api::V0::BaseController
-      before_action only: %i(create destroy) do
-        require_access_token %w(read write)
+      before_action only: %i[create destroy] do
+        require_access_token %w[read write]
       end
 
       rescue_from ActiveRecord::RecordNotFound do

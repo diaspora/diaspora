@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConversationService
   def initialize(user=nil)
     @user = user
@@ -5,15 +7,19 @@ class ConversationService
 
   def all_for_user(filter={})
     conversation_filter = {}
-    if !filter[:only_after].nil? then
+    unless filter[:only_after].nil?
       conversation_filter = \
-        'conversations.created_at >= ?', filter[:only_after]
+        "conversations.created_at >= ?", filter[:only_after]
     end
 
-    visibility_filter = {person_id: @user.person_id}
-    if filter[:unread] == true then
-      visibility_filter["unread"] = 0
-    end
+    visibility_filter = if filter[:unread]
+                          {
+                            person_id: @user.person_id,
+                            unread:    0
+                          }
+                        else
+                          {person_id: @user.person_id}
+                        end
 
     Conversation.where(conversation_filter)
                 .joins(:conversation_visibilities)
@@ -37,7 +43,7 @@ class ConversationService
   end
 
   def find!(conversation_guid)
-    conversation = Conversation.find_by!({guid: conversation_guid})
+    conversation = Conversation.find_by!(guid: conversation_guid)
     @user.conversations
          .joins(:conversation_visibilities)
          .where(conversation_visibilities: {

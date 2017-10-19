@@ -1,5 +1,6 @@
-class MessagePresenter < BasePresenter
+# frozen_string_literal: true
 
+class MessagePresenter < BasePresenter
   def as_api_json
     {
       guid:       @presentable.guid,

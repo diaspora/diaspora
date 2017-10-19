@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 describe Api::V0::ConversationsController do
@@ -171,7 +173,7 @@ describe Api::V0::ConversationsController do
         expect(response.status).to eq 404
 
         expect {
-          Conversation.find({guid: @conversation_guid})
+          Conversation.find(guid: @conversation_guid)
         }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
