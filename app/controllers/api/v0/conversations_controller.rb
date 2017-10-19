@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 module Api
   module V0
     class ConversationsController < Api::V0::BaseController
       include ConversationsHelper
 
-      before_action only: %i(create index show) do
-        require_access_token %w(read)
+      before_action only: %i[create index show] do
+        require_access_token %w[read]
       end
 
-      before_action only: %i(create destroy) do
-        require_access_token %w(read write)
+      before_action only: %i[create destroy] do
+        require_access_token %w[read write]
       end
 
       rescue_from ActiveRecord::RecordNotFound do
@@ -16,14 +18,8 @@ module Api
       end
 
       def index
-        filter = {}
-        if params[:only_after] then
-            filter["only_after"] = params[:only_after]
-        end
-        if params[:unread] then
-            filter["unread"] = params[:unread]
-        end
-        conversations = conversation_service.all_for_user(filter)
+        params.permit(:only_after, :unread)
+        conversations = conversation_service.all_for_user(params)
         render json: conversations.map {|x| conversation_as_json(x) }
       end
 

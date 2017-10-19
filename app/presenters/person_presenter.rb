@@ -15,7 +15,7 @@ class PersonPresenter < BasePresenter
       guid:        guid,
       diaspora_id: diaspora_handle,
       name:        name,
-      avatar:      AvatarPresenter.new(@presentable).medium,
+      avatar:      AvatarPresenter.new(@presentable).medium
     }
   end
 

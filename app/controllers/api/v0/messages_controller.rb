@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module Api
   module V0
     class MessagesController < Api::V0::BaseController
-      before_action only: %i(create) do
-        require_access_token %w(read write)
+      before_action only: %i[create] do
+        require_access_token %w[read write]
       end
 
-      before_action only: %i(index) do
-        require_access_token %w(read)
+      before_action only: %i[index] do
+        require_access_token %w[read]
       end
 
       rescue_from ActiveRecord::RecordNotFound do
@@ -16,9 +18,7 @@ module Api
       def create
         conversation = conversation_service.find!(params[:conversation_id])
         opts = params.require(:body)
-        message = current_user.build_message(conversation, {
-            :text => opts[:body]
-        })
+        message = current_user.build_message(conversation, text: opts[:body])
         message.save!
         Diaspora::Federation::Dispatcher.defer_dispatch(current_user, message)
         render json: message_json(message), status: 201
@@ -27,9 +27,7 @@ module Api
       def index
         conversation = conversation_service.find!(params[:conversation_id])
         conversation.set_read(user)
-        render json: conversation.messages.map {
-            |x| message_json(x)
-        }, status: 201
+        render json: conversation.messages.map {|x| message_json(x) }, status: 201
       end
 
       def conversation_service

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Api
   module V0
     class StreamsController < Api::V0::BaseController
       before_action do
-        require_access_token %w(read)
+        require_access_token %w[read]
       end
 
       def aspects

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ConversationService do
   opts = {
     subject:         "conversation subject",
@@ -10,41 +12,37 @@ describe ConversationService do
   describe "#all_for_user" do
     before do
       opts = {
-          subject:         "conversation subject 2",
-          message:         {text: "conversation text 2"},
-          participant_ids: [bob.person.id]
+        subject:         "conversation subject 2",
+        message:         {text: "conversation text 2"},
+        participant_ids: [bob.person.id]
       }
       @conversation = alice.build_conversation(opts)
       @conversation.save!
       sleep(1)
       @date = @conversation.created_at
       opts = {
-          subject:         "conversation subject 3",
-          message:         {text: "conversation text 3"},
-          participant_ids: [bob.person.id]
+        subject:         "conversation subject 3",
+        message:         {text: "conversation text 3"},
+        participant_ids: [bob.person.id]
       }
       @conversation = alice.build_conversation(opts)
       @conversation.save!
     end
 
     it "returns all conversations" do
-      expect(alice_conversation_service.all_for_user().length).to eq(3)
-      expect(bob_conversation_service.all_for_user().length).to eq(3)
+      expect(alice_conversation_service.all_for_user.length).to eq(2)
+      expect(bob_conversation_service.all_for_user.length).to eq(3)
     end
 
     it "returns all unread conversations" do
       @conversation.conversation_visibilities[0].unread = true
       @conversation.conversation_visibilities[0].save!
-      conversations = bob_conversation_service.all_for_user(
-        filter={unread: true}
-      )
+      conversations = bob_conversation_service.all_for_user(unread: true)
       expect(conversations.length).to eq(2)
     end
 
     it "returns conversation after a given date" do
-      conversations = bob_conversation_service.all_for_user(
-        filter={only_after: @date}
-      )
+      conversations = bob_conversation_service.all_for_user(only_after: @date)
       expect(conversations.length).to eq(2)
     end
   end

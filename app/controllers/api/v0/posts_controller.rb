@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 module Api
   module V0
     class PostsController < Api::V0::BaseController
       include PostsHelper
 
       before_action only: :show do
-        require_access_token %w(read)
+        require_access_token %w[read]
       end
 
-      before_action only: %i(create destroy) do
-        require_access_token %w(read write)
+      before_action only: %i[create destroy] do
+        require_access_token %w[read write]
       end
 
       def show
