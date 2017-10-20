@@ -31,7 +31,7 @@ oc:
       confirmation_instructions:
         confirm: "Confirmar mon compte"
         subject: "Instruccions de confirmacion"
-        you_can_confirm: "Podètz confirmar vòstre compte en clicant sul ligam çaijós :"
+        you_can_confirm: "Podètz confirmar vòstre compte en clicant sul ligam çaijós :"
       hello: "Adieusiatz %{email} !"
       inviter:
         accept_at: "a %{url}, lo podètz acceptar a travèrs lo ligal çaijós."
@@ -47,7 +47,7 @@ oc:
         wont_change: "Vòstre senhal cambiarà pas tant que n'auretz pas creat un novèl en accedissent al ligam çaijós."
       unlock_instructions:
         account_locked: "Vòstre compte es estat verrolhat en rason d'un nombre excessiu de temptativas infructuosas de connexion."
-        click_to_unlock: "Clicatz sul ligam çaijós per desblocar vòstre compte :"
+        click_to_unlock: "Clicatz sul ligam çaijós per desblocar vòstre compte :"
         subject: "Instruccions de desverrolhatge"
         unlock: "Desverrolhar mon compte"
       welcome: "Benvenguda %{email} !"
@@ -61,7 +61,7 @@ oc:
         new_password: "Senhal novèl"
       new:
         email: "Adreça de corrièl"
-        forgot_password: "Avètz oblidat vòstre senhal ?"
+        forgot_password: "Avètz oblidat vòstre senhal ?"
         no_account: "Cap de compte es pas associat a aquesta adreça de corrièr electronic."
         reset_password: "Reïnicializar lo senhal"
         send_password_instructions: "Mandar las instruccions de reïnicializacion de senhal"
@@ -91,9 +91,9 @@ oc:
       signed_out: "Ara, sètz desconnectat."
     shared:
       links:
-        forgot_your_password: "Avètz oblidat vòstre senhal ?"
-        receive_confirmation: "Avètz pas recebut las instruccions de confirmacion ?"
-        receive_unlock: "Avètz pas recebut las instruccions de desblocatge ?"
+        forgot_your_password: "Avètz oblidat vòstre senhal ?"
+        receive_confirmation: "Avètz pas recebut las instruccions de confirmacion ?"
+        receive_unlock: "Avètz pas recebut las instruccions de desblocatge ?"
         sign_in: "Connexion"
         sign_up: "Crear un compte"
         sign_up_closed: "Las inscripcions son tampadas pel moment."

@@ -94,7 +94,7 @@ de:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
-    confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst - Daten, welche du eingegeben hast würden nicht gespeichert werden."
+    confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst - Daten, welche du eingegeben hast werden nicht gespeichert."
     contacts:
       add_contact: "Kontakt hinzufügen"
       aspect_chat_is_enabled: "Kontakte in diesem Aspekt können mit dir chatten."
@@ -186,6 +186,7 @@ de:
       result: "Ergebnis"
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"
+      your_vote: "Deine Stimme"
     profile:
       add_some: "Füge neue hinzu"
       bio: "Bio"
@@ -212,7 +213,7 @@ de:
           italic: "kursive Schrift"
           list: "Listentext hier"
           quote: "Zitattext hier"
-          strong: "wichtiger Text"
+          strong: "fetter Text"
         tooltips:
           bold: "Fett"
           cancel: "Nachricht verwerfen"
@@ -261,7 +262,7 @@ de:
       hide_nsfw_posts: "#nsfw-Beiträge verstecken"
       like: "Gefällt mir"
       likes:
-        one: " Einer Person gefällt das"
+        one: "Einer Person gefällt das"
         other: "<%= count %> Personen gefällt das"
         zero: "Niemandem gefällt das"
       limited: "Begrenzt"

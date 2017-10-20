@@ -14,6 +14,11 @@ pl:
         follow_link: "otwórz łącze w przeglądarce"
         last_check: "ostatnio sprawdzone:"
         more_info: "pokaż więcej informacji"
+        ms:
+          few: "<%= count %>ms"
+          many: "<%= count %>ms"
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
         no_info: "Jak dotąd nie ma dodatkowych informacji"
         not_available: "niedostępne"
         offline_since: "offline od:"
@@ -32,6 +37,7 @@ pl:
           net_failed: "Nie udało się połączyć"
           no_errors: "OK"
           ssl_failed: "Nie udało się połączyć poprzez SSL"
+          unchecked: "Odznaczone"
           unknown_error: "Podczas sprawdzania wystąpił nieoczekiwany błąd"
           version_failed: "Nie udało się pobrać wersji oprogramowania"
         status: "Status"
@@ -46,7 +52,7 @@ pl:
     aspect_dropdown:
       add_to_aspect: "Dodaj kontakt"
       all_aspects: "Wszystkie aspekty"
-      error: "Nie można zacząć dzielić się z <%= name %>. Może go/ją ignorujesz?"
+      error: "Nie możesz zacząć dzielić się z <%= name %>. Może go ignorujesz?"
       error_remove: "Nie można usunąć <%= name %> z aspektu :("
       mobile_row_checked: "<%= name %> (usuń)"
       mobile_row_unchecked: "<%= name %> (dodaj)"
@@ -140,6 +146,11 @@ pl:
     notifications:
       mark_read: "Oznacz jako przeczytane"
       mark_unread: "Oznacz jako nieprzeczytane"
+      new_notifications:
+        few: "Masz <%= count %> nieprzeczytane powiadomienia"
+        many: "Masz <%= count %> nieprzeczytanych powiadomień"
+        one: "Masz <%= count %> nieprzeczytane powiadomienie"
+        other: "Liczba nieprzeczytanych powiadomień: <%= count %>"
     people:
       edit_my_profile: "Edytuj profil"
       helper:
@@ -158,6 +169,12 @@ pl:
       size_error: "{file} jest za duży. Maksymalny rozmiar pliku to {sizeLimit}."
       upload_photos: "Prześlij zdjęcia"
     poll:
+      answer_count:
+        few: "<%=count%> głosy"
+        many: "<%=count%> głosów"
+        one: "1 głos"
+        other: "<%=count%> głosy"
+        zero: "0 głosów"
       close_result: "Ukryj wynik"
       count:
         few: "<%=count%> głosy jak do tej pory"
@@ -229,6 +246,12 @@ pl:
     show_more: "wyświetl więcej"
     stream:
       comment: "Skomentuj"
+      comments:
+        few: "<%= count %> komentarze"
+        many: "<%= count %> komentarzy"
+        one: "<%= count %> komentarz"
+        other: "komentarzy: <%= count %>"
+        zero: "<%= count %> komentarzy"
       disable_post_notifications: "Wyłącz powiadomienia do tego wpisu"
       enable_post_notifications: "Włącz powiadomienia do tego wpisu"
       follow: "Obserwuj"

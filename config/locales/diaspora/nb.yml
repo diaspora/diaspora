@@ -10,7 +10,7 @@ nb:
   _help: "Hjelp"
   _services: "Tjenester"
   _statistics: "Statistikk"
-  _terms: "bruksvilkår"
+  _terms: "Bruksvilkår"
   account: "Konto"
   activerecord:
     errors:
@@ -34,7 +34,7 @@ nb:
         reshare:
           attributes:
             root_guid:
-              taken: "Såpass bra, altså?  Du har allerede delt dette innlegget!"
+              taken: "Såpass bra, altså? Du har allerede delt dette innlegget!"
         user:
           attributes:
             email:
@@ -48,11 +48,19 @@ nb:
     admin_bar:
       dashboard: "Dashbord"
       pages: "Sider"
-      pod_stats: "Serverstatistikk"
+      pod_network: "Belgens nettverk"
+      pod_stats: "Belgstatistikk"
       report: "Rapporter"
       sidekiq_monitor: "Sidekiq overvåke"
       user_search: "Brukersøk"
       weekly_user_stats: "Ukentlig brukerstatistikk"
+    dashboard:
+      fetching_diaspora_version: "Finner ut siste diaspora*-versjon ..."
+      pod_status: "Belgens tilstand"
+    pods:
+      pod_desktop_link: "skrivebordsvisning"
+      pod_desktop_view: "Denne siden er ikke tilgjengelig på mobilvisning, vennligst bytt til %{desktop_link}."
+      pod_network: "Belgens nettverk"
     stats:
       2weeks: "To uker"
       50_most: "50 mest populære tagger"
@@ -73,7 +81,7 @@ nb:
         one: "%{count} deling"
         other: "%{count} delinger"
         zero: "%{count} delinger"
-      tag_name: "Tag-navn: <b>%{name_tag}</b> antall <b>%{count_tag}</b>"
+      tag_name: "Tagg-navn: %{name_tag} Antall: %{count_tag}"
       usage_statistic: "Bruksstatistikk"
       users:
         one: "%{count} bruker"
@@ -86,6 +94,7 @@ nb:
       email: "e-post"
       guid: "GUID"
       id: "ID"
+      invite_token: "Invitasjonsnøkkel"
       last_seen: "Sist sett"
       ? "no"
       : nei
@@ -103,7 +112,10 @@ nb:
       are_you_sure_unlock_account: "Er du sikker på at du vil låse opp denne kontoen?"
       close_account: "Avslutt konto"
       email_to: "E-post for invitasjon"
+      invite: "Inviter"
+      lock_account: "Lås konto"
       under_13: "Vis deltakere under 13 (COPPA)"
+      unlock_account: "Lås opp konto"
       users:
         one: "%{count} bruker funnet"
         other: "%{count} brukere funnet"
@@ -118,17 +130,70 @@ nb:
         one: "Antall nye brukere denne uken: %{count}"
         other: "Antall nye brukere denne uken: %{count}"
         zero: "Antall nye brukere denne uken: ingen"
-      current_server: "Dagens server-dato er %{date}"
+      current_server: "Dagens tjenerdato er %{date}"
   all_aspects: "Alle aspekter"
+  api:
+    openid_connect:
+      authorizations:
+        destroy:
+          fail: "Forsøket på å fjerne autorisasjonen som har ID %{id} feilet"
+        new:
+          access: "%{name} behøver tilgang til:"
+          approve: "Godta"
+          bad_request: "Mangler klient-ID eller redirect-URI"
+          client_id_not_found: "Fant ingen klienter med client_id %{client_id} og redirect URI %{redirect_uri}"
+          deny: "Avslå"
+          no_requirement: "%{name} behøver ingen tilganger"
+          redirection_message: "Er du sikker på at du vil gi tilgang til %{redirect_uri}?"
+      error_page:
+        contact_developer: "Du burde kontakte utvikleren av denne applikasjonen og inkludere denne detaljerte feilmeldingen:"
+        could_not_authorize: "Denne applikasjonen kan ikke bli autorisert"
+        login_required: "Du må først logge inn før du kan autorisere denne applikasjonen"
+        title: "Oi! Noe gikk galt :("
+      scopes:
+        name:
+          description: "Dette gir navneprivilegier til applikasjonen"
+          name: "navn"
+        nickname:
+          description: "Dette gir kallenavnprivilegier til applikasjonen"
+          name: "kallenavn"
+        openid:
+          description: "Dette tillater at applikasjonen kan lese din basisprofil"
+          name: "basisprofil"
+        picture:
+          description: "Dette gir applikasjonen bildetilganger"
+          name: "bilde"
+        profile:
+          description: "Dette gir applikasjonen tilgang til å lese den utvidede profilen din"
+          name: "den utvidede profilen"
+        read:
+          description: "Dette tillater at applikasjonen kan lese din strøm, dine samtaler og din fullstendige profil"
+          name: "les profil, strøm og samtaler"
+        sub:
+          description: "Dette gir underprivilegier til applikasjonen"
+          name: "under"
+        write:
+          description: "Dette tillater at applikasjonen kan sende nye innlegg, skrive samtaler og sende reaksjoner"
+          name: "send innlegg, samtaler og reaksjoner"
+      user_applications:
+        index:
+          access: "%{name} har tilgang til:"
+          edit_applications: "Applikasjon"
+          no_requirement: "%{name} behøver ingen tilganger"
+          title: "Autoriserte applikasjoner"
+        no_applications: "Du har ingen autoriserte applikasjoner"
+        policy: "Se applikasjonens personvernerklæring"
+        revoke_autorization: "Trekk tilbake"
+        tos: "Se applikasjonens brukervilkår"
   are_you_sure: "Er du sikker?"
   are_you_sure_delete_account: "Er du sikker på at du vil stenge kontoen din? Dette kan ikke gjøres om på!"
   aspect_memberships:
     destroy:
-      failure: "Kunne ikke fjerne person fra aspekt"
+      failure: "Kunne ikke fjerne personen fra aspektet."
       forbidden: "Du har ikke lov til å gjøre det."
       invalid_statement: "Duplikatoppføring avvist."
-      no_membership: "Kunne ikke finne personen i det aspektet"
-      success: "Personen er fjernet fra aspektet"
+      no_membership: "Kunne ikke finne personen i det aspektet."
+      success: "Personen er fjernet fra aspektet."
   aspects:
     add_to_aspect:
       failure: "Kunne ikke legge kontakt til aspektet."
@@ -140,34 +205,37 @@ nb:
       stay_updated: "Hold deg oppdatert"
       stay_updated_explanation: "Din hovedstrøm viser alle kontaktene dine, tagger som du følger og innlegg fra noen kreative medlemmer i felleskapet."
     destroy:
-      failure: "%{Name} er ikke tom, og kunne ikke fjernes."
+      failure: "%{name} kunne ikke fjernes."
       success: "%{name} har blitt fjerna."
       success_auto_follow_back: "%{name} er fjernet. Du brukte dette aspektet for å automatisk følge folk som begynte å følge deg. Sjekk brukerinnstillingene dine for å velge et nytt aspekt til å automatisk følge folk som begynner å følge deg."
     edit:
       aspect_list_is_not_visible: "Kontakter i dette aspektet kan ikke se hverandre."
       aspect_list_is_visible: "Kontakter i dette aspektet er i stand til å se hverandre."
       confirm_remove_aspect: "Er du sikker på at du vil slette dette aspektet?"
-      rename: "endre navn"
-      update: "oppdater"
-      updating: "oppdaterer"
+      rename: "Endre navn"
+      update: "Oppdater"
+      updating: "Oppdaterer"
     index:
       donate: "Doner"
+      donate_liberapay: "Doner til librapay"
       help:
         any_problem: "Noen problemer?"
-        contact_podmin: "Kontakt administratoren til din \"pod\"!"
+        contact_podmin: "Kontakt administratoren til din belg!"
         do_you: "Har du:"
         feature_suggestion: "... et %{link}-forslag?"
         find_a_bug: "... finn en %{link}?"
         have_a_question: "... et %{link}?"
         here_to_help: "Diaspora-felleskapet er her!"
-        mail_podmin: "Podmin e-post"
+        mail_podmin: "E-post til belgmin"
         need_help: "Trenger du hjelp?"
+        support_forum: "Du kan også bli med i %{support_forum}."
+        support_forum_link: "supportforumet"
         tag_bug: "#bug"
         tag_feature: "funksjon"
         tag_question: "#question"
         tutorial_link_text: "Veiledninger"
         tutorials_and_wiki: "%{faq}, %{tutorial} og %{wiki}: Hjelp for dine første skritt"
-      introduce_yourself: "Dette er strømmen din. Hopp inn og presenter deg selv."
+      introduce_yourself: "Dette er strømmen din. Hopp inn og introduser deg selv."
       keep_pod_running: "Sørg for at %{pod} går kjapt ved å kjøpe kaffe-fiks til dem med en månedlig donasjon!"
       new_here:
         follow: "Følg %{link} og ønsk nye brukere velkommen til diaspora*!"
@@ -178,9 +246,10 @@ nb:
         heading: "Koble til tjenester"
       welcome_to_diaspora: "Velkommen til diaspora*, %{name}!"
     no_contacts_message:
-      community_spotlight: "kreative medlemmer"
+      community_spotlight: "Interessante brukere"
+      invite_link_text: "inviter"
       or_spotlight: "Eller du kan dele med denne %{link}"
-      try_adding_some_more_contacts: "Du kan søke etter eller invitere flere kontakter."
+      try_adding_some_more_contacts: "Du kan søke etter eller %{invite_link} flere kontakter."
       you_should_add_some_more_contacts: "Du bør legge til flere kontakter."
     seed:
       acquaintances: "Bekjente"
@@ -202,15 +271,24 @@ nb:
     heading: "Diaspora Bookmarklet"
     post_something: "Publiser noe på diaspora*"
   cancel: "Avbryt"
+  color_themes:
+    dark: "Mørk"
+    dark_green: "Mørkegrønn"
+    egyptian_blue: "Egyptisk blå"
+    magenta: "Magenta"
+    original: "Originalgrå"
+    original_white: "Original, hvit bakgrunn"
   comments:
+    create:
+      error: "Lykkes ikke i å kommentere."
     new_comment:
       comment: "Kommenter"
       commenting: "Kommenterer ..."
   contacts:
     index:
       add_contact: "Legg til kontakt"
-      all_contacts: "Alle Kontakter"
-      community_spotlight: "Fremhevet av Fellesskapet"
+      all_contacts: "Alle kontakter"
+      community_spotlight: "Interessante brukere"
       my_contacts: "Mine kontakter"
       no_contacts: "Ingen kontakter."
       no_contacts_in_aspect: "Du har ikke noen kontakter i dette aspektet ennå. Under er en liste over eksisterende kontakter som du kan legge til i dette aspektet."
@@ -221,6 +299,7 @@ nb:
       user_search: "Søk etter kontakt"
     spotlight:
       community_spotlight: "Fremhevet av Fellesskapet"
+      no_members: "Det finnes ingen medlemmer ennå."
       suggest_member: "Forslå et nytt medlem"
   conversations:
     create:
@@ -233,19 +312,22 @@ nb:
       conversations_inbox: "Samtale - Inbox"
       inbox: "Innboks"
       new_conversation: "Ny samtale"
-      no_messages: "ingen meldinger"
+      no_contacts: "Du må legge til noen kontakter før du kan starte en samtale."
+      no_messages: "Ingen meldinger"
     new:
+      message: "Melding"
       send: "Send"
       sending: "Sender ..."
-      subject: "emne"
+      subject: "Emne"
       subject_default: "Intet emne"
-      to: "til"
+      to: "Til"
     new_conversation:
       fail: "Ugyldig melding"
     show:
-      delete: "slett og blokkér samtalen"
+      delete: "Slett samtale"
       hide: "Gjem og demp samtale"
-      reply: "svar"
+      last_message: "Siste mottatte melding: %{timeago}"
+      reply: "Svar"
       replying: "Svarer ..."
   date:
     formats:
@@ -255,29 +337,31 @@ nb:
   delete: "Slett"
   email: "Epost"
   error_messages:
+    csrf_token_fail: "CSFR-nøkkelen er ugyldig. Vennligst logg inn og prøv igjen."
     helper:
       correct_the_following_errors_and_try_again: "Rett opp de følgende feilene og prøv igjen."
+    need_javascript: "Denne nettsiden krever JavaScript for å fungere skikkelig. Dersom du har slått av JavaScript, må du vennligst slå på JavaScript og laste siden på ny."
   fill_me_out: "Fortell meg"
   find_people: "Finn folk eller #tagger"
   help:
     account_and_data_management:
-      close_account_a: "Gå til bunnen av instillings-siden din og klikk Slett bruker-knappen."
+      close_account_a: "Gå til bunnen av innstillinger-siden din og klikk Avslutt konto-knappen. Du vil bli bedt om å taste inn passordet ditt for å fullføre prosessen. Husk at hvis du avslutter kontoen din, vil du <strong>aldri</strong> kunne re-registrere brukernavnet ditt på den samme belgen."
       close_account_q: "Hvordan sletter jeg frøet (kontoen) min?"
-      data_other_podmins_a: "Når du har begynt å dele med noen på en annen pod, vil poster du deler med dem og en kopi av dine profildata lagres (midlertidig «cache»-minne) på deres pod, og være tilgjengelig for den pod-ens databaseadministrator. Når du sletter en post eller profildata slettes det fra din pod og eventuelle andre pod-er hvor det tidligere hadde vært lagret."
-      data_other_podmins_q: "Kan administratorene på andre pods se informasjonen min?"
-      data_visible_to_podmin_a: "Kommunikasjon «mellom» pod-er er alltid kryptert (med SSL og diaspora* sin egen transportkryptering), men lagringen av data på pod-er er ikke kryptert. Om de hadde villet, kunne databaseadministratoren for din pod (vanligvis personen som driver pod-en) gått inn på alle dine profildata og alt det du poster (slik tilfellet er for de fleste nettsteder som lagrer brukerdata). Å drive din egen pod gir mer privathet ettersom du da kontrollerer tilgangen til databasen."
-      data_visible_to_podmin_q: "Hvor mye av informasjonen min kan pod-administratoren min se?"
+      data_other_podmins_a: "Når du begynner å dele med noen på en annen belg, vil innlegg du deler med dem og en kopi av dine profildata lagres (i midlertidig hurtigbuffer) på deres belg og vil være tilgjengelig for belgens databaseadministrator. Når du sletter et innlegg eller profildata, slettes det fra din belg og en sletteforespørsel sendes til alle andre belger hvor det ble lagret tidligere. Bildene dine lagres aldri på noen annen belg enn din egen, det er kun lenkene til dem som sendes til andre belger."
+      data_other_podmins_q: "Kan administratorene på andre belger se informasjonen min?"
+      data_visible_to_podmin_a: "Kort fortalt: Alt. Kommunikasjon mellom belger er alltid kryptert (med SSL og diaspora* sin egen transportkryptering), men lagringen av data på belger er ikke kryptert. Dersom de ønsket, kunne databaseadministratorene for din belg (vanligvis personene som driver belgen) gått inn på alle profildataene dine og alt det du sender inn (slik tilfellet er for de fleste nettsteder som lagrer brukerdata). Derfor lar vi deg velge hvilken belg du vil registrere deg på, slik at du kan velge en belg hvor du føler deg komfortabel med å lagre dataene dine. Å drive sin egen belg gir mer privatliv siden du da har full kontroll over tilgangen til databasen."
+      data_visible_to_podmin_q: "Hvor mye av informasjonen min kan belg-administratoren min se?"
       download_data_a: "Ja. på bunnen av Profil-fanen i instillings-siden din er det to knapper for å laste ned dataen din."
       download_data_q: "Kan jeg laste ned en kopi av alle dataene jeg har i frøet (kontoen) min?"
-      move_pods_a: "I fremtiden vil du ha mulighet til å eksportere kontoen din fra en pod og importere den på en annen, men dette er enda ikke mulig. Du kan alltids åpne en ny konto og legge til kontaktene dine på den nye kontoen, og så spørre dem om å legge den nye kontoen din til i sine aspekter."
-      move_pods_q: "Hvordan flytter jeg mitt seed (konto) fra en pod til en annen?"
+      move_pods_a: "Versjon 0.7.0.0 av diaspora* byr på første trinn av kontomigrering: Du kan nå eksportere alle dataene dine fra konto-seksjonen under innstillinger. Oppbevar dataene dine trygt! I en fremtidig versjon vil du kunne migrere hele kontoen din, inkludert innlegg og kontakter, til en annen belg."
+      move_pods_q: "Hvordan flytter jeg frøet mitt (kontoen) fra en belg til en annen?"
       title: "Konto og dataadministrasjon"
     aspects:
       change_aspect_of_post_a: "Nei, men du kan alltids lage en ny post med samme innhold og poste til et annet aspekt."
-      change_aspect_of_post_q: "Når jeg har skrevet noe, kan jeg endre aspekt (er) som kan se det?"
+      change_aspect_of_post_q: "Når jeg har publisert noe, kan jeg endre aspekt(er) som kan se det?"
       contacts_know_aspect_a: "Nei. De har ikke mulighet til å se hva navnet på aspektet er."
       contacts_know_aspect_q: "Vet kontaktene mine hvilke aspekter jeg har puttet dem i?"
-      contacts_visible_a: "Hvis du huker av for dette alternativet vil kontakter fra dette aspektet være istand til å se hvem som ellers er i det, på din profilside under ditt bilde. Dette alternativet er det best å kun velge dersom alle kontaktene i det aspektet kjenner hverandre. De vil uansett ikke kunne se hva aspektet er kalt."
+      contacts_visible_a: "Hvis du huker av for dette alternativet, vil kontakter fra dette aspektet kunne se de andre medlemmene i aspektet under kontakter-fanen på profilsiden din. (For tiden er det kun kontakter som er på samme belg som deg som vil kunne se kontakter-fanen på profilen din.) Det er best å bare velge dette alternativet dersom alle kontaktene i aspektet kjenner hverandre, for eksempel hvis aspektet er til en klubb eller et forening du tilhører. De vil uansett ikke kunne se hva aspektet er kalt."
       contacts_visible_q: "Hva betyr «knytter kontakter i dette aspektet synlig for hverandre»?"
       delete_aspect_a: "I listen din over aspekter til venstre i hovedsiden, hold musepekeren på aspektet du ønsker å slette. Klikk den lille «rediger»-blyanten som vises til høyre. Klikk sletteknappen i boksen som kommer frem."
       delete_aspect_q: "Hvordan sletter jeg et aspekt?"
@@ -301,20 +385,22 @@ nb:
       add_contact_roster_q: "Hvordan chatter jeg med noen i diaspora*?"
       contacts_page: "kontaktside"
       title: "Chat"
+    community_guidelines: "retningslinjer for samfunnet"
     faq: "FAQ"
     foundation_website: "diaspora-stiftelsens nettside"
     getting_help:
+      get_support_a_discourse: "Søk etter eksisterende diskusjoner knyttet til det du leter etter eller start en ny tråd i %{discourse}-plattformen vår"
       get_support_a_faq: "Les vår %{faq} på wiki"
-      get_support_a_hashtag: "spør i en offentlig post på diaspora* med %{question}-hashtaggen"
-      get_support_a_irc: "bli med oss på %{irc} (live-chat)"
-      get_support_a_tutorials: "sjekk våre %{tutorials}"
-      get_support_a_website: "besøk vår %{link}"
-      get_support_a_wiki: "søk på %{link}"
-      get_support_q: "Hva hvis spørsmålet mitt ikke er besvart i denne FAQ'en? Hvor kan jeg ellers få support."
-      getting_started_a: "Nå var du heldig. Prøv %{tutorial_series} på nettstedet for prosjektet vårt. Det vil ta deg gjennom registreringsprosessen steg for steg og vise deg alle de grunnleggende tingene du trenger å vite om hvordan man bruker diaspora*."
+      get_support_a_hashtag: "Spør i en offentlig post på diaspora* med %{question}-hashtaggen"
+      get_support_a_irc: "Bli med oss på %{irc} (live-chat)"
+      get_support_a_tutorials: "Sjekk våre %{tutorials}"
+      get_support_a_website: "Besøk %{link}"
+      get_support_a_wiki: "Søk på %{link}"
+      get_support_q: "Hva hvis spørsmålet mitt ikke er besvart i denne FAQ-en? Hvor kan jeg ellers få hjelp?"
+      getting_started_a: "Nå var du heldig. Prøv %{tutorial_series} på nettstedet til prosjektet vårt. Den vil ta deg gjennom registreringsprosessen steg for steg, og vise deg alle de grunnleggende tingene du trenger å vite om hvordan man bruker diaspora*."
       getting_started_q: "Hjelp! Jeg trenger hjelp med å komme i gang!"
       title: "Få hjelp"
-    getting_started_tutorial: "'Komme i gang' veiledninger"
+    getting_started_tutorial: "«Komme i gang»-veiledningen"
     here: "her"
     irc: "IRC"
     keyboard_shortcuts:
@@ -333,6 +419,7 @@ nb:
     mentions:
       how_to_mention_a: "«»"
       how_to_mention_q: "Hvordan kan jeg omtale noen når jeg gjør et innlegg?"
+      mention_in_comment_a: "Siden versjon 0.7.0.0, ja! Du kan nevnte noen i en kommentar på samme måte som du kan gjøre det i et innlegg. Tast «@» og begynn å skrive navnet deres. Merk at når du kommenterer på et innlegg som ikke er offentlig, kan du bare nevne brukere som allerede har interagert med innlegget."
       mention_in_comment_q: "Kan jeg omtale noen i en kommentar?"
       see_mentions_a: "Ja, klikk på «Omtale» i venstre kolonne på hjemmesiden din."
       see_mentions_q: "Er det en måte å se innleggene der jeg har blitt omtale?"
@@ -346,17 +433,17 @@ nb:
       diaspora_app_q: "Finnes en diaspora* app for Android eller iOS?"
       photo_albums_a: "Nei, ikke for tiden. Derimot kan du se en persons opplastete bilder under Bilder-seksjonen på profilsiden deres."
       photo_albums_q: "Finnes det foto- eller videoalbumer?"
-      subscribe_feed_a: "Ja, men dette er fremdeles ikke en helt finpusset funksjon, og formateringen av resultatet er fremdeles temmelig røff. Hvis du likevel ønsker å prøve den, gå til noen profilside og klikk på feed-knappen i din nettleser, eller du kan kopiere profilens URL (dvs. https://joindiaspora.com/people/somenumber), og lime inn i en feed-leser. Den resulterende feed-adressen ser sånn ut: https://joindiaspora.com/public/username.atom diaspora* bruker Atom fremfor RSS."
+      subscribe_feed_a: "Ja, men dette er fremdeles ikke en helt finpusset funksjon, og formateringen av resultatet er fremdeles temmelig røff. Hvis du likevel ønsker å prøve den, gå til noen profilside og klikk på feed-knappen i nettleseren din eller kopier profilens URL (slik som https://joindiaspora.com/people/etellerannettall) og lime den inn i en feed-leser. Den resulterende feed-adressen ser sånn ut: https://joindiaspora.com/public/username.atom – diaspora* bruker Atom heller enn RSS."
       subscribe_feed_q: "Kan jeg abonnere på noens offentlige innlegg med en feed-leser?"
       title: "Diverse"
     pods:
-      find_people_a: "Inviter dine venner ved å bruke epostlinken i sidebar-en. Følg #tag-er for å oppdage andre som deler dien interesser, og legg de som poster ting som interesser deg til i et aspekt. Rop ut at du er #nyher i en offentlig post."
-      find_people_q: "Jeg ble med en pod, hvordan kan jeg finne noen å dele med?"
-      title: "Podden"
-      use_search_box_a: "Hvis du kjenner deres fulle diaspora* ID (f.eks. brukernavn@podnavn.org), kan du finne dem ved å søke etter den. Hvis du er på samme pod kan du søke etter bare brukernavnet deres. Et alternativ er å søke etter dem på deres profilnavn (navnet du ser på skjermen). Hvis et søk ikke virker første gangen, prøv det igjen."
+      find_people_a: "Inviter dine venner ved å bruke epostlenken i sidepanelet. Følg #tagger for å oppdage andre som deler interessene dine, og legg dem som skriver om ting som interesser deg til i et aspekt. Rop ut at du er #nyher i en offentlig post."
+      find_people_q: "Jeg ble nettopp med i en belg, hvordan finner jeg noen å dele med?"
+      title: "Belger"
+      use_search_box_a: "Du kan søke etter personer ved å taste inn brukernavnet deres eller diaspora*-navnet (navnet som vise i profilen deres). Hvis ingen av disse metodene virker, kan du taste inn deres fulle diaspora*-ID (brukernavn@belgnavn.org). Hvis søket ikke virker på første forsøk, kan det skyldes nettverksforsinkelser. Prøv å søke en gang til."
       use_search_box_q: "Hvordan bruker jeg søkeboksen for å finne bestemte personer?"
-      what_is_a_pod_a: "En pod er en server som kjører diaspora*-programvaren og som er tilknyttet diaspora*-nettverket. «Pod» er et metafor som på engelsk refererer til en del av planter, som inneholder frø, på den måten at en server inneholder et antall brukerkontoer. Der er mange forskjellige pod-er. Du kan legge til venner fra andre pod-er, og kommunisere med dem. (Du kan tenke på en diaspora*-pod som noe lignende en eposttilbyder: der fins offentlige pod-er, private pod-er, og med litt anstrengelse kan du til og med drive din egen)."
-      what_is_a_pod_q: "Hva er en podd?"
+      what_is_a_pod_a: "En belg er en tjener som kjører diaspora*-programvaren og som er tilknyttet diaspora*-nettverket. «Belg» er en metafor som refererer belgen på planter som inneholder frø, på den måten at en server inneholder et brukerkontoer. Der finnes mange forskjellige belger. Du kan legge til venner fra andre belger og kommunisere med dem. Du behøver ikke å åpne konto på forskjellige belger! Én er nok. Du kan tenke på en diaspora*-belg som noe lignende en eposttilbyder. Det finnes offentlige belger, private belger, og med litt innsats kan du til og med drive din egen."
+      what_is_a_pod_q: "Hva er en belg?"
     posts_and_posting:
       char_limit_services_a: "I det tilfellet er posten din begrenset til det laveste antallet tegn (140 når det gjelder Twitter, 1000 når det gjelder Tumblr), og antallet tegn du har igjen å bruke vises når den aktuelle tjenestens ikon markeres. Du kan fremdeles poste til disse tjenestene selv om posten din er lenger enn deres grense, men teksten blir avkortet på de tjenestene."
       char_limit_services_q: "Hva er tegngrensen for poster delt gjennom en tilkoblet tjeneste med et lavere tegnantall?"
@@ -368,7 +455,12 @@ nb:
       format_text_q: "Hvordan kan jeg formatere teksten i mine innlegg (fet, kursiv, etc.)?"
       hide_posts_a: "Hvis du holder musepekeren ved toppen av en post, vises en X til høyre. Klikk den for å skjule posten og mute beskjeder om den. Du kan fremdeles se posten hvis du besøker profilsiden til personen som postet den."
       hide_posts_q: "Hvordan skjuler jeg en post? / Hvordan kan jeg slutte å få beskjeder om en post jeg har kommentert på?"
+      ignore_user_a1: "Hvis du allerede deler med denne personen, vil du stoppe mange av personens innlegg ved å fjerne dem fra dine aspekter. Du kan også «ignorere» kontoen, noe som er en mer fullstendig løsning. Dette vil hindre alle innlegg fra personen fra å dukke opp i strømmen din og personen vil ikke lenger kunne like eller kommentere på innleggene dine. Personen vil derimot fortsatt kunne dele innleggene dine, kommentere på videredelinger av innleggene dine og kommentarer av denne personen på innlegg av andre personer som dukker opp i din strøm vil fortsatt være synlige for deg."
+      ignore_user_a2: "For å ignorere en konto, klikker du på «ignorer»-ikonet (en sirkel med en diagonal linje gjennom seg) øverst til høyre i et av innleggene til personen. Innleggene til personen vil straks forsvinne fra strømmen din. Du kan også gå til profilsiden til personen og klikke på ignorer-ikonet der. Du vil fortsatt kunne se innleggene på personens profilside eller ved å bruke visningen for enkeltinnlegg."
+      ignore_user_a3: "Du kan se en liste over personer du ignorerer i kontoinnstillingene dine under Personvern. For å slutte å ignorere noen, kan du fjerne dem fra listen på den siden."
+      ignore_user_q: "Hvordan hindrer jeg at en persons innlegg dukker opp i strømmen min?"
       insert_images_a: "Klikk på det lille kameraikonet for å sette inn et bilde i en post. Klikk på fotoikonet igjen for å legge til enda et bilde, eller du kan merke flere bilder å laste opp på en gang."
+      insert_images_comments_a: "Du kan bruke Markdown for å sette inn et bilde fra Internett i en kommentar, akkurat som i innlegg. Men du kan ikke laste opp bilder fra PC-en din direkte til en kommentarer. Last dem opp til en tjeneste for deling av bilder og sett dem så inn i kommentaren ved å bruke bildeknappen over send-knappen."
       insert_images_comments_q: "Kan jeg sett inn bilder i kommentarer?"
       insert_images_q: "Hvordan setter jeg inn bilder til innlegg?"
       post_location_a: "Klikk på knappenålsikonet ved siden av kameraet der du legger til bilder. Dette vil legge til plassering fra OpenStreetMap. Du kan selv endre plasseringen - det kan være at du kun ønsker å inkludere byen du er i heller enn den eksakte adressen."
@@ -377,7 +469,7 @@ nb:
       post_notification_q: "Hvordan slår jeg på, eller av, varslinger for et innlegg?"
       post_poll_a: "Klikk på graf-ikonet for å lage en spørreundersøkelse. Skriv inn spørsmålet og minst to svar. Ikke glem å gjøre innlegget offentlig hvis du vil at ale skal kunne delta i spørreundersøkelsen din."
       post_poll_q: "Hvordan legger jeg en spørreundersøkelse til innlegget mitt?"
-      post_report_a: "Klikk på varselstrekanten i det øvre, høyre hjørnet til innlegget som du ønsker å rapportere til din podmin. Oppgi en grunn til at du rapporterer dette innlegget i dialogboksen."
+      post_report_a: "Klikk på varselstrekanten i det øvre, høyre hjørnet til innlegget som du ønsker å rapportere til din belgmin. Oppgi en grunn til at du rapporterer dette innlegget i dialogboksen. Vennligst kun rapporter innlegg som bryter vår %{community_guidelines} eller din belgs brukervilkår, som for eksempel innlegg med ulovlig innhold, eller innlegg som er krenkende eller nettsøppel."
       post_report_q: "Hvordan rapporterer jeg et støtende innlegg?"
       size_of_images_a: "Nei. Bildedimensjonene justeres automatisk for å passe i strømmen. Markdown har ikke en kode for å spesifisere dimensjonene til et bilde."
       size_of_images_q: "Kan jeg tilpasse størrelsen på bilder i innlegg eller kommentarer?"
@@ -397,6 +489,14 @@ nb:
       title: "Private innlegg"
       who_sees_post_a: "Kun innloggede diaspora* brukere du har plassert i det aspektet kan se din private innlegg."
       who_sees_post_q: "Når jeg poster en melding til et aspekt (dvs. en privat post), hvem kan se den?"
+    profile:
+      title: "Profil"
+      what_do_tags_do_a: "De hjelper folk med å bli kjent med deg. Profilbildet vil også dukke opp på venstresiden av strømmesidene for disse taggen sammen med andre som har dem i basisprofilen sin."
+      what_do_tags_do_q: "Hva gjør taggene i basisprofilen min?"
+      whats_in_profile_a: "Profilen din har to deler: basisprofilen og den utvidede profilen. Basisprofilen din inneholder navnet ditt, de fem taggene du bruker for å beskrive deg selv og fotoet ditt. Den utvidede profilen din har biografien din, lokasjonen din, kjønnet ditt og fødselsdagen din. All denne informasjonen er valgfri - det er opp til deg om du ønsker å oppgi den og du kan gjøre denne informasjonen så identifiserende eller anonym som du ønsker. Den utvidede profilen vises i kolonnen til venstre på profilsiden din, under profilbildet ditt."
+      whats_in_profile_q: "Hva er i profilen min?"
+      who_sees_profile_a: "Basisprofilen din (navn, profilbilde og #tagger) er offentlig. Den utvidede profilen din er privat som standard, men du kan gjør den offentlig tilgjengelig hvis du ønsker. Kun personer som du deler med (det vil si at du har lagt dem til i et aspekt) kan se den utvidede profilen din hvis du har valgt å gjøre den privat. All profilinformasjon som du velger å gjøre offentlig kan sees av hvem som helst som surfer på nettet og kan bli indeksert av søkemotorer"
+      who_sees_profile_q: "Hvem kan se profilen min?"
     public_posts:
       can_comment_reshare_like_a: "Enhver innloggede diaspora* bruker kan kommentere, videredele, eller liker din offentlige innlegg."
       can_comment_reshare_like_q: "Hvem kan kommentere, videredele, eller liker min offentlige innlegg?"
@@ -453,14 +553,45 @@ nb:
     tutorial: "veiledning"
     tutorials: "veiledninger"
     wiki: "wiki"
+  home:
+    default:
+      be_who_you_want_to_be: "Vær den du ønsker å være"
+      be_who_you_want_to_be_info: "Mange nettverk insisterer på at du bruker den ekte identiteten din. Ikke diaspora*. Her kan du velge hvem du vil være og dele så mye eller så lite om deg selv som du ønsker. Det er virkelig opp til deg å bestemme hvor mye du ønsker å kommunisere med andre."
+      byline: "Det sosiale nettverket der det er du som har kontrollen"
+      choose_your_audience: "Velg publikum"
+      choose_your_audience_info: "Med aspektene til diaspora* kan du velge akkurat hvem du vil dele noe med. Du kan være så offentlig eller privat som du ønsker. Del et morsomt bilde med hele verden eller en dyp hemmelighet med et par av dine nærmeste venner. Du har kontrollen."
+      headline: "Velkommen til %{pod_name}"
+      own_your_data: "Bestem over dataene dine"
+      own_your_data_info: "Mange nettverk bruker dataene dine til å tjene penger. De analyserer hva du gjør og så bruker de denne informasjonen til å vise deg reklame. diaspora* bruker ikke dataene dine til noen annet formål enn å la deg kontakte og dele med andre."
+    podmin:
+      byline: "Du er i ferd med å endre Internett. La oss få deg på plass, skal vi?"
+      configuration_info: "Åpne %{database_path} og %{diaspora_path} i et tekstredigeringsprogram og gå nøye gjennom dem. De er betydelig kommentert."
+      configure_your_pod: "Konfigurer belgen din"
+      contact_irc: "kontakt oss på IRC"
+      contribute: "Bidra"
+      contribute_info: "Gjør diaspora* enda bedre! Hvis du finner feil, vær snill å %{report_bugs}."
+      create_an_account: "Opprett en konto"
+      create_an_account_info: "%{sign_up_link} for en ny konto."
+      faq_for_podmins: "FAQ for belgvedlikeholdere i vår wiki"
+      getting_help: "Få hjelp"
+      getting_help_info: "Vi har listet opp noen %{faq} inkludert noen ekstra tips og triks og løsningen for de vanligste problemene. Du må også gjerne %{irc}."
+      headline: "Velkommen, venn."
+      make_yourself_an_admin: "Gjør deg selv til en admin"
+      make_yourself_an_admin_info: "Du finner instruksjoner i %{wiki}. Dette burde legge til en %{admin_dashboard}-lenke i brukermenyen din når du er logget inn. Den gir deg ting som brukersøk og statistikk for belgen din."
+      report_bugs: "rapporter dem."
+      update_instructions: "oppdateringsinstruksjoner i diaspora*-wikien"
+      update_your_pod: "Oppdater belgen din"
+      update_your_pod_info: "Du kan finne %{update_instructions}."
   invitation_codes:
+    already_logged_in: "Du har blitt invitert av %{inviter} til å bli med i denne belgen, men du er allerede logget inn."
     not_valid: "Den invitasjonskoden er ikke lenger gyldig"
   invitations:
     create:
+      closed: "Invitasjoner er lukket for denne diaspora*-belgen."
       empty: "Vennligst angi i hvertfall en e-post adresse"
       no_more: "Du har ikke flere invitasjoner."
       note_already_sent: "Invitasjoner har blitt sendt til: %{emails}"
-      rejected: "Følgende e-postadresser hadde problemer:"
+      rejected: "Følgende e-postadresser hadde problemer: %{emails}"
       sent: "Invitasjoner har blitt sendt til:"
     new:
       codes_left:
@@ -476,17 +607,25 @@ nb:
   layouts:
     application:
       back_to_top: "Til toppen"
-      powered_by: "DREVET AV DIASPORA*"
+      be_excellent: "Vær fantastiske med hverandre! ♥"
+      discourse: "Prosjektdiskusjoner og -hjelp"
+      powered_by: "Drevet av diaspora*"
       public_feed: "Offentlig diaspora*-feed for %{name}"
       source_package: "Last ned kildekodepakken"
-      statistics_link: "Statistikk for poden"
-      toggle: "vis mobilsiden"
-      whats_new: "hva er nytt?"
+      statistics_link: "Statistikk for belgen"
+      toggle: "Vis mobilsiden"
+      whats_new: "Hva er nytt?"
     header:
-      code: "kode"
+      code: "Kode"
       logout: "logg ut"
       profile: "profil"
       settings: "innstillinger"
+      toggle_navigation: "Veksle navigasjon"
+  likes:
+    create:
+      error: "Å like feilet."
+    destroy:
+      error: "Kunne ikke slutte å like."
   limited: "Begrenset"
   more: "Mer"
   no_results: "Ingen resultater ble funnet"
@@ -527,6 +666,7 @@ nb:
       mark_read: "Marker som lest"
       mark_unread: "Merk som ulest"
       mentioned: "Nevnte"
+      mentioned_in_comment: "Nevnt i en kommentar"
       no_notifications: "Du har ingen varslinger ennå."
       notifications: "Varsler"
       reshared: "Delt"
@@ -555,6 +695,12 @@ nb:
       other: "%{actors} nevnte deg i en slettet post."
       two: "%{actors} nevnte deg i en slettet post."
       zero: "%{actors} nevnte deg i en slettet post."
+    mentioned_in_comment:
+      one: "%{actors} nevnte deg i en <a href='%{comment_path}'>kommentar</a> til innlegget %{post_link}."
+      other: "%{actors} nevnte deg i en <a href='%{comment_path}'>kommentar</a> til innlegget %{post_link}."
+    mentioned_in_comment_deleted:
+      one: "%{actors} nevnte deg i en slettet kommentar."
+      other: "%{actors} nevnte deg i en slettet kommentar."
     private_message:
       few: "%{actors} sendte deg en melding."
       many: "%{actors} sendte deg en melding."
@@ -583,14 +729,37 @@ nb:
     a_private_message: "Det er en ny privat samtale i diaspora* du kan ta en kikk på."
     also_commented:
       limited_subject: "Det finnes en ny kommentar på et innlegg du kommenterte på"
-    click_here: "klikk her"
+    click_here: "Klikk her"
     comment_on_post:
       limited_subject: "Det finnes en ny kommentar på et av dine innlegg"
       reply: "Svar eller se %{name} sine innlegg >"
     confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "Denne e-posten er sendt av Diaspora. Hvis du ikke vil motta flere e-poster som denne, "
+    csrf_token_fail:
+      body: |-
+          Hei, %{name}
+
+          diaspora* har oppdaget et forsøk på å få tilgang til din sesjon som kan være uautorisert. Du har blitt logget ut for å unngå at ukjente skal få tilgang til dataene dine. Ikke vær bekymret, du kan trygt logge inn igjen nå.
+
+          Det ble gjort en forespørsel med en feilaktig eller manglende CSRF-nøkkel. Dette kan være helt uskyldig, men det kan også være en CSRF-angrep (cross site request forgery).
+
+          Dette kan skyldes
+
+            - en utvidelse som manipulerer forespørselen eller gjennomfører forespørsler uten nøkkelen
+            - en nettleserfane fra en tidligere sesjon som fortsatt er åpen
+            - en annen nettside som gjør en forespørsel med eller uten din tillatelse
+            - diverse andre eksterne verktøy
+            - ondsinnet kode som forsøker å få tilgang til dine data
+
+          For mer informasjon om CSRF, se [%{link}](%{link}).
+
+          Hvis du ser denne meldingen gjentatte ganger, vennligst sjekk punktene over, inkludert utvidelser til nettleseren din.
+
+          Med vennlig hilsen,
+          epostroboten til diaspora*!
+      subject: "Vi mottok en uautorisert forespørsel fra din konto, %{name}"
+    email_sent_by_diaspora: "Denne e-posten er sendt av %{pod_name}. Hvis du ikke vil motta flere e-poster som denne,"
     export_email:
       body: |-
           Hei, %{name}
@@ -620,8 +789,7 @@ nb:
           Dine bilder er ferdig behandlet og kan lastes ned ved å følge [denne lenken](%{url}).
 
           Med vennlig hilsen,
-
-          Diaspora*-epostroboten
+          E-postroboten til diaspora*!
       subject: "Dine bilder er klare for nedlasting, %{name}"
     export_photos_failure_email:
       body: |-
@@ -660,13 +828,17 @@ nb:
     mentioned:
       limited_post: "Du ble nevnt i et begrenset innlegg."
       subject: "%{name} har nevnt deg på diaspora*"
+    mentioned_in_comment:
+      limited_post: "Du ble nevnt i en kommentar til et avgrenset innlegg."
+      reply: "Svar på eller se denne samtalen >"
     private_message:
       reply_to_or_view: "Svar eller se på denne samtalen >"
+      subject: "Du har fått en ny privat melding"
     remove_old_user:
       body: |-
           Hei!
 
-          Siden du ikke har brukt diaspora*-kontoen din på %{pod_url} på %{after_days} dager, kan det se ut som om du ikke ønsker å ha den lenger. For å sikre at våre aktive brukere får best mulig ytelse fra denne diaspora*-poden, vil vi helst fjerne uønskede kontoer fra databasen vår.
+          Siden det er %{after_days} dager siden du sist brukte diaspora*-kontoen din på %{pod_url}, kan det se ut som om du ikke ønsker å ha den lenger. For å sikre at våre aktive brukere får best mulig ytelse fra denne diaspora*-belgen, vil vi helst fjerne uønskede kontoer fra databasen vår.
 
           Vi ville satt veldig pris på om du ikke forlot diaspora*-felleskapet vårt, og du må gjerne beholde kontoen hvis du ønsker det.
 
@@ -677,7 +849,7 @@ nb:
           Håper vi ser deg igjen!
 
           Med vennlig hilsen,
-          Diasporas epostrobot
+          E-postroboten til diaspora*
       subject: "Din diaspora*-konto er satt til å bli slettet på grunn av inaktivitet"
     report_email:
       body: |-
@@ -721,7 +893,7 @@ nb:
       no_one_found: "... og ingen ble funnet."
       no_results: "Hei! Du må søke etter noe."
       results_for: "Brukere tagget med %{search_term}"
-      search_handle: "Benytt diaspora* ID (brukernavn@pod.tid) for å finne dine venner."
+      search_handle: "Bruk diaspora*-ID deres (brukernavn@belg.tld) for å finne dine venner."
       searching: "Søker. Vennligst vent ..."
       send_invite: "Finner fremdeles ikke de du søker? Send en invitasjon!"
     person:
@@ -744,11 +916,17 @@ nb:
       notice: "Bildet er sletta."
     new_profile_photo:
       upload: "Last opp et nytt profilbilde!"
+  polls:
+    votes:
+      one: "Foreløpig %{count} stemme"
+      other: "Foreløpig %{count} stemmer"
+      zero: "Foreløpig ingen stemmer"
   posts:
     presenter:
       title: "En post fra %{name}"
     show:
       forbidden: "Du har ikke lov til å gjøre det"
+      location: "Publisert fra: %{location}"
       photos_by:
         one: "Et bilde av %{author}"
         other: "%{count} bilder av %{author}"
@@ -759,11 +937,19 @@ nb:
   profiles:
     edit:
       allow_search: "Tillat folk å søke på deg i diaspora*"
+      basic: "Basisprofilen min"
+      basic_hint: "Hver punkt i profilen din er valgfritt. Basisprofilen din vil alltid være synlig for alle."
+      extended: "Den utvidede profilen min"
+      extended_hint: "Klikk på bryteren for å avgjøre synligheten til den utvidede profilen din. Offentlig betyr at den er synlig for hele Internett, begrenset betyr at kun personer som du deler med kan se denne informasjonen."
+      extended_visibility_text: "Synligheten til den utvidede profilen din:"
       first_name: "Fornavn"
       last_name: "Etternavn"
+      limited: "Begrenset"
       nsfw_check: "Marker alt jeg deler som NSFW"
       nsfw_explanation: "NSFW («not safe for work») er diaspora* sin selvregulerende felleskapsstandard for innhold som muligens ikke er passende å se på når man er for eksempel er på jobb. Hvis du tenker å dele slikt materiale jevnlig, vennligst huk av for dette alternativet, slik at alt du deler vil være skjult fra folks strømmer med mindre de velger å se det."
       nsfw_explanation2: "Hvis du ikke velger denne opsjonen, vennligst legg til #nsfw tag for hver gang du deler slikt materiale"
+      public: "Offentlig"
+      settings: "Profilinnstillinger"
       update_profile: "Oppdater profil"
       your_bio: "Om meg"
       your_birthday: "Din fødselsdato"
@@ -772,13 +958,13 @@ nb:
       your_name: "Ditt navn"
       your_photo: "Ditt profilbilde"
       your_tags: "Deg: i 5 #tagger"
-      your_tags_placeholder: "f.eks. #diaspora #matlaging #skiskyting #musikk"
+      your_tags_placeholder: "Som #diaspora #matlaging #skiskyting #musikk"
     update:
       failed: "Kunne ikke oppdatere profil"
       updated: "Profil oppdatert"
   public: "Offentlig"
   registrations:
-    closed: "Registreringer er stengt på denne diaspora*-serveren."
+    closed: "Denne diaspora*-belgen er stengt for registreringer."
     create:
       success: "Du er nå med i diaspora*!"
     invalid_invite: "Invitasjonslenken som du brukte er ikke gyldig lenger!"
@@ -803,13 +989,20 @@ nb:
     post_label: "<b>Post</b>: %{title}"
     reason_label: "Årsak:"
     reported_label: "<b>Rapportert av</b> %{person}"
+    reported_user_details: "Detaljer om den rapporterte brukeren"
     review_link: "Markert som verifisert"
     status:
       destroyed: "Innlegget ble slettet"
       failed: "Noe gikk galt..."
     title: "Oversikt over rapporter"
+    unreviewed_reports:
+      one: "Du har %{count} rapport som ikke er gjennomgått."
+      other: "Du har %{count} rapporter som ikke er gjennomgått."
+      zero: "Alle rapporter er gjennomgått."
   reshares:
     comment_email_subject: "%{resharer} sin videredeling av %{author} sitt innhold"
+    create:
+      error: "Kunne ikke videredele."
     reshare:
       deleted: "Opprinnelig innlegg slettet av forfatteren."
       reshare_confirmation: "Reshare %{author} - %{text}?"
@@ -830,10 +1023,12 @@ nb:
       disconnect: "koble fra"
       edit_services: "Rediger tjenester"
       logged_in_as: "logget inn som"
-      no_services_available: "Det  finnes ingen tjenester tilgjengelig på denne poden."
+      no_services_available: "Det  finnes ingen tjenester tilgjengelig på denne belgen."
       not_logged_in: "Ikke logget inn for øyeblikket."
       really_disconnect: "koble fra %{service}?"
       services_explanation: "Ved å koble til andre sosiale tjenester, får du muligheten å publisere til disse tjenestene idet du poster til diaspora*."
+      share_to: "Del med %{provider}"
+      title: "Behandle tilkoblede tjenester"
     provider:
       facebook: "Facebook"
       tumblr: "Tumblr"
@@ -858,7 +1053,7 @@ nb:
       control_your_audience: "Kontrollér ditt publikum"
       logged_in: "innlogget på %{service}"
       manage: "Behandle tilkoblede tjenester"
-      new_user_welcome_message: "Bruk #hashtags for å sette merkelapp på innleggene dine og finne folk som deler samme interessefelt. Rop ut til bra folk med @Mentions"
+      new_user_welcome_message: "Bruk #tagger for å sette merkelapp på innleggene dine og finne folk som deler samme interessefelt. Rop ut til bra folk med @Mentions"
       outside: "Offentlige meldinger vil være synlige for personer utenfor diaspora*."
       share: "Del"
       title: "Du er i ferd med å poste et offentlig innlegg!"
@@ -868,7 +1063,7 @@ nb:
       formatWithMarkdown: "Du kan benytte %{markdown_link} til å formatere din post"
       get_location: "Hent din posisjon"
       new_user_prefill:
-        hello: "Hei alle sammen, jeg er #%{new_user_tag}. "
+        hello: "Hei, alle sammen! Jeg er #%{new_user_tag}. "
         i_like: "Jeg er interessert i %{tags}."
         invited_by: "Takk for invitasjonen,  "
         newhere: "NyHer"
@@ -913,19 +1108,27 @@ nb:
   streams:
     activity:
       title: "Min aktivitet"
+    admin:
+      title: "Admin"
     aspects:
+      all: "Alle aspekter"
       title: "Mine aspekter"
     aspects_stream: "Aspekter"
     comment_stream:
-      title: "Kommenterte poster"
+      title: "Kommenterte innlegg"
+    commented:
+      title: "Kommenterte innlegg"
     community_spotlight_stream: "Fremhevet av Fellesskapet"
     followed_tag:
-      add_a_tag: "Legg til en tag"
+      add_a_tag: "Legg til en tagg"
+      all: "Alle tagger"
       follow: "Følg"
       title: "#Fulgte tagger"
     followed_tags_stream: "#Fulgte tagger"
     like_stream:
       title: "Liker-strøm"
+    liked:
+      title: "Likte innlegg"
     mentioned_stream: "@Omtaler"
     mentions:
       title: "@Omtaler"
@@ -963,13 +1166,14 @@ nb:
       auto_follow_aspect: "Aspekt for automatisk fulgte brukere:"
       auto_follow_back: "Del automatisk med brukere som begynner å dele med deg"
       change: "Endre"
+      change_color_theme: "Endre fargetema"
       change_email: "Endre e-postadresse"
       change_language: "Endre språk"
       change_password: "Endre passord"
       character_minimum_expl: "må være minst seks tegn"
       close_account:
         dont_go: "Vennligst ikke forsvinn nå!"
-        lock_username: "Dette vil reservere brukernavnet ditt hvis du bestemmer deg for å registrere deg igjen."
+        lock_username: "Brukernavnet ditt vil bli låst. Du vil ikke kunne opprette en ny konto på denne belgen med samme ID."
         locked_out: "Du kommer til å bli avlogget og låst ute fra din konto"
         make_diaspora_better: "Vi ønsker at du hjelper oss å gjøre Diaspora bedre, så det hadde vært fint om du hjalp oss i stedet for å forlate oss. Hvis du allikevel ønsker å forsvinne så vil vi gjerne at du skal få vite hva som skjer videre."
         mr_wiggles: "Mr Wiggles blir lei seg om du forlater oss nå"
@@ -979,6 +1183,7 @@ nb:
       comment_on_post: "noen kommenterer på innlegget ditt"
       current_password: "Nåverende passord"
       current_password_expl: "det som du logger på med ..."
+      default_post_visibility: "Forhåndsvalgt aspekt ved publisering"
       download_export: "Last ned min profil"
       download_export_photos: "Last ned mine bilder"
       edit_account: "Endre konto"
@@ -990,7 +1195,8 @@ nb:
       last_exported_at: "(Sist oppdatert %{timestamp})"
       liked: "noen liker innlegget ditt"
       mentioned: "du blir omtalt i et innlegg"
-      new_password: "Nytt Passord"
+      mentioned_in_comment: "du ble nevnt i en kommentar"
+      new_password: "Nytt passord"
       private_message: "du har mottatt en privat melding"
       receive_email_notifications: "Motta varsler på e-post når:"
       request_export: "Be om min profildata"
@@ -1012,7 +1218,7 @@ nb:
       connect_to_facebook: "Vi kan gjøre dette litt kjappere ved hjelp av %{link} til diaspora*. Dette vil trekke ut ditt navn og foto og tillate krysslagring/oppdatering av innhold."
       connect_to_facebook_link: "kobler opp til din Facebook konto"
       hashtag_explanation: "Hastags lar deg beskrive og følge dine interesser. De er også en fin måte å finne nye folk i diaspora*."
-      hashtag_suggestions: "Prøv å følge tags som #art, #movies, #gif, osv."
+      hashtag_suggestions: "Prøv å følge tagger som #art, #movies, #gif, osv."
       well_hello_there: "Vel, hallo der!"
       what_are_you_in_to: "Hva er dine interesser?"
       who_are_you: "Hvem er du?"
@@ -1025,6 +1231,8 @@ nb:
     public:
       does_not_exist: "Bruker %{username} finnes ikke!"
     update:
+      color_theme_changed: "Fargetema ble endret."
+      color_theme_not_changed: "En feil oppstod i forbindelse med endring av fargetema."
       email_notifications_changed: "Language Change Failed"
       follow_settings_changed: "Innstillinger for følging ble endret"
       follow_settings_not_changed: "Kunne ikke endre innstillinger for følging"

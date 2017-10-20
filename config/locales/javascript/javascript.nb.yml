@@ -6,6 +6,55 @@
 
 nb:
   javascripts:
+    admin:
+      pods:
+        actions: "Handlinger"
+        added: "Lagt til"
+        check: "kjør tilkoblingstest"
+        errors:
+          one: "Tilkoblingstesten responderte med en feil for én belg."
+          other: "Tilkoblingstesten responderte med en feil for <%= count %> belger."
+        follow_link: "åpne lenken i nettleser"
+        last_check: "forrige kontroll:"
+        more_info: "vis mer informasjon"
+        ms:
+          one: "<%= count %>ms"
+          other: "<%= count %>ms"
+        no_info: "Ingen ekstra informasjon er tilgjengelig på dette tidspunktet"
+        not_available: "ikke tilgjengelig"
+        offline_since: "frakoblet siden:"
+        pod: "Belg"
+        recheck:
+          failure: "Kontrollen ble ikke utført."
+          success: "Denne belgen ble nettopp kontrollert en gang til."
+        response_time: "Svartid:"
+        server_software: "Tjenerprogramvare:"
+        ssl: "SSL"
+        ssl_disabled: "SSL er deaktivert"
+        ssl_enabled: "SSL er aktivert"
+        states:
+          dns_failed: "Navneresolusjon (DNS) feilet"
+          http_failed: "HTTP-tilkobling feilet"
+          net_failed: "Tilkoblingsforsøk feilet"
+          no_errors: "OK"
+          ssl_failed: "Sikker tilkobling (SSL) feilet"
+          unchecked: "Ukontrollert"
+          unknown_error: "En uspesifisert feil har oppstått i løpet av kontrollen"
+          version_failed: "Kunne ikke hente programvareversjon"
+        status: "Tilstand"
+        unchecked:
+          one: "Det finnes fortsatt en belg som ikke har blitt kontrollert i det hele tatt."
+          other: "Det finnes fortsatt <%= count %> belger som ikke har blitt kontrollert i det hele tatt."
+        unknown: "ukjent"
+        version_failed:
+          one: "Det finnes én belg som ikke har noen versjon (gammel belg, ingen NodeInfo)."
+          other: "Det finnes <%= count %> belger som ikke har noen versjoner (eldre belger, ingen NodeInfo)."
+    admins:
+      dashboard:
+        compare_versions: "Den siste diaspora*-versjonen er <%= latestVersion %>, din belg kjører <%= podVersion %>."
+        error: "Kunne ikke avgjøre siste diaspora*-versjon."
+        outdated: "Din belg er utdatert."
+        up_to_date: "Din belg er oppdatert!"
     and: "og"
     aspect_dropdown:
       add_to_aspect: "Legg til kategori"
@@ -48,6 +97,8 @@ nb:
     confirm_unload: "Bekreft at du ønsker å forlate denne siden. Data du har lagt inn vil ikke bli lagret."
     contacts:
       add_contact: "Legg til kontakt"
+      aspect_chat_is_enabled: "Kontakter i dette aspektet vil kunne chatte med deg."
+      aspect_chat_is_not_enabled: "Kontakter i dette aspektet vil ikke kunne chatte med deg."
       aspect_list_is_not_visible: "Kontakter i dette aspektet har ikke mulighet til å se hverandre"
       aspect_list_is_visible: "Kontakter i dette aspektet har mulighet til å se hverandre"
       error_add: "Kunne ikke legge til <%= name %> til aspektet :("
@@ -55,11 +106,15 @@ nb:
       remove_contact: "Fjern kontakt"
       search_no_results: "Ingen kontakter funnet"
     conversation:
+      create:
+        no_recipient: "Vent, du må legge til en mottaker først!"
       new:
         no_contacts: "Du må legge til noen kontakter før du kan starte en samtale."
     create: "Lag"
     delete: "Slett"
     edit: "Rediger"
+    errors:
+      connection: "Kunne ikke koble til tjeneren."
     failed_to_post_message: "Klarte ikke å publisere post!"
     failed_to_remove: "Noe gikk galt i forsøket på å fjerne innlegget!"
     getting_started:
@@ -82,6 +137,8 @@ nb:
       recent_notifications: "Nylige varsel"
       search: "Søk"
       settings: "Innstillinger"
+      toggle_mobile: "Slå mobiltilpasning av/på"
+      toggle_navigation: "Veksle navigasjon"
       view_all: "Vis alle"
     hide_post: "Gjem dette innlegget?"
     hide_post_failed: "Kunne ikke gjemme dette innlegget"
@@ -95,6 +152,9 @@ nb:
     notifications:
       mark_read: "Merk som lest"
       mark_unread: "Merk som ulest"
+      new_notifications:
+        one: "Du har <%= count %> varsel du ikke har lest"
+        other: "Du har <%= count %> varsler du ikke har lest"
     people:
       edit_my_profile: "Endre profilen min"
       helper:
@@ -111,7 +171,12 @@ nb:
       invalid_ext: "{file} har et ugyldig etternavn. Bare {extensions} er tillatt."
       looking_good: "Wow, du ser fantastisk ut!"
       size_error: "{file} er for stor, maksimal filstørrelse er {sizeLimit}"
+      upload_photos: "Last opp bilder"
     poll:
+      answer_count:
+        one: "Én stemme"
+        other: "<%=count%> stemmer"
+        zero: "Ingen stemmer"
       close_result: "Skjul resultat"
       count:
         one: "1 stemme til nå"
@@ -122,6 +187,7 @@ nb:
       result: "Resultat"
       show_result: "Vis resultat"
       vote: "Stem"
+      your_vote: "Din stemme"
     profile:
       add_some: "Legg til noen"
       bio: "Biografi"
@@ -146,6 +212,7 @@ nb:
           insert_link_description_text: "legg til lenkebeskrivelse her"
           insert_link_help_text: "sett inn lenke her"
           italic: "Kursiv tekst"
+          list: "listetekst her"
           quote: "sitert tekst her"
           strong: "Uthevet tekst"
         tooltips:
@@ -162,6 +229,7 @@ nb:
           quote: "Sett inn sitat"
           write: "Rediger melding"
         write: "Skriv"
+      mention_success: "Nevnte: <%= names %>"
       near_from: "Publisert fra: <%= location %>"
       option: "Valg <%= nr %>"
       question: "Spørsmål"
@@ -176,9 +244,14 @@ nb:
     reshares:
       post: "Videredel <%= name %> sitt innhold?"
       successful: "Dette innholdet ble videredelt"
+    show_all: "Vis alle"
     show_more: "vis mer"
     stream:
       comment: "Kommenter"
+      comments:
+        one: "<%= count %> kommentar"
+        other: "<%= count %> kommentarer"
+        zero: "Ingen kommentarer"
       disable_post_notifications: "Slå av varslinger for dette innlegget"
       enable_post_notifications: "Slå på varslinger for dette innlegget"
       follow: "Følg"
@@ -198,8 +271,9 @@ nb:
         one: "Vis <%= count %> kommentar til"
         other: "Vis <%= count %> komentarer til"
         zero: "Ikke flere kommentarer"
-      no_posts_yet: "Det er ingen poster å vise her ennå"
+      no_posts_yet: "Det er ingen innlegg å vise her ennå"
       original_post_deleted: "Den opprinnelige posten er slettet av forfatteren."
+      permalink: "Permalenke"
       public: "Offentlig"
       reshare: "Del"
       reshares:
@@ -227,6 +301,7 @@ nb:
       hour: "ca. en time"
       hours:
         other: "ca. %d timer"
+      inPast: "når som helst nå"
       minute: "ca. et minutt"
       minutes:
         other: "%d minutter"
