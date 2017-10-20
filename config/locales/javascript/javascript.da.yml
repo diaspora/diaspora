@@ -185,6 +185,7 @@ da:
       result: "Resultat"
       show_result: "Vis resultat"
       vote: "Stem"
+      your_vote: "Din stemme"
     profile:
       add_some: "Tilføj nogen"
       bio: "Biografi"

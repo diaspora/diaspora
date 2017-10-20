@@ -34,7 +34,7 @@ fr:
         reshare:
           attributes:
             root_guid:
-              taken: "C'est fini, oui ? Vous avez déjà repartagé ce message !"
+              taken: "C'est si bien, c'est ça ? Vous avez déjà repartagé ce message !"
         user:
           attributes:
             email:
@@ -68,9 +68,9 @@ fr:
         one: "%{count} commentaire"
         other: "%{count} commentaires"
         zero: "Aucun commentaire"
-      current_segment: "La catégorie considérée a une moyenne de <b>%{post_yest}</b> messages par utilisateur, depuis <b>%{post_day}</b>"
+      current_segment: "La période courante a une moyenne de %{post_yest} messages par utilisateur, depuis %{post_day}"
       daily: "Quotidienne"
-      display_results: "Affichage des résultats pour la période <b>%{segment}</b>"
+      display_results: "Affichage des résultats pour la période %{segment}"
       go: "Exécuter"
       month: "Mois"
       posts:
@@ -81,7 +81,7 @@ fr:
         one: "%{count} repartage"
         other: "%{count} repartages"
         zero: "Aucun repartage"
-      tag_name: "Nom du tag : <b>%{name_tag}</b> Nombre : <b>%{count_tag}</b>"
+      tag_name: "Nom du tag : %{name_tag} Nombre : %{count_tag}"
       usage_statistic: "Statistiques d'utilisation"
       users:
         one: "%{count} utilisateur"
@@ -151,7 +151,11 @@ fr:
         login_required: "Vous devez d'abord vous connecter afin de pouvoir autoriser cette application"
         title: "Oups ! Quelque-chose n'a pas marché :("
       scopes:
+        aud:
+          description: "Cela donne la permission aud à l'application"
+          name: "aud"
         name:
+          description: "Cela donne la permission nom à l'application"
           name: "nom"
         nickname:
           description: "Cela donne les permissions liées au surnom à l'application"
@@ -237,7 +241,7 @@ fr:
       introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."
       keep_pod_running: "Permettez à %{pod} de fonctionner rapidement et offrez une dose de café mensuelle à nos serveurs !"
       new_here:
-        follow: "Suivez %{link} et souhaitez la bienvenue aux nouveaux utilisateurs de diaspora* !"
+        follow: "Suivez %{link} et <a href=\"/tags/nouvelleici\">#nouvelleIci</a> et souhaitez la bienvenue aux nouveaux utilisateurs de diaspora* !"
         learn_more: "En savoir plus"
         title: "Accueillir les nouveaux"
       services:
@@ -324,7 +328,7 @@ fr:
       fail: "Message invalide"
     show:
       delete: "Supprimer la conversation"
-      hide: "masquer et mettre en muet la conversation"
+      hide: "Masquer et rendre la conversation muette"
       last_message: "Dernier message reçu %{timeago}"
       reply: "Répondre"
       replying: "Réponse en cours d'envoi..."
@@ -352,7 +356,7 @@ fr:
       data_visible_to_podmin_q: "Quelle quantité de mes informations l'administrateur du pod peut-il voir ?"
       download_data_a: "Oui. En bas de l'onglet 'Compte' de votre page de paramètres, il y a deux boutons : l'un pour télécharger vos données, l'autre pour télécharger vos photos."
       download_data_q: "Puis-je télécharger une copie de toutes les données contenues dans mon compte ?"
-      move_pods_a: "Dans le futur vous pourrez exporter votre compte provenant d'un pod et l'importer dans un autre, mais ce n'est pas possible pour l'instant. Vous pouvez toujours ouvrir un nouveau compte et ajouter les contacts de vos aspects dans celui-ci, et leur demander d'ajouter le nouveau compte à leurs aspects."
+      move_pods_a: "La version 0.7.0.0 de diaspora* apporte la première étape de migration de compte : vous pouvez exporter toutes vos données depuis la section \"compte\" de vos paramètres utilisateur. Gardez vos données en sécurité ! Dans une prochaine version vous pourrez migrer l'ensemble de votre compte (y compris vos messages et contacts) vers un autre pod."
       move_pods_q: "Comment déplacer mon compte d'un pod à un autre ?"
       title: "Gestion du compte et des données"
     aspects:
@@ -420,6 +424,7 @@ fr:
     mentions:
       how_to_mention_a: "Tapez le symbole \"@\" et commencez à taper leur nom. Un menu déroulant devrait apparaître pour vous permettre de les choisir plus facilement. Notez qu'il n'est possible de mentionner que des gens que vous avez ajoutés à un aspect."
       how_to_mention_q: "Comment puis-je mentionner quelqu'un lorsque je rédige un message ?"
+      mention_in_comment_a: "Depuis la version 0.7.0.0, yes! Vous pouvez mentionner quelqu'un dans un commentaire, de la même manière que vous pouviez le faire dans une publication, en tapant \"@\" puis en commençant à écrire son nom. Merci de noter que lorsque vous commentez une publication qui n'est pas publique, vous ne pouvez mentionner que les personnes qui ont déjà interagi avec la publication."
       mention_in_comment_q: "Puis-je mentionner quelqu'un dans un commentaire ?"
       see_mentions_a: "Oui, cliquez sur \"@Mentions\" dans la colonne de gauche de votre page d'accueil."
       see_mentions_q: "Il y a t-il un moyen de voir les messages dans lesquels j'ai été mentionné ?"
@@ -587,7 +592,7 @@ fr:
       empty: "Veuillez fournir au moins une adresse de courrier électronique."
       no_more: "Vous n’avez plus d’invitation."
       note_already_sent: "Une invitation a déjà été envoyée aux e-mails %{emails}"
-      rejected: "Les adresses de courrier électronique suivantes ont rencontré des problèmes :"
+      rejected: "Les adresses de courrier électronique suivantes ont rencontré des problèmes : %{emails}"
       sent: "Les invitations ont été envoyées à : %{emails}"
     new:
       codes_left:
@@ -785,7 +790,7 @@ fr:
       message: |-
           Bonjour !
 
-          Vous avez été invité·e par %{diaspora_id} à rejoindre diaspora* !
+          Vous avez été invité·e par %{user} à rejoindre diaspora* !
 
           Cliquez sur ce lien pour vous lancer dans l'aventure :
 
@@ -1027,7 +1032,7 @@ fr:
         other: "Dans %{count} aspects"
         zero: "Ajouter le contact"
     invitations:
-      by_email: "Par courriel"
+      by_email: "Inviter des personnes par courrier électronique"
       invite_your_friends: "Invitez vos amis"
       invites: "Invitations"
       share_this: "Partagez ce lien par courriel, sur un blog ou via les réseaux sociaux !"
