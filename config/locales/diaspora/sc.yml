@@ -9,6 +9,8 @@ sc:
   _contacts: "Cuntatos"
   _help: "Agiudu"
   _services: "Servìtzios"
+  _statistics: "Istatìsticas"
+  _terms: "Tèrmines"
   account: "Contu"
   activerecord:
     errors:
@@ -16,7 +18,7 @@ sc:
         contact:
           attributes:
             person_id:
-              taken: "depet èssere ùnicu intre sos cuntatos de custu impitadore"
+              taken: "depet èssere ùnicu intre sos cuntatos de custu impreadore."
         person:
           attributes:
             diaspora_handle:
@@ -44,12 +46,21 @@ sc:
               taken: "est giai istadu pigadu."
   admins:
     admin_bar:
+      dashboard: "Pannellu de controllu"
       pages: "Pàginas"
+      pod_network: "Retza pod"
       pod_stats: "Istatìsticas de su pod"
       report: "Sinnalatziones"
       sidekiq_monitor: "Monitor Sidekiq"
       user_search: "Chirca impreadore"
       weekly_user_stats: "Istatìsticas de sa chida pro s'impreadore"
+    dashboard:
+      fetching_diaspora_version: "Verifichende s'ùrtima versione de diaspora*..."
+      pod_status: "Istadu pod"
+    pods:
+      pod_desktop_link: "modalidade pro s'iscrivania"
+      pod_desktop_view: "Custa pàgina no est disponìbile in sa modalidade pro tzellulares, pro praghere cola a sa %{desktop_link}."
+      pod_network: "Retza pod"
     stats:
       2weeks: "2 chidas"
       50_most: "Sas 50 etichetas prus popolares"
@@ -77,12 +88,34 @@ sc:
         other: "%{count} impreadores"
         zero: "%{count} impreadores"
       week: "Chida"
+    user_entry:
+      account_closed: "Contu serradu"
+      diaspora_handle: "ID diaspora*"
+      email: "P. eletr. (e-mail)"
+      guid: "GUID"
+      id: "ID"
+      invite_token: "Getone de invitu"
+      last_seen: "Bidu s'ùrtima borta"
+      ? "no"
+      : Nono
+      nsfw: "#nsfw"
+      unknown: "Disconnotu"
+      ? "yes"
+      : Eja
     user_search:
+      account_closing_scheduled: "Su contu de %{name} est programadu pro èssere serradu. At a èssere protzessadu in pagu tempus..."
+      account_locking_scheduled: "Su contu de %{name} est programmadu pro èssere blocadu. At a èssere protzessadu in pagos momentos..."
+      account_unlocking_scheduled: "Su contu de %{name} est programmadu pro èssere isblocadu. At a èssere protzessadu in pagos momentos..."
       add_invites: "Annaghe invitos"
       are_you_sure: "Seguru ses de chèrrere serrare su contu?"
+      are_you_sure_lock_account: "Seguru ses de chèrrere blocare custu contu?"
+      are_you_sure_unlock_account: "Seguru ses de chèrrere isblocare custu contu?"
       close_account: "Serra su contu"
       email_to: "Indiritzos de p. eletrònica a ue imbiare sos invitos"
+      invite: "Invita"
+      lock_account: "Bloca su contu"
       under_13: "Ammustra sos impreadores chi tenent de mancu de 13 annos (Children's Online Privacy Protection Act)"
+      unlock_account: "Isbloca su contu"
       users:
         one: "%{count} impreadore agatadu"
         other: "%{count} impreadores agatados"
@@ -99,13 +132,71 @@ sc:
         zero: "Nùmeru de impreadores noos custa chida: nissunu"
       current_server: "Sa data atuale de su server est %{date}"
   all_aspects: "Totu sas caras"
+  api:
+    openid_connect:
+      authorizations:
+        destroy:
+          fail: "Su tentativu de annullare s'autorizatzione cun ID %{id} est fallidu"
+        new:
+          access: "%{name} pedit atzessu a:"
+          approve: "Aprova"
+          bad_request: "Mancat s'ID cliente o s'URI de reindiritzatzione"
+          client_id_not_found: "Perunu cliente agatadu cun client_id %{client_id} cun URI de reindirizatzione %{redirect_uri}"
+          deny: "Refuda"
+          no_requirement: "%{name} non tenet bisòngiu de permissos"
+          redirection_message: "Seguru ses de chèrrere permìtere s'atzessu a %{redirect_uri}?"
+      error_page:
+        contact_developer: "Dias dèpere cuntatare s'isvilupadore de s'aplicatzione e incluire custu messàgiu de errore detalliadu:"
+        could_not_authorize: "No est istadu possìbile a autorizare custa aplicatzione"
+        login_required: "Depes intrare in su contu tuo in antis de pòdere autorizare custa aplicatzione"
+        title: "Oh! B'est istadu unu problema :("
+      scopes:
+        aud:
+          description: "Custu at a frunire sos permissos \"aud\" a s'aplicatzione"
+          name: "aud"
+        name:
+          description: "Custu at a frunire sos permissos de nùmeme a s'aplicatzione"
+          name: "nùmene"
+        nickname:
+          description: "Custu at a frunire sos permissos de paranùmeme a s'aplicatzione"
+          name: "paranùmene"
+        openid:
+          description: "Custu permitit a s'aplicatzione de lèghere su proflu de base tuo"
+          name: "profilu de base"
+        picture:
+          description: "Custu at a frunire a s'aplicatzione sos permissos ligados a sas immàgines"
+          name: "immàgine"
+        profile:
+          description: "Custu permitit a s'aplicatzione de lèghere su profilu intreu tuo"
+          name: "profilu intreu"
+        read:
+          description: "Custu permitit a s'aplicatzione de lèghere su flussu tuo, sos arresonos tuos e su profilu intreu tuo"
+          name: "leghere su profilu, su flussu e sos arresonos"
+        sub:
+          description: "Custu at a frunire sos permissos \"sub\" a s'aplicatzione"
+          name: "sub"
+        write:
+          description: "Custu permitit a s'aplicatzione de imbiare publicatziones noas, iscrìere arresonos, e imbiare reatziones"
+          name: "imbiare publicatziones, arresonos e reatziones"
+      user_applications:
+        index:
+          access: "%{name} tenet atzessu a :"
+          edit_applications: "Aplicatziones"
+          no_requirement: "%{name} non tenet bisòngiu de permissos"
+          title: "Aplicatziones autorizadas"
+        no_applications: "Non tenes aplicatziones autorizadas"
+        policy: "Abbista sa polìtica de privadesa de s'aplicatzione"
+        revoke_autorization: "Rèvoca"
+        tos: "Abbista sos tèrmines de servìtziu de s'aplicatzione"
   are_you_sure: "Seguru ses?"
-  are_you_sure_delete_account: "Seguru ses de bòlere serrare su contu tuo? Custu non podet èssere annuddadu!"
+  are_you_sure_delete_account: "Seguru ses de bòlere serrare su contu tuo? Est una cosa chi non podet èssere annullada!"
   aspect_memberships:
     destroy:
-      failure: "No est istadu possìbile bogare sa pessone dae s'aspetu."
-      no_membership: "Sa pessone ischertada no est istada agatada in cussu aspetu."
-      success: "Sa pessone est istada bogada dae s'aspetu."
+      failure: "No est istadu possìbile bogare sa persone dae sa cara."
+      forbidden: "Non ses autorizadu a fàghere custu."
+      invalid_statement: "Impossìbile duplicare sa registratzione."
+      no_membership: "Sa persone ischertada no est istada agatada in cussa cara."
+      success: "Sa persone est istada bogada dae sa cara."
   aspects:
     add_to_aspect:
       failure: "Annanghidura de su cuntatu a sa cara faddida."
@@ -119,6 +210,7 @@ sc:
     destroy:
       failure: "No est istadu possìbile bogare %{name}."
       success: "%{name} est istada bogada."
+      success_auto_follow_back: "%{name} est istada bogada cun sutzessu. As impreadu custa cara pro sighire automaticamente sos impreadores chi ti sighiant. Intra in sas impostztiones impreadore tuas pro ischertare una cara noa pro sighire automaticamente."
     edit:
       aspect_list_is_not_visible: "Sos cuntatos de custa cara non si podent bìdere intre issos."
       aspect_list_is_visible: "Sos cuntatos de custa cara si podent bìdere intre issos."
@@ -139,6 +231,7 @@ sc:
         here_to_help: "Sa comunidade de diaspora* est inoghe!"
         mail_podmin: "Indiritzu de su podmin"
         need_help: "Tenes bisòngiu de agiudu?"
+        support_forum: "Ti podes fintzas aunire a sos %{support_forum}."
         support_forum_link: "forum de suportu"
         tag_bug: "errore"
         tag_feature: "funtzionalidade"
@@ -148,15 +241,16 @@ sc:
       introduce_yourself: "Custu est su flussu tuo. Brinca a intro e presenta·ti."
       keep_pod_running: "Mantènne %{pod} lestru e agiuda a comporare servers cun una donatzione mensile!"
       new_here:
-        follow: "Sighi %{link} e saluda sos impitadores noos de diaspora*!"
+        follow: "Sighi %{link} e saluda sos impreadores noos de diaspora*!"
         learn_more: "Àteras informatziones"
-        title: "Saluda sos impitadores noos"
+        title: "Saluda sos impreadores noos"
       services:
         content: "Podes connètere custos servìtzios a diaspora*:"
         heading: "Connessione a sos servìtzios"
       welcome_to_diaspora: "Bene bènnidu in diaspora*, %{name}!"
     no_contacts_message:
       community_spotlight: "Prus de importu in sa comunidade"
+      invite_link_text: "invitare"
       or_spotlight: "O podes cumpartzire cun %{link}"
       try_adding_some_more_contacts: "Podes chircare o %{invite_link} àteros cuntatos."
       you_should_add_some_more_contacts: "Dias dèpere annànghere carchi cuntatu in prus!"
@@ -177,43 +271,65 @@ sc:
       success: "Bidimus ite tenent de nàrrere! #narasalude"
   bookmarklet:
     explanation: "Pùblica in diaspora* dae totue annanghende  %{link} a sos preferidos tuos."
+    heading: "Preferidu de publicatzione"
     post_something: "Pùblica in diaspora*"
-  cancel: "Annudda"
+  cancel: "Annulla"
+  color_themes:
+    dark: "Iscuru"
+    dark_green: "Birde iscuru"
+    egyptian_blue: "Biaitu egitzianu"
+    magenta: "Magenta"
+    original: "Murru originale"
+    original_white: "Isfundu biancu originale"
   comments:
+    create:
+      error: "B'est istadu un'errore cummentende."
     new_comment:
       comment: "Cummenta"
       commenting: "Cummentende..."
   contacts:
     index:
+      add_contact: "Annanghe unu cuntatu"
       all_contacts: "Totu sos cuntatos"
       community_spotlight: "In evidèntzia in sa comunidade"
       my_contacts: "Cuntatos meos"
       no_contacts: "Paret chi tue tèngias bisòngiu de annànghere carchi cuntatu in prus!"
+      no_contacts_in_aspect: "Non tenes galu perunu cuntatu in custa cara. Inoghe in suta b'est una lista de cuntatos tuos chi podes annànghere a custa cara."
       no_contacts_message: "Abbàida %{community_spotlight}"
       only_sharing_with_me: "Cumpartzint petzi cun mie"
       start_a_conversation: "Incumintza un'arresonu"
       title: "Cuntatos"
+      user_search: "Chirca de cuntatos"
     spotlight:
       community_spotlight: "In evidèntzia in sa comunidade"
+      no_members: "Non bi sunt galu membros."
       suggest_member: "Cussìgia unu membru"
   conversations:
     create:
       fail: "Messàgiu non vàlidu"
       sent: "Messàgiu imbiadu"
+    destroy:
+      delete_success: "Arresonu iscantzelladu cun sutzessu"
+      hide_success: "Arresonu istichidu cun sutzessu"
     index:
       conversations_inbox: "Arresonos – Càscia de sas lìteras"
       inbox: "Casella de posta"
       new_conversation: "Arresonu nou"
+      no_contacts: "Depes annànghere carchi cuntatu in antis de pòdere fàghere incumintzare un'arresonu"
       no_messages: "Perunu messàgiu"
     new:
+      message: "Messàgiu"
       send: "Imbia"
       sending: "Imbiende..."
       subject: "Sugetu"
+      subject_default: "Perunu sugetu"
       to: "A"
     new_conversation:
       fail: "Messàgiu non vàlidu"
     show:
       delete: "Iscantzella s'arresonu"
+      hide: "Istichi e pone a sa muda s'arresonu"
+      last_message: "Ùrtimu messàgiu retzidu %{timeago}"
       reply: "Risponde"
       replying: "Rispondende..."
   date:
@@ -224,10 +340,12 @@ sc:
   delete: "Burra"
   email: "P. eletr. (e-mail)"
   error_messages:
+    csrf_token_fail: "Su getone CSRF no est vàlidu. Pro praghere intra in su sistema e torra a proare."
     helper:
       correct_the_following_errors_and_try_again: "Currege custos errore e torra a proare."
+    need_javascript: "Custu situ ìnternet tenet bisòngiu de JavaScript pro funtzionare comente si tocat. Si as istudadu JavaScript torra·lu a allùghere, pro praghere, e torra a carrigare custa pàgina."
   fill_me_out: "Iscrie inoghe"
-  find_people: "Agata pessonas o #etichetas"
+  find_people: "Agata persones o #etichetas"
   help:
     account_and_data_management:
       close_account_a: "Bae a su fundu de sa pàgina de sas impostatziones tuas e incarca su butone \"Iscantzella su contu\". T'at a èssere pedidu de insertare sa crae de intrada tua pro acabare su protzessu. Ammenta·ti chi, si as a iscantzellare su contu tuo, non t'as a pòdere <strong>mai prus</strong> torrare a registrare cun su matèssi nùmene in cussu pod."
@@ -264,10 +382,18 @@ sc:
       what_is_an_aspect_a: "Sas caras sunt una manera de agrupare sos cuntatos tuos in diaspora*. Si mutint \"caras\" ca sunt comente sas caras diferentes chi mostras a su mundu in momentos diferenetes. Diat pòdere èssere chie ses in su traballu, chie ses pro sa famìlia tua, o chie ses pro sos amigos tuos in unu grupu de su cale faghes parte."
       what_is_an_aspect_q: "Ite est una cara?"
       who_sees_post_a: "Cando faghes una publicatzione limitada cussa at a èssere visìbile pro sas persones chi as postu in cussa cara (o in cussas caras, si est fata in prus caras) in antis de fàghere sa publicatzione. Sos cuntatos chi non tenes in cussas caras no ant a pòdere bìdere cussa publicatzione. Sas publicatziones limitadas no ant a èssere mai visìbiles a chie non tenes in una de sas caras tuas."
-      who_sees_post_q: "Cando pùblico in un'aspetu, chie lu bidet?"
+      who_sees_post_q: "Cando pùblico in una cara, chie lu bidet?"
+    chat:
+      add_contact_roster_a: "In antis de totu depes abilitare sa tzarrada pro una de sas caras in ue est cussa persone. Pro lu fàghere intra in sa %{contacts_page}, issèbera sa cara chi boles e incarca in s'iscona de sa tzarrada pro abilitare sa tzarrada pro cussa cara. %{toggle_privilege} Dias podere, si preferis, creare una cara ispetziale mutida \"Tzarrada\" e annànghere sas persones cun sas cales cheres tzarrare in cussa cara."
+      add_contact_roster_q: "Comente potzo tzarrare cun calicunu in diaspora*?"
+      contacts_page: "pàgina de sos cuntatos"
+      title: "Tzarrada"
     community_guidelines: "normas de sa comunidade"
+    faq: "Pregontas fitianas"
     foundation_website: "situ web de sa fundatzione diaspora*"
     getting_help:
+      get_support_a_discourse: "Chirca arresonos esistentes ligados a s'argumentu tuo o aberi un'arresonu nou in sa prataforma de %{discourse} nostra"
+      get_support_a_faq: "Leghe sa pàgina nostra de sas %{faq} in sa wiki"
       get_support_a_hashtag: "Pedi publicamente in diaspora* impreende s'eticheta %{question}"
       get_support_a_irc: "Intra in %{irc} (tzarrada in direta) cun nois"
       get_support_a_tutorials: "Abbista·ti sas %{tutorials} nostras"
@@ -280,6 +406,18 @@ sc:
     getting_started_tutorial: "Serie de ghias \"Comente incumintzare\""
     here: "inoghe"
     irc: "IRC"
+    keyboard_shortcuts:
+      keyboard_shortcuts_a1: "In sa vista de su flussu podes impreare custas incurtzadas dae tecladu:"
+      keyboard_shortcuts_li1: "j - Brinca a sa publicatzione imbeniente"
+      keyboard_shortcuts_li2: "k - Brinca a sa publicatzione anteposta"
+      keyboard_shortcuts_li3: "c - Cummenta in sa publicatzione atuale"
+      keyboard_shortcuts_li4: "I - Sinnala s'agradessimentu tuo a sa publicatzione atuale"
+      keyboard_shortcuts_li5: "r - Torra a cumpartzire sa publicatzione atuale"
+      keyboard_shortcuts_li6: "m - Ismànnia sa publicatzione atuale"
+      keyboard_shortcuts_li7: "o -Aberi su primu ligàmene in sa publicatzione atuale"
+      keyboard_shortcuts_li8: "Ctrl+Imbiu – Imbia su messàgiu chi ses iscriende"
+      keyboard_shortcuts_q: "Cales incurtzadas dae tecladu sunt disponìbiles?"
+      title: "Incurtzadas dae tecladu"
     markdown: "Markdown"
     mentions:
       how_to_mention_a: "Iscrie su sìmbulu \"@\" e incumintza a iscrìere su nùmene suo. Unu menù a ventanedda s'at a abèrrere e l'as a pòdere ischertare in manera prus fàtzile. Ammenta·ti chi est possìbile numenare petzi a sas persones chi as annantu a una cara."
@@ -320,9 +458,22 @@ sc:
       format_text_q: "Comente potzo formatare su testu in sas publicatziones meas (grassetu, corsivu etz.)?"
       hide_posts_a: "Si colas su puntadore in subra de una publicatzione, a pitzu, una X at a aparire a destra. Incarca·la pro istichire sa publicatzione e istudare sas notìficas chi li pertocant. As a pòdere galu bìdere sa publicatzione si as a bisitare sa pàgina de profilu de sa persone chi l'at publicada."
       hide_posts_q: "Comentze potzo istichire una publicatzione?"
+      ignore_user_a1: "Si ses cumpartzende cun cussa persone bogande·la dae sas caras tuas sas publicatziones suas no ant a aparire in su flussu tuo. Unu mètodu prus cumpridu est su de \"ignorare\" cussu contu. In custa manera as a prevènnere s'aparèntzia de sas publicatziones suas in su flussu tuo, e cussa persone non at fintzas prus a pòdere agradèssere  o cummentare sas publicatziones tuas. Las at a pòdere galu torrare a cumpartzire e cummentare in sas cumpartziduras, e sos cummentos suos ant a abarrare visìbiles pro tie."
+      ignore_user_a2: "Pro ignorare unu contu, incarca in s'icona \"ignora\" (unu chircu cun una lìnia diagonale chi l'atraessat) in destra in pitzu de una de sas publicatziones suas. Cussa publicatzione at a isparèssere istantaneamente dae su flussu tuo. Si preferis, podes fintzas andare in sa pàgina de profilu de su contu e incarcare s'icona in ie. As a sighire a pòdere bìdere sas publicatziones suas in sa pàgina de profilu, o impreende sa vista pro una publicatzione a sa sola."
+      ignore_user_a3: "Una lista de sa gente chi ses ignorende podet èssere agatada in sas impostatzioes de su contu tuo in suta de Privadesa. Pro l'acabare de ignorare calicunu boga·lu dae sa lista in cussa pàgina."
+      ignore_user_q: "Comente potzo fàghere in modu chi sas publicatziones de calicunu non aparent in su flussu meu?"
       insert_images_a: "Si cheres incluire in sa publicatzione tua un'immàgine sarvada in s'elaboradore tuo Incarca in s'icona chi tenet sa forma de una fotocàmera in fundu a su publicadore.Podes fintzas trisinare e lassare un'immàgine, o prus immàgines, dae s'elaboradore tuo a intro de cuss'icona. Si cheres insertare un'immàgine dae ìnternet in sa publicatzione tua incarca su butone pro sas immàgines in pitzu de su publicadore, chi at a creare su còdighe Markdown pro tie."
+      insert_images_comments_a: "Podes impreare Markdown pro insertare un'immàgine dae su web in unu cummentu, comente in sas publicatziones. Ma non podes carrigare immàgines dae s'elaboradore tuo diretamente in sos cummentos. Carriga·las in unu situ de istrangiamentu de immàgines e, a pustis, inserta·las impreende su butone pro sas immàgines a subra de su publicadore."
       insert_images_comments_q: "Potzo insertare immàgines in sos cummentos?"
       insert_images_q: "Comente potzo insertare immàgines in sas publicatziones meas?"
+      post_location_a: "Incarca s'icona chi tenet sa forma de una puntighedda a curtzu de sa fotocàmera in su publicadore. Custu at a insertare sa positzione tua dae OpenStreetMap. Podes acontzare sa positzione tua – dias bòlere petzi incluire sa tzitade in ue ses imbetzes de s'indiritzu pretzisu de s'istrada."
+      post_location_q: "Comente potzo annànghere sa positzione mea a una publicatzione?"
+      post_notification_a: "As a agatare un'icona chi tenet sa forma de una campana a curtzu de sa X a destra a pitzu de una publicatzione. Incarca·la pro allughere o istudare sas notìficas pro cussa publicatzione."
+      post_notification_q: "Comente potzo retzire o acabare de retzire sas notìficas chi pertocant a una publicatzione?"
+      post_poll_a: "Incarca in s'icona chi tenet sa forma de unu gràficu pro creare unu sondàgiu. Iscrie una pregonta e a su mancu duas rispostas. Non t'ismèntighes de impostare sa publicatzione tua in manera chi siat pùblica, si cheres chi totus potzant leare parte a su sondàgiu tuo."
+      post_poll_q: "Comente potzo annànghere unu sondàgiu a sa publicatzione mea?"
+      post_report_a: "Incarca s'icona a forma de triàngulu a destra in pitzu de sa publicatzione pro la sinnalare a s'amministradore de su pod tuo. Iscrie una resone pro sa sinnalatzione in sa bentana chi s'at a abèrrere. Pro praghere sinnala petzi sas publicatziones chi non rispetant sas %{community_guidelines} o sas cunditziones de impreu de su pod tuo, comente a sas publicatziones chi cuntenent materiale illegale, chi sunt ingiuriosas o spam."
+      post_report_q: "Comente potzo sinnalare una publicatzione ofensiva?"
       size_of_images_a: "Nono. Sas immàgines benint ridimensionadas automaticamente pro intrare in sa vista de su flussu o de sa publicatzione sìngula. Markdown non tenet unu còdighe pro dislindare sa mannària de un'immàgine."
       size_of_images_q: "Potzo personalizare sa mannària de sas immàgines in sas publicatziones o in sos cummentos?"
       stream_full_of_posts_a1: "In su flussu tuo bi sunt tres castas de publicatziones:"
@@ -343,7 +494,12 @@ sc:
       who_sees_post_q: "Cando pùblico carchi cosa in una cara (creo una publicatzione privada) chie la podet bìdere?"
     profile:
       title: "Profilu"
+      what_do_tags_do_a: "Agiudant sas persones a ti connòschere. S'immàgine de profilu tua at fintzas a aparire in s'ala a manca de sas pàginas de su flussu de cussas etichetas, in paris cun totu sos àteros chi las ant postas in su profilu de base issoro."
+      what_do_tags_do_q: "A ite serbint sas etichetas in su profilu de base meu?"
+      whats_in_profile_a: "Su profilu tuo tenet duas partes: su profilu de base e su profilu intreu. Su profilu de base tuo cuntenit su nùmene tuo, sas chimbe etichetas chi as isseberadu pro ti descrìere e sa fotografia tua. Su profilu intreu tuo cuntenit sa biografia, sa positzione, sa natura e sa data de nàschida tuas. Totu custas informatziones sunt optzionales – ses tue a isseberare si las cheres frunire o nono, e las podes impostare in manera chi siant identificàbiles o anònimas cantu boles. Su profilu intreu tuo est ammustradu in sa culunna a manca de sa pàgina de profilu tua, in suta de sa fotografia de profilu tua."
       whats_in_profile_q: "Ite b'est in su profilu meu?"
+      who_sees_profile_a: "Su prfilu de base tuo (nùmene, immàgine de profilu e #etichetas) est pùblicu. Su profilu intreu tuo est privadu in sas impostatziones predefinidas, ma lu podes fàghere a pùblicu pro totus si cheres. Petzi sos cun sos cales ses cumpartzende (est a nàrrere, sos chi as annantu a una de sas caras tuas) podent bìdere su profilu intreu tuo si lu mantenes privadu. Àteras persones ant a bìdere petzi sas informatziones pùblicas tuas. Totu sas informatziones de su profilu chi as a impostare pro chi siant pùblicas ant a pòdere èssere bidas dae totu sos chi podent intrare in ìnternet, e ant a pòdere èssere inditzitzadas dae sos motores de chirca"
+      who_sees_profile_q: "Chie podet abbistare su profilu meu?"
     public_posts:
       can_comment_reshare_like_a: "Totu sos chi tenent unu contu de diaspora* e chi bi sunt in intro podent cummentare o cumpartzire sa publicatzione tua, o sinnalare chi lis agradat. S'etzetzione sunt sos chi as ignoradu, chi no ant a pòdere pònnere agradessimentos o cummentare in sas publicatziones tuas."
       can_comment_reshare_like_q: "Chie podet cummentare o cumpartzire sa publicatzione mea, o sinnalare chi lis agradat?"
@@ -372,6 +528,7 @@ sc:
       add_to_aspect_li5: "Ma si Ben at a andare a sa pàgina de su profilu de Amy, tando at a bìdere sas publicatziones privadas chi Amy faghet in sa cara in ue l'at postu (in paris cun sas publicatziones pùblicas de issa, chi totus podent bìdere in ie)."
       add_to_aspect_li6: "Ben at a pòdere bìdere su profilu privadu de Amy (biografia, logu, natura, data de nàschida)."
       add_to_aspect_li7: "Amy at a aparire in suta de \"Petzi cumpartzinde cun mie\" in sa pàgina de sos cuntatos de Ben."
+      add_to_aspect_li8: "Fintzas Amy at a pòdere @numenare Ben in una publicatzione."
       add_to_aspect_q: "Ite acontessit cando annango calicunu a una de sas caras meas, o cando calicunu m'annanghet a una de sas caras suas?"
       list_not_sharing_a: "Nono, ma podes bìdere si calicunu est o no est cumpartzende cun bois bisitende sa pàgina de profilu issoro. Si lu sunt faghende, b'at a èssere una icona birde a un'ala de s'ID diaspora suo. Si nono, b'at a èssere unu chircu murru."
       list_not_sharing_q: "B'est una lista de sa gente chi apo annantu a unu de sas caras, ma chi non m'ant annantu a una de sas issoro?"
@@ -379,6 +536,8 @@ sc:
       only_sharing_q: "Chie sunt sas persones in sa lista in suta de \"Petzi cumpartzinde cun mie\" in sa pàgina mea de sos cuntatos?"
       see_old_posts_a: "Nono. At a pòdere bìdere petzi sas publicatziones noas in cussa cara. Issu (in paris a totu sos àteros) at a pòdere bìdere sas publicatziones tuas prus betzas in sa pàgina de su profilu tua, e l'at a pòdere bìdere fintzas in su flussu suo."
       see_old_posts_q: "Cando annango calicunu a una cara, podet bìdere sas publicatziones prus betzas chi apo giai publicadu in cussa cara?"
+      sharing_notification_a: "Dias dèpere retzire una notìfica cada borta chi calicunu incumintzat a cumpartzire cun tie."
+      sharing_notification_q: "Comente potzo ischire cando calicunu incumintzat a cumpartzire cun mie?"
       title: "Cumpartzende"
     tags:
       filter_tags_a: "Custu no est galu disponìbile in manera direta pro mèdiu de diaspora*, ma bi sunt %{third_party_tools} chi lu diant pòdere permìtere."
@@ -397,8 +556,41 @@ sc:
     tutorial: "ghia"
     tutorials: "ghias"
     wiki: "wiki"
+  home:
+    default:
+      be_who_you_want_to_be: "Sias su chi boles èssere"
+      be_who_you_want_to_be_info: "Medas retzas sotziales insistint pro ti pedire s'identidade reale tua. diaspora* nono. Inoghe podes isseberare chie cheres èssere, e cumpartzire cantu boles de tie cun chie cheres. Est semper un'issèbera tua comente cheres interagire cun àteras persones."
+      byline: "Su mundu sotziale in lìnia in ue tenes su controllu"
+      choose_your_audience: "Issèbera su pùblicu tuo"
+      choose_your_audience_info: "Sas caras de diaspora* ti permitint de cumpartzire cun petzi cussas persones cun las cales cheres tue. Podes èssere pùblicu o privadu cantu cheres. Cumpartzire una fotografia ispassiosa cun totu su mundu, o unu segretu de importu cun petzi sos amigos tuos. Tenes tue su controllu."
+      headline: "Bene bènnidu in %{pod_name}"
+      own_your_data: "Sos datos tuos sunt petzi tuos"
+      own_your_data_info: "Medas retzas sotziales impreant sos datos tuos pro fàghere dinare analizende sas interatziones tuas pro ti bèndere cosa. diaspora* no impreat sos datos tuos pro cale si siat punna chi non siet sa de ti permìtere de ti connètere e de cumpartzire cun sos àteros."
+    podmin:
+      byline: "Istas pro cambiare ìnternet. Incumintzamus, ite naras?"
+      configuration_info: "Aberi %{database_path} e %{diaspora_path} in s'editore de testu preferidu dae tie e revisiona·los cun atentzione. Sunt cummentados estensivamente."
+      configure_your_pod: "Configura su pod tuo"
+      contact_irc: "nos cuntatare in IRC"
+      contribute: "Contribui"
+      contribute_info: "Megiora diaspora* fintzas de prus! Si agatas carchi \"bug\", pro praghere, %{report_bugs}."
+      create_an_account: "Crea unu contu"
+      create_an_account_info: "%{sign_up_link} pro unu contu nou."
+      faq_for_podmins: "pregunta fitiana pro sos amministradores de sos pods in sa wiki nostra"
+      getting_help: "Otènnere agiudu"
+      getting_help_info: "Amus allistadu carchi %{faq} incluende carchi impositu, trucu e solutzione in prus pro sos problemas prus comunes. Podes fintzas proare a %{irc}."
+      headline: "Bene bènnidu, amigu."
+      make_yourself_an_admin: "Faghe·ti a amministradore"
+      make_yourself_an_admin_info: "Podes agatare istrutziones in sa %{wiki}. Custu diat dèpere annànghere unu ligàmene “%{admin_dashboard}” a su menù impreadore tuo in pitzu cando as fatu s'atzessu. Ti frunit cosas comente sa chirca de sos impreadores e sas istatìsticas pro su pod tuo."
+      report_bugs: "sinnala·nos·los"
+      update_instructions: "istrutziones pro s'agiornamentu in sa wiki de diaspora*"
+      update_your_pod: "Agiorna su pod tuo"
+      update_your_pod_info: "Podes agatare %{update_instructions}."
+  invitation_codes:
+    already_logged_in: "Ses istadu invitadu dae %{inviter} a t'aunire a custu pod ma ses giai connessu."
+    not_valid: "Custu còdighe de invitu no est prus vàlidu"
   invitations:
     create:
+      closed: "Sos invitos sunt serrados in custu pod de diaspora*."
       empty: "Pro praghere inserta a su mancu un'indiritzu de posta eletrònica."
       no_more: "Non tenes prus invitos."
       note_already_sent: "Sos invitos sunt istados giai imbiados a: %{emails}"
@@ -418,9 +610,12 @@ sc:
   layouts:
     application:
       back_to_top: "Torra a s'incumintzu"
+      be_excellent: "Siais ispantosos unu cun s'àteru! ♥"
+      discourse: "Dibatas de progetu e suportu"
       powered_by: "Suportadu dae diaspora*"
       public_feed: "Flussu de diaspora* pùblicu de %{name}"
       source_package: "Iscàrriga su pachete de su còdighe mitza"
+      statistics_link: "Istatìsticas pod"
       toggle: "Allughe/istuda sa versione mòbile"
       whats_new: "Ite b'est de nou?"
     header:
@@ -428,6 +623,12 @@ sc:
       logout: "Essi"
       profile: "Profilu"
       settings: "Impostatziones"
+      toggle_navigation: "Allughe/istuda su menù de nàvigu"
+  likes:
+    create:
+      error: "B'est istadu un'errore ponende s'agradessimentu."
+    destroy:
+      error: "B'est istadu un'errore boghende s'agradessimentu."
   limited: "Limitadu"
   more: "Àteru"
   no_results: "Perunu resurtadu agatadu"
@@ -455,14 +656,17 @@ sc:
       comment_on_post: "Cummentu in una publicatzione"
       liked: "Agradèssidu"
       mark_all_as_read: "Sinnala·las totu comente lèghidas"
-      mark_read: "Sinnala comente lèghida"
-      mark_unread: "Sinna·las comente non lèghidas"
+      mark_all_shown_as_read: "Sinna totu comente lèghidu"
+      mark_read: "Sinna·la comente lèghida"
+      mark_unread: "Sinna·la comente non lèghida"
       mentioned: "Numenadu in una publicatzione"
+      mentioned_in_comment: "Numenadu in unu cummentu"
+      no_notifications: "Non tenes galu peruna notìfica."
       notifications: "Notìficas"
       reshared: "Torrada a cumparzire"
       show_all: "Ammustra totu"
       show_unread: "Ammustra sas non lèghidas"
-      started_sharing: "Incumintzadu a cumpartzire"
+      started_sharing: "At incumintzadu a cumpartzire"
     liked:
       one: "A %{actors} agradat sa publicatzione tua %{post_link}."
       other: "A %{actors} agradat sa publicatzione tua %{post_link}."
@@ -474,11 +678,15 @@ sc:
     mentioned:
       one: "%{actors} t'at numenadu in sa publicatzione %{post_link}."
       other: "%{actors} t'ant numenadu in sa publicatzione %{post_link}."
-      zero: "%{actors} t'at numenadu in sa publicatzione %{post_link}."
     mentioned_deleted:
       one: "%{actors} t'at numenadu in una publicatzione chi est istada iscantzellada."
       other: "%{actors} t'ant numenadu in una publicatzione chi est istada iscantzellada."
-      zero: "%{actors} t'at numenadu in una publicatzione chi est istada iscantzellada."
+    mentioned_in_comment:
+      one: "%{actors} t'at numenadu in unu <a href='%{comment_path}'>cummentu</a> a sa publicatzione %{post_link}."
+      other: "%{actors} t'ant numenadu in unu <a href='%{comment_path}'>cummentu</a> a sa publicatzione %{post_link}."
+    mentioned_in_comment_deleted:
+      one: "%{actors} t'at numenadu in unu cummentu iscantzelladu."
+      other: "%{actors} t'ant numenadu in unu cummentu iscantzelladu."
     private_message:
       one: "%{actors} t'at imbiadu unu messàgiu."
       other: "%{actors} t'ant imbiadu unu messàgiu."
@@ -496,14 +704,63 @@ sc:
       other: "%{actors} ant incumintzadu a cumpartzire cun tie."
       zero: "%{actors} at incumintzadu a cumpartzire cun tie."
   notifier:
+    a_limited_post_comment: "B'est unu cummentu nou de bìdere pro tie in una publicatzione limitada in diaspora*."
     a_post_you_shared: "una publicatzione."
+    a_private_message: "B'est unu messàgiu privadu nou de bìdere pro tie in diaspora*."
+    also_commented:
+      limited_subject: "B'est unu cummentu nou in una publicatzione chi as cummentadu"
     click_here: "Incarca inoghe"
     comment_on_post:
+      limited_subject: "B'est unu cummentu nou in una de sas publicatziones tuas"
       reply: "Risponde o abbista sa publicatzione de %{name} >"
     confirm_email:
       click_link: "Pro ativare s'indiritzu de posta eletrònica nou tuo %{unconfirmed_email} pro praghere sighi custu ligàmene:"
       subject: "Pro praghere ativa s'indiritzu de posta eletrònica tuo %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          Salude %{name},
+
+          diaspora* at rilevadu unu tentativu de atzessu a sa sessione tua chi diat pòdere non èssere autorizadu. Pro evitare cale si siat possibilidade de tènnere sos datos tuos compromissos ses istadu fatu essire dae su contu tuo. Non ti preocupes; como podes torrare a intrare.
+
+          Una rechesta est istada fata impreende unu getone CSRF non vàlidu o chi mancat. Custu diat pòdere èssere innotzente, ma fintzas un'atacu cun rechestas farsas intre sos sitos (CSRF).
+
+          Custu diat pòdere èssere istadu causadu dae:
+
+            - Un'estensione chi at manipuladu sa rechesta o at fatu rechesta chene su getone;
+            - Un'ischeda abarrada aberta dae una sessione betza;
+            - Un'àteru situ chi at fatu rechestas, cun o chene su permissu tuo;
+            - Medas àteras ainas esternas;
+            - Còdighe malitziosu chirchende de atzedere a sos datos tuos.
+
+          Pro àteras informatziones a pitzu de sos CSRF abbista·ti [%{link}](%{link}).
+
+          Si as a bìdere custu messàgiu prus bortas una in fatu a s'àtera verìfica sos puntos inoghe in supra, incluende totu sas estensiones de s'esploradore (su browser).
+
+          Gràtzias,
+          Su robot de posta eletrònica de diaspora*!
+      subject: "Amus retzidu una rechesta non autorizada dae unu contu tuo, %{name}"
     email_sent_by_diaspora: "Custa e-lìtera est istada imbiada dae %{pod_name}. Si dias prefèrrere a l'acabare de retzire lìteras comente a custa,"
+    export_email:
+      body: |-
+          Salude %{name},
+
+          Sos datos tuos sunt istados protzessados e sunt prontos pro èssere iscarrigados aberinde [custu ligàmene](%{url}).
+
+          Tantos saludos,
+
+          Su robot de posta eletrònica de diaspora*!
+      subject: "Sos datos personales tuos sunt prontos pro èssere iscarrigados, %{name}"
+    export_failure_email:
+      body: |-
+          Salude %{name}
+
+          B'est istadu unu problema protzessende sos datos personales tuos pro s'iscarrigamentu.
+          Pro praghere torra a proare!
+
+          Ti pedo iscusa pro su problema,
+
+          Su robot de posta eletrònica de diaspora*!
+      subject: "B'est istadu unu problema cun sos datos tuos, %{name}"
     export_photos_email:
       body: |-
           Salude, %{name},
@@ -512,6 +769,18 @@ sc:
 
           Saludos,
           Su robot de sa posta eletrònica de diaspora*!
+      subject: "Sasa fotografias tuas sunt prontas pro èssere iscarrigadas, %{name}"
+    export_photos_failure_email:
+      body: |-
+          Salude %{name}
+
+          B'est istadu un'errore protzessende sas fotografias tuas pro s'iscarrigamentu.
+          Pro praghere torra a proare!
+
+          Ti pedo iscusa pro su problema,
+
+          Su robot de sa posta eletrònica de diaspora*!
+      subject: "B'est istadu unu problema cun sas fotografias tuas, %{name}"
     hello: "Salude %{name}!"
     invite:
       message: |-
@@ -537,12 +806,33 @@ sc:
     invited_you: "%{name} t'at invitadu a t'iscrìere a diaspora*"
     liked:
       liked: "A %{name} l'agradat sa publicatzione tua"
+      limited_post: "A %{name} l'est agradada sa publicatzione limitada tua"
       view_post: "Abbista publicatzione >"
     mentioned:
+      limited_post: "Ses istadu numenadu in una publicatzione limitada."
       subject: "%{name} t'at numenadu in diaspora*"
+    mentioned_in_comment:
+      limited_post: "Ses istadu numenadu in unu cummentu a una publicatzione limitada."
+      reply: "Risponde o abbista custu arresonu >"
     private_message:
       reply_to_or_view: "Risponde o abbista custu arresonu >"
       subject: "B'est unu messàgiu privadu nou pro tie"
+    remove_old_user:
+      body: |-
+          Salude,
+
+          Paret chi tue non sias prus interessadu a su contu tuo in %{pod_url}, bidu chi non l'as impreadu pro %{after_days} dies. Pro garantire sas mègius prestatziones a sos impreadores nostros in custu pod de diaspora, nos diat agradare a iscantzellare sos contos non disigiados dae sa base de datos nostra.
+
+          Nos diat agradare meda a ti sighire a tènnere in sa comunidade de diaspora*, e est craru chi ti podes mantènnere su contu tuo, si lu cheres.
+
+          Si non cheres pèrdere su contu tuo totu su chi depes fàghere est a intrare in su contu tuo in antis de su %{remove_after}. Cando as a intrare, piga·ti unu momentu pro abbistare comente diaspora* est cambiadu, in su tempus. Bi sunt istadas medas megiorias e cambiamentos dae s'ùrtima borta chi ses intradu, e pensamus chi cussas megiorias t'ant a agradare. Sighi carchi #eticheta pro agatare cuntenutu chi ti diat pòdere agradare.
+
+          Intra inoghe: %{login_url}. Si as ismentigadu sas credentziales de intrada tua las  podes torrare a pedire in cussa pàgina.
+
+          Isperamus de ti torrare a bìdere,
+
+          Su robot de posta eletrònica de diaspora*!
+      subject: "Su contu tuo de diaspora* est istadu sinnaladu pro s'iscantzellamentu pro more de s'inatividade sua"
     report_email:
       body: |-
           Salude,
@@ -611,10 +901,17 @@ sc:
       notice: "Fotografia iscantzellada."
     new_profile_photo:
       upload: "Càrriga una fotografia de profilu noa!"
+  polls:
+    votes:
+      one: "%{count} votu finas a como"
+      other: "%{count} votos finas a como"
+      zero: "%{count} votos finas a como"
   posts:
     presenter:
       title: "Una publicatzione de %{name}"
     show:
+      forbidden: "Non ses autorizadu a fàghere custu"
+      location: "Publicadu dae : %{location}"
       photos_by:
         one: "Una fotografia de %{author}"
         other: "%{count} fotografias de %{author}"
@@ -625,11 +922,19 @@ sc:
   profiles:
     edit:
       allow_search: "Permiti a sos àteros de ti chircare in intro de diaspora*"
+      basic: "Profilu de base meu"
+      basic_hint: "Cada elementu in su profilu tuo est optzionale. Su profilu de base tuo at a èssere semper visìbile a totus."
+      extended: "Profilu intreu meu"
+      extended_hint: "Incarca s'interrutore pro impostare sa visibilidade de sos datos de su profilu intreu tuo. Pùblicu cheret nàrrere chi est visìbile in ìnternet, limitadu cheret nàrrere chi petzi sas persones cun sas cales ses cumpartzende ant a pòdere bìdere custa informatzione."
+      extended_visibility_text: "Visibilidade de su profilu intreu tuo:"
       first_name: "Nùmene"
       last_name: "Sambenadu"
+      limited: "Limitadu"
       nsfw_check: "Sinna totu sos chi cumpartzo comente NSFW"
       nsfw_explanation: "NSFW (“not safe for work”, non apropriadu pro su traballu) est s'istandard de sa comunidade pro su cuntenutu chi diat pòdere non èssere adatu pro èssere bidu cando ses in unu logu de traballu. Si tenes s'intentzione de cumpartzire custa casta de materiale in manera fitiana pro praghere incarca custa optzione pro istichire totu sos chi cumpartzis dae sos flussos de sa gente, si non isseberant de lu bìdere."
       nsfw_explanation2: "Si as isseberadu de non ischertare custa optzione pro praghere annanghe s'eticheta #nsfw cada borta chi cumpartzis carchi cosa de custa casta."
+      public: "Pùblicu"
+      settings: "Impostatziones de profilu"
       update_profile: "Agiorna su profilu"
       your_bio: "Sa biografia tua"
       your_birthday: "Su compleannu tuo"
@@ -658,17 +963,31 @@ sc:
       password_confirmation: "Cunfirma sa crae"
       sign_up: "Crea unu contu"
       submitting: "Imbiende..."
+      terms: "Creande unu contu atzetas sos %{terms_link}."
+      terms_link: "termines (sas conditziones) de impreu"
       username: "Nùmene impreadore"
   report:
-    comment_label: "<b>Cummentu</b>: %{data}"
+    comment_label: "<strong>Cummentu</strong>: %{data}"
+    confirm_deletion: "Seguru ses de chèrrere iscantzellare s'elementu?"
     delete_link: "Iscantzella elementu"
-    post_label: "<b>Publicatzione</b>: %{content}"
+    not_found: "Sa publicatzione/su cummentu no est istadu agatadu. Paret chi siat istadu iscantzelladu dae s'impreadore!"
+    post_label: "<strong>Publicatzione</strong>: %{content}"
     reason_label: "Resone:"
-    reported_label: "<b>Sinnaladu dae</b> %{person}"
+    reported_label: "<strong>Sinnaladu dae</strong> %{person}"
+    reported_user_details: "Minujas a pitzu de s'impreadores sinnaladu"
     review_link: "Sinna comente verificadu"
+    status:
+      destroyed: "Sa publicatzione est istada iscantzellada"
+      failed: "B'est istadu un'errore"
     title: "Summàriu de sas verìficas"
+    unreviewed_reports:
+      one: "B'est una sinnalatzione non verificada."
+      other: "Bi sunt %{count} sinnalatziones non verificadas."
+      zero: "Non bi sunt sinnalatziones non verificadas."
   reshares:
     comment_email_subject: "Sa cumpartzidura de %{resharer} de sa publicatzione de %{author}"
+    create:
+      error: "Sa cumpartzidura est fallida."
     reshare:
       deleted: "Publicatzione originale iscantzellada dae s'autore."
       reshare_confirmation: "Cumpartzire sa publicatzione de %{author}?"
@@ -685,14 +1004,26 @@ sc:
     failure:
       error: "B'est istadu un'errore in sa connessione a cussu servìtziu"
     index:
+      connect: "Connètere"
       disconnect: "Disconnete"
       edit_services: "Modìfica sos servìtzios"
       logged_in_as: "Atzessu fatu comente %{nickname}."
+      no_services_available: "Non bi sunt servìtzios disponìbiles in custu pod."
+      not_logged_in: "Pro como no as fatu galu s'atzessu."
       really_disconnect: "Disconnètere %{service}?"
       services_explanation: "Cunnetende·ti a servìtzios esternos as a tènnere sa possibilidade de publicare in ie su chi iscries in diaspora*."
+      share_to: "Cumpartzi in %{provider}"
+      title: "Amministra sos servìtzios connessos"
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
   settings: "Impostatziones"
   shared:
     aspect_dropdown:
+      mobile_row_checked: "%{name} (boga)"
+      mobile_row_unchecked: "%{name} (annanghe)"
       toggle:
         one: "In %{count} cara"
         other: "In %{count} caras"
@@ -736,16 +1067,35 @@ sc:
       failed: "Sa verìfica de s'umanidade est fallida"
       user: "S'immàgine segreta e su còdighe sunt diferentes"
     placeholder: "Inserta su valore de s'immàgine"
+  statistics:
+    active_users_halfyear: "Impreadores ativos in sos ùrtimos 6 meses"
+    active_users_monthly: "Impreadores ativos pro mese"
+    closed: "Serradu"
+    disabled: "Non disponìbile"
+    enabled: "Disponìbile"
+    local_comments: "Cummentos locales"
+    local_posts: "Publicatziones locales"
+    name: "Nùmene"
+    network: "Retza"
+    open: "Abertu"
+    registrations: "Iscritziones"
+    services: "Servìtzios"
+    total_users: "Impreadores totales"
+    version: "Versione"
   status_messages:
     new:
       mentioning: "Ses numenende: %{person}"
     too_long: "Pro praghere iscrie un'istadu cun prus pagu de %{count} caràteres. In custu momentu bi sunt %{current_length} caràteres."
+  stream_helper:
+    no_more_posts: "Ses arribadu a sa fine de su flussu."
+    no_posts_yet: "Non bi sunt galu publicatziones."
   streams:
     activity:
       title: "Atividade mea"
     admin:
       title: "Amministradore"
     aspects:
+      all: "Totu sas caras"
       title: "Caras meas"
     aspects_stream: "Caras"
     comment_stream:
@@ -755,6 +1105,7 @@ sc:
     community_spotlight_stream: "In evidèntzia in sa comunidade"
     followed_tag:
       add_a_tag: "Annanghe un'eticheta"
+      all: "Totu sas etichetas"
       follow: "Sighi"
       title: "#Etichetas sighidas"
     followed_tags_stream: "#Etichetas sighidas"
@@ -771,12 +1122,21 @@ sc:
       title: "Atividade pùblica"
     tags:
       title: "Publicatziones cun s'eticheta: %{tags}"
+  tag_followings:
+    manage:
+      no_tags: "Non ses sighende a peruna eticheta."
+      title: "Amministra sas etichetas sighidas"
   tags:
+    name_too_long: "Su nùmene de s'eticheta depet èssere longu a su màssimu %{count} caràteres. Como sunt %{current_length} caràteres"
     show:
       follow: "Sighi #%{tag}"
       none: "S'eticheta bòida no esistit!"
-      stop_following: "Acaba·la de sighire #%{tag}"
-  username: "Nùmene impitadore"
+      stop_following: "Acaba·la de sighire a #%{tag}"
+      tagged_people:
+        one: "1 persone etichetadas cun %{tag}"
+        other: "%{count} persones etichetadas cun %{tag}"
+        zero: "Nemos etichetadu cun %{tag}"
+  username: "Nùmene impreadore"
   users:
     confirm_email:
       email_confirmed: "P. eletrònica %{email} ativada"
@@ -790,6 +1150,7 @@ sc:
       auto_follow_aspect: "Cara pro sos impreadores cun sos cales cumpartzis automaticamente:"
       auto_follow_back: "Cumpartzi automaticamente cun sos impreadores chi incumintzant a cumpartzire cun tie"
       change: "Càmbia"
+      change_color_theme: "Càmbia su tema de sos colores"
       change_email: "Càmbia s'indiritzu de posta eletrònica"
       change_language: "Càmbia sa limba"
       change_password: "Càmbia sa crae de intrada"
@@ -806,23 +1167,34 @@ sc:
       comment_on_post: "calicunu cummentat una publicatzione tua"
       current_password: "Crae de como"
       current_password_expl: "sa chi impreas pro intrare..."
+      default_post_visibility: "Caras predefinidas isseberadas pro sa publicatzione"
+      download_export: "Iscàrriga su profilu meu"
       download_export_photos: "Iscàrriga sas fotos meas"
       edit_account: "Modìfica su contu"
       email_awaiting_confirmation: "Amus imbiadu unu ligàmene de cunfirma a%{unconfirmed_email}. Finas a cando no as a àere abertu cussu ligàmene e no as a àere ativadu s'indiritzu nou amos a impreare s'indiritzu originale tuo %{email}."
       export_data: "Esporta sos datos"
+      export_in_progress: "In custu momentu semus protzessende sos datos tuos. Pro praghere, torra a verificare a pustis de carchi momentu."
       export_photos_in_progress: "Semus elaborande sas fotos tuas. Pro piaghere torra a compidare intre pagu."
       following: "Impostatziones de cumpartzidura"
+      last_exported_at: "(Agiornadu s'ùrtima borta su %{timestamp})"
       liked: "a calicunu agradat una publicatzione tua"
       mentioned: "ses numenadu in una publicatzione"
+      mentioned_in_comment: "ti ant numenadu in unu cummentu"
       new_password: "Crae noa"
       private_message: "as retzidu unu messàgiu privadu"
       receive_email_notifications: "Retzi notìficas pro mèdiu de e-lìteras cando:"
+      request_export: "Pedi sos datos de su profilu meu"
+      request_export_photos: "Pedire sas fotografias meas"
+      request_export_photos_update: "Agiorna sas fotografias meas"
+      request_export_update: "Annoa sos datos de su profilu meu"
       reshared: "calicunu at cumpartzidu una publicatzione tua"
       show_community_spotlight: "Ammustra \"in evidèntzia in sa comunidade\" in su flussu tuo"
       show_getting_started: "Ammustra sa ghia initziale"
+      someone_reported: "calicunu imbiat una sinnalatzione"
       started_sharing: "calicunu at incumintzadu a cumpartzire cun tie"
       stream_preferences: "Preferèntzias pro su flussu"
       your_email: "S'indiritzu de posta eletrònica tuo"
+      your_email_private: "S'indiritzu tuo de posta eletrònica no as a èssere mai bidu dae àteros impreadores"
       your_handle: "S'ID diaspora* tuo"
     getting_started:
       awesome_take_me_to_diaspora: "Fantasticu! Faghe·mi intrare in diaspora*"
@@ -836,11 +1208,15 @@ sc:
       who_are_you: "Chie ses tue?"
     privacy_settings:
       ignored_users: "Impreadores ignorados"
+      no_user_ignored_message: "Como non ses ignorande perunu àteru impreadore"
       stop_ignoring: "Acaba·la de l'ignorare"
+      strip_exif: "Boga sos metadatos comente a sa positzione, s'autore, e su modellu de fotocàmera dae sas immàgines carrigadas (racumandadu)"
       title: "Impostatziones pro sa privadesa"
     public:
       does_not_exist: "S'impreadore %{username} no esistit!"
     update:
+      color_theme_changed: "Tema de sos colores cambiadu cun sutzessu."
+      color_theme_not_changed: "B'est istadu un'errore cambiende su tema de sos colores."
       email_notifications_changed: "Notìficas pro mèdiu de p. eletrònica modificadas"
       follow_settings_changed: "Impostatziones pro sa sighidura cambiadas"
       follow_settings_not_changed: "Modìfica de sas impostatziones de sighidura fallida."

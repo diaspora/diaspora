@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 namespace :generate do
   desc 'Generates a Session Secret Token'
   task :secret_token do
-
-  path = Rails.root.join('config', 'initializers', 'secret_token.rb')
-  secret = SecureRandom.hex(40)
-  File.open(path, 'w') do |f|
-    f.write <<"EOF"
+    path = Rails.root.join("config", "initializers", "secret_token.rb")
+    secret = SecureRandom.hex(40)
+    File.open(path, "w") do |f|
+      f.write <<EOF
 # Be sure to restart your server when you modify this file.
 
 # Your secret key is used for verifying the integrity of signed cookies.
@@ -19,8 +20,7 @@ namespace :generate do
 # if you're sharing your code publicly.
 Diaspora::Application.config.secret_key_base = '#{secret}'
 EOF
-
-end
+    end
 
   end
 end

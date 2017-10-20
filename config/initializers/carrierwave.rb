@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -6,6 +8,8 @@
 ENV['SSL_CERT_FILE'] = AppConfig.environment.certificate_authorities.get
 CarrierWave.configure do |config|
   if !Rails.env.test? && AppConfig.environment.s3.enable?
+    config.fog_provider = "fog/aws"
+    require "carrierwave/storage/fog"
     config.storage = :fog
     config.cache_dir = Rails.root.join('tmp', 'uploads').to_s
     config.fog_credentials = {

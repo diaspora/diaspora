@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -18,7 +20,6 @@ describe AccountDeleter do
       delete_contacts_of_me
       delete_standard_person_associations
       tombstone_person_and_profile
-      remove_conversation_visibilities
     ]
 
     context "user deletion" do
@@ -94,8 +95,12 @@ describe AccountDeleter do
     it 'removes all standard user associaltions' do
       @account_deletion.normal_ar_user_associates_to_delete.each do |asso|
         association_double = double
-        expect(association_double).to receive(:destroy)
-        expect(bob).to receive(asso).and_return([association_double])
+        expect(association_double).to receive(:ids).and_return([42])
+        expect(bob).to receive(asso).and_return(association_double)
+        batch_double = double
+        expect(User.reflect_on_association(asso).class_name.constantize).to receive(:where)
+          .with(id: [42]).and_return(batch_double)
+        expect(batch_double).to receive(:destroy_all)
       end
 
       @account_deletion.delete_standard_user_associations
@@ -109,8 +114,12 @@ describe AccountDeleter do
     it 'removes all standard person associaltions' do
       @account_deletion.normal_ar_person_associates_to_delete.each do |asso|
         association_double = double
-        expect(association_double).to receive(:destroy_all)
+        expect(association_double).to receive(:ids).and_return([42])
         expect(bob.person).to receive(asso).and_return(association_double)
+        batch_double = double
+        expect(Person.reflect_on_association(asso).class_name.constantize).to receive(:where)
+          .with(id: [42]).and_return(batch_double)
+        expect(batch_double).to receive(:destroy_all)
       end
 
       @account_deletion.delete_standard_person_associations
@@ -131,7 +140,7 @@ describe AccountDeleter do
       it 'deletes all the local contact objects where deleted account is the person' do
         contacts = double
         expect(Contact).to receive(:all_contacts_of_person).with(bob.person).and_return(contacts)
-        expect(contacts).to receive(:destroy_all)
+        expect(contacts).to receive(:find_each).with(batch_size: 20)
         @account_deletion.delete_contacts_of_me
       end
     end
@@ -147,21 +156,13 @@ describe AccountDeleter do
         @account_deletion.tombstone_person_and_profile
       end
     end
-     describe "#remove_conversation_visibilities" do
-      it "removes the conversation visibility for the deleted user" do
-        vis = double
-        expect(ConversationVisibility).to receive(:where).with(hash_including(:person_id => bob.person.id)).and_return(vis)
-        expect(vis).to receive(:destroy_all)
-        @account_deletion.remove_conversation_visibilities
-      end
-    end
   end
 
   describe "#remove_share_visibilities_by_contacts_of_user" do
     it "removes the share visibilities for a user" do
       s_vis = double
       expect(ShareVisibility).to receive(:for_a_user).with(bob).and_return(s_vis)
-      expect(s_vis).to receive(:destroy_all)
+      expect(s_vis).to receive(:find_each).with(batch_size: 20)
 
       @account_deletion.remove_share_visibilities_on_contacts_posts
     end
@@ -174,14 +175,20 @@ describe AccountDeleter do
     end
   end
 
-  it 'has all user association keys accounted for' do
-    all_keys = (@account_deletion.normal_ar_user_associates_to_delete + @account_deletion.special_ar_user_associations + @account_deletion.ignored_ar_user_associations)
-    expect(all_keys.sort{|x, y| x.to_s <=> y.to_s}).to eq(User.reflections.keys.sort{|x, y| x.to_s <=> y.to_s}.map(&:to_sym))
+  it "has all user association keys accounted for" do
+    special_ar_user_associations = %i[person profile contacts auto_follow_back_aspect]
+    ignored_ar_user_associations = %i[followed_tags invited_by invited_users contact_people aspect_memberships
+                                      ignored_people share_visibilities conversation_visibilities conversations reports]
+    all_keys = @account_deletion.normal_ar_user_associates_to_delete +
+      special_ar_user_associations + ignored_ar_user_associations
+    expect(all_keys.sort_by(&:to_s)).to eq(User.reflections.keys.sort_by(&:to_s).map(&:to_sym))
   end
 
-  it 'has all person association keys accounted for' do
-    all_keys = (@account_deletion.normal_ar_person_associates_to_delete + @account_deletion.ignored_or_special_ar_person_associations)
-    expect(all_keys.sort{|x, y| x.to_s <=> y.to_s}).to eq(Person.reflections.keys.sort{|x, y| x.to_s <=> y.to_s}.map(&:to_sym))
+  it "has all person association keys accounted for" do
+    ignored_or_special_ar_person_associations = %i[comments likes poll_participations contacts notification_actors
+                                                   notifications owner profile pod conversations messages]
+    all_keys = @account_deletion.normal_ar_person_associates_to_delete + ignored_or_special_ar_person_associations
+    expect(all_keys.sort_by(&:to_s)).to eq(Person.reflections.keys.sort_by(&:to_s).map(&:to_sym))
   end
 end
 

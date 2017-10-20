@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AspectMembershipPresenter < BasePresenter
   def initialize(membership)
     @membership = membership

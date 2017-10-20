@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ResetExportStates < ActiveRecord::Migration[5.1]
   class User < ApplicationRecord
   end

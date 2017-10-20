@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class EmailInviter
-  attr_accessor :emails, :message, :inviter, :locale
+  attr_accessor :emails, :inviter, :locale
 
   def initialize(emails, inviter, options={})
     options = options.symbolize_keys
-    self.message = options[:message]
     self.locale = options.fetch(:locale, 'en')
     self.inviter = inviter
     self.emails = emails
@@ -26,6 +27,6 @@ class EmailInviter
   private
 
   def mail(email)
-    Notifier.invite(email, message, inviter, invitation_code, locale).deliver_now
+    Notifier.invite(email, inviter, invitation_code, locale).deliver_now
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Notifier, type: :mailer do
   let(:person) { FactoryGirl.create(:person) }
   let(:pod_name) { AppConfig.settings.pod_name }
@@ -502,7 +504,7 @@ describe Notifier, type: :mailer do
   end
 
   describe ".invite" do
-    let(:email) { Notifier.invite(alice.email, nil, bob, "1234", "en") }
+    let(:email) { Notifier.invite(alice.email, bob, "1234", "en") }
 
     it "goes to the right person" do
       expect(email.to).to eq([alice.email])
@@ -522,7 +524,7 @@ describe Notifier, type: :mailer do
 
     it "has the inviter id if the name is nil" do
       bob.person.profile.update_attributes(first_name: "", last_name: "")
-      mail = Notifier.invite(alice.email, nil, bob, "1234", "en")
+      mail = Notifier.invite(alice.email, bob, "1234", "en")
       expect(email.body.encoded).to_not include("#{bob.name} (#{bob.diaspora_handle})")
       expect(mail.body.encoded).to include(bob.person.diaspora_handle)
     end

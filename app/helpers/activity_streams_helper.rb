@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActivityStreamsHelper
   def add_activitystreams_author(target, person)
     target.author do |author|

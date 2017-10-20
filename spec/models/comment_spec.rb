@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -8,6 +10,7 @@ describe Comment, type: :model do
   let(:comment_alice) { alice.comment!(status_bob, "why so formal?") }
 
   it_behaves_like "it is mentions container"
+  it_behaves_like "a reference source"
 
   describe "#destroy" do
     it "should delete a participation" do

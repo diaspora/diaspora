@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if defined? Cucumber
 
 namespace :screenshots do
@@ -15,7 +17,6 @@ namespace :screenshots do
 
   desc 'Generate "flicker" images for easy comparison (requires RMagick)'
   task :flicker do
-    require 'RMagick'
     screen_dir = Rails.root.join('tmp', 'screenshots')
 
     ref_dir = screen_dir.join('reference')
@@ -28,10 +29,12 @@ namespace :screenshots do
         raise "the comparison screenshot for #{filename} doesn't exist!"
       end
 
-      img_list = Magick::ImageList.new(ref_dir.join(filename), cur_dir.join(filename))
-      img_list.delay = 65      # number of ticks between flicker img change (100 ticks/second)
-      img_list.iterations = 0  # -> endless loop
-      img_list.write(screen_dir.join("#{filename}.gif"))
+      MiniMagick::Tool::Convert.new do |convert|
+        convert.merge! ["-delay", "65", "-loop", "0"]
+        convert << ref_dir.join(filename)
+        convert << cur_dir.join(filename)
+        convert << screen_dir.join("#{filename}.gif")
+      end
     end
 
     puts %Q(

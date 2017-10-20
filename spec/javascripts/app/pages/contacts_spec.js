@@ -290,17 +290,15 @@ describe("app.pages.Contacts", function(){
     });
 
     it("initializes app.views.ConversationsForm with correct parameters when modal is loaded", function() {
-      gon.conversationPrefill = [
-        {id: 1, name: "diaspora user", handle: "diaspora-user@pod.tld"},
-        {id: 2, name: "other diaspora user", handle: "other-diaspora-user@pod.tld"},
-        {id: 3, name: "user@pod.tld", handle: "user@pod.tld"}
-      ];
-
       spyOn(app.views.ConversationsForm.prototype, "initialize");
+      app.aspect = new app.models.Aspect(app.contacts.first().get("aspect_memberships")[0].aspect);
       this.view.showMessageModal();
       $("#conversationModal").trigger("modal:loaded");
-      expect(app.views.ConversationsForm.prototype.initialize)
-        .toHaveBeenCalledWith({prefill: gon.conversationPrefill});
+      expect(app.views.ConversationsForm.prototype.initialize).toHaveBeenCalled();
+
+      var prefill = app.views.ConversationsForm.prototype.initialize.calls.mostRecent().args[0].prefill;
+      var contacts = app.contacts.filter(function(contact) { return contact.inAspect(app.aspect.get("id")); });
+      expect(_.pluck(prefill, "id")).toEqual(contacts.map(function(contact) { return contact.person.id; }));
     });
   });
 });

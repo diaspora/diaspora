@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 guard :rspec, cmd: "bin/spring rspec", all_on_start: false, all_after_pass: false do
   watch(/^spec\/.+_spec\.rb$/)
   watch(/^lib\/(.+)\.rb$/)       {|m| "spec/lib/#{m[1]}_spec.rb" }

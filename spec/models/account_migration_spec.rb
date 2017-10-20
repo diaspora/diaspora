@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "integration/federation/federation_helper"
 
 describe AccountMigration, type: :model do
@@ -125,13 +127,21 @@ describe AccountMigration, type: :model do
       include_context "with local new user"
 
       it "dispatches account migration message" do
-        expect(account_migration).to receive(:sender).and_return(old_user)
+        expect(account_migration).to receive(:sender).twice.and_return(old_user)
         dispatcher = double
         expect(dispatcher).to receive(:dispatch)
         expect(Diaspora::Federation::Dispatcher).to receive(:build)
           .with(old_user, account_migration)
           .and_return(dispatcher)
         account_migration.perform!
+      end
+
+      it "doesn't run migration if old key is not provided" do
+        expect(embedded_account_deleter).not_to receive(:tombstone_person_and_profile)
+
+        expect {
+          account_migration.perform!
+        }.to raise_error "can't build sender without old private key defined"
       end
     end
 

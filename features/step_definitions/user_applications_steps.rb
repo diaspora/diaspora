@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then /^I should see (\d+) authorized applications$/ do |num|
   expect(page).to have_selector(".applications-page", count: 1)
   expect(page).to have_selector(".authorized-application", count: num.to_i)

@@ -4,7 +4,7 @@ app.views.ProfileHeader = app.views.Base.extend({
   templateName: 'profile_header',
 
   subviews: {
-    ".aspect_membership_dropdown": "aspectMembershipView"
+    ".aspect-membership-dropdown": "aspectMembershipView"
   },
 
   events: {
@@ -81,8 +81,8 @@ app.views.ProfileHeader = app.views.Base.extend({
 
   showMessageModal: function(){
     $("#conversationModal").on("modal:loaded", function() {
-      new app.views.ConversationsForm({prefill: gon.conversationPrefill});
-    });
+      new app.views.ConversationsForm({prefill: [this.model]});
+    }.bind(this));
     app.helpers.showModal("#conversationModal");
   }
 });

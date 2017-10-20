@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe FederationEntitySerializer do
   class TestEntity < DiasporaFederation::Entity
     property :test, :string

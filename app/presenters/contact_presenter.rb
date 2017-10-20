@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ContactPresenter < BasePresenter
   def base_hash
     { id: id,

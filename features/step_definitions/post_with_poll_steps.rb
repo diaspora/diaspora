@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then /^I should see ([1-9]+) options?$/ do |number|
   find("#poll_creator_container").all(".poll-answer").count.should eql(number.to_i)
 end
@@ -19,8 +21,8 @@ When /^I fill in the following for the options:$/ do |table|
 end
 
 When /^I check the first option$/ do
-  page.should have_css('.poll_form input')
-  first(".poll_form input").click
+  page.should have_css(".poll-form input")
+  first(".poll-form input").click
 end
 
 When(/^I fill in values for the first two options$/) do

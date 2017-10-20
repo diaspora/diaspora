@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 describe Export::UserSerializer do
   let(:user) { FactoryGirl.create(:user) }
-  let(:serializer) { Export::UserSerializer.new(user, root: false) }
+  let(:serializer) { Export::UserSerializer.new(user.id, root: false) }
 
   it "has basic user's attributes" do
     expect(serializer.attributes).to eq(

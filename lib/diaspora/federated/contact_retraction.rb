@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ContactRetraction < Retraction
   def self.entity_class
     DiasporaFederation::Entities::Contact

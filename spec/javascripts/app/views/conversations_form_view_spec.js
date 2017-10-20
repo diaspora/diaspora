@@ -85,7 +85,11 @@ describe("app.views.ConversationsForm", function() {
 
   describe("prefill", function() {
     beforeEach(function() {
-      this.prefills = [{name: "diaspora user"}, {name: "other diaspora user"}, {name: "user"}];
+      this.prefills = [
+        factory.personWithProfile({"diaspora_id": "alice@pod.tld"}),
+        factory.personWithProfile({"diaspora_id": "bob@pod.tld"}),
+        factory.personWithProfile({"diaspora_id": "carol@pod.tld"})
+      ];
     });
 
     it("calls addRecipient for each prefilled participant", function() {
@@ -95,7 +99,14 @@ describe("app.views.ConversationsForm", function() {
       var allArgsFlattened = app.views.ConversationsForm.prototype.addRecipient.calls.allArgs().map(function(arg) {
         return arg[0];
       });
-      expect(allArgsFlattened).toEqual(this.prefills);
+
+      expect(_.pluck(allArgsFlattened, "handle")).toEqual(
+        this.prefills.map(function(person) { return person.get("diaspora_id"); })
+      );
+
+      expect(_.pluck(allArgsFlattened, "avatar")).toEqual(
+        this.prefills.map(function(person) { return person.get("profile").avatar.small; })
+      );
     });
   });
 

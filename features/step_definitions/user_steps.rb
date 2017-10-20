@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
   @me ||= FactoryGirl.create(:user, :username => username, :password => password,
                   :password_confirmation => password, :getting_started => false)
@@ -233,7 +235,7 @@ end
 
 And /^I should be able to friend "([^\"]*)"$/ do |email|
   user = User.find_by_email(email)
-  step 'I should see a ".aspect_dropdown"'
+  step 'I should see a ".aspect-dropdown"'
   step "I should see \"#{user.name}\""
 end
 

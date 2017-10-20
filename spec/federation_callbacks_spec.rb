@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "diaspora_federation/test"
 
 describe "diaspora federation callbacks" do
@@ -426,7 +428,6 @@ describe "diaspora federation callbacks" do
 
       expect(entity.guid).to eq(post.guid)
       expect(entity.author).to eq(alice.diaspora_handle)
-      expect(entity.public).to be_truthy
     end
 
     it "does not fetch a private post" do

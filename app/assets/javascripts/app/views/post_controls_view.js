@@ -78,7 +78,8 @@ app.views.PostControls = app.views.Base.extend({
     }.bind(this));
   },
 
-  destroyModel: function() {
+  destroyModel: function(evt) {
+    if (evt) { evt.preventDefault(); }
     this.post.destroyModel();
   }
 });

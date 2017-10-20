@@ -7,7 +7,7 @@ app.views.CommentStream = app.views.Base.extend({
   className : "comment_stream",
 
   events: {
-    "keydown .comment_box": "keyDownOnCommentBox",
+    "keydown .comment-box": "keyDownOnCommentBox",
     "submit form": "createComment",
     "click .toggle_post_comments": "expandComments",
     "click form": "openForm"
@@ -26,17 +26,19 @@ app.views.CommentStream = app.views.Base.extend({
 
   postRenderTemplate : function() {
     this.model.comments.each(this.appendComment, this);
-    this.commentBox = this.$(".comment_box");
+    this.commentBox = this.$(".comment-box");
     this.commentSubmitButton = this.$("input[name='commit']");
     this.mentions = new app.views.CommentMention({el: this.$el, postId: this.model.get("id")});
 
-    this.mdEditor = new Diaspora.MarkdownEditor(this.$(".comment_box"), {
+    this.mdEditor = new Diaspora.MarkdownEditor(this.$(".comment-box"), {
       onPreview: function($mdInstance) {
         var renderedText = app.helpers.textFormatter($mdInstance.getContent(), this.mentions.getMentionedPeople());
         return "<div class='preview-content'>" + renderedText + "</div>";
       }.bind(this),
       onFocus: this.openForm.bind(this)
     });
+
+    this.$("form").areYouSure();
   },
 
   presenter: function(){

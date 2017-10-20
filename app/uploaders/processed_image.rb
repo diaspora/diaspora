@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -10,7 +12,7 @@ class ProcessedImage < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w[jpg jpeg png gif tiff]
+    %w[jpg jpeg png gif]
   end
 
   def filename

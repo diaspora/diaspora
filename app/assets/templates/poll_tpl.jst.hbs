@@ -1,8 +1,8 @@
 {{#if poll}}
-  <div class="poll_form">
-    <div class="poll_head">
+  <div class="poll-form">
+    <div class="poll-head">
       <strong>{{poll.question}}</strong>
-      <div class="poll_statistic pull-right">
+      <div class="poll-statistic pull-right">
         {{t "poll.count" count=poll.participation_count}}
       </div>
     </div>
@@ -12,14 +12,27 @@
       {{/if}}
       {{#poll.poll_answers}}
         <div class="result-row">
-          <input type="radio" name="vote" value="{{id}}"/>
-          <label>{{answer}}</label>
-          <div class="poll-result pull-right">
-            <span class="percentage"></span>
-            ({{t "poll.answer_count" count=vote_count}})
+          <div class="result-head">
+            <input type="radio" name="vote" value="{{id}}"/>
+            {{#if isCurrentUserVote}}
+              <label>
+                {{answer}}
+                <span class="label label-primary">{{t "poll.your_vote"}}</span>
+              </label>
+            {{else}}
+              <label>{{answer}}</label>
+            {{/if}}
+            <div class="poll-result pull-right">
+              <span class="percentage"></span>
+              ({{t "poll.answer_count" count=vote_count}})
+            </div>
           </div>
-          <div class="poll_progress_bar_wrapper progress">
-            <div class="poll_progress_bar bar" data-answerid="{{id}}" style="height: 100%"></div>
+          <div class="progress">
+            {{#if isCurrentUserVote}}
+              <div class="progress-bar users-vote" data-answerid="{{id}}" style="height: 100%"></div>
+            {{else}}
+              <div class="progress-bar" data-answerid="{{id}}" style="height: 100%"></div>
+            {{/if}}
           </div>
         </div>
       {{/poll.poll_answers}}
@@ -28,7 +41,7 @@
             {{#if preview}}
               <span>{{t "poll.show_result"}}</span>
             {{else}}
-              <a class="toggle_result" href="#">{{t "poll.show_result"}}</a>
+              <a class="toggle-result" href="#">{{t "poll.show_result"}}</a>
             {{/if}}
           </div>
           <input type="submit" class="submit pull-right btn btn-default" value="{{t "poll.vote"}}"/>
@@ -38,7 +51,7 @@
 
       {{#if is_reshare }}
         <div class="poll_footer">
-          {{{t "poll.go_to_original_post" original_post_link=original_post_link}}}
+          {{{t "poll.go_to_original_post" original_post_link=originalPostLink}}}
         </div>
       {{/if}}
     </div>

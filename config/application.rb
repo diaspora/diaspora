@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -72,23 +74,10 @@ module Diaspora
 
     # Precompile additional assets.
     # (application.js, application.css, and all non-JS/CSS in the app/assets are already added)
-    config.assets.precompile += %w[
-      contact-list.js
-      ie.js
-      jquery3.js
-      jquery_ujs.js
-      main.js
-      jsxc.js
-      bookmarklet.js
-      mobile/bookmarklet.js
-      mobile/mobile.js
-      templates.js
-
-      error_pages.css
-      admin.css
-      rtl.css
+    config.assets.precompile = %w[
       color_themes/*/desktop.css
       color_themes/*/mobile.css
+      manifest.js
     ]
 
     # See lib/tasks/assets.rake: non_digest_assets

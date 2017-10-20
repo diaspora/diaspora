@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -24,7 +26,7 @@ class Service < ApplicationRecord
 
     def first_from_omniauth( auth_hash )
       @@auth = auth_hash
-      where( type: service_type, uid: options[:uid] ).first
+      find_by(type: service_type, uid: options[:uid])
     end
 
     def initialize_from_omniauth( auth_hash )

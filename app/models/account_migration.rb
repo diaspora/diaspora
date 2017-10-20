@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountMigration < ApplicationRecord
   include Diaspora::Federated::Base
 
@@ -26,6 +28,7 @@ class AccountMigration < ApplicationRecord
   # executes a migration plan according to this AccountMigration object
   def perform!
     raise "already performed" if performed?
+    validate_sender if locally_initiated?
 
     ActiveRecord::Base.transaction do
       account_deleter.tombstone_person_and_profile
@@ -111,6 +114,10 @@ class AccountMigration < ApplicationRecord
   def ephemeral_sender
     raise "can't build sender without old private key defined" if old_private_key.nil?
     EphemeralUser.new(old_person.diaspora_handle, old_private_key)
+  end
+
+  def validate_sender
+    sender # sender method raises exception when sender can't be instantiated
   end
 
   def update_all_references

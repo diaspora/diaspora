@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -385,6 +387,15 @@ describe Post, :type => :model do
     it "sets #interacted_at" do
       post = FactoryGirl.create(:status_message)
       expect(post.interacted_at).not_to be_blank
+    end
+  end
+
+  describe "#before_destroy" do
+    it "removes root_guid from reshares" do
+      post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      reshare = FactoryGirl.create(:reshare, author: bob.person, root: post)
+      post.destroy!
+      expect(reshare.reload.root_guid).to be_nil
     end
   end
 end

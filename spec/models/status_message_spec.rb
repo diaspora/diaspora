@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -145,6 +147,9 @@ describe StatusMessage, type: :model do
     end
   end
 
+  it_behaves_like "a reference source"
+  it_behaves_like "a reference target"
+
   describe "#nsfw" do
     it "returns MatchObject (true) if the post contains #nsfw (however capitalised)" do
       status = FactoryGirl.build(:status_message, text: "This message is #nSFw")
@@ -228,6 +233,23 @@ describe StatusMessage, type: :model do
         expect(status_message.contains_open_graph_url_in_text?).to be_nil
         expect(status_message.open_graph_url).to be_nil
       end
+    end
+  end
+
+  describe "poll" do
+    it "destroys the poll (with all answers and participations) when the status message is destroyed" do
+      poll = FactoryGirl.create(:poll_participation).poll
+      status_message = poll.status_message
+
+      poll_id = poll.id
+      poll_answers = poll.poll_answers.map(&:id)
+      poll_participations = poll.poll_participations.map(&:id)
+
+      status_message.destroy
+
+      expect(Poll.where(id: poll_id)).not_to exist
+      poll_answers.each {|id| expect(PollAnswer.where(id: id)).not_to exist }
+      poll_participations.each {|id| expect(PollParticipation.where(id: id)).not_to exist }
     end
   end
 

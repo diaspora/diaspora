@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostPresenter < BasePresenter
   include PostsHelper
   include MetaDataHelper
@@ -67,7 +69,7 @@ class PostPresenter < BasePresenter
       title:                        title,
       location:                     @post.post_location,
       poll:                         @post.poll,
-      already_participated_in_poll: already_participated_in_poll,
+      poll_participation_answer_id: poll_participation_answer_id,
       participation:                participate?,
       interactions:                 build_interactions_json
     }
@@ -121,10 +123,8 @@ class PostPresenter < BasePresenter
     @post.reshare_for(current_user).try(:as_api_response, :backbone)
   end
 
-  def already_participated_in_poll
-    if @post.poll && user_signed_in?
-      @post.poll.already_participated?(current_user)
-    end
+  def poll_participation_answer_id
+    @post.poll&.participation_answer(current_user)&.poll_answer_id if user_signed_in?
   end
 
   def participate?

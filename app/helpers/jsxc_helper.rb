@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JsxcHelper
   def get_bosh_endpoint
     proto = AppConfig.chat.server.bosh.proto

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Publisher
   attr_accessor :user, :open, :prefill, :public
 

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
-gem "rails", "5.1.3"
+gem "rails", "5.1.4"
 
 # Legacy Rails features, remove me!
 # responders (class level)
@@ -13,8 +15,8 @@ gem "unicorn-worker-killer", "0.4.4"
 
 # Federation
 
-gem "diaspora_federation-json_schema", "0.2.1"
-gem "diaspora_federation-rails", "0.2.1"
+gem "diaspora_federation-json_schema", "0.2.2"
+gem "diaspora_federation-rails", "0.2.2"
 
 # API and JSON
 
@@ -53,12 +55,12 @@ gem "rack-cors", "1.0.1", require: "rack/cors"
 
 # CSS
 
-gem "autoprefixer-rails",     "7.1.2.4"
+gem "autoprefixer-rails",     "7.1.4.1"
 gem "bootstrap-sass",         "3.3.7"
 gem "bootstrap-switch-rails", "3.3.3"
 gem "compass-rails",          "3.0.2"
 gem "sass-rails",             "5.0.6"
-gem "sprockets-rails",        "3.2.0"
+gem "sprockets-rails",        "3.2.1"
 
 # Database
 
@@ -70,12 +72,12 @@ group :postgresql, optional: true do
 end
 
 
-gem "activerecord-import", "0.19.1"
+gem "activerecord-import", "0.20.1"
 
 # File uploading
 
 gem "carrierwave", "1.1.0"
-gem "fog-aws",     "1.4.0"
+gem "fog-aws",     "1.4.1"
 gem "mini_magick", "4.8.0"
 
 # GUID generation
@@ -89,7 +91,7 @@ gem "entypo-rails", "3.0.0"
 
 gem "handlebars_assets", "0.23.2"
 gem "jquery-rails",      "4.3.1"
-gem "js-routes",         "1.3.3"
+gem "js-routes",         "1.4.1"
 gem "js_image_paths",    "0.1.1"
 
 source "https://rails-assets.org" do
@@ -97,7 +99,7 @@ source "https://rails-assets.org" do
   gem "rails-assets-jquery.ui",                           "1.11.4"
 
   gem "rails-assets-highlightjs",                         "9.12.0"
-  gem "rails-assets-markdown-it",                         "8.3.2"
+  gem "rails-assets-markdown-it",                         "8.4.0"
   gem "rails-assets-markdown-it-hashtag",                 "0.4.0"
   gem "rails-assets-markdown-it-diaspora-mention",        "1.2.0"
   gem "rails-assets-markdown-it-sanitizer",               "0.4.3"
@@ -113,7 +115,7 @@ source "https://rails-assets.org" do
   # jQuery plugins
 
   gem "rails-assets-autosize",                            "4.0.0"
-  gem "rails-assets-blueimp-gallery",                     "2.25.2"
+  gem "rails-assets-blueimp-gallery",                     "2.27.0"
   gem "rails-assets-jquery.are-you-sure",                 "1.9.0"
   gem "rails-assets-jquery-placeholder",                  "2.3.1"
   gem "rails-assets-jquery-textchange",                   "0.2.3"
@@ -131,7 +133,7 @@ gem "rails-i18n",           "5.0.4"
 gem "markerb",             "1.1.0"
 
 # Map
-gem "leaflet-rails",       "1.1.0"
+gem "leaflet-rails",       "1.2.0"
 
 # Parsing
 
@@ -147,7 +149,7 @@ gem "string-direction", "1.2.0"
 
 # Security Headers
 
-gem "secure_headers", "3.6.7"
+gem "secure_headers", "3.7.1"
 
 # Services
 
@@ -175,17 +177,17 @@ gem "acts-as-taggable-on", "5.0.0"
 
 # URIs and HTTP
 
-gem "addressable",        "2.5.1", require: "addressable/uri"
+gem "addressable",        "2.5.2", require: "addressable/uri"
 gem "faraday",            "0.11.0" # also update User-Agent in OpenID specs
-gem "faraday_middleware", "0.11.0.1"
+gem "faraday_middleware", "0.12.2"
 gem "faraday-cookie_jar", "0.0.6"
-gem "typhoeus",           "1.1.2"
+gem "typhoeus",           "1.3.0"
 
 # Views
 
 gem "gon",                     "6.1.0"
 gem "hamlit",                  "2.8.4"
-gem "mobile_fu",               "1.4.0", require: "mobile-fu"
+gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.16.0"
 gem "will_paginate",           "3.1.6"
 
@@ -244,12 +246,12 @@ group :development do
 
   # Linters
   gem "haml_lint",      "0.26.0", require: false
-  gem "pronto",         "0.9.4", require: false
+  gem "pronto",         "0.9.5", require: false
   gem "pronto-eslint",  "0.9.1", require: false
   gem "pronto-haml",    "0.9.0", require: false
   gem "pronto-rubocop", "0.9.0", require: false
   gem "pronto-scss",    "0.9.1", require: false
-  gem "rubocop",        "0.49.1", require: false
+  gem "rubocop",        "0.50.0", require: false
 
   # Preloading environment
 
@@ -290,7 +292,7 @@ group :test do
   gem "timecop",            "0.9.1"
   gem "webmock",            "3.0.1", require: false
 
-  gem "diaspora_federation-test", "0.2.1"
+  gem "diaspora_federation-test", "0.2.2"
 
   # Coverage
   gem "coveralls", "0.8.21", require: false
@@ -304,7 +306,7 @@ group :development, :test do
   gem "cucumber-rails", "1.5.0", require: false
 
   # Jasmine (client side application tests (JS))
-  gem "jasmine",                   "2.7.0"
+  gem "jasmine",                   "2.8.0"
   gem "jasmine-jquery-rails",      "2.0.3"
   gem "rails-assets-jasmine-ajax", "3.3.1", source: "https://rails-assets.org"
   gem "sinon-rails",               "1.15.0"

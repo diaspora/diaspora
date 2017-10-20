@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "it deals correctly with a relayable" do
   context "local" do
     let(:entity) { create_relayable_entity(entity_name, local_parent, sender_id) }
@@ -36,7 +38,7 @@ shared_examples_for "it deals correctly with a relayable" do
     end
 
     # Checks when a remote pod B wants to send us a relayable with authorship from a remote pod C user
-    # without having correct signature from him.
+    # without having a correct signature for them.
     it "rejects a downstream entity with a malformed author signature" do
       expect(Workers::ReceiveLocal).not_to receive(:perform_async)
       allow(remote_user_on_pod_c).to receive(:encryption_key).and_return(OpenSSL::PKey::RSA.new(1024))

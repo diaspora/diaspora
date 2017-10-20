@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotifierHelper
 
   # @param post [Post] The post object.

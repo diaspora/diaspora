@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Export
   class UserSerializer < ActiveModel::Serializer
     attributes :username,
@@ -16,12 +18,31 @@ module Export
     has_many   :followed_tags
     has_many   :post_subscriptions
 
-    has_many :relayables, each_serializer: Export::OwnRelayablesSerializer
+    has_many :relayables, serializer: FlatMapArraySerializer, each_serializer: Export::OwnRelayablesSerializer
+
+    def initialize(user_id, options={})
+      @user_id = user_id
+      super(object, options)
+    end
 
     private
 
+    def object
+      User.find(@user_id)
+    end
+
+    def posts
+      object.posts.find_each(batch_size: 20)
+    end
+
+    def contacts
+      object.contacts.find_each(batch_size: 100)
+    end
+
     def relayables
-      [*comments, *likes, *poll_participations]
+      [comments, likes, poll_participations].map {|relayable|
+        relayable.find_each(batch_size: 20)
+      }
     end
 
     %i[comments likes poll_participations].each {|collection|
@@ -44,6 +65,11 @@ module Export
 
     def post_subscriptions
       Post.subscribed_by(object).pluck(:guid)
+    end
+
+    # Avoid calling pointless #embedded_in_root_associations method
+    def serializable_data
+      {}
     end
   end
 end

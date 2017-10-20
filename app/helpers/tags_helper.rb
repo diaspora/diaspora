@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TagsHelper
   def looking_for_tag_link
     return if search_query.include?('@') || normalize_tag_name(search_query).blank?

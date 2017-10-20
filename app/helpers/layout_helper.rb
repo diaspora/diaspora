@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -48,21 +50,6 @@ module LayoutHelper
 
   def include_color_theme(view="desktop")
     stylesheet_link_tag "#{current_color_theme}/#{view}", media: "all"
-  end
-
-  def old_browser_js_support
-    nonced_javascript_tag do
-      <<-JS.html_safe
-        if(Array.isArray === undefined) {
-          Array.isArray = function (arg) {
-            return Object.prototype.toString.call(arg) == '[object Array]';
-          };
-        }
-        if ((window.history) && (window.history.pushState === undefined)) {
-          window.history.pushState = function() { };
-        }
-      JS
-    end
   end
 
   def flash_messages

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_context "with local old user" do
   let(:old_user) { FactoryGirl.create(:user) }
   let(:old_person) { old_user.person }

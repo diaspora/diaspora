@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 OpenGraphReader.configure do |config|
   config.synthesize_title      = true
   config.synthesize_url        = true

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -32,13 +34,13 @@ class NotificationsController < ApplicationController
     @notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
       result = Notification.where(conditions)
                            .includes(:target, :actors => :profile)
-                           .order('created_at desc')
+                           .order("updated_at desc")
                            .limit(pager.per_page)
                            .offset(pager.offset)
 
       pager.replace(result)
     end
-    @group_days = @notifications.group_by{|note| note.created_at.strftime('%Y-%m-%d')}
+    @group_days = @notifications.group_by {|note| note.updated_at.strftime("%Y-%m-%d") }
 
     @unread_notification_count = current_user.unread_notifications.count
 

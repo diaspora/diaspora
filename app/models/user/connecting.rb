@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -32,6 +34,7 @@ class User
       logger.info "event=disconnect user=#{diaspora_handle} target=#{contact.person.diaspora_handle}"
 
       if contact.person.local?
+        raise "FATAL: user entry is missing from the DB. Aborting" if contact.person.owner.nil?
         contact.person.owner.disconnected_by(contact.user.person)
       else
         ContactRetraction.for(contact).defer_dispatch(self)

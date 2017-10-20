@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Workers::FetchWebfinger do
   it "should webfinger and queue a job to fetch public posts" do
     @person = FactoryGirl.create(:person)

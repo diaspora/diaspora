@@ -178,6 +178,7 @@ zh-TW:
       result: "結果"
       show_result: "顯示結果"
       vote: "投票"
+      your_vote: "你的投票"
     profile:
       add_some: "加入一些"
       bio: "自我介紹"

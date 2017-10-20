@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Configuration::Methods do
   before(:all) do
     @settings = Configurate::Settings.create do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ConnectionTester do
   let(:url) { "https://pod.example.com" }
   let(:result) { ConnectionTester::Result.new }

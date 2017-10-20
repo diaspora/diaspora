@@ -3,7 +3,7 @@
 body {
   .publisher {
     form {
-      #publisher_textarea_wrapper { background-color: $gray; }
+      #publisher-textarea-wrapper { background-color: $gray; }
       .btn.btn-link.question_mark:hover .entypo-cog { color: $gray-light; }
     }
     .publisher-buttonbar .btn.btn-link:hover i { color: $gray-light; }
@@ -15,13 +15,14 @@ body {
   .md-input,
   .md-preview { background-color: $gray; }
 
-  .aspect_dropdown li a .text { color: $dropdown-link-color; }
+  .aspect-dropdown li a .text { color: $dropdown-link-color; }
 
   .info .tag { background-color: $gray-light; }
 
-  .poll_form .progress {
+  .poll-form .progress {
     background-color: $gray-dark;
-    .bar { background-color: $gray-light; }
+    .progress-bar { background-color: $gray-light; }
+    .users-vote { background-color: $brand-primary; }
   }
 
   .stream-element .collapsible {
@@ -60,7 +61,7 @@ body {
 
   #invitationsModal #email_invitation { border-top: 1px dashed $gray-light; }
 
-  #contacts_container #people_stream.contacts .stream-element.in_aspect {
+  #contacts_container #people-stream.contacts .stream-element.in_aspect {
     background-color: $state-success-bg;
     border-left: 3px solid darken($state-success-bg, 10%);
   }

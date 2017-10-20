@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -101,6 +103,16 @@ describe User::Connecting, type: :model do
         expect {
           alice.disconnect(contact)
         }.to change(contact.aspects, :count).from(2).to(0)
+      end
+
+      it "raises when a contact for an improperly deleted user was passed" do
+        contact = alice.contact_for(bob.person)
+
+        bob.delete
+        expect {
+          alice.disconnect(contact)
+        }.to raise_error "FATAL: user entry is missing from the DB. Aborting"
+        expect(Contact.where(id: contact.id)).to exist
       end
     end
   end

@@ -186,6 +186,7 @@ es:
       result: "Resultados"
       show_result: "Mostrar resultados"
       vote: "Votar"
+      your_vote: "Tu voto"
     profile:
       add_some: "añadir algo"
       bio: "Biografía"

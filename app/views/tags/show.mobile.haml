@@ -12,7 +12,7 @@
     .btn.btn-danger.tag_following_action{data: {name: @stream.tag_name}}
       = t(".stop_following", tag: @stream.tag_name)
 
-#main_stream.stream
+#main-stream.stream
   = render 'shared/stream', :posts => @stream.stream_posts
   = render 'shared/stream_more_button'
 

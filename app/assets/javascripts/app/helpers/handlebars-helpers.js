@@ -116,7 +116,7 @@ Handlebars.registerHelper("isCurrentProfilePage", function(id, diasporaHandle, o
 });
 
 Handlebars.registerHelper('aspectMembershipIndicator', function(contact,in_aspect) {
-  if(!app.aspect || !app.aspect.get('id')) return '<div class="aspect_membership_dropdown placeholder"></div>';
+  if(!app.aspect || !app.aspect.get('id')) return '<div class="aspect-membership-dropdown placeholder"></div>';
 
   var html = "<i class=\"entypo-";
   if( in_aspect === 'in_aspect' ) {

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Services::Tumblr < Service
   MAX_CHARACTERS = 1000
 
@@ -35,12 +37,11 @@ class Services::Tumblr < Service
   end
 
   def tumblr_template(post, url)
-    html = ''
-    post.photos.each do |photo|
-      html << "![photo](#{photo.url(:scaled_full)})\n\n"
-    end
-    html << post.message.html(mentioned_people: [])
-    html << "\n\n[original post](#{url})"
+    photo_html = post.photos.map {|photo|
+      "![photo](#{photo.url(:scaled_full)})\n\n"
+    }.join
+
+    "#{photo_html}#{post.message.html(mentioned_people: [])}\n\n[original post](#{url})"
   end
 
   def post_opts(post)

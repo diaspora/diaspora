@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe JsxcHelper, :type => :helper do
   before do
     AppConfig.chat.server.bosh.port = 1234

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 O_AUTH_QUERY_PARAMS_WITH_CODE = {
   redirect_uri:  "http://example.org/",
   response_type: "code",

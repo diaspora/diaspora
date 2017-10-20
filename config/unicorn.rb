@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "load_config"
 
 port = ENV["PORT"]

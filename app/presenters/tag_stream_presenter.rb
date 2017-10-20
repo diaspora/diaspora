@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TagStreamPresenter < BasePresenter
   def title
     @presentable.display_tag_name

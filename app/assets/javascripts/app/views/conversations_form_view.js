@@ -52,8 +52,13 @@ app.views.ConversationsForm = app.views.Base.extend({
     this.setupAvatarFallback(personEl);
   },
 
-  prefill: function(handles) {
-    handles.forEach(this.addRecipient.bind(this));
+  prefill: function(people) {
+    people.forEach(function(person) {
+      this.addRecipient(_.extend({
+        avatar: person.get("profile").avatar.small,
+        handle: person.get("diaspora_id")
+      }, person.attributes));
+    }, this);
   },
 
   updateContactIdsListInput: function() {

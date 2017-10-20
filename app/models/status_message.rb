@@ -1,9 +1,14 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class StatusMessage < Post
   include Diaspora::Taggable
+
+  include Reference::Source
+  include Reference::Target
 
   include PeopleHelper
 
@@ -18,7 +23,7 @@ class StatusMessage < Post
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   has_one :location
-  has_one :poll, autosave: true
+  has_one :poll, autosave: true, dependent: :destroy
   has_many :poll_participations, through: :poll
 
   attr_accessor :oembed_url

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Notifier < ApplicationMailer
   helper :application
   helper :notifier
@@ -37,10 +39,8 @@ class Notifier < ApplicationMailer
     end
   end
 
-  def invite(email, message, inviter, invitation_code, locale)
+  def invite(email, inviter, invitation_code, locale)
     @inviter = inviter
-    @message = message
-    @locale = locale
     @invitation_code = invitation_code
 
     I18n.with_locale(locale) do

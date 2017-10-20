@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -6,7 +8,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i(destroy mentionable)
   before_action :set_format_if_malformed_from_status_net, only: :show
 
-  respond_to :html, :mobile, :json, :xml
+  respond_to :html, :mobile, :json
 
   rescue_from Diaspora::NonPublic do
     authenticate_user!

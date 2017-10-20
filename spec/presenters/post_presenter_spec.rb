@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe PostPresenter do
   let(:status_message) { FactoryGirl.create(:status_message, public: true) }
   let(:status_message_with_poll) { FactoryGirl.create(:status_message_with_poll, public: true) }
@@ -134,6 +136,19 @@ describe PostPresenter do
     it "works without a user" do
       presenter = PostPresenter.new(status_message_with_poll)
       expect(presenter.as_json).to be_a(Hash)
+    end
+
+    it "returns the answer id of the current user's poll participation" do
+      presenter = PostPresenter.new(status_message_with_poll, alice)
+      poll_answer = status_message_with_poll.poll.poll_answers.first
+      poll_participation = status_message_with_poll.poll.poll_participations
+      poll_participation = poll_participation.create(poll_answer: poll_answer, author: alice.person)
+      expect(presenter.as_json[:poll_participation_answer_id]).to eql(poll_participation.poll_answer_id)
+    end
+
+    it "returns nil if the user did not participate in a poll" do
+      presenter = PostPresenter.new(status_message_with_poll, alice)
+      expect(presenter.as_json[:poll_participation_answer_id]).to eql(nil)
     end
   end
 

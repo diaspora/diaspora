@@ -18,12 +18,12 @@
       .profile_header
         -# more JS
 
-      .stream_container
+      .stream-container
 
         - if user_signed_in? && current_user.person.id == @person.id && !current_page?(person_photos_path(@person))
           = render 'publisher/publisher', publisher_aspects_for(nil)
 
-        .stream.clearfix#main_stream
+        .stream.clearfix#main-stream
           -# JS
 
         #paginate

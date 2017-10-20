@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 When /^I press the "([^\"]*)" key somewhere$/ do |key|
-  within("#main_stream") do
+  within("#main-stream") do
     find("div.stream-element", match: :first).native.send_keys(key)
   end
 end

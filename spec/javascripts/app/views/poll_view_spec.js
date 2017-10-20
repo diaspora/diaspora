@@ -8,16 +8,16 @@ describe("app.views.Poll", function(){
   describe("setProgressBar", function(){
     it("sets the progress bar according to the voting result", function(){
       var percentage = (this.view.poll.poll_answers[0].vote_count / this.view.poll.participation_count)*100;
-      expect(this.view.$('.poll_progress_bar:first').css('width')).toBe(percentage+"%");
+      expect(this.view.$(".progress-bar:first").css("width")).toBe(percentage + "%");
       expect(this.view.$(".percentage:first").text()).toBe(percentage + "%");
     });
   });
 
   describe("toggleResult", function(){
     it("toggles the progress bar and result", function(){
-      expect($(".poll_progress_bar_wrapper:first")).toBeHidden();
+      expect($(".progress:first")).toBeHidden();
       this.view.toggleResult();
-      expect($(".poll_progress_bar_wrapper:first")).toBeVisible();
+      expect($(".progress:first")).toBeVisible();
     });
   });
 
@@ -39,7 +39,7 @@ describe("app.views.Poll", function(){
       var question = "<script>alert(0);</script>";
       this.view.poll.question = question;
       this.view.render();
-      expect(this.view.$('.poll_head strong').text()).toBe(question);
+      expect(this.view.$(".poll-head strong").text()).toBe(question);
     });
   });
 
@@ -65,7 +65,7 @@ describe("app.views.Poll", function(){
       expect(this.view.$('form').length).toBe(1);
     });
     it("hides vote form when user voted before", function(){
-      this.view.model.attributes.already_participated_in_poll = true;
+      this.view.model.set("poll_participation_answer_id", this.view.poll.poll_answers[0].id);
       this.view.render();
       expect(this.view.$('form').length).toBe(0);
     });
@@ -73,6 +73,27 @@ describe("app.views.Poll", function(){
       logout();
       this.view.render();
       expect(this.view.$('form').length).toBe(0);
+    });
+  });
+
+  describe("answer given", function() {
+    it("adds 'users-vote' class to progress bar for the option the user voted for", function() {
+      var answer = this.view.poll.poll_answers[0];
+      this.view.model.set("poll_participation_answer_id", answer.id);
+      expect(this.view.$(".progress-bar.users-vote").length).toBe(1);
+    });
+
+    it("doesn't add 'users-vote' class to progress bar of the options the user didn't vote for", function() {
+      var answer1 = this.view.poll.poll_answers[0];
+      var answer2 = this.view.poll.poll_answers[1];
+      this.view.model.set("poll_participation_answer_id", answer1.id);
+      expect(this.view.$(".progress-bar[data-answerid='" + answer2.id + "']").hasClass("users-vote")).toBe(false);
+    });
+
+    it("adds label next to the answer the user voted for", function() {
+      var answer = this.view.poll.poll_answers[0];
+      this.view.model.set("poll_participation_answer_id", answer.id);
+      expect(this.view.$(".label.label-primary").length).toBe(1);
     });
   });
 });

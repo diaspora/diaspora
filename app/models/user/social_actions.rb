@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module User::SocialActions
   def comment!(target, text, opts={})
     Comment::Generator.new(self, target, text).create!(opts).tap do
@@ -49,7 +51,7 @@ module User::SocialActions
 
   def update_or_create_participation!(target)
     return if target.author == person
-    participation = participations.where(target_id: target).first
+    participation = participations.find_by(target_id: target)
     if participation.present?
       participation.update!(count: participation.count.next)
     else

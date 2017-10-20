@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.7.0.1" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.7.1.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"
@@ -111,6 +111,7 @@ defaults:
       suggest_email:
     typhoeus_verbose: false
     typhoeus_concurrency: 20
+    export_concurrency: 1
     username_blacklist:
       - 'admin'
       - 'administrator'

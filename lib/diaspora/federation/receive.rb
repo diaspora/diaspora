@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Diaspora
   module Federation
     module Receive
@@ -8,15 +10,22 @@ module Diaspora
       end
 
       def self.account_deletion(entity)
-        AccountDeletion.create!(person: author_of(entity))
+        person = author_of(entity)
+        AccountDeletion.create!(person: person) unless AccountDeletion.where(person: person).exists?
+      rescue => e # rubocop:disable Lint/RescueWithoutErrorClass
+        raise e unless AccountDeletion.where(person: person).exists?
+        logger.warn "ignoring error on receive AccountDeletion:#{entity.author}: #{e.class}: #{e.message}"
       end
 
       def self.account_migration(entity)
+        old_person = author_of(entity)
         profile = profile(entity.profile)
-        AccountMigration.create!(
-          old_person: Person.by_account_identifier(entity.author),
-          new_person: profile.person
-        )
+        return if AccountMigration.where(old_person: old_person, new_person: profile.person).exists?
+        AccountMigration.create!(old_person: old_person, new_person: profile.person)
+      rescue => e # rubocop:disable Lint/RescueWithoutErrorClass
+        raise e unless AccountMigration.where(old_person: old_person, new_person: profile.person).exists?
+        logger.warn "ignoring error on receive #{entity}: #{e.class}: #{e.message}"
+        nil
       end
 
       def self.comment(entity)
@@ -140,12 +149,10 @@ module Diaspora
         author = author_of(entity)
         ignore_existing_guid(Reshare, entity.guid, author) do
           Reshare.create!(
-            author:                author,
-            guid:                  entity.guid,
-            created_at:            entity.created_at,
-            provider_display_name: entity.provider_display_name,
-            public:                entity.public,
-            root_guid:             entity.root_guid
+            author:     author,
+            guid:       entity.guid,
+            created_at: entity.created_at,
+            root_guid:  entity.root_guid
           )
         end
       end
@@ -158,10 +165,10 @@ module Diaspora
         when Person
           User.find(recipient_id).disconnected_by(object)
         when Diaspora::Relayable
-          if object.parent.author.local?
-            parent_author = object.parent.author.owner
+          if object.root.author.local?
+            root_author = object.root.author.owner
             retraction = Retraction.for(object)
-            retraction.defer_dispatch(parent_author, false)
+            retraction.defer_dispatch(root_author, false)
             retraction.perform
           else
             object.destroy!
@@ -257,7 +264,7 @@ module Diaspora
           yield.tap do |relayable|
             retract_if_author_ignored(relayable)
 
-            relayable.signature = build_signature(klass, entity) if relayable.parent.author.local?
+            relayable.signature = build_signature(klass, entity) if relayable.root.author.local?
             relayable.save!
           end
         end
@@ -272,18 +279,18 @@ module Diaspora
       end
 
       private_class_method def self.retract_if_author_ignored(relayable)
-        parent_author = relayable.parent.author.owner
-        return unless parent_author && parent_author.ignored_people.include?(relayable.author)
+        root_author = relayable.root.author.owner
+        return unless root_author && root_author.ignored_people.include?(relayable.author)
 
         retraction = Retraction.for(relayable)
-        Diaspora::Federation::Dispatcher.build(parent_author, retraction, subscribers: [relayable.author]).dispatch
+        Diaspora::Federation::Dispatcher.build(root_author, retraction, subscribers: [relayable.author]).dispatch
 
         raise Diaspora::Federation::AuthorIgnored
       end
 
       private_class_method def self.relay_relayable(relayable)
-        parent_author = relayable.parent.author.owner
-        Diaspora::Federation::Dispatcher.defer_dispatch(parent_author, relayable) if parent_author
+        root_author = relayable.root.author.owner
+        Diaspora::Federation::Dispatcher.defer_dispatch(root_author, relayable) if root_author
       end
 
       # check if the object already exists, otherwise save it.

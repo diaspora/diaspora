@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveEmptyPod < ActiveRecord::Migration[4.2]
   def up
     Pod.where("host IS NULL").delete_all

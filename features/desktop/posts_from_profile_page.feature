@@ -39,7 +39,7 @@ Feature: posting from own profile page
       And I submit the publisher
 
       When I go to the home page
-      Then I should see a "img" within ".stream-element div.photo_attachments"
+      Then I should see a "img" within ".stream-element div.photo-attachments"
       And I should see "who am I?" within ".stream-element"
 
     Scenario: back out of posting a photo-only post

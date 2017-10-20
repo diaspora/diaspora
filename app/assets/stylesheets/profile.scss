@@ -8,7 +8,7 @@
     margin-top: -20px;
     box-shadow: $card-shadow;
 
-    #edit_profile, #unblock_user_button, .aspect_dropdown {
+    #edit_profile, #unblock_user_button, .aspect-dropdown {
       margin-top: 15px;
     }
 
@@ -137,9 +137,9 @@
 
   }
 
-  .stream_container > .pagination { text-align: center; }
+  .stream-container > .pagination { text-align: center; }
 
-  #people_stream {
+  #people-stream {
     background-color: $white;
     box-shadow: $card-shadow;
   }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module InvitationCodesHelper
   def invite_hidden_tag(invite)
     if invite.present?

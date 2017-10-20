@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -28,7 +30,7 @@ module User::Querying
 
   def block_for(person)
     return nil unless person
-    self.blocks.where(person_id: person.id).first
+    blocks.find_by(person_id: person.id)
   end
 
   def aspects_with_shareable(base_class_name_or_class, shareable_id)
@@ -38,7 +40,7 @@ module User::Querying
   end
 
   def contact_for_person_id(person_id)
-    Contact.where(:user_id => self.id, :person_id => person_id).includes(:person => :profile).first
+    Contact.includes(person: :profile).find_by(user_id: id, person_id: person_id)
   end
 
   # @param [Person] person

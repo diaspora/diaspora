@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Diaspora
   module Federation
     module Entities
@@ -174,13 +176,11 @@ module Diaspora
 
       def self.reshare(reshare)
         DiasporaFederation::Entities::Reshare.new(
-          root_author:           reshare.root_diaspora_id,
-          root_guid:             reshare.root_guid,
-          author:                reshare.diaspora_handle,
-          guid:                  reshare.guid,
-          public:                reshare.public,
-          created_at:            reshare.created_at,
-          provider_display_name: reshare.provider_display_name
+          root_author: reshare.root_diaspora_id,
+          root_guid:   reshare.root_guid,
+          author:      reshare.diaspora_handle,
+          guid:        reshare.guid,
+          created_at:  reshare.created_at
         )
       end
 

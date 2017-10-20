@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe AspectMembershipPresenter do
   before do
     @am = alice.aspects.where(:name => "generic").first.aspect_memberships.first

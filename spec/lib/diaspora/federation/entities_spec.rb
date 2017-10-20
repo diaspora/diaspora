@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Federation::Entities do
   describe ".build" do
     it "builds an account deletion" do
@@ -210,9 +212,7 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.guid).to eq(diaspora_entity.guid)
       expect(federation_entity.root_author).to eq(diaspora_entity.root.author.diaspora_handle)
       expect(federation_entity.root_guid).to eq(diaspora_entity.root.guid)
-      expect(federation_entity.public).to be_truthy
       expect(federation_entity.created_at).to eq(diaspora_entity.created_at)
-      expect(federation_entity.provider_display_name).to eq(diaspora_entity.provider_display_name)
     end
 
     context "Retraction" do

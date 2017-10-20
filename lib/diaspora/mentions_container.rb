@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Diaspora
   module MentionsContainer
     extend ActiveSupport::Concern

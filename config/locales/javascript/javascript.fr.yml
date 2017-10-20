@@ -187,6 +187,7 @@ fr:
       result: "Résultat"
       show_result: "Afficher les résultats"
       vote: "Vote"
+      your_vote: "Votre vote"
     profile:
       add_some: "ajouter"
       bio: "Biographie"

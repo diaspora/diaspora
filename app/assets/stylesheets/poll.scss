@@ -1,4 +1,4 @@
-.poll_form {
+.poll-form {
   border-bottom: 1px solid $border-grey;
   border-top: 1px solid $border-grey;
   margin: 10px 0;
@@ -14,38 +14,33 @@
   }
 
   .progress {
-    background-image: none;
-    box-shadow: 0 0 0;
     height: 10px;
     margin-bottom: 5px;
+    clear: both;
 
-    .bar {
-      background: $border-dark-grey none;
-      color: $text-dark-grey;
-      height: 100%;
-      text-align: left;
-    }
+    .progress-bar { background-color: $border-dark-grey; }
+    .users-vote { background-color: $brand-primary; }
   }
 
   .submit[disabled] {
     color: $text-grey;
     cursor: default;
-
-    &:hover,
-    &:active {
-      background-image: none;
-    }
   }
 }
 
 .poll-content {
   margin-top: 5px;
 
+  .result-head {
+    margin-bottom: 5px;
+  }
+
   [type=radio],
   label {
     font-weight: normal;
     margin-bottom: 5px;
     vertical-align: middle;
+    display: inline;
   }
 
   [type=radio],

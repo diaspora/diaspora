@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Markdownify::Email do
   include Rails.application.routes.url_helpers
 

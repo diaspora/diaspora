@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -93,7 +95,7 @@ describe StatusMessagesController, :type => :controller do
         post :create, params: status_message_hash, format: :json
         expect(response.status).to eq(201)
         status_message = StatusMessage.find_by_text(text)
-        expect(status_message.aspect_visibilities.map(&:aspect)).to eq([@aspect1]), format: :json
+        expect(status_message.aspect_visibilities.map(&:aspect)).to eq([@aspect1])
       end
 
       it "takes one aspect as string in aspect_ids" do

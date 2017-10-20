@@ -1,17 +1,50 @@
+# frozen_string_literal: true
+
 describe Reshare, type: :model do
   it "has a valid Factory" do
     expect(FactoryGirl.build(:reshare)).to be_valid
   end
 
-  it "requires root" do
-    reshare = FactoryGirl.build(:reshare, root: nil)
-    expect(reshare).not_to be_valid
-  end
+  context "validation" do
+    it "requires root when the author is local" do
+      reshare = FactoryGirl.build(:reshare, root: nil, author: alice.person)
+      expect(reshare).not_to be_valid
+    end
 
-  it "require public root" do
-    reshare = FactoryGirl.build(:reshare, root: FactoryGirl.create(:status_message, public: false))
-    expect(reshare).not_to be_valid
-    expect(reshare.errors[:base]).to include("Only posts which are public may be reshared.")
+    it "doesn't require root when the author is remote" do
+      reshare = FactoryGirl.build(:reshare, root: nil, author: remote_raphael)
+      expect(reshare).to be_valid
+    end
+
+    it "require public root" do
+      reshare = FactoryGirl.build(:reshare, root: FactoryGirl.create(:status_message, public: false))
+      expect(reshare).not_to be_valid
+      expect(reshare.errors[:base]).to include("Only posts which are public may be reshared.")
+    end
+
+    it "allows two reshares without a root" do
+      reshare1 = FactoryGirl.create(:reshare, author: alice.person)
+      reshare2 = FactoryGirl.create(:reshare, author: alice.person)
+
+      reshare1.update_attributes(root_guid: nil)
+
+      reshare2.root_guid = nil
+      expect(reshare2).to be_valid
+    end
+
+    it "doesn't allow to reshare the same post twice" do
+      post = FactoryGirl.create(:status_message, public: true)
+      FactoryGirl.create(:reshare, author: alice.person, root: post)
+
+      expect(FactoryGirl.build(:reshare, author: alice.person, root: post)).not_to be_valid
+    end
+
+    it "allows to reshare the same post with different people" do
+      post = FactoryGirl.create(:status_message, public: true)
+      FactoryGirl.create(:reshare, author: alice.person, root: post)
+
+      expect(FactoryGirl.build(:reshare, author: bob.person, root: post)).to be_valid
+    end
   end
 
   it "forces public" do

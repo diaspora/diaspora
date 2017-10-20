@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -119,7 +121,7 @@ describe NotificationsController, :type => :controller do
         eve.share_with(alice.person, eve.aspects.first)
         get :index, params: {per_page: 5}
 
-        expect(Nokogiri(response.body).css(".aspect_membership_dropdown")).not_to be_empty
+        expect(Nokogiri(response.body).css(".aspect-membership-dropdown")).not_to be_empty
       end
 
       it 'succeeds on mobile' do

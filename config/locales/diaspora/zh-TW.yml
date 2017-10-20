@@ -451,6 +451,10 @@ zh-TW:
       format_text_q: "要怎樣對我的貼文加格式(比如說加粗、推斜等等)?"
       hide_posts_a: "當你把滑鼠游標放在一篇貼文上面時，右邊會出現一個 X 圖示。點那個圖示就可以把貼文隱藏起來，也不會再收到關於它的通知。你還是可以到作者的個人檔案去找到那篇貼文。"
       hide_posts_q: "要怎樣隱藏一篇貼文？"
+      ignore_user_a1: "如果你目前跟那個人互相分享，那就到社交面把他/她刪掉，這樣一來他/她大部分的貼文就不會再出現在你的流水帳了。更徹底的方法，則是「忽視」他/她的帳號。不儘他/她的貼文不會再出現，同時他/她也不能夠對你的貼文按讚或是留言。不過，他/她還是可以先分享你的貼文，然後在他/她的分享下面留言。此外他/她在其他人貼文的留言也還是可能被你看見。"
+      ignore_user_a2: "要忽視一個帳號，就到他/她的貼文的右上角，按一下「忽視」的圖示(一個有對角線的圓圈)。他/她的貼文會馬上從你的流水帳消失。另一個方法，到他/她的個人頁面去，然後按那裡的忽視圖示。你還是可以從他/她的個人檔案頁面看到他/她的貼文，或是用單篇貼文模式來看。"
+      ignore_user_a3: "可以在你的帳號設定的隱私頁面，找到你目前忽視的帳號列表。要停止忽視某人的話，只要從那個列表中把他/她移除就可以了。"
+      ignore_user_q: "要怎樣讓某人的貼文不要出現在我的流水帳？"
       insert_images_a: "如果你想要在貼文中加一張存在電腦上的圖片，請按發表對話框下方的那個照相機小圖示。也可以拖放一張或多張的圖片到那個圖示上。如果你想要加入一張網路(web)上的圖片，請按發表對話框上方的圖片按鈕，就會產生對應的 Markdown 代碼。"
       insert_images_comments_a: "你可以在回應時用 Markdown 加入網路上的圖片，就像是在貼文時一樣。不過，你不能直接加入在你的電腦上的圖片。替代方案是：先將圖片上傳到其他相簿網站，然後用發表對話框上方的圖片按鈕來加入連結。"
       insert_images_comments_q: "我可以在留言中放圖片嗎？"
@@ -663,10 +667,8 @@ zh-TW:
       zero: "%{actors} 稱讚了你刪掉的貼文。"
     mentioned:
       other: "%{actors} 在貼文%{post_link}中提到了你。"
-      zero: "%{actors} 在貼文%{post_link}中提到了你"
     mentioned_deleted:
       other: "%{actors} 在已刪掉的貼文中提到了你。"
-      zero: "%{actors} 在已刪掉的貼文中提到了你。"
     mentioned_in_comment:
       other: "%{actors} 在貼文%{post_link}的<a href='%{comment_path}'>意見</a>中提到了你。"
     mentioned_in_comment_deleted:
@@ -928,13 +930,13 @@ zh-TW:
       terms_link: "服務條款"
       username: "使用者名稱"
   report:
-    comment_label: "<b>留言</b>: %{data}"
+    comment_label: "<strong>留言</strong>: %{data}"
     confirm_deletion: "確定要刪除這一項嗎？"
     delete_link: "刪除項目"
     not_found: "目標貼文或留言已經找不到了。可能已經被作者給刪掉了！"
-    post_label: "<b>貼文</b>: %{content}"
+    post_label: "<strong>貼文</strong>: %{content}"
     reason_label: "理由:"
-    reported_label: "<b>回報人<b> %{person}"
+    reported_label: "<strong>回報人</strong> %{person}"
     reported_user_details: "被舉報使用者的詳細資料"
     review_link: "標記為看過了"
     status:

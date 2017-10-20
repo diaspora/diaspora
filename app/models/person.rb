@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -102,7 +104,7 @@ class Person < ApplicationRecord
   # @param [String] search substring
   # @return [Person::ActiveRecord_Relation]
   scope :find_by_substring, ->(search_str) {
-    search_str.strip!
+    search_str = search_str.strip
     if search_str.blank? || search_str.size < 2
       none
     else
@@ -191,7 +193,7 @@ class Person < ApplicationRecord
 
   def self.find_from_guid_or_username(params)
     p = if params[:id].present?
-          Person.where(:guid => params[:id]).first
+          Person.find_by(guid: params[:id])
         elsif params[:username].present? && u = User.find_by_username(params[:username])
           u.person
         else

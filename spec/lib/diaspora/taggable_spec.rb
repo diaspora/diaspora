@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Diaspora::Taggable do
   include Rails.application.routes.url_helpers
 

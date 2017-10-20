@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When(/^I activate the first hovercard$/) do
   page.execute_script("$('.hovercardable').first().trigger('mouseenter');")
 end

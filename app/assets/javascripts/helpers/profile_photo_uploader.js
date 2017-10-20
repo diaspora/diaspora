@@ -78,6 +78,10 @@ Diaspora.ProfilePhotoUploader.prototype = {
             alert(errorReason);
           }
         }
+      },
+
+      text: {
+        fileInputTitle: ""
       }
     });
   }

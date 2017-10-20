@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -31,6 +33,10 @@ class Post < ApplicationRecord
 
   after_create do
     self.touch(:interacted_at)
+  end
+
+  before_destroy do
+    reshares.update_all(root_guid: nil) # rubocop:disable Rails/SkipsModelValidations
   end
 
   #scopes
@@ -120,12 +126,12 @@ class Post < ApplicationRecord
 
   def reshare_for(user)
     return unless user
-    reshares.where(:author_id => user.person.id).first
+    reshares.find_by(author_id: user.person.id)
   end
 
   def like_for(user)
     return unless user
-    likes.where(:author_id => user.person.id).first
+    likes.find_by(author_id: user.person.id)
   end
 
   #############

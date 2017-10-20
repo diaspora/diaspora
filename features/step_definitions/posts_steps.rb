@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then /^the post should be collapsed$/ do
   first_post_collapsed?
 end
@@ -128,7 +130,7 @@ end
 
 When /^I select "([^"]*)" on the aspect dropdown$/ do |text|
   page.execute_script(
-    "$('#publisher .dropdown .dropdown_list, #publisher .aspect_dropdown .dropdown-menu')
+    "$('#publisher .dropdown .dropdown_list, #publisher .aspect-dropdown .dropdown-menu')
       .find('li').each(function(i,el){
       var elem = $(el);
       if ('" + text + "' == $.trim(elem.text()) ) {

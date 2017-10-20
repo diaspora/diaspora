@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -563,16 +565,11 @@ describe User, :type => :model do
     end
   end
 
-  describe 'account deletion' do
-    describe '#destroy' do
-      it 'removes all service connections' do
-        Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
-        expect {
-          alice.destroy
-        }.to change {
-          alice.services.count
-        }.by(-1)
-      end
+  describe "#destroy" do
+    it "raises error" do
+      expect {
+        alice.destroy
+      }.to raise_error "Never destroy users!"
     end
   end
 
@@ -976,6 +973,17 @@ describe User, :type => :model do
           )
         )
       end
+    end
+  end
+
+  describe "#export" do
+    it "doesn't change the filename when the user is saved" do
+      user = FactoryGirl.create(:user)
+
+      filename = user.export.filename
+      user.save!
+
+      expect(User.find(user.id).export.filename).to eq(filename)
     end
   end
 

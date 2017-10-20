@@ -61,7 +61,7 @@
   }
 }
 
-#main_stream .stream-element {
+#main-stream .stream-element {
   margin-bottom: 20px;
   border: 1px solid $border-grey;
   box-shadow: $card-shadow;
@@ -90,6 +90,7 @@
     .author-name {
       font-weight: bold;
       margin-bottom: 4px;
+      unicode-bidi: isolate;
     }
     .feedback {
       margin-top: 5px;

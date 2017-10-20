@@ -402,6 +402,10 @@ en:
       hide_posts_a: "If you point your mouse at the top of a post, an X appears on the right. Click it to hide the post and mute notifications about it. You can still see the post if you visit the profile page of the person who posted it."
       post_notification_q: "How do I get notifications, or stop getting notifications, about a post?"
       post_notification_a: "You will find a bell icon next to the X at the top right of a post. Click this to enable or disable notifications for that post."
+      ignore_user_q: "How do I stop someone’s posts from appearing in my stream?"
+      ignore_user_a1: "If you are currently sharing with that person, removing them from your aspects will stop many of their posts from appearing in your stream. A more complete method is to “ignore” that account. This will prevent any of their posts from appearing in your stream, and they will no longer be able to like or comment on your posts. They will, however, still be able to reshare your posts, comment on reshares of your posts, and their comments on posts by other people which appear in your stream will still be visible to you."
+      ignore_user_a2: "To ignore an account, click the “ignore” icon (a circle with a diagonal line through it) at the top right of one of their posts. Their posts will instantly disappear from your stream. Alternatively, go to their profile page and click the ignore icon there. You will still be able to see their posts on their profile page, or by using the single-post view."
+      ignore_user_a3: "A list of people you are ignoring can be found in your account settings under Privacy. To stop ignoring someone, remove them from the list on that page."
       post_report_q: "How do I report an offensive post?"
       post_report_a: "Click the alert triangle icon at the top right of the post to report it to your podmin. Enter a reason for reporting this post in the dialog box. Please only report posts that break our %{community_guidelines} or your pod’s terms of service, for example posts containing illegal content, or which are abusive or spam."
       character_limit_q: "What is the character limit for posts?"
@@ -940,9 +944,9 @@ en:
 
   report:
     title: "Reports overview"
-    post_label: "<b>Post</b>: %{content}"
-    comment_label: "<b>Comment</b>: %{data}"
-    reported_label: "<b>Reported by</b> %{person}"
+    post_label: "<strong>Post</strong>: %{content}"
+    comment_label: "<strong>Comment</strong>: %{data}"
+    reported_label: "<strong>Reported by</strong> %{person}"
     reason_label: "Reason:"
     review_link: "Mark as reviewed"
     delete_link: "Delete item"

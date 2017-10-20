@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ContactPresenter do
   before do
     @presenter = ContactPresenter.new(alice.contact_for(bob.person), alice)

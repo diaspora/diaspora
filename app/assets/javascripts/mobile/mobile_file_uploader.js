@@ -19,7 +19,7 @@ function createUploader(){
       }
     },
     validation: {
-      allowedExtensions: ["jpg", "jpeg", "png", "gif", "tif", "tiff"],
+      allowedExtensions: ["jpg", "jpeg", "png", "gif"],
       sizeLimit: 4194304
     },
     button: document.getElementById("file-upload-publisher"),
@@ -33,7 +33,7 @@ function createUploader(){
         $("#fileInfo-publisher").text(fileName + " " + progress + "%");
       },
       onSubmit: function() {
-        $("#publisher_textarea_wrapper").addClass("with_attachments");
+        $("#publisher-textarea-wrapper").addClass("with_attachments");
         $("#photodropzone").append(
           "<li class='publisher_photo loading' style='position:relative;'>" +
           "<img alt='Ajax-loader2' src='" + ImagePaths.get("ajax-loader2.gif") + "' />" +
@@ -50,7 +50,7 @@ function createUploader(){
             url = responseJSON.data.photo.unprocessed_image.url,
             currentPlaceholder = $("li.loading").first();
 
-        $("#publisher_textarea_wrapper").addClass("with_attachments");
+        $("#publisher-textarea-wrapper").addClass("with_attachments");
         $("#new_status_message").append("<input type='hidden' value='" + id + "' name='photos[]' />");
 
         // replace image placeholders
@@ -76,7 +76,7 @@ function createUploader(){
               photo.fadeOut(400, function() {
                 photo.remove();
                 if ($(".publisher_photo").length === 0) {
-                  $("#publisher_textarea_wrapper").removeClass("with_attachments");
+                  $("#publisher-textarea-wrapper").removeClass("with_attachments");
                 }
               });
             }

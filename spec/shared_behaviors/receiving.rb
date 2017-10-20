@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "it ignores existing object received twice" do |klass|
   it "return nil if the #{klass} already exists" do
     expect(Diaspora::Federation::Receive.perform(entity)).not_to be_nil
@@ -13,7 +15,7 @@ shared_examples_for "it ignores existing object received twice" do |klass|
   end
 end
 
-shared_examples_for "it rejects if the parent author ignores the author" do |klass|
+shared_examples_for "it rejects if the root author ignores the author" do |klass|
   it "saves the relayable if the author is not ignored" do
     Diaspora::Federation::Receive.perform(entity)
 

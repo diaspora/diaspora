@@ -1,3 +1,56 @@
+# 0.7.1.0
+
+## Ensure account deletions are run
+
+There were some issues causing accounts deletions to not properly perform in some cases, see
+[#7631](https://github.com/diaspora/diaspora/issues/7631) and [#7639](https://github.com/diaspora/diaspora/pull/7639).
+To ensure these are reexecuted properly, please run `RAILS_ENV=production bin/rake migrations:run_account_deletions`
+after you've upgraded.
+
+## Refactor
+* Remove title from profile photo upload button [#7551](https://github.com/diaspora/diaspora/pull/7551)
+* Remove Internet Explorer workarounds [#7557](https://github.com/diaspora/diaspora/pull/7557)
+* Sort notifications by last interaction [#7568](https://github.com/diaspora/diaspora/pull/7568) [#7648](https://github.com/diaspora/diaspora/pull/7648)
+* Remove tiff support from photos [#7576](https://github.com/diaspora/diaspora/pull/7576)
+* Remove reference from reshares when original post is deleted [#7578](https://github.com/diaspora/diaspora/pull/7578)
+* Merge migrations from before 0.6.0.0 to CreateSchema [#7580](https://github.com/diaspora/diaspora/pull/7580)
+* Remove auto detection of languages with highlightjs [#7591](https://github.com/diaspora/diaspora/pull/7591)
+* Move enable/disable notification icon [#7592](https://github.com/diaspora/diaspora/pull/7592)
+* Use Bootstrap 3 progress-bar for polls [#7600](https://github.com/diaspora/diaspora/pull/7600)
+* Enable frozen string literals [#7595](https://github.com/diaspora/diaspora/pull/7595)
+* Remove `rails_admin_histories` table [#7597](https://github.com/diaspora/diaspora/pull/7597)
+* Optimize memory usage on profile export [#7627](https://github.com/diaspora/diaspora/pull/7627)
+* Limit the number of parallel exports [#7629](https://github.com/diaspora/diaspora/pull/7629)
+* Reduce memory usage for account deletion [#7639](https://github.com/diaspora/diaspora/pull/7639)
+
+## Bug fixes
+* Fix displaying polls with long answers [#7579](https://github.com/diaspora/diaspora/pull/7579)
+* Fix S3 support [#7566](https://github.com/diaspora/diaspora/pull/7566)
+* Fix mixed username and timestamp with LTR/RTL scripts [#7575](https://github.com/diaspora/diaspora/pull/7575)
+* Prevent users from zooming in IE Mobile [#7589](https://github.com/diaspora/diaspora/pull/7589)
+* Fix recipient prefill on contacts and profile page [#7599](https://github.com/diaspora/diaspora/pull/7599)
+* Display likes and reshares without login [#7583](https://github.com/diaspora/diaspora/pull/7583)
+* Fix invalid data in the database for user data export [#7614](https://github.com/diaspora/diaspora/pull/7614)
+* Fix local migration run without old private key [#7558](https://github.com/diaspora/diaspora/pull/7558)
+* Fix export not downloadable because the filename was resetted on access [#7622](https://github.com/diaspora/diaspora/pull/7622)
+* Delete invalid oEmbed caches with binary titles [#7620](https://github.com/diaspora/diaspora/pull/7620)
+* Delete invalid diaspora IDs from friendica [#7630](https://github.com/diaspora/diaspora/pull/7630)
+* Cleanup relayables where the signature is missing [#7637](https://github.com/diaspora/diaspora/pull/7637)
+* Avoid page to jump to top after a post deletion [#7638](https://github.com/diaspora/diaspora/pull/7638)
+* Handle duplicate account deletions [#7639](https://github.com/diaspora/diaspora/pull/7639)
+* Handle duplicate account migrations [#7641](https://github.com/diaspora/diaspora/pull/7641)
+* Handle bugs related to missing users [#7632](https://github.com/diaspora/diaspora/pull/7632)
+* Cleanup empty signatures [#7644](https://github.com/diaspora/diaspora/pull/7644)
+
+## Features
+* Ask for confirmation when leaving a submittable comment field [#7530](https://github.com/diaspora/diaspora/pull/7530)
+* Show users vote in polls [#7550](https://github.com/diaspora/diaspora/pull/7550)
+* Add explanation of ignore function to in-app help section [#7585](https://github.com/diaspora/diaspora/pull/7585)
+* Add camo information to NodeInfo [#7617](https://github.com/diaspora/diaspora/pull/7617)
+* Add support for `diaspora://` links [#7625](https://github.com/diaspora/diaspora/pull/7625)
+* Add support to relay likes for comments [#7625](https://github.com/diaspora/diaspora/pull/7625)
+* Implement RFC 7033 WebFinger [#7625](https://github.com/diaspora/diaspora/pull/7625)
+
 # 0.7.0.1
 
 Update nokogiri to fix [multiple libxml2 vulnerabilities](https://usn.ubuntu.com/usn/usn-3424-1/).

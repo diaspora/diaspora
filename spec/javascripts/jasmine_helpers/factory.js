@@ -138,9 +138,11 @@ var factory = {
       "full_name": "bob grimm",
       "gender": "robot",
       "id": id,
-      "image_url": "http://localhost:3000/assets/user/default.png",
-      "image_url_medium": "http://localhost:3000/assets/user/default.png",
-      "image_url_small": "http://localhost:3000/assets/user/default.png",
+      "avatar": {
+        "small": "http://localhost:3000/assets/user/default.png",
+        "medium": "http://localhost:3000/assets/user/default.png",
+        "large": "http://localhost:3000/assets/user/default.png"
+      },
       "last_name": "Grimm",
       "location": "Earth",
       "nsfw": false,
@@ -211,9 +213,9 @@ var factory = {
   },
 
   postWithPoll :  function(overrides) {
-    var defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()});
-    defaultAttrs = _.extend(defaultAttrs,  {"already_participated_in_poll" : false});
-    defaultAttrs = _.extend(defaultAttrs,  {"poll" : factory.poll()});
+    var defaultAttrs = _.extend(factory.postAttrs(), {"author": this.author()});
+    defaultAttrs = _.extend(defaultAttrs, {"poll_participation_answer_id": null});
+    defaultAttrs = _.extend(defaultAttrs, {"poll": factory.poll()});
     return new app.models.Post(_.extend(defaultAttrs, overrides));
   },
 

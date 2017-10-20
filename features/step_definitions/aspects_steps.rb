@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module AspectCukeHelpers
   def click_aspect_dropdown
-    find(".aspect_dropdown .dropdown-toggle").trigger "click"
+    find(".aspect-dropdown .dropdown-toggle").trigger "click"
   end
 
   def toggle_aspect(a_name)
@@ -9,19 +11,19 @@ module AspectCukeHelpers
            else
              @me.aspects.where(name: a_name).pluck(:id).first
            end
-    aspect_css = ".aspect_dropdown li[data-aspect_id='#{a_id}']"
+    aspect_css = ".aspect-dropdown li[data-aspect_id='#{a_id}']"
     expect(page).to have_selector(aspect_css)
     find(aspect_css).click
   end
 
   def toggle_aspect_via_ui(aspect_name)
-    aspects_dropdown = find(".aspect_membership_dropdown .dropdown-toggle", match: :first)
+    aspects_dropdown = find(".aspect-membership-dropdown .dropdown-toggle", match: :first)
     aspects_dropdown.trigger "click"
-    selected_aspect_count = all(".aspect_membership_dropdown.open .dropdown-menu li.selected").length
-    aspect = find(".aspect_membership_dropdown.open .dropdown-menu li", text: aspect_name)
+    selected_aspect_count = all(".aspect-membership-dropdown.open .dropdown-menu li.selected").length
+    aspect = find(".aspect-membership-dropdown.open .dropdown-menu li", text: aspect_name)
     aspect_selected = aspect["class"].include? "selected"
     aspect.trigger "click"
-    expect(find(".aspect_membership_dropdown .dropdown-menu", visible: false)).to have_no_css(".loading")
+    expect(find(".aspect-membership-dropdown .dropdown-menu", visible: false)).to have_no_css(".loading")
 
     # close dropdown
     page.should have_no_css('#profile.loading')
@@ -31,7 +33,7 @@ module AspectCukeHelpers
   end
 
   def aspect_dropdown_visible?
-    expect(find('.aspect_membership_dropdown.open')).to be_visible
+    expect(find('.aspect-membership-dropdown.open')).to be_visible
   end
 end
 World(AspectCukeHelpers)
@@ -46,7 +48,7 @@ end
 
 When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   click_link "My aspects"
-  expect(find("#aspect_stream_container")).to have_css(".loader.hidden", visible: false)
+  expect(find("#aspect-stream-container")).to have_css(".loader.hidden", visible: false)
   within("#aspects_list") do
     all(".selected").each do |node|
       aspect_item = node.find(:xpath, "..")

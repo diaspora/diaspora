@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Conversation < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
@@ -38,10 +40,10 @@ class Conversation < ApplicationRecord
   end
 
   def set_read(user)
-    if visibility = self.conversation_visibilities.where(:person_id => user.person.id).first
-      visibility.unread = 0
-      visibility.save
-    end
+    visibility = conversation_visibilities.find_by(person_id: user.person.id)
+    return unless visibility
+    visibility.unread = 0
+    visibility.save
   end
 
   def participant_handles
@@ -57,7 +59,7 @@ class Conversation < ApplicationRecord
   def last_author
     return unless @last_author.present? || messages.size > 0
     @last_author_id ||= messages.pluck(:author_id).last
-    @last_author ||= Person.includes(:profile).where(id: @last_author_id).first
+    @last_author ||= Person.includes(:profile).find_by(id: @last_author_id)
   end
 
   def ordered_participants

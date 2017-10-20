@@ -9,7 +9,7 @@
   %h2
     = t(".title")
 
-#people_stream.stream.contacts
+#people-stream.stream.contacts
   - if @contacts.size > 0
     - for contact in @contacts
       = render "people/person", person: contact.person, contact: contact

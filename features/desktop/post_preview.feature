@@ -46,7 +46,7 @@ Feature: preview posts in the stream
       When I fill in the following:
           | status_message_text    | Look at this dog    |
       And I preview the post
-      Then I should see a "img" within ".md-preview .stream-element .photo_attachments"
+      Then I should see a "img" within ".md-preview .stream-element .photo-attachments"
       And I should see "Look at this dog" within ".md-preview .stream-element"
       And I close the publisher
 
@@ -80,7 +80,7 @@ Feature: preview posts in the stream
           | normal |
           | not normal  |
       And I preview the post
-      Then I should see a ".poll_form" within ".md-preview .stream-element"
+      Then I should see a ".poll-form" within ".md-preview .stream-element"
       And I should see a "form" within ".md-preview .stream-element"
       And I close the publisher
 

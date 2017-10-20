@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Export
   # This is a serializer for the user's own posts
   class OwnPostSerializer < FederationEntitySerializer
@@ -27,7 +29,7 @@ module Export
     end
 
     def excluded_subscription_key
-      entity.public ? :subscribed_users_ids : :subscribed_pods_uris
+      object.public? ? :subscribed_users_ids : :subscribed_pods_uris
     end
   end
 end

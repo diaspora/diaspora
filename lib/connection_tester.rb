@@ -1,9 +1,11 @@
 
+# frozen_string_literal: true
+
 class ConnectionTester
   include Diaspora::Logging
 
-  NODEINFO_SCHEMA   = "http://nodeinfo.diaspora.software/ns/schema/1.0".freeze
-  NODEINFO_FRAGMENT = "/.well-known/nodeinfo".freeze
+  NODEINFO_SCHEMA   = "http://nodeinfo.diaspora.software/ns/schema/1.0"
+  NODEINFO_FRAGMENT = "/.well-known/nodeinfo"
 
   class << self
     # Test the reachability of a server by the given HTTP/S URL.

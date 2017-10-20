@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -187,7 +189,7 @@ class PeopleController < ApplicationController
   end
 
   def diaspora_id?(query)
-    !(query.nil? || query.lstrip.empty?) && Validation::Rule::DiasporaId.new.valid_value?(query)
+    !(query.nil? || query.lstrip.empty?) && Validation::Rule::DiasporaId.new.valid_value?(query.downcase).present?
   end
 
   # view this profile on the home pod, if you don't want to sign in...

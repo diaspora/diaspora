@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -173,7 +175,7 @@ describe PhotosController, :type => :controller do
   end
 
   describe '#destroy' do
-    it 'let a user delete his message' do
+    it "lets a user delete their message" do
       delete :destroy, params: {id: @alices_photo.id}
       expect(Photo.find_by_id(@alices_photo.id)).to be_nil
     end

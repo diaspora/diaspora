@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "integration/federation/federation_helper"
 
 def create_remote_contact(user, pod_host)

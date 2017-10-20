@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -144,7 +146,7 @@ describe UsersController, :type => :controller do
     end
 
     describe 'language' do
-      it 'allow the user to change his language' do
+      it "allows the user to change their language" do
         old_language = 'en'
         @user.language = old_language
         @user.save
@@ -155,7 +157,7 @@ describe UsersController, :type => :controller do
     end
 
     describe "color_theme" do
-      it "allow the user to change his color theme" do
+      it "allows the user to change their color theme" do
         old_color_theme = "original"
         @user.color_theme = old_color_theme
         @user.save
@@ -166,14 +168,14 @@ describe UsersController, :type => :controller do
     end
 
     describe 'email' do
-      it 'disallow the user to change his new (unconfirmed) mail when it is the same as the old' do
+      it "disallows the user to change their new (unconfirmed) mail when it is the same as the old" do
         @user.email = "my@newemail.com"
         put :update, params: {id: @user.id, user: {email: "my@newemail.com"}}
         @user.reload
         expect(@user.unconfirmed_email).to eql(nil)
       end
 
-      it 'allow the user to change his (unconfirmed) email' do
+      it "allows the user to change their (unconfirmed) email" do
         put :update, params: {id: @user.id, user: {email: "my@newemail.com"}}
         @user.reload
         expect(@user.unconfirmed_email).to eql("my@newemail.com")
@@ -191,7 +193,7 @@ describe UsersController, :type => :controller do
         expect(request.flash[:notice]).to be_blank
       end
 
-      it 'allow the user to change his (unconfirmed) email to blank (= abort confirmation)' do
+      it "allow the user to change their (unconfirmed) email to blank (= abort confirmation)" do
         put :update, params: {id: @user.id, user: {email: ""}}
         @user.reload
         expect(@user.unconfirmed_email).to eql(nil)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe PublisherHelper, type: :helper do
   describe "#public_selected?" do
     it "returns true when the selected_aspects contains 'public'" do

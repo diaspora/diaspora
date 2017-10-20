@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 atom_feed("xmlns:thr"       => "http://purl.org/syndication/thread/1.0",
           "xmlns:georss"    => "http://www.georss.org/georss",
           "xmlns:activity"  => "http://activitystrea.ms/spec/1.0/",

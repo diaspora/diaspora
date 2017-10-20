@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright (c) 2010-2011, Diaspora Inc.  This file is
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
@@ -55,6 +57,28 @@ namespace :migrations do
 
       # Delete the queue
       queue.clear
+    end
+  end
+
+  desc "Run uncompleted account deletions"
+  task run_account_deletions: :environment do
+    if AccountDeletion.uncompleted.count > 0
+      puts "Running account deletions..."
+      AccountDeletion.uncompleted.find_each do |account_deletion|
+        print "Deleting #{account_deletion.person.diaspora_handle} ..."
+        progress = Thread.new {
+          loop {
+            sleep 10
+            print "."
+          }
+        }
+        account_deletion.perform!
+        progress.kill
+        puts " Done"
+      end
+      puts "OK."
+    else
+      puts "No account deletions to run."
     end
   end
 end

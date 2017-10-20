@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #   Copyright (c) 2010-2011, Diaspora In  This file is
 #   licensed under the Affero General Public License version 3 or late  See
 #   the COPYRIGHT file.
@@ -245,6 +247,20 @@ FactoryGirl.define do
     sequence(:text) {|n| "#{n} cats"}
     association(:author, factory: :person)
     association(:post, factory: :status_message)
+  end
+
+  factory :signed_comment, parent: :comment do
+    association(:parent, factory: :status_message)
+
+    after(:build) do |comment|
+      order = SignatureOrder.first || FactoryGirl.create(:signature_order)
+      comment.signature = FactoryGirl.build(:comment_signature, comment: comment, signature_order: order)
+    end
+  end
+
+  factory :reference do
+    association :source, factory: :status_message
+    association :target, factory: :status_message
   end
 
   factory(:notification, class: Notifications::AlsoCommented) do

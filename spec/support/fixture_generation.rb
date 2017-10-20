@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JasmineFixtureGeneration
   # Saves the markup to a fixture file using the given name
   def save_fixture(markup, name, fixture_path=nil )

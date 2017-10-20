@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Export
   class ContactSerializer < ActiveModel::Serializer
     attributes :sharing,

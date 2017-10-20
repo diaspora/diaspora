@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ConversationsController, :type => :controller do
   describe '#index' do
     before do

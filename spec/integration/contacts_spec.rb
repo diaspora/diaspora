@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ContactsController, type: :request do
   describe "/contacts" do
     context "user is signed in" do

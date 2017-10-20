@@ -53,11 +53,11 @@
     }
     padding-left: 12px;
   }
-  .comment_box {
+  .comment-box {
     height: 35px;
     resize: none;
   }
-  textarea.comment_box:focus, textarea.comment_box:valid, textarea.comment_box:active {
+  textarea.comment-box:focus, textarea.comment-box:valid, textarea.comment-box:active {
     border-color: $border-dark-grey;
     box-shadow: none;
   }

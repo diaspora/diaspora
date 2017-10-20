@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 class Message < ApplicationRecord
   include Diaspora::Federated::Base
   include Diaspora::Fields::Guid
   include Diaspora::Fields::Author
+
+  include Reference::Source
 
   belongs_to :conversation, touch: true
 
@@ -15,10 +19,10 @@ class Message < ApplicationRecord
   end
 
   def increase_unread(user)
-    if vis = ConversationVisibility.where(:conversation_id => self.conversation_id, :person_id => user.person.id).first
-      vis.unread += 1
-      vis.save
-    end
+    vis = ConversationVisibility.find_by(conversation_id: conversation_id, person_id: user.person.id)
+    return unless vis
+    vis.unread += 1
+    vis.save
   end
 
   def message
