@@ -177,6 +177,7 @@ ru:
           preview: "Предпросмотр сообщения"
           quote: "Вставить цитату"
           write: "Редактировать сообщение"
+        write: "Редактор"
       near_from: "Отправлено из: <%= location %>"
       option: "Вариант <%= nr %>"
       question: "Вопрос"
@@ -251,16 +252,28 @@ ru:
     timeago:
       day: "день"
       days:
-        other: "%d дней[-я]"
+        few: "%d дня"
+        many: "%d дней"
+        one: "день"
+        other: "%d д."
       hour: "около часа"
       hours:
+        few: "около %d часов"
+        many: "около %d часов"
+        one: "около часа"
         other: "около %d часов"
       minute: "около минуты"
       minutes:
-        other: "%d минут[-ы]"
+        few: "%d минуты"
+        many: "%d минут"
+        one: "1 минута"
+        other: "%d мин."
       month: "около месяца"
       months:
-        other: "%d месяца[-ев]"
+        few: "%d месяца"
+        many: "%d месяцев"
+        one: "месяц"
+        other: "%d месяцев"
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "меньше минуты"
@@ -269,6 +282,9 @@ ru:
       wordSeparator: " "
       year: "около года"
       years:
+        few: "%d года"
+        many: "%d лет"
+        one: "год"
         other: "%d лет"
     unblock_failed: "Разблокировка пользователя не удалась"
     viewer:

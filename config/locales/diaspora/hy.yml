@@ -910,6 +910,8 @@ hy:
     title: "Բողոքների համառոտագիր"
   reshares:
     comment_email_subject: "%{author}-ի գրառման %{resharer}-ի տարածմանը"
+    create:
+      error: "Տարածել չստացվեց։"
     reshare:
       deleted: "Օրիգինալ գրառումը ջնջվել է հեղինակի կողմից։"
       reshare_confirmation: "Տարածե՞լ %{author}-ի գրառումը։"

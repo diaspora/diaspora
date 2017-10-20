@@ -544,7 +544,7 @@ de-CH:
     create:
       integrity_error: "Fotiupload isch fehlgschlage... Bisch sicher das da e Bild gsi isch?"
       runtime_error: "Fotiupload isch fehlgschlage... Bisch sicher das ali Tasse im Chuchichäschtli sind?"
-      type_error: "Fotiupload isch fehlgschlage... Bisch sicher das e Bild iigfüegt worde isch?"
+      type_error: "Fotiupload isch fehlgschlage... Bisch sicher das es Bild iigfüegt worde isch?"
     destroy:
       notice: "Foti glöscht."
     new_profile_photo:
@@ -785,7 +785,7 @@ de-CH:
       email_awaiting_confirmation: "Mer hend dir en Link a %{unconfirmed_email} gschikt. Bis du de enthalteni Link göffnet hesch und so die neu Adresse aktiviersch, sendemer wiiterhin a dini alt Adresse %{email}"
       export_data: "Date exportiere"
       export_in_progress: "Mir verarbeitet grad dini Date. Bitte chum in es paar Moment wieder verbii."
-      export_photos_in_progress: "Mier verarbeitet grad dini Fotis, bitte lueg chli spöter nomal verbii."
+      export_photos_in_progress: "Mir verarbeitet grad dini Fotis, bitte lueg chli spöter nomal verbii."
       following: "\"Teile\"-Iistelige"
       last_exported_at: "Z'lescht aktualisiert am %{timestamp}"
       liked: "öpperem en Biitrag vo dir gfallt"

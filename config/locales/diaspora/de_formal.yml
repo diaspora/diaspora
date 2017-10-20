@@ -98,7 +98,7 @@ de_formal:
       last_seen: "Zuletzt gesehen"
       ? "no"
       : Nein
-      nsfw: "NSFW (unpassend für den Arbeitsplatz)"
+      nsfw: "NSFW (unangemessen für den Arbeitsplatz)"
       unknown: "Unbekannt"
       ? "yes"
       : Ja
@@ -436,7 +436,7 @@ de_formal:
       diaspora_app_q: "Gibt es eine diaspora* App für Android oder iOS?"
       photo_albums_a: "Nein, momentan nicht. Aber Sie können sich die hochgeladenen Bilder einer Person im Reiter „Fotos” auf ihrer Profilseite ansehen."
       photo_albums_q: "Gibt es Foto- oder Videoalben?"
-      subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird nicht ganz richtig formatiert. Wenn Sie die Funktion dennoch benutzen wollen, gehen Sie einfach zu der Profilseite der Person und klicken Sie auf die Feed-Schaltfläche deines Browsers oder kopieren Sie die Profil-URL (z.B. https://podname.org/people/irgendeinenummer) und fügen Sie sie in den Feedreader ein. Die resultierende Feed-Adresse sieht aus wie https://podname.org/public/benutzername.atom – diaspora* verwendet Atom an Stelle von RSS."
+      subscribe_feed_a: "Ja, allerdings ist diese Funktion noch immer nicht ganz ausgereift und das Ergebnis wird nicht ganz richtig formatiert. Wenn Sie die Funktion dennoch ausprobieren wollen, gehen Sie zu der Profilseite der Person und klicken Sie auf die Feed-Schaltfläche Ihres Browsers oder kopieren Sie die Profil-URL (z.B. https://podname.org/people/irgendeinenummer) und fügen Sie sie in den Feedreader ein. Die resultierende Feed-Adresse sieht aus wie https://podname.org/public/benutzername.atom – diaspora* verwendet Atom an Stelle von RSS."
       subscribe_feed_q: "Kann ich die öffentlichen Beiträge einer Person mit einem Feedreader verfolgen?"
       title: "Diverses"
     pods:
@@ -448,7 +448,7 @@ de_formal:
       what_is_a_pod_a: "Ein Pod ist ein Server, auf dem die diaspora*-Software läuft und der mit dem diaspora*-Netzwerk verbunden ist. „Pod“ ist eine Metapher für Hülsen von Pflanzen, die mehrere Samen enthalten, so wie der Server mehrere Benutzerkonten enthält. Es gibt viele verschiedene Pods. Sie können Kontakte von anderen Pods hinzufügen und mit ihnen kommunizieren. Es ist nicht nötig, Konten auf verschiedenen Pods zu erstellen! Einer reicht – So gesehen können Sie sich einen diaspora*-Pod wie einen E-Mail-Anbieter vorstellen. Es gibt öffentliche Pods, private Pods, und mit ein wenig Aufwand können Sie sogar Ihren eigenen betreiben."
       what_is_a_pod_q: "Was ist ein Pod?"
     posts_and_posting:
-      char_limit_services_a: "In diesem sollten Sie Ihren Beitrag auf das kleinere Zeichenlimit begrenzen (140 bei Twitter, 1000 bei Tumblr). Die Anzahl der verbliebenen Buchstaben wird angezeigt, wenn das Icon des entsprechenden Services hervorgehoben ist. Sie können Ihren Beitrag auch bei Überschreitung des Limits absenden, dieser wird jedoch bei dem jeweiligem Service abgeschnitten und mit einem Link zu dem Beitrag auf diaspora* ergänzt."
+      char_limit_services_a: "In diesem Fall sollten Sie Ihren Beitrag auf das kleinere Zeichenlimit begrenzen (140 bei Twitter, 1000 bei Tumblr). Die Anzahl der verbliebenen Buchstaben wird angezeigt, wenn das Icon des entsprechenden Services hervorgehoben ist. Sie können Ihren Beitrag auch bei Überschreitung des Limits absenden, dieser wird jedoch bei dem jeweiligem Service abgeschnitten und mit einem Link zu dem Beitrag auf diaspora* ergänzt."
       char_limit_services_q: "Was, wenn ich meinen Beitrag mit einem verbundenen Dienst mit geringerer Zeichenanzahl teile?"
       character_limit_a: "65.535 Zeichen. Das sind 65.395 Zeichen mehr, als Sie bei Twitter benutzen können! ;)"
       character_limit_q: "Wie groß ist das Zeichenlimit für Beiträge?"
@@ -458,6 +458,10 @@ de_formal:
       format_text_q: "Wie kann ich einen Beitrag formatieren (Fett, kursiv, etc.)?"
       hide_posts_a: "Wenn Sie Ihren Mauszeiger über einem Beitrag positionieren, erscheint rechts ein kleines ×. Klicken Sie darauf, um den Beitrag zu verstecken und die Benachrichtigungen zu ihm zu deaktivieren. Sie können den Beitrag weiterhin auf der Profilseite der Person betrachten, die ihn gepostet hat."
       hide_posts_q: "Wie blende ich einen Beitrag aus?"
+      ignore_user_a1: "Wenn Sie derzeit mit dieser Person teilen, entfernen Sie sie von Ihren Aspekten. Damit blenden Sie viele ihrer Beiträge aus Ihren Stream aus. Eine vollständigere Methode ist es das Konto zu \"ignorieren\". Dies verhindert das irgendeiner ihrer Beiträge in Ihrem Stream erscheint, und sie werden nicht mehr in der Lage sein einen ihrer Beiträge zu mögen oder kommentieren. Jedoch werden sie weiter in der Lage sein Ihre Beiträge zu teilen, Ihre geteilten Beiträge und Ihre Kommentare zu Beiträgen anderer Personen zu kommentieren. Diese sind in Ihrem Stream noch für Sie sichtbar."
+      ignore_user_a2: "Klicken Sie auf das \"Ignorieren\"-Symbol (ein diagonal durchgestrichener Kreis), um ein Konto zu ignorieren oben rechts auf einen ihrer Beiträge. Diese Beiträge werden sofort aus Ihrem Stream verschwinden. Alternativ, gehen Sie auf Ihre Profilseite und klicken dort auf das Ignorier-Symbol. Sie können Ihre Beiträge auf Ihrer Profilseite noch sehen oder die Single-View-Ansicht verwenden."
+      ignore_user_a3: "Eine Liste ignorierter Personen finden Sie in Ihren Kontoeinstellungen unter Datenschutz. Um jemanden nicht mehr zu ignorieren entfernen Sie sie aus der Liste auf dieser Seite."
+      ignore_user_q: "Wie verhindere ich, dass jemandes Beiträge in meinem Stream erscheinen?"
       insert_images_a: "Klicken Sie auf das kleine Kamera-Symbol, um ein Foto zu einem Beitrag hinzuzufügen. Klicken Sie erneut darauf, um weitere Fotos hinzuzufügen, oder wählen Sie mehrere Fotos aus, um sie alle auf einmal hinzuzufügen."
       insert_images_comments_a: "Sie können Markdown verwenden, um ein Bild aus dem Internet in einen Kommentar einzufügen, genau wie in Beiträgen. Sie können allerdings keine Bilder von Ihrem Computer direkt in Kommentare hochladen. Laden Sie sie auf einen Bilder-Hosting-Dienst hoch und fügen Sie sie dann mittels der Bild-Schaltfläche über dem Eingabefeld ein."
       insert_images_comments_q: "Kann ich Bilder in Kommentare einfügen?"
@@ -527,7 +531,7 @@ de_formal:
       add_to_aspect_li8: "Amy wird Ben auch in einem Beitrag @erwähnen können."
       add_to_aspect_q: "Was passiert, wenn ich jemanden zu meinen Aspekten hinzufüge oder wenn mich jemand zu seinen Aspekten hinzufügt?"
       list_not_sharing_a: "Nein, aber Sie können nachsehen, ob jemand ihnen folgt, indem sie dessen Profilseite besuchen. Falls das der Fall ist, wird die Schaltfläche, die die Aspekte zeigt, zu dem Sie die Person hinzugefügt haben, grün sein; falls nicht wird sie grau sein."
-      list_not_sharing_q: "Gibt es eine Liste mit Leuten, die ich zu einem meiner Aspekte hinzugefügt habe, die mich aber noch nicht zu einem ihrer Aspekte hinzugefügt haben?"
+      list_not_sharing_q: "Gibt es eine Liste mit Leuten, die ich zu einem meiner Aspekte hinzugefügt habe, die mich aber nicht zu einem ihrer Aspekte hinzugefügt haben?"
       only_sharing_a: "Das sind Leute, die Sie zu einem ihrer Aspekte hinzugefügt haben, die sich aber (noch) nicht in einem Ihrer Aspekte befinden. Anders gesagt: Sie teilen mit Ihnen, aber Sie nicht mit ihnen: Sie können sich dies so vorstellen, dass sie Ihnen „folgen”. Wenn Sie sie zu einem Aspekt hinzufügen, werden sie in jenem Aspekt und nicht unter „Nur mit Ihnen Teilende“ zu sehen sein. Siehe oben."
       only_sharing_q: "Wer sind die Leute, die auf der Kontakteseite unter „Nur mit Ihnen Teilende” gelistet sind?"
       see_old_posts_a: "Nein. Er wird ausschließlich neue Beiträge für diesen Aspekt sehen. Er (und alle anderen) können aber alle älteren öffentlichen Beiträge von Ihnen auf Ihrer Profilseite oder in ihrem Stream sehen."
@@ -772,7 +776,7 @@ de_formal:
           Entschuldigung,
 
           Der diaspora* E-Mail-Roboter!
-      subject: "Entschuldige, es gab einen Fehler beim Verarbeiten Ihrer Daten, %{name}"
+      subject: "Entschuldigung, es gab einen Fehler beim Verarbeiten Ihrer Daten, %{name}"
     export_photos_email:
       body: |-
           Hallo %{name},
@@ -942,7 +946,7 @@ de_formal:
       last_name: "Nachname"
       limited: "Begrenzt"
       nsfw_check: "Markiere alles, was ich teile, als NSFW"
-      nsfw_explanation: "NSFW („Not safe for work“, dt. „Unpassend für den Arbeitsplatz“) ist diaspora*s sich selbst verwaltender Community-Standard für Inhalte, die für das Ansehen während der Arbeit möglicherweise ungeeignet sind. Bitte aktivieren Sie diese Option, falls Sie häufig derartiges Material teilen möchten, damit es in den Streams anderer Leute, die es nicht sehen wollen, ausgeblendet wird."
+      nsfw_explanation: "NSFW („Not safe for work“, dt. „Unangemessen für den Arbeitsplatz“) ist diaspora*’s sich selbst verwaltender Community-Standard für Inhalte, die für das Ansehen während der Arbeit möglicherweise ungeeignet sind. Bitte aktivieren Sie diese Option, falls Sie häufig derartiges Material teilen möchten, damit es in den Streams anderer Leute, die es nicht sehen wollen, ausgeblendet wird."
       nsfw_explanation2: "Wenn Sie diese Option nicht verwenden möchten, markieren Sie entsprechendes Material bitte mit dem Tag #nsfw."
       public: "Öffentlich"
       settings: "Profileinstellungen"
@@ -1013,7 +1017,7 @@ de_formal:
     destroy:
       success: "Authentifizierung erfolgreich gelöscht."
     failure:
-      error: "Es gab einen Fehler der Verbindung mit dem Dienst"
+      error: "Mit dem Dienst gab es einen Verbindungsfehler"
     index:
       connect: "Verbinden"
       disconnect: "Verbindung entfernen"
@@ -1168,14 +1172,14 @@ de_formal:
       character_minimum_expl: "bitte mindestens sechs Zeichen eingeben"
       close_account:
         dont_go: "Bitte gehen Sie nicht!"
-        lock_username: "Ihr Benutzername wird gesperrt werden. Sie werden auf diesem Pod kein neues Konto mit derselben ID erstellen können."
-        locked_out: "Sie werden abgemeldet und von Ihrem Konto ausgesperrt, bis es gelöscht wurde."
-        make_diaspora_better: "Wir würden uns freuen, wenn Sie bleiben und uns helfen, diaspora* besser zu machen, anstatt uns zu verlassen. Wenn Sie uns jedoch wirklich verlassen möchten, wird folgendes passieren:"
+        lock_username: "Ihr Benutzername wird gesperrt. Sie werden kein neues Konto auf diesem Pod mit derselben ID erstellen können."
+        locked_out: "Sie werden abgemeldet und Ihr Konto wird gesperrt, bis es gelöscht ist."
+        make_diaspora_better: "Wir würden uns freuen, wenn Sie bleiben und helfen, diaspora* verbesser, anstatt zu verlassen. Wenn Sie uns jedoch wirklich verlassen möchten, wird folgendes passieren:"
         mr_wiggles: "Mr. Wiggles wird traurig sein, wenn Sie gehen"
         no_turning_back: "Es gibt kein Zurück! Wenn Sie sich wirklich sicher sind, geben Sie Ihr Passwort unten ein."
         what_we_delete: "Wir löschen alle Ihre Beiträge und Ihr Profil so schnell wie möglich. Ihre Kommentare auf Beiträge anderer Leute werden noch angezeigt, aber Sie werden mit Ihrer diaspora*-ID anstatt mit Ihrem Namen verknüpft."
       close_account_text: "Konto schließen"
-      comment_on_post: "jemand Ihren Beitrag kommentiert"
+      comment_on_post: "jemand hat Ihren Beitrag kommentiert"
       current_password: "Derzeitiges Passwort"
       current_password_expl: "das mit dem Sie sich anmelden..."
       default_post_visibility: "Zum Teilen vorausgewählte Aspekte"
@@ -1188,11 +1192,11 @@ de_formal:
       export_photos_in_progress: "Ihre Fotos werden derzeit verarbeitet. Bitte sehen Sie in wenigen Augenblicken erneut nach."
       following: "Teilen-Einstellungen"
       last_exported_at: "(Zuletzt aktualisiert am %{timestamp})"
-      liked: "jemandem Ihr Beitrag gefällt"
-      mentioned: "Sie in einem Beitrag erwähnt werden"
+      liked: "jemandem gefällt Ihr Beitrag"
+      mentioned: "Sie wurden in einem Beitrag erwähnt"
       mentioned_in_comment: "Sie in einem Kommentar erwähnt werden"
       new_password: "Neues Passwort"
-      private_message: "Sie eine private Nachricht erhalten"
+      private_message: "Sie haben eine private Nachricht erhalten"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn:"
       request_export: "Meine Profildaten anfordern"
       request_export_photos: "Meine Fotos anfordern"
@@ -1201,8 +1205,8 @@ de_formal:
       reshared: "jemand Ihren Beitrag weitersagt"
       show_community_spotlight: "„Gemeinschafts-Schaukasten” im Stream anzeigen"
       show_getting_started: "„Erste Schritte”-Hinweise anzeigen"
-      someone_reported: "jemand eine Meldung sendet"
-      started_sharing: "jemand anfängt, mit Ihnen zu teilen"
+      someone_reported: "jemand hat eine Meldung gesendet"
+      started_sharing: "jemand fängt an mit Ihnen zu teilen"
       stream_preferences: "Stream-Einstellungen"
       your_email: "Ihre E-Mail-Adresse"
       your_email_private: "Ihre E-Mail-Adresse wird niemals von anderen Nutzern gesehen werden"
@@ -1212,7 +1216,7 @@ de_formal:
       community_welcome: "diaspora*s Gemeinschaft freut sich, Sie an Bord zu haben!"
       connect_to_facebook: "Wir können das Ganze etwas beschleunigen, indem Sie %{link}. So werden Ihr Name und Ihr Profilbild hier eingefügt und die Crossposting-Funktion aktiviert."
       connect_to_facebook_link: "Ihr Facebook-Konto mit diaspora* verlinken"
-      hashtag_explanation: "Hashtags ermöglichen Ihnen, über Ihre Interessen zu reden und ihnen zu folgen.  Sie sind auch ein guter Weg, neue Leute bei diaspora* zu treffen!"
+      hashtag_explanation: "Hashtags ermöglichen Ihnen, über Ihre Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei diaspora* zu treffen!"
       hashtag_suggestions: "Probieren Sie mal Tags wie #kunst, #musik oder #gif zu folgen."
       well_hello_there: "Also, Hallöchen!"
       what_are_you_in_to: "Was machen Sie so?"
@@ -1233,7 +1237,7 @@ de_formal:
       follow_settings_not_changed: "Ändern der Folgen-Einstellungen fehlgeschlagen."
       language_changed: "Sprache geändert"
       language_not_changed: "Fehler beim Ändern der Sprache."
-      password_changed: "Passwort geändert.  Sie können sich nun mit Ihrem neuen Passwort anmelden."
+      password_changed: "Passwort geändert. Sie können sich nun mit Ihrem neuen Passwort anmelden."
       password_not_changed: "Passwortänderung fehlgeschlagen"
       settings_not_updated: "Aktualisierung der Einstellungen fehlgeschlagen"
       settings_updated: "Einstellungen aktualisiert"

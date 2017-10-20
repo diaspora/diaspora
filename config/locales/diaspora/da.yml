@@ -494,7 +494,7 @@ da:
       who_sees_profile_a: "Din basis profil (navn, profilbillede og #tags) er offentligt. Din udvidede profil er som standard privat, men du kan gøre det tilgængeligt for offentligheden, hvis du vil. Kun personer, du deler med (hvilket betyder, du har tilføjet dem til et af dine aspekter) kan se din udvidede profil, hvis du holder den privat. Andre mennesker vil kun se dine offentlige oplysninger. Eventuelle profiloplysninger du offentliggør, kan ses af alle der bruger internettet og kan indekseres af søgemaskiner"
       who_sees_profile_q: "Hvem ser min profil?"
     public_posts:
-      can_comment_reshare_like_a: "Enhver der er logget på Diaspora kan kommentere, videredele eller like dine offentlige indlæg."
+      can_comment_reshare_like_a: "Enhver der er logget på Diaspora kan kommentere, videredele eller like dine offentlige indlæg. Undtagelsen til dette er folk du ignorere. De vil ikke kunne kommentere dine indlæg."
       can_comment_reshare_like_q: "Hvem kan kommentere, videredele eller like mine offentlige indlæg?"
       deselect_aspect_posting_a: "Det påvirker ikke offentlige indlæg at fravælge aspekter. Indlægget vil stadig være offentligt, og vil stadig være synligt i strømmen hos alle dine kontakter. For at begrænse adgangen til specifikke aspekter, skal du vælge de aspekter du ønsker skal kunne se indlægget med aspekt-menuen under indlægget."
       deselect_aspect_posting_q: "Hvad sker der, når jeg fravælger et eller flere aspekter i den venstre kolonne, når jeg laver et offentligt indlæg?"
@@ -680,11 +680,9 @@ da:
     mentioned:
       one: "%{actors} har nævnt dig i indlægget %{post_link}."
       other: "%{actors} har nævnt dig i indlægget %{post_link}."
-      zero: "%{actors} har nævnt dig i indlægget %{post_link}."
     mentioned_deleted:
       one: "%{actors} har nævnt dig i et slettet indlæg."
       other: "%{actors} har nævnt dig i et slettet indlæg."
-      zero: "%{actors} har nævnt dig i et slettet indlæg."
     mentioned_in_comment:
       one: "%{actors} har nævnt dig i en <a href=\"%{comment_path}\">kommentar</a> til dette indlæg: %{post_link}."
       other: "%{actors} har nævnt dig i en <a href=\"%{comment_path}\">kommentar</a> til dette indlæg: %{post_link}."
@@ -751,7 +749,7 @@ da:
 
           Mange tak,
           Diaspora email-robotten!
-      subject: "Vi har modtager en ikke-autoriseret forespørgsel fra din konto, %{name}"
+      subject: "Vi har modtaget en ikke-autoriseret forespørgsel fra din konto, %{name}"
     email_sent_by_diaspora: "Denne e-mail blev sendt af %{pod_name}. Hvis du gerne vil holde op med at få e-mails som denne,"
     export_email:
       body: |-
@@ -984,13 +982,13 @@ da:
       terms_link: "Servicevilkår"
       username: "Brugernavn"
   report:
-    comment_label: "<b>Kommentar</b>: %{data}"
+    comment_label: "<strong>Kommentar</strong>: %{data}"
     confirm_deletion: "Er du sikker på at du vil slette det valgte?"
     delete_link: "Slet det valgte"
     not_found: "Indlægget/kommentaren blev ikke fundet. Det ser ud til at være blevet slettet af brugeren!"
-    post_label: "<b>Indlæg</b>: %{content}"
+    post_label: "<strong>Indlæg</strong>: %{content}"
     reason_label: "Begrundelse:"
-    reported_label: "<b>Indrapporteret af</b> %{person}"
+    reported_label: "<strong>Indrapporteret af</strong> %{person}"
     reported_user_details: "Detaljer om den indberettede bruger"
     review_link: "Marker som bedømt"
     status:

@@ -17,6 +17,7 @@ pl:
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
       invalid: "Nieprawidłowa nazwa użytkownika lub hasło."
       invalid_token: "Nieprawidłowy token uwierzytelnienia."
+      last_attempt: "Możesz spróbować jeszcze jeden raz, potem Twoje konto zostanie zablokowane."
       locked: "Twoje konto jest zablokowane."
       not_found_in_database: "Niewłaściwy email lub hasło."
       timeout: "Sesja wygasła, aby kontynuować zaloguj się ponownie."
@@ -102,4 +103,4 @@ pl:
     messages:
       already_confirmed: "już potwierdzone"
       not_found: "nie znaleziono"
-      not_locked: "nie był(a) zablokowany/a"
+      not_locked: "nie był zablokowany"

@@ -177,6 +177,7 @@ ja:
       result: "結果"
       show_result: "結果を表示する"
       vote: "投票"
+      your_vote: "あなたの投票"
     profile:
       add_some: "何かを追加"
       bio: "略歴"

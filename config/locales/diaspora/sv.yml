@@ -345,7 +345,7 @@ sv:
       data_visible_to_podmin_q: "Hur mycket av min personliga information kan min pod-administratör se?"
       download_data_a: "Ja. Längst ned på kontofliken, i inställningsmenyn, finns en knapp för att ladda ner din data och en för dina bilder."
       download_data_q: "Kan jag ladda ner en kopia av all data på mitt frö (konto)?"
-      move_pods_a: "I framtiden kommer du att kunna exportera ditt frö från en pod och importera det till en annan. Just nu är detta dock inte möjligt. Du kan däremot skapa ett nytt konto och lägga till dina kontakter på ett nytt frö och sedan be dem att lägga till dig på nytt."
+      move_pods_a: "Diaspora* version 0.7.0.0 börjar ett steg för att kunna migrera konton: du kan nu exportera all din data från kontosektionen, bland användarinställningarna. Håll din data skyddad! I senare versioner av Diaspora* kommer du kunna migrera hela konton, inklusive foton och kontakter, till en annan pod."
       move_pods_q: "Hur flyttar jag mitt frö (konto) från en pod till en annan?"
       title: "Konto- samt datainställningar"
     aspects:
@@ -353,7 +353,7 @@ sv:
       change_aspect_of_post_q: "Kan jag byta vilka aspekter som ser ett inlägg efter att jag har gjort inlägget?"
       contacts_know_aspect_a: "Nej. De kan inte se namnet på aspekten under några omständigheter."
       contacts_know_aspect_q: "Vet mina kontakter i vilken aspekt jag har sorterat in dem?"
-      contacts_visible_a: "Om du har kryssat i alternativet, kommer alla kontakter från den aspekten att kunna se vilka andra som finns i samma aspekt, på din profilsida. Det är bra om du bara väljer detta alternativt om alla i aspekten känner varandra. Oavsett hur du gör, kommer de inte att se vad aspekten heter."
+      contacts_visible_a: "Om du har kryssat i alternativet, kommer alla kontakter från den aspekten att kunna se vilka andra som finns i samma aspekt, på din profilsida. (Just nu kan bara dina kontakter i samma pod kunna se kontaktfliken på din profilsida.) Det är bra om du bara väljer detta alternativt om alla i aspekten känner varandra. Oavsett hur du gör, kommer de inte att se vad aspekten heter."
       contacts_visible_q: "Vad menar ni med \"gör kontakterna i denna aspekt synlig för varandra\"?"
       delete_aspect_a: "Välj den aspekt du vill ta bort i listan med alla dina aspekter, i den vänstra panellisten. Välj pennan som dyker upp och tryck på ta-bort-knappen som dyker upp."
       delete_aspect_q: "Hur tar jag bort en aspekt?"
@@ -755,13 +755,14 @@ sv:
       message: |-
           Hej!
 
-          Du har fått en inbjudan till Diaspora* från %{diaspora_id}!
+          Du har fått en inbjudan till Diaspora* från %{user}!
 
           Använd länken nedanför för att börja
 
           [%{invite_url}][1]
 
           Annars kan du lägga till %{diaspora_id} bland dina kontakter, om du redan har ett konto.
+
 
           Hjärtliga hälsningar,
 
@@ -1005,7 +1006,7 @@ sv:
       control_your_audience: "Välj din publik"
       logged_in: "Inloggad på %{service}"
       manage: "hantera anslutna tjänster"
-      new_user_welcome_message: "Använd #hashtaggar för att klassificera dina inlägg och hitta folk som delar dina intressen. Ropa ut till häftiga personer med @Mentions"
+      new_user_welcome_message: "Använd #fyrkantstaggar för att klassificera dina inlägg och hitta folk som delar dina intressen. Ropa ut till häftiga personer med @Mentions"
       outside: "Publika meddelanden kan läsas av användare utanför Diaspora."
       share: "Dela"
       title: "Hantera anslutna tjänster"

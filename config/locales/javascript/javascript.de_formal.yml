@@ -185,6 +185,7 @@ de_formal:
       result: "Ergebnis"
       show_result: "Ergebnis anzeigen"
       vote: "Abstimmen"
+      your_vote: "Ihre Stimme"
     profile:
       add_some: "Füge neue hinzu"
       bio: "Beschreibung"
