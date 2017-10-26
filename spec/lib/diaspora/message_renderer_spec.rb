@@ -108,6 +108,17 @@ describe Diaspora::MessageRenderer do
         text = "You can create diaspora://author/type/guid links!"
         expect(message(text).html).to match(/#{text}/)
       end
+
+      it "ignores a diaspora:// links with a unknown guid" do
+        text = "Try this: `diaspora://unknown@localhost:3000/post/thislookslikeavalidguid123456789`"
+        expect(message(text).html).to match(/#{text}/)
+      end
+
+      it "ignores a diaspora:// links with an invalid entity type" do
+        target = FactoryGirl.create(:status_message)
+        text = "Try this: `diaspora://#{target.diaspora_handle}/posts/#{target.guid}`"
+        expect(message(text).html).to match(/#{text}/)
+      end
     end
   end
 
