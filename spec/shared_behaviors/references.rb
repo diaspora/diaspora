@@ -28,6 +28,26 @@ shared_examples_for "a reference source" do
       expect(post.references.map(&:target).map(&:guid)).to match_array([target1, target2].map(&:guid))
     end
 
+    it "ignores a reference with a unknown guid" do
+      text = "Try this: `diaspora://unknown@localhost:3000/post/thislookslikeavalidguid123456789`"
+
+      post = FactoryGirl.build(described_class.to_s.underscore.to_sym, text: text)
+      post.save
+
+      expect(post.references).to be_empty
+    end
+
+    it "ignores a reference with an invalid entity type" do
+      target = FactoryGirl.create(:status_message)
+
+      text = "Try this: `diaspora://#{target.diaspora_handle}/posts/#{target.guid}`"
+
+      post = FactoryGirl.build(described_class.to_s.underscore.to_sym, text: text)
+      post.save
+
+      expect(post.references).to be_empty
+    end
+
     it "only creates one reference, even when it is referenced twice" do
       target = FactoryGirl.create(:status_message)
       text = "Have a look at [this post](diaspora://#{target.diaspora_handle}/post/#{target.guid}) and " \
