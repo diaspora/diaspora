@@ -98,7 +98,8 @@ module Diaspora
 
       def diaspora_links
         @message = @message.gsub(DiasporaFederation::Federation::DiasporaUrlParser::DIASPORA_URL_REGEX) {|match_str|
-          Regexp.last_match(2) == "post" ? AppConfig.url_to("/posts/#{Regexp.last_match(3)}") : match_str
+          guid = Regexp.last_match(3)
+          Regexp.last_match(2) == "post" && Post.exists?(guid: guid) ? AppConfig.url_to("/posts/#{guid}") : match_str
         }
       end
     end

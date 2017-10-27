@@ -11,6 +11,7 @@
 ## Refactor
 
 ## Bug fixes
+* Ignore invalid `diaspora://` links [#7652](https://github.com/diaspora/diaspora/pull/7652)
 
 ## Features
 
