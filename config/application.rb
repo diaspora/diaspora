@@ -4,9 +4,11 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require_relative "bundler_helper"
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups(*Bundler.settings.with))
+Bundler.require(*Rails.groups(BundlerHelper.database))
 
 # Do not dump the limit of boolean fields on MySQL,
 # since that generates a db/schema.rb that's incompatible
