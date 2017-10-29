@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative "../config/bundler_helper"
+
+rails_env = BundlerHelper.rails_env
+database = BundlerHelper.database
+
+puts "Configuring Bundler for #{rails_env} environment and #{database} database."
+
+def config(option)
+  puts "$ bin/bundle config --local #{option}"
+  system("#{File.join(__dir__, '../bin/bundle')} config --local #{option}")
+end
+
+config("jobs #{`nproc`}")
+config("with #{database}")
+
+if rails_env == "production"
+  config("without test:development")
+elsif rails_env == "test"
+  config("without development")
+end
+
+if rails_env != "development"
+  config("path vendor/bundle")
+  config("frozen 1")
+  config("disable_shared_gems true")
+end
+
+if `gcc -dumpversion`.split(".").first.to_i >= 5
+  config("build.sigar \"--with-cppflags='-fgnu89-inline'\"")
+end
+
+puts "Bundler configured! Please run 'bin/bundle install' now."
