@@ -30,7 +30,7 @@ before_install:
   - tar -xvf $PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis-phantomjs
   - export PATH=$PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64/bin:$PATH
 
-script: "./script/ci/build.sh"
+script: "bin/rake --trace ci:travis:${BUILD_TYPE}"
 
 notifications:
   irc:

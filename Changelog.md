@@ -1,3 +1,7 @@
+# 0.7.1.1
+
+Fixes an issue with installing and running diaspora\* with today released bundler v1.16.0.
+
 # 0.7.1.0
 
 ## Ensure account deletions are run
