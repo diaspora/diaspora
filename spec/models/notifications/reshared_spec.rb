@@ -5,8 +5,8 @@
 #   the COPYRIGHT file.
 
 describe Notifications::Reshared, type: :model do
-  let(:sm) { FactoryGirl.build(:status_message, author: alice.person, public: true) }
-  let(:reshare) { FactoryGirl.build(:reshare, root: sm) }
+  let(:sm) { FactoryBot.build(:status_message, author: alice.person, public: true) }
+  let(:reshare) { FactoryBot.build(:reshare, root: sm) }
   let(:reshared_notification) { Notifications::Reshared.new(recipient: alice) }
 
   describe ".notify" do

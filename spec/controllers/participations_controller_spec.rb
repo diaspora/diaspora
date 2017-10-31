@@ -7,7 +7,7 @@ describe ParticipationsController, :type => :controller do
   end
 
   describe '#create' do
-    let(:stranger) { FactoryGirl.create(:user) }
+    let(:stranger) { FactoryBot.create(:user) }
 
     shared_examples 'on a visible post' do
       it 'creates the participation' do
@@ -57,7 +57,7 @@ describe ParticipationsController, :type => :controller do
   end
 
   describe '#destroy' do
-    let(:post) { FactoryGirl.create(:status_message) }
+    let(:post) { FactoryBot.create(:status_message) }
 
     context 'on a post you partecipate to' do
       before { alice.participate! post }

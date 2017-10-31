@@ -9,10 +9,10 @@ describe Post, :type => :model do
     describe '.owned_or_visible_by_user' do
       before do
         @you = bob
-        @public_post = FactoryGirl.create(:status_message, :public => true)
-        @your_post = FactoryGirl.create(:status_message, :author => @you.person)
+        @public_post = FactoryBot.create(:status_message, :public => true)
+        @your_post = FactoryBot.create(:status_message, :author => @you.person)
         @post_from_contact = eve.post(:status_message, :text => 'wooo', :to => eve.aspects.where(:name => 'generic').first)
-        @post_from_stranger = FactoryGirl.create(:status_message, :public => false)
+        @post_from_stranger = FactoryBot.create(:status_message, :public => false)
       end
 
       it 'returns post from your contacts' do
@@ -28,7 +28,7 @@ describe Post, :type => :model do
       end
 
       it 'returns public post from your contact' do
-        sm = FactoryGirl.create(:status_message, :author => eve.person, :public => true)
+        sm = FactoryBot.create(:status_message, :author => eve.person, :public => true)
 
         expect(StatusMessage.owned_or_visible_by_user(@you)).to include(sm)
       end
@@ -44,16 +44,16 @@ describe Post, :type => :model do
 
     describe ".all_public" do
       it "includes all public posts" do
-        post1 = FactoryGirl.create(:status_message, author: alice.person, public: true)
-        post2 = FactoryGirl.create(:status_message, author: bob.person, public: true)
-        post3 = FactoryGirl.create(:status_message, author: eve.person, public: true)
+        post1 = FactoryBot.create(:status_message, author: alice.person, public: true)
+        post2 = FactoryBot.create(:status_message, author: bob.person, public: true)
+        post3 = FactoryBot.create(:status_message, author: eve.person, public: true)
         expect(Post.all_public.ids).to match_array([post1.id, post2.id, post3.id])
       end
 
       it "doesn't include any private posts" do
-        FactoryGirl.create(:status_message, author: alice.person, public: false)
-        FactoryGirl.create(:status_message, author: bob.person, public: false)
-        FactoryGirl.create(:status_message, author: eve.person, public: false)
+        FactoryBot.create(:status_message, author: alice.person, public: false)
+        FactoryBot.create(:status_message, author: bob.person, public: false)
+        FactoryBot.create(:status_message, author: eve.person, public: false)
         expect(Post.all_public.ids).to eq([])
       end
     end
@@ -78,8 +78,8 @@ describe Post, :type => :model do
 
     describe '.excluding_blocks' do
       before do
-        @post = FactoryGirl.create(:status_message, :author => alice.person)
-        @other_post = FactoryGirl.create(:status_message, :author => eve.person)
+        @post = FactoryBot.create(:status_message, :author => alice.person)
+        @other_post = FactoryBot.create(:status_message, :author => eve.person)
 
         bob.blocks.create(:person => alice.person)
       end
@@ -99,8 +99,8 @@ describe Post, :type => :model do
 
     describe '.excluding_hidden_shareables' do
       before do
-        @post = FactoryGirl.create(:status_message, :author => alice.person)
-        @other_post = FactoryGirl.create(:status_message, :author => eve.person)
+        @post = FactoryBot.create(:status_message, :author => alice.person)
+        @other_post = FactoryBot.create(:status_message, :author => eve.person)
         bob.toggle_hidden_shareable(@post)
       end
       it 'excludes posts the user has hidden' do
@@ -178,10 +178,10 @@ describe Post, :type => :model do
     end
 
     describe ".subscribed_by" do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { FactoryBot.create(:user) }
 
       context "when the user has a participation on a post" do
-        let(:post) { FactoryGirl.create(:status_message_with_participations, participants: [user]) }
+        let(:post) { FactoryBot.create(:status_message_with_participations, participants: [user]) }
 
         it "includes the post to the result set" do
           expect(Post.subscribed_by(user)).to eq([post])
@@ -190,7 +190,7 @@ describe Post, :type => :model do
 
       context "when the user doens't have a participation on a post" do
         before do
-          FactoryGirl.create(:status_message)
+          FactoryBot.create(:status_message)
         end
 
         it "returns empty result set" do
@@ -200,10 +200,10 @@ describe Post, :type => :model do
     end
 
     describe ".reshared_by" do
-      let(:person) { FactoryGirl.create(:person) }
+      let(:person) { FactoryBot.create(:person) }
 
       context "when the person has a reshare for a post" do
-        let(:post) { FactoryGirl.create(:reshare, author: person).root }
+        let(:post) { FactoryBot.create(:reshare, author: person).root }
 
         it "includes the post to the result set" do
           expect(Post.reshared_by(person)).to eq([post])
@@ -212,7 +212,7 @@ describe Post, :type => :model do
 
       context "when the person has no reshare for a post" do
         before do
-          FactoryGirl.create(:status_message)
+          FactoryBot.create(:status_message)
         end
 
         it "returns empty result set" do
@@ -224,21 +224,21 @@ describe Post, :type => :model do
 
   describe 'validations' do
     it 'validates uniqueness of guid and does not throw a db error' do
-      message = FactoryGirl.create(:status_message)
-      expect(FactoryGirl.build(:status_message, :guid => message.guid)).not_to be_valid
+      message = FactoryBot.create(:status_message)
+      expect(FactoryBot.build(:status_message, :guid => message.guid)).not_to be_valid
     end
   end
 
   describe 'post_type' do
     it 'returns the class constant' do
-      status_message = FactoryGirl.create(:status_message)
+      status_message = FactoryBot.create(:status_message)
       expect(status_message.post_type).to eq("StatusMessage")
     end
   end
 
   describe 'deletion' do
     it 'should delete a posts comments on delete' do
-      post = FactoryGirl.create(:status_message, author: alice.person)
+      post = FactoryBot.create(:status_message, author: alice.person)
       alice.comment!(post, "hey")
       post.destroy
       expect(Post.where(:id => post.id).empty?).to eq(true)
@@ -248,13 +248,13 @@ describe Post, :type => :model do
 
   describe '.diaspora_initialize' do
     it 'takes provider_display_name' do
-      sm = FactoryGirl.create(:status_message, :provider_display_name => 'mobile')
+      sm = FactoryBot.create(:status_message, :provider_display_name => 'mobile')
       expect(StatusMessage.diaspora_initialize(sm.attributes.merge(:author => bob.person)).provider_display_name).to eq('mobile')
     end
   end
 
   describe "#subscribers" do
-    let(:user) { FactoryGirl.create(:user_with_aspect) }
+    let(:user) { FactoryBot.create(:user_with_aspect) }
 
     before do
       user.share_with(alice.person, user.aspects.first)
@@ -280,7 +280,7 @@ describe Post, :type => :model do
       let(:post) { user.post(:status_message, text: "hello", public: true) }
 
       it "returns the author to ensure local delivery" do
-        lonely_user = FactoryGirl.create(:user)
+        lonely_user = FactoryBot.create(:user)
         lonely_post = lonely_user.post(:status_message, text: "anyone?", public: true)
         expect(lonely_post.subscribers).to match_array([lonely_user.person])
       end
@@ -293,7 +293,7 @@ describe Post, :type => :model do
       end
 
       it "adds resharers to subscribers" do
-        FactoryGirl.create(:reshare, root: post, author: eve.person)
+        FactoryBot.create(:reshare, root: post, author: eve.person)
 
         expect(post.subscribers).to match_array([alice.person, eve.person, user.person])
       end
@@ -324,19 +324,19 @@ describe Post, :type => :model do
   describe "#receive" do
     it "creates a share visibility for the user" do
       user_ids = [alice.id, eve.id]
-      post = FactoryGirl.create(:status_message, author: bob.person)
+      post = FactoryBot.create(:status_message, author: bob.person)
       expect(ShareVisibility).to receive(:batch_import).with(user_ids, post)
       post.receive(user_ids)
     end
 
     it "does nothing for public post" do
-      post = FactoryGirl.create(:status_message, author: bob.person, public: true)
+      post = FactoryBot.create(:status_message, author: bob.person, public: true)
       expect(ShareVisibility).not_to receive(:batch_import)
       post.receive([alice.id])
     end
 
     it "does nothing if no recipients provided" do
-      post = FactoryGirl.create(:status_message, author: bob.person)
+      post = FactoryBot.create(:status_message, author: bob.person)
       expect(ShareVisibility).not_to receive(:batch_import)
       post.receive([])
     end
@@ -357,7 +357,7 @@ describe Post, :type => :model do
     describe 'when post has been reshared exactly 1 time' do
       before :each do
         expect(@post.reshares.size).to eq(0)
-        @reshare = FactoryGirl.create(:reshare, :root => @post)
+        @reshare = FactoryBot.create(:reshare, :root => @post)
         @post.reload
         expect(@post.reshares.size).to eq(1)
       end
@@ -370,9 +370,9 @@ describe Post, :type => :model do
     describe 'when post has been reshared more than once' do
       before :each do
         expect(@post.reshares.size).to eq(0)
-        FactoryGirl.create(:reshare, :root => @post)
-        FactoryGirl.create(:reshare, :root => @post)
-        FactoryGirl.create(:reshare, :root => @post)
+        FactoryBot.create(:reshare, :root => @post)
+        FactoryBot.create(:reshare, :root => @post)
+        FactoryBot.create(:reshare, :root => @post)
         @post.reload
         expect(@post.reshares.size).to eq(3)
       end
@@ -385,15 +385,15 @@ describe Post, :type => :model do
 
   describe "#after_create" do
     it "sets #interacted_at" do
-      post = FactoryGirl.create(:status_message)
+      post = FactoryBot.create(:status_message)
       expect(post.interacted_at).not_to be_blank
     end
   end
 
   describe "#before_destroy" do
     it "removes root_guid from reshares" do
-      post = FactoryGirl.create(:status_message, author: alice.person, public: true)
-      reshare = FactoryGirl.create(:reshare, author: bob.person, root: post)
+      post = FactoryBot.create(:status_message, author: alice.person, public: true)
+      reshare = FactoryBot.create(:reshare, author: bob.person, root: post)
       post.destroy!
       expect(reshare.reload.root_guid).to be_nil
     end

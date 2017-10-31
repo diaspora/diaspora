@@ -4,13 +4,13 @@ describe NotificationService do
   describe "notification interrelation" do
     context "with mention in comment" do
       let(:status_message) {
-        FactoryGirl.create(:status_message, public: true, author: alice.person).tap {|status_message|
+        FactoryBot.create(:status_message, public: true, author: alice.person).tap {|status_message|
           eve.comment!(status_message, "whatever")
         }
       }
 
       let(:comment) {
-        FactoryGirl.create(
+        FactoryBot.create(
           :comment,
           author: bob.person,
           text:   text_mentioning(alice, eve),

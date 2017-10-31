@@ -3,7 +3,7 @@
 describe Workers::FetchProfilePhoto do
   before do
    @user = alice
-   @service = FactoryGirl.build(:service, :user => alice)
+   @service = FactoryBot.build(:service, :user => alice)
 
    @url = "https://service.com/user/profile_image"
 

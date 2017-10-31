@@ -4,12 +4,12 @@ describe NotificationsHelper, type: :helper do
   include ApplicationHelper
 
   before do
-    @user = FactoryGirl.create(:user)
-    @person = FactoryGirl.create(:person)
-    @post = FactoryGirl.create(:status_message, author: @user.person)
-    @person2 = FactoryGirl.create(:person)
-    Notifications::Liked.notify(FactoryGirl.create(:like, author: @person, target: @post), [])
-    Notifications::Liked.notify(FactoryGirl.create(:like, author: @person2, target: @post), [])
+    @user = FactoryBot.create(:user)
+    @person = FactoryBot.create(:person)
+    @post = FactoryBot.create(:status_message, author: @user.person)
+    @person2 = FactoryBot.create(:person)
+    Notifications::Liked.notify(FactoryBot.create(:like, author: @person, target: @post), [])
+    Notifications::Liked.notify(FactoryBot.create(:like, author: @person2, target: @post), [])
 
     @notification = Notifications::Liked.find_by(target: @post, recipient: @user)
   end
@@ -20,19 +20,19 @@ describe NotificationsHelper, type: :helper do
       let(:output){ strip_tags(notification_people_link(@note)) }
 
       before do
-        @max = FactoryGirl.create(:person)
+        @max = FactoryBot.create(:person)
         @max.profile.first_name = 'max'
         @max.profile.last_name = 'salzberg'
-        @sarah = FactoryGirl.create(:person)
+        @sarah = FactoryBot.create(:person)
         @sarah.profile.first_name = 'sarah'
         @sarah.profile.last_name = 'mei'
 
 
-        @daniel = FactoryGirl.create(:person)
+        @daniel = FactoryBot.create(:person)
         @daniel.profile.first_name = 'daniel'
         @daniel.profile.last_name = 'grippi'
 
-        @ilya = FactoryGirl.create(:person)
+        @ilya = FactoryBot.create(:person)
         @ilya.profile.first_name = 'ilya'
         @ilya.profile.last_name = 'zhit'
         @note = double()
@@ -94,7 +94,7 @@ describe NotificationsHelper, type: :helper do
     end
 
     let(:status_message) {
-      FactoryGirl.create(:status_message_in_aspect, author: alice.person, text: text_mentioning(bob))
+      FactoryBot.create(:status_message_in_aspect, author: alice.person, text: text_mentioning(bob))
     }
 
     describe "when mentioned in status message" do
@@ -111,7 +111,7 @@ describe NotificationsHelper, type: :helper do
 
     describe "when mentioned in comment" do
       it "should include correct wording, post link and comment link" do
-        comment = FactoryGirl.create(:comment, author: bob.person, text: text_mentioning(alice), post: status_message)
+        comment = FactoryBot.create(:comment, author: bob.person, text: text_mentioning(alice), post: status_message)
         Notifications::MentionedInComment.notify(comment, [alice.id])
         notification = Notifications::MentionedInComment.last
         expect(notification).not_to be_nil

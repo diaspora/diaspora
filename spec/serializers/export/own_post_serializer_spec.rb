@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 describe Export::OwnPostSerializer do
-  let(:author) { FactoryGirl.create(:user_with_aspect).person }
+  let(:author) { FactoryBot.create(:user_with_aspect).person }
 
   before do
-    author.owner.share_with(FactoryGirl.create(:person), author.owner.aspects.first)
+    author.owner.share_with(FactoryBot.create(:person), author.owner.aspects.first)
   end
 
   it_behaves_like "a federation entity serializer" do
@@ -28,10 +28,10 @@ describe Export::OwnPostSerializer do
 
   context "with public post" do
     let(:post) {
-      FactoryGirl.create(
+      FactoryBot.create(
         :status_message_with_participations,
         author:       author,
-        participants: Array.new(2) { FactoryGirl.create(:person) },
+        participants: Array.new(2) { FactoryBot.create(:person) },
         public:       true
       )
     }

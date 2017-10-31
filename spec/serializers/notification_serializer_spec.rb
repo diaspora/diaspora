@@ -8,7 +8,7 @@ describe NotificationSerializer do
     notifications_controller.request = ActionDispatch::TestRequest.new(host: AppConfig.pod_uri)
   end
 
-  let(:notification) { FactoryGirl.create(:notification) }
+  let(:notification) { FactoryBot.create(:notification) }
   let(:json_output) {
     NotificationSerializer.new(notification, context: notifications_controller).to_json
   }

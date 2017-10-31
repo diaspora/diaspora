@@ -7,7 +7,7 @@ describe "deleteing account", type: :request do
   end
 
   context "of local user" do
-    subject(:user) { FactoryGirl.create(:user_with_aspect) }
+    subject(:user) { FactoryBot.create(:user_with_aspect) }
     let(:person) { user.person }
 
     before do
