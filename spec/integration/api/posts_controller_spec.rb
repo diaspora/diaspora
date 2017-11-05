@@ -22,14 +22,23 @@ describe Api::V0::PostsController do
       it "shows attempts to show the info and mark the user notifications" do
         expect(post_service_double).to receive(:mark_user_notifications)
         @status = auth_with_read.user.post(:status_message, text: "hello", public: true, to: "all")
-        get api_v0_post_path(@status.id), access_token: access_token_with_read
+        get(
+          api_v0_post_path(@status.id),
+           params: {access_token: access_token_with_read}
+        )
       end
     end
 
     context "when mark notifications is false" do
       it "shows attempts to show the info" do
         @status = auth_with_read.user.post(:status_message, text: "hello", public: true, to: "all")
-        get api_v0_post_path(@status.id), access_token: access_token_with_read, mark_notifications: "false"
+        get(
+          api_v0_post_path(@status.id),
+          params: {
+            access_token: access_token_with_read,
+            mark_notifications: "false"
+          }
+        )
       end
     end
   end
@@ -37,22 +46,40 @@ describe Api::V0::PostsController do
   describe "#create" do
     context "when given read-write access token" do
       it "creates a public post" do
-        post api_v0_posts_path, access_token: access_token_with_read_and_write,
-             status_message: {text: "Hello this is a public post!"}, aspect_ids: "public"
-        expect(Post.find_by(text: "Hello this is a public post!").public).to eq(true)
+        post(
+          api_v0_posts_path,
+          params: {
+            access_token: access_token_with_read_and_write,
+            status_message: {text: "Hello this is a public post!"},
+            aspect_ids: "public"
+          }
+        )
+        expect(Post.find_by_text("Hello this is a public post!").public).to eq(true)
       end
 
       it "creates a private post" do
-        post api_v0_posts_path, access_token: access_token_with_read_and_write,
-             status_message: {text: "Hello this is a post!"}, aspect_ids: "1"
+        response = post(
+          api_v0_posts_path,
+          params: {
+            access_token: access_token_with_read_and_write,
+            status_message: {text: "Hello this is a post!"},
+            aspect_ids: "1"
+          }
+        )
         expect(Post.find_by(text: "Hello this is a post!").public).to eq(false)
       end
     end
 
     context "when given read only access token" do
       before do
-        post api_v0_posts_path, access_token: access_token_with_read,
-             status_message: {text: "Hello this is a post!"}, aspect_ids: "public"
+        post(
+          api_v0_posts_path,
+          params: {
+            access_token: access_token_with_read,
+            status_message: {text: "Hello this is a post!"},
+            aspect_ids: "public"
+          }
+        )
       end
 
       it "doesn't create the post" do
@@ -67,14 +94,20 @@ describe Api::V0::PostsController do
       it "attempts to destroy the post" do
         expect(post_service_double).to receive(:retract_post)
         @status = auth_with_read_and_write.user.post(:status_message, text: "hello", public: true, to: "all")
-        delete api_v0_post_path(@status.id), access_token: access_token_with_read_and_write
+        delete(
+          api_v0_post_path(@status.id),
+          params: {access_token: access_token_with_read_and_write}
+        )
       end
     end
 
     context "when given read only access token" do
       before do
         @status = auth_with_read.user.post(:status_message, text: "hello", public: true, to: "all")
-        delete api_v0_post_path(@status.id), access_token: access_token_with_read
+        delete(
+          api_v0_post_path(@status.id),
+          params: {access_token: access_token_with_read}
+        )
       end
 
       it "doesn't delete the post" do

@@ -25,7 +25,7 @@ describe Api::V0::ConversationsController do
   describe "#create" do
     context "with valid data" do
       it "creates the conversation" do
-        post api_v0_conversations_path, @conversation
+        post api_v0_conversations_path, params: @conversation
         @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
         conversation = JSON.parse(response.body)["conversation"]
 
@@ -40,7 +40,7 @@ describe Api::V0::ConversationsController do
 
     context "without valid data" do
       it "fails at creating the conversation" do
-        post api_v0_conversations_path, access_token: access_token
+        post api_v0_conversations_path, params: { access_token: access_token }
         expect(response.status).to eq 400
       end
     end
@@ -48,10 +48,10 @@ describe Api::V0::ConversationsController do
 
   describe "#index" do
     before do
-      post api_v0_conversations_path, @conversation
-      post api_v0_conversations_path, @conversation
+      post api_v0_conversations_path, params: @conversation
+      post api_v0_conversations_path, params: @conversation
       sleep(1)
-      post api_v0_conversations_path, @conversation
+      post api_v0_conversations_path, params: @conversation
       conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
       conversation = conversation_service.find!(conversation_guid)
       conversation.conversation_visibilities[0].unread = 1
@@ -62,13 +62,16 @@ describe Api::V0::ConversationsController do
     end
 
     it "returns all the user conversations" do
-      get api_v0_conversations_path, access_token: access_token
+      get api_v0_conversations_path, params: { access_token: access_token }
       expect(response.status).to eq 200
       expect(JSON.parse(response.body).length).to eq 3
     end
 
     it "returns all the user unread conversations" do
-      get api_v0_conversations_path, unread: true, access_token: access_token
+      get(
+          api_v0_conversations_path,
+          params: { unread: true, access_token: access_token }
+      )
       expect(response.status).to eq 200
       expect(JSON.parse(response.body).length).to eq 2
     end
@@ -76,7 +79,7 @@ describe Api::V0::ConversationsController do
     it "returns all the user conversations after a given date" do
       get(
         api_v0_conversations_path,
-        only_after: @date, access_token: access_token
+        params: { only_after: @date, access_token: access_token }
       )
       expect(response.status).to eq 200
       expect(JSON.parse(response.body).length).to eq 1
@@ -86,14 +89,14 @@ describe Api::V0::ConversationsController do
   describe "#show" do
     context "valid conversation ID" do
       before do
-        post api_v0_conversations_path, @conversation
+        post api_v0_conversations_path, params: @conversation
       end
 
       it "returns the corresponding conversation" do
         conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
         get(
           api_v0_conversation_path(conversation_guid),
-          access_token: access_token
+          params: { access_token: access_token }
         )
         expect(response.status).to eq 200
         conversation = JSON.parse(response.body)["conversation"]
@@ -108,7 +111,7 @@ describe Api::V0::ConversationsController do
       it "returns a not found error (404)" do
         get(
           api_v0_conversation_path(42),
-          access_token: access_token
+          params: { access_token: access_token }
         )
         expect(response.status).to eq 404
       end
@@ -130,7 +133,7 @@ describe Api::V0::ConversationsController do
         recipients:   [auth_participant.user.person.id],
         access_token: access_token
       }
-      post api_v0_conversations_path, @conversation
+      post api_v0_conversations_path, params: @conversation
       @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
     end
 
@@ -138,17 +141,17 @@ describe Api::V0::ConversationsController do
       it "destroys the first participant visibility" do
         delete(
           api_v0_conversation_path(@conversation_guid),
-          access_token: access_token
+          params: { access_token: access_token }
         )
         expect(response.status).to eq 204
         get api_v0_conversation_path(
           @conversation_guid,
-          access_token: access_token
+          params: { access_token: access_token }
         )
         expect(response.status).to eq 404
         get api_v0_conversation_path(
           @conversation_guid,
-          access_token: access_token_participant
+          params: { access_token: access_token_participant }
         )
         expect(response.status).to eq 200
       end
@@ -158,17 +161,17 @@ describe Api::V0::ConversationsController do
       it "destroys the second participant visibilty and the conversation" do
         delete(
           api_v0_conversation_path(@conversation_guid),
-          access_token: access_token
+          params: { access_token: access_token }
         )
         delete(
           api_v0_conversation_path(@conversation_guid),
-          access_token: access_token_participant
+          params: { access_token: access_token_participant }
         )
         expect(response.status).to eq 204
 
         get api_v0_conversation_path(
           @conversation_guid,
-          access_token: access_token_participant
+          params: { access_token: access_token_participant }
         )
         expect(response.status).to eq 404
 
@@ -182,7 +185,7 @@ describe Api::V0::ConversationsController do
       it "returns a not found error (404)" do
         delete(
           api_v0_conversation_path(42),
-          access_token: access_token
+          params: { access_token: access_token }
         )
         expect(response.status).to eq 404
       end

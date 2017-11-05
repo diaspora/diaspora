@@ -12,30 +12,42 @@ describe Api::V0::LikesController do
 
   describe "#create" do
     it "returns the expected author" do
-      post api_v0_post_likes_path(post_id: @status.id), access_token: access_token
+      post(
+          api_v0_post_likes_path(post_id: @status.id),
+          params: { access_token: access_token }
+      )
       json = JSON.parse(response.body)
       expect(json["author"]["id"]).to eq(auth.user.person.id)
     end
 
     it "fails on random post id" do
-      post api_v0_post_likes_path(post_id: 99_999_999), access_token: access_token
+      post api_v0_post_likes_path(post_id: 99_999_999), params: {access_token: access_token}
       expect(response.body).to eq("Post or like not found")
     end
   end
 
   describe "#delete" do
     before do
-      post api_v0_post_likes_path(post_id: @status.id), access_token: access_token
+      post(
+          api_v0_post_likes_path(post_id: @status.id),
+          params: { access_token: access_token }
+      )
       @like_id = JSON.parse(response.body)["id"]
     end
 
     it "succeeds" do
-      delete api_v0_post_like_path(post_id: @status.id, id: @like_id), access_token: access_token
+      delete(
+          api_v0_post_like_path(post_id: @status.id, id: @like_id),
+          params: { access_token: access_token }
+      )
       expect(response).to be_success
     end
 
     it "fails on random like id" do
-      delete api_v0_post_like_path(post_id: @status.id, id: 99_999_999), access_token: access_token
+      delete(
+          api_v0_post_like_path(post_id: @status.id, id: 99_999_999),
+          params: { access_token: access_token }
+      )
       expect(response.body).to eq("Post or like not found")
     end
   end
