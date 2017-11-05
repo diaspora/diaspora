@@ -24,7 +24,7 @@ describe Api::V0::PostsController do
         @status = auth_with_read.user.post(:status_message, text: "hello", public: true, to: "all")
         get(
           api_v0_post_path(@status.id),
-           params: {access_token: access_token_with_read}
+          params: {access_token: access_token_with_read}
         )
       end
     end
@@ -35,7 +35,7 @@ describe Api::V0::PostsController do
         get(
           api_v0_post_path(@status.id),
           params: {
-            access_token: access_token_with_read,
+            access_token:       access_token_with_read,
             mark_notifications: "false"
           }
         )
@@ -49,21 +49,21 @@ describe Api::V0::PostsController do
         post(
           api_v0_posts_path,
           params: {
-            access_token: access_token_with_read_and_write,
+            access_token:   access_token_with_read_and_write,
             status_message: {text: "Hello this is a public post!"},
-            aspect_ids: "public"
+            aspect_ids:     "public"
           }
         )
-        expect(Post.find_by_text("Hello this is a public post!").public).to eq(true)
+        expect(Post.find_by(text: "Hello this is a public post!").public).to eq(true)
       end
 
       it "creates a private post" do
-        response = post(
+        post(
           api_v0_posts_path,
           params: {
-            access_token: access_token_with_read_and_write,
+            access_token:   access_token_with_read_and_write,
             status_message: {text: "Hello this is a post!"},
-            aspect_ids: "1"
+            aspect_ids:     "1"
           }
         )
         expect(Post.find_by(text: "Hello this is a post!").public).to eq(false)
@@ -75,9 +75,9 @@ describe Api::V0::PostsController do
         post(
           api_v0_posts_path,
           params: {
-            access_token: access_token_with_read,
+            access_token:   access_token_with_read,
             status_message: {text: "Hello this is a post!"},
-            aspect_ids: "public"
+            aspect_ids:     "public"
           }
         )
       end

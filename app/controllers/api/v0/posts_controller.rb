@@ -53,7 +53,6 @@ module Api
           aspect_ids
         end
       end
-
     end
   end
 end

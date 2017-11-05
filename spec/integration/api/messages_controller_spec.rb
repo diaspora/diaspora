@@ -100,5 +100,4 @@ describe Api::V0::MessagesController do
       end
     end
   end
-
 end
