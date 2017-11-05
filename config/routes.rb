@@ -222,14 +222,14 @@ Rails.application.routes.draw do
   get "podmin", to: "home#podmin"
 
   api_version(module: "Api::V0", path: {value: "api/v0"}, default: true) do
-    match "user", to: "users#show", via: %i[get post]
-    resources :posts, only: %i[show create destroy] do
-      resources :comments, only: %i[create destroy]
-      resources :likes, only: %i[create destroy]
+    match "user", to: "users#show", via: %i(get post)
+    resources :posts, only: %i(show create destroy) do
+      resources :comments, only: %i(create destroy)
+      resources :likes, only: %i(create destroy)
     end
-    resources :conversations, only: %i[show index create destroy] do
+    resources :conversations, only: %i(show index create destroy) do
       delete "visibility" => "conversation_visibilities#destroy"
-      resources :messages, only: %i[index create]
+      resources :messages, only: %i(index create)
     end
     get "activity" => "streams#activity", :as => "activity_stream"
     get "stream" => "streams#multi", :as => "stream"
