@@ -27,7 +27,7 @@ describe Api::V0::MessagesController do
 
   describe "#create " do
     before do
-      post api_v0_conversations_path, @conversation
+      post api_v0_conversations_path, params: @conversation
       @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
     end
 
@@ -35,7 +35,7 @@ describe Api::V0::MessagesController do
       it "creates the message in the conversation scope" do
         post(
           api_v0_conversation_messages_path(@conversation_guid),
-          body: @message, access_token: access_token
+          params: {body: @message, access_token: access_token}
         )
         expect(response.status).to eq 201
 
@@ -47,7 +47,7 @@ describe Api::V0::MessagesController do
 
         get(
           api_v0_conversation_messages_path(@conversation_guid),
-          access_token: access_token
+          params: {access_token: access_token}
         )
         messages = JSON.parse(response.body)
         expect(messages.length).to eq 2
@@ -60,7 +60,7 @@ describe Api::V0::MessagesController do
       it "returns a wrong parameter error (400)" do
         post(
           api_v0_conversation_messages_path(@conversation_guid),
-          access_token: access_token
+          params: {access_token: access_token}
         )
         expect(response.status).to eq 400
       end
@@ -70,7 +70,7 @@ describe Api::V0::MessagesController do
       it "returns a a not found error (404)" do
         post(
           api_v0_conversation_messages_path(42),
-          access_token: access_token
+          params: {access_token: access_token}
         )
         expect(response.status).to eq 404
       end
@@ -79,7 +79,7 @@ describe Api::V0::MessagesController do
 
   describe "#index " do
     before do
-      post api_v0_conversations_path, @conversation
+      post api_v0_conversations_path, params: @conversation
       @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
     end
 
@@ -87,7 +87,7 @@ describe Api::V0::MessagesController do
       it "returns all messages related to conversation" do
         get(
           api_v0_conversation_messages_path(@conversation_guid),
-          access_token: access_token
+          params: {access_token: access_token}
         )
         messages = JSON.parse(response.body)
         expect(messages.length).to eq 1

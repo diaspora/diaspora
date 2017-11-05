@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 describe ConversationService do
-  opts = {
-    subject:         "conversation subject",
-    message:         {text: "conversation text"},
-    participant_ids: [bob.person.id]
-  }
-  conversation = alice.build_conversation(opts)
-  conversation.save
+  before do
+    opts = {
+      subject:         "conversation subject",
+      message:         {text: "conversation text"},
+      participant_ids: [bob.person.id]
+    }
+    @conversation = alice.build_conversation(opts)
+    @conversation.save
+  end
 
   describe "#all_for_user" do
     before do
@@ -23,9 +25,9 @@ describe ConversationService do
       opts = {
         subject:         "conversation subject 3",
         message:         {text: "conversation text 3"},
-        participant_ids: [bob.person.id]
+        participant_ids: []
       }
-      @conversation = alice.build_conversation(opts)
+      @conversation = bob.build_conversation(opts)
       @conversation.save!
     end
 
@@ -49,14 +51,14 @@ describe ConversationService do
 
   describe "#find!" do
     it "returns the conversation, if it is the user's conversation" do
-      expect(bob_conversation_service.find!(conversation.guid)).to eq(
-        conversation
+      expect(bob_conversation_service.find!(@conversation.guid)).to eq(
+        @conversation
       )
     end
 
     it "returns the conversation, if the user is recipient" do
-      expect(bob_conversation_service.find!(conversation.guid)).to eq(
-        conversation
+      expect(bob_conversation_service.find!(@conversation.guid)).to eq(
+        @conversation
       )
     end
 
@@ -68,7 +70,7 @@ describe ConversationService do
 
     it "raises RecordNotFound if the user is not recipient" do
       expect {
-        eve_conversation_service.find!(conversation.guid)
+        eve_conversation_service.find!(@conversation.guid)
       }.to raise_error ActiveRecord::RecordNotFound
     end
   end
@@ -101,22 +103,24 @@ describe ConversationService do
 
   describe "#get_visibility" do
     it "returns visibility for current user" do
-      visibility = alice_conversation_service.get_visibility(conversation.guid)
+      visibility = alice_conversation_service.get_visibility(
+          @conversation.guid
+      )
       expect(visibility).to_not be_nil
     end
 
     it "raises RecordNotFound if the user has no visibility" do
       expect {
-        eve_conversation_service.get_visibility(conversation.id)
+        eve_conversation_service.get_visibility(@conversation.id)
       }.to raise_error ActiveRecord::RecordNotFound
     end
   end
 
   describe "#destroy!" do
     it "deletes the conversation, when it is the user conversation" do
-      alice_conversation_service.destroy!(conversation.guid)
+      alice_conversation_service.destroy!(@conversation.guid)
       expect {
-        alice_conversation_service.find!(conversation.guid)
+        alice_conversation_service.find!(@conversation.guid)
       }.to raise_error ActiveRecord::RecordNotFound
     end
 
@@ -128,7 +132,7 @@ describe ConversationService do
 
     it "raises RecordNotFound if the user is not part of the conversation" do
       expect {
-        eve_conversation_service.destroy!(conversation.guid)
+        eve_conversation_service.destroy!(@conversation.guid)
       }.to raise_error ActiveRecord::RecordNotFound
     end
   end
