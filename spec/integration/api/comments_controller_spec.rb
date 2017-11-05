@@ -7,11 +7,12 @@ describe Api::V0::CommentsController do
   let!(:access_token) { auth.create_access_token.to_s }
 
   before do
-    @status = auth.user.post("Post",
+    @status = auth.user.post(
+      "Post",
       status_message: {text: "This is a status message"},
-      public: true,
-      to: "all",
-      type: "Post"
+      public:         true,
+      to:             "all",
+      type:           "Post"
     )
   end
 
@@ -31,7 +32,7 @@ describe Api::V0::CommentsController do
         post(
           api_v0_post_comments_path(post_id: @status.id),
           params: {
-            text: "This is a long comment" * 99_999,
+            text:         "This is a long comment" * 99_999,
             access_token: access_token
           }
         )

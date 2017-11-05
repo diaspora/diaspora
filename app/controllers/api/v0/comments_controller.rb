@@ -31,7 +31,6 @@ module Api
       def comment_service
         @comment_service ||= CommentService.new(current_user)
       end
-
     end
   end
 end

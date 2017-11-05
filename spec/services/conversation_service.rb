@@ -104,7 +104,7 @@ describe ConversationService do
   describe "#get_visibility" do
     it "returns visibility for current user" do
       visibility = alice_conversation_service.get_visibility(
-          @conversation.guid
+        @conversation.guid
       )
       expect(visibility).to_not be_nil
     end
