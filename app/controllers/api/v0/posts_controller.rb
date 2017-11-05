@@ -20,7 +20,7 @@ module Api
       end
 
       def create
-        @status_message = StatusMessageCreationService.new(params, current_user).status_message
+        @status_message = StatusMessageCreationService.new(current_user).create(normalized_params)
         render json: PostPresenter.new(@status_message, current_user)
       end
 
@@ -29,6 +29,31 @@ module Api
         post_service.retract_post
         render nothing: true, status: 204
       end
+
+      def normalized_params
+        params.permit(
+          :location_address,
+          :location_coords,
+          :poll_question,
+          status_message: %i[text provider_display_name],
+          poll_answers:   []
+        ).to_h.merge(
+          services:   [*params[:services]].compact,
+          aspect_ids: normalize_aspect_ids,
+          public:     [*params[:aspect_ids]].first == "public",
+          photos:     [*params[:photos]].compact
+        )
+      end
+
+      def normalize_aspect_ids
+        aspect_ids = [*params[:aspect_ids]]
+        if aspect_ids.first == "all_aspects"
+          current_user.aspect_ids
+        else
+          aspect_ids
+        end
+      end
+
     end
   end
 end

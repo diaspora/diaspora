@@ -26,7 +26,7 @@ module Api
 
       def index
         conversation = conversation_service.find!(params[:conversation_id])
-        conversation.set_read(user)
+        conversation.set_read(current_user)
         render json: conversation.messages.map {|x| message_json(x) }, status: 201
       end
 

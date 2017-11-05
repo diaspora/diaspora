@@ -3,7 +3,7 @@
 module Api
   module V0
     class CommentsController < Api::V0::BaseController
-      before_action only: %i[reate destroy] do
+      before_action only: %i[create destroy] do
         require_access_token %w[read write]
       end
 
@@ -16,18 +16,22 @@ module Api
       end
 
       def create
-        @comment = CommentService.new(post_id: params[:post_id], text: params[:text], user: current_user).create_comment
+        @comment = comment_service.create(params[:post_id], params[:text])
         render json: CommentPresenter.new(@comment), status: 201
       end
 
       def destroy
-        service = CommentService.new(comment_id: params[:id], user: current_user)
-        if service.destroy_comment
-          render json: I18n.t("comments.destroy.success", id: params[:id]), status: 200
+        if comment_service.destroy(params[:id])
+          head :no_content
         else
           render json: I18n.t("comments.destroy.fail"), status: 403
         end
       end
+
+      def comment_service
+        @comment_service ||= CommentService.new(current_user)
+      end
+
     end
   end
 end
