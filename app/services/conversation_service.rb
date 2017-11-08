@@ -3,12 +3,21 @@ class ConversationService
     @user = user
   end
 
-  def all_for_user
-    Conversation.where(author_id: @user.person.id)
+  def all_for_user(filter={})
+    conversation_filter = {}
+    if !filter[:only_after].nil? then
+      conversation_filter = \
+        'conversations.created_at >= ?', filter[:only_after]
+    end
+
+    visibility_filter = {person_id: @user.person_id}
+    if filter[:unread] == true then
+      visibility_filter["unread"] = 0
+    end
+
+    Conversation.where(conversation_filter)
                 .joins(:conversation_visibilities)
-                .where(conversation_visibilities: {
-                  person_id: @user.person_id
-                })
+                .where(conversation_visibilities: visibility_filter)
                 .all
   end
 

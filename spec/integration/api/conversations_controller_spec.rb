@@ -24,6 +24,7 @@ describe Api::V0::ConversationsController do
     context "with valid data" do
       it "creates the conversation" do
         post api_v0_conversations_path, @conversation
+        @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
         conversation = JSON.parse(response.body)["conversation"]
 
         expect(response.status).to eq 201
@@ -31,6 +32,7 @@ describe Api::V0::ConversationsController do
         expect(conversation["subject"]).to eq @conversation[:subject]
         expect(conversation["created_at"]).to_not be_nil
         expect(conversation["participants"].length).to eq 2
+        conversation_service.find!(@conversation_guid)
       end
     end
 
@@ -46,12 +48,36 @@ describe Api::V0::ConversationsController do
     before do
       post api_v0_conversations_path, @conversation
       post api_v0_conversations_path, @conversation
+      sleep(1)
+      post api_v0_conversations_path, @conversation
+      conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
+      conversation = conversation_service.find!(conversation_guid)
+      conversation.conversation_visibilities[0].unread = 1
+      conversation.conversation_visibilities[0].save!
+      conversation.conversation_visibilities[1].unread = 1
+      conversation.conversation_visibilities[1].save!
+      @date = conversation.created_at
     end
 
     it "returns all the user conversations" do
       get api_v0_conversations_path, access_token: access_token
       expect(response.status).to eq 200
+      expect(JSON.parse(response.body).length).to eq 3
+    end
+
+    it "returns all the user unread conversations" do
+      get api_v0_conversations_path, unread: true, access_token: access_token
+      expect(response.status).to eq 200
       expect(JSON.parse(response.body).length).to eq 2
+    end
+
+    it "returns all the user conversations after a given date" do
+      get(
+        api_v0_conversations_path,
+        only_after: @date, access_token: access_token
+      )
+      expect(response.status).to eq 200
+      expect(JSON.parse(response.body).length).to eq 1
     end
   end
 
@@ -71,7 +97,6 @@ describe Api::V0::ConversationsController do
         conversation = JSON.parse(response.body)["conversation"]
         expect(conversation["guid"]).to eq conversation_guid
         expect(conversation["subject"]).to eq @conversation[:subject]
-        expect(conversation["created_at"]).to_not be_nil
         expect(conversation["participants"].length).to eq 2
         expect(conversation["read"]).to eq true
       end
@@ -161,4 +186,9 @@ describe Api::V0::ConversationsController do
       end
     end
   end
+
+  def conversation_service
+    ConversationService.new(alice)
+  end
+
 end

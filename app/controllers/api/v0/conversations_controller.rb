@@ -16,7 +16,14 @@ module Api
       end
 
       def index
-        conversations = conversation_service.all_for_user
+        filter = {}
+        if params[:only_after] then
+            filter["only_after"] = params[:only_after]
+        end
+        if params[:unread] then
+            filter["unread"] = params[:unread]
+        end
+        conversations = conversation_service.all_for_user(filter)
         render json: conversations.map {|x| conversation_as_json(x) }
       end
 

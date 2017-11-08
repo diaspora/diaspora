@@ -7,9 +7,51 @@ describe ConversationService do
   conversation = alice.build_conversation(opts)
   conversation.save
 
+  describe "#all_for_user" do
+    before do
+      opts = {
+          subject:         "conversation subject 2",
+          message:         {text: "conversation text 2"},
+          participant_ids: [bob.person.id]
+      }
+      @conversation = alice.build_conversation(opts)
+      @conversation.save!
+      sleep(1)
+      @date = @conversation.created_at
+      opts = {
+          subject:         "conversation subject 3",
+          message:         {text: "conversation text 3"},
+          participant_ids: [bob.person.id]
+      }
+      @conversation = alice.build_conversation(opts)
+      @conversation.save!
+    end
+
+    it "returns all conversations" do
+      expect(alice_conversation_service.all_for_user().length).to eq(3)
+      expect(bob_conversation_service.all_for_user().length).to eq(3)
+    end
+
+    it "returns all unread conversations" do
+      @conversation.conversation_visibilities[0].unread = true
+      @conversation.conversation_visibilities[0].save!
+      conversations = bob_conversation_service.all_for_user(
+        filter={unread: true}
+      )
+      expect(conversations.length).to eq(2)
+    end
+
+    it "returns conversation after a given date" do
+      conversations = bob_conversation_service.all_for_user(
+        filter={only_after: @date}
+      )
+      expect(conversations.length).to eq(2)
+    end
+  end
+
   describe "#find!" do
     it "returns the conversation, if it is the user's conversation" do
-      expect(alice_conversation_service.find!(conversation.guid)).to eq(
+      expect(bob_conversation_service.find!(conversation.guid)).to eq(
         conversation
       )
     end
