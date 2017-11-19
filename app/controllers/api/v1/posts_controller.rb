@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Api
-  module V0
-    class PostsController < Api::V0::BaseController
+  module V1
+    class PostsController < Api::V1::BaseController
       include PostsHelper
 
       before_action only: :show do

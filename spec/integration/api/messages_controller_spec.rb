@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Api::V0::MessagesController do
+describe Api::V1::MessagesController do
   let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
   let!(:access_token) { auth.create_access_token.to_s }
 
@@ -27,14 +27,14 @@ describe Api::V0::MessagesController do
 
   describe "#create " do
     before do
-      post api_v0_conversations_path, params: @conversation
+      post api_v1_conversations_path, params: @conversation
       @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
     end
 
     context "with valid data" do
       it "creates the message in the conversation scope" do
         post(
-          api_v0_conversation_messages_path(@conversation_guid),
+          api_v1_conversation_messages_path(@conversation_guid),
           params: {body: @message, access_token: access_token}
         )
         expect(response.status).to eq 201
@@ -46,7 +46,7 @@ describe Api::V0::MessagesController do
         expect(message["body"]).to_not be_nil
 
         get(
-          api_v0_conversation_messages_path(@conversation_guid),
+          api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
         messages = JSON.parse(response.body)
@@ -59,7 +59,7 @@ describe Api::V0::MessagesController do
     context "without valid data" do
       it "returns a wrong parameter error (400)" do
         post(
-          api_v0_conversation_messages_path(@conversation_guid),
+          api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
         expect(response.status).to eq 400
@@ -69,7 +69,7 @@ describe Api::V0::MessagesController do
     context "with wrong conversation id" do
       it "returns a a not found error (404)" do
         post(
-          api_v0_conversation_messages_path(42),
+          api_v1_conversation_messages_path(42),
           params: {access_token: access_token}
         )
         expect(response.status).to eq 404
@@ -79,14 +79,14 @@ describe Api::V0::MessagesController do
 
   describe "#index " do
     before do
-      post api_v0_conversations_path, params: @conversation
+      post api_v1_conversations_path, params: @conversation
       @conversation_guid = JSON.parse(response.body)["conversation"]["guid"]
     end
 
     context "retrieving messages" do
       it "returns all messages related to conversation" do
         get(
-          api_v0_conversation_messages_path(@conversation_guid),
+          api_v1_conversation_messages_path(@conversation_guid),
           params: {access_token: access_token}
         )
         messages = JSON.parse(response.body)

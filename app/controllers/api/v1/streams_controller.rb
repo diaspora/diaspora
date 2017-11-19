@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Api
-  module V0
-    class StreamsController < Api::V0::BaseController
+  module V1
+    class StreamsController < Api::V1::BaseController
       before_action do
         require_access_token %w[read]
       end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Api
-  module V0
+  module V1
     class BaseController < ApplicationController
       include Api::OpenidConnect::ProtectedResourceEndpoint
 

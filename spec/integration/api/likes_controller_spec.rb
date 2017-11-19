@@ -1,19 +1,40 @@
-# frozen_string_literal: true
+# frozen_sTring_literal: true
 
 require "spec_helper"
 
-describe Api::V0::LikesController do
+describe Api::V1::LikesController do
   let(:auth) { FactoryGirl.create(:auth_with_read_and_write) }
   let!(:access_token) { auth.create_access_token.to_s }
 
   before do
-    @status = auth.user.post(:status_message, text: "This is a status message", public: true, to: "all")
+    @status = auth.user.post(
+      :status_message,
+      text:   "This is a status message",
+      public: true,
+      to:     "all"
+    )
+  end
+
+  describe "#show" do
+    it "returns the likes for a given post" do
+      get(
+        api_v1_post_likes_path(post_id: @status.id),
+        params: {access_token: access_token}
+      )
+    end
+
+    it "fails on random post id" do
+      get(
+        api_v1_post_likes_path(post_id: @status.id),
+        params: {access_token: access_token}
+      )
+    end
   end
 
   describe "#create" do
     it "returns the expected author" do
       post(
-        api_v0_post_likes_path(post_id: @status.id),
+        api_v1_post_likes_path(post_id: @status.id),
         params: {access_token: access_token}
       )
       json = JSON.parse(response.body)
@@ -29,7 +50,7 @@ describe Api::V0::LikesController do
   describe "#delete" do
     before do
       post(
-        api_v0_post_likes_path(post_id: @status.id),
+        api_v1_post_likes_path(post_id: @status.id),
         params: {access_token: access_token}
       )
       @like_id = JSON.parse(response.body)["id"]
@@ -37,7 +58,7 @@ describe Api::V0::LikesController do
 
     it "succeeds" do
       delete(
-        api_v0_post_like_path(post_id: @status.id, id: @like_id),
+        api_v1_post_like_path(post_id: @status.id, id: @like_id),
         params: {access_token: access_token}
       )
       expect(response).to be_success
@@ -45,7 +66,7 @@ describe Api::V0::LikesController do
 
     it "fails on random like id" do
       delete(
-        api_v0_post_like_path(post_id: @status.id, id: 99_999_999),
+        api_v1_post_like_path(post_id: @status.id, id: 99_999_999),
         params: {access_token: access_token}
       )
       expect(response.body).to eq("Post or like not found")
