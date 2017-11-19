@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Api::V0::PostsController do
+describe Api::V1::PostsController do
   let!(:auth_with_read) { FactoryGirl.create(:auth_with_read) }
   let!(:access_token_with_read) { auth_with_read.create_access_token.to_s }
   let(:auth_with_read_and_write) { FactoryGirl.create(:auth_with_read_and_write) }
@@ -23,7 +23,7 @@ describe Api::V0::PostsController do
         expect(post_service_double).to receive(:mark_user_notifications)
         @status = auth_with_read.user.post(:status_message, text: "hello", public: true, to: "all")
         get(
-          api_v0_post_path(@status.id),
+          api_v1_post_path(@status.id),
           params: {access_token: access_token_with_read}
         )
       end
@@ -33,7 +33,7 @@ describe Api::V0::PostsController do
       it "shows attempts to show the info" do
         @status = auth_with_read.user.post(:status_message, text: "hello", public: true, to: "all")
         get(
-          api_v0_post_path(@status.id),
+          api_v1_post_path(@status.id),
           params: {
             access_token:       access_token_with_read,
             mark_notifications: "false"
@@ -47,7 +47,7 @@ describe Api::V0::PostsController do
     context "when given read-write access token" do
       it "creates a public post" do
         post(
-          api_v0_posts_path,
+          api_v1_posts_path,
           params: {
             access_token:   access_token_with_read_and_write,
             status_message: {text: "Hello this is a public post!"},
@@ -59,7 +59,7 @@ describe Api::V0::PostsController do
 
       it "creates a private post" do
         post(
-          api_v0_posts_path,
+          api_v1_posts_path,
           params: {
             access_token:   access_token_with_read_and_write,
             status_message: {text: "Hello this is a post!"},
@@ -73,7 +73,7 @@ describe Api::V0::PostsController do
     context "when given read only access token" do
       before do
         post(
-          api_v0_posts_path,
+          api_v1_posts_path,
           params: {
             access_token:   access_token_with_read,
             status_message: {text: "Hello this is a post!"},
@@ -95,7 +95,7 @@ describe Api::V0::PostsController do
         expect(post_service_double).to receive(:retract_post)
         @status = auth_with_read_and_write.user.post(:status_message, text: "hello", public: true, to: "all")
         delete(
-          api_v0_post_path(@status.id),
+          api_v1_post_path(@status.id),
           params: {access_token: access_token_with_read_and_write}
         )
       end
@@ -105,7 +105,7 @@ describe Api::V0::PostsController do
       before do
         @status = auth_with_read.user.post(:status_message, text: "hello", public: true, to: "all")
         delete(
-          api_v0_post_path(@status.id),
+          api_v1_post_path(@status.id),
           params: {access_token: access_token_with_read}
         )
       end

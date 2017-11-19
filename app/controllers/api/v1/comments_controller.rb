@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Api
-  module V0
-    class CommentsController < Api::V0::BaseController
+  module V1
+    class CommentsController < Api::V1::BaseController
       before_action only: %i[create destroy] do
         require_access_token %w[read write]
       end

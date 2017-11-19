@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Api
-  module V0
-    class ConversationsController < Api::V0::BaseController
+  module V1
+    class ConversationsController < Api::V1::BaseController
       include ConversationsHelper
 
       before_action only: %i[create index show] do
