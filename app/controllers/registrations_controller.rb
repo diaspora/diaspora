@@ -28,6 +28,13 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  protected
+
+  def update_resource(resource, params)
+    params[:password] = nil if use_pam? && resource.encrypted_password.blank?
+    super
+  end
+
   private
 
   def check_registrations_open_or_valid_invite!

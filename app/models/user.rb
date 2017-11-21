@@ -23,6 +23,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :lastseenable, :lock_strategy => :none, :unlock_strategy => :none
 
+  devise :pam_authenticatable if Devise.pam_authentication
+
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
   before_validation :set_default_color_theme, on: :create
@@ -31,6 +33,7 @@ class User < ApplicationRecord
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
   validates_exclusion_of :username, :in => AppConfig.settings.username_blacklist
+  validate :no_pam_conflict, on: :create if Devise.pam_authentication
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
   validates :color_theme, inclusion: {in: AVAILABLE_COLOR_THEMES}, allow_blank: true
   validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
@@ -416,6 +419,54 @@ class User < ApplicationRecord
     self.set_person(Person.new((opts[:person] || {}).except(:id)))
     self.generate_keys
     self
+  end
+
+  def is_pam_account?
+    return false unless Devise.pam_authentication
+    name = pam_get_name
+    return false unless name
+    Rpam2.account(Devise.pam_default_service, name).present?
+  end
+
+  def no_pam_conflict
+    errors.add(:username, 'username conflicts with pam account') if pam_conflict?
+  end
+
+  def pam_conflict?
+    encrypted_password.present? && is_pam_account?
+  end
+
+  def pam_conflict(_attributes)
+    # block pam logins on users with pw
+    nil
+  end
+
+  def pam_setup(attributes)
+    args = {}
+    args['username'] = self[::Devise.usernamefield]
+    args['email'] = Rpam2.getenv(get_service, self[::Devise.usernamefield], attributes[:password], "email", false)
+    args['email'] = "#{self[::Devise.usernamefield]}@#{find_pam_suffix}" if args['email'].nil?
+    opts = ActionController::Parameters.new(args)
+    setup(opts.permit(:username, :email))
+  end
+
+  def find_pam_suffix
+    "#{AppConfig.bare_pod_uri}"
+  end
+
+  def password_required?
+    return !is_pam_account? if Devise.pam_authentication
+    super
+  end
+
+  def send_reset_password_instructions
+    return false if encrypted_password.blank? && Devise.pam_authentication
+    super
+  end
+
+  def reset_password!(new_password, new_password_confirmation)
+    return false if encrypted_password.blank? && Devise.pam_authentication
+    super
   end
 
   def set_person(person)

@@ -36,9 +36,19 @@ class ApplicationController < ActionController::Base
                 :only_sharing_count,
                 :tag_followings,
                 :tags,
-                :open_publisher
+                :open_publisher,
+                :use_pam?
 
   layout proc { request.format == :mobile ? "application" : "with_header_with_footer" }
+
+  def use_pam?
+    Devise.pam_authentication
+  end
+
+  def pam_controlled?(username)
+    return false unless Devise.pam_authentication && Devise.pam_controlled_service
+    Rpam2.account(Devise.pam_controlled_service, username).present?
+  end
 
   private
 

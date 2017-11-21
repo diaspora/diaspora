@@ -191,6 +191,10 @@ defaults:
       location: '/usr/sbin/sendmail'
       exim_fix: false
     message_bus_api_key:
+  pam:
+    enable: false
+    default_service: 'rpam'
+    controlled_service: null
   admins:
     account:
     podmin_email:
