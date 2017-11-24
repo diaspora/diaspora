@@ -231,14 +231,14 @@ Rails.application.routes.draw do
       delete "visibility" => "conversation_visibilities#destroy"
       resources :messages, only: %i[index create]
     end
-    get "activity" => "streams#activity", :as => "activity_stream"
-    get "stream" => "streams#multi", :as => "stream"
-    get "public" => "streams#public", :as => "public_stream"
-    get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
-    get "mentions" => "streams#mentioned", :as => "mentioned_stream"
-    get "liked" => "streams#liked", :as => "liked_stream"
-    get "commented" => "streams#commented", :as => "commented_stream"
-    get "aspects" => "streams#aspects", :as => "aspects_stream"
+    get "streams/activity" => "streams#activity", :as => "activity_stream"
+    get "streams/stream" => "streams#multi", :as => "stream"
+    get "streams/public" => "streams#public", :as => "public_stream"
+    get "streams/followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
+    get "streams/mentions" => "streams#mentioned", :as => "mentioned_stream"
+    get "streams/liked" => "streams#liked", :as => "liked_stream"
+    get "streams/commented" => "streams#commented", :as => "commented_stream"
+    get "streams/aspects" => "streams#aspects", :as => "aspects_stream"
   end
 
   namespace :api do
