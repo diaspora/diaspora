@@ -15,61 +15,63 @@ describe Api::V1::LikesController do
     )
   end
 
-  describe "#show" do
-    it "returns the likes for a given post" do
-      get(
-        api_v1_post_likes_path(post_id: @status.id),
-        params: {access_token: access_token}
-      )
+  describe "#create" do
+    context "with right post id" do
+      it "succeeeds in liking post" do
+        post(
+          api_v1_post_likes_path(post_id: @status.guid),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(204)
+        likes = like_service.find_for_post(@status.guid)
+        expect(likes.length).to eq(1)
+        expect(likes[0].author.id).to eq(auth.user.person.id)
+      end
     end
 
-    it "fails on random post id" do
-      get(
-        api_v1_post_likes_path(post_id: @status.id),
-        params: {access_token: access_token}
-      )
+    context "with wrong post id" do
+      it "fails at liking post" do
+        post(
+          api_v1_post_likes_path(post_id: 99_999_999),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(404)
+      end
     end
   end
 
   describe "#create" do
-    it "returns the expected author" do
+    before do
       post(
-        api_v1_post_likes_path(post_id: @status.id),
+        api_v1_post_likes_path(post_id: @status.guid),
         params: {access_token: access_token}
       )
-      json = JSON.parse(response.body)
-      expect(json["author"]["id"]).to eq(auth.user.person.id)
     end
 
-    it "fails on random post id" do
-      post api_v0_post_likes_path(post_id: 99_999_999), params: {access_token: access_token}
-      expect(response.body).to eq("Post or like not found")
+    context "with right post id" do
+      it "succeeds at unliking post" do
+        delete(
+          api_v1_post_likes_path(post_id: @status.guid),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(204)
+        likes = like_service.find_for_post(@status.guid)
+        expect(likes.length).to eq(0)
+      end
+    end
+
+    context "with wrong post id" do
+      it "fails at unliking post" do
+        delete(
+          api_v1_post_likes_path(post_id: 99_999_999),
+          params: {access_token: access_token}
+        )
+        expect(response.status).to eq(404)
+      end
     end
   end
 
-  describe "#delete" do
-    before do
-      post(
-        api_v1_post_likes_path(post_id: @status.id),
-        params: {access_token: access_token}
-      )
-      @like_id = JSON.parse(response.body)["id"]
-    end
-
-    it "succeeds" do
-      delete(
-        api_v1_post_like_path(post_id: @status.id, id: @like_id),
-        params: {access_token: access_token}
-      )
-      expect(response).to be_success
-    end
-
-    it "fails on random like id" do
-      delete(
-        api_v1_post_like_path(post_id: @status.id, id: 99_999_999),
-        params: {access_token: access_token}
-      )
-      expect(response.body).to eq("Post or like not found")
-    end
+  def like_service
+    LikeService.new(auth.user)
   end
 end
