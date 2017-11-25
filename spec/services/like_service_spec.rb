@@ -120,4 +120,15 @@ describe LikeService do
       expect(LikeService.new.find_for_post(post.id)).to match_array(likes)
     end
   end
+
+  describe "#unlike_post" do
+    before do
+      LikeService.new(alice).create(post.id)
+    end
+
+    it "removes the like to the post" do
+      LikeService.new(alice).unlike_post(post.id)
+      expect(post.likes.length).to eq(0)
+    end
+  end
 end
