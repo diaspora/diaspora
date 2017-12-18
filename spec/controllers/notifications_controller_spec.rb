@@ -81,6 +81,7 @@ describe NotificationsController, :type => :controller do
       expect(response_json["unread_count_by_type"]).to eq(
         "also_commented"       => 1,
         "comment_on_post"      => 0,
+        "contacts_birthday"    => 0,
         "liked"                => 0,
         "mentioned"            => 0,
         "mentioned_in_comment" => 0,

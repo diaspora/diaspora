@@ -14,7 +14,8 @@ class UserPreference < ApplicationRecord
      "started_sharing",
      "also_commented",
      "liked",
-     "reshared"]
+     "reshared",
+     "contacts_birthday"]
 
   def must_be_valid_email_type
     unless VALID_EMAIL_TYPES.include?(self.email_type)

@@ -8,12 +8,12 @@
 
 # 0.7.2.0
 
-## Refactor
-
 ## Bug fixes
 * Ignore invalid `diaspora://` links [#7652](https://github.com/diaspora/diaspora/pull/7652)
+* Fix deformed avatar in hovercards [#7656](https://github.com/diaspora/diaspora/pull/7656)
 
 ## Features
+* Add birthday notifications [#7624](https://github.com/diaspora/diaspora/pull/7624)
 
 # 0.7.1.1
 
