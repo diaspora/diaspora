@@ -67,10 +67,6 @@ class Stream::Base
     aspects.first
   end
 
-  def aspect_ids
-    aspects.map {|x| x.try(:id) }
-  end
-
   def max_time=(time_string)
     @max_time = Time.at(time_string.to_i) unless time_string.blank?
     @max_time ||= (Time.now + 1)
