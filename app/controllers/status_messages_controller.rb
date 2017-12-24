@@ -20,8 +20,6 @@ class StatusMessagesController < ApplicationController
       @contact = current_user.contact_for(@person)
       if @contact
         @aspects_with_person = @contact.aspects.load
-        @aspect_ids = @aspects_with_person.map(&:id)
-        gon.aspect_ids = @aspect_ids
         render layout: nil
       else
         @aspects_with_person = []
@@ -29,8 +27,6 @@ class StatusMessagesController < ApplicationController
     elsif request.format == :mobile
       @aspect = :all
       @aspects = current_user.aspects.load
-      @aspect_ids = @aspects.map(&:id)
-      gon.aspect_ids = @aspect_ids
     else
       redirect_to stream_path
     end
@@ -38,7 +34,6 @@ class StatusMessagesController < ApplicationController
 
   def bookmarklet
     @aspects = current_user.aspects
-    @aspect_ids = current_user.aspect_ids
 
     gon.preloads[:bookmarklet] = {
       content: params[:content],

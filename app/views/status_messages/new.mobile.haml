@@ -2,4 +2,4 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= render :partial => 'publisher/publisher', :locals => {:aspect => @aspects.first, :aspect_ids => @aspect_ids, :selected_aspects => @aspects}
+= render partial: "publisher/publisher", locals: {aspect: @aspects.first, selected_aspects: @aspects}
