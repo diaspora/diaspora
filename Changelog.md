@@ -19,6 +19,7 @@
 ## Bug fixes
 * Ignore invalid `diaspora://` links [#7652](https://github.com/diaspora/diaspora/pull/7652)
 * Fix deformed avatar in hovercards [#7656](https://github.com/diaspora/diaspora/pull/7656)
+* Fix default aspects on profile page and bookmarklet publisher [#7679](https://github.com/diaspora/diaspora/issues/7679)
 
 ## Features
 * Add birthday notifications [#7624](https://github.com/diaspora/diaspora/pull/7624)
