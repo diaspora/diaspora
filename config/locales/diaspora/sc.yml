@@ -645,6 +645,10 @@ sc:
       one: "%{actors} at cummentadu sa publicatzione tua %{post_link}."
       other: "%{actors} ant cummentadu sa publicatzione tua %{post_link}."
       zero: "%{actors} at cummentadu sa publicatzione tua %{post_link}."
+    contacts_birthday:
+      one: "%{actors} faghet sos annos su %{date}"
+      other: "%{actors} faghent sos annos su %{date}"
+      zero: "%{actors} faghent sos annos su %{date}"
     index:
       all_notifications: "Totu sas notìficas"
       also_commented: "Àteros cummentos"
@@ -654,6 +658,7 @@ sc:
         other: "e àteros %{count}"
         zero: "e nissun'àteru"
       comment_on_post: "Cummentu in una publicatzione"
+      contacts_birthday: "Cumpleannu"
       liked: "Agradèssidu"
       mark_all_as_read: "Sinnala·las totu comente lèghidas"
       mark_all_shown_as_read: "Sinna totu comente lèghidu"
@@ -716,6 +721,10 @@ sc:
     confirm_email:
       click_link: "Pro ativare s'indiritzu de posta eletrònica nou tuo %{unconfirmed_email} pro praghere sighi custu ligàmene:"
       subject: "Pro praghere ativa s'indiritzu de posta eletrònica tuo %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "Oe %{name} faghet sos annos. Faghe·li sos augùrios!"
+      subject: "Oe est su cumpleannu de %{name}"
+      view_profile: "Abbista su profilu de %{name}"
     csrf_token_fail:
       body: |-
           Salude %{name},
@@ -1149,6 +1158,7 @@ sc:
       also_commented: "calicunu at cummentadu una publicatzione chi as cummentadu fintzas tue"
       auto_follow_aspect: "Cara pro sos impreadores cun sos cales cumpartzis automaticamente:"
       auto_follow_back: "Cumpartzi automaticamente cun sos impreadores chi incumintzant a cumpartzire cun tie"
+      birthday: "calicunu faghet sos annos"
       change: "Càmbia"
       change_color_theme: "Càmbia su tema de sos colores"
       change_email: "Càmbia s'indiritzu de posta eletrònica"

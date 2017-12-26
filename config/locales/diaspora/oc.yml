@@ -356,7 +356,7 @@ oc:
       data_visible_to_podmin_q: "Quina quantitat de mas informacions l'administrator del pod pòt veire ?"
       download_data_a: "Òc. En dejós de los paramètres de Compte trobaretz dos botons : un per telecargar vòstras donadas e un per telecargar vòstras fotos."
       download_data_q: "Pòdi telecargar una còpia de totas las donadas contengudas dins mon compte (apelat seed) ?"
-      move_pods_a: "Dins lo futur poiretz exportar vòstra grana - seed - d'un pod e l'importar dins un autre, mai pel moment es pas possible. Podètz totjorn dubrir un nòu compte e ajustar vòstres contactes sus aquela nòva grana, e lor demandar de vos ajustar sus lors aspèctes amb vòstra nòva grana."
+      move_pods_a: "La version 0.7.0.0 de diaspora* fornís la primièra etapa per la migracion de comptes : podètz ara exportat totas vòstras donadas a partir de la seccion « Compte » en los paramètres. Gardatz vòstras donadas en seguretat ! Dins una version venenta poiretz migrar vòstre compte, aquò inclutz las publicacions, los contactes, a un autre pod."
       move_pods_q: "Cossí desplaçar mon compte (apelat seed) d'un pod a un autre ?"
       title: "Gestion del compte e de las donadas"
     aspects:
@@ -364,11 +364,11 @@ oc:
       change_aspect_of_post_q: "Un còp qu'ai publicat quicòm, pòdi cambiar los aspècte(s) qu'o pòdon veire ?"
       contacts_know_aspect_a: "Non pas. Pòdon pas veire lo nom de l'aspècte qualqu'arribe."
       contacts_know_aspect_q: "Mos contactes pòdon saber dins quin aspècte los ai meses ?"
-      contacts_visible_a: "Se causissètz aquesta opcion alara vòstres contactes d'aqueste aspècte poiràn veire qual es dedins, sus l'onglet « Contactes » de vòstra pagina de perfil. Es de melhor far de causir aquesta opcion solament se los contactes d'aqueste aspècte se coneisson entre eles, per exemple se l'aspècte es per un club o societat de la quala apertenètz. Ça que la poiràn pas veire cossí s'apèla l'aspècte."
+      contacts_visible_a: "Se causissètz aquesta opcion alara vòstres contactes d’aqueste aspècte poiràn veire qual es dedins, sus l’onglet « Contactes » de vòstra pagina de perfil.(Pel moment i a pas que vòstres contactes que son sul meteis pod que vos que pòdon veire l'onglet « Contactes » sus vòstre perfil.) Es de melhor far de causir aquesta opcion solament se los contactes d’aqueste aspècte se coneisson entre eles, per exemple se l’aspècte es per un club o societat de la quala apertenètz. Ça que la poiràn pas veire cossí s’apèla l'aspècte."
       contacts_visible_q: "Qué significa « rendre los contactes dins aqueste aspècte visibles entre eles » ?"
-      delete_aspect_a: "Clicatz « Mos aspèctes » dins la barra dins la vista del flux d'actualitat e clicatz l'icòna del gredon a costat del aspècte que volètz suprimir, o anatz sus vòstra pagina de Contactes e seleccionatz l'aspècte concernit. Puèi clicatz l'icòna del bordilhièr amont a man drecha de la pagina."
+      delete_aspect_a: "Clicatz « Mos aspèctes » dins la barra dins la vista del flux d’actualitat e clicatz l’icòna del gredon a costat del aspècte que volètz suprimir, o anatz sus vòstra pagina de Contactes e seleccionatz l’aspècte concernit. Puèi clicatz l’icòna del bordilhièr amont a man drecha de la pagina."
       delete_aspect_q: "Cossí pòdi suprimir un aspècte ?"
-      person_multiple_aspects_a: "Òc-ben. Anatz a vòstra pagina de contactes e clicatz sus « Mos contactes ».  Per cada contacte podètz utilizar lo menú a man drecha per lo apondre (o levar) a tan d'aspèctes que volètz. O podètz los apondre a un novèl aspècte (o los levar d'un aspècte) en clicant sul boton de seleccion d'aspècte sus lor pagina de perfil. O podètz tanben solament bolegar lo puntaire sus lor nom ont lo vesètz dins vòstre flux d'actualitat, un cadron apareissarà. Podètz cambiar l'aspècte ont son d'aquí."
+      person_multiple_aspects_a: "Òc-ben. Anatz a vòstra pagina de contactes e clicatz sus « Mos contactes ». Per cada contacte podètz utilizar lo menú a man drecha per lo apondre (o levar) a tan d’aspèctes que volètz. O podètz los apondre a un novèl aspècte (o los levar d’un aspècte) en clicant sul boton de seleccion d’aspècte sus lor pagina de perfil. O podètz tanben solament bolegar lo puntaire sus lor nom ont lo vesètz dins vòstre flux d’actualitat, un cadron apareissarà. Podètz cambiar l’aspècte ont son d’aquí."
       person_multiple_aspects_q: "Pòdi apondre una persona a mantun aspècte ?"
       post_multiple_aspects_a: "Òc. Quand publicatz una publicacion, utilizatz lo boton per causir los aspèctes. « Totes los aspèctes » es la causida per defaut dins los paramètres. Podètz tanben causir los aspèctes dins la barra de menú. Quand publicatz, lo(s) aspèctes qu'avètz causits dins la lista a man esquèrra seràn automaticament seleccionats per las publicacions venentas."
       post_multiple_aspects_q: "Pòdi mandar un messatge a mantun aspècte a l'encòp ?"
@@ -429,7 +429,7 @@ oc:
       see_mentions_a: "Òc, clicatz « @Mencions » dins la colomna d'esquèrra de vòstra pagina d'acuèlh."
       see_mentions_q: "I a un biais de veire las publicacions que soi mencionat dedins ?"
       title: "Mencions"
-      what_is_a_mention_a: "Una mencion es un ligam cap al perfil d'una persona qu'apareis sus una publicacion. Quand qualqu'un es mencionat, receb una notificacion per atirar son atencion sus la publicacion."
+      what_is_a_mention_a: "Una mencion es un ligam cap al perfil d’una persona qu’apareis sus una publicacion. Quand qualqu’un es mencionat, receb una notificacion per atirar son atencion sus la publicacion."
       what_is_a_mention_q: "De qué es una « mencion » ?"
     miscellaneous:
       back_to_top_a: "Òc. Aprèp aver davalat la pagina, clicatz sus la flècha en gris qu'apareisserà a man drecha dins lo cunh de la fenèstra."
@@ -474,7 +474,7 @@ oc:
       post_notification_q: "Cossí pòdi activar o desactivar las notificacions per un messatge ?"
       post_poll_a: "Clicatz sus l'icòna graf per generar un sondatge. Picatz una question e almens doas responsas. Oblidetz pas de far vòstre publicacion publica se volètz que tot lo mond pòsca participar a vòstre sondatge."
       post_poll_q: "Cossí pòdi apondre un sondatge a mon messatge ?"
-      post_report_a: "Clicatz l'icòna del triangle d'alèrta amont a man drecha de la publicacion per la senhalar a vòstre podmin. Marcatz la rason del senhalament d'aquela publicacion dins la zòna de tèxte."
+      post_report_a: "Clicatz l’icòna del triangle d’alèrta amont a man drecha de la publicacion per la senhalar a vòstre podmin. Marcatz la rason del senhalament d’aquela publicacion dins la zòna de tèxte. Mercés de solament senhalar las publicacions que son contra nòstras %{community_guidelines} o las condicions de vòstre pod, per exemple las publicacions amb un contengut illegal, grossièr o indesirable."
       post_report_q: "Cossí pòdi senhalar un messatge ofensant ?"
       size_of_images_a: "Non. Los imatges son retalhats automaticament per marcar ben sul flux d'actualitat o sus la vista de la publicacion. I a pas de còdi Markdown per donar una talha a un imatge."
       size_of_images_q: "Pòdi personalizar la talha dels imatges dins los messatges o los comentaris ?"
@@ -647,6 +647,10 @@ oc:
       one: "%{actors} a comentat vòstra publicacion %{post_link}."
       other: "%{actors} an comentat vòstra publicacion %{post_link}."
       zero: "%{actors} a comentat vòstra publicacion %{post_link}."
+    contacts_birthday:
+      one: "%{actors} farà un an mai lo %{date}"
+      other: "%{actors} faràn un an mai lo %{date}"
+      zero: "%{actors} farà un an mai lo %{date}"
     index:
       all_notifications: "Totas las notificacions"
       also_commented: "Tanben comentat"
@@ -656,6 +660,7 @@ oc:
         other: "e %{count} personas mai"
         zero: "e degun mai"
       comment_on_post: "Comentari sus un de vòstres messatges"
+      contacts_birthday: "Anniversari"
       liked: "Que m'agrada"
       mark_all_as_read: "O marcar tot coma legit"
       mark_all_shown_as_read: "O marcar tot coma legit"
@@ -684,7 +689,6 @@ oc:
     mentioned_deleted:
       one: "%{actors} vos a mencionat en una publicacion suprimida."
       other: "%{actors} vos an mencionat en una publicacion suprimida."
-      zero: "%{actors} vos a mencionat sus una publicacion suprimida."
     mentioned_in_comment:
       one: "%{actors} vos a mencionat dins un <a href='%{comment_path}'>comentari</a> a la publicacion %{post_link}."
       other: "%{actors} vos an mencionat dins un <a href='%{comment_path}'>comentari</a> a la publicacion%{post_link}."
@@ -720,6 +724,10 @@ oc:
     confirm_email:
       click_link: "Per activar vòstre novèla adreça de corrièl %{unconfirmed_email}, seguissètz aqueste ligam :"
       subject: "Mercés d'activar vòstre novèl corrièl %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "Es l’anniversari a %{name} uèi. Desiratz-li un Bon Anniversari !"
+      subject: "Es l’anniversari a %{name} uèi"
+      view_profile: "Veire lo perfil a %{name}"
     csrf_token_fail:
       body: |-
           Adissiatz %{name}, 
@@ -1154,6 +1162,7 @@ oc:
       also_commented: "qualqu'un a comentat una publicacion qu'avètz comentada"
       auto_follow_aspect: "Aspècte pels utilizaires seguits automaticament :"
       auto_follow_back: "Apondre automaticament los utilizaires que partejan amb vos"
+      birthday: "qualqu’un fa un an mai"
       change: "Modificar"
       change_color_theme: "Cambiar lo tèma de color"
       change_email: "Cambiar de corrièl"
@@ -1182,11 +1191,11 @@ oc:
       export_photos_in_progress: "Sèm a tractar vòstras fòtos. Tornatz aicí dins un momenton."
       following: "Paramètres de partiment"
       last_exported_at: "(Darrièra mesa a jorn a %{timestamp})"
-      liked: "a qualqu'un li a agradat vòstra publicacion"
+      liked: "qualqu'un a aimat vòstra publicacion"
       mentioned: "qualqu'un vos a mencionat dins un messatge"
       mentioned_in_comment: "qualqu'un vos a mencionat dins un comentari"
       new_password: "Senhal novèl"
-      private_message: "Avètz recebut un messatge privat."
+      private_message: "avètz recebut un messatge privat."
       receive_email_notifications: "Recebre una notificacion per corrièl quand :"
       request_export: "Demandar mas donadas de perfil"
       request_export_photos: "Demandar mas fòtos"

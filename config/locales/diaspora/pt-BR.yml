@@ -55,7 +55,7 @@ pt-BR:
       user_search: "Busca de usuários"
       weekly_user_stats: "Estatísticas semanais"
     dashboard:
-      fetching_diaspora_version: "Buscando versão mais recente de diaspora*..."
+      fetching_diaspora_version: "Buscando a versão mais recente da diaspora*..."
       pod_status: "Estado do servidor"
     pods:
       pod_desktop_link: "versão desktop"
@@ -202,7 +202,7 @@ pt-BR:
       failure: "Não foi possível adicionar o contato ao aspecto."
       success: "Contato adicionado ao aspecto com sucesso."
     aspect_listings:
-      add_an_aspect: "+ Adicione um Aspecto"
+      add_an_aspect: "+ Adicione um aspecto"
     aspect_stream:
       make_something: "Faça algo"
       stay_updated: "Fique por dentro"
@@ -219,7 +219,7 @@ pt-BR:
       update: "Atualizar"
       updating: "Atualizando"
     index:
-      donate: "Faça uma Doação"
+      donate: "Faça uma doação"
       donate_liberapay: "Doe para o Liberapay"
       help:
         any_problem: "Algum problema?"
@@ -245,7 +245,7 @@ pt-BR:
         learn_more: "Saiba mais"
         title: "Dê boas-vindas aos novatos"
       services:
-        content: "Você pode conectar os seguintes serviços em diaspora*:"
+        content: "Você pode conectar os seguintes serviços à diaspora*:"
         heading: "Conecte-se"
       welcome_to_diaspora: "Bem-vindo(a) a diaspora*, %{name}!"
     no_contacts_message:
@@ -270,9 +270,9 @@ pt-BR:
       failure: "Não foi possível deixar de ignorar esse usuário. #evasiva"
       success: "Vamos ver o que eles têm a dizer! #digaoi"
   bookmarklet:
-    explanation: "Publique em diaspora* de qualquer lugar favoritando este link: %{link}"
+    explanation: "Publique na diaspora* de qualquer lugar favoritando este link: %{link}."
     heading: "Favoritos"
-    post_something: "Publicar em diaspora*"
+    post_something: "Publicar na diaspora*"
   cancel: "Cancelar"
   color_themes:
     dark: "Escuro"
@@ -290,7 +290,7 @@ pt-BR:
   contacts:
     index:
       add_contact: "Adicionar contato"
-      all_contacts: "Todos os Contatos"
+      all_contacts: "Todos os contatos"
       community_spotlight: "Destaque da Comunidade"
       my_contacts: "Meus Contatos"
       no_contacts: "Parece que você precisa adicionar mais contatos!"
@@ -379,7 +379,7 @@ pt-BR:
       restrict_posts_i_see_a: "Sim. Clique em \"Meus aspectos\", na barra lateral, e, em seguida, clique nos aspectos individuais, na lista, para selecioná-los ou desfazer a seleção. Apenas as publicações de membros dos aspectos selecionados vão aparecer no seu fluxo."
       restrict_posts_i_see_q: "Posso restringir as publicações que eu vejo apenas a certos aspectos?"
       title: "Aspectos"
-      what_is_an_aspect_a: "Aspectos são a maneira que você agupa seus contactos em diaspora*. Um aspecto é uma das faces que você se mostra ao mundo. Poderá ser quem você é no emprego, ou quem você é para a sua família, ou quem você é para os seus amigos em um clube ao qual você pertence."
+      what_is_an_aspect_a: "Aspectos são uma maneira agrupar seus contatos na diaspora*. Um aspecto é uma faceta que você mostra ao mundo. Pode ser quem você é no trabalho, na sua família, no seu grupo de amigos ou em um clube do qual faça parte."
       what_is_an_aspect_q: "O que é um aspecto?"
       who_sees_post_a: "Uma publicação limitada é visível apenas para as pessoas incluídas anteriormente no aspecto (ou aspectos) ao qual ela é destinada. Contatos que não pertencem ao aspecto não podem, de nenhuma maneira, ver a publicação."
       who_sees_post_q: "Quando eu publico em um aspecto, quem vê?"
@@ -602,9 +602,9 @@ pt-BR:
         other: "%{count} convites restantes neste código"
         zero: "Nenhum convite restante neste código"
       comma_separated_plz: "Você pode digitar vários endereços separados por vírgulas."
-      invite_someone_to_join: "Convide os amigos para participar de diaspora*!"
+      invite_someone_to_join: "Convide alguém para a diaspora*!"
       language: "Idioma"
-      paste_link: "Compartilhe esse link com seus amigos para convidá-los para Diaspora*, ou envie um email com o link diretamente para eles."
+      paste_link: "Compartilhe este link com seus amigos para convidá-los para a diaspora* ou envie-o diretamente por e-mail."
       send_an_invitation: "Enviar um convite"
       sending_invitation: "Enviando convite..."
   layouts:
@@ -645,6 +645,10 @@ pt-BR:
       one: "%{actors} comentou sua %{post_link}."
       other: "%{actors} comentaram sua %{post_link}."
       zero: "%{actors} comentou sua %{post_link}."
+    contacts_birthday:
+      one: "%{actors} faz aniversário em %{date}."
+      other: "%{actors} fazem aniversário em %{date}."
+      zero: "Ninguém faz aniversário em %{date}."
     index:
       all_notifications: "Todas as notificações"
       also_commented: "Também comentou"
@@ -657,6 +661,7 @@ pt-BR:
         two: "e %{count} outros"
         zero: "e mais ninguém"
       comment_on_post: "Comentou na publicação"
+      contacts_birthday: "Aniversário"
       liked: "Curtiu"
       mark_all_as_read: "Marcar tudo como lido"
       mark_all_shown_as_read: "marcar tudo como lido"
@@ -719,6 +724,10 @@ pt-BR:
     confirm_email:
       click_link: "Para confirmar o seu novo endereço de email %{unconfirmed_email}, por favor clique neste link:"
       subject: "Por favor, ative o seu novo endereço de email %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} faz aniversário hoje. Dê os parabéns!"
+      subject: "%{name} faz aniversário hoje"
+      view_profile: "Ver perfil de %{name}"
     csrf_token_fail:
       body: |-
           Olá, %{name},
@@ -803,14 +812,14 @@ pt-BR:
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
-    invited_you: "%{name} te convidou para Diaspora*"
+    invited_you: "%{name} convidou você para a diaspora*"
     liked:
       liked: "%{name} curtiu sua publicação."
       limited_post: "%{name} curtiu sua publicação privada"
       view_post: "Ver publicação >"
     mentioned:
       limited_post: "Você foi mencionado em uma publicação privada."
-      subject: "%{name} mencionou você em Diaspora*"
+      subject: "%{name} mencionou você na diaspora*"
     mentioned_in_comment:
       limited_post: "Mencionaram você em um comentário a uma publicação limitada."
       reply: "Responder ou ver esta conversa >"
@@ -854,7 +863,7 @@ pt-BR:
       subject: "Um novo %{type} foi marcado como ofensivo"
       type:
         comment: "comentário"
-        post: "publicação"
+        post: "post"
     reshared:
       reshared: "%{name} recompartilhou sua publicação"
       view_post: "Ver publicação >"
@@ -863,7 +872,7 @@ pt-BR:
       subject: "Uma mensagem sobre a sua conta diaspora*:"
     started_sharing:
       sharing: "começou a compartilhar com você!"
-      subject: "%{name} começou a compartilhar com você em Diaspora*"
+      subject: "%{name} começou a compartilhar com você na diaspora*"
       view_profile: "Ver perfil de %{name}"
     thanks: "Obrigado,"
     to_change_your_notification_settings: "para alterar tuas configurações de notificações"
@@ -895,7 +904,7 @@ pt-BR:
   photos:
     create:
       integrity_error: "O envio falhou! Tem certeza que era uma imagem?"
-      runtime_error: "O envio falhou! Você colocou seu cinto de segurança?"
+      runtime_error: "O envio da foto falhou."
       type_error: "O envio da foto falhou. Tem certeza que a imagem é válida?"
     destroy:
       notice: "Foto apagada."
@@ -921,13 +930,13 @@ pt-BR:
   profile: "Perfil"
   profiles:
     edit:
-      allow_search: "Permitir que pessoas me procurem em diaspora*"
+      allow_search: "Permitir que outras pessoas me procurem na diaspora*"
       basic: "Meu perfil básico"
       basic_hint: "Todos os itens do perfil são opcionais. Seu perfil básico é visível publicamente, e isso não pode ser alterado."
       extended: "Meu perfil ampliado"
       extended_hint: "Use a chave para configurar quem pode ver as informações do seu perfil ampliado: selecione \"público\" para qualquer internauta e \"limitado\" para restringir o acesso a pessoas com quem você compartilha."
       extended_visibility_text: "Visibilidade do seu perfil ampliado:"
-      first_name: "Primeiro Nome"
+      first_name: "Nome"
       last_name: "Sobrenome"
       limited: "Limitado"
       nsfw_check: "Marque tudo que eu compartilho como NSFW"
@@ -1029,16 +1038,16 @@ pt-BR:
         other: "Em %{count} aspectos"
     invitations:
       by_email: "Convidar pessoas por e-mail"
-      invite_your_friends: "Convide seus Amigos"
+      invite_your_friends: "Convide seus amigos"
       invites: "Convites"
-      share_this: "Compartilhe este link via email, blog, ou redes sociais!"
+      share_this: "Compartilhe este link via e-mail, blog ou redes sociais!"
     public_explain:
       atom_feed: "Feed Atom"
       control_your_audience: "Controle seu público"
       logged_in: "Entrou no %{service}"
       manage: "Gerenciar serviços conectados"
       new_user_welcome_message: "Use #hashtags para classificar suas publicações e encontrar pessoas que compartilham de seus interesses. Chame a atenção de pessoas interessantes com as @Menções"
-      outside: "Mensagens públicas estarão disponíveis para serem visualizadas por pessoas que estão fora de diaspora*."
+      outside: "Mensagens públicas poderão ser acessadas por pessoas de fora da diaspora*."
       share: "Compartilhar"
       title: "Configurar serviços conectados"
       visibility_dropdown: "Use esta lista suspensa para alterar a visibilidade da sua publicação. (Nós sugerimos que você escolha público.)"
@@ -1091,12 +1100,12 @@ pt-BR:
     no_posts_yet: "Não existem publicações ainda."
   streams:
     activity:
-      title: "Minha Atividade"
+      title: "Minha atividade"
     admin:
       title: "Admin"
     aspects:
       all: "Todos os aspectos"
-      title: "Meus Aspectos"
+      title: "Meus aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
       title: "Publicações comentadas"
@@ -1107,8 +1116,8 @@ pt-BR:
       add_a_tag: "Adicionar uma tag"
       all: "Todas as tags"
       follow: "Seguir"
-      title: "#Seguindo Tags"
-    followed_tags_stream: "#Seguindo Tags"
+      title: "#Seguindo tags"
+    followed_tags_stream: "#Seguindo tags"
     like_stream:
       title: "Publicações curtidas"
     liked:
@@ -1139,7 +1148,7 @@ pt-BR:
   username: "Usuário"
   users:
     confirm_email:
-      email_confirmed: "Email %{email} ativado"
+      email_confirmed: "E-mail %{email} ativado"
       email_not_confirmed: "O email não pode ser ativado. O endereço está correto?"
     destroy:
       no_password: "Por favor, digite sua senha para encerrar sua conta."
@@ -1149,11 +1158,12 @@ pt-BR:
       also_commented: "alguém comentar uma publicação que você tenha comentado"
       auto_follow_aspect: "Aspecto para contatos adicionados automaticamente:"
       auto_follow_back: "Compartilhar automaticamente com usuários que começam a compartilhar com você"
+      birthday: "alguém faz aniversário"
       change: "Alterar"
       change_color_theme: "Mudar paleta"
-      change_email: "Alterar Email"
-      change_language: "Alterar Idioma"
-      change_password: "Alterar Senha"
+      change_email: "Alterar e-mail"
+      change_language: "Alterar idioma"
+      change_password: "Alterar senha"
       character_minimum_expl: "deve ter no mínimo seis caracteres"
       close_account:
         dont_go: "Ei, não vá ainda!"
@@ -1170,7 +1180,7 @@ pt-BR:
       default_post_visibility: "Aspectos selecionados para publicar por padrão"
       download_export: "Baixar o meu perfil"
       download_export_photos: "Baixar minhas fotos"
-      edit_account: "Editar Conta"
+      edit_account: "Editar conta"
       email_awaiting_confirmation: "Temos que lhe enviar um link para a confirmação do email %{unconfirmed_email}. Enquanto você não confirmar o seu novo endereço de email, nós continuaremos utilizando o endereço antigo: %{email}."
       export_data: "Exportar dados"
       export_in_progress: "Estamos processando seus dados. Por favor, volte a verificar em alguns instantes."
@@ -1182,7 +1192,7 @@ pt-BR:
       mentioned_in_comment: "mencionaram você em um comentário"
       new_password: "Nova senha"
       private_message: "você receber uma mensagem privada"
-      receive_email_notifications: "Receber notificações por email quando:"
+      receive_email_notifications: "Receber notificações por e-mail quando:"
       request_export: "Solicitar dados do meu perfil"
       request_export_photos: "Exportar minhas fotos"
       request_export_photos_update: "Atualizar minhas fotos"
@@ -1208,7 +1218,7 @@ pt-BR:
       who_are_you: "Quem é você?"
     privacy_settings:
       ignored_users: "Usuários ignorados"
-      no_user_ignored_message: "Você não está ignorando nenhum outro usuário"
+      no_user_ignored_message: "Você não está ignorando ninguém no momento"
       stop_ignoring: "Parar de ignorar"
       strip_exif: "Remover metadados como local, autor e modelo da câmera antes de fazer upload de imagens (recomendado)"
       title: "Configurações de privacidade"
@@ -1217,7 +1227,7 @@ pt-BR:
     update:
       color_theme_changed: "Paleta alterada com sucesso."
       color_theme_not_changed: "Um erro ocorreu durante a alteração da paleta."
-      email_notifications_changed: "Notificação de email alterado."
+      email_notifications_changed: "Notificações por e-mail alteradas"
       follow_settings_changed: "Configurações de seguimento alteradas"
       follow_settings_not_changed: "A alteração das configurações de seguimento falhou."
       language_changed: "Idioma alterado"
@@ -1226,7 +1236,7 @@ pt-BR:
       password_not_changed: "Alteração da senha falhou!"
       settings_not_updated: "Atualização de configurações falhou"
       settings_updated: "Configurações atualizadas"
-      unconfirmed_email_changed: "Email alterado com sucesso! É necessário realizar uma confirmação."
+      unconfirmed_email_changed: "Endereço de e-mail alterado. É preciso ativá-lo."
       unconfirmed_email_not_changed: "Alteração do email falhou!"
   will_paginate:
     next_label: "próximo &raquo;"

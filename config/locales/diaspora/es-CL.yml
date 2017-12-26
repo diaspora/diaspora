@@ -389,12 +389,17 @@ es-CL:
       one: "%{actors} comentó en tu %{post_link}."
       other: "%{actors} comentaron en tu %{post_link}."
       zero: "%{actors} ha comentado en tu %{post_link}."
+    contacts_birthday:
+      one: "%{actors} está de cumpleaños en %{date}."
+      other: "%{actors} están de cumpleaños en %{date}."
+      zero: "%{actors} está de cumpleaños en %{date}."
     index:
       and: "y"
       and_others:
         one: "y uno más"
         other: "y otros %{count} más"
         zero: "y nadie más"
+      contacts_birthday: "Cumpleaños"
       mark_all_as_read: "Marcar todo como leido"
       mark_unread: "Marcar como no leído"
       notifications: "Notificaciones"
@@ -456,6 +461,10 @@ es-CL:
     confirm_email:
       click_link: "Para activar la nueva dirección de email %{unconfirmed_email}, por favor haz click en este link:"
       subject: "Por favor activa tu nueva dirección de email %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} está de cumpleaños hoy. ¡Deséale un 'Feliz Cumpleaños'!"
+      subject: "%{name} está de cumpleaños hoy"
+      view_profile: "Ver el perfil de %{name}"
     email_sent_by_diaspora: "Este correo electrónico fue enviado por %{pod_name}. Si quieres dejar de recibir correos como este,"
     hello: "¡Hola %{name}!"
     invite:

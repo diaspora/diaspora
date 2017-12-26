@@ -663,6 +663,12 @@ uk:
       one: "%{actors} прокоментував(-ла) вашу %{post_link}."
       other: "%{actors} прокоментували вашу %{post_link}."
       zero: "%{actors} прокоментували вашу %{post_link}."
+    contacts_birthday:
+      few: "%{actors} народились в цей день %{date}."
+      many: "%{actors} народились в цей день %{date}."
+      one: "%{actors} народився в цей день %{date}."
+      other: "%{actors} народились в цей день %{date}."
+      zero: "%{actors} народилось в цей день %{date}."
     index:
       all_notifications: "Усі сповіщення"
       also_commented: "Також прокоментували"
@@ -674,6 +680,7 @@ uk:
         other: "і %{count} іншим"
         zero: "і більше нікому"
       comment_on_post: "Коментар до запису"
+      contacts_birthday: "День народження"
       liked: "Сподобалася"
       mark_all_as_read: "Позначити всі як прочитані"
       mark_all_shown_as_read: "Позначити все як прочитане"
@@ -762,6 +769,10 @@ uk:
     confirm_email:
       click_link: "Щоб активувати вашу адресу %{unconfirmed_email}, будь ласка, перейдіть на цим посиланням:"
       subject: "Будь ласка, активуйте вашу нову адресу %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} народився сьогодні. Привітай його із Днем Народження!"
+      subject: "%{name} народився в цей день"
+      view_profile: "Подивитися профіль %{name}"
     csrf_token_fail:
       body: |-
           Привіт %{name},
@@ -1206,6 +1217,7 @@ uk:
       also_commented: "хтось коментував запис, який коментували ви"
       auto_follow_aspect: "Додати цих користувачів до аспекту:"
       auto_follow_back: "Автоматично відслідковувати тих, хто відслідковує вас"
+      birthday: "Хтось народився сьогодні"
       change: "Змінити"
       change_color_theme: "Поміняти колір теми"
       change_email: "Змінити адресу"

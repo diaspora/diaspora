@@ -53,8 +53,8 @@ pt-BR:
           other: "Há <%= count %> servidores sem versão (servidores antigos, sem NodeInfo)."
     admins:
       dashboard:
-        compare_versions: "A versão mais recente de diaspora* é <%= latestVersion %>; a versão instalada no seu servidor é <%= podVersion %>."
-        error: "Não foi possível encontrar a versão mais recente de diaspora*."
+        compare_versions: "A versão mais recente da diaspora* é <%= latestVersion %>; a versão instalada no seu servidor é <%= podVersion %>."
+        error: "Não foi possível encontrar a versão mais recente da diaspora*."
         outdated: "Seu servidor está desatualizado."
         up_to_date: "Seu servidor está atualizado!"
     and: "e"
@@ -85,7 +85,7 @@ pt-BR:
       make_aspect_list_visible: "Tornar os contatos deste aspecto visíveis entre si?"
       name: "Nome"
     bookmarklet:
-      post_something: "Publicar em diaspora*"
+      post_something: "Publicar na diaspora*"
       post_submit: "Enviando publicação..."
       post_success: "Publicado! Fechando janela popup..."
     cancel: "Cancelar"
@@ -190,7 +190,7 @@ pt-BR:
       your_vote: "Seu voto"
     profile:
       add_some: "Adicione algumas"
-      bio: "Apresentação Pessoal"
+      bio: "Bio"
       born: "Data de Aniversário"
       contacts: "Contatos"
       edit: "Editar"
@@ -236,7 +236,7 @@ pt-BR:
     remove_post: "Remover esta publicação?"
     report:
       name: "Relatar"
-      prompt: "Por favor entre um motivo:"
+      prompt: "Por favor, informe um motivo:"
       prompt_default: "p. ex. conteúdo ofensivo"
       status:
         created: "O relato foi criado com sucesso"
@@ -258,7 +258,7 @@ pt-BR:
       followed_tag:
         add_a_tag: "Adicionar uma tag"
         follow: "Seguir"
-        title: "#Seguindo Tags"
+        title: "#Seguindo tags"
       hide: "Ocultar"
       hide_nsfw_posts: "Ocultar publicações #nsfw"
       like: "Curtir"
@@ -268,9 +268,9 @@ pt-BR:
         zero: "Nenhuma curtida"
       limited: "Limitado"
       more_comments:
-        one: "Mostre mais <%= count %> comentário"
-        other: "Mostre mais <%= count %> comentários"
-        zero: "Mostre mais <%= count %> comentário"
+        one: "Mostrar mais <%= count %> comentário"
+        other: "Mostrar mais <%= count %> comentários"
+        zero: "Mostrar mais <%= count %> comentário"
       no_posts_yet: "Ainda não há publicações para exibir aqui."
       original_post_deleted: "A publicação original foi apagada pelo autor."
       permalink: "Link permanente"
