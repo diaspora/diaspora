@@ -60,7 +60,7 @@ fr:
       add_to_aspect: "Ajouter le contact"
       all_aspects: "Tous les aspects"
       error: "Impossible de partager avec <%= name %>. Ignorez-vous cette personne ?"
-      error_remove: "Ne peut pas supprimer <%= name %> de l'aspect :("
+      error_remove: "Impossible de retirer <%= name %> de cet aspect :("
       mobile_row_checked: "<%= name %> (retirer)"
       mobile_row_unchecked: "<%= name %> (ajouter)"
       select_aspects: "Choisir les aspects"
@@ -94,15 +94,15 @@ fr:
       no_comments: "Il n'y a pas encore de commentaires."
       show: "Afficher tous les commentaires"
     confirm_dialog: "Êtes-vous certain-e ?"
-    confirm_unload: "Merci de confirmer que vous voulez quitter cette page — les données saisies ne seront pas sauvegardées."
+    confirm_unload: "Merci de confirmer que vous voulez quitter cette page. Les données saisies ne seront pas enregistrées."
     contacts:
       add_contact: "Ajouter ce contact"
       aspect_chat_is_enabled: "Les contacts de cet aspect peuvent discuter avec vous."
       aspect_chat_is_not_enabled: "Les contacts de cet aspect ne peuvent pas discuter avec vous."
       aspect_list_is_not_visible: "Les contacts de cette facette ne peuvent pas se voir entre eux."
       aspect_list_is_visible: "Les contacts de cette facette peuvent se voir entre eux."
-      error_add: "Impossible d'ajouter <%= name %> à cette facette :("
-      error_remove: "Impossible de retirer <%= name %> de cette facette :("
+      error_add: "Impossible d'ajouter <%= name %> à cet aspect :("
+      error_remove: "Impossible de retirer <%= name %> de cet aspect :("
       remove_contact: "Retirer ce contact"
       search_no_results: "Aucun contact trouvé"
     conversation:
@@ -120,11 +120,11 @@ fr:
     getting_started:
       alright_ill_wait: "Bon, je vais attendre."
       hey: "Hey, <%= name %> !"
-      no_tags: "Hey, vous ne suivez aucun tag ! Continuer quand même ?"
+      no_tags: "Hé, vous ne suivez aucun tag ! Continuer quand même ?"
       preparing_your_stream: "Préparation de votre flux personnalisé..."
     header:
       admin: "Administration"
-      close: "fermer"
+      close: "Fermer"
       contacts: "Contacts"
       conversations: "Discussions"
       help: "Aide"
@@ -162,7 +162,7 @@ fr:
         is_sharing: "<%= name %> partage avec vous"
       mention: "Mentionner"
       message: "Message"
-      not_found: "Et personne n'a été trouvé ..."
+      not_found: "... et personne n'a été trouvé"
       stop_ignoring: "Ne plus ignorer"
     photo_uploader:
       completed: "<%= file %> complété"
@@ -189,16 +189,16 @@ fr:
       vote: "Vote"
       your_vote: "Votre vote"
     profile:
-      add_some: "ajouter"
+      add_some: "En ajouter quelques-uns"
       bio: "Biographie"
       born: "Anniversaire"
       contacts: "Contacts"
-      edit: "modifier"
+      edit: "Modifier"
       gender: "Genre"
       location: "Localisation"
       photos: "Photos"
       posts: "Messages"
-      you_have_no_tags: "vous n'avez pas de tag !"
+      you_have_no_tags: "Vous n'avez pas de tags !"
     publisher:
       add_option: "Ajouter un choix"
       markdown_editor:
@@ -237,7 +237,7 @@ fr:
     report:
       name: "Signaler"
       prompt: "Merci de saisir un motif :"
-      prompt_default: "Contenu offensant"
+      prompt_default: "par ex. contenu offensant"
       status:
         created: "Le signalement a été créé avec succès."
         exists: "Le signalement existe déjà"
@@ -258,7 +258,7 @@ fr:
       followed_tag:
         add_a_tag: "Ajouter un tag"
         follow: "Suivre"
-        title: "#tags suivis"
+        title: "#Tags suivis"
       hide: "Masquer"
       hide_nsfw_posts: "Masquer les messages #nsfw"
       like: "J'aime"
@@ -299,21 +299,25 @@ fr:
       unlike: "Je n'aime plus"
       via: "via <%= provider %>"
     tags:
-      wasnt_that_interesting: "Ok, je suppose que #<%= tagName %> n'est pas la seule chose qui vous intéresse..."
+      wasnt_that_interesting: "OK, je suppose que #<%= tagName %> n’est pas la seule chose qui vous intéresse…"
     timeago:
       day: "environ un jour"
       days:
+        one: "un jour"
         other: "environ %d jours"
       hour: "environ une heure"
       hours:
+        one: "environ une heure"
         other: "environ %d heures"
       inPast: "très bientôt"
       minute: "environ une minute"
       minutes:
-        other: "environ %d minutes"
+        one: "1 minute"
+        other: "%d minutes"
       month: "environ un mois"
       months:
-        other: "environ %d mois"
+        one: "un mois"
+        other: "%d mois"
       prefixAgo: "il y a"
       prefixFromNow: "d'ici"
       seconds: "moins d'une minute"
@@ -322,6 +326,7 @@ fr:
       wordSeparator: " "
       year: "un an"
       years:
+        one: "un an"
         other: "%d ans"
     unblock_failed: "Impossible de débloquer cet utilisateur"
     viewer:

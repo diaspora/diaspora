@@ -455,6 +455,10 @@ da:
       format_text_q: "Hvordan kan jeg formatere teksten i mine indlæg (fed, kursiv, osv.)?"
       hide_posts_a: "Hvis du peger med musen på toppen af et indlæg vil et X dukke op til højre. Tryk på det for at skjule indlægget og fjerne notifikationer om det. Du kan stadig se indlægget hvis du besøger den person der lavede indlæggets profilside."
       hide_posts_q: "Hvordan skjuler jeg et indlæg?"
+      ignore_user_a1: "Hvis du deler med den pågældende person, vil det at fjerne dem fra dine aspekter stoppe de fleste af deres indlæg fra at vises i din strøm. En mere gennemgribende metode er at \"ignorere\" den konto. Dette forhindrer, at deres indlæg vises i din strøm, og de kan ikke længere lide eller kommentere dine indlæg. De vil dog stadig være i stand til at videresende dine indlæg, kommentere videredelinger af dine indlæg, og deres kommentarer til indlæg fra andre personer der vises i din strøm, vil stadig være synlige for dig."
+      ignore_user_a2: "For at ignorere en konto skal du klikke på ikonet \"ignorér\" (en cirkel med en diagonal linje gennem) øverst til højre for et af deres indlæg. Deres indlæg forsvinder øjeblikkeligt fra din strøm. Alternativt kan du gå til deres profilside og klikke på ignoreringsikonet der. Du kan stadig se deres indlæg på deres profilside eller ved at bruge single-postvisningen."
+      ignore_user_a3: "En liste over personer, du ignorerer, findes i dine kontoindstillinger under Privatliv. Hvis du vil stoppe med at ignorere nogen, skal du fjerne dem fra listen på den pågældende side."
+      ignore_user_q: "Hvordan sørger jeg for at en brugers indlæg ikke optræder i min strøm?"
       insert_images_a: "Hvis du vil medtage et billede gemt på din computer i dit indlæg, skal du klikke på ikonet med det lille kamera nederst på indtastningfeltet. Du kan også trække og slippe et billede eller flere billeder fra din computer til det ikon. Hvis du vil indsætte et billede fra internettet i dit indlæg, skal du klikke på billedknappen øverst på indtastningfeltet, som vil oprette Markdown-koden for dig."
       insert_images_comments_a: "Du kan bruge Markdown til at indsætte et billede fra internettet i en kommentar, ligesom du gør i indlæg. Du kan dog ikke uploade billeder fra din computer direkte til kommentarer. Upload dem til en billed-hosting-tjeneste, og indsæt dem ved hjælp af billedknappen over send-knappen."
       insert_images_comments_q: "Kan jeg indsætte billeder i kommentarer?"
@@ -641,6 +645,10 @@ da:
       one: "%{actors} kommenterede dit indlæg %{post_link}."
       other: "%{actors} kommenterede dit indlæg %{post_link}."
       zero: "%{actors} kommenterede dit indlæg %{post_link}."
+    contacts_birthday:
+      one: "%{actors} har fødselsdag den %{date}."
+      other: "%{actors} har fødselsdag den %{date}."
+      zero: "%{actors} har fødselsdag den %{date}."
     index:
       all_notifications: "Alle notifikationer"
       also_commented: "kommenterede også"
@@ -653,6 +661,7 @@ da:
         two: "og %{count} andre"
         zero: "og ingen andre"
       comment_on_post: "Kommenter indlæg"
+      contacts_birthday: "Fødselsdag"
       liked: "syntes om"
       mark_all_as_read: "Marker alle som læst"
       mark_all_shown_as_read: "Marker alle viste som læst"
@@ -727,6 +736,10 @@ da:
     confirm_email:
       click_link: "For at aktivere din nye e-mail adresse %{unconfirmed_email}, skal du følge dette link:"
       subject: "Aktiver venligst din nye e-mail adresse %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} har fødselsdag i dag. Skriv tillykke!"
+      subject: "%{name} har fødselsdag i dag"
+      view_profile: "Se %{name}s profil"
     csrf_token_fail:
       body: |-
           Goddag %{name},
@@ -1164,6 +1177,7 @@ da:
       also_commented: "nogen kommenterer et indlæg du tidligere har kommenteret."
       auto_follow_aspect: "Aspekt for automatisk tilføjede kontakter:"
       auto_follow_back: "Følg automatisk brugere der følger dig"
+      birthday: "nogen har fødselsdag"
       change: "Skift"
       change_color_theme: "Skift farvetema"
       change_email: "Skift e-mail"

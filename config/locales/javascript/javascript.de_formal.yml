@@ -93,7 +93,7 @@ de_formal:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
-    confirm_unload: "Bitte bestätigen Sie, dass Sie diese Seite verlassen möchten. Die von Ihnen eingegebenen Daten werden nicht gespeichert werden."
+    confirm_unload: "Bitte bestätigen Sie, dass Sie diese Seite verlassen wollen. - Die von Ihnen eingegebenen Daten werden nicht gespeichert."
     contacts:
       add_contact: "Kontakt hinzufügen"
       aspect_chat_is_enabled: "Kontakte in diesem Askekt können mit Ihnen chatten."
@@ -241,7 +241,7 @@ de_formal:
         exists: "Die Meldung existiert bereits"
     reshares:
       post: "<%= name %>s Beitrag weitersagen?"
-      successful: "Der Beitrag wurde erfolgreich weitergesagt!"
+      successful: "Der Beitrag wurde erfolgreich geteilt!"
     show_all: "Alle anzeigen"
     show_more: "Mehr zeigen"
     stream:
@@ -313,9 +313,9 @@ de_formal:
       prefixAgo: "vor"
       prefixFromNow: "in"
       seconds: "wenigen Sekunden"
-      suffixAgo: ""
+      suffixAgo: "vor"
       suffixFromNow: "ab jetzt"
-      wordSeparator: " "
+      wordSeparator: ""
       year: "etwa einem Jahr"
       years:
         one: "1 Jahr"
