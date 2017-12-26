@@ -30,13 +30,6 @@ class Stream::Aspect < Stream::Base
     end.call
   end
 
-  # Maps ids into an array from #aspects
-  #
-  # @return [Array<Integer>] Aspect ids
-  def aspect_ids
-    @aspect_ids ||= aspects.map { |a| a.id }
-  end
-
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_shareables
@@ -84,7 +77,7 @@ class Stream::Aspect < Stream::Base
   #
   # @return [Boolean]
   def for_all_aspects?
-    @all_aspects ||= aspect_ids.length == user.aspects.size
+    @all_aspects ||= aspects.size == user.aspects.size
   end
 
   # This is perfomance optimization, as everyone in your aspect stream you have
@@ -94,5 +87,11 @@ class Stream::Aspect < Stream::Base
   # @return [Boolean]
   def can_comment?(post)
     true
+  end
+
+  private
+
+  def aspect_ids
+    @aspect_ids ||= aspects.map(&:id)
   end
 end

@@ -16,6 +16,8 @@ module NotificationsHelper
       elsif %w(Notifications::CommentOnPost Notifications::AlsoCommented Notifications::Reshared Notifications::Liked)
             .include?(note.type)
         opts.merge!(opts_for_post(note.linked_object))
+      elsif note.is_a?(Notifications::ContactsBirthday)
+        opts.merge!(opts_for_birthday(note.linked_object))
       end
     end
     translation(target_type, opts)
@@ -42,6 +44,10 @@ module NotificationsHelper
     }.tap {|opts|
       opts[:comment_path] = post_path(post, anchor: mentioned.guid).html_safe if mentioned.instance_of?(Comment)
     }
+  end
+
+  def opts_for_birthday(person)
+    {date: locale_date(person.birthday.to_s)}
   end
 
   def notification_people_link(note, people=nil)

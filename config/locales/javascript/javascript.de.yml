@@ -94,7 +94,7 @@ de:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
-    confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst - Daten, welche du eingegeben hast werden nicht gespeichert."
+    confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst. - Die von dir eingegebenen Daten werden nicht gespeichert."
     contacts:
       add_contact: "Kontakt hinzufügen"
       aspect_chat_is_enabled: "Kontakte in diesem Aspekt können mit dir chatten."

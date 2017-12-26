@@ -1,3 +1,13 @@
+# 0.7.2.0
+
+## Bug fixes
+* Ignore invalid `diaspora://` links [#7652](https://github.com/diaspora/diaspora/pull/7652)
+* Fix deformed avatar in hovercards [#7656](https://github.com/diaspora/diaspora/pull/7656)
+* Fix default aspects on profile page and bookmarklet publisher [#7679](https://github.com/diaspora/diaspora/issues/7679)
+
+## Features
+* Add birthday notifications [#7624](https://github.com/diaspora/diaspora/pull/7624)
+
 # 0.7.1.1
 
 Fixes an issue with installing and running diaspora\* with today released bundler v1.16.0.

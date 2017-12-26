@@ -562,7 +562,7 @@ de:
       be_who_you_want_to_be_info: "Viele Netzwerke bestehen darauf, dass du deine wahre Identität verwendest. diaspora* nicht. Hier kannst du entscheiden, wer du sein willst und so viel oder wenig teilen, wie du möchtest. Es liegt ganz an dir, wie du mit anderen Personen interagieren möchtest."
       byline: "Die soziale Onlinewelt, in der du deine Daten in der Hand hast."
       choose_your_audience: "Wähle dein Publikum"
-      choose_your_audience_info: "diaspora*s Aspekte ermöglichen dir, nur mit den Menschen zu teilen, mit denen du möchtest. Du kannst so öffentlich oder privat sein, wie du willst. Teile ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit deinen engsten Freunden. Du hast es in der Hand."
+      choose_your_audience_info: "diaspora*s Aspekte ermöglichen dir, nur mit Menschen zu teilen, mit denen du möchtest. Du kannst so öffentlich oder privat sein, wie du willst. Teile ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit deinen engsten Freunden. Du hast es in der Hand."
       headline: "Willkommen auf %{pod_name}"
       own_your_data: "Deine Daten, dein Eigentum"
       own_your_data_info: "Viele Netzwerke nutzen deine Daten, um Geld zu verdienen, indem Sie deine Interaktionen auswerten und diese Informationen verwenden, um dir Werbung zu zeigen. diaspora* nutzt deine Daten zu keinem anderen Zweck, als es dir zu ermöglichen, dich mit anderen zu verbinden und mit ihnen zu teilen."
@@ -648,6 +648,10 @@ de:
       one: "%{actors} hat deinen Beitrag %{post_link} kommentiert."
       other: "%{actors} haben deinen Beitrag %{post_link} kommentiert."
       zero: "Niemand hat deinen Beitrag %{post_link} kommentiert."
+    contacts_birthday:
+      one: "%{actors} hat am %{date} Geburtstag."
+      other: "%{actors} haben am %{date} Geburtstag."
+      zero: "%{actors} haben am %{date} Geburtstag."
     index:
       all_notifications: "Alle Benachrichtigungen"
       also_commented: "Auch kommentiert"
@@ -660,6 +664,7 @@ de:
         two: "und %{count} andere"
         zero: "und niemand sonst"
       comment_on_post: "Einen Beitrag Kommentiert"
+      contacts_birthday: "Geburtstag"
       liked: "Gefällt"
       mark_all_as_read: "Alle als gelesen markieren"
       mark_all_shown_as_read: "Alle angezeigten als gelesen markieren"
@@ -734,6 +739,10 @@ de:
     confirm_email:
       click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicke bitte auf diesen Link:"
       subject: "Bitte aktiviere deine neue E-Mail-Adresse %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} hat heute Geburtstag. Wünsche doch 'Happy Birthday'!"
+      subject: "%{name} hat heute Geburtstag"
+      view_profile: "Profil von %{name} anzeigen"
     csrf_token_fail:
       body: |-
           Hallo %{name},
@@ -1049,7 +1058,6 @@ de:
       toggle:
         one: "In einem Aspekt"
         other: "In %{count} Aspekten"
-        zero: "In keinem Aspekt"
     invitations:
       by_email: "Einladung per E-Mail verschicken"
       invite_your_friends: "Lade deine Freunde ein"
@@ -1172,8 +1180,9 @@ de:
       also_commented: "jemand einen Beitrag kommentiert, den du kommentiert hast"
       auto_follow_aspect: "Aspekt für automatisch gefolgten Benutzern:"
       auto_follow_back: "Folge Benutzern automatisch, wenn sie dir folgen"
+      birthday: "jemand hat Geburtstag"
       change: "Ändern"
-      change_color_theme: "Farbthema ändern"
+      change_color_theme: "Farbschema ändern"
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Kennwort ändern"
@@ -1238,7 +1247,7 @@ de:
     public:
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update:
-      color_theme_changed: "Farbthema erfolgreich geändert."
+      color_theme_changed: "Farbschema erfolgreich geändert."
       color_theme_not_changed: "Beim ändern des Farbthemas ist ein Fehler aufgetreten."
       email_notifications_changed: "E-Mail-Benachrichtigungen geändert"
       follow_settings_changed: "Folgen-Einstellungen geändert"

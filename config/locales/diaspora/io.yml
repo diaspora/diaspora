@@ -25,7 +25,7 @@ io:
             email:
               taken: "es ja selektita."
             person:
-              invalid: "es nevalida"
+              invalid: "es nevalida."
             username:
               invalid: "es nevalida. Ni nur permisas literi, nombri, e sub-strek-izi."
               taken: "es ja selektita."
@@ -54,6 +54,7 @@ io:
         do_you: "Ka vu:"
         here_to_help: "Yen la Diaspora komuneso!"
         need_help: "Ka Vu Bezonas Helpo?"
+        tag_question: "questiono"
       new_here:
         learn_more: "Lektez pluse"
         title: "Bonvenez Nova Uzanti"
@@ -64,6 +65,7 @@ io:
       acquaintances: "Konocati"
       family: "Familio"
       friends: "Amiki"
+      work: "Laboro"
   cancel: "Anular"
   contacts:
     index:
@@ -101,7 +103,7 @@ io:
     new:
       password: "PASOVORTO"
   search: "Serchar"
-  settings: "Selektaji"
+  settings: "Ajusti"
   streams:
     followed_tag:
       follow: "Sequez"

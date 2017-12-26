@@ -218,6 +218,7 @@ nl:
       updating: "Aan het bijwerken"
     index:
       donate: "Doneer"
+      donate_liberapay: "Doneer aan liberaal"
       help:
         any_problem: "Problemen?"
         contact_podmin: "Neem contact op met je podbeheerder!"
@@ -269,6 +270,13 @@ nl:
     heading: "Bookmarklet"
     post_something: "Publiceer op diaspora*"
   cancel: "Annuleren"
+  color_themes:
+    dark: "Donker"
+    dark_green: "Donker groen"
+    egyptian_blue: "Egyptisch blauw"
+    magenta: "Magenta"
+    original: "Origineel grijs"
+    original_white: "Originele witte achtergrond"
   comments:
     create:
       error: "Reageren mislukt."
@@ -445,6 +453,7 @@ nl:
       format_text_q: "Hoe kan ik de tekst in mijn berichten opmaken (vet, schuin etc.)?"
       hide_posts_a: "Als je met de muis aan de bovenkant van een bericht staat, verschijnt er een X rechts ervan. Klik daarop om het bericht te verbergen en om notificaties erover te onderdrukken. Je kunt het bericht nog wel zien op de profielpagina van de persoon die het geplaatst had."
       hide_posts_q: "Hoe verberg ik een bericht?"
+      ignore_user_q: "Hoe zorg ik iemands berichten niet langer in mijn stream verschijnen?"
       insert_images_a: "Klik op het kleine camera-pictogram om een afbeelding op te nemen. Je kunt nog een keer op de camera klikken om nog een afbeelding op te nemen, of je kunt verschillende afbeeldingen in één keer selecteren om te uploaden."
       insert_images_comments_q: "Kan ik afbeeldingen plaatsen in reacties?"
       insert_images_q: "Hoe plaats ik een afbeelding in een bericht?"
@@ -476,6 +485,10 @@ nl:
       title: "Privéberichten"
       who_sees_post_a: "Alleen de in diaspora* ingelogde gebruikers die jij in dat aspect hebt zitten voordat je het besloten bericht plaatste, kunnen het zien."
       who_sees_post_q: "Als ik een bericht plaats voor een aspect (bijvoorbeeld een privébericht), wie kan dat dan zien?"
+    profile:
+      title: "Profiel"
+      what_do_tags_do_q: "Wat doen de tags in mijn basis profiel?"
+      who_sees_profile_q: "Wie kan mijn profiel zien?"
     public_posts:
       can_comment_reshare_like_a: "Iedere in diaspora* ingelogde gebruiker kan op je openbare berichten reageren, ze leuk vinden of ze doorgeven."
       can_comment_reshare_like_q: "Wie kan reageren op mijn openbare berichten, ze leuk vinden of ze doorgeven?"
@@ -639,6 +652,7 @@ nl:
       mark_read: "Markeren als gelezen"
       mark_unread: "Markeer ongelezen"
       mentioned: "Vermeld"
+      mentioned_in_comment: "Vermeld in een reactie"
       no_notifications: "Je hebt nog geen meldingen."
       notifications: "Notificaties"
       reshared: "Doorgegeven"
@@ -693,6 +707,29 @@ nl:
     confirm_email:
       click_link: "Om je nieuwe e-mailadres te activeren %{unconfirmed_email}, klik op deze link:"
       subject: "Activeer je nieuwe e-mailadres alstublieft %{unconfirmed_email}"
+    csrf_token_fail:
+      body: |-
+          Hallo %{name},
+
+          diaspora* heeft een vermoedelijk ongeautoriseerde poging om toegang te krijgen tot jouw sessie gedetecteerd. Om te vermijden dat jouw data gecompromitteerd wordt, werd je afgemeld. Geen zorgen; je kan nu opnieuw veilig aanmelden.
+
+          Er is een aanvraag gedaan met een incorrecte of missende CSRF token.
+          Dit kan volledig onschuldig zijn, maar zou een vervalste cross-site aanvraag (CSRF) aanval kunnen zijn.
+
+          Dit zou veroorzaakt kunnen zijn door:
+
+            - Een add-on die de aanvraag manipuleert of die de aanvraag doet zonder token;
+            - Een tabblad van een vorige sessie die nog open staat;
+            - Een andere website die de aanvraag doet, met of zonder jouw toestemming;
+            - Meerdere andere externe tools;
+            - Kwaadwillige code die toegang tot jouw data probeert te krijgen.
+
+          Voor meer informatie over CSRF, bekijk [%{link}](%{link}).
+
+          Als je dit bericht herhaaldelijk ziet, kijk a.u.b. bovenstaande punten na, inclusief om het even welke browser add-ons.
+          Bedankt,
+          De diaspora* email robot!
+      subject: "We hebben een ongeautoriseerde aanvraag ontvangen van jouw account, %{name}"
     email_sent_by_diaspora: "Deze mail is gestuurd door %{pod_name}.  Als je dit soort e-mail's niet meer wilt ontvangen,"
     export_email:
       body: |-
@@ -766,6 +803,9 @@ nl:
     mentioned:
       limited_post: "Je werd vermeld in een beperkt geplaatst bericht"
       subject: "%{name} heeft jou vermeld op diaspora*"
+    mentioned_in_comment:
+      limited_post: "Je werd vermeld in een reactie op een beperkte post."
+      reply: "Antwoord op of bekijk dit gesprek >"
     private_message:
       reply_to_or_view: "Reageer op of bekijk dit privégesprek >"
       subject: "Er is een nieuw privébericht voor je"
@@ -1052,6 +1092,7 @@ nl:
     activity:
       title: "Mijn activiteit"
     aspects:
+      all: "Alle aspecten"
       title: "Mijn aspecten"
     aspects_stream: "Aspecten"
     comment_stream:
@@ -1059,6 +1100,7 @@ nl:
     community_spotlight_stream: "Community aanrader"
     followed_tag:
       add_a_tag: "Voeg een tag toe"
+      all: "Alle tags"
       follow: "Volg"
       title: "#Gevolgde Tags"
     followed_tags_stream: "#Gevolgde Tags"
@@ -1129,6 +1171,7 @@ nl:
       last_exported_at: "(Laatst bijgewerkt op %{timestamp})"
       liked: "iemand je bericht leuk vindt"
       mentioned: "je vermeld wordt in een bericht"
+      mentioned_in_comment: "je word vermeld in een reactie"
       new_password: "Nieuw wachtwoord"
       private_message: "je een privébericht ontvangt"
       receive_email_notifications: "Ontvang e-mail notificaties wanneer:"

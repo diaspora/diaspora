@@ -36,7 +36,7 @@ pt-BR:
       inviter:
         accept_at: "em %{url}, você pode aceitar através do link abaixo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} convidou você para participar de diaspora*"
+        have_invited_you: "%{names} convidou você para a diaspora*"
       password_change:
         subject: "Senha Alterada"
       reset_password_instructions:

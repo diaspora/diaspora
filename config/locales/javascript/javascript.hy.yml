@@ -144,6 +144,9 @@ hy:
     notifications:
       mark_read: "Նշել որպես նայած"
       mark_unread: "Նշել որպես չընթերցված"
+      new_notifications:
+        one: "<%= count %> չկարդացած ծանուցում ունես"
+        other: "<%= count %> չկարդացած ծանուցում ունես"
     people:
       edit_my_profile: "Խմբագրել իմ էջը"
       helper:
@@ -174,6 +177,7 @@ hy:
       result: "Արդյունքները"
       show_result: "Ցուցադրել արդյունքը"
       vote: "Քվեարկել"
+      your_vote: "Քո քվեարկությունը"
     profile:
       add_some: "Ավելացնե՞լ"
       bio: "Մասին"
@@ -232,6 +236,10 @@ hy:
     show_more: "Ցույց տալ ավելին"
     stream:
       comment: "Մեկնաբանել"
+      comments:
+        one: "<%= count %> մեկնաբանություն"
+        other: "<%= count %> մեկնաբանություն"
+        zero: "<%= count %> մեկնաբանություն"
       disable_post_notifications: "Դադարեցնել ծանուցումները այս գրառումից"
       enable_post_notifications: "Ծանուցումներ ստանալ այս գրառումից"
       follow: "Հետևել"

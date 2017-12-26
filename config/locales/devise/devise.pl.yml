@@ -7,22 +7,22 @@
 pl:
   devise:
     confirmations:
-      confirmed: "Konto zostało aktywowane. Zalogowano Cię w Diasporze."
+      confirmed: "Twój adres e-mail został potwierdzony."
       new:
         resend_confirmation: "Wyślij ponownie instrukcję aktywacji"
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta."
-      send_paranoid_instructions: "Jeśli Twój adres email istnieje w naszej bazie w ciągu kilku minut otrzymasz wiadomość email z instrukcją potwierdzenia adresu."
+      send_paranoid_instructions: "Jeśli Twój adres e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją potwierdzenia adresu."
     failure:
       already_authenticated: "Już jesteś zalogowany."
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
-      invalid: "Nieprawidłowa nazwa użytkownika lub hasło."
+      invalid: "Niepoprawne %{authentication_keys} lub hasło."
       invalid_token: "Nieprawidłowy token uwierzytelnienia."
       last_attempt: "Możesz spróbować jeszcze jeden raz, potem Twoje konto zostanie zablokowane."
       locked: "Twoje konto jest zablokowane."
-      not_found_in_database: "Niewłaściwy email lub hasło."
-      timeout: "Sesja wygasła, aby kontynuować zaloguj się ponownie."
-      unauthenticated: "Aby kontynuować zaloguj się lub zarejestruj."
-      unconfirmed: "Musisz aktywować swoje konto."
+      not_found_in_database: "Niewłaściwy %{authentication_keys} lub hasło."
+      timeout: "Sesja wygasła. Aby kontynuować, zaloguj się ponownie."
+      unauthenticated: "Aby kontynuować zaloguj lub zarejestruj się."
+      unconfirmed: "Przed przejściem dalej, musisz potwierdzić Twój adres e-mail."
     invitations:
       invitation_token_invalid: "Token zaproszenia jest nieprawidłowy!"
       send_instructions: "Zaproszenie zostało wysłane."
@@ -47,7 +47,7 @@ pl:
         wont_change: "Hasło nie zostanie zmienione do momentu kliknięcia powyższego łącza i utworzenia nowego."
       unlock_instructions:
         account_locked: "Konto zostało zablokowane, ponieważ przekroczono limit nieudanych prób logowania."
-        click_to_unlock: "Kliknij poniższy link, aby odblokować konto:"
+        click_to_unlock: "Kliknij poniższe łącze, aby odblokować konto:"
         subject: "Instrukcja odblokowania"
         unlock: "Odblokuj moje konto"
       welcome: "Witaj %{email}!"
@@ -62,8 +62,9 @@ pl:
         no_account: "Konto z podanym adresem e-mail nie istnieje"
         reset_password: "Resetuj hasło"
         send_password_instructions: "Wyślij mi instrukcję resetowania hasła"
+      no_token: "Nie możesz pomyślnie odwiedzić tej strony w inny sposób niż poprzez kliknięcie odnośnika w e-mailu resetu hasła. Jeśli znalazłeś się tutaj właśnie przez tego typu e-mail, upewnij się, że kliknąłeś lub wkleiłeś pełny adres URL."
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję resetowania hasła."
-      send_paranoid_instructions: "Jeśli Twój email istnieje w naszej bazie w ciągu kilku minut otrzymasz email z łączem po kliknięciu którego będziesz mógł ustawić nowe hasło."
+      send_paranoid_instructions: "Jeśli Twój e-mail istnieje w naszej bazie, w ciągu kilku minut otrzymasz e-mail z łączem po kliknięciu którego będziesz mógł ustawić nowe hasło."
       updated: "Hasło zostało zmienione. Zalogowano pomyślnie."
       updated_not_active: "Twoje hasło zostało pomyślnie zmienione."
     registrations:
@@ -71,8 +72,8 @@ pl:
       signed_up: "Rejestracja przebiegła pomyślnie. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający ten fakt."
       signed_up_but_inactive: "Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto nie zostało jeszcze aktywowane."
       signed_up_but_locked: "Rejestracja przebiegła pomyślnie. Jednakże, nie możemy Cię zalogować, ponieważ Twoje konto zostało zablokowane."
-      signed_up_but_unconfirmed: "Wiadomość z linkiem aktywacyjnym została wysłana na Twój adres email. Proszę kliknij łącze w celu aktywowania swojego konta."
-      update_needs_confirmation: "Twoje konto zostało zaktualizowane, ale musimy zweryfikować Twój nowy adres email. Sprawdź swoją skrzynkę i kliknij na przesłane łącze, aby potwierdzić Twój nowy adres."
+      signed_up_but_unconfirmed: "Wiadomość z łączem aktywacyjnym została wysłana na Twój adres e-mail. Prosimy o kliknięcie łącza w celu aktywowania Twojego konta."
+      update_needs_confirmation: "Twoje konto zostało zaktualizowane, ale musimy zweryfikować Twój nowy adres e-mail. Sprawdź swoją skrzynkę i kliknij na przesłane łącze, aby potwierdzić Twój nowy adres."
       updated: "Pomyślnie zaktualizowano konto."
     sessions:
       already_signed_out: "Wylogowano pomyślnie."
@@ -97,10 +98,12 @@ pl:
       new:
         resend_unlock: "Wyślij ponownie instrukcję odblokowywania"
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość z instrukcją odblokowania konta."
-      send_paranoid_instructions: "Jeśli Twoje konto istnieje w ciągu kilku minut otrzymasz email z instrukcją jak je odblokować."
+      send_paranoid_instructions: "Jeśli Twoje konto istnieje, w ciągu kilku minut otrzymasz e-mail z instrukcją jak je odblokować."
       unlocked: "Konto zostało pomyślnie odblokowane. Pomyślnie zalogowano."
   errors:
     messages:
-      already_confirmed: "już potwierdzone"
+      already_confirmed: "już potwierdzony, prosimy spróbować się zalogować"
+      confirmation_period_expired: "musi być potwierdzone w przeciągu %{period}, prosimy poprosić o nowy"
+      expired: "wygasł, poproś o nowy"
       not_found: "nie znaleziono"
       not_locked: "nie był zablokowany"

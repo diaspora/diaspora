@@ -12,16 +12,10 @@
   font-size: small;
 
   .avatar {
-    position: relative;
     float: left;
-    height: 70px !important;
-    width: 70px !important;
-    top: 0 !important;
-
-    margin: {
-      right: 10px;
-      left: 0;
-    }
+    height: 70px;
+    object-fit: cover;
+    width: 70px;
   }
 
   $image_width: 80px; /* including margin */

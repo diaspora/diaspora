@@ -48,7 +48,7 @@ de_formal:
       unlock_instructions:
         account_locked: "Ihr Konto wurde aufgrund von zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."
         click_to_unlock: "Folgen Sie dem unten aufgeführten Link, um Ihr Konto zu entsperren:"
-        subject: "Anweisungen zum Entsperren"
+        subject: "Anleitungen zum Entsperren"
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
     omniauth_callbacks:
@@ -100,8 +100,8 @@ de_formal:
     unlocks:
       new:
         resend_unlock: "Entsperr-Anweisungen erneut senden"
-      send_instructions: "Sie werden in ein wenigen Minuten eine E-Mail mit Anweisungen zum Entsperren Ihres Kontos erhalten."
-      send_paranoid_instructions: "Falls Ihr Konto existiert, erhalten Sie in wenigen Minuten eine E-Mail mit Anweisungen, um es zu entsperren."
+      send_instructions: "Sie werden in ein wenigen Minuten eine E-Mail mit Informationen zum Entsperren Ihres Kontos erhalten."
+      send_paranoid_instructions: "Falls Ihr Konto existiert, erhalten Sie in wenigen Minuten eine E-Mail mit Informationen, um es zu entsperren."
       unlocked: "Ihr Konto wurde erfolgreich entsperrt. Bitte melden Sie sich an, um fortzufahren."
   errors:
     messages:

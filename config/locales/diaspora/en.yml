@@ -627,6 +627,10 @@ en:
       zero: "%{actors} have reshared your post %{post_link}."
       one: "%{actors} has reshared your post %{post_link}."
       other: "%{actors} have reshared your post %{post_link}."
+    contacts_birthday:
+      zero: "%{actors} have their birthday on %{date}."
+      one: "%{actors} has their birthday on %{date}."
+      other: "%{actors} have their birthday on %{date}."
     also_commented_deleted:
       zero: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
@@ -661,6 +665,7 @@ en:
       mentioned_in_comment: "Mentioned in comment"
       reshared: "Reshared"
       started_sharing: "Started sharing"
+      contacts_birthday: "Birthday"
       no_notifications: "You don't have any notifications yet."
       and_others:
         zero: "and nobody else"
@@ -705,6 +710,10 @@ en:
     reshared:
         reshared: "%{name} reshared your post"
         view_post: "View post >"
+    contacts_birthday:
+        subject: "%{name} has their birthday today"
+        birthday: "%{name} has their birthday today. Wish them 'Happy Birthday'!"
+        view_profile: "View %{name}’s profile"
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
@@ -1198,6 +1207,7 @@ en:
       comment_on_post: "someone comments on your post"
       also_commented: "someone comments on a post you’ve commented on"
       private_message: "you receive a private message"
+      birthday: "someone has their birthday"
       download_export: "Download my profile"
       request_export: "Request my profile data"
       request_export_update: "Refresh my profile data"

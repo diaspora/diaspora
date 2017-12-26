@@ -226,6 +226,10 @@ is:
       one: "%{actors} skrifaði ummæli við %{post_link}."
       other: "%{actors} skrifuðu ummæli við %{post_link}."
       zero: "%{actors} hefur skrifað ummæli við %{post_link}."
+    contacts_birthday:
+      one: "%{actors} á afmæli þann %{date}."
+      other: "%{actors} eiga afmæli þann %{date}."
+      zero: "%{actors} á afmæli þann %{date}."
     index:
       all_notifications: "Allar tilkynningar"
       and: "og"
@@ -233,6 +237,7 @@ is:
         one: "og einn annar"
         other: "og %{count} aðrir"
         zero: "og enginn annar"
+      contacts_birthday: "Afmæli"
       liked: "Líkaði"
       mark_all_as_read: "Merkja allt sem lesið"
       mark_read: "Merkja sem lesið"
@@ -296,6 +301,10 @@ is:
     confirm_email:
       click_link: "Til að virkja nýja netfangið þitt %{unconfirmed_email}, smelltu á þennan tengil:"
       subject: "Virkjaðu nýja netfangið þitt %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} á afmæli í dag. Sendu honum afmæliskveðju!"
+      subject: "%{name} á afmæli í dag"
+      view_profile: "Skoða forsíðu %{name}"
     hello: "Halló %{name}!"
     invite:
       message: |-
@@ -318,6 +327,7 @@ is:
 
           [1]: %{invite_url}
           [2]: %{diasporafoundation_url}
+    invited_you: "%{name} bauð þér að vera með í diaspora*"
     liked:
       liked: "%{name} líkaði við færsluna þína"
       view_post: "Skoða færslu >"
@@ -330,6 +340,7 @@ is:
       subject: "Skilaboð um notandastillingar þínar í Diaspora*:"
     started_sharing:
       subject: "%{name} hefur byrjað að deila með þér á Diaspora*"
+      view_profile: "Skoða forsíðu %{name}"
     thanks: "Takk,"
   nsfw: "NSFW (Ekki við hæfi allra)"
   ok: "Í lagi"
@@ -450,11 +461,14 @@ is:
   status_messages:
     too_long: "Hafðu stöðufærsluna þína með færri en %{count} stöfum. Núna er hún %{current_length} stafir"
   streams:
+    activity:
+      title: "Virknin mín"
     aspects:
       title: "Ásýndirnar þínar"
     aspects_stream: "Ásýndir"
     community_spotlight_stream: "Efst á baugi í samfélaginu"
     followed_tag:
+      add_a_tag: "Bæta við merki"
       follow: "Fylgjast með"
   tags:
     show:
@@ -467,6 +481,7 @@ is:
       email_not_confirmed: "Ekki var hægt að virkja tölvupóstfang. Rangur tengill?"
     edit:
       auto_follow_back: "Byrja sjálfkrafa að deila með notendum sem deila með þér"
+      birthday: "einhver á afmæli þann"
       change: "Breyta"
       change_email: "Breyta netfangi"
       change_language: "Skipta um tungumál"
@@ -482,6 +497,9 @@ is:
       receive_email_notifications: "Fá tilkynningar í tölvupósti þegar:"
       your_email: "Netfangið þitt"
       your_handle: "Díaspora* auðkennið þitt"
+    getting_started:
+      what_are_you_in_to: "Í hverju ert þú að pæla?"
+      who_are_you: "Hver ert þú?"
     privacy_settings:
       ignored_users: "Hunsaðir notendur"
       title: "Gagnaleynd"

@@ -79,6 +79,23 @@ describe Notifier, type: :mailer do
     end
   end
 
+  describe ".contacts_birthday" do
+    let(:contact) { alice.contact_for(bob.person) }
+    let(:mail) { Notifier.send_notification("contacts_birthday", alice.id, nil, bob.person.id) }
+
+    it "TO: goes to the right person" do
+      expect(mail.to).to eq([alice.email])
+    end
+
+    it "SUBJECT: has the name of birthday person in the subject" do
+      expect(mail.subject).to include(bob.person.name)
+    end
+
+    it "has a link to the birthday profile in the body" do
+      expect(mail.body.encoded).to include(user_profile_url(bob.person.username))
+    end
+  end
+
   describe ".mentioned" do
     before do
       @user = alice

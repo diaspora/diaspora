@@ -15,10 +15,18 @@ class Reference < ApplicationRecord
 
     def create_references
       text&.scan(DiasporaFederation::Federation::DiasporaUrlParser::DIASPORA_URL_REGEX)&.each do |author, type, guid|
-        class_name = DiasporaFederation::Entity.entity_class(type).to_s.rpartition("::").last
-        entity = Diaspora::Federation::Mappings.model_class_for(class_name).find_by(guid: guid)
-        references.find_or_create_by(target: entity) if entity.diaspora_handle == author
+        add_reference(author, type, guid)
       end
+    end
+
+    private
+
+    def add_reference(author, type, guid)
+      class_name = DiasporaFederation::Entity.entity_class(type).to_s.rpartition("::").last
+      entity = Diaspora::Federation::Mappings.model_class_for(class_name).find_by(guid: guid)
+      references.find_or_create_by(target: entity) if entity&.diaspora_handle == author
+    rescue => e # rubocop:disable Lint/RescueWithoutErrorClass
+      logger.warn "ignoring invalid diaspora-url: diaspora://#{author}/#{type}/#{guid}: #{e.class}: #{e.message}"
     end
   end
 
