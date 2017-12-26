@@ -636,6 +636,11 @@ ru:
       other: "%{actors} прокомментировали вашу %{post_link}."
       two: "%{actors} прокомментировали вашу %{post_link}."
       zero: "%{actors} прокомментировали вашу %{post_link}."
+    contacts_birthday:
+      few: "День Рождения %{actors} %{date}"
+      many: "День Рождения %{actors} %{date}"
+      one: "День Рождения %{actors} %{date}"
+      other: "День Рождения %{actors} %{date}"
     index:
       all_notifications: "Все оповещения"
       also_commented: "Также прокомментировали"
@@ -647,6 +652,7 @@ ru:
         other: "и ещё %{count} "
         zero: "и больше никому"
       comment_on_post: "Комментарий к записи"
+      contacts_birthday: "День Рождения"
       liked: "Понравилась"
       mark_all_as_read: "Отметить всё как прочитанное"
       mark_all_shown_as_read: "Отметить все как прочитанное"
@@ -730,6 +736,10 @@ ru:
     confirm_email:
       click_link: "Чтобы активировать ваш адрес %{unconfirmed_email}, пожалуйста, перейдите по этой ссылке:"
       subject: "Пожалуйста, активируйте ваш новый адрес %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "У %{name} сегодня День Рождения. Поздравьте!"
+      subject: "У %{name} сегодня День Рождения"
+      view_profile: "Посмотреть профиль %{name}"
     csrf_token_fail:
       body: |-
           Здравствуй, %{name}, 
@@ -1147,6 +1157,7 @@ ru:
       also_commented: "кто-то прокомментировал запись, которую прокомментировали вы"
       auto_follow_aspect: "Добавлять этих пользователей в аспект:"
       auto_follow_back: "Автоматически добавлять в ответ пользователей, добавивших вас"
+      birthday: "у кого-то День Рождения"
       change: "Изменить"
       change_color_theme: "Изменить цветовую тему"
       change_email: "Изменить адрес"

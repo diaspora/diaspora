@@ -53,7 +53,7 @@ pl:
       add_to_aspect: "Dodaj kontakt"
       all_aspects: "Wszystkie aspekty"
       error: "Nie możesz zacząć dzielić się z <%= name %>. Może go ignorujesz?"
-      error_remove: "Nie można usunąć <%= name %> z aspektu :("
+      error_remove: "Nie udało się usunąć <%= name %> z aspektu :("
       mobile_row_checked: "<%= name %> (usuń)"
       mobile_row_unchecked: "<%= name %> (dodaj)"
       select_aspects: "Wybierz aspekty"
@@ -86,13 +86,15 @@ pl:
     cancel: "Anuluj"
     comma: ","
     comments:
-      hide: "ukryj komentarze"
+      hide: "Ukryj komentarze"
       no_comments: "Póki co nie ma jeszcze żadnych komentarzy."
-      show: "wyświetl wszystkie komentarze"
+      show: "Pokaż wszystkie komentarze"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
-    confirm_unload: "Potwierdź, że chcesz opuścić tą stronę. Dane, które wprowadziłeś, nie zostaną zapisane."
+    confirm_unload: "Potwierdź, że chcesz opuścić tę stronę. Dane, które wprowadziłeś, nie zostaną zapisane."
     contacts:
       add_contact: "Dodaj kontakt"
+      aspect_chat_is_enabled: "Kontakty z tego aspektu mogą z Tobą rozmawiać."
+      aspect_chat_is_not_enabled: "Kontakty z tego aspektu nie mogą z Tobą rozmawiać."
       aspect_list_is_not_visible: "Kontakty z tego aspektu nie widzą się nawzajem."
       aspect_list_is_visible: "Kontakty z tego aspektu mogą zobaczyć się nawzajem."
       error_add: "Nie udało się dodać <%= name %> do aspektu :("
@@ -103,7 +105,7 @@ pl:
       create:
         no_recipient: "Hej, najpierw musisz dodać odbiorcę!"
       new:
-        no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kontakty"
+        no_contacts: "Przed rozpoczęciem rozmowy musisz dodać kontakty."
     create: "Utwórz"
     delete: "Usuń"
     edit: "Edycja"
@@ -118,7 +120,7 @@ pl:
       preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
     header:
       admin: "Administrator"
-      close: "zamknij"
+      close: "Zamknij"
       contacts: "Kontakty"
       conversations: "Rozmowy"
       help: "Pomoc"
@@ -142,7 +144,7 @@ pl:
     my_activity: "Moja aktywność"
     my_aspects: "Moje aspekty"
     my_stream: "Strumień"
-    no_results: "Brak rezultatów"
+    no_results: "Brak wyników"
     notifications:
       mark_read: "Oznacz jako przeczytane"
       mark_unread: "Oznacz jako nieprzeczytane"
@@ -158,7 +160,7 @@ pl:
         is_sharing: "<%= name %> Ci udostępnia."
       mention: "Wzmianka"
       message: "Wiadomość"
-      not_found: "...i nikogo nie odnaleziono."
+      not_found: "… i nikogo nie odnaleziono"
       stop_ignoring: "Przestań ignorować"
     photo_uploader:
       completed: "<%= file %> ukończono"
@@ -187,17 +189,18 @@ pl:
       result: "Wynik"
       show_result: "Pokaż wynik"
       vote: "Zagłosuj"
+      your_vote: "Twój głos"
     profile:
-      add_some: "dodaj"
+      add_some: "Dodaj kilka"
       bio: "Opis"
       born: "Urodziny"
       contacts: "Kontakty"
-      edit: "zmień"
+      edit: "Zmień"
       gender: "Płeć"
       location: "Miejsce"
       photos: "Zdjęcia"
       posts: "Wpisy"
-      you_have_no_tags: "nie masz tagów!"
+      you_have_no_tags: "Nie masz tagów!"
     publisher:
       add_option: "Dodaj odpowiedź"
       markdown_editor:
@@ -228,6 +231,7 @@ pl:
           quote: "Wstaw cytat"
           write: "Edytuj wpis"
         write: "Edycja"
+      mention_success: "Pomyślnie wspomniano o: <%= names %>"
       near_from: "Blisko <%= location %>"
       option: "Odpowiedź"
       question: "Pytanie"
@@ -235,15 +239,15 @@ pl:
     report:
       name: "Zgłoś"
       prompt: "Proszę podaj powód:"
-      prompt_default: "obraźliwa zawartość"
+      prompt_default: "np. obraźliwa zawartość"
       status:
         created: "Zgłoszenie zostało pomyślnie utworzone"
         exists: "Zgłoszenie już istnieje"
     reshares:
-      post: "Przesłać dalej wpis użytkownika <%= name %>?"
+      post: "Przekazać dalej wpis użytkownika <%= name %>?"
       successful: "Wpis został pomyślnie przesłany dalej!"
     show_all: "Pokaż wszystkie"
-    show_more: "wyświetl więcej"
+    show_more: "Pokaż więcej"
     stream:
       comment: "Skomentuj"
       comments:
@@ -276,7 +280,7 @@ pl:
         other: "Wyświetl <%= count %> komentarzy więcej"
         zero: "Wyświetl <%= count %> komentarzy więcej"
       no_posts_yet: "Nie ma jeszcze wpisów które można by tu wyświetlić."
-      original_post_deleted: "Oryginalny wpis został usunięty przez autora."
+      original_post_deleted: "Oryginalny wpis został usunięty przez autora"
       permalink: "Łącze bezpośrednie"
       public: "Publiczny"
       reshare: "Przekaż dalej"
@@ -299,7 +303,7 @@ pl:
       unlike: "Nie lubię"
       via: "przez <%= provider %>"
     tags:
-      wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
+      wasnt_that_interesting: "Dobrze, przypuszczam, że #<%= tagName %> nie był aż tak interesujący…"
     timeago:
       day: "dzień"
       days:
@@ -316,6 +320,9 @@ pl:
       inPast: "w każdej chwili"
       minute: "około minuty"
       minutes:
+        few: "%d minuty"
+        many: "%d minut"
+        one: "%d minuta"
         other: "%d minut"
       month: "około miesiąca"
       months:
@@ -331,6 +338,9 @@ pl:
       wordSeparator: " "
       year: "około roku"
       years:
+        few: "%d lata"
+        many: "%d lat"
+        one: "%d rok"
         other: "%d lat"
     unblock_failed: "Nie udało się odblokować tego użytkownika"
     viewer:

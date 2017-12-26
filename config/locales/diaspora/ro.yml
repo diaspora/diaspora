@@ -235,6 +235,7 @@ ro:
         one: "şi încă unul "
         other: "şi celelalte %{count} persoane"
         zero: "şi nimeni altul"
+      contacts_birthday: "Zi de naştere"
       mark_all_as_read: "Marchează-le pe toate ca citite"
       mark_unread: "Marchează ca necitit"
       no_notifications: "Deocamdată nu ai notificări."
@@ -303,6 +304,8 @@ ro:
       reply: "Răspunde sau uita-te la publicaţia lui %{name} >"
     confirm_email:
       click_link: "Pentru a activa adresa nouă de email %{unconfirmed_email}, urmează această legătură:"
+    contacts_birthday:
+      view_profile: "Vezi profilul lui %{name}"
     export_email:
       body: |-
           Salut, %{name}!
@@ -489,6 +492,7 @@ ro:
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
       also_commented: "...cineva comenteaza de asemenea pe publicatia unei persoane din contacte?"
+      birthday: "e ziua de nastere a cuiva"
       change: "Modifică"
       change_email: "Change E-Mail"
       change_language: "Modifică limba"

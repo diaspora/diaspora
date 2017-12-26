@@ -10,7 +10,7 @@ fr:
       confirmed: "Votre compte a été confirmé. Vous êtes à présent connecté."
       new:
         resend_confirmation: "Renvoyer les instructions de confirmation"
-      send_instructions: "Vous allez recevoir dans quelques minutes un courriel contenant les instructions pour confirmer votre compte."
+      send_instructions: "Vous allez recevoir dans quelques minutes un courriel contenant les instructions pour confirmer votre adresse de courrier électronique."
       send_paranoid_instructions: "Si votre e-mail existe dans notre base de données, vous recevrez un e-mail avec les instructions pour confirmer votre adresse e-mail dans quelques minutes."
     failure:
       already_authenticated: "Vous êtes déjà connecté"
@@ -20,9 +20,9 @@ fr:
       last_attempt: "Vous avez encore une tentative avant que votre compte ne soit verrouillé."
       locked: "Votre compte est verrouillé."
       not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
-      timeout: "Votre session a expiré. Veuillez vous connecter de nouveau pour continuer."
+      timeout: "Votre session a expiré. Veuillez vous identifier de nouveau pour continuer."
       unauthenticated: "Vous devez vous connecter ou vous inscrire avant de continuer."
-      unconfirmed: "Vous devez confirmer votre compte avant de continuer."
+      unconfirmed: "Vous devez confirmer votre adresse de courrier électronique avant de continuer."
     invitations:
       invitation_token_invalid: "Toutes nos excuses ! Cette invitation n'est pas valide."
       send_instructions: "Votre invitation a été envoyée."
@@ -77,7 +77,7 @@ fr:
       signed_up_but_locked: "Vous vous êtes inscrit·e avec succès. Cependant, vous ne pouvez pas vous connecter parce que votre compte est verrouillé."
       signed_up_but_unconfirmed: "Un courriel avec un lien de confirmation vous a été envoyé. Veuillez suivre ce lien pour activer votre compte."
       update_needs_confirmation: "Vous avez mis à jour votre compte correctement mais nous devons vérifier votre nouvelle adresse e-mail. Veuillez consulter votre boite aux lettres et cliquer sur le lien de confirmation."
-      updated: "Vous avez mis à jour votre compte."
+      updated: "Vous avez modifié votre compte avec succès."
     sessions:
       already_signed_out: "Déconnexion réussie."
       new:
@@ -95,7 +95,7 @@ fr:
         receive_confirmation: "Vous n'avez pas reçu les instructions de confirmation ?"
         receive_unlock: "Vous n'avez pas reçu les instructions de déblocage ?"
         sign_in: "Connexion"
-        sign_up: "Inscription"
+        sign_up: "Créer un compte"
         sign_up_closed: "Les inscriptions sont fermées pour l'instant."
     unlocks:
       new:
@@ -105,7 +105,7 @@ fr:
       unlocked: "Votre compte a été déverrouillé. Vous êtes à présent connecté."
   errors:
     messages:
-      already_confirmed: "a déjà été confirmé"
+      already_confirmed: "a déjà été confirmé, essayez de vous identifier s’il vous plaît"
       confirmation_period_expired: "aurait dû être confirmé dans les %{period}, veuillez en demander un nouveau"
       expired: "a expiré, veuillez faire une nouvelle demande"
       not_found: "introuvable"

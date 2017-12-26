@@ -69,6 +69,9 @@ it:
         zero: "%{count} utenti"
       week: "1 settimana"
     user_entry:
+      email: "Email"
+      guid: "GUID"
+      id: "ID"
       ? "no"
       : "No"
       ? "yes"
@@ -93,6 +96,15 @@ it:
         zero: "Numero di nuovi utenti questa settimana: nessuno"
       current_server: "La data attuale del server è %{date}"
   all_aspects: "Tutti gli aspetti"
+  api:
+    openid_connect:
+      scopes:
+        nickname:
+          name: "nickname"
+        picture:
+          name: "immagine"
+      user_applications:
+        revoke_autorization: "Revoca"
   are_you_sure: "Sei sicuro?"
   are_you_sure_delete_account: "Sei sicuro di voler chiudere il tuo account? È un'operazione irreversibile!"
   aspect_memberships:
@@ -173,6 +185,10 @@ it:
     heading: "Bookmarklet"
     post_something: "Pubblica su Diaspora"
   cancel: "Annulla"
+  color_themes:
+    dark: "Scuro"
+    dark_green: "Verde scuro"
+    magenta: "Magenta"
   comments:
     new_comment:
       comment: "Commenta"
@@ -258,6 +274,7 @@ it:
       what_is_an_aspect_q: "Cosa è un aspetto?"
       who_sees_post_a: "Se crei un post privato, sarà visibile solamente alle persone negli aspetti che avrai scelto. I contatti che non sono nell'aspetto o negli aspetti scelti non avranno modo di vedere il post, a meno che non sia pubblico. Solo i post pubblici saranno visibili da tutti coloro che non hai messo in nessun aspetto."
       who_sees_post_q: "Quando pubblico un contenuto ad un aspetto, chi lo vede?"
+    faq: "FAQ"
     foundation_website: "Sito web diaspora foundation"
     getting_help:
       get_support_a_hashtag: "Invia la domanda in un post pubblico in diaspora* usando %{question} come hashtag"
@@ -330,6 +347,8 @@ it:
       title: "Post privati"
       who_sees_post_a: "Solo gli utenti loggati in diaspora* che hai inserito in quell'Aspetto possono vedere i tuoi post privati."
       who_sees_post_q: "Quando posto un messaggio ad un Aspetto (es: un messaggio privato), chi può vederlo?"
+    profile:
+      title: "Profilo"
     public_posts:
       can_comment_reshare_like_a: "Qualunque utente di diaspora* loggato può commentare, ri-condividere, o mettere mi piace sul tuo post pubblico."
       can_comment_reshare_like_q: "Chi può commentare, ri-condividere, o mettere mi piace sul mio post pubblico?"
@@ -443,6 +462,7 @@ it:
         other: "e altre %{count} persone"
         two: "e altre %{count} persone"
         zero: "e nessun altro"
+      contacts_birthday: "Compleanno"
       mark_all_as_read: "Segnalali tutti come letti"
       mark_read: "Segna come letto"
       mark_unread: "Segna come non letti"
@@ -590,6 +610,7 @@ it:
       allow_search: "Permetti ad altri di trovarti su Diaspora"
       first_name: "Nome"
       last_name: "Cognome"
+      settings: "Impostazioni del profilo"
       update_profile: "Aggiorna il profilo"
       your_bio: "La tua biografia"
       your_birthday: "Il tuo compleanno"
@@ -620,6 +641,10 @@ it:
       submitting: "Invio in corso..."
       terms_link: "termini di servizio"
       username: "NOME UTENTE"
+  report:
+    confirm_deletion: "Sei sicuro di volerlo eliminare?"
+    delete_link: "Elimina elemento"
+    reason_label: "Motivo:"
   reshares:
     comment_email_subject: "La condivisione di %{resharer} del post di %{author}"
     reshare:
@@ -643,6 +668,11 @@ it:
       logged_in_as: "accesso effettuato come"
       really_disconnect: "Disconnettersi da %{service}?"
       services_explanation: "Il collegamento ad altri servizi ti dà la possibilità di pubblicare i post che invii su diaspora*."
+    provider:
+      facebook: "Facebook"
+      tumblr: "Tumblr"
+      twitter: "Twitter"
+      wordpress: "WordPress"
   settings: "Impostazioni"
   shared:
     aspect_dropdown:
@@ -691,6 +721,11 @@ it:
       default: "Il codice segreto non corrisponde all'immagine"
       user: "L'immagine segreta e il codice non coincidono"
     placeholder: "Inserisci il valore dell'immagine"
+  statistics:
+    disabled: "Non disponibile"
+    enabled: "Disponibile"
+    total_users: "Utenti totali"
+    version: "Versione"
   status_messages:
     new:
       mentioning: "Stai menzionando: %{person}"
@@ -698,6 +733,8 @@ it:
   streams:
     activity:
       title: "Attività"
+    admin:
+      title: "Amministratore"
     aspects:
       title: "Aspetti"
     aspects_stream: "Aspetti"

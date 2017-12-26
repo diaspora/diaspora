@@ -636,6 +636,10 @@ es:
       one: "%{actors} ha comentado tu %{post_link}."
       other: "%{actors} han comentado tu %{post_link}."
       zero: "%{actors} comentarios en tu %{post_link}."
+    contacts_birthday:
+      one: "%{actors} persona cumple años el %{date}."
+      other: "%{actors} cumplen años el %{date}."
+      zero: "%{actors} personas cumplen años el %{date}."
     index:
       all_notifications: "Todas las Notificaciones"
       also_commented: "Otros comentarios"
@@ -645,6 +649,7 @@ es:
         other: "y %{count} más"
         zero: "y nadie más"
       comment_on_post: "Comentar en el post"
+      contacts_birthday: "Cumpleaños"
       liked: "Te gustó"
       mark_all_as_read: "Marcar todo como leído"
       mark_all_shown_as_read: "Marcar todos como leídos"
@@ -702,6 +707,10 @@ es:
     confirm_email:
       click_link: "Para activar tu nueva dirección de correo %{unconfirmed_email}, sigue este enlace:"
       subject: "Por favor activa tu nueva dirección de correo %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} cumplen años hoy. Deséales un \"¡Feliz cumpleaños!\""
+      subject: "%{name} cumple años hoy"
+      view_profile: "Ver el perfil de %{name}"
     csrf_token_fail:
       body: |-
           Hola %{name},
@@ -1132,6 +1141,7 @@ es:
       also_commented: "alguien comenta en una publicación que has comentado"
       auto_follow_aspect: "Aspecto para los usuarios seguidos automáticamente:"
       auto_follow_back: "Seguir automáticamente a los usuarios que te sigan"
+      birthday: "alguien cumple años hoy"
       change: "Cambiar"
       change_color_theme: "Cambiar el color del tema"
       change_email: "Cambiar correo"
