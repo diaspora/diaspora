@@ -1,6 +1,7 @@
 # 0.7.3.0
 
 ## Refactor
+* Work on the data downloads: Fixed general layout of buttons, added a timestamp and implemented auto-deletion of old exports [#7684](https://github.com/diaspora/diaspora/pull/7684)
 
 ## Bug fixes
 * Fix notifications when people remove their birthday date [#7691](https://github.com/diaspora/diaspora/pull/7691)
