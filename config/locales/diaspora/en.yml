@@ -1311,6 +1311,40 @@ en:
       email_confirmed: "Email %{email} activated"
       email_not_confirmed: "Email could not be activated. Wrong link?"
 
+  two_factor_auth:
+    title: "Two factor authentication"
+    activated:
+      status: "Two factor authentication activated"
+      change_label: "Deactivate two factor authentication by entering a TOTP token."
+      change_button: "Deactivate"
+    deactivated:
+      status: "Two factor authentication not activated"
+      change_label: "Activate two factor authentication"
+      change_button: "Activate"
+    confirm:
+      title: "Confirm activation"
+      status: "Two factor authentication is not fully activated yet, you need to confirm activation with a TOTP token"
+      scan_title: "Scan the QR code"
+      scan_explanation: "Please scan the QR code with a TOTP capable app (eg FreeOTP (Android, iOS), SailOTP (SailfishOS))."
+      manual_explanation: "In case you can't scan the QR code automatically you can manually enter the secret."
+      input_title: "Confim with TOTP token"
+      input_explanation: "After scanning or entering the secret, enter the 6 digit code you see and confirm the setup."
+      activate_button: "Confirm and activate"
+    input_token:
+      label: "Two factor token"
+      placeholder: "6 digit two factor token"
+    recovery:
+      title: "Recovery codes"
+      reminder: "Alternatively, you can use a recovery code."
+      explanation: "If you ever lose access to your phone, you can use one of the recovery codes below to regain access to your account. Keep the recovery codes safe. For example, you may print them and store them with other important documents."
+      explanation_short: "Recovery codes allow you to regain access to your account if you lose your phone."
+      invalidation_notice: "If you've lost your recovery codes, you can regenerate them here. Your old recovery codes will be invalidated."
+      button: "Generate new recovery codes"
+    flash:
+      success_activation: "Successfully activated two factor authentication"
+      success_deactivation: "Successfully deactivated two factor authentication"
+      error_token: "Token was incorrect or invalid"
+
   will_paginate:
     previous_label: "&laquo; previous"
     next_label: "next &raquo;"
