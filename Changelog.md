@@ -13,6 +13,7 @@
 ## Bug fixes
 
 ## Features
+* Check if redis is running in script/server [#7685](https://github.com/diaspora/diaspora/pull/7685)
 
 # 0.7.2.0
 

@@ -108,7 +108,8 @@ vars=$(bin/bundle exec ruby ./script/get_config.rb \
   workers=server.sidekiq_workers \
   chat=chat.enabled \
   chat_server=chat.server.enabled \
-  chat_bosh_proxy=chat.server.bosh.proxy
+  chat_bosh_proxy=chat.server.bosh.proxy \
+  redis_url=environment.redis
 )
 on_failure "Couldn't parse config/diaspora.yml!"
 eval "$vars"
@@ -156,6 +157,19 @@ then
 precompiled. Now and after each update before you restart the
 application, run:
     bin/rake assets:precompile"
+fi
+
+# Check if redis is running
+if [ "$single_process_mode" = "false" ]
+then
+  if [ -n "$redis_url" ]
+  then
+    redis_param="url: '$redis_url'"
+  fi 
+  if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null)" != "PONG" ]
+  then
+    fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in config/diaspora.yml."
+  fi
 fi
 
 # Check for old curl versions (see https://github.com/diaspora/diaspora/issues/4202)
