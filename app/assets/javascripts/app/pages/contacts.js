@@ -9,7 +9,7 @@ app.pages.Contacts = Backbone.View.extend({
     "click #chat_privilege_toggle" : "toggleChatPrivilege",
     "click #change_aspect_name" : "showAspectNameForm",
     "click .conversation_button": "showMessageModal",
-    "click #invitations-button": "showInvitationsModal"
+    "click .invitations-button": "showInvitationsModal"
   },
 
   initialize: function(opts) {
