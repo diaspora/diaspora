@@ -123,6 +123,22 @@ describe NotificationsHelper, type: :helper do
         expect(link).to include("#{post_path(status_message)}##{comment.guid}")
       end
     end
+
+    context "for a birthday" do
+      let(:notification) { Notifications::ContactsBirthday.create(recipient: alice, target: bob.person) }
+
+      it "contains the date" do
+        bob.profile.update_attributes(birthday: Time.zone.today)
+        link = object_link(notification, notification_people_link(notification))
+        expect(link).to include(I18n.l(Time.zone.today, format: I18n.t("date.formats.fullmonth_day")))
+      end
+
+      it "doesn't break, when the person removes the birthday date" do
+        bob.profile.update_attributes(birthday: nil)
+        link = object_link(notification, notification_people_link(notification))
+        expect(link).to include(I18n.l(Time.zone.today, format: I18n.t("date.formats.fullmonth_day")))
+      end
+    end
   end
 
   describe '#display_year?' do
