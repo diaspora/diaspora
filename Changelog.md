@@ -1,3 +1,7 @@
+# 0.7.2.1
+
+Fixes notifications when people remove their birthday date [#7691](https://github.com/diaspora/diaspora/pull/7691)
+
 # 0.7.2.0
 
 ## Bug fixes
