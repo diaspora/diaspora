@@ -17,7 +17,7 @@ module NotificationsHelper
             .include?(note.type)
         opts.merge!(opts_for_post(note.linked_object))
       elsif note.is_a?(Notifications::ContactsBirthday)
-        opts.merge!(opts_for_birthday(note.linked_object))
+        opts.merge!(opts_for_birthday(note))
       end
     end
     translation(target_type, opts)
@@ -46,8 +46,8 @@ module NotificationsHelper
     }
   end
 
-  def opts_for_birthday(person)
-    {date: locale_date(person.birthday.to_s)}
+  def opts_for_birthday(note)
+    {date: I18n.l(note.created_at, format: I18n.t("date.formats.fullmonth_day"))}
   end
 
   def notification_people_link(note, people=nil)
