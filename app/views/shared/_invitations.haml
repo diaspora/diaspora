@@ -2,7 +2,7 @@
 = invite_link(current_user.invitation_code)
 
 - if AppConfig.mail.enable?
-  .invitations-link.btn.btn-link#invitations-button{"data-toggle" => "modal"}
+  .invitations-link.btn.btn-link.invitations-button{"data-toggle" => "modal"}
     = t(".by_email")
 
 - content_for :after_content do
