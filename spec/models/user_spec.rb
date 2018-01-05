@@ -944,6 +944,17 @@ describe User, :type => :model do
         expect(@user.reload.show_community_spotlight_in_stream).to be false
         expect(@user.reload.post_default_public).to be false
       end
+
+      it "removes export archives" do
+        @user.perform_export!
+        @user.perform_export_photos!
+        @user.clear_account!
+        @user.reload
+        expect(@user.export).not_to be_present
+        expect(@user.exported_at).to be_nil
+        expect(@user.exported_photos_file).not_to be_present
+        expect(@user.exported_photos_at).to be_nil
+      end
     end
 
     describe "#clearable_attributes" do
@@ -970,6 +981,8 @@ describe User, :type => :model do
             last_seen
             color_theme
             post_default_public
+            exported_at
+            exported_photos_at
           )
         )
       end

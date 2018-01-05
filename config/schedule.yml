@@ -17,3 +17,7 @@ recheck_scheduled_pods:
 check_birthday:
   cron: "0 0 * * *"
   class: "Workers::CheckBirthday"
+
+cleanup_old_exports:
+  cron: "0 0 * * *"
+  class: "Workers::CleanupOldExports"
