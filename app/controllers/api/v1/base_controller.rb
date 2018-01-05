@@ -6,6 +6,7 @@ module Api
       include Api::OpenidConnect::ProtectedResourceEndpoint
 
       protected
+
       rescue_from Exception do |e|
         logger.error e.message
         logger.error e.backtrace.join("\n")
