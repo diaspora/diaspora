@@ -224,7 +224,9 @@ Rails.application.routes.draw do
   api_version(module: "Api::V1", path: {value: "api/v1"}) do
     match "user", to: "users#show", via: %i[get post]
     resources :posts, only: %i[show create destroy] do
-      resources :comments, only: %i[create destroy]
+      resources :comments, only: %i[create index destroy] do
+        post "report" => "comments#report"
+      end
       resource :likes, only: %i[create destroy]
     end
     resources :conversations, only: %i[show index create destroy] do
