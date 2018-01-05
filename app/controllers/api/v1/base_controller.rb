@@ -6,13 +6,13 @@ module Api
       include Api::OpenidConnect::ProtectedResourceEndpoint
 
       protected
-
       rescue_from Exception do |e|
         logger.error e.message
+        logger.error e.backtrace.join("\n")
         render json: {error: e.message}, status: 500
       end
 
-      rescue_from ActiveRecord::RecordNotFound do
+      rescue_from ActiveRecord::RecordNotFound do |e|
         logger.error e.message
         render json: {error: I18n.t("api.error.not_found")}, status: 404
       end
