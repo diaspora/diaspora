@@ -186,7 +186,7 @@ app.Router = Backbone.Router.extend({
   },
 
   spotlight: function() {
-    $("#invitations-button").click(function() {
+    $(".invitations-button").click(function() {
       app.helpers.showModal("#invitationsModal");
     });
   },

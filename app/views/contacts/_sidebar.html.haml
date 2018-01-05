@@ -11,7 +11,7 @@
           class: "btn btn-link"
   - if AppConfig.settings.invitations.open?
     .text-center
-      .btn.btn-link#invitations-button{"data-toggle" => "modal"}
+      .btn.btn-link.invitations-button{"data-toggle" => "modal"}
         = t("invitations.new.invite_someone_to_join")
       = render "shared/modal",
           path: new_user_invitation_path,
