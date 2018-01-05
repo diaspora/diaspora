@@ -11,6 +11,7 @@
 ## Refactor
 
 ## Bug fixes
+* Fix notifications when people remove their birthday date [#7691](https://github.com/diaspora/diaspora/pull/7691)
 
 ## Features
 * Check if redis is running in script/server [#7685](https://github.com/diaspora/diaspora/pull/7685)
