@@ -3,7 +3,7 @@
 class Services::Twitter < Service
   include Rails.application.routes.url_helpers
 
-  MAX_CHARACTERS = 140
+  MAX_CHARACTERS = 280
   SHORTENED_URL_LENGTH = 21
   LINK_PATTERN = %r{https?://\S+}
 

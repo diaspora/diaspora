@@ -2,6 +2,7 @@
 
 ## Refactor
 * Work on the data downloads: Fixed general layout of buttons, added a timestamp and implemented auto-deletion of old exports [#7684](https://github.com/diaspora/diaspora/pull/7684)
+* Increase Twitter character limit to 280 [#7694](https://github.com/diaspora/diaspora/pull/7694)
 
 ## Bug fixes
 * Fix notifications when people remove their birthday date [#7691](https://github.com/diaspora/diaspora/pull/7691)
