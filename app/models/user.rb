@@ -539,6 +539,8 @@ class User < ApplicationRecord
      :post_default_public].each do |field|
       self[field] = false
     end
+    self.remove_export = true
+    self.remove_exported_photos_file = true
     self[:disable_mail] = true
     self[:strip_exif] = true
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
@@ -579,7 +581,7 @@ class User < ApplicationRecord
     attributes.keys - %w(id username encrypted_password created_at updated_at locked_at
                          serialized_private_key getting_started
                          disable_mail show_community_spotlight_in_stream
-                         strip_exif email remove_after export exporting exported_at
-                         exported_photos_file exporting_photos exported_photos_at)
+                         strip_exif email remove_after export exporting
+                         exported_photos_file exporting_photos)
   end
 end
