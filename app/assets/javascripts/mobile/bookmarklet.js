@@ -6,16 +6,21 @@ $(document).ready(function() {
       return params.content;
     }
 
-    var content = params.title + " - " + params.url;
-    if (params.notes.length > 0) {
-      content += " - " + params.notes;
+    var separator = "\n\n";
+    var contents = "### " + params.title + separator;
+    if (params.notes) {
+      var notes = params.notes.toString().replace(/(?:\r\n|\r|\n)/g, "\n> ");
+      contents += "> " + notes + separator;
     }
-    return content;
+    contents += params.url;
+    return contents;
   }
 
   var content = publisherContent(gon.preloads.bookmarklet);
   if (content.length > 0) {
-    $("#status_message_text").val(content);
+    var textarea = $("#status_message_text");
+    textarea.val(content);
+    autosize.update(textarea);
   }
 });
 // @license-end
