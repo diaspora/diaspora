@@ -39,18 +39,18 @@
             = f.label :current_password, t(".current_password"), class: "col-sm-6 control-label"
             .col-sm-6
               = f.password_field :current_password, placeholder: t(".current_password_expl"),
-                class: "form-control"
+                class: "form-control", autocomplete: "current-password"
           .form-group
             = f.label :password, t(".new_password"), class: "col-sm-6 control-label"
             .col-sm-6
               = f.password_field :password, placeholder: t(".character_minimum_expl"),
-                class: "form-control"
+                class: "form-control", autocomplete: "new-password"
           .form-group
             = f.label :password_confirmation, t("registrations.new.password_confirmation"),
               class: "col-sm-6 control-label"
             .col-sm-6
               = f.password_field :password_confirmation, placeholder: t(".character_minimum_expl"),
-                class: "form-control"
+                class: "form-control", autocomplete: "new-password"
 
           .clearfix
             = f.submit t(".change_password"), class: "btn btn-primary pull-right", name: "change_password"
