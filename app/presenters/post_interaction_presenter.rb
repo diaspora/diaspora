@@ -18,6 +18,14 @@ class PostInteractionPresenter
     }
   end
 
+  def as_counters
+    {
+      comments_count: @post.comments_count,
+      likes_count:    @post.likes_count,
+      reshares_count: @post.reshares_count
+    }
+  end
+
   private
 
   def participations

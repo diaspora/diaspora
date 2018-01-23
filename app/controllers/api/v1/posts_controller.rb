@@ -14,20 +14,22 @@ module Api
       end
 
       def show
-        posts_services = PostService.new(id: params[:id], user: current_user)
-        posts_services.mark_user_notifications unless params[:mark_notifications] == "false"
-        render json: posts_services.present_api_json
+        mark_notifications =
+          params[:mark_notifications].present? && params[:mark_notifications]
+        post = post_service.find!(params[:id])
+        post_service.mark_user_notifications(post.id) if mark_notifications
+        render json: post_as_json(post)
       end
 
       def create
-        @status_message = StatusMessageCreationService.new(current_user).create(normalized_params)
+        status_service = StatusMessageCreationService.new(current_user)
+        @status_message = status_service.create(normalized_params)
         render json: PostPresenter.new(@status_message, current_user)
       end
 
       def destroy
-        post_service = PostService.new(id: params[:id], user: current_user)
-        post_service.retract_post
-        render nothing: true, status: 204
+        post_service.destroy(params[:id])
+        head :no_content
       end
 
       def normalized_params
@@ -52,6 +54,14 @@ module Api
         else
           aspect_ids
         end
+      end
+
+      def post_service
+        @post_service ||= PostService.new(current_user)
+      end
+
+      def post_as_json(post)
+        PostPresenter.new(post).as_api_response
       end
     end
   end
