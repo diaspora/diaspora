@@ -16,6 +16,27 @@ class PostPresenter < BasePresenter
          .merge(non_directly_retrieved_attributes)
   end
 
+  def as_api_response
+    interactions = PostInteractionPresenter.new(@post, current_user)
+    {
+      guid:                  @post.guid,
+      body:                  build_text,
+      title:                 title,
+      post_type:             @post.post_type,
+      public:                @post.public,
+      created_at:            @post.created_at,
+      nsfw:                  @post.nsfw,
+      author:                @post.author.as_api_response(:backbone),
+      provider_display_name: @post.provider_display_name,
+      interactions:          interactions.as_counters,
+      location:              @post.post_location,
+      poll:                  @post.poll,
+      mentioned_people:      build_mentioned_people_json,
+      photos:                build_photos_json,
+      root:                  root_api_response
+    }
+  end
+
   def with_interactions
     interactions = PostInteractionPresenter.new(@post, current_user)
     as_json.merge!(interactions: interactions.as_json)
@@ -103,6 +124,11 @@ class PostPresenter < BasePresenter
     if @post.respond_to?(:absolute_root) && @post.absolute_root.present?
       PostPresenter.new(@post.absolute_root, current_user).as_json
     end
+  end
+
+  def root_api_response
+    is_root_post_exist = @post.respond_to?(:absolute_root) && @post.absolute_root.present?
+    PostPresenter.new(@post.absolute_root, current_user).as_api_response if is_root_post_exist
   end
 
   def build_interactions_json
