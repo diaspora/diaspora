@@ -8,6 +8,7 @@
 ## Bug fixes
 * Fix invite link on the contacts page when the user has no contacts [#7690](https://github.com/diaspora/diaspora/pull/7690)
 * Fixed the mobile bookmarklet when called without parameters [#7698](https://github.com/diaspora/diaspora/pull/7698)
+* Properly build the #newhere message for people who got invited [#7702](https://github.com/diaspora/diaspora/pull/7702)
 
 ## Features
 * Check if redis is running in script/server [#7685](https://github.com/diaspora/diaspora/pull/7685)

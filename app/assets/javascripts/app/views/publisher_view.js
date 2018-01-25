@@ -178,6 +178,9 @@ app.views.Publisher = Backbone.View.extend({
     if (gon.preloads.getting_started) {
       this.open();
       this.viewGettingStarted.show();
+      if (gon.preloads.mentioned_person) {
+        this.mention.addPersonToMentions(gon.preloads.mentioned_person);
+      }
     }
   },
 
