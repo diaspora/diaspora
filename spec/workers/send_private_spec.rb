@@ -41,4 +41,21 @@ describe Workers::SendPrivate do
       Workers::SendPrivate.new.perform(sender_id, obj_str, targets, 9)
     }.to raise_error Workers::SendBase::MaxRetriesReached
   end
+
+  it "retries contact entities 20 times" do
+    contact = Fabricate(:contact_entity, author: sender_id, recipient: alice.diaspora_handle)
+    obj_str = contact.to_s
+    targets = {"https://example.org/receive/user/guid" => "<xml>post</xml>"}
+    expect(DiasporaFederation::Federation::Sender).to receive(:private).with(
+      sender_id, obj_str, targets
+    ).and_return(targets).twice
+
+    expect(Workers::SendPrivate).to receive(:perform_in).with(a_kind_of(Numeric), sender_id, obj_str, targets, 19)
+    Workers::SendPrivate.new.perform(sender_id, obj_str, targets, 18)
+
+    expect(Workers::SendPrivate).not_to receive(:perform_in)
+    expect {
+      Workers::SendPrivate.new.perform(sender_id, obj_str, targets, 19)
+    }.to raise_error Workers::SendBase::MaxRetriesReached
+  end
 end

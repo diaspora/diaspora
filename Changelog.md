@@ -4,6 +4,8 @@
 * Work on the data downloads: Fixed general layout of buttons, added a timestamp and implemented auto-deletion of old exports [#7684](https://github.com/diaspora/diaspora/pull/7684)
 * Increase Twitter character limit to 280 [#7694](https://github.com/diaspora/diaspora/pull/7694)
 * Improve password autocomplete with password managers [#7642](https://github.com/diaspora/diaspora/pull/7642)
+* Removed the limit of participants in private conversations [#7705](https://github.com/diaspora/diaspora/pull/7705)
+* Send blocks to the blocked persons pod for better UX [#7705](https://github.com/diaspora/diaspora/pull/7705)
 
 ## Bug fixes
 * Fix invite link on the contacts page when the user has no contacts [#7690](https://github.com/diaspora/diaspora/pull/7690)
