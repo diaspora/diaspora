@@ -15,4 +15,9 @@ class Block < ApplicationRecord
       errors[:person_id] << "stop blocking yourself!"
     end
   end
+
+  # @return [Array<Person>] The recipient of the block
+  def subscribers
+    [person]
+  end
 end
