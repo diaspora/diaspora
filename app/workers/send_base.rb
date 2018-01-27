@@ -9,7 +9,7 @@ module Workers
     protected
 
     def schedule_retry(retry_count, sender_id, obj_str, failed_urls)
-      if retry_count < MAX_RETRIES
+      if retry_count < (obj_str.start_with?("Contact") ? MAX_RETRIES + 10 : MAX_RETRIES)
         yield(seconds_to_delay(retry_count), retry_count)
       else
         logger.warn "status=abandon sender=#{sender_id} obj=#{obj_str} failed_urls='[#{failed_urls.join(', ')}]'"
