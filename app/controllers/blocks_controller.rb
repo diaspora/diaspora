@@ -6,7 +6,7 @@ class BlocksController < ApplicationController
   def create
     block = current_user.blocks.new(block_params)
 
-    disconnect_if_contact(block.person) if block.save
+    send_message(block) if block.save
 
     respond_to do |format|
       format.json { head :no_content }
@@ -14,7 +14,9 @@ class BlocksController < ApplicationController
   end
 
   def destroy
-    notice = if current_user.blocks.find_by(id: params[:id])&.delete
+    block = current_user.blocks.find_by(id: params[:id])
+    notice = if block&.delete
+               ContactRetraction.for(block).defer_dispatch(current_user)
                {notice: t("blocks.destroy.success")}
              else
                {error: t("blocks.destroy.failure")}
@@ -28,8 +30,14 @@ class BlocksController < ApplicationController
 
   private
 
-  def disconnect_if_contact(person)
-    current_user.contact_for(person).try {|contact| current_user.disconnect(contact) }
+  def send_message(block)
+    contact = current_user.contact_for(block.person)
+
+    if contact
+      current_user.disconnect(contact)
+    elsif block.person.remote?
+      Diaspora::Federation::Dispatcher.defer_dispatch(current_user, block)
+    end
   end
 
   def block_params

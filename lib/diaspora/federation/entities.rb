@@ -31,6 +31,16 @@ module Diaspora
         )
       end
 
+      def self.block(block)
+        DiasporaFederation::Entities::Contact.new(
+          author:    block.user.diaspora_handle,
+          recipient: block.person.diaspora_handle,
+          sharing:   false,
+          following: false,
+          blocking:  Block.exists?(user: block.user, person: block.person)
+        )
+      end
+
       def self.comment(comment)
         DiasporaFederation::Entities::Comment.new(
           {
@@ -52,7 +62,8 @@ module Diaspora
           author:    contact.user.diaspora_handle,
           recipient: contact.person.diaspora_handle,
           sharing:   contact.receiving,
-          following: contact.receiving
+          following: contact.receiving,
+          blocking:  Block.exists?(user: contact.user, person: contact.person)
         )
       end
 

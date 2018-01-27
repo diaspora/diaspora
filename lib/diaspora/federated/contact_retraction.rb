@@ -6,11 +6,11 @@ class ContactRetraction < Retraction
   end
 
   def self.retraction_data_for(target)
-    Diaspora::Federation::Entities.contact(target).to_h
+    Diaspora::Federation::Entities.build(target).to_h
   end
 
   def self.for(target)
-    target.receiving = false
+    target.receiving = false if target.is_a?(Contact)
     super
   end
 

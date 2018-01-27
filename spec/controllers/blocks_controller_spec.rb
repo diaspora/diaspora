@@ -17,8 +17,8 @@ describe BlocksController, :type => :controller do
       expect(response.status).to eq(204)
     end
 
-    it "calls #disconnect_if_contact" do
-      expect(@controller).to receive(:disconnect_if_contact).with(bob.person)
+    it "calls #send_message" do
+      expect(@controller).to receive(:send_message).with(an_instance_of(Block))
       post :create, params: {block: {person_id: bob.person.id}}, format: :json
     end
   end
@@ -36,6 +36,13 @@ describe BlocksController, :type => :controller do
     it "notifies the user" do
       delete :destroy, params: {id: @block.id}
       expect(flash[:notice]).to eq(I18n.t("blocks.destroy.success"))
+    end
+
+    it "sends a message" do
+      retraction = double
+      expect(ContactRetraction).to receive(:for).with(@block).and_return(retraction)
+      expect(retraction).to receive(:defer_dispatch).with(alice)
+      delete :destroy, params: {id: @block.id}
     end
 
     it "responds with 204 with json" do
@@ -60,21 +67,32 @@ describe BlocksController, :type => :controller do
     end
   end
 
-  describe "#disconnect_if_contact" do
+  describe "#send_message" do
     before do
       allow(@controller).to receive(:current_user).and_return(alice)
     end
 
-    it "calls disconnect with the force option if there is a contact for a given user" do
+    it "calls disconnect if there is a contact for a given user" do
+      block = alice.blocks.create(person: bob.person)
       contact = alice.contact_for(bob.person)
-      allow(alice).to receive(:contact_for).and_return(contact)
+      expect(alice).to receive(:contact_for).and_return(contact)
       expect(alice).to receive(:disconnect).with(contact)
-      @controller.send(:disconnect_if_contact, bob.person)
+      expect(Diaspora::Federation::Dispatcher).not_to receive(:defer_dispatch)
+      @controller.send(:send_message, block)
     end
 
-    it "doesn't call disconnect if there is a contact for a given user" do
+    it "queues a message with the block if the person is remote and there is no contact for a given user" do
+      block = alice.blocks.create(person: remote_raphael)
       expect(alice).not_to receive(:disconnect)
-      @controller.send(:disconnect_if_contact, eve.person)
+      expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(alice, block)
+      @controller.send(:send_message, block)
+    end
+
+    it "does nothing if the person is local and there is no contact for a given user" do
+      block = alice.blocks.create(person: eve.person)
+      expect(alice).not_to receive(:disconnect)
+      expect(Diaspora::Federation::Dispatcher).not_to receive(:defer_dispatch)
+      @controller.send(:send_message, block)
     end
   end
 end
