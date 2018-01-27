@@ -9,12 +9,7 @@ class Conversation < ApplicationRecord
   has_many :participants, class_name: "Person", through: :conversation_visibilities, source: :person
   has_many :messages, -> { order("created_at ASC") }, inverse_of: :conversation
 
-  validate :max_participants
   validate :local_recipients
-
-  def max_participants
-    errors.add(:max_participants, "too many participants") if participants.count > 20
-  end
 
   def local_recipients
     recipients.each do |recipient|
