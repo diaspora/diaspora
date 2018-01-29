@@ -541,6 +541,10 @@ describe Diaspora::Federation::Receive do
     it_behaves_like "it ignores existing object received twice", Reshare do
       let(:entity) { reshare_entity }
     end
+
+    it_behaves_like "it sends a participation to the author" do
+      let(:entity) { reshare_entity }
+    end
   end
 
   describe ".retraction" do
@@ -765,6 +769,18 @@ describe Diaspora::Federation::Receive do
 
         expect(status_message.photos.map(&:guid)).to include(photo1.guid, photo2.guid)
         expect(status_message.photos.map(&:text)).to include(received_photo.text, photo2.text)
+      end
+
+      it_behaves_like "it sends a participation to the author" do
+        let(:entity) { status_message_entity }
+      end
+
+      it "doesn't send participations for a private post" do
+        status_message_entity = Fabricate(:status_message_entity, author: sender.diaspora_handle, public: false)
+
+        expect(Diaspora::Federation::Dispatcher).not_to receive(:build)
+
+        Diaspora::Federation::Receive.perform(status_message_entity)
       end
     end
   end

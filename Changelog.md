@@ -6,6 +6,7 @@
 * Improve password autocomplete with password managers [#7642](https://github.com/diaspora/diaspora/pull/7642)
 * Remove the limit of participants in private conversations [#7705](https://github.com/diaspora/diaspora/pull/7705)
 * Send blocks to the blocked persons pod for better UX [#7705](https://github.com/diaspora/diaspora/pull/7705)
+* Send a dummy participation on all incoming public posts to increase interaction consistency [#7708](https://github.com/diaspora/diaspora/pull/7708)
 
 ## Bug fixes
 * Fix invite link on the contacts page when the user has no contacts [#7690](https://github.com/diaspora/diaspora/pull/7690)
