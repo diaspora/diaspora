@@ -116,6 +116,11 @@ describe "Receive federation messages feature" do
           alice, instance_of(Reshare)
         ).and_return(double(create!: true))
 
+        expect(Diaspora::Federation::Dispatcher).to receive(:build) do |_user, participation, _opts|
+          expect(participation.target.guid).to eq(reshare.guid)
+          instance_double(:dispatch)
+        end
+
         post_message(generate_payload(reshare, sender))
 
         expect(Reshare.exists?(root_guid: post.guid)).to be_truthy
