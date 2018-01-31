@@ -15,13 +15,6 @@ describe Publisher do
     end
   end
 
-  describe '#text' do
-    it 'is a formatted version of the prefill' do
-      p = Publisher.new(alice, prefill: "@{alice; #{alice.diaspora_handle}}")
-      expect(p.text).to eq("@alice")
-    end
-  end
-
   %w(open public).each do |property|
     describe "##{property}" do
       it 'defaults to closed' do

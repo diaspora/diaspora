@@ -46,7 +46,7 @@ class Stream::Multi < Stream::Base
 
     if inviter = self.user.invited_by.try(:person)
       prefill << I18n.t("shared.publisher.new_user_prefill.invited_by")
-      prefill << "@{#{inviter.name} ; #{inviter.diaspora_handle}}!"
+      prefill << "@{#{inviter.diaspora_handle}}!"
     end
 
     prefill
