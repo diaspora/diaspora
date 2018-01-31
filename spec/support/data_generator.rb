@@ -59,12 +59,12 @@ class DataGenerator
   end
 
   def notifications
-    FactoryGirl.create(:notification, recipient: user)
+    FactoryBot.create(:notification, recipient: user)
   end
 
   def conversations
-    a_friend = FactoryGirl.create(:contact, person: person).user.person
-    FactoryGirl.create(:contact, user: user, person: a_friend) unless user.nil?
+    a_friend = FactoryBot.create(:contact, person: person).user.person
+    FactoryBot.create(:contact, user: user, person: a_friend) unless user.nil?
     create_conversation_with_message(a_friend, person, "Subject", "Hey #{person.name}")
     create_conversation_with_message(person, a_friend, "Subject", "Hey #{a_friend.name}")
   end
@@ -75,7 +75,7 @@ class DataGenerator
   end
 
   def service
-    FactoryGirl.create(:service, user: user)
+    FactoryBot.create(:service, user: user)
   end
 
   def private_post_as_receipient
@@ -96,25 +96,25 @@ class DataGenerator
   end
 
   def mutual_friend
-    FactoryGirl.create(:user_with_aspect).tap {|friend|
+    FactoryBot.create(:user_with_aspect).tap {|friend|
       connect_users(user, first_aspect, friend, friend.aspects.first)
     }
   end
 
   def remote_mutual_friend
-    FactoryGirl.create(:contact, user: user, sharing: true, receiving: true)
+    FactoryBot.create(:contact, user: user, sharing: true, receiving: true)
   end
 
   def first_aspect
-    user.aspects.first || FactoryGirl.create(:aspect, user: user)
+    user.aspects.first || FactoryBot.create(:aspect, user: user)
   end
 
   def public_status_message
-    FactoryGirl.create(:status_message, author: person, public: true)
+    FactoryBot.create(:status_message, author: person, public: true)
   end
 
   def private_status_message
-    post = FactoryGirl.create(:status_message, author: person)
+    post = FactoryBot.create(:status_message, author: person)
 
     person.contacts.each do |contact|
       ShareVisibility.create!(user_id: contact.user_id, shareable: post)
@@ -124,7 +124,7 @@ class DataGenerator
   %i[photo participation status_message_with_location status_message_with_poll status_message_with_photo
      status_message status_message_in_aspect reshare like comment poll_participation].each do |factory|
     define_method factory do
-      FactoryGirl.create(factory, author: person)
+      FactoryBot.create(factory, author: person)
     end
   end
 
@@ -132,7 +132,7 @@ class DataGenerator
 
   %i[mention role].each do |factory|
     define_method factory do
-      FactoryGirl.create(factory, person: person)
+      FactoryBot.create(factory, person: person)
     end
   end
 

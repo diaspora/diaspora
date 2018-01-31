@@ -8,13 +8,13 @@ describe AccountMigration, type: :model do
 
     it "locks old local user after creation" do
       expect {
-        AccountMigration.create!(old_person: old_person, new_person: FactoryGirl.create(:person))
+        AccountMigration.create!(old_person: old_person, new_person: FactoryBot.create(:person))
       }.to change { old_user.reload.access_locked? }.to be_truthy
     end
   end
 
-  let(:old_person) { FactoryGirl.create(:person) }
-  let(:new_person) { FactoryGirl.create(:person) }
+  let(:old_person) { FactoryBot.create(:person) }
+  let(:new_person) { FactoryBot.create(:person) }
   let(:account_migration) {
     AccountMigration.create!(old_person: old_person, new_person: new_person)
   }
@@ -116,7 +116,7 @@ describe AccountMigration, type: :model do
       end
 
       it "resends contacts to the remote pod" do
-        contact = FactoryGirl.create(:contact, person: old_person, sharing: true)
+        contact = FactoryBot.create(:contact, person: old_person, sharing: true)
         expect(Diaspora::Federation::Dispatcher).to receive(:defer_dispatch).with(contact.user, contact)
         account_migration.perform!
       end

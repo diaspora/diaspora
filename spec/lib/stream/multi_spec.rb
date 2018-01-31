@@ -55,7 +55,7 @@ describe Stream::Multi do
 
     context 'when invited by another user' do
       before do
-        @user = FactoryGirl.create(:user, :invited_by => alice)
+        @user = FactoryBot.create(:user, :invited_by => alice)
         @inviter = alice.person
 
         @stream = Stream::Multi.new(@user)

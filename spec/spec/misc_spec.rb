@@ -6,7 +6,7 @@
 
 describe "making sure the spec runner works" do
   it "factory creates a user with a person saved" do
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
     loaded_user = User.find(user.id)
     expect(loaded_user.person.owner_id).to eq(user.id)
   end

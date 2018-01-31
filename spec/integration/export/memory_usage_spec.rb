@@ -31,11 +31,11 @@ describe Diaspora::Exporter do
           create_basic_users
 
           1000.times {
-            FactoryGirl.create(:signed_comment, post: bob.person.posts.first)
-            FactoryGirl.create(:status_message, author: bob.person)
-            FactoryGirl.create(:comment, author: bob.person)
-            FactoryGirl.create(:contact, user: bob)
-            FactoryGirl.create(:participation, author: bob.person)
+            FactoryBot.create(:signed_comment, post: bob.person.posts.first)
+            FactoryBot.create(:status_message, author: bob.person)
+            FactoryBot.create(:comment, author: bob.person)
+            FactoryBot.create(:contact, user: bob)
+            FactoryBot.create(:participation, author: bob.person)
           }
         end
       end

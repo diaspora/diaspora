@@ -6,7 +6,7 @@
 
 describe ShareVisibility, type: :model do
   describe ".batch_import" do
-    let(:post) { FactoryGirl.create(:status_message, author: alice.person) }
+    let(:post) { FactoryBot.create(:status_message, author: alice.person) }
 
     it "returns false if share is public" do
       post.public = true
@@ -30,7 +30,7 @@ describe ShareVisibility, type: :model do
     end
 
     it "does not create visibilities for a public shareable" do
-      public_post = FactoryGirl.create(:status_message, author: alice.person, public: true)
+      public_post = FactoryBot.create(:status_message, author: alice.person, public: true)
 
       ShareVisibility.batch_import([bob.id], public_post)
       expect(ShareVisibility.where(user_id: bob.id, shareable_id: post.id, shareable_type: "Post")).not_to exist

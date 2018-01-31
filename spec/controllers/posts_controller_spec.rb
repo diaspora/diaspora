@@ -23,7 +23,7 @@ describe PostsController, type: :controller do
         end
 
         it "succeeds after removing a mention when closing the mentioned user's account" do
-          user = FactoryGirl.create(:user, username: "user")
+          user = FactoryBot.create(:user, username: "user")
           alice.share_with(user.person, alice.aspects.first)
 
           msg = alice.post(:status_message, text: "Mention @{User ; #{user.diaspora_handle}}", public: true)
@@ -41,7 +41,7 @@ describe PostsController, type: :controller do
         end
 
         it "succeeds on mobile with a reshare" do
-          reshare_id = FactoryGirl.create(:reshare, author: alice.person).id
+          reshare_id = FactoryBot.create(:reshare, author: alice.person).id
           expect_any_instance_of(PostService).to receive(:mark_user_notifications).with(reshare_id)
 
           get :show, params: {id: reshare_id}, format: :mobile

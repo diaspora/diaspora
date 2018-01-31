@@ -8,7 +8,7 @@ describe Workers::Mail::Mentioned do
   describe "#perform" do
     it "should call .deliver on the notifier object" do
       user = alice
-      sm = FactoryGirl.build(:status_message)
+      sm = FactoryBot.build(:status_message)
       m = Mention.new(person: user.person, mentions_container: sm)
 
       mail_double = double()

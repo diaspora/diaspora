@@ -8,20 +8,20 @@ describe User, :type => :model do
   context "relations" do
     context "#conversations" do
       it "doesn't find anything when there is nothing to find" do
-        u = FactoryGirl.create(:user)
+        u = FactoryBot.create(:user)
         expect(u.conversations).to be_empty
       end
 
       it "finds the users conversations" do
-        c = FactoryGirl.create(:conversation, { author: alice.person })
+        c = FactoryBot.create(:conversation, { author: alice.person })
 
         expect(alice.conversations).to include c
       end
 
       it "doesn't find other users conversations" do
-        c1 = FactoryGirl.create(:conversation)
-        c2 = FactoryGirl.create(:conversation)
-        c_own = FactoryGirl.create(:conversation, { author: alice.person })
+        c1 = FactoryBot.create(:conversation)
+        c2 = FactoryBot.create(:conversation)
+        c_own = FactoryBot.create(:conversation, { author: alice.person })
 
         expect(alice.conversations).to include c_own
         expect(alice.conversations).not_to include c1
@@ -49,14 +49,14 @@ describe User, :type => :model do
 
   describe 'yearly_actives' do
     it 'returns list which includes users within last year' do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.last_seen = Time.now - 1.month
       user.save
       expect(User.yearly_actives).to include user
     end
 
     it 'returns list which does not include users seen within last year' do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.last_seen = Time.now - 2.year
       user.save
       expect(User.yearly_actives).not_to include user
@@ -65,14 +65,14 @@ describe User, :type => :model do
 
   describe 'monthly_actives' do
     it 'returns list which includes users seen within last month' do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.last_seen = Time.now - 1.day
       user.save
       expect(User.monthly_actives).to include user
     end
 
      it 'returns list which does not include users seen within last month' do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.last_seen = Time.now - 2.month
       user.save
       expect(User.monthly_actives).not_to include user
@@ -81,14 +81,14 @@ describe User, :type => :model do
 
   describe 'daily_actives' do
     it 'returns list which includes users seen within last day' do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.last_seen = Time.now - 1.hour
       user.save
       expect(User.daily_actives).to include(user)
     end
 
     it 'returns list which does not include users seen within last day' do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.last_seen = Time.now - 2.day
       user.save
       expect(User.daily_actives).not_to include(user)
@@ -97,14 +97,14 @@ describe User, :type => :model do
 
   describe 'halfyear_actives' do
     it 'returns list which includes users seen within half a year' do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.last_seen = Time.now - 4.month
       user.save
       expect(User.halfyear_actives).to include user
     end
 
      it 'returns list which does not include users seen within the last half a year' do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.last_seen = Time.now - 7.month
       user.save
       expect(User.halfyear_actives).not_to include user
@@ -113,7 +113,7 @@ describe User, :type => :model do
 
   describe 'hidden_shareables' do
     before do
-      @sm = FactoryGirl.create(:status_message)
+      @sm = FactoryBot.create(:status_message)
       @sm_id = @sm.id.to_s
       @sm_class = @sm.class.base_class.to_s
     end
@@ -129,7 +129,7 @@ describe User, :type => :model do
       end
 
       it 'handles having multiple posts' do
-        sm2 = FactoryGirl.build(:status_message)
+        sm2 = FactoryBot.build(:status_message)
         alice.add_hidden_shareable(@sm_class, @sm_id)
         alice.add_hidden_shareable(sm2.class.base_class.to_s, sm2.id.to_s)
 
@@ -137,7 +137,7 @@ describe User, :type => :model do
       end
 
       it 'handles having multiple shareable types' do
-        photo = FactoryGirl.create(:photo)
+        photo = FactoryBot.create(:photo)
         alice.add_hidden_shareable(photo.class.base_class.to_s, photo.id.to_s)
         alice.add_hidden_shareable(@sm_class, @sm_id)
 
@@ -168,13 +168,13 @@ describe User, :type => :model do
 
     describe '#is_shareable_hidden?' do
       it 'returns true if the shareable is hidden' do
-        post = FactoryGirl.create(:status_message)
+        post = FactoryBot.create(:status_message)
         bob.toggle_hidden_shareable(post)
         expect(bob.is_shareable_hidden?(post)).to be true
       end
 
       it 'returns false if the shareable is not present' do
-        post = FactoryGirl.create(:status_message)
+        post = FactoryBot.create(:status_message)
         expect(bob.is_shareable_hidden?(post)).to be false
       end
     end
@@ -184,7 +184,7 @@ describe User, :type => :model do
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
       expect {
-        new_user = FactoryGirl.create(:user, :id => alice.id)
+        new_user = FactoryBot.create(:user, :id => alice.id)
       }.to raise_error ActiveRecord::StatementInvalid
     end
 
@@ -234,14 +234,14 @@ describe User, :type => :model do
       end
 
       it 'requires uniqueness also amount Person objects with diaspora handle' do
-        p = FactoryGirl.create(:person, :diaspora_handle => "jimmy#{User.diaspora_id_host}")
+        p = FactoryBot.create(:person, :diaspora_handle => "jimmy#{User.diaspora_id_host}")
         alice.username = 'jimmy'
         expect(alice).not_to be_valid
 
       end
 
       it "downcases username" do
-        user = FactoryGirl.build(:user, :username => "WeIrDcAsE")
+        user = FactoryBot.build(:user, :username => "WeIrDcAsE")
         expect(user).to be_valid
         expect(user.username).to eq("weirdcase")
       end
@@ -252,7 +252,7 @@ describe User, :type => :model do
       end
 
       it "strips leading and trailing whitespace" do
-        user = FactoryGirl.build(:user, :username => "      janie   ")
+        user = FactoryBot.build(:user, :username => "      janie   ")
         expect(user).to be_valid
         expect(user.username).to eq("janie")
       end
@@ -432,7 +432,7 @@ describe User, :type => :model do
     end
 
     describe "with malicious params" do
-      let(:person) {FactoryGirl.create :person}
+      let(:person) {FactoryBot.create :person}
       before do
         @invalid_params = {:username => "ohai",
                   :email => "ohai@example.com",
@@ -456,7 +456,7 @@ describe User, :type => :model do
   describe '#process_invite_acceptence' do
     it 'sets the inviter on user' do
       inv = InvitationCode.create(:user => bob)
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       user.process_invite_acceptence(inv)
       expect(user.invited_by_id).to eq(bob.id)
     end
@@ -771,7 +771,7 @@ describe User, :type => :model do
 
   describe "#retract" do
     let(:retraction) { double }
-    let(:post) { FactoryGirl.build(:status_message, author: bob.person, public: true) }
+    let(:post) { FactoryBot.build(:status_message, author: bob.person, public: true) }
 
     context "posts" do
       it "sends a retraction" do
@@ -786,7 +786,7 @@ describe User, :type => :model do
 
   describe "#send_reset_password_instructions" do
     it "queues up a job to send the reset password instructions" do
-      user = FactoryGirl.create :user
+      user = FactoryBot.create :user
       expect(Workers::ResetPassword).to receive(:perform_async).with(user.id)
       user.send_reset_password_instructions
     end
@@ -795,7 +795,7 @@ describe User, :type => :model do
   describe "#seed_aspects" do
     describe "create aspects" do
       let(:user) {
-        user = FactoryGirl.create(:user)
+        user = FactoryBot.create(:user)
         user.seed_aspects
         user
       }
@@ -810,7 +810,7 @@ describe User, :type => :model do
 
     describe "autofollow sharing" do
       let(:user) {
-        FactoryGirl.create(:user)
+        FactoryBot.create(:user)
       }
 
       context "with autofollow sharing enabled" do
@@ -837,8 +837,8 @@ describe User, :type => :model do
   end
 
   describe "#send_welcome_message" do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:podmin) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
+    let(:podmin) { FactoryBot.create(:user) }
 
     context "with welcome message enabled" do
       before do
@@ -959,7 +959,7 @@ describe User, :type => :model do
 
     describe "#clearable_attributes" do
       it "returns the clearable fields" do
-        user = FactoryGirl.create :user
+        user = FactoryBot.create :user
         expect(user.send(:clearable_fields)).to match_array(
           %w(
             language
@@ -991,7 +991,7 @@ describe User, :type => :model do
 
   describe "#export" do
     it "doesn't change the filename when the user is saved" do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
 
       filename = user.export.filename
       user.save!
@@ -1002,7 +1002,7 @@ describe User, :type => :model do
 
   describe "queue_export" do
     it "queues up a job to perform the export" do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       user.update export: Tempfile.new([user.username, ".json.gz"]), exported_at: Time.zone.now
       expect(Workers::ExportUser).to receive(:perform_async).with(user.id)
       user.queue_export
@@ -1013,7 +1013,7 @@ describe User, :type => :model do
   end
 
   describe "perform_export!" do
-    let(:user) { FactoryGirl.create(:user, exporting: true) }
+    let(:user) { FactoryBot.create(:user, exporting: true) }
 
     it "saves a json export to the user" do
       user.perform_export!
@@ -1039,7 +1039,7 @@ describe User, :type => :model do
 
   describe "queue_export_photos" do
     it "queues up a job to perform the export photos" do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       user.update exported_photos_file: Tempfile.new([user.username, ".zip"]), exported_photos_at: Time.zone.now
       expect(Workers::ExportPhotos).to receive(:perform_async).with(user.id)
       user.queue_export_photos
@@ -1050,7 +1050,7 @@ describe User, :type => :model do
   end
 
   describe "perform_export_photos!" do
-    let(:user) { FactoryGirl.create(:user_with_aspect, exporting: true) }
+    let(:user) { FactoryBot.create(:user_with_aspect, exporting: true) }
 
     before do
       image = File.join(File.dirname(__FILE__), "..", "fixtures", "button.png")
@@ -1141,7 +1141,7 @@ describe User, :type => :model do
 
   describe "active" do
     before do
-      closed_account = FactoryGirl.create(:user)
+      closed_account = FactoryBot.create(:user)
       closed_account.person.lock_access!
     end
 

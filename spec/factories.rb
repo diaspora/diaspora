@@ -5,7 +5,7 @@
 #   the COPYRIGHT file.
 
 #For Guidance
-#http://github.com/thoughtbot/factory_girl
+#http://github.com/thoughtbot/factory_bot
 # http://railscasts.com/episodes/158-factories-not-fixtures
 
 def r_str
@@ -14,7 +14,7 @@ end
 
 require "diaspora_federation/test/factories"
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :profile do
     sequence(:first_name) { |n| "Robert#{n}#{r_str}" }
     sequence(:last_name)  { |n| "Grimm#{n}#{r_str}" }
@@ -42,7 +42,7 @@ FactoryGirl.define do
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     after(:build) do |person, evaluator|
       unless person.profile.first_name.present?
-        person.profile = FactoryGirl.build(:profile, person: person)
+        person.profile = FactoryBot.build(:profile, person: person)
         person.profile.first_name = evaluator.first_name if evaluator.first_name
       end
     end
@@ -73,10 +73,10 @@ FactoryGirl.define do
     password_confirmation { |u| u.password }
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
     after(:build) do |u|
-      u.person = FactoryGirl.build(:person,
-                                   pod:                   nil,
-                                   serialized_public_key: u.encryption_key.public_key.export,
-                                   diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
+      u.person = FactoryBot.build(:person,
+                                  pod:                   nil,
+                                  serialized_public_key: u.encryption_key.public_key.export,
+                                  diaspora_handle:       "#{u.username}#{User.diaspora_id_host}")
     end
     after(:create) do |u|
       u.person.save
@@ -90,7 +90,7 @@ FactoryGirl.define do
     end
 
     after(:create) do |user, evaluator|
-      FactoryGirl.create(:aspect, user: user)
+      FactoryBot.create(:aspect, user: user)
       evaluator.friends.each do |friend|
         connect_users_with_aspects(user, friend)
       end
@@ -108,20 +108,20 @@ FactoryGirl.define do
 
     factory(:status_message_with_poll) do
       after(:build) do |sm|
-        FactoryGirl.create(:poll, status_message: sm)
+        FactoryBot.create(:poll, status_message: sm)
       end
     end
 
     factory(:status_message_with_location) do
       after(:build) do |sm|
-        FactoryGirl.create(:location, status_message: sm)
+        FactoryBot.create(:location, status_message: sm)
       end
     end
 
     factory(:status_message_with_photo) do
       sequence(:text) {|n| "There are #{n} ninjas in this photo." }
       after(:build) do |sm|
-        FactoryGirl.create(
+        FactoryBot.create(
           :photo,
           author:         sm.author,
           status_message: sm,
@@ -133,7 +133,7 @@ FactoryGirl.define do
 
     factory(:status_message_in_aspect) do
       public false
-      author { FactoryGirl.create(:user_with_aspect).person }
+      author { FactoryBot.create(:user_with_aspect).person }
       after(:build) do |sm|
         sm.aspects << sm.author.owner.aspects.first
       end
@@ -172,8 +172,8 @@ FactoryGirl.define do
     sequence(:question) {|n| "What do you think about #{n} ninjas?" }
     association :status_message
     after(:build) do |p|
-      p.poll_answers << FactoryGirl.build(:poll_answer, poll: p)
-      p.poll_answers << FactoryGirl.build(:poll_answer, poll: p)
+      p.poll_answers << FactoryBot.build(:poll_answer, poll: p)
+      p.poll_answers << FactoryBot.build(:poll_answer, poll: p)
     end
   end
 
@@ -253,8 +253,8 @@ FactoryGirl.define do
     association(:parent, factory: :status_message)
 
     after(:build) do |comment|
-      order = SignatureOrder.first || FactoryGirl.create(:signature_order)
-      comment.signature = FactoryGirl.build(:comment_signature, comment: comment, signature_order: order)
+      order = SignatureOrder.first || FactoryBot.create(:signature_order)
+      comment.signature = FactoryBot.build(:comment_signature, comment: comment, signature_order: order)
     end
   end
 
@@ -268,7 +268,7 @@ FactoryGirl.define do
     association :target, :factory => :comment
 
     after(:build) do |note|
-      note.actors << FactoryGirl.build(:person)
+      note.actors << FactoryBot.build(:person)
     end
   end
 
@@ -277,8 +277,8 @@ FactoryGirl.define do
     type "Notifications::MentionedInComment"
 
     after(:build) do |note|
-      note.actors << FactoryGirl.build(:person)
-      note.target = FactoryGirl.create :mention_in_comment, person: note.recipient.person
+      note.actors << FactoryBot.build(:person)
+      note.target = FactoryBot.create :mention_in_comment, person: note.recipient.person
     end
   end
 
@@ -331,7 +331,7 @@ FactoryGirl.define do
 
   factory(:conversation_with_message, parent: :conversation) do
     after(:create) do |c|
-      msg = FactoryGirl.build(:message, author: c.author)
+      msg = FactoryBot.build(:message, author: c.author)
       msg.conversation_id = c.id
       msg.save
     end
@@ -439,7 +439,7 @@ FactoryGirl.define do
     exported_key OpenSSL::PKey::RSA.generate(1024).public_key.export
     profile {
       DiasporaFederation::Entities::Profile.new(
-        FactoryGirl.attributes_for(:federation_profile_from_hcard, diaspora_id: diaspora_id))
+        FactoryBot.attributes_for(:federation_profile_from_hcard, diaspora_id: diaspora_id))
     }
   end
 

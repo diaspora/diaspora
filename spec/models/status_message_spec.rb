@@ -20,10 +20,10 @@ describe StatusMessage, type: :model do
       it "returns status messages where the given person is mentioned" do
         @bob = bob.person
         @test_string = "@{Daniel; #{@bob.diaspora_handle}} can mention people like Raph"
-        post1 = FactoryGirl.create(:status_message, text: @test_string, public: true)
-        post2 = FactoryGirl.create(:status_message, text: @test_string, public: true)
-        FactoryGirl.create(:status_message, text: @test_string)
-        FactoryGirl.create(:status_message, public: true)
+        post1 = FactoryBot.create(:status_message, text: @test_string, public: true)
+        post2 = FactoryBot.create(:status_message, text: @test_string, public: true)
+        FactoryBot.create(:status_message, text: @test_string)
+        FactoryBot.create(:status_message, public: true)
 
         expect(StatusMessage.where_person_is_mentioned(@bob).ids).to match_array([post1.id, post2.id])
       end
@@ -31,10 +31,10 @@ describe StatusMessage, type: :model do
 
     context "tag_streams" do
       before do
-        @status_message_1 = FactoryGirl.create(:status_message, text: "#hashtag", public: true)
-        @status_message_2 = FactoryGirl.create(:status_message, text: "#hashtag")
-        @status_message_3 = FactoryGirl.create(:status_message, text: "hashtags are #awesome", public: true)
-        @status_message_4 = FactoryGirl.create(:status_message, text: "hashtags are #awesome")
+        @status_message_1 = FactoryBot.create(:status_message, text: "#hashtag", public: true)
+        @status_message_2 = FactoryBot.create(:status_message, text: "#hashtag")
+        @status_message_3 = FactoryBot.create(:status_message, text: "hashtags are #awesome", public: true)
+        @status_message_4 = FactoryBot.create(:status_message, text: "hashtags are #awesome")
 
         @tag_id = ActsAsTaggableOn::Tag.where(name: "hashtag").first.id
       end
@@ -67,8 +67,8 @@ describe StatusMessage, type: :model do
 
   describe ".guids_for_author" do
     it "returns an array of the status_message guids" do
-      status_message_1 = FactoryGirl.create(:status_message, author: alice.person)
-      FactoryGirl.create(:status_message, author: bob.person)
+      status_message_1 = FactoryBot.create(:status_message, author: alice.person)
+      FactoryBot.create(:status_message, author: bob.person)
       guids = StatusMessage.guids_for_author(alice.person)
       expect(guids).to eq([status_message_1.guid])
     end
@@ -112,7 +112,7 @@ describe StatusMessage, type: :model do
     end
 
     it "also checks for content when author is remote" do
-      post = FactoryGirl.build(:status_message, text: nil)
+      post = FactoryBot.build(:status_message, text: nil)
       expect(post).not_to be_valid
     end
   end
@@ -126,7 +126,7 @@ describe StatusMessage, type: :model do
 
   it "should require status messages not be more than 65535 characters long" do
     message = "a" * (65_535 + 1)
-    status_message = FactoryGirl.build(:status_message, text: message)
+    status_message = FactoryBot.build(:status_message, text: message)
     expect(status_message).not_to be_valid
   end
 
@@ -134,7 +134,7 @@ describe StatusMessage, type: :model do
 
   describe "#people_allowed_to_be_mentioned" do
     it "returns only aspects members for private posts" do
-      sm = FactoryGirl.build(:status_message_in_aspect)
+      sm = FactoryBot.build(:status_message_in_aspect)
       sm.author.owner.share_with(alice.person, sm.author.owner.aspects.first)
       sm.author.owner.share_with(eve.person, sm.author.owner.aspects.first)
       sm.save!
@@ -143,7 +143,7 @@ describe StatusMessage, type: :model do
     end
 
     it "returns :all for public posts" do
-      expect(FactoryGirl.create(:status_message, public: true).people_allowed_to_be_mentioned).to eq(:all)
+      expect(FactoryBot.create(:status_message, public: true).people_allowed_to_be_mentioned).to eq(:all)
     end
   end
 
@@ -152,28 +152,28 @@ describe StatusMessage, type: :model do
 
   describe "#nsfw" do
     it "returns MatchObject (true) if the post contains #nsfw (however capitalised)" do
-      status = FactoryGirl.build(:status_message, text: "This message is #nSFw")
+      status = FactoryBot.build(:status_message, text: "This message is #nSFw")
       expect(status.nsfw).to be_truthy
     end
 
     it "returns nil (false) if the post does not contain #nsfw" do
-      status = FactoryGirl.build(:status_message, text: "This message is #sFW")
+      status = FactoryBot.build(:status_message, text: "This message is #sFW")
       expect(status.nsfw).to be false
     end
   end
 
   describe "tags" do
     before do
-      @object = FactoryGirl.build(:status_message)
+      @object = FactoryBot.build(:status_message)
     end
     it_should_behave_like "it is taggable"
 
     it "associates different-case tags to the same tag entry" do
       assert_equal ActsAsTaggableOn.force_lowercase, true
 
-      msg_lc = FactoryGirl.build(:status_message, text: "#newhere")
-      msg_uc = FactoryGirl.build(:status_message, text: "#NewHere")
-      msg_cp = FactoryGirl.build(:status_message, text: "#NEWHERE")
+      msg_lc = FactoryBot.build(:status_message, text: "#newhere")
+      msg_uc = FactoryBot.build(:status_message, text: "#NewHere")
+      msg_cp = FactoryBot.build(:status_message, text: "#NEWHERE")
 
       msg_lc.save
       msg_uc.save
@@ -186,7 +186,7 @@ describe StatusMessage, type: :model do
 
     it "should require tag name not be more than 255 characters long" do
       message = "##{'a' * (255 + 1)}"
-      status_message = FactoryGirl.build(:status_message, text: message)
+      status_message = FactoryBot.build(:status_message, text: message)
       expect(status_message).not_to be_valid
     end
   end
@@ -194,7 +194,7 @@ describe StatusMessage, type: :model do
   describe "oembed" do
     let(:youtube_url) { "https://www.youtube.com/watch?v=3PtFwlKfvHI" }
     let(:message_text) { "#{youtube_url} is so cool. so is this link -> https://joindiaspora.com" }
-    let(:status_message) { FactoryGirl.build(:status_message, text: message_text) }
+    let(:status_message) { FactoryBot.build(:status_message, text: message_text) }
 
     it "should queue a GatherOembedData if it includes a link" do
       status_message
@@ -229,7 +229,7 @@ describe StatusMessage, type: :model do
         expect(status_message.open_graph_url).to eq(ninegag_url)
       end
       it "returns nil if the link is from trusted oembed provider" do
-        status_message = FactoryGirl.build(:status_message, text: oemessage_text)
+        status_message = FactoryBot.build(:status_message, text: oemessage_text)
         expect(status_message.contains_open_graph_url_in_text?).to be_nil
         expect(status_message.open_graph_url).to be_nil
       end
@@ -238,7 +238,7 @@ describe StatusMessage, type: :model do
 
   describe "poll" do
     it "destroys the poll (with all answers and participations) when the status message is destroyed" do
-      poll = FactoryGirl.create(:poll_participation).poll
+      poll = FactoryBot.create(:poll_participation).poll
       status_message = poll.status_message
 
       poll_id = poll.id
@@ -284,10 +284,10 @@ describe StatusMessage, type: :model do
   end
 
   describe "#receive" do
-    let(:post) { FactoryGirl.create(:status_message, author: alice.person) }
+    let(:post) { FactoryBot.create(:status_message, author: alice.person) }
 
     it "receives attached photos" do
-      photo = FactoryGirl.create(:photo, status_message: post)
+      photo = FactoryBot.create(:photo, status_message: post)
 
       post.receive([bob.id])
 
@@ -302,7 +302,7 @@ describe StatusMessage, type: :model do
     end
 
     it "works with already received attached photos" do
-      photo = FactoryGirl.create(:photo, status_message: post)
+      photo = FactoryBot.create(:photo, status_message: post)
 
       photo.receive([bob.id])
       post.receive([bob.id])

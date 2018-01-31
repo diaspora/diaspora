@@ -11,21 +11,21 @@ describe NotificationsController, :type => :controller do
 
   describe '#update' do
     it 'marks a notification as read if it gets no other information' do
-      note = FactoryGirl.create(:notification)
+      note = FactoryBot.create(:notification)
       expect(Notification).to receive(:where).and_return([note])
       expect(note).to receive(:set_read_state).with(true)
       get :update, params: {id: note.id}, format: :json
     end
 
     it 'marks a notification as read if it is told to' do
-      note = FactoryGirl.create(:notification)
+      note = FactoryBot.create(:notification)
       expect(Notification).to receive(:where).and_return([note])
       expect(note).to receive(:set_read_state).with(true)
       get :update, params: {id: note.id, set_unread: "false"}, format: :json
     end
 
     it 'marks a notification as unread if it is told to' do
-      note = FactoryGirl.create(:notification)
+      note = FactoryBot.create(:notification)
       expect(Notification).to receive(:where).and_return([note])
       expect(note).to receive(:set_read_state).with(false)
       get :update, params: {id: note.id, set_unread: "true"}, format: :json
@@ -33,7 +33,7 @@ describe NotificationsController, :type => :controller do
 
     it "marks a notification as unread without timestamping" do
       note = Timecop.travel(1.hour.ago) do
-        FactoryGirl.create(:notification, recipient: alice, unread: false)
+        FactoryBot.create(:notification, recipient: alice, unread: false)
       end
 
       get :update, params: {id: note.id, set_unread: "true"}, format: :json
@@ -47,8 +47,8 @@ describe NotificationsController, :type => :controller do
     it 'only lets you read your own notifications' do
       user2 = bob
 
-      FactoryGirl.create(:notification, :recipient => alice)
-      note = FactoryGirl.create(:notification, :recipient => user2)
+      FactoryBot.create(:notification, :recipient => alice)
+      note = FactoryBot.create(:notification, :recipient => user2)
 
       get :update, params: {id: note.id, set_unread: "false"}, format: :json
 
@@ -58,8 +58,8 @@ describe NotificationsController, :type => :controller do
 
   describe '#index' do
     before do
-      @post = FactoryGirl.create(:status_message)
-      @notification = FactoryGirl.create(:notification, recipient: alice, target: @post)
+      @post = FactoryBot.create(:status_message)
+      @notification = FactoryBot.create(:notification, recipient: alice, target: @post)
     end
 
     it 'succeeds' do
@@ -98,7 +98,7 @@ describe NotificationsController, :type => :controller do
     end
 
     it 'paginates the notifications' do
-      25.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
+      25.times { FactoryBot.create(:notification, :recipient => alice, :target => @post) }
       get :index
       expect(assigns[:notifications].count).to eq(25)
       get :index, params: {page: 2}
@@ -106,14 +106,14 @@ describe NotificationsController, :type => :controller do
     end
 
     it "supports a limit per_page parameter" do
-      2.times { FactoryGirl.create(:notification, :recipient => alice, :target => @post) }
+      2.times { FactoryBot.create(:notification, :recipient => alice, :target => @post) }
       get :index, params: {per_page: 2}
       expect(assigns[:notifications].count).to eq(2)
     end
 
     describe "special case for start sharing notifications" do
       it "should not provide a contacts menu for standard notifications" do
-        FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+        FactoryBot.create(:notification, :recipient => alice, :target => @post)
         get :index, params: {per_page: 5}
         expect(Nokogiri(response.body).css('.aspect_membership')).to be_empty
       end
@@ -134,15 +134,15 @@ describe NotificationsController, :type => :controller do
 
     describe "filter notifications" do
       it "supports filtering by notification type" do
-        FactoryGirl.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
+        FactoryBot.create(:notification, :recipient => alice, :type => "Notifications::StartedSharing")
         get :index, params: {type: "started_sharing"}
         expect(assigns[:notifications].count).to eq(1)
       end
 
       it "supports filtering by read/unread" do
-        FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+        FactoryBot.create(:notification, :recipient => alice, :target => @post)
         get :read_all
-        FactoryGirl.create(:notification, :recipient => alice, :target => @post)
+        FactoryBot.create(:notification, :recipient => alice, :target => @post)
         get :index, params: {show: "unread"}
         expect(assigns[:notifications].count).to eq(1)
       end
@@ -150,7 +150,7 @@ describe NotificationsController, :type => :controller do
 
     context "after deleting a person" do
       before do
-        user = FactoryGirl.create(:user_with_aspect)
+        user = FactoryBot.create(:user_with_aspect)
         user.share_with(alice.person, user.aspects.first)
         user.person.delete
       end
@@ -168,12 +168,12 @@ describe NotificationsController, :type => :controller do
   end
 
   describe "#read_all" do
-    let(:post) { FactoryGirl.create(:status_message) }
+    let(:post) { FactoryBot.create(:status_message) }
 
     it "marks all notifications as read" do
       request.env["HTTP_REFERER"] = "I wish I were spelled right"
-      FactoryGirl.create(:notification, recipient: alice, target: post)
-      FactoryGirl.create(:notification, recipient: alice, target: post)
+      FactoryBot.create(:notification, recipient: alice, target: post)
+      FactoryBot.create(:notification, recipient: alice, target: post)
 
       expect(Notification.where(unread: true).count).to eq(2)
       get :read_all
@@ -182,39 +182,39 @@ describe NotificationsController, :type => :controller do
 
     it "marks all notifications in the current filter as read" do
       request.env["HTTP_REFERER"] = "I wish I were spelled right"
-      FactoryGirl.create(:notification, recipient: alice, target: post)
-      FactoryGirl.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
+      FactoryBot.create(:notification, recipient: alice, target: post)
+      FactoryBot.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
       expect(Notification.where(unread: true).count).to eq(2)
       get :read_all, params: {type: "started_sharing"}
       expect(Notification.where(unread: true).count).to eq(1)
     end
 
     it "should redirect back in the html version if it has > 0 notifications" do
-      FactoryGirl.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
+      FactoryBot.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
       get :read_all, params: {type: "liked"}, format: :html
       expect(response).to redirect_to(notifications_path)
     end
 
     it "should redirect back in the mobile version if it has > 0 notifications" do
-      FactoryGirl.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
+      FactoryBot.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
       get :read_all, params: {type: "liked"}, format: :mobile
       expect(response).to redirect_to(notifications_path)
     end
 
     it "should redirect to stream in the html version if it has 0 notifications" do
-      FactoryGirl.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
+      FactoryBot.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
       get :read_all, params: {type: "started_sharing"}, format: :html
       expect(response).to redirect_to(stream_path)
     end
 
     it "should redirect back in the mobile version if it has 0 notifications" do
-      FactoryGirl.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
+      FactoryBot.create(:notification, recipient: alice, type: "Notifications::StartedSharing")
       get :read_all, params: {type: "started_sharing"}, format: :mobile
       expect(response).to redirect_to(stream_path)
     end
 
     it "should return a dummy value in the json version" do
-      FactoryGirl.create(:notification, recipient: alice, target: post)
+      FactoryBot.create(:notification, recipient: alice, target: post)
       get :read_all, format: :json
       expect(response).not_to be_redirect
     end

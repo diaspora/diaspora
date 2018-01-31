@@ -8,23 +8,23 @@ describe Profile, :type => :model do
   describe 'validation' do
     describe "of first_name" do
       it "strips leading and trailing whitespace" do
-        profile = FactoryGirl.build(:profile, :first_name => "     Shelly    ")
+        profile = FactoryBot.build(:profile, :first_name => "     Shelly    ")
         expect(profile).to be_valid
         expect(profile.first_name).to eq("Shelly")
       end
 
       it "can be 32 characters long" do
-        profile = FactoryGirl.build(:profile, :first_name => "Hexagoooooooooooooooooooooooooon")
+        profile = FactoryBot.build(:profile, :first_name => "Hexagoooooooooooooooooooooooooon")
         expect(profile).to be_valid
       end
 
       it "cannot be 33 characters" do
-        profile = FactoryGirl.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
+        profile = FactoryBot.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
         expect(profile).not_to be_valid
       end
 
       it 'cannot have ;' do
-        profile = FactoryGirl.build(:profile, :first_name => "Hex;agon")
+        profile = FactoryBot.build(:profile, :first_name => "Hex;agon")
         expect(profile).not_to be_valid
       end
     end
@@ -54,7 +54,7 @@ describe Profile, :type => :model do
 
     describe '#contruct_full_name' do
       it 'generates a full name given only first name' do
-        profile = FactoryGirl.build(:person).profile
+        profile = FactoryBot.build(:person).profile
         profile.first_name = "casimiro"
         profile.last_name = nil
 
@@ -64,7 +64,7 @@ describe Profile, :type => :model do
       end
 
       it 'generates a full name given only last name' do
-        profile = FactoryGirl.build(:person).profile
+        profile = FactoryBot.build(:person).profile
         profile.first_name = nil
         profile.last_name = "grippi"
 
@@ -74,7 +74,7 @@ describe Profile, :type => :model do
       end
 
       it 'generates a full name given first and last names' do
-        profile = FactoryGirl.build(:person).profile
+        profile = FactoryBot.build(:person).profile
         profile.first_name = "casimiro"
         profile.last_name = "grippi"
 
@@ -86,27 +86,27 @@ describe Profile, :type => :model do
 
     describe "of last_name" do
       it "strips leading and trailing whitespace" do
-        profile = FactoryGirl.build(:profile, :last_name => "     Ohba    ")
+        profile = FactoryBot.build(:profile, :last_name => "     Ohba    ")
         expect(profile).to be_valid
         expect(profile.last_name).to eq("Ohba")
       end
 
       it "can be 32 characters long" do
-        profile = FactoryGirl.build(:profile, :last_name => "Hexagoooooooooooooooooooooooooon")
+        profile = FactoryBot.build(:profile, :last_name => "Hexagoooooooooooooooooooooooooon")
         expect(profile).to be_valid
       end
 
       it "cannot be 33 characters" do
-        profile = FactoryGirl.build(:profile, :last_name => "Hexagooooooooooooooooooooooooooon")
+        profile = FactoryBot.build(:profile, :last_name => "Hexagooooooooooooooooooooooooooon")
         expect(profile).not_to be_valid
       end
 
       it 'cannot have ;' do
-        profile = FactoryGirl.build(:profile, :last_name => "Hex;agon")
+        profile = FactoryBot.build(:profile, :last_name => "Hex;agon")
         expect(profile).not_to be_valid
       end
       it 'disallows ; with a newline in the string' do
-        profile = FactoryGirl.build(:profile, :last_name => "H\nex;agon")
+        profile = FactoryBot.build(:profile, :last_name => "H\nex;agon")
         expect(profile).not_to be_valid
       end
     end
@@ -114,12 +114,12 @@ describe Profile, :type => :model do
 
   describe "of location" do
     it "can be 255 characters long" do
-      profile = FactoryGirl.build(:profile, :location => "a"*255)
+      profile = FactoryBot.build(:profile, :location => "a"*255)
       expect(profile).to be_valid
     end
 
     it "cannot be 256 characters" do
-      profile = FactoryGirl.build(:profile, :location => "a"*256)
+      profile = FactoryBot.build(:profile, :location => "a"*256)
       expect(profile).not_to be_valid
     end
   end
@@ -128,7 +128,7 @@ describe Profile, :type => :model do
     %i(image_url image_url_small image_url_medium).each do |method|
       describe "##{method}=" do
         before do
-          @profile = FactoryGirl.build(:profile)
+          @profile = FactoryBot.build(:profile)
           @profile.public_send("#{method}=", "http://tom.joindiaspora.com/images/user/tom.jpg")
           @pod_url = AppConfig.pod_uri.to_s.chomp("/")
         end
@@ -163,7 +163,7 @@ describe Profile, :type => :model do
 
   describe '#image_url' do
     before do
-      @profile = FactoryGirl.build(:profile)
+      @profile = FactoryBot.build(:profile)
     end
 
     it 'returns a default rather than nil' do
@@ -189,18 +189,18 @@ describe Profile, :type => :model do
 
   describe "public?" do
     it "is public if public_details is true" do
-      profile = FactoryGirl.build(:profile, public_details: true)
+      profile = FactoryBot.build(:profile, public_details: true)
       expect(profile.public?).to be_truthy
     end
 
     it "is not public if public_details is false" do
-      profile = FactoryGirl.build(:profile, public_details: false)
+      profile = FactoryBot.build(:profile, public_details: false)
       expect(profile.public?).to be_falsey
     end
   end
 
   describe 'date=' do
-    let(:profile) { FactoryGirl.build(:profile) }
+    let(:profile) { FactoryBot.build(:profile) }
 
     it 'accepts form data' do
       profile.birthday = nil
@@ -247,7 +247,7 @@ describe Profile, :type => :model do
 
   describe 'tags' do
     before do
-      person = FactoryGirl.build(:person)
+      person = FactoryBot.build(:person)
       @object = person.profile
     end
     it 'allows 5 tags' do
@@ -299,7 +299,7 @@ describe Profile, :type => :model do
 
   describe "#clearable_fields" do
     it 'returns the current profile fields' do
-      profile = FactoryGirl.build :profile
+      profile = FactoryBot.build :profile
       expect(profile.send(:clearable_fields).sort).to eq(
       ["diaspora_handle",
        "first_name",

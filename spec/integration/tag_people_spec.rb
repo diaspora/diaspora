@@ -2,7 +2,7 @@
 
 describe TagsController, type: :request do
   describe 'will_paginate people on the tag page' do
-    let(:people) { (1..2).map { FactoryGirl.create(:person) } }
+    let(:people) { (1..2).map { FactoryBot.create(:person) } }
     let(:tag)    { "diaspora" }
 
     before do

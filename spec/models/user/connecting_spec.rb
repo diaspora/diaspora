@@ -8,7 +8,7 @@ describe User::Connecting, type: :model do
   let(:aspect1) { alice.aspects.first }
   let(:aspect2) { alice.aspects.create(name: "other") }
 
-  let(:person) { FactoryGirl.create(:person) }
+  let(:person) { FactoryBot.create(:person) }
 
   describe "disconnecting" do
     describe "#disconnected_by" do
@@ -200,7 +200,7 @@ describe User::Connecting, type: :model do
     end
 
     it "should mark the corresponding notification as 'read'" do
-      FactoryGirl.create(:notification, target: eve.person, recipient: alice, type: "Notifications::StartedSharing")
+      FactoryBot.create(:notification, target: eve.person, recipient: alice, type: "Notifications::StartedSharing")
       expect(Notifications::StartedSharing.find_by(recipient_id: alice.id, target: eve.person).unread).to be_truthy
 
       alice.share_with(eve.person, aspect1)

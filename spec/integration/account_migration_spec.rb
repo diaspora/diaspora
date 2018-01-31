@@ -3,10 +3,10 @@
 require "integration/federation/federation_helper"
 
 def create_remote_contact(user, pod_host)
-  FactoryGirl.create(
+  FactoryBot.create(
     :contact,
     user:   user,
-    person: FactoryGirl.create(
+    person: FactoryBot.create(
       :person,
       pod:             Pod.find_or_create_by(url: "http://#{pod_host}"),
       diaspora_handle: "#{r_str}@#{pod_host}"
@@ -59,7 +59,7 @@ end
 
 shared_examples_for "migration scenarios initiated remotely" do
   it "resends known contacts to the new user" do
-    contacts = Array.new(2) { FactoryGirl.create(:contact, person: old_user.person, sharing: true) }
+    contacts = Array.new(2) { FactoryBot.create(:contact, person: old_user.person, sharing: true) }
     expect(DiasporaFederation::Federation::Sender).to receive(:private)
       .twice do |sender_id, obj_str, _urls, _xml|
       expect(sender_id).to eq(contacts.first.user_id)
