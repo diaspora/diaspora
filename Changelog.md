@@ -6,6 +6,14 @@
 
 ## Features
 
+# 0.7.4.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.3.0
 
 ## Refactor
