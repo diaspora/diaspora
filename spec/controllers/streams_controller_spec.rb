@@ -5,6 +5,8 @@
 #   the COPYRIGHT file.
 
 describe StreamsController, :type => :controller do
+  include_context :gon
+
   before do
     sign_in alice
   end
@@ -25,6 +27,18 @@ describe StreamsController, :type => :controller do
     it 'succeeds on mobile' do
       get :multi, :format => :mobile
       expect(response).to be_success
+    end
+
+    context "getting started" do
+      it "add the inviter to gon" do
+        user = FactoryGirl.create(:user, getting_started: true, invited_by: alice)
+        sign_in user
+
+        get :multi
+
+        expect(gon["preloads"][:mentioned_person][:name]).to eq(alice.person.name)
+        expect(gon["preloads"][:mentioned_person][:handle]).to eq(alice.person.diaspora_handle)
+      end
     end
   end
 

@@ -8,6 +8,15 @@ shared_examples_for "messages which are indifferent about sharing fact" do
   it "treats status message receive correctly" do
     entity = Fabricate(:status_message_entity, author: sender_id, public: public)
 
+    if public
+      expect(Diaspora::Federation::Dispatcher).to receive(:build) do |_user, participation, _opts|
+        expect(participation.target.guid).to eq(entity.guid)
+        instance_double(:dispatch)
+      end
+    else
+      expect(Diaspora::Federation::Dispatcher).not_to receive(:build)
+    end
+
     post_message(generate_payload(entity, sender, recipient), recipient)
 
     expect(StatusMessage.exists?(guid: entity.guid)).to be_truthy

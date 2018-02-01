@@ -17,6 +17,13 @@ describe NotifierHelper, :type => :helper do
       expect(post_message(@markdown_post)).to eq(@striped_markdown_post)
     end
 
+    it "falls back to the title if the post has no text" do
+      photo = FactoryGirl.build(:photo, public: true)
+      photo_post = FactoryGirl.build(:status_message, author: photo.author, text: "", photos: [photo], public: true)
+      expect(helper.post_message(photo_post))
+        .to eq(I18n.t("posts.show.photos_by", count: 1, author: photo_post.author_name))
+    end
+
     it "falls back to the title, if the root post was deleted" do
       reshare = FactoryGirl.create(:reshare)
       reshare.root.destroy
