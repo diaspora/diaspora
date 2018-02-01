@@ -8,13 +8,13 @@ describe Workers::SendBase do
   end
 
   it "increases the interval for each retry" do
-    expect(Workers::SendBase.new.send(:seconds_to_delay, 2)).to be >= 625
-    expect(Workers::SendBase.new.send(:seconds_to_delay, 3)).to be >= 1_296
-    expect(Workers::SendBase.new.send(:seconds_to_delay, 4)).to be >= 2_401
-    expect(Workers::SendBase.new.send(:seconds_to_delay, 5)).to be >= 4_096
-    expect(Workers::SendBase.new.send(:seconds_to_delay, 6)).to be >= 6_561
-    expect(Workers::SendBase.new.send(:seconds_to_delay, 7)).to be >= 10_000
-    expect(Workers::SendBase.new.send(:seconds_to_delay, 8)).to be >= 14_641
+    (2..19).each do |count|
+      expect(Workers::SendBase.new.send(:seconds_to_delay, count)).to be >= ((count + 3)**4)
+    end
+
+    # lets make some tests with explicit numbers to make sure the formula above works correctly
+    # and increases the delay with the expected result
     expect(Workers::SendBase.new.send(:seconds_to_delay, 9)).to be >= 20_736
+    expect(Workers::SendBase.new.send(:seconds_to_delay, 19)).to be >= 234_256
   end
 end
