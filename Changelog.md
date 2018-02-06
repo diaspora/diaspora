@@ -1,6 +1,7 @@
 # 0.7.4.0
 
 ## Refactor
+* Don't print a warning when starting the server outside a Git repo [#7712](https://github.com/diaspora/diaspora/pull/7712)
 
 ## Bug fixes
 

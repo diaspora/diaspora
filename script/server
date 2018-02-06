@@ -63,16 +63,20 @@ fi
 
 command -v git > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-  # Check if git merge is in progress
-  if [ -f .git/MERGE_MODE ]; then
-    fatal "A git merge is in progress!"
-  fi
-
-  # Check if detached head state
-  git_branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
-  if [ -z "$git_branch_name" ];
+  # Check if we're in a repository, before doing any verification.
+  if git status > /dev/null 2>&1;
   then
-    warning "You are in detached HEAD state!"
+    # Check if git merge is in progress
+    if [ -f .git/MERGE_MODE ]; then
+      fatal "A git merge is in progress!"
+    fi
+
+    # Check if detached head state
+    git_branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
+    if [ -z "$git_branch_name" ];
+    then
+      warning "You are in detached HEAD state!"
+    fi
   fi
 fi
 
