@@ -10,7 +10,7 @@ de_formal:
       confirmed: "Ihre E-Mail-Adresse wurde erfolgreich bestätigt."
       new:
         resend_confirmation: "Anweisungen zum Bestätigen erneut senden"
-      send_instructions: "Sie werden in ein wenigen Minuten eine E-Mail mit Anweisungen zum Bestätigen Ihrer E-Mail-Adresse erhalten."
+      send_instructions: "In Kürze erhalten Sie eine E-Mail mit Hinweisen zur Bestätigung Ihrer E-Mail-Adresse."
       send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit Anweisungen zur Bestätigung Ihrer E-Mail-Adresse."
     failure:
       already_authenticated: "Sie sind bereits angemeldet."
@@ -66,7 +66,7 @@ de_formal:
         reset_password: "Passwort zurücksetzen"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       no_token: "Sie können auf diese Seite nicht zugreifen, ohne von einer E-Mail zur Passwortrücksetzung zu kommen. Falls sie von einer E-Mail zur Passwortrücksetzung kommen, vergewissern Sie sich bitte, dass Sie die vollständige angegebene URL verwendet haben."
-      send_instructions: "Sie werden in wenigen Minuten eine E-Mail mit Anweisungen zum Zurücksetzen Ihres Passworts erhalten."
+      send_instructions: "Sie werden in wenigen Minuten eine E-Mail mit einer Anleitung zum Rücksetzen Ihres Kennworts erhalten."
       send_paranoid_instructions: "Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten einen Link zum Zurücksetzen Ihres Passworts an Ihre E-Mail-Adresse."
       updated: "Ihr Passwort wurde erfolgreich geändert. Sie sind nun angemeldet."
       updated_not_active: "Ihr Passwort wurde erfolgreich geändert."
@@ -105,7 +105,7 @@ de_formal:
       unlocked: "Ihr Konto wurde erfolgreich entsperrt. Bitte melden Sie sich an, um fortzufahren."
   errors:
     messages:
-      already_confirmed: "wurde bereits bestätigt, bitte versuchen Sie, sich anzumelden"
+      already_confirmed: "wurde bereits bestätigt, bitte versuchen Sie sich anzumelden"
       confirmation_period_expired: "muss innerhalb von %{period} bestätigt werden, bitte erneut anfordern"
       expired: "abgelaufen, bitte neu anfordern"
       not_found: "nicht gefunden"

@@ -727,7 +727,7 @@ fr:
       click_link: "Pour activer votre nouvelle adresse électronique %{unconfirmed_email}, merci de suivre ce lien :"
       subject: "Merci d'activer votre nouvelle adresse électronique %{unconfirmed_email}"
     contacts_birthday:
-      birthday: "C'est l'anniversaire de %{name} aujourd'hui. Souhaitez-leur un joyeux anniversaire !"
+      birthday: "C'est l'anniversaire de %{name} aujourd'hui. Souhaitez-lui un joyeux anniversaire !"
       subject: "C'est l'anniversaire de %{name} aujourd'hui"
       view_profile: "Voir le profil de %{name}"
     csrf_token_fail:
