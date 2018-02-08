@@ -20,7 +20,7 @@ pt-PT:
         other: "Em <%=count %> grupos"
         zero: "Selecione os grupos"
     aspect_navigation:
-      add_an_aspect: "+ Adicionar um grupo"
+      add_an_aspect: "+ Adicionar um aspeto"
       deselect_all: "Desmarcar todos"
       no_aspects: "Nenhuns aspectos selecionados"
       select_all: "Selecionar todos"
@@ -33,9 +33,9 @@ pt-PT:
     edit: "Editar"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started:
-      alright_ill_wait: "Tudo bem, eu esperarei."
-      hey: "Ei, <%= name %>!"
-      no_tags: "Ei, não está a seguir nenhuma etiqueta! Continuar mesmo assim?"
+      alright_ill_wait: "Tudo bem, eu irei aguardar."
+      hey: "Olá, <%= name %>!"
+      no_tags: "Olá, não está a seguir quaisquer etiquetas! Mesmo assim, continuar?"
       preparing_your_stream: "A preparar o seu fluxo personalizado..."
     header:
       admin: "Administrador"
@@ -58,7 +58,7 @@ pt-PT:
     people:
       not_found: "e ninguém foi encontrado..."
     photo_uploader:
-      completed: "<%= file %> completado"
+      completed: "<%= file %> concluído"
       empty: "O {file} não tem dados, por favor, selecione novamente os ficheiros, sem este."
       invalid_ext: "O {file} tem uma extensão inválida. Só são permitidas as extensões {extensions}."
       looking_good: "OMD, tu estás fantástico(a)!"

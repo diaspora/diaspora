@@ -185,6 +185,7 @@ ia:
       result: "Resultato"
       show_result: "Monstrar resultato"
       vote: "Votar"
+      your_vote: "Tu voto"
     profile:
       add_some: "Adder alcunes"
       bio: "Bio"
@@ -241,6 +242,7 @@ ia:
     reshares:
       post: "Repeter le entrata de <%= name %>?"
       successful: "Le entrata ha essite repetite con successo."
+    show_all: "Monstrar totes"
     show_more: "Monstrar plus"
     stream:
       comment: "Commentar"

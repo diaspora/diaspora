@@ -414,6 +414,7 @@ es:
     mentions:
       how_to_mention_a: "Escribe \"@\" y empieza a escribir su(s) nombre(s). Debería aparecer un menú desplegable para ayudarte en la selección. Ten en cuenta que solo es posible mencionar personas a aquellas personas que se encuentren en tus aspectos."
       how_to_mention_q: "¿Cómo puedo mencionar a alguien cuando hago una publicación?"
+      mention_in_comment_a: "Desde la versión 0.7.0.0, ¡sí! Puedes mencionar a alguien en un comentario del mismo modo que lo harías en una publicación, escribiendo \"@\" y a continuación su nombre. Por favor, ten en cuenta que cuando comentas en una publicación que no es estrictamente pública, sólo puedes mencionar a usuarios que ya hayan interactuado con la publicación."
       mention_in_comment_q: "¿Puedo mencionar a alguien en un comentario?"
       see_mentions_a: "Sí, pulsa en \"@menciones\" en la columna izquierda de tu pagina principal."
       see_mentions_q: "¿Hay alguna forma de ver las publicaciones en las cuales he sido mencionado?"
@@ -678,6 +679,9 @@ es:
       one: "%{actors} te ha mencionado en una publicación eliminada."
       other: "%{actors} te han mencionado en una publicación eliminada."
       zero: "%{actors} te han mencionado en una publicación eliminada."
+    mentioned_in_comment_deleted:
+      one: "%{actors} te ha mencionado en un comentario eliminado."
+      other: "%{actors} te han mencionado en un comentario eliminado."
     private_message:
       one: "%{actors} te ha escrito"
       other: "%{actors} te han escrito."

@@ -21,6 +21,10 @@ it:
           attributes:
             diaspora_handle:
               taken: "è già stato preso."
+        poll_participation:
+          attributes:
+            poll:
+              already_participated: "Hai già partecipato a questo sondaggio!"
         reshare:
           attributes:
             root_guid:
@@ -302,6 +306,7 @@ it:
     miscellaneous:
       back_to_top_a: "Si. Dopo averla fatta scorrere in basso, clicca sulla freccia grigia che appare nell`angolo in basso a destra della finestra del tuo browser."
       back_to_top_q: "C`è un modo veloce per tornare in cima ad una pagina una volta che l'ho fatta scorrere in basso?"
+      diaspora_app_a: "Sono state sviluppate varie app Android da parte di membri della community. Alcune sono state abbandonate da tempo e quindi non funzionano bene con la versione attuale di diaspora*. Non aspettatevi molto da queste app per il momento. Non esiste attualmente una app per iOS. Il miglior modo di accedere a diaspora* da un dispositivo mobile è usare un browser, dato che abbiamo implementato una versione mobile del sito che dovrebbe funzionare bene su tutti i dispositivi, anche se per ora non tutte le funzionalità sono attive."
       diaspora_app_q: "Esiste l'app diaspora* per Android o iOS?"
       photo_albums_a: "Al momento no. Tuttavia puoi vedere uno stream delle loro foto caricate dalla sezione foto nella barra laterale del loro profilo."
       photo_albums_q: "Ci sono album di foto o video?"
@@ -548,6 +553,7 @@ it:
     report_email:
       type:
         comment: "commento"
+        post: "post"
     reshared:
       reshared: "%{name} ha condiviso il tuo post"
       view_post: "Leggi il post >"
@@ -610,6 +616,7 @@ it:
       allow_search: "Permetti ad altri di trovarti su Diaspora"
       first_name: "Nome"
       last_name: "Cognome"
+      nsfw_explanation: "NSFW(“not safe fo rwork”) è lo standard di autogoverno della comunità di Diaspora per identificare i contenuti non adatti ad essere visualizzati in un contesto lavorativo. Se pensate di condividere frequentemente materiale di questa natura vi chiediamo di attivare questa opzione in modo che qualsiasi cosa condividiate non verrà visualizzata nei flussi di altri a meno che queste persone stesse abbiano scelto di visualizzarla."
       settings: "Impostazioni del profilo"
       update_profile: "Aggiorna il profilo"
       your_bio: "La tua biografia"

@@ -55,6 +55,6 @@ Feature: Change settings
     Then I should see "Public" within ".aspect-dropdown"
 
   Scenario: exporting profile data
-    When I click on the first selector "#account_data a"
+    When I click on the first selector ".account-data a"
     Then I should see "Download my profile"
     And I should have 1 email delivery

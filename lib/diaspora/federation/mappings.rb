@@ -29,6 +29,7 @@ module Diaspora
         case diaspora_entity
         when AccountMigration  then :account_migration
         when AccountDeletion   then :account_deletion
+        when Block             then :block
         when Comment           then :comment
         when Contact           then :contact
         when Conversation      then :conversation

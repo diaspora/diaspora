@@ -648,6 +648,10 @@ nb:
       one: "%{actors} kommenterte ditt %{post_link}."
       other: "%{actors} kommenterte ditt %{post_link}."
       zero: "%{actors} kommenterte ditt %{post_link}."
+    contacts_birthday:
+      one: "%{actors} har fødselsdag den %{date}."
+      other: "%{actors} har fødselsdag den %{date}."
+      zero: "%{actors} har fødselsdag den %{date}."
     index:
       all_notifications: "Alle notifikasjoner"
       also_commented: "Kommenterte også"
@@ -660,6 +664,7 @@ nb:
         two: "og %{count} andre"
         zero: "og ingen andre"
       comment_on_post: "Kommenter på innlegget"
+      contacts_birthday: "Fødselsdag"
       liked: "Likte"
       mark_all_as_read: "Merk alle som leste"
       mark_all_shown_as_read: "Marker alle som lest"
@@ -736,6 +741,10 @@ nb:
     confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} har fødselsdag i dag. Si «gratulerer med dagen»!"
+      subject: "%{name} har fødselsdag i dag"
+      view_profile: "Se profilen til %{name}"
     csrf_token_fail:
       body: |-
           Hei, %{name}
@@ -1020,12 +1029,12 @@ nb:
       error: "feil under tilkobling av tjenesten"
     index:
       connect: "Koble til"
-      disconnect: "koble fra"
+      disconnect: "Koble fra"
       edit_services: "Rediger tjenester"
-      logged_in_as: "logget inn som"
+      logged_in_as: "Logget inn som %{nickname}"
       no_services_available: "Det  finnes ingen tjenester tilgjengelig på denne belgen."
       not_logged_in: "Ikke logget inn for øyeblikket."
-      really_disconnect: "koble fra %{service}?"
+      really_disconnect: "Koble fra %{service}?"
       services_explanation: "Ved å koble til andre sosiale tjenester, får du muligheten å publisere til disse tjenestene idet du poster til diaspora*."
       share_to: "Del med %{provider}"
       title: "Behandle tilkoblede tjenester"
@@ -1165,6 +1174,7 @@ nb:
       also_commented: "noen andre har kommentert et innlegg du kommenterte på"
       auto_follow_aspect: "Aspekt for automatisk fulgte brukere:"
       auto_follow_back: "Del automatisk med brukere som begynner å dele med deg"
+      birthday: "noen har fødselsdag"
       change: "Endre"
       change_color_theme: "Endre fargetema"
       change_email: "Endre e-postadresse"

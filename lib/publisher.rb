@@ -9,12 +9,4 @@ class Publisher
     self.prefill = opts[:prefill]
     self.public = opts[:public]
   end
-
-  def text
-    return unless prefill.present?
-    Diaspora::MessageRenderer.new(
-      prefill,
-      mentioned_people: Diaspora::Mentionable.people_from_string(prefill)
-    ).plain_text
-  end
 end

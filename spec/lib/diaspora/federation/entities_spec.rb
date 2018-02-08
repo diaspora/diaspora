@@ -56,6 +56,19 @@ describe Diaspora::Federation::Entities do
       expect(federation_entity.recipient).to eq(diaspora_entity.person.diaspora_handle)
       expect(federation_entity.sharing).to be_truthy
       expect(federation_entity.following).to be_truthy
+      expect(federation_entity.blocking).to be_falsey
+    end
+
+    it "builds a contact for a block" do
+      diaspora_entity = FactoryGirl.create(:block)
+      federation_entity = described_class.build(diaspora_entity)
+
+      expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)
+      expect(federation_entity.author).to eq(diaspora_entity.user.diaspora_handle)
+      expect(federation_entity.recipient).to eq(diaspora_entity.person.diaspora_handle)
+      expect(federation_entity.sharing).to be_falsey
+      expect(federation_entity.following).to be_falsey
+      expect(federation_entity.blocking).to be_truthy
     end
 
     context "Conversation" do
@@ -237,6 +250,35 @@ describe Diaspora::Federation::Entities do
         expect(federation_entity.recipient).to eq(target.person.diaspora_handle)
         expect(federation_entity.sharing).to be_falsey
         expect(federation_entity.following).to be_falsey
+        expect(federation_entity.blocking).to be_falsey
+      end
+
+      it "builds a Contact for a Contact retraction with block" do
+        target = FactoryGirl.create(:contact, receiving: false)
+        FactoryGirl.create(:block, user: target.user, person: target.person)
+        retraction = ContactRetraction.for(target)
+        federation_entity = described_class.build(retraction)
+
+        expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)
+        expect(federation_entity.author).to eq(target.user.diaspora_handle)
+        expect(federation_entity.recipient).to eq(target.person.diaspora_handle)
+        expect(federation_entity.sharing).to be_falsey
+        expect(federation_entity.following).to be_falsey
+        expect(federation_entity.blocking).to be_truthy
+      end
+
+      it "builds a Contact for a Block retraction" do
+        target = FactoryGirl.create(:block)
+        target.delete
+        retraction = ContactRetraction.for(target)
+        federation_entity = described_class.build(retraction)
+
+        expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Contact)
+        expect(federation_entity.author).to eq(target.user.diaspora_handle)
+        expect(federation_entity.recipient).to eq(target.person.diaspora_handle)
+        expect(federation_entity.sharing).to be_falsey
+        expect(federation_entity.following).to be_falsey
+        expect(federation_entity.blocking).to be_falsey
       end
     end
 

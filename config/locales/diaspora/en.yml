@@ -1213,7 +1213,7 @@ en:
       request_export_update: "Refresh my profile data"
       export_data: "Export data"
       export_in_progress: "We are currently processing your data. Please check back in a few moments."
-      last_exported_at: "(Last updated at %{timestamp})"
+      last_exported_html: "(Last updated %{timeago})"
       download_export_photos: "Download my photos"
       request_export_photos: "Request my photos"
       request_export_photos_update: "Refresh my photos"

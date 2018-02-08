@@ -39,18 +39,18 @@
             = f.label :current_password, t(".current_password"), class: "col-sm-6 control-label"
             .col-sm-6
               = f.password_field :current_password, placeholder: t(".current_password_expl"),
-                class: "form-control"
+                class: "form-control", autocomplete: "current-password"
           .form-group
             = f.label :password, t(".new_password"), class: "col-sm-6 control-label"
             .col-sm-6
               = f.password_field :password, placeholder: t(".character_minimum_expl"),
-                class: "form-control"
+                class: "form-control", autocomplete: "new-password"
           .form-group
             = f.label :password_confirmation, t("registrations.new.password_confirmation"),
               class: "col-sm-6 control-label"
             .col-sm-6
               = f.password_field :password_confirmation, placeholder: t(".character_minimum_expl"),
-                class: "form-control"
+                class: "form-control", autocomplete: "new-password"
 
           .clearfix
             = f.submit t(".change_password"), class: "btn btn-primary pull-right", name: "change_password"
@@ -181,35 +181,33 @@
       %hr
 
     .row
-      .col-md-6#account_data
+      .col-md-6.account-data
         %h3= t(".export_data")
+        %h4= t("profile")
         .form-group
           - if current_user.exporting
             .export-in-progress= t(".export_in_progress")
           - elsif current_user.export.present?
-            = link_to t(".request_export_update"), export_profile_user_path, method: :post,
-              class: "btn btn-default"
-            .small-horizontal-spacer
             = link_to t(".download_export"), download_profile_user_path,
               class: "btn btn-success"
-            .small-horizontal-spacer
+            = link_to t(".request_export_update"), export_profile_user_path, method: :post,
+              class: "btn btn-default"
             %h6
-              = t(".last_exported_at", timestamp: current_user.exported_at)
+              = t(".last_exported_html", timeago: timeago(current_user.exported_at))
           - else
             = link_to t(".request_export"), export_profile_user_path, method: :post,
               class: "btn btn-default"
 
+        %h4= t("javascripts.profile.photos")
         .form-group
           - if current_user.exporting_photos
             .export-in-progress= t(".export_photos_in_progress")
           - elsif current_user.exported_photos_file.present?
+            = link_to t(".download_export_photos"), download_photos_user_path, class: "btn btn-success"
             = link_to t(".request_export_photos_update"), export_photos_user_path, method: :post,
               class: "btn btn-default"
-            .small-horizontal-spacer
-            = link_to t(".download_export_photos"), download_photos_user_path, class: "btn btn-success"
-            .small-horizontal-spacer
             %h6
-              = t(".last_exported_at", timestamp: current_user.exported_photos_at)
+              = t(".last_exported_html", timeago: timeago(current_user.exported_photos_at))
           - else
             = link_to t(".request_export_photos"), export_photos_user_path, method: :post,
               class: "btn btn-default"

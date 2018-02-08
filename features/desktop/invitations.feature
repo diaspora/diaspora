@@ -36,13 +36,13 @@ Feature: Invitations
     And I log out
     And I sign in as "alice@alice.alice"
     And I click on "Invite your friends" navbar title
-    And I click on selector "#invitations-button"
+    And I click on selector ".invitations-button"
     Then I should see one less invite
 
   Scenario: sends an invitation from the sidebar
     When I sign in as "alice@alice.alice"
     And I click on "Invite your friends" navbar title
-    And I click on selector "#invitations-button"
+    And I click on selector ".invitations-button"
     And I fill in the following:
       | email_inviter_emails         | alex@example.com    |
     And I press "Send an invitation"
@@ -67,7 +67,7 @@ Feature: Invitations
     When I sign in as "alice@alice.alice"
     And I search for "test"
     Then I should see "Users matching test" within "#search_title"
-    When I click on selector "#invitations-button"
+    When I click on selector ".invitations-button"
     And I fill in the following:
       | email_inviter_emails         | alex@example.com    |
     And I press "Send an invitation"
