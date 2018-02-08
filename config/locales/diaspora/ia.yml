@@ -58,6 +58,8 @@ ia:
       fetching_diaspora_version: "Determina ultime version de diaspora*..."
       pod_status: "Stato del pod"
     pods:
+      pod_desktop_link: "vista scriptorio"
+      pod_desktop_view: "Iste pagina non es disponibile in vista mobile. Cambia al %{desktop_link}."
       pod_network: "Rete de pods"
     stats:
       2weeks: "2 septimanas"
@@ -229,6 +231,8 @@ ia:
         here_to_help: "Le communitate de diaspora* es a tu disposition!"
         mail_podmin: "E-mail del \"podmin\""
         need_help: "Require adjuta?"
+        support_forum: "Tu pote etiam participar al %{support_forum}."
+        support_forum_link: "foro de supporto"
         tag_bug: "bug"
         tag_feature: "functionalitate"
         tag_question: "question"
@@ -270,6 +274,13 @@ ia:
     heading: "Mini-marcapaginas"
     post_something: "Inviar a diaspora*"
   cancel: "Cancellar"
+  color_themes:
+    dark: "Obscur"
+    dark_green: "Verde obscur"
+    egyptian_blue: "Blau egyptie"
+    magenta: "Magenta"
+    original: "Gris original"
+    original_white: "Fundo blanc original"
   comments:
     create:
       error: "Commento fallite."
@@ -377,9 +388,11 @@ ia:
       add_contact_roster_q: "Como pote io parlar in directo a qualcuno in diaspora*?"
       contacts_page: "pagina de contactos"
       title: "Chat"
+    community_guidelines: "directivas del communitate"
     faq: "FAQ"
     foundation_website: "le sito web del fundation diaspora*"
     getting_help:
+      get_support_a_discourse: "Cerca discussiones existente que pertine a tu question o aperi un nove discussion in nostre platteforma %{discourse}"
       get_support_a_faq: "Lege nostre pagina de %{faq} sur le wiki"
       get_support_a_hashtag: "Pone le question in un entrata public de diaspora* adjungente le etiquetta %{question}"
       get_support_a_irc: "Visita nos in %{irc} (conversation in directo)"
@@ -409,6 +422,7 @@ ia:
     mentions:
       how_to_mention_a: "Scribe le signo \"@\" e comencia a scriber su nomine. Un menu disrolante deberea apparer que permitte seliger le nomine plus facilemente. Nota ben que il es solmente possibile mentionar personas que tu ha addite a un aspecto."
       how_to_mention_q: "Como mentionar un persona quando io scribe un entrata?"
+      mention_in_comment_a: "A partir del version 0.7.0.0, si! Tu pote mentionar alcuno in un commento del mesme maniera que tu lo facerea in un entrata, scribente un “@” ante su nomine. Nota ben: quando tu commenta un entrata non public, tu pote solmente mentionar usatores que ha jam interagite con le entrata."
       mention_in_comment_q: "Pote io mentionar qualcuno in un commento?"
       see_mentions_a: "Si, clicca sur \"@Mentiones\" in le columna sinistre in tu pagina principal."
       see_mentions_q: "Existe un maniera de vider le entratas in que on me ha mentionate?"
@@ -444,7 +458,12 @@ ia:
       format_text_q: "Como pote io formatar le texto in mi entratas (grasse, italic, etc.)?"
       hide_posts_a: "Si tu puncta le mouse verso le parte superior de un entrata, un × appare al dextra. Clicca sur illo pro celar le entrata e silentiar le notificationes sur illo. Tu pote ancora vider le entrata si tu visita le pagina de profilo del persona qui lo ha inviate."
       hide_posts_q: "Como cela io un entrata?"
+      ignore_user_a1: "Si tu actualmente divide cosas con ille persona, remover la de tote tu aspectos eliminara le majoritate de su entratas de tu fluxo. Un methodo plus complete es \"ignorar\" le conto in question. Isto impedira que alcun entrata sue appare in tu fluxo, e illa non plus potera commentar o appreciar tu entratas. Nonobstante, illa ancora pote repeter tu entratas e commentar le repetitiones de tu entratas, e su commentos sur entratas de altere personas que appare in tu fluxo continuara a esser visibile pro te."
+      ignore_user_a2: "Pro ignorar un conto, clicca sur le icone “ignorar” (un circulo con un linea diagonal que lo transversa) in cyma al dextra de un de su entratas. Su entratas disparera immediatemente de tu fluxo. Alternativemente, visita su pagina de profilo e clicca sur le icone “ignorar” illac. Tu potera ancora vider su entratas sur su pagina de profilo, o per usar le vista de entrata singule."
+      ignore_user_a3: "Le lista de personas que tu ignora se trova in le configuration de tu conto sub Confidentialitate. Pro cessar de ignorar un persona, remove la del lista sur ille pagina."
+      ignore_user_q: "Como impedi io que le entratas de un persona appare in mi fluxo?"
       insert_images_a: "Clicca sur le micre icone de camera pro inserer un imagine in un entrata. Preme le icone de camera de novo pro adder un altere photo, o tu pote seliger plure photos a incargar insimul."
+      insert_images_comments_a: "Tu pote usar Markdown pro inserer un imagine ab le web in un commento, como in entratas. Nonobstante, non es possibile incargar imagines ab tu computator directemente in commentos. Incarga los a un servicio hospite de imagines e postea insere los usante le button de imagine supra le publicator."
       insert_images_comments_q: "Pote io inserer imagines in commentos?"
       insert_images_q: "Como inserer imagines in entratas?"
       post_location_a: "Clicca sur le icone de spinula al latere del camera in le quadro de publication. Isto insere tu position geographic ab OpenStreetMap. Tu pote modificar tu position, per exemplo, si tu vole divulgar solmente le citate e non le adresse stratal exacte."
@@ -473,6 +492,14 @@ ia:
       title: "Entratas private"
       who_sees_post_a: "Solmente le usatores qui ha aperite session in disaspora* e que tu habeva placiate in ille aspecto ante de inviar le entrata private pote vider lo."
       who_sees_post_q: "Quando io invia un message a un aspecto (i.e. un entrata private), qui potera vider lo?"
+    profile:
+      title: "Profilo"
+      what_do_tags_do_a: "Illos adjuta le gente a cognoscer te. Le imagine de tu profilo etiam apparera in le columna sinistre del paginas de fluxo correspondente a ille etiquettas, insimul con le imagines del altere personas que ha iste etiquettas in lor profilos basic."
+      what_do_tags_do_q: "Que face le etiquettas in mi profilo basic?"
+      whats_in_profile_a: "Un profilo ha duo partes: le profilo basic e le profilo extendite. Le profilo basic contine tu nomine, le cinque etiquettas que tu ha eligite pro describer te, e tu photo. Le profilo extendite contine tu biographia, loco, genere e die de nascentia. Tote iste information es facultative; a te le decision de fornir lo o non. Tu pote render iste information de profilo tanto personal o tanto anonyme como tu vole. Le profilo extendite appare in le columna sinistre de tu pagina de profilo, sub le imagine del profilo."
+      whats_in_profile_q: "Que es in mi profilo?"
+      who_sees_profile_a: "Le profilo basic (nomine, imagine e #etiquettas) es public. Le profilo extendite es normalmente private, ma tu pote render toto accessibile al publico si tu lo prefere. Solmente le personas con qui tu divide cosas (i.e. que tu ha addite a un de tu aspectos) pote vider tu profilo extendite si tu lo mantene private. Altere personas videra solmente tu information public. Omne information de profilo que tu rende public pote esser vidite per qualcunque usator del web e pote esser indexate per motores de recerca."
+      who_sees_profile_q: "Qui vide mi profilo?"
     public_posts:
       can_comment_reshare_like_a: "Omne usator qui ha aperite session in diaspora* pote commentar, repeter o appreciar tu entrata public."
       can_comment_reshare_like_q: "Qui pote commentar, repeter o appreciar mi entrata public?"
@@ -584,6 +611,7 @@ ia:
     application:
       back_to_top: "Retornar al cyma"
       be_excellent: "Sia benevolente le un verso le altere! ♥"
+      discourse: "Discussion e supporto del projecto"
       powered_by: "Actionate per diaspora*"
       public_feed: "Fluxo public de diaspora* pro %{name}"
       source_package: "Discargar le pacchetto con le codice-fonte"
@@ -617,6 +645,10 @@ ia:
       one: "%{actors} commentava tu entrata %{post_link}."
       other: "%{actors} commentava tu entrata %{post_link}."
       zero: "%{actors} commentava tu entrata %{post_link}."
+    contacts_birthday:
+      one: "%{actors} ha su anniversario le %{date}."
+      other: "%{actors} ha lor anniversario le %{date}."
+      zero: "%{actors} ha lor anniversario le %{date}."
     index:
       all_notifications: "Tote le notificationes"
       also_commented: "Anque commentate"
@@ -626,6 +658,7 @@ ia:
         other: "e %{count} alteres"
         zero: "e nemo altere"
       comment_on_post: "Commentar iste entrata"
+      contacts_birthday: "Anniversario"
       liked: "Appreciate"
       mark_all_as_read: "Marcar totes como legite"
       mark_all_shown_as_read: "Marcar tote le entratas monstrate como legite"
@@ -690,6 +723,10 @@ ia:
     confirm_email:
       click_link: "Pro activar tu nove adresse de e-mail %{unconfirmed_email}, seque iste ligamine:"
       subject: "Per favor activa tu nove adresse de e-mail %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} ha su anniversario hodie. Desira le/la un felice anniversario!"
+      subject: "%{name} ha su anniversario hodie"
+      view_profile: "Vider le profilo de %{name}"
     csrf_token_fail:
       body: |-
           Salute %{name},
@@ -1067,6 +1104,8 @@ ia:
   streams:
     activity:
       title: "Mi activitate"
+    admin:
+      title: "Admin"
     aspects:
       all: "Tote le aspectos"
       title: "Mi aspectos"
@@ -1122,6 +1161,7 @@ ia:
       also_commented: "un persona commenta un entrata que tu ha commentate"
       auto_follow_aspect: "Aspecto pro usatores con que tu divide automaticamente:"
       auto_follow_back: "Divider automaticamente con omne persona qui comencia a divider con te"
+      birthday: "un persona ha su anniversario"
       change: "Cambiar"
       change_color_theme: "Cambiar thema de colores"
       change_email: "Cambiar adresse de e-mail"

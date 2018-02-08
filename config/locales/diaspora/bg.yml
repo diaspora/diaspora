@@ -12,6 +12,10 @@ bg:
   activerecord:
     errors:
       models:
+        contact:
+          attributes:
+            person_id:
+              taken: "трябва да бъде уникално сред контактите на този потребител."
         person:
           attributes:
             diaspora_handle:
@@ -29,9 +33,54 @@ bg:
             username:
               invalid: "не е валидно. Разрешени са само букви, цифри и долна черта."
               taken: "е вече заето."
+  admins:
+    admin_bar:
+      pages: "Страници"
+      pod_stats: "Статистики на под-а."
+      user_search: "Търсене на потребители"
+      weekly_user_stats: "Седмични потребителски статистики"
+    stats:
+      2weeks: "2 седмици"
+      50_most: "50-те най-популярни тага"
+      comments:
+        one: "%{count} коментар"
+        other: "%{count} коментари"
+        zero: "%{count} коментари"
+      current_segment: "Текущият сегмент съдържа средно %{post_yest} публикации на потребител, от дата %{post_day}"
+      daily: "Ежедневно"
+      display_results: "Показване на резултати от сегмента %{segment}"
+      month: "Месец"
+      posts:
+        one: "%{count} публикация"
+        other: "%{count} публикации"
+        zero: "%{count} публикации"
+      shares:
+        one: "%{count} споделяне"
+        other: "%{count} споделяния"
+        zero: "%{count} споделяния"
+      tag_name: "Име на тага: %{name_tag} Брой: %{count_tag}"
+      usage_statistic: "Статистики на ползване"
+      users:
+        one: "%{count} потребител"
+        other: "%{count} потребители"
+        zero: "%{count} потребители"
+      week: "Седмица"
+    user_search:
+      add_invites: "Добавете покани."
+      email_to: "Електронна поща за покана."
+      users:
+        one: "%{count} открит потребител."
+        other: "%{count} открити потребители."
+        zero: "%{count} открити потребители."
+      you_currently:
+        one: "Имате една останала покана %{link}"
+        other: "В момента имате %{count} оставащи покани %{link}"
+        zero: "Нямате повече покани %{link}"
+    weekly_user_stats:
+      current_server: "Текущата сървърна дата е %{date}"
   all_aspects: "Всички аспекти"
   are_you_sure: "Сигурни ли сте?"
-  are_you_sure_delete_account: "Наистина ли желаете да затворите акаунта си? Няма връщане назад!"
+  are_you_sure_delete_account: "Наистина ли желаете да закриете акаунта си? Няма връщане назад!"
   aspect_memberships:
     destroy:
       failure: "Лицето не бе премахнато от аспекта"
@@ -44,6 +93,7 @@ bg:
     aspect_listings:
       add_an_aspect: "+ Създаване на аспект"
     aspect_stream:
+      make_something: "Създай нещо"
       stay_updated: "Останете информирани"
       stay_updated_explanation: "Вашият поток се състои от всичките Ви контакти, марки (които следите) и публикации на изявени членове на общността."
     destroy:
@@ -69,6 +119,7 @@ bg:
         tag_feature: "функция"
         tag_question: "въпрос"
       introduce_yourself: "Това е вашият поток.  Включете се и се представете."
+      keep_pod_running: "Помогнете на %{pod} да работи и купете на сървърите кафе с месечно дарение!"
       new_here:
         follow: "Следете %{link} и приветствайте новите потребители на Diaspora*!"
         learn_more: "Научете повече"
@@ -99,6 +150,7 @@ bg:
       success: "Какво ли ще кажат! #sayhello"
   bookmarklet:
     explanation: "Публикувайте в Diaspora от където и да е, запаметявайки %{link} като отметка."
+    heading: "Книжен пазар"
     post_something: "Публикуване в Diaspora"
   cancel: "Отказ"
   comments:
@@ -108,6 +160,7 @@ bg:
   contacts:
     index:
       all_contacts: "Всички контакти"
+      community_spotlight: "В центъра на вниманието"
       my_contacts: "Моите контакти"
       no_contacts: "Изглежда трябва да добавите контакти!"
       no_contacts_message: "Проверете %{community_spotlight}"
@@ -129,7 +182,7 @@ bg:
       subject: "тема"
       to: "до"
     show:
-      delete: "изтриване и блокиране на разговора"
+      delete: "изтриване на разговора"
       reply: "отговор"
       replying: "Изпращане на отговора..."
   date:
@@ -150,8 +203,14 @@ bg:
       rejected: "Възникна проблем със следната ел. поща: "
       sent: "Покани са изпратени до: "
     new:
+      codes_left:
+        one: "%{count} оставащи покани."
+        other: "%{count} оставащи покани."
+        zero: "Няма повече покани."
+      comma_separated_plz: "Можете да въведете няколко и-мейл адреса, разделени със запетая."
       invite_someone_to_join: "Поканете някой в Diaspora!"
       language: "Език за поканата"
+      paste_link: "Споделете тази връзка с Вашите приятели, за да ги поканите в Диаспора* или им я изпратете директно по електронната поща."
       send_an_invitation: "Изпращане на поканата"
   layouts:
     application:
@@ -197,6 +256,7 @@ bg:
         two: "и други %{count}-ма"
         zero: "и никой друг"
       mark_all_as_read: "Маркиране на всички като прочетени"
+      mark_unread: "Маркирай като непрочетено"
       notifications: "Известия"
     liked:
       one: "%{actors} хареса Ваша %{post_link}."
@@ -240,6 +300,28 @@ bg:
       subject: "Моля, акивирайте новия адрес на ел. си поща (%{unconfirmed_email})"
     email_sent_by_diaspora: "Ел. писмо е изпратено от Diaspora.  Ако вече не желаете да получавате подобни писма,"
     hello: "Здравейте %{name}!"
+    invite:
+      message: |-
+          Здравейте!
+
+          Вие бяхте поканени в Диаспора* от %{user}!
+          Натиснете тази връзка, за да започнете
+
+          [%{invite_url}][1]
+
+          или добавете %{diaspora_id} към Вашите контакти, ако вече имате акаунт.
+
+
+
+
+          Поздрави,
+          Пощенският робот на Диаспора*.
+
+          П.С. В случай, че не знаете какво е Диаспора*, отговорът[2] е тук!
+
+          [1]: %{invite_url}
+          [2]: %{diasporafoundation_url}
+    invited_you: "%{name} Ви покани в Диаспора*."
     liked:
       liked: "%{name} хареса вашата публикация"
       view_post: "Преглед на публикацията >"
@@ -259,13 +341,17 @@ bg:
       view_profile: "Прегледайте профила на %{name}"
     thanks: "Благодаря,"
     to_change_your_notification_settings: "за да промените настройките за известяване"
+  nsfw: "Само за пълнолетни"
   ok: "Добре"
   people:
+    add_contact:
+      invited_by: "Вие бяхте поканени от"
     index:
       looking_for: "Търсите публикации с марка %{tag_link}?"
       no_one_found: "...и никой не е намерен."
       no_results: "Хей! Въведете нещо за търсене."
       results_for: "резултат от търсенето за"
+      searching: "Търся. Моля, изчакайте..."
     person:
       thats_you: "Това сте Вие!"
     profile_sidebar:
@@ -287,6 +373,8 @@ bg:
     new_profile_photo:
       upload: "Качете нова снимка за профила!"
   posts:
+    presenter:
+      title: "Публикация от %{name}"
     show:
       photos_by:
         few: "%{count} снимки от %{author}"
@@ -295,6 +383,7 @@ bg:
         other: "%{count} снимки от %{author}"
         two: "2 снимки от %{author}"
         zero: "Няма снимки от %{author}"
+      reshare_by: "Споделено от %{author}"
   privacy: "Поверителност"
   profile: "Профил"
   profiles:
@@ -319,11 +408,16 @@ bg:
     closed: "Нови регистрации не са възможни на този pod на Diaspora."
     create:
       success: "Вие се присъединихте към Diaspora!"
+    invalid_invite: "Връзката за покана, която предоставихте, вече не е валидна!"
     new:
+      email: "Електронна поща"
       enter_email: "Въведете ел. поща"
       enter_password: "Въведете парола"
       enter_password_again: "Въведете отново същата парола"
       enter_username: "Изберете си потребителско име (само букви, цифри и долна черта)"
+      password: "Парола"
+      sign_up: "Създайте акаунт"
+      username: "Потребителско име"
   reshares:
     comment_email_subject: "Споделена публикация от %{resharer} с автор %{author}'"
     reshare:
@@ -359,7 +453,9 @@ bg:
       by_email: "по ел. поща"
       invite_your_friends: "Поканете приятелите си"
       invites: "Покани"
+      share_this: "Споделете тази връзка чрез електронна поща, блог или социална мрежа!"
     public_explain:
+      atom_feed: "Новинарски поток"
       control_your_audience: "Определете публиката"
       logged_in: "вписани сте в %{service}"
       manage: "управление на свързаните услуги"
@@ -380,11 +476,14 @@ bg:
       whats_on_your_mind: "За какво мислите?"
     stream_element:
       via: "чрез %{link}"
+      via_mobile: "Чрез мобилно"
   status_messages:
     new:
       mentioning: "Споменаване на %{person}"
     too_long: "{\"few\"=>\", моля съкратете съобщението си до %{count} знака\", \"many\"=>\", моля съкратете съобщението си до %{count} знака\", \"one\"=>\", моля съкратете съобщението си до %{count} знака\", \"other\"=>\", моля съкратете съобщението си до %{count} знака\", \"two\"=>\", моля съкратете съобщението си до %{count} знака\", \"zero\"=>\", моля съкратете съобщението си до %{count} знака\"}"
   streams:
+    activity:
+      title: "Моята дейност"
     aspects:
       title: "Вашите аспекти"
     aspects_stream: "От вашите аспекти"
@@ -423,21 +522,25 @@ bg:
       wrong_password: "Въведената парола не съвпада с текущата парола на акаунта."
     edit:
       also_commented: "...някой коментира публикация на Ваш контакт?"
+      auto_follow_aspect: "Аспекти за потребители, с които споделяш автоматично."
+      auto_follow_back: "Автоматично споделяй с потребители, които започнат да споделят с теб."
       change: "Промяна"
       change_email: "Промяна на ел. поща"
       change_language: "Промяна на езика"
       change_password: "Промяна на паролата"
+      character_minimum_expl: "Трябва да бъде поне 6 символа."
       close_account:
         dont_go: "Моля, не си отивайте!"
-        lock_username: "потребителско ви име се \"заключва\" - ако пожелаете да се върнете отново"
+        lock_username: "Потребителското ви име се \"заключва\". Няма да можете да създадете нов акаунт на този под със същото име."
         locked_out: "автоматично ще бъдете отписани, а акаунтът - \"заключен\""
-        make_diaspora_better: "Надяваме се да ни помогнете в усилията ни да направим услугата Diaspora по-добра. Ако наистина желаете да напуснете ето какво се случва при напускане:"
+        make_diaspora_better: "Надяваме се да ни помогнете в усилията ни да направим услугата Diaspora по-добра. Ако наистина желаете да напуснете, ето какво се случва при напускане:"
         mr_wiggles: "И г-н Wiggles ще се натъжи много"
         no_turning_back: "За момента действието е необратимо!"
         what_we_delete: "изтриват се всички ваши публикации и данни от профила (възможно най-бързо). Вашите коментари ще останат наоколо, но ще бъдат асоциирани с адреса Ви в Diaspora."
       close_account_text: "Затваряне на акаунта"
       comment_on_post: "...някой коментира Ваша публикация?"
       current_password: "Текуща парола"
+      current_password_expl: "Паролата, с която влизате в акаунта си."
       edit_account: "Настройки на акаунта"
       email_awaiting_confirmation: "Изпратена е връзка за активиране до %{unconfirmed_email}. Докато не я активирате ще бъде ползвана старата ел. поща (%{email})."
       export_data: "Сваляне на..."
@@ -470,6 +573,8 @@ bg:
       does_not_exist: "Потребителят %{username} не съществува!"
     update:
       email_notifications_changed: "Настройките за известяване бяха променени"
+      follow_settings_changed: "Настройките за следване бяха променени."
+      follow_settings_not_changed: "Настройките за следване не бяха променени."
       language_changed: "Езикът е сменен"
       language_not_changed: "Езикът не бе сменен"
       password_changed: "Паролата е променена. Можете да се впишете с новата парола."

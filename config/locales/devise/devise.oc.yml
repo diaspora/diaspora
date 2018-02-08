@@ -41,7 +41,7 @@ oc:
         subject: "Senhal cambiat"
       reset_password_instructions:
         change: "Cambiar mon senhal"
-        ignore: "Se avètz pas demandat aquò, mercé d'ignorar aqueste corrièl."
+        ignore: "S’avètz pas demandat aquò, mercé d'ignorar aqueste corrièl."
         someone_requested: "Qualqu'un a demandat un ligam per cambiar vòstre senhal. S'èretz vos, podètz o far amb lo ligam dejós."
         subject: "Instruccions de reïnicializacion del senhal"
         wont_change: "Vòstre senhal cambiarà pas tant que n'auretz pas creat un novèl en accedissent al ligam çaijós."

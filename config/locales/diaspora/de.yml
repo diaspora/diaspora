@@ -626,9 +626,9 @@ de:
       toggle_navigation: "Navigation umschalten"
   likes:
     create:
-      error: "Gefällt mir ist fehlgeschlagen."
+      error: "Mit \"Gefällt mir\" bewerten ist fehlgeschlagen."
     destroy:
-      error: "Gefällt mir nicht mehr ist fehlgeschlagen."
+      error: "\"Gefällt mir\" entziehen ist gescheitert."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -1143,7 +1143,7 @@ de:
     like_stream:
       title: "„Gefällt mir“-Stream"
     liked:
-      title: "Beiträge, die dir gefallen"
+      title: "Mit „Gefällt mir“ bewertete Beiträge"
     mentioned_stream: "@Erwähnungen"
     mentions:
       title: "@Erwähnungen"
@@ -1177,7 +1177,7 @@ de:
       success: "Dein Account wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis dein Account endgültig geschlossen ist. Vielen Dank, dass du diaspora* ausprobiert hast."
       wrong_password: "Das eingegebene Kennwort stimmt nicht mit deinem aktuellen Kennwort überein."
     edit:
-      also_commented: "jemand einen Beitrag kommentiert, den du kommentiert hast"
+      also_commented: "jemand kommentierte einen Beitrag, den du kommentiert hast"
       auto_follow_aspect: "Aspekt für automatisch gefolgten Benutzern:"
       auto_follow_back: "Folge Benutzern automatisch, wenn sie dir folgen"
       birthday: "jemand hat Geburtstag"

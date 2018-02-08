@@ -54,10 +54,12 @@ pt-PT:
         send_password_instructions: "Enviem-me instruções para redefinir a minha palavra-passe"
       send_instructions: "Vai receber um email com instruções sobre como alterar a sua palavra-passe dentro de alguns minutos."
       updated: "A sua palavra-passe foi alterada com sucesso. A sessão foi iniciada."
+      updated_not_active: "A sua palavra-passe foi alterada com sucesso."
     registrations:
       destroyed: "Adeus! A sua conta foi cancelada com sucesso. Nós esperamos vê-lo de novo em breve."
       signed_up: "Registou-se com sucesso. Caso tenha selecionado essa opção, uma confirmação foi enviada para o seu endereço de email."
-      updated: "Atualizou a sua conta com sucesso."
+      update_needs_confirmation: "Atualizou a sua conta com sucesso, mas nós precisamos de verificar o seu novo endereço de e-mail. Por favor, verifique o seu e-mail e siga a hiperligação de confirmação para confirmar o seu novo endereço de e-mail."
+      updated: "A sua conta foi atualizada com sucesso."
     sessions:
       new:
         login: "Iniciar sessão"

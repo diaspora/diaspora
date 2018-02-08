@@ -634,6 +634,8 @@ zh-TW:
     comment_on_post:
       other: "%{actors} 留言在你的貼文%{post_link}。"
       zero: "%{actors} 留言在你的貼文%{post_link}。"
+    contacts_birthday:
+      other: "%{actors} 的生日是%{date}。"
     index:
       all_notifications: "全部的通知"
       also_commented: "其他人留言"
@@ -646,6 +648,7 @@ zh-TW:
         two: "以及其他%{count}個"
         zero: "以外沒有其他人"
       comment_on_post: "貼文有留言"
+      contacts_birthday: "生日"
       liked: "被稱讚"
       mark_all_as_read: "全部標示為已讀"
       mark_all_shown_as_read: "把目前顯示的都標示成讀過了"
@@ -698,6 +701,10 @@ zh-TW:
     confirm_email:
       click_link: "請點以下連結，來開通你新的電子信箱 %{unconfirmed_email}："
       subject: "請開通你新的電子信箱 %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} 的生日是今天。祝他們生日快樂吧！"
+      subject: "%{name} 的生日是今天"
+      view_profile: "看 %{name} 的個人檔案"
     csrf_token_fail:
       body: |-
           %{name} 你好，
@@ -1110,6 +1117,7 @@ zh-TW:
       also_commented: "有人也留言在你留言過的貼文"
       auto_follow_aspect: "自動被加入聯絡人的所屬社交面："
       auto_follow_back: "對主動要求跟你分享的使用者自動開始互相分享"
+      birthday: "有人生日到了"
       change: "更改"
       change_color_theme: "更改色彩主題"
       change_email: "更改電子信箱"
