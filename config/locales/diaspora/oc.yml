@@ -343,7 +343,7 @@ oc:
     csrf_token_fail: "Lo geton CSRF es invalid. Mercés de vos conectar e de tornar ensajar."
     helper:
       correct_the_following_errors_and_try_again: "Corregissètz las errors seguentas, e tornatz ensajar."
-    need_javascript: "Aqueste site Internet requerís JavaScript per foncionar coma cal. Se avètz desactivat JavaScript, mercés de l'activar e d'actualizar aquesta pagina."
+    need_javascript: "Aqueste site Internet requerís JavaScript per foncionar coma cal. S’avètz desactivat JavaScript, mercés de l'activar e d'actualizar aquesta pagina."
   fill_me_out: "Escriure aicí"
   find_people: "Recercar de personas o de #etiquetas"
   help:

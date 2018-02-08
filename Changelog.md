@@ -29,6 +29,7 @@
 * Fix the mobile bookmarklet when called without parameters [#7698](https://github.com/diaspora/diaspora/pull/7698)
 * Properly build the #newhere message for people who got invited [#7702](https://github.com/diaspora/diaspora/pull/7702)
 * Fix the admin report view for posts without text [#7706](https://github.com/diaspora/diaspora/pull/7706)
+* Upgrade Nokogiri to fix [a disclosed vulnerability in libxml2](https://github.com/sparklemotion/nokogiri/issues/1714)
 
 ## Features
 * Check if redis is running in script/server [#7685](https://github.com/diaspora/diaspora/pull/7685)

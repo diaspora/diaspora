@@ -59,7 +59,7 @@ de_formal:
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
-      error: "Konnte nicht anfangen, mit <%= name %> zu teilen.  Ignorieren Sie ihn/sie?"
+      error: "Teilen mit <%= name %> nicht möglich. Ignorieren Sie sie/ihn?"
       error_remove: "Konnte <%= name %> nicht aus dem Aspekt entfernen :("
       mobile_row_checked: "<%= name %> (entfernen)"
       mobile_row_unchecked: "<%= name %> (hinzufügen)"
@@ -83,7 +83,7 @@ de_formal:
       make_aspect_list_visible: "Kontakte in diesem Aspekt gegenseitig sichtbar machen?"
       name: "Name"
     bookmarklet:
-      post_something: "Erstellen Sie einen Beitrag in diaspora*"
+      post_something: "Auf diaspora* schreiben"
       post_submit: "Beitrag einreichen..."
       post_success: "Gepostet! Popup-Fenster wird geschlossen..."
     cancel: "Abbrechen"
@@ -119,7 +119,7 @@ de_formal:
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, <%= name %>!"
-      no_tags: "Hey, Sie folgen noch keinen Tags!  Trotzdem weitermachen?"
+      no_tags: "Hey, Sie folgen noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
     header:
       admin: "Administration"
@@ -162,7 +162,7 @@ de_formal:
       mention: "Erwähnen"
       message: "Nachricht"
       not_found: "... und niemand wurde gefunden"
-      stop_ignoring: "Ignorieren beenden"
+      stop_ignoring: "Nicht weiter ignorieren"
     photo_uploader:
       completed: "<%= file %> hochgeladen"
       empty: "{file} ist leer, bitte wählen Sie erneut Dateien ohne diese aus."
@@ -212,7 +212,7 @@ de_formal:
           italic: "kursive Schrift"
           list: "Listentext hier"
           quote: "Zitattext hier"
-          strong: "wichtiger Text"
+          strong: "fetter Text"
         tooltips:
           bold: "Fett"
           cancel: "Nachricht verwerfen"
@@ -286,7 +286,7 @@ de_formal:
         following: "Sie folgen #<%= tag %>"
         stop_following: "Aufhören #<%= tag %> zu folgen"
         stop_following_confirm: "Aufhören, #<%= tag %> zu folgen?"
-        stop_following_error: "<%= tag %> konnte nicht entfolgt werden :("
+        stop_following_error: "Konnte nicht aufhören <%= tag %> zu folgen :("
       unfollow: "Nicht mehr folgen"
       unlike: "Gefällt mir nicht mehr"
       via: "via <%= provider %>"

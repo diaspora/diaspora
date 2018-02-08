@@ -189,7 +189,7 @@ de:
       your_vote: "Deine Stimme"
     profile:
       add_some: "Füge neue hinzu"
-      bio: "Bio"
+      bio: "Über"
       born: "Geburtstag"
       contacts: "Kontakte"
       edit: "Bearbeiten"
@@ -274,7 +274,7 @@ de:
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       permalink: "Permanentlink"
       public: "Öffentlich"
-      reshare: "Weitersagen"
+      reshare: "Teilen"
       reshares:
         few: "<%= count %> mal weitergesagt"
         many: "<%= count %> mal weitergesagt"

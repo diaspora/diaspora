@@ -45,6 +45,7 @@ bg:
       settings: "Настройки"
       view_all: "Покажи всички"
     ignore: "Игнориране"
+    my_activity: "Моята дейност"
     my_stream: "Поток"
     photo_uploader:
       looking_good: "Леле, изглеждате страхотно!"
@@ -91,7 +92,7 @@ bg:
       prefixAgo: "преди"
       prefixFromNow: "след"
       seconds: "по-малко от минута"
-      suffixAgo: "преди"
+      suffixAgo: ""
       suffixFromNow: "от сега"
       year: "около година"
       years:
