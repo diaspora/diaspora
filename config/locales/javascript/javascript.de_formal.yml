@@ -83,7 +83,7 @@ de_formal:
       make_aspect_list_visible: "Kontakte in diesem Aspekt gegenseitig sichtbar machen?"
       name: "Name"
     bookmarklet:
-      post_something: "Auf diaspora* schreiben"
+      post_something: "Erstellen Sie einen Beitrag in diaspora*"
       post_submit: "Beitrag einreichen..."
       post_success: "Gepostet! Popup-Fenster wird geschlossen..."
     cancel: "Abbrechen"
@@ -93,7 +93,7 @@ de_formal:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Sind Sie sich sicher?"
-    confirm_unload: "Bitte bestätigen Sie, dass Sie diese Seite verlassen wollen. - Die von Ihnen eingegebenen Daten werden nicht gespeichert."
+    confirm_unload: "Bitte bestätigen Sie, dass Sie diese Seite verlassen wollen. - Von Ihnen eingegebene Daten werden nicht gespeichert."
     contacts:
       add_contact: "Kontakt hinzufügen"
       aspect_chat_is_enabled: "Kontakte in diesem Askekt können mit Ihnen chatten."
@@ -162,7 +162,7 @@ de_formal:
       mention: "Erwähnen"
       message: "Nachricht"
       not_found: "... und niemand wurde gefunden"
-      stop_ignoring: "Nicht weiter ignorieren"
+      stop_ignoring: "Nicht mehr ignorieren"
     photo_uploader:
       completed: "<%= file %> hochgeladen"
       empty: "{file} ist leer, bitte wählen Sie erneut Dateien ohne diese aus."
@@ -241,7 +241,7 @@ de_formal:
         exists: "Die Meldung existiert bereits"
     reshares:
       post: "<%= name %>s Beitrag weitersagen?"
-      successful: "Der Beitrag wurde erfolgreich geteilt!"
+      successful: "Der Beitrag wurde erfolgreich weitergesagt!"
     show_all: "Alle anzeigen"
     show_more: "Mehr zeigen"
     stream:
@@ -273,11 +273,11 @@ de_formal:
       original_post_deleted: "Originalbeitrag wurde vom Autor gelöscht"
       permalink: "Permalink"
       public: "Öffentlich"
-      reshare: "Teilen"
+      reshare: "Weitersagen"
       reshares:
-        one: "<%= count %> mal weitergeteilt"
-        other: "<%= count %> mal weitergeteilt"
-        zero: "<%= count %> mal weitergeteilt"
+        one: "<%= count %> mal weitergesagt"
+        other: "<%= count %> mal weitergesagt"
+        zero: "<%= count %> mal weitergesagt"
       show_nsfw_post: "Beitrag anzeigen"
       show_nsfw_posts: "Zeige alle"
       tags:

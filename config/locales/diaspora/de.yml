@@ -279,7 +279,7 @@ de:
     dark_green: "Dunkelgrün"
     egyptian_blue: "Ägyptisch Blau"
     magenta: "Magenta"
-    original: "Original Grau"
+    original: "Original grau"
     original_white: "Original weißer Hintergrund"
   comments:
     create:
@@ -343,8 +343,8 @@ de:
     csrf_token_fail: "Das CSRF-Token ist ungültig. Bitte melde dich an und versuche es noch einmal."
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
-    need_javascript: "Diese Website benötigt Javascript, um richtig zu funktionieren. Falls du Javascript deaktiviert haben solltest, bitte aktiviere es und aktualisiere diese Seite."
-  fill_me_out: "Füll mich aus"
+    need_javascript: "Diese Webseite benötigt Javascript, um richtig zu funktionieren. Falls du Javascript deaktiviert haben solltest, bitte aktiviere es und aktualisiere diese Seite."
+  fill_me_out: "Füll’ mich aus"
   find_people: "Leute oder #Tags finden"
   help:
     account_and_data_management:
@@ -356,7 +356,7 @@ de:
       data_visible_to_podmin_q: "Wie viele Informationen kann der Administrator meines Pods sehen?"
       download_data_a: "Ja. Unten im Bereich „Konto“ deiner Einstellungen sind zwei Schaltflächen, mit denen du deine Daten oder Fotos herunterladen kannst."
       download_data_q: "Kann ich alle Daten, welche auf meinem Konto gespeichert wurden, herunterladen?"
-      move_pods_a: "Version 0.7.0.0 von diaspora* ist der erste Schritt der Konto-Migration: Du kannst nun alle deine Daten aus dem Abschnitt \"Konto\" der Benutzereinstellungen exportieren. Bewahre deine Daten sicher auf! In einer zukünftigen Version kannst du dein ganzes Konto, einschließlich Beiträge und Kontakte, zu einem anderen Pod migrieren."
+      move_pods_a: "Version 0.7.0.0 von diaspora* ist der erste Schritt der Konto-Migration: Du kannst nun im Abschnitt \"Konto\" in den Benutzereinstellungen alle deine Daten exportieren. Bewahre deine Daten sicher auf! In einer zukünftigen Version kannst du dein ganzes Konto, einschließlich Beiträge und Kontakte, zu einem anderen Pod migrieren."
       move_pods_q: "Wie kann ich mein Konto auf einen anderen Pod verschieben?"
       title: "Konto- und Datenverwaltung"
     aspects:
@@ -377,7 +377,7 @@ de:
       rename_aspect_a: "Klicke in der Stream-Ansicht in der Seitenleiste auf „Meine Aspekte“ und dann auf das Stiftsymbol bei dem Aspekt, den du umbenennen möchtest, oder gehe zu deiner „Kontakte“-Seite und wähle den entsprechenden Aspekt aus. Klicke dann auf das Bearbeitungssymbol neben dem Aspektnamen oben auf der Seite, ändere den Namen und klicke auf „Ändern“."
       rename_aspect_q: "Wie benenne ich einen Aspekt um?"
       restrict_posts_i_see_a: "Ja. Klicke dazu in der Seitenleiste erst auf „Meine Aspekte“ und anschließend auf einzelne Aspekte, um diese aus- oder abzuwählen. Anschließend werden nur noch Beiträge von Personen aus den ausgewählten Aspekten im Stream angezeigt werden."
-      restrict_posts_i_see_q: "Kann ich angezeigte Beiträge in meinem Stream auf bestimmte Aspekte beschränken?"
+      restrict_posts_i_see_q: "Kann ich die in meinem Stream angezeigten Beiträge auf bestimmte Aspekte beschränken?"
       title: "Aspekte"
       what_is_an_aspect_a: "Um deine Kontakte in diaspora* in Gruppen einzuteilen, kannst du Aspekte anlegen. Zum Beispiel kannst du einen Aspekt für die Leute aus deiner Arbeit, einen für die Leute aus deiner Familie und einen für deine Freunde verwenden."
       what_is_an_aspect_q: "Was sind Aspekte?"
@@ -501,10 +501,10 @@ de:
       who_sees_profile_a: "Dein grundlegendes Profil (Name, Profilbild und #Tags) ist öffentlich. Dein erweitertes Profil ist standardmäßig privat, aber du kannst es komplett öffentlich zugänglich machen, wenn du möchtest. Nur Leute, mit denen du teilst (das heißt du hast sie zu einem deiner Aspekte hinzugefügt), können dein erweitertes Profil sehen, wenn du es privat hältst. Andere Leute werden nur deine öffentlichen Informationen sehen. Jede Profilinformation, die du öffentlich machst, kann von jedem im Internet gesehen und von Suchmaschinen indexiert werden"
       who_sees_profile_q: "Wer sieht mein Profil?"
     public_posts:
-      can_comment_reshare_like_a: "Alle angemeldeten diaspora*-Nutzer können öffentliche Beiträge weitersagen, kommentieren, beziehungsweise „Gefällt mir“ drücken. Ausgenommen sind die, die du ignoriert hast."
+      can_comment_reshare_like_a: "Alle angemeldeten diaspora*-Nutzer können öffentliche Beiträge weitersagen, kommentieren, beziehungsweise „Gefällt mir“ drücken. Ausgenommen sind die von dir ignorierten Nutzer; diese können nicht kommentieren oder „Gefällt mir“ drücken."
       can_comment_reshare_like_q: "Wer kann meinen öffentlichen Beitrag kommentieren, weitersagen oder bei ihm auf „Gefällt mir“ drücken?"
       deselect_aspect_posting_a: "Öffentliche Beiträge werden durch das Abwählen von Aspekten nicht beeinflusst. Sie werden weiterhin in den Streams all deiner Kontakte angezeigt werden. Um einen Beitrag nur für bestimmte Aspekte sichtbar zu machen, musst du diese mit der Schaltfläche unter dem Eingabefeld auswählen."
-      deselect_aspect_posting_q: "Was passiert wenn ich bei öffentlichen Beiträgen die Auswahl eines oder mehre Aspekte aufhebe?"
+      deselect_aspect_posting_q: "Was passiert mit öffentlichen Beiträgen, wenn ich in der linken Spalte die Auswahl eines oder mehrer Aspekte aufhebe?"
       find_public_post_a: "Deine öffentlichen Beiträge werden in den Streams aller, die dir folgen, erscheinen. Wenn du #Tags in deinen öffentlichen Beitrag einfügst, werden alle, die diesem Tag folgen, deinen Beitrag in ihren Streams finden. Außerdem hat jeder öffentliche Beitrag eine spezifische URL, die jeder betrachten kann, auch wenn er oder sie nicht angemeldet ist – Diese öffentlichen Beiträge können direkt von Twitter, Blogs, etc. verlinkt werden. Öffentliche Beiträge können außerdem von Suchmaschinen indexiert werden."
       find_public_post_q: "Wie können andere Nutzer meine öffentlichen Beiträge finden?"
       see_comment_reshare_like_a: "Jeder angemeldete diaspora*-Nutzer und auch alle Anderen im Internet. Die Kommentare, das Weitersagen und die „Gefällt mir“-Klicks eines öffentlichen Beitrags sind so öffentlich wie der Beitrag selbst."
@@ -540,7 +540,7 @@ de:
       sharing_notification_q: "Wie erfahre ich es, wenn jemand anfängt, mit mir zu teilen?"
       title: "Teilen"
     tags:
-      filter_tags_a: "Dass ist in in diaspora* derzeit nicht möglich, aber einige %{third_party_tools} wurde geschrieben um dies zu ermöglichen."
+      filter_tags_a: "Das ist in in diaspora* derzeit nicht möglich, aber einige %{third_party_tools} wurde geschrieben, um dies zu ermöglichen."
       filter_tags_q: "Wie kann ich Tags aus meinem Stream herausfiltern?"
       followed_tags_a: "Nachdem du nach einem Tag gesucht hast, kannst du die Schaltfläche oben auf der Seite des Tags benutzen, um dem Tag zu „folgen“. Anschließend wird es links in der Liste der von dir gefolgten Tags erscheinen. Wenn du auf eines der Tags klickst, gelangst du zu dessen Seite und kannst die Beiträge sehen, die das Tag enthalten. Klicke auf „#Tags, denen du folgst“, um einen Stream mit Beiträgen zu sehen, die eines der von dir gefolgten Tags enthalten. "
       followed_tags_q: "Was sind „#Tags, denen du folgst“ und wie folge ich einem Tag?"
@@ -562,7 +562,7 @@ de:
       be_who_you_want_to_be_info: "Viele Netzwerke bestehen darauf, dass du deine wahre Identität verwendest. diaspora* nicht. Hier kannst du entscheiden, wer du sein willst und so viel oder wenig teilen, wie du möchtest. Es liegt ganz an dir, wie du mit anderen Personen interagieren möchtest."
       byline: "Die soziale Onlinewelt, in der du deine Daten in der Hand hast."
       choose_your_audience: "Wähle dein Publikum"
-      choose_your_audience_info: "diaspora*s Aspekte ermöglichen dir, nur mit Menschen zu teilen, mit denen du möchtest. Du kannst so öffentlich oder privat sein, wie du willst. Teile ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit deinen engsten Freunden. Du hast es in der Hand."
+      choose_your_audience_info: "diaspora*s Aspekte ermöglichen dir, nur mit den Menschen zu teilen, mit denen du möchtest. Du kannst so öffentlich oder privat sein, wie du willst. Teile ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit deinen engsten Freunden. Es ist deine Entscheidung."
       headline: "Willkommen auf %{pod_name}"
       own_your_data: "Deine Daten, dein Eigentum"
       own_your_data_info: "Viele Netzwerke nutzen deine Daten, um Geld zu verdienen, indem Sie deine Interaktionen auswerten und diese Informationen verwenden, um dir Werbung zu zeigen. diaspora* nutzt deine Daten zu keinem anderen Zweck, als es dir zu ermöglichen, dich mit anderen zu verbinden und mit ihnen zu teilen."
@@ -611,7 +611,7 @@ de:
     application:
       back_to_top: "Zurück zum Anfang"
       be_excellent: "Seid nett zueinander! ♥"
-      discourse: "Projektdiskussionen und Unterstützung"
+      discourse: "Projektdiskussionen und Hilfe"
       powered_by: "Betrieben mit diaspora*"
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket runterladen"
@@ -626,9 +626,9 @@ de:
       toggle_navigation: "Navigation umschalten"
   likes:
     create:
-      error: "Mit \"Gefällt mir\" bewerten ist fehlgeschlagen."
+      error: "Gefällt mir ist fehlgeschlagen."
     destroy:
-      error: "\"Gefällt mir\" entziehen ist gescheitert."
+      error: "Gefällt mir nicht mehr ist fehlgeschlagen."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -1072,7 +1072,7 @@ de:
       outside: "Öffentliche Nachrichten werden für andere außerhalb von diaspora* sichtbar sein."
       share: "Teilen"
       title: "Verbundene Dienste verwalten"
-      visibility_dropdown: "Benutze dieses Auswahlmenü, um die Sichtbarkeit deines Beitrags zu ändern. (Wir empfehlen Dir, diesen ersten Beitrag öffentlich zu machen.)"
+      visibility_dropdown: "Benutze dieses Auswahlmenü, um die Sichtbarkeit deines Beitrags zu ändern. (Wir empfehlen dir, diesen ersten Beitrag öffentlich zu machen.)"
     publisher:
       discard_post: "Beitrag verwerfen"
       formatWithMarkdown: "Du kannst %{markdown_link} verwenden, um deinen Beitrag zu formatieren."
@@ -1143,7 +1143,7 @@ de:
     like_stream:
       title: "„Gefällt mir“-Stream"
     liked:
-      title: "Mit „Gefällt mir“ bewertete Beiträge"
+      title: "Beiträge, die dir gefallen"
     mentioned_stream: "@Erwähnungen"
     mentions:
       title: "@Erwähnungen"
@@ -1177,7 +1177,7 @@ de:
       success: "Dein Account wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis dein Account endgültig geschlossen ist. Vielen Dank, dass du diaspora* ausprobiert hast."
       wrong_password: "Das eingegebene Kennwort stimmt nicht mit deinem aktuellen Kennwort überein."
     edit:
-      also_commented: "jemand kommentierte einen Beitrag, den du kommentiert hast"
+      also_commented: "jemand einen Beitrag kommentiert, den du kommentiert hast"
       auto_follow_aspect: "Aspekt für automatisch gefolgten Benutzern:"
       auto_follow_back: "Folge Benutzern automatisch, wenn sie dir folgen"
       birthday: "jemand hat Geburtstag"
@@ -1194,7 +1194,7 @@ de:
         make_diaspora_better: "Wir würden uns freuen, wenn du bleibst und uns hilfst, diaspora* besser zu machen, anstatt uns zu verlassen. Wenn du uns wirklich verlassen möchtest, wird folgendes passieren:"
         mr_wiggles: "Mr. Wiggles wird traurig sein, wenn du gehst"
         no_turning_back: "Es gibt kein Zurück! Wenn du dir wirklich sicher bist, gib unten dein Kennwort ein."
-        what_we_delete: "Wir löschen alle deine Beiträge und dein Profil so schnell wie möglich. Deine Kommentare auf anderer Leute Beiträge werden weiterhin angezeigt, aber sie werden mit deiner diaspora*-ID statt mit deinem Namen verknüpft."
+        what_we_delete: "Wir löschen alle deine Beiträge und dein Profil so schnell wie möglich. Deine Kommentare auf anderer Leute Beiträge werden weiterhin angezeigt, aber sie werden mit deiner diaspora* ID statt mit deinem Namen verknüpft."
       close_account_text: "Konto schließen"
       comment_on_post: "jemand deinen Beitrag kommentiert"
       current_password: "Derzeitiges Kennwort"
@@ -1248,7 +1248,7 @@ de:
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update:
       color_theme_changed: "Farbschema erfolgreich geändert."
-      color_theme_not_changed: "Beim ändern des Farbthemas ist ein Fehler aufgetreten."
+      color_theme_not_changed: "Beim Ändern des Farbschemas ist ein Fehler aufgetreten."
       email_notifications_changed: "E-Mail-Benachrichtigungen geändert"
       follow_settings_changed: "Folgen-Einstellungen geändert"
       follow_settings_not_changed: "Ändern der Folgen-Einstellungen fehlgeschlagen."
