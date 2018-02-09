@@ -94,7 +94,7 @@ de:
       no_comments: "Bisher sind keine Kommentare vorhanden."
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
-    confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst. - Die von dir eingegebenen Daten werden nicht gespeichert."
+    confirm_unload: "Bitte bestätige, dass du diese Seite verlassen willst. - Von dir eingegebene Daten werden nicht gespeichert."
     contacts:
       add_contact: "Kontakt hinzufügen"
       aspect_chat_is_enabled: "Kontakte in diesem Aspekt können mit dir chatten."
@@ -189,7 +189,7 @@ de:
       your_vote: "Deine Stimme"
     profile:
       add_some: "Füge neue hinzu"
-      bio: "Über"
+      bio: "Bio"
       born: "Geburtstag"
       contacts: "Kontakte"
       edit: "Bearbeiten"
@@ -274,7 +274,7 @@ de:
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       permalink: "Permanentlink"
       public: "Öffentlich"
-      reshare: "Teilen"
+      reshare: "Weitersagen"
       reshares:
         few: "<%= count %> mal weitergesagt"
         many: "<%= count %> mal weitergesagt"

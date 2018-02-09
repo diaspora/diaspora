@@ -14,6 +14,10 @@
 
 ## Features
 
+# 0.7.3.1
+
+Re-updating the German translations to fix some UX issues that were introduced by recent translation efforts.
+
 # 0.7.3.0
 
 ## Refactor

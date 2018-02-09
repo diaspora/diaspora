@@ -101,7 +101,7 @@ de:
       new:
         resend_unlock: "Entsperr-Anweisungen erneut senden"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail mit Anweisungen zum Entsperren deines Kontos erhalten."
-      send_paranoid_instructions: "Falls dein Konto existiert, erhälst du in ein paar Minuten eine E-Mail mit Anweisungen, um es zu entsperren."
+      send_paranoid_instructions: "Falls dein Konto existiert, erhältst du in ein paar Minuten eine E-Mail mit Anweisungen, um es zu entsperren."
       unlocked: "Dein Konto wurde erfolgreich entsperrt. Bitte melde dich an, um fortzufahren."
   errors:
     messages:
