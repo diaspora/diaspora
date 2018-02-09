@@ -34,7 +34,7 @@ de_formal:
         reshare:
           attributes:
             root_guid:
-              taken: "Ziemlich gut, was? Sie haben diesen Beitrag bereits weitergesagt!"
+              taken: "Sie haben diesen Beitrag bereits weitergesagt!"
         user:
           attributes:
             email:
@@ -173,7 +173,7 @@ de_formal:
           description: "Das ermöglicht der Anwendung, Ihren Stream, Ihre Konversationen und Ihr vollständiges Profil auszulesen"
           name: "Profil, Stream und Konversationen lesen"
         sub:
-          description: "Dies vererbt der Anwendung Berechtigungen"
+          description: "Dies gewährt der Anwendung sub-Berechtigungen"
           name: "sub"
         write:
           description: "Dies ermöglicht der Anwendung, neue Beiträge zu senden, Konversationen zu schreiben und Reaktionen zu senden"
@@ -217,7 +217,7 @@ de_formal:
       confirm_remove_aspect: "Sind Sie sich sicher, dass Sie diesen Aspekt löschen möchten?"
       rename: "Umbenennen"
       update: "Ändern"
-      updating: "Aktualisieren"
+      updating: "Wird aktualisiert..."
     index:
       donate: "Spenden"
       donate_liberapay: "An liberapay spenden"
@@ -267,7 +267,7 @@ de_formal:
       failure: "Konnte diesen Benutzer nicht ignorieren. #evasion"
       success: "Alles klar, Sie werden diesen Benutzer nicht mehr in ihrem Stream sehen. #silencio!"
     destroy:
-      failure: "Ich konnte das Ignorieren dieses Benutzers nicht aufheben. #evasion"
+      failure: "Ich konnte das Ignorieren dieses Benutzers nicht beenden. #evasion"
       success: "Sehen Sie, was diese zu sagen haben! #sayhello"
   bookmarklet:
     explanation: "Erstellen Sie auf jeder Webseite einen Beitrag für diaspora*, indem Sie %{link} als Lesezeichen speichern."
@@ -291,7 +291,7 @@ de_formal:
     index:
       add_contact: "Kontakt hinzufügen"
       all_contacts: "Alle Kontakte"
-      community_spotlight: "Gemeinschaftsblickpunkt"
+      community_spotlight: "Gemeinschafts-Schaukasten"
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus als müssten Sie einige Kontakte hinzufügen!"
       no_contacts_in_aspect: "Sie haben noch keine Kontakte in diesem Aspekt. Unten befindet sich eine Liste Ihrer bestehenden Kontakte, die Sie zu diesem Aspekt hinzufügen können."
@@ -328,7 +328,7 @@ de_formal:
       fail: "Ungültige Nachricht"
     show:
       delete: "Konversation löschen"
-      hide: "Unterhaltung ausblenden und stumm schalten"
+      hide: "Unterhaltung ausblenden und stummschalten"
       last_message: "Letzte Nachricht empfangen %{timeago}"
       reply: "Antworten"
       replying: "Antworten …"
@@ -343,7 +343,7 @@ de_formal:
     csrf_token_fail: "Das CSRF-Token ist ungültig. Bitte melden Sie sich an und versuchen Sie es erneut."
     helper:
       correct_the_following_errors_and_try_again: "Korrigieren Sie die folgenden Fehler und versuchen Sie es erneut."
-    need_javascript: "Diese Webseite benötigt Javascript, um richtig zu funktionieren. Falls Sie Javascript deaktiviert haben, aktivieren Sie es bitte und aktualisiere diese Seite."
+    need_javascript: "Diese Webseite benötigt Javascript, um richtig zu funktionieren. Falls Sie Javascript deaktiviert haben, aktivieren Sie es bitte und aktualisieren Sie dann diese Seite."
   fill_me_out: "Füllen Sie mich aus"
   find_people: "Leute oder #Tags finden"
   help:
@@ -356,7 +356,7 @@ de_formal:
       data_visible_to_podmin_q: "Wie viele Informationen kann der Administrator meines Pods sehen?"
       download_data_a: "Ja. Unten im Bereich „Konto“ Ihrer Einstellungen sind zwei Schaltflächen, mit denen Sie Ihre Daten oder Fotos herunterladen können."
       download_data_q: "Kann ich alle Daten, welche auf meinem Konto gespeichert wurden, herunterladen?"
-      move_pods_a: "Version 0.7.0.0 von diaspora* ist der erste Schritt der Konto-Migration: Sie können nun alle Ihre Daten aus dem Abschnitt \"Konto\" der Benutzereinstellungen exportieren. Bewahren Sie Ihre Daten sicher auf! In einer zukünftigen Version können Sie Ihr ganzes Konto, einschließlich Beiträge und Kontakte, zu einem anderen Pod migrieren."
+      move_pods_a: "Version 0.7.0.0 von diaspora* ist der erste Schritt der Konto-Migration: Sie können nun im Abschnitt \"Konto\" in den Benutzereinstellungen alle Ihre Daten exportieren. Bewahren Sie Ihre Daten sicher auf! In einer zukünftigen Version können Sie Ihr ganzes Konto, einschließlich Beiträge und Kontakte, zu einem anderen Pod migrieren."
       move_pods_q: "Wie kann ich mein Konto auf einen anderen Pod verschieben?"
       title: "Konto- und Datenverwaltung"
     aspects:
@@ -364,7 +364,7 @@ de_formal:
       change_aspect_of_post_q: "Kann ich die Aspekte eines Beitrags nach dem Senden nochmal verändern?"
       contacts_know_aspect_a: "Nein. Sie können den Namen des Aspekts in welchem sie eingeordnet sind nicht sehen."
       contacts_know_aspect_q: "Wissen meine Kontakte in welchem Aspekt sie sind?"
-      contacts_visible_a: "Wenn Sie diese Option anwählen, werden die Kontakte dieses Aspekts die Möglichkeit haben, auf Ihrer Profilseite im Reiter „Kontakte” zu sehen, wer sonst noch in diesem Aspekt ist. (Im Moment können ausschließlich Ihre Kontakte vom selben Pod, die Registerkarte \"Kontakte\" in Ihrem Profil sehen.) Diese Option sollte idealerweise nur gewählt werden, wenn sich alle Aspekt-Kontakte untereinander kennen. Sie werden dennoch nicht erfahren, wie dieser Aspekt heißt."
+      contacts_visible_a: "Wenn Sie diese Option auswählen, werden die Kontakte innerhalb dieses Aspekts die Möglichkeit haben, auf Ihrer Profilseite im Reiter „Kontakte” zu sehen, wer sonst noch in diesem Aspekt ist. (Im Moment können ausschließlich Ihre Kontakte vom selben Pod die Registerkarte \"Kontakte\" in Ihrem Profil sehen.) Diese Option sollte idealerweise nur gewählt werden, wenn sich alle Aspekt-Kontakte untereinander kennen. Sie werden dennoch nicht erfahren, wie dieser Aspekt heißt."
       contacts_visible_q: "Was bewirkt „Kontakte aus diesem Aspekt öffentlich machen“?"
       delete_aspect_a: "Klicken Sie in der Seitenleiste einer Streamansicht auf „Meine Aspekte” und anschließend auf das Stiftsymbol neben dem Aspekt, den Sie löschen möchten, oder gehen Sie zu Ihrer Kontakteseite und wählen Sie den betreffenden Aspekt aus. Klicken Sie dann auf das Mülleimersymbol oben rechts auf der Seite."
       delete_aspect_q: "Wie kann ich einen Aspekt löschen?"
@@ -377,7 +377,7 @@ de_formal:
       rename_aspect_a: "Klicken Sie in der Seitenleiste einer Streamansicht auf „Meine Aspekte“ und anschließend auf das Stiftsymbol des Aspekts, den Sie umbenennen möchten, oder gehen Sie zu Ihrer „Kontakte“-Seite und wählen Sie den entsprechenden Aspekt aus. Klicken Sie dann auf das Bearbeitungssymbol neben dem Aspektnamen oben auf der Seite, bearbeiten Sie den Namen und drücken Sie auf „Ändern”."
       rename_aspect_q: "Wie benenne ich einen Aspekt um?"
       restrict_posts_i_see_a: "Ja. Klicken Sie dazu in der Seitenleiste erst auf „Meine Aspekte“ und anschließend auf einzelne Aspekte, um diese abzuwählen. Anschließend werden nur noch Beiträge von Personen aus den ausgewählten Aspekten im Stream angezeigt."
-      restrict_posts_i_see_q: "Kann ich die Beiträge in meinem Stream auf bestimmte Aspekte beschränken?"
+      restrict_posts_i_see_q: "Kann ich die in meinem Stream angezeigten Beiträge auf bestimmte Aspekte beschränken?"
       title: "Aspekte"
       what_is_an_aspect_a: "Aspekte sind die Methode, mit der Sie Ihre Kontakte auf diaspora* gruppieren. Zum Beispiel können Sie einen Aspekt für die Leute aus Ihrer Arbeit, einen für die Leute aus Ihrer Familie und einen für Ihre Freunde verwenden."
       what_is_an_aspect_q: "Was sind Aspekte?"
@@ -443,7 +443,7 @@ de_formal:
       find_people_a: "Wenn Sie Freunde zu diaspora* einladen möchten, benutzen Sie den Einladungs- oder E-Mail-Link von der Seitenleiste. Folgen Sie #Tags, um Andere zu entdecken, die Ihre Interessen teilen und fügen Sie sie zu Ihren Aspekten hinzu. Schreiben Sie in einem öffentlichen Post, dass Sie #NeuHier sind."
       find_people_q: "Ich bin gerade erst einem Pod beigetreten, wie finde ich nun Leute zum Teilen?"
       title: "Pods"
-      use_search_box_a: "Sie können Personen suchen, indem Sie ihren Benutzernamen oder diaspora*-Namen (der in ihrem Profil angezeigt wird) eingeben. Wenn beide Methoden nicht funktionieren, geben Sie ihre volle diaspora*-ID ein (username@podname.org). Wenn Ihre Suche beim ersten Mal nicht funktioniert, kann es an Netz-Latenz liegen. Versuchen Sie es noch mal."
+      use_search_box_a: "Sie können nach Personen suchen, indem Sie ihren Benutzernamen oder diaspora*-Namen (der in ihrem Profil angezeigt wird) eingeben. Wenn beide Methoden nicht funktionieren, geben Sie ihre volle diaspora* ID ein (username@podname.org). Wenn Ihre Suche beim ersten Mal nicht funktioniert, kann es an Netzwerklatenz liegen. Versuchen Sie es noch mal."
       use_search_box_q: "Wie benutze ich das Suchfeld, um bestimmte Personen zu finden?"
       what_is_a_pod_a: "Ein Pod ist ein Server, auf dem die diaspora*-Software läuft und der mit dem diaspora*-Netzwerk verbunden ist. „Pod“ ist eine Metapher für Hülsen von Pflanzen, die mehrere Samen enthalten, so wie der Server mehrere Benutzerkonten enthält. Es gibt viele verschiedene Pods. Sie können Kontakte von anderen Pods hinzufügen und mit ihnen kommunizieren. Es ist nicht nötig, Konten auf verschiedenen Pods zu erstellen! Einer reicht – So gesehen können Sie sich einen diaspora*-Pod wie einen E-Mail-Anbieter vorstellen. Es gibt öffentliche Pods, private Pods, und mit ein wenig Aufwand können Sie sogar Ihren eigenen betreiben."
       what_is_a_pod_q: "Was ist ein Pod?"
@@ -454,11 +454,11 @@ de_formal:
       character_limit_q: "Wie groß ist das Zeichenlimit für Beiträge?"
       embed_multimedia_a: "In der Regel können Sie einfach die URL (z.B. http://www.youtube.com/watch?v=nnnnnnnnnnn ) in Ihren Beitrag einfügen und der Video- oder Audio-Inhalt wird automatisch erscheinen. Unter Anderem werden YouTube, Vimeo, SoundCloud, Flickr und noch einige mehr unterstützt. diaspora* benutzt oEmbed für diese Funktion. Es kommen ständig weitere Medienquellen hinzu. Beachten Sie, immer nur einfache, vollständige Links zu posten – keine gekürzten Links; keine zusätzlichen Optionen hinter der Basis-URL – Und warten Sie nach dem Posten einen kleinen Moment, bevor Sie die Seite aktualisieren, um die Vorschau zu sehen."
       embed_multimedia_q: "Wie bette ich Video-, Audio- oder andere Multimediainhalte in einen Beitrag ein?"
-      format_text_a: "diaspora* verwendet %{markdown}. Die Oberfläche hat Schaltflächen, um Ihren Text zu formatieren. Sie können auch manuell Ihren Beitrag formatieren, %{here} ist die Markdown-Syntax. Mit der Vorschau-Registerkarte können Sie sehen, wie Ihre Nachricht aussieht, bevor Sie sie teilen. Denken Sie daran, dass Sie einmal gepostetes nicht mehr bearbeiten können. Also, erst prüfen, dann abschicken!"
+      format_text_a: "diaspora* verwendet %{markdown}. Die Oberfläche hat Schaltflächen, um es für Sie einfacher zu machen, Ihren Text zu formatieren. Wenn Sie Ihren Beitrag manuell formatieren wollen, finden Sie die vollständige Markdown-Syntax %{here}. Mit der Vorschau-Registerkarte können Sie sehen, wie Ihre Nachricht aussieht, bevor Sie sie teilen. Denken Sie daran, dass Sie einmal geteiltes nicht mehr bearbeiten können. Also, erst prüfen, dann abschicken!"
       format_text_q: "Wie kann ich einen Beitrag formatieren (Fett, kursiv, etc.)?"
       hide_posts_a: "Wenn Sie Ihren Mauszeiger über einem Beitrag positionieren, erscheint rechts ein kleines ×. Klicken Sie darauf, um den Beitrag zu verstecken und die Benachrichtigungen zu ihm zu deaktivieren. Sie können den Beitrag weiterhin auf der Profilseite der Person betrachten, die ihn gepostet hat."
       hide_posts_q: "Wie blende ich einen Beitrag aus?"
-      ignore_user_a1: "Wenn Sie derzeit mit dieser Person teilen, entfernen Sie sie von Ihren Aspekten. Damit blenden Sie viele ihrer Beiträge aus Ihren Stream aus. Eine vollständigere Methode ist es das Konto zu \"ignorieren\". Dies verhindert das irgendeiner ihrer Beiträge in Ihrem Stream erscheint, und sie werden nicht mehr in der Lage sein einen ihrer Beiträge zu mögen oder kommentieren. Jedoch werden sie weiter in der Lage sein Ihre Beiträge zu teilen, Ihre geteilten Beiträge und Ihre Kommentare zu Beiträgen anderer Personen zu kommentieren. Diese sind in Ihrem Stream noch für Sie sichtbar."
+      ignore_user_a1: "Wenn Sie derzeit mit dieser Person teilen, entfernen Sie sie von Ihren Aspekten. Damit blenden Sie viele ihrer Beiträge aus Ihren Stream aus. Eine vollständigere Methode ist es das Konto zu \"ignorieren\". Dies verhindert, dass irgendeiner ihrer Beiträge in Ihrem Stream erscheint, und ignorierte Nutzer werden nicht mehr in der Lage sein, einen Ihrer Beiträge zu kommentieren oder \"Gefällt mir\" zu drücken. Sie können jedoch weiterhin Ihre Beiträge weitersagen und auf weitergesagte Versionen Ihrer Beiträge kommentieren. Kommentare ignorierter Nutzer unter fremden Beiträgen werden in Ihrem Stream weiterhin für Sie sichtbar sein."
       ignore_user_a2: "Klicken Sie auf das \"Ignorieren\"-Symbol (ein diagonal durchgestrichener Kreis), um ein Konto zu ignorieren oben rechts auf einen ihrer Beiträge. Diese Beiträge werden sofort aus Ihrem Stream verschwinden. Alternativ, gehen Sie auf Ihre Profilseite und klicken dort auf das Ignorier-Symbol. Sie können Ihre Beiträge auf Ihrer Profilseite noch sehen oder die Single-View-Ansicht verwenden."
       ignore_user_a3: "Eine Liste ignorierter Personen finden Sie in Ihren Kontoeinstellungen unter Datenschutz. Um jemanden nicht mehr zu ignorieren entfernen Sie sie aus der Liste auf dieser Seite."
       ignore_user_q: "Wie verhindere ich, dass jemandes Beiträge in meinem Stream erscheinen?"
@@ -472,18 +472,18 @@ de_formal:
       post_notification_q: "Wie kann ich Benachrichtigungen über einen Beitrag ein- oder ausschalten?"
       post_poll_a: "Klicken Sie auf das Diagrammsymbol, um eine Umfrage zu erstellen. Geben Sie eine Frage und mindestens zwei Antwortmöglichkeiten ein. Vergessen Sie nicht, Ihren Beitrag öffentlich zu machen, wenn jeder daran teilnehmen können soll."
       post_poll_q: "Wie füge ich meinem Beitrag eine Umfrage hinzu?"
-      post_report_a: "Klicken Sie auf das Warndreieck-Symbol oben rechts im Beitrag, um es Ihrem Podmin zu melden. Geben Sie im Dialogfenster einen Grund für das Melden dieses Beitrags ein. Bitte melden Sie nur Beiträge, die gegen unsere %{community_guidelines} oder die Nutzungsbedingungen Ihres Pods verstoßen, z.B. Beiträge, die illegale Inhalte enthalten, oder die missbräuchlich oder Spam sind."
+      post_report_a: "Klicken Sie auf das Warndreieck-Symbol oben rechts im Beitrag, um ihn Ihrem Podmin zu melden. Geben Sie im Dialogfenster einen Grund für das Melden dieses Beitrags ein. Bitte melden Sie nur Beiträge, die gegen unsere %{community_guidelines} oder die Nutzungsbedingungen Ihres Pods verstoßen, z.B. Beiträge, die illegale Inhalte enthalten, missbräuchlich oder Spam sind."
       post_report_q: "Wie melde ich einen anstößigen Beitrag?"
       size_of_images_a: "Nein. Bilder werden automatisch auf eine Größe geändert, die in den Stream oder die Einzelbeitragsansicht passt. Markdown bietet keinen Code, um die Größe eines Bildes anzugeben."
       size_of_images_q: "Kann ich die Größe von Bildern in Beiträgen oder Kommentaren anpassen?"
       stream_full_of_posts_a1: "Ihr Stream setzt sich aus drei Arten von Beiträgen zusammen:"
       stream_full_of_posts_li1: "Beiträge von Leuten, mit denen Sie teilen, von denen es zwei Arten gibt: Öffentliche Beiträge und begrenzte Beiträge, die mit einem Aspekt geteilt wurden, in dem Sie sich befinden. Um diese Beiträge aus deinem Stream zu entfernen, hören Sie einfach auf, mit den jeweiligen Leuten zu teilen."
       stream_full_of_posts_li2: "Öffentliche Beiträge, die Tags enthalten, denen Sie folgen. Um diese zu entfernen, müssen Sie aufhören, den entsprechenden Tags zu folgen."
-      stream_full_of_posts_li3: "Öffentliche Posts von Leuten, die im Gemeinschaftsblickpunkt gelistet sind. Diese können durch Abwählen der Option „Gemeinschaftsblickpunkt im Stream anzeigen” im Reiter „Konto” in den Einstellungen entfernt werden."
+      stream_full_of_posts_li3: "Öffentliche Posts von Leuten, die im Gemeinschafts-Schaukasten gelistet sind. Diese können durch Abwählen der Option „Gemeinschafts-Schaukasten im Stream anzeigen” im Reiter „Konto” in den Einstellungen entfernt werden."
       stream_full_of_posts_q: "Warum ist mein Stream voll mit Beiträgen von Leuten, die ich nicht kenne und mit denen ich nicht teile?"
       title: "Beiträge und Posten"
     private_posts:
-      can_comment_a: "Nur eingeloggte diaspora*-Nutzer, welche Sie vor dem Verfassen des privaten Beitrags zu dem Aspekt hinzugefügt hatten, können den Beitrag kommentieren oder mit „Gefällt mir” markieren."
+      can_comment_a: "Nur eingeloggte diaspora*-Nutzer, welche Sie in bereits vor dem Absenden des privaten Beitrags zu dem Aspekt hinzugefügt hatten, können den Beitrag kommentieren oder mit „Gefällt mir” markieren."
       can_comment_q: "Wer kann private Beiträge kommentieren oder „Gefällt mir“ drücken?"
       can_reshare_a: "Niemand. Private Beiträge können nicht weitergesagt werden. Eingeloggte diaspora*-Nutzer aus dem Aspekt können sie aber trotzdem potenziell kopieren und in einen neuen Beitrag einfügen. Es liegt an Ihnen, ob Sie diesen Leuten vertrauen!"
       can_reshare_q: "Wer kann meine privaten Beiträge weitersagen?"
@@ -501,14 +501,14 @@ de_formal:
       who_sees_profile_a: "Ihr grundlegendes Profil (Name, Profilbild und #Tags) ist öffentlich. Ihr erweitertes Profil ist standardmäßig privat, aber Sie können es komplett öffentlich zugänglich machen, wenn Sie möchten. Nur Leute, mit denen Sie teilen (das heißt Sie haben sie zu einem Ihrer Aspekte hinzugefügt), können Ihr erweitertes Profil sehen, wenn Sie es privat halten. Andere Leute werden nur Ihre öffentlichen Informationen sehen. Jede Profilinformation, die Sie öffentlich machen, kann von jedem im Internet gesehen und von Suchmaschinen indexiert werden"
       who_sees_profile_q: "Wer sieht mein Profil?"
     public_posts:
-      can_comment_reshare_like_a: "Jeder angemeldete diaspora*-Nutzer kann öffentliche Beiträge weitersagen, kommentieren, beziehungsweise „Gefällt mir“ drücken. Ausgenommen sind die von Ihnen ignorierten Nutzer."
+      can_comment_reshare_like_a: "Alle angemeldeten diaspora*-Nutzer können öffentliche Beiträge weitersagen, kommentieren, beziehungsweise „Gefällt mir“ drücken. Ausgenommen sind die von Ihnen ignorierten Nutzer; diese können nicht kommentieren oder „Gefällt mir“ drücken."
       can_comment_reshare_like_q: "Wer kann meinen öffentlichen Beitrag weitersagen, kommentieren oder bei ihm „Gefällt mir“ drücken?"
       deselect_aspect_posting_a: "Öffentliche Beiträge werden durch das Abwählen von Aspekten nicht beeinflusst. Sie werden weiterhin öffentlich sein und in den Streams all Ihrer Kontakte angezeigt werden. Um einen Beitrag nur für bestimmte Aspekte sichtbar zu machen, müssen Sie diese mit dem Aspektwähler unter dem Eingabefeld auswählen."
-      deselect_aspect_posting_q: "Was passiert, wenn ich bei öffentlichen Beiträgen einen oder mehrere Aspekte, aus der linken Spalte, abwähle?"
+      deselect_aspect_posting_q: "Was passiert mit öffentlichen Beiträgen, wenn ich in der linken Spalte die Auswahl eines oder mehrer Aspekte aufhebe?"
       find_public_post_a: "Ihre öffentlichen Beiträge werden in den Streams aller, die Ihnen folgen, erscheinen. Wenn Sie #Tags in Ihren öffentlichen Beitrag einfügen, werden alle, die diesem Tag folgen, Ihren Beitrag in ihren Streams finden. Außerdem hat jeder öffentliche Beitrag eine spezifische URL, die jeder betrachten kann, auch wenn er oder sie nicht angemeldet ist – öffentlichen Beiträge können daher direkt von Twitter, Blogs, etc. verlinkt werden. Öffentliche Beiträge können außerdem von Suchmaschinen indexiert werden."
       find_public_post_q: "Wie können andere Nutzer meine öffentlichen Beiträge finden?"
-      see_comment_reshare_like_a: "Die Kommentare, das Weitersagen und das Bekunden von Gefallen an einem öffentlichen Beitrag sind so öffentlich wie der Beitrag selbst. Jeder angemeldete diaspora*-Benutzer und jeder andere im Internet kann Ihre Interaktionen mit öffentlichen Beiträgen sehen."
-      see_comment_reshare_like_q: "Wenn ich einen öffentlichen Beitrag kommentiere, weitersage oder meinen Gefallen daran bekunde, wer kann das sehen?"
+      see_comment_reshare_like_a: "Die Kommentare, das Weitersagen und das \"Gefällt mir\" sind genauso öffentlich wie der Beitrag selbst. Jeder angemeldete diaspora*-Benutzer und jeder andere im Internet kann Ihre Interaktionen mit öffentlichen Beiträgen sehen."
+      see_comment_reshare_like_q: "Wenn ich einen öffentlichen Beitrag kommentiere, weitersage oder \"Gefällt mir\" drücke, wer kann das sehen?"
       title: "Öffentliche Beiträge"
       who_sees_post_a: "Potenziell kann jeder, der das Internet nutzt, öffentliche Beiträge sehen, also seien Sie sich sicher, wenn Sie einen Beitrag öffentlich machen. Es ist aber auch eine tolle Möglichkeit, um die Welt da draußen zu erreichen."
       who_sees_post_q: "Wer kann öffentliche Beiträge sehen?"
@@ -530,7 +530,7 @@ de_formal:
       add_to_aspect_li7: "Amy erscheint nun auf Bens Kontakteseite unter „Nur mit Ihnen Teilende“."
       add_to_aspect_li8: "Amy wird Ben auch in einem Beitrag @erwähnen können."
       add_to_aspect_q: "Was passiert, wenn ich jemanden zu meinen Aspekten hinzufüge oder wenn mich jemand zu seinen Aspekten hinzufügt?"
-      list_not_sharing_a: "Nein, aber Sie können nachsehen, ob jemand ihnen folgt, indem sie dessen Profilseite besuchen. Falls das der Fall ist, wird neben ihrer diaspora* ID eine grüne Markierung sein; falls nicht wird sie grau sein."
+      list_not_sharing_a: "Nein, aber Sie können nachsehen, ob jemand mit Ihnen teilt, indem Sie deren Profilseite besuchen. Falls das der Fall ist, wird neben deren diaspora* ID ein grünes Häkchen angezeigt; falls nicht, ist dort ein grauer Kreis."
       list_not_sharing_q: "Gibt es eine Liste mit Leuten, die ich zu einem meiner Aspekte hinzugefügt habe, die mich aber nicht zu einem ihrer Aspekte hinzugefügt haben?"
       only_sharing_a: "Das sind Leute, die Sie zu einem ihrer Aspekte hinzugefügt haben, die sich aber (noch) nicht in einem Ihrer Aspekte befinden. Anders gesagt: Sie teilen mit Ihnen, aber Sie nicht mit ihnen: Sie können sich dies so vorstellen, dass sie Ihnen „folgen”. Wenn Sie sie zu einem Aspekt hinzufügen, werden sie in jenem Aspekt und nicht unter „Nur mit Ihnen Teilende“ zu sehen sein. Siehe oben."
       only_sharing_q: "Wer sind die Leute, die auf der Kontakteseite unter „Nur mit Ihnen Teilende” gelistet sind?"
@@ -542,7 +542,7 @@ de_formal:
     tags:
       filter_tags_a: "Das ist in diaspora* derzeit nicht möglich, aber einige %{third_party_tools} wurden geschrieben, um dies zu ermöglichen."
       filter_tags_q: "Wie kann ich Tags aus meinem Stream herausfiltern?"
-      followed_tags_a: "Nachdem Sie einem Tag gesucht haben, können Sie die Schaltfläche oben auf der Seite des Tags benutzen, um dem Tag zu „folgen“. Anschließend wird es links in der Liste der von Ihnen gefolgten Tags erscheinen. Wenn Sie auf eines der Tags klicken, gelangen Sie zu dessen Seite und können die Beiträge, die das Tag enthalten, sehen. Klicken Sie auf „#Tags, denen Sie folgen“, um einen Stream mit Beiträgen zu sehen, die irgendeines der von Ihnen gefolgten Tags enthalten. Beiträge, die diesen Tag enthalten, werden auch in Ihrem Stream angezeigt."
+      followed_tags_a: "Nachdem Sie einen Tag gesucht haben, können Sie die Schaltfläche oben auf der Seite des Tags benutzen, um diesem Tag zu „folgen“. Anschließend wird er links in der Liste der von Ihnen gefolgten Tags erscheinen. Wenn Sie auf einen der Tags klicken, gelangen Sie zu dessen Seite und können die Beiträge, die diesen Tag enthalten, sehen. Klicken Sie auf „#Tags, denen Sie folgen“, um einen Stream mit Beiträgen zu sehen, die irgendeinen der von Ihnen gefolgten Tags enthalten. Beiträge, die diesen Tag enthalten, werden auch in Ihrem Stream angezeigt."
       followed_tags_q: "Was sind „#Tags, denen Sie folgen“ und wie folge ich einem Tag?"
       people_tag_page_a: "Das sind Leute, welche diesen Tag auf ihrem Profil genutzt haben, um sich selbst zu beschreiben."
       people_tag_page_q: "Wer ist auf in der linken Spalte auf einer Tag-Seite zu finden?"
@@ -559,13 +559,13 @@ de_formal:
   home:
     default:
       be_who_you_want_to_be: "Seien Sie, wer Sie sein möchten"
-      be_who_you_want_to_be_info: "Viele Netzwerke fordern, dass Sie Ihre wahre Identität verwenden. diaspora* nicht. Hier können Sie entscheiden, wer Sie sein wollen, und so viel oder so wenig über sich selbst preisgeben, wie Sie wollen. Es liegt bei Ihnen, wie Sie mit anderen Menschen interagieren wollen."
+      be_who_you_want_to_be_info: "Viele Netzwerke bestehen darauf, dass Sie Ihre wahre Identität verwenden. diaspora* nicht. Hier können Sie entscheiden, wer Sie sein möchten und so viel oder wenig teilen, wie Sie es wünschen. Es liegt ganz an Ihnen, wie Sie mit anderen Personen interagieren möchten."
       byline: "Die soziale Onlinewelt, in der Sie Ihre Daten in der Hand haben"
       choose_your_audience: "Wählen Sie Ihr Publikum"
-      choose_your_audience_info: "diaspora*s Aspekte ermöglichen Ihnen, nur mit Menschen zu teilen, mit denen Sie möchten. Sie können so öffentlich oder privat sein, wie Sie möchten. Teilen Sie ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit Ihren engsten Freunden. Sie haben es in der Hand."
+      choose_your_audience_info: "diaspora*s Aspekte ermöglichen Ihnen, nur mit den Menschen zu teilen, mit denen Sie möchten. Sie können so öffentlich oder privat sein, wie Sie möchten. Teilen Sie ein witziges Foto mit der ganzen Welt oder ein tiefes Geheimnis nur mit Ihren engsten Freunden. Es ist Ihre Entscheidung."
       headline: "Willkommen auf %{pod_name}"
       own_your_data: "Ihre Daten, Ihr Eigentum"
-      own_your_data_info: "Viele Netzwerke machen mit Ihren Daten Geld, indem sie Ihre Interaktionen analysieren und diese Informationen zum einblenden von Werbung nutzen. diaspora* verwendet Ihre Daten nicht für andere Zwecke als für die Verbindung und den Austausch mit anderen."
+      own_your_data_info: "Viele Netzwerke nutzen Ihre Daten, um Geld zu verdienen, indem Sie Ihre Interaktionen auswerten und diese Informationen verwenden, um Ihnen Werbung anzuzeigen. diaspora* nutzt Ihre Daten zu keinem anderen Zweck, als es Ihnen zu ermöglichen, sich mit anderen zu verbinden und mit ihnen zu teilen."
     podmin:
       byline: "Sie sind im Begriff, das Internet zu ändern. Lassen Sie uns gleich alles einrichten, okay?"
       configuration_info: "Öffnen Sie %{database_path} und %{diaspora_path} in Ihrem Lieblingstexteditor und sehen Sie sie gründlich durch, sie sind ausführlich kommentiert."
@@ -611,7 +611,7 @@ de_formal:
     application:
       back_to_top: "Nach oben"
       be_excellent: "Seien Sie nett zueinander! ♥"
-      discourse: "Projektdiskussionen und Unterstützung"
+      discourse: "Projektdiskussionen und Hilfe"
       powered_by: "Betrieben mit diaspora*"
       public_feed: "Öffentlicher diaspora* Feed von %{name}"
       source_package: "Quelltextpaket herunterladen"
@@ -626,9 +626,9 @@ de_formal:
       toggle_navigation: "Navigation umschalten"
   likes:
     create:
-      error: "Mit \"Gefällt mir\" bewerten ist fehlgeschlagen."
+      error: "Gefällt mir ist fehlgeschlagen."
     destroy:
-      error: "\"Gefällt mir\" entziehen ist fehlgeschlagen."
+      error: "Gefällt mir nicht mehr ist fehlgeschlagen."
   limited: "Begrenzt"
   more: "Mehr"
   no_results: "Keine Ergebnisse gefunden"
@@ -693,8 +693,8 @@ de_formal:
       one: "%{actors} hat Sie im Beitrag %{post_link} erwähnt."
       other: "%{actors} haben Sie im Beitrag %{post_link} erwähnt."
     mentioned_deleted:
-      one: "%{actors} hat Sie im gelöschten Beitrag erwähnt."
-      other: "%{actors} haben Sie im gelöschten Beitrag erwähnt."
+      one: "%{actors} hat Sie in einem gelöschten Beitrag erwähnt."
+      other: "%{actors} haben Sie in einem gelöschten Beitrag erwähnt."
     mentioned_in_comment:
       one: "%{actors} hat Sie in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
       other: "%{actors} haben Sie in einem <a href='%{comment_path}'>Kommentar</a> zum Beitrag %{post_link} erwähnt."
@@ -709,13 +709,13 @@ de_formal:
       two: "%{actors} hat Ihnen eine Nachricht geschickt."
       zero: "%{actors} hat Ihnen eine Nachricht gesendet."
     reshared:
-      one: "%{actors} hat Ihren Beitrag %{post_link} geteilt."
-      other: "%{actors} haben Ihren Beitrag %{post_link} geteilt."
-      zero: "%{actors} haben Ihren Beitrag %{post_link} geteilt."
+      one: "%{actors} hat Ihren Beitrag %{post_link} weitergesagt."
+      other: "%{actors} haben Ihren Beitrag %{post_link} weitergesagt."
+      zero: "%{actors} haben Ihren Beitrag %{post_link} weitergesagt."
     reshared_post_deleted:
-      one: "%{actors} hat Ihren gelöschten Beitrag geteilt."
-      other: "%{actors} haben Ihren gelöschten Beitrag geteilt."
-      zero: "%{actors} haben Ihren gelöschten Beitrag geteilt."
+      one: "%{actors} hat Ihren gelöschten Beitrag weitergesagt."
+      other: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
+      zero: "%{actors} haben Ihren gelöschten Beitrag weitergesagt."
     started_sharing:
       few: "%{actors} haben angefangen mit Ihnen zu teilen."
       many: "%{actors} haben angefangen mit Ihnen zu teilen."
@@ -737,7 +737,7 @@ de_formal:
       click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicken Sie bitte auf diesen Link:"
       subject: "Bitte aktivieren Sie Ihre neue E-Mail-Adresse %{unconfirmed_email}"
     contacts_birthday:
-      birthday: "%{name} hat heute Geburtstag. Wünschen Sie ihnen 'Happy Birthday'!"
+      birthday: "%{name} hat heute Geburtstag. Wünschen Sie 'Herzlichen Glückwunsch'!"
       subject: "%{name} hat heute Geburtstag"
       view_profile: "Profil von %{name} anzeigen"
     csrf_token_fail:
@@ -879,7 +879,7 @@ de_formal:
         comment: "Kommentar"
         post: "Beitrag"
     reshared:
-      reshared: "%{name} hat Ihren Beitrag geteilt"
+      reshared: "%{name} hat Ihren Beitrag weitergesagt"
       view_post: "Beitrag anzeigen >"
     single_admin:
       admin: "Ihr diaspora* Administrator"
@@ -944,7 +944,7 @@ de_formal:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Erlaubt Anderen nach Ihnen auf diaspora* zu suchen"
+      allow_search: "Anderen erlauben, auf diaspora* nach Ihnen zu suchen"
       basic: "Mein grundlegendes Profil"
       basic_hint: "Jeder Eintrag in Ihrem Profil ist freiwillig. Ihr grundlegendes Profil wird immer öffentlich sein."
       extended: "Mein erweitertes Profil"
@@ -1057,14 +1057,14 @@ de_formal:
       share_this: "Teilen Sie diesen Link per E-Mail, Blog oder über soziale Netzwerke!"
     public_explain:
       atom_feed: "Atom-Feed"
-      control_your_audience: "Pflegen Sie Ihre Zielgruppe"
+      control_your_audience: "Kontrollieren Sie Ihre Zielgruppe"
       logged_in: "Bei %{service} angemeldet"
       manage: "Verbundene Dienste verwalten"
-      new_user_welcome_message: "Benutzen Sie #Hashtags, um Ihre Beiträge einzuordnen und um Leute zu finden, die Ihre Interessen teilen. Weisen Sie, mit @Erwähnungen, auf interessante Leute hin."
+      new_user_welcome_message: "Benutzen Sie #Hashtags, um Ihre Beiträge einzuordnen und um Leute zu finden, die Ihre Interessen teilen. Machen Sie mit @Erwähnungen auf interessante Leute aufmerksam"
       outside: "Öffentliche Nachrichten werden für andere außerhalb von diaspora* sichtbar sein."
       share: "Teilen"
       title: "Verbundene Dienste verwalten"
-      visibility_dropdown: "Benutzen Sie dieses Auswahlmenü, um die Sichtbarkeit Ihres Betrags zu ändern. (Wir empfehlen Ihnen diesen Ersten öffentlich zu machen.)"
+      visibility_dropdown: "Benutzen Sie dieses Auswahlmenü, um die Sichtbarkeit Ihres Betrags zu ändern. (Wir empfehlen Ihnen, diesen ersten Beitrag öffentlich zu machen.)"
     publisher:
       discard_post: "Beitrag verwerfen"
       formatWithMarkdown: "Sie können %{markdown_link} verwenden, um Ihren Beitrag zu formatieren"
@@ -1169,7 +1169,7 @@ de_formal:
       success: "Ihr Konto wurde gesperrt. Es kann bis zu 20 Minuten dauern, bis Ihr Konto endgültig geschlossen ist. Vielen Dank, dass Sie diaspora* ausprobiert haben."
       wrong_password: "Das eingegebene Passwort stimmte nicht mit Ihrem aktuellen Passwort überein."
     edit:
-      also_commented: "jemand hat einen, bereits von Ihnen kommentierten Beitrag, kommentiert"
+      also_commented: "jemand einen Beitrag kommentiert, den Sie kommentiert haben"
       auto_follow_aspect: "Aspekt für Benutzer mit denen Sie automatisch teilen:"
       auto_follow_back: "Automatisch mit Benutzern teilen, die anfangen, mit Ihnen zu teilen"
       birthday: "jemand hat Geburtstag"
@@ -1186,7 +1186,7 @@ de_formal:
         make_diaspora_better: "Wir würden uns freuen, wenn Sie bleiben und helfen, diaspora* verbesser, anstatt zu verlassen. Wenn Sie uns jedoch wirklich verlassen möchten, wird folgendes passieren:"
         mr_wiggles: "Mr. Wiggles wird traurig sein, wenn Sie gehen"
         no_turning_back: "Es gibt kein Zurück! Wenn Sie sich wirklich sicher sind, geben Sie Ihr Passwort unten ein."
-        what_we_delete: "Wir löschen alle Ihre Beiträge und Ihr Profil so schnell wie möglich. Ihre Kommentare auf Beiträge Anderer werden noch angezeigt, aber Sie werden anstelle Ihres Namens mit Ihrer diaspora*-ID verknüpft."
+        what_we_delete: "Wir löschen alle Ihre Beiträge und Ihr Profil so schnell wie möglich. Ihre Kommentare auf Beiträge anderer werden noch angezeigt, aber sie werden mit Ihrer diaspora* ID statt mit Ihrem Namen verknüpft."
       close_account_text: "Konto schließen"
       comment_on_post: "jemand hat Ihren Beitrag kommentiert"
       current_password: "Derzeitiges Passwort"
@@ -1211,8 +1211,8 @@ de_formal:
       request_export_photos: "Meine Fotos anfordern"
       request_export_photos_update: "Meine Fotos aktualisieren"
       request_export_update: "Meine Profildaten aktualisieren"
-      reshared: "jemand hat Ihren Beitrag weitersagt"
-      show_community_spotlight: "„Gemeinschaftsblickpunkt” im Stream anzeigen"
+      reshared: "jemand Ihren Beitrag weitersagt"
+      show_community_spotlight: "„Gemeinschafts-Schaukasten” im Stream anzeigen"
       show_getting_started: "„Erste Schritte”-Hinweise anzeigen"
       someone_reported: "jemand hat eine Meldung gesendet"
       started_sharing: "jemand fängt an mit Ihnen zu teilen"
@@ -1235,12 +1235,12 @@ de_formal:
       no_user_ignored_message: "Sie ignorieren momentan keine anderen Benutzer"
       stop_ignoring: "Ignorieren beenden"
       strip_exif: "Metadaten (z. B. Ort, Autor oder Kameramodell) von hochgeladenen Bildern entfernen (empfohlen)"
-      title: "Datenschutzeinstellungen"
+      title: "Privatsphäre-Einstellungen"
     public:
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update:
       color_theme_changed: "Farbschema erfolgreich geändert."
-      color_theme_not_changed: "Beim ändern des Farbschemas ist ein Fehler aufgetreten."
+      color_theme_not_changed: "Beim Ändern des Farbschemas ist ein Fehler aufgetreten."
       email_notifications_changed: "E-Mail-Benachrichtigungen geändert"
       follow_settings_changed: "Folgen-Einstellungen geändert"
       follow_settings_not_changed: "Ändern der Folgen-Einstellungen fehlgeschlagen."
