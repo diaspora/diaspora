@@ -273,7 +273,7 @@ GEM
     guard-rubocop (1.3.0)
       guard (~> 2.0)
       rubocop (~> 0.20)
-    haml (5.0.3)
+    haml (5.0.4)
       temple (>= 0.8.0)
       tilt
     haml_lint (0.26.0)
