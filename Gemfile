@@ -122,6 +122,8 @@ source "https://rails-assets.org" do
   gem "rails-assets-perfect-scrollbar",                   "0.6.16"
 end
 
+gem "markdown-it-html5-embed", "1.0.0"
+
 # Localization
 
 gem "http_accept_language", "2.1.1"
