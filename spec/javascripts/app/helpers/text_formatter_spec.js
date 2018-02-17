@@ -347,6 +347,54 @@ describe("app.helpers.textFormatter", function(){
         }
       });
     });
+
+    context("media embed", function() {
+      beforeEach(function() {
+        spyOn(app.helpers, "allowedEmbedsMime").and.returnValue(true);
+      });
+
+      it("embeds audio", function() {
+        var html =
+          '<p><a href="https://example.org/file.mp3" target="_blank" rel="noopener noreferrer">title</a></p>\n' +
+          '<div class="media-embed">\n' +
+          "\n" +
+          "    <audio controls preload=none>\n" +
+          '      <source type="audio/mpeg" src="https://example.org/file.mp3" />\n' +
+          "      title\n" +
+          "    </audio>\n" +
+          "\n" +
+          "</div>\n";
+        var content = "[title](https://example.org/file.mp3)";
+        var parsed = this.formatter(content);
+
+        expect(parsed).toContain(html);
+      });
+
+      it("embeds video", function() {
+        var html =
+          '<p><a href="https://example.org/file.mp4" target="_blank" rel="noopener noreferrer">title</a></p>\n' +
+          '<div class="media-embed">\n' +
+          '  <div class="thumb">\n' +
+          "\n" +
+          "    <video preload=none>\n" +
+          '      <source type="video/mp4" src="https://example.org/file.mp4" />\n' +
+          "      title\n" +
+          "    </video>\n" +
+          "\n" +
+          '    <div class="video-overlay">\n' +
+          '      <div class="video-info">\n' +
+          '        <div class="title">title</div>\n' +
+          "      </div>\n" +
+          "    </div>\n" +
+          "  </div>\n" +
+          "</div>\n";
+
+        var content = "[title](https://example.org/file.mp4)";
+        var parsed = this.formatter(content);
+
+        expect(parsed).toContain(html);
+      });
+    });
   });
 
   context("real world examples", function(){

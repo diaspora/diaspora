@@ -26,7 +26,7 @@ gem "json-schema", "2.8.0"
 
 # Authentication
 
-gem "devise", "4.3.0"
+gem "devise", "4.4.1"
 gem "devise_lastseenable", "0.0.6"
 
 # Captcha
@@ -122,6 +122,8 @@ source "https://rails-assets.org" do
   gem "rails-assets-perfect-scrollbar",                   "0.6.16"
 end
 
+gem "markdown-it-html5-embed", "1.0.0"
+
 # Localization
 
 gem "http_accept_language", "2.1.1"
@@ -186,7 +188,7 @@ gem "typhoeus",           "1.3.0"
 # Views
 
 gem "gon",                     "6.1.0"
-gem "hamlit",                  "2.8.4"
+gem "hamlit",                  "2.8.6"
 gem "mobile-fu",               "1.4.0"
 gem "rails-timeago",           "2.16.0"
 gem "will_paginate",           "3.1.6"
