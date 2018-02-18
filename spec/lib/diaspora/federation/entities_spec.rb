@@ -201,6 +201,7 @@ describe Diaspora::Federation::Entities do
 
       expect(federation_entity).to be_instance_of(DiasporaFederation::Entities::Profile)
       expect(federation_entity.author).to eq(diaspora_entity.diaspora_handle)
+      expect(federation_entity.edited_at).to eq(diaspora_entity.updated_at)
       expect(federation_entity.first_name).to eq(diaspora_entity.first_name)
       expect(federation_entity.last_name).to eq(diaspora_entity.last_name)
       expect(federation_entity.image_url).to eq(diaspora_entity.image_url)
