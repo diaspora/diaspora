@@ -99,7 +99,7 @@ fi
 # Setup environment
 if [ -z "$RAILS_ENV" ]
 then
-  RAILS_ENV=$(bin/bundle exec ruby ./script/get_config.rb server.rails_environment)
+  RAILS_ENV=$(bin/bundle exec ruby ./script/get_config.rb server.rails_environment | grep -vE "is not writable|as your home directory temporarily" )
   on_failure "Couldn't parse config/diaspora.yml!"
   export RAILS_ENV
 fi
@@ -113,7 +113,8 @@ vars=$(bin/bundle exec ruby ./script/get_config.rb \
   chat=chat.enabled \
   chat_server=chat.server.enabled \
   chat_bosh_proxy=chat.server.bosh.proxy \
-  redis_url=environment.redis
+  redis_url=environment.redis \
+  | grep -vE "is not writable|as your home directory temporarily"
 )
 on_failure "Couldn't parse config/diaspora.yml!"
 eval "$vars"
@@ -170,7 +171,7 @@ then
   then
     redis_param="url: '$redis_url'"
   fi 
-  if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null)" != "PONG" ]
+  if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null | grep -vE "is not writable|as your home directory temporarily" )" != "PONG" ]
   then
     fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in config/diaspora.yml."
   fi
