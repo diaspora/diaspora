@@ -10,8 +10,10 @@
 
 ## Refactor
 * Don't print a warning when starting the server outside a Git repo [#7712](https://github.com/diaspora/diaspora/pull/7712)
+* Make script/server work on readonly filesystems [#7719](https://github.com/diaspora/diaspora/pull/7719)
 
 ## Bug fixes
+* Prevent duplicate mention notifications when the post is received twice [#7721](https://github.com/diaspora/diaspora/pull/7721)
 
 ## Features
 * Add basic html5 audio/video embedding support [#6418](https://github.com/diaspora/diaspora/pull/6418)
