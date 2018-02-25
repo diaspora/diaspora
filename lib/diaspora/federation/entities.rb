@@ -49,6 +49,7 @@ module Diaspora
             parent_guid:      comment.post.guid,
             text:             comment.text,
             created_at:       comment.created_at,
+            edited_at:        comment.signature&.additional_data&.[]("edited_at"),
             author_signature: comment.signature.try(:author_signature),
             parent:           related_entity(comment.post)
           },
@@ -169,6 +170,7 @@ module Diaspora
       def self.profile(profile)
         DiasporaFederation::Entities::Profile.new(
           author:           profile.diaspora_handle,
+          edited_at:        profile.updated_at,
           first_name:       profile.first_name,
           last_name:        profile.last_name,
           image_url:        profile.image_url,
