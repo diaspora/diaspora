@@ -272,10 +272,19 @@ module Diaspora
         end
       end
 
+      # This are property names that are known by the +diaspora_federation+ library as properties but not
+      # specially stored in our database and therefore need to be stored in the +additional_data+ field.
+      UNKNOWN_PROPERTIES_NAMES = %i[edited_at].freeze
+      private_constant :UNKNOWN_PROPERTIES_NAMES
+
       private_class_method def self.build_signature(klass, entity)
+        special_additional_data = UNKNOWN_PROPERTIES_NAMES.map {|name|
+          [name.to_s, entity.public_send(name)] if entity.respond_to?(name) && entity.signature_order.include?(name)
+        }.compact.to_h
+
         klass.reflect_on_association(:signature).klass.new(
           author_signature: entity.author_signature,
-          additional_data:  entity.additional_data,
+          additional_data:  entity.additional_data.merge(special_additional_data),
           signature_order:  SignatureOrder.find_or_create_by!(order: entity.signature_order.join(" "))
         )
       end

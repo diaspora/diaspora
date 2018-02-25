@@ -16,6 +16,7 @@
 
 ## Bug fixes
 * Prevent duplicate mention notifications when the post is received twice [#7721](https://github.com/diaspora/diaspora/pull/7721)
+* Fixed a compatiblitiy issue with non-diaspora\* webfingers [#7718](https://github.com/diaspora/diaspora/pull/7718)
 
 ## Features
 * Add basic html5 audio/video embedding support [#6418](https://github.com/diaspora/diaspora/pull/6418)
