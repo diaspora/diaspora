@@ -24,7 +24,7 @@ end
 
 if rails_env != "development"
   config("path vendor/bundle")
-  config("frozen 1")
+  config("frozen true")
   config("disable_shared_gems true")
 end
 
