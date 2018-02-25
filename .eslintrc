@@ -2,7 +2,8 @@
   "env": {
     "browser": true,
     "jasmine": true,
-    "jquery": true
+    "jquery": true,
+    "es6": true
   },
 
   "globals": {
@@ -96,7 +97,7 @@
     "no-catch-shadow": 0,
     "no-class-assign": 2,
     "no-cond-assign": 2,
-    "no-confusing-arrow": 2,
+    "no-confusing-arrow": [2, {"allowParens": true}],
     "no-console": 2,
     "no-const-assign": 2,
     "no-constant-condition": 2,

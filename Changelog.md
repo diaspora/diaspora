@@ -1,10 +1,12 @@
 # 0.8.0.0
 
 ## Refactor
+* Add bootstrapping for using ECMAScript 6 with automatic transpiling for compatiblilty [#7581](https://github.com/diaspora/diaspora/pull/7581)
 
 ## Bug fixes
 
 ## Features
+* Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
 
 # 0.7.4.0
 

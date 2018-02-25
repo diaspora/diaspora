@@ -96,7 +96,8 @@ When /^(?:|I )attach the file "([^"]*)" to (?:hidden )?"([^"]*)"(?: within "([^"
     attach_file(field, Rails.root.join(path).to_s)
   end
   # wait for the image to be ready
-  page.assert_selector(".loading", count: 0)
+  page.assert_no_selector(".loading")
+  page.assert_no_selector("#file-upload-spinner")
 end
 
 Then /^(?:|I )should see (\".+?\"[\s]*)(?:[\s]+within[\s]* "([^"]*)")?$/ do |vars, selector|

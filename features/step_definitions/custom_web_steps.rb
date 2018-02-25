@@ -182,6 +182,12 @@ Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, sco
   end
 end
 
+Then /^I should see (\d+) "([^\"]*)"(?: within "([^\"]*)")?$/ do |count, selector, scope_selector|
+  with_scope(scope_selector) do
+    expect(current_scope).to have_selector(selector, count: count)
+  end
+end
+
 Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
     current_scope.should have_no_css(selector, :visible => true)
