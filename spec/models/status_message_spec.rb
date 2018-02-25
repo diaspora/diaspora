@@ -51,6 +51,14 @@ describe StatusMessage, type: :model do
         it "returns public status messages tagged with the tag" do
           expect(StatusMessage.public_tag_stream([@tag_id])).to eq([@status_message_1])
         end
+
+        it "returns a post with two tags only once" do
+          status_message = FactoryGirl.create(:status_message, text: "#hashtag #test", public: true)
+          test_tag_id = ActsAsTaggableOn::Tag.where(name: "test").first.id
+
+          expect(StatusMessage.public_tag_stream([@tag_id, test_tag_id]))
+            .to match_array([@status_message_1, status_message])
+        end
       end
 
       describe ".user_tag_stream" do
