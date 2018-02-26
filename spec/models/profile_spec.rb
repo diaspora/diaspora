@@ -269,6 +269,17 @@ describe Profile, :type => :model do
       expect(object).not_to be_valid
     end
 
+    it "keeps the order of the tag_string" do
+      ActsAsTaggableOn::Tag.create(name: "test2")
+      ActsAsTaggableOn::Tag.create(name: "test1")
+
+      string = "#test1 #test2"
+      object.tag_string = string
+      object.save
+
+      expect(Profile.find(object.id).tag_string).to eq(string)
+    end
+
     it_should_behave_like "it is taggable"
   end
 
