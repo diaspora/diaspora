@@ -171,10 +171,9 @@ describe StatusMessage, type: :model do
   end
 
   describe "tags" do
-    before do
-      @object = FactoryGirl.build(:status_message)
+    it_should_behave_like "it is taggable" do
+      let(:object) { build(:status_message) }
     end
-    it_should_behave_like "it is taggable"
 
     it "associates different-case tags to the same tag entry" do
       assert_equal ActsAsTaggableOn.force_lowercase, true
