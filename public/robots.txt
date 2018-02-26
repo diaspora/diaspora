@@ -8,3 +8,4 @@
 User-Agent: *
 Disallow: /people/
 Disallow: /u/
+Disallow: /camo/
