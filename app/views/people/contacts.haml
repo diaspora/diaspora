@@ -17,8 +17,6 @@
             = render partial: 'people/person', locals: hash
         = will_paginate @contacts_of_contact, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
 
-      %a.entypo-chevron-up.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}
-
 -if user_signed_in? && @person
   #new_status_message_pane
     = render 'shared/modal',
