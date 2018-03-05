@@ -34,7 +34,7 @@
         %h3= t(".change_password")
         - if !use_pam? || resource.encrypted_password.present? || !resource.is_pam_account?
           = form_for @user, url: edit_user_path, html: {method: :put, class: "form-horizontal"} do |f|
-            - if (@user.errors.keys & %i(password password_confirmation current_password)).present?
+            - if (@user.errors.keys & %i[password password_confirmation current_password]).present?
               = f.error_messages
             .form-group
               = f.label :current_password, t(".current_password"), class: "col-sm-6 control-label"
@@ -55,8 +55,8 @@
 
             .clearfix
               = f.submit t(".change_password"), class: "btn btn-primary pull-right", name: "change_password"
-        -else
-          = t('.pam_account')
+        - else
+          = t(".pam_account")
     %hr
 
     .row

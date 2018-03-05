@@ -284,11 +284,10 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  # implement pam support analog to mastodon
   if AppConfig.pam.enable
     config.pam_authentication     = true
-    config.usernamefield          = 'username'
-    config.emailfield             = 'email'
+    config.usernamefield          = "username"
+    config.emailfield             = "email"
     config.check_at_sign          = true
     # use pod uri instead
     config.pam_default_suffix     = nil
