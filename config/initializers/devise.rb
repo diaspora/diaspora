@@ -14,9 +14,9 @@ end
 
 module Devise
   mattr_accessor :pam_authentication
-  @@pam_authentication = false
+  @pam_authentication = false
   mattr_accessor :pam_controlled_service
-  @@pam_controlled_service = nil
+  @pam_controlled_service = nil
 
   module Strategies
     class PamAuthenticatable
