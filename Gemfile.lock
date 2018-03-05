@@ -169,7 +169,7 @@ GEM
     devise_lastseenable (0.0.6)
       devise
       rails (>= 3.0.4)
-    devise_pam_authenticatable2 (8.0.2)
+    devise_pam_authenticatable2 (9.0.0)
       devise (>= 4.0.0)
       rpam2 (~> 3.0)
     diaspora-prosody-config (0.0.7)
@@ -797,7 +797,7 @@ DEPENDENCIES
   database_cleaner (= 1.6.1)
   devise (= 4.4.1)
   devise_lastseenable (= 0.0.6)
-  devise_pam_authenticatable2 (~> 8.0)
+  devise_pam_authenticatable2 (~> 9.0)
   diaspora-prosody-config (= 0.0.7)
   diaspora_federation-json_schema (= 0.2.4)
   diaspora_federation-rails (= 0.2.4)

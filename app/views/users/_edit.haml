@@ -32,7 +32,7 @@
     .row
       .col-md-12
         %h3= t(".change_password")
-        - if !use_pam? || resource.encrypted_password.present? || !resource.is_pam_account?
+        - if !use_pam? || resource.encrypted_password.present? || !resource.pam_managed_user?
           = form_for @user, url: edit_user_path, html: {method: :put, class: "form-horizontal"} do |f|
             - if (@user.errors.keys & %i[password password_confirmation current_password]).present?
               = f.error_messages

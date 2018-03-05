@@ -171,7 +171,7 @@ class User < ApplicationRecord
   alias_method :send_reset_password_instructions!, :send_reset_password_instructions
 
   def send_reset_password_instructions
-    return false if encrypted_password.blank? && is_pam_account?
+    return false if encrypted_password.blank? && pam_managed_user?
     Workers::ResetPassword.perform_async(self.id)
   end
 
@@ -422,7 +422,7 @@ class User < ApplicationRecord
     self
   end
 
-  def is_pam_account?
+  def pam_managed_user?
     return false unless Devise.pam_authentication
     name = pam_get_name
     return false unless name
@@ -434,7 +434,7 @@ class User < ApplicationRecord
   end
 
   def pam_conflict?
-    encrypted_password.present? && is_pam_account?
+    encrypted_password.present? && pam_managed_user?
   end
 
   def pam_conflict(_attributes)
@@ -456,12 +456,12 @@ class User < ApplicationRecord
   end
 
   def password_required?
-    return !is_pam_account? if Devise.pam_authentication
+    return !pam_managed_user? if Devise.pam_authentication
     super
   end
 
   def reset_password!(new_password, new_password_confirmation)
-    return false if encrypted_password.blank? && is_pam_account?
+    return false if encrypted_password.blank? && pam_managed_user?
     super
   end
 
