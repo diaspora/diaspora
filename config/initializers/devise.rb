@@ -18,9 +18,11 @@ module Devise
   mattr_accessor :pam_controlled_service
   @@pam_controlled_service = nil
 
-  class Strategies::PamAuthenticatable
-    def valid?
-      super && ::Devise.pam_authentication
+  module Strategies
+    class PamAuthenticatable
+      def valid?
+        super && ::Devise.pam_authentication
+      end
     end
   end
 end

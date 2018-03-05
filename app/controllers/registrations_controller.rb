@@ -31,7 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
-    params[:password] = nil if use_pam? && resource.encrypted_password.blank?
+    params[:password] = nil if resource.encrypted_password.blank? && resource.is_pam_account?
     super
   end
 

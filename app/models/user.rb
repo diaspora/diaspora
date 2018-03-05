@@ -171,6 +171,7 @@ class User < ApplicationRecord
   alias_method :send_reset_password_instructions!, :send_reset_password_instructions
 
   def send_reset_password_instructions
+    return false if encrypted_password.blank? && is_pam_account?
     Workers::ResetPassword.perform_async(self.id)
   end
 
@@ -429,7 +430,7 @@ class User < ApplicationRecord
   end
 
   def no_pam_conflict
-    errors.add(:username, 'username conflicts with pam account') if pam_conflict?
+    errors.add(:username, "username conflicts with pam account") if pam_conflict?
   end
 
   def pam_conflict?
@@ -443,15 +444,15 @@ class User < ApplicationRecord
 
   def pam_setup(attributes)
     args = {}
-    args['username'] = self[::Devise.usernamefield]
-    args['email'] = Rpam2.getenv(get_service, self[::Devise.usernamefield], attributes[:password], "email", false)
-    args['email'] = "#{self[::Devise.usernamefield]}@#{find_pam_suffix}" if args['email'].nil?
+    args["username"] = self[::Devise.usernamefield]
+    args["email"] = Rpam2.getenv(get_service, self[::Devise.usernamefield], attributes[:password], "email", false)
+    args["email"] = "#{self[::Devise.usernamefield]}@#{find_pam_suffix}" if args["email"].nil?
     opts = ActionController::Parameters.new(args)
     setup(opts.permit(:username, :email))
   end
 
   def find_pam_suffix
-    "#{AppConfig.bare_pod_uri}"
+    AppConfig.bare_pod_uri.to_s
   end
 
   def password_required?
@@ -459,13 +460,8 @@ class User < ApplicationRecord
     super
   end
 
-  def send_reset_password_instructions
-    return false if encrypted_password.blank? && Devise.pam_authentication
-    super
-  end
-
   def reset_password!(new_password, new_password_confirmation)
-    return false if encrypted_password.blank? && Devise.pam_authentication
+    return false if encrypted_password.blank? && is_pam_account?
     super
   end
 
