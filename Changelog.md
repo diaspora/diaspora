@@ -23,6 +23,7 @@
 
 ## Features
 * Add basic html5 audio/video embedding support [#6418](https://github.com/diaspora/diaspora/pull/6418)
+* Add the back-to-top button to all pages [#7729](https://github.com/diaspora/diaspora/pull/7729)
 
 # 0.7.3.1
 

@@ -30,8 +30,6 @@
           .loader.hidden
             .spinner
 
-      %a.entypo-chevron-up.back-to-top#back-to-top{title: "#{t('layouts.application.back_to_top')}", href: "#"}
-
 -if user_signed_in? && @person
   #new_status_message_pane
     = render 'shared/modal',

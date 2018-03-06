@@ -3,23 +3,23 @@
 app.pages.SinglePostViewer = app.views.Base.extend({
   templateName: "single-post-viewer",
 
-  subviews : {
-    "#single-post-content" : "singlePostContentView",
-    '#single-post-interactions' : 'singlePostInteractionsView'
+  subviews: {
+    "#single-post-content": "singlePostContentView",
+    "#single-post-interactions": "singlePostInteractionsView"
   },
 
-  initialize : function() {
+  initialize: function() {
     this.model = new app.models.Post(gon.post);
     this.initViews();
   },
 
-  initViews : function() {
+  initViews: function() {
     this.singlePostContentView = new app.views.SinglePostContent({model: this.model});
     this.singlePostInteractionsView = new app.views.SinglePostInteractions({model: this.model});
     this.render();
   },
 
-  postRenderTemplate : function() {
+  postRenderTemplate: function() {
     if(this.model.get("title")){
       // formats title to html...
       var html_title = app.helpers.textFormatter(this.model.get("title"), this.model.get("mentioned_people"));
