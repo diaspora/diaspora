@@ -14,11 +14,13 @@
 //= require jquery.timeago
 //= require underscore
 //= require bootstrap
+//= require pica
 //= require diaspora
 //= require helpers/i18n
 //= require helpers/tags_autocomplete
 //= require bootstrap-markdown/bootstrap-markdown
 //= require helpers/markdown_editor
+//= require helpers/post_photo_uploader
 //= require widgets/timeago
 //= require mobile/mobile_application
 //= require mobile/mobile_file_uploader
