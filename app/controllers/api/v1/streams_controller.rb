@@ -13,10 +13,6 @@ module Api
         stream_responder
       end
 
-      def public
-        stream_responder(Stream::Public)
-      end
-
       def activity
         stream_responder(Stream::Activity)
       end

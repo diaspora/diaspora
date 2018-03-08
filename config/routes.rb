@@ -222,7 +222,6 @@ Rails.application.routes.draw do
   get "podmin", to: "home#podmin"
 
   api_version(module: "Api::V1", path: {value: "api/v1"}) do
-    match "user", to: "users#show", via: %i[get post]
     resources :posts, only: %i[show create destroy] do
       resources :comments, only: %i[create index destroy] do
         post "report" => "comments#report"
@@ -230,13 +229,11 @@ Rails.application.routes.draw do
       resource :likes, only: %i[create destroy]
     end
     resources :conversations, only: %i[show index create destroy] do
-      delete "visibility" => "conversation_visibilities#destroy"
       resources :messages, only: %i[index create]
     end
     get "streams/activity" => "streams#activity", :as => "activity_stream"
-    get "streams/stream" => "streams#multi", :as => "stream"
-    get "streams/public" => "streams#public", :as => "public_stream"
-    get "streams/followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
+    get "streams/main" => "streams#multi", :as => "stream"
+    get "streams/tags" => "streams#followed_tags", :as => "followed_tags_stream"
     get "streams/mentions" => "streams#mentioned", :as => "mentioned_stream"
     get "streams/liked" => "streams#liked", :as => "liked_stream"
     get "streams/commented" => "streams#commented", :as => "commented_stream"
