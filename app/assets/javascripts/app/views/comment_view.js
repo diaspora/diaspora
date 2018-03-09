@@ -40,6 +40,7 @@ app.views.Comment = app.views.Content.extend({
 
 app.views.ExpandedComment = app.views.Comment.extend({
   postRenderTemplate : function(){
+    this.bindMediaEmbedThumbClickEvent();
   }
 });
 // @license-end
