@@ -8,6 +8,14 @@
 ## Features
 * Add client-side cropping of profile image uploads [#7581](https://github.com/diaspora/diaspora/pull/7581)
 
+# 0.7.5.0
+
+## Refactor
+
+## Bug fixes
+
+## Features
+
 # 0.7.4.0
 
 ## Refactor
