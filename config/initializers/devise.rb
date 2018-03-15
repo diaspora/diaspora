@@ -291,7 +291,7 @@ Devise.setup do |config|
     begin
       gem "devise_pam_authenticatable2"
     rescue Gem::LoadError
-      puts "PAM not available, install with --with pam"
+      Rails.logger.warn "PAM not available, install with --with pam"
       config.pam_authentication = false
     end
   end
