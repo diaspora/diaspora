@@ -31,7 +31,9 @@ gem "devise", "4.4.1"
 gem "devise_lastseenable", "0.0.6"
 
 # pam integration
-gem 'devise_pam_authenticatable2', '~> 9.0'
+group :pam, optional: true do
+  gem 'devise_pam_authenticatable2', '~> 9.0'
+end
 
 # Captcha
 

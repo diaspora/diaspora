@@ -286,8 +286,17 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  if AppConfig.pam.enable?
-    config.pam_authentication     = true
+  config.pam_authentication = AppConfig.pam.enable?
+  if config.pam_authentication
+    begin
+      gem "devise_pam_authenticatable2"
+    rescue Gem::LoadError
+      puts "PAM not available, install with --with pam"
+      config.pam_authentication = false
+    end
+  end
+
+  if config.pam_authentication
     config.usernamefield          = "username"
     config.emailfield             = "email"
     config.check_at_sign          = true
