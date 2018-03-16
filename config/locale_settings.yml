@@ -133,6 +133,8 @@ fallbacks:
     - "it"
   sc:
     - "it"
+  ja-KS:
+    - "ja"
 
 rtl:
   - "ar"
