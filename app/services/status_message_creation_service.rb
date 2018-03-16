@@ -72,4 +72,7 @@ class StatusMessageCreationService
                        url:           short_post_url(status_message.guid, host: AppConfig.environment.url),
                        service_types: receiving_services)
   end
+
+  class BadAspectsIDs < RuntimeError
+  end
 end

@@ -24,6 +24,8 @@ Dir["#{File.dirname(__FILE__)}/shared_behaviors/**/*.rb"].each do |f|
   require f
 end
 
+RSpec::Matchers.define_negated_matcher :remain, :change
+
 ProcessedImage.enable_processing = false
 UnprocessedImage.enable_processing = false
 

@@ -132,6 +132,12 @@ describe StatusMessagesController, :type => :controller do
         status_message = StatusMessage.find_by_text(text)
         expect(status_message.aspect_visibilities.map(&:aspect)).to match_array([@aspect1, @aspect2])
       end
+
+      it "responses 422 when aspect_ids don't contain any applicable aspect identifiers" do
+        bad_ids = [Aspect.ids.max.next, bob.aspects.first.id]
+        post :create, params: status_message_hash.merge(aspect_ids: bad_ids.to_s), format: :json
+        expect(response.status).to eq(422)
+      end
     end
 
     it "dispatches the post to the specified services" do
