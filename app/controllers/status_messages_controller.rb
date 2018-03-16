@@ -49,6 +49,8 @@ class StatusMessagesController < ApplicationController
       format.mobile { redirect_to stream_path }
       format.json { render json: PostPresenter.new(status_message, current_user), status: 201 }
     end
+  rescue StatusMessageCreationService::BadAspectsIDs
+    render status: 422, plain: I18n.t("status_messages.bad_aspects")
   rescue StandardError => error
     handle_create_error(error)
   end
