@@ -1122,6 +1122,7 @@ en:
     new:
       mentioning: "Mentioning: %{person}"
     too_long: "Please make your status message fewer than %{count} characters. Right now it is %{current_length} characters"
+    bad_aspects: "Provided aspects IDs aren't applicable (non-existent or not owned)"
 
   stream_helper:
     no_more_posts: "You have reached the end of the stream."
