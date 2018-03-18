@@ -12,14 +12,14 @@ hu:
         resend_confirmation: "Megerősítési utasítások újraküldése"
       send_instructions: "Pár percen belül kapsz egy e-mailt, benne a megerősítéshez szükséges utasításokkal."
     failure:
-      inactive: "A fiókod nem aktiváltad még."
-      invalid: "Érvénytelen felhasználónév vagy jelszó."
+      inactive: "A fiókodat még nem aktiváltad."
+      invalid: "Érvénytelen %{authentication_keys} vagy jelszó."
       invalid_token: "Érvénytelen hitelesítési azonosító."
       locked: "A fiókod zárolva van."
-      not_found_in_database: "Érvénytelen e-mail cím vagy jelszó"
+      not_found_in_database: "Érvénytelen %{authentication_keys} vagy jelszó."
       timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
       unauthenticated: "A továbblépéshez bejelentkezés vagy regisztráció szükséges."
-      unconfirmed: "Előbb meg kell erősítened fiókodat."
+      unconfirmed: "A folytatáshoz meg kell erősítened az e-mail címedet."
     invitations:
       invitation_token_invalid: "Sajnáljuk, de a meghívás nem érvényes."
       send_instructions: "A meghívód elküldve."
@@ -59,10 +59,12 @@ hu:
         send_password_instructions: "Új jelszót igénylek"
       send_instructions: "Néhány perc múlva kapsz egy e-mailt arról, hogyan állíthatod alaphelyzetbe a jelszavadat."
       updated: "A jelszavad megváltozott. Sikeresen bejelentkeztél."
+      updated_not_active: "A jelszó megváltozott."
     registrations:
       destroyed: "Viszlát! A fiókod törölve. Reméljük hamarosan újra látunk. =)"
       signed_up: "Sikeresen feliratkoztál. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk."
-      updated: "Fiókod frissítve."
+      signed_up_but_inactive: "A regisztráció sikeres volt. Jelenleg azonban még nem tudsz bejelentkezni, ehhez még szükség van egy megerősítésre."
+      updated: "A fiókod sikeresen frissítve."
     sessions:
       new:
         login: "Bejelentkezés"
@@ -84,10 +86,10 @@ hu:
     unlocks:
       new:
         resend_unlock: "Feloldási utasítások újraküldése"
-      send_instructions: "Pár percen belül kapsz egy e-mailt, benne a feloldáshoz szükséges utasításokkal."
+      send_instructions: "Pár percen belül kapsz egy e-mailt, benne a fiókod feloldásához szükséges utasításokkal."
       unlocked: "A fiókod sikeresen feloldva. Jelentkezz be a folytatáshoz."
   errors:
     messages:
-      already_confirmed: "már megerősítette"
+      already_confirmed: "már megerősítésre került, kérlek jelentkezz be"
       not_found: "nem található"
-      not_locked: "nem volt bezárva"
+      not_locked: "nem volt lezárva"

@@ -1190,7 +1190,6 @@ oc:
       export_in_progress: "Sèm a tractar vòstras donadas. Verificatz tornamai l'avançament dins un moment."
       export_photos_in_progress: "Sèm a tractar vòstras fòtos. Tornatz aicí dins un momenton."
       following: "Paramètres de partiment"
-      last_exported_at: "(Darrièra mesa a jorn a %{timestamp})"
       liked: "qualqu'un a aimat vòstra publicacion"
       mentioned: "qualqu'un vos a mencionat dins un messatge"
       mentioned_in_comment: "qualqu'un vos a mencionat dins un comentari"

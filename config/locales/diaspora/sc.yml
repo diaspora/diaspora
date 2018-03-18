@@ -1186,7 +1186,6 @@ sc:
       export_in_progress: "In custu momentu semus protzessende sos datos tuos. Pro praghere, torra a verificare a pustis de carchi momentu."
       export_photos_in_progress: "Semus elaborande sas fotos tuas. Pro piaghere torra a compidare intre pagu."
       following: "Impostatziones de cumpartzidura"
-      last_exported_at: "(Agiornadu s'ùrtima borta su %{timestamp})"
       liked: "a calicunu agradat una publicatzione tua"
       mentioned: "ses numenadu in una publicatzione"
       mentioned_in_comment: "ti ant numenadu in unu cummentu"

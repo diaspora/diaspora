@@ -144,10 +144,13 @@ ru:
   api:
     openid_connect:
       authorizations:
+        destroy:
+          fail: "Попытка отозвать авторизацию с ID %{id} не удалась"
         new:
           access: "%{name} запрашивает доступ к:"
           approve: "Одобрить"
           bad_request: "Отсутствующий id или URL-адрес"
+          client_id_not_found: "Клиент с client_id %{client_id} и адресом URI %{redirect_uri} не найден"
           deny: "Отказать"
           no_requirement: "%{name} не требует разрешений"
           redirection_message: "Вы уверены, что хотите предоставить доступ к %{redirect_uri}?"
@@ -208,6 +211,7 @@ ru:
     destroy:
       failure: "%{name} не пуст и не может быть удалён."
       success: "%{name} успешно удалён."
+      success_auto_follow_back: "%{name} был успешно удален. Вы использовали этот аспект для автоматической подписки на пользователей. Проверьте настройки, чтобы выбрать новый аспект для авто-подписки."
     edit:
       aspect_list_is_not_visible: "Контакты в этом аспекте не могут видеть друг друга"
       aspect_list_is_visible: "Контакты в этом аспекте могут видеть друг друга"
@@ -299,6 +303,7 @@ ru:
       user_search: "Поиск пользователей"
     spotlight:
       community_spotlight: "Рекомендованные пользователи"
+      no_members: "Еще нет участников."
       suggest_member: "Предложить пользователя"
   conversations:
     create:
@@ -610,6 +615,8 @@ ru:
       settings: "Настройки"
       toggle_navigation: "Переключение навигации"
   likes:
+    create:
+      error: "Не удалось лайкнуть."
     destroy:
       error: "Не удалось отменить \"Нравится\""
   limited: "Ограниченная"
@@ -762,6 +769,7 @@ ru:
            
           Спасибо, 
           Почтовый робот диаспоры*
+      subject: "Мы получили неавторизованный запрос от Вашей учётной записи, %{name}"
     email_sent_by_diaspora: "Это письмо было послано %{pod_name}. Если вы не хотите получать подобные письма,"
     export_email:
       body: |-
@@ -1185,7 +1193,7 @@ ru:
       export_in_progress: "В настоящее время мы обрабатываем ваши данные. Повторите попытку через несколько минут."
       export_photos_in_progress: "В данный момент мы обрабатываем ваши фотографии. Будьте добры, проверьте снова через несколько минут."
       following: "Настройки подписок"
-      last_exported_at: "(Последнее обновление было %{timestamp})"
+      last_exported_html: "(Обновлено %{timeago})"
       liked: "кому-то понравилась ваша запись"
       mentioned: "вы были упомянуты в записи"
       mentioned_in_comment: "Вы упомянуты в комментарии"

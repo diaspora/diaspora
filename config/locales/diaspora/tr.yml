@@ -751,7 +751,6 @@ tr:
       email_awaiting_confirmation: "Etkinleştirme bağlantısını %{unconfirmed_email} adresine gönderdik. Bu bağlantıyı izleyip yeni adresi etkinleştirmediğin sürece önceki %{email} adresini kullanmaya devam edeceğiz."
       export_data: "Bilgilerimi Dışarı taşı"
       following: "İzleme ayarları"
-      last_exported_at: "En son %{timestamp} anında güncellendi"
       liked: "...birisi gönderimi iğnelediğinde?"
       mentioned: "...benden bahsedildiğinde?"
       new_password: "Yeni parola"
