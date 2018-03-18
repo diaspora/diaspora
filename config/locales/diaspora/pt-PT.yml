@@ -429,11 +429,8 @@ pt-PT:
       other: "%{actors} mencionaram-no na publicação %{post_link}."
       zero: "%{actors} mencionou-o na publicação %{post_link}."
     mentioned_deleted:
-      few: "%{actors} mencionaram-no numa publicação apagada."
-      many: "%{actors} mencionaram-no numa publicação apagada."
       one: "%{actors} mencionou-o numa publicação eliminada."
       other: "%{actors} mencionaram-no numa publicação eliminada."
-      two: "%{actors} mencionaram-no numa publicação apagada."
       zero: "%{actors} mencionou-o numa publicação eliminada."
     private_message:
       one: "%{actors} enviou-lhe uma mensagem."

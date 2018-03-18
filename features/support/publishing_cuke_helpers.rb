@@ -26,13 +26,17 @@ module PublishingCukeHelpers
     submit_publisher
   end
 
+  def visible_text_from_markdown(text)
+    CGI.unescapeHTML(ActionController::Base.helpers.strip_tags(Diaspora::MessageRenderer.new(text).markdownified.strip))
+  end
+
   def submit_publisher
     txt = find("#publisher #status_message_text").value
     find("#publisher .btn-primary").click
     # wait for the publisher to be closed
     expect(find("#publisher")["class"]).to include("closed")
     # wait for the content to appear
-    expect(find("#main-stream")).to have_content(txt)
+    expect(find("#main-stream")).to have_content(visible_text_from_markdown(txt))
   end
 
   def click_and_post(text)

@@ -69,7 +69,6 @@ fr:
       toggle:
         one: "Dans <%= count %> aspect"
         other: "Dans <%= count %> aspects"
-        zero: "Sélectionnez les aspects"
       updating: "Mise à jour..."
     aspect_navigation:
       add_an_aspect: "+ Ajouter un aspect"

@@ -1080,7 +1080,6 @@ cs:
       export_in_progress: "Momentálně zpracováváme Vaše data. Dejte nám chvilku."
       export_photos_in_progress: "Momentálně zpracováváme Vaše fotky. Zkuste to prosím za chvilku."
       following: "Nastavení sledování"
-      last_exported_at: "(Naposledy aktualizováno v %{timestamp})"
       liked: "…někomu se zalíbí váš příspěvek?"
       mentioned: "…někdo vás zmíní v příspěvku?"
       new_password: "Nové heslo"

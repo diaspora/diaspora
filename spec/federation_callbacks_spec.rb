@@ -231,7 +231,7 @@ describe "diaspora federation callbacks" do
       expect(key.to_s).to eq(person.serialized_public_key)
     end
 
-    it "returns nil for an unknown person" do
+    it "forwards the DiscoveryError when the person can't be fetched" do
       diaspora_id = Fabricate.sequence(:diaspora_id)
       expect(Person).to receive(:find_or_fetch_by_identifier).with(diaspora_id)
         .and_raise(DiasporaFederation::Discovery::DiscoveryError)

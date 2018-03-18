@@ -34,7 +34,7 @@ ja:
         reshare:
           attributes:
             root_guid:
-              taken: "えっ？  すでにこの投稿をシェアしています！"
+              taken: "えっ？ すでにこの投稿をシェアしています！"
         user:
           attributes:
             email:
@@ -634,6 +634,8 @@ ja:
     comment_on_post:
       other: "%{actors}さんが投稿%{post_link}にコメントしました。"
       zero: "%{actors}さんが投稿%{post_link}にコメントしました。"
+    contacts_birthday:
+      other: "%{date}に%{actors}さんの誕生日です。"
     index:
       all_notifications: "すべての通知"
       also_commented: "コメントも"
@@ -642,6 +644,7 @@ ja:
         other: "そして他に %{count} 人"
         zero: "そして他にはいません"
       comment_on_post: "投稿にコメント"
+      contacts_birthday: "誕生日"
       liked: "いいね！しました"
       mark_all_as_read: "すべて既読にする"
       mark_all_shown_as_read: "表示をすべて既読としてマーク"
@@ -696,6 +699,10 @@ ja:
     confirm_email:
       click_link: "新しいメールアドレス %{unconfirmed_email} を有効にするために、このリンクをクリックしてください:"
       subject: "新しいメールアドレス %{unconfirmed_email} を有効にしてください"
+    contacts_birthday:
+      birthday: "今日は%{name}さんの誕生日です。誕生日のメッセージを送信してみませんか？"
+      subject: "今日は%{name}さんの誕生日"
+      view_profile: "%{name}さんのプロフィールを見る"
     csrf_token_fail:
       body: |-
           %{name} さん、こんにちは
@@ -1126,6 +1133,7 @@ ja:
       also_commented: "他の人も連絡先の投稿にコメントしたとき"
       auto_follow_aspect: "あなたが自動的にシェアするユーザーのアスペクト:"
       auto_follow_back: "あなたとシェアを始めたユーザーと、自動的にシェア"
+      birthday: "誰かの誕生日"
       change: "変更"
       change_color_theme: "色のテーマを変更"
       change_email: "メールを変更"
@@ -1153,7 +1161,7 @@ ja:
       export_in_progress: "現在、データを処理しています。しばらくしてから、戻って確認してください。"
       export_photos_in_progress: "現在、写真を処理しています。しばらくしてから、戻って確認してください。"
       following: "フォロー設定"
-      last_exported_at: "(最終更新 %{timestamp})"
+      last_exported_html: "(%{timeago}に更新されました)"
       liked: "あなたの投稿をいいね！したとき"
       mentioned: "投稿に自分がメンションされたとき"
       mentioned_in_comment: "コメントでメンションされました"

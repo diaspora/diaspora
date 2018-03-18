@@ -4,7 +4,7 @@
 
 defaults:
   version:
-    number: "0.7.3.1" # Do not touch unless doing a release, do not backport the version number that's in master
+    number: "0.7.4.0" # Do not touch unless doing a release, do not backport the version number that's in master
   heroku: false
   environment:
     url: "http://localhost:3000/"

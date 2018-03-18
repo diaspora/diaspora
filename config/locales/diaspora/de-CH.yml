@@ -370,6 +370,9 @@ de-CH:
       one: "%{actors} het din Biitrag %{post_link} kommentiert."
       other: "%{actors} hend din Biitrag %{post_link} kommentiert."
       zero: "Niemer het din Biitrag %{post_link} kommentiert."
+    contacts_birthday:
+      one: "%{actors} het geburtstag am %{date}"
+      other: "%{actors} hend ihren geburtstag am %{date}"
     index:
       all_notifications: "Alli Benochritigunge"
       also_commented: "Au kommentiert"
@@ -379,12 +382,13 @@ de-CH:
         other: "und %{count} anderi"
         zero: "und niemer susch"
       comment_on_post: "Kommentar bim Biitrag"
+      contacts_birthday: "Geburtstag"
       liked: "Gfallt"
       mark_all_as_read: "Ali als glese markiere"
       mark_all_shown_as_read: "Alli als glese markiere"
       mark_read: "Als glese markiere"
       mark_unread: "Als unglese markiere"
-      mentioned: "Erwähnt"
+      mentioned: "imene Biitrag erwähnt"
       no_notifications: "Du hesch kei Benochrichtigunge bis etz."
       notifications: "Benochtichtigunge"
       reshared: "Wiitergseit"
@@ -429,6 +433,10 @@ de-CH:
     confirm_email:
       click_link: "Klick uf dä Link zum dini neu E-Mail-Adresse %{unconfirmed_email} z'aktiviere:"
       subject: "Bitte aktivier dini neu E-Mail-Adresse %{unconfirmed_email}"
+    contacts_birthday:
+      birthday: "%{name} het hüt geburtstag, wünsch doch 'Ales gueti :) ' !"
+      subject: "%{name} het hüt geburtstag"
+      view_profile: "luegs profil vo %{name} aa"
     email_sent_by_diaspora: "Das E-Mail isch vo %{pod_name} gschickt worde. Wenn du kei söttigi E-Mails me willsch,"
     export_email:
       subject: "Dini persönliche Date sind bereit zum abelade, %{name}."
@@ -543,7 +551,7 @@ de-CH:
   photos:
     create:
       integrity_error: "Fotiupload isch fehlgschlage... Bisch sicher das da e Bild gsi isch?"
-      runtime_error: "Fotiupload isch fehlgschlage... Bisch sicher das ali Tasse im Chuchichäschtli sind?"
+      runtime_error: "Fotiupload isch fehlgschlage... Bisch sicher das ali Tasse im Chuchichäschtli sind? ( Nöd gnauer verstandene fehler passiert... nomal ? )"
       type_error: "Fotiupload isch fehlgschlage... Bisch sicher das es Bild iigfüegt worde isch?"
     destroy:
       notice: "Foti glöscht."
@@ -654,7 +662,7 @@ de-CH:
       control_your_audience: "Kontrollier dini Ziilgruppe"
       logged_in: "Igglogt in %{service}"
       manage: "Verbundeni Dienscht verwalte"
-      new_user_welcome_message: "Nutz #hashtags zum dini Biiträg z'tägge und lüüt mit ähnliche intresse z'finde. Erwähn anderi Lüüt mit @Mentions"
+      new_user_welcome_message: "Benutz #hashtags zum dini Biiträg z'tägge und lüüt mit ähnliche intresse z'finde. Erwähn anderi Lüüt mit @Mentions"
       outside: "Öffentlichi Biiträg sind für's gsamte Internet sichtbar."
       share: "Teilä"
       title: "Verbundeni Dienscht verwalte"
@@ -760,6 +768,7 @@ de-CH:
       also_commented: "öpper en Biitrag kommentiert wo du au scho kommentiert häsch"
       auto_follow_aspect: "Aspekt für Benutzer mit dene du automatisch afangsch teile:"
       auto_follow_back: "Automatisch mit Benutzer zruggteile wo agfange hend mit dir z'teile"
+      birthday: "öpper geburtstag het"
       change: "Ändere"
       change_color_theme: "Farbthema ändere"
       change_email: "E-Mail-Adresse ändere"
@@ -787,7 +796,6 @@ de-CH:
       export_in_progress: "Mir verarbeitet grad dini Date. Bitte chum in es paar Moment wieder verbii."
       export_photos_in_progress: "Mir verarbeitet grad dini Fotis, bitte lueg chli spöter nomal verbii."
       following: "\"Teile\"-Iistelige"
-      last_exported_at: "Z'lescht aktualisiert am %{timestamp}"
       liked: "öpperem en Biitrag vo dir gfallt"
       mentioned: "du @erwähnt wirsch"
       new_password: "Neus Passwort"

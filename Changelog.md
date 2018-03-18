@@ -1,3 +1,21 @@
+# 0.7.4.0
+
+## Refactor
+* Don't print a warning when starting the server outside a Git repo [#7712](https://github.com/diaspora/diaspora/pull/7712)
+* Make script/server work on readonly filesystems [#7719](https://github.com/diaspora/diaspora/pull/7719)
+* Add camo paths to the robots.txt [#7726](https://github.com/diaspora/diaspora/pull/7726)
+
+## Bug fixes
+* Prevent duplicate mention notifications when the post is received twice [#7721](https://github.com/diaspora/diaspora/pull/7721)
+* Fixed a compatiblitiy issue with non-diaspora\* webfingers [#7718](https://github.com/diaspora/diaspora/pull/7718)
+* Don't retry federation for accounts without a valid public key [#7717](https://github.com/diaspora/diaspora/pull/7717)
+* Fix stream generation for tagged posts with many followed tags [#7715](https://github.com/diaspora/diaspora/pull/7715)
+* Fix incomplete Occitan date localizations [#7731](https://github.com/diaspora/diaspora/pull/7731)
+
+## Features
+* Add basic html5 audio/video embedding support [#6418](https://github.com/diaspora/diaspora/pull/6418)
+* Add the back-to-top button to all pages [#7729](https://github.com/diaspora/diaspora/pull/7729)
+
 # 0.7.3.1
 
 Re-updating the German translations to fix some UX issues that were introduced by recent translation efforts.

@@ -63,16 +63,20 @@ fi
 
 command -v git > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-  # Check if git merge is in progress
-  if [ -f .git/MERGE_MODE ]; then
-    fatal "A git merge is in progress!"
-  fi
-
-  # Check if detached head state
-  git_branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
-  if [ -z "$git_branch_name" ];
+  # Check if we're in a repository, before doing any verification.
+  if git status > /dev/null 2>&1;
   then
-    warning "You are in detached HEAD state!"
+    # Check if git merge is in progress
+    if [ -f .git/MERGE_MODE ]; then
+      fatal "A git merge is in progress!"
+    fi
+
+    # Check if detached head state
+    git_branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
+    if [ -z "$git_branch_name" ];
+    then
+      warning "You are in detached HEAD state!"
+    fi
   fi
 fi
 
@@ -95,7 +99,7 @@ fi
 # Setup environment
 if [ -z "$RAILS_ENV" ]
 then
-  RAILS_ENV=$(bin/bundle exec ruby ./script/get_config.rb server.rails_environment)
+  RAILS_ENV=$(bin/bundle exec ruby ./script/get_config.rb server.rails_environment | grep -vE "is not writable|as your home directory temporarily" )
   on_failure "Couldn't parse config/diaspora.yml!"
   export RAILS_ENV
 fi
@@ -109,7 +113,8 @@ vars=$(bin/bundle exec ruby ./script/get_config.rb \
   chat=chat.enabled \
   chat_server=chat.server.enabled \
   chat_bosh_proxy=chat.server.bosh.proxy \
-  redis_url=environment.redis
+  redis_url=environment.redis \
+  | grep -vE "is not writable|as your home directory temporarily"
 )
 on_failure "Couldn't parse config/diaspora.yml!"
 eval "$vars"
@@ -166,7 +171,7 @@ then
   then
     redis_param="url: '$redis_url'"
   fi 
-  if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null)" != "PONG" ]
+  if [ "$(bin/bundle exec ruby -e "require 'redis'; puts Redis.new($redis_param).ping" 2> /dev/null | grep -vE "is not writable|as your home directory temporarily" )" != "PONG" ]
   then
     fatal "Can't connect to redis. Please check if it's running and if environment.redis is configured correctly in config/diaspora.yml."
   fi
