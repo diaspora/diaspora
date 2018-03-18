@@ -683,11 +683,9 @@ ia:
     mentioned:
       one: "%{actors} te ha mentionate in le entrata %{post_link}."
       other: "%{actors} te ha mentionate in le entrata %{post_link}."
-      zero: "%{actors} te ha mentionate in le entrata %{post_link}."
     mentioned_deleted:
       one: "%{actors} te ha mentionate in un entrata delite."
       other: "%{actors} te ha mentionate in un entrata delite."
-      zero: "%{actors} te ha mentionate in un entrata delite."
     mentioned_in_comment:
       one: "%{actors} te ha mentionate in un <a href='%{comment_path}'>commento</a> sur le entrata %{post_link}."
       other: "%{actors} te ha mentionate in un <a href='%{comment_path}'>commento</a> sur le entrata %{post_link}."
@@ -1189,7 +1187,6 @@ ia:
       export_in_progress: "Le datos personal tue es actualmente sub preparation. Per favor, reveni in alcun momentos."
       export_photos_in_progress: "Le tractamento de tu photos non ha ancora terminate. Per favor, essaya lo de novo in qualque momentos."
       following: "Configuration de divider"
-      last_exported_at: "(Ultime actualisation: %{timestamp})"
       liked: "un persona apprecia un entrata tue"
       mentioned: "un persona te mentiona in un entrata sue"
       mentioned_in_comment: "tu es mentionate in un commento"

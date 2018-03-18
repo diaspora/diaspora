@@ -1205,7 +1205,7 @@ da:
       export_in_progress: "Vi er ved at behandle dine data. Vend venligst tilbage om et øjeblik."
       export_photos_in_progress: "Vi behandler dine billeder. Vend tilbage om et øjeblik."
       following: "Delingsindstillinger"
-      last_exported_at: "(sidst opdateret %{timestamp})"
+      last_exported_html: "(Sidst opdateret %{timeago})"
       liked: "... nogen synes om dit indlæg."
       mentioned: "... du er nævnt i et indlæg."
       mentioned_in_comment: "Du er blevet nævnt i en kommentar."

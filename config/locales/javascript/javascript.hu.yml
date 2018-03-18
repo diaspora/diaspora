@@ -6,6 +6,10 @@
 
 hu:
   javascripts:
+    admin:
+      pods:
+        follow_link: "hivatkozás megnyitása böngészőben"
+        ssl_enabled: "SSL engedélyezve"
     and: "és"
     aspect_dropdown:
       add_to_aspect: "Hozzáadás a csoporthoz"
@@ -28,6 +32,8 @@ hu:
       deselect_all: "Összes kijelölés megszüntetése"
       no_aspects: "Nincs csoport kiválasztva"
       select_all: "Mindent kijelöl"
+    aspects:
+      make_aspect_list_visible: "Legyenek ennek a csoportnak a tagjai láthatóak egymás számára?"
     bookmarklet:
       post_something: "Hozz létre bejegyzést"
       post_submit: "Bejegyzés közzététele..."
@@ -41,10 +47,17 @@ hu:
     confirm_dialog: "Biztos vagy benne?"
     contacts:
       add_contact: "Ismerős hozzáadása"
+      aspect_chat_is_enabled: "Ebben a csoportban található ismerőseid képesek csevegni veled."
+      aspect_chat_is_not_enabled: "Ebben a csoportban található ismerőseid nem képesek csevegni veled."
       aspect_list_is_not_visible: "A csoport tagjai nem láthatják egymást."
       aspect_list_is_visible: "A csoport tagjai láthatják egymást."
       remove_contact: "Ismerős eltávolítása"
       search_no_results: "Nincsenek kapcsolatok"
+    conversation:
+      create:
+        no_recipient: "Először meg kell adnod egy címzettet!"
+      new:
+        no_contacts: "Először hozzá kell adnod ismerősöket, ha társalogni szeretnél valakivel."
     create: "Létrehozás"
     delete: "Töröl"
     edit: "Szerkesztés"
@@ -53,19 +66,19 @@ hu:
     getting_started:
       alright_ill_wait: "Rendben, várok!"
       hey: "Szia <%= name %>!"
-      no_tags: "Hékás, nem követtél egy #címkét sem! Így is folytatod?"
+      no_tags: "Hé, még egyetlen címkét sem követsz! Így is folytatod?"
       preparing_your_stream: "Személyre szabott hírfolyamod előkészítése..."
     header:
       admin: "Adminisztráció"
       close: "bezárás"
       contacts: "Ismerősök"
-      conversations: "Beszélgetések"
+      conversations: "Társalgások"
       help: "Súgó"
       home: "Kezdőlap"
       log_out: "Kijelentkezés"
       mark_all_as_read: "Összes olvasottnak jelölése"
       notifications: "Értesítések"
-      profile: "Adatlap"
+      profile: "Profil"
       recent_notifications: "Friss értesítések"
       search: "Keresés"
       settings: "Beállítások"
@@ -82,8 +95,10 @@ hu:
     notifications:
       mark_read: "Olvasottnak jelöl"
       mark_unread: "Olvasatlannak jelöl"
+      new_notifications:
+        other: "<%= count %> olvasatlan értesítésed van"
     people:
-      edit_my_profile: "Adatlapom szerkesztése"
+      edit_my_profile: "Profilom szerkesztése"
       mention: "Említés"
       message: "Üzenet"
       not_found: "és nem találni senkit..."
@@ -93,9 +108,13 @@ hu:
       empty: "{file} üres, kérlek válassz képeket újra, mellőzve a jelenlegit."
       error: "Hiba történt a(z) \"<%= file %>\" nevű állomány feltöltésekor"
       invalid_ext: "{file} érvénytelen kiterjesztésű. Csak {extensions} használata megengedett."
-      looking_good: "Azta! Remekül nézek ki!"
+      looking_good: "Azt a mindenit! Remekül nézel ki!"
       size_error: "{file} túl nagy, az állomány mérete legfeljebb {sizeLimit} lehet."
+      upload_photos: "Kép feltöltése"
     poll:
+      answer_count:
+        other: "<%=count%> szavazat"
+        zero: "0 szavazat"
       close_result: "Eredmény rejtése"
       count:
         other: "<%=count%> szavazat eddig"
@@ -103,6 +122,7 @@ hu:
       result: "Eredmény"
       show_result: "Eredmény mutatása"
       vote: "Szavazás"
+      your_vote: "A te szavazatod"
     profile:
       add_some: "adj meg néhányat"
       bio: "személyes"
@@ -111,7 +131,7 @@ hu:
       edit: "szerkesztés"
       gender: "nem"
       location: "lakóhely"
-      photos: "képek"
+      photos: "Képek"
       posts: "bejegyzések"
       you_have_no_tags: "nincsenek címkéid!"
     publisher:
@@ -119,8 +139,11 @@ hu:
       markdown_editor:
         preview: "Előnézet"
         tooltips:
+          cancel: "Szerkesztés megszakítása"
           insert_image: "Kép beillesztése"
           insert_link: "Hivatkozás beillesztése"
+          preview: "Az üzenet előnézete"
+          write: "Üzenet szerkesztése"
         write: "Szöveg"
       near_from: "<%= location %> közelében"
       option: "Válasz"
@@ -129,23 +152,24 @@ hu:
     report:
       name: "Jelentés"
       prompt: "Kérünk adj meg egy indokot:"
-      prompt_default: "sértő tartalom"
+      prompt_default: "pl. sértő tartalom"
       status:
         created: "A jelentés sikeresen létrehozva"
         exists: "A jelentés már létezik"
     reshares:
-      post: "Szeretnéd újra megosztani <%= name %> bejegyzését?"
-      successful: "A bejegyzés újraosztása sikeres!"
+      post: "Szeretnéd továbbosztani <%= name %> bejegyzését?"
+      successful: "A bejegyzés sikeresen megosztva."
     show_more: "tovább"
     stream:
       comment: "Hozzászólás"
-      disable_post_notifications: "A bejegyzésről szóló értesítések kikapcsolása"
+      disable_post_notifications: "Értesítések tiltása a bejegyzéshez"
+      enable_post_notifications: "Értesítések engedélyezése a bejegyzéshez"
       follow: "Követem"
       followed_tag:
         add_a_tag: "Címke hozzáadása"
         follow: "Követés"
         title: "#követett címkék"
-      hide: "Elrejt"
+      hide: "Elrejtés"
       hide_nsfw_posts: "#nsfw bejegyzések rejtése"
       like: "Tetszik"
       likes:
@@ -159,8 +183,9 @@ hu:
         other: "Mutasd a többi <%= count %> hozzászólást"
         two: "Mutasd a többi <%= count %> hozzászólást"
         zero: "Mutasd a többi <%= count %> hozzászólást"
-      no_posts_yet: "Még nincs itt megjeleníthető bejegyzés."
-      original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
+      no_posts_yet: "Még nincs megjeleníthető bejegyzés."
+      original_post_deleted: "Az eredeti bejegyzést a szerző törölte."
+      permalink: "Közvetlen hivatkozás"
       public: "Nyilvános"
       reshare: "Megosztás"
       reshares:
@@ -180,7 +205,7 @@ hu:
       unlike: "Nem tetszik"
       via: "<%= provider %> használatával"
     tags:
-      wasnt_that_interesting: "Oké, azt hiszem a #<%= tagName %> nem volt annyira érdekes."
+      wasnt_that_interesting: "Oké, a(z) #<%= tagName %> címke talán mégsem volt annyira érdekes."
     timeago:
       day: "egy nappal"
       days:

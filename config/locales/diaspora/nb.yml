@@ -1202,7 +1202,6 @@ nb:
       export_in_progress: "Vi behandler dine data nå. Vennligst prøv igjen om et lite øyeblikk."
       export_photos_in_progress: "Vi klargjør bildene dine. Vennligst kom tilbake om et par øyeblikk."
       following: "Innstillinger for deling"
-      last_exported_at: "(Sist oppdatert %{timestamp})"
       liked: "noen liker innlegget ditt"
       mentioned: "du blir omtalt i et innlegg"
       mentioned_in_comment: "du ble nevnt i en kommentar"

@@ -1143,7 +1143,6 @@ sv:
       export_in_progress: "Just nu behandlar vi din data. Kom tillbaka om ett slag."
       export_photos_in_progress: "Vi behandlar just nu dina bilder. Kom tillbaka om en stund."
       following: "Delningsinställningar"
-      last_exported_at: "(Senast uppdaterad %{timestamp})"
       liked: "någon gillar dina inlägg"
       mentioned: "du nämns i ett inlägg."
       new_password: "Nytt lösenord"

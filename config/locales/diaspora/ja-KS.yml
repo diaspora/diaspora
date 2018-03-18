@@ -1,0 +1,46 @@
+#   Copyright (c) 2010-2013, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ja-KS:
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
+              taken: "このユーザーの他の連絡先と重複しちゃあかん。"
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "既に使われてるんで。"
+        reshare:
+          attributes:
+            root_guid:
+              taken: "えっ？  すでにこの投稿をわけわけしてるで！"
+        user:
+          attributes:
+            email:
+              taken: "既に使われてるんで。"
+            username:
+              taken: "既に使われてるんで。"
+  admins:
+    stats:
+      comments:
+        other: "つっこみ %{count}件"
+        zero: "つっこみなし"
+      shares:
+        other: "わけわけ %{count}件"
+        zero: "わけわけなし"
+    user_entry:
+      account_closed: "アカウントを削除したんで"
+  cancel: "やめとく"
+  comments:
+    new_comment:
+      commenting: "つっこみ投稿中…"
+  ok: "よっしゃ"
+  shared:
+    publisher:
+      share: "わけわけ"

@@ -1178,7 +1178,6 @@ es-AR:
       export_in_progress: "En este momento estamos procesando tus datos. Por favor regresa en unos minutos."
       export_photos_in_progress: "En este momento estamos procesando tus fotos. Por favor vuelve a chequear en unos minutos."
       following: "Opciones de seguimiento"
-      last_exported_at: "(Última actualización en %{timestamp})"
       liked: "...a alguien le gusta una publicación tuya?"
       mentioned: "...te mencionan en una publicación?"
       mentioned_in_comment: "te han mencionado en un comentario"

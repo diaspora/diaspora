@@ -69,7 +69,6 @@ de:
       toggle:
         one: "In einem Aspekt"
         other: "In <%= count %> Aspekten"
-        zero: "In keinem Aspekt"
       updating: "aktualisiere..."
     aspect_navigation:
       add_an_aspect: "+ Aspekt hinzufügen"

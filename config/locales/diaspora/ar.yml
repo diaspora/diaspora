@@ -7,6 +7,7 @@
 ar:
   _applications: "التّطبيقات"
   _contacts: "المتراسلون"
+  _help: "المساعدة"
   _services: "الخدمات"
   _statistics: "إحصائيّات"
   account: "الحساب"
@@ -41,10 +42,24 @@ ar:
       weekly_user_stats: "إحصائيات المستخدم الإسبوعية"
     stats:
       2weeks: "أسبوعين"
+      comments:
+        few: "%{count} تعليقات"
+        many: "%{count} تعليقات"
+        one: "%{count} تعليق"
+        other: "%{count} تعليقات"
+        two: "%{count} تعليقين"
+        zero: "%{count} تعليق"
       daily: "يومياً"
       display_results: "يعرض النّتائج من الجزء <b>%{segment}</b>"
       month: "شهر"
       usage_statistic: "إحصائيّات الاستخدام"
+      users:
+        few: "%{count} مستخدمون"
+        many: "%{count} مستخدمون"
+        one: "%{count} مستخدم"
+        other: "%{count} مستخدمون"
+        two: "%{count} مستخدم"
+        zero: "%{count} مستخدم"
       week: "أسبوع"
     user_search:
       are_you_sure_lock_account: "أمتأكّد من قفل هذا الحساب؟"
@@ -93,7 +108,7 @@ ar:
         find_a_bug: "... وجدت %{link}?"
         have_a_question: "... تملك %{link}?"
         here_to_help: "مجتمع دياسبرا متأهب للمساعدة"
-        need_help: "تحتاج للمساعدة؟"
+        need_help: "هل تحتاج إلى مساعدة ؟"
         tag_bug: "#bug"
         tag_feature: "ميزة"
         tag_question: "سؤال"
@@ -175,12 +190,18 @@ ar:
   fill_me_out: "املأني"
   find_people: "ابحث عن أشخاص أو #وسوم"
   help:
+    getting_help:
+      title: "الحصول على المساعدة"
     keyboard_shortcuts:
       keyboard_shortcuts_li5: "r - أعد مشاركة التدوينة الحاليّة"
       keyboard_shortcuts_li6: "m - وسّع التدوينة الحاليّة"
       keyboard_shortcuts_li7: "o - افتح أوّل وصلة في التدوينة الحاليّة"
     posts_and_posting:
       character_limit_a: "65535 محرفًا. هذا أكبر بِـ 65395 محرفًا الذي تحصل عليها في تويتر! ؛)"
+    title_header: "المساعدة"
+  home:
+    podmin:
+      getting_help: "الحصول على المساعدة"
   invitations:
     create:
       no_more: "لم يتبقى لك أية دعوات"
@@ -237,6 +258,7 @@ ar:
         other: "و %{count} آخرون"
         two: "و %{count} آخران"
         zero: "و لا أحد"
+      contacts_birthday: "تاريخ الميلاد"
       mark_all_as_read: "تحديد الكل  كمقروء"
       mark_unread: "غير مقروء"
       no_notifications: "ليس هناك أيّ إخطار بعد."
@@ -453,7 +475,7 @@ ar:
       edit_services: "تعديل الخدمات"
       logged_in_as: "متصل بحساب"
       really_disconnect: "قطع إتصال %{service}?"
-  settings: "إعدادات"
+  settings: "الإعدادات"
   shared:
     aspect_dropdown:
       toggle:
@@ -492,6 +514,7 @@ ar:
       via: "بواسطة %{link}"
       via_mobile: "عبر المحمول"
   statistics:
+    local_comments: "التعليقات المحلية"
     name: "الاسم"
     network: "الشبكة"
     services: "الخدمات"
@@ -502,6 +525,8 @@ ar:
     too_long: |-
         يجب ان تكون رسالتك أقل من %{count} حرف
         تم استخدام %{current_length}حتى الآن
+  stream_helper:
+    no_more_posts: "لقد وصلت إلى نهاية التيار."
   streams:
     activity:
       title: "نشاطى"
@@ -538,7 +563,9 @@ ar:
       wrong_password: "كلمة المرور المدخلة لم تطابق كلمة مرورك الحالية."
     edit:
       also_commented: "...علق أحدهم على منشور مراسلك"
+      birthday: "عيد ميلاد شخص ما"
       change: "تغيير"
+      change_color_theme: "تغيير لون السمة"
       change_email: "عدِّل البريد الإلكتروني"
       change_language: "تغيير اللغة"
       change_password: "تغيير كلمة المرور"
@@ -550,19 +577,20 @@ ar:
       close_account_text: "أغلق الحساب"
       comment_on_post: "...علق أحدهم على مشاركتك"
       current_password: "كلمة المرور الحالية"
+      current_password_expl: "هي تلك التي أدخلتها أثناء تسجيل حسابك …"
       download_export: "نزّل ملفي الشخصيّ"
       edit_account: "تعديل الحساب"
       email_awaiting_confirmation: "لقد أرسلنا إليك رابط تفعيل إلى %{unconfirmed_email}. وحتى تتبع هذا الرابط وتفعل العنوان الجديد، سنستمر في استخدام بريدك الأساسي %{email}."
       export_data: "تصدير البيانات"
       export_in_progress: "نعالج بياناتك حاليًّا. فضلًا راجعنا بعد بضع لحظات."
       following: "إعدادات المتابعة"
-      last_exported_at: "(آخر تحديث كان في ‎%{timestamp}‎)"
       liked: "...أعجب أحدهم بمشاركتك"
       mentioned: "...تم ذكرك فى رسالة؟"
       new_password: "كلمة مرور جديدة"
       private_message: "...وصلتك رسالة خاصة؟"
       receive_email_notifications: "استقبال تنبيهات عبر البريد الإلكتروني؟"
       request_export: "اطلب بيانات ملفي الشخصيّ"
+      request_export_photos: "طلب صوري"
       request_export_update: "أنعش بيانات ملفي الشخصيّ"
       reshared: "...أعاد أحدهم نشر مشاركتك؟"
       started_sharing: "...بدأ أحدهم المشاركة معك؟"
@@ -582,6 +610,7 @@ ar:
     public:
       does_not_exist: "هذا المستخدم %{username} غير موجود"
     update:
+      color_theme_changed: "تم تغيير لون السمة بنجاح."
       email_notifications_changed: "فشل تغيير اللغة"
       follow_settings_changed: "تم تغيير إعدادات المتابعة"
       follow_settings_not_changed: "لم يتم تعديل إعدادات المتابعة"

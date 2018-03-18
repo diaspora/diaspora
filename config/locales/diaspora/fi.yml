@@ -968,7 +968,6 @@ fi:
       export_in_progress: "Profiilidataasi käsitellään parhaillaan. Tarkista käsittelyn tila hetken kuluttua uudelleen."
       export_photos_in_progress: "Kuvatiedostojasi käsitellään parhaillaan. Tarkista tilanne uudelleen hetken kuluttua."
       following: "Jakamisen asetukset"
-      last_exported_at: "(Viimeksi päivitetty %{timestamp})"
       liked: "joku tykkää julkaisustasi"
       mentioned: "sinut mainitaan julkaisussa"
       new_password: "Uusi salasana"

@@ -981,7 +981,6 @@ en_valspeak:
       export_in_progress: "We're gettin ur data... bbl!!!! <3"
       export_photos_in_progress: "So like, we're currently gettin ur photos and junk. Bbl! <3"
       following: "Sharin settins"
-      last_exported_at: "(So like, last updated @ %{timestamp})"
       liked: "some1 likes ur postie"
       mentioned: "u r mentioned in a postie"
       new_password: "New passwerd(;"
