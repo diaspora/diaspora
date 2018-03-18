@@ -1223,7 +1223,7 @@ pl:
       export_in_progress: "Przetwarzamy twoje dane. Sprawdź ponownie za kilka minut."
       export_photos_in_progress: "Aktualnie przetwarzamy twoje zdjęcia. Sprawdź ponownie za kilka chwil."
       following: "Ustawienia udostępniania"
-      last_exported_at: "(ostatnio aktualizowano o %{timestamp})"
+      last_exported_html: "(Ostatnia aktualizacja %{timeago})"
       liked: "ktoś polubi mój wpis"
       mentioned: "ktoś wspomni o mnie we wpisie"
       mentioned_in_comment: "ktoś wspomni o mnie w komentarzu"

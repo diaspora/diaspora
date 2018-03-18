@@ -20,6 +20,7 @@ sk:
         one: "V <%= count %> kategórii"
         other: "V(o) <%= count %>kategóriách"
         zero: "Vyber si kategórie"
+      updating: "prebieha aktualizácia..."
     aspect_navigation:
       add_an_aspect: "+ Pridať kategóriu"
       deselect_all: "Odznačiť všetky"
@@ -37,6 +38,8 @@ sk:
     confirm_dialog: "Určite?"
     delete: "Odstrániť"
     edit: "Upraviť"
+    errors:
+      connection: "K serveru sa nedá pripojiť."
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
       alright_ill_wait: "V poriadku, počkám."
@@ -64,6 +67,7 @@ sk:
     my_aspects: "Moje kategórie"
     my_stream: "Nástenka"
     notifications:
+      mark_read: "Označiť ako prečítané"
       mark_unread: "Označiť ako neprečítané"
     people:
       not_found: "...a nikto sa nenašiel."
@@ -74,7 +78,13 @@ sk:
       invalid_ext: "Súbor {file} má neplatnú príponu. Povolené sú len prípony {extensions}."
       looking_good: "No teda, vyzeráš super!"
       size_error: "Súbor {file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."
+      upload_photos: "Nahrať fotky"
     poll:
+      answer_count:
+        few: "<%=count%> hlasy"
+        one: "1 hlas"
+        other: "<%=count%> hlasov"
+        zero: "0 hlasov"
       close_result: "Skryť výsledok"
       count:
         few: "zatiaľ <%=count%> hlasy"
@@ -83,8 +93,33 @@ sk:
       result: "Výsledok"
       show_result: "Zobraziť výsledok"
       vote: "Hlasovať"
+    profile:
+      born: "Narodeniny"
     publisher:
       add_option: "Pridať možnosť"
+      markdown_editor:
+        preview: "Ukážka"
+        texts:
+          heading: "text nadpisu"
+          insert_image_description_text: "sem zadajte popis obrázka"
+          insert_image_help_text: "Sem vlož obrázok"
+          insert_image_title: "sem zadaj titulok obrázka"
+          insert_link_description_text: "sem zadaj popis odkazu"
+          insert_link_help_text: "Sem vlož odkaz"
+          italic: "text kurzívou"
+          list: "sem text zoznamu"
+          quote: "sem text citátu"
+          strong: "text tučným písmom"
+        tooltips:
+          bold: "Tučné písmo"
+          code: "Vložiť kód"
+          heading: "Nadpis"
+          insert_image: "Vložiť obrázok"
+          insert_link: "Vložiť odkaz"
+          insert_ordered_list: "Vložiť očíslovaný zoznam"
+          insert_unordered_list: "Vložiť zoznam bez čísel"
+          italic: "Kurzíva"
+          quote: "Vložiť citát"
       near_from: "Odoslané z obce:<%= location %>"
       option: "Možnosť <%= nr %>"
       question: "Otázka"
@@ -101,6 +136,11 @@ sk:
     show_more: "Zobraziť viac"
     stream:
       comment: "Okomentovať"
+      comments:
+        few: "<%= count %> komentáre"
+        one: "<%= count %> komentár"
+        other: "<%= count %> komentárov"
+        zero: "<%= count %> komentárov"
       disable_post_notifications: "Neposielať oznamy o tomto príspevku"
       follow: "Sledovať"
       followed_tag:

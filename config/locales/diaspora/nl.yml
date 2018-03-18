@@ -1168,7 +1168,6 @@ nl:
       export_in_progress: "We zijn bezig je aanvraag te verwerken. Controleer het opnieuw over een paar ogenblikken."
       export_photos_in_progress: "We verwerken nu je foto's. Kom zometeen terug."
       following: "Volgvoorkeuren"
-      last_exported_at: "(Laatst bijgewerkt op %{timestamp})"
       liked: "iemand je bericht leuk vindt"
       mentioned: "je vermeld wordt in een bericht"
       mentioned_in_comment: "je word vermeld in een reactie"

@@ -1173,7 +1173,7 @@ es:
       export_in_progress: "Actualmente estamos procesando tus datos. Por favor, vuelve en unos minutos."
       export_photos_in_progress: "En este momento estamos procesando tus fotografías. Por favor, vuelva en unos instantes."
       following: "Ajustes de Seguimiento"
-      last_exported_at: "(Última actualización el %{timestamp})"
+      last_exported_html: "(Última actualización %{timeago})"
       liked: "a alguien le gusta tu publicación"
       mentioned: "te mencionan en una publicación"
       new_password: "Nueva contraseña"

@@ -386,7 +386,7 @@ fr:
     chat:
       add_contact_roster_a: |-
           Tout d'abord, vous devez activer le chat pour l'un des aspects dans lequel cette personne se trouve. Pour ce faire, allez sur %{contacts_page}, sélectionnez l'aspect désiré et cliquez sur l'icône du chat pour activer le chat pour cet aspect.
-          %{toggle_privilege} Vous pouvez, si vous préférez, créer un aspect dédié appeler "Chat" et ajouter les personnes avec qui vous souhaitez discuter dans cet aspect. Une fois fait, ouvrez l'interface du chat et sélectionner la personne avec qui vous souhaitez discuter.
+          %{toggle_privilege} Vous pouvez, si vous préférez, créer un aspect dédié appeler "Chat" et ajouter les personnes avec qui vous souhaitez discuter dans cet aspect. Une fois ceci fait, ouvrez l'interface du chat et sélectionner la personne avec qui vous souhaitez discuter.
       add_contact_roster_q: "Comment chatter avec quelqu'un dans diaspora* ?"
       contacts_page: "page des contacts"
       title: "Chat"
@@ -432,13 +432,13 @@ fr:
       what_is_a_mention_a: "Une mention est un lien pointant vers la page de profil d'une personne apparaissant dans un message. Lorsque quelqu'un est mentionné il reçoit une notification pour attirer son attention sur le message."
       what_is_a_mention_q: "Qu'est-ce qu'une « mention » ?"
     miscellaneous:
-      back_to_top_a: "Oui. Après avoir atteint le bas de page, cliquez sur la flèche grise qui apparaît  dans le bouton dans le coin à droite de votre fenêtre de navigation."
+      back_to_top_a: "Oui. Après avoir atteint le bas de page, cliquez sur la flèche grise qui apparaît dans le coin en bas à droite de votre fenêtre de navigation."
       back_to_top_q: "Il y a t-il un moyen de rapidement revenir en haut d'une page après avoir atteint le bas de celle-ci ?"
       diaspora_app_a: "Il y a quelques applications Android encore dans les toutes premières phases de développement. Plusieurs sont des projets abandonnés depuis un peu de temps et ne marchent donc pas bien avec la version actuelle de diaspora*. N'en attendez pas trop pour le moment. Actuellement, la meilleure façon pour accéder à diaspora* à partir d'un téléphone portable est à travers un navigateur web car nous avons créé une version mobile du site qui devrait fonctionner correctement sur tous les appareils. Il n'y a pour l'instant aucune application pour iOS. Encore une fois, diaspora* devrait marcher correctement via votre navigateur web."
       diaspora_app_q: "Existe t-il une application diaspora* pour Android ou iOS ?"
       photo_albums_a: "Non, pas actuellement. Cependant vous pouvez voir l’ensemble des images d’un utilisateur via l’onglet « Photos » de son profil."
       photo_albums_q: "Il y a t-il des albums photos ou vidéos ?"
-      subscribe_feed_a: "Oui, mais cette fonctionnalité est encore imparfaite et le formatage des résultats reste assez rustique. Si vous voulez tout de même l'essayer, allez sur la page de profil de quelqu'un et cliquez sur le bouton de flux RSS de votre navigateur. Ou alors, vous pouvez copier l'adresse du profil (p. ex. https://joindiaspora.com/people/un-nombre) et la coller dans un lecteur de flux RSS. L'adresse de flux qui en résultera ressemblera à https://joindiaspora.com/public/nom-d-utilisateur.atom : en effet, diaspora* utilise Atom plutôt que RSS."
+      subscribe_feed_a: "Oui, mais cette fonctionnalité est encore imparfaite et le formatage des résultats reste assez rustique. Si vous voulez tout de même l'essayer, allez sur la page de profil de quelqu'un et cliquez sur le bouton de flux RSS de votre navigateur. Ou alors, vous pouvez copier l'adresse du profil (p. ex. https://nom-du-pod.com/people/un-nombre) et la coller dans un lecteur de flux RSS. L'adresse de flux qui en résultera ressemblera à https://nom-du-pod.com/public/nom-d-utilisateur.atom : en effet, diaspora* utilise le format Atom plutôt que RSS."
       subscribe_feed_q: "Puis-je m’abonner, via un lecteur de flux, aux messages publics d’une personne ?"
       title: "Divers"
     pods:
@@ -454,7 +454,7 @@ fr:
       char_limit_services_q: "Que se passe-t-il si je partage mon message avec un service connecté qui ne permet qu’un nombre de caractères plus restreint ?"
       character_limit_a: "65,535 caractères. C'est 65,395 caractères de plus que Twitter ! ;)"
       character_limit_q: "Quelle est la limite de caractères pour un message ?"
-      embed_multimedia_a: "Vous pouvez généralement juste coller l'URL (p. ex. : http://www.youtube.com/watch?v=nnnnnnnnnnn) au sein de votre message et la vidéo ou le contenu audio sera intégré automatiquement. Les sites supportés sont, entre autres : Youtube, Vimeo, SoundCloud et Flickr. Diaspora* utilise oEmbed pour cette fonctionnalité. De nouveaux sites  sont régulièrements ajoutés. Publiez toujours des liens complets et simples : pas de lien raccourci, pas d'opérateur après l'URL de base, et attendez un peu  avant de rafraîchir la page pour voir l'aperçu."
+      embed_multimedia_a: "En général, il suffit de coller l'URL (p. ex. : http://www.youtube.com/watch?v=nnnnnnnnnnn) au sein de votre message pour que la vidéo ou le contenu audio soit intégré automatiquement. Les sites supportés sont, entre autres : Youtube, Vimeo, SoundCloud et Flickr. Diaspora* utilise oEmbed pour cette fonctionnalité. Si vous incluez un lien direct vers un fichier audio ou vidéo, diaspora* l'intégrera via un lecteur standard HTML5. De nouvelles sources de média sont régulièrement prises en charge. Publiez toujours des liens complets et simples : pas de lien raccourci, pas d'opérateur après l'URL de base, et attendez un peu avant de rafraîchir la page pour voir l'aperçu."
       embed_multimedia_q: "Comment puis-je intégrer une vidéo, de l'audio, ou tout autre contenu multimédia dans un message ?"
       format_text_a: "Diaspora* utilise un système simplifié appelé %{markdown}. Utilisez les boutons pour faciliter la mise en forme de votre texte. Si vous souhaitez saisir la mise en forme manuellement, vous pouvez trouver la syntaxe complète de Markdown %{here}. Le bouton d'aperçu vous permet de voir à quoi votre message va ressembler avant de le publier. Veuillez noter que vous ne pourrez plus éditer votre message après sa publication, par conséquent utilisez l'aperçu pour vous assurer que tout est parfait avant de cliquer sur « partager» !"
       format_text_q: "Comment puis-je formater le texte de mes messages (gras, italique, etc.) ?"
@@ -947,7 +947,7 @@ fr:
       last_name: "Nom de famille"
       limited: "Limité"
       nsfw_check: "Marquer tout ce que je poste comme #NSFW"
-      nsfw_explanation: "NSFW ('Not Safe For Work') est une convention pour le contenu qui n'est pas visualisable au travail. Si vous prévoyez de partager ce genre de contenu fréquemment, vous pouvez cocher cette option pour que tous vos messages soient masqués aux autres utilisateurs jusqu'à ce qu'ils les affichent manuellement."
+      nsfw_explanation: "NSFW (\"Not Safe For Work\") est une convention établie par la communauté diaspora* afin d'étiqueter le contenu qui n'est pas adapté pour une consultation sur le lieu de travail. Si vous prévoyez de partager ce genre de contenu fréquemment, vous pouvez cocher cette option pour que tous vos messages soient masqués aux autres utilisateurs jusqu'à ce qu'ils décident de les afficher."
       nsfw_explanation2: "Si vous choisissez de ne pas cocher cette option, veuillez ajouter le tag #nsfw à chaque fois que vous postez du contenu choquant."
       public: "Public"
       settings: "Paramètres du profil"
@@ -1193,7 +1193,7 @@ fr:
       export_in_progress: "Nous sommes en train de traiter vos données. Veuillez vérifier à nouveau l'avancement dans un moment."
       export_photos_in_progress: "Nous sommes en train de traiter vos photos. Merci de revenir ici dans quelques instants."
       following: "Paramètres de partage"
-      last_exported_at: "(Dernière mise à jour à %{timestamp})"
+      last_exported_html: "(Dernière mise à jour %{timeago})"
       liked: "…quelqu'un a aimé votre message."
       mentioned: "…l'on vous mentionne dans un message."
       mentioned_in_comment: "…vous êtes mentionné dans un commentaire"
