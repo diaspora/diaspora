@@ -297,7 +297,9 @@ describe("app.pages.Contacts", function(){
       expect(app.views.ConversationsForm.prototype.initialize).toHaveBeenCalled();
 
       var prefill = app.views.ConversationsForm.prototype.initialize.calls.mostRecent().args[0].prefill;
-      var contacts = app.contacts.filter(function(contact) { return contact.inAspect(app.aspect.get("id")); });
+      var contacts = app.contacts.filter(function(contact) {
+        return contact.person.get("relationship") === "mutual" && contact.inAspect(app.aspect.get("id"));
+      });
       expect(_.pluck(prefill, "id")).toEqual(contacts.map(function(contact) { return contact.person.id; }));
     });
   });

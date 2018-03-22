@@ -50,6 +50,7 @@ public/source.tar*
 tmp/
 
 # Temporary files of every sort
+.byebug_history
 .sass-cache/
 .DS_Store
 .idea
