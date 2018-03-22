@@ -20,6 +20,9 @@ describe ContactsController, :type => :controller do
     end
 
     it "generates the aspects_manage_contacts_json fixture", fixture: true do
+      # adds one not mutual contact
+      bob.share_with(FactoryGirl.create(:person), @aspect)
+
       get :index, params: {a_id: @aspect.id, page: "1"}, format: :json
       save_fixture(response.body, "aspects_manage_contacts_json")
     end

@@ -81,7 +81,7 @@ app.pages.Contacts = Backbone.View.extend({
   showMessageModal: function(){
     $("#conversationModal").on("modal:loaded", function() {
       var people = _.pluck(app.contacts.filter(function(contact) {
-        return contact.inAspect(app.aspect.get("id"));
+        return contact.person.get("relationship") === "mutual" && contact.inAspect(app.aspect.get("id"));
       }), "person");
       new app.views.ConversationsForm({prefill: people});
     });
