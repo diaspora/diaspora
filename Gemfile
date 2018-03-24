@@ -65,7 +65,7 @@ gem "sprockets-rails",        "3.2.1"
 # Database
 
 group :mysql, optional: true do
-  gem "mysql2", "0.4.9"
+  gem "mysql2", "0.4.10"
 end
 group :postgresql, optional: true do
   gem "pg",     "0.21.0"
